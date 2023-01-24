@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum machine_type
 df.machine_type = {
   standard = 0,

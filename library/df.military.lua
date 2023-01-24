@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class uniform_indiv_choice
 ---@field any boolean
 ---@field melee boolean

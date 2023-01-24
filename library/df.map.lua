@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum tile_traffic
 df.tile_traffic = {
   Normal = 0,
@@ -9,8 +10,8 @@ df.tile_traffic = {
 
 ---@enum tile_dig_designation
 df.tile_dig_designation = {
-  No = 0,
-  Default = 1,
+  No = 0, --no designation
+  Default = 1, --dig walls, remove stairs and ramps, gather plants, fell trees
   UpDownStair = 2,
   Channel = 3,
   Ramp = 4,
@@ -49,14 +50,14 @@ df.tile_designation = {}
 
 ---@enum tile_building_occ
 df.tile_building_occ = {
-  None = 0,
-  Planned = 1,
+  None = 0, --no building
+  Planned = 1, --nothing built yet
   Passable = 2,
-  Obstacle = 3,
+  Obstacle = 3, --workshop tile; ~fortification
   Well = 4,
-  Floored = 5,
+  Floored = 5, --depot; lowered bridge
   Impassable = 6,
-  Dynamic = 7,
+  Dynamic = 7, --doors, grates, etc
 }
 
 ---@class tile_occupancy
@@ -251,7 +252,7 @@ df.construction_flags = {}
 ---@enum flow_type
 df.flow_type = {
   Miasma = 0,
-  Steam = 1,
+  Steam = 1, --only if mat_type=1
   Mist = 2,
   MaterialDust = 3,
   MagmaMist = 4,

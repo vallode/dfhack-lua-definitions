@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class knowledge_scholar_flags_0
 ---@field philosophy_logic_formal_reasoning boolean
 ---@field philosophy_logic_deductive_reasoning boolean

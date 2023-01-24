@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class language_word_flags
 ---@field front_compound_noun_sing boolean
 ---@field front_compound_noun_plur boolean
@@ -277,8 +278,8 @@ df.language_name_type = {
   SymbolArtifice = 24,
   SymbolViolent = 25,
   SymbolProtect = 26,
-  SymbolDomestic = 27,
-  SymbolFood = 28,
+  SymbolDomestic = 27, --Market
+  SymbolFood = 28, --Tavern
   War = 29,
   Battle = 30,
   Siege = 31,

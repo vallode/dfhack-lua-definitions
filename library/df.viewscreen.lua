@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum interface_breakdown_types
 df.interface_breakdown_types = {
   NONE = 0,

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum interaction_flags
 df.interaction_flags = {
   GENERATED = 0,

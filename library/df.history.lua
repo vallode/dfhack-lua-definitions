@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum reputation_type
 df.reputation_type = {
   Hero = 0,
@@ -39,12 +40,12 @@ df.reputation_type = {
 ---@enum whereabouts_type
 df.whereabouts_type = {
   NONE = -1,
-  wanderer = 0,
-  settler = 1,
-  refugee = 2,
-  army_died = 3,
-  army_survived = 4,
-  visitor = 5,
+  wanderer = 0, --wandering the wilds/region/depths of the world (none/region/underground_region)
+  settler = 1, --site/region, region only for dead 'monsters'
+  refugee = 2, --into region only for dead. refugees and abucted-imprisoned-turned
+  army_died = 3, --either no record of participation in battle, or character died and defender won (character on either side)
+  army_survived = 4, --either no record of participation in battle, or character survived and defender won (character on either side)
+  visitor = 5, --'visited' as last movement seems to be the key
 }
 
 ---@enum season
@@ -58,13 +59,13 @@ df.season = {
 
 ---@enum death_condition_type
 df.death_condition_type = {
-  no_statement = 0,
-  site_battle = 1,
-  region_battle = 2,
-  wilderness = 3,
+  no_statement = 0, --alive or dead, but death conditions not registered here
+  site_battle = 1, --parameters: site id + optional structure
+  region_battle = 2, --parameters: two unknown values, usually small, with same pair being the same region, but neither is region_id
+  wilderness = 3, --parameters: region_id + -1
   unk_4 = 4,
-  entombed = 5,
-  site = 6,
+  entombed = 5, --same parameters as for site_battle, but structure seems to always be present and be a tomb
+  site = 6, --same parameters as for site_battle, old age and deadly confrontation seen
 }
 
 ---@enum plot_role_type
@@ -80,12 +81,12 @@ df.plot_role_type = {
   Lieutenant = 7,
   Usable_Thief = 8,
   Potential_Employer = 9,
-  Indirect_Director = 10,
+  Indirect_Director = 10, --Seen as 'possibly unknown director' in actor's exported XML when influencing the plotter using an intermediary in Legends Mode
   Corrupt_Position_Holder = 11,
   Delivery_Target = 12,
   Handler = 13,
   Usable_Assassin = 14,
-  Director = 15,
+  Director = 15, --Seen with no role or 'potential employer' in actor's exported XML, and as the one influencing the plotter in Legends Mode
   Enemy = 16,
   Usable_Snatcher = 17,
   unk_18 = 18,
@@ -196,7 +197,7 @@ df.histfig_relationship_type = {
   Nephew = 62,
   Sibling = 63,
   Grandchild = 64,
-  OlderHalfBrother = 65,
+  OlderHalfBrother = 65, --'since' valid for this entry and those below
   OlderHalfSister = 66,
   OlderHalfSibling = 67,
   YoungerHalfBrother = 68,
@@ -213,7 +214,7 @@ df.vague_relationship_type = {
   jealous_obsession = 2,
   jealous_relationship_grudge = 3,
   lover = 4,
-  former_lover = 5,
+  former_lover = 5, --broke up
   scholar_buddy = 6,
   artistic_buddy = 7,
   athlete_buddy = 8,
@@ -233,18 +234,18 @@ df.vague_relationship_type = {
   companion = 22,
   ex_spouse = 23,
   neighbor = 24,
-  shared_entity = 25,
+  shared_entity = 25, --Religion/PerformanceTroupe/MerchantCompany/Guild
 }
 
 ---@enum identity_type
 df.identity_type = {
-  None = -1,
-  HidingCurse = 0,
-  Impersonating = 1,
-  TrueName = 2,
-  FalseIdentity = 3,
-  InfiltrationIdentity = 4,
-  Identity = 5,
+  None = -1, --Seen on adventurer assuming an identity for reasons unknown
+  HidingCurse = 0, --Inferred from Units.cpp after examining code using 'unk_4c'
+  Impersonating = 1, --Seen where primeval creatures impersonate 'real' gods in modded game
+  TrueName = 2, --E.g. of demonic overlords. Can be used by adventurers to gain sway over them
+  FalseIdentity = 3, --For underhanded purposes
+  InfiltrationIdentity = 4, --A guess. The cases seen all had the HFs fool the same entity that they were members of it, but no actual purpose was seen
+  Identity = 5, --Claim a new official identity, seen when religious appointments are received
 }
 
 ---@enum mental_picture_property_type
@@ -486,7 +487,7 @@ df.history_event_reason = {
   seek_sanctuary = 75,
   part_of_trade_negotiation = 76,
   artifact_is_symbol_of_entity_position = 77,
-  fear_of_persecution = 78,
+  fear_of_persecution = 78, --The ones below were introduced in 0.47.01 as well
   smooth_operation = 79,
   nuance_belief = 80,
   shared_interest = 81,
@@ -523,14 +524,15 @@ df.architectural_element = {
 
 ---@enum history_event_flags
 df.history_event_flags = {
-  hidden = 0,
+  hidden = 0, --event is hidden from legends mode when this is set
   unk_1 = 1,
-  unk_2 = 2,
+  unk_2 = 2, --related to intrigues (checked in df::history_event_failed_intrigue_corruptionst::getRelatedHistfigIDs)
 }
 
 ---@class merc_role_type
 ---@field attacker_scout boolean
 ---@field defender_scout boolean
+---regular if bit not set
 df.merc_role_type = {}
 
 ---@enum death_type
@@ -544,22 +546,22 @@ df.death_type = {
   DROWN = 5,
   SUFFOCATE = 6,
   STRUCK_DOWN = 7,
-  SCUTTLE = 8,
+  SCUTTLE = 8, --stuck wagons
   COLLISION = 9,
-  MAGMA = 10,
-  MAGMA_MIST = 11,
+  MAGMA = 10, --does not happen anymore?
+  MAGMA_MIST = 11, --does not happen anymore?
   DRAGONFIRE = 12,
   FIRE = 13,
-  SCALD = 14,
+  SCALD = 14, --does not happen anymore?
   CAVEIN = 15,
   DRAWBRIDGE = 16,
-  FALLING_ROCKS = 17,
+  FALLING_ROCKS = 17, --does not happen anymore?
   CHASM = 18,
   CAGE = 19,
   MURDER = 20,
   TRAP = 21,
-  VANISH = 22,
-  QUIT = 23,
+  VANISH = 22, --bogeyman
+  QUIT = 23, --Give in to starvation as adventurer
   ABANDON = 24,
   HEAT = 25,
   COLD = 26,
@@ -567,23 +569,23 @@ df.death_type = {
   ENCASE_LAVA = 28,
   ENCASE_MAGMA = 29,
   ENCASE_ICE = 30,
-  BEHEAD = 31,
-  CRUCIFY = 32,
-  BURY_ALIVE = 33,
-  DROWN_ALT = 34,
-  BURN_ALIVE = 35,
-  FEED_TO_BEASTS = 36,
-  HACK_TO_PIECES = 37,
-  LEAVE_OUT_IN_AIR = 38,
-  BOIL = 39,
-  MELT = 40,
-  CONDENSE = 41,
-  SOLIDIFY = 42,
+  BEHEAD = 31, --execution during worldgen
+  CRUCIFY = 32, --execution during worldgen
+  BURY_ALIVE = 33, --execution during worldgen
+  DROWN_ALT = 34, --execution during worldgen
+  BURN_ALIVE = 35, --execution during worldgen
+  FEED_TO_BEASTS = 36, --execution during worldgen
+  HACK_TO_PIECES = 37, --execution during worldgen
+  LEAVE_OUT_IN_AIR = 38, --execution during worldgen
+  BOIL = 39, --material state change
+  MELT = 40, --material state change
+  CONDENSE = 41, --material state change
+  SOLIDIFY = 42, --material state change
   INFECTION = 43,
-  MEMORIALIZE = 44,
+  MEMORIALIZE = 44, --put to rest
   SCARE = 45,
-  DARKNESS = 46,
-  COLLAPSE = 47,
+  DARKNESS = 46, --died in the dark
+  COLLAPSE = 47, --used in 0.31 for undead
   DRAIN_BLOOD = 48,
   SLAUGHTER = 49,
   VEHICLE = 50,
@@ -595,7 +597,7 @@ df.death_type = {
 
 ---@enum history_event_merchant_flags
 df.history_event_merchant_flags = {
-  vanished = 0,
+  vanished = 0, --opposite of communicate in caravan_state
   hardship = 1,
   seized = 2,
   offended = 3,

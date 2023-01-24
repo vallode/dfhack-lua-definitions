@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum profession
 df.profession = {
   NONE = -1,

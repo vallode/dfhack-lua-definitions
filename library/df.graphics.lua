@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum curses_color
 df.curses_color = {
   Black = 0,

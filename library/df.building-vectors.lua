@@ -1,8 +1,9 @@
 ---@meta
+
 ---@enum buildings_other_id
 df.buildings_other_id = {
   ANY = -1,
-  IN_PLAY = 0,
+  IN_PLAY = 0, --actually on the map, as opposed to in an offloaded fortress elsewhere
   STOCKPILE = 1,
   ANY_ZONE = 2,
   ACTIVITY_ZONE = 3,

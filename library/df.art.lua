@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum art_image_element_type
 df.art_image_element_type = {
   CREATURE = 0,
@@ -223,12 +224,12 @@ df.musical_form_style = {
   Fast = 6,
   VeryFast = 7,
   ExtremelyFast = 8,
-  DoubleTempo = 9,
-  HalfTempo = 10,
-  Faster = 11,
-  Slower = 12,
-  ResumeTempo = 13,
-  OriginalTempo = 14,
+  DoubleTempo = 9, --twice the tempo of the last passage
+  HalfTempo = 10, --half the tempo of the previous passage
+  Faster = 11, --more quickly than the last passage
+  Slower = 12, --slower than the last passage
+  ResumeTempo = 13, --resumes the previous tempo
+  OriginalTempo = 14, --resumes the original tempo
   Accelerates = 15,
   SlowsAndBroadens = 16,
   ConsistentlySlowing = 17,
@@ -386,7 +387,7 @@ df.dance_form_group_size = {
 
 ---@enum dance_form_configuration
 df.dance_form_configuration = {
-  NONE = -1,
+  NONE = -1, --hard to have a configuration with a solo performer
   SingleLine = 0,
   SeveralLines = 1,
   Circle = 2,
@@ -540,34 +541,34 @@ df.dance_form_move_location = {}
 
 ---@enum dance_form_move_group_type
 df.dance_form_move_group_type = {
-  unk_0 = 0,
+  unk_0 = 0, --Might be a null value. Hacked in it did not result in any entry in exported Legends info
   BasicMovement = 1,
   DancePosition = 2,
-  unk_3 = 3,
+  unk_3 = 3, --Might not be a group value. Hacked into a group dance it did result in the name but not any description in exported Legends info
   DanceMove = 4,
 }
 
 ---@enum scale_type
 df.scale_type = {
-  Octave = 0,
-  Variable = 1,
-  PerfectFourth = 2,
+  Octave = 0, --The octave is divided into X steps of even length
+  Variable = 1, --The octave is divided into notes at varying intervals, approximated by quartertones
+  PerfectFourth = 2, --The perfect fourth interval is divided into steps of even length
 }
 
 ---@enum beat_type
 df.beat_type = {
-  Silent = 0,
-  AccentedBeat = 1,
-  Beat = 2,
-  PrimaryAccent = 3,
-  SilentEarly = 4,
-  AccentedBeatEarly = 5,
-  BeatEarly = 6,
-  AccentedEarly = 7,
-  SilentSyncopated = 8,
-  AccentedBeatSyncopated = 9,
-  BeatSyncopated = 10,
-  AccentedSyncopated = 11,
+  Silent = 0, ---
+  AccentedBeat = 1, --X
+  Beat = 2, --x
+  PrimaryAccent = 3, --!
+  SilentEarly = 4, ---`
+  AccentedBeatEarly = 5, --X`
+  BeatEarly = 6, --x`
+  AccentedEarly = 7, --!`
+  SilentSyncopated = 8, ---'
+  AccentedBeatSyncopated = 9, --X'
+  BeatSyncopated = 10, --x'
+  AccentedSyncopated = 11, --!'
 }
 
 ---@enum occupation_type

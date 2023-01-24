@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum init_display_flags
 df.init_display_flags = {
   USE_GRAPHICS = 0,

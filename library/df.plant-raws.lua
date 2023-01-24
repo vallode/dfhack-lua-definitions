@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum plant_raw_flags
 df.plant_raw_flags = {
   SPRING = 0,

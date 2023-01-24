@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class item_flags
 ---@field on_ground boolean
 ---@field in_job boolean
@@ -51,7 +52,7 @@ df.item_magicness_type = {
   SmallBumps = 4,
   EarthSmell = 5,
   Lightning = 6,
-  GrayHairs = 7,
+  GrayHairs = 7, --with value of 10 or higher, creatures that look at the item cannot think negative thoughts
   RustlingLeaves = 8,
 }
 
@@ -75,7 +76,7 @@ df.slab_engraving_type = {
   ArmorsmithShopSign = 3,
   GeneralStoreSign = 4,
   FoodShopSign = 5,
-  Secrets = 6,
+  Secrets = 6, --from the gods?
   FoodImportsSign = 7,
   ClothingImportsSign = 8,
   GeneralImportsSign = 9,
@@ -94,7 +95,7 @@ df.slab_engraving_type = {
   CarpenterShopSign = 22,
   StoneFurnitureShopSign = 23,
   MetalFurnitureShopSign = 24,
-  DemonIdentity = 25,
+  DemonIdentity = 25, --when a demon assumes identity?
   TavernSign = 26,
 }
 

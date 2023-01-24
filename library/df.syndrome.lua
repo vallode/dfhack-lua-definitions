@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum creature_interaction_effect_type
 df.creature_interaction_effect_type = {
   PAIN = 0,

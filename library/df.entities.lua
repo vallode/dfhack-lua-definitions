@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum occasion_schedule_type
 df.occasion_schedule_type = {
   DANCE_PERFORMANCE = 0,
@@ -173,38 +174,38 @@ df.entity_position_flags = {
 ---@enum entity_material_category
 df.entity_material_category = {
   None = -1,
-  Clothing = 0,
-  Leather = 1,
-  Cloth = 2,
-  Wood = 3,
-  Crafts = 4,
-  Stone = 5,
-  Improvement = 6,
-  Glass = 7,
-  Wood2 = 8,
-  Bag = 9,
-  Cage = 10,
-  WeaponMelee = 11,
-  WeaponRanged = 12,
-  Ammo = 13,
-  Ammo2 = 14,
-  Pick = 15,
-  Armor = 16,
-  Gem = 17,
-  Bone = 18,
-  Shell = 19,
-  Pearl = 20,
-  Ivory = 21,
-  Horn = 22,
-  Other = 23,
-  Anvil = 24,
-  Booze = 25,
-  Metal = 26,
-  PlantFiber = 27,
-  Silk = 28,
-  Wool = 29,
-  Furniture = 30,
-  MiscWood2 = 31,
+  Clothing = 0, --cloth or leather
+  Leather = 1, --organic.leather
+  Cloth = 2, --any cloth
+  Wood = 3, --organic.wood, used for training weapons
+  Crafts = 4, --misc_mat.crafts
+  Stone = 5, --stones
+  Improvement = 6, --misc_mat.crafts
+  Glass = 7, --misc_mat.glass_unused, used for extract vials
+  Wood2 = 8, --misc_mat.barrels, also used for buckets
+  Bag = 9, --cloth/leather
+  Cage = 10, --misc_mat.cages
+  WeaponMelee = 11, --metal.weapon
+  WeaponRanged = 12, --metal.ranged
+  Ammo = 13, --metal.ammo
+  Ammo2 = 14, --metal.ammo2
+  Pick = 15, --metal.pick
+  Armor = 16, --metal.armor, also used for shields, tools, instruments, and toys
+  Gem = 17, --gems
+  Bone = 18, --refuse.bone
+  Shell = 19, --refuse.shell
+  Pearl = 20, --refuse.pearl
+  Ivory = 21, --refuse.ivory
+  Horn = 22, --refuse.horn
+  Other = 23, --misc_mat.others
+  Anvil = 24, --metal.anvil
+  Booze = 25, --misc_mat.booze
+  Metal = 26, --metals with ITEMS_HARD, used for chains
+  PlantFiber = 27, --organic.fiber
+  Silk = 28, --organic.silk
+  Wool = 29, --organic.wool
+  Furniture = 30, --misc_mat.rock_metal
+  MiscWood2 = 31, --misc_mat.wood2
 }
 
 ---@enum entity_event_type
@@ -261,7 +262,7 @@ df.agreement_details_type = {
   Residency = 2,
   Citizenship = 3,
   Parley = 4,
-  PositionCorruption = 5,
+  PositionCorruption = 5, --Embezzlement and accepting bribes seen. For own gain and for 'sponsor'
   PlotStealArtifact = 6,
   PromisePosition = 7,
   PlotAssassination = 8,

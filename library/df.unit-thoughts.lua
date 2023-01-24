@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum emotion_type
 df.emotion_type = {
   ANYTHING = -1,

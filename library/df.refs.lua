@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum general_ref_type
 df.general_ref_type = {
   ARTIFACT = 0,
@@ -83,8 +84,8 @@ df.specific_ref_type = {
   ACTIVITY = 4,
   ITEM_GENERAL = 5,
   EFFECT = 6,
-  PETINFO_PET = 7,
-  PETINFO_OWNER = 8,
+  PETINFO_PET = 7, --unused
+  PETINFO_OWNER = 8, --unused
   VERMIN_EVENT = 9,
   VERMIN_ESCAPED_PET = 10,
   ENTITY = 11,
@@ -168,7 +169,7 @@ df.histfig_hf_link_type = {
 df.entity_entity_link_type = {
   PARENT = 0,
   CHILD = 1,
-  RELIGIOUS = 2,
+  RELIGIOUS = 2, --Seen between religion and merc company.
 }
 
 ---@enum entity_site_link_type
@@ -216,6 +217,7 @@ df.entity_site_link_flags = {}
 ---@field unk_2048 boolean
 ---@field unk_4096 boolean
 ---@field unk_8192 boolean
+---The meaning of the bits are highly uncertain, and the bits are named with their values as if part of an integer to match research made against an integer field
 df.entity_site_link_status_flags = {}
 
 ---@class undead_flags

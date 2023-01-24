@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class job_material_category
 ---@field plant boolean
 ---@field wood boolean

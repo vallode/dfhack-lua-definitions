@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum ui_sidebar_mode
 df.ui_sidebar_mode = {
   Default = 0,
@@ -71,7 +72,7 @@ df.timed_event_type = {
   Caravan = 0,
   Migrants = 1,
   Diplomat = 2,
-  FeatureAttack = 3,
+  FeatureAttack = 3, --unused, does nothing
   Megabeast = 4,
   WildlifeCurious = 5,
   WildlifeMischievous = 6,

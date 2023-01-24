@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum announcement_type
 df.announcement_type = {
   REACHED_PEAK = 0,
@@ -212,7 +213,7 @@ df.announcement_type = {
   CURRENT_TEMPERATURE = 208,
   CURRENT_DATE = 209,
   NO_GRASP_FOR_PICKUP = 210,
-  CANNOT_CHOP_TREE = 211,
+  CANNOT_CHOP_TREE = 211, --formerly TRAVEL_ADVISORY
   CANNOT_CLIMB = 212,
   CANNOT_STAND = 213,
   MUST_UNRETRACT_FIRST = 214,

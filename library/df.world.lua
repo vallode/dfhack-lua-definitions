@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum worldgen_region_type
 df.worldgen_region_type = {
   SWAMP = 0,

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum tiletype_shape_basic
 df.tiletype_shape_basic = {
   None = -1,

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum hauler_type
 df.hauler_type = {
   Any = 0,

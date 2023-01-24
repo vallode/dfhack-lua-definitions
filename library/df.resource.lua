@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum resource_allotment_specifier_type
 df.resource_allotment_specifier_type = {
   CROP = 0,

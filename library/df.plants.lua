@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class plant_flags
 ---@field watery boolean
 ---@field is_shrub boolean

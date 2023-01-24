@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum pattern_type
 df.pattern_type = {
   MONOTONE = 0,

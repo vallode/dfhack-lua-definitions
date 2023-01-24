@@ -1,8 +1,9 @@
 ---@meta
+
 ---@enum cmv_version
 df.cmv_version = {
   CMV_0 = 10000,
-  CMV_1 = 10001,
+  CMV_1 = 10001, --adds support for sound
 }
 
 ---@enum save_version

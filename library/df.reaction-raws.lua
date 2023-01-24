@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum reaction_flags
 df.reaction_flags = {
   FUEL = 0,

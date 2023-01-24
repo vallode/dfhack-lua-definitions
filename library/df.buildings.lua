@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum building_type
 df.building_type = {
   NONE = -1,
@@ -241,7 +242,7 @@ df.workshop_type = {
 
 ---@enum construction_type
 df.construction_type = {
-  NONE = -1,
+  NONE = -1, --unused
   Fortification = 0,
   Wall = 1,
   Floor = 2,

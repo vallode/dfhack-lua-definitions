@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum projectile_type
 df.projectile_type = {
   Item = 0,

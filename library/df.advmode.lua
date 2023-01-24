@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum ui_advmode_menu
 df.ui_advmode_menu = {
   Default = 0,
@@ -26,14 +27,14 @@ df.ui_advmode_menu = {
   InteractAction = 21,
   MoveCarefully = 22,
   Announcements = 23,
-  UseBuilding = 24,
+  UseBuilding = 24, --Interacting with a lever or a statue, for example
   Travel = 25,
   TravelSleep = 26,
-  ViewFreshestTrack = 27,
+  ViewFreshestTrack = 27, --A_FRESHEST_TRACK
   SleepConfirm = 28,
   SelectInteractionTarget = 29,
-  InteractChoices = 30,
-  InteractVehicle = 31,
+  InteractChoices = 30, --For example, after inputting A_BUILDING while standing on the same tile as a lever and a minecart
+  InteractVehicle = 31, --Interacting with a minecart
   FallAction = 32,
   ViewTracks = 33,
   Jump = 34,

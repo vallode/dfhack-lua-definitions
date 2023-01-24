@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum craft_material_class
 df.craft_material_class = {
   None = -1,
@@ -151,7 +152,7 @@ df.strain_type = {
 df.inorganic_flags = {
   LAVA = 0,
   GENERATED = 1,
-  ENVIRONMENT_NON_SOIL_OCEAN = 2,
+  ENVIRONMENT_NON_SOIL_OCEAN = 2, --is METAMORPHIC, or has ENVIRONMENT with anything but SOIL_OCEAN
   SEDIMENTARY = 3,
   SEDIMENTARY_OCEAN_SHALLOW = 4,
   IGNEOUS_INTRUSIVE = 5,
@@ -165,7 +166,7 @@ df.inorganic_flags = {
   SOIL_SAND = 13,
   SEDIMENTARY_OCEAN_DEEP = 14,
   THREAD_METAL = 15,
-  SPECIAL = 16,
+  SPECIAL = 16, --or any DEEP_*
   SOIL = 17,
   DEEP_SPECIAL = 18,
   DIVINE = 19,
@@ -197,7 +198,7 @@ df.environment_type = {
 
 ---@enum inclusion_type
 df.inclusion_type = {
-  unk_0 = 0,
+  unk_0 = 0, --unused
   VEIN = 1,
   CLUSTER = 2,
   CLUSTER_SMALL = 3,

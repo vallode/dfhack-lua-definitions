@@ -1,4 +1,5 @@
 ---@meta
+
 ---@class vermin_flags
 ---@field unk boolean
 ---@field is_colony boolean
@@ -17,6 +18,6 @@ df.vermin_category = {
   Searched = 4,
   Disturbed = 5,
   Dropped = 6,
-  Underworld = 7,
+  Underworld = 7, --last used in 40d for vermin in eerie glowing pits
 }
 

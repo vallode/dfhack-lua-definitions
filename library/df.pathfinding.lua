@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum unit_path_goal
 df.unit_path_goal = {
   None = -1,

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum abstract_building_type
 df.abstract_building_type = {
   MEAD_HALL = 0,
@@ -21,7 +22,7 @@ df.abstract_building_type = {
 df.abstract_building_flags = {
   Unk0 = 0,
   Unk1 = 1,
-  Unk2 = 2,
+  Unk2 = 2, --gets toggled when an adventurer has visited it.
   Unk3 = 3,
   AllowVisitors = 4,
   AllowResidents = 5,
@@ -56,13 +57,13 @@ df.world_site_flags = {
   Undiscovered = 0,
   unk_1 = 1,
   unk_2 = 2,
-  Town = 3,
+  Town = 3, --not hamlet
   unk_4 = 4,
   unk_5 = 5,
   unk_6 = 6,
   unk_7 = 7,
   unk_8 = 8,
-  CaveCapital = 9,
+  CaveCapital = 9, --set on caves (only) that have capital entity links, i.e. Kobold civs in vanilla
   unk_10 = 10,
 }
 
@@ -85,11 +86,11 @@ df.monument_type = {
 ---@enum lair_type
 df.lair_type = {
   NONE = -1,
-  SIMPLE_MOUND = 0,
-  SIMPLE_BURROW = 1,
+  SIMPLE_MOUND = 0, --Night creatures
+  SIMPLE_BURROW = 1, --animal, (semi)megabeast, night creature(!)
   LABYRINTH = 2,
   SHRINE = 3,
-  WILDERNESS_LOCATION = 4,
+  WILDERNESS_LOCATION = 4, --In mountains, hosting Rocs in vanilla
 }
 
 ---@enum site_realization_building_type

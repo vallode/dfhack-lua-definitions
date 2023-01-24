@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum improvement_type
 df.improvement_type = {
   ART_IMAGE = 0,

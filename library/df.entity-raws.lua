@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum entity_raw_flags
 df.entity_raw_flags = {
   CIV_CONTROLLABLE = 0,

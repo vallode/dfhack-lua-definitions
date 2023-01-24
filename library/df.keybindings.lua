@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum interface_key
 df.interface_key = {
   NONE = 0,

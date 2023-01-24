@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum job_type_class
 df.job_type_class = {
   Misc = 0,
@@ -21,7 +22,7 @@ df.job_type_class = {
 
 ---@enum job_type
 df.job_type = {
-  NONE = -1,
+  NONE = -1, --unused
   CarveFortification = 0,
   SmoothWall = 1,
   SmoothFloor = 2,
@@ -200,8 +201,8 @@ df.job_type = {
   FillPond = 175,
   GiveWater = 176,
   GiveFood = 177,
-  GiveWater2 = 178,
-  GiveFood2 = 179,
+  GiveWater2 = 178, --for pets
+  GiveFood2 = 179, --for pets
   RecoverPet = 180,
   PitLargeAnimal = 181,
   PitSmallAnimal = 182,
@@ -243,7 +244,7 @@ df.job_type = {
   InstallColonyInHive = 218,
   CollectHiveProducts = 219,
   CauseTrouble = 220,
-  DrinkBlood = 221,
+  DrinkBlood = 221, --??
   ReportCrime = 222,
   ExecuteCriminal = 223,
   TrainAnimal = 224,

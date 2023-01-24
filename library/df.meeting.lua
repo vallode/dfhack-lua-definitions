@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum meeting_topic
 df.meeting_topic = {
   DiscussCurrent = 0,

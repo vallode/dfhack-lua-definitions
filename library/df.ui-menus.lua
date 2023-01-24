@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum build_req_choice_type
 df.build_req_choice_type = {
   General = 0,

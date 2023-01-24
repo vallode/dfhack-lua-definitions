@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum weather_type
 df.weather_type = {
   None = 0,
@@ -91,9 +92,9 @@ df.lever_target_type = {
   GrateFloor = 103,
   Hatch = 104,
   Cage = 106,
-  LeverMechanism = 108,
+  LeverMechanism = 108, --use in lever
   Support = 115,
-  TargetMechanism = 116,
+  TargetMechanism = 116, --use in target
   GrateWall = 119,
 }
 

@@ -1,4 +1,5 @@
 ---@meta
+
 ---@enum d_init_nickname
 df.d_init_nickname = {
   REPLACE_FIRST = 0,
