@@ -469,7 +469,7 @@ df.ghost_goal = {
 }
 
 ---@class unit_ghost_info
----@field target 
+---@field target table
 ---@field misplace_pos coord
 ---@field action_timer integer
 ---@field unk_18 integer
@@ -588,7 +588,7 @@ df.wound_damage_flags2 = {}
 ---@field unk_v42_1 integer
 ---@field luck_mul_percent integer
 ---@field unk_v42_2 integer
----@field timing 
+---@field timing table
 ---@field were_race integer
 ---@field were_caste integer
 
@@ -791,11 +791,6 @@ df.orientation_flags = {}
 ---@field unk_v47_4 integer
 ---@field current_focus integer
 ---@field undistracted_focus integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
 
 ---@enum unit_action_type_group
 df.unit_action_type_group = {
@@ -837,7 +832,7 @@ df.unit_action_type = {
 
 ---@class unit_action
 ---@field id integer
----@field data 
+---@field data table
 
 ---@class unit_action_data_move
 ---@field x integer
@@ -849,7 +844,7 @@ df.unit_action_type = {
 
 ---@class unit_action_data_attack
 ---@field target_unit_id integer
----@field unk_4 
+---@field unk_4 table
 ---@field attack_item_id integer
 ---@field target_body_part_id integer
 ---@field attack_body_part_id integer
@@ -1007,7 +1002,6 @@ df.unit_action_type = {
 ---@field natural_skill_lvl integer
 
 ---@class unit_preference
----@field  
 ---@field item_subtype integer
 ---@field mattype integer
 ---@field matindex integer
@@ -1043,7 +1037,5 @@ df.unit_action_type = {
 
 ---@class work_detail
 ---@field name string
----@field  integer
----@field  integer
 ---@field icon integer
 

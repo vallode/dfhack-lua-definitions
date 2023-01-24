@@ -188,8 +188,8 @@ df.poetic_form_subject = {
 }
 
 ---@class poetic_form_subject_target
----@field Histfig 
----@field Concept 
+---@field Histfig table
+---@field Concept table
 
 ---@class poetic_form_feature
 ---@field InternalRhyme boolean
@@ -702,7 +702,7 @@ df.scale_type = {
 ---@class scale
 ---@field id integer
 ---@field scale_length integer
----@field notes 
+---@field notes table
 
 ---@class rhythm
 ---@field id integer

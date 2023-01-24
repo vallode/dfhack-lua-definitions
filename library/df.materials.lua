@@ -153,37 +153,24 @@ df.strain_type = {
 ---@field gem_name1 string
 ---@field gem_name2 string
 ---@field stone_name string
----@field heat 
+---@field heat table
 ---@field solid_density integer
 ---@field liquid_density integer
 ---@field molar_mass integer
----@field strength 
+---@field strength table
 ---@field material_value integer
 ---@field butcher_special_subtype integer
----@field  integer
----@field reaction_product 
----@field hardens_with_water 
+---@field reaction_product table
+---@field hardens_with_water table
 
 ---@class material
 ---@field tile integer
 ---@field item_symbol integer
----@field  integer
----@field  integer
----@field  integer
 ---@field powder_dye integer
 ---@field temp_diet_info integer
 ---@field soap_level integer
 ---@field prefix string
 ---@field powder_dye_str string
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
 
 ---@class material_vec_ref
 
@@ -256,10 +243,10 @@ df.inclusion_type = {
 ---@field id string
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
----@field metal_ore 
----@field thread_metal 
----@field environment_spec 
----@field environment 
+---@field metal_ore table
+---@field thread_metal table
+---@field environment_spec table
+---@field environment table
 ---@field times_used_land integer
 ---@field times_used_ocean integer
 ---@field material material

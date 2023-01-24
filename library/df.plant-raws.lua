@@ -106,34 +106,16 @@ df.plant_raw_flags = {
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
 ---@field unk2 integer
----@field tiles 
+---@field tiles table
 ---@field growdur integer
 ---@field value integer
----@field colors 
+---@field colors table
 ---@field shrub_drown_level integer
 ---@field tree_drown_level integer
 ---@field sapling_drown_level integer
 ---@field frequency integer
 ---@field clustersize integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field material_defs 
+---@field material_defs table
 ---@field underground_depth_min integer
 ---@field underground_depth_max integer
 ---@field root_name string

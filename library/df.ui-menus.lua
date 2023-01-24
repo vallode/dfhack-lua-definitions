@@ -605,20 +605,18 @@ df.main_designation_type = {
 }
 
 ---@class gamest
----@field main_interface 
----@field minimap 
----@field command_line 
----@field mod_manager 
----@field hash_rng 
----@field play_rng 
+---@field main_interface table
+---@field minimap table
+---@field command_line table
+---@field mod_manager table
+---@field hash_rng table
+---@field play_rng table
 ---@field start_tick_count integer
 ---@field autosave_cycle integer
 ---@field want_to_quit_to_title boolean
 ---@field external_flag integer
 
 ---@class difficultyst
----@field  integer
----@field  integer
 ---@field megabeast_interval integer
 ---@field forgotten_sens integer
 ---@field forgotten_irritate_min integer
@@ -647,8 +645,6 @@ df.main_designation_type = {
 ---@field demand_period integer
 
 ---@class markup_text_boxst
----@field  integer
----@field  integer
 
 ---@class wqc_item_traitst
 ---@field flg integer

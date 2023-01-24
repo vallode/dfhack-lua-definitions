@@ -166,15 +166,15 @@ df.entity_name_type = {
 ---@class entity_raw
 ---@field code string
 ---@field index integer
----@field equipment 
+---@field equipment table
 ---@field translation string
----@field symbols 
----@field progress_trigger 
+---@field symbols table
+---@field progress_trigger table
 ---@field max_site_pop_number integer
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
----@field jobs 
----@field workshops 
+---@field jobs table
+---@field workshops table
 ---@field banditry integer
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
@@ -279,6 +279,4 @@ df.entity_position_responsibility = {
 ---@field required_tomb integer
 ---@field mandate_max integer
 ---@field demand_max integer
----@field  integer
----@field  string
 

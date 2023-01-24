@@ -78,7 +78,6 @@ df.job_subtype_surgery = {
 ---@field mat_index integer
 ---@field unk5 integer
 ---@field item_subtype integer
----@field  
 ---@field reaction_name string
 ---@field expire_timer integer
 ---@field recheck_cntdn integer
@@ -294,7 +293,7 @@ df.guild_id = {
 ---@field amount_remaining integer
 ---@field timeout_counter integer
 ---@field timeout_limit integer
----@field punishment 
+---@field punishment table
 ---@field punish_multiple integer
 ---@field unk4 integer
 

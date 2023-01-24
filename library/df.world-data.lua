@@ -35,7 +35,6 @@ df.world_population_type = {
 ---@field population_idx integer
 
 ---@class local_population
----@field  
 ---@field quantity integer
 ---@field quantity2 integer
 ---@field population world_population_ref
@@ -45,7 +44,6 @@ df.world_population_type = {
 ---@field unk_v47_1 integer
 
 ---@class world_population
----@field  
 ---@field count_min integer
 ---@field count_max integer
 ---@field unk_c integer
@@ -155,18 +153,16 @@ df.geo_layer_type = {
 ---@field seed integer
 
 ---@class world_region_details
----@field edges 
+---@field edges table
 ---@field pos coord2d
 ---@field unk12e8 integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field rivers_vertical 
----@field rivers_horizontal 
+---@field rivers_vertical table
+---@field rivers_horizontal table
 ---@field lava_stone integer
----@field  integer
----@field  integer
 
 ---@enum region_map_entry_flags
 df.region_map_entry_flags = {
@@ -273,8 +269,8 @@ df.fog_type = {
 ---@field unk_v40_1 integer
 ---@field year integer
 ---@field year_tick integer
----@field picked_growths 
----@field unk_v43 
+---@field picked_growths table
+---@field unk_v43 table
 
 ---@enum mountain_peak_flags
 df.mountain_peak_flags = {
@@ -305,7 +301,7 @@ df.mountain_peak_flags = {
 ---@field unk_8a integer
 ---@field unk_v34_2 integer
 ---@field unk_v34_3 integer
----@field unk_b4 
+---@field unk_b4 table
 ---@field adv_region_x integer
 ---@field adv_region_y integer
 ---@field adv_emb_x integer
@@ -314,7 +310,7 @@ df.mountain_peak_flags = {
 ---@field unk_y1 integer
 ---@field unk_x2 integer
 ---@field unk_y2 integer
----@field constructions 
+---@field constructions table
 ---@field entity_claims1 entity_claim_mask
 ---@field entity_claims2 entity_claim_mask
 ---@field unk_1 integer
@@ -326,7 +322,7 @@ df.mountain_peak_flags = {
 ---@field unk_268 integer
 ---@field unk_26c integer
 ---@field unk_270 integer
----@field unk_482f8 
+---@field unk_482f8 table
 
 ---@class breed
 ---@field id integer

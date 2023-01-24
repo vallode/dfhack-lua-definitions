@@ -13,7 +13,6 @@
 ---@field x integer
 ---@field y integer
 ---@field z integer
----@field  
 
 ---@enum ui_sidebar_mode
 df.ui_sidebar_mode = {
@@ -94,8 +93,8 @@ df.kitchen_exc_type = {
 ---@class plotinfost
 ---@field game_state integer
 ---@field lost_to_siege_civ integer
----@field tax_collection 
----@field nobles 
+---@field tax_collection table
+---@field nobles table
 ---@field unk_2 integer
 ---@field fortress_rank integer
 ---@field progress_population integer
@@ -115,25 +114,25 @@ df.kitchen_exc_type = {
 ---@field fortress_age integer
 ---@field tasks entity_activity_statistics
 ---@field game_over boolean
----@field invasions 
----@field kitchen 
+---@field invasions table
+---@field kitchen table
 ---@field mood_cooldown integer
 ---@field civ_id integer
 ---@field site_id integer
 ---@field group_id integer
 ---@field race_id integer
----@field economy_prices 
----@field stockpile 
----@field map_edge 
----@field waypoints 
----@field burrows 
----@field alerts 
----@field equipment 
----@field hauling 
+---@field economy_prices table
+---@field stockpile table
+---@field map_edge table
+---@field waypoints table
+---@field burrows table
+---@field alerts table
+---@field equipment table
+---@field hauling table
 ---@field food_warn_year integer
 ---@field food_warn_year_tick integer
----@field main 
----@field squads 
+---@field main table
+---@field squads table
 ---@field follow_unit integer
 ---@field follow_item integer
 
@@ -168,8 +167,6 @@ df.timed_event_type = {
 ---@field window_x integer
 ---@field window_y integer
 ---@field window_z integer
----@field  integer
----@field  integer
 
 ---@class map_renderer
 ---@field multiple_guts boolean

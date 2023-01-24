@@ -151,7 +151,7 @@ df.squad_order_cannot_reason = {
 ---@field visitor_nemesis_id integer
 ---@field unk_44_4 integer
 ---@field unk_50 integer
----@field data 
+---@field data table
 
 ---@class army_controller_sub1
 ---@field unk_1 integer

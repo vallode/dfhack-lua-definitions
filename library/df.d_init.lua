@@ -77,12 +77,8 @@ df.d_init_autosave = {
 ---@field sky_tile integer
 ---@field chasm_tile integer
 ---@field pillar_tile integer
----@field wound_color 
----@field  integer
+---@field wound_color table
 ---@field number_of_lower_elevations_shown integer
----@field  integer
----@field  integer
----@field  integer
 ---@field population_cap integer
 ---@field strict_population_cap integer
 ---@field baby_cap_absolute integer
@@ -90,7 +86,7 @@ df.d_init_autosave = {
 ---@field visitor_cap integer
 ---@field specific_seed_cap integer
 ---@field fortress_seed_cap integer
----@field store_dist 
+---@field store_dist table
 ---@field graze_coefficient integer
 ---@field maximum_embark_dim integer
 ---@field announcements announcements

@@ -305,7 +305,6 @@ df.identity_type = {
 ---@field race integer
 ---@field caste integer
 ---@field impersonated_hf integer
----@field  
 ---@field birth_year integer
 ---@field birth_second integer
 ---@field unk_2 integer
@@ -588,10 +587,10 @@ df.history_event_reason = {
 }
 
 ---@class history_event_reason_info
----@field data 
+---@field data table
 
 ---@class history_event_circumstance_info
----@field data 
+---@field data table
 
 ---@class history_event_context
 ---@field artifact_id integer
@@ -888,8 +887,8 @@ df.era_type = {
 
 ---@class history_era
 ---@field year integer
----@field title 
----@field details 
+---@field title table
+---@field details table
 
 ---@class relationship_event
 ---@field next_element integer
@@ -902,7 +901,7 @@ df.era_type = {
 ---@field unk_1 integer
 
 ---@class world_history
----@field event_collections 
+---@field event_collections table
 ---@field total_unk integer
 ---@field total_powers integer
 ---@field total_megabeasts integer

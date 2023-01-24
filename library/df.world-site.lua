@@ -72,20 +72,6 @@ df.abstract_building_flags = {
 ---@field count_paper integer
 ---@field unk_v47_2 integer
 ---@field unk_v47_3 integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
 
 ---@enum temple_deity_type
 df.temple_deity_type = {
@@ -169,7 +155,7 @@ df.lair_type = {
 ---@field cur_owner_id integer
 ---@field pos coord2d
 ---@field id integer
----@field unk_1 
+---@field unk_1 table
 ---@field index integer
 ---@field rgn_min_x integer
 ---@field rgn_max_x integer

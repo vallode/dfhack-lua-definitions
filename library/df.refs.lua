@@ -111,7 +111,7 @@ df.specific_ref_type = {
 }
 
 ---@class specific_ref
----@field data 
+---@field data table
 
 ---@enum histfig_entity_link_type
 df.histfig_entity_link_type = {

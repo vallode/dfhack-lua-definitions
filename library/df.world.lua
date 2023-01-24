@@ -97,7 +97,7 @@ df.conflict_level = {
 ---@field world_z integer
 ---@field unk_80 integer
 ---@field unk_10c integer
----@field data 
+---@field data table
 
 ---@class incident_data_performance
 ---@field reference_id integer
@@ -131,16 +131,16 @@ df.conflict_level = {
 
 ---@class crime
 ---@field id integer
----@field punishment 
+---@field punishment table
 ---@field criminal integer
 ---@field criminal_hf integer
 ---@field criminal_hf_2 integer
 ---@field criminal_hf_3 integer
----@field convict_data 
+---@field convict_data table
 ---@field convicted_hf integer
 ---@field convicted_hf_2 integer
 ---@field convicted_hf_3 integer
----@field victim_data 
+---@field victim_data table
 ---@field victim_hf integer
 ---@field victim_hf_2 integer
 ---@field victim_hf_3 integer
@@ -197,7 +197,7 @@ df.conflict_level = {
 ---@field unk_3 integer
 ---@field year integer
 ---@field tick integer
----@field unk 
+---@field unk table
 ---@field unk_23 integer
 ---@field unk_24 integer
 ---@field unk_25 integer
@@ -205,22 +205,11 @@ df.conflict_level = {
 ---@field subject_identity_id integer
 
 ---@class mapevent_v50_1
----@field  integer
 ---@field pos1 coord
----@field  integer
----@field  integer
 ---@field path coord_path
 ---@field pos2 coord
 
 ---@class mapevent_v50_2
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
 ---@field path coord_path
 ---@field pos coord
 
@@ -337,11 +326,11 @@ df.combat_report_event_type = {
 ---@field mat_index integer
 ---@field entity integer
 ---@field ruler integer
----@field image_front 
----@field image_back 
+---@field image_front table
+---@field image_back table
 
 ---@class mental_picture
----@field unk 
+---@field unk table
 ---@field unk_1 integer
 ---@field unk_2 integer
 
@@ -425,85 +414,79 @@ df.combat_report_event_type = {
 ---@field unk_2 integer
 
 ---@class world
----@field vermin 
+---@field vermin table
 ---@field manager_order_next_id integer
----@field entities 
----@field worldgen_coord_buf 
----@field units 
----@field nemesis 
----@field items 
----@field artifacts 
+---@field entities table
+---@field worldgen_coord_buf table
+---@field units table
+---@field nemesis table
+---@field items table
+---@field artifacts table
 ---@field jobs job_handler
 ---@field buildings building_handler
 ---@field machines machine_handler
----@field flow_guides 
----@field stockpile 
----@field plants 
----@field enemy_status_cache 
----@field schedules 
----@field squads 
----@field formations 
----@field activities 
----@field status 
----@field interaction_instances 
----@field written_contents 
----@field identities 
----@field incidents 
----@field crimes 
----@field vehicles 
----@field armies 
----@field army_controllers 
----@field army_tracking_info 
----@field cultural_identities 
----@field agreements 
----@field poetic_forms 
----@field musical_forms 
----@field dance_forms 
----@field scales 
----@field rhythms 
----@field occupations 
----@field belief_systems 
----@field image_sets 
----@field divination_sets 
+---@field flow_guides table
+---@field stockpile table
+---@field plants table
+---@field enemy_status_cache table
+---@field schedules table
+---@field squads table
+---@field formations table
+---@field activities table
+---@field status table
+---@field interaction_instances table
+---@field written_contents table
+---@field identities table
+---@field incidents table
+---@field crimes table
+---@field vehicles table
+---@field armies table
+---@field army_controllers table
+---@field army_tracking_info table
+---@field cultural_identities table
+---@field agreements table
+---@field poetic_forms table
+---@field musical_forms table
+---@field dance_forms table
+---@field scales table
+---@field rhythms table
+---@field occupations table
+---@field belief_systems table
+---@field image_sets table
+---@field divination_sets table
 ---@field update_selected_building boolean
 ---@field building_width integer
 ---@field building_height integer
----@field map 
----@field profession_skills 
----@field math 
----@field map_extras 
----@field worldgen_status 
+---@field map table
+---@field profession_skills table
+---@field math table
+---@field map_extras table
+---@field worldgen_status table
 ---@field orphaned_flow_pool flow_reuse_pool
 ---@field raws world_raws
----@field area_grasses 
----@field flow_engine 
----@field worldgen 
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
+---@field area_grasses table
+---@field flow_engine table
+---@field worldgen table
 ---@field history world_history
----@field unk_v40_6 
+---@field unk_v40_6 table
 ---@field viewport map_viewport
 ---@field unk_131f08 integer
 ---@field reindex_pathfinding boolean
 ---@field frame_counter integer
----@field pathfinder 
+---@field pathfinder table
 ---@field save_version integer
----@field cur_savegame 
----@field rod_loader 
----@field object_loader 
+---@field cur_savegame table
+---@field rod_loader table
+---@field object_loader table
 ---@field temp_pop_breeding_start integer
----@field features 
+---@field features table
 ---@field allow_announcements boolean
 ---@field suppress_minevent_announcements boolean
 ---@field updating_region boolean
----@field arena 
----@field dungeon 
----@field attack_chance_info 
----@field active_tutorial 
+---@field arena table
+---@field dungeon table
+---@field attack_chance_info table
+---@field active_tutorial table
 
 ---@enum world_cavein_flags
 df.world_cavein_flags = {

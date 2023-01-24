@@ -546,19 +546,19 @@ df.creature_interaction_target_flags = {}
 ---@field min_temp integer
 ---@field max_temp integer
 ---@field fixed_temp integer
----@field misc 
----@field personality 
+---@field misc table
+---@field personality table
 ---@field index integer
 ---@field body_info caste_body_info
----@field attributes 
----@field bp_appearance 
+---@field attributes table
+---@field bp_appearance table
 ---@field appearance_gene_count integer
 ---@field color_gene_count integer
----@field caste_profession_name 
----@field extracts 
----@field unknown2 
----@field lair_hunter_speech 
----@field unk29 
+---@field caste_profession_name table
+---@field extracts table
+---@field unknown2 table
+---@field lair_hunter_speech table
+---@field unk29 table
 ---@field smell_trigger integer
 ---@field odor_level integer
 ---@field odor_string string
@@ -603,10 +603,10 @@ df.tissue_style_type = {
 ---@field temperature2 integer
 ---@field frequency integer
 ---@field adultsize integer
----@field profession_name 
+---@field profession_name table
 ---@field underground_layer_min integer
 ---@field underground_layer_max integer
----@field hive_product 
+---@field hive_product table
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
 ---@field next_modifier_id integer

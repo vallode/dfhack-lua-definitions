@@ -312,7 +312,7 @@ df.assume_identity_mode = {
 }
 
 ---@class talk_choice
----@field unk 
+---@field unk table
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -367,8 +367,8 @@ df.assume_identity_mode = {
 ---@field travel_odor_caste integer
 ---@field unk_46 integer
 ---@field multiattack integer
----@field unk_3170 
----@field unk_3124 
+---@field unk_3170 table
+---@field unk_3124 table
 ---@field unk_48 integer
 ---@field unk_49 integer
 ---@field unk_50 integer
@@ -388,7 +388,7 @@ df.assume_identity_mode = {
 ---@field player_id integer
 ---@field track_viewed_x integer
 ---@field track_viewed_y integer
----@field conversation 
+---@field conversation table
 ---@field unk_71 integer
 ---@field sleep_hours integer
 ---@field sleep_until_dawn boolean
@@ -398,20 +398,20 @@ df.assume_identity_mode = {
 ---@field player_control_state integer
 ---@field item_projectiles_state integer
 ---@field unk_84 integer
----@field companions 
+---@field companions table
 ---@field unk_1 integer
----@field interactions 
+---@field interactions table
 ---@field unk_87 string
 ---@field unk_220 integer
 ---@field unk_224 integer
----@field unk_v40_2 
----@field unk_v40_3 
+---@field unk_v40_2 table
+---@field unk_v40_3 table
 ---@field player_unit_projectile_z integer
 ---@field unk_90 integer
----@field unk_v40_4 
----@field unk_v40_5 
----@field unk_v42_1 
----@field assume_identity 
+---@field unk_v40_4 table
+---@field unk_v40_5 table
+---@field unk_v42_1 table
+---@field assume_identity table
 ---@field move_direction_x integer
 ---@field move_direction_y integer
 ---@field move_direction_z integer

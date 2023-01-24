@@ -1,8 +1,7 @@
 ---@meta
 
 ---@class large_integer
----@field  
----@field u 
+---@field u table
 ---@field quad_part integer
 
 ---@class musicsoundst
@@ -82,7 +81,7 @@ df.cmv_attribute = {}
 ---@field original_rect integer
 ---@field dimx integer
 ---@field dimy integer
----@field tileset 
+---@field tileset table
 
 ---@class interface_setst
 ---@field texpos_hover_rectangle_join_w_sw integer

@@ -75,7 +75,7 @@ df.occasion_schedule_feature = {
 ---@field unk_3 integer
 
 ---@class entity_activity_statistics
----@field food 
+---@field food table
 ---@field population integer
 ---@field menial_exempt integer
 ---@field omnivores integer
@@ -84,15 +84,11 @@ df.occasion_schedule_feature = {
 ---@field other_animals integer
 ---@field potential_soldiers integer
 ---@field combat_aptitude integer
----@field wealth 
+---@field wealth table
 ---@field excavated_tiles integer
 ---@field total_deaths integer
 ---@field total_insanities integer
 ---@field total_executions integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
 ---@field num_artifacts integer
 ---@field unk_6 integer
 ---@field discovered_water_features integer
@@ -241,17 +237,16 @@ df.historical_entity_type = {
 
 ---@class historical_entity
 ---@field id integer
----@field  integer
 ---@field save_file_id integer
 ---@field next_member_idx integer
 ---@field name language_name
 ---@field race integer
----@field resources 
+---@field resources table
 ---@field next_uniform_id integer
----@field relations 
----@field positions 
----@field tissue_styles 
----@field unknown1d 
+---@field relations table
+---@field positions table
+---@field tissue_styles table
+---@field unknown1d table
 ---@field unk_v40_1a integer
 ---@field unk_v40_1b integer
 ---@field unk_v40_1c integer
@@ -262,10 +257,10 @@ df.historical_entity_type = {
 ---@field attack integer
 ---@field total_battles integer
 ---@field founding_site_government integer
----@field unknown1e 
----@field derived_resources 
----@field claims 
----@field unknown2 
+---@field unknown1e table
+---@field derived_resources table
+---@field claims table
+---@field unknown2 table
 
 ---@class entity_tissue_style
 ---@field name string
@@ -447,7 +442,7 @@ df.entity_event_type = {
 }
 
 ---@class entity_event
----@field data 
+---@field data table
 ---@field unk_year integer
 ---@field unk_year_tick integer
 ---@field year integer
@@ -497,7 +492,7 @@ df.agreement_details_type = {
 ---@field id integer
 ---@field year integer
 ---@field year_tick integer
----@field data 
+---@field data table
 
 ---@class agreement_details_data_join_party
 ---@field member integer

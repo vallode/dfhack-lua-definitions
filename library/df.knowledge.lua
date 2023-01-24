@@ -355,7 +355,7 @@ df.knowledge_scholar_flags_12 = {}
 df.knowledge_scholar_flags_13 = {}
 
 ---@class knowledge_scholar_category_flag
----@field flag_data 
+---@field flag_data table
 
 ---@enum dfhack_knowledge_scholar_flag
 df.dfhack_knowledge_scholar_flag = {

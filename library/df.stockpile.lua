@@ -96,23 +96,23 @@ df.stockpile_category = {
 df.stockpile_group_set = {}
 
 ---@class stockpile_settings
----@field animals 
----@field food 
----@field furniture 
----@field refuse 
----@field stone 
----@field ore 
----@field ammo 
----@field coins 
----@field bars_blocks 
----@field gems 
----@field finished_goods 
----@field leather 
----@field cloth 
----@field wood 
----@field weapons 
----@field armor 
----@field sheet 
+---@field animals table
+---@field food table
+---@field furniture table
+---@field refuse table
+---@field stone table
+---@field ore table
+---@field ammo table
+---@field coins table
+---@field bars_blocks table
+---@field gems table
+---@field finished_goods table
+---@field leather table
+---@field cloth table
+---@field wood table
+---@field weapons table
+---@field armor table
+---@field sheet table
 ---@field allow_organic boolean
 ---@field allow_inorganic boolean
 

@@ -11,7 +11,7 @@ df.reaction_flags = {
 ---@field code string
 ---@field name string
 ---@field max_multiplier integer
----@field building 
+---@field building table
 ---@field index integer
 ---@field source_hfid integer
 ---@field source_enid integer

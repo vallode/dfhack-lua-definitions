@@ -27,9 +27,13 @@ def getEnumAnnotation(enum)
 end
 
 def getStructAnnotation(struct)
-  annotation = "---@class #{struct["type-name"]}\n"
+  type = struct['type-name'] || struct['pointer-type'] || "table"
+
+  annotation = "---@class #{type}\n"
 
   struct.children.each do |child|
+    next if not child["name"]
+
     if child.name === "stl-string"
       annotation << "---@field #{child['name']} string\n"
     end
@@ -47,11 +51,18 @@ def getStructAnnotation(struct)
     end
 
     if child.name === "compound"
-      annotation << "---@field #{child['name']} #{child['type-name']}\n"
+      annotation << "---@field #{child['name']} #{child['type-name'] || "table"}\n"
     end
   end
 
   return annotation << "\n"
+end
+
+def getGlobalObject(object)
+  type = object['type-name'] || object['pointer-type'] || "table"
+
+  annotation = "---@type #{type}\n"
+  annotation << "df.global.#{object['name']} = {}\n\n"
 end
 
 $bitfield_type = <<-EOF
@@ -95,6 +106,11 @@ Dir.glob(ARGV[0]).each do |xml|
     
         if value.name == "struct-type"
           output.write(getStructAnnotation(value))
+        end
+
+        # TODO: Inline types.
+        if value.name == "global-object" and value["type-name"]
+          output.write(getGlobalObject(value))
         end
       end
     end

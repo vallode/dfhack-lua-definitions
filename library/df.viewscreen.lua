@@ -39,8 +39,8 @@ df.interface_push_types = {
 ---@class world_dat_summary
 ---@field name language_name
 ---@field unk_1 string
----@field last_id 
----@field unk 
+---@field last_id table
+---@field unk table
 
 ---@enum embark_finder_option
 df.embark_finder_option = {
@@ -108,7 +108,7 @@ df.embark_finder_option = {
 ---@field unk_22 integer
 ---@field unk_23 integer
 ---@field unk_24 integer
----@field details 
+---@field details table
 ---@field unk_25 integer
 
 ---@class legend_pagest
@@ -127,14 +127,6 @@ df.embark_finder_option = {
 ---@field world_name string
 ---@field year integer
 ---@field folder_name string
----@field  string
----@field  string
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  integer
----@field  string
 
 ---@class matgloss_list
 
@@ -329,5 +321,5 @@ df.adv_background_option_type = {
 ---@class embark_symbol
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
----@field unk_v43_sub9 
+---@field unk_v43_sub9 table
 

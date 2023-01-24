@@ -76,6 +76,207 @@ df.game_type = {
   NONE = 11,
 }
 
+---@type map_renderer
+df.global.map_renderer = {}
+
+---@type d_init
+df.global.d_init = {}
+
+---@type enabler
+df.global.enabler = {}
+
+---@type graphic
+df.global.gps = {}
+
+---@type interfacest
+df.global.gview = {}
+
+---@type init
+df.global.init = {}
+
+---@type texture_handlerst
+df.global.texture = {}
+
+---@type plotinfost
+df.global.plotinfo = {}
+
+---@type adventurest
+df.global.adventure = {}
+
+---@type buildreq
+df.global.buildreq = {}
+
+---@type ui_look_list
+df.global.ui_look_list = {}
+
+---@type gamest
+df.global.game = {}
+
+---@type world
+df.global.world = {}
+
+---@type int32_t
+df.global.basic_seed = {}
+
+---@type int32_t
+df.global.activity_next_id = {}
+
+---@type int32_t
+df.global.agreement_next_id = {}
+
+---@type int32_t
+df.global.army_controller_next_id = {}
+
+---@type int32_t
+df.global.army_next_id = {}
+
+---@type int32_t
+df.global.army_tracking_info_next_id = {}
+
+---@type int32_t
+df.global.art_image_chunk_next_id = {}
+
+---@type int32_t
+df.global.artifact_next_id = {}
+
+---@type int32_t
+df.global.belief_system_next_id = {}
+
+---@type int32_t
+df.global.building_next_id = {}
+
+---@type int32_t
+df.global.crime_next_id = {}
+
+---@type int32_t
+df.global.cultural_identity_next_id = {}
+
+---@type int32_t
+df.global.dance_form_next_id = {}
+
+---@type int32_t
+df.global.divination_set_next_id = {}
+
+---@type int32_t
+df.global.entity_next_id = {}
+
+---@type int32_t
+df.global.flow_guide_next_id = {}
+
+---@type int32_t
+df.global.formation_next_id = {}
+
+---@type int32_t
+df.global.hist_event_collection_next_id = {}
+
+---@type int32_t
+df.global.hist_event_next_id = {}
+
+---@type int32_t
+df.global.hist_figure_next_id = {}
+
+---@type int32_t
+df.global.identity_next_id = {}
+
+---@type int32_t
+df.global.image_set_next_id = {}
+
+---@type int32_t
+df.global.incident_next_id = {}
+
+---@type int32_t
+df.global.interaction_instance_next_id = {}
+
+---@type int32_t
+df.global.item_next_id = {}
+
+---@type int32_t
+df.global.job_next_id = {}
+
+---@type int32_t
+df.global.machine_next_id = {}
+
+---@type int32_t
+df.global.musical_form_next_id = {}
+
+---@type int32_t
+df.global.nemesis_next_id = {}
+
+---@type int32_t
+df.global.occupation_next_id = {}
+
+---@type int32_t
+df.global.poetic_form_next_id = {}
+
+---@type int32_t
+df.global.proj_next_id = {}
+
+---@type int32_t
+df.global.rhythm_next_id = {}
+
+---@type int32_t
+df.global.scale_next_id = {}
+
+---@type int32_t
+df.global.schedule_next_id = {}
+
+---@type int32_t
+df.global.soul_next_id = {}
+
+---@type int32_t
+df.global.squad_next_id = {}
+
+---@type int32_t
+df.global.task_next_id = {}
+
+---@type int32_t
+df.global.unit_chunk_next_id = {}
+
+---@type int32_t
+df.global.unit_next_id = {}
+
+---@type int32_t
+df.global.vehicle_next_id = {}
+
+---@type int32_t
+df.global.written_content_next_id = {}
+
+---@type int32_t
+df.global.cur_year = {}
+
+---@type int32_t
+df.global.cur_year_tick = {}
+
+---@type int32_t
+df.global.cur_year_tick_advmode = {}
+
+---@type int32_t
+df.global.cur_season_tick = {}
+
+---@type bool
+df.global.pause_state = {}
+
+---@type bool
+df.global.process_dig = {}
+
+---@type bool
+df.global.process_jobs = {}
+
+---@type bool
+df.global.ui_building_in_assign = {}
+
+---@type bool
+df.global.ui_building_in_resize = {}
+
+---@type int16_t
+df.global.ui_building_resize_radius = {}
+
+---@type ui_unit_view_mode
+df.global.ui_unit_view_mode = {}
+
+---@type bool
+df.global.ui_workshop_in_add = {}
+
 ---@enum lever_target_type
 df.lever_target_type = {
   NONE = -1,
@@ -97,4 +298,178 @@ df.lever_target_type = {
   TargetMechanism = 116, --use in target
   GrateWall = 119,
 }
+
+---@type int32_t
+df.global.window_x = {}
+
+---@type int32_t
+df.global.window_y = {}
+
+---@type int32_t
+df.global.window_z = {}
+
+---@type bool
+df.global.debug_nopause = {}
+
+---@type bool
+df.global.debug_nomoods = {}
+
+---@type bool
+df.global.debug_combat = {}
+
+---@type bool
+df.global.debug_wildlife = {}
+
+---@type bool
+df.global.debug_nodrink = {}
+
+---@type bool
+df.global.debug_noeat = {}
+
+---@type bool
+df.global.debug_nosleep = {}
+
+---@type bool
+df.global.debug_showambush = {}
+
+---@type bool
+df.global.debug_fastmining = {}
+
+---@type bool
+df.global.debug_noberserk = {}
+
+---@type bool
+df.global.debug_turbospeed = {}
+
+---@type bool
+df.global.save_on_exit = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_minerals = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_wood = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_food = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_bodies = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_animals = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_furniture = {}
+
+---@type uint8_t
+df.global.standing_orders_farmer_harvest = {}
+
+---@type uint8_t
+df.global.standing_orders_job_cancel_announce = {}
+
+---@type uint8_t
+df.global.standing_orders_mix_food = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_refuse = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_refuse_outside = {}
+
+---@type uint8_t
+df.global.standing_orders_gather_vermin_remains = {}
+
+---@type uint8_t
+df.global.standing_orders_dump_corpses = {}
+
+---@type uint8_t
+df.global.standing_orders_dump_skulls = {}
+
+---@type uint8_t
+df.global.standing_orders_dump_skins = {}
+
+---@type uint8_t
+df.global.standing_orders_dump_bones = {}
+
+---@type uint8_t
+df.global.standing_orders_dump_hair = {}
+
+---@type uint8_t
+df.global.standing_orders_dump_shells = {}
+
+---@type uint8_t
+df.global.standing_orders_dump_other = {}
+
+---@type uint8_t
+df.global.standing_orders_forbid_used_ammo = {}
+
+---@type uint8_t
+df.global.standing_orders_forbid_other_dead_items = {}
+
+---@type uint8_t
+df.global.standing_orders_forbid_own_dead = {}
+
+---@type uint8_t
+df.global.standing_orders_forbid_other_nohunt = {}
+
+---@type uint8_t
+df.global.standing_orders_forbid_own_dead_items = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_loom = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_collect_webs = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_slaughter = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_butcher = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_tan = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_fishery = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_kitchen = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_kiln = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_smelter = {}
+
+---@type uint8_t
+df.global.standing_orders_auto_other = {}
+
+---@type uint8_t
+df.global.standing_orders_use_dyed_cloth = {}
+
+---@type uint8_t
+df.global.standing_orders_zoneonly_drink = {}
+
+---@type uint8_t
+df.global.standing_orders_zoneonly_fish = {}
+
+---@type int16_t
+df.global.cur_snow_counter = {}
+
+---@type int16_t
+df.global.cur_rain_counter = {}
+
+---@type int16_t
+df.global.weathertimer = {}
+
+---@type bool
+df.global.handleannounce = {}
+
+---@type bool
+df.global.preserveannounce = {}
+
+---@type bool
+df.global.updatelightstate = {}
 
