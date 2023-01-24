@@ -2,7 +2,7 @@ require 'nokogiri'
 
 $bitfield_type = <<-EOF
 ---@class %{name}
-%{fields}df.%{name} = {}
+%{fields}%{comment}df.%{name} = {}
 
 EOF
 
@@ -36,7 +36,11 @@ def getEnums (enum)
   index = 0
   enum.children.each do | child |
     if child.name == "enum-item"
-      fields.push("  %s = %s," % [child["name"] || "unk_%s" % index, child["value"] || index] )
+      fields.push("  %s = %s,%s" % [child["name"] || "unk_%s" % index, child["value"] || index, child["comment"] && " --#{child['comment']}" || ""])
+
+      # TODO: Enum attributes.
+      if child.children.any? {|c| c.name == "item-attr" }
+      end
 
       if not child["value"]
         index += 1
@@ -57,7 +61,7 @@ Dir.glob(ARGV[0]).each do |xml|
       for value in document.xpath("/data-definition/*") do
         if value.name == "bitfield-type"
           p value["type-name"]
-          output.write($bitfield_type % {name: value["type-name"], fields: getBitfieldFields(value)})
+          output.write($bitfield_type % {name: value["type-name"], comment: value["comment"] && "---#{value['comment']}\n" || "", fields: getBitfieldFields(value)})
         end
     
         if value.name == "enum-type"
