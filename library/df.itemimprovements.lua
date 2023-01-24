@@ -18,6 +18,12 @@ df.improvement_type = {
   IMAGE_SET = 13,
 }
 
+---@class dye_info
+---@field mat_type integer
+---@field mat_index integer
+---@field dyer integer
+---@field unk_1 integer
+
 ---@enum itemimprovement_specific_type
 df.itemimprovement_specific_type = {
   HANDLE = 0,
@@ -76,6 +82,17 @@ df.written_content_style = {
   Ranting = 17,
 }
 
+---@class written_content
+---@field id integer
+---@field title string
+---@field page_start integer
+---@field page_end integer
+---@field unk1 integer
+---@field unk2 integer
+---@field poetic_form integer
+---@field author integer
+---@field author_roll integer
+
 ---@class engraving_flags
 ---@field floor boolean
 ---@field west boolean
@@ -88,4 +105,14 @@ df.written_content_style = {
 ---@field southwest boolean
 ---@field southeast boolean
 df.engraving_flags = {}
+
+---@class engraving
+---@field artist integer
+---@field masterpiece_event integer
+---@field pos coord
+---@field tile integer
+---@field art_id integer
+---@field art_subid integer
+---@field unk1 integer
+---@field unk2 integer
 

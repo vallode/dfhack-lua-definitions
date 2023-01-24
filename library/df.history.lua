@@ -1,5 +1,17 @@
 ---@meta
 
+---@class historical_kills
+
+---@class history_hit_item
+---@field item integer
+---@field item_subtype integer
+---@field mattype integer
+---@field matindex integer
+---@field shooter_item integer
+---@field shooter_item_subtype integer
+---@field shooter_mattype integer
+---@field shooter_matindex integer
+
 ---@enum reputation_type
 df.reputation_type = {
   Hero = 0,
@@ -108,6 +120,16 @@ df.plot_strategy_type = {
   Work_If_Suited = 7,
   Torment = 8,
 }
+
+---@class plot_agreement
+---@field actor_id integer
+---@field agreement_id integer
+---@field agreement_has_messenger boolean
+
+---@class historical_figure_info
+
+---@class historical_figure_relationships
+---@field unk_2 integer
 
 ---@enum histfig_flags
 df.histfig_flags = {
@@ -237,6 +259,35 @@ df.vague_relationship_type = {
   shared_entity = 25, --Religion/PerformanceTroupe/MerchantCompany/Guild
 }
 
+---@class historical_figure
+---@field race integer
+---@field caste integer
+---@field appeared_year integer
+---@field born_year integer
+---@field born_seconds integer
+---@field curse_year integer
+---@field curse_seconds integer
+---@field birth_year_bias integer
+---@field birth_time_bias integer
+---@field old_year integer
+---@field old_seconds integer
+---@field died_year integer
+---@field died_seconds integer
+---@field name language_name
+---@field civ_id integer
+---@field population_id integer
+---@field breed_id integer
+---@field cultural_identity integer
+---@field family_head_id integer
+---@field unit_id integer
+---@field nemesis_id integer
+---@field id integer
+---@field unk4 integer
+---@field unk_v47_3 integer
+---@field unk_v47_4 integer
+---@field unk_v4019_1 integer
+---@field unk_5 integer
+
 ---@enum identity_type
 df.identity_type = {
   None = -1, --Seen on adventurer assuming an identity for reasons unknown
@@ -247,6 +298,37 @@ df.identity_type = {
   InfiltrationIdentity = 4, --A guess. The cases seen all had the HFs fool the same entity that they were members of it, but no actual purpose was seen
   Identity = 5, --Claim a new official identity, seen when religious appointments are received
 }
+
+---@class identity
+---@field id integer
+---@field name language_name
+---@field race integer
+---@field caste integer
+---@field impersonated_hf integer
+---@field  
+---@field birth_year integer
+---@field birth_second integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_v47_1 integer
+---@field unk_v47_2 integer
+---@field entity_id integer
+
+---@class identity_unk_94
+---@field unk_0 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class identity_unk_95
+---@field unk_0 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
 
 ---@enum mental_picture_property_type
 df.mental_picture_property_type = {
@@ -505,6 +587,59 @@ df.history_event_reason = {
   priest_cry = 93,
 }
 
+---@class history_event_reason_info
+---@field data 
+
+---@class history_event_circumstance_info
+---@field data 
+
+---@class history_event_context
+---@field artifact_id integer
+---@field entity_id integer
+---@field histfig_id integer
+---@field speaker_id integer
+---@field site_id integer
+---@field region_id integer
+---@field layer_id integer
+---@field unk_34 integer
+---@field abstract_building_id integer
+---@field unk_40 integer
+---@field number integer
+---@field unk_48 integer
+---@field race integer
+---@field unk_4c integer
+---@field unk_50 integer
+---@field unk_54 integer
+---@field caste integer
+---@field unk_5a integer
+---@field squad_id integer
+---@field formation_id integer
+---@field activity_id integer
+---@field breed_id integer
+---@field battlefield_id integer
+---@field interaction_instance_id integer
+---@field written_content_id integer
+---@field identity_id integer
+---@field incident_id integer
+---@field crime_id integer
+---@field region_weather_id integer
+---@field creation_zone_id integer
+---@field vehicle_id integer
+---@field army_id integer
+---@field army_controller_id integer
+---@field army_tracking_info_id integer
+---@field cultural_identity_id integer
+---@field agreement_id integer
+---@field poetic_form_id integer
+---@field musical_form_id integer
+---@field dance_form_id integer
+---@field scale_id integer
+---@field rhythm_id integer
+---@field occupation_id integer
+---@field belief_system_id integer
+---@field image_set_id integer
+---@field divination_set_id integer
+
 ---@enum architectural_element
 df.architectural_element = {
   NONE = -1,
@@ -750,4 +885,54 @@ df.era_type = {
   Civilization = 11,
   Emptiness = 12,
 }
+
+---@class history_era
+---@field year integer
+---@field title 
+---@field details 
+
+---@class relationship_event
+---@field next_element integer
+---@field start_year integer
+
+---@class relationship_event_supplement
+---@field event integer
+---@field occasion_type integer
+---@field site integer
+---@field unk_1 integer
+
+---@class world_history
+---@field event_collections 
+---@field total_unk integer
+---@field total_powers integer
+---@field total_megabeasts integer
+---@field total_semimegabeasts integer
+---@field unk_8 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+
+---@class intrigue
+---@field event_id integer
+---@field reason history_event_reason_info
+---@field circumstance history_event_circumstance_info
+
+---@class intrigue_corruption
+---@field corruptor_id integer
+---@field target_id integer
+---@field target_relationship_entity_id integer
+---@field lurer_id integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field facet_rating integer
+---@field facet_roll integer
+---@field value_rating integer
+---@field value_roll integer
+---@field emotion_rating integer
+---@field emotion_roll integer
+---@field position_entity_id integer
+---@field position_assignment_id integer
+---@field offered_id integer
+---@field corruptor_ally_roll integer
+---@field target_ally_roll integer
 

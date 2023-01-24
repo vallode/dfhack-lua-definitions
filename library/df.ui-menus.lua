@@ -1,5 +1,11 @@
 ---@meta
 
+---@class ui_build_item_req
+---@field filter job_item_filter
+---@field count_required integer
+---@field count_max integer
+---@field count_provided integer
+
 ---@enum build_req_choice_type
 df.build_req_choice_type = {
   General = 0,
@@ -49,6 +55,15 @@ df.construction_category_type = {
   MILITARY = 11,
 }
 
+---@class bb_buttonst
+---@field type integer
+---@field subtype integer
+---@field custom_building_id integer
+---@field number integer
+---@field grid_height integer
+---@field texpos integer
+---@field str string
+
 ---@enum construction_interface_page_status_type
 df.construction_interface_page_status_type = {
   NONE = -1,
@@ -56,6 +71,17 @@ df.construction_interface_page_status_type = {
   ICONS_ONLY = 1,
   OFF = 2,
 }
+
+---@class construction_interface_pagest
+---@field last_main_sx integer
+---@field last_main_ex integer
+---@field last_main_sy integer
+---@field last_main_ey integer
+---@field number_of_columns integer
+---@field column_height integer
+---@field column_width integer
+---@field scrolling boolean
+---@field scroll_position integer
 
 ---@enum room_flow_shape_type
 df.room_flow_shape_type = {
@@ -577,4 +603,135 @@ df.main_designation_type = {
   DESIGNATE_TRAFFIC_RESTRICTED = 34,
   ERASE = 35,
 }
+
+---@class gamest
+---@field main_interface 
+---@field minimap 
+---@field command_line 
+---@field mod_manager 
+---@field hash_rng 
+---@field play_rng 
+---@field start_tick_count integer
+---@field autosave_cycle integer
+---@field want_to_quit_to_title boolean
+---@field external_flag integer
+
+---@class difficultyst
+---@field  integer
+---@field  integer
+---@field megabeast_interval integer
+---@field forgotten_sens integer
+---@field forgotten_irritate_min integer
+---@field forgotten_wealth_div integer
+---@field wild_sens integer
+---@field wild_irritate_min integer
+---@field wild_irritate_decay integer
+---@field werebeast_interval integer
+---@field vampire_fraction integer
+---@field min_raids_before_siege integer
+---@field min_raids_between_sieges integer
+---@field siege_frequency integer
+---@field cavern_dweller_scale integer
+---@field cavern_dweller_max_attackers integer
+---@field tree_fell_count_savage integer
+---@field tree_fell_count integer
+---@field temple_value integer
+---@field temple_complex_value integer
+---@field priesthood_unit_count integer
+---@field high_priesthood_unit_count integer
+---@field guildhall_vaue integer
+---@field grand_guildhall_value integer
+---@field guild_unit_count integer
+---@field grand_guild_unit_count integer
+---@field mandate_period integer
+---@field demand_period integer
+
+---@class markup_text_boxst
+---@field  integer
+---@field  integer
+
+---@class wqc_item_traitst
+---@field flg integer
+---@field flgn integer
+---@field reaction_class string
+---@field reaction_product_class string
+---@field metal_ore integer
+---@field contains_reaction_index integer
+---@field contains_reagent_index integer
+---@field tool_use integer
+---@field display_string string
+---@field on boolean
+
+---@class cwo_buildingst
+---@field type integer
+---@field subtype integer
+---@field custom_id integer
+---@field name string
+
+---@class cri_unitst
+---@field profession_list_order1 integer
+---@field profession_list_order2 integer
+---@field stress integer
+---@field flag integer
+---@field sort_name string
+---@field job_sort_name string
+
+---@class actor_entryst
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field visual_hfid integer
+---@field historical_hfid integer
+---@field identity_id integer
+---@field flag integer
+
+---@class organization_entry_nodest
+---@field sort_id integer
+---@field tier integer
+---@field x integer
+---@field descendant_sum integer
+---@field label string
+---@field fcol integer
+---@field bcol integer
+---@field br integer
+---@field name string
+---@field status string
+
+---@class organization_entryst
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field flag integer
+
+---@class plot_entryst
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field master_hfid integer
+---@field organization_name string
+
+---@class mod_headerst
+---@field zip_filename string
+---@field unzipped_folder string
+---@field id string
+---@field numeric_version integer
+---@field displayed_version string
+---@field earliest_compatible_numeric_version integer
+---@field earliest_compatible_displayed_version string
+---@field author string
+---@field name string
+---@field description string
+---@field src_dir string
+---@field steam_file_id integer
+---@field steam_title string
+---@field steam_description string
+---@field steam_metadata string
+---@field steam_changelog string
+---@field steamapi_1 string
+---@field steamapi_2 boolean
+---@field steamapi_3 integer
+
+---@class ui_look_list
+
+---@class ui_unit_view_mode
 

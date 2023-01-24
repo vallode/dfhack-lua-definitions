@@ -354,6 +354,9 @@ df.knowledge_scholar_flags_12 = {}
 ---@field engineering_machine_trip_hammer boolean
 df.knowledge_scholar_flags_13 = {}
 
+---@class knowledge_scholar_category_flag
+---@field flag_data 
+
 ---@enum dfhack_knowledge_scholar_flag
 df.dfhack_knowledge_scholar_flag = {
   philosophy_logic_formal_reasoning = 0,

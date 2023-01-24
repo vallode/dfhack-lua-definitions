@@ -75,6 +75,27 @@ df.art_facet_type = {
   EVIL = 3,
 }
 
+---@class art_image
+---@field event integer
+---@field name language_name
+---@field mat_type integer
+---@field mat_index integer
+---@field artist integer
+---@field site integer
+---@field year integer
+---@field unk_1 integer
+---@field id integer
+---@field subid integer
+
+---@class art_image_chunk
+---@field id integer
+
+---@class art_image_ref
+---@field id integer
+---@field subid integer
+---@field civ_id integer
+---@field site_id integer
+
 ---@enum poetic_form_action
 df.poetic_form_action = {
   None = -1,
@@ -166,6 +187,10 @@ df.poetic_form_subject = {
   Concept = 20,
 }
 
+---@class poetic_form_subject_target
+---@field Histfig 
+---@field Concept 
+
 ---@class poetic_form_feature
 ---@field InternalRhyme boolean
 ---@field EndRhymesDontMatch boolean
@@ -203,6 +228,35 @@ df.poetic_form_additional_feature = {
   PresentsDifferentView = 7,
   MustExpandIdea = 8,
 }
+
+---@class poetic_form
+---@field id integer
+---@field name language_name
+---@field originating_entity integer
+---@field original_author integer
+---@field subject_hf integer
+---@field each_line_feet integer
+---@field subject_target poetic_form_subject_target
+---@field preferred_perspective integer
+
+---@class poetic_form_part
+---@field count_min integer
+---@field count_max integer
+---@field size integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field some_lines_syllables integer
+---@field some_lines_pattern integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class poetic_form_perspective
+---@field histfig integer
+---@field unk_1 integer
 
 ---@enum musical_form_purpose
 df.musical_form_purpose = {
@@ -367,6 +421,53 @@ df.musical_form_melody_frequency = {
   Often = 1,
   Sometimes = 2,
 }
+
+---@class musical_form_interval
+---@field degree integer
+
+---@class musical_form_melodies
+
+---@class musical_form_passage
+---@field passage_reference integer
+---@field passage_range_end integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field poetic_form_id integer
+---@field written_content_id integer
+---@field scale_id integer
+---@field scale_sub_id integer
+---@field rhythm_id integer
+---@field sub_rhythm integer
+---@field rhythm_pattern integer
+---@field unk_22 integer
+---@field unk_23 integer
+
+---@class musical_form_instruments
+---@field instrument_subtype integer
+---@field minimum_required integer
+---@field maximum_permitted integer
+
+---@class musical_form_sub4
+---@field passage integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+
+---@class musical_form
+---@field id integer
+---@field name language_name
+---@field originating_entity integer
+---@field original_author integer
+---@field poetic_form_id integer
+---@field written_content_id integer
+---@field scale_id integer
+---@field scale_subid integer
+---@field rhythm_id integer
+---@field sub_rhythm integer
+---@field rhythm_pattern integer
+---@field devotion_target integer
 
 ---@enum dance_form_context
 df.dance_form_context = {
@@ -539,6 +640,18 @@ df.dance_form_move_modifier = {
 ---@field Follower boolean
 df.dance_form_move_location = {}
 
+---@class dance_form_section
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field move_id integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field id integer
+
 ---@enum dance_form_move_group_type
 df.dance_form_move_group_type = {
   unk_0 = 0, --Might be a null value. Hacked in it did not result in any entry in exported Legends info
@@ -548,12 +661,52 @@ df.dance_form_move_group_type = {
   DanceMove = 4,
 }
 
+---@class dance_form_move
+---@field name string
+
+---@class dance_form
+---@field id integer
+---@field name language_name
+---@field musical_form_id integer
+---@field music_written_content_id integer
+---@field originating_entity integer
+---@field original_author integer
+---@field produce_individual_dances integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_8 integer
+---@field poetry_referenced boolean
+---@field unk_14 integer
+---@field hfid integer
+---@field race integer
+
 ---@enum scale_type
 df.scale_type = {
   Octave = 0, --The octave is divided into X steps of even length
   Variable = 1, --The octave is divided into notes at varying intervals, approximated by quartertones
   PerfectFourth = 2, --The perfect fourth interval is divided into steps of even length
 }
+
+---@class chord
+---@field name string
+---@field chord_size integer
+---@field unk_3 integer
+
+---@class named_scale
+---@field unk_1 integer
+---@field name string
+---@field degrees_used integer
+---@field first_chord integer
+---@field second_chord integer
+
+---@class scale
+---@field id integer
+---@field scale_length integer
+---@field notes 
+
+---@class rhythm
+---@field id integer
+---@field unk_2 integer
 
 ---@enum beat_type
 df.beat_type = {
@@ -571,6 +724,16 @@ df.beat_type = {
   AccentedSyncopated = 11, --!'
 }
 
+---@class beat
+
+---@class rhythm_pattern
+---@field name string
+---@field length integer
+
+---@class sub_rhythm
+---@field name string
+---@field unk_3 integer
+
 ---@enum occupation_type
 df.occupation_type = {
   TAVERN_KEEPER = 0,
@@ -581,4 +744,35 @@ df.occupation_type = {
   SCRIBE = 5,
   MESSENGER = 6,
 }
+
+---@class occupation
+---@field id integer
+---@field histfig_id integer
+---@field unit_id integer
+---@field location_id integer
+---@field site_id integer
+---@field group_id integer
+---@field unk_2 integer
+---@field army_controller_id integer
+
+---@class occupation_sub1
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
+---@field unk_17 integer
+---@field unk_18 integer
+---@field unk_19 integer
 

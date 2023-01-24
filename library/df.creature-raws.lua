@@ -390,6 +390,96 @@ df.appearance_modifier_growth_interval = {
   YEARLY = 3,
 }
 
+---@class body_part_layer_raw
+---@field layer_name string
+---@field tissue_id integer
+---@field part_fraction integer
+---@field healing_rate integer
+---@field vascular integer
+---@field pain_receptors integer
+---@field unk6 integer
+---@field unk7 integer
+---@field layer_id integer
+---@field parent_idx integer
+---@field parent_layer_id integer
+---@field layer_depth integer
+---@field leak_barrier_id integer
+---@field nonsolid_id integer
+---@field styleable_id integer
+
+---@class body_part_raw
+---@field token string
+---@field category string
+---@field con_part_id integer
+---@field fraction_total integer
+---@field fraction_base integer
+---@field fraction_fat integer
+---@field fraction_muscle integer
+---@field relsize integer
+---@field number integer
+---@field unk7b integer
+---@field min_temp integer
+---@field max_temp integer
+---@field temp_factor integer
+---@field numbered_idx integer
+---@field insulation_fat integer
+---@field insulation_muscle integer
+---@field insulation_base integer
+---@field clothing_item_id integer
+
+---@class color_modifier_raw
+---@field unk5 integer
+---@field start_date integer
+---@field end_date integer
+---@field unk6 integer
+---@field part string
+---@field unk_6c integer
+---@field unk_6e integer
+---@field unk_70 integer
+---@field id integer
+
+---@class body_appearance_modifier
+---@field growth_rate integer
+---@field growth_min integer
+---@field growth_max integer
+---@field growth_start integer
+---@field growth_end integer
+---@field importance integer
+---@field noun string
+---@field unk_1 integer
+---@field unk_2 integer
+---@field id integer
+---@field id2 integer
+
+---@class bp_appearance_modifier
+---@field growth_rate integer
+---@field growth_min integer
+---@field growth_max integer
+---@field growth_start integer
+---@field growth_end integer
+---@field importance integer
+---@field noun string
+---@field single_plural integer
+---@field unk1 integer
+---@field id1 integer
+---@field id integer
+
+---@class caste_clothing_item
+---@field body_part_id integer
+---@field unk_4 integer
+
+---@class caste_attack
+---@field name string
+---@field verb_3rd string
+---@field verb_2nd string
+---@field contact_perc integer
+---@field penetration_perc integer
+---@field unk_v40_1 integer
+---@field unk_v40_2 integer
+---@field velocity_modifier integer
+---@field unk_v40_3 integer
+---@field unk_v40_4 integer
+
 ---@enum gait_type
 df.gait_type = {
   WALK = 0,
@@ -399,6 +489,15 @@ df.gait_type = {
   CLIMB = 4,
 }
 
+---@class gait_info
+---@field action_string_idx integer
+---@field full_speed integer
+---@field buildup_time integer
+---@field turn_max integer
+---@field start_speed integer
+---@field energy_use integer
+---@field stealth_slows integer
+
 ---@class creature_interaction_target_flags
 ---@field LINE_OF_SIGHT boolean
 ---@field TOUCHABLE boolean
@@ -406,6 +505,64 @@ df.gait_type = {
 ---@field SELF_ALLOWED boolean
 ---@field SELF_ONLY boolean
 df.creature_interaction_target_flags = {}
+
+---@class creature_interaction
+---@field unk_1 string
+---@field unk_2 string
+---@field material_str0 string
+---@field material_str1 string
+---@field material_str2 string
+---@field verb_2nd string
+---@field verb_3rd string
+---@field verb_mutual string
+---@field verb_reverse_2nd string
+---@field verb_reverse_3rd string
+---@field target_verb_2nd string
+---@field target_verb_3rd string
+---@field interaction_type string
+---@field type_id integer
+---@field adv_name string
+---@field wait_period integer
+
+---@class caste_body_info
+---@field total_relsize integer
+---@field materials material_vec_ref
+---@field fraction_total integer
+---@field fraction_base integer
+---@field fraction_fat integer
+---@field fraction_muscle integer
+
+---@class caste_raw
+---@field caste_id string
+---@field vermin_bite_txt string
+---@field gnawer_txt string
+---@field description string
+---@field caste_tile integer
+---@field caste_soldier_tile integer
+---@field caste_alttile integer
+---@field caste_soldier_alttile integer
+---@field caste_glowtile integer
+---@field homeotherm integer
+---@field min_temp integer
+---@field max_temp integer
+---@field fixed_temp integer
+---@field misc 
+---@field personality 
+---@field index integer
+---@field body_info caste_body_info
+---@field attributes 
+---@field bp_appearance 
+---@field appearance_gene_count integer
+---@field color_gene_count integer
+---@field caste_profession_name 
+---@field extracts 
+---@field unknown2 
+---@field lair_hunter_speech 
+---@field unk29 
+---@field smell_trigger integer
+---@field odor_level integer
+---@field odor_string string
+---@field low_light_vision integer
 
 ---@enum creature_graphics_role
 df.creature_graphics_role = {
@@ -425,6 +582,44 @@ df.tissue_style_type = {
   PONY_TAILS = 3,
   CLEAN_SHAVEN = 4,
 }
+
+---@class creature_graphics_appointment
+---@field token string
+
+---@class tissue_style_raw
+---@field token string
+---@field id integer
+---@field noun string
+
+---@class creature_raw
+---@field creature_id string
+---@field unk_v43_1 string
+---@field creature_tile integer
+---@field creature_soldier_tile integer
+---@field alttile integer
+---@field soldier_alttile integer
+---@field glowtile integer
+---@field temperature1 integer
+---@field temperature2 integer
+---@field frequency integer
+---@field adultsize integer
+---@field profession_name 
+---@field underground_layer_min integer
+---@field underground_layer_max integer
+---@field hive_product 
+---@field source_hfid integer
+---@field unk_v4201_1 integer
+---@field next_modifier_id integer
+
+---@class creature_variation_convert_tag
+---@field cvct_master string
+---@field cvct_target string
+---@field cvct_replacement string
+---@field unk_v40_1 integer
+---@field unk_v40_2 string
+
+---@class creature_variation
+---@field id string
 
 ---@enum body_part_template_flags
 df.body_part_template_flags = {
@@ -471,6 +666,17 @@ df.body_part_template_contype = {
   STANCE = 4,
 }
 
+---@class body_part_template
+---@field id string
+---@field con string
+---@field category string
+---@field con_cat string
+---@field default_relsize integer
+---@field number integer
+
+---@class body_template
+---@field id string
+
 ---@enum tissue_flags
 df.tissue_flags = {
   THICKENS_ON_STRENGTH = 0,
@@ -496,4 +702,46 @@ df.tissue_flags = {
   SETTABLE = 20,
   SPLINTABLE = 21,
 }
+
+---@class tissue_template
+---@field id string
+---@field tissue_name_singular string
+---@field tissue_name_plural string
+---@field mat_type integer
+---@field mat_index integer
+---@field relative_thickness integer
+---@field healing_rate integer
+---@field vascular integer
+---@field pain_receptors integer
+---@field tissue_shape integer
+---@field unk1 integer
+---@field insulation integer
+---@field subordinate_to_tissue string
+---@field tissue_shape_str string
+
+---@class tissue
+---@field id string
+---@field tissue_name_singular string
+---@field tissue_name_plural string
+---@field mat_type integer
+---@field mat_index integer
+---@field relative_thickness integer
+---@field healing_rate integer
+---@field vascular integer
+---@field pain_receptors integer
+---@field tissue_shape integer
+---@field unk1 integer
+---@field insulation integer
+---@field subordinate_to_tissue string
+---@field parent_tissue integer
+---@field heatdam_point integer
+---@field colddam_point integer
+---@field ignite_point integer
+---@field melting_point integer
+---@field boiling_point integer
+---@field spec_heat integer
+---@field tissue_shape_str string
+
+---@class body_detail_plan
+---@field id string
 

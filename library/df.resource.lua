@@ -48,3 +48,10 @@ df.resource_allotment_specifier_type = {
   AMMO = 43,
 }
 
+---@class resource_allotment_data
+---@field index integer
+---@field unk1 integer
+---@field unk2 integer
+---@field unk3 integer
+---@field unk_650 integer
+

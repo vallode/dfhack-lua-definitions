@@ -148,6 +148,53 @@ df.strain_type = {
   COMPRESSIVE = 5,
 }
 
+---@class material_common
+---@field id string
+---@field gem_name1 string
+---@field gem_name2 string
+---@field stone_name string
+---@field heat 
+---@field solid_density integer
+---@field liquid_density integer
+---@field molar_mass integer
+---@field strength 
+---@field material_value integer
+---@field butcher_special_subtype integer
+---@field  integer
+---@field reaction_product 
+---@field hardens_with_water 
+
+---@class material
+---@field tile integer
+---@field item_symbol integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field powder_dye integer
+---@field temp_diet_info integer
+---@field soap_level integer
+---@field prefix string
+---@field powder_dye_str string
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+
+---@class material_vec_ref
+
+---@class material_template
+---@field tile integer
+---@field item_symbol integer
+---@field powder_dye integer
+---@field temp_diet_info integer
+---@field soap_level integer
+---@field powder_dye_str string
+
 ---@enum inorganic_flags
 df.inorganic_flags = {
   LAVA = 0,
@@ -205,6 +252,18 @@ df.inclusion_type = {
   CLUSTER_ONE = 4,
 }
 
+---@class inorganic_raw
+---@field id string
+---@field source_hfid integer
+---@field unk_v4201_1 integer
+---@field metal_ore 
+---@field thread_metal 
+---@field environment_spec 
+---@field environment 
+---@field times_used_land integer
+---@field times_used_ocean integer
+---@field material material
+
 ---@enum organic_mat_category
 df.organic_mat_category = {
   Meat = 0,
@@ -247,4 +306,6 @@ df.organic_mat_category = {
   Paper = 37,
   Parchment = 38,
 }
+
+---@class special_mat_table
 

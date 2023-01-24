@@ -6,6 +6,12 @@ df.interaction_flags = {
   EXPERIMENT_ONLY = 1,
 }
 
+---@class interaction
+---@field name string
+---@field id integer
+---@field source_hfid integer
+---@field source_enid integer
+
 ---@enum interaction_effect_type
 df.interaction_effect_type = {
   ANIMATE = 0,
@@ -83,6 +89,12 @@ df.interaction_target_location_type = {
   RANDOM_NEARBY_LOCATION = 6,
 }
 
+---@class interaction_target_info
+---@field requires_1 integer
+---@field requires_2 integer
+---@field forbidden_1 integer
+---@field forbidden_2 integer
+
 ---@enum breath_attack_type
 df.breath_attack_type = {
   TRAILING_DUST_FLOW = 0,
@@ -108,4 +120,10 @@ df.breath_attack_type = {
   SHARP_ROCK = 20,
   OTHER = 21,
 }
+
+---@class interaction_instance
+---@field id integer
+---@field interaction_id integer
+---@field unk_1 integer
+---@field region_index integer
 

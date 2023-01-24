@@ -110,6 +110,9 @@ df.specific_ref_type = {
   BREED = 30,
 }
 
+---@class specific_ref
+---@field data 
+
 ---@enum histfig_entity_link_type
 df.histfig_entity_link_type = {
   MEMBER = 0,
@@ -172,6 +175,10 @@ df.entity_entity_link_type = {
   RELIGIOUS = 2, --Seen between religion and merc company.
 }
 
+---@class entity_entity_link
+---@field target integer
+---@field strength integer
+
 ---@enum entity_site_link_type
 df.entity_site_link_type = {
   None = -1,
@@ -219,6 +226,20 @@ df.entity_site_link_flags = {}
 ---@field unk_8192 boolean
 ---The meaning of the bits are highly uncertain, and the bits are named with their values as if part of an integer to match research made against an integer field
 df.entity_site_link_status_flags = {}
+
+---@class entity_site_link
+---@field target integer
+---@field entity_id integer
+---@field land_holder integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field link_strength integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field target_site_x integer
+---@field target_site_y integer
+---@field unk_v43_1 integer
+---@field unk_v43_2 integer
 
 ---@class undead_flags
 ---@field zombie boolean

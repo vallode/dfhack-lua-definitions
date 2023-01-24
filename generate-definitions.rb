@@ -1,5 +1,59 @@
 require 'nokogiri'
 
+def getEnumAnnotation(enum)
+  annotation = "---@enum #{enum['type-name']}\n"
+  annotation << "df.#{enum['type-name']} = {\n"
+  
+  index = 0
+  enum.search("enum-item").each do |child|
+    annotation << "  %s = %s," % [child["name"] || "unk_%s" % index, child["value"] || index]
+
+    if comment = child["comment"]
+      annotation << " --#{comment}\n"
+    else
+      annotation << "\n"
+    end 
+
+    # TODO: Enum attributes.
+    if child.children.any? {|c| c.name == "item-attr" }
+    end
+
+    if not child["value"]
+      index += 1
+    end
+  end
+
+  return annotation << "}\n\n"
+end
+
+def getStructAnnotation(struct)
+  annotation = "---@class #{struct["type-name"]}\n"
+
+  struct.children.each do |child|
+    if child.name === "stl-string"
+      annotation << "---@field #{child['name']} string\n"
+    end
+
+    if child.name === "bool"
+      annotation << "---@field #{child['name']} boolean\n"
+    end
+
+    if ["int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"].include?(child.name)
+      annotation << "---@field #{child['name']} integer\n"
+    end
+
+    if ["s-float", "d-float"].include?(child.name)
+      annotation << "---@field #{child['name']} number\n"
+    end
+
+    if child.name === "compound"
+      annotation << "---@field #{child['name']} #{child['type-name']}\n"
+    end
+  end
+
+  return annotation << "\n"
+end
+
 $bitfield_type = <<-EOF
 ---@class %{name}
 %{fields}%{comment}df.%{name} = {}
@@ -8,14 +62,6 @@ EOF
 
 $flag_bit = <<-EOF
 ---@field %{name} boolean
-EOF
-
-$enum_type = <<-EOF
----@enum %{name}
-df.%{name} = {
-%{enums}
-}
-
 EOF
 
 def getBitfieldFields (bitfield)
@@ -28,27 +74,6 @@ def getBitfieldFields (bitfield)
   end
 
   return fields.join("")
-end
-
-def getEnums (enum)
-  fields = []
-
-  index = 0
-  enum.children.each do | child |
-    if child.name == "enum-item"
-      fields.push("  %s = %s,%s" % [child["name"] || "unk_%s" % index, child["value"] || index, child["comment"] && " --#{child['comment']}" || ""])
-
-      # TODO: Enum attributes.
-      if child.children.any? {|c| c.name == "item-attr" }
-      end
-
-      if not child["value"]
-        index += 1
-      end
-    end
-  end
-
-  return fields.join("\n")
 end
 
 Dir.glob(ARGV[0]).each do |xml|
@@ -65,8 +90,11 @@ Dir.glob(ARGV[0]).each do |xml|
         end
     
         if value.name == "enum-type"
-          p value["type-name"]
-          output.write($enum_type % {name: value["type-name"], enums: getEnums(value)})
+          output.write(getEnumAnnotation(value))
+        end
+    
+        if value.name == "struct-type"
+          output.write(getStructAnnotation(value))
         end
       end
     end

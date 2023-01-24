@@ -6,6 +6,20 @@
 ---@field ranged boolean
 df.uniform_indiv_choice = {}
 
+---@class item_filter_spec
+---@field item_subtype integer
+---@field mattype integer
+---@field matindex integer
+
+---@class squad_uniform_spec
+---@field item integer
+---@field item_filter item_filter_spec
+---@field color integer
+
+---@class squad_ammo_spec
+---@field item_filter item_filter_spec
+---@field amount integer
+
 ---@class squad_use_flags
 ---@field sleep boolean
 ---@field train boolean
@@ -44,6 +58,37 @@ df.squad_event_type = {
   Unk1 = 1,
   Unk2 = 2,
 }
+
+---@class squad_position
+---@field occupant integer
+---@field unk_c4 string
+---@field quiver integer
+---@field backpack integer
+---@field flask integer
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class squad_schedule_order
+---@field min_count integer
+
+---@class squad_schedule_entry
+---@field name string
+---@field sleep_mode integer
+---@field uniform_mode integer
+
+---@class squad
+---@field id integer
+---@field name language_name
+---@field alias string
+---@field cur_alert_idx integer
+---@field uniform_priority integer
+---@field activity integer
+---@field carry_food integer
+---@field carry_water integer
+---@field entity_id integer
+---@field leader_position integer
+---@field leader_assignment integer
+---@field unk_1 integer
 
 ---@enum squad_order_type
 df.squad_order_type = {
@@ -86,8 +131,151 @@ df.squad_order_cannot_reason = {
   cannot_leave_site = 20,
 }
 
+---@class army_controller
+---@field id integer
+---@field entity_id integer
+---@field site_id integer
+---@field unk_1 integer
+---@field pos_x integer
+---@field pos_y integer
+---@field unk_18 integer
+---@field unk_1c integer
+---@field year integer
+---@field year_tick integer
+---@field unk_34 integer
+---@field unk_38 integer
+---@field master_hf integer
+---@field general_hf integer
+---@field unk_44_1 integer
+---@field unk_44_2 integer
+---@field visitor_nemesis_id integer
+---@field unk_44_4 integer
+---@field unk_50 integer
+---@field data 
+
+---@class army_controller_sub1
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_invasion_order
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class army_controller_invasion
+---@field unk_1 integer
+
+---@class army_controller_sub5
+---@field pos_x integer
+---@field pos_y integer
+---@field unk_1 integer
+---@field year integer
+---@field year_tick integer
+
+---@class army_controller_sub6
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class army_controller_sub7
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_4 integer
+---@field pos_x integer
+---@field pos_y integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+
+---@class army_controller_sub11
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class army_controller_visit
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field abstract_building integer
+
+---@class army_controller_sub13
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_sub14
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_sub15
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+
+---@class army_controller_sub16
+---@field unk_1 integer
+
+---@class army_controller_quest
+---@field artifact_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_sub18
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class army_controller_villainous_visit
+---@field site_id integer
+---@field entity_id integer
+---@field abstract_building integer
+
 ---@enum army_flags
 df.army_flags = {
   player = 0,
 }
+
+---@class army
+---@field id integer
+---@field pos coord
+---@field last_pos coord
+---@field unk_10 integer
+---@field unk_14 integer
+---@field unk_18 integer
+---@field unk_3c integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field controller_id integer
+---@field unk_90 integer
+---@field unk_94 integer
+---@field unk_98 integer
+---@field min_smell_trigger integer
+---@field max_odor_level integer
+---@field max_low_light_vision integer
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
 

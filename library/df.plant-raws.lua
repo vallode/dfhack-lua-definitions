@@ -92,6 +92,70 @@ df.plant_raw_flags = {
   TWIGS_BELOW_TRUNK = 87,
 }
 
+---@class plant_raw
+---@field id string
+---@field index integer
+---@field name string
+---@field name_plural string
+---@field adj string
+---@field seed_singular string
+---@field seed_plural string
+---@field leaves_singular string
+---@field leaves_plural string
+---@field source_hfid integer
+---@field unk_v4201_1 integer
+---@field unk1 integer
+---@field unk2 integer
+---@field tiles 
+---@field growdur integer
+---@field value integer
+---@field colors 
+---@field shrub_drown_level integer
+---@field tree_drown_level integer
+---@field sapling_drown_level integer
+---@field frequency integer
+---@field clustersize integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field material_defs 
+---@field underground_depth_min integer
+---@field underground_depth_max integer
+---@field root_name string
+---@field trunk_name string
+---@field heavy_branch_name string
+---@field light_branch_name string
+---@field twig_name string
+---@field cap_name string
+---@field trunk_period integer
+---@field heavy_branch_density integer
+---@field light_branch_density integer
+---@field max_trunk_height integer
+---@field heavy_branch_radius integer
+---@field light_branch_radius integer
+---@field trunk_branching integer
+---@field max_trunk_diameter integer
+---@field trunk_width_period integer
+---@field cap_period integer
+---@field cap_radius integer
+---@field root_density integer
+---@field root_radius integer
+
 ---@enum plant_material_def
 df.plant_material_def = {
   basic_mat = 0,
@@ -104,4 +168,24 @@ df.plant_material_def = {
   extract_barrel = 7,
   extract_still_vial = 8,
 }
+
+---@class plant_growth
+---@field id string
+---@field name string
+---@field name_plural string
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field timing_1 integer
+---@field timing_2 integer
+---@field density integer
+---@field trunk_height_perc_1 integer
+---@field trunk_height_perc_2 integer
+
+---@class plant_growth_print
+---@field priority integer
+---@field tile_growth integer
+---@field tile_item integer
+---@field timing_start integer
+---@field timing_end integer
 

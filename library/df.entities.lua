@@ -1,5 +1,22 @@
 ---@meta
 
+---@class entity_occasion_info
+---@field next_occasion_id integer
+---@field count integer
+
+---@class entity_occasion
+---@field id integer
+---@field unk_1 integer
+---@field site integer
+---@field unk_2 integer
+---@field name language_name
+---@field start_year_tick integer
+---@field end_year_tick integer
+---@field unk_3 integer
+---@field event integer
+---@field unk_4 integer
+---@field unk_5 integer
+
 ---@enum occasion_schedule_type
 df.occasion_schedule_type = {
   DANCE_PERFORMANCE = 0,
@@ -18,6 +35,15 @@ df.occasion_schedule_type = {
   PROCESSION = 13,
   CEREMONY = 14,
 }
+
+---@class entity_occasion_schedule
+---@field reference integer
+---@field reference2 integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field start_year_tick integer
+---@field end_year_tick integer
 
 ---@enum occasion_schedule_feature
 df.occasion_schedule_feature = {
@@ -41,6 +67,58 @@ df.occasion_schedule_feature = {
   THE_GIVING_OF_ITEMS = 17,
   THE_SACRIFICE_OF_ITEMS = 18,
 }
+
+---@class entity_occasion_schedule_feature
+---@field reference integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class entity_activity_statistics
+---@field food 
+---@field population integer
+---@field menial_exempt integer
+---@field omnivores integer
+---@field carnivores integer
+---@field trained_animals integer
+---@field other_animals integer
+---@field potential_soldiers integer
+---@field combat_aptitude integer
+---@field wealth 
+---@field excavated_tiles integer
+---@field total_deaths integer
+---@field total_insanities integer
+---@field total_executions integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field num_artifacts integer
+---@field unk_6 integer
+---@field discovered_water_features integer
+---@field discovered_subterranean_features integer
+---@field discovered_chasm_features integer
+---@field discovered_magma_features integer
+---@field discovered_feature_layers integer
+---@field migrant_wave_idx integer
+
+---@class caravan_state
+---@field total_capacity integer
+---@field unk_1 integer
+---@field depot_notified integer
+---@field time_remaining integer
+---@field entity integer
+---@field activity_stats entity_activity_statistics
+---@field import_value integer
+---@field export_value_total integer
+---@field export_value_personal integer
+---@field offer_value integer
+---@field mood integer
+---@field unk_2 integer
+
+---@class entity_buy_prices
+
+---@class entity_buy_requests
 
 ---@enum entity_sell_category
 df.entity_sell_category = {
@@ -110,6 +188,13 @@ df.entity_sell_category = {
   CupsMugsGoblets = 63,
 }
 
+---@class entity_sell_prices
+
+---@class entity_sell_requests
+
+---@class entity_recipe
+---@field subtype integer
+
 ---@enum historical_entity_type
 df.historical_entity_type = {
   Civilization = 0,
@@ -124,6 +209,69 @@ df.historical_entity_type = {
   MerchantCompany = 9,
   Guild = 10,
 }
+
+---@class honors_type
+---@field id integer
+---@field name string
+---@field precedence_awarded integer
+---@field required_skill_points integer
+---@field required_kills integer
+---@field required_battles integer
+---@field required_years_of_membership integer
+
+---@class artifact_claim
+---@field artifact_id integer
+---@field symbol_claim_id integer
+---@field claim_year integer
+---@field claim_year_tick integer
+---@field unk_1 integer
+---@field site integer
+---@field structure_local integer
+---@field holder_hf integer
+---@field subregion integer
+---@field feature_layer_id integer
+---@field unk_year integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class entity_unk_v47_1
+---@field unk_v47_1 integer
+---@field unk_v47_2 integer
+---@field unk_v47_9 integer
+
+---@class historical_entity
+---@field id integer
+---@field  integer
+---@field save_file_id integer
+---@field next_member_idx integer
+---@field name language_name
+---@field race integer
+---@field resources 
+---@field next_uniform_id integer
+---@field relations 
+---@field positions 
+---@field tissue_styles 
+---@field unknown1d 
+---@field unk_v40_1a integer
+---@field unk_v40_1b integer
+---@field unk_v40_1c integer
+---@field unk_v40_1d integer
+---@field unk_v40_1e integer
+---@field next_honors_index integer
+---@field equipment_purchases integer
+---@field attack integer
+---@field total_battles integer
+---@field founding_site_government integer
+---@field unknown1e 
+---@field derived_resources 
+---@field claims 
+---@field unknown2 
+
+---@class entity_tissue_style
+---@field name string
+---@field maintain_length_min integer
+---@field maintain_length_max integer
+---@field id integer
 
 ---@enum training_knowledge_level
 df.training_knowledge_level = {
@@ -171,6 +319,42 @@ df.entity_position_flags = {
   unk_1f = 31,
 }
 
+---@class entity_position
+---@field code string
+---@field id integer
+---@field land_name string
+---@field squad_size integer
+---@field land_holder integer
+---@field requires_population integer
+---@field unk_1 integer
+---@field precedence integer
+---@field replaced_by integer
+---@field number integer
+---@field required_boxes integer
+---@field required_cabinets integer
+---@field required_racks integer
+---@field required_stands integer
+---@field required_office integer
+---@field required_bedroom integer
+---@field required_dining integer
+---@field required_tomb integer
+---@field mandate_max integer
+---@field demand_max integer
+---@field unk_2 integer
+
+---@class entity_position_assignment
+---@field id integer
+---@field histfig integer
+---@field histfig2 integer
+---@field position_id integer
+---@field position_vector_idx integer
+---@field squad_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_6 integer
+
 ---@enum entity_material_category
 df.entity_material_category = {
   None = -1,
@@ -207,6 +391,22 @@ df.entity_material_category = {
   Furniture = 30, --misc_mat.rock_metal
   MiscWood2 = 31, --misc_mat.wood2
 }
+
+---@class entity_uniform_item
+---@field random_dye integer
+---@field armorlevel integer
+---@field item_color integer
+---@field art_image_id integer
+---@field art_image_subid integer
+---@field image_thread_color integer
+---@field maker_race integer
+---@field mattype integer
+---@field matindex integer
+
+---@class entity_uniform
+---@field id integer
+---@field unk_4 integer
+---@field name string
 
 ---@enum entity_event_type
 df.entity_event_type = {
@@ -246,6 +446,24 @@ df.entity_event_type = {
   artifact_was_destroyed = 33,
 }
 
+---@class entity_event
+---@field data 
+---@field unk_year integer
+---@field unk_year_tick integer
+---@field year integer
+---@field year_tick integer
+---@field unk_1 integer
+
+---@class agreement
+---@field id integer
+---@field next_party_id integer
+---@field next_details_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class agreement_party
+---@field id integer
+
 ---@enum crime_type
 df.crime_type = {
   NONE = -1,
@@ -274,4 +492,105 @@ df.agreement_details_type = {
   PlotFrameTreason = 14,
   PlotInduceWar = 15,
 }
+
+---@class agreement_details
+---@field id integer
+---@field year integer
+---@field year_tick integer
+---@field data 
+
+---@class agreement_details_data_join_party
+---@field member integer
+---@field party integer
+---@field site integer
+---@field entity integer
+---@field figure integer
+
+---@class agreement_details_data_demonic_binding
+---@field demon integer
+---@field summoner integer
+---@field site integer
+---@field artifact integer
+
+---@class agreement_details_data_residency
+---@field applicant integer
+---@field government integer
+---@field site integer
+
+---@class agreement_details_data_citizenship
+---@field applicant integer
+---@field government integer
+---@field site integer
+
+---@class agreement_details_data_parley
+---@field unk_1 integer
+---@field party_id integer
+
+---@class agreement_details_data_position_corruption
+---@field unk_1 integer
+---@field actor_index integer
+---@field influencer_index integer
+---@field intermediary_index integer
+---@field target_id integer
+---@field position_id integer
+
+---@class agreement_details_data_plot_steal_artifact
+---@field actor_index integer
+---@field influencer_index integer
+---@field intermediary_index integer
+---@field artifact_id integer
+
+---@class agreement_details_data_promise_position
+---@field beneficiary_index integer
+---@field actor_index integer
+---@field promisee_index integer
+---@field influencer_index integer
+---@field entity_id integer
+
+---@class agreement_details_data_plot_assassination
+---@field actor_index integer
+---@field influencer_index integer
+---@field intermediary_index integer
+---@field target_id integer
+
+---@class agreement_details_data_plot_abduct
+---@field actor_index integer
+---@field intermediary_index integer
+---@field target_id integer
+
+---@class agreement_details_data_plot_sabotage
+---@field plotter_index integer
+---@field actor_index integer
+---@field intermediary_index integer
+---@field victim_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class agreement_details_data_plot_conviction
+
+---@class agreement_details_data_location
+---@field applicant integer
+---@field government integer
+---@field site integer
+---@field deity_data temple_deity_data
+---@field tier integer
+
+---@class agreement_details_data_plot_infiltration_coup
+---@field actor_index integer
+---@field influencer_index integer
+---@field target integer
+---@field action integer
+
+---@class agreement_details_data_plot_frame_treason
+---@field actor_index integer
+---@field influencer_index integer
+---@field victim_id integer
+---@field fool_id integer
+---@field unk_1 integer
+
+---@class agreement_details_data_plot_induce_war
+---@field actor_index integer
+---@field influencer_index integer
+---@field attacker integer
+---@field defender integer
 

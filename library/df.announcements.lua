@@ -363,10 +363,42 @@ df.announcement_type = {
 ---@field UNIT_COMBAT_REPORT_ALL_ACTIVE boolean
 df.announcement_flags = {}
 
+---@class announcements
+
+---@class report
+---@field text string
+---@field color integer
+---@field bright boolean
+---@field duration integer
+---@field repeat_count integer
+---@field pos coord
+---@field pos2 coord
+---@field id integer
+---@field year integer
+---@field time integer
+---@field unk_v40_1 integer
+---@field unk_v40_2 integer
+---@field speaker_id integer
+
 ---@enum report_zoom_type
 df.report_zoom_type = {
   Generic = 0,
   Item = 1,
   Unit = 2,
 }
+
+---@class popup_message
+---@field text string
+---@field color integer
+---@field bright boolean
+
+---@class report_init
+---@field color integer
+---@field bright boolean
+---@field pos coord
+---@field pos2 coord
+---@field display_timer integer
+---@field unk_v40_1 integer
+---@field unk_v40_2 integer
+---@field speaker_id integer
 

@@ -67,6 +67,33 @@ df.job_subtype_surgery = {
   RemoveRottenTissue = 3,
 }
 
+---@class job
+---@field id integer
+---@field posting_index integer
+---@field job_subtype integer
+---@field pos coord
+---@field completion_timer integer
+---@field unk4 integer
+---@field mat_type integer
+---@field mat_index integer
+---@field unk5 integer
+---@field item_subtype integer
+---@field  
+---@field reaction_name string
+---@field expire_timer integer
+---@field recheck_cntdn integer
+---@field wait_timer integer
+---@field unk11 integer
+---@field guide_path coord_path
+---@field cur_path_index integer
+---@field unk_v4020_2 coord
+---@field art_spec job_art_specification
+---@field order_id integer
+
+---@class job_item_ref
+---@field is_fetching integer
+---@field job_item_idx integer
+
 ---@class job_item_flags1
 ---@field improvable boolean
 ---@field butcherable boolean
@@ -153,10 +180,100 @@ df.job_item_flags2 = {}
 ---@field edged boolean
 df.job_item_flags3 = {}
 
+---@class job_item
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field quantity integer
+---@field flags4 integer
+---@field flags5 integer
+---@field metal_ore integer
+---@field reaction_class string
+---@field has_material_reaction_product string
+---@field min_dimension integer
+---@field reagent_index integer
+---@field reaction_id integer
+---@field unk_v43_1 integer
+---@field unk_v43_2 integer
+---@field unk_v43_3 integer
+---@field unk_v43_4 integer
+
+---@class job_item_filter
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field use_mat_index boolean
+---@field use_flags2 boolean
+---@field use_flags3 boolean
+---@field flags4 integer
+---@field use_flags4 boolean
+---@field flags5 integer
+---@field use_flags5 boolean
+---@field reaction_class string
+---@field has_material_reaction_product string
+---@field metal_ore integer
+---@field use_metal_ore boolean
+---@field use_reaction_class boolean
+---@field use_reaction_product boolean
+---@field min_dimension integer
+---@field reaction_id integer
+---@field use_contains boolean
+---@field unk_v40_1 integer
+---@field pos coord
+---@field unk_v4305_1 integer
+---@field use_burrows boolean
+
 ---@class manager_order_status
 ---@field validated boolean
 ---@field active boolean
 df.manager_order_status = {}
+
+---@class job_art_specification
+---@field id integer
+---@field subid integer
+
+---@class manager_order
+---@field id integer
+---@field item_subtype integer
+---@field reaction_name string
+---@field mat_type integer
+---@field mat_index integer
+---@field hist_figure_id integer
+---@field art_spec job_art_specification
+---@field amount_left integer
+---@field amount_total integer
+---@field finished_year integer
+---@field finished_year_tick integer
+---@field workshop_id integer
+---@field max_workshops integer
+
+---@class manager_order_condition_item
+---@field compare_val integer
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field flags4 integer
+---@field flags5 integer
+---@field reaction_class string
+---@field has_material_reaction_product string
+---@field inorganic_bearing integer
+---@field min_dimension integer
+---@field reaction_id integer
+
+---@class manager_order_condition_order
+---@field order_id integer
+---@field unk_1 integer
+
+---@class manager_order_template
+---@field reaction_name string
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field hist_figure_id integer
+---@field match_value integer
+---@field name string
+---@field compare_str string
+---@field on boolean
 
 ---@enum guild_id
 df.guild_id = {
@@ -168,4 +285,28 @@ df.guild_id = {
   Jewelers = 4,
   Craftsmen = 5,
 }
+
+---@class mandate
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field amount_total integer
+---@field amount_remaining integer
+---@field timeout_counter integer
+---@field timeout_limit integer
+---@field punishment 
+---@field punish_multiple integer
+---@field unk4 integer
+
+---@class training_assignment
+---@field animal_id integer
+---@field trainer_id integer
+
+---@class unit_demand
+---@field unk_0 integer
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field timeout_counter integer
+---@field timeout_limit integer
 

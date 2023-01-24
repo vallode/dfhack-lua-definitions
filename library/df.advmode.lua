@@ -55,6 +55,24 @@ df.ui_advmode_menu = {
   PartyTacticalSettings = 49,
 }
 
+---@class conversation
+---@field conv_title string
+---@field unk_30 integer
+---@field unk_34 integer
+---@field unk_38 integer
+---@field unk_3c integer
+---@field unk_40 integer
+---@field unk_44 integer
+---@field unk_48 integer
+---@field unk_4c integer
+---@field unk_50 integer
+---@field unk_74 integer
+---@field unk_78 integer
+---@field unk_7c integer
+---@field unk_80 integer
+---@field unk_b8 integer
+---@field unk_bc integer
+
 ---@enum talk_choice_type
 df.talk_choice_type = {
   Greet = 0,
@@ -292,4 +310,116 @@ df.assume_identity_mode = {
   SelectWorship = 3,
   SelectOrigin = 4,
 }
+
+---@class talk_choice
+---@field unk 
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class adventurest
+---@field site_level_zoom integer
+---@field travel_origin_x integer
+---@field travel_origin_y integer
+---@field travel_origin_z integer
+---@field travel_clouds boolean
+---@field message string
+---@field message_color integer
+---@field message_brightness integer
+---@field travel_not_moved boolean
+---@field unk4b integer
+---@field travel_move_countdown integer
+---@field unk_4 integer
+---@field fell_tree_x integer
+---@field fell_tree_y integer
+---@field fell_tree_z integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field offload_timer integer
+---@field tick_counter integer
+---@field frame_counter integer
+---@field unk_15 integer
+---@field sleeping boolean
+---@field unk_16 integer
+---@field bogeymen_ambush_size integer
+---@field bogeymen_killed integer
+---@field bogeymen_ambush_delay integer
+---@field unk_18 integer
+---@field unk_19 integer
+---@field unk_20 integer
+---@field unk_21 integer
+---@field unk_22 integer
+---@field unk_23 integer
+---@field player_army_id integer
+---@field gait_index integer
+---@field gait_unk integer
+---@field tracks_next_idx integer
+---@field view_tracks_odors integer
+---@field tracks_visible integer
+---@field odor_race integer
+---@field odor_caste integer
+---@field odor_death integer
+---@field travel_odor_race integer
+---@field travel_odor_caste integer
+---@field unk_46 integer
+---@field multiattack integer
+---@field unk_3170 
+---@field unk_3124 
+---@field unk_48 integer
+---@field unk_49 integer
+---@field unk_50 integer
+---@field unk_51 integer
+---@field wait_timer integer
+---@field attack_style integer
+---@field unk_55 integer
+---@field unk_56 integer
+---@field unk_57 integer
+---@field unk_58 integer
+---@field unk_60 integer
+---@field unk_61 integer
+---@field long_action_duration integer
+---@field travel_start_x integer
+---@field travel_start_y integer
+---@field travel_start_z integer
+---@field player_id integer
+---@field track_viewed_x integer
+---@field track_viewed_y integer
+---@field conversation 
+---@field unk_71 integer
+---@field sleep_hours integer
+---@field sleep_until_dawn boolean
+---@field unk_78 integer
+---@field unk_80 integer
+---@field unk_81 integer
+---@field player_control_state integer
+---@field item_projectiles_state integer
+---@field unk_84 integer
+---@field companions 
+---@field unk_1 integer
+---@field interactions 
+---@field unk_87 string
+---@field unk_220 integer
+---@field unk_224 integer
+---@field unk_v40_2 
+---@field unk_v40_3 
+---@field player_unit_projectile_z integer
+---@field unk_90 integer
+---@field unk_v40_4 
+---@field unk_v40_5 
+---@field unk_v42_1 
+---@field assume_identity 
+---@field move_direction_x integer
+---@field move_direction_y integer
+---@field move_direction_z integer
+---@field unk_95 integer
+---@field move_carefully integer
+---@field careful_direction_x integer
+---@field careful_direction_y integer
+---@field interrupt_performance_warning string
+---@field unk_2 integer
+---@field name_item language_name
 

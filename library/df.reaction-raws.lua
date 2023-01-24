@@ -7,6 +7,31 @@ df.reaction_flags = {
   ADVENTURE_MODE_ENABLED = 2,
 }
 
+---@class reaction
+---@field code string
+---@field name string
+---@field max_multiplier integer
+---@field building 
+---@field index integer
+---@field source_hfid integer
+---@field source_enid integer
+---@field category string
+---@field quality_adj1 integer
+---@field quality_adj2 integer
+---@field unk_1 integer
+---@field exp_gain integer
+
+---@class reaction_category
+---@field id string
+---@field parent string
+---@field name string
+---@field key integer
+---@field description string
+
+---@class reaction_description
+---@field unk_1 string
+---@field unk_2 string
+
 ---@enum reaction_reagent_type
 df.reaction_reagent_type = {
   item = 0,

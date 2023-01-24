@@ -10,3 +10,21 @@ df.pattern_type = {
   MOTTLED = 5,
 }
 
+---@class descriptor_color
+---@field id string
+---@field name string
+---@field bold integer
+---@field red number
+---@field green number
+---@field blue number
+
+---@class descriptor_shape
+---@field id string
+---@field name string
+---@field name_plural string
+---@field faces integer
+---@field tile integer
+
+---@class descriptor_pattern
+---@field id string
+

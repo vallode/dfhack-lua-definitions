@@ -440,6 +440,21 @@ df.witness_report_type = {
 ---@field accuses boolean
 df.witness_report_flags = {}
 
+---@class witness_report
+---@field death_id integer
+---@field crime_id integer
+---@field year integer
+---@field year_tick integer
+---@field unk_18 integer
+---@field unk_1c integer
+---@field unk_20 integer
+---@field unk_24 integer
+---@field unk_28 integer
+---@field unk_2c integer
+---@field unk_30 integer
+---@field unk_34 integer
+---@field pos coord
+
 ---@enum ghost_goal
 df.ghost_goal = {
   None = -1,
@@ -452,6 +467,39 @@ df.ghost_goal = {
   Torment = 6,
   ToppleBuilding = 7,
 }
+
+---@class unit_ghost_info
+---@field target 
+---@field misplace_pos coord
+---@field action_timer integer
+---@field unk_18 integer
+---@field death_x integer
+---@field death_y integer
+---@field death_z integer
+
+---@class unit_genes
+
+---@class unit_inventory_item
+---@field body_part_id integer
+---@field pet_seed integer
+---@field wound_id integer
+
+---@class unit_attribute
+---@field value integer
+---@field max_value integer
+---@field improve_counter integer
+---@field unused_counter integer
+---@field soft_demotion integer
+---@field rust_counter integer
+---@field demotion_counter integer
+
+---@class unit_syndrome
+---@field type integer
+---@field year integer
+---@field year_time integer
+---@field ticks integer
+---@field wound_id integer
+---@field reinfection_count integer
 
 ---@enum wound_effect_type
 df.wound_effect_type = {
@@ -507,6 +555,42 @@ df.wound_damage_flags1 = {}
 ---@field entire_surface boolean
 ---@field gelded boolean
 df.wound_damage_flags2 = {}
+
+---@class unit_wound
+---@field id integer
+---@field age integer
+---@field attacker_unit_id integer
+---@field attacker_hist_figure_id integer
+---@field syndrome_id integer
+---@field pain integer
+---@field nausea integer
+---@field dizziness integer
+---@field paralysis integer
+---@field numbness integer
+---@field fever integer
+---@field unk_v42_1 integer
+---@field unk_v42_2 integer
+
+---@class curse_attr_change
+
+---@class wound_curse_info
+---@field unk_v40_1 integer
+---@field name_visible boolean
+---@field name string
+---@field name_plural string
+---@field name_adjective string
+---@field sym_and_color1 integer
+---@field sym_and_color2 integer
+---@field flash_period integer
+---@field flash_time2 integer
+---@field speed_add integer
+---@field speed_mul_percent integer
+---@field unk_v42_1 integer
+---@field luck_mul_percent integer
+---@field unk_v42_2 integer
+---@field timing 
+---@field were_race integer
+---@field were_caste integer
 
 ---@enum misc_trait_type
 df.misc_trait_type = {
@@ -585,6 +669,27 @@ df.misc_trait_type = {
   unk_72 = 72, --related to (job_type)0xf1
 }
 
+---@class unit_misc_trait
+---@field value integer
+
+---@class unit_item_wrestle
+---@field unit integer
+---@field self_bp integer
+---@field other_bp integer
+---@field unk_c integer
+---@field unk_10 integer
+---@field item1 integer
+---@field item2 integer
+---@field unk_1c integer
+---@field unk_1e integer
+---@field unk_20 integer
+
+---@class unit_item_use
+---@field id integer
+---@field time_in_use integer
+---@field has_grown_attached integer
+---@field affection_level integer
+
 ---@class unit_health_flags
 ---@field rq_diagnosis boolean
 ---@field needs_recovery boolean
@@ -612,6 +717,14 @@ df.unit_health_flags = {}
 ---@field needs_cast boolean
 df.unit_bp_health_flags = {}
 
+---@class unit_health_info
+---@field unit_id integer
+---@field unk_18_cntdn integer
+---@field immobilize_cntdn integer
+---@field dressing_cntdn integer
+---@field suture_cntdn integer
+---@field crutch_cntdn integer
+
 ---@class orientation_flags
 ---@field indeterminate boolean
 ---@field romance_male boolean
@@ -619,6 +732,70 @@ df.unit_bp_health_flags = {}
 ---@field romance_female boolean
 ---@field marry_female boolean
 df.orientation_flags = {}
+
+---@class unit_soul
+---@field id integer
+---@field name language_name
+---@field race integer
+---@field caste integer
+---@field unk2 integer
+---@field unk3 integer
+---@field unk4 integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field personality unit_personality
+
+---@class unit_instrument_skill
+---@field id integer
+---@field experience integer
+
+---@class unit_poetic_skill
+---@field id integer
+---@field experience integer
+
+---@class unit_musical_skill
+---@field id integer
+---@field experience integer
+
+---@class unit_dance_skill
+---@field id integer
+---@field experience integer
+
+---@class unit_emotion_memory
+---@field unk2 integer
+---@field strength integer
+---@field subthought integer
+---@field severity integer
+---@field unk_1 integer
+---@field year integer
+---@field year_tick integer
+
+---@class unit_personality
+---@field next_dream_id integer
+---@field civ_id integer
+---@field cultural_identity integer
+---@field stress_level integer
+---@field stress_drain integer
+---@field stress_boost integer
+---@field likes_outdoors integer
+---@field combat_hardened integer
+---@field unk_v4705_1 integer
+---@field unk_v4201_3 integer
+---@field unk_v4201_4 integer
+---@field unk_v47_1 integer
+---@field unk_v47_2 integer
+---@field unk_v47_3 integer
+---@field unk_v47_4 integer
+---@field current_focus integer
+---@field undistracted_focus integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
 
 ---@enum unit_action_type_group
 df.unit_action_type_group = {
@@ -657,4 +834,216 @@ df.unit_action_type = {
   Unk22 = 22,
   Unk23 = 23,
 }
+
+---@class unit_action
+---@field id integer
+---@field data 
+
+---@class unit_action_data_move
+---@field x integer
+---@field y integer
+---@field z integer
+---@field timer integer
+---@field timer_init integer
+---@field fatigue integer
+
+---@class unit_action_data_attack
+---@field target_unit_id integer
+---@field unk_4 
+---@field attack_item_id integer
+---@field target_body_part_id integer
+---@field attack_body_part_id integer
+---@field attack_id integer
+---@field unk_28 integer
+---@field unk_2c integer
+---@field attack_velocity integer
+---@field attack_accuracy integer
+---@field timer1 integer
+---@field timer2 integer
+
+---@class unit_action_data_jump
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+
+---@class unit_action_data_hold_terrain
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field x3 integer
+---@field y3 integer
+---@field z3 integer
+---@field timer integer
+---@field fatigue integer
+
+---@class unit_action_data_release_terrain
+---@field x integer
+---@field y integer
+---@field z integer
+
+---@class unit_action_data_climb
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field x3 integer
+---@field y3 integer
+---@field z3 integer
+---@field timer integer
+---@field timer_init integer
+---@field fatigue integer
+
+---@class unit_action_data_job
+---@field x integer
+---@field y integer
+---@field z integer
+---@field timer integer
+
+---@class unit_action_data_talk
+---@field unk_0 integer
+---@field activity_id integer
+---@field activity_event_idx integer
+---@field event entity_event
+---@field unk_34 integer
+---@field timer integer
+---@field unk_3c integer
+---@field unk_40 integer
+---@field unk_44 integer
+---@field unk_48 integer
+---@field unk_4c integer
+---@field unk_50 integer
+---@field unk_54 integer
+
+---@class unit_action_data_unsteady
+---@field timer integer
+
+---@class unit_action_data_parry
+---@field unit_id integer
+---@field target_action integer
+---@field parry_item_id integer
+
+---@class unit_action_data_block
+---@field unit_id integer
+---@field target_action integer
+---@field block_item_id integer
+
+---@class unit_action_data_dodge
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field timer integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+
+---@class unit_action_data_recover
+---@field timer integer
+---@field unk_4 integer
+
+---@class unit_action_data_stand_up
+---@field timer integer
+
+---@class unit_action_data_lie_down
+---@field timer integer
+
+---@class unit_action_data_job2
+---@field timer integer
+
+---@class unit_action_data_push_object
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field x3 integer
+---@field y3 integer
+---@field z3 integer
+---@field timer integer
+---@field unk_18 integer
+
+---@class unit_action_data_suck_blood
+---@field unit_id integer
+---@field timer integer
+
+---@class unit_action_data_hold_item
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field unk_c integer
+---@field unk_10 integer
+---@field unk_14 integer
+
+---@class unit_action_data_release_item
+---@field unk_0 integer
+
+---@class unit_action_data_unk_sub_20
+
+---@class unit_action_data_unk_sub_21
+
+---@class unit_action_data_unk_sub_22
+---@field unk_0 integer
+
+---@class unit_action_data_unk_sub_23
+---@field unk_0 integer
+
+---@class unit_skill
+---@field experience integer
+---@field unused_counter integer
+---@field rusty integer
+---@field rust_counter integer
+---@field demotion_counter integer
+---@field natural_skill_lvl integer
+
+---@class unit_preference
+---@field  
+---@field item_subtype integer
+---@field mattype integer
+---@field matindex integer
+---@field active boolean
+---@field prefstring_seed integer
+
+---@class unit_complaint
+---@field age integer
+
+---@class unit_unk_138
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class unit_request
+---@field count integer
+
+---@class unit_coin_debt
+---@field recipient integer
+---@field amount integer
+
+---@class unit_chunk
+---@field id integer
+
+---@class unit_appearance
+---@field unk_1 integer
+---@field caste_index integer
+---@field unk_3 integer
+---@field unk_5 integer
+---@field unk_8 integer
+---@field unk_18 integer
+---@field unk_19 integer
+
+---@class work_detail
+---@field name string
+---@field  integer
+---@field  integer
+---@field icon integer
 

@@ -56,6 +56,24 @@ df.item_magicness_type = {
   RustlingLeaves = 8,
 }
 
+---@class item_magicness
+---@field value integer
+---@field unk_1 integer
+---@field flags integer
+
+---@class temperaturest
+---@field whole integer
+---@field fraction integer
+
+---@class spatter_common
+---@field mat_type integer
+---@field mat_index integer
+---@field temperature temperaturest
+---@field size integer
+
+---@class spatter
+---@field body_part_id integer
+
 ---@enum item_quality
 df.item_quality = {
   Ordinary = 0,
@@ -99,6 +117,13 @@ df.slab_engraving_type = {
   TavernSign = 26,
 }
 
+---@class item_kill_info
+---@field targets historical_kills
+
+---@class item_history_info
+---@field attack_counter integer
+---@field defence_counter integer
+
 ---@class body_part_status
 ---@field on_fire boolean
 ---@field missing boolean
@@ -129,6 +154,16 @@ df.body_part_status = {}
 ---@field leaking boolean
 df.body_layer_status = {}
 
+---@class body_component_info
+
+---@class body_size_info
+---@field size_cur integer
+---@field size_base integer
+---@field area_cur integer
+---@field area_base integer
+---@field length_cur integer
+---@field length_base integer
+
 ---@enum corpse_material_type
 df.corpse_material_type = {
   Plant = 0,
@@ -150,4 +185,9 @@ df.corpse_material_type = {
 ---@field pressed boolean
 ---@field paste boolean
 df.item_matstate = {}
+
+---@class item_stockpile_ref
+---@field id integer
+---@field x integer
+---@field y integer
 

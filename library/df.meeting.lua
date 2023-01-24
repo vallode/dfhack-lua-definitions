@@ -1,5 +1,27 @@
 ---@meta
 
+---@class dipscript_info
+---@field id integer
+---@field script_file string
+---@field code string
+
+---@class dipscript_popup
+
+---@class meeting_variable
+---@field value integer
+---@field ref specific_ref
+
+---@class meeting_context
+
+---@class meeting_diplomat_info
+---@field civ_id integer
+---@field unk1 integer
+---@field diplomat_id integer
+---@field associate_id integer
+---@field cur_step integer
+---@field unk_50 string
+---@field unk_6c string
+
 ---@enum meeting_topic
 df.meeting_topic = {
   DiscussCurrent = 0,
@@ -24,6 +46,26 @@ df.meeting_event_type = {
   ImportAgreement = 5,
 }
 
+---@class meeting_event
+---@field topic_parm integer
+---@field quota_total integer
+---@field quota_remaining integer
+---@field year integer
+---@field ticks integer
+
+---@class activity_info
+---@field id integer
+---@field unk3 integer
+---@field delay integer
+---@field tree_quota integer
+
+---@class party_info
+---@field timer integer
+---@field id integer
+
+---@class room_rent_info
+---@field rent_value integer
+
 ---@enum activity_entry_type
 df.activity_entry_type = {
   TrainingSession = 0,
@@ -40,6 +82,11 @@ df.activity_entry_type = {
   Read = 11,
   Play = 12,
 }
+
+---@class activity_entry
+---@field id integer
+---@field next_event_id integer
+---@field army_controller integer
 
 ---@enum activity_event_type
 df.activity_event_type = {
@@ -72,6 +119,10 @@ df.activity_event_type = {
   Encounter = 26,
   StoreObject = 27,
 }
+
+---@class activity_event_participants
+---@field activity_id integer
+---@field event_id integer
 
 ---@enum conversation_menu
 df.conversation_menu = {
@@ -170,4 +221,15 @@ df.performance_participant_type = {
   LISTEN = 4,
   HEAR = 5,
 }
+
+---@class schedule_info
+---@field id integer
+---@field unk_1 integer
+
+---@class schedule_slot
+---@field type integer
+---@field start_time integer
+---@field end_time integer
+---@field unk_1 integer
+---@field processed integer
 

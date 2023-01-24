@@ -177,6 +177,26 @@ df.sphere_type = {
   YOUTH = 129,
 }
 
+---@class language_word
+---@field word string
+---@field adj_dist integer
+
+---@class language_translation
+---@field name string
+---@field flags integer
+
+---@class language_symbol
+---@field name string
+---@field flags integer
+
+---@class language_name
+---@field first_name string
+---@field nickname string
+---@field language integer
+---@field has_name boolean
+
+---@class language_word_table
+
 ---@enum language_name_category
 df.language_name_category = {
   Unit = 0,

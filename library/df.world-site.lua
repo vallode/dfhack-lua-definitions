@@ -1,5 +1,33 @@
 ---@meta
 
+---@class scribejob
+---@field idmaybe integer
+---@field unk_1 integer
+---@field item_id integer
+---@field written_content_id integer
+---@field unit_id integer
+---@field activity_entry_id integer
+---@field unk_2 integer
+
+---@class site_reputation_report
+---@field site_id integer
+---@field location_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field year integer
+---@field tickmaybe integer
+
+---@class site_reputation_info
+
+---@class location_scribe_jobs
+---@field nextidmaybe integer
+---@field year integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+
 ---@enum abstract_building_type
 df.abstract_building_type = {
   MEAD_HALL = 0,
@@ -30,12 +58,45 @@ df.abstract_building_flags = {
   Unk7 = 7,
 }
 
+---@class abstract_building_entombed
+
+---@class abstract_building_contents
+---@field desired_goblets integer
+---@field desired_instruments integer
+---@field desired_paper integer
+---@field desired_copies integer
+---@field location_tier integer
+---@field location_value integer
+---@field count_goblets integer
+---@field count_instruments integer
+---@field count_paper integer
+---@field unk_v47_2 integer
+---@field unk_v47_3 integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+---@field  integer
+
 ---@enum temple_deity_type
 df.temple_deity_type = {
   None = -1,
   Deity = 0,
   Religion = 1,
 }
+
+---@class temple_deity_data
+---@field Deity integer
+---@field Religion integer
 
 ---@enum world_site_type
 df.world_site_type = {
@@ -93,6 +154,134 @@ df.lair_type = {
   WILDERNESS_LOCATION = 4, --In mountains, hosting Rocs in vanilla
 }
 
+---@class property_ownership
+---@field index integer
+---@field is_concrete_property boolean
+---@field property_index integer
+---@field unk_hfid integer
+---@field owner_entity_id integer
+---@field owner_hfid integer
+---@field unk_owner_entity_id integer
+
+---@class world_site
+---@field name language_name
+---@field civ_id integer
+---@field cur_owner_id integer
+---@field pos coord2d
+---@field id integer
+---@field unk_1 
+---@field index integer
+---@field rgn_min_x integer
+---@field rgn_max_x integer
+---@field rgn_min_y integer
+---@field rgn_max_y integer
+---@field rgn_min_z integer
+---@field rgn_max_z integer
+---@field global_min_x integer
+---@field global_min_y integer
+---@field global_max_x integer
+---@field global_max_y integer
+---@field seed1 integer
+---@field seed2 integer
+---@field resident_count integer
+---@field unk_110 integer
+---@field unk_114 integer
+---@field unk_11c integer
+---@field unk_120 integer
+---@field unk_124 integer
+---@field unk_128 integer
+---@field next_building_id integer
+---@field next_property_ownership_id integer
+---@field created_tick integer
+---@field created_year integer
+---@field unk_170 integer
+---@field unk_174 integer
+---@field unk_178 coord
+---@field is_mountain_halls integer
+---@field is_fortress integer
+---@field unk_v47_2 integer
+---@field unk_v40_4d_next_id integer
+---@field unk_v43_3 integer
+---@field unk_v40_5 integer
+---@field unk_3a8 integer
+---@field unk_v43_4 integer
+---@field unk_24 integer
+
+---@class cultural_identity
+---@field id integer
+---@field site_id integer
+---@field civ_id integer
+---@field unk_d8 integer
+---@field unk_ec integer
+---@field unk_f0 integer
+---@field unk_f4 integer
+---@field unk_f8 integer
+
+---@class world_site_inhabitant
+---@field count integer
+---@field race integer
+---@field population_id integer
+---@field entity_id integer
+---@field unk_10 integer
+---@field cultural_identity_id integer
+---@field interaction_id integer
+---@field interaction_effect_idx integer
+---@field related_entity_id integer
+---@field unk_24 integer
+---@field unk_28 integer
+
+---@class world_site_realization
+---@field num_buildings integer
+---@field unk_14 integer
+---@field num_areas integer
+---@field unk_1 integer
+---@field army_controller_pos_x integer
+---@field army_controller_pos_y integer
+---@field num_unk_193bc integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_5 integer
+---@field unk_7 integer
+---@field unk_9 integer
+---@field unk_11 integer
+---@field unk_13 integer
+---@field unk_16 integer
+---@field unk_18 integer
+---@field unk_20 integer
+---@field unk_22 integer
+---@field num_building_well integer
+---@field num_building_temple integer
+---@field num_building_type22 integer
+---@field num_building_type21 integer
+---@field unk_24 integer
+
+---@class site_realization_crossroads
+---@field idx_x integer
+---@field idx_y integer
+---@field tile_width integer
+---@field tile_height integer
+---@field unk_310 integer
+---@field unk_314 integer
+---@field unk_318 integer
+---@field unk_31c integer
+---@field unk_320 integer
+---@field unk_324 integer
+---@field unk_328 integer
+---@field unk_32c integer
+---@field center_x_tile integer
+---@field center_y_tile integer
+---@field unk_348 integer
+---@field unk_349 integer
+---@field unk_34c integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+
 ---@enum site_realization_building_type
 df.site_realization_building_type = {
   cottage_plot = 0,
@@ -128,6 +317,26 @@ df.site_realization_building_type = {
   necromancer_tower = 30,
   barrow = 31,
 }
+
+---@class site_realization_building
+---@field id integer
+---@field min_x integer
+---@field min_y integer
+---@field max_x integer
+---@field max_y integer
+---@field unk_18 integer
+---@field unk_2c integer
+---@field item site_building_item
+---@field abstract_building_id integer
+---@field unk_44 integer
+---@field unk_5c integer
+---@field unk_v40_1 integer
+
+---@class site_building_item
+---@field race integer
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
 
 ---@class tower_shape
 ---@field round boolean

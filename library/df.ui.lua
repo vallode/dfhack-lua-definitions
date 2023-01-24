@@ -1,5 +1,20 @@
 ---@meta
 
+---@class burrow
+---@field id integer
+---@field name string
+---@field tile integer
+---@field fg_color integer
+---@field bg_color integer
+---@field limit_workshops integer
+
+---@class ui_hotkey
+---@field name string
+---@field x integer
+---@field y integer
+---@field z integer
+---@field  
+
 ---@enum ui_sidebar_mode
 df.ui_sidebar_mode = {
   Default = 0,
@@ -61,11 +76,66 @@ df.ui_sidebar_mode = {
   ZonesLocationInfo = 56,
 }
 
+---@class punishment
+---@field criminal integer
+---@field officer integer
+---@field beating integer
+---@field hammer_strikes integer
+---@field prison_counter integer
+---@field unk_10 integer
+---@field chain integer
+
 ---@enum kitchen_exc_type
 df.kitchen_exc_type = {
   Cook = 1,
   Brew = 0,
 }
+
+---@class plotinfost
+---@field game_state integer
+---@field lost_to_siege_civ integer
+---@field tax_collection 
+---@field nobles 
+---@field unk_2 integer
+---@field fortress_rank integer
+---@field progress_population integer
+---@field progress_trade integer
+---@field progress_production integer
+---@field king_arrived boolean
+---@field king_hasty boolean
+---@field economy_active boolean
+---@field ignore_labor_shortage boolean
+---@field justice_active boolean
+---@field unk_3 integer
+---@field unk_4 integer
+---@field manager_timer integer
+---@field trees_removed integer
+---@field outdoor_irritation integer
+---@field adamantine_mandate_number integer
+---@field fortress_age integer
+---@field tasks entity_activity_statistics
+---@field game_over boolean
+---@field invasions 
+---@field kitchen 
+---@field mood_cooldown integer
+---@field civ_id integer
+---@field site_id integer
+---@field group_id integer
+---@field race_id integer
+---@field economy_prices 
+---@field stockpile 
+---@field map_edge 
+---@field waypoints 
+---@field burrows 
+---@field alerts 
+---@field equipment 
+---@field hauling 
+---@field food_warn_year integer
+---@field food_warn_year_tick integer
+---@field main 
+---@field squads 
+---@field follow_unit integer
+---@field follow_item integer
 
 ---@enum timed_event_type
 df.timed_event_type = {
@@ -79,4 +149,40 @@ df.timed_event_type = {
   WildlifeFlier = 7,
   NightCreature = 8,
 }
+
+---@class timed_event
+---@field season_ticks integer
+---@field unk_1 integer
+---@field layer_id integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class map_viewport
+---@field adv_mode boolean
+---@field unk1 boolean
+---@field map_rotation integer
+---@field min_x integer
+---@field min_y integer
+---@field max_x integer
+---@field max_y integer
+---@field window_x integer
+---@field window_y integer
+---@field window_z integer
+---@field  integer
+---@field  integer
+
+---@class map_renderer
+---@field multiple_guts boolean
+---@field cursor_corpse_cnt integer
+---@field cursor_corpsepiece_cnt integer
+---@field cursor_bones_cnt integer
+---@field cursor_other_cnt integer
+---@field unk_10034 integer
+---@field unk_10035 integer
+---@field cur_tick_count integer
+---@field tick_phase integer
+---@field dim_colors integer
+---@field unk_1 integer
+---@field unk_6 integer
+---@field unk_7 integer
 

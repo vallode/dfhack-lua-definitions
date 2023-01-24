@@ -21,3 +21,13 @@ df.vermin_category = {
   Underworld = 7, --last used in 40d for vermin in eerie glowing pits
 }
 
+---@class vermin
+---@field race integer
+---@field caste integer
+---@field pos coord
+---@field visible boolean
+---@field countdown integer
+---@field amount integer
+---@field population world_population_ref
+---@field id integer
+

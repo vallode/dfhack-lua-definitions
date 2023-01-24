@@ -163,6 +163,25 @@ df.entity_name_type = {
   CRAFT_GUILD = 17,
 }
 
+---@class entity_raw
+---@field code string
+---@field index integer
+---@field equipment 
+---@field translation string
+---@field symbols 
+---@field progress_trigger 
+---@field max_site_pop_number integer
+---@field max_pop_number integer
+---@field max_starting_civ_number integer
+---@field jobs 
+---@field workshops 
+---@field banditry integer
+---@field source_hfid integer
+---@field unk_v4201_1 integer
+
+---@class entity_animal_raw
+---@field token string
+
 ---@enum entity_position_raw_flags
 df.entity_position_raw_flags = {
   SITE = 0,
@@ -238,4 +257,28 @@ df.entity_position_responsibility = {
   MAINTAIN_BRIDGES = 40,
   MAINTAIN_TUNNELS = 41,
 }
+
+---@class entity_position_raw
+---@field code string
+---@field id integer
+---@field land_name string
+---@field squad_size integer
+---@field land_holder integer
+---@field number integer
+---@field requires_population integer
+---@field precedence integer
+---@field replaced_by_str string
+---@field replaced_by integer
+---@field required_boxes integer
+---@field required_cabinets integer
+---@field required_racks integer
+---@field required_stands integer
+---@field required_office integer
+---@field required_bedroom integer
+---@field required_dining integer
+---@field required_tomb integer
+---@field mandate_max integer
+---@field demand_max integer
+---@field  integer
+---@field  string
 

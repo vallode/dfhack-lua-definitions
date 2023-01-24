@@ -97,6 +97,37 @@ df.building_extents_type = {
   DistanceBoundary = 3,
 }
 
+---@class building_extents
+---@field x integer
+---@field y integer
+---@field width integer
+---@field height integer
+
+---@class building_drawbuffer
+---@field x1 integer
+---@field x2 integer
+---@field y1 integer
+---@field y2 integer
+
+---@class stockpile_links
+
+---@class hospital_supplies
+---@field max_splints integer
+---@field max_thread integer
+---@field max_cloth integer
+---@field max_crutches integer
+---@field max_plaster integer
+---@field max_buckets integer
+---@field max_soap integer
+---@field cur_splints integer
+---@field cur_thread integer
+---@field cur_cloth integer
+---@field cur_crutches integer
+---@field cur_plaster integer
+---@field cur_buckets integer
+---@field cur_soap integer
+---@field supply_recheck_timer integer
+
 ---@enum civzone_type
 df.civzone_type = {
   Home = 0,
@@ -199,6 +230,19 @@ df.civzone_type = {
   Tomb = 97,
 }
 
+---@class building_design
+---@field architect integer
+---@field unk2 integer
+---@field design_skill integer
+---@field builder1 integer
+---@field unk5 integer
+---@field build_skill integer
+---@field build_timer1 integer
+---@field builder2 integer
+---@field build_timer2 integer
+---@field hitpoints integer
+---@field max_hitpoints integer
+
 ---@enum furnace_type
 df.furnace_type = {
   WoodFurnace = 0,
@@ -239,6 +283,15 @@ df.workshop_type = {
   Custom = 23,
   Tool = 24,
 }
+
+---@class workshop_profile
+---@field min_level integer
+---@field max_level integer
+---@field links stockpile_links
+---@field max_general_orders integer
+---@field block_general_orders boolean
+
+---@class building_users
 
 ---@enum construction_type
 df.construction_type = {
@@ -311,6 +364,19 @@ df.trap_type = {
   WeaponTrap = 4,
   TrackStop = 5,
 }
+
+---@class pressure_plate_info
+---@field unit_min integer
+---@field unit_max integer
+---@field water_min integer
+---@field water_max integer
+---@field magma_min integer
+---@field magma_max integer
+---@field track_min integer
+---@field track_max integer
+
+---@class building_squad_use
+---@field squad_id integer
 
 ---@enum dfhack_room_quality_level
 df.dfhack_room_quality_level = {

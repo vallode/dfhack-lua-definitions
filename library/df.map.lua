@@ -1,5 +1,18 @@
 ---@meta
 
+---@class coord2d
+---@field x integer
+---@field y integer
+
+---@class coord2d_path
+
+---@class coord
+---@field x integer
+---@field y integer
+---@field z integer
+
+---@class coord_path
+
 ---@enum tile_traffic
 df.tile_traffic = {
   Normal = 0,
@@ -131,6 +144,32 @@ df.tile_liquid_flow_dir = {
 ---@field unk_2 boolean
 df.tile_liquid_flow = {}
 
+---@class tile_bitmask
+
+---@class block_burrow
+---@field id integer
+---@field tile_bitmask tile_bitmask
+
+---@class map_block
+---@field local_feature integer
+---@field global_feature integer
+---@field unk2 integer
+---@field layer_depth integer
+---@field dsgn_check_cooldown integer
+---@field flow_pool flow_reuse_pool
+---@field map_pos coord
+---@field region_pos coord2d
+
+---@class map_block_column
+---@field sink_level integer
+---@field beach_level integer
+---@field ground_level integer
+---@field z_base integer
+---@field z_shift integer
+---@field map_pos coord2d
+---@field unk_c3c integer
+---@field region_pos coord2d
+
 ---@enum block_square_event_type
 df.block_square_event_type = {
   mineral = 0,
@@ -249,6 +288,12 @@ df.biome_type = {
 ---@field top_of_wall boolean
 df.construction_flags = {}
 
+---@class construction
+---@field pos coord
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+
 ---@enum flow_type
 df.flow_type = {
   Miasma = 0,
@@ -267,11 +312,33 @@ df.flow_type = {
   ItemCloud = 13,
 }
 
+---@class flow_info
+---@field mat_type integer
+---@field mat_index integer
+---@field density integer
+---@field pos coord
+---@field dest coord
+---@field expanding boolean
+---@field reuse boolean
+---@field guide_id integer
+
+---@class flow_reuse_pool
+---@field reuse_idx integer
+
 ---@enum flow_guide_type
 df.flow_guide_type = {
   TrailingFlow = 0,
   ItemCloud = 1,
 }
+
+---@class effect_info
+---@field id integer
+---@field type integer
+---@field foreground integer
+---@field background integer
+---@field bright integer
+---@field pos coord
+---@field timer integer
 
 ---@enum region_block_event_type
 df.region_block_event_type = {

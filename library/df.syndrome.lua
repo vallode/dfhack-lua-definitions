@@ -116,6 +116,8 @@ df.creature_interaction_effect_target_mode = {
   BY_CATEGORY = 2,
 }
 
+---@class creature_interaction_effect_target
+
 ---@class syndrome_flags
 ---@field SYN_INJECTED boolean
 ---@field SYN_CONTACT boolean
@@ -124,4 +126,9 @@ df.creature_interaction_effect_target_mode = {
 ---@field SYN_INGESTED boolean
 ---@field SYN_NO_HOSPITAL boolean
 df.syndrome_flags = {}
+
+---@class syndrome
+---@field syn_name string
+---@field syn_identifier string
+---@field id integer
 

@@ -95,6 +95,27 @@ df.stockpile_category = {
 ---@field sheet boolean
 df.stockpile_group_set = {}
 
+---@class stockpile_settings
+---@field animals 
+---@field food 
+---@field furniture 
+---@field refuse 
+---@field stone 
+---@field ore 
+---@field ammo 
+---@field coins 
+---@field bars_blocks 
+---@field gems 
+---@field finished_goods 
+---@field leather 
+---@field cloth 
+---@field wood 
+---@field weapons 
+---@field armor 
+---@field sheet 
+---@field allow_organic boolean
+---@field allow_inorganic boolean
+
 ---@enum stockpile_list
 df.stockpile_list = {
   Animals = 0,
@@ -203,4 +224,41 @@ df.stockpile_list = {
   SheetParchment = 103,
   AdditionalOptions = 104,
 }
+
+---@class hauling_route
+---@field id integer
+---@field name string
+
+---@class hauling_stop
+---@field id integer
+---@field name string
+---@field pos coord
+---@field settings stockpile_settings
+---@field time_waiting integer
+---@field cart_id integer
+
+---@class stop_depart_condition
+---@field timeout integer
+---@field load_percent integer
+---@field guide_path coord_path
+
+---@class route_stockpile_link
+---@field building_id integer
+
+---@class vehicle
+---@field id integer
+---@field item_id integer
+---@field offset_x integer
+---@field offset_y integer
+---@field offset_z integer
+---@field speed_x integer
+---@field speed_y integer
+---@field speed_z integer
+---@field unk_20 integer
+---@field unk_24 integer
+---@field unk_28 integer
+---@field unk_2c integer
+---@field route_id integer
+---@field pos coord
+---@field time_stopped integer
 
