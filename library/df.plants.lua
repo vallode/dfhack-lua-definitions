@@ -13,6 +13,7 @@ df.plant_flags = {}
 ---@field update_order integer
 ---@field site_id integer
 ---@field srb_id integer
+---@field tree_info plant_tree_info
 
 ---@class plant_tree_tile
 ---@field trunk boolean
@@ -26,6 +27,10 @@ df.plant_flags = {}
 df.plant_tree_tile = {}
 
 ---@class plant_tree_info
+---@field extent_east int16_t
+---@field extent_south int16_t
+---@field extent_west int16_t
+---@field extent_north int16_t
 ---@field body_height integer
 ---@field dim_x integer
 ---@field dim_y integer

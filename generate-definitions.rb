@@ -34,12 +34,12 @@ def getStructAnnotation(struct)
   struct.children.each do |child|
     next if not child["name"]
 
-    if child.name === "stl-string"
+    if child.name === "stl-string" or child.name === "bool"
       annotation << "---@field #{child['name']} string\n"
     end
 
-    if child.name === "bool"
-      annotation << "---@field #{child['name']} boolean\n"
+    if child.name === "pointer" or child.name === "enum" and child["type-name"]
+      annotation << "---@field #{child['name']} #{child["type-name"]}\n"
     end
 
     if ["int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"].include?(child.name)
@@ -104,7 +104,7 @@ Dir.glob(ARGV[0]).each do |xml|
           output.write(getEnumAnnotation(value))
         end
     
-        if value.name == "struct-type"
+        if value.name == "struct-type" or value.name == "class-type"
           output.write(getStructAnnotation(value))
         end
 

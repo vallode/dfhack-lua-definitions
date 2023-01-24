@@ -429,6 +429,80 @@ df.pronoun_type = {
   he = 1,
 }
 
+---@class unit
+---@field name language_name
+---@field custom_profession string
+---@field profession profession
+---@field profession2 profession
+---@field race integer
+---@field pos coord
+---@field idle_area coord
+---@field idle_area_threshold integer
+---@field idle_area_type unit_station_type
+---@field follow_distance integer
+---@field path table
+---@field meeting table
+---@field caste integer
+---@field sex pronoun_type
+---@field id integer
+---@field unk_100 integer
+---@field training_level animal_training_level
+---@field schedule_id integer
+---@field civ_id integer
+---@field population_id integer
+---@field unk_c0 integer
+---@field cultural_identity integer
+---@field invasion_id integer
+---@field patrol_route coord_path
+---@field patrol_index integer
+---@field military table
+---@field animal table
+---@field opponent table
+---@field mood mood_type
+---@field unk_18e integer
+---@field pregnancy_timer integer
+---@field pregnancy_genes unit_genes
+---@field pregnancy_caste integer
+---@field pregnancy_spouse integer
+---@field mood_copy mood_type
+---@field ghost_info unit_ghost_info
+---@field unk_9 integer
+---@field birth_year integer
+---@field birth_time integer
+---@field curse_year integer
+---@field curse_time integer
+---@field birth_year_bias integer
+---@field birth_time_bias integer
+---@field old_year integer
+---@field old_time integer
+---@field following unit
+---@field unk_238 integer
+---@field mount_type integer
+---@field last_hit history_hit_item
+---@field riding_item_id integer
+---@field job table
+---@field body table
+---@field appearance table
+---@field next_action_id integer
+---@field counters table
+---@field curse table
+---@field counters2 table
+---@field status table
+---@field hist_figure_id integer
+---@field hist_figure_id2 integer
+---@field status2 table
+---@field unknown7 table
+---@field syndromes table
+---@field reports table
+---@field health unit_health_info
+---@field enemy table
+---@field effective_rate integer
+---@field tendons_heal integer
+---@field ligaments_heal integer
+---@field weight integer
+---@field weight_fraction integer
+---@field adjective string
+
 ---@enum witness_report_type
 df.witness_report_type = {
   None = -1,
@@ -443,6 +517,7 @@ df.witness_report_flags = {}
 ---@class witness_report
 ---@field death_id integer
 ---@field crime_id integer
+---@field type witness_report_type
 ---@field year integer
 ---@field year_tick integer
 ---@field unk_18 integer
@@ -469,6 +544,9 @@ df.ghost_goal = {
 }
 
 ---@class unit_ghost_info
+---@field type ghost_type
+---@field type2 ghost_type
+---@field goal ghost_goal
 ---@field target table
 ---@field misplace_pos coord
 ---@field action_timer integer
@@ -480,6 +558,7 @@ df.ghost_goal = {
 ---@class unit_genes
 
 ---@class unit_inventory_item
+---@field item item
 ---@field body_part_id integer
 ---@field pet_seed integer
 ---@field wound_id integer
@@ -568,6 +647,7 @@ df.wound_damage_flags2 = {}
 ---@field paralysis integer
 ---@field numbness integer
 ---@field fever integer
+---@field curse wound_curse_info
 ---@field unk_v42_1 integer
 ---@field unk_v42_2 integer
 
@@ -575,7 +655,7 @@ df.wound_damage_flags2 = {}
 
 ---@class wound_curse_info
 ---@field unk_v40_1 integer
----@field name_visible boolean
+---@field name_visible string
 ---@field name string
 ---@field name_plural string
 ---@field name_adjective string
@@ -585,6 +665,7 @@ df.wound_damage_flags2 = {}
 ---@field flash_time2 integer
 ---@field speed_add integer
 ---@field speed_mul_percent integer
+---@field attr_change curse_attr_change
 ---@field unk_v42_1 integer
 ---@field luck_mul_percent integer
 ---@field unk_v42_2 integer
@@ -670,6 +751,7 @@ df.misc_trait_type = {
 }
 
 ---@class unit_misc_trait
+---@field id misc_trait_type
 ---@field value integer
 
 ---@class unit_item_wrestle
@@ -737,6 +819,7 @@ df.orientation_flags = {}
 ---@field id integer
 ---@field name language_name
 ---@field race integer
+---@field sex pronoun_type
 ---@field caste integer
 ---@field unk2 integer
 ---@field unk3 integer
@@ -750,23 +833,29 @@ df.orientation_flags = {}
 
 ---@class unit_instrument_skill
 ---@field id integer
+---@field rating skill_rating
 ---@field experience integer
 
 ---@class unit_poetic_skill
 ---@field id integer
+---@field rating skill_rating
 ---@field experience integer
 
 ---@class unit_musical_skill
 ---@field id integer
+---@field rating skill_rating
 ---@field experience integer
 
 ---@class unit_dance_skill
 ---@field id integer
+---@field rating skill_rating
 ---@field experience integer
 
 ---@class unit_emotion_memory
+---@field type emotion_type
 ---@field unk2 integer
 ---@field strength integer
+---@field thought unit_thought_type
 ---@field subthought integer
 ---@field severity integer
 ---@field unk_1 integer
@@ -831,6 +920,7 @@ df.unit_action_type = {
 }
 
 ---@class unit_action
+---@field type unit_action_type
 ---@field id integer
 ---@field data table
 
@@ -852,6 +942,7 @@ df.unit_action_type = {
 ---@field unk_28 integer
 ---@field unk_2c integer
 ---@field attack_velocity integer
+---@field attack_skill job_skill
 ---@field attack_accuracy integer
 ---@field timer1 integer
 ---@field timer2 integer
@@ -994,6 +1085,8 @@ df.unit_action_type = {
 ---@field unk_0 integer
 
 ---@class unit_skill
+---@field id job_skill
+---@field rating skill_rating
 ---@field experience integer
 ---@field unused_counter integer
 ---@field rusty integer
@@ -1005,10 +1098,12 @@ df.unit_action_type = {
 ---@field item_subtype integer
 ---@field mattype integer
 ---@field matindex integer
----@field active boolean
+---@field mat_state matter_state
+---@field active string
 ---@field prefstring_seed integer
 
 ---@class unit_complaint
+---@field guild guild_id
 ---@field age integer
 
 ---@class unit_unk_138
@@ -1017,6 +1112,7 @@ df.unit_action_type = {
 ---@field unk_3 integer
 
 ---@class unit_request
+---@field guild guild_id
 ---@field count integer
 
 ---@class unit_coin_debt

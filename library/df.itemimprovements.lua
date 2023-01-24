@@ -22,13 +22,65 @@ df.improvement_type = {
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field dyer integer
+---@field quality item_quality
+---@field skill_rating skill_rating
 ---@field unk_1 integer
+
+---@class itemimprovement
+---@field mat_type integer
+---@field mat_index integer
+---@field maker integer
+---@field masterpiece_event integer
+---@field quality item_quality
+---@field skill_rating skill_rating
+---@field unk_1 integer
+
+---@class itemimprovement_art_imagest
+---@field image art_image_ref
+
+---@class itemimprovement_coveredst
+---@field shape integer
+
+---@class itemimprovement_rings_hangingst
+
+---@class itemimprovement_bandsst
+---@field shape integer
+
+---@class itemimprovement_spikesst
 
 ---@enum itemimprovement_specific_type
 df.itemimprovement_specific_type = {
   HANDLE = 0,
   ROLLERS = 1,
 }
+
+---@class itemimprovement_itemspecificst
+---@field type itemimprovement_specific_type
+
+---@class itemimprovement_threadst
+---@field dye dye_info
+
+---@class itemimprovement_clothst
+
+---@class itemimprovement_sewn_imagest
+---@field image art_image_ref
+---@field cloth table
+---@field dye dye_info
+
+---@class itemimprovement_pagesst
+---@field count integer
+
+---@class itemimprovement_illustrationst
+---@field image art_image_ref
+---@field unk_2 integer
+
+---@class itemimprovement_instrument_piecest
+---@field type string
+
+---@class itemimprovement_writingst
+
+---@class itemimprovement_image_setst
+---@field image_set_id integer
 
 ---@enum written_content_type
 df.written_content_type = {
@@ -89,6 +141,7 @@ df.written_content_style = {
 ---@field page_end integer
 ---@field unk1 integer
 ---@field unk2 integer
+---@field type written_content_type
 ---@field poetic_form integer
 ---@field author integer
 ---@field author_roll integer
@@ -109,10 +162,12 @@ df.engraving_flags = {}
 ---@class engraving
 ---@field artist integer
 ---@field masterpiece_event integer
+---@field skill_rating skill_rating
 ---@field pos coord
 ---@field tile integer
 ---@field art_id integer
 ---@field art_subid integer
+---@field quality item_quality
 ---@field unk1 integer
 ---@field unk2 integer
 

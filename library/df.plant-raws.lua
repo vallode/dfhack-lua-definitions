@@ -155,6 +155,7 @@ df.plant_material_def = {
 ---@field id string
 ---@field name string
 ---@field name_plural string
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer

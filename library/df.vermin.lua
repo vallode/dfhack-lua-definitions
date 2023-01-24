@@ -25,9 +25,11 @@ df.vermin_category = {
 ---@field race integer
 ---@field caste integer
 ---@field pos coord
----@field visible boolean
+---@field visible string
 ---@field countdown integer
+---@field item item
 ---@field amount integer
 ---@field population world_population_ref
+---@field category vermin_category
 ---@field id integer
 

@@ -69,7 +69,9 @@ df.job_subtype_surgery = {
 
 ---@class job
 ---@field id integer
+---@field list_link job_list_link
 ---@field posting_index integer
+---@field job_type job_type
 ---@field job_subtype integer
 ---@field pos coord
 ---@field completion_timer integer
@@ -77,6 +79,7 @@ df.job_subtype_surgery = {
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field unk5 integer
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field reaction_name string
 ---@field expire_timer integer
@@ -90,6 +93,7 @@ df.job_subtype_surgery = {
 ---@field order_id integer
 
 ---@class job_item_ref
+---@field item item
 ---@field is_fetching integer
 ---@field job_item_idx integer
 
@@ -180,10 +184,12 @@ df.job_item_flags2 = {}
 df.job_item_flags3 = {}
 
 ---@class job_item
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field quantity integer
+---@field vector_id job_item_vector_id
 ---@field flags4 integer
 ---@field flags5 integer
 ---@field metal_ore integer
@@ -192,35 +198,42 @@ df.job_item_flags3 = {}
 ---@field min_dimension integer
 ---@field reagent_index integer
 ---@field reaction_id integer
+---@field has_tool_use tool_uses
 ---@field unk_v43_1 integer
 ---@field unk_v43_2 integer
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 integer
 
 ---@class job_item_filter
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
----@field use_mat_index boolean
----@field use_flags2 boolean
----@field use_flags3 boolean
+---@field use_mat_index string
+---@field use_flags2 string
+---@field use_flags3 string
 ---@field flags4 integer
----@field use_flags4 boolean
+---@field use_flags4 string
 ---@field flags5 integer
----@field use_flags5 boolean
+---@field use_flags5 string
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field metal_ore integer
----@field use_metal_ore boolean
----@field use_reaction_class boolean
----@field use_reaction_product boolean
+---@field use_metal_ore string
+---@field use_reaction_class string
+---@field use_reaction_product string
 ---@field min_dimension integer
 ---@field reaction_id integer
----@field use_contains boolean
+---@field use_contains string
+---@field has_tool_use tool_uses
+---@field has_melee_skill job_skill
 ---@field unk_v40_1 integer
 ---@field pos coord
+---@field unit unit
+---@field job job
+---@field building building
 ---@field unk_v4305_1 integer
----@field use_burrows boolean
+---@field use_burrows string
 
 ---@class manager_order_status
 ---@field validated boolean
@@ -233,6 +246,8 @@ df.manager_order_status = {}
 
 ---@class manager_order
 ---@field id integer
+---@field job_type job_type
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field reaction_name string
 ---@field mat_type integer
@@ -248,6 +263,7 @@ df.manager_order_status = {}
 
 ---@class manager_order_condition_item
 ---@field compare_val integer
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
@@ -258,13 +274,16 @@ df.manager_order_status = {}
 ---@field inorganic_bearing integer
 ---@field min_dimension integer
 ---@field reaction_id integer
+---@field has_tool_use tool_uses
 
 ---@class manager_order_condition_order
 ---@field order_id integer
 ---@field unk_1 integer
 
 ---@class manager_order_template
+---@field job_type job_type
 ---@field reaction_name string
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
@@ -272,7 +291,7 @@ df.manager_order_status = {}
 ---@field match_value integer
 ---@field name string
 ---@field compare_str string
----@field on boolean
+---@field on string
 
 ---@enum guild_id
 df.guild_id = {
@@ -286,6 +305,8 @@ df.guild_id = {
 }
 
 ---@class mandate
+---@field unit unit
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
@@ -303,6 +324,7 @@ df.guild_id = {
 
 ---@class unit_demand
 ---@field unk_0 integer
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer

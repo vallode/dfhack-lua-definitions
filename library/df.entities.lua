@@ -37,6 +37,7 @@ df.occasion_schedule_type = {
 }
 
 ---@class entity_occasion_schedule
+---@field type occasion_schedule_type
 ---@field reference integer
 ---@field reference2 integer
 ---@field unk_1 integer
@@ -69,6 +70,7 @@ df.occasion_schedule_feature = {
 }
 
 ---@class entity_occasion_schedule_feature
+---@field feature occasion_schedule_feature
 ---@field reference integer
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -109,10 +111,13 @@ df.occasion_schedule_feature = {
 ---@field export_value_total integer
 ---@field export_value_personal integer
 ---@field offer_value integer
+---@field sell_prices entity_sell_prices
+---@field buy_prices entity_buy_prices
 ---@field mood integer
 ---@field unk_2 integer
 
 ---@class entity_buy_prices
+---@field items entity_buy_requests
 
 ---@class entity_buy_requests
 
@@ -185,6 +190,7 @@ df.entity_sell_category = {
 }
 
 ---@class entity_sell_prices
+---@field items entity_sell_requests
 
 ---@class entity_sell_requests
 
@@ -210,6 +216,7 @@ df.historical_entity_type = {
 ---@field id integer
 ---@field name string
 ---@field precedence_awarded integer
+---@field required_skill job_skill
 ---@field required_skill_points integer
 ---@field required_kills integer
 ---@field required_battles integer
@@ -217,10 +224,12 @@ df.historical_entity_type = {
 
 ---@class artifact_claim
 ---@field artifact_id integer
+---@field claim_type artifact_claim_type
 ---@field symbol_claim_id integer
 ---@field claim_year integer
 ---@field claim_year_tick integer
 ---@field unk_1 integer
+---@field artifact artifact_record
 ---@field site integer
 ---@field structure_local integer
 ---@field holder_hf integer
@@ -229,6 +238,8 @@ df.historical_entity_type = {
 ---@field unk_year integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field unk_5 historical_entity
+---@field unk_6 historical_entity
 
 ---@class entity_unk_v47_1
 ---@field unk_v47_1 integer
@@ -236,7 +247,9 @@ df.historical_entity_type = {
 ---@field unk_v47_9 integer
 
 ---@class historical_entity
+---@field type historical_entity_type
 ---@field id integer
+---@field entity_raw entity_raw
 ---@field save_file_id integer
 ---@field next_member_idx integer
 ---@field name language_name
@@ -252,11 +265,13 @@ df.historical_entity_type = {
 ---@field unk_v40_1c integer
 ---@field unk_v40_1d integer
 ---@field unk_v40_1e integer
+---@field occasion_info entity_occasion_info
 ---@field next_honors_index integer
 ---@field equipment_purchases integer
 ---@field attack integer
 ---@field total_battles integer
 ---@field founding_site_government integer
+---@field activity_stats entity_activity_statistics
 ---@field unknown1e table
 ---@field derived_resources table
 ---@field claims table
@@ -394,9 +409,11 @@ df.entity_material_category = {
 ---@field art_image_id integer
 ---@field art_image_subid integer
 ---@field image_thread_color integer
+---@field image_material_class entity_material_category
 ---@field maker_race integer
 ---@field mattype integer
 ---@field matindex integer
+---@field material_class entity_material_category
 
 ---@class entity_uniform
 ---@field id integer
@@ -448,6 +465,7 @@ df.entity_event_type = {
 ---@field year integer
 ---@field year_tick integer
 ---@field unk_1 integer
+---@field type entity_event_type
 
 ---@class agreement
 ---@field id integer
@@ -493,8 +511,10 @@ df.agreement_details_type = {
 ---@field year integer
 ---@field year_tick integer
 ---@field data table
+---@field type agreement_details_type
 
 ---@class agreement_details_data_join_party
+---@field reason history_event_reason
 ---@field member integer
 ---@field party integer
 ---@field site integer
@@ -502,12 +522,15 @@ df.agreement_details_type = {
 ---@field figure integer
 
 ---@class agreement_details_data_demonic_binding
+---@field reason history_event_reason
 ---@field demon integer
 ---@field summoner integer
 ---@field site integer
 ---@field artifact integer
+---@field sphere sphere_type
 
 ---@class agreement_details_data_residency
+---@field reason history_event_reason
 ---@field applicant integer
 ---@field government integer
 ---@field site integer
@@ -562,12 +585,16 @@ df.agreement_details_type = {
 ---@field unk_2 integer
 
 ---@class agreement_details_data_plot_conviction
+---@field crime crime_type
 
 ---@class agreement_details_data_location
 ---@field applicant integer
 ---@field government integer
 ---@field site integer
+---@field type abstract_building_type
+---@field deity_type temple_deity_type
 ---@field deity_data temple_deity_data
+---@field profession profession
 ---@field tier integer
 
 ---@class agreement_details_data_plot_infiltration_coup

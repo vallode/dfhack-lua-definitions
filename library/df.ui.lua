@@ -100,11 +100,11 @@ df.kitchen_exc_type = {
 ---@field progress_population integer
 ---@field progress_trade integer
 ---@field progress_production integer
----@field king_arrived boolean
----@field king_hasty boolean
----@field economy_active boolean
----@field ignore_labor_shortage boolean
----@field justice_active boolean
+---@field king_arrived string
+---@field king_hasty string
+---@field economy_active string
+---@field ignore_labor_shortage string
+---@field justice_active string
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field manager_timer integer
@@ -113,7 +113,7 @@ df.kitchen_exc_type = {
 ---@field adamantine_mandate_number integer
 ---@field fortress_age integer
 ---@field tasks entity_activity_statistics
----@field game_over boolean
+---@field game_over string
 ---@field invasions table
 ---@field kitchen table
 ---@field mood_cooldown integer
@@ -150,15 +150,18 @@ df.timed_event_type = {
 }
 
 ---@class timed_event
+---@field type timed_event_type
+---@field season season
 ---@field season_ticks integer
+---@field entity historical_entity
 ---@field unk_1 integer
 ---@field layer_id integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 
 ---@class map_viewport
----@field adv_mode boolean
----@field unk1 boolean
+---@field adv_mode string
+---@field unk1 string
 ---@field map_rotation integer
 ---@field min_x integer
 ---@field min_y integer
@@ -167,12 +170,18 @@ df.timed_event_type = {
 ---@field window_x integer
 ---@field window_y integer
 ---@field window_z integer
+---@field main_viewport graphic_viewportst
 
 ---@class map_renderer
----@field multiple_guts boolean
+---@field cursor_guts unit
+---@field multiple_guts string
+---@field cursor_corpse item
 ---@field cursor_corpse_cnt integer
+---@field cursor_corpsepiece item
 ---@field cursor_corpsepiece_cnt integer
+---@field cursor_bones item
 ---@field cursor_bones_cnt integer
+---@field cursor_other item
 ---@field cursor_other_cnt integer
 ---@field unk_10034 integer
 ---@field unk_10035 integer

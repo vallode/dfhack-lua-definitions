@@ -113,8 +113,8 @@ df.stockpile_group_set = {}
 ---@field weapons table
 ---@field armor table
 ---@field sheet table
----@field allow_organic boolean
----@field allow_inorganic boolean
+---@field allow_organic string
+---@field allow_inorganic string
 
 ---@enum stockpile_list
 df.stockpile_list = {

@@ -1,5 +1,8 @@
 ---@meta
 
+---@class creature_handler
+---@field num_caste integer
+
 ---@class world_raws
 ---@field plants table
 ---@field creatures creature_handler

@@ -159,6 +159,8 @@ df.strain_type = {
 ---@field molar_mass integer
 ---@field strength table
 ---@field material_value integer
+---@field extract_storage item_type
+---@field butcher_special_type item_type
 ---@field butcher_special_subtype integer
 ---@field reaction_product table
 ---@field hardens_with_water table

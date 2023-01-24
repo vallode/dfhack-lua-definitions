@@ -91,6 +91,8 @@ df.conflict_level = {
 ---@field entity integer
 ---@field event_year integer
 ---@field event_time integer
+---@field death_cause death_type
+---@field conflict_level conflict_level
 ---@field activity_id integer
 ---@field world_x integer
 ---@field world_y integer
@@ -100,6 +102,7 @@ df.conflict_level = {
 ---@field data table
 
 ---@class incident_data_performance
+---@field performance_event performance_event_type
 ---@field reference_id integer
 ---@field written_content_id integer
 ---@field abstract_location integer
@@ -239,6 +242,7 @@ df.conflict_level = {
 ---@field local_feature_idx integer
 ---@field global_feature_idx integer
 ---@field unk10 integer
+---@field layer layer_type
 ---@field local coord2d
 ---@field z_min integer
 ---@field z_max integer
@@ -283,12 +287,12 @@ df.combat_report_event_type = {
 }
 
 ---@class glowing_barrier
----@field triggered boolean
+---@field triggered string
 ---@field unk_1 integer
 ---@field pos coord
 
 ---@class deep_vein_hollow
----@field triggered boolean
+---@field triggered string
 ---@field unk_1 integer
 ---@field tiles coord_path
 ---@field pos coord
@@ -316,7 +320,7 @@ df.combat_report_event_type = {
 ---@field dest coord2d
 ---@field cur coord2d
 ---@field z integer
----@field spawn_flows boolean
+---@field spawn_flows string
 ---@field move_timer integer
 ---@field unk_timer integer
 
@@ -328,6 +332,16 @@ df.combat_report_event_type = {
 ---@field ruler integer
 ---@field image_front table
 ---@field image_back table
+
+---@class job_handler
+---@field unk_2 integer
+
+---@class building_handler
+---@field other buildings_other
+---@field check_bridge_collapse string
+---@field check_machine_collapse string
+
+---@class machine_handler
 
 ---@class mental_picture
 ---@field unk table
@@ -454,24 +468,29 @@ df.combat_report_event_type = {
 ---@field belief_systems table
 ---@field image_sets table
 ---@field divination_sets table
----@field update_selected_building boolean
+---@field selected_building building
+---@field selected_stockpile_type stockpile_category
+---@field update_selected_building string
 ---@field building_width integer
 ---@field building_height integer
+---@field selected_direction screw_pump_direction
 ---@field map table
 ---@field profession_skills table
 ---@field math table
 ---@field map_extras table
+---@field world_data world_data
 ---@field worldgen_status table
 ---@field orphaned_flow_pool flow_reuse_pool
 ---@field raws world_raws
 ---@field area_grasses table
 ---@field flow_engine table
+---@field original_save_version save_version
 ---@field worldgen table
 ---@field history world_history
 ---@field unk_v40_6 table
 ---@field viewport map_viewport
 ---@field unk_131f08 integer
----@field reindex_pathfinding boolean
+---@field reindex_pathfinding string
 ---@field frame_counter integer
 ---@field pathfinder table
 ---@field save_version integer
@@ -480,9 +499,9 @@ df.combat_report_event_type = {
 ---@field object_loader table
 ---@field temp_pop_breeding_start integer
 ---@field features table
----@field allow_announcements boolean
----@field suppress_minevent_announcements boolean
----@field updating_region boolean
+---@field allow_announcements string
+---@field suppress_minevent_announcements string
+---@field updating_region string
 ---@field arena table
 ---@field dungeon table
 ---@field attack_chance_info table

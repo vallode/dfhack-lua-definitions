@@ -6,18 +6,85 @@
 ---@field code string
 
 ---@class dipscript_popup
+---@field meeting_holder unit
+---@field activity activity_info
+
+---@class script_stepst
+---@field next_step_idx integer
+
+---@class script_step_setvarst
+---@field dest_type string
+---@field dest_name string
+---@field src_type string
+---@field src_name string
+
+---@class script_step_simpleactionst
+---@field type string
+---@field subtype string
+
+---@class script_step_conditionalst
+---@field condition table
+---@field conditional_next_step_idx integer
+
+---@class script_step_textviewerst
+---@field filename string
+---@field outvar_name string
+
+---@class script_step_diphistoryst
+---@field event string
+
+---@class script_step_discussst
+---@field event string
+
+---@class script_step_topicdiscussionst
+
+---@class script_step_constructtopiclistst
+
+---@class script_step_dipeventst
+---@field parm1 string
+---@field parm2 string
+---@field parm3 string
+---@field parm4 string
+---@field parm5 string
+
+---@class script_step_invasionst
+---@field parm string
+
+---@class script_step_eventst
+
+---@class script_varst
+---@field name string
+
+---@class script_var_unitst
+
+---@class script_var_longst
+
+---@class active_script_varst
+---@field name string
+
+---@class active_script_var_unitst
+---@field unit unit
+
+---@class active_script_var_longst
+---@field value integer
 
 ---@class meeting_variable
 ---@field value integer
 ---@field ref specific_ref
+---@field active_var active_script_varst
 
 ---@class meeting_context
+---@field meeting meeting_diplomat_info
+---@field popup dipscript_popup
 
 ---@class meeting_diplomat_info
 ---@field civ_id integer
 ---@field unk1 integer
 ---@field diplomat_id integer
 ---@field associate_id integer
+---@field sell_requests entity_sell_requests
+---@field buy_requests entity_buy_requests
+---@field dipscript dipscript_info
 ---@field cur_step integer
 ---@field unk_50 string
 ---@field unk_6c string
@@ -47,19 +114,27 @@ df.meeting_event_type = {
 }
 
 ---@class meeting_event
+---@field type meeting_event_type
+---@field topic meeting_topic
 ---@field topic_parm integer
 ---@field quota_total integer
 ---@field quota_remaining integer
 ---@field year integer
 ---@field ticks integer
+---@field sell_prices entity_sell_prices
+---@field buy_prices entity_buy_prices
 
 ---@class activity_info
 ---@field id integer
+---@field unit_actor unit
+---@field unit_noble unit
+---@field place building
 ---@field unk3 integer
 ---@field delay integer
 ---@field tree_quota integer
 
 ---@class party_info
+---@field location building
 ---@field timer integer
 ---@field id integer
 
@@ -85,6 +160,7 @@ df.activity_entry_type = {
 
 ---@class activity_entry
 ---@field id integer
+---@field type activity_entry_type
 ---@field next_event_id integer
 ---@field army_controller integer
 
@@ -123,6 +199,54 @@ df.activity_event_type = {
 ---@class activity_event_participants
 ---@field activity_id integer
 ---@field event_id integer
+
+---@class activity_event
+---@field event_id integer
+---@field activity_id integer
+---@field parent_event_id integer
+
+---@class activity_event_training_sessionst
+---@field participants activity_event_participants
+
+---@class activity_event_combat_trainingst
+---@field participants activity_event_participants
+---@field building_id integer
+---@field hist_figure_id integer
+---@field unit_id integer
+---@field organize_counter integer
+
+---@class activity_event_skill_demonstrationst
+---@field participants activity_event_participants
+---@field building_id integer
+---@field hist_figure_id integer
+---@field unit_id integer
+---@field skill job_skill
+---@field organize_counter integer
+---@field wait_countdown integer
+---@field train_rounds integer
+---@field train_countdown integer
+
+---@class activity_event_individual_skill_drillst
+---@field participants activity_event_participants
+---@field building_id integer
+---@field countdown integer
+
+---@class activity_event_sparringst
+---@field participants activity_event_participants
+---@field building_id integer
+---@field countdown integer
+
+---@class activity_event_ranged_practicest
+---@field participants activity_event_participants
+---@field building_id integer
+
+---@class activity_event_harassmentst
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
 
 ---@enum conversation_menu
 df.conversation_menu = {
@@ -200,6 +324,61 @@ df.conversation_menu = {
   RespondDismissal = 70,
 }
 
+---@class activity_event_conversationst
+---@field menu conversation_menu
+---@field unk1 entity_event
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_v42_3 integer
+---@field unk_b4 table
+---@field floor_holder integer
+---@field floor_holder_hfid integer
+---@field pause integer
+---@field unk2 table
+---@field unk3 conversation_menu
+
+---@class activity_event_conflictst
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_v42_3 integer
+
+---@class activity_event_guardst
+---@field unk_2 coord
+---@field unk_3 integer
+
+---@class activity_event_reunionst
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+
+---@class activity_event_prayerst
+---@field participants activity_event_participants
+---@field histfig_id integer
+---@field topic sphere_type
+---@field site_id integer
+---@field location_id integer
+---@field building_id integer
+---@field timer integer
+
+---@class activity_event_socializest
+---@field participants activity_event_participants
+---@field site_id integer
+---@field location_id integer
+---@field building_id integer
+---@field unk_1 integer
+
+---@class activity_event_worshipst
+---@field participants activity_event_participants
+---@field site_id integer
+---@field location_id integer
+---@field building_id integer
+---@field unk_1 integer
+
 ---@enum performance_event_type
 df.performance_event_type = {
   STORY = 0,
@@ -221,6 +400,150 @@ df.performance_participant_type = {
   LISTEN = 4,
   HEAR = 5,
 }
+
+---@class activity_event_performancest
+---@field participants activity_event_participants
+---@field type performance_event_type
+---@field event integer
+---@field written_content_id integer
+---@field poetic_form integer
+---@field music_form integer
+---@field dance_form integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field pos_performer_2d coord2d
+---@field pos_performer coord
+---@field unk_pos_1_x0 integer
+---@field unk_pos_1_y0 integer
+---@field unk_pos_1_x1 integer
+---@field unk_pos_1_y1 integer
+---@field unk_pos_1_z integer
+---@field unk_pos_2_x0 integer
+---@field unk_pos_2_y0 integer
+---@field unk_pos_2_x1 integer
+---@field unk_pos_2_y1 integer
+---@field unk_pos_2_z integer
+---@field unk_11 integer
+---@field unk_13 coord
+---@field unk_16 integer
+---@field unk_17 integer
+---@field unk_18 integer
+
+---@class performance_play_orderst
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_5 integer
+
+---@class activity_event_researchst
+---@field participants activity_event_participants
+---@field site_id integer
+---@field location_id integer
+---@field building_id integer
+
+---@class activity_event_ponder_topicst
+---@field participants activity_event_participants
+---@field site_id integer
+---@field location_id integer
+---@field building_id integer
+---@field unk_1 integer
+---@field knowledge knowledge_scholar_category_flag
+---@field timer integer
+
+---@class activity_event_discuss_topicst
+---@field participants activity_event_participants
+---@field site_id integer
+---@field location_id integer
+---@field building_id integer
+---@field unk_1 integer
+---@field knowledge knowledge_scholar_category_flag
+---@field timer integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class activity_event_readst
+---@field participants activity_event_participants
+---@field building_id integer
+---@field site_id integer
+---@field location_id integer
+---@field state integer
+---@field timer integer
+
+---@class activity_event_fill_service_orderst
+---@field histfig_id integer
+---@field unit_id integer
+---@field occupation_id integer
+---@field unk_1 integer
+
+---@class activity_event_writest
+---@field participants activity_event_participants
+---@field building_id integer
+---@field site_id integer
+---@field location_id integer
+---@field timer integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field knowledge knowledge_scholar_category_flag
+
+---@class activity_event_copy_written_contentst
+---@field unit_id integer
+---@field histfig_id integer
+---@field occupation_id integer
+---@field building_id integer
+---@field site_id integer
+---@field location_id integer
+---@field unk_1 integer
+---@field timer integer
+
+---@class activity_event_teach_topicst
+---@field participants activity_event_participants
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class activity_event_playst
+---@field participants activity_event_participants
+---@field unk_1 integer
+---@field unk_3 coord
+
+---@class activity_event_make_believest
+---@field participants activity_event_participants
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_5 coord
+
+---@class activity_event_play_with_toyst
+---@field participants activity_event_participants
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk table
+---@field unk_4 integer
+
+---@class activity_event_encounterst
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class activity_event_store_objectst
+---@field unk_1 integer
+---@field unk_2 coord
+---@field building_id integer
+---@field unk_3 integer
+---@field unk_4 integer
 
 ---@class schedule_info
 ---@field id integer

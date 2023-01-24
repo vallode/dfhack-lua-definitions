@@ -193,7 +193,8 @@ df.sphere_type = {
 ---@field first_name string
 ---@field nickname string
 ---@field language integer
----@field has_name boolean
+---@field type language_name_type
+---@field has_name string
 
 ---@class language_word_table
 

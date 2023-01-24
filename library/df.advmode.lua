@@ -70,6 +70,7 @@ df.ui_advmode_menu = {
 ---@field unk_78 integer
 ---@field unk_7c integer
 ---@field unk_80 integer
+---@field location building
 ---@field unk_b8 integer
 ---@field unk_bc integer
 
@@ -312,6 +313,7 @@ df.assume_identity_mode = {
 }
 
 ---@class talk_choice
+---@field type talk_choice_type
 ---@field unk table
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -319,15 +321,16 @@ df.assume_identity_mode = {
 ---@field unk_4 integer
 
 ---@class adventurest
+---@field menu ui_advmode_menu
 ---@field site_level_zoom integer
 ---@field travel_origin_x integer
 ---@field travel_origin_y integer
 ---@field travel_origin_z integer
----@field travel_clouds boolean
+---@field travel_clouds string
 ---@field message string
 ---@field message_color integer
 ---@field message_brightness integer
----@field travel_not_moved boolean
+---@field travel_not_moved string
 ---@field unk4b integer
 ---@field travel_move_countdown integer
 ---@field unk_4 integer
@@ -343,7 +346,7 @@ df.assume_identity_mode = {
 ---@field tick_counter integer
 ---@field frame_counter integer
 ---@field unk_15 integer
----@field sleeping boolean
+---@field sleeping string
 ---@field unk_16 integer
 ---@field bogeymen_ambush_size integer
 ---@field bogeymen_killed integer
@@ -391,7 +394,7 @@ df.assume_identity_mode = {
 ---@field conversation table
 ---@field unk_71 integer
 ---@field sleep_hours integer
----@field sleep_until_dawn boolean
+---@field sleep_until_dawn string
 ---@field unk_78 integer
 ---@field unk_80 integer
 ---@field unk_81 integer
@@ -422,4 +425,124 @@ df.assume_identity_mode = {
 ---@field interrupt_performance_warning string
 ---@field unk_2 integer
 ---@field name_item language_name
+
+---@class text_info_elementst
+
+---@class text_info_element_longst
+---@field val integer
+
+---@class text_info_element_stringst
+---@field val string
+
+---@class adventure_optionst
+
+---@class adventure_option_eat_unit_contaminantst
+---@field unit unit
+---@field spatter spatter
+
+---@class adventure_option_eat_item_contaminantst
+---@field unit unit
+---@field inv_item unit_inventory_item
+---@field spatter spatter
+
+---@class adventure_option_view_contaminantst
+---@field unit unit
+---@field spatter spatter
+
+---@class adventure_environment_optionst
+---@field target_pos coord
+---@field player_pos coord
+
+---@class adventure_environment_place_in_it_containerst
+---@field container item
+
+---@class adventure_environment_ingest_from_containerst
+---@field container item
+---@field food item
+
+---@class adventure_environment_pickup_ignite_vegst
+---@field unk_1 integer
+
+---@class adventure_environment_ingest_materialst
+---@field mat_type integer
+---@field mat_index integer
+---@field mat_state matter_state
+
+---@class adventure_environment_pickup_make_campfirest
+
+---@class adventure_environment_place_in_bld_containerst
+---@field building building
+
+---@class adventure_environment_pickup_vermin_eventst
+---@field vermin_idx integer
+
+---@class adventure_environment_pickup_chop_treest
+
+---@class adventure_environment_unit_suck_bloodst
+---@field unit_id integer
+
+---@class adventure_movement_optionst
+---@field dest coord
+---@field source coord
+
+---@class adventure_movement_release_hold_itemst
+
+---@class adventure_movement_release_hold_tilest
+
+---@class adventure_movement_attack_creaturest
+
+---@class adventure_movement_hold_tilest
+---@field grab coord
+
+---@class adventure_movement_movest
+---@field unit_path_flags integer
+---@field unk_bitfield integer
+
+---@class adventure_movement_climbst
+---@field grab coord
+
+---@class adventure_movement_hold_itemst
+---@field item_id integer
+
+---@class adventure_movement_building_interactst
+---@field building_id integer
+
+---@class adventure_movement_item_interactst
+---@field item_id integer
+
+---@class adventure_movement_item_interact_guidest
+
+---@class adventure_movement_item_interact_ridest
+
+---@class adventure_movement_item_interact_pushst
+
+---@class adventure_item_interact_choicest
+
+---@class adventure_item_interact_pull_outst
+
+---@class adventure_item_interact_heat_from_tilest
+---@field item item
+---@field unk_1 coord
+---@field unk_2 coord
+
+---@class adventure_item_interact_fill_from_containerst
+---@field unk_1 item
+---@field unk_2 item
+---@field unk_3 coord
+---@field unk_4 coord
+
+---@class adventure_item_interact_readst
+
+---@class adventure_item_interact_fill_with_materialst
+---@field unk_1 item
+---@field unk_2 coord
+---@field unk_3 coord
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+
+---@class adventure_item_interact_strugglest
+
+---@class adventure_item_interact_give_namest
+---@field item item
 

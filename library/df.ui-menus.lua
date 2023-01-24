@@ -12,6 +12,36 @@ df.build_req_choice_type = {
   Specific = 1,
 }
 
+---@class build_req_choicest
+---@field distance integer
+
+---@class build_req_choice_genst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field used_count integer
+
+---@class build_req_choice_specst
+---@field candidate item
+---@field candidate_id integer
+
+---@class buildreq
+---@field building_type building_type
+---@field building_subtype integer
+---@field custom_type integer
+---@field stage integer
+---@field req_index integer
+---@field sel_index integer
+---@field is_grouped integer
+---@field cur_walk_tag integer
+---@field plate_info pressure_plate_info
+---@field friction integer
+---@field use_dump integer
+---@field dump_x_shift integer
+---@field dump_y_shift integer
+---@field speed integer
+
 ---@enum interface_category_building
 df.interface_category_building = {
   NONE = -1,
@@ -38,6 +68,40 @@ df.interface_category_construction = {
   TRACK = 7,
 }
 
+---@class interface_button
+---@field hotkey interface_key
+---@field leave_button string
+---@field flag integer
+---@field filter_str string
+
+---@class interface_button_buildingst
+---@field bd building
+
+---@class interface_button_building_category_selectorst
+---@field category interface_category_building
+---@field prepare_interface integer
+
+---@class interface_button_building_material_selectorst
+---@field material integer
+---@field matgloss integer
+---@field prepare_interface integer
+
+---@class interface_button_building_new_jobst
+---@field jobtype job_type
+---@field mstring string
+---@field itemtype item_type
+---@field subtype integer
+---@field material integer
+---@field matgloss integer
+---@field spec_id integer
+---@field add_building_location string
+---@field show_help_instead string
+---@field objection string
+---@field info string
+
+---@class interface_button_building_custom_category_selectorst
+---@field custom_category_token string
+
 ---@enum construction_category_type
 df.construction_category_type = {
   NONE = -1,
@@ -56,6 +120,7 @@ df.construction_category_type = {
 }
 
 ---@class bb_buttonst
+---@field category construction_category_type
 ---@field type integer
 ---@field subtype integer
 ---@field custom_building_id integer
@@ -63,6 +128,7 @@ df.construction_category_type = {
 ---@field grid_height integer
 ---@field texpos integer
 ---@field str string
+---@field hotkey interface_key
 
 ---@enum construction_interface_page_status_type
 df.construction_interface_page_status_type = {
@@ -73,14 +139,17 @@ df.construction_interface_page_status_type = {
 }
 
 ---@class construction_interface_pagest
+---@field category construction_category_type
 ---@field last_main_sx integer
 ---@field last_main_ex integer
 ---@field last_main_sy integer
 ---@field last_main_ey integer
+---@field page_status construction_interface_page_status_type
 ---@field number_of_columns integer
 ---@field column_height integer
 ---@field column_width integer
----@field scrolling boolean
+---@field selected_button bb_buttonst
+---@field scrolling string
 ---@field scroll_position integer
 
 ---@enum room_flow_shape_type
@@ -613,7 +682,7 @@ df.main_designation_type = {
 ---@field play_rng table
 ---@field start_tick_count integer
 ---@field autosave_cycle integer
----@field want_to_quit_to_title boolean
+---@field want_to_quit_to_title string
 ---@field external_flag integer
 
 ---@class difficultyst
@@ -656,7 +725,7 @@ df.main_designation_type = {
 ---@field contains_reagent_index integer
 ---@field tool_use integer
 ---@field display_string string
----@field on boolean
+---@field on string
 
 ---@class cwo_buildingst
 ---@field type integer
@@ -665,14 +734,20 @@ df.main_designation_type = {
 ---@field name string
 
 ---@class cri_unitst
+---@field un unit
+---@field it item
+---@field jb job
 ---@field profession_list_order1 integer
 ---@field profession_list_order2 integer
 ---@field stress integer
 ---@field flag integer
 ---@field sort_name string
 ---@field job_sort_name string
+---@field owner_un unit
 
 ---@class actor_entryst
+---@field hf historical_figure
+---@field name_ptr language_name
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
@@ -682,6 +757,8 @@ df.main_designation_type = {
 ---@field flag integer
 
 ---@class organization_entry_nodest
+---@field actor_entry actor_entryst
+---@field master organization_entry_nodest
 ---@field sort_id integer
 ---@field tier integer
 ---@field x integer
@@ -697,6 +774,7 @@ df.main_designation_type = {
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
+---@field principle_actor_entry actor_entryst
 ---@field flag integer
 
 ---@class plot_entryst
@@ -724,7 +802,7 @@ df.main_designation_type = {
 ---@field steam_metadata string
 ---@field steam_changelog string
 ---@field steamapi_1 string
----@field steamapi_2 boolean
+---@field steamapi_2 string
 ---@field steamapi_3 integer
 
 ---@class ui_look_list

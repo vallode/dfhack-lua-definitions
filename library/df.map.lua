@@ -149,6 +149,7 @@ df.tile_liquid_flow = {}
 ---@class block_burrow
 ---@field id integer
 ---@field tile_bitmask tile_bitmask
+---@field link block_burrow_link
 
 ---@class map_block
 ---@field local_feature integer
@@ -159,6 +160,20 @@ df.tile_liquid_flow = {}
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
 ---@field region_pos coord2d
+
+---@class cave_column
+---@field unk_z1 integer
+---@field unk_z2 integer
+---@field unk_3 integer
+
+---@class cave_column_rectangle
+---@field unk_1 integer
+---@field unk_x1 integer
+---@field unk_y1 integer
+---@field unk_x2 integer
+---@field unk_y2 integer
+---@field z_shift integer
+---@field unk_6 coord_path
 
 ---@class map_block_column
 ---@field sink_level integer
@@ -182,6 +197,43 @@ df.block_square_event_type = {
   designation_priority = 7,
 }
 
+---@class block_square_event
+
+---@class block_square_event_mineralst
+---@field inorganic_mat integer
+---@field tile_bitmask tile_bitmask
+
+---@class block_square_event_frozen_liquidst
+
+---@class block_square_event_world_constructionst
+---@field construction_id integer
+---@field tile_bitmask tile_bitmask
+
+---@class block_square_event_material_spatterst
+---@field mat_type integer
+---@field mat_index integer
+---@field mat_state matter_state
+---@field min_temperature integer
+---@field max_temperature integer
+
+---@class block_square_event_grassst
+---@field plant_index integer
+
+---@class block_square_event_spoorst
+---@field year integer
+---@field year_tick integer
+
+---@class block_square_event_item_spatterst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mattype integer
+---@field matindex integer
+---@field unk1 integer
+---@field temp1 integer
+---@field temp2 integer
+
+---@class block_square_event_designation_priorityst
+
 ---@enum feature_type
 df.feature_type = {
   outdoor_river = 0,
@@ -195,6 +247,33 @@ df.feature_type = {
   magma_core_from_layer = 8,
   underworld_from_layer = 9,
 }
+
+---@class feature
+---@field irritation_level integer
+---@field irritation_attacks integer
+---@field embark_pos coord2d_path
+
+---@class feature_outdoor_riverst
+
+---@class feature_cavest
+
+---@class feature_pitst
+
+---@class feature_magma_poolst
+---@field magma_fill_z integer
+
+---@class feature_volcanost
+---@field magma_fill_z integer
+
+---@class feature_deep_special_tubest
+
+---@class feature_deep_surface_portalst
+
+---@class feature_subterranean_from_layerst
+
+---@class feature_magma_core_from_layerst
+
+---@class feature_underworld_from_layerst
 
 ---@enum feature_init_flags
 df.feature_init_flags = {
@@ -214,11 +293,67 @@ df.layer_type = {
   Underworld = 4,
 }
 
+---@class feature_init
+---@field start_x integer
+---@field start_y integer
+---@field end_x integer
+---@field end_y integer
+---@field start_depth layer_type
+---@field end_depth layer_type
+
+---@class feature_init_outdoor_riverst
+---@field feature feature_outdoor_riverst
+
+---@class feature_init_cavest
+---@field feature feature_cavest
+
+---@class feature_init_pitst
+---@field feature feature_pitst
+
+---@class feature_init_magma_poolst
+---@field feature feature_magma_poolst
+
+---@class feature_init_volcanost
+---@field feature feature_volcanost
+
+---@class feature_init_deep_special_tubest
+---@field mat_type integer
+---@field mat_index integer
+---@field feature feature_deep_special_tubest
+
+---@class feature_init_deep_surface_portalst
+---@field mat_type integer
+---@field mat_index integer
+---@field feature feature_deep_surface_portalst
+
+---@class feature_init_subterranean_from_layerst
+---@field layer integer
+---@field feature feature_subterranean_from_layerst
+
+---@class feature_init_magma_core_from_layerst
+---@field layer integer
+---@field feature feature_magma_core_from_layerst
+
+---@class feature_init_underworld_from_layerst
+---@field layer integer
+---@field mat_type integer
+---@field mat_index integer
+---@field feature feature_underworld_from_layerst
+
 ---@enum feature_alteration_type
 df.feature_alteration_type = {
   new_pop_max = 0,
   new_lava_fill_z = 1,
 }
+
+---@class feature_alteration
+
+---@class feature_alteration_new_pop_maxst
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class feature_alteration_new_lava_fill_zst
+---@field magma_fill_z integer
 
 ---@enum world_construction_type
 df.world_construction_type = {
@@ -227,6 +362,47 @@ df.world_construction_type = {
   BRIDGE = 2,
   WALL = 3,
 }
+
+---@class world_construction_square
+---@field region_pos coord2d
+---@field construction_id integer
+
+---@class world_construction_square_roadst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+
+---@class world_construction_square_tunnelst
+
+---@class world_construction_square_bridgest
+---@field road_id integer
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+
+---@class world_construction_square_wallst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+
+---@class world_construction
+---@field id integer
+---@field square_pos coord2d_path
+
+---@class world_construction_roadst
+---@field name language_name
+
+---@class world_construction_tunnelst
+---@field name language_name
+
+---@class world_construction_bridgest
+---@field name language_name
+
+---@class world_construction_wallst
+---@field name language_name
 
 ---@enum biome_type
 df.biome_type = {
@@ -290,9 +466,11 @@ df.construction_flags = {}
 
 ---@class construction
 ---@field pos coord
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
+---@field original_tile tiletype
 
 ---@enum flow_type
 df.flow_type = {
@@ -313,13 +491,14 @@ df.flow_type = {
 }
 
 ---@class flow_info
+---@field type flow_type
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field density integer
 ---@field pos coord
 ---@field dest coord
----@field expanding boolean
----@field reuse boolean
+---@field expanding string
+---@field reuse string
 ---@field guide_id integer
 
 ---@class flow_reuse_pool
@@ -331,8 +510,23 @@ df.flow_guide_type = {
   ItemCloud = 1,
 }
 
+---@class flow_guide
+---@field id integer
+---@field unk_8 integer
+
+---@class flow_guide_trailing_flowst
+
+---@class flow_guide_item_cloudst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mattype integer
+---@field matindex integer
+---@field unk_18 integer
+---@field unk_1c integer
+
 ---@class effect_info
 ---@field id integer
+---@field job job
 ---@field type integer
 ---@field foreground integer
 ---@field background integer
@@ -344,4 +538,8 @@ df.flow_guide_type = {
 df.region_block_event_type = {
   SphereField = 0,
 }
+
+---@class region_block_eventst
+
+---@class region_block_event_sphere_fieldst
 

@@ -118,6 +118,204 @@ df.creature_interaction_effect_target_mode = {
 
 ---@class creature_interaction_effect_target
 
+---@class creature_interaction_effect
+---@field prob integer
+---@field start integer
+---@field peak integer
+---@field end integer
+---@field dwf_stretch integer
+---@field syn_id integer
+---@field id integer
+---@field syn_index integer
+---@field moon_phase_min integer
+---@field moon_phase_max integer
+---@field counter_trigger table
+
+---@class creature_interaction_effect_painst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_swellingst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_oozingst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_bruisingst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_blistersst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_numbnessst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_paralysisst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_feverst
+---@field sev integer
+
+---@class creature_interaction_effect_bleedingst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_cough_bloodst
+---@field sev integer
+
+---@class creature_interaction_effect_vomit_bloodst
+---@field sev integer
+
+---@class creature_interaction_effect_nauseast
+---@field sev integer
+
+---@class creature_interaction_effect_unconsciousnessst
+---@field sev integer
+
+---@class creature_interaction_effect_necrosisst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_impair_functionst
+---@field sev integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_drowsinessst
+---@field sev integer
+
+---@class creature_interaction_effect_dizzinessst
+---@field sev integer
+
+---@class creature_interaction_effect_display_namest
+---@field name string
+---@field name_plural string
+---@field name_adj string
+---@field unk_1 integer
+
+---@class creature_interaction_effect_body_appearance_modifierst
+---@field unk_60 integer
+---@field unk_64 integer
+
+---@class creature_interaction_effect_bp_appearance_modifierst
+---@field unk_6c integer
+---@field value integer
+---@field target creature_interaction_effect_target
+
+---@class creature_interaction_effect_body_transformationst
+---@field chance integer
+---@field race_str string
+---@field caste_str string
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class creature_interaction_effect_skill_roll_adjustst
+---@field multiplier integer
+---@field chance integer
+
+---@class creature_interaction_effect_display_symbolst
+---@field tile integer
+---@field color integer
+
+---@class creature_interaction_effect_flash_symbolst
+---@field period integer
+---@field time integer
+---@field unk_78 integer
+
+---@class creature_interaction_effect_phys_att_changest
+
+---@class creature_interaction_effect_ment_att_changest
+
+---@class creature_interaction_effect_add_simple_flagst
+
+---@class creature_interaction_effect_remove_simple_flagst
+
+---@class creature_interaction_effect_speed_changest
+---@field bonus_add integer
+---@field bonus_perc integer
+
+---@class creature_interaction_effect_body_mat_interactionst
+---@field interaction_name string
+---@field interaction_id integer
+---@field unk_8c integer
+---@field unk_90 integer
+---@field unk_94 string
+
+---@class creature_interaction_effect_material_force_adjustst
+---@field unk_6c string
+---@field unk_88 string
+---@field unk_a4 string
+---@field mat_type integer
+---@field mat_index integer
+---@field fraction_mul integer
+---@field fraction_div integer
+
+---@class creature_interaction_effect_can_do_interactionst
+---@field interaction creature_interaction
+
+---@class creature_interaction_effect_sense_creature_classst
+---@field class_name string
+---@field tile integer
+---@field color_foreground integer
+---@field color_background integer
+---@field foreground_brightness integer
+
+---@class creature_interaction_effect_feel_emotionst
+---@field emotion emotion_type
+---@field sev integer
+
+---@class creature_interaction_effect_change_personalityst
+
+---@class creature_interaction_effect_erratic_behaviorst
+---@field sev integer
+
+---@class creature_interaction_effect_close_open_woundsst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_cure_infectionsst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_heal_nervesst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_heal_tissuesst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_reduce_dizzinessst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_reduce_feverst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_reduce_nauseast
+---@field unk_1 integer
+
+---@class creature_interaction_effect_reduce_painst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_reduce_paralysisst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_reduce_swellingst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_regrow_partsst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_special_attack_interactionst
+---@field unk_3 string
+
+---@class creature_interaction_effect_stop_bleedingst
+---@field unk_1 integer
+
+---@class creature_interaction_effect_cure_infectionst
+---@field unk_1 integer
+
 ---@class syndrome_flags
 ---@field SYN_INJECTED boolean
 ---@field SYN_CONTACT boolean

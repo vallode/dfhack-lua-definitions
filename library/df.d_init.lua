@@ -78,6 +78,7 @@ df.d_init_autosave = {
 ---@field chasm_tile integer
 ---@field pillar_tile integer
 ---@field wound_color table
+---@field show_embark_tunnel d_init_tunnel
 ---@field number_of_lower_elevations_shown integer
 ---@field population_cap integer
 ---@field strict_population_cap integer
@@ -89,5 +90,7 @@ df.d_init_autosave = {
 ---@field store_dist table
 ---@field graze_coefficient integer
 ---@field maximum_embark_dim integer
+---@field post_prepare_embark_confirmation d_init_embark_confirm
+---@field autosave d_init_autosave
 ---@field announcements announcements
 

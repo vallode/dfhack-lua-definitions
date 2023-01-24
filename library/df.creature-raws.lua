@@ -439,7 +439,9 @@ df.appearance_modifier_growth_interval = {
 ---@field id integer
 
 ---@class body_appearance_modifier
+---@field type appearance_modifier_type
 ---@field growth_rate integer
+---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
 ---@field growth_start integer
@@ -452,7 +454,9 @@ df.appearance_modifier_growth_interval = {
 ---@field id2 integer
 
 ---@class bp_appearance_modifier
+---@field type appearance_modifier_type
 ---@field growth_rate integer
+---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
 ---@field growth_start integer
@@ -476,6 +480,7 @@ df.appearance_modifier_growth_interval = {
 ---@field penetration_perc integer
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 integer
+---@field skill job_skill
 ---@field velocity_modifier integer
 ---@field unk_v40_3 integer
 ---@field unk_v40_4 integer
@@ -512,6 +517,7 @@ df.creature_interaction_target_flags = {}
 ---@field material_str0 string
 ---@field material_str1 string
 ---@field material_str2 string
+---@field material_breath breath_attack_type
 ---@field verb_2nd string
 ---@field verb_3rd string
 ---@field verb_mutual string
@@ -551,6 +557,7 @@ df.creature_interaction_target_flags = {}
 ---@field index integer
 ---@field body_info caste_body_info
 ---@field attributes table
+---@field sex pronoun_type
 ---@field bp_appearance table
 ---@field appearance_gene_count integer
 ---@field color_gene_count integer
@@ -590,6 +597,7 @@ df.tissue_style_type = {
 ---@field token string
 ---@field id integer
 ---@field noun string
+---@field word_type part_of_speech
 
 ---@class creature_raw
 ---@field creature_id string
@@ -671,6 +679,7 @@ df.body_part_template_contype = {
 ---@field con string
 ---@field category string
 ---@field con_cat string
+---@field contype body_part_template_contype
 ---@field default_relsize integer
 ---@field number integer
 
@@ -717,6 +726,7 @@ df.tissue_flags = {
 ---@field unk1 integer
 ---@field insulation integer
 ---@field subordinate_to_tissue string
+---@field tissue_mat_state matter_state
 ---@field tissue_shape_str string
 
 ---@class tissue
@@ -734,6 +744,7 @@ df.tissue_flags = {
 ---@field insulation integer
 ---@field subordinate_to_tissue string
 ---@field parent_tissue integer
+---@field tissue_mat_state matter_state
 ---@field heatdam_point integer
 ---@field colddam_point integer
 ---@field ignite_point integer

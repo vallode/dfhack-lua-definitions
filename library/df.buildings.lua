@@ -109,7 +109,38 @@ df.building_extents_type = {
 ---@field y1 integer
 ---@field y2 integer
 
+---@class building
+---@field x1 integer
+---@field y1 integer
+---@field centerx integer
+---@field x2 integer
+---@field y2 integer
+---@field centery integer
+---@field z integer
+---@field mat_type integer
+---@field mat_index integer
+---@field room building_extents
+---@field age integer
+---@field race integer
+---@field id integer
+---@field name string
+---@field world_data_id integer
+---@field world_data_subid integer
+---@field unk_v40_2 integer
+---@field site_id integer
+---@field location_id integer
+---@field unk_v40_3 integer
+
 ---@class stockpile_links
+
+---@class building_stockpilest
+---@field settings stockpile_settings
+---@field max_barrels integer
+---@field max_bins integer
+---@field max_wheelbarrows integer
+---@field links stockpile_links
+---@field use_links_only integer
+---@field stockpile_number integer
 
 ---@class hospital_supplies
 ---@field max_splints integer
@@ -230,6 +261,18 @@ df.civzone_type = {
   Tomb = 97,
 }
 
+---@class building_civzonest
+---@field type civzone_type
+---@field is_active integer
+---@field zone_num integer
+---@field zone_settings table
+---@field assigned_unit_id integer
+---@field assigned_unit unit
+
+---@class building_actual
+---@field construction_stage integer
+---@field design building_design
+
 ---@class building_design
 ---@field architect integer
 ---@field unk2 integer
@@ -240,6 +283,8 @@ df.civzone_type = {
 ---@field build_timer1 integer
 ---@field builder2 integer
 ---@field build_timer2 integer
+---@field quality1 item_quality
+---@field quality2 item_quality
 ---@field hitpoints integer
 ---@field max_hitpoints integer
 
@@ -254,6 +299,12 @@ df.furnace_type = {
   MagmaKiln = 6,
   Custom = 7,
 }
+
+---@class building_furnacest
+---@field unk_108 integer
+---@field type furnace_type
+---@field profile workshop_profile
+---@field custom_type integer
 
 ---@enum workshop_type
 df.workshop_type = {
@@ -289,9 +340,66 @@ df.workshop_type = {
 ---@field max_level integer
 ---@field links stockpile_links
 ---@field max_general_orders integer
----@field block_general_orders boolean
+---@field block_general_orders string
+
+---@class building_workshopst
+---@field type workshop_type
+---@field profile workshop_profile
+---@field machine machine_info
+---@field custom_type integer
+
+---@class building_animaltrapst
+---@field bait_type integer
+---@field fill_timer integer
+
+---@class building_archerytargetst
+
+---@class building_armorstandst
+---@field unk_c0 integer
+---@field specific_squad integer
+---@field specific_position integer
+
+---@class building_bars_verticalst
+---@field timer integer
+
+---@class building_bars_floorst
+---@field timer integer
 
 ---@class building_users
+
+---@class building_bedst
+---@field specific_squad integer
+---@field specific_position integer
+---@field users building_users
+
+---@class building_bookcasest
+
+---@class building_boxst
+---@field unk_1 integer
+---@field specific_squad integer
+---@field specific_position integer
+
+---@class building_bridgest
+---@field timer integer
+---@field material_amount integer
+
+---@class building_cabinetst
+---@field unk_1 integer
+---@field specific_squad integer
+---@field specific_position integer
+
+---@class building_cagest
+---@field fill_timer integer
+
+---@class building_chainst
+---@field assigned unit
+---@field chained unit
+
+---@class building_chairst
+---@field unk_1 integer
+---@field users building_users
+
+---@class building_coffinst
 
 ---@enum construction_type
 df.construction_type = {
@@ -335,11 +443,64 @@ df.construction_type = {
   TrackRampNSEW = 36,
 }
 
+---@class building_constructionst
+---@field type construction_type
+
+---@class building_display_furniturest
+
+---@class building_doorst
+---@field close_timer integer
+
+---@class building_farmplotst
+---@field material_amount integer
+---@field last_season season
+---@field current_fertilization integer
+---@field max_fertilization integer
+---@field terrain_purge_timer integer
+
+---@class building_floodgatest
+---@field timer integer
+
+---@class building_grate_floorst
+---@field timer integer
+
+---@class building_grate_wallst
+---@field timer integer
+
+---@class building_hatchst
+---@field close_timer integer
+
 ---@class hive_flags
 ---@field do_install boolean
 ---@field do_gather boolean
 ---@field ready_split boolean
 df.hive_flags = {}
+
+---@class building_hivest
+---@field split_timer integer
+---@field activity_timer integer
+---@field install_timer integer
+---@field gather_timer integer
+
+---@class building_instrumentst
+---@field unk_1 integer
+
+---@class building_nestst
+
+---@class building_nest_boxst
+---@field claimed_by integer
+---@field claim_timeout integer
+
+---@class building_offering_placest
+
+---@class building_roadst
+
+---@class building_road_dirtst
+---@field material_amount integer
+
+---@class building_road_pavedst
+---@field material_amount integer
+---@field terrain_purge_timer integer
 
 ---@enum shop_type
 df.shop_type = {
@@ -349,11 +510,39 @@ df.shop_type = {
   ExoticClothingShop = 3,
 }
 
+---@class building_shopst
+---@field owner unit
+---@field timer integer
+---@field type shop_type
+
 ---@enum siegeengine_type
 df.siegeengine_type = {
   Catapult = 0,
   Ballista = 1,
 }
+
+---@class building_siegeenginest
+---@field type siegeengine_type
+---@field fire_timer integer
+---@field fill_timer integer
+
+---@class building_slabst
+---@field unk_1 integer
+
+---@class building_statuest
+---@field unk_1 integer
+
+---@class building_supportst
+
+---@class building_tablest
+---@field users building_users
+
+---@class building_traction_benchst
+---@field unk_1 integer
+---@field users building_users
+
+---@class building_tradedepotst
+---@field accessible integer
 
 ---@enum trap_type
 df.trap_type = {
@@ -375,8 +564,42 @@ df.trap_type = {
 ---@field track_min integer
 ---@field track_max integer
 
+---@class building_trapst
+---@field trap_type trap_type
+---@field state integer
+---@field ready_timeout integer
+---@field fill_timer integer
+---@field profile workshop_profile
+---@field plate_info pressure_plate_info
+---@field friction integer
+---@field use_dump integer
+---@field dump_x_shift integer
+---@field dump_y_shift integer
+---@field stop_trigger_timer integer
+
+---@class building_wagonst
+
+---@class building_weaponst
+---@field timer integer
+
 ---@class building_squad_use
 ---@field squad_id integer
+
+---@class building_weaponrackst
+---@field unk_c0 integer
+
+---@class building_wellst
+---@field unk_1 integer
+---@field bucket_z integer
+---@field bucket_timer integer
+---@field check_water_timer integer
+
+---@class building_windowst
+---@field unk_1 integer
+
+---@class building_window_glassst
+
+---@class building_window_gemst
 
 ---@enum dfhack_room_quality_level
 df.dfhack_room_quality_level = {

@@ -169,6 +169,7 @@ df.entity_name_type = {
 ---@field equipment table
 ---@field translation string
 ---@field symbols table
+---@field default_site_type world_site_type
 ---@field progress_trigger table
 ---@field max_site_pop_number integer
 ---@field max_pop_number integer
@@ -266,6 +267,7 @@ df.entity_position_responsibility = {
 ---@field land_holder integer
 ---@field number integer
 ---@field requires_population integer
+---@field execution_skill job_skill
 ---@field precedence integer
 ---@field replaced_by_str string
 ---@field replaced_by integer

@@ -13,6 +13,7 @@ df.pattern_type = {
 ---@class descriptor_color
 ---@field id string
 ---@field name string
+---@field color curses_color
 ---@field bold integer
 ---@field red number
 ---@field green number
@@ -27,4 +28,5 @@ df.pattern_type = {
 
 ---@class descriptor_pattern
 ---@field id string
+---@field pattern pattern_type
 

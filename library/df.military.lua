@@ -7,7 +7,9 @@
 df.uniform_indiv_choice = {}
 
 ---@class item_filter_spec
+---@field item_type item_type
 ---@field item_subtype integer
+---@field material_class entity_material_category
 ---@field mattype integer
 ---@field matindex integer
 
@@ -69,6 +71,7 @@ df.squad_event_type = {
 ---@field unk_2 integer
 
 ---@class squad_schedule_order
+---@field order squad_order
 ---@field min_count integer
 
 ---@class squad_schedule_entry
@@ -131,6 +134,58 @@ df.squad_order_cannot_reason = {
   cannot_leave_site = 20,
 }
 
+---@class squad_order
+---@field unk_v40_1 integer
+---@field unk_v40_2 integer
+---@field year integer
+---@field year_tick integer
+---@field unk_v40_3 integer
+---@field unk_1 integer
+
+---@class squad_order_movest
+---@field pos coord
+---@field point_id integer
+
+---@class squad_order_kill_listst
+---@field title string
+
+---@class squad_order_defend_burrowsst
+
+---@class squad_order_patrol_routest
+---@field route_id integer
+
+---@class squad_order_trainst
+
+---@class squad_order_drive_entity_off_sitest
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 string
+
+---@class squad_order_cause_trouble_for_entityst
+---@field entity_id integer
+---@field override_name string
+
+---@class squad_order_kill_hfst
+---@field histfig_id integer
+---@field title string
+
+---@class squad_order_drive_armies_from_sitest
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 string
+
+---@class squad_order_retrieve_artifactst
+---@field artifact_id integer
+---@field unk_2 coord
+
+---@class squad_order_raid_sitest
+---@field unk_2 integer
+---@field unk_3 coord
+
+---@class squad_order_rescue_hfst
+---@field unk_2 integer
+---@field unk_3 coord
+
 ---@class army_controller
 ---@field id integer
 ---@field entity_id integer
@@ -151,6 +206,7 @@ df.squad_order_cannot_reason = {
 ---@field visitor_nemesis_id integer
 ---@field unk_44_4 integer
 ---@field unk_50 integer
+---@field mission_report mission_report
 ---@field data table
 
 ---@class army_controller_sub1
@@ -210,6 +266,7 @@ df.squad_order_cannot_reason = {
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field abstract_building integer
+---@field purpose history_event_reason
 
 ---@class army_controller_sub13
 ---@field unk_1 integer
@@ -252,6 +309,7 @@ df.squad_order_cannot_reason = {
 ---@field site_id integer
 ---@field entity_id integer
 ---@field abstract_building integer
+---@field purpose history_event_reason
 
 ---@enum army_flags
 df.army_flags = {
@@ -269,12 +327,14 @@ df.army_flags = {
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field controller_id integer
+---@field controller army_controller
 ---@field unk_90 integer
 ---@field unk_94 integer
 ---@field unk_98 integer
 ---@field min_smell_trigger integer
 ---@field max_odor_level integer
 ---@field max_low_light_vision integer
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer

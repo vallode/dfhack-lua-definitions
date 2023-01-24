@@ -61,6 +61,7 @@ df.abstract_building_flags = {
 ---@class abstract_building_entombed
 
 ---@class abstract_building_contents
+---@field profession profession
 ---@field desired_goblets integer
 ---@field desired_instruments integer
 ---@field desired_paper integer
@@ -73,6 +74,23 @@ df.abstract_building_flags = {
 ---@field unk_v47_2 integer
 ---@field unk_v47_3 integer
 
+---@class abstract_building
+---@field id integer
+---@field parent_building_id integer
+---@field site_owner_id integer
+---@field scribeinfo location_scribe_jobs
+---@field reputation_reports site_reputation_info
+---@field site_id integer
+---@field pos coord2d
+
+---@class abstract_building_mead_hallst
+---@field name language_name
+---@field item1 site_building_item
+---@field item2 site_building_item
+
+---@class abstract_building_keepst
+---@field name language_name
+
 ---@enum temple_deity_type
 df.temple_deity_type = {
   None = -1,
@@ -83,6 +101,62 @@ df.temple_deity_type = {
 ---@class temple_deity_data
 ---@field Deity integer
 ---@field Religion integer
+
+---@class abstract_building_templest
+---@field deity_type temple_deity_type
+---@field deity_data temple_deity_data
+---@field name language_name
+---@field contents abstract_building_contents
+
+---@class abstract_building_dark_towerst
+---@field name language_name
+
+---@class abstract_building_marketst
+---@field name language_name
+
+---@class abstract_building_tombst
+---@field name language_name
+---@field entombed abstract_building_entombed
+---@field precedence integer
+
+---@class abstract_building_dungeonst
+---@field name language_name
+---@field unk_1 integer
+---@field entombed abstract_building_entombed
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class abstract_building_underworld_spirest
+---@field name language_name
+---@field unk_bc integer
+
+---@class abstract_building_inn_tavernst
+---@field name language_name
+---@field contents abstract_building_contents
+---@field next_room_info_id integer
+
+---@class abstract_building_libraryst
+---@field name language_name
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field contents abstract_building_contents
+
+---@class abstract_building_counting_housest
+---@field name language_name
+
+---@class abstract_building_guildhallst
+---@field name language_name
+---@field contents abstract_building_contents
+
+---@class abstract_building_towerst
+---@field name language_name
+---@field unk_1 integer
+
+---@class abstract_building_hospitalst
+---@field name language_name
 
 ---@enum world_site_type
 df.world_site_type = {
@@ -142,7 +216,7 @@ df.lair_type = {
 
 ---@class property_ownership
 ---@field index integer
----@field is_concrete_property boolean
+---@field is_concrete_property string
 ---@field property_index integer
 ---@field unk_hfid integer
 ---@field owner_entity_id integer
@@ -153,6 +227,7 @@ df.lair_type = {
 ---@field name language_name
 ---@field civ_id integer
 ---@field cur_owner_id integer
+---@field type world_site_type
 ---@field pos coord2d
 ---@field id integer
 ---@field unk_1 table
@@ -183,6 +258,7 @@ df.lair_type = {
 ---@field unk_170 integer
 ---@field unk_174 integer
 ---@field unk_178 coord
+---@field realization world_site_realization
 ---@field is_mountain_halls integer
 ---@field is_fortress integer
 ---@field unk_v47_2 integer
@@ -190,7 +266,13 @@ df.lair_type = {
 ---@field unk_v43_3 integer
 ---@field unk_v40_5 integer
 ---@field unk_3a8 integer
+---@field unk_3b0 world_site_unk130
 ---@field unk_v43_4 integer
+---@field unk_4 historical_figure
+---@field unk_5 historical_figure
+---@field unk_6 historical_figure
+---@field unk_7 historical_figure
+---@field unk_8 historical_figure
 ---@field unk_24 integer
 
 ---@class cultural_identity
@@ -256,6 +338,10 @@ df.lair_type = {
 ---@field unk_32c integer
 ---@field center_x_tile integer
 ---@field center_y_tile integer
+---@field up site_realization_crossroads
+---@field down site_realization_crossroads
+---@field right site_realization_crossroads
+---@field left site_realization_crossroads
 ---@field unk_348 integer
 ---@field unk_349 integer
 ---@field unk_34c integer
@@ -306,6 +392,7 @@ df.site_realization_building_type = {
 
 ---@class site_realization_building
 ---@field id integer
+---@field type site_realization_building_type
 ---@field min_x integer
 ---@field min_y integer
 ---@field max_x integer
@@ -315,11 +402,15 @@ df.site_realization_building_type = {
 ---@field item site_building_item
 ---@field abstract_building_id integer
 ---@field unk_44 integer
+---@field building_info site_realization_building_infost
 ---@field unk_5c integer
 ---@field unk_v40_1 integer
 
+---@class site_realization_building_infost
+
 ---@class site_building_item
 ---@field race integer
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
@@ -331,6 +422,32 @@ df.site_realization_building_type = {
 ---@field goblin boolean
 ---@field unk10 boolean
 df.tower_shape = {}
+
+---@class site_realization_building_info_castle_wallst
+---@field length integer
+---@field door_pos integer
+---@field start_x integer
+---@field start_y integer
+---@field start_z integer
+---@field end_x integer
+---@field end_y integer
+---@field end_z integer
+---@field wall_item site_building_item
+---@field door_item site_building_item
+
+---@class site_realization_building_info_castle_towerst
+---@field roof_z integer
+---@field base_z integer
+---@field door_n_elevation integer
+---@field door_s_elevation integer
+---@field door_e_elevation integer
+---@field door_w_elevation integer
+---@field door_item site_building_item
+---@field wall_item site_building_item
+---@field unk_40 integer
+---@field unk_44 integer
+
+---@class site_realization_building_info_castle_courtyardst
 
 ---@enum site_shop_type
 df.site_shop_type = {
@@ -362,6 +479,16 @@ df.site_shop_type = {
   Tavern = 25,
 }
 
+---@class site_realization_building_info_shop_housest
+---@field type site_shop_type
+---@field name language_name
+
+---@class site_realization_building_info_market_squarest
+---@field type site_shop_type
+
+---@class site_realization_building_info_trenchesst
+---@field unk_4 integer
+
 ---@enum tree_house_type
 df.tree_house_type = {
   TreeHouse = 0,
@@ -372,6 +499,11 @@ df.tree_house_type = {
   Unknown2 = 5,
 }
 
+---@class site_realization_building_info_tree_housest
+---@field type tree_house_type
+---@field unk_8 integer
+---@field name language_name
+
 ---@enum hillock_house_type
 df.hillock_house_type = {
   unk_0 = 0,
@@ -380,6 +512,13 @@ df.hillock_house_type = {
   DrinkingMound = 3,
 }
 
+---@class site_realization_building_info_hillock_housest
+---@field type hillock_house_type
+
+---@class site_realization_building_info_shrinest
+---@field unk_1 integer
+---@field unk_2 integer
+
 ---@enum creation_zone_pwg_alteration_type
 df.creation_zone_pwg_alteration_type = {
   location_death = 0,
@@ -387,4 +526,32 @@ df.creation_zone_pwg_alteration_type = {
   srb_ruined = 2,
   srp_ruined = 3,
 }
+
+---@class creation_zone_pwg_alterationst
+---@field unk_0 integer
+
+---@class creation_zone_pwg_alteration_location_deathst
+---@field unk_1 table
+---@field unk_2 integer
+
+---@class creation_zone_pwg_alteration_campst
+---@field unk_1 integer
+---@field x1 integer
+---@field y1 integer
+---@field x2 integer
+---@field y2 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+
+---@class creation_zone_pwg_alteration_srb_ruinedst
+---@field site_id integer
+---@field building_id integer
+
+---@class creation_zone_pwg_alteration_srp_ruinedst
+---@field unk_1 integer
+---@field unk_2 integer
 

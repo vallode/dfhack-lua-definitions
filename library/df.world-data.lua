@@ -33,8 +33,10 @@ df.world_population_type = {
 ---@field cave_id integer
 ---@field unk_28 integer
 ---@field population_idx integer
+---@field depth layer_type
 
 ---@class local_population
+---@field type world_population_type
 ---@field quantity integer
 ---@field quantity2 integer
 ---@field population world_population_ref
@@ -44,6 +46,7 @@ df.world_population_type = {
 ---@field unk_v47_1 integer
 
 ---@class world_population
+---@field type world_population_type
 ---@field count_min integer
 ---@field count_max integer
 ---@field unk_c integer
@@ -80,6 +83,7 @@ df.world_region_type = {
 ---@class world_region
 ---@field name language_name
 ---@field index integer
+---@field type world_region_type
 ---@field region_coords coord2d_path
 ---@field size integer
 ---@field unk_98 integer
@@ -87,12 +91,12 @@ df.world_region_type = {
 ---@field unk_a0 integer
 ---@field unk_a4 integer
 ---@field dead_percentage integer
----@field unk_1e5 boolean
----@field unk_1e6 boolean
----@field reanimating boolean
+---@field unk_1e5 string
+---@field unk_1e6 string
+---@field reanimating string
 ---@field unk_1e8 integer
----@field evil boolean
----@field good boolean
+---@field evil string
+---@field good string
 ---@field lake_surface integer
 ---@field unk_v47_2 integer
 ---@field mid_x integer
@@ -115,6 +119,7 @@ df.world_region_type = {
 ---@field passage_density_min integer
 ---@field passage_density_max integer
 ---@field region_coords coord2d_path
+---@field feature_init feature_init
 
 ---@class world_river
 ---@field name language_name
@@ -135,6 +140,7 @@ df.geo_layer_type = {
 }
 
 ---@class world_geo_layer
+---@field type geo_layer_type
 ---@field mat_index integer
 ---@field top_height integer
 ---@field bottom_height integer
@@ -151,6 +157,7 @@ df.geo_layer_type = {
 ---@field max_z integer
 ---@field unk_28 integer
 ---@field seed integer
+---@field top_layer_idx layer_type
 
 ---@class world_region_details
 ---@field edges table
@@ -313,6 +320,7 @@ df.mountain_peak_flags = {
 ---@field constructions table
 ---@field entity_claims1 entity_claim_mask
 ---@field entity_claims2 entity_claim_mask
+---@field unk_1c4 int8_t
 ---@field unk_1 integer
 ---@field unk_17 integer
 ---@field unk_18 integer
@@ -346,9 +354,10 @@ df.region_weather_type = {
 
 ---@class region_weather
 ---@field id integer
+---@field type region_weather_type
 ---@field mat_type integer
 ---@field mat_index integer
----@field announcement boolean
+---@field announcement string
 ---@field region_x integer
 ---@field region_y integer
 ---@field world_in_game_x integer

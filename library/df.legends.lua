@@ -44,6 +44,8 @@ df.nemesis_flags = {
 ---@field unit_id integer
 ---@field save_file_id integer
 ---@field member_idx integer
+---@field figure historical_figure
+---@field unit unit
 ---@field group_leader_id integer
 ---@field unk10 integer
 ---@field unk11 integer
@@ -54,6 +56,7 @@ df.nemesis_flags = {
 ---@class artifact_record
 ---@field id integer
 ---@field name language_name
+---@field item item
 ---@field abs_tile_x integer
 ---@field abs_tile_y integer
 ---@field abs_tile_z integer

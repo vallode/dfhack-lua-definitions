@@ -39,6 +39,74 @@ df.interaction_effect_location_hint = {
   OUTSIDE = 5,
 }
 
+---@class interaction_effect
+---@field index integer
+---@field intermittent integer
+---@field interaction_id integer
+---@field arena_name string
+
+---@class interaction_effect_animatest
+---@field unk_1 integer
+
+---@class interaction_effect_add_syndromest
+---@field unk_1 integer
+
+---@class interaction_effect_resurrectst
+---@field unk_1 integer
+
+---@class interaction_effect_cleanst
+---@field grime_level integer
+---@field unk_1 integer
+
+---@class interaction_effect_contactst
+---@field unk_1 integer
+
+---@class interaction_effect_material_emissionst
+---@field unk_1 integer
+
+---@class interaction_effect_hidest
+---@field unk_1 integer
+
+---@class interaction_effect_change_item_qualityst
+---@field quality_added integer
+---@field quality_set integer
+
+---@class interaction_effect_change_weatherst
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class interaction_effect_raise_ghostst
+---@field unk_1 integer
+
+---@class interaction_effect_create_itemst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field probability integer
+---@field quantity integer
+---@field quality_min integer
+---@field quality_max integer
+---@field create_artifact integer
+---@field unk_1 string
+---@field unk_2 string
+---@field unk_3 string
+---@field unk_4 string
+---@field unk_5 string
+
+---@class interaction_effect_propel_unitst
+---@field unk_1 integer
+---@field propel_force integer
+
+---@class interaction_effect_summon_unitst
+---@field make_pet integer
+---@field race_str string
+---@field caste_str string
+---@field unk_3 integer
+---@field unk_4 integer
+---@field time_range_min integer
+---@field time_range_max integer
+
 ---@enum interaction_source_type
 df.interaction_source_type = {
   REGION = 0,
@@ -51,6 +119,27 @@ df.interaction_source_type = {
   UNDERGROUND_SPECIAL = 7,
   EXPERIMENT = 8,
 }
+
+---@class interaction_source
+---@field id integer
+---@field frequency integer
+---@field name string
+---@field hist_string_1 string
+---@field hist_string_2 string
+---@field trigger_string_second string
+---@field trigger_string_third string
+---@field trigger_string string
+
+---@class interaction_source_regionst
+
+---@class interaction_source_secretst
+---@field book_title_filename string
+---@field book_name_filename string
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class interaction_source_disturbancest
+---@field unk_1 integer
 
 ---@enum interaction_source_usage_hint
 df.interaction_source_usage_hint = {
@@ -68,6 +157,23 @@ df.interaction_source_usage_hint = {
   MEDIUM_BLESSING = 11,
   MINOR_BLESSING = 12,
 }
+
+---@class interaction_source_deityst
+---@field unk_1 integer
+
+---@class interaction_source_attackst
+---@field unk_1 integer
+
+---@class interaction_source_ingestionst
+---@field unk_1 integer
+
+---@class interaction_source_creature_actionst
+---@field unk_1 integer
+
+---@class interaction_source_underground_specialst
+
+---@class interaction_source_experimentst
+---@field unk_1 integer
 
 ---@enum interaction_target_type
 df.interaction_target_type = {
@@ -89,11 +195,25 @@ df.interaction_target_location_type = {
   RANDOM_NEARBY_LOCATION = 6,
 }
 
+---@class interaction_target
+---@field index integer
+---@field name string
+---@field manual_input string
+---@field location interaction_target_location_type
+---@field reference_name string
+---@field reference_distance integer
+
 ---@class interaction_target_info
 ---@field requires_1 integer
 ---@field requires_2 integer
 ---@field forbidden_1 integer
 ---@field forbidden_2 integer
+
+---@class interaction_target_corpsest
+---@field target_info interaction_target_info
+
+---@class interaction_target_creaturest
+---@field target_info interaction_target_info
 
 ---@enum breath_attack_type
 df.breath_attack_type = {
@@ -120,6 +240,14 @@ df.breath_attack_type = {
   SHARP_ROCK = 20,
   OTHER = 21,
 }
+
+---@class interaction_target_materialst
+---@field mat_type integer
+---@field mat_index integer
+---@field parent_interaction_index integer
+---@field breath_attack_type breath_attack_type
+
+---@class interaction_target_locationst
 
 ---@class interaction_instance
 ---@field id integer
