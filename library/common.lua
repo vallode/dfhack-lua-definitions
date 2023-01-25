@@ -6,6 +6,7 @@ df = {}
 df.global = {}
 
 ---@class dfhack
+---@field VERSION any
 dfhack = {}
 
 ---@param message string
@@ -72,28 +73,28 @@ function string:startswith(prefix) end
 ---@return boolean
 function string:endswith(suffix) end
 
+---Split a string by the given delimiter. If no delimiter is specified, space
+---(' ') is used. The delimter is treated as a pattern unless a <plain> is
+---specified and set to true. To treat multiple successive delimiter characters
+---as a single delimiter, e.g. to avoid getting empty string elements, pass a
+---pattern like ' +'. Be aware that passing patterns that match empty strings
+---(like ' *') will result in improper string splits.
 ---@param delimiter? string
 ---@param plain? string
 ---@return string[]
--- Split a string by the given delimiter. If no delimiter is specified, space
--- (' ') is used. The delimter is treated as a pattern unless a <plain> is
--- specified and set to true. To treat multiple successive delimiter characters
--- as a single delimiter, e.g. to avoid getting empty string elements, pass a
--- pattern like ' +'. Be aware that passing patterns that match empty strings
--- (like ' *') will result in improper string splits.
 function string:split(delimiter, plain) end
 
+---Removes spaces (i.e. everything that matches '%s') from the start and end of
+---a string. Spaces between non-space characters are left untouched.
 ---@return string
--- Removes spaces (i.e. everything that matches '%s') from the start and end of
--- a string. Spaces between non-space characters are left untouched.
 function string:trim() end
 
+---Inserts newlines into a string so no individual line exceeds the given width.
+---Lines are split at space-separated word boundaries. Any existing newlines are
+---kept in place. If a single word is longer than width, it is split over
+---multiple lines. If width is not specified, 72 is used.
 ---@param width integer
 ---@return string
--- Inserts newlines into a string so no individual line exceeds the given width.
--- Lines are split at space-separated word boundaries. Any existing newlines are
--- kept in place. If a single word is longer than width, it is split over
--- multiple lines. If width is not specified, 72 is used.
 function string:wrap(width) end
 
 ---@return string
@@ -167,6 +168,405 @@ dfhack.job = {}
 
 dfhack.units = {}
 
+---@param unit unit
+---@param x1 integer
+---@param y1 integer
+---@param z1 integer
+---@param x2 integer
+---@param y2 integer
+---@param z2 integer
+---@return boolean
+function dfhack.units.isUnitInBox(unit, x1, y1, z1, x2, y2, z2) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isActive(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isVisible(unit) end
+
+---@param unit unit
+---@param ignore_sanity? boolean
+---@return boolean
+function dfhack.units.isCitizen(unit, ignore_sanity) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isFortControlled(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isOwnCiv(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isOwnGroup(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isOwnRace(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isAlive(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isDead(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isKilled(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isSane(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isGhost(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isHidden(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isHidingCurse(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isMale(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isFemale(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isBaby(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isChild(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isAdult(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isGay(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isNaked(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isVisiting(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isTrainableHunting(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isTrainableWar(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isTrained(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isHunter(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isWar(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isTame(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isTamable(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isDomesticated(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isMarkedForSlaughter(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isGelded(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isEggLayer(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isGrazer(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isMilkable(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isForest(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isMischievous(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isAvailableForAdoption(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isOpposedToLife(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.hasExtravision(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isBloodsucker(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isDwarf(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isAnimal(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isMerchant(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isDiplomat(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isVisitor(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isInvader(unit) end
+
+---@param unit unit
+---@param include_vamps? boolean
+---@return boolean
+function dfhack.units.isUndead(unit, include_vamps) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isNightCreature(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isSemiMegabeast(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isMegabeast(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isTitan(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isDemon(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isDanger(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.isGreatDanger(unit) end
+
+---@param unit unit
+---@return boolean
+function dfhack.units.getPosition(unit) end
+
+---TODO.
+---@param units unit[]
+---@param x1 integer
+---@param y1 integer
+---@param z1 integer
+---@param x2 integer
+---@param y2 integer
+---@param z2 integer
+---@return boolean
+function dfhack.units.getUnitsInBox(units, x1, y1, z1, x2, y2, z2) end
+
+---@param unit unit
+---@param pos coord
+---@return boolean
+function dfhack.units.teleport(unit, pos) end
+
+---@param unit unit
+---@param type general_ref_type
+---@return general_ref
+function dfhack.units.getGeneralRef(unit, type) end
+
+---@param unit unit
+---@param type specific_ref_type
+---@return specific_ref
+function dfhack.units.getSpecificRef(unit, type) end
+
+---@param unit unit
+---@return item
+function dfhack.units.getContainer(unit) end
+
+---@param unit unit
+---@param nick string
+function dfhack.units.setNickname(unit, nick) end
+
+---TODO
+---@param specific_ref specific_ref
+---@param unit unit
+---@param init_ref boolean
+---@return table
+function dfhack.units.getOuterContainerRef(specific_ref, unit, init_ref) end
+
+---@param unit unit
+---@return language_name
+function dfhack.units.getVisibleName(unit) end
+
+---@param unit unit
+---@return identity
+function dfhack.units.getIdentity(unit) end
+
+---@param unit unit
+---@return nemesis_record
+function dfhack.units.getNemesis(unit) end
+
+---@param unit unit
+---@param attr_type physical_attribute_type
+---@return integer
+function dfhack.units.getPhysicalAttrValue(unit, attr_type) end
+
+---@param unit unit
+---@param attr_type mental_attribute_type
+---@return integer
+function dfhack.units.getMentalAttrValue(unit, attr_type) end
+
+---@param unit unit
+---@param type misc_trait_type
+---@param create? boolean
+---@return unit_misc_trait
+function dfhack.units.getMiscTrait(unit, type, create) end
+
+---@param unit unit
+---@param true_age? boolean
+---@return number
+function dfhack.units.getAge(unit, true_age) end
+
+---@param unit unit
+---@param unit_labor unit_labor
+---@return boolean
+function dfhack.units.isValidLabor(unit, unit_labor) end
+
+---@param unit_labor unit_labor
+---@param isValid boolean
+---@return boolean
+function dfhack.units.setLaborValidity(unit_labor, isValid) end
+
+---@param unit unit
+---@param skill job_skill
+---@param use_rust? boolean
+---@return integer
+function dfhack.units.getNominalSkill(unit, skill, use_rust) end
+
+---@param unit unit
+---@param skill job_skill
+---@return integer
+function dfhack.units.getEffectiveSkill(unit, skill) end
+
+---@param unit unit
+---@param skill job_skill
+---@param total boolean
+---@return integer
+function dfhack.units.getExperience(unit, skill, total) end
+
+---@param unit unit
+---@return number
+function dfhack.units.computeMovementSpeed(unit) end
+
+---@param unit unit
+---@return number
+function dfhack.units.computeSlowdownFactor(unit) end
+
+---@param unit unit
+---@return table
+function dfhack.units.getNoblePositions(unit) end
+
+---@param unit unit
+---@param ignore_noble boolean
+---@param plural boolean
+---@return string
+function dfhack.units.getProfessionName(unit, ignore_noble, plural) end
+
+---@param race race
+---@param caste caste
+---@param prof_id profession
+---@param plural boolean
+---@return string
+function dfhack.units.getCasteProfessionName(race, caste, prof_id, plural) end
+
+---@param unit unit
+---@param ignore_noble? boolean
+---@return integer
+function dfhack.units.getProfessionColor(unit, ignore_noble) end
+
+---@param race race
+---@param caste caste
+---@param prof_id profession
+---@return integer
+function dfhack.units.getCasteProfessionColor(race, caste, prof_id) end
+
+---@param unit unit
+---@param goalIndex? integer
+---@return goal_type
+function dfhack.units.getGoalType(unit, goalIndex) end
+
+---@param unit unit
+---@param goalIndex? integer
+---@return string
+function dfhack.units.getGoalName(unit, goalIndex) end
+
+---@param unit unit
+---@param goalIndex? integer
+---@return boolean
+function dfhack.units.isGoalAchieved(unit, goalIndex) end
+
+---@param unit unit
+---@return integer
+function dfhack.units.getStressCategory(unit) end
+
+---@param stress_level integer
+---@return integer
+function dfhack.units.getStressCategoryRaw(stress_level) end
+
+---@return integer[]
+function dfhack.units.getStressCutoffs() end
+
 dfhack.items = {}
 
 dfhack.maps = {}
@@ -175,19 +575,190 @@ dfhack.burrows = {}
 
 dfhack.buildings = {}
 
+-- TODO: Constructions.
 dfhack.constructions = {}
 
+-- TODO: Kitchen.
 dfhack.kitchen = {}
 
 dfhack.screen = {}
 
+---@class Pen
+---@field ch string
+---@field fg integer
+---@field bg integer
+---@field bold boolean
+---@field tile integer
+---@field keep_lower boolean
+---@field write_to_lower boolean
+
+dfhack.pen = {}
+
+---@param base Pen|table|integer
+---@param pen_or_fg Pen|table
+---@param bg integer
+---@param bold boolean
+---@return Pen
+function dfhack.pen.make(base, pen_or_fg, bg, bold) end
+
+---@param base Pen|table|integer
+---@param pen_or_fg Pen|table
+---@param bg integer
+---@param bold boolean
+---@return Pen
+function dfhack.pen.parse(base, pen_or_fg, bg, bold) end
+
+---@return coord2d
+function dfhack.screen.getWindowSize() end
+
+---@return coord2d
+function dfhack.screen.getMousePos() end
+
+---@return coord2d
+function dfhack.screen.getMousePixels() end
+
+---@return boolean
+function dfhack.screen.inGraphicsMode() end
+
+---@param pen Pen
+---@param x integer
+---@param y integer
+---@param map boolean
+---@return boolean
+function dfhack.screen.paintTile(pen, x, y, char, tile, map) end
+
+---@param x integer
+---@param y integer
+---@param map boolean
+---@return Pen
+function dfhack.screen.readTile(x, y, map) end
+
+---@param pen Pen
+---@param x integer
+---@param y integer
+---@param text string
+---@param map boolean
+---@return boolean
+function dfhack.screen.paintString(pen, x, y, text, map) end
+
+---@param pen Pen
+---@param x1 integer
+---@param y1 integer
+---@param x2 integer
+---@param y2 integer
+---@param map boolean
+---@return boolean
+function dfhack.screen.fillRect(pen, x1, y1, x2, y2, map) end
+
+---@param pagename string
+---@param x integer
+---@param y integer
+---@return boolean
+function dfhack.screen.findGraphicsTile(pagename, x, y) end
+
+---@param screen viewscreen
+---@param callback function
+---@param ... any
+function dfhack.screen.hideGuard(screen, callback, ...) end
+
+---@return boolean
+function dfhack.screen.clear() end
+
+---@return boolean
+function dfhack.screen.invalidate() end
+
+---@param key interface_key
+---@return string
+function dfhack.screen.getKeyDisplay(key) end
+
+---@param key interface_key
+---@return integer
+function dfhack.screen.keyToChar(key) end
+
+---@param charcode integer
+---@return interface_key
+function dfhack.screen.charToKey(charcode) end
+
+---@param screen viewscreen|table
+---@param below? viewscreen
+---@return boolean
+function dfhack.screen.show(screen, below) end
+
+---@param screen viewscreen|table
+---@param to_first boolean
+function dfhack.screen.dismiss(screen, to_first) end
+
+---@param screen viewscreen|table
+---@return boolean
+function dfhack.screen.isDismissed(screen) end
+
+--TODO: PenArray class.
+
 dfhack.filesystem = {}
 
--- Clears the DFHack console.
-function dfhack.console() end
+---@param path string
+---@return boolean
+function dfhack.filesystem.exists(path) end
 
--- Flushes all output to the console.
-function dfhack.flush() end
+---@param path string
+---@return boolean
+function dfhack.filesystem.isfile(path) end
+
+---@param path string
+---@return boolean
+function dfhack.filesystem.isdir(path) end
+
+---@return string
+function dfhack.filesystem.getcwd() end
+
+---@param path string
+function dfhack.filesystem.chdir(path) end
+
+function dfhack.filesystem.restore_cwd() end
+
+---@return string
+function dfhack.filesystem.get_initial_cwd() end
+
+---@param path string
+---@return boolean
+function dfhack.filesystem.mkdir(path) end
+
+---@param path string
+---@return boolean
+function dfhack.filesystem.mkdir_recursive(path) end
+
+---@param path string
+function dfhack.filesystem.rmdir(path) end
+
+---@param path string
+---@return number
+function dfhack.filesystem.mtime(path) end
+
+---@param path string
+---@return number
+function dfhack.filesystem.atime(path) end
+
+---@param path string
+---@return number
+function dfhack.filesystem.ctime(path) end
+
+---@param path string
+---@return string[]?
+function dfhack.filesystem.listdir(path) end
+
+---@param path string
+---@param depth? integer
+---@param include_prefix? boolean
+---@return string|string[][]
+function dfhack.filesystem.listdir_recursive(path, depth, include_prefix) end
+
+dfhack.console = {}
+
+---Clears the DFHack console.
+function dfhack.console.clear() end
+
+---Flushes all output to the console.
+function dfhack.console.flush() end
 
 ---@class internal
 dfhack.internal = {}
