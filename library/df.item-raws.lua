@@ -98,7 +98,7 @@ df.item_type = {
 }
 
 ---@class weapon_attack
----@field edged string
+---@field edged boolean
 ---@field contact integer
 ---@field penetration integer
 ---@field velocity_mult integer
@@ -107,6 +107,7 @@ df.item_type = {
 ---@field noun string
 ---@field prepare integer
 ---@field recover integer
+---@field flags any
 
 ---@enum itemdef_flags
 df.itemdef_flags = {
@@ -116,8 +117,11 @@ df.itemdef_flags = {
 ---@class itemdef
 ---@field id string
 ---@field subtype integer
+---@field base_flags any
 ---@field source_hfid integer
 ---@field source_enid integer
+---@field raw_strings string[]
+---@field describe any
 
 ---@enum ammo_flags
 df.ammo_flags = {
@@ -129,8 +133,10 @@ df.ammo_flags = {
 ---@field name_plural string
 ---@field adjective string
 ---@field ammo_class string
+---@field flags any
 ---@field size integer
 ---@field value integer
+---@field attacks weapon_attack[]
 
 ---@enum armor_general_flags
 df.armor_general_flags = {
@@ -148,6 +154,7 @@ df.armor_general_flags = {
 }
 
 ---@class armor_properties
+---@field flags any
 ---@field layer integer
 ---@field layer_size integer
 ---@field layer_permit integer
@@ -170,6 +177,7 @@ df.armor_flags = {
 ---@field lbstep integer
 ---@field material_size integer
 ---@field props armor_properties
+---@field flags any
 
 ---@class itemdef_foodst
 ---@field name string
@@ -187,6 +195,7 @@ df.gloves_flags = {
 ---@field value integer
 ---@field armorlevel integer
 ---@field upstep integer
+---@field flags any
 ---@field material_size integer
 ---@field props armor_properties
 
@@ -201,6 +210,7 @@ df.helm_flags = {
 ---@field adjective string
 ---@field value integer
 ---@field armorlevel integer
+---@field flags any
 ---@field material_size integer
 ---@field props armor_properties
 
@@ -220,15 +230,32 @@ df.instrument_flags = {
 ---@class itemdef_instrumentst
 ---@field name string
 ---@field name_plural string
+---@field flags any
 ---@field music_skill job_skill
 ---@field size integer
 ---@field value integer
 ---@field material_size integer
+---@field pieces instrument_piece[]
 ---@field dominant_instrument_piece string
 ---@field pitch_range_min integer
 ---@field pitch_range_max integer
 ---@field volume_mb_min integer
 ---@field volume_mb_max integer
+---@field sound_production sound_production_type[]
+---@field sound_production_parm1 string[]
+---@field sound_production_parm2 string[]
+---@field unk_100 integer[]
+---@field unk_110 integer[]
+---@field pitch_choice pitch_choice_type[]
+---@field pitch_choice_parm1 string[]
+---@field pitch_choice_parm2 string[]
+---@field unk_150 integer[]
+---@field unk_160 integer[]
+---@field tuning tuning_type[]
+---@field tuning_parm string[]
+---@field unk_190 integer[]
+---@field registers instrument_register[]
+---@field timbre timbre_type[]
 ---@field description string
 
 ---@enum sound_production_type
@@ -354,10 +381,12 @@ df.timbre_type = {
 ---@field index integer
 ---@field name string
 ---@field name_plural string
+---@field flags any
 
 ---@class instrument_register
 ---@field pitch_range_min integer
 ---@field pitch_range_max integer
+---@field timbres timbre_type[]
 
 ---@enum pants_flags
 df.pants_flags = {
@@ -372,6 +401,7 @@ df.pants_flags = {
 ---@field adjective string
 ---@field value integer
 ---@field armorlevel integer
+---@field flags any
 ---@field material_size integer
 ---@field lbstep integer
 ---@field props armor_properties
@@ -398,6 +428,7 @@ df.shoes_flags = {
 ---@field value integer
 ---@field armorlevel integer
 ---@field upstep integer
+---@field flags any
 ---@field material_size integer
 ---@field props armor_properties
 
@@ -464,8 +495,10 @@ df.tool_uses = {
 ---@class itemdef_toolst
 ---@field name string
 ---@field name_plural string
+---@field flags any
 ---@field value integer
 ---@field tile integer
+---@field tool_use any[]
 ---@field adjective string
 ---@field size integer
 ---@field skill_melee job_skill
@@ -474,10 +507,14 @@ df.tool_uses = {
 ---@field two_handed integer
 ---@field minimum_size integer
 ---@field material_size integer
+---@field attacks weapon_attack[]
 ---@field shoot_force integer
 ---@field shoot_maxvel integer
 ---@field container_capacity integer
+---@field shape_category_str string[]
+---@field shape_category integer[]
 ---@field description string
+---@field default_improvements any[]
 
 ---@enum toy_flags
 df.toy_flags = {
@@ -487,6 +524,7 @@ df.toy_flags = {
 ---@class itemdef_toyst
 ---@field name string
 ---@field name_plural string
+---@field flags any
 
 ---@enum trapcomp_flags
 df.trapcomp_flags = {
@@ -505,6 +543,8 @@ df.trapcomp_flags = {
 ---@field value integer
 ---@field hits integer
 ---@field material_size integer
+---@field flags any
+---@field attacks weapon_attack[]
 
 ---@enum weapon_flags
 df.weapon_flags = {
@@ -525,6 +565,8 @@ df.weapon_flags = {
 ---@field two_handed integer
 ---@field minimum_size integer
 ---@field material_size integer
+---@field flags any
+---@field attacks weapon_attack[]
 ---@field shoot_force integer
 ---@field shoot_maxvel integer
 

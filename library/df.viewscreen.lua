@@ -1,9 +1,14 @@
 ---@meta
 
 ---@class file_compressorst
----@field compressed string
+---@field compressed boolean
+---@field f any
 ---@field in_buffer uint8_t
+---@field in_buffersize any
+---@field in_buffer_amount_loaded any
+---@field in_buffer_position any
 ---@field out_buffer uint8_t
+---@field out_buffersize any
 ---@field out_buffer_amount_written integer
 
 ---@enum interface_breakdown_types
@@ -36,13 +41,15 @@ df.interface_push_types = {
 ---@field shutdown_interface_for_ms integer
 
 ---@class widget_menu
+---@field lines any
 ---@field selection integer
 ---@field last_displayheight integer
----@field bleached string
+---@field bleached boolean
+---@field colors any
 
 ---@class widget_textbox
 ---@field text string
----@field keep string
+---@field keep boolean
 
 ---@class MacroScreenLoad
 ---@field menu widget_menu
@@ -55,11 +62,56 @@ df.interface_push_types = {
 ---@class world_dat_summary
 ---@field name language_name
 ---@field unk_1 string
----@field last_id table
----@field unk table
+---@field unk_2 int8_t
+---@field last_id last_id_compound
+---@field unk unk_compound
+
+---@class last_id_compound
+---@field unit integer
+---@field soul integer
+---@field ite integer
+---@field entity integer
+---@field nemesis integer
+---@field artifact integer
+---@field building integer
+---@field machine integer
+---@field hist_figure integer
+---@field hist_event integer
+---@field hist_event_collection integer
+---@field unit_chunk integer
+---@field art_image_chunk integer
+---@field task integer
+---@field squad integer
+---@field formation integer
+---@field activity integer
+---@field interaction_instance integer
+---@field written_content integer
+---@field identity integer
+---@field incident integer
+---@field crime integer
+---@field vehicle integer
+---@field army integer
+---@field army_controller integer
+---@field army_tracking_info integer
+---@field cultural_identity integer
+---@field agreement integer
+---@field poetic_form integer
+---@field musical_form integer
+---@field dance_form integer
+---@field scale integer
+---@field rhythm integer
+---@field occupation integer
+---@field belief_system integer
+---@field image_set integer
+---@field divination_set integer
+
+---@class unk_compound
+---@field unk_3 string
+---@field timeline string
 
 ---@class viewscreen_adopt_regionst
 ---@field compressor file_compressorst
+---@field cur_step any
 ---@field save_version save_version
 ---@field cur_save world_dat_summary
 ---@field glosses matgloss_list
@@ -101,24 +153,28 @@ df.embark_finder_option = {
 ---@field embark_biome_rgn coord2d
 
 ---@class viewscreen_choose_start_sitest
+---@field page any
 ---@field world_width integer
 ---@field world_height integer
 ---@field embark_width integer
 ---@field embark_height integer
 ---@field biome_idx integer
----@field biome_highlighted string
----@field in_embark_light_aquifer string
----@field in_embark_heavy_aquifer string
----@field in_embark_salt string
----@field in_embark_large string
----@field in_embark_narrow string
----@field in_embark_only_warning string
----@field in_embark_civ_dying string
+---@field biome_highlighted boolean
+---@field in_embark_light_aquifer boolean
+---@field in_embark_heavy_aquifer boolean
+---@field in_embark_salt boolean
+---@field in_embark_large boolean
+---@field in_embark_narrow boolean
+---@field in_embark_only_warning boolean
+---@field in_embark_civ_dying boolean
+---@field site_info string[]
 ---@field site_abandoned history_event
 ---@field site_created history_event
 ---@field unk_a4 integer
 ---@field unk_a8 integer
----@field finder table
+---@field finder finder_compound
+---@field notes_order integer[]
+---@field cur_note_name string[]
 ---@field unk_14c integer
 ---@field unk_150 integer
 ---@field unk_154 integer
@@ -126,6 +182,20 @@ df.embark_finder_option = {
 ---@field note_fg_color integer
 ---@field note_bg_color integer
 ---@field unk_15c integer
+
+---@class finder_compound
+---@field search_x integer
+---@field search_y integer
+---@field cursor integer
+---@field options int32_t
+---@field unmatched bool
+---@field finder_state any
+---@field unk_11e integer
+---@field unk_120 integer
+---@field unk_122 integer
+---@field unk_124 integer
+---@field unk_126 integer
+---@field unk_128 integer
 
 ---@class mission
 ---@field army_controller integer
@@ -156,30 +226,54 @@ df.embark_finder_option = {
 ---@field unk_21 integer
 ---@field unk_15 integer
 ---@field unk_22 integer
+---@field squads integer[]
+---@field messengers integer[]
 ---@field unk_23 integer
 ---@field unk_24 integer
----@field details table
+---@field details details_compound
+---@field type any
 ---@field unk_25 integer
+
+---@class details_compound
+---@field raid any
+---@field recovery any
+---@field rescue any
+---@field request any
 
 ---@class viewscreen_dwarfmodest
 ---@field shown_site_name integer
 ---@field jeweler_mat_count integer
+---@field jeweler_cutgem integer[]
+---@field jeweler_encrust integer[]
+---@field unit_labors_sidemenu any[]
+---@field unit_labors_sidemenu_uplevel any[]
 ---@field unit_labors_sidemenu_uplevel_idx integer
 ---@field sideSubmenu integer
 ---@field keyRepeat integer
+---@field trained_animals unit[]
 ---@field trained_animal_idx integer
 ---@field number_assigned_hunt integer
 ---@field number_assigned_war integer
 
 ---@class viewscreen_export_regionst
----@field play_now string
+---@field play_now boolean
+---@field state any
 ---@field progress integer
----@field units_progress table
+---@field units_progress units_progress_compound
 ---@field compressor file_compressorst
 ---@field folder_name string
 ---@field timeline_name string
 
+---@class units_progress_compound
+---@field save_file_id integer[]
+---@field save_file_member_idx integer[]
+---@field units unit[]
+---@field current_chunk unit_chunk
+---@field current_save_file_id integer
+---@field offloaded_units integer
+
 ---@class viewscreen_game_cleanerst
+---@field state any
 
 ---@class viewscreen_initial_prepst
 ---@field render_count integer
@@ -193,39 +287,47 @@ df.embark_finder_option = {
 
 ---@class world_gen_param_valuest
 ---@field null_text string
----@field can_be_nullified string
+---@field can_be_nullified boolean
+---@field value_text string[]
 
 ---@class world_gen_param_charst
 ---@field val_ptr int8_t
 ---@field min integer
 ---@field max integer
 ---@field null_value integer
----@field can_toggle string
+---@field value_val integer[]
+---@field can_toggle boolean
 
 ---@class world_gen_param_memberst
 ---@field val_ptr int32_t
 ---@field min integer
 ---@field max integer
 ---@field null_value integer
----@field does_have_min_max string
+---@field value_val integer[]
+---@field does_have_min_max boolean
 
 ---@class world_gen_param_flagst
 ---@field val_ptr uint32_t
 ---@field bit integer
+---@field value_val integer[]
 
 ---@class world_gen_param_flagarrayst
+---@field val_ptr any
 ---@field flag integer
+---@field value_val integer[]
 
 ---@class legend_pagest
 ---@field header string
+---@field mode any
 ---@field index integer
 ---@field text_box markup_text_boxst
 ---@field scroll_position_list integer
----@field scrolling_list string
+---@field scrolling_list boolean
+---@field lptr any
 ---@field scroll_position_text integer
----@field scrolling_text string
+---@field scrolling_text boolean
 ---@field filter_str string
----@field entering_filter string
+---@field entering_filter boolean
 
 ---@class viewscreen_legendsst
 ---@field unhid_sum integer
@@ -234,18 +336,45 @@ df.embark_finder_option = {
 ---@field init_cur_era_num integer
 ---@field init_cur_era_denom integer
 ---@field init_sub_stage integer
+---@field histfigs integer[]
+---@field sites integer[]
+---@field artifacts integer[]
+---@field codices integer[]
+---@field regions integer[]
+---@field layers integer[]
+---@field entities integer[]
+---@field structure_sites integer[]
+---@field structures_indices integer[]
+---@field entity_population integer[]
+---@field main_choice integer[]
+---@field era_choice_index integer[]
+---@field era_choice_num integer[]
+---@field era_choice_denom integer[]
+---@field hec_id integer[]
 ---@field showing_all_era_collections integer
+---@field region_snapshot any[]
 ---@field region_view_x integer
 ---@field region_view_y integer
 ---@field region_view_mode integer
 ---@field civ_site_view integer
 ---@field region_view_snapshot_index integer
+---@field histfigs_filtered integer[]
+---@field sites_filtered integer[]
+---@field artifacts_filtered integer[]
+---@field codices_filtered integer[]
+---@field regions_filtered integer[]
+---@field layers_filtered integer[]
+---@field entity_populations_filtered integer[]
+---@field entities_filtered integer[]
+---@field structures_filtered integer[]
 ---@field total_codices integer
 ---@field total_artifacts integer
+---@field page legend_pagest[]
 ---@field active_page_index integer
 ---@field page_scroll integer
 
 ---@class loadgame_save_info
+---@field next_ids int32_t
 ---@field game_type game_type
 ---@field fort_name string
 ---@field world_name string
@@ -253,8 +382,47 @@ df.embark_finder_option = {
 ---@field folder_name string
 
 ---@class matgloss_list
+---@field unk_0 any[]
+---@field generated_inorganics any[]
+---@field generated_plants any[]
+---@field generated_items any[]
+---@field generated_creatures any[]
+---@field generated_entities any[]
+---@field generated_reactions any[]
+---@field generated_interactions any[]
+---@field generated_languages any[]
+---@field inorganics string[]
+---@field plants string[]
+---@field bodies string[]
+---@field bodyglosses string[]
+---@field creatures string[]
+---@field items string[]
+---@field buildings string[]
+---@field entities string[]
+---@field words string[]
+---@field symbols string[]
+---@field translations string[]
+---@field colors string[]
+---@field shapes string[]
+---@field patterns string[]
+---@field reactions string[]
+---@field material_templates string[]
+---@field tissue_templates string[]
+---@field body_detail_plans string[]
+---@field creature_variations string[]
+---@field interactions string[]
+---@field text_sets string[]
+---@field musics string[]
+---@field sounds string[]
+---@field mod_ids string[]
+---@field mod_versions integer[]
+---@field mod_compatible_versions integer[]
+---@field mod_folder_paths string[]
+---@field mod_names string[]
+---@field mod_display_versions string[]
 
 ---@class viewscreen_loadgamest
+---@field cur_step any
 ---@field progress integer
 ---@field compressor file_compressorst
 ---@field glosses matgloss_list
@@ -271,15 +439,17 @@ df.embark_finder_option = {
 ---@field dim_x integer
 ---@field dim_y integer
 ---@field custom_name string
----@field has_seed string
----@field has_history_seed string
----@field has_name_seed string
----@field has_creature_seed string
+---@field has_seed boolean
+---@field has_history_seed boolean
+---@field has_name_seed boolean
+---@field has_creature_seed boolean
 ---@field embark_points integer
 ---@field peak_number_min integer
 ---@field partial_ocean_edge_min integer
 ---@field complete_ocean_edge_min integer
 ---@field volcano_min integer
+---@field region_counts any
+---@field river_mins int32_t
 ---@field subregion_max integer
 ---@field cavern_layer_count integer
 ---@field cavern_layer_openness_min integer
@@ -288,8 +458,8 @@ df.embark_finder_option = {
 ---@field cavern_layer_passage_density_max integer
 ---@field cavern_layer_water_min integer
 ---@field cavern_layer_water_max integer
----@field have_bottom_layer_1 string
----@field have_bottom_layer_2 string
+---@field have_bottom_layer_1 boolean
+---@field have_bottom_layer_2 boolean
 ---@field levels_above_ground integer
 ---@field levels_above_layer_1 integer
 ---@field levels_above_layer_2 integer
@@ -314,6 +484,7 @@ df.embark_finder_option = {
 ---@field volcanism_ranges_1 integer
 ---@field volcanism_ranges_0 integer
 ---@field volcanism_ranges_2 integer
+---@field ranges any
 ---@field beast_end_year integer
 ---@field end_year integer
 ---@field beast_end_year_percent integer
@@ -326,12 +497,14 @@ df.embark_finder_option = {
 ---@field megabeast_cap integer
 ---@field semimegabeast_cap integer
 ---@field titan_number integer
+---@field titan_attack_trigger int32_t
 ---@field demon_number integer
 ---@field night_troll_number integer
 ---@field bogeyman_number integer
 ---@field nightmare_number integer
 ---@field vampire_number integer
 ---@field werebeast_number integer
+---@field werebeast_attack_trigger int32_t
 ---@field secret_number integer
 ---@field regional_interaction_number integer
 ---@field disturbance_interaction_number integer
@@ -350,6 +523,12 @@ df.embark_finder_option = {
 ---@field evil_sq_counts_1 integer
 ---@field good_sq_counts_2 integer
 ---@field evil_sq_counts_2 integer
+---@field elevation_frequency int32_t
+---@field rain_frequency int32_t
+---@field drainage_frequency int32_t
+---@field savagery_frequency int32_t
+---@field temperature_frequency int32_t
+---@field volcanism_frequency int32_t
 ---@field ps worldgen_parms_ps
 ---@field reveal_all_history integer
 ---@field cull_historical_figures integer
@@ -360,35 +539,38 @@ df.embark_finder_option = {
 ---@field all_caves_visible integer
 ---@field show_embark_tunnel integer
 ---@field pole integer
----@field unk_1 string
+---@field unk_1 boolean
 
 ---@class worldgen_parms_ps
 ---@field width integer
 ---@field height integer
+---@field data any
 
 ---@class viewscreen_new_regionst
+---@field worldgen_presets worldgen_parms[]
 ---@field doing_params integer
----@field param_list_open string
+---@field param_list_open boolean
 ---@field scroll_position_param_list integer
----@field scrolling_param_list string
+---@field scrolling_param_list boolean
 ---@field scroll_position_params integer
----@field scrolling_params string
----@field entering_param_name string
+---@field scrolling_params boolean
+---@field entering_param_name boolean
 ---@field sel_param integer
 ---@field enter_seed string
----@field editing_seed string
----@field editing_name string
----@field editing_title string
----@field confirm_delete string
----@field confirm_new_dims string
+---@field editing_seed boolean
+---@field editing_name boolean
+---@field editing_title boolean
+---@field confirm_delete boolean
+---@field confirm_new_dims boolean
 ---@field new_dimx integer
 ---@field new_dimy integer
 ---@field confirming_abort_save integer
 ---@field confirming_start_save integer
 ---@field params_need_save integer
----@field entering_value_str string
+---@field entering_value_str boolean
 ---@field entering_value_index integer
 ---@field value_str string
+---@field member world_gen_param_basest[]
 ---@field last_saved_tc integer
 ---@field last_loaded_tc integer
 ---@field doing_simple_params integer
@@ -403,30 +585,57 @@ df.embark_finder_option = {
 ---@field abort_world_gen_dialogue integer
 ---@field reject_dialogue integer
 ---@field reject_dialogue_type integer
----@field mouse_scrolling_map string
+---@field text_box string[]
+---@field mouse_scrolling_map boolean
 ---@field mouse_anchor_mx integer
 ---@field mouse_anchor_my integer
 ---@field mouse_anchor_pmx integer
 ---@field mouse_anchor_pmy integer
----@field raw_load string
+---@field raw_load boolean
 ---@field stage_count integer
 ---@field raw_load_stage integer
----@field doing_mods string
+---@field doing_mods boolean
 ---@field scroll_position_available_mods integer
----@field scrolling_available_mods string
+---@field scrolling_available_mods boolean
 ---@field scroll_position_selected_mods integer
----@field scrolling_selected_mods string
+---@field scrolling_selected_mods boolean
+---@field base_available_id string[]
+---@field base_available_numeric_version integer[]
+---@field base_available_earliest_compat_numeric_version integer[]
+---@field base_available_src_dir string[]
+---@field base_available_name string[]
+---@field base_available_displayed_version string[]
+---@field base_available_mod_header mod_headerst[]
+---@field object_load_order_id string[]
+---@field object_load_order_numeric_version integer[]
+---@field object_load_order_earliest_compat_numeric_version integer[]
+---@field object_load_order_src_dir string[]
+---@field object_load_order_name string[]
+---@field object_load_order_displayed_version string[]
+---@field object_load_order_mod_header mod_headerst[]
+---@field available_id string[]
+---@field available_numeric_version integer[]
+---@field available_earliest_compat_numeric_version integer[]
+---@field available_src_dir string[]
+---@field available_name string[]
+---@field available_displayed_version string[]
+---@field available_mod_header mod_headerst[]
+---@field hover_mod_description string[]
 ---@field last_hover_mod_id string
 ---@field last_hover_mod_version integer
 ---@field last_hover_width integer
 
 ---@class nemesis_offload
+---@field nemesis_save_file_id integer[]
+---@field nemesis_member_idx integer[]
+---@field units unit[]
 ---@field cur_unit_chunk unit_chunk
 ---@field cur_unit_chunk_num integer
 ---@field units_offloaded integer
 
 ---@class viewscreen_savegamest
 ---@field unk_1 string
+---@field cur_step any
 ---@field progress integer
 ---@field offload nemesis_offload
 ---@field compressor file_compressorst
@@ -459,6 +668,7 @@ df.adv_background_option_type = {
 ---@field name language_name
 ---@field race integer
 ---@field caste integer
+---@field skilllevel any
 ---@field quick_entity_id integer
 ---@field entity_population_id integer
 ---@field breed_id integer
@@ -467,9 +677,13 @@ df.adv_background_option_type = {
 ---@field start_mil_type integer
 ---@field start_civ_type integer
 ---@field skill_picks_left integer
+---@field phys_att_range_val any
+---@field ment_att_range_val any
+---@field difficulty any
 ---@field start_site_id integer
 ---@field background_start_squad_epp_id integer
 ---@field background_unit profession
+---@field background_skill_bonus int32_t
 ---@field worship_hfid integer
 ---@field worship_enid integer
 ---@field worship_strength integer
@@ -479,93 +693,160 @@ df.adv_background_option_type = {
 ---@field age_death_year integer
 ---@field age_death_season_count integer
 ---@field pers unit_personality
----@field is_from_wilderpop_or_feature string
+---@field is_from_wilderpop_or_feature boolean
 ---@field flag integer
----@field selecting_atts string
+---@field sub_mode any
+---@field visited_mode bool
+---@field selecting_atts boolean
 ---@field selected_att integer
 ---@field att_points integer
+---@field posskill any[]
 ---@field selected_sk integer
 ---@field ip integer
----@field entering_name string
+---@field entering_name boolean
 ---@field old_name string
+---@field background_text string[]
+---@field goodsite world_site[]
 ---@field active_column integer
+---@field background_option adv_background_option_type[]
+---@field background_option_squad_epp_id any[]
+---@field background_option_unit integer[]
+---@field religious_practice_option integer[]
+---@field religious_practice_id integer[]
+---@field pos_caste integer[]
 ---@field st_selector integer
 ---@field bo_selector integer
 ---@field rp_selector integer
----@field appearance_offscreen_randomized string
----@field appearance_was_fully_randomized string
+---@field background_desc string[]
+---@field appearance_text string[]
+---@field appearance_offscreen_randomized boolean
+---@field appearance_was_fully_randomized boolean
 ---@field pers_scroll_y integer
----@field doing_specific_personality string
+---@field personal_values_text string[]
+---@field personality_text string[]
+---@field civ_values_text string[]
+---@field doing_specific_personality boolean
 ---@field selected_specific_pers_item integer
+---@field min_pers int16_t
+---@field max_pers int16_t
+---@field civ_value_level int32_t
 ---@field eqpet_points integer
+---@field s_item item_actual[]
 ---@field selected_i integer
 ---@field etl embark_item_choice
 ---@field itype integer
 ---@field istype integer
 ---@field imat integer
 ---@field imatg integer
+---@field item_desc string[]
 ---@field selected_pet_l integer
 ---@field selected_pet_r integer
 ---@field pet_side integer
+---@field pet startup_charactersheet_petst[]
 
 ---@class embark_item_choice
+---@field list any
+---@field race integer[]
+---@field caste integer[]
+---@field profession any[]
 
 ---@class embark_profile
 ---@field name string
+---@field skill_type integer[]
+---@field skill_dwarf_idx integer[]
+---@field skill_level integer[]
+---@field reclaim_dwarf_idx integer[]
+---@field reclaim_prof1 profession[]
+---@field reclaim_prof2 profession[]
+---@field item_type integer[]
+---@field item_subtype integer[]
+---@field mat_type integer[]
+---@field mat_index integer[]
+---@field item_count integer[]
+---@field pet_race integer[]
+---@field pet_caste integer[]
+---@field pet_profession profession[]
+---@field pet_count integer[]
 
 ---@class embark_symbol
+---@field unk_v43_1 any[]
+---@field unk_v43_2 any[]
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
----@field unk_v43_sub9 table
+---@field unk_v43_sub9 unk_v43_sub9_compound
+---@field unk_v43_10 int32_t
+
+---@class unk_v43_sub9_compound
+---@field unk_s1 integer
+---@field unk_s2 integer
+---@field unk_s3 integer
+---@field unk_s4 integer
+---@field unk_s5 integer
+---@field unk_s6 integer
+---@field unk_s7 any
 
 ---@class viewscreen_setupdwarfgamest
+---@field title any
+---@field dwarf_info setup_character_info[]
+---@field embark_skills any
+---@field reclaim_professions profession[]
 ---@field preparing_map_timer integer
----@field preparing_map_timer_quick_start string
+---@field preparing_map_timer_quick_start boolean
 ---@field difficulty difficultyst
----@field doing_custom_settings string
+---@field doing_custom_settings boolean
 ---@field scroll_position_params integer
----@field scrolling_params string
----@field entering_value_str string
+---@field scrolling_params boolean
+---@field entering_value_str boolean
 ---@field entering_value_index integer
 ---@field value_str string
+---@field member world_gen_param_basest[]
 ---@field mode integer
 ---@field selected_u integer
 ---@field scroll integer
 ---@field selected_i integer
 ---@field current_skill_tab integer
----@field scrolling_skill_list string
+---@field scrolling_skill_list boolean
 ---@field selected_sk integer
 ---@field selected_pet integer
 ---@field side_u integer
 ---@field side_i integer
 ---@field y integer
 ---@field initial_selection integer
----@field embark_confirmation string
----@field scrolling_pet_list string
+---@field embark_confirmation boolean
+---@field scrolling_pet_list boolean
 ---@field chosen_pet_selected integer
----@field scrolling_chosen_pet_list string
+---@field scrolling_chosen_pet_list boolean
+---@field embark_profile_type integer[]
+---@field embark_profile embark_profile[]
 ---@field scroll_position_initial_selection integer
----@field scrolling_initial_selection string
+---@field scrolling_initial_selection boolean
+---@field objection string[]
 ---@field viewing_objections integer
 ---@field scroll_position_objections integer
----@field scrolling_objections string
+---@field scrolling_objections boolean
 ---@field saving_profile integer
 ---@field profile_name string
 ---@field saving_profile_warning integer
 ---@field etl embark_item_choice
+---@field s_item any
+---@field item_expander_on bool
 ---@field scroll_position_item integer
 ---@field current_category entity_sell_category
 ---@field scroll_position_category integer
 ---@field scroll_position_category_item integer
----@field scrolling_item string
----@field scrolling_category string
----@field scrolling_category_item string
+---@field scrolling_item boolean
+---@field scrolling_category boolean
+---@field scrolling_category_item boolean
 ---@field item_filter string
----@field entering_item_filter string
+---@field entering_item_filter boolean
+---@field availpetrace_num integer[]
+---@field chosen_pet_index integer[]
+---@field chosen_pet_num integer[]
 ---@field fort_name language_name
 ---@field group_name language_name
----@field update_header string
+---@field update_header boolean
 ---@field start_symbol art_image
+---@field s_unit unit[]
 ---@field wagon_num integer
 ---@field points_remaining integer
 ---@field add_item_type item_type
@@ -575,46 +856,65 @@ df.adv_background_option_type = {
 ---@field adding_item integer
 
 ---@class viewscreen_choose_game_typest
+---@field gametypes integer[]
 
 ---@class viewscreen_titlest
----@field clean_first string
+---@field str_histories any
+---@field clean_first boolean
 ---@field mode integer
 ---@field selected integer
 ---@field selected_r integer
 ---@field game_start_proceed integer
+---@field menu_line_id any[]
+---@field gametype integer[]
+---@field gametype_str any[]
+---@field region_choice any[]
 ---@field scroll_position_region_choice integer
----@field scrolling_region_choice string
+---@field scrolling_region_choice boolean
+---@field savegame_header any[]
+---@field savegame_header_world any[]
 ---@field scroll_position_world_choice integer
----@field scrolling_world_choice string
+---@field scrolling_world_choice boolean
+---@field savegame_header_game any[]
 ---@field scroll_position_game_choice integer
----@field scrolling_game_choice string
+---@field scrolling_game_choice boolean
+---@field arena_choice string[]
+---@field dungeon_choice string[]
+---@field tutorial_choice string[]
 ---@field str_copyright string
 ---@field str_version string
 ---@field src_dir string
 ---@field stage_count integer
----@field game_start_arena string
+---@field game_start_arena boolean
 ---@field load_arena_stage integer
----@field game_start_tutorial string
+---@field game_start_tutorial boolean
 ---@field load_tutorial_stage integer
----@field game_start_dungeon string
+---@field game_start_dungeon boolean
 ---@field load_dungeon_stage integer
----@field managing_mods string
+---@field managing_mods boolean
+---@field mod mod_headerst[]
 ---@field scroll_position_mods integer
----@field scrolling_mods string
+---@field scrolling_mods boolean
+---@field hover_mod_description string[]
 ---@field last_hover_mod_id string
 ---@field last_hover_mod_version integer
 ---@field last_hover_width integer
----@field uploading_mods string
+---@field uploading_mods boolean
 ---@field scroll_position_upload_mods integer
----@field scrolling_upload_mods string
+---@field scrolling_upload_mods boolean
+---@field hover_upload_mod_description string[]
 ---@field last_hover_upload_mod_id string
 ---@field last_hover_upload_mod_version integer
 ---@field last_hover_upload_width integer
----@field deleting_region string
----@field deleting_savegame_game string
----@field deleting_savegame_world string
+---@field deleting_region boolean
+---@field deleting_savegame_game boolean
+---@field deleting_savegame_world boolean
+---@field deleting_savegame_header any
+---@field deleting_region_header any
+---@field credit_line string[]
+---@field credit_line_type integer[]
 ---@field scroll_position_about integer
----@field scrolling_about string
+---@field scrolling_about boolean
 
 ---@class viewscreen_update_regionst
 ---@field year integer
@@ -623,7 +923,7 @@ df.adv_background_option_type = {
 ---@class viewscreen_worldst
 ---@field region_cent_x integer
 ---@field region_cent_y integer
----@field mouse_scrolling_map string
+---@field mouse_scrolling_map boolean
 ---@field mouse_anchor_mx integer
 ---@field mouse_anchor_my integer
 ---@field mouse_anchor_pmx integer
@@ -634,51 +934,83 @@ df.adv_background_option_type = {
 ---@field focus_ax integer
 ---@field focus_ay integer
 ---@field focus_site world_site
----@field focus_site_messenger_candidate string
+---@field focus_site_artifact artifact_record[]
+---@field focus_site_prisoner historical_figure[]
+---@field focus_site_messenger_candidate boolean
+---@field focus_site_requestable_worker nemesis_record[]
+---@field civlist historical_entity[]
 ---@field last_hover_ent historical_entity
+---@field relnem nemesis_record[]
+---@field relnem_precedence integer[]
+---@field relag any[]
+---@field relag_pending integer[]
 ---@field scroll_position_civlist integer
----@field scrolling_civlist string
+---@field scrolling_civlist boolean
+---@field army_controller army_controller[]
 ---@field last_hover_ac army_controller
 ---@field selected_ac integer
----@field scrolling_ac string
+---@field scrolling_ac boolean
 ---@field scroll_position_ac integer
+---@field squad squad[]
+---@field squad_flag integer[]
+---@field messenger_epp entity_position_assignment[]
+---@field messenger_ent historical_entity[]
+---@field messenger_flag integer[]
 ---@field scroll_position_squad integer
----@field scrolling_squad string
+---@field scrolling_squad boolean
 ---@field scroll_position_messenger integer
----@field scrolling_messenger string
+---@field scrolling_messenger boolean
+---@field request_nem nemesis_record[]
 ---@field scroll_position_request_nem integer
----@field scrolling_request_nem string
----@field rumor_rpd table
----@field rumor_rpd_indicator_data table
+---@field scrolling_request_nem boolean
+---@field rumor_master any[]
+---@field rumor_rpd rumor_rpd_compound
+---@field rumor_rpd_indicator_data rumor_rpd_indicator_data_compound
 ---@field last_hover_rumor_x integer
 ---@field last_hover_rumor_y integer
----@field focused_on_last_hover_rumor string
+---@field focused_on_last_hover_rumor boolean
+---@field rumor_text string[]
 ---@field scroll_position_rumor integer
----@field scrolling_rumor string
+---@field scrolling_rumor boolean
+---@field mission_report_index integer[]
+---@field tribute_report_index integer[]
 ---@field croll_position_report integer
----@field scrolling_report string
+---@field scrolling_report boolean
+---@field active_mission_report any
 ---@field mission_cursor_x integer
 ---@field mission_cursor_y integer
 ---@field mission_path_data_index integer
 ---@field mission_path_data_path_index integer
 ---@field mission_heid_data_index integer
 ---@field mission_heid_data_heid_index integer
+---@field mission_text_box string[]
+---@field mission_text_box_color integer[]
 ---@field mission_timer_year integer
 ---@field mission_timer_season_count integer
 ---@field mission_timer_season_count_inc integer
----@field report_paused string
+---@field report_paused boolean
 ---@field mission_fade_in_timer integer
 ---@field mission_fade_start_ind integer
 ---@field scroll_position_mission integer
----@field scrolling_mission string
+---@field scrolling_mission boolean
+---@field active_tribute_report any
 ---@field scroll_position_tribute integer
----@field scrolling_tribute string
+---@field scrolling_tribute boolean
+---@field hf historical_figure[]
 ---@field scroll_position_citizens integer
----@field scrolling_citizens string
+---@field scrolling_citizens boolean
 ---@field last_hover_hf historical_figure
+---@field artifact artifact_record[]
+---@field artifact_arl any[]
 ---@field scroll_position_artifacts integer
----@field scrolling_artifacts string
+---@field scrolling_artifacts boolean
 ---@field last_hover_artifact artifact_record
+---@field artifact_description string[]
+---@field artifact_eac any
 ---@field artifact_rpa_holder historical_figure
 ---@field artifact_fac_holder historical_figure
+
+---@class rumor_rpd_compound
+
+---@class rumor_rpd_indicator_data_compound
 

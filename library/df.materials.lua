@@ -153,36 +153,89 @@ df.strain_type = {
 ---@field gem_name1 string
 ---@field gem_name2 string
 ---@field stone_name string
----@field heat table
+---@field heat heat_compound
 ---@field solid_density integer
 ---@field liquid_density integer
 ---@field molar_mass integer
----@field strength table
+---@field state_color int32_t
+---@field state_name stl-string
+---@field state_adj stl-string
+---@field strength strength_compound
 ---@field material_value integer
+---@field flags any
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype integer
----@field reaction_product table
----@field hardens_with_water table
+---@field meat_name stl-string
+---@field block_name stl-string
+---@field reaction_product reaction_product_compound
+---@field hardens_with_water hardens_with_water_compound
+---@field reaction_class string[]
+
+---@class heat_compound
+---@field spec_heat integer
+---@field heatdam_point integer
+---@field colddam_point integer
+---@field ignite_point integer
+---@field melting_point integer
+---@field boiling_point integer
+---@field mat_fixed_temp integer
+
+---@class strength_compound
+---@field absorption integer
+---@field yield int32_t
+---@field fracture int32_t
+---@field strain_at_yield int32_t
+---@field max_edge integer
+
+---@class reaction_product_compound
+---@field id string[]
+---@field item_type integer[]
+---@field item_subtype integer[]
+---@field material material_vec_ref
+---@field str any
+
+---@class hardens_with_water_compound
+---@field mat_type integer
+---@field mat_index integer
+---@field str stl-string
 
 ---@class material
+---@field find-instance any
+---@field describe any
 ---@field tile integer
+---@field basic_color int16_t
+---@field build_color int16_t
+---@field tile_color int16_t
 ---@field item_symbol integer
 ---@field powder_dye integer
 ---@field temp_diet_info integer
+---@field syndrome syndrome[]
 ---@field soap_level integer
+---@field unk_41c integer[]
 ---@field prefix string
+---@field food_mat_index any
 ---@field powder_dye_str string
+---@field state_color_str stl-string
 
 ---@class material_vec_ref
+---@field mat_type any[]
+---@field mat_index integer[]
 
 ---@class material_template
+---@field describe any
 ---@field tile integer
+---@field basic_color int16_t
+---@field build_color int16_t
+---@field tile_color int16_t
 ---@field item_symbol integer
 ---@field powder_dye integer
 ---@field temp_diet_info integer
+---@field syndrome syndrome[]
 ---@field soap_level integer
+---@field unk_41c integer[]
 ---@field powder_dye_str string
+---@field state_color_str stl-string
 
 ---@enum inorganic_flags
 df.inorganic_flags = {
@@ -243,15 +296,40 @@ df.inclusion_type = {
 
 ---@class inorganic_raw
 ---@field id string
+---@field str string[]
+---@field describe any
+---@field flags any
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
----@field metal_ore table
----@field thread_metal table
----@field environment_spec table
----@field environment table
+---@field metal_ore metal_ore_compound
+---@field thread_metal thread_metal_compound
+---@field economic_uses integer[]
+---@field environment_spec environment_spec_compound
+---@field environment environment_compound
 ---@field times_used_land integer
 ---@field times_used_ocean integer
 ---@field material material
+
+---@class metal_ore_compound
+---@field str string[]
+---@field mat_index any[]
+---@field probability integer[]
+
+---@class thread_metal_compound
+---@field str string[]
+---@field mat_index any[]
+---@field probability integer[]
+
+---@class environment_spec_compound
+---@field str string[]
+---@field mat_index any[]
+---@field inclusion_type any[]
+---@field probability integer[]
+
+---@class environment_compound
+---@field location any[]
+---@field type any[]
+---@field probability integer[]
 
 ---@enum organic_mat_category
 df.organic_mat_category = {
@@ -297,4 +375,8 @@ df.organic_mat_category = {
 }
 
 ---@class special_mat_table
+---@field organic_types any
+---@field organic_indexes any
+---@field organic_unknown any
+---@field builtin any
 

@@ -12,6 +12,9 @@ df.pattern_type = {
 
 ---@class descriptor_color
 ---@field id string
+---@field describe any
+---@field word_unk string[]
+---@field words integer[]
 ---@field name string
 ---@field color curses_color
 ---@field bold integer
@@ -21,12 +24,21 @@ df.pattern_type = {
 
 ---@class descriptor_shape
 ---@field id string
+---@field describe any
+---@field words_str string[]
+---@field words integer[]
 ---@field name string
 ---@field name_plural string
+---@field adj string[]
+---@field gems_use any
+---@field category string[]
 ---@field faces integer
 ---@field tile integer
 
 ---@class descriptor_pattern
 ---@field id string
+---@field describe any
+---@field colors integer[]
 ---@field pattern pattern_type
+---@field cp_color string[]
 

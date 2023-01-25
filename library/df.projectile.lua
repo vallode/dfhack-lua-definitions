@@ -35,6 +35,7 @@ df.projectile_flags = {}
 ---@field fall_threshold integer
 ---@field min_hit_distance integer
 ---@field min_ground_distance integer
+---@field flags projectile_flags
 ---@field fall_counter integer
 ---@field fall_delay integer
 ---@field hit_rating integer

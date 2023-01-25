@@ -98,12 +98,17 @@ df.building_extents_type = {
 }
 
 ---@class building_extents
+---@field extents any
 ---@field x integer
 ---@field y integer
 ---@field width integer
 ---@field height integer
 
 ---@class building_drawbuffer
+---@field tile any
+---@field fore any
+---@field back any
+---@field bright any
 ---@field x1 integer
 ---@field x2 integer
 ---@field y1 integer
@@ -117,13 +122,20 @@ df.building_extents_type = {
 ---@field y2 integer
 ---@field centery integer
 ---@field z integer
+---@field flags building_flags
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field room building_extents
 ---@field age integer
 ---@field race integer
 ---@field id integer
+---@field jobs job[]
+---@field specific_refs specific_ref[]
+---@field general_refs general_ref[]
+---@field relations building[]
+---@field job_claim_suppress any[]
 ---@field name string
+---@field activities any[]
 ---@field world_data_id integer
 ---@field world_data_subid integer
 ---@field unk_v40_2 integer
@@ -132,17 +144,27 @@ df.building_extents_type = {
 ---@field unk_v40_3 integer
 
 ---@class stockpile_links
+---@field give_to_pile building[]
+---@field take_from_pile building[]
+---@field give_to_workshop building[]
+---@field take_from_workshop building[]
 
 ---@class building_stockpilest
 ---@field settings stockpile_settings
 ---@field max_barrels integer
 ---@field max_bins integer
 ---@field max_wheelbarrows integer
+---@field container_type any[]
+---@field container_item_id integer[]
+---@field container_x integer[]
+---@field container_y integer[]
 ---@field links stockpile_links
 ---@field use_links_only integer
 ---@field stockpile_number integer
+---@field linked_stops hauling_stop[]
 
 ---@class hospital_supplies
+---@field supplies_needed any
 ---@field max_splints integer
 ---@field max_thread integer
 ---@field max_cloth integer
@@ -262,15 +284,28 @@ df.civzone_type = {
 }
 
 ---@class building_civzonest
+---@field assigned_units integer[]
+---@field assigned_items integer[]
 ---@field type civzone_type
 ---@field is_active integer
 ---@field zone_num integer
----@field zone_settings table
+---@field zone_settings zone_settings_compound
+---@field contained_buildings building[]
 ---@field assigned_unit_id integer
 ---@field assigned_unit unit
+---@field squad_room_info any[]
+
+---@class zone_settings_compound
+---@field whole any
+---@field gather any
+---@field pen any
+---@field tomb any
+---@field archery any
+---@field pit_pond any
 
 ---@class building_actual
 ---@field construction_stage integer
+---@field contained_items any[]
 ---@field design building_design
 
 ---@class building_design
@@ -285,6 +320,7 @@ df.civzone_type = {
 ---@field build_timer2 integer
 ---@field quality1 item_quality
 ---@field quality2 item_quality
+---@field flags any
 ---@field hitpoints integer
 ---@field max_hitpoints integer
 
@@ -301,6 +337,7 @@ df.furnace_type = {
 }
 
 ---@class building_furnacest
+---@field melt_remainder integer[]
 ---@field unk_108 integer
 ---@field type furnace_type
 ---@field profile workshop_profile
@@ -336,11 +373,14 @@ df.workshop_type = {
 }
 
 ---@class workshop_profile
+---@field permitted_workers integer[]
 ---@field min_level integer
 ---@field max_level integer
 ---@field links stockpile_links
 ---@field max_general_orders integer
----@field block_general_orders string
+---@field block_general_orders boolean
+---@field pad_1 any
+---@field blocked_labors bool
 
 ---@class building_workshopst
 ---@field type workshop_type
@@ -360,12 +400,16 @@ df.workshop_type = {
 ---@field specific_position integer
 
 ---@class building_bars_verticalst
+---@field gate_flags gate_flags
 ---@field timer integer
 
 ---@class building_bars_floorst
+---@field gate_flags gate_flags
 ---@field timer integer
 
 ---@class building_users
+---@field unit integer[]
+---@field mode integer[]
 
 ---@class building_bedst
 ---@field specific_squad integer
@@ -380,7 +424,9 @@ df.workshop_type = {
 ---@field specific_position integer
 
 ---@class building_bridgest
+---@field gate_flags gate_flags
 ---@field timer integer
+---@field direction any
 ---@field material_amount integer
 
 ---@class building_cabinetst
@@ -389,11 +435,15 @@ df.workshop_type = {
 ---@field specific_position integer
 
 ---@class building_cagest
+---@field assigned_units integer[]
+---@field assigned_items integer[]
+---@field cage_flags any
 ---@field fill_timer integer
 
 ---@class building_chainst
 ---@field assigned unit
 ---@field chained unit
+---@field chain_flags any
 
 ---@class building_chairst
 ---@field unk_1 integer
@@ -447,27 +497,35 @@ df.construction_type = {
 ---@field type construction_type
 
 ---@class building_display_furniturest
+---@field displayed_items integer[]
 
 ---@class building_doorst
+---@field door_flags door_flags
 ---@field close_timer integer
 
 ---@class building_farmplotst
+---@field plant_id any
 ---@field material_amount integer
+---@field farm_flags any
 ---@field last_season season
 ---@field current_fertilization integer
 ---@field max_fertilization integer
 ---@field terrain_purge_timer integer
 
 ---@class building_floodgatest
+---@field gate_flags gate_flags
 ---@field timer integer
 
 ---@class building_grate_floorst
+---@field gate_flags gate_flags
 ---@field timer integer
 
 ---@class building_grate_wallst
+---@field gate_flags gate_flags
 ---@field timer integer
 
 ---@class building_hatchst
+---@field door_flags door_flags
 ---@field close_timer integer
 
 ---@class hive_flags
@@ -477,6 +535,7 @@ df.construction_type = {
 df.hive_flags = {}
 
 ---@class building_hivest
+---@field hive_flags hive_flags
 ---@field split_timer integer
 ---@field activity_timer integer
 ---@field install_timer integer
@@ -513,6 +572,7 @@ df.shop_type = {
 ---@class building_shopst
 ---@field owner unit
 ---@field timer integer
+---@field shop_flags any
 ---@field type shop_type
 
 ---@enum siegeengine_type
@@ -523,6 +583,8 @@ df.siegeengine_type = {
 
 ---@class building_siegeenginest
 ---@field type siegeengine_type
+---@field facing any
+---@field action any
 ---@field fire_timer integer
 ---@field fill_timer integer
 
@@ -533,8 +595,10 @@ df.siegeengine_type = {
 ---@field unk_1 integer
 
 ---@class building_supportst
+---@field support_flags any
 
 ---@class building_tablest
+---@field table_flags any
 ---@field users building_users
 
 ---@class building_traction_benchst
@@ -542,6 +606,7 @@ df.siegeengine_type = {
 ---@field users building_users
 
 ---@class building_tradedepotst
+---@field trade_flags any
 ---@field accessible integer
 
 ---@enum trap_type
@@ -563,12 +628,16 @@ df.trap_type = {
 ---@field magma_max integer
 ---@field track_min integer
 ---@field track_max integer
+---@field flags any
 
 ---@class building_trapst
 ---@field trap_type trap_type
 ---@field state integer
 ---@field ready_timeout integer
 ---@field fill_timer integer
+---@field stop_flags any
+---@field linked_mechanisms item[]
+---@field observed_by_civs integer[]
 ---@field profile workshop_profile
 ---@field plate_info pressure_plate_info
 ---@field friction integer
@@ -580,15 +649,19 @@ df.trap_type = {
 ---@class building_wagonst
 
 ---@class building_weaponst
+---@field gate_flags gate_flags
 ---@field timer integer
 
 ---@class building_squad_use
 ---@field squad_id integer
+---@field mode squad_use_flags
 
 ---@class building_weaponrackst
 ---@field unk_c0 integer
+---@field squads building_squad_use[]
 
 ---@class building_wellst
+---@field well_flags any
 ---@field unk_1 integer
 ---@field bucket_z integer
 ---@field bucket_timer integer

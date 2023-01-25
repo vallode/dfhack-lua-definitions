@@ -355,7 +355,25 @@ df.knowledge_scholar_flags_12 = {}
 df.knowledge_scholar_flags_13 = {}
 
 ---@class knowledge_scholar_category_flag
----@field flag_data table
+---@field flag_type any
+---@field flag_data flag_data_compound
+
+---@class flag_data_compound
+---@field flags_0 knowledge_scholar_flags_0
+---@field flags_1 knowledge_scholar_flags_1
+---@field flags_2 knowledge_scholar_flags_2
+---@field flags_3 knowledge_scholar_flags_3
+---@field flags_4 knowledge_scholar_flags_4
+---@field flags_5 knowledge_scholar_flags_5
+---@field flags_6 knowledge_scholar_flags_6
+---@field flags_7 knowledge_scholar_flags_7
+---@field flags_8 knowledge_scholar_flags_8
+---@field flags_9 knowledge_scholar_flags_9
+---@field flags_10 knowledge_scholar_flags_10
+---@field flags_11 knowledge_scholar_flags_11
+---@field flags_12 knowledge_scholar_flags_12
+---@field flags_13 knowledge_scholar_flags_13
+---@field whole integer
 
 ---@enum dfhack_knowledge_scholar_flag
 df.dfhack_knowledge_scholar_flag = {

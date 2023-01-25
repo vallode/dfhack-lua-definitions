@@ -72,9 +72,12 @@ df.item_magicness_type = {
 ---@field mat_state matter_state
 ---@field temperature temperaturest
 ---@field size integer
+---@field base_flags any
+---@field pad_1 any
 
 ---@class spatter
 ---@field body_part_id integer
+---@field flags any
 
 ---@enum item_quality
 df.item_quality = {
@@ -121,8 +124,12 @@ df.slab_engraving_type = {
 
 ---@class item
 ---@field pos coord
+---@field flags item_flags
+---@field flags2 item_flags2
 ---@field age integer
 ---@field id integer
+---@field specific_refs specific_ref[]
+---@field general_refs general_ref[]
 ---@field world_data_id integer
 ---@field world_data_subid integer
 ---@field stockpile_countdown integer
@@ -142,6 +149,8 @@ df.slab_engraving_type = {
 
 ---@class item_kill_info
 ---@field targets historical_kills
+---@field slayers integer[]
+---@field slayer_kill_counts integer[]
 
 ---@class item_history_info
 ---@field kills item_kill_info
@@ -150,6 +159,10 @@ df.slab_engraving_type = {
 
 ---@class item_actual
 ---@field stack_size integer
+---@field describe any
+---@field history_info any
+---@field magic any
+---@field contaminants any
 ---@field temperature temperaturest
 ---@field wear integer
 ---@field wear_timer integer
@@ -159,6 +172,7 @@ df.slab_engraving_type = {
 ---@class item_crafted
 ---@field mat_type integer
 ---@field mat_index integer
+---@field describe any
 ---@field maker_race integer
 ---@field quality item_quality
 ---@field skill_rating skill_rating
@@ -166,6 +180,7 @@ df.slab_engraving_type = {
 ---@field masterpiece_event integer
 
 ---@class item_constructed
+---@field improvements itemimprovement[]
 
 ---@class body_part_status
 ---@field on_fire boolean
@@ -198,6 +213,14 @@ df.body_part_status = {}
 df.body_layer_status = {}
 
 ---@class body_component_info
+---@field body_part_status body_part_status[]
+---@field numbered_masks integer[]
+---@field nonsolid_remaining integer[]
+---@field layer_status body_layer_status[]
+---@field layer_wound_area integer[]
+---@field layer_cut_fraction integer[]
+---@field layer_dent_fraction integer[]
+---@field layer_effect_fraction integer[]
 
 ---@class body_size_info
 ---@field size_cur integer
@@ -233,7 +256,7 @@ df.corpse_material_type = {
 ---@field normal_caste integer
 ---@field rot_timer integer
 ---@field unk_8c integer
----@field body table
+---@field body body_compound
 ---@field size_modifier integer
 ---@field birth_year integer
 ---@field birth_time integer
@@ -243,16 +266,48 @@ df.corpse_material_type = {
 ---@field birth_time_bias integer
 ---@field death_year integer
 ---@field death_time integer
----@field appearance table
+---@field appearance appearance_compound
 ---@field blood_count integer
 ---@field stored_fat integer
 ---@field hist_figure_id2 integer
 ---@field undead_unit_id integer
 ---@field unit_id2 integer
----@field bone1 table
----@field bone2 table
+---@field corpse_flags any
+---@field material_amount int32_t
+---@field bone1 bone1_compound
+---@field bone2 bone2_compound
+
+---@class body_compound
+---@field wounds unit_wound[]
+---@field unk_100 int32_t
+---@field wound_next_id integer
+---@field components body_component_info
+---@field physical_attr_value int32_t
+---@field physical_attr_soft_demotion int32_t
+---@field size_info body_size_info
+---@field body_part_relsize integer[]
+---@field body_modifiers integer[]
+---@field bp_modifiers integer[]
+
+---@class appearance_compound
+---@field colors integer[]
+---@field tissue_style integer[]
+---@field tissue_style_civ_id integer[]
+---@field tissue_style_id integer[]
+---@field tissue_style_type integer[]
+
+---@class bone1_compound
+---@field mat_type integer
+---@field mat_index integer
+
+---@class bone2_compound
+---@field mat_type integer
+---@field mat_index integer
 
 ---@class item_corpsest
+---@field unused_380 any
+---@field unused_388 any
+---@field unused_390 any
 ---@field unused_398 integer
 ---@field unused_39c integer
 ---@field unused_3a0 integer
@@ -273,6 +328,7 @@ df.corpse_material_type = {
 df.item_matstate = {}
 
 ---@class item_liquipowder
+---@field mat_state item_matstate
 ---@field dimension integer
 
 ---@class item_liquid
@@ -357,6 +413,7 @@ df.item_matstate = {}
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field rot_timer integer
+---@field mat_state item_matstate
 ---@field dimension integer
 
 ---@class item_remainsst
@@ -378,12 +435,14 @@ df.item_matstate = {}
 ---@field subtype itemdef_foodst
 ---@field entity integer
 ---@field recipe_id integer
+---@field ingredients any[]
 ---@field rot_timer integer
 
 ---@class item_verminst
 
 ---@class item_petst
 ---@field owner_id integer
+---@field pet_flags any
 
 ---@class item_drinkst
 
@@ -410,6 +469,7 @@ df.item_matstate = {}
 ---@field caste integer
 ---@field unk_7c integer
 ---@field egg_materials material_vec_ref
+---@field egg_flags any
 ---@field incubation_counter integer
 ---@field hatchling_civ_id integer
 ---@field hatchling_population_id integer
@@ -421,6 +481,9 @@ df.item_matstate = {}
 ---@field fathers_genes unit_genes
 ---@field fathers_caste integer
 ---@field unk_4 integer
+---@field hatchling_flags1 unit_flags1
+---@field hatchling_flags2 unit_flags2
+---@field hatchling_flags3 unit_flags3
 ---@field unk_v42_1 integer
 ---@field hatchling_training_level animal_training_level
 ---@field hatchling_animal_population world_population_ref
@@ -523,6 +586,7 @@ df.item_matstate = {}
 
 ---@class item_glovesst
 ---@field subtype itemdef_glovesst
+---@field handedness any
 
 ---@class item_pantsst
 ---@field subtype itemdef_pantsst

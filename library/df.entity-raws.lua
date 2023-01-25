@@ -166,22 +166,122 @@ df.entity_name_type = {
 ---@class entity_raw
 ---@field code string
 ---@field index integer
----@field equipment table
+---@field raws string[]
+---@field describe any
+---@field creature_ids integer[]
+---@field creatures string[]
+---@field equipment equipment_compound
+---@field currency_value integer[]
+---@field flags any
 ---@field translation string
----@field symbols table
+---@field symbols symbols_compound
+---@field sphere_alignment int32_t
+---@field art_facet_modifier int32_t
+---@field art_image_element_modifier int32_t
+---@field item_improvement_modifier int32_t
+---@field friendly_color int16_t
 ---@field default_site_type world_site_type
----@field progress_trigger table
+---@field likes_site int8_t
+---@field tolerates_site int8_t
+---@field biome_support int32_t
+---@field start_biome int8_t
+---@field settlement_biome int8_t
+---@field active_season int8_t
+---@field progress_trigger progress_trigger_compound
+---@field ethic any
+---@field values int32_t
+---@field variable_value_min int32_t
+---@field variable_value_max int32_t
+---@field scholar any
 ---@field max_site_pop_number integer
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
----@field jobs table
----@field workshops table
+---@field religion integer[]
+---@field religion_sphere any[]
+---@field jobs jobs_compound
+---@field positions entity_position_raw[]
+---@field variable_positions int8_t
+---@field site_variable_positions int8_t
+---@field tissue_styles any[]
+---@field workshops workshops_compound
 ---@field banditry integer
+---@field gem_shapes_str string[]
+---@field stone_shapes_str string[]
+---@field gem_shapes integer[]
+---@field stone_shapes integer[]
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
+---@field currency_str1 string[]
+---@field currency_str2 string[]
+---@field animal entity_animal_raw[]
+
+---@class equipment_compound
+---@field digger_id integer[]
+---@field weapon_id integer[]
+---@field armor_id integer[]
+---@field ammo_id integer[]
+---@field helm_id integer[]
+---@field gloves_id integer[]
+---@field shoes_id integer[]
+---@field pants_id integer[]
+---@field shield_id integer[]
+---@field trapcomp_id integer[]
+---@field toy_id integer[]
+---@field instrument_id integer[]
+---@field tool_id integer[]
+---@field siegeammo_id integer[]
+---@field armor_rarity integer[]
+---@field helm_rarity integer[]
+---@field gloves_rarity integer[]
+---@field shoes_rarity integer[]
+---@field pants_rarity integer[]
+---@field digger_str string[]
+---@field weapon_str string[]
+---@field armor_str string[]
+---@field ammo_str string[]
+---@field helm_str string[]
+---@field gloves_str string[]
+---@field shoes_str string[]
+---@field pants_str string[]
+---@field shield_str string[]
+---@field trapcomp_str string[]
+---@field toy_str string[]
+---@field instrument_str string[]
+---@field siegeammo_str string[]
+---@field tool_str string[]
+
+---@class symbols_compound
+---@field symbols1 language_word_table
+---@field symbols2 language_word_table
+---@field select_symbol any
+---@field subselect_symbol any
+---@field cull_symbol any
+
+---@class progress_trigger_compound
+---@field population integer
+---@field production integer
+---@field trade integer
+---@field pop_siege integer
+---@field prod_siege integer
+---@field trade_siege integer
+
+---@class jobs_compound
+---@field permitted_job bool
+---@field permitted_labor bool
+---@field world_construction bool
+
+---@class workshops_compound
+---@field permitted_building_str string[]
+---@field permitted_building_id integer[]
+---@field permitted_reaction_str string[]
+---@field permitted_reaction_id integer[]
 
 ---@class entity_animal_raw
 ---@field token string
+---@field caste_token string[]
+---@field animal_class string[]
+---@field forbidden_class string[]
+---@field flags any
 
 ---@enum entity_position_raw_flags
 df.entity_position_raw_flags = {
@@ -262,8 +362,25 @@ df.entity_position_responsibility = {
 ---@class entity_position_raw
 ---@field code string
 ---@field id integer
+---@field flags any
+---@field allowed_creature_str any
+---@field allowed_creature integer[]
+---@field allowed_class string[]
+---@field rejected_creature_str any
+---@field rejected_creature integer[]
+---@field rejected_class string[]
+---@field name stl-string
+---@field name_female stl-string
+---@field name_male stl-string
+---@field spouse stl-string
+---@field spouse_female stl-string
+---@field spouse_male stl-string
+---@field squad stl-string
 ---@field land_name string
 ---@field squad_size integer
+---@field commander_str string[]
+---@field commander_id integer[]
+---@field commander_types integer[]
 ---@field land_holder integer
 ---@field number integer
 ---@field requires_population integer
@@ -271,6 +388,12 @@ df.entity_position_responsibility = {
 ---@field precedence integer
 ---@field replaced_by_str string
 ---@field replaced_by integer
+---@field appointed_by_str string[]
+---@field appointed_by integer[]
+---@field succession_by_position_str string[]
+---@field succession_by_position integer[]
+---@field responsibilities bool
+---@field color int16_t
 ---@field required_boxes integer
 ---@field required_cabinets integer
 ---@field required_racks integer

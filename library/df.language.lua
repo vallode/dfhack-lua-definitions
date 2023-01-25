@@ -179,24 +179,42 @@ df.sphere_type = {
 
 ---@class language_word
 ---@field word string
+---@field describe any
+---@field forms stl-string
 ---@field adj_dist integer
+---@field pad_1 any
+---@field flags language_word_flags
+---@field str string[]
 
 ---@class language_translation
 ---@field name string
+---@field describe any
+---@field unknown1 string[]
+---@field unknown2 string[]
+---@field words string[]
 ---@field flags integer
+---@field str string[]
 
 ---@class language_symbol
 ---@field name string
+---@field unknown any[]
+---@field words any[]
 ---@field flags integer
+---@field str string[]
 
 ---@class language_name
 ---@field first_name string
 ---@field nickname string
+---@field words any
+---@field parts_of_speech any
 ---@field language integer
 ---@field type language_name_type
----@field has_name string
+---@field has_name boolean
+---@field describe any
 
 ---@class language_word_table
+---@field words any
+---@field parts any
 
 ---@enum language_name_category
 df.language_name_category = {

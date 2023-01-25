@@ -8,7 +8,6 @@ df.global = {}
 ---@class dfhack
 dfhack = {}
 
----@class gui
 dfhack.gui = {}
 
 ---@param skip_dismissed? boolean
@@ -72,34 +71,24 @@ function dfhack.gui.getAnyBuilding(screen) end
 ---@return plant|nil
 function dfhack.gui.getAnyPlant(screen) end
 
----@class job
 dfhack.job = {}
 
----@class units
 dfhack.units = {}
 
----@class items
 dfhack.items = {}
 
----@class maps
 dfhack.maps = {}
 
----@class burrows
 dfhack.burrows = {}
 
----@class buildings
 dfhack.buildings = {}
 
----@class constructions
 dfhack.constructions = {}
 
----@class kitchen
 dfhack.kitchen = {}
 
----@class screen
 dfhack.screen = {}
 
----@class filesystem
 dfhack.filesystem = {}
 
 -- Clears the DFHack console.

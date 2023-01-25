@@ -117,8 +117,12 @@ df.creature_interaction_effect_target_mode = {
 }
 
 ---@class creature_interaction_effect_target
+---@field mode any[]
+---@field key string[]
+---@field tissue string[]
 
 ---@class creature_interaction_effect
+---@field flags creature_interaction_effect_flags
 ---@field prob integer
 ---@field start integer
 ---@field peak integer
@@ -129,7 +133,13 @@ df.creature_interaction_effect_target_mode = {
 ---@field syn_index integer
 ---@field moon_phase_min integer
 ---@field moon_phase_max integer
----@field counter_trigger table
+---@field counter_trigger counter_trigger_compound
+
+---@class counter_trigger_compound
+---@field counter any[]
+---@field minval integer[]
+---@field maxval integer[]
+---@field required integer[]
 
 ---@class creature_interaction_effect_painst
 ---@field sev integer
@@ -211,6 +221,12 @@ df.creature_interaction_effect_target_mode = {
 ---@field chance integer
 ---@field race_str string
 ---@field caste_str string
+---@field race integer[]
+---@field caste integer[]
+---@field required_creature_flags integer[]
+---@field forbidden_creature_flags integer[]
+---@field required_caste_flags integer[]
+---@field forbidden_caste_flags integer[]
 ---@field unk_1 integer
 ---@field unk_2 integer
 
@@ -223,17 +239,26 @@ df.creature_interaction_effect_target_mode = {
 ---@field color integer
 
 ---@class creature_interaction_effect_flash_symbolst
+---@field sym_color uint8_t
 ---@field period integer
 ---@field time integer
 ---@field unk_78 integer
 
 ---@class creature_interaction_effect_phys_att_changest
+---@field phys_att_perc int32_t
+---@field phys_att_add int32_t
 
 ---@class creature_interaction_effect_ment_att_changest
+---@field ment_att_perc int32_t
+---@field ment_att_add int32_t
 
 ---@class creature_interaction_effect_add_simple_flagst
+---@field tags1 cie_add_tag_mask1
+---@field tags2 cie_add_tag_mask2
 
 ---@class creature_interaction_effect_remove_simple_flagst
+---@field tags1 cie_add_tag_mask1
+---@field tags2 cie_add_tag_mask2
 
 ---@class creature_interaction_effect_speed_changest
 ---@field bonus_add integer
@@ -270,21 +295,34 @@ df.creature_interaction_effect_target_mode = {
 ---@field sev integer
 
 ---@class creature_interaction_effect_change_personalityst
+---@field facets int16_t
 
 ---@class creature_interaction_effect_erratic_behaviorst
 ---@field sev integer
 
 ---@class creature_interaction_effect_close_open_woundsst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_cure_infectionsst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_heal_nervesst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_heal_tissuesst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_reduce_dizzinessst
 ---@field unk_1 integer
@@ -297,24 +335,44 @@ df.creature_interaction_effect_target_mode = {
 
 ---@class creature_interaction_effect_reduce_painst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_reduce_paralysisst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_reduce_swellingst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_regrow_partsst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_special_attack_interactionst
+---@field unk_1 integer[]
+---@field unk_2 string[]
 ---@field unk_3 string
 
 ---@class creature_interaction_effect_stop_bleedingst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class creature_interaction_effect_cure_infectionst
 ---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
 
 ---@class syndrome_flags
 ---@field SYN_INJECTED boolean
@@ -327,6 +385,17 @@ df.syndrome_flags = {}
 
 ---@class syndrome
 ---@field syn_name string
+---@field describe any
+---@field ce creature_interaction_effect[]
+---@field syn_affected_class string[]
+---@field syn_affected_creature string[]
+---@field syn_affected_caste string[]
+---@field syn_immune_class string[]
+---@field syn_immune_creature string[]
+---@field syn_immune_caste string[]
+---@field syn_class string[]
 ---@field syn_identifier string
+---@field flags syndrome_flags
+---@field syn_concentration_added int32_t
 ---@field id integer
 

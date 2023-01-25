@@ -1,6 +1,14 @@
 ---@meta
 
 ---@class historical_kills
+---@field events integer[]
+---@field killed_race integer[]
+---@field killed_caste integer[]
+---@field killed_underground_region integer[]
+---@field killed_region integer[]
+---@field killed_site integer[]
+---@field killed_undead any[]
+---@field killed_count integer[]
 
 ---@class history_hit_item
 ---@field item integer
@@ -127,14 +135,31 @@ df.plot_strategy_type = {
 ---@field actor_id integer
 ---@field plot_role plot_role_type
 ---@field agreement_id integer
----@field agreement_has_messenger string
+---@field agreement_has_messenger boolean
 
 ---@class historical_figure_info
+---@field spheres any
+---@field skills any
+---@field pets any
+---@field personality any
+---@field masterpieces any
+---@field whereabouts any
 ---@field kills historical_kills
+---@field wounds any
+---@field known_info any
+---@field curse any
+---@field books any
+---@field reputation any
 ---@field relationships historical_figure_relationships
 
 ---@class historical_figure_relationships
+---@field hf_visual any[]
+---@field hf_historical any[]
+---@field unk_1 any[]
+---@field identities integer[]
+---@field artifact_claims any[]
 ---@field unk_2 integer
+---@field intrigues any
 
 ---@enum histfig_flags
 df.histfig_flags = {
@@ -269,6 +294,7 @@ df.vague_relationship_type = {
 ---@field race integer
 ---@field caste integer
 ---@field sex pronoun_type
+---@field orientation_flags orientation_flags
 ---@field appeared_year integer
 ---@field born_year integer
 ---@field born_seconds integer
@@ -281,19 +307,27 @@ df.vague_relationship_type = {
 ---@field died_year integer
 ---@field died_seconds integer
 ---@field name language_name
+---@field describe any
 ---@field civ_id integer
 ---@field population_id integer
 ---@field breed_id integer
 ---@field cultural_identity integer
 ---@field family_head_id integer
+---@field flags any
 ---@field unit_id integer
 ---@field nemesis_id integer
 ---@field id integer
 ---@field unk4 integer
+---@field entity_links histfig_entity_link[]
+---@field site_links histfig_site_link[]
+---@field histfig_links histfig_hf_link[]
 ---@field info historical_figure_info
+---@field vague_relationships any
 ---@field unk_f0 world_site
 ---@field unk_f4 world_region
 ---@field unk_f8 world_underground_region
+---@field unk_fc any
+---@field unk_v47_2 any
 ---@field unk_v47_3 integer
 ---@field unk_v47_4 integer
 ---@field unk_v4019_1 integer
@@ -313,6 +347,7 @@ df.identity_type = {
 ---@class identity
 ---@field id integer
 ---@field name language_name
+---@field describe any
 ---@field race integer
 ---@field caste integer
 ---@field impersonated_hf integer
@@ -325,9 +360,13 @@ df.identity_type = {
 ---@field unk_v47_2 integer
 ---@field profession profession
 ---@field entity_id integer
+---@field unk_4 identity_unk_94[]
+---@field unk_5 identity_unk_95[]
 
 ---@class identity_unk_94
 ---@field unk_0 integer
+---@field unk_1 integer[]
+---@field unk_2 integer[]
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -338,6 +377,8 @@ df.identity_type = {
 
 ---@class identity_unk_95
 ---@field unk_0 integer
+---@field unk_1 integer[]
+---@field unk_2 integer[]
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -657,14 +698,31 @@ df.history_event_reason = {
 
 ---@class history_event_reason_info
 ---@field type history_event_reason
----@field data table
+---@field data data_compound
+
+---@class data_compound
+---@field glorify_hf integer
+---@field sanctify_hf integer
+---@field artifact_is_heirloom_of_family_hfid integer
+---@field artifact_is_symbol_of_entity_position integer
 
 ---@class history_event_circumstance_info
 ---@field type unit_thought_type
----@field data table
+---@field data data_compound
+
+---@class data_compound
+---@field Death integer
+---@field Prayer integer
+---@field DreamAbout integer
+---@field Defeated integer
+---@field Murdered integer
+---@field HistEventCollection integer
+---@field AfterAbducting integer
 
 ---@class history_event_context
+---@field flags any
 ---@field interrogator_relationships historical_figure_relationships
+---@field interrogation any
 ---@field artifact_id integer
 ---@field entity_id integer
 ---@field histfig_id integer
@@ -685,6 +743,7 @@ df.history_event_reason = {
 ---@field unk_50 integer
 ---@field unk_54 integer
 ---@field caste integer
+---@field undead_flags undead_flags
 ---@field unk_5a integer
 ---@field squad_id integer
 ---@field formation_id integer
@@ -747,6 +806,7 @@ df.merc_role_type = {}
 ---@class history_event
 ---@field year integer
 ---@field seconds integer
+---@field flags any
 ---@field id integer
 
 ---@class history_event_war_attacked_sitest
@@ -758,6 +818,7 @@ df.merc_role_type = {}
 ---@field defender_general_hf integer
 ---@field attacker_merc_enid integer
 ---@field defender_merc_enid integer
+---@field merc_roles merc_role_type
 
 ---@class history_event_war_destroyed_sitest
 ---@field attacker_civ integer
@@ -917,6 +978,7 @@ df.death_type = {
 ---@field source integer
 ---@field destination integer
 ---@field site integer
+---@field flags2 any
 
 ---@enum history_event_merchant_flags
 df.history_event_merchant_flags = {
@@ -949,6 +1011,7 @@ df.history_event_merchant_flags = {
 ---@field creator_unit_id integer
 ---@field creator_hfid integer
 ---@field site integer
+---@field flags2 any
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 
@@ -982,11 +1045,13 @@ df.history_event_merchant_flags = {
 ---@field unit integer
 ---@field histfig integer
 ---@field site integer
+---@field flags2 any
 
 ---@class history_event_reclaim_sitest
 ---@field civ integer
 ---@field site_civ integer
 ---@field site integer
+---@field flags2 any
 
 ---@class history_event_hf_destroyed_sitest
 ---@field attacker_hf integer
@@ -998,11 +1063,13 @@ df.history_event_merchant_flags = {
 ---@field civ integer
 ---@field site_civ integer
 ---@field site integer
+---@field flags2 any
 
 ---@class history_event_site_retiredst
 ---@field civ integer
 ---@field site_civ integer
 ---@field site integer
+---@field flags2 any
 
 ---@class history_event_entity_createdst
 ---@field entity integer
@@ -1027,7 +1094,7 @@ df.entity_action_type = {
 ---@field join_entity integer
 ---@field leader_hfid integer
 ---@field site integer
----@field partial string
+---@field partial boolean
 
 ---@class history_event_created_buildingst
 ---@field civ integer
@@ -1035,7 +1102,7 @@ df.entity_action_type = {
 ---@field site integer
 ---@field structure integer
 ---@field builder_hf integer
----@field rebuild string
+---@field rebuild boolean
 
 ---@class history_event_replaced_buildingst
 ---@field civ integer
@@ -1171,6 +1238,7 @@ df.masterpiece_loss_type = {
 ---@field defender_general_hf integer
 ---@field attacker_merc_enid integer
 ---@field defender_merc_enid integer
+---@field merc_roles merc_role_type
 
 ---@class history_event_war_plundered_sitest
 ---@field attacker_civ integer
@@ -1185,6 +1253,7 @@ df.masterpiece_loss_type = {
 ---@field defender_civ integer
 ---@field site_civ integer
 ---@field site integer
+---@field new_leaders integer[]
 
 ---@class history_event_war_site_tribute_forcedst
 ---@field attacker_civ integer
@@ -1192,6 +1261,7 @@ df.masterpiece_loss_type = {
 ---@field site_civ integer
 ---@field site integer
 ---@field season season
+---@field tribute_flags any
 
 ---@class history_event_war_site_taken_overst
 ---@field attacker_civ integer
@@ -1207,6 +1277,7 @@ df.masterpiece_loss_type = {
 ---@field site integer
 
 ---@class history_event_body_abusedst
+---@field bodies integer[]
 ---@field victim_entity integer
 ---@field civ integer
 ---@field histfig integer
@@ -1214,7 +1285,15 @@ df.masterpiece_loss_type = {
 ---@field region integer
 ---@field layer integer
 ---@field region_pos coord2d
----@field abuse_data table
+---@field abuse_type any
+---@field abuse_data abuse_data_compound
+
+---@class abuse_data_compound
+---@field Impaled any
+---@field Piled any
+---@field Flayed any
+---@field Hung any
+---@field Animated any
 
 ---@class history_event_hist_figure_abductedst
 ---@field target integer
@@ -1273,7 +1352,9 @@ df.theft_method_type = {
 ---@field woundee_race integer
 ---@field woundee_caste integer
 ---@field body_part integer
----@field part_lost string
+---@field injury_type any
+---@field part_lost boolean
+---@field flags2 any
 
 ---@enum history_event_simple_battle_subtype
 df.history_event_simple_battle_subtype = {
@@ -1300,6 +1381,8 @@ df.artifact_claim_type = {
 }
 
 ---@class history_event_hist_figure_simple_battle_eventst
+---@field group1 integer[]
+---@field group2 integer[]
 ---@field site integer
 ---@field region integer
 ---@field layer integer
@@ -1314,23 +1397,30 @@ df.artifact_claim_type = {
 ---@field site2 integer
 
 ---@class history_event_hist_figure_reunionst
+---@field missing integer[]
+---@field reunited_with integer[]
 ---@field assistant integer
 ---@field site integer
 ---@field region integer
 ---@field layer integer
 
 ---@class history_event_hist_figure_reach_summitst
+---@field group integer[]
 ---@field region integer
 ---@field layer integer
 ---@field region_pos coord2d
 
 ---@class history_event_hist_figure_travelst
+---@field group integer[]
 ---@field site integer
 ---@field region integer
 ---@field layer integer
+---@field reason any
 ---@field region_pos coord2d
 
 ---@class history_event_hist_figure_new_petst
+---@field group integer[]
+---@field pets integer[]
 ---@field site integer
 ---@field region integer
 ---@field layer integer
@@ -1371,6 +1461,7 @@ df.position_creation_reason_type = {
 ---@field region integer
 ---@field layer integer
 ---@field ghost_type ghost_type
+---@field flags2 any
 ---@field actor_hfid integer
 ---@field interaction integer
 ---@field unk_1 integer
@@ -1403,6 +1494,7 @@ df.histfig_body_state = {
 ---@field region_pos coord2d
 
 ---@class history_event_hf_act_on_buildingst
+---@field action any
 ---@field histfig integer
 ---@field site integer
 ---@field structure integer
@@ -1419,6 +1511,7 @@ df.histfig_body_state = {
 ---@class history_event_hf_confrontedst
 ---@field target integer
 ---@field accuser integer
+---@field reasons integer[]
 ---@field site integer
 ---@field region integer
 ---@field layer integer
@@ -1427,6 +1520,8 @@ df.histfig_body_state = {
 ---@class history_event_entity_lawst
 ---@field entity integer
 ---@field histfig integer
+---@field add_flags any
+---@field remove_flags any
 
 ---@class history_event_hf_gains_secret_goalst
 ---@field histfig integer
@@ -1445,7 +1540,7 @@ df.histfig_body_state = {
 
 ---@class history_event_agreement_formedst
 ---@field agreement_id integer
----@field delegated string
+---@field delegated boolean
 
 ---@enum site_dispute_type
 df.site_dispute_type = {
@@ -1507,6 +1602,8 @@ df.insurrection_outcome = {
 ---@field site integer
 ---@field region integer
 ---@field layer integer
+---@field competitor_hf integer[]
+---@field winner_hf integer[]
 
 ---@class history_event_processionst
 ---@field entity integer
@@ -1531,6 +1628,7 @@ df.insurrection_outcome = {
 
 ---@class history_event_artifact_transformedst
 ---@field new_artifact integer
+---@field old_artifact integer[]
 ---@field unit integer
 ---@field histfig integer
 ---@field site integer
@@ -1621,9 +1719,10 @@ df.insurrection_outcome = {
 ---@field receiver_entity integer
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
----@field inherited string
+---@field inherited boolean
 
 ---@class history_event_hf_act_on_artifactst
+---@field action any
 ---@field artifact integer
 ---@field histfig integer
 ---@field site integer
@@ -1656,6 +1755,7 @@ df.insurrection_outcome = {
 ---@field site_src integer
 ---@field structure_dest integer
 ---@field structure_src integer
+---@field flags2 any
 
 ---@class history_event_sneak_into_sitest
 ---@field attacker_civ integer
@@ -1680,6 +1780,7 @@ df.insurrection_outcome = {
 ---@field holding_civ integer
 ---@field site_civ integer
 ---@field site integer
+---@field rescued_hfs integer[]
 
 ---@enum simple_action_type
 df.simple_action_type = {
@@ -1693,6 +1794,7 @@ df.simple_action_type = {
 }
 
 ---@class history_event_hist_figure_simple_actionst
+---@field group_hfs integer[]
 ---@field type simple_action_type
 ---@field site integer
 ---@field structure integer
@@ -1728,10 +1830,12 @@ df.tactical_situation = {
 ---@field structure integer
 ---@field subregion integer
 ---@field feature_layer integer
+---@field tactics_flags any
 
 ---@class history_event_squad_vs_squadst
 ---@field a_leader_hfid integer
 ---@field a_leadership_roll integer
+---@field a_hfid integer[]
 ---@field a_squad_id integer
 ---@field a_race integer
 ---@field a_interaction integer
@@ -1740,6 +1844,7 @@ df.tactical_situation = {
 ---@field a_slain integer
 ---@field d_leader_hfid integer
 ---@field d_leadership_roll integer
+---@field d_hfid integer[]
 ---@field d_squad_id integer
 ---@field d_race integer
 ---@field d_interaction integer
@@ -1764,6 +1869,7 @@ df.tactical_situation = {
 ---@class history_event_add_entity_site_profile_flagst
 ---@field entity integer
 ---@field site integer
+---@field added_flags entity_site_link_flags
 
 ---@class history_event_gamblest
 ---@field hf integer
@@ -1785,12 +1891,14 @@ df.tactical_situation = {
 ---@class history_event_entity_equipment_purchasest
 ---@field entity integer
 ---@field quality item_quality
+---@field hfs integer[]
 
 ---@class history_event_modified_buildingst
 ---@field site integer
 ---@field structure integer
 ---@field hf integer
 ---@field unk_1 integer
+---@field modification any
 
 ---@class history_event_building_profile_acquiredst
 ---@field site integer
@@ -1813,7 +1921,13 @@ df.tactical_situation = {
 ---@field persecuting_entity integer
 ---@field target_entity integer
 ---@field site integer
+---@field property_confiscated_from_hfs integer[]
+---@field destroyed_structures integer[]
 ---@field shrines_destroyed integer
+---@field expelled_hfs integer[]
+---@field expelled_populations integer[]
+---@field expelled_races integer[]
+---@field expelled_counts integer[]
 
 ---@class history_event_entity_breach_feature_layerst
 ---@field site integer
@@ -1823,6 +1937,7 @@ df.tactical_situation = {
 
 ---@class history_event_entity_alliance_formedst
 ---@field entity integer
+---@field joining_entities integer[]
 
 ---@class history_event_hf_ransomedst
 ---@field ransomed_hf integer
@@ -1849,6 +1964,7 @@ df.tactical_situation = {
 ---@field instigator_hf integer
 ---@field entity integer
 ---@field position_profile_id integer
+---@field conspirator_hfs integer[]
 ---@field site integer
 
 ---@class history_event_hfs_formed_intrigue_relationshipst
@@ -1876,6 +1992,7 @@ df.tactical_situation = {
 ---@field convicter_entity integer
 ---@field recognized_by_entity integer
 ---@field recognized_by_hf integer
+---@field implicated_hfs integer[]
 ---@field corrupt_hf integer
 ---@field behest_of_hf integer
 ---@field fooled_hf integer
@@ -1886,6 +2003,8 @@ df.tactical_situation = {
 ---@field crime integer
 ---@field hammerstrokes integer
 ---@field prison_months integer
+---@field punishment_flags any
+---@field plot_flags any
 
 ---@class history_event_failed_frame_attemptst
 ---@field target_hf integer
@@ -1899,6 +2018,8 @@ df.tactical_situation = {
 ---@field target_hf integer
 ---@field arresting_entity integer
 ---@field interrogator_hf integer
+---@field implicated_hfs integer[]
+---@field interrogation_flags any
 
 ---@enum history_event_collection_type
 df.history_event_collection_type = {
@@ -1923,15 +2044,38 @@ df.history_event_collection_type = {
 }
 
 ---@class history_event_collection
+---@field events integer[]
+---@field collections integer[]
 ---@field start_year integer
 ---@field end_year integer
 ---@field start_seconds integer
 ---@field end_seconds integer
+---@field flags any
 ---@field id integer
 
 ---@class history_event_collection_warst
 ---@field name language_name
----@field unk table
+---@field attacker_civ integer[]
+---@field defender_civ integer[]
+---@field unk_1 integer[]
+---@field unk unk_compound
+
+---@class unk_compound
+---@field unk_1 integer[]
+---@field attacker_entity_leader integer[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+---@field unk_5 integer
+---@field ethics_unk1 integer[]
+---@field disputed_ethics ethic_type[]
+---@field ethics_unk3 integer[]
+---@field dispute_severities integer[]
+---@field accumulated_ethics_severity integer
+---@field event_unk integer[]
+---@field negative_events integer[]
+---@field event_severities integer[]
+---@field accumulated_event_severity integer
 
 ---@class history_event_collection_battlest
 ---@field name language_name
@@ -1940,8 +2084,30 @@ df.history_event_collection_type = {
 ---@field layer integer
 ---@field site integer
 ---@field region_pos coord2d
+---@field attacker_civ integer[]
+---@field defender_civ integer[]
+---@field attacker_hf integer[]
+---@field attacker_role integer[]
+---@field defender_hf integer[]
+---@field defender_role integer[]
+---@field noncombat_hf integer[]
+---@field merc_roles merc_role_type
 ---@field attacker_mercs integer
 ---@field defender_mercs integer
+---@field attacker_merc_hfs integer[]
+---@field defender_merc_hfs integer[]
+---@field attacker_squad_entity_pop integer[]
+---@field attacker_squad_counts integer[]
+---@field attacker_squad_deaths integer[]
+---@field attacker_squad_races integer[]
+---@field attacker_squad_sites integer[]
+---@field unk_3 integer[]
+---@field defender_squad_entity_pops integer[]
+---@field defender_squad_counts integer[]
+---@field defender_squad_deaths integer[]
+---@field defender_squad_races integer[]
+---@field defender_squad_sites integer[]
+---@field unk_4 integer[]
 ---@field outcome integer
 
 ---@class history_event_collection_duelst
@@ -1958,6 +2124,8 @@ df.history_event_collection_type = {
 ---@class history_event_collection_site_conqueredst
 ---@field parent_collection integer
 ---@field site integer
+---@field attacker_civ integer[]
+---@field defender_civ integer[]
 ---@field unk_1 integer
 ---@field ordinal integer
 
@@ -1969,6 +2137,9 @@ df.history_event_collection_type = {
 ---@field region_pos coord2d
 ---@field attacker_civ integer
 ---@field defender_civ integer
+---@field snatcher_hf integer[]
+---@field victim_hf integer[]
+---@field unk_1 integer[]
 ---@field ordinal integer
 
 ---@class history_event_collection_theftst
@@ -1979,6 +2150,19 @@ df.history_event_collection_type = {
 ---@field region_pos coord2d
 ---@field thief_civ integer
 ---@field victim_civ integer
+---@field thief_hf integer[]
+---@field stolen_item_types any[]
+---@field stolen_item_subtypes any[]
+---@field stolen_mat_types any[]
+---@field stolen_mat_indices integer[]
+---@field stolen_item_ids integer[]
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer[]
+---@field unk_7 integer[]
 ---@field ordinal integer
 
 ---@class history_event_collection_beast_attackst
@@ -1988,9 +2172,11 @@ df.history_event_collection_type = {
 ---@field site integer
 ---@field region_pos coord2d
 ---@field defender_civ integer
+---@field attacker_hf integer[]
 ---@field ordinal integer
 
 ---@class history_event_collection_journeyst
+---@field traveler_hf integer[]
 ---@field ordinal integer
 
 ---@class history_event_collection_insurrectionst
@@ -2044,6 +2230,7 @@ df.history_event_collection_type = {
 ---@field region_pos coord2d
 ---@field attacker_civ integer
 ---@field defender_civ integer
+---@field thieves integer[]
 ---@field ordinal integer
 
 ---@class history_event_collection_persecutionst
@@ -2075,10 +2262,34 @@ df.era_type = {
 
 ---@class history_era
 ---@field year integer
----@field title table
----@field details table
+---@field title title_compound
+---@field details details_compound
+
+---@class title_compound
+---@field type era_type
+---@field histfig_1 integer
+---@field histfig_2 integer
+---@field ordinal integer
+---@field name string
+---@field percent integer
+
+---@class details_compound
+---@field living_powers integer
+---@field living_megabeasts integer
+---@field living_semimegabeasts integer
+---@field power_hf1 integer
+---@field power_hf2 integer
+---@field power_hf3 integer
+---@field civilized_races integer[]
+---@field civilized_total integer
+---@field civilized_mundane integer
 
 ---@class relationship_event
+---@field event int32_t
+---@field relationship vague_relationship_type
+---@field source_hf int32_t
+---@field target_hf int32_t
+---@field year int32_t
 ---@field next_element integer
 ---@field start_year integer
 
@@ -2090,16 +2301,52 @@ df.era_type = {
 ---@field profession profession
 
 ---@class world_history
----@field event_collections table
+---@field events history_event[]
+---@field events_death history_event[]
+---@field relationship_events relationship_event[]
+---@field relationship_event_supplements relationship_event_supplement[]
+---@field figures historical_figure[]
+---@field event_collections event_collections_compound
+---@field eras history_era[]
+---@field discovered_art_image_id integer[]
+---@field discovered_art_image_subid integer[]
 ---@field total_unk integer
 ---@field total_powers integer
 ---@field total_megabeasts integer
 ---@field total_semimegabeasts integer
+---@field unk_14 any[]
+---@field unk_v42_1 int16_t
+---@field intrigues intrigue[]
+---@field live_megabeasts historical_figure[]
+---@field live_semimegabeasts historical_figure[]
+---@field unk_histfig_3 historical_figure[]
+---@field unk_histfig_4 historical_figure[]
+---@field unk_histfig_5 historical_figure[]
+---@field unk_1 historical_figure[]
+---@field unk_v40_1 any
+---@field unk_histfig_6 historical_figure[]
+---@field unk_histfig_7 historical_figure[]
+---@field unk_histfig_8 historical_figure[]
+---@field unk_histfig_9 historical_figure[]
+---@field unk_histfig_10 historical_figure[]
+---@field unk_histfig_11 historical_figure[]
+---@field unk_histfig_12 historical_figure[]
+---@field unk_histfig_13 historical_figure[]
+---@field unk_3 historical_figure[]
+---@field unk_4 any[]
+---@field unk_5 historical_figure[]
+---@field unk_6 any[]
+---@field unk_7 any[]
 ---@field unk_8 integer
+---@field active_event_collections history_event_collection[]
 ---@field unk_10 integer
 ---@field unk_11 integer
 ---@field unk_12 integer
 ---@field active_mission mission_report
+
+---@class event_collections_compound
+---@field all history_event_collection[]
+---@field other any
 
 ---@class intrigue
 ---@field event_id integer
@@ -2114,6 +2361,7 @@ df.era_type = {
 ---@field target_relationship vague_relationship_type
 ---@field target_relationship_entity_id integer
 ---@field lurer_id integer
+---@field manipulation_type any
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field manipulated_facet personality_facet_type
@@ -2122,8 +2370,10 @@ df.era_type = {
 ---@field manipulated_value value_type
 ---@field value_rating integer
 ---@field value_roll integer
+---@field manipulated_emotion any
 ---@field emotion_rating integer
 ---@field emotion_roll integer
+---@field flags any
 ---@field position_entity_id integer
 ---@field position_assignment_id integer
 ---@field offered_id integer

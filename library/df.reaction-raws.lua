@@ -10,17 +10,30 @@ df.reaction_flags = {
 ---@class reaction
 ---@field code string
 ---@field name string
+---@field describe any
+---@field flags any
+---@field reagents reaction_reagent[]
+---@field products reaction_product[]
 ---@field skill job_skill
 ---@field max_multiplier integer
----@field building table
+---@field building building_compound
 ---@field index integer
 ---@field source_hfid integer
 ---@field source_enid integer
+---@field raw_strings string[]
 ---@field category string
+---@field descriptions reaction_description[]
 ---@field quality_adj1 integer
 ---@field quality_adj2 integer
 ---@field unk_1 integer
 ---@field exp_gain integer
+
+---@class building_compound
+---@field str any
+---@field type any[]
+---@field subtype integer[]
+---@field custom integer[]
+---@field hotkey integer[]
 
 ---@class reaction_category
 ---@field id string
@@ -41,7 +54,9 @@ df.reaction_reagent_type = {
 
 ---@class reaction_reagent
 ---@field code string
+---@field describe any
 ---@field quantity integer
+---@field flags reaction_reagent_flags
 
 ---@class reaction_reagent_flags
 ---@field PRESERVE_REAGENT boolean
@@ -56,12 +71,19 @@ df.reaction_reagent_flags = {}
 ---@field mat_index integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
+---@field flags1 job_item_flags1
+---@field flags2 job_item_flags2
+---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
 ---@field metal_ore integer
 ---@field min_dimension integer
+---@field contains integer[]
 ---@field has_tool_use tool_uses
+---@field item_str stl-string
+---@field material_str stl-string
 ---@field metal_ore_str string
+---@field contains_str string[]
 
 ---@enum reaction_product_type
 df.reaction_product_type = {
@@ -91,7 +113,14 @@ df.reaction_product_item_flags = {
 ---@field probability integer
 ---@field count integer
 ---@field product_dimension integer
----@field get_material table
+---@field flags any
+---@field get_material get_material_compound
+---@field item_str stl-string
+---@field material_str stl-string
+
+---@class get_material_compound
+---@field reagent_code string
+---@field product_code string
 
 ---@enum reaction_product_improvement_flags
 df.reaction_product_improvement_flags = {
@@ -107,6 +136,12 @@ df.reaction_product_improvement_flags = {
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field probability integer
----@field get_material table
+---@field flags any
+---@field get_material get_material_compound
+---@field material_str stl-string
 ---@field unk_v4201_2 string
+
+---@class get_material_compound
+---@field reagent_code string
+---@field product_code string
 

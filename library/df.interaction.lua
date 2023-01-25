@@ -9,6 +9,12 @@ df.interaction_flags = {
 ---@class interaction
 ---@field name string
 ---@field id integer
+---@field describe any
+---@field str string[]
+---@field flags any
+---@field sources interaction_source[]
+---@field targets interaction_target[]
+---@field effects interaction_effect[]
 ---@field source_hfid integer
 ---@field source_enid integer
 
@@ -41,21 +47,29 @@ df.interaction_effect_location_hint = {
 
 ---@class interaction_effect
 ---@field index integer
+---@field targets string[]
+---@field targets_index integer[]
 ---@field intermittent integer
+---@field locations interaction_effect_location_hint[]
+---@field flags any
 ---@field interaction_id integer
 ---@field arena_name string
 
 ---@class interaction_effect_animatest
 ---@field unk_1 integer
+---@field syndrome syndrome[]
 
 ---@class interaction_effect_add_syndromest
 ---@field unk_1 integer
+---@field syndrome syndrome[]
 
 ---@class interaction_effect_resurrectst
 ---@field unk_1 integer
+---@field syndrome syndrome[]
 
 ---@class interaction_effect_cleanst
 ---@field grime_level integer
+---@field syndrome_tag syndrome_flags
 ---@field unk_1 integer
 
 ---@class interaction_effect_contactst
@@ -77,6 +91,7 @@ df.interaction_effect_location_hint = {
 
 ---@class interaction_effect_raise_ghostst
 ---@field unk_1 integer
+---@field syndrome syndrome[]
 
 ---@class interaction_effect_create_itemst
 ---@field item_type item_type
@@ -102,6 +117,12 @@ df.interaction_effect_location_hint = {
 ---@field make_pet integer
 ---@field race_str string
 ---@field caste_str string
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field required_creature_flags integer[]
+---@field forbidden_creature_flags integer[]
+---@field required_caste_flags integer[]
+---@field forbidden_caste_flags integer[]
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field time_range_min integer
@@ -121,6 +142,7 @@ df.interaction_source_type = {
 }
 
 ---@class interaction_source
+---@field find-instance any
 ---@field id integer
 ---@field frequency integer
 ---@field name string
@@ -131,8 +153,13 @@ df.interaction_source_type = {
 ---@field trigger_string string
 
 ---@class interaction_source_regionst
+---@field region_flags any
+---@field regions int8_t
 
 ---@class interaction_source_secretst
+---@field learn_flags any
+---@field spheres any[]
+---@field goals goal_type[]
 ---@field book_title_filename string
 ---@field book_name_filename string
 ---@field unk_1 integer
@@ -160,6 +187,7 @@ df.interaction_source_usage_hint = {
 
 ---@class interaction_source_deityst
 ---@field unk_1 integer
+---@field usage_hint interaction_source_usage_hint[]
 
 ---@class interaction_source_attackst
 ---@field unk_1 integer
@@ -204,10 +232,18 @@ df.interaction_target_location_type = {
 ---@field reference_distance integer
 
 ---@class interaction_target_info
+---@field affected_creature_str any
+---@field affected_creature integer[]
+---@field affected_class string[]
+---@field immune_creature_str any
+---@field immune_creature integer[]
+---@field immune_class string[]
+---@field forbidden_syndrome_class string[]
 ---@field requires_1 integer
 ---@field requires_2 integer
 ---@field forbidden_1 integer
 ---@field forbidden_2 integer
+---@field restrictions any
 
 ---@class interaction_target_corpsest
 ---@field target_info interaction_target_info
@@ -242,10 +278,12 @@ df.breath_attack_type = {
 }
 
 ---@class interaction_target_materialst
+---@field material_str stl-string
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field parent_interaction_index integer
 ---@field breath_attack_type breath_attack_type
+---@field restrictions any
 
 ---@class interaction_target_locationst
 
@@ -254,4 +292,5 @@ df.breath_attack_type = {
 ---@field interaction_id integer
 ---@field unk_1 integer
 ---@field region_index integer
+---@field affected_units integer[]
 

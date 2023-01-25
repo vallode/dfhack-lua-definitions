@@ -57,6 +57,8 @@ df.ui_advmode_menu = {
 
 ---@class conversation
 ---@field conv_title string
+---@field state any
+---@field talk_choices integer[]
 ---@field unk_30 integer
 ---@field unk_34 integer
 ---@field unk_38 integer
@@ -66,13 +68,19 @@ df.ui_advmode_menu = {
 ---@field unk_48 integer
 ---@field unk_4c integer
 ---@field unk_50 integer
+---@field unk_54 nemesis_record[]
+---@field unk_64 historical_entity[]
 ---@field unk_74 integer
 ---@field unk_78 integer
 ---@field unk_7c integer
 ---@field unk_80 integer
+---@field unk_84 any[]
+---@field unk_94 any[]
+---@field unk_a4 any[]
 ---@field location building
 ---@field unk_b8 integer
 ---@field unk_bc integer
+---@field speech any[]
 
 ---@enum talk_choice_type
 df.talk_choice_type = {
@@ -314,11 +322,16 @@ df.assume_identity_mode = {
 
 ---@class talk_choice
 ---@field type talk_choice_type
----@field unk table
+---@field unk unk_compound
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
+
+---@class unk_compound
+---@field event entity_event
+---@field unk_1 any
+---@field unk_2 integer
 
 ---@class adventurest
 ---@field menu ui_advmode_menu
@@ -326,17 +339,20 @@ df.assume_identity_mode = {
 ---@field travel_origin_x integer
 ---@field travel_origin_y integer
 ---@field travel_origin_z integer
----@field travel_clouds string
+---@field travel_clouds boolean
+---@field travel_right_map any
+---@field show_menu any
 ---@field message string
 ---@field message_color integer
 ---@field message_brightness integer
----@field travel_not_moved string
+---@field travel_not_moved boolean
 ---@field unk4b integer
 ---@field travel_move_countdown integer
 ---@field unk_4 integer
 ---@field fell_tree_x integer
 ---@field fell_tree_y integer
 ---@field fell_tree_z integer
+---@field unk_8 any
 ---@field unk_9 integer
 ---@field unk_10 integer
 ---@field unk_11 integer
@@ -346,23 +362,41 @@ df.assume_identity_mode = {
 ---@field tick_counter integer
 ---@field frame_counter integer
 ---@field unk_15 integer
----@field sleeping string
+---@field sleeping boolean
 ---@field unk_16 integer
 ---@field bogeymen_ambush_size integer
 ---@field bogeymen_killed integer
 ---@field bogeymen_ambush_delay integer
 ---@field unk_18 integer
+---@field searched_x integer[]
+---@field searched_y integer[]
+---@field searched_z integer[]
+---@field searched_timeout integer[]
 ---@field unk_19 integer
 ---@field unk_20 integer
 ---@field unk_21 integer
 ---@field unk_22 integer
 ---@field unk_23 integer
+---@field unk_24 integer[]
+---@field unk_25 integer[]
+---@field unk_26 integer[]
 ---@field player_army_id integer
 ---@field gait_index integer
 ---@field gait_unk integer
+---@field tracks_x int32_t
+---@field tracks_y int32_t
+---@field tracks_z int32_t
 ---@field tracks_next_idx integer
 ---@field view_tracks_odors integer
 ---@field tracks_visible integer
+---@field unk_x int16_t
+---@field unk_y int16_t
+---@field unk_z int16_t
+---@field unk_v40_1 any
+---@field unk_39 int8_t
+---@field unk_40 int8_t
+---@field unk_41 int32_t
+---@field unk_42 int8_t
 ---@field odor_race integer
 ---@field odor_caste integer
 ---@field odor_death integer
@@ -370,18 +404,20 @@ df.assume_identity_mode = {
 ---@field travel_odor_caste integer
 ---@field unk_46 integer
 ---@field multiattack integer
----@field unk_3170 table
----@field unk_3124 table
+---@field unk_3170 unk_3170_compound
+---@field unk_3124 unk_3124_compound
 ---@field unk_48 integer
 ---@field unk_49 integer
 ---@field unk_50 integer
 ---@field unk_51 integer
 ---@field wait_timer integer
 ---@field attack_style integer
+---@field charge_forbidden any
 ---@field unk_55 integer
 ---@field unk_56 integer
 ---@field unk_57 integer
 ---@field unk_58 integer
+---@field unk_59 any[]
 ---@field unk_60 integer
 ---@field unk_61 integer
 ---@field long_action_duration integer
@@ -391,30 +427,41 @@ df.assume_identity_mode = {
 ---@field player_id integer
 ---@field track_viewed_x integer
 ---@field track_viewed_y integer
----@field conversation table
+---@field track_viewed_unk_1 any
+---@field track_viewed_unk_2 any
+---@field conversation conversation_compound
+---@field unk_70 any[]
 ---@field unk_71 integer
+---@field unk_72 any[]
+---@field interacts adventure_item_interact_choicest[]
+---@field commands adventure_optionst[]
+---@field movements adventure_movement_optionst[]
+---@field unk_75 any[]
 ---@field sleep_hours integer
----@field sleep_until_dawn string
+---@field sleep_until_dawn boolean
 ---@field unk_78 integer
+---@field rest_mode any
 ---@field unk_80 integer
 ---@field unk_81 integer
 ---@field player_control_state integer
 ---@field item_projectiles_state integer
 ---@field unk_84 integer
----@field companions table
+---@field companions companions_compound
 ---@field unk_1 integer
----@field interactions table
+---@field interactions interactions_compound
 ---@field unk_87 string
 ---@field unk_220 integer
 ---@field unk_224 integer
----@field unk_v40_2 table
----@field unk_v40_3 table
+---@field unk_v40_2 unk_v40_2_compound
+---@field unk_v40_3 unk_v40_3_compound
+---@field player_unit_projectile_unk any
 ---@field player_unit_projectile_z integer
 ---@field unk_90 integer
----@field unk_v40_4 table
----@field unk_v40_5 table
----@field unk_v42_1 table
----@field assume_identity table
+---@field unk_v40_4 unk_v40_4_compound
+---@field unk_v40_5 unk_v40_5_compound
+---@field unk_v42_1 unk_v42_1_compound
+---@field unk_91 any
+---@field assume_identity assume_identity_compound
 ---@field move_direction_x integer
 ---@field move_direction_y integer
 ---@field move_direction_z integer
@@ -425,6 +472,163 @@ df.assume_identity_mode = {
 ---@field interrupt_performance_warning string
 ---@field unk_2 integer
 ---@field name_item language_name
+
+---@class unk_3170_compound
+---@field unk_1 any[]
+---@field unk_2 any
+---@field unk_3 integer
+
+---@class unk_3124_compound
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 any
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
+---@field unk_17 integer
+---@field unk_18 integer
+---@field unk_19 integer
+---@field unk_20 pointer[]
+---@field unk_21 integer
+---@field unk_22 int8_t
+---@field unk_23 integer
+---@field unk_24 integer
+---@field unk_25 integer
+---@field unk_26 integer
+---@field unk_27 integer
+---@field unk_28 any
+---@field unk_29 pointer[]
+---@field unk_30 integer
+---@field unk_31 pointer[]
+---@field unk_32 integer
+---@field unk_33 integer[]
+---@field unk_33b integer[]
+---@field unk_34 integer
+---@field unk_35 integer
+---@field unk_36 integer
+---@field unk_36a integer
+---@field unk_36b integer[]
+---@field unk_36c integer
+---@field unk_37 integer[]
+---@field unk_38 integer[]
+---@field unk_39 integer[]
+---@field unk_40 integer[]
+---@field unk_41 integer[]
+---@field unk_42 any[]
+---@field unk_43 any[]
+---@field unk_44 any[]
+---@field unk_45 integer
+---@field unk_46 string
+---@field unk_47 integer
+---@field unk_48 integer
+---@field unk_49 integer
+---@field unk_50 pointer[]
+---@field unk_51 any
+---@field unk_52 any
+---@field unk_53 integer
+---@field unk_54 integer[]
+---@field unk_55 integer[]
+---@field unk_56 integer[]
+---@field unk_57 integer[]
+---@field unk_58 integer[]
+---@field unk_59 integer[]
+---@field unk_60 integer[]
+---@field unk_61 integer[]
+---@field unk_62 integer[]
+
+---@class conversation_compound
+---@field activity activity_entry[]
+---@field activity_event activity_event[]
+---@field cursor_activity integer
+---@field cursor_choice integer
+---@field current_page integer
+---@field page_top_choices integer[]
+---@field page_bottom_choices integer[]
+---@field choices any[]
+---@field filter string
+---@field unk_1 integer
+---@field targets any[]
+---@field cursor_target integer
+
+---@class companions_compound
+---@field unit unit[]
+---@field unit_visible any
+---@field unit_position coord_path
+---@field all_histfigs integer[]
+
+---@class interactions_compound
+---@field party_core_members integer[]
+---@field party_pets integer[]
+---@field party_extra_members integer[]
+---@field unk_86 any[]
+---@field unk_1 any[]
+---@field unk_1e4 integer
+---@field unk_1e8 integer
+---@field selected_ability integer
+---@field selected_power integer
+---@field unk_1f0 any
+---@field max_target_number integer
+---@field target_range integer
+---@field target_flags creature_interaction_target_flags
+---@field unk_200 any
+
+---@class unk_v40_2_compound
+---@field unk_s1 any[]
+---@field unk_s2 any[]
+---@field unk_s3 any[]
+---@field unk_s4 any[]
+---@field unk_s5 integer
+---@field unk_s6 any[]
+---@field unk_s7 any[]
+
+---@class unk_v40_3_compound
+---@field unk_s1 integer
+---@field unk_s2 any[]
+
+---@class unk_v40_4_compound
+---@field unk_v40_4a any
+---@field unk_v40_4b integer
+
+---@class unk_v40_5_compound
+---@field unk_s1 any[]
+---@field unk_s2 any[]
+---@field unk_s3 any[]
+---@field unk_s4 integer
+---@field unk_s5 any[]
+---@field unk_s6 any[]
+
+---@class unk_v42_1_compound
+---@field unk_s1 integer
+---@field unk_s2 any[]
+---@field unk_s3 any[]
+---@field unk_s4 string
+---@field unk_s5 integer
+---@field unk_s6 integer
+---@field unk_s7 integer
+---@field unk_s8 integer
+---@field unk_s9 any[]
+
+---@class assume_identity_compound
+---@field mode assume_identity_mode
+---@field name language_name
+---@field worship_object integer
+---@field profession profession
+---@field origin integer
+---@field unk_1 any[]
+---@field unk_2 any[]
+---@field filter string
+---@field unk_3 integer
+---@field unk_4 integer
 
 ---@class text_info_elementst
 
@@ -490,6 +694,7 @@ df.assume_identity_mode = {
 ---@class adventure_movement_release_hold_tilest
 
 ---@class adventure_movement_attack_creaturest
+---@field targets integer[]
 
 ---@class adventure_movement_hold_tilest
 ---@field grab coord

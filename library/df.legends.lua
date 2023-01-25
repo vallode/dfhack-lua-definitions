@@ -7,6 +7,7 @@
 ---@field active_size2 integer
 ---@field size integer
 ---@field duration_counter integer
+---@field flags any
 ---@field unk4b integer
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -15,9 +16,17 @@
 ---@field unk_5 integer
 
 ---@class entity_population_unk4
+---@field unk_1 any[]
+---@field unk_2 any[]
+---@field unk_3 any[]
 
 ---@class entity_population
 ---@field name language_name
+---@field describe any
+---@field races any[]
+---@field counts integer[]
+---@field unk3 integer[]
+---@field unk4 any[]
 ---@field unk5 integer
 ---@field layer_id integer
 ---@field id integer
@@ -46,16 +55,21 @@ df.nemesis_flags = {
 ---@field member_idx integer
 ---@field figure historical_figure
 ---@field unit unit
+---@field describe any
 ---@field group_leader_id integer
+---@field companions any[]
 ---@field unk10 integer
 ---@field unk11 integer
 ---@field unk12 integer
 ---@field unk_v47_1 integer
 ---@field unk_v47_2 integer
+---@field flags any
 
 ---@class artifact_record
 ---@field id integer
+---@field describe any
 ---@field name language_name
+---@field flags any
 ---@field item item
 ---@field abs_tile_x integer
 ---@field abs_tile_y integer
@@ -67,6 +81,9 @@ df.nemesis_flags = {
 ---@field subregion integer
 ---@field feature_layer integer
 ---@field owner_hf integer
+---@field remote_claims integer[]
+---@field entity_claims integer[]
+---@field direct_claims integer[]
 ---@field storage_site integer
 ---@field storage_structure_local integer
 ---@field loss_region integer

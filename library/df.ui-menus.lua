@@ -2,6 +2,10 @@
 
 ---@class ui_build_item_req
 ---@field filter job_item_filter
+---@field candidates item[]
+---@field candidate_selected boolean[]
+---@field unk_a0 integer[]
+---@field candidate_enabled boolean[]
 ---@field count_required integer
 ---@field count_max integer
 ---@field count_provided integer
@@ -20,6 +24,7 @@ df.build_req_choice_type = {
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
+---@field candidates any[]
 ---@field used_count integer
 
 ---@class build_req_choice_specst
@@ -27,6 +32,8 @@ df.build_req_choice_type = {
 ---@field candidate_id integer
 
 ---@class buildreq
+---@field requirements ui_build_item_req[]
+---@field choices build_req_choicest[]
 ---@field building_type building_type
 ---@field building_subtype integer
 ---@field custom_type integer
@@ -34,8 +41,13 @@ df.build_req_choice_type = {
 ---@field req_index integer
 ---@field sel_index integer
 ---@field is_grouped integer
+---@field errors string[]
+---@field unk4 string[]
+---@field tiles any
 ---@field cur_walk_tag integer
 ---@field plate_info pressure_plate_info
+---@field min_weight_races integer[]
+---@field max_weight_races integer[]
 ---@field friction integer
 ---@field use_dump integer
 ---@field dump_x_shift integer
@@ -70,7 +82,7 @@ df.interface_category_construction = {
 
 ---@class interface_button
 ---@field hotkey interface_key
----@field leave_button string
+---@field leave_button boolean
 ---@field flag integer
 ---@field filter_str string
 
@@ -84,6 +96,7 @@ df.interface_category_construction = {
 ---@class interface_button_building_material_selectorst
 ---@field material integer
 ---@field matgloss integer
+---@field job_item_flag job_material_category
 ---@field prepare_interface integer
 
 ---@class interface_button_building_new_jobst
@@ -93,9 +106,11 @@ df.interface_category_construction = {
 ---@field subtype integer
 ---@field material integer
 ---@field matgloss integer
+---@field specflag stockpile_group_set
 ---@field spec_id integer
----@field add_building_location string
----@field show_help_instead string
+---@field job_item_flag job_material_category
+---@field add_building_location boolean
+---@field show_help_instead boolean
 ---@field objection string
 ---@field info string
 
@@ -140,6 +155,7 @@ df.construction_interface_page_status_type = {
 
 ---@class construction_interface_pagest
 ---@field category construction_category_type
+---@field bb_button bb_buttonst[]
 ---@field last_main_sx integer
 ---@field last_main_ex integer
 ---@field last_main_sy integer
@@ -149,7 +165,7 @@ df.construction_interface_page_status_type = {
 ---@field column_height integer
 ---@field column_width integer
 ---@field selected_button bb_buttonst
----@field scrolling string
+---@field scrolling boolean
 ---@field scroll_position integer
 
 ---@enum room_flow_shape_type
@@ -674,18 +690,168 @@ df.main_designation_type = {
 }
 
 ---@class gamest
----@field main_interface table
----@field minimap table
----@field command_line table
----@field mod_manager table
----@field hash_rng table
----@field play_rng table
+---@field main_interface main_interface_compound
+---@field minimap minimap_compound
+---@field command_line command_line_compound
+---@field mod_manager mod_manager_compound
+---@field hash_rng hash_rng_compound
+---@field play_rng play_rng_compound
 ---@field start_tick_count integer
 ---@field autosave_cycle integer
----@field want_to_quit_to_title string
+---@field want_to_quit_to_title boolean
+---@field flash_11_by_3 any
+---@field flash_7_by_3 any
+---@field flash_4_by_3 any
 ---@field external_flag integer
 
+---@class main_interface_compound
+---@field designation any
+---@field building any
+---@field construction any
+---@field civzone any
+---@field burrow any
+---@field view any
+---@field hospital any
+---@field location_list any
+---@field job_details any
+---@field buildjob any
+---@field assign_trade any
+---@field trade any
+---@field diplomacy any
+---@field petitions any
+---@field stocks any
+---@field assign_display_item any
+---@field name_creator any
+---@field image_creator any
+---@field unit_selector any
+---@field announcement_alert any
+---@field custom_symbol any
+---@field patrol_routes any
+---@field squad_equipment any
+---@field squad_schedule any
+---@field squad_selector any
+---@field burrow_selector any
+---@field location_selector any
+---@field location_details any
+---@field hauling_stop_conditions any
+---@field assign_vehicle any
+---@field stockpile any
+---@field stockpile_link any
+---@field stockpile_tools any
+---@field custom_stockpile any
+---@field view_sheets any
+---@field info any
+---@field squads any
+---@field create_squad any
+---@field squad_supplies any
+---@field assign_uniform any
+---@field create_work_order any
+---@field hotkey any
+---@field options any
+---@field help any
+---@field settings any
+---@field viewunit_list integer[]
+---@field exporting_local integer
+---@field mouse_zone integer
+---@field skill_ind integer[]
+---@field pract_type integer[]
+---@field pract_ind integer[]
+---@field skill_combat boolean
+---@field skill_labor boolean
+---@field skill_misc boolean
+---@field barracks_selected_squad_ind integer
+---@field barracks_squad squad[]
+---@field barracks_squad_flag integer[]
+---@field entering_building_name boolean
+---@field assigning_position boolean
+---@field ap_squad squad
+---@field ap_sel integer
+---@field assigning_position_squad boolean
+---@field ap_squad_list squad[]
+---@field ap_squad_sel integer
+---@field pref_occupation any[]
+---@field selected_pref_occupation integer
+---@field main_designation_selected main_designation_type
+---@field main_designation_doing_rectangles boolean
+---@field bottom_mode_selected main_bottom_mode_type
+---@field hover_instructions_on boolean
+---@field hover_instructions_last_hover_tick integer
+---@field current_hover integer
+---@field current_hover_id1 integer
+---@field current_hover_id2 integer
+---@field current_hover_id3 integer
+---@field current_hover_key interface_key
+---@field current_hover_alert popup_message
+---@field current_hover_replace_minimap boolean
+---@field current_hover_left_x integer
+---@field current_hover_bot_y integer
+---@field hover_instruction any
+---@field last_displayed_hover_inst integer
+---@field last_displayed_hover_id1 integer
+---@field last_displayed_hover_id2 integer
+---@field last_displayed_hover_id3 integer
+---@field hover_announcement_alert popup_message
+---@field hover_announcement_alert_text string[]
+---@field hover_announcement_alert_color integer[]
+---@field hover_announcement_alert_bright integer[]
+---@field hover_announcement_alert_width integer
+---@field hover_announcement_alert_button_text string[]
+---@field hover_announcement_alert_button_color integer[]
+---@field hover_announcement_alert_button_bright integer[]
+---@field hover_announcement_alert_button_width integer
+---@field last_hover_click_update integer
+---@field last_hover_m coord
+---@field recenter_indicator_m coord
+---@field mouse_scrolling_map boolean
+---@field mouse_anchor_mx integer
+---@field mouse_anchor_my integer
+---@field mouse_anchor_pmx integer
+---@field mouse_anchor_pmy integer
+---@field track_path coord_path
+---@field keyboard_track_path coord_path
+---@field last_track_s coord
+---@field last_track_g coord
+---@field keyboard_last_track_s coord
+---@field keyboard_last_track_g coord
+
+---@class minimap_compound
+---@field minimap any
+---@field update integer
+---@field mustmake integer
+---@field printed_z integer
+---@field buffer_symbol any
+---@field buffer_f any
+---@field buffer_b any
+---@field buffer_br any
+---@field texpos integer
+
+---@class command_line_compound
+---@field original string
+---@field arg_vect string[]
+---@field gen_id any
+---@field world_seed any
+---@field use_seed boolean
+---@field world_param string
+---@field use_param integer
+
+---@class mod_manager_compound
+---@field mod_header mod_headerst[]
+---@field subscribed_file_id any
+---@field doing_mod_upload boolean
+---@field mod_upload_header mod_headerst[]
+---@field mod_upload_completed boolean
+---@field uploading_mod_index integer
+---@field CreateItemResult any
+---@field SubmitItemUpdateResult any
+
+---@class hash_rng_compound
+
+---@class play_rng_compound
+
 ---@class difficultyst
+---@field enemy_pop_trigger int32_t
+---@field enemy_prod_trigger int32_t
+---@field enemy_trade_trigger int32_t
 ---@field megabeast_interval integer
 ---@field forgotten_sens integer
 ---@field forgotten_irritate_min integer
@@ -695,6 +861,8 @@ df.main_designation_type = {
 ---@field wild_irritate_decay integer
 ---@field werebeast_interval integer
 ---@field vampire_fraction integer
+---@field invasion_cap_regular int32_t
+---@field invasion_cap_monsters int32_t
 ---@field min_raids_before_siege integer
 ---@field min_raids_between_sieges integer
 ---@field siege_frequency integer
@@ -702,6 +870,13 @@ df.main_designation_type = {
 ---@field cavern_dweller_max_attackers integer
 ---@field tree_fell_count_savage integer
 ---@field tree_fell_count integer
+---@field flags any
+---@field economy_pop_trigger int32_t
+---@field economy_prod_trigger int32_t
+---@field economy_trade_trigger int32_t
+---@field land_holder_pop_trigger int32_t
+---@field land_holder_prod_trigger int32_t
+---@field land_holder_trade_trigger int32_t
 ---@field temple_value integer
 ---@field temple_complex_value integer
 ---@field priesthood_unit_count integer
@@ -725,12 +900,13 @@ df.main_designation_type = {
 ---@field contains_reagent_index integer
 ---@field tool_use integer
 ---@field display_string string
----@field on string
+---@field on boolean
 
 ---@class cwo_buildingst
 ---@field type integer
 ---@field subtype integer
 ---@field custom_id integer
+---@field jminfo manager_order_template[]
 ---@field name string
 
 ---@class cri_unitst
@@ -747,13 +923,19 @@ df.main_designation_type = {
 
 ---@class actor_entryst
 ---@field hf historical_figure
+---@field iden any
 ---@field name_ptr language_name
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
+---@field main_text_box string[]
 ---@field visual_hfid integer
 ---@field historical_hfid integer
 ---@field identity_id integer
+---@field alias_identity_id integer[]
+---@field principle_org any
+---@field associated_org any[]
+---@field associated_plot plot_entryst[]
 ---@field flag integer
 
 ---@class organization_entry_nodest
@@ -771,9 +953,11 @@ df.main_designation_type = {
 ---@field status string
 
 ---@class organization_entryst
+---@field node organization_entry_nodest[]
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
+---@field main_text_box string[]
 ---@field principle_actor_entry actor_entryst
 ---@field flag integer
 
@@ -781,6 +965,7 @@ df.main_designation_type = {
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
+---@field agreement any
 ---@field master_hfid integer
 ---@field organization_name string
 
@@ -795,17 +980,26 @@ df.main_designation_type = {
 ---@field author string
 ---@field name string
 ---@field description string
+---@field dependencies string[]
+---@field dependency_type integer[]
+---@field conflicts string[]
+---@field flags any
 ---@field src_dir string
 ---@field steam_file_id integer
 ---@field steam_title string
 ---@field steam_description string
+---@field steam_tag string[]
+---@field steam_key_tag string[]
+---@field steam_value_tag string[]
 ---@field steam_metadata string
 ---@field steam_changelog string
 ---@field steamapi_1 string
----@field steamapi_2 string
+---@field steamapi_2 boolean
 ---@field steamapi_3 integer
 
 ---@class ui_look_list
+---@field items any[]
 
 ---@class ui_unit_view_mode
+---@field value any
 

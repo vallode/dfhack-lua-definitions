@@ -32,6 +32,7 @@ df.art_image_element_type = {
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
+---@field flags item_flags
 ---@field item_id integer
 
 ---@enum art_image_property_type
@@ -41,6 +42,7 @@ df.art_image_property_type = {
 }
 
 ---@class art_image_property
+---@field flags any
 
 ---@enum art_image_property_verb
 df.art_image_property_verb = {
@@ -112,6 +114,10 @@ df.art_facet_type = {
 }
 
 ---@class art_image
+---@field find-instance any
+---@field describe any
+---@field elements art_image_element[]
+---@field properties art_image_property[]
 ---@field event integer
 ---@field name language_name
 ---@field spec_ref_type specific_ref_type
@@ -128,6 +134,7 @@ df.art_facet_type = {
 
 ---@class art_image_chunk
 ---@field id integer
+---@field images any
 
 ---@class art_image_ref
 ---@field id integer
@@ -227,8 +234,14 @@ df.poetic_form_subject = {
 }
 
 ---@class poetic_form_subject_target
----@field Histfig table
----@field Concept table
+---@field Histfig Histfig_compound
+---@field Concept Concept_compound
+
+---@class Histfig_compound
+---@field subject_histfig integer
+
+---@class Concept_compound
+---@field subject_topic sphere_type
 
 ---@class poetic_form_feature
 ---@field InternalRhyme boolean
@@ -274,16 +287,22 @@ df.poetic_form_additional_feature = {
 ---@field originating_entity integer
 ---@field original_author integer
 ---@field subject_hf integer
+---@field flags any
+---@field parts poetic_form_part[]
 ---@field each_line_feet integer
 ---@field each_line_pattern poetic_form_pattern
 ---@field every_line_caesura_position poetic_form_caesura_position
+---@field common_features any[]
 ---@field mood poetic_form_mood
 ---@field subject poetic_form_subject
 ---@field subject_target poetic_form_subject_target
 ---@field action poetic_form_action
 ---@field preferred_perspective integer
+---@field features poetic_form_feature
+---@field perspectives poetic_form_perspective[]
 
 ---@class poetic_form_part
+---@field flags any
 ---@field count_min integer
 ---@field count_max integer
 ---@field size integer
@@ -291,9 +310,23 @@ df.poetic_form_additional_feature = {
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
+---@field line_endings integer[]
+---@field line_feet integer[]
+---@field line_patterns any[]
+---@field line_caesura_positions any[]
+---@field line_features any[]
+---@field additional_features any[]
+---@field additional_targets integer[]
+---@field additional_lines integer[]
+---@field line_mood any[]
+---@field line_subject any[]
+---@field line_subject_target poetic_form_subject_target[]
+---@field line_action any[]
+---@field unk_5 integer[]
 ---@field some_lines_syllables integer
 ---@field some_lines_pattern integer
 ---@field each_line_caesura_position poetic_form_caesura_position
+---@field certain_lines_additional_features any[]
 ---@field mood poetic_form_mood
 ---@field unk_6 integer
 ---@field unk_7 integer
@@ -302,6 +335,7 @@ df.poetic_form_additional_feature = {
 ---@field unk_9 integer
 
 ---@class poetic_form_perspective
+---@field type any
 ---@field histfig integer
 ---@field unk_1 integer
 
@@ -471,10 +505,13 @@ df.musical_form_melody_frequency = {
 
 ---@class musical_form_interval
 ---@field degree integer
+---@field flags any
 
 ---@class musical_form_melodies
 ---@field style musical_form_melody_style
 ---@field frequency musical_form_melody_frequency
+---@field intervals musical_form_interval[]
+---@field features musical_form_feature
 
 ---@class musical_form_passage
 ---@field type musical_form_passage_type
@@ -489,15 +526,24 @@ df.musical_form_melody_frequency = {
 ---@field rhythm_id integer
 ---@field sub_rhythm integer
 ---@field rhythm_pattern integer
+---@field instruments integer[]
+---@field components any[]
+---@field passage_lengths any[]
+---@field lowest_register_range integer[]
+---@field highest_register_range integer[]
 ---@field tempo_style musical_form_style
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
+---@field features musical_form_feature
 ---@field pitch_style musical_form_pitch_style
+---@field melodies musical_form_melodies[]
 ---@field unk_22 integer
 ---@field unk_23 integer
 
 ---@class musical_form_instruments
 ---@field instrument_subtype integer
+---@field substitutions any
+---@field features musical_form_feature
 ---@field minimum_required integer
 ---@field maximum_permitted integer
 ---@field dynamic_style musical_form_style
@@ -516,6 +562,10 @@ df.musical_form_melody_frequency = {
 ---@field name language_name
 ---@field originating_entity integer
 ---@field original_author integer
+---@field passages musical_form_passage[]
+---@field instruments musical_form_instruments[]
+---@field melodies musical_form_melodies[]
+---@field unk_1 musical_form_sub4[]
 ---@field tempo_style musical_form_style
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
@@ -526,9 +576,11 @@ df.musical_form_melody_frequency = {
 ---@field rhythm_id integer
 ---@field sub_rhythm integer
 ---@field rhythm_pattern integer
+---@field features musical_form_feature
 ---@field pitch_style musical_form_pitch_style
 ---@field purpose musical_form_purpose
 ---@field devotion_target integer
+---@field flags any
 
 ---@enum dance_form_context
 df.dance_form_context = {
@@ -711,10 +763,15 @@ df.dance_form_move_location = {}
 ---@field partner_distance dance_form_partner_distance
 ---@field partner_intent dance_form_partner_intent
 ---@field partner_cue_frequency dance_form_partner_cue_frequency
+---@field partner_changes any[]
 ---@field unk_11 integer
 ---@field unk_12 integer
 ---@field unk_13 integer
 ---@field unk_14 integer
+---@field type any[]
+---@field modifier any[]
+---@field parameter integer[]
+---@field location any[]
 ---@field id integer
 
 ---@enum dance_form_move_group_type
@@ -728,6 +785,10 @@ df.dance_form_move_group_type = {
 
 ---@class dance_form_move
 ---@field name string
+---@field type any[]
+---@field modifier any[]
+---@field parameter integer[]
+---@field location any[]
 ---@field group_type dance_form_move_group_type
 
 ---@class dance_form
@@ -748,10 +809,17 @@ df.dance_form_move_group_type = {
 ---@field partner_distance dance_form_partner_distance
 ---@field partner_intent dance_form_partner_intent
 ---@field partner_cue_frequency dance_form_partner_cue_frequency
----@field poetry_referenced string
+---@field partner_changes any[]
+---@field poetry_referenced boolean
 ---@field unk_14 integer
 ---@field hfid integer
 ---@field race integer
+---@field move_type any[]
+---@field move_modifier any[]
+---@field move_parameter integer[]
+---@field move_location any[]
+---@field sections dance_form_section[]
+---@field moves dance_form_move[]
 
 ---@enum scale_type
 df.scale_type = {
@@ -762,24 +830,39 @@ df.scale_type = {
 
 ---@class chord
 ---@field name string
+---@field notes int32_t
 ---@field chord_size integer
 ---@field unk_3 integer
 
 ---@class named_scale
 ---@field unk_1 integer
 ---@field name string
+---@field degrees int32_t
 ---@field degrees_used integer
 ---@field first_chord integer
 ---@field second_chord integer
 
 ---@class scale
 ---@field id integer
+---@field flags any
 ---@field type scale_type
+---@field quartertones_used int32_t
 ---@field scale_length integer
----@field notes table
+---@field chords chord[]
+---@field scales named_scale[]
+---@field notes notes_compound
+
+---@class notes_compound
+---@field unk_1 integer
+---@field name stl-string
+---@field abreviation stl-string
+---@field number int32_t
+---@field length integer
 
 ---@class rhythm
 ---@field id integer
+---@field patterns rhythm_pattern[]
+---@field sub_rhythms sub_rhythm[]
 ---@field unk_2 integer
 
 ---@enum beat_type
@@ -803,12 +886,15 @@ df.beat_type = {
 
 ---@class rhythm_pattern
 ---@field name string
+---@field bars any[]
 ---@field beat_name stl-string
 ---@field beat_abbreviation stl-string
 ---@field length integer
 
 ---@class sub_rhythm
 ---@field name string
+---@field patterns integer[]
+---@field unk_2 integer[]
 ---@field unk_3 integer
 
 ---@enum occupation_type
@@ -830,6 +916,7 @@ df.occupation_type = {
 ---@field location_id integer
 ---@field site_id integer
 ---@field group_id integer
+---@field unk_1 occupation_sub1[]
 ---@field unk_2 integer
 ---@field army_controller_id integer
 ---@field unk_4 world_site

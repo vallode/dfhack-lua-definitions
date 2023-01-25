@@ -1,9 +1,64 @@
 require 'nokogiri'
 
+def isIntegerType(type)
+  return [
+    "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"
+  ].include?(type)
+end
+
+def isNumberType(type)
+  return ["s-float", "d-float"].include?(type)
+end
+
+def getType(element_type)
+  type = "any"
+
+  if element_type == "stl-string"
+    type = "string"
+  end
+
+  if element_type == "bool"
+    type = "boolean"
+  end
+
+  if isIntegerType(element_type)
+    type = "integer"
+  end
+
+  if isNumberType(element_type)
+    type = "number"
+  end
+
+  return type
+end
+
+def getElementType(element)
+  type = getType(element.name)
+  is_array = element.name == "stl-vector"
+
+  if is_array
+    type = getType(element["type-name"] || element["pointer-type"])
+  end
+
+  if element["type-name"] and type == "any"
+    type = element["type-name"]
+  end
+
+  if element["pointer-type"] and type == "any"
+    type = element["pointer-type"]
+  end
+
+  if is_array
+    return type + "[]"
+  else
+    return type
+  end
+end
+
 def getEnumAnnotation(enum)
   annotation = "---@enum #{enum['type-name']}\n"
   annotation << "df.#{enum['type-name']} = {\n"
-  
+
   index = 0
   enum.search("enum-item").each do |child|
     annotation << "  %s = %s," % [child["name"] || "unk_%s" % index, child["value"] || index]
@@ -12,7 +67,7 @@ def getEnumAnnotation(enum)
       annotation << " --#{comment}\n"
     else
       annotation << "\n"
-    end 
+    end
 
     # TODO: Enum attributes.
     if child.children.any? {|c| c.name == "item-attr" }
@@ -27,6 +82,8 @@ def getEnumAnnotation(enum)
 end
 
 def getStructAnnotation(struct)
+  inline_types = []
+
   type = struct['type-name'] || struct['pointer-type'] || "table"
 
   annotation = "---@class #{type}\n"
@@ -34,28 +91,29 @@ def getStructAnnotation(struct)
   struct.children.each do |child|
     next if not child["name"]
 
-    if child.name === "stl-string" or child.name === "bool"
-      annotation << "---@field #{child['name']} string\n"
+    if child.name == "compound" and not (child["type-name"] or child["pointer-type"])
+      inline_types.push(child)
+      annotation << "---@field #{child['name']} #{child['name']}_compound\n"
+    else
+      annotation << "---@field #{child['name']} #{getElementType(child)}\n"
     end
 
-    if child.name === "pointer" or child.name === "enum" and child["type-name"]
-      annotation << "---@field #{child['name']} #{child["type-name"]}\n"
-    end
-
-    if ["int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"].include?(child.name)
-      annotation << "---@field #{child['name']} integer\n"
-    end
-
-    if ["s-float", "d-float"].include?(child.name)
-      annotation << "---@field #{child['name']} number\n"
-    end
-
-    if child.name === "compound"
-      annotation << "---@field #{child['name']} #{child['type-name'] || "table"}\n"
-    end
   end
 
-  return annotation << "\n"
+  annotation << "\n"
+
+  inline_types.each do |type|
+    next if not type["name"]
+    annotation << "---@class #{type["name"]}_compound\n"
+
+    type.children.each do |type_child|
+      next if not type_child["name"]
+      annotation << "---@field #{type_child['name']} #{getElementType(type_child)}\n"
+    end
+    annotation << "\n"
+  end
+
+  return annotation
 end
 
 def getGlobalObject(object)
@@ -99,11 +157,11 @@ Dir.glob(ARGV[0]).each do |xml|
           p value["type-name"]
           output.write($bitfield_type % {name: value["type-name"], comment: value["comment"] && "---#{value['comment']}\n" || "", fields: getBitfieldFields(value)})
         end
-    
+
         if value.name == "enum-type"
           output.write(getEnumAnnotation(value))
         end
-    
+
         if value.name == "struct-type" or value.name == "class-type"
           output.write(getStructAnnotation(value))
         end

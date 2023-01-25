@@ -73,19 +73,27 @@ df.job_subtype_surgery = {
 ---@field posting_index integer
 ---@field job_type job_type
 ---@field job_subtype integer
+---@field describe any
 ---@field pos coord
 ---@field completion_timer integer
 ---@field unk4 integer
+---@field flags job_flags
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field unk5 integer
 ---@field item_type item_type
 ---@field item_subtype integer
+---@field item_category stockpile_group_set
+---@field material_category job_material_category
 ---@field reaction_name string
 ---@field expire_timer integer
 ---@field recheck_cntdn integer
 ---@field wait_timer integer
 ---@field unk11 integer
+---@field items job_item_ref[]
+---@field specific_refs specific_ref[]
+---@field general_refs general_ref[]
+---@field job_items job_item[]
 ---@field guide_path coord_path
 ---@field cur_path_index integer
 ---@field unk_v4020_2 coord
@@ -94,6 +102,7 @@ df.job_subtype_surgery = {
 
 ---@class job_item_ref
 ---@field item item
+---@field role any
 ---@field is_fetching integer
 ---@field job_item_idx integer
 
@@ -188,8 +197,11 @@ df.job_item_flags3 = {}
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
+---@field flags1 job_item_flags1
 ---@field quantity integer
 ---@field vector_id job_item_vector_id
+---@field flags2 job_item_flags2
+---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
 ---@field metal_ore integer
@@ -197,6 +209,7 @@ df.job_item_flags3 = {}
 ---@field has_material_reaction_product string
 ---@field min_dimension integer
 ---@field reagent_index integer
+---@field contains integer[]
 ---@field reaction_id integer
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 integer
@@ -209,22 +222,27 @@ df.job_item_flags3 = {}
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
----@field use_mat_index string
----@field use_flags2 string
----@field use_flags3 string
+---@field flags1 job_item_flags1
+---@field item_vector any
+---@field use_mat_index boolean
+---@field flags2 job_item_flags2
+---@field use_flags2 boolean
+---@field flags3 job_item_flags3
+---@field use_flags3 boolean
 ---@field flags4 integer
----@field use_flags4 string
+---@field use_flags4 boolean
 ---@field flags5 integer
----@field use_flags5 string
+---@field use_flags5 boolean
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field metal_ore integer
----@field use_metal_ore string
----@field use_reaction_class string
----@field use_reaction_product string
+---@field use_metal_ore boolean
+---@field use_reaction_class boolean
+---@field use_reaction_product boolean
 ---@field min_dimension integer
 ---@field reaction_id integer
----@field use_contains string
+---@field contains integer[]
+---@field use_contains boolean
 ---@field has_tool_use tool_uses
 ---@field has_melee_skill job_skill
 ---@field unk_v40_1 integer
@@ -232,8 +250,11 @@ df.job_item_flags3 = {}
 ---@field unit unit
 ---@field job job
 ---@field building building
+---@field unk_74 any
 ---@field unk_v4305_1 integer
----@field use_burrows string
+---@field burrows integer[]
+---@field use_burrows boolean
+---@field take_from any
 
 ---@class manager_order_status
 ---@field validated boolean
@@ -241,6 +262,8 @@ df.job_item_flags3 = {}
 df.manager_order_status = {}
 
 ---@class job_art_specification
+---@field type any
+---@field describe any
 ---@field id integer
 ---@field subid integer
 
@@ -252,32 +275,45 @@ df.manager_order_status = {}
 ---@field reaction_name string
 ---@field mat_type integer
 ---@field mat_index integer
+---@field item_category stockpile_group_set
 ---@field hist_figure_id integer
+---@field material_category job_material_category
 ---@field art_spec job_art_specification
 ---@field amount_left integer
 ---@field amount_total integer
+---@field status manager_order_status
+---@field frequency any
 ---@field finished_year integer
 ---@field finished_year_tick integer
 ---@field workshop_id integer
 ---@field max_workshops integer
+---@field item_conditions manager_order_condition_item[]
+---@field order_conditions manager_order_condition_order[]
+---@field items any
 
 ---@class manager_order_condition_item
+---@field compare_type any
 ---@field compare_val integer
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
+---@field flags1 job_item_flags1
+---@field flags2 job_item_flags2
+---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field inorganic_bearing integer
 ---@field min_dimension integer
+---@field contains integer[]
 ---@field reaction_id integer
 ---@field has_tool_use tool_uses
 
 ---@class manager_order_condition_order
 ---@field order_id integer
+---@field condition any
 ---@field unk_1 integer
 
 ---@class manager_order_template
@@ -287,11 +323,13 @@ df.manager_order_status = {}
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
+---@field item_category stockpile_group_set
 ---@field hist_figure_id integer
+---@field material_category job_material_category
 ---@field match_value integer
 ---@field name string
 ---@field compare_str string
----@field on string
+---@field on boolean
 
 ---@enum guild_id
 df.guild_id = {
@@ -306,6 +344,7 @@ df.guild_id = {
 
 ---@class mandate
 ---@field unit unit
+---@field mode any
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
@@ -314,16 +353,23 @@ df.guild_id = {
 ---@field amount_remaining integer
 ---@field timeout_counter integer
 ---@field timeout_limit integer
----@field punishment table
+---@field punishment punishment_compound
 ---@field punish_multiple integer
 ---@field unk4 integer
+
+---@class punishment_compound
+---@field hammerstrikes integer
+---@field prison_time integer
+---@field give_beating integer
 
 ---@class training_assignment
 ---@field animal_id integer
 ---@field trainer_id integer
+---@field flags any
 
 ---@class unit_demand
 ---@field unk_0 integer
+---@field place any
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer

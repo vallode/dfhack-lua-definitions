@@ -74,12 +74,22 @@ df.d_init_autosave = {
 }
 
 ---@class d_init
+---@field flags1 any
+---@field nickname any
 ---@field sky_tile integer
+---@field sky_color int16_t
 ---@field chasm_tile integer
 ---@field pillar_tile integer
----@field wound_color table
+---@field track_tiles uint8_t
+---@field track_tile_invert uint8_t
+---@field track_ramp_tiles uint8_t
+---@field track_ramp_invert uint8_t
+---@field tree_tiles uint8_t
+---@field chasm_color int16_t
+---@field wound_color wound_color_compound
 ---@field show_embark_tunnel d_init_tunnel
 ---@field number_of_lower_elevations_shown integer
+---@field flags3 any
 ---@field population_cap integer
 ---@field strict_population_cap integer
 ---@field baby_cap_absolute integer
@@ -87,10 +97,28 @@ df.d_init_autosave = {
 ---@field visitor_cap integer
 ---@field specific_seed_cap integer
 ---@field fortress_seed_cap integer
----@field store_dist table
+---@field path_cost int32_t
+---@field embark_rect int32_t
+---@field store_dist store_dist_compound
 ---@field graze_coefficient integer
 ---@field maximum_embark_dim integer
+---@field flags4 any
 ---@field post_prepare_embark_confirmation d_init_embark_confirm
 ---@field autosave d_init_autosave
 ---@field announcements announcements
+
+---@class wound_color_compound
+---@field none int16_t
+---@field minor int16_t
+---@field inhibited int16_t
+---@field function_loss int16_t
+---@field broken int16_t
+---@field missing int16_t
+
+---@class store_dist_compound
+---@field item_decrease integer
+---@field seed_combine integer
+---@field bucket_combine integer
+---@field barrel_combine integer
+---@field bin_combine integer
 

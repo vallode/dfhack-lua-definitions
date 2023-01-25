@@ -16,10 +16,13 @@
 ---@field unk_2 integer
 ---@field year integer
 ---@field tickmaybe integer
+---@field unk_3 int32_t
 
 ---@class site_reputation_info
+---@field reports site_reputation_report[]
 
 ---@class location_scribe_jobs
+---@field scribejobs scribejob[]
 ---@field nextidmaybe integer
 ---@field year integer
 ---@field unk_1 integer
@@ -59,8 +62,11 @@ df.abstract_building_flags = {
 }
 
 ---@class abstract_building_entombed
+---@field populations any[]
+---@field histfigs integer[]
 
 ---@class abstract_building_contents
+---@field need_more any
 ---@field profession profession
 ---@field desired_goblets integer
 ---@field desired_instruments integer
@@ -73,15 +79,24 @@ df.abstract_building_flags = {
 ---@field count_paper integer
 ---@field unk_v47_2 integer
 ---@field unk_v47_3 integer
+---@field building_ids integer[]
 
 ---@class abstract_building
 ---@field id integer
+---@field find-instance any
+---@field inhabitants any[]
+---@field flags any
+---@field unk1 any
+---@field unk2 integer[]
 ---@field parent_building_id integer
+---@field child_building_ids integer[]
 ---@field site_owner_id integer
 ---@field scribeinfo location_scribe_jobs
 ---@field reputation_reports site_reputation_info
+---@field unk_v42_3 any
 ---@field site_id integer
 ---@field pos coord2d
+---@field occupations occupation[]
 
 ---@class abstract_building_mead_hallst
 ---@field name language_name
@@ -121,6 +136,7 @@ df.temple_deity_type = {
 
 ---@class abstract_building_dungeonst
 ---@field name language_name
+---@field dungeon_type any
 ---@field unk_1 integer
 ---@field entombed abstract_building_entombed
 ---@field unk_2 integer
@@ -134,10 +150,12 @@ df.temple_deity_type = {
 ---@class abstract_building_inn_tavernst
 ---@field name language_name
 ---@field contents abstract_building_contents
+---@field room_info any[]
 ---@field next_room_info_id integer
 
 ---@class abstract_building_libraryst
 ---@field name language_name
+---@field copied_artifacts integer[]
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -216,7 +234,8 @@ df.lair_type = {
 
 ---@class property_ownership
 ---@field index integer
----@field is_concrete_property string
+---@field is_concrete_property boolean
+---@field pad_1 any
 ---@field property_index integer
 ---@field unk_hfid integer
 ---@field owner_entity_id integer
@@ -225,12 +244,13 @@ df.lair_type = {
 
 ---@class world_site
 ---@field name language_name
+---@field describe any
 ---@field civ_id integer
 ---@field cur_owner_id integer
 ---@field type world_site_type
 ---@field pos coord2d
 ---@field id integer
----@field unk_1 table
+---@field unk_1 unk_1_compound
 ---@field index integer
 ---@field rgn_min_x integer
 ---@field rgn_max_x integer
@@ -247,11 +267,19 @@ df.lair_type = {
 ---@field resident_count integer
 ---@field unk_110 integer
 ---@field unk_114 integer
+---@field unk_118 any
 ---@field unk_11c integer
 ---@field unk_120 integer
 ---@field unk_124 integer
 ---@field unk_128 integer
+---@field unk_2 int32_t
+---@field unk_13c any[]
+---@field unk_v40_2 any[]
+---@field unk_v47_1 any[]
+---@field flags any
+---@field buildings abstract_building[]
 ---@field next_building_id integer
+---@field property_ownership property_ownership[]
 ---@field next_property_ownership_id integer
 ---@field created_tick integer
 ---@field created_year integer
@@ -259,30 +287,85 @@ df.lair_type = {
 ---@field unk_174 integer
 ---@field unk_178 coord
 ---@field realization world_site_realization
+---@field subtype_info any
+---@field unk_21c any[]
+---@field deaths integer[]
 ---@field is_mountain_halls integer
 ---@field is_fortress integer
 ---@field unk_v47_2 integer
+---@field unk_v40_4a any[]
+---@field unk_v40_4b any[]
+---@field unk_v40_4c any[]
+---@field unk_v40_4d any[]
 ---@field unk_v40_4d_next_id integer
+---@field unk_v43_2 any[]
 ---@field unk_v43_3 integer
 ---@field unk_v40_5 integer
+---@field unk_188 any
 ---@field unk_3a8 integer
 ---@field unk_3b0 world_site_unk130
+---@field unk_18c any[]
+---@field unk_19c any[]
+---@field entity_links entity_site_link[]
+---@field cultural_identities cultural_identity[]
+---@field unk_v42_1 occupation[]
 ---@field unk_v43_4 integer
+---@field unk_3 any[]
 ---@field unk_4 historical_figure
 ---@field unk_5 historical_figure
 ---@field unk_6 historical_figure
 ---@field unk_7 historical_figure
 ---@field unk_8 historical_figure
+---@field unk_9 any
+---@field unk_10 any
+---@field unk_11 any
+---@field unk_12 any
+---@field unk_13 any
+---@field unk_14 any
+---@field unk_15 any
+---@field unk_16 any
+---@field unk_17 any
+---@field unk_18 any
+---@field unk_19 any
+---@field unk_20 any
+---@field unk_21 any
+---@field unk_22 any
+---@field unk_23 any
 ---@field unk_24 integer
+---@field unk_25 any
+
+---@class unk_1_compound
+---@field nemesis integer[]
+---@field artifacts artifact_record[]
+---@field animals world_population[]
+---@field inhabitants world_site_inhabitant[]
+---@field units any[]
+---@field unk_d4 integer[]
+---@field unk_v40_1a historical_figure[]
+---@field pad_1 any
+---@field unk_v40_1b nemesis_record[]
+---@field unk_v40_1c nemesis_record[]
+---@field unk_v40_1d nemesis_record[]
+---@field unk_v40_1e nemesis_record[]
+---@field unk_v40_1f nemesis_record[]
+---@field unk_v40_1g nemesis_record[]
+---@field unk_v40_1h nemesis_record[]
 
 ---@class cultural_identity
 ---@field id integer
 ---@field site_id integer
 ---@field civ_id integer
+---@field group_log any[]
+---@field ethic any
+---@field values int32_t
+---@field events entity_event[]
 ---@field unk_d8 integer
+---@field unk_dc integer[]
 ---@field unk_ec integer
 ---@field unk_f0 integer
 ---@field unk_f4 integer
+---@field unk_1 any[]
+---@field unk_2 any[]
 ---@field unk_f8 integer
 
 ---@class world_site_inhabitant
@@ -299,31 +382,65 @@ df.lair_type = {
 ---@field unk_28 integer
 
 ---@class world_site_realization
+---@field buildings site_realization_building[]
 ---@field num_buildings integer
 ---@field unk_14 integer
 ---@field num_areas integer
+---@field mini_rivers any
+---@field mini_tiles any
+---@field mini_colors any
+---@field road_map any
+---@field river_map any
+---@field unk_55e8 any
+---@field building_map any
+---@field flags_map any
+---@field zoom_tiles any
+---@field zoom_colors any
+---@field zoom_movemask any
+---@field area_map any
+---@field areas any[]
 ---@field unk_1 integer
 ---@field army_controller_pos_x integer
 ---@field army_controller_pos_y integer
+---@field unk_193bc any
 ---@field num_unk_193bc integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field unk_4 any
 ---@field unk_5 integer
+---@field unk_6 pointer
 ---@field unk_7 integer
+---@field unk_8 pointer
 ---@field unk_9 integer
+---@field unk_10 pointer
 ---@field unk_11 integer
+---@field unk_12 pointer
 ---@field unk_13 integer
+---@field unk_15 pointer
 ---@field unk_16 integer
+---@field unk_17 pointer
 ---@field unk_18 integer
+---@field unk_19 pointer
 ---@field unk_20 integer
+---@field unk_21 pointer
 ---@field unk_22 integer
+---@field building_well site_realization_building
 ---@field num_building_well integer
+---@field building_temple site_realization_building
 ---@field num_building_temple integer
+---@field building_type22 site_realization_building
 ---@field num_building_type22 integer
+---@field building_type21 site_realization_building
 ---@field num_building_type21 integer
+---@field unk_23 pointer
 ---@field unk_24 integer
+---@field unk_wsr_vector any[]
 
 ---@class site_realization_crossroads
+---@field road_min_y int32_t
+---@field road_max_y int32_t
+---@field road_min_x int32_t
+---@field road_max_x int32_t
 ---@field idx_x integer
 ---@field idx_y integer
 ---@field tile_width integer
@@ -353,6 +470,8 @@ df.lair_type = {
 ---@field unk_6 integer
 ---@field unk_7 integer
 ---@field unk_8 integer
+---@field unk_370 int16_t
+---@field unk_3d0 int16_t
 
 ---@enum site_realization_building_type
 df.site_realization_building_type = {
@@ -392,18 +511,22 @@ df.site_realization_building_type = {
 
 ---@class site_realization_building
 ---@field id integer
+---@field find-instance any
 ---@field type site_realization_building_type
 ---@field min_x integer
 ---@field min_y integer
 ---@field max_x integer
 ---@field max_y integer
 ---@field unk_18 integer
+---@field inhabitants world_site_inhabitant[]
 ---@field unk_2c integer
 ---@field item site_building_item
 ---@field abstract_building_id integer
 ---@field unk_44 integer
 ---@field building_info site_realization_building_infost
+---@field unk_4c any[]
 ---@field unk_5c integer
+---@field unk_60 any[]
 ---@field unk_v40_1 integer
 
 ---@class site_realization_building_infost
@@ -444,6 +567,7 @@ df.tower_shape = {}
 ---@field door_w_elevation integer
 ---@field door_item site_building_item
 ---@field wall_item site_building_item
+---@field shape tower_shape
 ---@field unk_40 integer
 ---@field unk_44 integer
 
@@ -488,6 +612,7 @@ df.site_shop_type = {
 
 ---@class site_realization_building_info_trenchesst
 ---@field unk_4 integer
+---@field spokes any
 
 ---@enum tree_house_type
 df.tree_house_type = {
@@ -531,8 +656,12 @@ df.creation_zone_pwg_alteration_type = {
 ---@field unk_0 integer
 
 ---@class creation_zone_pwg_alteration_location_deathst
----@field unk_1 table
+---@field unk_1 unk_1_compound
 ---@field unk_2 integer
+
+---@class unk_1_compound
+---@field unk_1a any[]
+---@field unk_2a integer[]
 
 ---@class creation_zone_pwg_alteration_campst
 ---@field unk_1 integer

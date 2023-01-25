@@ -364,13 +364,17 @@ df.announcement_type = {
 df.announcement_flags = {}
 
 ---@class announcements
+---@field flags announcement_flags
+---@field unused any
 
 ---@class report
 ---@field type announcement_type
 ---@field text string
+---@field describe any
 ---@field color integer
----@field bright string
+---@field bright boolean
 ---@field duration integer
+---@field flags any
 ---@field repeat_count integer
 ---@field zoom_type report_zoom_type
 ---@field pos coord
@@ -393,12 +397,12 @@ df.report_zoom_type = {
 ---@class popup_message
 ---@field text string
 ---@field color integer
----@field bright string
+---@field bright boolean
 
 ---@class report_init
 ---@field type announcement_type
 ---@field color integer
----@field bright string
+---@field bright boolean
 ---@field pos coord
 ---@field zoom_type report_zoom_type
 ---@field pos2 coord
@@ -409,4 +413,5 @@ df.report_zoom_type = {
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 integer
 ---@field speaker_id integer
+---@field flags any
 

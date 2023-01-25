@@ -39,6 +39,7 @@ df.improvement_type = {
 ---@field image art_image_ref
 
 ---@class itemimprovement_coveredst
+---@field cover_flags any
 ---@field shape integer
 
 ---@class itemimprovement_rings_hangingst
@@ -64,11 +65,17 @@ df.itemimprovement_specific_type = {
 
 ---@class itemimprovement_sewn_imagest
 ---@field image art_image_ref
----@field cloth table
+---@field cloth cloth_compound
 ---@field dye dye_info
+
+---@class cloth_compound
+---@field unit_id integer
+---@field quality integer
+---@field unk_1 integer
 
 ---@class itemimprovement_pagesst
 ---@field count integer
+---@field contents integer[]
 
 ---@class itemimprovement_illustrationst
 ---@field image art_image_ref
@@ -78,6 +85,7 @@ df.itemimprovement_specific_type = {
 ---@field type string
 
 ---@class itemimprovement_writingst
+---@field contents integer[]
 
 ---@class itemimprovement_image_setst
 ---@field image_set_id integer
@@ -139,10 +147,14 @@ df.written_content_style = {
 ---@field title string
 ---@field page_start integer
 ---@field page_end integer
+---@field refs general_ref[]
+---@field ref_aux integer[]
 ---@field unk1 integer
 ---@field unk2 integer
 ---@field type written_content_type
 ---@field poetic_form integer
+---@field styles written_content_style[]
+---@field style_strength integer[]
 ---@field author integer
 ---@field author_roll integer
 
@@ -164,6 +176,7 @@ df.engraving_flags = {}
 ---@field masterpiece_event integer
 ---@field skill_rating skill_rating
 ---@field pos coord
+---@field flags engraving_flags
 ---@field tile integer
 ---@field art_id integer
 ---@field art_subid integer

@@ -3,11 +3,15 @@
 ---@class dipscript_info
 ---@field id integer
 ---@field script_file string
+---@field script_steps script_stepst[]
+---@field script_vars script_varst[]
 ---@field code string
+---@field describe any
 
 ---@class dipscript_popup
 ---@field meeting_holder unit
 ---@field activity activity_info
+---@field flags any
 
 ---@class script_stepst
 ---@field next_step_idx integer
@@ -23,8 +27,15 @@
 ---@field subtype string
 
 ---@class script_step_conditionalst
----@field condition table
+---@field condition condition_compound
 ---@field conditional_next_step_idx integer
+
+---@class condition_compound
+---@field var1_type string
+---@field var1_name string
+---@field comparison string
+---@field var2_type string
+---@field var2_name string
 
 ---@class script_step_textviewerst
 ---@field filename string
@@ -76,18 +87,33 @@
 ---@class meeting_context
 ---@field meeting meeting_diplomat_info
 ---@field popup dipscript_popup
+---@field unk_2 any
+---@field unk_3 any
 
 ---@class meeting_diplomat_info
 ---@field civ_id integer
 ---@field unk1 integer
 ---@field diplomat_id integer
 ---@field associate_id integer
+---@field topic_list any[]
+---@field topic_parms integer[]
 ---@field sell_requests entity_sell_requests
 ---@field buy_requests entity_buy_requests
 ---@field dipscript dipscript_info
 ---@field cur_step integer
+---@field active_script_vars active_script_varst[]
 ---@field unk_50 string
 ---@field unk_6c string
+---@field flags any
+---@field events meeting_event[]
+---@field agreement_entity integer[]
+---@field agreement_topic meeting_topic[]
+---@field agreement_year integer[]
+---@field agreement_tick integer[]
+---@field agreement_outcome integer[]
+---@field contact_entity integer[]
+---@field contact_year integer[]
+---@field contact_tick integer[]
 
 ---@enum meeting_topic
 df.meeting_topic = {
@@ -117,6 +143,8 @@ df.meeting_event_type = {
 ---@field type meeting_event_type
 ---@field topic meeting_topic
 ---@field topic_parm integer
+---@field unk_1 integer[]
+---@field unk_2 integer[]
 ---@field quota_total integer
 ---@field quota_remaining integer
 ---@field year integer
@@ -129,17 +157,21 @@ df.meeting_event_type = {
 ---@field unit_actor unit
 ---@field unit_noble unit
 ---@field place building
+---@field flags any
 ---@field unk3 integer
 ---@field delay integer
 ---@field tree_quota integer
 
 ---@class party_info
+---@field units unit[]
 ---@field location building
 ---@field timer integer
 ---@field id integer
 
 ---@class room_rent_info
+---@field elements building[]
 ---@field rent_value integer
+---@field flags any
 
 ---@enum activity_entry_type
 df.activity_entry_type = {
@@ -161,6 +193,7 @@ df.activity_entry_type = {
 ---@class activity_entry
 ---@field id integer
 ---@field type activity_entry_type
+---@field events activity_event[]
 ---@field next_event_id integer
 ---@field army_controller integer
 
@@ -197,13 +230,21 @@ df.activity_event_type = {
 }
 
 ---@class activity_event_participants
+---@field histfigs any[]
+---@field units any[]
+---@field free_histfigs any[]
+---@field free_units any[]
 ---@field activity_id integer
 ---@field event_id integer
 
 ---@class activity_event
 ---@field event_id integer
 ---@field activity_id integer
+---@field find-instance any
 ---@field parent_event_id integer
+---@field flags any
+---@field unk_v42_1 any[]
+---@field unk_v42_2 any[]
 
 ---@class activity_event_training_sessionst
 ---@field participants activity_event_participants
@@ -234,6 +275,7 @@ df.activity_event_type = {
 ---@class activity_event_sparringst
 ---@field participants activity_event_participants
 ---@field building_id integer
+---@field groups any[]
 ---@field countdown integer
 
 ---@class activity_event_ranged_practicest
@@ -241,6 +283,8 @@ df.activity_event_type = {
 ---@field building_id integer
 
 ---@class activity_event_harassmentst
+---@field unk_1 integer[]
+---@field unk_2 any[]
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -325,6 +369,7 @@ df.conversation_menu = {
 }
 
 ---@class activity_event_conversationst
+---@field participants any[]
 ---@field menu conversation_menu
 ---@field unk1 entity_event
 ---@field unk_1 integer
@@ -332,24 +377,75 @@ df.conversation_menu = {
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_v42_3 integer
----@field unk_b4 table
+---@field unk_v42_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 any[]
+---@field unk_7 integer[]
+---@field unk_8 integer[]
+---@field unk_b4 unk_b4_compound
+---@field turns any[]
 ---@field floor_holder integer
 ---@field floor_holder_hfid integer
 ---@field pause integer
----@field unk2 table
+---@field flags2 any
+---@field unk2 unk2_compound
+---@field choices talk_choice[]
 ---@field unk3 conversation_menu
+---@field unk4 int32_t
+
+---@class unk_b4_compound
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer[]
+---@field unk_5 integer
+
+---@class unk2_compound
+---@field unk_1 incident[]
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer[]
+---@field unk_7 integer[]
+---@field unk_8 integer[]
+---@field unk_9 integer[]
+---@field unk_10 integer[]
+---@field unk_11 integer[]
+---@field unk_12 integer[]
+---@field unk_13 integer[]
+---@field unk_14 integer[]
+---@field unk_15 integer[]
+---@field unk_16 integer[]
+---@field unk_17 integer[]
+---@field unk_18 integer
+---@field unk_19 integer
+---@field unk_20 integer
+---@field unk_21 integer
+---@field unk_22 integer
+---@field unk_23 integer
+---@field unk_24 integer
+---@field unk_25 integer
+---@field unk_26 integer
+---@field unk_27 integer
+---@field unk_28 integer
+---@field unk_29 integer
 
 ---@class activity_event_conflictst
+---@field sides any[]
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_v42_3 integer
 
 ---@class activity_event_guardst
+---@field unk_1 integer[]
 ---@field unk_2 coord
 ---@field unk_3 integer
 
 ---@class activity_event_reunionst
+---@field unk_1 integer[]
+---@field unk_2 integer[]
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -415,6 +511,7 @@ df.performance_participant_type = {
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
+---@field participant_actions any[]
 ---@field pos_performer_2d coord2d
 ---@field pos_performer coord
 ---@field unk_pos_1_x0 integer
@@ -427,7 +524,9 @@ df.performance_participant_type = {
 ---@field unk_pos_2_x1 integer
 ---@field unk_pos_2_y1 integer
 ---@field unk_pos_2_z integer
+---@field play_orders performance_play_orderst[]
 ---@field unk_11 integer
+---@field unk_12 int8_t
 ---@field unk_13 coord
 ---@field unk_16 integer
 ---@field unk_17 integer
@@ -437,6 +536,7 @@ df.performance_participant_type = {
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field unk_4 any[]
 ---@field unk_5 integer
 
 ---@class activity_event_researchst
@@ -484,9 +584,11 @@ df.performance_participant_type = {
 ---@field building_id integer
 ---@field site_id integer
 ---@field location_id integer
+---@field unk_1 any
 ---@field timer integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field mode any
 ---@field knowledge knowledge_scholar_category_flag
 
 ---@class activity_event_copy_written_contentst
@@ -496,6 +598,7 @@ df.performance_participant_type = {
 ---@field building_id integer
 ---@field site_id integer
 ---@field location_id integer
+---@field flagsmaybe any
 ---@field unk_1 integer
 ---@field timer integer
 
@@ -514,6 +617,7 @@ df.performance_participant_type = {
 ---@class activity_event_playst
 ---@field participants activity_event_participants
 ---@field unk_1 integer
+---@field unk_2 int8_t
 ---@field unk_3 coord
 
 ---@class activity_event_make_believest
@@ -521,6 +625,7 @@ df.performance_participant_type = {
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field unk_4 int8_t
 ---@field unk_5 coord
 
 ---@class activity_event_play_with_toyst
@@ -528,10 +633,19 @@ df.performance_participant_type = {
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk table
+---@field unk unk_compound
 ---@field unk_4 integer
+---@field unk_5 pointer[]
+
+---@class unk_compound
+---@field unk_1 int8_t
+---@field unk_2 coord
 
 ---@class activity_event_encounterst
+---@field unk_1 any[]
+---@field unk_2 any[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
@@ -548,6 +662,7 @@ df.performance_participant_type = {
 ---@class schedule_info
 ---@field id integer
 ---@field unk_1 integer
+---@field slots schedule_slot[]
 
 ---@class schedule_slot
 ---@field type integer

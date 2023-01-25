@@ -96,25 +96,152 @@ df.stockpile_category = {
 df.stockpile_group_set = {}
 
 ---@class stockpile_settings
----@field animals table
----@field food table
----@field furniture table
----@field refuse table
----@field stone table
----@field ore table
----@field ammo table
----@field coins table
----@field bars_blocks table
----@field gems table
----@field finished_goods table
----@field leather table
----@field cloth table
----@field wood table
----@field weapons table
----@field armor table
----@field sheet table
----@field allow_organic string
----@field allow_inorganic string
+---@field flags stockpile_group_set
+---@field animals animals_compound
+---@field food food_compound
+---@field furniture furniture_compound
+---@field refuse refuse_compound
+---@field stone stone_compound
+---@field ore ore_compound
+---@field ammo ammo_compound
+---@field coins coins_compound
+---@field bars_blocks bars_blocks_compound
+---@field gems gems_compound
+---@field finished_goods finished_goods_compound
+---@field leather leather_compound
+---@field cloth cloth_compound
+---@field wood wood_compound
+---@field weapons weapons_compound
+---@field armor armor_compound
+---@field sheet sheet_compound
+---@field allow_organic boolean
+---@field allow_inorganic boolean
+
+---@class animals_compound
+---@field empty_cages boolean
+---@field empty_traps boolean
+---@field enabled boolean[]
+
+---@class food_compound
+---@field meat boolean[]
+---@field fish boolean[]
+---@field unprepared_fish boolean[]
+---@field egg boolean[]
+---@field plants boolean[]
+---@field drink_plant boolean[]
+---@field drink_animal boolean[]
+---@field cheese_plant boolean[]
+---@field cheese_animal boolean[]
+---@field seeds boolean[]
+---@field leaves boolean[]
+---@field powder_plant boolean[]
+---@field powder_creature boolean[]
+---@field glob boolean[]
+---@field glob_paste boolean[]
+---@field glob_pressed boolean[]
+---@field liquid_plant boolean[]
+---@field liquid_animal boolean[]
+---@field liquid_misc boolean[]
+---@field prepared_meals boolean
+
+---@class furniture_compound
+---@field type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core bool
+---@field quality_total bool
+
+---@class refuse_compound
+---@field type boolean[]
+---@field corpses boolean[]
+---@field body_parts boolean[]
+---@field skulls boolean[]
+---@field bones boolean[]
+---@field hair boolean[]
+---@field shells boolean[]
+---@field teeth boolean[]
+---@field horns boolean[]
+---@field fresh_raw_hide boolean
+---@field rotten_raw_hide boolean
+
+---@class stone_compound
+---@field mats boolean[]
+
+---@class ore_compound
+---@field mats boolean[]
+
+---@class ammo_compound
+---@field type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core bool
+---@field quality_total bool
+
+---@class coins_compound
+---@field mats boolean[]
+
+---@class bars_blocks_compound
+---@field bars_other_mats boolean[]
+---@field blocks_other_mats boolean[]
+---@field bars_mats boolean[]
+---@field blocks_mats boolean[]
+
+---@class gems_compound
+---@field rough_other_mats boolean[]
+---@field cut_other_mats boolean[]
+---@field rough_mats boolean[]
+---@field cut_mats boolean[]
+
+---@class finished_goods_compound
+---@field type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core bool
+---@field quality_total bool
+
+---@class leather_compound
+---@field mats boolean[]
+
+---@class cloth_compound
+---@field thread_silk boolean[]
+---@field thread_plant boolean[]
+---@field thread_yarn boolean[]
+---@field thread_metal boolean[]
+---@field cloth_silk boolean[]
+---@field cloth_plant boolean[]
+---@field cloth_yarn boolean[]
+---@field cloth_metal boolean[]
+
+---@class wood_compound
+---@field mats boolean[]
+
+---@class weapons_compound
+---@field weapon_type boolean[]
+---@field trapcomp_type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core bool
+---@field quality_total bool
+---@field usable boolean
+---@field unusable boolean
+
+---@class armor_compound
+---@field body boolean[]
+---@field head boolean[]
+---@field feet boolean[]
+---@field hands boolean[]
+---@field legs boolean[]
+---@field shield boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core bool
+---@field quality_total bool
+---@field usable boolean
+---@field unusable boolean
+
+---@class sheet_compound
+---@field paper boolean[]
+---@field parchment boolean[]
 
 ---@enum stockpile_list
 df.stockpile_list = {
@@ -228,22 +355,31 @@ df.stockpile_list = {
 ---@class hauling_route
 ---@field id integer
 ---@field name string
+---@field stops hauling_stop[]
+---@field vehicle_ids any[]
+---@field vehicle_stops any[]
 
 ---@class hauling_stop
 ---@field id integer
 ---@field name string
 ---@field pos coord
 ---@field settings stockpile_settings
+---@field conditions stop_depart_condition[]
+---@field stockpiles route_stockpile_link[]
 ---@field time_waiting integer
 ---@field cart_id integer
 
 ---@class stop_depart_condition
 ---@field timeout integer
+---@field direction any
+---@field mode any
 ---@field load_percent integer
+---@field flags any
 ---@field guide_path coord_path
 
 ---@class route_stockpile_link
 ---@field building_id integer
+---@field mode any
 
 ---@class vehicle
 ---@field id integer

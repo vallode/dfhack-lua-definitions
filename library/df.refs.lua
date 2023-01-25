@@ -154,12 +154,14 @@ df.general_ref_type = {
 ---@field unk_1 integer
 ---@field race integer
 ---@field unk_2 integer
+---@field flags undead_flags
 
 ---@class general_ref_creaturest
 ---@field race integer
 ---@field caste integer
 ---@field unk_1 integer
 ---@field unk_2 integer
+---@field flags undead_flags
 
 ---@class general_ref_knowledge_scholar_flagst
 ---@field knowledge knowledge_scholar_category_flag
@@ -202,6 +204,7 @@ df.general_ref_type = {
 ---@class general_ref_unit_traineest
 
 ---@class general_ref_unit_itemownerst
+---@field flags any
 
 ---@class general_ref_unit_tradebringerst
 
@@ -306,7 +309,19 @@ df.specific_ref_type = {
 
 ---@class specific_ref
 ---@field type specific_ref_type
----@field data table
+---@field data data_compound
+
+---@class data_compound
+---@field object any
+---@field unit unit
+---@field activity activity_info
+---@field screen viewscreen
+---@field effect effect_info
+---@field vermin vermin
+---@field job job
+---@field histfig historical_figure
+---@field entity historical_entity
+---@field wrestle any
 
 ---@enum histfig_entity_link_type
 df.histfig_entity_link_type = {
@@ -552,9 +567,12 @@ df.entity_site_link_status_flags = {}
 ---@field type entity_site_link_type
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field flags entity_site_link_flags
+---@field status entity_site_link_status_flags
 ---@field link_strength integer
 ---@field unk_5 integer
 ---@field unk_6 integer
+---@field unk_7 any[]
 ---@field target_site_x integer
 ---@field target_site_y integer
 ---@field unk_v43_1 integer

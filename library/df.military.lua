@@ -17,10 +17,14 @@ df.uniform_indiv_choice = {}
 ---@field item integer
 ---@field item_filter item_filter_spec
 ---@field color integer
+---@field assigned any[]
+---@field indiv_choice uniform_indiv_choice
 
 ---@class squad_ammo_spec
 ---@field item_filter item_filter_spec
 ---@field amount integer
+---@field flags any
+---@field assigned any[]
 
 ---@class squad_use_flags
 ---@field sleep boolean
@@ -63,29 +67,52 @@ df.squad_event_type = {
 
 ---@class squad_position
 ---@field occupant integer
+---@field describe any
+---@field orders squad_order[]
+---@field preferences any
+---@field uniform any
 ---@field unk_c4 string
+---@field flags uniform_flags
+---@field assigned_items any[]
 ---@field quiver integer
 ---@field backpack integer
 ---@field flask integer
 ---@field unk_1 integer
+---@field activities int32_t
+---@field events int32_t
 ---@field unk_2 integer
 
 ---@class squad_schedule_order
 ---@field order squad_order
 ---@field min_count integer
+---@field positions any
 
 ---@class squad_schedule_entry
 ---@field name string
 ---@field sleep_mode integer
 ---@field uniform_mode integer
+---@field orders squad_schedule_order[]
+---@field order_assignments any[]
 
 ---@class squad
 ---@field id integer
 ---@field name language_name
 ---@field alias string
+---@field describe any
+---@field positions squad_position[]
+---@field orders squad_order[]
+---@field schedule any[]
 ---@field cur_alert_idx integer
+---@field rooms any[]
+---@field rack_combat integer[]
+---@field rack_training integer[]
 ---@field uniform_priority integer
 ---@field activity integer
+---@field ammunition squad_ammo_spec[]
+---@field train_weapon_free any[]
+---@field train_weapon_inuse any[]
+---@field ammo_items any[]
+---@field ammo_units any[]
 ---@field carry_food integer
 ---@field carry_water integer
 ---@field entity_id integer
@@ -147,9 +174,12 @@ df.squad_order_cannot_reason = {
 ---@field point_id integer
 
 ---@class squad_order_kill_listst
+---@field units any[]
+---@field histfigs any[]
 ---@field title string
 
 ---@class squad_order_defend_burrowsst
+---@field burrows integer[]
 
 ---@class squad_order_patrol_routest
 ---@field route_id integer
@@ -195,6 +225,7 @@ df.squad_order_cannot_reason = {
 ---@field pos_y integer
 ---@field unk_18 integer
 ---@field unk_1c integer
+---@field unk_20 integer[]
 ---@field year integer
 ---@field year_tick integer
 ---@field unk_34 integer
@@ -205,9 +236,37 @@ df.squad_order_cannot_reason = {
 ---@field unk_44_2 integer
 ---@field visitor_nemesis_id integer
 ---@field unk_44_4 integer
+---@field unk_44_5 any
+---@field unk_v47_1 any
+---@field unk_v47_2 any
 ---@field unk_50 integer
+---@field unk_54 integer[]
+---@field unk_44_11v any[]
 ---@field mission_report mission_report
----@field data table
+---@field data data_compound
+---@field type any
+
+---@class data_compound
+---@field t1 army_controller_sub1
+---@field InvasionOrder army_controller_invasion_order
+---@field Invasion army_controller_invasion
+---@field t5 army_controller_sub5
+---@field t6 army_controller_sub6
+---@field t7 army_controller_sub7
+---@field t11 army_controller_sub11
+---@field Visit army_controller_visit
+---@field t13 army_controller_sub13
+---@field t14 army_controller_sub14
+---@field t15 army_controller_sub15
+---@field t16 army_controller_sub16
+---@field Quest army_controller_quest
+---@field t18 army_controller_sub18
+---@field t19 any
+---@field t20 any
+---@field t21 any
+---@field t22 any
+---@field t23 any
+---@field VillainousVisit army_controller_villainous_visit
 
 ---@class army_controller_sub1
 ---@field unk_1 integer
@@ -219,12 +278,16 @@ df.squad_order_cannot_reason = {
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
+---@field unk_4a any[]
+---@field unk_5 integer[]
+---@field unk_6 integer[]
 ---@field unk_7 integer
 ---@field unk_8 integer
 ---@field unk_9 integer
 
 ---@class army_controller_invasion
 ---@field unk_1 integer
+---@field unk_2 any
 
 ---@class army_controller_sub5
 ---@field pos_x integer
@@ -247,6 +310,7 @@ df.squad_order_cannot_reason = {
 ---@class army_controller_sub7
 ---@field unk_1 integer
 ---@field unk_2 integer
+---@field unk_3 any[]
 ---@field unk_4 integer
 ---@field pos_x integer
 ---@field pos_y integer
@@ -258,11 +322,13 @@ df.squad_order_cannot_reason = {
 ---@class army_controller_sub11
 ---@field unk_1 integer
 ---@field unk_2 integer
+---@field unk_3 any[]
 
 ---@class army_controller_visit
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field unk_4 any[]
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field abstract_building integer
@@ -272,15 +338,18 @@ df.squad_order_cannot_reason = {
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field unk_4 any[]
 
 ---@class army_controller_sub14
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field unk_4 any[]
 
 ---@class army_controller_sub15
 ---@field unk_1 integer
 ---@field unk_2 integer
+---@field unk_3 any[]
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
@@ -323,19 +392,29 @@ df.army_flags = {
 ---@field unk_10 integer
 ---@field unk_14 integer
 ---@field unk_18 integer
+---@field members any[]
+---@field squads world_site_inhabitant[]
 ---@field unk_3c integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field controller_id integer
 ---@field controller army_controller
+---@field flags any
+---@field block_path_x integer[]
+---@field block_path_y integer[]
+---@field path_x integer[]
+---@field path_y integer[]
 ---@field unk_90 integer
 ---@field unk_94 integer
 ---@field unk_98 integer
 ---@field min_smell_trigger integer
 ---@field max_odor_level integer
 ---@field max_low_light_vision integer
+---@field sense_creature_classes string[]
+---@field creature_class string[]
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
+---@field unk_4407_1 item[]
 

@@ -2,6 +2,7 @@
 
 ---@class world_site_unk130
 ---@field index integer
+---@field unk_4 any
 
 ---@enum world_population_type
 df.world_population_type = {
@@ -39,6 +40,7 @@ df.world_population_type = {
 ---@field type world_population_type
 ---@field quantity integer
 ---@field quantity2 integer
+---@field flags any
 ---@field population world_population_ref
 ---@field wp_unk_10 integer
 ---@field wp_unk_18 integer
@@ -59,12 +61,15 @@ df.world_population_type = {
 
 ---@class world_landmass
 ---@field name language_name
+---@field describe any
 ---@field index integer
 ---@field area integer
 ---@field min_x integer
 ---@field max_x integer
 ---@field min_y integer
 ---@field max_y integer
+---@field unk_74 integer[]
+---@field unk_84 integer[]
 
 ---@enum world_region_type
 df.world_region_type = {
@@ -82,6 +87,7 @@ df.world_region_type = {
 
 ---@class world_region
 ---@field name language_name
+---@field describe any
 ---@field index integer
 ---@field type world_region_type
 ---@field region_coords coord2d_path
@@ -90,14 +96,23 @@ df.world_region_type = {
 ---@field unk_9c integer
 ---@field unk_a0 integer
 ---@field unk_a4 integer
+---@field population world_population[]
+---@field biome_tile_counts any
+---@field tree_biomes any[]
+---@field tree_tiles_1 any[]
+---@field tree_tiles_2 any[]
+---@field tree_tiles_good any[]
+---@field tree_tiles_evil any[]
+---@field tree_tiles_savage any[]
 ---@field dead_percentage integer
----@field unk_1e5 string
----@field unk_1e6 string
----@field reanimating string
+---@field unk_1e5 boolean
+---@field unk_1e6 boolean
+---@field reanimating boolean
 ---@field unk_1e8 integer
----@field evil string
----@field good string
+---@field evil boolean
+---@field good boolean
 ---@field lake_surface integer
+---@field forces integer[]
 ---@field unk_v47_2 integer
 ---@field mid_x integer
 ---@field mid_y integer
@@ -107,7 +122,9 @@ df.world_region_type = {
 ---@field max_y integer
 
 ---@class world_underground_region
+---@field type any
 ---@field name language_name
+---@field describe any
 ---@field index integer
 ---@field layer_depth integer
 ---@field layer_depth_p1a integer
@@ -119,12 +136,20 @@ df.world_region_type = {
 ---@field passage_density_min integer
 ---@field passage_density_max integer
 ---@field region_coords coord2d_path
+---@field region_min_z integer[]
+---@field region_max_z integer[]
+---@field unk_c8 any[]
 ---@field feature_init feature_init
 
 ---@class world_river
 ---@field name language_name
+---@field describe any
 ---@field path coord2d_path
+---@field flow integer[]
+---@field exit_tile integer[]
+---@field elevation integer[]
 ---@field end_pos coord2d
+---@field flags any
 
 ---@enum geo_layer_type
 df.geo_layer_type = {
@@ -142,12 +167,19 @@ df.geo_layer_type = {
 ---@class world_geo_layer
 ---@field type geo_layer_type
 ---@field mat_index integer
+---@field describe any
+---@field vein_mat integer[]
+---@field vein_nested_in any[]
+---@field vein_type any[]
+---@field vein_unk_38 integer[]
 ---@field top_height integer
 ---@field bottom_height integer
 
 ---@class world_geo_biome
 ---@field unk1 integer
 ---@field index integer
+---@field describe any
+---@field layers world_geo_layer[]
 
 ---@class world_region_feature
 ---@field feature_idx integer
@@ -155,21 +187,52 @@ df.geo_layer_type = {
 ---@field region_tile_idx integer
 ---@field min_z integer
 ---@field max_z integer
+---@field unk_c coord2d
 ---@field unk_28 integer
 ---@field seed integer
+---@field unk_30 any
+---@field unk_38 int16_t
 ---@field top_layer_idx layer_type
 
 ---@class world_region_details
----@field edges table
+---@field biome any
+---@field elevation any
+---@field seed any
+---@field edges edges_compound
+---@field describe any
 ---@field pos coord2d
 ---@field unk12e8 integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field rivers_vertical table
----@field rivers_horizontal table
+---@field rivers_vertical rivers_vertical_compound
+---@field rivers_horizontal rivers_horizontal_compound
+---@field other_features any
+---@field features any
 ---@field lava_stone integer
+---@field unk_12 int16_t
+---@field elevation2 any
+---@field undef13 int32_t
+
+---@class edges_compound
+---@field split_x any
+---@field split_y any
+---@field biome_corner any
+---@field biome_x any
+---@field biome_y any
+
+---@class rivers_vertical_compound
+---@field x_min any
+---@field x_max any
+---@field active any
+---@field elevation any
+
+---@class rivers_horizontal_compound
+---@field y_min any
+---@field y_max any
+---@field active any
+---@field elevation any
 
 ---@enum region_map_entry_flags
 df.region_map_entry_flags = {
@@ -234,6 +297,8 @@ df.fog_type = {
 ---@class region_map_entry
 ---@field unk_0 integer
 ---@field finder_rank integer
+---@field sites world_site[]
+---@field flags any
 ---@field elevation integer
 ---@field rainfall integer
 ---@field vegetation integer
@@ -245,6 +310,8 @@ df.fog_type = {
 ---@field air_temp integer
 ---@field air_x integer
 ---@field air_y integer
+---@field clouds any
+---@field wind any
 ---@field snowfall integer
 ---@field salinity integer
 ---@field unk_3e coord
@@ -255,6 +322,7 @@ df.fog_type = {
 ---@field geo_index integer
 
 ---@class entity_claim_mask
+---@field map any
 ---@field width integer
 ---@field height integer
 
@@ -263,7 +331,11 @@ df.fog_type = {
 ---@field unk_4 integer
 ---@field unk_c integer
 ---@field unk_10 integer
+---@field members any[]
 ---@field entity_id integer
+---@field flags any
+---@field unk_30 any[]
+---@field unk_40 any[]
 ---@field unk_70 integer
 ---@field unk_72 integer
 ---@field unk_74 integer
@@ -273,11 +345,36 @@ df.fog_type = {
 
 ---@class world_object_data
 ---@field id integer
+---@field altered_items integer[]
+---@field offloaded_items any[]
+---@field unk_24 integer[]
+---@field unk_34 integer[]
+---@field unk_44 integer[]
+---@field unk_54 integer[]
+---@field unk_64 integer[]
+---@field altered_buildings integer[]
+---@field offloaded_buildings any[]
+---@field unk_94 any[]
+---@field creation_zone_alterations creation_zone_pwg_alterationst[]
 ---@field unk_v40_1 integer
 ---@field year integer
 ---@field year_tick integer
----@field picked_growths table
----@field unk_v43 table
+---@field picked_growths picked_growths_compound
+---@field unk_v43 unk_v43_compound
+
+---@class picked_growths_compound
+---@field x integer[]
+---@field y integer[]
+---@field z integer[]
+---@field subtype integer[]
+---@field density integer[]
+---@field year integer[]
+
+---@class unk_v43_compound
+---@field x integer[]
+---@field y integer[]
+---@field z integer[]
+---@field unk_4 integer[]
 
 ---@enum mountain_peak_flags
 df.mountain_peak_flags = {
@@ -287,10 +384,12 @@ df.mountain_peak_flags = {
 ---@class world_mountain_peak
 ---@field name language_name
 ---@field pos coord2d
+---@field flags any
 ---@field height integer
 
 ---@class world_data
 ---@field name language_name
+---@field unk1 int8_t
 ---@field next_site_id integer
 ---@field next_site_unk130_id integer
 ---@field next_resource_allotment_id integer
@@ -301,6 +400,7 @@ df.mountain_peak_flags = {
 ---@field world_height integer
 ---@field unk_78 integer
 ---@field moon_phase integer
+---@field flip_latitude any
 ---@field flip_longitude integer
 ---@field unk_84 integer
 ---@field unk_86 integer
@@ -308,7 +408,8 @@ df.mountain_peak_flags = {
 ---@field unk_8a integer
 ---@field unk_v34_2 integer
 ---@field unk_v34_3 integer
----@field unk_b4 table
+---@field unk_b4 unk_b4_compound
+---@field region_details world_region_details[]
 ---@field adv_region_x integer
 ---@field adv_region_y integer
 ---@field adv_emb_x integer
@@ -317,32 +418,107 @@ df.mountain_peak_flags = {
 ---@field unk_y1 integer
 ---@field unk_x2 integer
 ---@field unk_y2 integer
----@field constructions table
+---@field constructions constructions_compound
 ---@field entity_claims1 entity_claim_mask
 ---@field entity_claims2 entity_claim_mask
+---@field sites world_site[]
+---@field site_unk130 world_site_unk130[]
+---@field resource_allotments resource_allotment_data[]
+---@field breeds breed[]
+---@field battlefields battlefield[]
+---@field region_weather region_weather[]
+---@field object_data world_object_data[]
+---@field landmasses world_landmass[]
+---@field regions world_region[]
+---@field underground_regions world_underground_region[]
+---@field geo_biomes world_geo_biome[]
+---@field mountain_peaks world_mountain_peak[]
+---@field rivers world_river[]
+---@field region_map any
 ---@field unk_1c4 int8_t
+---@field unk_1c8 any
+---@field embark_notes embark_note[]
+---@field unk_1dc any
+---@field unk_1e0 any
+---@field unk_1e4 any
+---@field unk_1e8 any
+---@field unk_1ec any
+---@field unk_1f0 any
 ---@field unk_1 integer
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
+---@field unk_5 any
+---@field unk_6 any
+---@field unk_7 any
+---@field unk_8 any
+---@field unk_9 any
+---@field unk_10 any
+---@field unk_11 any
+---@field unk_12 any
+---@field unk_13 any
+---@field unk_14 any
+---@field unk_15 any
+---@field unk_16 any
+---@field pad_1 any
 ---@field unk_17 integer
 ---@field unk_18 integer
+---@field active_site world_site[]
+---@field feature_map any
+---@field old_sites integer[]
+---@field old_site_x integer[]
+---@field old_site_y integer[]
 ---@field land_rgns coord2d_path
 ---@field unk_260 integer
 ---@field unk_264 integer
 ---@field unk_268 integer
 ---@field unk_26c integer
 ---@field unk_270 integer
----@field unk_482f8 table
+---@field unk_274 any[]
+---@field unk_482f8 unk_482f8_compound
+
+---@class unk_b4_compound
+---@field world_width2 integer
+---@field world_height2 integer
+---@field unk_1 uint32_t
+---@field unk_2 uint32_t
+---@field unk_3 uint32_t
+---@field unk_4 uint8_t
+
+---@class constructions_compound
+---@field width integer
+---@field height integer
+---@field map any
+---@field list world_construction[]
+---@field next_id integer
+
+---@class unk_482f8_compound
+---@field unk_1 int32_t
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
 
 ---@class breed
 ---@field id integer
 ---@field unk_4 integer
+---@field unk_8 any[]
+---@field unk_18 any[]
+---@field unk_28 any[]
 
 ---@class battlefield
 ---@field id integer
+---@field sapient_deaths any[]
+---@field hfs_killed integer[]
 ---@field x1 integer
 ---@field y1 integer
 ---@field x2 integer
 ---@field y2 integer
 ---@field unk_34 integer
+---@field event_collections integer[]
 
 ---@enum region_weather_type
 df.region_weather_type = {
@@ -357,7 +533,7 @@ df.region_weather_type = {
 ---@field type region_weather_type
 ---@field mat_type integer
 ---@field mat_index integer
----@field announcement string
+---@field announcement boolean
 ---@field region_x integer
 ---@field region_y integer
 ---@field world_in_game_x integer
