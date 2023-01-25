@@ -9,12 +9,16 @@ df.global = {}
 ---@field VERSION any
 dfhack = {}
 
+---@param script_name? string
+---@param extension? unknown
+function dfhack.script_help(script_name, extension) end
+
 ---@param message string
 ---@param level integer
 function dfhack.error(message, level) end
 
 ---@param message string
----@param level integer
+---@param level? integer
 function qerror(message, level) end
 
 ---@param table table
@@ -570,6 +574,95 @@ function dfhack.units.getStressCutoffs() end
 dfhack.items = {}
 
 dfhack.maps = {}
+
+---@return coord
+function dfhack.maps.getSize() end
+
+---@return coord
+function dfhack.maps.getTileSize() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+---@return map_block
+function dfhack.maps.getBlock(x, y, z) end
+
+---@param coords coord
+---@return boolean
+function dfhack.maps.isValidTilePos(coords) end
+
+---@param coords coord
+---@return boolean
+function dfhack.maps.isTileVisible(coords) end
+
+---@param coords coord
+---@return map_block
+function dfhack.maps.getTileBlock(coords) end
+
+---@param coords coord
+---@return map_block
+function dfhack.maps.ensureTileBlock(coords) end
+
+---@param coords coord
+---@return tiletype
+function dfhack.maps.getTileType(coords) end
+
+---TODO
+function dfhack.maps.getTileFlags(coords) end
+
+---@param region_coord2d coord2d
+---@return region_map_entry
+function dfhack.maps.getRegionBiome(region_coord2d) end
+
+---TODO
+function dfhack.maps.getBiomeType(region_coord2d) end
+
+---@param block map_block
+---@param flow? boolean
+---@param temperature? boolean
+function dfhack.maps.enableBlockUpdates(block, flow, temperature) end
+
+---@param pos coord
+---@param type flow_type
+---@param mat_type integer
+---@param mat_index integer
+---@param dimension integer
+function dfhack.maps.spawnFlow(pos, type, mat_type, mat_index, dimension) end
+
+---@param index integer
+---@return feature_init
+function dfhack.maps.getGlobalInitFeature(index) end
+
+---@param region_coord2d coord2d
+---@param index integer
+---@return feature_init
+function dfhack.maps.getLocalInitFeature(region_coord2d, index) end
+
+---TODO
+---@param coords coord
+---@return unknown
+function dfhack.maps.getTileBiomeRgn(coords) end
+
+---@param pos coord
+---@return plant
+function dfhack.maps.getPlantAtTile(pos) end
+
+---@param pos1 coord
+---@param pos2 coord
+---@return boolean
+function dfhack.maps.canWalkBetween(pos1, pos2) end
+
+---TODO
+function dfhack.maps.hasTileAssignment(tilemask) end
+
+---TODO
+function dfhack.maps.getTileAssignment(tilemask, x, y) end
+
+---TODO
+function dfhack.maps.setTileAssignment(tilemask, x, y, enable) end
+
+---TODO
+function dfhack.maps.resetTileAssignment(tilemask, enable) end
 
 dfhack.burrows = {}
 
