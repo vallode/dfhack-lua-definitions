@@ -77,205 +77,205 @@ df.game_type = {
 }
 
 ---@type map_renderer
-df.global.map_renderer = {}
+df.global.map_renderer = nil
 
 ---@type d_init
-df.global.d_init = {}
+df.global.d_init = nil
 
 ---@type enabler
-df.global.enabler = {}
+df.global.enabler = nil
 
 ---@type graphic
-df.global.gps = {}
+df.global.gps = nil
 
 ---@type interfacest
-df.global.gview = {}
+df.global.gview = nil
 
 ---@type init
-df.global.init = {}
+df.global.init = nil
 
 ---@type texture_handlerst
-df.global.texture = {}
+df.global.texture = nil
 
 ---@type plotinfost
-df.global.plotinfo = {}
+df.global.plotinfo = nil
 
 ---@type adventurest
-df.global.adventure = {}
+df.global.adventure = nil
 
 ---@type buildreq
-df.global.buildreq = {}
+df.global.buildreq = nil
 
 ---@type ui_look_list
-df.global.ui_look_list = {}
+df.global.ui_look_list = nil
 
 ---@type gamest
-df.global.game = {}
+df.global.game = nil
 
 ---@type world
-df.global.world = {}
+df.global.world = nil
 
----@type int32_t
-df.global.basic_seed = {}
+---@type integer
+df.global.basic_seed = nil
 
----@type int32_t
-df.global.activity_next_id = {}
+---@type integer
+df.global.activity_next_id = nil
 
----@type int32_t
-df.global.agreement_next_id = {}
+---@type integer
+df.global.agreement_next_id = nil
 
----@type int32_t
-df.global.army_controller_next_id = {}
+---@type integer
+df.global.army_controller_next_id = nil
 
----@type int32_t
-df.global.army_next_id = {}
+---@type integer
+df.global.army_next_id = nil
 
----@type int32_t
-df.global.army_tracking_info_next_id = {}
+---@type integer
+df.global.army_tracking_info_next_id = nil
 
----@type int32_t
-df.global.art_image_chunk_next_id = {}
+---@type integer
+df.global.art_image_chunk_next_id = nil
 
----@type int32_t
-df.global.artifact_next_id = {}
+---@type integer
+df.global.artifact_next_id = nil
 
----@type int32_t
-df.global.belief_system_next_id = {}
+---@type integer
+df.global.belief_system_next_id = nil
 
----@type int32_t
-df.global.building_next_id = {}
+---@type integer
+df.global.building_next_id = nil
 
----@type int32_t
-df.global.crime_next_id = {}
+---@type integer
+df.global.crime_next_id = nil
 
----@type int32_t
-df.global.cultural_identity_next_id = {}
+---@type integer
+df.global.cultural_identity_next_id = nil
 
----@type int32_t
-df.global.dance_form_next_id = {}
+---@type integer
+df.global.dance_form_next_id = nil
 
----@type int32_t
-df.global.divination_set_next_id = {}
+---@type integer
+df.global.divination_set_next_id = nil
 
----@type int32_t
-df.global.entity_next_id = {}
+---@type integer
+df.global.entity_next_id = nil
 
----@type int32_t
-df.global.flow_guide_next_id = {}
+---@type integer
+df.global.flow_guide_next_id = nil
 
----@type int32_t
-df.global.formation_next_id = {}
+---@type integer
+df.global.formation_next_id = nil
 
----@type int32_t
-df.global.hist_event_collection_next_id = {}
+---@type integer
+df.global.hist_event_collection_next_id = nil
 
----@type int32_t
-df.global.hist_event_next_id = {}
+---@type integer
+df.global.hist_event_next_id = nil
 
----@type int32_t
-df.global.hist_figure_next_id = {}
+---@type integer
+df.global.hist_figure_next_id = nil
 
----@type int32_t
-df.global.identity_next_id = {}
+---@type integer
+df.global.identity_next_id = nil
 
----@type int32_t
-df.global.image_set_next_id = {}
+---@type integer
+df.global.image_set_next_id = nil
 
----@type int32_t
-df.global.incident_next_id = {}
+---@type integer
+df.global.incident_next_id = nil
 
----@type int32_t
-df.global.interaction_instance_next_id = {}
+---@type integer
+df.global.interaction_instance_next_id = nil
 
----@type int32_t
-df.global.item_next_id = {}
+---@type integer
+df.global.item_next_id = nil
 
----@type int32_t
-df.global.job_next_id = {}
+---@type integer
+df.global.job_next_id = nil
 
----@type int32_t
-df.global.machine_next_id = {}
+---@type integer
+df.global.machine_next_id = nil
 
----@type int32_t
-df.global.musical_form_next_id = {}
+---@type integer
+df.global.musical_form_next_id = nil
 
----@type int32_t
-df.global.nemesis_next_id = {}
+---@type integer
+df.global.nemesis_next_id = nil
 
----@type int32_t
-df.global.occupation_next_id = {}
+---@type integer
+df.global.occupation_next_id = nil
 
----@type int32_t
-df.global.poetic_form_next_id = {}
+---@type integer
+df.global.poetic_form_next_id = nil
 
----@type int32_t
-df.global.proj_next_id = {}
+---@type integer
+df.global.proj_next_id = nil
 
----@type int32_t
-df.global.rhythm_next_id = {}
+---@type integer
+df.global.rhythm_next_id = nil
 
----@type int32_t
-df.global.scale_next_id = {}
+---@type integer
+df.global.scale_next_id = nil
 
----@type int32_t
-df.global.schedule_next_id = {}
+---@type integer
+df.global.schedule_next_id = nil
 
----@type int32_t
-df.global.soul_next_id = {}
+---@type integer
+df.global.soul_next_id = nil
 
----@type int32_t
-df.global.squad_next_id = {}
+---@type integer
+df.global.squad_next_id = nil
 
----@type int32_t
-df.global.task_next_id = {}
+---@type integer
+df.global.task_next_id = nil
 
----@type int32_t
-df.global.unit_chunk_next_id = {}
+---@type integer
+df.global.unit_chunk_next_id = nil
 
----@type int32_t
-df.global.unit_next_id = {}
+---@type integer
+df.global.unit_next_id = nil
 
----@type int32_t
-df.global.vehicle_next_id = {}
+---@type integer
+df.global.vehicle_next_id = nil
 
----@type int32_t
-df.global.written_content_next_id = {}
+---@type integer
+df.global.written_content_next_id = nil
 
----@type int32_t
-df.global.cur_year = {}
+---@type integer
+df.global.cur_year = nil
 
----@type int32_t
-df.global.cur_year_tick = {}
+---@type integer
+df.global.cur_year_tick = nil
 
----@type int32_t
-df.global.cur_year_tick_advmode = {}
+---@type integer
+df.global.cur_year_tick_advmode = nil
 
----@type int32_t
-df.global.cur_season_tick = {}
+---@type integer
+df.global.cur_season_tick = nil
 
----@type bool
-df.global.pause_state = {}
+---@type boolean
+df.global.pause_state = nil
 
----@type bool
-df.global.process_dig = {}
+---@type boolean
+df.global.process_dig = nil
 
----@type bool
-df.global.process_jobs = {}
+---@type boolean
+df.global.process_jobs = nil
 
----@type bool
-df.global.ui_building_in_assign = {}
+---@type boolean
+df.global.ui_building_in_assign = nil
 
----@type bool
-df.global.ui_building_in_resize = {}
+---@type boolean
+df.global.ui_building_in_resize = nil
 
----@type int16_t
-df.global.ui_building_resize_radius = {}
+---@type integer
+df.global.ui_building_resize_radius = nil
 
 ---@type ui_unit_view_mode
-df.global.ui_unit_view_mode = {}
+df.global.ui_unit_view_mode = nil
 
----@type bool
-df.global.ui_workshop_in_add = {}
+---@type boolean
+df.global.ui_workshop_in_add = nil
 
 ---@enum lever_target_type
 df.lever_target_type = {
@@ -299,177 +299,177 @@ df.lever_target_type = {
   GrateWall = 119,
 }
 
----@type int32_t
-df.global.window_x = {}
+---@type integer
+df.global.window_x = nil
 
----@type int32_t
-df.global.window_y = {}
+---@type integer
+df.global.window_y = nil
 
----@type int32_t
-df.global.window_z = {}
+---@type integer
+df.global.window_z = nil
 
----@type bool
-df.global.debug_nopause = {}
+---@type boolean
+df.global.debug_nopause = nil
 
----@type bool
-df.global.debug_nomoods = {}
+---@type boolean
+df.global.debug_nomoods = nil
 
----@type bool
-df.global.debug_combat = {}
+---@type boolean
+df.global.debug_combat = nil
 
----@type bool
-df.global.debug_wildlife = {}
+---@type boolean
+df.global.debug_wildlife = nil
 
----@type bool
-df.global.debug_nodrink = {}
+---@type boolean
+df.global.debug_nodrink = nil
 
----@type bool
-df.global.debug_noeat = {}
+---@type boolean
+df.global.debug_noeat = nil
 
----@type bool
-df.global.debug_nosleep = {}
+---@type boolean
+df.global.debug_nosleep = nil
 
----@type bool
-df.global.debug_showambush = {}
+---@type boolean
+df.global.debug_showambush = nil
 
----@type bool
-df.global.debug_fastmining = {}
+---@type boolean
+df.global.debug_fastmining = nil
 
----@type bool
-df.global.debug_noberserk = {}
+---@type boolean
+df.global.debug_noberserk = nil
 
----@type bool
-df.global.debug_turbospeed = {}
+---@type boolean
+df.global.debug_turbospeed = nil
 
----@type bool
-df.global.save_on_exit = {}
+---@type boolean
+df.global.save_on_exit = nil
 
----@type uint8_t
-df.global.standing_orders_gather_minerals = {}
+---@type integer
+df.global.standing_orders_gather_minerals = nil
 
----@type uint8_t
-df.global.standing_orders_gather_wood = {}
+---@type integer
+df.global.standing_orders_gather_wood = nil
 
----@type uint8_t
-df.global.standing_orders_gather_food = {}
+---@type integer
+df.global.standing_orders_gather_food = nil
 
----@type uint8_t
-df.global.standing_orders_gather_bodies = {}
+---@type integer
+df.global.standing_orders_gather_bodies = nil
 
----@type uint8_t
-df.global.standing_orders_gather_animals = {}
+---@type integer
+df.global.standing_orders_gather_animals = nil
 
----@type uint8_t
-df.global.standing_orders_gather_furniture = {}
+---@type integer
+df.global.standing_orders_gather_furniture = nil
 
----@type uint8_t
-df.global.standing_orders_farmer_harvest = {}
+---@type integer
+df.global.standing_orders_farmer_harvest = nil
 
----@type uint8_t
-df.global.standing_orders_job_cancel_announce = {}
+---@type integer
+df.global.standing_orders_job_cancel_announce = nil
 
----@type uint8_t
-df.global.standing_orders_mix_food = {}
+---@type integer
+df.global.standing_orders_mix_food = nil
 
----@type uint8_t
-df.global.standing_orders_gather_refuse = {}
+---@type integer
+df.global.standing_orders_gather_refuse = nil
 
----@type uint8_t
-df.global.standing_orders_gather_refuse_outside = {}
+---@type integer
+df.global.standing_orders_gather_refuse_outside = nil
 
----@type uint8_t
-df.global.standing_orders_gather_vermin_remains = {}
+---@type integer
+df.global.standing_orders_gather_vermin_remains = nil
 
----@type uint8_t
-df.global.standing_orders_dump_corpses = {}
+---@type integer
+df.global.standing_orders_dump_corpses = nil
 
----@type uint8_t
-df.global.standing_orders_dump_skulls = {}
+---@type integer
+df.global.standing_orders_dump_skulls = nil
 
----@type uint8_t
-df.global.standing_orders_dump_skins = {}
+---@type integer
+df.global.standing_orders_dump_skins = nil
 
----@type uint8_t
-df.global.standing_orders_dump_bones = {}
+---@type integer
+df.global.standing_orders_dump_bones = nil
 
----@type uint8_t
-df.global.standing_orders_dump_hair = {}
+---@type integer
+df.global.standing_orders_dump_hair = nil
 
----@type uint8_t
-df.global.standing_orders_dump_shells = {}
+---@type integer
+df.global.standing_orders_dump_shells = nil
 
----@type uint8_t
-df.global.standing_orders_dump_other = {}
+---@type integer
+df.global.standing_orders_dump_other = nil
 
----@type uint8_t
-df.global.standing_orders_forbid_used_ammo = {}
+---@type integer
+df.global.standing_orders_forbid_used_ammo = nil
 
----@type uint8_t
-df.global.standing_orders_forbid_other_dead_items = {}
+---@type integer
+df.global.standing_orders_forbid_other_dead_items = nil
 
----@type uint8_t
-df.global.standing_orders_forbid_own_dead = {}
+---@type integer
+df.global.standing_orders_forbid_own_dead = nil
 
----@type uint8_t
-df.global.standing_orders_forbid_other_nohunt = {}
+---@type integer
+df.global.standing_orders_forbid_other_nohunt = nil
 
----@type uint8_t
-df.global.standing_orders_forbid_own_dead_items = {}
+---@type integer
+df.global.standing_orders_forbid_own_dead_items = nil
 
----@type uint8_t
-df.global.standing_orders_auto_loom = {}
+---@type integer
+df.global.standing_orders_auto_loom = nil
 
----@type uint8_t
-df.global.standing_orders_auto_collect_webs = {}
+---@type integer
+df.global.standing_orders_auto_collect_webs = nil
 
----@type uint8_t
-df.global.standing_orders_auto_slaughter = {}
+---@type integer
+df.global.standing_orders_auto_slaughter = nil
 
----@type uint8_t
-df.global.standing_orders_auto_butcher = {}
+---@type integer
+df.global.standing_orders_auto_butcher = nil
 
----@type uint8_t
-df.global.standing_orders_auto_tan = {}
+---@type integer
+df.global.standing_orders_auto_tan = nil
 
----@type uint8_t
-df.global.standing_orders_auto_fishery = {}
+---@type integer
+df.global.standing_orders_auto_fishery = nil
 
----@type uint8_t
-df.global.standing_orders_auto_kitchen = {}
+---@type integer
+df.global.standing_orders_auto_kitchen = nil
 
----@type uint8_t
-df.global.standing_orders_auto_kiln = {}
+---@type integer
+df.global.standing_orders_auto_kiln = nil
 
----@type uint8_t
-df.global.standing_orders_auto_smelter = {}
+---@type integer
+df.global.standing_orders_auto_smelter = nil
 
----@type uint8_t
-df.global.standing_orders_auto_other = {}
+---@type integer
+df.global.standing_orders_auto_other = nil
 
----@type uint8_t
-df.global.standing_orders_use_dyed_cloth = {}
+---@type integer
+df.global.standing_orders_use_dyed_cloth = nil
 
----@type uint8_t
-df.global.standing_orders_zoneonly_drink = {}
+---@type integer
+df.global.standing_orders_zoneonly_drink = nil
 
----@type uint8_t
-df.global.standing_orders_zoneonly_fish = {}
+---@type integer
+df.global.standing_orders_zoneonly_fish = nil
 
----@type int16_t
-df.global.cur_snow_counter = {}
+---@type integer
+df.global.cur_snow_counter = nil
 
----@type int16_t
-df.global.cur_rain_counter = {}
+---@type integer
+df.global.cur_rain_counter = nil
 
----@type int16_t
-df.global.weathertimer = {}
+---@type integer
+df.global.weathertimer = nil
 
----@type bool
-df.global.handleannounce = {}
+---@type boolean
+df.global.handleannounce = nil
 
----@type bool
-df.global.preserveannounce = {}
+---@type boolean
+df.global.preserveannounce = nil
 
----@type bool
-df.global.updatelightstate = {}
+---@type boolean
+df.global.updatelightstate = nil
 

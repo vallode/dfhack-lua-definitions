@@ -117,10 +117,14 @@ def getStructAnnotation(struct)
 end
 
 def getGlobalObject(object)
-  type = object['type-name'] || object['pointer-type'] || "table"
+  type = getType(object["type-name"])
+
+  if type == "any"
+    type = object['type-name'] || object['pointer-type'] || "table"
+  end
 
   annotation = "---@type #{type}\n"
-  annotation << "df.global.#{object['name']} = {}\n\n"
+  annotation << "df.global.#{object['name']} = nil\n\n"
 end
 
 $bitfield_type = <<-EOF
