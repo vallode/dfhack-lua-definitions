@@ -17,3 +17,8 @@ here be dragons.
     ]
   }
   ```
+
+## Development
+
+- Add `---@meta` file information corresponding to the DFHack library.
+- Improve and re-run `generate-definitions` as needed.
