@@ -48,10 +48,10 @@ df.dfhack_material_category = {}
 ---@field special boolean
 ---@field bringing boolean
 ---@field item_lost boolean
----@field noise boolean
+---@field noise number
 ---@field by_manager boolean
 ---@field store_item boolean
----@field quality boolean
+---@field quality number
 ---@field specific_dropoff boolean
 ---@field unk boolean
 ---@field on_break boolean

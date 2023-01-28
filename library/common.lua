@@ -607,7 +607,8 @@ function dfhack.maps.ensureTileBlock(coords) end
 ---@return tiletype
 function dfhack.maps.getTileType(coords) end
 
----TODO
+---@param coords coord
+---@return tile_designation
 function dfhack.maps.getTileFlags(coords) end
 
 ---@param region_coord2d coord2d
@@ -746,7 +747,7 @@ function dfhack.screen.fillRect(pen, x1, y1, x2, y2, map) end
 ---@param pagename string
 ---@param x integer
 ---@param y integer
----@return boolean
+---@return number
 function dfhack.screen.findGraphicsTile(pagename, x, y) end
 
 ---@param screen viewscreen

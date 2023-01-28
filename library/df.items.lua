@@ -198,7 +198,7 @@ df.slab_engraving_type = {
 ---@field has_splint boolean
 ---@field has_bandage boolean
 ---@field has_plaster_cast boolean
----@field grime boolean
+---@field grime number
 ---@field severed_or_jammed boolean
 ---@field under_shell boolean
 ---@field is_shell boolean

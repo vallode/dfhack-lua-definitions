@@ -38,8 +38,8 @@ df.curses_color = {
 }
 
 ---@class cmv_attribute
----@field fg boolean
----@field bg boolean
+---@field fg number
+---@field bg number
 ---@field bright boolean
 df.cmv_attribute = {}
 

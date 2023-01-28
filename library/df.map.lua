@@ -48,20 +48,20 @@ df.tile_liquid = {
 }
 
 ---@class tile_designation
----@field flow_size boolean
+---@field flow_size number
 ---@field pile boolean
----@field dig boolean
----@field smooth boolean
+---@field dig number
+---@field smooth number
 ---@field hidden boolean
----@field geolayer_index boolean
+---@field geolayer_index number
 ---@field light boolean
 ---@field subterranean boolean
 ---@field outside boolean
----@field biome boolean
+---@field biome number
 ---@field liquid_type boolean
 ---@field water_table boolean
 ---@field rained boolean
----@field traffic boolean
+---@field traffic number
 ---@field flow_forbid boolean
 ---@field liquid_static boolean
 ---@field feature_local boolean
@@ -83,13 +83,13 @@ df.tile_building_occ = {
 }
 
 ---@class tile_occupancy
----@field building boolean
+---@field building number
 ---@field unit boolean
 ---@field unit_grounded boolean
 ---@field item boolean
 ---@field edge_flow_in boolean
 ---@field moss boolean
----@field arrow_color boolean
+---@field arrow_color number
 ---@field arrow_variant boolean
 ---@field unk13_noncitizen_unit boolean
 ---@field monster_lair boolean
@@ -147,10 +147,10 @@ df.tile_liquid_flow_dir = {
 }
 
 ---@class tile_liquid_flow
----@field temp_flow_timer boolean
----@field unk_1 boolean
----@field perm_flow_dir boolean
----@field unk_2 boolean
+---@field temp_flow_timer number
+---@field unk_1 number
+---@field perm_flow_dir number
+---@field unk_2 number
 df.tile_liquid_flow = {}
 
 ---@class tile_bitmask

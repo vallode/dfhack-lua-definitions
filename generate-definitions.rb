@@ -134,7 +134,7 @@ $bitfield_type = <<-EOF
 EOF
 
 $flag_bit = <<-EOF
----@field %{name} boolean
+---@field %{name} %{type}
 EOF
 
 def getBitfieldFields (bitfield)
@@ -142,7 +142,7 @@ def getBitfieldFields (bitfield)
 
   for child in bitfield.children
     if child.name == "flag-bit"
-      fields.push($flag_bit % {name: child["name"] || "unk"})
+      fields.push($flag_bit % {name: child["name"] || "unk", type: child["count"] && "number" || "boolean"})
     end
   end
 
