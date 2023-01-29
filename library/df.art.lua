@@ -743,8 +743,8 @@ df.dance_form_move_modifier = {
 }
 
 ---@class dance_form_move_location
----@field unk boolean
----@field unk boolean
+---@field unk_0 boolean
+---@field unk_1 boolean
 ---@field MirroredByGroupMembers boolean
 ---@field InRetrogradeByGroupMembers boolean
 ---@field InSuccessionByGroupMembers boolean

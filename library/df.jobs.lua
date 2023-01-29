@@ -53,9 +53,9 @@ df.dfhack_material_category = {}
 ---@field store_item boolean
 ---@field quality number
 ---@field specific_dropoff boolean
----@field unk boolean
+---@field unk_12 boolean
 ---@field on_break boolean
----@field unk boolean
+---@field unk_14 boolean
 ---@field do_now boolean
 df.job_flags = {}
 
@@ -165,7 +165,7 @@ df.job_item_flags1 = {}
 ---@field horn boolean
 ---@field pearl boolean
 ---@field plaster_containing boolean
----@field unk boolean
+---@field unk_23 boolean
 ---@field soap boolean
 ---@field body_part boolean
 ---@field ivory_tooth boolean
@@ -187,7 +187,7 @@ df.job_item_flags2 = {}
 ---@field food_storage boolean
 ---@field metal boolean
 ---@field sand boolean
----@field unk boolean
+---@field unk_10 boolean
 ---@field written_on boolean
 ---@field edged boolean
 df.job_item_flags3 = {}

@@ -800,7 +800,6 @@ df.history_event_flags = {
 ---@class merc_role_type
 ---@field attacker_scout boolean
 ---@field defender_scout boolean
----regular if bit not set
 df.merc_role_type = {}
 
 ---@class history_event

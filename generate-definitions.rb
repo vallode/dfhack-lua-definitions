@@ -127,26 +127,18 @@ def getGlobalObject(object)
   annotation << "df.global.#{object['name']} = nil\n\n"
 end
 
-$bitfield_type = <<-EOF
----@class %{name}
-%{fields}%{comment}df.%{name} = {}
+def getBitfieldAnnotation(bitfield)
+  annotation = "---@class #{bitfield["type-name"]}\n"
 
-EOF
-
-$flag_bit = <<-EOF
----@field %{name} %{type}
-EOF
-
-def getBitfieldFields (bitfield)
-  fields = []
-
+  index = 0
   for child in bitfield.children
     if child.name == "flag-bit"
-      fields.push($flag_bit % {name: child["name"] || "unk", type: child["count"] && "number" || "boolean"})
+      annotation << "---@field #{child["name"] || "unk_#{index}"} #{child["count"] && "number" || "boolean"}\n"
+      index += 1
     end
   end
 
-  return fields.join("")
+  annotation << "df.#{bitfield["type-name"]} = {}\n\n"
 end
 
 Dir.glob(ARGV[0]).each do |xml|
@@ -158,8 +150,7 @@ Dir.glob(ARGV[0]).each do |xml|
 
       for value in document.xpath("/data-definition/*") do
         if value.name == "bitfield-type"
-          p value["type-name"]
-          output.write($bitfield_type % {name: value["type-name"], comment: value["comment"] && "---#{value['comment']}\n" || "", fields: getBitfieldFields(value)})
+          output.write(getBitfieldAnnotation(value))
         end
 
         if value.name == "enum-type"

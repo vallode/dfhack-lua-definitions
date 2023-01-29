@@ -557,7 +557,6 @@ df.entity_site_link_flags = {}
 ---@field unk_2048 boolean
 ---@field unk_4096 boolean
 ---@field unk_8192 boolean
----The meaning of the bits are highly uncertain, and the bits are named with their values as if part of an integer to match research made against an integer field
 df.entity_site_link_status_flags = {}
 
 ---@class entity_site_link

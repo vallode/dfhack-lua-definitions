@@ -40,7 +40,7 @@ df.item_flags = {}
 ---@field unk1 boolean
 ---@field grown boolean
 ---@field unk_book boolean
----@field unk boolean
+---@field unk_4 boolean
 df.item_flags2 = {}
 
 ---@enum item_magicness_type

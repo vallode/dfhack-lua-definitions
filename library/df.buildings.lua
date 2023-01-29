@@ -64,7 +64,7 @@ df.building_type = {
 ---@field exists boolean
 ---@field site_blocked boolean
 ---@field room_collision boolean
----@field unk boolean
+---@field unk_3 boolean
 ---@field almost_deleted boolean
 ---@field in_update boolean
 ---@field from_worldgen boolean

@@ -98,7 +98,7 @@ df.creature_interaction_effect_flags = {}
 ---@field BLOODSUCKER boolean
 ---@field NO_CONNECTIONS_FOR_MOVEMENT boolean
 ---@field SUPERNATURAL boolean
----@field unk boolean
+---@field unk_31 boolean
 df.cie_add_tag_mask1 = {}
 
 ---@class cie_add_tag_mask2
@@ -378,7 +378,7 @@ df.creature_interaction_effect_target_mode = {
 ---@field SYN_INJECTED boolean
 ---@field SYN_CONTACT boolean
 ---@field SYN_INHALED boolean
----@field unk boolean
+---@field unk_3 boolean
 ---@field SYN_INGESTED boolean
 ---@field SYN_NO_HOSPITAL boolean
 df.syndrome_flags = {}

@@ -116,7 +116,7 @@ df.tile_occupancy = {}
 ---@field repath_on_melt boolean
 ---@field has_aquifer boolean
 ---@field check_aquifer boolean
----@field unk boolean
+---@field unk_8 boolean
 ---@field subterranean_water boolean
 df.block_flags = {}
 

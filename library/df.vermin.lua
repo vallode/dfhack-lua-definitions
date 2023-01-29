@@ -1,11 +1,11 @@
 ---@meta
 
 ---@class vermin_flags
----@field unk boolean
+---@field unk_0 boolean
 ---@field is_colony boolean
----@field unk boolean
+---@field unk_2 boolean
 ---@field is_roaming_colony boolean
----@field unk boolean
+---@field unk_4 boolean
 df.vermin_flags = {}
 
 ---@enum vermin_category
