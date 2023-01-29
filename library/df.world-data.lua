@@ -2,7 +2,7 @@
 
 ---@class world_site_unk130
 ---@field index integer
----@field unk_4 any
+---@field unk_4 any[]
 
 ---@enum world_population_type
 df.world_population_type = {
@@ -61,7 +61,6 @@ df.world_population_type = {
 
 ---@class world_landmass
 ---@field name language_name
----@field describe any
 ---@field index integer
 ---@field area integer
 ---@field min_x integer
@@ -87,7 +86,6 @@ df.world_region_type = {
 
 ---@class world_region
 ---@field name language_name
----@field describe any
 ---@field index integer
 ---@field type world_region_type
 ---@field region_coords coord2d_path
@@ -97,7 +95,7 @@ df.world_region_type = {
 ---@field unk_a0 integer
 ---@field unk_a4 integer
 ---@field population world_population[]
----@field biome_tile_counts any
+---@field biome_tile_counts any[]
 ---@field tree_biomes any[]
 ---@field tree_tiles_1 any[]
 ---@field tree_tiles_2 any[]
@@ -124,7 +122,6 @@ df.world_region_type = {
 ---@class world_underground_region
 ---@field type any
 ---@field name language_name
----@field describe any
 ---@field index integer
 ---@field layer_depth integer
 ---@field layer_depth_p1a integer
@@ -143,7 +140,6 @@ df.world_region_type = {
 
 ---@class world_river
 ---@field name language_name
----@field describe any
 ---@field path coord2d_path
 ---@field flow integer[]
 ---@field exit_tile integer[]
@@ -167,7 +163,6 @@ df.geo_layer_type = {
 ---@class world_geo_layer
 ---@field type geo_layer_type
 ---@field mat_index integer
----@field describe any
 ---@field vein_mat integer[]
 ---@field vein_nested_in any[]
 ---@field vein_type any[]
@@ -178,7 +173,6 @@ df.geo_layer_type = {
 ---@class world_geo_biome
 ---@field unk1 integer
 ---@field index integer
----@field describe any
 ---@field layers world_geo_layer[]
 
 ---@class world_region_feature
@@ -187,52 +181,51 @@ df.geo_layer_type = {
 ---@field region_tile_idx integer
 ---@field min_z integer
 ---@field max_z integer
----@field unk_c coord2d
+---@field unk_c coord2d[]
 ---@field unk_28 integer
 ---@field seed integer
 ---@field unk_30 any
----@field unk_38 int16_t
+---@field unk_38 integer[]
 ---@field top_layer_idx layer_type
 
 ---@class world_region_details
----@field biome any
----@field elevation any
----@field seed any
----@field edges edges_compound
----@field describe any
+---@field biome any[]
+---@field elevation any[]
+---@field seed any[]
+---@field edges world_region_details_edges
 ---@field pos coord2d
 ---@field unk12e8 integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field rivers_vertical rivers_vertical_compound
----@field rivers_horizontal rivers_horizontal_compound
----@field other_features any
----@field features any
+---@field rivers_vertical world_region_details_rivers_vertical
+---@field rivers_horizontal world_region_details_rivers_horizontal
+---@field other_features any[]
+---@field features any[]
 ---@field lava_stone integer
----@field unk_12 int16_t
----@field elevation2 any
----@field undef13 int32_t
+---@field unk_12 integer[]
+---@field elevation2 any[]
+---@field undef13 integer[]
 
----@class edges_compound
----@field split_x any
----@field split_y any
----@field biome_corner any
----@field biome_x any
----@field biome_y any
+---@class world_region_details_edges
+---@field split_x any[]
+---@field split_y any[]
+---@field biome_corner any[]
+---@field biome_x any[]
+---@field biome_y any[]
 
----@class rivers_vertical_compound
----@field x_min any
----@field x_max any
----@field active any
----@field elevation any
+---@class world_region_details_rivers_vertical
+---@field x_min any[]
+---@field x_max any[]
+---@field active any[]
+---@field elevation any[]
 
----@class rivers_horizontal_compound
----@field y_min any
----@field y_max any
----@field active any
----@field elevation any
+---@class world_region_details_rivers_horizontal
+---@field y_min any[]
+---@field y_max any[]
+---@field active any[]
+---@field elevation any[]
 
 ---@enum region_map_entry_flags
 df.region_map_entry_flags = {
@@ -359,10 +352,10 @@ df.fog_type = {
 ---@field unk_v40_1 integer
 ---@field year integer
 ---@field year_tick integer
----@field picked_growths picked_growths_compound
----@field unk_v43 unk_v43_compound
+---@field picked_growths world_object_data_picked_growths
+---@field unk_v43 world_object_data_unk_v43
 
----@class picked_growths_compound
+---@class world_object_data_picked_growths
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer[]
@@ -370,7 +363,7 @@ df.fog_type = {
 ---@field density integer[]
 ---@field year integer[]
 
----@class unk_v43_compound
+---@class world_object_data_unk_v43
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer[]
@@ -389,7 +382,7 @@ df.mountain_peak_flags = {
 
 ---@class world_data
 ---@field name language_name
----@field unk1 int8_t
+---@field unk1 integer[]
 ---@field next_site_id integer
 ---@field next_site_unk130_id integer
 ---@field next_resource_allotment_id integer
@@ -408,7 +401,7 @@ df.mountain_peak_flags = {
 ---@field unk_8a integer
 ---@field unk_v34_2 integer
 ---@field unk_v34_3 integer
----@field unk_b4 unk_b4_compound
+---@field unk_b4 world_data_unk_b4
 ---@field region_details world_region_details[]
 ---@field adv_region_x integer
 ---@field adv_region_y integer
@@ -418,7 +411,7 @@ df.mountain_peak_flags = {
 ---@field unk_y1 integer
 ---@field unk_x2 integer
 ---@field unk_y2 integer
----@field constructions constructions_compound
+---@field constructions world_data_constructions
 ---@field entity_claims1 entity_claim_mask
 ---@field entity_claims2 entity_claim_mask
 ---@field sites world_site[]
@@ -475,9 +468,9 @@ df.mountain_peak_flags = {
 ---@field unk_26c integer
 ---@field unk_270 integer
 ---@field unk_274 any[]
----@field unk_482f8 unk_482f8_compound
+---@field unk_482f8 world_data_unk_482f8
 
----@class unk_b4_compound
+---@class world_data_unk_b4
 ---@field world_width2 integer
 ---@field world_height2 integer
 ---@field unk_1 uint32_t
@@ -485,15 +478,15 @@ df.mountain_peak_flags = {
 ---@field unk_3 uint32_t
 ---@field unk_4 uint8_t
 
----@class constructions_compound
+---@class world_data_constructions
 ---@field width integer
 ---@field height integer
 ---@field map any
 ---@field list world_construction[]
 ---@field next_id integer
 
----@class unk_482f8_compound
----@field unk_1 int32_t
+---@class world_data_unk_482f8
+---@field unk_1 integer[]
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer

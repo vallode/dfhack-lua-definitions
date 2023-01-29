@@ -10,13 +10,12 @@ df.reaction_flags = {
 ---@class reaction
 ---@field code string
 ---@field name string
----@field describe any
 ---@field flags any
 ---@field reagents reaction_reagent[]
 ---@field products reaction_product[]
 ---@field skill job_skill
 ---@field max_multiplier integer
----@field building building_compound
+---@field building reaction_building
 ---@field index integer
 ---@field source_hfid integer
 ---@field source_enid integer
@@ -28,8 +27,8 @@ df.reaction_flags = {
 ---@field unk_1 integer
 ---@field exp_gain integer
 
----@class building_compound
----@field str any
+---@class reaction_building
+---@field str any[]
 ---@field type any[]
 ---@field subtype integer[]
 ---@field custom integer[]
@@ -54,7 +53,6 @@ df.reaction_reagent_type = {
 
 ---@class reaction_reagent
 ---@field code string
----@field describe any
 ---@field quantity integer
 ---@field flags reaction_reagent_flags
 
@@ -80,8 +78,8 @@ df.reaction_reagent_flags = {}
 ---@field min_dimension integer
 ---@field contains integer[]
 ---@field has_tool_use tool_uses
----@field item_str stl-string
----@field material_str stl-string
+---@field item_str string[]
+---@field material_str string[]
 ---@field metal_ore_str string
 ---@field contains_str string[]
 
@@ -114,11 +112,11 @@ df.reaction_product_item_flags = {
 ---@field count integer
 ---@field product_dimension integer
 ---@field flags any
----@field get_material get_material_compound
----@field item_str stl-string
----@field material_str stl-string
+---@field get_material reaction_product_itemst_get_material
+---@field item_str string[]
+---@field material_str string[]
 
----@class get_material_compound
+---@class reaction_product_itemst_get_material
 ---@field reagent_code string
 ---@field product_code string
 
@@ -137,11 +135,11 @@ df.reaction_product_improvement_flags = {
 ---@field mat_index integer
 ---@field probability integer
 ---@field flags any
----@field get_material get_material_compound
----@field material_str stl-string
+---@field get_material reaction_product_item_improvementst_get_material
+---@field material_str string[]
 ---@field unk_v4201_2 string
 
----@class get_material_compound
+---@class reaction_product_item_improvementst_get_material
 ---@field reagent_code string
 ---@field product_code string
 

@@ -307,7 +307,6 @@ df.vague_relationship_type = {
 ---@field died_year integer
 ---@field died_seconds integer
 ---@field name language_name
----@field describe any
 ---@field civ_id integer
 ---@field population_id integer
 ---@field breed_id integer
@@ -347,7 +346,6 @@ df.identity_type = {
 ---@class identity
 ---@field id integer
 ---@field name language_name
----@field describe any
 ---@field race integer
 ---@field caste integer
 ---@field impersonated_hf integer
@@ -698,9 +696,9 @@ df.history_event_reason = {
 
 ---@class history_event_reason_info
 ---@field type history_event_reason
----@field data data_compound
+---@field data history_event_reason_info_data
 
----@class data_compound
+---@class history_event_reason_info_data
 ---@field glorify_hf integer
 ---@field sanctify_hf integer
 ---@field artifact_is_heirloom_of_family_hfid integer
@@ -708,9 +706,9 @@ df.history_event_reason = {
 
 ---@class history_event_circumstance_info
 ---@field type unit_thought_type
----@field data data_compound
+---@field data history_event_circumstance_info_data
 
----@class data_compound
+---@class history_event_circumstance_info_data
 ---@field Death integer
 ---@field Prayer integer
 ---@field DreamAbout integer
@@ -1285,9 +1283,9 @@ df.masterpiece_loss_type = {
 ---@field layer integer
 ---@field region_pos coord2d
 ---@field abuse_type any
----@field abuse_data abuse_data_compound
+---@field abuse_data history_event_body_abusedst_abuse_data
 
----@class abuse_data_compound
+---@class history_event_body_abusedst_abuse_data
 ---@field Impaled any
 ---@field Piled any
 ---@field Flayed any
@@ -2057,9 +2055,9 @@ df.history_event_collection_type = {
 ---@field attacker_civ integer[]
 ---@field defender_civ integer[]
 ---@field unk_1 integer[]
----@field unk unk_compound
+---@field unk history_event_collection_warst_unk
 
----@class unk_compound
+---@class history_event_collection_warst_unk
 ---@field unk_1 integer[]
 ---@field attacker_entity_leader integer[]
 ---@field unk_2 integer[]
@@ -2261,10 +2259,10 @@ df.era_type = {
 
 ---@class history_era
 ---@field year integer
----@field title title_compound
----@field details details_compound
+---@field title history_era_title
+---@field details history_era_details
 
----@class title_compound
+---@class history_era_title
 ---@field type era_type
 ---@field histfig_1 integer
 ---@field histfig_2 integer
@@ -2272,7 +2270,7 @@ df.era_type = {
 ---@field name string
 ---@field percent integer
 
----@class details_compound
+---@class history_era_details
 ---@field living_powers integer
 ---@field living_megabeasts integer
 ---@field living_semimegabeasts integer
@@ -2284,11 +2282,11 @@ df.era_type = {
 ---@field civilized_mundane integer
 
 ---@class relationship_event
----@field event int32_t
----@field relationship vague_relationship_type
----@field source_hf int32_t
----@field target_hf int32_t
----@field year int32_t
+---@field event integer[]
+---@field relationship vague_relationship_type[]
+---@field source_hf integer[]
+---@field target_hf integer[]
+---@field year integer[]
 ---@field next_element integer
 ---@field start_year integer
 
@@ -2305,7 +2303,7 @@ df.era_type = {
 ---@field relationship_events relationship_event[]
 ---@field relationship_event_supplements relationship_event_supplement[]
 ---@field figures historical_figure[]
----@field event_collections event_collections_compound
+---@field event_collections world_history_event_collections
 ---@field eras history_era[]
 ---@field discovered_art_image_id integer[]
 ---@field discovered_art_image_subid integer[]
@@ -2314,7 +2312,7 @@ df.era_type = {
 ---@field total_megabeasts integer
 ---@field total_semimegabeasts integer
 ---@field unk_14 any[]
----@field unk_v42_1 int16_t
+---@field unk_v42_1 integer[]
 ---@field intrigues intrigue[]
 ---@field live_megabeasts historical_figure[]
 ---@field live_semimegabeasts historical_figure[]
@@ -2322,7 +2320,7 @@ df.era_type = {
 ---@field unk_histfig_4 historical_figure[]
 ---@field unk_histfig_5 historical_figure[]
 ---@field unk_1 historical_figure[]
----@field unk_v40_1 any
+---@field unk_v40_1 any[]
 ---@field unk_histfig_6 historical_figure[]
 ---@field unk_histfig_7 historical_figure[]
 ---@field unk_histfig_8 historical_figure[]
@@ -2343,9 +2341,9 @@ df.era_type = {
 ---@field unk_12 integer
 ---@field active_mission mission_report
 
----@class event_collections_compound
+---@class world_history_event_collections
 ---@field all history_event_collection[]
----@field other any
+---@field other any[]
 
 ---@class intrigue
 ---@field event_id integer

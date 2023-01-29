@@ -62,11 +62,11 @@ df.interface_push_types = {
 ---@class world_dat_summary
 ---@field name language_name
 ---@field unk_1 string
----@field unk_2 int8_t
----@field last_id last_id_compound
----@field unk unk_compound
+---@field unk_2 integer[]
+---@field last_id world_dat_summary_last_id
+---@field unk world_dat_summary_unk
 
----@class last_id_compound
+---@class world_dat_summary_last_id
 ---@field unit integer
 ---@field soul integer
 ---@field ite integer
@@ -105,7 +105,7 @@ df.interface_push_types = {
 ---@field image_set integer
 ---@field divination_set integer
 
----@class unk_compound
+---@class world_dat_summary_unk
 ---@field unk_3 string
 ---@field timeline string
 
@@ -172,7 +172,7 @@ df.embark_finder_option = {
 ---@field site_created history_event
 ---@field unk_a4 integer
 ---@field unk_a8 integer
----@field finder finder_compound
+---@field finder viewscreen_choose_start_sitest_finder
 ---@field notes_order integer[]
 ---@field cur_note_name string[]
 ---@field unk_14c integer
@@ -183,12 +183,12 @@ df.embark_finder_option = {
 ---@field note_bg_color integer
 ---@field unk_15c integer
 
----@class finder_compound
+---@class viewscreen_choose_start_sitest_finder
 ---@field search_x integer
 ---@field search_y integer
 ---@field cursor integer
----@field options int32_t
----@field unmatched bool
+---@field options integer[]
+---@field unmatched boolean[]
 ---@field finder_state any
 ---@field unk_11e integer
 ---@field unk_120 integer
@@ -230,11 +230,11 @@ df.embark_finder_option = {
 ---@field messengers integer[]
 ---@field unk_23 integer
 ---@field unk_24 integer
----@field details details_compound
+---@field details mission_details
 ---@field type any
 ---@field unk_25 integer
 
----@class details_compound
+---@class mission_details
 ---@field raid any
 ---@field recovery any
 ---@field rescue any
@@ -259,12 +259,12 @@ df.embark_finder_option = {
 ---@field play_now boolean
 ---@field state any
 ---@field progress integer
----@field units_progress units_progress_compound
+---@field units_progress viewscreen_export_regionst_units_progress
 ---@field compressor file_compressorst
 ---@field folder_name string
 ---@field timeline_name string
 
----@class units_progress_compound
+---@class viewscreen_export_regionst_units_progress
 ---@field save_file_id integer[]
 ---@field save_file_member_idx integer[]
 ---@field units unit[]
@@ -374,7 +374,7 @@ df.embark_finder_option = {
 ---@field page_scroll integer
 
 ---@class loadgame_save_info
----@field next_ids int32_t
+---@field next_ids integer[]
 ---@field game_type game_type
 ---@field fort_name string
 ---@field world_name string
@@ -448,8 +448,8 @@ df.embark_finder_option = {
 ---@field partial_ocean_edge_min integer
 ---@field complete_ocean_edge_min integer
 ---@field volcano_min integer
----@field region_counts any
----@field river_mins int32_t
+---@field region_counts any[]
+---@field river_mins integer[]
 ---@field subregion_max integer
 ---@field cavern_layer_count integer
 ---@field cavern_layer_openness_min integer
@@ -484,7 +484,7 @@ df.embark_finder_option = {
 ---@field volcanism_ranges_1 integer
 ---@field volcanism_ranges_0 integer
 ---@field volcanism_ranges_2 integer
----@field ranges any
+---@field ranges any[]
 ---@field beast_end_year integer
 ---@field end_year integer
 ---@field beast_end_year_percent integer
@@ -497,14 +497,14 @@ df.embark_finder_option = {
 ---@field megabeast_cap integer
 ---@field semimegabeast_cap integer
 ---@field titan_number integer
----@field titan_attack_trigger int32_t
+---@field titan_attack_trigger integer[]
 ---@field demon_number integer
 ---@field night_troll_number integer
 ---@field bogeyman_number integer
 ---@field nightmare_number integer
 ---@field vampire_number integer
 ---@field werebeast_number integer
----@field werebeast_attack_trigger int32_t
+---@field werebeast_attack_trigger integer[]
 ---@field secret_number integer
 ---@field regional_interaction_number integer
 ---@field disturbance_interaction_number integer
@@ -523,12 +523,12 @@ df.embark_finder_option = {
 ---@field evil_sq_counts_1 integer
 ---@field good_sq_counts_2 integer
 ---@field evil_sq_counts_2 integer
----@field elevation_frequency int32_t
----@field rain_frequency int32_t
----@field drainage_frequency int32_t
----@field savagery_frequency int32_t
----@field temperature_frequency int32_t
----@field volcanism_frequency int32_t
+---@field elevation_frequency integer[]
+---@field rain_frequency integer[]
+---@field drainage_frequency integer[]
+---@field savagery_frequency integer[]
+---@field temperature_frequency integer[]
+---@field volcanism_frequency integer[]
 ---@field ps worldgen_parms_ps
 ---@field reveal_all_history integer
 ---@field cull_historical_figures integer
@@ -544,7 +544,7 @@ df.embark_finder_option = {
 ---@class worldgen_parms_ps
 ---@field width integer
 ---@field height integer
----@field data any
+---@field data any[]
 
 ---@class viewscreen_new_regionst
 ---@field worldgen_presets worldgen_parms[]
@@ -668,7 +668,7 @@ df.adv_background_option_type = {
 ---@field name language_name
 ---@field race integer
 ---@field caste integer
----@field skilllevel any
+---@field skilllevel any[]
 ---@field quick_entity_id integer
 ---@field entity_population_id integer
 ---@field breed_id integer
@@ -677,13 +677,13 @@ df.adv_background_option_type = {
 ---@field start_mil_type integer
 ---@field start_civ_type integer
 ---@field skill_picks_left integer
----@field phys_att_range_val any
----@field ment_att_range_val any
+---@field phys_att_range_val any[]
+---@field ment_att_range_val any[]
 ---@field difficulty any
 ---@field start_site_id integer
 ---@field background_start_squad_epp_id integer
 ---@field background_unit profession
----@field background_skill_bonus int32_t
+---@field background_skill_bonus integer[]
 ---@field worship_hfid integer
 ---@field worship_enid integer
 ---@field worship_strength integer
@@ -696,7 +696,7 @@ df.adv_background_option_type = {
 ---@field is_from_wilderpop_or_feature boolean
 ---@field flag integer
 ---@field sub_mode any
----@field visited_mode bool
+---@field visited_mode boolean[]
 ---@field selecting_atts boolean
 ---@field selected_att integer
 ---@field att_points integer
@@ -727,9 +727,9 @@ df.adv_background_option_type = {
 ---@field civ_values_text string[]
 ---@field doing_specific_personality boolean
 ---@field selected_specific_pers_item integer
----@field min_pers int16_t
----@field max_pers int16_t
----@field civ_value_level int32_t
+---@field min_pers integer[]
+---@field max_pers integer[]
+---@field civ_value_level integer[]
 ---@field eqpet_points integer
 ---@field s_item item_actual[]
 ---@field selected_i integer
@@ -745,7 +745,7 @@ df.adv_background_option_type = {
 ---@field pet startup_charactersheet_petst[]
 
 ---@class embark_item_choice
----@field list any
+---@field list any[]
 ---@field race integer[]
 ---@field caste integer[]
 ---@field profession any[]
@@ -773,10 +773,10 @@ df.adv_background_option_type = {
 ---@field unk_v43_2 any[]
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
----@field unk_v43_sub9 unk_v43_sub9_compound
----@field unk_v43_10 int32_t
+---@field unk_v43_sub9 embark_symbol_unk_v43_sub9
+---@field unk_v43_10 integer[]
 
----@class unk_v43_sub9_compound
+---@class embark_symbol_unk_v43_sub9
 ---@field unk_s1 integer
 ---@field unk_s2 integer
 ---@field unk_s3 integer
@@ -788,7 +788,7 @@ df.adv_background_option_type = {
 ---@class viewscreen_setupdwarfgamest
 ---@field title any
 ---@field dwarf_info setup_character_info[]
----@field embark_skills any
+---@field embark_skills any[]
 ---@field reclaim_professions profession[]
 ---@field preparing_map_timer integer
 ---@field preparing_map_timer_quick_start boolean
@@ -828,8 +828,8 @@ df.adv_background_option_type = {
 ---@field profile_name string
 ---@field saving_profile_warning integer
 ---@field etl embark_item_choice
----@field s_item any
----@field item_expander_on bool
+---@field s_item any[]
+---@field item_expander_on boolean[]
 ---@field scroll_position_item integer
 ---@field current_category entity_sell_category
 ---@field scroll_position_category integer
@@ -964,8 +964,8 @@ df.adv_background_option_type = {
 ---@field scroll_position_request_nem integer
 ---@field scrolling_request_nem boolean
 ---@field rumor_master any[]
----@field rumor_rpd rumor_rpd_compound
----@field rumor_rpd_indicator_data rumor_rpd_indicator_data_compound
+---@field rumor_rpd viewscreen_worldst_rumor_rpd
+---@field rumor_rpd_indicator_data viewscreen_worldst_rumor_rpd_indicator_data
 ---@field last_hover_rumor_x integer
 ---@field last_hover_rumor_y integer
 ---@field focused_on_last_hover_rumor boolean
@@ -1010,7 +1010,7 @@ df.adv_background_option_type = {
 ---@field artifact_rpa_holder historical_figure
 ---@field artifact_fac_holder historical_figure
 
----@class rumor_rpd_compound
+---@class viewscreen_worldst_rumor_rpd
 
----@class rumor_rpd_indicator_data_compound
+---@class viewscreen_worldst_rumor_rpd_indicator_data
 

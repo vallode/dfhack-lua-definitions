@@ -43,7 +43,7 @@ df.build_req_choice_type = {
 ---@field is_grouped integer
 ---@field errors string[]
 ---@field unk4 string[]
----@field tiles any
+---@field tiles any[]
 ---@field cur_walk_tag integer
 ---@field plate_info pressure_plate_info
 ---@field min_weight_races integer[]
@@ -690,21 +690,21 @@ df.main_designation_type = {
 }
 
 ---@class gamest
----@field main_interface main_interface_compound
----@field minimap minimap_compound
----@field command_line command_line_compound
----@field mod_manager mod_manager_compound
----@field hash_rng hash_rng_compound
----@field play_rng play_rng_compound
+---@field main_interface gamest_main_interface
+---@field minimap gamest_minimap
+---@field command_line gamest_command_line
+---@field mod_manager gamest_mod_manager
+---@field hash_rng gamest_hash_rng
+---@field play_rng gamest_play_rng
 ---@field start_tick_count integer
 ---@field autosave_cycle integer
 ---@field want_to_quit_to_title boolean
----@field flash_11_by_3 any
----@field flash_7_by_3 any
----@field flash_4_by_3 any
+---@field flash_11_by_3 any[]
+---@field flash_7_by_3 any[]
+---@field flash_4_by_3 any[]
 ---@field external_flag integer
 
----@class main_interface_compound
+---@class gamest_main_interface
 ---@field designation any
 ---@field building any
 ---@field construction any
@@ -785,7 +785,7 @@ df.main_designation_type = {
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x integer
 ---@field current_hover_bot_y integer
----@field hover_instruction any
+---@field hover_instruction any[]
 ---@field last_displayed_hover_inst integer
 ---@field last_displayed_hover_id1 integer
 ---@field last_displayed_hover_id2 integer
@@ -814,18 +814,18 @@ df.main_designation_type = {
 ---@field keyboard_last_track_s coord
 ---@field keyboard_last_track_g coord
 
----@class minimap_compound
----@field minimap any
+---@class gamest_minimap
+---@field minimap any[]
 ---@field update integer
 ---@field mustmake integer
 ---@field printed_z integer
----@field buffer_symbol any
----@field buffer_f any
----@field buffer_b any
----@field buffer_br any
+---@field buffer_symbol any[]
+---@field buffer_f any[]
+---@field buffer_b any[]
+---@field buffer_br any[]
 ---@field texpos integer
 
----@class command_line_compound
+---@class gamest_command_line
 ---@field original string
 ---@field arg_vect string[]
 ---@field gen_id any
@@ -834,7 +834,7 @@ df.main_designation_type = {
 ---@field world_param string
 ---@field use_param integer
 
----@class mod_manager_compound
+---@class gamest_mod_manager
 ---@field mod_header mod_headerst[]
 ---@field subscribed_file_id any
 ---@field doing_mod_upload boolean
@@ -844,14 +844,14 @@ df.main_designation_type = {
 ---@field CreateItemResult any
 ---@field SubmitItemUpdateResult any
 
----@class hash_rng_compound
+---@class gamest_hash_rng
 
----@class play_rng_compound
+---@class gamest_play_rng
 
 ---@class difficultyst
----@field enemy_pop_trigger int32_t
----@field enemy_prod_trigger int32_t
----@field enemy_trade_trigger int32_t
+---@field enemy_pop_trigger integer[]
+---@field enemy_prod_trigger integer[]
+---@field enemy_trade_trigger integer[]
 ---@field megabeast_interval integer
 ---@field forgotten_sens integer
 ---@field forgotten_irritate_min integer
@@ -861,8 +861,8 @@ df.main_designation_type = {
 ---@field wild_irritate_decay integer
 ---@field werebeast_interval integer
 ---@field vampire_fraction integer
----@field invasion_cap_regular int32_t
----@field invasion_cap_monsters int32_t
+---@field invasion_cap_regular integer[]
+---@field invasion_cap_monsters integer[]
 ---@field min_raids_before_siege integer
 ---@field min_raids_between_sieges integer
 ---@field siege_frequency integer
@@ -871,12 +871,12 @@ df.main_designation_type = {
 ---@field tree_fell_count_savage integer
 ---@field tree_fell_count integer
 ---@field flags any
----@field economy_pop_trigger int32_t
----@field economy_prod_trigger int32_t
----@field economy_trade_trigger int32_t
----@field land_holder_pop_trigger int32_t
----@field land_holder_prod_trigger int32_t
----@field land_holder_trade_trigger int32_t
+---@field economy_pop_trigger integer[]
+---@field economy_prod_trigger integer[]
+---@field economy_trade_trigger integer[]
+---@field land_holder_pop_trigger integer[]
+---@field land_holder_prod_trigger integer[]
+---@field land_holder_trade_trigger integer[]
 ---@field temple_value integer
 ---@field temple_complex_value integer
 ---@field priesthood_unit_count integer

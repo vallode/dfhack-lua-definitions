@@ -133,9 +133,9 @@ df.creature_interaction_effect_target_mode = {
 ---@field syn_index integer
 ---@field moon_phase_min integer
 ---@field moon_phase_max integer
----@field counter_trigger counter_trigger_compound
+---@field counter_trigger creature_interaction_effect_counter_trigger
 
----@class counter_trigger_compound
+---@class creature_interaction_effect_counter_trigger
 ---@field counter any[]
 ---@field minval integer[]
 ---@field maxval integer[]
@@ -239,18 +239,18 @@ df.creature_interaction_effect_target_mode = {
 ---@field color integer
 
 ---@class creature_interaction_effect_flash_symbolst
----@field sym_color uint8_t
+---@field sym_color integer[]
 ---@field period integer
 ---@field time integer
 ---@field unk_78 integer
 
 ---@class creature_interaction_effect_phys_att_changest
----@field phys_att_perc int32_t
----@field phys_att_add int32_t
+---@field phys_att_perc integer[]
+---@field phys_att_add integer[]
 
 ---@class creature_interaction_effect_ment_att_changest
----@field ment_att_perc int32_t
----@field ment_att_add int32_t
+---@field ment_att_perc integer[]
+---@field ment_att_add integer[]
 
 ---@class creature_interaction_effect_add_simple_flagst
 ---@field tags1 cie_add_tag_mask1
@@ -295,7 +295,7 @@ df.creature_interaction_effect_target_mode = {
 ---@field sev integer
 
 ---@class creature_interaction_effect_change_personalityst
----@field facets int16_t
+---@field facets integer[]
 
 ---@class creature_interaction_effect_erratic_behaviorst
 ---@field sev integer
@@ -385,7 +385,6 @@ df.syndrome_flags = {}
 
 ---@class syndrome
 ---@field syn_name string
----@field describe any
 ---@field ce creature_interaction_effect[]
 ---@field syn_affected_class string[]
 ---@field syn_affected_creature string[]
@@ -396,6 +395,6 @@ df.syndrome_flags = {}
 ---@field syn_class string[]
 ---@field syn_identifier string
 ---@field flags syndrome_flags
----@field syn_concentration_added int32_t
+---@field syn_concentration_added integer[]
 ---@field id integer
 

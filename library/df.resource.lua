@@ -57,20 +57,20 @@ df.resource_allotment_specifier_type = {
 ---@field mat_type integer
 ---@field unk_4 integer
 ---@field unk_v40_01 integer
----@field unk_5 int32_t
+---@field unk_5 integer[]
 
 ---@class resource_allotment_specifier_stonest
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field unk_4 integer
 ---@field unk_5 integer
----@field unk_6 int32_t
+---@field unk_6 integer[]
 
 ---@class resource_allotment_specifier_metalst
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field unk_4 integer
----@field unk_5 int32_t
+---@field unk_5 integer[]
 
 ---@class resource_allotment_specifier_woodst
 ---@field mat_type integer
@@ -272,7 +272,7 @@ df.resource_allotment_specifier_type = {
 
 ---@class resource_allotment_data
 ---@field index integer
----@field resource_allotments any
+---@field resource_allotments any[]
 ---@field unk1 integer
 ---@field unk2 integer
 ---@field unk3 integer

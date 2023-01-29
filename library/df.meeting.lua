@@ -6,7 +6,6 @@
 ---@field script_steps script_stepst[]
 ---@field script_vars script_varst[]
 ---@field code string
----@field describe any
 
 ---@class dipscript_popup
 ---@field meeting_holder unit
@@ -27,10 +26,10 @@
 ---@field subtype string
 
 ---@class script_step_conditionalst
----@field condition condition_compound
+---@field condition script_step_conditionalst_condition
 ---@field conditional_next_step_idx integer
 
----@class condition_compound
+---@class script_step_conditionalst_condition
 ---@field var1_type string
 ---@field var1_name string
 ---@field comparison string
@@ -240,7 +239,6 @@ df.activity_event_type = {
 ---@class activity_event
 ---@field event_id integer
 ---@field activity_id integer
----@field find-instance any
 ---@field parent_event_id integer
 ---@field flags any
 ---@field unk_v42_1 any[]
@@ -382,25 +380,25 @@ df.conversation_menu = {
 ---@field unk_6 any[]
 ---@field unk_7 integer[]
 ---@field unk_8 integer[]
----@field unk_b4 unk_b4_compound
+---@field unk_b4 activity_event_conversationst_unk_b4
 ---@field turns any[]
 ---@field floor_holder integer
 ---@field floor_holder_hfid integer
 ---@field pause integer
 ---@field flags2 any
----@field unk2 unk2_compound
+---@field unk2 activity_event_conversationst_unk2
 ---@field choices talk_choice[]
 ---@field unk3 conversation_menu
----@field unk4 int32_t
+---@field unk4 integer[]
 
----@class unk_b4_compound
+---@class activity_event_conversationst_unk_b4
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer[]
 ---@field unk_5 integer
 
----@class unk2_compound
+---@class activity_event_conversationst_unk2
 ---@field unk_1 incident[]
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -526,7 +524,7 @@ df.performance_participant_type = {
 ---@field unk_pos_2_z integer
 ---@field play_orders performance_play_orderst[]
 ---@field unk_11 integer
----@field unk_12 int8_t
+---@field unk_12 integer[]
 ---@field unk_13 coord
 ---@field unk_16 integer
 ---@field unk_17 integer
@@ -617,7 +615,7 @@ df.performance_participant_type = {
 ---@class activity_event_playst
 ---@field participants activity_event_participants
 ---@field unk_1 integer
----@field unk_2 int8_t
+---@field unk_2 integer[]
 ---@field unk_3 coord
 
 ---@class activity_event_make_believest
@@ -625,7 +623,7 @@ df.performance_participant_type = {
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 int8_t
+---@field unk_4 integer[]
 ---@field unk_5 coord
 
 ---@class activity_event_play_with_toyst
@@ -633,12 +631,12 @@ df.performance_participant_type = {
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk unk_compound
+---@field unk activity_event_play_with_toyst_unk
 ---@field unk_4 integer
 ---@field unk_5 pointer[]
 
----@class unk_compound
----@field unk_1 int8_t
+---@class activity_event_play_with_toyst_unk
+---@field unk_1 integer[]
 ---@field unk_2 coord
 
 ---@class activity_event_encounterst

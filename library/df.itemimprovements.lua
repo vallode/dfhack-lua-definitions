@@ -65,10 +65,10 @@ df.itemimprovement_specific_type = {
 
 ---@class itemimprovement_sewn_imagest
 ---@field image art_image_ref
----@field cloth cloth_compound
+---@field cloth itemimprovement_sewn_imagest_cloth
 ---@field dye dye_info
 
----@class cloth_compound
+---@class itemimprovement_sewn_imagest_cloth
 ---@field unit_id integer
 ---@field quality integer
 ---@field unk_1 integer

@@ -97,32 +97,32 @@ df.stockpile_group_set = {}
 
 ---@class stockpile_settings
 ---@field flags stockpile_group_set
----@field animals animals_compound
----@field food food_compound
----@field furniture furniture_compound
----@field refuse refuse_compound
----@field stone stone_compound
----@field ore ore_compound
----@field ammo ammo_compound
----@field coins coins_compound
----@field bars_blocks bars_blocks_compound
----@field gems gems_compound
----@field finished_goods finished_goods_compound
----@field leather leather_compound
----@field cloth cloth_compound
----@field wood wood_compound
----@field weapons weapons_compound
----@field armor armor_compound
----@field sheet sheet_compound
+---@field animals stockpile_settings_animals
+---@field food stockpile_settings_food
+---@field furniture stockpile_settings_furniture
+---@field refuse stockpile_settings_refuse
+---@field stone stockpile_settings_stone
+---@field ore stockpile_settings_ore
+---@field ammo stockpile_settings_ammo
+---@field coins stockpile_settings_coins
+---@field bars_blocks stockpile_settings_bars_blocks
+---@field gems stockpile_settings_gems
+---@field finished_goods stockpile_settings_finished_goods
+---@field leather stockpile_settings_leather
+---@field cloth stockpile_settings_cloth
+---@field wood stockpile_settings_wood
+---@field weapons stockpile_settings_weapons
+---@field armor stockpile_settings_armor
+---@field sheet stockpile_settings_sheet
 ---@field allow_organic boolean
 ---@field allow_inorganic boolean
 
----@class animals_compound
+---@class stockpile_settings_animals
 ---@field empty_cages boolean
 ---@field empty_traps boolean
 ---@field enabled boolean[]
 
----@class food_compound
+---@class stockpile_settings_food
 ---@field meat boolean[]
 ---@field fish boolean[]
 ---@field unprepared_fish boolean[]
@@ -144,14 +144,14 @@ df.stockpile_group_set = {}
 ---@field liquid_misc boolean[]
 ---@field prepared_meals boolean
 
----@class furniture_compound
+---@class stockpile_settings_furniture
 ---@field type boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
----@field quality_core bool
----@field quality_total bool
+---@field quality_core boolean[]
+---@field quality_total boolean[]
 
----@class refuse_compound
+---@class stockpile_settings_refuse
 ---@field type boolean[]
 ---@field corpses boolean[]
 ---@field body_parts boolean[]
@@ -164,45 +164,45 @@ df.stockpile_group_set = {}
 ---@field fresh_raw_hide boolean
 ---@field rotten_raw_hide boolean
 
----@class stone_compound
+---@class stockpile_settings_stone
 ---@field mats boolean[]
 
----@class ore_compound
+---@class stockpile_settings_ore
 ---@field mats boolean[]
 
----@class ammo_compound
+---@class stockpile_settings_ammo
 ---@field type boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
----@field quality_core bool
----@field quality_total bool
+---@field quality_core boolean[]
+---@field quality_total boolean[]
 
----@class coins_compound
+---@class stockpile_settings_coins
 ---@field mats boolean[]
 
----@class bars_blocks_compound
+---@class stockpile_settings_bars_blocks
 ---@field bars_other_mats boolean[]
 ---@field blocks_other_mats boolean[]
 ---@field bars_mats boolean[]
 ---@field blocks_mats boolean[]
 
----@class gems_compound
+---@class stockpile_settings_gems
 ---@field rough_other_mats boolean[]
 ---@field cut_other_mats boolean[]
 ---@field rough_mats boolean[]
 ---@field cut_mats boolean[]
 
----@class finished_goods_compound
+---@class stockpile_settings_finished_goods
 ---@field type boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
----@field quality_core bool
----@field quality_total bool
+---@field quality_core boolean[]
+---@field quality_total boolean[]
 
----@class leather_compound
+---@class stockpile_settings_leather
 ---@field mats boolean[]
 
----@class cloth_compound
+---@class stockpile_settings_cloth
 ---@field thread_silk boolean[]
 ---@field thread_plant boolean[]
 ---@field thread_yarn boolean[]
@@ -212,20 +212,20 @@ df.stockpile_group_set = {}
 ---@field cloth_yarn boolean[]
 ---@field cloth_metal boolean[]
 
----@class wood_compound
+---@class stockpile_settings_wood
 ---@field mats boolean[]
 
----@class weapons_compound
+---@class stockpile_settings_weapons
 ---@field weapon_type boolean[]
 ---@field trapcomp_type boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
----@field quality_core bool
----@field quality_total bool
+---@field quality_core boolean[]
+---@field quality_total boolean[]
 ---@field usable boolean
 ---@field unusable boolean
 
----@class armor_compound
+---@class stockpile_settings_armor
 ---@field body boolean[]
 ---@field head boolean[]
 ---@field feet boolean[]
@@ -234,12 +234,12 @@ df.stockpile_group_set = {}
 ---@field shield boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
----@field quality_core bool
----@field quality_total bool
+---@field quality_core boolean[]
+---@field quality_total boolean[]
 ---@field usable boolean
 ---@field unusable boolean
 
----@class sheet_compound
+---@class stockpile_settings_sheet
 ---@field paper boolean[]
 ---@field parchment boolean[]
 

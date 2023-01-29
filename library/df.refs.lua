@@ -309,9 +309,9 @@ df.specific_ref_type = {
 
 ---@class specific_ref
 ---@field type specific_ref_type
----@field data data_compound
+---@field data specific_ref_data
 
----@class data_compound
+---@class specific_ref_data
 ---@field object any
 ---@field unit unit
 ---@field activity activity_info
@@ -515,67 +515,51 @@ df.entity_entity_link_type = {
 ---@enum entity_site_link_type
 df.entity_site_link_type = {
   None = -1,
-  Claim = 0,
-  Unk_1 = 1,
-  Foreign_Crime = 2,
-  Unk_3 = 3,
+  All = 0,
+  Inside_Wall = 1,
+  Outside_Wall = 2,
+  Outskirts = 3,
   Local_Activity = 4,
 }
 
 ---@class entity_site_link_flags
----@field residence boolean
----@field capital boolean
----@field fortress boolean
----@field local_market boolean
----@field trade_partner boolean
----@field monument boolean
+---@field residence boolean # site is residence
+---@field capital boolean # site is capital
+---@field fortress boolean # used at least by those castles which arent currently in
+---@field local_market boolean # for villages to think about their market town
+---@field trade_partner boolean # for markets to think about other markets
+---@field monument boolean # for a civ to know its tomb sites
 ---@field primary_criminal_gang boolean
 ---@field criminal_gang boolean
----@field invasion_marked boolean
----@field land_for_holding boolean
----@field central_holding_land boolean
----@field land_holder_residence boolean
----@field invasion_push_out boolean
----@field reclaim boolean
----@field occupation_failed boolean
----@field base_of_operation boolean
----@field holy_city boolean
+---@field invasion_marked boolean # marked for invasion
+---@field land_for_holding boolean # all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
+---@field central_holding_land boolean # only dwarf fortresses get this for now
+---@field land_holder_residence boolean # the regular sites where a baron etc. actually lives
+---@field invasion_push_out boolean # pushed out by invasion
+---@field reclaim boolean # marked for reclaim
+---@field occupation_failed boolean # failed to hold hostile occupation
+---@field base_of_operation boolean # set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
+---@field holy_city boolean # for the holy city of a religion
 df.entity_site_link_flags = {}
-
----@class entity_site_link_status_flags
----@field failure_1 boolean
----@field failure_2 boolean
----@field unk_4 boolean
----@field unk_8 boolean
----@field unk_16 boolean
----@field unk_32 boolean
----@field unk_64 boolean
----@field unk_128 boolean
----@field unk_256 boolean
----@field unk_512 boolean
----@field unk_1024 boolean
----@field unk_2048 boolean
----@field unk_4096 boolean
----@field unk_8192 boolean
-df.entity_site_link_status_flags = {}
 
 ---@class entity_site_link
 ---@field target integer
 ---@field entity_id integer
----@field land_holder integer
+---@field entity_cache_index integer
+---@field position_profile_id integer
 ---@field type entity_site_link_type
----@field unk_2 integer
----@field unk_3 integer
+---@field start_hr integer
+---@field end_hr integer
 ---@field flags entity_site_link_flags
----@field status entity_site_link_status_flags
+---@field former_flag entity_site_link_flags
 ---@field link_strength integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 any[]
+---@field initial_controlling_population integer
+---@field last_check_controlling_population integer
+---@field ab_profile any[]
 ---@field target_site_x integer
 ---@field target_site_y integer
----@field unk_v43_1 integer
----@field unk_v43_2 integer
+---@field last_checked_army_year integer
+---@field last_checked_army_year_tick integer
 
 ---@class undead_flags
 ---@field zombie boolean

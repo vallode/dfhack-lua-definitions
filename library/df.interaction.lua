@@ -9,7 +9,6 @@ df.interaction_flags = {
 ---@class interaction
 ---@field name string
 ---@field id integer
----@field describe any
 ---@field str string[]
 ---@field flags any
 ---@field sources interaction_source[]
@@ -142,7 +141,6 @@ df.interaction_source_type = {
 }
 
 ---@class interaction_source
----@field find-instance any
 ---@field id integer
 ---@field frequency integer
 ---@field name string
@@ -154,7 +152,7 @@ df.interaction_source_type = {
 
 ---@class interaction_source_regionst
 ---@field region_flags any
----@field regions int8_t
+---@field regions integer[]
 
 ---@class interaction_source_secretst
 ---@field learn_flags any
@@ -232,10 +230,10 @@ df.interaction_target_location_type = {
 ---@field reference_distance integer
 
 ---@class interaction_target_info
----@field affected_creature_str any
+---@field affected_creature_str any[]
 ---@field affected_creature integer[]
 ---@field affected_class string[]
----@field immune_creature_str any
+---@field immune_creature_str any[]
 ---@field immune_creature integer[]
 ---@field immune_class string[]
 ---@field forbidden_syndrome_class string[]
@@ -278,7 +276,7 @@ df.breath_attack_type = {
 }
 
 ---@class interaction_target_materialst
----@field material_str stl-string
+---@field material_str string[]
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field parent_interaction_index integer

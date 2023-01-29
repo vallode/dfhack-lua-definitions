@@ -1,5 +1,11 @@
 require 'nokogiri'
 
+def isArray(element)
+  return [
+    "stl-vector", "static-array"
+  ].include?(element)
+end
+
 def isIntegerType(type)
   return [
     "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"
@@ -34,7 +40,7 @@ end
 
 def getElementType(element)
   type = getType(element.name)
-  is_array = element.name == "stl-vector"
+  is_array = isArray(element.name)
 
   if is_array
     type = getType(element["type-name"] || element["pointer-type"])
@@ -48,10 +54,23 @@ def getElementType(element)
     type = element["pointer-type"]
   end
 
+  if element.name == "flag-bit" and type == "any"
+    type = "boolean"
+  end
+
+
   if is_array
     return type + "[]"
   else
     return type
+  end
+end
+
+def getComment(element)
+  if element["comment"] and element["comment"] != ""
+    return " # #{element["comment"]}"
+  else
+    return ""
   end
 end
 
@@ -84,16 +103,16 @@ end
 def getStructAnnotation(struct)
   inline_types = []
 
-  type = struct['type-name'] || struct['pointer-type'] || "table"
+  type = struct["type-name"] || struct["pointer-type"] || "table"
 
   annotation = "---@class #{type}\n"
 
   struct.children.each do |child|
-    next if not child["name"]
+    next if not child["name"] or child.name == "code-helper"
 
     if child.name == "compound" and not (child["type-name"] or child["pointer-type"])
-      inline_types.push(child)
-      annotation << "---@field #{child['name']} #{child['name']}_compound\n"
+      inline_types.push(child) if not inline_types.include?(child) 
+      annotation << "---@field #{child['name']} #{type}_#{child['name']}\n"
     else
       annotation << "---@field #{child['name']} #{getElementType(child)}\n"
     end
@@ -102,11 +121,11 @@ def getStructAnnotation(struct)
 
   annotation << "\n"
 
-  inline_types.each do |type|
-    next if not type["name"]
-    annotation << "---@class #{type["name"]}_compound\n"
+  inline_types.each do |inline_type|
+    next if not inline_type["name"]
+    annotation << "---@class #{type}_#{inline_type['name']}\n"
 
-    type.children.each do |type_child|
+    inline_type.children.each do |type_child|
       next if not type_child["name"]
       annotation << "---@field #{type_child['name']} #{getElementType(type_child)}\n"
     end
@@ -133,7 +152,9 @@ def getBitfieldAnnotation(bitfield)
   index = 0
   for child in bitfield.children
     if child.name == "flag-bit"
-      annotation << "---@field #{child["name"] || "unk_#{index}"} #{child["count"] && "number" || "boolean"}\n"
+      child_name = child["name"] || "unk_#{index}"
+      child_type = getElementType(child)
+      annotation << "---@field #{child_name} #{child_type}#{getComment(child)}\n"
       index += 1
     end
   end

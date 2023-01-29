@@ -322,13 +322,13 @@ df.assume_identity_mode = {
 
 ---@class talk_choice
 ---@field type talk_choice_type
----@field unk unk_compound
+---@field unk talk_choice_unk
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 
----@class unk_compound
+---@class talk_choice_unk
 ---@field event entity_event
 ---@field unk_1 any
 ---@field unk_2 integer
@@ -383,20 +383,20 @@ df.assume_identity_mode = {
 ---@field player_army_id integer
 ---@field gait_index integer
 ---@field gait_unk integer
----@field tracks_x int32_t
----@field tracks_y int32_t
----@field tracks_z int32_t
+---@field tracks_x integer[]
+---@field tracks_y integer[]
+---@field tracks_z integer[]
 ---@field tracks_next_idx integer
 ---@field view_tracks_odors integer
 ---@field tracks_visible integer
----@field unk_x int16_t
----@field unk_y int16_t
----@field unk_z int16_t
----@field unk_v40_1 any
----@field unk_39 int8_t
----@field unk_40 int8_t
----@field unk_41 int32_t
----@field unk_42 int8_t
+---@field unk_x integer[]
+---@field unk_y integer[]
+---@field unk_z integer[]
+---@field unk_v40_1 any[]
+---@field unk_39 integer[]
+---@field unk_40 integer[]
+---@field unk_41 integer[]
+---@field unk_42 integer[]
 ---@field odor_race integer
 ---@field odor_caste integer
 ---@field odor_death integer
@@ -404,8 +404,8 @@ df.assume_identity_mode = {
 ---@field travel_odor_caste integer
 ---@field unk_46 integer
 ---@field multiattack integer
----@field unk_3170 unk_3170_compound
----@field unk_3124 unk_3124_compound
+---@field unk_3170 adventurest_unk_3170
+---@field unk_3124 adventurest_unk_3124
 ---@field unk_48 integer
 ---@field unk_49 integer
 ---@field unk_50 integer
@@ -429,7 +429,7 @@ df.assume_identity_mode = {
 ---@field track_viewed_y integer
 ---@field track_viewed_unk_1 any
 ---@field track_viewed_unk_2 any
----@field conversation conversation_compound
+---@field conversation adventurest_conversation
 ---@field unk_70 any[]
 ---@field unk_71 integer
 ---@field unk_72 any[]
@@ -446,22 +446,22 @@ df.assume_identity_mode = {
 ---@field player_control_state integer
 ---@field item_projectiles_state integer
 ---@field unk_84 integer
----@field companions companions_compound
+---@field companions adventurest_companions
 ---@field unk_1 integer
----@field interactions interactions_compound
+---@field interactions adventurest_interactions
 ---@field unk_87 string
 ---@field unk_220 integer
 ---@field unk_224 integer
----@field unk_v40_2 unk_v40_2_compound
----@field unk_v40_3 unk_v40_3_compound
+---@field unk_v40_2 adventurest_unk_v40_2
+---@field unk_v40_3 adventurest_unk_v40_3
 ---@field player_unit_projectile_unk any
 ---@field player_unit_projectile_z integer
 ---@field unk_90 integer
----@field unk_v40_4 unk_v40_4_compound
----@field unk_v40_5 unk_v40_5_compound
----@field unk_v42_1 unk_v42_1_compound
+---@field unk_v40_4 adventurest_unk_v40_4
+---@field unk_v40_5 adventurest_unk_v40_5
+---@field unk_v42_1 adventurest_unk_v42_1
 ---@field unk_91 any
----@field assume_identity assume_identity_compound
+---@field assume_identity adventurest_assume_identity
 ---@field move_direction_x integer
 ---@field move_direction_y integer
 ---@field move_direction_z integer
@@ -473,12 +473,12 @@ df.assume_identity_mode = {
 ---@field unk_2 integer
 ---@field name_item language_name
 
----@class unk_3170_compound
+---@class adventurest_unk_3170
 ---@field unk_1 any[]
----@field unk_2 any
+---@field unk_2 any[]
 ---@field unk_3 integer
 
----@class unk_3124_compound
+---@class adventurest_unk_3124
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -500,7 +500,7 @@ df.assume_identity_mode = {
 ---@field unk_19 integer
 ---@field unk_20 pointer[]
 ---@field unk_21 integer
----@field unk_22 int8_t
+---@field unk_22 integer[]
 ---@field unk_23 integer
 ---@field unk_24 integer
 ---@field unk_25 integer
@@ -546,7 +546,7 @@ df.assume_identity_mode = {
 ---@field unk_61 integer[]
 ---@field unk_62 integer[]
 
----@class conversation_compound
+---@class adventurest_conversation
 ---@field activity activity_entry[]
 ---@field activity_event activity_event[]
 ---@field cursor_activity integer
@@ -560,13 +560,13 @@ df.assume_identity_mode = {
 ---@field targets any[]
 ---@field cursor_target integer
 
----@class companions_compound
+---@class adventurest_companions
 ---@field unit unit[]
 ---@field unit_visible any
 ---@field unit_position coord_path
 ---@field all_histfigs integer[]
 
----@class interactions_compound
+---@class adventurest_interactions
 ---@field party_core_members integer[]
 ---@field party_pets integer[]
 ---@field party_extra_members integer[]
@@ -582,7 +582,7 @@ df.assume_identity_mode = {
 ---@field target_flags creature_interaction_target_flags
 ---@field unk_200 any
 
----@class unk_v40_2_compound
+---@class adventurest_unk_v40_2
 ---@field unk_s1 any[]
 ---@field unk_s2 any[]
 ---@field unk_s3 any[]
@@ -591,15 +591,15 @@ df.assume_identity_mode = {
 ---@field unk_s6 any[]
 ---@field unk_s7 any[]
 
----@class unk_v40_3_compound
+---@class adventurest_unk_v40_3
 ---@field unk_s1 integer
 ---@field unk_s2 any[]
 
----@class unk_v40_4_compound
----@field unk_v40_4a any
+---@class adventurest_unk_v40_4
+---@field unk_v40_4a any[]
 ---@field unk_v40_4b integer
 
----@class unk_v40_5_compound
+---@class adventurest_unk_v40_5
 ---@field unk_s1 any[]
 ---@field unk_s2 any[]
 ---@field unk_s3 any[]
@@ -607,7 +607,7 @@ df.assume_identity_mode = {
 ---@field unk_s5 any[]
 ---@field unk_s6 any[]
 
----@class unk_v42_1_compound
+---@class adventurest_unk_v42_1
 ---@field unk_s1 integer
 ---@field unk_s2 any[]
 ---@field unk_s3 any[]
@@ -618,7 +618,7 @@ df.assume_identity_mode = {
 ---@field unk_s8 integer
 ---@field unk_s9 any[]
 
----@class assume_identity_compound
+---@class adventurest_assume_identity
 ---@field mode assume_identity_mode
 ---@field name language_name
 ---@field worship_object integer

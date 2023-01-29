@@ -96,7 +96,6 @@ df.plant_raw_flags = {
 ---@field id string
 ---@field index integer
 ---@field raws string[]
----@field describe any
 ---@field flags any
 ---@field name string
 ---@field name_plural string
@@ -109,11 +108,11 @@ df.plant_raw_flags = {
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
 ---@field unk2 integer
----@field tiles tiles_compound
+---@field tiles plant_raw_tiles
 ---@field growdur integer
 ---@field value integer
----@field colors colors_compound
----@field alt_period int32_t
+---@field colors plant_raw_colors
+---@field alt_period integer[]
 ---@field shrub_drown_level integer
 ---@field tree_drown_level integer
 ---@field sapling_drown_level integer
@@ -121,7 +120,7 @@ df.plant_raw_flags = {
 ---@field clustersize integer
 ---@field prefstring string[]
 ---@field material material[]
----@field material_defs material_defs_compound
+---@field material_defs plant_raw_material_defs
 ---@field underground_depth_min integer
 ---@field underground_depth_max integer
 ---@field growths plant_growth[]
@@ -147,7 +146,7 @@ df.plant_raw_flags = {
 ---@field stockpile_growths integer[]
 ---@field stockpile_growth_flags any[]
 
----@class tiles_compound
+---@class plant_raw_tiles
 ---@field picked_tile integer
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
@@ -156,28 +155,28 @@ df.plant_raw_flags = {
 ---@field dead_tree_tile integer
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
----@field grass_tiles uint8_t
----@field alt_grass_tiles uint8_t
----@field tree_tiles uint8_t
+---@field grass_tiles integer[]
+---@field alt_grass_tiles integer[]
+---@field tree_tiles integer[]
 
----@class colors_compound
----@field picked_color int8_t
----@field dead_picked_color int8_t
----@field shrub_color int8_t
----@field dead_shrub_color int8_t
----@field seed_color int8_t
----@field tree_color int8_t
----@field dead_tree_color int8_t
----@field sapling_color int8_t
----@field dead_sapling_color int8_t
----@field grass_colors_0 int8_t
----@field grass_colors_1 int8_t
----@field grass_colors_2 int8_t
+---@class plant_raw_colors
+---@field picked_color integer[]
+---@field dead_picked_color integer[]
+---@field shrub_color integer[]
+---@field dead_shrub_color integer[]
+---@field seed_color integer[]
+---@field tree_color integer[]
+---@field dead_tree_color integer[]
+---@field sapling_color integer[]
+---@field dead_sapling_color integer[]
+---@field grass_colors_0 integer[]
+---@field grass_colors_1 integer[]
+---@field grass_colors_2 integer[]
 
----@class material_defs_compound
----@field type any
----@field idx int32_t
----@field str any
+---@class plant_raw_material_defs
+---@field type any[]
+---@field idx integer[]
+---@field str any[]
 
 ---@enum plant_material_def
 df.plant_material_def = {
@@ -194,11 +193,9 @@ df.plant_material_def = {
 
 ---@class plant_growth
 ---@field id string
----@field describe any
----@field find-instance any
 ---@field name string
 ---@field name_plural string
----@field str_growth_item stl-string
+---@field str_growth_item string[]
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
@@ -216,7 +213,7 @@ df.plant_material_def = {
 ---@field priority integer
 ---@field tile_growth integer
 ---@field tile_item integer
----@field color int16_t
+---@field color integer[]
 ---@field timing_start integer
 ---@field timing_end integer
 

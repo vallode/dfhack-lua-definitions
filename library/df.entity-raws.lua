@@ -167,43 +167,42 @@ df.entity_name_type = {
 ---@field code string
 ---@field index integer
 ---@field raws string[]
----@field describe any
 ---@field creature_ids integer[]
 ---@field creatures string[]
----@field equipment equipment_compound
+---@field equipment entity_raw_equipment
 ---@field currency_value integer[]
 ---@field flags any
 ---@field translation string
----@field symbols symbols_compound
----@field sphere_alignment int32_t
----@field art_facet_modifier int32_t
----@field art_image_element_modifier int32_t
----@field item_improvement_modifier int32_t
----@field friendly_color int16_t
+---@field symbols entity_raw_symbols
+---@field sphere_alignment integer[]
+---@field art_facet_modifier integer[]
+---@field art_image_element_modifier integer[]
+---@field item_improvement_modifier integer[]
+---@field friendly_color integer[]
 ---@field default_site_type world_site_type
----@field likes_site int8_t
----@field tolerates_site int8_t
----@field biome_support int32_t
----@field start_biome int8_t
----@field settlement_biome int8_t
----@field active_season int8_t
----@field progress_trigger progress_trigger_compound
----@field ethic any
----@field values int32_t
----@field variable_value_min int32_t
----@field variable_value_max int32_t
+---@field likes_site integer[]
+---@field tolerates_site integer[]
+---@field biome_support integer[]
+---@field start_biome integer[]
+---@field settlement_biome integer[]
+---@field active_season integer[]
+---@field progress_trigger entity_raw_progress_trigger
+---@field ethic any[]
+---@field values integer[]
+---@field variable_value_min integer[]
+---@field variable_value_max integer[]
 ---@field scholar any
 ---@field max_site_pop_number integer
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
 ---@field religion integer[]
 ---@field religion_sphere any[]
----@field jobs jobs_compound
+---@field jobs entity_raw_jobs
 ---@field positions entity_position_raw[]
----@field variable_positions int8_t
----@field site_variable_positions int8_t
+---@field variable_positions integer[]
+---@field site_variable_positions integer[]
 ---@field tissue_styles any[]
----@field workshops workshops_compound
+---@field workshops entity_raw_workshops
 ---@field banditry integer
 ---@field gem_shapes_str string[]
 ---@field stone_shapes_str string[]
@@ -215,7 +214,7 @@ df.entity_name_type = {
 ---@field currency_str2 string[]
 ---@field animal entity_animal_raw[]
 
----@class equipment_compound
+---@class entity_raw_equipment
 ---@field digger_id integer[]
 ---@field weapon_id integer[]
 ---@field armor_id integer[]
@@ -250,14 +249,14 @@ df.entity_name_type = {
 ---@field siegeammo_str string[]
 ---@field tool_str string[]
 
----@class symbols_compound
----@field symbols1 language_word_table
----@field symbols2 language_word_table
----@field select_symbol any
----@field subselect_symbol any
----@field cull_symbol any
+---@class entity_raw_symbols
+---@field symbols1 language_word_table[]
+---@field symbols2 language_word_table[]
+---@field select_symbol any[]
+---@field subselect_symbol any[]
+---@field cull_symbol any[]
 
----@class progress_trigger_compound
+---@class entity_raw_progress_trigger
 ---@field population integer
 ---@field production integer
 ---@field trade integer
@@ -265,12 +264,12 @@ df.entity_name_type = {
 ---@field prod_siege integer
 ---@field trade_siege integer
 
----@class jobs_compound
----@field permitted_job bool
----@field permitted_labor bool
----@field world_construction bool
+---@class entity_raw_jobs
+---@field permitted_job boolean[]
+---@field permitted_labor boolean[]
+---@field world_construction boolean[]
 
----@class workshops_compound
+---@class entity_raw_workshops
 ---@field permitted_building_str string[]
 ---@field permitted_building_id integer[]
 ---@field permitted_reaction_str string[]
@@ -357,25 +356,26 @@ df.entity_position_responsibility = {
   MAINTAIN_ROADS = 39,
   MAINTAIN_BRIDGES = 40,
   MAINTAIN_TUNNELS = 41,
+  DELIVER_MESSAGES = 42,
 }
 
 ---@class entity_position_raw
 ---@field code string
 ---@field id integer
 ---@field flags any
----@field allowed_creature_str any
+---@field allowed_creature_str any[]
 ---@field allowed_creature integer[]
 ---@field allowed_class string[]
----@field rejected_creature_str any
+---@field rejected_creature_str any[]
 ---@field rejected_creature integer[]
 ---@field rejected_class string[]
----@field name stl-string
----@field name_female stl-string
----@field name_male stl-string
----@field spouse stl-string
----@field spouse_female stl-string
----@field spouse_male stl-string
----@field squad stl-string
+---@field name string[]
+---@field name_female string[]
+---@field name_male string[]
+---@field spouse string[]
+---@field spouse_female string[]
+---@field spouse_male string[]
+---@field squad string[]
 ---@field land_name string
 ---@field squad_size integer
 ---@field commander_str string[]
@@ -392,8 +392,8 @@ df.entity_position_responsibility = {
 ---@field appointed_by integer[]
 ---@field succession_by_position_str string[]
 ---@field succession_by_position integer[]
----@field responsibilities bool
----@field color int16_t
+---@field responsibilities boolean[]
+---@field color integer[]
 ---@field required_boxes integer
 ---@field required_cabinets integer
 ---@field required_racks integer

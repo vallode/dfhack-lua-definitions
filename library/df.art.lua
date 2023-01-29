@@ -114,8 +114,6 @@ df.art_facet_type = {
 }
 
 ---@class art_image
----@field find-instance any
----@field describe any
 ---@field elements art_image_element[]
 ---@field properties art_image_property[]
 ---@field event integer
@@ -134,7 +132,7 @@ df.art_facet_type = {
 
 ---@class art_image_chunk
 ---@field id integer
----@field images any
+---@field images any[]
 
 ---@class art_image_ref
 ---@field id integer
@@ -234,13 +232,13 @@ df.poetic_form_subject = {
 }
 
 ---@class poetic_form_subject_target
----@field Histfig Histfig_compound
----@field Concept Concept_compound
+---@field Histfig poetic_form_subject_target_Histfig
+---@field Concept poetic_form_subject_target_Concept
 
----@class Histfig_compound
+---@class poetic_form_subject_target_Histfig
 ---@field subject_histfig integer
 
----@class Concept_compound
+---@class poetic_form_subject_target_Concept
 ---@field subject_topic sphere_type
 
 ---@class poetic_form_feature
@@ -743,8 +741,8 @@ df.dance_form_move_modifier = {
 }
 
 ---@class dance_form_move_location
----@field unk_0 boolean
----@field unk_1 boolean
+---@field unk_0 boolean # Standard value, but not described
+---@field unk_1 boolean # Common value, but not described
 ---@field MirroredByGroupMembers boolean
 ---@field InRetrogradeByGroupMembers boolean
 ---@field InSuccessionByGroupMembers boolean
@@ -830,14 +828,14 @@ df.scale_type = {
 
 ---@class chord
 ---@field name string
----@field notes int32_t
+---@field notes integer[]
 ---@field chord_size integer
 ---@field unk_3 integer
 
 ---@class named_scale
 ---@field unk_1 integer
 ---@field name string
----@field degrees int32_t
+---@field degrees integer[]
 ---@field degrees_used integer
 ---@field first_chord integer
 ---@field second_chord integer
@@ -846,17 +844,17 @@ df.scale_type = {
 ---@field id integer
 ---@field flags any
 ---@field type scale_type
----@field quartertones_used int32_t
+---@field quartertones_used integer[]
 ---@field scale_length integer
 ---@field chords chord[]
 ---@field scales named_scale[]
----@field notes notes_compound
+---@field notes scale_notes
 
----@class notes_compound
+---@class scale_notes
 ---@field unk_1 integer
----@field name stl-string
----@field abreviation stl-string
----@field number int32_t
+---@field name string[]
+---@field abreviation string[]
+---@field number integer[]
 ---@field length integer
 
 ---@class rhythm

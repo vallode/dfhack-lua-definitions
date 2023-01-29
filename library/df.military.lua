@@ -67,10 +67,9 @@ df.squad_event_type = {
 
 ---@class squad_position
 ---@field occupant integer
----@field describe any
 ---@field orders squad_order[]
----@field preferences any
----@field uniform any
+---@field preferences any[]
+---@field uniform any[]
 ---@field unk_c4 string
 ---@field flags uniform_flags
 ---@field assigned_items any[]
@@ -78,8 +77,8 @@ df.squad_event_type = {
 ---@field backpack integer
 ---@field flask integer
 ---@field unk_1 integer
----@field activities int32_t
----@field events int32_t
+---@field activities integer[]
+---@field events integer[]
 ---@field unk_2 integer
 
 ---@class squad_schedule_order
@@ -98,27 +97,39 @@ df.squad_event_type = {
 ---@field id integer
 ---@field name language_name
 ---@field alias string
----@field describe any
 ---@field positions squad_position[]
 ---@field orders squad_order[]
 ---@field schedule any[]
----@field cur_alert_idx integer
+---@field cur_routine_idx integer
 ---@field rooms any[]
 ---@field rack_combat integer[]
 ---@field rack_training integer[]
 ---@field uniform_priority integer
 ---@field activity integer
----@field ammunition squad_ammo_spec[]
----@field train_weapon_free any[]
----@field train_weapon_inuse any[]
----@field ammo_items any[]
----@field ammo_units any[]
+---@field ammo squad_ammo
 ---@field carry_food integer
 ---@field carry_water integer
 ---@field entity_id integer
 ---@field leader_position integer
 ---@field leader_assignment integer
 ---@field unk_1 integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+---@field symbol integer
+---@field foreground_r integer
+---@field foreground_g integer
+---@field foreground_b integer
+---@field background_r integer
+---@field background_g integer
+---@field background_b integer
+
+---@class squad_ammo
+---@field ammunition squad_ammo_spec[]
+---@field train_weapon_free any[]
+---@field train_weapon_inuse any[]
+---@field ammo_items any[]
+---@field ammo_units any[]
+---@field unk_v50_1 integer
 
 ---@enum squad_order_type
 df.squad_order_type = {
@@ -236,17 +247,16 @@ df.squad_order_cannot_reason = {
 ---@field unk_44_2 integer
 ---@field visitor_nemesis_id integer
 ---@field unk_44_4 integer
----@field unk_44_5 any
----@field unk_v47_1 any
----@field unk_v47_2 any
+---@field unk_44_5 integer[]
 ---@field unk_50 integer
 ---@field unk_54 integer[]
----@field unk_44_11v any[]
+---@field unk_44_11v integer[]
+---@field unk_v50_b0 integer[]
 ---@field mission_report mission_report
----@field data data_compound
+---@field data army_controller_data
 ---@field type any
 
----@class data_compound
+---@class army_controller_data
 ---@field t1 army_controller_sub1
 ---@field InvasionOrder army_controller_invasion_order
 ---@field Invasion army_controller_invasion
@@ -261,11 +271,11 @@ df.squad_order_cannot_reason = {
 ---@field t16 army_controller_sub16
 ---@field Quest army_controller_quest
 ---@field t18 army_controller_sub18
----@field t19 any
----@field t20 any
----@field t21 any
----@field t22 any
----@field t23 any
+---@field t19 army_controller_sub19
+---@field t20 army_controller_sub20
+---@field t21 army_controller_sub21
+---@field t22 army_controller_sub22
+---@field t23 army_controller_sub23
 ---@field VillainousVisit army_controller_villainous_visit
 
 ---@class army_controller_sub1
@@ -284,6 +294,7 @@ df.squad_order_cannot_reason = {
 ---@field unk_7 integer
 ---@field unk_8 integer
 ---@field unk_9 integer
+---@field unk_10 integer[]
 
 ---@class army_controller_invasion
 ---@field unk_1 integer
@@ -345,6 +356,7 @@ df.squad_order_cannot_reason = {
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 any[]
+---@field unk_5 integer
 
 ---@class army_controller_sub15
 ---@field unk_1 integer
@@ -373,6 +385,31 @@ df.squad_order_cannot_reason = {
 ---@class army_controller_sub18
 ---@field unk_1 integer
 ---@field unk_2 integer
+
+---@class army_controller_sub19
+---@field unk_1 integer[]
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class army_controller_sub20
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_sub21
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class army_controller_sub22
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class army_controller_sub23
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
 
 ---@class army_controller_villainous_visit
 ---@field site_id integer

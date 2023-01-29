@@ -2,17 +2,16 @@
 
 ---@class building_def
 ---@field code string
----@field describe any
 ---@field id integer
 ---@field name string
 ---@field building_type building_type
 ---@field building_subtype integer
----@field name_color int16_t
----@field tile any
----@field tile_color any
----@field tile_block any
----@field graphics_normal any
----@field graphics_overlay any
+---@field name_color integer[]
+---@field tile any[]
+---@field tile_color any[]
+---@field tile_block any[]
+---@field graphics_normal any[]
+---@field graphics_overlay any[]
 ---@field build_key any
 ---@field needs_magma boolean
 ---@field build_items building_def_item[]
@@ -40,8 +39,8 @@
 ---@field min_dimension integer
 ---@field quantity integer
 ---@field has_tool_use tool_uses
----@field item_str stl-string
----@field material_str stl-string
+---@field item_str string[]
+---@field material_str string[]
 ---@field metal_ore_str string
 
 ---@class building_def_workshopst

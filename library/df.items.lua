@@ -1,45 +1,45 @@
 ---@meta
 
 ---@class item_flags
----@field on_ground boolean
----@field in_job boolean
----@field hostile boolean
----@field in_inventory boolean
----@field removed boolean
----@field in_building boolean
----@field container boolean
----@field dead_dwarf boolean
----@field rotten boolean
----@field spider_web boolean
----@field construction boolean
----@field encased boolean
----@field unk12 boolean
----@field murder boolean
----@field foreign boolean
----@field trader boolean
----@field owned boolean
----@field garbage_collect boolean
----@field artifact boolean
----@field forbid boolean
----@field already_uncategorized boolean
----@field dump boolean
----@field on_fire boolean
----@field melt boolean
----@field hidden boolean
----@field in_chest boolean
----@field use_recorded boolean
----@field artifact_mood boolean
----@field temps_computed boolean
+---@field on_ground boolean # Item on ground
+---@field in_job boolean # Item currently being used in a job
+---@field hostile boolean # Item owned by hostile
+---@field in_inventory boolean # Item in a creature, workshop or container inventory
+---@field removed boolean # completely invisible and with no position
+---@field in_building boolean # Part of a building (including mechanisms, bodies in coffins)
+---@field container boolean # Set on anything that contains or contained items?
+---@field dead_dwarf boolean # Dwarfs dead body or body part
+---@field rotten boolean # Rotten food
+---@field spider_web boolean # Thread in spider web
+---@field construction boolean # Material used in construction
+---@field encased boolean # Item encased in ice or obsidian
+---@field unk12 boolean # unknown, unseen
+---@field murder boolean # Implies murder - used in fell moods
+---@field foreign boolean # Item is imported
+---@field trader boolean # Item ownwed by trader
+---@field owned boolean # Item is owned by a dwarf
+---@field garbage_collect boolean # Marked for deallocation by DF it seems
+---@field artifact boolean # Artifact
+---@field forbid boolean # Forbidden item
+---@field already_uncategorized boolean # unknown, unseen
+---@field dump boolean # Designated for dumping
+---@field on_fire boolean # Indicates if item is on fire, Will Set Item On Fire if Set!
+---@field melt boolean # Designated for melting, if applicable
+---@field hidden boolean # Hidden item
+---@field in_chest boolean # Stored in chest/part of well?
+---@field use_recorded boolean # transient in unit.used_items update
+---@field artifact_mood boolean # created by mood/named existing item
+---@field temps_computed boolean # melting/boiling/ignite/etc. points
 ---@field weight_computed boolean
----@field unk30 boolean
----@field from_worldgen boolean
+---@field unk30 boolean # unknown, unseen
+---@field from_worldgen boolean # created by underground critters?
 df.item_flags = {}
 
 ---@class item_flags2
----@field has_rider boolean
+---@field has_rider boolean # vehicle with a rider
 ---@field unk1 boolean
 ---@field grown boolean
----@field unk_book boolean
+---@field unk_book boolean # possibly book/written-content-related
 ---@field unk_4 boolean
 df.item_flags2 = {}
 
@@ -159,7 +159,6 @@ df.slab_engraving_type = {
 
 ---@class item_actual
 ---@field stack_size integer
----@field describe any
 ---@field history_info any
 ---@field magic any
 ---@field contaminants any
@@ -172,7 +171,6 @@ df.slab_engraving_type = {
 ---@class item_crafted
 ---@field mat_type integer
 ---@field mat_index integer
----@field describe any
 ---@field maker_race integer
 ---@field quality item_quality
 ---@field skill_rating skill_rating
@@ -185,26 +183,26 @@ df.slab_engraving_type = {
 ---@class body_part_status
 ---@field on_fire boolean
 ---@field missing boolean
----@field organ_loss boolean
----@field organ_damage boolean
----@field muscle_loss boolean
----@field muscle_damage boolean
----@field bone_loss boolean
----@field bone_damage boolean
----@field skin_damage boolean
+---@field organ_loss boolean # cyan
+---@field organ_damage boolean # yellow
+---@field muscle_loss boolean # red
+---@field muscle_damage boolean # yellow
+---@field bone_loss boolean # red
+---@field bone_damage boolean # yellow
+---@field skin_damage boolean # brown
 ---@field motor_nerve_severed boolean
 ---@field sensory_nerve_severed boolean
 ---@field spilled_guts boolean
 ---@field has_splint boolean
 ---@field has_bandage boolean
 ---@field has_plaster_cast boolean
----@field grime number
----@field severed_or_jammed boolean
+---@field grime boolean
+---@field severed_or_jammed boolean # seen e.g. on ribs smashed by blunt attack, but quickly disappeared
 ---@field under_shell boolean
 ---@field is_shell boolean
----@field mangled boolean
----@field unk20 boolean
----@field gelded boolean
+---@field mangled boolean # a wounded body part is described as being mangled beyond recognition when this flag is set
+---@field unk20 boolean # on zombified head
+---@field gelded boolean # set on GELDABLE body parts after a unit has been gelded
 df.body_part_status = {}
 
 ---@class body_layer_status
@@ -256,7 +254,7 @@ df.corpse_material_type = {
 ---@field normal_caste integer
 ---@field rot_timer integer
 ---@field unk_8c integer
----@field body body_compound
+---@field body item_body_component_body
 ---@field size_modifier integer
 ---@field birth_year integer
 ---@field birth_time integer
@@ -266,41 +264,41 @@ df.corpse_material_type = {
 ---@field birth_time_bias integer
 ---@field death_year integer
 ---@field death_time integer
----@field appearance appearance_compound
+---@field appearance item_body_component_appearance
 ---@field blood_count integer
 ---@field stored_fat integer
 ---@field hist_figure_id2 integer
 ---@field undead_unit_id integer
 ---@field unit_id2 integer
 ---@field corpse_flags any
----@field material_amount int32_t
----@field bone1 bone1_compound
----@field bone2 bone2_compound
+---@field material_amount integer[]
+---@field bone1 item_body_component_bone1
+---@field bone2 item_body_component_bone2
 
----@class body_compound
+---@class item_body_component_body
 ---@field wounds unit_wound[]
----@field unk_100 int32_t
+---@field unk_100 integer[]
 ---@field wound_next_id integer
 ---@field components body_component_info
----@field physical_attr_value int32_t
----@field physical_attr_soft_demotion int32_t
+---@field physical_attr_value integer[]
+---@field physical_attr_soft_demotion integer[]
 ---@field size_info body_size_info
 ---@field body_part_relsize integer[]
 ---@field body_modifiers integer[]
 ---@field bp_modifiers integer[]
 
----@class appearance_compound
+---@class item_body_component_appearance
 ---@field colors integer[]
 ---@field tissue_style integer[]
 ---@field tissue_style_civ_id integer[]
 ---@field tissue_style_id integer[]
 ---@field tissue_style_type integer[]
 
----@class bone1_compound
+---@class item_body_component_bone1
 ---@field mat_type integer
 ---@field mat_index integer
 
----@class bone2_compound
+---@class item_body_component_bone2
 ---@field mat_type integer
 ---@field mat_index integer
 
@@ -322,7 +320,7 @@ df.corpse_material_type = {
 ---@field name language_name
 
 ---@class item_matstate
----@field no_auto_clean boolean
+---@field no_auto_clean boolean # isAutoClean returns false
 ---@field pressed boolean
 ---@field paste boolean
 df.item_matstate = {}

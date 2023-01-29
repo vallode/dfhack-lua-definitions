@@ -12,7 +12,6 @@ df.pattern_type = {
 
 ---@class descriptor_color
 ---@field id string
----@field describe any
 ---@field word_unk string[]
 ---@field words integer[]
 ---@field name string
@@ -21,10 +20,10 @@ df.pattern_type = {
 ---@field red number
 ---@field green number
 ---@field blue number
+---@field unk_v50_1 integer[]
 
 ---@class descriptor_shape
 ---@field id string
----@field describe any
 ---@field words_str string[]
 ---@field words integer[]
 ---@field name string
@@ -34,10 +33,15 @@ df.pattern_type = {
 ---@field category string[]
 ---@field faces integer
 ---@field tile integer
+---@field unk_v50_1 any
+---@field unk_v50_2 integer[]
+---@field unk_v50_3 integer[]
+---@field unk_v50_4 any
+---@field unk_v50_5 any
+---@field unk_v50_6 any
 
 ---@class descriptor_pattern
 ---@field id string
----@field describe any
 ---@field colors integer[]
 ---@field pattern pattern_type
 ---@field cp_color string[]

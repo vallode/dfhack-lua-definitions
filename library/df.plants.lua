@@ -2,7 +2,7 @@
 
 ---@class plant_flags
 ---@field watery boolean
----@field is_shrub boolean
+---@field is_shrub boolean # If it is not a shrub, then it is a tree
 df.plant_flags = {}
 
 ---@class plant
@@ -26,7 +26,7 @@ df.plant_flags = {}
 ---@field connection_north boolean
 ---@field branches boolean
 ---@field twigs boolean
----@field blocked boolean
+---@field blocked boolean # e.g. by other tree
 df.plant_tree_tile = {}
 
 ---@class plant_tree_info

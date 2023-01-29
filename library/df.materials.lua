@@ -153,26 +153,26 @@ df.strain_type = {
 ---@field gem_name1 string
 ---@field gem_name2 string
 ---@field stone_name string
----@field heat heat_compound
+---@field heat material_common_heat
 ---@field solid_density integer
 ---@field liquid_density integer
 ---@field molar_mass integer
----@field state_color int32_t
----@field state_name stl-string
----@field state_adj stl-string
----@field strength strength_compound
+---@field state_color integer[]
+---@field state_name string[]
+---@field state_adj string[]
+---@field strength material_common_strength
 ---@field material_value integer
 ---@field flags any
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype integer
----@field meat_name stl-string
----@field block_name stl-string
----@field reaction_product reaction_product_compound
----@field hardens_with_water hardens_with_water_compound
+---@field meat_name string[]
+---@field block_name string[]
+---@field reaction_product material_common_reaction_product
+---@field hardens_with_water material_common_hardens_with_water
 ---@field reaction_class string[]
 
----@class heat_compound
+---@class material_common_heat
 ---@field spec_heat integer
 ---@field heatdam_point integer
 ---@field colddam_point integer
@@ -181,32 +181,30 @@ df.strain_type = {
 ---@field boiling_point integer
 ---@field mat_fixed_temp integer
 
----@class strength_compound
+---@class material_common_strength
 ---@field absorption integer
----@field yield int32_t
----@field fracture int32_t
----@field strain_at_yield int32_t
+---@field yield integer[]
+---@field fracture integer[]
+---@field strain_at_yield integer[]
 ---@field max_edge integer
 
----@class reaction_product_compound
+---@class material_common_reaction_product
 ---@field id string[]
 ---@field item_type integer[]
 ---@field item_subtype integer[]
 ---@field material material_vec_ref
----@field str any
+---@field str any[]
 
----@class hardens_with_water_compound
+---@class material_common_hardens_with_water
 ---@field mat_type integer
 ---@field mat_index integer
----@field str stl-string
+---@field str string[]
 
 ---@class material
----@field find-instance any
----@field describe any
 ---@field tile integer
----@field basic_color int16_t
----@field build_color int16_t
----@field tile_color int16_t
+---@field basic_color integer[]
+---@field build_color integer[]
+---@field tile_color integer[]
 ---@field item_symbol integer
 ---@field powder_dye integer
 ---@field temp_diet_info integer
@@ -214,20 +212,19 @@ df.strain_type = {
 ---@field soap_level integer
 ---@field unk_41c integer[]
 ---@field prefix string
----@field food_mat_index any
+---@field food_mat_index any[]
 ---@field powder_dye_str string
----@field state_color_str stl-string
+---@field state_color_str string[]
 
 ---@class material_vec_ref
 ---@field mat_type any[]
 ---@field mat_index integer[]
 
 ---@class material_template
----@field describe any
 ---@field tile integer
----@field basic_color int16_t
----@field build_color int16_t
----@field tile_color int16_t
+---@field basic_color integer[]
+---@field build_color integer[]
+---@field tile_color integer[]
 ---@field item_symbol integer
 ---@field powder_dye integer
 ---@field temp_diet_info integer
@@ -235,7 +232,7 @@ df.strain_type = {
 ---@field soap_level integer
 ---@field unk_41c integer[]
 ---@field powder_dye_str string
----@field state_color_str stl-string
+---@field state_color_str string[]
 
 ---@enum inorganic_flags
 df.inorganic_flags = {
@@ -297,36 +294,35 @@ df.inclusion_type = {
 ---@class inorganic_raw
 ---@field id string
 ---@field str string[]
----@field describe any
 ---@field flags any
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
----@field metal_ore metal_ore_compound
----@field thread_metal thread_metal_compound
+---@field metal_ore inorganic_raw_metal_ore
+---@field thread_metal inorganic_raw_thread_metal
 ---@field economic_uses integer[]
----@field environment_spec environment_spec_compound
----@field environment environment_compound
+---@field environment_spec inorganic_raw_environment_spec
+---@field environment inorganic_raw_environment
 ---@field times_used_land integer
 ---@field times_used_ocean integer
 ---@field material material
 
----@class metal_ore_compound
+---@class inorganic_raw_metal_ore
 ---@field str string[]
 ---@field mat_index any[]
 ---@field probability integer[]
 
----@class thread_metal_compound
+---@class inorganic_raw_thread_metal
 ---@field str string[]
 ---@field mat_index any[]
 ---@field probability integer[]
 
----@class environment_spec_compound
+---@class inorganic_raw_environment_spec
 ---@field str string[]
 ---@field mat_index any[]
 ---@field inclusion_type any[]
 ---@field probability integer[]
 
----@class environment_compound
+---@class inorganic_raw_environment
 ---@field location any[]
 ---@field type any[]
 ---@field probability integer[]
@@ -375,8 +371,8 @@ df.organic_mat_category = {
 }
 
 ---@class special_mat_table
----@field organic_types any
----@field organic_indexes any
----@field organic_unknown any
----@field builtin any
+---@field organic_types any[]
+---@field organic_indexes any[]
+---@field organic_unknown any[]
+---@field builtin any[]
 

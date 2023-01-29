@@ -354,23 +354,22 @@ df.announcement_type = {
 }
 
 ---@class announcement_flags
----@field DO_MEGA boolean
----@field PAUSE boolean
----@field RECENTER boolean
----@field A_DISPLAY boolean
----@field D_DISPLAY boolean
----@field UNIT_COMBAT_REPORT boolean
----@field UNIT_COMBAT_REPORT_ALL_ACTIVE boolean
+---@field DO_MEGA boolean # BOX
+---@field PAUSE boolean # P
+---@field RECENTER boolean # R
+---@field A_DISPLAY boolean # A_D
+---@field D_DISPLAY boolean # D_D
+---@field UNIT_COMBAT_REPORT boolean # UCR
+---@field UNIT_COMBAT_REPORT_ALL_ACTIVE boolean # UCR_A
 df.announcement_flags = {}
 
 ---@class announcements
----@field flags announcement_flags
+---@field flags announcement_flags[]
 ---@field unused any
 
 ---@class report
 ---@field type announcement_type
 ---@field text string
----@field describe any
 ---@field color integer
 ---@field bright boolean
 ---@field duration integer

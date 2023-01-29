@@ -3,7 +3,6 @@
 ---@class burrow
 ---@field id integer
 ---@field name string
----@field describe any
 ---@field tile integer
 ---@field fg_color integer
 ---@field bg_color integer
@@ -100,8 +99,8 @@ df.kitchen_exc_type = {
 ---@class plotinfost
 ---@field game_state integer
 ---@field lost_to_siege_civ integer
----@field tax_collection tax_collection_compound
----@field nobles nobles_compound
+---@field tax_collection plotinfost_tax_collection
+---@field nobles plotinfost_nobles
 ---@field caravans caravan_state[]
 ---@field unk_2 integer
 ---@field fortress_rank integer
@@ -116,7 +115,7 @@ df.kitchen_exc_type = {
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field manager_timer integer
----@field units_killed int16_t
+---@field units_killed integer[]
 ---@field currency_value integer[]
 ---@field trees_removed integer
 ---@field outdoor_irritation integer
@@ -128,12 +127,12 @@ df.kitchen_exc_type = {
 ---@field dip_meeting_info meeting_diplomat_info[]
 ---@field aid_requesters integer[]
 ---@field game_over boolean
----@field invasions invasions_compound
+---@field invasions plotinfost_invasions
 ---@field punishments punishment[]
 ---@field parties party_info[]
 ---@field dipscripts dipscript_info[]
 ---@field dipscript_popups dipscript_popup[]
----@field kitchen kitchen_compound
+---@field kitchen plotinfost_kitchen
 ---@field economic_stone boolean[]
 ---@field unk23c8_flags any
 ---@field mood_cooldown integer
@@ -144,13 +143,13 @@ df.kitchen_exc_type = {
 ---@field unk_races integer[]
 ---@field farm_crops integer[]
 ---@field farm_seasons any[]
----@field economy_prices economy_prices_compound
----@field stockpile stockpile_compound
----@field unk2a8c any
+---@field economy_prices plotinfost_economy_prices
+---@field stockpile plotinfost_stockpile
+---@field unk2a8c any[]
 ---@field unk_mapedge_x integer[]
 ---@field unk_mapedge_y integer[]
 ---@field unk_mapedge_z integer[]
----@field map_edge map_edge_compound
+---@field map_edge plotinfost_map_edge
 ---@field feature_x integer[]
 ---@field feature_y integer[]
 ---@field feature_id_local integer[]
@@ -158,11 +157,11 @@ df.kitchen_exc_type = {
 ---@field event_collections integer[]
 ---@field stone_mat_types integer[]
 ---@field stone_mat_indexes integer[]
----@field waypoints waypoints_compound
----@field burrows burrows_compound
----@field alerts alerts_compound
----@field equipment equipment_compound
----@field hauling hauling_compound
+---@field waypoints plotinfost_waypoints
+---@field burrows plotinfost_burrows
+---@field alerts plotinfost_alerts
+---@field equipment plotinfost_equipment
+---@field hauling plotinfost_hauling
 ---@field petitions integer[]
 ---@field unk_6 integer[]
 ---@field unk_7 any[]
@@ -172,14 +171,14 @@ df.kitchen_exc_type = {
 ---@field infiltrator_year_ticks integer[]
 ---@field food_warn_year integer
 ---@field food_warn_year_tick integer
----@field main main_compound
----@field squads squads_compound
+---@field main plotinfost_main
+---@field squads plotinfost_squads
 ---@field follow_unit integer
 ---@field follow_item integer
 ---@field selected_farm_crops integer[]
 ---@field available_seeds any
 
----@class tax_collection_compound
+---@class plotinfost_tax_collection
 ---@field state integer
 ---@field check_timer integer
 ---@field rooms integer[]
@@ -190,50 +189,50 @@ df.kitchen_exc_type = {
 ---@field collected integer
 ---@field quota integer
 ---@field collector_pos coord
----@field guard_pos_x int16_t
----@field guard_pos_y int16_t
----@field guard_pos_z int16_t
+---@field guard_pos_x integer[]
+---@field guard_pos_y integer[]
+---@field guard_pos_z integer[]
 ---@field collector unit
 ---@field guard1 unit
 ---@field guard2 unit
 ---@field guard_lack_complained integer
 
----@class nobles_compound
+---@class plotinfost_nobles
 ---@field unk_1 integer
 ---@field manager_cooldown integer
 ---@field bookkeeper_cooldown integer
 ---@field bookkeeper_precision integer
 ---@field bookkeeper_settings any
 
----@class invasions_compound
+---@class plotinfost_invasions
 ---@field list invasion_info[]
 ---@field next_id integer
 
----@class kitchen_compound
+---@class plotinfost_kitchen
 ---@field item_types any[]
 ---@field item_subtypes any[]
 ---@field mat_types any[]
 ---@field mat_indices integer[]
 ---@field exc_types any[]
 
----@class economy_prices_compound
+---@class plotinfost_economy_prices
 ---@field price_adjustment any
 ---@field price_setter any
 
----@class stockpile_compound
+---@class plotinfost_stockpile
 ---@field reserved_bins integer
 ---@field reserved_barrels integer
 ---@field custom_settings stockpile_settings
 
----@class map_edge_compound
----@field layer_x any
+---@class plotinfost_map_edge
+---@field layer_x any[]
 ---@field surface_x integer[]
----@field layer_y any
+---@field layer_y any[]
 ---@field surface_y integer[]
----@field layer_z any
+---@field layer_z any[]
 ---@field surface_z integer[]
 
----@class waypoints_compound
+---@class plotinfost_waypoints
 ---@field points any[]
 ---@field routes any[]
 ---@field sym_selector integer
@@ -252,7 +251,7 @@ df.kitchen_exc_type = {
 ---@field in_edit_waypts_mode boolean
 ---@field unk_42_06 any[]
 
----@class burrows_compound
+---@class plotinfost_burrows
 ---@field list burrow[]
 ---@field next_id integer
 ---@field sel_index integer
@@ -272,17 +271,17 @@ df.kitchen_exc_type = {
 ---@field sym_fg_color integer
 ---@field sym_bg_color integer
 
----@class alerts_compound
+---@class plotinfost_alerts
 ---@field list any[]
 ---@field next_id integer
----@field unk_20 any[]
----@field unk_38 integer
+---@field routines any[]
+---@field next_routine_id integer
 ---@field civ_alert_idx integer
 
----@class equipment_compound
----@field items_unmanifested any
----@field items_unassigned any
----@field items_assigned any
+---@class plotinfost_equipment
+---@field items_unmanifested any[]
+---@field items_unassigned any[]
+---@field items_assigned any[]
 ---@field update any
 ---@field work_weapons any[]
 ---@field work_units any[]
@@ -291,7 +290,7 @@ df.kitchen_exc_type = {
 ---@field ammo_units any[]
 ---@field training_assignments training_assignment[]
 
----@class hauling_compound
+---@class plotinfost_hauling
 ---@field routes hauling_route[]
 ---@field next_id integer
 ---@field view_routes hauling_route[]
@@ -306,8 +305,8 @@ df.kitchen_exc_type = {
 ---@field cursor_vehicle integer
 ---@field vehicles vehicle[]
 
----@class main_compound
----@field hotkeys ui_hotkey
+---@class plotinfost_main
+---@field hotkeys ui_hotkey[]
 ---@field traffic_cost_high integer
 ---@field traffic_cost_normal integer
 ---@field traffic_cost_low integer
@@ -331,7 +330,7 @@ df.kitchen_exc_type = {
 ---@field selected_hotkey integer
 ---@field in_rename_hotkey boolean
 
----@class squads_compound
+---@class plotinfost_squads
 ---@field list squad[]
 ---@field unk6e08 any[]
 ---@field sel_squads any
@@ -389,11 +388,11 @@ df.timed_event_type = {
 ---@field window_y integer
 ---@field window_z integer
 ---@field main_viewport graphic_viewportst
----@field lower_viewport graphic_viewportst
+---@field lower_viewport graphic_viewportst[]
 
 ---@class map_renderer
----@field entity any
----@field unk_v50_1 any
+---@field entity any[]
+---@field unk_v50_1 any[]
 ---@field cursor_units unit[]
 ---@field cursor_guts unit
 ---@field multiple_guts boolean
@@ -411,10 +410,10 @@ df.timed_event_type = {
 ---@field tick_phase integer
 ---@field dim_colors integer
 ---@field unk_1 integer
----@field unk_2 int32_t
----@field unk_3 int8_t
----@field unk_4 any
----@field unk_5 int32_t
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 any[]
+---@field unk_5 integer[]
 ---@field unk_6 integer
 ---@field unk_7 integer
 

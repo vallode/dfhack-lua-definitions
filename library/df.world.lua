@@ -49,7 +49,7 @@ df.units_other_id = {
 }
 
 ---@class unit_context_block
----@field context_unit unit
+---@field context_unit unit[]
 ---@field num integer
 
 ---@enum conflict_level
@@ -104,9 +104,9 @@ df.conflict_level = {
 ---@field world_z integer
 ---@field unk_80 integer
 ---@field unk_10c integer
----@field data data_compound
+---@field data incident_data
 
----@class data_compound
+---@class incident_data
 ---@field Performance incident_data_performance
 ---@field Artifact incident_data_artifact
 ---@field Writing incident_data_writing
@@ -153,16 +153,16 @@ df.conflict_level = {
 ---@class crime
 ---@field id integer
 ---@field mode any
----@field punishment punishment_compound
+---@field punishment crime_punishment
 ---@field criminal integer
 ---@field criminal_hf integer
 ---@field criminal_hf_2 integer
 ---@field criminal_hf_3 integer
----@field convict_data convict_data_compound
+---@field convict_data crime_convict_data
 ---@field convicted_hf integer
 ---@field convicted_hf_2 integer
 ---@field convicted_hf_3 integer
----@field victim_data victim_data_compound
+---@field victim_data crime_victim_data
 ---@field victim_hf integer
 ---@field victim_hf_2 integer
 ---@field victim_hf_3 integer
@@ -181,16 +181,16 @@ df.conflict_level = {
 ---@field witnesses crime_witness[]
 ---@field agreement_id integer
 
----@class punishment_compound
+---@class crime_punishment
 ---@field hammerstrikes integer
 ---@field prison_time integer
 ---@field give_beating integer
 
----@class convict_data_compound
+---@class crime_convict_data
 ---@field unk_v47_vector_1 integer[]
 ---@field convicted integer
 
----@class victim_data_compound
+---@class crime_victim_data
 ---@field unk_v47_vector_2 integer[]
 ---@field victim integer
 
@@ -209,14 +209,14 @@ df.conflict_level = {
 ---@field reported_tick integer
 
 ---@class mission_campaign_report
----@field travel_x int32_t
----@field travel_y int32_t
----@field travel_year int32_t
----@field travel_year_tick int32_t
+---@field travel_x integer[]
+---@field travel_y integer[]
+---@field travel_year integer[]
+---@field travel_year_tick integer[]
 ---@field travel_count integer
----@field event_id int32_t
----@field event_year int32_t
----@field event_year_tick int32_t
+---@field event_id integer[]
+---@field event_year integer[]
+---@field event_year_tick integer[]
 ---@field events_count integer
 
 ---@class mission_report
@@ -255,7 +255,7 @@ df.conflict_level = {
 ---@field unk_3 integer
 ---@field year integer
 ---@field tick integer
----@field unk unk_compound
+---@field unk interrogation_report_unk
 ---@field unk_23 integer
 ---@field unk_24 integer
 ---@field unk_25 integer
@@ -267,7 +267,7 @@ df.conflict_level = {
 ---@field unk_31 integer[]
 ---@field details string[]
 
----@class unk_compound
+---@class interrogation_report_unk
 ---@field officer_hf2 integer
 ---@field subject_hf2 integer
 ---@field unk_8 integer
@@ -416,21 +416,21 @@ df.combat_report_event_type = {
 ---@field mat_index integer
 ---@field entity integer
 ---@field ruler integer
----@field image_front image_front_compound
----@field image_back image_back_compound
+---@field image_front coin_batch_image_front
+---@field image_back coin_batch_image_back
 
----@class image_front_compound
+---@class coin_batch_image_front
 ---@field id integer
 ---@field subid integer
 
----@class image_back_compound
+---@class coin_batch_image_back
 ---@field id integer
 ---@field subid integer
 
 ---@class job_handler
 ---@field list job_list_link
 ---@field postings any[]
----@field unk_1 any
+---@field unk_1 any[]
 ---@field unk_2 integer
 
 ---@class building_handler
@@ -445,11 +445,11 @@ df.combat_report_event_type = {
 ---@field bad machine[]
 
 ---@class mental_picture
----@field unk unk_compound
+---@field unk mental_picture_unk
 ---@field unk_1 integer
 ---@field unk_2 integer
 
----@class unk_compound
+---@class mental_picture_unk
 ---@field elements mental_picture_elementst[]
 ---@field unk_1 integer
 ---@field properties mental_picture_propertyst[]
@@ -550,7 +550,7 @@ df.combat_report_event_type = {
 ---@field mapevent_v50_2 mapevent_v50_2[]
 ---@field cursed_tombs cursed_tomb[]
 ---@field engravings engraving[]
----@field vermin vermin_compound
+---@field vermin world_vermin
 ---@field dirty_waters coord[]
 ---@field campfires campfire[]
 ---@field web_clusters web_cluster[]
@@ -576,70 +576,70 @@ df.combat_report_event_type = {
 ---@field manager_orders manager_order[]
 ---@field manager_order_next_id integer
 ---@field mandates mandate[]
----@field entities entities_compound
----@field worldgen_coord_buf worldgen_coord_buf_compound
----@field units units_compound
+---@field entities world_entities
+---@field worldgen_coord_buf world_worldgen_coord_buf
+---@field units world_units
 ---@field unit_chunks unit_chunk[]
 ---@field art_image_chunks art_image_chunk[]
----@field nemesis nemesis_compound
----@field items items_compound
----@field artifacts artifacts_compound
+---@field nemesis world_nemesis
+---@field items world_items
+---@field artifacts world_artifacts
 ---@field jobs job_handler
 ---@field proj_list proj_list_link
 ---@field buildings building_handler
 ---@field machines machine_handler
----@field flow_guides flow_guides_compound
----@field stockpile stockpile_compound
----@field plants plants_compound
----@field enemy_status_cache enemy_status_cache_compound
----@field schedules schedules_compound
----@field squads squads_compound
----@field formations formations_compound
----@field activities activities_compound
----@field status status_compound
----@field interaction_instances interaction_instances_compound
----@field written_contents written_contents_compound
----@field identities identities_compound
----@field incidents incidents_compound
----@field crimes crimes_compound
----@field vehicles vehicles_compound
----@field armies armies_compound
----@field army_controllers army_controllers_compound
----@field army_tracking_info army_tracking_info_compound
----@field cultural_identities cultural_identities_compound
----@field agreements agreements_compound
----@field poetic_forms poetic_forms_compound
----@field musical_forms musical_forms_compound
----@field dance_forms dance_forms_compound
----@field scales scales_compound
----@field rhythms rhythms_compound
----@field occupations occupations_compound
----@field belief_systems belief_systems_compound
----@field image_sets image_sets_compound
----@field divination_sets divination_sets_compound
+---@field flow_guides world_flow_guides
+---@field stockpile world_stockpile
+---@field plants world_plants
+---@field enemy_status_cache world_enemy_status_cache
+---@field schedules world_schedules
+---@field squads world_squads
+---@field formations world_formations
+---@field activities world_activities
+---@field status world_status
+---@field interaction_instances world_interaction_instances
+---@field written_contents world_written_contents
+---@field identities world_identities
+---@field incidents world_incidents
+---@field crimes world_crimes
+---@field vehicles world_vehicles
+---@field armies world_armies
+---@field army_controllers world_army_controllers
+---@field army_tracking_info world_army_tracking_info
+---@field cultural_identities world_cultural_identities
+---@field agreements world_agreements
+---@field poetic_forms world_poetic_forms
+---@field musical_forms world_musical_forms
+---@field dance_forms world_dance_forms
+---@field scales world_scales
+---@field rhythms world_rhythms
+---@field occupations world_occupations
+---@field belief_systems world_belief_systems
+---@field image_sets world_image_sets
+---@field divination_sets world_divination_sets
 ---@field selected_building building
 ---@field selected_stockpile_type stockpile_category
 ---@field update_selected_building boolean
 ---@field building_width integer
 ---@field building_height integer
 ---@field selected_direction screw_pump_direction
----@field map map_compound
----@field profession_skills profession_skills_compound
----@field math math_compound
----@field map_extras map_extras_compound
+---@field map world_map
+---@field profession_skills world_profession_skills
+---@field math world_math
+---@field map_extras world_map_extras
 ---@field world_data world_data
----@field worldgen_status worldgen_status_compound
+---@field worldgen_status world_worldgen_status
 ---@field orphaned_flow_pool flow_reuse_pool
 ---@field raws world_raws
----@field area_grasses area_grasses_compound
----@field flow_engine flow_engine_compound
+---@field area_grasses world_area_grasses
+---@field flow_engine world_flow_engine
 ---@field busy_buildings integer[]
 ---@field cavein_flags any
 ---@field original_save_version save_version
----@field worldgen worldgen_compound
+---@field worldgen world_worldgen
 ---@field history world_history
 ---@field entity_populations entity_population[]
----@field unk_v40_6 unk_v40_6_compound
+---@field unk_v40_6 world_unk_v40_6
 ---@field unk_131ec0 any[]
 ---@field languages any[]
 ---@field unk_131ef0 any[]
@@ -648,63 +648,63 @@ df.combat_report_event_type = {
 ---@field reindex_pathfinding boolean
 ---@field frame_counter integer
 ---@field orphaned_flows flow_info[]
----@field pathfinder pathfinder_compound
+---@field pathfinder world_pathfinder
 ---@field save_version integer
----@field cur_savegame cur_savegame_compound
----@field rod_loader rod_loader_compound
----@field object_loader object_loader_compound
+---@field cur_savegame world_cur_savegame
+---@field rod_loader world_rod_loader
+---@field object_loader world_object_loader
 ---@field temp_pop_breeding_start integer
----@field features features_compound
+---@field features world_features
 ---@field allow_announcements boolean
 ---@field suppress_minevent_announcements boolean
 ---@field updating_region boolean
----@field arena arena_compound
----@field dungeon dungeon_compound
----@field attack_chance_info attack_chance_info_compound
----@field active_tutorial active_tutorial_compound
+---@field arena world_arena
+---@field dungeon world_dungeon
+---@field attack_chance_info world_attack_chance_info
+---@field active_tutorial world_active_tutorial
 
----@class vermin_compound
+---@class world_vermin
 ---@field all vermin[]
 ---@field colonies vermin[]
 
----@class entities_compound
+---@class world_entities
 ---@field all historical_entity[]
 ---@field bad historical_entity[]
 
----@class worldgen_coord_buf_compound
----@field slots coord2d
+---@class world_worldgen_coord_buf
+---@field slots coord2d[]
 ---@field next_slot integer
 
----@class units_compound
+---@class world_units
 ---@field all unit[]
 ---@field active unit[]
 ---@field other units_other
 ---@field temp_save unit[]
 ---@field unit_context_block unit_context_block[]
 
----@class nemesis_compound
+---@class world_nemesis
 ---@field all nemesis_record[]
----@field other any
+---@field other any[]
 ---@field bad nemesis_record[]
 ---@field unk4 boolean
 
----@class items_compound
+---@class world_items
 ---@field all item[]
 ---@field other items_other
 ---@field bad item[]
 ---@field bad_tag integer[]
 
----@class artifacts_compound
+---@class world_artifacts
 ---@field all artifact_record[]
 ---@field bad artifact_record[]
 
----@class flow_guides_compound
+---@class world_flow_guides
 ---@field all flow_guide[]
 ---@field bad flow_guide[]
 
----@class stockpile_compound
----@field num_jobs int32_t
----@field num_haulers int32_t
+---@class world_stockpile
+---@field num_jobs integer[]
+---@field num_haulers integer[]
 ---@field simple1 any
 ---@field seeds integer[]
 ---@field plants integer[]
@@ -719,7 +719,7 @@ df.combat_report_event_type = {
 ---@field liquid_builtin integer[]
 ---@field simple3 any
 
----@class plants_compound
+---@class world_plants
 ---@field all plant[]
 ---@field shrub_dry plant[]
 ---@field shrub_wet plant[]
@@ -727,129 +727,129 @@ df.combat_report_event_type = {
 ---@field tree_wet plant[]
 ---@field empty plant[]
 
----@class enemy_status_cache_compound
----@field slot_used bool
----@field rel_map any
+---@class world_enemy_status_cache
+---@field slot_used boolean[]
+---@field rel_map any[]
 ---@field next_slot integer
 
----@class schedules_compound
+---@class world_schedules
 ---@field all schedule_info[]
 ---@field bad schedule_info[]
 
----@class squads_compound
+---@class world_squads
 ---@field all squad[]
 ---@field bad squad[]
 
----@class formations_compound
+---@class world_formations
 ---@field all any[]
 ---@field bad any[]
 
----@class activities_compound
+---@class world_activities
 ---@field all activity_entry[]
 ---@field bad activity_entry[]
 
----@class status_compound
+---@class world_status
 ---@field reports report[]
 ---@field announcements report[]
 ---@field popups popup_message[]
 ---@field unk_v50_1 any
 ---@field next_report_id integer
 ---@field flags any
----@field unk_1 int32_t
+---@field unk_1 integer[]
 ---@field mission_reports mission_report[]
 ---@field spoils_reports spoils_report[]
 ---@field interrogation_reports interrogation_report[]
 ---@field unk_v50_2 any[]
 ---@field unk_v50_3 any[]
 ---@field display_timer integer
----@field slots any
----@field slot_id_used int16_t
----@field slot_id_idx1 int16_t
----@field slot_id_idx2 int16_t
+---@field slots any[]
+---@field slot_id_used integer[]
+---@field slot_id_idx1 integer[]
+---@field slot_id_idx2 integer[]
 ---@field slots_used integer
 
----@class interaction_instances_compound
+---@class world_interaction_instances
 ---@field all interaction_instance[]
 ---@field bad interaction_instance[]
 
----@class written_contents_compound
+---@class world_written_contents
 ---@field all written_content[]
 ---@field bad written_content[]
 
----@class identities_compound
+---@class world_identities
 ---@field all identity[]
 ---@field bad identity[]
 
----@class incidents_compound
+---@class world_incidents
 ---@field all incident[]
 ---@field bad incident[]
 
----@class crimes_compound
+---@class world_crimes
 ---@field all crime[]
 ---@field bad crime[]
 
----@class vehicles_compound
+---@class world_vehicles
 ---@field all vehicle[]
 ---@field active vehicle[]
 ---@field bad vehicle[]
 
----@class armies_compound
+---@class world_armies
 ---@field all army[]
 ---@field bad army[]
 
----@class army_controllers_compound
+---@class world_army_controllers
 ---@field all army_controller[]
 ---@field bad army_controller[]
 
----@class army_tracking_info_compound
+---@class world_army_tracking_info
 ---@field all any[]
 ---@field bad any[]
 
----@class cultural_identities_compound
+---@class world_cultural_identities
 ---@field all cultural_identity[]
 ---@field bad cultural_identity[]
 
----@class agreements_compound
+---@class world_agreements
 ---@field all agreement[]
 ---@field bad agreement[]
 
----@class poetic_forms_compound
+---@class world_poetic_forms
 ---@field all poetic_form[]
 ---@field bad poetic_form[]
 
----@class musical_forms_compound
+---@class world_musical_forms
 ---@field all musical_form[]
 ---@field bad musical_form[]
 
----@class dance_forms_compound
+---@class world_dance_forms
 ---@field all dance_form[]
 ---@field bad dance_form[]
 
----@class scales_compound
+---@class world_scales
 ---@field all scale[]
 ---@field bad scale[]
 
----@class rhythms_compound
+---@class world_rhythms
 ---@field all rhythm[]
 ---@field bad rhythm[]
 
----@class occupations_compound
+---@class world_occupations
 ---@field all occupation[]
 ---@field bad occupation[]
 
----@class belief_systems_compound
+---@class world_belief_systems
 ---@field all belief_system[]
 ---@field bad belief_system[]
 
----@class image_sets_compound
+---@class world_image_sets
 ---@field all image_set[]
 ---@field bad image_set[]
 
----@class divination_sets_compound
+---@class world_divination_sets
 ---@field all divination_set[]
 ---@field bad divination_set[]
 
----@class map_compound
+---@class world_map
 ---@field map_blocks map_block[]
 ---@field block_index any
 ---@field map_block_columns map_block_column[]
@@ -863,18 +863,18 @@ df.combat_report_event_type = {
 ---@field region_x integer
 ---@field region_y integer
 ---@field region_z integer
----@field distance_lookup any
+---@field distance_lookup any[]
 
----@class profession_skills_compound
----@field primary any
----@field secondary any
+---@class world_profession_skills
+---@field primary any[]
+---@field secondary any[]
 
----@class math_compound
----@field approx any
----@field cos d-float
----@field hypot any
+---@class world_math
+---@field approx any[]
+---@field cos number[]
+---@field hypot any[]
 
----@class map_extras_compound
+---@class world_map_extras
 ---@field rotation integer
 ---@field z_level_flags z_level_flags
 ---@field unk_v40_3a block_square_event_spoorst[]
@@ -882,11 +882,11 @@ df.combat_report_event_type = {
 ---@field unk_v40_3c integer[]
 ---@field unk_v40_3d integer[]
 
----@class worldgen_status_compound
+---@class world_worldgen_status
 ---@field state any
 ---@field num_rejects integer
----@field unk_1 int32_t
----@field unk_2 int32_t
+---@field unk_1 integer[]
+---@field unk_2 integer[]
 ---@field rejection_reason integer
 ---@field lakes_total integer
 ---@field unk_3 integer
@@ -894,9 +894,9 @@ df.combat_report_event_type = {
 ---@field lakes_cur integer
 ---@field unk_5 integer
 ---@field unk_6 integer
----@field geo_layers world_geo_layer
----@field unk_7 int8_t
----@field unk_8 int16_t
+---@field geo_layers world_geo_layer[]
+---@field unk_7 integer[]
+---@field unk_8 integer[]
 ---@field unk_9 integer
 ---@field finalized_civ_mats integer
 ---@field finalized_art integer
@@ -935,9 +935,9 @@ df.combat_report_event_type = {
 ---@field unk_21 integer[]
 ---@field civ_count integer
 ---@field civs_left_to_place integer
----@field regions1 any
----@field regions2 any
----@field regions3 any
+---@field regions1 any[]
+---@field regions2 any[]
+---@field regions3 any[]
 ---@field unk_22 integer[]
 ---@field unk_23 integer[]
 ---@field unk_24 integer[]
@@ -955,23 +955,23 @@ df.combat_report_event_type = {
 ---@field unk_31 any[]
 ---@field unk_32 integer[]
 
----@class area_grasses_compound
+---@class world_area_grasses
 ---@field world_tiles coord2d_path
 ---@field layer_grasses any[]
 
----@class flow_engine_compound
+---@class world_flow_engine
 ---@field rnd_16 integer
 ---@field rnd_256 integer
 ---@field rnd_pos integer
----@field rnd_x int16_t
----@field rnd_y int16_t
+---@field rnd_x integer[]
+---@field rnd_y integer[]
 ---@field block_idx integer
 ---@field unk7a integer[]
 ---@field unk7b integer[]
 ---@field unk7c integer[]
 ---@field unk7_cntdn integer[]
 
----@class worldgen_compound
+---@class world_worldgen
 ---@field version string
 ---@field next_unit_chunk_id integer
 ---@field next_unit_chunk_offset integer
@@ -979,16 +979,16 @@ df.combat_report_event_type = {
 ---@field next_art_image_chunk_offset integer
 ---@field worldgen_parms worldgen_parms
 
----@class unk_v40_6_compound
----@field unk1 any
----@field unk2 any
----@field unk3 any
----@field unk4 any
----@field unk5 any
----@field unk6 any
+---@class world_unk_v40_6
+---@field unk1 any[]
+---@field unk2 any[]
+---@field unk3 any[]
+---@field unk4 any[]
+---@field unk5 any[]
+---@field unk6 any[]
 
----@class pathfinder_compound
----@field boundary_heap any
+---@class world_pathfinder
+---@field boundary_heap any[]
 ---@field heap_count integer
 ---@field pos1 coord
 ---@field pos2 coord
@@ -1003,13 +1003,13 @@ df.combat_report_event_type = {
 ---@field plant_update_step integer
 ---@field unk_1 boolean
 
----@class cur_savegame_compound
+---@class world_cur_savegame
 ---@field save_dir string
 ---@field world_header any
 ---@field civ_history_complete boolean
 ---@field must_end_civ_history boolean
 
----@class rod_loader_compound
+---@class world_rod_loader
 ---@field state any
 ---@field progress integer
 ---@field verify_load_order_index integer
@@ -1020,7 +1020,7 @@ df.combat_report_event_type = {
 ---@field current_mh mod_headerst
 ---@field flag integer
 
----@class object_loader_compound
+---@class world_object_loader
 ---@field load_object_stage integer
 ---@field load_object_stage_count integer
 ---@field object_files ptr-string[]
@@ -1035,7 +1035,7 @@ df.combat_report_event_type = {
 ---@field object_load_order_name string[]
 ---@field object_load_order_displayed_version string[]
 
----@class features_compound
+---@class world_features
 ---@field wg_market_site world_site[]
 ---@field map_features feature_init[]
 ---@field feature_x integer[]
@@ -1058,7 +1058,7 @@ df.combat_report_event_type = {
 ---@field newpop_max_z integer[]
 ---@field newpop_from_saved_pop any
 
----@class arena_compound
+---@class world_arena
 ---@field race integer[]
 ---@field caste integer[]
 ---@field type integer
@@ -1085,7 +1085,7 @@ df.combat_report_event_type = {
 ---@field arena_tree_entering_filter boolean
 ---@field arena_tree_entering_age boolean
 
----@class dungeon_compound
+---@class world_dungeon
 ---@field creature_race integer[]
 ---@field creature_caste integer[]
 ---@field last_selected_creature_index integer
@@ -1098,7 +1098,7 @@ df.combat_report_event_type = {
 ---@field item_amount integer[]
 ---@field race_count integer[]
 
----@class attack_chance_info_compound
+---@class world_attack_chance_info
 ---@field modifier any[]
 ---@field attack any[]
 ---@field target any[]
@@ -1106,7 +1106,7 @@ df.combat_report_event_type = {
 ---@field current_attack_number integer
 ---@field current_target_number integer
 
----@class active_tutorial_compound
+---@class world_active_tutorial
 ---@field index integer
 ---@field active_step integer
 

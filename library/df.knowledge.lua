@@ -356,9 +356,9 @@ df.knowledge_scholar_flags_13 = {}
 
 ---@class knowledge_scholar_category_flag
 ---@field flag_type any
----@field flag_data flag_data_compound
+---@field flag_data knowledge_scholar_category_flag_flag_data
 
----@class flag_data_compound
+---@class knowledge_scholar_category_flag_flag_data
 ---@field flags_0 knowledge_scholar_flags_0
 ---@field flags_1 knowledge_scholar_flags_1
 ---@field flags_2 knowledge_scholar_flags_2

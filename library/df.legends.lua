@@ -22,7 +22,6 @@
 
 ---@class entity_population
 ---@field name language_name
----@field describe any
 ---@field races any[]
 ---@field counts integer[]
 ---@field unk3 integer[]
@@ -55,7 +54,6 @@ df.nemesis_flags = {
 ---@field member_idx integer
 ---@field figure historical_figure
 ---@field unit unit
----@field describe any
 ---@field group_leader_id integer
 ---@field companions any[]
 ---@field unk10 integer
@@ -67,7 +65,6 @@ df.nemesis_flags = {
 
 ---@class artifact_record
 ---@field id integer
----@field describe any
 ---@field name language_name
 ---@field flags any
 ---@field item item

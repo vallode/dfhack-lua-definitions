@@ -121,7 +121,6 @@ df.itemdef_flags = {
 ---@field source_hfid integer
 ---@field source_enid integer
 ---@field raw_strings string[]
----@field describe any
 
 ---@enum ammo_flags
 df.ammo_flags = {

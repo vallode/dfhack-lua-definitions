@@ -179,8 +179,7 @@ df.sphere_type = {
 
 ---@class language_word
 ---@field word string
----@field describe any
----@field forms stl-string
+---@field forms string[]
 ---@field adj_dist integer
 ---@field pad_1 any
 ---@field flags language_word_flags
@@ -188,7 +187,6 @@ df.sphere_type = {
 
 ---@class language_translation
 ---@field name string
----@field describe any
 ---@field unknown1 string[]
 ---@field unknown2 string[]
 ---@field words string[]
@@ -205,16 +203,15 @@ df.sphere_type = {
 ---@class language_name
 ---@field first_name string
 ---@field nickname string
----@field words any
----@field parts_of_speech any
+---@field words any[]
+---@field parts_of_speech any[]
 ---@field language integer
 ---@field type language_name_type
 ---@field has_name boolean
----@field describe any
 
 ---@class language_word_table
----@field words any
----@field parts any
+---@field words any[]
+---@field parts any[]
 
 ---@enum language_name_category
 df.language_name_category = {
@@ -330,9 +327,9 @@ df.language_name_type = {
   Monument = 37,
   Tomb = 38,
   OutcastGroup = 39,
-  Unk40 = 40,
+  TrueName = 40, --vault slabs
   SymbolProtect2 = 41,
-  Unk42 = 42,
+  PerformanceTroupe = 42,
   Library = 43,
   PoeticForm = 44,
   MusicalForm = 45,
@@ -344,6 +341,7 @@ df.language_name_type = {
   CraftGuild = 51,
   Guildhall = 52,
   NecromancerTower = 53,
+  Hospital = 54,
 }
 
 ---@enum language_name_component

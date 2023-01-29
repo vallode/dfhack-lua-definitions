@@ -3,7 +3,7 @@
 ---@class entity_occasion_info
 ---@field occasions entity_occasion[]
 ---@field next_occasion_id integer
----@field events int32_t
+---@field events integer[]
 ---@field count integer
 
 ---@class entity_occasion
@@ -81,8 +81,8 @@ df.occasion_schedule_feature = {
 ---@field unk_3 integer
 
 ---@class entity_activity_statistics
----@field food food_compound
----@field unit_counts int16_t
+---@field food entity_activity_statistics_food
+---@field unit_counts integer[]
 ---@field population integer
 ---@field menial_exempt integer
 ---@field omnivores integer
@@ -91,15 +91,15 @@ df.occasion_schedule_feature = {
 ---@field other_animals integer
 ---@field potential_soldiers integer
 ---@field combat_aptitude integer
----@field item_counts int32_t
+---@field item_counts integer[]
 ---@field created_weapons integer[]
----@field wealth wealth_compound
----@field recent_jobs any
+---@field wealth entity_activity_statistics_wealth
+---@field recent_jobs any[]
 ---@field excavated_tiles integer
----@field death_history int32_t
----@field insanity_history int32_t
----@field execution_history int32_t
----@field noble_death_history int32_t
+---@field death_history integer[]
+---@field insanity_history integer[]
+---@field execution_history integer[]
+---@field noble_death_history integer[]
 ---@field total_deaths integer
 ---@field total_insanities integer
 ---@field total_executions integer
@@ -118,7 +118,7 @@ df.occasion_schedule_feature = {
 ---@field found_minerals integer[]
 ---@field found_misc any
 
----@class food_compound
+---@class entity_activity_statistics_food
 ---@field total integer
 ---@field meat integer
 ---@field fish integer
@@ -127,7 +127,7 @@ df.occasion_schedule_feature = {
 ---@field plant integer
 ---@field drink integer
 
----@class wealth_compound
+---@class entity_activity_statistics_wealth
 ---@field total integer
 ---@field weapons integer
 ---@field armor integer
@@ -242,10 +242,10 @@ df.entity_sell_category = {
 
 ---@class entity_sell_prices
 ---@field items entity_sell_requests
----@field price any
+---@field price any[]
 
 ---@class entity_sell_requests
----@field priority any
+---@field priority any[]
 
 ---@class entity_recipe
 ---@field subtype integer
@@ -322,7 +322,6 @@ df.historical_entity_type = {
 ---@field save_file_id integer
 ---@field next_member_idx integer
 ---@field name language_name
----@field describe any
 ---@field race integer
 ---@field flags any
 ---@field guild_professions any[]
@@ -331,14 +330,18 @@ df.historical_entity_type = {
 ---@field histfig_ids integer[]
 ---@field populations integer[]
 ---@field nemesis_ids integer[]
----@field resources resources_compound
+---@field resources historical_entity_resources
 ---@field uniforms entity_uniform[]
 ---@field next_uniform_id integer
----@field relations relations_compound
----@field positions positions_compound
----@field tissue_styles tissue_styles_compound
+---@field relations historical_entity_relations
+---@field positions historical_entity_positions
+---@field tissue_styles historical_entity_tissue_styles
 ---@field squads integer[]
----@field unknown1d unknown1d_compound
+---@field global_event_knowledge_year integer
+---@field local_known_events integer[]
+---@field production_zone_id integer
+---@field conquered_site_group_flags any
+---@field worldgen_can_make_guildhall integer[]
 ---@field training_knowledge any
 ---@field events entity_event[]
 ---@field unk_v40_1a integer
@@ -364,18 +367,18 @@ df.historical_entity_type = {
 ---@field founding_site_government integer
 ---@field meeting_events meeting_event[]
 ---@field activity_stats entity_activity_statistics
----@field unknown1e unknown1e_compound
+---@field unknown1e historical_entity_unknown1e
 ---@field armies army[]
 ---@field army_controllers army_controller[]
 ---@field hist_figures historical_figure[]
 ---@field nemesis nemesis_record[]
----@field derived_resources derived_resources_compound
----@field assignments_by_type any
----@field claims claims_compound
+---@field derived_resources historical_entity_derived_resources
+---@field assignments_by_type any[]
+---@field claims historical_entity_claims
 ---@field children integer[]
----@field unknown2 unknown2_compound
+---@field unknown2 historical_entity_unknown2
 
----@class resources_compound
+---@class historical_entity_resources
 ---@field digger_type integer[]
 ---@field weapon_type integer[]
 ---@field training_weapon_type integer[]
@@ -413,14 +416,14 @@ df.historical_entity_type = {
 ---@field animals any
 ---@field meat_fish_recipes entity_recipe[]
 ---@field other_recipes entity_recipe[]
----@field unk13 any
+---@field unk13 any[]
 ---@field unk14 item[]
 ---@field unk15a integer
 ---@field unk15b integer
----@field ethic any
----@field values int32_t
+---@field ethic any[]
+---@field values integer[]
 ---@field unk_2 integer
----@field permitted_skill bool
+---@field permitted_skill boolean[]
 ---@field art_image_types integer[]
 ---@field art_image_ids integer[]
 ---@field art_image_subids integer[]
@@ -431,7 +434,7 @@ df.historical_entity_type = {
 ---@field foreground_color integer[]
 ---@field background_color integer[]
 
----@class relations_compound
+---@class historical_entity_relations
 ---@field known_sites integer[]
 ---@field deities integer[]
 ---@field worship integer[]
@@ -445,44 +448,37 @@ df.historical_entity_type = {
 ---@field position integer[]
 ---@field official integer[]
 
----@class positions_compound
+---@class historical_entity_positions
 ---@field own entity_position[]
 ---@field site entity_position[]
 ---@field conquered_site entity_position[]
 ---@field next_position_id integer
 ---@field assignments entity_position_assignment[]
 ---@field next_assignment_id integer
----@field unk_v40_1 entity_position_assignment[]
----@field unk_v40_2 entity_position_assignment[]
----@field unk_v40_3 entity_position_assignment[]
----@field unk_v40_4 entity_position_assignment[]
----@field unk_v40_5 entity_position_assignment[]
+---@field possible_evaluate entity_position_assignment[]
+---@field possible_succession entity_position_assignment[]
+---@field possible_appointable entity_position_assignment[]
+---@field possible_elected entity_position_assignment[]
+---@field possible_claimable entity_position_assignment[]
 
----@class tissue_styles_compound
+---@class historical_entity_tissue_styles
 ---@field all entity_tissue_style[]
 ---@field next_style_id integer
 
----@class unknown1d_compound
----@field year integer
----@field unk43 integer[]
----@field unk44 integer
----@field unk44a integer
----@field unk44b int32_t
-
----@class unknown1e_compound
+---@class historical_entity_unknown1e
 ---@field unk47 integer
 ---@field unk48 integer
 ---@field imports_from integer
 ---@field offerings_from integer
 ---@field offerings_recent integer
----@field offerings_history int32_t
+---@field offerings_history integer[]
 ---@field hostility_level integer
 ---@field siege_tier integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 
----@class derived_resources_compound
+---@class historical_entity_derived_resources
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
 ---@field armor_leather integer[]
@@ -516,12 +512,13 @@ df.historical_entity_type = {
 ---@field gloves_over integer[]
 ---@field gloves_cover integer[]
 
----@class claims_compound
+---@class historical_entity_claims
 ---@field areas coord2d_path
 ---@field unk1 coord2d_path
 ---@field border coord2d_path
 
----@class unknown2_compound
+---@class historical_entity_unknown2
+---@field metal_proficiency integer
 ---@field weapon_proficiencies job_skill[]
 ---@field resource_allotment resource_allotment_data
 ---@field unk_1 poetic_form[]
@@ -556,11 +553,11 @@ df.historical_entity_type = {
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
----@field unk26a int32_t
----@field unk26b int32_t
----@field unk26c int32_t
----@field unk26d int32_t
----@field unk26e int32_t
+---@field unk26a integer[]
+---@field unk26b integer[]
+---@field unk26c integer[]
+---@field unk26d integer[]
+---@field unk26e integer[]
 ---@field unk28 any[]
 ---@field unk_8 integer
 ---@field unk29 any[]
@@ -569,8 +566,6 @@ df.historical_entity_type = {
 ---@field unk_11 integer
 
 ---@class entity_tissue_style
----@field describe any
----@field find-instance any
 ---@field name string
 ---@field preferred_shapings integer[]
 ---@field unk_1 integer[]
@@ -627,19 +622,18 @@ df.entity_position_flags = {
 ---@class entity_position
 ---@field code string
 ---@field id integer
----@field describe any
 ---@field flags any
 ---@field allowed_creature integer[]
 ---@field allowed_class string[]
 ---@field rejected_creature integer[]
 ---@field rejected_class string[]
----@field name stl-string
----@field name_female stl-string
----@field name_male stl-string
----@field spouse stl-string
----@field spouse_female stl-string
----@field spouse_male stl-string
----@field squad stl-string
+---@field name string[]
+---@field name_female string[]
+---@field name_male string[]
+---@field spouse string[]
+---@field spouse_female string[]
+---@field spouse_male string[]
+---@field squad string[]
 ---@field land_name string
 ---@field squad_size integer
 ---@field commander_id integer[]
@@ -654,8 +648,9 @@ df.entity_position_flags = {
 ---@field appointed_by integer[]
 ---@field appointed_by_civ integer[]
 ---@field succession_by_position integer[]
----@field responsibilities bool
----@field color int16_t
+---@field responsibilities boolean[]
+---@field unk_v50_358 string
+---@field color integer[]
 ---@field required_boxes integer
 ---@field required_cabinets integer
 ---@field required_racks integer
@@ -670,7 +665,6 @@ df.entity_position_flags = {
 
 ---@class entity_position_assignment
 ---@field id integer
----@field describe any
 ---@field histfig integer
 ---@field histfig2 integer
 ---@field position_id integer
@@ -738,10 +732,9 @@ df.entity_material_category = {
 ---@class entity_uniform
 ---@field id integer
 ---@field unk_4 integer
----@field describe any
----@field uniform_item_types any
----@field uniform_item_subtypes any
----@field uniform_item_info any
+---@field uniform_item_types any[]
+---@field uniform_item_subtypes any[]
+---@field uniform_item_info any[]
 ---@field name string
 ---@field flags uniform_flags
 
@@ -784,7 +777,7 @@ df.entity_event_type = {
 }
 
 ---@class entity_event
----@field data data_compound
+---@field data entity_event_data
 ---@field unk_year integer
 ---@field unk_year_tick integer
 ---@field year integer
@@ -792,7 +785,7 @@ df.entity_event_type = {
 ---@field unk_1 integer
 ---@field type entity_event_type
 
----@class data_compound
+---@class entity_event_data
 ---@field invasion any
 ---@field abduction any
 ---@field incident any
@@ -877,10 +870,10 @@ df.agreement_details_type = {
 ---@field id integer
 ---@field year integer
 ---@field year_tick integer
----@field data data_compound
+---@field data agreement_details_data
 ---@field type agreement_details_type
 
----@class data_compound
+---@class agreement_details_data
 ---@field JoinParty agreement_details_data_join_party
 ---@field DemonicBinding agreement_details_data_demonic_binding
 ---@field Residency agreement_details_data_residency
@@ -905,6 +898,8 @@ df.agreement_details_type = {
 ---@field site integer
 ---@field entity integer
 ---@field figure integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
 
 ---@class agreement_details_data_demonic_binding
 ---@field reason history_event_reason
@@ -919,15 +914,23 @@ df.agreement_details_type = {
 ---@field applicant integer
 ---@field government integer
 ---@field site integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
 
 ---@class agreement_details_data_citizenship
 ---@field applicant integer
 ---@field government integer
 ---@field site integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
 
 ---@class agreement_details_data_parley
 ---@field unk_1 integer
 ---@field party_id integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+---@field unk_v50_3 integer
+---@field unk_v50_4 integer
 
 ---@class agreement_details_data_position_corruption
 ---@field unk_1 integer
@@ -961,6 +964,7 @@ df.agreement_details_type = {
 ---@field actor_index integer
 ---@field intermediary_index integer
 ---@field target_id integer
+---@field unk_v50_1 integer
 
 ---@class agreement_details_data_plot_sabotage
 ---@field plotter_index integer
@@ -983,6 +987,7 @@ df.agreement_details_type = {
 ---@field deity_data temple_deity_data
 ---@field profession profession
 ---@field tier integer
+---@field unk_v50_1 integer
 
 ---@class agreement_details_data_plot_infiltration_coup
 ---@field actor_index integer

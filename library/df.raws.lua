@@ -12,28 +12,28 @@
 ---@field material_templates material_template[]
 ---@field inorganics inorganic_raw[]
 ---@field inorganics_subset inorganic_raw[]
----@field plants plants_compound
+---@field plants world_raws_plants
 ---@field tissue_templates tissue_template[]
 ---@field body_detail_plans body_detail_plan[]
 ---@field body_templates body_template[]
 ---@field bodyglosses any[]
 ---@field creature_variations creature_variation[]
 ---@field creatures creature_handler
----@field itemdefs itemdefs_compound
+---@field itemdefs world_raws_itemdefs
 ---@field entities entity_raw[]
----@field language language_compound
----@field descriptors descriptors_compound
----@field reactions reactions_compound
----@field buildings buildings_compound
+---@field language world_raws_language
+---@field descriptors world_raws_descriptors
+---@field reactions world_raws_reactions
+---@field buildings world_raws_buildings
 ---@field interactions interaction[]
----@field unk_v50_1 unk_v50_1_compound
----@field unk_v50_2 unk_v50_2_compound
----@field unk_v50_3 unk_v50_3_compound
+---@field unk_v50_1 world_raws_unk_v50_1
+---@field unk_v50_2 world_raws_unk_v50_2
+---@field unk_v50_3 world_raws_unk_v50_3
 ---@field mat_table special_mat_table
----@field syndromes syndromes_compound
----@field effects effects_compound
+---@field syndromes world_raws_syndromes
+---@field effects world_raws_effects
 
----@class plants_compound
+---@class world_raws_plants
 ---@field all plant_raw[]
 ---@field bushes plant_raw[]
 ---@field bushes_idx any[]
@@ -42,13 +42,13 @@
 ---@field grasses plant_raw[]
 ---@field grasses_idx any[]
 
----@class itemdefs_compound
+---@class world_raws_itemdefs
 ---@field all itemdef[]
 ---@field weapons itemdef_weaponst[]
 ---@field trapcomps itemdef_trapcompst[]
 ---@field toys itemdef_toyst[]
 ---@field tools itemdef_toolst[]
----@field tools_by_type any
+---@field tools_by_type any[]
 ---@field instruments itemdef_instrumentst[]
 ---@field armor itemdef_armorst[]
 ---@field ammo itemdef_ammost[]
@@ -60,13 +60,13 @@
 ---@field pants itemdef_pantsst[]
 ---@field food itemdef_foodst[]
 
----@class language_compound
+---@class world_raws_language
 ---@field words language_word[]
 ---@field symbols language_symbol[]
 ---@field translations language_translation[]
----@field word_table any
+---@field word_table any[]
 
----@class descriptors_compound
+---@class world_raws_descriptors
 ---@field colors descriptor_color[]
 ---@field shapes descriptor_shape[]
 ---@field patterns descriptor_pattern[]
@@ -74,29 +74,29 @@
 ---@field unk_2 integer[]
 ---@field unk_3 integer[]
 
----@class reactions_compound
+---@class world_raws_reactions
 ---@field reactions reaction[]
 ---@field reaction_categories reaction_category[]
 
----@class buildings_compound
+---@class world_raws_buildings
 ---@field all building_def[]
 ---@field workshops building_def_workshopst[]
 ---@field furnaces building_def_furnacest[]
 ---@field next_id integer
 
----@class unk_v50_1_compound
+---@class world_raws_unk_v50_1
 
----@class unk_v50_2_compound
+---@class world_raws_unk_v50_2
 
----@class unk_v50_3_compound
+---@class world_raws_unk_v50_3
 
----@class syndromes_compound
+---@class world_raws_syndromes
 ---@field mat_types any[]
 ---@field mat_indexes integer[]
 ---@field interactions any[]
 ---@field all syndrome[]
 
----@class effects_compound
+---@class world_raws_effects
 ---@field mat_types any[]
 ---@field mat_indexes integer[]
 ---@field interactions any[]

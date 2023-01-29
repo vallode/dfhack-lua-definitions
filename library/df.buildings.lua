@@ -61,11 +61,11 @@ df.building_type = {
 }
 
 ---@class building_flags
----@field exists boolean
----@field site_blocked boolean
----@field room_collision boolean
+---@field exists boolean # actually built, not just ordered
+---@field site_blocked boolean # items on ground on site
+---@field room_collision boolean # major intersection with another room?
 ---@field unk_3 boolean
----@field almost_deleted boolean
+---@field almost_deleted boolean # when requesting delete while in_update
 ---@field in_update boolean
 ---@field from_worldgen boolean
 df.building_flags = {}
@@ -84,8 +84,8 @@ df.door_flags = {}
 ---@field closed boolean
 ---@field closing boolean
 ---@field opening boolean
----@field collapsing boolean
----@field has_support boolean
+---@field collapsing boolean # ?; bridge
+---@field has_support boolean # bridge
 df.gate_flags = {}
 
 ---@enum building_extents_type
@@ -105,10 +105,10 @@ df.building_extents_type = {
 ---@field height integer
 
 ---@class building_drawbuffer
----@field tile any
----@field fore any
----@field back any
----@field bright any
+---@field tile any[]
+---@field fore any[]
+---@field back any[]
+---@field bright any[]
 ---@field x1 integer
 ---@field x2 integer
 ---@field y1 integer
@@ -132,7 +132,7 @@ df.building_extents_type = {
 ---@field jobs job[]
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
----@field relations building[]
+---@field relations building_civzonest[]
 ---@field job_claim_suppress any[]
 ---@field name string
 ---@field activities any[]
@@ -289,13 +289,13 @@ df.civzone_type = {
 ---@field type civzone_type
 ---@field is_active integer
 ---@field zone_num integer
----@field zone_settings zone_settings_compound
+---@field zone_settings building_civzonest_zone_settings
 ---@field contained_buildings building[]
 ---@field assigned_unit_id integer
 ---@field assigned_unit unit
 ---@field squad_room_info any[]
 
----@class zone_settings_compound
+---@class building_civzonest_zone_settings
 ---@field whole any
 ---@field gather any
 ---@field pen any
@@ -309,9 +309,6 @@ df.civzone_type = {
 ---@field design building_design
 
 ---@class building_design
----@field architect integer
----@field unk2 integer
----@field design_skill integer
 ---@field builder1 integer
 ---@field unk5 integer
 ---@field build_skill integer
@@ -319,7 +316,6 @@ df.civzone_type = {
 ---@field builder2 integer
 ---@field build_timer2 integer
 ---@field quality1 item_quality
----@field quality2 item_quality
 ---@field flags any
 ---@field hitpoints integer
 ---@field max_hitpoints integer
@@ -380,7 +376,7 @@ df.workshop_type = {
 ---@field max_general_orders integer
 ---@field block_general_orders boolean
 ---@field pad_1 any
----@field blocked_labors bool
+---@field blocked_labors boolean[]
 
 ---@class building_workshopst
 ---@field type workshop_type
@@ -504,7 +500,7 @@ df.construction_type = {
 ---@field close_timer integer
 
 ---@class building_farmplotst
----@field plant_id any
+---@field plant_id any[]
 ---@field material_amount integer
 ---@field farm_flags any
 ---@field last_season season
@@ -657,8 +653,8 @@ df.trap_type = {
 ---@field mode squad_use_flags
 
 ---@class building_weaponrackst
----@field unk_c0 integer
----@field squads building_squad_use[]
+---@field rack_flags integer
+---@field specific_squad integer
 
 ---@class building_wellst
 ---@field well_flags any

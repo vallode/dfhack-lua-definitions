@@ -2,13 +2,13 @@
 
 ---@class job_material_category
 ---@field plant boolean
----@field wood boolean
+---@field wood boolean # wood log
 ---@field cloth boolean
 ---@field silk boolean
 ---@field leather boolean
 ---@field bone boolean
 ---@field shell boolean
----@field wood2 boolean
+---@field wood2 boolean # wood material
 ---@field soap boolean
 ---@field tooth boolean
 ---@field horn boolean
@@ -43,18 +43,18 @@ df.dfhack_material_category = {}
 ---@class job_flags
 ---@field repeat boolean
 ---@field suspend boolean
----@field working boolean
----@field fetching boolean
----@field special boolean
+---@field working boolean # not for food, or store in sp
+---@field fetching boolean # Actually going out to bring; corresponds to items->is_fetching
+---@field special boolean # Sleep/Drink/Eat/Clean; cannot be aborted via the ui
 ---@field bringing boolean
----@field item_lost boolean
----@field noise number
+---@field item_lost boolean # set when a Hauled item is removed; causes cancel
+---@field noise boolean # on the sleep job causes thoughts
 ---@field by_manager boolean
 ---@field store_item boolean
----@field quality number
----@field specific_dropoff boolean
+---@field quality boolean # set by improvement code
+---@field specific_dropoff boolean # for some jobs, blocks auto-restockpiling of the hauled item
 ---@field unk_12 boolean
----@field on_break boolean
+---@field on_break boolean # job displayed as On Break
 ---@field unk_14 boolean
 ---@field do_now boolean
 df.job_flags = {}
@@ -73,7 +73,6 @@ df.job_subtype_surgery = {
 ---@field posting_index integer
 ---@field job_type job_type
 ---@field job_subtype integer
----@field describe any
 ---@field pos coord
 ---@field completion_timer integer
 ---@field unk4 integer
@@ -107,33 +106,33 @@ df.job_subtype_surgery = {
 ---@field job_item_idx integer
 
 ---@class job_item_flags1
----@field improvable boolean
----@field butcherable boolean
----@field millable boolean
----@field allow_buryable boolean
----@field unrotten boolean
----@field undisturbed boolean
----@field collected boolean
----@field sharpenable boolean
----@field murdered boolean
----@field distillable boolean
----@field empty boolean
----@field processable boolean
----@field bag boolean
----@field cookable boolean
----@field extract_bearing_plant boolean
----@field extract_bearing_fish boolean
----@field extract_bearing_vermin boolean
----@field processable_to_vial boolean
----@field processable_to_bag boolean
----@field processable_to_barrel boolean
----@field solid boolean
----@field tameable_vermin boolean
+---@field improvable boolean # vtable[155]:eax,-1,-1
+---@field butcherable boolean # (call 0074c6d0)
+---@field millable boolean # vtable[79]
+---@field allow_buryable boolean # ALLOW items with flag "dead_dwarf"
+---@field unrotten boolean # check for item flag "rotten"
+---@field undisturbed boolean # check for item flag "spider_web"
+---@field collected boolean # check for item flag "spider_web"
+---@field sharpenable boolean # vtable[25]
+---@field murdered boolean # check for item flag
+---@field distillable boolean # vtable[105],1
+---@field empty boolean # (call 00753a40)
+---@field processable boolean # vtable[80]
+---@field bag boolean # vtable[131]
+---@field cookable boolean # (call 00753fe0)
+---@field extract_bearing_plant boolean # vtable[164]
+---@field extract_bearing_fish boolean # vtable[181]
+---@field extract_bearing_vermin boolean # vtable[182]
+---@field processable_to_vial boolean # vtable[81]
+---@field processable_to_bag boolean # vtable[82]
+---@field processable_to_barrel boolean # vtable[83]
+---@field solid boolean # vtable[74]
+---@field tameable_vermin boolean # vtable[104]
 ---@field nearby boolean
----@field sand_bearing boolean
----@field glass boolean
----@field milk boolean
----@field milkable boolean
+---@field sand_bearing boolean # vtable[108]
+---@field glass boolean # check for material flag IS_GLASS
+---@field milk boolean # (call 00753d30 - check if material has CHEESE_MAT?)
+---@field milkable boolean # vtable[107],1,1
 ---@field finished_goods boolean
 ---@field ammo boolean
 ---@field furniture boolean
@@ -142,49 +141,49 @@ df.job_subtype_surgery = {
 df.job_item_flags1 = {}
 
 ---@class job_item_flags2
----@field dye boolean
----@field dyeable boolean
----@field dyed boolean
----@field sewn_imageless boolean
----@field glass_making boolean
----@field screw boolean
----@field building_material boolean
----@field fire_safe boolean
----@field magma_safe boolean
----@field deep_material boolean
----@field melt_designated boolean
----@field non_economic boolean
----@field allow_melt_dump boolean
----@field allow_artifact boolean
----@field plant boolean
----@field silk boolean
----@field leather boolean
----@field bone boolean
----@field shell boolean
----@field totemable boolean
----@field horn boolean
----@field pearl boolean
----@field plaster_containing boolean
+---@field dye boolean # vtable[106]
+---@field dyeable boolean # vtable[159]
+---@field dyed boolean # vtable[161]
+---@field sewn_imageless boolean # vtable[162]
+---@field glass_making boolean # vtable[26]
+---@field screw boolean # vtable[46]
+---@field building_material boolean # vtable[47]
+---@field fire_safe boolean # vtable[48],1
+---@field magma_safe boolean # vtable[48],2
+---@field deep_material boolean # check for inorganic material flag DEEP
+---@field melt_designated boolean # check for item flag "melt"
+---@field non_economic boolean # (call 0076be60)
+---@field allow_melt_dump boolean # item can be designated for melting or dumping
+---@field allow_artifact boolean # item can be artifact
+---@field plant boolean # check if material is a PLANT_MAT
+---@field silk boolean # check for material flag SILK
+---@field leather boolean # check for material flag LEATHER
+---@field bone boolean # check for material flag BONE
+---@field shell boolean # check for material flag SHELL
+---@field totemable boolean # vtable[158]
+---@field horn boolean # check for material flag HORN
+---@field pearl boolean # check for material flag PEARL
+---@field plaster_containing boolean # vtable[17]
 ---@field unk_23 boolean
----@field soap boolean
----@field body_part boolean
----@field ivory_tooth boolean
----@field lye_milk_free boolean
----@field blunt boolean
----@field unengraved boolean
----@field hair_wool boolean
----@field yarn boolean
+---@field soap boolean # check for material flag SOAP
+---@field body_part boolean # itemtype CORPSE or CORPSEPIECE
+---@field ivory_tooth boolean # check for material flag TOOTH
+---@field lye_milk_free boolean # (call 00759110)
+---@field blunt boolean # vtable[157]
+---@field unengraved boolean # vtable[214]
+---@field hair_wool boolean # ??? (pretty sure this is [ANY_STRAND_TISSUE])
+---@field yarn boolean # check for material flag YARN
 df.job_item_flags2 = {}
 
 ---@class job_item_flags3
----@field unimproved boolean
----@field any_raw_material boolean
----@field non_absorbent boolean
----@field non_pressed boolean
+---@field unimproved boolean # vtable[176]
+---@field any_raw_material boolean # itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+---@field non_absorbent boolean # vtable[215]
+---@field non_pressed boolean # vtable[91]
 ---@field allow_liquid_powder boolean
----@field any_craft boolean
----@field hard boolean
----@field food_storage boolean
+---@field any_craft boolean # FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+---@field hard boolean # check for material flag ITEMS_HARD
+---@field food_storage boolean # vtable[15]
 ---@field metal boolean
 ---@field sand boolean
 ---@field unk_10 boolean
@@ -263,7 +262,6 @@ df.manager_order_status = {}
 
 ---@class job_art_specification
 ---@field type any
----@field describe any
 ---@field id integer
 ---@field subid integer
 
@@ -331,17 +329,6 @@ df.manager_order_status = {}
 ---@field compare_str string
 ---@field on boolean
 
----@enum guild_id
-df.guild_id = {
-  None = -1,
-  Miners = 0,
-  Carpenters = 1,
-  Masons = 2,
-  Metalsmiths = 3,
-  Jewelers = 4,
-  Craftsmen = 5,
-}
-
 ---@class mandate
 ---@field unit unit
 ---@field mode any
@@ -353,11 +340,11 @@ df.guild_id = {
 ---@field amount_remaining integer
 ---@field timeout_counter integer
 ---@field timeout_limit integer
----@field punishment punishment_compound
+---@field punishment mandate_punishment
 ---@field punish_multiple integer
 ---@field unk4 integer
 
----@class punishment_compound
+---@class mandate_punishment
 ---@field hammerstrikes integer
 ---@field prison_time integer
 ---@field give_beating integer
