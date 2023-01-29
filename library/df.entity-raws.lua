@@ -165,7 +165,7 @@ df.entity_name_type = {
 
 ---@class entity_raw
 ---@field code string
----@field index integer
+---@field index integer # into instace-vector
 ---@field raws string[]
 ---@field creature_ids integer[]
 ---@field creatures string[]

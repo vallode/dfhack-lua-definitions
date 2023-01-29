@@ -54,7 +54,7 @@ df.resource_allotment_specifier_type = {
 ---@field unk_3 integer
 
 ---@class resource_allotment_specifier_cropst
----@field mat_type integer
+---@field mat_type integer # index to world.raws.plant.all
 ---@field unk_4 integer
 ---@field unk_v40_01 integer
 ---@field unk_5 integer[]
@@ -252,7 +252,7 @@ df.resource_allotment_specifier_type = {
 ---@field unk_4 integer
 ---@field mat_type2 integer
 ---@field mat_index2 integer
----@field unk_5 integer
+---@field unk_5 integer # uninitialized
 
 ---@class resource_allotment_specifier_cheesest
 ---@field mat_type integer

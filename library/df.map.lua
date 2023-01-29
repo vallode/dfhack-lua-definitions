@@ -161,10 +161,10 @@ df.tile_liquid_flow = {}
 ---@field flags block_flags
 ---@field block_events block_square_event[]
 ---@field block_burrows block_burrow_link
----@field local_feature integer
+---@field local_feature integer # index into world_data.region_map
 ---@field global_feature integer
 ---@field unk2 integer
----@field layer_depth integer
+---@field layer_depth integer # uninitialized
 ---@field dsgn_check_cooldown integer
 ---@field default_liquid tile_designation
 ---@field items any[]
@@ -175,7 +175,7 @@ df.tile_liquid_flow = {}
 ---@field tiletype any[]
 ---@field designation any[]
 ---@field occupancy any[]
----@field fog_of_war any[]
+---@field fog_of_war any[] # for adventure mode
 ---@field path_cost any[]
 ---@field path_tag any[]
 ---@field walkable any[]
@@ -203,20 +203,20 @@ df.tile_liquid_flow = {}
 ---@field unk_7 any
 
 ---@class map_block_column
----@field sink_level integer
----@field beach_level integer
----@field ground_level integer
+---@field sink_level integer # water at or above this level sinks into aquifer tiles
+---@field beach_level integer # water at this level disappears if above more water
+---@field ground_level integer # for coloring unallocated blocks
 ---@field unmined_glyphs any[]
 ---@field z_base integer
 ---@field cave_columns any[]
 ---@field column_rectangles cave_column_rectangle[]
----@field z_shift integer
----@field flags any
+---@field z_shift integer # seems to be 0 originally, but updated when map is shifted
+---@field flags any # 0 process cave columns for caveins
 ---@field elevation any[]
----@field map_pos coord2d
----@field unk_c3c integer
+---@field map_pos coord2d # top left in tiles
+---@field unk_c3c integer # uninitialized
 ---@field region_pos coord2d
----@field plants plant[]
+---@field plants plant[] # Only populated for the top left column in each mid level tile
 
 ---@enum block_square_event_type
 df.block_square_event_type = {
@@ -263,7 +263,7 @@ df.block_square_event_type = {
 ---@field unk_3 any[]
 ---@field race any[]
 ---@field caste any[]
----@field age any[]
+---@field age any[] # in half-seconds
 ---@field year integer
 ---@field year_tick integer
 
@@ -297,8 +297,8 @@ df.feature_type = {
 
 ---@class feature
 ---@field population world_population[]
----@field irritation_level integer
----@field irritation_attacks integer
+---@field irritation_level integer # divide by 10k for attack chance, max 100k
+---@field irritation_attacks integer # maxes at 10?
 ---@field embark_pos coord2d_path
 ---@field min_map_z integer[]
 ---@field max_map_z integer[]
@@ -432,7 +432,7 @@ df.world_construction_type = {
 ---@class world_construction_square_tunnelst
 
 ---@class world_construction_square_bridgest
----@field road_id integer
+---@field road_id integer # guess
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
@@ -586,9 +586,9 @@ df.flow_guide_type = {
 ---@field unk_1 coord[]
 
 ---@class effect_info
----@field id integer
+---@field id integer # assigned during Save
 ---@field job job
----@field type integer
+---@field type integer # 2 = falling into chasm
 ---@field foreground integer
 ---@field background integer
 ---@field bright integer

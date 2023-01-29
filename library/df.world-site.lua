@@ -2,7 +2,7 @@
 
 ---@class scribejob
 ---@field idmaybe integer
----@field unk_1 integer
+---@field unk_1 integer # not locationid
 ---@field item_id integer
 ---@field written_content_id integer
 ---@field unit_id integer
@@ -85,15 +85,15 @@ df.abstract_building_flags = {
 ---@field id integer
 ---@field inhabitants any[]
 ---@field flags any
----@field unk1 any
+---@field unk1 any # in temples; hfig is the god
 ---@field unk2 integer[]
----@field parent_building_id integer
----@field child_building_ids integer[]
----@field site_owner_id integer
+---@field parent_building_id integer # Tombs use this to hold which catacomb they are part of.
+---@field child_building_ids integer[] # Used by catacombs to hold their tombs
+---@field site_owner_id integer # entity that constructed the building
 ---@field scribeinfo location_scribe_jobs
 ---@field reputation_reports site_reputation_info
 ---@field unk_v42_3 any
----@field site_id integer
+---@field site_id integer # not initialized/saved/loaded, assumed member of base class
 ---@field pos coord2d
 ---@field occupations occupation[]
 
@@ -139,8 +139,8 @@ df.temple_deity_type = {
 ---@field unk_1 integer
 ---@field entombed abstract_building_entombed
 ---@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
+---@field unk_3 integer # not saved
+---@field unk_4 integer # not saved
 
 ---@class abstract_building_underworld_spirest
 ---@field name language_name
@@ -234,13 +234,13 @@ df.lair_type = {
 
 ---@class property_ownership
 ---@field index integer
----@field is_concrete_property boolean
+---@field is_concrete_property boolean # true if house [property_index = 4 only one seen], or index into buildings
 ---@field pad_1 any
----@field property_index integer
----@field unk_hfid integer
----@field owner_entity_id integer
+---@field property_index integer # index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
+---@field unk_hfid integer # Always same as owner_hfid when set, but not always set when that field is.
+---@field owner_entity_id integer # Mutually exclusive with owner_hfid. All seen were merchant companies.
 ---@field owner_hfid integer
----@field unk_owner_entity_id integer
+---@field unk_owner_entity_id integer # Seen only in subset of owner_entity_id case, and always same value
 
 ---@class world_site
 ---@field name language_name
@@ -251,30 +251,30 @@ df.lair_type = {
 ---@field id integer
 ---@field unk_1 world_site_unk_1
 ---@field index integer
----@field rgn_min_x integer
+---@field rgn_min_x integer # in embark tiles
 ---@field rgn_max_x integer
 ---@field rgn_min_y integer
 ---@field rgn_max_y integer
 ---@field rgn_min_z integer
 ---@field rgn_max_z integer
----@field global_min_x integer
+---@field global_min_x integer # in embark tiles
 ---@field global_min_y integer
 ---@field global_max_x integer
 ---@field global_max_y integer
----@field seed1 integer
----@field seed2 integer
----@field resident_count integer
+---@field seed1 integer # random
+---@field seed2 integer # random
+---@field resident_count integer # count living in houses and shops
 ---@field unk_110 integer
 ---@field unk_114 integer
 ---@field unk_118 any
----@field unk_11c integer
----@field unk_120 integer
----@field unk_124 integer
----@field unk_128 integer
----@field unk_2 integer[]
----@field unk_13c any[]
----@field unk_v40_2 any[]
----@field unk_v47_1 any[]
+---@field unk_11c integer # Caves have non zero numbers. No others.
+---@field unk_120 integer # Subset of caves can have non zero.
+---@field unk_124 integer # Monument 0, LairShrine 5, Camp 20, others varying
+---@field unk_128 integer #  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
+---@field unk_2 integer[] # Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
+---@field unk_13c any[] # MountainHall, Town, DarkFortress, but not all
+---@field unk_v40_2 any[] # forest retreat
+---@field unk_v47_1 any[] # Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
 ---@field flags any
 ---@field buildings abstract_building[]
 ---@field next_building_id integer
@@ -282,25 +282,25 @@ df.lair_type = {
 ---@field next_property_ownership_id integer
 ---@field created_tick integer
 ---@field created_year integer
----@field unk_170 integer
----@field unk_174 integer
+---@field unk_170 integer # constant 0
+---@field unk_174 integer # constant 0
 ---@field unk_178 coord
 ---@field realization world_site_realization
 ---@field subtype_info any
 ---@field unk_21c any[]
----@field deaths integer[]
+---@field deaths integer[] # killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
 ---@field is_mountain_halls integer
 ---@field is_fortress integer
----@field unk_v47_2 integer
+---@field unk_v47_2 integer # only MountainHalls, but only subset of them
 ---@field unk_v40_4a any[]
 ---@field unk_v40_4b any[]
 ---@field unk_v40_4c any[]
----@field unk_v40_4d any[]
----@field unk_v40_4d_next_id integer
+---@field unk_v40_4d any[] # only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
+---@field unk_v40_4d_next_id integer # only single non zero entry, matching vector above. Might guess 'since' is scrambled
 ---@field unk_v43_2 any[]
----@field unk_v43_3 integer
----@field unk_v40_5 integer
----@field unk_188 any
+---@field unk_v43_3 integer # constant 0?
+---@field unk_v40_5 integer # constant -1?
+---@field unk_188 any # Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 integer
 ---@field unk_3b0 world_site_unk130
 ---@field unk_18c any[]
@@ -308,7 +308,7 @@ df.lair_type = {
 ---@field entity_links entity_site_link[]
 ---@field cultural_identities cultural_identity[]
 ---@field unk_v42_1 occupation[]
----@field unk_v43_4 integer
+---@field unk_v43_4 integer # uninitialized
 ---@field unk_3 any[]
 ---@field unk_4 historical_figure
 ---@field unk_5 historical_figure
@@ -354,7 +354,7 @@ df.lair_type = {
 ---@field id integer
 ---@field site_id integer
 ---@field civ_id integer
----@field group_log any[]
+---@field group_log any[] # the circumstances of groups joining or leaving this culture
 ---@field ethic any[]
 ---@field values integer[]
 ---@field events entity_event[]
@@ -362,7 +362,7 @@ df.lair_type = {
 ---@field unk_dc integer[]
 ---@field unk_ec integer
 ---@field unk_f0 integer
----@field unk_f4 integer
+---@field unk_f4 integer # 0 or 800000
 ---@field unk_1 any[]
 ---@field unk_2 any[]
 ---@field unk_f8 integer
@@ -371,13 +371,13 @@ df.lair_type = {
 ---@field count integer
 ---@field race integer
 ---@field population_id integer
----@field entity_id integer
+---@field entity_id integer # can be Religion, Civilization, and SiteGovernment as well as Outcast
 ---@field unk_10 integer
 ---@field cultural_identity_id integer
 ---@field interaction_id integer
----@field interaction_effect_idx integer
----@field related_entity_id integer
----@field unk_24 integer
+---@field interaction_effect_idx integer # index into the above interaction, usually refers to an ANIMATE effect
+---@field related_entity_id integer # Founder if outcast_id=-1, else Outcast and equal to outcast_id
+---@field unk_24 integer # 0 and 1 seen
 ---@field unk_28 integer
 
 ---@class world_site_realization
@@ -511,7 +511,7 @@ df.site_realization_building_type = {
 ---@class site_realization_building
 ---@field id integer
 ---@field type site_realization_building_type
----@field min_x integer
+---@field min_x integer # in tiles relative to site
 ---@field min_y integer
 ---@field max_x integer
 ---@field max_y integer
@@ -519,11 +519,11 @@ df.site_realization_building_type = {
 ---@field inhabitants world_site_inhabitant[]
 ---@field unk_2c integer
 ---@field item site_building_item
----@field abstract_building_id integer
+---@field abstract_building_id integer # used for temple and mead hall
 ---@field unk_44 integer
 ---@field building_info site_realization_building_infost
 ---@field unk_4c any[]
----@field unk_5c integer
+---@field unk_5c integer # bit 0x01 == abandoned
 ---@field unk_60 any[]
 ---@field unk_v40_1 integer
 
@@ -558,7 +558,7 @@ df.tower_shape = {}
 
 ---@class site_realization_building_info_castle_towerst
 ---@field roof_z integer
----@field base_z integer
+---@field base_z integer # can be below ground, but not above ground
 ---@field door_n_elevation integer
 ---@field door_s_elevation integer
 ---@field door_e_elevation integer
@@ -630,7 +630,7 @@ df.town_labor_type = {
 
 ---@class site_realization_building_info_trenchesst
 ---@field unk_4 integer
----@field spokes any[]
+---@field spokes any[] # N, S, E, W
 
 ---@enum tree_house_type
 df.tree_house_type = {

@@ -299,6 +299,28 @@ df.lever_target_type = {
   GrateWall = 119,
 }
 
+---@class lever_target_type_attr
+---@field building_type building_type
+
+---@type table<lever_target_type, lever_target_type_attr>
+df.lever_target_type.attrs = {
+  SpearsSpikes = {
+    building_type = "Trap",
+  },
+  TrackStop = {
+    building_type = "Trap",
+  },
+  EncrustGems = {
+    building_type = "NONE",
+  },
+  LeverMechanism = {
+    building_type = "NONE",
+  },
+  TargetMechanism = {
+    building_type = "NONE",
+  },
+}
+
 ---@type integer
 df.global.window_x = nil
 

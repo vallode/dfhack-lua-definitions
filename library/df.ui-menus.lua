@@ -7,7 +7,7 @@
 ---@field unk_a0 integer[]
 ---@field candidate_enabled boolean[]
 ---@field count_required integer
----@field count_max integer
+---@field count_max integer # if 0, fixed at required
 ---@field count_provided integer
 
 ---@enum build_req_choice_type
@@ -34,10 +34,10 @@ df.build_req_choice_type = {
 ---@class buildreq
 ---@field requirements ui_build_item_req[]
 ---@field choices build_req_choicest[]
----@field building_type building_type
+---@field building_type building_type # if -1, in Build menu; otherwise select item
 ---@field building_subtype integer
 ---@field custom_type integer
----@field stage integer
+---@field stage integer # 0 no materials, 1 place, 2 select item
 ---@field req_index integer
 ---@field sel_index integer
 ---@field is_grouped integer
@@ -107,7 +107,7 @@ df.interface_category_construction = {
 ---@field material integer
 ---@field matgloss integer
 ---@field specflag stockpile_group_set
----@field spec_id integer
+---@field spec_id integer # refers to various things, such as histfigs OR races
 ---@field job_item_flag job_material_category
 ---@field add_building_location boolean
 ---@field show_help_instead boolean
@@ -769,7 +769,7 @@ df.main_designation_type = {
 ---@field assigning_position_squad boolean
 ---@field ap_squad_list squad[]
 ---@field ap_squad_sel integer
----@field pref_occupation any[]
+---@field pref_occupation any[] # occupationst
 ---@field selected_pref_occupation integer
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
@@ -777,9 +777,9 @@ df.main_designation_type = {
 ---@field hover_instructions_on boolean
 ---@field hover_instructions_last_hover_tick integer
 ---@field current_hover integer
----@field current_hover_id1 integer
----@field current_hover_id2 integer
----@field current_hover_id3 integer
+---@field current_hover_id1 integer # union with current_hover_building_type
+---@field current_hover_id2 integer # union with current_hover_building_subtype
+---@field current_hover_id3 integer # union with current_hover_building_custom_id
 ---@field current_hover_key interface_key
 ---@field current_hover_alert popup_message
 ---@field current_hover_replace_minimap boolean
@@ -923,7 +923,7 @@ df.main_designation_type = {
 
 ---@class actor_entryst
 ---@field hf historical_figure
----@field iden any
+---@field iden any # identityst
 ---@field name_ptr language_name
 ---@field list_name string
 ---@field simple_list_name string
@@ -933,8 +933,8 @@ df.main_designation_type = {
 ---@field historical_hfid integer
 ---@field identity_id integer
 ---@field alias_identity_id integer[]
----@field principle_org any
----@field associated_org any[]
+---@field principle_org any # organization_entryst
+---@field associated_org any[] # organization_entryst
 ---@field associated_plot plot_entryst[]
 ---@field flag integer
 
@@ -965,7 +965,7 @@ df.main_designation_type = {
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
----@field agreement any
+---@field agreement any # agreementst
 ---@field master_hfid integer
 ---@field organization_name string
 
@@ -981,7 +981,7 @@ df.main_designation_type = {
 ---@field name string
 ---@field description string
 ---@field dependencies string[]
----@field dependency_type integer[]
+---@field dependency_type integer[] # 0 exact, 1 before, 2 after
 ---@field conflicts string[]
 ---@field flags any
 ---@field src_dir string

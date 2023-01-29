@@ -97,6 +97,418 @@ df.item_type = {
   BRANCH = 91, --Tree branches
 }
 
+---@class item_type_attr
+---@field caption string
+---@field is_rawable bool
+---@field is_stackable bool
+---@field is_caste_mat bool
+---@field classname string
+
+---@type table<item_type, item_type_attr>
+df.item_type.attrs = {
+  BAR = {
+    caption = "bars",
+    classname = "item_barst",
+  },
+  SMALLGEM = {
+    caption = "cut gem",
+    classname = "item_smallgemst",
+  },
+  BLOCKS = {
+    caption = "blocks",
+    classname = "item_blocksst",
+  },
+  ROUGH = {
+    caption = "rough gem",
+    classname = "item_roughst",
+  },
+  BOULDER = {
+    caption = "boulder",
+    classname = "item_boulderst",
+  },
+  WOOD = {
+    caption = "logs",
+    classname = "item_woodst",
+  },
+  DOOR = {
+    caption = "door",
+    classname = "item_doorst",
+  },
+  FLOODGATE = {
+    caption = "floodgate",
+    classname = "item_floodgatest",
+  },
+  BED = {
+    caption = "bed",
+    classname = "item_bedst",
+  },
+  CHAIR = {
+    caption = "chair",
+    classname = "item_chairst",
+  },
+  CHAIN = {
+    caption = "chain",
+    classname = "item_chainst",
+  },
+  FLASK = {
+    caption = "flask",
+    classname = "item_flaskst",
+  },
+  GOBLET = {
+    caption = "goblet",
+    classname = "item_gobletst",
+  },
+  INSTRUMENT = {
+    caption = "instrument",
+    is_rawable = "true",
+    classname = "item_instrumentst",
+  },
+  TOY = {
+    caption = "toy",
+    is_rawable = "true",
+    classname = "item_toyst",
+  },
+  WINDOW = {
+    caption = "window",
+    classname = "item_windowst",
+  },
+  CAGE = {
+    caption = "cage",
+    classname = "item_cagest",
+  },
+  BARREL = {
+    caption = "barrel",
+    classname = "item_barrelst",
+  },
+  BUCKET = {
+    caption = "bucket",
+    classname = "item_bucketst",
+  },
+  ANIMALTRAP = {
+    caption = "animal trap",
+    classname = "item_animaltrapst",
+  },
+  TABLE = {
+    caption = "table",
+    classname = "item_tablest",
+  },
+  COFFIN = {
+    caption = "coffin",
+    classname = "item_coffinst",
+  },
+  STATUE = {
+    caption = "statue",
+    classname = "item_statuest",
+  },
+  CORPSE = {
+    caption = "corpse",
+    classname = "item_corpsest",
+  },
+  WEAPON = {
+    caption = "weapon",
+    is_rawable = "true",
+    classname = "item_weaponst",
+  },
+  ARMOR = {
+    caption = "armor",
+    is_rawable = "true",
+    classname = "item_armorst",
+  },
+  SHOES = {
+    caption = "footwear",
+    is_rawable = "true",
+    classname = "item_shoesst",
+  },
+  SHIELD = {
+    caption = "shield",
+    is_rawable = "true",
+    classname = "item_shieldst",
+  },
+  HELM = {
+    caption = "headwear",
+    is_rawable = "true",
+    classname = "item_helmst",
+  },
+  GLOVES = {
+    caption = "handwear",
+    is_rawable = "true",
+    classname = "item_glovesst",
+  },
+  BOX = {
+    caption = "box",
+    classname = "item_boxst",
+  },
+  BAG = {
+    caption = "bag",
+    classname = "item_bagst",
+  },
+  BIN = {
+    caption = "bin",
+    classname = "item_binst",
+  },
+  ARMORSTAND = {
+    caption = "armor stand",
+    classname = "item_armorstandst",
+  },
+  WEAPONRACK = {
+    caption = "weapon rack",
+    classname = "item_weaponrackst",
+  },
+  CABINET = {
+    caption = "cabinet",
+    classname = "item_cabinetst",
+  },
+  FIGURINE = {
+    caption = "figurine",
+    classname = "item_figurinest",
+  },
+  AMULET = {
+    caption = "amulet",
+    classname = "item_amuletst",
+  },
+  SCEPTER = {
+    caption = "scepter",
+    classname = "item_scepterst",
+  },
+  AMMO = {
+    caption = "ammo",
+    is_rawable = "true",
+    is_stackable = "true",
+    classname = "item_ammost",
+  },
+  CROWN = {
+    caption = "crown",
+    classname = "item_crownst",
+  },
+  RING = {
+    caption = "ring",
+    classname = "item_ringst",
+  },
+  EARRING = {
+    caption = "earring",
+    classname = "item_earringst",
+  },
+  BRACELET = {
+    caption = "bracelet",
+    classname = "item_braceletst",
+  },
+  GEM = {
+    caption = "large gem",
+    classname = "item_gemst",
+  },
+  ANVIL = {
+    caption = "anvil",
+    classname = "item_anvilst",
+  },
+  CORPSEPIECE = {
+    caption = "body part",
+    classname = "item_corpsepiecest",
+  },
+  REMAINS = {
+    caption = "remains",
+    is_caste_mat = "true",
+    is_stackable = "true",
+    classname = "item_remainsst",
+  },
+  MEAT = {
+    caption = "meat",
+    is_stackable = "true",
+    classname = "item_meatst",
+  },
+  FISH = {
+    caption = "fish",
+    is_caste_mat = "true",
+    is_stackable = "true",
+    classname = "item_fishst",
+  },
+  FISH_RAW = {
+    caption = "raw fish",
+    is_caste_mat = "true",
+    is_stackable = "true",
+    classname = "item_fish_rawst",
+  },
+  VERMIN = {
+    caption = "vermin",
+    is_caste_mat = "true",
+    classname = "item_verminst",
+  },
+  PET = {
+    caption = "tame vermin",
+    is_caste_mat = "true",
+    classname = "item_petst",
+  },
+  SEEDS = {
+    caption = "seeds",
+    classname = "item_seedsst",
+  },
+  PLANT = {
+    caption = "plant",
+    is_stackable = "true",
+    classname = "item_plantst",
+  },
+  SKIN_TANNED = {
+    caption = "leather",
+    classname = "item_skin_tannedst",
+  },
+  PLANT_GROWTH = {
+    caption = "plant growth",
+    is_stackable = "true",
+    classname = "item_plant_growthst",
+  },
+  THREAD = {
+    caption = "thread",
+    classname = "item_threadst",
+  },
+  CLOTH = {
+    caption = "cloth",
+    classname = "item_clothst",
+  },
+  TOTEM = {
+    caption = "totem",
+    classname = "item_totemst",
+  },
+  PANTS = {
+    caption = "legwear",
+    is_rawable = "true",
+    classname = "item_pantsst",
+  },
+  BACKPACK = {
+    caption = "backpack",
+    classname = "item_backpackst",
+  },
+  QUIVER = {
+    caption = "quiver",
+    classname = "item_quiverst",
+  },
+  CATAPULTPARTS = {
+    caption = "catapult part",
+    classname = "item_catapultpartsst",
+  },
+  BALLISTAPARTS = {
+    caption = "ballista part",
+    classname = "item_ballistapartsst",
+  },
+  SIEGEAMMO = {
+    caption = "siege ammo",
+    is_rawable = "true",
+    classname = "item_siegeammost",
+  },
+  BALLISTAARROWHEAD = {
+    caption = "ballista arrow head",
+    classname = "item_ballistaarrowheadst",
+  },
+  TRAPPARTS = {
+    caption = "mechanism",
+    classname = "item_trappartsst",
+  },
+  TRAPCOMP = {
+    caption = "trap component",
+    is_rawable = "true",
+    classname = "item_trapcompst",
+  },
+  DRINK = {
+    caption = "drink",
+    is_stackable = "true",
+    classname = "item_drinkst",
+  },
+  POWDER_MISC = {
+    caption = "powder",
+    is_stackable = "true",
+    classname = "item_powder_miscst",
+  },
+  CHEESE = {
+    caption = "cheese",
+    is_stackable = "true",
+    classname = "item_cheesest",
+  },
+  FOOD = {
+    caption = "prepared meal",
+    is_stackable = "true",
+    classname = "item_foodst",
+  },
+  LIQUID_MISC = {
+    caption = "liquid",
+    is_stackable = "true",
+    classname = "item_liquid_miscst",
+  },
+  COIN = {
+    caption = "coin",
+    is_stackable = "true",
+    classname = "item_coinst",
+  },
+  GLOB = {
+    caption = "glob",
+    classname = "item_globst",
+  },
+  ROCK = {
+    caption = "small rock",
+    classname = "item_rockst",
+  },
+  PIPE_SECTION = {
+    caption = "pipe section",
+    classname = "item_pipe_sectionst",
+  },
+  HATCH_COVER = {
+    caption = "hatch cover",
+    classname = "item_hatch_coverst",
+  },
+  GRATE = {
+    caption = "grate",
+    classname = "item_gratest",
+  },
+  QUERN = {
+    caption = "quern",
+    classname = "item_quernst",
+  },
+  MILLSTONE = {
+    caption = "millstone",
+    classname = "item_millstonest",
+  },
+  SPLINT = {
+    caption = "splint",
+    classname = "item_splintst",
+  },
+  CRUTCH = {
+    caption = "crutch",
+    classname = "item_crutchst",
+  },
+  TRACTION_BENCH = {
+    caption = "traction bench",
+    classname = "item_traction_benchst",
+  },
+  ORTHOPEDIC_CAST = {
+    caption = "orthopedic cast",
+    classname = "item_orthopedic_castst",
+  },
+  TOOL = {
+    caption = "tool",
+    is_rawable = "true",
+    classname = "item_toolst",
+  },
+  SLAB = {
+    caption = "slab",
+    classname = "item_slabst",
+  },
+  EGG = {
+    caption = "egg",
+    is_caste_mat = "true",
+    is_stackable = "true",
+    classname = "item_eggst",
+  },
+  BOOK = {
+    caption = "book",
+    classname = "item_bookst",
+  },
+  SHEET = {
+    caption = "sheet",
+    classname = "item_sheetst",
+  },
+  BRANCH = {
+    caption = "branch",
+    classname = "item_branchst",
+  },
+}
+
 ---@class weapon_attack
 ---@field edged boolean
 ---@field contact integer
@@ -133,7 +545,7 @@ df.ammo_flags = {
 ---@field adjective string
 ---@field ammo_class string
 ---@field flags any
----@field size integer
+---@field size integer # divided by 10
 ---@field value integer
 ---@field attacks weapon_attack[]
 

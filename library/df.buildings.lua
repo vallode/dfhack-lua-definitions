@@ -60,6 +60,204 @@ df.building_type = {
   OfferingPlace = 54,
 }
 
+---@class building_type_attr
+---@field name string
+---@field classname string
+
+---@type table<building_type, building_type_attr>
+df.building_type.attrs = {
+  Chair = {
+    classname = "building_chairst",
+  },
+  Bed = {
+    classname = "building_bedst",
+  },
+  Table = {
+    classname = "building_tablest",
+  },
+  Coffin = {
+    classname = "building_coffinst",
+  },
+  FarmPlot = {
+    name = "Farm Plot",
+    classname = "building_farmplotst",
+  },
+  Furnace = {
+    classname = "building_furnacest",
+  },
+  TradeDepot = {
+    name = "Trade Depot",
+    classname = "building_tradedepotst",
+  },
+  Shop = {
+    classname = "building_shopst",
+  },
+  Door = {
+    classname = "building_doorst",
+  },
+  Floodgate = {
+    classname = "building_floodgatest",
+  },
+  Box = {
+    classname = "building_boxst",
+  },
+  Weaponrack = {
+    name = "Weapon Rack",
+    classname = "building_weaponrackst",
+  },
+  Armorstand = {
+    name = "Armor Stand",
+    classname = "building_armorstandst",
+  },
+  Workshop = {
+    classname = "building_workshopst",
+  },
+  Cabinet = {
+    classname = "building_cabinetst",
+  },
+  Statue = {
+    classname = "building_statuest",
+  },
+  WindowGlass = {
+    name = "Glass Window",
+    classname = "building_window_glassst",
+  },
+  WindowGem = {
+    name = "Gem Window",
+    classname = "building_window_gemst",
+  },
+  Well = {
+    classname = "building_wellst",
+  },
+  Bridge = {
+    classname = "building_bridgest",
+  },
+  RoadDirt = {
+    name = "Dirt Road",
+    classname = "building_road_dirtst",
+  },
+  RoadPaved = {
+    name = "Paved Road",
+    classname = "building_road_pavedst",
+  },
+  SiegeEngine = {
+    name = "Siege Engine",
+    classname = "building_siegeenginest",
+  },
+  Trap = {
+    classname = "building_trapst",
+  },
+  AnimalTrap = {
+    name = "Animal Trap",
+    classname = "building_animaltrapst",
+  },
+  Support = {
+    classname = "building_supportst",
+  },
+  ArcheryTarget = {
+    name = "Archery Target",
+    classname = "building_archerytargetst",
+  },
+  Chain = {
+    classname = "building_chainst",
+  },
+  Cage = {
+    classname = "building_cagest",
+  },
+  Stockpile = {
+    classname = "building_stockpilest",
+  },
+  Civzone = {
+    name = "Zone",
+    classname = "building_civzonest",
+  },
+  Weapon = {
+    classname = "building_weaponst",
+  },
+  Wagon = {
+    classname = "building_wagonst",
+  },
+  ScrewPump = {
+    name = "Screw Pump",
+    classname = "building_screw_pumpst",
+  },
+  Construction = {
+    classname = "building_constructionst",
+  },
+  Hatch = {
+    classname = "building_hatchst",
+  },
+  GrateWall = {
+    name = "Wall Grate",
+    classname = "building_grate_wallst",
+  },
+  GrateFloor = {
+    name = "Floor Grate",
+    classname = "building_grate_floorst",
+  },
+  BarsVertical = {
+    name = "Vertical Bars",
+    classname = "building_bars_verticalst",
+  },
+  BarsFloor = {
+    name = "Floor Bars",
+    classname = "building_bars_floorst",
+  },
+  GearAssembly = {
+    name = "Gear Assembly",
+    classname = "building_gear_assemblyst",
+  },
+  AxleHorizontal = {
+    name = "Horizontal Axle",
+    classname = "building_axle_horizontalst",
+  },
+  AxleVertical = {
+    name = "Vertical Axle",
+    classname = "building_axle_verticalst",
+  },
+  WaterWheel = {
+    name = "Water Wheel",
+    classname = "building_water_wheelst",
+  },
+  Windmill = {
+    classname = "building_windmillst",
+  },
+  TractionBench = {
+    name = "Traction Bench",
+    classname = "building_traction_benchst",
+  },
+  Slab = {
+    classname = "building_slabst",
+  },
+  Nest = {
+    classname = "building_nestst",
+  },
+  NestBox = {
+    name = "Nest Box",
+    classname = "building_nest_boxst",
+  },
+  Hive = {
+    classname = "building_hivest",
+  },
+  Rollers = {
+    classname = "building_rollersst",
+  },
+  Instrument = {
+    classname = "building_instrumentst",
+  },
+  Bookcase = {
+    classname = "building_bookcasest",
+  },
+  DisplayFurniture = {
+    name = "Display Furniture",
+    classname = "building_display_furniturest",
+  },
+  OfferingPlace = {
+    name = "Offering Place",
+    classname = "building_offering_placest",
+  },
+}
+
 ---@class building_flags
 ---@field exists boolean # actually built, not just ordered
 ---@field site_blocked boolean # items on ground on site
@@ -115,10 +313,10 @@ df.building_extents_type = {
 ---@field y2 integer
 
 ---@class building
----@field x1 integer
+---@field x1 integer # top left
 ---@field y1 integer
----@field centerx integer
----@field x2 integer
+---@field centerx integer # work location
+---@field x2 integer # bottom right
 ---@field y2 integer
 ---@field centery integer
 ---@field z integer
@@ -132,8 +330,8 @@ df.building_extents_type = {
 ---@field jobs job[]
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
----@field relations building_civzonest[]
----@field job_claim_suppress any[]
+---@field relations building_civzonest[] # zone(s) this building is in
+---@field job_claim_suppress any[] # after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
 ---@field activities any[]
 ---@field world_data_id integer
@@ -286,11 +484,11 @@ df.civzone_type = {
 ---@class building_civzonest
 ---@field assigned_units integer[]
 ---@field assigned_items integer[]
----@field type civzone_type
----@field is_active integer
+---@field type civzone_type # only saved as int16
+---@field is_active integer # 0 is paused, 8 is active
 ---@field zone_num integer
 ---@field zone_settings building_civzonest_zone_settings
----@field contained_buildings building[]
+---@field contained_buildings building[] # includes eg workshops and beds
 ---@field assigned_unit_id integer
 ---@field assigned_unit unit
 ---@field squad_room_info any[]
@@ -304,7 +502,7 @@ df.civzone_type = {
 ---@field pit_pond any
 
 ---@class building_actual
----@field construction_stage integer
+---@field construction_stage integer # 0 not started, then 1 or 3 max depending on type
 ---@field contained_items any[]
 ---@field design building_design
 
@@ -312,7 +510,7 @@ df.civzone_type = {
 ---@field builder1 integer
 ---@field unk5 integer
 ---@field build_skill integer
----@field build_timer1 integer
+---@field build_timer1 integer # +1 per 10 frames while building
 ---@field builder2 integer
 ---@field build_timer2 integer
 ---@field quality1 item_quality
@@ -330,6 +528,31 @@ df.furnace_type = {
   MagmaGlassFurnace = 5,
   MagmaKiln = 6,
   Custom = 7,
+}
+
+---@class furnace_type_attr
+---@field name string
+
+---@type table<furnace_type, furnace_type_attr>
+df.furnace_type.attrs = {
+  WoodFurnace = {
+    name = "Wood Furnace",
+  },
+  GlassFurnace = {
+    name = "Glass Furnace",
+  },
+  MagmaSmelter = {
+    name = "Magma Smelter",
+  },
+  MagmaGlassFurnace = {
+    name = "Magma Glass Furnace",
+  },
+  MagmaKiln = {
+    name = "Magma Kiln",
+  },
+  Custom = {
+    name = "Custom Furnace",
+  },
 }
 
 ---@class building_furnacest
@@ -366,6 +589,61 @@ df.workshop_type = {
   Millstone = 22,
   Custom = 23,
   Tool = 24,
+}
+
+---@class workshop_type_attr
+---@field name string
+
+---@type table<workshop_type, workshop_type_attr>
+df.workshop_type.attrs = {
+  Carpenters = {
+    name = "Carpenter's Workshop",
+  },
+  Farmers = {
+    name = "Farmer's Workshop",
+  },
+  Masons = {
+    name = "Mason's Workshop",
+  },
+  Craftsdwarfs = {
+    name = "Craftsdwarf's Workshop",
+  },
+  Jewelers = {
+    name = "Jeweler's Workshop",
+  },
+  MetalsmithsForge = {
+    name = "Metalsmith's Forge",
+  },
+  MagmaForge = {
+    name = "Magma Forge",
+  },
+  Bowyers = {
+    name = "Bowyer's Workshop",
+  },
+  Mechanics = {
+    name = "Mechanic's Workshop",
+  },
+  Siege = {
+    name = "Siege Workshop",
+  },
+  Butchers = {
+    name = "Butcher's Shop",
+  },
+  Leatherworks = {
+    name = "Leather Works",
+  },
+  Tanners = {
+    name = "Tanner's Shop",
+  },
+  Clothiers = {
+    name = "Clothier's Shop",
+  },
+  Dyers = {
+    name = "Dyer's Shop",
+  },
+  Custom = {
+    name = "Custom Workshop",
+  },
 }
 
 ---@class workshop_profile
@@ -532,10 +810,10 @@ df.hive_flags = {}
 
 ---@class building_hivest
 ---@field hive_flags hive_flags
----@field split_timer integer
----@field activity_timer integer
----@field install_timer integer
----@field gather_timer integer
+---@field split_timer integer # up to 100800
+---@field activity_timer integer # up to 100800000; checks timer%hive_product.time[i]==0
+---@field install_timer integer # down from 1200
+---@field gather_timer integer # down from 1200
 
 ---@class building_instrumentst
 ---@field unk_1 integer
@@ -544,7 +822,7 @@ df.hive_flags = {}
 
 ---@class building_nest_boxst
 ---@field claimed_by integer
----@field claim_timeout integer
+---@field claim_timeout integer # counts up if the nest box is claimed but empty. when it hits 8400 ticks, the nest box is unclaimed.
 
 ---@class building_offering_placest
 
@@ -567,7 +845,7 @@ df.shop_type = {
 
 ---@class building_shopst
 ---@field owner unit
----@field timer integer
+---@field timer integer # increments until reaching 200,000,000
 ---@field shop_flags any
 ---@field type shop_type
 
@@ -628,8 +906,8 @@ df.trap_type = {
 
 ---@class building_trapst
 ---@field trap_type trap_type
----@field state integer
----@field ready_timeout integer
+---@field state integer # !=0 = pulled, tripped/needs reloading
+---@field ready_timeout integer # plate not active if > 0
 ---@field fill_timer integer
 ---@field stop_flags any
 ---@field linked_mechanisms item[]
@@ -660,7 +938,7 @@ df.trap_type = {
 ---@field well_flags any
 ---@field unk_1 integer
 ---@field bucket_z integer
----@field bucket_timer integer
+---@field bucket_timer integer # 0-9; counts up when raising, down when lowering
 ---@field check_water_timer integer
 
 ---@class building_windowst
@@ -680,5 +958,72 @@ df.dfhack_room_quality_level = {
   Great = 5,
   Grand = 6,
   Royal = 7,
+}
+
+---@class dfhack_room_quality_level_attr
+---@field min_value int32_t
+---@field office string
+---@field bedroom string
+---@field dining_room string
+---@field burial string
+
+---@type table<dfhack_room_quality_level, dfhack_room_quality_level_attr>
+df.dfhack_room_quality_level.attrs = {
+  Meager = {
+    min_value = "0",
+    office = "Meager Office",
+    bedroom = "Meager Quarters",
+    dining_room = "Meager Dining Room",
+    burial = "Grave",
+  },
+  Modest = {
+    min_value = "100",
+    office = "Modest Office",
+    bedroom = "Modest Quarters",
+    dining_room = "Modest Dining Room",
+    burial = "Servant's Burial Chamber",
+  },
+  Normal = {
+    min_value = "250",
+    office = "Office",
+    bedroom = "Quarters",
+    dining_room = "Dining Room",
+    burial = "Burial Chamber",
+  },
+  Decent = {
+    min_value = "500",
+    office = "Decent Office",
+    bedroom = "Decent Quarters",
+    dining_room = "Decent Dining Room",
+    burial = "Tomb",
+  },
+  Fine = {
+    min_value = "1000",
+    office = "Splendid Office",
+    bedroom = "Fine Quarters",
+    dining_room = "Fine Dining Room",
+    burial = "Fine Tomb",
+  },
+  Great = {
+    min_value = "1500",
+    office = "Throne Room",
+    bedroom = "Great Bedroom",
+    dining_room = "Great Dining Room",
+    burial = "Mausoleum",
+  },
+  Grand = {
+    min_value = "2500",
+    office = "Opulent Throne Room",
+    bedroom = "Grand Bedroom",
+    dining_room = "Grand Dining Room",
+    burial = "Grand Mausoleum",
+  },
+  Royal = {
+    min_value = "10000",
+    office = "Royal Throne Room",
+    bedroom = "Royal Bedroom",
+    dining_room = "Royal Dining Room",
+    burial = "Royal Mausoleum",
+  },
 }
 

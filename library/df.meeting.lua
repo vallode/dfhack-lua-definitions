@@ -1,11 +1,11 @@
 ---@meta
 
 ---@class dipscript_info
----@field id integer
----@field script_file string
+---@field id integer # assigned during Save
+---@field script_file string # data/dipscript/dwarf_liaison
 ---@field script_steps script_stepst[]
 ---@field script_vars script_varst[]
----@field code string
+---@field code string # DWARF_LIAISON etc
 
 ---@class dipscript_popup
 ---@field meeting_holder unit
@@ -91,7 +91,7 @@
 
 ---@class meeting_diplomat_info
 ---@field civ_id integer
----@field unk1 integer
+---@field unk1 integer # maybe is_first_contact
 ---@field diplomat_id integer
 ---@field associate_id integer
 ---@field topic_list any[]
@@ -152,20 +152,20 @@ df.meeting_event_type = {
 ---@field buy_prices entity_buy_prices
 
 ---@class activity_info
----@field id integer
----@field unit_actor unit
----@field unit_noble unit
+---@field id integer # assigned during Save
+---@field unit_actor unit # diplomat or worker
+---@field unit_noble unit # meeting recipient
 ---@field place building
 ---@field flags any
----@field unk3 integer
----@field delay integer
----@field tree_quota integer
+---@field unk3 integer # 3
+---@field delay integer # 0
+---@field tree_quota integer # -1
 
 ---@class party_info
 ---@field units unit[]
 ---@field location building
----@field timer integer
----@field id integer
+---@field timer integer # -1 per 10
+---@field id integer # assigned during Save
 
 ---@class room_rent_info
 ---@field elements building[]
@@ -237,7 +237,7 @@ df.activity_event_type = {
 ---@field event_id integer
 
 ---@class activity_event
----@field event_id integer
+---@field event_id integer # mostly, but not always, the index in activity.events
 ---@field activity_id integer
 ---@field parent_event_id integer
 ---@field flags any
@@ -252,7 +252,7 @@ df.activity_event_type = {
 ---@field building_id integer
 ---@field hist_figure_id integer
 ---@field unit_id integer
----@field organize_counter integer
+---@field organize_counter integer # gt 0 => organizing, lt 0 => done
 
 ---@class activity_event_skill_demonstrationst
 ---@field participants activity_event_participants
@@ -382,14 +382,14 @@ df.conversation_menu = {
 ---@field unk_8 integer[]
 ---@field unk_b4 activity_event_conversationst_unk_b4
 ---@field turns any[]
----@field floor_holder integer
----@field floor_holder_hfid integer
----@field pause integer
+---@field floor_holder integer # -1 = no one's turn
+---@field floor_holder_hfid integer # -1 = no one's turn
+---@field pause integer # ticks since the last turn
 ---@field flags2 any
 ---@field unk2 activity_event_conversationst_unk2
 ---@field choices talk_choice[]
 ---@field unk3 conversation_menu
----@field unk4 integer[]
+---@field unk4 integer[] # uninitialized
 
 ---@class activity_event_conversationst_unk_b4
 ---@field unk_1 integer
@@ -452,8 +452,8 @@ df.conversation_menu = {
 
 ---@class activity_event_prayerst
 ---@field participants activity_event_participants
----@field histfig_id integer
----@field topic sphere_type
+---@field histfig_id integer # deity
+---@field topic sphere_type # -1 when praying
 ---@field site_id integer
 ---@field location_id integer
 ---@field building_id integer
@@ -498,7 +498,7 @@ df.performance_participant_type = {
 ---@class activity_event_performancest
 ---@field participants activity_event_participants
 ---@field type performance_event_type
----@field event integer
+---@field event integer # used for story
 ---@field written_content_id integer
 ---@field poetic_form integer
 ---@field music_form integer
@@ -568,7 +568,7 @@ df.performance_participant_type = {
 ---@field building_id integer
 ---@field site_id integer
 ---@field location_id integer
----@field state integer
+---@field state integer # 0 if not in progress, 1 if reading
 ---@field timer integer
 
 ---@class activity_event_fill_service_orderst
@@ -663,7 +663,7 @@ df.performance_participant_type = {
 ---@field slots schedule_slot[]
 
 ---@class schedule_slot
----@field type integer
+---@field type integer # 0:Eat, 1:Sleep, 2-4:???
 ---@field start_time integer
 ---@field end_time integer
 ---@field unk_1 integer

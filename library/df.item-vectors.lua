@@ -138,6 +138,506 @@ df.items_other_id = {
   ANY_MELT_DESIGNATED = 132,
 }
 
+---@class items_other_id_attr
+---@field item item_type
+---@field generic_item item_type[]
+
+---@type table<items_other_id, items_other_id_attr>
+df.items_other_id.attrs = {
+  WEAPON = {
+    item = "WEAPON",
+  },
+  ANY_WEAPON = {
+    generic_item = "WEAPON",
+    generic_item = "TRAPCOMP",
+  },
+  ANY_SPIKE = {
+    generic_item = "WEAPON",
+    generic_item = "TRAPCOMP",
+  },
+  ANY_TRUE_ARMOR = {
+    generic_item = "ARMOR",
+  },
+  ANY_ARMOR_HELM = {
+    generic_item = "HELM",
+  },
+  ANY_ARMOR_SHOES = {
+    generic_item = "SHOES",
+  },
+  SHIELD = {
+    item = "SHIELD",
+  },
+  ANY_ARMOR_GLOVES = {
+    generic_item = "GLOVES",
+  },
+  ANY_ARMOR_PANTS = {
+    generic_item = "PANTS",
+  },
+  QUIVER = {
+    item = "QUIVER",
+  },
+  SPLINT = {
+    item = "SPLINT",
+  },
+  ORTHOPEDIC_CAST = {
+    item = "ORTHOPEDIC_CAST",
+  },
+  CRUTCH = {
+    item = "CRUTCH",
+  },
+  BACKPACK = {
+    item = "BACKPACK",
+  },
+  AMMO = {
+    item = "AMMO",
+  },
+  WOOD = {
+    item = "WOOD",
+  },
+  BRANCH = {
+    item = "BRANCH",
+  },
+  BOULDER = {
+    item = "BOULDER",
+  },
+  ROCK = {
+    item = "ROCK",
+  },
+  ANY_REFUSE = {
+    generic_item = "CORPSE",
+    generic_item = "ARMOR",
+    generic_item = "SHOES",
+    generic_item = "HELM",
+    generic_item = "GLOVES",
+    generic_item = "CORPSEPIECE",
+    generic_item = "REMAINS",
+    generic_item = "PANTS",
+    generic_item = "MEAT",
+    generic_item = "FISH",
+    generic_item = "FISH_RAW",
+    generic_item = "SEEDS",
+    generic_item = "PLANT",
+    generic_item = "PLANT_GROWTH",
+    generic_item = "CHEESE",
+    generic_item = "FOOD",
+    generic_item = "EGG",
+    generic_item = "GLOB",
+  },
+  ANY_GOOD_FOOD = {
+    generic_item = "BOX",
+    generic_item = "MEAT",
+    generic_item = "FISH",
+    generic_item = "FISH_RAW",
+    generic_item = "SEEDS",
+    generic_item = "PLANT",
+    generic_item = "PLANT_GROWTH",
+    generic_item = "CHEESE",
+    generic_item = "FOOD",
+    generic_item = "EGG",
+  },
+  ANY_AUTO_CLEAN = {
+    generic_item = "DRINK",
+    generic_item = "POWDER_MISC",
+    generic_item = "LIQUID_MISC",
+    generic_item = "GLOB",
+  },
+  ANY_GENERIC24 = {
+    generic_item = "CAGE",
+    generic_item = "ANIMALTRAP",
+    generic_item = "FISH_RAW",
+    generic_item = "VERMIN",
+    generic_item = "PLANT",
+  },
+  ANY_BUTCHERABLE = {
+    generic_item = "CAGE",
+    generic_item = "ANIMALTRAP",
+    generic_item = "CORPSE",
+    generic_item = "CORPSEPIECE",
+    generic_item = "VERMIN",
+  },
+  ANY_CAGE_OR_TRAP = {
+    generic_item = "CAGE",
+    generic_item = "ANIMALTRAP",
+  },
+  ANY_EDIBLE_VERMIN_BOX = {
+    generic_item = "BARREL",
+    generic_item = "BOX",
+  },
+  ANY_CAN_ROT = {
+    generic_item = "CORPSE",
+    generic_item = "CORPSEPIECE",
+    generic_item = "REMAINS",
+    generic_item = "MEAT",
+    generic_item = "FISH",
+    generic_item = "FISH_RAW",
+    generic_item = "SEEDS",
+    generic_item = "PLANT",
+    generic_item = "PLANT_GROWTH",
+    generic_item = "CHEESE",
+    generic_item = "FOOD",
+    generic_item = "EGG",
+  },
+  ANY_MURDERED = {
+    generic_item = "CORPSE",
+    generic_item = "CORPSEPIECE",
+    generic_item = "REMAINS",
+  },
+  ANY_GENERIC36 = {
+    generic_item = "BAR",
+    generic_item = "SMALLGEM",
+    generic_item = "BLOCKS",
+    generic_item = "ROUGH",
+    generic_item = "CHAIN",
+    generic_item = "FLASK",
+    generic_item = "GOBLET",
+    generic_item = "INSTRUMENT",
+    generic_item = "TOY",
+    generic_item = "FIGURINE",
+    generic_item = "AMULET",
+    generic_item = "SCEPTER",
+    generic_item = "AMMO",
+    generic_item = "CROWN",
+    generic_item = "RING",
+    generic_item = "EARRING",
+    generic_item = "BRACELET",
+    generic_item = "GEM",
+    generic_item = "SKIN_TANNED",
+    generic_item = "THREAD",
+    generic_item = "CLOTH",
+    generic_item = "TOTEM",
+    generic_item = "BACKPACK",
+    generic_item = "QUIVER",
+    generic_item = "BALLISTAARROWHEAD",
+    generic_item = "COIN",
+    generic_item = "SPLINT",
+    generic_item = "TOOL",
+    generic_item = "BOOK",
+  },
+  ANY_GENERIC37 = {
+    generic_item = "ARMOR",
+    generic_item = "SHOES",
+    generic_item = "HELM",
+    generic_item = "GLOVES",
+    generic_item = "PANTS",
+  },
+  ANY_GENERIC38 = {
+    generic_item = "WEAPON",
+    generic_item = "TRAPCOMP",
+    generic_item = "SIEGEAMMO",
+  },
+  ANY_GENERIC39 = {
+    generic_item = "ARMOR",
+    generic_item = "SHOES",
+    generic_item = "SHIELD",
+    generic_item = "HELM",
+    generic_item = "GLOVES",
+    generic_item = "PANTS",
+  },
+  DOOR = {
+    item = "DOOR",
+  },
+  FLOODGATE = {
+    item = "FLOODGATE",
+  },
+  HATCH_COVER = {
+    item = "HATCH_COVER",
+  },
+  GRATE = {
+    item = "GRATE",
+  },
+  CAGE = {
+    item = "CAGE",
+  },
+  FLASK = {
+    item = "FLASK",
+  },
+  WINDOW = {
+    item = "WINDOW",
+  },
+  GOBLET = {
+    item = "GOBLET",
+  },
+  INSTRUMENT = {
+    item = "INSTRUMENT",
+  },
+  INSTRUMENT_STATIONARY = {
+    item = "INSTRUMENT",
+  },
+  TOY = {
+    item = "TOY",
+  },
+  TOOL = {
+    item = "TOOL",
+  },
+  BUCKET = {
+    item = "BUCKET",
+  },
+  BARREL = {
+    item = "BARREL",
+  },
+  CHAIN = {
+    item = "CHAIN",
+  },
+  ANIMALTRAP = {
+    item = "ANIMALTRAP",
+  },
+  BED = {
+    item = "BED",
+  },
+  TRACTION_BENCH = {
+    item = "TRACTION_BENCH",
+  },
+  CHAIR = {
+    item = "CHAIR",
+  },
+  COFFIN = {
+    item = "COFFIN",
+  },
+  TABLE = {
+    item = "TABLE",
+  },
+  STATUE = {
+    item = "STATUE",
+  },
+  SLAB = {
+    item = "SLAB",
+  },
+  QUERN = {
+    item = "QUERN",
+  },
+  MILLSTONE = {
+    item = "MILLSTONE",
+  },
+  BOX = {
+    item = "BOX",
+  },
+  BAG = {
+    item = "BAG",
+  },
+  BIN = {
+    item = "BIN",
+  },
+  ARMORSTAND = {
+    item = "ARMORSTAND",
+  },
+  WEAPONRACK = {
+    item = "WEAPONRACK",
+  },
+  CABINET = {
+    item = "CABINET",
+  },
+  ANVIL = {
+    item = "ANVIL",
+  },
+  CATAPULTPARTS = {
+    item = "CATAPULTPARTS",
+  },
+  BALLISTAPARTS = {
+    item = "BALLISTAPARTS",
+  },
+  SIEGEAMMO = {
+    item = "SIEGEAMMO",
+  },
+  TRAPPARTS = {
+    item = "TRAPPARTS",
+  },
+  ANY_WEBS = {
+    generic_item = "THREAD",
+  },
+  PIPE_SECTION = {
+    item = "PIPE_SECTION",
+  },
+  DRINK = {
+    item = "DRINK",
+  },
+  ANY_DRINK = {
+    generic_item = "DRINK",
+  },
+  LIQUID_MISC = {
+    item = "LIQUID_MISC",
+  },
+  POWDER_MISC = {
+    item = "POWDER_MISC",
+  },
+  ANY_COOKABLE = {
+    generic_item = "FLASK",
+    generic_item = "CAGE",
+    generic_item = "BARREL",
+    generic_item = "BUCKET",
+    generic_item = "ANIMALTRAP",
+    generic_item = "BOX",
+    generic_item = "MEAT",
+    generic_item = "FISH",
+    generic_item = "FISH_RAW",
+    generic_item = "VERMIN",
+    generic_item = "SEEDS",
+    generic_item = "PLANT",
+    generic_item = "PLANT_GROWTH",
+    generic_item = "DRINK",
+    generic_item = "POWDER_MISC",
+    generic_item = "CHEESE",
+    generic_item = "LIQUID_MISC",
+    generic_item = "GLOB",
+    generic_item = "TOOL",
+    generic_item = "EGG",
+  },
+  ANY_GENERIC84 = {
+    generic_item = "BOX",
+  },
+  VERMIN = {
+    generic_item = "VERMIN",
+  },
+  PET = {
+    generic_item = "PET",
+  },
+  ANY_CRITTER = {
+    generic_item = "VERMIN",
+    generic_item = "PET",
+  },
+  COIN = {
+    item = "COIN",
+  },
+  GLOB = {
+    item = "GLOB",
+  },
+  TRAPCOMP = {
+    item = "TRAPCOMP",
+  },
+  BAR = {
+    item = "BAR",
+  },
+  SMALLGEM = {
+    item = "SMALLGEM",
+  },
+  BLOCKS = {
+    item = "BLOCKS",
+  },
+  ROUGH = {
+    item = "ROUGH",
+  },
+  ANY_CORPSE = {
+    generic_item = "CORPSE",
+    generic_item = "CORPSEPIECE",
+  },
+  CORPSE = {
+    item = "CORPSE",
+  },
+  BOOK = {
+    item = "BOOK",
+  },
+  FIGURINE = {
+    item = "FIGURINE",
+  },
+  AMULET = {
+    item = "AMULET",
+  },
+  SCEPTER = {
+    item = "SCEPTER",
+  },
+  CROWN = {
+    item = "CROWN",
+  },
+  RING = {
+    item = "RING",
+  },
+  EARRING = {
+    item = "EARRING",
+  },
+  BRACELET = {
+    item = "BRACELET",
+  },
+  GEM = {
+    item = "GEM",
+  },
+  CORPSEPIECE = {
+    item = "CORPSEPIECE",
+  },
+  REMAINS = {
+    item = "REMAINS",
+  },
+  MEAT = {
+    item = "MEAT",
+  },
+  FISH = {
+    item = "FISH",
+  },
+  FISH_RAW = {
+    item = "FISH_RAW",
+  },
+  EGG = {
+    item = "EGG",
+  },
+  SEEDS = {
+    item = "SEEDS",
+  },
+  PLANT = {
+    item = "PLANT",
+  },
+  SKIN_TANNED = {
+    item = "SKIN_TANNED",
+  },
+  PLANT_GROWTH = {
+    item = "PLANT_GROWTH",
+  },
+  THREAD = {
+    item = "THREAD",
+  },
+  CLOTH = {
+    item = "CLOTH",
+  },
+  SHEET = {
+    item = "SHEET",
+  },
+  TOTEM = {
+    item = "TOTEM",
+  },
+  PANTS = {
+    item = "PANTS",
+  },
+  CHEESE = {
+    item = "CHEESE",
+  },
+  FOOD = {
+    item = "FOOD",
+  },
+  BALLISTAARROWHEAD = {
+    item = "BALLISTAARROWHEAD",
+  },
+  ARMOR = {
+    item = "ARMOR",
+  },
+  SHOES = {
+    item = "SHOES",
+  },
+  HELM = {
+    item = "HELM",
+  },
+  GLOVES = {
+    item = "GLOVES",
+  },
+  ANY_GENERIC128 = {
+    generic_item = "FLASK",
+    generic_item = "GOBLET",
+    generic_item = "CAGE",
+    generic_item = "BARREL",
+    generic_item = "BUCKET",
+    generic_item = "ANIMALTRAP",
+    generic_item = "COFFIN",
+    generic_item = "BOX",
+    generic_item = "BIN",
+    generic_item = "ARMORSTAND",
+    generic_item = "WEAPONRACK",
+    generic_item = "CABINET",
+    generic_item = "BACKPACK",
+    generic_item = "QUIVER",
+    generic_item = "TOOL",
+  },
+  FOOD_STORAGE = {
+    generic_item = "BARREL",
+    generic_item = "TOOL",
+  },
+}
+
 ---@enum job_item_vector_id
 df.job_item_vector_id = {
   ANY = 0,
@@ -274,5 +774,24 @@ df.job_item_vector_id = {
   unk_131 = 131,
   SHEET = 132,
   BRANCH = 133,
+}
+
+---@class job_item_vector_id_attr
+---@field other items_other_id
+
+---@type table<job_item_vector_id, job_item_vector_id_attr>
+df.job_item_vector_id.attrs = {
+  ANY_14 = {
+    other = "ANY",
+  },
+  ANY_124 = {
+    other = "ANY",
+  },
+  ANY_125 = {
+    other = "ANY",
+  },
+  ANY_127 = {
+    other = "ANY",
+  },
 }
 

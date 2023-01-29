@@ -168,7 +168,7 @@ df.stockpile_group_set = {}
 ---@field mats boolean[]
 
 ---@class stockpile_settings_ore
----@field mats boolean[]
+---@field mats boolean[] # unused
 
 ---@class stockpile_settings_ammo
 ---@field type boolean[]
@@ -352,6 +352,67 @@ df.stockpile_list = {
   AdditionalOptions = 104,
 }
 
+---@class stockpile_list_attr
+---@field is_category bool
+
+---@type table<stockpile_list, stockpile_list_attr>
+df.stockpile_list.attrs = {
+  Animals = {
+    is_category = "true",
+  },
+  Food = {
+    is_category = "true",
+  },
+  Furniture = {
+    is_category = "true",
+  },
+  Corpses = {
+    is_category = "true",
+  },
+  Refuse = {
+    is_category = "true",
+  },
+  Stone = {
+    is_category = "true",
+  },
+  Ammo = {
+    is_category = "true",
+  },
+  Coins = {
+    is_category = "true",
+  },
+  BarsBlocks = {
+    is_category = "true",
+  },
+  Gems = {
+    is_category = "true",
+  },
+  Goods = {
+    is_category = "true",
+  },
+  Leather = {
+    is_category = "true",
+  },
+  Cloth = {
+    is_category = "true",
+  },
+  Wood = {
+    is_category = "true",
+  },
+  Weapons = {
+    is_category = "true",
+  },
+  Armor = {
+    is_category = "true",
+  },
+  Sheet = {
+    is_category = "true",
+  },
+  AdditionalOptions = {
+    is_category = "true",
+  },
+}
+
 ---@class hauling_route
 ---@field id integer
 ---@field name string
@@ -373,9 +434,9 @@ df.stockpile_list = {
 ---@field timeout integer
 ---@field direction any
 ---@field mode any
----@field load_percent integer
+---@field load_percent integer # broken display unless 0, 50 or 100
 ---@field flags any
----@field guide_path coord_path
+---@field guide_path coord_path # initialized on first run, and saved
 
 ---@class route_stockpile_link
 ---@field building_id integer
@@ -384,7 +445,7 @@ df.stockpile_list = {
 ---@class vehicle
 ---@field id integer
 ---@field item_id integer
----@field offset_x integer
+---@field offset_x integer # -50000..50000
 ---@field offset_y integer
 ---@field offset_z integer
 ---@field speed_x integer
@@ -396,5 +457,5 @@ df.stockpile_list = {
 ---@field unk_2c integer
 ---@field route_id integer
 ---@field pos coord
----@field time_stopped integer
+---@field time_stopped integer # frames, up to 1000
 

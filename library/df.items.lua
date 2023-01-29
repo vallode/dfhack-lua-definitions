@@ -58,9 +58,9 @@ df.item_magicness_type = {
 
 ---@class item_magicness
 ---@field type item_magicness_type
----@field value integer
+---@field value integer # boosts item value by 50*this
 ---@field unk_1 integer
----@field flags integer
+---@field flags integer # 1=does not show up in item description or alter item value
 
 ---@class temperaturest
 ---@field whole integer
@@ -71,9 +71,9 @@ df.item_magicness_type = {
 ---@field mat_index integer
 ---@field mat_state matter_state
 ---@field temperature temperaturest
----@field size integer
+---@field size integer # 1-24=spatter, 25-49=smear, 50-* = coating
 ---@field base_flags any
----@field pad_1 any
+---@field pad_1 any # needed for proper alignment of spatter on gcc
 
 ---@class spatter
 ---@field body_part_id integer
@@ -132,11 +132,11 @@ df.slab_engraving_type = {
 ---@field general_refs general_ref[]
 ---@field world_data_id integer
 ---@field world_data_subid integer
----@field stockpile_countdown integer
----@field stockpile_delay integer
+---@field stockpile_countdown integer # -1 per 50 frames; then check if needs moving
+---@field stockpile_delay integer # used to reset countdown; randomly varies
 ---@field unk2 integer
 ---@field base_uniform_score integer
----@field walkable_id integer
+---@field walkable_id integer # from map_block.walkable
 ---@field spec_heat integer
 ---@field ignite_point integer
 ---@field heatdam_point integer
@@ -144,8 +144,8 @@ df.slab_engraving_type = {
 ---@field boiling_point integer
 ---@field melting_point integer
 ---@field fixed_temp integer
----@field weight integer
----@field weight_fraction integer
+---@field weight integer # if flags.weight_computed
+---@field weight_fraction integer # 1e-6
 
 ---@class item_kill_info
 ---@field targets historical_kills
@@ -154,8 +154,8 @@ df.slab_engraving_type = {
 
 ---@class item_history_info
 ---@field kills item_kill_info
----@field attack_counter integer
----@field defence_counter integer
+---@field attack_counter integer # increments by 1 each time the item is fired, thrown or used in an attack
+---@field defence_counter integer # increments by 1 each time the item is used in an attempt to block or parry
 
 ---@class item_actual
 ---@field stack_size integer
@@ -164,7 +164,7 @@ df.slab_engraving_type = {
 ---@field contaminants any
 ---@field temperature temperaturest
 ---@field wear integer
----@field wear_timer integer
+---@field wear_timer integer # counts up to 806400
 ---@field unk_1 integer
 ---@field temp_updated_frame integer
 
@@ -173,7 +173,7 @@ df.slab_engraving_type = {
 ---@field mat_index integer
 ---@field maker_race integer
 ---@field quality item_quality
----@field skill_rating skill_rating
+---@field skill_rating skill_rating # at the moment of creation
 ---@field maker integer
 ---@field masterpiece_event integer
 
@@ -212,21 +212,21 @@ df.body_layer_status = {}
 
 ---@class body_component_info
 ---@field body_part_status body_part_status[]
----@field numbered_masks integer[]
----@field nonsolid_remaining integer[]
+---@field numbered_masks integer[] # 1 bit per instance of a numbered body part
+---@field nonsolid_remaining integer[] # 0-100%
 ---@field layer_status body_layer_status[]
 ---@field layer_wound_area integer[]
----@field layer_cut_fraction integer[]
----@field layer_dent_fraction integer[]
----@field layer_effect_fraction integer[]
+---@field layer_cut_fraction integer[] # 0-10000
+---@field layer_dent_fraction integer[] # 0-10000
+---@field layer_effect_fraction integer[] # 0-1000000000
 
 ---@class body_size_info
 ---@field size_cur integer
 ---@field size_base integer
----@field area_cur integer
----@field area_base integer
----@field length_cur integer
----@field length_base integer
+---@field area_cur integer # size_cur^0.666
+---@field area_base integer # size_base^0.666
+---@field length_cur integer # (size_cur*10000)^0.333
+---@field length_base integer # (size_base*10000)^0.333
 
 ---@enum corpse_material_type
 df.corpse_material_type = {
@@ -250,12 +250,12 @@ df.corpse_material_type = {
 ---@field unit_id integer
 ---@field caste integer
 ---@field sex pronoun_type
----@field normal_race integer
----@field normal_caste integer
+---@field normal_race integer # unit.enemy.normal_race
+---@field normal_caste integer # unit.enemy.normal_caste
 ---@field rot_timer integer
 ---@field unk_8c integer
 ---@field body item_body_component_body
----@field size_modifier integer
+---@field size_modifier integer # =unit.appearance.size_modifier
 ---@field birth_year integer
 ---@field birth_time integer
 ---@field curse_year integer
@@ -277,13 +277,13 @@ df.corpse_material_type = {
 
 ---@class item_body_component_body
 ---@field wounds unit_wound[]
----@field unk_100 integer[]
+---@field unk_100 integer[] # unit.body.unk_39c
 ---@field wound_next_id integer
 ---@field components body_component_info
 ---@field physical_attr_value integer[]
 ---@field physical_attr_soft_demotion integer[]
 ---@field size_info body_size_info
----@field body_part_relsize integer[]
+---@field body_part_relsize integer[] # =unit.enemy.body_part_relsize
 ---@field body_modifiers integer[]
 ---@field bp_modifiers integer[]
 
@@ -468,20 +468,20 @@ df.item_matstate = {}
 ---@field unk_7c integer
 ---@field egg_materials material_vec_ref
 ---@field egg_flags any
----@field incubation_counter integer
----@field hatchling_civ_id integer
----@field hatchling_population_id integer
----@field hatchling_unit_unk_c0 integer
+---@field incubation_counter integer # increments when fertile in unforbidden nestbox, hatch at >= 100800 (3 months)
+---@field hatchling_civ_id integer # hatchlings will have this civ_id
+---@field hatchling_population_id integer # hatchlings will have this population_id
+---@field hatchling_unit_unk_c0 integer # hatchlings will have this unit.unk_c0 value
 ---@field unk_2 integer
----@field mothers_genes unit_genes
+---@field mothers_genes unit_genes # object owned by egg item
 ---@field mothers_caste integer
 ---@field unk_3 integer
----@field fathers_genes unit_genes
----@field fathers_caste integer
+---@field fathers_genes unit_genes # object owned by egg item
+---@field fathers_caste integer # -1 if no father genes
 ---@field unk_4 integer
----@field hatchling_flags1 unit_flags1
----@field hatchling_flags2 unit_flags2
----@field hatchling_flags3 unit_flags3
+---@field hatchling_flags1 unit_flags1 # used primarily for bit_flag:tame
+---@field hatchling_flags2 unit_flags2 # used primarily for bit_flag:roaming_wilderness_population_source
+---@field hatchling_flags3 unit_flags3 # not normally used, most/all do not stick
 ---@field unk_v42_1 integer
 ---@field hatchling_training_level animal_training_level
 ---@field hatchling_animal_population world_population_ref
@@ -584,7 +584,7 @@ df.item_matstate = {}
 
 ---@class item_glovesst
 ---@field subtype itemdef_glovesst
----@field handedness any
+---@field handedness any # 1 right, 2 left
 
 ---@class item_pantsst
 ---@field subtype itemdef_pantsst
@@ -639,7 +639,7 @@ df.item_matstate = {}
 
 ---@class item_slabst
 ---@field description string
----@field topic integer
+---@field topic integer # or interaction id for secrets?
 ---@field engraving_type slab_engraving_type
 
 ---@class item_orthopedic_castst

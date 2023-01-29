@@ -130,15 +130,15 @@ df.creature_interaction_effect_target_mode = {
 ---@field dwf_stretch integer
 ---@field syn_id integer
 ---@field id integer
----@field syn_index integer
+---@field syn_index integer # index in syndrome
 ---@field moon_phase_min integer
 ---@field moon_phase_max integer
 ---@field counter_trigger creature_interaction_effect_counter_trigger
 
 ---@class creature_interaction_effect_counter_trigger
 ---@field counter any[]
----@field minval integer[]
----@field maxval integer[]
+---@field minval integer[] # ?
+---@field maxval integer[] # ?
 ---@field required integer[]
 
 ---@class creature_interaction_effect_painst
@@ -218,21 +218,21 @@ df.creature_interaction_effect_target_mode = {
 ---@field target creature_interaction_effect_target
 
 ---@class creature_interaction_effect_body_transformationst
----@field chance integer
+---@field chance integer # %
 ---@field race_str string
 ---@field caste_str string
 ---@field race integer[]
 ---@field caste integer[]
----@field required_creature_flags integer[]
----@field forbidden_creature_flags integer[]
----@field required_caste_flags integer[]
----@field forbidden_caste_flags integer[]
+---@field required_creature_flags integer[] # contains indexes of flags in creature_raw_flags
+---@field forbidden_creature_flags integer[] # contains indexes of flags in creature_raw_flags
+---@field required_caste_flags integer[] # contains indexes of flags in caste_raw_flags
+---@field forbidden_caste_flags integer[] # contains indexes of flags in caste_raw_flags
 ---@field unk_1 integer
 ---@field unk_2 integer
 
 ---@class creature_interaction_effect_skill_roll_adjustst
----@field multiplier integer
----@field chance integer
+---@field multiplier integer # % change for skill
+---@field chance integer # % probability per roll
 
 ---@class creature_interaction_effect_display_symbolst
 ---@field tile integer

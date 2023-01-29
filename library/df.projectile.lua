@@ -36,7 +36,7 @@ df.projectile_flags = {}
 ---@field min_hit_distance integer
 ---@field min_ground_distance integer
 ---@field flags projectile_flags
----@field fall_counter integer
+---@field fall_counter integer # counts down from delay to 0, then it moves
 ---@field fall_delay integer
 ---@field hit_rating integer
 ---@field unk21 integer
@@ -44,7 +44,7 @@ df.projectile_flags = {}
 ---@field bow_id integer
 ---@field unk_item_id integer
 ---@field unk_unit_id integer
----@field unk_v40_1 integer
+---@field unk_v40_1 integer # uninitialized+saved
 ---@field pos_x integer
 ---@field pos_y integer
 ---@field pos_z integer
@@ -59,7 +59,7 @@ df.projectile_flags = {}
 ---@field item item
 
 ---@class proj_unitst
----@field unit unit
+---@field unit unit # ?
 
 ---@class proj_magicst
 ---@field type integer

@@ -84,7 +84,7 @@ df.general_ref_type = {
 
 ---@class general_ref_item
 ---@field item_id integer
----@field cached_index integer
+---@field cached_index integer # lookup optimization, tries before binary search
 
 ---@class general_ref_item_type
 ---@field type item_type
@@ -102,14 +102,14 @@ df.general_ref_type = {
 
 ---@class general_ref_entity_art_image
 ---@field entity_id integer
----@field index integer
+---@field index integer # lookup in entity.resources.art_image_*
 
 ---@class general_ref_projectile
 ---@field projectile_id integer
 
 ---@class general_ref_unit
 ---@field unit_id integer
----@field cached_index integer
+---@field cached_index integer # lookup optimization, tries before binary search
 
 ---@class general_ref_building
 ---@field building_id integer
@@ -172,7 +172,7 @@ df.general_ref_type = {
 
 ---@class general_ref_value_levelst
 ---@field value value_type
----@field level integer
+---@field level integer # see http://dwarffortresswiki.org/index.php/DF2014:Personality_trait
 
 ---@class general_ref_languagest
 ---@field unk_1 integer
@@ -307,12 +307,52 @@ df.specific_ref_type = {
   BREED = 30,
 }
 
+---@class specific_ref_type_attr
+---@field union_field string
+
+---@type table<specific_ref_type, specific_ref_type_attr>
+df.specific_ref_type.attrs = {
+  UNIT = {
+    union_field = "unit",
+  },
+  JOB = {
+    union_field = "job",
+  },
+  ACTIVITY = {
+    union_field = "activity",
+  },
+  ITEM_GENERAL = {
+    union_field = "item",
+  },
+  EFFECT = {
+    union_field = "effect",
+  },
+  VERMIN_ESCAPED_PET = {
+    union_field = "vermin",
+  },
+  ENTITY = {
+    union_field = "entity",
+  },
+  VIEWSCREEN = {
+    union_field = "screen",
+  },
+  UNIT_ITEM_WRESTLE = {
+    union_field = "wrestle",
+  },
+  NULL_REF = {
+    union_field = "object",
+  },
+  HIST_FIG = {
+    union_field = "histfig",
+  },
+}
+
 ---@class specific_ref
 ---@field type specific_ref_type
 ---@field data specific_ref_data
 
 ---@class specific_ref_data
----@field object any
+---@field object any # raw pointer
 ---@field unit unit
 ---@field activity activity_info
 ---@field screen viewscreen
@@ -418,7 +458,7 @@ df.histfig_site_link_type = {
 
 ---@class histfig_site_link
 ---@field site integer
----@field sub_id integer
+---@field sub_id integer # from XML
 ---@field entity integer
 
 ---@class histfig_site_link_occupationst
@@ -545,21 +585,21 @@ df.entity_site_link_flags = {}
 ---@class entity_site_link
 ---@field target integer
 ---@field entity_id integer
----@field entity_cache_index integer
----@field position_profile_id integer
----@field type entity_site_link_type
+---@field entity_cache_index integer # not saved
+---@field position_profile_id integer # index into entity.positions.assignments of Civilization (?)
+---@field type entity_site_link_type # called location in df source
 ---@field start_hr integer
 ---@field end_hr integer
 ---@field flags entity_site_link_flags
 ---@field former_flag entity_site_link_flags
 ---@field link_strength integer
----@field initial_controlling_population integer
----@field last_check_controlling_population integer
----@field ab_profile any[]
----@field target_site_x integer
----@field target_site_y integer
----@field last_checked_army_year integer
----@field last_checked_army_year_tick integer
+---@field initial_controlling_population integer # all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
+---@field last_check_controlling_population integer # same value as previous field
+---@field ab_profile any[] # When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
+---@field target_site_x integer # target site world coordinate x
+---@field target_site_y integer # target site world coordinate y
+---@field last_checked_army_year integer # all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
+---@field last_checked_army_year_tick integer # paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
 
 ---@class undead_flags
 ---@field zombie boolean

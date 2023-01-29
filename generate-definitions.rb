@@ -68,13 +68,25 @@ end
 
 def getComment(element)
   if element["comment"] and element["comment"] != ""
-    return " # #{element["comment"]}"
+    return element["comment"]
   else
-    return ""
+    return nil
   end
 end
 
+def getField(name, type, comment = nil)
+  field = "---@field #{name} #{type}"
+
+  if comment
+    field << " # #{comment}"
+  end
+
+  field << "\n"
+end
+
 def getEnumAnnotation(enum)
+  enum_attrs = enum.search("enum-attr")
+
   annotation = "---@enum #{enum['type-name']}\n"
   annotation << "df.#{enum['type-name']} = {\n"
 
@@ -97,7 +109,35 @@ def getEnumAnnotation(enum)
     end
   end
 
-  return annotation << "}\n\n"
+  annotation << "}\n\n"
+
+  if enum_attrs.length > 0
+    annotation << "---@class #{enum['type-name']}_attr\n"  
+
+    enum_attrs.each do |enum_attr|
+      annotation << "---@field #{enum_attr['name']} #{enum_attr['type-name'] || 'string'}#{enum_attr['is-list'] && '[]' || nil}\n"
+    end
+
+    annotation << "\n"
+    annotation << "---@type table<#{enum['type-name']}, #{enum['type-name']}_attr>\n"
+    annotation << "df.#{enum['type-name']}.attrs = {\n"
+
+    enum.search("enum-item").each do |child|
+      next if child.search("item-attr").length == 0
+
+      annotation << "  %s = {\n" % [child["name"]]
+
+      child.search("item-attr").each do |attr|
+        annotation << %Q(    %s = "%s",\n) % [attr["name"], attr["value"]]
+      end
+      
+      annotation << "  },\n"
+    end
+    annotation << "}\n"
+    return annotation << "\n"
+  else
+    return annotation
+  end
 end
 
 def getStructAnnotation(struct)
@@ -111,10 +151,10 @@ def getStructAnnotation(struct)
     next if not child["name"] or child.name == "code-helper"
 
     if child.name == "compound" and not (child["type-name"] or child["pointer-type"])
-      inline_types.push(child) if not inline_types.include?(child) 
-      annotation << "---@field #{child['name']} #{type}_#{child['name']}\n"
+      inline_types.push(child) if not inline_types.include?(child)
+      annotation << getField(child["name"], "#{type}_#{child['name']}", child["comment"])
     else
-      annotation << "---@field #{child['name']} #{getElementType(child)}\n"
+      annotation << getField(child["name"], getElementType(child), child["comment"])
     end
 
   end
@@ -127,7 +167,7 @@ def getStructAnnotation(struct)
 
     inline_type.children.each do |type_child|
       next if not type_child["name"]
-      annotation << "---@field #{type_child['name']} #{getElementType(type_child)}\n"
+      annotation << getField(type_child["name"], getElementType(type_child), type_child["comment"])
     end
     annotation << "\n"
   end
@@ -154,7 +194,7 @@ def getBitfieldAnnotation(bitfield)
     if child.name == "flag-bit"
       child_name = child["name"] || "unk_#{index}"
       child_type = getElementType(child)
-      annotation << "---@field #{child_name} #{child_type}#{getComment(child)}\n"
+      annotation << getField(child_name, child_type, getComment(child))
       index += 1
     end
   end

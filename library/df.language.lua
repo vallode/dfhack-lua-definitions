@@ -181,21 +181,21 @@ df.sphere_type = {
 ---@field word string
 ---@field forms string[]
 ---@field adj_dist integer
----@field pad_1 any
+---@field pad_1 any # looks like garbage
 ---@field flags language_word_flags
 ---@field str string[]
 
 ---@class language_translation
 ---@field name string
----@field unknown1 string[]
----@field unknown2 string[]
+---@field unknown1 string[] # looks like english words
+---@field unknown2 string[] # looks like translated words
 ---@field words string[]
----@field flags integer
+---@field flags integer # 1 = generated
 ---@field str string[]
 
 ---@class language_symbol
 ---@field name string
----@field unknown any[]
+---@field unknown any[] # empty
 ---@field words any[]
 ---@field flags integer
 ---@field str string[]

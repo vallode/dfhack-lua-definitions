@@ -25,12 +25,12 @@ df.vermin_category = {
 ---@field race integer
 ---@field caste integer
 ---@field pos coord
----@field visible boolean
+---@field visible boolean # 1 = visible vermin
 ---@field countdown integer
 ---@field item item
 ---@field flags vermin_flags
----@field amount integer
+---@field amount integer # The total number of vermin in this object. Decimal constant 10000001 means infinity (probably).
 ---@field population world_population_ref
 ---@field category vermin_category
----@field id integer
+---@field id integer # assigned during Save
 

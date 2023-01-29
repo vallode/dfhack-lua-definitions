@@ -30,15 +30,15 @@ df.plant_flags = {}
 df.plant_tree_tile = {}
 
 ---@class plant_tree_info
----@field body any
----@field extent_east int16_t
----@field extent_south int16_t
----@field extent_west int16_t
----@field extent_north int16_t
+---@field body any # dimension body_height
+---@field extent_east int16_t # dimension body_height
+---@field extent_south int16_t # dimension body_height
+---@field extent_west int16_t # dimension body_height
+---@field extent_north int16_t # dimension body_height
 ---@field body_height integer
 ---@field dim_x integer
 ---@field dim_y integer
----@field roots any
+---@field roots any # dimension roots_depth
 ---@field roots_depth integer
 ---@field unk6 integer
 

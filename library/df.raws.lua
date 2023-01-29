@@ -3,15 +3,15 @@
 ---@class creature_handler
 ---@field alphabetic creature_raw[]
 ---@field all creature_raw[]
----@field num_caste integer
----@field list_creature integer[]
+---@field num_caste integer # seems equal to length of vectors below
+---@field list_creature integer[] # Together with list_caste, a list of all caste indexes in order.
 ---@field list_caste integer[]
 ---@field action_strings string[]
 
 ---@class world_raws
 ---@field material_templates material_template[]
 ---@field inorganics inorganic_raw[]
----@field inorganics_subset inorganic_raw[]
+---@field inorganics_subset inorganic_raw[] # all inorganics with value less than 4
 ---@field plants world_raws_plants
 ---@field tissue_templates tissue_template[]
 ---@field body_detail_plans body_detail_plan[]

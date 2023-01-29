@@ -17,8 +17,8 @@
 ---@field on boolean
 ---@field fmod_system any
 ---@field fmod_master_channel_group any
----@field mod fmod_sound[]
----@field samp fmod_sound[]
+---@field mod fmod_sound[] # songs
+---@field samp fmod_sound[] # sound effects
 ---@field linux_sound_system any
 
 ---@class fmod_sound
@@ -51,31 +51,31 @@ df.cmv_attribute = {}
 ---@field clipy integer[]
 ---@field screen_x integer
 ---@field screen_y integer
----@field screentexpos_background int32_t
+---@field screentexpos_background int32_t # floor
 ---@field screentexpos_floor_flag uint64_t
----@field screentexpos_background_two int32_t
+---@field screentexpos_background_two int32_t # boulder, plant, etc.
 ---@field screentexpos_liquid_flag uint32_t
 ---@field screentexpos_spatter_flag uint32_t
 ---@field screentexpos_spatter int32_t
 ---@field screentexpos_ramp_flag uint64_t
 ---@field screentexpos_shadow_flag uint32_t
----@field screentexpos_building_one int32_t
----@field screentexpos_item int32_t
+---@field screentexpos_building_one int32_t # floor
+---@field screentexpos_item int32_t # ground stuff
 ---@field screentexpos_vehicle int32_t
 ---@field screentexpos_vermin int32_t
 ---@field screentexpos_left_creature int32_t
----@field screentexpos int32_t
+---@field screentexpos int32_t # creature, etc.
 ---@field screentexpos_right_creature int32_t
----@field screentexpos_building_two int32_t
+---@field screentexpos_building_two int32_t # high furniture/interior signposting
 ---@field screentexpos_projectile int32_t
 ---@field screentexpos_high_flow int32_t
 ---@field screentexpos_top_shadow int32_t
----@field screentexpos_signpost int32_t
+---@field screentexpos_signpost int32_t # stuff that sticks up from below
 ---@field screentexpos_upleft_creature int32_t
 ---@field screentexpos_up_creature int32_t
 ---@field screentexpos_upright_creature int32_t
 ---@field screentexpos_designation int32_t
----@field screentexpos_interface int32_t
+---@field screentexpos_interface int32_t # cursor, etc
 ---@field screentexpos_background_old int32_t
 ---@field screentexpos_floor_flag_old uint64_t
 ---@field screentexpos_background_two_old int32_t
@@ -180,33 +180,33 @@ df.cmv_attribute = {}
 ---@field screenf curses_color
 ---@field screenb curses_color
 ---@field screenbright boolean
----@field use_old_16_colors boolean
+---@field use_old_16_colors boolean # use F:B:BR instead of straight RGB
 ---@field screen_color_r integer
 ---@field screen_color_g integer
 ---@field screen_color_b integer
 ---@field screen_color_br integer
 ---@field screen_color_bg integer
 ---@field screen_color_bb integer
----@field ccolor any[]
----@field uccolor any[]
+---@field ccolor any[] # The curses-RGB mapping used for non-curses display modes
+---@field uccolor any[] # The curses-RGB mapping used for non-curses display modes
 ---@field color any[]
----@field mouse_x integer
----@field mouse_y integer
----@field precise_mouse_x integer
----@field precise_mouse_y integer
+---@field mouse_x integer # tile offset
+---@field mouse_y integer # tile offset
+---@field precise_mouse_x integer # pixel offset
+---@field precise_mouse_y integer # pixel offset
 ---@field screen_pixel_x integer
 ---@field screen_pixel_y integer
 ---@field tile_pixel_x integer
 ---@field tile_pixel_y integer
 ---@field screen uint8_t
----@field screen_limit uint8_t
+---@field screen_limit uint8_t # pointer to last element of screen
 ---@field screentexpos long
 ---@field screentexpos_lower long
 ---@field screentexpos_anchored long
 ---@field screentexpos_anchored_x long
 ---@field screentexpos_anchored_y long
 ---@field screentexpos_flag uint32_t
----@field top_in_use boolean
+---@field top_in_use boolean # //we assume top is not in use unless a flag is set, and reprint the screen when it goes away, to avoid cell by cell checks
 ---@field screen_top uint8_t
 ---@field screen_top_limit uint8_t
 ---@field screentexpos_top_lower long
@@ -219,8 +219,8 @@ df.cmv_attribute = {}
 ---@field display_background boolean
 ---@field screentexpos_refresh_buffer int32_t
 ---@field refresh_buffer_val integer
----@field main_thread_requesting_reshape boolean
----@field main_thread_requesting_reshape_activate_map_port boolean
+---@field main_thread_requesting_reshape boolean # set to true by main thread, set to false by graphics thread
+---@field main_thread_requesting_reshape_activate_map_port boolean # set to true by main thread, set to false by graphics thread
 ---@field clipx long[]
 ---@field clipy long[]
 ---@field tex_pos long[]
@@ -229,8 +229,8 @@ df.cmv_attribute = {}
 ---@field print_index any
 ---@field display_frames integer
 ---@field force_full_display_count integer
----@field do_clean_tile_cache integer
----@field do_post_init_texture_clear integer
+---@field do_clean_tile_cache integer # true by main, false by graphics
+---@field do_post_init_texture_clear integer # true by main, false by graphics
 ---@field original_rect integer
 ---@field dimx integer
 ---@field dimy integer
@@ -540,10 +540,10 @@ df.zoom_commands = {
 ---@field mouse_mbut_lift integer
 ---@field tracking_on integer
 ---@field textures enabler_textures
----@field sync any
+---@field sync any # rendering barrier
 ---@field simticks enabler_simticks
 ---@field gputicks enabler_gputicks
----@field clock integer
+---@field clock integer # An *approximation* of the current time for use in garbage collection thingies, updated every frame or so.
 
 ---@class enabler_async_tobox
 ---@field sem any

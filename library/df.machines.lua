@@ -75,7 +75,7 @@ df.screw_pump_direction = {
 
 ---@class building_screw_pumpst
 ---@field machine machine_info
----@field pump_energy integer
+---@field pump_energy integer # decreases by 1 every frame. powering or manually pumping maintains near 100
 ---@field direction screw_pump_direction
 ---@field pump_manually boolean
 

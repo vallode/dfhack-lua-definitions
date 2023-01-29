@@ -24,7 +24,7 @@ df.pattern_type = {
 
 ---@class descriptor_shape
 ---@field id string
----@field words_str string[]
+---@field words_str string[] # temporary storage before resolving to language_word
 ---@field words integer[]
 ---@field name string
 ---@field name_plural string

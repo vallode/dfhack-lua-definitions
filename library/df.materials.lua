@@ -17,6 +17,60 @@ df.craft_material_class = {
   Cloth = 11,
 }
 
+---@class craft_material_class_attr
+---@field make_skill job_skill
+---@field improve_skill job_skill
+
+---@type table<craft_material_class, craft_material_class_attr>
+df.craft_material_class.attrs = {
+  Metal = {
+    make_skill = "FORGE_FURNITURE",
+    improve_skill = "METALCRAFT",
+  },
+  Wood = {
+    make_skill = "CARPENTRY",
+    improve_skill = "WOODCRAFT",
+  },
+  Gem = {
+    make_skill = "CUTGEM",
+    improve_skill = "ENCRUSTGEM",
+  },
+  Glass = {
+    make_skill = "GLASSMAKER",
+  },
+  Stone = {
+    make_skill = "MASONRY",
+  },
+  Bone = {
+    make_skill = "BONECARVE",
+    improve_skill = "BONECARVE",
+  },
+  Ivory = {
+    make_skill = "BONECARVE",
+    improve_skill = "BONECARVE",
+  },
+  Horn = {
+    make_skill = "BONECARVE",
+    improve_skill = "BONECARVE",
+  },
+  Pearl = {
+    make_skill = "BONECARVE",
+    improve_skill = "BONECARVE",
+  },
+  Shell = {
+    make_skill = "BONECARVE",
+    improve_skill = "BONECARVE",
+  },
+  Leather = {
+    make_skill = "LEATHERWORK",
+    improve_skill = "LEATHERWORK",
+  },
+  Cloth = {
+    make_skill = "CLOTHESMAKING",
+    improve_skill = "CLOTHESMAKING",
+  },
+}
+
 ---@enum builtin_mats
 df.builtin_mats = {
   INORGANIC = 0,
@@ -127,6 +181,55 @@ df.material_flags = {
   ANTLER = 82,
 }
 
+---@class material_flags_attr
+---@field type craft_material_class
+
+---@type table<material_flags, material_flags_attr>
+df.material_flags.attrs = {
+  BONE = {
+    type = "Bone",
+  },
+  WOOD = {
+    type = "Wood",
+  },
+  THREAD_PLANT = {
+    type = "Cloth",
+  },
+  TOOTH = {
+    type = "Ivory",
+  },
+  HORN = {
+    type = "Horn",
+  },
+  PEARL = {
+    type = "Pearl",
+  },
+  SHELL = {
+    type = "Shell",
+  },
+  LEATHER = {
+    type = "Leather",
+  },
+  SILK = {
+    type = "Cloth",
+  },
+  IS_METAL = {
+    type = "Metal",
+  },
+  IS_GEM = {
+    type = "Gem",
+  },
+  IS_GLASS = {
+    type = "Glass",
+  },
+  IS_STONE = {
+    type = "Stone",
+  },
+  YARN = {
+    type = "Cloth",
+  },
+}
+
 ---@enum matter_state
 df.matter_state = {
   None = -1,
@@ -213,7 +316,7 @@ df.strain_type = {
 ---@field unk_41c integer[]
 ---@field prefix string
 ---@field food_mat_index any[]
----@field powder_dye_str string
+---@field powder_dye_str string # temporary
 ---@field state_color_str string[]
 
 ---@class material_vec_ref
@@ -231,7 +334,7 @@ df.strain_type = {
 ---@field syndrome syndrome[]
 ---@field soap_level integer
 ---@field unk_41c integer[]
----@field powder_dye_str string
+---@field powder_dye_str string # temporary
 ---@field state_color_str string[]
 
 ---@enum inorganic_flags
@@ -307,17 +410,17 @@ df.inclusion_type = {
 ---@field material material
 
 ---@class inorganic_raw_metal_ore
----@field str string[]
+---@field str string[] # only during parsing
 ---@field mat_index any[]
 ---@field probability integer[]
 
 ---@class inorganic_raw_thread_metal
----@field str string[]
+---@field str string[] # only during parsing
 ---@field mat_index any[]
 ---@field probability integer[]
 
 ---@class inorganic_raw_environment_spec
----@field str string[]
+---@field str string[] # only during parsing
 ---@field mat_index any[]
 ---@field inclusion_type any[]
 ---@field probability integer[]
@@ -373,6 +476,6 @@ df.organic_mat_category = {
 ---@class special_mat_table
 ---@field organic_types any[]
 ---@field organic_indexes any[]
----@field organic_unknown any[]
+---@field organic_unknown any[] # everything 0
 ---@field builtin any[]
 

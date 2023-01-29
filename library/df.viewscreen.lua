@@ -62,8 +62,8 @@ df.interface_push_types = {
 ---@class world_dat_summary
 ---@field name language_name
 ---@field unk_1 string
----@field unk_2 integer[]
----@field last_id world_dat_summary_last_id
+---@field unk_2 integer[] # same as the one at the top of world_data
+---@field last_id world_dat_summary_last_id # when loading, DF sets *_next_id to these fields plus 1
 ---@field unk world_dat_summary_unk
 
 ---@class world_dat_summary_last_id
@@ -115,7 +115,7 @@ df.interface_push_types = {
 ---@field save_version save_version
 ---@field cur_save world_dat_summary
 ---@field glosses matgloss_list
----@field progress integer
+---@field progress integer # 0..35
 
 ---@enum embark_finder_option
 df.embark_finder_option = {
@@ -150,7 +150,7 @@ df.embark_finder_option = {
 ---@field biome_rgn coord2d_path
 ---@field embark_pos_min coord2d
 ---@field embark_pos_max coord2d
----@field embark_biome_rgn coord2d
+---@field embark_biome_rgn coord2d # Valid only after e pressed.
 
 ---@class viewscreen_choose_start_sitest
 ---@field page any
@@ -184,8 +184,8 @@ df.embark_finder_option = {
 ---@field unk_15c integer
 
 ---@class viewscreen_choose_start_sitest_finder
----@field search_x integer
----@field search_y integer
+---@field search_x integer # to world width / 16
+---@field search_y integer # to world height / 16
 ---@field cursor integer
 ---@field options integer[]
 ---@field unmatched boolean[]
@@ -258,7 +258,7 @@ df.embark_finder_option = {
 ---@class viewscreen_export_regionst
 ---@field play_now boolean
 ---@field state any
----@field progress integer
+---@field progress integer # 0..40
 ---@field units_progress viewscreen_export_regionst_units_progress
 ---@field compressor file_compressorst
 ---@field folder_name string
@@ -358,15 +358,15 @@ df.embark_finder_option = {
 ---@field region_view_mode integer
 ---@field civ_site_view integer
 ---@field region_view_snapshot_index integer
----@field histfigs_filtered integer[]
----@field sites_filtered integer[]
----@field artifacts_filtered integer[]
----@field codices_filtered integer[]
----@field regions_filtered integer[]
----@field layers_filtered integer[]
+---@field histfigs_filtered integer[] # index into histfigs
+---@field sites_filtered integer[] # index into sites
+---@field artifacts_filtered integer[] # index into artifacts
+---@field codices_filtered integer[] # index into codices
+---@field regions_filtered integer[] # index into regions
+---@field layers_filtered integer[] # index into layers
 ---@field entity_populations_filtered integer[]
----@field entities_filtered integer[]
----@field structures_filtered integer[]
+---@field entities_filtered integer[] # index into entities
+---@field structures_filtered integer[] # index into structures
 ---@field total_codices integer
 ---@field total_artifacts integer
 ---@field page legend_pagest[]
@@ -375,7 +375,7 @@ df.embark_finder_option = {
 
 ---@class loadgame_save_info
 ---@field next_ids integer[]
----@field game_type game_type
+---@field game_type game_type # only 0 (fort) 1 (adv) 3(reclaim) are valid
 ---@field fort_name string
 ---@field world_name string
 ---@field year integer
@@ -422,7 +422,7 @@ df.embark_finder_option = {
 ---@field mod_display_versions string[]
 
 ---@class viewscreen_loadgamest
----@field cur_step any
+---@field cur_step any # After the on-screen text shown while loading.
 ---@field progress integer
 ---@field compressor file_compressorst
 ---@field glosses matgloss_list
@@ -710,7 +710,7 @@ df.adv_background_option_type = {
 ---@field active_column integer
 ---@field background_option adv_background_option_type[]
 ---@field background_option_squad_epp_id any[]
----@field background_option_unit integer[]
+---@field background_option_unit integer[] # type should be profession?
 ---@field religious_practice_option integer[]
 ---@field religious_practice_id integer[]
 ---@field pos_caste integer[]
@@ -774,7 +774,7 @@ df.adv_background_option_type = {
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
 ---@field unk_v43_sub9 embark_symbol_unk_v43_sub9
----@field unk_v43_10 integer[]
+---@field unk_v43_10 integer[] # uninitialized?
 
 ---@class embark_symbol_unk_v43_sub9
 ---@field unk_s1 integer
@@ -942,7 +942,7 @@ df.adv_background_option_type = {
 ---@field last_hover_ent historical_entity
 ---@field relnem nemesis_record[]
 ---@field relnem_precedence integer[]
----@field relag any[]
+---@field relag any[] # civ_agreementst
 ---@field relag_pending integer[]
 ---@field scroll_position_civlist integer
 ---@field scrolling_civlist boolean
@@ -964,8 +964,8 @@ df.adv_background_option_type = {
 ---@field scroll_position_request_nem integer
 ---@field scrolling_request_nem boolean
 ---@field rumor_master any[]
----@field rumor_rpd viewscreen_worldst_rumor_rpd
----@field rumor_rpd_indicator_data viewscreen_worldst_rumor_rpd_indicator_data
+---@field rumor_rpd viewscreen_worldst_rumor_rpd # region_print_datast
+---@field rumor_rpd_indicator_data viewscreen_worldst_rumor_rpd_indicator_data # rpd_indicator_datast
 ---@field last_hover_rumor_x integer
 ---@field last_hover_rumor_y integer
 ---@field focused_on_last_hover_rumor boolean
@@ -976,7 +976,7 @@ df.adv_background_option_type = {
 ---@field tribute_report_index integer[]
 ---@field croll_position_report integer
 ---@field scrolling_report boolean
----@field active_mission_report any
+---@field active_mission_report any # mission_reportst
 ---@field mission_cursor_x integer
 ---@field mission_cursor_y integer
 ---@field mission_path_data_index integer
@@ -993,7 +993,7 @@ df.adv_background_option_type = {
 ---@field mission_fade_start_ind integer
 ---@field scroll_position_mission integer
 ---@field scrolling_mission boolean
----@field active_tribute_report any
+---@field active_tribute_report any # tribute_reportst
 ---@field scroll_position_tribute integer
 ---@field scrolling_tribute boolean
 ---@field hf historical_figure[]
@@ -1001,12 +1001,12 @@ df.adv_background_option_type = {
 ---@field scrolling_citizens boolean
 ---@field last_hover_hf historical_figure
 ---@field artifact artifact_record[]
----@field artifact_arl any[]
+---@field artifact_arl any[] # artifact_rumor_locationst
 ---@field scroll_position_artifacts integer
 ---@field scrolling_artifacts boolean
 ---@field last_hover_artifact artifact_record
 ---@field artifact_description string[]
----@field artifact_eac any
+---@field artifact_eac any # entity_artifact_claimst
 ---@field artifact_rpa_holder historical_figure
 ---@field artifact_fac_holder historical_figure
 

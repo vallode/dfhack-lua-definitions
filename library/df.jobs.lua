@@ -70,24 +70,24 @@ df.job_subtype_surgery = {
 ---@class job
 ---@field id integer
 ---@field list_link job_list_link
----@field posting_index integer
+---@field posting_index integer # index into world.job_postings
 ---@field job_type job_type
 ---@field job_subtype integer
 ---@field pos coord
----@field completion_timer integer
----@field unk4 integer
+---@field completion_timer integer # -1 every time unit.counters.job_counter is below 0
+---@field unk4 integer # garbage, but serialized
 ---@field flags job_flags
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field unk5 integer
----@field item_type item_type
----@field item_subtype integer
+---@field item_type item_type # for Bait Trap jobs
+---@field item_subtype integer # when StoreInStockpile this is a unit_labor
 ---@field item_category stockpile_group_set
 ---@field material_category job_material_category
 ---@field reaction_name string
----@field expire_timer integer
----@field recheck_cntdn integer
----@field wait_timer integer
+---@field expire_timer integer # for stockpiling, +1 per 50 ticks if no worker; del when 20
+---@field recheck_cntdn integer # for process_jobs
+---@field wait_timer integer # for units to leave build sites; to recheck stockpiles
 ---@field unk11 integer
 ---@field items job_item_ref[]
 ---@field specific_refs specific_ref[]
@@ -102,7 +102,7 @@ df.job_subtype_surgery = {
 ---@class job_item_ref
 ---@field item item
 ---@field role any
----@field is_fetching integer
+---@field is_fetching integer # 0 immediately once taken to be brought
 ---@field job_item_idx integer
 
 ---@class job_item_flags1
@@ -206,9 +206,9 @@ df.job_item_flags3 = {}
 ---@field metal_ore integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field min_dimension integer
+---@field min_dimension integer # pure guess by context
 ---@field reagent_index integer
----@field contains integer[]
+---@field contains integer[] # used with custom reactions
 ---@field reaction_id integer
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 integer
@@ -244,7 +244,7 @@ df.job_item_flags3 = {}
 ---@field use_contains boolean
 ---@field has_tool_use tool_uses
 ---@field has_melee_skill job_skill
----@field unk_v40_1 integer
+---@field unk_v40_1 integer # noticed in v0.40.24
 ---@field pos coord
 ---@field unit unit
 ---@field job job
@@ -284,7 +284,7 @@ df.manager_order_status = {}
 ---@field finished_year integer
 ---@field finished_year_tick integer
 ---@field workshop_id integer
----@field max_workshops integer
+---@field max_workshops integer # 0 is unlimited
 ---@field item_conditions manager_order_condition_item[]
 ---@field order_conditions manager_order_condition_order[]
 ---@field items any
@@ -321,7 +321,7 @@ df.manager_order_status = {}
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
----@field item_category stockpile_group_set
+---@field item_category stockpile_group_set # specflag
 ---@field hist_figure_id integer
 ---@field material_category job_material_category
 ---@field match_value integer
@@ -338,8 +338,8 @@ df.manager_order_status = {}
 ---@field mat_index integer
 ---@field amount_total integer
 ---@field amount_remaining integer
----@field timeout_counter integer
----@field timeout_limit integer
+---@field timeout_counter integer # counts once per 10 frames
+---@field timeout_limit integer # once counter passes limit, mandate ends
 ---@field punishment mandate_punishment
 ---@field punish_multiple integer
 ---@field unk4 integer
@@ -361,6 +361,6 @@ df.manager_order_status = {}
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
----@field timeout_counter integer
----@field timeout_limit integer
+---@field timeout_counter integer # counts once per 10 frames
+---@field timeout_limit integer # once counter passes limit, mandate ends
 

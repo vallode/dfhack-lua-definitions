@@ -9,11 +9,11 @@ df.interaction_flags = {
 ---@class interaction
 ---@field name string
 ---@field id integer
----@field str string[]
+---@field str string[] # interaction raws
 ---@field flags any
----@field sources interaction_source[]
----@field targets interaction_target[]
----@field effects interaction_effect[]
+---@field sources interaction_source[] # I_SOURCE
+---@field targets interaction_target[] # I_TARGET
+---@field effects interaction_effect[] # I_EFFECT
 ---@field source_hfid integer
 ---@field source_enid integer
 
@@ -45,14 +45,14 @@ df.interaction_effect_location_hint = {
 }
 
 ---@class interaction_effect
----@field index integer
+---@field index integer # index of the effect within the parent interaction.effects
 ---@field targets string[]
----@field targets_index integer[]
----@field intermittent integer
----@field locations interaction_effect_location_hint[]
+---@field targets_index integer[] # for each target used in this effect, list the index of that target within the parent interaction.targets
+---@field intermittent integer # IE_INTERMITTENT, 0 = weekly
+---@field locations interaction_effect_location_hint[] # IE_LOCATION
 ---@field flags any
 ---@field interaction_id integer
----@field arena_name string
+---@field arena_name string # IE_ARENA_NAME
 
 ---@class interaction_effect_animatest
 ---@field unk_1 integer
@@ -67,8 +67,8 @@ df.interaction_effect_location_hint = {
 ---@field syndrome syndrome[]
 
 ---@class interaction_effect_cleanst
----@field grime_level integer
----@field syndrome_tag syndrome_flags
+---@field grime_level integer # IE_GRIME_LEVEL
+---@field syndrome_tag syndrome_flags # IE_SYNDROME_TAG
 ---@field unk_1 integer
 
 ---@class interaction_effect_contactst
@@ -81,8 +81,8 @@ df.interaction_effect_location_hint = {
 ---@field unk_1 integer
 
 ---@class interaction_effect_change_item_qualityst
----@field quality_added integer
----@field quality_set integer
+---@field quality_added integer # IE_CHANGE_QUALITY
+---@field quality_set integer # IE_SET_QUALITY
 
 ---@class interaction_effect_change_weatherst
 ---@field unk_1 integer
@@ -90,19 +90,19 @@ df.interaction_effect_location_hint = {
 
 ---@class interaction_effect_raise_ghostst
 ---@field unk_1 integer
----@field syndrome syndrome[]
+---@field syndrome syndrome[] # assumed based on vmethod reference
 
 ---@class interaction_effect_create_itemst
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field probability integer
----@field quantity integer
----@field quality_min integer
----@field quality_max integer
----@field create_artifact integer
----@field unk_1 string
+---@field item_type item_type # IE_ITEM
+---@field item_subtype integer # IE_ITEM
+---@field mat_type integer # IE_ITEM
+---@field mat_index integer # IE_ITEM
+---@field probability integer # IE_ITEM
+---@field quantity integer # IE_ITEM
+---@field quality_min integer # IE_ITEM_QUALITY
+---@field quality_max integer # IE_ITEM_QUALITY
+---@field create_artifact integer # IE_ITEM_QUALITY:ARTIFACT
+---@field unk_1 string # these five are probably item1:item2:mat1:mat2:mat3
 ---@field unk_2 string
 ---@field unk_3 string
 ---@field unk_4 string
@@ -110,22 +110,22 @@ df.interaction_effect_location_hint = {
 
 ---@class interaction_effect_propel_unitst
 ---@field unk_1 integer
----@field propel_force integer
+---@field propel_force integer # IE_PROPEL_FORCE
 
 ---@class interaction_effect_summon_unitst
----@field make_pet integer
----@field race_str string
----@field caste_str string
----@field unk_1 integer[]
----@field unk_2 integer[]
----@field required_creature_flags integer[]
----@field forbidden_creature_flags integer[]
----@field required_caste_flags integer[]
----@field forbidden_caste_flags integer[]
+---@field make_pet integer # IE_MAKE_PET_IF_POSSIBLE
+---@field race_str string # CREATURE
+---@field caste_str string # CREATURE
+---@field unk_1 integer[] # seen 4 bytes allocated
+---@field unk_2 integer[] # seen 2 bytes allocate
+---@field required_creature_flags integer[] # contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
+---@field forbidden_creature_flags integer[] # contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
+---@field required_caste_flags integer[] # contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
+---@field forbidden_caste_flags integer[] # contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field time_range_min integer
----@field time_range_max integer
+---@field time_range_min integer # IE_TIME_RANGE
+---@field time_range_max integer # IE_TIME_RANGE
 
 ---@enum interaction_source_type
 df.interaction_source_type = {
@@ -142,13 +142,13 @@ df.interaction_source_type = {
 
 ---@class interaction_source
 ---@field id integer
----@field frequency integer
----@field name string
----@field hist_string_1 string
----@field hist_string_2 string
----@field trigger_string_second string
----@field trigger_string_third string
----@field trigger_string string
+---@field frequency integer # IS_FREQUENCY
+---@field name string # IS_NAME
+---@field hist_string_1 string # IS_HIST_STRING_1
+---@field hist_string_2 string # IS_HIST_STRING_2
+---@field trigger_string_second string # IS_TRIGGER_STRING_SECOND
+---@field trigger_string_third string # IS_TRIGGER_STRING_THIRD
+---@field trigger_string string # IS_TRIGGER_STRING
 
 ---@class interaction_source_regionst
 ---@field region_flags any
@@ -185,7 +185,7 @@ df.interaction_source_usage_hint = {
 
 ---@class interaction_source_deityst
 ---@field unk_1 integer
----@field usage_hint interaction_source_usage_hint[]
+---@field usage_hint interaction_source_usage_hint[] # IS_USAGE_HINT
 
 ---@class interaction_source_attackst
 ---@field unk_1 integer
@@ -224,23 +224,23 @@ df.interaction_target_location_type = {
 ---@class interaction_target
 ---@field index integer
 ---@field name string
----@field manual_input string
----@field location interaction_target_location_type
----@field reference_name string
----@field reference_distance integer
+---@field manual_input string # IT_MANUAL_INPUT
+---@field location interaction_target_location_type # IT_LOCATION
+---@field reference_name string # IT_LOCATION:RANDOM_NEARBY_LOCATION
+---@field reference_distance integer # IT_LOCATION:RANDOM_NEARBY_LOCATION
 
 ---@class interaction_target_info
 ---@field affected_creature_str any[]
----@field affected_creature integer[]
----@field affected_class string[]
+---@field affected_creature integer[] # IT_AFFECTED_CREATURE
+---@field affected_class string[] # IT_AFFECTED_CLASS
 ---@field immune_creature_str any[]
----@field immune_creature integer[]
----@field immune_class string[]
+---@field immune_creature integer[] # IT_IMMUNE_CREATURE
+---@field immune_class string[] # IT_IMMUNE_CLASS
 ---@field forbidden_syndrome_class string[]
----@field requires_1 integer
----@field requires_2 integer
----@field forbidden_1 integer
----@field forbidden_2 integer
+---@field requires_1 integer # IT_REQUIRES
+---@field requires_2 integer # IT_REQUIRES
+---@field forbidden_1 integer # IT_FORBIDDEN
+---@field forbidden_2 integer # IT_FORBIDDEN
 ---@field restrictions any
 
 ---@class interaction_target_corpsest
@@ -290,5 +290,5 @@ df.breath_attack_type = {
 ---@field interaction_id integer
 ---@field unk_1 integer
 ---@field region_index integer
----@field affected_units integer[]
+---@field affected_units integer[] # IDs of units affected by the regional interaction
 

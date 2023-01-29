@@ -355,7 +355,7 @@ df.knowledge_scholar_flags_12 = {}
 df.knowledge_scholar_flags_13 = {}
 
 ---@class knowledge_scholar_category_flag
----@field flag_type any
+---@field flag_type any # determines which bitflags to use
 ---@field flag_data knowledge_scholar_category_flag_flag_data
 
 ---@class knowledge_scholar_category_flag_flag_data

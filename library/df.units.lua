@@ -185,6 +185,74 @@ df.goal_type = {
   BATHE_WORLD_IN_CHAOS = 14,
 }
 
+---@class goal_type_attr
+---@field short_name string
+---@field achieved_short_name string
+
+---@type table<goal_type, goal_type_attr>
+df.goal_type.attrs = {
+  STAY_ALIVE = {
+    short_name = "Stay Alive",
+    achieved_short_name = "Stayed Alive",
+  },
+  MAINTAIN_ENTITY_STATUS = {
+    short_name = "Maintain Status",
+    achieved_short_name = "Maintained Status",
+  },
+  START_A_FAMILY = {
+    short_name = "Be a Parent",
+    achieved_short_name = "Is a Parent",
+  },
+  RULE_THE_WORLD = {
+    short_name = "Rule the World",
+    achieved_short_name = "Ruled the World",
+  },
+  CREATE_A_GREAT_WORK_OF_ART = {
+    short_name = "Create Great Artwork",
+    achieved_short_name = "Made Great Artwork",
+  },
+  CRAFT_A_MASTERWORK = {
+    short_name = "Craft a Masterwork",
+    achieved_short_name = "Crafted a Masterwork",
+  },
+  BRING_PEACE_TO_THE_WORLD = {
+    short_name = "Bring Peace to World",
+    achieved_short_name = "Brought World Peace",
+  },
+  BECOME_A_LEGENDARY_WARRIOR = {
+    short_name = "Be Legendary Warrior",
+    achieved_short_name = "Is Legendary Warrior",
+  },
+  MASTER_A_SKILL = {
+    short_name = "Master a Skill",
+    achieved_short_name = "Mastered a Skill",
+  },
+  FALL_IN_LOVE = {
+    short_name = "Fall in Love",
+    achieved_short_name = "Fell in Love",
+  },
+  SEE_THE_GREAT_NATURAL_SITES = {
+    short_name = "See Natural Wonders",
+    achieved_short_name = "Saw Natural Wonders",
+  },
+  IMMORTALITY = {
+    short_name = "Immortality",
+    achieved_short_name = "Immortal",
+  },
+  MAKE_A_GREAT_DISCOVERY = {
+    short_name = "Make Great Discovery",
+    achieved_short_name = "Made Great Discovery",
+  },
+  ATTAIN_RANK_IN_SOCIETY = {
+    short_name = "Attain Social Rank",
+    achieved_short_name = "Attained Social Rank",
+  },
+  BATHE_WORLD_IN_CHAOS = {
+    short_name = "Bathe World in Chaos",
+    achieved_short_name = "World is in Chaos",
+  },
+}
+
 ---@enum personality_facet_type
 df.personality_facet_type = {
   NONE = -1,
@@ -344,6 +412,97 @@ df.skill_rating = {
   Legendary5 = 20,
 }
 
+---@class skill_rating_attr
+---@field xp_threshold uint32_t
+---@field caption string
+
+---@type table<skill_rating, skill_rating_attr>
+df.skill_rating.attrs = {
+  Dabbling = {
+    xp_threshold = "500",
+    caption = "Dabbling",
+  },
+  Novice = {
+    xp_threshold = "600",
+    caption = "Novice",
+  },
+  Adequate = {
+    xp_threshold = "700",
+    caption = "Adequate",
+  },
+  Competent = {
+    xp_threshold = "800",
+    caption = "Competent",
+  },
+  Skilled = {
+    xp_threshold = "900",
+    caption = "Skilled",
+  },
+  Proficient = {
+    xp_threshold = "1000",
+    caption = "Proficient",
+  },
+  Talented = {
+    xp_threshold = "1100",
+    caption = "Talented",
+  },
+  Adept = {
+    xp_threshold = "1200",
+    caption = "Adept",
+  },
+  Expert = {
+    xp_threshold = "1300",
+    caption = "Expert",
+  },
+  Professional = {
+    xp_threshold = "1400",
+    caption = "Professional",
+  },
+  Accomplished = {
+    xp_threshold = "1500",
+    caption = "Accomplished",
+  },
+  Great = {
+    xp_threshold = "1600",
+    caption = "Great",
+  },
+  Master = {
+    xp_threshold = "1700",
+    caption = "Master",
+  },
+  HighMaster = {
+    xp_threshold = "1800",
+    caption = "High Master",
+  },
+  GrandMaster = {
+    xp_threshold = "1900",
+    caption = "Grand Master",
+  },
+  Legendary = {
+    xp_threshold = "2000",
+    caption = "Legendary",
+  },
+  Legendary1 = {
+    xp_threshold = "2100",
+    caption = "Legendary+1",
+  },
+  Legendary2 = {
+    xp_threshold = "2200",
+    caption = "Legendary+2",
+  },
+  Legendary3 = {
+    xp_threshold = "2300",
+    caption = "Legendary+3",
+  },
+  Legendary4 = {
+    xp_threshold = "2400",
+    caption = "Legendary+4",
+  },
+  Legendary5 = {
+    caption = "Legendary+5",
+  },
+}
+
 ---@enum unit_relationship_type
 df.unit_relationship_type = {
   None = -1,
@@ -438,6 +597,37 @@ df.pronoun_type = {
   he = 1,
 }
 
+---@class pronoun_type_attr
+---@field symbol string
+---@field subject string
+---@field object string
+---@field posessive string
+---@field reflexive string
+
+---@type table<pronoun_type, pronoun_type_attr>
+df.pronoun_type.attrs = {
+  it = {
+    subject = "it",
+    object = "it",
+    posessive = "its",
+    reflexive = "itself",
+  },
+  she = {
+    symbol = "\x0c",
+    subject = "she",
+    object = "her",
+    posessive = "her",
+    reflexive = "herself",
+  },
+  he = {
+    symbol = "\x0b",
+    subject = "he",
+    object = "him",
+    posessive = "his",
+    reflexive = "himself",
+  },
+}
+
 ---@class unit
 ---@field name language_name
 ---@field custom_profession string
@@ -466,8 +656,8 @@ df.pronoun_type = {
 ---@field unk_c0 integer
 ---@field cultural_identity integer
 ---@field invasion_id integer
----@field patrol_route coord_path
----@field patrol_index integer
+---@field patrol_route coord_path # used by necromancers for corpse locations, siegers etc
+---@field patrol_index integer # from 23a
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
 ---@field military unit_military
@@ -480,10 +670,10 @@ df.pronoun_type = {
 ---@field mood mood_type
 ---@field unk_18e integer
 ---@field pregnancy_timer integer
----@field pregnancy_genes unit_genes
----@field pregnancy_caste integer
+---@field pregnancy_genes unit_genes # genes from mate
+---@field pregnancy_caste integer # caste of mate
 ---@field pregnancy_spouse integer
----@field mood_copy mood_type
+---@field mood_copy mood_type # copied from mood type upon entering strange mood
 ---@field ghost_info unit_ghost_info
 ---@field unk_9 integer
 ---@field birth_year integer
@@ -492,18 +682,18 @@ df.pronoun_type = {
 ---@field curse_time integer
 ---@field birth_year_bias integer
 ---@field birth_time_bias integer
----@field old_year integer
+---@field old_year integer # could there be a death of old age time??
 ---@field old_time integer
 ---@field following unit
----@field unk_238 integer
+---@field unk_238 integer # invalid unless following
 ---@field relationship_ids integer[]
----@field mount_type integer
+---@field mount_type integer # 0 = riding, 1 = being carried, 2/3 = wagon horses, 4 = wagon merchant
 ---@field last_hit history_hit_item
 ---@field inventory unit_inventory_item[]
 ---@field owned_items integer[]
----@field traded_items integer[]
+---@field traded_items integer[] # items brought to trade depot
 ---@field owned_buildings building[]
----@field corpse_parts integer[]
+---@field corpse_parts integer[] # entries remain even when items are destroyed
 ---@field riding_item_id integer
 ---@field job unit_job
 ---@field body unit_body
@@ -515,25 +705,25 @@ df.pronoun_type = {
 ---@field counters2 unit_counters2
 ---@field status unit_status
 ---@field hist_figure_id integer
----@field hist_figure_id2 integer
+---@field hist_figure_id2 integer # used for ghost in AttackedByDead thought
 ---@field status2 unit_status2
 ---@field unknown7 unit_unknown7
 ---@field syndromes unit_syndromes
 ---@field reports unit_reports
 ---@field health unit_health_info
----@field used_items unit_item_use[]
+---@field used_items unit_item_use[] # Contains worn clothes, armor, weapons, arrows fired by archers
 ---@field enemy unit_enemy
 ---@field healing_rate integer[]
 ---@field effective_rate integer
 ---@field tendons_heal integer
 ---@field ligaments_heal integer
 ---@field weight integer
----@field weight_fraction integer
+---@field weight_fraction integer # 1e-6
 ---@field burrows integer[]
 ---@field inactive_burrows integer[]
 ---@field vision_cone any
 ---@field occupations occupation[]
----@field adjective string
+---@field adjective string # from physical descriptions for use in adv
 ---@field texpos any[]
 ---@field sheet_icon_texpos integer
 ---@field texpos_currently_in_use any[]
@@ -564,8 +754,8 @@ df.pronoun_type = {
 
 ---@class unit_animal
 ---@field population world_population_ref
----@field leave_countdown integer
----@field vanish_countdown integer
+---@field leave_countdown integer # once 0, it heads for the edge and leaves
+---@field vanish_countdown integer # once 0, it vanishes in a puff of smoke
 
 ---@class unit_opponent
 ---@field unit_id integer
@@ -574,7 +764,7 @@ df.pronoun_type = {
 
 ---@class unit_job
 ---@field account integer
----@field satisfaction integer
+---@field satisfaction integer # amount earned recently for jobs
 ---@field hunt_target unit
 ---@field unk_v4305_1 integer
 ---@field destroy_target building
@@ -586,9 +776,9 @@ df.pronoun_type = {
 ---@field gait_buildup integer
 ---@field climb_hold coord
 ---@field unk_v4014_1 integer
----@field current_job job
----@field mood_skill job_skill
----@field mood_timeout integer
+---@field current_job job # df_job
+---@field mood_skill job_skill # can be uninitialized for children and animals
+---@field mood_timeout integer # counts down from 50000, insanity upon reaching zero
 ---@field unk_39c integer
 
 ---@class unit_body
@@ -602,42 +792,42 @@ df.pronoun_type = {
 ---@field size_info body_size_info
 ---@field blood_max integer
 ---@field blood_count integer
----@field infection_level integer
+---@field infection_level integer # GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
 ---@field spatters spatter[]
 
 ---@class unit_appearance
 ---@field body_modifiers integer[]
 ---@field bp_modifiers integer[]
----@field size_modifier integer
+---@field size_modifier integer # product of all H/B/LENGTH body modifiers, in %
 ---@field tissue_style integer[]
 ---@field tissue_style_civ_id integer[]
 ---@field tissue_style_id integer[]
 ---@field tissue_style_type integer[]
----@field tissue_length integer[]
+---@field tissue_length integer[] # description uses bp_modifiers[style_list_idx[index]]
 ---@field genes unit_genes
 ---@field colors integer[]
 
 ---@class unit_counters
 ---@field think_counter integer
 ---@field job_counter integer
----@field swap_counter integer
+---@field swap_counter integer # dec per job_counter reroll, can_swap if 0
 ---@field death_cause death_type
 ---@field death_id integer
 ---@field winded integer
 ---@field stunned integer
 ---@field unconscious integer
----@field suffocation integer
+---@field suffocation integer # counts up while winded, results in death
 ---@field webbed integer
 ---@field guts_trail1 coord
 ---@field guts_trail2 coord
----@field soldier_mood_countdown integer
+---@field soldier_mood_countdown integer # plus a random amount
 ---@field soldier_mood any
 ---@field pain integer
 ---@field nausea integer
 ---@field dizziness integer
 
 ---@class unit_curse
----@field unk_0 integer
+---@field unk_0 integer # moved from end of counters in 0.43.05
 ---@field add_tags1 cie_add_tag_mask1
 ---@field rem_tags1 cie_add_tag_mask1
 ---@field add_tags2 cie_add_tag_mask2
@@ -651,7 +841,7 @@ df.pronoun_type = {
 ---@field flash_period integer
 ---@field flash_time2 integer
 ---@field body_appearance integer[]
----@field bp_appearance integer[]
+---@field bp_appearance integer[] # guess!
 ---@field speed_add integer
 ---@field speed_mul_percent integer
 ---@field attr_change curse_attr_change
@@ -674,8 +864,8 @@ df.pronoun_type = {
 ---@field sleepiness_timer integer
 ---@field stomach_content integer
 ---@field stomach_food integer
----@field vomit_timeout integer
----@field stored_fat integer
+---@field vomit_timeout integer # blocks nausea causing vomit
+---@field stored_fat integer # hunger leads to death only when 0
 
 ---@class unit_status
 ---@field misc_traits unit_misc_trait[]
@@ -684,7 +874,7 @@ df.pronoun_type = {
 ---@field mandate_timeout integer
 ---@field attacker_ids integer[]
 ---@field attacker_cntdn integer[]
----@field face_direction integer
+---@field face_direction integer # for wagons
 ---@field artifact_name language_name
 ---@field souls unit_soul[]
 ---@field current_soul unit_soul
@@ -699,7 +889,7 @@ df.pronoun_type = {
 ---@field unk_1 any[]
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 integer[]
+---@field unk_4 integer[] # initialized together with enemy.gait_index
 ---@field unk_5 integer
 ---@field adv_sleep_timer integer
 ---@field recent_job_area coord
@@ -713,10 +903,10 @@ df.pronoun_type = {
 ---@field limbs_fly_max integer
 ---@field limbs_fly_count integer
 ---@field body_part_temperature temperaturest[]
----@field add_path_flags integer
+---@field add_path_flags integer # pathing flags to OR, set to 0 after move
 ---@field liquid_type tile_designation
 ---@field liquid_depth integer
----@field histeventcol_id integer
+---@field histeventcol_id integer # linked to an active invasion or kidnapping
 
 ---@class unit_unknown7
 ---@field unk_7c4 integer[]
@@ -739,17 +929,17 @@ df.pronoun_type = {
 ---@field were_caste integer
 ---@field normal_race integer
 ---@field normal_caste integer
----@field interaction integer
+---@field interaction integer # is set when a RETRACT_INTO_BP interaction is active
 ---@field appearances unit_appearance[]
 ---@field witness_reports witness_report[]
 ---@field unk_a5c entity_event[]
 ---@field gait_index integer[]
----@field unk_unit_id_1 integer[]
+---@field unk_unit_id_1 integer[] # number of non -1 entries control linked contents in following 4 vectors, rotating
 ---@field unk_v40_1b integer[]
----@field unk_v40_1c integer[]
----@field unk_v40_1d integer[]
----@field unk_v40_1e integer[]
----@field unk_unit_id_2 integer[]
+---@field unk_v40_1c integer[] # unused elements probably uninitialized
+---@field unk_v40_1d integer[] # unused elements probably uninitialized
+---@field unk_v40_1e integer[] # unused elements probably uninitialized
+---@field unk_unit_id_2 integer[] # Seen own side, enemy side, not involved (witnesses?). Unused fields not cleared
 ---@field unk_unit_id_2_count integer
 ---@field unk_448 any
 ---@field unk_44c any
@@ -764,7 +954,7 @@ df.pronoun_type = {
 ---@field unk_874_cntr integer
 ---@field body_part_878 integer[]
 ---@field body_part_888 integer[]
----@field body_part_relsize integer[]
+---@field body_part_relsize integer[] # with modifiers
 ---@field body_part_8a8 integer[]
 ---@field body_part_base_ins integer[]
 ---@field body_part_clothing_ins integer[]
@@ -815,14 +1005,14 @@ df.ghost_goal = {
 
 ---@class unit_ghost_info
 ---@field type ghost_type
----@field type2 ghost_type
+---@field type2 ghost_type # seems to have same value as type
 ---@field goal ghost_goal
 ---@field target unit_ghost_info_target
 ---@field misplace_pos coord
----@field action_timer integer
+---@field action_timer integer # time since last action
 ---@field unk_18 integer
 ---@field flags any
----@field death_x integer
+---@field death_x integer # in tiles, global to world
 ---@field death_y integer
 ---@field death_z integer
 
@@ -839,27 +1029,27 @@ df.ghost_goal = {
 ---@field item item
 ---@field mode any
 ---@field body_part_id integer
----@field pet_seed integer
----@field wound_id integer
+---@field pet_seed integer # RNG seed for Pet mode
+---@field wound_id integer # -1 unless suture
 
 ---@class unit_attribute
----@field value integer
+---@field value integer # effective = value - soft_demotion
 ---@field max_value integer
----@field improve_counter integer
----@field unused_counter integer
----@field soft_demotion integer
----@field rust_counter integer
----@field demotion_counter integer
+---@field improve_counter integer # counts to PHYS_ATT_RATES improve cost; then value++
+---@field unused_counter integer # counts to PHYS_ATT_RATES unused rate; then rust_counter++
+---@field soft_demotion integer # 0-100; when not 0 blocks improve_counter
+---@field rust_counter integer # counts to PHYS_ATT_RATES rust; then demotion_counter++
+---@field demotion_counter integer # counts to PHYS_ATT_RATES demotion; then value--; soft_demotion++
 
 ---@class unit_syndrome
 ---@field type integer
 ---@field year integer
 ---@field year_time integer
 ---@field ticks integer
----@field wounds integer[]
+---@field wounds integer[] # refers to unit_wound by id
 ---@field wound_id integer
 ---@field symptoms any[]
----@field reinfection_count integer
+---@field reinfection_count integer # set from unit.reinfection_count[i]++
 ---@field flags any
 ---@field unk4 integer[]
 
@@ -1050,6 +1240,37 @@ df.misc_trait_type = {
   unk_72 = 72, --related to (job_type)0xf1
 }
 
+---@class misc_trait_type_attr
+---@field tag string
+
+---@type table<misc_trait_type, misc_trait_type_attr>
+df.misc_trait_type.attrs = {
+  WantsDrink = {
+    tag = "ALCOHOLIC",
+  },
+  CaveAdapt = {
+    tag = "CAVE_ADAPT",
+  },
+  PartiedOut = {
+    tag = "PARTIED_OUT",
+  },
+  MilkCounter = {
+    tag = "MILK_COUNTER",
+  },
+  EggSpent = {
+    tag = "EGG_SPENT",
+  },
+  GroundedAnimalAnger = {
+    tag = "GROUNDED_ANIMAL_ANGER",
+  },
+  TimeSinceSuckedBlood = {
+    tag = "TIME_SINCE_SUCKED_BLOOD",
+  },
+  DrinkingBlood = {
+    tag = "DRINKING_BLOOD",
+  },
+}
+
 ---@class unit_misc_trait
 ---@field id misc_trait_type
 ---@field value integer
@@ -1063,14 +1284,14 @@ df.misc_trait_type = {
 ---@field item1 integer
 ---@field item2 integer
 ---@field unk_1c integer
----@field unk_1e integer
+---@field unk_1e integer # 1 grabs, -1 grabbed
 ---@field unk_20 integer
 
 ---@class unit_item_use
 ---@field id integer
 ---@field time_in_use integer
 ---@field has_grown_attached integer
----@field affection_level integer
+---@field affection_level integer # min 50 for attached, 1000 for name
 
 ---@class unit_health_flags
 ---@field rq_diagnosis boolean
@@ -1165,7 +1386,7 @@ df.orientation_flags = {}
 ---@field unk2 integer
 ---@field strength integer
 ---@field thought unit_thought_type
----@field subthought integer
+---@field subthought integer # for certain thoughts
 ---@field severity integer
 ---@field unk_1 integer
 ---@field year integer
@@ -1184,24 +1405,24 @@ df.orientation_flags = {}
 ---@field mannerism any[]
 ---@field habit integer[]
 ---@field stress integer
----@field time_without_distress integer
----@field time_without_eustress integer
----@field likes_outdoors integer
----@field combat_hardened integer
----@field outdoor_dislike_counter integer
+---@field time_without_distress integer # range 0-806400, higher values cause stress to decrease quicker
+---@field time_without_eustress integer # range 0-806400, higher values cause stress to increase quicker
+---@field likes_outdoors integer # migrated from misc_traits
+---@field combat_hardened integer # migrated from misc_traits
+---@field outdoor_dislike_counter integer # incremented when unit is in rain
 ---@field needs any[]
 ---@field flags any
----@field temporary_trait_changes any
+---@field temporary_trait_changes any # sum of inebriation or so personality changing effects
 ---@field slack_end_year integer
 ---@field slack_end_year_tick integer
 ---@field memories any
----@field temptation_greed integer
+---@field temptation_greed integer # 0-100, for corruption
 ---@field temptation_lust integer
 ---@field temptation_power integer
 ---@field temptation_anger integer
 ---@field longterm_stress integer
----@field current_focus integer
----@field undistracted_focus integer
+---@field current_focus integer # weighted sum of needs focus_level-s
+---@field undistracted_focus integer # usually number of needs multiplied by 4
 
 ---@enum unit_action_type_group
 df.unit_action_type_group = {
@@ -1239,6 +1460,128 @@ df.unit_action_type = {
   Unk21 = 21,
   Unk22 = 22,
   Unk23 = 23,
+}
+
+---@class unit_action_type_attr
+---@field tag string
+---@field group unit_action_type_group[]
+
+---@type table<unit_action_type, unit_action_type_attr>
+df.unit_action_type.attrs = {
+  None = {
+    tag = "raw_data",
+  },
+  Move = {
+    tag = "move",
+    group = "All",
+    group = "Movement",
+    group = "MovementFeet",
+  },
+  Attack = {
+    tag = "attack",
+    group = "All",
+    group = "Combat",
+  },
+  Jump = {
+    tag = "jump",
+    group = "All",
+    group = "Movement",
+    group = "MovementFeet",
+  },
+  HoldTerrain = {
+    tag = "holdterrain",
+    group = "All",
+    group = "Movement",
+  },
+  ReleaseTerrain = {
+    tag = "releaseterrain",
+    group = "All",
+    group = "Movement",
+  },
+  Climb = {
+    tag = "climb",
+    group = "All",
+    group = "Movement",
+  },
+  Job = {
+    tag = "job",
+    group = "All",
+    group = "Work",
+  },
+  Talk = {
+    tag = "talk",
+    group = "All",
+  },
+  Unsteady = {
+    tag = "unsteady",
+    group = "All",
+  },
+  Parry = {
+    tag = "parry",
+    group = "All",
+    group = "Combat",
+  },
+  Block = {
+    tag = "block",
+    group = "All",
+    group = "Combat",
+  },
+  Dodge = {
+    tag = "dodge",
+    group = "All",
+    group = "Movement",
+    group = "MovementFeet",
+  },
+  Recover = {
+    tag = "recover",
+    group = "All",
+    group = "Movement",
+    group = "MovementFeet",
+  },
+  StandUp = {
+    tag = "standup",
+    group = "All",
+    group = "Movement",
+  },
+  LieDown = {
+    tag = "liedown",
+    group = "All",
+    group = "Movement",
+  },
+  Job2 = {
+    tag = "job2",
+    group = "All",
+    group = "Work",
+  },
+  PushObject = {
+    tag = "pushobject",
+    group = "All",
+    group = "Movement",
+    group = "MovementFeet",
+  },
+  SuckBlood = {
+    tag = "suckblood",
+    group = "All",
+    group = "Combat",
+  },
+  HoldItem = {
+    tag = "holditem",
+  },
+  ReleaseItem = {
+    tag = "releaseitem",
+  },
+  Unk20 = {
+    tag = "unk20",
+  },
+  Unk21 = {
+    tag = "unk21",
+  },
+  Unk22 = {
+    tag = "unk22",
+  },
+  Unk23 = {
+    tag = "unk23",
+  },
 }
 
 ---@class unit_action
@@ -1288,15 +1631,15 @@ df.unit_action_type = {
 ---@field attack_item_id integer
 ---@field target_body_part_id integer
 ---@field attack_body_part_id integer
----@field attack_id integer
+---@field attack_id integer # refers to weapon_attack or caste_attack
 ---@field unk_28 integer
 ---@field unk_2c integer
 ---@field attack_velocity integer
 ---@field flags any
 ---@field attack_skill job_skill
 ---@field attack_accuracy integer
----@field timer1 integer
----@field timer2 integer
+---@field timer1 integer # prepare
+---@field timer2 integer # recover
 
 ---@class unit_action_data_attack_unk_4
 ---@field wrestle_type any
@@ -1456,7 +1799,7 @@ df.unit_action_type = {
 ---@field rusty integer
 ---@field rust_counter integer
 ---@field demotion_counter integer
----@field natural_skill_lvl integer
+---@field natural_skill_lvl integer # This is the NATURAL_SKILL level for the caste in the raws. This skill cannot rust below this level.
 
 ---@class unit_preference
 ---@field type any
@@ -1465,7 +1808,7 @@ df.unit_action_type = {
 ---@field matindex integer
 ---@field mat_state matter_state
 ---@field active boolean
----@field prefstring_seed integer
+---@field prefstring_seed integer # feeds into a simple RNG to choose which prefstring to use
 
 ---@class unit_complaint
 ---@field type history_event_reason
@@ -1487,12 +1830,12 @@ df.unit_action_type = {
 ---@field amount integer
 
 ---@class unit_chunk
----@field id integer
+---@field id integer # unit_*.dat
 ---@field units any[]
 
 ---@class unit_appearance
 ---@field unk_1 integer
----@field caste_index integer
+---@field caste_index integer # also refers to $global.world.raws.creatures.list_caste[$]
 ---@field unk_3 integer
 ---@field physical_attributes unit_attribute[]
 ---@field unk_5 integer

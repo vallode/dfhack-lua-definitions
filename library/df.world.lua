@@ -66,8 +66,8 @@ df.conflict_level = {
 
 ---@class incident_hfid
 ---@field hfid integer
----@field unk_hfid integer
----@field unk_hfid2 integer
+---@field unk_hfid integer # same as hfid seen
+---@field unk_hfid2 integer # same as hfid seen
 ---@field unk_3 integer[]
 
 ---@class incident
@@ -80,7 +80,7 @@ df.conflict_level = {
 ---@field victim_hf incident_hfid
 ---@field victim_race integer
 ---@field victim_caste integer
----@field entity2 integer
+---@field entity2 integer # Seen with Crime
 ---@field unk_v40_1c integer
 ---@field criminal integer
 ---@field criminal_hf incident_hfid
@@ -90,7 +90,7 @@ df.conflict_level = {
 ---@field unk_v40_2c incident_hfid
 ---@field crime_id integer
 ---@field site integer
----@field unk_v40_3a integer
+---@field unk_v40_3a integer # 41 seen on witnessed thief, 37 on interrogation target. Only one of each, though.
 ---@field unk_v40_3b integer
 ---@field entity integer
 ---@field event_year integer
@@ -99,7 +99,7 @@ df.conflict_level = {
 ---@field death_cause death_type
 ---@field conflict_level conflict_level
 ---@field activity_id integer
----@field world_x integer
+---@field world_x integer # Location appears to be in in-game tiles world wide
 ---@field world_y integer
 ---@field world_z integer
 ---@field unk_80 integer
@@ -116,10 +116,10 @@ df.conflict_level = {
 ---@class incident_data_performance
 ---@field performance_event performance_event_type
 ---@field participants any[]
----@field reference_id integer
----@field written_content_id integer
----@field abstract_location integer
----@field poetic_form_id integer
+---@field reference_id integer # history_event id/poetic_form id/musical_form id/dance_form_id or -1
+---@field written_content_id integer # -1 if not used
+---@field abstract_location integer # location at which the performance was held
+---@field poetic_form_id integer # More than one form can be used in a performance, e.g. dance to music
 ---@field musical_form_id integer
 ---@field dance_form_id integer
 
@@ -156,17 +156,17 @@ df.conflict_level = {
 ---@field punishment crime_punishment
 ---@field criminal integer
 ---@field criminal_hf integer
----@field criminal_hf_2 integer
+---@field criminal_hf_2 integer # Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss
 ---@field criminal_hf_3 integer
 ---@field convict_data crime_convict_data
 ---@field convicted_hf integer
----@field convicted_hf_2 integer
----@field convicted_hf_3 integer
+---@field convicted_hf_2 integer # the two additional copies probably refers to some other roles
+---@field convicted_hf_3 integer # -1 seen in case of convicted but not yet punished. Tossed in prison has -1, so it might be 'punishment finished'
 ---@field victim_data crime_victim_data
 ---@field victim_hf integer
----@field victim_hf_2 integer
+---@field victim_hf_2 integer # the two additional copies probably refers to some other roles, but all 3 are identical in cases seen
 ---@field victim_hf_3 integer
----@field unk_v47_vector_3 integer[]
+---@field unk_v47_vector_3 integer[] # this vector hasn't been seen, but is guessed at based on the pattern above
 ---@field flags any
 ---@field incident_id integer
 ---@field event_year integer
@@ -175,7 +175,7 @@ df.conflict_level = {
 ---@field discovered_time integer
 ---@field site integer
 ---@field entity integer
----@field item_id integer
+---@field item_id integer # seen with crime of theft
 ---@field reports any[]
 ---@field counterintelligence any[]
 ---@field witnesses crime_witness[]
@@ -187,7 +187,7 @@ df.conflict_level = {
 ---@field give_beating integer
 
 ---@class crime_convict_data
----@field unk_v47_vector_1 integer[]
+---@field unk_v47_vector_1 integer[] # don't know what the number refers to
 ---@field convicted integer
 
 ---@class crime_victim_data
@@ -264,12 +264,12 @@ df.conflict_level = {
 ---@field subject_identity_id integer
 ---@field unk_29 any[]
 ---@field unk_30 integer[]
----@field unk_31 integer[]
+---@field unk_31 integer[] # seen hfs_formed_intrigue_relationship
 ---@field details string[]
 
 ---@class interrogation_report_unk
----@field officer_hf2 integer
----@field subject_hf2 integer
+---@field officer_hf2 integer # appears identical to officer_hf
+---@field subject_hf2 integer # appears identical to subject_hf
 ---@field unk_8 integer
 ---@field unk_9 integer
 ---@field unk_10 integer
@@ -300,9 +300,9 @@ df.conflict_level = {
 ---@field coffin_skeletons integer[]
 ---@field disturbance integer
 ---@field treasures integer[]
----@field unk_1 integer
+---@field unk_1 integer # reference to something, not an interaction or syndrome
 ---@field unk_2 integer
----@field trigger_regions any[]
+---@field trigger_regions any[] # normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
 
 ---@class ocean_wave_maker
@@ -320,12 +320,12 @@ df.conflict_level = {
 
 ---@class embark_feature
 ---@field world_tile coord2d
----@field mid_level_tile coord2d
+---@field mid_level_tile coord2d # the MLT the feature resides in
 ---@field local_feature_idx integer
 ---@field global_feature_idx integer
 ---@field unk10 integer
 ---@field layer layer_type
----@field local coord2d
+---@field local coord2d # the top left corner of the MLT, in embark relative coordinates
 ---@field z_min integer
 ---@field z_max integer
 
@@ -369,16 +369,16 @@ df.combat_report_event_type = {
 }
 
 ---@class glowing_barrier
----@field triggered boolean
+---@field triggered boolean # set when the glowing barrier vanishes, preventing later HFS events
 ---@field unk_1 integer
----@field buildings integer[]
----@field pos coord
+---@field buildings integer[] # when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
+---@field pos coord # coordinates of a GlowingBarrier or GlowingFloor tiletype
 
 ---@class deep_vein_hollow
----@field triggered boolean
+---@field triggered boolean # set when the underworld spire is breached, preventing subsequent HFS events
 ---@field unk_1 integer
----@field tiles coord_path
----@field pos coord
+---@field tiles coord_path # tile coordinates correspond to open spaces within an underworld spire; revealing one of these tiles triggers the HFS demon wave
+---@field pos coord # seemingly unused
 
 ---@class campfire
 ---@field pos coord
@@ -397,8 +397,8 @@ df.combat_report_event_type = {
 ---@class fire
 ---@field pos coord
 ---@field timer integer
----@field inner_temp_cur integer
----@field outer_temp_cur integer
+---@field inner_temp_cur integer # applied to own tile
+---@field outer_temp_cur integer # applied to neighboring tiles
 ---@field inner_temp_max integer
 ---@field outer_temp_max integer
 
@@ -406,9 +406,9 @@ df.combat_report_event_type = {
 ---@field dest coord2d
 ---@field cur coord2d
 ---@field z integer
----@field spawn_flows boolean
+---@field spawn_flows boolean # set once the wave reaches the coast
 ---@field move_timer integer
----@field unk_timer integer
+---@field unk_timer integer # starts at 120 and randomly decrements
 
 ---@class coin_batch
 ---@field year integer
@@ -429,16 +429,16 @@ df.combat_report_event_type = {
 
 ---@class job_handler
 ---@field list job_list_link
----@field postings any[]
+---@field postings any[] # entries never removed
 ---@field unk_1 any[]
----@field unk_2 integer
+---@field unk_2 integer # next slot
 
 ---@class building_handler
 ---@field all building[]
 ---@field other buildings_other
 ---@field bad building[]
 ---@field check_bridge_collapse boolean
----@field check_machine_collapse boolean
+---@field check_machine_collapse boolean # ?
 
 ---@class machine_handler
 ---@field all machine[]
@@ -458,8 +458,8 @@ df.combat_report_event_type = {
 ---@class belief_system
 ---@field id integer
 ---@field mental_pictures any[]
----@field deities integer[]
----@field worship_levels integer[]
+---@field deities integer[] # historical figure ID of gods the belief system is concerned with
+---@field worship_levels integer[] # worship level for each god referenced in the deities field
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -526,14 +526,14 @@ df.combat_report_event_type = {
 ---@field unk_64 integer
 
 ---@class divination_set_roll
----@field result integer[]
+---@field result integer[] # When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
 ---@field effect_type any
----@field effect integer
+---@field effect integer # When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
 
 ---@class divination_set
----@field id integer
+---@field id integer # currently matches index into vector
 ---@field deity_id integer
----@field owner_id integer
+---@field owner_id integer # religion owning the set
 ---@field image_set_ids integer[]
 ---@field rolls divination_set_roll[]
 
@@ -551,7 +551,7 @@ df.combat_report_event_type = {
 ---@field cursed_tombs cursed_tomb[]
 ---@field engravings engraving[]
 ---@field vermin world_vermin
----@field dirty_waters coord[]
+---@field dirty_waters coord[] # for making blood flow downstream in rivers, but also includes mud in artificial water channels
 ---@field campfires campfire[]
 ---@field web_clusters web_cluster[]
 ---@field fires fire[]
@@ -559,7 +559,7 @@ df.combat_report_event_type = {
 ---@field ocean_waves ocean_wave[]
 ---@field constructions construction[]
 ---@field murky_pools coord_rect[]
----@field embark_features embark_feature[]
+---@field embark_features embark_feature[] # populated at embark
 ---@field site_glowing_barriers glowing_barrier[]
 ---@field site_deep_vein_hollows deep_vein_hollow[]
 ---@field site_mapevent_v50_1 mapevent_v50_1[]
@@ -591,7 +591,7 @@ df.combat_report_event_type = {
 ---@field flow_guides world_flow_guides
 ---@field stockpile world_stockpile
 ---@field plants world_plants
----@field enemy_status_cache world_enemy_status_cache
+---@field enemy_status_cache world_enemy_status_cache # ?
 ---@field schedules world_schedules
 ---@field squads world_squads
 ---@field formations world_formations
@@ -631,31 +631,31 @@ df.combat_report_event_type = {
 ---@field worldgen_status world_worldgen_status
 ---@field orphaned_flow_pool flow_reuse_pool
 ---@field raws world_raws
----@field area_grasses world_area_grasses
+---@field area_grasses world_area_grasses # grasses in world tiles around embark. Populated at embark
 ---@field flow_engine world_flow_engine
----@field busy_buildings integer[]
+---@field busy_buildings integer[] # buildings with nonempty getUsers
 ---@field cavein_flags any
----@field original_save_version save_version
+---@field original_save_version save_version # DF version on which the world was first created
 ---@field worldgen world_worldgen
 ---@field history world_history
 ---@field entity_populations entity_population[]
----@field unk_v40_6 world_unk_v40_6
+---@field unk_v40_6 world_unk_v40_6 # every value matches a nemesis, but unk2/3 have too few values to draw conclusions. Note that nemesis matches may just be a conincidence of falling within the nemesis range
 ---@field unk_131ec0 any[]
 ---@field languages any[]
 ---@field unk_131ef0 any[]
 ---@field viewport map_viewport
 ---@field unk_131f08 integer
----@field reindex_pathfinding boolean
----@field frame_counter integer
----@field orphaned_flows flow_info[]
+---@field reindex_pathfinding boolean # forces map_block.passable to be recomputed
+---@field frame_counter integer # increases by 1 every time . is pressed
+---@field orphaned_flows flow_info[] # flows that are not tied to a map_block
 ---@field pathfinder world_pathfinder
 ---@field save_version integer
----@field cur_savegame world_cur_savegame
+---@field cur_savegame world_cur_savegame # not actually a compound
 ---@field rod_loader world_rod_loader
 ---@field object_loader world_object_loader
 ---@field temp_pop_breeding_start integer
 ---@field features world_features
----@field allow_announcements boolean
+---@field allow_announcements boolean # announcements will not be processed at all if false
 ---@field suppress_minevent_announcements boolean
 ---@field updating_region boolean
 ---@field arena world_arena
@@ -677,7 +677,7 @@ df.combat_report_event_type = {
 
 ---@class world_units
 ---@field all unit[]
----@field active unit[]
+---@field active unit[] # not sorted, entry 0 is adventurer
 ---@field other units_other
 ---@field temp_save unit[]
 ---@field unit_context_block unit_context_block[]
@@ -870,9 +870,9 @@ df.combat_report_event_type = {
 ---@field secondary any[]
 
 ---@class world_math
----@field approx any[]
----@field cos number[]
----@field hypot any[]
+---@field approx any[] # 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
+---@field cos number[] # 100 * cosine of the index in degrees
+---@field hypot any[] # square root of the sum of the squares of the indices
 
 ---@class world_map_extras
 ---@field rotation integer
@@ -956,8 +956,8 @@ df.combat_report_event_type = {
 ---@field unk_32 integer[]
 
 ---@class world_area_grasses
----@field world_tiles coord2d_path
----@field layer_grasses any[]
+---@field world_tiles coord2d_path # 7*7 world tile area centered around embark, stunted at edges
+---@field layer_grasses any[] # one per layer per world tile
 
 ---@class world_flow_engine
 ---@field rnd_16 integer
@@ -1011,7 +1011,7 @@ df.combat_report_event_type = {
 
 ---@class world_rod_loader
 ---@field state any
----@field progress integer
+---@field progress integer # 0..19
 ---@field verify_load_order_index integer
 ---@field asking_about_update boolean
 ---@field notifying_about_failure boolean
@@ -1040,7 +1040,7 @@ df.combat_report_event_type = {
 ---@field map_features feature_init[]
 ---@field feature_x integer[]
 ---@field feature_y integer[]
----@field feature_local_idx integer[]
+---@field feature_local_idx integer[] # same as map_block.local_feature
 ---@field feature_global_idx integer[]
 ---@field newpop_feature feature_init[]
 ---@field newpop_ax integer[]

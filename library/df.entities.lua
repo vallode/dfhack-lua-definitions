@@ -4,21 +4,21 @@
 ---@field occasions entity_occasion[]
 ---@field next_occasion_id integer
 ---@field events integer[]
----@field count integer
+---@field count integer # number of elements used in array above
 
 ---@class entity_occasion
 ---@field id integer
----@field unk_1 integer
+---@field unk_1 integer # 0 and 1 seen
 ---@field site integer
----@field unk_2 integer
+---@field unk_2 integer # only -1 seen, but based on other cases, might be an abstract building
 ---@field name language_name
 ---@field start_year_tick integer
 ---@field end_year_tick integer
----@field unk_3 integer
+---@field unk_3 integer # 0-2 seen
 ---@field event integer
----@field unk_4 integer
+---@field unk_4 integer # only seen with unk_3=2, but is usually not set
 ---@field schedule entity_occasion_schedule[]
----@field unk_5 integer
+---@field unk_5 integer # only value seen
 
 ---@enum occasion_schedule_type
 df.occasion_schedule_type = {
@@ -41,8 +41,8 @@ df.occasion_schedule_type = {
 
 ---@class entity_occasion_schedule
 ---@field type occasion_schedule_type
----@field reference integer
----@field reference2 integer
+---@field reference integer # art form / event / item_type /procession start abstract building
+---@field reference2 integer # item_subtype / procession stop abstract building
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -95,7 +95,7 @@ df.occasion_schedule_feature = {
 ---@field created_weapons integer[]
 ---@field wealth entity_activity_statistics_wealth
 ---@field recent_jobs any[]
----@field excavated_tiles integer
+---@field excavated_tiles integer # unhidden, subterranean, and excluding map features
 ---@field death_history integer[]
 ---@field insanity_history integer[]
 ---@field execution_history integer[]
@@ -104,18 +104,18 @@ df.occasion_schedule_feature = {
 ---@field total_insanities integer
 ---@field total_executions integer
 ---@field num_artifacts integer
----@field unk_6 integer
+---@field unk_6 integer # in 0.23, total siegers
 ---@field discovered_creature_foods boolean[]
 ---@field discovered_creatures boolean[]
 ---@field discovered_plant_foods boolean[]
----@field discovered_plants boolean[]
+---@field discovered_plants boolean[] # allows planting of seeds
 ---@field discovered_water_features integer
 ---@field discovered_subterranean_features integer
----@field discovered_chasm_features integer
+---@field discovered_chasm_features integer # unused since 40d
 ---@field discovered_magma_features integer
----@field discovered_feature_layers integer
----@field migrant_wave_idx integer
----@field found_minerals integer[]
+---@field discovered_feature_layers integer # back in 40d, this counted HFS
+---@field migrant_wave_idx integer # when >= 2, no migrants
+---@field found_minerals integer[] # Added after 'you have struck' announcement
 ---@field found_misc any
 
 ---@class entity_activity_statistics_food
@@ -144,20 +144,20 @@ df.occasion_schedule_feature = {
 ---@field total_capacity integer
 ---@field unk_1 integer
 ---@field trade_state any
----@field depot_notified integer
+---@field depot_notified integer # has it warned you that you need a depot
 ---@field time_remaining integer
 ---@field entity integer
 ---@field activity_stats entity_activity_statistics
 ---@field flags any
 ---@field import_value integer
 ---@field export_value_total integer
----@field export_value_personal integer
+---@field export_value_personal integer # excluding foreign-produced items
 ---@field offer_value integer
 ---@field animals integer[]
 ---@field sell_prices entity_sell_prices
 ---@field buy_prices entity_buy_prices
 ---@field goods integer[]
----@field mood integer
+---@field mood integer # reflects satisfaction with last trading session
 ---@field unk_2 integer
 
 ---@class entity_buy_prices
@@ -165,8 +165,8 @@ df.occasion_schedule_feature = {
 ---@field price integer[]
 
 ---@class entity_buy_requests
----@field item_type any[]
----@field item_subtype any[]
+---@field item_type any[] # guess
+---@field item_subtype any[] # guess
 ---@field mat_types any[]
 ---@field mat_indices integer[]
 ---@field mat_cats job_material_category[]
@@ -287,29 +287,29 @@ df.historical_entity_type = {
 ---@class artifact_claim
 ---@field artifact_id integer
 ---@field claim_type artifact_claim_type
----@field symbol_claim_id integer
----@field claim_year integer
----@field claim_year_tick integer
+---@field symbol_claim_id integer # different small numbers, but all claimed by the greedy necro diplomat, but not complete number range present
+---@field claim_year integer # Written contents often seem to lack info of being claimed
+---@field claim_year_tick integer # usually init
 ---@field unk_1 integer
 ---@field artifact artifact_record
 ---@field site integer
 ---@field structure_local integer
----@field holder_hf integer
+---@field holder_hf integer # might be owner_hf. all cases encountered have had both field the same when claimed by entity
 ---@field subregion integer
 ---@field feature_layer_id integer
----@field unk_year integer
----@field unk_2 integer
----@field unk_3 integer
+---@field unk_year integer # seems to be current year or -1. Matches up with corresponding field of artifact_record
+---@field unk_2 integer # only other value seen was 0
+---@field unk_3 integer # uninitialized
 ---@field unk_4 any
 ---@field unk_5 historical_entity
 ---@field unk_6 historical_entity
 
 ---@class entity_unk_v47_1
----@field unk_v47_1 integer
----@field unk_v47_2 integer
----@field unk_v47_3 integer[]
+---@field unk_v47_1 integer # seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled
+---@field unk_v47_2 integer # some enum?
+---@field unk_v47_3 integer[] # some enum?
 ---@field agreement integer[]
----@field unk_v47_5 integer[]
+---@field unk_v47_5 integer[] # boolean?
 ---@field unk_v47_6 integer[]
 ---@field unk_v47_7 integer[]
 ---@field unk_v47_8 integer[]
@@ -317,18 +317,18 @@ df.historical_entity_type = {
 
 ---@class historical_entity
 ---@field type historical_entity_type
----@field id integer
+---@field id integer # index in the array
 ---@field entity_raw entity_raw
----@field save_file_id integer
+---@field save_file_id integer # changes once has 100 entries
 ---@field next_member_idx integer
 ---@field name language_name
 ---@field race integer
 ---@field flags any
----@field guild_professions any[]
+---@field guild_professions any[] # Only seen 1, and only for guilds
 ---@field entity_links entity_entity_link[]
 ---@field site_links entity_site_link[]
 ---@field histfig_ids integer[]
----@field populations integer[]
+---@field populations integer[] # 1st entry copies to unit.population_id for Adventurer?
 ---@field nemesis_ids integer[]
 ---@field resources historical_entity_resources
 ---@field uniforms entity_uniform[]
@@ -338,9 +338,9 @@ df.historical_entity_type = {
 ---@field tissue_styles historical_entity_tissue_styles
 ---@field squads integer[]
 ---@field global_event_knowledge_year integer
----@field local_known_events integer[]
----@field production_zone_id integer
----@field conquered_site_group_flags any
+---@field local_known_events integer[] # since the above year
+---@field production_zone_id integer # not sure what this refers to
+---@field conquered_site_group_flags any # actually lives inside a class
 ---@field worldgen_can_make_guildhall integer[]
 ---@field training_knowledge any
 ---@field events entity_event[]
@@ -352,19 +352,19 @@ df.historical_entity_type = {
 ---@field performed_poetic_forms integer[]
 ---@field performed_musical_forms integer[]
 ---@field performed_dance_forms integer[]
----@field major_civ_number integer[]
----@field major_civ_number_2 integer[]
----@field unk_1 integer[]
----@field occasion_info entity_occasion_info
----@field artifact_claims artifact_claim[]
----@field honors honors_type[]
+---@field major_civ_number integer[] # Single item increasing from 0 linearly as major race civs are created, i.e. all civs except cavern and Kobold, but including spire breach released goblin ones
+---@field major_civ_number_2 integer[] # Identical to major_civ_number on the same entries. Presumably some properties only major civs have, such as e.g. accepting outsiders as members, engage in conquest, etc.
+---@field unk_1 integer[] # Only on major civs, but not all
+---@field occasion_info entity_occasion_info # only seen on Civilization, SiteGovernment, and Religion, but not all
+---@field artifact_claims artifact_claim[] # sorted on artifact id
+---@field honors honors_type[] # Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index integer
----@field equipment_purchases integer
----@field attack integer
----@field total_battles integer
+---@field equipment_purchases integer # only seen on military units
+---@field attack integer # only seen on military units
+---@field total_battles integer # attacks + defenses. Only seen on military units
 ---@field unk_v47_1 any
----@field divination_sets integer[]
----@field founding_site_government integer
+---@field divination_sets integer[] # Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
+---@field founding_site_government integer # All cases examined refered to site government of site of founding. Perf troop and merc lack site info but seems reasonable.
 ---@field meeting_events meeting_event[]
 ---@field activity_stats entity_activity_statistics
 ---@field unknown1e historical_entity_unknown1e
@@ -375,7 +375,7 @@ df.historical_entity_type = {
 ---@field derived_resources historical_entity_derived_resources
 ---@field assignments_by_type any[]
 ---@field claims historical_entity_claims
----@field children integer[]
+---@field children integer[] # includes self
 ---@field unknown2 historical_entity_unknown2
 
 ---@class historical_entity_resources
@@ -397,9 +397,9 @@ df.historical_entity_type = {
 ---@field unk_1 integer[]
 ---@field metal any
 ---@field organic any
----@field metals integer[]
----@field stones integer[]
----@field gems integer[]
+---@field metals integer[] # bars
+---@field stones integer[] # boulders and blocks
+---@field gems integer[] # small and large cut
 ---@field refuse any
 ---@field misc_mat any
 ---@field fish_races integer[]
@@ -412,41 +412,41 @@ df.historical_entity_type = {
 ---@field shrub_fruit_plants integer[]
 ---@field shrub_fruit_growths integer[]
 ---@field seeds material_vec_ref
----@field wood_products any
+---@field wood_products any # lye, charcoal, potash, pearlash, and coke
 ---@field animals any
 ---@field meat_fish_recipes entity_recipe[]
 ---@field other_recipes entity_recipe[]
----@field unk13 any[]
----@field unk14 item[]
----@field unk15a integer
----@field unk15b integer
+---@field unk13 any[] # in 0.23, these were material/matgloss pairs, never used for anything
+---@field unk14 item[] # in 0.23, items that would be equipped by the arriving King, never used
+---@field unk15a integer # in 0.23, minimum temperature
+---@field unk15b integer # in 0.23, maximum temperature
 ---@field ethic any[]
 ---@field values integer[]
 ---@field unk_2 integer
 ---@field permitted_skill boolean[]
----@field art_image_types integer[]
+---@field art_image_types integer[] # 0 = civilization symbol
 ---@field art_image_ids integer[]
 ---@field art_image_subids integer[]
 ---@field color_ref_type any[]
 ---@field foreground_color_curses any[]
 ---@field foreground_color_curses_bright boolean[]
 ---@field background_color_curses any[]
----@field foreground_color integer[]
----@field background_color integer[]
+---@field foreground_color integer[] # foreground color used for the entity symbol in legends mode and the historical maps.
+---@field background_color integer[] # background color used for the entity symbol in legends mode and the historical maps.
 
 ---@class historical_entity_relations
----@field known_sites integer[]
+---@field known_sites integer[] # only civs and site government. Fresh player site government has empty vector
 ---@field deities integer[]
----@field worship integer[]
----@field belief_systems integer[]
----@field constructions any[]
+---@field worship integer[] # Same length as deities(?). Some kind of relationship strength?
+---@field belief_systems integer[] # In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
+---@field constructions any[] # only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
 ---@field diplomacy any[]
----@field unk33 integer
----@field unk34a integer[]
+---@field unk33 integer # Non zero seen only on site governments (not all) and one nomadic group. Small values
+---@field unk34a integer[] # same length as unk34b and unk34c
 ---@field unk34b integer[]
 ---@field unk34c integer[]
----@field position integer[]
----@field official integer[]
+---@field position integer[] # position index (not id)
+---@field official integer[] # holder of office of corresponding position index
 
 ---@class historical_entity_positions
 ---@field own entity_position[]
@@ -466,15 +466,15 @@ df.historical_entity_type = {
 ---@field next_style_id integer
 
 ---@class historical_entity_unknown1e
----@field unk47 integer
----@field unk48 integer
+---@field unk47 integer # in 0.23, last communicate season
+---@field unk48 integer # in 0.23, last communicate year
 ---@field imports_from integer
 ---@field offerings_from integer
----@field offerings_recent integer
----@field offerings_history integer[]
+---@field offerings_recent integer # since the last migrant wave or diplomat visit
+---@field offerings_history integer[] # rotated yearly at 15th of Timber
 ---@field hostility_level integer
 ---@field siege_tier integer
----@field unk_1 integer
+---@field unk_1 integer # siege cooldown?
 ---@field unk_2 integer
 ---@field unk_3 integer
 
@@ -513,33 +513,33 @@ df.historical_entity_type = {
 ---@field gloves_cover integer[]
 
 ---@class historical_entity_claims
----@field areas coord2d_path
+---@field areas coord2d_path # in world_data.entity_claims1
 ---@field unk1 coord2d_path
 ---@field border coord2d_path
 
 ---@class historical_entity_unknown2
----@field metal_proficiency integer
+---@field metal_proficiency integer # best IMPACT_FRACTURE/10000 + MAX_EDGE/1000 for weapon mats plus best IMPACT_FRACTURE/10000 for armor mats
 ---@field weapon_proficiencies job_skill[]
----@field resource_allotment resource_allotment_data
+---@field resource_allotment resource_allotment_data # Only for SiteGovernment, but not all
 ---@field unk_1 poetic_form[]
 ---@field unk_2 musical_form[]
 ---@field unk_3 dance_form[]
 ---@field unk_4 written_content[]
 ---@field unk12a integer
----@field unk12b integer
----@field unk13 boolean
+---@field unk12b integer # uninitialized
+---@field unk13 boolean # 0
 ---@field landmass world_landmass
 ---@field region world_region
----@field unk16 integer
----@field unk17 integer
----@field unk18 integer[]
----@field unk19 integer[]
----@field unk20 integer
----@field unk21 integer
----@field unk22 integer
----@field unk23 integer
----@field unk24 integer[]
----@field unk25 integer[]
+---@field unk16 integer # uninitialized
+---@field unk17 integer # 0
+---@field unk18 integer[] # used during world gen
+---@field unk19 integer[] # used during world gen
+---@field unk20 integer # 0
+---@field unk21 integer # 0
+---@field unk22 integer # 0
+---@field unk23 integer # 0
+---@field unk24 integer[] # used during world gen
+---@field unk25 integer[] # used during world gen
 ---@field unk_9C integer
 ---@field unk_A0 integer
 ---@field unk_A4 integer
@@ -568,7 +568,7 @@ df.historical_entity_type = {
 ---@class entity_tissue_style
 ---@field name string
 ---@field preferred_shapings integer[]
----@field unk_1 integer[]
+---@field unk_1 integer[] # maybe probability?
 ---@field maintain_length_min integer
 ---@field maintain_length_max integer
 ---@field id integer
@@ -667,7 +667,7 @@ df.entity_position_flags = {
 ---@field id integer
 ---@field histfig integer
 ---@field histfig2 integer
----@field position_id integer
+---@field position_id integer # position within relevant entity
 ---@field position_vector_idx integer
 ---@field flags any
 ---@field squad_id integer
@@ -675,8 +675,8 @@ df.entity_position_flags = {
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field unk_5 any[]
----@field unk_6 integer
+---@field unk_5 any[] # not saved
+---@field unk_6 integer # unknown size, not initialized or saved
 
 ---@enum entity_material_category
 df.entity_material_category = {
@@ -778,7 +778,7 @@ df.entity_event_type = {
 
 ---@class entity_event
 ---@field data entity_event_data
----@field unk_year integer
+---@field unk_year integer # often the same as the other year/tick. Start/stop time?
 ---@field unk_year_tick integer
 ---@field year integer
 ---@field year_tick integer
@@ -933,49 +933,49 @@ df.agreement_details_type = {
 ---@field unk_v50_4 integer
 
 ---@class agreement_details_data_position_corruption
----@field unk_1 integer
----@field actor_index integer
----@field influencer_index integer
----@field intermediary_index integer
+---@field unk_1 integer # 247-249 seen
+---@field actor_index integer # agreement.parties index
+---@field influencer_index integer # agreement.parties index
+---@field intermediary_index integer # agreement.parties index
 ---@field target_id integer
----@field position_id integer
+---@field position_id integer # position index in the entity's Own entity_position vector
 
 ---@class agreement_details_data_plot_steal_artifact
----@field actor_index integer
----@field influencer_index integer
----@field intermediary_index integer
+---@field actor_index integer # agreement.parties index
+---@field influencer_index integer # agreement.parties index
+---@field intermediary_index integer # agreement.parties index
 ---@field artifact_id integer
 
 ---@class agreement_details_data_promise_position
----@field beneficiary_index integer
----@field actor_index integer
----@field promisee_index integer
----@field influencer_index integer
----@field intermediary_indices integer[]
+---@field beneficiary_index integer # agreement.parties index
+---@field actor_index integer # agreement.parties index
+---@field promisee_index integer # agreement.parties index
+---@field influencer_index integer # agreement.parties index. May be swapped with beneficiary
+---@field intermediary_indices integer[] # agreement.parties index
 ---@field entity_id integer
 
 ---@class agreement_details_data_plot_assassination
----@field actor_index integer
----@field influencer_index integer
----@field intermediary_index integer
+---@field actor_index integer # agreement.parties index
+---@field influencer_index integer # agreement.parties index
+---@field intermediary_index integer # agreement.parties index
 ---@field target_id integer
 
 ---@class agreement_details_data_plot_abduct
----@field actor_index integer
----@field intermediary_index integer
+---@field actor_index integer # agreement.parties index
+---@field intermediary_index integer # agreement.parties index
 ---@field target_id integer
 ---@field unk_v50_1 integer
 
 ---@class agreement_details_data_plot_sabotage
----@field plotter_index integer
----@field actor_index integer
----@field intermediary_index integer
+---@field plotter_index integer # agreement.parties index
+---@field actor_index integer # agreement.parties index
+---@field intermediary_index integer # agreement.parties index. A guess, as no intermediary cases have been seen
 ---@field victim_id integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 
 ---@class agreement_details_data_plot_conviction
----@field criminal_indices integer[]
+---@field criminal_indices integer[] # agreement.parties index. All indices listed, regardless of confessions
 ---@field crime crime_type
 
 ---@class agreement_details_data_location
@@ -986,25 +986,25 @@ df.agreement_details_type = {
 ---@field deity_type temple_deity_type
 ---@field deity_data temple_deity_data
 ---@field profession profession
----@field tier integer
+---@field tier integer # 1 = temple or guildhall, 2 = temple complex or grand guildhall; matches location_tier in abstract_building_contents
 ---@field unk_v50_1 integer
 
 ---@class agreement_details_data_plot_infiltration_coup
----@field actor_index integer
----@field influencer_index integer
----@field target integer
----@field action integer
+---@field actor_index integer # agreement.parties index
+---@field influencer_index integer # agreement.parties index
+---@field target integer # action=8: site id, 9: entity id
+---@field action integer # 8 and 9 seen. Probably matches up with corresponding hist fig Infiltrate_Society action
 
 ---@class agreement_details_data_plot_frame_treason
----@field actor_index integer
----@field influencer_index integer
+---@field actor_index integer # agreement.parties index
+---@field influencer_index integer # agreement.parties index
 ---@field victim_id integer
 ---@field fool_id integer
----@field unk_1 integer
+---@field unk_1 integer # only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though
 
 ---@class agreement_details_data_plot_induce_war
----@field actor_index integer
----@field influencer_index integer
+---@field actor_index integer # agreement.parties index
+---@field influencer_index integer # agreement.parties index
 ---@field attacker integer
 ---@field defender integer
 

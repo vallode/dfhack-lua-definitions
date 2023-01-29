@@ -102,8 +102,8 @@ df.plant_raw_flags = {
 ---@field adj string
 ---@field seed_singular string
 ---@field seed_plural string
----@field leaves_singular string
----@field leaves_plural string
+---@field leaves_singular string # unused
+---@field leaves_plural string # unused
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
@@ -143,7 +143,7 @@ df.plant_raw_flags = {
 ---@field cap_radius integer
 ---@field root_density integer
 ---@field root_radius integer
----@field stockpile_growths integer[]
+---@field stockpile_growths integer[] # indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
 ---@field stockpile_growth_flags any[]
 
 ---@class plant_raw_tiles
@@ -151,8 +151,8 @@ df.plant_raw_flags = {
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
 ---@field dead_shrub_tile integer
----@field tree_tile integer
----@field dead_tree_tile integer
+---@field tree_tile integer # unused
+---@field dead_tree_tile integer # unused
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
 ---@field grass_tiles integer[]
@@ -210,7 +210,7 @@ df.plant_material_def = {
 ---@field trunk_height_perc_2 integer
 
 ---@class plant_growth_print
----@field priority integer
+---@field priority integer # final token in list
 ---@field tile_growth integer
 ---@field tile_item integer
 ---@field color integer[]
