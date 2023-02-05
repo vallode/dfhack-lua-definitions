@@ -21,6 +21,14 @@ function dfhack.error(message, level) end
 ---@param level? integer
 function qerror(message, level) end
 
+---If the argument is a lua table or DF object reference, prints all fields.
+---@param object table
+function printall(object) end
+
+---If the argument is a lua table or DF object reference, prints all fields recursively.
+---@param object table
+function printall_recursive(object) end
+
 ---@param table table
 ---@return table
 function copyall(table) end
