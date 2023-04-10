@@ -22,8 +22,12 @@ deeper matricies.
 
 ## Install
 
-- Install [`lua-language-server`](https://github.com/LuaLS/lua-language-server)
-- Clone/download this repository
+For all installations you should have 
+[`lua-language-server`](https://github.com/LuaLS/lua-language-server) ready,
+and this repository downloaded somewhere.
+
+### VSCode / Code - OSS
+
 - Add the following lines to your workspace's `.vscode/settings.json`
   ```
   {
@@ -33,7 +37,21 @@ deeper matricies.
   }
   ```
 
+### Helix
+
+- Add the following lines in a `.luarc.json` file at the root of your workspace
+  ```
+  {
+    "workspace": {
+      "library": [
+        "<repository_location>/library"
+      ]
+    }
+  }
+  ```
+
 ## Development
 
 - Add `---@meta` file information corresponding to the DFHack library.
 - Improve and re-run `generate-definitions` as needed.
+- `ruby generate-definitions.rb <df-structures-repo>/\*.xml`
