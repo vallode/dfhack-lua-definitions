@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum buildings_other_id
@@ -201,674 +202,181 @@ df.buildings_other_id = {
 ---@field furnace furnace_type[]
 ---@field civzone civzone_type[]
 
----@type table<buildings_other_id, buildings_other_id_attr>
-df.buildings_other_id.attrs = {
-  STOCKPILE = {
-    building = "Stockpile",
-  },
-  ANY_ZONE = {
-    building = "Civzone",
-  },
-  ACTIVITY_ZONE = {
-    building = "Civzone",
-  },
-  ZONE_HOME = {
-    building = "Civzone",
-    civzone = "Home",
-  },
-  ZONE_DEPOT = {
-    building = "Civzone",
-    civzone = "Depot",
-  },
-  ZONE_STOCKPILE = {
-    building = "Civzone",
-    civzone = "Stockpile",
-  },
-  ZONE_NOBLE_QUARTERS = {
-    building = "Civzone",
-    civzone = "NobleQuarters",
-  },
-  ZONE_MEAD_HALL = {
-    building = "Civzone",
-    civzone = "MeadHall",
-  },
-  ZONE_THRONE_ROOM = {
-    building = "Civzone",
-    civzone = "ThroneRoom",
-  },
-  ZONE_TEMPLE = {
-    building = "Civzone",
-    civzone = "Temple",
-  },
-  ZONE_KITCHEN = {
-    building = "Civzone",
-    civzone = "Kitchen",
-  },
-  ZONE_CAPTIVE_ROOM = {
-    building = "Civzone",
-    civzone = "CaptiveRoom",
-  },
-  ZONE_TOWER_TOP = {
-    building = "Civzone",
-    civzone = "TowerTop",
-  },
-  ZONE_COURTYARD = {
-    building = "Civzone",
-    civzone = "Courtyard",
-  },
-  ZONE_TREASURY = {
-    building = "Civzone",
-    civzone = "Treasury",
-  },
-  ZONE_GUARD_POST = {
-    building = "Civzone",
-    civzone = "GuardPost",
-  },
-  ZONE_ENTRANCE = {
-    building = "Civzone",
-    civzone = "Entrance",
-  },
-  ZONE_SECRET_LIBRARY = {
-    building = "Civzone",
-    civzone = "SecretLibrary",
-  },
-  ZONE_LIBRARY = {
-    building = "Civzone",
-    civzone = "Library",
-  },
-  ZONE_PLOT = {
-    building = "Civzone",
-    civzone = "Plot",
-  },
-  ZONE_MARKET_STALL = {
-    building = "Civzone",
-    civzone = "MarketStall",
-  },
-  ZONE_CAMPGROUND = {
-    building = "Civzone",
-    civzone = "Campground",
-  },
-  ZONE_COMMAND_TENT = {
-    building = "Civzone",
-    civzone = "CommandTent",
-  },
-  ZONE_TENT = {
-    building = "Civzone",
-    civzone = "Tent",
-  },
-  ZONE_COMMAND_TENT_BLD = {
-    building = "Civzone",
-    civzone = "CommandTentBld",
-  },
-  ZONE_TENT_BLD = {
-    building = "Civzone",
-    civzone = "TentBld",
-  },
-  ZONE_MECHANISM_ROOM = {
-    building = "Civzone",
-    civzone = "MechanismRoom",
-  },
-  ZONE_DUNGEON_CELL = {
-    building = "Civzone",
-    civzone = "DungeonCell",
-  },
-  ZONE_ANIMAL_PIT = {
-    building = "Civzone",
-    civzone = "AnimalPit",
-  },
-  ZONE_CLOTH_PIT = {
-    building = "Civzone",
-    civzone = "ClothPit",
-  },
-  ZONE_TANNING_PIT = {
-    building = "Civzone",
-    civzone = "TanningPit",
-  },
-  ZONE_CLOTH_CLOTHING_PIT = {
-    building = "Civzone",
-    civzone = "ClothClothingPit",
-  },
-  ZONE_LEATHER_CLOTHING_PIT = {
-    building = "Civzone",
-    civzone = "LeatherClothingPit",
-  },
-  ZONE_BONE_CARVING_PIT = {
-    building = "Civzone",
-    civzone = "BoneCarvingPit",
-  },
-  ZONE_GEM_CUTTING_PIT = {
-    building = "Civzone",
-    civzone = "GemCuttingPit",
-  },
-  ZONE_WEAPONSMITHING_PIT = {
-    building = "Civzone",
-    civzone = "WeaponsmithingPit",
-  },
-  ZONE_BOWMAKING_PIT = {
-    building = "Civzone",
-    civzone = "BowmakingPit",
-  },
-  ZONE_BLACKSMITHING_PIT = {
-    building = "Civzone",
-    civzone = "BlacksmithingPit",
-  },
-  ZONE_ARMORSMITHING_PIT = {
-    building = "Civzone",
-    civzone = "ArmorsmithingPit",
-  },
-  ZONE_METAL_CRAFTING_PIT = {
-    building = "Civzone",
-    civzone = "MetalCraftingPit",
-  },
-  ZONE_LEATHERWORKING_PIT = {
-    building = "Civzone",
-    civzone = "LeatherworkingPit",
-  },
-  ZONE_CARPENTRY_PIT = {
-    building = "Civzone",
-    civzone = "CarpentryPit",
-  },
-  ZONE_STONEWORKING_PIT = {
-    building = "Civzone",
-    civzone = "StoneworkingPit",
-  },
-  ZONE_FORGING_PIT = {
-    building = "Civzone",
-    civzone = "ForgingPit",
-  },
-  ZONE_FIGHTING_PIT = {
-    building = "Civzone",
-    civzone = "FightingPit",
-  },
-  ZONE_ANIMAL_WORKSHOP = {
-    building = "Civzone",
-    civzone = "AnimalWorkshop",
-  },
-  ZONE_CLOTH_WORKSHOP = {
-    building = "Civzone",
-    civzone = "ClothWorkshop",
-  },
-  ZONE_TANNING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "TanningWorkshop",
-  },
-  ZONE_CLOTH_CLOTHING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "ClothClothingWorkshop",
-  },
-  ZONE_LEATHER_CLOTHING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "LeatherClothingWorkshop",
-  },
-  ZONE_BONE_CARVING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "BoneCarvingWorkshop",
-  },
-  ZONE_GEM_CUTTING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "GemCuttingWorkshop",
-  },
-  ZONE_WEAPONSMITHING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "WeaponsmithingWorkshop",
-  },
-  ZONE_BOWMAKING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "BowmakingWorkshop",
-  },
-  ZONE_BLACKSMITHING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "BlacksmithingWorkshop",
-  },
-  ZONE_ARMORSMITHING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "ArmorsmithingWorkshop",
-  },
-  ZONE_METAL_CRAFTING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "MetalCraftingWorkshop",
-  },
-  ZONE_LEATHERWORKING_SHOP = {
-    building = "Civzone",
-    civzone = "LeatherworkingShop",
-  },
-  ZONE_CARPENTRY_WORKSHOP = {
-    building = "Civzone",
-    civzone = "CarpentryWorkshop",
-  },
-  ZONE_STONEWORKING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "StoneworkingWorkshop",
-  },
-  ZONE_FORGING_WORKSHOP = {
-    building = "Civzone",
-    civzone = "ForgingWorkshop",
-  },
-  ZONE_COUNTING_HOUSE_OFFICES = {
-    building = "Civzone",
-    civzone = "CountingHouseOffices",
-  },
-  ZONE_COUNTING_HOUSE_STORAGE = {
-    building = "Civzone",
-    civzone = "CountingHouseStorage",
-  },
-  ZONE_GUILDHALL_OFFICES = {
-    building = "Civzone",
-    civzone = "GuildhallOffices",
-  },
-  ZONE_GUILDHALL_STORAGE = {
-    building = "Civzone",
-    civzone = "GuildhallStorage",
-  },
-  ZONE_TOWER_ENTRANCE = {
-    building = "Civzone",
-    civzone = "TowerEntrance",
-  },
-  ZONE_TOWER_FEASTHALL = {
-    building = "Civzone",
-    civzone = "TowerFeasthall",
-  },
-  ZONE_TOWER_BEDROOM = {
-    building = "Civzone",
-    civzone = "TowerBedroom",
-  },
-  ZONE_TOWER_TREASURY = {
-    building = "Civzone",
-    civzone = "TowerTreasury",
-  },
-  ZONE_TOWER_DUNGEON = {
-    building = "Civzone",
-    civzone = "TowerDungeon",
-  },
-  ZONE_TOWER_ATTIC = {
-    building = "Civzone",
-    civzone = "TowerAttic",
-  },
-  ZONE_DORMITORY = {
-    building = "Civzone",
-    civzone = "Dormitory",
-  },
-  ZONE_DINING_HALL = {
-    building = "Civzone",
-    civzone = "DiningHall",
-  },
-  ZONE_WATER_SOURCE = {
-    building = "Civzone",
-    civzone = "WaterSource",
-  },
-  ZONE_DUMP = {
-    building = "Civzone",
-    civzone = "Dump",
-  },
-  ZONE_SAND_COLLECTION = {
-    building = "Civzone",
-    civzone = "SandCollection",
-  },
-  ZONE_FISHING_AREA = {
-    building = "Civzone",
-    civzone = "FishingArea",
-  },
-  ZONE_POND = {
-    building = "Civzone",
-    civzone = "Pond",
-  },
-  ZONE_MEETING_HALL = {
-    building = "Civzone",
-    civzone = "MeetingHall",
-  },
-  ZONE_PEN = {
-    building = "Civzone",
-    civzone = "Pen",
-  },
-  ZONE_CLAY_COLLECTION = {
-    building = "Civzone",
-    civzone = "ClayCollection",
-  },
-  ZONE_ANIMAL_TRAINING = {
-    building = "Civzone",
-    civzone = "AnimalTraining",
-  },
-  ZONE_PLANT_GATHERING = {
-    building = "Civzone",
-    civzone = "PlantGathering",
-  },
-  ZONE_BEDROOM = {
-    building = "Civzone",
-    civzone = "Bedroom",
-  },
-  ZONE_OFFICE = {
-    building = "Civzone",
-    civzone = "Office",
-  },
-  ZONE_ARCHERY_RANGE = {
-    building = "Civzone",
-    civzone = "ArcheryRange",
-  },
-  ZONE_BARRACKS = {
-    building = "Civzone",
-    civzone = "Barracks",
-  },
-  ZONE_DUNGEON = {
-    building = "Civzone",
-    civzone = "Dungeon",
-  },
-  ZONE_TOMB = {
-    building = "Civzone",
-    civzone = "Tomb",
-  },
-  LOCATION_ASSIGNED = {
-    generic_building = "Bed",
-    generic_building = "Civzone",
-  },
-  ANY_MACHINE = {
-    generic_building = "ScrewPump",
-    generic_building = "GearAssembly",
-    generic_building = "AxleHorizontal",
-    generic_building = "AxleVertical",
-    generic_building = "WaterWheel",
-    generic_building = "Windmill",
-    generic_building = "Workshop",
-    workshop = "Millstone",
-  },
-  ANY_HOSPITAL_STORAGE = {
-    generic_building = "Box",
-    generic_building = "Cabinet",
-  },
-  ANY_STORAGE = {
-    generic_building = "Box",
-    generic_building = "Cabinet",
-    generic_building = "Weaponrack",
-    generic_building = "Armorstand",
-  },
-  ANY_BARRACKS = {
-    generic_building = "Bed",
-    generic_building = "Box",
-    generic_building = "Cabinet",
-    generic_building = "Weaponrack",
-    generic_building = "Armorstand",
-  },
-  ANY_HOSPITAL = {
-    generic_building = "Bed",
-    generic_building = "TractionBench",
-  },
-  BOX = {
-    building = "Box",
-  },
-  CABINET = {
-    building = "Cabinet",
-  },
-  TRAP = {
-    building = "Trap",
-  },
-  DOOR = {
-    building = "Door",
-  },
-  FLOODGATE = {
-    building = "Floodgate",
-  },
-  HATCH = {
-    building = "Hatch",
-  },
-  GRATE_WALL = {
-    building = "GrateWall",
-  },
-  GRATE_FLOOR = {
-    building = "GrateFloor",
-  },
-  BARS_VERTICAL = {
-    building = "BarsVertical",
-  },
-  BARS_FLOOR = {
-    building = "BarsFloor",
-  },
-  WINDOW_ANY = {
-    generic_building = "WindowGlass",
-    generic_building = "WindowGem",
-  },
-  WELL = {
-    building = "Well",
-  },
-  TABLE = {
-    building = "Table",
-  },
-  BRIDGE = {
-    building = "Bridge",
-  },
-  CHAIR = {
-    building = "Chair",
-  },
-  TRADE_DEPOT = {
-    building = "TradeDepot",
-  },
-  NEST = {
-    building = "Nest",
-  },
-  NEST_BOX = {
-    building = "NestBox",
-  },
-  BOOKCASE = {
-    building = "Bookcase",
-  },
-  DISPLAY_CASE = {
-    building = "DisplayFurniture",
-  },
-  HIVE = {
-    building = "Hive",
-  },
-  WAGON = {
-    building = "Wagon",
-  },
-  SHOP = {
-    building = "Shop",
-  },
-  BED = {
-    building = "Bed",
-  },
-  TRACTION_BENCH = {
-    building = "TractionBench",
-  },
-  ANY_ROAD = {
-    generic_building = "RoadDirt",
-    generic_building = "RoadPaved",
-  },
-  FARM_PLOT = {
-    building = "FarmPlot",
-  },
-  GEAR_ASSEMBLY = {
-    building = "GearAssembly",
-  },
-  ROLLERS = {
-    building = "Rollers",
-  },
-  AXLE_HORIZONTAL = {
-    building = "AxleHorizontal",
-  },
-  AXLE_VERTICAL = {
-    building = "AxleVertical",
-  },
-  SUPPORT = {
-    building = "Support",
-  },
-  ARCHERY_TARGET = {
-    building = "ArcheryTarget",
-  },
-  SCREW_PUMP = {
-    building = "ScrewPump",
-  },
-  WATER_WHEEL = {
-    building = "WaterWheel",
-  },
-  WINDMILL = {
-    building = "Windmill",
-  },
-  CHAIN = {
-    building = "Chain",
-  },
-  CAGE = {
-    building = "Cage",
-  },
-  STATUE = {
-    building = "Statue",
-  },
-  SLAB = {
-    building = "Slab",
-  },
-  COFFIN = {
-    building = "Coffin",
-  },
-  WEAPON_RACK = {
-    building = "Weaponrack",
-  },
-  ARMOR_STAND = {
-    building = "Armorstand",
-  },
-  FURNACE_ANY = {
-    building = "Furnace",
-  },
-  FURNACE_WOOD = {
-    building = "Furnace",
-    furnace = "WoodFurnace",
-  },
-  FURNACE_SMELTER_ANY = {
-    building = "Furnace",
-    furnace = "Smelter",
-    furnace = "MagmaSmelter",
-  },
-  FURNACE_SMELTER_MAGMA = {
-    building = "Furnace",
-    furnace = "MagmaSmelter",
-  },
-  FURNACE_KILN_ANY = {
-    building = "Furnace",
-    furnace = "Kiln",
-    furnace = "MagmaKiln",
-  },
-  FURNACE_GLASS_ANY = {
-    building = "Furnace",
-    furnace = "GlassFurnace",
-    furnace = "MagmaGlassFurnace",
-  },
-  FURNACE_CUSTOM = {
-    building = "Furnace",
-    furnace = "Custom",
-  },
-  WORKSHOP_ANY = {
-    building = "Workshop",
-  },
-  WORKSHOP_BUTCHER = {
-    building = "Workshop",
-    workshop = "Butchers",
-  },
-  WORKSHOP_MASON = {
-    building = "Workshop",
-    workshop = "Masons",
-  },
-  WORKSHOP_KENNEL = {
-    building = "Workshop",
-    workshop = "Kennels",
-  },
-  WORKSHOP_FISHERY = {
-    building = "Workshop",
-    workshop = "Fishery",
-  },
-  WORKSHOP_JEWELER = {
-    building = "Workshop",
-    workshop = "Jewelers",
-  },
-  WORKSHOP_LOOM = {
-    building = "Workshop",
-    workshop = "Loom",
-  },
-  WORKSHOP_TANNER = {
-    building = "Workshop",
-    workshop = "Tanners",
-  },
-  WORKSHOP_DYER = {
-    building = "Workshop",
-    workshop = "Dyers",
-  },
-  WORKSHOP_MILL_ANY = {
-    building = "Workshop",
-    workshop = "Quern",
-    workshop = "Millstone",
-  },
-  WORKSHOP_QUERN = {
-    building = "Workshop",
-    workshop = "Quern",
-  },
-  WORKSHOP_TOOL = {
-    building = "Workshop",
-    workshop = "Tool",
-  },
-  WORKSHOP_MILLSTONE = {
-    building = "Workshop",
-    workshop = "Millstone",
-  },
-  WORKSHOP_KITCHEN = {
-    building = "Workshop",
-    workshop = "Kitchen",
-  },
-  WORKSHOP_STILL = {
-    building = "Workshop",
-    workshop = "Still",
-  },
-  WORKSHOP_FARMER = {
-    building = "Workshop",
-    workshop = "Farmers",
-  },
-  WORKSHOP_ASHERY = {
-    building = "Workshop",
-    workshop = "Ashery",
-  },
-  WORKSHOP_CARPENTER = {
-    building = "Workshop",
-    workshop = "Carpenters",
-  },
-  WORKSHOP_CRAFTSDWARF = {
-    building = "Workshop",
-    workshop = "Craftsdwarfs",
-  },
-  WORKSHOP_MECHANIC = {
-    building = "Workshop",
-    workshop = "Mechanics",
-  },
-  WORKSHOP_SIEGE = {
-    building = "Workshop",
-    workshop = "Siege",
-  },
-  WORKSHOP_CLOTHIER = {
-    building = "Workshop",
-    workshop = "Clothiers",
-  },
-  WORKSHOP_LEATHER = {
-    building = "Workshop",
-    workshop = "Leatherworks",
-  },
-  WORKSHOP_BOWYER = {
-    building = "Workshop",
-    workshop = "Bowyers",
-  },
-  WORKSHOP_MAGMA_FORGE = {
-    building = "Workshop",
-    workshop = "MagmaForge",
-  },
-  WORKSHOP_FORGE_ANY = {
-    building = "Workshop",
-    workshop = "MetalsmithsForge",
-    workshop = "MagmaForge",
-  },
-  WORKSHOP_CUSTOM = {
-    building = "Workshop",
-    workshop = "Custom",
-  },
-  WEAPON_UPRIGHT = {
-    building = "Weapon",
-  },
-  INSTRUMENT_STATIONARY = {
-    building = "Instrument",
-  },
-  OFFERING_PLACE = {
-    building = "OfferingPlace",
-  },
-}
+---@class buildings_other_id_attrs
+---@field STOCKPILE buildings_other_id_attr
+---@field ANY_ZONE buildings_other_id_attr
+---@field ACTIVITY_ZONE buildings_other_id_attr
+---@field ZONE_HOME buildings_other_id_attr
+---@field ZONE_DEPOT buildings_other_id_attr
+---@field ZONE_STOCKPILE buildings_other_id_attr
+---@field ZONE_NOBLE_QUARTERS buildings_other_id_attr
+---@field ZONE_MEAD_HALL buildings_other_id_attr
+---@field ZONE_THRONE_ROOM buildings_other_id_attr
+---@field ZONE_TEMPLE buildings_other_id_attr
+---@field ZONE_KITCHEN buildings_other_id_attr
+---@field ZONE_CAPTIVE_ROOM buildings_other_id_attr
+---@field ZONE_TOWER_TOP buildings_other_id_attr
+---@field ZONE_COURTYARD buildings_other_id_attr
+---@field ZONE_TREASURY buildings_other_id_attr
+---@field ZONE_GUARD_POST buildings_other_id_attr
+---@field ZONE_ENTRANCE buildings_other_id_attr
+---@field ZONE_SECRET_LIBRARY buildings_other_id_attr
+---@field ZONE_LIBRARY buildings_other_id_attr
+---@field ZONE_PLOT buildings_other_id_attr
+---@field ZONE_MARKET_STALL buildings_other_id_attr
+---@field ZONE_CAMPGROUND buildings_other_id_attr
+---@field ZONE_COMMAND_TENT buildings_other_id_attr
+---@field ZONE_TENT buildings_other_id_attr
+---@field ZONE_COMMAND_TENT_BLD buildings_other_id_attr
+---@field ZONE_TENT_BLD buildings_other_id_attr
+---@field ZONE_MECHANISM_ROOM buildings_other_id_attr
+---@field ZONE_DUNGEON_CELL buildings_other_id_attr
+---@field ZONE_ANIMAL_PIT buildings_other_id_attr
+---@field ZONE_CLOTH_PIT buildings_other_id_attr
+---@field ZONE_TANNING_PIT buildings_other_id_attr
+---@field ZONE_CLOTH_CLOTHING_PIT buildings_other_id_attr
+---@field ZONE_LEATHER_CLOTHING_PIT buildings_other_id_attr
+---@field ZONE_BONE_CARVING_PIT buildings_other_id_attr
+---@field ZONE_GEM_CUTTING_PIT buildings_other_id_attr
+---@field ZONE_WEAPONSMITHING_PIT buildings_other_id_attr
+---@field ZONE_BOWMAKING_PIT buildings_other_id_attr
+---@field ZONE_BLACKSMITHING_PIT buildings_other_id_attr
+---@field ZONE_ARMORSMITHING_PIT buildings_other_id_attr
+---@field ZONE_METAL_CRAFTING_PIT buildings_other_id_attr
+---@field ZONE_LEATHERWORKING_PIT buildings_other_id_attr
+---@field ZONE_CARPENTRY_PIT buildings_other_id_attr
+---@field ZONE_STONEWORKING_PIT buildings_other_id_attr
+---@field ZONE_FORGING_PIT buildings_other_id_attr
+---@field ZONE_FIGHTING_PIT buildings_other_id_attr
+---@field ZONE_ANIMAL_WORKSHOP buildings_other_id_attr
+---@field ZONE_CLOTH_WORKSHOP buildings_other_id_attr
+---@field ZONE_TANNING_WORKSHOP buildings_other_id_attr
+---@field ZONE_CLOTH_CLOTHING_WORKSHOP buildings_other_id_attr
+---@field ZONE_LEATHER_CLOTHING_WORKSHOP buildings_other_id_attr
+---@field ZONE_BONE_CARVING_WORKSHOP buildings_other_id_attr
+---@field ZONE_GEM_CUTTING_WORKSHOP buildings_other_id_attr
+---@field ZONE_WEAPONSMITHING_WORKSHOP buildings_other_id_attr
+---@field ZONE_BOWMAKING_WORKSHOP buildings_other_id_attr
+---@field ZONE_BLACKSMITHING_WORKSHOP buildings_other_id_attr
+---@field ZONE_ARMORSMITHING_WORKSHOP buildings_other_id_attr
+---@field ZONE_METAL_CRAFTING_WORKSHOP buildings_other_id_attr
+---@field ZONE_LEATHERWORKING_SHOP buildings_other_id_attr
+---@field ZONE_CARPENTRY_WORKSHOP buildings_other_id_attr
+---@field ZONE_STONEWORKING_WORKSHOP buildings_other_id_attr
+---@field ZONE_FORGING_WORKSHOP buildings_other_id_attr
+---@field ZONE_COUNTING_HOUSE_OFFICES buildings_other_id_attr
+---@field ZONE_COUNTING_HOUSE_STORAGE buildings_other_id_attr
+---@field ZONE_GUILDHALL_OFFICES buildings_other_id_attr
+---@field ZONE_GUILDHALL_STORAGE buildings_other_id_attr
+---@field ZONE_TOWER_ENTRANCE buildings_other_id_attr
+---@field ZONE_TOWER_FEASTHALL buildings_other_id_attr
+---@field ZONE_TOWER_BEDROOM buildings_other_id_attr
+---@field ZONE_TOWER_TREASURY buildings_other_id_attr
+---@field ZONE_TOWER_DUNGEON buildings_other_id_attr
+---@field ZONE_TOWER_ATTIC buildings_other_id_attr
+---@field ZONE_DORMITORY buildings_other_id_attr
+---@field ZONE_DINING_HALL buildings_other_id_attr
+---@field ZONE_WATER_SOURCE buildings_other_id_attr
+---@field ZONE_DUMP buildings_other_id_attr
+---@field ZONE_SAND_COLLECTION buildings_other_id_attr
+---@field ZONE_FISHING_AREA buildings_other_id_attr
+---@field ZONE_POND buildings_other_id_attr
+---@field ZONE_MEETING_HALL buildings_other_id_attr
+---@field ZONE_PEN buildings_other_id_attr
+---@field ZONE_CLAY_COLLECTION buildings_other_id_attr
+---@field ZONE_ANIMAL_TRAINING buildings_other_id_attr
+---@field ZONE_PLANT_GATHERING buildings_other_id_attr
+---@field ZONE_BEDROOM buildings_other_id_attr
+---@field ZONE_OFFICE buildings_other_id_attr
+---@field ZONE_ARCHERY_RANGE buildings_other_id_attr
+---@field ZONE_BARRACKS buildings_other_id_attr
+---@field ZONE_DUNGEON buildings_other_id_attr
+---@field ZONE_TOMB buildings_other_id_attr
+---@field LOCATION_ASSIGNED buildings_other_id_attr
+---@field ANY_MACHINE buildings_other_id_attr
+---@field ANY_HOSPITAL_STORAGE buildings_other_id_attr
+---@field ANY_STORAGE buildings_other_id_attr
+---@field ANY_BARRACKS buildings_other_id_attr
+---@field ANY_HOSPITAL buildings_other_id_attr
+---@field BOX buildings_other_id_attr
+---@field CABINET buildings_other_id_attr
+---@field TRAP buildings_other_id_attr
+---@field DOOR buildings_other_id_attr
+---@field FLOODGATE buildings_other_id_attr
+---@field HATCH buildings_other_id_attr
+---@field GRATE_WALL buildings_other_id_attr
+---@field GRATE_FLOOR buildings_other_id_attr
+---@field BARS_VERTICAL buildings_other_id_attr
+---@field BARS_FLOOR buildings_other_id_attr
+---@field WINDOW_ANY buildings_other_id_attr
+---@field WELL buildings_other_id_attr
+---@field TABLE buildings_other_id_attr
+---@field BRIDGE buildings_other_id_attr
+---@field CHAIR buildings_other_id_attr
+---@field TRADE_DEPOT buildings_other_id_attr
+---@field NEST buildings_other_id_attr
+---@field NEST_BOX buildings_other_id_attr
+---@field BOOKCASE buildings_other_id_attr
+---@field DISPLAY_CASE buildings_other_id_attr
+---@field HIVE buildings_other_id_attr
+---@field WAGON buildings_other_id_attr
+---@field SHOP buildings_other_id_attr
+---@field BED buildings_other_id_attr
+---@field TRACTION_BENCH buildings_other_id_attr
+---@field ANY_ROAD buildings_other_id_attr
+---@field FARM_PLOT buildings_other_id_attr
+---@field GEAR_ASSEMBLY buildings_other_id_attr
+---@field ROLLERS buildings_other_id_attr
+---@field AXLE_HORIZONTAL buildings_other_id_attr
+---@field AXLE_VERTICAL buildings_other_id_attr
+---@field SUPPORT buildings_other_id_attr
+---@field ARCHERY_TARGET buildings_other_id_attr
+---@field SCREW_PUMP buildings_other_id_attr
+---@field WATER_WHEEL buildings_other_id_attr
+---@field WINDMILL buildings_other_id_attr
+---@field CHAIN buildings_other_id_attr
+---@field CAGE buildings_other_id_attr
+---@field STATUE buildings_other_id_attr
+---@field SLAB buildings_other_id_attr
+---@field COFFIN buildings_other_id_attr
+---@field WEAPON_RACK buildings_other_id_attr
+---@field ARMOR_STAND buildings_other_id_attr
+---@field FURNACE_ANY buildings_other_id_attr
+---@field FURNACE_WOOD buildings_other_id_attr
+---@field FURNACE_SMELTER_ANY buildings_other_id_attr
+---@field FURNACE_SMELTER_MAGMA buildings_other_id_attr
+---@field FURNACE_KILN_ANY buildings_other_id_attr
+---@field FURNACE_GLASS_ANY buildings_other_id_attr
+---@field FURNACE_CUSTOM buildings_other_id_attr
+---@field WORKSHOP_ANY buildings_other_id_attr
+---@field WORKSHOP_BUTCHER buildings_other_id_attr
+---@field WORKSHOP_MASON buildings_other_id_attr
+---@field WORKSHOP_KENNEL buildings_other_id_attr
+---@field WORKSHOP_FISHERY buildings_other_id_attr
+---@field WORKSHOP_JEWELER buildings_other_id_attr
+---@field WORKSHOP_LOOM buildings_other_id_attr
+---@field WORKSHOP_TANNER buildings_other_id_attr
+---@field WORKSHOP_DYER buildings_other_id_attr
+---@field WORKSHOP_MILL_ANY buildings_other_id_attr
+---@field WORKSHOP_QUERN buildings_other_id_attr
+---@field WORKSHOP_TOOL buildings_other_id_attr
+---@field WORKSHOP_MILLSTONE buildings_other_id_attr
+---@field WORKSHOP_KITCHEN buildings_other_id_attr
+---@field WORKSHOP_STILL buildings_other_id_attr
+---@field WORKSHOP_FARMER buildings_other_id_attr
+---@field WORKSHOP_ASHERY buildings_other_id_attr
+---@field WORKSHOP_CARPENTER buildings_other_id_attr
+---@field WORKSHOP_CRAFTSDWARF buildings_other_id_attr
+---@field WORKSHOP_MECHANIC buildings_other_id_attr
+---@field WORKSHOP_SIEGE buildings_other_id_attr
+---@field WORKSHOP_CLOTHIER buildings_other_id_attr
+---@field WORKSHOP_LEATHER buildings_other_id_attr
+---@field WORKSHOP_BOWYER buildings_other_id_attr
+---@field WORKSHOP_MAGMA_FORGE buildings_other_id_attr
+---@field WORKSHOP_FORGE_ANY buildings_other_id_attr
+---@field WORKSHOP_CUSTOM buildings_other_id_attr
+---@field WEAPON_UPRIGHT buildings_other_id_attr
+---@field INSTRUMENT_STATIONARY buildings_other_id_attr
+---@field OFFERING_PLACE buildings_other_id_attr
+df.buildings_other_id.attrs = {}
 

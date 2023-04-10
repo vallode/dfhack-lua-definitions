@@ -1,13 +1,15 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@class ui_build_item_req
+---When creating a building, one record per required item type. E.g. Soap Maker's workshop requires a bucket and a building material.
 ---@field filter job_item_filter
 ---@field candidates item[]
 ---@field candidate_selected boolean[]
 ---@field unk_a0 integer[]
 ---@field candidate_enabled boolean[]
 ---@field count_required integer
----@field count_max integer # if 0, fixed at required
+---@field count_max integer if 0, fixed at required
 ---@field count_provided integer
 
 ---@enum build_req_choice_type
@@ -17,6 +19,7 @@ df.build_req_choice_type = {
 }
 
 ---@class build_req_choicest
+---One choice in the build item selector.
 ---@field distance integer
 
 ---@class build_req_choice_genst
@@ -34,10 +37,10 @@ df.build_req_choice_type = {
 ---@class buildreq
 ---@field requirements ui_build_item_req[]
 ---@field choices build_req_choicest[]
----@field building_type building_type # if -1, in Build menu; otherwise select item
+---@field building_type building_type if -1, in Build menu; otherwise select item
 ---@field building_subtype integer
 ---@field custom_type integer
----@field stage integer # 0 no materials, 1 place, 2 select item
+---@field stage integer 0 no materials, 1 place, 2 select item
 ---@field req_index integer
 ---@field sel_index integer
 ---@field is_grouped integer
@@ -53,6 +56,10 @@ df.build_req_choice_type = {
 ---@field dump_x_shift integer
 ---@field dump_y_shift integer
 ---@field speed integer
+---@field pos coord
+---@field direction integer
+---@field selection_pos coord
+---@field selection_area integer
 
 ---@enum interface_category_building
 df.interface_category_building = {
@@ -107,7 +114,7 @@ df.interface_category_construction = {
 ---@field material integer
 ---@field matgloss integer
 ---@field specflag stockpile_group_set
----@field spec_id integer # refers to various things, such as histfigs OR races
+---@field spec_id integer refers to various things, such as histfigs OR races
 ---@field job_item_flag job_material_category
 ---@field add_building_location boolean
 ---@field show_help_instead boolean
@@ -694,62 +701,55 @@ df.main_designation_type = {
 ---@field minimap gamest_minimap
 ---@field command_line gamest_command_line
 ---@field mod_manager gamest_mod_manager
----@field hash_rng gamest_hash_rng
----@field play_rng gamest_play_rng
----@field start_tick_count integer
----@field autosave_cycle integer
----@field want_to_quit_to_title boolean
----@field flash_11_by_3 any[]
----@field flash_7_by_3 any[]
----@field flash_4_by_3 any[]
----@field external_flag integer
 
 ---@class gamest_main_interface
----@field designation any
----@field building any
----@field construction any
----@field civzone any
----@field burrow any
----@field view any
----@field hospital any
----@field location_list any
----@field job_details any
----@field buildjob any
----@field assign_trade any
----@field trade any
----@field diplomacy any
----@field petitions any
----@field stocks any
----@field assign_display_item any
----@field name_creator any
----@field image_creator any
----@field unit_selector any
----@field announcement_alert any
----@field custom_symbol any
----@field patrol_routes any
----@field squad_equipment any
----@field squad_schedule any
----@field squad_selector any
----@field burrow_selector any
----@field location_selector any
----@field location_details any
----@field hauling_stop_conditions any
----@field assign_vehicle any
----@field stockpile any
----@field stockpile_link any
----@field stockpile_tools any
----@field custom_stockpile any
----@field view_sheets any
----@field info any
----@field squads any
----@field create_squad any
----@field squad_supplies any
----@field assign_uniform any
----@field create_work_order any
----@field hotkey any
----@field options any
----@field help any
----@field settings any
+---@field designation compound
+---@field building compound
+---@field construction compound
+---@field civzone compound
+---@field burrow compound
+---@field view compound
+---@field hospital compound
+---@field location_list compound
+---@field job_details compound
+---@field buildjob compound
+---@field assign_trade compound
+---@field trade compound
+---@field diplomacy compound
+---@field petitions compound
+---@field stocks compound
+---@field assign_display_item compound
+---@field name_creator compound
+---@field image_creator compound
+---@field unit_selector compound
+---@field announcement_alert compound
+---@field custom_symbol compound
+---@field patrol_routes compound
+---@field squad_equipment compound
+---@field squad_schedule compound
+---@field squad_selector compound
+---@field burrow_selector compound
+---@field location_selector compound
+---@field location_details compound
+---@field hauling_stop_conditions compound
+---@field assign_vehicle compound
+---@field stockpile compound
+---@field stockpile_link compound
+---@field stockpile_tools compound
+---@field custom_stockpile compound
+---@field view_sheets compound
+---@field info compound
+---@field squads compound
+---@field create_squad compound
+---@field squad_supplies compound
+---@field assign_uniform compound
+---@field create_work_order compound
+---@field hotkey compound
+---@field options compound
+---@field help compound
+---@field settings compound
+---@field arena compound
+---@field unk_v50_06_new2 compound
 ---@field viewunit_list integer[]
 ---@field exporting_local integer
 ---@field mouse_zone integer
@@ -769,7 +769,7 @@ df.main_designation_type = {
 ---@field assigning_position_squad boolean
 ---@field ap_squad_list squad[]
 ---@field ap_squad_sel integer
----@field pref_occupation any[] # occupationst
+---@field pref_occupation any[] occupationst
 ---@field selected_pref_occupation integer
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
@@ -777,9 +777,9 @@ df.main_designation_type = {
 ---@field hover_instructions_on boolean
 ---@field hover_instructions_last_hover_tick integer
 ---@field current_hover integer
----@field current_hover_id1 integer # union with current_hover_building_type
----@field current_hover_id2 integer # union with current_hover_building_subtype
----@field current_hover_id3 integer # union with current_hover_building_custom_id
+---@field current_hover_id1 integer union with current_hover_building_type
+---@field current_hover_id2 integer union with current_hover_building_subtype
+---@field current_hover_id3 integer union with current_hover_building_custom_id
 ---@field current_hover_key interface_key
 ---@field current_hover_alert popup_message
 ---@field current_hover_replace_minimap boolean
@@ -828,27 +828,57 @@ df.main_designation_type = {
 ---@class gamest_command_line
 ---@field original string
 ---@field arg_vect string[]
----@field gen_id any
----@field world_seed any
+---@field gen_id number
+---@field world_seed number
 ---@field use_seed boolean
 ---@field world_param string
 ---@field use_param integer
 
 ---@class gamest_mod_manager
 ---@field mod_header mod_headerst[]
----@field subscribed_file_id any
+
+---@class steam_mod_manager
+---@field subscribed_file_id pointer
 ---@field doing_mod_upload boolean
 ---@field mod_upload_header mod_headerst[]
 ---@field mod_upload_completed boolean
 ---@field uploading_mod_index integer
----@field CreateItemResult any
----@field SubmitItemUpdateResult any
+---@field CreateItemResult steam_mod_manager_CreateItemResult
+---@field SubmitItemUpdateResult steam_mod_manager_SubmitItemUpdateResult
 
----@class gamest_hash_rng
+---@class steam_mod_manager_CreateItemResult
+---@field vftable pointer
+---@field m_nCallbackFlags integer
+---@field m_iCallback integer
+---@field m_hAPICall integer
+---@field m_pObj pointer mod_managerst
+---@field m_Func pointer
 
----@class gamest_play_rng
+---@class steam_mod_manager_SubmitItemUpdateResult
+---@field vftable pointer
+---@field m_nCallbackFlags integer
+---@field m_iCallback integer
+---@field m_hAPICall integer
+---@field m_pObj pointer mod_managerst
+---@field m_Func pointer
+
+---@class hash_rngst
+---@field splitmix64_state integer
+
+---@class gamest_extra
+---@field hash_rng hash_rngst
+---@field play_rng hash_rngst
+---@field start_tick_count integer
+---@field autosave_cycle integer
+---@field want_to_quit_to_title boolean
+---@field flash_11_by_3 any[]
+---@field flash_7_by_3 any[]
+---@field flash_4_by_3 any[]
+---@field external_flag integer
 
 ---@class difficultyst
+---@field difficulty_enemies integer 0=off, 1=normal, 2=hard, 3=custom
+---@field difficulty_economy integer 0=normal, 1=hard, 2=custom
 ---@field enemy_pop_trigger integer[]
 ---@field enemy_prod_trigger integer[]
 ---@field enemy_trade_trigger integer[]
@@ -870,7 +900,7 @@ df.main_designation_type = {
 ---@field cavern_dweller_max_attackers integer
 ---@field tree_fell_count_savage integer
 ---@field tree_fell_count integer
----@field flags any
+---@field flags bitfield
 ---@field economy_pop_trigger integer[]
 ---@field economy_prod_trigger integer[]
 ---@field economy_trade_trigger integer[]
@@ -889,6 +919,12 @@ df.main_designation_type = {
 ---@field demand_period integer
 
 ---@class markup_text_boxst
+---@field unk1 any[]
+---@field unk_v50_2 any[]
+---@field unk_v50_3 integer
+---@field unk_v50_4 integer
+---@field unk_v50_5 integer
+---@field unk_v50_6 integer
 
 ---@class wqc_item_traitst
 ---@field flg integer
@@ -923,7 +959,7 @@ df.main_designation_type = {
 
 ---@class actor_entryst
 ---@field hf historical_figure
----@field iden any # identityst
+---@field iden pointer identityst
 ---@field name_ptr language_name
 ---@field list_name string
 ---@field simple_list_name string
@@ -933,8 +969,8 @@ df.main_designation_type = {
 ---@field historical_hfid integer
 ---@field identity_id integer
 ---@field alias_identity_id integer[]
----@field principle_org any # organization_entryst
----@field associated_org any[] # organization_entryst
+---@field principle_org pointer organization_entryst
+---@field associated_org any[] organization_entryst
 ---@field associated_plot plot_entryst[]
 ---@field flag integer
 
@@ -965,7 +1001,7 @@ df.main_designation_type = {
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
----@field agreement any # agreementst
+---@field agreement pointer agreementst
 ---@field master_hfid integer
 ---@field organization_name string
 
@@ -981,9 +1017,9 @@ df.main_designation_type = {
 ---@field name string
 ---@field description string
 ---@field dependencies string[]
----@field dependency_type integer[] # 0 exact, 1 before, 2 after
+---@field dependency_type integer[] 0 exact, 1 before, 2 after
 ---@field conflicts string[]
----@field flags any
+---@field flags bitfield
 ---@field src_dir string
 ---@field steam_file_id integer
 ---@field steam_title string
@@ -1001,5 +1037,5 @@ df.main_designation_type = {
 ---@field items any[]
 
 ---@class ui_unit_view_mode
----@field value any
+---@field value enum
 

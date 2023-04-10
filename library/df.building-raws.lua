@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@class building_def
@@ -12,7 +13,7 @@
 ---@field tile_block any[]
 ---@field graphics_normal any[]
 ---@field graphics_overlay any[]
----@field build_key any
+---@field build_key number
 ---@field needs_magma boolean
 ---@field build_items building_def_item[]
 ---@field dim_x integer

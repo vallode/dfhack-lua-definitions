@@ -1,6 +1,8 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum job_type_class
+---not in DF
 df.job_type_class = {
   Misc = 0,
   Digging = 1,
@@ -281,1256 +283,248 @@ df.job_type = {
 ---@field is_designation bool
 ---@field tag_op_history string
 
----@type table<job_type, job_type_attr>
-df.job_type.attrs = {
-  CarveFortification = {
-    caption = "Carve Fortification",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  SmoothWall = {
-    caption = "Smooth Wall",
-    type = "Building",
-    is_designation = "true",
-  },
-  SmoothFloor = {
-    caption = "Smooth Floor",
-    type = "Building",
-    is_designation = "true",
-  },
-  DetailWall = {
-    caption = "Detail Wall",
-    type = "Building",
-    is_designation = "true",
-  },
-  DetailFloor = {
-    caption = "Detail Floor",
-    type = "Building",
-    is_designation = "true",
-  },
-  Dig = {
-    caption = "Dig",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  CarveUpwardStaircase = {
-    caption = "Carve Upward Staircase",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  CarveDownwardStaircase = {
-    caption = "Carve Downward Staircase",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  CarveUpDownStaircase = {
-    caption = "Carve Up/Down Staircase",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  CarveRamp = {
-    caption = "Carve Ramp",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  DigChannel = {
-    caption = "Dig Channel",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  FellTree = {
-    caption = "Fell Tree",
-    type = "Gathering",
-    skill = "WOODCUTTING",
-    item = "WOOD",
-    is_designation = "true",
-  },
-  GatherPlants = {
-    caption = "Gather Plants",
-    type = "Gathering",
-    skill = "HERBALISM",
-    item = "PLANT",
-    is_designation = "true",
-  },
-  RemoveConstruction = {
-    caption = "Remove Construction",
-    type = "Building",
-    labor = "REMOVE_CONSTRUCTION",
-    is_designation = "true",
-  },
-  CollectWebs = {
-    caption = "Collect Webs",
-    type = "Gathering",
-    skill = "WEAVING",
-    item = "THREAD",
-    material = "silk",
-  },
-  BringItemToDepot = {
-    caption = "Bring Item to Depot",
-    type = "Hauling",
-    labor = "HAUL_TRADE",
-  },
-  BringItemToShop = {
-    caption = "Bring Item to Shop",
-    type = "Hauling",
-    labor = "HAUL_ITEM",
-  },
-  Eat = {
-    caption = "Eat",
-    type = "LifeSupport",
-  },
-  GetProvisions = {
-    caption = "Get Provisions",
-    type = "LifeSupport",
-  },
-  Drink = {
-    caption = "Drink",
-    type = "LifeSupport",
-  },
-  Drink2 = {
-    caption = "Drink",
-    type = "LifeSupport",
-  },
-  FillWaterskin = {
-    caption = "Fill Waterskin",
-    type = "LifeSupport",
-  },
-  FillWaterskin2 = {
-    caption = "Fill Waterskin",
-    type = "LifeSupport",
-  },
-  Sleep = {
-    caption = "Sleep",
-    type = "LifeSupport",
-  },
-  CollectSand = {
-    caption = "Collect Sand",
-    type = "Gathering",
-    labor = "HAUL_ITEM",
-    item = "POWDER_MISC",
-    material = "sand",
-  },
-  Fish = {
-    caption = "Fish",
-    type = "Gathering",
-    skill = "FISH",
-    item = "FISH_RAW",
-  },
-  Hunt = {
-    caption = "Hunt",
-    type = "Gathering",
-    skill = "SNEAK",
-    item = "CORPSE",
-  },
-  HuntVermin = {
-    caption = "Hunt for Small Creature",
-    type = "Gathering",
-    skill = "TRAPPING",
-    item = "REMAINS",
-  },
-  Kidnap = {
-    caption = "Kidnap",
-    type = "Crime",
-  },
-  BeatCriminal = {
-    caption = "Beat Criminal",
-    type = "LawEnforcement",
-  },
-  StartingFistFight = {
-    caption = "Starting Fist Fight",
-    type = "Crime",
-  },
-  CollectTaxes = {
-    caption = "Collect Taxes",
-    type = "LawEnforcement",
-  },
-  GuardTaxCollector = {
-    caption = "Guard Tax Collector",
-    type = "LawEnforcement",
-  },
-  CatchLiveLandAnimal = {
-    caption = "Catch Live Land Animal",
-    type = "Gathering",
-    skill = "TRAPPING",
-    item = "VERMIN",
-  },
-  CatchLiveFish = {
-    caption = "Catch Live Fish",
-    type = "Gathering",
-    skill = "FISH",
-    item = "VERMIN",
-  },
-  ReturnKill = {
-    caption = "Return Kill",
-    type = "Hauling",
-  },
-  StoreOwnedItem = {
-    caption = "Store Owned Item",
-    type = "TidyUp",
-  },
-  PlaceItemInTomb = {
-    caption = "Place Item in Tomb",
-    type = "Hauling",
-    labor = "HAUL_BODY",
-  },
-  StoreItemInStockpile = {
-    caption = "Store Item in Stockpile",
-    type = "Hauling",
-  },
-  StoreItemInBag = {
-    caption = "Store Item in Bag",
-    type = "Hauling",
-  },
-  StoreItemInLocation = {
-    caption = "Store Item In Location",
-    type = "Hauling",
-  },
-  StoreWeapon = {
-    caption = "Store Weapon",
-    type = "Hauling",
-  },
-  StoreArmor = {
-    caption = "Store Armor",
-    type = "Hauling",
-  },
-  StoreItemInBarrel = {
-    caption = "Store Item in Barrel",
-    type = "Hauling",
-  },
-  StoreItemInBin = {
-    caption = "Store Item in Bin",
-    type = "Hauling",
-  },
-  SeekArtifact = {
-    caption = "Seek Artifact",
-  },
-  SeekInfant = {
-    caption = "Seek Infant",
-    type = "LifeSupport",
-  },
-  GoShopping = {
-    caption = "Go Shopping",
-    type = "LifeSupport",
-  },
-  GoShopping2 = {
-    caption = "Go Shopping",
-    type = "LifeSupport",
-  },
-  Clean = {
-    caption = "Clean",
-    type = "TidyUp",
-  },
-  Rest = {
-    caption = "Rest",
-    type = "Leisure",
-  },
-  PickupEquipment = {
-    caption = "Pickup Equipment",
-    type = "LifeSupport",
-  },
-  DumpItem = {
-    caption = "Dump Item",
-    type = "Hauling",
-    labor = "HAUL_REFUSE",
-  },
-  StrangeMoodCrafter = {
-    caption = "Strange Mood (Crafter)",
-    type = "StrangeMood",
-  },
-  StrangeMoodJeweller = {
-    caption = "Strange Mood (Jeweller)",
-    type = "StrangeMood",
-  },
-  StrangeMoodForge = {
-    caption = "Strange Mood (Forge)",
-    type = "StrangeMood",
-  },
-  StrangeMoodMagmaForge = {
-    caption = "Strange Mood (Magma Forge)",
-    type = "StrangeMood",
-  },
-  StrangeMoodBrooding = {
-    caption = "Strange Mood (Brooding)",
-    type = "StrangeMood",
-  },
-  StrangeMoodFell = {
-    caption = "Strange Mood (Fell)",
-    type = "StrangeMood",
-  },
-  StrangeMoodCarpenter = {
-    caption = "Strange Mood (Carpenter)",
-    type = "StrangeMood",
-  },
-  StrangeMoodMason = {
-    caption = "Strange Mood (Mason)",
-    type = "StrangeMood",
-  },
-  StrangeMoodBowyer = {
-    caption = "Strange Mood (Bowyer)",
-    type = "StrangeMood",
-  },
-  StrangeMoodTanner = {
-    caption = "Strange Mood (Leather)",
-    type = "StrangeMood",
-  },
-  StrangeMoodWeaver = {
-    caption = "Strange Mood (Clothier)",
-    type = "StrangeMood",
-  },
-  StrangeMoodGlassmaker = {
-    caption = "Strange Mood (Glassmaker)",
-    type = "StrangeMood",
-  },
-  StrangeMoodMechanics = {
-    caption = "Strange Mood (Mechanics)",
-    type = "StrangeMood",
-  },
-  ConstructBuilding = {
-    caption = "Construct Building",
-    type = "Building",
-  },
-  ConstructDoor = {
-    caption = "Construct Door",
-    type = "Manufacture",
-    item = "DOOR",
-  },
-  ConstructFloodgate = {
-    caption = "Construct Floodgate",
-    type = "Manufacture",
-    item = "FLOODGATE",
-  },
-  ConstructBed = {
-    caption = "Construct Bed",
-    type = "Manufacture",
-    item = "BED",
-  },
-  ConstructThrone = {
-    caption = "Construct Throne",
-    type = "Manufacture",
-    item = "CHAIR",
-  },
-  ConstructCoffin = {
-    caption = "Construct Coffin",
-    type = "Manufacture",
-    item = "COFFIN",
-  },
-  ConstructTable = {
-    caption = "Construct Table",
-    type = "Manufacture",
-    item = "TABLE",
-  },
-  ConstructChest = {
-    caption = "Construct Chest",
-    type = "Manufacture",
-    item = "BOX",
-  },
-  ConstructBag = {
-    caption = "Construct Bag",
-    type = "Manufacture",
-    item = "BAG",
-  },
-  ConstructBin = {
-    caption = "Construct Bin",
-    type = "Manufacture",
-    item = "BIN",
-  },
-  ConstructArmorStand = {
-    caption = "Construct Armor Stand",
-    type = "Manufacture",
-    item = "ARMORSTAND",
-  },
-  ConstructWeaponRack = {
-    caption = "Construct Weapon Rack",
-    type = "Manufacture",
-    item = "WEAPONRACK",
-  },
-  ConstructCabinet = {
-    caption = "Construct Cabinet",
-    type = "Manufacture",
-    item = "CABINET",
-  },
-  ConstructStatue = {
-    caption = "Construct Statue",
-    type = "Manufacture",
-    item = "STATUE",
-  },
-  ConstructBlocks = {
-    caption = "Construct Blocks",
-    type = "Manufacture",
-    item = "BLOCKS",
-  },
-  MakeRawGlass = {
-    caption = "Make Raw Glass",
-    type = "Manufacture",
-    item = "ROUGH",
-    skill = "GLASSMAKER",
-  },
-  MakeCrafts = {
-    caption = "Make Crafts",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    possible_item = "FIGURINE",
-    possible_item = "AMULET",
-    possible_item = "RING",
-    possible_item = "EARRING",
-    possible_item = "CROWN",
-    possible_item = "BRACELET",
-    possible_item = "SCEPTER",
-  },
-  MintCoins = {
-    caption = "Mint Coins",
-    type = "Manufacture",
-    item = "COIN",
-    skill_metal = "METALCRAFT",
-  },
-  CutGems = {
-    caption = "Cut Gems",
-    type = "Manufacture",
-    item = "SMALLGEM",
-    skill = "CUTGEM",
-  },
-  CutGlass = {
-    caption = "Cut Glass",
-    type = "Manufacture",
-    item = "SMALLGEM",
-    skill = "CUTGEM",
-  },
-  EncrustWithGems = {
-    caption = "Encrust With Gems",
-    type = "Improvement",
-    skill = "ENCRUSTGEM",
-  },
-  EncrustWithGlass = {
-    caption = "Encrust With Glass",
-    type = "Improvement",
-    skill = "ENCRUSTGEM",
-  },
-  DestroyBuilding = {
-    caption = "Destroy Building",
-    type = "Building",
-  },
-  SmeltOre = {
-    caption = "Smelt Ore",
-    type = "Manufacture",
-    item = "BAR",
-    skill = "SMELT",
-  },
-  MeltMetalObject = {
-    caption = "Melt a Metal Object",
-    type = "Manufacture",
-    item = "BAR",
-    material = "metal",
-    skill = "SMELT",
-  },
-  ExtractMetalStrands = {
-    caption = "Extract Metal Strands",
-    type = "Manufacture",
-    item = "THREAD",
-    skill = "EXTRACT_STRAND",
-  },
-  PlantSeeds = {
-    caption = "Plant Seeds",
-    type = "Gathering",
-    skill = "PLANT",
-  },
-  HarvestPlants = {
-    caption = "Harvest Plants",
-    type = "Gathering",
-    skill = "PLANT",
-    item = "PLANT",
-  },
-  TrainHuntingAnimal = {
-    caption = "Train Hunting Animal",
-    type = "UnitHandling",
-    skill = "ANIMALTRAIN",
-  },
-  TrainWarAnimal = {
-    caption = "Train War Animal",
-    type = "UnitHandling",
-    skill = "ANIMALTRAIN",
-  },
-  MakeWeapon = {
-    caption = "Forge Weapon",
-    type = "Manufacture",
-    item = "WEAPON",
-    skill_metal = "FORGE_WEAPON",
-  },
-  ForgeAnvil = {
-    caption = "Forge Anvil",
-    type = "Manufacture",
-    item = "ANVIL",
-  },
-  ConstructCatapultParts = {
-    caption = "Construct Catapult Parts",
-    type = "Manufacture",
-    item = "CATAPULTPARTS",
-    skill = "SIEGECRAFT",
-  },
-  ConstructBallistaParts = {
-    caption = "Construct Ballista Parts",
-    type = "Manufacture",
-    item = "BALLISTAPARTS",
-    skill = "SIEGECRAFT",
-  },
-  MakeArmor = {
-    caption = "Make Armor",
-    type = "Manufacture",
-    item = "ARMOR",
-    skill_metal = "FORGE_ARMOR",
-  },
-  MakeHelm = {
-    caption = "Forge Helm",
-    type = "Manufacture",
-    item = "HELM",
-    skill_metal = "FORGE_ARMOR",
-  },
-  MakePants = {
-    caption = "Make Pants",
-    type = "Manufacture",
-    item = "PANTS",
-    skill_metal = "FORGE_ARMOR",
-  },
-  StudWith = {
-    caption = "Stud With",
-    type = "Improvement",
-  },
-  ButcherAnimal = {
-    caption = "Butcher an Animal",
-    type = "Manufacture",
-    skill = "BUTCHER",
-    possible_item = "MEAT",
-    possible_item = "CORPSEPIECE",
-    possible_item = "GLOB",
-  },
-  PrepareRawFish = {
-    caption = "Prepare a Raw Fish",
-    type = "Manufacture",
-    item = "FISH",
-    skill = "PROCESSFISH",
-  },
-  MillPlants = {
-    caption = "Mill Plants",
-    type = "Manufacture",
-    item = "POWDER_MISC",
-    skill = "MILLING",
-  },
-  BaitTrap = {
-    caption = "Bait Trap",
-    type = "Hauling",
-    skill = "TRAPPING",
-  },
-  MilkCreature = {
-    caption = "Milk Creature",
-    type = "Gathering",
-    item = "LIQUID_MISC",
-    material = "milk",
-    skill = "MILK",
-  },
-  MakeCheese = {
-    caption = "Make Cheese",
-    type = "Manufacture",
-    item = "CHEESE",
-    skill = "CHEESEMAKING",
-  },
-  ProcessPlants = {
-    caption = "Process Plants",
-    type = "Manufacture",
-    item = "THREAD",
-    skill = "PROCESSPLANTS",
-  },
-  PolishStones = {
-    caption = "Cut Gems",
-    type = "Manufacture",
-    item = "SMALLGEM",
-    skill = "CUTGEM",
-  },
-  ProcessPlantsVial = {
-    caption = "Process Plants (Vial)",
-    type = "Manufacture",
-    item = "LIQUID_MISC",
-    skill = "PROCESSPLANTS",
-  },
-  ProcessPlantsBarrel = {
-    caption = "Process Plants (Barrel)",
-    type = "Manufacture",
-    item = "LIQUID_MISC",
-    skill = "PROCESSPLANTS",
-  },
-  PrepareMeal = {
-    caption = "Prepare Meal",
-    type = "Manufacture",
-    item = "FOOD",
-    skill = "COOK",
-  },
-  WeaveCloth = {
-    caption = "Weave Cloth",
-    type = "Manufacture",
-    item = "CLOTH",
-    skill = "WEAVING",
-  },
-  MakeGloves = {
-    caption = "Make Gloves",
-    type = "Manufacture",
-    item = "GLOVES",
-    skill_metal = "FORGE_ARMOR",
-  },
-  MakeShoes = {
-    caption = "Make Shoes",
-    type = "Manufacture",
-    item = "SHOES",
-    skill_metal = "FORGE_ARMOR",
-  },
-  MakeShield = {
-    caption = "Make Shield",
-    item = "SHIELD",
-    skill_metal = "FORGE_ARMOR",
-  },
-  MakeCage = {
-    caption = "Make Cage",
-    type = "Manufacture",
-    item = "CAGE",
-  },
-  MakeChain = {
-    caption = "Make Chain",
-    type = "Manufacture",
-    item = "CHAIN",
-    skill_metal = "METALCRAFT",
-  },
-  MakeFlask = {
-    caption = "Make Flask",
-    type = "Manufacture",
-    item = "FLASK",
-    skill_metal = "METALCRAFT",
-  },
-  MakeGoblet = {
-    caption = "Make Goblet",
-    type = "Manufacture",
-    item = "GOBLET",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-  },
-  MakeToy = {
-    caption = "Make Toy",
-    type = "Manufacture",
-    item = "TOY",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-  },
-  MakeAnimalTrap = {
-    caption = "Make Animal Trap",
-    type = "Manufacture",
-    item = "ANIMALTRAP",
-    skill = "TRAPPING",
-  },
-  MakeBarrel = {
-    caption = "Make Barrel",
-    type = "Manufacture",
-    item = "BARREL",
-  },
-  MakeBucket = {
-    caption = "Make Bucket",
-    type = "Manufacture",
-    item = "BUCKET",
-  },
-  MakeWindow = {
-    caption = "Make Window",
-    type = "Manufacture",
-    item = "WINDOW",
-  },
-  MakeTotem = {
-    caption = "Make Totem",
-    type = "Manufacture",
-    skill = "BONECARVE",
-    item = "TOTEM",
-  },
-  MakeAmmo = {
-    caption = "Make Ammo",
-    type = "Manufacture",
-    item = "AMMO",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "FORGE_WEAPON",
-  },
-  DecorateWith = {
-    caption = "Decorate With",
-    type = "Improvement",
-  },
-  MakeBackpack = {
-    caption = "Make Backpack",
-    type = "Manufacture",
-    item = "BACKPACK",
-  },
-  MakeQuiver = {
-    caption = "Make Quiver",
-    type = "Manufacture",
-    item = "QUIVER",
-  },
-  MakeBallistaArrowHead = {
-    caption = "Make Ballista Arrow Head",
-    type = "Manufacture",
-    item = "BALLISTAARROWHEAD",
-    skill_metal = "FORGE_WEAPON",
-  },
-  AssembleSiegeAmmo = {
-    caption = "Assemble Siege Ammo",
-    type = "Manufacture",
-    item = "SIEGEAMMO",
-    skill = "SIEGECRAFT",
-  },
-  LoadCatapult = {
-    caption = "Load Catapult",
-    type = "SiegeWeapon",
-    skill = "SIEGEOPERATE",
-  },
-  LoadBallista = {
-    caption = "Load Ballista",
-    type = "SiegeWeapon",
-    skill = "SIEGEOPERATE",
-  },
-  FireCatapult = {
-    caption = "Fire Catapult",
-    type = "SiegeWeapon",
-    skill = "SIEGEOPERATE",
-  },
-  FireBallista = {
-    caption = "Fire Ballista",
-    type = "SiegeWeapon",
-    skill = "SIEGEOPERATE",
-  },
-  ConstructMechanisms = {
-    caption = "Construct Mechanisms",
-    type = "Manufacture",
-    item = "TRAPPARTS",
-    skill = "MECHANICS",
-  },
-  MakeTrapComponent = {
-    caption = "MakeTrapComponent",
-    type = "Manufacture",
-    item = "TRAPCOMP",
-    skill_metal = "FORGE_WEAPON",
-  },
-  LoadCageTrap = {
-    caption = "Load Cage Trap",
-    type = "Hauling",
-    skill = "MECHANICS",
-  },
-  LoadStoneTrap = {
-    caption = "Load Stone Trap",
-    type = "Hauling",
-    skill = "MECHANICS",
-  },
-  LoadWeaponTrap = {
-    caption = "Load Weapon Trap",
-    type = "Hauling",
-    skill = "MECHANICS",
-  },
-  CleanTrap = {
-    caption = "Clean Trap",
-    type = "TidyUp",
-    skill = "MECHANICS",
-  },
-  EncrustWithStones = {
-    caption = "Encrust With Stones",
-    type = "Improvement",
-    skill = "ENCRUSTGEM",
-  },
-  LinkBuildingToTrigger = {
-    caption = "Link a Building to Trigger",
-    type = "Building",
-    skill = "MECHANICS",
-  },
-  PullLever = {
-    caption = "Pull the Lever",
-    labor = "PULL_LEVER",
-  },
-  _unk_0x94 = {
-    caption = "Unknown Job 0x94",
-  },
-  ExtractFromPlants = {
-    caption = "Extract from Plants",
-    type = "Manufacture",
-    item = "LIQUID_MISC",
-    skill = "HERBALISM",
-  },
-  ExtractFromRawFish = {
-    caption = "Extract from Raw Fish",
-    type = "Manufacture",
-    item = "LIQUID_MISC",
-    skill = "DISSECT_FISH",
-  },
-  ExtractFromLandAnimal = {
-    caption = "Extract from Land Animal",
-    type = "Manufacture",
-    item = "LIQUID_MISC",
-    skill = "DISSECT_VERMIN",
-  },
-  TameVermin = {
-    caption = "Tame Small Animal",
-    type = "UnitHandling",
-    skill = "ANIMALTRAIN",
-  },
-  TameAnimal = {
-    caption = "Tame ?something?",
-    type = "UnitHandling",
-    skill = "ANIMALTRAIN",
-  },
-  ChainAnimal = {
-    caption = "Chain Animal",
-    type = "UnitHandling",
-  },
-  UnchainAnimal = {
-    caption = "Unchain Animal",
-    type = "UnitHandling",
-  },
-  UnchainPet = {
-    caption = "Unchain Pet",
-    type = "UnitHandling",
-  },
-  ReleaseLargeCreature = {
-    caption = "Release Large Creature",
-    type = "UnitHandling",
-  },
-  ReleasePet = {
-    caption = "Release Pet",
-    type = "UnitHandling",
-  },
-  ReleaseSmallCreature = {
-    caption = "Release Small Creature",
-    type = "UnitHandling",
-  },
-  HandleSmallCreature = {
-    caption = "Handle Small Creature",
-    type = "UnitHandling",
-  },
-  HandleLargeCreature = {
-    caption = "Handle Large Creature",
-    type = "UnitHandling",
-  },
-  CageLargeCreature = {
-    caption = "Cage Large Creature",
-    type = "UnitHandling",
-  },
-  CageSmallCreature = {
-    caption = "Cage Small Creature",
-    type = "UnitHandling",
-  },
-  RecoverWounded = {
-    caption = "Recover Wounded",
-    type = "Hauling",
-    labor = "RECOVER_WOUNDED",
-    tag_op_history = "bed_id",
-  },
-  DiagnosePatient = {
-    caption = "Diagnose Patient",
-    type = "Medicine",
-    skill = "DIAGNOSE",
-  },
-  ImmobilizeBreak = {
-    caption = "Immobilize Break",
-    type = "Medicine",
-    skill = "SET_BONE",
-  },
-  DressWound = {
-    caption = "Dress Wound",
-    type = "Medicine",
-    skill = "DRESS_WOUNDS",
-    tag_op_history = "bandage",
-  },
-  CleanPatient = {
-    caption = "Clean Patient",
-    type = "Medicine",
-    labor = "CLEAN",
-  },
-  Surgery = {
-    caption = "Surgery",
-    type = "Medicine",
-    skill = "SURGERY",
-    tag_op_history = "surgery",
-  },
-  Suture = {
-    caption = "Suture",
-    type = "Medicine",
-    skill = "SUTURE",
-    tag_op_history = "bandage",
-  },
-  SetBone = {
-    caption = "Set Bone",
-    type = "Medicine",
-    skill = "SET_BONE",
-  },
-  PlaceInTraction = {
-    caption = "Place In Traction",
-    type = "Medicine",
-    skill = "SET_BONE",
-  },
-  DrainAquarium = {
-    caption = "Drain Aquarium",
-    type = "Hauling",
-    labor = "HAUL_WATER",
-  },
-  FillAquarium = {
-    caption = "Fill Aquarium",
-    type = "Hauling",
-    labor = "HAUL_WATER",
-  },
-  FillPond = {
-    caption = "Fill Pond",
-    type = "Hauling",
-    labor = "HAUL_WATER",
-  },
-  GiveWater = {
-    caption = "Give Water",
-    type = "LifeSupport",
-    labor = "FEED_WATER_CIVILIANS",
-  },
-  GiveFood = {
-    caption = "Give Food",
-    type = "LifeSupport",
-    labor = "FEED_WATER_CIVILIANS",
-  },
-  GiveWater2 = {
-    caption = "Give Water",
-    type = "LifeSupport",
-    labor = "FEED_WATER_CIVILIANS",
-  },
-  GiveFood2 = {
-    caption = "Give Food",
-    type = "LifeSupport",
-    labor = "FEED_WATER_CIVILIANS",
-  },
-  RecoverPet = {
-    caption = "Recover Pet",
-    type = "UnitHandling",
-  },
-  PitLargeAnimal = {
-    caption = "Pit/Pond Large Animal",
-    type = "UnitHandling",
-  },
-  PitSmallAnimal = {
-    caption = "Pit/Pond Small Animal",
-    type = "UnitHandling",
-  },
-  SlaughterAnimal = {
-    caption = "Slaughter Animal",
-    type = "Gathering",
-    skill = "BUTCHER",
-    possible_item = "MEAT",
-    possible_item = "CORPSEPIECE",
-    possible_item = "GLOB",
-  },
-  MakeCharcoal = {
-    caption = "Make Charcoal",
-    type = "Manufacture",
-    item = "BAR",
-    material = "COAL",
-    skill = "WOOD_BURNING",
-  },
-  MakeAsh = {
-    caption = "Make Ash",
-    type = "Manufacture",
-    item = "BAR",
-    material = "ASH",
-    skill = "WOOD_BURNING",
-  },
-  MakeLye = {
-    caption = "Make Lye",
-    type = "Manufacture",
-    item = "LIQUID_MISC",
-    material = "LYE",
-    skill = "LYE_MAKING",
-  },
-  MakePotashFromLye = {
-    caption = "Make Potash From Lye",
-    type = "Manufacture",
-    item = "BAR",
-    material = "POTASH",
-    skill = "POTASH_MAKING",
-  },
-  FertilizeField = {
-    caption = "Fertilize Field",
-  },
-  MakePotashFromAsh = {
-    caption = "Make Potash From Ash",
-    type = "Manufacture",
-    item = "BAR",
-    material = "POTASH",
-    skill = "POTASH_MAKING",
-  },
-  DyeThread = {
-    caption = "Dye Thread",
-    type = "Improvement",
-    skill = "DYER",
-  },
-  DyeCloth = {
-    caption = "Dye Cloth",
-    type = "Improvement",
-    skill = "DYER",
-  },
-  SewImage = {
-    caption = "Sew Image",
-    type = "Improvement",
-  },
-  MakePipeSection = {
-    caption = "Make Pipe Section",
-    type = "Manufacture",
-    item = "PIPE_SECTION",
-  },
-  OperatePump = {
-    caption = "Operate Pump",
-    skill = "OPERATE_PUMP",
-  },
-  ManageWorkOrders = {
-    caption = "Manage Work Orders",
-    skill = "ORGANIZATION",
-  },
-  UpdateStockpileRecords = {
-    caption = "Update Stockpile Records",
-    skill = "RECORD_KEEPING",
-  },
-  TradeAtDepot = {
-    caption = "Trade at Depot",
-    skill = "APPRAISAL",
-  },
-  ConstructHatchCover = {
-    caption = "Construct Hatch Cover",
-    type = "Manufacture",
-    item = "HATCH_COVER",
-  },
-  ConstructGrate = {
-    caption = "Construct Grate",
-    type = "Manufacture",
-    item = "GRATE",
-  },
-  RemoveStairs = {
-    caption = "Remove Stairs/Ramps",
-    type = "Digging",
-    skill = "MINING",
-    is_designation = "true",
-  },
-  ConstructQuern = {
-    caption = "Construct Quern",
-    type = "Manufacture",
-    item = "QUERN",
-  },
-  ConstructMillstone = {
-    caption = "Construct Millstone",
-    type = "Manufacture",
-    item = "MILLSTONE",
-  },
-  ConstructSplint = {
-    caption = "Construct Splint",
-    type = "Manufacture",
-    item = "SPLINT",
-  },
-  ConstructCrutch = {
-    caption = "Construct Crutch",
-    type = "Manufacture",
-    item = "CRUTCH",
-  },
-  ConstructTractionBench = {
-    caption = "Construct Traction Bench",
-    type = "Manufacture",
-    item = "TRACTION_BENCH",
-    skill = "MECHANICS",
-  },
-  CleanSelf = {
-    caption = "Clean Self",
-    type = "TidyUp",
-  },
-  BringCrutch = {
-    caption = "Bring Crutch",
-    type = "Medicine",
-    tag_op_history = "crutch",
-  },
-  ApplyCast = {
-    caption = "Apply Cast",
-    type = "Medicine",
-    skill = "SET_BONE",
-  },
-  CustomReaction = {
-    caption = "Custom Reaction",
-  },
-  ConstructSlab = {
-    caption = "Construct Slab",
-    type = "Manufacture",
-    item = "SLAB",
-  },
-  EngraveSlab = {
-    caption = "Engrave Memorial Slab",
-    type = "Improvement",
-  },
-  ShearCreature = {
-    caption = "Shear Creature",
-    type = "Gathering",
-    item = "CORPSEPIECE",
-    material = "yarn",
-    skill = "SHEARING",
-  },
-  SpinThread = {
-    caption = "Spin Thread",
-  },
-  PenLargeAnimal = {
-    caption = "Pen/Pasture Large Animal",
-    type = "UnitHandling",
-  },
-  PenSmallAnimal = {
-    caption = "Pen/Pasture Small Animal",
-    type = "UnitHandling",
-  },
-  MakeTool = {
-    caption = "Make Tool",
-    type = "Manufacture",
-    item = "TOOL",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-  },
-  CollectClay = {
-    caption = "Collect Clay",
-    type = "Gathering",
-    item = "BOULDER",
-    material = "clay",
-  },
-  InstallColonyInHive = {
-    caption = "Install Colony In Hive",
-  },
-  CollectHiveProducts = {
-    caption = "Collect Hive Products",
-    type = "Gathering",
-  },
-  CauseTrouble = {
-    caption = "Cause Trouble",
-    type = "Crime",
-  },
-  DrinkBlood = {
-    caption = "No Job",
-    type = "Crime",
-  },
-  ReportCrime = {
-    caption = "Report Crime",
-    type = "LawEnforcement",
-  },
-  ExecuteCriminal = {
-    caption = "Execute Criminal",
-    type = "LawEnforcement",
-  },
-  TrainAnimal = {
-    caption = "Train Animal",
-    type = "UnitHandling",
-    skill = "ANIMALTRAIN",
-  },
-  CarveTrack = {
-    caption = "Carve Track",
-    type = "Building",
-  },
-  PushTrackVehicle = {
-    caption = "Push Track Vehicle",
-    type = "Hauling",
-    labor = "HANDLE_VEHICLES",
-  },
-  PlaceTrackVehicle = {
-    caption = "Place Track Vehicle",
-    type = "Hauling",
-    labor = "HANDLE_VEHICLES",
-  },
-  StoreItemInVehicle = {
-    caption = "Store Item in Vehicle",
-    type = "Hauling",
-  },
-  GeldAnimal = {
-    caption = "Geld ?something?",
-    type = "UnitHandling",
-    skill = "GELD",
-  },
-  MakeFigurine = {
-    caption = "Make Figurine",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "FIGURINE",
-  },
-  MakeAmulet = {
-    caption = "Make Amulet",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "AMULET",
-  },
-  MakeScepter = {
-    caption = "Make Scepter",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "SCEPTER",
-  },
-  MakeCrown = {
-    caption = "Make Crown",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "CROWN",
-  },
-  MakeRing = {
-    caption = "Make Ring",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "RING",
-  },
-  MakeEarring = {
-    caption = "Make Earring",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "EARRING",
-  },
-  MakeBracelet = {
-    caption = "Make Bracelet",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "BRACELET",
-  },
-  MakeGem = {
-    caption = "Make Large Gem",
-    type = "Manufacture",
-    skill_wood = "WOODCRAFT",
-    skill_stone = "STONECRAFT",
-    skill_metal = "METALCRAFT",
-    item = "GEM",
-  },
-  PutItemOnDisplay = {
-    caption = "Put Item on Display",
-    type = "Hauling",
-  },
-  unk_fake_no_job = {
-    caption = "No Job",
-    type = "Crime",
-  },
-  InterrogateSubject = {
-    caption = "Interrogate Subject",
-    type = "LawEnforcement",
-  },
-  unk_fake_no_activity = {
-    caption = "No Activity",
-    type = "Crime",
-  },
-}
+---@class job_type_attrs
+---@field CarveFortification job_type_attr
+---@field SmoothWall job_type_attr
+---@field SmoothFloor job_type_attr
+---@field DetailWall job_type_attr
+---@field DetailFloor job_type_attr
+---@field Dig job_type_attr
+---@field CarveUpwardStaircase job_type_attr
+---@field CarveDownwardStaircase job_type_attr
+---@field CarveUpDownStaircase job_type_attr
+---@field CarveRamp job_type_attr
+---@field DigChannel job_type_attr
+---@field FellTree job_type_attr
+---@field GatherPlants job_type_attr
+---@field RemoveConstruction job_type_attr
+---@field CollectWebs job_type_attr
+---@field BringItemToDepot job_type_attr
+---@field BringItemToShop job_type_attr
+---@field Eat job_type_attr
+---@field GetProvisions job_type_attr
+---@field Drink job_type_attr
+---@field Drink2 job_type_attr
+---@field FillWaterskin job_type_attr
+---@field FillWaterskin2 job_type_attr
+---@field Sleep job_type_attr
+---@field CollectSand job_type_attr
+---@field Fish job_type_attr
+---@field Hunt job_type_attr
+---@field HuntVermin job_type_attr
+---@field Kidnap job_type_attr
+---@field BeatCriminal job_type_attr
+---@field StartingFistFight job_type_attr
+---@field CollectTaxes job_type_attr
+---@field GuardTaxCollector job_type_attr
+---@field CatchLiveLandAnimal job_type_attr
+---@field CatchLiveFish job_type_attr
+---@field ReturnKill job_type_attr
+---@field StoreOwnedItem job_type_attr
+---@field PlaceItemInTomb job_type_attr
+---@field StoreItemInStockpile job_type_attr
+---@field StoreItemInBag job_type_attr
+---@field StoreItemInLocation job_type_attr
+---@field StoreWeapon job_type_attr
+---@field StoreArmor job_type_attr
+---@field StoreItemInBarrel job_type_attr
+---@field StoreItemInBin job_type_attr
+---@field SeekArtifact job_type_attr
+---@field SeekInfant job_type_attr
+---@field GoShopping job_type_attr
+---@field GoShopping2 job_type_attr
+---@field Clean job_type_attr
+---@field Rest job_type_attr
+---@field PickupEquipment job_type_attr
+---@field DumpItem job_type_attr
+---@field StrangeMoodCrafter job_type_attr
+---@field StrangeMoodJeweller job_type_attr
+---@field StrangeMoodForge job_type_attr
+---@field StrangeMoodMagmaForge job_type_attr
+---@field StrangeMoodBrooding job_type_attr
+---@field StrangeMoodFell job_type_attr
+---@field StrangeMoodCarpenter job_type_attr
+---@field StrangeMoodMason job_type_attr
+---@field StrangeMoodBowyer job_type_attr
+---@field StrangeMoodTanner job_type_attr
+---@field StrangeMoodWeaver job_type_attr
+---@field StrangeMoodGlassmaker job_type_attr
+---@field StrangeMoodMechanics job_type_attr
+---@field ConstructBuilding job_type_attr
+---@field ConstructDoor job_type_attr
+---@field ConstructFloodgate job_type_attr
+---@field ConstructBed job_type_attr
+---@field ConstructThrone job_type_attr
+---@field ConstructCoffin job_type_attr
+---@field ConstructTable job_type_attr
+---@field ConstructChest job_type_attr
+---@field ConstructBag job_type_attr
+---@field ConstructBin job_type_attr
+---@field ConstructArmorStand job_type_attr
+---@field ConstructWeaponRack job_type_attr
+---@field ConstructCabinet job_type_attr
+---@field ConstructStatue job_type_attr
+---@field ConstructBlocks job_type_attr
+---@field MakeRawGlass job_type_attr
+---@field MakeCrafts job_type_attr
+---@field MintCoins job_type_attr
+---@field CutGems job_type_attr
+---@field CutGlass job_type_attr
+---@field EncrustWithGems job_type_attr
+---@field EncrustWithGlass job_type_attr
+---@field DestroyBuilding job_type_attr
+---@field SmeltOre job_type_attr
+---@field MeltMetalObject job_type_attr
+---@field ExtractMetalStrands job_type_attr
+---@field PlantSeeds job_type_attr
+---@field HarvestPlants job_type_attr
+---@field TrainHuntingAnimal job_type_attr
+---@field TrainWarAnimal job_type_attr
+---@field MakeWeapon job_type_attr
+---@field ForgeAnvil job_type_attr
+---@field ConstructCatapultParts job_type_attr
+---@field ConstructBallistaParts job_type_attr
+---@field MakeArmor job_type_attr
+---@field MakeHelm job_type_attr
+---@field MakePants job_type_attr
+---@field StudWith job_type_attr
+---@field ButcherAnimal job_type_attr
+---@field PrepareRawFish job_type_attr
+---@field MillPlants job_type_attr
+---@field BaitTrap job_type_attr
+---@field MilkCreature job_type_attr
+---@field MakeCheese job_type_attr
+---@field ProcessPlants job_type_attr
+---@field PolishStones job_type_attr
+---@field ProcessPlantsVial job_type_attr
+---@field ProcessPlantsBarrel job_type_attr
+---@field PrepareMeal job_type_attr
+---@field WeaveCloth job_type_attr
+---@field MakeGloves job_type_attr
+---@field MakeShoes job_type_attr
+---@field MakeShield job_type_attr
+---@field MakeCage job_type_attr
+---@field MakeChain job_type_attr
+---@field MakeFlask job_type_attr
+---@field MakeGoblet job_type_attr
+---@field MakeToy job_type_attr
+---@field MakeAnimalTrap job_type_attr
+---@field MakeBarrel job_type_attr
+---@field MakeBucket job_type_attr
+---@field MakeWindow job_type_attr
+---@field MakeTotem job_type_attr
+---@field MakeAmmo job_type_attr
+---@field DecorateWith job_type_attr
+---@field MakeBackpack job_type_attr
+---@field MakeQuiver job_type_attr
+---@field MakeBallistaArrowHead job_type_attr
+---@field AssembleSiegeAmmo job_type_attr
+---@field LoadCatapult job_type_attr
+---@field LoadBallista job_type_attr
+---@field FireCatapult job_type_attr
+---@field FireBallista job_type_attr
+---@field ConstructMechanisms job_type_attr
+---@field MakeTrapComponent job_type_attr
+---@field LoadCageTrap job_type_attr
+---@field LoadStoneTrap job_type_attr
+---@field LoadWeaponTrap job_type_attr
+---@field CleanTrap job_type_attr
+---@field EncrustWithStones job_type_attr
+---@field LinkBuildingToTrigger job_type_attr
+---@field PullLever job_type_attr
+---@field _unk_0x94 job_type_attr
+---@field ExtractFromPlants job_type_attr
+---@field ExtractFromRawFish job_type_attr
+---@field ExtractFromLandAnimal job_type_attr
+---@field TameVermin job_type_attr
+---@field TameAnimal job_type_attr
+---@field ChainAnimal job_type_attr
+---@field UnchainAnimal job_type_attr
+---@field UnchainPet job_type_attr
+---@field ReleaseLargeCreature job_type_attr
+---@field ReleasePet job_type_attr
+---@field ReleaseSmallCreature job_type_attr
+---@field HandleSmallCreature job_type_attr
+---@field HandleLargeCreature job_type_attr
+---@field CageLargeCreature job_type_attr
+---@field CageSmallCreature job_type_attr
+---@field RecoverWounded job_type_attr
+---@field DiagnosePatient job_type_attr
+---@field ImmobilizeBreak job_type_attr
+---@field DressWound job_type_attr
+---@field CleanPatient job_type_attr
+---@field Surgery job_type_attr
+---@field Suture job_type_attr
+---@field SetBone job_type_attr
+---@field PlaceInTraction job_type_attr
+---@field DrainAquarium job_type_attr
+---@field FillAquarium job_type_attr
+---@field FillPond job_type_attr
+---@field GiveWater job_type_attr
+---@field GiveFood job_type_attr
+---@field GiveWater2 job_type_attr
+---@field GiveFood2 job_type_attr
+---@field RecoverPet job_type_attr
+---@field PitLargeAnimal job_type_attr
+---@field PitSmallAnimal job_type_attr
+---@field SlaughterAnimal job_type_attr
+---@field MakeCharcoal job_type_attr
+---@field MakeAsh job_type_attr
+---@field MakeLye job_type_attr
+---@field MakePotashFromLye job_type_attr
+---@field FertilizeField job_type_attr
+---@field MakePotashFromAsh job_type_attr
+---@field DyeThread job_type_attr
+---@field DyeCloth job_type_attr
+---@field SewImage job_type_attr
+---@field MakePipeSection job_type_attr
+---@field OperatePump job_type_attr
+---@field ManageWorkOrders job_type_attr
+---@field UpdateStockpileRecords job_type_attr
+---@field TradeAtDepot job_type_attr
+---@field ConstructHatchCover job_type_attr
+---@field ConstructGrate job_type_attr
+---@field RemoveStairs job_type_attr
+---@field ConstructQuern job_type_attr
+---@field ConstructMillstone job_type_attr
+---@field ConstructSplint job_type_attr
+---@field ConstructCrutch job_type_attr
+---@field ConstructTractionBench job_type_attr
+---@field CleanSelf job_type_attr
+---@field BringCrutch job_type_attr
+---@field ApplyCast job_type_attr
+---@field CustomReaction job_type_attr
+---@field ConstructSlab job_type_attr
+---@field EngraveSlab job_type_attr
+---@field ShearCreature job_type_attr
+---@field SpinThread job_type_attr
+---@field PenLargeAnimal job_type_attr
+---@field PenSmallAnimal job_type_attr
+---@field MakeTool job_type_attr
+---@field CollectClay job_type_attr
+---@field InstallColonyInHive job_type_attr
+---@field CollectHiveProducts job_type_attr
+---@field CauseTrouble job_type_attr
+---@field DrinkBlood job_type_attr
+---@field ReportCrime job_type_attr
+---@field ExecuteCriminal job_type_attr
+---@field TrainAnimal job_type_attr
+---@field CarveTrack job_type_attr
+---@field PushTrackVehicle job_type_attr
+---@field PlaceTrackVehicle job_type_attr
+---@field StoreItemInVehicle job_type_attr
+---@field GeldAnimal job_type_attr
+---@field MakeFigurine job_type_attr
+---@field MakeAmulet job_type_attr
+---@field MakeScepter job_type_attr
+---@field MakeCrown job_type_attr
+---@field MakeRing job_type_attr
+---@field MakeEarring job_type_attr
+---@field MakeBracelet job_type_attr
+---@field MakeGem job_type_attr
+---@field PutItemOnDisplay job_type_attr
+---@field unk_fake_no_job job_type_attr
+---@field InterrogateSubject job_type_attr
+---@field unk_fake_no_activity job_type_attr
+df.job_type.attrs = {}
 

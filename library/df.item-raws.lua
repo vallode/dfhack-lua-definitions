@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum item_type
@@ -104,410 +105,100 @@ df.item_type = {
 ---@field is_caste_mat bool
 ---@field classname string
 
----@type table<item_type, item_type_attr>
-df.item_type.attrs = {
-  BAR = {
-    caption = "bars",
-    classname = "item_barst",
-  },
-  SMALLGEM = {
-    caption = "cut gem",
-    classname = "item_smallgemst",
-  },
-  BLOCKS = {
-    caption = "blocks",
-    classname = "item_blocksst",
-  },
-  ROUGH = {
-    caption = "rough gem",
-    classname = "item_roughst",
-  },
-  BOULDER = {
-    caption = "boulder",
-    classname = "item_boulderst",
-  },
-  WOOD = {
-    caption = "logs",
-    classname = "item_woodst",
-  },
-  DOOR = {
-    caption = "door",
-    classname = "item_doorst",
-  },
-  FLOODGATE = {
-    caption = "floodgate",
-    classname = "item_floodgatest",
-  },
-  BED = {
-    caption = "bed",
-    classname = "item_bedst",
-  },
-  CHAIR = {
-    caption = "chair",
-    classname = "item_chairst",
-  },
-  CHAIN = {
-    caption = "chain",
-    classname = "item_chainst",
-  },
-  FLASK = {
-    caption = "flask",
-    classname = "item_flaskst",
-  },
-  GOBLET = {
-    caption = "goblet",
-    classname = "item_gobletst",
-  },
-  INSTRUMENT = {
-    caption = "instrument",
-    is_rawable = "true",
-    classname = "item_instrumentst",
-  },
-  TOY = {
-    caption = "toy",
-    is_rawable = "true",
-    classname = "item_toyst",
-  },
-  WINDOW = {
-    caption = "window",
-    classname = "item_windowst",
-  },
-  CAGE = {
-    caption = "cage",
-    classname = "item_cagest",
-  },
-  BARREL = {
-    caption = "barrel",
-    classname = "item_barrelst",
-  },
-  BUCKET = {
-    caption = "bucket",
-    classname = "item_bucketst",
-  },
-  ANIMALTRAP = {
-    caption = "animal trap",
-    classname = "item_animaltrapst",
-  },
-  TABLE = {
-    caption = "table",
-    classname = "item_tablest",
-  },
-  COFFIN = {
-    caption = "coffin",
-    classname = "item_coffinst",
-  },
-  STATUE = {
-    caption = "statue",
-    classname = "item_statuest",
-  },
-  CORPSE = {
-    caption = "corpse",
-    classname = "item_corpsest",
-  },
-  WEAPON = {
-    caption = "weapon",
-    is_rawable = "true",
-    classname = "item_weaponst",
-  },
-  ARMOR = {
-    caption = "armor",
-    is_rawable = "true",
-    classname = "item_armorst",
-  },
-  SHOES = {
-    caption = "footwear",
-    is_rawable = "true",
-    classname = "item_shoesst",
-  },
-  SHIELD = {
-    caption = "shield",
-    is_rawable = "true",
-    classname = "item_shieldst",
-  },
-  HELM = {
-    caption = "headwear",
-    is_rawable = "true",
-    classname = "item_helmst",
-  },
-  GLOVES = {
-    caption = "handwear",
-    is_rawable = "true",
-    classname = "item_glovesst",
-  },
-  BOX = {
-    caption = "box",
-    classname = "item_boxst",
-  },
-  BAG = {
-    caption = "bag",
-    classname = "item_bagst",
-  },
-  BIN = {
-    caption = "bin",
-    classname = "item_binst",
-  },
-  ARMORSTAND = {
-    caption = "armor stand",
-    classname = "item_armorstandst",
-  },
-  WEAPONRACK = {
-    caption = "weapon rack",
-    classname = "item_weaponrackst",
-  },
-  CABINET = {
-    caption = "cabinet",
-    classname = "item_cabinetst",
-  },
-  FIGURINE = {
-    caption = "figurine",
-    classname = "item_figurinest",
-  },
-  AMULET = {
-    caption = "amulet",
-    classname = "item_amuletst",
-  },
-  SCEPTER = {
-    caption = "scepter",
-    classname = "item_scepterst",
-  },
-  AMMO = {
-    caption = "ammo",
-    is_rawable = "true",
-    is_stackable = "true",
-    classname = "item_ammost",
-  },
-  CROWN = {
-    caption = "crown",
-    classname = "item_crownst",
-  },
-  RING = {
-    caption = "ring",
-    classname = "item_ringst",
-  },
-  EARRING = {
-    caption = "earring",
-    classname = "item_earringst",
-  },
-  BRACELET = {
-    caption = "bracelet",
-    classname = "item_braceletst",
-  },
-  GEM = {
-    caption = "large gem",
-    classname = "item_gemst",
-  },
-  ANVIL = {
-    caption = "anvil",
-    classname = "item_anvilst",
-  },
-  CORPSEPIECE = {
-    caption = "body part",
-    classname = "item_corpsepiecest",
-  },
-  REMAINS = {
-    caption = "remains",
-    is_caste_mat = "true",
-    is_stackable = "true",
-    classname = "item_remainsst",
-  },
-  MEAT = {
-    caption = "meat",
-    is_stackable = "true",
-    classname = "item_meatst",
-  },
-  FISH = {
-    caption = "fish",
-    is_caste_mat = "true",
-    is_stackable = "true",
-    classname = "item_fishst",
-  },
-  FISH_RAW = {
-    caption = "raw fish",
-    is_caste_mat = "true",
-    is_stackable = "true",
-    classname = "item_fish_rawst",
-  },
-  VERMIN = {
-    caption = "vermin",
-    is_caste_mat = "true",
-    classname = "item_verminst",
-  },
-  PET = {
-    caption = "tame vermin",
-    is_caste_mat = "true",
-    classname = "item_petst",
-  },
-  SEEDS = {
-    caption = "seeds",
-    classname = "item_seedsst",
-  },
-  PLANT = {
-    caption = "plant",
-    is_stackable = "true",
-    classname = "item_plantst",
-  },
-  SKIN_TANNED = {
-    caption = "leather",
-    classname = "item_skin_tannedst",
-  },
-  PLANT_GROWTH = {
-    caption = "plant growth",
-    is_stackable = "true",
-    classname = "item_plant_growthst",
-  },
-  THREAD = {
-    caption = "thread",
-    classname = "item_threadst",
-  },
-  CLOTH = {
-    caption = "cloth",
-    classname = "item_clothst",
-  },
-  TOTEM = {
-    caption = "totem",
-    classname = "item_totemst",
-  },
-  PANTS = {
-    caption = "legwear",
-    is_rawable = "true",
-    classname = "item_pantsst",
-  },
-  BACKPACK = {
-    caption = "backpack",
-    classname = "item_backpackst",
-  },
-  QUIVER = {
-    caption = "quiver",
-    classname = "item_quiverst",
-  },
-  CATAPULTPARTS = {
-    caption = "catapult part",
-    classname = "item_catapultpartsst",
-  },
-  BALLISTAPARTS = {
-    caption = "ballista part",
-    classname = "item_ballistapartsst",
-  },
-  SIEGEAMMO = {
-    caption = "siege ammo",
-    is_rawable = "true",
-    classname = "item_siegeammost",
-  },
-  BALLISTAARROWHEAD = {
-    caption = "ballista arrow head",
-    classname = "item_ballistaarrowheadst",
-  },
-  TRAPPARTS = {
-    caption = "mechanism",
-    classname = "item_trappartsst",
-  },
-  TRAPCOMP = {
-    caption = "trap component",
-    is_rawable = "true",
-    classname = "item_trapcompst",
-  },
-  DRINK = {
-    caption = "drink",
-    is_stackable = "true",
-    classname = "item_drinkst",
-  },
-  POWDER_MISC = {
-    caption = "powder",
-    is_stackable = "true",
-    classname = "item_powder_miscst",
-  },
-  CHEESE = {
-    caption = "cheese",
-    is_stackable = "true",
-    classname = "item_cheesest",
-  },
-  FOOD = {
-    caption = "prepared meal",
-    is_stackable = "true",
-    classname = "item_foodst",
-  },
-  LIQUID_MISC = {
-    caption = "liquid",
-    is_stackable = "true",
-    classname = "item_liquid_miscst",
-  },
-  COIN = {
-    caption = "coin",
-    is_stackable = "true",
-    classname = "item_coinst",
-  },
-  GLOB = {
-    caption = "glob",
-    classname = "item_globst",
-  },
-  ROCK = {
-    caption = "small rock",
-    classname = "item_rockst",
-  },
-  PIPE_SECTION = {
-    caption = "pipe section",
-    classname = "item_pipe_sectionst",
-  },
-  HATCH_COVER = {
-    caption = "hatch cover",
-    classname = "item_hatch_coverst",
-  },
-  GRATE = {
-    caption = "grate",
-    classname = "item_gratest",
-  },
-  QUERN = {
-    caption = "quern",
-    classname = "item_quernst",
-  },
-  MILLSTONE = {
-    caption = "millstone",
-    classname = "item_millstonest",
-  },
-  SPLINT = {
-    caption = "splint",
-    classname = "item_splintst",
-  },
-  CRUTCH = {
-    caption = "crutch",
-    classname = "item_crutchst",
-  },
-  TRACTION_BENCH = {
-    caption = "traction bench",
-    classname = "item_traction_benchst",
-  },
-  ORTHOPEDIC_CAST = {
-    caption = "orthopedic cast",
-    classname = "item_orthopedic_castst",
-  },
-  TOOL = {
-    caption = "tool",
-    is_rawable = "true",
-    classname = "item_toolst",
-  },
-  SLAB = {
-    caption = "slab",
-    classname = "item_slabst",
-  },
-  EGG = {
-    caption = "egg",
-    is_caste_mat = "true",
-    is_stackable = "true",
-    classname = "item_eggst",
-  },
-  BOOK = {
-    caption = "book",
-    classname = "item_bookst",
-  },
-  SHEET = {
-    caption = "sheet",
-    classname = "item_sheetst",
-  },
-  BRANCH = {
-    caption = "branch",
-    classname = "item_branchst",
-  },
-}
+---@class item_type_attrs
+---@field BAR item_type_attr
+---@field SMALLGEM item_type_attr
+---@field BLOCKS item_type_attr
+---@field ROUGH item_type_attr
+---@field BOULDER item_type_attr
+---@field WOOD item_type_attr
+---@field DOOR item_type_attr
+---@field FLOODGATE item_type_attr
+---@field BED item_type_attr
+---@field CHAIR item_type_attr
+---@field CHAIN item_type_attr
+---@field FLASK item_type_attr
+---@field GOBLET item_type_attr
+---@field INSTRUMENT item_type_attr
+---@field TOY item_type_attr
+---@field WINDOW item_type_attr
+---@field CAGE item_type_attr
+---@field BARREL item_type_attr
+---@field BUCKET item_type_attr
+---@field ANIMALTRAP item_type_attr
+---@field TABLE item_type_attr
+---@field COFFIN item_type_attr
+---@field STATUE item_type_attr
+---@field CORPSE item_type_attr
+---@field WEAPON item_type_attr
+---@field ARMOR item_type_attr
+---@field SHOES item_type_attr
+---@field SHIELD item_type_attr
+---@field HELM item_type_attr
+---@field GLOVES item_type_attr
+---@field BOX item_type_attr
+---@field BAG item_type_attr
+---@field BIN item_type_attr
+---@field ARMORSTAND item_type_attr
+---@field WEAPONRACK item_type_attr
+---@field CABINET item_type_attr
+---@field FIGURINE item_type_attr
+---@field AMULET item_type_attr
+---@field SCEPTER item_type_attr
+---@field AMMO item_type_attr
+---@field CROWN item_type_attr
+---@field RING item_type_attr
+---@field EARRING item_type_attr
+---@field BRACELET item_type_attr
+---@field GEM item_type_attr
+---@field ANVIL item_type_attr
+---@field CORPSEPIECE item_type_attr
+---@field REMAINS item_type_attr
+---@field MEAT item_type_attr
+---@field FISH item_type_attr
+---@field FISH_RAW item_type_attr
+---@field VERMIN item_type_attr
+---@field PET item_type_attr
+---@field SEEDS item_type_attr
+---@field PLANT item_type_attr
+---@field SKIN_TANNED item_type_attr
+---@field PLANT_GROWTH item_type_attr
+---@field THREAD item_type_attr
+---@field CLOTH item_type_attr
+---@field TOTEM item_type_attr
+---@field PANTS item_type_attr
+---@field BACKPACK item_type_attr
+---@field QUIVER item_type_attr
+---@field CATAPULTPARTS item_type_attr
+---@field BALLISTAPARTS item_type_attr
+---@field SIEGEAMMO item_type_attr
+---@field BALLISTAARROWHEAD item_type_attr
+---@field TRAPPARTS item_type_attr
+---@field TRAPCOMP item_type_attr
+---@field DRINK item_type_attr
+---@field POWDER_MISC item_type_attr
+---@field CHEESE item_type_attr
+---@field FOOD item_type_attr
+---@field LIQUID_MISC item_type_attr
+---@field COIN item_type_attr
+---@field GLOB item_type_attr
+---@field ROCK item_type_attr
+---@field PIPE_SECTION item_type_attr
+---@field HATCH_COVER item_type_attr
+---@field GRATE item_type_attr
+---@field QUERN item_type_attr
+---@field MILLSTONE item_type_attr
+---@field SPLINT item_type_attr
+---@field CRUTCH item_type_attr
+---@field TRACTION_BENCH item_type_attr
+---@field ORTHOPEDIC_CAST item_type_attr
+---@field TOOL item_type_attr
+---@field SLAB item_type_attr
+---@field EGG item_type_attr
+---@field BOOK item_type_attr
+---@field SHEET item_type_attr
+---@field BRANCH item_type_attr
+df.item_type.attrs = {}
 
 ---@class weapon_attack
 ---@field edged boolean
@@ -519,7 +210,7 @@ df.item_type.attrs = {
 ---@field noun string
 ---@field prepare integer
 ---@field recover integer
----@field flags any
+---@field flags bitfield
 
 ---@enum itemdef_flags
 df.itemdef_flags = {
@@ -529,7 +220,7 @@ df.itemdef_flags = {
 ---@class itemdef
 ---@field id string
 ---@field subtype integer
----@field base_flags any
+---@field base_flags df-flagarray
 ---@field source_hfid integer
 ---@field source_enid integer
 ---@field raw_strings string[]
@@ -544,8 +235,8 @@ df.ammo_flags = {
 ---@field name_plural string
 ---@field adjective string
 ---@field ammo_class string
----@field flags any
----@field size integer # divided by 10
+---@field flags df-flagarray
+---@field size integer divided by 10
 ---@field value integer
 ---@field attacks weapon_attack[]
 
@@ -565,7 +256,7 @@ df.armor_general_flags = {
 }
 
 ---@class armor_properties
----@field flags any
+---@field flags df-flagarray
 ---@field layer integer
 ---@field layer_size integer
 ---@field layer_permit integer
@@ -588,7 +279,7 @@ df.armor_flags = {
 ---@field lbstep integer
 ---@field material_size integer
 ---@field props armor_properties
----@field flags any
+---@field flags df-flagarray
 
 ---@class itemdef_foodst
 ---@field name string
@@ -606,7 +297,7 @@ df.gloves_flags = {
 ---@field value integer
 ---@field armorlevel integer
 ---@field upstep integer
----@field flags any
+---@field flags df-flagarray
 ---@field material_size integer
 ---@field props armor_properties
 
@@ -621,7 +312,7 @@ df.helm_flags = {
 ---@field adjective string
 ---@field value integer
 ---@field armorlevel integer
----@field flags any
+---@field flags df-flagarray
 ---@field material_size integer
 ---@field props armor_properties
 
@@ -641,7 +332,7 @@ df.instrument_flags = {
 ---@class itemdef_instrumentst
 ---@field name string
 ---@field name_plural string
----@field flags any
+---@field flags df-flagarray
 ---@field music_skill job_skill
 ---@field size integer
 ---@field value integer
@@ -792,7 +483,7 @@ df.timbre_type = {
 ---@field index integer
 ---@field name string
 ---@field name_plural string
----@field flags any
+---@field flags bitfield
 
 ---@class instrument_register
 ---@field pitch_range_min integer
@@ -812,7 +503,7 @@ df.pants_flags = {
 ---@field adjective string
 ---@field value integer
 ---@field armorlevel integer
----@field flags any
+---@field flags df-flagarray
 ---@field material_size integer
 ---@field lbstep integer
 ---@field props armor_properties
@@ -839,7 +530,7 @@ df.shoes_flags = {
 ---@field value integer
 ---@field armorlevel integer
 ---@field upstep integer
----@field flags any
+---@field flags df-flagarray
 ---@field material_size integer
 ---@field props armor_properties
 
@@ -906,7 +597,7 @@ df.tool_uses = {
 ---@class itemdef_toolst
 ---@field name string
 ---@field name_plural string
----@field flags any
+---@field flags df-flagarray
 ---@field value integer
 ---@field tile integer
 ---@field tool_use any[]
@@ -935,7 +626,7 @@ df.toy_flags = {
 ---@class itemdef_toyst
 ---@field name string
 ---@field name_plural string
----@field flags any
+---@field flags df-flagarray
 
 ---@enum trapcomp_flags
 df.trapcomp_flags = {
@@ -954,7 +645,7 @@ df.trapcomp_flags = {
 ---@field value integer
 ---@field hits integer
 ---@field material_size integer
----@field flags any
+---@field flags df-flagarray
 ---@field attacks weapon_attack[]
 
 ---@enum weapon_flags
@@ -976,7 +667,7 @@ df.weapon_flags = {
 ---@field two_handed integer
 ---@field minimum_size integer
 ---@field material_size integer
----@field flags any
+---@field flags df-flagarray
 ---@field attacks weapon_attack[]
 ---@field shoot_force integer
 ---@field shoot_maxvel integer

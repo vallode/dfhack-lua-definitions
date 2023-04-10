@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum profession
@@ -148,768 +149,143 @@ df.profession = {
 ---@field color int8_t
 ---@field moodable bool
 
----@type table<profession, profession_attr>
-df.profession.attrs = {
-  MINER = {
-    caption = "Miner",
-    color = "7",
-    moodable = "true",
-  },
-  WOODWORKER = {
-    caption = "Woodworker",
-    color = "14",
-    moodable = "true",
-  },
-  CARPENTER = {
-    caption = "Carpenter",
-    parent = "WOODWORKER",
-    color = "14",
-    moodable = "true",
-  },
-  BOWYER = {
-    caption = "Bowyer",
-    parent = "WOODWORKER",
-    color = "14",
-    moodable = "true",
-  },
-  WOODCUTTER = {
-    caption = "Woodcutter",
-    parent = "WOODWORKER",
-    color = "14",
-    moodable = "true",
-  },
-  STONEWORKER = {
-    caption = "Stoneworker",
-    color = "15",
-    moodable = "true",
-  },
-  STONECUTTER = {
-    caption = "Stonecutter",
-    parent = "STONEWORKER",
-    color = "15",
-    moodable = "true",
-  },
-  STONE_CARVER = {
-    caption = "Stone Carver",
-    parent = "STONEWORKER",
-    color = "15",
-    moodable = "true",
-  },
-  ENGRAVER = {
-    caption = "Engraver",
-    parent = "STONEWORKER",
-    color = "15",
-    moodable = "true",
-  },
-  MASON = {
-    caption = "Mason",
-    parent = "STONEWORKER",
-    color = "15",
-    moodable = "true",
-  },
-  RANGER = {
-    caption = "Ranger",
-    color = "2",
-    moodable = "true",
-  },
-  ANIMAL_CARETAKER = {
-    caption = "Animal Caretaker",
-    parent = "RANGER",
-    color = "2",
-    moodable = "true",
-  },
-  ANIMAL_TRAINER = {
-    caption = "Animal Trainer",
-    parent = "RANGER",
-    color = "2",
-    moodable = "true",
-  },
-  HUNTER = {
-    caption = "Hunter",
-    parent = "RANGER",
-    color = "2",
-    moodable = "true",
-  },
-  TRAPPER = {
-    caption = "Trapper",
-    parent = "RANGER",
-    color = "2",
-    moodable = "true",
-  },
-  ANIMAL_DISSECTOR = {
-    caption = "Animal Dissector",
-    parent = "RANGER",
-    color = "2",
-    moodable = "true",
-  },
-  METALSMITH = {
-    caption = "Metalsmith",
-    color = "8",
-    moodable = "true",
-  },
-  FURNACE_OPERATOR = {
-    caption = "Furnace Operator",
-    parent = "METALSMITH",
-    color = "8",
-    moodable = "true",
-  },
-  WEAPONSMITH = {
-    caption = "Weaponsmith",
-    parent = "METALSMITH",
-    color = "8",
-    moodable = "true",
-  },
-  ARMORER = {
-    caption = "Armorer",
-    parent = "METALSMITH",
-    color = "8",
-    moodable = "true",
-  },
-  BLACKSMITH = {
-    caption = "Blacksmith",
-    parent = "METALSMITH",
-    color = "8",
-    moodable = "true",
-  },
-  METALCRAFTER = {
-    caption = "Metalcrafter",
-    parent = "METALSMITH",
-    color = "8",
-    moodable = "true",
-  },
-  JEWELER = {
-    caption = "Jeweler",
-    color = "10",
-    moodable = "true",
-  },
-  GEM_CUTTER = {
-    caption = "Gem Cutter",
-    parent = "JEWELER",
-    color = "10",
-    moodable = "true",
-  },
-  GEM_SETTER = {
-    caption = "Gem Setter",
-    parent = "JEWELER",
-    color = "10",
-    moodable = "true",
-  },
-  CRAFTSMAN = {
-    caption = "Craftsman",
-    color = "9",
-    moodable = "true",
-  },
-  WOODCRAFTER = {
-    caption = "Woodcrafter",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  STONECRAFTER = {
-    caption = "Stonecrafter",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  LEATHERWORKER = {
-    caption = "Leatherworker",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  BONE_CARVER = {
-    caption = "Bone Carver",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  WEAVER = {
-    caption = "Weaver",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  CLOTHIER = {
-    caption = "Clothier",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  GLASSMAKER = {
-    caption = "Glassmaker",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  POTTER = {
-    caption = "Potter",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  GLAZER = {
-    caption = "Glazer",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  WAX_WORKER = {
-    caption = "Wax Worker",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  STRAND_EXTRACTOR = {
-    caption = "Strand Extractor",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  FISHERY_WORKER = {
-    caption = "Fishery Worker",
-    color = "1",
-    moodable = "true",
-  },
-  FISHERMAN = {
-    caption = "Fisherman",
-    parent = "FISHERY_WORKER",
-    color = "1",
-    moodable = "true",
-  },
-  FISH_DISSECTOR = {
-    caption = "Fish Dissector",
-    parent = "FISHERY_WORKER",
-    color = "1",
-    moodable = "true",
-  },
-  FISH_CLEANER = {
-    caption = "Fish Cleaner",
-    parent = "FISHERY_WORKER",
-    color = "1",
-    moodable = "true",
-  },
-  FARMER = {
-    caption = "Farmer",
-    color = "6",
-    moodable = "true",
-  },
-  CHEESE_MAKER = {
-    caption = "Cheese Maker",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  MILKER = {
-    caption = "Milker",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  COOK = {
-    caption = "Cook",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  THRESHER = {
-    caption = "Thresher",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  MILLER = {
-    caption = "Miller",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  BUTCHER = {
-    caption = "Butcher",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  TANNER = {
-    caption = "Tanner",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  DYER = {
-    caption = "Dyer",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  PLANTER = {
-    caption = "Planter",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  HERBALIST = {
-    caption = "Herbalist",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  BREWER = {
-    caption = "Brewer",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  SOAP_MAKER = {
-    caption = "Soap Maker",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  POTASH_MAKER = {
-    caption = "Potash Maker",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  LYE_MAKER = {
-    caption = "Lye Maker",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  WOOD_BURNER = {
-    caption = "Wood Burner",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  SHEARER = {
-    caption = "Shearer",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  SPINNER = {
-    caption = "Spinner",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  PRESSER = {
-    caption = "Presser",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  BEEKEEPER = {
-    caption = "Bee Keeper",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  ENGINEER = {
-    caption = "Engineer",
-    color = "12",
-    moodable = "true",
-  },
-  MECHANIC = {
-    caption = "Mechanic",
-    parent = "ENGINEER",
-    color = "12",
-    moodable = "true",
-  },
-  SIEGE_ENGINEER = {
-    caption = "Siege Engineer",
-    parent = "ENGINEER",
-    color = "12",
-    moodable = "true",
-  },
-  SIEGE_OPERATOR = {
-    caption = "Siege Operator",
-    parent = "ENGINEER",
-    color = "12",
-    moodable = "true",
-  },
-  PUMP_OPERATOR = {
-    caption = "Pump Operator",
-    parent = "ENGINEER",
-    color = "12",
-    moodable = "true",
-  },
-  CLERK = {
-    caption = "Clerk",
-    color = "5",
-    moodable = "true",
-  },
-  ADMINISTRATOR = {
-    caption = "Administrator",
-    color = "5",
-    moodable = "true",
-  },
-  TRADER = {
-    caption = "Trader",
-    color = "5",
-    moodable = "true",
-  },
-  DOCTOR = {
-    caption = "Doctor",
-    color = "5",
-    moodable = "true",
-  },
-  DIAGNOSER = {
-    caption = "Diagnoser",
-    parent = "DOCTOR",
-    color = "5",
-    moodable = "true",
-  },
-  BONE_SETTER = {
-    caption = "Bone Setter",
-    parent = "DOCTOR",
-    color = "5",
-    moodable = "true",
-  },
-  SUTURER = {
-    caption = "Suturer",
-    parent = "DOCTOR",
-    color = "5",
-    moodable = "true",
-  },
-  SURGEON = {
-    caption = "Surgeon",
-    parent = "DOCTOR",
-    color = "5",
-    moodable = "true",
-  },
-  MERCHANT = {
-    caption = "Merchant",
-    color = "7",
-  },
-  HAMMERMAN = {
-    caption = "Hammerman",
-    military = "true",
-    color = "5",
-  },
-  MASTER_HAMMERMAN = {
-    caption = "Hammer Lord",
-    military = "true",
-    parent = "HAMMERMAN",
-    color = "13",
-  },
-  SPEARMAN = {
-    caption = "Spearman",
-    military = "true",
-    color = "6",
-  },
-  MASTER_SPEARMAN = {
-    caption = "Spearmaster",
-    military = "true",
-    parent = "SPEARMAN",
-    color = "14",
-  },
-  CROSSBOWMAN = {
-    caption = "Crossbowman",
-    military = "true",
-    color = "2",
-  },
-  MASTER_CROSSBOWMAN = {
-    caption = "Elite Crossbowman",
-    military = "true",
-    parent = "CROSSBOWMAN",
-    color = "10",
-  },
-  WRESTLER = {
-    caption = "Wrestler",
-    military = "true",
-    color = "7",
-  },
-  MASTER_WRESTLER = {
-    caption = "Elite Wrestler",
-    military = "true",
-    parent = "WRESTLER",
-    color = "15",
-  },
-  AXEMAN = {
-    caption = "Axeman",
-    military = "true",
-    color = "1",
-  },
-  MASTER_AXEMAN = {
-    caption = "Axe Lord",
-    military = "true",
-    parent = "AXEMAN",
-    color = "9",
-  },
-  SWORDSMAN = {
-    caption = "Swordsman",
-    military = "true",
-    color = "3",
-  },
-  MASTER_SWORDSMAN = {
-    caption = "Swordsmaster",
-    military = "true",
-    parent = "SWORDSMAN",
-    color = "11",
-  },
-  MACEMAN = {
-    caption = "Maceman",
-    military = "true",
-    color = "4",
-  },
-  MASTER_MACEMAN = {
-    caption = "Mace Lord",
-    military = "true",
-    parent = "MACEMAN",
-    color = "12",
-  },
-  PIKEMAN = {
-    caption = "Pikeman",
-    military = "true",
-    color = "6",
-  },
-  MASTER_PIKEMAN = {
-    caption = "Pikemaster",
-    military = "true",
-    parent = "PIKEMAN",
-    color = "14",
-  },
-  BOWMAN = {
-    caption = "Bowman",
-    military = "true",
-    color = "2",
-  },
-  MASTER_BOWMAN = {
-    caption = "Elite Bowman",
-    military = "true",
-    parent = "BOWMAN",
-    color = "10",
-  },
-  BLOWGUNMAN = {
-    caption = "Blowgunner",
-    military = "true",
-    color = "8",
-  },
-  MASTER_BLOWGUNMAN = {
-    caption = "Master Blowgunner",
-    military = "true",
-    parent = "BLOWGUNMAN",
-    color = "8",
-  },
-  LASHER = {
-    caption = "Lasher",
-    military = "true",
-    color = "8",
-  },
-  MASTER_LASHER = {
-    caption = "Master Lasher",
-    military = "true",
-    parent = "LASHER",
-    color = "8",
-  },
-  RECRUIT = {
-    caption = "Recruit",
-    military = "true",
-    color = "8",
-    moodable = "true",
-  },
-  TRAINED_HUNTER = {
-    caption = "Hunting Animal",
-    color = "15",
-  },
-  TRAINED_WAR = {
-    caption = "War Animal",
-    color = "8",
-  },
-  MASTER_THIEF = {
-    caption = "Master Thief",
-    parent = "THIEF",
-    color = "8",
-  },
-  THIEF = {
-    caption = "Thief",
-    color = "8",
-  },
-  STANDARD = {
-    caption = "Peasant",
-    color = "-1",
-    moodable = "true",
-  },
-  CHILD = {
-    caption = "Child",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "4",
-    moodable = "true",
-  },
-  BABY = {
-    caption = "Baby",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "4",
-  },
-  DRUNK = {
-    caption = "Drunk",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "6",
-  },
-  MONSTER_SLAYER = {
-    caption = "Monster slayer",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "6",
-  },
-  SCOUT = {
-    caption = "Scout",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "6",
-  },
-  BEAST_HUNTER = {
-    caption = "Beast hunter",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "6",
-  },
-  SNATCHER = {
-    caption = "Snatcher",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "6",
-  },
-  MERCENARY = {
-    caption = "Mercenary",
-    can_assign_labor = "false",
-    parent = "STANDARD",
-    color = "6",
-  },
-  GELDER = {
-    caption = "Gelder",
-    parent = "FARMER",
-    color = "6",
-    moodable = "true",
-  },
-  PERFORMER = {
-    caption = "Performer",
-    color = "5",
-    moodable = "true",
-  },
-  POET = {
-    caption = "Poet",
-    parent = "PERFORMER",
-    color = "5",
-    moodable = "true",
-  },
-  BARD = {
-    caption = "Bard",
-    parent = "PERFORMER",
-    color = "5",
-    moodable = "true",
-  },
-  DANCER = {
-    caption = "Dancer",
-    parent = "PERFORMER",
-    color = "5",
-    moodable = "true",
-  },
-  SAGE = {
-    caption = "Sage",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  SCHOLAR = {
-    caption = "Scholar",
-    color = "5",
-    moodable = "true",
-  },
-  PHILOSOPHER = {
-    caption = "Philosopher",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  MATHEMATICIAN = {
-    caption = "Mathematician",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  HISTORIAN = {
-    caption = "Historian",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  ASTRONOMER = {
-    caption = "Astronomer",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  NATURALIST = {
-    caption = "Naturalist",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  CHEMIST = {
-    caption = "Chemist",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  GEOGRAPHER = {
-    caption = "Geographer",
-    parent = "SCHOLAR",
-    color = "5",
-    moodable = "true",
-  },
-  SCRIBE = {
-    caption = "Scribe",
-    color = "5",
-    moodable = "true",
-  },
-  PAPERMAKER = {
-    caption = "Papermaker",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  BOOKBINDER = {
-    caption = "Bookbinder",
-    parent = "CRAFTSMAN",
-    color = "9",
-    moodable = "true",
-  },
-  TAVERN_KEEPER = {
-    caption = "Tavern Keeper",
-    color = "5",
-  },
-  CRIMINAL = {
-    caption = "Criminal",
-    color = "8",
-  },
-  PEDDLER = {
-    caption = "Peddler",
-    color = "7",
-  },
-  PROPHET = {
-    caption = "Prophet",
-    color = "15",
-  },
-  PILGRIM = {
-    caption = "Pilgrim",
-    color = "15",
-  },
-  MONK = {
-    caption = "Monk",
-    color = "15",
-  },
-  MESSENGER = {
-    caption = "Messenger",
-    color = "5",
-  },
-}
+---@class profession_attrs
+---@field MINER profession_attr
+---@field WOODWORKER profession_attr
+---@field CARPENTER profession_attr
+---@field BOWYER profession_attr
+---@field WOODCUTTER profession_attr
+---@field STONEWORKER profession_attr
+---@field STONECUTTER profession_attr
+---@field STONE_CARVER profession_attr
+---@field ENGRAVER profession_attr
+---@field MASON profession_attr
+---@field RANGER profession_attr
+---@field ANIMAL_CARETAKER profession_attr
+---@field ANIMAL_TRAINER profession_attr
+---@field HUNTER profession_attr
+---@field TRAPPER profession_attr
+---@field ANIMAL_DISSECTOR profession_attr
+---@field METALSMITH profession_attr
+---@field FURNACE_OPERATOR profession_attr
+---@field WEAPONSMITH profession_attr
+---@field ARMORER profession_attr
+---@field BLACKSMITH profession_attr
+---@field METALCRAFTER profession_attr
+---@field JEWELER profession_attr
+---@field GEM_CUTTER profession_attr
+---@field GEM_SETTER profession_attr
+---@field CRAFTSMAN profession_attr
+---@field WOODCRAFTER profession_attr
+---@field STONECRAFTER profession_attr
+---@field LEATHERWORKER profession_attr
+---@field BONE_CARVER profession_attr
+---@field WEAVER profession_attr
+---@field CLOTHIER profession_attr
+---@field GLASSMAKER profession_attr
+---@field POTTER profession_attr
+---@field GLAZER profession_attr
+---@field WAX_WORKER profession_attr
+---@field STRAND_EXTRACTOR profession_attr
+---@field FISHERY_WORKER profession_attr
+---@field FISHERMAN profession_attr
+---@field FISH_DISSECTOR profession_attr
+---@field FISH_CLEANER profession_attr
+---@field FARMER profession_attr
+---@field CHEESE_MAKER profession_attr
+---@field MILKER profession_attr
+---@field COOK profession_attr
+---@field THRESHER profession_attr
+---@field MILLER profession_attr
+---@field BUTCHER profession_attr
+---@field TANNER profession_attr
+---@field DYER profession_attr
+---@field PLANTER profession_attr
+---@field HERBALIST profession_attr
+---@field BREWER profession_attr
+---@field SOAP_MAKER profession_attr
+---@field POTASH_MAKER profession_attr
+---@field LYE_MAKER profession_attr
+---@field WOOD_BURNER profession_attr
+---@field SHEARER profession_attr
+---@field SPINNER profession_attr
+---@field PRESSER profession_attr
+---@field BEEKEEPER profession_attr
+---@field ENGINEER profession_attr
+---@field MECHANIC profession_attr
+---@field SIEGE_ENGINEER profession_attr
+---@field SIEGE_OPERATOR profession_attr
+---@field PUMP_OPERATOR profession_attr
+---@field CLERK profession_attr
+---@field ADMINISTRATOR profession_attr
+---@field TRADER profession_attr
+---@field DOCTOR profession_attr
+---@field DIAGNOSER profession_attr
+---@field BONE_SETTER profession_attr
+---@field SUTURER profession_attr
+---@field SURGEON profession_attr
+---@field MERCHANT profession_attr
+---@field HAMMERMAN profession_attr
+---@field MASTER_HAMMERMAN profession_attr
+---@field SPEARMAN profession_attr
+---@field MASTER_SPEARMAN profession_attr
+---@field CROSSBOWMAN profession_attr
+---@field MASTER_CROSSBOWMAN profession_attr
+---@field WRESTLER profession_attr
+---@field MASTER_WRESTLER profession_attr
+---@field AXEMAN profession_attr
+---@field MASTER_AXEMAN profession_attr
+---@field SWORDSMAN profession_attr
+---@field MASTER_SWORDSMAN profession_attr
+---@field MACEMAN profession_attr
+---@field MASTER_MACEMAN profession_attr
+---@field PIKEMAN profession_attr
+---@field MASTER_PIKEMAN profession_attr
+---@field BOWMAN profession_attr
+---@field MASTER_BOWMAN profession_attr
+---@field BLOWGUNMAN profession_attr
+---@field MASTER_BLOWGUNMAN profession_attr
+---@field LASHER profession_attr
+---@field MASTER_LASHER profession_attr
+---@field RECRUIT profession_attr
+---@field TRAINED_HUNTER profession_attr
+---@field TRAINED_WAR profession_attr
+---@field MASTER_THIEF profession_attr
+---@field THIEF profession_attr
+---@field STANDARD profession_attr
+---@field CHILD profession_attr
+---@field BABY profession_attr
+---@field DRUNK profession_attr
+---@field MONSTER_SLAYER profession_attr
+---@field SCOUT profession_attr
+---@field BEAST_HUNTER profession_attr
+---@field SNATCHER profession_attr
+---@field MERCENARY profession_attr
+---@field GELDER profession_attr
+---@field PERFORMER profession_attr
+---@field POET profession_attr
+---@field BARD profession_attr
+---@field DANCER profession_attr
+---@field SAGE profession_attr
+---@field SCHOLAR profession_attr
+---@field PHILOSOPHER profession_attr
+---@field MATHEMATICIAN profession_attr
+---@field HISTORIAN profession_attr
+---@field ASTRONOMER profession_attr
+---@field NATURALIST profession_attr
+---@field CHEMIST profession_attr
+---@field GEOGRAPHER profession_attr
+---@field SCRIBE profession_attr
+---@field PAPERMAKER profession_attr
+---@field BOOKBINDER profession_attr
+---@field TAVERN_KEEPER profession_attr
+---@field CRIMINAL profession_attr
+---@field PEDDLER profession_attr
+---@field PROPHET profession_attr
+---@field PILGRIM profession_attr
+---@field MONK profession_attr
+---@field MESSENGER profession_attr
+df.profession.attrs = {}
 
 ---@enum unit_labor_category
 df.unit_labor_category = {
@@ -1031,342 +407,94 @@ df.unit_labor = {
 ---@field caption string
 ---@field category unit_labor_category
 
----@type table<unit_labor, unit_labor_attr>
-df.unit_labor.attrs = {
-  MINE = {
-    caption = "Mining",
-  },
-  HAUL_STONE = {
-    caption = "Stone Hauling",
-    category = "Hauling",
-  },
-  HAUL_WOOD = {
-    caption = "Wood Hauling",
-    category = "Hauling",
-  },
-  HAUL_BODY = {
-    caption = "Burial",
-    category = "Hauling",
-  },
-  HAUL_FOOD = {
-    caption = "Food Hauling",
-    category = "Hauling",
-  },
-  HAUL_REFUSE = {
-    caption = "Refuse Hauling",
-    category = "Hauling",
-  },
-  HAUL_ITEM = {
-    caption = "Item Hauling",
-    category = "Hauling",
-  },
-  HAUL_FURNITURE = {
-    caption = "Furniture Hauling",
-    category = "Hauling",
-  },
-  HAUL_ANIMALS = {
-    caption = "Animal Hauling",
-    category = "Hauling",
-  },
-  CLEAN = {
-    caption = "Cleaning",
-    category = "Other",
-  },
-  CUTWOOD = {
-    caption = "Wood Cutting",
-    category = "Woodworking",
-  },
-  CARPENTER = {
-    caption = "Carpentry",
-    category = "Woodworking",
-  },
-  STONECUTTER = {
-    caption = "Stone Cutting",
-    category = "Stoneworking",
-  },
-  STONE_CARVER = {
-    caption = "Stone Carving",
-    category = "Stoneworking",
-  },
-  ENGRAVER = {
-    caption = "Stone Engraving",
-    category = "Stoneworking",
-  },
-  MASON = {
-    caption = "Masonry",
-    category = "Stoneworking",
-  },
-  ANIMALTRAIN = {
-    caption = "Animal Training",
-    category = "Hunting",
-  },
-  ANIMALCARE = {
-    caption = "Animal Care",
-    category = "Hunting",
-  },
-  DIAGNOSE = {
-    caption = "Diagnosis",
-    category = "Healthcare",
-  },
-  SURGERY = {
-    caption = "Surgery",
-    category = "Healthcare",
-  },
-  BONE_SETTING = {
-    caption = "Setting Bones",
-    category = "Healthcare",
-  },
-  SUTURING = {
-    caption = "Suturing",
-    category = "Healthcare",
-  },
-  DRESSING_WOUNDS = {
-    caption = "Dressing Wounds",
-    category = "Healthcare",
-  },
-  FEED_WATER_CIVILIANS = {
-    caption = "Feed Patients/Prisoners",
-    category = "Healthcare",
-  },
-  RECOVER_WOUNDED = {
-    caption = "Recovering Wounded",
-    category = "Healthcare",
-  },
-  BUTCHER = {
-    caption = "Butchery",
-    category = "Farming",
-  },
-  TRAPPER = {
-    caption = "Trapping",
-    category = "Hunting",
-  },
-  DISSECT_VERMIN = {
-    caption = "Small Animal Dissection",
-    category = "Hunting",
-  },
-  LEATHER = {
-    caption = "Leatherworking",
-    category = "Crafts",
-  },
-  TANNER = {
-    caption = "Tanning",
-    category = "Farming",
-  },
-  BREWER = {
-    caption = "Brewing",
-    category = "Farming",
-  },
-  SOAP_MAKER = {
-    caption = "Soap Maker",
-    category = "Farming",
-  },
-  WEAVER = {
-    caption = "Weaving",
-    category = "Crafts",
-  },
-  CLOTHESMAKER = {
-    caption = "Clothesmaking",
-    category = "Crafts",
-  },
-  MILLER = {
-    caption = "Milling",
-    category = "Farming",
-  },
-  PROCESS_PLANT = {
-    caption = "Plant Processing",
-    category = "Farming",
-  },
-  MAKE_CHEESE = {
-    caption = "Cheese Making",
-    category = "Farming",
-  },
-  MILK = {
-    caption = "Milking",
-    category = "Farming",
-  },
-  COOK = {
-    caption = "Cooking",
-    category = "Farming",
-  },
-  PLANT = {
-    caption = "Farming (Fields)",
-    category = "Farming",
-  },
-  HERBALIST = {
-    caption = "Plant Gathering",
-    category = "Farming",
-  },
-  FISH = {
-    caption = "Fishing",
-    category = "Fishing",
-  },
-  CLEAN_FISH = {
-    caption = "Fish Cleaning",
-    category = "Fishing",
-  },
-  DISSECT_FISH = {
-    caption = "Fish Dissection",
-    category = "Fishing",
-  },
-  HUNT = {
-    caption = "Hunting",
-    category = "Hunting",
-  },
-  SMELT = {
-    caption = "Furnace Operating",
-    category = "Metalsmithing",
-  },
-  FORGE_WEAPON = {
-    caption = "Weaponsmithing",
-    category = "Metalsmithing",
-  },
-  FORGE_ARMOR = {
-    caption = "Armoring",
-    category = "Metalsmithing",
-  },
-  FORGE_FURNITURE = {
-    caption = "Blacksmithing",
-    category = "Metalsmithing",
-  },
-  METAL_CRAFT = {
-    caption = "Metalcrafting",
-    category = "Metalsmithing",
-  },
-  CUT_GEM = {
-    caption = "Gem Cutting",
-    category = "Jewelry",
-  },
-  ENCRUST_GEM = {
-    caption = "Gem Setting",
-    category = "Jewelry",
-  },
-  WOOD_CRAFT = {
-    caption = "Woodcrafting",
-    category = "Crafts",
-  },
-  STONE_CRAFT = {
-    caption = "Stonecrafting",
-    category = "Crafts",
-  },
-  BONE_CARVE = {
-    caption = "Bone Carving",
-    category = "Crafts",
-  },
-  GLASSMAKER = {
-    caption = "Glassmaking",
-    category = "Crafts",
-  },
-  EXTRACT_STRAND = {
-    caption = "Strand Extraction",
-    category = "Crafts",
-  },
-  SIEGECRAFT = {
-    caption = "Siege Engineering",
-    category = "Engineering",
-  },
-  SIEGEOPERATE = {
-    caption = "Siege Operating",
-    category = "Engineering",
-  },
-  BOWYER = {
-    caption = "Crossbow-making",
-    category = "Woodworking",
-  },
-  MECHANIC = {
-    caption = "Mechanics",
-    category = "Engineering",
-  },
-  POTASH_MAKING = {
-    caption = "Potash Making",
-    category = "Farming",
-  },
-  LYE_MAKING = {
-    caption = "Lye Making",
-    category = "Farming",
-  },
-  DYER = {
-    caption = "Dyeing",
-    category = "Farming",
-  },
-  BURN_WOOD = {
-    caption = "Wood Burning",
-    category = "Farming",
-  },
-  OPERATE_PUMP = {
-    caption = "Pump Operating",
-    category = "Engineering",
-  },
-  SHEARER = {
-    caption = "Shearing",
-    category = "Farming",
-  },
-  SPINNER = {
-    caption = "Spinning",
-    category = "Farming",
-  },
-  POTTERY = {
-    caption = "Pottery",
-    category = "Crafts",
-  },
-  GLAZING = {
-    caption = "Glazing",
-    category = "Crafts",
-  },
-  PRESSING = {
-    caption = "Pressing",
-    category = "Farming",
-  },
-  BEEKEEPING = {
-    caption = "Bee Keeping",
-    category = "Farming",
-  },
-  WAX_WORKING = {
-    caption = "Wax Working",
-    category = "Crafts",
-  },
-  HANDLE_VEHICLES = {
-    caption = "Push/Haul Vehicles",
-    category = "Hauling",
-  },
-  HAUL_TRADE = {
-    caption = "Trade Good Hauling",
-    category = "Hauling",
-  },
-  PULL_LEVER = {
-    caption = "Lever Operation",
-    category = "Other",
-  },
-  REMOVE_CONSTRUCTION = {
-    caption = "Construction Removal",
-    category = "Other",
-  },
-  HAUL_WATER = {
-    caption = "Water Hauling",
-    category = "Hauling",
-  },
-  GELD = {
-    caption = "Gelding",
-    category = "Farming",
-  },
-  BUILD_ROAD = {
-    caption = "Road Building",
-    category = "Other",
-  },
-  BUILD_CONSTRUCTION = {
-    caption = "Wall/Floor Construction",
-    category = "Other",
-  },
-  PAPERMAKING = {
-    caption = "Papermaking",
-    category = "Crafts",
-  },
-  BOOKBINDING = {
-    caption = "Bookbinding",
-    category = "Crafts",
-  },
-}
+---@class unit_labor_attrs
+---@field MINE unit_labor_attr
+---@field HAUL_STONE unit_labor_attr
+---@field HAUL_WOOD unit_labor_attr
+---@field HAUL_BODY unit_labor_attr
+---@field HAUL_FOOD unit_labor_attr
+---@field HAUL_REFUSE unit_labor_attr
+---@field HAUL_ITEM unit_labor_attr
+---@field HAUL_FURNITURE unit_labor_attr
+---@field HAUL_ANIMALS unit_labor_attr
+---@field CLEAN unit_labor_attr
+---@field CUTWOOD unit_labor_attr
+---@field CARPENTER unit_labor_attr
+---@field STONECUTTER unit_labor_attr
+---@field STONE_CARVER unit_labor_attr
+---@field ENGRAVER unit_labor_attr
+---@field MASON unit_labor_attr
+---@field ANIMALTRAIN unit_labor_attr
+---@field ANIMALCARE unit_labor_attr
+---@field DIAGNOSE unit_labor_attr
+---@field SURGERY unit_labor_attr
+---@field BONE_SETTING unit_labor_attr
+---@field SUTURING unit_labor_attr
+---@field DRESSING_WOUNDS unit_labor_attr
+---@field FEED_WATER_CIVILIANS unit_labor_attr
+---@field RECOVER_WOUNDED unit_labor_attr
+---@field BUTCHER unit_labor_attr
+---@field TRAPPER unit_labor_attr
+---@field DISSECT_VERMIN unit_labor_attr
+---@field LEATHER unit_labor_attr
+---@field TANNER unit_labor_attr
+---@field BREWER unit_labor_attr
+---@field SOAP_MAKER unit_labor_attr
+---@field WEAVER unit_labor_attr
+---@field CLOTHESMAKER unit_labor_attr
+---@field MILLER unit_labor_attr
+---@field PROCESS_PLANT unit_labor_attr
+---@field MAKE_CHEESE unit_labor_attr
+---@field MILK unit_labor_attr
+---@field COOK unit_labor_attr
+---@field PLANT unit_labor_attr
+---@field HERBALIST unit_labor_attr
+---@field FISH unit_labor_attr
+---@field CLEAN_FISH unit_labor_attr
+---@field DISSECT_FISH unit_labor_attr
+---@field HUNT unit_labor_attr
+---@field SMELT unit_labor_attr
+---@field FORGE_WEAPON unit_labor_attr
+---@field FORGE_ARMOR unit_labor_attr
+---@field FORGE_FURNITURE unit_labor_attr
+---@field METAL_CRAFT unit_labor_attr
+---@field CUT_GEM unit_labor_attr
+---@field ENCRUST_GEM unit_labor_attr
+---@field WOOD_CRAFT unit_labor_attr
+---@field STONE_CRAFT unit_labor_attr
+---@field BONE_CARVE unit_labor_attr
+---@field GLASSMAKER unit_labor_attr
+---@field EXTRACT_STRAND unit_labor_attr
+---@field SIEGECRAFT unit_labor_attr
+---@field SIEGEOPERATE unit_labor_attr
+---@field BOWYER unit_labor_attr
+---@field MECHANIC unit_labor_attr
+---@field POTASH_MAKING unit_labor_attr
+---@field LYE_MAKING unit_labor_attr
+---@field DYER unit_labor_attr
+---@field BURN_WOOD unit_labor_attr
+---@field OPERATE_PUMP unit_labor_attr
+---@field SHEARER unit_labor_attr
+---@field SPINNER unit_labor_attr
+---@field POTTERY unit_labor_attr
+---@field GLAZING unit_labor_attr
+---@field PRESSING unit_labor_attr
+---@field BEEKEEPING unit_labor_attr
+---@field WAX_WORKING unit_labor_attr
+---@field HANDLE_VEHICLES unit_labor_attr
+---@field HAUL_TRADE unit_labor_attr
+---@field PULL_LEVER unit_labor_attr
+---@field REMOVE_CONSTRUCTION unit_labor_attr
+---@field HAUL_WATER unit_labor_attr
+---@field GELD unit_labor_attr
+---@field BUILD_ROAD unit_labor_attr
+---@field BUILD_CONSTRUCTION unit_labor_attr
+---@field PAPERMAKING unit_labor_attr
+---@field BOOKBINDING unit_labor_attr
+df.unit_labor.attrs = {}
 
 ---@enum job_skill_class
+---not in DF
 df.job_skill_class = {
   Normal = 0,
   Medical = 1,
@@ -1539,796 +667,153 @@ df.job_skill = {
 ---@field labor unit_labor
 ---@field type job_skill_class
 
----@type table<job_skill, job_skill_attr>
-df.job_skill.attrs = {
-  MINING = {
-    caption = "Mining",
-    caption_noun = "Miner",
-    profession = "MINER",
-    labor = "MINE",
-  },
-  WOODCUTTING = {
-    caption = "Wood Cutting",
-    caption_noun = "Wood Cutter",
-    profession = "WOODCUTTER",
-    labor = "CUTWOOD",
-  },
-  CARPENTRY = {
-    caption = "Carpentry",
-    caption_noun = "Carpenter",
-    profession = "CARPENTER",
-    labor = "CARPENTER",
-  },
-  ENGRAVE_STONE = {
-    caption = "Engraving",
-    caption_noun = "Engraver",
-    profession = "ENGRAVER",
-  },
-  MASONRY = {
-    caption = "Masonry",
-    caption_noun = "Mason",
-    profession = "MASON",
-    labor = "MASON",
-  },
-  ANIMALTRAIN = {
-    caption = "Animal Training",
-    caption_noun = "Animal Trainer",
-    profession = "ANIMAL_TRAINER",
-    labor = "ANIMALTRAIN",
-  },
-  ANIMALCARE = {
-    caption = "Animal Caretaking",
-    caption_noun = "Animal Caretaker",
-    profession = "ANIMAL_CARETAKER",
-    labor = "ANIMALCARE",
-  },
-  DISSECT_FISH = {
-    caption = "Fish Dissection",
-    caption_noun = "Fish Dissector",
-    profession = "FISH_DISSECTOR",
-    labor = "DISSECT_FISH",
-  },
-  DISSECT_VERMIN = {
-    caption = "Animal Dissection",
-    caption_noun = "Animal Dissector",
-    profession = "ANIMAL_DISSECTOR",
-    labor = "DISSECT_VERMIN",
-  },
-  PROCESSFISH = {
-    caption = "Fish Cleaning",
-    caption_noun = "Fish Cleaner",
-    profession = "FISH_CLEANER",
-    labor = "CLEAN_FISH",
-  },
-  BUTCHER = {
-    caption = "Butchery",
-    caption_noun = "Butcher",
-    profession = "BUTCHER",
-    labor = "BUTCHER",
-  },
-  TRAPPING = {
-    caption = "Trapping",
-    caption_noun = "Trapper",
-    profession = "TRAPPER",
-    labor = "TRAPPER",
-  },
-  TANNER = {
-    caption = "Tanning",
-    caption_noun = "Tanner",
-    profession = "TANNER",
-    labor = "TANNER",
-  },
-  WEAVING = {
-    caption = "Weaving",
-    caption_noun = "Weaver",
-    profession = "WEAVER",
-    labor = "WEAVER",
-  },
-  BREWING = {
-    caption = "Brewing",
-    caption_noun = "Brewer",
-    profession = "BREWER",
-    labor = "BREWER",
-  },
-  CLOTHESMAKING = {
-    caption = "Clothes Making",
-    caption_noun = "Clothier",
-    profession = "CLOTHIER",
-    labor = "CLOTHESMAKER",
-  },
-  MILLING = {
-    caption = "Milling",
-    caption_noun = "Miller",
-    profession = "MILLER",
-    labor = "MILLER",
-  },
-  PROCESSPLANTS = {
-    caption = "Threshing",
-    caption_noun = "Thresher",
-    profession = "THRESHER",
-    labor = "PROCESS_PLANT",
-  },
-  CHEESEMAKING = {
-    caption = "Cheese Making",
-    caption_noun = "Cheese Maker",
-    profession = "CHEESE_MAKER",
-    labor = "MAKE_CHEESE",
-  },
-  MILK = {
-    caption = "Milking",
-    caption_noun = "Milker",
-    profession = "MILKER",
-    labor = "MILK",
-  },
-  COOK = {
-    caption = "Cooking",
-    caption_noun = "Cook",
-    profession = "COOK",
-    labor = "COOK",
-  },
-  PLANT = {
-    caption = "Growing",
-    caption_noun = "Grower",
-    profession = "PLANTER",
-    labor = "PLANT",
-  },
-  HERBALISM = {
-    caption = "Herbalism",
-    caption_noun = "Herbalist",
-    profession = "HERBALIST",
-    labor = "HERBALIST",
-  },
-  FISH = {
-    caption = "Fishing",
-    caption_noun = "Fisherman",
-    profession = "FISHERMAN",
-    labor = "FISH",
-  },
-  SMELT = {
-    caption = "Furnace Operation",
-    caption_noun = "Furnace Operator",
-    profession = "FURNACE_OPERATOR",
-    labor = "SMELT",
-  },
-  EXTRACT_STRAND = {
-    caption = "Strand Extraction",
-    caption_noun = "Strand Extractor",
-    profession = "STRAND_EXTRACTOR",
-    labor = "EXTRACT_STRAND",
-  },
-  FORGE_WEAPON = {
-    caption = "Weaponsmithing",
-    caption_noun = "Weaponsmith",
-    profession = "WEAPONSMITH",
-    labor = "FORGE_WEAPON",
-  },
-  FORGE_ARMOR = {
-    caption = "Armorsmithing",
-    caption_noun = "Armorsmith",
-    profession = "ARMORER",
-    labor = "FORGE_ARMOR",
-  },
-  FORGE_FURNITURE = {
-    caption = "Metalsmithing",
-    caption_noun = "Metalsmith",
-    profession = "BLACKSMITH",
-    labor = "FORGE_FURNITURE",
-  },
-  CUTGEM = {
-    caption = "Gem Cutting",
-    caption_noun = "Gem Cutter",
-    profession = "GEM_CUTTER",
-    labor = "CUT_GEM",
-  },
-  ENCRUSTGEM = {
-    caption = "Gem Setting",
-    caption_noun = "Gem Setter",
-    profession = "GEM_SETTER",
-    labor = "ENCRUST_GEM",
-  },
-  WOODCRAFT = {
-    caption = "Wood Crafting",
-    caption_noun = "Wood Crafter",
-    profession = "WOODCRAFTER",
-    labor = "WOOD_CRAFT",
-  },
-  STONECRAFT = {
-    caption = "Stone Crafting",
-    caption_noun = "Stone Crafter",
-    profession = "STONECRAFTER",
-    labor = "STONE_CRAFT",
-  },
-  METALCRAFT = {
-    caption = "Metal Crafting",
-    caption_noun = "Metal Crafter",
-    profession = "METALCRAFTER",
-    labor = "METAL_CRAFT",
-  },
-  GLASSMAKER = {
-    caption = "Glassmaking",
-    caption_noun = "Glassmaker",
-    profession = "GLASSMAKER",
-    labor = "GLASSMAKER",
-  },
-  LEATHERWORK = {
-    caption = "Leatherworkering",
-    caption_noun = "Leatherworker",
-    profession = "LEATHERWORKER",
-    labor = "LEATHER",
-  },
-  BONECARVE = {
-    caption = "Bone Carving",
-    caption_noun = "Bone Carver",
-    profession = "BONE_CARVER",
-    labor = "BONE_CARVE",
-  },
-  AXE = {
-    caption = "Axe",
-    caption_noun = "Axeman",
-    profession = "AXEMAN",
-    type = "MilitaryWeapon",
-  },
-  SWORD = {
-    caption = "Sword",
-    caption_noun = "Swordsman",
-    profession = "SWORDSMAN",
-    type = "MilitaryWeapon",
-  },
-  DAGGER = {
-    caption = "Knife",
-    caption_noun = "Knife User",
-    type = "MilitaryWeapon",
-  },
-  MACE = {
-    caption = "Mace",
-    caption_noun = "Maceman",
-    profession = "MACEMAN",
-    type = "MilitaryWeapon",
-  },
-  HAMMER = {
-    caption = "Hammer",
-    caption_noun = "Hammerman",
-    profession = "HAMMERMAN",
-    type = "MilitaryWeapon",
-  },
-  SPEAR = {
-    caption = "Spear",
-    caption_noun = "Spearman",
-    profession = "SPEARMAN",
-    type = "MilitaryWeapon",
-  },
-  CROSSBOW = {
-    caption = "Crossbow",
-    caption_noun = "Crossbowman",
-    profession = "CROSSBOWMAN",
-    type = "MilitaryWeapon",
-  },
-  SHIELD = {
-    caption = "Shield",
-    caption_noun = "Shield User",
-    type = "MilitaryDefense",
-  },
-  ARMOR = {
-    caption = "Armor",
-    caption_noun = "Armor User",
-    type = "MilitaryDefense",
-  },
-  SIEGECRAFT = {
-    caption = "Siege Engineering",
-    caption_noun = "Siege Engineer",
-    profession = "SIEGE_ENGINEER",
-    labor = "SIEGECRAFT",
-  },
-  SIEGEOPERATE = {
-    caption = "Siege Operation",
-    caption_noun = "Siege Operator",
-    profession = "SIEGE_OPERATOR",
-    labor = "SIEGEOPERATE",
-  },
-  BOWYER = {
-    caption = "Bowmaking",
-    caption_noun = "Bowyer",
-    profession = "BOWYER",
-    labor = "BOWYER",
-  },
-  PIKE = {
-    caption = "Pike",
-    caption_noun = "Pikeman",
-    profession = "PIKEMAN",
-    type = "MilitaryWeapon",
-  },
-  WHIP = {
-    caption = "Lash",
-    caption_noun = "Lasher",
-    profession = "LASHER",
-    type = "MilitaryWeapon",
-  },
-  BOW = {
-    caption = "Bow",
-    caption_noun = "Bowman",
-    profession = "BOWMAN",
-    type = "MilitaryWeapon",
-  },
-  BLOWGUN = {
-    caption = "Blowgun",
-    caption_noun = "Blowgunner",
-    profession = "BLOWGUNMAN",
-    type = "MilitaryWeapon",
-  },
-  THROW = {
-    caption = "Throwing",
-    caption_noun = "Thrower",
-    type = "MilitaryAttack",
-  },
-  MECHANICS = {
-    caption = "Machinery",
-    caption_noun = "Mechanic",
-    profession = "MECHANIC",
-    labor = "MECHANIC",
-  },
-  MAGIC_NATURE = {
-    caption = "Nature",
-    caption_noun = "Druid",
-  },
-  SNEAK = {
-    caption = "Ambush",
-    caption_noun = "Ambusher",
-    profession = "HUNTER",
-    labor = "HUNT",
-  },
-  DRESS_WOUNDS = {
-    caption = "Wound Dressing",
-    caption_noun = "Wound Dresser",
-    labor = "DRESSING_WOUNDS",
-    type = "Medical",
-  },
-  DIAGNOSE = {
-    caption = "Diagnostics",
-    caption_noun = "Diagnostician",
-    profession = "DIAGNOSER",
-    labor = "DIAGNOSE",
-    type = "Medical",
-  },
-  SURGERY = {
-    caption = "Surgery",
-    caption_noun = "Surgeon",
-    profession = "SURGEON",
-    labor = "SURGERY",
-    type = "Medical",
-  },
-  SET_BONE = {
-    caption = "Bone Setting",
-    caption_noun = "Bone Doctor",
-    profession = "BONE_SETTER",
-    labor = "BONE_SETTING",
-    type = "Medical",
-  },
-  SUTURE = {
-    caption = "Suturing",
-    caption_noun = "Suturer",
-    profession = "SUTURER",
-    labor = "SUTURING",
-    type = "Medical",
-  },
-  CRUTCH_WALK = {
-    caption = "Crutch-walking",
-    caption_noun = "Crutch-walker",
-    type = "Personal",
-  },
-  WOOD_BURNING = {
-    caption = "Wood Burning",
-    caption_noun = "Wood Burner",
-    profession = "WOOD_BURNER",
-    labor = "BURN_WOOD",
-  },
-  LYE_MAKING = {
-    caption = "Lye Making",
-    caption_noun = "Lye Maker",
-    profession = "LYE_MAKER",
-    labor = "LYE_MAKING",
-  },
-  SOAP_MAKING = {
-    caption = "Soap Making",
-    caption_noun = "Soaper",
-    profession = "SOAP_MAKER",
-    labor = "SOAP_MAKER",
-  },
-  POTASH_MAKING = {
-    caption = "Potash Making",
-    caption_noun = "Potash Maker",
-    profession = "POTASH_MAKER",
-    labor = "POTASH_MAKING",
-  },
-  DYER = {
-    caption = "Dyeing",
-    caption_noun = "Dyer",
-    profession = "DYER",
-    labor = "DYER",
-  },
-  OPERATE_PUMP = {
-    caption = "Pump Operation",
-    caption_noun = "Pump Operator",
-    profession = "PUMP_OPERATOR",
-    labor = "OPERATE_PUMP",
-  },
-  SWIMMING = {
-    caption = "Swimming",
-    caption_noun = "Swimmer",
-    type = "Personal",
-  },
-  PERSUASION = {
-    caption = "Persuasion",
-    caption_noun = "Persuader",
-    type = "Social",
-  },
-  NEGOTIATION = {
-    caption = "Negotiation",
-    caption_noun = "Negotiator",
-    type = "Social",
-  },
-  JUDGING_INTENT = {
-    caption = "Judging Intent",
-    caption_noun = "Judge of Intent",
-    type = "Social",
-  },
-  APPRAISAL = {
-    caption = "Appraisal",
-    caption_noun = "Appraiser",
-    profession = "TRADER",
-  },
-  ORGANIZATION = {
-    caption = "Organization",
-    caption_noun = "Organizer",
-    profession = "ADMINISTRATOR",
-  },
-  RECORD_KEEPING = {
-    caption = "Record Keeping",
-    caption_noun = "Record Keeper",
-    profession = "CLERK",
-  },
-  LYING = {
-    caption = "Lying",
-    caption_noun = "Liar",
-    type = "Social",
-  },
-  INTIMIDATION = {
-    caption = "Intimidation",
-    caption_noun = "Intimidator",
-    type = "Social",
-  },
-  CONVERSATION = {
-    caption = "Conversation",
-    caption_noun = "Conversationalist",
-    type = "Social",
-  },
-  COMEDY = {
-    caption = "Comedy",
-    caption_noun = "Comedian",
-    type = "Social",
-  },
-  FLATTERY = {
-    caption = "Flattery",
-    caption_noun = "Flatterer",
-    type = "Social",
-  },
-  CONSOLE = {
-    caption = "Consoling",
-    caption_noun = "Consoler",
-    type = "Social",
-  },
-  PACIFY = {
-    caption = "Pacification",
-    caption_noun = "Pacifier",
-    type = "Social",
-  },
-  TRACKING = {
-    caption = "Tracking",
-    caption_noun = "Tracker",
-    type = "Personal",
-  },
-  KNOWLEDGE_ACQUISITION = {
-    caption = "Studying",
-    caption_noun = "Student",
-    type = "Social",
-  },
-  CONCENTRATION = {
-    caption = "Concentration",
-    caption_noun = "Concentration",
-    type = "Personal",
-  },
-  DISCIPLINE = {
-    caption = "Discipline",
-    caption_noun = "Discipline",
-    type = "Personal",
-  },
-  SITUATIONAL_AWARENESS = {
-    caption = "Observation",
-    caption_noun = "Observer",
-    type = "Personal",
-  },
-  WRITING = {
-    caption = "Writing",
-    caption_noun = "Wordsmith",
-    type = "Cultural",
-  },
-  PROSE = {
-    caption = "Prose",
-    caption_noun = "Writer",
-    type = "Cultural",
-  },
-  POETRY = {
-    caption = "Poetry",
-    caption_noun = "Poet",
-    profession = "POET",
-    type = "Cultural",
-  },
-  READING = {
-    caption = "Reading",
-    caption_noun = "Reader",
-    type = "Cultural",
-  },
-  SPEAKING = {
-    caption = "Speaking",
-    caption_noun = "Speaker",
-    type = "Cultural",
-  },
-  COORDINATION = {
-    caption = "Coordination",
-    caption_noun = "Coordination",
-    type = "Personal",
-  },
-  BALANCE = {
-    caption = "Balance",
-    caption_noun = "Balance",
-    type = "Personal",
-  },
-  LEADERSHIP = {
-    caption = "Leadership",
-    caption_noun = "Leader",
-    type = "Social",
-  },
-  TEACHING = {
-    caption = "Teaching",
-    caption_noun = "Teacher",
-    type = "Social",
-  },
-  MELEE_COMBAT = {
-    caption = "Fighting",
-    caption_noun = "Fighter",
-    type = "MilitaryAttack",
-  },
-  RANGED_COMBAT = {
-    caption = "Archery",
-    caption_noun = "Archer",
-    type = "MilitaryAttack",
-  },
-  WRESTLING = {
-    caption = "Wrestling",
-    caption_noun = "Wrestler",
-    profession = "WRESTLER",
-    type = "MilitaryUnarmed",
-  },
-  BITE = {
-    caption = "Biting",
-    caption_noun = "Biter",
-    type = "MilitaryUnarmed",
-  },
-  GRASP_STRIKE = {
-    caption = "Striking",
-    caption_noun = "Striker",
-    type = "MilitaryUnarmed",
-  },
-  STANCE_STRIKE = {
-    caption = "Kicking",
-    caption_noun = "Kicker",
-    type = "MilitaryUnarmed",
-  },
-  DODGING = {
-    caption = "Dodging",
-    caption_noun = "Dodger",
-    type = "MilitaryDefense",
-  },
-  MISC_WEAPON = {
-    caption = "Misc. Object",
-    caption_noun = "Misc. Object User",
-    type = "MilitaryWeapon",
-  },
-  KNAPPING = {
-    caption = "Knapping",
-    caption_noun = "Knapper",
-    type = "MilitaryMisc",
-  },
-  MILITARY_TACTICS = {
-    caption = "Military Tactics",
-    caption_noun = "Tactician",
-  },
-  SHEARING = {
-    caption = "Shearing",
-    caption_noun = "Shearer",
-    profession = "SHEARER",
-    labor = "SHEARER",
-  },
-  SPINNING = {
-    caption = "Spinning",
-    caption_noun = "Spinner",
-    profession = "SPINNER",
-    labor = "SPINNER",
-  },
-  POTTERY = {
-    caption = "Pottery",
-    caption_noun = "Potter",
-    profession = "POTTER",
-    labor = "POTTERY",
-  },
-  GLAZING = {
-    caption = "Glazing",
-    caption_noun = "Glazer",
-    profession = "GLAZER",
-    labor = "GLAZING",
-  },
-  PRESSING = {
-    caption = "Pressing",
-    caption_noun = "Presser",
-    profession = "PRESSER",
-    labor = "PRESSING",
-  },
-  BEEKEEPING = {
-    caption = "Beekeeping",
-    caption_noun = "Beekeeper",
-    profession = "BEEKEEPER",
-    labor = "BEEKEEPING",
-  },
-  WAX_WORKING = {
-    caption = "Wax Working",
-    caption_noun = "Wax Worker",
-    profession = "WAX_WORKER",
-    labor = "WAX_WORKING",
-  },
-  CLIMBING = {
-    caption = "Climbing",
-    caption_noun = "Climber",
-    type = "Personal",
-  },
-  GELD = {
-    caption = "Gelding",
-    caption_noun = "Gelder",
-    profession = "GELDER",
-    labor = "GELD",
-  },
-  DANCE = {
-    caption = "Dance",
-    caption_noun = "Dancer",
-    profession = "DANCER",
-  },
-  MAKE_MUSIC = {
-    caption = "Music",
-    caption_noun = "Musician",
-    profession = "BARD",
-  },
-  SING_MUSIC = {
-    caption = "Singing",
-    caption_noun = "Singer",
-    profession = "BARD",
-  },
-  PLAY_KEYBOARD_INSTRUMENT = {
-    caption = "Keyboard Instrument",
-    caption_noun = "Keyboardist",
-    profession = "BARD",
-  },
-  PLAY_STRINGED_INSTRUMENT = {
-    caption = "Stringed Instrument",
-    caption_noun = "Stringed Instrumentalist",
-    profession = "BARD",
-  },
-  PLAY_WIND_INSTRUMENT = {
-    caption = "Wind Instrument",
-    caption_noun = "Wind Instrumentalist",
-    profession = "BARD",
-  },
-  PLAY_PERCUSSION_INSTRUMENT = {
-    caption = "Percussion Instrument",
-    caption_noun = "Percussionist",
-    profession = "BARD",
-  },
-  CRITICAL_THINKING = {
-    caption = "Critical Thinking",
-    caption_noun = "Critical Thinker",
-  },
-  LOGIC = {
-    caption = "Logic",
-    caption_noun = "Logician",
-  },
-  MATHEMATICS = {
-    caption = "Mathematics",
-    caption_noun = "Mathematician",
-  },
-  ASTRONOMY = {
-    caption = "Astronomy",
-    caption_noun = "Astronomer",
-  },
-  CHEMISTRY = {
-    caption = "Chemistry",
-    caption_noun = "Chemist",
-  },
-  GEOGRAPHY = {
-    caption = "Geography",
-    caption_noun = "Geographer",
-  },
-  OPTICS_ENGINEER = {
-    caption = "Optics Engineer",
-    caption_noun = "Optics Engineer",
-  },
-  FLUID_ENGINEER = {
-    caption = "Fluid Engineer",
-    caption_noun = "Fluid Engineer",
-  },
-  PAPERMAKING = {
-    caption = "Papermaking",
-    caption_noun = "Papermaker",
-    profession = "PAPERMAKER",
-    labor = "PAPERMAKING",
-  },
-  BOOKBINDING = {
-    caption = "Bookbinding",
-    caption_noun = "Bookbinder",
-    profession = "BOOKBINDER",
-    labor = "BOOKBINDING",
-  },
-  INTRIGUE = {
-    caption = "Intrigue",
-    caption_noun = "Schemer",
-  },
-  RIDING = {
-    caption = "Riding",
-    caption_noun = "Rider",
-  },
-  CUT_STONE = {
-    caption = "Cut Stone",
-    caption_noun = "Stonecutter",
-  },
-  CARVE_STONE = {
-    caption = "Carve Stone",
-    caption_noun = "Stonecarver",
-  },
-  MODSKILL01 = {
-    caption = "Mod Skill 1",
-    caption_noun = "Mod Skill 1",
-  },
-  MODSKILL02 = {
-    caption = "Mod Skill 2",
-    caption_noun = "Mod Skill 2",
-  },
-  MODSKILL03 = {
-    caption = "Mod Skill 3",
-    caption_noun = "Mod Skill 3",
-  },
-  MODSKILL04 = {
-    caption = "Mod Skill 4",
-    caption_noun = "Mod Skill 4",
-  },
-  MODSKILL05 = {
-    caption = "Mod Skill 5",
-    caption_noun = "Mod Skill 5",
-  },
-  MODSKILL06 = {
-    caption = "Mod Skill 6",
-    caption_noun = "Mod Skill 6",
-  },
-  MODSKILL07 = {
-    caption = "Mod Skill 7",
-    caption_noun = "Mod Skill 7",
-  },
-  MODSKILL08 = {
-    caption = "Mod Skill 8",
-    caption_noun = "Mod Skill 8",
-  },
-  MODSKILL09 = {
-    caption = "Mod Skill 9",
-    caption_noun = "Mod Skill 9",
-  },
-  MODSKILL10 = {
-    caption = "Mod Skill 10",
-    caption_noun = "Mod Skill 10",
-  },
-}
+---@class job_skill_attrs
+---@field MINING job_skill_attr
+---@field WOODCUTTING job_skill_attr
+---@field CARPENTRY job_skill_attr
+---@field ENGRAVE_STONE job_skill_attr
+---@field MASONRY job_skill_attr
+---@field ANIMALTRAIN job_skill_attr
+---@field ANIMALCARE job_skill_attr
+---@field DISSECT_FISH job_skill_attr
+---@field DISSECT_VERMIN job_skill_attr
+---@field PROCESSFISH job_skill_attr
+---@field BUTCHER job_skill_attr
+---@field TRAPPING job_skill_attr
+---@field TANNER job_skill_attr
+---@field WEAVING job_skill_attr
+---@field BREWING job_skill_attr
+---@field CLOTHESMAKING job_skill_attr
+---@field MILLING job_skill_attr
+---@field PROCESSPLANTS job_skill_attr
+---@field CHEESEMAKING job_skill_attr
+---@field MILK job_skill_attr
+---@field COOK job_skill_attr
+---@field PLANT job_skill_attr
+---@field HERBALISM job_skill_attr
+---@field FISH job_skill_attr
+---@field SMELT job_skill_attr
+---@field EXTRACT_STRAND job_skill_attr
+---@field FORGE_WEAPON job_skill_attr
+---@field FORGE_ARMOR job_skill_attr
+---@field FORGE_FURNITURE job_skill_attr
+---@field CUTGEM job_skill_attr
+---@field ENCRUSTGEM job_skill_attr
+---@field WOODCRAFT job_skill_attr
+---@field STONECRAFT job_skill_attr
+---@field METALCRAFT job_skill_attr
+---@field GLASSMAKER job_skill_attr
+---@field LEATHERWORK job_skill_attr
+---@field BONECARVE job_skill_attr
+---@field AXE job_skill_attr
+---@field SWORD job_skill_attr
+---@field DAGGER job_skill_attr
+---@field MACE job_skill_attr
+---@field HAMMER job_skill_attr
+---@field SPEAR job_skill_attr
+---@field CROSSBOW job_skill_attr
+---@field SHIELD job_skill_attr
+---@field ARMOR job_skill_attr
+---@field SIEGECRAFT job_skill_attr
+---@field SIEGEOPERATE job_skill_attr
+---@field BOWYER job_skill_attr
+---@field PIKE job_skill_attr
+---@field WHIP job_skill_attr
+---@field BOW job_skill_attr
+---@field BLOWGUN job_skill_attr
+---@field THROW job_skill_attr
+---@field MECHANICS job_skill_attr
+---@field MAGIC_NATURE job_skill_attr
+---@field SNEAK job_skill_attr
+---@field DRESS_WOUNDS job_skill_attr
+---@field DIAGNOSE job_skill_attr
+---@field SURGERY job_skill_attr
+---@field SET_BONE job_skill_attr
+---@field SUTURE job_skill_attr
+---@field CRUTCH_WALK job_skill_attr
+---@field WOOD_BURNING job_skill_attr
+---@field LYE_MAKING job_skill_attr
+---@field SOAP_MAKING job_skill_attr
+---@field POTASH_MAKING job_skill_attr
+---@field DYER job_skill_attr
+---@field OPERATE_PUMP job_skill_attr
+---@field SWIMMING job_skill_attr
+---@field PERSUASION job_skill_attr
+---@field NEGOTIATION job_skill_attr
+---@field JUDGING_INTENT job_skill_attr
+---@field APPRAISAL job_skill_attr
+---@field ORGANIZATION job_skill_attr
+---@field RECORD_KEEPING job_skill_attr
+---@field LYING job_skill_attr
+---@field INTIMIDATION job_skill_attr
+---@field CONVERSATION job_skill_attr
+---@field COMEDY job_skill_attr
+---@field FLATTERY job_skill_attr
+---@field CONSOLE job_skill_attr
+---@field PACIFY job_skill_attr
+---@field TRACKING job_skill_attr
+---@field KNOWLEDGE_ACQUISITION job_skill_attr
+---@field CONCENTRATION job_skill_attr
+---@field DISCIPLINE job_skill_attr
+---@field SITUATIONAL_AWARENESS job_skill_attr
+---@field WRITING job_skill_attr
+---@field PROSE job_skill_attr
+---@field POETRY job_skill_attr
+---@field READING job_skill_attr
+---@field SPEAKING job_skill_attr
+---@field COORDINATION job_skill_attr
+---@field BALANCE job_skill_attr
+---@field LEADERSHIP job_skill_attr
+---@field TEACHING job_skill_attr
+---@field MELEE_COMBAT job_skill_attr
+---@field RANGED_COMBAT job_skill_attr
+---@field WRESTLING job_skill_attr
+---@field BITE job_skill_attr
+---@field GRASP_STRIKE job_skill_attr
+---@field STANCE_STRIKE job_skill_attr
+---@field DODGING job_skill_attr
+---@field MISC_WEAPON job_skill_attr
+---@field KNAPPING job_skill_attr
+---@field MILITARY_TACTICS job_skill_attr
+---@field SHEARING job_skill_attr
+---@field SPINNING job_skill_attr
+---@field POTTERY job_skill_attr
+---@field GLAZING job_skill_attr
+---@field PRESSING job_skill_attr
+---@field BEEKEEPING job_skill_attr
+---@field WAX_WORKING job_skill_attr
+---@field CLIMBING job_skill_attr
+---@field GELD job_skill_attr
+---@field DANCE job_skill_attr
+---@field MAKE_MUSIC job_skill_attr
+---@field SING_MUSIC job_skill_attr
+---@field PLAY_KEYBOARD_INSTRUMENT job_skill_attr
+---@field PLAY_STRINGED_INSTRUMENT job_skill_attr
+---@field PLAY_WIND_INSTRUMENT job_skill_attr
+---@field PLAY_PERCUSSION_INSTRUMENT job_skill_attr
+---@field CRITICAL_THINKING job_skill_attr
+---@field LOGIC job_skill_attr
+---@field MATHEMATICS job_skill_attr
+---@field ASTRONOMY job_skill_attr
+---@field CHEMISTRY job_skill_attr
+---@field GEOGRAPHY job_skill_attr
+---@field OPTICS_ENGINEER job_skill_attr
+---@field FLUID_ENGINEER job_skill_attr
+---@field PAPERMAKING job_skill_attr
+---@field BOOKBINDING job_skill_attr
+---@field INTRIGUE job_skill_attr
+---@field RIDING job_skill_attr
+---@field CUT_STONE job_skill_attr
+---@field CARVE_STONE job_skill_attr
+---@field MODSKILL01 job_skill_attr
+---@field MODSKILL02 job_skill_attr
+---@field MODSKILL03 job_skill_attr
+---@field MODSKILL04 job_skill_attr
+---@field MODSKILL05 job_skill_attr
+---@field MODSKILL06 job_skill_attr
+---@field MODSKILL07 job_skill_attr
+---@field MODSKILL08 job_skill_attr
+---@field MODSKILL09 job_skill_attr
+---@field MODSKILL10 job_skill_attr
+df.job_skill.attrs = {}
 

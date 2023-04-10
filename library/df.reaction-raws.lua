@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum reaction_flags
@@ -10,7 +11,7 @@ df.reaction_flags = {
 ---@class reaction
 ---@field code string
 ---@field name string
----@field flags any
+---@field flags df-flagarray
 ---@field reagents reaction_reagent[]
 ---@field products reaction_product[]
 ---@field skill job_skill
@@ -55,12 +56,6 @@ df.reaction_reagent_type = {
 ---@field code string
 ---@field quantity integer
 ---@field flags reaction_reagent_flags
-
----@class reaction_reagent_flags
----@field PRESERVE_REAGENT boolean
----@field IN_CONTAINER boolean
----@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT boolean
-df.reaction_reagent_flags = {}
 
 ---@class reaction_reagent_itemst
 ---@field item_type item_type
@@ -111,7 +106,7 @@ df.reaction_product_item_flags = {
 ---@field probability integer
 ---@field count integer
 ---@field product_dimension integer
----@field flags any
+---@field flags df-flagarray
 ---@field get_material reaction_product_itemst_get_material
 ---@field item_str string[]
 ---@field material_str string[]
@@ -134,7 +129,7 @@ df.reaction_product_improvement_flags = {
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field probability integer
----@field flags any
+---@field flags df-flagarray
 ---@field get_material reaction_product_item_improvementst_get_material
 ---@field material_str string[]
 ---@field unk_v4201_2 string

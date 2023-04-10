@@ -1,13 +1,14 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@class invasion_info
 ---@field id integer
 ---@field civ_id integer
----@field active_size1 integer # 0 unless active
+---@field active_size1 integer 0 unless active
 ---@field active_size2 integer
 ---@field size integer
 ---@field duration_counter integer
----@field flags any
+---@field flags bitfield
 ---@field unk4b integer
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -16,20 +17,20 @@
 ---@field unk_5 integer
 
 ---@class entity_population_unk4
----@field unk_1 any[] # all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@field unk_1 any[] all 3 vectors share a single index series, with the third being interleaved with at least the second one
 ---@field unk_2 any[]
 ---@field unk_3 any[]
 
 ---@class entity_population
 ---@field name language_name
----@field races any[] # all the 3 vectors are always the same length, and thus coupled
+---@field races any[] all the 3 vectors are always the same length, and thus coupled
 ---@field counts integer[]
----@field unk3 integer[] # Set only for cave civs. When set, >= counts. Pre first embark all those are equal
+---@field unk3 integer[] Set only for cave civs. When set, >= counts. Pre first embark all those are equal
 ---@field unk4 any[]
 ---@field unk5 integer
 ---@field layer_id integer
 ---@field id integer
----@field flags integer # ?; layer_id == -1
+---@field flags integer ?; layer_id == -1
 ---@field civ_id integer
 
 ---@enum nemesis_flags
@@ -48,10 +49,10 @@ df.nemesis_flags = {
 }
 
 ---@class nemesis_record
----@field id integer # sequential index in the array
+---@field id integer sequential index in the array
 ---@field unit_id integer
----@field save_file_id integer # unit-*.dat
----@field member_idx integer # index in the file
+---@field save_file_id integer unit-*.dat
+---@field member_idx integer index in the file
 ---@field figure historical_figure
 ---@field unit unit
 ---@field group_leader_id integer
@@ -61,12 +62,12 @@ df.nemesis_flags = {
 ---@field unk12 integer
 ---@field unk_v47_1 integer
 ---@field unk_v47_2 integer
----@field flags any
+---@field flags df-flagarray
 
 ---@class artifact_record
 ---@field id integer
 ---@field name language_name
----@field flags any
+---@field flags df-flagarray
 ---@field item item
 ---@field abs_tile_x integer
 ---@field abs_tile_y integer
@@ -77,16 +78,16 @@ df.nemesis_flags = {
 ---@field unk_2 integer
 ---@field subregion integer
 ---@field feature_layer integer
----@field owner_hf integer # namer/creator does not seem to require a claim to be shown
----@field remote_claims integer[] # all afar, heirloom from afar seen
+---@field owner_hf integer namer/creator does not seem to require a claim to be shown
+---@field remote_claims integer[] all afar, heirloom from afar seen
 ---@field entity_claims integer[]
 ---@field direct_claims integer[]
 ---@field storage_site integer
 ---@field storage_structure_local integer
 ---@field loss_region integer
 ---@field unk_3 integer
----@field holder_hf integer # doesn't seem to require a claim
----@field year integer # seems to be current year or -1
+---@field holder_hf integer doesn't seem to require a claim
+---@field year integer seems to be current year or -1
 ---@field unk_4 integer
----@field unk_5 integer # Small set of non zero fairly small numbers seen?
+---@field unk_5 integer Small set of non zero fairly small numbers seen?
 

@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@class historical_kills
@@ -25,38 +26,36 @@
 ---@enum reputation_type
 df.reputation_type = {
   Hero = 0,
-  Buddy = 1,
-  Grudge = 2,
-  AnimalPartner = 3,
-  Brawler = 4,
-  Psycho = 5,
-  TradePartner = 6,
-  Friendly = 7,
-  Killer = 8,
-  Murderer = 9,
-  Comrade = 10,
-  RespectedGroup = 11,
-  HatedGroup = 12,
-  EnemyFighter = 13,
-  FriendlyFighter = 14,
-  Bully = 15,
-  Brigand = 16,
-  LoyalSoldier = 17,
-  Monster = 18,
-  Storyteller = 19,
-  Poet = 20,
-  Bard = 21,
-  Dancer = 22,
-  Quarreler = 23,
-  Flatterer = 24,
-  Hunter = 25,
-  ProtectorOfWeak = 26,
-  TreasureHunter = 27,
-  Thief = 28,
-  InformationSource = 29,
-  PreserverOfKnowledge = 30,
-  Intruder = 31,
-  Preacher = 32,
+  AnimalPartner = 1,
+  Brawler = 2,
+  Psycho = 3,
+  TradePartner = 4,
+  Friendly = 5,
+  Killer = 6,
+  Murderer = 7,
+  Comrade = 8,
+  RespectedGroup = 9,
+  HatedGroup = 10,
+  EnemyFighter = 11,
+  FriendlyFighter = 12,
+  Bully = 13,
+  Brigand = 14,
+  LoyalSoldier = 15,
+  Monster = 16,
+  Storyteller = 17,
+  Poet = 18,
+  Bard = 19,
+  Dancer = 20,
+  Quarreler = 21,
+  Flatterer = 22,
+  Hunter = 23,
+  ProtectorOfWeak = 24,
+  TreasureHunter = 25,
+  Thief = 26,
+  InformationSource = 27,
+  PreserverOfKnowledge = 28,
+  Intruder = 29,
+  Preacher = 30,
 }
 
 ---@enum whereabouts_type
@@ -138,28 +137,29 @@ df.plot_strategy_type = {
 ---@field agreement_has_messenger boolean
 
 ---@class historical_figure_info
----@field spheres any
----@field skills any
----@field pets any
----@field personality any
----@field masterpieces any
----@field whereabouts any
+---@field spheres pointer
+---@field skills pointer
+---@field pets integer[]
+---@field personality pointer
+---@field masterpieces pointer
+---@field whereabouts pointer
 ---@field kills historical_kills
----@field wounds any
----@field known_info any
----@field curse any
----@field books any # seems to be misnamed. Artifacts seen have been of all kinds
----@field reputation any
+---@field wounds pointer
+---@field known_info pointer
+---@field curse pointer
+---@field books pointer seems to be misnamed. Artifacts seen have been of all kinds
+---@field reputation pointer
 ---@field relationships historical_figure_relationships
 
 ---@class historical_figure_relationships
+---only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
 ---@field hf_visual any[]
 ---@field hf_historical any[]
 ---@field unk_1 any[]
 ---@field identities integer[]
 ---@field artifact_claims any[]
 ---@field unk_2 integer
----@field intrigues any
+---@field intrigues pointer
 
 ---@enum histfig_flags
 df.histfig_flags = {
@@ -259,6 +259,7 @@ df.histfig_relationship_type = {
 }
 
 ---@enum vague_relationship_type
+---not a great name given that lovers, ex lovers, and lieutenants appear here, but histfig and unit are both used...
 df.vague_relationship_type = {
   none = -1,
   childhood_friend = 0,
@@ -309,24 +310,24 @@ df.vague_relationship_type = {
 ---@field name language_name
 ---@field civ_id integer
 ---@field population_id integer
----@field breed_id integer # from legends export
+---@field breed_id integer from legends export
 ---@field cultural_identity integer
----@field family_head_id integer # When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor.
----@field flags any
+---@field family_head_id integer When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor.
+---@field flags df-flagarray
 ---@field unit_id integer
----@field nemesis_id integer # sometimes garbage
+---@field nemesis_id integer sometimes garbage
 ---@field id integer
 ---@field unk4 integer
 ---@field entity_links histfig_entity_link[]
 ---@field site_links histfig_site_link[]
 ---@field histfig_links histfig_hf_link[]
 ---@field info historical_figure_info
----@field vague_relationships any # Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
+---@field vague_relationships pointer Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@field unk_f0 world_site
 ---@field unk_f4 world_region
 ---@field unk_f8 world_underground_region
----@field unk_fc any
----@field unk_v47_2 any
+---@field unk_fc pointer
+---@field unk_v47_2 pointer
 ---@field unk_v47_3 integer
 ---@field unk_v47_4 integer
 ---@field unk_v4019_1 integer
@@ -346,39 +347,24 @@ df.identity_type = {
 ---@class identity_type_attr
 ---@field id_tag string
 
----@type table<identity_type, identity_type_attr>
-df.identity_type.attrs = {
-  None = {
-    id_tag = "histfig_id",
-  },
-  HidingCurse = {
-    id_tag = "histfig_id",
-  },
-  Impersonating = {
-    id_tag = "histfig_id",
-  },
-  TrueName = {
-    id_tag = "histfig_id",
-  },
-  FalseIdentity = {
-    id_tag = "nemesis_id",
-  },
-  InfiltrationIdentity = {
-    id_tag = "histfig_id",
-  },
-  Identity = {
-    id_tag = "histfig_id",
-  },
-}
+---@class identity_type_attrs
+---@field None identity_type_attr
+---@field HidingCurse identity_type_attr
+---@field Impersonating identity_type_attr
+---@field TrueName identity_type_attr
+---@field FalseIdentity identity_type_attr
+---@field InfiltrationIdentity identity_type_attr
+---@field Identity identity_type_attr
+df.identity_type.attrs = {}
 
 ---@class identity
 ---@field id integer
----@field name language_name # Not used when Impersonating
+---@field name language_name Not used when Impersonating
 ---@field race integer
 ---@field caste integer
----@field impersonated_hf integer # only when Impersonating
+---@field impersonated_hf integer only when Impersonating
 ---@field type identity_type
----@field birth_year integer # the fake one, that is
+---@field birth_year integer the fake one, that is
 ---@field birth_second integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -396,10 +382,10 @@ df.identity_type.attrs = {
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
----@field unk_6 integer # uninitialized
+---@field unk_6 integer uninitialized
 ---@field unk_7 integer
 ---@field unk_8 integer
----@field unk_9 integer # uninitialized
+---@field unk_9 integer uninitialized
 
 ---@class identity_unk_95
 ---@field unk_0 integer
@@ -524,106 +510,106 @@ df.history_event_type = {
   ADD_HF_HF_LINK = 34,
   REMOVE_HF_HF_LINK = 35,
   ENTITY_RAZED_BUILDING = 36,
-  MASTERPIECE_CREATED_ARCH_DESIGN = 37,
-  MASTERPIECE_CREATED_ARCH_CONSTRUCT = 38,
-  MASTERPIECE_CREATED_ITEM = 39,
-  MASTERPIECE_CREATED_DYE_ITEM = 40,
-  MASTERPIECE_CREATED_ITEM_IMPROVEMENT = 41,
-  MASTERPIECE_CREATED_FOOD = 42,
-  MASTERPIECE_CREATED_ENGRAVING = 43,
-  MASTERPIECE_LOST = 44,
-  CHANGE_HF_STATE = 45,
-  CHANGE_HF_JOB = 46,
-  WAR_FIELD_BATTLE = 47,
-  WAR_PLUNDERED_SITE = 48,
-  WAR_SITE_NEW_LEADER = 49,
-  WAR_SITE_TRIBUTE_FORCED = 50,
-  WAR_SITE_TAKEN_OVER = 51,
-  BODY_ABUSED = 52,
-  HIST_FIGURE_ABDUCTED = 53,
-  ITEM_STOLEN = 54,
-  HF_RAZED_BUILDING = 55,
-  CREATURE_DEVOURED = 56,
-  HIST_FIGURE_WOUNDED = 57,
-  HIST_FIGURE_SIMPLE_BATTLE_EVENT = 58,
-  CREATED_WORLD_CONSTRUCTION = 59,
-  HIST_FIGURE_REUNION = 60,
-  HIST_FIGURE_REACH_SUMMIT = 61,
-  HIST_FIGURE_TRAVEL = 62,
-  HIST_FIGURE_NEW_PET = 63,
-  ASSUME_IDENTITY = 64,
-  CREATE_ENTITY_POSITION = 65,
-  CHANGE_CREATURE_TYPE = 66,
-  HIST_FIGURE_REVIVED = 67,
-  HF_LEARNS_SECRET = 68,
-  CHANGE_HF_BODY_STATE = 69,
-  HF_ACT_ON_BUILDING = 70,
-  HF_DOES_INTERACTION = 71,
-  HF_CONFRONTED = 72,
-  ENTITY_LAW = 73,
-  HF_GAINS_SECRET_GOAL = 74,
-  ARTIFACT_STORED = 75,
-  AGREEMENT_FORMED = 76,
-  SITE_DISPUTE = 77,
-  AGREEMENT_CONCLUDED = 78,
-  INSURRECTION_STARTED = 79,
-  INSURRECTION_ENDED = 80,
-  HF_ATTACKED_SITE = 81,
-  PERFORMANCE = 82,
-  COMPETITION = 83,
-  PROCESSION = 84,
-  CEREMONY = 85,
-  KNOWLEDGE_DISCOVERED = 86,
-  ARTIFACT_TRANSFORMED = 87,
-  ARTIFACT_DESTROYED = 88,
-  HF_RELATIONSHIP_DENIED = 89,
-  REGIONPOP_INCORPORATED_INTO_ENTITY = 90,
-  POETIC_FORM_CREATED = 91,
-  MUSICAL_FORM_CREATED = 92,
-  DANCE_FORM_CREATED = 93,
-  WRITTEN_CONTENT_COMPOSED = 94,
-  CHANGE_HF_MOOD = 95,
-  ARTIFACT_CLAIM_FORMED = 96,
-  ARTIFACT_GIVEN = 97,
-  HF_ACT_ON_ARTIFACT = 98,
-  HF_RECRUITED_UNIT_TYPE_FOR_ENTITY = 99,
-  HFS_FORMED_REPUTATION_RELATIONSHIP = 100,
-  ARTIFACT_COPIED = 101,
-  SNEAK_INTO_SITE = 102,
-  SPOTTED_LEAVING_SITE = 103,
-  ENTITY_SEARCHED_SITE = 104,
-  HF_FREED = 105,
-  HIST_FIGURE_SIMPLE_ACTION = 106,
-  ENTITY_RAMPAGED_IN_SITE = 107,
-  ENTITY_FLED_SITE = 108,
-  TACTICAL_SITUATION = 109,
-  SQUAD_VS_SQUAD = 110,
-  SITE_SURRENDERED = 111,
-  ENTITY_EXPELS_HF = 112,
-  TRADE = 113,
-  ADD_ENTITY_SITE_PROFILE_FLAG = 114,
-  GAMBLE = 115,
-  ADD_HF_ENTITY_HONOR = 116,
-  ENTITY_DISSOLVED = 117,
-  ENTITY_EQUIPMENT_PURCHASE = 118,
-  MODIFIED_BUILDING = 119,
-  BUILDING_PROFILE_ACQUIRED = 120,
-  HF_PREACH = 121,
-  ENTITY_PERSECUTED = 122,
-  ENTITY_BREACH_FEATURE_LAYER = 123,
-  ENTITY_ALLIANCE_FORMED = 124,
-  HF_RANSOMED = 125,
-  HF_ENSLAVED = 126,
-  SABOTAGE = 127,
-  ENTITY_OVERTHROWN = 128,
-  HFS_FORMED_INTRIGUE_RELATIONSHIP = 129,
-  FAILED_INTRIGUE_CORRUPTION = 130,
-  HF_CONVICTED = 131,
-  FAILED_FRAME_ATTEMPT = 132,
-  HF_INTERROGATED = 133,
+  MASTERPIECE_CREATED_ARCH_CONSTRUCT = 37,
+  MASTERPIECE_CREATED_ITEM = 38,
+  MASTERPIECE_CREATED_DYE_ITEM = 39,
+  MASTERPIECE_CREATED_ITEM_IMPROVEMENT = 40,
+  MASTERPIECE_CREATED_FOOD = 41,
+  MASTERPIECE_CREATED_ENGRAVING = 42,
+  MASTERPIECE_LOST = 43,
+  CHANGE_HF_STATE = 44,
+  CHANGE_HF_JOB = 45,
+  WAR_FIELD_BATTLE = 46,
+  WAR_PLUNDERED_SITE = 47,
+  WAR_SITE_NEW_LEADER = 48,
+  WAR_SITE_TRIBUTE_FORCED = 49,
+  WAR_SITE_TAKEN_OVER = 50,
+  BODY_ABUSED = 51,
+  HIST_FIGURE_ABDUCTED = 52,
+  ITEM_STOLEN = 53,
+  HF_RAZED_BUILDING = 54,
+  CREATURE_DEVOURED = 55,
+  HIST_FIGURE_WOUNDED = 56,
+  HIST_FIGURE_SIMPLE_BATTLE_EVENT = 57,
+  CREATED_WORLD_CONSTRUCTION = 58,
+  HIST_FIGURE_REUNION = 59,
+  HIST_FIGURE_REACH_SUMMIT = 60,
+  HIST_FIGURE_TRAVEL = 61,
+  HIST_FIGURE_NEW_PET = 62,
+  ASSUME_IDENTITY = 63,
+  CREATE_ENTITY_POSITION = 64,
+  CHANGE_CREATURE_TYPE = 65,
+  HIST_FIGURE_REVIVED = 66,
+  HF_LEARNS_SECRET = 67,
+  CHANGE_HF_BODY_STATE = 68,
+  HF_ACT_ON_BUILDING = 69,
+  HF_DOES_INTERACTION = 70,
+  HF_CONFRONTED = 71,
+  ENTITY_LAW = 72,
+  HF_GAINS_SECRET_GOAL = 73,
+  ARTIFACT_STORED = 74,
+  AGREEMENT_FORMED = 75,
+  SITE_DISPUTE = 76,
+  AGREEMENT_CONCLUDED = 77,
+  INSURRECTION_STARTED = 78,
+  INSURRECTION_ENDED = 79,
+  HF_ATTACKED_SITE = 80,
+  PERFORMANCE = 81,
+  COMPETITION = 82,
+  PROCESSION = 83,
+  CEREMONY = 84,
+  KNOWLEDGE_DISCOVERED = 85,
+  ARTIFACT_TRANSFORMED = 86,
+  ARTIFACT_DESTROYED = 87,
+  HF_RELATIONSHIP_DENIED = 88,
+  REGIONPOP_INCORPORATED_INTO_ENTITY = 89,
+  POETIC_FORM_CREATED = 90,
+  MUSICAL_FORM_CREATED = 91,
+  DANCE_FORM_CREATED = 92,
+  WRITTEN_CONTENT_COMPOSED = 93,
+  CHANGE_HF_MOOD = 94,
+  ARTIFACT_CLAIM_FORMED = 95,
+  ARTIFACT_GIVEN = 96,
+  HF_ACT_ON_ARTIFACT = 97,
+  HF_RECRUITED_UNIT_TYPE_FOR_ENTITY = 98,
+  HFS_FORMED_REPUTATION_RELATIONSHIP = 99,
+  ARTIFACT_COPIED = 100,
+  SNEAK_INTO_SITE = 101,
+  SPOTTED_LEAVING_SITE = 102,
+  ENTITY_SEARCHED_SITE = 103,
+  HF_FREED = 104,
+  HIST_FIGURE_SIMPLE_ACTION = 105,
+  ENTITY_RAMPAGED_IN_SITE = 106,
+  ENTITY_FLED_SITE = 107,
+  TACTICAL_SITUATION = 108,
+  SQUAD_VS_SQUAD = 109,
+  SITE_SURRENDERED = 110,
+  ENTITY_EXPELS_HF = 111,
+  TRADE = 112,
+  ADD_ENTITY_SITE_PROFILE_FLAG = 113,
+  GAMBLE = 114,
+  ADD_HF_ENTITY_HONOR = 115,
+  ENTITY_DISSOLVED = 116,
+  ENTITY_EQUIPMENT_PURCHASE = 117,
+  MODIFIED_BUILDING = 118,
+  BUILDING_PROFILE_ACQUIRED = 119,
+  HF_PREACH = 120,
+  ENTITY_PERSECUTED = 121,
+  ENTITY_BREACH_FEATURE_LAYER = 122,
+  ENTITY_ALLIANCE_FORMED = 123,
+  HF_RANSOMED = 124,
+  HF_ENSLAVED = 125,
+  SABOTAGE = 126,
+  ENTITY_OVERTHROWN = 127,
+  HFS_FORMED_INTRIGUE_RELATIONSHIP = 128,
+  FAILED_INTRIGUE_CORRUPTION = 129,
+  HF_CONVICTED = 130,
+  FAILED_FRAME_ATTEMPT = 131,
+  HF_INTERROGATED = 132,
 }
 
 ---@enum history_event_reason
+---Some of these require at least one parameter of varying type. The text is what DF provides without parameter
 df.history_event_reason = {
   none = -1,
   insurrection = 0,
@@ -725,291 +711,102 @@ df.history_event_reason = {
 ---@class history_event_reason_attr
 ---@field caption string
 
----@type table<history_event_reason, history_event_reason_attr>
-df.history_event_reason.attrs = {
-  insurrection = {
-    caption = "for an insurrection",
-  },
-  adventure = {
-    caption = "to adventure",
-  },
-  guide = {
-    caption = "as a guide",
-  },
-  rescued = {
-    caption = "in order to be rescued",
-  },
-  sphere_alignment = {
-    caption = "due to their cosmic similarity",
-  },
-  maintain_balance_in_universe = {
-    caption = "in order to maintain balance in the universe",
-  },
-  highlight_boundaries_between_worlds = {
-    caption = "to create a monument to the boundaries between realities",
-  },
-  sow_the_seeds_of_chaos_in_the_world = {
-    caption = "to sow the seeds of chaos within",
-  },
-  provide_opportunities_for_courage = {
-    caption = "to provide opportunities for courage to rise",
-  },
-  bring_death_to_the_world = {
-    caption = "that more might die",
-  },
-  liked_appearance = {
-    caption = "that all should gaze upon a truly gruesome visage",
-  },
-  because_it_was_destined = {
-    caption = "because it was destined",
-  },
-  great_fortresses_built_and_tested = {
-    caption = "that great fortresses might be raised and tested in siege",
-  },
-  whim = {
-    caption = "on a whim",
-  },
-  bring_misery_to_the_world = {
-    caption = "that it might bathe in misery forever",
-  },
-  bring_murder_to_the_world = {
-    caption = "that more might be murdered",
-  },
-  bring_nightmares_into_reality = {
-    caption = "in order to make nightmares reality",
-  },
-  bring_thralldom_to_the_world = {
-    caption = "in order to make thralls of everyone",
-  },
-  bring_torture_to_the_world = {
-    caption = "in order that acts of torture be perpetrated",
-  },
-  provide_opportunities_for_acts_of_valor = {
-    caption = "to provide opportunities for acts of valor to be performed",
-  },
-  bring_war_to_the_world = {
-    caption = "that war might rage forever",
-  },
-  find_relative = {
-    caption = "in order to find a relative",
-  },
-  offer_condolences = {
-    caption = "to offer condolences",
-  },
-  be_brought_to_safety = {
-    caption = "in order to be brought to safety",
-  },
-  help_with_rescue = {
-    caption = "to help with a rescue",
-  },
-  insufficient_work = {
-    caption = "due to insufficient work",
-  },
-  work_request = {
-    caption = "to request work",
-  },
-  make_weapon = {
-    caption = "that weapons be made",
-  },
-  vent_at_boss = {
-    caption = "to vent at somebody in charge",
-  },
-  cry_on_boss = {
-    caption = "to cry on somebody in charge",
-  },
-  should_have_reached_goal = {
-    caption = "as the goal was not reached",
-  },
-  insufficient_progress_toward_goal = {
-    caption = "as insufficient progress was made toward the goal",
-  },
-  going_wrong_direction = {
-    caption = "after going the wrong direction",
-  },
-  arrived_at_location = {
-    caption = "after arriving at the location",
-  },
-  entity_no_longer_rules = {
-    caption = "as the relevant government was no longer in control",
-  },
-  left_site = {
-    caption = "after leaving the site",
-  },
-  reunited_with_loved_one = {
-    caption = "after being reunited with a loved one",
-  },
-  violent_disagreement = {
-    caption = "after a violent disagreement",
-  },
-  adopted = {
-    caption = "after adoption",
-  },
-  true_name_invocation = {
-    caption = "after invocation of the true name",
-  },
-  arrived_at_person = {
-    caption = "after finding an unknown creature",
-  },
-  eradicate_beasts = {
-    caption = "in order to eradicate beasts",
-  },
-  entertain_people = {
-    caption = "in order to entertain people",
-  },
-  make_a_living_as_a_warrior = {
-    caption = "in order to make a living as a warrior",
-  },
-  study = {
-    caption = "in order to study",
-  },
-  flight = {
-    caption = "in order to flee",
-  },
-  scholarship = {
-    caption = "in order to pursue scholarship",
-  },
-  be_with_master = {
-    caption = "in order to be with the master",
-  },
-  become_citizen = {
-    caption = "in order to become a citizen",
-  },
-  prefers_working_alone = {
-    caption = "in order to continue working alone",
-  },
-  jealousy = {
-    caption = "due to jealousy",
-  },
-  glorify_hf = {
-    caption = "in order to glorify an unknown creature",
-  },
-  have_not_performed = {
-    caption = "due to a lack of performances",
-  },
-  prevented_from_leaving = {
-    caption = "after being prevented from leaving",
-  },
-  curiosity = {
-    caption = "out of curiosity",
-  },
-  hire_on_as_mercenary = {
-    caption = "to fill a role as a mercenary",
-  },
-  hire_on_as_performer = {
-    caption = "to fill a role as a performer",
-  },
-  hire_on_as_scholar = {
-    caption = "to fill a role as a scholar",
-  },
-  drink = {
-    caption = "in order to drink",
-  },
-  admire_architecture = {
-    caption = "in order to admire achitecture",
-  },
-  pray = {
-    caption = "in order to pray",
-  },
-  relax = {
-    caption = "in order to relax",
-  },
-  danger = {
-    caption = "to experience danger",
-  },
-  cannot_find_artifact = {
-    caption = "after being unable to find an artifact",
-  },
-  failed_mood = {
-    caption = "after failing to create an artifact",
-  },
-  lack_of_sleep = {
-    caption = "due to a lack of sleep",
-  },
-  trapped_in_cage = {
-    caption = "after being trapped in a cage",
-  },
-  great_deal_of_stress = {
-    caption = "after a great deal of stress",
-  },
-  unable_to_leave_location = {
-    caption = "after being unable to leave a location",
-  },
-  sanctify_hf = {
-    caption = "in order to sanctify an unknown creature",
-  },
-  artifact_is_heirloom_of_family_hfid = {
-    caption = "as an heirloom of the an unknown creature family",
-  },
-  cement_bonds_of_friendship = {
-    caption = "in order to cement the bonds of friendship",
-  },
-  as_a_symbol_of_everlasting_peace = {
-    caption = "as a symbol of everlasting peace",
-  },
-  on_a_pilgrimage = {
-    caption = "on a pilgrimage",
-  },
-  gather_information = {
-    caption = "to gather information",
-  },
-  seek_sanctuary = {
-    caption = "in order to find sactuary",
-  },
-  part_of_trade_negotiation = {
-    caption = "as part of a trade negotiation",
-  },
-  artifact_is_symbol_of_entity_position = {
-    caption = "as a symbol of authority within an unknown civilization",
-  },
-  fear_of_persecution = {
-    caption = "due to fear of persecution",
-  },
-  smooth_operation = {
-    caption = "to smooth the operation of an unknown civilization",
-  },
-  nuance_belief = {
-    caption = "due to a belief in nuances of",
-  },
-  shared_interest = {
-    caption = "due to a shared interest in",
-  },
-  envy_living = {
-    caption = "due to envy of those that live on",
-  },
-  death_panic = {
-    caption = "due to panic about what happens after death",
-  },
-  death_fear = {
-    caption = "due to fear of death",
-  },
-  avoid_judgement = {
-    caption = "unable to face any possible judgment and the afterlife",
-  },
-  death_pride = {
-    caption = "being too proud to give in to death",
-  },
-  death_vain = {
-    caption = "being too vain to give in to death",
-  },
-  death_ambition = {
-    caption = "having ambitions for which death was only a small obstacle",
-  },
-  lack_of_funds = {
-    caption = "due to lack of funds",
-  },
-  battle_losses = {
-    caption = "after taking heavy losses in battle",
-  },
-  conviction_exile = {
-    caption = "after being exiled following a criminal conviction",
-  },
-  priest_vent = {
-    caption = "to vent at a priest",
-  },
-  priest_cry = {
-    caption = "to cry on a priest",
-  },
-}
+---@class history_event_reason_attrs
+---@field insurrection history_event_reason_attr
+---@field adventure history_event_reason_attr
+---@field guide history_event_reason_attr
+---@field rescued history_event_reason_attr
+---@field sphere_alignment history_event_reason_attr
+---@field maintain_balance_in_universe history_event_reason_attr
+---@field highlight_boundaries_between_worlds history_event_reason_attr
+---@field sow_the_seeds_of_chaos_in_the_world history_event_reason_attr
+---@field provide_opportunities_for_courage history_event_reason_attr
+---@field bring_death_to_the_world history_event_reason_attr
+---@field liked_appearance history_event_reason_attr
+---@field because_it_was_destined history_event_reason_attr
+---@field great_fortresses_built_and_tested history_event_reason_attr
+---@field whim history_event_reason_attr
+---@field bring_misery_to_the_world history_event_reason_attr
+---@field bring_murder_to_the_world history_event_reason_attr
+---@field bring_nightmares_into_reality history_event_reason_attr
+---@field bring_thralldom_to_the_world history_event_reason_attr
+---@field bring_torture_to_the_world history_event_reason_attr
+---@field provide_opportunities_for_acts_of_valor history_event_reason_attr
+---@field bring_war_to_the_world history_event_reason_attr
+---@field find_relative history_event_reason_attr
+---@field offer_condolences history_event_reason_attr
+---@field be_brought_to_safety history_event_reason_attr
+---@field help_with_rescue history_event_reason_attr
+---@field insufficient_work history_event_reason_attr
+---@field work_request history_event_reason_attr
+---@field make_weapon history_event_reason_attr
+---@field vent_at_boss history_event_reason_attr
+---@field cry_on_boss history_event_reason_attr
+---@field should_have_reached_goal history_event_reason_attr
+---@field insufficient_progress_toward_goal history_event_reason_attr
+---@field going_wrong_direction history_event_reason_attr
+---@field arrived_at_location history_event_reason_attr
+---@field entity_no_longer_rules history_event_reason_attr
+---@field left_site history_event_reason_attr
+---@field reunited_with_loved_one history_event_reason_attr
+---@field violent_disagreement history_event_reason_attr
+---@field adopted history_event_reason_attr
+---@field true_name_invocation history_event_reason_attr
+---@field arrived_at_person history_event_reason_attr
+---@field eradicate_beasts history_event_reason_attr
+---@field entertain_people history_event_reason_attr
+---@field make_a_living_as_a_warrior history_event_reason_attr
+---@field study history_event_reason_attr
+---@field flight history_event_reason_attr
+---@field scholarship history_event_reason_attr
+---@field be_with_master history_event_reason_attr
+---@field become_citizen history_event_reason_attr
+---@field prefers_working_alone history_event_reason_attr
+---@field jealousy history_event_reason_attr
+---@field glorify_hf history_event_reason_attr
+---@field have_not_performed history_event_reason_attr
+---@field prevented_from_leaving history_event_reason_attr
+---@field curiosity history_event_reason_attr
+---@field hire_on_as_mercenary history_event_reason_attr
+---@field hire_on_as_performer history_event_reason_attr
+---@field hire_on_as_scholar history_event_reason_attr
+---@field drink history_event_reason_attr
+---@field admire_architecture history_event_reason_attr
+---@field pray history_event_reason_attr
+---@field relax history_event_reason_attr
+---@field danger history_event_reason_attr
+---@field cannot_find_artifact history_event_reason_attr
+---@field failed_mood history_event_reason_attr
+---@field lack_of_sleep history_event_reason_attr
+---@field trapped_in_cage history_event_reason_attr
+---@field great_deal_of_stress history_event_reason_attr
+---@field unable_to_leave_location history_event_reason_attr
+---@field sanctify_hf history_event_reason_attr
+---@field artifact_is_heirloom_of_family_hfid history_event_reason_attr
+---@field cement_bonds_of_friendship history_event_reason_attr
+---@field as_a_symbol_of_everlasting_peace history_event_reason_attr
+---@field on_a_pilgrimage history_event_reason_attr
+---@field gather_information history_event_reason_attr
+---@field seek_sanctuary history_event_reason_attr
+---@field part_of_trade_negotiation history_event_reason_attr
+---@field artifact_is_symbol_of_entity_position history_event_reason_attr
+---@field fear_of_persecution history_event_reason_attr
+---@field smooth_operation history_event_reason_attr
+---@field nuance_belief history_event_reason_attr
+---@field shared_interest history_event_reason_attr
+---@field envy_living history_event_reason_attr
+---@field death_panic history_event_reason_attr
+---@field death_fear history_event_reason_attr
+---@field avoid_judgement history_event_reason_attr
+---@field death_pride history_event_reason_attr
+---@field death_vain history_event_reason_attr
+---@field death_ambition history_event_reason_attr
+---@field lack_of_funds history_event_reason_attr
+---@field battle_losses history_event_reason_attr
+---@field conviction_exile history_event_reason_attr
+---@field priest_vent history_event_reason_attr
+---@field priest_cry history_event_reason_attr
+df.history_event_reason.attrs = {}
 
 ---@class history_event_reason_info
 ---@field type history_event_reason
@@ -1035,9 +832,9 @@ df.history_event_reason.attrs = {
 ---@field AfterAbducting integer
 
 ---@class history_event_context
----@field flags any
+---@field flags flag-bit
 ---@field interrogator_relationships historical_figure_relationships
----@field interrogation any
+---@field interrogation pointer
 ---@field artifact_id integer
 ---@field entity_id integer
 ---@field histfig_id integer
@@ -1045,12 +842,12 @@ df.history_event_reason.attrs = {
 ---@field site_id integer
 ---@field region_id integer
 ---@field layer_id integer
----@field unk_34 integer # passed to history_event::isRelatedToAgreementID, but all implementations of that function are broken currently
+---@field unk_34 integer passed to history_event::isRelatedToAgreementID, but all implementations of that function are broken currently
 ---@field abstract_building_id integer
 ---@field sphere sphere_type
 ---@field architectural_element architectural_element
 ---@field unk_40 integer
----@field family_relationship histfig_relationship_type # not initialized
+---@field family_relationship histfig_relationship_type not initialized
 ---@field number integer
 ---@field unk_48 integer
 ---@field race integer
@@ -1061,7 +858,7 @@ df.history_event_reason.attrs = {
 ---@field undead_flags undead_flags
 ---@field unk_5a integer
 ---@field squad_id integer
----@field formation_id integer # ID within world.formations.all
+---@field formation_id integer ID within world.formations.all
 ---@field activity_id integer
 ---@field breed_id integer
 ---@field battlefield_id integer
@@ -1075,7 +872,7 @@ df.history_event_reason.attrs = {
 ---@field vehicle_id integer
 ---@field army_id integer
 ---@field army_controller_id integer
----@field army_tracking_info_id integer # ID within world.army_tracking_info.all
+---@field army_tracking_info_id integer ID within world.army_tracking_info.all
 ---@field cultural_identity_id integer
 ---@field agreement_id integer
 ---@field poetic_form_id integer
@@ -1112,15 +909,10 @@ df.history_event_flags = {
   unk_2 = 2, --related to intrigues (checked in df::history_event_failed_intrigue_corruptionst::getRelatedHistfigIDs)
 }
 
----@class merc_role_type
----@field attacker_scout boolean
----@field defender_scout boolean
-df.merc_role_type = {}
-
 ---@class history_event
 ---@field year integer
 ---@field seconds integer
----@field flags any
+---@field flags df-flagarray
 ---@field id integer
 
 ---@class history_event_war_attacked_sitest
@@ -1223,7 +1015,7 @@ df.death_type = {
 ---@field civ integer
 ---@field histfig integer
 ---@field link_type histfig_entity_link_type
----@field position_id integer # index into entity.positions.own
+---@field position_id integer index into entity.positions.own
 ---@field appointer_hfid integer
 ---@field promise_to_hfid integer
 
@@ -1231,7 +1023,7 @@ df.death_type = {
 ---@field civ integer
 ---@field histfig integer
 ---@field link_type histfig_entity_link_type
----@field position_id integer # index into entity.positions.own
+---@field position_id integer index into entity.positions.own
 
 ---@class history_event_entity_expels_hfst
 ---@field civ integer
@@ -1253,7 +1045,7 @@ df.death_type = {
 ---@field destination integer
 ---@field site integer
 ---@field topic meeting_topic
----@field result integer # range from -3 to +2
+---@field result integer range from -3 to +2
 
 ---@class history_event_topicagreement_rejectedst
 ---@field topic meeting_topic
@@ -1292,7 +1084,7 @@ df.death_type = {
 ---@field source integer
 ---@field destination integer
 ---@field site integer
----@field flags2 any
+---@field flags2 df-flagarray
 
 ---@enum history_event_merchant_flags
 df.history_event_merchant_flags = {
@@ -1322,10 +1114,10 @@ df.history_event_merchant_flags = {
 
 ---@class history_event_artifact_createdst
 ---@field artifact_id integer
----@field creator_unit_id integer # the unit who created the artifact
----@field creator_hfid integer # the figure who created the artifact
+---@field creator_unit_id integer the unit who created the artifact
+---@field creator_hfid integer the figure who created the artifact
 ---@field site integer
----@field flags2 any
+---@field flags2 flag-bit
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 
@@ -1334,7 +1126,7 @@ df.history_event_merchant_flags = {
 ---@field site integer
 ---@field site_property_id integer
 ---@field subregion_id integer
----@field unk_1 integer # probably feature_layer_id, based on other events, but haven't seen non -1
+---@field unk_1 integer probably feature_layer_id, based on other events, but haven't seen non -1
 
 ---@class history_event_artifact_foundst
 ---@field artifact integer
@@ -1342,8 +1134,8 @@ df.history_event_merchant_flags = {
 ---@field histfig integer
 ---@field site integer
 ---@field site_property_id integer
----@field unk_1 integer # probably subregion_id, based on other events, but haven't seen non -1
----@field unk_2 integer # probably feature_layer_id, based on other events, but haven't seen non -1
+---@field unk_1 integer probably subregion_id, based on other events, but haven't seen non -1
+---@field unk_2 integer probably feature_layer_id, based on other events, but haven't seen non -1
 
 ---@class history_event_artifact_recoveredst
 ---@field artifact integer
@@ -1359,13 +1151,13 @@ df.history_event_merchant_flags = {
 ---@field unit integer
 ---@field histfig integer
 ---@field site integer
----@field flags2 any
+---@field flags2 df-flagarray
 
 ---@class history_event_reclaim_sitest
 ---@field civ integer
 ---@field site_civ integer
 ---@field site integer
----@field flags2 any
+---@field flags2 flag-bit
 
 ---@class history_event_hf_destroyed_sitest
 ---@field attacker_hf integer
@@ -1377,13 +1169,13 @@ df.history_event_merchant_flags = {
 ---@field civ integer
 ---@field site_civ integer
 ---@field site integer
----@field flags2 any
+---@field flags2 flag-bit
 
 ---@class history_event_site_retiredst
 ---@field civ integer
 ---@field site_civ integer
 ---@field site integer
----@field flags2 any
+---@field flags2 flag-bit
 
 ---@class history_event_entity_createdst
 ---@field entity integer
@@ -1459,12 +1251,6 @@ df.entity_action_type = {
 ---@field maker_entity integer
 ---@field site integer
 ---@field skill_at_time skill_rating
-
----@class history_event_masterpiece_created_arch_designst
----@field building_type integer
----@field building_subtype integer
----@field building_custom integer
----@field unk_2 integer
 
 ---@class history_event_masterpiece_created_arch_constructst
 ---@field building_type integer
@@ -1559,7 +1345,7 @@ df.masterpiece_loss_type = {
 ---@field defender_civ integer
 ---@field site_civ integer
 ---@field site integer
----@field unk_1 integer # 2=detected
+---@field unk_1 integer 2=detected
 
 ---@class history_event_war_site_new_leaderst
 ---@field attacker_civ integer
@@ -1575,7 +1361,7 @@ df.masterpiece_loss_type = {
 ---@field site_civ integer
 ---@field site integer
 ---@field season season
----@field tribute_flags any
+---@field tribute_flags flag-bit
 
 ---@class history_event_war_site_taken_overst
 ---@field attacker_civ integer
@@ -1599,15 +1385,15 @@ df.masterpiece_loss_type = {
 ---@field region integer
 ---@field layer integer
 ---@field region_pos coord2d
----@field abuse_type any
+---@field abuse_type enum
 ---@field abuse_data history_event_body_abusedst_abuse_data
 
 ---@class history_event_body_abusedst_abuse_data
----@field Impaled any
----@field Piled any
----@field Flayed any
----@field Hung any
----@field Animated any
+---@field Impaled compound
+---@field Piled enum
+---@field Flayed integer
+---@field Hung compound
+---@field Animated compound
 
 ---@class history_event_hist_figure_abductedst
 ---@field target integer
@@ -1637,7 +1423,7 @@ df.theft_method_type = {
 ---@field region integer
 ---@field layer integer
 ---@field region_pos coord2d
----@field stash_site integer # location to which the thief brought the loot
+---@field stash_site integer location to which the thief brought the loot
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 ---@field theft_method theft_method_type
@@ -1666,9 +1452,9 @@ df.theft_method_type = {
 ---@field woundee_race integer
 ---@field woundee_caste integer
 ---@field body_part integer
----@field injury_type any
+---@field injury_type enum
 ---@field part_lost boolean
----@field flags2 any
+---@field flags2 flag-bit
 
 ---@enum history_event_simple_battle_subtype
 df.history_event_simple_battle_subtype = {
@@ -1729,7 +1515,7 @@ df.artifact_claim_type = {
 ---@field site integer
 ---@field region integer
 ---@field layer integer
----@field reason any
+---@field reason enum
 ---@field region_pos coord2d
 
 ---@class history_event_hist_figure_new_petst
@@ -1775,7 +1561,7 @@ df.position_creation_reason_type = {
 ---@field region integer
 ---@field layer integer
 ---@field ghost_type ghost_type
----@field flags2 any
+---@field flags2 flag-bit
 ---@field actor_hfid integer
 ---@field interaction integer
 ---@field unk_1 integer
@@ -1808,7 +1594,7 @@ df.histfig_body_state = {
 ---@field region_pos coord2d
 
 ---@class history_event_hf_act_on_buildingst
----@field action any
+---@field action enum
 ---@field histfig integer
 ---@field site integer
 ---@field structure integer
@@ -1825,7 +1611,7 @@ df.histfig_body_state = {
 ---@class history_event_hf_confrontedst
 ---@field target integer
 ---@field accuser integer
----@field reasons integer[] # 0 = ageless, 1 = murder
+---@field reasons integer[] 0 = ageless, 1 = murder
 ---@field site integer
 ---@field region integer
 ---@field layer integer
@@ -1834,23 +1620,23 @@ df.histfig_body_state = {
 ---@class history_event_entity_lawst
 ---@field entity integer
 ---@field histfig integer
----@field add_flags any
----@field remove_flags any
+---@field add_flags flag-bit
+---@field remove_flags flag-bit
 
 ---@class history_event_hf_gains_secret_goalst
 ---@field histfig integer
 ---@field goal goal_type
----@field unk_1 integer
----@field unk_2 integer
+---@field thought unit_thought_type
+---@field target_hf integer
 ---@field reason history_event_reason
----@field unk_3 integer
+---@field value value_type
 
 ---@class history_event_artifact_storedst
 ---@field artifact integer
 ---@field unit integer
 ---@field histfig integer
 ---@field site integer
----@field building integer # Guess. the values seen are low numbers. Legends doesn't provide any additional info
+---@field building integer Guess. the values seen are low numbers. Legends doesn't provide any additional info
 
 ---@class history_event_agreement_formedst
 ---@field agreement_id integer
@@ -1958,7 +1744,7 @@ df.insurrection_outcome = {
 ---@field target_hf integer
 ---@field type unit_relationship_type
 ---@field reason history_event_reason
----@field reason_id integer # the historical figure that the reason describes
+---@field reason_id integer the historical figure that the reason describes
 ---@field site integer
 ---@field region integer
 ---@field layer integer
@@ -2036,7 +1822,7 @@ df.insurrection_outcome = {
 ---@field inherited boolean
 
 ---@class history_event_hf_act_on_artifactst
----@field action any
+---@field action enum
 ---@field artifact integer
 ---@field histfig integer
 ---@field site integer
@@ -2069,7 +1855,7 @@ df.insurrection_outcome = {
 ---@field site_src integer
 ---@field structure_dest integer
 ---@field structure_src integer
----@field flags2 any
+---@field flags2 flag-bit
 
 ---@class history_event_sneak_into_sitest
 ---@field attacker_civ integer
@@ -2086,7 +1872,7 @@ df.insurrection_outcome = {
 ---@class history_event_entity_searched_sitest
 ---@field searcher_civ integer
 ---@field site integer
----@field result integer # 0 = found nothing
+---@field result integer 0 = found nothing
 
 ---@class history_event_hf_freedst
 ---@field freeing_civ integer
@@ -2144,7 +1930,7 @@ df.tactical_situation = {
 ---@field structure integer
 ---@field subregion integer
 ---@field feature_layer integer
----@field tactics_flags any
+---@field tactics_flags flag-bit
 
 ---@class history_event_squad_vs_squadst
 ---@field a_leader_hfid integer
@@ -2172,7 +1958,7 @@ df.tactical_situation = {
 
 ---@class history_event_tradest
 ---@field hf integer
----@field entity integer # the guild to which the figure belongs?
+---@field entity integer the guild to which the figure belongs?
 ---@field source_site integer
 ---@field dest_site integer
 ---@field production_zone integer
@@ -2195,7 +1981,7 @@ df.tactical_situation = {
 ---@class history_event_add_hf_entity_honorst
 ---@field entity_id integer
 ---@field hfid integer
----@field honor_id integer # index into historical_entity.honors
+---@field honor_id integer index into historical_entity.honors
 
 ---@class history_event_entity_dissolvedst
 ---@field entity integer
@@ -2209,17 +1995,17 @@ df.tactical_situation = {
 
 ---@class history_event_modified_buildingst
 ---@field site integer
----@field structure integer # index into world_site.buildings
+---@field structure integer index into world_site.buildings
 ---@field hf integer
 ---@field unk_1 integer
----@field modification any
+---@field modification bitfield
 
 ---@class history_event_building_profile_acquiredst
 ---@field site integer
 ---@field building_profile integer
 ---@field acquirer_hf integer
 ---@field acquirer_entity integer
----@field acquisition_type integer # 0: purchased, 1: inherited, 2: rebuilt. Doesn't match. Seen purchased_unowned, inherited, and rebuilt_ruined together when value = 0
+---@field acquisition_type integer 0: purchased, 1: inherited, 2: rebuilt. Doesn't match. Seen purchased_unowned, inherited, and rebuilt_ruined together when value = 0
 ---@field previous_owner_hf integer
 ---@field unk_1 integer
 
@@ -2314,11 +2100,11 @@ df.tactical_situation = {
 ---@field surveillance_hf integer
 ---@field co_conspirator_hf integer
 ---@field target_hf integer
----@field crime integer # references crime::T_mode
+---@field crime integer references crime::T_mode
 ---@field hammerstrokes integer
 ---@field prison_months integer
----@field punishment_flags any
----@field plot_flags any
+---@field punishment_flags bitfield
+---@field plot_flags bitfield
 
 ---@class history_event_failed_frame_attemptst
 ---@field target_hf integer
@@ -2326,14 +2112,14 @@ df.tactical_situation = {
 ---@field plotter_hf integer
 ---@field fooled_hf integer
 ---@field framer_hf integer
----@field crime integer # references crime::T_mode
+---@field crime integer references crime::T_mode
 
 ---@class history_event_hf_interrogatedst
 ---@field target_hf integer
 ---@field arresting_entity integer
 ---@field interrogator_hf integer
 ---@field implicated_hfs integer[]
----@field interrogation_flags any
+---@field interrogation_flags bitfield
 
 ---@enum history_event_collection_type
 df.history_event_collection_type = {
@@ -2364,32 +2150,32 @@ df.history_event_collection_type = {
 ---@field end_year integer
 ---@field start_seconds integer
 ---@field end_seconds integer
----@field flags any
+---@field flags df-flagarray
 ---@field id integer
 
 ---@class history_event_collection_warst
 ---@field name language_name
 ---@field attacker_civ integer[]
 ---@field defender_civ integer[]
----@field unk_1 integer[] # when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations
+---@field unk_1 integer[] when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations
 ---@field unk history_event_collection_warst_unk
 
 ---@class history_event_collection_warst_unk
----@field unk_1 integer[] # These 5 vectors are the same length,0 or 1. Only 0 seen
+---@field unk_1 integer[] These 5 vectors are the same length,0 or 1. Only 0 seen
 ---@field attacker_entity_leader integer[]
----@field unk_2 integer[] # 25, 25, 46 seen. All on the first few (oldest) collections.
----@field unk_3 integer[] # only -1 seen
----@field unk_4 integer[] # -5,-6, -14 -15 seen
----@field unk_5 integer # same as previous vector single element or zero. Sum?
----@field ethics_unk1 integer[] # these three vectors are of the same length
+---@field unk_2 integer[] 25, 25, 46 seen. All on the first few (oldest) collections.
+---@field unk_3 integer[] only -1 seen
+---@field unk_4 integer[] -5,-6, -14 -15 seen
+---@field unk_5 integer same as previous vector single element or zero. Sum?
+---@field ethics_unk1 integer[] these three vectors are of the same length
 ---@field disputed_ethics ethic_type[]
----@field ethics_unk3 integer[] # not seen other value
+---@field ethics_unk3 integer[] not seen other value
 ---@field dispute_severities integer[]
 ---@field accumulated_ethics_severity integer
----@field event_unk integer[] # values 5 and 10 seen. These three vectors are the same length
----@field negative_events integer[] # Site dispute, war attack site, created site, and culled seen
----@field event_severities integer[] # Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
----@field accumulated_event_severity integer # sum of previous vector values
+---@field event_unk integer[] values 5 and 10 seen. These three vectors are the same length
+---@field negative_events integer[] Site dispute, war attack site, created site, and culled seen
+---@field event_severities integer[] Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
+---@field accumulated_event_severity integer sum of previous vector values
 
 ---@class history_event_collection_battlest
 ---@field name language_name
@@ -2401,10 +2187,10 @@ df.history_event_collection_type = {
 ---@field attacker_civ integer[]
 ---@field defender_civ integer[]
 ---@field attacker_hf integer[]
----@field attacker_role integer[] # Tentatively 0: regular, 1/2 merc
+---@field attacker_role integer[] Tentatively 0: regular, 1/2 merc
 ---@field defender_hf integer[]
----@field defender_role integer[] # same as for attacker role, i.e. 0-2, with 1/2 being mercs
----@field noncombat_hf integer[] # saw being beheaded, but that's only one checked
+---@field defender_role integer[] same as for attacker role, i.e. 0-2, with 1/2 being mercs
+---@field noncombat_hf integer[] saw being beheaded, but that's only one checked
 ---@field merc_roles merc_role_type
 ---@field attacker_mercs integer
 ---@field defender_mercs integer
@@ -2415,14 +2201,14 @@ df.history_event_collection_type = {
 ---@field attacker_squad_deaths integer[]
 ---@field attacker_squad_races integer[]
 ---@field attacker_squad_sites integer[]
----@field unk_3 integer[] # probably a boolean, as only 0/1 seen
+---@field unk_3 integer[] probably a boolean, as only 0/1 seen
 ---@field defender_squad_entity_pops integer[]
 ---@field defender_squad_counts integer[]
 ---@field defender_squad_deaths integer[]
 ---@field defender_squad_races integer[]
 ---@field defender_squad_sites integer[]
----@field unk_4 integer[] # probably a boolean, as only 0/1 seen
----@field outcome integer # 0 = attacker won, 1 = defender won
+---@field unk_4 integer[] probably a boolean, as only 0/1 seen
+---@field outcome integer 0 = attacker won, 1 = defender won
 
 ---@class history_event_collection_duelst
 ---@field parent_collection integer
@@ -2433,14 +2219,14 @@ df.history_event_collection_type = {
 ---@field attacker_hf integer
 ---@field defender_hf integer
 ---@field ordinal integer
----@field unk_1 integer # probably boolean. Only 0/1 seen. Looks like winner, with all '1' examined showing defeat of defender, from unscathed to death, and '0' showing no result at all or death of attacker
+---@field unk_1 integer probably boolean. Only 0/1 seen. Looks like winner, with all '1' examined showing defeat of defender, from unscathed to death, and '0' showing no result at all or death of attacker
 
 ---@class history_event_collection_site_conqueredst
 ---@field parent_collection integer
 ---@field site integer
 ---@field attacker_civ integer[]
 ---@field defender_civ integer[]
----@field unk_1 integer # uninitialized
+---@field unk_1 integer uninitialized
 ---@field ordinal integer
 
 ---@class history_event_collection_abductionst
@@ -2504,31 +2290,31 @@ df.history_event_collection_type = {
 ---@field ordinal integer
 
 ---@class history_event_collection_performancest
----@field parent_collection integer # all seen were occasions
+---@field parent_collection integer all seen were occasions
 ---@field civ integer
----@field unk_1 integer # 0-11 seen
----@field unk_2 integer # 0-9 seen
+---@field unk_1 integer 0-11 seen
+---@field unk_2 integer 0-9 seen
 ---@field ordinal integer
 
 ---@class history_event_collection_competitionst
----@field parent_collection integer # all seen were occasions
+---@field parent_collection integer all seen were occasions
 ---@field civ integer
----@field unk_1 integer # 0-13 seen
----@field unk_2 integer # 0-9 seen
+---@field unk_1 integer 0-13 seen
+---@field unk_2 integer 0-9 seen
 ---@field ordinal integer
 
 ---@class history_event_collection_processionst
----@field parent_collection integer # all seen were occasions
+---@field parent_collection integer all seen were occasions
 ---@field civ integer
----@field unk_1 integer # 0-14 seen
----@field unk_2 integer # 0-9 seen
+---@field unk_1 integer 0-14 seen
+---@field unk_2 integer 0-9 seen
 ---@field ordinal integer
 
 ---@class history_event_collection_ceremonyst
----@field parent_collection integer # all seen were occasions
+---@field parent_collection integer all seen were occasions
 ---@field civ integer
----@field unk_1 integer # 0-14 seen
----@field unk_2 integer # 0-10 seen
+---@field unk_1 integer 0-14 seen
+---@field unk_2 integer 0-10 seen
 ---@field ordinal integer
 
 ---@class history_event_collection_purgest
@@ -2544,7 +2330,7 @@ df.history_event_collection_type = {
 ---@field region_pos coord2d
 ---@field attacker_civ integer
 ---@field defender_civ integer
----@field thieves integer[] # all of the ones examined were mentioned stealing things during the same raid on the site
+---@field thieves integer[] all of the ones examined were mentioned stealing things during the same raid on the site
 ---@field ordinal integer
 
 ---@class history_event_collection_persecutionst
@@ -2585,7 +2371,7 @@ df.era_type = {
 ---@field histfig_2 integer
 ---@field ordinal integer
 ---@field name string
----@field percent integer # either percentage of single race or percentage of mundane
+---@field percent integer either percentage of single race or percentage of mundane
 
 ---@class history_era_details
 ---@field living_powers integer
@@ -2599,33 +2385,33 @@ df.era_type = {
 ---@field civilized_mundane integer
 
 ---@class relationship_event
----@field event integer[] # not included in the main list
+---@field event integer[] not included in the main list
 ---@field relationship vague_relationship_type[]
 ---@field source_hf integer[]
 ---@field target_hf integer[]
 ---@field year integer[]
----@field next_element integer # 1024 for all vectors except the last one
----@field start_year integer # first year of the events contained in the element
+---@field next_element integer 1024 for all vectors except the last one
+---@field start_year integer first year of the events contained in the element
 
 ---@class relationship_event_supplement
----@field event integer # can be found in the relationship_events
----@field occasion_type integer # only 245/246 seen. 245:scholarly lecture, 246: performance
+---@field event integer can be found in the relationship_events
+---@field occasion_type integer only 245/246 seen. 245:scholarly lecture, 246: performance
 ---@field site integer
----@field unk_1 integer # only 81 seen
+---@field unk_1 integer only 81 seen
 ---@field profession profession
 
 ---@class world_history
 ---@field events history_event[]
 ---@field events_death history_event[]
 ---@field relationship_events relationship_event[]
----@field relationship_event_supplements relationship_event_supplement[] # supplemental info for artistic/scholar buddies
+---@field relationship_event_supplements relationship_event_supplement[] supplemental info for artistic/scholar buddies
 ---@field figures historical_figure[]
 ---@field event_collections world_history_event_collections
 ---@field eras history_era[]
 ---@field discovered_art_image_id integer[]
 ---@field discovered_art_image_subid integer[]
 ---@field total_unk integer
----@field total_powers integer # also includes megabeasts
+---@field total_powers integer also includes megabeasts
 ---@field total_megabeasts integer
 ---@field total_semimegabeasts integer
 ---@field unk_14 any[]
@@ -2650,7 +2436,7 @@ df.era_type = {
 ---@field unk_4 any[]
 ---@field unk_5 historical_figure[]
 ---@field unk_6 any[]
----@field unk_7 any[]
+---@field unk_7 integer[]
 ---@field unk_8 integer
 ---@field active_event_collections history_event_collection[]
 ---@field unk_10 integer
@@ -2663,8 +2449,8 @@ df.era_type = {
 ---@field other any[]
 
 ---@class intrigue
----@field event_id integer # NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship
----@field corruption intrigue_corruption # Mutually exclusive with circumstance. Exactly one is present. Presumably 'bring into network' action doesn't provide membership
+---@field event_id integer NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship
+---@field corruption intrigue_corruption Mutually exclusive with circumstance. Exactly one is present. Presumably 'bring into network' action doesn't provide membership
 ---@field reason history_event_reason_info
 ---@field circumstance history_event_circumstance_info
 
@@ -2672,25 +2458,25 @@ df.era_type = {
 ---@field crime crime_type
 ---@field corruptor_id integer
 ---@field target_id integer
----@field target_relationship vague_relationship_type # set if and only if action = BringIntoNetwork
----@field target_relationship_entity_id integer # Only set when relation = CommonEntity. Common Religion/PerformanceTroupe/MerchantCompany/Guild seen.
----@field lurer_id integer # Can be set with action = CorruptInPlace, not otherwise
----@field manipulation_type any
----@field unk_4 integer # -16 to 315 seen
----@field unk_5 integer # -141 to 351 seen
+---@field target_relationship vague_relationship_type set if and only if action = BringIntoNetwork
+---@field target_relationship_entity_id integer Only set when relation = CommonEntity. Common Religion/PerformanceTroupe/MerchantCompany/Guild seen.
+---@field lurer_id integer Can be set with action = CorruptInPlace, not otherwise
+---@field manipulation_type enum
+---@field unk_4 integer -16 to 315 seen
+---@field unk_5 integer -141 to 351 seen
 ---@field manipulated_facet personality_facet_type
 ---@field facet_rating integer
 ---@field facet_roll integer
 ---@field manipulated_value value_type
 ---@field value_rating integer
 ---@field value_roll integer
----@field manipulated_emotion any
----@field emotion_rating integer # -100 to 125 seen
----@field emotion_roll integer # -10 to 12 seen
----@field flags any
----@field position_entity_id integer # Used to pull rank
+---@field manipulated_emotion enum
+---@field emotion_rating integer -100 to 125 seen
+---@field emotion_roll integer -10 to 12 seen
+---@field flags bitfield
+---@field position_entity_id integer Used to pull rank
 ---@field position_assignment_id integer
----@field offered_id integer # deity or revenge target
+---@field offered_id integer deity or revenge target
 ---@field offered_relationship vague_relationship_type
 ---@field corruptor_ally_roll integer
 ---@field target_ally_roll integer

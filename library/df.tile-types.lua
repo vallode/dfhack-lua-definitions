@@ -1,6 +1,8 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum tiletype_shape_basic
+---Basic tile shape (not in DF)
 df.tiletype_shape_basic = {
   None = -1,
   Open = 0,
@@ -11,6 +13,7 @@ df.tiletype_shape_basic = {
 }
 
 ---@enum tiletype_shape
+---Tile shape (not in DF)
 df.tiletype_shape = {
   NONE = -1,
   EMPTY = 0,
@@ -44,140 +47,30 @@ df.tiletype_shape = {
 ---@field walkable bool
 ---@field walkable_up bool
 
----@type table<tiletype_shape, tiletype_shape_attr>
-df.tiletype_shape.attrs = {
-  EMPTY = {
-    basic_shape = "Open",
-    passable_low = "true",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-  },
-  FLOOR = {
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-  },
-  BOULDER = {
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-  },
-  PEBBLES = {
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-  },
-  WALL = {
-    basic_shape = "Wall",
-  },
-  FORTIFICATION = {
-    basic_shape = "Wall",
-    passable_flow = "true",
-  },
-  STAIR_UP = {
-    basic_shape = "Stair",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-    walkable_up = "true",
-  },
-  STAIR_DOWN = {
-    basic_shape = "Stair",
-    passable_low = "true",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-    walkable = "true",
-  },
-  STAIR_UPDOWN = {
-    basic_shape = "Stair",
-    passable_low = "true",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-    walkable = "true",
-    walkable_up = "true",
-  },
-  RAMP = {
-    caption = "ramps have no direction",
-    basic_shape = "Ramp",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-    walkable_up = "true",
-  },
-  RAMP_TOP = {
-    caption = "used for pathing?",
-    basic_shape = "Open",
-    passable_low = "true",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-    walkable = "true",
-  },
-  BROOK_BED = {
-    caption = "mineable, water-passable rock on the bottom of a brook",
-    basic_shape = "Wall",
-    passable_flow = "true",
-  },
-  BROOK_TOP = {
-    caption = "water-passable floor on top of BROOK_BED tiles",
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-    walkable = "true",
-  },
-  BRANCH = {
-    caption = "small tree branch",
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-    walkable = "true",
-  },
-  TRUNK_BRANCH = {
-    caption = "large tree branch",
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-    walkable = "true",
-  },
-  TWIG = {
-    caption = "tiny tree branch, not strong enough to support creatures",
-    basic_shape = "Open",
-    passable_low = "true",
-    passable_high = "true",
-    passable_flow = "true",
-    passable_flow_down = "true",
-  },
-  SAPLING = {
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-  },
-  SHRUB = {
-    basic_shape = "Floor",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-  },
-  ENDLESS_PIT = {
-    caption = "a fake endless pit",
-    basic_shape = "Open",
-    passable_high = "true",
-    passable_flow = "true",
-    walkable = "true",
-  },
-}
+---@class tiletype_shape_attrs
+---@field EMPTY tiletype_shape_attr
+---@field FLOOR tiletype_shape_attr
+---@field BOULDER tiletype_shape_attr
+---@field PEBBLES tiletype_shape_attr
+---@field WALL tiletype_shape_attr
+---@field FORTIFICATION tiletype_shape_attr
+---@field STAIR_UP tiletype_shape_attr
+---@field STAIR_DOWN tiletype_shape_attr
+---@field STAIR_UPDOWN tiletype_shape_attr
+---@field RAMP tiletype_shape_attr
+---@field RAMP_TOP tiletype_shape_attr
+---@field BROOK_BED tiletype_shape_attr
+---@field BROOK_TOP tiletype_shape_attr
+---@field BRANCH tiletype_shape_attr
+---@field TRUNK_BRANCH tiletype_shape_attr
+---@field TWIG tiletype_shape_attr
+---@field SAPLING tiletype_shape_attr
+---@field SHRUB tiletype_shape_attr
+---@field ENDLESS_PIT tiletype_shape_attr
+df.tiletype_shape.attrs = {}
 
 ---@enum tiletype_material
+---Tile material (not in DF)
 df.tiletype_material = {
   NONE = -1,
   AIR = 0,
@@ -211,89 +104,37 @@ df.tiletype_material = {
 ---@class tiletype_material_attr
 ---@field caption string
 
----@type table<tiletype_material, tiletype_material_attr>
-df.tiletype_material.attrs = {
-  AIR = {
-    caption = "empty",
-  },
-  SOIL = {
-    caption = "ordinary soil. material depends on geology",
-  },
-  STONE = {
-    caption = "ordinary layer stone. material depends on geology",
-  },
-  FEATURE = {
-    caption = "map special stone. used for things like hell, curious structures, or adamantine tubes. material depends on local/global special",
-  },
-  LAVA_STONE = {
-    caption = "lava stone created by mixing magma and water",
-  },
-  MINERAL = {
-    caption = "vein stone. material depends on mineral veins present",
-  },
-  FROZEN_LIQUID = {
-    caption = "frozen liquid. material depends on ice vein present (which also indicates what was on the tile before it froze)",
-  },
-  CONSTRUCTION = {
-    caption = "material depends on the construction present",
-  },
-  GRASS_LIGHT = {
-    caption = "light grass",
-  },
-  GRASS_DARK = {
-    caption = "dark grass",
-  },
-  GRASS_DRY = {
-    caption = "dry grass",
-  },
-  GRASS_DEAD = {
-    caption = "dead grass",
-  },
-  PLANT = {
-    caption = "plant",
-  },
-  HFS = {
-    caption = "the stuff glowing barriers/floors and eerie pits are made of - this makes them different from ordinary walls/floors and chasms",
-  },
-  CAMPFIRE = {
-    caption = "human armies make them when they siege. original tile is lost?",
-  },
-  FIRE = {
-    caption = "burning grass",
-  },
-  ASHES = {
-    caption = "what remains from a fire",
-  },
-  MAGMA = {
-    caption = "material for semi-molten rock and magma flow tiles",
-  },
-  DRIFTWOOD = {
-    caption = "driftwood. normally shows up on beaches",
-  },
-  POOL = {
-    caption = "A pool. Gathers water while it's raining.",
-  },
-  BROOK = {
-    caption = "Brook beds and floors",
-  },
-  RIVER = {
-    caption = "It's a riverbed. Basically a tile that doesn't get muddy.",
-  },
-  ROOT = {
-    caption = "tree root",
-  },
-  TREE = {
-    caption = "tree trunk/branch",
-  },
-  MUSHROOM = {
-    caption = "mushroom cap",
-  },
-  UNDERWORLD_GATE = {
-    caption = "Underworld Gate",
-  },
-}
+---@class tiletype_material_attrs
+---@field AIR tiletype_material_attr
+---@field SOIL tiletype_material_attr
+---@field STONE tiletype_material_attr
+---@field FEATURE tiletype_material_attr
+---@field LAVA_STONE tiletype_material_attr
+---@field MINERAL tiletype_material_attr
+---@field FROZEN_LIQUID tiletype_material_attr
+---@field CONSTRUCTION tiletype_material_attr
+---@field GRASS_LIGHT tiletype_material_attr
+---@field GRASS_DARK tiletype_material_attr
+---@field GRASS_DRY tiletype_material_attr
+---@field GRASS_DEAD tiletype_material_attr
+---@field PLANT tiletype_material_attr
+---@field HFS tiletype_material_attr
+---@field CAMPFIRE tiletype_material_attr
+---@field FIRE tiletype_material_attr
+---@field ASHES tiletype_material_attr
+---@field MAGMA tiletype_material_attr
+---@field DRIFTWOOD tiletype_material_attr
+---@field POOL tiletype_material_attr
+---@field BROOK tiletype_material_attr
+---@field RIVER tiletype_material_attr
+---@field ROOT tiletype_material_attr
+---@field TREE tiletype_material_attr
+---@field MUSHROOM tiletype_material_attr
+---@field UNDERWORLD_GATE tiletype_material_attr
+df.tiletype_material.attrs = {}
 
 ---@enum tiletype_variant
+---Cosmetic tile variant (not in DF)
 df.tiletype_variant = {
   NONE = -1,
   VAR_1 = 0,
@@ -303,6 +144,7 @@ df.tiletype_variant = {
 }
 
 ---@enum tiletype_special
+---Functional tile variant (not in DF)
 df.tiletype_special = {
   NONE = -1,
   NORMAL = 0,
@@ -322,743 +164,720 @@ df.tiletype_special = {
 ---@class tiletype_special_attr
 ---@field caption string
 
----@type table<tiletype_special, tiletype_special_attr>
-df.tiletype_special.attrs = {
-  NORMAL = {
-    caption = "default for all tiles, nothing special about it",
-  },
-  RIVER_SOURCE = {
-    caption = "river source, when it exists on a map",
-  },
-  WATERFALL = {
-    caption = "waterfall from nowhere, used by cave rivers back in 40d",
-  },
-  SMOOTH = {
-    caption = "smooth walls and floors, including constructions",
-  },
-  FURROWED = {
-    caption = "furrowed soil, left by roads/farms and removing constructions",
-  },
-  WET = {
-    caption = "wet soil, found on beaches",
-  },
-  DEAD = {
-    caption = "dead, used by plants",
-  },
-  WORN_1 = {
-    caption = "partially (25%) mined walls",
-  },
-  WORN_2 = {
-    caption = "partially (50%) mined walls",
-  },
-  WORN_3 = {
-    caption = "partially (75%) mined walls",
-  },
-  TRACK = {
-    caption = "mine cart track",
-  },
-  SMOOTH_DEAD = {
-    caption = "smooth dead leaves, a unique combination",
-  },
-}
+---@class tiletype_special_attrs
+---@field NORMAL tiletype_special_attr
+---@field RIVER_SOURCE tiletype_special_attr
+---@field WATERFALL tiletype_special_attr
+---@field SMOOTH tiletype_special_attr
+---@field FURROWED tiletype_special_attr
+---@field WET tiletype_special_attr
+---@field DEAD tiletype_special_attr
+---@field WORN_1 tiletype_special_attr
+---@field WORN_2 tiletype_special_attr
+---@field WORN_3 tiletype_special_attr
+---@field TRACK tiletype_special_attr
+---@field SMOOTH_DEAD tiletype_special_attr
+df.tiletype_special.attrs = {}
 
 ---@enum tiletype
 df.tiletype = {
-  Void = 0,
-  RampTop = 1,
-  MurkyPool = 2,
-  MurkyPoolRamp = 3,
-  UnderworldGateStairU = 4,
-  UnderworldGateStairD = 5,
-  UnderworldGateStairUD = 6,
-  TreeCapPillar_unk07 = 7,
-  TreeCapPillar_unk08 = 8,
-  TreeCapPillar_unk09 = 9,
-  TreeCapPillar_unk0A = 10,
-  TreeCapPillar_unk0B = 11,
-  TreeCapPillar_unk0C = 12,
-  TreeCapPillar_unk0D = 13,
-  TreeCapPillar_unk0E = 14,
-  TreeCapPillar_unk0F = 15,
-  TreeCapPillar_unk10 = 16,
-  TreeCapPillar_unk11 = 17,
-  TreeCapPillar_unk12 = 18,
-  Driftwood = 19,
-  TreeCapPillar_unk14 = 20,
-  TreeCapPillar_unk15 = 21,
-  TreeCapPillar_unk16 = 22,
-  TreeCapPillar_unk17 = 23,
-  unk_24 = 24,
-  FrozenStairUD = 25,
-  FrozenStairD = 26,
-  FrozenStairU = 27,
-  unk_28 = 28,
-  unk_29 = 29,
-  unk_30 = 30,
-  TreeDeadCapPillar_unk1F = 31,
-  OpenSpace = 32,
-  TreeDeadCapPillar_unk21 = 33,
-  Shrub = 34,
-  Chasm = 35,
-  LavaStairUD = 36,
-  LavaStairD = 37,
-  LavaStairU = 38,
-  SoilStairUD = 39,
-  SoilStairD = 40,
-  SoilStairU = 41,
-  EeriePit = 42,
-  StoneFloorSmooth = 43,
-  LavaFloorSmooth = 44,
-  FeatureFloorSmooth = 45,
-  MineralFloorSmooth = 46,
-  FrozenFloorSmooth = 47,
-  TreeDeadCapPillar_unk30 = 48,
-  Grass1StairUD = 49,
-  Grass1StairD = 50,
-  Grass1StairU = 51,
-  Grass2StairUD = 52,
-  Grass2StairD = 53,
-  Grass2StairU = 54,
-  StoneStairUD = 55,
-  StoneStairD = 56,
-  StoneStairU = 57,
-  MineralStairUD = 58,
-  MineralStairD = 59,
-  MineralStairU = 60,
-  FeatureStairUD = 61,
-  FeatureStairD = 62,
-  FeatureStairU = 63,
-  TreeDeadCapPillar_unk40 = 64,
-  StoneFortification = 65,
-  TreeDeadCapPillar_unk42 = 66,
-  Campfire = 67,
-  TreeDeadCapPillar_unk44 = 68,
-  TreeDeadCapPillar_unk45 = 69,
-  Fire = 70,
-  BurningTreeTrunk = 71,
-  BurningTreeBranches = 72,
-  BurningTreeTwigs = 73,
-  BurningTreeCapWall = 74,
-  BurningTreeCapRamp = 75,
-  BurningTreeCapFloor = 76,
-  TreeDeadCapPillar_unk4D = 77,
-  TreeDeadCapPillar_unk4E = 78,
-  StonePillar = 79,
-  LavaPillar = 80,
-  FeaturePillar = 81,
-  MineralPillar = 82,
-  FrozenPillar = 83,
-  TreeDeadCapPillar_unk54 = 84,
-  TreeDeadCapPillar_unk55 = 85,
-  TreeDeadCapPillar_unk56 = 86,
-  TreeDeadCapPillar_unk57 = 87,
-  TreeDeadCapPillar_unk58 = 88,
-  Waterfall = 89,
-  RiverSource = 90,
-  TreeRootSloping = 91,
-  TreeRoots = 92,
-  TreeTrunkPillar = 93,
-  TreeTrunkSloping = 94,
-  TreeTrunkN = 95,
-  TreeTrunkS = 96,
-  TreeTrunkE = 97,
-  TreeTrunkW = 98,
-  TreeTrunkNW = 99,
-  TreeTrunkNE = 100,
-  TreeTrunkSW = 101,
-  TreeTrunkSE = 102,
-  TreeTrunkBranchN = 103,
-  TreeTrunkBranchS = 104,
-  TreeTrunkBranchE = 105,
-  TreeTrunkBranchW = 106,
-  TreeBranchNS = 107,
-  TreeBranchEW = 108,
-  TreeBranchesSmooth = 109,
-  TreeDeadBranchesSmooth = 110,
-  TreeBranchNW = 111,
-  TreeBranchNE = 112,
-  TreeBranchSW = 113,
-  TreeBranchSE = 114,
-  TreeBranches = 115,
-  TreeTwigs = 116,
-  TreeCapRamp = 117,
-  TreeCapPillar = 118,
-  TreeCapWallN = 119,
-  TreeCapWallS = 120,
-  TreeCapWallE = 121,
-  TreeCapWallW = 122,
-  TreeCapWallNW = 123,
-  TreeCapWallNE = 124,
-  TreeCapWallSW = 125,
-  TreeCapWallSE = 126,
-  TreeCapFloor1 = 127,
-  TreeCapFloor2 = 128,
-  TreeCapFloor3 = 129,
-  TreeCapFloor4 = 130,
-  TreeDeadRootSloping = 131,
-  TreeDeadRoots = 132,
-  TreeDeadTrunkPillar = 133,
-  TreeDeadTrunkSloping = 134,
-  TreeDeadTrunkN = 135,
-  TreeDeadTrunkS = 136,
-  TreeDeadTrunkE = 137,
-  TreeDeadTrunkW = 138,
-  TreeDeadTrunkNW = 139,
-  TreeDeadTrunkNE = 140,
-  TreeDeadTrunkSW = 141,
-  TreeDeadTrunkSE = 142,
-  TreeDeadTrunkBranchN = 143,
-  TreeDeadTrunkBranchS = 144,
-  TreeDeadTrunkBranchE = 145,
-  TreeDeadTrunkBranchW = 146,
-  TreeDeadBranchNS = 147,
-  TreeDeadBranchEW = 148,
-  TreeBranchNSEW_unk95 = 149,
-  TreeDeadBranchNSEW_unk96 = 150,
-  TreeDeadBranchNW = 151,
-  TreeDeadBranchNE = 152,
-  TreeDeadBranchSW = 153,
-  TreeDeadBranchSE = 154,
-  TreeDeadBranches = 155,
-  TreeDeadTwigs = 156,
-  TreeDeadCapRamp = 157,
-  TreeDeadCapPillar = 158,
-  TreeDeadCapWallN = 159,
-  TreeDeadCapWallS = 160,
-  TreeDeadCapWallE = 161,
-  TreeDeadCapWallW = 162,
-  TreeDeadCapWallNW = 163,
-  TreeDeadCapWallNE = 164,
-  TreeDeadCapWallSW = 165,
-  TreeDeadCapWallSE = 166,
-  TreeDeadCapFloor1 = 167,
-  TreeDeadCapFloor2 = 168,
-  TreeDeadCapFloor3 = 169,
-  TreeDeadCapFloor4 = 170,
-  TreeDeadCapPillar_unkAB = 171,
-  StoneWallWorn1 = 172,
-  StoneWallWorn2 = 173,
-  StoneWallWorn3 = 174,
-  TreeBranchNSE = 175,
-  TreeBranchNSW = 176,
-  TreeBranchNEW = 177,
-  TreeBranchSEW = 178,
-  TreeBranchNSEW = 179,
-  TreeDeadBranchNSE = 180,
-  TreeDeadBranchNSW = 181,
-  TreeDeadBranchNEW = 182,
-  TreeDeadBranchSEW = 183,
-  TreeDeadBranchNSEW = 184,
-  TreeTrunkNSE = 185,
-  TreeTrunkNSW = 186,
-  TreeTrunkNEW = 187,
-  TreeTrunkSEW = 188,
-  TreeTrunkNS = 189,
-  TreeTrunkEW = 190,
-  TreeTrunkNSEW = 191,
-  TreeTrunkInterior = 192,
-  TreeDeadTrunkNSE = 193,
-  TreeDeadTrunkNSW = 194,
-  TreeDeadTrunkNEW = 195,
-  TreeDeadTrunkSEW = 196,
-  TreeDeadTrunkNS = 197,
-  TreeDeadTrunkEW = 198,
-  TreeDeadTrunkNSEW = 199,
-  TreeDeadTrunkInterior = 200,
-  TreeTrunkNW_unkC9 = 201,
-  TreeTrunkNE_unkCA = 202,
-  TreeTrunkSW_unkCB = 203,
-  TreeTrunkSE_unkCC = 204,
-  TreeDeadTrunkNW_unkCD = 205,
-  TreeDeadTrunkNE_unkCE = 206,
-  TreeDeadTrunkSW_unkCF = 207,
-  TreeDeadTrunkSE_unkD0 = 208,
-  TreeTrunkNS_unkD1 = 209,
-  TreeTrunkNS_unkD2 = 210,
-  TreeTrunkEW_unkD3 = 211,
-  TreeTrunkEW_unkD4 = 212,
-  TreeDeadTrunkNS_unkD5 = 213,
-  TreeDeadTrunkNS_unkD6 = 214,
-  StoneWall = 215,
-  TreeDeadTrunkEW_unkD8 = 216,
-  TreeDeadTrunkEW_unkD9 = 217,
-  TreeBranchS = 218,
-  TreeBranchN = 219,
-  TreeBranchW = 220,
-  TreeBranchE = 221,
-  TreeDeadBranchS = 222,
-  TreeDeadBranchN = 223,
-  TreeDeadBranchW = 224,
-  TreeDeadBranchE = 225,
-  TreeDeadCapPillar_unkE2 = 226,
-  Sapling = 227,
-  unk_228 = 228,
-  GrassDryRamp = 229,
-  GrassDeadRamp = 230,
-  GrassLightRamp = 231,
-  GrassDarkRamp = 232,
-  StoneRamp = 233,
-  LavaRamp = 234,
-  FeatureRamp = 235,
-  MineralRamp = 236,
-  SoilRamp = 237,
-  Ashes1 = 238,
-  Ashes2 = 239,
-  Ashes3 = 240,
-  FrozenRamp = 241,
-  unk_242 = 242,
-  unk_243 = 243,
-  unk_244 = 244,
-  unk_245 = 245,
-  unk_246 = 246,
-  unk_247 = 247,
-  unk_248 = 248,
-  unk_249 = 249,
-  unk_250 = 250,
-  unk_251 = 251,
-  unk_252 = 252,
-  unk_253 = 253,
-  FrozenFloor2 = 254,
-  FrozenFloor3 = 255,
-  FrozenFloor4 = 256,
-  FurrowedSoil = 257,
-  FrozenFloor1 = 258,
-  SemiMoltenRock = 259,
-  MagmaFlow = 260,
-  SoilWall = 261,
-  GlowingBarrier = 262,
-  GlowingFloor = 263,
-  unk_264 = 264,
-  LavaWallSmoothRD2 = 265,
-  LavaWallSmoothR2D = 266,
-  LavaWallSmoothR2U = 267,
-  LavaWallSmoothRU2 = 268,
-  LavaWallSmoothL2U = 269,
-  LavaWallSmoothLU2 = 270,
-  LavaWallSmoothL2D = 271,
-  LavaWallSmoothLD2 = 272,
-  LavaWallSmoothLRUD = 273,
-  LavaWallSmoothRUD = 274,
-  LavaWallSmoothLRD = 275,
-  LavaWallSmoothLRU = 276,
-  LavaWallSmoothLUD = 277,
-  LavaWallSmoothRD = 278,
-  LavaWallSmoothRU = 279,
-  LavaWallSmoothLU = 280,
-  LavaWallSmoothLD = 281,
-  LavaWallSmoothUD = 282,
-  LavaWallSmoothLR = 283,
-  FeatureWallSmoothRD2 = 284,
-  FeatureWallSmoothR2D = 285,
-  FeatureWallSmoothR2U = 286,
-  FeatureWallSmoothRU2 = 287,
-  FeatureWallSmoothL2U = 288,
-  FeatureWallSmoothLU2 = 289,
-  FeatureWallSmoothL2D = 290,
-  FeatureWallSmoothLD2 = 291,
-  FeatureWallSmoothLRUD = 292,
-  FeatureWallSmoothRUD = 293,
-  FeatureWallSmoothLRD = 294,
-  FeatureWallSmoothLRU = 295,
-  FeatureWallSmoothLUD = 296,
-  FeatureWallSmoothRD = 297,
-  FeatureWallSmoothRU = 298,
-  FeatureWallSmoothLU = 299,
-  FeatureWallSmoothLD = 300,
-  FeatureWallSmoothUD = 301,
-  FeatureWallSmoothLR = 302,
-  StoneWallSmoothRD2 = 303,
-  StoneWallSmoothR2D = 304,
-  StoneWallSmoothR2U = 305,
-  StoneWallSmoothRU2 = 306,
-  StoneWallSmoothL2U = 307,
-  StoneWallSmoothLU2 = 308,
-  StoneWallSmoothL2D = 309,
-  StoneWallSmoothLD2 = 310,
-  StoneWallSmoothLRUD = 311,
-  StoneWallSmoothRUD = 312,
-  StoneWallSmoothLRD = 313,
-  StoneWallSmoothLRU = 314,
-  StoneWallSmoothLUD = 315,
-  StoneWallSmoothRD = 316,
-  StoneWallSmoothRU = 317,
-  StoneWallSmoothLU = 318,
-  StoneWallSmoothLD = 319,
-  StoneWallSmoothUD = 320,
-  StoneWallSmoothLR = 321,
-  LavaFortification = 322,
-  FeatureFortification = 323,
-  LavaWallWorn1 = 324,
-  LavaWallWorn2 = 325,
-  LavaWallWorn3 = 326,
-  LavaWall = 327,
-  FeatureWallWorn1 = 328,
-  FeatureWallWorn2 = 329,
-  FeatureWallWorn3 = 330,
-  FeatureWall = 331,
-  StoneFloor1 = 332,
-  StoneFloor2 = 333,
-  StoneFloor3 = 334,
-  StoneFloor4 = 335,
-  LavaFloor1 = 336,
-  LavaFloor2 = 337,
-  LavaFloor3 = 338,
-  LavaFloor4 = 339,
-  FeatureFloor1 = 340,
-  FeatureFloor2 = 341,
-  FeatureFloor3 = 342,
-  FeatureFloor4 = 343,
-  GrassDarkFloor1 = 344,
-  GrassDarkFloor2 = 345,
-  GrassDarkFloor3 = 346,
-  GrassDarkFloor4 = 347,
-  SoilFloor1 = 348,
-  SoilFloor2 = 349,
-  SoilFloor3 = 350,
-  SoilFloor4 = 351,
-  SoilWetFloor1 = 352,
-  SoilWetFloor2 = 353,
-  SoilWetFloor3 = 354,
-  SoilWetFloor4 = 355,
-  FrozenFortification = 356,
-  FrozenWallWorn1 = 357,
-  FrozenWallWorn2 = 358,
-  FrozenWallWorn3 = 359,
-  FrozenWall = 360,
-  RiverN = 361,
-  RiverS = 362,
-  RiverE = 363,
-  RiverW = 364,
-  RiverNW = 365,
-  RiverNE = 366,
-  RiverSW = 367,
-  RiverSE = 368,
-  BrookN = 369,
-  BrookS = 370,
-  BrookE = 371,
-  BrookW = 372,
-  BrookNW = 373,
-  BrookNE = 374,
-  BrookSW = 375,
-  BrookSE = 376,
-  BrookTop1 = 377,
-  BrookTop2 = 378,
-  BrookTop3 = 379,
-  BrookTop4 = 380,
-  unk_381 = 381,
-  unk_382 = 382,
-  GrassDryFloor1 = 383,
-  GrassDryFloor2 = 384,
-  GrassDryFloor3 = 385,
-  GrassDryFloor4 = 386,
-  unk_387 = 387,
-  SaplingDead = 388,
-  ShrubDead = 389,
-  GrassDeadFloor1 = 390,
-  GrassDeadFloor2 = 391,
-  GrassDeadFloor3 = 392,
-  GrassDeadFloor4 = 393,
-  GrassLightFloor1 = 394,
-  GrassLightFloor2 = 395,
-  GrassLightFloor3 = 396,
-  GrassLightFloor4 = 397,
-  StoneBoulder = 398,
-  LavaBoulder = 399,
-  FeatureBoulder = 400,
-  StonePebbles1 = 401,
-  StonePebbles2 = 402,
-  StonePebbles3 = 403,
-  StonePebbles4 = 404,
-  LavaPebbles1 = 405,
-  LavaPebbles2 = 406,
-  LavaPebbles3 = 407,
-  LavaPebbles4 = 408,
-  FeaturePebbles1 = 409,
-  FeaturePebbles2 = 410,
-  FeaturePebbles3 = 411,
-  FeaturePebbles4 = 412,
-  MineralWallSmoothRD2 = 413,
-  MineralWallSmoothR2D = 414,
-  MineralWallSmoothR2U = 415,
-  MineralWallSmoothRU2 = 416,
-  MineralWallSmoothL2U = 417,
-  MineralWallSmoothLU2 = 418,
-  MineralWallSmoothL2D = 419,
-  MineralWallSmoothLD2 = 420,
-  MineralWallSmoothLRUD = 421,
-  MineralWallSmoothRUD = 422,
-  MineralWallSmoothLRD = 423,
-  MineralWallSmoothLRU = 424,
-  MineralWallSmoothLUD = 425,
-  MineralWallSmoothRD = 426,
-  MineralWallSmoothRU = 427,
-  MineralWallSmoothLU = 428,
-  MineralWallSmoothLD = 429,
-  MineralWallSmoothUD = 430,
-  MineralWallSmoothLR = 431,
-  MineralFortification = 432,
-  MineralWallWorn1 = 433,
-  MineralWallWorn2 = 434,
-  MineralWallWorn3 = 435,
-  MineralWall = 436,
-  MineralFloor1 = 437,
-  MineralFloor2 = 438,
-  MineralFloor3 = 439,
-  MineralFloor4 = 440,
-  MineralBoulder = 441,
-  MineralPebbles1 = 442,
-  MineralPebbles2 = 443,
-  MineralPebbles3 = 444,
-  MineralPebbles4 = 445,
-  FrozenWallSmoothRD2 = 446,
-  FrozenWallSmoothR2D = 447,
-  FrozenWallSmoothR2U = 448,
-  FrozenWallSmoothRU2 = 449,
-  FrozenWallSmoothL2U = 450,
-  FrozenWallSmoothLU2 = 451,
-  FrozenWallSmoothL2D = 452,
-  FrozenWallSmoothLD2 = 453,
-  FrozenWallSmoothLRUD = 454,
-  FrozenWallSmoothRUD = 455,
-  FrozenWallSmoothLRD = 456,
-  FrozenWallSmoothLRU = 457,
-  FrozenWallSmoothLUD = 458,
-  FrozenWallSmoothRD = 459,
-  FrozenWallSmoothRU = 460,
-  FrozenWallSmoothLU = 461,
-  FrozenWallSmoothLD = 462,
-  FrozenWallSmoothUD = 463,
-  FrozenWallSmoothLR = 464,
-  RiverRampN = 465,
-  RiverRampS = 466,
-  RiverRampE = 467,
-  RiverRampW = 468,
-  RiverRampNW = 469,
-  RiverRampNE = 470,
-  RiverRampSW = 471,
-  RiverRampSE = 472,
-  unk_473 = 473,
-  unk_474 = 474,
-  unk_475 = 475,
-  unk_476 = 476,
-  unk_477 = 477,
-  unk_478 = 478,
-  unk_479 = 479,
-  unk_480 = 480,
-  unk_481 = 481,
-  unk_482 = 482,
-  unk_483 = 483,
-  unk_484 = 484,
-  unk_485 = 485,
-  unk_486 = 486,
-  unk_487 = 487,
-  unk_488 = 488,
-  ConstructedFloor = 489,
-  ConstructedFortification = 490,
-  ConstructedPillar = 491,
-  ConstructedWallRD2 = 492,
-  ConstructedWallR2D = 493,
-  ConstructedWallR2U = 494,
-  ConstructedWallRU2 = 495,
-  ConstructedWallL2U = 496,
-  ConstructedWallLU2 = 497,
-  ConstructedWallL2D = 498,
-  ConstructedWallLD2 = 499,
-  ConstructedWallLRUD = 500,
-  ConstructedWallRUD = 501,
-  ConstructedWallLRD = 502,
-  ConstructedWallLRU = 503,
-  ConstructedWallLUD = 504,
-  ConstructedWallRD = 505,
-  ConstructedWallRU = 506,
-  ConstructedWallLU = 507,
-  ConstructedWallLD = 508,
-  ConstructedWallUD = 509,
-  ConstructedWallLR = 510,
-  ConstructedStairUD = 511,
-  ConstructedStairD = 512,
-  ConstructedStairU = 513,
-  ConstructedRamp = 514,
-  StoneFloorTrackN = 515,
-  StoneFloorTrackS = 516,
-  StoneFloorTrackE = 517,
-  StoneFloorTrackW = 518,
-  StoneFloorTrackNS = 519,
-  StoneFloorTrackNE = 520,
-  StoneFloorTrackNW = 521,
-  StoneFloorTrackSE = 522,
-  StoneFloorTrackSW = 523,
-  StoneFloorTrackEW = 524,
-  StoneFloorTrackNSE = 525,
-  StoneFloorTrackNSW = 526,
-  StoneFloorTrackNEW = 527,
-  StoneFloorTrackSEW = 528,
-  StoneFloorTrackNSEW = 529,
-  LavaFloorTrackN = 530,
-  LavaFloorTrackS = 531,
-  LavaFloorTrackE = 532,
-  LavaFloorTrackW = 533,
-  LavaFloorTrackNS = 534,
-  LavaFloorTrackNE = 535,
-  LavaFloorTrackNW = 536,
-  LavaFloorTrackSE = 537,
-  LavaFloorTrackSW = 538,
-  LavaFloorTrackEW = 539,
-  LavaFloorTrackNSE = 540,
-  LavaFloorTrackNSW = 541,
-  LavaFloorTrackNEW = 542,
-  LavaFloorTrackSEW = 543,
-  LavaFloorTrackNSEW = 544,
-  FeatureFloorTrackN = 545,
-  FeatureFloorTrackS = 546,
-  FeatureFloorTrackE = 547,
-  FeatureFloorTrackW = 548,
-  FeatureFloorTrackNS = 549,
-  FeatureFloorTrackNE = 550,
-  FeatureFloorTrackNW = 551,
-  FeatureFloorTrackSE = 552,
-  FeatureFloorTrackSW = 553,
-  FeatureFloorTrackEW = 554,
-  FeatureFloorTrackNSE = 555,
-  FeatureFloorTrackNSW = 556,
-  FeatureFloorTrackNEW = 557,
-  FeatureFloorTrackSEW = 558,
-  FeatureFloorTrackNSEW = 559,
-  MineralFloorTrackN = 560,
-  MineralFloorTrackS = 561,
-  MineralFloorTrackE = 562,
-  MineralFloorTrackW = 563,
-  MineralFloorTrackNS = 564,
-  MineralFloorTrackNE = 565,
-  MineralFloorTrackNW = 566,
-  MineralFloorTrackSE = 567,
-  MineralFloorTrackSW = 568,
-  MineralFloorTrackEW = 569,
-  MineralFloorTrackNSE = 570,
-  MineralFloorTrackNSW = 571,
-  MineralFloorTrackNEW = 572,
-  MineralFloorTrackSEW = 573,
-  MineralFloorTrackNSEW = 574,
-  FrozenFloorTrackN = 575,
-  FrozenFloorTrackS = 576,
-  FrozenFloorTrackE = 577,
-  FrozenFloorTrackW = 578,
-  FrozenFloorTrackNS = 579,
-  FrozenFloorTrackNE = 580,
-  FrozenFloorTrackNW = 581,
-  FrozenFloorTrackSE = 582,
-  FrozenFloorTrackSW = 583,
-  FrozenFloorTrackEW = 584,
-  FrozenFloorTrackNSE = 585,
-  FrozenFloorTrackNSW = 586,
-  FrozenFloorTrackNEW = 587,
-  FrozenFloorTrackSEW = 588,
-  FrozenFloorTrackNSEW = 589,
-  ConstructedFloorTrackN = 590,
-  ConstructedFloorTrackS = 591,
-  ConstructedFloorTrackE = 592,
-  ConstructedFloorTrackW = 593,
-  ConstructedFloorTrackNS = 594,
-  ConstructedFloorTrackNE = 595,
-  ConstructedFloorTrackNW = 596,
-  ConstructedFloorTrackSE = 597,
-  ConstructedFloorTrackSW = 598,
-  ConstructedFloorTrackEW = 599,
-  ConstructedFloorTrackNSE = 600,
-  ConstructedFloorTrackNSW = 601,
-  ConstructedFloorTrackNEW = 602,
-  ConstructedFloorTrackSEW = 603,
-  ConstructedFloorTrackNSEW = 604,
-  StoneRampTrackN = 605,
-  StoneRampTrackS = 606,
-  StoneRampTrackE = 607,
-  StoneRampTrackW = 608,
-  StoneRampTrackNS = 609,
-  StoneRampTrackNE = 610,
-  StoneRampTrackNW = 611,
-  StoneRampTrackSE = 612,
-  StoneRampTrackSW = 613,
-  StoneRampTrackEW = 614,
-  StoneRampTrackNSE = 615,
-  StoneRampTrackNSW = 616,
-  StoneRampTrackNEW = 617,
-  StoneRampTrackSEW = 618,
-  StoneRampTrackNSEW = 619,
-  LavaRampTrackN = 620,
-  LavaRampTrackS = 621,
-  LavaRampTrackE = 622,
-  LavaRampTrackW = 623,
-  LavaRampTrackNS = 624,
-  LavaRampTrackNE = 625,
-  LavaRampTrackNW = 626,
-  LavaRampTrackSE = 627,
-  LavaRampTrackSW = 628,
-  LavaRampTrackEW = 629,
-  LavaRampTrackNSE = 630,
-  LavaRampTrackNSW = 631,
-  LavaRampTrackNEW = 632,
-  LavaRampTrackSEW = 633,
-  LavaRampTrackNSEW = 634,
-  FeatureRampTrackN = 635,
-  FeatureRampTrackS = 636,
-  FeatureRampTrackE = 637,
-  FeatureRampTrackW = 638,
-  FeatureRampTrackNS = 639,
-  FeatureRampTrackNE = 640,
-  FeatureRampTrackNW = 641,
-  FeatureRampTrackSE = 642,
-  FeatureRampTrackSW = 643,
-  FeatureRampTrackEW = 644,
-  FeatureRampTrackNSE = 645,
-  FeatureRampTrackNSW = 646,
-  FeatureRampTrackNEW = 647,
-  FeatureRampTrackSEW = 648,
-  FeatureRampTrackNSEW = 649,
-  MineralRampTrackN = 650,
-  MineralRampTrackS = 651,
-  MineralRampTrackE = 652,
-  MineralRampTrackW = 653,
-  MineralRampTrackNS = 654,
-  MineralRampTrackNE = 655,
-  MineralRampTrackNW = 656,
-  MineralRampTrackSE = 657,
-  MineralRampTrackSW = 658,
-  MineralRampTrackEW = 659,
-  MineralRampTrackNSE = 660,
-  MineralRampTrackNSW = 661,
-  MineralRampTrackNEW = 662,
-  MineralRampTrackSEW = 663,
-  MineralRampTrackNSEW = 664,
-  FrozenRampTrackN = 665,
-  FrozenRampTrackS = 666,
-  FrozenRampTrackE = 667,
-  FrozenRampTrackW = 668,
-  FrozenRampTrackNS = 669,
-  FrozenRampTrackNE = 670,
-  FrozenRampTrackNW = 671,
-  FrozenRampTrackSE = 672,
-  FrozenRampTrackSW = 673,
-  FrozenRampTrackEW = 674,
-  FrozenRampTrackNSE = 675,
-  FrozenRampTrackNSW = 676,
-  FrozenRampTrackNEW = 677,
-  FrozenRampTrackSEW = 678,
-  FrozenRampTrackNSEW = 679,
-  ConstructedRampTrackN = 680,
-  ConstructedRampTrackS = 681,
-  ConstructedRampTrackE = 682,
-  ConstructedRampTrackW = 683,
-  ConstructedRampTrackNS = 684,
-  ConstructedRampTrackNE = 685,
-  ConstructedRampTrackNW = 686,
-  ConstructedRampTrackSE = 687,
-  ConstructedRampTrackSW = 688,
-  ConstructedRampTrackEW = 689,
-  ConstructedRampTrackNSE = 690,
-  ConstructedRampTrackNSW = 691,
-  ConstructedRampTrackNEW = 692,
-  ConstructedRampTrackSEW = 693,
-  ConstructedRampTrackNSEW = 694,
+  Void = 0, --MAPTILE_NULL
+  RampTop = 1, --MAPTILE_RAMPSPACE
+  MurkyPool = 2, --MAPTILE_POOL
+  MurkyPoolRamp = 3, --MAPTILE_POOL_RAMP
+  UnderworldGateStairU = 4, --MAPTILE_UNDERWORLD_GATE_UP
+  UnderworldGateStairD = 5, --MAPTILE_UNDERWORLD_GATE_DOWN
+  UnderworldGateStairUD = 6, --MAPTILE_UNDERWORLD_GATE_UPDOWN
+  TreeCapInterior = 7, --MAPTILE_TREE_CAP_INTERIOR
+  TreeCapWallThickSW = 8, --MAPTILE_TREE_CAP_WALL_THICK_SW
+  TreeCapWallThickSE = 9, --MAPTILE_TREE_CAP_WALL_THICK_SE
+  TreeCapWallThickNW = 10, --MAPTILE_TREE_CAP_WALL_THICK_NW
+  TreeCapWallThickNE = 11, --MAPTILE_TREE_CAP_WALL_THICK_NE
+  TreeCapWallThickN = 12, --MAPTILE_TREE_CAP_WALL_THICK_N
+  TreeCapWallThickS = 13, --MAPTILE_TREE_CAP_WALL_THICK_S
+  TreeCapWallThickW = 14, --MAPTILE_TREE_CAP_WALL_THICK_W
+  TreeCapWallThickE = 15, --MAPTILE_TREE_CAP_WALL_THICK_E
+  TreeCapWallNSWE = 16, --MAPTILE_TREE_CAP_WALL_N_S_W_E
+  TreeCapWallNSW = 17, --MAPTILE_TREE_CAP_WALL_N_S_W
+  TreeCapWallNSE = 18, --MAPTILE_TREE_CAP_WALL_N_S_E
+  Driftwood = 19, --MAPTILE_DRIFTWOOD_STACK
+  TreeCapWallNWE = 20, --MAPTILE_TREE_CAP_WALL_N_W_E
+  TreeCapWallSWE = 21, --MAPTILE_TREE_CAP_WALL_S_W_E
+  TreeCapWallNS = 22, --MAPTILE_TREE_CAP_WALL_N_S
+  TreeCapWallWE = 23, --MAPTILE_TREE_CAP_WALL_W_E
+  Unused999 = 24, --MAPTILE_UNUSED_999
+  FrozenStairUD = 25, --MAPTILE_STAIR_UPDOWN_FROZEN_LIQUID
+  FrozenStairD = 26, --MAPTILE_STAIR_DOWN_FROZEN_LIQUID
+  FrozenStairU = 27, --MAPTILE_STAIR_UP_FROZEN_LIQUID
+  Unused9999 = 28, --MAPTILE_UNUSED_9999
+  Unused99999 = 29, --MAPTILE_UNUSED_99999
+  Unused999999 = 30, --MAPTILE_UNUSED_999999
+  TreeDeadCapInterior = 31, --MAPTILE_TREE_CAP_INTERIOR_DEAD
+  OpenSpace = 32, --MAPTILE_AIR
+  TreeDeadCapWallThickSW = 33, --MAPTILE_TREE_CAP_WALL_THICK_SW_DEAD
+  Shrub = 34, --MAPTILE_SHRUB
+  Chasm = 35, --MAPTILE_CHASM
+  LavaStairUD = 36, --MAPTILE_STAIR_UPDOWN_LAVASTONE
+  LavaStairD = 37, --MAPTILE_STAIR_DOWN_LAVASTONE
+  LavaStairU = 38, --MAPTILE_STAIR_UP_LAVASTONE
+  SoilStairUD = 39, --MAPTILE_STAIR_UPDOWN_SOIL
+  SoilStairD = 40, --MAPTILE_STAIR_DOWN_SOIL
+  SoilStairU = 41, --MAPTILE_STAIR_UP_SOIL
+  EeriePit = 42, --MAPTILE_EERIE_PIT
+  StoneFloorSmooth = 43, --MAPTILE_STONE_FLOOR_DETAILED
+  LavaFloorSmooth = 44, --MAPTILE_LAVASTONE_FLOOR_DETAILED
+  FeatureFloorSmooth = 45, --MAPTILE_FEATSTONE_FLOOR_DETAILED
+  MineralFloorSmooth = 46, --MAPTILE_MINSTONE_FLOOR_DETAILED
+  FrozenFloorSmooth = 47, --MAPTILE_FROZEN_LIQUID_FLOOR_DETAILED
+  TreeDeadCapWallThickSE = 48, --MAPTILE_TREE_CAP_WALL_THICK_SE_DEAD
+  Grass1StairUD = 49, --MAPTILE_STAIR_UPDOWN_GRASS1
+  Grass1StairD = 50, --MAPTILE_STAIR_DOWN_GRASS1
+  Grass1StairU = 51, --MAPTILE_STAIR_UP_GRASS1
+  Grass2StairUD = 52, --MAPTILE_STAIR_UPDOWN_GRASS2
+  Grass2StairD = 53, --MAPTILE_STAIR_DOWN_GRASS2
+  Grass2StairU = 54, --MAPTILE_STAIR_UP_GRASS2
+  StoneStairUD = 55, --MAPTILE_STAIR_UPDOWN_STONE
+  StoneStairD = 56, --MAPTILE_STAIR_DOWN_STONE
+  StoneStairU = 57, --MAPTILE_STAIR_UP_STONE
+  MineralStairUD = 58, --MAPTILE_STAIR_UPDOWN_MINSTONE
+  MineralStairD = 59, --MAPTILE_STAIR_DOWN_MINSTONE
+  MineralStairU = 60, --MAPTILE_STAIR_UP_MINSTONE
+  FeatureStairUD = 61, --MAPTILE_STAIR_UPDOWN_FEATSTONE
+  FeatureStairD = 62, --MAPTILE_STAIR_DOWN_FEATSTONE
+  FeatureStairU = 63, --MAPTILE_STAIR_UP_FEATSTONE
+  TreeDeadCapWallThickNW = 64, --MAPTILE_TREE_CAP_WALL_THICK_NW_DEAD
+  StoneFortification = 65, --MAPTILE_STONE_FORTIFICATION
+  TreeDeadCapWallThickNE = 66, --MAPTILE_TREE_CAP_WALL_THICK_NE_DEAD
+  Campfire = 67, --MAPTILE_CAMPFIRE
+  TreeDeadCapWallThickN = 68, --MAPTILE_TREE_CAP_WALL_THICK_N_DEAD
+  TreeDeadCapWallThickS = 69, --MAPTILE_TREE_CAP_WALL_THICK_S_DEAD
+  Fire = 70, --MAPTILE_FIRE
+  BurningTreeTrunk = 71, --MAPTILE_FIRE_TREE_TRUNK
+  BurningTreeBranches = 72, --MAPTILE_FIRE_TREE_BRANCHES
+  BurningTreeTwigs = 73, --MAPTILE_FIRE_TREE_TWIGS
+  BurningTreeCapWall = 74, --MAPTILE_FIRE_TREE_CAP_WALL
+  BurningTreeCapRamp = 75, --MAPTILE_FIRE_TREE_CAP_RAMP
+  BurningTreeCapFloor = 76, --MAPTILE_FIRE_TREE_CAP_FLOOR
+  TreeDeadCapWallThickW = 77, --MAPTILE_TREE_CAP_WALL_THICK_W_DEAD
+  TreeDeadCapWallThickE = 78, --MAPTILE_TREE_CAP_WALL_THICK_E_DEAD
+  StonePillar = 79, --MAPTILE_STONE_PILLAR
+  LavaPillar = 80, --MAPTILE_LAVASTONE_PILLAR
+  FeaturePillar = 81, --MAPTILE_FEATSTONE_PILLAR
+  MineralPillar = 82, --MAPTILE_MINSTONE_PILLAR
+  FrozenPillar = 83, --MAPTILE_FROZEN_LIQUID_PILLAR
+  TreeDeadCapWallNSWE = 84, --MAPTILE_TREE_CAP_WALL_N_S_W_E_DEAD
+  TreeDeadCapWallNSW = 85, --MAPTILE_TREE_CAP_WALL_N_S_W_DEAD
+  TreeDeadCapWallNSE = 86, --MAPTILE_TREE_CAP_WALL_N_S_E_DEAD
+  TreeDeadCapWallNWE = 87, --MAPTILE_TREE_CAP_WALL_N_W_E_DEAD
+  TreeDeadCapWallSWE = 88, --MAPTILE_TREE_CAP_WALL_S_W_E_DEAD
+  Waterfall = 89, --MAPTILE_WATERFALL_LANDING
+  RiverSource = 90, --MAPTILE_RIVER_SOURCE
+  TreeRootSloping = 91, --MAPTILE_TREE_ROOT_SLOPING
+  TreeRoots = 92, --MAPTILE_TREE_ROOTS
+  TreeTrunkPillar = 93, --MAPTILE_TREE_TRUNK_PILLAR
+  TreeTrunkSloping = 94, --MAPTILE_TREE_TRUNK_SLOPING
+  TreeTrunkThickN = 95, --MAPTILE_TREE_TRUNK_THICK_N
+  TreeTrunkThickS = 96, --MAPTILE_TREE_TRUNK_THICK_S
+  TreeTrunkThickE = 97, --MAPTILE_TREE_TRUNK_THICK_E
+  TreeTrunkThickW = 98, --MAPTILE_TREE_TRUNK_THICK_W
+  TreeTrunkThickNW = 99, --MAPTILE_TREE_TRUNK_THICK_NW
+  TreeTrunkThickNE = 100, --MAPTILE_TREE_TRUNK_THICK_NE
+  TreeTrunkThickSW = 101, --MAPTILE_TREE_TRUNK_THICK_SW
+  TreeTrunkThickSE = 102, --MAPTILE_TREE_TRUNK_THICK_SE
+  TreeTrunkBranchN = 103, --MAPTILE_TREE_TRUNK_BRANCH_N
+  TreeTrunkBranchS = 104, --MAPTILE_TREE_TRUNK_BRANCH_S
+  TreeTrunkBranchE = 105, --MAPTILE_TREE_TRUNK_BRANCH_E
+  TreeTrunkBranchW = 106, --MAPTILE_TREE_TRUNK_BRANCH_W
+  TreeBranchNS = 107, --MAPTILE_TREE_BRANCH_NS
+  TreeBranchEW = 108, --MAPTILE_TREE_BRANCH_EW
+  TreeBranchesSmooth = 109, --MAPTILE_TREE_SMOOTH_BRANCHES
+  TreeDeadBranchesSmooth = 110, --MAPTILE_TREE_SMOOTH_BRANCHES_DEAD
+  TreeBranchNW = 111, --MAPTILE_TREE_BRANCH_NW
+  TreeBranchNE = 112, --MAPTILE_TREE_BRANCH_NE
+  TreeBranchSW = 113, --MAPTILE_TREE_BRANCH_SW
+  TreeBranchSE = 114, --MAPTILE_TREE_BRANCH_SE
+  TreeBranches = 115, --MAPTILE_TREE_BRANCHES
+  TreeTwigs = 116, --MAPTILE_TREE_TWIGS
+  TreeCapRamp = 117, --MAPTILE_TREE_CAP_RAMP
+  TreeCapPillar = 118, --MAPTILE_TREE_CAP_PILLAR
+  TreeCapWallN = 119, --MAPTILE_TREE_CAP_WALL_N
+  TreeCapWallS = 120, --MAPTILE_TREE_CAP_WALL_S
+  TreeCapWallE = 121, --MAPTILE_TREE_CAP_WALL_E
+  TreeCapWallW = 122, --MAPTILE_TREE_CAP_WALL_W
+  TreeCapWallNW = 123, --MAPTILE_TREE_CAP_WALL_N_W
+  TreeCapWallNE = 124, --MAPTILE_TREE_CAP_WALL_N_E
+  TreeCapWallSW = 125, --MAPTILE_TREE_CAP_WALL_S_W
+  TreeCapWallSE = 126, --MAPTILE_TREE_CAP_WALL_S_E
+  TreeCapFloor1 = 127, --MAPTILE_TREE_CAP_FLOOR1
+  TreeCapFloor2 = 128, --MAPTILE_TREE_CAP_FLOOR2
+  TreeCapFloor3 = 129, --MAPTILE_TREE_CAP_FLOOR3
+  TreeCapFloor4 = 130, --MAPTILE_TREE_CAP_FLOOR4
+  TreeDeadRootSloping = 131, --MAPTILE_TREE_ROOT_SLOPING_DEAD
+  TreeDeadRoots = 132, --MAPTILE_TREE_ROOTS_DEAD
+  TreeDeadTrunkPillar = 133, --MAPTILE_TREE_TRUNK_PILLAR_DEAD
+  TreeDeadTrunkSloping = 134, --MAPTILE_TREE_TRUNK_SLOPING_DEAD
+  TreeDeadTrunkThickN = 135, --MAPTILE_TREE_TRUNK_THICK_N_DEAD
+  TreeDeadTrunkThickS = 136, --MAPTILE_TREE_TRUNK_THICK_S_DEAD
+  TreeDeadTrunkThickE = 137, --MAPTILE_TREE_TRUNK_THICK_E_DEAD
+  TreeDeadTrunkThickW = 138, --MAPTILE_TREE_TRUNK_THICK_W_DEAD
+  TreeDeadTrunkThickNW = 139, --MAPTILE_TREE_TRUNK_THICK_NW_DEAD
+  TreeDeadTrunkThickNE = 140, --MAPTILE_TREE_TRUNK_THICK_NE_DEAD
+  TreeDeadTrunkThickSW = 141, --MAPTILE_TREE_TRUNK_THICK_SW_DEAD
+  TreeDeadTrunkThickSE = 142, --MAPTILE_TREE_TRUNK_THICK_SE_DEAD
+  TreeDeadTrunkBranchN = 143, --MAPTILE_TREE_TRUNK_BRANCH_N_DEAD
+  TreeDeadTrunkBranchS = 144, --MAPTILE_TREE_TRUNK_BRANCH_S_DEAD
+  TreeDeadTrunkBranchE = 145, --MAPTILE_TREE_TRUNK_BRANCH_E_DEAD
+  TreeDeadTrunkBranchW = 146, --MAPTILE_TREE_TRUNK_BRANCH_W_DEAD
+  TreeDeadBranchNS = 147, --MAPTILE_TREE_BRANCH_NS_DEAD
+  TreeDeadBranchEW = 148, --MAPTILE_TREE_BRANCH_EW_DEAD
+  TreeBranch = 149, --MAPTILE_TREE_BRANCH
+  TreeDeadBranch = 150, --MAPTILE_TREE_BRANCH_DEAD
+  TreeDeadBranchNW = 151, --MAPTILE_TREE_BRANCH_NW_DEAD
+  TreeDeadBranchNE = 152, --MAPTILE_TREE_BRANCH_NE_DEAD
+  TreeDeadBranchSW = 153, --MAPTILE_TREE_BRANCH_SW_DEAD
+  TreeDeadBranchSE = 154, --MAPTILE_TREE_BRANCH_SE_DEAD
+  TreeDeadBranches = 155, --MAPTILE_TREE_BRANCHES_DEAD
+  TreeDeadTwigs = 156, --MAPTILE_TREE_TWIGS_DEAD
+  TreeDeadCapRamp = 157, --MAPTILE_TREE_CAP_RAMP_DEAD
+  TreeDeadCapPillar = 158, --MAPTILE_TREE_CAP_PILLAR_DEAD
+  TreeDeadCapWallN = 159, --MAPTILE_TREE_CAP_WALL_N_DEAD
+  TreeDeadCapWallS = 160, --MAPTILE_TREE_CAP_WALL_S_DEAD
+  TreeDeadCapWallE = 161, --MAPTILE_TREE_CAP_WALL_E_DEAD
+  TreeDeadCapWallW = 162, --MAPTILE_TREE_CAP_WALL_W_DEAD
+  TreeDeadCapWallNW = 163, --MAPTILE_TREE_CAP_WALL_N_W_DEAD
+  TreeDeadCapWallNE = 164, --MAPTILE_TREE_CAP_WALL_N_E_DEAD
+  TreeDeadCapWallSW = 165, --MAPTILE_TREE_CAP_WALL_S_W_DEAD
+  TreeDeadCapWallSE = 166, --MAPTILE_TREE_CAP_WALL_S_E_DEAD
+  TreeDeadCapFloor1 = 167, --MAPTILE_TREE_CAP_FLOOR1_DEAD
+  TreeDeadCapFloor2 = 168, --MAPTILE_TREE_CAP_FLOOR2_DEAD
+  TreeDeadCapFloor3 = 169, --MAPTILE_TREE_CAP_FLOOR3_DEAD
+  TreeDeadCapFloor4 = 170, --MAPTILE_TREE_CAP_FLOOR4_DEAD
+  TreeDeadCapWallNS = 171, --MAPTILE_TREE_CAP_WALL_N_S_DEAD
+  StoneWallWorn1 = 172, --MAPTILE_STONE_WALL_WORN1
+  StoneWallWorn2 = 173, --MAPTILE_STONE_WALL_WORN2
+  StoneWallWorn3 = 174, --MAPTILE_STONE_WALL_WORN3
+  TreeBranchNSE = 175, --MAPTILE_TREE_BRANCH_NSE
+  TreeBranchNSW = 176, --MAPTILE_TREE_BRANCH_NSW
+  TreeBranchNEW = 177, --MAPTILE_TREE_BRANCH_NEW
+  TreeBranchSEW = 178, --MAPTILE_TREE_BRANCH_SEW
+  TreeBranchNSEW = 179, --MAPTILE_TREE_BRANCH_NSEW
+  TreeDeadBranchNSE = 180, --MAPTILE_TREE_BRANCH_NSE_DEAD
+  TreeDeadBranchNSW = 181, --MAPTILE_TREE_BRANCH_NSW_DEAD
+  TreeDeadBranchNEW = 182, --MAPTILE_TREE_BRANCH_NEW_DEAD
+  TreeDeadBranchSEW = 183, --MAPTILE_TREE_BRANCH_SEW_DEAD
+  TreeDeadBranchNSEW = 184, --MAPTILE_TREE_BRANCH_NSEW_DEAD
+  TreeTrunkNSE = 185, --MAPTILE_TREE_TRUNK_NSE
+  TreeTrunkNSW = 186, --MAPTILE_TREE_TRUNK_NSW
+  TreeTrunkNEW = 187, --MAPTILE_TREE_TRUNK_NEW
+  TreeTrunkSEW = 188, --MAPTILE_TREE_TRUNK_SEW
+  TreeTrunkNS = 189, --MAPTILE_TREE_TRUNK_NS
+  TreeTrunkEW = 190, --MAPTILE_TREE_TRUNK_EW
+  TreeTrunkNSEW = 191, --MAPTILE_TREE_TRUNK_NSEW
+  TreeTrunkInterior = 192, --MAPTILE_TREE_TRUNK_INTERIOR
+  TreeDeadTrunkNSE = 193, --MAPTILE_TREE_TRUNK_NSE_DEAD
+  TreeDeadTrunkNSW = 194, --MAPTILE_TREE_TRUNK_NSW_DEAD
+  TreeDeadTrunkNEW = 195, --MAPTILE_TREE_TRUNK_NEW_DEAD
+  TreeDeadTrunkSEW = 196, --MAPTILE_TREE_TRUNK_SEW_DEAD
+  TreeDeadTrunkNS = 197, --MAPTILE_TREE_TRUNK_NS_DEAD
+  TreeDeadTrunkEW = 198, --MAPTILE_TREE_TRUNK_EW_DEAD
+  TreeDeadTrunkNSEW = 199, --MAPTILE_TREE_TRUNK_NSEW_DEAD
+  TreeDeadTrunkInterior = 200, --MAPTILE_TREE_TRUNK_INTERIOR_DEAD
+  TreeTrunkNW = 201, --MAPTILE_TREE_TRUNK_NW
+  TreeTrunkNE = 202, --MAPTILE_TREE_TRUNK_NE
+  TreeTrunkSW = 203, --MAPTILE_TREE_TRUNK_SW
+  TreeTrunkSE = 204, --MAPTILE_TREE_TRUNK_SE
+  TreeDeadTrunkNW = 205, --MAPTILE_TREE_TRUNK_NW_DEAD
+  TreeDeadTrunkNE = 206, --MAPTILE_TREE_TRUNK_NE_DEAD
+  TreeDeadTrunkSW = 207, --MAPTILE_TREE_TRUNK_SW_DEAD
+  TreeDeadTrunkSE = 208, --MAPTILE_TREE_TRUNK_SE_DEAD
+  TreeTrunkN = 209, --MAPTILE_TREE_TRUNK_N
+  TreeTrunkS = 210, --MAPTILE_TREE_TRUNK_S
+  TreeTrunkW = 211, --MAPTILE_TREE_TRUNK_W
+  TreeTrunkE = 212, --MAPTILE_TREE_TRUNK_E
+  TreeDeadTrunkN = 213, --MAPTILE_TREE_TRUNK_N_DEAD
+  TreeDeadTrunkS = 214, --MAPTILE_TREE_TRUNK_S_DEAD
+  StoneWall = 215, --MAPTILE_STONE_WALL
+  TreeDeadTrunkW = 216, --MAPTILE_TREE_TRUNK_W_DEAD
+  TreeDeadTrunkE = 217, --MAPTILE_TREE_TRUNK_E_DEAD
+  TreeBranchS = 218, --MAPTILE_TREE_BRANCH_N
+  TreeBranchN = 219, --MAPTILE_TREE_BRANCH_S
+  TreeBranchW = 220, --MAPTILE_TREE_BRANCH_E
+  TreeBranchE = 221, --MAPTILE_TREE_BRANCH_W
+  TreeDeadBranchS = 222, --MAPTILE_TREE_BRANCH_N_DEAD
+  TreeDeadBranchN = 223, --MAPTILE_TREE_BRANCH_S_DEAD
+  TreeDeadBranchW = 224, --MAPTILE_TREE_BRANCH_E_DEAD
+  TreeDeadBranchE = 225, --MAPTILE_TREE_BRANCH_W_DEAD
+  TreeDeadCapPillarWE = 226, --MAPTILE_TREE_CAP_WALL_W_E_DEAD
+  Sapling = 227, --MAPTILE_SAPLING
+  Unused888 = 228, --MAPTILE_UNUSED_888
+  GrassDryRamp = 229, --MAPTILE_RAMP_GRASS_DRY
+  GrassDeadRamp = 230, --MAPTILE_RAMP_GRASS_DEAD
+  GrassLightRamp = 231, --MAPTILE_RAMP_GRASS1
+  GrassDarkRamp = 232, --MAPTILE_RAMP_GRASS2
+  StoneRamp = 233, --MAPTILE_RAMP_STONE
+  LavaRamp = 234, --MAPTILE_RAMP_LAVASTONE
+  FeatureRamp = 235, --MAPTILE_RAMP_FEATSTONE
+  MineralRamp = 236, --MAPTILE_RAMP_MINSTONE
+  SoilRamp = 237, --MAPTILE_RAMP_SOIL
+  Ashes1 = 238, --MAPTILE_ASH1
+  Ashes2 = 239, --MAPTILE_ASH2
+  Ashes3 = 240, --MAPTILE_ASH3
+  FrozenRamp = 241, --MAPTILE_RAMP_FROZEN_LIQUID
+  Unused8888 = 242, --MAPTILE_UNUSED_8888
+  Unused88888 = 243, --MAPTILE_UNUSED_88888
+  Unused888888 = 244, --MAPTILE_UNUSED_888888
+  Unused245 = 245, --MAPTILE_UNUSED245
+  Unused246 = 246, --MAPTILE_UNUSED246
+  Unused247 = 247, --MAPTILE_UNUSED247
+  Unused248 = 248, --MAPTILE_UNUSED248
+  Unused249 = 249, --MAPTILE_UNUSED249
+  Unused250 = 250, --MAPTILE_UNUSED250
+  Unused251 = 251, --MAPTILE_UNUSED251
+  Unused252 = 252, --MAPTILE_UNUSED252
+  Unused253 = 253, --MAPTILE_UNUSED253
+  FrozenFloor2 = 254, --MAPTILE_FROZEN_LIQUID_1
+  FrozenFloor3 = 255, --MAPTILE_FROZEN_LIQUID_2
+  FrozenFloor4 = 256, --MAPTILE_FROZEN_LIQUID_3
+  FurrowedSoil = 257, --MAPTILE_FURROWED_SOIL
+  FrozenFloor1 = 258, --MAPTILE_FROZEN_LIQUID_0
+  SemiMoltenRock = 259, --MAPTILE_LAVA_SOLID
+  MagmaFlow = 260, --MAPTILE_LAVA
+  SoilWall = 261, --MAPTILE_SOIL_WALL
+  GlowingBarrier = 262, --MAPTILE_GLOWING_BARRIER_WALL
+  GlowingFloor = 263, --MAPTILE_GLOWING_BARRIER_FLOOR
+  Unused264 = 264, --MAPTILE_UNUSED_264
+  LavaWallSmoothRD2 = 265, --MAPTILE_LAVASTONE_WALL_DET_RD2
+  LavaWallSmoothR2D = 266, --MAPTILE_LAVASTONE_WALL_DET_R2D
+  LavaWallSmoothR2U = 267, --MAPTILE_LAVASTONE_WALL_DET_R2U
+  LavaWallSmoothRU2 = 268, --MAPTILE_LAVASTONE_WALL_DET_RU2
+  LavaWallSmoothL2U = 269, --MAPTILE_LAVASTONE_WALL_DET_L2U
+  LavaWallSmoothLU2 = 270, --MAPTILE_LAVASTONE_WALL_DET_LU2
+  LavaWallSmoothL2D = 271, --MAPTILE_LAVASTONE_WALL_DET_L2D
+  LavaWallSmoothLD2 = 272, --MAPTILE_LAVASTONE_WALL_DET_LD2
+  LavaWallSmoothLRUD = 273, --MAPTILE_LAVASTONE_WALL_DET_LRUD
+  LavaWallSmoothRUD = 274, --MAPTILE_LAVASTONE_WALL_DET_RUD
+  LavaWallSmoothLRD = 275, --MAPTILE_LAVASTONE_WALL_DET_LRD
+  LavaWallSmoothLRU = 276, --MAPTILE_LAVASTONE_WALL_DET_LRU
+  LavaWallSmoothLUD = 277, --MAPTILE_LAVASTONE_WALL_DET_LUD
+  LavaWallSmoothRD = 278, --MAPTILE_LAVASTONE_WALL_DET_RD
+  LavaWallSmoothRU = 279, --MAPTILE_LAVASTONE_WALL_DET_RU
+  LavaWallSmoothLU = 280, --MAPTILE_LAVASTONE_WALL_DET_LU
+  LavaWallSmoothLD = 281, --MAPTILE_LAVASTONE_WALL_DET_LD
+  LavaWallSmoothUD = 282, --MAPTILE_LAVASTONE_WALL_DET_UD
+  LavaWallSmoothLR = 283, --MAPTILE_LAVASTONE_WALL_DET_LR
+  FeatureWallSmoothRD2 = 284, --MAPTILE_FEATSTONE_WALL_DET_RD2
+  FeatureWallSmoothR2D = 285, --MAPTILE_FEATSTONE_WALL_DET_R2D
+  FeatureWallSmoothR2U = 286, --MAPTILE_FEATSTONE_WALL_DET_R2U
+  FeatureWallSmoothRU2 = 287, --MAPTILE_FEATSTONE_WALL_DET_RU2
+  FeatureWallSmoothL2U = 288, --MAPTILE_FEATSTONE_WALL_DET_L2U
+  FeatureWallSmoothLU2 = 289, --MAPTILE_FEATSTONE_WALL_DET_LU2
+  FeatureWallSmoothL2D = 290, --MAPTILE_FEATSTONE_WALL_DET_L2D
+  FeatureWallSmoothLD2 = 291, --MAPTILE_FEATSTONE_WALL_DET_LD2
+  FeatureWallSmoothLRUD = 292, --MAPTILE_FEATSTONE_WALL_DET_LRUD
+  FeatureWallSmoothRUD = 293, --MAPTILE_FEATSTONE_WALL_DET_RUD
+  FeatureWallSmoothLRD = 294, --MAPTILE_FEATSTONE_WALL_DET_LRD
+  FeatureWallSmoothLRU = 295, --MAPTILE_FEATSTONE_WALL_DET_LRU
+  FeatureWallSmoothLUD = 296, --MAPTILE_FEATSTONE_WALL_DET_LUD
+  FeatureWallSmoothRD = 297, --MAPTILE_FEATSTONE_WALL_DET_RD
+  FeatureWallSmoothRU = 298, --MAPTILE_FEATSTONE_WALL_DET_RU
+  FeatureWallSmoothLU = 299, --MAPTILE_FEATSTONE_WALL_DET_LU
+  FeatureWallSmoothLD = 300, --MAPTILE_FEATSTONE_WALL_DET_LD
+  FeatureWallSmoothUD = 301, --MAPTILE_FEATSTONE_WALL_DET_UD
+  FeatureWallSmoothLR = 302, --MAPTILE_FEATSTONE_WALL_DET_LR
+  StoneWallSmoothRD2 = 303, --MAPTILE_STONE_WALL_DET_RD2
+  StoneWallSmoothR2D = 304, --MAPTILE_STONE_WALL_DET_R2D
+  StoneWallSmoothR2U = 305, --MAPTILE_STONE_WALL_DET_R2U
+  StoneWallSmoothRU2 = 306, --MAPTILE_STONE_WALL_DET_RU2
+  StoneWallSmoothL2U = 307, --MAPTILE_STONE_WALL_DET_L2U
+  StoneWallSmoothLU2 = 308, --MAPTILE_STONE_WALL_DET_LU2
+  StoneWallSmoothL2D = 309, --MAPTILE_STONE_WALL_DET_L2D
+  StoneWallSmoothLD2 = 310, --MAPTILE_STONE_WALL_DET_LD2
+  StoneWallSmoothLRUD = 311, --MAPTILE_STONE_WALL_DET_LRUD
+  StoneWallSmoothRUD = 312, --MAPTILE_STONE_WALL_DET_RUD
+  StoneWallSmoothLRD = 313, --MAPTILE_STONE_WALL_DET_LRD
+  StoneWallSmoothLRU = 314, --MAPTILE_STONE_WALL_DET_LRU
+  StoneWallSmoothLUD = 315, --MAPTILE_STONE_WALL_DET_LUD
+  StoneWallSmoothRD = 316, --MAPTILE_STONE_WALL_DET_RD
+  StoneWallSmoothRU = 317, --MAPTILE_STONE_WALL_DET_RU
+  StoneWallSmoothLU = 318, --MAPTILE_STONE_WALL_DET_LU
+  StoneWallSmoothLD = 319, --MAPTILE_STONE_WALL_DET_LD
+  StoneWallSmoothUD = 320, --MAPTILE_STONE_WALL_DET_UD
+  StoneWallSmoothLR = 321, --MAPTILE_STONE_WALL_DET_LR
+  LavaFortification = 322, --MAPTILE_LAVASTONE_FORTIFICATION
+  FeatureFortification = 323, --MAPTILE_FEATSTONE_FORTIFICATION
+  LavaWallWorn1 = 324, --MAPTILE_LAVASTONE_WALL_WORN1
+  LavaWallWorn2 = 325, --MAPTILE_LAVASTONE_WALL_WORN2
+  LavaWallWorn3 = 326, --MAPTILE_LAVASTONE_WALL_WORN3
+  LavaWall = 327, --MAPTILE_LAVASTONE_WALL
+  FeatureWallWorn1 = 328, --MAPTILE_FEATSTONE_WALL_WORN1
+  FeatureWallWorn2 = 329, --MAPTILE_FEATSTONE_WALL_WORN2
+  FeatureWallWorn3 = 330, --MAPTILE_FEATSTONE_WALL_WORN3
+  FeatureWall = 331, --MAPTILE_FEATSTONE_WALL
+  StoneFloor1 = 332, --MAPTILE_STONE_FLOOR1
+  StoneFloor2 = 333, --MAPTILE_STONE_FLOOR2
+  StoneFloor3 = 334, --MAPTILE_STONE_FLOOR3
+  StoneFloor4 = 335, --MAPTILE_STONE_FLOOR4
+  LavaFloor1 = 336, --MAPTILE_LAVASTONE_FLOOR1
+  LavaFloor2 = 337, --MAPTILE_LAVASTONE_FLOOR2
+  LavaFloor3 = 338, --MAPTILE_LAVASTONE_FLOOR3
+  LavaFloor4 = 339, --MAPTILE_LAVASTONE_FLOOR4
+  FeatureFloor1 = 340, --MAPTILE_FEATSTONE_FLOOR1
+  FeatureFloor2 = 341, --MAPTILE_FEATSTONE_FLOOR2
+  FeatureFloor3 = 342, --MAPTILE_FEATSTONE_FLOOR3
+  FeatureFloor4 = 343, --MAPTILE_FEATSTONE_FLOOR4
+  GrassDarkFloor1 = 344, --MAPTILE_GRASS_FLOOR1
+  GrassDarkFloor2 = 345, --MAPTILE_GRASS_FLOOR2
+  GrassDarkFloor3 = 346, --MAPTILE_GRASS_FLOOR3
+  GrassDarkFloor4 = 347, --MAPTILE_GRASS_FLOOR4
+  SoilFloor1 = 348, --MAPTILE_SOIL_FLOOR1
+  SoilFloor2 = 349, --MAPTILE_SOIL_FLOOR2
+  SoilFloor3 = 350, --MAPTILE_SOIL_FLOOR3
+  SoilFloor4 = 351, --MAPTILE_SOIL_FLOOR4
+  SoilWetFloor1 = 352, --MAPTILE_SOIL_FLOOR1_WET
+  SoilWetFloor2 = 353, --MAPTILE_SOIL_FLOOR2_WET
+  SoilWetFloor3 = 354, --MAPTILE_SOIL_FLOOR3_WET
+  SoilWetFloor4 = 355, --MAPTILE_SOIL_FLOOR4_WET
+  FrozenFortification = 356, --MAPTILE_FROZEN_LIQUID_FORTIFICATION
+  FrozenWallWorn1 = 357, --MAPTILE_FROZEN_LIQUID_WALL_WORN1
+  FrozenWallWorn2 = 358, --MAPTILE_FROZEN_LIQUID_WALL_WORN2
+  FrozenWallWorn3 = 359, --MAPTILE_FROZEN_LIQUID_WALL_WORN3
+  FrozenWall = 360, --MAPTILE_FROZEN_LIQUID_WALL
+  RiverN = 361, --MAPTILE_RIVER_N
+  RiverS = 362, --MAPTILE_RIVER_S
+  RiverE = 363, --MAPTILE_RIVER_E
+  RiverW = 364, --MAPTILE_RIVER_W
+  RiverNW = 365, --MAPTILE_RIVER_NW
+  RiverNE = 366, --MAPTILE_RIVER_NE
+  RiverSW = 367, --MAPTILE_RIVER_SW
+  RiverSE = 368, --MAPTILE_RIVER_SE
+  BrookN = 369, --MAPTILE_STREAM_BED_WALL_N
+  BrookS = 370, --MAPTILE_STREAM_BED_WALL_S
+  BrookE = 371, --MAPTILE_STREAM_BED_WALL_E
+  BrookW = 372, --MAPTILE_STREAM_BED_WALL_W
+  BrookNW = 373, --MAPTILE_STREAM_BED_WALL_NW
+  BrookNE = 374, --MAPTILE_STREAM_BED_WALL_NE
+  BrookSW = 375, --MAPTILE_STREAM_BED_WALL_SW
+  BrookSE = 376, --MAPTILE_STREAM_BED_WALL_SE
+  BrookTop1 = 377, --MAPTILE_STREAM_BED_TOP
+  BrookTop2 = 378, --MAPTILE_STREAM_BED_TOP2
+  BrookTop3 = 379, --MAPTILE_STREAM_BED_TOP3
+  BrookTop4 = 380, --MAPTILE_STREAM_BED_TOP4
+  Unused381 = 381, --MAPTILE_UNUSED_381
+  Unused382 = 382, --MAPTILE_UNUSED_382
+  GrassDryFloor1 = 383, --MAPTILE_GRASS_FLOOR1_DRY
+  GrassDryFloor2 = 384, --MAPTILE_GRASS_FLOOR2_DRY
+  GrassDryFloor3 = 385, --MAPTILE_GRASS_FLOOR3_DRY
+  GrassDryFloor4 = 386, --MAPTILE_GRASS_FLOOR4_DRY
+  Unused387 = 387, --MAPTILE_UNUSED_387
+  SaplingDead = 388, --MAPTILE_SAPLING_DEAD
+  ShrubDead = 389, --MAPTILE_SHRUB_DEAD
+  GrassDeadFloor1 = 390, --MAPTILE_GRASS_FLOOR1_DEAD
+  GrassDeadFloor2 = 391, --MAPTILE_GRASS_FLOOR2_DEAD
+  GrassDeadFloor3 = 392, --MAPTILE_GRASS_FLOOR3_DEAD
+  GrassDeadFloor4 = 393, --MAPTILE_GRASS_FLOOR4_DEAD
+  GrassLightFloor1 = 394, --MAPTILE_GRASS_FLOOR1B
+  GrassLightFloor2 = 395, --MAPTILE_GRASS_FLOOR2B
+  GrassLightFloor3 = 396, --MAPTILE_GRASS_FLOOR3B
+  GrassLightFloor4 = 397, --MAPTILE_GRASS_FLOOR4B
+  StoneBoulder = 398, --MAPTILE_STONE_BOULDER
+  LavaBoulder = 399, --MAPTILE_LAVASTONE_BOULDER
+  FeatureBoulder = 400, --MAPTILE_FEATSTONE_BOULDER
+  StonePebbles1 = 401, --MAPTILE_STONE_PEBBLE1
+  StonePebbles2 = 402, --MAPTILE_STONE_PEBBLE2
+  StonePebbles3 = 403, --MAPTILE_STONE_PEBBLE3
+  StonePebbles4 = 404, --MAPTILE_STONE_PEBBLE4
+  LavaPebbles1 = 405, --MAPTILE_LAVASTONE_PEBBLE1
+  LavaPebbles2 = 406, --MAPTILE_LAVASTONE_PEBBLE2
+  LavaPebbles3 = 407, --MAPTILE_LAVASTONE_PEBBLE3
+  LavaPebbles4 = 408, --MAPTILE_LAVASTONE_PEBBLE4
+  FeaturePebbles1 = 409, --MAPTILE_FEATSTONE_PEBBLE1
+  FeaturePebbles2 = 410, --MAPTILE_FEATSTONE_PEBBLE2
+  FeaturePebbles3 = 411, --MAPTILE_FEATSTONE_PEBBLE3
+  FeaturePebbles4 = 412, --MAPTILE_FEATSTONE_PEBBLE4
+  MineralWallSmoothRD2 = 413, --MAPTILE_MINSTONE_WALL_DET_RD2
+  MineralWallSmoothR2D = 414, --MAPTILE_MINSTONE_WALL_DET_R2D
+  MineralWallSmoothR2U = 415, --MAPTILE_MINSTONE_WALL_DET_R2U
+  MineralWallSmoothRU2 = 416, --MAPTILE_MINSTONE_WALL_DET_RU2
+  MineralWallSmoothL2U = 417, --MAPTILE_MINSTONE_WALL_DET_L2U
+  MineralWallSmoothLU2 = 418, --MAPTILE_MINSTONE_WALL_DET_LU2
+  MineralWallSmoothL2D = 419, --MAPTILE_MINSTONE_WALL_DET_L2D
+  MineralWallSmoothLD2 = 420, --MAPTILE_MINSTONE_WALL_DET_LD2
+  MineralWallSmoothLRUD = 421, --MAPTILE_MINSTONE_WALL_DET_LRUD
+  MineralWallSmoothRUD = 422, --MAPTILE_MINSTONE_WALL_DET_RUD
+  MineralWallSmoothLRD = 423, --MAPTILE_MINSTONE_WALL_DET_LRD
+  MineralWallSmoothLRU = 424, --MAPTILE_MINSTONE_WALL_DET_LRU
+  MineralWallSmoothLUD = 425, --MAPTILE_MINSTONE_WALL_DET_LUD
+  MineralWallSmoothRD = 426, --MAPTILE_MINSTONE_WALL_DET_RD
+  MineralWallSmoothRU = 427, --MAPTILE_MINSTONE_WALL_DET_RU
+  MineralWallSmoothLU = 428, --MAPTILE_MINSTONE_WALL_DET_LU
+  MineralWallSmoothLD = 429, --MAPTILE_MINSTONE_WALL_DET_LD
+  MineralWallSmoothUD = 430, --MAPTILE_MINSTONE_WALL_DET_UD
+  MineralWallSmoothLR = 431, --MAPTILE_MINSTONE_WALL_DET_LR
+  MineralFortification = 432, --MAPTILE_MINSTONE_FORTIFICATION
+  MineralWallWorn1 = 433, --MAPTILE_MINSTONE_WALL_WORN1
+  MineralWallWorn2 = 434, --MAPTILE_MINSTONE_WALL_WORN2
+  MineralWallWorn3 = 435, --MAPTILE_MINSTONE_WALL_WORN3
+  MineralWall = 436, --MAPTILE_MINSTONE_WALL
+  MineralFloor1 = 437, --MAPTILE_MINSTONE_FLOOR1
+  MineralFloor2 = 438, --MAPTILE_MINSTONE_FLOOR2
+  MineralFloor3 = 439, --MAPTILE_MINSTONE_FLOOR3
+  MineralFloor4 = 440, --MAPTILE_MINSTONE_FLOOR4
+  MineralBoulder = 441, --MAPTILE_MINSTONE_BOULDER
+  MineralPebbles1 = 442, --MAPTILE_MINSTONE_PEBBLE1
+  MineralPebbles2 = 443, --MAPTILE_MINSTONE_PEBBLE2
+  MineralPebbles3 = 444, --MAPTILE_MINSTONE_PEBBLE3
+  MineralPebbles4 = 445, --MAPTILE_MINSTONE_PEBBLE4
+  FrozenWallSmoothRD2 = 446, --MAPTILE_FROZEN_LIQUID_WALL_DET_RD2
+  FrozenWallSmoothR2D = 447, --MAPTILE_FROZEN_LIQUID_WALL_DET_R2D
+  FrozenWallSmoothR2U = 448, --MAPTILE_FROZEN_LIQUID_WALL_DET_R2U
+  FrozenWallSmoothRU2 = 449, --MAPTILE_FROZEN_LIQUID_WALL_DET_RU2
+  FrozenWallSmoothL2U = 450, --MAPTILE_FROZEN_LIQUID_WALL_DET_L2U
+  FrozenWallSmoothLU2 = 451, --MAPTILE_FROZEN_LIQUID_WALL_DET_LU2
+  FrozenWallSmoothL2D = 452, --MAPTILE_FROZEN_LIQUID_WALL_DET_L2D
+  FrozenWallSmoothLD2 = 453, --MAPTILE_FROZEN_LIQUID_WALL_DET_LD2
+  FrozenWallSmoothLRUD = 454, --MAPTILE_FROZEN_LIQUID_WALL_DET_LRUD
+  FrozenWallSmoothRUD = 455, --MAPTILE_FROZEN_LIQUID_WALL_DET_RUD
+  FrozenWallSmoothLRD = 456, --MAPTILE_FROZEN_LIQUID_WALL_DET_LRD
+  FrozenWallSmoothLRU = 457, --MAPTILE_FROZEN_LIQUID_WALL_DET_LRU
+  FrozenWallSmoothLUD = 458, --MAPTILE_FROZEN_LIQUID_WALL_DET_LUD
+  FrozenWallSmoothRD = 459, --MAPTILE_FROZEN_LIQUID_WALL_DET_RD
+  FrozenWallSmoothRU = 460, --MAPTILE_FROZEN_LIQUID_WALL_DET_RU
+  FrozenWallSmoothLU = 461, --MAPTILE_FROZEN_LIQUID_WALL_DET_LU
+  FrozenWallSmoothLD = 462, --MAPTILE_FROZEN_LIQUID_WALL_DET_LD
+  FrozenWallSmoothUD = 463, --MAPTILE_FROZEN_LIQUID_WALL_DET_UD
+  FrozenWallSmoothLR = 464, --MAPTILE_FROZEN_LIQUID_WALL_DET_LR
+  RiverRampN = 465, --MAPTILE_RIVER_RAMP_N
+  RiverRampS = 466, --MAPTILE_RIVER_RAMP_S
+  RiverRampE = 467, --MAPTILE_RIVER_RAMP_E
+  RiverRampW = 468, --MAPTILE_RIVER_RAMP_W
+  RiverRampNW = 469, --MAPTILE_RIVER_RAMP_NW
+  RiverRampNE = 470, --MAPTILE_RIVER_RAMP_NE
+  RiverRampSW = 471, --MAPTILE_RIVER_RAMP_SW
+  RiverRampSE = 472, --MAPTILE_RIVER_RAMP_SE
+  Unused473 = 473, --MAPTILE_UNUSED_473
+  Unused474 = 474, --MAPTILE_UNUSED_474
+  Unused475 = 475, --MAPTILE_UNUSED_475
+  Unused476 = 476, --MAPTILE_UNUSED_476
+  Unused477 = 477, --MAPTILE_UNUSED_477
+  Unused478 = 478, --MAPTILE_UNUSED_478
+  Unused479 = 479, --MAPTILE_UNUSED_479
+  Unused480 = 480, --MAPTILE_UNUSED_480
+  Unused481 = 481, --MAPTILE_UNUSED_481
+  Unused482 = 482, --MAPTILE_UNUSED_482
+  Unused483 = 483, --MAPTILE_UNUSED_483
+  Unused484 = 484, --MAPTILE_UNUSED_484
+  Unused485 = 485, --MAPTILE_UNUSED_485
+  Unused486 = 486, --MAPTILE_UNUSED_486
+  Unused487 = 487, --MAPTILE_UNUSED_487
+  Unused488 = 488, --MAPTILE_UNUSED_488
+  ConstructedFloor = 489, --MAPTILE_CONSTRUCTED_FLOOR_DETAILED
+  ConstructedFortification = 490, --MAPTILE_CONSTRUCTED_FORTIFICATION
+  ConstructedPillar = 491, --MAPTILE_CONSTRUCTED_PILLAR
+  ConstructedWallRD2 = 492, --MAPTILE_CONSTRUCTED_WALL_DET_RD2
+  ConstructedWallR2D = 493, --MAPTILE_CONSTRUCTED_WALL_DET_R2D
+  ConstructedWallR2U = 494, --MAPTILE_CONSTRUCTED_WALL_DET_R2U
+  ConstructedWallRU2 = 495, --MAPTILE_CONSTRUCTED_WALL_DET_RU2
+  ConstructedWallL2U = 496, --MAPTILE_CONSTRUCTED_WALL_DET_L2U
+  ConstructedWallLU2 = 497, --MAPTILE_CONSTRUCTED_WALL_DET_LU2
+  ConstructedWallL2D = 498, --MAPTILE_CONSTRUCTED_WALL_DET_L2D
+  ConstructedWallLD2 = 499, --MAPTILE_CONSTRUCTED_WALL_DET_LD2
+  ConstructedWallLRUD = 500, --MAPTILE_CONSTRUCTED_WALL_DET_LRUD
+  ConstructedWallRUD = 501, --MAPTILE_CONSTRUCTED_WALL_DET_RUD
+  ConstructedWallLRD = 502, --MAPTILE_CONSTRUCTED_WALL_DET_LRD
+  ConstructedWallLRU = 503, --MAPTILE_CONSTRUCTED_WALL_DET_LRU
+  ConstructedWallLUD = 504, --MAPTILE_CONSTRUCTED_WALL_DET_LUD
+  ConstructedWallRD = 505, --MAPTILE_CONSTRUCTED_WALL_DET_RD
+  ConstructedWallRU = 506, --MAPTILE_CONSTRUCTED_WALL_DET_RU
+  ConstructedWallLU = 507, --MAPTILE_CONSTRUCTED_WALL_DET_LU
+  ConstructedWallLD = 508, --MAPTILE_CONSTRUCTED_WALL_DET_LD
+  ConstructedWallUD = 509, --MAPTILE_CONSTRUCTED_WALL_DET_UD
+  ConstructedWallLR = 510, --MAPTILE_CONSTRUCTED_WALL_DET_LR
+  ConstructedStairUD = 511, --MAPTILE_STAIR_UPDOWN_CONSTRUCTED
+  ConstructedStairD = 512, --MAPTILE_STAIR_DOWN_CONSTRUCTED
+  ConstructedStairU = 513, --MAPTILE_STAIR_UP_CONSTRUCTED
+  ConstructedRamp = 514, --MAPTILE_RAMP_CONSTRUCTED
+  StoneFloorTrackN = 515, --MAPTILE_STONE_TRACK_N
+  StoneFloorTrackS = 516, --MAPTILE_STONE_TRACK_S
+  StoneFloorTrackE = 517, --MAPTILE_STONE_TRACK_E
+  StoneFloorTrackW = 518, --MAPTILE_STONE_TRACK_W
+  StoneFloorTrackNS = 519, --MAPTILE_STONE_TRACK_NS
+  StoneFloorTrackNE = 520, --MAPTILE_STONE_TRACK_NE
+  StoneFloorTrackNW = 521, --MAPTILE_STONE_TRACK_NW
+  StoneFloorTrackSE = 522, --MAPTILE_STONE_TRACK_SE
+  StoneFloorTrackSW = 523, --MAPTILE_STONE_TRACK_SW
+  StoneFloorTrackEW = 524, --MAPTILE_STONE_TRACK_EW
+  StoneFloorTrackNSE = 525, --MAPTILE_STONE_TRACK_NSE
+  StoneFloorTrackNSW = 526, --MAPTILE_STONE_TRACK_NSW
+  StoneFloorTrackNEW = 527, --MAPTILE_STONE_TRACK_NEW
+  StoneFloorTrackSEW = 528, --MAPTILE_STONE_TRACK_SEW
+  StoneFloorTrackNSEW = 529, --MAPTILE_STONE_TRACK_NSEW
+  LavaFloorTrackN = 530, --MAPTILE_LAVASTONE_TRACK_N
+  LavaFloorTrackS = 531, --MAPTILE_LAVASTONE_TRACK_S
+  LavaFloorTrackE = 532, --MAPTILE_LAVASTONE_TRACK_E
+  LavaFloorTrackW = 533, --MAPTILE_LAVASTONE_TRACK_W
+  LavaFloorTrackNS = 534, --MAPTILE_LAVASTONE_TRACK_NS
+  LavaFloorTrackNE = 535, --MAPTILE_LAVASTONE_TRACK_NE
+  LavaFloorTrackNW = 536, --MAPTILE_LAVASTONE_TRACK_NW
+  LavaFloorTrackSE = 537, --MAPTILE_LAVASTONE_TRACK_SE
+  LavaFloorTrackSW = 538, --MAPTILE_LAVASTONE_TRACK_SW
+  LavaFloorTrackEW = 539, --MAPTILE_LAVASTONE_TRACK_EW
+  LavaFloorTrackNSE = 540, --MAPTILE_LAVASTONE_TRACK_NSE
+  LavaFloorTrackNSW = 541, --MAPTILE_LAVASTONE_TRACK_NSW
+  LavaFloorTrackNEW = 542, --MAPTILE_LAVASTONE_TRACK_NEW
+  LavaFloorTrackSEW = 543, --MAPTILE_LAVASTONE_TRACK_SEW
+  LavaFloorTrackNSEW = 544, --MAPTILE_LAVASTONE_TRACK_NSEW
+  FeatureFloorTrackN = 545, --MAPTILE_FEATSTONE_TRACK_N
+  FeatureFloorTrackS = 546, --MAPTILE_FEATSTONE_TRACK_S
+  FeatureFloorTrackE = 547, --MAPTILE_FEATSTONE_TRACK_E
+  FeatureFloorTrackW = 548, --MAPTILE_FEATSTONE_TRACK_W
+  FeatureFloorTrackNS = 549, --MAPTILE_FEATSTONE_TRACK_NS
+  FeatureFloorTrackNE = 550, --MAPTILE_FEATSTONE_TRACK_NE
+  FeatureFloorTrackNW = 551, --MAPTILE_FEATSTONE_TRACK_NW
+  FeatureFloorTrackSE = 552, --MAPTILE_FEATSTONE_TRACK_SE
+  FeatureFloorTrackSW = 553, --MAPTILE_FEATSTONE_TRACK_SW
+  FeatureFloorTrackEW = 554, --MAPTILE_FEATSTONE_TRACK_EW
+  FeatureFloorTrackNSE = 555, --MAPTILE_FEATSTONE_TRACK_NSE
+  FeatureFloorTrackNSW = 556, --MAPTILE_FEATSTONE_TRACK_NSW
+  FeatureFloorTrackNEW = 557, --MAPTILE_FEATSTONE_TRACK_NEW
+  FeatureFloorTrackSEW = 558, --MAPTILE_FEATSTONE_TRACK_SEW
+  FeatureFloorTrackNSEW = 559, --MAPTILE_FEATSTONE_TRACK_NSEW
+  MineralFloorTrackN = 560, --MAPTILE_MINSTONE_TRACK_N
+  MineralFloorTrackS = 561, --MAPTILE_MINSTONE_TRACK_S
+  MineralFloorTrackE = 562, --MAPTILE_MINSTONE_TRACK_E
+  MineralFloorTrackW = 563, --MAPTILE_MINSTONE_TRACK_W
+  MineralFloorTrackNS = 564, --MAPTILE_MINSTONE_TRACK_NS
+  MineralFloorTrackNE = 565, --MAPTILE_MINSTONE_TRACK_NE
+  MineralFloorTrackNW = 566, --MAPTILE_MINSTONE_TRACK_NW
+  MineralFloorTrackSE = 567, --MAPTILE_MINSTONE_TRACK_SE
+  MineralFloorTrackSW = 568, --MAPTILE_MINSTONE_TRACK_SW
+  MineralFloorTrackEW = 569, --MAPTILE_MINSTONE_TRACK_EW
+  MineralFloorTrackNSE = 570, --MAPTILE_MINSTONE_TRACK_NSE
+  MineralFloorTrackNSW = 571, --MAPTILE_MINSTONE_TRACK_NSW
+  MineralFloorTrackNEW = 572, --MAPTILE_MINSTONE_TRACK_NEW
+  MineralFloorTrackSEW = 573, --MAPTILE_MINSTONE_TRACK_SEW
+  MineralFloorTrackNSEW = 574, --MAPTILE_MINSTONE_TRACK_NSEW
+  FrozenFloorTrackN = 575, --MAPTILE_FROZEN_LIQUID_TRACK_N
+  FrozenFloorTrackS = 576, --MAPTILE_FROZEN_LIQUID_TRACK_S
+  FrozenFloorTrackE = 577, --MAPTILE_FROZEN_LIQUID_TRACK_E
+  FrozenFloorTrackW = 578, --MAPTILE_FROZEN_LIQUID_TRACK_W
+  FrozenFloorTrackNS = 579, --MAPTILE_FROZEN_LIQUID_TRACK_NS
+  FrozenFloorTrackNE = 580, --MAPTILE_FROZEN_LIQUID_TRACK_NE
+  FrozenFloorTrackNW = 581, --MAPTILE_FROZEN_LIQUID_TRACK_NW
+  FrozenFloorTrackSE = 582, --MAPTILE_FROZEN_LIQUID_TRACK_SE
+  FrozenFloorTrackSW = 583, --MAPTILE_FROZEN_LIQUID_TRACK_SW
+  FrozenFloorTrackEW = 584, --MAPTILE_FROZEN_LIQUID_TRACK_EW
+  FrozenFloorTrackNSE = 585, --MAPTILE_FROZEN_LIQUID_TRACK_NSE
+  FrozenFloorTrackNSW = 586, --MAPTILE_FROZEN_LIQUID_TRACK_NSW
+  FrozenFloorTrackNEW = 587, --MAPTILE_FROZEN_LIQUID_TRACK_NEW
+  FrozenFloorTrackSEW = 588, --MAPTILE_FROZEN_LIQUID_TRACK_SEW
+  FrozenFloorTrackNSEW = 589, --MAPTILE_FROZEN_LIQUID_TRACK_NSEW
+  ConstructedFloorTrackN = 590, --MAPTILE_CONSTRUCTED_TRACK_N
+  ConstructedFloorTrackS = 591, --MAPTILE_CONSTRUCTED_TRACK_S
+  ConstructedFloorTrackE = 592, --MAPTILE_CONSTRUCTED_TRACK_E
+  ConstructedFloorTrackW = 593, --MAPTILE_CONSTRUCTED_TRACK_W
+  ConstructedFloorTrackNS = 594, --MAPTILE_CONSTRUCTED_TRACK_NS
+  ConstructedFloorTrackNE = 595, --MAPTILE_CONSTRUCTED_TRACK_NE
+  ConstructedFloorTrackNW = 596, --MAPTILE_CONSTRUCTED_TRACK_NW
+  ConstructedFloorTrackSE = 597, --MAPTILE_CONSTRUCTED_TRACK_SE
+  ConstructedFloorTrackSW = 598, --MAPTILE_CONSTRUCTED_TRACK_SW
+  ConstructedFloorTrackEW = 599, --MAPTILE_CONSTRUCTED_TRACK_EW
+  ConstructedFloorTrackNSE = 600, --MAPTILE_CONSTRUCTED_TRACK_NSE
+  ConstructedFloorTrackNSW = 601, --MAPTILE_CONSTRUCTED_TRACK_NSW
+  ConstructedFloorTrackNEW = 602, --MAPTILE_CONSTRUCTED_TRACK_NEW
+  ConstructedFloorTrackSEW = 603, --MAPTILE_CONSTRUCTED_TRACK_SEW
+  ConstructedFloorTrackNSEW = 604, --MAPTILE_CONSTRUCTED_TRACK_NSEW
+  StoneRampTrackN = 605, --MAPTILE_RAMP_STONE_TRACK_N
+  StoneRampTrackS = 606, --MAPTILE_RAMP_STONE_TRACK_S
+  StoneRampTrackE = 607, --MAPTILE_RAMP_STONE_TRACK_E
+  StoneRampTrackW = 608, --MAPTILE_RAMP_STONE_TRACK_W
+  StoneRampTrackNS = 609, --MAPTILE_RAMP_STONE_TRACK_NS
+  StoneRampTrackNE = 610, --MAPTILE_RAMP_STONE_TRACK_NE
+  StoneRampTrackNW = 611, --MAPTILE_RAMP_STONE_TRACK_NW
+  StoneRampTrackSE = 612, --MAPTILE_RAMP_STONE_TRACK_SE
+  StoneRampTrackSW = 613, --MAPTILE_RAMP_STONE_TRACK_SW
+  StoneRampTrackEW = 614, --MAPTILE_RAMP_STONE_TRACK_EW
+  StoneRampTrackNSE = 615, --MAPTILE_RAMP_STONE_TRACK_NSE
+  StoneRampTrackNSW = 616, --MAPTILE_RAMP_STONE_TRACK_NSW
+  StoneRampTrackNEW = 617, --MAPTILE_RAMP_STONE_TRACK_NEW
+  StoneRampTrackSEW = 618, --MAPTILE_RAMP_STONE_TRACK_SEW
+  StoneRampTrackNSEW = 619, --MAPTILE_RAMP_STONE_TRACK_NSEW
+  LavaRampTrackN = 620, --MAPTILE_RAMP_LAVASTONE_TRACK_N
+  LavaRampTrackS = 621, --MAPTILE_RAMP_LAVASTONE_TRACK_S
+  LavaRampTrackE = 622, --MAPTILE_RAMP_LAVASTONE_TRACK_E
+  LavaRampTrackW = 623, --MAPTILE_RAMP_LAVASTONE_TRACK_W
+  LavaRampTrackNS = 624, --MAPTILE_RAMP_LAVASTONE_TRACK_NS
+  LavaRampTrackNE = 625, --MAPTILE_RAMP_LAVASTONE_TRACK_NE
+  LavaRampTrackNW = 626, --MAPTILE_RAMP_LAVASTONE_TRACK_NW
+  LavaRampTrackSE = 627, --MAPTILE_RAMP_LAVASTONE_TRACK_SE
+  LavaRampTrackSW = 628, --MAPTILE_RAMP_LAVASTONE_TRACK_SW
+  LavaRampTrackEW = 629, --MAPTILE_RAMP_LAVASTONE_TRACK_EW
+  LavaRampTrackNSE = 630, --MAPTILE_RAMP_LAVASTONE_TRACK_NSE
+  LavaRampTrackNSW = 631, --MAPTILE_RAMP_LAVASTONE_TRACK_NSW
+  LavaRampTrackNEW = 632, --MAPTILE_RAMP_LAVASTONE_TRACK_NEW
+  LavaRampTrackSEW = 633, --MAPTILE_RAMP_LAVASTONE_TRACK_SEW
+  LavaRampTrackNSEW = 634, --MAPTILE_RAMP_LAVASTONE_TRACK_NSEW
+  FeatureRampTrackN = 635, --MAPTILE_RAMP_FEATSTONE_TRACK_N
+  FeatureRampTrackS = 636, --MAPTILE_RAMP_FEATSTONE_TRACK_S
+  FeatureRampTrackE = 637, --MAPTILE_RAMP_FEATSTONE_TRACK_E
+  FeatureRampTrackW = 638, --MAPTILE_RAMP_FEATSTONE_TRACK_W
+  FeatureRampTrackNS = 639, --MAPTILE_RAMP_FEATSTONE_TRACK_NS
+  FeatureRampTrackNE = 640, --MAPTILE_RAMP_FEATSTONE_TRACK_NE
+  FeatureRampTrackNW = 641, --MAPTILE_RAMP_FEATSTONE_TRACK_NW
+  FeatureRampTrackSE = 642, --MAPTILE_RAMP_FEATSTONE_TRACK_SE
+  FeatureRampTrackSW = 643, --MAPTILE_RAMP_FEATSTONE_TRACK_SW
+  FeatureRampTrackEW = 644, --MAPTILE_RAMP_FEATSTONE_TRACK_EW
+  FeatureRampTrackNSE = 645, --MAPTILE_RAMP_FEATSTONE_TRACK_NSE
+  FeatureRampTrackNSW = 646, --MAPTILE_RAMP_FEATSTONE_TRACK_NSW
+  FeatureRampTrackNEW = 647, --MAPTILE_RAMP_FEATSTONE_TRACK_NEW
+  FeatureRampTrackSEW = 648, --MAPTILE_RAMP_FEATSTONE_TRACK_SEW
+  FeatureRampTrackNSEW = 649, --MAPTILE_RAMP_FEATSTONE_TRACK_NSEW
+  MineralRampTrackN = 650, --MAPTILE_RAMP_MINSTONE_TRACK_N
+  MineralRampTrackS = 651, --MAPTILE_RAMP_MINSTONE_TRACK_S
+  MineralRampTrackE = 652, --MAPTILE_RAMP_MINSTONE_TRACK_E
+  MineralRampTrackW = 653, --MAPTILE_RAMP_MINSTONE_TRACK_W
+  MineralRampTrackNS = 654, --MAPTILE_RAMP_MINSTONE_TRACK_NS
+  MineralRampTrackNE = 655, --MAPTILE_RAMP_MINSTONE_TRACK_NE
+  MineralRampTrackNW = 656, --MAPTILE_RAMP_MINSTONE_TRACK_NW
+  MineralRampTrackSE = 657, --MAPTILE_RAMP_MINSTONE_TRACK_SE
+  MineralRampTrackSW = 658, --MAPTILE_RAMP_MINSTONE_TRACK_SW
+  MineralRampTrackEW = 659, --MAPTILE_RAMP_MINSTONE_TRACK_EW
+  MineralRampTrackNSE = 660, --MAPTILE_RAMP_MINSTONE_TRACK_NSE
+  MineralRampTrackNSW = 661, --MAPTILE_RAMP_MINSTONE_TRACK_NSW
+  MineralRampTrackNEW = 662, --MAPTILE_RAMP_MINSTONE_TRACK_NEW
+  MineralRampTrackSEW = 663, --MAPTILE_RAMP_MINSTONE_TRACK_SEW
+  MineralRampTrackNSEW = 664, --MAPTILE_RAMP_MINSTONE_TRACK_NSEW
+  FrozenRampTrackN = 665, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_N
+  FrozenRampTrackS = 666, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_S
+  FrozenRampTrackE = 667, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_E
+  FrozenRampTrackW = 668, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_W
+  FrozenRampTrackNS = 669, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NS
+  FrozenRampTrackNE = 670, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NE
+  FrozenRampTrackNW = 671, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NW
+  FrozenRampTrackSE = 672, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SE
+  FrozenRampTrackSW = 673, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SW
+  FrozenRampTrackEW = 674, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_EW
+  FrozenRampTrackNSE = 675, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSE
+  FrozenRampTrackNSW = 676, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSW
+  FrozenRampTrackNEW = 677, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NEW
+  FrozenRampTrackSEW = 678, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_SEW
+  FrozenRampTrackNSEW = 679, --MAPTILE_RAMP_FROZEN_LIQUID_TRACK_NSEW
+  ConstructedRampTrackN = 680, --MAPTILE_RAMP_CONSTRUCTED_TRACK_N
+  ConstructedRampTrackS = 681, --MAPTILE_RAMP_CONSTRUCTED_TRACK_S
+  ConstructedRampTrackE = 682, --MAPTILE_RAMP_CONSTRUCTED_TRACK_E
+  ConstructedRampTrackW = 683, --MAPTILE_RAMP_CONSTRUCTED_TRACK_W
+  ConstructedRampTrackNS = 684, --MAPTILE_RAMP_CONSTRUCTED_TRACK_NS
+  ConstructedRampTrackNE = 685, --MAPTILE_RAMP_CONSTRUCTED_TRACK_NE
+  ConstructedRampTrackNW = 686, --MAPTILE_RAMP_CONSTRUCTED_TRACK_NW
+  ConstructedRampTrackSE = 687, --MAPTILE_RAMP_CONSTRUCTED_TRACK_SE
+  ConstructedRampTrackSW = 688, --MAPTILE_RAMP_CONSTRUCTED_TRACK_SW
+  ConstructedRampTrackEW = 689, --MAPTILE_RAMP_CONSTRUCTED_TRACK_EW
+  ConstructedRampTrackNSE = 690, --MAPTILE_RAMP_CONSTRUCTED_TRACK_NSE
+  ConstructedRampTrackNSW = 691, --MAPTILE_RAMP_CONSTRUCTED_TRACK_NSW
+  ConstructedRampTrackNEW = 692, --MAPTILE_RAMP_CONSTRUCTED_TRACK_NEW
+  ConstructedRampTrackSEW = 693, --MAPTILE_RAMP_CONSTRUCTED_TRACK_SEW
+  ConstructedRampTrackNSEW = 694, --MAPTILE_RAMP_CONSTRUCTED_TRACK_NSEW
+  Unused695 = 695, --MAPTILE_UNUSED_695
+  Unused696 = 696, --MAPTILE_UNUSED_696
 }
 
 ---@class tiletype_attr
@@ -1069,4259 +888,664 @@ df.tiletype = {
 ---@field special tiletype_special
 ---@field direction string
 
----@type table<tiletype, tiletype_attr>
-df.tiletype.attrs = {
-  Void = {
-    caption = "void",
-  },
-  RampTop = {
-    caption = "ramp top",
-    shape = "RAMP_TOP",
-    material = "AIR",
-  },
-  MurkyPool = {
-    caption = "murky pool",
-    shape = "FLOOR",
-    material = "POOL",
-  },
-  MurkyPoolRamp = {
-    caption = "murky pool slope",
-    shape = "RAMP",
-    material = "POOL",
-  },
-  UnderworldGateStairU = {
-    caption = "underworld gate up",
-    shape = "STAIR_UP",
-    material = "UNDERWORLD_GATE",
-  },
-  UnderworldGateStairD = {
-    caption = "underworld gate down",
-    shape = "STAIR_DOWN",
-    material = "UNDERWORLD_GATE",
-  },
-  UnderworldGateStairUD = {
-    caption = "underworld gate up/down",
-    shape = "STAIR_UPDOWN",
-    material = "UNDERWORLD_GATE",
-  },
-  TreeCapPillar_unk07 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk08 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk09 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk0A = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk0B = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk0C = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk0D = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk0E = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk0F = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk10 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk11 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk12 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  Driftwood = {
-    caption = "driftwood",
-    shape = "FLOOR",
-    material = "DRIFTWOOD",
-  },
-  TreeCapPillar_unk14 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk15 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk16 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapPillar_unk17 = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  FrozenStairUD = {
-    caption = "ice stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "FROZEN_LIQUID",
-  },
-  FrozenStairD = {
-    caption = "ice stair down",
-    shape = "STAIR_DOWN",
-    material = "FROZEN_LIQUID",
-  },
-  FrozenStairU = {
-    caption = "ice stair up",
-    shape = "STAIR_UP",
-    material = "FROZEN_LIQUID",
-  },
-  TreeDeadCapPillar_unk1F = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  OpenSpace = {
-    caption = "open space",
-    shape = "EMPTY",
-    material = "AIR",
-  },
-  TreeDeadCapPillar_unk21 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  Shrub = {
-    caption = "shrub",
-    shape = "SHRUB",
-    material = "PLANT",
-    special = "NORMAL",
-  },
-  Chasm = {
-    caption = "chasm",
-    shape = "ENDLESS_PIT",
-    material = "AIR",
-  },
-  LavaStairUD = {
-    caption = "obsidian stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "LAVA_STONE",
-  },
-  LavaStairD = {
-    caption = "obsidian stair down",
-    shape = "STAIR_DOWN",
-    material = "LAVA_STONE",
-  },
-  LavaStairU = {
-    caption = "obsidian stair up",
-    shape = "STAIR_UP",
-    material = "LAVA_STONE",
-  },
-  SoilStairUD = {
-    caption = "soil stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "SOIL",
-  },
-  SoilStairD = {
-    caption = "soil stair down",
-    shape = "STAIR_DOWN",
-    material = "SOIL",
-  },
-  SoilStairU = {
-    caption = "soil stair up",
-    shape = "STAIR_UP",
-    material = "SOIL",
-  },
-  EeriePit = {
-    caption = "eerie pit",
-    shape = "ENDLESS_PIT",
-    material = "HFS",
-  },
-  StoneFloorSmooth = {
-    caption = "smooth stone floor",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "SMOOTH",
-  },
-  LavaFloorSmooth = {
-    caption = "smooth obsidian floor",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-  },
-  FeatureFloorSmooth = {
-    caption = "smooth featstone floor",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "SMOOTH",
-  },
-  MineralFloorSmooth = {
-    caption = "smooth vein floor",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "SMOOTH",
-  },
-  FrozenFloorSmooth = {
-    caption = "smooth ice floor",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-  },
-  TreeDeadCapPillar_unk30 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  Grass1StairUD = {
-    caption = "light grass stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "GRASS_LIGHT",
-  },
-  Grass1StairD = {
-    caption = "light grass stair down",
-    shape = "STAIR_DOWN",
-    material = "GRASS_LIGHT",
-  },
-  Grass1StairU = {
-    caption = "light grass stair up",
-    shape = "STAIR_UP",
-    material = "GRASS_LIGHT",
-  },
-  Grass2StairUD = {
-    caption = "dark grass stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "GRASS_DARK",
-  },
-  Grass2StairD = {
-    caption = "dark grass stair down",
-    shape = "STAIR_DOWN",
-    material = "GRASS_DARK",
-  },
-  Grass2StairU = {
-    caption = "dark grass stair up",
-    shape = "STAIR_UP",
-    material = "GRASS_DARK",
-  },
-  StoneStairUD = {
-    caption = "stone stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "STONE",
-  },
-  StoneStairD = {
-    caption = "stone stair down",
-    shape = "STAIR_DOWN",
-    material = "STONE",
-  },
-  StoneStairU = {
-    caption = "stone stair up",
-    shape = "STAIR_UP",
-    material = "STONE",
-  },
-  MineralStairUD = {
-    caption = "vein stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "MINERAL",
-  },
-  MineralStairD = {
-    caption = "vein stair down",
-    shape = "STAIR_DOWN",
-    material = "MINERAL",
-  },
-  MineralStairU = {
-    caption = "vein stair up",
-    shape = "STAIR_UP",
-    material = "MINERAL",
-  },
-  FeatureStairUD = {
-    caption = "featstone stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "FEATURE",
-  },
-  FeatureStairD = {
-    caption = "featstone stair down",
-    shape = "STAIR_DOWN",
-    material = "FEATURE",
-  },
-  FeatureStairU = {
-    caption = "featstone stair up",
-    shape = "STAIR_UP",
-    material = "FEATURE",
-  },
-  TreeDeadCapPillar_unk40 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  StoneFortification = {
-    caption = "stone fortification",
-    shape = "FORTIFICATION",
-    material = "STONE",
-  },
-  TreeDeadCapPillar_unk42 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  Campfire = {
-    caption = "campfire",
-    shape = "FLOOR",
-    material = "CAMPFIRE",
-  },
-  TreeDeadCapPillar_unk44 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadCapPillar_unk45 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  Fire = {
-    caption = "fire",
-    shape = "FLOOR",
-    material = "FIRE",
-  },
-  BurningTreeTrunk = {
-    caption = "fire",
-    shape = "WALL",
-    material = "FIRE",
-  },
-  BurningTreeBranches = {
-    caption = "fire",
-    shape = "BRANCH",
-    material = "FIRE",
-  },
-  BurningTreeTwigs = {
-    caption = "fire",
-    shape = "TWIG",
-    material = "FIRE",
-  },
-  BurningTreeCapWall = {
-    caption = "fire",
-    shape = "WALL",
-    material = "FIRE",
-  },
-  BurningTreeCapRamp = {
-    caption = "fire",
-    shape = "RAMP",
-    material = "FIRE",
-  },
-  BurningTreeCapFloor = {
-    caption = "fire",
-    shape = "FLOOR",
-    material = "FIRE",
-  },
-  TreeDeadCapPillar_unk4D = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadCapPillar_unk4E = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  StonePillar = {
-    caption = "stone pillar",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-  },
-  LavaPillar = {
-    caption = "obsidian pillar",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-  },
-  FeaturePillar = {
-    caption = "featstone pillar",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-  },
-  MineralPillar = {
-    caption = "vein pillar",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-  },
-  FrozenPillar = {
-    caption = "ice pillar",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-  },
-  TreeDeadCapPillar_unk54 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadCapPillar_unk55 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadCapPillar_unk56 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadCapPillar_unk57 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadCapPillar_unk58 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  Waterfall = {
-    caption = "waterfall",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "WATERFALL",
-  },
-  RiverSource = {
-    caption = "river source",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "RIVER_SOURCE",
-  },
-  TreeRootSloping = {
-    caption = "sloping roots",
-    shape = "RAMP",
-    material = "ROOT",
-  },
-  TreeRoots = {
-    caption = "roots",
-    shape = "WALL",
-    material = "ROOT",
-  },
-  TreeTrunkPillar = {
-    caption = "trunk pillar",
-    shape = "WALL",
-    material = "TREE",
-    special = "SMOOTH",
-  },
-  TreeTrunkSloping = {
-    caption = "sloping trunk",
-    shape = "RAMP",
-    material = "TREE",
-  },
-  TreeTrunkN = {
-    caption = "trunk (N)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "N",
-  },
-  TreeTrunkS = {
-    caption = "trunk (S)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "S",
-  },
-  TreeTrunkE = {
-    caption = "trunk (E)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "E",
-  },
-  TreeTrunkW = {
-    caption = "trunk (W)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "W",
-  },
-  TreeTrunkNW = {
-    caption = "trunk (NW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NW",
-  },
-  TreeTrunkNE = {
-    caption = "trunk (NE)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NE",
-  },
-  TreeTrunkSW = {
-    caption = "trunk (SW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "SW",
-  },
-  TreeTrunkSE = {
-    caption = "trunk (SE)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "SE",
-  },
-  TreeTrunkBranchN = {
-    caption = "trunk branch (N)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    direction = "N",
-  },
-  TreeTrunkBranchS = {
-    caption = "trunk branch (S)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    direction = "S",
-  },
-  TreeTrunkBranchE = {
-    caption = "trunk branch (E)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    direction = "E",
-  },
-  TreeTrunkBranchW = {
-    caption = "trunk branch (W)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    direction = "W",
-  },
-  TreeBranchNS = {
-    caption = "branch (NS)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NS",
-  },
-  TreeBranchEW = {
-    caption = "branch (EW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "EW",
-  },
-  TreeBranchesSmooth = {
-    caption = "smooth branch",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "SMOOTH",
-  },
-  TreeDeadBranchesSmooth = {
-    caption = "smooth dead branch",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "SMOOTH_DEAD",
-  },
-  TreeBranchNW = {
-    caption = "branch (NW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NW",
-  },
-  TreeBranchNE = {
-    caption = "branch (NE)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NE",
-  },
-  TreeBranchSW = {
-    caption = "branch (SW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "SW",
-  },
-  TreeBranchSE = {
-    caption = "branch (SE)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "SE",
-  },
-  TreeBranches = {
-    caption = "branches",
-    shape = "BRANCH",
-    material = "TREE",
-  },
-  TreeTwigs = {
-    caption = "twigs",
-    shape = "TWIG",
-    material = "TREE",
-  },
-  TreeCapRamp = {
-    caption = "cap ramp",
-    shape = "RAMP",
-    material = "MUSHROOM",
-  },
-  TreeCapPillar = {
-    caption = "cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH",
-  },
-  TreeCapWallN = {
-    caption = "cap wall (N)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "N",
-  },
-  TreeCapWallS = {
-    caption = "cap wall (S)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "S",
-  },
-  TreeCapWallE = {
-    caption = "cap wall (E)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "E",
-  },
-  TreeCapWallW = {
-    caption = "cap wall (W)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "W",
-  },
-  TreeCapWallNW = {
-    caption = "cap wall (NW)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "NW",
-  },
-  TreeCapWallNE = {
-    caption = "cap wall (NE)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "NE",
-  },
-  TreeCapWallSW = {
-    caption = "cap wall (SW)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "SW",
-  },
-  TreeCapWallSE = {
-    caption = "cap wall (SE)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    direction = "SE",
-  },
-  TreeCapFloor1 = {
-    caption = "cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    variant = "VAR_1",
-  },
-  TreeCapFloor2 = {
-    caption = "cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    variant = "VAR_2",
-  },
-  TreeCapFloor3 = {
-    caption = "cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    variant = "VAR_3",
-  },
-  TreeCapFloor4 = {
-    caption = "cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    variant = "VAR_4",
-  },
-  TreeDeadRootSloping = {
-    caption = "dead sloping roots",
-    shape = "RAMP",
-    material = "ROOT",
-    special = "DEAD",
-  },
-  TreeDeadRoots = {
-    caption = "dead roots",
-    shape = "WALL",
-    material = "ROOT",
-    special = "DEAD",
-  },
-  TreeDeadTrunkPillar = {
-    caption = "dead trunk pillar",
-    shape = "WALL",
-    material = "TREE",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadTrunkSloping = {
-    caption = "dead sloping trunk",
-    shape = "RAMP",
-    material = "TREE",
-    special = "DEAD",
-  },
-  TreeDeadTrunkN = {
-    caption = "dead trunk (N)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "N",
-  },
-  TreeDeadTrunkS = {
-    caption = "dead trunk (S)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "S",
-  },
-  TreeDeadTrunkE = {
-    caption = "dead trunk (E)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "E",
-  },
-  TreeDeadTrunkW = {
-    caption = "dead trunk (W)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "W",
-  },
-  TreeDeadTrunkNW = {
-    caption = "dead trunk (NW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NW",
-  },
-  TreeDeadTrunkNE = {
-    caption = "dead trunk (NE)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NE",
-  },
-  TreeDeadTrunkSW = {
-    caption = "dead trunk (SW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SW",
-  },
-  TreeDeadTrunkSE = {
-    caption = "dead trunk (SE)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SE",
-  },
-  TreeDeadTrunkBranchN = {
-    caption = "dead trunk branch (N)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "N",
-  },
-  TreeDeadTrunkBranchS = {
-    caption = "dead trunk branch (S)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "S",
-  },
-  TreeDeadTrunkBranchE = {
-    caption = "dead trunk branch (E)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "E",
-  },
-  TreeDeadTrunkBranchW = {
-    caption = "dead trunk branch (W)",
-    shape = "TRUNK_BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "W",
-  },
-  TreeDeadBranchNS = {
-    caption = "dead branch (NS)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NS",
-  },
-  TreeDeadBranchEW = {
-    caption = "dead branch (EW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "EW",
-  },
-  TreeBranchNSEW_unk95 = {
-    caption = "branches (NSEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NSEW",
-  },
-  TreeDeadBranchNSEW_unk96 = {
-    caption = "dead branches (NSEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NSEW",
-  },
-  TreeDeadBranchNW = {
-    caption = "dead branch (NW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NW",
-  },
-  TreeDeadBranchNE = {
-    caption = "dead branch (NE)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NE",
-  },
-  TreeDeadBranchSW = {
-    caption = "dead branch (SW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SW",
-  },
-  TreeDeadBranchSE = {
-    caption = "dead branch (SE)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SE",
-  },
-  TreeDeadBranches = {
-    caption = "dead branches",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-  },
-  TreeDeadTwigs = {
-    caption = "dead twigs",
-    shape = "TWIG",
-    material = "TREE",
-    special = "DEAD",
-  },
-  TreeDeadCapRamp = {
-    caption = "dead cap ramp",
-    shape = "RAMP",
-    material = "MUSHROOM",
-    special = "DEAD",
-  },
-  TreeDeadCapPillar = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  TreeDeadCapWallN = {
-    caption = "dead cap wall (N)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "N",
-  },
-  TreeDeadCapWallS = {
-    caption = "dead cap wall (S)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "S",
-  },
-  TreeDeadCapWallE = {
-    caption = "dead cap wall (E)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "E",
-  },
-  TreeDeadCapWallW = {
-    caption = "dead cap wall (W)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "W",
-  },
-  TreeDeadCapWallNW = {
-    caption = "dead cap wall (NW)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "NW",
-  },
-  TreeDeadCapWallNE = {
-    caption = "dead cap wall (NE)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "NE",
-  },
-  TreeDeadCapWallSW = {
-    caption = "dead cap wall (SW)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "SW",
-  },
-  TreeDeadCapWallSE = {
-    caption = "dead cap wall (SE)",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "DEAD",
-    direction = "SE",
-  },
-  TreeDeadCapFloor1 = {
-    caption = "dead cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    special = "DEAD",
-    variant = "VAR_1",
-  },
-  TreeDeadCapFloor2 = {
-    caption = "dead cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    special = "DEAD",
-    variant = "VAR_2",
-  },
-  TreeDeadCapFloor3 = {
-    caption = "dead cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    special = "DEAD",
-    variant = "VAR_3",
-  },
-  TreeDeadCapFloor4 = {
-    caption = "dead cap floor",
-    shape = "FLOOR",
-    material = "MUSHROOM",
-    special = "DEAD",
-    variant = "VAR_4",
-  },
-  TreeDeadCapPillar_unkAB = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  StoneWallWorn1 = {
-    caption = "worn 1 stone wall",
-    shape = "WALL",
-    material = "STONE",
-    special = "WORN_1",
-  },
-  StoneWallWorn2 = {
-    caption = "worn 2 stone wall",
-    shape = "WALL",
-    material = "STONE",
-    special = "WORN_2",
-  },
-  StoneWallWorn3 = {
-    caption = "worn 3 stone wall",
-    shape = "WALL",
-    material = "STONE",
-    special = "WORN_3",
-  },
-  TreeBranchNSE = {
-    caption = "branches (NSE)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NSE",
-  },
-  TreeBranchNSW = {
-    caption = "branches (NSW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NSW",
-  },
-  TreeBranchNEW = {
-    caption = "branches (NEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NEW",
-  },
-  TreeBranchSEW = {
-    caption = "branches (SEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "SEW",
-  },
-  TreeBranchNSEW = {
-    caption = "branches (NSEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "NSEW",
-  },
-  TreeDeadBranchNSE = {
-    caption = "dead branches (NSW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NSW",
-  },
-  TreeDeadBranchNSW = {
-    caption = "dead branches (NEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NEW",
-  },
-  TreeDeadBranchNEW = {
-    caption = "dead branches (NEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NEW",
-  },
-  TreeDeadBranchSEW = {
-    caption = "dead branches (SEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SEW",
-  },
-  TreeDeadBranchNSEW = {
-    caption = "dead branches (NSEW)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NSEW",
-  },
-  TreeTrunkNSE = {
-    caption = "trunk (NSE)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NSE",
-  },
-  TreeTrunkNSW = {
-    caption = "trunk (NSW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NSW",
-  },
-  TreeTrunkNEW = {
-    caption = "trunk (NEW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NEW",
-  },
-  TreeTrunkSEW = {
-    caption = "trunk (SEW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "SEW",
-  },
-  TreeTrunkNS = {
-    caption = "trunk (NS)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NS",
-  },
-  TreeTrunkEW = {
-    caption = "trunk (EW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "EW",
-  },
-  TreeTrunkNSEW = {
-    caption = "trunk (NSEW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NSEW",
-  },
-  TreeTrunkInterior = {
-    caption = "trunk interior",
-    shape = "WALL",
-    material = "TREE",
-  },
-  TreeDeadTrunkNSE = {
-    caption = "dead trunk (NSE)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NSE",
-  },
-  TreeDeadTrunkNSW = {
-    caption = "dead trunk (NSW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NSW",
-  },
-  TreeDeadTrunkNEW = {
-    caption = "dead trunk (NEW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NEW",
-  },
-  TreeDeadTrunkSEW = {
-    caption = "dead trunk (SEW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SEW",
-  },
-  TreeDeadTrunkNS = {
-    caption = "dead trunk (NS)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NS",
-  },
-  TreeDeadTrunkEW = {
-    caption = "dead trunk (EW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "EW",
-  },
-  TreeDeadTrunkNSEW = {
-    caption = "dead trunk (NSEW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NSEW",
-  },
-  TreeDeadTrunkInterior = {
-    caption = "dead trunk interior",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-  },
-  TreeTrunkNW_unkC9 = {
-    caption = "trunk (NW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NW",
-  },
-  TreeTrunkNE_unkCA = {
-    caption = "trunk (NE)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NE",
-  },
-  TreeTrunkSW_unkCB = {
-    caption = "trunk (SW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "SW",
-  },
-  TreeTrunkSE_unkCC = {
-    caption = "trunk (SE)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "SE",
-  },
-  TreeDeadTrunkNW_unkCD = {
-    caption = "dead trunk (NW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NW",
-  },
-  TreeDeadTrunkNE_unkCE = {
-    caption = "dead trunk (NE)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "NE",
-  },
-  TreeDeadTrunkSW_unkCF = {
-    caption = "dead trunk (SW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SW",
-  },
-  TreeDeadTrunkSE_unkD0 = {
-    caption = "dead trunk (SE)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "SE",
-  },
-  TreeTrunkNS_unkD1 = {
-    caption = "trunk (NS)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NS",
-  },
-  TreeTrunkNS_unkD2 = {
-    caption = "trunk (NS)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "NS",
-  },
-  TreeTrunkEW_unkD3 = {
-    caption = "trunk (EW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "EW",
-  },
-  TreeTrunkEW_unkD4 = {
-    caption = "trunk (EW)",
-    shape = "WALL",
-    material = "TREE",
-    direction = "EW",
-  },
-  TreeDeadTrunkNS_unkD5 = {
-    caption = "dead trunk (NS)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "S",
-  },
-  TreeDeadTrunkNS_unkD6 = {
-    caption = "dead trunk (NS)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "N",
-  },
-  StoneWall = {
-    caption = "stone wall",
-    shape = "WALL",
-    material = "STONE",
-    special = "NORMAL",
-  },
-  TreeDeadTrunkEW_unkD8 = {
-    caption = "dead trunk (EW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "EW",
-  },
-  TreeDeadTrunkEW_unkD9 = {
-    caption = "dead trunk (EW)",
-    shape = "WALL",
-    material = "TREE",
-    special = "DEAD",
-    direction = "EW",
-  },
-  TreeBranchS = {
-    caption = "branch (S)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "S",
-  },
-  TreeBranchN = {
-    caption = "branch (N)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "N",
-  },
-  TreeBranchW = {
-    caption = "branch (W)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "W",
-  },
-  TreeBranchE = {
-    caption = "branch (E)",
-    shape = "BRANCH",
-    material = "TREE",
-    direction = "E",
-  },
-  TreeDeadBranchS = {
-    caption = "branch (S)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "S",
-  },
-  TreeDeadBranchN = {
-    caption = "branch (N)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "N",
-  },
-  TreeDeadBranchW = {
-    caption = "branch (W)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "W",
-  },
-  TreeDeadBranchE = {
-    caption = "branch (E)",
-    shape = "BRANCH",
-    material = "TREE",
-    special = "DEAD",
-    direction = "E",
-  },
-  TreeDeadCapPillar_unkE2 = {
-    caption = "dead cap pillar",
-    shape = "WALL",
-    material = "MUSHROOM",
-    special = "SMOOTH_DEAD",
-  },
-  Sapling = {
-    caption = "sapling",
-    shape = "SAPLING",
-    material = "PLANT",
-    special = "NORMAL",
-  },
-  GrassDryRamp = {
-    caption = "dry grass ramp",
-    shape = "RAMP",
-    material = "GRASS_DRY",
-  },
-  GrassDeadRamp = {
-    caption = "dead grass ramp",
-    shape = "RAMP",
-    material = "GRASS_DEAD",
-  },
-  GrassLightRamp = {
-    caption = "light grass ramp",
-    shape = "RAMP",
-    material = "GRASS_LIGHT",
-  },
-  GrassDarkRamp = {
-    caption = "dark grass ramp",
-    shape = "RAMP",
-    material = "GRASS_DARK",
-  },
-  StoneRamp = {
-    caption = "stone ramp",
-    shape = "RAMP",
-    material = "STONE",
-  },
-  LavaRamp = {
-    caption = "obsidian ramp",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-  },
-  FeatureRamp = {
-    caption = "featstone ramp",
-    shape = "RAMP",
-    material = "FEATURE",
-  },
-  MineralRamp = {
-    caption = "vein ramp",
-    shape = "RAMP",
-    material = "MINERAL",
-  },
-  SoilRamp = {
-    caption = "soil ramp",
-    shape = "RAMP",
-    material = "SOIL",
-  },
-  Ashes1 = {
-    caption = "ashes",
-    shape = "FLOOR",
-    material = "ASHES",
-    variant = "VAR_1",
-  },
-  Ashes2 = {
-    caption = "ashes",
-    shape = "FLOOR",
-    material = "ASHES",
-    variant = "VAR_2",
-  },
-  Ashes3 = {
-    caption = "ashes",
-    shape = "FLOOR",
-    material = "ASHES",
-    variant = "VAR_3",
-  },
-  FrozenRamp = {
-    caption = "ice ramp",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-  },
-  FrozenFloor2 = {
-    caption = "ice floor",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    variant = "VAR_2",
-    special = "NORMAL",
-  },
-  FrozenFloor3 = {
-    caption = "ice floor",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    variant = "VAR_3",
-    special = "NORMAL",
-  },
-  FrozenFloor4 = {
-    caption = "ice floor",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    variant = "VAR_4",
-    special = "NORMAL",
-  },
-  FurrowedSoil = {
-    caption = "furrowed soil",
-    shape = "FLOOR",
-    material = "SOIL",
-    special = "FURROWED",
-  },
-  FrozenFloor1 = {
-    caption = "ice floor",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    variant = "VAR_1",
-    special = "NORMAL",
-  },
-  SemiMoltenRock = {
-    caption = "semi-molten rock",
-    shape = "WALL",
-    material = "MAGMA",
-  },
-  MagmaFlow = {
-    caption = "magma flow",
-    shape = "FLOOR",
-    material = "MAGMA",
-  },
-  SoilWall = {
-    caption = "soil wall",
-    shape = "WALL",
-    material = "SOIL",
-  },
-  GlowingBarrier = {
-    caption = "glowing barrier",
-    shape = "WALL",
-    material = "HFS",
-  },
-  GlowingFloor = {
-    caption = "glowing floor",
-    shape = "FLOOR",
-    material = "HFS",
-  },
-  LavaWallSmoothRD2 = {
-    caption = "smooth obsidian wall RD2",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "--SS--E-",
-  },
-  LavaWallSmoothR2D = {
-    caption = "smooth obsidian wall R2D",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "--S---EE",
-  },
-  LavaWallSmoothR2U = {
-    caption = "smooth obsidian wall R2U",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N-----EE",
-  },
-  LavaWallSmoothRU2 = {
-    caption = "smooth obsidian wall RU2",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "NN----E-",
-  },
-  LavaWallSmoothL2U = {
-    caption = "smooth obsidian wall L2U",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N---WW--",
-  },
-  LavaWallSmoothLU2 = {
-    caption = "smooth obsidian wall LU2",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "NN--W---",
-  },
-  LavaWallSmoothL2D = {
-    caption = "smooth obsidian wall L2D",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "--S-WW--",
-  },
-  LavaWallSmoothLD2 = {
-    caption = "smooth obsidian wall LD2",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "--SSW---",
-  },
-  LavaWallSmoothLRUD = {
-    caption = "smooth obsidian wall LRUD",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N-S-W-E-",
-  },
-  LavaWallSmoothRUD = {
-    caption = "smooth obsidian wall RUD",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N-S---E-",
-  },
-  LavaWallSmoothLRD = {
-    caption = "smooth obsidian wall LRD",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "--S-W-E-",
-  },
-  LavaWallSmoothLRU = {
-    caption = "smooth obsidian wall LRU",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N---W-E-",
-  },
-  LavaWallSmoothLUD = {
-    caption = "smooth obsidian wall LUD",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N-S-W---",
-  },
-  LavaWallSmoothRD = {
-    caption = "smooth obsidian wall RD",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "--S---E-",
-  },
-  LavaWallSmoothRU = {
-    caption = "smooth obsidian wall RU",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N-----E-",
-  },
-  LavaWallSmoothLU = {
-    caption = "smooth obsidian wall LU",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N---W---",
-  },
-  LavaWallSmoothLD = {
-    caption = "smooth obsidian wall LD",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "--S-W---",
-  },
-  LavaWallSmoothUD = {
-    caption = "smooth obsidian wall UD",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "N-S-----",
-  },
-  LavaWallSmoothLR = {
-    caption = "smooth obsidian wall LR",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "SMOOTH",
-    direction = "----W-E-",
-  },
-  FeatureWallSmoothRD2 = {
-    caption = "smooth featstone wall RD2",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "--SS--E-",
-  },
-  FeatureWallSmoothR2D = {
-    caption = "smooth featstone wall R2D",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "--S---EE",
-  },
-  FeatureWallSmoothR2U = {
-    caption = "smooth featstone wall R2U",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N-----EE",
-  },
-  FeatureWallSmoothRU2 = {
-    caption = "smooth featstone wall RU2",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "NN----E-",
-  },
-  FeatureWallSmoothL2U = {
-    caption = "smooth featstone wall L2U",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N---WW--",
-  },
-  FeatureWallSmoothLU2 = {
-    caption = "smooth featstone wall LU2",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "NN--W---",
-  },
-  FeatureWallSmoothL2D = {
-    caption = "smooth featstone wall L2D",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "--S-WW--",
-  },
-  FeatureWallSmoothLD2 = {
-    caption = "smooth featstone wall LD2",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "--SSW---",
-  },
-  FeatureWallSmoothLRUD = {
-    caption = "smooth featstone wall LRUD",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N-S-W-E-",
-  },
-  FeatureWallSmoothRUD = {
-    caption = "smooth featstone wall RUD",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N-S---E-",
-  },
-  FeatureWallSmoothLRD = {
-    caption = "smooth featstone wall LRD",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "--S-W-E-",
-  },
-  FeatureWallSmoothLRU = {
-    caption = "smooth featstone wall LRU",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N---W-E-",
-  },
-  FeatureWallSmoothLUD = {
-    caption = "smooth featstone wall LUD",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N-S-W---",
-  },
-  FeatureWallSmoothRD = {
-    caption = "smooth featstone wall RD",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "--S---E-",
-  },
-  FeatureWallSmoothRU = {
-    caption = "smooth featstone wall RU",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N-----E-",
-  },
-  FeatureWallSmoothLU = {
-    caption = "smooth featstone wall LU",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N---W---",
-  },
-  FeatureWallSmoothLD = {
-    caption = "smooth featstone wall LD",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "--S-W---",
-  },
-  FeatureWallSmoothUD = {
-    caption = "smooth featstone wall UD",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "N-S-----",
-  },
-  FeatureWallSmoothLR = {
-    caption = "smooth featstone wall LR",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "SMOOTH",
-    direction = "----W-E-",
-  },
-  StoneWallSmoothRD2 = {
-    caption = "smooth stone wall RD2",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "--SS--E-",
-  },
-  StoneWallSmoothR2D = {
-    caption = "smooth stone wall R2D",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "--S---EE",
-  },
-  StoneWallSmoothR2U = {
-    caption = "smooth stone wall R2U",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N-----EE",
-  },
-  StoneWallSmoothRU2 = {
-    caption = "smooth stone wall RU2",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "NN----E-",
-  },
-  StoneWallSmoothL2U = {
-    caption = "smooth stone wall L2U",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N---WW--",
-  },
-  StoneWallSmoothLU2 = {
-    caption = "smooth stone wall LU2",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "NN--W---",
-  },
-  StoneWallSmoothL2D = {
-    caption = "smooth stone wall L2D",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "--S-WW--",
-  },
-  StoneWallSmoothLD2 = {
-    caption = "smooth stone wall LD2",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "--SSW---",
-  },
-  StoneWallSmoothLRUD = {
-    caption = "smooth stone wall LRUD",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N-S-W-E-",
-  },
-  StoneWallSmoothRUD = {
-    caption = "smooth stone wall RUD",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N-S---E-",
-  },
-  StoneWallSmoothLRD = {
-    caption = "smooth stone wall LRD",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "--S-W-E-",
-  },
-  StoneWallSmoothLRU = {
-    caption = "smooth stone wall LRU",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N---W-E-",
-  },
-  StoneWallSmoothLUD = {
-    caption = "smooth stone wall LUD",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N-S-W---",
-  },
-  StoneWallSmoothRD = {
-    caption = "smooth stone wall RD",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "--S---E-",
-  },
-  StoneWallSmoothRU = {
-    caption = "smooth stone wall RU",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N-----E-",
-  },
-  StoneWallSmoothLU = {
-    caption = "smooth stone wall LU",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N---W---",
-  },
-  StoneWallSmoothLD = {
-    caption = "smooth stone wall LD",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "--S-W---",
-  },
-  StoneWallSmoothUD = {
-    caption = "smooth stone wall UD",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "N-S-----",
-  },
-  StoneWallSmoothLR = {
-    caption = "smooth stone wall LR",
-    shape = "WALL",
-    material = "STONE",
-    special = "SMOOTH",
-    direction = "----W-E-",
-  },
-  LavaFortification = {
-    caption = "obsidian fortification",
-    shape = "FORTIFICATION",
-    material = "LAVA_STONE",
-  },
-  FeatureFortification = {
-    caption = "featstone fortification",
-    shape = "FORTIFICATION",
-    material = "FEATURE",
-  },
-  LavaWallWorn1 = {
-    caption = "worn 1 obsidian wall",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "WORN_1",
-  },
-  LavaWallWorn2 = {
-    caption = "worn 2 obsidian wall",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "WORN_2",
-  },
-  LavaWallWorn3 = {
-    caption = "worn 3 obsidian wall",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "WORN_3",
-  },
-  LavaWall = {
-    caption = "obsidian wall",
-    shape = "WALL",
-    material = "LAVA_STONE",
-    special = "NORMAL",
-  },
-  FeatureWallWorn1 = {
-    caption = "worn 1 featstone wall",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "WORN_1",
-  },
-  FeatureWallWorn2 = {
-    caption = "worn 2 featstone wall",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "WORN_2",
-  },
-  FeatureWallWorn3 = {
-    caption = "worn 3 featstone wall",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "WORN_3",
-  },
-  FeatureWall = {
-    caption = "featstone wall",
-    shape = "WALL",
-    material = "FEATURE",
-    special = "NORMAL",
-  },
-  StoneFloor1 = {
-    caption = "stone floor",
-    shape = "FLOOR",
-    material = "STONE",
-    variant = "VAR_1",
-    special = "NORMAL",
-  },
-  StoneFloor2 = {
-    caption = "stone floor",
-    shape = "FLOOR",
-    material = "STONE",
-    variant = "VAR_2",
-    special = "NORMAL",
-  },
-  StoneFloor3 = {
-    caption = "stone floor",
-    shape = "FLOOR",
-    material = "STONE",
-    variant = "VAR_3",
-    special = "NORMAL",
-  },
-  StoneFloor4 = {
-    caption = "stone floor",
-    shape = "FLOOR",
-    material = "STONE",
-    variant = "VAR_4",
-    special = "NORMAL",
-  },
-  LavaFloor1 = {
-    caption = "obsidian floor",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    variant = "VAR_1",
-    special = "NORMAL",
-  },
-  LavaFloor2 = {
-    caption = "obsidian floor",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    variant = "VAR_2",
-    special = "NORMAL",
-  },
-  LavaFloor3 = {
-    caption = "obsidian floor",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    variant = "VAR_3",
-    special = "NORMAL",
-  },
-  LavaFloor4 = {
-    caption = "obsidian floor",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    variant = "VAR_4",
-    special = "NORMAL",
-  },
-  FeatureFloor1 = {
-    caption = "featstone floor",
-    shape = "FLOOR",
-    material = "FEATURE",
-    variant = "VAR_1",
-    special = "NORMAL",
-  },
-  FeatureFloor2 = {
-    caption = "featstone floor",
-    shape = "FLOOR",
-    material = "FEATURE",
-    variant = "VAR_2",
-    special = "NORMAL",
-  },
-  FeatureFloor3 = {
-    caption = "featstone floor",
-    shape = "FLOOR",
-    material = "FEATURE",
-    variant = "VAR_3",
-    special = "NORMAL",
-  },
-  FeatureFloor4 = {
-    caption = "featstone floor",
-    shape = "FLOOR",
-    material = "FEATURE",
-    variant = "VAR_4",
-    special = "NORMAL",
-  },
-  GrassDarkFloor1 = {
-    caption = "dark grass",
-    shape = "FLOOR",
-    material = "GRASS_DARK",
-    variant = "VAR_1",
-  },
-  GrassDarkFloor2 = {
-    caption = "dark grass",
-    shape = "FLOOR",
-    material = "GRASS_DARK",
-    variant = "VAR_2",
-  },
-  GrassDarkFloor3 = {
-    caption = "dark grass",
-    shape = "FLOOR",
-    material = "GRASS_DARK",
-    variant = "VAR_3",
-  },
-  GrassDarkFloor4 = {
-    caption = "dark grass",
-    shape = "FLOOR",
-    material = "GRASS_DARK",
-    variant = "VAR_4",
-  },
-  SoilFloor1 = {
-    caption = "soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_1",
-    special = "NORMAL",
-  },
-  SoilFloor2 = {
-    caption = "soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_2",
-    special = "NORMAL",
-  },
-  SoilFloor3 = {
-    caption = "soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_3",
-    special = "NORMAL",
-  },
-  SoilFloor4 = {
-    caption = "soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_4",
-    special = "NORMAL",
-  },
-  SoilWetFloor1 = {
-    caption = "wet soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_1",
-    special = "WET",
-  },
-  SoilWetFloor2 = {
-    caption = "wet soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_2",
-    special = "WET",
-  },
-  SoilWetFloor3 = {
-    caption = "wet soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_3",
-    special = "WET",
-  },
-  SoilWetFloor4 = {
-    caption = "wet soil floor",
-    shape = "FLOOR",
-    material = "SOIL",
-    variant = "VAR_4",
-    special = "WET",
-  },
-  FrozenFortification = {
-    caption = "ice fortification",
-    shape = "FORTIFICATION",
-    material = "FROZEN_LIQUID",
-  },
-  FrozenWallWorn1 = {
-    caption = "worn 1 ice wall",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "WORN_1",
-  },
-  FrozenWallWorn2 = {
-    caption = "worn 2 ice wall",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "WORN_2",
-  },
-  FrozenWallWorn3 = {
-    caption = "worn 3 ice wall",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "WORN_3",
-  },
-  FrozenWall = {
-    caption = "ice wall",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "NORMAL",
-  },
-  RiverN = {
-    caption = "river N",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "N",
-  },
-  RiverS = {
-    caption = "river S",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "S",
-  },
-  RiverE = {
-    caption = "river E",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "E",
-  },
-  RiverW = {
-    caption = "river W",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "W",
-  },
-  RiverNW = {
-    caption = "river NW",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "NW",
-  },
-  RiverNE = {
-    caption = "river NE",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "NE",
-  },
-  RiverSW = {
-    caption = "river SW",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "SW",
-  },
-  RiverSE = {
-    caption = "river SE",
-    shape = "FLOOR",
-    material = "RIVER",
-    special = "NORMAL",
-    direction = "SE",
-  },
-  BrookN = {
-    caption = "brook bed N",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "N",
-  },
-  BrookS = {
-    caption = "brook bed S",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "S",
-  },
-  BrookE = {
-    caption = "brook bed E",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "E",
-  },
-  BrookW = {
-    caption = "brook bed W",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "W",
-  },
-  BrookNW = {
-    caption = "brook bed NW",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "NW",
-  },
-  BrookNE = {
-    caption = "brook bed NE",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "NE",
-  },
-  BrookSW = {
-    caption = "brook bed SW",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "SW",
-  },
-  BrookSE = {
-    caption = "brook bed SE",
-    shape = "BROOK_BED",
-    material = "BROOK",
-    direction = "SE",
-  },
-  BrookTop1 = {
-    caption = "brook top",
-    shape = "BROOK_TOP",
-    material = "BROOK",
-    variant = "VAR_1",
-  },
-  BrookTop2 = {
-    caption = "brook top",
-    shape = "BROOK_TOP",
-    material = "BROOK",
-    variant = "VAR_2",
-  },
-  BrookTop3 = {
-    caption = "brook top",
-    shape = "BROOK_TOP",
-    material = "BROOK",
-    variant = "VAR_3",
-  },
-  BrookTop4 = {
-    caption = "brook top",
-    shape = "BROOK_TOP",
-    material = "BROOK",
-    variant = "VAR_4",
-  },
-  GrassDryFloor1 = {
-    caption = "dry grass",
-    shape = "FLOOR",
-    material = "GRASS_DRY",
-    variant = "VAR_1",
-  },
-  GrassDryFloor2 = {
-    caption = "dry grass",
-    shape = "FLOOR",
-    material = "GRASS_DRY",
-    variant = "VAR_2",
-  },
-  GrassDryFloor3 = {
-    caption = "dry grass",
-    shape = "FLOOR",
-    material = "GRASS_DRY",
-    variant = "VAR_3",
-  },
-  GrassDryFloor4 = {
-    caption = "dry grass",
-    shape = "FLOOR",
-    material = "GRASS_DRY",
-    variant = "VAR_4",
-  },
-  SaplingDead = {
-    caption = "dead sapling",
-    shape = "SAPLING",
-    material = "PLANT",
-    special = "DEAD",
-  },
-  ShrubDead = {
-    caption = "dead shrub",
-    shape = "SHRUB",
-    material = "PLANT",
-    special = "DEAD",
-  },
-  GrassDeadFloor1 = {
-    caption = "dead grass",
-    shape = "FLOOR",
-    material = "GRASS_DEAD",
-    variant = "VAR_1",
-  },
-  GrassDeadFloor2 = {
-    caption = "dead grass",
-    shape = "FLOOR",
-    material = "GRASS_DEAD",
-    variant = "VAR_2",
-  },
-  GrassDeadFloor3 = {
-    caption = "dead grass",
-    shape = "FLOOR",
-    material = "GRASS_DEAD",
-    variant = "VAR_3",
-  },
-  GrassDeadFloor4 = {
-    caption = "dead grass",
-    shape = "FLOOR",
-    material = "GRASS_DEAD",
-    variant = "VAR_4",
-  },
-  GrassLightFloor1 = {
-    caption = "light grass",
-    shape = "FLOOR",
-    material = "GRASS_LIGHT",
-    variant = "VAR_1",
-  },
-  GrassLightFloor2 = {
-    caption = "light grass",
-    shape = "FLOOR",
-    material = "GRASS_LIGHT",
-    variant = "VAR_2",
-  },
-  GrassLightFloor3 = {
-    caption = "light grass",
-    shape = "FLOOR",
-    material = "GRASS_LIGHT",
-    variant = "VAR_3",
-  },
-  GrassLightFloor4 = {
-    caption = "light grass",
-    shape = "FLOOR",
-    material = "GRASS_LIGHT",
-    variant = "VAR_4",
-  },
-  StoneBoulder = {
-    caption = "boulder",
-    shape = "BOULDER",
-    material = "STONE",
-  },
-  LavaBoulder = {
-    caption = "obsidian boulder",
-    shape = "BOULDER",
-    material = "LAVA_STONE",
-  },
-  FeatureBoulder = {
-    caption = "featstone boulder",
-    shape = "BOULDER",
-    material = "FEATURE",
-  },
-  StonePebbles1 = {
-    caption = "stone pebbles",
-    shape = "PEBBLES",
-    material = "STONE",
-    variant = "VAR_1",
-  },
-  StonePebbles2 = {
-    caption = "stone pebbles",
-    shape = "PEBBLES",
-    material = "STONE",
-    variant = "VAR_2",
-  },
-  StonePebbles3 = {
-    caption = "stone pebbles",
-    shape = "PEBBLES",
-    material = "STONE",
-    variant = "VAR_3",
-  },
-  StonePebbles4 = {
-    caption = "stone pebbles",
-    shape = "PEBBLES",
-    material = "STONE",
-    variant = "VAR_4",
-  },
-  LavaPebbles1 = {
-    caption = "obsidian pebbles",
-    shape = "PEBBLES",
-    material = "LAVA_STONE",
-    variant = "VAR_1",
-  },
-  LavaPebbles2 = {
-    caption = "obsidian pebbles",
-    shape = "PEBBLES",
-    material = "LAVA_STONE",
-    variant = "VAR_2",
-  },
-  LavaPebbles3 = {
-    caption = "obsidian pebbles",
-    shape = "PEBBLES",
-    material = "LAVA_STONE",
-    variant = "VAR_3",
-  },
-  LavaPebbles4 = {
-    caption = "obsidian pebbles",
-    shape = "PEBBLES",
-    material = "LAVA_STONE",
-    variant = "VAR_4",
-  },
-  FeaturePebbles1 = {
-    caption = "featstone pebbles",
-    shape = "PEBBLES",
-    material = "FEATURE",
-    variant = "VAR_1",
-  },
-  FeaturePebbles2 = {
-    caption = "featstone pebbles",
-    shape = "PEBBLES",
-    material = "FEATURE",
-    variant = "VAR_2",
-  },
-  FeaturePebbles3 = {
-    caption = "featstone pebbles",
-    shape = "PEBBLES",
-    material = "FEATURE",
-    variant = "VAR_3",
-  },
-  FeaturePebbles4 = {
-    caption = "featstone pebbles",
-    shape = "PEBBLES",
-    material = "FEATURE",
-    variant = "VAR_4",
-  },
-  MineralWallSmoothRD2 = {
-    caption = "smooth vein wall RD2",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "--SS--E-",
-  },
-  MineralWallSmoothR2D = {
-    caption = "smooth vein wall R2D",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "--S---EE",
-  },
-  MineralWallSmoothR2U = {
-    caption = "smooth vein wall R2U",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N-----EE",
-  },
-  MineralWallSmoothRU2 = {
-    caption = "smooth vein wall RU2",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "NN----E-",
-  },
-  MineralWallSmoothL2U = {
-    caption = "smooth vein wall L2U",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N---WW--",
-  },
-  MineralWallSmoothLU2 = {
-    caption = "smooth vein wall LU2",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "NN--W---",
-  },
-  MineralWallSmoothL2D = {
-    caption = "smooth vein wall L2D",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "--S-WW--",
-  },
-  MineralWallSmoothLD2 = {
-    caption = "smooth vein wall LD2",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "--SSW---",
-  },
-  MineralWallSmoothLRUD = {
-    caption = "smooth vein wall LRUD",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N-S-W-E-",
-  },
-  MineralWallSmoothRUD = {
-    caption = "smooth vein wall RUD",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N-S---E-",
-  },
-  MineralWallSmoothLRD = {
-    caption = "smooth vein wall LRD",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "--S-W-E-",
-  },
-  MineralWallSmoothLRU = {
-    caption = "smooth vein wall LRU",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N---W-E-",
-  },
-  MineralWallSmoothLUD = {
-    caption = "smooth vein wall LUD",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N-S-W---",
-  },
-  MineralWallSmoothRD = {
-    caption = "smooth vein wall RD",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "--S---E-",
-  },
-  MineralWallSmoothRU = {
-    caption = "smooth vein wall RU",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N-----E-",
-  },
-  MineralWallSmoothLU = {
-    caption = "smooth vein wall LU",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N---W---",
-  },
-  MineralWallSmoothLD = {
-    caption = "smooth vein wall LD",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "--S-W---",
-  },
-  MineralWallSmoothUD = {
-    caption = "smooth vein wall UD",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "N-S-----",
-  },
-  MineralWallSmoothLR = {
-    caption = "smooth vein wall LR",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "SMOOTH",
-    direction = "----W-E-",
-  },
-  MineralFortification = {
-    caption = "vein fortification",
-    shape = "FORTIFICATION",
-    material = "MINERAL",
-  },
-  MineralWallWorn1 = {
-    caption = "worn 1 vein wall",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "WORN_1",
-  },
-  MineralWallWorn2 = {
-    caption = "worn 2 vein wall",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "WORN_2",
-  },
-  MineralWallWorn3 = {
-    caption = "worn 3 vein wall",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "WORN_3",
-  },
-  MineralWall = {
-    caption = "vein wall",
-    shape = "WALL",
-    material = "MINERAL",
-    special = "NORMAL",
-  },
-  MineralFloor1 = {
-    caption = "vein floor",
-    shape = "FLOOR",
-    material = "MINERAL",
-    variant = "VAR_1",
-    special = "NORMAL",
-  },
-  MineralFloor2 = {
-    caption = "vein floor",
-    shape = "FLOOR",
-    material = "MINERAL",
-    variant = "VAR_2",
-    special = "NORMAL",
-  },
-  MineralFloor3 = {
-    caption = "vein floor",
-    shape = "FLOOR",
-    material = "MINERAL",
-    variant = "VAR_3",
-    special = "NORMAL",
-  },
-  MineralFloor4 = {
-    caption = "vein floor",
-    shape = "FLOOR",
-    material = "MINERAL",
-    variant = "VAR_4",
-    special = "NORMAL",
-  },
-  MineralBoulder = {
-    caption = "vein boulder",
-    shape = "BOULDER",
-    material = "MINERAL",
-  },
-  MineralPebbles1 = {
-    caption = "vein pebbles",
-    shape = "PEBBLES",
-    material = "MINERAL",
-    variant = "VAR_1",
-  },
-  MineralPebbles2 = {
-    caption = "vein pebbles",
-    shape = "PEBBLES",
-    material = "MINERAL",
-    variant = "VAR_2",
-  },
-  MineralPebbles3 = {
-    caption = "vein pebbles",
-    shape = "PEBBLES",
-    material = "MINERAL",
-    variant = "VAR_3",
-  },
-  MineralPebbles4 = {
-    caption = "vein pebbles",
-    shape = "PEBBLES",
-    material = "MINERAL",
-    variant = "VAR_4",
-  },
-  FrozenWallSmoothRD2 = {
-    caption = "smooth ice wall RD2",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "--SS--E-",
-  },
-  FrozenWallSmoothR2D = {
-    caption = "smooth ice wall R2D",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "--S---EE",
-  },
-  FrozenWallSmoothR2U = {
-    caption = "smooth ice wall R2U",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N-----EE",
-  },
-  FrozenWallSmoothRU2 = {
-    caption = "smooth ice wall RU2",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "NN----E-",
-  },
-  FrozenWallSmoothL2U = {
-    caption = "smooth ice wall L2U",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N---WW--",
-  },
-  FrozenWallSmoothLU2 = {
-    caption = "smooth ice wall LU2",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "NN--W---",
-  },
-  FrozenWallSmoothL2D = {
-    caption = "smooth ice wall L2D",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "--S-WW--",
-  },
-  FrozenWallSmoothLD2 = {
-    caption = "smooth ice wall LD2",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "--SSW---",
-  },
-  FrozenWallSmoothLRUD = {
-    caption = "smooth ice wall LRUD",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N-S-W-E-",
-  },
-  FrozenWallSmoothRUD = {
-    caption = "smooth ice wall RUD",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N-S---E-",
-  },
-  FrozenWallSmoothLRD = {
-    caption = "smooth ice wall LRD",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "--S-W-E-",
-  },
-  FrozenWallSmoothLRU = {
-    caption = "smooth ice wall LRU",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N---W-E-",
-  },
-  FrozenWallSmoothLUD = {
-    caption = "smooth ice wall LUD",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N-S-W---",
-  },
-  FrozenWallSmoothRD = {
-    caption = "smooth ice wall RD",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "--S---E-",
-  },
-  FrozenWallSmoothRU = {
-    caption = "smooth ice wall RU",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N-----E-",
-  },
-  FrozenWallSmoothLU = {
-    caption = "smooth ice wall LU",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N---W---",
-  },
-  FrozenWallSmoothLD = {
-    caption = "smooth ice wall LD",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "--S-W---",
-  },
-  FrozenWallSmoothUD = {
-    caption = "smooth ice wall UD",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "N-S-----",
-  },
-  FrozenWallSmoothLR = {
-    caption = "smooth ice wall LR",
-    shape = "WALL",
-    material = "FROZEN_LIQUID",
-    special = "SMOOTH",
-    direction = "----W-E-",
-  },
-  RiverRampN = {
-    caption = "river ramp N",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "N",
-  },
-  RiverRampS = {
-    caption = "river ramp S",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "S",
-  },
-  RiverRampE = {
-    caption = "river ramp E",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "E",
-  },
-  RiverRampW = {
-    caption = "river ramp W",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "W",
-  },
-  RiverRampNW = {
-    caption = "river ramp NW",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "NW",
-  },
-  RiverRampNE = {
-    caption = "river ramp NE",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "NE",
-  },
-  RiverRampSW = {
-    caption = "river ramp SW",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "SW",
-  },
-  RiverRampSE = {
-    caption = "river ramp SE",
-    shape = "RAMP",
-    material = "RIVER",
-    direction = "SE",
-  },
-  ConstructedFloor = {
-    caption = "constructed floor",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-  },
-  ConstructedFortification = {
-    caption = "constructed fortification",
-    shape = "FORTIFICATION",
-    material = "CONSTRUCTION",
-  },
-  ConstructedPillar = {
-    caption = "constructed pillar",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-  },
-  ConstructedWallRD2 = {
-    caption = "constructed wall RD2",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "--SS--E-",
-  },
-  ConstructedWallR2D = {
-    caption = "constructed wall R2D",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "--S---EE",
-  },
-  ConstructedWallR2U = {
-    caption = "constructed wall R2U",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N-----EE",
-  },
-  ConstructedWallRU2 = {
-    caption = "constructed wall RU2",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "NN----E-",
-  },
-  ConstructedWallL2U = {
-    caption = "constructed wall L2U",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N---WW--",
-  },
-  ConstructedWallLU2 = {
-    caption = "constructed wall LU2",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "NN--W---",
-  },
-  ConstructedWallL2D = {
-    caption = "constructed wall L2D",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "--S-WW--",
-  },
-  ConstructedWallLD2 = {
-    caption = "constructed wall LD2",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "--SSW---",
-  },
-  ConstructedWallLRUD = {
-    caption = "constructed wall LRUD",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N-S-W-E-",
-  },
-  ConstructedWallRUD = {
-    caption = "constructed wall RUD",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N-S---E-",
-  },
-  ConstructedWallLRD = {
-    caption = "constructed wall LRD",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "--S-W-E-",
-  },
-  ConstructedWallLRU = {
-    caption = "constructed wall LRU",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N---W-E-",
-  },
-  ConstructedWallLUD = {
-    caption = "constructed wall LUD",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N-S-W---",
-  },
-  ConstructedWallRD = {
-    caption = "constructed wall RD",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "--S---E-",
-  },
-  ConstructedWallRU = {
-    caption = "constructed wall RU",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N-----E-",
-  },
-  ConstructedWallLU = {
-    caption = "constructed wall LU",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N---W---",
-  },
-  ConstructedWallLD = {
-    caption = "constructed wall LD",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "--S-W---",
-  },
-  ConstructedWallUD = {
-    caption = "constructed wall UD",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "N-S-----",
-  },
-  ConstructedWallLR = {
-    caption = "constructed wall LR",
-    shape = "WALL",
-    material = "CONSTRUCTION",
-    special = "SMOOTH",
-    direction = "----W-E-",
-  },
-  ConstructedStairUD = {
-    caption = "constructed stair up/down",
-    shape = "STAIR_UPDOWN",
-    material = "CONSTRUCTION",
-  },
-  ConstructedStairD = {
-    caption = "constructed stair down",
-    shape = "STAIR_DOWN",
-    material = "CONSTRUCTION",
-  },
-  ConstructedStairU = {
-    caption = "constructed stair up",
-    shape = "STAIR_UP",
-    material = "CONSTRUCTION",
-  },
-  ConstructedRamp = {
-    caption = "constructed ramp",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-  },
-  StoneFloorTrackN = {
-    caption = "stone floor track N",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "N",
-  },
-  StoneFloorTrackS = {
-    caption = "stone floor track S",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "S",
-  },
-  StoneFloorTrackE = {
-    caption = "stone floor track E",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "E",
-  },
-  StoneFloorTrackW = {
-    caption = "stone floor track W",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "W",
-  },
-  StoneFloorTrackNS = {
-    caption = "stone floor track NS",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NS",
-  },
-  StoneFloorTrackNE = {
-    caption = "stone floor track NE",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NE",
-  },
-  StoneFloorTrackNW = {
-    caption = "stone floor track NW",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NW",
-  },
-  StoneFloorTrackSE = {
-    caption = "stone floor track SE",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "SE",
-  },
-  StoneFloorTrackSW = {
-    caption = "stone floor track SW",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "SW",
-  },
-  StoneFloorTrackEW = {
-    caption = "stone floor track EW",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "EW",
-  },
-  StoneFloorTrackNSE = {
-    caption = "stone floor track NSE",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  StoneFloorTrackNSW = {
-    caption = "stone floor track NSW",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  StoneFloorTrackNEW = {
-    caption = "stone floor track NEW",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  StoneFloorTrackSEW = {
-    caption = "stone floor track SEW",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  StoneFloorTrackNSEW = {
-    caption = "stone floor track NSEW",
-    shape = "FLOOR",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  LavaFloorTrackN = {
-    caption = "obsidian floor track N",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "N",
-  },
-  LavaFloorTrackS = {
-    caption = "obsidian floor track S",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "S",
-  },
-  LavaFloorTrackE = {
-    caption = "obsidian floor track E",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "E",
-  },
-  LavaFloorTrackW = {
-    caption = "obsidian floor track W",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "W",
-  },
-  LavaFloorTrackNS = {
-    caption = "obsidian floor track NS",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NS",
-  },
-  LavaFloorTrackNE = {
-    caption = "obsidian floor track NE",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NE",
-  },
-  LavaFloorTrackNW = {
-    caption = "obsidian floor track NW",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NW",
-  },
-  LavaFloorTrackSE = {
-    caption = "obsidian floor track SE",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "SE",
-  },
-  LavaFloorTrackSW = {
-    caption = "obsidian floor track SW",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "SW",
-  },
-  LavaFloorTrackEW = {
-    caption = "obsidian floor track EW",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "EW",
-  },
-  LavaFloorTrackNSE = {
-    caption = "obsidian floor track NSE",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  LavaFloorTrackNSW = {
-    caption = "obsidian floor track NSW",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  LavaFloorTrackNEW = {
-    caption = "obsidian floor track NEW",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  LavaFloorTrackSEW = {
-    caption = "obsidian floor track SEW",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  LavaFloorTrackNSEW = {
-    caption = "obsidian floor track NSEW",
-    shape = "FLOOR",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  FeatureFloorTrackN = {
-    caption = "featstone floor track N",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "N",
-  },
-  FeatureFloorTrackS = {
-    caption = "featstone floor track S",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "S",
-  },
-  FeatureFloorTrackE = {
-    caption = "featstone floor track E",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "E",
-  },
-  FeatureFloorTrackW = {
-    caption = "featstone floor track W",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "W",
-  },
-  FeatureFloorTrackNS = {
-    caption = "featstone floor track NS",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NS",
-  },
-  FeatureFloorTrackNE = {
-    caption = "featstone floor track NE",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NE",
-  },
-  FeatureFloorTrackNW = {
-    caption = "featstone floor track NW",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NW",
-  },
-  FeatureFloorTrackSE = {
-    caption = "featstone floor track SE",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "SE",
-  },
-  FeatureFloorTrackSW = {
-    caption = "featstone floor track SW",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "SW",
-  },
-  FeatureFloorTrackEW = {
-    caption = "featstone floor track EW",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "EW",
-  },
-  FeatureFloorTrackNSE = {
-    caption = "featstone floor track NSE",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  FeatureFloorTrackNSW = {
-    caption = "featstone floor track NSW",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  FeatureFloorTrackNEW = {
-    caption = "featstone floor track NEW",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  FeatureFloorTrackSEW = {
-    caption = "featstone floor track SEW",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  FeatureFloorTrackNSEW = {
-    caption = "featstone floor track NSEW",
-    shape = "FLOOR",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  MineralFloorTrackN = {
-    caption = "vein floor track N",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "N",
-  },
-  MineralFloorTrackS = {
-    caption = "vein floor track S",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "S",
-  },
-  MineralFloorTrackE = {
-    caption = "vein floor track E",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "E",
-  },
-  MineralFloorTrackW = {
-    caption = "vein floor track W",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "W",
-  },
-  MineralFloorTrackNS = {
-    caption = "vein floor track NS",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NS",
-  },
-  MineralFloorTrackNE = {
-    caption = "vein floor track NE",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NE",
-  },
-  MineralFloorTrackNW = {
-    caption = "vein floor track NW",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NW",
-  },
-  MineralFloorTrackSE = {
-    caption = "vein floor track SE",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "SE",
-  },
-  MineralFloorTrackSW = {
-    caption = "vein floor track SW",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "SW",
-  },
-  MineralFloorTrackEW = {
-    caption = "vein floor track EW",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "EW",
-  },
-  MineralFloorTrackNSE = {
-    caption = "vein floor track NSE",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  MineralFloorTrackNSW = {
-    caption = "vein floor track NSW",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  MineralFloorTrackNEW = {
-    caption = "vein floor track NEW",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  MineralFloorTrackSEW = {
-    caption = "vein floor track SEW",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  MineralFloorTrackNSEW = {
-    caption = "vein floor track NSEW",
-    shape = "FLOOR",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  FrozenFloorTrackN = {
-    caption = "ice floor track N",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "N",
-  },
-  FrozenFloorTrackS = {
-    caption = "ice floor track S",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "S",
-  },
-  FrozenFloorTrackE = {
-    caption = "ice floor track E",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "E",
-  },
-  FrozenFloorTrackW = {
-    caption = "ice floor track W",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "W",
-  },
-  FrozenFloorTrackNS = {
-    caption = "ice floor track NS",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NS",
-  },
-  FrozenFloorTrackNE = {
-    caption = "ice floor track NE",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NE",
-  },
-  FrozenFloorTrackNW = {
-    caption = "ice floor track NW",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NW",
-  },
-  FrozenFloorTrackSE = {
-    caption = "ice floor track SE",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "SE",
-  },
-  FrozenFloorTrackSW = {
-    caption = "ice floor track SW",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "SW",
-  },
-  FrozenFloorTrackEW = {
-    caption = "ice floor track EW",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "EW",
-  },
-  FrozenFloorTrackNSE = {
-    caption = "ice floor track NSE",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  FrozenFloorTrackNSW = {
-    caption = "ice floor track NSW",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  FrozenFloorTrackNEW = {
-    caption = "ice floor track NEW",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  FrozenFloorTrackSEW = {
-    caption = "ice floor track SEW",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  FrozenFloorTrackNSEW = {
-    caption = "ice floor track NSEW",
-    shape = "FLOOR",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  ConstructedFloorTrackN = {
-    caption = "constructed floor track N",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "N",
-  },
-  ConstructedFloorTrackS = {
-    caption = "constructed floor track S",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "S",
-  },
-  ConstructedFloorTrackE = {
-    caption = "constructed floor track E",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "E",
-  },
-  ConstructedFloorTrackW = {
-    caption = "constructed floor track W",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "W",
-  },
-  ConstructedFloorTrackNS = {
-    caption = "constructed floor track NS",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NS",
-  },
-  ConstructedFloorTrackNE = {
-    caption = "constructed floor track NE",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NE",
-  },
-  ConstructedFloorTrackNW = {
-    caption = "constructed floor track NW",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NW",
-  },
-  ConstructedFloorTrackSE = {
-    caption = "constructed floor track SE",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "SE",
-  },
-  ConstructedFloorTrackSW = {
-    caption = "constructed floor track SW",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "SW",
-  },
-  ConstructedFloorTrackEW = {
-    caption = "constructed floor track EW",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "EW",
-  },
-  ConstructedFloorTrackNSE = {
-    caption = "constructed floor track NSE",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  ConstructedFloorTrackNSW = {
-    caption = "constructed floor track NSW",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  ConstructedFloorTrackNEW = {
-    caption = "constructed floor track NEW",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  ConstructedFloorTrackSEW = {
-    caption = "constructed floor track SEW",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  ConstructedFloorTrackNSEW = {
-    caption = "constructed floor track NSEW",
-    shape = "FLOOR",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  StoneRampTrackN = {
-    caption = "stone ramp track N",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "N",
-  },
-  StoneRampTrackS = {
-    caption = "stone ramp track S",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "S",
-  },
-  StoneRampTrackE = {
-    caption = "stone ramp track E",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "E",
-  },
-  StoneRampTrackW = {
-    caption = "stone ramp track W",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "W",
-  },
-  StoneRampTrackNS = {
-    caption = "stone ramp track NS",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NS",
-  },
-  StoneRampTrackNE = {
-    caption = "stone ramp track NE",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NE",
-  },
-  StoneRampTrackNW = {
-    caption = "stone ramp track NW",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NW",
-  },
-  StoneRampTrackSE = {
-    caption = "stone ramp track SE",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "SE",
-  },
-  StoneRampTrackSW = {
-    caption = "stone ramp track SW",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "SW",
-  },
-  StoneRampTrackEW = {
-    caption = "stone ramp track EW",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "EW",
-  },
-  StoneRampTrackNSE = {
-    caption = "stone ramp track NSE",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  StoneRampTrackNSW = {
-    caption = "stone ramp track NSW",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  StoneRampTrackNEW = {
-    caption = "stone ramp track NEW",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  StoneRampTrackSEW = {
-    caption = "stone ramp track SEW",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  StoneRampTrackNSEW = {
-    caption = "stone ramp track NSEW",
-    shape = "RAMP",
-    material = "STONE",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  LavaRampTrackN = {
-    caption = "obsidian ramp track N",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "N",
-  },
-  LavaRampTrackS = {
-    caption = "obsidian ramp track S",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "S",
-  },
-  LavaRampTrackE = {
-    caption = "obsidian ramp track E",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "E",
-  },
-  LavaRampTrackW = {
-    caption = "obsidian ramp track W",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "W",
-  },
-  LavaRampTrackNS = {
-    caption = "obsidian ramp track NS",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NS",
-  },
-  LavaRampTrackNE = {
-    caption = "obsidian ramp track NE",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NE",
-  },
-  LavaRampTrackNW = {
-    caption = "obsidian ramp track NW",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NW",
-  },
-  LavaRampTrackSE = {
-    caption = "obsidian ramp track SE",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "SE",
-  },
-  LavaRampTrackSW = {
-    caption = "obsidian ramp track SW",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "SW",
-  },
-  LavaRampTrackEW = {
-    caption = "obsidian ramp track EW",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "EW",
-  },
-  LavaRampTrackNSE = {
-    caption = "obsidian ramp track NSE",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  LavaRampTrackNSW = {
-    caption = "obsidian ramp track NSW",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  LavaRampTrackNEW = {
-    caption = "obsidian ramp track NEW",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  LavaRampTrackSEW = {
-    caption = "obsidian ramp track SEW",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  LavaRampTrackNSEW = {
-    caption = "obsidian ramp track NSEW",
-    shape = "RAMP",
-    material = "LAVA_STONE",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  FeatureRampTrackN = {
-    caption = "featstone ramp track N",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "N",
-  },
-  FeatureRampTrackS = {
-    caption = "featstone ramp track S",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "S",
-  },
-  FeatureRampTrackE = {
-    caption = "featstone ramp track E",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "E",
-  },
-  FeatureRampTrackW = {
-    caption = "featstone ramp track W",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "W",
-  },
-  FeatureRampTrackNS = {
-    caption = "featstone ramp track NS",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NS",
-  },
-  FeatureRampTrackNE = {
-    caption = "featstone ramp track NE",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NE",
-  },
-  FeatureRampTrackNW = {
-    caption = "featstone ramp track NW",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NW",
-  },
-  FeatureRampTrackSE = {
-    caption = "featstone ramp track SE",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "SE",
-  },
-  FeatureRampTrackSW = {
-    caption = "featstone ramp track SW",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "SW",
-  },
-  FeatureRampTrackEW = {
-    caption = "featstone ramp track EW",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "EW",
-  },
-  FeatureRampTrackNSE = {
-    caption = "featstone ramp track NSE",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  FeatureRampTrackNSW = {
-    caption = "featstone ramp track NSW",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  FeatureRampTrackNEW = {
-    caption = "featstone ramp track NEW",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  FeatureRampTrackSEW = {
-    caption = "featstone ramp track SEW",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  FeatureRampTrackNSEW = {
-    caption = "featstone ramp track NSEW",
-    shape = "RAMP",
-    material = "FEATURE",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  MineralRampTrackN = {
-    caption = "vein ramp track N",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "N",
-  },
-  MineralRampTrackS = {
-    caption = "vein ramp track S",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "S",
-  },
-  MineralRampTrackE = {
-    caption = "vein ramp track E",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "E",
-  },
-  MineralRampTrackW = {
-    caption = "vein ramp track W",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "W",
-  },
-  MineralRampTrackNS = {
-    caption = "vein ramp track NS",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NS",
-  },
-  MineralRampTrackNE = {
-    caption = "vein ramp track NE",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NE",
-  },
-  MineralRampTrackNW = {
-    caption = "vein ramp track NW",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NW",
-  },
-  MineralRampTrackSE = {
-    caption = "vein ramp track SE",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "SE",
-  },
-  MineralRampTrackSW = {
-    caption = "vein ramp track SW",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "SW",
-  },
-  MineralRampTrackEW = {
-    caption = "vein ramp track EW",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "EW",
-  },
-  MineralRampTrackNSE = {
-    caption = "vein ramp track NSE",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  MineralRampTrackNSW = {
-    caption = "vein ramp track NSW",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  MineralRampTrackNEW = {
-    caption = "vein ramp track NEW",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  MineralRampTrackSEW = {
-    caption = "vein ramp track SEW",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  MineralRampTrackNSEW = {
-    caption = "vein ramp track NSEW",
-    shape = "RAMP",
-    material = "MINERAL",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  FrozenRampTrackN = {
-    caption = "ice ramp track N",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "N",
-  },
-  FrozenRampTrackS = {
-    caption = "ice ramp track S",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "S",
-  },
-  FrozenRampTrackE = {
-    caption = "ice ramp track E",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "E",
-  },
-  FrozenRampTrackW = {
-    caption = "ice ramp track W",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "W",
-  },
-  FrozenRampTrackNS = {
-    caption = "ice ramp track NS",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NS",
-  },
-  FrozenRampTrackNE = {
-    caption = "ice ramp track NE",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NE",
-  },
-  FrozenRampTrackNW = {
-    caption = "ice ramp track NW",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NW",
-  },
-  FrozenRampTrackSE = {
-    caption = "ice ramp track SE",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "SE",
-  },
-  FrozenRampTrackSW = {
-    caption = "ice ramp track SW",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "SW",
-  },
-  FrozenRampTrackEW = {
-    caption = "ice ramp track EW",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "EW",
-  },
-  FrozenRampTrackNSE = {
-    caption = "ice ramp track NSE",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  FrozenRampTrackNSW = {
-    caption = "ice ramp track NSW",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  FrozenRampTrackNEW = {
-    caption = "ice ramp track NEW",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  FrozenRampTrackSEW = {
-    caption = "ice ramp track SEW",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  FrozenRampTrackNSEW = {
-    caption = "ice ramp track NSEW",
-    shape = "RAMP",
-    material = "FROZEN_LIQUID",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-  ConstructedRampTrackN = {
-    caption = "constructed ramp track N",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "N",
-  },
-  ConstructedRampTrackS = {
-    caption = "constructed ramp track S",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "S",
-  },
-  ConstructedRampTrackE = {
-    caption = "constructed ramp track E",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "E",
-  },
-  ConstructedRampTrackW = {
-    caption = "constructed ramp track W",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "W",
-  },
-  ConstructedRampTrackNS = {
-    caption = "constructed ramp track NS",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NS",
-  },
-  ConstructedRampTrackNE = {
-    caption = "constructed ramp track NE",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NE",
-  },
-  ConstructedRampTrackNW = {
-    caption = "constructed ramp track NW",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NW",
-  },
-  ConstructedRampTrackSE = {
-    caption = "constructed ramp track SE",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "SE",
-  },
-  ConstructedRampTrackSW = {
-    caption = "constructed ramp track SW",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "SW",
-  },
-  ConstructedRampTrackEW = {
-    caption = "constructed ramp track EW",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "EW",
-  },
-  ConstructedRampTrackNSE = {
-    caption = "constructed ramp track NSE",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NSE",
-  },
-  ConstructedRampTrackNSW = {
-    caption = "constructed ramp track NSW",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NSW",
-  },
-  ConstructedRampTrackNEW = {
-    caption = "constructed ramp track NEW",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NEW",
-  },
-  ConstructedRampTrackSEW = {
-    caption = "constructed ramp track SEW",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "SEW",
-  },
-  ConstructedRampTrackNSEW = {
-    caption = "constructed ramp track NSEW",
-    shape = "RAMP",
-    material = "CONSTRUCTION",
-    special = "TRACK",
-    direction = "NSEW",
-  },
-}
+---@class tiletype_attrs
+---@field Void tiletype_attr
+---@field RampTop tiletype_attr
+---@field MurkyPool tiletype_attr
+---@field MurkyPoolRamp tiletype_attr
+---@field UnderworldGateStairU tiletype_attr
+---@field UnderworldGateStairD tiletype_attr
+---@field UnderworldGateStairUD tiletype_attr
+---@field TreeCapInterior tiletype_attr
+---@field TreeCapWallThickSW tiletype_attr
+---@field TreeCapWallThickSE tiletype_attr
+---@field TreeCapWallThickNW tiletype_attr
+---@field TreeCapWallThickNE tiletype_attr
+---@field TreeCapWallThickN tiletype_attr
+---@field TreeCapWallThickS tiletype_attr
+---@field TreeCapWallThickW tiletype_attr
+---@field TreeCapWallThickE tiletype_attr
+---@field TreeCapWallNSWE tiletype_attr
+---@field TreeCapWallNSW tiletype_attr
+---@field TreeCapWallNSE tiletype_attr
+---@field Driftwood tiletype_attr
+---@field TreeCapWallNWE tiletype_attr
+---@field TreeCapWallSWE tiletype_attr
+---@field TreeCapWallNS tiletype_attr
+---@field TreeCapWallWE tiletype_attr
+---@field FrozenStairUD tiletype_attr
+---@field FrozenStairD tiletype_attr
+---@field FrozenStairU tiletype_attr
+---@field TreeDeadCapInterior tiletype_attr
+---@field OpenSpace tiletype_attr
+---@field TreeDeadCapWallThickSW tiletype_attr
+---@field Shrub tiletype_attr
+---@field Chasm tiletype_attr
+---@field LavaStairUD tiletype_attr
+---@field LavaStairD tiletype_attr
+---@field LavaStairU tiletype_attr
+---@field SoilStairUD tiletype_attr
+---@field SoilStairD tiletype_attr
+---@field SoilStairU tiletype_attr
+---@field EeriePit tiletype_attr
+---@field StoneFloorSmooth tiletype_attr
+---@field LavaFloorSmooth tiletype_attr
+---@field FeatureFloorSmooth tiletype_attr
+---@field MineralFloorSmooth tiletype_attr
+---@field FrozenFloorSmooth tiletype_attr
+---@field TreeDeadCapWallThickSE tiletype_attr
+---@field Grass1StairUD tiletype_attr
+---@field Grass1StairD tiletype_attr
+---@field Grass1StairU tiletype_attr
+---@field Grass2StairUD tiletype_attr
+---@field Grass2StairD tiletype_attr
+---@field Grass2StairU tiletype_attr
+---@field StoneStairUD tiletype_attr
+---@field StoneStairD tiletype_attr
+---@field StoneStairU tiletype_attr
+---@field MineralStairUD tiletype_attr
+---@field MineralStairD tiletype_attr
+---@field MineralStairU tiletype_attr
+---@field FeatureStairUD tiletype_attr
+---@field FeatureStairD tiletype_attr
+---@field FeatureStairU tiletype_attr
+---@field TreeDeadCapWallThickNW tiletype_attr
+---@field StoneFortification tiletype_attr
+---@field TreeDeadCapWallThickNE tiletype_attr
+---@field Campfire tiletype_attr
+---@field TreeDeadCapWallThickN tiletype_attr
+---@field TreeDeadCapWallThickS tiletype_attr
+---@field Fire tiletype_attr
+---@field BurningTreeTrunk tiletype_attr
+---@field BurningTreeBranches tiletype_attr
+---@field BurningTreeTwigs tiletype_attr
+---@field BurningTreeCapWall tiletype_attr
+---@field BurningTreeCapRamp tiletype_attr
+---@field BurningTreeCapFloor tiletype_attr
+---@field TreeDeadCapWallThickW tiletype_attr
+---@field TreeDeadCapWallThickE tiletype_attr
+---@field StonePillar tiletype_attr
+---@field LavaPillar tiletype_attr
+---@field FeaturePillar tiletype_attr
+---@field MineralPillar tiletype_attr
+---@field FrozenPillar tiletype_attr
+---@field TreeDeadCapWallNSWE tiletype_attr
+---@field TreeDeadCapWallNSW tiletype_attr
+---@field TreeDeadCapWallNSE tiletype_attr
+---@field TreeDeadCapWallNWE tiletype_attr
+---@field TreeDeadCapWallSWE tiletype_attr
+---@field Waterfall tiletype_attr
+---@field RiverSource tiletype_attr
+---@field TreeRootSloping tiletype_attr
+---@field TreeRoots tiletype_attr
+---@field TreeTrunkPillar tiletype_attr
+---@field TreeTrunkSloping tiletype_attr
+---@field TreeTrunkThickN tiletype_attr
+---@field TreeTrunkThickS tiletype_attr
+---@field TreeTrunkThickE tiletype_attr
+---@field TreeTrunkThickW tiletype_attr
+---@field TreeTrunkThickNW tiletype_attr
+---@field TreeTrunkThickNE tiletype_attr
+---@field TreeTrunkThickSW tiletype_attr
+---@field TreeTrunkThickSE tiletype_attr
+---@field TreeTrunkBranchN tiletype_attr
+---@field TreeTrunkBranchS tiletype_attr
+---@field TreeTrunkBranchE tiletype_attr
+---@field TreeTrunkBranchW tiletype_attr
+---@field TreeBranchNS tiletype_attr
+---@field TreeBranchEW tiletype_attr
+---@field TreeBranchesSmooth tiletype_attr
+---@field TreeDeadBranchesSmooth tiletype_attr
+---@field TreeBranchNW tiletype_attr
+---@field TreeBranchNE tiletype_attr
+---@field TreeBranchSW tiletype_attr
+---@field TreeBranchSE tiletype_attr
+---@field TreeBranches tiletype_attr
+---@field TreeTwigs tiletype_attr
+---@field TreeCapRamp tiletype_attr
+---@field TreeCapPillar tiletype_attr
+---@field TreeCapWallN tiletype_attr
+---@field TreeCapWallS tiletype_attr
+---@field TreeCapWallE tiletype_attr
+---@field TreeCapWallW tiletype_attr
+---@field TreeCapWallNW tiletype_attr
+---@field TreeCapWallNE tiletype_attr
+---@field TreeCapWallSW tiletype_attr
+---@field TreeCapWallSE tiletype_attr
+---@field TreeCapFloor1 tiletype_attr
+---@field TreeCapFloor2 tiletype_attr
+---@field TreeCapFloor3 tiletype_attr
+---@field TreeCapFloor4 tiletype_attr
+---@field TreeDeadRootSloping tiletype_attr
+---@field TreeDeadRoots tiletype_attr
+---@field TreeDeadTrunkPillar tiletype_attr
+---@field TreeDeadTrunkSloping tiletype_attr
+---@field TreeDeadTrunkThickN tiletype_attr
+---@field TreeDeadTrunkThickS tiletype_attr
+---@field TreeDeadTrunkThickE tiletype_attr
+---@field TreeDeadTrunkThickW tiletype_attr
+---@field TreeDeadTrunkThickNW tiletype_attr
+---@field TreeDeadTrunkThickNE tiletype_attr
+---@field TreeDeadTrunkThickSW tiletype_attr
+---@field TreeDeadTrunkThickSE tiletype_attr
+---@field TreeDeadTrunkBranchN tiletype_attr
+---@field TreeDeadTrunkBranchS tiletype_attr
+---@field TreeDeadTrunkBranchE tiletype_attr
+---@field TreeDeadTrunkBranchW tiletype_attr
+---@field TreeDeadBranchNS tiletype_attr
+---@field TreeDeadBranchEW tiletype_attr
+---@field TreeBranch tiletype_attr
+---@field TreeDeadBranch tiletype_attr
+---@field TreeDeadBranchNW tiletype_attr
+---@field TreeDeadBranchNE tiletype_attr
+---@field TreeDeadBranchSW tiletype_attr
+---@field TreeDeadBranchSE tiletype_attr
+---@field TreeDeadBranches tiletype_attr
+---@field TreeDeadTwigs tiletype_attr
+---@field TreeDeadCapRamp tiletype_attr
+---@field TreeDeadCapPillar tiletype_attr
+---@field TreeDeadCapWallN tiletype_attr
+---@field TreeDeadCapWallS tiletype_attr
+---@field TreeDeadCapWallE tiletype_attr
+---@field TreeDeadCapWallW tiletype_attr
+---@field TreeDeadCapWallNW tiletype_attr
+---@field TreeDeadCapWallNE tiletype_attr
+---@field TreeDeadCapWallSW tiletype_attr
+---@field TreeDeadCapWallSE tiletype_attr
+---@field TreeDeadCapFloor1 tiletype_attr
+---@field TreeDeadCapFloor2 tiletype_attr
+---@field TreeDeadCapFloor3 tiletype_attr
+---@field TreeDeadCapFloor4 tiletype_attr
+---@field TreeDeadCapWallNS tiletype_attr
+---@field StoneWallWorn1 tiletype_attr
+---@field StoneWallWorn2 tiletype_attr
+---@field StoneWallWorn3 tiletype_attr
+---@field TreeBranchNSE tiletype_attr
+---@field TreeBranchNSW tiletype_attr
+---@field TreeBranchNEW tiletype_attr
+---@field TreeBranchSEW tiletype_attr
+---@field TreeBranchNSEW tiletype_attr
+---@field TreeDeadBranchNSE tiletype_attr
+---@field TreeDeadBranchNSW tiletype_attr
+---@field TreeDeadBranchNEW tiletype_attr
+---@field TreeDeadBranchSEW tiletype_attr
+---@field TreeDeadBranchNSEW tiletype_attr
+---@field TreeTrunkNSE tiletype_attr
+---@field TreeTrunkNSW tiletype_attr
+---@field TreeTrunkNEW tiletype_attr
+---@field TreeTrunkSEW tiletype_attr
+---@field TreeTrunkNS tiletype_attr
+---@field TreeTrunkEW tiletype_attr
+---@field TreeTrunkNSEW tiletype_attr
+---@field TreeTrunkInterior tiletype_attr
+---@field TreeDeadTrunkNSE tiletype_attr
+---@field TreeDeadTrunkNSW tiletype_attr
+---@field TreeDeadTrunkNEW tiletype_attr
+---@field TreeDeadTrunkSEW tiletype_attr
+---@field TreeDeadTrunkNS tiletype_attr
+---@field TreeDeadTrunkEW tiletype_attr
+---@field TreeDeadTrunkNSEW tiletype_attr
+---@field TreeDeadTrunkInterior tiletype_attr
+---@field TreeTrunkNW tiletype_attr
+---@field TreeTrunkNE tiletype_attr
+---@field TreeTrunkSW tiletype_attr
+---@field TreeTrunkSE tiletype_attr
+---@field TreeDeadTrunkNW tiletype_attr
+---@field TreeDeadTrunkNE tiletype_attr
+---@field TreeDeadTrunkSW tiletype_attr
+---@field TreeDeadTrunkSE tiletype_attr
+---@field TreeTrunkN tiletype_attr
+---@field TreeTrunkS tiletype_attr
+---@field TreeTrunkW tiletype_attr
+---@field TreeTrunkE tiletype_attr
+---@field TreeDeadTrunkN tiletype_attr
+---@field TreeDeadTrunkS tiletype_attr
+---@field StoneWall tiletype_attr
+---@field TreeDeadTrunkW tiletype_attr
+---@field TreeDeadTrunkE tiletype_attr
+---@field TreeBranchS tiletype_attr
+---@field TreeBranchN tiletype_attr
+---@field TreeBranchW tiletype_attr
+---@field TreeBranchE tiletype_attr
+---@field TreeDeadBranchS tiletype_attr
+---@field TreeDeadBranchN tiletype_attr
+---@field TreeDeadBranchW tiletype_attr
+---@field TreeDeadBranchE tiletype_attr
+---@field TreeDeadCapPillarWE tiletype_attr
+---@field Sapling tiletype_attr
+---@field GrassDryRamp tiletype_attr
+---@field GrassDeadRamp tiletype_attr
+---@field GrassLightRamp tiletype_attr
+---@field GrassDarkRamp tiletype_attr
+---@field StoneRamp tiletype_attr
+---@field LavaRamp tiletype_attr
+---@field FeatureRamp tiletype_attr
+---@field MineralRamp tiletype_attr
+---@field SoilRamp tiletype_attr
+---@field Ashes1 tiletype_attr
+---@field Ashes2 tiletype_attr
+---@field Ashes3 tiletype_attr
+---@field FrozenRamp tiletype_attr
+---@field FrozenFloor2 tiletype_attr
+---@field FrozenFloor3 tiletype_attr
+---@field FrozenFloor4 tiletype_attr
+---@field FurrowedSoil tiletype_attr
+---@field FrozenFloor1 tiletype_attr
+---@field SemiMoltenRock tiletype_attr
+---@field MagmaFlow tiletype_attr
+---@field SoilWall tiletype_attr
+---@field GlowingBarrier tiletype_attr
+---@field GlowingFloor tiletype_attr
+---@field LavaWallSmoothRD2 tiletype_attr
+---@field LavaWallSmoothR2D tiletype_attr
+---@field LavaWallSmoothR2U tiletype_attr
+---@field LavaWallSmoothRU2 tiletype_attr
+---@field LavaWallSmoothL2U tiletype_attr
+---@field LavaWallSmoothLU2 tiletype_attr
+---@field LavaWallSmoothL2D tiletype_attr
+---@field LavaWallSmoothLD2 tiletype_attr
+---@field LavaWallSmoothLRUD tiletype_attr
+---@field LavaWallSmoothRUD tiletype_attr
+---@field LavaWallSmoothLRD tiletype_attr
+---@field LavaWallSmoothLRU tiletype_attr
+---@field LavaWallSmoothLUD tiletype_attr
+---@field LavaWallSmoothRD tiletype_attr
+---@field LavaWallSmoothRU tiletype_attr
+---@field LavaWallSmoothLU tiletype_attr
+---@field LavaWallSmoothLD tiletype_attr
+---@field LavaWallSmoothUD tiletype_attr
+---@field LavaWallSmoothLR tiletype_attr
+---@field FeatureWallSmoothRD2 tiletype_attr
+---@field FeatureWallSmoothR2D tiletype_attr
+---@field FeatureWallSmoothR2U tiletype_attr
+---@field FeatureWallSmoothRU2 tiletype_attr
+---@field FeatureWallSmoothL2U tiletype_attr
+---@field FeatureWallSmoothLU2 tiletype_attr
+---@field FeatureWallSmoothL2D tiletype_attr
+---@field FeatureWallSmoothLD2 tiletype_attr
+---@field FeatureWallSmoothLRUD tiletype_attr
+---@field FeatureWallSmoothRUD tiletype_attr
+---@field FeatureWallSmoothLRD tiletype_attr
+---@field FeatureWallSmoothLRU tiletype_attr
+---@field FeatureWallSmoothLUD tiletype_attr
+---@field FeatureWallSmoothRD tiletype_attr
+---@field FeatureWallSmoothRU tiletype_attr
+---@field FeatureWallSmoothLU tiletype_attr
+---@field FeatureWallSmoothLD tiletype_attr
+---@field FeatureWallSmoothUD tiletype_attr
+---@field FeatureWallSmoothLR tiletype_attr
+---@field StoneWallSmoothRD2 tiletype_attr
+---@field StoneWallSmoothR2D tiletype_attr
+---@field StoneWallSmoothR2U tiletype_attr
+---@field StoneWallSmoothRU2 tiletype_attr
+---@field StoneWallSmoothL2U tiletype_attr
+---@field StoneWallSmoothLU2 tiletype_attr
+---@field StoneWallSmoothL2D tiletype_attr
+---@field StoneWallSmoothLD2 tiletype_attr
+---@field StoneWallSmoothLRUD tiletype_attr
+---@field StoneWallSmoothRUD tiletype_attr
+---@field StoneWallSmoothLRD tiletype_attr
+---@field StoneWallSmoothLRU tiletype_attr
+---@field StoneWallSmoothLUD tiletype_attr
+---@field StoneWallSmoothRD tiletype_attr
+---@field StoneWallSmoothRU tiletype_attr
+---@field StoneWallSmoothLU tiletype_attr
+---@field StoneWallSmoothLD tiletype_attr
+---@field StoneWallSmoothUD tiletype_attr
+---@field StoneWallSmoothLR tiletype_attr
+---@field LavaFortification tiletype_attr
+---@field FeatureFortification tiletype_attr
+---@field LavaWallWorn1 tiletype_attr
+---@field LavaWallWorn2 tiletype_attr
+---@field LavaWallWorn3 tiletype_attr
+---@field LavaWall tiletype_attr
+---@field FeatureWallWorn1 tiletype_attr
+---@field FeatureWallWorn2 tiletype_attr
+---@field FeatureWallWorn3 tiletype_attr
+---@field FeatureWall tiletype_attr
+---@field StoneFloor1 tiletype_attr
+---@field StoneFloor2 tiletype_attr
+---@field StoneFloor3 tiletype_attr
+---@field StoneFloor4 tiletype_attr
+---@field LavaFloor1 tiletype_attr
+---@field LavaFloor2 tiletype_attr
+---@field LavaFloor3 tiletype_attr
+---@field LavaFloor4 tiletype_attr
+---@field FeatureFloor1 tiletype_attr
+---@field FeatureFloor2 tiletype_attr
+---@field FeatureFloor3 tiletype_attr
+---@field FeatureFloor4 tiletype_attr
+---@field GrassDarkFloor1 tiletype_attr
+---@field GrassDarkFloor2 tiletype_attr
+---@field GrassDarkFloor3 tiletype_attr
+---@field GrassDarkFloor4 tiletype_attr
+---@field SoilFloor1 tiletype_attr
+---@field SoilFloor2 tiletype_attr
+---@field SoilFloor3 tiletype_attr
+---@field SoilFloor4 tiletype_attr
+---@field SoilWetFloor1 tiletype_attr
+---@field SoilWetFloor2 tiletype_attr
+---@field SoilWetFloor3 tiletype_attr
+---@field SoilWetFloor4 tiletype_attr
+---@field FrozenFortification tiletype_attr
+---@field FrozenWallWorn1 tiletype_attr
+---@field FrozenWallWorn2 tiletype_attr
+---@field FrozenWallWorn3 tiletype_attr
+---@field FrozenWall tiletype_attr
+---@field RiverN tiletype_attr
+---@field RiverS tiletype_attr
+---@field RiverE tiletype_attr
+---@field RiverW tiletype_attr
+---@field RiverNW tiletype_attr
+---@field RiverNE tiletype_attr
+---@field RiverSW tiletype_attr
+---@field RiverSE tiletype_attr
+---@field BrookN tiletype_attr
+---@field BrookS tiletype_attr
+---@field BrookE tiletype_attr
+---@field BrookW tiletype_attr
+---@field BrookNW tiletype_attr
+---@field BrookNE tiletype_attr
+---@field BrookSW tiletype_attr
+---@field BrookSE tiletype_attr
+---@field BrookTop1 tiletype_attr
+---@field BrookTop2 tiletype_attr
+---@field BrookTop3 tiletype_attr
+---@field BrookTop4 tiletype_attr
+---@field GrassDryFloor1 tiletype_attr
+---@field GrassDryFloor2 tiletype_attr
+---@field GrassDryFloor3 tiletype_attr
+---@field GrassDryFloor4 tiletype_attr
+---@field SaplingDead tiletype_attr
+---@field ShrubDead tiletype_attr
+---@field GrassDeadFloor1 tiletype_attr
+---@field GrassDeadFloor2 tiletype_attr
+---@field GrassDeadFloor3 tiletype_attr
+---@field GrassDeadFloor4 tiletype_attr
+---@field GrassLightFloor1 tiletype_attr
+---@field GrassLightFloor2 tiletype_attr
+---@field GrassLightFloor3 tiletype_attr
+---@field GrassLightFloor4 tiletype_attr
+---@field StoneBoulder tiletype_attr
+---@field LavaBoulder tiletype_attr
+---@field FeatureBoulder tiletype_attr
+---@field StonePebbles1 tiletype_attr
+---@field StonePebbles2 tiletype_attr
+---@field StonePebbles3 tiletype_attr
+---@field StonePebbles4 tiletype_attr
+---@field LavaPebbles1 tiletype_attr
+---@field LavaPebbles2 tiletype_attr
+---@field LavaPebbles3 tiletype_attr
+---@field LavaPebbles4 tiletype_attr
+---@field FeaturePebbles1 tiletype_attr
+---@field FeaturePebbles2 tiletype_attr
+---@field FeaturePebbles3 tiletype_attr
+---@field FeaturePebbles4 tiletype_attr
+---@field MineralWallSmoothRD2 tiletype_attr
+---@field MineralWallSmoothR2D tiletype_attr
+---@field MineralWallSmoothR2U tiletype_attr
+---@field MineralWallSmoothRU2 tiletype_attr
+---@field MineralWallSmoothL2U tiletype_attr
+---@field MineralWallSmoothLU2 tiletype_attr
+---@field MineralWallSmoothL2D tiletype_attr
+---@field MineralWallSmoothLD2 tiletype_attr
+---@field MineralWallSmoothLRUD tiletype_attr
+---@field MineralWallSmoothRUD tiletype_attr
+---@field MineralWallSmoothLRD tiletype_attr
+---@field MineralWallSmoothLRU tiletype_attr
+---@field MineralWallSmoothLUD tiletype_attr
+---@field MineralWallSmoothRD tiletype_attr
+---@field MineralWallSmoothRU tiletype_attr
+---@field MineralWallSmoothLU tiletype_attr
+---@field MineralWallSmoothLD tiletype_attr
+---@field MineralWallSmoothUD tiletype_attr
+---@field MineralWallSmoothLR tiletype_attr
+---@field MineralFortification tiletype_attr
+---@field MineralWallWorn1 tiletype_attr
+---@field MineralWallWorn2 tiletype_attr
+---@field MineralWallWorn3 tiletype_attr
+---@field MineralWall tiletype_attr
+---@field MineralFloor1 tiletype_attr
+---@field MineralFloor2 tiletype_attr
+---@field MineralFloor3 tiletype_attr
+---@field MineralFloor4 tiletype_attr
+---@field MineralBoulder tiletype_attr
+---@field MineralPebbles1 tiletype_attr
+---@field MineralPebbles2 tiletype_attr
+---@field MineralPebbles3 tiletype_attr
+---@field MineralPebbles4 tiletype_attr
+---@field FrozenWallSmoothRD2 tiletype_attr
+---@field FrozenWallSmoothR2D tiletype_attr
+---@field FrozenWallSmoothR2U tiletype_attr
+---@field FrozenWallSmoothRU2 tiletype_attr
+---@field FrozenWallSmoothL2U tiletype_attr
+---@field FrozenWallSmoothLU2 tiletype_attr
+---@field FrozenWallSmoothL2D tiletype_attr
+---@field FrozenWallSmoothLD2 tiletype_attr
+---@field FrozenWallSmoothLRUD tiletype_attr
+---@field FrozenWallSmoothRUD tiletype_attr
+---@field FrozenWallSmoothLRD tiletype_attr
+---@field FrozenWallSmoothLRU tiletype_attr
+---@field FrozenWallSmoothLUD tiletype_attr
+---@field FrozenWallSmoothRD tiletype_attr
+---@field FrozenWallSmoothRU tiletype_attr
+---@field FrozenWallSmoothLU tiletype_attr
+---@field FrozenWallSmoothLD tiletype_attr
+---@field FrozenWallSmoothUD tiletype_attr
+---@field FrozenWallSmoothLR tiletype_attr
+---@field RiverRampN tiletype_attr
+---@field RiverRampS tiletype_attr
+---@field RiverRampE tiletype_attr
+---@field RiverRampW tiletype_attr
+---@field RiverRampNW tiletype_attr
+---@field RiverRampNE tiletype_attr
+---@field RiverRampSW tiletype_attr
+---@field RiverRampSE tiletype_attr
+---@field ConstructedFloor tiletype_attr
+---@field ConstructedFortification tiletype_attr
+---@field ConstructedPillar tiletype_attr
+---@field ConstructedWallRD2 tiletype_attr
+---@field ConstructedWallR2D tiletype_attr
+---@field ConstructedWallR2U tiletype_attr
+---@field ConstructedWallRU2 tiletype_attr
+---@field ConstructedWallL2U tiletype_attr
+---@field ConstructedWallLU2 tiletype_attr
+---@field ConstructedWallL2D tiletype_attr
+---@field ConstructedWallLD2 tiletype_attr
+---@field ConstructedWallLRUD tiletype_attr
+---@field ConstructedWallRUD tiletype_attr
+---@field ConstructedWallLRD tiletype_attr
+---@field ConstructedWallLRU tiletype_attr
+---@field ConstructedWallLUD tiletype_attr
+---@field ConstructedWallRD tiletype_attr
+---@field ConstructedWallRU tiletype_attr
+---@field ConstructedWallLU tiletype_attr
+---@field ConstructedWallLD tiletype_attr
+---@field ConstructedWallUD tiletype_attr
+---@field ConstructedWallLR tiletype_attr
+---@field ConstructedStairUD tiletype_attr
+---@field ConstructedStairD tiletype_attr
+---@field ConstructedStairU tiletype_attr
+---@field ConstructedRamp tiletype_attr
+---@field StoneFloorTrackN tiletype_attr
+---@field StoneFloorTrackS tiletype_attr
+---@field StoneFloorTrackE tiletype_attr
+---@field StoneFloorTrackW tiletype_attr
+---@field StoneFloorTrackNS tiletype_attr
+---@field StoneFloorTrackNE tiletype_attr
+---@field StoneFloorTrackNW tiletype_attr
+---@field StoneFloorTrackSE tiletype_attr
+---@field StoneFloorTrackSW tiletype_attr
+---@field StoneFloorTrackEW tiletype_attr
+---@field StoneFloorTrackNSE tiletype_attr
+---@field StoneFloorTrackNSW tiletype_attr
+---@field StoneFloorTrackNEW tiletype_attr
+---@field StoneFloorTrackSEW tiletype_attr
+---@field StoneFloorTrackNSEW tiletype_attr
+---@field LavaFloorTrackN tiletype_attr
+---@field LavaFloorTrackS tiletype_attr
+---@field LavaFloorTrackE tiletype_attr
+---@field LavaFloorTrackW tiletype_attr
+---@field LavaFloorTrackNS tiletype_attr
+---@field LavaFloorTrackNE tiletype_attr
+---@field LavaFloorTrackNW tiletype_attr
+---@field LavaFloorTrackSE tiletype_attr
+---@field LavaFloorTrackSW tiletype_attr
+---@field LavaFloorTrackEW tiletype_attr
+---@field LavaFloorTrackNSE tiletype_attr
+---@field LavaFloorTrackNSW tiletype_attr
+---@field LavaFloorTrackNEW tiletype_attr
+---@field LavaFloorTrackSEW tiletype_attr
+---@field LavaFloorTrackNSEW tiletype_attr
+---@field FeatureFloorTrackN tiletype_attr
+---@field FeatureFloorTrackS tiletype_attr
+---@field FeatureFloorTrackE tiletype_attr
+---@field FeatureFloorTrackW tiletype_attr
+---@field FeatureFloorTrackNS tiletype_attr
+---@field FeatureFloorTrackNE tiletype_attr
+---@field FeatureFloorTrackNW tiletype_attr
+---@field FeatureFloorTrackSE tiletype_attr
+---@field FeatureFloorTrackSW tiletype_attr
+---@field FeatureFloorTrackEW tiletype_attr
+---@field FeatureFloorTrackNSE tiletype_attr
+---@field FeatureFloorTrackNSW tiletype_attr
+---@field FeatureFloorTrackNEW tiletype_attr
+---@field FeatureFloorTrackSEW tiletype_attr
+---@field FeatureFloorTrackNSEW tiletype_attr
+---@field MineralFloorTrackN tiletype_attr
+---@field MineralFloorTrackS tiletype_attr
+---@field MineralFloorTrackE tiletype_attr
+---@field MineralFloorTrackW tiletype_attr
+---@field MineralFloorTrackNS tiletype_attr
+---@field MineralFloorTrackNE tiletype_attr
+---@field MineralFloorTrackNW tiletype_attr
+---@field MineralFloorTrackSE tiletype_attr
+---@field MineralFloorTrackSW tiletype_attr
+---@field MineralFloorTrackEW tiletype_attr
+---@field MineralFloorTrackNSE tiletype_attr
+---@field MineralFloorTrackNSW tiletype_attr
+---@field MineralFloorTrackNEW tiletype_attr
+---@field MineralFloorTrackSEW tiletype_attr
+---@field MineralFloorTrackNSEW tiletype_attr
+---@field FrozenFloorTrackN tiletype_attr
+---@field FrozenFloorTrackS tiletype_attr
+---@field FrozenFloorTrackE tiletype_attr
+---@field FrozenFloorTrackW tiletype_attr
+---@field FrozenFloorTrackNS tiletype_attr
+---@field FrozenFloorTrackNE tiletype_attr
+---@field FrozenFloorTrackNW tiletype_attr
+---@field FrozenFloorTrackSE tiletype_attr
+---@field FrozenFloorTrackSW tiletype_attr
+---@field FrozenFloorTrackEW tiletype_attr
+---@field FrozenFloorTrackNSE tiletype_attr
+---@field FrozenFloorTrackNSW tiletype_attr
+---@field FrozenFloorTrackNEW tiletype_attr
+---@field FrozenFloorTrackSEW tiletype_attr
+---@field FrozenFloorTrackNSEW tiletype_attr
+---@field ConstructedFloorTrackN tiletype_attr
+---@field ConstructedFloorTrackS tiletype_attr
+---@field ConstructedFloorTrackE tiletype_attr
+---@field ConstructedFloorTrackW tiletype_attr
+---@field ConstructedFloorTrackNS tiletype_attr
+---@field ConstructedFloorTrackNE tiletype_attr
+---@field ConstructedFloorTrackNW tiletype_attr
+---@field ConstructedFloorTrackSE tiletype_attr
+---@field ConstructedFloorTrackSW tiletype_attr
+---@field ConstructedFloorTrackEW tiletype_attr
+---@field ConstructedFloorTrackNSE tiletype_attr
+---@field ConstructedFloorTrackNSW tiletype_attr
+---@field ConstructedFloorTrackNEW tiletype_attr
+---@field ConstructedFloorTrackSEW tiletype_attr
+---@field ConstructedFloorTrackNSEW tiletype_attr
+---@field StoneRampTrackN tiletype_attr
+---@field StoneRampTrackS tiletype_attr
+---@field StoneRampTrackE tiletype_attr
+---@field StoneRampTrackW tiletype_attr
+---@field StoneRampTrackNS tiletype_attr
+---@field StoneRampTrackNE tiletype_attr
+---@field StoneRampTrackNW tiletype_attr
+---@field StoneRampTrackSE tiletype_attr
+---@field StoneRampTrackSW tiletype_attr
+---@field StoneRampTrackEW tiletype_attr
+---@field StoneRampTrackNSE tiletype_attr
+---@field StoneRampTrackNSW tiletype_attr
+---@field StoneRampTrackNEW tiletype_attr
+---@field StoneRampTrackSEW tiletype_attr
+---@field StoneRampTrackNSEW tiletype_attr
+---@field LavaRampTrackN tiletype_attr
+---@field LavaRampTrackS tiletype_attr
+---@field LavaRampTrackE tiletype_attr
+---@field LavaRampTrackW tiletype_attr
+---@field LavaRampTrackNS tiletype_attr
+---@field LavaRampTrackNE tiletype_attr
+---@field LavaRampTrackNW tiletype_attr
+---@field LavaRampTrackSE tiletype_attr
+---@field LavaRampTrackSW tiletype_attr
+---@field LavaRampTrackEW tiletype_attr
+---@field LavaRampTrackNSE tiletype_attr
+---@field LavaRampTrackNSW tiletype_attr
+---@field LavaRampTrackNEW tiletype_attr
+---@field LavaRampTrackSEW tiletype_attr
+---@field LavaRampTrackNSEW tiletype_attr
+---@field FeatureRampTrackN tiletype_attr
+---@field FeatureRampTrackS tiletype_attr
+---@field FeatureRampTrackE tiletype_attr
+---@field FeatureRampTrackW tiletype_attr
+---@field FeatureRampTrackNS tiletype_attr
+---@field FeatureRampTrackNE tiletype_attr
+---@field FeatureRampTrackNW tiletype_attr
+---@field FeatureRampTrackSE tiletype_attr
+---@field FeatureRampTrackSW tiletype_attr
+---@field FeatureRampTrackEW tiletype_attr
+---@field FeatureRampTrackNSE tiletype_attr
+---@field FeatureRampTrackNSW tiletype_attr
+---@field FeatureRampTrackNEW tiletype_attr
+---@field FeatureRampTrackSEW tiletype_attr
+---@field FeatureRampTrackNSEW tiletype_attr
+---@field MineralRampTrackN tiletype_attr
+---@field MineralRampTrackS tiletype_attr
+---@field MineralRampTrackE tiletype_attr
+---@field MineralRampTrackW tiletype_attr
+---@field MineralRampTrackNS tiletype_attr
+---@field MineralRampTrackNE tiletype_attr
+---@field MineralRampTrackNW tiletype_attr
+---@field MineralRampTrackSE tiletype_attr
+---@field MineralRampTrackSW tiletype_attr
+---@field MineralRampTrackEW tiletype_attr
+---@field MineralRampTrackNSE tiletype_attr
+---@field MineralRampTrackNSW tiletype_attr
+---@field MineralRampTrackNEW tiletype_attr
+---@field MineralRampTrackSEW tiletype_attr
+---@field MineralRampTrackNSEW tiletype_attr
+---@field FrozenRampTrackN tiletype_attr
+---@field FrozenRampTrackS tiletype_attr
+---@field FrozenRampTrackE tiletype_attr
+---@field FrozenRampTrackW tiletype_attr
+---@field FrozenRampTrackNS tiletype_attr
+---@field FrozenRampTrackNE tiletype_attr
+---@field FrozenRampTrackNW tiletype_attr
+---@field FrozenRampTrackSE tiletype_attr
+---@field FrozenRampTrackSW tiletype_attr
+---@field FrozenRampTrackEW tiletype_attr
+---@field FrozenRampTrackNSE tiletype_attr
+---@field FrozenRampTrackNSW tiletype_attr
+---@field FrozenRampTrackNEW tiletype_attr
+---@field FrozenRampTrackSEW tiletype_attr
+---@field FrozenRampTrackNSEW tiletype_attr
+---@field ConstructedRampTrackN tiletype_attr
+---@field ConstructedRampTrackS tiletype_attr
+---@field ConstructedRampTrackE tiletype_attr
+---@field ConstructedRampTrackW tiletype_attr
+---@field ConstructedRampTrackNS tiletype_attr
+---@field ConstructedRampTrackNE tiletype_attr
+---@field ConstructedRampTrackNW tiletype_attr
+---@field ConstructedRampTrackSE tiletype_attr
+---@field ConstructedRampTrackSW tiletype_attr
+---@field ConstructedRampTrackEW tiletype_attr
+---@field ConstructedRampTrackNSE tiletype_attr
+---@field ConstructedRampTrackNSW tiletype_attr
+---@field ConstructedRampTrackNEW tiletype_attr
+---@field ConstructedRampTrackSEW tiletype_attr
+---@field ConstructedRampTrackNSEW tiletype_attr
+df.tiletype.attrs = {}
 

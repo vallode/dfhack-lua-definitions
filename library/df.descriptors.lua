@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum pattern_type
@@ -24,21 +25,21 @@ df.pattern_type = {
 
 ---@class descriptor_shape
 ---@field id string
----@field words_str string[] # temporary storage before resolving to language_word
+---@field words_str string[] temporary storage before resolving to language_word
 ---@field words integer[]
 ---@field name string
 ---@field name_plural string
 ---@field adj string[]
----@field gems_use any
+---@field gems_use bitfield
 ---@field category string[]
 ---@field faces integer
 ---@field tile integer
----@field unk_v50_1 any
+---@field unk_v50_1 pointer
 ---@field unk_v50_2 integer[]
 ---@field unk_v50_3 integer[]
----@field unk_v50_4 any
----@field unk_v50_5 any
----@field unk_v50_6 any
+---@field unk_v50_4 pointer
+---@field unk_v50_5 pointer
+---@field unk_v50_6 pointer
 
 ---@class descriptor_pattern
 ---@field id string

@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum entity_raw_flags
@@ -161,17 +162,18 @@ df.entity_name_type = {
   FESTIVAL = 15,
   MERCHANT_COMPANY = 16,
   CRAFT_GUILD = 17,
+  HOSPITAL = 18,
 }
 
 ---@class entity_raw
 ---@field code string
----@field index integer # into instace-vector
+---@field index integer into instace-vector
 ---@field raws string[]
 ---@field creature_ids integer[]
 ---@field creatures string[]
 ---@field equipment entity_raw_equipment
 ---@field currency_value integer[]
----@field flags any
+---@field flags df-flagarray
 ---@field translation string
 ---@field symbols entity_raw_symbols
 ---@field sphere_alignment integer[]
@@ -191,7 +193,7 @@ df.entity_name_type = {
 ---@field values integer[]
 ---@field variable_value_min integer[]
 ---@field variable_value_max integer[]
----@field scholar any
+---@field scholar bitfield
 ---@field max_site_pop_number integer
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
@@ -280,7 +282,7 @@ df.entity_name_type = {
 ---@field caste_token string[]
 ---@field animal_class string[]
 ---@field forbidden_class string[]
----@field flags any
+---@field flags bitfield
 
 ---@enum entity_position_raw_flags
 df.entity_position_raw_flags = {
@@ -362,7 +364,7 @@ df.entity_position_responsibility = {
 ---@class entity_position_raw
 ---@field code string
 ---@field id integer
----@field flags any
+---@field flags df-flagarray
 ---@field allowed_creature_str any[]
 ---@field allowed_creature integer[]
 ---@field allowed_class string[]

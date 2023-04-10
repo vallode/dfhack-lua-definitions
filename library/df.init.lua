@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum init_display_flags
@@ -21,8 +22,8 @@ df.init_display_flags = {
 }
 
 ---@class init_display
----@field flag any
----@field windowed any
+---@field flag df-flagarray
+---@field windowed enum
 ---@field grid_x integer
 ---@field grid_y integer
 ---@field desired_fullscreen_width integer
@@ -47,7 +48,7 @@ df.init_media_flags = {
 }
 
 ---@class init_media
----@field flag any
+---@field flag df-flagarray
 ---@field volume_master integer
 ---@field volume_music integer
 ---@field volume_ambience integer
@@ -61,40 +62,40 @@ df.init_input_flags = {
 }
 
 ---@class init_input
----@field hold_time any
----@field repeat_time any
----@field macro_time any
----@field pause_zoom_no_interface_ms any
----@field flag any
----@field zoom_speed any
+---@field hold_time number
+---@field repeat_time number
+---@field macro_time number
+---@field pause_zoom_no_interface_ms number
+---@field flag df-flagarray
+---@field zoom_speed number
 ---@field repeat_accel_start integer
 ---@field repeat_accel_limit integer
 
 ---@class init_font
----@field basic_font_texpos long[]
----@field small_font_texpos long[]
----@field large_font_texpos long[]
----@field basic_font_datapos long[]
----@field small_font_datapos long[]
----@field large_font_datapos long[]
----@field basic_font_texpos_top long[]
----@field small_font_texpos_top long[]
----@field large_font_texpos_top long[]
----@field basic_font_texpos_bot long[]
----@field small_font_texpos_bot long[]
----@field large_font_texpos_bot long[]
+---@field basic_font_texpos number[]
+---@field small_font_texpos number[]
+---@field large_font_texpos number[]
+---@field basic_font_datapos number[]
+---@field small_font_datapos number[]
+---@field large_font_datapos number[]
+---@field basic_font_texpos_top number[]
+---@field small_font_texpos_top number[]
+---@field large_font_texpos_top number[]
+---@field basic_font_texpos_bot number[]
+---@field small_font_texpos_bot number[]
+---@field large_font_texpos_bot number[]
 ---@field basic_font_adjx number
 ---@field basic_font_adjy number
 ---@field small_font_adjx number
 ---@field small_font_adjy number
 ---@field large_font_adjx number
 ---@field large_font_adjy number
----@field basic_font_dispx any
----@field basic_font_dispy any
----@field small_font_dispx any
----@field small_font_dispy any
----@field large_font_dispx any
----@field large_font_dispy any
+---@field basic_font_dispx number
+---@field basic_font_dispy number
+---@field small_font_dispx number
+---@field small_font_dispy number
+---@field large_font_dispx number
+---@field large_font_dispy number
 
 ---@enum init_window_flags
 df.init_window_flags = {
@@ -104,7 +105,7 @@ df.init_window_flags = {
 }
 
 ---@class init_window
----@field flag any
+---@field flag df-flagarray
 
 ---@class init
 ---@field display init_display
@@ -114,8 +115,8 @@ df.init_window_flags = {
 ---@field window init_window
 ---@field fps_cap integer
 ---@field gfps_cap integer
----@field load_bar_texpos long[]
----@field intro_button_texpos long[]
+---@field load_bar_texpos number[]
+---@field intro_button_texpos number[]
 ---@field texpos_neutral_intro_button integer[]
 ---@field texpos_confirm_intro_button integer[]
 ---@field texpos_cancel_intro_button integer[]
@@ -129,7 +130,7 @@ df.init_window_flags = {
 ---@field texpos_right_arrow_button integer[]
 ---@field texpos_up_arrow_button integer[]
 ---@field texpos_down_arrow_button integer[]
----@field border_texpos long[]
+---@field border_texpos number[]
 ---@field texpos_border_nw integer
 ---@field texpos_border_n integer
 ---@field texpos_border_ne integer
@@ -150,7 +151,7 @@ df.init_window_flags = {
 ---@field texpos_border_inside_swe integer
 ---@field texpos_border_inside_ns integer
 ---@field texpos_border_inside_we integer
----@field scrollbar_texpos long[]
+---@field scrollbar_texpos number[]
 ---@field texpos_scrollbar any[]
 ---@field texpos_scrollbar_up_hover integer[]
 ---@field texpos_scrollbar_up_pressed integer[]
@@ -168,13 +169,13 @@ df.init_window_flags = {
 ---@field texpos_scrollbar_center_scroller_hover integer[]
 ---@field texpos_scrollbar_offcenter_scroller any[]
 ---@field texpos_scrollbar_offcenter_scroller_hover any[]
----@field filter_texpos long[]
+---@field filter_texpos number[]
 ---@field texpos_button_filter any[]
 ---@field texpos_button_filter_name any[]
----@field tabs_texpos long[]
+---@field tabs_texpos number[]
 ---@field texpos_tab_unselected any[]
 ---@field texpos_tab_selected any[]
----@field classic_load_bar_texpos long[]
+---@field classic_load_bar_texpos number[]
 ---@field classic_texpos_neutral_intro_button integer[]
 ---@field classic_texpos_confirm_intro_button integer[]
 ---@field classic_texpos_cancel_intro_button integer[]

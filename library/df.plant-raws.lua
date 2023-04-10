@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum plant_raw_flags
@@ -96,14 +97,14 @@ df.plant_raw_flags = {
 ---@field id string
 ---@field index integer
 ---@field raws string[]
----@field flags any
+---@field flags df-flagarray
 ---@field name string
 ---@field name_plural string
 ---@field adj string
 ---@field seed_singular string
 ---@field seed_plural string
----@field leaves_singular string # unused
----@field leaves_plural string # unused
+---@field leaves_singular string unused
+---@field leaves_plural string unused
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
@@ -143,7 +144,7 @@ df.plant_raw_flags = {
 ---@field cap_radius integer
 ---@field root_density integer
 ---@field root_radius integer
----@field stockpile_growths integer[] # indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
+---@field stockpile_growths integer[] indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
 ---@field stockpile_growth_flags any[]
 
 ---@class plant_raw_tiles
@@ -151,13 +152,14 @@ df.plant_raw_flags = {
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
 ---@field dead_shrub_tile integer
----@field tree_tile integer # unused
----@field dead_tree_tile integer # unused
+---@field tree_tile integer unused
+---@field dead_tree_tile integer unused
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
 ---@field grass_tiles integer[]
 ---@field alt_grass_tiles integer[]
 ---@field tree_tiles integer[]
+---@field unk_v50_1 integer[]
 
 ---@class plant_raw_colors
 ---@field picked_color integer[]
@@ -201,16 +203,21 @@ df.plant_material_def = {
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field prints plant_growth_print[]
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+---@field unk_v50_3 integer
+---@field unk_v50_4 integer
+---@field unk_v50_5 integer
 ---@field timing_1 integer
 ---@field timing_2 integer
----@field locations any
+---@field locations bitfield
 ---@field density integer
----@field behavior any
+---@field behavior bitfield
 ---@field trunk_height_perc_1 integer
 ---@field trunk_height_perc_2 integer
 
 ---@class plant_growth_print
----@field priority integer # final token in list
+---@field priority integer final token in list
 ---@field tile_growth integer
 ---@field tile_item integer
 ---@field color integer[]

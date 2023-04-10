@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum creature_interaction_effect_type
@@ -53,62 +54,6 @@ df.creature_interaction_effect_type = {
   REDUCE_FEVER = 48,
 }
 
----@class creature_interaction_effect_flags
----@field SIZE_DELAYS boolean
----@field SIZE_DILUTES boolean
----@field VASCULAR_ONLY boolean
----@field MUSCULAR_ONLY boolean
----@field RESISTABLE boolean
----@field LOCALIZED boolean
----@field MOON_PHASE boolean
----@field COUNTER_TRIGGER boolean
----@field ABRUPT_START boolean
----@field ABRUPT_END boolean
-df.creature_interaction_effect_flags = {}
-
----@class cie_add_tag_mask1
----@field EXTRAVISION boolean
----@field OPPOSED_TO_LIFE boolean
----@field NOT_LIVING boolean
----@field NOEXERT boolean
----@field NOPAIN boolean
----@field NOBREATHE boolean
----@field HAS_BLOOD boolean
----@field NOSTUN boolean
----@field NONAUSEA boolean
----@field NO_DIZZINESS boolean
----@field NO_FEVERS boolean
----@field TRANCES boolean
----@field NOEMOTION boolean
----@field LIKES_FIGHTING boolean
----@field PARALYZEIMMUNE boolean
----@field NOFEAR boolean
----@field NO_EAT boolean
----@field NO_DRINK boolean
----@field NO_SLEEP boolean
----@field MISCHIEVOUS boolean
----@field NO_PHYS_ATT_GAIN boolean
----@field NO_PHYS_ATT_RUST boolean
----@field NOTHOUGHT boolean
----@field NO_THOUGHT_CENTER_FOR_MOVEMENT boolean
----@field CAN_SPEAK boolean
----@field CAN_LEARN boolean
----@field UTTERANCES boolean
----@field CRAZED boolean
----@field BLOODSUCKER boolean
----@field NO_CONNECTIONS_FOR_MOVEMENT boolean
----@field SUPERNATURAL boolean
----@field unk_31 boolean
-df.cie_add_tag_mask1 = {}
-
----@class cie_add_tag_mask2
----@field NO_AGING boolean
----@field MORTAL boolean
----@field STERILE boolean
----@field FIT_FOR_ANIMATION boolean
----@field FIT_FOR_RESURRECTION boolean
-df.cie_add_tag_mask2 = {}
-
 ---@enum creature_interaction_effect_target_mode
 df.creature_interaction_effect_target_mode = {
   BY_TYPE = 0,
@@ -130,15 +75,15 @@ df.creature_interaction_effect_target_mode = {
 ---@field dwf_stretch integer
 ---@field syn_id integer
 ---@field id integer
----@field syn_index integer # index in syndrome
+---@field syn_index integer index in syndrome
 ---@field moon_phase_min integer
 ---@field moon_phase_max integer
 ---@field counter_trigger creature_interaction_effect_counter_trigger
 
 ---@class creature_interaction_effect_counter_trigger
 ---@field counter any[]
----@field minval integer[] # ?
----@field maxval integer[] # ?
+---@field minval integer[] ?
+---@field maxval integer[] ?
 ---@field required integer[]
 
 ---@class creature_interaction_effect_painst
@@ -218,21 +163,21 @@ df.creature_interaction_effect_target_mode = {
 ---@field target creature_interaction_effect_target
 
 ---@class creature_interaction_effect_body_transformationst
----@field chance integer # %
+---@field chance integer %
 ---@field race_str string
 ---@field caste_str string
 ---@field race integer[]
 ---@field caste integer[]
----@field required_creature_flags integer[] # contains indexes of flags in creature_raw_flags
----@field forbidden_creature_flags integer[] # contains indexes of flags in creature_raw_flags
----@field required_caste_flags integer[] # contains indexes of flags in caste_raw_flags
----@field forbidden_caste_flags integer[] # contains indexes of flags in caste_raw_flags
+---@field required_creature_flags integer[] contains indexes of flags in creature_raw_flags
+---@field forbidden_creature_flags integer[] contains indexes of flags in creature_raw_flags
+---@field required_caste_flags integer[] contains indexes of flags in caste_raw_flags
+---@field forbidden_caste_flags integer[] contains indexes of flags in caste_raw_flags
 ---@field unk_1 integer
 ---@field unk_2 integer
 
 ---@class creature_interaction_effect_skill_roll_adjustst
----@field multiplier integer # % change for skill
----@field chance integer # % probability per roll
+---@field multiplier integer % change for skill
+---@field chance integer % probability per roll
 
 ---@class creature_interaction_effect_display_symbolst
 ---@field tile integer
@@ -373,15 +318,6 @@ df.creature_interaction_effect_target_mode = {
 ---@field unk_2 any[]
 ---@field unk_3 any[]
 ---@field unk_4 any[]
-
----@class syndrome_flags
----@field SYN_INJECTED boolean
----@field SYN_CONTACT boolean
----@field SYN_INHALED boolean
----@field unk_3 boolean
----@field SYN_INGESTED boolean
----@field SYN_NO_HOSPITAL boolean
-df.syndrome_flags = {}
 
 ---@class syndrome
 ---@field syn_name string

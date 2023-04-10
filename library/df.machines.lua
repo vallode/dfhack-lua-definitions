@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum machine_type
@@ -7,20 +8,11 @@ df.machine_type = {
 
 ---@class machine_info
 ---@field machine_id integer
----@field flags any
+---@field flags flag-bit
 
 ---@class power_info
 ---@field produced integer
 ---@field consumed integer
-
----@class machine_conn_modes
----@field up boolean
----@field down boolean
----@field right boolean
----@field left boolean
----@field z_up boolean
----@field z_down boolean
-df.machine_conn_modes = {}
 
 ---@class machine_tile_set
 ---@field tiles coord_path
@@ -36,7 +28,7 @@ df.machine_conn_modes = {}
 ---@field min_power integer
 ---@field visual_phase integer
 ---@field phase_timer integer
----@field flags any
+---@field flags bitfield
 
 ---@class machine_standardst
 
@@ -49,7 +41,7 @@ df.machine_conn_modes = {}
 
 ---@class building_gear_assemblyst
 ---@field machine machine_info
----@field gear_flags any
+---@field gear_flags flag-bit
 
 ---@class building_windmillst
 ---@field machine machine_info
@@ -75,7 +67,7 @@ df.screw_pump_direction = {
 
 ---@class building_screw_pumpst
 ---@field machine machine_info
----@field pump_energy integer # decreases by 1 every frame. powering or manually pumping maintains near 100
+---@field pump_energy integer decreases by 1 every frame. powering or manually pumping maintains near 100
 ---@field direction screw_pump_direction
 ---@field pump_manually boolean
 

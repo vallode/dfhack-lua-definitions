@@ -1,6 +1,8 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum craft_material_class
+---not in DF
 df.craft_material_class = {
   None = -1,
   Metal = 0,
@@ -21,55 +23,20 @@ df.craft_material_class = {
 ---@field make_skill job_skill
 ---@field improve_skill job_skill
 
----@type table<craft_material_class, craft_material_class_attr>
-df.craft_material_class.attrs = {
-  Metal = {
-    make_skill = "FORGE_FURNITURE",
-    improve_skill = "METALCRAFT",
-  },
-  Wood = {
-    make_skill = "CARPENTRY",
-    improve_skill = "WOODCRAFT",
-  },
-  Gem = {
-    make_skill = "CUTGEM",
-    improve_skill = "ENCRUSTGEM",
-  },
-  Glass = {
-    make_skill = "GLASSMAKER",
-  },
-  Stone = {
-    make_skill = "MASONRY",
-  },
-  Bone = {
-    make_skill = "BONECARVE",
-    improve_skill = "BONECARVE",
-  },
-  Ivory = {
-    make_skill = "BONECARVE",
-    improve_skill = "BONECARVE",
-  },
-  Horn = {
-    make_skill = "BONECARVE",
-    improve_skill = "BONECARVE",
-  },
-  Pearl = {
-    make_skill = "BONECARVE",
-    improve_skill = "BONECARVE",
-  },
-  Shell = {
-    make_skill = "BONECARVE",
-    improve_skill = "BONECARVE",
-  },
-  Leather = {
-    make_skill = "LEATHERWORK",
-    improve_skill = "LEATHERWORK",
-  },
-  Cloth = {
-    make_skill = "CLOTHESMAKING",
-    improve_skill = "CLOTHESMAKING",
-  },
-}
+---@class craft_material_class_attrs
+---@field Metal craft_material_class_attr
+---@field Wood craft_material_class_attr
+---@field Gem craft_material_class_attr
+---@field Glass craft_material_class_attr
+---@field Stone craft_material_class_attr
+---@field Bone craft_material_class_attr
+---@field Ivory craft_material_class_attr
+---@field Horn craft_material_class_attr
+---@field Pearl craft_material_class_attr
+---@field Shell craft_material_class_attr
+---@field Leather craft_material_class_attr
+---@field Cloth craft_material_class_attr
+df.craft_material_class.attrs = {}
 
 ---@enum builtin_mats
 df.builtin_mats = {
@@ -184,51 +151,22 @@ df.material_flags = {
 ---@class material_flags_attr
 ---@field type craft_material_class
 
----@type table<material_flags, material_flags_attr>
-df.material_flags.attrs = {
-  BONE = {
-    type = "Bone",
-  },
-  WOOD = {
-    type = "Wood",
-  },
-  THREAD_PLANT = {
-    type = "Cloth",
-  },
-  TOOTH = {
-    type = "Ivory",
-  },
-  HORN = {
-    type = "Horn",
-  },
-  PEARL = {
-    type = "Pearl",
-  },
-  SHELL = {
-    type = "Shell",
-  },
-  LEATHER = {
-    type = "Leather",
-  },
-  SILK = {
-    type = "Cloth",
-  },
-  IS_METAL = {
-    type = "Metal",
-  },
-  IS_GEM = {
-    type = "Gem",
-  },
-  IS_GLASS = {
-    type = "Glass",
-  },
-  IS_STONE = {
-    type = "Stone",
-  },
-  YARN = {
-    type = "Cloth",
-  },
-}
+---@class material_flags_attrs
+---@field BONE material_flags_attr
+---@field WOOD material_flags_attr
+---@field THREAD_PLANT material_flags_attr
+---@field TOOTH material_flags_attr
+---@field HORN material_flags_attr
+---@field PEARL material_flags_attr
+---@field SHELL material_flags_attr
+---@field LEATHER material_flags_attr
+---@field SILK material_flags_attr
+---@field IS_METAL material_flags_attr
+---@field IS_GEM material_flags_attr
+---@field IS_GLASS material_flags_attr
+---@field IS_STONE material_flags_attr
+---@field YARN material_flags_attr
+df.material_flags.attrs = {}
 
 ---@enum matter_state
 df.matter_state = {
@@ -265,11 +203,12 @@ df.strain_type = {
 ---@field state_adj string[]
 ---@field strength material_common_strength
 ---@field material_value integer
----@field flags any
+---@field flags df-flagarray
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype integer
 ---@field meat_name string[]
+---@field meat_organ integer used for texture selection
 ---@field block_name string[]
 ---@field reaction_product material_common_reaction_product
 ---@field hardens_with_water material_common_hardens_with_water
@@ -316,8 +255,16 @@ df.strain_type = {
 ---@field unk_41c integer[]
 ---@field prefix string
 ---@field food_mat_index any[]
----@field powder_dye_str string # temporary
+---@field powder_dye_str string temporary
 ---@field state_color_str string[]
+---@field wood_texpos integer
+---@field boulder_texpos1 integer
+---@field boulder_texpos2 integer
+---@field rough_texpos1 integer
+---@field rough_texpos2 integer
+---@field bar_texpos integer
+---@field cheese_texpos1 integer
+---@field cheese_texpos2 integer
 
 ---@class material_vec_ref
 ---@field mat_type any[]
@@ -334,7 +281,7 @@ df.strain_type = {
 ---@field syndrome syndrome[]
 ---@field soap_level integer
 ---@field unk_41c integer[]
----@field powder_dye_str string # temporary
+---@field powder_dye_str string temporary
 ---@field state_color_str string[]
 
 ---@enum inorganic_flags
@@ -397,7 +344,7 @@ df.inclusion_type = {
 ---@class inorganic_raw
 ---@field id string
 ---@field str string[]
----@field flags any
+---@field flags df-flagarray
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
 ---@field metal_ore inorganic_raw_metal_ore
@@ -410,17 +357,17 @@ df.inclusion_type = {
 ---@field material material
 
 ---@class inorganic_raw_metal_ore
----@field str string[] # only during parsing
+---@field str string[] only during parsing
 ---@field mat_index any[]
 ---@field probability integer[]
 
 ---@class inorganic_raw_thread_metal
----@field str string[] # only during parsing
+---@field str string[] only during parsing
 ---@field mat_index any[]
 ---@field probability integer[]
 
 ---@class inorganic_raw_environment_spec
----@field str string[] # only during parsing
+---@field str string[] only during parsing
 ---@field mat_index any[]
 ---@field inclusion_type any[]
 ---@field probability integer[]
@@ -476,6 +423,6 @@ df.organic_mat_category = {
 ---@class special_mat_table
 ---@field organic_types any[]
 ---@field organic_indexes any[]
----@field organic_unknown any[] # everything 0
+---@field organic_unknown any[] everything 0
 ---@field builtin any[]
 

@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum general_ref_type
@@ -84,7 +85,7 @@ df.general_ref_type = {
 
 ---@class general_ref_item
 ---@field item_id integer
----@field cached_index integer # lookup optimization, tries before binary search
+---@field cached_index integer lookup optimization, tries before binary search
 
 ---@class general_ref_item_type
 ---@field type item_type
@@ -102,14 +103,14 @@ df.general_ref_type = {
 
 ---@class general_ref_entity_art_image
 ---@field entity_id integer
----@field index integer # lookup in entity.resources.art_image_*
+---@field index integer lookup in entity.resources.art_image_*
 
 ---@class general_ref_projectile
 ---@field projectile_id integer
 
 ---@class general_ref_unit
 ---@field unit_id integer
----@field cached_index integer # lookup optimization, tries before binary search
+---@field cached_index integer lookup optimization, tries before binary search
 
 ---@class general_ref_building
 ---@field building_id integer
@@ -172,7 +173,7 @@ df.general_ref_type = {
 
 ---@class general_ref_value_levelst
 ---@field value value_type
----@field level integer # see http://dwarffortresswiki.org/index.php/DF2014:Personality_trait
+---@field level integer see http://dwarffortresswiki.org/index.php/DF2014:Personality_trait
 
 ---@class general_ref_languagest
 ---@field unk_1 integer
@@ -204,7 +205,7 @@ df.general_ref_type = {
 ---@class general_ref_unit_traineest
 
 ---@class general_ref_unit_itemownerst
----@field flags any
+---@field flags flag-bit
 
 ---@class general_ref_unit_tradebringerst
 
@@ -277,82 +278,56 @@ df.specific_ref_type = {
   unk_0 = 0,
   UNIT = 1,
   JOB = 2,
-  BUILDING_PARTY = 3,
-  ACTIVITY = 4,
-  ITEM_GENERAL = 5,
-  EFFECT = 6,
-  PETINFO_PET = 7, --unused
-  PETINFO_OWNER = 8, --unused
-  VERMIN_EVENT = 9,
-  VERMIN_ESCAPED_PET = 10,
-  ENTITY = 11,
-  PLOT_INFO = 12,
-  VIEWSCREEN = 13,
-  UNIT_ITEM_WRESTLE = 14,
-  NULL_REF = 15,
-  HIST_FIG = 16,
-  SITE = 17,
-  ARTIFACT = 18,
-  ITEM_IMPROVEMENT = 19,
-  COIN_FRONT = 20,
-  COIN_BACK = 21,
-  DETAIL_EVENT = 22,
-  SUBREGION = 23,
-  FEATURE_LAYER = 24,
-  ART_IMAGE = 25,
-  CREATURE_DEF = 26,
-  ENTITY_ART_IMAGE = 27,
-  unk_28 = 28,
-  ENTITY_POPULATION = 29,
-  BREED = 30,
+  ACTIVITY = 3,
+  ITEM_GENERAL = 4,
+  EFFECT = 5,
+  VERMIN_EVENT = 6,
+  VERMIN_ESCAPED_PET = 7,
+  ENTITY = 8,
+  PLOT_INFO = 9,
+  VIEWSCREEN = 10,
+  UNIT_ITEM_WRESTLE = 11,
+  NULL_REF = 12,
+  HIST_FIG = 13,
+  SITE = 14,
+  ARTIFACT = 15,
+  ITEM_IMPROVEMENT = 16,
+  COIN_FRONT = 17,
+  COIN_BACK = 18,
+  DETAIL_EVENT = 19,
+  SUBREGION = 20,
+  FEATURE_LAYER = 21,
+  ART_IMAGE = 22,
+  CREATURE_DEF = 23,
+  ENTITY_ART_IMAGE = 24, --unused?
+  unk_25 = 25,
+  ENTITY_POPULATION = 26,
+  BREED = 27,
 }
 
 ---@class specific_ref_type_attr
 ---@field union_field string
 
----@type table<specific_ref_type, specific_ref_type_attr>
-df.specific_ref_type.attrs = {
-  UNIT = {
-    union_field = "unit",
-  },
-  JOB = {
-    union_field = "job",
-  },
-  ACTIVITY = {
-    union_field = "activity",
-  },
-  ITEM_GENERAL = {
-    union_field = "item",
-  },
-  EFFECT = {
-    union_field = "effect",
-  },
-  VERMIN_ESCAPED_PET = {
-    union_field = "vermin",
-  },
-  ENTITY = {
-    union_field = "entity",
-  },
-  VIEWSCREEN = {
-    union_field = "screen",
-  },
-  UNIT_ITEM_WRESTLE = {
-    union_field = "wrestle",
-  },
-  NULL_REF = {
-    union_field = "object",
-  },
-  HIST_FIG = {
-    union_field = "histfig",
-  },
-}
+---@class specific_ref_type_attrs
+---@field UNIT specific_ref_type_attr
+---@field JOB specific_ref_type_attr
+---@field ACTIVITY specific_ref_type_attr
+---@field ITEM_GENERAL specific_ref_type_attr
+---@field EFFECT specific_ref_type_attr
+---@field VERMIN_ESCAPED_PET specific_ref_type_attr
+---@field ENTITY specific_ref_type_attr
+---@field VIEWSCREEN specific_ref_type_attr
+---@field UNIT_ITEM_WRESTLE specific_ref_type_attr
+---@field NULL_REF specific_ref_type_attr
+---@field HIST_FIG specific_ref_type_attr
+df.specific_ref_type.attrs = {}
 
 ---@class specific_ref
 ---@field type specific_ref_type
 ---@field data specific_ref_data
 
 ---@class specific_ref_data
----@field object any # raw pointer
+---@field object pointer raw pointer
 ---@field unit unit
 ---@field activity activity_info
 ---@field screen viewscreen
@@ -361,7 +336,7 @@ df.specific_ref_type.attrs = {
 ---@field job job
 ---@field histfig historical_figure
 ---@field entity historical_entity
----@field wrestle any
+---@field wrestle compound
 
 ---@enum histfig_entity_link_type
 df.histfig_entity_link_type = {
@@ -458,7 +433,7 @@ df.histfig_site_link_type = {
 
 ---@class histfig_site_link
 ---@field site integer
----@field sub_id integer # from XML
+---@field sub_id integer from XML
 ---@field entity integer
 
 ---@class histfig_site_link_occupationst
@@ -553,6 +528,7 @@ df.entity_entity_link_type = {
 ---@field strength integer
 
 ---@enum entity_site_link_type
+---Enum names updated per Putnam
 df.entity_site_link_type = {
   None = -1,
   All = 0,
@@ -562,47 +538,22 @@ df.entity_site_link_type = {
   Local_Activity = 4,
 }
 
----@class entity_site_link_flags
----@field residence boolean # site is residence
----@field capital boolean # site is capital
----@field fortress boolean # used at least by those castles which arent currently in
----@field local_market boolean # for villages to think about their market town
----@field trade_partner boolean # for markets to think about other markets
----@field monument boolean # for a civ to know its tomb sites
----@field primary_criminal_gang boolean
----@field criminal_gang boolean
----@field invasion_marked boolean # marked for invasion
----@field land_for_holding boolean # all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
----@field central_holding_land boolean # only dwarf fortresses get this for now
----@field land_holder_residence boolean # the regular sites where a baron etc. actually lives
----@field invasion_push_out boolean # pushed out by invasion
----@field reclaim boolean # marked for reclaim
----@field occupation_failed boolean # failed to hold hostile occupation
----@field base_of_operation boolean # set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
----@field holy_city boolean # for the holy city of a religion
-df.entity_site_link_flags = {}
-
 ---@class entity_site_link
 ---@field target integer
 ---@field entity_id integer
----@field entity_cache_index integer # not saved
----@field position_profile_id integer # index into entity.positions.assignments of Civilization (?)
----@field type entity_site_link_type # called location in df source
+---@field entity_cache_index integer not saved
+---@field position_profile_id integer index into entity.positions.assignments of Civilization (?)
+---@field type entity_site_link_type called location in df source
 ---@field start_hr integer
 ---@field end_hr integer
 ---@field flags entity_site_link_flags
 ---@field former_flag entity_site_link_flags
 ---@field link_strength integer
----@field initial_controlling_population integer # all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
----@field last_check_controlling_population integer # same value as previous field
----@field ab_profile any[] # When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
----@field target_site_x integer # target site world coordinate x
----@field target_site_y integer # target site world coordinate y
----@field last_checked_army_year integer # all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
----@field last_checked_army_year_tick integer # paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
-
----@class undead_flags
----@field zombie boolean
----@field ghostly boolean
-df.undead_flags = {}
+---@field initial_controlling_population integer all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
+---@field last_check_controlling_population integer same value as previous field
+---@field ab_profile any[] When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
+---@field target_site_x integer target site world coordinate x
+---@field target_site_y integer target site world coordinate y
+---@field last_checked_army_year integer all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
+---@field last_checked_army_year_tick integer paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
 

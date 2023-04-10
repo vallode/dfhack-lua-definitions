@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@class large_integer
@@ -5,8 +6,8 @@
 ---@field quad_part integer
 
 ---@class large_integer_u
----@field low_part any
----@field high_part any
+---@field low_part number
+---@field high_part number
 
 ---@class musicsoundst
 ---@field soft_channel_number integer
@@ -15,15 +16,15 @@
 ---@field sound_priority boolean
 ---@field sound_playing integer
 ---@field on boolean
----@field fmod_system any
----@field fmod_master_channel_group any
----@field mod fmod_sound[] # songs
----@field samp fmod_sound[] # sound effects
----@field linux_sound_system any
+---@field fmod_system pointer
+---@field fmod_master_channel_group pointer
+---@field mod fmod_sound[] songs
+---@field samp fmod_sound[] sound effects
+---@field linux_sound_system enum
 
 ---@class fmod_sound
----@field sound any
----@field channel any
+---@field sound pointer
+---@field channel pointer
 
 ---@enum curses_color
 df.curses_color = {
@@ -37,12 +38,6 @@ df.curses_color = {
   White = 7,
 }
 
----@class cmv_attribute
----@field fg curses_color
----@field bg curses_color
----@field bright boolean
-df.cmv_attribute = {}
-
 ---@class graphic_viewportst
 ---@field flag integer
 ---@field dim_x integer
@@ -51,58 +46,58 @@ df.cmv_attribute = {}
 ---@field clipy integer[]
 ---@field screen_x integer
 ---@field screen_y integer
----@field screentexpos_background int32_t # floor
----@field screentexpos_floor_flag uint64_t
----@field screentexpos_background_two int32_t # boulder, plant, etc.
----@field screentexpos_liquid_flag uint32_t
----@field screentexpos_spatter_flag uint32_t
----@field screentexpos_spatter int32_t
----@field screentexpos_ramp_flag uint64_t
----@field screentexpos_shadow_flag uint32_t
----@field screentexpos_building_one int32_t # floor
----@field screentexpos_item int32_t # ground stuff
----@field screentexpos_vehicle int32_t
----@field screentexpos_vermin int32_t
----@field screentexpos_left_creature int32_t
----@field screentexpos int32_t # creature, etc.
----@field screentexpos_right_creature int32_t
----@field screentexpos_building_two int32_t # high furniture/interior signposting
----@field screentexpos_projectile int32_t
----@field screentexpos_high_flow int32_t
----@field screentexpos_top_shadow int32_t
----@field screentexpos_signpost int32_t # stuff that sticks up from below
----@field screentexpos_upleft_creature int32_t
----@field screentexpos_up_creature int32_t
----@field screentexpos_upright_creature int32_t
----@field screentexpos_designation int32_t
----@field screentexpos_interface int32_t # cursor, etc
----@field screentexpos_background_old int32_t
----@field screentexpos_floor_flag_old uint64_t
----@field screentexpos_background_two_old int32_t
----@field screentexpos_liquid_flag_old uint32_t
----@field screentexpos_spatter_flag_old uint32_t
----@field screentexpos_spatter_old int32_t
----@field screentexpos_ramp_flag_old uint64_t
----@field screentexpos_shadow_flag_old uint32_t
----@field screentexpos_building_one_old int32_t
----@field screentexpos_item_old int32_t
----@field screentexpos_vehicle_old int32_t
----@field screentexpos_vermin_old int32_t
----@field screentexpos_left_creature_old int32_t
----@field screentexpos_old int32_t
----@field screentexpos_right_creature_old int32_t
----@field screentexpos_building_two_old int32_t
----@field screentexpos_projectile_old int32_t
----@field screentexpos_high_flow_old int32_t
----@field screentexpos_top_shadow_old int32_t
----@field screentexpos_signpost_old int32_t
----@field screentexpos_upleft_creature_old int32_t
----@field screentexpos_up_creature_old int32_t
----@field screentexpos_upright_creature_old int32_t
----@field screentexpos_designation_old int32_t
----@field screentexpos_interface_old int32_t
----@field core_tree_species_plus_one int16_t
----@field shadow_tree_species_plus_one int16_t
+---@field screentexpos_background integer floor
+---@field screentexpos_floor_flag integer
+---@field screentexpos_background_two integer boulder, plant, etc.
+---@field screentexpos_liquid_flag integer
+---@field screentexpos_spatter_flag integer
+---@field screentexpos_spatter integer
+---@field screentexpos_ramp_flag integer
+---@field screentexpos_shadow_flag integer
+---@field screentexpos_building_one integer floor
+---@field screentexpos_item integer ground stuff
+---@field screentexpos_vehicle integer
+---@field screentexpos_vermin integer
+---@field screentexpos_left_creature integer
+---@field screentexpos integer creature, etc.
+---@field screentexpos_right_creature integer
+---@field screentexpos_building_two integer high furniture/interior signposting
+---@field screentexpos_projectile integer
+---@field screentexpos_high_flow integer
+---@field screentexpos_top_shadow integer
+---@field screentexpos_signpost integer stuff that sticks up from below
+---@field screentexpos_upleft_creature integer
+---@field screentexpos_up_creature integer
+---@field screentexpos_upright_creature integer
+---@field screentexpos_designation integer
+---@field screentexpos_interface integer cursor, etc
+---@field screentexpos_background_old integer
+---@field screentexpos_floor_flag_old integer
+---@field screentexpos_background_two_old integer
+---@field screentexpos_liquid_flag_old integer
+---@field screentexpos_spatter_flag_old integer
+---@field screentexpos_spatter_old integer
+---@field screentexpos_ramp_flag_old integer
+---@field screentexpos_shadow_flag_old integer
+---@field screentexpos_building_one_old integer
+---@field screentexpos_item_old integer
+---@field screentexpos_vehicle_old integer
+---@field screentexpos_vermin_old integer
+---@field screentexpos_left_creature_old integer
+---@field screentexpos_old integer
+---@field screentexpos_right_creature_old integer
+---@field screentexpos_building_two_old integer
+---@field screentexpos_projectile_old integer
+---@field screentexpos_high_flow_old integer
+---@field screentexpos_top_shadow_old integer
+---@field screentexpos_signpost_old integer
+---@field screentexpos_upleft_creature_old integer
+---@field screentexpos_up_creature_old integer
+---@field screentexpos_upright_creature_old integer
+---@field screentexpos_designation_old integer
+---@field screentexpos_interface_old integer
+---@field core_tree_species_plus_one integer
+---@field shadow_tree_species_plus_one integer
 
 ---@class graphic_map_portst
 ---@field flag integer
@@ -116,57 +111,57 @@ df.cmv_attribute = {}
 ---@field top_left_corner_y integer
 ---@field pixel_perc_x integer
 ---@field pixel_perc_y integer
----@field screentexpos_base int32_t
+---@field screentexpos_base integer
 ---@field screentexpos_edge any[]
 ---@field screentexpos_edge2 any[]
----@field screentexpos_detail int32_t
----@field screentexpos_tunnel int32_t
----@field screentexpos_river int32_t
----@field screentexpos_road int32_t
----@field screentexpos_site int32_t
----@field screentexpos_interface int32_t
----@field screentexpos_detail_to_n int32_t
----@field screentexpos_detail_to_s int32_t
----@field screentexpos_detail_to_w int32_t
----@field screentexpos_detail_to_e int32_t
----@field screentexpos_detail_to_nw int32_t
----@field screentexpos_detail_to_ne int32_t
----@field screentexpos_detail_to_sw int32_t
----@field screentexpos_detail_to_se int32_t
----@field screentexpos_base_old int32_t
+---@field screentexpos_detail integer
+---@field screentexpos_tunnel integer
+---@field screentexpos_river integer
+---@field screentexpos_road integer
+---@field screentexpos_site integer
+---@field screentexpos_interface integer
+---@field screentexpos_detail_to_n integer
+---@field screentexpos_detail_to_s integer
+---@field screentexpos_detail_to_w integer
+---@field screentexpos_detail_to_e integer
+---@field screentexpos_detail_to_nw integer
+---@field screentexpos_detail_to_ne integer
+---@field screentexpos_detail_to_sw integer
+---@field screentexpos_detail_to_se integer
+---@field screentexpos_base_old integer
 ---@field screentexpos_edge_old any[]
 ---@field screentexpos_edge2_old any[]
----@field screentexpos_detail_old int32_t
----@field screentexpos_tunnel_old int32_t
----@field screentexpos_river_old int32_t
----@field screentexpos_road_old int32_t
----@field screentexpos_site_old int32_t
----@field screentexpos_interface_old int32_t
----@field screentexpos_detail_to_n_old int32_t
----@field screentexpos_detail_to_s_old int32_t
----@field screentexpos_detail_to_w_old int32_t
----@field screentexpos_detail_to_e_old int32_t
----@field screentexpos_detail_to_nw_old int32_t
----@field screentexpos_detail_to_ne_old int32_t
----@field screentexpos_detail_to_sw_old int32_t
----@field screentexpos_detail_to_se_old int32_t
----@field edge_biome_data int32_t
----@field edge_type_n int32_t
----@field edge_type_s int32_t
----@field edge_type_w int32_t
----@field edge_type_e int32_t
----@field edge_type_nw int32_t
----@field edge_type_ne int32_t
----@field edge_type_sw int32_t
----@field edge_type_se int32_t
----@field edge_biome_n int32_t
----@field edge_biome_s int32_t
----@field edge_biome_w int32_t
----@field edge_biome_e int32_t
----@field edge_biome_nw int32_t
----@field edge_biome_ne int32_t
----@field edge_biome_sw int32_t
----@field edge_biome_se int32_t
+---@field screentexpos_detail_old integer
+---@field screentexpos_tunnel_old integer
+---@field screentexpos_river_old integer
+---@field screentexpos_road_old integer
+---@field screentexpos_site_old integer
+---@field screentexpos_interface_old integer
+---@field screentexpos_detail_to_n_old integer
+---@field screentexpos_detail_to_s_old integer
+---@field screentexpos_detail_to_w_old integer
+---@field screentexpos_detail_to_e_old integer
+---@field screentexpos_detail_to_nw_old integer
+---@field screentexpos_detail_to_ne_old integer
+---@field screentexpos_detail_to_sw_old integer
+---@field screentexpos_detail_to_se_old integer
+---@field edge_biome_data integer
+---@field edge_type_n integer
+---@field edge_type_s integer
+---@field edge_type_w integer
+---@field edge_type_e integer
+---@field edge_type_nw integer
+---@field edge_type_ne integer
+---@field edge_type_sw integer
+---@field edge_type_se integer
+---@field edge_biome_n integer
+---@field edge_biome_s integer
+---@field edge_biome_w integer
+---@field edge_biome_e integer
+---@field edge_biome_nw integer
+---@field edge_biome_ne integer
+---@field edge_biome_sw integer
+---@field edge_biome_se integer
 
 ---@class graphic
 ---@field viewport graphic_viewportst[]
@@ -175,69 +170,69 @@ df.cmv_attribute = {}
 ---@field map_port graphic_map_portst[]
 ---@field main_map_port graphic_map_portst
 ---@field viewport_zoom_factor integer
----@field screenx any
----@field screeny any
+---@field screenx number
+---@field screeny number
 ---@field screenf curses_color
 ---@field screenb curses_color
 ---@field screenbright boolean
----@field use_old_16_colors boolean # use F:B:BR instead of straight RGB
+---@field use_old_16_colors boolean use F:B:BR instead of straight RGB
 ---@field screen_color_r integer
 ---@field screen_color_g integer
 ---@field screen_color_b integer
 ---@field screen_color_br integer
 ---@field screen_color_bg integer
 ---@field screen_color_bb integer
----@field ccolor any[] # The curses-RGB mapping used for non-curses display modes
----@field uccolor any[] # The curses-RGB mapping used for non-curses display modes
+---@field ccolor any[] The curses-RGB mapping used for non-curses display modes
+---@field uccolor any[] The curses-RGB mapping used for non-curses display modes
 ---@field color any[]
----@field mouse_x integer # tile offset
----@field mouse_y integer # tile offset
----@field precise_mouse_x integer # pixel offset
----@field precise_mouse_y integer # pixel offset
+---@field mouse_x integer tile offset
+---@field mouse_y integer tile offset
+---@field precise_mouse_x integer pixel offset
+---@field precise_mouse_y integer pixel offset
 ---@field screen_pixel_x integer
 ---@field screen_pixel_y integer
 ---@field tile_pixel_x integer
 ---@field tile_pixel_y integer
----@field screen uint8_t
----@field screen_limit uint8_t # pointer to last element of screen
----@field screentexpos long
----@field screentexpos_lower long
----@field screentexpos_anchored long
----@field screentexpos_anchored_x long
----@field screentexpos_anchored_y long
----@field screentexpos_flag uint32_t
----@field top_in_use boolean # //we assume top is not in use unless a flag is set, and reprint the screen when it goes away, to avoid cell by cell checks
----@field screen_top uint8_t
----@field screen_top_limit uint8_t
----@field screentexpos_top_lower long
----@field screentexpos_top_anchored long
----@field screentexpos_top long
----@field screentexpos_top_anchored_x long
----@field screentexpos_top_anchored_y long
----@field screentexpos_top_flag uint32_t
+---@field screen integer
+---@field screen_limit integer pointer to last element of screen
+---@field screentexpos number
+---@field screentexpos_lower number
+---@field screentexpos_anchored number
+---@field screentexpos_anchored_x number
+---@field screentexpos_anchored_y number
+---@field screentexpos_flag integer
+---@field top_in_use boolean //we assume top is not in use unless a flag is set, and reprint the screen when it goes away, to avoid cell by cell checks
+---@field screen_top integer
+---@field screen_top_limit integer
+---@field screentexpos_top_lower number
+---@field screentexpos_top_anchored number
+---@field screentexpos_top number
+---@field screentexpos_top_anchored_x number
+---@field screentexpos_top_anchored_y number
+---@field screentexpos_top_flag integer
 ---@field display_title boolean
 ---@field display_background boolean
----@field screentexpos_refresh_buffer int32_t
+---@field screentexpos_refresh_buffer integer
 ---@field refresh_buffer_val integer
----@field main_thread_requesting_reshape boolean # set to true by main thread, set to false by graphics thread
----@field main_thread_requesting_reshape_activate_map_port boolean # set to true by main thread, set to false by graphics thread
----@field clipx long[]
----@field clipy long[]
----@field tex_pos long[]
----@field rect_id any
+---@field main_thread_requesting_reshape boolean set to true by main thread, set to false by graphics thread
+---@field main_thread_requesting_reshape_activate_map_port boolean set to true by main thread, set to false by graphics thread
+---@field clipx number[]
+---@field clipy number[]
+---@field tex_pos number[]
+---@field rect_id number
 ---@field print_time integer[]
----@field print_index any
+---@field print_index number
 ---@field display_frames integer
 ---@field force_full_display_count integer
----@field do_clean_tile_cache integer # true by main, false by graphics
----@field do_post_init_texture_clear integer # true by main, false by graphics
+---@field do_clean_tile_cache integer true by main, false by graphics
+---@field do_post_init_texture_clear integer true by main, false by graphics
 ---@field original_rect integer
 ---@field dimx integer
 ---@field dimy integer
 ---@field tileset graphic_tileset
 
 ---@class graphic_tileset
----@field black_background_texpos long[]
+---@field black_background_texpos number[]
 ---@field texture_indices1 integer[]
 ---@field texpos_custom_symbol integer[]
 ---@field texture_indices2 integer[]
@@ -295,6 +290,7 @@ df.cmv_attribute = {}
 ---@field texpos_button_picture_box_sel_highlighted any[]
 ---@field texpos_button_picture_box_light any[]
 ---@field texpos_button_picture_box_dark any[]
+---@field texpos_unk_v50_06 integer[]
 ---@field texpos_button_add any[]
 ---@field texpos_button_add_hover any[]
 ---@field texpos_button_add_pressed any[]
@@ -441,39 +437,39 @@ df.cmv_attribute = {}
 ---@field texpos_bottom_button_border_e integer
 
 ---@class renderer
----@field screen uint8_t
----@field screentexpos long
----@field screentexpos_lower long
----@field screentexpos_anchored long
----@field screentexpos_anchored_x long
----@field screentexpos_anchored_y long
----@field screentexpos_flag uint32_t
----@field screen_top uint8_t
----@field screentexpos_top long
----@field screentexpos_top_lower long
----@field screentexpos_top_anchored long
----@field screentexpos_top_anchored_x long
----@field screentexpos_top_anchored_y long
----@field screentexpos_top_flag uint32_t
----@field screen_old uint8_t
----@field screentexpos_old long
----@field screentexpos_lower_old long
----@field screentexpos_anchored_old long
----@field screentexpos_anchored_x_old long
----@field screentexpos_anchored_y_old long
----@field screentexpos_flag_old uint32_t
----@field screen_top_old uint8_t
----@field screentexpos_top_old long
----@field screentexpos_top_lower_old long
----@field screentexpos_top_anchored_old long
----@field screentexpos_top_anchored_x_old long
----@field screentexpos_top_anchored_y_old long
----@field screentexpos_top_flag_old uint32_t
----@field screentexpos_refresh_buffer int32_t
+---@field screen integer
+---@field screentexpos number
+---@field screentexpos_lower number
+---@field screentexpos_anchored number
+---@field screentexpos_anchored_x number
+---@field screentexpos_anchored_y number
+---@field screentexpos_flag integer
+---@field screen_top integer
+---@field screentexpos_top number
+---@field screentexpos_top_lower number
+---@field screentexpos_top_anchored number
+---@field screentexpos_top_anchored_x number
+---@field screentexpos_top_anchored_y number
+---@field screentexpos_top_flag integer
+---@field screen_old integer
+---@field screentexpos_old number
+---@field screentexpos_lower_old number
+---@field screentexpos_anchored_old number
+---@field screentexpos_anchored_x_old number
+---@field screentexpos_anchored_y_old number
+---@field screentexpos_flag_old integer
+---@field screen_top_old integer
+---@field screentexpos_top_old number
+---@field screentexpos_top_lower_old number
+---@field screentexpos_top_anchored_old number
+---@field screentexpos_top_anchored_x_old number
+---@field screentexpos_top_anchored_y_old number
+---@field screentexpos_top_flag_old integer
+---@field screentexpos_refresh_buffer integer
 
 ---@class renderer_2d_base
----@field sdl_screen any
----@field tile_cache any
+---@field sdl_screen pointer
+---@field tile_cache padding
 ---@field dispx integer
 ---@field dispy integer
 ---@field dimx integer
@@ -484,7 +480,7 @@ df.cmv_attribute = {}
 ---@field origin_y integer
 ---@field use_viewport_zoom boolean
 ---@field viewport_zoom_factor integer
----@field ttfs_to_render any
+---@field ttfs_to_render padding
 ---@field zoom_steps integer
 ---@field forced_steps integer
 ---@field natural_w integer
@@ -503,12 +499,12 @@ df.zoom_commands = {
 
 ---@class enabler
 ---@field fullscreen boolean
----@field overridden_grid_sizes any
+---@field overridden_grid_sizes stl-deque
 ---@field renderer renderer
 ---@field calculated_fps integer
 ---@field calculated_gfps integer
----@field frame_timings int32_t
----@field gframe_timings int32_t
+---@field frame_timings integer
+---@field gframe_timings integer
 ---@field frame_sum integer
 ---@field gframe_sum integer
 ---@field frame_last integer
@@ -524,11 +520,11 @@ df.zoom_commands = {
 ---@field async_tobox enabler_async_tobox
 ---@field async_frombox enabler_async_frombox
 ---@field async_zoom enabler_async_zoom
----@field async_fromcomplete any
+---@field async_fromcomplete pointer
 ---@field renderer_threadid integer
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string
----@field flag any
+---@field flag bitfield
 ---@field mouse_lbut integer
 ---@field mouse_rbut integer
 ---@field mouse_lbut_down integer
@@ -540,42 +536,43 @@ df.zoom_commands = {
 ---@field mouse_mbut_lift integer
 ---@field tracking_on integer
 ---@field textures enabler_textures
----@field sync any # rendering barrier
+---@field sync pointer rendering barrier
 ---@field simticks enabler_simticks
 ---@field gputicks enabler_gputicks
----@field clock integer # An *approximation* of the current time for use in garbage collection thingies, updated every frame or so.
+---@field clock integer An *approximation* of the current time for use in garbage collection thingies, updated every frame or so.
 
 ---@class enabler_async_tobox
----@field sem any
----@field queue any
----@field sem_fill any
+---@field sem pointer
+---@field queue stl-deque
+---@field sem_fill pointer
 
 ---@class enabler_async_frombox
----@field sem any
----@field queue any
----@field sem_fill any
+---@field sem pointer
+---@field queue stl-deque
+---@field sem_fill pointer
 
 ---@class enabler_async_zoom
----@field sem any
----@field queue any
----@field sem_fill any
+---@field sem pointer
+---@field queue zoom_commands
+---@field sem_fill pointer
 
 ---@class enabler_textures
 ---@field raws pointer[]
 ---@field init_texture_size integer
 ---@field uploaded boolean
 ---@field gl_catalog integer
----@field gl_texpos any
+---@field gl_texpos pointer
 
 ---@class enabler_simticks
----@field sem any
+---@field sem pointer
 ---@field value integer
 
 ---@class enabler_gputicks
----@field sem any
+---@field sem pointer
 ---@field value integer
 
 ---@enum justification
+---from libgraphics
 df.justification = {
   justify_left = 0,
   justify_center = 1,
@@ -592,10 +589,10 @@ df.justification = {
 ---@field tile_dim_y integer
 ---@field page_dim_x integer
 ---@field page_dim_y integer
----@field texpos long[]
----@field datapos long[]
----@field texpos_gs long[]
----@field datapos_gs long[]
+---@field texpos number[]
+---@field datapos number[]
+---@field texpos_gs number[]
+---@field datapos_gs number[]
 ---@field loaded boolean
 
 ---@class palette_pagest

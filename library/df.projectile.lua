@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum projectile_type
@@ -6,22 +7,6 @@ df.projectile_type = {
   Unit = 1,
   Magic = 2,
 }
-
----@class projectile_flags
----@field no_impact_destroy boolean
----@field has_hit_ground boolean
----@field bouncing boolean
----@field high_flying boolean
----@field piercing boolean
----@field to_be_deleted boolean
----@field unk6 boolean
----@field unk7 boolean
----@field parabolic boolean
----@field unk9 boolean
----@field unk10 boolean
----@field no_collide boolean
----@field safe_landing boolean
-df.projectile_flags = {}
 
 ---@class projectile
 ---@field link proj_list_link
@@ -36,7 +21,7 @@ df.projectile_flags = {}
 ---@field min_hit_distance integer
 ---@field min_ground_distance integer
 ---@field flags projectile_flags
----@field fall_counter integer # counts down from delay to 0, then it moves
+---@field fall_counter integer counts down from delay to 0, then it moves
 ---@field fall_delay integer
 ---@field hit_rating integer
 ---@field unk21 integer
@@ -44,7 +29,7 @@ df.projectile_flags = {}
 ---@field bow_id integer
 ---@field unk_item_id integer
 ---@field unk_unit_id integer
----@field unk_v40_1 integer # uninitialized+saved
+---@field unk_v40_1 integer uninitialized+saved
 ---@field pos_x integer
 ---@field pos_y integer
 ---@field pos_z integer
@@ -59,7 +44,7 @@ df.projectile_flags = {}
 ---@field item item
 
 ---@class proj_unitst
----@field unit unit # ?
+---@field unit unit ?
 
 ---@class proj_magicst
 ---@field type integer

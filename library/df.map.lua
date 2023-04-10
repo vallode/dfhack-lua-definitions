@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@class coord2d
@@ -43,29 +44,6 @@ df.tile_liquid = {
   Magma = 1,
 }
 
----@class tile_designation
----@field flow_size boolean # liquid amount
----@field pile boolean # stockpile; Adventure: lit
----@field dig tile_dig_designation # Adventure: line_of_sight, furniture_memory, item_memory
----@field smooth boolean # Adventure: creature_memory, original_cave
----@field hidden boolean
----@field geolayer_index boolean
----@field light boolean
----@field subterranean boolean
----@field outside boolean
----@field biome boolean
----@field liquid_type tile_liquid
----@field water_table boolean # aquifer
----@field rained boolean
----@field traffic tile_traffic
----@field flow_forbid boolean
----@field liquid_static boolean
----@field feature_local boolean
----@field feature_global boolean
----@field water_stagnant boolean
----@field water_salt boolean
-df.tile_designation = {}
-
 ---@enum tile_building_occ
 df.tile_building_occ = {
   None = 0, --no building
@@ -77,50 +55,6 @@ df.tile_building_occ = {
   Impassable = 6,
   Dynamic = 7, --doors, grates, etc
 }
-
----@class tile_occupancy
----@field building tile_building_occ
----@field unit boolean # standing
----@field unit_grounded boolean # prone
----@field item boolean
----@field edge_flow_in boolean # if set on an edge tile, water or magma will flow in
----@field moss boolean
----@field arrow_color boolean
----@field arrow_variant boolean
----@field unk13_noncitizen_unit boolean # when noncitizen moves in, something happens and it is cleared
----@field monster_lair boolean # A monster lair. Items placed wont be moved.
----@field no_grow boolean # seems to be set on terrain tiles where grass growth is impossible
----@field unk16 boolean
----@field unk17 boolean
----@field carve_track_north boolean
----@field carve_track_south boolean
----@field carve_track_east boolean
----@field carve_track_west boolean
----@field spoor boolean
----@field unk23 boolean
----@field dig_marked boolean
----@field dig_auto boolean
----@field heavy_aquifer boolean # Light/Heavy aquifer flag
-df.tile_occupancy = {}
-
----@class block_flags
----@field designated boolean # for jobs etc
----@field update_temperature boolean
----@field update_liquid boolean
----@field update_liquid_twice boolean # Protects UpdateLiquid from being cleared the first time.
----@field repath_on_freeze boolean # reindex_pathfinding set and flag cleared if temperature below 10000
----@field repath_on_melt boolean # reindex_pathfinding set and flag cleared if temperature above 10000
----@field has_aquifer boolean # has at least one "water_table" designation flag
----@field check_aquifer boolean # has tiles that may get flooded by an adjacent aquifer
----@field unk_8 boolean # Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
----@field subterranean_water boolean # has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
-df.block_flags = {}
-
----@class z_level_flags
----@field update boolean
----@field can_stop boolean
----@field update_twice boolean
-df.z_level_flags = {}
 
 ---@enum tile_liquid_flow_dir
 df.tile_liquid_flow_dir = {
@@ -142,13 +76,6 @@ df.tile_liquid_flow_dir = {
   inv_f = 15,
 }
 
----@class tile_liquid_flow
----@field temp_flow_timer boolean # set when water sloshes around, counts down to zero
----@field unk_1 boolean
----@field perm_flow_dir tile_liquid_flow_dir
----@field unk_2 boolean # periodically set whenever perm_flow_dir is nonzero
-df.tile_liquid_flow = {}
-
 ---@class tile_bitmask
 ---@field bits any[]
 
@@ -158,13 +85,14 @@ df.tile_liquid_flow = {}
 ---@field link block_burrow_link
 
 ---@class map_block
+---flood; 256*cost for straight, 362*cost for diagonal
 ---@field flags block_flags
 ---@field block_events block_square_event[]
 ---@field block_burrows block_burrow_link
----@field local_feature integer # index into world_data.region_map
+---@field local_feature integer index into world_data.region_map
 ---@field global_feature integer
 ---@field unk2 integer
----@field layer_depth integer # uninitialized
+---@field layer_depth integer uninitialized
 ---@field dsgn_check_cooldown integer
 ---@field default_liquid tile_designation
 ---@field items any[]
@@ -175,7 +103,7 @@ df.tile_liquid_flow = {}
 ---@field tiletype any[]
 ---@field designation any[]
 ---@field occupancy any[]
----@field fog_of_war any[] # for adventure mode
+---@field fog_of_war any[] for adventure mode
 ---@field path_cost any[]
 ---@field path_tag any[]
 ---@field walkable any[]
@@ -190,7 +118,7 @@ df.tile_liquid_flow = {}
 ---@field unk_z1 integer
 ---@field unk_z2 integer
 ---@field unk_3 integer
----@field unk_4 any
+---@field unk_4 bitfield
 
 ---@class cave_column_rectangle
 ---@field unk_1 integer
@@ -200,23 +128,23 @@ df.tile_liquid_flow = {}
 ---@field unk_y2 integer
 ---@field z_shift integer
 ---@field unk_6 coord_path
----@field unk_7 any
+---@field unk_7 bitfield
 
 ---@class map_block_column
----@field sink_level integer # water at or above this level sinks into aquifer tiles
----@field beach_level integer # water at this level disappears if above more water
----@field ground_level integer # for coloring unallocated blocks
+---@field sink_level integer water at or above this level sinks into aquifer tiles
+---@field beach_level integer water at this level disappears if above more water
+---@field ground_level integer for coloring unallocated blocks
 ---@field unmined_glyphs any[]
 ---@field z_base integer
 ---@field cave_columns any[]
 ---@field column_rectangles cave_column_rectangle[]
----@field z_shift integer # seems to be 0 originally, but updated when map is shifted
----@field flags any # 0 process cave columns for caveins
+---@field z_shift integer seems to be 0 originally, but updated when map is shifted
+---@field flags df-flagarray 0 process cave columns for caveins
 ---@field elevation any[]
----@field map_pos coord2d # top left in tiles
----@field unk_c3c integer # uninitialized
+---@field map_pos coord2d top left in tiles
+---@field unk_c3c integer uninitialized
 ---@field region_pos coord2d
----@field plants plant[] # Only populated for the top left column in each mid level tile
+---@field plants plant[] Only populated for the top left column in each mid level tile
 
 ---@enum block_square_event_type
 df.block_square_event_type = {
@@ -235,7 +163,7 @@ df.block_square_event_type = {
 ---@class block_square_event_mineralst
 ---@field inorganic_mat integer
 ---@field tile_bitmask tile_bitmask
----@field flags any
+---@field flags bitfield
 
 ---@class block_square_event_frozen_liquidst
 ---@field tiles any[]
@@ -263,7 +191,7 @@ df.block_square_event_type = {
 ---@field unk_3 any[]
 ---@field race any[]
 ---@field caste any[]
----@field age any[] # in half-seconds
+---@field age any[] in half-seconds
 ---@field year integer
 ---@field year_tick integer
 
@@ -297,8 +225,8 @@ df.feature_type = {
 
 ---@class feature
 ---@field population world_population[]
----@field irritation_level integer # divide by 10k for attack chance, max 100k
----@field irritation_attacks integer # maxes at 10?
+---@field irritation_level integer divide by 10k for attack chance, max 100k
+---@field irritation_attacks integer maxes at 10?
 ---@field embark_pos coord2d_path
 ---@field min_map_z integer[]
 ---@field max_map_z integer[]
@@ -344,7 +272,7 @@ df.layer_type = {
 }
 
 ---@class feature_init
----@field flags any
+---@field flags df-flagarray
 ---@field alterations feature_alteration[]
 ---@field start_x integer
 ---@field start_y integer
@@ -432,7 +360,7 @@ df.world_construction_type = {
 ---@class world_construction_square_tunnelst
 
 ---@class world_construction_square_bridgest
----@field road_id integer # guess
+---@field road_id integer guess
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
@@ -516,11 +444,6 @@ df.biome_type = {
   SUBTERRANEAN_LAVA = 50,
 }
 
----@class construction_flags
----@field no_build_item boolean # build item is created from scratch upon removing construction, does not exist beforehand
----@field top_of_wall boolean # used on the floors above constructed walls so you cannot remove them
-df.construction_flags = {}
-
 ---@class construction
 ---@field pos coord
 ---@field item_type item_type
@@ -561,7 +484,7 @@ df.flow_type = {
 
 ---@class flow_reuse_pool
 ---@field reuse_idx integer
----@field flags any
+---@field flags flag-bit
 
 ---@enum flow_guide_type
 df.flow_guide_type = {
@@ -586,9 +509,9 @@ df.flow_guide_type = {
 ---@field unk_1 coord[]
 
 ---@class effect_info
----@field id integer # assigned during Save
+---@field id integer assigned during Save
 ---@field job job
----@field type integer # 2 = falling into chasm
+---@field type integer 2 = falling into chasm
 ---@field foreground integer
 ---@field background integer
 ---@field bright integer

@@ -1,23 +1,5 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
-
----@class language_word_flags
----@field front_compound_noun_sing boolean
----@field front_compound_noun_plur boolean
----@field front_compound_adj boolean
----@field front_compound_prefix boolean
----@field rear_compound_noun_sing boolean
----@field rear_compound_noun_plur boolean
----@field rear_compound_adj boolean
----@field the_noun_sing boolean
----@field the_noun_plur boolean
----@field the_compound_noun_sing boolean
----@field the_compound_noun_plur boolean
----@field the_compound_adj boolean
----@field the_compound_prefix boolean
----@field of_noun_sing boolean
----@field of_noun_plur boolean
----@field standard_verb boolean
-df.language_word_flags = {}
 
 ---@enum part_of_speech
 df.part_of_speech = {
@@ -181,21 +163,21 @@ df.sphere_type = {
 ---@field word string
 ---@field forms string[]
 ---@field adj_dist integer
----@field pad_1 any # looks like garbage
+---@field pad_1 padding looks like garbage
 ---@field flags language_word_flags
 ---@field str string[]
 
 ---@class language_translation
 ---@field name string
----@field unknown1 string[] # looks like english words
----@field unknown2 string[] # looks like translated words
+---@field unknown1 string[] looks like english words
+---@field unknown2 string[] looks like translated words
 ---@field words string[]
----@field flags integer # 1 = generated
+---@field flags integer 1 = generated
 ---@field str string[]
 
 ---@class language_symbol
 ---@field name string
----@field unknown any[] # empty
+---@field unknown any[] empty
 ---@field words any[]
 ---@field flags integer
 ---@field str string[]
@@ -210,6 +192,7 @@ df.sphere_type = {
 ---@field has_name boolean
 
 ---@class language_word_table
+---word_selectorst
 ---@field words any[]
 ---@field parts any[]
 
@@ -282,6 +265,7 @@ df.language_name_category = {
   EntityMerchantCompany2 = 64,
   Guildhall = 65,
   NecromancerTower = 66,
+  Hospital = 67,
 }
 
 ---@enum language_name_type

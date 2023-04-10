@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum emotion_type
@@ -178,525 +179,137 @@ df.emotion_type = {
 ---@field color int8_t
 ---@field divider int8_t
 
----@type table<emotion_type, emotion_type_attr>
-df.emotion_type.attrs = {
-  ACCEPTANCE = {
-    color = "7",
-    divider = "-8",
-  },
-  ADORATION = {
-    color = "11",
-    divider = "-1",
-  },
-  AFFECTION = {
-    color = "11",
-    divider = "-2",
-  },
-  AGITATION = {
-    color = "6",
-    divider = "4",
-  },
-  AGGRAVATION = {
-    color = "6",
-    divider = "4",
-  },
-  AGONY = {
-    color = "14",
-    divider = "1",
-  },
-  ALARM = {
-    color = "12",
-    divider = "4",
-  },
-  ALIENATION = {
-    color = "6",
-    divider = "8",
-  },
-  AMAZEMENT = {
-    color = "9",
-    divider = "0",
-  },
-  AMBIVALENCE = {
-    color = "7",
-    divider = "0",
-  },
-  AMUSEMENT = {
-    color = "10",
-    divider = "-4",
-  },
-  ANGER = {
-    color = "12",
-    divider = "2",
-  },
-  ANGST = {
-    color = "14",
-    divider = "1",
-  },
-  ANGUISH = {
-    color = "14",
-    divider = "1",
-  },
-  ANNOYANCE = {
-    color = "6",
-    divider = "8",
-  },
-  ANXIETY = {
-    color = "6",
-    divider = "4",
-  },
-  APATHY = {
-    color = "7",
-    divider = "0",
-  },
-  AROUSAL = {
-    color = "11",
-    divider = "-8",
-  },
-  ASTONISHMENT = {
-    color = "9",
-    divider = "0",
-  },
-  AVERSION = {
-    color = "6",
-    divider = "4",
-  },
-  AWE = {
-    color = "9",
-    divider = "0",
-  },
-  BITTERNESS = {
-    color = "6",
-    divider = "2",
-  },
-  BLISS = {
-    color = "10",
-    divider = "-1",
-  },
-  BOREDOM = {
-    color = "6",
-    divider = "8",
-  },
-  CARING = {
-    color = "11",
-    divider = "-2",
-  },
-  CONFUSION = {
-    color = "6",
-    divider = "8",
-  },
-  CONTEMPT = {
-    color = "6",
-    divider = "4",
-  },
-  CONTENTMENT = {
-    color = "10",
-    divider = "-8",
-  },
-  DEFEAT = {
-    color = "14",
-    divider = "2",
-  },
-  DEJECTION = {
-    color = "6",
-    divider = "4",
-  },
-  DELIGHT = {
-    color = "10",
-    divider = "-1",
-  },
-  DESPAIR = {
-    color = "14",
-    divider = "1",
-  },
-  DISAPPOINTMENT = {
-    color = "6",
-    divider = "8",
-  },
-  DISGUST = {
-    color = "14",
-    divider = "4",
-  },
-  DISILLUSIONMENT = {
-    color = "6",
-    divider = "8",
-  },
-  DISLIKE = {
-    color = "6",
-    divider = "8",
-  },
-  DISMAY = {
-    color = "14",
-    divider = "2",
-  },
-  DISPLEASURE = {
-    color = "6",
-    divider = "8",
-  },
-  DISTRESS = {
-    color = "14",
-    divider = "2",
-  },
-  DOUBT = {
-    color = "6",
-    divider = "8",
-  },
-  EAGERNESS = {
-    color = "9",
-    divider = "-4",
-  },
-  ELATION = {
-    color = "10",
-    divider = "-2",
-  },
-  EMBARRASSMENT = {
-    color = "6",
-    divider = "8",
-  },
-  EMPATHY = {
-    color = "11",
-    divider = "-2",
-  },
-  EMPTINESS = {
-    color = "14",
-    divider = "4",
-  },
-  ENJOYMENT = {
-    color = "10",
-    divider = "-8",
-  },
-  ENTHUSIASM = {
-    color = "10",
-    divider = "-8",
-  },
-  EUPHORIA = {
-    color = "10",
-    divider = "-1",
-  },
-  EXASPERATION = {
-    color = "6",
-    divider = "8",
-  },
-  EXCITEMENT = {
-    color = "9",
-    divider = "-2",
-  },
-  EXHILARATION = {
-    color = "9",
-    divider = "-2",
-  },
-  EXPECTANCY = {
-    color = "10",
-    divider = "-8",
-  },
-  FEAR = {
-    color = "12",
-    divider = "1",
-  },
-  FEROCITY = {
-    color = "12",
-    divider = "2",
-  },
-  FONDNESS = {
-    color = "11",
-    divider = "-8",
-  },
-  FREEDOM = {
-    color = "10",
-    divider = "-4",
-  },
-  FRIGHT = {
-    color = "14",
-    divider = "2",
-  },
-  FRUSTRATION = {
-    color = "6",
-    divider = "8",
-  },
-  GAIETY = {
-    color = "10",
-    divider = "-2",
-  },
-  GLEE = {
-    color = "10",
-    divider = "-2",
-  },
-  GLOOM = {
-    color = "6",
-    divider = "4",
-  },
-  GLUMNESS = {
-    color = "6",
-    divider = "8",
-  },
-  GRATITUDE = {
-    color = "11",
-    divider = "-4",
-  },
-  GRIEF = {
-    color = "14",
-    divider = "2",
-  },
-  GRIM_SATISFACTION = {
-    color = "13",
-    divider = "0",
-  },
-  GROUCHINESS = {
-    color = "6",
-    divider = "8",
-  },
-  GRUMPINESS = {
-    color = "6",
-    divider = "8",
-  },
-  GUILT = {
-    color = "6",
-    divider = "4",
-  },
-  HAPPINESS = {
-    color = "10",
-    divider = "-2",
-  },
-  HATRED = {
-    color = "12",
-    divider = "2",
-  },
-  HOPE = {
-    color = "10",
-    divider = "-2",
-  },
-  HOPELESSNESS = {
-    color = "14",
-    divider = "2",
-  },
-  HORROR = {
-    color = "12",
-    divider = "1",
-  },
-  HUMILIATION = {
-    color = "14",
-    divider = "4",
-  },
-  INSULT = {
-    color = "6",
-    divider = "4",
-  },
-  INTEREST = {
-    color = "9",
-    divider = "-8",
-  },
-  IRRITATION = {
-    color = "6",
-    divider = "8",
-  },
-  ISOLATION = {
-    color = "6",
-    divider = "4",
-  },
-  JOLLINESS = {
-    color = "10",
-    divider = "-4",
-  },
-  JOVIALITY = {
-    color = "10",
-    divider = "-2",
-  },
-  JOY = {
-    color = "10",
-    divider = "-1",
-  },
-  JUBILATION = {
-    color = "10",
-    divider = "-1",
-  },
-  LOATHING = {
-    color = "12",
-    divider = "2",
-  },
-  LONELINESS = {
-    color = "6",
-    divider = "4",
-  },
-  LOVE = {
-    color = "11",
-    divider = "-1",
-  },
-  LUST = {
-    color = "11",
-    divider = "-8",
-  },
-  MISERY = {
-    color = "14",
-    divider = "1",
-  },
-  MORTIFICATION = {
-    color = "14",
-    divider = "2",
-  },
-  NERVOUSNESS = {
-    color = "6",
-    divider = "8",
-  },
-  NOSTALGIA = {
-    color = "9",
-    divider = "-8",
-  },
-  OPTIMISM = {
-    color = "10",
-    divider = "-4",
-  },
-  OUTRAGE = {
-    color = "12",
-    divider = "2",
-  },
-  PANIC = {
-    color = "14",
-    divider = "1",
-  },
-  PATIENCE = {
-    color = "7",
-    divider = "-8",
-  },
-  PASSION = {
-    color = "11",
-    divider = "-2",
-  },
-  PESSIMISM = {
-    color = "6",
-    divider = "8",
-  },
-  PLEASURE = {
-    color = "11",
-    divider = "-4",
-  },
-  PRIDE = {
-    color = "11",
-    divider = "-4",
-  },
-  RAGE = {
-    color = "12",
-    divider = "1",
-  },
-  RAPTURE = {
-    color = "11",
-    divider = "-1",
-  },
-  REJECTION = {
-    color = "6",
-    divider = "4",
-  },
-  RELIEF = {
-    color = "10",
-    divider = "-2",
-  },
-  REGRET = {
-    color = "6",
-    divider = "8",
-  },
-  REMORSE = {
-    color = "6",
-    divider = "4",
-  },
-  REPENTANCE = {
-    color = "9",
-    divider = "-2",
-  },
-  RESENTMENT = {
-    color = "6",
-    divider = "8",
-  },
-  RIGHTEOUS_INDIGNATION = {
-    color = "6",
-    divider = "8",
-  },
-  SADNESS = {
-    color = "14",
-    divider = "4",
-  },
-  SATISFACTION = {
-    color = "10",
-    divider = "-8",
-  },
-  SELF_PITY = {
-    color = "6",
-    divider = "8",
-  },
-  SERVILE = {
-    color = "9",
-    divider = "0",
-  },
-  SHAKEN = {
-    color = "14",
-    divider = "1",
-  },
-  SHAME = {
-    color = "14",
-    divider = "4",
-  },
-  SHOCK = {
-    color = "14",
-    divider = "1",
-  },
-  SUSPICION = {
-    color = "13",
-    divider = "8",
-  },
-  SYMPATHY = {
-    color = "11",
-    divider = "-8",
-  },
-  TENDERNESS = {
-    color = "11",
-    divider = "-2",
-  },
-  TERROR = {
-    color = "12",
-    divider = "1",
-  },
-  THRILL = {
-    color = "9",
-    divider = "-2",
-  },
-  TRIUMPH = {
-    color = "10",
-    divider = "-2",
-  },
-  UNEASINESS = {
-    color = "6",
-    divider = "8",
-  },
-  UNHAPPINESS = {
-    color = "6",
-    divider = "4",
-  },
-  VENGEFULNESS = {
-    color = "12",
-    divider = "4",
-  },
-  WONDER = {
-    color = "9",
-    divider = "-8",
-  },
-  WORRY = {
-    color = "6",
-    divider = "8",
-  },
-  WRATH = {
-    color = "12",
-    divider = "1",
-  },
-  ZEAL = {
-    color = "9",
-    divider = "-4",
-  },
-  RESTLESS = {
-    color = "6",
-    divider = "8",
-  },
-  ADMIRATION = {
-    color = "11",
-    divider = "-8",
-  },
-}
+---@class emotion_type_attrs
+---@field ACCEPTANCE emotion_type_attr
+---@field ADORATION emotion_type_attr
+---@field AFFECTION emotion_type_attr
+---@field AGITATION emotion_type_attr
+---@field AGGRAVATION emotion_type_attr
+---@field AGONY emotion_type_attr
+---@field ALARM emotion_type_attr
+---@field ALIENATION emotion_type_attr
+---@field AMAZEMENT emotion_type_attr
+---@field AMBIVALENCE emotion_type_attr
+---@field AMUSEMENT emotion_type_attr
+---@field ANGER emotion_type_attr
+---@field ANGST emotion_type_attr
+---@field ANGUISH emotion_type_attr
+---@field ANNOYANCE emotion_type_attr
+---@field ANXIETY emotion_type_attr
+---@field APATHY emotion_type_attr
+---@field AROUSAL emotion_type_attr
+---@field ASTONISHMENT emotion_type_attr
+---@field AVERSION emotion_type_attr
+---@field AWE emotion_type_attr
+---@field BITTERNESS emotion_type_attr
+---@field BLISS emotion_type_attr
+---@field BOREDOM emotion_type_attr
+---@field CARING emotion_type_attr
+---@field CONFUSION emotion_type_attr
+---@field CONTEMPT emotion_type_attr
+---@field CONTENTMENT emotion_type_attr
+---@field DEFEAT emotion_type_attr
+---@field DEJECTION emotion_type_attr
+---@field DELIGHT emotion_type_attr
+---@field DESPAIR emotion_type_attr
+---@field DISAPPOINTMENT emotion_type_attr
+---@field DISGUST emotion_type_attr
+---@field DISILLUSIONMENT emotion_type_attr
+---@field DISLIKE emotion_type_attr
+---@field DISMAY emotion_type_attr
+---@field DISPLEASURE emotion_type_attr
+---@field DISTRESS emotion_type_attr
+---@field DOUBT emotion_type_attr
+---@field EAGERNESS emotion_type_attr
+---@field ELATION emotion_type_attr
+---@field EMBARRASSMENT emotion_type_attr
+---@field EMPATHY emotion_type_attr
+---@field EMPTINESS emotion_type_attr
+---@field ENJOYMENT emotion_type_attr
+---@field ENTHUSIASM emotion_type_attr
+---@field EUPHORIA emotion_type_attr
+---@field EXASPERATION emotion_type_attr
+---@field EXCITEMENT emotion_type_attr
+---@field EXHILARATION emotion_type_attr
+---@field EXPECTANCY emotion_type_attr
+---@field FEAR emotion_type_attr
+---@field FEROCITY emotion_type_attr
+---@field FONDNESS emotion_type_attr
+---@field FREEDOM emotion_type_attr
+---@field FRIGHT emotion_type_attr
+---@field FRUSTRATION emotion_type_attr
+---@field GAIETY emotion_type_attr
+---@field GLEE emotion_type_attr
+---@field GLOOM emotion_type_attr
+---@field GLUMNESS emotion_type_attr
+---@field GRATITUDE emotion_type_attr
+---@field GRIEF emotion_type_attr
+---@field GRIM_SATISFACTION emotion_type_attr
+---@field GROUCHINESS emotion_type_attr
+---@field GRUMPINESS emotion_type_attr
+---@field GUILT emotion_type_attr
+---@field HAPPINESS emotion_type_attr
+---@field HATRED emotion_type_attr
+---@field HOPE emotion_type_attr
+---@field HOPELESSNESS emotion_type_attr
+---@field HORROR emotion_type_attr
+---@field HUMILIATION emotion_type_attr
+---@field INSULT emotion_type_attr
+---@field INTEREST emotion_type_attr
+---@field IRRITATION emotion_type_attr
+---@field ISOLATION emotion_type_attr
+---@field JOLLINESS emotion_type_attr
+---@field JOVIALITY emotion_type_attr
+---@field JOY emotion_type_attr
+---@field JUBILATION emotion_type_attr
+---@field LOATHING emotion_type_attr
+---@field LONELINESS emotion_type_attr
+---@field LOVE emotion_type_attr
+---@field LUST emotion_type_attr
+---@field MISERY emotion_type_attr
+---@field MORTIFICATION emotion_type_attr
+---@field NERVOUSNESS emotion_type_attr
+---@field NOSTALGIA emotion_type_attr
+---@field OPTIMISM emotion_type_attr
+---@field OUTRAGE emotion_type_attr
+---@field PANIC emotion_type_attr
+---@field PATIENCE emotion_type_attr
+---@field PASSION emotion_type_attr
+---@field PESSIMISM emotion_type_attr
+---@field PLEASURE emotion_type_attr
+---@field PRIDE emotion_type_attr
+---@field RAGE emotion_type_attr
+---@field RAPTURE emotion_type_attr
+---@field REJECTION emotion_type_attr
+---@field RELIEF emotion_type_attr
+---@field REGRET emotion_type_attr
+---@field REMORSE emotion_type_attr
+---@field REPENTANCE emotion_type_attr
+---@field RESENTMENT emotion_type_attr
+---@field RIGHTEOUS_INDIGNATION emotion_type_attr
+---@field SADNESS emotion_type_attr
+---@field SATISFACTION emotion_type_attr
+---@field SELF_PITY emotion_type_attr
+---@field SERVILE emotion_type_attr
+---@field SHAKEN emotion_type_attr
+---@field SHAME emotion_type_attr
+---@field SHOCK emotion_type_attr
+---@field SUSPICION emotion_type_attr
+---@field SYMPATHY emotion_type_attr
+---@field TENDERNESS emotion_type_attr
+---@field TERROR emotion_type_attr
+---@field THRILL emotion_type_attr
+---@field TRIUMPH emotion_type_attr
+---@field UNEASINESS emotion_type_attr
+---@field UNHAPPINESS emotion_type_attr
+---@field VENGEFULNESS emotion_type_attr
+---@field WONDER emotion_type_attr
+---@field WORRY emotion_type_attr
+---@field WRATH emotion_type_attr
+---@field ZEAL emotion_type_attr
+---@field RESTLESS emotion_type_attr
+---@field ADMIRATION emotion_type_attr
+df.emotion_type.attrs = {}
 
 ---@enum unit_thought_type
 df.unit_thought_type = {
@@ -987,1084 +600,286 @@ df.unit_thought_type = {
 ---@field caption string
 ---@field xml_caption string
 
----@type table<unit_thought_type, unit_thought_type_attr>
-df.unit_thought_type.attrs = {
-  Conflict = {
-    caption = "while in conflict",
-    xml_caption = "conflict",
-  },
-  Trauma = {
-    caption = "after experiencing trauma",
-    xml_caption = "death and injury",
-  },
-  WitnessDeath = {
-    caption = "after seeing somebody die",
-    xml_caption = "witnessed death in incident",
-  },
-  UnexpectedDeath = {
-    caption = "at the unexpected death of [somebody]",
-    xml_caption = "hf died unexpectedly",
-  },
-  Death = {
-    caption = "at somebody's death",
-    xml_caption = "hf is dead",
-  },
-  Kill = {
-    caption = "while killing somebody",
-    xml_caption = "slayer in incident",
-  },
-  LoveSeparated = {
-    caption = "at being separated from a loved one",
-    xml_caption = "separated from hf",
-  },
-  LoveReunited = {
-    caption = "after being reunited with a loved one",
-    xml_caption = "reunited with hf",
-  },
-  JoinConflict = {
-    caption = "when joining an existing conflict",
-    xml_caption = "jump into existing conflict",
-  },
-  MakeMasterwork = {
-    caption = "after producing a masterwork",
-    xml_caption = "produced masterwork",
-  },
-  MadeArtifact = {
-    caption = "after creating an artifact",
-    xml_caption = "produced artifact",
-  },
-  MasterSkill = {
-    caption = "upon mastering [skill]",
-    xml_caption = "mastered skill",
-  },
-  NewRomance = {
-    caption = "as [he] was caught up in a new romance",
-    xml_caption = "fell in love",
-  },
-  BecomeParent = {
-    caption = "after becoming a parent",
-    xml_caption = "became parent",
-  },
-  NearConflict = {
-    caption = "being near to a conflict",
-    xml_caption = "nearby conflict",
-  },
-  CancelAgreement = {
-    caption = "after an agreement was cancelled",
-    xml_caption = "agreement cancelled",
-  },
-  JoinTravel = {
-    caption = "upon joining a traveling group",
-    xml_caption = "being an agreement companion",
-  },
-  SiteControlled = {
-    caption = "after a site was controlled",
-    xml_caption = "entity controls site",
-  },
-  TributeCancel = {
-    caption = "after a tribute cancellation",
-    xml_caption = "entity cancels tribute",
-  },
-  Incident = {
-    caption = "after an incident",
-    xml_caption = "incident",
-  },
-  HearRumor = {
-    caption = "after hearing a rumor",
-    xml_caption = "rumor",
-  },
-  MilitaryRemoved = {
-    caption = "after being removed from a military group",
-    xml_caption = "kicked out of squad",
-  },
-  StrangerWeapon = {
-    caption = "when a stranger advanced with a weapon",
-    xml_caption = "stranger advancing with weapon",
-  },
-  StrangerSneaking = {
-    caption = "after seeing a stranger sneaking around",
-    xml_caption = "stranger sneaking around",
-  },
-  SawDrinkBlood = {
-    caption = "after witnessing a night creature drinking blood",
-    xml_caption = "witnessed blood drinking in incident",
-  },
-  Complained = {
-    caption = "[multiple]",
-    xml_caption = "made complaint",
-  },
-  ReceivedComplaint = {
-    caption = "[multiple]",
-    xml_caption = "listened to complaint",
-  },
-  AdmireBuilding = {
-    caption = "near a [quality] [building]",
-    xml_caption = "admire building",
-  },
-  AdmireOwnBuilding = {
-    caption = "near [his] own [quality] [building]",
-    xml_caption = "admire owned building",
-  },
-  AdmireArrangedBuilding = {
-    caption = "near a [quality] tastefully arranged [building]",
-    xml_caption = "admire arranged building",
-  },
-  AdmireOwnArrangedBuilding = {
-    caption = "near [his] own [quality] tastefully arranged [building]",
-    xml_caption = "admire owned arranged building",
-  },
-  LostPet = {
-    caption = "after losing a pet",
-    xml_caption = "pet lost",
-  },
-  ThrownStuff = {
-    caption = "after throwing something",
-    xml_caption = "threw hauled item in tantrum",
-  },
-  JailReleased = {
-    caption = "after being released from confinement",
-    xml_caption = "freed from prison",
-  },
-  Miscarriage = {
-    caption = "after a miscarriage",
-    xml_caption = "had miscarriage",
-  },
-  SpouseMiscarriage = {
-    caption = "after [his] spouse's miscarriage",
-    xml_caption = "spouse had miscarriage",
-  },
-  OldClothing = {
-    caption = "to be wearing old clothing",
-    xml_caption = "old clothing",
-  },
-  TatteredClothing = {
-    caption = "to be wearing tattered clothing",
-    xml_caption = "tattered clothing",
-  },
-  RottedClothing = {
-    caption = "to have clothes rot off of [his] body",
-    xml_caption = "clothing rots away",
-  },
-  GhostNightmare = {
-    caption = "after being tormented in nightmares by a dead [somebody]",
-    xml_caption = "haunted in dreams",
-  },
-  GhostHaunt = {
-    caption = "after being haunted/tormented/possessed by a dead [somebody]",
-    xml_caption = "haunted",
-  },
-  Spar = {
-    caption = "after a sparring session",
-    xml_caption = "good spar",
-  },
-  UnableComplain = {
-    caption = "after being unable to [meet]",
-    xml_caption = "complaint unregistered",
-  },
-  LongPatrol = {
-    caption = "during long patrol duty",
-    xml_caption = "long patrol",
-  },
-  SunNausea = {
-    caption = "after being nauseated bu the sun",
-    xml_caption = "sun nauseated",
-  },
-  SunIrritated = {
-    caption = "at being out in the sunshine again",
-    xml_caption = "sun irritated",
-  },
-  Drowsy = {
-    caption = "when drowsy",
-    xml_caption = "drowsy",
-  },
-  VeryDrowsy = {
-    caption = "when utterly sleep-deprived",
-    xml_caption = "very drowsy",
-  },
-  Thirsty = {
-    caption = "when thirsty",
-    xml_caption = "thirsty",
-  },
-  Dehydrated = {
-    caption = "when dehydrated",
-    xml_caption = "dehydrated",
-  },
-  Hungry = {
-    caption = "when hungry",
-    xml_caption = "hungry",
-  },
-  Starving = {
-    caption = "when starving",
-    xml_caption = "starving",
-  },
-  MajorInjuries = {
-    caption = "after suffering a major injury",
-    xml_caption = "suffered major injury",
-  },
-  MinorInjuries = {
-    caption = "after suffering a minor injury",
-    xml_caption = "suffered minor injury",
-  },
-  SleepNoise = {
-    caption = "after [varying]",
-    xml_caption = "rough sleep",
-  },
-  Rest = {
-    caption = "after being able to rest and recuperate",
-    xml_caption = "resting",
-  },
-  FreakishWeather = {
-    caption = "when caught in freakish weather",
-    xml_caption = "caught in freakish weather",
-  },
-  Rain = {
-    caption = "when caught in the rain",
-    xml_caption = "caught in rain",
-  },
-  SnowStorm = {
-    caption = "when caught in a snow storm",
-    xml_caption = "caught in snow",
-  },
-  Miasma = {
-    caption = "after retching on a miasma",
-    xml_caption = "caught in miasma",
-  },
-  Smoke = {
-    caption = "after choking on smoke underground",
-    xml_caption = "caught in smoke",
-  },
-  Waterfall = {
-    caption = "being near to a waterfall",
-    xml_caption = "waterfall mist",
-  },
-  Dust = {
-    caption = "after choking on dust underground",
-    xml_caption = "caught in dust",
-  },
-  Demands = {
-    caption = "considering the state of demands",
-    xml_caption = "considering demand",
-  },
-  ImproperPunishment = {
-    caption = "that a criminal could not be properly punished",
-    xml_caption = "punishment of victimizer reduced",
-  },
-  PunishmentReduced = {
-    caption = "to have [his] punishment reduced",
-    xml_caption = "personal punishment reduced",
-  },
-  Elected = {
-    caption = "to be elected",
-    xml_caption = "elected",
-  },
-  Reelected = {
-    caption = "to be re-elected",
-    xml_caption = "reelected",
-  },
-  RequestApproved = {
-    caption = "having a request approved",
-    xml_caption = "request approved",
-  },
-  RequestIgnored = {
-    caption = "having a request ignored",
-    xml_caption = "request ignored",
-  },
-  NoPunishment = {
-    caption = "that nobody could be punished for a failure",
-    xml_caption = "nobody to punish for failed mandate",
-  },
-  PunishmentDelayed = {
-    caption = "to have [his] punishment delayed",
-    xml_caption = "personal punishment delayed",
-  },
-  DelayedPunishment = {
-    caption = "after the delayed punishment of a criminal",
-    xml_caption = "punishment of victimizer delayed",
-  },
-  ScarceCageChain = {
-    caption = "considering the scarcity of cages and chains",
-    xml_caption = "insufficient justice buildings",
-  },
-  MandateIgnored = {
-    caption = "having a mandate ignored",
-    xml_caption = "mandate ignored",
-  },
-  MandateDeadlineMissed = {
-    caption = "having a mandate deadline missed",
-    xml_caption = "mandate only partially completed",
-  },
-  LackWork = {
-    caption = "after the lack of work last season",
-    xml_caption = "insufficient work",
-  },
-  SmashedBuilding = {
-    caption = "after smashing up a building",
-    xml_caption = "destroyed building",
-  },
-  ToppledStuff = {
-    caption = "after toppling something over",
-    xml_caption = "committed vandalism",
-  },
-  NoblePromotion = {
-    caption = "after receiving a higher rank of nobility",
-    xml_caption = "land holder rank increased",
-  },
-  BecomeNoble = {
-    caption = "after entering the nobility",
-    xml_caption = "established as land holder",
-  },
-  Cavein = {
-    caption = "after being knocked out during a cave-in",
-    xml_caption = "knocked out by cavein",
-  },
-  MandateDeadlineMet = {
-    caption = "to have a mandate deadline met",
-    xml_caption = "mandate was obeyed",
-  },
-  Uncovered = {
-    caption = "to be uncovered",
-    xml_caption = "naked",
-  },
-  NoShirt = {
-    caption = "to have no shirt",
-    xml_caption = "no shirt",
-  },
-  NoShoes = {
-    caption = "to have no shoes",
-    xml_caption = "no shoes",
-  },
-  EatPet = {
-    caption = "after being forced to eat a treasured pet to survive",
-    xml_caption = "ate own pet while starving",
-  },
-  EatLikedCreature = {
-    caption = "after being forced to eat a beloved creature to survive",
-    xml_caption = "ate favorite animal while starving",
-  },
-  EatVermin = {
-    caption = "after being forced to eat vermin to survive",
-    xml_caption = "ate vermin while starving",
-  },
-  FistFight = {
-    caption = "after starting a fist fight",
-    xml_caption = "beat somebody up",
-  },
-  GaveBeating = {
-    caption = "after punishing somebody with a beating",
-    xml_caption = "punished somebody with beating",
-  },
-  GotBeaten = {
-    caption = "after being beaten",
-    xml_caption = "punished by beating",
-  },
-  GaveHammering = {
-    caption = "after beating somebody with a hammer",
-    xml_caption = "punished somebody with tool",
-  },
-  GotHammered = {
-    caption = "after being beaten with a hammer",
-    xml_caption = "punished by tool",
-  },
-  NoHammer = {
-    caption = "after being unable to find a hammer",
-    xml_caption = "cannot get punishment tool",
-  },
-  SameFood = {
-    caption = "eating the same old food",
-    xml_caption = "tired of food",
-  },
-  AteRotten = {
-    caption = "after eating rotten food",
-    xml_caption = "eaten rotten food",
-  },
-  GoodMeal = {
-    caption = "after eating [quality food]",
-    xml_caption = "good food",
-  },
-  GoodDrink = {
-    caption = "after having [quality drink]",
-    xml_caption = "good drink",
-  },
-  MoreChests = {
-    caption = "not having enough chests",
-    xml_caption = "do not have enough chests",
-  },
-  MoreCabinets = {
-    caption = "not having enough cabinets",
-    xml_caption = "do not have enough cabinets",
-  },
-  MoreWeaponRacks = {
-    caption = "not having enough weapon racks",
-    xml_caption = "do not have enough weapon racks",
-  },
-  MoreArmorStands = {
-    caption = "not having enough armor stands",
-    xml_caption = "do not have enough armor stands",
-  },
-  RoomPretension = {
-    caption = "by a lesser's pretentious [room] arrangements",
-    xml_caption = "lesser has better room",
-  },
-  LackTables = {
-    caption = "at the lack of dining tables",
-    xml_caption = "eating without table",
-  },
-  CrowdedTables = {
-    caption = "eating at a crowded table",
-    xml_caption = "eating at crowded table",
-  },
-  DiningQuality = {
-    caption = "dining in [a quality] dining room",
-    xml_caption = "eating in dining room",
-  },
-  NoDining = {
-    caption = "being without a proper dining room",
-    xml_caption = "eating without dining room",
-  },
-  LackChairs = {
-    caption = "at the lack of chairs",
-    xml_caption = "eating without chair",
-  },
-  TrainingBond = {
-    caption = "after forming a bond with an animal training partner",
-    xml_caption = "new bonded relationship",
-  },
-  Rescued = {
-    caption = "after being rescued",
-    xml_caption = "was rescued",
-  },
-  RescuedOther = {
-    caption = "after bringing somebody to rest in bed",
-    xml_caption = "rescued somebody",
-  },
-  SatisfiedAtWork = {
-    caption = "at work",
-    xml_caption = "completed job",
-  },
-  TaxedLostProperty = {
-    caption = "after losing property to the tax collector's escorts",
-    xml_caption = "tax escort stole property",
-  },
-  Taxed = {
-    caption = "after being taxed",
-    xml_caption = "lost property to taxes",
-  },
-  LackProtection = {
-    caption = "not having adequate protection",
-    xml_caption = "have inadequate protection",
-  },
-  TaxRoomUnreachable = {
-    caption = "after being unable to reach a room for tax collection",
-    xml_caption = "taxable room inaccessible",
-  },
-  TaxRoomMisinformed = {
-    caption = "after being misinformed about a room for tax collection",
-    xml_caption = "misinformed about taxable room",
-  },
-  PleasedNoble = {
-    caption = "having pleased a noble",
-    xml_caption = "pleased nobility",
-  },
-  TaxCollectionSmooth = {
-    caption = "that the tax collection went smoothly",
-    xml_caption = "tax collector succeeded",
-  },
-  DisappointedNoble = {
-    caption = "having disappointed a noble",
-    xml_caption = "disappointed nobility",
-  },
-  TaxCollectionRough = {
-    caption = "that the tax collection didn't go smoothly",
-    xml_caption = "tax collector failed",
-  },
-  MadeFriend = {
-    caption = "after making a friend",
-    xml_caption = "new buddy",
-  },
-  FormedGrudge = {
-    caption = "after forming a grudge",
-    xml_caption = "new grudge",
-  },
-  AnnoyedVermin = {
-    caption = "after being accosted by [vermin]",
-    xml_caption = "near hated vermin",
-  },
-  NearVermin = {
-    caption = "after being near [vermin]",
-    xml_caption = "near favorite animal",
-  },
-  PesteredVermin = {
-    caption = "after being pestered by [vermin]",
-    xml_caption = "pestered by flying micro vermin",
-  },
-  AcquiredItem = {
-    caption = "after a satisfying acquisition",
-    xml_caption = "acquired item",
-  },
-  AdoptedPet = {
-    caption = "after adopting a new pet",
-    xml_caption = "acquired favorite animal as pet",
-  },
-  Jailed = {
-    caption = "after being confined",
-    xml_caption = "confined",
-  },
-  Bath = {
-    caption = "after a bath",
-    xml_caption = "cleaned self",
-  },
-  SoapyBath = {
-    caption = "after a soapy bath",
-    xml_caption = "cleaned self with soap",
-  },
-  SparringAccident = {
-    caption = "after killing somebody by accident while sparring",
-    xml_caption = "killed somebody in training accident",
-  },
-  Attacked = {
-    caption = "after being attacked",
-    xml_caption = "attacked",
-  },
-  AttackedByDead = {
-    caption = "after being attacked by dead [HF relative]",
-    xml_caption = "attacked by zombie possible relative",
-  },
-  SameBooze = {
-    caption = "drinking the same old booze",
-    xml_caption = "tired of drink",
-  },
-  DrinkBlood = {
-    caption = "while forced to drink bloody water",
-    xml_caption = "drinking blood",
-  },
-  DrinkSlime = {
-    caption = "while forced to drink slime",
-    xml_caption = "drinking slime",
-  },
-  DrinkVomit = {
-    caption = "while forced to drink vomit",
-    xml_caption = "drinking vomit",
-  },
-  DrinkGoo = {
-    caption = "while forced to drink gooey water",
-    xml_caption = "drinking goo",
-  },
-  DrinkIchor = {
-    caption = "while forced to drink ichorous water",
-    xml_caption = "drinking ichor",
-  },
-  DrinkPus = {
-    caption = "while forced to drink purulent water",
-    xml_caption = "drinking pus",
-  },
-  NastyWater = {
-    caption = "drinking nasty water",
-    xml_caption = "drinking nasty",
-  },
-  DrankSpoiled = {
-    caption = "after drinking something spoiled",
-    xml_caption = "drinking rotten",
-  },
-  LackWell = {
-    caption = "after drinking water without a well",
-    xml_caption = "drinking without well",
-  },
-  NearCaged = {
-    caption = "after being near to a [animal] in a cage",
-    xml_caption = "view favorite animal caged",
-  },
-  NearCagedHated = {
-    caption = "after being near to a [animal] in a cage",
-    xml_caption = "view hated vermin caged",
-  },
-  LackBedroom = {
-    caption = "after sleeping without a proper room",
-    xml_caption = "slept without proper room",
-  },
-  BedroomQuality = {
-    caption = "after sleeing in a [quality] bedroom",
-    xml_caption = "slept in room",
-  },
-  SleptFloor = {
-    caption = "after sleeping on the floor",
-    xml_caption = "slept on smooth floor",
-  },
-  SleptMud = {
-    caption = "after sleeping in the mud",
-    xml_caption = "slept in mud",
-  },
-  SleptGrass = {
-    caption = "after sleeping in the grass",
-    xml_caption = "slept on grass",
-  },
-  SleptRoughFloor = {
-    caption = "after sleeping on a rough cave floor",
-    xml_caption = "slept on rough stone",
-  },
-  SleptRocks = {
-    caption = "after sleeping on rocks",
-    xml_caption = "slept on rocks",
-  },
-  SleptIce = {
-    caption = "after sleeping on ice",
-    xml_caption = "slept on ice",
-  },
-  SleptDirt = {
-    caption = "after sleeping in the dirt",
-    xml_caption = "slept on dirt",
-  },
-  SleptDriftwood = {
-    caption = "after sleeping on a pile of driftwood",
-    xml_caption = "slept on driftwood",
-  },
-  ArtDefacement = {
-    caption = "after suffering the travesty of art defacement",
-    xml_caption = "artwork defaced",
-  },
-  Evicted = {
-    caption = "after being evicted",
-    xml_caption = "evicted",
-  },
-  GaveBirth = {
-    caption = "after giving birth to [a baby]",
-    xml_caption = "gave birth",
-  },
-  SpouseGaveBirth = {
-    caption = "after becoming a parent of [a baby]",
-    xml_caption = "gained relative",
-  },
-  ReceivedWater = {
-    caption = "after receiving water",
-    xml_caption = "received water",
-  },
-  GaveWater = {
-    caption = "after giving somebody water",
-    xml_caption = "gave water",
-  },
-  ReceivedFood = {
-    caption = "after receiving food",
-    xml_caption = "received food",
-  },
-  GaveFood = {
-    caption = "after giving somebody food",
-    xml_caption = "gave food",
-  },
-  Talked = {
-    caption = "talking with a [relation]",
-    xml_caption = "relation chat",
-  },
-  OfficeQuality = {
-    caption = "conducted meeting in a [quality] room",
-    xml_caption = "met in room",
-  },
-  MeetingInBedroom = {
-    caption = "having to conduct an official meeting in a bedroom",
-    xml_caption = "official meeting in bedroom",
-  },
-  MeetingInDiningRoom = {
-    caption = "having to conduct an official meeting in a dining room",
-    xml_caption = "official meeting in dining room",
-  },
-  NoRooms = {
-    caption = "not having any rooms",
-    xml_caption = "official meeting without room",
-  },
-  TombQuality = {
-    caption = "having a [quality] tomb after gaining another year",
-    xml_caption = "have tomb",
-  },
-  TombLack = {
-    caption = "about not having a tomb after gaining another year",
-    xml_caption = "have no tomb",
-  },
-  TalkToNoble = {
-    caption = "after talking to a pillar of society",
-    xml_caption = "interacted with community pillar",
-  },
-  InteractPet = {
-    caption = "after interacting with a pet",
-    xml_caption = "interacted with pet",
-  },
-  ConvictionCorpse = {
-    caption = "after a long-dead corpse was convicted of a crime",
-    xml_caption = "dead unit convicted",
-  },
-  ConvictionAnimal = {
-    caption = "after an animal was convicted of a crime",
-    xml_caption = "animal convicted",
-  },
-  ConvictionVictim = {
-    caption = "after the bizarre conviction against all reason of the victim of a crime",
-    xml_caption = "victim convicted",
-  },
-  ConvictionJusticeSelf = {
-    caption = "upon receiving justice through a criminal's conviction",
-    xml_caption = "perpetrator convicted",
-  },
-  ConvictionJusticeFamily = {
-    caption = "when a family member received justice through a criminal's conviction",
-    xml_caption = "perpetrator against family convicted",
-  },
-  Decay = {
-    caption = "after being forced to endure the decay of a [relative]",
-    xml_caption = "body of relation rotted",
-  },
-  NeedsUnfulfilled = {
-    caption = "after [varying]",
-    xml_caption = "unmet needs",
-  },
-  Prayer = {
-    caption = "after communing with [deity]",
-    xml_caption = "pray to hf",
-  },
-  DrinkWithoutCup = {
-    caption = "after having a drink without using a goblet, cup or mug",
-    xml_caption = "drinking without goblet",
-  },
-  ResearchBreakthrough = {
-    caption = "after making a breakthrough concerning [research]",
-    xml_caption = "research breakthrough",
-  },
-  ResearchStalled = {
-    caption = "after being unable to advance the study of [research]",
-    xml_caption = "stuck on research topic",
-  },
-  PonderTopic = {
-    caption = "after pondering [research]",
-    xml_caption = "ponder research topic",
-  },
-  DiscussTopic = {
-    caption = "after discussing [research]",
-    xml_caption = "discuss research topic",
-  },
-  Syndrome = {
-    caption = "due to [syndrome]",
-    xml_caption = "syndrome emotion",
-  },
-  Perform = {
-    caption = "while performing",
-    xml_caption = "performed in incident",
-  },
-  WatchPerform = {
-    caption = "after watching a performance",
-    xml_caption = "saw performance in incident",
-  },
-  RemoveTroupe = {
-    caption = "after being removed from a performance troupe",
-    xml_caption = "kicked out of troupe",
-  },
-  LearnTopic = {
-    caption = "after learning about [topic]",
-    xml_caption = "learned scholar flag",
-  },
-  LearnSkill = {
-    caption = "after learning about [skill]",
-    xml_caption = "learned skill",
-  },
-  LearnBook = {
-    caption = "after learning [book]",
-    xml_caption = "learned written content",
-  },
-  LearnInteraction = {
-    caption = "after learning [interaction]",
-    xml_caption = "learned interaction",
-  },
-  LearnPoetry = {
-    caption = "after learning [poetic form]",
-    xml_caption = "learned poetic form",
-  },
-  LearnMusic = {
-    caption = "after learning [musical form]",
-    xml_caption = "learned musical form",
-  },
-  LearnDance = {
-    caption = "after learning [dance form]",
-    xml_caption = "learned dance form",
-  },
-  TeachTopic = {
-    caption = "after teaching [topic]",
-    xml_caption = "taught scholar flag",
-  },
-  TeachSkill = {
-    caption = "after teaching [skill]",
-    xml_caption = "taught skill",
-  },
-  ReadBook = {
-    caption = "after reading [book]",
-    xml_caption = "read written content",
-  },
-  WriteBook = {
-    caption = "after writing [book]",
-    xml_caption = "wrote written content",
-  },
-  BecomeResident = {
-    caption = "afer being granted residency",
-    xml_caption = "residency petition accepted",
-  },
-  BecomeCitizen = {
-    caption = "after being granted citizenship",
-    xml_caption = "citizenship petition accepted",
-  },
-  DenyResident = {
-    caption = "after being denied residency",
-    xml_caption = "residency petition rejected",
-  },
-  DenyCitizen = {
-    caption = "after being denied citizenship",
-    xml_caption = "citizenship petition rejected",
-  },
-  LeaveTroupe = {
-    caption = "after leaving a performance troupe",
-    xml_caption = "left troupe",
-  },
-  MakeBelieve = {
-    caption = "after playing make believe",
-    xml_caption = "make believe",
-  },
-  PlayToy = {
-    caption = "after playing with [a toy]",
-    xml_caption = "play with toy",
-  },
-  DreamAbout = {
-    xml_caption = "dream about hf",
-  },
-  Dream = {
-    xml_caption = "dream",
-  },
-  Nightmare = {
-    xml_caption = "nightmare",
-  },
-  Argument = {
-    caption = "after getting into an argument",
-    xml_caption = "argument",
-  },
-  CombatDrills = {
-    caption = "after combat drills",
-    xml_caption = "did individual melee drills",
-  },
-  ArcheryPractice = {
-    caption = "after practicing at the archery target",
-    xml_caption = "did ranged practice",
-  },
-  ImproveSkill = {
-    caption = "upon improving [skill]",
-    xml_caption = "improved skill",
-  },
-  WearItem = {
-    caption = "after putting on a [quality] item",
-    xml_caption = "put on quality worn item",
-  },
-  RealizeValue = {
-    caption = "after realizing the [level] of [value]",
-    xml_caption = "change personality value",
-  },
-  OpinionStoryteller = {
-    xml_caption = "active performance storyteller",
-  },
-  OpinionRecitation = {
-    xml_caption = "active performance poem reciter",
-  },
-  OpinionInstrumentSimulation = {
-    xml_caption = "active performance simulated instrument",
-  },
-  OpinionInstrumentPlayer = {
-    xml_caption = "active performance instrument",
-  },
-  OpinionSinger = {
-    xml_caption = "active performance singer",
-  },
-  OpinionChanter = {
-    xml_caption = "active performance chanter",
-  },
-  OpinionDancer = {
-    xml_caption = "active performance dancer",
-  },
-  OpinionStory = {
-    xml_caption = "active story event",
-  },
-  OpinionPoetry = {
-    xml_caption = "active poetic form",
-  },
-  OpinionMusic = {
-    xml_caption = "active musical form",
-  },
-  OpinionDance = {
-    xml_caption = "active dance form",
-  },
-  Defeated = {
-    xml_caption = "defeated hf",
-  },
-  FavoritePossession = {
-    xml_caption = "item was favorite possession",
-  },
-  PreserveBody = {
-    xml_caption = "by preserving part of body",
-  },
-  Murdered = {
-    xml_caption = "murdered hf",
-  },
-  HistEventCollection = {
-    xml_caption = "historical event collection",
-  },
-  ViewOwnDisplay = {
-    xml_caption = "viewed item in own display",
-  },
-  ViewDisplay = {
-    xml_caption = "viewed displayed item",
-  },
-  AcquireArtifact = {
-    xml_caption = "acquired artifact",
-  },
-  DenySanctuary = {
-    xml_caption = "turned child away from sanctuary",
-  },
-  CaughtSneaking = {
-    xml_caption = "caught sneaking last stand",
-  },
-  GaveArtifact = {
-    xml_caption = "claimed artifact given away",
-  },
-  SawDeadBody = {
-    caption = "saw [somebody]'s dead body",
-    xml_caption = "saw a dead body",
-  },
-  Expelled = {
-    caption = "after being expelled",
-    xml_caption = "expelled",
-  },
-  RelativeExpelled = {
-    caption = "after [somebody] was expelled",
-    xml_caption = "relative expelled",
-  },
-  PromisedVampireImmortality = {
-    xml_caption = "preying on civilized for blood",
-  },
-  PromisedNecroImmortality = {
-    xml_caption = "unnaturally ageless",
-  },
-  SiteLecture = {
-    caption = "after watching a lecture in [site]",
-    xml_caption = "scholarly lecture in site",
-  },
-  SitePerformance = {
-    caption = "after watching a performance in [site]",
-    xml_caption = "performance in site",
-  },
-  AcceptedBribe = {
-    caption = "after accepting bribes in exchange for leniency",
-    xml_caption = "accepting bribes for leniency",
-  },
-  EmbezzledFunds = {
-    caption = "after embezzling funds",
-    xml_caption = "embezzling funds from position",
-  },
-  CutOfCorruptFunds = {
-    caption = "after receiving a cut of corruptly-obtained funds",
-    xml_caption = "cut of corrupt funds",
-  },
-  Abducted = {
-    caption = "after abducting [somebody]",
-    xml_caption = "abducted hf",
-  },
-  FromAfar = {
-    caption = "from afar",
-    xml_caption = "from afar",
-  },
-  AcceptedTemplePetition = {
-    caption = "after the acceptance of a petition for a temple for [entity]",
-    xml_caption = "temple petition accepted",
-  },
-  EstablishedTemple = {
-    caption = "after the establishment of a temple for [entity]",
-    xml_caption = "entity temple recognition",
-  },
-  RejectedTemplePetition = {
-    xml_caption = "guildhall petition accepted",
-  },
-  IgnoredTemplePetition = {
-    xml_caption = "guildhall petition accepted",
-  },
-  AbandonedTemplePetition = {
-    xml_caption = "guildhall petition accepted",
-  },
-  DeferredToSuperior = {
-    xml_caption = "is entity subordinate",
-  },
-  AcceptedGuildhallPetition = {
-    caption = "after the acceptance of a petition for a guildhall for [entity]",
-    xml_caption = "guildhall petition accepted",
-  },
-  EstablishedGuildhallPetition = {
-    caption = "after the establishment of a guildhall for [entity]",
-    xml_caption = "entity temple recognition",
-  },
-  RejectedGuildhallPetition = {
-    xml_caption = "",
-  },
-  IgnoredGuildhallPetition = {
-    xml_caption = "",
-  },
-  AbandonedGuildhallPetition = {
-    xml_caption = "",
-  },
-  InfiltrationMission = {
-    caption = "during an infiltration mission",
-    xml_caption = "during an infilitration mission",
-  },
-  BreakUp = {
-    caption = "after a break up",
-    xml_caption = "broke up with lover",
-  },
-  Divorce = {
-    caption = "after getting divorced",
-    xml_caption = "divorced",
-  },
-  Unk266 = {
-    xml_caption = "active performance preacher",
-  },
-  Unk267 = {
-    xml_caption = "active sermon worship hfid",
-  },
-  Unk268 = {
-    xml_caption = "active sermon sphere",
-  },
-  Unk269 = {
-    xml_caption = "active sermon promote value",
-  },
-  Unk270 = {
-    xml_caption = "active sermon refuse value",
-  },
-  IntellectualDiscussion = {
-    caption = "having an intellectual discussion with [somebody]",
-    xml_caption = "relation abstract chat",
-  },
-  SharePersonalInsight = {
-    caption = "sharing a personal insight with [somebody]",
-    xml_caption = "relation gave personal chat",
-  },
-  ShareOthersPersonalInsight = {
-    caption = "sharing [somebody]'s personal insight",
-    xml_caption = "relation received personal chat",
-  },
-  DiscussProblems = {
-    caption = "discussing their problems with [somebody]",
-    xml_caption = "relation gave stress complaint chat",
-  },
-  DiscussOthersProblems = {
-    caption = "discussing [somebody]'s problems",
-    xml_caption = "relation received stress complaint chat",
-  },
-  PerformedRiteDedicatedTemple = {
-    caption = "performing the rites of [entity] in a dedicated temple",
-  },
-  PerformedRiteImproperlyDedicatedTemple = {
-    caption = "incompletely performing the rites of [entity] in an improperly dedicated temple",
-  },
-  PerformedRiteUndedicatedTemple = {
-    caption = "incompletely performing the rites of [entity] in an undedicated temple",
-  },
-  PrayedDedicatedTemple = {
-    caption = "communing with [histfig] in a dedicated temple",
-  },
-}
+---@class unit_thought_type_attrs
+---@field Conflict unit_thought_type_attr
+---@field Trauma unit_thought_type_attr
+---@field WitnessDeath unit_thought_type_attr
+---@field UnexpectedDeath unit_thought_type_attr
+---@field Death unit_thought_type_attr
+---@field Kill unit_thought_type_attr
+---@field LoveSeparated unit_thought_type_attr
+---@field LoveReunited unit_thought_type_attr
+---@field JoinConflict unit_thought_type_attr
+---@field MakeMasterwork unit_thought_type_attr
+---@field MadeArtifact unit_thought_type_attr
+---@field MasterSkill unit_thought_type_attr
+---@field NewRomance unit_thought_type_attr
+---@field BecomeParent unit_thought_type_attr
+---@field NearConflict unit_thought_type_attr
+---@field CancelAgreement unit_thought_type_attr
+---@field JoinTravel unit_thought_type_attr
+---@field SiteControlled unit_thought_type_attr
+---@field TributeCancel unit_thought_type_attr
+---@field Incident unit_thought_type_attr
+---@field HearRumor unit_thought_type_attr
+---@field MilitaryRemoved unit_thought_type_attr
+---@field StrangerWeapon unit_thought_type_attr
+---@field StrangerSneaking unit_thought_type_attr
+---@field SawDrinkBlood unit_thought_type_attr
+---@field Complained unit_thought_type_attr
+---@field ReceivedComplaint unit_thought_type_attr
+---@field AdmireBuilding unit_thought_type_attr
+---@field AdmireOwnBuilding unit_thought_type_attr
+---@field AdmireArrangedBuilding unit_thought_type_attr
+---@field AdmireOwnArrangedBuilding unit_thought_type_attr
+---@field LostPet unit_thought_type_attr
+---@field ThrownStuff unit_thought_type_attr
+---@field JailReleased unit_thought_type_attr
+---@field Miscarriage unit_thought_type_attr
+---@field SpouseMiscarriage unit_thought_type_attr
+---@field OldClothing unit_thought_type_attr
+---@field TatteredClothing unit_thought_type_attr
+---@field RottedClothing unit_thought_type_attr
+---@field GhostNightmare unit_thought_type_attr
+---@field GhostHaunt unit_thought_type_attr
+---@field Spar unit_thought_type_attr
+---@field UnableComplain unit_thought_type_attr
+---@field LongPatrol unit_thought_type_attr
+---@field SunNausea unit_thought_type_attr
+---@field SunIrritated unit_thought_type_attr
+---@field Drowsy unit_thought_type_attr
+---@field VeryDrowsy unit_thought_type_attr
+---@field Thirsty unit_thought_type_attr
+---@field Dehydrated unit_thought_type_attr
+---@field Hungry unit_thought_type_attr
+---@field Starving unit_thought_type_attr
+---@field MajorInjuries unit_thought_type_attr
+---@field MinorInjuries unit_thought_type_attr
+---@field SleepNoise unit_thought_type_attr
+---@field Rest unit_thought_type_attr
+---@field FreakishWeather unit_thought_type_attr
+---@field Rain unit_thought_type_attr
+---@field SnowStorm unit_thought_type_attr
+---@field Miasma unit_thought_type_attr
+---@field Smoke unit_thought_type_attr
+---@field Waterfall unit_thought_type_attr
+---@field Dust unit_thought_type_attr
+---@field Demands unit_thought_type_attr
+---@field ImproperPunishment unit_thought_type_attr
+---@field PunishmentReduced unit_thought_type_attr
+---@field Elected unit_thought_type_attr
+---@field Reelected unit_thought_type_attr
+---@field RequestApproved unit_thought_type_attr
+---@field RequestIgnored unit_thought_type_attr
+---@field NoPunishment unit_thought_type_attr
+---@field PunishmentDelayed unit_thought_type_attr
+---@field DelayedPunishment unit_thought_type_attr
+---@field ScarceCageChain unit_thought_type_attr
+---@field MandateIgnored unit_thought_type_attr
+---@field MandateDeadlineMissed unit_thought_type_attr
+---@field LackWork unit_thought_type_attr
+---@field SmashedBuilding unit_thought_type_attr
+---@field ToppledStuff unit_thought_type_attr
+---@field NoblePromotion unit_thought_type_attr
+---@field BecomeNoble unit_thought_type_attr
+---@field Cavein unit_thought_type_attr
+---@field MandateDeadlineMet unit_thought_type_attr
+---@field Uncovered unit_thought_type_attr
+---@field NoShirt unit_thought_type_attr
+---@field NoShoes unit_thought_type_attr
+---@field EatPet unit_thought_type_attr
+---@field EatLikedCreature unit_thought_type_attr
+---@field EatVermin unit_thought_type_attr
+---@field FistFight unit_thought_type_attr
+---@field GaveBeating unit_thought_type_attr
+---@field GotBeaten unit_thought_type_attr
+---@field GaveHammering unit_thought_type_attr
+---@field GotHammered unit_thought_type_attr
+---@field NoHammer unit_thought_type_attr
+---@field SameFood unit_thought_type_attr
+---@field AteRotten unit_thought_type_attr
+---@field GoodMeal unit_thought_type_attr
+---@field GoodDrink unit_thought_type_attr
+---@field MoreChests unit_thought_type_attr
+---@field MoreCabinets unit_thought_type_attr
+---@field MoreWeaponRacks unit_thought_type_attr
+---@field MoreArmorStands unit_thought_type_attr
+---@field RoomPretension unit_thought_type_attr
+---@field LackTables unit_thought_type_attr
+---@field CrowdedTables unit_thought_type_attr
+---@field DiningQuality unit_thought_type_attr
+---@field NoDining unit_thought_type_attr
+---@field LackChairs unit_thought_type_attr
+---@field TrainingBond unit_thought_type_attr
+---@field Rescued unit_thought_type_attr
+---@field RescuedOther unit_thought_type_attr
+---@field SatisfiedAtWork unit_thought_type_attr
+---@field TaxedLostProperty unit_thought_type_attr
+---@field Taxed unit_thought_type_attr
+---@field LackProtection unit_thought_type_attr
+---@field TaxRoomUnreachable unit_thought_type_attr
+---@field TaxRoomMisinformed unit_thought_type_attr
+---@field PleasedNoble unit_thought_type_attr
+---@field TaxCollectionSmooth unit_thought_type_attr
+---@field DisappointedNoble unit_thought_type_attr
+---@field TaxCollectionRough unit_thought_type_attr
+---@field MadeFriend unit_thought_type_attr
+---@field FormedGrudge unit_thought_type_attr
+---@field AnnoyedVermin unit_thought_type_attr
+---@field NearVermin unit_thought_type_attr
+---@field PesteredVermin unit_thought_type_attr
+---@field AcquiredItem unit_thought_type_attr
+---@field AdoptedPet unit_thought_type_attr
+---@field Jailed unit_thought_type_attr
+---@field Bath unit_thought_type_attr
+---@field SoapyBath unit_thought_type_attr
+---@field SparringAccident unit_thought_type_attr
+---@field Attacked unit_thought_type_attr
+---@field AttackedByDead unit_thought_type_attr
+---@field SameBooze unit_thought_type_attr
+---@field DrinkBlood unit_thought_type_attr
+---@field DrinkSlime unit_thought_type_attr
+---@field DrinkVomit unit_thought_type_attr
+---@field DrinkGoo unit_thought_type_attr
+---@field DrinkIchor unit_thought_type_attr
+---@field DrinkPus unit_thought_type_attr
+---@field NastyWater unit_thought_type_attr
+---@field DrankSpoiled unit_thought_type_attr
+---@field LackWell unit_thought_type_attr
+---@field NearCaged unit_thought_type_attr
+---@field NearCagedHated unit_thought_type_attr
+---@field LackBedroom unit_thought_type_attr
+---@field BedroomQuality unit_thought_type_attr
+---@field SleptFloor unit_thought_type_attr
+---@field SleptMud unit_thought_type_attr
+---@field SleptGrass unit_thought_type_attr
+---@field SleptRoughFloor unit_thought_type_attr
+---@field SleptRocks unit_thought_type_attr
+---@field SleptIce unit_thought_type_attr
+---@field SleptDirt unit_thought_type_attr
+---@field SleptDriftwood unit_thought_type_attr
+---@field ArtDefacement unit_thought_type_attr
+---@field Evicted unit_thought_type_attr
+---@field GaveBirth unit_thought_type_attr
+---@field SpouseGaveBirth unit_thought_type_attr
+---@field ReceivedWater unit_thought_type_attr
+---@field GaveWater unit_thought_type_attr
+---@field ReceivedFood unit_thought_type_attr
+---@field GaveFood unit_thought_type_attr
+---@field Talked unit_thought_type_attr
+---@field OfficeQuality unit_thought_type_attr
+---@field MeetingInBedroom unit_thought_type_attr
+---@field MeetingInDiningRoom unit_thought_type_attr
+---@field NoRooms unit_thought_type_attr
+---@field TombQuality unit_thought_type_attr
+---@field TombLack unit_thought_type_attr
+---@field TalkToNoble unit_thought_type_attr
+---@field InteractPet unit_thought_type_attr
+---@field ConvictionCorpse unit_thought_type_attr
+---@field ConvictionAnimal unit_thought_type_attr
+---@field ConvictionVictim unit_thought_type_attr
+---@field ConvictionJusticeSelf unit_thought_type_attr
+---@field ConvictionJusticeFamily unit_thought_type_attr
+---@field Decay unit_thought_type_attr
+---@field NeedsUnfulfilled unit_thought_type_attr
+---@field Prayer unit_thought_type_attr
+---@field DrinkWithoutCup unit_thought_type_attr
+---@field ResearchBreakthrough unit_thought_type_attr
+---@field ResearchStalled unit_thought_type_attr
+---@field PonderTopic unit_thought_type_attr
+---@field DiscussTopic unit_thought_type_attr
+---@field Syndrome unit_thought_type_attr
+---@field Perform unit_thought_type_attr
+---@field WatchPerform unit_thought_type_attr
+---@field RemoveTroupe unit_thought_type_attr
+---@field LearnTopic unit_thought_type_attr
+---@field LearnSkill unit_thought_type_attr
+---@field LearnBook unit_thought_type_attr
+---@field LearnInteraction unit_thought_type_attr
+---@field LearnPoetry unit_thought_type_attr
+---@field LearnMusic unit_thought_type_attr
+---@field LearnDance unit_thought_type_attr
+---@field TeachTopic unit_thought_type_attr
+---@field TeachSkill unit_thought_type_attr
+---@field ReadBook unit_thought_type_attr
+---@field WriteBook unit_thought_type_attr
+---@field BecomeResident unit_thought_type_attr
+---@field BecomeCitizen unit_thought_type_attr
+---@field DenyResident unit_thought_type_attr
+---@field DenyCitizen unit_thought_type_attr
+---@field LeaveTroupe unit_thought_type_attr
+---@field MakeBelieve unit_thought_type_attr
+---@field PlayToy unit_thought_type_attr
+---@field DreamAbout unit_thought_type_attr
+---@field Dream unit_thought_type_attr
+---@field Nightmare unit_thought_type_attr
+---@field Argument unit_thought_type_attr
+---@field CombatDrills unit_thought_type_attr
+---@field ArcheryPractice unit_thought_type_attr
+---@field ImproveSkill unit_thought_type_attr
+---@field WearItem unit_thought_type_attr
+---@field RealizeValue unit_thought_type_attr
+---@field OpinionStoryteller unit_thought_type_attr
+---@field OpinionRecitation unit_thought_type_attr
+---@field OpinionInstrumentSimulation unit_thought_type_attr
+---@field OpinionInstrumentPlayer unit_thought_type_attr
+---@field OpinionSinger unit_thought_type_attr
+---@field OpinionChanter unit_thought_type_attr
+---@field OpinionDancer unit_thought_type_attr
+---@field OpinionStory unit_thought_type_attr
+---@field OpinionPoetry unit_thought_type_attr
+---@field OpinionMusic unit_thought_type_attr
+---@field OpinionDance unit_thought_type_attr
+---@field Defeated unit_thought_type_attr
+---@field FavoritePossession unit_thought_type_attr
+---@field PreserveBody unit_thought_type_attr
+---@field Murdered unit_thought_type_attr
+---@field HistEventCollection unit_thought_type_attr
+---@field ViewOwnDisplay unit_thought_type_attr
+---@field ViewDisplay unit_thought_type_attr
+---@field AcquireArtifact unit_thought_type_attr
+---@field DenySanctuary unit_thought_type_attr
+---@field CaughtSneaking unit_thought_type_attr
+---@field GaveArtifact unit_thought_type_attr
+---@field SawDeadBody unit_thought_type_attr
+---@field Expelled unit_thought_type_attr
+---@field RelativeExpelled unit_thought_type_attr
+---@field PromisedVampireImmortality unit_thought_type_attr
+---@field PromisedNecroImmortality unit_thought_type_attr
+---@field SiteLecture unit_thought_type_attr
+---@field SitePerformance unit_thought_type_attr
+---@field AcceptedBribe unit_thought_type_attr
+---@field EmbezzledFunds unit_thought_type_attr
+---@field CutOfCorruptFunds unit_thought_type_attr
+---@field Abducted unit_thought_type_attr
+---@field FromAfar unit_thought_type_attr
+---@field AcceptedTemplePetition unit_thought_type_attr
+---@field EstablishedTemple unit_thought_type_attr
+---@field RejectedTemplePetition unit_thought_type_attr
+---@field IgnoredTemplePetition unit_thought_type_attr
+---@field AbandonedTemplePetition unit_thought_type_attr
+---@field DeferredToSuperior unit_thought_type_attr
+---@field AcceptedGuildhallPetition unit_thought_type_attr
+---@field EstablishedGuildhallPetition unit_thought_type_attr
+---@field RejectedGuildhallPetition unit_thought_type_attr
+---@field IgnoredGuildhallPetition unit_thought_type_attr
+---@field AbandonedGuildhallPetition unit_thought_type_attr
+---@field InfiltrationMission unit_thought_type_attr
+---@field BreakUp unit_thought_type_attr
+---@field Divorce unit_thought_type_attr
+---@field Unk266 unit_thought_type_attr
+---@field Unk267 unit_thought_type_attr
+---@field Unk268 unit_thought_type_attr
+---@field Unk269 unit_thought_type_attr
+---@field Unk270 unit_thought_type_attr
+---@field IntellectualDiscussion unit_thought_type_attr
+---@field SharePersonalInsight unit_thought_type_attr
+---@field ShareOthersPersonalInsight unit_thought_type_attr
+---@field DiscussProblems unit_thought_type_attr
+---@field DiscussOthersProblems unit_thought_type_attr
+---@field PerformedRiteDedicatedTemple unit_thought_type_attr
+---@field PerformedRiteImproperlyDedicatedTemple unit_thought_type_attr
+---@field PerformedRiteUndedicatedTemple unit_thought_type_attr
+---@field PrayedDedicatedTemple unit_thought_type_attr
+df.unit_thought_type.attrs = {}
 

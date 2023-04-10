@@ -1,63 +1,5 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
-
----@class job_material_category
----@field plant boolean
----@field wood boolean # wood log
----@field cloth boolean
----@field silk boolean
----@field leather boolean
----@field bone boolean
----@field shell boolean
----@field wood2 boolean # wood material
----@field soap boolean
----@field tooth boolean
----@field horn boolean
----@field pearl boolean
----@field yarn boolean
----@field strand boolean
-df.job_material_category = {}
-
----@class dfhack_material_category
----@field plant boolean
----@field wood boolean
----@field cloth boolean
----@field silk boolean
----@field leather boolean
----@field bone boolean
----@field shell boolean
----@field wood2 boolean
----@field soap boolean
----@field tooth boolean
----@field horn boolean
----@field pearl boolean
----@field yarn boolean
----@field strand boolean
----@field metal boolean
----@field stone boolean
----@field sand boolean
----@field glass boolean
----@field clay boolean
----@field milk boolean
-df.dfhack_material_category = {}
-
----@class job_flags
----@field repeat boolean
----@field suspend boolean
----@field working boolean # not for food, or store in sp
----@field fetching boolean # Actually going out to bring; corresponds to items->is_fetching
----@field special boolean # Sleep/Drink/Eat/Clean; cannot be aborted via the ui
----@field bringing boolean
----@field item_lost boolean # set when a Hauled item is removed; causes cancel
----@field noise boolean # on the sleep job causes thoughts
----@field by_manager boolean
----@field store_item boolean
----@field quality boolean # set by improvement code
----@field specific_dropoff boolean # for some jobs, blocks auto-restockpiling of the hauled item
----@field unk_12 boolean
----@field on_break boolean # job displayed as On Break
----@field unk_14 boolean
----@field do_now boolean
-df.job_flags = {}
 
 ---@enum job_subtype_surgery
 df.job_subtype_surgery = {
@@ -70,24 +12,24 @@ df.job_subtype_surgery = {
 ---@class job
 ---@field id integer
 ---@field list_link job_list_link
----@field posting_index integer # index into world.job_postings
+---@field posting_index integer index into world.job_postings
 ---@field job_type job_type
 ---@field job_subtype integer
 ---@field pos coord
----@field completion_timer integer # -1 every time unit.counters.job_counter is below 0
----@field unk4 integer # garbage, but serialized
+---@field completion_timer integer -1 every time unit.counters.job_counter is below 0
+---@field unk4 integer garbage, but serialized
 ---@field flags job_flags
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field unk5 integer
----@field item_type item_type # for Bait Trap jobs
----@field item_subtype integer # when StoreInStockpile this is a unit_labor
+---@field item_type item_type for Bait Trap jobs
+---@field item_subtype integer when StoreInStockpile this is a unit_labor
 ---@field item_category stockpile_group_set
 ---@field material_category job_material_category
 ---@field reaction_name string
----@field expire_timer integer # for stockpiling, +1 per 50 ticks if no worker; del when 20
----@field recheck_cntdn integer # for process_jobs
----@field wait_timer integer # for units to leave build sites; to recheck stockpiles
+---@field expire_timer integer for stockpiling, +1 per 50 ticks if no worker; del when 20
+---@field recheck_cntdn integer for process_jobs
+---@field wait_timer integer for units to leave build sites; to recheck stockpiles
 ---@field unk11 integer
 ---@field items job_item_ref[]
 ---@field specific_refs specific_ref[]
@@ -101,95 +43,9 @@ df.job_subtype_surgery = {
 
 ---@class job_item_ref
 ---@field item item
----@field role any
----@field is_fetching integer # 0 immediately once taken to be brought
+---@field role enum
+---@field is_fetching integer 0 immediately once taken to be brought
 ---@field job_item_idx integer
-
----@class job_item_flags1
----@field improvable boolean # vtable[155]:eax,-1,-1
----@field butcherable boolean # (call 0074c6d0)
----@field millable boolean # vtable[79]
----@field allow_buryable boolean # ALLOW items with flag "dead_dwarf"
----@field unrotten boolean # check for item flag "rotten"
----@field undisturbed boolean # check for item flag "spider_web"
----@field collected boolean # check for item flag "spider_web"
----@field sharpenable boolean # vtable[25]
----@field murdered boolean # check for item flag
----@field distillable boolean # vtable[105],1
----@field empty boolean # (call 00753a40)
----@field processable boolean # vtable[80]
----@field bag boolean # vtable[131]
----@field cookable boolean # (call 00753fe0)
----@field extract_bearing_plant boolean # vtable[164]
----@field extract_bearing_fish boolean # vtable[181]
----@field extract_bearing_vermin boolean # vtable[182]
----@field processable_to_vial boolean # vtable[81]
----@field processable_to_bag boolean # vtable[82]
----@field processable_to_barrel boolean # vtable[83]
----@field solid boolean # vtable[74]
----@field tameable_vermin boolean # vtable[104]
----@field nearby boolean
----@field sand_bearing boolean # vtable[108]
----@field glass boolean # check for material flag IS_GLASS
----@field milk boolean # (call 00753d30 - check if material has CHEESE_MAT?)
----@field milkable boolean # vtable[107],1,1
----@field finished_goods boolean
----@field ammo boolean
----@field furniture boolean
----@field not_bin boolean
----@field lye_bearing boolean
-df.job_item_flags1 = {}
-
----@class job_item_flags2
----@field dye boolean # vtable[106]
----@field dyeable boolean # vtable[159]
----@field dyed boolean # vtable[161]
----@field sewn_imageless boolean # vtable[162]
----@field glass_making boolean # vtable[26]
----@field screw boolean # vtable[46]
----@field building_material boolean # vtable[47]
----@field fire_safe boolean # vtable[48],1
----@field magma_safe boolean # vtable[48],2
----@field deep_material boolean # check for inorganic material flag DEEP
----@field melt_designated boolean # check for item flag "melt"
----@field non_economic boolean # (call 0076be60)
----@field allow_melt_dump boolean # item can be designated for melting or dumping
----@field allow_artifact boolean # item can be artifact
----@field plant boolean # check if material is a PLANT_MAT
----@field silk boolean # check for material flag SILK
----@field leather boolean # check for material flag LEATHER
----@field bone boolean # check for material flag BONE
----@field shell boolean # check for material flag SHELL
----@field totemable boolean # vtable[158]
----@field horn boolean # check for material flag HORN
----@field pearl boolean # check for material flag PEARL
----@field plaster_containing boolean # vtable[17]
----@field unk_23 boolean
----@field soap boolean # check for material flag SOAP
----@field body_part boolean # itemtype CORPSE or CORPSEPIECE
----@field ivory_tooth boolean # check for material flag TOOTH
----@field lye_milk_free boolean # (call 00759110)
----@field blunt boolean # vtable[157]
----@field unengraved boolean # vtable[214]
----@field hair_wool boolean # ??? (pretty sure this is [ANY_STRAND_TISSUE])
----@field yarn boolean # check for material flag YARN
-df.job_item_flags2 = {}
-
----@class job_item_flags3
----@field unimproved boolean # vtable[176]
----@field any_raw_material boolean # itemtype BAR, BOULDER, POWDER_MISC, or GLOB
----@field non_absorbent boolean # vtable[215]
----@field non_pressed boolean # vtable[91]
----@field allow_liquid_powder boolean
----@field any_craft boolean # FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
----@field hard boolean # check for material flag ITEMS_HARD
----@field food_storage boolean # vtable[15]
----@field metal boolean
----@field sand boolean
----@field unk_10 boolean
----@field written_on boolean
----@field edged boolean
-df.job_item_flags3 = {}
 
 ---@class job_item
 ---@field item_type item_type
@@ -206,9 +62,9 @@ df.job_item_flags3 = {}
 ---@field metal_ore integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field min_dimension integer # pure guess by context
+---@field min_dimension integer pure guess by context
 ---@field reagent_index integer
----@field contains integer[] # used with custom reactions
+---@field contains integer[] used with custom reactions
 ---@field reaction_id integer
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 integer
@@ -222,7 +78,7 @@ df.job_item_flags3 = {}
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field flags1 job_item_flags1
----@field item_vector any
+---@field item_vector item[]
 ---@field use_mat_index boolean
 ---@field flags2 job_item_flags2
 ---@field use_flags2 boolean
@@ -244,24 +100,19 @@ df.job_item_flags3 = {}
 ---@field use_contains boolean
 ---@field has_tool_use tool_uses
 ---@field has_melee_skill job_skill
----@field unk_v40_1 integer # noticed in v0.40.24
+---@field unk_v40_1 integer noticed in v0.40.24
 ---@field pos coord
 ---@field unit unit
 ---@field job job
 ---@field building building
----@field unk_74 any
+---@field unk_74 pointer
 ---@field unk_v4305_1 integer
 ---@field burrows integer[]
 ---@field use_burrows boolean
----@field take_from any
-
----@class manager_order_status
----@field validated boolean
----@field active boolean
-df.manager_order_status = {}
+---@field take_from building[]
 
 ---@class job_art_specification
----@field type any
+---@field type enum
 ---@field id integer
 ---@field subid integer
 
@@ -280,17 +131,17 @@ df.manager_order_status = {}
 ---@field amount_left integer
 ---@field amount_total integer
 ---@field status manager_order_status
----@field frequency any
+---@field frequency enum
 ---@field finished_year integer
 ---@field finished_year_tick integer
 ---@field workshop_id integer
----@field max_workshops integer # 0 is unlimited
+---@field max_workshops integer 0 is unlimited
 ---@field item_conditions manager_order_condition_item[]
 ---@field order_conditions manager_order_condition_order[]
----@field items any
+---@field items job_item[]
 
 ---@class manager_order_condition_item
----@field compare_type any
+---@field compare_type enum
 ---@field compare_val integer
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -311,17 +162,18 @@ df.manager_order_status = {}
 
 ---@class manager_order_condition_order
 ---@field order_id integer
----@field condition any
+---@field condition enum
 ---@field unk_1 integer
 
 ---@class manager_order_template
+---jminfost
 ---@field job_type job_type
 ---@field reaction_name string
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
----@field item_category stockpile_group_set # specflag
+---@field item_category stockpile_group_set specflag
 ---@field hist_figure_id integer
 ---@field material_category job_material_category
 ---@field match_value integer
@@ -331,15 +183,15 @@ df.manager_order_status = {}
 
 ---@class mandate
 ---@field unit unit
----@field mode any
+---@field mode enum
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field amount_total integer
 ---@field amount_remaining integer
----@field timeout_counter integer # counts once per 10 frames
----@field timeout_limit integer # once counter passes limit, mandate ends
+---@field timeout_counter integer counts once per 10 frames
+---@field timeout_limit integer once counter passes limit, mandate ends
 ---@field punishment mandate_punishment
 ---@field punish_multiple integer
 ---@field unk4 integer
@@ -352,15 +204,156 @@ df.manager_order_status = {}
 ---@class training_assignment
 ---@field animal_id integer
 ---@field trainer_id integer
----@field flags any
+---@field flags bitfield
 
 ---@class unit_demand
 ---@field unk_0 integer
----@field place any
+---@field place enum
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
----@field timeout_counter integer # counts once per 10 frames
----@field timeout_limit integer # once counter passes limit, mandate ends
+---@field timeout_counter integer counts once per 10 frames
+---@field timeout_limit integer once counter passes limit, mandate ends
+
+---@enum job_cancel_reason
+df.job_cancel_reason = {
+  CANNOT_REACH_SITE = 0,
+  INTERRUPTED = 1,
+  MOVED = 2,
+  NEED_EMPTY_BUCKET = 3,
+  NEED_EMPTY_TRAP = 4,
+  NEED_EMPTY_BAG = 5,
+  NEED_EMPTY_CAGE = 6,
+  INCAPABLE_OF_CARRYING = 7,
+  TOO_INJURED = 8,
+  EXHAUSTED = 9,
+  ANIMAL_INACCESSIBLE = 10,
+  ITEM_INACCESSIBLE = 11,
+  PATIENT_INACCESSIBLE = 12,
+  INFANT_INACCESSIBLE = 13,
+  NO_PARTNER = 14,
+  NOTHING_IN_CAGE = 15,
+  NOTHING_TO_CAGE = 16,
+  NOTHING_TO_CATCH = 17,
+  NO_PATIENT = 18,
+  PATIENT_NOT_RESTING = 19,
+  NO_INFANT = 20,
+  ALREADY_LEADING_CREATURE = 21,
+  NO_FOOD_AVAILABLE = 22,
+  NEEDS_SPECIFIC_ITEM = 23,
+  NO_ITEM = 24,
+  NO_AMMUNITION = 25,
+  NO_WEAPON = 26,
+  WRONG_AMMUNITION = 27,
+  AMMUNITION_INACCESSIBLE = 28,
+  ITEM_BLOCKING_SITE = 29,
+  ANIMAL_NOT_RESTRAINED = 30,
+  NO_CREATURE = 31,
+  NO_BUILDING = 32,
+  INAPPROPRIATE_BUILDING = 33,
+  NO_DESIGNATED_AREA = 34,
+  NO_FLOOR_SPACE = 35,
+  NO_PARTY = 36,
+  WRONG_JUSTICE_STATE = 37,
+  NOTHING_IN_BUILDING = 38,
+  RELIEVED = 39,
+  WATER_IS_FROZEN = 40,
+  TOO_INSANE = 41,
+  TAKEN_BY_MOOD = 42,
+  WENT_INSANE = 43,
+  THROWING_TANTRUM = 44,
+  COULD_NOT_FIND_PATH = 45,
+  PATH_BLOCKED = 46,
+  SEEKING_ARTIFACT = 47,
+  HANDLING_DANGEROUS_CREATURE = 48,
+  GOING_TO_BED = 49,
+  SEEKING_INFANT = 50,
+  DANGEROUS_TERRAIN = 51,
+  JOB_ITEM_LOST = 52,
+  GETTING_FOOD = 53,
+  GETTING_WATER = 54,
+  HUNTING_VERMIN_FOR_FOOD = 55,
+  TARGET_INACCESSIBLE = 56,
+  NO_TARGET = 57,
+  NO_MECHANISM_FOR_TARGET = 58,
+  NO_TARGET_BUILDING = 59,
+  NO_MECHANISM_FOR_TRIGGER = 60,
+  NO_TRIGGER = 61,
+  NO_AVAILABLE_TRACTION_BENCH = 62,
+  ATTACKING_BUILDING = 63,
+  LOST_PICK = 64,
+  INVALID_OFFICER = 65,
+  FAREWELL = 66,
+  REMOVED_FROM_GUARD = 67,
+  EQUIPMENT_MISMATCH = 68,
+  UNCONSCIOUS = 69,
+  WEBBED = 70,
+  PARALYZED = 71,
+  CAGED = 72,
+  GETTING_DRINK = 73,
+  USING_WELL = 74,
+  LOST_AXE = 75,
+  RESTING_INJURY = 76,
+  UNSCHEDULED = 77,
+  FORBIDDEN_AREA = 78,
+  DROFOFF_INACCESSIBLE = 79,
+  BUILDING_INACCESSIBLE = 80,
+  AREA_INACCESSIBLE = 81,
+  WATER_SOURCE_VANISHED = 82,
+  NO_WATER_SOURCE = 83,
+  NO_BUCKET_AT_WELL = 84,
+  BUCKET_NOT_EMPTY = 85,
+  WELL_DRY = 86,
+  BUILDING_SITE_SUBMERGED = 87,
+  NEED_SAND_COLLECTION_ZONE = 88,
+  SAND_VANISHED = 89,
+  AREA_BECAME_INAPPROPRIATE = 90,
+  WATER_SOURCE_CONTAMINATED = 91,
+  CREATURE_OCCUPYING_SITE = 92,
+  NEED_OFFICE = 93,
+  NOT_RESPONSIBLE_FOR_TRADE = 94,
+  INAPPROPRIATE_DIG_SQUARE = 95,
+  TARGET_TOO_INJURED = 96,
+  GETTING_MARRIED = 97,
+  NEED_SPLINT = 98,
+  NEED_THREAD = 99,
+  NEED_CLOTH = 100,
+  NEED_CRUTCH = 101,
+  BAD_SCRIPT_1 = 102,
+  BAD_SCRIPT_2 = 103,
+  BAD_SCRIPT_3 = 104,
+  NEED_CAST_POWDER_BAG = 105,
+  NO_WEAPON_2 = 106,
+  NO_APPROPRIATE_AMMUNITION = 107,
+  CLAY_VANISHED = 108,
+  NEED_CLAY_COLLECTION_ZONE = 109,
+  NO_COLONY = 110,
+  NOT_APPOINTED = 111,
+  NO_WEAPON_FOR_EXECUTION = 112,
+  NO_LONGER_REQUESTED = 113,
+  MORTALLY_AFRAID = 114,
+  EMOTIONAL_SHOCK = 115,
+  HORRIFIED = 116,
+  GRIEVING = 117,
+  TERRIFIED = 118,
+  IN_CUSTODY = 119,
+  TOO_DEPRESSED = 120,
+  OBLIVIOUS = 121,
+  CATATONIC = 122,
+  TOO_SAD = 123,
+  IN_AGONY = 124,
+  ANGUISHED = 125,
+  DESPAIRING = 126,
+  DISMAYED = 127,
+  DISTRESSED = 128,
+  FRIGHTENED = 129,
+  MISERABLE = 130,
+  MORTIFIED = 131,
+  SHAKEN = 132,
+  IN_EXISTENTIAL_CRISIS = 133,
+  NEEDS_SPECIFIC_ITEM_2 = 134,
+}
+
+---@class job_cancel
 

@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@class burrow
@@ -14,7 +15,7 @@
 
 ---@class ui_hotkey
 ---@field name string
----@field cmd any
+---@field cmd enum
 ---@field x integer
 ---@field y integer
 ---@field z integer
@@ -86,7 +87,7 @@ df.ui_sidebar_mode = {
 ---@field beating integer
 ---@field hammer_strikes integer
 ---@field prison_counter integer
----@field unk_10 integer # 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
+---@field unk_10 integer 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
 ---@field chain integer
 ---@field victims integer[]
 
@@ -96,17 +97,73 @@ df.kitchen_exc_type = {
   Brew = 0,
 }
 
+---@enum save_substage
+df.save_substage = {
+  Initializing = 0,
+  CheckingDirectoryStructure = 1,
+  PreliminaryCleaning = 2,
+  OffloadingUnits = 3,
+  OffloadingArt = 4,
+  OpeningFile = 5,
+  CharacterizingRawData = 6,
+  AllocatingSpace = 7,
+  SavingItems = 8,
+  SavingUnits = 9,
+  SavingJobs = 10,
+  SavingSchedules = 11,
+  SavingProjectiles = 12,
+  SavingBuildings = 13,
+  SavingMachines = 14,
+  SavingFlowGuides = 15,
+  SavingEffects = 16,
+  SavingEntities = 17,
+  SavingLocalAnimalPopulations = 18,
+  SavingEvents = 19,
+  SavingMandates = 20,
+  SavingWorkQuotas = 21,
+  SavingWorldEvents = 22,
+  SavingCoinInformation = 23,
+  SavingSquads = 24,
+  SavingFormations = 25,
+  SavingActivities = 26,
+  SavingInteractions = 27,
+  SavingWrittenContent = 28,
+  SavingIdentities = 29,
+  SavingIncidents = 30,
+  SavingCrimes = 31,
+  SavingVehicles = 32,
+  SavingArmies = 33,
+  SavingArmyControllers = 34,
+  SavingTrackingInformation = 35,
+  SavingCulturalIdentities = 36,
+  SavingAgreement = 37,
+  SavingArtForms = 38,
+  SavingOccupations = 39,
+  SavingBeliefSystems = 40,
+  SavingImageSets = 41,
+  SavingDivinationSets = 42,
+  SavingAnnouncements = 43,
+  SavingFortressInformation = 44,
+  SavingWorldInformation = 45,
+  SavingArtifacts = 46,
+  SavingActiveHistoricalFigures = 47,
+  SavingAdventureData = 48,
+  SavingGeneralInformation = 49,
+  ClosingFile = 50,
+  Finishing = 51,
+}
+
 ---@class plotinfost
----@field game_state integer # 2 running, 1 lost to siege, 0 lost
+---@field game_state integer 2 running, 1 lost to siege, 0 lost
 ---@field lost_to_siege_civ integer
 ---@field tax_collection plotinfost_tax_collection
 ---@field nobles plotinfost_nobles
 ---@field caravans caravan_state[]
 ---@field unk_2 integer
 ---@field fortress_rank integer
----@field progress_population integer # ?
----@field progress_trade integer # ?
----@field progress_production integer # ?
+---@field progress_population integer ?
+---@field progress_trade integer ?
+---@field progress_production integer ?
 ---@field king_arrived boolean
 ---@field king_hasty boolean
 ---@field economy_active boolean
@@ -120,9 +177,9 @@ df.kitchen_exc_type = {
 ---@field trees_removed integer
 ---@field outdoor_irritation integer
 ---@field adamantine_mandate_number integer
----@field fortress_age integer # ?; +1 per 10; used in first 2 migrant waves etc
+---@field fortress_age integer ?; +1 per 10; used in first 2 migrant waves etc
 ---@field tasks entity_activity_statistics
----@field meeting_requests integer[] # guild complaints and diplomats
+---@field meeting_requests integer[] guild complaints and diplomats
 ---@field activities activity_info[]
 ---@field dip_meeting_info meeting_diplomat_info[]
 ---@field aid_requesters integer[]
@@ -131,14 +188,14 @@ df.kitchen_exc_type = {
 ---@field punishments punishment[]
 ---@field parties party_info[]
 ---@field dipscripts dipscript_info[]
----@field dipscript_popups dipscript_popup[] # cause viewscreen_meetingst to pop up
+---@field dipscript_popups dipscript_popup[] cause viewscreen_meetingst to pop up
 ---@field kitchen plotinfost_kitchen
 ---@field economic_stone boolean[]
----@field unk23c8_flags any
+---@field unk23c8_flags bitfield
 ---@field mood_cooldown integer
 ---@field civ_id integer
 ---@field site_id integer
----@field group_id integer # i.e. specifically the fortress dwarves
+---@field group_id integer i.e. specifically the fortress dwarves
 ---@field race_id integer
 ---@field unk_races integer[]
 ---@field farm_crops integer[]
@@ -162,10 +219,10 @@ df.kitchen_exc_type = {
 ---@field alerts plotinfost_alerts
 ---@field equipment plotinfost_equipment
 ---@field hauling plotinfost_hauling
----@field petitions integer[] # related to agreements
----@field unk_6 integer[] # observed allocating 4 bytes
+---@field petitions integer[] related to agreements
+---@field unk_6 integer[] observed allocating 4 bytes
 ---@field unk_7 any[]
----@field unk_8 any[] # related to (job_type)0xf1
+---@field theft_intrigues any[] related to job_type unk_fake_no_activity
 ---@field infiltrator_histfigs integer[]
 ---@field infiltrator_years integer[]
 ---@field infiltrator_year_ticks integer[]
@@ -175,8 +232,8 @@ df.kitchen_exc_type = {
 ---@field squads plotinfost_squads
 ---@field follow_unit integer
 ---@field follow_item integer
----@field selected_farm_crops integer[] # valid for the currently queried farm plot
----@field available_seeds any
+---@field selected_farm_crops integer[] valid for the currently queried farm plot
+---@field available_seeds stl-bit-vector
 
 ---@class plotinfost_tax_collection
 ---@field state integer
@@ -199,10 +256,10 @@ df.kitchen_exc_type = {
 
 ---@class plotinfost_nobles
 ---@field unk_1 integer
----@field manager_cooldown integer # 0-1008
----@field bookkeeper_cooldown integer # 0-1008
+---@field manager_cooldown integer 0-1008
+---@field bookkeeper_cooldown integer 0-1008
 ---@field bookkeeper_precision integer
----@field bookkeeper_settings any
+---@field bookkeeper_settings enum
 
 ---@class plotinfost_invasions
 ---@field list invasion_info[]
@@ -216,8 +273,8 @@ df.kitchen_exc_type = {
 ---@field exc_types any[]
 
 ---@class plotinfost_economy_prices
----@field price_adjustment any
----@field price_setter any
+---@field price_adjustment compound
+---@field price_setter compound
 
 ---@class plotinfost_stockpile
 ---@field reserved_bins integer
@@ -259,7 +316,7 @@ df.kitchen_exc_type = {
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
 ---@field list_units unit[]
----@field sel_units any
+---@field sel_units stl-bit-vector
 ---@field unit_cursor_pos integer
 ---@field in_define_mode boolean
 ---@field brush_erasing boolean
@@ -282,13 +339,13 @@ df.kitchen_exc_type = {
 ---@field items_unmanifested any[]
 ---@field items_unassigned any[]
 ---@field items_assigned any[]
----@field update any
----@field work_weapons any[] # i.e. woodcutter axes, and miner picks
+---@field update equipment_update
+---@field work_weapons any[] i.e. woodcutter axes, and miner picks
 ---@field work_units any[]
 ---@field hunter_ammunition squad_ammo_spec[]
 ---@field ammo_items any[]
 ---@field ammo_units any[]
----@field training_assignments training_assignment[] # sorted by animal_id
+---@field training_assignments training_assignment[] sorted by animal_id
 
 ---@class plotinfost_hauling
 ---@field routes hauling_route[]
@@ -299,11 +356,10 @@ df.kitchen_exc_type = {
 ---@field cursor_top integer
 ---@field in_stop boolean
 ---@field cursor_stop integer
+---@field flags flag-bit
 ---@field work_details work_detail[]
----@field in_advanced_cond boolean
----@field in_assign_vehicle boolean
----@field cursor_vehicle integer
----@field vehicles vehicle[]
+---@field chores boolean[]
+---@field chores_exempted_children any[]
 
 ---@class plotinfost_main
 ---@field hotkeys ui_hotkey[]
@@ -311,29 +367,28 @@ df.kitchen_exc_type = {
 ---@field traffic_cost_normal integer
 ---@field traffic_cost_low integer
 ---@field traffic_cost_restricted integer
----@field dead_citizens any[] # ?
+---@field dead_citizens any[] ?
 ---@field custom_difficulty difficultyst
----@field fortress_entity historical_entity # entity pointed to by group_id
+---@field fortress_entity historical_entity entity pointed to by group_id
 ---@field fortress_site world_site
----@field unk_v50_2 integer
+---@field mode ui_sidebar_mode
 ---@field unk_v50_3 integer
 ---@field unk_v50_4 integer
 ---@field autosave_request boolean
----@field autosave_unk integer
+---@field autosave_timer integer
 ---@field file file_compressorst
----@field unk_v50_5 integer
----@field unk_v50_6 nemesis_offload
+---@field save_progress compound
 ---@field unk_v50_7 integer
 ---@field unk_44_12b nemesis_offload
 ---@field unk_44_12c boolean
----@field unk_44_12d integer # padding?
+---@field unk_44_12d integer padding?
 ---@field selected_hotkey integer
 ---@field in_rename_hotkey boolean
 
 ---@class plotinfost_squads
----@field list squad[] # valid only when ui is displayed
+---@field list squad[] valid only when ui is displayed
 ---@field unk6e08 any[]
----@field sel_squads any
+---@field sel_squads stl-bit-vector
 ---@field indiv_selected any[]
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad integer
@@ -345,10 +400,10 @@ df.kitchen_exc_type = {
 ---@field point_list_scroll integer
 ---@field in_kill_order boolean
 ---@field kill_rect_targets unit[]
----@field kill_rect_targets_scroll integer # also used for the list of targets at cursor
+---@field kill_rect_targets_scroll integer also used for the list of targets at cursor
 ---@field in_kill_list boolean
 ---@field kill_targets unit[]
----@field sel_kill_targets any
+---@field sel_kill_targets stl-bit-vector
 ---@field kill_list_scroll integer
 ---@field in_kill_rect boolean
 ---@field rect_start coord
@@ -369,7 +424,7 @@ df.timed_event_type = {
 ---@class timed_event
 ---@field type timed_event_type
 ---@field season season
----@field season_ticks integer # 1 tick = 10 frames
+---@field season_ticks integer 1 tick = 10 frames
 ---@field entity historical_entity
 ---@field unk_1 integer
 ---@field layer_id integer
@@ -406,8 +461,8 @@ df.timed_event_type = {
 ---@field cursor_other_cnt integer
 ---@field unk_10034 integer
 ---@field unk_10035 integer
----@field cur_tick_count integer # GetTickCount
----@field tick_phase integer # cur_year_tick%10080
+---@field cur_tick_count integer GetTickCount
+---@field tick_phase integer cur_year_tick%10080
 ---@field dim_colors integer
 ---@field unk_1 integer
 ---@field unk_2 integer[]

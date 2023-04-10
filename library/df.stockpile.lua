@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum hauler_type
@@ -40,15 +41,16 @@ df.furniture_type = {
   BUCKET = 21,
   BIN = 22,
   BOX = 23,
-  SIEGEAMMO = 24,
-  BARREL = 25,
-  BALLISTAARROWHEAD = 26,
-  PIPE_SECTION = 27,
-  FOOD_STORAGE = 28,
-  MINECART = 29,
-  WHEELBARROW = 30,
-  OTHER_LARGE_TOOLS = 31,
-  SAND_BAG = 32,
+  BAG = 24,
+  SIEGEAMMO = 25,
+  BARREL = 26,
+  BALLISTAARROWHEAD = 27,
+  PIPE_SECTION = 28,
+  FOOD_STORAGE = 29,
+  MINECART = 30,
+  WHEELBARROW = 31,
+  OTHER_LARGE_TOOLS = 32,
+  SAND_BAG = 33,
 }
 
 ---@enum stockpile_category
@@ -75,31 +77,12 @@ df.stockpile_category = {
   Custom = 18,
 }
 
----@class stockpile_group_set
----@field animals boolean
----@field food boolean
----@field furniture boolean
----@field corpses boolean
----@field refuse boolean
----@field stone boolean
----@field ammo boolean
----@field coins boolean
----@field bars_blocks boolean
----@field gems boolean
----@field finished_goods boolean
----@field leather boolean
----@field cloth boolean
----@field wood boolean
----@field weapons boolean
----@field armor boolean
----@field sheet boolean
-df.stockpile_group_set = {}
-
 ---@class stockpile_settings
 ---@field flags stockpile_group_set
 ---@field animals stockpile_settings_animals
 ---@field food stockpile_settings_food
 ---@field furniture stockpile_settings_furniture
+---@field corpses stockpile_settings_corpses
 ---@field refuse stockpile_settings_refuse
 ---@field stone stockpile_settings_stone
 ---@field ore stockpile_settings_ore
@@ -151,6 +134,9 @@ df.stockpile_group_set = {}
 ---@field quality_core boolean[]
 ---@field quality_total boolean[]
 
+---@class stockpile_settings_corpses
+---@field corpses boolean[]
+
 ---@class stockpile_settings_refuse
 ---@field type boolean[]
 ---@field corpses boolean[]
@@ -168,7 +154,7 @@ df.stockpile_group_set = {}
 ---@field mats boolean[]
 
 ---@class stockpile_settings_ore
----@field mats boolean[] # unused
+---@field mats boolean[] unused
 
 ---@class stockpile_settings_ammo
 ---@field type boolean[]
@@ -355,63 +341,26 @@ df.stockpile_list = {
 ---@class stockpile_list_attr
 ---@field is_category bool
 
----@type table<stockpile_list, stockpile_list_attr>
-df.stockpile_list.attrs = {
-  Animals = {
-    is_category = "true",
-  },
-  Food = {
-    is_category = "true",
-  },
-  Furniture = {
-    is_category = "true",
-  },
-  Corpses = {
-    is_category = "true",
-  },
-  Refuse = {
-    is_category = "true",
-  },
-  Stone = {
-    is_category = "true",
-  },
-  Ammo = {
-    is_category = "true",
-  },
-  Coins = {
-    is_category = "true",
-  },
-  BarsBlocks = {
-    is_category = "true",
-  },
-  Gems = {
-    is_category = "true",
-  },
-  Goods = {
-    is_category = "true",
-  },
-  Leather = {
-    is_category = "true",
-  },
-  Cloth = {
-    is_category = "true",
-  },
-  Wood = {
-    is_category = "true",
-  },
-  Weapons = {
-    is_category = "true",
-  },
-  Armor = {
-    is_category = "true",
-  },
-  Sheet = {
-    is_category = "true",
-  },
-  AdditionalOptions = {
-    is_category = "true",
-  },
-}
+---@class stockpile_list_attrs
+---@field Animals stockpile_list_attr
+---@field Food stockpile_list_attr
+---@field Furniture stockpile_list_attr
+---@field Corpses stockpile_list_attr
+---@field Refuse stockpile_list_attr
+---@field Stone stockpile_list_attr
+---@field Ammo stockpile_list_attr
+---@field Coins stockpile_list_attr
+---@field BarsBlocks stockpile_list_attr
+---@field Gems stockpile_list_attr
+---@field Goods stockpile_list_attr
+---@field Leather stockpile_list_attr
+---@field Cloth stockpile_list_attr
+---@field Wood stockpile_list_attr
+---@field Weapons stockpile_list_attr
+---@field Armor stockpile_list_attr
+---@field Sheet stockpile_list_attr
+---@field AdditionalOptions stockpile_list_attr
+df.stockpile_list.attrs = {}
 
 ---@class hauling_route
 ---@field id integer
@@ -432,20 +381,20 @@ df.stockpile_list.attrs = {
 
 ---@class stop_depart_condition
 ---@field timeout integer
----@field direction any
----@field mode any
----@field load_percent integer # broken display unless 0, 50 or 100
----@field flags any
----@field guide_path coord_path # initialized on first run, and saved
+---@field direction enum
+---@field mode enum
+---@field load_percent integer broken display unless 0, 50 or 100
+---@field flags bitfield
+---@field guide_path coord_path initialized on first run, and saved
 
 ---@class route_stockpile_link
 ---@field building_id integer
----@field mode any
+---@field mode bitfield
 
 ---@class vehicle
 ---@field id integer
 ---@field item_id integer
----@field offset_x integer # -50000..50000
+---@field offset_x integer -50000..50000
 ---@field offset_y integer
 ---@field offset_z integer
 ---@field speed_x integer
@@ -457,5 +406,5 @@ df.stockpile_list.attrs = {
 ---@field unk_2c integer
 ---@field route_id integer
 ---@field pos coord
----@field time_stopped integer # frames, up to 1000
+---@field time_stopped integer frames, up to 1000
 

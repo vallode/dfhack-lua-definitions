@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum weather_type
@@ -8,6 +9,7 @@ df.weather_type = {
 }
 
 ---@enum next_global_id
+---The storage order of "next ID" fields in the save file. Followed by game type. The enum item name is the part between next_ and _global_id in the Dwarf Fortress global variable table.
 df.next_global_id = {
   unit = 0,
   soul = 1,
@@ -52,6 +54,21 @@ df.next_global_id = {
   divination_set = 40,
 }
 
+---@class cursor
+---@field x integer 
+---@field y integer 
+---@field z integer 
+df.global.cursor = nil
+
+---@class selection_rect
+---@field start_x integer 
+---@field start_y integer 
+---@field start_z integer 
+---@field end_x integer only valid for an instant while its being completed
+---@field end_y integer 
+---@field end_z integer 
+df.global.selection_rect = nil
+
 ---@enum game_mode
 df.game_mode = {
   DWARF = 0,
@@ -76,11 +93,44 @@ df.game_type = {
   NONE = 11,
 }
 
+---@type game_mode
+df.global.gamemode = nil
+
+---@type game_type
+df.global.gametype = nil
+
+---@type integer[]
+df.global.ui_menu_width = nil
+
+---@type string
+df.global.title = nil
+
+---@type string
+df.global.title_spaced = nil
+
+---@type any[]
+df.global.created_item_type = nil
+
+---@type any[]
+df.global.created_item_subtype = nil
+
+---@type any[]
+df.global.created_item_mattype = nil
+
+---@type integer[]
+df.global.created_item_matindex = nil
+
+---@type integer[]
+df.global.created_item_count = nil
+
 ---@type map_renderer
 df.global.map_renderer = nil
 
 ---@type d_init
 df.global.d_init = nil
+
+---@type flow_info[]
+df.global.flows = nil
 
 ---@type enabler
 df.global.enabler = nil
@@ -97,6 +147,9 @@ df.global.init = nil
 ---@type texture_handlerst
 df.global.texture = nil
 
+---@type timed_event[]
+df.global.timed_events = nil
+
 ---@type plotinfost
 df.global.plotinfo = nil
 
@@ -106,14 +159,41 @@ df.global.adventure = nil
 ---@type buildreq
 df.global.buildreq = nil
 
+---@type integer[]
+df.global.ui_building_assign_type = nil
+
+---@type boolean[]
+df.global.ui_building_assign_is_marked = nil
+
+---@type unit[]
+df.global.ui_building_assign_units = nil
+
+---@type item[]
+df.global.ui_building_assign_items = nil
+
 ---@type ui_look_list
 df.global.ui_look_list = nil
 
 ---@type gamest
 df.global.game = nil
 
+---@type gamest_extra
+df.global.game_extra = nil
+
+---@type steam_mod_manager
+df.global.steam_mod_manager = nil
+
 ---@type world
 df.global.world = nil
+
+---@type save_version
+df.global.version = nil
+
+---@type save_version
+df.global.min_load_version = nil
+
+---@type cmv_version
+df.global.movie_version = nil
 
 ---@type integer
 df.global.basic_seed = nil
@@ -250,8 +330,14 @@ df.global.cur_year_tick = nil
 ---@type integer
 df.global.cur_year_tick_advmode = nil
 
+---@type season
+df.global.cur_season = nil
+
 ---@type integer
 df.global.cur_season_tick = nil
+
+---@type any[]
+df.global.current_weather = nil
 
 ---@type boolean
 df.global.pause_state = nil
@@ -271,11 +357,23 @@ df.global.ui_building_in_resize = nil
 ---@type integer
 df.global.ui_building_resize_radius = nil
 
+---@type integer
+df.global.ui_building_item_cursor = nil
+
+---@type integer
+df.global.ui_look_cursor = nil
+
+---@type integer
+df.global.ui_selected_unit = nil
+
 ---@type ui_unit_view_mode
 df.global.ui_unit_view_mode = nil
 
 ---@type boolean
 df.global.ui_workshop_in_add = nil
+
+---@type integer
+df.global.ui_workshop_job_cursor = nil
 
 ---@enum lever_target_type
 df.lever_target_type = {
@@ -302,24 +400,16 @@ df.lever_target_type = {
 ---@class lever_target_type_attr
 ---@field building_type building_type
 
----@type table<lever_target_type, lever_target_type_attr>
-df.lever_target_type.attrs = {
-  SpearsSpikes = {
-    building_type = "Trap",
-  },
-  TrackStop = {
-    building_type = "Trap",
-  },
-  EncrustGems = {
-    building_type = "NONE",
-  },
-  LeverMechanism = {
-    building_type = "NONE",
-  },
-  TargetMechanism = {
-    building_type = "NONE",
-  },
-}
+---@class lever_target_type_attrs
+---@field SpearsSpikes lever_target_type_attr
+---@field TrackStop lever_target_type_attr
+---@field EncrustGems lever_target_type_attr
+---@field LeverMechanism lever_target_type_attr
+---@field TargetMechanism lever_target_type_attr
+df.lever_target_type.attrs = {}
+
+---@type lever_target_type
+df.global.ui_lever_target_type = nil
 
 ---@type integer
 df.global.window_x = nil
@@ -485,6 +575,24 @@ df.global.cur_rain_counter = nil
 
 ---@type integer
 df.global.weathertimer = nil
+
+---@type coord[]
+df.global.cur_snow = nil
+
+---@type coord[]
+df.global.cur_rain = nil
+
+---@type integer[]
+df.global.jobvalue = nil
+
+---@type unit[]
+df.global.jobvalue_setter = nil
+
+---@type item
+df.global.interactitem = nil
+
+---@type unit_inventory_item
+df.global.interactinvslot = nil
 
 ---@type boolean
 df.global.handleannounce = nil

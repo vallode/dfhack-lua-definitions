@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum d_init_nickname
@@ -27,6 +28,7 @@ df.d_init_flags1 = {
   ENGRAVINGS_START_OBSCURED = 1,
   SHOW_IMP_QUALITY = 2,
   SHOW_FLOW_AMOUNTS = 3,
+  SHOW_RAMP_ARROWS = 4,
 }
 
 ---@enum d_init_flags2
@@ -74,7 +76,7 @@ df.d_init_autosave = {
 }
 
 ---@class d_init
----@field flags1 any
+---@field flags1 df-flagarray
 ---@field nickname any[]
 ---@field sky_tile integer
 ---@field sky_color integer[]
@@ -89,7 +91,7 @@ df.d_init_autosave = {
 ---@field wound_color d_init_wound_color
 ---@field show_embark_tunnel d_init_tunnel
 ---@field number_of_lower_elevations_shown integer
----@field flags3 any
+---@field flags3 df-flagarray
 ---@field population_cap integer
 ---@field strict_population_cap integer
 ---@field baby_cap_absolute integer
@@ -102,7 +104,8 @@ df.d_init_autosave = {
 ---@field store_dist d_init_store_dist
 ---@field graze_coefficient integer
 ---@field maximum_embark_dim integer
----@field flags4 any
+---@field cull_dead_units_at integer
+---@field flags4 df-flagarray
 ---@field post_prepare_embark_confirmation d_init_embark_confirm
 ---@field autosave d_init_autosave
 ---@field announcements announcements

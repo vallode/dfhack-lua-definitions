@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum improvement_type
@@ -23,7 +24,7 @@ df.improvement_type = {
 ---@field mat_index integer
 ---@field dyer integer
 ---@field quality item_quality
----@field skill_rating skill_rating # at the moment of creation
+---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 integer
 
 ---@class itemimprovement
@@ -32,14 +33,14 @@ df.improvement_type = {
 ---@field maker integer
 ---@field masterpiece_event integer
 ---@field quality item_quality
----@field skill_rating skill_rating # at the moment of creation
+---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 integer
 
 ---@class itemimprovement_art_imagest
 ---@field image art_image_ref
 
 ---@class itemimprovement_coveredst
----@field cover_flags any
+---@field cover_flags flag-bit
 ---@field shape integer
 
 ---@class itemimprovement_rings_hangingst
@@ -82,7 +83,7 @@ df.itemimprovement_specific_type = {
 ---@field unk_2 integer
 
 ---@class itemimprovement_instrument_piecest
----@field type string # instrument_piece.type
+---@field type string instrument_piece.type
 
 ---@class itemimprovement_writingst
 ---@field contents integer[]
@@ -147,34 +148,21 @@ df.written_content_style = {
 ---@field title string
 ---@field page_start integer
 ---@field page_end integer
----@field refs general_ref[] # interactions learned
----@field ref_aux integer[] # if nonzero, corresponding ref is ignored
+---@field refs general_ref[] interactions learned
+---@field ref_aux integer[] if nonzero, corresponding ref is ignored
 ---@field unk1 integer
 ---@field unk2 integer
 ---@field type written_content_type
 ---@field poetic_form integer
 ---@field styles written_content_style[]
----@field style_strength integer[] # 0 = maximum, 1 = significant, 2 = partial
+---@field style_strength integer[] 0 = maximum, 1 = significant, 2 = partial
 ---@field author integer
 ---@field author_roll integer
-
----@class engraving_flags
----@field floor boolean
----@field west boolean
----@field east boolean
----@field north boolean
----@field south boolean
----@field hidden boolean
----@field northwest boolean
----@field northeast boolean
----@field southwest boolean
----@field southeast boolean
-df.engraving_flags = {}
 
 ---@class engraving
 ---@field artist integer
 ---@field masterpiece_event integer
----@field skill_rating skill_rating # at the moment of creation
+---@field skill_rating skill_rating at the moment of creation
 ---@field pos coord
 ---@field flags engraving_flags
 ---@field tile integer

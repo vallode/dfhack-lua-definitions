@@ -1,3 +1,4 @@
+---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
 ---@enum creature_raw_flags
@@ -393,19 +394,19 @@ df.appearance_modifier_growth_interval = {
 ---@class body_part_layer_raw
 ---@field layer_name string
 ---@field tissue_id integer
----@field flags any
----@field part_fraction integer # total 1000
+---@field flags df-flagarray
+---@field part_fraction integer total 1000
 ---@field healing_rate integer
 ---@field vascular integer
 ---@field pain_receptors integer
 ---@field unk6 integer
 ---@field unk7 integer
 ---@field bp_modifiers integer[]
----@field layer_id integer # across all body parts
+---@field layer_id integer across all body parts
 ---@field parent_idx integer
 ---@field parent_layer_id integer
----@field layer_depth integer # -1 for skin and internal organs
----@field leak_barrier_id integer # layer that stops TISSUE_LEAKS, but unused and broken
+---@field layer_depth integer -1 for skin and internal organs
+---@field leak_barrier_id integer layer that stops TISSUE_LEAKS, but unused and broken
 ---@field nonsolid_id integer
 ---@field styleable_id integer
 
@@ -413,7 +414,7 @@ df.appearance_modifier_growth_interval = {
 ---@field token string
 ---@field category string
 ---@field con_part_id integer
----@field flags any
+---@field flags df-flagarray
 ---@field layers body_part_layer_raw[]
 ---@field fraction_total integer
 ---@field fraction_base integer
@@ -424,13 +425,13 @@ df.appearance_modifier_growth_interval = {
 ---@field unk7b integer
 ---@field name_singular string[]
 ---@field name_plural string[]
----@field bp_relation_part_id any
----@field bp_relation_code any
----@field bp_relation_coverage any
+---@field bp_relation_part_id integer[]
+---@field bp_relation_code pointer
+---@field bp_relation_coverage integer[]
 ---@field min_temp integer
 ---@field max_temp integer
 ---@field temp_factor integer
----@field numbered_idx integer # defined only if number field nonzero
+---@field numbered_idx integer defined only if number field nonzero
 ---@field insulation_fat integer
 ---@field insulation_muscle integer
 ---@field insulation_base integer
@@ -461,14 +462,14 @@ df.appearance_modifier_growth_interval = {
 ---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
----@field growth_start integer # in days
+---@field growth_start integer in days
 ---@field growth_end integer
 ---@field importance integer
 ---@field noun string
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field id integer
----@field id2 integer # same as id
+---@field id2 integer same as id
 
 ---@class bp_appearance_modifier
 ---@field type appearance_modifier_type
@@ -478,7 +479,7 @@ df.appearance_modifier_growth_interval = {
 ---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
----@field growth_start integer # in days
+---@field growth_start integer in days
 ---@field growth_end integer
 ---@field importance integer
 ---@field noun string
@@ -492,7 +493,7 @@ df.appearance_modifier_growth_interval = {
 ---@class caste_clothing_item
 ---@field body_part_id integer
 ---@field unk_4 integer
----@field item any[] # under, over, cover
+---@field item any[] under, over, cover
 ---@field unk_14 integer[]
 ---@field size integer[]
 ---@field permit integer[]
@@ -502,13 +503,13 @@ df.appearance_modifier_growth_interval = {
 ---@field name string
 ---@field verb_3rd string
 ---@field verb_2nd string
----@field flags any
----@field specialattack_type integer[] # 0 = inject extract, 1 = suck blood, 2 = perform interaction
----@field specialattack_mat_type integer[] # extract injected
+---@field flags bitfield
+---@field specialattack_type integer[] 0 = inject extract, 1 = suck blood, 2 = perform interaction
+---@field specialattack_mat_type integer[] extract injected
 ---@field specialattack_mat_index integer[]
 ---@field specialattack_mat_state matter_state[]
----@field specialattack_temp_mat any[] # parsed during second pass
----@field specialattack_min integer[] # amount of extract injected or blood sucked
+---@field specialattack_temp_mat any[] parsed during second pass
+---@field specialattack_min integer[] amount of extract injected or blood sucked
 ---@field specialattack_max integer[]
 ---@field contact_perc integer
 ---@field penetration_perc integer
@@ -518,7 +519,7 @@ df.appearance_modifier_growth_interval = {
 ---@field tissue_layer_idx integer[]
 ---@field skill job_skill
 ---@field velocity_modifier integer
----@field specialattack_interaction_tmp_name string[] # parsed during second pass
+---@field specialattack_interaction_tmp_name string[] parsed during second pass
 ---@field specialattack_interaction_id integer[]
 ---@field unk_v40_3 integer
 ---@field unk_v40_4 integer
@@ -539,16 +540,8 @@ df.gait_type = {
 ---@field turn_max integer
 ---@field start_speed integer
 ---@field energy_use integer
----@field flags any
+---@field flags bitfield
 ---@field stealth_slows integer
-
----@class creature_interaction_target_flags
----@field LINE_OF_SIGHT boolean
----@field TOUCHABLE boolean
----@field DISTURBER_ONLY boolean
----@field SELF_ALLOWED boolean
----@field SELF_ONLY boolean
-df.creature_interaction_target_flags = {}
 
 ---@class creature_interaction
 ---@field bp_required_type string[]
@@ -562,7 +555,7 @@ df.creature_interaction_target_flags = {}
 ---@field verb_2nd string
 ---@field verb_3rd string
 ---@field verb_mutual string
----@field verb_reverse_2nd string # for RETRACT_INTO_BP, e.g. "unroll"
+---@field verb_reverse_2nd string for RETRACT_INTO_BP, e.g. "unroll"
 ---@field verb_reverse_3rd string
 ---@field target_verb_2nd string
 ---@field target_verb_3rd string
@@ -570,7 +563,7 @@ df.creature_interaction_target_flags = {}
 ---@field type_id integer
 ---@field usage_hint interaction_source_usage_hint[]
 ---@field location_hint interaction_effect_location_hint[]
----@field flags any
+---@field flags bitfield
 ---@field unk_3 string[]
 ---@field target_flags creature_interaction_target_flags[]
 ---@field target_ranges integer[]
@@ -586,13 +579,13 @@ df.creature_interaction_target_flags = {}
 ---@field attacks caste_attack[]
 ---@field interactions any[]
 ---@field extra_butcher_objects any[]
----@field total_relsize integer # unless INTERNAL or EMBEDDED
+---@field total_relsize integer unless INTERNAL or EMBEDDED
 ---@field layer_part any[]
 ---@field layer_idx any[]
----@field numbered_masks integer[] # 1 bit per instance of a numbered body part
+---@field numbered_masks integer[] 1 bit per instance of a numbered body part
 ---@field layer_nonsolid any[]
 ---@field nonsolid_layers any[]
----@field flags any
+---@field flags flag-bit
 ---@field gait_info any[]
 ---@field materials material_vec_ref
 ---@field fraction_total integer
@@ -602,6 +595,7 @@ df.creature_interaction_target_flags = {}
 ---@field unk_v40_2 integer[]
 
 ---@class caste_raw
+---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
 ---@field caste_id string
 ---@field caste_name string[]
 ---@field vermin_bite_txt string
@@ -624,8 +618,8 @@ df.creature_interaction_target_flags = {}
 ---@field caste_color integer[]
 ---@field misc caste_raw_misc
 ---@field personality caste_raw_personality
----@field flags any
----@field index integer # global across creatures
+---@field flags df-flagarray
+---@field index integer global across creatures
 ---@field body_info caste_body_info
 ---@field caste_speech_1 any[]
 ---@field caste_speech_2 any[]
@@ -634,8 +628,8 @@ df.creature_interaction_target_flags = {}
 ---@field sex pronoun_type
 ---@field orientation_male integer[]
 ---@field orientation_female integer[]
----@field body_size_1 integer[] # age in ticks
----@field body_size_2 integer[] # size at the age at the same index in body_size_1
+---@field body_size_1 integer[] age in ticks
+---@field body_size_2 integer[] size at the age at the same index in body_size_1
 ---@field body_appearance_modifiers body_appearance_modifier[]
 ---@field bp_appearance caste_raw_bp_appearance
 ---@field color_modifiers color_modifier_raw[]
@@ -677,7 +671,7 @@ df.creature_interaction_target_flags = {}
 ---@field sense_creature_class_4 integer[]
 ---@field sense_creature_class_5 integer[]
 ---@field caste_graphics creature_raw_graphics
----@field unk_v50_4300 any
+---@field unk_v50_4300 pointer
 
 ---@class caste_raw_misc
 ---@field litter_size_min integer
@@ -686,29 +680,29 @@ df.creature_interaction_target_flags = {}
 ---@field vermin_bite_chance integer
 ---@field grasstrample integer
 ---@field buildingdestroyer integer
----@field itemcorpse_itemtype item_type # no longer used? Changes when the same save is reloaded
+---@field itemcorpse_itemtype item_type no longer used? Changes when the same save is reloaded
 ---@field itemcorpse_itemsubtype integer
----@field itemcorpse_materialtype integer # no longer used? Changes when the same save is reloaded
+---@field itemcorpse_materialtype integer no longer used? Changes when the same save is reloaded
 ---@field itemcorpse_materialindex integer
 ---@field itemcorpse_quality integer
 ---@field remains_color integer[]
 ---@field difficulty integer
----@field caste_glowcolor integer[] # different from same save with 0.44.12
+---@field caste_glowcolor integer[] different from same save with 0.44.12
 ---@field beach_frequency integer
 ---@field clutch_size_min integer
 ---@field clutch_size_max integer
 ---@field vision_arc_min integer
 ---@field vision_arc_max integer
----@field speed integer # no longer used
+---@field speed integer no longer used
 ---@field modvalue integer
 ---@field petvalue integer
 ---@field milkable integer
 ---@field viewrange integer
 ---@field maxage_min integer
 ---@field maxage_max integer
----@field baby_age integer # no longer used? Silly large value 7628903
----@field child_age integer # no longer used? Changes when the same save is reloaded
----@field swim_speed integer # no longer used
+---@field baby_age integer no longer used? Silly large value 7628903
+---@field child_age integer no longer used? Changes when the same save is reloaded
+---@field swim_speed integer no longer used
 ---@field trade_capacity integer
 ---@field unk4 integer
 ---@field pop_ratio integer
@@ -722,7 +716,7 @@ df.creature_interaction_target_flags = {}
 ---@field grazer integer
 ---@field petvalue_divisor integer
 ---@field prone_to_rage integer
----@field unk6 integer[] # different from same save with 0.44.12
+---@field unk6 integer[] different from same save with 0.44.12
 
 ---@class caste_raw_personality
 ---@field a integer[]
@@ -790,23 +784,23 @@ df.creature_interaction_target_flags = {}
 ---@field lays_unusual_eggs_str any[]
 
 ---@class caste_raw_unknown2
----@field syndrome_dilution_identifier string[] # SYNDROME_DILUTION_FACTOR
----@field syndrome_dilution_factor integer[] # SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_identifier string[] SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_factor integer[] SYNDROME_DILUTION_FACTOR
 ---@field gobble_vermin_class string[]
 ---@field gobble_vermin_creature_1 string[]
 ---@field gobble_vermin_creature_2 string[]
----@field infect_all integer[] # for spatter applied to all bp
----@field infect_local integer[] # for spatter applied to one bp
+---@field infect_all integer[] for spatter applied to all bp
+---@field infect_local integer[] for spatter applied to one bp
 ---@field unk23f integer[]
 ---@field unk23g integer[]
----@field unk24_flags any
----@field unk25_flags any
----@field armor_sizes any[] # index by UBSTEP
----@field pants_sizes integer[] # index by LBSTEP
+---@field unk24_flags df-flagarray
+---@field unk25_flags df-flagarray
+---@field armor_sizes any[] index by UBSTEP
+---@field pants_sizes integer[] index by LBSTEP
 ---@field helm_size integer
----@field shield_sizes integer[] # index by UPSTEP
----@field shoes_sizes integer[] # index by UPSTEP
----@field gloves_sizes integer[] # index by UPSTEP
+---@field shield_sizes integer[] index by UPSTEP
+---@field shoes_sizes integer[] index by UPSTEP
+---@field gloves_sizes integer[] index by UPSTEP
 ---@field materials material_vec_ref
 ---@field unk_2f20 integer[]
 ---@field unk_2f30 integer[]
@@ -868,7 +862,7 @@ df.tissue_style_type = {
 ---@field list_idx integer[]
 ---@field id integer
 ---@field noun string
----@field word_type part_of_speech # 0 singular, 1 plural
+---@field word_type part_of_speech 0 singular, 1 plural
 
 ---@class creature_raw
 ---@field creature_id string
@@ -894,7 +888,7 @@ df.tissue_style_type = {
 ---@field sphere integer[]
 ---@field caste caste_raw[]
 ---@field pop_ratio integer[]
----@field flags any
+---@field flags df-flagarray
 ---@field graphics creature_raw_graphics
 ---@field speech1 integer[]
 ---@field speech2 integer[]
@@ -904,7 +898,7 @@ df.tissue_style_type = {
 ---@field underground_layer_min integer
 ---@field underground_layer_max integer
 ---@field modifier_class any[]
----@field modifier_num_patterns integer[] # for color modifiers, == number of items in their pattern_* vectors
+---@field modifier_num_patterns integer[] for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product creature_raw_hive_product
 ---@field source_hfid integer
 ---@field unk_v4201_1 integer
@@ -996,10 +990,10 @@ df.body_part_template_contype = {
 ---@field category string
 ---@field con_cat string
 ---@field contype body_part_template_contype
----@field flags any
+---@field flags df-flagarray
 ---@field default_relsize integer
 ---@field number integer
----@field name_singular string[] # first comes from BP, rest come from INDIVIDUAL_NAME
+---@field name_singular string[] first comes from BP, rest come from INDIVIDUAL_NAME
 ---@field name_plural string[]
 
 ---@class body_template
@@ -1034,7 +1028,7 @@ df.tissue_flags = {
 
 ---@class tissue_template
 ---@field id string
----@field flags any
+---@field flags df-flagarray
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
@@ -1053,7 +1047,7 @@ df.tissue_flags = {
 
 ---@class tissue
 ---@field id string
----@field flags any
+---@field flags df-flagarray
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
