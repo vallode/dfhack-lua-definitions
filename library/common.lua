@@ -6,11 +6,13 @@ df = {}
 df.global = {}
 
 ---@class dfhack
----@field VERSION any
+---@field VERSION string
+---@field DF_VERSION string
+---@field RELEASE string
 dfhack = {}
 
 ---@param script_name? string
----@param extension? unknown
+---@param extension? unknown Currently unused
 function dfhack.script_help(script_name, extension) end
 
 ---@param message string
@@ -28,6 +30,12 @@ function printall(object) end
 ---If the argument is a lua table or DF object reference, prints all fields recursively.
 ---@param object table
 function printall_recursive(object) end
+
+---@param value table
+---@param seen any
+---@param indent integer
+---@param prefix string
+function print_fields(value, seen, indent, prefix) end
 
 ---@param table table
 ---@return table
@@ -76,6 +84,18 @@ function same_xy(a,b) end
 ---@param i integer
 ---@return coord2d
 function get_path_xy(path, i) end
+
+---Walks a sequence of dereferences, which may be represented by numbers or strings. Returns nil if any of obj or indices is nil, or a numeric index is out of array bounds.
+---@param object table 
+---@param index integer|string
+---@param ... integer|string
+function safe_index(object, index, ...) end
+
+---If the Lua table t doesn’t include the specified key, t[key] is set to the value of default_value, which defaults to {} if not set. The new or existing value of t[key] is then returned.
+---@param t table
+---@param key integer|string
+---@param default_value any
+function ensure_key(t, key, default_value) end
 
 ---@param prefix string
 ---@return boolean
@@ -583,12 +603,15 @@ dfhack.items = {}
 
 dfhack.maps = {}
 
+---Returns map size in blocks: x, y, z
 ---@return coord
 function dfhack.maps.getSize() end
 
+---Returns map size in tiles: x, y, z
 ---@return coord
 function dfhack.maps.getTileSize() end
 
+---Returns a map block object for given x,y,z in local block coordinates.
 ---@param x integer
 ---@param y integer
 ---@param z integer
