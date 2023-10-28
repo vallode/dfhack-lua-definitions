@@ -215,37 +215,37 @@ def getBitfieldAnnotation(bitfield)
   annotation << "df.#{bitfield["type-name"]} = {}\n\n"
 end
 
+# Pass in a glob of all source files (from dfhack)
 Dir.glob(ARGV[0]).each do |xml|
-  p xml
-  File.open(xml) do |file|
-    document = Nokogiri::XML(file, &:noblanks)
+  document = Nokogiri::XML(File.open(xml)) do |config|
+    config.strict.noblanks
+  end
 
-    File.open("library/#{File.basename(file).sub('.xml', '.lua')}", 'w') do |output|
-      output.write("---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.\n")
-      output.write("---@meta\n\n")
+  File.open("library/#{File.basename(xml).sub('.xml', '.lua')}", 'w') do |output|
+    output.write("---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.\n")
+    output.write("---@meta\n\n")
 
-      document.xpath('/data-definition/*').each do |node|
-        tag = nil
+    document.xpath('/data-definition/*').each do |node|
+      tag = nil
 
-        case node.name
-        when 'enum-type'
-          tag = EnumTag.new(node)
-        when 'global-object'
-          tag = GlobalObject.new(node)
-        when 'struct-type', 'class-type'
-          output.write(getStructAnnotation(node))
-          # tag = StructType.new(node)
-        end
-
-        # if value.name == "bitfield-type"
-        #   output.write(getBitfieldAnnotation(value))
-        # end
-
-        # TODO: Remove this.
-        # raise "Node #{node.name} does not have a class" unless tag
-
-        output.write(tag.render) if tag
+      case node.name
+      when 'enum-type'
+        tag = EnumTag.new(node)
+      when 'global-object'
+        tag = GlobalObject.new(node)
+      when 'struct-type', 'class-type'
+        output.write(getStructAnnotation(node))
+        # tag = StructType.new(node)
       end
+
+      # if value.name == "bitfield-type"
+      #   output.write(getBitfieldAnnotation(value))
+      # end
+
+      # TODO: Remove this.
+      # raise "Node #{node.name} does not have a class" unless tag
+
+      output.write(tag.render) if tag
     end
   end
 end

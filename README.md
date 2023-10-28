@@ -1,6 +1,6 @@
 # dfhack-lua-definitions
 
-Type definitions for DFHack's lua api.
+Type definitions for DFHack's Lua API.
 
 > **Warning**
 > These definitions are heavily work-in-progress, they can and will lie to you.
@@ -52,6 +52,9 @@ and this repository downloaded somewhere.
   ```
 
 ## Development
+
+You need ruby, a copy of [df-structures](//github.com/DFHack/df-structures),
+and some patience.
 
 - Add `---@meta` file information corresponding to the DFHack library.
 - Improve and re-run `generate-definitions` as needed.
