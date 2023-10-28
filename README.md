@@ -2,8 +2,9 @@
 
 Type definitions for DFHack's lua api.
 
-Heavily work in progress, these type definitions can and will lie to you, beware
-here be dragons.
+> **Warning**
+> These definitions are heavily work-in-progress, they can and will lie to you.
+> That being said, please raise any problems here or on discord.
 
 ## Status
 
