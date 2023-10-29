@@ -1,4 +1,4 @@
-require 'nokogiri'
+require "nokogiri"
 
 class XmlNode
   def initialize(node)
@@ -11,13 +11,13 @@ class EnumTag < XmlNode
   def render
     @enum_attrs = @node.search("enum-attr")
 
-    annotation = "---@enum #{@node['type-name']}\n"
+    annotation = "---@enum #{@node["type-name"]}\n"
 
     if comment = getComment(@node)
       annotation << "---#{comment}\n"
     end
 
-    annotation << "df.#{@node['type-name']} = {\n"
+    annotation << "df.#{@node["type-name"]} = {\n"
 
     index = 0
     @node.search("enum-item").each do |child|
@@ -40,22 +40,22 @@ class EnumTag < XmlNode
     annotation << "}\n\n"
 
     if @enum_attrs.length > 0
-      annotation << "---@class #{@node['type-name']}_attr\n"  
+      annotation << "---@class #{@node["type-name"]}_attr\n"  
 
       @enum_attrs.each do |enum_attr|
-        annotation << "---@field #{enum_attr['name']} #{enum_attr['type-name'] || 'string'}#{enum_attr['is-list'] && '[]' || nil}\n"
+        annotation << "---@field #{enum_attr["name"]} #{enum_attr["type-name"] || "string"}#{enum_attr["is-list"] && "[]" || nil}\n"
       end
 
       annotation << "\n"
-      annotation << "---@class #{@node['type-name']}_attrs\n"
+      annotation << "---@class #{@node["type-name"]}_attrs\n"
 
-      @node.search('enum-item').each do |child|
+      @node.search("enum-item").each do |child|
         next if child.search("item-attr").length == 0
 
-        annotation << "---@field #{child['name']} #{@node['type-name']}_attr\n"
+        annotation << "---@field #{child["name"]} #{@node["type-name"]}_attr\n"
       end
 
-      annotation << "df.#{@node['type-name']}.attrs = {}\n\n"
+      annotation << "df.#{@node["type-name"]}.attrs = {}\n\n"
     end
 
     annotation
@@ -67,10 +67,10 @@ class GlobalObject < XmlNode
     is_inline = @type == @node.name and !@node.children.empty?
 
     if is_inline
-      annotation = "---@class #{@node['name']}\n"
+      annotation = "---@class #{@node["name"]}\n"
 
       @node.children.each do |child|
-        annotation << "---@field #{child['name']} #{getElementType(child)}"
+        annotation << "---@field #{child["name"]} #{getElementType(child)}"
         annotation << " #{getComment(child)}"
         annotation << "\n" 
       end
@@ -78,13 +78,13 @@ class GlobalObject < XmlNode
       annotation = "---@type #{@type}\n"
     end
 
-    annotation << "df.global.#{@node['name']} = nil\n\n"
+    annotation << "df.global.#{@node["name"]} = nil\n\n"
   end
 end
 
 class StructType < XmlNode
   def render
-    annotation = "---@class #{@node['name']}\n"
+    annotation = "---@class #{@node["name"]}\n"
 
     @node.children.each do |child|
       
@@ -117,10 +117,10 @@ def get_type(element_type)
   when number?(element_type)
     :number
   when array?(element_type)
-    'any[]'
+    "any[]"
   when string?(element_type)
     :string
-  when 'bool'
+  when "bool"
     :boolean
   else
     element_type
@@ -128,13 +128,13 @@ def get_type(element_type)
 end
 
 def getElementType(element)
-  type = get_type(element['pointer-type'] || element['type-name'] || element.name)
+  type = get_type(element["pointer-type"] || element["type-name"] || element.name)
 
   if type == element.name && !element.children.empty?
     return getElementType(element.children[0]) unless element.children.length > 1
   end
 
-  return "#{type}[]" if array?(element.name) unless type == 'any[]'
+  return "#{type}[]" if array?(element.name) unless type == "any[]"
   return type
 end
 
@@ -173,7 +173,7 @@ def getStructAnnotation(struct)
 
     if child.name == "compound" && !(child["type-name"] or child["pointer-type"])
       inline_types.push(child) if not inline_types.include?(child)
-      annotation << getField(child["name"], "#{type}_#{child['name']}", child["comment"])
+      annotation << getField(child["name"], "#{type}_#{child["name"]}", child["comment"])
     else
       annotation << getField(child["name"], getElementType(child), child["comment"])
     end
@@ -183,7 +183,7 @@ def getStructAnnotation(struct)
 
   inline_types.each do |inline_type|
     next if not inline_type["name"]
-    annotation << "---@class #{type}_#{inline_type['name']}\n"
+    annotation << "---@class #{type}_#{inline_type["name"]}\n"
 
     inline_type.children.each do |type_child|
       next if not type_child["name"]
@@ -215,25 +215,33 @@ def getBitfieldAnnotation(bitfield)
   annotation << "df.#{bitfield["type-name"]} = {}\n\n"
 end
 
-# Pass in a glob of all source files (from dfhack)
+# Generates lua-language-server compatible definition files.
+# Pass path or glob of `.xml` files to process, outputs into the `dist`
+# directory.
+#
+# Examples:
+#
+#     $ ruby generate.rb "~/df-structures/df.globals.xml"
+#     $ ruby generate.rb "~/df-structures/*.xml"
+#
+# For more information on the `xml` syntax used in df-structures, see:
+# https://github.com/DFHack/df-structures/blob/master/SYNTAX.rst
 Dir.glob(ARGV[0]).each do |xml|
-  document = Nokogiri::XML(File.open(xml)) do |config|
-    config.strict.noblanks
-  end
+  document = Nokogiri::XML(File.open(xml)) { |config| config.noblanks }
 
-  File.open("library/#{File.basename(xml).sub('.xml', '.lua')}", 'w') do |output|
+  File.open("../dist/library/#{File.basename(xml).sub(".xml", ".lua")}", "w") do |output|
     output.write("---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.\n")
     output.write("---@meta\n\n")
 
-    document.xpath('/data-definition/*').each do |node|
+    document.xpath("/data-definition/*").each do |node|
       tag = nil
 
       case node.name
-      when 'enum-type'
+      when "enum-type"
         tag = EnumTag.new(node)
-      when 'global-object'
+      when "global-object"
         tag = GlobalObject.new(node)
-      when 'struct-type', 'class-type'
+      when "struct-type", "class-type"
         output.write(getStructAnnotation(node))
         # tag = StructType.new(node)
       end
