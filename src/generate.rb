@@ -25,14 +25,15 @@ class XmlNode
   end
 end
 
-class EnumTag < XmlNode
+# Covers both <enum-type> and <bitfield-type>.
+class EnumType < XmlNode
   attr_reader :name, :type
 
   def initialize(node)
     super
 
     @name = node.attributes['type-name']
-    # Lua enums must be a "number" type
+    # Enums always are an integer/"number" type
     # @type = "number"
   end
 
@@ -43,7 +44,7 @@ class EnumTag < XmlNode
     annotation << "df.#{@name} = {\n"
 
     index = 0
-    @node.css("enum-item").each do |child|
+    @node.css("enum-item, flag-bit").each do |child|
       item = EnumItem.new(child, index)
 
       # TODO: <enum-attr> nodes
@@ -75,22 +76,21 @@ class EnumItem < XmlNode
 end
 
 class GlobalObject < XmlNode
+  def initialize(node)
+    super
+
+    @name = node.attributes['name']
+    @type = node.attributes['type-name']
+  end
+
   def render
-    is_inline = @type == @node.name and !@node.children.empty?
-
-    if is_inline
-      annotation = "---@class #{@node["name"]}\n"
-
-      @node.children.each do |child|
-        annotation << "---@field #{child["name"]} #{getElementType(child)}"
-        annotation << " #{getComment(child)}"
-        annotation << "\n" 
-      end
-    else
-      annotation = "---@type #{@type}\n"
+    # TODO: Inline defined types/pointers
+    if not @type
+      return ""
     end
 
-    annotation << "df.global.#{@node["name"]} = nil\n\n"
+    annotation = "---@type #{@type}\n"
+    annotation << "df.global.#{@name} = nil#{' --' + @comment unless not @comment}\n\n"
   end
 end
 
@@ -195,28 +195,10 @@ def getStructAnnotation(struct)
   return annotation
 end
 
-def getBitfieldAnnotation(bitfield)
-  annotation = "---@class #{bitfield["type-name"]}\n"
-
-  if comment = getComment(bitfield)
-    annotation << "---#{comment}\n"
-  end
-
-  index = 0
-  for child in bitfield.children
-    if child.name == "flag-bit"
-      child_name = child["name"] || "unk_#{index}"
-      child_type = getElementType(child)
-      annotation << getField(child_name, child_type, getComment(child))
-      index += 1
-    end
-  end
-
-  annotation << "df.#{bitfield["type-name"]} = {}\n\n"
-end
-
 DFNODES = Hash[
-  "enum-type" => EnumTag
+  "enum-type" => EnumType,
+  "bitfield-type" => EnumType,
+  "global-object" => GlobalObject,
 ]
 
 # Generates lua-language-server compatible definition files.
@@ -238,7 +220,7 @@ Dir.glob(ARGV[0]).each do |xml|
     output.write("---@meta\n\n")
 
     # Provided files should have a single `<data-definition>` root node.
-    definitions = document.css("data-definition enum-type")
+    definitions = document.css("data-definition *")
     definitions.each do |node|
       p node.name
       if DFNODES.key?(node.name)

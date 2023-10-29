@@ -12,6 +12,7 @@ Lots of manual work can be done on the non-df-structures definitions
 (like `common.lua`) in order to boost coverage of the core dfhack lua library.
 
 df-structures `generate.rb`:
+- [ ] Derive type from string
 - [ ] `<enum-type>`
   - [ ] `<enum-attr>`
   - [ ] `<item-attr>`
@@ -24,6 +25,7 @@ df-structures `generate.rb`:
   - [ ] `<vmethod>`
   - [ ] ?
 - [ ] `<global-object>`
+  - [ ] `<field>`
 
 ## Install
 
