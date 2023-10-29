@@ -1,64 +1,76 @@
 require "nokogiri"
 
 class XmlNode
+  attr_reader :node
+
   def initialize(node)
     @node = node
-    @type = getElementType(node)
+    @comment = get_comment
+    @attrs = get_attributes
+  end
+
+  def get_comment
+    if @node.attributes.key?("comment")
+      comment = @node.attributes["comment"]
+      return comment.value if not comment.value.empty?
+    end
+
+    if comment = @node.children.at_css("comment")
+      comment.text.strip.chomp.gsub(/\s+/, " ")
+    end
+  end
+
+  def get_attributes
+    @node.children.css("enum-attr")
   end
 end
 
 class EnumTag < XmlNode
+  attr_reader :name, :type
+
+  def initialize(node)
+    super
+
+    @name = node.attributes['type-name']
+    # Lua enums must be a "number" type
+    # @type = "number"
+  end
+
   def render
-    @enum_attrs = @node.search("enum-attr")
-
-    annotation = "---@enum #{@node["type-name"]}\n"
-
-    if comment = getComment(@node)
-      annotation << "---#{comment}\n"
-    end
-
-    annotation << "df.#{@node["type-name"]} = {\n"
+    annotation = "---@enum #{@name}\n"
+    annotation << "---#{@comment}\n" if @comment
+    # All <enum-type> elements are globally accessible.
+    annotation << "df.#{@name} = {\n"
 
     index = 0
-    @node.search("enum-item").each do |child|
-      annotation << "  %s = %s," % [child["name"] || "unk_%s" % index, child["value"] || index]
+    @node.css("enum-item").each do |child|
+      item = EnumItem.new(child, index)
 
-      if comment = child["comment"]
-        annotation << " --#{comment}\n"
-      else
-        annotation << "\n"
-      end
-      # TODO: Enum attributes.
-      if child.children.any? {|c| c.name == "item-attr" }
-      end
+      # TODO: <enum-attr> nodes
+      annotation << item.render
 
-      if not child["value"]
-        index += 1
-      end
+      index += 1 unless item.value
     end
 
     annotation << "}\n\n"
-
-    if @enum_attrs.length > 0
-      annotation << "---@class #{@node["type-name"]}_attr\n"  
-
-      @enum_attrs.each do |enum_attr|
-        annotation << "---@field #{enum_attr["name"]} #{enum_attr["type-name"] || "string"}#{enum_attr["is-list"] && "[]" || nil}\n"
-      end
-
-      annotation << "\n"
-      annotation << "---@class #{@node["type-name"]}_attrs\n"
-
-      @node.search("enum-item").each do |child|
-        next if child.search("item-attr").length == 0
-
-        annotation << "---@field #{child["name"]} #{@node["type-name"]}_attr\n"
-      end
-
-      annotation << "df.#{@node["type-name"]}.attrs = {}\n\n"
-    end
-
     annotation
+  end
+end
+
+class EnumItem < XmlNode
+  attr_reader :value
+
+  def initialize(node, index)
+    super(node)
+
+    # TODO: Does unknown need enumerated value or index here?
+    @name = node.attributes['name'] || "unk_#{index}"
+    @index = index
+    @value = node.attributes['value']
+  end
+
+  def render
+    "  #{@name} = #{@value || @index},#{' --' + @comment unless not @comment}\n"
   end
 end
 
@@ -138,18 +150,6 @@ def getElementType(element)
   return type
 end
 
-def getComment(element)
-  if element["comment"] and element["comment"] != ""
-    return element["comment"]
-  elsif
-    if comment = element.search("comment")[0]
-      return comment.content.strip.chomp.gsub(/\s+/, " ")
-    end
-  else
-    return nil
-  end
-end
-
 def getField(name, type, comment = nil)
   field = "---@field #{name} #{type}"
 
@@ -215,6 +215,10 @@ def getBitfieldAnnotation(bitfield)
   annotation << "df.#{bitfield["type-name"]} = {}\n\n"
 end
 
+DFNODES = Hash[
+  "enum-type" => EnumTag
+]
+
 # Generates lua-language-server compatible definition files.
 # Pass path or glob of `.xml` files to process, outputs into the `dist`
 # directory.
@@ -233,18 +237,23 @@ Dir.glob(ARGV[0]).each do |xml|
     output.write("---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.\n")
     output.write("---@meta\n\n")
 
-    document.xpath("/data-definition/*").each do |node|
-      tag = nil
-
-      case node.name
-      when "enum-type"
-        tag = EnumTag.new(node)
-      when "global-object"
-        tag = GlobalObject.new(node)
-      when "struct-type", "class-type"
-        output.write(getStructAnnotation(node))
-        # tag = StructType.new(node)
+    # Provided files should have a single `<data-definition>` root node.
+    definitions = document.css("data-definition enum-type")
+    definitions.each do |node|
+      p node.name
+      if DFNODES.key?(node.name)
+        tag = DFNODES[node.name].new(node)
       end
+
+      # tag = nil
+
+      # case node.name
+      # when "global-object"
+      #   tag = GlobalObject.new(node)
+      # when "struct-type", "class-type"
+      #   output.write(getStructAnnotation(node))
+      #   # tag = StructType.new(node)
+      # end
 
       # if value.name == "bitfield-type"
       #   output.write(getBitfieldAnnotation(value))
