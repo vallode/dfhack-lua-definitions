@@ -17,6 +17,7 @@ df-structures `generate.rb`:
   - [ ] `<item-attr>`
 - [ ] `<bitfield-type>`
   - [ ] `<flag-bit>`
+  - [ ] `nil` padding for the unused portions
 - [ ] `<struct-type>`
   - [ ] ?
 - [ ] `<class-type>`
