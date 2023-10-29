@@ -8,18 +8,21 @@ Type definitions for DFHack's Lua API.
 
 ## Status
 
-A majority of the structures are implemented. Notibly the tool is missing
-support for:
+Lots of manual work can be done on the non-df-structures definitions
+(like `common.lua`) in order to boost coverage of the core dfhack lua library.
 
-- [ ] `global-object` nested values like `stl-vector`, `static-array`, and
-deeper matricies.
-- [ ] Array pointer types in general
-- [ ] Regressed `bitfield-type` support
-- [ ] Inline `enum` fields in structs and classes
-- [ ] `enum-attr` pointer types
-- [ ] `vmethod` definitions
-- [ ] Nested `compound` types
-- [ ] c++ module function definitions
+df-structures `generate.rb`:
+- [ ] `<enum-type>`
+  - [ ] `<enum-attr>`
+  - [ ] `<item-attr>`
+- [ ] `<bitfield-type>`
+  - [ ] `<flag-bit>`
+- [ ] `<struct-type>`
+  - [ ] ?
+- [ ] `<class-type>`
+  - [ ] `<vmethod>`
+  - [ ] ?
+- [ ] `<global-object>`
 
 ## Install
 
@@ -57,5 +60,5 @@ You need ruby, a copy of [df-structures](//github.com/DFHack/df-structures),
 and some patience.
 
 - Add `---@meta` file information corresponding to the DFHack library.
-- Improve and re-run `generate-definitions` as needed.
-- `ruby generate-definitions.rb <df-structures-repo>/\*.xml`
+- Improve and re-run `generate.rb` as needed.
+- `ruby generate.rb "<df-structures-repo>/df.*.xml"`
