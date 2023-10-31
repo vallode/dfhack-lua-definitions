@@ -1,3 +1,22 @@
+TYPE_MAP = {
+  's-float' => 'number',
+  'd-float' => 'number',
+  'long' => 'number',
+  'int8_t' => 'integer',
+  'uint8_t' => 'integer',
+  'int16_t' => 'integer',
+  'uint16_t' => 'integer',
+  'int32_t' => 'integer',
+  'uint32_t' => 'integer',
+  'int64_t' => 'integer',
+  'uint64_t' => 'integer',
+  'stl-string' => 'string',
+  'static-string' => 'string',
+  'bool' => 'boolean',
+  'stl-vector' => 'any[]',
+  'static-array' => 'any[]'
+}
+
 class XmlNode
   attr_reader :node
 
@@ -28,11 +47,22 @@ class Field < XmlNode
     super
 
     @name = node.attributes['name']
-    @type = TYPE_MAP.fetch(node.name, 'unknown')
+    @type = get_type
   end
 
   def render
     annotation = "---@field #{@name} #{@type}\n"
+  end
+
+  # TODO: Figure this out better, needs to be recursive for tables.
+  def get_type
+    type = TYPE_MAP.fetch(node.name, 'unknown')
+
+    if type == 'any[]' and @node.attributes['type-name']
+      @type = "#{TYPE_MAP.fetch(@node.attributes['type-name'].value, 'unknown')}[]"
+    end
+
+    return type
   end
 end
 

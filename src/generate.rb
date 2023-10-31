@@ -12,25 +12,6 @@ DF_STRUCTURES_NODES = {
   # "class-type" => StructType,
 }
 
-TYPE_MAP = {
-  's-float' => 'number',
-  'd-float' => 'number',
-  'long' => 'number',
-  'int8_t' => 'integer',
-  'uint8_t' => 'integer',
-  'int16_t' => 'integer',
-  'uint16_t' => 'integer',
-  'int32_t' => 'integer',
-  'uint32_t' => 'integer',
-  'int64_t' => 'integer',
-  'uint64_t' => 'integer',
-  'stl-string' => 'string',
-  'static-string' => 'string',
-  'bool' => 'boolean',
-  'stl-vector' => 'any[]',
-  'static-array' => 'any[]'
-}
-
 # Generates lua-language-server compatible definition files.
 # Pass path or glob of `.xml` files to process, outputs into the `dist`
 # directory.
