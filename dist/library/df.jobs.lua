@@ -75,6 +75,43 @@ df.job_subtype_surgery = {
   RemoveRottenTissue = 4,
 }
 
+---@class job
+---@field id integer
+---@field list_link job_list_link
+---@field posting_index integer index into world.job_postings
+---@field job_type job_type
+---@field job_subtype job_subtype_surgery toady: stage
+---@field pos coord
+---@field completion_timer integer toady: duration; -1 every time unit.counters.job_counter is below 0
+---@field maxdur integer
+---@field flags job_flags
+---@field mat_type integer
+---@field mat_index integer
+---@field spell integer almost certainly no longer used
+---@field item_type item_type for Bait Trap jobs
+---@field item_subtype integer when StoreInStockpile this is a unit_labor
+---@field item_category stockpile_group_set type and name are inappropriate
+---@field material_category job_material_category
+---@field reaction_name string
+---@field expire_timer integer toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
+---@field recheck_cntdn integer toady: auxilary_counter; for process_jobs
+---@field aux_id integer
+---@field items job_item_ref[]
+---@field specific_refs specific_ref[]
+---@field general_refs general_ref[]
+---@field job_items job_item[]
+---@field guide_path coord_path
+---@field cur_path_index integer
+---@field spec_loc coord toady: spec_x/spec_y/spec_z
+---@field art_spec job_art_specification
+---@field order_id integer
+
+---@class job_item_ref
+---@field item item
+---@field role any
+---@field is_fetching integer 0 immediately once taken to be brought
+---@field job_item_idx integer
+
 ---@enum job_item_flags1
 df.job_item_flags1 = {
   improvable = 0, --vtable[155]:eax,-1,-1
@@ -164,11 +201,175 @@ df.job_item_flags3 = {
   edged = 12,
 }
 
+---@class job_item
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field flags1 job_item_flags1
+---@field quantity integer
+---@field vector_id job_item_vector_id
+---@field flags2 job_item_flags2
+---@field flags3 job_item_flags3
+---@field flags4 integer
+---@field flags5 integer
+---@field metal_ore integer
+---@field reaction_class string
+---@field has_material_reaction_product string
+---@field min_dimension integer pure guess by context
+---@field reagent_index integer
+---@field contains integer[] used with custom reactions
+---@field reaction_id integer
+---@field has_tool_use tool_uses
+---@field unk_v43_1 integer
+---@field unk_v43_2 integer
+---@field unk_v43_3 integer
+---@field unk_v43_4 integer
+
+---@class job_item_filter
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field flags1 job_item_flags1
+---@field item_vector item[]
+---@field use_mat_index boolean
+---@field flags2 job_item_flags2
+---@field use_flags2 boolean
+---@field flags3 job_item_flags3
+---@field use_flags3 boolean
+---@field flags4 integer
+---@field use_flags4 boolean
+---@field flags5 integer
+---@field use_flags5 boolean
+---@field reaction_class string
+---@field has_material_reaction_product string
+---@field metal_ore integer
+---@field use_metal_ore boolean
+---@field use_reaction_class boolean
+---@field use_reaction_product boolean
+---@field min_dimension integer
+---@field reaction_id integer
+---@field contains integer[]
+---@field use_contains boolean
+---@field has_tool_use tool_uses
+---@field has_melee_skill job_skill
+---@field unk_v40_1 integer noticed in v0.40.24
+---@field pos coord
+---@field unit unit
+---@field job job
+---@field building building
+---@field unk_74 any
+---@field unk_v4305_1 integer
+---@field burrows integer[]
+---@field use_burrows boolean
+---@field take_from building[]
+
 ---@enum manager_order_status
 df.manager_order_status = {
   validated = 0,
   active = 1,
 }
+
+---@class job_art_specification
+---@field type any
+---@field id any
+---@field subid any
+
+---@class manager_order
+---@field id integer
+---@field job_type job_type
+---@field item_type item_type
+---@field item_subtype integer
+---@field reaction_name string
+---@field mat_type integer
+---@field mat_index integer
+---@field item_category stockpile_group_set
+---@field hist_figure_id integer
+---@field material_category job_material_category
+---@field art_spec job_art_specification
+---@field amount_left integer
+---@field amount_total integer
+---@field status manager_order_status
+---@field frequency any
+---@field finished_year integer
+---@field finished_year_tick integer
+---@field workshop_id integer
+---@field max_workshops integer 0 is unlimited
+---@field item_conditions manager_order_condition_item[]
+---@field order_conditions manager_order_condition_order[]
+---@field items job_item[]
+
+---@class manager_order_condition_item
+---@field compare_type any
+---@field compare_val integer
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field flags1 job_item_flags1
+---@field flags2 job_item_flags2
+---@field flags3 job_item_flags3
+---@field flags4 integer
+---@field flags5 integer
+---@field reaction_class string
+---@field has_material_reaction_product string
+---@field inorganic_bearing integer
+---@field min_dimension integer
+---@field contains integer[]
+---@field reaction_id integer
+---@field has_tool_use tool_uses
+
+---@class manager_order_condition_order
+---@field order_id integer
+---@field condition any
+---@field unk_1 integer
+
+---@class manager_order_template
+---jminfost
+---@field job_type job_type
+---@field reaction_name string
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field item_category stockpile_group_set specflag
+---@field hist_figure_id integer
+---@field material_category job_material_category
+---@field match_value integer
+---@field name string
+---@field compare_str string
+---@field on boolean
+
+---@class mandate
+---@field unit unit
+---@field mode any
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field amount_total integer
+---@field amount_remaining integer
+---@field timeout_counter integer counts once per 10 frames
+---@field timeout_limit integer once counter passes limit, mandate ends
+---@field punishment integer
+---@field punish_multiple integer
+---@field unk4 integer
+
+---@class training_assignment
+---@field animal_id integer
+---@field trainer_id integer
+---@field flags any
+
+---@class unit_demand
+---@field unk_0 integer
+---@field place any
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field timeout_counter integer counts once per 10 frames
+---@field timeout_limit integer once counter passes limit, mandate ends
 
 ---@enum job_cancel_reason
 df.job_cancel_reason = {
@@ -308,4 +509,6 @@ df.job_cancel_reason = {
   IN_EXISTENTIAL_CRISIS = 133,
   NEEDS_SPECIFIC_ITEM_2 = 134,
 }
+
+---@class job_cancel
 

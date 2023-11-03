@@ -217,6 +217,11 @@ df.next_global_id = {
   divination_set = 40,
 }
 
+---@class global_table_entry
+---@field name any
+---@field address any
+---@field size any
+
 ---@enum game_mode
 df.game_mode = {
   DWARF = 0,
@@ -268,3 +273,4 @@ df.lever_target_type = {
 
 ---@type { [string|integer]: lever_target_type_attr }
 df.lever_target_type.attrs = {}
+

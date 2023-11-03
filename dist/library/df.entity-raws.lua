@@ -165,6 +165,64 @@ df.entity_name_type = {
   HOSPITAL = 18,
 }
 
+---@class entity_raw
+---@field code string
+---@field index integer into instace-vector
+---@field raws string[]
+---@field creature_ids integer[]
+---@field creatures string[]
+---@field equipment integer[]
+---@field currency_value integer[]
+---@field flags any
+---@field translation string
+---@field symbols language_word_table[]
+---@field sphere_alignment integer[]
+---@field art_facet_modifier integer[]
+---@field art_image_element_modifier integer[]
+---@field item_improvement_modifier integer[]
+---@field friendly_color integer[]
+---@field default_site_type world_site_type
+---@field likes_site integer[]
+---@field tolerates_site integer[]
+---@field biome_support integer[]
+---@field start_biome integer[]
+---@field settlement_biome integer[]
+---@field active_season integer[]
+---@field progress_trigger integer
+---@field ethic ethic_response[]
+---@field values integer[]
+---@field variable_value_min integer[]
+---@field variable_value_max integer[]
+---@field scholar any
+---@field max_site_pop_number integer
+---@field max_pop_number integer
+---@field max_starting_civ_number integer
+---@field religion integer[]
+---@field religion_sphere sphere_type[]
+---@field jobs boolean[]
+---@field positions entity_position_raw[]
+---@field variable_positions integer[]
+---@field site_variable_positions integer[]
+---@field tissue_styles string[]
+---@field workshops string[]
+---@field banditry integer
+---@field gem_shapes_str string[]
+---@field stone_shapes_str string[]
+---@field gem_shapes integer[]
+---@field stone_shapes integer[]
+---@field source_hfid integer
+---@field unk_v4201_1 integer
+---@field currency_str1 string[]
+---@field currency_str2 string[]
+---@field animal entity_animal_raw[]
+
+---@class entity_animal_raw
+---@field token string
+---@field caste_token string[]
+---@field animal_class string[]
+---@field forbidden_class string[]
+---@field flags any
+
 ---@enum entity_position_raw_flags
 df.entity_position_raw_flags = {
   SITE = 0,
@@ -241,4 +299,50 @@ df.entity_position_responsibility = {
   MAINTAIN_TUNNELS = 42,
   DELIVER_MESSAGES = 43,
 }
+
+---@class entity_position_raw
+---@field code string
+---@field id integer
+---@field flags any
+---@field allowed_creature_str string[][]
+---@field allowed_creature integer[]
+---@field allowed_class string[]
+---@field rejected_creature_str string[][]
+---@field rejected_creature integer[]
+---@field rejected_class string[]
+---@field name string[]
+---@field name_female string[]
+---@field name_male string[]
+---@field spouse string[]
+---@field spouse_female string[]
+---@field spouse_male string[]
+---@field squad string[]
+---@field land_name string
+---@field squad_size integer
+---@field commander_str string[]
+---@field commander_id integer[]
+---@field commander_types integer[]
+---@field land_holder integer
+---@field number integer
+---@field requires_population integer
+---@field execution_skill job_skill
+---@field precedence integer
+---@field replaced_by_str string
+---@field replaced_by integer
+---@field appointed_by_str string[]
+---@field appointed_by integer[]
+---@field succession_by_position_str string[]
+---@field succession_by_position integer[]
+---@field responsibilities boolean[]
+---@field color integer[]
+---@field required_boxes integer
+---@field required_cabinets integer
+---@field required_racks integer
+---@field required_stands integer
+---@field required_office integer
+---@field required_bedroom integer
+---@field required_dining integer
+---@field required_tomb integer
+---@field mandate_max integer
+---@field demand_max integer
 

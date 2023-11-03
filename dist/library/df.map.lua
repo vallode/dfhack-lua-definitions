@@ -1,6 +1,24 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class coord2d
+---@field x integer
+---@field y integer
+
+---@class coord2d_path
+---@field x integer[]
+---@field y integer[]
+
+---@class coord
+---@field x integer
+---@field y integer
+---@field z integer
+
+---@class coord_path
+---@field x integer[]
+---@field y integer[]
+---@field z integer[]
+
 ---@enum tile_traffic
 df.tile_traffic = {
   Normal = 0,
@@ -137,6 +155,60 @@ df.tile_liquid_flow = {
   unk_2 = 3, --periodically set whenever perm_flow_dir is nonzero
 }
 
+---@class tile_bitmask
+---@field bits integer[]
+
+---@class block_burrow
+---@field id integer
+---@field tile_bitmask tile_bitmask
+---@field link block_burrow_link
+
+---@class map_block
+---flood; 256*cost for straight, 362*cost for diagonal
+---@field flags block_flags
+---@field block_events block_square_event[]
+---@field block_burrows block_burrow_link
+---@field local_feature integer index into world_data.region_map
+---@field global_feature integer
+---@field unk2 integer
+---@field layer_depth integer uninitialized
+---@field dsgn_check_cooldown integer
+---@field default_liquid tile_designation
+---@field items integer[]
+---@field flows flow_info[]
+---@field flow_pool flow_reuse_pool
+---@field map_pos coord
+---@field region_pos coord2d
+---@field tiletype tiletype[][]
+---@field designation tile_designation[][]
+---@field occupancy tile_occupancy[][]
+---@field fog_of_war integer[][] for adventure mode
+---@field path_cost any[] flood; 256*cost for straight, 362*cost for diagonal
+---@field path_tag any[] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
+---@field walkable any[] 0 = non-walkable; same nonzero at A and B = walkable from A to B
+---@field map_edge_distance any[] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@field temperature_1 integer[][]
+---@field temperature_2 integer[][]
+---@field unk13 integer[][]
+---@field liquid_flow tile_liquid_flow[][]
+---@field region_offset integer[]
+
+---@class map_block_column
+---@field sink_level integer water at or above this level sinks into aquifer tiles
+---@field beach_level integer water at this level disappears if above more water
+---@field ground_level integer for coloring unallocated blocks
+---@field unmined_glyphs integer[][]
+---@field z_base integer
+---@field cave_columns cave_column_link[][]
+---@field column_rectangles cave_column_rectangle[]
+---@field z_shift integer seems to be 0 originally, but updated when map is shifted
+---@field flags any 0 process cave columns for caveins
+---@field elevation integer[][]
+---@field map_pos coord2d top left in tiles
+---@field unk_c3c integer uninitialized
+---@field region_pos coord2d
+---@field plants plant[] Only populated for the top left column in each mid level tile
+
 ---@enum block_square_event_type
 df.block_square_event_type = {
   mineral = 0,
@@ -256,6 +328,15 @@ df.construction_flags = {
   top_of_wall = 1, --used on the floors above constructed walls so you cannot remove them
 }
 
+---@class construction
+---@field pos coord
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field flags construction_flags
+---@field original_tile tiletype
+
 ---@enum flow_type
 df.flow_type = {
   Miasma = 0,
@@ -274,11 +355,36 @@ df.flow_type = {
   ItemCloud = 13,
 }
 
+---@class flow_info
+---@field type flow_type
+---@field mat_type integer
+---@field mat_index integer
+---@field density integer
+---@field pos coord
+---@field dest coord
+---@field expanding boolean
+---@field reuse boolean
+---@field guide_id integer
+
+---@class flow_reuse_pool
+---@field reuse_idx integer
+---@field flags any
+
 ---@enum flow_guide_type
 df.flow_guide_type = {
   TrailingFlow = 0,
   ItemCloud = 1,
 }
+
+---@class effect_info
+---@field id integer assigned during Save
+---@field job job
+---@field type integer 2 = falling into chasm
+---@field foreground integer
+---@field background integer
+---@field bright integer
+---@field pos coord
+---@field timer integer
 
 ---@enum region_block_event_type
 df.region_block_event_type = {

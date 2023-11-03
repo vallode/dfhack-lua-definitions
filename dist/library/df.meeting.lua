@@ -1,6 +1,58 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class dipscript_info
+---@field id integer assigned during Save
+---@field script_steps script_stepst[]
+---@field script_vars script_varst[]
+---@field code string DWARF_LIAISON etc
+
+---@class dipscript_text
+---@field name string dwarf_liaison_bye, etc.
+---@field contents string[]
+
+---@class dipscript_popup
+---@field meeting_holder_actor integer
+---@field meeting_holder_noble integer
+---@field activity activity_info
+---@field flags any
+
+---@class meeting_variable
+---@field value integer
+---@field ref specific_ref
+---@field active_var active_script_varst
+
+---@class meeting_context
+---@field meeting meeting_diplomat_info
+---@field popup dipscript_popup
+---@field unk_2 any
+---@field unk_3 any
+
+---@class meeting_diplomat_info
+---@field civ_id integer
+---@field unk1 integer maybe is_first_contact
+---@field diplomat_id integer
+---@field associate_id integer
+---@field topic_list meeting_topic[]
+---@field topic_parms integer[]
+---@field sell_requests entity_sell_requests
+---@field buy_requests entity_buy_requests
+---@field dipscript dipscript_info
+---@field cur_step integer
+---@field active_script_vars active_script_varst[]
+---@field unk_50 string
+---@field unk_6c string
+---@field flags any
+---@field events meeting_event[]
+---@field agreement_entity integer[]
+---@field agreement_topic meeting_topic[]
+---@field agreement_year integer[]
+---@field agreement_tick integer[]
+---@field agreement_outcome integer[]
+---@field contact_entity integer[]
+---@field contact_year integer[]
+---@field contact_tick integer[]
+
 ---@enum meeting_topic
 df.meeting_topic = {
   DiscussCurrent = 0,
@@ -25,6 +77,34 @@ df.meeting_event_type = {
   ImportAgreement = 5,
 }
 
+---@class meeting_event
+---@field type meeting_event_type
+---@field topic meeting_topic
+---@field topic_parm integer
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field quota_total integer
+---@field quota_remaining integer
+---@field year integer
+---@field ticks integer
+---@field sell_prices entity_sell_prices
+---@field buy_prices entity_buy_prices
+
+---@class activity_info
+---@field id integer assigned during Save
+---@field unit_actor integer diplomat or worker
+---@field unit_noble integer meeting recipient
+---@field place integer
+---@field flags any
+---@field unk3 integer 3
+---@field delay integer 0
+---@field tree_quota integer -1
+
+---@class room_rent_info
+---@field elements building[]
+---@field rent_value integer
+---@field flags any
+
 ---@enum activity_entry_type
 df.activity_entry_type = {
   TrainingSession = 0,
@@ -41,6 +121,13 @@ df.activity_entry_type = {
   Read = 11,
   Play = 12,
 }
+
+---@class activity_entry
+---@field id integer
+---@field type activity_entry_type
+---@field events activity_event[]
+---@field next_event_id integer
+---@field army_controller integer
 
 ---@enum activity_event_type
 df.activity_event_type = {
@@ -73,6 +160,14 @@ df.activity_event_type = {
   Encounter = 26,
   StoreObject = 27,
 }
+
+---@class activity_event_participants
+---@field histfigs integer[]
+---@field units integer[]
+---@field free_histfigs integer[]
+---@field free_units integer[]
+---@field activity_id integer
+---@field event_id integer
 
 ---@enum conversation_menu
 df.conversation_menu = {
@@ -171,4 +266,16 @@ df.performance_participant_type = {
   LISTEN = 4,
   HEAR = 5,
 }
+
+---@class schedule_info
+---@field id integer
+---@field unk_1 integer
+---@field slots schedule_slot[]
+
+---@class schedule_slot
+---@field type integer 0:Eat, 1:Sleep, 2-4:???
+---@field start_time integer
+---@field end_time integer
+---@field unk_1 integer
+---@field processed integer
 

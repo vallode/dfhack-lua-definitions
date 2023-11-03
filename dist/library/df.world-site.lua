@@ -1,6 +1,37 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class scribejob
+---@field idmaybe integer
+---@field unk_1 integer not locationid
+---@field item_id integer
+---@field written_content_id integer
+---@field unit_id integer
+---@field activity_entry_id integer
+---@field unk_2 integer
+
+---@class site_reputation_report
+---@field site_id integer
+---@field location_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field year integer
+---@field tickmaybe integer
+---@field unk_3 integer[]
+
+---@class site_reputation_info
+---@field reports site_reputation_report[]
+
+---@class location_scribe_jobs
+---@field scribejobs scribejob[]
+---@field nextidmaybe integer
+---@field year integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+
 ---@enum abstract_building_type
 df.abstract_building_type = {
   MEAD_HALL = 0,
@@ -31,12 +62,52 @@ df.abstract_building_flags = {
   Unk7 = 7,
 }
 
+---@class abstract_building_entombed
+---used within Tomb and Dungeon
+---@field populations integer[]
+---@field histfigs integer[]
+
+---@class abstract_building_contents
+---used within Temple, Library, and Inn/Tavern
+---@field need_more any
+---@field profession profession
+---@field desired_goblets integer
+---@field desired_instruments integer
+---@field desired_paper integer
+---@field desired_splints integer
+---@field desired_thread integer times 15000
+---@field desired_cloth integer times 10000
+---@field desired_crutches integer
+---@field desired_powder integer times 150
+---@field desired_buckets integer
+---@field desired_soap integer times 150
+---@field desired_copies integer
+---@field location_tier integer
+---@field location_value integer
+---@field count_goblets integer
+---@field count_instruments integer
+---@field count_paper integer
+---@field count_splints integer
+---@field count_thread integer
+---@field count_cloth integer
+---@field count_crutches integer
+---@field count_powder integer
+---@field count_buckets integer
+---@field count_soap integer
+---@field unk_v47_2 integer
+---@field unk_v47_3 integer
+---@field building_ids integer[]
+
 ---@enum temple_deity_type
 df.temple_deity_type = {
   None = -1,
   Deity = 1,
   Religion = 2,
 }
+
+---@class temple_deity_data
+---@field Deity integer
+---@field Religion integer
 
 ---@enum world_site_type
 df.world_site_type = {
@@ -94,6 +165,229 @@ df.lair_type = {
   WILDERNESS_LOCATION = 5, --In mountains, hosting Rocs in vanilla
 }
 
+---@class property_ownership
+---@field index integer
+---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
+---@field pad_1 any
+---@field property_index integer index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
+---@field unk_hfid integer Always same as owner_hfid when set, but not always set when that field is.
+---@field owner_entity_id integer Mutually exclusive with owner_hfid. All seen were merchant companies.
+---@field owner_hfid integer
+---@field unk_owner_entity_id integer Seen only in subset of owner_entity_id case, and always same value
+
+---@class world_site
+---@field name language_name
+---@field civ_id integer
+---@field cur_owner_id integer
+---@field type world_site_type
+---@field pos coord2d
+---@field id integer
+---@field unk_1 integer[]
+---@field index integer
+---@field rgn_min_x integer in embark tiles
+---@field rgn_max_x integer
+---@field rgn_min_y integer
+---@field rgn_max_y integer
+---@field rgn_min_z integer
+---@field rgn_max_z integer
+---@field global_min_x integer in embark tiles
+---@field global_min_y integer
+---@field global_max_x integer
+---@field global_max_y integer
+---@field seed1 integer random
+---@field seed2 integer random
+---@field resident_count integer count living in houses and shops
+---@field unk_110 integer
+---@field unk_114 integer
+---@field unk_118 integer[]
+---@field unk_11c integer Caves have non zero numbers. No others.
+---@field unk_120 integer Subset of caves can have non zero.
+---@field unk_124 integer Monument 0, LairShrine 5, Camp 20, others varying
+---@field unk_128 integer  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
+---@field unk_2 integer[] Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
+---@field unk_13c integer[] MountainHall, Town, DarkFortress, but not all
+---@field unk_v40_2 integer[] forest retreat
+---@field unk_v47_1 integer[][] Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
+---@field flags any
+---@field buildings abstract_building[]
+---@field next_building_id integer
+---@field property_ownership property_ownership[]
+---@field next_property_ownership_id integer
+---@field created_tick integer
+---@field created_year integer
+---@field unk_170 integer constant 0
+---@field unk_174 integer constant 0
+---@field unk_178 coord
+---@field realization world_site_realization
+---@field subtype_info fortress_type
+---@field unk_21c integer[]
+---@field deaths integer[] killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
+---@field is_mountain_halls integer
+---@field is_fortress integer
+---@field unk_v47_2 integer only MountainHalls, but only subset of them
+---@field unk_v40_4a integer[]
+---@field unk_v40_4b integer[]
+---@field unk_v40_4c integer[]
+---@field unk_v40_4d integer[] only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
+---@field unk_v40_4d_next_id integer only single non zero entry, matching vector above. Might guess 'since' is scrambled
+---@field unk_v43_2 integer[]
+---@field unk_v43_3 integer constant 0?
+---@field unk_v40_5 integer constant -1?
+---@field unk_188 integer[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
+---@field unk_3a8 integer
+---@field unk_3b0 world_site_unk130
+---@field unk_18c any[][]
+---@field unk_19c any[][]
+---@field entity_links entity_site_link[]
+---@field cultural_identities cultural_identity[]
+---@field unk_v42_1 occupation[]
+---@field unk_v43_4 integer uninitialized
+---@field unk_3 any[][]
+---@field unk_4 historical_figure
+---@field unk_5 historical_figure
+---@field unk_6 historical_figure
+---@field unk_7 historical_figure
+---@field unk_8 historical_figure
+---@field unk_9 any
+---@field unk_10 any
+---@field unk_11 any
+---@field unk_12 any
+---@field unk_13 any
+---@field unk_14 any
+---@field unk_15 any
+---@field unk_16 any
+---@field unk_17 any
+---@field unk_18 any
+---@field unk_19 any
+---@field unk_20 any
+---@field unk_21 any
+---@field unk_22 any
+---@field unk_23 any
+---@field unk_24 integer
+---@field unk_25 any[][]
+
+---@class cultural_identity
+---@field id integer
+---@field site_id integer
+---@field civ_id integer
+---@field group_log integer[] the circumstances of groups joining or leaving this culture
+---@field ethic ethic_response[]
+---@field values integer[]
+---@field events entity_event[]
+---@field unk_d8 integer
+---@field unk_dc integer[]
+---@field unk_ec integer
+---@field unk_f0 integer
+---@field unk_f4 integer 0 or 800000
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field unk_f8 integer
+
+---@class world_site_inhabitant
+---@field count integer
+---@field race integer
+---@field population_id integer
+---@field entity_id integer can be Religion, Civilization, and SiteGovernment as well as Outcast
+---@field unk_10 integer
+---@field cultural_identity_id integer
+---@field interaction_id integer
+---@field interaction_effect_idx integer index into the above interaction, usually refers to an ANIMATE effect
+---@field related_entity_id integer Founder if outcast_id=-1, else Outcast and equal to outcast_id
+---@field unk_24 integer 0 and 1 seen
+---@field unk_28 integer
+
+---@class world_site_realization
+---@field buildings site_realization_building[]
+---@field num_buildings integer
+---@field unk_14 integer
+---@field num_areas integer
+---@field mini_rivers integer[][]
+---@field mini_tiles integer[][]
+---@field mini_colors integer[][]
+---@field road_map site_realization_crossroads[][]
+---@field river_map integer[][][]
+---@field unk_55e8 integer[][]
+---@field building_map integer[][]
+---@field flags_map integer[][]
+---@field zoom_tiles integer[][]
+---@field zoom_colors integer[][]
+---@field zoom_movemask integer[][]
+---@field area_map integer[][]
+---@field areas any[]
+---@field unk_1 integer
+---@field army_controller_pos_x integer
+---@field army_controller_pos_y integer
+---@field unk_193bc integer[]
+---@field num_unk_193bc integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer[][]
+---@field unk_5 integer
+---@field unk_6 pointer[]
+---@field unk_7 integer
+---@field unk_8 pointer[]
+---@field unk_9 integer
+---@field unk_10 pointer[]
+---@field unk_11 integer
+---@field unk_12 pointer[]
+---@field unk_13 integer
+---@field unk_15 pointer[]
+---@field unk_16 integer
+---@field unk_17 pointer[]
+---@field unk_18 integer
+---@field unk_19 pointer[]
+---@field unk_20 integer
+---@field unk_21 pointer[]
+---@field unk_22 integer
+---@field building_well site_realization_building[]
+---@field num_building_well integer
+---@field building_temple site_realization_building[]
+---@field num_building_temple integer
+---@field building_type22 site_realization_building[]
+---@field num_building_type22 integer
+---@field building_type21 site_realization_building[]
+---@field num_building_type21 integer
+---@field unk_23 pointer[]
+---@field unk_24 integer
+---@field unk_wsr_vector any[][]
+
+---@class site_realization_crossroads
+---@field road_min_y integer[]
+---@field road_max_y integer[]
+---@field road_min_x integer[]
+---@field road_max_x integer[]
+---@field idx_x integer
+---@field idx_y integer
+---@field tile_width integer
+---@field tile_height integer
+---@field unk_310 integer
+---@field unk_314 integer
+---@field unk_318 integer
+---@field unk_31c integer
+---@field unk_320 integer
+---@field unk_324 integer
+---@field unk_328 integer
+---@field unk_32c integer
+---@field center_x_tile integer
+---@field center_y_tile integer
+---@field up site_realization_crossroads
+---@field down site_realization_crossroads
+---@field right site_realization_crossroads
+---@field left site_realization_crossroads
+---@field unk_348 integer
+---@field unk_349 integer
+---@field unk_34c integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_370 integer[]
+---@field unk_3d0 integer[]
+
 ---@enum site_realization_building_type
 df.site_realization_building_type = {
   cottage_plot = 0,
@@ -129,6 +423,32 @@ df.site_realization_building_type = {
   necromancer_tower = 30,
   barrow = 31,
 }
+
+---@class site_realization_building
+---@field id integer
+---@field type site_realization_building_type
+---@field min_x integer in tiles relative to site
+---@field min_y integer
+---@field max_x integer
+---@field max_y integer
+---@field unk_18 integer
+---@field inhabitants world_site_inhabitant[]
+---@field unk_2c integer
+---@field item site_building_item
+---@field abstract_building_id integer used for temple and mead hall
+---@field unk_44 integer
+---@field building_info site_realization_building_infost
+---@field unk_4c integer[]
+---@field unk_5c integer bit 0x01 == abandoned
+---@field unk_60 any[][]
+---@field unk_v40_1 integer
+
+---@class site_building_item
+---@field race integer
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
 
 ---@enum tower_shape
 df.tower_shape = {

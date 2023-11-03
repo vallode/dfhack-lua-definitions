@@ -366,10 +366,55 @@ df.announcement_flags = {
   ALERT = 7, --ALERT
 }
 
+---@class announcements
+---@field flags announcement_flags[]
+---@field unused any needed to fix alignment on 64-bit platforms
+
+---@class report
+---@field type announcement_type valid only if coordinates are
+---@field text string
+---@field color integer
+---@field bright boolean
+---@field duration integer remaining graphical frames to display this report in announcement bar
+---@field flags any
+---@field repeat_count integer 100 => displays: x101
+---@field zoom_type report_zoom_type
+---@field pos coord
+---@field zoom_type2 report_zoom_type
+---@field pos2 coord
+---@field id integer
+---@field year integer
+---@field time integer
+---@field unk_v40_1 integer
+---@field unk_v40_2 integer
+---@field speaker_id integer unit speaking the conversation
+
 ---@enum report_zoom_type
 df.report_zoom_type = {
   Generic = 0,
   Item = 1,
   Unit = 2,
 }
+
+---@class popup_message
+---@field text string
+---@field color integer
+---@field bright boolean
+
+---@class report_init
+---allocated on the stack, included in df-structures to assist with disassembly
+---@field type announcement_type
+---@field color integer
+---@field bright boolean
+---@field pos coord
+---@field zoom_type report_zoom_type
+---@field pos2 coord
+---@field zoom_type2 report_zoom_type
+---@field display_timer integer graphical frames for announcement bar to linger on last line with no new announcement
+---@field unit1 unit
+---@field unit2 unit
+---@field unk_v40_1 integer same as unknown field in report
+---@field unk_v40_2 integer same as unknown field in report
+---@field speaker_id integer
+---@field flags any
 

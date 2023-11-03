@@ -93,6 +93,60 @@ df.plant_raw_flags = {
   TWIGS_BELOW_TRUNK = 87,
 }
 
+---@class plant_raw
+---@field id string
+---@field index integer
+---@field raws string[]
+---@field flags any
+---@field name string
+---@field name_plural string
+---@field adj string
+---@field seed_singular string
+---@field seed_plural string
+---@field leaves_singular string unused
+---@field leaves_plural string unused
+---@field source_hfid integer
+---@field unk_v4201_1 integer
+---@field unk1 integer
+---@field unk2 integer
+---@field tiles integer
+---@field growdur integer
+---@field value integer
+---@field colors integer[]
+---@field alt_period integer[]
+---@field shrub_drown_level integer
+---@field tree_drown_level integer
+---@field sapling_drown_level integer
+---@field frequency integer
+---@field clustersize integer
+---@field prefstring string[]
+---@field material material[]
+---@field material_defs integer[]
+---@field underground_depth_min integer
+---@field underground_depth_max integer
+---@field growths plant_growth[]
+---@field root_name string
+---@field trunk_name string
+---@field heavy_branch_name string
+---@field light_branch_name string
+---@field twig_name string
+---@field cap_name string
+---@field trunk_period integer
+---@field heavy_branch_density integer
+---@field light_branch_density integer
+---@field max_trunk_height integer
+---@field heavy_branch_radius integer
+---@field light_branch_radius integer
+---@field trunk_branching integer
+---@field max_trunk_diameter integer
+---@field trunk_width_period integer
+---@field cap_period integer
+---@field cap_radius integer
+---@field root_density integer
+---@field root_radius integer
+---@field stockpile_growths integer[] indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
+---@field stockpile_growth_flags any[]
+
 ---@enum plant_material_def
 df.plant_material_def = {
   basic_mat = 0,
@@ -105,4 +159,35 @@ df.plant_material_def = {
   extract_barrel = 7,
   extract_still_vial = 8,
 }
+
+---@class plant_growth
+---@field id string
+---@field name string
+---@field name_plural string
+---@field str_growth_item string[]
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field prints plant_growth_print[]
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+---@field unk_v50_3 integer
+---@field unk_v50_4 integer
+---@field unk_v50_5 integer
+---@field timing_1 integer
+---@field timing_2 integer
+---@field locations any
+---@field density integer
+---@field behavior any
+---@field trunk_height_perc_1 integer
+---@field trunk_height_perc_2 integer
+
+---@class plant_growth_print
+---@field priority integer final token in list
+---@field tile_growth integer
+---@field tile_item integer
+---@field color integer[]
+---@field timing_start integer
+---@field timing_end integer
 

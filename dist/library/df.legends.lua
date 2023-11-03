@@ -1,6 +1,38 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class invasion_info
+---@field id integer
+---@field civ_id integer
+---@field active_size1 integer 0 unless active
+---@field active_size2 integer
+---@field size integer
+---@field duration_counter integer
+---@field flags any
+---@field unk4b integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+
+---@class entity_population_unk4
+---@field unk_1 integer[] all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+
+---@class entity_population
+---@field name language_name
+---@field races integer[] all the 3 vectors are always the same length, and thus coupled
+---@field counts integer[]
+---@field unk3 integer[] Set only for cave civs. When set, >= counts. Pre first embark all those are equal
+---@field unk4 entity_population_unk4[]
+---@field unk5 integer
+---@field layer_id integer
+---@field id integer
+---@field flags integer ?; layer_id == -1
+---@field civ_id integer
+
 ---@enum nemesis_flags
 df.nemesis_flags = {
   ACTIVE_ADVENTURER = 0, --used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.
@@ -15,4 +47,59 @@ df.nemesis_flags = {
   HERO = 9, --Set after assigning the Hero status during adventure mode character creation, produces the vanguard of destiny description in legends mode.
   DEMIGOD = 10, --Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
 }
+
+---@class nemesis_record
+---@field id integer sequential index in the array
+---@field unit_id integer
+---@field save_file_id integer unit-*.dat
+---@field member_idx integer index in the file
+---@field figure historical_figure
+---@field unit unit
+---@field group_leader_id integer
+---@field companions integer[]
+---@field unk10 integer
+---@field unk11 integer
+---@field unk12 integer
+---@field unk_v47_1 integer
+---@field unk_v47_2 integer
+---@field flags any
+
+---@class artifact_record
+---@field id integer
+---@field name language_name
+---@field flags any
+---@field item item
+---@field abs_tile_x integer
+---@field abs_tile_y integer
+---@field abs_tile_z integer
+---@field unk_1 integer
+---@field site integer
+---@field structure_local integer
+---@field unk_2 integer
+---@field subregion integer
+---@field feature_layer integer
+---@field owner_hf integer namer/creator does not seem to require a claim to be shown
+---@field remote_claims integer[] all afar, heirloom from afar seen
+---@field entity_claims integer[]
+---@field direct_claims integer[]
+---@field storage_site integer
+---@field storage_structure_local integer
+---@field loss_region integer
+---@field unk_3 integer
+---@field holder_hf integer doesn't seem to require a claim
+---@field year integer seems to be current year or -1
+---@field unk_4 integer
+---@field unk_5 integer Small set of non zero fairly small numbers seen?
+
+---@class artifact_rumor_locationst
+---@field art artifact_record
+---@field stid integer
+---@field abid integer abstract building id at site
+---@field hfid integer
+---@field srid integer
+---@field flid integer feature layer id in region
+---@field latest_year integer
+---@field latest_season_count integer
+---@field flag integer
+---@field latest_wi any witness_incidentst
 

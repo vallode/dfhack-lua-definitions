@@ -108,6 +108,50 @@ df.building_extents_type = {
   DistanceBoundary = 4,
 }
 
+---@class building_extents
+---@field extents building_extents_type
+---@field x integer
+---@field y integer
+---@field width integer
+---@field height integer
+
+---@class building_drawbuffer
+---@field texpos1 integer[][]
+---@field texpos2 integer[][]
+---@field texpos3 integer[][]
+---@field tile integer[][]
+---@field fore integer[][]
+---@field back integer[][]
+---@field bright integer[][]
+---@field x1 integer
+---@field x2 integer
+---@field y1 integer
+---@field y2 integer
+
+---@class stockpile_links
+---@field give_to_pile building[]
+---@field take_from_pile building[]
+---@field give_to_workshop building[]
+---@field take_from_workshop building[]
+
+---@class hospital_supplies
+---@field supplies_needed any
+---@field max_splints integer
+---@field max_thread integer
+---@field max_cloth integer
+---@field max_crutches integer
+---@field max_plaster integer
+---@field max_buckets integer
+---@field max_soap integer
+---@field cur_splints integer
+---@field cur_thread integer
+---@field cur_cloth integer
+---@field cur_crutches integer
+---@field cur_plaster integer
+---@field cur_buckets integer
+---@field cur_soap integer
+---@field supply_recheck_timer integer
+
 ---@enum civzone_type
 df.civzone_type = {
   Home = 0,
@@ -210,6 +254,18 @@ df.civzone_type = {
   Tomb = 97,
 }
 
+---@class building_design
+---@field builder1 integer
+---@field unk5 integer
+---@field build_skill integer
+---@field build_timer1 integer +1 per 10 frames while building
+---@field builder2 integer
+---@field build_timer2 integer
+---@field quality1 item_quality
+---@field flags any
+---@field hitpoints integer
+---@field max_hitpoints integer
+
 ---@enum furnace_type
 df.furnace_type = {
   WoodFurnace = 0,
@@ -262,6 +318,20 @@ df.workshop_type = {
 
 ---@type { [string|integer]: workshop_type_attr }
 df.workshop_type.attrs = {}
+
+---@class workshop_profile
+---@field permitted_workers integer[]
+---@field min_level integer
+---@field max_level integer
+---@field links stockpile_links
+---@field max_general_orders integer
+---@field block_general_orders boolean
+---@field pad_1 any
+---@field blocked_labors boolean[]
+
+---@class building_users
+---@field unit integer[]
+---@field mode integer[]
 
 ---@enum construction_type
 df.construction_type = {
@@ -335,6 +405,21 @@ df.trap_type = {
   WeaponTrap = 4,
   TrackStop = 5,
 }
+
+---@class pressure_plate_info
+---@field unit_min integer
+---@field unit_max integer
+---@field water_min integer
+---@field water_max integer
+---@field magma_min integer
+---@field magma_max integer
+---@field track_min integer
+---@field track_max integer
+---@field flags any
+
+---@class building_squad_use
+---@field squad_id integer
+---@field mode squad_use_flags
 
 ---@enum dfhack_room_quality_level
 ---Not in DF Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum Throne Room | Great Bedroom | Great Dining Room | Mausoleum Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb Decent Office | Decent Quarters | Decent Dining Room | Tomb Office | Quarters | Dining Room | Burial Chamber Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber Meager Office | Meager Quarters | Meager Dining Room | Grave

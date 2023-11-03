@@ -19,6 +19,14 @@ df.improvement_type = {
   IMAGE_SET = 13,
 }
 
+---@class dye_info
+---@field mat_type integer
+---@field mat_index integer
+---@field dyer integer
+---@field quality item_quality
+---@field skill_rating skill_rating at the moment of creation
+---@field unk_1 integer
+
 ---@enum itemimprovement_specific_type
 df.itemimprovement_specific_type = {
   HANDLE = 0,
@@ -77,6 +85,22 @@ df.written_content_style = {
   Ranting = 17,
 }
 
+---@class written_content
+---@field id integer
+---@field title string
+---@field page_start integer
+---@field page_end integer
+---@field refs general_ref[] interactions learned
+---@field ref_aux integer[] if nonzero, corresponding ref is ignored
+---@field unk1 integer
+---@field unk2 integer
+---@field type written_content_type
+---@field poetic_form integer
+---@field styles written_content_style[]
+---@field style_strength integer[] 0 = maximum, 1 = significant, 2 = partial
+---@field author integer
+---@field author_roll integer
+
 ---@enum engraving_flags
 df.engraving_flags = {
   floor = 0,
@@ -90,4 +114,17 @@ df.engraving_flags = {
   southwest = 8,
   southeast = 9,
 }
+
+---@class engraving
+---@field artist integer
+---@field masterpiece_event integer
+---@field skill_rating skill_rating at the moment of creation
+---@field pos coord
+---@field flags engraving_flags
+---@field tile integer
+---@field art_id integer
+---@field art_subid integer
+---@field quality item_quality
+---@field unk1 integer
+---@field unk2 integer
 

@@ -8,6 +8,26 @@ df.uniform_indiv_choice = {
   ranged = 2,
 }
 
+---@class item_filter_spec
+---@field item_type item_type
+---@field item_subtype integer
+---@field material_class entity_material_category
+---@field mattype integer
+---@field matindex integer
+
+---@class squad_uniform_spec
+---@field item integer
+---@field item_filter item_filter_spec
+---@field color integer
+---@field assigned integer[]
+---@field indiv_choice uniform_indiv_choice
+
+---@class squad_ammo_spec
+---@field item_filter item_filter_spec
+---@field amount integer
+---@field flags any
+---@field assigned integer[]
+
 ---@enum squad_use_flags
 df.squad_use_flags = {
   sleep = 0,
@@ -48,6 +68,64 @@ df.squad_event_type = {
   Unk1 = 2,
   Unk2 = 3,
 }
+
+---@class squad_position
+---@field occupant integer
+---@field orders squad_order[]
+---@field preferences integer[][]
+---@field uniform squad_uniform_spec[][]
+---@field unk_c4 string
+---@field flags uniform_flags
+---@field assigned_items integer[]
+---@field quiver integer
+---@field backpack integer
+---@field flask integer
+---@field unk_1 integer
+---@field activities integer[]
+---@field events integer[]
+---@field unk_2 integer
+
+---@class squad_schedule_order
+---@field order squad_order
+---@field min_count integer
+---@field positions any
+
+---@class squad_schedule_entry
+---@field name string
+---@field sleep_mode integer 0 room, 1 barrack will, 2 barrack need
+---@field uniform_mode integer 0 uniformed, 1 civ clothes
+---@field orders squad_schedule_order[]
+---@field order_assignments any[]
+
+---@class squad
+---@field id integer
+---@field name language_name
+---@field alias string if not empty, used instead of name
+---@field positions squad_position[]
+---@field orders squad_order[]
+---@field schedule squad_schedule_entry[][]
+---@field cur_routine_idx integer
+---@field rooms integer[]
+---@field rack_combat integer[]
+---@field rack_training integer[]
+---@field uniform_priority integer
+---@field activity integer
+---@field ammo squad_ammo_spec[]
+---@field carry_food integer
+---@field carry_water integer
+---@field entity_id integer
+---@field leader_position integer
+---@field leader_assignment integer
+---@field unk_1 integer
+---@field unk_v50_1 integer Appears to be a transient per-squad texture id. Initialised on squad ui click
+---@field unk_v50_2 integer Always 1 less than the above field when initialised, and has tied initialisation
+---@field symbol integer 0 to 22 inclusive, row-wise. Only used in graphics mode
+---@field foreground_r integer
+---@field foreground_g integer
+---@field foreground_b integer
+---@field background_r integer
+---@field background_g integer
+---@field background_b integer
 
 ---@enum squad_order_type
 df.squad_order_type = {
@@ -90,8 +168,209 @@ df.squad_order_cannot_reason = {
   cannot_leave_site = 20,
 }
 
+---@class army_controller
+---@field id integer all army.controllers seen and reached via InvasionOrder controllers' armies have been of type = Invasion and absent from the 'all' vector
+---@field entity_id integer
+---@field site_id integer Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'
+---@field unk_1 integer
+---@field pos_x integer Look like the unit is map_block, i.e. 3 * 16 * world tile. Position of target, which is the starting point for defeated invasions
+---@field pos_y integer
+---@field unk_18 integer Seen one case of 1990 for VillainVisiting
+---@field unk_1c integer same value for the same visitor
+---@field unk_20 integer[]
+---@field year integer
+---@field year_tick integer
+---@field unk_34 integer id of other army controller (Invasion) from same entity seen here
+---@field unk_38 integer copy of the id seen here, as well as a t7 for a t5 controller
+---@field master_hf integer InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector
+---@field general_hf integer InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master
+---@field unk_44_1 integer
+---@field unk_44_2 integer
+---@field visitor_nemesis_id integer Set for VillainousVisit
+---@field unk_44_4 integer 3, 6 seen for Villain
+---@field unk_44_5 integer[]
+---@field unk_50 integer
+---@field unk_54 integer[]
+---@field unk_44_11v integer[]
+---@field unk_v50_b0 integer[]
+---@field mission_report mission_report
+---@field data army_controller_sub1
+---@field type any
+
+---@class army_controller_sub1
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_invasion_order
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_4a integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer[]
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer[]
+
+---@class army_controller_invasion
+---@field unk_1 integer
+---@field unk_2 any
+
+---@class army_controller_sub5
+---@field pos_x integer in map_block coordinates. Same as those of the main struct seen
+---@field pos_y integer
+---@field unk_1 integer 0 seen
+---@field year integer
+---@field year_tick integer
+
+---@class army_controller_sub6
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class army_controller_sub7
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer[]
+---@field unk_4 integer 0 seen
+---@field pos_x integer map_block coordinates. Same as those of the main struct seen
+---@field pos_y integer
+---@field unk_5 integer 0 seen
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+
+---@class army_controller_sub11
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer[]
+
+---@class army_controller_visit
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer 2 seen on exiled character
+---@field unk_4 integer[]
+---@field unk_5 integer
+---@field unk_6 integer
+---@field abstract_building integer Monster slayers have -1
+---@field purpose history_event_reason
+
+---@class army_controller_sub13
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer[]
+
+---@class army_controller_sub14
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer[]
+---@field unk_5 integer
+
+---@class army_controller_sub15
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer[]
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+
+---@class army_controller_sub16
+---@field unk_1 integer
+
+---@class army_controller_quest
+---@field artifact_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_sub18
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class army_controller_sub19
+---@field unk_1 integer[]
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class army_controller_sub20
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class army_controller_sub21
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class army_controller_sub22
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class army_controller_sub23
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class army_controller_villainous_visit
+---@field site_id integer
+---@field entity_id integer
+---@field abstract_building integer -1 before arrival
+---@field purpose history_event_reason none before arrival
+
 ---@enum army_flags
 df.army_flags = {
   player = 0,
 }
+
+---@class army
+---@field id integer
+---@field pos coord
+---@field last_pos coord
+---@field unk_10 integer 1, 2, 5, 10, 15, 20, 21 seen
+---@field unk_14 integer When set, large value like army or army_controller id, but no match found
+---@field unk_18 integer
+---@field members integer[]
+---@field squads world_site_inhabitant[]
+---@field unk_3c integer
+---@field unk_1 integer
+---@field unk_2 integer 16 only value seen
+---@field controller_id integer
+---@field controller army_controller
+---@field flags any
+---@field block_path_x integer[] path in map_block coordinates. Seems to be the near term
+---@field block_path_y integer[]
+---@field path_x integer[] path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
+---@field path_y integer[]
+---@field unk_90 integer
+---@field unk_94 integer Number counting down. In examined save starts at 80 for id 38 counting down to 0 at 113, obviously with missing numbers somewhere
+---@field unk_98 integer
+---@field min_smell_trigger integer
+---@field max_odor_level integer 1000 if undead are present
+---@field max_low_light_vision integer
+---@field sense_creature_classes string[]
+---@field creature_class string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type integer
+---@field mat_index integer
+---@field unk_4407_1 item[]
 

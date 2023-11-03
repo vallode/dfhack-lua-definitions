@@ -120,6 +120,11 @@ df.creature_interaction_effect_target_mode = {
   BY_CATEGORY = 2,
 }
 
+---@class creature_interaction_effect_target
+---@field mode creature_interaction_effect_target_mode[]
+---@field key string[]
+---@field tissue string[]
+
 ---@enum syndrome_flags
 df.syndrome_flags = {
   SYN_INJECTED = 0,
@@ -129,4 +134,19 @@ df.syndrome_flags = {
   SYN_INGESTED = 4,
   SYN_NO_HOSPITAL = 5,
 }
+
+---@class syndrome
+---@field syn_name string
+---@field ce creature_interaction_effect[]
+---@field syn_affected_class string[]
+---@field syn_affected_creature string[]
+---@field syn_affected_caste string[]
+---@field syn_immune_class string[]
+---@field syn_immune_creature string[]
+---@field syn_immune_caste string[]
+---@field syn_class string[]
+---@field syn_identifier string
+---@field flags syndrome_flags
+---@field syn_concentration_added integer[]
+---@field id integer
 

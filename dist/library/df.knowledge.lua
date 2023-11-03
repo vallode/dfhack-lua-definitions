@@ -369,6 +369,10 @@ df.knowledge_scholar_flags_13 = {
   engineering_machine_trip_hammer = 29,
 }
 
+---@class knowledge_scholar_category_flag
+---@field flag_type any determines which bitflags to use
+---@field flag_data knowledge_scholar_flags_0
+
 ---@enum dfhack_knowledge_scholar_flag
 ---not in DF
 df.dfhack_knowledge_scholar_flag = {

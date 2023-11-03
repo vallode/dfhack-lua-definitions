@@ -98,6 +98,29 @@ df.stockpile_group_set = {
   sheet = 16,
 }
 
+---@class stockpile_settings
+---@field flags stockpile_group_set
+---@field animals boolean
+---@field food boolean[]
+---@field furniture boolean[]
+---@field corpses boolean[]
+---@field refuse boolean[]
+---@field stone boolean[]
+---@field ore boolean[]
+---@field ammo boolean[]
+---@field coins boolean[]
+---@field bars_blocks boolean[]
+---@field gems boolean[]
+---@field finished_goods boolean[]
+---@field leather boolean[]
+---@field cloth boolean[]
+---@field wood boolean[]
+---@field weapons boolean[]
+---@field armor boolean[]
+---@field sheet boolean[]
+---@field allow_organic boolean
+---@field allow_inorganic boolean
+
 ---@enum stockpile_list
 df.stockpile_list = {
   Animals = 0,
@@ -212,4 +235,50 @@ df.stockpile_list = {
 
 ---@type { [string|integer]: stockpile_list_attr }
 df.stockpile_list.attrs = {}
+
+---@class hauling_route
+---@field id integer
+---@field name string
+---@field stops hauling_stop[]
+---@field vehicle_ids integer[]
+---@field vehicle_stops integer[]
+
+---@class hauling_stop
+---@field id integer
+---@field name string
+---@field pos coord
+---@field settings stockpile_settings
+---@field conditions stop_depart_condition[]
+---@field stockpiles route_stockpile_link[]
+---@field time_waiting integer
+---@field cart_id integer
+
+---@class stop_depart_condition
+---@field timeout integer
+---@field direction any
+---@field mode any
+---@field load_percent integer broken display unless 0, 50 or 100
+---@field flags any
+---@field guide_path coord_path initialized on first run, and saved
+
+---@class route_stockpile_link
+---@field building_id integer
+---@field mode any
+
+---@class vehicle
+---@field id integer
+---@field item_id integer
+---@field offset_x integer -50000..50000
+---@field offset_y integer
+---@field offset_z integer
+---@field speed_x integer
+---@field speed_y integer
+---@field speed_z integer
+---@field unk_20 integer
+---@field unk_24 integer
+---@field unk_28 integer
+---@field unk_2c integer
+---@field route_id integer
+---@field pos coord
+---@field time_stopped integer frames, up to 1000
 

@@ -158,6 +158,8 @@ class GlobalObject < XmlNode
 end
 
 class StructType < XmlNode
+  attr_reader :name
+
   def initialize(node)
     super
 

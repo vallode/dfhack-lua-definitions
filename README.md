@@ -28,7 +28,7 @@ df-structures `generate.rb`:
   - [ ] `inherits-from`
   - [ ] `is-union`
   - [ ] Fields
-    - [ ] Primitive fields
+    - [x] Primitive fields
     - [ ] ?
 - [ ] `<class-type>`
   - [ ] `<vmethod>`

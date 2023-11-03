@@ -5,8 +5,7 @@ require_relative 'xmlnode'
 DF_STRUCTURES_NODES = {
   'enum-type' => EnumType,
   'bitfield-type' => EnumType,
-  # 'global-object' => GlobalObject,
-  # 'struct-type' => StructType,
+  'struct-type' => StructType,
   # "class-type" => StructType,
   # Unsupported (for now!)
   # "compound" => CompoundType,

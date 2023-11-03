@@ -482,6 +482,23 @@ df.witness_report_flags = {
   accuses = 0,
 }
 
+---@class witness_report
+---@field death_id integer
+---@field crime_id integer
+---@field type witness_report_type
+---@field year integer
+---@field year_tick integer
+---@field flags witness_report_flags
+---@field unk_18 integer
+---@field unk_1c integer
+---@field unk_20 integer
+---@field unk_24 integer
+---@field unk_28 integer
+---@field unk_2c integer
+---@field unk_30 integer
+---@field unk_34 integer
+---@field pos coord
+
 ---@enum ghost_goal
 df.ghost_goal = {
   None = -1,
@@ -494,6 +511,51 @@ df.ghost_goal = {
   Torment = 7,
   ToppleBuilding = 8,
 }
+
+---@class unit_ghost_info
+---@field type ghost_type
+---@field type2 ghost_type seems to have same value as type
+---@field goal ghost_goal
+---@field target integer
+---@field misplace_pos coord
+---@field action_timer integer time since last action
+---@field unk_18 integer
+---@field flags any
+---@field death_x integer in tiles, global to world
+---@field death_y integer
+---@field death_z integer
+
+---@class unit_genes
+---@field appearance integer
+---@field colors integer
+
+---@class unit_inventory_item
+---@field item item
+---@field mode any
+---@field body_part_id integer
+---@field pet_seed integer RNG seed for Pet mode
+---@field wound_id integer -1 unless suture
+
+---@class unit_attribute
+---@field value integer effective = value - soft_demotion
+---@field max_value integer
+---@field improve_counter integer counts to PHYS_ATT_RATES improve cost; then value++
+---@field unused_counter integer counts to PHYS_ATT_RATES unused rate; then rust_counter++
+---@field soft_demotion integer 0-100; when not 0 blocks improve_counter
+---@field rust_counter integer counts to PHYS_ATT_RATES rust; then demotion_counter++
+---@field demotion_counter integer counts to PHYS_ATT_RATES demotion; then value--; soft_demotion++
+
+---@class unit_syndrome
+---@field type integer
+---@field year integer
+---@field year_time integer
+---@field ticks integer
+---@field wounds integer[] refers to unit_wound by id
+---@field wound_id integer
+---@field symptoms integer[]
+---@field reinfection_count integer set from unit.reinfection_count[i]++
+---@field flags any
+---@field unk4 integer[]
 
 ---@enum wound_effect_type
 df.wound_effect_type = {
@@ -551,6 +613,57 @@ df.wound_damage_flags2 = {
   entire_surface = 1,
   gelded = 2,
 }
+
+---@class unit_wound
+---@field id integer
+---@field parts integer[]
+---@field age integer
+---@field attacker_unit_id integer
+---@field attacker_hist_figure_id integer
+---@field flags any
+---@field syndrome_id integer
+---@field pain integer
+---@field nausea integer
+---@field dizziness integer
+---@field paralysis integer
+---@field numbness integer
+---@field fever integer
+---@field curse wound_curse_info
+---@field unk_v42_1 integer
+---@field unk_v42_2 integer
+
+---@class curse_attr_change
+---@field phys_att_perc integer[]
+---@field phys_att_add integer[]
+---@field ment_att_perc integer[]
+---@field ment_att_add integer[]
+
+---@class wound_curse_info
+---@field unk_v40_1 integer
+---@field add_tags1 cie_add_tag_mask1
+---@field rem_tags1 cie_add_tag_mask1
+---@field add_tags2 cie_add_tag_mask2
+---@field rem_tags2 cie_add_tag_mask2
+---@field name_visible boolean
+---@field name string
+---@field name_plural string
+---@field name_adjective string
+---@field sym_and_color1 integer
+---@field sym_and_color2 integer
+---@field flash_period integer
+---@field flash_time2 integer
+---@field speed_add integer
+---@field speed_mul_percent integer
+---@field attr_change curse_attr_change
+---@field unk_v42_1 integer
+---@field luck_mul_percent integer
+---@field unk_v42_2 integer
+---@field interaction_id integer[]
+---@field timing integer[]
+---@field were_race integer
+---@field were_caste integer
+---@field body_appearance integer[]
+---@field bp_appearance integer[]
 
 ---@enum misc_trait_type
 df.misc_trait_type = {
@@ -631,6 +744,28 @@ df.misc_trait_type = {
 ---@type { [string|integer]: misc_trait_type_attr }
 df.misc_trait_type.attrs = {}
 
+---@class unit_misc_trait
+---@field id misc_trait_type
+---@field value integer
+
+---@class unit_item_wrestle
+---@field unit integer
+---@field self_bp integer
+---@field other_bp integer
+---@field unk_c integer
+---@field unk_10 integer
+---@field item1 integer
+---@field item2 integer
+---@field unk_1c integer
+---@field unk_1e integer 1 grabs, -1 grabbed
+---@field unk_20 integer
+
+---@class unit_item_use
+---@field id integer
+---@field time_in_use integer
+---@field has_grown_attached integer
+---@field affection_level integer min 50 for attached, 1000 for name
+
 ---@enum unit_health_flags
 df.unit_health_flags = {
   rq_diagnosis = 0,
@@ -660,6 +795,18 @@ df.unit_bp_health_flags = {
   needs_cast = 9, --used to remove once not needed
 }
 
+---@class unit_health_info
+---@field unit_id integer
+---@field flags unit_health_flags
+---@field body_part_flags unit_bp_health_flags[]
+---@field unk_18_cntdn integer
+---@field immobilize_cntdn integer
+---@field dressing_cntdn integer
+---@field suture_cntdn integer
+---@field crutch_cntdn integer
+---@field op_history job_type[]
+---@field unk_34 any[][]
+
 ---@enum orientation_flags
 df.orientation_flags = {
   indeterminate = 0, --only seen on adventurers
@@ -668,6 +815,92 @@ df.orientation_flags = {
   romance_female = 3,
   marry_female = 4,
 }
+
+---@class unit_soul
+---@field id integer
+---@field name language_name
+---@field race integer
+---@field sex pronoun_type
+---@field caste integer
+---@field orientation_flags orientation_flags
+---@field unk2 integer
+---@field unk3 integer
+---@field unk4 integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field mental_attrs unit_attribute[]
+---@field skills unit_skill[]
+---@field preferences unit_preference[]
+---@field personality unit_personality
+---@field performance_skills unit_instrument_skill[]
+
+---@class unit_instrument_skill
+---@field id integer
+---@field rating skill_rating
+---@field experience integer
+
+---@class unit_poetic_skill
+---@field id integer
+---@field rating skill_rating
+---@field experience integer
+
+---@class unit_musical_skill
+---@field id integer
+---@field rating skill_rating
+---@field experience integer
+
+---@class unit_dance_skill
+---@field id integer
+---@field rating skill_rating
+---@field experience integer
+
+---@class unit_emotion_memory
+---@field type emotion_type
+---@field unk2 integer
+---@field strength integer
+---@field thought unit_thought_type
+---@field subthought integer for certain thoughts
+---@field severity integer
+---@field unk_1 integer
+---@field year integer
+---@field year_tick integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+
+---@class unit_personality
+---@field values value_type[]
+---@field ethics ethic_type[]
+---@field emotions emotion_type[]
+---@field dreams integer[]
+---@field next_dream_id integer
+---@field unk_v40_6 integer[]
+---@field traits integer[]
+---@field civ_id integer
+---@field cultural_identity integer
+---@field mannerism integer[]
+---@field habit integer[]
+---@field stress integer
+---@field time_without_distress integer range 0-806400, higher values cause stress to decrease quicker
+---@field time_without_eustress integer range 0-806400, higher values cause stress to increase quicker
+---@field likes_outdoors integer migrated from misc_traits
+---@field combat_hardened integer migrated from misc_traits
+---@field outdoor_dislike_counter integer incremented when unit is in rain
+---@field needs need_type[]
+---@field flags any
+---@field temporary_trait_changes integer[] sum of inebriation or so personality changing effects
+---@field slack_end_year integer
+---@field slack_end_year_tick integer
+---@field memories unit_emotion_memory[]
+---@field temptation_greed integer 0-100, for corruption
+---@field temptation_lust integer
+---@field temptation_power integer
+---@field temptation_anger integer
+---@field longterm_stress integer
+---@field current_focus integer weighted sum of needs focus_level-s
+---@field undistracted_focus integer usually number of needs multiplied by 4
 
 ---@enum unit_action_type_group
 ---for the action timer API, not in DF
@@ -715,6 +948,240 @@ df.unit_action_type = {
 ---@type { [string|integer]: unit_action_type_attr }
 df.unit_action_type.attrs = {}
 
+---@class unit_action
+---@field type unit_action_type
+---@field id integer
+---@field data integer[]
+
+---@class unit_action_data_move
+---@field x integer
+---@field y integer
+---@field z integer
+---@field timer integer
+---@field timer_init integer
+---@field fatigue integer
+---@field flags any
+
+---@class unit_action_data_attack
+---@field target_unit_id integer
+---@field unk_4 any
+---@field attack_item_id integer
+---@field target_body_part_id integer
+---@field attack_body_part_id integer
+---@field attack_id integer refers to weapon_attack or caste_attack
+---@field unk_28 integer
+---@field unk_2c integer
+---@field attack_velocity integer
+---@field flags any
+---@field attack_skill job_skill
+---@field attack_accuracy integer
+---@field timer1 integer prepare
+---@field timer2 integer recover
+
+---@class unit_action_data_jump
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+
+---@class unit_action_data_hold_terrain
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field x3 integer
+---@field y3 integer
+---@field z3 integer
+---@field timer integer
+---@field fatigue integer
+
+---@class unit_action_data_release_terrain
+---@field x integer
+---@field y integer
+---@field z integer
+
+---@class unit_action_data_climb
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field x3 integer
+---@field y3 integer
+---@field z3 integer
+---@field timer integer
+---@field timer_init integer
+---@field fatigue integer
+
+---@class unit_action_data_job
+---@field x integer
+---@field y integer
+---@field z integer
+---@field timer integer
+
+---@class unit_action_data_talk
+---@field unk_0 integer
+---@field activity_id integer
+---@field activity_event_idx integer
+---@field event entity_event
+---@field unk_34 integer
+---@field timer integer
+---@field unk_3c integer
+---@field unk_40 integer
+---@field unk_44 integer
+---@field unk_48 integer
+---@field unk_4c integer
+---@field unk_50 integer
+---@field unk_54 integer
+
+---@class unit_action_data_unsteady
+---@field timer integer
+
+---@class unit_action_data_parry
+---@field unit_id integer
+---@field target_action integer
+---@field parry_item_id integer
+
+---@class unit_action_data_block
+---@field unit_id integer
+---@field target_action integer
+---@field block_item_id integer
+
+---@class unit_action_data_dodge
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field timer integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+
+---@class unit_action_data_recover
+---@field timer integer
+---@field unk_4 integer
+
+---@class unit_action_data_stand_up
+---@field timer integer
+
+---@class unit_action_data_lie_down
+---@field timer integer
+
+---@class unit_action_data_job2
+---@field timer integer
+
+---@class unit_action_data_push_object
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field x3 integer
+---@field y3 integer
+---@field z3 integer
+---@field timer integer
+---@field unk_18 integer
+
+---@class unit_action_data_suck_blood
+---@field unit_id integer
+---@field timer integer
+
+---@class unit_action_data_hold_item
+---@field x1 integer
+---@field y1 integer
+---@field z1 integer
+---@field x2 integer
+---@field y2 integer
+---@field z2 integer
+---@field unk_c integer
+---@field unk_10 integer
+---@field unk_14 integer
+
+---@class unit_action_data_release_item
+---@field unk_0 integer
+
+---@class unit_action_data_unk_sub_20
+---@field unk_0 integer[]
+---@field unk_1 integer[]
+
+---@class unit_action_data_unk_sub_21
+---@field unk_0 integer[]
+---@field unk_1 integer[]
+
+---@class unit_action_data_unk_sub_22
+---@field unk_0 integer
+
+---@class unit_action_data_unk_sub_23
+---@field unk_0 integer
+
+---@class unit_skill
+---@field id job_skill
+---@field rating skill_rating
+---@field experience integer
+---@field unused_counter integer
+---@field rusty integer
+---@field rust_counter integer
+---@field demotion_counter integer
+---@field natural_skill_lvl integer This is the NATURAL_SKILL level for the caste in the raws. This skill cannot rust below this level.
+
+---@class unit_preference
+---@field type any
+---@field item_subtype integer
+---@field mattype integer
+---@field matindex integer
+---@field mat_state matter_state
+---@field active boolean
+---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
+
+---@class unit_complaint
+---@field type history_event_reason
+---@field age integer
+
+---@class unit_parley
+---@field invasion integer
+---@field speaker integer
+---@field artifact integer
+---@field flags any
+
+---@class unit_request
+---@field type any
+---@field source integer
+---@field count integer
+
+---@class unit_coin_debt
+---@field recipient integer
+---@field amount integer
+
+---@class unit_chunk
+---@field id integer unit_*.dat
+---@field units item[][]
+
+---@class unit_appearance
+---physical_formst
+---@field unk_1 integer
+---@field caste_index integer also refers to $global.world.raws.creatures.list_caste[$]
+---@field unk_3 integer
+---@field physical_attributes unit_attribute[]
+---@field unk_5 integer
+---@field body_modifiers integer[]
+---@field bp_modifiers integer[]
+---@field unk_8 integer
+---@field tissue_style integer[]
+---@field tissue_style_civ_id integer[]
+---@field tissue_style_id integer[]
+---@field tissue_style_type integer[]
+---@field tissue_length integer[]
+---@field appearance_genes integer
+---@field color_genes integer
+---@field color_modifiers integer[]
+---@field unk_18 integer
+---@field unk_19 integer
+
 ---@enum work_detail_mode
 df.work_detail_mode = {
   Default = 0,
@@ -722,4 +1189,16 @@ df.work_detail_mode = {
   NobodyDoesThis = 2,
   OnlySelectedDoesThis = 3,
 }
+
+---@class work_detail
+---@field name string
+---@field work_detail_flags any
+---@field assigned_units integer[] toady: unid
+---@field allowed_labors boolean[] toady: profession
+---@field icon any
+
+---@class process_unit_aux
+---@field unit unit
+---@field flags any
+---@field unitlist any[]
 

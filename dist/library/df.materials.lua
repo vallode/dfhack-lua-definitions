@@ -163,6 +163,73 @@ df.strain_type = {
   COMPRESSIVE = 5,
 }
 
+---@class material_common
+---@field id string
+---@field gem_name1 string
+---@field gem_name2 string
+---@field stone_name string
+---@field heat integer
+---@field solid_density integer
+---@field liquid_density integer
+---@field molar_mass integer
+---@field state_color integer[]
+---@field state_name string[]
+---@field state_adj string[]
+---@field strength integer
+---@field material_value integer
+---@field flags any
+---@field extract_storage item_type
+---@field butcher_special_type item_type
+---@field butcher_special_subtype integer
+---@field meat_name string[]
+---@field meat_organ integer used for texture selection
+---@field block_name string[]
+---@field reaction_product string[]
+---@field hardens_with_water integer
+---@field reaction_class string[]
+
+---@class material
+---@field tile integer
+---@field basic_color integer[]
+---@field build_color integer[]
+---@field tile_color integer[]
+---@field item_symbol integer
+---@field powder_dye integer
+---@field temp_diet_info integer
+---@field syndrome syndrome[]
+---@field soap_level integer
+---@field unk_41c integer[]
+---@field prefix string
+---@field food_mat_index integer[]
+---@field powder_dye_str string temporary
+---@field state_color_str string[]
+---@field wood_texpos integer
+---@field boulder_texpos1 integer
+---@field boulder_texpos2 integer
+---@field rough_texpos1 integer
+---@field rough_texpos2 integer
+---@field bar_texpos integer
+---@field cheese_texpos1 integer
+---@field cheese_texpos2 integer
+
+---@class material_vec_ref
+---@field mat_type integer[]
+---@field mat_index integer[]
+
+---@class material_template
+---@field tile integer
+---@field basic_color integer[]
+---@field build_color integer[]
+---@field tile_color integer[]
+---@field item_symbol integer
+---@field powder_dye integer
+---@field temp_diet_info integer
+---@field syndrome syndrome[]
+---@field soap_level integer
+---@field unk_41c integer[]
+---@field powder_dye_str string temporary
+---@field state_color_str string[]
+
 ---@enum inorganic_flags
 df.inorganic_flags = {
   LAVA = 0,
@@ -220,6 +287,21 @@ df.inclusion_type = {
   CLUSTER_ONE = 4,
 }
 
+---@class inorganic_raw
+---@field id string
+---@field str string[]
+---@field flags any
+---@field source_hfid integer
+---@field unk_v4201_1 integer
+---@field metal_ore string[]
+---@field thread_metal string[]
+---@field economic_uses integer[]
+---@field environment_spec string[]
+---@field environment environment_type[]
+---@field times_used_land integer
+---@field times_used_ocean integer
+---@field material material
+
 ---@enum organic_mat_category
 df.organic_mat_category = {
   Meat = 0,
@@ -262,4 +344,10 @@ df.organic_mat_category = {
   Paper = 37,
   Parchment = 38,
 }
+
+---@class special_mat_table
+---@field organic_types integer[][]
+---@field organic_indexes integer[][]
+---@field organic_unknown integer[][] everything 0
+---@field builtin material[]
 

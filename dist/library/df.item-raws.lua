@@ -108,6 +108,18 @@ df.item_type = {
 ---@type { [string|integer]: item_type_attr }
 df.item_type.attrs = {}
 
+---@class weapon_attack
+---@field edged boolean
+---@field contact integer
+---@field penetration integer
+---@field velocity_mult integer
+---@field verb_2nd string
+---@field verb_3rd string
+---@field noun string
+---@field prepare integer
+---@field recover integer
+---@field flags any
+
 ---@enum itemdef_flags
 df.itemdef_flags = {
   GENERATED = 0,
@@ -132,6 +144,13 @@ df.armor_general_flags = {
   STRUCTURAL_ELASTICITY_CHAIN_METAL = 9,
   STRUCTURAL_ELASTICITY_CHAIN_ALL = 10,
 }
+
+---@class armor_properties
+---@field flags any
+---@field layer integer
+---@field layer_size integer
+---@field layer_permit integer
+---@field coverage integer
 
 ---@enum armor_flags
 df.armor_flags = {
@@ -277,6 +296,19 @@ df.timbre_type = {
   RIPPLING = 61,
   SPARKLING = 62,
 }
+
+---@class instrument_piece
+---@field type string
+---@field id string
+---@field index integer
+---@field name string
+---@field name_plural string
+---@field flags any
+
+---@class instrument_register
+---@field pitch_range_min integer
+---@field pitch_range_max integer
+---@field timbres timbre_type[]
 
 ---@enum pants_flags
 df.pants_flags = {

@@ -1,6 +1,25 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class burrow
+---@field id integer
+---@field name string
+---@field tile integer
+---@field fg_color integer
+---@field bg_color integer
+---@field block_x integer[]
+---@field block_y integer[]
+---@field block_z integer[]
+---@field units integer[]
+---@field limit_workshops integer
+
+---@class ui_hotkey
+---@field name string
+---@field cmd any
+---@field x integer
+---@field y integer
+---@field z integer
+
 ---@enum ui_sidebar_mode
 df.ui_sidebar_mode = {
   Default = 0,
@@ -61,6 +80,16 @@ df.ui_sidebar_mode = {
   BuildingLocationInfo = 55,
   ZonesLocationInfo = 56,
 }
+
+---@class punishment
+---@field criminal integer
+---@field officer integer
+---@field beating integer
+---@field hammer_strikes integer
+---@field prison_counter integer
+---@field unk_10 integer 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
+---@field chain integer
+---@field victims integer[]
 
 ---@enum kitchen_exc_type
 df.kitchen_exc_type = {
@@ -141,6 +170,97 @@ df.equipment_update = {
   buildings = 12,
 }
 
+---@class labor_infost
+---@field flags any
+---@field work_details work_detail[]
+---@field chores boolean[]
+---@field chores_exempted_children any[] toady: no_chore_child_unid
+
+---@class plotinfost
+---@field game_state integer 2 running, 1 lost to siege, 0 lost
+---@field lost_to_siege_civ integer
+---@field tax_collection integer
+---@field nobles integer
+---@field caravans caravan_state[]
+---@field unk_2 integer
+---@field fortress_rank integer
+---@field progress_population integer ?
+---@field progress_trade integer ?
+---@field progress_production integer ?
+---@field king_arrived boolean
+---@field king_hasty boolean
+---@field economy_active boolean
+---@field ignore_labor_shortage boolean
+---@field justice_active boolean
+---@field unk_3 integer
+---@field unk_4 integer
+---@field manager_timer integer
+---@field units_killed integer[]
+---@field currency_value integer[]
+---@field trees_removed integer
+---@field outdoor_irritation integer
+---@field adamantine_mandate_number integer
+---@field fortress_age integer ?; +1 per 10; used in first 2 migrant waves etc
+---@field tasks entity_activity_statistics
+---@field meeting_requests integer[] guild complaints and diplomats
+---@field activities activity_info[]
+---@field dip_meeting_info meeting_diplomat_info[]
+---@field aid_requesters integer[]
+---@field game_over boolean
+---@field invasions invasion_info[]
+---@field punishments punishment[]
+---@field dipscripts dipscript_info[]
+---@field dipscript_texts dipscript_text[]
+---@field dipscript_popups dipscript_popup[] cause viewscreen_meetingst to pop up
+---@field kitchen item_type[]
+---@field economic_stone boolean[]
+---@field unk23c8_flags any
+---@field mood_cooldown integer
+---@field civ_id integer
+---@field site_id integer
+---@field group_id integer i.e. specifically the fortress dwarves
+---@field race_id integer
+---@field unk_races integer[]
+---@field farm_crops integer[]
+---@field farm_seasons season[]
+---@field economy_prices integer[]
+---@field stockpile integer
+---@field unk2a8c integer[][]
+---@field unk_mapedge_x integer[]
+---@field unk_mapedge_y integer[]
+---@field unk_mapedge_z integer[]
+---@field map_edge integer[][]
+---@field feature_x integer[]
+---@field feature_y integer[]
+---@field feature_id_local integer[]
+---@field feature_id_global integer[]
+---@field event_collections integer[]
+---@field stone_mat_types integer[]
+---@field stone_mat_indexes integer[]
+---@field waypoints integer[]
+---@field burrows burrow[]
+---@field alerts integer[]
+---@field equipment integer[][]
+---@field hauling hauling_route[]
+---@field labor_info labor_infost
+---@field petitions integer[] related to agreements
+---@field unk_6 integer[] observed allocating 4 bytes
+---@field unk_7 any[][]
+---@field theft_intrigues integer[] related to job_type unk_fake_no_activity
+---@field infiltrator_histfigs integer[]
+---@field infiltrator_years integer[]
+---@field infiltrator_year_ticks integer[]
+---@field tutorial_hide help_context_type[]
+---@field tutorial_seen help_context_type[]
+---@field food_warn_year integer
+---@field food_warn_year_tick integer
+---@field main ui_hotkey[]
+---@field squads squad[]
+---@field follow_unit integer
+---@field follow_item integer
+---@field selected_farm_crops integer[] valid for the currently queried farm plot
+---@field available_seeds any
+
 ---@enum timed_event_type
 df.timed_event_type = {
   Caravan = 0,
@@ -153,4 +273,55 @@ df.timed_event_type = {
   WildlifeFlier = 7,
   NightCreature = 8,
 }
+
+---@class timed_event
+---@field type timed_event_type
+---@field season season
+---@field season_ticks integer 1 tick = 10 frames
+---@field entity historical_entity
+---@field unk_1 integer
+---@field layer_id integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class map_viewport
+---@field adv_mode boolean
+---@field unk1 boolean
+---@field map_rotation integer
+---@field min_x integer
+---@field min_y integer
+---@field max_x integer
+---@field max_y integer
+---@field window_x integer
+---@field window_y integer
+---@field window_z integer
+---@field main_viewport graphic_viewportst
+---@field lower_viewport graphic_viewportst[]
+
+---@class map_renderer
+---@field entity integer[][]
+---@field unk_v50_1 integer[][]
+---@field cursor_units unit[]
+---@field cursor_guts unit
+---@field multiple_guts boolean
+---@field cursor_corpse item
+---@field cursor_corpse_cnt integer
+---@field cursor_corpsepiece item
+---@field cursor_corpsepiece_cnt integer
+---@field cursor_bones item
+---@field cursor_bones_cnt integer
+---@field cursor_other item
+---@field cursor_other_cnt integer
+---@field unk_10034 integer
+---@field unk_10035 integer
+---@field cur_tick_count integer GetTickCount
+---@field tick_phase integer cur_year_tick%10080
+---@field dim_colors integer
+---@field unk_1 integer
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer
+---@field unk_7 integer
 

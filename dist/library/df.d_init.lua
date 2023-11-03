@@ -76,3 +76,40 @@ df.d_init_autosave = {
   SEMIANNUAL = 3,
 }
 
+---@class d_init
+---@field flags1 any
+---@field nickname d_init_nickname[]
+---@field sky_tile integer
+---@field sky_color integer[]
+---@field chasm_tile integer
+---@field pillar_tile integer
+---@field track_tiles integer[]
+---@field track_tile_invert integer[]
+---@field track_ramp_tiles integer[]
+---@field track_ramp_invert integer[]
+---@field tree_tiles integer[]
+---@field chasm_color integer[]
+---@field wound_color integer[]
+---@field show_embark_tunnel d_init_tunnel
+---@field number_of_lower_elevations_shown integer
+---@field flags3 any
+---@field population_cap integer
+---@field strict_population_cap integer
+---@field baby_cap_absolute integer
+---@field baby_cap_percent integer
+---@field visitor_cap integer
+---@field specific_seed_cap integer
+---@field fortress_seed_cap integer
+---@field path_cost integer[]
+---@field embark_rect integer[]
+---@field store_dist integer
+---@field graze_coefficient integer
+---@field maximum_embark_dim integer
+---@field cull_dead_units_at integer
+---@field flags4 any
+---@field post_prepare_embark_confirmation d_init_embark_confirm
+---@field autosave d_init_autosave
+---@field announcements announcements
+---@field unk_5010_730 integer
+---@field unk_5010_734 integer
+

@@ -56,6 +56,33 @@ df.ui_advmode_menu = {
   PartyTacticalSettings = 50,
 }
 
+---@class conversation
+---@field conv_title string
+---@field state any
+---@field talk_choices integer[]
+---@field unk_30 integer
+---@field unk_34 integer
+---@field unk_38 integer
+---@field unk_3c integer
+---@field unk_40 integer
+---@field unk_44 integer
+---@field unk_48 integer
+---@field unk_4c integer
+---@field unk_50 integer
+---@field unk_54 nemesis_record[]
+---@field unk_64 historical_entity[]
+---@field unk_74 integer
+---@field unk_78 integer
+---@field unk_7c integer
+---@field unk_80 integer
+---@field unk_84 any[][]
+---@field unk_94 any[][]
+---@field unk_a4 any[][]
+---@field location building civzone
+---@field unk_b8 integer
+---@field unk_bc integer
+---@field speech string[][]
+
 ---@enum talk_choice_type
 df.talk_choice_type = {
   Greet = 0,
@@ -293,4 +320,154 @@ df.assume_identity_mode = {
   SelectWorship = 3,
   SelectOrigin = 4,
 }
+
+---@class talk_choice
+---@field type talk_choice_type
+---@field unk entity_event
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+
+---@class adventurest
+---@field menu ui_advmode_menu
+---@field site_level_zoom integer when set, the travel map is zoomed in to show site details
+---@field travel_origin_x integer
+---@field travel_origin_y integer
+---@field travel_origin_z integer
+---@field travel_clouds boolean
+---@field travel_right_map any
+---@field show_menu any bottom menu in travel mode
+---@field message string you must move from surrounding obstacles
+---@field message_color integer
+---@field message_brightness integer
+---@field travel_not_moved boolean
+---@field unk4b integer
+---@field travel_move_countdown integer
+---@field unk_4 integer Was set to 0 when felling a tree.
+---@field fell_tree_x integer Set to the local x + df.global.world.map.region_x*48 coordinate of the target tree when the map is offloaded for a tree felling action.
+---@field fell_tree_y integer Set to the local y + df.global.world.map.region_y*48 coordinate of the target tree when the map is offloaded for a tree felling action.
+---@field fell_tree_z integer Set to the local z + df.global.world.map.region_z coordinate of the target tree when the map is offloaded for a tree felling action.
+---@field unk_8 any
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field offload_timer integer Set to 10 when actions which offload the map are undertaken, such as sleeping and making the first fast travel movement. Decreases by 1 each frame thereafter until it reaches 0. Forcing a constant value above 0 prevents progression of the action beyond the Offloading Map message.
+---@field tick_counter integer goes up to XXX
+---@field frame_counter integer goes up to 10000 (ticks?)
+---@field unk_15 integer Appears to increment by 2 every 144 advmode ticks.
+---@field sleeping boolean
+---@field unk_16 integer
+---@field bogeymen_ambush_size integer Setting this to a number greater than 0 causes a bogeyman ambush to begin, spawning the specified number of bogeymen around the adventurer. Normally initialized to 4-7 when the cackling starts.
+---@field bogeymen_killed integer Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
+---@field bogeymen_ambush_delay integer Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
+---@field unk_18 integer
+---@field searched_x integer[]
+---@field searched_y integer[]
+---@field searched_z integer[]
+---@field searched_timeout integer[]
+---@field unk_19 integer
+---@field unk_20 integer
+---@field unk_21 integer
+---@field unk_23 integer
+---@field unk_24 integer[]
+---@field unk_25 integer[]
+---@field unk_26 integer[]
+---@field player_army_id integer
+---@field gait_index integer Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
+---@field gait_unk integer Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
+---@field tracks_x integer[] X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
+---@field tracks_y integer[] Y coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_y*48 is added to the local y coordinate.
+---@field tracks_z integer[] Z coordinates of spoors encountered by the player. The local z coordinate is corrected by adding df.global.world.map.region_z to it.
+---@field tracks_next_idx integer Index of the next entry in tracks_x, tracks_y, tracks_z
+---@field view_tracks_odors integer The value of view_tracks_odors determines the combination of local/travel mode track/odor screens currently displayed. Opening the local tracks screen increments this value by 1, opening travel mode tracks+odors increments by 2, opening local odors increments by 4. Closing the screens decrements respectively.
+---@field tracks_visible integer The quantity of spoors currently visible to the player.
+---@field unk_x integer[]
+---@field unk_y integer[]
+---@field unk_z integer[]
+---@field unk_v40_1 integer[]
+---@field unk_39 integer[]
+---@field unk_40 integer[]
+---@field unk_41 integer[]
+---@field unk_42 integer[]
+---@field odor_race integer race ID of strongest odor creature
+---@field odor_caste integer caste ID of strongest odor creature
+---@field odor_death integer Overrides creature odor with odor of Death
+---@field travel_odor_race integer race ID of strongest odor creature in fast travel mode
+---@field travel_odor_caste integer caste ID of strongest odor creature in fast travel mode
+---@field unk_46 integer
+---@field multiattack integer Set when the player is preparing to carry out a multi-attack; resetting this to 0 makes the multi-attack window disappear.
+---@field unk_3170 entity_event[]
+---@field unk_3124 integer
+---@field unk_48 integer
+---@field unk_49 integer
+---@field unk_50 integer
+---@field unk_51 integer
+---@field wait_timer integer A_WAIT sets this to 10. It subsequently decreases by 1 every advmode tick, preventing the player from controlling their adventurer (by setting player_control_state) until it reaches 0.
+---@field attack_style integer Set when the AttackStrike menu is opened. The various attack styles increment this as follows when enabled: Charge: +1, Multi-attack: +2, Quick: +4, Heavy: +8, Wild: +16, Precise: +32
+---@field charge_forbidden any When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
+---@field unk_55 integer
+---@field unk_56 integer
+---@field unk_57 integer
+---@field unk_58 integer
+---@field unk_59 any[][]
+---@field unk_60 integer
+---@field unk_61 integer
+---@field long_action_duration integer Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
+---@field travel_start_x integer
+---@field travel_start_y integer
+---@field travel_start_z integer
+---@field player_id integer
+---@field track_viewed_x integer Set when viewing a spoor; local x coordinate of the track in question.
+---@field track_viewed_y integer Set when viewing a spoor; local y coordinate of the track in question.
+---@field track_viewed_unk_1 any Set when viewing a spoor.
+---@field track_viewed_unk_2 any Set when viewing a spoor.
+---@field conversation activity_entry[]
+---@field unk_70 any[][]
+---@field unk_71 integer
+---@field unk_72 any[][]
+---@field interacts adventure_item_interact_choicest[]
+---@field commands adventure_optionst[]
+---@field movements adventure_movement_optionst[]
+---@field unk_75 any[][]
+---@field sleep_hours integer
+---@field sleep_until_dawn boolean
+---@field unk_78 integer
+---@field rest_mode any
+---@field unk_80 integer
+---@field unk_81 integer
+---@field player_control_state integer Set to 2 when adventurer is unconscious, etc to prevent player from controlling the unit
+---@field item_projectiles_state integer Observed to be set to 1 when an item is thrown or fired, or a limb is sent flying after being severed off. Over a number of frames (dependent on the distance travelled by the projectile) this eventually changes to 2 and then finally back to 0 (a number of frames after the projectile has reached its final destination). Sometimes (seemingly when the distance travelled is long) it changes from 1 to 2 and back to 1 immediately midway into this process. The player_control_state is set to 2 until this is complete. Forcing a constant item_projectiles_state of 0 causes item projectiles to hang in the air.
+---@field unk_84 integer
+---@field companions unit[]
+---@field unk_1 integer
+---@field interactions integer[]
+---@field unk_87 string
+---@field unk_220 integer
+---@field unk_224 integer
+---@field unk_v40_2 any[][]
+---@field unk_v40_3 integer
+---@field player_unit_projectile_unk any Set when the player is travelling as a unit projectile after falling or jumping.
+---@field player_unit_projectile_z integer Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
+---@field unk_90 integer
+---@field unk_v40_4 integer[]
+---@field unk_v40_5 any[][]
+---@field unk_v42_1 integer
+---@field unk_91 any
+---@field unk_91a integer
+---@field assume_identity assume_identity_mode Manages the Assume Identity UI when the AssumeIdentity menu is open
+---@field move_direction_x integer x-axis direction for the last attempted player unit movement: -1 = west, 0 = none, 1 = east
+---@field move_direction_y integer y-axis direction for the last attempted player unit movement: -1 = north, 0 = none, 1 = south
+---@field move_direction_z integer z-axis direction for the last attempted player unit movement: -1 = down, 0 = none, 1 = up
+---@field unk_95 integer
+---@field move_carefully integer Is set when the player prepares to move carefully (via the Alt + movement key combo)
+---@field careful_direction_x integer x-axis direction for the last attempted careful player unit movement: -1 = west, 0 = none, 1 = east
+---@field careful_direction_y integer y-axis direction for the last attempted careful player unit movement: -1 = north, 0 = none, 1 = south
+---@field interrupt_performance_warning string the message displayed when the player attempts to move while their unit is performing
+---@field unk_2 integer
+---@field unk_2a integer
+---@field name_item language_name used when naming items
+---@field unk_96 integer
 

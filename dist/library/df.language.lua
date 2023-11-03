@@ -179,6 +179,43 @@ df.sphere_type = {
   YOUTH = 130,
 }
 
+---@class language_word
+---@field word string
+---@field forms string[]
+---@field adj_dist integer
+---@field pad_1 any looks like garbage
+---@field flags language_word_flags
+---@field str string[]
+
+---@class language_translation
+---@field name string
+---@field unknown1 string[] looks like english words
+---@field unknown2 string[] looks like translated words
+---@field words string[]
+---@field flags integer 1 = generated
+---@field str string[]
+
+---@class language_symbol
+---@field name string
+---@field unknown any[][] empty
+---@field words integer[]
+---@field flags integer
+---@field str string[]
+
+---@class language_name
+---@field first_name string
+---@field nickname string
+---@field words integer[]
+---@field parts_of_speech part_of_speech[]
+---@field language integer
+---@field type language_name_type
+---@field has_name boolean
+
+---@class language_word_table
+---word_selectorst
+---@field words integer[][]
+---@field parts part_of_speech[][]
+
 ---@enum language_name_category
 df.language_name_category = {
   Unit = 0,

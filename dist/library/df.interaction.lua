@@ -7,6 +7,17 @@ df.interaction_flags = {
   EXPERIMENT_ONLY = 1,
 }
 
+---@class interaction
+---@field name string
+---@field id integer
+---@field str string[] interaction raws
+---@field flags any
+---@field sources interaction_source[] I_SOURCE
+---@field targets interaction_target[] I_TARGET
+---@field effects interaction_effect[] I_EFFECT
+---@field source_hfid integer
+---@field source_enid integer
+
 ---@enum interaction_effect_type
 df.interaction_effect_type = {
   ANIMATE = 0,
@@ -84,6 +95,20 @@ df.interaction_target_location_type = {
   RANDOM_NEARBY_LOCATION = 7,
 }
 
+---@class interaction_target_info
+---@field affected_creature_str string[][]
+---@field affected_creature integer[] IT_AFFECTED_CREATURE
+---@field affected_class string[] IT_AFFECTED_CLASS
+---@field immune_creature_str string[][]
+---@field immune_creature integer[] IT_IMMUNE_CREATURE
+---@field immune_class string[] IT_IMMUNE_CLASS
+---@field forbidden_syndrome_class string[]
+---@field requires_1 integer IT_REQUIRES
+---@field requires_2 integer IT_REQUIRES
+---@field forbidden_1 integer IT_FORBIDDEN
+---@field forbidden_2 integer IT_FORBIDDEN
+---@field restrictions any
+
 ---@enum breath_attack_type
 df.breath_attack_type = {
   TRAILING_DUST_FLOW = 0,
@@ -109,4 +134,11 @@ df.breath_attack_type = {
   SHARP_ROCK = 20,
   OTHER = 21,
 }
+
+---@class interaction_instance
+---@field id integer
+---@field interaction_id integer
+---@field unk_1 integer
+---@field region_index integer
+---@field affected_units integer[] IDs of units affected by the regional interaction
 

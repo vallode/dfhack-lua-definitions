@@ -23,3 +23,16 @@ df.vermin_category = {
   Underworld = 8, --last used in 40d for vermin in eerie glowing pits
 }
 
+---@class vermin
+---@field race integer
+---@field caste integer
+---@field pos coord
+---@field visible boolean 1 = visible vermin
+---@field countdown integer
+---@field item item
+---@field flags vermin_flags
+---@field amount integer The total number of vermin in this object. Decimal constant 10000001 means infinity (probably).
+---@field population world_population_ref
+---@field category vermin_category
+---@field id integer assigned during Save
+

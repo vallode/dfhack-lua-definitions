@@ -76,6 +76,33 @@ df.art_facet_type = {
   EVIL = 3,
 }
 
+---@class art_image
+---@field elements art_image_element[]
+---@field properties art_image_property[]
+---@field event integer
+---@field name language_name
+---@field spec_ref_type specific_ref_type
+---@field mat_type integer
+---@field mat_index integer
+---@field quality item_quality
+---@field artist integer
+---@field site integer
+---@field ref general_ref
+---@field year integer
+---@field unk_1 integer
+---@field id integer
+---@field subid integer
+
+---@class art_image_chunk
+---@field id integer art_image_*.dat
+---@field images art_image[]
+
+---@class art_image_ref
+---@field id integer
+---@field subid integer
+---@field civ_id integer
+---@field site_id integer
+
 ---@enum poetic_form_action
 df.poetic_form_action = {
   None = -1,
@@ -167,6 +194,10 @@ df.poetic_form_subject = {
   Concept = 21,
 }
 
+---@class poetic_form_subject_target
+---@field Histfig integer
+---@field Concept sphere_type
+
 ---@enum poetic_form_feature
 df.poetic_form_feature = {
   InternalRhyme = 0,
@@ -205,6 +236,64 @@ df.poetic_form_additional_feature = {
   PresentsDifferentView = 7,
   MustExpandIdea = 8,
 }
+
+---@class poetic_form
+---@field id integer
+---@field name language_name
+---@field originating_entity integer
+---@field original_author integer
+---@field subject_hf integer
+---@field flags any
+---@field parts poetic_form_part[]
+---@field each_line_feet integer
+---@field each_line_pattern poetic_form_pattern
+---@field every_line_caesura_position poetic_form_caesura_position
+---@field common_features poetic_form_additional_feature[]
+---@field mood poetic_form_mood
+---@field subject poetic_form_subject
+---@field subject_target poetic_form_subject_target
+---@field action poetic_form_action
+---@field preferred_perspective integer if not -1, ALWAYS written from that perspective
+---@field features poetic_form_feature
+---@field perspectives poetic_form_perspective[]
+
+---@class poetic_form_part
+---@field flags any
+---@field count_min integer
+---@field count_max integer
+---@field size integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field line_endings integer[]
+---@field line_feet integer[]
+---@field line_patterns poetic_form_pattern[]
+---@field line_caesura_positions poetic_form_caesura_position[]
+---@field line_features poetic_form_feature[]
+---@field additional_features any[]
+---@field additional_targets integer[]
+---@field additional_lines integer[]
+---@field line_mood poetic_form_mood[]
+---@field line_subject poetic_form_subject[]
+---@field line_subject_target poetic_form_subject_target[]
+---@field line_action poetic_form_action[]
+---@field unk_5 integer[]
+---@field some_lines_syllables integer
+---@field some_lines_pattern integer
+---@field each_line_caesura_position poetic_form_caesura_position
+---@field certain_lines_additional_features poetic_form_additional_feature[]
+---@field mood poetic_form_mood
+---@field unk_6 integer
+---@field unk_7 integer
+---@field action poetic_form_action
+---@field unk_8 integer
+---@field unk_9 integer
+
+---@class poetic_form_perspective
+---@field type any
+---@field histfig integer
+---@field unk_1 integer
 
 ---@enum musical_form_purpose
 df.musical_form_purpose = {
@@ -370,6 +459,85 @@ df.musical_form_melody_frequency = {
   Often = 1,
   Sometimes = 2,
 }
+
+---@class musical_form_interval
+---@field degree integer
+---@field flags any
+
+---@class musical_form_melodies
+---@field style musical_form_melody_style
+---@field frequency musical_form_melody_frequency
+---@field intervals musical_form_interval[]
+---@field features musical_form_feature
+
+---@class musical_form_passage
+---@field type musical_form_passage_type
+---@field passage_reference integer used when doing Exposition, Recapitualation, Synthesis, and Variation
+---@field passage_range_end integer when doing Synthesis of a range of passages
+---@field unk_4 integer 'min_times' for a 3-5 range, but doesn't match up with 1 for both repeat 2 times and no repeat mentioned
+---@field unk_5 integer 'max_times' for a 3-5 range, but doesn't match up with 1 for both repeat 2 times and no repeat mentioned
+---@field poetic_form_id integer
+---@field written_content_id integer suspect bug in exported legends (and possibly DF itself) as no mentioning of the poems (or any alternative) referenced here were mentioned in the two entries examined
+---@field scale_id integer
+---@field scale_sub_id integer references the scales element of the scale
+---@field rhythm_id integer
+---@field sub_rhythm integer Guess, based on the pattern above
+---@field rhythm_pattern integer references the patterns element of rhythm
+---@field instruments integer[] indices into the instruments vector
+---@field components musical_form_passage_component_type[]
+---@field passage_lengths musical_form_passage_length_type[]
+---@field lowest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
+---@field highest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
+---@field tempo_style musical_form_style
+---@field dynamic_style musical_form_style
+---@field overall_style musical_form_style
+---@field features musical_form_feature
+---@field pitch_style musical_form_pitch_style
+---@field melodies musical_form_melodies[]
+---@field unk_22 integer 0-40 seen
+---@field unk_23 integer 0-78 seen
+
+---@class musical_form_instruments
+---@field instrument_subtype integer -1 = vocal
+---@field substitutions any
+---@field features musical_form_feature
+---@field minimum_required integer tentative
+---@field maximum_permitted integer tentative
+---@field dynamic_style musical_form_style
+---@field overall_style musical_form_style
+
+---@class musical_form_sub4
+---@field passage integer the passage index this structure refers to
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+
+---@class musical_form
+---@field id integer
+---@field name language_name
+---@field originating_entity integer ID of the entity from which the musical form originated.
+---@field original_author integer historical figure ID of the composer
+---@field passages musical_form_passage[]
+---@field instruments musical_form_instruments[]
+---@field melodies musical_form_melodies[]
+---@field unk_1 musical_form_sub4[]
+---@field tempo_style musical_form_style
+---@field dynamic_style musical_form_style
+---@field overall_style musical_form_style
+---@field poetic_form_id integer
+---@field written_content_id integer
+---@field scale_id integer
+---@field scale_subid integer reference to scale_sub2
+---@field rhythm_id integer
+---@field sub_rhythm integer reference to sub_rhythms
+---@field rhythm_pattern integer reference to patterns
+---@field features musical_form_feature
+---@field pitch_style musical_form_pitch_style
+---@field purpose musical_form_purpose
+---@field devotion_target integer
+---@field flags any
 
 ---@enum dance_form_context
 df.dance_form_context = {
@@ -543,6 +711,27 @@ df.dance_form_move_location = {
   Follower = 7,
 }
 
+---@class dance_form_section
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field movement_path dance_form_movement_path
+---@field move_id integer index in the moves vector
+---@field partner_distance dance_form_partner_distance
+---@field partner_intent dance_form_partner_intent
+---@field partner_cue_frequency dance_form_partner_cue_frequency
+---@field partner_changes dance_form_partner_change_type[]
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field type dance_form_move_type[]
+---@field modifier dance_form_move_modifier[]
+---@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field location dance_form_move_location[]
+---@field id integer
+
 ---@enum dance_form_move_group_type
 df.dance_form_move_group_type = {
   unk_0 = 0, --Might be a null value. Hacked in it did not result in any entry in exported Legends info
@@ -552,12 +741,81 @@ df.dance_form_move_group_type = {
   DanceMove = 4,
 }
 
+---@class dance_form_move
+---@field name string
+---@field type dance_form_move_type[]
+---@field modifier dance_form_move_modifier[]
+---@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field location dance_form_move_location[]
+---@field group_type dance_form_move_group_type
+
+---@class dance_form
+---@field id integer
+---@field name language_name
+---@field musical_form_id integer
+---@field music_written_content_id integer at most one of this and musical_form_id is non null
+---@field context dance_form_context
+---@field originating_entity integer ID of the entity from which the dance form originated.
+---@field original_author integer ID of the historical figure who developed the dance form.
+---@field produce_individual_dances integer 0:improvise, 1:apply by choreographers. May be bitfield if analogous to corresponding music, but no other values seen
+---@field group_size dance_form_group_size
+---@field unk_4 integer 1 seen, and it's always paired with the next field
+---@field unk_5 integer 1 seen, and it's always paired with the previous field
+---@field configuration dance_form_configuration
+---@field movement_path dance_form_movement_path
+---@field unk_8 integer 0 seen
+---@field partner_distance dance_form_partner_distance NONE when not pair dance
+---@field partner_intent dance_form_partner_intent NONE when not pair dance
+---@field partner_cue_frequency dance_form_partner_cue_frequency NONE when not pair dance and when 'normal'
+---@field partner_changes dance_form_partner_change_type[]
+---@field poetry_referenced boolean Weird, but all instances where it was set examined have the dance act out any composition of a named poetic form, without any presence of the form number found
+---@field unk_14 integer
+---@field hfid integer Character whose story the dance acts out
+---@field race integer Creature whose movements are imitated
+---@field move_type dance_form_move_type[]
+---@field move_modifier dance_form_move_modifier[]
+---@field move_parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field move_location dance_form_move_location[]
+---@field sections dance_form_section[]
+---@field moves dance_form_move[]
+
 ---@enum scale_type
 df.scale_type = {
   Octave = 0, --The octave is divided into X steps of even length
   Variable = 1, --The octave is divided into notes at varying intervals, approximated by quartertones
   PerfectFourth = 2, --The perfect fourth interval is divided into steps of even length
 }
+
+---@class chord
+---@field name string
+---@field notes integer[] chord_size entries used. Refers to the notes indices
+---@field chord_size integer
+---@field unk_3 integer 0 and 1 seen
+
+---@class named_scale
+---Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
+---@field unk_1 integer 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
+---@field name string
+---@field degrees integer[] indices into the (not necessarily named) notes of the scale
+---@field degrees_used integer elements used in array above
+---@field first_chord integer this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
+---@field second_chord integer
+
+---@class scale
+---@field id integer
+---@field flags any
+---@field type scale_type
+---@field quartertones_used integer[] Quartertone corresponding note matches. Scale_length elements are used when type = Variable. Unused elements uninitialized
+---@field scale_length integer Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
+---@field chords chord[]
+---@field scales named_scale[] Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
+---@field notes integer Curiously, the named notes do not have to match the number of defined notes
+
+---@class rhythm
+---@field id integer
+---@field patterns rhythm_pattern[]
+---@field sub_rhythms sub_rhythm[]
+---@field unk_2 integer
 
 ---@enum beat_type
 df.beat_type = {
@@ -575,6 +833,19 @@ df.beat_type = {
   AccentedSyncopated = 11, --!'
 }
 
+---@class rhythm_pattern
+---@field name string
+---@field bars beat_type[]
+---@field beat_name string length as per length field
+---@field beat_abbreviation string length as per length field
+---@field length integer
+
+---@class sub_rhythm
+---@field name string
+---@field patterns integer[] indices into patterns
+---@field unk_2 integer[] Same length as patterns, but with unknown purpose
+---@field unk_3 integer
+
 ---@enum occupation_type
 df.occupation_type = {
   TAVERN_KEEPER = 0,
@@ -589,4 +860,39 @@ df.occupation_type = {
   SURGEON = 9,
   BONE_DOCTOR = 10,
 }
+
+---@class occupation
+---@field id integer
+---@field type occupation_type
+---@field histfig_id integer
+---@field unit_id integer
+---@field location_id integer
+---@field site_id integer
+---@field group_id integer
+---@field unk_1 occupation_sub1[]
+---@field unk_2 integer
+---@field army_controller_id integer
+---@field unk_4 world_site When these haven't crashed the data has been nonsensical
+---@field unk_5 abstract_building When these haven't crashed the data has been nonsensical. Has seen duplicate of unk_4 pointer value
+
+---@class occupation_sub1
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
+---@field unk_17 integer
+---@field unk_18 integer
+---@field unk_19 integer
 

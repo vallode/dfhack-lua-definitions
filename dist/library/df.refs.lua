@@ -114,6 +114,10 @@ df.specific_ref_type = {
 ---@type { [string|integer]: specific_ref_type_attr }
 df.specific_ref_type.attrs = {}
 
+---@class specific_ref
+---@field type specific_ref_type
+---@field data any
+
 ---@enum histfig_entity_link_type
 df.histfig_entity_link_type = {
   MEMBER = 0,
@@ -176,6 +180,11 @@ df.entity_entity_link_type = {
   RELIGIOUS = 2, --Seen between religion and merc company.
 }
 
+---@class entity_entity_link
+---@field type entity_entity_link_type
+---@field target integer
+---@field strength integer
+
 ---@enum entity_site_link_type
 ---Enum names updated per Putnam
 df.entity_site_link_type = {
@@ -207,6 +216,25 @@ df.entity_site_link_flags = {
   base_of_operation = 15, --set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
   holy_city = 16, --for the holy city of a religion
 }
+
+---@class entity_site_link
+---@field target integer
+---@field entity_id integer
+---@field entity_cache_index integer not saved
+---@field position_profile_id integer index into entity.positions.assignments of Civilization (?)
+---@field type entity_site_link_type called location in df source
+---@field start_hr integer
+---@field end_hr integer
+---@field flags entity_site_link_flags
+---@field former_flag entity_site_link_flags
+---@field link_strength integer
+---@field initial_controlling_population integer all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
+---@field last_check_controlling_population integer same value as previous field
+---@field ab_profile integer[] When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
+---@field target_site_x integer target site world coordinate x
+---@field target_site_y integer target site world coordinate y
+---@field last_checked_army_year integer all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
+---@field last_checked_army_year_tick integer paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
 
 ---@enum undead_flags
 df.undead_flags = {

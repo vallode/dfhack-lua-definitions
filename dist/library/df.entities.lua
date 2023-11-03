@@ -1,6 +1,27 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class entity_occasion_info
+---@field occasions entity_occasion[]
+---@field next_occasion_id integer
+---@field events integer[]
+---@field count integer number of elements used in array above
+
+---@class entity_occasion
+---some festivals are annual, some single time. unk_1=0 plus unk_3=0 seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
+---@field id integer
+---@field unk_1 integer 0 and 1 seen
+---@field site integer
+---@field unk_2 integer only -1 seen, but based on other cases, might be an abstract building
+---@field name language_name
+---@field start_year_tick integer
+---@field end_year_tick integer
+---@field unk_3 integer 0-2 seen
+---@field event integer
+---@field unk_4 integer only seen with unk_3=2, but is usually not set
+---@field schedule entity_occasion_schedule[]
+---@field unk_5 integer only value seen
+
 ---@enum occasion_schedule_type
 df.occasion_schedule_type = {
   DANCE_PERFORMANCE = 0,
@@ -19,6 +40,17 @@ df.occasion_schedule_type = {
   PROCESSION = 13,
   CEREMONY = 14,
 }
+
+---@class entity_occasion_schedule
+---@field type occasion_schedule_type
+---@field reference integer art form / event / item_type /procession start abstract building
+---@field reference2 integer item_subtype / procession stop abstract building
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field features entity_occasion_schedule_feature[]
+---@field start_year_tick integer
+---@field end_year_tick integer
 
 ---@enum occasion_schedule_feature
 df.occasion_schedule_feature = {
@@ -42,6 +74,83 @@ df.occasion_schedule_feature = {
   THE_GIVING_OF_ITEMS = 17,
   THE_SACRIFICE_OF_ITEMS = 18,
 }
+
+---@class entity_occasion_schedule_feature
+---@field feature occasion_schedule_feature
+---@field reference integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+
+---@class entity_activity_statistics
+---@field food integer
+---@field unit_counts integer[]
+---@field population integer
+---@field menial_exempt integer
+---@field omnivores integer
+---@field carnivores integer
+---@field trained_animals integer
+---@field other_animals integer
+---@field potential_soldiers integer
+---@field combat_aptitude integer
+---@field item_counts integer[]
+---@field created_weapons integer[]
+---@field wealth integer
+---@field recent_jobs integer[][]
+---@field excavated_tiles integer unhidden, subterranean, and excluding map features
+---@field death_history integer[]
+---@field insanity_history integer[]
+---@field execution_history integer[]
+---@field noble_death_history integer[]
+---@field total_deaths integer
+---@field total_insanities integer
+---@field total_executions integer
+---@field num_artifacts integer
+---@field unk_6 integer in 0.23, total siegers
+---@field discovered_creature_foods boolean[]
+---@field discovered_creatures boolean[]
+---@field discovered_plant_foods boolean[]
+---@field discovered_plants boolean[] allows planting of seeds
+---@field discovered_water_features integer
+---@field discovered_subterranean_features integer
+---@field discovered_chasm_features integer unused since 40d
+---@field discovered_magma_features integer
+---@field discovered_feature_layers integer back in 40d, this counted HFS
+---@field migrant_wave_idx integer when >= 2, no migrants
+---@field found_minerals integer[] Added after 'you have struck' announcement
+---@field found_misc any
+
+---@class caravan_state
+---@field total_capacity integer
+---@field unk_1 integer
+---@field trade_state any
+---@field depot_notified integer has it warned you that you need a depot
+---@field time_remaining integer
+---@field entity integer
+---@field activity_stats entity_activity_statistics
+---@field flags any
+---@field import_value integer
+---@field export_value_total integer
+---@field export_value_personal integer excluding foreign-produced items
+---@field offer_value integer
+---@field animals integer[]
+---@field sell_prices entity_sell_prices
+---@field buy_prices entity_buy_prices
+---@field goods integer[]
+---@field mood integer reflects satisfaction with last trading session
+---@field unk_2 integer
+
+---@class entity_buy_prices
+---@field items entity_buy_requests
+---@field price integer[]
+
+---@class entity_buy_requests
+---@field item_type item_type[] guess
+---@field item_subtype integer[] guess
+---@field mat_types integer[]
+---@field mat_indices integer[]
+---@field mat_cats job_material_category[]
+---@field priority integer[]
 
 ---@enum entity_sell_category
 df.entity_sell_category = {
@@ -111,6 +220,20 @@ df.entity_sell_category = {
   CupsMugsGoblets = 63,
 }
 
+---@class entity_sell_prices
+---@field items entity_sell_requests
+---@field price integer[][]
+
+---@class entity_sell_requests
+---@field priority integer[][]
+
+---@class entity_recipe
+---@field subtype integer
+---@field item_types item_type[]
+---@field item_subtypes integer[]
+---@field mat_types integer[]
+---@field mat_indices integer[]
+
 ---@enum historical_entity_type
 df.historical_entity_type = {
   Civilization = 0,
@@ -125,6 +248,180 @@ df.historical_entity_type = {
   MerchantCompany = 9,
   Guild = 10,
 }
+
+---@class honors_type
+---@field id integer
+---@field flags any
+---@field name string
+---@field precedence_awarded integer
+---@field required_skill job_skill
+---@field required_skill_type any
+---@field required_skill_points integer
+---@field required_kills integer
+---@field required_battles integer
+---@field required_years_of_membership integer
+---@field honored integer[]
+---@field required_position integer[]
+---@field required_former_position integer[]
+
+---@class artifact_claim
+---@field artifact_id integer
+---@field claim_type artifact_claim_type
+---@field symbol_claim_id integer different small numbers, but all claimed by the greedy necro diplomat, but not complete number range present
+---@field claim_year integer Written contents often seem to lack info of being claimed
+---@field claim_year_tick integer usually init
+---@field unk_1 integer
+---@field artifact artifact_record
+---@field site integer
+---@field structure_local integer
+---@field holder_hf integer might be owner_hf. all cases encountered have had both field the same when claimed by entity
+---@field subregion integer
+---@field feature_layer_id integer
+---@field unk_year integer seems to be current year or -1. Matches up with corresponding field of artifact_record
+---@field unk_2 integer only other value seen was 0
+---@field unk_3 integer uninitialized
+---@field unk_4 any
+---@field unk_5 historical_entity
+---@field unk_6 historical_entity
+
+---@class entity_unk_v47_1
+---The 3 first vectors are of the same length and somehow connected
+---@field unk_v47_1 integer seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled
+---@field unk_v47_2 integer some enum?
+---@field unk_v47_3 integer[] some enum?
+---@field agreement integer[]
+---@field unk_v47_5 integer[] boolean?
+---@field unk_v47_6 integer[]
+---@field unk_v47_7 integer[]
+---@field unk_v47_8 integer[]
+---@field unk_v47_9 integer
+
+---@class historical_entity
+---@field type historical_entity_type
+---@field id integer index in the array
+---@field entity_raw entity_raw
+---@field unk_v50_10 integer
+---@field save_file_id integer changes once has 100 entries
+---@field next_member_idx integer
+---@field name language_name
+---@field race integer
+---@field flags any
+---@field guild_professions integer[] Only seen 1, and only for guilds
+---@field entity_links entity_entity_link[]
+---@field site_links entity_site_link[]
+---@field histfig_ids integer[]
+---@field populations integer[] 1st entry copies to unit.population_id for Adventurer?
+---@field nemesis_ids integer[]
+---@field resources integer[]
+---@field uniforms entity_uniform[]
+---@field next_uniform_id integer
+---@field relations integer[]
+---@field positions entity_position[]
+---@field tissue_styles entity_tissue_style[]
+---@field squads integer[]
+---@field global_event_knowledge_year integer
+---@field local_known_events integer[] since the above year
+---@field production_zone_id integer not sure what this refers to
+---@field conquered_site_group_flags any actually lives inside a class
+---@field worldgen_can_make_guildhall integer[]
+---@field training_knowledge training_knowledge_level[]
+---@field events entity_event[]
+---@field unk_v40_1a integer
+---@field unk_v40_1b integer
+---@field unk_v40_1c integer
+---@field unk_v40_1d integer
+---@field unk_v40_1e integer
+---@field performed_poetic_forms integer[]
+---@field performed_musical_forms integer[]
+---@field performed_dance_forms integer[]
+---@field performed_scale_id integer[]
+---@field performed_rhythm_id integer[]
+---@field well_known_wcid integer[]
+---@field occasion_info entity_occasion_info only seen on Civilization, SiteGovernment, and Religion, but not all
+---@field artifact_claims artifact_claim[] sorted on artifact id
+---@field honors honors_type[] Only merc companies. Matches #Honors groups in Legends Viewer
+---@field next_honors_index integer
+---@field equipment_purchases integer only seen on military units
+---@field attack integer only seen on military units
+---@field total_battles integer attacks + defenses. Only seen on military units
+---@field unk_v47_1 entity_unk_v47_1[]
+---@field divination_sets integer[] Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
+---@field founding_site_government integer All cases examined refered to site government of site of founding. Perf troop and merc lack site info but seems reasonable.
+---@field meeting_events meeting_event[]
+---@field activity_stats entity_activity_statistics
+---@field last_report_season integer in 0.23, last communicate season
+---@field last_report_year integer in 0.23, last communicate year
+---@field imports_from integer
+---@field offerings_from integer
+---@field offerings_recent integer since the last migrant wave or diplomat visit
+---@field offerings_history integer[] rotated yearly at 15th of Timber
+---@field hostility_level integer bay12: brazenness
+---@field siege_tier integer
+---@field dwf_attack_schedule_check_timer integer
+---@field last_petition_year integer
+---@field last_petition_season_count integer
+---@field armies army[]
+---@field army_controllers army_controller[]
+---@field hist_figures historical_figure[]
+---@field nemesis nemesis_record[]
+---@field derived_resources material_vec_ref
+---@field assignments_by_type entity_position_assignment[][]
+---@field claims coord2d_path
+---@field children integer[] includes self
+---@field metal_proficiency integer best IMPACT_FRACTURE/10000 + MAX_EDGE/1000 for weapon mats plus best IMPACT_FRACTURE/10000 for armor mats
+---@field weapon_proficiencies job_skill[]
+---@field resource_allotment resource_allotment_data Only for SiteGovernment, but not all
+---@field local_poetic_form poetic_form[]
+---@field local_musical_form musical_form[]
+---@field local_dance_form dance_form[]
+---@field well_known_wc written_content[]
+---@field settlement_x integer
+---@field settlement_y integer uninitialized
+---@field settlement_toggled boolean 0
+---@field landmass world_landmass
+---@field region world_region
+---@field world_gen_army_strength integer uninitialized
+---@field connect_two_site_throttle_time integer 0
+---@field construct_shortest_con_throttle_stid integer[] used during world gen
+---@field construct_shortest_con_throttle_time integer[] used during world gen
+---@field snatcher_site_toggle_count integer 0
+---@field war_fatigue integer 0
+---@field army_reeling_attack integer 0
+---@field unkarmy_reeling_defense integer 0
+---@field attacked_site_id integer[] used during world gen
+---@field attacked_site_timer integer[] used during world gen
+---@field did_wg_variable_position integer
+---@field did_wg_variable_market_position integer
+---@field dig_caution_end_year integer
+---@field total_pop integer
+---@field eating_pop_carn integer
+---@field eating_pop_omni integer
+---@field working_pop integer
+---@field working_e_pop integer
+---@field layabout_pool integer
+---@field peasant_pool integer
+---@field peasant_labor_hours integer
+---@field total_food_veg integer
+---@field total_food_carn integer
+---@field trade_current_amount integer[]
+---@field trade_needed_amount integer[]
+---@field trade_wanted_amount integer[]
+---@field trade_maximum_buy_price integer[]
+---@field town_labor_hours integer[]
+---@field unk28 any[]
+---@field unk_8 integer
+---@field unk29 integer[]
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+
+---@class entity_tissue_style
+---@field name string
+---@field preferred_shapings integer[]
+---@field unk_1 integer[] maybe probability?
+---@field maintain_length_min integer
+---@field maintain_length_max integer
+---@field id integer
 
 ---@enum training_knowledge_level
 df.training_knowledge_level = {
@@ -172,6 +469,65 @@ df.entity_position_flags = {
   unk_1f = 31,
 }
 
+---@class entity_position
+---@field code string
+---@field id integer
+---@field flags any
+---@field allowed_creature integer[]
+---@field allowed_class string[]
+---@field rejected_creature integer[]
+---@field rejected_class string[]
+---@field name string[]
+---@field name_female string[]
+---@field name_male string[]
+---@field spouse string[]
+---@field spouse_female string[]
+---@field spouse_male string[]
+---@field squad string[]
+---@field land_name string
+---@field squad_size integer
+---@field commander_id integer[]
+---@field commander_civ integer[]
+---@field commander_types integer[]
+---@field land_holder integer
+---@field requires_population integer
+---@field unk_1 integer
+---@field precedence integer
+---@field replaced_by integer
+---@field number integer
+---@field appointed_by integer[]
+---@field appointed_by_civ integer[]
+---@field succession_by_position integer[]
+---@field responsibilities boolean[]
+---@field unk_v50_358 string
+---@field color integer[]
+---@field required_boxes integer
+---@field required_cabinets integer
+---@field required_racks integer
+---@field required_stands integer
+---@field required_office integer
+---@field required_bedroom integer
+---@field required_dining integer
+---@field required_tomb integer
+---@field mandate_max integer
+---@field demand_max integer
+---@field unk_2 integer
+
+---@class entity_position_assignment
+---@field id integer
+---@field histfig integer
+---@field histfig2 integer
+---@field position_id integer position within relevant entity
+---@field position_vector_idx integer
+---@field flags any
+---@field squad_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 any[][] not saved
+---@field unk_6 integer unknown size, not initialized or saved
+
 ---@enum entity_material_category
 df.entity_material_category = {
   None = -1,
@@ -208,6 +564,29 @@ df.entity_material_category = {
   Furniture = 31, --misc_mat.rock_metal
   MiscWood2 = 32, --misc_mat.wood2
 }
+
+---@class entity_uniform_item
+---@field random_dye integer
+---@field armorlevel integer
+---@field item_color integer
+---@field art_image_id integer
+---@field art_image_subid integer
+---@field image_thread_color integer
+---@field image_material_class entity_material_category
+---@field maker_race integer
+---@field indiv_choice uniform_indiv_choice
+---@field mattype integer
+---@field matindex integer
+---@field material_class entity_material_category
+
+---@class entity_uniform
+---@field id integer
+---@field unk_4 integer
+---@field uniform_item_types item_type[][]
+---@field uniform_item_subtypes integer[][]
+---@field uniform_item_info entity_uniform_item[][]
+---@field name string
+---@field flags uniform_flags
 
 ---@enum entity_event_type
 df.entity_event_type = {
@@ -247,6 +626,31 @@ df.entity_event_type = {
   artifact_was_destroyed = 33,
 }
 
+---@class entity_event
+---@field data integer
+---@field unk_year integer often the same as the other year/tick. Start/stop time?
+---@field unk_year_tick integer
+---@field year integer
+---@field year_tick integer
+---@field unk_1 integer
+---@field type entity_event_type
+
+---@class agreement
+---@field id integer
+---@field parties agreement_party[]
+---@field next_party_id integer
+---@field details agreement_details[]
+---@field next_details_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field flags any
+
+---@class agreement_party
+---@field id integer
+---@field histfig_ids integer[]
+---@field entity_ids integer[]
+---@field unk_1 history_event_reason[]
+
 ---@enum crime_type
 df.crime_type = {
   NONE = -1,
@@ -275,4 +679,128 @@ df.agreement_details_type = {
   PlotFrameTreason = 14,
   PlotInduceWar = 15,
 }
+
+---@class agreement_details
+---@field id integer
+---@field year integer
+---@field year_tick integer
+---@field data agreement_details_data_join_party
+---@field type agreement_details_type
+
+---@class agreement_details_data_join_party
+---@field reason history_event_reason
+---@field member integer
+---@field party integer
+---@field site integer
+---@field entity integer
+---@field figure integer this is a value_type when reason == sphere_alignment
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+
+---@class agreement_details_data_demonic_binding
+---@field reason history_event_reason
+---@field demon integer
+---@field summoner integer
+---@field site integer
+---@field artifact integer
+---@field sphere sphere_type
+
+---@class agreement_details_data_residency
+---@field reason history_event_reason
+---@field applicant integer
+---@field government integer
+---@field site integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+
+---@class agreement_details_data_citizenship
+---@field applicant integer
+---@field government integer
+---@field site integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+
+---@class agreement_details_data_parley
+---@field unk_1 integer
+---@field party_id integer
+---@field unk_v50_1 integer
+---@field unk_v50_2 integer
+---@field unk_v50_3 integer
+---@field unk_v50_4 integer
+
+---@class agreement_details_data_position_corruption
+---@field unk_1 integer 247-249 seen
+---@field actor_index integer agreement.parties index
+---@field influencer_index integer agreement.parties index
+---@field intermediary_index integer agreement.parties index
+---@field target_id integer
+---@field position_id integer position index in the entity's Own entity_position vector
+
+---@class agreement_details_data_plot_steal_artifact
+---@field actor_index integer agreement.parties index
+---@field influencer_index integer agreement.parties index
+---@field intermediary_index integer agreement.parties index
+---@field artifact_id integer
+
+---@class agreement_details_data_promise_position
+---@field beneficiary_index integer agreement.parties index
+---@field actor_index integer agreement.parties index
+---@field promisee_index integer agreement.parties index
+---@field influencer_index integer agreement.parties index. May be swapped with beneficiary
+---@field intermediary_indices integer[] agreement.parties index
+---@field entity_id integer
+
+---@class agreement_details_data_plot_assassination
+---@field actor_index integer agreement.parties index
+---@field influencer_index integer agreement.parties index
+---@field intermediary_index integer agreement.parties index
+---@field target_id integer
+
+---@class agreement_details_data_plot_abduct
+---@field actor_index integer agreement.parties index
+---@field intermediary_index integer agreement.parties index
+---@field target_id integer
+---@field unk_v50_1 integer
+
+---@class agreement_details_data_plot_sabotage
+---@field plotter_index integer agreement.parties index
+---@field actor_index integer agreement.parties index
+---@field intermediary_index integer agreement.parties index. A guess, as no intermediary cases have been seen
+---@field victim_id integer
+---@field unk_1 integer
+---@field unk_2 integer
+
+---@class agreement_details_data_plot_conviction
+---@field criminal_indices integer[] agreement.parties index. All indices listed, regardless of confessions
+---@field crime crime_type
+
+---@class agreement_details_data_location
+---@field applicant integer
+---@field government integer
+---@field site integer
+---@field type abstract_building_type
+---@field deity_type temple_deity_type
+---@field deity_data temple_deity_data
+---@field profession profession
+---@field tier integer 1 = temple or guildhall, 2 = temple complex or grand guildhall; matches location_tier in abstract_building_contents
+---@field unk_v50_1 integer
+
+---@class agreement_details_data_plot_infiltration_coup
+---@field actor_index integer agreement.parties index
+---@field influencer_index integer agreement.parties index
+---@field target integer action=8: site id, 9: entity id
+---@field action integer 8 and 9 seen. Probably matches up with corresponding hist fig Infiltrate_Society action
+
+---@class agreement_details_data_plot_frame_treason
+---@field actor_index integer agreement.parties index
+---@field influencer_index integer agreement.parties index
+---@field victim_id integer
+---@field fool_id integer
+---@field unk_1 integer only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though
+
+---@class agreement_details_data_plot_induce_war
+---@field actor_index integer agreement.parties index
+---@field influencer_index integer agreement.parties index
+---@field attacker integer
+---@field defender integer
 

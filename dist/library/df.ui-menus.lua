@@ -1,6 +1,17 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class ui_build_item_req
+---When creating a building, one record per required item type. E.g. Soap Maker's workshop requires a bucket and a building material.
+---@field filter job_item_filter
+---@field candidates item[]
+---@field candidate_selected boolean[]
+---@field unk_a0 integer[]
+---@field candidate_enabled boolean[]
+---@field count_required integer
+---@field count_max integer if 0, fixed at required
+---@field count_provided integer
+
 ---@enum build_req_choice_type
 df.build_req_choice_type = {
   General = 0,
@@ -50,6 +61,17 @@ df.construction_category_type = {
   MILITARY = 12,
 }
 
+---@class bb_buttonst
+---@field category construction_category_type
+---@field type integer
+---@field subtype integer
+---@field custom_building_id integer
+---@field number integer
+---@field grid_height integer
+---@field texpos integer
+---@field str string
+---@field hotkey interface_key
+
 ---@enum construction_interface_page_status_type
 df.construction_interface_page_status_type = {
   NONE = -1,
@@ -57,6 +79,21 @@ df.construction_interface_page_status_type = {
   ICONS_ONLY = 2,
   OFF = 3,
 }
+
+---@class construction_interface_pagest
+---@field category construction_category_type
+---@field bb_button bb_buttonst[]
+---@field last_main_sx integer
+---@field last_main_ex integer
+---@field last_main_sy integer
+---@field last_main_ey integer
+---@field page_status construction_interface_page_status_type
+---@field number_of_columns integer
+---@field column_height integer
+---@field column_width integer
+---@field selected_button bb_buttonst
+---@field scrolling boolean
+---@field scroll_position integer
 
 ---@enum room_flow_shape_type
 df.room_flow_shape_type = {
@@ -594,4 +631,332 @@ df.main_designation_type = {
   DESIGNATE_TRAFFIC_RESTRICTED = 35,
   ERASE = 36,
 }
+
+---@class main_interface
+---@field designation boolean
+---@field building interface_button[]
+---@field construction interface_button[]
+---@field civzone boolean
+---@field burrow burrow
+---@field view unit_inventory_item[]
+---@field hospital integer
+---@field location_list abstract_building[]
+---@field job_details boolean
+---@field buildjob building_display_furniturest
+---@field assign_trade boolean
+---@field trade boolean
+---@field diplomacy boolean
+---@field petitions boolean
+---@field stocks boolean
+---@field unk0f80 widget_container
+---@field assign_display_item boolean
+---@field name_creator boolean
+---@field image_creator boolean
+---@field unit_selector boolean
+---@field announcement_alert boolean
+---@field custom_symbol boolean
+---@field patrol_routes boolean
+---@field squad_equipment boolean
+---@field squad_schedule boolean
+---@field squad_selector boolean
+---@field burrow_selector boolean
+---@field location_selector boolean
+---@field location_details boolean
+---@field hauling_stop_conditions boolean
+---@field assign_vehicle boolean
+---@field stockpile boolean
+---@field stockpile_link boolean
+---@field stockpile_tools boolean
+---@field custom_stockpile boolean
+---@field view_sheets boolean
+---@field info any
+---@field squads boolean
+---@field create_squad boolean
+---@field squad_supplies boolean
+---@field assign_uniform boolean
+---@field create_work_order boolean
+---@field hotkey boolean
+---@field options boolean
+---@field help boolean
+---@field settings main_interface_settings
+---@field arena_unit boolean
+---@field arena_tree boolean
+---@field viewunit_list integer[]
+---@field exporting_local integer
+---@field mouse_zone integer
+---@field skill_ind integer[]
+---@field pract_type integer[]
+---@field pract_ind integer[]
+---@field skill_combat boolean
+---@field skill_labor boolean
+---@field skill_misc boolean
+---@field barracks_selected_squad_ind integer
+---@field barracks_squad squad[]
+---@field barracks_squad_flag integer[]
+---@field entering_building_name boolean
+---@field assigning_position boolean
+---@field ap_squad squad
+---@field ap_sel integer
+---@field assigning_position_squad boolean
+---@field ap_squad_list squad[]
+---@field ap_squad_sel integer
+---@field pref_occupation any[][] occupationst
+---@field selected_pref_occupation integer
+---@field main_designation_selected main_designation_type
+---@field main_designation_doing_rectangles boolean
+---@field bottom_mode_selected main_bottom_mode_type
+---@field hover_instructions_on boolean
+---@field hover_instructions_last_hover_tick integer
+---@field current_hover integer
+---@field current_hover_id1 integer union with current_hover_building_type
+---@field current_hover_id2 integer union with current_hover_building_subtype
+---@field current_hover_id3 integer union with current_hover_building_custom_id
+---@field current_hover_key interface_key
+---@field current_hover_alert popup_message
+---@field current_hover_replace_minimap boolean
+---@field current_hover_left_x integer
+---@field current_hover_bot_y integer
+---@field hover_instruction string[][]
+---@field last_displayed_hover_inst integer
+---@field last_displayed_hover_id1 integer
+---@field last_displayed_hover_id2 integer
+---@field last_displayed_hover_id3 integer
+---@field hover_announcement_alert popup_message
+---@field hover_announcement_alert_text string[]
+---@field hover_announcement_alert_color integer[]
+---@field hover_announcement_alert_bright integer[]
+---@field hover_announcement_alert_width integer
+---@field hover_announcement_alert_button_text string[]
+---@field hover_announcement_alert_button_color integer[]
+---@field hover_announcement_alert_button_bright integer[]
+---@field hover_announcement_alert_button_width integer
+---@field last_hover_click_update integer
+---@field last_hover_m coord
+---@field recenter_indicator_m coord
+---@field mouse_scrolling_map boolean
+---@field mouse_anchor_mx integer
+---@field mouse_anchor_my integer
+---@field mouse_anchor_pmx integer
+---@field mouse_anchor_pmy integer
+---@field track_path coord_path
+---@field keyboard_track_path coord_path
+---@field last_track_s coord
+---@field last_track_g coord
+---@field keyboard_last_track_s coord
+---@field keyboard_last_track_g coord
+
+---@class gamest
+---@field main_interface main_interface
+---@field minimap any
+---@field command_line string
+---@field mod_manager mod_headerst[]
+---@field hash_rng hash_rngst
+---@field play_rng hash_rngst
+---@field start_tick_count integer
+---@field autosave_cycle integer
+---@field want_to_quit_to_title boolean
+---@field flash_11_by_3 integer[][][]
+---@field flash_7_by_3 integer[][][]
+---@field flash_4_by_3 integer[][][]
+---@field external_flag integer
+
+---@class main_interface_settings
+---@field open boolean
+---@field context settings_context_type
+---@field tab settings_tab_type[]
+---@field current_mode settings_tab_type
+---@field container_widget widget_container
+---@field scroll_position_params integer
+---@field scrolling_params boolean
+---@field entering_value_str boolean
+---@field entering_value_index integer
+---@field value_str string
+---@field member world_gen_param_basest[]
+---@field fullscreen_resolution_open boolean
+---@field permitted_fullscreen_w integer[]
+---@field permitted_fullscreen_h integer[]
+---@field scroll_position_permitted_fullscreen integer
+---@field scrolling_permitted_fullscreen boolean
+---@field keybinding_category integer[]
+---@field keybinding_selected_category integer
+---@field keybinding_scroll_position_cat integer
+---@field keybinding_scrolling_cat boolean
+---@field keybinding_name string[][]
+---@field keybinding_key interface_key[][]
+---@field keybinding_binding pointer[][]
+---@field keybinding_binding_name string[][]
+---@field keybinding_flag integer[][]
+---@field keybinding_scroll_position_key integer
+---@field keybinding_scrolling_key boolean
+---@field keybinding_registering_index integer
+---@field keybinding_registering_adding_new boolean
+---@field macro_list string[]
+---@field difficulty difficultyst
+---@field doing_custom_settings boolean
+
+---@class hash_rngst
+---@field splitmix64_state integer
+
+---@class difficultyst
+---@field difficulty_enemies integer 0=off, 1=normal, 2=hard, 3=custom
+---@field difficulty_economy integer 0=normal, 1=hard, 2=custom
+---@field enemy_pop_trigger integer[]
+---@field enemy_prod_trigger integer[]
+---@field enemy_trade_trigger integer[]
+---@field megabeast_interval integer
+---@field forgotten_sens integer
+---@field forgotten_irritate_min integer
+---@field forgotten_wealth_div integer
+---@field wild_sens integer
+---@field wild_irritate_min integer
+---@field wild_irritate_decay integer
+---@field werebeast_interval integer
+---@field vampire_fraction integer
+---@field invasion_cap_regular integer[]
+---@field invasion_cap_monsters integer[]
+---@field min_raids_before_siege integer
+---@field min_raids_between_sieges integer
+---@field siege_frequency integer
+---@field cavern_dweller_scale integer
+---@field cavern_dweller_max_attackers integer
+---@field tree_fell_count_savage integer
+---@field tree_fell_count integer
+---@field flags any
+---@field economy_pop_trigger integer[]
+---@field economy_prod_trigger integer[]
+---@field economy_trade_trigger integer[]
+---@field land_holder_pop_trigger integer[]
+---@field land_holder_prod_trigger integer[]
+---@field land_holder_trade_trigger integer[]
+---@field temple_value integer
+---@field temple_complex_value integer
+---@field priesthood_unit_count integer
+---@field high_priesthood_unit_count integer
+---@field guildhall_value integer
+---@field grand_guildhall_value integer
+---@field guild_unit_count integer
+---@field grand_guild_unit_count integer
+---@field mandate_period integer
+---@field demand_period integer
+
+---@class markup_text_boxst
+---@field unk1 string[]
+---@field unk_v50_2 integer[]
+---@field unk_v50_3 integer
+---@field unk_v50_4 integer
+---@field unk_v50_5 integer
+---@field unk_v50_6 integer
+
+---@class wqc_item_traitst
+---@field flg integer
+---@field flgn integer
+---@field reaction_class string
+---@field reaction_product_class string
+---@field metal_ore integer
+---@field contains_reaction_index integer
+---@field contains_reagent_index integer
+---@field tool_use integer
+---@field display_string string
+---@field on boolean
+
+---@class cwo_buildingst
+---@field type integer
+---@field subtype integer
+---@field custom_id integer
+---@field jminfo manager_order_template[]
+---@field name string
+
+---@class cri_unitst
+---@field un unit
+---@field it item
+---@field jb job
+---@field profession_list_order1 integer
+---@field profession_list_order2 integer
+---@field stress integer
+---@field flag integer
+---@field sort_name string
+---@field job_sort_name string
+---@field owner_un unit
+
+---@class actor_entryst
+---@field hf historical_figure
+---@field iden any identityst
+---@field name_ptr language_name
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box string[]
+---@field visual_hfid integer
+---@field historical_hfid integer
+---@field identity_id integer
+---@field alias_identity_id integer[]
+---@field principle_org any organization_entryst
+---@field associated_org any[][] organization_entryst
+---@field associated_plot plot_entryst[]
+---@field flag integer
+
+---@class organization_entry_nodest
+---@field actor_entry actor_entryst
+---@field master organization_entry_nodest
+---@field sort_id integer
+---@field tier integer
+---@field x integer
+---@field descendant_sum integer
+---@field label string
+---@field fcol integer
+---@field bcol integer
+---@field br integer
+---@field name string
+---@field status string
+
+---@class organization_entryst
+---@field node organization_entry_nodest[]
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field main_text_box string[]
+---@field principle_actor_entry actor_entryst
+---@field flag integer
+
+---@class plot_entryst
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field agreement any agreementst
+---@field master_hfid integer
+---@field organization_name string
+
+---@class mod_headerst
+---@field zip_filename string
+---@field unzipped_folder string
+---@field id string
+---@field numeric_version integer
+---@field displayed_version string
+---@field earliest_compatible_numeric_version integer
+---@field earliest_compatible_displayed_version string
+---@field author string
+---@field name string
+---@field description string
+---@field dependencies string[]
+---@field dependency_type integer[] 0 exact, 1 before, 2 after
+---@field conflicts string[]
+---@field flags any
+---@field src_dir string
+---@field steam_file_id integer
+---@field steam_title string
+---@field steam_description string
+---@field steam_tag string[]
+---@field steam_key_tag string[]
+---@field steam_value_tag string[]
+---@field steam_metadata string
+---@field steam_changelog string
+---@field steamapi_1 string
+---@field steamapi_2 boolean
+---@field steamapi_3 integer
+
+---@class ui_look_list
+---@field items any[]
+
+---@class ui_unit_view_mode
+---@field value any
 
