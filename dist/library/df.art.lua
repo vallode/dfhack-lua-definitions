@@ -10,40 +10,11 @@ df.art_image_element_type = {
   ITEM = 4,
 }
 
----@class art_image_element
----@field count integer
-
----@class art_image_element_creaturest
----@field race integer
----@field caste integer
----@field histfig integer
-
----@class art_image_element_plantst
----@field plant_id integer
-
----@class art_image_element_treest
----@field plant_id integer
-
----@class art_image_element_shapest
----@field shape_id integer
----@field shape_adj integer
-
----@class art_image_element_itemst
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field flags item_flags
----@field item_id integer
-
 ---@enum art_image_property_type
 df.art_image_property_type = {
   transitive_verb = 0,
   intransitive_verb = 1,
 }
-
----@class art_image_property
----@field flags df-flagarray
 
 ---@enum art_image_property_verb
 df.art_image_property_verb = {
@@ -97,15 +68,6 @@ df.art_image_property_verb = {
   TriumphantPose = 47,
 }
 
----@class art_image_property_transitive_verbst
----@field subject integer
----@field object integer
----@field verb art_image_property_verb
-
----@class art_image_property_intransitive_verbst
----@field subject integer
----@field verb art_image_property_verb
-
 ---@enum art_facet_type
 df.art_facet_type = {
   OWN_RACE = 0,
@@ -114,133 +76,122 @@ df.art_facet_type = {
   EVIL = 3,
 }
 
----@class art_image
----@field elements art_image_element[]
----@field properties art_image_property[]
----@field event integer
----@field name language_name
----@field spec_ref_type specific_ref_type
----@field mat_type integer
----@field mat_index integer
----@field quality item_quality
----@field artist integer
----@field site integer
----@field ref general_ref
----@field year integer
----@field unk_1 integer
----@field id integer
----@field subid integer
-
----@class art_image_chunk
----@field id integer art_image_*.dat
----@field images any[]
-
----@class art_image_ref
----@field id integer
----@field subid integer
----@field civ_id integer
----@field site_id integer
-
 ---@enum poetic_form_action
 df.poetic_form_action = {
   None = -1,
-  Describe = 0,
-  Satirize = 1,
-  AmuseAudience = 2,
-  Complain = 3,
-  Renounce = 4,
-  MakeApology = 5,
-  ExpressPleasure = 6,
-  ExpressGrief = 7,
-  Praise = 8,
-  TeachMoralLesson = 9,
-  MakeAssertion = 10,
-  MakeCounterAssertion = 11,
-  MakeConsession = 12,
-  SynthesizePreviousIdeas = 13,
-  DevelopPreviousIdea = 14,
-  InvertTheAssertion = 15,
-  UndercutAssertion = 16,
-  MoveAwayFromPreviousIdeas = 17,
-  ReflectPreviousIdeas = 18,
-  ConsoleAudience = 19,
-  RefuseConsolation = 20,
-  OfferDifferentPerspective = 21,
-  Beseech = 22,
+  Describe = 1,
+  Satirize = 2,
+  AmuseAudience = 3,
+  Complain = 4,
+  Renounce = 5,
+  MakeApology = 6,
+  ExpressPleasure = 7,
+  ExpressGrief = 8,
+  Praise = 9,
+  TeachMoralLesson = 10,
+  MakeAssertion = 11,
+  MakeCounterAssertion = 12,
+  MakeConsession = 13,
+  SynthesizePreviousIdeas = 14,
+  DevelopPreviousIdea = 15,
+  InvertTheAssertion = 16,
+  UndercutAssertion = 17,
+  MoveAwayFromPreviousIdeas = 18,
+  ReflectPreviousIdeas = 19,
+  ConsoleAudience = 20,
+  RefuseConsolation = 21,
+  OfferDifferentPerspective = 22,
+  Beseech = 23,
 }
 
 ---@enum poetic_form_pattern
 df.poetic_form_pattern = {
   None = -1,
-  AA = 0,
-  AB = 1,
-  BA = 2,
-  BB = 3,
-  AAA = 4,
-  BAA = 5,
-  ABA = 6,
-  AAB = 7,
-  ABB = 8,
-  BBA = 9,
-  BAB = 10,
-  BBB = 11,
+  AA = 1,
+  AB = 2,
+  BA = 3,
+  BB = 4,
+  AAA = 5,
+  BAA = 6,
+  ABA = 7,
+  AAB = 8,
+  ABB = 9,
+  BBA = 10,
+  BAB = 11,
+  BBB = 12,
 }
 
 ---@enum poetic_form_caesura_position
 df.poetic_form_caesura_position = {
   None = -1,
-  Initial = 0,
-  Medial = 1,
-  Terminal = 2,
+  Initial = 1,
+  Medial = 2,
+  Terminal = 3,
 }
 
 ---@enum poetic_form_mood
 df.poetic_form_mood = {
   None = -1,
-  Narrative = 0,
-  Dramatic = 1,
-  Reflective = 2,
-  Riddle = 3,
-  Ribald = 4,
-  Light = 5,
-  Solemn = 6,
+  Narrative = 1,
+  Dramatic = 2,
+  Reflective = 3,
+  Riddle = 4,
+  Ribald = 5,
+  Light = 6,
+  Solemn = 7,
 }
 
 ---@enum poetic_form_subject
 df.poetic_form_subject = {
   None = -1,
-  Past = 0,
-  CurrentEvents = 1,
-  Future = 2,
-  SomeoneRecentlyDeceased = 3,
-  SomeoneRecentlyRetired = 4,
-  Religion = 5,
-  SpecificPlace = 6,
-  SpecificWildernessRegion = 7,
-  Nature = 8,
-  Lover = 9,
-  Family = 10,
-  AlcoholicBeverages = 11,
-  Journey = 12,
-  War = 13,
-  Hunt = 14,
-  Mining = 15,
-  Death = 16,
-  Immortality = 17,
-  SomeonesCharacter = 18,
-  Histfig = 19,
-  Concept = 20,
+  Past = 1,
+  CurrentEvents = 2,
+  Future = 3,
+  SomeoneRecentlyDeceased = 4,
+  SomeoneRecentlyRetired = 5,
+  Religion = 6,
+  SpecificPlace = 7,
+  SpecificWildernessRegion = 8,
+  Nature = 9,
+  Lover = 10,
+  Family = 11,
+  AlcoholicBeverages = 12,
+  Journey = 13,
+  War = 14,
+  Hunt = 15,
+  Mining = 16,
+  Death = 17,
+  Immortality = 18,
+  SomeonesCharacter = 19,
+  Histfig = 20,
+  Concept = 21,
 }
 
----@class poetic_form_subject_target
----@field Histfig poetic_form_subject_target_Histfig
----@field Concept poetic_form_subject_target_Concept
-
----@class poetic_form_subject_target_Histfig
----@field subject_histfig integer
-
----@class poetic_form_subject_target_Concept
----@field subject_topic sphere_type
+---@enum poetic_form_feature
+df.poetic_form_feature = {
+  InternalRhyme = 0,
+  EndRhymesDontMatch = 1,
+  Alliteration = 2,
+  Onomatopoeia = 3,
+  Antanaclasis = 4,
+  DifferentReadings = 5,
+  ReadBackwards = 6,
+  ReadOrthogonally = 7,
+  Emerge = 8,
+  Assonance = 9,
+  Consonance = 10,
+  Elision = 11,
+  Epenthesis = 12,
+  Synchysis = 13,
+  Allegory = 14,
+  Ambiguity = 15,
+  Symbolism = 16,
+  Metaphor = 17,
+  Simile = 18,
+  Metonymy = 19,
+  VividImagery = 20,
+  Juxtaposision = 21,
+}
 
 ---@enum poetic_form_additional_feature
 df.poetic_form_additional_feature = {
@@ -255,64 +206,6 @@ df.poetic_form_additional_feature = {
   MustExpandIdea = 8,
 }
 
----@class poetic_form
----@field id integer
----@field name language_name
----@field originating_entity integer
----@field original_author integer
----@field subject_hf integer
----@field flags bitfield
----@field parts poetic_form_part[]
----@field each_line_feet integer
----@field each_line_pattern poetic_form_pattern
----@field every_line_caesura_position poetic_form_caesura_position
----@field common_features any[]
----@field mood poetic_form_mood
----@field subject poetic_form_subject
----@field subject_target poetic_form_subject_target
----@field action poetic_form_action
----@field preferred_perspective integer if not -1, ALWAYS written from that perspective
----@field features poetic_form_feature
----@field perspectives poetic_form_perspective[]
-
----@class poetic_form_part
----@field flags bitfield
----@field count_min integer
----@field count_max integer
----@field size integer
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field line_endings integer[]
----@field line_feet integer[]
----@field line_patterns any[]
----@field line_caesura_positions any[]
----@field line_features any[]
----@field additional_features any[]
----@field additional_targets integer[]
----@field additional_lines integer[]
----@field line_mood any[]
----@field line_subject any[]
----@field line_subject_target poetic_form_subject_target[]
----@field line_action any[]
----@field unk_5 integer[]
----@field some_lines_syllables integer
----@field some_lines_pattern integer
----@field each_line_caesura_position poetic_form_caesura_position
----@field certain_lines_additional_features any[]
----@field mood poetic_form_mood
----@field unk_6 integer
----@field unk_7 integer
----@field action poetic_form_action
----@field unk_8 integer
----@field unk_9 integer
-
----@class poetic_form_perspective
----@field type enum
----@field histfig integer
----@field unk_1 integer
-
 ---@enum musical_form_purpose
 df.musical_form_purpose = {
   Entertainment = 0,
@@ -324,89 +217,109 @@ df.musical_form_purpose = {
 ---@enum musical_form_style
 df.musical_form_style = {
   None = -1,
-  FreeTempo = 0,
-  VerySlow = 1,
-  Slow = 2,
-  WalkingPace = 3,
-  ModeratelyPaced = 4,
-  ModeratelyFast = 5,
-  Fast = 6,
-  VeryFast = 7,
-  ExtremelyFast = 8,
-  DoubleTempo = 9, --twice the tempo of the last passage
-  HalfTempo = 10, --half the tempo of the previous passage
-  Faster = 11, --more quickly than the last passage
-  Slower = 12, --slower than the last passage
-  ResumeTempo = 13, --resumes the previous tempo
-  OriginalTempo = 14, --resumes the original tempo
-  Accelerates = 15,
-  SlowsAndBroadens = 16,
-  ConsistentlySlowing = 17,
-  HurriedPace = 18,
-  GraduallySlowsAtEnd = 19,
-  WhisperedUndertones = 20,
-  VerySoft = 21,
-  Soft = 22,
-  ModeratelySoft = 23,
-  ModeratelyLoud = 24,
-  Loud = 25,
-  VeryLoud = 26,
-  BecomeLouderAndLouder = 27,
-  BecomeSofterAndSofter = 28,
-  FadeIntoSilence = 29,
-  StartLoudThenImmediatelySoft = 30,
-  SlowsAndDiesAwayAtEnd = 31,
-  BecomesCalmerAtEnd = 32,
-  BecomesFrenzied = 33,
-  StressRhythm = 34,
-  BeStately = 35,
-  BeBright = 36,
-  BeLively = 37,
-  BeSkilled = 38,
-  BeVigorous = 39,
-  BeSpirited = 40,
-  BeDelicate = 41,
-  BeFiery = 42,
-  BringSenseOfMotion = 43,
-  BeFiery2 = 44,
-  WithFeeling = 45,
-  FeelAgitated = 46,
-  BePassionate = 47,
-  Sparkle = 48,
-  BeBroad = 49,
-  BeMadeSweetly = 50,
-  BeStrong = 51,
-  BeEnergetic = 52,
-  BeForceful = 53,
-  FeelHeroic = 54,
-  BeMadeExpressively = 55,
-  FeelFurious = 56,
-  BeJoyful = 57,
-  BeGrand = 58,
-  BeMerry = 59,
-  BeGraceful = 60,
-  BuildAsItProceeds = 61,
-  EvokeTears = 62,
-  BeMelancholic = 63,
-  FeelMournful = 64,
-  BeMadeWithLightTouch = 65,
-  FeelHeavy = 66,
-  FeelMysterious = 67,
-  BeJumpy = 68,
-  FeelPlayful = 69,
-  FeelTender = 70,
-  FeelCalm = 71,
-  BeTriumphant = 72,
+  FreeTempo = 1,
+  VerySlow = 2,
+  Slow = 3,
+  WalkingPace = 4,
+  ModeratelyPaced = 5,
+  ModeratelyFast = 6,
+  Fast = 7,
+  VeryFast = 8,
+  ExtremelyFast = 9,
+  DoubleTempo = 10, --twice the tempo of the last passage
+  HalfTempo = 11, --half the tempo of the previous passage
+  Faster = 12, --more quickly than the last passage
+  Slower = 13, --slower than the last passage
+  ResumeTempo = 14, --resumes the previous tempo
+  OriginalTempo = 15, --resumes the original tempo
+  Accelerates = 16,
+  SlowsAndBroadens = 17,
+  ConsistentlySlowing = 18,
+  HurriedPace = 19,
+  GraduallySlowsAtEnd = 20,
+  WhisperedUndertones = 21,
+  VerySoft = 22,
+  Soft = 23,
+  ModeratelySoft = 24,
+  ModeratelyLoud = 25,
+  Loud = 26,
+  VeryLoud = 27,
+  BecomeLouderAndLouder = 28,
+  BecomeSofterAndSofter = 29,
+  FadeIntoSilence = 30,
+  StartLoudThenImmediatelySoft = 31,
+  SlowsAndDiesAwayAtEnd = 32,
+  BecomesCalmerAtEnd = 33,
+  BecomesFrenzied = 34,
+  StressRhythm = 35,
+  BeStately = 36,
+  BeBright = 37,
+  BeLively = 38,
+  BeSkilled = 39,
+  BeVigorous = 40,
+  BeSpirited = 41,
+  BeDelicate = 42,
+  BeFiery = 43,
+  BringSenseOfMotion = 44,
+  BeFiery2 = 45,
+  WithFeeling = 46,
+  FeelAgitated = 47,
+  BePassionate = 48,
+  Sparkle = 49,
+  BeBroad = 50,
+  BeMadeSweetly = 51,
+  BeStrong = 52,
+  BeEnergetic = 53,
+  BeForceful = 54,
+  FeelHeroic = 55,
+  BeMadeExpressively = 56,
+  FeelFurious = 57,
+  BeJoyful = 58,
+  BeGrand = 59,
+  BeMerry = 60,
+  BeGraceful = 61,
+  BuildAsItProceeds = 62,
+  EvokeTears = 63,
+  BeMelancholic = 64,
+  FeelMournful = 65,
+  BeMadeWithLightTouch = 66,
+  FeelHeavy = 67,
+  FeelMysterious = 68,
+  BeJumpy = 69,
+  FeelPlayful = 70,
+  FeelTender = 71,
+  FeelCalm = 72,
+  BeTriumphant = 73,
 }
 
 ---@enum musical_form_pitch_style
 df.musical_form_pitch_style = {
   None = -1,
-  SinglePitchesOnly = 0,
-  IntervalsOnly = 1,
-  SparseChords = 2,
-  PitchClusters = 3,
-  ChordLayers = 4,
+  SinglePitchesOnly = 1,
+  IntervalsOnly = 2,
+  SparseChords = 3,
+  PitchClusters = 4,
+  ChordLayers = 5,
+}
+
+---@enum musical_form_feature
+df.musical_form_feature = {
+  GlideFromNoteToNote = 0,
+  UseGraceNotes = 1,
+  UseMordents = 2,
+  MakeTrills = 3,
+  PlayRapidRuns = 4,
+  LocallyImprovise = 5,
+  SpreadSyllablesOverManyNotes = 6,
+  MatchNotesAndSyllables = 7,
+  Syncopate = 8,
+  AddFills = 9,
+  AlternateTensionAndRepose = 10,
+  ModulateFrequently = 11,
+  PlayArpeggios = 12,
+  PlayStaccato = 13,
+  PlayLegato = 14,
+  FreelyAdjustBeats = 15,
 }
 
 ---@enum musical_form_passage_component_type
@@ -437,10 +350,10 @@ df.musical_form_passage_type = {
 ---@enum musical_form_passage_length_type
 df.musical_form_passage_length_type = {
   NONE = -1,
-  Short = 0,
-  MidLength = 1,
-  Long = 2,
-  Varied = 3,
+  Short = 1,
+  MidLength = 2,
+  Long = 3,
+  Varied = 4,
 }
 
 ---@enum musical_form_melody_style
@@ -457,85 +370,6 @@ df.musical_form_melody_frequency = {
   Often = 1,
   Sometimes = 2,
 }
-
----@class musical_form_interval
----@field degree integer
----@field flags bitfield
-
----@class musical_form_melodies
----@field style musical_form_melody_style
----@field frequency musical_form_melody_frequency
----@field intervals musical_form_interval[]
----@field features musical_form_feature
-
----@class musical_form_passage
----@field type musical_form_passage_type
----@field passage_reference integer used when doing Exposition, Recapitualation, Synthesis, and Variation
----@field passage_range_end integer when doing Synthesis of a range of passages
----@field unk_4 integer 'min_times' for a 3-5 range, but doesn't match up with 1 for both repeat 2 times and no repeat mentioned
----@field unk_5 integer 'max_times' for a 3-5 range, but doesn't match up with 1 for both repeat 2 times and no repeat mentioned
----@field poetic_form_id integer
----@field written_content_id integer suspect bug in exported legends (and possibly DF itself) as no mentioning of the poems (or any alternative) referenced here were mentioned in the two entries examined
----@field scale_id integer
----@field scale_sub_id integer references the scales element of the scale
----@field rhythm_id integer
----@field sub_rhythm integer Guess, based on the pattern above
----@field rhythm_pattern integer references the patterns element of rhythm
----@field instruments integer[] indices into the instruments vector
----@field components any[]
----@field passage_lengths any[]
----@field lowest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
----@field highest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
----@field tempo_style musical_form_style
----@field dynamic_style musical_form_style
----@field overall_style musical_form_style
----@field features musical_form_feature
----@field pitch_style musical_form_pitch_style
----@field melodies musical_form_melodies[]
----@field unk_22 integer 0-40 seen
----@field unk_23 integer 0-78 seen
-
----@class musical_form_instruments
----@field instrument_subtype integer -1 = vocal
----@field substitutions bitfield
----@field features musical_form_feature
----@field minimum_required integer tentative
----@field maximum_permitted integer tentative
----@field dynamic_style musical_form_style
----@field overall_style musical_form_style
-
----@class musical_form_sub4
----@field passage integer the passage index this structure refers to
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
-
----@class musical_form
----@field id integer
----@field name language_name
----@field originating_entity integer ID of the entity from which the musical form originated.
----@field original_author integer historical figure ID of the composer
----@field passages musical_form_passage[]
----@field instruments musical_form_instruments[]
----@field melodies musical_form_melodies[]
----@field unk_1 musical_form_sub4[]
----@field tempo_style musical_form_style
----@field dynamic_style musical_form_style
----@field overall_style musical_form_style
----@field poetic_form_id integer
----@field written_content_id integer
----@field scale_id integer
----@field scale_subid integer reference to scale_sub2
----@field rhythm_id integer
----@field sub_rhythm integer reference to sub_rhythms
----@field rhythm_pattern integer reference to patterns
----@field features musical_form_feature
----@field pitch_style musical_form_pitch_style
----@field purpose musical_form_purpose
----@field devotion_target integer
----@field flags bitfield
 
 ---@enum dance_form_context
 df.dance_form_context = {
@@ -557,55 +391,55 @@ df.dance_form_group_size = {
 ---@enum dance_form_configuration
 df.dance_form_configuration = {
   NONE = -1, --hard to have a configuration with a solo performer
-  SingleLine = 0,
-  SeveralLines = 1,
-  Circle = 2,
-  DoubleCircle = 3,
-  LooselyMingled = 4,
+  SingleLine = 1,
+  SeveralLines = 2,
+  Circle = 3,
+  DoubleCircle = 4,
+  LooselyMingled = 5,
 }
 
 ---@enum dance_form_movement_path
 df.dance_form_movement_path = {
   NONE = -1,
-  TurnClockwise = 0,
-  TurnCounterClockwise = 1,
-  ImprovisedPath = 2,
-  IntricatePath = 3,
+  TurnClockwise = 1,
+  TurnCounterClockwise = 2,
+  ImprovisedPath = 3,
+  IntricatePath = 4,
 }
 
 ---@enum dance_form_partner_distance
 df.dance_form_partner_distance = {
   NONE = -1,
-  Closely = 0,
-  OpenContact = 1,
-  RareContact = 2,
+  Closely = 1,
+  OpenContact = 2,
+  RareContact = 3,
 }
 
 ---@enum dance_form_partner_intent
 df.dance_form_partner_intent = {
   NONE = -1,
-  PushingTogether = 0,
-  PullingAway = 1,
-  Touch = 2,
-  LightTouch = 3,
-  VisualCues = 4,
-  SpokenCues = 5,
+  PushingTogether = 1,
+  PullingAway = 2,
+  Touch = 3,
+  LightTouch = 4,
+  VisualCues = 5,
+  SpokenCues = 6,
 }
 
 ---@enum dance_form_partner_cue_frequency
 df.dance_form_partner_cue_frequency = {
   NONE = -1,
-  Constantly = 0,
-  Briefly = 1,
+  Constantly = 1,
+  Briefly = 2,
 }
 
 ---@enum dance_form_partner_change_type
 df.dance_form_partner_change_type = {
   NONE = -1,
-  LeadAdvanceAlongMainLineOfMotion = 0,
-  LeadAdvanceAgainstMainLineOfMotion = 1,
-  LeadTurningOutClockwise = 2,
-  LeadTurningOutCounterClockwise = 3,
+  LeadAdvanceAlongMainLineOfMotion = 1,
+  LeadAdvanceAgainstMainLineOfMotion = 2,
+  LeadTurningOutClockwise = 3,
+  LeadTurningOutCounterClockwise = 4,
 }
 
 ---@enum dance_form_move_type
@@ -649,74 +483,65 @@ df.dance_form_move_type = {
 ---@enum dance_form_move_modifier
 df.dance_form_move_modifier = {
   NONE = -1,
-  Graceful = 0,
-  Serene = 1,
-  SharpEdged = 2,
-  Grotesque = 3,
-  Crude = 4,
-  Refined = 5,
-  Understated = 6,
-  Delicate = 7,
-  Elaborate = 8,
-  Expressive = 9,
-  Strong = 10,
-  Large = 11,
-  Weightless = 12,
-  Fluid = 13,
-  Undulating = 14,
-  Soft = 15,
-  Jerking = 16,
-  Calm = 17,
-  StraightLined = 18,
-  High = 19,
-  Low = 20,
-  LoudlyPercussive = 21,
-  SoftlyPercussive = 22,
-  Aborted = 23,
-  PartiallyRealized = 24,
-  Energetic = 25,
-  Passionate = 26,
-  Vivacious = 27,
-  Joyous = 28,
-  Proud = 29,
-  Flamboyant = 30,
-  Lively = 31,
-  Spirited = 32,
-  Vigorous = 33,
-  Intense = 34,
-  Aggressive = 35,
-  Powerful = 36,
-  Sluggish = 37,
-  Relaxed = 38,
-  Passive = 39,
-  Subtle = 40,
-  Sensual = 41,
-  Debauched = 42,
-  Twisting = 43,
-  Sprightly = 44,
-  Sinuous = 45,
+  Graceful = 1,
+  Serene = 2,
+  SharpEdged = 3,
+  Grotesque = 4,
+  Crude = 5,
+  Refined = 6,
+  Understated = 7,
+  Delicate = 8,
+  Elaborate = 9,
+  Expressive = 10,
+  Strong = 11,
+  Large = 12,
+  Weightless = 13,
+  Fluid = 14,
+  Undulating = 15,
+  Soft = 16,
+  Jerking = 17,
+  Calm = 18,
+  StraightLined = 19,
+  High = 20,
+  Low = 21,
+  LoudlyPercussive = 22,
+  SoftlyPercussive = 23,
+  Aborted = 24,
+  PartiallyRealized = 25,
+  Energetic = 26,
+  Passionate = 27,
+  Vivacious = 28,
+  Joyous = 29,
+  Proud = 30,
+  Flamboyant = 31,
+  Lively = 32,
+  Spirited = 33,
+  Vigorous = 34,
+  Intense = 35,
+  Aggressive = 36,
+  Powerful = 37,
+  Sluggish = 38,
+  Relaxed = 39,
+  Passive = 40,
+  Subtle = 41,
+  Sensual = 42,
+  Debauched = 43,
+  Twisting = 44,
+  Sprightly = 45,
+  Sinuous = 46,
 }
 
----@class dance_form_section
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field movement_path dance_form_movement_path
----@field move_id integer index in the moves vector
----@field partner_distance dance_form_partner_distance
----@field partner_intent dance_form_partner_intent
----@field partner_cue_frequency dance_form_partner_cue_frequency
----@field partner_changes any[]
----@field unk_11 integer
----@field unk_12 integer
----@field unk_13 integer
----@field unk_14 integer
----@field type any[]
----@field modifier any[]
----@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field location any[]
----@field id integer
+---@enum dance_form_move_location
+df.dance_form_move_location = {
+  unk_0 = 0, --Standard value, but not described
+  unk_1 = 1, --Common value, but not described
+  MirroredByGroupMembers = 2,
+  InRetrogradeByGroupMembers = 3,
+  InSuccessionByGroupMembers = 4,
+  ShadowedByGroupMembers = 5,
+  Lead = 6,
+  Follower = 7,
+}
 
 ---@enum dance_form_move_group_type
 df.dance_form_move_group_type = {
@@ -727,88 +552,12 @@ df.dance_form_move_group_type = {
   DanceMove = 4,
 }
 
----@class dance_form_move
----@field name string
----@field type any[]
----@field modifier any[]
----@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field location any[]
----@field group_type dance_form_move_group_type
-
----@class dance_form
----@field id integer
----@field name language_name
----@field musical_form_id integer
----@field music_written_content_id integer at most one of this and musical_form_id is non null
----@field context dance_form_context
----@field originating_entity integer ID of the entity from which the dance form originated.
----@field original_author integer ID of the historical figure who developed the dance form.
----@field produce_individual_dances integer 0:improvise, 1:apply by choreographers. May be bitfield if analogous to corresponding music, but no other values seen
----@field group_size dance_form_group_size
----@field unk_4 integer 1 seen, and it's always paired with the next field
----@field unk_5 integer 1 seen, and it's always paired with the previous field
----@field configuration dance_form_configuration
----@field movement_path dance_form_movement_path
----@field unk_8 integer 0 seen
----@field partner_distance dance_form_partner_distance NONE when not pair dance
----@field partner_intent dance_form_partner_intent NONE when not pair dance
----@field partner_cue_frequency dance_form_partner_cue_frequency NONE when not pair dance and when 'normal'
----@field partner_changes any[]
----@field poetry_referenced boolean Weird, but all instances where it was set examined have the dance act out any composition of a named poetic form, without any presence of the form number found
----@field unk_14 integer
----@field hfid integer Character whose story the dance acts out
----@field race integer Creature whose movements are imitated
----@field move_type any[]
----@field move_modifier any[]
----@field move_parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field move_location any[]
----@field sections dance_form_section[]
----@field moves dance_form_move[]
-
 ---@enum scale_type
 df.scale_type = {
   Octave = 0, --The octave is divided into X steps of even length
   Variable = 1, --The octave is divided into notes at varying intervals, approximated by quartertones
   PerfectFourth = 2, --The perfect fourth interval is divided into steps of even length
 }
-
----@class chord
----@field name string
----@field notes integer[] chord_size entries used. Refers to the notes indices
----@field chord_size integer
----@field unk_3 integer 0 and 1 seen
-
----@class named_scale
----Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
----@field unk_1 integer 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
----@field name string
----@field degrees integer[] indices into the (not necessarily named) notes of the scale
----@field degrees_used integer elements used in array above
----@field first_chord integer this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
----@field second_chord integer
-
----@class scale
----@field id integer
----@field flags flag-bit
----@field type scale_type
----@field quartertones_used integer[] Quartertone corresponding note matches. Scale_length elements are used when type = Variable. Unused elements uninitialized
----@field scale_length integer Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
----@field chords chord[]
----@field scales named_scale[] Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
----@field notes scale_notes Curiously, the named notes do not have to match the number of defined notes
-
----@class scale_notes
----@field unk_1 integer Frequently looks like garbage for all values of type. Suspect it's actually a filler
----@field name string[]
----@field abreviation string[]
----@field number integer[]
----@field length integer number of elements of the arrays above used
-
----@class rhythm
----@field id integer
----@field patterns rhythm_pattern[]
----@field sub_rhythms sub_rhythm[]
----@field unk_2 integer
 
 ---@enum beat_type
 df.beat_type = {
@@ -826,19 +575,6 @@ df.beat_type = {
   AccentedSyncopated = 11, --!'
 }
 
----@class rhythm_pattern
----@field name string
----@field bars any[]
----@field beat_name string length as per length field
----@field beat_abbreviation string length as per length field
----@field length integer
-
----@class sub_rhythm
----@field name string
----@field patterns integer[] indices into patterns
----@field unk_2 integer[] Same length as patterns, but with unknown purpose
----@field unk_3 integer
-
 ---@enum occupation_type
 df.occupation_type = {
   TAVERN_KEEPER = 0,
@@ -853,39 +589,4 @@ df.occupation_type = {
   SURGEON = 9,
   BONE_DOCTOR = 10,
 }
-
----@class occupation
----@field id integer
----@field type occupation_type
----@field histfig_id integer
----@field unit_id integer
----@field location_id integer
----@field site_id integer
----@field group_id integer
----@field unk_1 occupation_sub1[]
----@field unk_2 integer
----@field army_controller_id integer
----@field unk_4 world_site When these haven't crashed the data has been nonsensical
----@field unk_5 abstract_building When these haven't crashed the data has been nonsensical. Has seen duplicate of unk_4 pointer value
-
----@class occupation_sub1
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer
----@field unk_8 integer
----@field unk_9 integer
----@field unk_10 integer
----@field unk_11 integer
----@field unk_12 integer
----@field unk_13 integer
----@field unk_14 integer
----@field unk_15 integer
----@field unk_16 integer
----@field unk_17 integer
----@field unk_18 integer
----@field unk_19 integer
 

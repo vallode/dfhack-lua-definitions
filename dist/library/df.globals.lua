@@ -1,6 +1,169 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class df_global
+---@field global_table global_table_entry[]
+---@field cursor integer
+---@field selection_rect integer
+---@field gamemode game_mode
+---@field gametype game_type
+---@field ui_menu_width integer[]
+---@field created_item_type item_type[]
+---@field created_item_subtype integer[]
+---@field created_item_mattype integer[]
+---@field created_item_matindex integer[]
+---@field created_item_count integer[]
+---@field map_renderer map_renderer
+---@field d_init d_init
+---@field flows flow_info[]
+---@field enabler enabler
+---@field gps graphic
+---@field gview interfacest
+---@field init init
+---@field texture texture_handlerst
+---@field timed_events timed_event[]
+---@field plotinfo plotinfost
+---@field adventure adventurest
+---@field buildreq buildreq
+---@field ui_building_assign_type integer[]
+---@field ui_building_assign_is_marked boolean[]
+---@field ui_building_assign_units unit[]
+---@field ui_building_assign_items item[]
+---@field ui_look_list ui_look_list
+---@field game gamest
+---@field world world
+---@field version save_version
+---@field min_load_version save_version
+---@field movie_version cmv_version
+---@field activity_next_id integer
+---@field agreement_next_id integer
+---@field army_controller_next_id integer
+---@field army_next_id integer
+---@field army_tracking_info_next_id integer
+---@field art_image_chunk_next_id integer
+---@field artifact_next_id integer
+---@field belief_system_next_id integer
+---@field building_next_id integer
+---@field crime_next_id integer
+---@field cultural_identity_next_id integer
+---@field dance_form_next_id integer
+---@field divination_set_next_id integer
+---@field entity_next_id integer
+---@field flow_guide_next_id integer
+---@field formation_next_id integer
+---@field hist_event_collection_next_id integer
+---@field hist_event_next_id integer
+---@field hist_figure_next_id integer
+---@field identity_next_id integer
+---@field image_set_next_id integer
+---@field incident_next_id integer
+---@field interaction_instance_next_id integer
+---@field item_next_id integer
+---@field job_next_id integer
+---@field machine_next_id integer
+---@field musical_form_next_id integer
+---@field nemesis_next_id integer
+---@field occupation_next_id integer
+---@field poetic_form_next_id integer
+---@field proj_next_id integer
+---@field rhythm_next_id integer
+---@field scale_next_id integer
+---@field schedule_next_id integer
+---@field soul_next_id integer
+---@field squad_next_id integer
+---@field task_next_id integer
+---@field unit_chunk_next_id integer
+---@field unit_next_id integer
+---@field vehicle_next_id integer
+---@field written_content_next_id integer
+---@field cur_year integer
+---@field cur_year_tick integer
+---@field cur_year_tick_advmode integer
+---@field cur_season season
+---@field cur_season_tick integer
+---@field current_weather weather_type[][]
+---@field pause_state boolean
+---@field process_dig boolean
+---@field process_jobs boolean
+---@field ui_building_in_assign boolean
+---@field ui_building_in_resize boolean
+---@field ui_building_resize_radius integer
+---@field ui_building_item_cursor integer
+---@field ui_look_cursor integer
+---@field ui_selected_unit integer
+---@field ui_unit_view_mode ui_unit_view_mode
+---@field ui_workshop_in_add boolean
+---@field ui_workshop_job_cursor integer
+---@field ui_lever_target_type lever_target_type
+---@field window_x integer
+---@field window_y integer
+---@field window_z integer
+---@field debug_nopause boolean
+---@field debug_nomoods boolean
+---@field debug_combat boolean
+---@field debug_wildlife boolean
+---@field debug_nodrink boolean
+---@field debug_noeat boolean
+---@field debug_nosleep boolean
+---@field debug_showambush boolean
+---@field debug_fastmining boolean
+---@field debug_noberserk boolean
+---@field debug_turbospeed boolean
+---@field save_on_exit boolean
+---@field standing_orders_gather_minerals integer
+---@field standing_orders_gather_wood integer
+---@field standing_orders_gather_food integer
+---@field standing_orders_gather_bodies integer
+---@field standing_orders_gather_animals integer
+---@field standing_orders_gather_furniture integer
+---@field standing_orders_farmer_harvest integer
+---@field standing_orders_job_cancel_announce integer
+---@field standing_orders_mix_food integer
+---@field standing_orders_gather_refuse integer
+---@field standing_orders_gather_refuse_outside integer
+---@field standing_orders_gather_vermin_remains integer
+---@field standing_orders_dump_corpses integer
+---@field standing_orders_dump_skulls integer
+---@field standing_orders_dump_skins integer
+---@field standing_orders_dump_bones integer
+---@field standing_orders_dump_hair integer
+---@field standing_orders_dump_shells integer
+---@field standing_orders_dump_other integer
+---@field standing_orders_forbid_used_ammo integer
+---@field standing_orders_forbid_other_dead_items integer
+---@field standing_orders_forbid_own_dead integer
+---@field standing_orders_forbid_other_nohunt integer
+---@field standing_orders_forbid_own_dead_items integer
+---@field standing_orders_auto_loom integer
+---@field standing_orders_auto_collect_webs integer
+---@field standing_orders_auto_slaughter integer
+---@field standing_orders_auto_butcher integer
+---@field standing_orders_auto_tan integer
+---@field standing_orders_auto_fishery integer
+---@field standing_orders_auto_kitchen integer
+---@field standing_orders_auto_kiln integer
+---@field standing_orders_auto_smelter integer
+---@field standing_orders_auto_other integer
+---@field standing_orders_use_dyed_cloth integer
+---@field standing_orders_zoneonly_drink integer
+---@field standing_orders_zoneonly_fish integer
+---@field cur_snow_counter integer
+---@field cur_rain_counter integer
+---@field weathertimer integer
+---@field cur_snow coord[]
+---@field cur_rain coord[]
+---@field jobvalue integer[]
+---@field jobvalue_setter unit[]
+---@field interactitem item
+---@field interactinvslot unit_inventory_item
+---@field handleannounce boolean
+---@field preserveannounce boolean
+---@field updatelightstate boolean
+---@field start_dwarf_count integer
+---@field translate_name function
+---@field buildingst_completebuild function
+df.global = {}
+
 ---@enum weather_type
 df.weather_type = {
   None = 0,
@@ -54,21 +217,6 @@ df.next_global_id = {
   divination_set = 40,
 }
 
----@class cursor
----@field x integer 
----@field y integer 
----@field z integer 
-df.global.cursor = nil
-
----@class selection_rect
----@field start_x integer 
----@field start_y integer 
----@field start_z integer 
----@field end_x integer only valid for an instant while its being completed
----@field end_y integer 
----@field end_z integer 
-df.global.selection_rect = nil
-
 ---@enum game_mode
 df.game_mode = {
   DWARF = 0,
@@ -92,288 +240,6 @@ df.game_type = {
   num = 10,
   NONE = 11,
 }
-
----@type game_mode
-df.global.gamemode = nil
-
----@type game_type
-df.global.gametype = nil
-
----@type integer[]
-df.global.ui_menu_width = nil
-
----@type string
-df.global.title = nil
-
----@type string
-df.global.title_spaced = nil
-
----@type any[]
-df.global.created_item_type = nil
-
----@type any[]
-df.global.created_item_subtype = nil
-
----@type any[]
-df.global.created_item_mattype = nil
-
----@type integer[]
-df.global.created_item_matindex = nil
-
----@type integer[]
-df.global.created_item_count = nil
-
----@type map_renderer
-df.global.map_renderer = nil
-
----@type d_init
-df.global.d_init = nil
-
----@type flow_info[]
-df.global.flows = nil
-
----@type enabler
-df.global.enabler = nil
-
----@type graphic
-df.global.gps = nil
-
----@type interfacest
-df.global.gview = nil
-
----@type init
-df.global.init = nil
-
----@type texture_handlerst
-df.global.texture = nil
-
----@type timed_event[]
-df.global.timed_events = nil
-
----@type plotinfost
-df.global.plotinfo = nil
-
----@type adventurest
-df.global.adventure = nil
-
----@type buildreq
-df.global.buildreq = nil
-
----@type integer[]
-df.global.ui_building_assign_type = nil
-
----@type boolean[]
-df.global.ui_building_assign_is_marked = nil
-
----@type unit[]
-df.global.ui_building_assign_units = nil
-
----@type item[]
-df.global.ui_building_assign_items = nil
-
----@type ui_look_list
-df.global.ui_look_list = nil
-
----@type gamest
-df.global.game = nil
-
----@type gamest_extra
-df.global.game_extra = nil
-
----@type steam_mod_manager
-df.global.steam_mod_manager = nil
-
----@type world
-df.global.world = nil
-
----@type save_version
-df.global.version = nil
-
----@type save_version
-df.global.min_load_version = nil
-
----@type cmv_version
-df.global.movie_version = nil
-
----@type integer
-df.global.basic_seed = nil
-
----@type integer
-df.global.activity_next_id = nil
-
----@type integer
-df.global.agreement_next_id = nil
-
----@type integer
-df.global.army_controller_next_id = nil
-
----@type integer
-df.global.army_next_id = nil
-
----@type integer
-df.global.army_tracking_info_next_id = nil
-
----@type integer
-df.global.art_image_chunk_next_id = nil
-
----@type integer
-df.global.artifact_next_id = nil
-
----@type integer
-df.global.belief_system_next_id = nil
-
----@type integer
-df.global.building_next_id = nil
-
----@type integer
-df.global.crime_next_id = nil
-
----@type integer
-df.global.cultural_identity_next_id = nil
-
----@type integer
-df.global.dance_form_next_id = nil
-
----@type integer
-df.global.divination_set_next_id = nil
-
----@type integer
-df.global.entity_next_id = nil
-
----@type integer
-df.global.flow_guide_next_id = nil
-
----@type integer
-df.global.formation_next_id = nil
-
----@type integer
-df.global.hist_event_collection_next_id = nil
-
----@type integer
-df.global.hist_event_next_id = nil
-
----@type integer
-df.global.hist_figure_next_id = nil
-
----@type integer
-df.global.identity_next_id = nil
-
----@type integer
-df.global.image_set_next_id = nil
-
----@type integer
-df.global.incident_next_id = nil
-
----@type integer
-df.global.interaction_instance_next_id = nil
-
----@type integer
-df.global.item_next_id = nil
-
----@type integer
-df.global.job_next_id = nil
-
----@type integer
-df.global.machine_next_id = nil
-
----@type integer
-df.global.musical_form_next_id = nil
-
----@type integer
-df.global.nemesis_next_id = nil
-
----@type integer
-df.global.occupation_next_id = nil
-
----@type integer
-df.global.poetic_form_next_id = nil
-
----@type integer
-df.global.proj_next_id = nil
-
----@type integer
-df.global.rhythm_next_id = nil
-
----@type integer
-df.global.scale_next_id = nil
-
----@type integer
-df.global.schedule_next_id = nil
-
----@type integer
-df.global.soul_next_id = nil
-
----@type integer
-df.global.squad_next_id = nil
-
----@type integer
-df.global.task_next_id = nil
-
----@type integer
-df.global.unit_chunk_next_id = nil
-
----@type integer
-df.global.unit_next_id = nil
-
----@type integer
-df.global.vehicle_next_id = nil
-
----@type integer
-df.global.written_content_next_id = nil
-
----@type integer
-df.global.cur_year = nil
-
----@type integer
-df.global.cur_year_tick = nil
-
----@type integer
-df.global.cur_year_tick_advmode = nil
-
----@type season
-df.global.cur_season = nil
-
----@type integer
-df.global.cur_season_tick = nil
-
----@type any[]
-df.global.current_weather = nil
-
----@type boolean
-df.global.pause_state = nil
-
----@type boolean
-df.global.process_dig = nil
-
----@type boolean
-df.global.process_jobs = nil
-
----@type boolean
-df.global.ui_building_in_assign = nil
-
----@type boolean
-df.global.ui_building_in_resize = nil
-
----@type integer
-df.global.ui_building_resize_radius = nil
-
----@type integer
-df.global.ui_building_item_cursor = nil
-
----@type integer
-df.global.ui_look_cursor = nil
-
----@type integer
-df.global.ui_selected_unit = nil
-
----@type ui_unit_view_mode
-df.global.ui_unit_view_mode = nil
-
----@type boolean
-df.global.ui_workshop_in_add = nil
-
----@type integer
-df.global.ui_workshop_job_cursor = nil
 
 ---@enum lever_target_type
 df.lever_target_type = {
@@ -400,206 +266,5 @@ df.lever_target_type = {
 ---@class lever_target_type_attr
 ---@field building_type building_type
 
----@class lever_target_type_attrs
----@field SpearsSpikes lever_target_type_attr
----@field TrackStop lever_target_type_attr
----@field EncrustGems lever_target_type_attr
----@field LeverMechanism lever_target_type_attr
----@field TargetMechanism lever_target_type_attr
+---@type { [string|integer]: lever_target_type_attr }
 df.lever_target_type.attrs = {}
-
----@type lever_target_type
-df.global.ui_lever_target_type = nil
-
----@type integer
-df.global.window_x = nil
-
----@type integer
-df.global.window_y = nil
-
----@type integer
-df.global.window_z = nil
-
----@type boolean
-df.global.debug_nopause = nil
-
----@type boolean
-df.global.debug_nomoods = nil
-
----@type boolean
-df.global.debug_combat = nil
-
----@type boolean
-df.global.debug_wildlife = nil
-
----@type boolean
-df.global.debug_nodrink = nil
-
----@type boolean
-df.global.debug_noeat = nil
-
----@type boolean
-df.global.debug_nosleep = nil
-
----@type boolean
-df.global.debug_showambush = nil
-
----@type boolean
-df.global.debug_fastmining = nil
-
----@type boolean
-df.global.debug_noberserk = nil
-
----@type boolean
-df.global.debug_turbospeed = nil
-
----@type boolean
-df.global.save_on_exit = nil
-
----@type integer
-df.global.standing_orders_gather_minerals = nil
-
----@type integer
-df.global.standing_orders_gather_wood = nil
-
----@type integer
-df.global.standing_orders_gather_food = nil
-
----@type integer
-df.global.standing_orders_gather_bodies = nil
-
----@type integer
-df.global.standing_orders_gather_animals = nil
-
----@type integer
-df.global.standing_orders_gather_furniture = nil
-
----@type integer
-df.global.standing_orders_farmer_harvest = nil
-
----@type integer
-df.global.standing_orders_job_cancel_announce = nil
-
----@type integer
-df.global.standing_orders_mix_food = nil
-
----@type integer
-df.global.standing_orders_gather_refuse = nil
-
----@type integer
-df.global.standing_orders_gather_refuse_outside = nil
-
----@type integer
-df.global.standing_orders_gather_vermin_remains = nil
-
----@type integer
-df.global.standing_orders_dump_corpses = nil
-
----@type integer
-df.global.standing_orders_dump_skulls = nil
-
----@type integer
-df.global.standing_orders_dump_skins = nil
-
----@type integer
-df.global.standing_orders_dump_bones = nil
-
----@type integer
-df.global.standing_orders_dump_hair = nil
-
----@type integer
-df.global.standing_orders_dump_shells = nil
-
----@type integer
-df.global.standing_orders_dump_other = nil
-
----@type integer
-df.global.standing_orders_forbid_used_ammo = nil
-
----@type integer
-df.global.standing_orders_forbid_other_dead_items = nil
-
----@type integer
-df.global.standing_orders_forbid_own_dead = nil
-
----@type integer
-df.global.standing_orders_forbid_other_nohunt = nil
-
----@type integer
-df.global.standing_orders_forbid_own_dead_items = nil
-
----@type integer
-df.global.standing_orders_auto_loom = nil
-
----@type integer
-df.global.standing_orders_auto_collect_webs = nil
-
----@type integer
-df.global.standing_orders_auto_slaughter = nil
-
----@type integer
-df.global.standing_orders_auto_butcher = nil
-
----@type integer
-df.global.standing_orders_auto_tan = nil
-
----@type integer
-df.global.standing_orders_auto_fishery = nil
-
----@type integer
-df.global.standing_orders_auto_kitchen = nil
-
----@type integer
-df.global.standing_orders_auto_kiln = nil
-
----@type integer
-df.global.standing_orders_auto_smelter = nil
-
----@type integer
-df.global.standing_orders_auto_other = nil
-
----@type integer
-df.global.standing_orders_use_dyed_cloth = nil
-
----@type integer
-df.global.standing_orders_zoneonly_drink = nil
-
----@type integer
-df.global.standing_orders_zoneonly_fish = nil
-
----@type integer
-df.global.cur_snow_counter = nil
-
----@type integer
-df.global.cur_rain_counter = nil
-
----@type integer
-df.global.weathertimer = nil
-
----@type coord[]
-df.global.cur_snow = nil
-
----@type coord[]
-df.global.cur_rain = nil
-
----@type integer[]
-df.global.jobvalue = nil
-
----@type unit[]
-df.global.jobvalue_setter = nil
-
----@type item
-df.global.interactitem = nil
-
----@type unit_inventory_item
-df.global.interactinvslot = nil
-
----@type boolean
-df.global.handleannounce = nil
-
----@type boolean
-df.global.preserveannounce = nil
-
----@type boolean
-df.global.updatelightstate = nil
-

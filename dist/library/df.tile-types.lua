@@ -5,36 +5,36 @@
 ---Basic tile shape (not in DF)
 df.tiletype_shape_basic = {
   None = -1,
-  Open = 0,
-  Floor = 1,
-  Ramp = 2,
-  Wall = 3,
-  Stair = 4,
+  Open = 1,
+  Floor = 2,
+  Ramp = 3,
+  Wall = 4,
+  Stair = 5,
 }
 
 ---@enum tiletype_shape
 ---Tile shape (not in DF)
 df.tiletype_shape = {
   NONE = -1,
-  EMPTY = 0,
-  FLOOR = 1,
-  BOULDER = 2,
-  PEBBLES = 3,
-  WALL = 4,
-  FORTIFICATION = 5,
-  STAIR_UP = 6,
-  STAIR_DOWN = 7,
-  STAIR_UPDOWN = 8,
-  RAMP = 9,
-  RAMP_TOP = 10,
-  BROOK_BED = 11,
-  BROOK_TOP = 12,
-  BRANCH = 13,
-  TRUNK_BRANCH = 14,
-  TWIG = 15,
-  SAPLING = 16,
-  SHRUB = 17,
-  ENDLESS_PIT = 18,
+  EMPTY = 1,
+  FLOOR = 2,
+  BOULDER = 3,
+  PEBBLES = 4,
+  WALL = 5,
+  FORTIFICATION = 6,
+  STAIR_UP = 7,
+  STAIR_DOWN = 8,
+  STAIR_UPDOWN = 9,
+  RAMP = 10,
+  RAMP_TOP = 11,
+  BROOK_BED = 12,
+  BROOK_TOP = 13,
+  BRANCH = 14,
+  TRUNK_BRANCH = 15,
+  TWIG = 16,
+  SAPLING = 17,
+  SHRUB = 18,
+  ENDLESS_PIT = 19,
 }
 
 ---@class tiletype_shape_attr
@@ -47,136 +47,79 @@ df.tiletype_shape = {
 ---@field walkable bool
 ---@field walkable_up bool
 
----@class tiletype_shape_attrs
----@field EMPTY tiletype_shape_attr
----@field FLOOR tiletype_shape_attr
----@field BOULDER tiletype_shape_attr
----@field PEBBLES tiletype_shape_attr
----@field WALL tiletype_shape_attr
----@field FORTIFICATION tiletype_shape_attr
----@field STAIR_UP tiletype_shape_attr
----@field STAIR_DOWN tiletype_shape_attr
----@field STAIR_UPDOWN tiletype_shape_attr
----@field RAMP tiletype_shape_attr
----@field RAMP_TOP tiletype_shape_attr
----@field BROOK_BED tiletype_shape_attr
----@field BROOK_TOP tiletype_shape_attr
----@field BRANCH tiletype_shape_attr
----@field TRUNK_BRANCH tiletype_shape_attr
----@field TWIG tiletype_shape_attr
----@field SAPLING tiletype_shape_attr
----@field SHRUB tiletype_shape_attr
----@field ENDLESS_PIT tiletype_shape_attr
+---@type { [string|integer]: tiletype_shape_attr }
 df.tiletype_shape.attrs = {}
 
 ---@enum tiletype_material
 ---Tile material (not in DF)
 df.tiletype_material = {
   NONE = -1,
-  AIR = 0,
-  SOIL = 1,
-  STONE = 2,
-  FEATURE = 3,
-  LAVA_STONE = 4,
-  MINERAL = 5,
-  FROZEN_LIQUID = 6,
-  CONSTRUCTION = 7,
-  GRASS_LIGHT = 8,
-  GRASS_DARK = 9,
-  GRASS_DRY = 10,
-  GRASS_DEAD = 11,
-  PLANT = 12,
-  HFS = 13,
-  CAMPFIRE = 14,
-  FIRE = 15,
-  ASHES = 16,
-  MAGMA = 17,
-  DRIFTWOOD = 18,
-  POOL = 19,
-  BROOK = 20,
-  RIVER = 21,
-  ROOT = 22,
-  TREE = 23,
-  MUSHROOM = 24,
-  UNDERWORLD_GATE = 25,
+  AIR = 1,
+  SOIL = 2,
+  STONE = 3,
+  FEATURE = 4,
+  LAVA_STONE = 5,
+  MINERAL = 6,
+  FROZEN_LIQUID = 7,
+  CONSTRUCTION = 8,
+  GRASS_LIGHT = 9,
+  GRASS_DARK = 10,
+  GRASS_DRY = 11,
+  GRASS_DEAD = 12,
+  PLANT = 13,
+  HFS = 14,
+  CAMPFIRE = 15,
+  FIRE = 16,
+  ASHES = 17,
+  MAGMA = 18,
+  DRIFTWOOD = 19,
+  POOL = 20,
+  BROOK = 21,
+  RIVER = 22,
+  ROOT = 23,
+  TREE = 24,
+  MUSHROOM = 25,
+  UNDERWORLD_GATE = 26,
 }
 
 ---@class tiletype_material_attr
 ---@field caption string
 
----@class tiletype_material_attrs
----@field AIR tiletype_material_attr
----@field SOIL tiletype_material_attr
----@field STONE tiletype_material_attr
----@field FEATURE tiletype_material_attr
----@field LAVA_STONE tiletype_material_attr
----@field MINERAL tiletype_material_attr
----@field FROZEN_LIQUID tiletype_material_attr
----@field CONSTRUCTION tiletype_material_attr
----@field GRASS_LIGHT tiletype_material_attr
----@field GRASS_DARK tiletype_material_attr
----@field GRASS_DRY tiletype_material_attr
----@field GRASS_DEAD tiletype_material_attr
----@field PLANT tiletype_material_attr
----@field HFS tiletype_material_attr
----@field CAMPFIRE tiletype_material_attr
----@field FIRE tiletype_material_attr
----@field ASHES tiletype_material_attr
----@field MAGMA tiletype_material_attr
----@field DRIFTWOOD tiletype_material_attr
----@field POOL tiletype_material_attr
----@field BROOK tiletype_material_attr
----@field RIVER tiletype_material_attr
----@field ROOT tiletype_material_attr
----@field TREE tiletype_material_attr
----@field MUSHROOM tiletype_material_attr
----@field UNDERWORLD_GATE tiletype_material_attr
+---@type { [string|integer]: tiletype_material_attr }
 df.tiletype_material.attrs = {}
 
 ---@enum tiletype_variant
 ---Cosmetic tile variant (not in DF)
 df.tiletype_variant = {
   NONE = -1,
-  VAR_1 = 0,
-  VAR_2 = 1,
-  VAR_3 = 2,
-  VAR_4 = 3,
+  VAR_1 = 1,
+  VAR_2 = 2,
+  VAR_3 = 3,
+  VAR_4 = 4,
 }
 
 ---@enum tiletype_special
 ---Functional tile variant (not in DF)
 df.tiletype_special = {
   NONE = -1,
-  NORMAL = 0,
-  RIVER_SOURCE = 1,
-  WATERFALL = 2,
-  SMOOTH = 3,
-  FURROWED = 4,
-  WET = 5,
-  DEAD = 6,
-  WORN_1 = 7,
-  WORN_2 = 8,
-  WORN_3 = 9,
-  TRACK = 10,
-  SMOOTH_DEAD = 11,
+  NORMAL = 1,
+  RIVER_SOURCE = 2,
+  WATERFALL = 3,
+  SMOOTH = 4,
+  FURROWED = 5,
+  WET = 6,
+  DEAD = 7,
+  WORN_1 = 8,
+  WORN_2 = 9,
+  WORN_3 = 10,
+  TRACK = 11,
+  SMOOTH_DEAD = 12,
 }
 
 ---@class tiletype_special_attr
 ---@field caption string
 
----@class tiletype_special_attrs
----@field NORMAL tiletype_special_attr
----@field RIVER_SOURCE tiletype_special_attr
----@field WATERFALL tiletype_special_attr
----@field SMOOTH tiletype_special_attr
----@field FURROWED tiletype_special_attr
----@field WET tiletype_special_attr
----@field DEAD tiletype_special_attr
----@field WORN_1 tiletype_special_attr
----@field WORN_2 tiletype_special_attr
----@field WORN_3 tiletype_special_attr
----@field TRACK tiletype_special_attr
----@field SMOOTH_DEAD tiletype_special_attr
+---@type { [string|integer]: tiletype_special_attr }
 df.tiletype_special.attrs = {}
 
 ---@enum tiletype
@@ -888,664 +831,6 @@ df.tiletype = {
 ---@field special tiletype_special
 ---@field direction string
 
----@class tiletype_attrs
----@field Void tiletype_attr
----@field RampTop tiletype_attr
----@field MurkyPool tiletype_attr
----@field MurkyPoolRamp tiletype_attr
----@field UnderworldGateStairU tiletype_attr
----@field UnderworldGateStairD tiletype_attr
----@field UnderworldGateStairUD tiletype_attr
----@field TreeCapInterior tiletype_attr
----@field TreeCapWallThickSW tiletype_attr
----@field TreeCapWallThickSE tiletype_attr
----@field TreeCapWallThickNW tiletype_attr
----@field TreeCapWallThickNE tiletype_attr
----@field TreeCapWallThickN tiletype_attr
----@field TreeCapWallThickS tiletype_attr
----@field TreeCapWallThickW tiletype_attr
----@field TreeCapWallThickE tiletype_attr
----@field TreeCapWallNSWE tiletype_attr
----@field TreeCapWallNSW tiletype_attr
----@field TreeCapWallNSE tiletype_attr
----@field Driftwood tiletype_attr
----@field TreeCapWallNWE tiletype_attr
----@field TreeCapWallSWE tiletype_attr
----@field TreeCapWallNS tiletype_attr
----@field TreeCapWallWE tiletype_attr
----@field FrozenStairUD tiletype_attr
----@field FrozenStairD tiletype_attr
----@field FrozenStairU tiletype_attr
----@field TreeDeadCapInterior tiletype_attr
----@field OpenSpace tiletype_attr
----@field TreeDeadCapWallThickSW tiletype_attr
----@field Shrub tiletype_attr
----@field Chasm tiletype_attr
----@field LavaStairUD tiletype_attr
----@field LavaStairD tiletype_attr
----@field LavaStairU tiletype_attr
----@field SoilStairUD tiletype_attr
----@field SoilStairD tiletype_attr
----@field SoilStairU tiletype_attr
----@field EeriePit tiletype_attr
----@field StoneFloorSmooth tiletype_attr
----@field LavaFloorSmooth tiletype_attr
----@field FeatureFloorSmooth tiletype_attr
----@field MineralFloorSmooth tiletype_attr
----@field FrozenFloorSmooth tiletype_attr
----@field TreeDeadCapWallThickSE tiletype_attr
----@field Grass1StairUD tiletype_attr
----@field Grass1StairD tiletype_attr
----@field Grass1StairU tiletype_attr
----@field Grass2StairUD tiletype_attr
----@field Grass2StairD tiletype_attr
----@field Grass2StairU tiletype_attr
----@field StoneStairUD tiletype_attr
----@field StoneStairD tiletype_attr
----@field StoneStairU tiletype_attr
----@field MineralStairUD tiletype_attr
----@field MineralStairD tiletype_attr
----@field MineralStairU tiletype_attr
----@field FeatureStairUD tiletype_attr
----@field FeatureStairD tiletype_attr
----@field FeatureStairU tiletype_attr
----@field TreeDeadCapWallThickNW tiletype_attr
----@field StoneFortification tiletype_attr
----@field TreeDeadCapWallThickNE tiletype_attr
----@field Campfire tiletype_attr
----@field TreeDeadCapWallThickN tiletype_attr
----@field TreeDeadCapWallThickS tiletype_attr
----@field Fire tiletype_attr
----@field BurningTreeTrunk tiletype_attr
----@field BurningTreeBranches tiletype_attr
----@field BurningTreeTwigs tiletype_attr
----@field BurningTreeCapWall tiletype_attr
----@field BurningTreeCapRamp tiletype_attr
----@field BurningTreeCapFloor tiletype_attr
----@field TreeDeadCapWallThickW tiletype_attr
----@field TreeDeadCapWallThickE tiletype_attr
----@field StonePillar tiletype_attr
----@field LavaPillar tiletype_attr
----@field FeaturePillar tiletype_attr
----@field MineralPillar tiletype_attr
----@field FrozenPillar tiletype_attr
----@field TreeDeadCapWallNSWE tiletype_attr
----@field TreeDeadCapWallNSW tiletype_attr
----@field TreeDeadCapWallNSE tiletype_attr
----@field TreeDeadCapWallNWE tiletype_attr
----@field TreeDeadCapWallSWE tiletype_attr
----@field Waterfall tiletype_attr
----@field RiverSource tiletype_attr
----@field TreeRootSloping tiletype_attr
----@field TreeRoots tiletype_attr
----@field TreeTrunkPillar tiletype_attr
----@field TreeTrunkSloping tiletype_attr
----@field TreeTrunkThickN tiletype_attr
----@field TreeTrunkThickS tiletype_attr
----@field TreeTrunkThickE tiletype_attr
----@field TreeTrunkThickW tiletype_attr
----@field TreeTrunkThickNW tiletype_attr
----@field TreeTrunkThickNE tiletype_attr
----@field TreeTrunkThickSW tiletype_attr
----@field TreeTrunkThickSE tiletype_attr
----@field TreeTrunkBranchN tiletype_attr
----@field TreeTrunkBranchS tiletype_attr
----@field TreeTrunkBranchE tiletype_attr
----@field TreeTrunkBranchW tiletype_attr
----@field TreeBranchNS tiletype_attr
----@field TreeBranchEW tiletype_attr
----@field TreeBranchesSmooth tiletype_attr
----@field TreeDeadBranchesSmooth tiletype_attr
----@field TreeBranchNW tiletype_attr
----@field TreeBranchNE tiletype_attr
----@field TreeBranchSW tiletype_attr
----@field TreeBranchSE tiletype_attr
----@field TreeBranches tiletype_attr
----@field TreeTwigs tiletype_attr
----@field TreeCapRamp tiletype_attr
----@field TreeCapPillar tiletype_attr
----@field TreeCapWallN tiletype_attr
----@field TreeCapWallS tiletype_attr
----@field TreeCapWallE tiletype_attr
----@field TreeCapWallW tiletype_attr
----@field TreeCapWallNW tiletype_attr
----@field TreeCapWallNE tiletype_attr
----@field TreeCapWallSW tiletype_attr
----@field TreeCapWallSE tiletype_attr
----@field TreeCapFloor1 tiletype_attr
----@field TreeCapFloor2 tiletype_attr
----@field TreeCapFloor3 tiletype_attr
----@field TreeCapFloor4 tiletype_attr
----@field TreeDeadRootSloping tiletype_attr
----@field TreeDeadRoots tiletype_attr
----@field TreeDeadTrunkPillar tiletype_attr
----@field TreeDeadTrunkSloping tiletype_attr
----@field TreeDeadTrunkThickN tiletype_attr
----@field TreeDeadTrunkThickS tiletype_attr
----@field TreeDeadTrunkThickE tiletype_attr
----@field TreeDeadTrunkThickW tiletype_attr
----@field TreeDeadTrunkThickNW tiletype_attr
----@field TreeDeadTrunkThickNE tiletype_attr
----@field TreeDeadTrunkThickSW tiletype_attr
----@field TreeDeadTrunkThickSE tiletype_attr
----@field TreeDeadTrunkBranchN tiletype_attr
----@field TreeDeadTrunkBranchS tiletype_attr
----@field TreeDeadTrunkBranchE tiletype_attr
----@field TreeDeadTrunkBranchW tiletype_attr
----@field TreeDeadBranchNS tiletype_attr
----@field TreeDeadBranchEW tiletype_attr
----@field TreeBranch tiletype_attr
----@field TreeDeadBranch tiletype_attr
----@field TreeDeadBranchNW tiletype_attr
----@field TreeDeadBranchNE tiletype_attr
----@field TreeDeadBranchSW tiletype_attr
----@field TreeDeadBranchSE tiletype_attr
----@field TreeDeadBranches tiletype_attr
----@field TreeDeadTwigs tiletype_attr
----@field TreeDeadCapRamp tiletype_attr
----@field TreeDeadCapPillar tiletype_attr
----@field TreeDeadCapWallN tiletype_attr
----@field TreeDeadCapWallS tiletype_attr
----@field TreeDeadCapWallE tiletype_attr
----@field TreeDeadCapWallW tiletype_attr
----@field TreeDeadCapWallNW tiletype_attr
----@field TreeDeadCapWallNE tiletype_attr
----@field TreeDeadCapWallSW tiletype_attr
----@field TreeDeadCapWallSE tiletype_attr
----@field TreeDeadCapFloor1 tiletype_attr
----@field TreeDeadCapFloor2 tiletype_attr
----@field TreeDeadCapFloor3 tiletype_attr
----@field TreeDeadCapFloor4 tiletype_attr
----@field TreeDeadCapWallNS tiletype_attr
----@field StoneWallWorn1 tiletype_attr
----@field StoneWallWorn2 tiletype_attr
----@field StoneWallWorn3 tiletype_attr
----@field TreeBranchNSE tiletype_attr
----@field TreeBranchNSW tiletype_attr
----@field TreeBranchNEW tiletype_attr
----@field TreeBranchSEW tiletype_attr
----@field TreeBranchNSEW tiletype_attr
----@field TreeDeadBranchNSE tiletype_attr
----@field TreeDeadBranchNSW tiletype_attr
----@field TreeDeadBranchNEW tiletype_attr
----@field TreeDeadBranchSEW tiletype_attr
----@field TreeDeadBranchNSEW tiletype_attr
----@field TreeTrunkNSE tiletype_attr
----@field TreeTrunkNSW tiletype_attr
----@field TreeTrunkNEW tiletype_attr
----@field TreeTrunkSEW tiletype_attr
----@field TreeTrunkNS tiletype_attr
----@field TreeTrunkEW tiletype_attr
----@field TreeTrunkNSEW tiletype_attr
----@field TreeTrunkInterior tiletype_attr
----@field TreeDeadTrunkNSE tiletype_attr
----@field TreeDeadTrunkNSW tiletype_attr
----@field TreeDeadTrunkNEW tiletype_attr
----@field TreeDeadTrunkSEW tiletype_attr
----@field TreeDeadTrunkNS tiletype_attr
----@field TreeDeadTrunkEW tiletype_attr
----@field TreeDeadTrunkNSEW tiletype_attr
----@field TreeDeadTrunkInterior tiletype_attr
----@field TreeTrunkNW tiletype_attr
----@field TreeTrunkNE tiletype_attr
----@field TreeTrunkSW tiletype_attr
----@field TreeTrunkSE tiletype_attr
----@field TreeDeadTrunkNW tiletype_attr
----@field TreeDeadTrunkNE tiletype_attr
----@field TreeDeadTrunkSW tiletype_attr
----@field TreeDeadTrunkSE tiletype_attr
----@field TreeTrunkN tiletype_attr
----@field TreeTrunkS tiletype_attr
----@field TreeTrunkW tiletype_attr
----@field TreeTrunkE tiletype_attr
----@field TreeDeadTrunkN tiletype_attr
----@field TreeDeadTrunkS tiletype_attr
----@field StoneWall tiletype_attr
----@field TreeDeadTrunkW tiletype_attr
----@field TreeDeadTrunkE tiletype_attr
----@field TreeBranchS tiletype_attr
----@field TreeBranchN tiletype_attr
----@field TreeBranchW tiletype_attr
----@field TreeBranchE tiletype_attr
----@field TreeDeadBranchS tiletype_attr
----@field TreeDeadBranchN tiletype_attr
----@field TreeDeadBranchW tiletype_attr
----@field TreeDeadBranchE tiletype_attr
----@field TreeDeadCapPillarWE tiletype_attr
----@field Sapling tiletype_attr
----@field GrassDryRamp tiletype_attr
----@field GrassDeadRamp tiletype_attr
----@field GrassLightRamp tiletype_attr
----@field GrassDarkRamp tiletype_attr
----@field StoneRamp tiletype_attr
----@field LavaRamp tiletype_attr
----@field FeatureRamp tiletype_attr
----@field MineralRamp tiletype_attr
----@field SoilRamp tiletype_attr
----@field Ashes1 tiletype_attr
----@field Ashes2 tiletype_attr
----@field Ashes3 tiletype_attr
----@field FrozenRamp tiletype_attr
----@field FrozenFloor2 tiletype_attr
----@field FrozenFloor3 tiletype_attr
----@field FrozenFloor4 tiletype_attr
----@field FurrowedSoil tiletype_attr
----@field FrozenFloor1 tiletype_attr
----@field SemiMoltenRock tiletype_attr
----@field MagmaFlow tiletype_attr
----@field SoilWall tiletype_attr
----@field GlowingBarrier tiletype_attr
----@field GlowingFloor tiletype_attr
----@field LavaWallSmoothRD2 tiletype_attr
----@field LavaWallSmoothR2D tiletype_attr
----@field LavaWallSmoothR2U tiletype_attr
----@field LavaWallSmoothRU2 tiletype_attr
----@field LavaWallSmoothL2U tiletype_attr
----@field LavaWallSmoothLU2 tiletype_attr
----@field LavaWallSmoothL2D tiletype_attr
----@field LavaWallSmoothLD2 tiletype_attr
----@field LavaWallSmoothLRUD tiletype_attr
----@field LavaWallSmoothRUD tiletype_attr
----@field LavaWallSmoothLRD tiletype_attr
----@field LavaWallSmoothLRU tiletype_attr
----@field LavaWallSmoothLUD tiletype_attr
----@field LavaWallSmoothRD tiletype_attr
----@field LavaWallSmoothRU tiletype_attr
----@field LavaWallSmoothLU tiletype_attr
----@field LavaWallSmoothLD tiletype_attr
----@field LavaWallSmoothUD tiletype_attr
----@field LavaWallSmoothLR tiletype_attr
----@field FeatureWallSmoothRD2 tiletype_attr
----@field FeatureWallSmoothR2D tiletype_attr
----@field FeatureWallSmoothR2U tiletype_attr
----@field FeatureWallSmoothRU2 tiletype_attr
----@field FeatureWallSmoothL2U tiletype_attr
----@field FeatureWallSmoothLU2 tiletype_attr
----@field FeatureWallSmoothL2D tiletype_attr
----@field FeatureWallSmoothLD2 tiletype_attr
----@field FeatureWallSmoothLRUD tiletype_attr
----@field FeatureWallSmoothRUD tiletype_attr
----@field FeatureWallSmoothLRD tiletype_attr
----@field FeatureWallSmoothLRU tiletype_attr
----@field FeatureWallSmoothLUD tiletype_attr
----@field FeatureWallSmoothRD tiletype_attr
----@field FeatureWallSmoothRU tiletype_attr
----@field FeatureWallSmoothLU tiletype_attr
----@field FeatureWallSmoothLD tiletype_attr
----@field FeatureWallSmoothUD tiletype_attr
----@field FeatureWallSmoothLR tiletype_attr
----@field StoneWallSmoothRD2 tiletype_attr
----@field StoneWallSmoothR2D tiletype_attr
----@field StoneWallSmoothR2U tiletype_attr
----@field StoneWallSmoothRU2 tiletype_attr
----@field StoneWallSmoothL2U tiletype_attr
----@field StoneWallSmoothLU2 tiletype_attr
----@field StoneWallSmoothL2D tiletype_attr
----@field StoneWallSmoothLD2 tiletype_attr
----@field StoneWallSmoothLRUD tiletype_attr
----@field StoneWallSmoothRUD tiletype_attr
----@field StoneWallSmoothLRD tiletype_attr
----@field StoneWallSmoothLRU tiletype_attr
----@field StoneWallSmoothLUD tiletype_attr
----@field StoneWallSmoothRD tiletype_attr
----@field StoneWallSmoothRU tiletype_attr
----@field StoneWallSmoothLU tiletype_attr
----@field StoneWallSmoothLD tiletype_attr
----@field StoneWallSmoothUD tiletype_attr
----@field StoneWallSmoothLR tiletype_attr
----@field LavaFortification tiletype_attr
----@field FeatureFortification tiletype_attr
----@field LavaWallWorn1 tiletype_attr
----@field LavaWallWorn2 tiletype_attr
----@field LavaWallWorn3 tiletype_attr
----@field LavaWall tiletype_attr
----@field FeatureWallWorn1 tiletype_attr
----@field FeatureWallWorn2 tiletype_attr
----@field FeatureWallWorn3 tiletype_attr
----@field FeatureWall tiletype_attr
----@field StoneFloor1 tiletype_attr
----@field StoneFloor2 tiletype_attr
----@field StoneFloor3 tiletype_attr
----@field StoneFloor4 tiletype_attr
----@field LavaFloor1 tiletype_attr
----@field LavaFloor2 tiletype_attr
----@field LavaFloor3 tiletype_attr
----@field LavaFloor4 tiletype_attr
----@field FeatureFloor1 tiletype_attr
----@field FeatureFloor2 tiletype_attr
----@field FeatureFloor3 tiletype_attr
----@field FeatureFloor4 tiletype_attr
----@field GrassDarkFloor1 tiletype_attr
----@field GrassDarkFloor2 tiletype_attr
----@field GrassDarkFloor3 tiletype_attr
----@field GrassDarkFloor4 tiletype_attr
----@field SoilFloor1 tiletype_attr
----@field SoilFloor2 tiletype_attr
----@field SoilFloor3 tiletype_attr
----@field SoilFloor4 tiletype_attr
----@field SoilWetFloor1 tiletype_attr
----@field SoilWetFloor2 tiletype_attr
----@field SoilWetFloor3 tiletype_attr
----@field SoilWetFloor4 tiletype_attr
----@field FrozenFortification tiletype_attr
----@field FrozenWallWorn1 tiletype_attr
----@field FrozenWallWorn2 tiletype_attr
----@field FrozenWallWorn3 tiletype_attr
----@field FrozenWall tiletype_attr
----@field RiverN tiletype_attr
----@field RiverS tiletype_attr
----@field RiverE tiletype_attr
----@field RiverW tiletype_attr
----@field RiverNW tiletype_attr
----@field RiverNE tiletype_attr
----@field RiverSW tiletype_attr
----@field RiverSE tiletype_attr
----@field BrookN tiletype_attr
----@field BrookS tiletype_attr
----@field BrookE tiletype_attr
----@field BrookW tiletype_attr
----@field BrookNW tiletype_attr
----@field BrookNE tiletype_attr
----@field BrookSW tiletype_attr
----@field BrookSE tiletype_attr
----@field BrookTop1 tiletype_attr
----@field BrookTop2 tiletype_attr
----@field BrookTop3 tiletype_attr
----@field BrookTop4 tiletype_attr
----@field GrassDryFloor1 tiletype_attr
----@field GrassDryFloor2 tiletype_attr
----@field GrassDryFloor3 tiletype_attr
----@field GrassDryFloor4 tiletype_attr
----@field SaplingDead tiletype_attr
----@field ShrubDead tiletype_attr
----@field GrassDeadFloor1 tiletype_attr
----@field GrassDeadFloor2 tiletype_attr
----@field GrassDeadFloor3 tiletype_attr
----@field GrassDeadFloor4 tiletype_attr
----@field GrassLightFloor1 tiletype_attr
----@field GrassLightFloor2 tiletype_attr
----@field GrassLightFloor3 tiletype_attr
----@field GrassLightFloor4 tiletype_attr
----@field StoneBoulder tiletype_attr
----@field LavaBoulder tiletype_attr
----@field FeatureBoulder tiletype_attr
----@field StonePebbles1 tiletype_attr
----@field StonePebbles2 tiletype_attr
----@field StonePebbles3 tiletype_attr
----@field StonePebbles4 tiletype_attr
----@field LavaPebbles1 tiletype_attr
----@field LavaPebbles2 tiletype_attr
----@field LavaPebbles3 tiletype_attr
----@field LavaPebbles4 tiletype_attr
----@field FeaturePebbles1 tiletype_attr
----@field FeaturePebbles2 tiletype_attr
----@field FeaturePebbles3 tiletype_attr
----@field FeaturePebbles4 tiletype_attr
----@field MineralWallSmoothRD2 tiletype_attr
----@field MineralWallSmoothR2D tiletype_attr
----@field MineralWallSmoothR2U tiletype_attr
----@field MineralWallSmoothRU2 tiletype_attr
----@field MineralWallSmoothL2U tiletype_attr
----@field MineralWallSmoothLU2 tiletype_attr
----@field MineralWallSmoothL2D tiletype_attr
----@field MineralWallSmoothLD2 tiletype_attr
----@field MineralWallSmoothLRUD tiletype_attr
----@field MineralWallSmoothRUD tiletype_attr
----@field MineralWallSmoothLRD tiletype_attr
----@field MineralWallSmoothLRU tiletype_attr
----@field MineralWallSmoothLUD tiletype_attr
----@field MineralWallSmoothRD tiletype_attr
----@field MineralWallSmoothRU tiletype_attr
----@field MineralWallSmoothLU tiletype_attr
----@field MineralWallSmoothLD tiletype_attr
----@field MineralWallSmoothUD tiletype_attr
----@field MineralWallSmoothLR tiletype_attr
----@field MineralFortification tiletype_attr
----@field MineralWallWorn1 tiletype_attr
----@field MineralWallWorn2 tiletype_attr
----@field MineralWallWorn3 tiletype_attr
----@field MineralWall tiletype_attr
----@field MineralFloor1 tiletype_attr
----@field MineralFloor2 tiletype_attr
----@field MineralFloor3 tiletype_attr
----@field MineralFloor4 tiletype_attr
----@field MineralBoulder tiletype_attr
----@field MineralPebbles1 tiletype_attr
----@field MineralPebbles2 tiletype_attr
----@field MineralPebbles3 tiletype_attr
----@field MineralPebbles4 tiletype_attr
----@field FrozenWallSmoothRD2 tiletype_attr
----@field FrozenWallSmoothR2D tiletype_attr
----@field FrozenWallSmoothR2U tiletype_attr
----@field FrozenWallSmoothRU2 tiletype_attr
----@field FrozenWallSmoothL2U tiletype_attr
----@field FrozenWallSmoothLU2 tiletype_attr
----@field FrozenWallSmoothL2D tiletype_attr
----@field FrozenWallSmoothLD2 tiletype_attr
----@field FrozenWallSmoothLRUD tiletype_attr
----@field FrozenWallSmoothRUD tiletype_attr
----@field FrozenWallSmoothLRD tiletype_attr
----@field FrozenWallSmoothLRU tiletype_attr
----@field FrozenWallSmoothLUD tiletype_attr
----@field FrozenWallSmoothRD tiletype_attr
----@field FrozenWallSmoothRU tiletype_attr
----@field FrozenWallSmoothLU tiletype_attr
----@field FrozenWallSmoothLD tiletype_attr
----@field FrozenWallSmoothUD tiletype_attr
----@field FrozenWallSmoothLR tiletype_attr
----@field RiverRampN tiletype_attr
----@field RiverRampS tiletype_attr
----@field RiverRampE tiletype_attr
----@field RiverRampW tiletype_attr
----@field RiverRampNW tiletype_attr
----@field RiverRampNE tiletype_attr
----@field RiverRampSW tiletype_attr
----@field RiverRampSE tiletype_attr
----@field ConstructedFloor tiletype_attr
----@field ConstructedFortification tiletype_attr
----@field ConstructedPillar tiletype_attr
----@field ConstructedWallRD2 tiletype_attr
----@field ConstructedWallR2D tiletype_attr
----@field ConstructedWallR2U tiletype_attr
----@field ConstructedWallRU2 tiletype_attr
----@field ConstructedWallL2U tiletype_attr
----@field ConstructedWallLU2 tiletype_attr
----@field ConstructedWallL2D tiletype_attr
----@field ConstructedWallLD2 tiletype_attr
----@field ConstructedWallLRUD tiletype_attr
----@field ConstructedWallRUD tiletype_attr
----@field ConstructedWallLRD tiletype_attr
----@field ConstructedWallLRU tiletype_attr
----@field ConstructedWallLUD tiletype_attr
----@field ConstructedWallRD tiletype_attr
----@field ConstructedWallRU tiletype_attr
----@field ConstructedWallLU tiletype_attr
----@field ConstructedWallLD tiletype_attr
----@field ConstructedWallUD tiletype_attr
----@field ConstructedWallLR tiletype_attr
----@field ConstructedStairUD tiletype_attr
----@field ConstructedStairD tiletype_attr
----@field ConstructedStairU tiletype_attr
----@field ConstructedRamp tiletype_attr
----@field StoneFloorTrackN tiletype_attr
----@field StoneFloorTrackS tiletype_attr
----@field StoneFloorTrackE tiletype_attr
----@field StoneFloorTrackW tiletype_attr
----@field StoneFloorTrackNS tiletype_attr
----@field StoneFloorTrackNE tiletype_attr
----@field StoneFloorTrackNW tiletype_attr
----@field StoneFloorTrackSE tiletype_attr
----@field StoneFloorTrackSW tiletype_attr
----@field StoneFloorTrackEW tiletype_attr
----@field StoneFloorTrackNSE tiletype_attr
----@field StoneFloorTrackNSW tiletype_attr
----@field StoneFloorTrackNEW tiletype_attr
----@field StoneFloorTrackSEW tiletype_attr
----@field StoneFloorTrackNSEW tiletype_attr
----@field LavaFloorTrackN tiletype_attr
----@field LavaFloorTrackS tiletype_attr
----@field LavaFloorTrackE tiletype_attr
----@field LavaFloorTrackW tiletype_attr
----@field LavaFloorTrackNS tiletype_attr
----@field LavaFloorTrackNE tiletype_attr
----@field LavaFloorTrackNW tiletype_attr
----@field LavaFloorTrackSE tiletype_attr
----@field LavaFloorTrackSW tiletype_attr
----@field LavaFloorTrackEW tiletype_attr
----@field LavaFloorTrackNSE tiletype_attr
----@field LavaFloorTrackNSW tiletype_attr
----@field LavaFloorTrackNEW tiletype_attr
----@field LavaFloorTrackSEW tiletype_attr
----@field LavaFloorTrackNSEW tiletype_attr
----@field FeatureFloorTrackN tiletype_attr
----@field FeatureFloorTrackS tiletype_attr
----@field FeatureFloorTrackE tiletype_attr
----@field FeatureFloorTrackW tiletype_attr
----@field FeatureFloorTrackNS tiletype_attr
----@field FeatureFloorTrackNE tiletype_attr
----@field FeatureFloorTrackNW tiletype_attr
----@field FeatureFloorTrackSE tiletype_attr
----@field FeatureFloorTrackSW tiletype_attr
----@field FeatureFloorTrackEW tiletype_attr
----@field FeatureFloorTrackNSE tiletype_attr
----@field FeatureFloorTrackNSW tiletype_attr
----@field FeatureFloorTrackNEW tiletype_attr
----@field FeatureFloorTrackSEW tiletype_attr
----@field FeatureFloorTrackNSEW tiletype_attr
----@field MineralFloorTrackN tiletype_attr
----@field MineralFloorTrackS tiletype_attr
----@field MineralFloorTrackE tiletype_attr
----@field MineralFloorTrackW tiletype_attr
----@field MineralFloorTrackNS tiletype_attr
----@field MineralFloorTrackNE tiletype_attr
----@field MineralFloorTrackNW tiletype_attr
----@field MineralFloorTrackSE tiletype_attr
----@field MineralFloorTrackSW tiletype_attr
----@field MineralFloorTrackEW tiletype_attr
----@field MineralFloorTrackNSE tiletype_attr
----@field MineralFloorTrackNSW tiletype_attr
----@field MineralFloorTrackNEW tiletype_attr
----@field MineralFloorTrackSEW tiletype_attr
----@field MineralFloorTrackNSEW tiletype_attr
----@field FrozenFloorTrackN tiletype_attr
----@field FrozenFloorTrackS tiletype_attr
----@field FrozenFloorTrackE tiletype_attr
----@field FrozenFloorTrackW tiletype_attr
----@field FrozenFloorTrackNS tiletype_attr
----@field FrozenFloorTrackNE tiletype_attr
----@field FrozenFloorTrackNW tiletype_attr
----@field FrozenFloorTrackSE tiletype_attr
----@field FrozenFloorTrackSW tiletype_attr
----@field FrozenFloorTrackEW tiletype_attr
----@field FrozenFloorTrackNSE tiletype_attr
----@field FrozenFloorTrackNSW tiletype_attr
----@field FrozenFloorTrackNEW tiletype_attr
----@field FrozenFloorTrackSEW tiletype_attr
----@field FrozenFloorTrackNSEW tiletype_attr
----@field ConstructedFloorTrackN tiletype_attr
----@field ConstructedFloorTrackS tiletype_attr
----@field ConstructedFloorTrackE tiletype_attr
----@field ConstructedFloorTrackW tiletype_attr
----@field ConstructedFloorTrackNS tiletype_attr
----@field ConstructedFloorTrackNE tiletype_attr
----@field ConstructedFloorTrackNW tiletype_attr
----@field ConstructedFloorTrackSE tiletype_attr
----@field ConstructedFloorTrackSW tiletype_attr
----@field ConstructedFloorTrackEW tiletype_attr
----@field ConstructedFloorTrackNSE tiletype_attr
----@field ConstructedFloorTrackNSW tiletype_attr
----@field ConstructedFloorTrackNEW tiletype_attr
----@field ConstructedFloorTrackSEW tiletype_attr
----@field ConstructedFloorTrackNSEW tiletype_attr
----@field StoneRampTrackN tiletype_attr
----@field StoneRampTrackS tiletype_attr
----@field StoneRampTrackE tiletype_attr
----@field StoneRampTrackW tiletype_attr
----@field StoneRampTrackNS tiletype_attr
----@field StoneRampTrackNE tiletype_attr
----@field StoneRampTrackNW tiletype_attr
----@field StoneRampTrackSE tiletype_attr
----@field StoneRampTrackSW tiletype_attr
----@field StoneRampTrackEW tiletype_attr
----@field StoneRampTrackNSE tiletype_attr
----@field StoneRampTrackNSW tiletype_attr
----@field StoneRampTrackNEW tiletype_attr
----@field StoneRampTrackSEW tiletype_attr
----@field StoneRampTrackNSEW tiletype_attr
----@field LavaRampTrackN tiletype_attr
----@field LavaRampTrackS tiletype_attr
----@field LavaRampTrackE tiletype_attr
----@field LavaRampTrackW tiletype_attr
----@field LavaRampTrackNS tiletype_attr
----@field LavaRampTrackNE tiletype_attr
----@field LavaRampTrackNW tiletype_attr
----@field LavaRampTrackSE tiletype_attr
----@field LavaRampTrackSW tiletype_attr
----@field LavaRampTrackEW tiletype_attr
----@field LavaRampTrackNSE tiletype_attr
----@field LavaRampTrackNSW tiletype_attr
----@field LavaRampTrackNEW tiletype_attr
----@field LavaRampTrackSEW tiletype_attr
----@field LavaRampTrackNSEW tiletype_attr
----@field FeatureRampTrackN tiletype_attr
----@field FeatureRampTrackS tiletype_attr
----@field FeatureRampTrackE tiletype_attr
----@field FeatureRampTrackW tiletype_attr
----@field FeatureRampTrackNS tiletype_attr
----@field FeatureRampTrackNE tiletype_attr
----@field FeatureRampTrackNW tiletype_attr
----@field FeatureRampTrackSE tiletype_attr
----@field FeatureRampTrackSW tiletype_attr
----@field FeatureRampTrackEW tiletype_attr
----@field FeatureRampTrackNSE tiletype_attr
----@field FeatureRampTrackNSW tiletype_attr
----@field FeatureRampTrackNEW tiletype_attr
----@field FeatureRampTrackSEW tiletype_attr
----@field FeatureRampTrackNSEW tiletype_attr
----@field MineralRampTrackN tiletype_attr
----@field MineralRampTrackS tiletype_attr
----@field MineralRampTrackE tiletype_attr
----@field MineralRampTrackW tiletype_attr
----@field MineralRampTrackNS tiletype_attr
----@field MineralRampTrackNE tiletype_attr
----@field MineralRampTrackNW tiletype_attr
----@field MineralRampTrackSE tiletype_attr
----@field MineralRampTrackSW tiletype_attr
----@field MineralRampTrackEW tiletype_attr
----@field MineralRampTrackNSE tiletype_attr
----@field MineralRampTrackNSW tiletype_attr
----@field MineralRampTrackNEW tiletype_attr
----@field MineralRampTrackSEW tiletype_attr
----@field MineralRampTrackNSEW tiletype_attr
----@field FrozenRampTrackN tiletype_attr
----@field FrozenRampTrackS tiletype_attr
----@field FrozenRampTrackE tiletype_attr
----@field FrozenRampTrackW tiletype_attr
----@field FrozenRampTrackNS tiletype_attr
----@field FrozenRampTrackNE tiletype_attr
----@field FrozenRampTrackNW tiletype_attr
----@field FrozenRampTrackSE tiletype_attr
----@field FrozenRampTrackSW tiletype_attr
----@field FrozenRampTrackEW tiletype_attr
----@field FrozenRampTrackNSE tiletype_attr
----@field FrozenRampTrackNSW tiletype_attr
----@field FrozenRampTrackNEW tiletype_attr
----@field FrozenRampTrackSEW tiletype_attr
----@field FrozenRampTrackNSEW tiletype_attr
----@field ConstructedRampTrackN tiletype_attr
----@field ConstructedRampTrackS tiletype_attr
----@field ConstructedRampTrackE tiletype_attr
----@field ConstructedRampTrackW tiletype_attr
----@field ConstructedRampTrackNS tiletype_attr
----@field ConstructedRampTrackNE tiletype_attr
----@field ConstructedRampTrackNW tiletype_attr
----@field ConstructedRampTrackSE tiletype_attr
----@field ConstructedRampTrackSW tiletype_attr
----@field ConstructedRampTrackEW tiletype_attr
----@field ConstructedRampTrackNSE tiletype_attr
----@field ConstructedRampTrackNSW tiletype_attr
----@field ConstructedRampTrackNEW tiletype_attr
----@field ConstructedRampTrackSEW tiletype_attr
----@field ConstructedRampTrackNSEW tiletype_attr
+---@type { [string|integer]: tiletype_attr }
 df.tiletype.attrs = {}
 

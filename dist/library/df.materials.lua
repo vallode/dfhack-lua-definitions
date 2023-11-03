@@ -5,37 +5,25 @@
 ---not in DF
 df.craft_material_class = {
   None = -1,
-  Metal = 0,
-  Wood = 1,
-  Gem = 2,
-  Glass = 3,
-  Stone = 4,
-  Bone = 5,
-  Ivory = 6,
-  Horn = 7,
-  Pearl = 8,
-  Shell = 9,
-  Leather = 10,
-  Cloth = 11,
+  Metal = 1,
+  Wood = 2,
+  Gem = 3,
+  Glass = 4,
+  Stone = 5,
+  Bone = 6,
+  Ivory = 7,
+  Horn = 8,
+  Pearl = 9,
+  Shell = 10,
+  Leather = 11,
+  Cloth = 12,
 }
 
 ---@class craft_material_class_attr
 ---@field make_skill job_skill
 ---@field improve_skill job_skill
 
----@class craft_material_class_attrs
----@field Metal craft_material_class_attr
----@field Wood craft_material_class_attr
----@field Gem craft_material_class_attr
----@field Glass craft_material_class_attr
----@field Stone craft_material_class_attr
----@field Bone craft_material_class_attr
----@field Ivory craft_material_class_attr
----@field Horn craft_material_class_attr
----@field Pearl craft_material_class_attr
----@field Shell craft_material_class_attr
----@field Leather craft_material_class_attr
----@field Cloth craft_material_class_attr
+---@type { [string|integer]: craft_material_class_attr }
 df.craft_material_class.attrs = {}
 
 ---@enum builtin_mats
@@ -151,32 +139,18 @@ df.material_flags = {
 ---@class material_flags_attr
 ---@field type craft_material_class
 
----@class material_flags_attrs
----@field BONE material_flags_attr
----@field WOOD material_flags_attr
----@field THREAD_PLANT material_flags_attr
----@field TOOTH material_flags_attr
----@field HORN material_flags_attr
----@field PEARL material_flags_attr
----@field SHELL material_flags_attr
----@field LEATHER material_flags_attr
----@field SILK material_flags_attr
----@field IS_METAL material_flags_attr
----@field IS_GEM material_flags_attr
----@field IS_GLASS material_flags_attr
----@field IS_STONE material_flags_attr
----@field YARN material_flags_attr
+---@type { [string|integer]: material_flags_attr }
 df.material_flags.attrs = {}
 
 ---@enum matter_state
 df.matter_state = {
   None = -1,
-  Solid = 0,
-  Liquid = 1,
-  Gas = 2,
-  Powder = 3,
-  Paste = 4,
-  Pressed = 5,
+  Solid = 1,
+  Liquid = 2,
+  Gas = 3,
+  Powder = 4,
+  Paste = 5,
+  Pressed = 6,
 }
 
 ---@enum strain_type
@@ -188,101 +162,6 @@ df.strain_type = {
   TENSILE = 4,
   COMPRESSIVE = 5,
 }
-
----@class material_common
----@field id string
----@field gem_name1 string
----@field gem_name2 string
----@field stone_name string
----@field heat material_common_heat
----@field solid_density integer
----@field liquid_density integer
----@field molar_mass integer
----@field state_color integer[]
----@field state_name string[]
----@field state_adj string[]
----@field strength material_common_strength
----@field material_value integer
----@field flags df-flagarray
----@field extract_storage item_type
----@field butcher_special_type item_type
----@field butcher_special_subtype integer
----@field meat_name string[]
----@field meat_organ integer used for texture selection
----@field block_name string[]
----@field reaction_product material_common_reaction_product
----@field hardens_with_water material_common_hardens_with_water
----@field reaction_class string[]
-
----@class material_common_heat
----@field spec_heat integer
----@field heatdam_point integer
----@field colddam_point integer
----@field ignite_point integer
----@field melting_point integer
----@field boiling_point integer
----@field mat_fixed_temp integer
-
----@class material_common_strength
----@field absorption integer
----@field yield integer[]
----@field fracture integer[]
----@field strain_at_yield integer[]
----@field max_edge integer
-
----@class material_common_reaction_product
----@field id string[]
----@field item_type integer[]
----@field item_subtype integer[]
----@field material material_vec_ref
----@field str any[]
-
----@class material_common_hardens_with_water
----@field mat_type integer
----@field mat_index integer
----@field str string[]
-
----@class material
----@field tile integer
----@field basic_color integer[]
----@field build_color integer[]
----@field tile_color integer[]
----@field item_symbol integer
----@field powder_dye integer
----@field temp_diet_info integer
----@field syndrome syndrome[]
----@field soap_level integer
----@field unk_41c integer[]
----@field prefix string
----@field food_mat_index any[]
----@field powder_dye_str string temporary
----@field state_color_str string[]
----@field wood_texpos integer
----@field boulder_texpos1 integer
----@field boulder_texpos2 integer
----@field rough_texpos1 integer
----@field rough_texpos2 integer
----@field bar_texpos integer
----@field cheese_texpos1 integer
----@field cheese_texpos2 integer
-
----@class material_vec_ref
----@field mat_type any[]
----@field mat_index integer[]
-
----@class material_template
----@field tile integer
----@field basic_color integer[]
----@field build_color integer[]
----@field tile_color integer[]
----@field item_symbol integer
----@field powder_dye integer
----@field temp_diet_info integer
----@field syndrome syndrome[]
----@field soap_level integer
----@field unk_41c integer[]
----@field powder_dye_str string temporary
----@field state_color_str string[]
 
 ---@enum inorganic_flags
 df.inorganic_flags = {
@@ -341,42 +220,6 @@ df.inclusion_type = {
   CLUSTER_ONE = 4,
 }
 
----@class inorganic_raw
----@field id string
----@field str string[]
----@field flags df-flagarray
----@field source_hfid integer
----@field unk_v4201_1 integer
----@field metal_ore inorganic_raw_metal_ore
----@field thread_metal inorganic_raw_thread_metal
----@field economic_uses integer[]
----@field environment_spec inorganic_raw_environment_spec
----@field environment inorganic_raw_environment
----@field times_used_land integer
----@field times_used_ocean integer
----@field material material
-
----@class inorganic_raw_metal_ore
----@field str string[] only during parsing
----@field mat_index any[]
----@field probability integer[]
-
----@class inorganic_raw_thread_metal
----@field str string[] only during parsing
----@field mat_index any[]
----@field probability integer[]
-
----@class inorganic_raw_environment_spec
----@field str string[] only during parsing
----@field mat_index any[]
----@field inclusion_type any[]
----@field probability integer[]
-
----@class inorganic_raw_environment
----@field location any[]
----@field type any[]
----@field probability integer[]
-
 ---@enum organic_mat_category
 df.organic_mat_category = {
   Meat = 0,
@@ -419,10 +262,4 @@ df.organic_mat_category = {
   Paper = 37,
   Parchment = 38,
 }
-
----@class special_mat_table
----@field organic_types any[]
----@field organic_indexes any[]
----@field organic_unknown any[] everything 0
----@field builtin any[]
 

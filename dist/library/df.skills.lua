@@ -4,141 +4,141 @@
 ---@enum profession
 df.profession = {
   NONE = -1,
-  MINER = 0,
-  WOODWORKER = 1,
-  CARPENTER = 2,
-  BOWYER = 3,
-  WOODCUTTER = 4,
-  STONEWORKER = 5,
-  STONECUTTER = 6,
-  STONE_CARVER = 7,
-  ENGRAVER = 8,
-  MASON = 9,
-  RANGER = 10,
-  ANIMAL_CARETAKER = 11,
-  ANIMAL_TRAINER = 12,
-  HUNTER = 13,
-  TRAPPER = 14,
-  ANIMAL_DISSECTOR = 15,
-  METALSMITH = 16,
-  FURNACE_OPERATOR = 17,
-  WEAPONSMITH = 18,
-  ARMORER = 19,
-  BLACKSMITH = 20,
-  METALCRAFTER = 21,
-  JEWELER = 22,
-  GEM_CUTTER = 23,
-  GEM_SETTER = 24,
-  CRAFTSMAN = 25,
-  WOODCRAFTER = 26,
-  STONECRAFTER = 27,
-  LEATHERWORKER = 28,
-  BONE_CARVER = 29,
-  WEAVER = 30,
-  CLOTHIER = 31,
-  GLASSMAKER = 32,
-  POTTER = 33,
-  GLAZER = 34,
-  WAX_WORKER = 35,
-  STRAND_EXTRACTOR = 36,
-  FISHERY_WORKER = 37,
-  FISHERMAN = 38,
-  FISH_DISSECTOR = 39,
-  FISH_CLEANER = 40,
-  FARMER = 41,
-  CHEESE_MAKER = 42,
-  MILKER = 43,
-  COOK = 44,
-  THRESHER = 45,
-  MILLER = 46,
-  BUTCHER = 47,
-  TANNER = 48,
-  DYER = 49,
-  PLANTER = 50,
-  HERBALIST = 51,
-  BREWER = 52,
-  SOAP_MAKER = 53,
-  POTASH_MAKER = 54,
-  LYE_MAKER = 55,
-  WOOD_BURNER = 56,
-  SHEARER = 57,
-  SPINNER = 58,
-  PRESSER = 59,
-  BEEKEEPER = 60,
-  ENGINEER = 61,
-  MECHANIC = 62,
-  SIEGE_ENGINEER = 63,
-  SIEGE_OPERATOR = 64,
-  PUMP_OPERATOR = 65,
-  CLERK = 66,
-  ADMINISTRATOR = 67,
-  TRADER = 68,
-  DOCTOR = 69,
-  DIAGNOSER = 70,
-  BONE_SETTER = 71,
-  SUTURER = 72,
-  SURGEON = 73,
-  MERCHANT = 74,
-  HAMMERMAN = 75,
-  MASTER_HAMMERMAN = 76,
-  SPEARMAN = 77,
-  MASTER_SPEARMAN = 78,
-  CROSSBOWMAN = 79,
-  MASTER_CROSSBOWMAN = 80,
-  WRESTLER = 81,
-  MASTER_WRESTLER = 82,
-  AXEMAN = 83,
-  MASTER_AXEMAN = 84,
-  SWORDSMAN = 85,
-  MASTER_SWORDSMAN = 86,
-  MACEMAN = 87,
-  MASTER_MACEMAN = 88,
-  PIKEMAN = 89,
-  MASTER_PIKEMAN = 90,
-  BOWMAN = 91,
-  MASTER_BOWMAN = 92,
-  BLOWGUNMAN = 93,
-  MASTER_BLOWGUNMAN = 94,
-  LASHER = 95,
-  MASTER_LASHER = 96,
-  RECRUIT = 97,
-  TRAINED_HUNTER = 98,
-  TRAINED_WAR = 99,
-  MASTER_THIEF = 100,
-  THIEF = 101,
-  STANDARD = 102,
-  CHILD = 103,
-  BABY = 104,
-  DRUNK = 105,
-  MONSTER_SLAYER = 106,
-  SCOUT = 107,
-  BEAST_HUNTER = 108,
-  SNATCHER = 109,
-  MERCENARY = 110,
-  GELDER = 111,
-  PERFORMER = 112,
-  POET = 113,
-  BARD = 114,
-  DANCER = 115,
-  SAGE = 116,
-  SCHOLAR = 117,
-  PHILOSOPHER = 118,
-  MATHEMATICIAN = 119,
-  HISTORIAN = 120,
-  ASTRONOMER = 121,
-  NATURALIST = 122,
-  CHEMIST = 123,
-  GEOGRAPHER = 124,
-  SCRIBE = 125,
-  PAPERMAKER = 126,
-  BOOKBINDER = 127,
-  TAVERN_KEEPER = 128,
-  CRIMINAL = 129,
-  PEDDLER = 130,
-  PROPHET = 131,
-  PILGRIM = 132,
-  MONK = 133,
-  MESSENGER = 134,
+  MINER = 1,
+  WOODWORKER = 2,
+  CARPENTER = 3,
+  BOWYER = 4,
+  WOODCUTTER = 5,
+  STONEWORKER = 6,
+  STONECUTTER = 7,
+  STONE_CARVER = 8,
+  ENGRAVER = 9,
+  MASON = 10,
+  RANGER = 11,
+  ANIMAL_CARETAKER = 12,
+  ANIMAL_TRAINER = 13,
+  HUNTER = 14,
+  TRAPPER = 15,
+  ANIMAL_DISSECTOR = 16,
+  METALSMITH = 17,
+  FURNACE_OPERATOR = 18,
+  WEAPONSMITH = 19,
+  ARMORER = 20,
+  BLACKSMITH = 21,
+  METALCRAFTER = 22,
+  JEWELER = 23,
+  GEM_CUTTER = 24,
+  GEM_SETTER = 25,
+  CRAFTSMAN = 26,
+  WOODCRAFTER = 27,
+  STONECRAFTER = 28,
+  LEATHERWORKER = 29,
+  BONE_CARVER = 30,
+  WEAVER = 31,
+  CLOTHIER = 32,
+  GLASSMAKER = 33,
+  POTTER = 34,
+  GLAZER = 35,
+  WAX_WORKER = 36,
+  STRAND_EXTRACTOR = 37,
+  FISHERY_WORKER = 38,
+  FISHERMAN = 39,
+  FISH_DISSECTOR = 40,
+  FISH_CLEANER = 41,
+  FARMER = 42,
+  CHEESE_MAKER = 43,
+  MILKER = 44,
+  COOK = 45,
+  THRESHER = 46,
+  MILLER = 47,
+  BUTCHER = 48,
+  TANNER = 49,
+  DYER = 50,
+  PLANTER = 51,
+  HERBALIST = 52,
+  BREWER = 53,
+  SOAP_MAKER = 54,
+  POTASH_MAKER = 55,
+  LYE_MAKER = 56,
+  WOOD_BURNER = 57,
+  SHEARER = 58,
+  SPINNER = 59,
+  PRESSER = 60,
+  BEEKEEPER = 61,
+  ENGINEER = 62,
+  MECHANIC = 63,
+  SIEGE_ENGINEER = 64,
+  SIEGE_OPERATOR = 65,
+  PUMP_OPERATOR = 66,
+  CLERK = 67,
+  ADMINISTRATOR = 68,
+  TRADER = 69,
+  DOCTOR = 70,
+  DIAGNOSER = 71,
+  BONE_SETTER = 72,
+  SUTURER = 73,
+  SURGEON = 74,
+  MERCHANT = 75,
+  HAMMERMAN = 76,
+  MASTER_HAMMERMAN = 77,
+  SPEARMAN = 78,
+  MASTER_SPEARMAN = 79,
+  CROSSBOWMAN = 80,
+  MASTER_CROSSBOWMAN = 81,
+  WRESTLER = 82,
+  MASTER_WRESTLER = 83,
+  AXEMAN = 84,
+  MASTER_AXEMAN = 85,
+  SWORDSMAN = 86,
+  MASTER_SWORDSMAN = 87,
+  MACEMAN = 88,
+  MASTER_MACEMAN = 89,
+  PIKEMAN = 90,
+  MASTER_PIKEMAN = 91,
+  BOWMAN = 92,
+  MASTER_BOWMAN = 93,
+  BLOWGUNMAN = 94,
+  MASTER_BLOWGUNMAN = 95,
+  LASHER = 96,
+  MASTER_LASHER = 97,
+  RECRUIT = 98,
+  TRAINED_HUNTER = 99,
+  TRAINED_WAR = 100,
+  MASTER_THIEF = 101,
+  THIEF = 102,
+  STANDARD = 103,
+  CHILD = 104,
+  BABY = 105,
+  DRUNK = 106,
+  MONSTER_SLAYER = 107,
+  SCOUT = 108,
+  BEAST_HUNTER = 109,
+  SNATCHER = 110,
+  MERCENARY = 111,
+  GELDER = 112,
+  PERFORMER = 113,
+  POET = 114,
+  BARD = 115,
+  DANCER = 116,
+  SAGE = 117,
+  SCHOLAR = 118,
+  PHILOSOPHER = 119,
+  MATHEMATICIAN = 120,
+  HISTORIAN = 121,
+  ASTRONOMER = 122,
+  NATURALIST = 123,
+  CHEMIST = 124,
+  GEOGRAPHER = 125,
+  SCRIBE = 126,
+  PAPERMAKER = 127,
+  BOOKBINDER = 128,
+  TAVERN_KEEPER = 129,
+  CRIMINAL = 130,
+  PEDDLER = 131,
+  PROPHET = 132,
+  PILGRIM = 133,
+  MONK = 134,
+  MESSENGER = 135,
 }
 
 ---@class profession_attr
@@ -149,348 +149,130 @@ df.profession = {
 ---@field color int8_t
 ---@field moodable bool
 
----@class profession_attrs
----@field MINER profession_attr
----@field WOODWORKER profession_attr
----@field CARPENTER profession_attr
----@field BOWYER profession_attr
----@field WOODCUTTER profession_attr
----@field STONEWORKER profession_attr
----@field STONECUTTER profession_attr
----@field STONE_CARVER profession_attr
----@field ENGRAVER profession_attr
----@field MASON profession_attr
----@field RANGER profession_attr
----@field ANIMAL_CARETAKER profession_attr
----@field ANIMAL_TRAINER profession_attr
----@field HUNTER profession_attr
----@field TRAPPER profession_attr
----@field ANIMAL_DISSECTOR profession_attr
----@field METALSMITH profession_attr
----@field FURNACE_OPERATOR profession_attr
----@field WEAPONSMITH profession_attr
----@field ARMORER profession_attr
----@field BLACKSMITH profession_attr
----@field METALCRAFTER profession_attr
----@field JEWELER profession_attr
----@field GEM_CUTTER profession_attr
----@field GEM_SETTER profession_attr
----@field CRAFTSMAN profession_attr
----@field WOODCRAFTER profession_attr
----@field STONECRAFTER profession_attr
----@field LEATHERWORKER profession_attr
----@field BONE_CARVER profession_attr
----@field WEAVER profession_attr
----@field CLOTHIER profession_attr
----@field GLASSMAKER profession_attr
----@field POTTER profession_attr
----@field GLAZER profession_attr
----@field WAX_WORKER profession_attr
----@field STRAND_EXTRACTOR profession_attr
----@field FISHERY_WORKER profession_attr
----@field FISHERMAN profession_attr
----@field FISH_DISSECTOR profession_attr
----@field FISH_CLEANER profession_attr
----@field FARMER profession_attr
----@field CHEESE_MAKER profession_attr
----@field MILKER profession_attr
----@field COOK profession_attr
----@field THRESHER profession_attr
----@field MILLER profession_attr
----@field BUTCHER profession_attr
----@field TANNER profession_attr
----@field DYER profession_attr
----@field PLANTER profession_attr
----@field HERBALIST profession_attr
----@field BREWER profession_attr
----@field SOAP_MAKER profession_attr
----@field POTASH_MAKER profession_attr
----@field LYE_MAKER profession_attr
----@field WOOD_BURNER profession_attr
----@field SHEARER profession_attr
----@field SPINNER profession_attr
----@field PRESSER profession_attr
----@field BEEKEEPER profession_attr
----@field ENGINEER profession_attr
----@field MECHANIC profession_attr
----@field SIEGE_ENGINEER profession_attr
----@field SIEGE_OPERATOR profession_attr
----@field PUMP_OPERATOR profession_attr
----@field CLERK profession_attr
----@field ADMINISTRATOR profession_attr
----@field TRADER profession_attr
----@field DOCTOR profession_attr
----@field DIAGNOSER profession_attr
----@field BONE_SETTER profession_attr
----@field SUTURER profession_attr
----@field SURGEON profession_attr
----@field MERCHANT profession_attr
----@field HAMMERMAN profession_attr
----@field MASTER_HAMMERMAN profession_attr
----@field SPEARMAN profession_attr
----@field MASTER_SPEARMAN profession_attr
----@field CROSSBOWMAN profession_attr
----@field MASTER_CROSSBOWMAN profession_attr
----@field WRESTLER profession_attr
----@field MASTER_WRESTLER profession_attr
----@field AXEMAN profession_attr
----@field MASTER_AXEMAN profession_attr
----@field SWORDSMAN profession_attr
----@field MASTER_SWORDSMAN profession_attr
----@field MACEMAN profession_attr
----@field MASTER_MACEMAN profession_attr
----@field PIKEMAN profession_attr
----@field MASTER_PIKEMAN profession_attr
----@field BOWMAN profession_attr
----@field MASTER_BOWMAN profession_attr
----@field BLOWGUNMAN profession_attr
----@field MASTER_BLOWGUNMAN profession_attr
----@field LASHER profession_attr
----@field MASTER_LASHER profession_attr
----@field RECRUIT profession_attr
----@field TRAINED_HUNTER profession_attr
----@field TRAINED_WAR profession_attr
----@field MASTER_THIEF profession_attr
----@field THIEF profession_attr
----@field STANDARD profession_attr
----@field CHILD profession_attr
----@field BABY profession_attr
----@field DRUNK profession_attr
----@field MONSTER_SLAYER profession_attr
----@field SCOUT profession_attr
----@field BEAST_HUNTER profession_attr
----@field SNATCHER profession_attr
----@field MERCENARY profession_attr
----@field GELDER profession_attr
----@field PERFORMER profession_attr
----@field POET profession_attr
----@field BARD profession_attr
----@field DANCER profession_attr
----@field SAGE profession_attr
----@field SCHOLAR profession_attr
----@field PHILOSOPHER profession_attr
----@field MATHEMATICIAN profession_attr
----@field HISTORIAN profession_attr
----@field ASTRONOMER profession_attr
----@field NATURALIST profession_attr
----@field CHEMIST profession_attr
----@field GEOGRAPHER profession_attr
----@field SCRIBE profession_attr
----@field PAPERMAKER profession_attr
----@field BOOKBINDER profession_attr
----@field TAVERN_KEEPER profession_attr
----@field CRIMINAL profession_attr
----@field PEDDLER profession_attr
----@field PROPHET profession_attr
----@field PILGRIM profession_attr
----@field MONK profession_attr
----@field MESSENGER profession_attr
+---@type { [string|integer]: profession_attr }
 df.profession.attrs = {}
 
 ---@enum unit_labor_category
 df.unit_labor_category = {
   Other = -13,
-  Hauling = 0,
-  Engineering = 1,
-  Crafts = 2,
-  Jewelry = 3,
-  Metalsmithing = 4,
-  Fishing = 5,
-  Farming = 6,
-  Healthcare = 7,
-  Hunting = 8,
-  Stoneworking = 9,
-  Woodworking = 10,
-  None = 11,
+  Hauling = 1,
+  Engineering = 2,
+  Crafts = 3,
+  Jewelry = 4,
+  Metalsmithing = 5,
+  Fishing = 6,
+  Farming = 7,
+  Healthcare = 8,
+  Hunting = 9,
+  Stoneworking = 10,
+  Woodworking = 11,
+  None = 12,
 }
 
 ---@enum unit_labor
 df.unit_labor = {
   NONE = -1,
-  MINE = 0,
-  HAUL_STONE = 1,
-  HAUL_WOOD = 2,
-  HAUL_BODY = 3,
-  HAUL_FOOD = 4,
-  HAUL_REFUSE = 5,
-  HAUL_ITEM = 6,
-  HAUL_FURNITURE = 7,
-  HAUL_ANIMALS = 8,
-  CLEAN = 9,
-  CUTWOOD = 10,
-  CARPENTER = 11,
-  STONECUTTER = 12,
-  STONE_CARVER = 13,
-  ENGRAVER = 14,
-  MASON = 15,
-  ANIMALTRAIN = 16,
-  ANIMALCARE = 17,
-  DIAGNOSE = 18,
-  SURGERY = 19,
-  BONE_SETTING = 20,
-  SUTURING = 21,
-  DRESSING_WOUNDS = 22,
-  FEED_WATER_CIVILIANS = 23,
-  RECOVER_WOUNDED = 24,
-  BUTCHER = 25,
-  TRAPPER = 26,
-  DISSECT_VERMIN = 27,
-  LEATHER = 28,
-  TANNER = 29,
-  BREWER = 30,
-  SOAP_MAKER = 31,
-  WEAVER = 32,
-  CLOTHESMAKER = 33,
-  MILLER = 34,
-  PROCESS_PLANT = 35,
-  MAKE_CHEESE = 36,
-  MILK = 37,
-  COOK = 38,
-  PLANT = 39,
-  HERBALIST = 40,
-  FISH = 41,
-  CLEAN_FISH = 42,
-  DISSECT_FISH = 43,
-  HUNT = 44,
-  SMELT = 45,
-  FORGE_WEAPON = 46,
-  FORGE_ARMOR = 47,
-  FORGE_FURNITURE = 48,
-  METAL_CRAFT = 49,
-  CUT_GEM = 50,
-  ENCRUST_GEM = 51,
-  WOOD_CRAFT = 52,
-  STONE_CRAFT = 53,
-  BONE_CARVE = 54,
-  GLASSMAKER = 55,
-  EXTRACT_STRAND = 56,
-  SIEGECRAFT = 57,
-  SIEGEOPERATE = 58,
-  BOWYER = 59,
-  MECHANIC = 60,
-  POTASH_MAKING = 61,
-  LYE_MAKING = 62,
-  DYER = 63,
-  BURN_WOOD = 64,
-  OPERATE_PUMP = 65,
-  SHEARER = 66,
-  SPINNER = 67,
-  POTTERY = 68,
-  GLAZING = 69,
-  PRESSING = 70,
-  BEEKEEPING = 71,
-  WAX_WORKING = 72,
-  HANDLE_VEHICLES = 73,
-  HAUL_TRADE = 74,
-  PULL_LEVER = 75,
-  REMOVE_CONSTRUCTION = 76,
-  HAUL_WATER = 77,
-  GELD = 78,
-  BUILD_ROAD = 79,
-  BUILD_CONSTRUCTION = 80,
-  PAPERMAKING = 81,
-  BOOKBINDING = 82,
-  ANON_LABOR_83 = 83,
-  ANON_LABOR_84 = 84,
-  ANON_LABOR_85 = 85,
-  ANON_LABOR_86 = 86,
-  ANON_LABOR_87 = 87,
-  ANON_LABOR_88 = 88,
-  ANON_LABOR_89 = 89,
-  ANON_LABOR_90 = 90,
-  ANON_LABOR_91 = 91,
-  ANON_LABOR_92 = 92,
-  ANON_LABOR_93 = 93,
+  MINE = 1,
+  HAUL_STONE = 2,
+  HAUL_WOOD = 3,
+  HAUL_BODY = 4,
+  HAUL_FOOD = 5,
+  HAUL_REFUSE = 6,
+  HAUL_ITEM = 7,
+  HAUL_FURNITURE = 8,
+  HAUL_ANIMALS = 9,
+  CLEAN = 10,
+  CUTWOOD = 11,
+  CARPENTER = 12,
+  STONECUTTER = 13,
+  STONE_CARVER = 14,
+  ENGRAVER = 15,
+  MASON = 16,
+  ANIMALTRAIN = 17,
+  ANIMALCARE = 18,
+  DIAGNOSE = 19,
+  SURGERY = 20,
+  BONE_SETTING = 21,
+  SUTURING = 22,
+  DRESSING_WOUNDS = 23,
+  FEED_WATER_CIVILIANS = 24,
+  RECOVER_WOUNDED = 25,
+  BUTCHER = 26,
+  TRAPPER = 27,
+  DISSECT_VERMIN = 28,
+  LEATHER = 29,
+  TANNER = 30,
+  BREWER = 31,
+  SOAP_MAKER = 32,
+  WEAVER = 33,
+  CLOTHESMAKER = 34,
+  MILLER = 35,
+  PROCESS_PLANT = 36,
+  MAKE_CHEESE = 37,
+  MILK = 38,
+  COOK = 39,
+  PLANT = 40,
+  HERBALIST = 41,
+  FISH = 42,
+  CLEAN_FISH = 43,
+  DISSECT_FISH = 44,
+  HUNT = 45,
+  SMELT = 46,
+  FORGE_WEAPON = 47,
+  FORGE_ARMOR = 48,
+  FORGE_FURNITURE = 49,
+  METAL_CRAFT = 50,
+  CUT_GEM = 51,
+  ENCRUST_GEM = 52,
+  WOOD_CRAFT = 53,
+  STONE_CRAFT = 54,
+  BONE_CARVE = 55,
+  GLASSMAKER = 56,
+  EXTRACT_STRAND = 57,
+  SIEGECRAFT = 58,
+  SIEGEOPERATE = 59,
+  BOWYER = 60,
+  MECHANIC = 61,
+  POTASH_MAKING = 62,
+  LYE_MAKING = 63,
+  DYER = 64,
+  BURN_WOOD = 65,
+  OPERATE_PUMP = 66,
+  SHEARER = 67,
+  SPINNER = 68,
+  POTTERY = 69,
+  GLAZING = 70,
+  PRESSING = 71,
+  BEEKEEPING = 72,
+  WAX_WORKING = 73,
+  HANDLE_VEHICLES = 74,
+  HAUL_TRADE = 75,
+  PULL_LEVER = 76,
+  REMOVE_CONSTRUCTION = 77,
+  HAUL_WATER = 78,
+  GELD = 79,
+  BUILD_ROAD = 80,
+  BUILD_CONSTRUCTION = 81,
+  PAPERMAKING = 82,
+  BOOKBINDING = 83,
+  ANON_LABOR_83 = 84,
+  ANON_LABOR_84 = 85,
+  ANON_LABOR_85 = 86,
+  ANON_LABOR_86 = 87,
+  ANON_LABOR_87 = 88,
+  ANON_LABOR_88 = 89,
+  ANON_LABOR_89 = 90,
+  ANON_LABOR_90 = 91,
+  ANON_LABOR_91 = 92,
+  ANON_LABOR_92 = 93,
+  ANON_LABOR_93 = 94,
 }
 
 ---@class unit_labor_attr
 ---@field caption string
 ---@field category unit_labor_category
 
----@class unit_labor_attrs
----@field MINE unit_labor_attr
----@field HAUL_STONE unit_labor_attr
----@field HAUL_WOOD unit_labor_attr
----@field HAUL_BODY unit_labor_attr
----@field HAUL_FOOD unit_labor_attr
----@field HAUL_REFUSE unit_labor_attr
----@field HAUL_ITEM unit_labor_attr
----@field HAUL_FURNITURE unit_labor_attr
----@field HAUL_ANIMALS unit_labor_attr
----@field CLEAN unit_labor_attr
----@field CUTWOOD unit_labor_attr
----@field CARPENTER unit_labor_attr
----@field STONECUTTER unit_labor_attr
----@field STONE_CARVER unit_labor_attr
----@field ENGRAVER unit_labor_attr
----@field MASON unit_labor_attr
----@field ANIMALTRAIN unit_labor_attr
----@field ANIMALCARE unit_labor_attr
----@field DIAGNOSE unit_labor_attr
----@field SURGERY unit_labor_attr
----@field BONE_SETTING unit_labor_attr
----@field SUTURING unit_labor_attr
----@field DRESSING_WOUNDS unit_labor_attr
----@field FEED_WATER_CIVILIANS unit_labor_attr
----@field RECOVER_WOUNDED unit_labor_attr
----@field BUTCHER unit_labor_attr
----@field TRAPPER unit_labor_attr
----@field DISSECT_VERMIN unit_labor_attr
----@field LEATHER unit_labor_attr
----@field TANNER unit_labor_attr
----@field BREWER unit_labor_attr
----@field SOAP_MAKER unit_labor_attr
----@field WEAVER unit_labor_attr
----@field CLOTHESMAKER unit_labor_attr
----@field MILLER unit_labor_attr
----@field PROCESS_PLANT unit_labor_attr
----@field MAKE_CHEESE unit_labor_attr
----@field MILK unit_labor_attr
----@field COOK unit_labor_attr
----@field PLANT unit_labor_attr
----@field HERBALIST unit_labor_attr
----@field FISH unit_labor_attr
----@field CLEAN_FISH unit_labor_attr
----@field DISSECT_FISH unit_labor_attr
----@field HUNT unit_labor_attr
----@field SMELT unit_labor_attr
----@field FORGE_WEAPON unit_labor_attr
----@field FORGE_ARMOR unit_labor_attr
----@field FORGE_FURNITURE unit_labor_attr
----@field METAL_CRAFT unit_labor_attr
----@field CUT_GEM unit_labor_attr
----@field ENCRUST_GEM unit_labor_attr
----@field WOOD_CRAFT unit_labor_attr
----@field STONE_CRAFT unit_labor_attr
----@field BONE_CARVE unit_labor_attr
----@field GLASSMAKER unit_labor_attr
----@field EXTRACT_STRAND unit_labor_attr
----@field SIEGECRAFT unit_labor_attr
----@field SIEGEOPERATE unit_labor_attr
----@field BOWYER unit_labor_attr
----@field MECHANIC unit_labor_attr
----@field POTASH_MAKING unit_labor_attr
----@field LYE_MAKING unit_labor_attr
----@field DYER unit_labor_attr
----@field BURN_WOOD unit_labor_attr
----@field OPERATE_PUMP unit_labor_attr
----@field SHEARER unit_labor_attr
----@field SPINNER unit_labor_attr
----@field POTTERY unit_labor_attr
----@field GLAZING unit_labor_attr
----@field PRESSING unit_labor_attr
----@field BEEKEEPING unit_labor_attr
----@field WAX_WORKING unit_labor_attr
----@field HANDLE_VEHICLES unit_labor_attr
----@field HAUL_TRADE unit_labor_attr
----@field PULL_LEVER unit_labor_attr
----@field REMOVE_CONSTRUCTION unit_labor_attr
----@field HAUL_WATER unit_labor_attr
----@field GELD unit_labor_attr
----@field BUILD_ROAD unit_labor_attr
----@field BUILD_CONSTRUCTION unit_labor_attr
----@field PAPERMAKING unit_labor_attr
----@field BOOKBINDING unit_labor_attr
+---@type { [string|integer]: unit_labor_attr }
 df.unit_labor.attrs = {}
 
 ---@enum job_skill_class
@@ -511,153 +293,153 @@ df.job_skill_class = {
 ---@enum job_skill
 df.job_skill = {
   NONE = -1,
-  MINING = 0,
-  WOODCUTTING = 1,
-  CARPENTRY = 2,
-  ENGRAVE_STONE = 3,
-  MASONRY = 4,
-  ANIMALTRAIN = 5,
-  ANIMALCARE = 6,
-  DISSECT_FISH = 7,
-  DISSECT_VERMIN = 8,
-  PROCESSFISH = 9,
-  BUTCHER = 10,
-  TRAPPING = 11,
-  TANNER = 12,
-  WEAVING = 13,
-  BREWING = 14,
-  CLOTHESMAKING = 15,
-  MILLING = 16,
-  PROCESSPLANTS = 17,
-  CHEESEMAKING = 18,
-  MILK = 19,
-  COOK = 20,
-  PLANT = 21,
-  HERBALISM = 22,
-  FISH = 23,
-  SMELT = 24,
-  EXTRACT_STRAND = 25,
-  FORGE_WEAPON = 26,
-  FORGE_ARMOR = 27,
-  FORGE_FURNITURE = 28,
-  CUTGEM = 29,
-  ENCRUSTGEM = 30,
-  WOODCRAFT = 31,
-  STONECRAFT = 32,
-  METALCRAFT = 33,
-  GLASSMAKER = 34,
-  LEATHERWORK = 35,
-  BONECARVE = 36,
-  AXE = 37,
-  SWORD = 38,
-  DAGGER = 39,
-  MACE = 40,
-  HAMMER = 41,
-  SPEAR = 42,
-  CROSSBOW = 43,
-  SHIELD = 44,
-  ARMOR = 45,
-  SIEGECRAFT = 46,
-  SIEGEOPERATE = 47,
-  BOWYER = 48,
-  PIKE = 49,
-  WHIP = 50,
-  BOW = 51,
-  BLOWGUN = 52,
-  THROW = 53,
-  MECHANICS = 54,
-  MAGIC_NATURE = 55,
-  SNEAK = 56,
-  DRESS_WOUNDS = 57,
-  DIAGNOSE = 58,
-  SURGERY = 59,
-  SET_BONE = 60,
-  SUTURE = 61,
-  CRUTCH_WALK = 62,
-  WOOD_BURNING = 63,
-  LYE_MAKING = 64,
-  SOAP_MAKING = 65,
-  POTASH_MAKING = 66,
-  DYER = 67,
-  OPERATE_PUMP = 68,
-  SWIMMING = 69,
-  PERSUASION = 70,
-  NEGOTIATION = 71,
-  JUDGING_INTENT = 72,
-  APPRAISAL = 73,
-  ORGANIZATION = 74,
-  RECORD_KEEPING = 75,
-  LYING = 76,
-  INTIMIDATION = 77,
-  CONVERSATION = 78,
-  COMEDY = 79,
-  FLATTERY = 80,
-  CONSOLE = 81,
-  PACIFY = 82,
-  TRACKING = 83,
-  KNOWLEDGE_ACQUISITION = 84,
-  CONCENTRATION = 85,
-  DISCIPLINE = 86,
-  SITUATIONAL_AWARENESS = 87,
-  WRITING = 88,
-  PROSE = 89,
-  POETRY = 90,
-  READING = 91,
-  SPEAKING = 92,
-  COORDINATION = 93,
-  BALANCE = 94,
-  LEADERSHIP = 95,
-  TEACHING = 96,
-  MELEE_COMBAT = 97,
-  RANGED_COMBAT = 98,
-  WRESTLING = 99,
-  BITE = 100,
-  GRASP_STRIKE = 101,
-  STANCE_STRIKE = 102,
-  DODGING = 103,
-  MISC_WEAPON = 104,
-  KNAPPING = 105,
-  MILITARY_TACTICS = 106,
-  SHEARING = 107,
-  SPINNING = 108,
-  POTTERY = 109,
-  GLAZING = 110,
-  PRESSING = 111,
-  BEEKEEPING = 112,
-  WAX_WORKING = 113,
-  CLIMBING = 114,
-  GELD = 115,
-  DANCE = 116,
-  MAKE_MUSIC = 117,
-  SING_MUSIC = 118,
-  PLAY_KEYBOARD_INSTRUMENT = 119,
-  PLAY_STRINGED_INSTRUMENT = 120,
-  PLAY_WIND_INSTRUMENT = 121,
-  PLAY_PERCUSSION_INSTRUMENT = 122,
-  CRITICAL_THINKING = 123,
-  LOGIC = 124,
-  MATHEMATICS = 125,
-  ASTRONOMY = 126,
-  CHEMISTRY = 127,
-  GEOGRAPHY = 128,
-  OPTICS_ENGINEER = 129,
-  FLUID_ENGINEER = 130,
-  PAPERMAKING = 131,
-  BOOKBINDING = 132,
-  INTRIGUE = 133,
-  RIDING = 134,
-  CUT_STONE = 135,
-  CARVE_STONE = 136,
-  MODSKILL01 = 137,
-  MODSKILL02 = 138,
-  MODSKILL03 = 139,
-  MODSKILL04 = 140,
-  MODSKILL05 = 141,
-  MODSKILL06 = 142,
-  MODSKILL07 = 143,
-  MODSKILL08 = 144,
-  MODSKILL09 = 145,
-  MODSKILL10 = 146,
+  MINING = 1,
+  WOODCUTTING = 2,
+  CARPENTRY = 3,
+  ENGRAVE_STONE = 4,
+  MASONRY = 5,
+  ANIMALTRAIN = 6,
+  ANIMALCARE = 7,
+  DISSECT_FISH = 8,
+  DISSECT_VERMIN = 9,
+  PROCESSFISH = 10,
+  BUTCHER = 11,
+  TRAPPING = 12,
+  TANNER = 13,
+  WEAVING = 14,
+  BREWING = 15,
+  CLOTHESMAKING = 16,
+  MILLING = 17,
+  PROCESSPLANTS = 18,
+  CHEESEMAKING = 19,
+  MILK = 20,
+  COOK = 21,
+  PLANT = 22,
+  HERBALISM = 23,
+  FISH = 24,
+  SMELT = 25,
+  EXTRACT_STRAND = 26,
+  FORGE_WEAPON = 27,
+  FORGE_ARMOR = 28,
+  FORGE_FURNITURE = 29,
+  CUTGEM = 30,
+  ENCRUSTGEM = 31,
+  WOODCRAFT = 32,
+  STONECRAFT = 33,
+  METALCRAFT = 34,
+  GLASSMAKER = 35,
+  LEATHERWORK = 36,
+  BONECARVE = 37,
+  AXE = 38,
+  SWORD = 39,
+  DAGGER = 40,
+  MACE = 41,
+  HAMMER = 42,
+  SPEAR = 43,
+  CROSSBOW = 44,
+  SHIELD = 45,
+  ARMOR = 46,
+  SIEGECRAFT = 47,
+  SIEGEOPERATE = 48,
+  BOWYER = 49,
+  PIKE = 50,
+  WHIP = 51,
+  BOW = 52,
+  BLOWGUN = 53,
+  THROW = 54,
+  MECHANICS = 55,
+  MAGIC_NATURE = 56,
+  SNEAK = 57,
+  DRESS_WOUNDS = 58,
+  DIAGNOSE = 59,
+  SURGERY = 60,
+  SET_BONE = 61,
+  SUTURE = 62,
+  CRUTCH_WALK = 63,
+  WOOD_BURNING = 64,
+  LYE_MAKING = 65,
+  SOAP_MAKING = 66,
+  POTASH_MAKING = 67,
+  DYER = 68,
+  OPERATE_PUMP = 69,
+  SWIMMING = 70,
+  PERSUASION = 71,
+  NEGOTIATION = 72,
+  JUDGING_INTENT = 73,
+  APPRAISAL = 74,
+  ORGANIZATION = 75,
+  RECORD_KEEPING = 76,
+  LYING = 77,
+  INTIMIDATION = 78,
+  CONVERSATION = 79,
+  COMEDY = 80,
+  FLATTERY = 81,
+  CONSOLE = 82,
+  PACIFY = 83,
+  TRACKING = 84,
+  KNOWLEDGE_ACQUISITION = 85,
+  CONCENTRATION = 86,
+  DISCIPLINE = 87,
+  SITUATIONAL_AWARENESS = 88,
+  WRITING = 89,
+  PROSE = 90,
+  POETRY = 91,
+  READING = 92,
+  SPEAKING = 93,
+  COORDINATION = 94,
+  BALANCE = 95,
+  LEADERSHIP = 96,
+  TEACHING = 97,
+  MELEE_COMBAT = 98,
+  RANGED_COMBAT = 99,
+  WRESTLING = 100,
+  BITE = 101,
+  GRASP_STRIKE = 102,
+  STANCE_STRIKE = 103,
+  DODGING = 104,
+  MISC_WEAPON = 105,
+  KNAPPING = 106,
+  MILITARY_TACTICS = 107,
+  SHEARING = 108,
+  SPINNING = 109,
+  POTTERY = 110,
+  GLAZING = 111,
+  PRESSING = 112,
+  BEEKEEPING = 113,
+  WAX_WORKING = 114,
+  CLIMBING = 115,
+  GELD = 116,
+  DANCE = 117,
+  MAKE_MUSIC = 118,
+  SING_MUSIC = 119,
+  PLAY_KEYBOARD_INSTRUMENT = 120,
+  PLAY_STRINGED_INSTRUMENT = 121,
+  PLAY_WIND_INSTRUMENT = 122,
+  PLAY_PERCUSSION_INSTRUMENT = 123,
+  CRITICAL_THINKING = 124,
+  LOGIC = 125,
+  MATHEMATICS = 126,
+  ASTRONOMY = 127,
+  CHEMISTRY = 128,
+  GEOGRAPHY = 129,
+  OPTICS_ENGINEER = 130,
+  FLUID_ENGINEER = 131,
+  PAPERMAKING = 132,
+  BOOKBINDING = 133,
+  INTRIGUE = 134,
+  RIDING = 135,
+  CUT_STONE = 136,
+  CARVE_STONE = 137,
+  MODSKILL01 = 138,
+  MODSKILL02 = 139,
+  MODSKILL03 = 140,
+  MODSKILL04 = 141,
+  MODSKILL05 = 142,
+  MODSKILL06 = 143,
+  MODSKILL07 = 144,
+  MODSKILL08 = 145,
+  MODSKILL09 = 146,
+  MODSKILL10 = 147,
 }
 
 ---@class job_skill_attr
@@ -667,153 +449,6 @@ df.job_skill = {
 ---@field labor unit_labor
 ---@field type job_skill_class
 
----@class job_skill_attrs
----@field MINING job_skill_attr
----@field WOODCUTTING job_skill_attr
----@field CARPENTRY job_skill_attr
----@field ENGRAVE_STONE job_skill_attr
----@field MASONRY job_skill_attr
----@field ANIMALTRAIN job_skill_attr
----@field ANIMALCARE job_skill_attr
----@field DISSECT_FISH job_skill_attr
----@field DISSECT_VERMIN job_skill_attr
----@field PROCESSFISH job_skill_attr
----@field BUTCHER job_skill_attr
----@field TRAPPING job_skill_attr
----@field TANNER job_skill_attr
----@field WEAVING job_skill_attr
----@field BREWING job_skill_attr
----@field CLOTHESMAKING job_skill_attr
----@field MILLING job_skill_attr
----@field PROCESSPLANTS job_skill_attr
----@field CHEESEMAKING job_skill_attr
----@field MILK job_skill_attr
----@field COOK job_skill_attr
----@field PLANT job_skill_attr
----@field HERBALISM job_skill_attr
----@field FISH job_skill_attr
----@field SMELT job_skill_attr
----@field EXTRACT_STRAND job_skill_attr
----@field FORGE_WEAPON job_skill_attr
----@field FORGE_ARMOR job_skill_attr
----@field FORGE_FURNITURE job_skill_attr
----@field CUTGEM job_skill_attr
----@field ENCRUSTGEM job_skill_attr
----@field WOODCRAFT job_skill_attr
----@field STONECRAFT job_skill_attr
----@field METALCRAFT job_skill_attr
----@field GLASSMAKER job_skill_attr
----@field LEATHERWORK job_skill_attr
----@field BONECARVE job_skill_attr
----@field AXE job_skill_attr
----@field SWORD job_skill_attr
----@field DAGGER job_skill_attr
----@field MACE job_skill_attr
----@field HAMMER job_skill_attr
----@field SPEAR job_skill_attr
----@field CROSSBOW job_skill_attr
----@field SHIELD job_skill_attr
----@field ARMOR job_skill_attr
----@field SIEGECRAFT job_skill_attr
----@field SIEGEOPERATE job_skill_attr
----@field BOWYER job_skill_attr
----@field PIKE job_skill_attr
----@field WHIP job_skill_attr
----@field BOW job_skill_attr
----@field BLOWGUN job_skill_attr
----@field THROW job_skill_attr
----@field MECHANICS job_skill_attr
----@field MAGIC_NATURE job_skill_attr
----@field SNEAK job_skill_attr
----@field DRESS_WOUNDS job_skill_attr
----@field DIAGNOSE job_skill_attr
----@field SURGERY job_skill_attr
----@field SET_BONE job_skill_attr
----@field SUTURE job_skill_attr
----@field CRUTCH_WALK job_skill_attr
----@field WOOD_BURNING job_skill_attr
----@field LYE_MAKING job_skill_attr
----@field SOAP_MAKING job_skill_attr
----@field POTASH_MAKING job_skill_attr
----@field DYER job_skill_attr
----@field OPERATE_PUMP job_skill_attr
----@field SWIMMING job_skill_attr
----@field PERSUASION job_skill_attr
----@field NEGOTIATION job_skill_attr
----@field JUDGING_INTENT job_skill_attr
----@field APPRAISAL job_skill_attr
----@field ORGANIZATION job_skill_attr
----@field RECORD_KEEPING job_skill_attr
----@field LYING job_skill_attr
----@field INTIMIDATION job_skill_attr
----@field CONVERSATION job_skill_attr
----@field COMEDY job_skill_attr
----@field FLATTERY job_skill_attr
----@field CONSOLE job_skill_attr
----@field PACIFY job_skill_attr
----@field TRACKING job_skill_attr
----@field KNOWLEDGE_ACQUISITION job_skill_attr
----@field CONCENTRATION job_skill_attr
----@field DISCIPLINE job_skill_attr
----@field SITUATIONAL_AWARENESS job_skill_attr
----@field WRITING job_skill_attr
----@field PROSE job_skill_attr
----@field POETRY job_skill_attr
----@field READING job_skill_attr
----@field SPEAKING job_skill_attr
----@field COORDINATION job_skill_attr
----@field BALANCE job_skill_attr
----@field LEADERSHIP job_skill_attr
----@field TEACHING job_skill_attr
----@field MELEE_COMBAT job_skill_attr
----@field RANGED_COMBAT job_skill_attr
----@field WRESTLING job_skill_attr
----@field BITE job_skill_attr
----@field GRASP_STRIKE job_skill_attr
----@field STANCE_STRIKE job_skill_attr
----@field DODGING job_skill_attr
----@field MISC_WEAPON job_skill_attr
----@field KNAPPING job_skill_attr
----@field MILITARY_TACTICS job_skill_attr
----@field SHEARING job_skill_attr
----@field SPINNING job_skill_attr
----@field POTTERY job_skill_attr
----@field GLAZING job_skill_attr
----@field PRESSING job_skill_attr
----@field BEEKEEPING job_skill_attr
----@field WAX_WORKING job_skill_attr
----@field CLIMBING job_skill_attr
----@field GELD job_skill_attr
----@field DANCE job_skill_attr
----@field MAKE_MUSIC job_skill_attr
----@field SING_MUSIC job_skill_attr
----@field PLAY_KEYBOARD_INSTRUMENT job_skill_attr
----@field PLAY_STRINGED_INSTRUMENT job_skill_attr
----@field PLAY_WIND_INSTRUMENT job_skill_attr
----@field PLAY_PERCUSSION_INSTRUMENT job_skill_attr
----@field CRITICAL_THINKING job_skill_attr
----@field LOGIC job_skill_attr
----@field MATHEMATICS job_skill_attr
----@field ASTRONOMY job_skill_attr
----@field CHEMISTRY job_skill_attr
----@field GEOGRAPHY job_skill_attr
----@field OPTICS_ENGINEER job_skill_attr
----@field FLUID_ENGINEER job_skill_attr
----@field PAPERMAKING job_skill_attr
----@field BOOKBINDING job_skill_attr
----@field INTRIGUE job_skill_attr
----@field RIDING job_skill_attr
----@field CUT_STONE job_skill_attr
----@field CARVE_STONE job_skill_attr
----@field MODSKILL01 job_skill_attr
----@field MODSKILL02 job_skill_attr
----@field MODSKILL03 job_skill_attr
----@field MODSKILL04 job_skill_attr
----@field MODSKILL05 job_skill_attr
----@field MODSKILL06 job_skill_attr
----@field MODSKILL07 job_skill_attr
----@field MODSKILL08 job_skill_attr
----@field MODSKILL09 job_skill_attr
----@field MODSKILL10 job_skill_attr
+---@type { [string|integer]: job_skill_attr }
 df.job_skill.attrs = {}
 

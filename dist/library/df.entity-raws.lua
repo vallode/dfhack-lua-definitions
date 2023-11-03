@@ -97,28 +97,28 @@ df.site_type = {
 ---@enum ethic_type
 df.ethic_type = {
   NONE = -1,
-  KILL_ENTITY_MEMBER = 0,
-  KILL_NEUTRAL = 1,
-  KILL_ENEMY = 2,
-  KILL_ANIMAL = 3,
-  KILL_PLANT = 4,
-  TORTURE_AS_EXAMPLE = 5,
-  TORTURE_FOR_INFORMATION = 6,
-  TORTURE_FOR_FUN = 7,
-  TORTURE_ANIMALS = 8,
-  TREASON = 9,
-  OATH_BREAKING = 10,
-  LYING = 11,
-  VANDALISM = 12,
-  TRESPASSING = 13,
-  THEFT = 14,
-  ASSAULT = 15,
-  SLAVERY = 16,
-  EAT_SAPIENT_OTHER = 17,
-  EAT_SAPIENT_KILL = 18,
-  MAKE_TROPHY_SAME_RACE = 19,
-  MAKE_TROPHY_SAPIENT = 20,
-  MAKE_TROPHY_ANIMAL = 21,
+  KILL_ENTITY_MEMBER = 1,
+  KILL_NEUTRAL = 2,
+  KILL_ENEMY = 3,
+  KILL_ANIMAL = 4,
+  KILL_PLANT = 5,
+  TORTURE_AS_EXAMPLE = 6,
+  TORTURE_FOR_INFORMATION = 7,
+  TORTURE_FOR_FUN = 8,
+  TORTURE_ANIMALS = 9,
+  TREASON = 10,
+  OATH_BREAKING = 11,
+  LYING = 12,
+  VANDALISM = 13,
+  TRESPASSING = 14,
+  THEFT = 15,
+  ASSAULT = 16,
+  SLAVERY = 17,
+  EAT_SAPIENT_OTHER = 18,
+  EAT_SAPIENT_KILL = 19,
+  MAKE_TROPHY_SAME_RACE = 20,
+  MAKE_TROPHY_SAPIENT = 21,
+  MAKE_TROPHY_ANIMAL = 22,
 }
 
 ---@enum ethic_response
@@ -165,125 +165,6 @@ df.entity_name_type = {
   HOSPITAL = 18,
 }
 
----@class entity_raw
----@field code string
----@field index integer into instace-vector
----@field raws string[]
----@field creature_ids integer[]
----@field creatures string[]
----@field equipment entity_raw_equipment
----@field currency_value integer[]
----@field flags df-flagarray
----@field translation string
----@field symbols entity_raw_symbols
----@field sphere_alignment integer[]
----@field art_facet_modifier integer[]
----@field art_image_element_modifier integer[]
----@field item_improvement_modifier integer[]
----@field friendly_color integer[]
----@field default_site_type world_site_type
----@field likes_site integer[]
----@field tolerates_site integer[]
----@field biome_support integer[]
----@field start_biome integer[]
----@field settlement_biome integer[]
----@field active_season integer[]
----@field progress_trigger entity_raw_progress_trigger
----@field ethic any[]
----@field values integer[]
----@field variable_value_min integer[]
----@field variable_value_max integer[]
----@field scholar bitfield
----@field max_site_pop_number integer
----@field max_pop_number integer
----@field max_starting_civ_number integer
----@field religion integer[]
----@field religion_sphere any[]
----@field jobs entity_raw_jobs
----@field positions entity_position_raw[]
----@field variable_positions integer[]
----@field site_variable_positions integer[]
----@field tissue_styles any[]
----@field workshops entity_raw_workshops
----@field banditry integer
----@field gem_shapes_str string[]
----@field stone_shapes_str string[]
----@field gem_shapes integer[]
----@field stone_shapes integer[]
----@field source_hfid integer
----@field unk_v4201_1 integer
----@field currency_str1 string[]
----@field currency_str2 string[]
----@field animal entity_animal_raw[]
-
----@class entity_raw_equipment
----@field digger_id integer[]
----@field weapon_id integer[]
----@field armor_id integer[]
----@field ammo_id integer[]
----@field helm_id integer[]
----@field gloves_id integer[]
----@field shoes_id integer[]
----@field pants_id integer[]
----@field shield_id integer[]
----@field trapcomp_id integer[]
----@field toy_id integer[]
----@field instrument_id integer[]
----@field tool_id integer[]
----@field siegeammo_id integer[]
----@field armor_rarity integer[]
----@field helm_rarity integer[]
----@field gloves_rarity integer[]
----@field shoes_rarity integer[]
----@field pants_rarity integer[]
----@field digger_str string[]
----@field weapon_str string[]
----@field armor_str string[]
----@field ammo_str string[]
----@field helm_str string[]
----@field gloves_str string[]
----@field shoes_str string[]
----@field pants_str string[]
----@field shield_str string[]
----@field trapcomp_str string[]
----@field toy_str string[]
----@field instrument_str string[]
----@field siegeammo_str string[]
----@field tool_str string[]
-
----@class entity_raw_symbols
----@field symbols1 language_word_table[]
----@field symbols2 language_word_table[]
----@field select_symbol any[]
----@field subselect_symbol any[]
----@field cull_symbol any[]
-
----@class entity_raw_progress_trigger
----@field population integer
----@field production integer
----@field trade integer
----@field pop_siege integer
----@field prod_siege integer
----@field trade_siege integer
-
----@class entity_raw_jobs
----@field permitted_job boolean[]
----@field permitted_labor boolean[]
----@field world_construction boolean[]
-
----@class entity_raw_workshops
----@field permitted_building_str string[]
----@field permitted_building_id integer[]
----@field permitted_reaction_str string[]
----@field permitted_reaction_id integer[]
-
----@class entity_animal_raw
----@field token string
----@field caste_token string[]
----@field animal_class string[]
----@field forbidden_class string[]
----@field flags bitfield
-
 ---@enum entity_position_raw_flags
 df.entity_position_raw_flags = {
   SITE = 0,
@@ -316,94 +197,48 @@ df.entity_position_raw_flags = {
 ---@enum entity_position_responsibility
 df.entity_position_responsibility = {
   NONE = -1,
-  LAW_MAKING = 0,
-  LAW_ENFORCEMENT = 1,
-  RECEIVE_DIPLOMATS = 2,
-  MEET_WORKERS = 3,
-  MANAGE_PRODUCTION = 4,
-  TRADE = 5,
-  ACCOUNTING = 6,
-  ESTABLISH_COLONY_TRADE_AGREEMENTS = 7,
-  MAKE_INTRODUCTIONS = 8,
-  MAKE_PEACE_AGREEMENTS = 9,
-  MAKE_TOPIC_AGREEMENTS = 10,
-  COLLECT_TAXES = 11,
-  ESCORT_TAX_COLLECTOR = 12,
-  EXECUTIONS = 13,
-  TAME_EXOTICS = 14,
-  RELIGION = 15,
-  ATTACK_ENEMIES = 16,
-  PATROL_TERRITORY = 17,
-  MILITARY_GOALS = 18,
-  MILITARY_STRATEGY = 19,
-  UPGRADE_SQUAD_EQUIPMENT = 20,
-  EQUIPMENT_MANIFESTS = 21,
-  SORT_AMMUNITION = 22,
-  BUILD_MORALE = 23,
-  HEALTH_MANAGEMENT = 24,
-  ESPIONAGE = 25,
-  ADVISE_LEADERS = 26,
-  OVERSEE_LEADER_HOUSEHOLD = 27,
-  MANAGE_ANIMALS = 28,
-  MANAGE_LEADER_HOUSEHOLD_FOOD = 29,
-  MANAGE_LEADER_HOUSEHOLD_DRINKS = 30,
-  PREPARE_LEADER_MEALS = 31,
-  MANAGE_LEADER_HOUSEHOLD_CLEANLINESS = 32,
-  MAINTAIN_SEWERS = 33,
-  FOOD_SUPPLY = 34,
-  FIRE_SAFETY = 35,
-  JUDGE = 36,
-  BUILDING_SAFETY = 37,
-  CONSTRUCTION_PERMITS = 38,
-  MAINTAIN_ROADS = 39,
-  MAINTAIN_BRIDGES = 40,
-  MAINTAIN_TUNNELS = 41,
-  DELIVER_MESSAGES = 42,
+  LAW_MAKING = 1,
+  LAW_ENFORCEMENT = 2,
+  RECEIVE_DIPLOMATS = 3,
+  MEET_WORKERS = 4,
+  MANAGE_PRODUCTION = 5,
+  TRADE = 6,
+  ACCOUNTING = 7,
+  ESTABLISH_COLONY_TRADE_AGREEMENTS = 8,
+  MAKE_INTRODUCTIONS = 9,
+  MAKE_PEACE_AGREEMENTS = 10,
+  MAKE_TOPIC_AGREEMENTS = 11,
+  COLLECT_TAXES = 12,
+  ESCORT_TAX_COLLECTOR = 13,
+  EXECUTIONS = 14,
+  TAME_EXOTICS = 15,
+  RELIGION = 16,
+  ATTACK_ENEMIES = 17,
+  PATROL_TERRITORY = 18,
+  MILITARY_GOALS = 19,
+  MILITARY_STRATEGY = 20,
+  UPGRADE_SQUAD_EQUIPMENT = 21,
+  EQUIPMENT_MANIFESTS = 22,
+  SORT_AMMUNITION = 23,
+  BUILD_MORALE = 24,
+  HEALTH_MANAGEMENT = 25,
+  ESPIONAGE = 26,
+  ADVISE_LEADERS = 27,
+  OVERSEE_LEADER_HOUSEHOLD = 28,
+  MANAGE_ANIMALS = 29,
+  MANAGE_LEADER_HOUSEHOLD_FOOD = 30,
+  MANAGE_LEADER_HOUSEHOLD_DRINKS = 31,
+  PREPARE_LEADER_MEALS = 32,
+  MANAGE_LEADER_HOUSEHOLD_CLEANLINESS = 33,
+  MAINTAIN_SEWERS = 34,
+  FOOD_SUPPLY = 35,
+  FIRE_SAFETY = 36,
+  JUDGE = 37,
+  BUILDING_SAFETY = 38,
+  CONSTRUCTION_PERMITS = 39,
+  MAINTAIN_ROADS = 40,
+  MAINTAIN_BRIDGES = 41,
+  MAINTAIN_TUNNELS = 42,
+  DELIVER_MESSAGES = 43,
 }
-
----@class entity_position_raw
----@field code string
----@field id integer
----@field flags df-flagarray
----@field allowed_creature_str any[]
----@field allowed_creature integer[]
----@field allowed_class string[]
----@field rejected_creature_str any[]
----@field rejected_creature integer[]
----@field rejected_class string[]
----@field name string[]
----@field name_female string[]
----@field name_male string[]
----@field spouse string[]
----@field spouse_female string[]
----@field spouse_male string[]
----@field squad string[]
----@field land_name string
----@field squad_size integer
----@field commander_str string[]
----@field commander_id integer[]
----@field commander_types integer[]
----@field land_holder integer
----@field number integer
----@field requires_population integer
----@field execution_skill job_skill
----@field precedence integer
----@field replaced_by_str string
----@field replaced_by integer
----@field appointed_by_str string[]
----@field appointed_by integer[]
----@field succession_by_position_str string[]
----@field succession_by_position integer[]
----@field responsibilities boolean[]
----@field color integer[]
----@field required_boxes integer
----@field required_cabinets integer
----@field required_racks integer
----@field required_stands integer
----@field required_office integer
----@field required_bedroom integer
----@field required_dining integer
----@field required_tomb integer
----@field mandate_max integer
----@field demand_max integer
 

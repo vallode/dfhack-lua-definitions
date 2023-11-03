@@ -19,77 +19,11 @@ df.improvement_type = {
   IMAGE_SET = 13,
 }
 
----@class dye_info
----@field mat_type integer
----@field mat_index integer
----@field dyer integer
----@field quality item_quality
----@field skill_rating skill_rating at the moment of creation
----@field unk_1 integer
-
----@class itemimprovement
----@field mat_type integer
----@field mat_index integer
----@field maker integer
----@field masterpiece_event integer
----@field quality item_quality
----@field skill_rating skill_rating at the moment of creation
----@field unk_1 integer
-
----@class itemimprovement_art_imagest
----@field image art_image_ref
-
----@class itemimprovement_coveredst
----@field cover_flags flag-bit
----@field shape integer
-
----@class itemimprovement_rings_hangingst
-
----@class itemimprovement_bandsst
----@field shape integer
-
----@class itemimprovement_spikesst
-
 ---@enum itemimprovement_specific_type
 df.itemimprovement_specific_type = {
   HANDLE = 0,
   ROLLERS = 1,
 }
-
----@class itemimprovement_itemspecificst
----@field type itemimprovement_specific_type
-
----@class itemimprovement_threadst
----@field dye dye_info
-
----@class itemimprovement_clothst
-
----@class itemimprovement_sewn_imagest
----@field image art_image_ref
----@field cloth itemimprovement_sewn_imagest_cloth
----@field dye dye_info
-
----@class itemimprovement_sewn_imagest_cloth
----@field unit_id integer
----@field quality integer
----@field unk_1 integer
-
----@class itemimprovement_pagesst
----@field count integer
----@field contents integer[]
-
----@class itemimprovement_illustrationst
----@field image art_image_ref
----@field unk_2 integer
-
----@class itemimprovement_instrument_piecest
----@field type string instrument_piece.type
-
----@class itemimprovement_writingst
----@field contents integer[]
-
----@class itemimprovement_image_setst
----@field image_set_id integer
 
 ---@enum written_content_type
 df.written_content_type = {
@@ -143,32 +77,17 @@ df.written_content_style = {
   Ranting = 17,
 }
 
----@class written_content
----@field id integer
----@field title string
----@field page_start integer
----@field page_end integer
----@field refs general_ref[] interactions learned
----@field ref_aux integer[] if nonzero, corresponding ref is ignored
----@field unk1 integer
----@field unk2 integer
----@field type written_content_type
----@field poetic_form integer
----@field styles written_content_style[]
----@field style_strength integer[] 0 = maximum, 1 = significant, 2 = partial
----@field author integer
----@field author_roll integer
-
----@class engraving
----@field artist integer
----@field masterpiece_event integer
----@field skill_rating skill_rating at the moment of creation
----@field pos coord
----@field flags engraving_flags
----@field tile integer
----@field art_id integer
----@field art_subid integer
----@field quality item_quality
----@field unk1 integer
----@field unk2 integer
+---@enum engraving_flags
+df.engraving_flags = {
+  floor = 0,
+  west = 1,
+  east = 2,
+  north = 3,
+  south = 4,
+  hidden = 5,
+  northwest = 6,
+  northeast = 7,
+  southwest = 8,
+  southeast = 9,
+}
 

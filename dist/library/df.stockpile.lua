@@ -56,178 +56,47 @@ df.furniture_type = {
 ---@enum stockpile_category
 df.stockpile_category = {
   Remove = -1,
-  Animals = 0,
-  Food = 1,
-  Furniture = 2,
-  Corpses = 3,
-  Refuse = 4,
-  Stone = 5,
-  Ore = 6,
-  Ammo = 7,
-  Coins = 8,
-  Bars = 9,
-  Gems = 10,
-  Goods = 11,
-  Leather = 12,
-  Cloth = 13,
-  Wood = 14,
-  Weapons = 15,
-  Armor = 16,
-  Sheets = 17,
-  Custom = 18,
+  Animals = 1,
+  Food = 2,
+  Furniture = 3,
+  Corpses = 4,
+  Refuse = 5,
+  Stone = 6,
+  Ore = 7,
+  Ammo = 8,
+  Coins = 9,
+  Bars = 10,
+  Gems = 11,
+  Goods = 12,
+  Leather = 13,
+  Cloth = 14,
+  Wood = 15,
+  Weapons = 16,
+  Armor = 17,
+  Sheets = 18,
+  Custom = 19,
 }
 
----@class stockpile_settings
----@field flags stockpile_group_set
----@field animals stockpile_settings_animals
----@field food stockpile_settings_food
----@field furniture stockpile_settings_furniture
----@field corpses stockpile_settings_corpses
----@field refuse stockpile_settings_refuse
----@field stone stockpile_settings_stone
----@field ore stockpile_settings_ore
----@field ammo stockpile_settings_ammo
----@field coins stockpile_settings_coins
----@field bars_blocks stockpile_settings_bars_blocks
----@field gems stockpile_settings_gems
----@field finished_goods stockpile_settings_finished_goods
----@field leather stockpile_settings_leather
----@field cloth stockpile_settings_cloth
----@field wood stockpile_settings_wood
----@field weapons stockpile_settings_weapons
----@field armor stockpile_settings_armor
----@field sheet stockpile_settings_sheet
----@field allow_organic boolean
----@field allow_inorganic boolean
-
----@class stockpile_settings_animals
----@field empty_cages boolean
----@field empty_traps boolean
----@field enabled boolean[]
-
----@class stockpile_settings_food
----@field meat boolean[]
----@field fish boolean[]
----@field unprepared_fish boolean[]
----@field egg boolean[]
----@field plants boolean[]
----@field drink_plant boolean[]
----@field drink_animal boolean[]
----@field cheese_plant boolean[]
----@field cheese_animal boolean[]
----@field seeds boolean[]
----@field leaves boolean[]
----@field powder_plant boolean[]
----@field powder_creature boolean[]
----@field glob boolean[]
----@field glob_paste boolean[]
----@field glob_pressed boolean[]
----@field liquid_plant boolean[]
----@field liquid_animal boolean[]
----@field liquid_misc boolean[]
----@field prepared_meals boolean
-
----@class stockpile_settings_furniture
----@field type boolean[]
----@field other_mats boolean[]
----@field mats boolean[]
----@field quality_core boolean[]
----@field quality_total boolean[]
-
----@class stockpile_settings_corpses
----@field corpses boolean[]
-
----@class stockpile_settings_refuse
----@field type boolean[]
----@field corpses boolean[]
----@field body_parts boolean[]
----@field skulls boolean[]
----@field bones boolean[]
----@field hair boolean[]
----@field shells boolean[]
----@field teeth boolean[]
----@field horns boolean[]
----@field fresh_raw_hide boolean
----@field rotten_raw_hide boolean
-
----@class stockpile_settings_stone
----@field mats boolean[]
-
----@class stockpile_settings_ore
----@field mats boolean[] unused
-
----@class stockpile_settings_ammo
----@field type boolean[]
----@field other_mats boolean[]
----@field mats boolean[]
----@field quality_core boolean[]
----@field quality_total boolean[]
-
----@class stockpile_settings_coins
----@field mats boolean[]
-
----@class stockpile_settings_bars_blocks
----@field bars_other_mats boolean[]
----@field blocks_other_mats boolean[]
----@field bars_mats boolean[]
----@field blocks_mats boolean[]
-
----@class stockpile_settings_gems
----@field rough_other_mats boolean[]
----@field cut_other_mats boolean[]
----@field rough_mats boolean[]
----@field cut_mats boolean[]
-
----@class stockpile_settings_finished_goods
----@field type boolean[]
----@field other_mats boolean[]
----@field mats boolean[]
----@field quality_core boolean[]
----@field quality_total boolean[]
-
----@class stockpile_settings_leather
----@field mats boolean[]
-
----@class stockpile_settings_cloth
----@field thread_silk boolean[]
----@field thread_plant boolean[]
----@field thread_yarn boolean[]
----@field thread_metal boolean[]
----@field cloth_silk boolean[]
----@field cloth_plant boolean[]
----@field cloth_yarn boolean[]
----@field cloth_metal boolean[]
-
----@class stockpile_settings_wood
----@field mats boolean[]
-
----@class stockpile_settings_weapons
----@field weapon_type boolean[]
----@field trapcomp_type boolean[]
----@field other_mats boolean[]
----@field mats boolean[]
----@field quality_core boolean[]
----@field quality_total boolean[]
----@field usable boolean
----@field unusable boolean
-
----@class stockpile_settings_armor
----@field body boolean[]
----@field head boolean[]
----@field feet boolean[]
----@field hands boolean[]
----@field legs boolean[]
----@field shield boolean[]
----@field other_mats boolean[]
----@field mats boolean[]
----@field quality_core boolean[]
----@field quality_total boolean[]
----@field usable boolean
----@field unusable boolean
-
----@class stockpile_settings_sheet
----@field paper boolean[]
----@field parchment boolean[]
+---@enum stockpile_group_set
+df.stockpile_group_set = {
+  animals = 0,
+  food = 1,
+  furniture = 2,
+  corpses = 3,
+  refuse = 4,
+  stone = 5,
+  ammo = 6,
+  coins = 7,
+  bars_blocks = 8,
+  gems = 9,
+  finished_goods = 10,
+  leather = 11,
+  cloth = 12,
+  wood = 13,
+  weapons = 14,
+  armor = 15,
+  sheet = 16,
+}
 
 ---@enum stockpile_list
 df.stockpile_list = {
@@ -341,70 +210,6 @@ df.stockpile_list = {
 ---@class stockpile_list_attr
 ---@field is_category bool
 
----@class stockpile_list_attrs
----@field Animals stockpile_list_attr
----@field Food stockpile_list_attr
----@field Furniture stockpile_list_attr
----@field Corpses stockpile_list_attr
----@field Refuse stockpile_list_attr
----@field Stone stockpile_list_attr
----@field Ammo stockpile_list_attr
----@field Coins stockpile_list_attr
----@field BarsBlocks stockpile_list_attr
----@field Gems stockpile_list_attr
----@field Goods stockpile_list_attr
----@field Leather stockpile_list_attr
----@field Cloth stockpile_list_attr
----@field Wood stockpile_list_attr
----@field Weapons stockpile_list_attr
----@field Armor stockpile_list_attr
----@field Sheet stockpile_list_attr
----@field AdditionalOptions stockpile_list_attr
+---@type { [string|integer]: stockpile_list_attr }
 df.stockpile_list.attrs = {}
-
----@class hauling_route
----@field id integer
----@field name string
----@field stops hauling_stop[]
----@field vehicle_ids any[]
----@field vehicle_stops any[]
-
----@class hauling_stop
----@field id integer
----@field name string
----@field pos coord
----@field settings stockpile_settings
----@field conditions stop_depart_condition[]
----@field stockpiles route_stockpile_link[]
----@field time_waiting integer
----@field cart_id integer
-
----@class stop_depart_condition
----@field timeout integer
----@field direction enum
----@field mode enum
----@field load_percent integer broken display unless 0, 50 or 100
----@field flags bitfield
----@field guide_path coord_path initialized on first run, and saved
-
----@class route_stockpile_link
----@field building_id integer
----@field mode bitfield
-
----@class vehicle
----@field id integer
----@field item_id integer
----@field offset_x integer -50000..50000
----@field offset_y integer
----@field offset_z integer
----@field speed_x integer
----@field speed_y integer
----@field speed_z integer
----@field unk_20 integer
----@field unk_24 integer
----@field unk_28 integer
----@field unk_2c integer
----@field route_id integer
----@field pos coord
----@field time_stopped integer frames, up to 1000
 

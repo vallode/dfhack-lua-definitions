@@ -1,220 +1,174 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum job_subtype_surgery
-df.job_subtype_surgery = {
-  Surgery = 0,
-  StopBleeding = 1,
-  RepairCompoundFracture = 2,
-  RemoveRottenTissue = 3,
+---@enum job_material_category
+df.job_material_category = {
+  plant = 0,
+  wood = 1, --wood log
+  cloth = 2,
+  silk = 3,
+  leather = 4,
+  bone = 5,
+  shell = 6,
+  wood2 = 7, --wood material
+  soap = 8,
+  tooth = 9,
+  horn = 10,
+  pearl = 11,
+  yarn = 12,
+  strand = 13,
 }
 
----@class job
----@field id integer
----@field list_link job_list_link
----@field posting_index integer index into world.job_postings
----@field job_type job_type
----@field job_subtype integer
----@field pos coord
----@field completion_timer integer -1 every time unit.counters.job_counter is below 0
----@field unk4 integer garbage, but serialized
----@field flags job_flags
----@field mat_type integer
----@field mat_index integer
----@field unk5 integer
----@field item_type item_type for Bait Trap jobs
----@field item_subtype integer when StoreInStockpile this is a unit_labor
----@field item_category stockpile_group_set
----@field material_category job_material_category
----@field reaction_name string
----@field expire_timer integer for stockpiling, +1 per 50 ticks if no worker; del when 20
----@field recheck_cntdn integer for process_jobs
----@field wait_timer integer for units to leave build sites; to recheck stockpiles
----@field unk11 integer
----@field items job_item_ref[]
----@field specific_refs specific_ref[]
----@field general_refs general_ref[]
----@field job_items job_item[]
----@field guide_path coord_path
----@field cur_path_index integer
----@field unk_v4020_2 coord
----@field art_spec job_art_specification
----@field order_id integer
+---@enum dfhack_material_category
+---An extended version of job_material_category, for use in some plugins, like workflow.
+df.dfhack_material_category = {
+  plant = 0,
+  wood = 1,
+  cloth = 2,
+  silk = 3,
+  leather = 4,
+  bone = 5,
+  shell = 6,
+  wood2 = 7,
+  soap = 8,
+  tooth = 9,
+  horn = 10,
+  pearl = 11,
+  yarn = 12,
+  strand = 13,
+  metal = 14,
+  stone = 15,
+  sand = 16,
+  glass = 17,
+  clay = 18,
+  milk = 19,
+  gem = 20,
+}
 
----@class job_item_ref
----@field item item
----@field role enum
----@field is_fetching integer 0 immediately once taken to be brought
----@field job_item_idx integer
+---@enum job_flags
+---toady: RETURNING When actually carrying non-last item to the workshop. If last, 'working' is used instead.
+df.job_flags = {
+  repeat = 0,
+  suspend = 1,
+  working = 2, --not for food, or store in sp
+  fetching = 3, --Actually going out to bring; corresponds to items->is_fetching
+  special = 4, --toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+  bringing = 5, --toady: RETURNING When actually carrying non-last item to the workshop. If last, 'working' is used instead.
+  item_lost = 6, --toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
+  noise = 7, --on the sleep job causes thoughts
+  by_manager = 8, --toady: QUOTASOURCE
+  store_item = 9, --toady: ITEMSOURCE
+  quality = 10, --toady: BONUS1/2/3; set by improvement code
+  non_fluid = 11,
+  could_not_find_building_use_1 = 12,
+  on_break = 13, --toady: COUNTS_AS_BREAK; job displayed as On Break
+  dessource = 14,
+  do_now = 15, --toady: DO_ME_NOW
+}
 
----@class job_item
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field flags1 job_item_flags1
----@field quantity integer
----@field vector_id job_item_vector_id
----@field flags2 job_item_flags2
----@field flags3 job_item_flags3
----@field flags4 integer
----@field flags5 integer
----@field metal_ore integer
----@field reaction_class string
----@field has_material_reaction_product string
----@field min_dimension integer pure guess by context
----@field reagent_index integer
----@field contains integer[] used with custom reactions
----@field reaction_id integer
----@field has_tool_use tool_uses
----@field unk_v43_1 integer
----@field unk_v43_2 integer
----@field unk_v43_3 integer
----@field unk_v43_4 integer
+---@enum job_subtype_surgery
+df.job_subtype_surgery = {
+  None = -1,
+  Surgery = 1,
+  StopBleeding = 2,
+  RepairCompoundFracture = 3,
+  RemoveRottenTissue = 4,
+}
 
----@class job_item_filter
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field flags1 job_item_flags1
----@field item_vector item[]
----@field use_mat_index boolean
----@field flags2 job_item_flags2
----@field use_flags2 boolean
----@field flags3 job_item_flags3
----@field use_flags3 boolean
----@field flags4 integer
----@field use_flags4 boolean
----@field flags5 integer
----@field use_flags5 boolean
----@field reaction_class string
----@field has_material_reaction_product string
----@field metal_ore integer
----@field use_metal_ore boolean
----@field use_reaction_class boolean
----@field use_reaction_product boolean
----@field min_dimension integer
----@field reaction_id integer
----@field contains integer[]
----@field use_contains boolean
----@field has_tool_use tool_uses
----@field has_melee_skill job_skill
----@field unk_v40_1 integer noticed in v0.40.24
----@field pos coord
----@field unit unit
----@field job job
----@field building building
----@field unk_74 pointer
----@field unk_v4305_1 integer
----@field burrows integer[]
----@field use_burrows boolean
----@field take_from building[]
+---@enum job_item_flags1
+df.job_item_flags1 = {
+  improvable = 0, --vtable[155]:eax,-1,-1
+  butcherable = 1, --(call 0074c6d0)
+  millable = 2, --vtable[79]
+  allow_buryable = 3, --ALLOW items with flag "dead_dwarf"
+  unrotten = 4, --check for item flag "rotten"
+  undisturbed = 5, --check for item flag "spider_web"
+  collected = 6, --check for item flag "spider_web"
+  sharpenable = 7, --vtable[25]
+  murdered = 8, --check for item flag
+  distillable = 9, --vtable[105],1
+  empty = 10, --(call 00753a40)
+  processable = 11, --vtable[80]
+  bag = 12, --vtable[131]
+  cookable = 13, --(call 00753fe0)
+  extract_bearing_plant = 14, --vtable[164]
+  extract_bearing_fish = 15, --vtable[181]
+  extract_bearing_vermin = 16, --vtable[182]
+  processable_to_vial = 17, --vtable[81]
+  processable_to_bag = 18, --vtable[82]
+  processable_to_barrel = 19, --vtable[83]
+  solid = 20, --vtable[74]
+  tameable_vermin = 21, --vtable[104]
+  nearby = 22,
+  sand_bearing = 23, --vtable[108]
+  glass = 24, --check for material flag IS_GLASS
+  milk = 25, --(call 00753d30 - check if material has CHEESE_MAT?)
+  milkable = 26, --vtable[107],1,1
+  finished_goods = 27,
+  ammo = 28,
+  furniture = 29,
+  not_bin = 30,
+  lye_bearing = 31,
+}
 
----@class job_art_specification
----@field type enum
----@field id integer
----@field subid integer
+---@enum job_item_flags2
+df.job_item_flags2 = {
+  dye = 0, --vtable[106]
+  dyeable = 1, --vtable[159]
+  dyed = 2, --vtable[161]
+  sewn_imageless = 3, --vtable[162]
+  glass_making = 4, --vtable[26]
+  screw = 5, --vtable[46]
+  building_material = 6, --vtable[47]
+  fire_safe = 7, --vtable[48],1
+  magma_safe = 8, --vtable[48],2
+  deep_material = 9, --check for inorganic material flag DEEP
+  melt_designated = 10, --check for item flag "melt"
+  non_economic = 11, --(call 0076be60)
+  allow_melt_dump = 12, --item can be designated for melting or dumping
+  allow_artifact = 13, --item can be artifact
+  plant = 14, --check if material is a PLANT_MAT
+  silk = 15, --check for material flag SILK
+  leather = 16, --check for material flag LEATHER
+  bone = 17, --check for material flag BONE
+  shell = 18, --check for material flag SHELL
+  totemable = 19, --vtable[158]
+  horn = 20, --check for material flag HORN
+  pearl = 21, --check for material flag PEARL
+  plaster_containing = 22, --vtable[17]
+  unk_23 = 23,
+  soap = 24, --check for material flag SOAP
+  body_part = 25, --itemtype CORPSE or CORPSEPIECE
+  ivory_tooth = 26, --check for material flag TOOTH
+  lye_milk_free = 27, --(call 00759110)
+  blunt = 28, --vtable[157]
+  unengraved = 29, --vtable[214]
+  hair_wool = 30, --??? (pretty sure this is [ANY_STRAND_TISSUE])
+  yarn = 31, --check for material flag YARN
+}
 
----@class manager_order
----@field id integer
----@field job_type job_type
----@field item_type item_type
----@field item_subtype integer
----@field reaction_name string
----@field mat_type integer
----@field mat_index integer
----@field item_category stockpile_group_set
----@field hist_figure_id integer
----@field material_category job_material_category
----@field art_spec job_art_specification
----@field amount_left integer
----@field amount_total integer
----@field status manager_order_status
----@field frequency enum
----@field finished_year integer
----@field finished_year_tick integer
----@field workshop_id integer
----@field max_workshops integer 0 is unlimited
----@field item_conditions manager_order_condition_item[]
----@field order_conditions manager_order_condition_order[]
----@field items job_item[]
+---@enum job_item_flags3
+df.job_item_flags3 = {
+  unimproved = 0, --vtable[176]
+  any_raw_material = 1, --itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+  non_absorbent = 2, --vtable[215]
+  non_pressed = 3, --vtable[91]
+  allow_liquid_powder = 4,
+  any_craft = 5, --FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+  hard = 6, --check for material flag ITEMS_HARD
+  food_storage = 7, --vtable[15]
+  metal = 8,
+  sand = 9,
+  unk_10 = 10,
+  written_on = 11,
+  edged = 12,
+}
 
----@class manager_order_condition_item
----@field compare_type enum
----@field compare_val integer
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field flags1 job_item_flags1
----@field flags2 job_item_flags2
----@field flags3 job_item_flags3
----@field flags4 integer
----@field flags5 integer
----@field reaction_class string
----@field has_material_reaction_product string
----@field inorganic_bearing integer
----@field min_dimension integer
----@field contains integer[]
----@field reaction_id integer
----@field has_tool_use tool_uses
-
----@class manager_order_condition_order
----@field order_id integer
----@field condition enum
----@field unk_1 integer
-
----@class manager_order_template
----jminfost
----@field job_type job_type
----@field reaction_name string
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field item_category stockpile_group_set specflag
----@field hist_figure_id integer
----@field material_category job_material_category
----@field match_value integer
----@field name string
----@field compare_str string
----@field on boolean
-
----@class mandate
----@field unit unit
----@field mode enum
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field amount_total integer
----@field amount_remaining integer
----@field timeout_counter integer counts once per 10 frames
----@field timeout_limit integer once counter passes limit, mandate ends
----@field punishment mandate_punishment
----@field punish_multiple integer
----@field unk4 integer
-
----@class mandate_punishment
----@field hammerstrikes integer
----@field prison_time integer
----@field give_beating integer
-
----@class training_assignment
----@field animal_id integer
----@field trainer_id integer
----@field flags bitfield
-
----@class unit_demand
----@field unk_0 integer
----@field place enum
----@field item_type item_type
----@field item_subtype integer
----@field mat_type integer
----@field mat_index integer
----@field timeout_counter integer counts once per 10 frames
----@field timeout_limit integer once counter passes limit, mandate ends
+---@enum manager_order_status
+df.manager_order_status = {
+  validated = 0,
+  active = 1,
+}
 
 ---@enum job_cancel_reason
 df.job_cancel_reason = {
@@ -354,6 +308,4 @@ df.job_cancel_reason = {
   IN_EXISTENTIAL_CRISIS = 133,
   NEEDS_SPECIFIC_ITEM_2 = 134,
 }
-
----@class job_cancel
 

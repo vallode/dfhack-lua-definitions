@@ -1,29 +1,33 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class plant
----@field flags plant_flags
----@field material integer
----@field pos coord
----@field grow_counter integer
----@field damage_flags bitfield
----@field hitpoints integer
----@field update_order integer
----@field site_id integer
----@field srb_id integer
----@field contaminants spatter_common[]
----@field tree_info plant_tree_info
+---@enum plant_flags
+df.plant_flags = {
+  watery = 0,
+  is_shrub = 1, --If it is not a shrub, then it is a tree
+}
 
----@class plant_tree_info
----@field body plant_tree_tile dimension body_height
----@field extent_east integer dimension body_height
----@field extent_south integer dimension body_height
----@field extent_west integer dimension body_height
----@field extent_north integer dimension body_height
----@field body_height integer
----@field dim_x integer
----@field dim_y integer
----@field roots plant_tree_tile dimension roots_depth
----@field roots_depth integer
----@field unk6 integer
+---@enum plant_tree_tile
+df.plant_tree_tile = {
+  trunk = 0,
+  connection_east = 1,
+  connection_south = 2,
+  connection_west = 3,
+  connection_north = 4,
+  branches = 5,
+  twigs = 6,
+  blocked = 7, --e.g. by other tree
+}
+
+---@enum plant_root_tile
+df.plant_root_tile = {
+  trunk = 0,
+  connection_east = 1,
+  connection_south = 2,
+  connection_west = 3,
+  connection_north = 4,
+  branches = 5,
+  twigs = 6,
+  blocked = 7, --e.g. by other tree
+}
 

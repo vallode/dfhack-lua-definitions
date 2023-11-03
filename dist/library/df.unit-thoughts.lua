@@ -4,882 +4,473 @@
 ---@enum emotion_type
 df.emotion_type = {
   ANYTHING = -1,
-  ACCEPTANCE = 0,
-  ADORATION = 1,
-  AFFECTION = 2,
-  AGITATION = 3,
-  AGGRAVATION = 4,
-  AGONY = 5,
-  ALARM = 6,
-  ALIENATION = 7,
-  AMAZEMENT = 8,
-  AMBIVALENCE = 9,
-  AMUSEMENT = 10,
-  ANGER = 11,
-  ANGST = 12,
-  ANGUISH = 13,
-  ANNOYANCE = 14,
-  unk_15 = 15,
-  ANXIETY = 16,
-  APATHY = 17,
-  unk_18 = 18,
-  AROUSAL = 19,
-  ASTONISHMENT = 20,
-  unk_21 = 21,
-  AVERSION = 22,
-  AWE = 23,
-  BITTERNESS = 24,
-  BLISS = 25,
-  BOREDOM = 26,
-  CARING = 27,
-  unk_28 = 28,
-  CONFUSION = 29,
-  CONTEMPT = 30,
-  CONTENTMENT = 31,
-  unk_32 = 32,
+  ACCEPTANCE = 1,
+  ADORATION = 2,
+  AFFECTION = 3,
+  AGITATION = 4,
+  AGGRAVATION = 5,
+  AGONY = 6,
+  ALARM = 7,
+  ALIENATION = 8,
+  AMAZEMENT = 9,
+  AMBIVALENCE = 10,
+  AMUSEMENT = 11,
+  ANGER = 12,
+  ANGST = 13,
+  ANGUISH = 14,
+  ANNOYANCE = 15,
+  unk_16 = 16,
+  ANXIETY = 17,
+  APATHY = 18,
+  unk_19 = 19,
+  AROUSAL = 20,
+  ASTONISHMENT = 21,
+  unk_22 = 22,
+  AVERSION = 23,
+  AWE = 24,
+  BITTERNESS = 25,
+  BLISS = 26,
+  BOREDOM = 27,
+  CARING = 28,
+  unk_29 = 29,
+  CONFUSION = 30,
+  CONTEMPT = 31,
+  CONTENTMENT = 32,
   unk_33 = 33,
-  DEFEAT = 34,
-  DEJECTION = 35,
-  DELIGHT = 36,
-  unk_37 = 37,
+  unk_34 = 34,
+  DEFEAT = 35,
+  DEJECTION = 36,
+  DELIGHT = 37,
   unk_38 = 38,
-  DESPAIR = 39,
-  DISAPPOINTMENT = 40,
-  DISGUST = 41,
-  DISILLUSIONMENT = 42,
-  DISLIKE = 43,
-  DISMAY = 44,
-  DISPLEASURE = 45,
-  DISTRESS = 46,
-  DOUBT = 47,
-  unk_48 = 48,
-  EAGERNESS = 49,
-  unk_50 = 50,
-  ELATION = 51,
-  EMBARRASSMENT = 52,
-  EMPATHY = 53,
-  EMPTINESS = 54,
-  ENJOYMENT = 55,
-  unk_56 = 56,
-  ENTHUSIASM = 57,
-  unk_58 = 58,
-  EUPHORIA = 59,
-  EXASPERATION = 60,
-  EXCITEMENT = 61,
-  EXHILARATION = 62,
-  EXPECTANCY = 63,
-  FEAR = 64,
-  FEROCITY = 65,
-  FONDNESS = 66,
-  FREEDOM = 67,
-  FRIGHT = 68,
-  FRUSTRATION = 69,
-  unk_70 = 70,
-  GAIETY = 71,
-  unk_72 = 72,
-  GLEE = 73,
-  GLOOM = 74,
-  GLUMNESS = 75,
-  GRATITUDE = 76,
-  unk_77 = 77,
-  GRIEF = 78,
-  GRIM_SATISFACTION = 79,
-  GROUCHINESS = 80,
-  GRUMPINESS = 81,
-  GUILT = 82,
-  HAPPINESS = 83,
-  HATRED = 84,
-  unk_85 = 85,
-  HOPE = 86,
-  HOPELESSNESS = 87,
-  HORROR = 88,
-  unk_89 = 89,
-  HUMILIATION = 90,
-  unk_91 = 91,
+  unk_39 = 39,
+  DESPAIR = 40,
+  DISAPPOINTMENT = 41,
+  DISGUST = 42,
+  DISILLUSIONMENT = 43,
+  DISLIKE = 44,
+  DISMAY = 45,
+  DISPLEASURE = 46,
+  DISTRESS = 47,
+  DOUBT = 48,
+  unk_49 = 49,
+  EAGERNESS = 50,
+  unk_51 = 51,
+  ELATION = 52,
+  EMBARRASSMENT = 53,
+  EMPATHY = 54,
+  EMPTINESS = 55,
+  ENJOYMENT = 56,
+  unk_57 = 57,
+  ENTHUSIASM = 58,
+  unk_59 = 59,
+  EUPHORIA = 60,
+  EXASPERATION = 61,
+  EXCITEMENT = 62,
+  EXHILARATION = 63,
+  EXPECTANCY = 64,
+  FEAR = 65,
+  FEROCITY = 66,
+  FONDNESS = 67,
+  FREEDOM = 68,
+  FRIGHT = 69,
+  FRUSTRATION = 70,
+  unk_71 = 71,
+  GAIETY = 72,
+  unk_73 = 73,
+  GLEE = 74,
+  GLOOM = 75,
+  GLUMNESS = 76,
+  GRATITUDE = 77,
+  unk_78 = 78,
+  GRIEF = 79,
+  GRIM_SATISFACTION = 80,
+  GROUCHINESS = 81,
+  GRUMPINESS = 82,
+  GUILT = 83,
+  HAPPINESS = 84,
+  HATRED = 85,
+  unk_86 = 86,
+  HOPE = 87,
+  HOPELESSNESS = 88,
+  HORROR = 89,
+  unk_90 = 90,
+  HUMILIATION = 91,
   unk_92 = 92,
   unk_93 = 93,
   unk_94 = 94,
-  INSULT = 95,
-  INTEREST = 96,
-  IRRITATION = 97,
-  ISOLATION = 98,
-  unk_99 = 99,
-  JOLLINESS = 100,
-  JOVIALITY = 101,
-  JOY = 102,
-  JUBILATION = 103,
-  LOATHING = 104,
-  LONELINESS = 105,
-  unk_106 = 106,
-  LOVE = 107,
-  unk_108 = 108,
-  LUST = 109,
-  unk_110 = 110,
-  MISERY = 111,
-  MORTIFICATION = 112,
-  unk_113 = 113,
-  NERVOUSNESS = 114,
-  NOSTALGIA = 115,
-  OPTIMISM = 116,
-  OUTRAGE = 117,
-  PANIC = 118,
-  PATIENCE = 119,
-  PASSION = 120,
-  PESSIMISM = 121,
-  unk_122 = 122,
-  PLEASURE = 123,
-  PRIDE = 124,
-  RAGE = 125,
-  RAPTURE = 126,
-  REJECTION = 127,
-  RELIEF = 128,
-  REGRET = 129,
-  REMORSE = 130,
-  REPENTANCE = 131,
-  RESENTMENT = 132,
-  unk_133 = 133,
-  RIGHTEOUS_INDIGNATION = 134,
-  SADNESS = 135,
-  SATISFACTION = 136,
-  unk_137 = 137,
-  SELF_PITY = 138,
-  unk_139 = 139,
-  SERVILE = 140,
-  SHAKEN = 141,
-  SHAME = 142,
-  SHOCK = 143,
-  unk_144 = 144,
+  unk_95 = 95,
+  INSULT = 96,
+  INTEREST = 97,
+  IRRITATION = 98,
+  ISOLATION = 99,
+  unk_100 = 100,
+  JOLLINESS = 101,
+  JOVIALITY = 102,
+  JOY = 103,
+  JUBILATION = 104,
+  LOATHING = 105,
+  LONELINESS = 106,
+  unk_107 = 107,
+  LOVE = 108,
+  unk_109 = 109,
+  LUST = 110,
+  unk_111 = 111,
+  MISERY = 112,
+  MORTIFICATION = 113,
+  unk_114 = 114,
+  NERVOUSNESS = 115,
+  NOSTALGIA = 116,
+  OPTIMISM = 117,
+  OUTRAGE = 118,
+  PANIC = 119,
+  PATIENCE = 120,
+  PASSION = 121,
+  PESSIMISM = 122,
+  unk_123 = 123,
+  PLEASURE = 124,
+  PRIDE = 125,
+  RAGE = 126,
+  RAPTURE = 127,
+  REJECTION = 128,
+  RELIEF = 129,
+  REGRET = 130,
+  REMORSE = 131,
+  REPENTANCE = 132,
+  RESENTMENT = 133,
+  unk_134 = 134,
+  RIGHTEOUS_INDIGNATION = 135,
+  SADNESS = 136,
+  SATISFACTION = 137,
+  unk_138 = 138,
+  SELF_PITY = 139,
+  unk_140 = 140,
+  SERVILE = 141,
+  SHAKEN = 142,
+  SHAME = 143,
+  SHOCK = 144,
   unk_145 = 145,
   unk_146 = 146,
   unk_147 = 147,
-  SUSPICION = 148,
-  SYMPATHY = 149,
-  TENDERNESS = 150,
-  unk_151 = 151,
-  TERROR = 152,
-  THRILL = 153,
-  unk_154 = 154,
-  TRIUMPH = 155,
-  UNEASINESS = 156,
-  UNHAPPINESS = 157,
-  VENGEFULNESS = 158,
-  unk_159 = 159,
-  WONDER = 160,
-  WORRY = 161,
-  WRATH = 162,
-  ZEAL = 163,
-  unk_164 = 164,
+  unk_148 = 148,
+  SUSPICION = 149,
+  SYMPATHY = 150,
+  TENDERNESS = 151,
+  unk_152 = 152,
+  TERROR = 153,
+  THRILL = 154,
+  unk_155 = 155,
+  TRIUMPH = 156,
+  UNEASINESS = 157,
+  UNHAPPINESS = 158,
+  VENGEFULNESS = 159,
+  unk_160 = 160,
+  WONDER = 161,
+  WORRY = 162,
+  WRATH = 163,
+  ZEAL = 164,
   unk_165 = 165,
   unk_166 = 166,
-  RESTLESS = 167,
-  ADMIRATION = 168,
+  unk_167 = 167,
+  RESTLESS = 168,
+  ADMIRATION = 169,
 }
 
 ---@class emotion_type_attr
 ---@field color int8_t
 ---@field divider int8_t
 
----@class emotion_type_attrs
----@field ACCEPTANCE emotion_type_attr
----@field ADORATION emotion_type_attr
----@field AFFECTION emotion_type_attr
----@field AGITATION emotion_type_attr
----@field AGGRAVATION emotion_type_attr
----@field AGONY emotion_type_attr
----@field ALARM emotion_type_attr
----@field ALIENATION emotion_type_attr
----@field AMAZEMENT emotion_type_attr
----@field AMBIVALENCE emotion_type_attr
----@field AMUSEMENT emotion_type_attr
----@field ANGER emotion_type_attr
----@field ANGST emotion_type_attr
----@field ANGUISH emotion_type_attr
----@field ANNOYANCE emotion_type_attr
----@field ANXIETY emotion_type_attr
----@field APATHY emotion_type_attr
----@field AROUSAL emotion_type_attr
----@field ASTONISHMENT emotion_type_attr
----@field AVERSION emotion_type_attr
----@field AWE emotion_type_attr
----@field BITTERNESS emotion_type_attr
----@field BLISS emotion_type_attr
----@field BOREDOM emotion_type_attr
----@field CARING emotion_type_attr
----@field CONFUSION emotion_type_attr
----@field CONTEMPT emotion_type_attr
----@field CONTENTMENT emotion_type_attr
----@field DEFEAT emotion_type_attr
----@field DEJECTION emotion_type_attr
----@field DELIGHT emotion_type_attr
----@field DESPAIR emotion_type_attr
----@field DISAPPOINTMENT emotion_type_attr
----@field DISGUST emotion_type_attr
----@field DISILLUSIONMENT emotion_type_attr
----@field DISLIKE emotion_type_attr
----@field DISMAY emotion_type_attr
----@field DISPLEASURE emotion_type_attr
----@field DISTRESS emotion_type_attr
----@field DOUBT emotion_type_attr
----@field EAGERNESS emotion_type_attr
----@field ELATION emotion_type_attr
----@field EMBARRASSMENT emotion_type_attr
----@field EMPATHY emotion_type_attr
----@field EMPTINESS emotion_type_attr
----@field ENJOYMENT emotion_type_attr
----@field ENTHUSIASM emotion_type_attr
----@field EUPHORIA emotion_type_attr
----@field EXASPERATION emotion_type_attr
----@field EXCITEMENT emotion_type_attr
----@field EXHILARATION emotion_type_attr
----@field EXPECTANCY emotion_type_attr
----@field FEAR emotion_type_attr
----@field FEROCITY emotion_type_attr
----@field FONDNESS emotion_type_attr
----@field FREEDOM emotion_type_attr
----@field FRIGHT emotion_type_attr
----@field FRUSTRATION emotion_type_attr
----@field GAIETY emotion_type_attr
----@field GLEE emotion_type_attr
----@field GLOOM emotion_type_attr
----@field GLUMNESS emotion_type_attr
----@field GRATITUDE emotion_type_attr
----@field GRIEF emotion_type_attr
----@field GRIM_SATISFACTION emotion_type_attr
----@field GROUCHINESS emotion_type_attr
----@field GRUMPINESS emotion_type_attr
----@field GUILT emotion_type_attr
----@field HAPPINESS emotion_type_attr
----@field HATRED emotion_type_attr
----@field HOPE emotion_type_attr
----@field HOPELESSNESS emotion_type_attr
----@field HORROR emotion_type_attr
----@field HUMILIATION emotion_type_attr
----@field INSULT emotion_type_attr
----@field INTEREST emotion_type_attr
----@field IRRITATION emotion_type_attr
----@field ISOLATION emotion_type_attr
----@field JOLLINESS emotion_type_attr
----@field JOVIALITY emotion_type_attr
----@field JOY emotion_type_attr
----@field JUBILATION emotion_type_attr
----@field LOATHING emotion_type_attr
----@field LONELINESS emotion_type_attr
----@field LOVE emotion_type_attr
----@field LUST emotion_type_attr
----@field MISERY emotion_type_attr
----@field MORTIFICATION emotion_type_attr
----@field NERVOUSNESS emotion_type_attr
----@field NOSTALGIA emotion_type_attr
----@field OPTIMISM emotion_type_attr
----@field OUTRAGE emotion_type_attr
----@field PANIC emotion_type_attr
----@field PATIENCE emotion_type_attr
----@field PASSION emotion_type_attr
----@field PESSIMISM emotion_type_attr
----@field PLEASURE emotion_type_attr
----@field PRIDE emotion_type_attr
----@field RAGE emotion_type_attr
----@field RAPTURE emotion_type_attr
----@field REJECTION emotion_type_attr
----@field RELIEF emotion_type_attr
----@field REGRET emotion_type_attr
----@field REMORSE emotion_type_attr
----@field REPENTANCE emotion_type_attr
----@field RESENTMENT emotion_type_attr
----@field RIGHTEOUS_INDIGNATION emotion_type_attr
----@field SADNESS emotion_type_attr
----@field SATISFACTION emotion_type_attr
----@field SELF_PITY emotion_type_attr
----@field SERVILE emotion_type_attr
----@field SHAKEN emotion_type_attr
----@field SHAME emotion_type_attr
----@field SHOCK emotion_type_attr
----@field SUSPICION emotion_type_attr
----@field SYMPATHY emotion_type_attr
----@field TENDERNESS emotion_type_attr
----@field TERROR emotion_type_attr
----@field THRILL emotion_type_attr
----@field TRIUMPH emotion_type_attr
----@field UNEASINESS emotion_type_attr
----@field UNHAPPINESS emotion_type_attr
----@field VENGEFULNESS emotion_type_attr
----@field WONDER emotion_type_attr
----@field WORRY emotion_type_attr
----@field WRATH emotion_type_attr
----@field ZEAL emotion_type_attr
----@field RESTLESS emotion_type_attr
----@field ADMIRATION emotion_type_attr
+---@type { [string|integer]: emotion_type_attr }
 df.emotion_type.attrs = {}
 
 ---@enum unit_thought_type
 df.unit_thought_type = {
   None = -1,
-  Conflict = 0,
-  Trauma = 1,
-  WitnessDeath = 2,
-  UnexpectedDeath = 3,
-  Death = 4,
-  Kill = 5,
-  LoveSeparated = 6,
-  LoveReunited = 7,
-  JoinConflict = 8,
-  MakeMasterwork = 9,
-  MadeArtifact = 10,
-  MasterSkill = 11,
-  NewRomance = 12,
-  BecomeParent = 13,
-  NearConflict = 14,
-  CancelAgreement = 15,
-  JoinTravel = 16,
-  SiteControlled = 17,
-  TributeCancel = 18,
-  Incident = 19,
-  HearRumor = 20,
-  MilitaryRemoved = 21,
-  StrangerWeapon = 22,
-  StrangerSneaking = 23,
-  SawDrinkBlood = 24,
-  Complained = 25,
-  ReceivedComplaint = 26,
-  AdmireBuilding = 27,
-  AdmireOwnBuilding = 28,
-  AdmireArrangedBuilding = 29,
-  AdmireOwnArrangedBuilding = 30,
-  LostPet = 31,
-  ThrownStuff = 32,
-  JailReleased = 33,
-  Miscarriage = 34,
-  SpouseMiscarriage = 35,
-  OldClothing = 36,
-  TatteredClothing = 37,
-  RottedClothing = 38,
-  GhostNightmare = 39,
-  GhostHaunt = 40,
-  Spar = 41,
-  UnableComplain = 42,
-  LongPatrol = 43,
-  SunNausea = 44,
-  SunIrritated = 45,
-  Drowsy = 46,
-  VeryDrowsy = 47,
-  Thirsty = 48,
-  Dehydrated = 49,
-  Hungry = 50,
-  Starving = 51,
-  MajorInjuries = 52,
-  MinorInjuries = 53,
-  SleepNoise = 54,
-  Rest = 55,
-  FreakishWeather = 56,
-  Rain = 57,
-  SnowStorm = 58,
-  Miasma = 59,
-  Smoke = 60,
-  Waterfall = 61,
-  Dust = 62,
-  Demands = 63,
-  ImproperPunishment = 64,
-  PunishmentReduced = 65,
-  Elected = 66,
-  Reelected = 67,
-  RequestApproved = 68,
-  RequestIgnored = 69,
-  NoPunishment = 70,
-  PunishmentDelayed = 71,
-  DelayedPunishment = 72,
-  ScarceCageChain = 73,
-  MandateIgnored = 74,
-  MandateDeadlineMissed = 75,
-  LackWork = 76,
-  SmashedBuilding = 77,
-  ToppledStuff = 78,
-  NoblePromotion = 79,
-  BecomeNoble = 80,
-  Cavein = 81,
-  MandateDeadlineMet = 82,
-  Uncovered = 83,
-  NoShirt = 84,
-  NoShoes = 85,
-  EatPet = 86,
-  EatLikedCreature = 87,
-  EatVermin = 88,
-  FistFight = 89,
-  GaveBeating = 90,
-  GotBeaten = 91,
-  GaveHammering = 92,
-  GotHammered = 93,
-  NoHammer = 94,
-  SameFood = 95,
-  AteRotten = 96,
-  GoodMeal = 97,
-  GoodDrink = 98,
-  MoreChests = 99,
-  MoreCabinets = 100,
-  MoreWeaponRacks = 101,
-  MoreArmorStands = 102,
-  RoomPretension = 103,
-  LackTables = 104,
-  CrowdedTables = 105,
-  DiningQuality = 106,
-  NoDining = 107,
-  LackChairs = 108,
-  TrainingBond = 109,
-  Rescued = 110,
-  RescuedOther = 111,
-  SatisfiedAtWork = 112,
-  TaxedLostProperty = 113,
-  Taxed = 114,
-  LackProtection = 115,
-  TaxRoomUnreachable = 116,
-  TaxRoomMisinformed = 117,
-  PleasedNoble = 118,
-  TaxCollectionSmooth = 119,
-  DisappointedNoble = 120,
-  TaxCollectionRough = 121,
-  MadeFriend = 122,
-  FormedGrudge = 123,
-  AnnoyedVermin = 124,
-  NearVermin = 125,
-  PesteredVermin = 126,
-  AcquiredItem = 127,
-  AdoptedPet = 128,
-  Jailed = 129,
-  Bath = 130,
-  SoapyBath = 131,
-  SparringAccident = 132,
-  Attacked = 133,
-  AttackedByDead = 134,
-  SameBooze = 135,
-  DrinkBlood = 136,
-  DrinkSlime = 137,
-  DrinkVomit = 138,
-  DrinkGoo = 139,
-  DrinkIchor = 140,
-  DrinkPus = 141,
-  NastyWater = 142,
-  DrankSpoiled = 143,
-  LackWell = 144,
-  NearCaged = 145,
-  NearCagedHated = 146,
-  LackBedroom = 147,
-  BedroomQuality = 148,
-  SleptFloor = 149,
-  SleptMud = 150,
-  SleptGrass = 151,
-  SleptRoughFloor = 152,
-  SleptRocks = 153,
-  SleptIce = 154,
-  SleptDirt = 155,
-  SleptDriftwood = 156,
-  ArtDefacement = 157,
-  Evicted = 158,
-  GaveBirth = 159,
-  SpouseGaveBirth = 160,
-  ReceivedWater = 161,
-  GaveWater = 162,
-  ReceivedFood = 163,
-  GaveFood = 164,
-  Talked = 165,
-  OfficeQuality = 166,
-  MeetingInBedroom = 167,
-  MeetingInDiningRoom = 168,
-  NoRooms = 169,
-  TombQuality = 170,
-  TombLack = 171,
-  TalkToNoble = 172,
-  InteractPet = 173,
-  ConvictionCorpse = 174,
-  ConvictionAnimal = 175,
-  ConvictionVictim = 176,
-  ConvictionJusticeSelf = 177,
-  ConvictionJusticeFamily = 178,
-  Decay = 179,
-  NeedsUnfulfilled = 180,
-  Prayer = 181,
-  DrinkWithoutCup = 182,
-  ResearchBreakthrough = 183,
-  ResearchStalled = 184,
-  PonderTopic = 185,
-  DiscussTopic = 186,
-  Syndrome = 187,
-  Perform = 188,
-  WatchPerform = 189,
-  RemoveTroupe = 190,
-  LearnTopic = 191,
-  LearnSkill = 192,
-  LearnBook = 193,
-  LearnInteraction = 194,
-  LearnPoetry = 195,
-  LearnMusic = 196,
-  LearnDance = 197,
-  TeachTopic = 198,
-  TeachSkill = 199,
-  ReadBook = 200,
-  WriteBook = 201,
-  BecomeResident = 202,
-  BecomeCitizen = 203,
-  DenyResident = 204,
-  DenyCitizen = 205,
-  LeaveTroupe = 206,
-  MakeBelieve = 207,
-  PlayToy = 208,
-  DreamAbout = 209,
-  Dream = 210,
-  Nightmare = 211,
-  Argument = 212,
-  CombatDrills = 213,
-  ArcheryPractice = 214,
-  ImproveSkill = 215,
-  WearItem = 216,
-  RealizeValue = 217,
-  OpinionStoryteller = 218,
-  OpinionRecitation = 219,
-  OpinionInstrumentSimulation = 220,
-  OpinionInstrumentPlayer = 221,
-  OpinionSinger = 222,
-  OpinionChanter = 223,
-  OpinionDancer = 224,
-  OpinionStory = 225,
-  OpinionPoetry = 226,
-  OpinionMusic = 227,
-  OpinionDance = 228,
-  Defeated = 229,
-  FavoritePossession = 230,
-  PreserveBody = 231,
-  Murdered = 232,
-  HistEventCollection = 233,
-  ViewOwnDisplay = 234,
-  ViewDisplay = 235,
-  AcquireArtifact = 236,
-  DenySanctuary = 237,
-  CaughtSneaking = 238,
-  GaveArtifact = 239,
-  SawDeadBody = 240,
-  Expelled = 241,
-  RelativeExpelled = 242,
-  PromisedVampireImmortality = 243,
-  PromisedNecroImmortality = 244,
-  SiteLecture = 245,
-  SitePerformance = 246,
-  AcceptedBribe = 247,
-  EmbezzledFunds = 248,
-  CutOfCorruptFunds = 249,
-  Abducted = 250,
-  FromAfar = 251,
-  AcceptedTemplePetition = 252,
-  EstablishedTemple = 253,
-  RejectedTemplePetition = 254,
-  IgnoredTemplePetition = 255,
-  AbandonedTemplePetition = 256,
-  DeferredToSuperior = 257,
-  AcceptedGuildhallPetition = 258,
-  EstablishedGuildhallPetition = 259,
-  RejectedGuildhallPetition = 260,
-  IgnoredGuildhallPetition = 261,
-  AbandonedGuildhallPetition = 262,
-  InfiltrationMission = 263,
-  BreakUp = 264,
-  Divorce = 265,
-  Unk266 = 266,
-  Unk267 = 267,
-  Unk268 = 268,
-  Unk269 = 269,
-  Unk270 = 270,
-  IntellectualDiscussion = 271,
-  SharePersonalInsight = 272,
-  ShareOthersPersonalInsight = 273,
-  DiscussProblems = 274,
-  DiscussOthersProblems = 275,
-  PerformedRiteDedicatedTemple = 276,
-  PerformedRiteImproperlyDedicatedTemple = 277,
-  PerformedRiteUndedicatedTemple = 278,
-  PrayedDedicatedTemple = 279,
+  Conflict = 1,
+  Trauma = 2,
+  WitnessDeath = 3,
+  UnexpectedDeath = 4,
+  Death = 5,
+  Kill = 6,
+  LoveSeparated = 7,
+  LoveReunited = 8,
+  JoinConflict = 9,
+  MakeMasterwork = 10,
+  MadeArtifact = 11,
+  MasterSkill = 12,
+  NewRomance = 13,
+  BecomeParent = 14,
+  NearConflict = 15,
+  CancelAgreement = 16,
+  JoinTravel = 17,
+  SiteControlled = 18,
+  TributeCancel = 19,
+  Incident = 20,
+  HearRumor = 21,
+  MilitaryRemoved = 22,
+  StrangerWeapon = 23,
+  StrangerSneaking = 24,
+  SawDrinkBlood = 25,
+  Complained = 26,
+  ReceivedComplaint = 27,
+  AdmireBuilding = 28,
+  AdmireOwnBuilding = 29,
+  AdmireArrangedBuilding = 30,
+  AdmireOwnArrangedBuilding = 31,
+  LostPet = 32,
+  ThrownStuff = 33,
+  JailReleased = 34,
+  Miscarriage = 35,
+  SpouseMiscarriage = 36,
+  OldClothing = 37,
+  TatteredClothing = 38,
+  RottedClothing = 39,
+  GhostNightmare = 40,
+  GhostHaunt = 41,
+  Spar = 42,
+  UnableComplain = 43,
+  LongPatrol = 44,
+  SunNausea = 45,
+  SunIrritated = 46,
+  Drowsy = 47,
+  VeryDrowsy = 48,
+  Thirsty = 49,
+  Dehydrated = 50,
+  Hungry = 51,
+  Starving = 52,
+  MajorInjuries = 53,
+  MinorInjuries = 54,
+  SleepNoise = 55,
+  Rest = 56,
+  FreakishWeather = 57,
+  Rain = 58,
+  SnowStorm = 59,
+  Miasma = 60,
+  Smoke = 61,
+  Waterfall = 62,
+  Dust = 63,
+  Demands = 64,
+  ImproperPunishment = 65,
+  PunishmentReduced = 66,
+  Elected = 67,
+  Reelected = 68,
+  RequestApproved = 69,
+  RequestIgnored = 70,
+  NoPunishment = 71,
+  PunishmentDelayed = 72,
+  DelayedPunishment = 73,
+  ScarceCageChain = 74,
+  MandateIgnored = 75,
+  MandateDeadlineMissed = 76,
+  LackWork = 77,
+  SmashedBuilding = 78,
+  ToppledStuff = 79,
+  NoblePromotion = 80,
+  BecomeNoble = 81,
+  Cavein = 82,
+  MandateDeadlineMet = 83,
+  Uncovered = 84,
+  NoShirt = 85,
+  NoShoes = 86,
+  EatPet = 87,
+  EatLikedCreature = 88,
+  EatVermin = 89,
+  FistFight = 90,
+  GaveBeating = 91,
+  GotBeaten = 92,
+  GaveHammering = 93,
+  GotHammered = 94,
+  NoHammer = 95,
+  SameFood = 96,
+  AteRotten = 97,
+  GoodMeal = 98,
+  GoodDrink = 99,
+  MoreChests = 100,
+  MoreCabinets = 101,
+  MoreWeaponRacks = 102,
+  MoreArmorStands = 103,
+  RoomPretension = 104,
+  LackTables = 105,
+  CrowdedTables = 106,
+  DiningQuality = 107,
+  NoDining = 108,
+  LackChairs = 109,
+  TrainingBond = 110,
+  Rescued = 111,
+  RescuedOther = 112,
+  SatisfiedAtWork = 113,
+  TaxedLostProperty = 114,
+  Taxed = 115,
+  LackProtection = 116,
+  TaxRoomUnreachable = 117,
+  TaxRoomMisinformed = 118,
+  PleasedNoble = 119,
+  TaxCollectionSmooth = 120,
+  DisappointedNoble = 121,
+  TaxCollectionRough = 122,
+  MadeFriend = 123,
+  FormedGrudge = 124,
+  AnnoyedVermin = 125,
+  NearVermin = 126,
+  PesteredVermin = 127,
+  AcquiredItem = 128,
+  AdoptedPet = 129,
+  Jailed = 130,
+  Bath = 131,
+  SoapyBath = 132,
+  SparringAccident = 133,
+  Attacked = 134,
+  AttackedByDead = 135,
+  SameBooze = 136,
+  DrinkBlood = 137,
+  DrinkSlime = 138,
+  DrinkVomit = 139,
+  DrinkGoo = 140,
+  DrinkIchor = 141,
+  DrinkPus = 142,
+  NastyWater = 143,
+  DrankSpoiled = 144,
+  LackWell = 145,
+  NearCaged = 146,
+  NearCagedHated = 147,
+  LackBedroom = 148,
+  BedroomQuality = 149,
+  SleptFloor = 150,
+  SleptMud = 151,
+  SleptGrass = 152,
+  SleptRoughFloor = 153,
+  SleptRocks = 154,
+  SleptIce = 155,
+  SleptDirt = 156,
+  SleptDriftwood = 157,
+  ArtDefacement = 158,
+  Evicted = 159,
+  GaveBirth = 160,
+  SpouseGaveBirth = 161,
+  ReceivedWater = 162,
+  GaveWater = 163,
+  ReceivedFood = 164,
+  GaveFood = 165,
+  Talked = 166,
+  OfficeQuality = 167,
+  MeetingInBedroom = 168,
+  MeetingInDiningRoom = 169,
+  NoRooms = 170,
+  TombQuality = 171,
+  TombLack = 172,
+  TalkToNoble = 173,
+  InteractPet = 174,
+  ConvictionCorpse = 175,
+  ConvictionAnimal = 176,
+  ConvictionVictim = 177,
+  ConvictionJusticeSelf = 178,
+  ConvictionJusticeFamily = 179,
+  Decay = 180,
+  NeedsUnfulfilled = 181,
+  Prayer = 182,
+  DrinkWithoutCup = 183,
+  ResearchBreakthrough = 184,
+  ResearchStalled = 185,
+  PonderTopic = 186,
+  DiscussTopic = 187,
+  Syndrome = 188,
+  Perform = 189,
+  WatchPerform = 190,
+  RemoveTroupe = 191,
+  LearnTopic = 192,
+  LearnSkill = 193,
+  LearnBook = 194,
+  LearnInteraction = 195,
+  LearnPoetry = 196,
+  LearnMusic = 197,
+  LearnDance = 198,
+  TeachTopic = 199,
+  TeachSkill = 200,
+  ReadBook = 201,
+  WriteBook = 202,
+  BecomeResident = 203,
+  BecomeCitizen = 204,
+  DenyResident = 205,
+  DenyCitizen = 206,
+  LeaveTroupe = 207,
+  MakeBelieve = 208,
+  PlayToy = 209,
+  DreamAbout = 210,
+  Dream = 211,
+  Nightmare = 212,
+  Argument = 213,
+  CombatDrills = 214,
+  ArcheryPractice = 215,
+  ImproveSkill = 216,
+  WearItem = 217,
+  RealizeValue = 218,
+  OpinionStoryteller = 219,
+  OpinionRecitation = 220,
+  OpinionInstrumentSimulation = 221,
+  OpinionInstrumentPlayer = 222,
+  OpinionSinger = 223,
+  OpinionChanter = 224,
+  OpinionDancer = 225,
+  OpinionStory = 226,
+  OpinionPoetry = 227,
+  OpinionMusic = 228,
+  OpinionDance = 229,
+  Defeated = 230,
+  FavoritePossession = 231,
+  PreserveBody = 232,
+  Murdered = 233,
+  HistEventCollection = 234,
+  ViewOwnDisplay = 235,
+  ViewDisplay = 236,
+  AcquireArtifact = 237,
+  DenySanctuary = 238,
+  CaughtSneaking = 239,
+  GaveArtifact = 240,
+  SawDeadBody = 241,
+  Expelled = 242,
+  RelativeExpelled = 243,
+  PromisedVampireImmortality = 244,
+  PromisedNecroImmortality = 245,
+  SiteLecture = 246,
+  SitePerformance = 247,
+  AcceptedBribe = 248,
+  EmbezzledFunds = 249,
+  CutOfCorruptFunds = 250,
+  Abducted = 251,
+  FromAfar = 252,
+  AcceptedTemplePetition = 253,
+  EstablishedTemple = 254,
+  RejectedTemplePetition = 255,
+  IgnoredTemplePetition = 256,
+  AbandonedTemplePetition = 257,
+  DeferredToSuperior = 258,
+  AcceptedGuildhallPetition = 259,
+  EstablishedGuildhallPetition = 260,
+  RejectedGuildhallPetition = 261,
+  IgnoredGuildhallPetition = 262,
+  AbandonedGuildhallPetition = 263,
+  InfiltrationMission = 264,
+  BreakUp = 265,
+  Divorce = 266,
+  Unk266 = 267,
+  Unk267 = 268,
+  Unk268 = 269,
+  Unk269 = 270,
+  Unk270 = 271,
+  IntellectualDiscussion = 272,
+  SharePersonalInsight = 273,
+  ShareOthersPersonalInsight = 274,
+  DiscussProblems = 275,
+  DiscussOthersProblems = 276,
+  PerformedRiteDedicatedTemple = 277,
+  PerformedRiteImproperlyDedicatedTemple = 278,
+  PerformedRiteUndedicatedTemple = 279,
+  PrayedDedicatedTemple = 280,
 }
 
 ---@class unit_thought_type_attr
 ---@field caption string
 ---@field xml_caption string
 
----@class unit_thought_type_attrs
----@field Conflict unit_thought_type_attr
----@field Trauma unit_thought_type_attr
----@field WitnessDeath unit_thought_type_attr
----@field UnexpectedDeath unit_thought_type_attr
----@field Death unit_thought_type_attr
----@field Kill unit_thought_type_attr
----@field LoveSeparated unit_thought_type_attr
----@field LoveReunited unit_thought_type_attr
----@field JoinConflict unit_thought_type_attr
----@field MakeMasterwork unit_thought_type_attr
----@field MadeArtifact unit_thought_type_attr
----@field MasterSkill unit_thought_type_attr
----@field NewRomance unit_thought_type_attr
----@field BecomeParent unit_thought_type_attr
----@field NearConflict unit_thought_type_attr
----@field CancelAgreement unit_thought_type_attr
----@field JoinTravel unit_thought_type_attr
----@field SiteControlled unit_thought_type_attr
----@field TributeCancel unit_thought_type_attr
----@field Incident unit_thought_type_attr
----@field HearRumor unit_thought_type_attr
----@field MilitaryRemoved unit_thought_type_attr
----@field StrangerWeapon unit_thought_type_attr
----@field StrangerSneaking unit_thought_type_attr
----@field SawDrinkBlood unit_thought_type_attr
----@field Complained unit_thought_type_attr
----@field ReceivedComplaint unit_thought_type_attr
----@field AdmireBuilding unit_thought_type_attr
----@field AdmireOwnBuilding unit_thought_type_attr
----@field AdmireArrangedBuilding unit_thought_type_attr
----@field AdmireOwnArrangedBuilding unit_thought_type_attr
----@field LostPet unit_thought_type_attr
----@field ThrownStuff unit_thought_type_attr
----@field JailReleased unit_thought_type_attr
----@field Miscarriage unit_thought_type_attr
----@field SpouseMiscarriage unit_thought_type_attr
----@field OldClothing unit_thought_type_attr
----@field TatteredClothing unit_thought_type_attr
----@field RottedClothing unit_thought_type_attr
----@field GhostNightmare unit_thought_type_attr
----@field GhostHaunt unit_thought_type_attr
----@field Spar unit_thought_type_attr
----@field UnableComplain unit_thought_type_attr
----@field LongPatrol unit_thought_type_attr
----@field SunNausea unit_thought_type_attr
----@field SunIrritated unit_thought_type_attr
----@field Drowsy unit_thought_type_attr
----@field VeryDrowsy unit_thought_type_attr
----@field Thirsty unit_thought_type_attr
----@field Dehydrated unit_thought_type_attr
----@field Hungry unit_thought_type_attr
----@field Starving unit_thought_type_attr
----@field MajorInjuries unit_thought_type_attr
----@field MinorInjuries unit_thought_type_attr
----@field SleepNoise unit_thought_type_attr
----@field Rest unit_thought_type_attr
----@field FreakishWeather unit_thought_type_attr
----@field Rain unit_thought_type_attr
----@field SnowStorm unit_thought_type_attr
----@field Miasma unit_thought_type_attr
----@field Smoke unit_thought_type_attr
----@field Waterfall unit_thought_type_attr
----@field Dust unit_thought_type_attr
----@field Demands unit_thought_type_attr
----@field ImproperPunishment unit_thought_type_attr
----@field PunishmentReduced unit_thought_type_attr
----@field Elected unit_thought_type_attr
----@field Reelected unit_thought_type_attr
----@field RequestApproved unit_thought_type_attr
----@field RequestIgnored unit_thought_type_attr
----@field NoPunishment unit_thought_type_attr
----@field PunishmentDelayed unit_thought_type_attr
----@field DelayedPunishment unit_thought_type_attr
----@field ScarceCageChain unit_thought_type_attr
----@field MandateIgnored unit_thought_type_attr
----@field MandateDeadlineMissed unit_thought_type_attr
----@field LackWork unit_thought_type_attr
----@field SmashedBuilding unit_thought_type_attr
----@field ToppledStuff unit_thought_type_attr
----@field NoblePromotion unit_thought_type_attr
----@field BecomeNoble unit_thought_type_attr
----@field Cavein unit_thought_type_attr
----@field MandateDeadlineMet unit_thought_type_attr
----@field Uncovered unit_thought_type_attr
----@field NoShirt unit_thought_type_attr
----@field NoShoes unit_thought_type_attr
----@field EatPet unit_thought_type_attr
----@field EatLikedCreature unit_thought_type_attr
----@field EatVermin unit_thought_type_attr
----@field FistFight unit_thought_type_attr
----@field GaveBeating unit_thought_type_attr
----@field GotBeaten unit_thought_type_attr
----@field GaveHammering unit_thought_type_attr
----@field GotHammered unit_thought_type_attr
----@field NoHammer unit_thought_type_attr
----@field SameFood unit_thought_type_attr
----@field AteRotten unit_thought_type_attr
----@field GoodMeal unit_thought_type_attr
----@field GoodDrink unit_thought_type_attr
----@field MoreChests unit_thought_type_attr
----@field MoreCabinets unit_thought_type_attr
----@field MoreWeaponRacks unit_thought_type_attr
----@field MoreArmorStands unit_thought_type_attr
----@field RoomPretension unit_thought_type_attr
----@field LackTables unit_thought_type_attr
----@field CrowdedTables unit_thought_type_attr
----@field DiningQuality unit_thought_type_attr
----@field NoDining unit_thought_type_attr
----@field LackChairs unit_thought_type_attr
----@field TrainingBond unit_thought_type_attr
----@field Rescued unit_thought_type_attr
----@field RescuedOther unit_thought_type_attr
----@field SatisfiedAtWork unit_thought_type_attr
----@field TaxedLostProperty unit_thought_type_attr
----@field Taxed unit_thought_type_attr
----@field LackProtection unit_thought_type_attr
----@field TaxRoomUnreachable unit_thought_type_attr
----@field TaxRoomMisinformed unit_thought_type_attr
----@field PleasedNoble unit_thought_type_attr
----@field TaxCollectionSmooth unit_thought_type_attr
----@field DisappointedNoble unit_thought_type_attr
----@field TaxCollectionRough unit_thought_type_attr
----@field MadeFriend unit_thought_type_attr
----@field FormedGrudge unit_thought_type_attr
----@field AnnoyedVermin unit_thought_type_attr
----@field NearVermin unit_thought_type_attr
----@field PesteredVermin unit_thought_type_attr
----@field AcquiredItem unit_thought_type_attr
----@field AdoptedPet unit_thought_type_attr
----@field Jailed unit_thought_type_attr
----@field Bath unit_thought_type_attr
----@field SoapyBath unit_thought_type_attr
----@field SparringAccident unit_thought_type_attr
----@field Attacked unit_thought_type_attr
----@field AttackedByDead unit_thought_type_attr
----@field SameBooze unit_thought_type_attr
----@field DrinkBlood unit_thought_type_attr
----@field DrinkSlime unit_thought_type_attr
----@field DrinkVomit unit_thought_type_attr
----@field DrinkGoo unit_thought_type_attr
----@field DrinkIchor unit_thought_type_attr
----@field DrinkPus unit_thought_type_attr
----@field NastyWater unit_thought_type_attr
----@field DrankSpoiled unit_thought_type_attr
----@field LackWell unit_thought_type_attr
----@field NearCaged unit_thought_type_attr
----@field NearCagedHated unit_thought_type_attr
----@field LackBedroom unit_thought_type_attr
----@field BedroomQuality unit_thought_type_attr
----@field SleptFloor unit_thought_type_attr
----@field SleptMud unit_thought_type_attr
----@field SleptGrass unit_thought_type_attr
----@field SleptRoughFloor unit_thought_type_attr
----@field SleptRocks unit_thought_type_attr
----@field SleptIce unit_thought_type_attr
----@field SleptDirt unit_thought_type_attr
----@field SleptDriftwood unit_thought_type_attr
----@field ArtDefacement unit_thought_type_attr
----@field Evicted unit_thought_type_attr
----@field GaveBirth unit_thought_type_attr
----@field SpouseGaveBirth unit_thought_type_attr
----@field ReceivedWater unit_thought_type_attr
----@field GaveWater unit_thought_type_attr
----@field ReceivedFood unit_thought_type_attr
----@field GaveFood unit_thought_type_attr
----@field Talked unit_thought_type_attr
----@field OfficeQuality unit_thought_type_attr
----@field MeetingInBedroom unit_thought_type_attr
----@field MeetingInDiningRoom unit_thought_type_attr
----@field NoRooms unit_thought_type_attr
----@field TombQuality unit_thought_type_attr
----@field TombLack unit_thought_type_attr
----@field TalkToNoble unit_thought_type_attr
----@field InteractPet unit_thought_type_attr
----@field ConvictionCorpse unit_thought_type_attr
----@field ConvictionAnimal unit_thought_type_attr
----@field ConvictionVictim unit_thought_type_attr
----@field ConvictionJusticeSelf unit_thought_type_attr
----@field ConvictionJusticeFamily unit_thought_type_attr
----@field Decay unit_thought_type_attr
----@field NeedsUnfulfilled unit_thought_type_attr
----@field Prayer unit_thought_type_attr
----@field DrinkWithoutCup unit_thought_type_attr
----@field ResearchBreakthrough unit_thought_type_attr
----@field ResearchStalled unit_thought_type_attr
----@field PonderTopic unit_thought_type_attr
----@field DiscussTopic unit_thought_type_attr
----@field Syndrome unit_thought_type_attr
----@field Perform unit_thought_type_attr
----@field WatchPerform unit_thought_type_attr
----@field RemoveTroupe unit_thought_type_attr
----@field LearnTopic unit_thought_type_attr
----@field LearnSkill unit_thought_type_attr
----@field LearnBook unit_thought_type_attr
----@field LearnInteraction unit_thought_type_attr
----@field LearnPoetry unit_thought_type_attr
----@field LearnMusic unit_thought_type_attr
----@field LearnDance unit_thought_type_attr
----@field TeachTopic unit_thought_type_attr
----@field TeachSkill unit_thought_type_attr
----@field ReadBook unit_thought_type_attr
----@field WriteBook unit_thought_type_attr
----@field BecomeResident unit_thought_type_attr
----@field BecomeCitizen unit_thought_type_attr
----@field DenyResident unit_thought_type_attr
----@field DenyCitizen unit_thought_type_attr
----@field LeaveTroupe unit_thought_type_attr
----@field MakeBelieve unit_thought_type_attr
----@field PlayToy unit_thought_type_attr
----@field DreamAbout unit_thought_type_attr
----@field Dream unit_thought_type_attr
----@field Nightmare unit_thought_type_attr
----@field Argument unit_thought_type_attr
----@field CombatDrills unit_thought_type_attr
----@field ArcheryPractice unit_thought_type_attr
----@field ImproveSkill unit_thought_type_attr
----@field WearItem unit_thought_type_attr
----@field RealizeValue unit_thought_type_attr
----@field OpinionStoryteller unit_thought_type_attr
----@field OpinionRecitation unit_thought_type_attr
----@field OpinionInstrumentSimulation unit_thought_type_attr
----@field OpinionInstrumentPlayer unit_thought_type_attr
----@field OpinionSinger unit_thought_type_attr
----@field OpinionChanter unit_thought_type_attr
----@field OpinionDancer unit_thought_type_attr
----@field OpinionStory unit_thought_type_attr
----@field OpinionPoetry unit_thought_type_attr
----@field OpinionMusic unit_thought_type_attr
----@field OpinionDance unit_thought_type_attr
----@field Defeated unit_thought_type_attr
----@field FavoritePossession unit_thought_type_attr
----@field PreserveBody unit_thought_type_attr
----@field Murdered unit_thought_type_attr
----@field HistEventCollection unit_thought_type_attr
----@field ViewOwnDisplay unit_thought_type_attr
----@field ViewDisplay unit_thought_type_attr
----@field AcquireArtifact unit_thought_type_attr
----@field DenySanctuary unit_thought_type_attr
----@field CaughtSneaking unit_thought_type_attr
----@field GaveArtifact unit_thought_type_attr
----@field SawDeadBody unit_thought_type_attr
----@field Expelled unit_thought_type_attr
----@field RelativeExpelled unit_thought_type_attr
----@field PromisedVampireImmortality unit_thought_type_attr
----@field PromisedNecroImmortality unit_thought_type_attr
----@field SiteLecture unit_thought_type_attr
----@field SitePerformance unit_thought_type_attr
----@field AcceptedBribe unit_thought_type_attr
----@field EmbezzledFunds unit_thought_type_attr
----@field CutOfCorruptFunds unit_thought_type_attr
----@field Abducted unit_thought_type_attr
----@field FromAfar unit_thought_type_attr
----@field AcceptedTemplePetition unit_thought_type_attr
----@field EstablishedTemple unit_thought_type_attr
----@field RejectedTemplePetition unit_thought_type_attr
----@field IgnoredTemplePetition unit_thought_type_attr
----@field AbandonedTemplePetition unit_thought_type_attr
----@field DeferredToSuperior unit_thought_type_attr
----@field AcceptedGuildhallPetition unit_thought_type_attr
----@field EstablishedGuildhallPetition unit_thought_type_attr
----@field RejectedGuildhallPetition unit_thought_type_attr
----@field IgnoredGuildhallPetition unit_thought_type_attr
----@field AbandonedGuildhallPetition unit_thought_type_attr
----@field InfiltrationMission unit_thought_type_attr
----@field BreakUp unit_thought_type_attr
----@field Divorce unit_thought_type_attr
----@field Unk266 unit_thought_type_attr
----@field Unk267 unit_thought_type_attr
----@field Unk268 unit_thought_type_attr
----@field Unk269 unit_thought_type_attr
----@field Unk270 unit_thought_type_attr
----@field IntellectualDiscussion unit_thought_type_attr
----@field SharePersonalInsight unit_thought_type_attr
----@field ShareOthersPersonalInsight unit_thought_type_attr
----@field DiscussProblems unit_thought_type_attr
----@field DiscussOthersProblems unit_thought_type_attr
----@field PerformedRiteDedicatedTemple unit_thought_type_attr
----@field PerformedRiteImproperlyDedicatedTemple unit_thought_type_attr
----@field PerformedRiteUndedicatedTemple unit_thought_type_attr
----@field PrayedDedicatedTemple unit_thought_type_attr
+---@type { [string|integer]: unit_thought_type_attr }
 df.unit_thought_type.attrs = {}
 

@@ -65,63 +65,14 @@ df.d_init_flags4 = {
   WALKING_SPREADS_SPATTER_DWF = 17,
   WALKING_SPREADS_SPATTER_ADV = 18,
   KEYBOARD_CURSOR = 19,
+  MULTITHREADING = 20,
 }
 
 ---@enum d_init_autosave
 df.d_init_autosave = {
   NONE = -1,
-  SEASONAL = 0,
-  YEARLY = 1,
-  SEMIANNUAL = 2,
+  SEASONAL = 1,
+  YEARLY = 2,
+  SEMIANNUAL = 3,
 }
-
----@class d_init
----@field flags1 df-flagarray
----@field nickname any[]
----@field sky_tile integer
----@field sky_color integer[]
----@field chasm_tile integer
----@field pillar_tile integer
----@field track_tiles integer[]
----@field track_tile_invert integer[]
----@field track_ramp_tiles integer[]
----@field track_ramp_invert integer[]
----@field tree_tiles integer[]
----@field chasm_color integer[]
----@field wound_color d_init_wound_color
----@field show_embark_tunnel d_init_tunnel
----@field number_of_lower_elevations_shown integer
----@field flags3 df-flagarray
----@field population_cap integer
----@field strict_population_cap integer
----@field baby_cap_absolute integer
----@field baby_cap_percent integer
----@field visitor_cap integer
----@field specific_seed_cap integer
----@field fortress_seed_cap integer
----@field path_cost integer[]
----@field embark_rect integer[]
----@field store_dist d_init_store_dist
----@field graze_coefficient integer
----@field maximum_embark_dim integer
----@field cull_dead_units_at integer
----@field flags4 df-flagarray
----@field post_prepare_embark_confirmation d_init_embark_confirm
----@field autosave d_init_autosave
----@field announcements announcements
-
----@class d_init_wound_color
----@field none integer[]
----@field minor integer[]
----@field inhibited integer[]
----@field function_loss integer[]
----@field broken integer[]
----@field missing integer[]
-
----@class d_init_store_dist
----@field item_decrease integer
----@field seed_combine integer
----@field bucket_combine integer
----@field barrel_combine integer
----@field bin_combine integer
 

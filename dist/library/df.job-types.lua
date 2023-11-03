@@ -25,248 +25,248 @@ df.job_type_class = {
 ---@enum job_type
 df.job_type = {
   NONE = -1, --unused
-  CarveFortification = 0,
-  SmoothWall = 1,
-  SmoothFloor = 2,
-  DetailWall = 3,
-  DetailFloor = 4,
-  Dig = 5,
-  CarveUpwardStaircase = 6,
-  CarveDownwardStaircase = 7,
-  CarveUpDownStaircase = 8,
-  CarveRamp = 9,
-  DigChannel = 10,
-  FellTree = 11,
-  GatherPlants = 12,
-  RemoveConstruction = 13,
-  CollectWebs = 14,
-  BringItemToDepot = 15,
-  BringItemToShop = 16,
-  Eat = 17,
-  GetProvisions = 18,
-  Drink = 19,
-  Drink2 = 20,
-  FillWaterskin = 21,
-  FillWaterskin2 = 22,
-  Sleep = 23,
-  CollectSand = 24,
-  Fish = 25,
-  Hunt = 26,
-  HuntVermin = 27,
-  Kidnap = 28,
-  BeatCriminal = 29,
-  StartingFistFight = 30,
-  CollectTaxes = 31,
-  GuardTaxCollector = 32,
-  CatchLiveLandAnimal = 33,
-  CatchLiveFish = 34,
-  ReturnKill = 35,
-  StoreOwnedItem = 36,
-  PlaceItemInTomb = 37,
-  StoreItemInStockpile = 38,
-  StoreItemInBag = 39,
-  StoreItemInLocation = 40,
-  StoreWeapon = 41,
-  StoreArmor = 42,
-  StoreItemInBarrel = 43,
-  StoreItemInBin = 44,
-  SeekArtifact = 45,
-  SeekInfant = 46,
-  GoShopping = 47,
-  GoShopping2 = 48,
-  Clean = 49,
-  Rest = 50,
-  PickupEquipment = 51,
-  DumpItem = 52,
-  StrangeMoodCrafter = 53,
-  StrangeMoodJeweller = 54,
-  StrangeMoodForge = 55,
-  StrangeMoodMagmaForge = 56,
-  StrangeMoodBrooding = 57,
-  StrangeMoodFell = 58,
-  StrangeMoodCarpenter = 59,
-  StrangeMoodMason = 60,
-  StrangeMoodBowyer = 61,
-  StrangeMoodTanner = 62,
-  StrangeMoodWeaver = 63,
-  StrangeMoodGlassmaker = 64,
-  StrangeMoodMechanics = 65,
-  ConstructBuilding = 66,
-  ConstructDoor = 67,
-  ConstructFloodgate = 68,
-  ConstructBed = 69,
-  ConstructThrone = 70,
-  ConstructCoffin = 71,
-  ConstructTable = 72,
-  ConstructChest = 73,
-  ConstructBag = 74,
-  ConstructBin = 75,
-  ConstructArmorStand = 76,
-  ConstructWeaponRack = 77,
-  ConstructCabinet = 78,
-  ConstructStatue = 79,
-  ConstructBlocks = 80,
-  MakeRawGlass = 81,
-  MakeCrafts = 82,
-  MintCoins = 83,
-  CutGems = 84,
-  CutGlass = 85,
-  EncrustWithGems = 86,
-  EncrustWithGlass = 87,
-  DestroyBuilding = 88,
-  SmeltOre = 89,
-  MeltMetalObject = 90,
-  ExtractMetalStrands = 91,
-  PlantSeeds = 92,
-  HarvestPlants = 93,
-  TrainHuntingAnimal = 94,
-  TrainWarAnimal = 95,
-  MakeWeapon = 96,
-  ForgeAnvil = 97,
-  ConstructCatapultParts = 98,
-  ConstructBallistaParts = 99,
-  MakeArmor = 100,
-  MakeHelm = 101,
-  MakePants = 102,
-  StudWith = 103,
-  ButcherAnimal = 104,
-  PrepareRawFish = 105,
-  MillPlants = 106,
-  BaitTrap = 107,
-  MilkCreature = 108,
-  MakeCheese = 109,
-  ProcessPlants = 110,
-  PolishStones = 111,
-  ProcessPlantsVial = 112,
-  ProcessPlantsBarrel = 113,
-  PrepareMeal = 114,
-  WeaveCloth = 115,
-  MakeGloves = 116,
-  MakeShoes = 117,
-  MakeShield = 118,
-  MakeCage = 119,
-  MakeChain = 120,
-  MakeFlask = 121,
-  MakeGoblet = 122,
-  MakeToy = 123,
-  MakeAnimalTrap = 124,
-  MakeBarrel = 125,
-  MakeBucket = 126,
-  MakeWindow = 127,
-  MakeTotem = 128,
-  MakeAmmo = 129,
-  DecorateWith = 130,
-  MakeBackpack = 131,
-  MakeQuiver = 132,
-  MakeBallistaArrowHead = 133,
-  AssembleSiegeAmmo = 134,
-  LoadCatapult = 135,
-  LoadBallista = 136,
-  FireCatapult = 137,
-  FireBallista = 138,
-  ConstructMechanisms = 139,
-  MakeTrapComponent = 140,
-  LoadCageTrap = 141,
-  LoadStoneTrap = 142,
-  LoadWeaponTrap = 143,
-  CleanTrap = 144,
-  EncrustWithStones = 145,
-  LinkBuildingToTrigger = 146,
-  PullLever = 147,
-  _unk_0x94 = 148,
-  ExtractFromPlants = 149,
-  ExtractFromRawFish = 150,
-  ExtractFromLandAnimal = 151,
-  TameVermin = 152,
-  TameAnimal = 153,
-  ChainAnimal = 154,
-  UnchainAnimal = 155,
-  UnchainPet = 156,
-  ReleaseLargeCreature = 157,
-  ReleasePet = 158,
-  ReleaseSmallCreature = 159,
-  HandleSmallCreature = 160,
-  HandleLargeCreature = 161,
-  CageLargeCreature = 162,
-  CageSmallCreature = 163,
-  RecoverWounded = 164,
-  DiagnosePatient = 165,
-  ImmobilizeBreak = 166,
-  DressWound = 167,
-  CleanPatient = 168,
-  Surgery = 169,
-  Suture = 170,
-  SetBone = 171,
-  PlaceInTraction = 172,
-  DrainAquarium = 173,
-  FillAquarium = 174,
-  FillPond = 175,
-  GiveWater = 176,
-  GiveFood = 177,
-  GiveWater2 = 178, --for pets
-  GiveFood2 = 179, --for pets
-  RecoverPet = 180,
-  PitLargeAnimal = 181,
-  PitSmallAnimal = 182,
-  SlaughterAnimal = 183,
-  MakeCharcoal = 184,
-  MakeAsh = 185,
-  MakeLye = 186,
-  MakePotashFromLye = 187,
-  FertilizeField = 188,
-  MakePotashFromAsh = 189,
-  DyeThread = 190,
-  DyeCloth = 191,
-  SewImage = 192,
-  MakePipeSection = 193,
-  OperatePump = 194,
-  ManageWorkOrders = 195,
-  UpdateStockpileRecords = 196,
-  TradeAtDepot = 197,
-  ConstructHatchCover = 198,
-  ConstructGrate = 199,
-  RemoveStairs = 200,
-  ConstructQuern = 201,
-  ConstructMillstone = 202,
-  ConstructSplint = 203,
-  ConstructCrutch = 204,
-  ConstructTractionBench = 205,
-  CleanSelf = 206,
-  BringCrutch = 207,
-  ApplyCast = 208,
-  CustomReaction = 209,
-  ConstructSlab = 210,
-  EngraveSlab = 211,
-  ShearCreature = 212,
-  SpinThread = 213,
-  PenLargeAnimal = 214,
-  PenSmallAnimal = 215,
-  MakeTool = 216,
-  CollectClay = 217,
-  InstallColonyInHive = 218,
-  CollectHiveProducts = 219,
-  CauseTrouble = 220,
-  DrinkBlood = 221, --??
-  ReportCrime = 222,
-  ExecuteCriminal = 223,
-  TrainAnimal = 224,
-  CarveTrack = 225,
-  PushTrackVehicle = 226,
-  PlaceTrackVehicle = 227,
-  StoreItemInVehicle = 228,
-  GeldAnimal = 229,
-  MakeFigurine = 230,
-  MakeAmulet = 231,
-  MakeScepter = 232,
-  MakeCrown = 233,
-  MakeRing = 234,
-  MakeEarring = 235,
-  MakeBracelet = 236,
-  MakeGem = 237,
-  PutItemOnDisplay = 238,
-  unk_fake_no_job = 239,
-  InterrogateSubject = 240,
-  unk_fake_no_activity = 241,
+  CarveFortification = 1,
+  SmoothWall = 2,
+  SmoothFloor = 3,
+  DetailWall = 4,
+  DetailFloor = 5,
+  Dig = 6,
+  CarveUpwardStaircase = 7,
+  CarveDownwardStaircase = 8,
+  CarveUpDownStaircase = 9,
+  CarveRamp = 10,
+  DigChannel = 11,
+  FellTree = 12,
+  GatherPlants = 13,
+  RemoveConstruction = 14,
+  CollectWebs = 15,
+  BringItemToDepot = 16,
+  BringItemToShop = 17,
+  Eat = 18,
+  GetProvisions = 19,
+  Drink = 20,
+  Drink2 = 21,
+  FillWaterskin = 22,
+  FillWaterskin2 = 23,
+  Sleep = 24,
+  CollectSand = 25,
+  Fish = 26,
+  Hunt = 27,
+  HuntVermin = 28,
+  Kidnap = 29,
+  BeatCriminal = 30,
+  StartingFistFight = 31,
+  CollectTaxes = 32,
+  GuardTaxCollector = 33,
+  CatchLiveLandAnimal = 34,
+  CatchLiveFish = 35,
+  ReturnKill = 36,
+  StoreOwnedItem = 37,
+  PlaceItemInTomb = 38,
+  StoreItemInStockpile = 39,
+  StoreItemInBag = 40,
+  StoreItemInLocation = 41,
+  StoreWeapon = 42,
+  StoreArmor = 43,
+  StoreItemInBarrel = 44,
+  StoreItemInBin = 45,
+  SeekArtifact = 46,
+  SeekInfant = 47,
+  GoShopping = 48,
+  GoShopping2 = 49,
+  Clean = 50,
+  Rest = 51,
+  PickupEquipment = 52,
+  DumpItem = 53,
+  StrangeMoodCrafter = 54,
+  StrangeMoodJeweller = 55,
+  StrangeMoodForge = 56,
+  StrangeMoodMagmaForge = 57,
+  StrangeMoodBrooding = 58,
+  StrangeMoodFell = 59,
+  StrangeMoodCarpenter = 60,
+  StrangeMoodMason = 61,
+  StrangeMoodBowyer = 62,
+  StrangeMoodTanner = 63,
+  StrangeMoodWeaver = 64,
+  StrangeMoodGlassmaker = 65,
+  StrangeMoodMechanics = 66,
+  ConstructBuilding = 67,
+  ConstructDoor = 68,
+  ConstructFloodgate = 69,
+  ConstructBed = 70,
+  ConstructThrone = 71,
+  ConstructCoffin = 72,
+  ConstructTable = 73,
+  ConstructChest = 74,
+  ConstructBag = 75,
+  ConstructBin = 76,
+  ConstructArmorStand = 77,
+  ConstructWeaponRack = 78,
+  ConstructCabinet = 79,
+  ConstructStatue = 80,
+  ConstructBlocks = 81,
+  MakeRawGlass = 82,
+  MakeCrafts = 83,
+  MintCoins = 84,
+  CutGems = 85,
+  CutGlass = 86,
+  EncrustWithGems = 87,
+  EncrustWithGlass = 88,
+  DestroyBuilding = 89,
+  SmeltOre = 90,
+  MeltMetalObject = 91,
+  ExtractMetalStrands = 92,
+  PlantSeeds = 93,
+  HarvestPlants = 94,
+  TrainHuntingAnimal = 95,
+  TrainWarAnimal = 96,
+  MakeWeapon = 97,
+  ForgeAnvil = 98,
+  ConstructCatapultParts = 99,
+  ConstructBallistaParts = 100,
+  MakeArmor = 101,
+  MakeHelm = 102,
+  MakePants = 103,
+  StudWith = 104,
+  ButcherAnimal = 105,
+  PrepareRawFish = 106,
+  MillPlants = 107,
+  BaitTrap = 108,
+  MilkCreature = 109,
+  MakeCheese = 110,
+  ProcessPlants = 111,
+  PolishStones = 112,
+  ProcessPlantsVial = 113,
+  ProcessPlantsBarrel = 114,
+  PrepareMeal = 115,
+  WeaveCloth = 116,
+  MakeGloves = 117,
+  MakeShoes = 118,
+  MakeShield = 119,
+  MakeCage = 120,
+  MakeChain = 121,
+  MakeFlask = 122,
+  MakeGoblet = 123,
+  MakeToy = 124,
+  MakeAnimalTrap = 125,
+  MakeBarrel = 126,
+  MakeBucket = 127,
+  MakeWindow = 128,
+  MakeTotem = 129,
+  MakeAmmo = 130,
+  DecorateWith = 131,
+  MakeBackpack = 132,
+  MakeQuiver = 133,
+  MakeBallistaArrowHead = 134,
+  AssembleSiegeAmmo = 135,
+  LoadCatapult = 136,
+  LoadBallista = 137,
+  FireCatapult = 138,
+  FireBallista = 139,
+  ConstructMechanisms = 140,
+  MakeTrapComponent = 141,
+  LoadCageTrap = 142,
+  LoadStoneTrap = 143,
+  LoadWeaponTrap = 144,
+  CleanTrap = 145,
+  EncrustWithStones = 146,
+  LinkBuildingToTrigger = 147,
+  PullLever = 148,
+  _unk_0x94 = 149,
+  ExtractFromPlants = 150,
+  ExtractFromRawFish = 151,
+  ExtractFromLandAnimal = 152,
+  TameVermin = 153,
+  TameAnimal = 154,
+  ChainAnimal = 155,
+  UnchainAnimal = 156,
+  UnchainPet = 157,
+  ReleaseLargeCreature = 158,
+  ReleasePet = 159,
+  ReleaseSmallCreature = 160,
+  HandleSmallCreature = 161,
+  HandleLargeCreature = 162,
+  CageLargeCreature = 163,
+  CageSmallCreature = 164,
+  RecoverWounded = 165,
+  DiagnosePatient = 166,
+  ImmobilizeBreak = 167,
+  DressWound = 168,
+  CleanPatient = 169,
+  Surgery = 170,
+  Suture = 171,
+  SetBone = 172,
+  PlaceInTraction = 173,
+  DrainAquarium = 174,
+  FillAquarium = 175,
+  FillPond = 176,
+  GiveWater = 177,
+  GiveFood = 178,
+  GiveWater2 = 179, --for pets
+  GiveFood2 = 180, --for pets
+  RecoverPet = 181,
+  PitLargeAnimal = 182,
+  PitSmallAnimal = 183,
+  SlaughterAnimal = 184,
+  MakeCharcoal = 185,
+  MakeAsh = 186,
+  MakeLye = 187,
+  MakePotashFromLye = 188,
+  FertilizeField = 189,
+  MakePotashFromAsh = 190,
+  DyeThread = 191,
+  DyeCloth = 192,
+  SewImage = 193,
+  MakePipeSection = 194,
+  OperatePump = 195,
+  ManageWorkOrders = 196,
+  UpdateStockpileRecords = 197,
+  TradeAtDepot = 198,
+  ConstructHatchCover = 199,
+  ConstructGrate = 200,
+  RemoveStairs = 201,
+  ConstructQuern = 202,
+  ConstructMillstone = 203,
+  ConstructSplint = 204,
+  ConstructCrutch = 205,
+  ConstructTractionBench = 206,
+  CleanSelf = 207,
+  BringCrutch = 208,
+  ApplyCast = 209,
+  CustomReaction = 210,
+  ConstructSlab = 211,
+  EngraveSlab = 212,
+  ShearCreature = 213,
+  SpinThread = 214,
+  PenLargeAnimal = 215,
+  PenSmallAnimal = 216,
+  MakeTool = 217,
+  CollectClay = 218,
+  InstallColonyInHive = 219,
+  CollectHiveProducts = 220,
+  CauseTrouble = 221,
+  DrinkBlood = 222, --??
+  ReportCrime = 223,
+  ExecuteCriminal = 224,
+  TrainAnimal = 225,
+  CarveTrack = 226,
+  PushTrackVehicle = 227,
+  PlaceTrackVehicle = 228,
+  StoreItemInVehicle = 229,
+  GeldAnimal = 230,
+  MakeFigurine = 231,
+  MakeAmulet = 232,
+  MakeScepter = 233,
+  MakeCrown = 234,
+  MakeRing = 235,
+  MakeEarring = 236,
+  MakeBracelet = 237,
+  MakeGem = 238,
+  PutItemOnDisplay = 239,
+  unk_fake_no_job = 240,
+  InterrogateSubject = 241,
+  unk_fake_no_activity = 242,
 }
 
 ---@class job_type_attr
@@ -283,248 +283,6 @@ df.job_type = {
 ---@field is_designation bool
 ---@field tag_op_history string
 
----@class job_type_attrs
----@field CarveFortification job_type_attr
----@field SmoothWall job_type_attr
----@field SmoothFloor job_type_attr
----@field DetailWall job_type_attr
----@field DetailFloor job_type_attr
----@field Dig job_type_attr
----@field CarveUpwardStaircase job_type_attr
----@field CarveDownwardStaircase job_type_attr
----@field CarveUpDownStaircase job_type_attr
----@field CarveRamp job_type_attr
----@field DigChannel job_type_attr
----@field FellTree job_type_attr
----@field GatherPlants job_type_attr
----@field RemoveConstruction job_type_attr
----@field CollectWebs job_type_attr
----@field BringItemToDepot job_type_attr
----@field BringItemToShop job_type_attr
----@field Eat job_type_attr
----@field GetProvisions job_type_attr
----@field Drink job_type_attr
----@field Drink2 job_type_attr
----@field FillWaterskin job_type_attr
----@field FillWaterskin2 job_type_attr
----@field Sleep job_type_attr
----@field CollectSand job_type_attr
----@field Fish job_type_attr
----@field Hunt job_type_attr
----@field HuntVermin job_type_attr
----@field Kidnap job_type_attr
----@field BeatCriminal job_type_attr
----@field StartingFistFight job_type_attr
----@field CollectTaxes job_type_attr
----@field GuardTaxCollector job_type_attr
----@field CatchLiveLandAnimal job_type_attr
----@field CatchLiveFish job_type_attr
----@field ReturnKill job_type_attr
----@field StoreOwnedItem job_type_attr
----@field PlaceItemInTomb job_type_attr
----@field StoreItemInStockpile job_type_attr
----@field StoreItemInBag job_type_attr
----@field StoreItemInLocation job_type_attr
----@field StoreWeapon job_type_attr
----@field StoreArmor job_type_attr
----@field StoreItemInBarrel job_type_attr
----@field StoreItemInBin job_type_attr
----@field SeekArtifact job_type_attr
----@field SeekInfant job_type_attr
----@field GoShopping job_type_attr
----@field GoShopping2 job_type_attr
----@field Clean job_type_attr
----@field Rest job_type_attr
----@field PickupEquipment job_type_attr
----@field DumpItem job_type_attr
----@field StrangeMoodCrafter job_type_attr
----@field StrangeMoodJeweller job_type_attr
----@field StrangeMoodForge job_type_attr
----@field StrangeMoodMagmaForge job_type_attr
----@field StrangeMoodBrooding job_type_attr
----@field StrangeMoodFell job_type_attr
----@field StrangeMoodCarpenter job_type_attr
----@field StrangeMoodMason job_type_attr
----@field StrangeMoodBowyer job_type_attr
----@field StrangeMoodTanner job_type_attr
----@field StrangeMoodWeaver job_type_attr
----@field StrangeMoodGlassmaker job_type_attr
----@field StrangeMoodMechanics job_type_attr
----@field ConstructBuilding job_type_attr
----@field ConstructDoor job_type_attr
----@field ConstructFloodgate job_type_attr
----@field ConstructBed job_type_attr
----@field ConstructThrone job_type_attr
----@field ConstructCoffin job_type_attr
----@field ConstructTable job_type_attr
----@field ConstructChest job_type_attr
----@field ConstructBag job_type_attr
----@field ConstructBin job_type_attr
----@field ConstructArmorStand job_type_attr
----@field ConstructWeaponRack job_type_attr
----@field ConstructCabinet job_type_attr
----@field ConstructStatue job_type_attr
----@field ConstructBlocks job_type_attr
----@field MakeRawGlass job_type_attr
----@field MakeCrafts job_type_attr
----@field MintCoins job_type_attr
----@field CutGems job_type_attr
----@field CutGlass job_type_attr
----@field EncrustWithGems job_type_attr
----@field EncrustWithGlass job_type_attr
----@field DestroyBuilding job_type_attr
----@field SmeltOre job_type_attr
----@field MeltMetalObject job_type_attr
----@field ExtractMetalStrands job_type_attr
----@field PlantSeeds job_type_attr
----@field HarvestPlants job_type_attr
----@field TrainHuntingAnimal job_type_attr
----@field TrainWarAnimal job_type_attr
----@field MakeWeapon job_type_attr
----@field ForgeAnvil job_type_attr
----@field ConstructCatapultParts job_type_attr
----@field ConstructBallistaParts job_type_attr
----@field MakeArmor job_type_attr
----@field MakeHelm job_type_attr
----@field MakePants job_type_attr
----@field StudWith job_type_attr
----@field ButcherAnimal job_type_attr
----@field PrepareRawFish job_type_attr
----@field MillPlants job_type_attr
----@field BaitTrap job_type_attr
----@field MilkCreature job_type_attr
----@field MakeCheese job_type_attr
----@field ProcessPlants job_type_attr
----@field PolishStones job_type_attr
----@field ProcessPlantsVial job_type_attr
----@field ProcessPlantsBarrel job_type_attr
----@field PrepareMeal job_type_attr
----@field WeaveCloth job_type_attr
----@field MakeGloves job_type_attr
----@field MakeShoes job_type_attr
----@field MakeShield job_type_attr
----@field MakeCage job_type_attr
----@field MakeChain job_type_attr
----@field MakeFlask job_type_attr
----@field MakeGoblet job_type_attr
----@field MakeToy job_type_attr
----@field MakeAnimalTrap job_type_attr
----@field MakeBarrel job_type_attr
----@field MakeBucket job_type_attr
----@field MakeWindow job_type_attr
----@field MakeTotem job_type_attr
----@field MakeAmmo job_type_attr
----@field DecorateWith job_type_attr
----@field MakeBackpack job_type_attr
----@field MakeQuiver job_type_attr
----@field MakeBallistaArrowHead job_type_attr
----@field AssembleSiegeAmmo job_type_attr
----@field LoadCatapult job_type_attr
----@field LoadBallista job_type_attr
----@field FireCatapult job_type_attr
----@field FireBallista job_type_attr
----@field ConstructMechanisms job_type_attr
----@field MakeTrapComponent job_type_attr
----@field LoadCageTrap job_type_attr
----@field LoadStoneTrap job_type_attr
----@field LoadWeaponTrap job_type_attr
----@field CleanTrap job_type_attr
----@field EncrustWithStones job_type_attr
----@field LinkBuildingToTrigger job_type_attr
----@field PullLever job_type_attr
----@field _unk_0x94 job_type_attr
----@field ExtractFromPlants job_type_attr
----@field ExtractFromRawFish job_type_attr
----@field ExtractFromLandAnimal job_type_attr
----@field TameVermin job_type_attr
----@field TameAnimal job_type_attr
----@field ChainAnimal job_type_attr
----@field UnchainAnimal job_type_attr
----@field UnchainPet job_type_attr
----@field ReleaseLargeCreature job_type_attr
----@field ReleasePet job_type_attr
----@field ReleaseSmallCreature job_type_attr
----@field HandleSmallCreature job_type_attr
----@field HandleLargeCreature job_type_attr
----@field CageLargeCreature job_type_attr
----@field CageSmallCreature job_type_attr
----@field RecoverWounded job_type_attr
----@field DiagnosePatient job_type_attr
----@field ImmobilizeBreak job_type_attr
----@field DressWound job_type_attr
----@field CleanPatient job_type_attr
----@field Surgery job_type_attr
----@field Suture job_type_attr
----@field SetBone job_type_attr
----@field PlaceInTraction job_type_attr
----@field DrainAquarium job_type_attr
----@field FillAquarium job_type_attr
----@field FillPond job_type_attr
----@field GiveWater job_type_attr
----@field GiveFood job_type_attr
----@field GiveWater2 job_type_attr
----@field GiveFood2 job_type_attr
----@field RecoverPet job_type_attr
----@field PitLargeAnimal job_type_attr
----@field PitSmallAnimal job_type_attr
----@field SlaughterAnimal job_type_attr
----@field MakeCharcoal job_type_attr
----@field MakeAsh job_type_attr
----@field MakeLye job_type_attr
----@field MakePotashFromLye job_type_attr
----@field FertilizeField job_type_attr
----@field MakePotashFromAsh job_type_attr
----@field DyeThread job_type_attr
----@field DyeCloth job_type_attr
----@field SewImage job_type_attr
----@field MakePipeSection job_type_attr
----@field OperatePump job_type_attr
----@field ManageWorkOrders job_type_attr
----@field UpdateStockpileRecords job_type_attr
----@field TradeAtDepot job_type_attr
----@field ConstructHatchCover job_type_attr
----@field ConstructGrate job_type_attr
----@field RemoveStairs job_type_attr
----@field ConstructQuern job_type_attr
----@field ConstructMillstone job_type_attr
----@field ConstructSplint job_type_attr
----@field ConstructCrutch job_type_attr
----@field ConstructTractionBench job_type_attr
----@field CleanSelf job_type_attr
----@field BringCrutch job_type_attr
----@field ApplyCast job_type_attr
----@field CustomReaction job_type_attr
----@field ConstructSlab job_type_attr
----@field EngraveSlab job_type_attr
----@field ShearCreature job_type_attr
----@field SpinThread job_type_attr
----@field PenLargeAnimal job_type_attr
----@field PenSmallAnimal job_type_attr
----@field MakeTool job_type_attr
----@field CollectClay job_type_attr
----@field InstallColonyInHive job_type_attr
----@field CollectHiveProducts job_type_attr
----@field CauseTrouble job_type_attr
----@field DrinkBlood job_type_attr
----@field ReportCrime job_type_attr
----@field ExecuteCriminal job_type_attr
----@field TrainAnimal job_type_attr
----@field CarveTrack job_type_attr
----@field PushTrackVehicle job_type_attr
----@field PlaceTrackVehicle job_type_attr
----@field StoreItemInVehicle job_type_attr
----@field GeldAnimal job_type_attr
----@field MakeFigurine job_type_attr
----@field MakeAmulet job_type_attr
----@field MakeScepter job_type_attr
----@field MakeCrown job_type_attr
----@field MakeRing job_type_attr
----@field MakeEarring job_type_attr
----@field MakeBracelet job_type_attr
----@field MakeGem job_type_attr
----@field PutItemOnDisplay job_type_attr
----@field unk_fake_no_job job_type_attr
----@field InterrogateSubject job_type_attr
----@field unk_fake_no_activity job_type_attr
+---@type { [string|integer]: job_type_attr }
 df.job_type.attrs = {}
 

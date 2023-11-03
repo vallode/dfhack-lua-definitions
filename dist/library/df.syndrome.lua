@@ -54,6 +54,65 @@ df.creature_interaction_effect_type = {
   REDUCE_FEVER = 48,
 }
 
+---@enum creature_interaction_effect_flags
+df.creature_interaction_effect_flags = {
+  SIZE_DELAYS = 0,
+  SIZE_DILUTES = 1,
+  VASCULAR_ONLY = 2,
+  MUSCULAR_ONLY = 3,
+  RESISTABLE = 4,
+  LOCALIZED = 5,
+  MOON_PHASE = 6,
+  COUNTER_TRIGGER = 7,
+  ABRUPT_START = 8,
+  ABRUPT_END = 9,
+}
+
+---@enum cie_add_tag_mask1
+df.cie_add_tag_mask1 = {
+  EXTRAVISION = 0,
+  OPPOSED_TO_LIFE = 1,
+  NOT_LIVING = 2,
+  NOEXERT = 3,
+  NOPAIN = 4,
+  NOBREATHE = 5,
+  HAS_BLOOD = 6,
+  NOSTUN = 7,
+  NONAUSEA = 8,
+  NO_DIZZINESS = 9,
+  NO_FEVERS = 10,
+  TRANCES = 11,
+  NOEMOTION = 12,
+  LIKES_FIGHTING = 13,
+  PARALYZEIMMUNE = 14,
+  NOFEAR = 15,
+  NO_EAT = 16,
+  NO_DRINK = 17,
+  NO_SLEEP = 18,
+  MISCHIEVOUS = 19,
+  NO_PHYS_ATT_GAIN = 20,
+  NO_PHYS_ATT_RUST = 21,
+  NOTHOUGHT = 22,
+  NO_THOUGHT_CENTER_FOR_MOVEMENT = 23,
+  CAN_SPEAK = 24,
+  CAN_LEARN = 25,
+  UTTERANCES = 26,
+  CRAZED = 27,
+  BLOODSUCKER = 28,
+  NO_CONNECTIONS_FOR_MOVEMENT = 29,
+  SUPERNATURAL = 30,
+  unk_31 = 31,
+}
+
+---@enum cie_add_tag_mask2
+df.cie_add_tag_mask2 = {
+  NO_AGING = 0,
+  MORTAL = 1,
+  STERILE = 2,
+  FIT_FOR_ANIMATION = 3,
+  FIT_FOR_RESURRECTION = 4,
+}
+
 ---@enum creature_interaction_effect_target_mode
 df.creature_interaction_effect_target_mode = {
   BY_TYPE = 0,
@@ -61,276 +120,13 @@ df.creature_interaction_effect_target_mode = {
   BY_CATEGORY = 2,
 }
 
----@class creature_interaction_effect_target
----@field mode any[]
----@field key string[]
----@field tissue string[]
-
----@class creature_interaction_effect
----@field flags creature_interaction_effect_flags
----@field prob integer
----@field start integer
----@field peak integer
----@field end integer
----@field dwf_stretch integer
----@field syn_id integer
----@field id integer
----@field syn_index integer index in syndrome
----@field moon_phase_min integer
----@field moon_phase_max integer
----@field counter_trigger creature_interaction_effect_counter_trigger
-
----@class creature_interaction_effect_counter_trigger
----@field counter any[]
----@field minval integer[] ?
----@field maxval integer[] ?
----@field required integer[]
-
----@class creature_interaction_effect_painst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_swellingst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_oozingst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_bruisingst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_blistersst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_numbnessst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_paralysisst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_feverst
----@field sev integer
-
----@class creature_interaction_effect_bleedingst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_cough_bloodst
----@field sev integer
-
----@class creature_interaction_effect_vomit_bloodst
----@field sev integer
-
----@class creature_interaction_effect_nauseast
----@field sev integer
-
----@class creature_interaction_effect_unconsciousnessst
----@field sev integer
-
----@class creature_interaction_effect_necrosisst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_impair_functionst
----@field sev integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_drowsinessst
----@field sev integer
-
----@class creature_interaction_effect_dizzinessst
----@field sev integer
-
----@class creature_interaction_effect_display_namest
----@field name string
----@field name_plural string
----@field name_adj string
----@field unk_1 integer
-
----@class creature_interaction_effect_body_appearance_modifierst
----@field unk_60 integer
----@field unk_64 integer
-
----@class creature_interaction_effect_bp_appearance_modifierst
----@field unk_6c integer
----@field value integer
----@field target creature_interaction_effect_target
-
----@class creature_interaction_effect_body_transformationst
----@field chance integer %
----@field race_str string
----@field caste_str string
----@field race integer[]
----@field caste integer[]
----@field required_creature_flags integer[] contains indexes of flags in creature_raw_flags
----@field forbidden_creature_flags integer[] contains indexes of flags in creature_raw_flags
----@field required_caste_flags integer[] contains indexes of flags in caste_raw_flags
----@field forbidden_caste_flags integer[] contains indexes of flags in caste_raw_flags
----@field unk_1 integer
----@field unk_2 integer
-
----@class creature_interaction_effect_skill_roll_adjustst
----@field multiplier integer % change for skill
----@field chance integer % probability per roll
-
----@class creature_interaction_effect_display_symbolst
----@field tile integer
----@field color integer
-
----@class creature_interaction_effect_flash_symbolst
----@field sym_color integer[]
----@field period integer
----@field time integer
----@field unk_78 integer
-
----@class creature_interaction_effect_phys_att_changest
----@field phys_att_perc integer[]
----@field phys_att_add integer[]
-
----@class creature_interaction_effect_ment_att_changest
----@field ment_att_perc integer[]
----@field ment_att_add integer[]
-
----@class creature_interaction_effect_add_simple_flagst
----@field tags1 cie_add_tag_mask1
----@field tags2 cie_add_tag_mask2
-
----@class creature_interaction_effect_remove_simple_flagst
----@field tags1 cie_add_tag_mask1
----@field tags2 cie_add_tag_mask2
-
----@class creature_interaction_effect_speed_changest
----@field bonus_add integer
----@field bonus_perc integer
-
----@class creature_interaction_effect_body_mat_interactionst
----@field interaction_name string
----@field interaction_id integer
----@field unk_8c integer
----@field unk_90 integer
----@field unk_94 string
-
----@class creature_interaction_effect_material_force_adjustst
----@field unk_6c string
----@field unk_88 string
----@field unk_a4 string
----@field mat_type integer
----@field mat_index integer
----@field fraction_mul integer
----@field fraction_div integer
-
----@class creature_interaction_effect_can_do_interactionst
----@field interaction creature_interaction
-
----@class creature_interaction_effect_sense_creature_classst
----@field class_name string
----@field tile integer
----@field color_foreground integer
----@field color_background integer
----@field foreground_brightness integer
-
----@class creature_interaction_effect_feel_emotionst
----@field emotion emotion_type
----@field sev integer
-
----@class creature_interaction_effect_change_personalityst
----@field facets integer[]
-
----@class creature_interaction_effect_erratic_behaviorst
----@field sev integer
-
----@class creature_interaction_effect_close_open_woundsst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_cure_infectionsst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_heal_nervesst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_heal_tissuesst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_reduce_dizzinessst
----@field unk_1 integer
-
----@class creature_interaction_effect_reduce_feverst
----@field unk_1 integer
-
----@class creature_interaction_effect_reduce_nauseast
----@field unk_1 integer
-
----@class creature_interaction_effect_reduce_painst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_reduce_paralysisst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_reduce_swellingst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_regrow_partsst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_special_attack_interactionst
----@field unk_1 integer[]
----@field unk_2 string[]
----@field unk_3 string
-
----@class creature_interaction_effect_stop_bleedingst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class creature_interaction_effect_cure_infectionst
----@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
-
----@class syndrome
----@field syn_name string
----@field ce creature_interaction_effect[]
----@field syn_affected_class string[]
----@field syn_affected_creature string[]
----@field syn_affected_caste string[]
----@field syn_immune_class string[]
----@field syn_immune_creature string[]
----@field syn_immune_caste string[]
----@field syn_class string[]
----@field syn_identifier string
----@field flags syndrome_flags
----@field syn_concentration_added integer[]
----@field id integer
+---@enum syndrome_flags
+df.syndrome_flags = {
+  SYN_INJECTED = 0,
+  SYN_CONTACT = 1,
+  SYN_INHALED = 2,
+  unk_3 = 3,
+  SYN_INGESTED = 4,
+  SYN_NO_HOSPITAL = 5,
+}
 
