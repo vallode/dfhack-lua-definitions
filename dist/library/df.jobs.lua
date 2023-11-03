@@ -79,8 +79,8 @@ df.job_subtype_surgery = {
 ---@field id integer
 ---@field list_link job_list_link
 ---@field posting_index integer index into world.job_postings
----@field job_type job_type
----@field job_subtype job_subtype_surgery toady: stage
+---@field job_type job_job_type
+---@field job_subtype job_job_subtype toady: stage
 ---@field pos coord
 ---@field completion_timer integer toady: duration; -1 every time unit.counters.job_counter is below 0
 ---@field maxdur integer
@@ -88,7 +88,7 @@ df.job_subtype_surgery = {
 ---@field mat_type material
 ---@field mat_index integer
 ---@field spell integer almost certainly no longer used
----@field item_type item_type for Bait Trap jobs
+---@field item_type job_item_type for Bait Trap jobs
 ---@field item_subtype integer when StoreInStockpile this is a unit_labor
 ---@field item_category stockpile_group_set type and name are inappropriate
 ---@field material_category job_material_category
@@ -105,12 +105,41 @@ df.job_subtype_surgery = {
 ---@field spec_loc coord toady: spec_x/spec_y/spec_z
 ---@field art_spec job_art_specification
 ---@field order_id manager_order
+df.job = {}
+
+---@enum job_job_type
+df.job.T_job_type = {
+}
+
+---@enum job_job_subtype_surgery
+---toady: stage
+df.job.T_job_subtype_surgery = {
+}
+
+---@enum job_item_type
+---for Bait Trap jobs
+df.job.T_item_type = {
+}
 
 ---@class job_item_ref: df.struct
 ---@field item item
----@field role any
+---@field role job_item_ref_role
 ---@field is_fetching integer 0 immediately once taken to be brought
 ---@field job_item_idx integer
+df.job_item_ref = {}
+
+---@enum job_item_ref_role
+df.job_item_ref.T_role = {
+  Other = 0, --eat, drink, pickup equipment
+  Reagent = 1,
+  Hauled = 2,
+  LinkToTarget = 3, --used when linking a lever to a building, not sure if swapped
+  LinkToTrigger = 4,
+  unk_5 = 5,
+  TargetContainer = 6,
+  QueuedContainer = 7, --queued to be put in a container
+  PushHaulVehicle = 8, --wheelbarrow
+}
 
 ---@enum job_item_flags1
 df.job_item_flags1 = {
@@ -202,7 +231,7 @@ df.job_item_flags3 = {
 }
 
 ---@class job_item: df.struct
----@field item_type item_type
+---@field item_type job_item_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -220,14 +249,27 @@ df.job_item_flags3 = {
 ---@field reagent_index integer
 ---@field contains integer[] used with custom reactions
 ---@field reaction_id reaction
----@field has_tool_use tool_uses
+---@field has_tool_use job_item_has_tool_use
 ---@field unk_v43_1 integer
 ---@field unk_v43_2 integer
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 integer
+df.job_item = {}
+
+---@enum job_item_item_type
+df.job_item.T_item_type = {
+}
+
+---@enum job_item_job_item_vector_id
+df.job_item.T_job_item_vector_id = {
+}
+
+---@enum job_item_tool_uses
+df.job_item.T_tool_uses = {
+}
 
 ---@class job_item_filter: df.struct
----@field item_type item_type
+---@field item_type job_item_filter_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -252,8 +294,8 @@ df.job_item_flags3 = {
 ---@field reaction_id reaction
 ---@field contains integer[]
 ---@field use_contains boolean
----@field has_tool_use tool_uses
----@field has_melee_skill job_skill
+---@field has_tool_use job_item_filter_has_tool_use
+---@field has_melee_skill job_item_filter_has_melee_skill
 ---@field unk_v40_1 integer noticed in v0.40.24
 ---@field pos coord
 ---@field unit unit
@@ -264,6 +306,19 @@ df.job_item_flags3 = {
 ---@field burrows integer[]
 ---@field use_burrows boolean
 ---@field take_from building[]
+df.job_item_filter = {}
+
+---@enum job_item_filter_item_type
+df.job_item_filter.T_item_type = {
+}
+
+---@enum job_item_filter_tool_uses
+df.job_item_filter.T_tool_uses = {
+}
+
+---@enum job_item_filter_job_skill
+df.job_item_filter.T_job_skill = {
+}
 
 ---@enum manager_order_status
 df.manager_order_status = {
@@ -272,14 +327,24 @@ df.manager_order_status = {
 }
 
 ---@class job_art_specification: df.struct
----@field type any
+---@field type job_art_specification_type
 ---@field id any
 ---@field subid any
+df.job_art_specification = {}
+
+---@enum job_art_specification_type
+df.job_art_specification.T_type = {
+  None = -1,
+  HistoricalFigure = 1,
+  Site = 2,
+  Entity = 3,
+  ArtImage = 4,
+}
 
 ---@class manager_order: df.struct
 ---@field id integer
----@field job_type job_type
----@field item_type item_type
+---@field job_type manager_order_job_type
+---@field item_type manager_order_item_type
 ---@field item_subtype integer
 ---@field reaction_name string
 ---@field mat_type material
@@ -291,7 +356,7 @@ df.manager_order_status = {
 ---@field amount_left integer
 ---@field amount_total integer
 ---@field status manager_order_status
----@field frequency any
+---@field frequency manager_order_frequency
 ---@field finished_year integer
 ---@field finished_year_tick integer
 ---@field workshop_id building
@@ -299,11 +364,29 @@ df.manager_order_status = {
 ---@field item_conditions manager_order_condition_item[]
 ---@field order_conditions manager_order_condition_order[]
 ---@field items job_item[]
+df.manager_order = {}
+
+---@enum manager_order_job_type
+df.manager_order.T_job_type = {
+}
+
+---@enum manager_order_item_type
+df.manager_order.T_item_type = {
+}
+
+---@enum manager_order_frequency
+df.manager_order.T_frequency = {
+  OneTime = 0,
+  Daily = 1,
+  Monthly = 2,
+  Seasonally = 3,
+  Yearly = 4,
+}
 
 ---@class manager_order_condition_item: df.struct
----@field compare_type any
+---@field compare_type manager_order_condition_item_compare_type
 ---@field compare_val integer
----@field item_type item_type
+---@field item_type manager_order_condition_item_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -318,18 +401,44 @@ df.manager_order_status = {
 ---@field min_dimension integer
 ---@field contains integer[]
 ---@field reaction_id reaction
----@field has_tool_use tool_uses
+---@field has_tool_use manager_order_condition_item_has_tool_use
+df.manager_order_condition_item = {}
+
+---@enum manager_order_condition_item_compare_type
+df.manager_order_condition_item.T_compare_type = {
+  AtLeast = 0,
+  AtMost = 1,
+  GreaterThan = 2,
+  LessThan = 3,
+  Exactly = 4,
+  Not = 5,
+}
+
+---@enum manager_order_condition_item_item_type
+df.manager_order_condition_item.T_item_type = {
+}
+
+---@enum manager_order_condition_item_tool_uses
+df.manager_order_condition_item.T_tool_uses = {
+}
 
 ---@class manager_order_condition_order: df.struct
 ---@field order_id manager_order
----@field condition any
+---@field condition manager_order_condition_order_condition
 ---@field unk_1 integer
+df.manager_order_condition_order = {}
+
+---@enum manager_order_condition_order_condition
+df.manager_order_condition_order.T_condition = {
+  Activated = 0,
+  Completed = 1,
+}
 
 ---@class manager_order_template: df.struct
 ---jminfost
----@field job_type job_type
+---@field job_type manager_order_template_job_type
 ---@field reaction_name string
----@field item_type item_type
+---@field item_type manager_order_template_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -340,11 +449,20 @@ df.manager_order_status = {
 ---@field name string
 ---@field compare_str string
 ---@field on boolean
+df.manager_order_template = {}
+
+---@enum manager_order_template_job_type
+df.manager_order_template.T_job_type = {
+}
+
+---@enum manager_order_template_item_type
+df.manager_order_template.T_item_type = {
+}
 
 ---@class mandate: df.struct
 ---@field unit unit
----@field mode any
----@field item_type item_type
+---@field mode mandate_mode
+---@field item_type mandate_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -355,21 +473,47 @@ df.manager_order_status = {
 ---@field punishment integer
 ---@field punish_multiple integer
 ---@field unk4 integer
+df.mandate = {}
+
+---@enum mandate_mode
+df.mandate.T_mode = {
+  Export = 0,
+  Make = 1,
+  Guild = 2,
+}
+
+---@enum mandate_item_type
+df.mandate.T_item_type = {
+}
 
 ---@class training_assignment: df.struct
 ---@field animal_id unit
 ---@field trainer_id unit
 ---@field flags any
+df.training_assignment = {}
 
 ---@class unit_demand: df.struct
 ---@field unk_0 integer
----@field place any
----@field item_type item_type
+---@field place unit_demand_place
+---@field item_type unit_demand_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 ---@field timeout_counter integer counts once per 10 frames
 ---@field timeout_limit integer once counter passes limit, mandate ends
+df.unit_demand = {}
+
+---@enum unit_demand_place
+df.unit_demand.T_place = {
+  Office = 0,
+  Bedroom = 1,
+  DiningRoom = 2,
+  Tomb = 3,
+}
+
+---@enum unit_demand_item_type
+df.unit_demand.T_item_type = {
+}
 
 ---@enum job_cancel_reason
 df.job_cancel_reason = {
@@ -511,4 +655,5 @@ df.job_cancel_reason = {
 }
 
 ---@class job_cancel: df.struct
+df.job_cancel = {}
 

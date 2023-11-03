@@ -64,23 +64,35 @@ df.item_magicness_type = {
 ---@field value integer boosts item value by 50*this
 ---@field unk_1 integer
 ---@field flags integer 1=does not show up in item description or alter item value
+df.item_magicness = {}
+
+---@enum item_magicness_item_magicness_type
+df.item_magicness.T_item_magicness_type = {
+}
 
 ---@class temperaturest: df.struct
 ---@field whole integer
 ---@field fraction integer
+df.temperaturest = {}
 
 ---@class spatter_common: df.struct
 ---@field mat_type material
 ---@field mat_index integer
----@field mat_state matter_state
+---@field mat_state spatter_common_mat_state
 ---@field temperature temperaturest
 ---@field size integer 1-24=spatter, 25-49=smear, 50-* = coating
 ---@field base_flags any
 ---@field pad_1 any needed for proper alignment of spatter on gcc
+df.spatter_common = {}
+
+---@enum spatter_common_matter_state
+df.spatter_common.T_matter_state = {
+}
 
 ---@class spatter: spatter_common
 ---@field body_part_id integer
 ---@field flags any
+df.spatter = {}
 
 ---@enum item_quality
 df.item_quality = {
@@ -129,11 +141,13 @@ df.slab_engraving_type = {
 ---@field targets historical_kills
 ---@field slayers integer[]
 ---@field slayer_kill_counts integer[]
+df.item_kill_info = {}
 
 ---@class item_history_info: df.struct
 ---@field kills item_kill_info
 ---@field attack_counter integer increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter integer increments by 1 each time the item is used in an attempt to block or parry
+df.item_history_info = {}
 
 ---@enum body_part_status
 df.body_part_status = {
@@ -176,6 +190,7 @@ df.body_layer_status = {
 ---@field layer_cut_fraction integer[] 0-10000
 ---@field layer_dent_fraction integer[] 0-10000
 ---@field layer_effect_fraction integer[] 0-1000000000
+df.body_component_info = {}
 
 ---@class body_size_info: df.struct
 ---@field size_cur integer
@@ -184,6 +199,7 @@ df.body_layer_status = {
 ---@field area_base integer size_base^0.666
 ---@field length_cur integer (size_cur*10000)^0.333
 ---@field length_base integer (size_base*10000)^0.333
+df.body_size_info = {}
 
 ---@enum corpse_material_type
 df.corpse_material_type = {
@@ -212,4 +228,5 @@ df.item_matstate = {
 ---@field id building
 ---@field x integer
 ---@field y integer
+df.item_stockpile_ref = {}
 

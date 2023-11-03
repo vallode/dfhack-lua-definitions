@@ -181,7 +181,7 @@ df.entity_name_type = {
 ---@field art_image_element_modifier integer[]
 ---@field item_improvement_modifier integer[]
 ---@field friendly_color integer[]
----@field default_site_type world_site_type
+---@field default_site_type entity_raw_default_site_type
 ---@field likes_site integer[]
 ---@field tolerates_site integer[]
 ---@field biome_support integer[]
@@ -215,6 +215,11 @@ df.entity_name_type = {
 ---@field currency_str1 string[]
 ---@field currency_str2 string[]
 ---@field animal entity_animal_raw[]
+df.entity_raw = {}
+
+---@enum entity_raw_world_site_type
+df.entity_raw.T_world_site_type = {
+}
 
 ---@class entity_animal_raw: df.struct
 ---@field token string
@@ -222,6 +227,7 @@ df.entity_name_type = {
 ---@field animal_class string[]
 ---@field forbidden_class string[]
 ---@field flags any
+df.entity_animal_raw = {}
 
 ---@enum entity_position_raw_flags
 df.entity_position_raw_flags = {
@@ -325,7 +331,7 @@ df.entity_position_responsibility = {
 ---@field land_holder integer
 ---@field number integer
 ---@field requires_population integer
----@field execution_skill job_skill
+---@field execution_skill entity_position_raw_execution_skill
 ---@field precedence integer
 ---@field replaced_by_str string
 ---@field replaced_by integer
@@ -345,4 +351,9 @@ df.entity_position_responsibility = {
 ---@field required_tomb integer
 ---@field mandate_max integer
 ---@field demand_max integer
+df.entity_position_raw = {}
+
+---@enum entity_position_raw_job_skill
+df.entity_position_raw.T_job_skill = {
+}
 

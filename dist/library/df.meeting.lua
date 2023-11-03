@@ -6,27 +6,32 @@
 ---@field script_steps script_stepst[]
 ---@field script_vars script_varst[]
 ---@field code string DWARF_LIAISON etc
+df.dipscript_info = {}
 
 ---@class dipscript_text: df.struct
 ---@field name string dwarf_liaison_bye, etc.
 ---@field contents string[]
+df.dipscript_text = {}
 
 ---@class dipscript_popup: df.struct
 ---@field meeting_holder_actor unit
 ---@field meeting_holder_noble unit
 ---@field activity activity_info
 ---@field flags any
+df.dipscript_popup = {}
 
 ---@class meeting_variable: df.struct
 ---@field value integer
 ---@field ref specific_ref
 ---@field active_var active_script_varst
+df.meeting_variable = {}
 
 ---@class meeting_context: df.struct
 ---@field meeting meeting_diplomat_info
 ---@field popup dipscript_popup
 ---@field unk_2 any
 ---@field unk_3 any
+df.meeting_context = {}
 
 ---@class meeting_diplomat_info: df.struct
 ---@field civ_id historical_entity
@@ -52,6 +57,7 @@
 ---@field contact_entity integer[]
 ---@field contact_year integer[]
 ---@field contact_tick integer[]
+df.meeting_diplomat_info = {}
 
 ---@enum meeting_topic
 df.meeting_topic = {
@@ -79,7 +85,7 @@ df.meeting_event_type = {
 
 ---@class meeting_event: df.struct
 ---@field type meeting_event_type
----@field topic meeting_topic
+---@field topic meeting_event_topic
 ---@field topic_parm integer
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
@@ -89,6 +95,15 @@ df.meeting_event_type = {
 ---@field ticks integer
 ---@field sell_prices entity_sell_prices
 ---@field buy_prices entity_buy_prices
+df.meeting_event = {}
+
+---@enum meeting_event_meeting_event_type
+df.meeting_event.T_meeting_event_type = {
+}
+
+---@enum meeting_event_meeting_topic
+df.meeting_event.T_meeting_topic = {
+}
 
 ---@class activity_info: df.struct
 ---@field id integer assigned during Save
@@ -99,11 +114,13 @@ df.meeting_event_type = {
 ---@field unk3 integer 3
 ---@field delay integer 0
 ---@field tree_quota integer -1
+df.activity_info = {}
 
 ---@class room_rent_info: df.struct
 ---@field elements building[]
 ---@field rent_value integer
 ---@field flags any
+df.room_rent_info = {}
 
 ---@enum activity_entry_type
 df.activity_entry_type = {
@@ -128,6 +145,11 @@ df.activity_entry_type = {
 ---@field events activity_event[]
 ---@field next_event_id integer
 ---@field army_controller army_controller
+df.activity_entry = {}
+
+---@enum activity_entry_activity_entry_type
+df.activity_entry.T_activity_entry_type = {
+}
 
 ---@enum activity_event_type
 df.activity_event_type = {
@@ -168,6 +190,7 @@ df.activity_event_type = {
 ---@field free_units unit[]
 ---@field activity_id activity_entry
 ---@field event_id integer
+df.activity_event_participants = {}
 
 ---@enum conversation_menu
 df.conversation_menu = {
@@ -271,6 +294,7 @@ df.performance_participant_type = {
 ---@field id integer
 ---@field unk_1 integer
 ---@field slots schedule_slot[]
+df.schedule_info = {}
 
 ---@class schedule_slot: df.struct
 ---@field type integer 0:Eat, 1:Sleep, 2-4:???
@@ -278,4 +302,5 @@ df.performance_participant_type = {
 ---@field end_time integer
 ---@field unk_1 integer
 ---@field processed integer
+df.schedule_slot = {}
 

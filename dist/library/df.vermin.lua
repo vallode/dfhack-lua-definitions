@@ -35,4 +35,9 @@ df.vermin_category = {
 ---@field population world_population_ref
 ---@field category vermin_category
 ---@field id integer assigned during Save
+df.vermin = {}
+
+---@enum vermin_vermin_category
+df.vermin.T_vermin_category = {
+}
 

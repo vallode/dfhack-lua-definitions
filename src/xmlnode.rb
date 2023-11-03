@@ -19,9 +19,10 @@ TYPE_MAP = {
 class XmlNode
   attr_reader :node
 
-  def initialize(node)
+  def initialize(node, parent_type = nil)
     @node = node
     @comment = get_comment
+    @parent_type = parent_type
   end
 
   def get_comment
@@ -37,13 +38,14 @@ class XmlNode
 end
 
 class Field < XmlNode
-  attr_reader :name, :type
+  attr_reader :name, :is_inline, :type
 
-  def initialize(node)
+  def initialize(node, parent_type = nil)
     super
 
     @name = node.attributes['name']
-    @type = Field.get_type(node)
+    @is_inline = ["enum"].include? node.name
+    @type =  @is_inline ? "#{parent_type}_#{@name}" : Field.get_type(node)
   end
 
   def render
@@ -76,10 +78,10 @@ end
 class EnumType < XmlNode
   attr_reader :name, :type
 
-  def initialize(node)
+  def initialize(node, parent_type = nil)
     super
 
-    @name = node.attributes['type-name']
+    @name = node.attributes['type-name'] || node.attributes['name']
     @attrs = get_attributes
     # @type = "integer"
   end
@@ -89,10 +91,10 @@ class EnumType < XmlNode
   end
 
   def render
-    annotation = "---@enum #{@name}\n"
+    annotation = "---@enum #{@parent_type + '_' if @parent_type}#{@name}\n"
     annotation << "---#{@comment}\n" if @comment
     # All <enum-type> elements are globally accessible.
-    annotation << "df.#{@name} = {\n"
+    annotation << "df.#{@parent_type + '.T_' if @parent_type}#{@name} = {\n"
 
     @node.css('enum-item, flag-bit').each_with_index do |child, index|
       item = EnumItem.new(child, index)
@@ -168,12 +170,25 @@ class StructType < XmlNode
     annotation = "---@class #{@name}#{': ' + @inherits if @inherits}\n"
     annotation << "---#{@comment}\n" if @comment 
 
+    inline_types = []
     @node.children.each do |child|
       next if !child.attributes['name'] or child.name == 'code-helper'
 
-      annotation << Field.new(child).render
+      field = Field.new(child, @name.value)
+
+      inline_types.push(child) if field.is_inline
+
+      annotation << field.render
     end
 
-    annotation << "\n"
+    annotation << "df.#{@name} = {}\n\n"
+
+    if not inline_types.empty?
+      inline_types.each do |child|
+        annotation << EnumType.new(child, @name.value).render()
+      end
+    end
+
+    annotation
   end
 end

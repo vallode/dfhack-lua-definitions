@@ -4,6 +4,7 @@
 ---@class large_integer: df.struct
 ---@field u number
 ---@field quad_part integer
+df.large_integer = {}
 
 ---@class musicsoundst: df.struct
 ---@field soft_channel_number integer
@@ -16,11 +17,20 @@
 ---@field fmod_master_channel_group any
 ---@field mod fmod_sound[] songs
 ---@field samp fmod_sound[] sound effects
----@field linux_sound_system any
+---@field linux_sound_system musicsoundst_linux_sound_system
+df.musicsoundst = {}
+
+---@enum musicsoundst_linux_sound_system
+df.musicsoundst.T_linux_sound_system = {
+  ALSA = 0,
+  OSS = 1,
+  ESD = 2,
+}
 
 ---@class fmod_sound: df.struct
 ---@field sound any
 ---@field channel any
+df.fmod_sound = {}
 
 ---@enum curses_color
 df.curses_color = {
@@ -101,6 +111,7 @@ df.cmv_attribute = {
 ---@field screentexpos_interface_old integer
 ---@field core_tree_species_plus_one integer
 ---@field shadow_tree_species_plus_one integer
+df.graphic_viewportst = {}
 
 ---@class graphic_map_portst: df.struct
 ---@field flag integer
@@ -165,17 +176,20 @@ df.cmv_attribute = {
 ---@field edge_biome_ne integer
 ---@field edge_biome_sw integer
 ---@field edge_biome_se integer
+df.graphic_map_portst = {}
 
 ---@class cached_texturest: df.struct
 ---@field w integer
 ---@field h integer
 ---@field tex any
 ---@field tex_n integer
+df.cached_texturest = {}
 
 ---@class texblitst: df.struct
 ---@field x integer
 ---@field y integer
 ---@field tex integer
+df.texblitst = {}
 
 ---@class graphic: df.struct
 ---@field viewport graphic_viewportst[]
@@ -186,8 +200,8 @@ df.cmv_attribute = {
 ---@field viewport_zoom_factor integer
 ---@field screenx integer
 ---@field screeny integer
----@field screenf curses_color
----@field screenb curses_color
+---@field screenf graphic_screenf
+---@field screenb graphic_screenb
 ---@field screenbright boolean
 ---@field use_old_16_colors boolean use F:B:BR instead of straight RGB
 ---@field screen_color_r integer
@@ -245,6 +259,15 @@ df.cmv_attribute = {
 ---@field dimx integer
 ---@field dimy integer
 ---@field tileset number[]
+df.graphic = {}
+
+---@enum graphic_curses_color
+df.graphic.T_curses_color = {
+}
+
+---@enum graphic_curses_color
+df.graphic.T_curses_color = {
+}
 
 ---@class interface_setst: df.struct
 ---@field texpos_calendar_month integer[][]
@@ -439,6 +462,7 @@ df.cmv_attribute = {
 ---@field texpos_bottom_button_border_interior integer
 ---@field texpos_bottom_button_border_ne integer
 ---@field texpos_bottom_button_border_e integer
+df.interface_setst = {}
 
 ---@enum zoom_commands
 df.zoom_commands = {
@@ -472,6 +496,7 @@ df.justification = {
 ---@field texpos_gs number[]
 ---@field datapos_gs number[]
 ---@field loaded boolean
+df.tile_pagest = {}
 
 ---@class palette_pagest: df.struct
 ---@field token string
@@ -480,8 +505,10 @@ df.justification = {
 ---@field default_row integer
 ---@field color_token string[]
 ---@field color_row integer[]
+df.palette_pagest = {}
 
 ---@class texture_handlerst: df.struct
 ---@field page tile_pagest[]
 ---@field palette palette_pagest[]
+df.texture_handlerst = {}
 

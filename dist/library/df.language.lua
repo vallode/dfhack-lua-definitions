@@ -186,6 +186,7 @@ df.sphere_type = {
 ---@field pad_1 any looks like garbage
 ---@field flags language_word_flags
 ---@field str string[]
+df.language_word = {}
 
 ---@class language_translation: df.struct
 ---@field name string
@@ -194,6 +195,7 @@ df.sphere_type = {
 ---@field words string[]
 ---@field flags integer 1 = generated
 ---@field str string[]
+df.language_translation = {}
 
 ---@class language_symbol: df.struct
 ---@field name string
@@ -201,6 +203,7 @@ df.sphere_type = {
 ---@field words language_word[]
 ---@field flags integer
 ---@field str string[]
+df.language_symbol = {}
 
 ---@class language_name: df.struct
 ---@field first_name string
@@ -210,11 +213,17 @@ df.sphere_type = {
 ---@field language language_translation
 ---@field type language_name_type
 ---@field has_name boolean
+df.language_name = {}
+
+---@enum language_name_language_name_type
+df.language_name.T_language_name_type = {
+}
 
 ---@class language_word_table: df.struct
 ---word_selectorst
 ---@field words language_word[][]
 ---@field parts part_of_speech[][]
+df.language_word_table = {}
 
 ---@enum language_name_category
 df.language_name_category = {

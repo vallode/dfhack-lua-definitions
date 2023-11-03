@@ -14,7 +14,7 @@ df.reaction_flags = {
 ---@field flags any
 ---@field reagents reaction_reagent[]
 ---@field products reaction_product[]
----@field skill job_skill
+---@field skill reaction_skill
 ---@field max_multiplier integer
 ---@field building string[][]
 ---@field index integer
@@ -27,6 +27,11 @@ df.reaction_flags = {
 ---@field quality_adj2 integer
 ---@field unk_1 integer
 ---@field exp_gain integer
+df.reaction = {}
+
+---@enum reaction_job_skill
+df.reaction.T_job_skill = {
+}
 
 ---@class reaction_category: df.struct
 ---@field id string
@@ -34,11 +39,17 @@ df.reaction_flags = {
 ---@field name string
 ---@field key integer
 ---@field description string
+df.reaction_category = {}
 
 ---@class reaction_description: df.struct
 ---@field unk_1 string
----@field item_type item_type
+---@field item_type reaction_description_item_type
 ---@field unk_2 string
+df.reaction_description = {}
+
+---@enum reaction_description_item_type
+df.reaction_description.T_item_type = {
+}
 
 ---@enum reaction_reagent_type
 df.reaction_reagent_type = {

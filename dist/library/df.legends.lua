@@ -15,11 +15,13 @@
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
+df.invasion_info = {}
 
 ---@class entity_population_unk4: df.struct
 ---@field unk_1 integer[] all 3 vectors share a single index series, with the third being interleaved with at least the second one
 ---@field unk_2 integer[]
 ---@field unk_3 integer[]
+df.entity_population_unk4 = {}
 
 ---@class entity_population: df.struct
 ---@field name language_name
@@ -32,6 +34,7 @@
 ---@field id integer
 ---@field flags integer ?; layer_id == -1
 ---@field civ_id historical_entity
+df.entity_population = {}
 
 ---@enum nemesis_flags
 df.nemesis_flags = {
@@ -63,6 +66,7 @@ df.nemesis_flags = {
 ---@field unk_v47_1 integer
 ---@field unk_v47_2 integer
 ---@field flags any
+df.nemesis_record = {}
 
 ---@class artifact_record: df.struct
 ---@field id integer
@@ -90,6 +94,7 @@ df.nemesis_flags = {
 ---@field year integer seems to be current year or -1
 ---@field unk_4 integer
 ---@field unk_5 integer Small set of non zero fairly small numbers seen?
+df.artifact_record = {}
 
 ---@class artifact_rumor_locationst: df.struct
 ---@field art artifact_record
@@ -102,4 +107,5 @@ df.nemesis_flags = {
 ---@field latest_season_count integer
 ---@field flag integer
 ---@field latest_wi any witness_incidentst
+df.artifact_rumor_locationst = {}
 

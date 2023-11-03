@@ -119,6 +119,7 @@ df.item_type.attrs = {}
 ---@field prepare integer
 ---@field recover integer
 ---@field flags any
+df.weapon_attack = {}
 
 ---@enum itemdef_flags
 df.itemdef_flags = {
@@ -151,6 +152,7 @@ df.armor_general_flags = {
 ---@field layer_size integer
 ---@field layer_permit integer
 ---@field coverage integer
+df.armor_properties = {}
 
 ---@enum armor_flags
 df.armor_flags = {
@@ -304,11 +306,13 @@ df.timbre_type = {
 ---@field name string
 ---@field name_plural string
 ---@field flags any
+df.instrument_piece = {}
 
 ---@class instrument_register: df.struct
 ---@field pitch_range_min integer
 ---@field pitch_range_max integer
 ---@field timbres timbre_type[]
+df.instrument_register = {}
 
 ---@enum pants_flags
 df.pants_flags = {

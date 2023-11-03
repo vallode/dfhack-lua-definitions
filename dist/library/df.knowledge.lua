@@ -370,8 +370,28 @@ df.knowledge_scholar_flags_13 = {
 }
 
 ---@class knowledge_scholar_category_flag: df.struct
----@field flag_type any determines which bitflags to use
+---@field flag_type knowledge_scholar_category_flag_flag_type determines which bitflags to use
 ---@field flag_data knowledge_scholar_flags_0
+df.knowledge_scholar_category_flag = {}
+
+---@enum knowledge_scholar_category_flag_flag_type
+---determines which bitflags to use
+df.knowledge_scholar_category_flag.T_flag_type = {
+  flags_0 = 0,
+  flags_1 = 1,
+  flags_2 = 2,
+  flags_3 = 3,
+  flags_4 = 4,
+  flags_5 = 5,
+  flags_6 = 6,
+  flags_7 = 7,
+  flags_8 = 8,
+  flags_9 = 9,
+  flags_10 = 10,
+  flags_11 = 11,
+  flags_12 = 12,
+  flags_13 = 13,
+}
 
 ---@enum dfhack_knowledge_scholar_flag
 ---not in DF

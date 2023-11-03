@@ -117,6 +117,11 @@ df.specific_ref_type.attrs = {}
 ---@class specific_ref: df.struct
 ---@field type specific_ref_type
 ---@field data any
+df.specific_ref = {}
+
+---@enum specific_ref_specific_ref_type
+df.specific_ref.T_specific_ref_type = {
+}
 
 ---@enum histfig_entity_link_type
 df.histfig_entity_link_type = {
@@ -184,6 +189,11 @@ df.entity_entity_link_type = {
 ---@field type entity_entity_link_type
 ---@field target historical_entity
 ---@field strength integer
+df.entity_entity_link = {}
+
+---@enum entity_entity_link_entity_entity_link_type
+df.entity_entity_link.T_entity_entity_link_type = {
+}
 
 ---@enum entity_site_link_type
 ---Enum names updated per Putnam
@@ -235,6 +245,12 @@ df.entity_site_link_flags = {
 ---@field target_site_y integer target site world coordinate y
 ---@field last_checked_army_year integer all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
 ---@field last_checked_army_year_tick integer paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
+df.entity_site_link = {}
+
+---@enum entity_site_link_entity_site_link_type
+---called location in df source
+df.entity_site_link.T_entity_site_link_type = {
+}
 
 ---@enum undead_flags
 df.undead_flags = {

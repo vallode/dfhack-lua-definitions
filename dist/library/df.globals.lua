@@ -221,6 +221,7 @@ df.next_global_id = {
 ---@field name any
 ---@field address any
 ---@field size any
+df.global_table_entry = {}
 
 ---@enum game_mode
 df.game_mode = {

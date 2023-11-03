@@ -409,6 +409,7 @@ df.appearance_modifier_growth_interval = {
 ---@field leak_barrier_id integer layer that stops TISSUE_LEAKS, but unused and broken
 ---@field nonsolid_id integer
 ---@field styleable_id integer
+df.body_part_layer_raw = {}
 
 ---@class body_part_raw: df.struct
 ---@field token string
@@ -436,6 +437,7 @@ df.appearance_modifier_growth_interval = {
 ---@field insulation_muscle integer
 ---@field insulation_base integer
 ---@field clothing_item_id integer
+df.body_part_raw = {}
 
 ---@class color_modifier_raw: df.struct
 ---@field pattern_index integer[]
@@ -453,13 +455,14 @@ df.appearance_modifier_growth_interval = {
 ---@field id integer
 ---@field unk_78 string[]
 ---@field unk_88 string[]
+df.color_modifier_raw = {}
 
 ---@class body_appearance_modifier: df.struct
----@field type appearance_modifier_type
+---@field type body_appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
 ---@field growth_rate integer
----@field growth_interval appearance_modifier_growth_interval
+---@field growth_interval body_appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
 ---@field growth_start integer in days
@@ -470,13 +473,22 @@ df.appearance_modifier_growth_interval = {
 ---@field unk_2 integer
 ---@field id integer
 ---@field id2 integer same as id
+df.body_appearance_modifier = {}
+
+---@enum body_appearance_modifier_appearance_modifier_type
+df.body_appearance_modifier.T_appearance_modifier_type = {
+}
+
+---@enum body_appearance_modifier_appearance_modifier_growth_interval
+df.body_appearance_modifier.T_appearance_modifier_growth_interval = {
+}
 
 ---@class bp_appearance_modifier: df.struct
----@field type appearance_modifier_type
+---@field type bp_appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
 ---@field growth_rate integer
----@field growth_interval appearance_modifier_growth_interval
+---@field growth_interval bp_appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
 ---@field growth_start integer in days
@@ -489,6 +501,15 @@ df.appearance_modifier_growth_interval = {
 ---@field body_parts integer[]
 ---@field tissue_layer integer[]
 ---@field id integer
+df.bp_appearance_modifier = {}
+
+---@enum bp_appearance_modifier_appearance_modifier_type
+df.bp_appearance_modifier.T_appearance_modifier_type = {
+}
+
+---@enum bp_appearance_modifier_appearance_modifier_growth_interval
+df.bp_appearance_modifier.T_appearance_modifier_growth_interval = {
+}
 
 ---@class caste_clothing_item: df.struct
 ---@field body_part_id integer
@@ -498,6 +519,7 @@ df.appearance_modifier_growth_interval = {
 ---@field size integer[]
 ---@field permit integer[]
 ---@field unk_38 integer[]
+df.caste_clothing_item = {}
 
 ---@class caste_attack: df.struct
 ---@field name string
@@ -517,12 +539,17 @@ df.appearance_modifier_growth_interval = {
 ---@field unk_v40_2 integer
 ---@field body_part_idx integer[]
 ---@field tissue_layer_idx integer[]
----@field skill job_skill
+---@field skill caste_attack_skill
 ---@field velocity_modifier integer
 ---@field specialattack_interaction_tmp_name string[] parsed during second pass
 ---@field specialattack_interaction_id integer[]
 ---@field unk_v40_3 integer
 ---@field unk_v40_4 integer
+df.caste_attack = {}
+
+---@enum caste_attack_job_skill
+df.caste_attack.T_job_skill = {
+}
 
 ---@enum gait_type
 df.gait_type = {
@@ -542,6 +569,7 @@ df.gait_type = {
 ---@field energy_use integer
 ---@field flags any
 ---@field stealth_slows integer
+df.gait_info = {}
 
 ---@enum creature_interaction_target_flags
 df.creature_interaction_target_flags = {
@@ -560,7 +588,7 @@ df.creature_interaction_target_flags = {
 ---@field material_str0 string
 ---@field material_str1 string
 ---@field material_str2 string
----@field material_breath breath_attack_type
+---@field material_breath creature_interaction_material_breath
 ---@field verb_2nd string
 ---@field verb_3rd string
 ---@field verb_mutual string
@@ -582,6 +610,11 @@ df.creature_interaction_target_flags = {
 ---@field unk_5 any[]
 ---@field adv_name string
 ---@field wait_period integer
+df.creature_interaction = {}
+
+---@enum creature_interaction_breath_attack_type
+df.creature_interaction.T_breath_attack_type = {
+}
 
 ---@class caste_body_info: df.struct
 ---@field body_parts body_part_raw[]
@@ -602,6 +635,7 @@ df.creature_interaction_target_flags = {
 ---@field fraction_fat integer
 ---@field fraction_muscle integer
 ---@field unk_v40_2 integer[]
+df.caste_body_info = {}
 
 ---@class caste_raw: df.struct
 ---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
@@ -634,7 +668,7 @@ df.creature_interaction_target_flags = {
 ---@field caste_speech_2 any[]
 ---@field skill_rates integer[][]
 ---@field attributes integer[][]
----@field sex pronoun_type
+---@field sex caste_raw_sex
 ---@field orientation_male integer[]
 ---@field orientation_female integer[]
 ---@field body_size_1 integer[] age in ticks
@@ -681,6 +715,11 @@ df.creature_interaction_target_flags = {
 ---@field sense_creature_class_5 integer[]
 ---@field caste_graphics creature_raw_graphics
 ---@field unk_v50_4300 any
+df.caste_raw = {}
+
+---@enum caste_raw_pronoun_type
+df.caste_raw.T_pronoun_type = {
+}
 
 ---@enum creature_graphics_role
 df.creature_graphics_role = {
@@ -718,6 +757,7 @@ df.tissue_style_type = {
 ---@field ptr_unk pointer[][]
 ---@field vec_unk integer[][]
 ---@field profession_vec_unk integer[][]
+df.creature_raw_graphics = {}
 
 ---@class tissue_style_raw: df.struct
 ---@field token string
@@ -727,7 +767,13 @@ df.tissue_style_type = {
 ---@field list_idx integer[]
 ---@field id integer
 ---@field noun string
----@field word_type part_of_speech 0 singular, 1 plural
+---@field word_type tissue_style_raw_word_type 0 singular, 1 plural
+df.tissue_style_raw = {}
+
+---@enum tissue_style_raw_part_of_speech
+---0 singular, 1 plural
+df.tissue_style_raw.T_part_of_speech = {
+}
 
 ---@class creature_raw: df.struct
 ---@field creature_id string
@@ -770,6 +816,7 @@ df.tissue_style_type = {
 ---@field next_modifier_id integer
 ---@field raws string[]
 ---@field statute_texpos integer[]
+df.creature_raw = {}
 
 ---@class creature_variation_convert_tag: df.struct
 ---@field cvct_master string
@@ -777,6 +824,7 @@ df.tissue_style_type = {
 ---@field cvct_replacement string
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 string
+df.creature_variation_convert_tag = {}
 
 ---@class creature_variation: df.struct
 ---@field id string
@@ -787,6 +835,7 @@ df.tissue_style_type = {
 ---@field cv_remove_tag string[]
 ---@field cv_remove_unk_v40_1 integer[]
 ---@field cv_remove_unk_v40_2 string[]
+df.creature_variation = {}
 
 ---@enum body_part_template_flags
 df.body_part_template_flags = {
@@ -844,10 +893,16 @@ df.body_part_template_contype = {
 ---@field number integer
 ---@field name_singular string[] first comes from BP, rest come from INDIVIDUAL_NAME
 ---@field name_plural string[]
+df.body_part_template = {}
+
+---@enum body_part_template_body_part_template_contype
+df.body_part_template.T_body_part_template_contype = {
+}
 
 ---@class body_template: df.struct
 ---@field id string
 ---@field parts body_part_template[]
+df.body_template = {}
 
 ---@enum tissue_flags
 df.tissue_flags = {
@@ -891,8 +946,13 @@ df.tissue_flags = {
 ---@field unk1 integer
 ---@field insulation integer
 ---@field subordinate_to_tissue string
----@field tissue_mat_state matter_state
+---@field tissue_mat_state tissue_template_tissue_mat_state
 ---@field tissue_shape_str string
+df.tissue_template = {}
+
+---@enum tissue_template_matter_state
+df.tissue_template.T_matter_state = {
+}
 
 ---@class tissue: df.struct
 ---@field id string
@@ -911,7 +971,7 @@ df.tissue_flags = {
 ---@field insulation integer
 ---@field subordinate_to_tissue string
 ---@field parent_tissue integer
----@field tissue_mat_state matter_state
+---@field tissue_mat_state tissue_tissue_mat_state
 ---@field heatdam_point integer
 ---@field colddam_point integer
 ---@field ignite_point integer
@@ -919,6 +979,11 @@ df.tissue_flags = {
 ---@field boiling_point integer
 ---@field spec_heat integer
 ---@field tissue_shape_str string
+df.tissue = {}
+
+---@enum tissue_matter_state
+df.tissue.T_matter_state = {
+}
 
 ---@class body_detail_plan: df.struct
 ---@field id string
@@ -947,4 +1012,5 @@ df.tissue_flags = {
 ---@field bp_relation_selection_2 integer[]
 ---@field bp_relation_criteria_2 string[]
 ---@field bp_relation_extent integer[]
+df.body_detail_plan = {}
 

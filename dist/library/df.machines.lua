@@ -9,10 +9,12 @@ df.machine_type = {
 ---@class machine_info: df.struct
 ---@field machine_id machine
 ---@field flags any
+df.machine_info = {}
 
 ---@class power_info: df.struct
 ---@field produced integer
 ---@field consumed integer
+df.power_info = {}
 
 ---@enum machine_conn_modes
 df.machine_conn_modes = {
@@ -27,6 +29,7 @@ df.machine_conn_modes = {
 ---@class machine_tile_set: df.struct
 ---@field tiles coord_path
 ---@field can_connect machine_conn_modes[]
+df.machine_tile_set = {}
 
 ---@enum screw_pump_direction
 df.screw_pump_direction = {

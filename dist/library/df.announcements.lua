@@ -369,9 +369,10 @@ df.announcement_flags = {
 ---@class announcements: df.struct
 ---@field flags announcement_flags[]
 ---@field unused any needed to fix alignment on 64-bit platforms
+df.announcements = {}
 
 ---@class report: df.struct
----@field type announcement_type valid only if coordinates are
+---@field type report_type valid only if coordinates are
 ---@field text string
 ---@field color integer
 ---@field bright boolean
@@ -380,7 +381,7 @@ df.announcement_flags = {
 ---@field repeat_count integer 100 => displays: x101
 ---@field zoom_type report_zoom_type
 ---@field pos coord
----@field zoom_type2 report_zoom_type
+---@field zoom_type2 report_zoom_type2
 ---@field pos2 coord
 ---@field id integer
 ---@field year integer
@@ -388,6 +389,20 @@ df.announcement_flags = {
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 integer
 ---@field speaker_id unit unit speaking the conversation
+df.report = {}
+
+---@enum report_announcement_type
+---valid only if coordinates are
+df.report.T_announcement_type = {
+}
+
+---@enum report_report_zoom_type
+df.report.T_report_zoom_type = {
+}
+
+---@enum report_report_zoom_type
+df.report.T_report_zoom_type = {
+}
 
 ---@enum report_zoom_type
 df.report_zoom_type = {
@@ -400,16 +415,17 @@ df.report_zoom_type = {
 ---@field text string
 ---@field color integer
 ---@field bright boolean
+df.popup_message = {}
 
 ---@class report_init: df.struct
 ---allocated on the stack, included in df-structures to assist with disassembly
----@field type announcement_type
+---@field type report_init_type
 ---@field color integer
 ---@field bright boolean
 ---@field pos coord
----@field zoom_type report_zoom_type
+---@field zoom_type report_init_zoom_type
 ---@field pos2 coord
----@field zoom_type2 report_zoom_type
+---@field zoom_type2 report_init_zoom_type2
 ---@field display_timer integer graphical frames for announcement bar to linger on last line with no new announcement
 ---@field unit1 unit
 ---@field unit2 unit
@@ -417,4 +433,17 @@ df.report_zoom_type = {
 ---@field unk_v40_2 integer same as unknown field in report
 ---@field speaker_id unit
 ---@field flags any
+df.report_init = {}
+
+---@enum report_init_announcement_type
+df.report_init.T_announcement_type = {
+}
+
+---@enum report_init_report_zoom_type
+df.report_init.T_report_zoom_type = {
+}
+
+---@enum report_init_report_zoom_type
+df.report_init.T_report_zoom_type = {
+}
 

@@ -58,7 +58,7 @@ df.ui_advmode_menu = {
 
 ---@class conversation: df.struct
 ---@field conv_title string
----@field state any
+---@field state conversation_state
 ---@field talk_choices integer[]
 ---@field unk_30 unit
 ---@field unk_34 historical_figure
@@ -82,6 +82,15 @@ df.ui_advmode_menu = {
 ---@field unk_b8 integer
 ---@field unk_bc integer
 ---@field speech string[][]
+df.conversation = {}
+
+---@enum conversation_state
+df.conversation.T_state = {
+  started = 0,
+  active = 1,
+  finished = 2,
+  quit = 3,
+}
 
 ---@enum talk_choice_type
 df.talk_choice_type = {
@@ -328,16 +337,21 @@ df.assume_identity_mode = {
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
+df.talk_choice = {}
+
+---@enum talk_choice_talk_choice_type
+df.talk_choice.T_talk_choice_type = {
+}
 
 ---@class adventurest: df.struct
----@field menu ui_advmode_menu
+---@field menu adventurest_menu
 ---@field site_level_zoom integer when set, the travel map is zoomed in to show site details
 ---@field travel_origin_x integer
 ---@field travel_origin_y integer
 ---@field travel_origin_z integer
 ---@field travel_clouds boolean
----@field travel_right_map any
----@field show_menu any bottom menu in travel mode
+---@field travel_right_map adventurest_travel_right_map
+---@field show_menu adventurest_show_menu bottom menu in travel mode
 ---@field message string you must move from surrounding obstacles
 ---@field message_color integer
 ---@field message_brightness integer
@@ -407,7 +421,7 @@ df.assume_identity_mode = {
 ---@field unk_51 integer
 ---@field wait_timer integer A_WAIT sets this to 10. It subsequently decreases by 1 every advmode tick, preventing the player from controlling their adventurer (by setting player_control_state) until it reaches 0.
 ---@field attack_style integer Set when the AttackStrike menu is opened. The various attack styles increment this as follows when enabled: Charge: +1, Multi-attack: +2, Quick: +4, Heavy: +8, Wild: +16, Precise: +32
----@field charge_forbidden any When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
+---@field charge_forbidden adventurest_charge_forbidden When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
 ---@field unk_55 integer
 ---@field unk_56 integer
 ---@field unk_57 integer
@@ -435,7 +449,7 @@ df.assume_identity_mode = {
 ---@field sleep_hours integer
 ---@field sleep_until_dawn boolean
 ---@field unk_78 integer
----@field rest_mode any
+---@field rest_mode adventurest_rest_mode
 ---@field unk_80 integer
 ---@field unk_81 integer
 ---@field player_control_state integer Set to 2 when adventurer is unconscious, etc to prevent player from controlling the unit
@@ -470,4 +484,56 @@ df.assume_identity_mode = {
 ---@field unk_2a integer
 ---@field name_item language_name used when naming items
 ---@field unk_96 integer
+df.adventurest = {}
+
+---@enum adventurest_ui_advmode_menu
+df.adventurest.T_ui_advmode_menu = {
+}
+
+---@enum adventurest_travel_right_map
+df.adventurest.T_travel_right_map = {
+  MapNone = 0,
+  MapSite = 1,
+  MapWorld = 2,
+}
+
+---@enum adventurest_show_menu
+---bottom menu in travel mode
+df.adventurest.T_show_menu = {
+  TwoBlankRows = -1,
+  Hidden = 1,
+  TwoRowsWithKeybindingHints = 2,
+  TwoRows = 3,
+  OneRow = 4,
+}
+
+---@enum adventurest_charge_forbidden
+---When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
+df.adventurest.T_charge_forbidden = {
+  None = -1,
+  NoTarget = 1,
+  SelfProne = 2,
+  SelfMounted = 3,
+  SelfChained = 4,
+  SelfUncontrolledFlight = 5,
+  SelfVehicle = 6,
+  SelfProjectile = 7,
+  SelfClimbing = 8,
+  TargetProne = 9,
+  TargetMounted = 10,
+  TargetChained = 11,
+  TargetUncontrolledFlight = 12,
+  TargetVehicle = 13,
+  TargetProjectile = 14,
+  TargetClimbing = 15,
+  TargetSharesLocation = 16,
+  TargetLocationInaccessible = 17,
+  TargetTooFarAway = 18,
+}
+
+---@enum adventurest_rest_mode
+df.adventurest.T_rest_mode = {
+  Wait = 0,
+  Sleep = 1,
+}
 

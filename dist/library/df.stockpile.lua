@@ -120,6 +120,7 @@ df.stockpile_group_set = {
 ---@field sheet boolean[]
 ---@field allow_organic boolean
 ---@field allow_inorganic boolean
+df.stockpile_settings = {}
 
 ---@enum stockpile_list
 df.stockpile_list = {
@@ -242,6 +243,7 @@ df.stockpile_list.attrs = {}
 ---@field stops hauling_stop[]
 ---@field vehicle_ids vehicle[]
 ---@field vehicle_stops integer[]
+df.hauling_route = {}
 
 ---@class hauling_stop: df.struct
 ---@field id integer
@@ -252,18 +254,36 @@ df.stockpile_list.attrs = {}
 ---@field stockpiles route_stockpile_link[]
 ---@field time_waiting integer
 ---@field cart_id item
+df.hauling_stop = {}
 
 ---@class stop_depart_condition: df.struct
 ---@field timeout integer
----@field direction any
----@field mode any
+---@field direction stop_depart_condition_direction
+---@field mode stop_depart_condition_mode
 ---@field load_percent integer broken display unless 0, 50 or 100
 ---@field flags any
 ---@field guide_path coord_path initialized on first run, and saved
+df.stop_depart_condition = {}
+
+---@enum stop_depart_condition_direction
+df.stop_depart_condition.T_direction = {
+  North = 0,
+  South = 1,
+  East = 2,
+  West = 3,
+}
+
+---@enum stop_depart_condition_mode
+df.stop_depart_condition.T_mode = {
+  Push = 0,
+  Ride = 1,
+  Guide = 2,
+}
 
 ---@class route_stockpile_link: df.struct
 ---@field building_id building
 ---@field mode any
+df.route_stockpile_link = {}
 
 ---@class vehicle: df.struct
 ---@field id integer
@@ -281,4 +301,5 @@ df.stockpile_list.attrs = {}
 ---@field route_id hauling_route
 ---@field pos coord
 ---@field time_stopped integer frames, up to 1000
+df.vehicle = {}
 

@@ -178,8 +178,8 @@ df.strain_type = {
 ---@field strength integer
 ---@field material_value integer
 ---@field flags any
----@field extract_storage item_type
----@field butcher_special_type item_type
+---@field extract_storage material_common_extract_storage
+---@field butcher_special_type material_common_butcher_special_type
 ---@field butcher_special_subtype integer
 ---@field meat_name string[]
 ---@field meat_organ integer used for texture selection
@@ -187,6 +187,15 @@ df.strain_type = {
 ---@field reaction_product string[]
 ---@field hardens_with_water material
 ---@field reaction_class string[]
+df.material_common = {}
+
+---@enum material_common_item_type
+df.material_common.T_item_type = {
+}
+
+---@enum material_common_item_type
+df.material_common.T_item_type = {
+}
 
 ---@class material: material_common
 ---@field tile integer
@@ -211,10 +220,12 @@ df.strain_type = {
 ---@field bar_texpos integer
 ---@field cheese_texpos1 integer
 ---@field cheese_texpos2 integer
+df.material = {}
 
 ---@class material_vec_ref: df.struct
 ---@field mat_type material[]
 ---@field mat_index integer[]
+df.material_vec_ref = {}
 
 ---@class material_template: material_common
 ---@field tile integer
@@ -229,6 +240,7 @@ df.strain_type = {
 ---@field unk_41c integer[]
 ---@field powder_dye_str string temporary
 ---@field state_color_str string[]
+df.material_template = {}
 
 ---@enum inorganic_flags
 df.inorganic_flags = {
@@ -301,6 +313,7 @@ df.inclusion_type = {
 ---@field times_used_land integer
 ---@field times_used_ocean integer
 ---@field material material
+df.inorganic_raw = {}
 
 ---@enum organic_mat_category
 df.organic_mat_category = {
@@ -350,4 +363,5 @@ df.organic_mat_category = {
 ---@field organic_indexes integer[][]
 ---@field organic_unknown integer[][] everything 0
 ---@field builtin material[]
+df.special_mat_table = {}
 

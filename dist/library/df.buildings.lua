@@ -114,6 +114,7 @@ df.building_extents_type = {
 ---@field y integer
 ---@field width integer
 ---@field height integer
+df.building_extents = {}
 
 ---@class building_drawbuffer: df.struct
 ---@field texpos1 integer[][]
@@ -127,12 +128,14 @@ df.building_extents_type = {
 ---@field x2 integer
 ---@field y1 integer
 ---@field y2 integer
+df.building_drawbuffer = {}
 
 ---@class stockpile_links: df.struct
 ---@field give_to_pile building[]
 ---@field take_from_pile building[]
 ---@field give_to_workshop building[]
 ---@field take_from_workshop building[]
+df.stockpile_links = {}
 
 ---@class hospital_supplies: df.struct
 ---@field supplies_needed any
@@ -151,6 +154,7 @@ df.building_extents_type = {
 ---@field cur_buckets integer
 ---@field cur_soap integer
 ---@field supply_recheck_timer integer
+df.hospital_supplies = {}
 
 ---@enum civzone_type
 df.civzone_type = {
@@ -261,10 +265,15 @@ df.civzone_type = {
 ---@field build_timer1 integer +1 per 10 frames while building
 ---@field builder2 historical_figure
 ---@field build_timer2 integer
----@field quality1 item_quality
+---@field quality1 building_design_quality1
 ---@field flags any
 ---@field hitpoints integer
 ---@field max_hitpoints integer
+df.building_design = {}
+
+---@enum building_design_item_quality
+df.building_design.T_item_quality = {
+}
 
 ---@enum furnace_type
 df.furnace_type = {
@@ -328,10 +337,12 @@ df.workshop_type.attrs = {}
 ---@field block_general_orders boolean
 ---@field pad_1 any
 ---@field blocked_labors boolean[]
+df.workshop_profile = {}
 
 ---@class building_users: df.struct
 ---@field unit integer[]
 ---@field mode integer[]
+df.building_users = {}
 
 ---@enum construction_type
 df.construction_type = {
@@ -416,10 +427,12 @@ df.trap_type = {
 ---@field track_min integer
 ---@field track_max integer
 ---@field flags any
+df.pressure_plate_info = {}
 
 ---@class building_squad_use: df.struct
 ---@field squad_id squad
 ---@field mode squad_use_flags
+df.building_squad_use = {}
 
 ---@enum dfhack_room_quality_level
 ---Not in DF Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum Throne Room | Great Bedroom | Great Dining Room | Mausoleum Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb Decent Office | Decent Quarters | Decent Dining Room | Tomb Office | Quarters | Dining Room | Burial Chamber Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber Meager Office | Meager Quarters | Meager Dining Room | Grave

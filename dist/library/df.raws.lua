@@ -25,4 +25,5 @@
 ---@field mat_table special_mat_table
 ---@field syndromes material[]
 ---@field effects material[]
+df.world_raws = {}
 

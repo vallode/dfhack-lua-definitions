@@ -19,6 +19,7 @@ df.plant_flags = {
 ---@field srb_id site_realization_building
 ---@field contaminants spatter_common[]
 ---@field tree_info plant_tree_info
+df.plant = {}
 
 ---@enum plant_tree_tile
 df.plant_tree_tile = {
@@ -56,4 +57,5 @@ df.plant_root_tile = {
 ---@field roots plant_root_tile dimension roots_depth
 ---@field roots_depth integer
 ---@field unk6 integer
+df.plant_tree_info = {}
 

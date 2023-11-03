@@ -90,7 +90,7 @@ df.d_init_autosave = {
 ---@field tree_tiles integer[]
 ---@field chasm_color integer[]
 ---@field wound_color integer[]
----@field show_embark_tunnel d_init_tunnel
+---@field show_embark_tunnel d_init_show_embark_tunnel
 ---@field number_of_lower_elevations_shown integer
 ---@field flags3 any
 ---@field population_cap integer
@@ -107,9 +107,22 @@ df.d_init_autosave = {
 ---@field maximum_embark_dim integer
 ---@field cull_dead_units_at integer
 ---@field flags4 any
----@field post_prepare_embark_confirmation d_init_embark_confirm
+---@field post_prepare_embark_confirmation d_init_post_prepare_embark_confirmation
 ---@field autosave d_init_autosave
 ---@field announcements announcements
 ---@field unk_5010_730 integer
 ---@field unk_5010_734 integer
+df.d_init = {}
+
+---@enum d_init_d_init_tunnel
+df.d_init.T_d_init_tunnel = {
+}
+
+---@enum d_init_d_init_embark_confirm
+df.d_init.T_d_init_embark_confirm = {
+}
+
+---@enum d_init_d_init_autosave
+df.d_init.T_d_init_autosave = {
+}
 

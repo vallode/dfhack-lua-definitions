@@ -9,6 +9,7 @@
 ---@field unit_id integer
 ---@field activity_entry_id integer
 ---@field unk_2 integer
+df.scribejob = {}
 
 ---@class site_reputation_report: df.struct
 ---@field site_id integer
@@ -18,9 +19,11 @@
 ---@field year integer
 ---@field tickmaybe integer
 ---@field unk_3 integer[]
+df.site_reputation_report = {}
 
 ---@class site_reputation_info: df.struct
 ---@field reports site_reputation_report[]
+df.site_reputation_info = {}
 
 ---@class location_scribe_jobs: df.struct
 ---@field scribejobs scribejob[]
@@ -31,6 +34,7 @@
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
+df.location_scribe_jobs = {}
 
 ---@enum abstract_building_type
 df.abstract_building_type = {
@@ -66,11 +70,12 @@ df.abstract_building_flags = {
 ---used within Tomb and Dungeon
 ---@field populations integer[]
 ---@field histfigs integer[]
+df.abstract_building_entombed = {}
 
 ---@class abstract_building_contents: df.struct
 ---used within Temple, Library, and Inn/Tavern
 ---@field need_more any
----@field profession profession
+---@field profession abstract_building_contents_profession
 ---@field desired_goblets integer
 ---@field desired_instruments integer
 ---@field desired_paper integer
@@ -97,6 +102,11 @@ df.abstract_building_flags = {
 ---@field unk_v47_2 integer
 ---@field unk_v47_3 integer
 ---@field building_ids integer[]
+df.abstract_building_contents = {}
+
+---@enum abstract_building_contents_profession
+df.abstract_building_contents.T_profession = {
+}
 
 ---@enum temple_deity_type
 df.temple_deity_type = {
@@ -108,6 +118,7 @@ df.temple_deity_type = {
 ---@class temple_deity_data: df.struct
 ---@field Deity historical_figure
 ---@field Religion historical_entity
+df.temple_deity_data = {}
 
 ---@enum world_site_type
 df.world_site_type = {
@@ -174,6 +185,7 @@ df.lair_type = {
 ---@field owner_entity_id historical_entity Mutually exclusive with owner_hfid. All seen were merchant companies.
 ---@field owner_hfid historical_figure
 ---@field unk_owner_entity_id historical_entity Seen only in subset of owner_entity_id case, and always same value
+df.property_ownership = {}
 
 ---@class world_site: df.struct
 ---@field name language_name
@@ -265,6 +277,11 @@ df.lair_type = {
 ---@field unk_23 any
 ---@field unk_24 integer
 ---@field unk_25 any[]
+df.world_site = {}
+
+---@enum world_site_world_site_type
+df.world_site.T_world_site_type = {
+}
 
 ---@class cultural_identity: df.struct
 ---@field id integer
@@ -282,6 +299,7 @@ df.lair_type = {
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
 ---@field unk_f8 integer
+df.cultural_identity = {}
 
 ---@class world_site_inhabitant: df.struct
 ---@field count integer
@@ -295,6 +313,7 @@ df.lair_type = {
 ---@field related_entity_id historical_entity Founder if outcast_id=-1, else Outcast and equal to outcast_id
 ---@field unk_24 integer 0 and 1 seen
 ---@field unk_28 integer
+df.world_site_inhabitant = {}
 
 ---@class world_site_realization: df.struct
 ---@field buildings site_realization_building[]
@@ -350,6 +369,7 @@ df.lair_type = {
 ---@field unk_23 pointer[]
 ---@field unk_24 integer
 ---@field unk_wsr_vector any[]
+df.world_site_realization = {}
 
 ---@class site_realization_crossroads: df.struct
 ---@field road_min_y integer[]
@@ -387,6 +407,7 @@ df.lair_type = {
 ---@field unk_8 integer
 ---@field unk_370 integer[]
 ---@field unk_3d0 integer[]
+df.site_realization_crossroads = {}
 
 ---@enum site_realization_building_type
 df.site_realization_building_type = {
@@ -442,13 +463,23 @@ df.site_realization_building_type = {
 ---@field unk_5c integer bit 0x01 == abandoned
 ---@field unk_60 any[]
 ---@field unk_v40_1 integer
+df.site_realization_building = {}
+
+---@enum site_realization_building_site_realization_building_type
+df.site_realization_building.T_site_realization_building_type = {
+}
 
 ---@class site_building_item: df.struct
 ---@field race creature_raw
----@field item_type item_type
+---@field item_type site_building_item_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
+df.site_building_item = {}
+
+---@enum site_building_item_item_type
+df.site_building_item.T_item_type = {
+}
 
 ---@enum tower_shape
 df.tower_shape = {

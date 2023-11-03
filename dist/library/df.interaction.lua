@@ -17,6 +17,7 @@ df.interaction_flags = {
 ---@field effects interaction_effect[] I_EFFECT
 ---@field source_hfid historical_figure
 ---@field source_enid historical_entity
+df.interaction = {}
 
 ---@enum interaction_effect_type
 df.interaction_effect_type = {
@@ -108,6 +109,7 @@ df.interaction_target_location_type = {
 ---@field forbidden_1 integer IT_FORBIDDEN
 ---@field forbidden_2 integer IT_FORBIDDEN
 ---@field restrictions any
+df.interaction_target_info = {}
 
 ---@enum breath_attack_type
 df.breath_attack_type = {
@@ -141,4 +143,5 @@ df.breath_attack_type = {
 ---@field unk_1 integer
 ---@field region_index integer
 ---@field affected_units integer[] IDs of units affected by the regional interaction
+df.interaction_instance = {}
 

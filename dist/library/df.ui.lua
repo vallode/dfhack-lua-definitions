@@ -12,13 +12,23 @@
 ---@field block_z integer[]
 ---@field units integer[]
 ---@field limit_workshops integer
+df.burrow = {}
 
 ---@class ui_hotkey: df.struct
 ---@field name string
----@field cmd any
+---@field cmd ui_hotkey_cmd
 ---@field x integer
 ---@field y integer
 ---@field z integer
+df.ui_hotkey = {}
+
+---@enum ui_hotkey_cmd
+df.ui_hotkey.T_cmd = {
+  None = -1,
+  Zoom = 1,
+  FollowUnit = 2,
+  FollowItem = 3,
+}
 
 ---@enum ui_sidebar_mode
 df.ui_sidebar_mode = {
@@ -90,6 +100,7 @@ df.ui_sidebar_mode = {
 ---@field unk_10 integer 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
 ---@field chain building
 ---@field victims integer[]
+df.punishment = {}
 
 ---@enum kitchen_exc_type
 df.kitchen_exc_type = {
@@ -175,6 +186,7 @@ df.equipment_update = {
 ---@field work_details work_detail[]
 ---@field chores boolean[]
 ---@field chores_exempted_children any[] toady: no_chore_child_unid
+df.labor_infost = {}
 
 ---@class plotinfost: df.struct
 ---@field game_state integer 2 running, 1 lost to siege, 0 lost
@@ -260,6 +272,7 @@ df.equipment_update = {
 ---@field follow_item item
 ---@field selected_farm_crops integer[] valid for the currently queried farm plot
 ---@field available_seeds any
+df.plotinfost = {}
 
 ---@enum timed_event_type
 df.timed_event_type = {
@@ -276,13 +289,22 @@ df.timed_event_type = {
 
 ---@class timed_event: df.struct
 ---@field type timed_event_type
----@field season season
+---@field season timed_event_season
 ---@field season_ticks integer 1 tick = 10 frames
 ---@field entity historical_entity
 ---@field unk_1 integer
 ---@field layer_id world_underground_region
 ---@field unk_3 integer
 ---@field unk_4 integer
+df.timed_event = {}
+
+---@enum timed_event_timed_event_type
+df.timed_event.T_timed_event_type = {
+}
+
+---@enum timed_event_season
+df.timed_event.T_season = {
+}
 
 ---@class map_viewport: df.struct
 ---@field adv_mode boolean
@@ -297,6 +319,7 @@ df.timed_event_type = {
 ---@field window_z integer
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
+df.map_viewport = {}
 
 ---@class map_renderer: df.struct
 ---@field entity integer[][]
@@ -324,4 +347,5 @@ df.timed_event_type = {
 ---@field unk_5 integer[]
 ---@field unk_6 integer
 ---@field unk_7 integer
+df.map_renderer = {}
 

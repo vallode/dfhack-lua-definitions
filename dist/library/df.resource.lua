@@ -57,4 +57,5 @@ df.resource_allotment_specifier_type = {
 ---@field unk3 integer
 ---@field unk_650 integer
 ---@field unk_654 integer[]
+df.resource_allotment_data = {}
 

@@ -52,6 +52,7 @@ df.units_other_id = {
 ---@class unit_context_block: df.struct
 ---@field context_unit unit[]
 ---@field num integer
+df.unit_context_block = {}
 
 ---@enum conflict_level
 df.conflict_level = {
@@ -70,10 +71,11 @@ df.conflict_level = {
 ---@field unk_hfid historical_figure same as hfid seen
 ---@field unk_hfid2 historical_figure same as hfid seen
 ---@field unk_3 integer[]
+df.incident_hfid = {}
 
 ---@class incident: df.struct
 ---@field id integer
----@field type any
+---@field type incident_type
 ---@field witnesses integer[]
 ---@field unk_year integer
 ---@field unk_year_tick integer
@@ -97,8 +99,8 @@ df.conflict_level = {
 ---@field event_year integer
 ---@field event_time integer
 ---@field flags any
----@field death_cause death_type
----@field conflict_level conflict_level
+---@field death_cause incident_death_cause
+---@field conflict_level incident_conflict_level
 ---@field activity_id activity_entry
 ---@field world_x integer Location appears to be in in-game tiles world wide
 ---@field world_y integer
@@ -106,9 +108,33 @@ df.conflict_level = {
 ---@field unk_80 integer
 ---@field unk_10c integer
 ---@field data incident_data_performance
+df.incident = {}
+
+---@enum incident_type
+df.incident.T_type = {
+  Death = 0,
+  Crime = 1, --Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
+  Attack = 2,
+  Escalation = 3,
+  Reunion = 4,
+  YieldDemand = 5,
+  Performance = 6,
+  Artifact = 7,
+  Writing = 8,
+  SelfID = 9,
+  RefusedID = 10,
+}
+
+---@enum incident_death_type
+df.incident.T_death_type = {
+}
+
+---@enum incident_conflict_level
+df.incident.T_conflict_level = {
+}
 
 ---@class incident_data_performance: df.struct
----@field performance_event performance_event_type
+---@field performance_event incident_data_performance_performance_event
 ---@field participants performance_event_type[]
 ---@field reference_id integer history_event id/poetic_form id/musical_form id/dance_form_id or -1
 ---@field written_content_id integer -1 if not used
@@ -116,9 +142,14 @@ df.conflict_level = {
 ---@field poetic_form_id poetic_form More than one form can be used in a performance, e.g. dance to music
 ---@field musical_form_id musical_form
 ---@field dance_form_id dance_form
+df.incident_data_performance = {}
+
+---@enum incident_data_performance_performance_event_type
+df.incident_data_performance.T_performance_event_type = {
+}
 
 ---@class incident_data_artifact: df.struct
----@field state any
+---@field state incident_data_artifact_state
 ---@field artifact_id artifact_record
 ---@field unk_3 incident_hfid
 ---@field unk_4 incident_hfid
@@ -128,9 +159,20 @@ df.conflict_level = {
 ---@field unk_7 integer
 ---@field unk_8 integer[]
 ---@field unk_9 integer
+df.incident_data_artifact = {}
+
+---@enum incident_data_artifact_state
+df.incident_data_artifact.T_state = {
+  Held = 0,
+  Dropped = 1,
+  Gained = 2,
+  Given = 3,
+  Denied = 4,
+  Destroyed = 5,
+}
 
 ---@class incident_data_writing: df.struct
----@field state any
+---@field state incident_data_writing_state
 ---@field content_id written_content
 ---@field unk_1 incident_hfid
 ---@field unk_2 incident_hfid
@@ -140,13 +182,21 @@ df.conflict_level = {
 ---@field unk_6 integer
 ---@field unk_7 integer[]
 ---@field unk_8 integer
+df.incident_data_writing = {}
+
+---@enum incident_data_writing_state
+df.incident_data_writing.T_state = {
+  Dropped = 0,
+  Given = 1,
+}
 
 ---@class incident_data_identity: df.struct
 ---@field unk_1 incident_hfid[]
+df.incident_data_identity = {}
 
 ---@class crime: df.struct
 ---@field id integer
----@field mode any
+---@field mode crime_mode
 ---@field punishment integer
 ---@field criminal unit
 ---@field criminal_hf historical_figure
@@ -174,11 +224,35 @@ df.conflict_level = {
 ---@field counterintelligence integer[]
 ---@field witnesses crime_witness[]
 ---@field agreement_id agreement
+df.crime = {}
+
+---@enum crime_mode
+df.crime.T_mode = {
+  ProductionOrderViolation = 0,
+  ExportViolation = 1,
+  JobOrderViolation = 2,
+  ConspiracyToSlowLabor = 3,
+  Murder = 4,
+  DisorderlyBehavior = 5,
+  BuildingDestruction = 6,
+  Vandalism = 7,
+  Theft = 8,
+  Robbery = 9,
+  BloodDrinking = 10,
+  Embezzlement = 11,
+  AttemptedMurder = 12,
+  Kidnapping = 13,
+  AttemptedKidnapping = 14,
+  AttemptedTheft = 15,
+  Treason = 16,
+  Espionage = 17,
+  Bribery = 18,
+}
 
 ---@class crime_witness: df.struct
 ---@field incident_id incident
 ---@field crime_id crime
----@field witness_claim any
+---@field witness_claim crime_witness_witness_claim
 ---@field year integer
 ---@field tick integer
 ---@field witness_id unit
@@ -188,6 +262,19 @@ df.conflict_level = {
 ---@field accused_data incident_hfid
 ---@field reported_year integer
 ---@field reported_tick integer
+df.crime_witness = {}
+
+---@enum crime_witness_witness_claim
+df.crime_witness.T_witness_claim = {
+  SawDisorderlyConduct = 0,
+  FoundTheBody = 1,
+  SawObjectWasMissing = 2,
+  SawObjectWasDisturbed = 3,
+  SawSomebodyAdmireObject = 4,
+  Confessed = 5,
+  ImplicatesSomeone = 6,
+  AccusesSomeone = 7,
+}
 
 ---@class mission_campaign_report: df.struct
 ---@field travel_x integer[]
@@ -199,6 +286,7 @@ df.conflict_level = {
 ---@field event_year integer[]
 ---@field event_year_tick integer[]
 ---@field events_count integer
+df.mission_campaign_report = {}
 
 ---@class mission_report: df.struct
 ---@field campaigns mission_campaign_report[]
@@ -213,6 +301,7 @@ df.conflict_level = {
 ---@field unk_10 any[]
 ---@field unk_11 integer
 ---@field unk_12 integer
+df.mission_report = {}
 
 ---@class spoils_report: df.struct
 ---@field title string
@@ -227,6 +316,7 @@ df.conflict_level = {
 ---@field creature_races integer[]
 ---@field creature_castes integer[]
 ---@field creature_counts integer[]
+df.spoils_report = {}
 
 ---@class interrogation_report: df.struct
 ---@field title string
@@ -247,16 +337,22 @@ df.conflict_level = {
 ---@field unk_30 integer[]
 ---@field unk_31 integer[] seen hfs_formed_intrigue_relationship
 ---@field details string[]
+df.interrogation_report = {}
 
 ---@class divine_treasure: df.struct
 ---@field histfig_id historical_figure
----@field item_type item_type
+---@field item_type divine_treasure_item_type
 ---@field item_subtype integer
 ---@field mat_type integer
 ---@field mat_index integer
 ---@field triggered boolean
 ---@field tiles coord_path
 ---@field pos coord announcement zoom location
+df.divine_treasure = {}
+
+---@enum divine_treasure_item_type
+df.divine_treasure.T_item_type = {
+}
 
 ---@class encased_horror: df.struct
 ---@field state integer
@@ -269,6 +365,7 @@ df.conflict_level = {
 ---@field triggered boolean
 ---@field tiles coord_path
 ---@field pos coord announcement zoom location
+df.encased_horror = {}
 
 ---@class cursed_tomb: df.struct
 ---@field triggered boolean
@@ -279,12 +376,14 @@ df.conflict_level = {
 ---@field structure_id abstract_building
 ---@field trigger_regions integer[] normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
+df.cursed_tomb = {}
 
 ---@class ocean_wave_maker: df.struct
 ---@field pos coord
 ---@field interval integer
 ---@field coastline coord2d_path
 ---@field wave_origin coord2d_path
+df.ocean_wave_maker = {}
 
 ---@class coord_rect: df.struct
 ---@field x1 integer
@@ -292,6 +391,7 @@ df.conflict_level = {
 ---@field x2 integer
 ---@field y2 integer
 ---@field z integer
+df.coord_rect = {}
 
 ---@class embark_feature: df.struct
 ---layers plus river seen
@@ -300,10 +400,15 @@ df.conflict_level = {
 ---@field local_feature_idx integer
 ---@field global_feature_idx world_underground_region
 ---@field unk10 integer
----@field layer layer_type
+---@field layer embark_feature_layer
 ---@field local coord2d the top left corner of the MLT, in embark relative coordinates
 ---@field z_min integer
 ---@field z_max integer
+df.embark_feature = {}
+
+---@enum embark_feature_layer_type
+df.embark_feature.T_layer_type = {
+}
 
 ---@enum combat_report_event_type
 df.combat_report_event_type = {
@@ -349,16 +454,19 @@ df.combat_report_event_type = {
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field buildings integer[] when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
 ---@field pos coord coordinates of a GlowingBarrier or GlowingFloor tiletype
+df.glowing_barrier = {}
 
 ---@class deep_vein_hollow: df.struct
 ---@field triggered boolean set when the underworld spire is breached, preventing subsequent HFS events
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field tiles coord_path tile coordinates correspond to open spaces within an underworld spire; revealing one of these tiles triggers the HFS demon wave
 ---@field pos coord announcement zoom location
+df.deep_vein_hollow = {}
 
 ---@class campfire: df.struct
 ---@field pos coord
 ---@field timer integer
+df.campfire = {}
 
 ---@class web_cluster: df.struct
 ---@field x integer[]
@@ -369,6 +477,7 @@ df.combat_report_event_type = {
 ---@field pos_min coord2d
 ---@field pos_max coord2d
 ---@field ambushers integer[]
+df.web_cluster = {}
 
 ---@class fire: df.struct
 ---@field pos coord
@@ -377,6 +486,7 @@ df.combat_report_event_type = {
 ---@field outer_temp_cur integer applied to neighboring tiles
 ---@field inner_temp_max integer
 ---@field outer_temp_max integer
+df.fire = {}
 
 ---@class ocean_wave: df.struct
 ---@field dest coord2d
@@ -385,6 +495,7 @@ df.combat_report_event_type = {
 ---@field spawn_flows boolean set once the wave reaches the coast
 ---@field move_timer integer
 ---@field unk_timer integer starts at 120 and randomly decrements
+df.ocean_wave = {}
 
 ---@class coin_batch: df.struct
 ---@field year integer
@@ -394,11 +505,13 @@ df.combat_report_event_type = {
 ---@field ruler historical_figure
 ---@field image_front art_image_chunk
 ---@field image_back art_image_chunk
+df.coin_batch = {}
 
 ---@class mental_picture: df.struct
 ---@field unk mental_picture_elementst[]
 ---@field unk_1 integer
 ---@field unk_2 integer
+df.mental_picture = {}
 
 ---@class belief_system: df.struct
 ---@field id integer
@@ -469,11 +582,22 @@ df.combat_report_event_type = {
 ---@field unk_62 integer
 ---@field unk_63 integer
 ---@field unk_64 integer
+df.belief_system = {}
 
 ---@class divination_set_roll: df.struct
 ---@field result integer[] When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
----@field effect_type any
+---@field effect_type divination_set_roll_effect_type
 ---@field effect integer When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
+df.divination_set_roll = {}
+
+---@enum divination_set_roll_effect_type
+df.divination_set_roll.T_effect_type = {
+  MediumBlessing = 0,
+  MinorBlessing = 1,
+  MediumCurse = 2,
+  MinorCurse = 3,
+  Fortune = 4,
+}
 
 ---@class divination_set: df.struct
 ---@field id integer currently matches index into vector
@@ -481,12 +605,14 @@ df.combat_report_event_type = {
 ---@field owner_id historical_entity religion owning the set
 ---@field image_set_ids integer[]
 ---@field rolls divination_set_roll[]
+df.divination_set = {}
 
 ---@class image_set: df.struct
 ---@field id integer
 ---@field unk_2 integer
 ---@field unk_vec1 integer[]
 ---@field unk_vec2 integer[]
+df.image_set = {}
 
 ---@class world: df.struct
 ---A heap of current boundary tiles.
@@ -565,11 +691,11 @@ df.combat_report_event_type = {
 ---@field image_sets image_set[]
 ---@field divination_sets divination_set[]
 ---@field selected_building building
----@field selected_stockpile_type stockpile_category
+---@field selected_stockpile_type world_selected_stockpile_type
 ---@field update_selected_building boolean
 ---@field building_width integer
 ---@field building_height integer
----@field selected_direction screw_pump_direction
+---@field selected_direction world_selected_direction
 ---@field map any
 ---@field profession_skills job_skill[][]
 ---@field math integer[]
@@ -582,7 +708,7 @@ df.combat_report_event_type = {
 ---@field flow_engine integer
 ---@field busy_buildings integer[] buildings with nonempty getUsers
 ---@field cavein_flags any
----@field original_save_version save_version DF version on which the world was first created
+---@field original_save_version world_original_save_version DF version on which the world was first created
 ---@field worldgen string
 ---@field unk_rng hash_rngst
 ---@field history world_history
@@ -610,6 +736,20 @@ df.combat_report_event_type = {
 ---@field dungeon integer[]
 ---@field attack_chance_info any[]
 ---@field active_tutorial integer
+df.world = {}
+
+---@enum world_stockpile_category
+df.world.T_stockpile_category = {
+}
+
+---@enum world_screw_pump_direction
+df.world.T_screw_pump_direction = {
+}
+
+---@enum world_save_version
+---DF version on which the world was first created
+df.world.T_save_version = {
+}
 
 ---@enum world_cavein_flags
 df.world_cavein_flags = {

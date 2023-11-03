@@ -19,7 +19,7 @@ df.init_display_filter_mode = {
 
 ---@class init_display: df.struct
 ---@field flag any
----@field windowed any
+---@field windowed init_display_windowed
 ---@field grid_x integer
 ---@field grid_y integer
 ---@field desired_fullscreen_width integer
@@ -36,6 +36,19 @@ df.init_display_filter_mode = {
 ---@field interface_scaling_percentage integer
 ---@field partial_print_count integer
 ---@field filter_mode init_display_filter_mode
+df.init_display = {}
+
+---@enum init_display_windowed
+df.init_display.T_windowed = {
+  True = 0,
+  False = 1,
+  Prompt = 2,
+  Exclusive = 3,
+}
+
+---@enum init_display_init_display_filter_mode
+df.init_display.T_init_display_filter_mode = {
+}
 
 ---@enum init_media_flags
 df.init_media_flags = {
@@ -51,6 +64,7 @@ df.init_media_flags = {
 ---@field volume_ambience integer
 ---@field volume_sfx integer
 ---@field time_between_songs integer
+df.init_media = {}
 
 ---@enum init_input_flags
 df.init_input_flags = {
@@ -67,6 +81,7 @@ df.init_input_flags = {
 ---@field zoom_speed integer
 ---@field repeat_accel_start integer
 ---@field repeat_accel_limit integer
+df.init_input = {}
 
 ---@class init_font: df.struct
 ---@field basic_font_texpos number[]
@@ -93,6 +108,7 @@ df.init_input_flags = {
 ---@field small_font_dispy number
 ---@field large_font_dispx number
 ---@field large_font_dispy number
+df.init_font = {}
 
 ---@enum init_window_flags
 df.init_window_flags = {
@@ -103,6 +119,7 @@ df.init_window_flags = {
 
 ---@class init_window: df.struct
 ---@field flag any
+df.init_window = {}
 
 ---@class init: df.struct
 ---@field display init_display
@@ -227,4 +244,5 @@ df.init_window_flags = {
 ---@field classic_texpos_button_filter_name integer[][]
 ---@field classic_texpos_tab_unselected integer[][]
 ---@field classic_texpos_tab_selected integer[][]
+df.init = {}
 

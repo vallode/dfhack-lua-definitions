@@ -11,6 +11,7 @@
 ---@field out_buffer integer
 ---@field out_buffersize number
 ---@field out_buffer_amount_written integer
+df.file_compressorst = {}
 
 ---@enum interface_breakdown_types
 df.interface_breakdown_types = {
@@ -34,6 +35,7 @@ df.interface_push_types = {
 ---@field flag integer
 ---@field shutdown_interface_tickcount integer
 ---@field shutdown_interface_for_ms integer
+df.interfacest = {}
 
 ---@class scrollbarst: df.struct
 ---@field sel integer
@@ -44,12 +46,14 @@ df.interface_push_types = {
 ---@field print_ey integer
 ---@field scroller_sy integer
 ---@field scroller_ey integer
+df.scrollbarst = {}
 
 ---@class extentst: df.struct
 ---@field x integer
 ---@field y integer
 ---@field w integer
 ---@field h integer
+df.extentst = {}
 
 ---@class world_dat_summary: df.struct
 ---@field name language_name
@@ -57,6 +61,7 @@ df.interface_push_types = {
 ---@field unk_2 integer[] same as the one at the top of world_data
 ---@field last_id integer when loading, DF sets *_next_id to these fields plus 1
 ---@field unk integer
+df.world_dat_summary = {}
 
 ---@enum embark_finder_option
 df.embark_finder_option = {
@@ -91,6 +96,7 @@ df.embark_finder_option = {
 ---@field reclaim_idx integer
 ---@field embark_pos_min coord2d
 ---@field embark_pos_max coord2d
+df.embark_location = {}
 
 ---@class mission: df.struct
 ---@field army_controller army_controller
@@ -126,12 +132,21 @@ df.embark_finder_option = {
 ---@field unk_23 integer
 ---@field unk_24 integer
 ---@field details any
----@field type any
+---@field type mission_type
 ---@field unk_25 integer
+df.mission = {}
+
+---@enum mission_type
+df.mission.T_type = {
+  Raid = 2,
+  RecoverArtifact = 17,
+  RescuePerson = 18,
+  RequestWorkers = 19,
+}
 
 ---@class legend_pagest: df.struct
 ---@field header string
----@field mode any
+---@field mode legend_pagest_mode
 ---@field index integer
 ---@field text_box markup_text_boxst
 ---@field scroll_position_list integer
@@ -141,14 +156,40 @@ df.embark_finder_option = {
 ---@field scrolling_text boolean
 ---@field filter_str string
 ---@field entering_filter boolean
+df.legend_pagest = {}
+
+---@enum legend_pagest_mode
+df.legend_pagest.T_mode = {
+  NONE = -1,
+  MAIN = 1,
+  HFS = 2,
+  SITES = 3,
+  ARTIFACTS = 4,
+  BOOKS = 5,
+  SUBREGIONS = 6,
+  ENTITIES = 7,
+  ART = 8,
+  ABS = 9,
+  ERA = 10,
+  HEC = 11,
+  MAPS = 12,
+  FEATURE_LAYERS = 13,
+  POPULATIONS = 14,
+}
 
 ---@class loadgame_save_info: df.struct
 ---@field next_ids integer[]
----@field game_type game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
+---@field game_type loadgame_save_info_game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
 ---@field fort_name string
 ---@field world_name string
 ---@field year integer
 ---@field folder_name string
+df.loadgame_save_info = {}
+
+---@enum loadgame_save_info_game_type
+---only 0 (fort) 1 (adv) 3(reclaim) are valid
+df.loadgame_save_info.T_game_type = {
+}
 
 ---@class matgloss_list: df.struct
 ---@field unk_0 integer[]
@@ -189,6 +230,7 @@ df.embark_finder_option = {
 ---@field mod_folder_paths string[]
 ---@field mod_names string[]
 ---@field mod_display_versions string[]
+df.matgloss_list = {}
 
 ---@class worldgen_parms: df.struct
 ---@field title string
@@ -300,11 +342,13 @@ df.embark_finder_option = {
 ---@field show_embark_tunnel integer
 ---@field pole integer
 ---@field unk_1 boolean
+df.worldgen_parms = {}
 
 ---@class worldgen_parms_ps: df.struct
 ---@field width integer
 ---@field height integer
 ---@field data integer[]
+df.worldgen_parms_ps = {}
 
 ---@class nemesis_offload: df.struct
 ---@field nemesis_save_file_id integer[]
@@ -313,6 +357,7 @@ df.embark_finder_option = {
 ---@field cur_unit_chunk unit_chunk
 ---@field cur_unit_chunk_num integer
 ---@field units_offloaded integer
+df.nemesis_offload = {}
 
 ---@enum adventurer_attribute_level
 df.adventurer_attribute_level = {
@@ -330,6 +375,7 @@ df.adventurer_attribute_level = {
 ---@field race creature_raw
 ---@field caste caste_raw
 ---@field type integer
+df.startup_charactersheet_petst = {}
 
 ---@enum adv_background_option_type
 df.adv_background_option_type = {
@@ -354,10 +400,10 @@ df.adv_background_option_type = {
 ---@field skill_picks_left integer
 ---@field phys_att_range_val adventurer_attribute_level[]
 ---@field ment_att_range_val adventurer_attribute_level[]
----@field difficulty any
+---@field difficulty setup_character_info_difficulty
 ---@field start_site_id world_site
 ---@field background_start_squad_epp_id integer
----@field background_unit profession
+---@field background_unit setup_character_info_background_unit
 ---@field background_skill_bonus integer[]
 ---@field worship_hfid historical_figure
 ---@field worship_enid historical_entity
@@ -370,7 +416,7 @@ df.adv_background_option_type = {
 ---@field pers unit_personality
 ---@field is_from_wilderpop_or_feature boolean
 ---@field flag integer
----@field sub_mode any
+---@field sub_mode setup_character_info_sub_mode
 ---@field visited_mode boolean[]
 ---@field selecting_atts boolean
 ---@field selected_att integer
@@ -418,12 +464,42 @@ df.adv_background_option_type = {
 ---@field selected_pet_r integer
 ---@field pet_side integer
 ---@field pet startup_charactersheet_petst[]
+df.setup_character_info = {}
+
+---@enum setup_character_info_difficulty
+df.setup_character_info.T_difficulty = {
+  Peasant = 0,
+  Hero = 1,
+  Demigod = 2,
+}
+
+---@enum setup_character_info_profession
+df.setup_character_info.T_profession = {
+}
+
+---@enum setup_character_info_sub_mode
+df.setup_character_info.T_sub_mode = {
+  NONE = -1,
+  RACE = 1,
+  SUBRACE = 2,
+  NEMESIS = 3,
+  ENTITY = 4,
+  DOING_SUB = 5,
+  SUB_SKILLS = 6,
+  SUB_APPEARANCE = 7,
+  SUB_PERSONALITY = 8,
+  SUB_BACKGROUND = 9,
+  SUB_EQUIPMENT = 10,
+  SUB_MOUNTS_AND_PETS = 11,
+  FINAL_CONFIRMATION = 12,
+}
 
 ---@class embark_item_choice: df.struct
 ---@field list item_type[][]
 ---@field race integer[]
 ---@field caste integer[]
 ---@field profession profession[]
+df.embark_item_choice = {}
 
 ---@class embark_profile: df.struct
 ---@field name string
@@ -442,6 +518,7 @@ df.adv_background_option_type = {
 ---@field pet_caste integer[]
 ---@field pet_profession profession[]
 ---@field pet_count integer[]
+df.embark_profile = {}
 
 ---@class embark_symbol: df.struct
 ---@field unk_v43_1 any[]
@@ -450,6 +527,7 @@ df.adv_background_option_type = {
 ---@field unk_v43_4 language_name
 ---@field unk_v43_sub9 integer
 ---@field unk_v43_10 integer[] uninitialized?
+df.embark_symbol = {}
 
 ---@enum world_view_mode_type
 df.world_view_mode_type = {

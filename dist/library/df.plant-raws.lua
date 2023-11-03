@@ -146,6 +146,7 @@ df.plant_raw_flags = {
 ---@field root_radius integer
 ---@field stockpile_growths integer[] indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
 ---@field stockpile_growth_flags any[]
+df.plant_raw = {}
 
 ---@enum plant_material_def
 df.plant_material_def = {
@@ -165,7 +166,7 @@ df.plant_material_def = {
 ---@field name string
 ---@field name_plural string
 ---@field str_growth_item string[]
----@field item_type item_type
+---@field item_type plant_growth_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -182,6 +183,11 @@ df.plant_material_def = {
 ---@field behavior any
 ---@field trunk_height_perc_1 integer
 ---@field trunk_height_perc_2 integer
+df.plant_growth = {}
+
+---@enum plant_growth_item_type
+df.plant_growth.T_item_type = {
+}
 
 ---@class plant_growth_print: df.struct
 ---@field priority integer final token in list
@@ -190,4 +196,5 @@ df.plant_material_def = {
 ---@field color integer[]
 ---@field timing_start integer
 ---@field timing_end integer
+df.plant_growth_print = {}
 

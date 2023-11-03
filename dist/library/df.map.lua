@@ -4,20 +4,24 @@
 ---@class coord2d: df.struct
 ---@field x integer
 ---@field y integer
+df.coord2d = {}
 
 ---@class coord2d_path: df.struct
 ---@field x integer[]
 ---@field y integer[]
+df.coord2d_path = {}
 
 ---@class coord: df.struct
 ---@field x integer
 ---@field y integer
 ---@field z integer
+df.coord = {}
 
 ---@class coord_path: df.struct
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer[]
+df.coord_path = {}
 
 ---@enum tile_traffic
 df.tile_traffic = {
@@ -157,11 +161,13 @@ df.tile_liquid_flow = {
 
 ---@class tile_bitmask: df.struct
 ---@field bits integer[]
+df.tile_bitmask = {}
 
 ---@class block_burrow: df.struct
 ---@field id burrow
 ---@field tile_bitmask tile_bitmask
 ---@field link block_burrow_link
+df.block_burrow = {}
 
 ---@class map_block: df.struct
 ---flood; 256*cost for straight, 362*cost for diagonal
@@ -192,6 +198,7 @@ df.tile_liquid_flow = {
 ---@field unk13 integer[][]
 ---@field liquid_flow tile_liquid_flow[][]
 ---@field region_offset integer[]
+df.map_block = {}
 
 ---@class map_block_column: df.struct
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
@@ -208,6 +215,7 @@ df.tile_liquid_flow = {
 ---@field unk_c3c integer uninitialized
 ---@field region_pos coord2d
 ---@field plants plant[] Only populated for the top left column in each mid level tile
+df.map_block_column = {}
 
 ---@enum block_square_event_type
 df.block_square_event_type = {
@@ -330,12 +338,21 @@ df.construction_flags = {
 
 ---@class construction: df.struct
 ---@field pos coord
----@field item_type item_type
+---@field item_type construction_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 ---@field flags construction_flags
----@field original_tile tiletype
+---@field original_tile construction_original_tile
+df.construction = {}
+
+---@enum construction_item_type
+df.construction.T_item_type = {
+}
+
+---@enum construction_tiletype
+df.construction.T_tiletype = {
+}
 
 ---@enum flow_type
 df.flow_type = {
@@ -356,7 +373,7 @@ df.flow_type = {
 }
 
 ---@class flow_info: df.struct
----@field type flow_type
+---@field type flow_info_type
 ---@field mat_type material
 ---@field mat_index integer
 ---@field density integer
@@ -365,10 +382,16 @@ df.flow_type = {
 ---@field expanding boolean
 ---@field reuse boolean
 ---@field guide_id flow_guide
+df.flow_info = {}
+
+---@enum flow_info_flow_type
+df.flow_info.T_flow_type = {
+}
 
 ---@class flow_reuse_pool: df.struct
 ---@field reuse_idx integer
 ---@field flags any
+df.flow_reuse_pool = {}
 
 ---@enum flow_guide_type
 df.flow_guide_type = {
@@ -385,6 +408,7 @@ df.flow_guide_type = {
 ---@field bright integer
 ---@field pos coord
 ---@field timer integer
+df.effect_info = {}
 
 ---@enum region_block_event_type
 df.region_block_event_type = {

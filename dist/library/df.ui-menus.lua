@@ -11,6 +11,7 @@
 ---@field count_required integer
 ---@field count_max integer if 0, fixed at required
 ---@field count_provided integer
+df.ui_build_item_req = {}
 
 ---@enum build_req_choice_type
 df.build_req_choice_type = {
@@ -62,7 +63,7 @@ df.construction_category_type = {
 }
 
 ---@class bb_buttonst: df.struct
----@field category construction_category_type
+---@field category bb_buttonst_category
 ---@field type integer
 ---@field subtype integer
 ---@field custom_building_id integer
@@ -70,7 +71,16 @@ df.construction_category_type = {
 ---@field grid_height integer
 ---@field texpos integer
 ---@field str string
----@field hotkey interface_key
+---@field hotkey bb_buttonst_hotkey
+df.bb_buttonst = {}
+
+---@enum bb_buttonst_construction_category_type
+df.bb_buttonst.T_construction_category_type = {
+}
+
+---@enum bb_buttonst_interface_key
+df.bb_buttonst.T_interface_key = {
+}
 
 ---@enum construction_interface_page_status_type
 df.construction_interface_page_status_type = {
@@ -81,19 +91,28 @@ df.construction_interface_page_status_type = {
 }
 
 ---@class construction_interface_pagest: df.struct
----@field category construction_category_type
+---@field category construction_interface_pagest_category
 ---@field bb_button bb_buttonst[]
 ---@field last_main_sx integer
 ---@field last_main_ex integer
 ---@field last_main_sy integer
 ---@field last_main_ey integer
----@field page_status construction_interface_page_status_type
+---@field page_status construction_interface_pagest_page_status
 ---@field number_of_columns integer
 ---@field column_height integer
 ---@field column_width integer
 ---@field selected_button bb_buttonst
 ---@field scrolling boolean
 ---@field scroll_position integer
+df.construction_interface_pagest = {}
+
+---@enum construction_interface_pagest_construction_category_type
+df.construction_interface_pagest.T_construction_category_type = {
+}
+
+---@enum construction_interface_pagest_construction_interface_page_status_type
+df.construction_interface_pagest.T_construction_interface_page_status_type = {
+}
 
 ---@enum room_flow_shape_type
 df.room_flow_shape_type = {
@@ -702,16 +721,16 @@ df.main_designation_type = {
 ---@field ap_squad_sel integer
 ---@field pref_occupation any[] occupationst
 ---@field selected_pref_occupation integer
----@field main_designation_selected main_designation_type
+---@field main_designation_selected main_interface_main_designation_selected
 ---@field main_designation_doing_rectangles boolean
----@field bottom_mode_selected main_bottom_mode_type
+---@field bottom_mode_selected main_interface_bottom_mode_selected
 ---@field hover_instructions_on boolean
 ---@field hover_instructions_last_hover_tick integer
 ---@field current_hover integer
 ---@field current_hover_id1 integer union with current_hover_building_type
 ---@field current_hover_id2 integer union with current_hover_building_subtype
 ---@field current_hover_id3 integer union with current_hover_building_custom_id
----@field current_hover_key interface_key
+---@field current_hover_key main_interface_current_hover_key
 ---@field current_hover_alert popup_message
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x integer
@@ -744,6 +763,19 @@ df.main_designation_type = {
 ---@field last_track_g coord
 ---@field keyboard_last_track_s coord
 ---@field keyboard_last_track_g coord
+df.main_interface = {}
+
+---@enum main_interface_main_designation_type
+df.main_interface.T_main_designation_type = {
+}
+
+---@enum main_interface_main_bottom_mode_type
+df.main_interface.T_main_bottom_mode_type = {
+}
+
+---@enum main_interface_interface_key
+df.main_interface.T_interface_key = {
+}
 
 ---@class gamest: df.struct
 ---@field main_interface main_interface
@@ -759,12 +791,13 @@ df.main_designation_type = {
 ---@field flash_7_by_3 integer[][][]
 ---@field flash_4_by_3 integer[][][]
 ---@field external_flag integer
+df.gamest = {}
 
 ---@class main_interface_settings: df.struct
 ---@field open boolean
----@field context settings_context_type
+---@field context main_interface_settings_context
 ---@field tab settings_tab_type[]
----@field current_mode settings_tab_type
+---@field current_mode main_interface_settings_current_mode
 ---@field container_widget widget_container
 ---@field scroll_position_params integer
 ---@field scrolling_params boolean
@@ -793,9 +826,19 @@ df.main_designation_type = {
 ---@field macro_list string[]
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
+df.main_interface_settings = {}
+
+---@enum main_interface_settings_settings_context_type
+df.main_interface_settings.T_settings_context_type = {
+}
+
+---@enum main_interface_settings_settings_tab_type
+df.main_interface_settings.T_settings_tab_type = {
+}
 
 ---@class hash_rngst: df.struct
 ---@field splitmix64_state integer
+df.hash_rngst = {}
 
 ---@class difficultyst: df.struct
 ---@field difficulty_enemies integer 0=off, 1=normal, 2=hard, 3=custom
@@ -838,6 +881,7 @@ df.main_designation_type = {
 ---@field grand_guild_unit_count integer
 ---@field mandate_period integer
 ---@field demand_period integer
+df.difficultyst = {}
 
 ---@class markup_text_boxst: df.struct
 ---@field unk1 string[]
@@ -846,6 +890,7 @@ df.main_designation_type = {
 ---@field unk_v50_4 integer
 ---@field unk_v50_5 integer
 ---@field unk_v50_6 integer
+df.markup_text_boxst = {}
 
 ---@class wqc_item_traitst: df.struct
 ---@field flg integer
@@ -858,6 +903,7 @@ df.main_designation_type = {
 ---@field tool_use integer
 ---@field display_string string
 ---@field on boolean
+df.wqc_item_traitst = {}
 
 ---@class cwo_buildingst: df.struct
 ---@field type integer
@@ -865,6 +911,7 @@ df.main_designation_type = {
 ---@field custom_id integer
 ---@field jminfo manager_order_template[]
 ---@field name string
+df.cwo_buildingst = {}
 
 ---@class cri_unitst: df.struct
 ---@field un unit
@@ -877,6 +924,7 @@ df.main_designation_type = {
 ---@field sort_name string
 ---@field job_sort_name string
 ---@field owner_un unit
+df.cri_unitst = {}
 
 ---@class actor_entryst: df.struct
 ---@field hf historical_figure
@@ -894,6 +942,7 @@ df.main_designation_type = {
 ---@field associated_org any[] organization_entryst
 ---@field associated_plot plot_entryst[]
 ---@field flag integer
+df.actor_entryst = {}
 
 ---@class organization_entry_nodest: df.struct
 ---@field actor_entry actor_entryst
@@ -908,6 +957,7 @@ df.main_designation_type = {
 ---@field br integer
 ---@field name string
 ---@field status string
+df.organization_entry_nodest = {}
 
 ---@class organization_entryst: df.struct
 ---@field node organization_entry_nodest[]
@@ -917,6 +967,7 @@ df.main_designation_type = {
 ---@field main_text_box string[]
 ---@field principle_actor_entry actor_entryst
 ---@field flag integer
+df.organization_entryst = {}
 
 ---@class plot_entryst: df.struct
 ---@field list_name string
@@ -925,6 +976,7 @@ df.main_designation_type = {
 ---@field agreement any agreementst
 ---@field master_hfid integer
 ---@field organization_name string
+df.plot_entryst = {}
 
 ---@class mod_headerst: df.struct
 ---@field zip_filename string
@@ -953,10 +1005,24 @@ df.main_designation_type = {
 ---@field steamapi_1 string
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
+df.mod_headerst = {}
 
 ---@class ui_look_list: df.struct
 ---@field items any[]
+df.ui_look_list = {}
 
 ---@class ui_unit_view_mode: df.struct
----@field value any
+---@field value ui_unit_view_mode_value
+df.ui_unit_view_mode = {}
+
+---@enum ui_unit_view_mode_value
+df.ui_unit_view_mode.T_value = {
+  General = 0,
+  Inventory = 1,
+  Preferences = 2,
+  Wounds = 3,
+  PrefLabor = 4,
+  PrefDogs = 5,
+  PrefOccupation = 6,
+}
 

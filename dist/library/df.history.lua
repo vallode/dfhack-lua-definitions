@@ -10,18 +10,28 @@
 ---@field killed_site integer[]
 ---@field killed_undead undead_flags[]
 ---@field killed_count integer[]
+df.historical_kills = {}
 
 ---@class history_hit_item: df.struct
 ---@field item item
----@field item_type item_type
+---@field item_type history_hit_item_item_type
 ---@field item_subtype integer
 ---@field mattype material
 ---@field matindex integer
 ---@field shooter_item item
----@field shooter_item_type item_type
+---@field shooter_item_type history_hit_item_shooter_item_type
 ---@field shooter_item_subtype integer
 ---@field shooter_mattype material
 ---@field shooter_matindex integer
+df.history_hit_item = {}
+
+---@enum history_hit_item_item_type
+df.history_hit_item.T_item_type = {
+}
+
+---@enum history_hit_item_item_type
+df.history_hit_item.T_item_type = {
+}
 
 ---@enum reputation_type
 df.reputation_type = {
@@ -132,9 +142,14 @@ df.plot_strategy_type = {
 
 ---@class plot_agreement: df.struct
 ---@field actor_id historical_figure
----@field plot_role plot_role_type
+---@field plot_role plot_agreement_plot_role
 ---@field agreement_id agreement
 ---@field agreement_has_messenger boolean
+df.plot_agreement = {}
+
+---@enum plot_agreement_plot_role_type
+df.plot_agreement.T_plot_role_type = {
+}
 
 ---@class historical_figure_info: df.struct
 ---@field spheres sphere_type[]
@@ -150,6 +165,7 @@ df.plot_strategy_type = {
 ---@field books artifact_record[] seems to be misnamed. Artifacts seen have been of all kinds
 ---@field reputation historical_entity[]
 ---@field relationships historical_figure_relationships
+df.historical_figure_info = {}
 
 ---@class historical_figure_relationships: df.struct
 ---only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
@@ -160,6 +176,7 @@ df.plot_strategy_type = {
 ---@field artifact_claims artifact_record[]
 ---@field unk_2 integer
 ---@field intrigues any[] only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
+df.historical_figure_relationships = {}
 
 ---@enum histfig_flags
 df.histfig_flags = {
@@ -291,10 +308,10 @@ df.vague_relationship_type = {
 }
 
 ---@class historical_figure: df.struct
----@field profession profession
+---@field profession historical_figure_profession
 ---@field race creature_raw
 ---@field caste caste_raw
----@field sex pronoun_type
+---@field sex historical_figure_sex
 ---@field orientation_flags orientation_flags
 ---@field appeared_year integer
 ---@field born_year integer
@@ -332,6 +349,15 @@ df.vague_relationship_type = {
 ---@field unk_v47_4 integer
 ---@field unk_v4019_1 integer
 ---@field unk_5 integer
+df.historical_figure = {}
+
+---@enum historical_figure_profession
+df.historical_figure.T_profession = {
+}
+
+---@enum historical_figure_pronoun_type
+df.historical_figure.T_pronoun_type = {
+}
 
 ---@enum identity_type
 df.identity_type = {
@@ -363,10 +389,19 @@ df.identity_type.attrs = {}
 ---@field unk_3 integer
 ---@field unk_v47_1 integer
 ---@field unk_v47_2 integer
----@field profession profession
+---@field profession identity_profession
 ---@field entity_id historical_entity
 ---@field unk_4 identity_unk_94[]
 ---@field unk_5 identity_unk_95[]
+df.identity = {}
+
+---@enum identity_identity_type
+df.identity.T_identity_type = {
+}
+
+---@enum identity_profession
+df.identity.T_profession = {
+}
 
 ---@class identity_unk_94: df.struct
 ---@field unk_0 integer
@@ -379,6 +414,7 @@ df.identity_type.attrs = {}
 ---@field unk_7 integer
 ---@field unk_8 integer
 ---@field unk_9 integer uninitialized
+df.identity_unk_94 = {}
 
 ---@class identity_unk_95: df.struct
 ---@field unk_0 integer
@@ -387,6 +423,7 @@ df.identity_type.attrs = {}
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
+df.identity_unk_95 = {}
 
 ---@enum mental_picture_property_type
 df.mental_picture_property_type = {
@@ -652,12 +689,22 @@ df.history_event_reason = {
 df.history_event_reason.attrs = {}
 
 ---@class history_event_reason_info: df.struct
----@field type history_event_reason
+---@field type history_event_reason_info_type
 ---@field data historical_figure
+df.history_event_reason_info = {}
+
+---@enum history_event_reason_info_history_event_reason
+df.history_event_reason_info.T_history_event_reason = {
+}
 
 ---@class history_event_circumstance_info: df.struct
----@field type unit_thought_type
+---@field type history_event_circumstance_info_type
 ---@field data historical_figure
+df.history_event_circumstance_info = {}
+
+---@enum history_event_circumstance_info_unit_thought_type
+df.history_event_circumstance_info.T_unit_thought_type = {
+}
 
 ---@class history_event_context: df.struct
 ---@field flags any
@@ -672,10 +719,10 @@ df.history_event_reason.attrs = {}
 ---@field layer_id world_underground_region
 ---@field unk_34 integer passed to history_event::isRelatedToAgreementID, but all implementations of that function are broken currently
 ---@field abstract_building_id abstract_building
----@field sphere sphere_type
----@field architectural_element architectural_element
+---@field sphere history_event_context_sphere
+---@field architectural_element history_event_context_architectural_element
 ---@field unk_40 integer
----@field family_relationship histfig_relationship_type not initialized
+---@field family_relationship history_event_context_family_relationship not initialized
 ---@field number integer
 ---@field unk_48 integer
 ---@field race creature_raw
@@ -712,6 +759,20 @@ df.history_event_reason.attrs = {}
 ---@field belief_system_id belief_system
 ---@field image_set_id image_set
 ---@field divination_set_id divination_set
+df.history_event_context = {}
+
+---@enum history_event_context_sphere_type
+df.history_event_context.T_sphere_type = {
+}
+
+---@enum history_event_context_architectural_element
+df.history_event_context.T_architectural_element = {
+}
+
+---@enum history_event_context_histfig_relationship_type
+---not initialized
+df.history_event_context.T_histfig_relationship_type = {
+}
 
 ---@enum architectural_element
 df.architectural_element = {
@@ -964,6 +1025,7 @@ df.era_type = {
 ---@field year integer
 ---@field title era_type
 ---@field details integer
+df.history_era = {}
 
 ---@class relationship_event: df.struct
 ---@field event integer[] not included in the main list
@@ -973,13 +1035,19 @@ df.era_type = {
 ---@field year integer[]
 ---@field next_element integer 1024 for all vectors except the last one
 ---@field start_year integer first year of the events contained in the element
+df.relationship_event = {}
 
 ---@class relationship_event_supplement: df.struct
 ---@field event integer can be found in the relationship_events
 ---@field occasion_type integer only 245/246 seen. 245:scholarly lecture, 246: performance
 ---@field site world_site
 ---@field unk_1 integer only 81 seen
----@field profession profession
+---@field profession relationship_event_supplement_profession
+df.relationship_event_supplement = {}
+
+---@enum relationship_event_supplement_profession
+df.relationship_event_supplement.T_profession = {
+}
 
 ---@class world_history: df.struct
 ---@field events history_event[]
@@ -1024,37 +1092,82 @@ df.era_type = {
 ---@field unk_11 integer
 ---@field unk_12 integer
 ---@field active_mission mission_report
+df.world_history = {}
 
 ---@class intrigue: df.struct
 ---@field event_id history_event NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship
 ---@field corruption intrigue_corruption Mutually exclusive with circumstance. Exactly one is present. Presumably 'bring into network' action doesn't provide membership
 ---@field reason history_event_reason_info
 ---@field circumstance history_event_circumstance_info
+df.intrigue = {}
 
 ---@class intrigue_corruption: df.struct
----@field crime crime_type
+---@field crime intrigue_corruption_crime
 ---@field corruptor_id historical_figure
 ---@field target_id historical_figure
----@field target_relationship vague_relationship_type set if and only if action = BringIntoNetwork
+---@field target_relationship intrigue_corruption_target_relationship set if and only if action = BringIntoNetwork
 ---@field target_relationship_entity_id historical_entity Only set when relation = CommonEntity. Common Religion/PerformanceTroupe/MerchantCompany/Guild seen.
 ---@field lurer_id historical_figure Can be set with action = CorruptInPlace, not otherwise
----@field manipulation_type any
+---@field manipulation_type intrigue_corruption_manipulation_type
 ---@field unk_4 integer -16 to 315 seen
 ---@field unk_5 integer -141 to 351 seen
----@field manipulated_facet personality_facet_type
+---@field manipulated_facet intrigue_corruption_manipulated_facet
 ---@field facet_rating integer
 ---@field facet_roll integer
----@field manipulated_value value_type
+---@field manipulated_value intrigue_corruption_manipulated_value
 ---@field value_rating integer
 ---@field value_roll integer
----@field manipulated_emotion any
+---@field manipulated_emotion intrigue_corruption_manipulated_emotion
 ---@field emotion_rating integer -100 to 125 seen
 ---@field emotion_roll integer -10 to 12 seen
 ---@field flags any
 ---@field position_entity_id historical_entity Used to pull rank
 ---@field position_assignment_id entity_position_assignment
 ---@field offered_id historical_figure deity or revenge target
----@field offered_relationship vague_relationship_type
+---@field offered_relationship intrigue_corruption_offered_relationship
 ---@field corruptor_ally_roll integer
 ---@field target_ally_roll integer
+df.intrigue_corruption = {}
+
+---@enum intrigue_corruption_crime_type
+df.intrigue_corruption.T_crime_type = {
+}
+
+---@enum intrigue_corruption_vague_relationship_type
+---set if and only if action = BringIntoNetwork
+df.intrigue_corruption.T_vague_relationship_type = {
+}
+
+---@enum intrigue_corruption_manipulation_type
+df.intrigue_corruption.T_manipulation_type = {
+  Threat = 0,
+  Flattery = 1,
+  Authority = 2,
+  BlackmailForEmbezzlement = 3,
+  Bribery = 4,
+  Sympathy = 5,
+  Revenge = 6,
+  Immortality = 7,
+}
+
+---@enum intrigue_corruption_personality_facet_type
+df.intrigue_corruption.T_personality_facet_type = {
+}
+
+---@enum intrigue_corruption_value_type
+df.intrigue_corruption.T_value_type = {
+}
+
+---@enum intrigue_corruption_manipulated_emotion
+df.intrigue_corruption.T_manipulated_emotion = {
+  Trust = 0,
+  Loyalty = 1,
+  Love = 2,
+  Fear = 3,
+  Respect = 4,
+}
+
+---@enum intrigue_corruption_vague_relationship_type
+df.intrigue_corruption.T_vague_relationship_type = {
+}
 

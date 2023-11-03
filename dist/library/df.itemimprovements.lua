@@ -23,9 +23,19 @@ df.improvement_type = {
 ---@field mat_type material
 ---@field mat_index integer
 ---@field dyer historical_figure
----@field quality item_quality
----@field skill_rating skill_rating at the moment of creation
+---@field quality dye_info_quality
+---@field skill_rating dye_info_skill_rating at the moment of creation
 ---@field unk_1 integer
+df.dye_info = {}
+
+---@enum dye_info_item_quality
+df.dye_info.T_item_quality = {
+}
+
+---@enum dye_info_skill_rating
+---at the moment of creation
+df.dye_info.T_skill_rating = {
+}
 
 ---@enum itemimprovement_specific_type
 df.itemimprovement_specific_type = {
@@ -100,6 +110,11 @@ df.written_content_style = {
 ---@field style_strength integer[] 0 = maximum, 1 = significant, 2 = partial
 ---@field author historical_figure
 ---@field author_roll integer
+df.written_content = {}
+
+---@enum written_content_written_content_type
+df.written_content.T_written_content_type = {
+}
 
 ---@enum engraving_flags
 df.engraving_flags = {
@@ -118,13 +133,23 @@ df.engraving_flags = {
 ---@class engraving: df.struct
 ---@field artist historical_figure
 ---@field masterpiece_event history_event
----@field skill_rating skill_rating at the moment of creation
+---@field skill_rating engraving_skill_rating at the moment of creation
 ---@field pos coord
 ---@field flags engraving_flags
 ---@field tile integer
 ---@field art_id art_image_chunk
 ---@field art_subid art_image
----@field quality item_quality
+---@field quality engraving_quality
 ---@field unk1 integer
 ---@field unk2 integer
+df.engraving = {}
+
+---@enum engraving_skill_rating
+---at the moment of creation
+df.engraving.T_skill_rating = {
+}
+
+---@enum engraving_item_quality
+df.engraving.T_item_quality = {
+}
 

@@ -9,11 +9,20 @@ df.uniform_indiv_choice = {
 }
 
 ---@class item_filter_spec: df.struct
----@field item_type item_type
+---@field item_type item_filter_spec_item_type
 ---@field item_subtype integer
----@field material_class entity_material_category
+---@field material_class item_filter_spec_material_class
 ---@field mattype material
 ---@field matindex integer
+df.item_filter_spec = {}
+
+---@enum item_filter_spec_item_type
+df.item_filter_spec.T_item_type = {
+}
+
+---@enum item_filter_spec_entity_material_category
+df.item_filter_spec.T_entity_material_category = {
+}
 
 ---@class squad_uniform_spec: df.struct
 ---@field item item
@@ -21,12 +30,14 @@ df.uniform_indiv_choice = {
 ---@field color integer
 ---@field assigned item[]
 ---@field indiv_choice uniform_indiv_choice
+df.squad_uniform_spec = {}
 
 ---@class squad_ammo_spec: df.struct
 ---@field item_filter item_filter_spec
 ---@field amount integer
 ---@field flags any
 ---@field assigned item[]
+df.squad_ammo_spec = {}
 
 ---@enum squad_use_flags
 df.squad_use_flags = {
@@ -84,11 +95,13 @@ df.squad_event_type = {
 ---@field activities integer[]
 ---@field events integer[]
 ---@field unk_2 integer
+df.squad_position = {}
 
 ---@class squad_schedule_order: df.struct
 ---@field order squad_order
 ---@field min_count integer
 ---@field positions any
+df.squad_schedule_order = {}
 
 ---@class squad_schedule_entry: df.struct
 ---@field name string
@@ -96,6 +109,7 @@ df.squad_event_type = {
 ---@field uniform_mode integer 0 uniformed, 1 civ clothes
 ---@field orders squad_schedule_order[]
 ---@field order_assignments any[]
+df.squad_schedule_entry = {}
 
 ---@class squad: df.struct
 ---@field id integer
@@ -126,6 +140,7 @@ df.squad_event_type = {
 ---@field background_r integer
 ---@field background_g integer
 ---@field background_b integer
+df.squad = {}
 
 ---@enum squad_order_type
 df.squad_order_type = {
@@ -195,12 +210,43 @@ df.squad_order_cannot_reason = {
 ---@field unk_v50_b0 integer[]
 ---@field mission_report mission_report
 ---@field data army_controller_sub1
----@field type any
+---@field type army_controller_type
+df.army_controller = {}
+
+---@enum army_controller_type
+df.army_controller.T_type = {
+  t0 = 0,
+  t1 = 1,
+  InvasionOrder = 2,
+  t3 = 3,
+  Invasion = 4, --Seen on army_controller entries of armies referenced by InvasionOrder controllers (which do not refer to the InvasionOrder entries). These Invasion entries are not in the 'all' vector
+  t5 = 5,
+  t6 = 6,
+  t7 = 7,
+  t8 = 8,
+  t9 = 9,
+  t10 = 10,
+  t11 = 11,
+  Visit = 12, --Used both for regular visitors to a fortress and exiled characters sent to 'visit' other sites
+  t13 = 13,
+  t14 = 14,
+  t15 = 15,
+  t16 = 16,
+  Quest = 17, --Used to indicate artifact quests
+  t18 = 18,
+  t19 = 19,
+  t20 = 20,
+  t21 = 21,
+  t22 = 22,
+  t23 = 23,
+  VillainousVisit = 24,
+}
 
 ---@class army_controller_sub1: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+df.army_controller_sub1 = {}
 
 ---@class army_controller_invasion_order: df.struct
 ---@field unk_1 integer
@@ -214,10 +260,12 @@ df.squad_order_cannot_reason = {
 ---@field unk_8 integer
 ---@field unk_9 integer
 ---@field unk_10 integer[]
+df.army_controller_invasion_order = {}
 
 ---@class army_controller_invasion: df.struct
 ---@field unk_1 integer
 ---@field unk_2 any
+df.army_controller_invasion = {}
 
 ---@class army_controller_sub5: df.struct
 ---@field pos_x integer in map_block coordinates. Same as those of the main struct seen
@@ -225,6 +273,7 @@ df.squad_order_cannot_reason = {
 ---@field unk_1 integer 0 seen
 ---@field year integer
 ---@field year_tick integer
+df.army_controller_sub5 = {}
 
 ---@class army_controller_sub6: df.struct
 ---@field unk_1 integer
@@ -236,6 +285,7 @@ df.squad_order_cannot_reason = {
 ---@field unk_7 integer
 ---@field unk_8 integer
 ---@field unk_9 integer
+df.army_controller_sub6 = {}
 
 ---@class army_controller_sub7: df.struct
 ---@field unk_1 integer
@@ -248,11 +298,13 @@ df.squad_order_cannot_reason = {
 ---@field unk_6 integer
 ---@field unk_7 integer
 ---@field unk_8 integer
+df.army_controller_sub7 = {}
 
 ---@class army_controller_sub11: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 army[]
+df.army_controller_sub11 = {}
 
 ---@class army_controller_visit: df.struct
 ---@field unk_1 integer
@@ -262,13 +314,19 @@ df.squad_order_cannot_reason = {
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field abstract_building integer Monster slayers have -1
----@field purpose history_event_reason
+---@field purpose army_controller_visit_purpose
+df.army_controller_visit = {}
+
+---@enum army_controller_visit_history_event_reason
+df.army_controller_visit.T_history_event_reason = {
+}
 
 ---@class army_controller_sub13: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer[]
+df.army_controller_sub13 = {}
 
 ---@class army_controller_sub14: df.struct
 ---@field unk_1 integer
@@ -276,6 +334,7 @@ df.squad_order_cannot_reason = {
 ---@field unk_3 integer
 ---@field unk_4 integer[]
 ---@field unk_5 integer
+df.army_controller_sub14 = {}
 
 ---@class army_controller_sub15: df.struct
 ---@field unk_1 integer
@@ -291,50 +350,65 @@ df.squad_order_cannot_reason = {
 ---@field unk_11 integer
 ---@field unk_12 integer
 ---@field unk_13 integer
+df.army_controller_sub15 = {}
 
 ---@class army_controller_sub16: df.struct
 ---@field unk_1 integer
+df.army_controller_sub16 = {}
 
 ---@class army_controller_quest: df.struct
 ---@field artifact_id artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+df.army_controller_quest = {}
 
 ---@class army_controller_sub18: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
+df.army_controller_sub18 = {}
 
 ---@class army_controller_sub19: df.struct
 ---@field unk_1 integer[]
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
+df.army_controller_sub19 = {}
 
 ---@class army_controller_sub20: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+df.army_controller_sub20 = {}
 
 ---@class army_controller_sub21: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
+df.army_controller_sub21 = {}
 
 ---@class army_controller_sub22: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
+df.army_controller_sub22 = {}
 
 ---@class army_controller_sub23: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
+df.army_controller_sub23 = {}
 
 ---@class army_controller_villainous_visit: df.struct
 ---@field site_id world_site
 ---@field entity_id historical_entity
 ---@field abstract_building integer -1 before arrival
----@field purpose history_event_reason none before arrival
+---@field purpose army_controller_villainous_visit_purpose none before arrival
+df.army_controller_villainous_visit = {}
+
+---@enum army_controller_villainous_visit_history_event_reason
+---none before arrival
+df.army_controller_villainous_visit.T_history_event_reason = {
+}
 
 ---@enum army_flags
 df.army_flags = {
@@ -368,9 +442,14 @@ df.army_flags = {
 ---@field max_low_light_vision integer
 ---@field sense_creature_classes string[]
 ---@field creature_class string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
----@field item_type item_type
+---@field item_type army_item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 ---@field unk_4407_1 item[]
+df.army = {}
+
+---@enum army_item_type
+df.army.T_item_type = {
+}
 

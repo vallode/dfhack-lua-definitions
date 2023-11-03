@@ -124,6 +124,7 @@ df.creature_interaction_effect_target_mode = {
 ---@field mode creature_interaction_effect_target_mode[]
 ---@field key string[]
 ---@field tissue string[]
+df.creature_interaction_effect_target = {}
 
 ---@enum syndrome_flags
 df.syndrome_flags = {
@@ -149,4 +150,5 @@ df.syndrome_flags = {
 ---@field flags syndrome_flags
 ---@field syn_concentration_added integer[]
 ---@field id integer
+df.syndrome = {}
 

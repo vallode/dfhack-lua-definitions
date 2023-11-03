@@ -498,6 +498,11 @@ df.witness_report_flags = {
 ---@field unk_30 historical_figure
 ---@field unk_34 identity
 ---@field pos coord
+df.witness_report = {}
+
+---@enum witness_report_witness_report_type
+df.witness_report.T_witness_report_type = {
+}
 
 ---@enum ghost_goal
 df.ghost_goal = {
@@ -513,9 +518,9 @@ df.ghost_goal = {
 }
 
 ---@class unit_ghost_info: df.struct
----@field type ghost_type
----@field type2 ghost_type seems to have same value as type
----@field goal ghost_goal
+---@field type unit_ghost_info_type
+---@field type2 unit_ghost_info_type2 seems to have same value as type
+---@field goal unit_ghost_info_goal
 ---@field target unit
 ---@field misplace_pos coord
 ---@field action_timer integer time since last action
@@ -524,17 +529,48 @@ df.ghost_goal = {
 ---@field death_x integer in tiles, global to world
 ---@field death_y integer
 ---@field death_z integer
+df.unit_ghost_info = {}
+
+---@enum unit_ghost_info_ghost_type
+df.unit_ghost_info.T_ghost_type = {
+}
+
+---@enum unit_ghost_info_ghost_type
+---seems to have same value as type
+df.unit_ghost_info.T_ghost_type = {
+}
+
+---@enum unit_ghost_info_ghost_goal
+df.unit_ghost_info.T_ghost_goal = {
+}
 
 ---@class unit_genes: df.struct
 ---@field appearance integer
 ---@field colors integer
+df.unit_genes = {}
 
 ---@class unit_inventory_item: df.struct
 ---@field item item
----@field mode any
+---@field mode unit_inventory_item_mode
 ---@field body_part_id integer
 ---@field pet_seed integer RNG seed for Pet mode
 ---@field wound_id integer -1 unless suture
+df.unit_inventory_item = {}
+
+---@enum unit_inventory_item_mode
+df.unit_inventory_item.T_mode = {
+  Hauled = 0,
+  Weapon = 1, --also shield, crutch
+  Worn = 2, --quiver
+  Piercing = 3,
+  Flask = 4, --attached to clothing
+  WrappedAround = 5, --e.g. bandage
+  StuckIn = 6,
+  InMouth = 7, --string descr like Worn
+  Pet = 8, --Left shoulder, right shoulder, or head, selected randomly using pet_seed
+  SewnInto = 9,
+  Strapped = 10,
+}
 
 ---@class unit_attribute: df.struct
 ---@field value integer effective = value - soft_demotion
@@ -544,6 +580,7 @@ df.ghost_goal = {
 ---@field soft_demotion integer 0-100; when not 0 blocks improve_counter
 ---@field rust_counter integer counts to PHYS_ATT_RATES rust; then demotion_counter++
 ---@field demotion_counter integer counts to PHYS_ATT_RATES demotion; then value--; soft_demotion++
+df.unit_attribute = {}
 
 ---@class unit_syndrome: df.struct
 ---@field type syndrome
@@ -556,6 +593,7 @@ df.ghost_goal = {
 ---@field reinfection_count integer set from unit.reinfection_count[i]++
 ---@field flags any
 ---@field unk4 integer[]
+df.unit_syndrome = {}
 
 ---@enum wound_effect_type
 df.wound_effect_type = {
@@ -631,12 +669,14 @@ df.wound_damage_flags2 = {
 ---@field curse wound_curse_info
 ---@field unk_v42_1 integer
 ---@field unk_v42_2 integer
+df.unit_wound = {}
 
 ---@class curse_attr_change: df.struct
 ---@field phys_att_perc integer[]
 ---@field phys_att_add integer[]
 ---@field ment_att_perc integer[]
 ---@field ment_att_add integer[]
+df.curse_attr_change = {}
 
 ---@class wound_curse_info: df.struct
 ---@field unk_v40_1 integer
@@ -664,6 +704,7 @@ df.wound_damage_flags2 = {
 ---@field were_caste caste_raw
 ---@field body_appearance integer[]
 ---@field bp_appearance integer[]
+df.wound_curse_info = {}
 
 ---@enum misc_trait_type
 df.misc_trait_type = {
@@ -745,8 +786,13 @@ df.misc_trait_type = {
 df.misc_trait_type.attrs = {}
 
 ---@class unit_misc_trait: df.struct
----@field id misc_trait_type
+---@field id unit_misc_trait_id
 ---@field value integer
+df.unit_misc_trait = {}
+
+---@enum unit_misc_trait_misc_trait_type
+df.unit_misc_trait.T_misc_trait_type = {
+}
 
 ---@class unit_item_wrestle: df.struct
 ---@field unit unit
@@ -759,12 +805,14 @@ df.misc_trait_type.attrs = {}
 ---@field unk_1c integer
 ---@field unk_1e integer 1 grabs, -1 grabbed
 ---@field unk_20 integer
+df.unit_item_wrestle = {}
 
 ---@class unit_item_use: df.struct
 ---@field id item
 ---@field time_in_use integer
 ---@field has_grown_attached integer
 ---@field affection_level integer min 50 for attached, 1000 for name
+df.unit_item_use = {}
 
 ---@enum unit_health_flags
 df.unit_health_flags = {
@@ -806,6 +854,7 @@ df.unit_bp_health_flags = {
 ---@field crutch_cntdn integer
 ---@field op_history job_type[]
 ---@field unk_34 any[]
+df.unit_health_info = {}
 
 ---@enum orientation_flags
 df.orientation_flags = {
@@ -820,7 +869,7 @@ df.orientation_flags = {
 ---@field id integer
 ---@field name language_name
 ---@field race creature_raw
----@field sex pronoun_type
+---@field sex unit_soul_sex
 ---@field caste caste_raw
 ---@field orientation_flags orientation_flags
 ---@field unk2 integer
@@ -836,32 +885,57 @@ df.orientation_flags = {
 ---@field preferences unit_preference[]
 ---@field personality unit_personality
 ---@field performance_skills unit_instrument_skill[]
+df.unit_soul = {}
+
+---@enum unit_soul_pronoun_type
+df.unit_soul.T_pronoun_type = {
+}
 
 ---@class unit_instrument_skill: df.struct
 ---@field id integer
----@field rating skill_rating
+---@field rating unit_instrument_skill_rating
 ---@field experience integer
+df.unit_instrument_skill = {}
+
+---@enum unit_instrument_skill_skill_rating
+df.unit_instrument_skill.T_skill_rating = {
+}
 
 ---@class unit_poetic_skill: df.struct
 ---@field id integer
----@field rating skill_rating
+---@field rating unit_poetic_skill_rating
 ---@field experience integer
+df.unit_poetic_skill = {}
+
+---@enum unit_poetic_skill_skill_rating
+df.unit_poetic_skill.T_skill_rating = {
+}
 
 ---@class unit_musical_skill: df.struct
 ---@field id integer
----@field rating skill_rating
+---@field rating unit_musical_skill_rating
 ---@field experience integer
+df.unit_musical_skill = {}
+
+---@enum unit_musical_skill_skill_rating
+df.unit_musical_skill.T_skill_rating = {
+}
 
 ---@class unit_dance_skill: df.struct
 ---@field id integer
----@field rating skill_rating
+---@field rating unit_dance_skill_rating
 ---@field experience integer
+df.unit_dance_skill = {}
+
+---@enum unit_dance_skill_skill_rating
+df.unit_dance_skill.T_skill_rating = {
+}
 
 ---@class unit_emotion_memory: df.struct
----@field type emotion_type
+---@field type unit_emotion_memory_type
 ---@field unk2 integer
 ---@field strength integer
----@field thought unit_thought_type
+---@field thought unit_emotion_memory_thought
 ---@field subthought integer for certain thoughts
 ---@field severity integer
 ---@field unk_1 integer
@@ -869,6 +943,15 @@ df.orientation_flags = {
 ---@field year_tick integer
 ---@field unk_v50_1 integer
 ---@field unk_v50_2 integer
+df.unit_emotion_memory = {}
+
+---@enum unit_emotion_memory_emotion_type
+df.unit_emotion_memory.T_emotion_type = {
+}
+
+---@enum unit_emotion_memory_unit_thought_type
+df.unit_emotion_memory.T_unit_thought_type = {
+}
 
 ---@class unit_personality: df.struct
 ---@field values value_type[]
@@ -901,6 +984,7 @@ df.orientation_flags = {
 ---@field longterm_stress integer
 ---@field current_focus integer weighted sum of needs focus_level-s
 ---@field undistracted_focus integer usually number of needs multiplied by 4
+df.unit_personality = {}
 
 ---@enum unit_action_type_group
 ---for the action timer API, not in DF
@@ -952,6 +1036,11 @@ df.unit_action_type.attrs = {}
 ---@field type unit_action_type
 ---@field id integer
 ---@field data integer[]
+df.unit_action = {}
+
+---@enum unit_action_unit_action_type
+df.unit_action.T_unit_action_type = {
+}
 
 ---@class unit_action_data_move: df.struct
 ---@field x integer
@@ -961,6 +1050,7 @@ df.unit_action_type.attrs = {}
 ---@field timer_init integer
 ---@field fatigue integer
 ---@field flags any
+df.unit_action_data_move = {}
 
 ---@class unit_action_data_attack: df.struct
 ---@field target_unit_id unit
@@ -973,10 +1063,15 @@ df.unit_action_type.attrs = {}
 ---@field unk_2c integer
 ---@field attack_velocity integer
 ---@field flags any
----@field attack_skill job_skill
+---@field attack_skill unit_action_data_attack_attack_skill
 ---@field attack_accuracy integer
 ---@field timer1 integer prepare
 ---@field timer2 integer recover
+df.unit_action_data_attack = {}
+
+---@enum unit_action_data_attack_job_skill
+df.unit_action_data_attack.T_job_skill = {
+}
 
 ---@class unit_action_data_jump: df.struct
 ---@field x1 integer
@@ -985,6 +1080,7 @@ df.unit_action_type.attrs = {}
 ---@field x2 integer
 ---@field y2 integer
 ---@field z2 integer
+df.unit_action_data_jump = {}
 
 ---@class unit_action_data_hold_terrain: df.struct
 ---@field x1 integer
@@ -998,11 +1094,13 @@ df.unit_action_type.attrs = {}
 ---@field z3 integer
 ---@field timer integer
 ---@field fatigue integer
+df.unit_action_data_hold_terrain = {}
 
 ---@class unit_action_data_release_terrain: df.struct
 ---@field x integer
 ---@field y integer
 ---@field z integer
+df.unit_action_data_release_terrain = {}
 
 ---@class unit_action_data_climb: df.struct
 ---@field x1 integer
@@ -1017,12 +1115,14 @@ df.unit_action_type.attrs = {}
 ---@field timer integer
 ---@field timer_init integer
 ---@field fatigue integer
+df.unit_action_data_climb = {}
 
 ---@class unit_action_data_job: df.struct
 ---@field x integer
 ---@field y integer
 ---@field z integer
 ---@field timer integer
+df.unit_action_data_job = {}
 
 ---@class unit_action_data_talk: df.struct
 ---@field unk_0 integer
@@ -1038,19 +1138,23 @@ df.unit_action_type.attrs = {}
 ---@field unk_4c integer
 ---@field unk_50 integer
 ---@field unk_54 integer
+df.unit_action_data_talk = {}
 
 ---@class unit_action_data_unsteady: df.struct
 ---@field timer integer
+df.unit_action_data_unsteady = {}
 
 ---@class unit_action_data_parry: df.struct
 ---@field unit_id unit
 ---@field target_action unit_action
 ---@field parry_item_id item
+df.unit_action_data_parry = {}
 
 ---@class unit_action_data_block: df.struct
 ---@field unit_id unit
 ---@field target_action unit_action
 ---@field block_item_id item
+df.unit_action_data_block = {}
 
 ---@class unit_action_data_dodge: df.struct
 ---@field x1 integer
@@ -1060,19 +1164,24 @@ df.unit_action_type.attrs = {}
 ---@field x2 integer
 ---@field y2 integer
 ---@field z2 integer
+df.unit_action_data_dodge = {}
 
 ---@class unit_action_data_recover: df.struct
 ---@field timer integer
 ---@field unk_4 integer
+df.unit_action_data_recover = {}
 
 ---@class unit_action_data_stand_up: df.struct
 ---@field timer integer
+df.unit_action_data_stand_up = {}
 
 ---@class unit_action_data_lie_down: df.struct
 ---@field timer integer
+df.unit_action_data_lie_down = {}
 
 ---@class unit_action_data_job2: df.struct
 ---@field timer integer
+df.unit_action_data_job2 = {}
 
 ---@class unit_action_data_push_object: df.struct
 ---@field x1 integer
@@ -1086,10 +1195,12 @@ df.unit_action_type.attrs = {}
 ---@field z3 integer
 ---@field timer integer
 ---@field unk_18 integer
+df.unit_action_data_push_object = {}
 
 ---@class unit_action_data_suck_blood: df.struct
 ---@field unit_id unit
 ---@field timer integer
+df.unit_action_data_suck_blood = {}
 
 ---@class unit_action_data_hold_item: df.struct
 ---@field x1 integer
@@ -1101,65 +1212,115 @@ df.unit_action_type.attrs = {}
 ---@field unk_c integer
 ---@field unk_10 integer
 ---@field unk_14 integer
+df.unit_action_data_hold_item = {}
 
 ---@class unit_action_data_release_item: df.struct
 ---@field unk_0 integer
+df.unit_action_data_release_item = {}
 
 ---@class unit_action_data_unk_sub_20: df.struct
 ---@field unk_0 integer[]
 ---@field unk_1 integer[]
+df.unit_action_data_unk_sub_20 = {}
 
 ---@class unit_action_data_unk_sub_21: df.struct
 ---@field unk_0 integer[]
 ---@field unk_1 integer[]
+df.unit_action_data_unk_sub_21 = {}
 
 ---@class unit_action_data_unk_sub_22: df.struct
 ---@field unk_0 integer
+df.unit_action_data_unk_sub_22 = {}
 
 ---@class unit_action_data_unk_sub_23: df.struct
 ---@field unk_0 integer
+df.unit_action_data_unk_sub_23 = {}
 
 ---@class unit_skill: df.struct
----@field id job_skill
----@field rating skill_rating
+---@field id unit_skill_id
+---@field rating unit_skill_rating
 ---@field experience integer
 ---@field unused_counter integer
 ---@field rusty integer
 ---@field rust_counter integer
 ---@field demotion_counter integer
 ---@field natural_skill_lvl integer This is the NATURAL_SKILL level for the caste in the raws. This skill cannot rust below this level.
+df.unit_skill = {}
+
+---@enum unit_skill_job_skill
+df.unit_skill.T_job_skill = {
+}
+
+---@enum unit_skill_skill_rating
+df.unit_skill.T_skill_rating = {
+}
 
 ---@class unit_preference: df.struct
----@field type any
+---@field type unit_preference_type
 ---@field item_subtype integer
 ---@field mattype material
 ---@field matindex integer
----@field mat_state matter_state
+---@field mat_state unit_preference_mat_state
 ---@field active boolean
 ---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
+df.unit_preference = {}
+
+---@enum unit_preference_type
+df.unit_preference.T_type = {
+  LikeMaterial = 0,
+  LikeCreature = 1,
+  LikeFood = 2,
+  HateCreature = 3,
+  LikeItem = 4,
+  LikePlant = 5,
+  LikeTree = 6,
+  LikeColor = 7,
+  LikeShape = 8,
+  LikePoeticForm = 9,
+  LikeMusicalForm = 10,
+  LikeDanceForm = 11,
+}
+
+---@enum unit_preference_matter_state
+df.unit_preference.T_matter_state = {
+}
 
 ---@class unit_complaint: df.struct
----@field type history_event_reason
+---@field type unit_complaint_type
 ---@field age integer
+df.unit_complaint = {}
+
+---@enum unit_complaint_history_event_reason
+df.unit_complaint.T_history_event_reason = {
+}
 
 ---@class unit_parley: df.struct
 ---@field invasion invasion_info
 ---@field speaker unit
 ---@field artifact artifact_record
 ---@field flags any
+df.unit_parley = {}
 
 ---@class unit_request: df.struct
----@field type any
+---@field type unit_request_type
 ---@field source integer
 ---@field count integer
+df.unit_request = {}
+
+---@enum unit_request_type
+df.unit_request.T_type = {
+  DoGuildJobs = 0,
+}
 
 ---@class unit_coin_debt: df.struct
 ---@field recipient unit
 ---@field amount integer
+df.unit_coin_debt = {}
 
 ---@class unit_chunk: df.struct
 ---@field id integer unit_*.dat
 ---@field units item[][]
+df.unit_chunk = {}
 
 ---@class unit_appearance: df.struct
 ---physical_formst
@@ -1181,6 +1342,7 @@ df.unit_action_type.attrs = {}
 ---@field color_modifiers integer[]
 ---@field unk_18 integer
 ---@field unk_19 integer
+df.unit_appearance = {}
 
 ---@enum work_detail_mode
 df.work_detail_mode = {
@@ -1195,10 +1357,35 @@ df.work_detail_mode = {
 ---@field work_detail_flags any
 ---@field assigned_units integer[] toady: unid
 ---@field allowed_labors boolean[] toady: profession
----@field icon any
+---@field icon work_detail_icon
+df.work_detail = {}
+
+---@enum work_detail_icon
+df.work_detail.T_icon = {
+  ICON_NONE = -1,
+  ICON_MINERS = 1,
+  ICON_WOODCUTTERS = 2,
+  ICON_HUNTERS = 3,
+  ICON_PLANTERS = 4,
+  ICON_FISHERMEN = 5,
+  ICON_STONECUTTERS = 6,
+  ICON_ENGRAVERS = 7,
+  ICON_PLANT_GATHERERS = 8,
+  ICON_HAULERS = 9,
+  ICON_ORDERLIES = 10,
+  ICON_CUSTOM_1 = 11,
+  ICON_CUSTOM_2 = 12,
+  ICON_CUSTOM_3 = 13,
+  ICON_CUSTOM_4 = 14,
+  ICON_CUSTOM_5 = 15,
+  ICON_CUSTOM_6 = 16,
+  ICON_CUSTOM_7 = 17,
+  ICON_CUSTOM_8 = 18,
+}
 
 ---@class process_unit_aux: df.struct
 ---@field unit unit
 ---@field flags any
 ---@field unitlist any[]
+df.process_unit_aux = {}
 

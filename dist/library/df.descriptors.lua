@@ -16,12 +16,17 @@ df.pattern_type = {
 ---@field word_unk string[]
 ---@field words integer[]
 ---@field name string
----@field color curses_color
+---@field color descriptor_color_color
 ---@field bold integer
 ---@field red number
 ---@field green number
 ---@field blue number
 ---@field unk_v50_1 integer[]
+df.descriptor_color = {}
+
+---@enum descriptor_color_curses_color
+df.descriptor_color.T_curses_color = {
+}
 
 ---@class descriptor_shape: df.struct
 ---@field id string
@@ -40,10 +45,16 @@ df.pattern_type = {
 ---@field unk_v50_4 any
 ---@field unk_v50_5 any
 ---@field unk_v50_6 any
+df.descriptor_shape = {}
 
 ---@class descriptor_pattern: df.struct
 ---@field id string
 ---@field colors integer[]
----@field pattern pattern_type
+---@field pattern descriptor_pattern_pattern
 ---@field cp_color string[]
+df.descriptor_pattern = {}
+
+---@enum descriptor_pattern_pattern_type
+df.descriptor_pattern.T_pattern_type = {
+}
 
