@@ -78,7 +78,7 @@ df.item_magicness_type = {
 ---@field base_flags any
 ---@field pad_1 any needed for proper alignment of spatter on gcc
 
----@class spatter
+---@class spatter: spatter_common
 ---@field body_part_id integer
 ---@field flags any
 

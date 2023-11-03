@@ -25,7 +25,7 @@ df-structures `generate.rb`:
   - [x] `<stl-function>`
 - [ ] `<struct-type>`
   - [ ] `instance-vector`/`key-field` find function
-  - [ ] `inherits-from`
+  - [x] `inherits-from`
   - [ ] `is-union`
   - [ ] Fields
     - [x] Primitive fields

@@ -188,7 +188,7 @@ df.strain_type = {
 ---@field hardens_with_water integer
 ---@field reaction_class string[]
 
----@class material
+---@class material: material_common
 ---@field tile integer
 ---@field basic_color integer[]
 ---@field build_color integer[]
@@ -216,7 +216,7 @@ df.strain_type = {
 ---@field mat_type integer[]
 ---@field mat_index integer[]
 
----@class material_template
+---@class material_template: material_common
 ---@field tile integer
 ---@field basic_color integer[]
 ---@field build_color integer[]

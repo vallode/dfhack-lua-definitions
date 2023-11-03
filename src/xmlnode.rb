@@ -164,10 +164,11 @@ class StructType < XmlNode
     super
 
     @name = node.attributes['type-name']
+    @inherits = node['inherits-from']
   end
 
   def render
-    annotation = "---@class #{@name}\n"
+    annotation = "---@class #{@name}#{': ' + @inherits if @inherits}\n"
     annotation << "---#{@comment}\n" if @comment 
 
     @node.children.each do |child|
