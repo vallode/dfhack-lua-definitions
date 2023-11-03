@@ -49,7 +49,7 @@ df.units_other_id = {
   ANY_BABY2 = 1,
 }
 
----@class unit_context_block
+---@class unit_context_block: df.struct
 ---@field context_unit unit[]
 ---@field num integer
 
@@ -65,41 +65,41 @@ df.conflict_level = {
   NoQuarter = 7,
 }
 
----@class incident_hfid
----@field hfid integer
----@field unk_hfid integer same as hfid seen
----@field unk_hfid2 integer same as hfid seen
+---@class incident_hfid: df.struct
+---@field hfid historical_figure
+---@field unk_hfid historical_figure same as hfid seen
+---@field unk_hfid2 historical_figure same as hfid seen
 ---@field unk_3 integer[]
 
----@class incident
+---@class incident: df.struct
 ---@field id integer
 ---@field type any
 ---@field witnesses integer[]
 ---@field unk_year integer
 ---@field unk_year_tick integer
----@field victim integer
+---@field victim unit
 ---@field victim_hf incident_hfid
----@field victim_race integer
----@field victim_caste integer
----@field entity2 integer Seen with Crime
+---@field victim_race creature_raw
+---@field victim_caste caste_raw
+---@field entity2 historical_entity Seen with Crime
 ---@field unk_v40_1c integer
----@field criminal integer
+---@field criminal unit
 ---@field criminal_hf incident_hfid
----@field criminal_race integer
----@field criminal_caste integer
----@field entity1 integer
+---@field criminal_race creature_raw
+---@field criminal_caste caste_raw
+---@field entity1 historical_entity
 ---@field unk_v40_2c incident_hfid
----@field crime_id integer
----@field site integer
+---@field crime_id crime
+---@field site world_site
 ---@field unk_v40_3a integer 41 seen on witnessed thief, 37 on interrogation target. Only one of each, though.
 ---@field unk_v40_3b integer
----@field entity integer
+---@field entity historical_entity
 ---@field event_year integer
 ---@field event_time integer
 ---@field flags any
 ---@field death_cause death_type
 ---@field conflict_level conflict_level
----@field activity_id integer
+---@field activity_id activity_entry
 ---@field world_x integer Location appears to be in in-game tiles world wide
 ---@field world_y integer
 ---@field world_z integer
@@ -107,31 +107,31 @@ df.conflict_level = {
 ---@field unk_10c integer
 ---@field data incident_data_performance
 
----@class incident_data_performance
+---@class incident_data_performance: df.struct
 ---@field performance_event performance_event_type
 ---@field participants performance_event_type[]
 ---@field reference_id integer history_event id/poetic_form id/musical_form id/dance_form_id or -1
 ---@field written_content_id integer -1 if not used
 ---@field abstract_location integer location at which the performance was held
----@field poetic_form_id integer More than one form can be used in a performance, e.g. dance to music
----@field musical_form_id integer
----@field dance_form_id integer
+---@field poetic_form_id poetic_form More than one form can be used in a performance, e.g. dance to music
+---@field musical_form_id musical_form
+---@field dance_form_id dance_form
 
----@class incident_data_artifact
+---@class incident_data_artifact: df.struct
 ---@field state any
----@field artifact_id integer
+---@field artifact_id artifact_record
 ---@field unk_3 incident_hfid
 ---@field unk_4 incident_hfid
----@field site_id integer
+---@field site_id world_site
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
 ---@field unk_8 integer[]
 ---@field unk_9 integer
 
----@class incident_data_writing
+---@class incident_data_writing: df.struct
 ---@field state any
----@field content_id integer
+---@field content_id written_content
 ---@field unk_1 incident_hfid
 ---@field unk_2 incident_hfid
 ---@field unk_3 integer
@@ -141,55 +141,55 @@ df.conflict_level = {
 ---@field unk_7 integer[]
 ---@field unk_8 integer
 
----@class incident_data_identity
+---@class incident_data_identity: df.struct
 ---@field unk_1 incident_hfid[]
 
----@class crime
+---@class crime: df.struct
 ---@field id integer
 ---@field mode any
 ---@field punishment integer
----@field criminal integer
----@field criminal_hf integer
----@field criminal_hf_2 integer Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss
----@field criminal_hf_3 integer
+---@field criminal unit
+---@field criminal_hf historical_figure
+---@field criminal_hf_2 historical_figure Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss
+---@field criminal_hf_3 historical_figure
 ---@field convict_data integer[]
----@field convicted_hf integer
----@field convicted_hf_2 integer the two additional copies probably refers to some other roles
----@field convicted_hf_3 integer -1 seen in case of convicted but not yet punished. Tossed in prison has -1, so it might be 'punishment finished'
+---@field convicted_hf historical_figure
+---@field convicted_hf_2 historical_figure the two additional copies probably refers to some other roles
+---@field convicted_hf_3 historical_figure -1 seen in case of convicted but not yet punished. Tossed in prison has -1, so it might be 'punishment finished'
 ---@field victim_data integer[]
----@field victim_hf integer
----@field victim_hf_2 integer the two additional copies probably refers to some other roles, but all 3 are identical in cases seen
----@field victim_hf_3 integer
+---@field victim_hf historical_figure
+---@field victim_hf_2 historical_figure the two additional copies probably refers to some other roles, but all 3 are identical in cases seen
+---@field victim_hf_3 historical_figure
 ---@field unk_v47_vector_3 integer[] this vector hasn't been seen, but is guessed at based on the pattern above
 ---@field flags any
----@field incident_id integer
+---@field incident_id incident
 ---@field event_year integer
 ---@field event_time integer
 ---@field discovered_year integer
 ---@field discovered_time integer
----@field site integer
----@field entity integer
----@field item_id integer seen with crime of theft
----@field reports integer[]
+---@field site world_site
+---@field entity historical_entity
+---@field item_id item seen with crime of theft
+---@field reports incident[]
 ---@field counterintelligence integer[]
 ---@field witnesses crime_witness[]
----@field agreement_id integer
+---@field agreement_id agreement
 
----@class crime_witness
----@field incident_id integer
----@field crime_id integer
+---@class crime_witness: df.struct
+---@field incident_id incident
+---@field crime_id crime
 ---@field witness_claim any
 ---@field year integer
 ---@field tick integer
----@field witness_id integer
+---@field witness_id unit
 ---@field witness_data incident_hfid
----@field accused_id integer
----@field accused_identity_id integer
+---@field accused_id unit
+---@field accused_identity_id identity
 ---@field accused_data incident_hfid
 ---@field reported_year integer
 ---@field reported_tick integer
 
----@class mission_campaign_report
+---@class mission_campaign_report: df.struct
 ---@field travel_x integer[]
 ---@field travel_y integer[]
 ---@field travel_year integer[]
@@ -200,7 +200,7 @@ df.conflict_level = {
 ---@field event_year_tick integer[]
 ---@field events_count integer
 
----@class mission_report
+---@class mission_report: df.struct
 ---@field campaigns mission_campaign_report[]
 ---@field current_campaign integer
 ---@field origin_x integer
@@ -210,11 +210,11 @@ df.conflict_level = {
 ---@field unk_7 integer
 ---@field year integer
 ---@field year_tick integer
----@field unk_10 any[][]
+---@field unk_10 any[]
 ---@field unk_11 integer
 ---@field unk_12 integer
 
----@class spoils_report
+---@class spoils_report: df.struct
 ---@field title string
 ---@field unk_1 integer
 ---@field year integer
@@ -228,28 +228,28 @@ df.conflict_level = {
 ---@field creature_castes integer[]
 ---@field creature_counts integer[]
 
----@class interrogation_report
+---@class interrogation_report: df.struct
 ---@field title string
----@field officer_hf integer
----@field subject_hf integer
+---@field officer_hf historical_figure
+---@field subject_hf historical_figure
 ---@field officer_name string
 ---@field unk_3 integer
 ---@field year integer
 ---@field tick integer
----@field unk integer
+---@field unk historical_figure
 ---@field unk_23 integer
 ---@field unk_24 integer
 ---@field unk_25 integer
 ---@field unk_26 integer
 ---@field unk_27 integer[]
----@field subject_identity_id integer
----@field unk_29 any[][]
+---@field subject_identity_id identity
+---@field unk_29 any[]
 ---@field unk_30 integer[]
 ---@field unk_31 integer[] seen hfs_formed_intrigue_relationship
 ---@field details string[]
 
----@class divine_treasure
----@field histfig_id integer
+---@class divine_treasure: df.struct
+---@field histfig_id historical_figure
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
@@ -258,7 +258,7 @@ df.conflict_level = {
 ---@field tiles coord_path
 ---@field pos coord announcement zoom location
 
----@class encased_horror
+---@class encased_horror: df.struct
 ---@field state integer
 ---@field race integer
 ---@field caste integer
@@ -270,35 +270,35 @@ df.conflict_level = {
 ---@field tiles coord_path
 ---@field pos coord announcement zoom location
 
----@class cursed_tomb
+---@class cursed_tomb: df.struct
 ---@field triggered boolean
 ---@field coffin_skeletons integer[]
----@field disturbance integer
+---@field disturbance interaction
 ---@field treasures integer[]
----@field site_id integer
----@field structure_id integer
+---@field site_id world_site
+---@field structure_id abstract_building
 ---@field trigger_regions integer[] normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
 
----@class ocean_wave_maker
+---@class ocean_wave_maker: df.struct
 ---@field pos coord
 ---@field interval integer
 ---@field coastline coord2d_path
 ---@field wave_origin coord2d_path
 
----@class coord_rect
+---@class coord_rect: df.struct
 ---@field x1 integer
 ---@field y1 integer
 ---@field x2 integer
 ---@field y2 integer
 ---@field z integer
 
----@class embark_feature
+---@class embark_feature: df.struct
 ---layers plus river seen
 ---@field world_tile coord2d
 ---@field mid_level_tile coord2d the MLT the feature resides in
 ---@field local_feature_idx integer
----@field global_feature_idx integer
+---@field global_feature_idx world_underground_region
 ---@field unk10 integer
 ---@field layer layer_type
 ---@field local coord2d the top left corner of the MLT, in embark relative coordinates
@@ -344,33 +344,33 @@ df.combat_report_event_type = {
   Interrupted = 34,
 }
 
----@class glowing_barrier
+---@class glowing_barrier: df.struct
 ---@field triggered boolean set when the glowing barrier vanishes, preventing later HFS events
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field buildings integer[] when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
 ---@field pos coord coordinates of a GlowingBarrier or GlowingFloor tiletype
 
----@class deep_vein_hollow
+---@class deep_vein_hollow: df.struct
 ---@field triggered boolean set when the underworld spire is breached, preventing subsequent HFS events
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field tiles coord_path tile coordinates correspond to open spaces within an underworld spire; revealing one of these tiles triggers the HFS demon wave
 ---@field pos coord announcement zoom location
 
----@class campfire
+---@class campfire: df.struct
 ---@field pos coord
 ---@field timer integer
 
----@class web_cluster
+---@class web_cluster: df.struct
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer
----@field race integer
----@field caste integer
+---@field race creature_raw
+---@field caste caste_raw
 ---@field pos_min coord2d
 ---@field pos_max coord2d
 ---@field ambushers integer[]
 
----@class fire
+---@class fire: df.struct
 ---@field pos coord
 ---@field timer integer
 ---@field inner_temp_cur integer applied to own tile
@@ -378,7 +378,7 @@ df.combat_report_event_type = {
 ---@field inner_temp_max integer
 ---@field outer_temp_max integer
 
----@class ocean_wave
+---@class ocean_wave: df.struct
 ---@field dest coord2d
 ---@field cur coord2d
 ---@field z integer
@@ -386,21 +386,21 @@ df.combat_report_event_type = {
 ---@field move_timer integer
 ---@field unk_timer integer starts at 120 and randomly decrements
 
----@class coin_batch
+---@class coin_batch: df.struct
 ---@field year integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
----@field entity integer
----@field ruler integer
----@field image_front integer
----@field image_back integer
+---@field entity historical_entity
+---@field ruler historical_figure
+---@field image_front art_image_chunk
+---@field image_back art_image_chunk
 
----@class mental_picture
+---@class mental_picture: df.struct
 ---@field unk mental_picture_elementst[]
 ---@field unk_1 integer
 ---@field unk_2 integer
 
----@class belief_system
+---@class belief_system: df.struct
 ---@field id integer
 ---@field mental_pictures mental_picture[][]
 ---@field deities integer[] historical figure ID of gods the belief system is concerned with
@@ -470,25 +470,25 @@ df.combat_report_event_type = {
 ---@field unk_63 integer
 ---@field unk_64 integer
 
----@class divination_set_roll
+---@class divination_set_roll: df.struct
 ---@field result integer[] When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
 ---@field effect_type any
 ---@field effect integer When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
 
----@class divination_set
+---@class divination_set: df.struct
 ---@field id integer currently matches index into vector
----@field deity_id integer
----@field owner_id integer religion owning the set
+---@field deity_id historical_figure
+---@field owner_id historical_entity religion owning the set
 ---@field image_set_ids integer[]
 ---@field rolls divination_set_roll[]
 
----@class image_set
+---@class image_set: df.struct
 ---@field id integer
 ---@field unk_2 integer
 ---@field unk_vec1 integer[]
 ---@field unk_vec2 integer[]
 
----@class world
+---@class world: df.struct
 ---A heap of current boundary tiles.
 ---@field glowing_barriers glowing_barrier[]
 ---@field deep_vein_hollows deep_vein_hollow[]
@@ -552,7 +552,7 @@ df.combat_report_event_type = {
 ---@field vehicles vehicle[]
 ---@field armies army[]
 ---@field army_controllers army_controller[]
----@field army_tracking_info any[][]
+---@field army_tracking_info any[]
 ---@field cultural_identities cultural_identity[]
 ---@field agreements agreement[]
 ---@field poetic_forms poetic_form[]
@@ -590,7 +590,7 @@ df.combat_report_event_type = {
 ---@field daily_events integer[][] for each calendar day, a list of major life events (by nemesis id)
 ---@field unk_131ec0 any[]
 ---@field languages any[]
----@field unk_131ef0 integer[]
+---@field unk_131ef0 historical_figure[]
 ---@field viewport map_viewport
 ---@field unk_131f08 integer
 ---@field reindex_pathfinding boolean forces map_block.passable to be recomputed

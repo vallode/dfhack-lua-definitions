@@ -369,7 +369,7 @@ df.knowledge_scholar_flags_13 = {
   engineering_machine_trip_hammer = 29,
 }
 
----@class knowledge_scholar_category_flag
+---@class knowledge_scholar_category_flag: df.struct
 ---@field flag_type any determines which bitflags to use
 ---@field flag_data knowledge_scholar_flags_0
 

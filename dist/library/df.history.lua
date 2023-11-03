@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class historical_kills
+---@class historical_kills: df.struct
 ---@field events integer[]
 ---@field killed_race integer[]
 ---@field killed_caste integer[]
@@ -11,16 +11,16 @@
 ---@field killed_undead undead_flags[]
 ---@field killed_count integer[]
 
----@class history_hit_item
----@field item integer
+---@class history_hit_item: df.struct
+---@field item item
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mattype integer
+---@field mattype material
 ---@field matindex integer
----@field shooter_item integer
+---@field shooter_item item
 ---@field shooter_item_type item_type
 ---@field shooter_item_subtype integer
----@field shooter_mattype integer
+---@field shooter_mattype material
 ---@field shooter_matindex integer
 
 ---@enum reputation_type
@@ -130,13 +130,13 @@ df.plot_strategy_type = {
   Torment = 9,
 }
 
----@class plot_agreement
----@field actor_id integer
+---@class plot_agreement: df.struct
+---@field actor_id historical_figure
 ---@field plot_role plot_role_type
----@field agreement_id integer
+---@field agreement_id agreement
 ---@field agreement_has_messenger boolean
 
----@class historical_figure_info
+---@class historical_figure_info: df.struct
 ---@field spheres sphere_type[]
 ---@field skills job_skill[]
 ---@field pets integer[]
@@ -148,16 +148,16 @@ df.plot_strategy_type = {
 ---@field known_info interaction[]
 ---@field curse interaction[]
 ---@field books artifact_record[] seems to be misnamed. Artifacts seen have been of all kinds
----@field reputation integer[]
+---@field reputation historical_entity[]
 ---@field relationships historical_figure_relationships
 
----@class historical_figure_relationships
+---@class historical_figure_relationships: df.struct
 ---only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
----@field hf_visual integer[]
----@field hf_historical integer[]
+---@field hf_visual historical_figure[]
+---@field hf_historical historical_figure[]
 ---@field unk_1 integer[]
 ---@field identities integer[]
----@field artifact_claims integer[]
+---@field artifact_claims artifact_record[]
 ---@field unk_2 integer
 ---@field intrigues any[] only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
 
@@ -290,10 +290,10 @@ df.vague_relationship_type = {
   shared_entity = 26, --Religion/PerformanceTroupe/MerchantCompany/Guild
 }
 
----@class historical_figure
+---@class historical_figure: df.struct
 ---@field profession profession
----@field race integer
----@field caste integer
+---@field race creature_raw
+---@field caste caste_raw
 ---@field sex pronoun_type
 ---@field orientation_flags orientation_flags
 ---@field appeared_year integer
@@ -308,14 +308,14 @@ df.vague_relationship_type = {
 ---@field died_year integer
 ---@field died_seconds integer
 ---@field name language_name
----@field civ_id integer
----@field population_id integer
+---@field civ_id historical_entity
+---@field population_id entity_population
 ---@field breed_id integer from legends export
----@field cultural_identity integer
----@field family_head_id integer When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor.
+---@field cultural_identity cultural_identity
+---@field family_head_id historical_figure When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor.
 ---@field flags any
----@field unit_id integer
----@field nemesis_id integer sometimes garbage
+---@field unit_id unit
+---@field nemesis_id nemesis_record sometimes garbage
 ---@field id integer
 ---@field unk4 integer
 ---@field entity_links histfig_entity_link[]
@@ -350,12 +350,12 @@ df.identity_type = {
 ---@type { [string|integer]: identity_type_attr }
 df.identity_type.attrs = {}
 
----@class identity
+---@class identity: df.struct
 ---@field id integer
 ---@field name language_name Not used when Impersonating
----@field race integer
----@field caste integer
----@field impersonated_hf integer only when Impersonating
+---@field race creature_raw
+---@field caste caste_raw
+---@field impersonated_hf historical_figure only when Impersonating
 ---@field type identity_type
 ---@field birth_year integer the fake one, that is
 ---@field birth_second integer
@@ -364,11 +364,11 @@ df.identity_type.attrs = {}
 ---@field unk_v47_1 integer
 ---@field unk_v47_2 integer
 ---@field profession profession
----@field entity_id integer
+---@field entity_id historical_entity
 ---@field unk_4 identity_unk_94[]
 ---@field unk_5 identity_unk_95[]
 
----@class identity_unk_94
+---@class identity_unk_94: df.struct
 ---@field unk_0 integer
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
@@ -380,7 +380,7 @@ df.identity_type.attrs = {}
 ---@field unk_8 integer
 ---@field unk_9 integer uninitialized
 
----@class identity_unk_95
+---@class identity_unk_95: df.struct
 ---@field unk_0 integer
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
@@ -651,67 +651,67 @@ df.history_event_reason = {
 ---@type { [string|integer]: history_event_reason_attr }
 df.history_event_reason.attrs = {}
 
----@class history_event_reason_info
+---@class history_event_reason_info: df.struct
 ---@field type history_event_reason
----@field data integer
+---@field data historical_figure
 
----@class history_event_circumstance_info
+---@class history_event_circumstance_info: df.struct
 ---@field type unit_thought_type
----@field data integer
+---@field data historical_figure
 
----@class history_event_context
+---@class history_event_context: df.struct
 ---@field flags any
 ---@field interrogator_relationships historical_figure_relationships
 ---@field interrogation any
----@field artifact_id integer
----@field entity_id integer
----@field histfig_id integer
----@field speaker_id integer
----@field site_id integer
----@field region_id integer
----@field layer_id integer
+---@field artifact_id artifact_record
+---@field entity_id historical_entity
+---@field histfig_id historical_figure
+---@field speaker_id historical_figure
+---@field site_id world_site
+---@field region_id world_region
+---@field layer_id world_underground_region
 ---@field unk_34 integer passed to history_event::isRelatedToAgreementID, but all implementations of that function are broken currently
----@field abstract_building_id integer
+---@field abstract_building_id abstract_building
 ---@field sphere sphere_type
 ---@field architectural_element architectural_element
 ---@field unk_40 integer
 ---@field family_relationship histfig_relationship_type not initialized
 ---@field number integer
 ---@field unk_48 integer
----@field race integer
+---@field race creature_raw
 ---@field unk_4c integer
 ---@field unk_50 integer
 ---@field unk_54 integer
----@field caste integer
+---@field caste caste_raw
 ---@field undead_flags undead_flags
 ---@field unk_5a integer
----@field squad_id integer
+---@field squad_id squad
 ---@field formation_id integer ID within world.formations.all
----@field activity_id integer
----@field breed_id integer
----@field battlefield_id integer
----@field interaction_instance_id integer
----@field written_content_id integer
----@field identity_id integer
----@field incident_id integer
----@field crime_id integer
----@field region_weather_id integer
----@field creation_zone_id integer
----@field vehicle_id integer
----@field army_id integer
----@field army_controller_id integer
+---@field activity_id activity_entry
+---@field breed_id breed
+---@field battlefield_id battlefield
+---@field interaction_instance_id interaction_instance
+---@field written_content_id written_content
+---@field identity_id identity
+---@field incident_id incident
+---@field crime_id crime
+---@field region_weather_id region_weather
+---@field creation_zone_id world_object_data
+---@field vehicle_id vehicle
+---@field army_id army
+---@field army_controller_id army_controller
 ---@field army_tracking_info_id integer ID within world.army_tracking_info.all
----@field cultural_identity_id integer
----@field agreement_id integer
----@field poetic_form_id integer
----@field musical_form_id integer
----@field dance_form_id integer
----@field scale_id integer
----@field rhythm_id integer
----@field occupation_id integer
----@field belief_system_id integer
----@field image_set_id integer
----@field divination_set_id integer
+---@field cultural_identity_id cultural_identity
+---@field agreement_id agreement
+---@field poetic_form_id poetic_form
+---@field musical_form_id musical_form
+---@field dance_form_id dance_form
+---@field scale_id scale
+---@field rhythm_id rhythm
+---@field occupation_id occupation
+---@field belief_system_id belief_system
+---@field image_set_id image_set
+---@field divination_set_id divination_set
 
 ---@enum architectural_element
 df.architectural_element = {
@@ -960,12 +960,12 @@ df.era_type = {
   Emptiness = 12,
 }
 
----@class history_era
+---@class history_era: df.struct
 ---@field year integer
 ---@field title era_type
 ---@field details integer
 
----@class relationship_event
+---@class relationship_event: df.struct
 ---@field event integer[] not included in the main list
 ---@field relationship vague_relationship_type[]
 ---@field source_hf integer[]
@@ -974,14 +974,14 @@ df.era_type = {
 ---@field next_element integer 1024 for all vectors except the last one
 ---@field start_year integer first year of the events contained in the element
 
----@class relationship_event_supplement
+---@class relationship_event_supplement: df.struct
 ---@field event integer can be found in the relationship_events
 ---@field occasion_type integer only 245/246 seen. 245:scholarly lecture, 246: performance
----@field site integer
+---@field site world_site
 ---@field unk_1 integer only 81 seen
 ---@field profession profession
 
----@class world_history
+---@class world_history: df.struct
 ---@field events history_event[]
 ---@field events_death history_event[]
 ---@field relationship_events relationship_event[]
@@ -995,7 +995,7 @@ df.era_type = {
 ---@field total_powers integer also includes megabeasts
 ---@field total_megabeasts integer
 ---@field total_semimegabeasts integer
----@field unk_14 any[][]
+---@field unk_14 any[]
 ---@field unk_v42_1 integer[]
 ---@field intrigues intrigue[]
 ---@field live_megabeasts historical_figure[]
@@ -1014,9 +1014,9 @@ df.era_type = {
 ---@field unk_histfig_12 historical_figure[]
 ---@field unk_histfig_13 historical_figure[]
 ---@field unk_3 historical_figure[]
----@field unk_4 any[][]
+---@field unk_4 any[]
 ---@field unk_5 historical_figure[]
----@field unk_6 any[][]
+---@field unk_6 any[]
 ---@field unk_7 integer[]
 ---@field unk_8 integer
 ---@field active_event_collections history_event_collection[]
@@ -1025,19 +1025,19 @@ df.era_type = {
 ---@field unk_12 integer
 ---@field active_mission mission_report
 
----@class intrigue
----@field event_id integer NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship
+---@class intrigue: df.struct
+---@field event_id history_event NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship
 ---@field corruption intrigue_corruption Mutually exclusive with circumstance. Exactly one is present. Presumably 'bring into network' action doesn't provide membership
 ---@field reason history_event_reason_info
 ---@field circumstance history_event_circumstance_info
 
----@class intrigue_corruption
+---@class intrigue_corruption: df.struct
 ---@field crime crime_type
----@field corruptor_id integer
----@field target_id integer
+---@field corruptor_id historical_figure
+---@field target_id historical_figure
 ---@field target_relationship vague_relationship_type set if and only if action = BringIntoNetwork
----@field target_relationship_entity_id integer Only set when relation = CommonEntity. Common Religion/PerformanceTroupe/MerchantCompany/Guild seen.
----@field lurer_id integer Can be set with action = CorruptInPlace, not otherwise
+---@field target_relationship_entity_id historical_entity Only set when relation = CommonEntity. Common Religion/PerformanceTroupe/MerchantCompany/Guild seen.
+---@field lurer_id historical_figure Can be set with action = CorruptInPlace, not otherwise
 ---@field manipulation_type any
 ---@field unk_4 integer -16 to 315 seen
 ---@field unk_5 integer -141 to 351 seen
@@ -1051,9 +1051,9 @@ df.era_type = {
 ---@field emotion_rating integer -100 to 125 seen
 ---@field emotion_roll integer -10 to 12 seen
 ---@field flags any
----@field position_entity_id integer Used to pull rank
----@field position_assignment_id integer
----@field offered_id integer deity or revenge target
+---@field position_entity_id historical_entity Used to pull rank
+---@field position_assignment_id entity_position_assignment
+---@field offered_id historical_figure deity or revenge target
 ---@field offered_relationship vague_relationship_type
 ---@field corruptor_ally_roll integer
 ---@field target_ally_roll integer

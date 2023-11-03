@@ -93,7 +93,7 @@ df.plant_raw_flags = {
   TWIGS_BELOW_TRUNK = 87,
 }
 
----@class plant_raw
+---@class plant_raw: df.struct
 ---@field id string
 ---@field index integer
 ---@field raws string[]
@@ -105,7 +105,7 @@ df.plant_raw_flags = {
 ---@field seed_plural string
 ---@field leaves_singular string unused
 ---@field leaves_plural string unused
----@field source_hfid integer
+---@field source_hfid historical_figure
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
 ---@field unk2 integer
@@ -121,7 +121,7 @@ df.plant_raw_flags = {
 ---@field clustersize integer
 ---@field prefstring string[]
 ---@field material material[]
----@field material_defs integer[]
+---@field material_defs material[]
 ---@field underground_depth_min integer
 ---@field underground_depth_max integer
 ---@field growths plant_growth[]
@@ -160,14 +160,14 @@ df.plant_material_def = {
   extract_still_vial = 8,
 }
 
----@class plant_growth
+---@class plant_growth: df.struct
 ---@field id string
 ---@field name string
 ---@field name_plural string
 ---@field str_growth_item string[]
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field prints plant_growth_print[]
 ---@field unk_v50_1 integer
@@ -183,7 +183,7 @@ df.plant_material_def = {
 ---@field trunk_height_perc_1 integer
 ---@field trunk_height_perc_2 integer
 
----@class plant_growth_print
+---@class plant_growth_print: df.struct
 ---@field priority integer final token in list
 ---@field tile_growth integer
 ---@field tile_item integer

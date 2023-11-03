@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class burrow
+---@class burrow: df.struct
 ---@field id integer
 ---@field name string
 ---@field tile integer
@@ -13,7 +13,7 @@
 ---@field units integer[]
 ---@field limit_workshops integer
 
----@class ui_hotkey
+---@class ui_hotkey: df.struct
 ---@field name string
 ---@field cmd any
 ---@field x integer
@@ -81,14 +81,14 @@ df.ui_sidebar_mode = {
   ZonesLocationInfo = 56,
 }
 
----@class punishment
----@field criminal integer
----@field officer integer
+---@class punishment: df.struct
+---@field criminal unit
+---@field officer unit
 ---@field beating integer
 ---@field hammer_strikes integer
 ---@field prison_counter integer
 ---@field unk_10 integer 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
----@field chain integer
+---@field chain building
 ---@field victims integer[]
 
 ---@enum kitchen_exc_type
@@ -170,15 +170,15 @@ df.equipment_update = {
   buildings = 12,
 }
 
----@class labor_infost
+---@class labor_infost: df.struct
 ---@field flags any
 ---@field work_details work_detail[]
 ---@field chores boolean[]
 ---@field chores_exempted_children any[] toady: no_chore_child_unid
 
----@class plotinfost
+---@class plotinfost: df.struct
 ---@field game_state integer 2 running, 1 lost to siege, 0 lost
----@field lost_to_siege_civ integer
+---@field lost_to_siege_civ historical_entity
 ---@field tax_collection integer
 ---@field nobles integer
 ---@field caravans caravan_state[]
@@ -216,10 +216,10 @@ df.equipment_update = {
 ---@field economic_stone boolean[]
 ---@field unk23c8_flags any
 ---@field mood_cooldown integer
----@field civ_id integer
----@field site_id integer
----@field group_id integer i.e. specifically the fortress dwarves
----@field race_id integer
+---@field civ_id historical_entity
+---@field site_id world_site
+---@field group_id historical_entity i.e. specifically the fortress dwarves
+---@field race_id creature_raw
 ---@field unk_races integer[]
 ---@field farm_crops integer[]
 ---@field farm_seasons season[]
@@ -245,8 +245,8 @@ df.equipment_update = {
 ---@field labor_info labor_infost
 ---@field petitions integer[] related to agreements
 ---@field unk_6 integer[] observed allocating 4 bytes
----@field unk_7 any[][]
----@field theft_intrigues integer[] related to job_type unk_fake_no_activity
+---@field unk_7 any[]
+---@field theft_intrigues item[] related to job_type unk_fake_no_activity
 ---@field infiltrator_histfigs integer[]
 ---@field infiltrator_years integer[]
 ---@field infiltrator_year_ticks integer[]
@@ -256,8 +256,8 @@ df.equipment_update = {
 ---@field food_warn_year_tick integer
 ---@field main ui_hotkey[]
 ---@field squads squad[]
----@field follow_unit integer
----@field follow_item integer
+---@field follow_unit unit
+---@field follow_item item
 ---@field selected_farm_crops integer[] valid for the currently queried farm plot
 ---@field available_seeds any
 
@@ -274,17 +274,17 @@ df.timed_event_type = {
   NightCreature = 8,
 }
 
----@class timed_event
+---@class timed_event: df.struct
 ---@field type timed_event_type
 ---@field season season
 ---@field season_ticks integer 1 tick = 10 frames
 ---@field entity historical_entity
 ---@field unk_1 integer
----@field layer_id integer
+---@field layer_id world_underground_region
 ---@field unk_3 integer
 ---@field unk_4 integer
 
----@class map_viewport
+---@class map_viewport: df.struct
 ---@field adv_mode boolean
 ---@field unk1 boolean
 ---@field map_rotation integer
@@ -298,7 +298,7 @@ df.timed_event_type = {
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
 
----@class map_renderer
+---@class map_renderer: df.struct
 ---@field entity integer[][]
 ---@field unk_v50_1 integer[][]
 ---@field cursor_units unit[]

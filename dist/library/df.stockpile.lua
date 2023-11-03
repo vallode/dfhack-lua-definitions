@@ -98,7 +98,7 @@ df.stockpile_group_set = {
   sheet = 16,
 }
 
----@class stockpile_settings
+---@class stockpile_settings: df.struct
 ---@field flags stockpile_group_set
 ---@field animals boolean
 ---@field food boolean[]
@@ -236,14 +236,14 @@ df.stockpile_list = {
 ---@type { [string|integer]: stockpile_list_attr }
 df.stockpile_list.attrs = {}
 
----@class hauling_route
+---@class hauling_route: df.struct
 ---@field id integer
 ---@field name string
 ---@field stops hauling_stop[]
----@field vehicle_ids integer[]
+---@field vehicle_ids vehicle[]
 ---@field vehicle_stops integer[]
 
----@class hauling_stop
+---@class hauling_stop: df.struct
 ---@field id integer
 ---@field name string
 ---@field pos coord
@@ -251,9 +251,9 @@ df.stockpile_list.attrs = {}
 ---@field conditions stop_depart_condition[]
 ---@field stockpiles route_stockpile_link[]
 ---@field time_waiting integer
----@field cart_id integer
+---@field cart_id item
 
----@class stop_depart_condition
+---@class stop_depart_condition: df.struct
 ---@field timeout integer
 ---@field direction any
 ---@field mode any
@@ -261,13 +261,13 @@ df.stockpile_list.attrs = {}
 ---@field flags any
 ---@field guide_path coord_path initialized on first run, and saved
 
----@class route_stockpile_link
----@field building_id integer
+---@class route_stockpile_link: df.struct
+---@field building_id building
 ---@field mode any
 
----@class vehicle
+---@class vehicle: df.struct
 ---@field id integer
----@field item_id integer
+---@field item_id item
 ---@field offset_x integer -50000..50000
 ---@field offset_y integer
 ---@field offset_z integer
@@ -278,7 +278,7 @@ df.stockpile_list.attrs = {}
 ---@field unk_24 integer
 ---@field unk_28 integer
 ---@field unk_2c integer
----@field route_id integer
+---@field route_id hauling_route
 ---@field pos coord
 ---@field time_stopped integer frames, up to 1000
 

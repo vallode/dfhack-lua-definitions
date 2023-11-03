@@ -108,7 +108,7 @@ df.item_type = {
 ---@type { [string|integer]: item_type_attr }
 df.item_type.attrs = {}
 
----@class weapon_attack
+---@class weapon_attack: df.struct
 ---@field edged boolean
 ---@field contact integer
 ---@field penetration integer
@@ -145,7 +145,7 @@ df.armor_general_flags = {
   STRUCTURAL_ELASTICITY_CHAIN_ALL = 10,
 }
 
----@class armor_properties
+---@class armor_properties: df.struct
 ---@field flags any
 ---@field layer integer
 ---@field layer_size integer
@@ -297,7 +297,7 @@ df.timbre_type = {
   SPARKLING = 62,
 }
 
----@class instrument_piece
+---@class instrument_piece: df.struct
 ---@field type string
 ---@field id string
 ---@field index integer
@@ -305,7 +305,7 @@ df.timbre_type = {
 ---@field name_plural string
 ---@field flags any
 
----@class instrument_register
+---@class instrument_register: df.struct
 ---@field pitch_range_min integer
 ---@field pitch_range_max integer
 ---@field timbres timbre_type[]

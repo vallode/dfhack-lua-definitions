@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class file_compressorst
+---@class file_compressorst: df.struct
 ---@field compressed boolean
 ---@field f any
 ---@field in_buffer integer
@@ -28,14 +28,14 @@ df.interface_push_types = {
   AT_FRONT = 3,
 }
 
----@class interfacest
+---@class interfacest: df.struct
 ---@field original_fps integer
 ---@field view viewscreen
 ---@field flag integer
 ---@field shutdown_interface_tickcount integer
 ---@field shutdown_interface_for_ms integer
 
----@class scrollbarst
+---@class scrollbarst: df.struct
 ---@field sel integer
 ---@field sel_min integer
 ---@field sel_max integer
@@ -45,13 +45,13 @@ df.interface_push_types = {
 ---@field scroller_sy integer
 ---@field scroller_ey integer
 
----@class extentst
+---@class extentst: df.struct
 ---@field x integer
 ---@field y integer
 ---@field w integer
 ---@field h integer
 
----@class world_dat_summary
+---@class world_dat_summary: df.struct
 ---@field name language_name
 ---@field unk_1 string
 ---@field unk_2 integer[] same as the one at the top of world_data
@@ -84,18 +84,18 @@ df.embark_finder_option = {
   Sand = 21,
 }
 
----@class embark_location
+---@class embark_location: df.struct
 ---starter_infost?
 ---@field region_pos coord2d
----@field reclaim_site integer
+---@field reclaim_site world_site
 ---@field reclaim_idx integer
 ---@field embark_pos_min coord2d
 ---@field embark_pos_max coord2d
 
----@class mission
----@field army_controller integer
----@field entity integer
----@field target_site integer
+---@class mission: df.struct
+---@field army_controller army_controller
+---@field entity historical_entity
+---@field target_site world_site
 ---@field unk_2 integer
 ---@field target_x integer
 ---@field target_y integer
@@ -110,8 +110,8 @@ df.embark_finder_option = {
 ---@field year integer
 ---@field year_tick integer
 ---@field unk_12 integer
----@field army_controller2 integer
----@field histfig integer
+---@field army_controller2 army_controller
+---@field histfig historical_figure
 ---@field unk_14 integer
 ---@field unk_16 integer
 ---@field unk_17 integer
@@ -129,7 +129,7 @@ df.embark_finder_option = {
 ---@field type any
 ---@field unk_25 integer
 
----@class legend_pagest
+---@class legend_pagest: df.struct
 ---@field header string
 ---@field mode any
 ---@field index integer
@@ -142,7 +142,7 @@ df.embark_finder_option = {
 ---@field filter_str string
 ---@field entering_filter boolean
 
----@class loadgame_save_info
+---@class loadgame_save_info: df.struct
 ---@field next_ids integer[]
 ---@field game_type game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
 ---@field fort_name string
@@ -150,7 +150,7 @@ df.embark_finder_option = {
 ---@field year integer
 ---@field folder_name string
 
----@class matgloss_list
+---@class matgloss_list: df.struct
 ---@field unk_0 integer[]
 ---@field generated_inorganics string[][]
 ---@field generated_plants string[][]
@@ -190,7 +190,7 @@ df.embark_finder_option = {
 ---@field mod_names string[]
 ---@field mod_display_versions string[]
 
----@class worldgen_parms
+---@class worldgen_parms: df.struct
 ---@field title string
 ---@field seed string
 ---@field history_seed string
@@ -301,12 +301,12 @@ df.embark_finder_option = {
 ---@field pole integer
 ---@field unk_1 boolean
 
----@class worldgen_parms_ps
+---@class worldgen_parms_ps: df.struct
 ---@field width integer
 ---@field height integer
 ---@field data integer[]
 
----@class nemesis_offload
+---@class nemesis_offload: df.struct
 ---@field nemesis_save_file_id integer[]
 ---@field nemesis_member_idx integer[]
 ---@field units unit[]
@@ -325,10 +325,10 @@ df.adventurer_attribute_level = {
   Superior = 6,
 }
 
----@class startup_charactersheet_petst
+---@class startup_charactersheet_petst: df.struct
 ---@field name language_name
----@field race integer
----@field caste integer
+---@field race creature_raw
+---@field caste caste_raw
 ---@field type integer
 
 ---@enum adv_background_option_type
@@ -338,29 +338,29 @@ df.adv_background_option_type = {
   REGULAR_UNIT = 2,
 }
 
----@class setup_character_info
+---@class setup_character_info: df.struct
 ---startup_charactersheetst
 ---@field name language_name
----@field race integer
----@field caste integer
+---@field race creature_raw
+---@field caste caste_raw
 ---@field skilllevel skill_rating[]
----@field quick_entity_id integer
+---@field quick_entity_id historical_entity
 ---@field entity_population_id integer
 ---@field breed_id integer
----@field cultural_identity_id integer
----@field nemesis_index integer
+---@field cultural_identity_id cultural_identity
+---@field nemesis_index nemesis_record
 ---@field start_mil_type integer
 ---@field start_civ_type integer
 ---@field skill_picks_left integer
 ---@field phys_att_range_val adventurer_attribute_level[]
 ---@field ment_att_range_val adventurer_attribute_level[]
 ---@field difficulty any
----@field start_site_id integer
+---@field start_site_id world_site
 ---@field background_start_squad_epp_id integer
 ---@field background_unit profession
 ---@field background_skill_bonus integer[]
----@field worship_hfid integer
----@field worship_enid integer
+---@field worship_hfid historical_figure
+---@field worship_enid historical_entity
 ---@field worship_strength integer
 ---@field pform unit_appearance
 ---@field birth_year integer
@@ -419,13 +419,13 @@ df.adv_background_option_type = {
 ---@field pet_side integer
 ---@field pet startup_charactersheet_petst[]
 
----@class embark_item_choice
+---@class embark_item_choice: df.struct
 ---@field list item_type[][]
 ---@field race integer[]
 ---@field caste integer[]
 ---@field profession profession[]
 
----@class embark_profile
+---@class embark_profile: df.struct
 ---@field name string
 ---@field skill_type integer[]
 ---@field skill_dwarf_idx integer[]
@@ -443,9 +443,9 @@ df.adv_background_option_type = {
 ---@field pet_profession profession[]
 ---@field pet_count integer[]
 
----@class embark_symbol
----@field unk_v43_1 any[][]
----@field unk_v43_2 any[][]
+---@class embark_symbol: df.struct
+---@field unk_v43_1 any[]
+---@field unk_v43_2 any[]
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
 ---@field unk_v43_sub9 integer

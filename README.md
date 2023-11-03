@@ -29,6 +29,7 @@ df-structures `generate.rb`:
   - [ ] `is-union`
   - [ ] Fields
     - [x] Primitive fields
+    - [x] `ref-target`
     - [ ] ?
 - [ ] `<class-type>`
   - [ ] `<vmethod>`

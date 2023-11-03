@@ -366,11 +366,11 @@ df.announcement_flags = {
   ALERT = 7, --ALERT
 }
 
----@class announcements
+---@class announcements: df.struct
 ---@field flags announcement_flags[]
 ---@field unused any needed to fix alignment on 64-bit platforms
 
----@class report
+---@class report: df.struct
 ---@field type announcement_type valid only if coordinates are
 ---@field text string
 ---@field color integer
@@ -387,7 +387,7 @@ df.announcement_flags = {
 ---@field time integer
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 integer
----@field speaker_id integer unit speaking the conversation
+---@field speaker_id unit unit speaking the conversation
 
 ---@enum report_zoom_type
 df.report_zoom_type = {
@@ -396,12 +396,12 @@ df.report_zoom_type = {
   Unit = 2,
 }
 
----@class popup_message
+---@class popup_message: df.struct
 ---@field text string
 ---@field color integer
 ---@field bright boolean
 
----@class report_init
+---@class report_init: df.struct
 ---allocated on the stack, included in df-structures to assist with disassembly
 ---@field type announcement_type
 ---@field color integer
@@ -415,6 +415,6 @@ df.report_zoom_type = {
 ---@field unit2 unit
 ---@field unk_v40_1 integer same as unknown field in report
 ---@field unk_v40_2 integer same as unknown field in report
----@field speaker_id integer
+---@field speaker_id unit
 ---@field flags any
 

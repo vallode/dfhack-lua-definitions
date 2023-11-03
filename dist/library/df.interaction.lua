@@ -7,7 +7,7 @@ df.interaction_flags = {
   EXPERIMENT_ONLY = 1,
 }
 
----@class interaction
+---@class interaction: df.struct
 ---@field name string
 ---@field id integer
 ---@field str string[] interaction raws
@@ -15,8 +15,8 @@ df.interaction_flags = {
 ---@field sources interaction_source[] I_SOURCE
 ---@field targets interaction_target[] I_TARGET
 ---@field effects interaction_effect[] I_EFFECT
----@field source_hfid integer
----@field source_enid integer
+---@field source_hfid historical_figure
+---@field source_enid historical_entity
 
 ---@enum interaction_effect_type
 df.interaction_effect_type = {
@@ -95,7 +95,7 @@ df.interaction_target_location_type = {
   RANDOM_NEARBY_LOCATION = 7,
 }
 
----@class interaction_target_info
+---@class interaction_target_info: df.struct
 ---@field affected_creature_str string[][]
 ---@field affected_creature integer[] IT_AFFECTED_CREATURE
 ---@field affected_class string[] IT_AFFECTED_CLASS
@@ -135,9 +135,9 @@ df.breath_attack_type = {
   OTHER = 21,
 }
 
----@class interaction_instance
+---@class interaction_instance: df.struct
 ---@field id integer
----@field interaction_id integer
+---@field interaction_id interaction
 ---@field unk_1 integer
 ---@field region_index integer
 ---@field affected_units integer[] IDs of units affected by the regional interaction

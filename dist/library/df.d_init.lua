@@ -76,7 +76,7 @@ df.d_init_autosave = {
   SEMIANNUAL = 3,
 }
 
----@class d_init
+---@class d_init: df.struct
 ---@field flags1 any
 ---@field nickname d_init_nickname[]
 ---@field sky_tile integer

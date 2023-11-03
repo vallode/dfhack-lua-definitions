@@ -1,10 +1,10 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class building_def_item
+---@class building_def_item: df.struct
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
@@ -13,7 +13,7 @@
 ---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore integer
+---@field metal_ore inorganic_raw
 ---@field min_dimension integer
 ---@field quantity integer
 ---@field has_tool_use tool_uses

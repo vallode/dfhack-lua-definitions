@@ -8,7 +8,7 @@ df.reaction_flags = {
   ADVENTURE_MODE_ENABLED = 2,
 }
 
----@class reaction
+---@class reaction: df.struct
 ---@field code string
 ---@field name string
 ---@field flags any
@@ -18,8 +18,8 @@ df.reaction_flags = {
 ---@field max_multiplier integer
 ---@field building string[][]
 ---@field index integer
----@field source_hfid integer
----@field source_enid integer
+---@field source_hfid historical_figure
+---@field source_enid historical_entity
 ---@field raw_strings string[]
 ---@field category string
 ---@field descriptions reaction_description[]
@@ -28,14 +28,14 @@ df.reaction_flags = {
 ---@field unk_1 integer
 ---@field exp_gain integer
 
----@class reaction_category
+---@class reaction_category: df.struct
 ---@field id string
 ---@field parent string
 ---@field name string
 ---@field key integer
 ---@field description string
 
----@class reaction_description
+---@class reaction_description: df.struct
 ---@field unk_1 string
 ---@field item_type item_type
 ---@field unk_2 string

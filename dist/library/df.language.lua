@@ -179,7 +179,7 @@ df.sphere_type = {
   YOUTH = 130,
 }
 
----@class language_word
+---@class language_word: df.struct
 ---@field word string
 ---@field forms string[]
 ---@field adj_dist integer
@@ -187,7 +187,7 @@ df.sphere_type = {
 ---@field flags language_word_flags
 ---@field str string[]
 
----@class language_translation
+---@class language_translation: df.struct
 ---@field name string
 ---@field unknown1 string[] looks like english words
 ---@field unknown2 string[] looks like translated words
@@ -195,25 +195,25 @@ df.sphere_type = {
 ---@field flags integer 1 = generated
 ---@field str string[]
 
----@class language_symbol
+---@class language_symbol: df.struct
 ---@field name string
----@field unknown any[][] empty
----@field words integer[]
+---@field unknown any[] empty
+---@field words language_word[]
 ---@field flags integer
 ---@field str string[]
 
----@class language_name
+---@class language_name: df.struct
 ---@field first_name string
 ---@field nickname string
----@field words integer[]
+---@field words language_word[]
 ---@field parts_of_speech part_of_speech[]
----@field language integer
+---@field language language_translation
 ---@field type language_name_type
 ---@field has_name boolean
 
----@class language_word_table
+---@class language_word_table: df.struct
 ---word_selectorst
----@field words integer[][]
+---@field words language_word[][]
 ---@field parts part_of_speech[][]
 
 ---@enum language_name_category

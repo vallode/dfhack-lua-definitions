@@ -120,7 +120,7 @@ df.creature_interaction_effect_target_mode = {
   BY_CATEGORY = 2,
 }
 
----@class creature_interaction_effect_target
+---@class creature_interaction_effect_target: df.struct
 ---@field mode creature_interaction_effect_target_mode[]
 ---@field key string[]
 ---@field tissue string[]
@@ -135,7 +135,7 @@ df.syndrome_flags = {
   SYN_NO_HOSPITAL = 5,
 }
 
----@class syndrome
+---@class syndrome: df.struct
 ---@field syn_name string
 ---@field ce creature_interaction_effect[]
 ---@field syn_affected_class string[]

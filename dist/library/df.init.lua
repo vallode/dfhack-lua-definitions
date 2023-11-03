@@ -17,7 +17,7 @@ df.init_display_filter_mode = {
   LANCZOS = 2,
 }
 
----@class init_display
+---@class init_display: df.struct
 ---@field flag any
 ---@field windowed any
 ---@field grid_x integer
@@ -44,7 +44,7 @@ df.init_media_flags = {
   COMPRESS_SAVES = 2,
 }
 
----@class init_media
+---@class init_media: df.struct
 ---@field flag any
 ---@field volume_master integer
 ---@field volume_music integer
@@ -58,7 +58,7 @@ df.init_input_flags = {
   MOUSE_PICTURE = 1,
 }
 
----@class init_input
+---@class init_input: df.struct
 ---@field hold_time integer
 ---@field repeat_time integer
 ---@field macro_time integer
@@ -68,7 +68,7 @@ df.init_input_flags = {
 ---@field repeat_accel_start integer
 ---@field repeat_accel_limit integer
 
----@class init_font
+---@class init_font: df.struct
 ---@field basic_font_texpos number[]
 ---@field small_font_texpos number[]
 ---@field large_font_texpos number[]
@@ -101,10 +101,10 @@ df.init_window_flags = {
   TEXTURE_LINEAR = 2,
 }
 
----@class init_window
+---@class init_window: df.struct
 ---@field flag any
 
----@class init
+---@class init: df.struct
 ---@field display init_display
 ---@field media init_media
 ---@field input init_input

@@ -391,7 +391,7 @@ df.appearance_modifier_growth_interval = {
   YEARLY = 3,
 }
 
----@class body_part_layer_raw
+---@class body_part_layer_raw: df.struct
 ---@field layer_name string
 ---@field tissue_id integer
 ---@field flags any
@@ -410,7 +410,7 @@ df.appearance_modifier_growth_interval = {
 ---@field nonsolid_id integer
 ---@field styleable_id integer
 
----@class body_part_raw
+---@class body_part_raw: df.struct
 ---@field token string
 ---@field category string
 ---@field con_part_id integer
@@ -437,7 +437,7 @@ df.appearance_modifier_growth_interval = {
 ---@field insulation_base integer
 ---@field clothing_item_id integer
 
----@class color_modifier_raw
+---@class color_modifier_raw: df.struct
 ---@field pattern_index integer[]
 ---@field pattern_frequency integer[]
 ---@field body_part_id integer[]
@@ -454,7 +454,7 @@ df.appearance_modifier_growth_interval = {
 ---@field unk_78 string[]
 ---@field unk_88 string[]
 
----@class body_appearance_modifier
+---@class body_appearance_modifier: df.struct
 ---@field type appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
@@ -471,7 +471,7 @@ df.appearance_modifier_growth_interval = {
 ---@field id integer
 ---@field id2 integer same as id
 
----@class bp_appearance_modifier
+---@class bp_appearance_modifier: df.struct
 ---@field type appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
@@ -490,7 +490,7 @@ df.appearance_modifier_growth_interval = {
 ---@field tissue_layer integer[]
 ---@field id integer
 
----@class caste_clothing_item
+---@class caste_clothing_item: df.struct
 ---@field body_part_id integer
 ---@field unk_4 integer
 ---@field item item[] under, over, cover
@@ -499,7 +499,7 @@ df.appearance_modifier_growth_interval = {
 ---@field permit integer[]
 ---@field unk_38 integer[]
 
----@class caste_attack
+---@class caste_attack: df.struct
 ---@field name string
 ---@field verb_3rd string
 ---@field verb_2nd string
@@ -533,7 +533,7 @@ df.gait_type = {
   CLIMB = 4,
 }
 
----@class gait_info
+---@class gait_info: df.struct
 ---@field action_string_idx integer
 ---@field full_speed integer
 ---@field buildup_time integer
@@ -552,7 +552,7 @@ df.creature_interaction_target_flags = {
   SELF_ONLY = 4,
 }
 
----@class creature_interaction
+---@class creature_interaction: df.struct
 ---@field bp_required_type string[]
 ---@field bp_required_name string[]
 ---@field unk_1 string
@@ -569,7 +569,7 @@ df.creature_interaction_target_flags = {
 ---@field target_verb_2nd string
 ---@field target_verb_3rd string
 ---@field interaction_type string
----@field type_id integer
+---@field type_id interaction
 ---@field usage_hint interaction_source_usage_hint[]
 ---@field location_hint interaction_effect_location_hint[]
 ---@field flags any
@@ -579,11 +579,11 @@ df.creature_interaction_target_flags = {
 ---@field unk_4 string[]
 ---@field max_target_numbers integer[]
 ---@field verbal_speeches integer[]
----@field unk_5 any[][]
+---@field unk_5 any[]
 ---@field adv_name string
 ---@field wait_period integer
 
----@class caste_body_info
+---@class caste_body_info: df.struct
 ---@field body_parts body_part_raw[]
 ---@field attacks caste_attack[]
 ---@field interactions any[]
@@ -603,7 +603,7 @@ df.creature_interaction_target_flags = {
 ---@field fraction_muscle integer
 ---@field unk_v40_2 integer[]
 
----@class caste_raw
+---@class caste_raw: df.struct
 ---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
 ---@field caste_id string
 ---@field caste_name string[]
@@ -630,8 +630,8 @@ df.creature_interaction_target_flags = {
 ---@field flags any
 ---@field index integer global across creatures
 ---@field body_info caste_body_info
----@field caste_speech_1 any[][]
----@field caste_speech_2 any[][]
+---@field caste_speech_1 any[]
+---@field caste_speech_2 any[]
 ---@field skill_rates integer[][]
 ---@field attributes integer[][]
 ---@field sex pronoun_type
@@ -644,7 +644,7 @@ df.creature_interaction_target_flags = {
 ---@field color_modifiers color_modifier_raw[]
 ---@field tissue_styles tissue_style_raw[]
 ---@field shearable_tissue_layer integer[]
----@field unk16a any[][][]
+---@field unk16a any[][]
 ---@field unk16b integer[][]
 ---@field appearance_gene_count integer
 ---@field color_gene_count integer
@@ -653,7 +653,7 @@ df.creature_interaction_target_flags = {
 ---@field natural_skill_lvl skill_rating[]
 ---@field caste_profession_name string[]
 ---@field extracts integer[]
----@field secretion integer[]
+---@field secretion material[]
 ---@field creature_class string[]
 ---@field unknown2 string[]
 ---@field habit_num integer[]
@@ -664,8 +664,8 @@ df.creature_interaction_target_flags = {
 ---@field lair_characteristic_1 integer[]
 ---@field lair_characteristic_2 integer[]
 ---@field lair_hunter_speech integer[]
----@field unk29 any[][]
----@field specific_food any[][][]
+---@field unk29 any[]
+---@field specific_food any[][]
 ---@field sound integer[]
 ---@field sound_alert integer[]
 ---@field sound_peaceful_intermittent integer[]
@@ -702,7 +702,7 @@ df.tissue_style_type = {
   CLEAN_SHAVEN = 4,
 }
 
----@class creature_raw_graphics
+---@class creature_raw_graphics: df.struct
 ---@field creature_texture_texpos integer[][][][]
 ---@field creature_texture_add_color boolean[]
 ---@field creature_texture_unk integer[][]
@@ -719,7 +719,7 @@ df.tissue_style_type = {
 ---@field vec_unk integer[][]
 ---@field profession_vec_unk integer[][]
 
----@class tissue_style_raw
+---@class tissue_style_raw: df.struct
 ---@field token string
 ---@field part_idx integer[]
 ---@field layer_idx integer[]
@@ -729,7 +729,7 @@ df.tissue_style_type = {
 ---@field noun string
 ---@field word_type part_of_speech 0 singular, 1 plural
 
----@class creature_raw
+---@class creature_raw: df.struct
 ---@field creature_id string
 ---@field name string[]
 ---@field general_baby_name string[]
@@ -765,20 +765,20 @@ df.tissue_style_type = {
 ---@field modifier_class any[]
 ---@field modifier_num_patterns integer[] for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product integer[]
----@field source_hfid integer
+---@field source_hfid historical_figure
 ---@field unk_v4201_1 integer
 ---@field next_modifier_id integer
 ---@field raws string[]
 ---@field statute_texpos integer[]
 
----@class creature_variation_convert_tag
+---@class creature_variation_convert_tag: df.struct
 ---@field cvct_master string
 ---@field cvct_target string
 ---@field cvct_replacement string
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 string
 
----@class creature_variation
+---@class creature_variation: df.struct
 ---@field id string
 ---@field cv_convert_tag creature_variation_convert_tag[]
 ---@field cv_new_tag string[]
@@ -833,7 +833,7 @@ df.body_part_template_contype = {
   STANCE = 5,
 }
 
----@class body_part_template
+---@class body_part_template: df.struct
 ---@field id string
 ---@field con string
 ---@field category string
@@ -845,7 +845,7 @@ df.body_part_template_contype = {
 ---@field name_singular string[] first comes from BP, rest come from INDIVIDUAL_NAME
 ---@field name_plural string[]
 
----@class body_template
+---@class body_template: df.struct
 ---@field id string
 ---@field parts body_part_template[]
 
@@ -875,13 +875,13 @@ df.tissue_flags = {
   SPLINTABLE = 21,
 }
 
----@class tissue_template
+---@class tissue_template: df.struct
 ---@field id string
 ---@field flags any
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field relative_thickness integer
 ---@field healing_rate integer
@@ -894,13 +894,13 @@ df.tissue_flags = {
 ---@field tissue_mat_state matter_state
 ---@field tissue_shape_str string
 
----@class tissue
+---@class tissue: df.struct
 ---@field id string
 ---@field flags any
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field relative_thickness integer
 ---@field healing_rate integer
@@ -920,7 +920,7 @@ df.tissue_flags = {
 ---@field spec_heat integer
 ---@field tissue_shape_str string
 
----@class body_detail_plan
+---@class body_detail_plan: df.struct
 ---@field id string
 ---@field add_material_name string[]
 ---@field add_material_template string[]

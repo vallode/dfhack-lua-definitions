@@ -19,10 +19,10 @@ df.improvement_type = {
   IMAGE_SET = 13,
 }
 
----@class dye_info
----@field mat_type integer
+---@class dye_info: df.struct
+---@field mat_type material
 ---@field mat_index integer
----@field dyer integer
+---@field dyer historical_figure
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 integer
@@ -85,7 +85,7 @@ df.written_content_style = {
   Ranting = 17,
 }
 
----@class written_content
+---@class written_content: df.struct
 ---@field id integer
 ---@field title string
 ---@field page_start integer
@@ -95,10 +95,10 @@ df.written_content_style = {
 ---@field unk1 integer
 ---@field unk2 integer
 ---@field type written_content_type
----@field poetic_form integer
+---@field poetic_form poetic_form
 ---@field styles written_content_style[]
 ---@field style_strength integer[] 0 = maximum, 1 = significant, 2 = partial
----@field author integer
+---@field author historical_figure
 ---@field author_roll integer
 
 ---@enum engraving_flags
@@ -115,15 +115,15 @@ df.engraving_flags = {
   southeast = 9,
 }
 
----@class engraving
----@field artist integer
----@field masterpiece_event integer
+---@class engraving: df.struct
+---@field artist historical_figure
+---@field masterpiece_event history_event
 ---@field skill_rating skill_rating at the moment of creation
 ---@field pos coord
 ---@field flags engraving_flags
 ---@field tile integer
----@field art_id integer
----@field art_subid integer
+---@field art_id art_image_chunk
+---@field art_subid art_image
 ---@field quality item_quality
 ---@field unk1 integer
 ---@field unk2 integer

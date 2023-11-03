@@ -49,7 +49,7 @@ df.resource_allotment_specifier_type = {
   AMMO = 43,
 }
 
----@class resource_allotment_data
+---@class resource_allotment_data: df.struct
 ---@field index integer
 ---@field resource_allotments resource_allotment_specifier[][]
 ---@field unk1 integer

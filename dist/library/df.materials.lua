@@ -163,7 +163,7 @@ df.strain_type = {
   COMPRESSIVE = 5,
 }
 
----@class material_common
+---@class material_common: df.struct
 ---@field id string
 ---@field gem_name1 string
 ---@field gem_name2 string
@@ -185,7 +185,7 @@ df.strain_type = {
 ---@field meat_organ integer used for texture selection
 ---@field block_name string[]
 ---@field reaction_product string[]
----@field hardens_with_water integer
+---@field hardens_with_water material
 ---@field reaction_class string[]
 
 ---@class material: material_common
@@ -212,8 +212,8 @@ df.strain_type = {
 ---@field cheese_texpos1 integer
 ---@field cheese_texpos2 integer
 
----@class material_vec_ref
----@field mat_type integer[]
+---@class material_vec_ref: df.struct
+---@field mat_type material[]
 ---@field mat_index integer[]
 
 ---@class material_template: material_common
@@ -287,11 +287,11 @@ df.inclusion_type = {
   CLUSTER_ONE = 4,
 }
 
----@class inorganic_raw
+---@class inorganic_raw: df.struct
 ---@field id string
 ---@field str string[]
 ---@field flags any
----@field source_hfid integer
+---@field source_hfid historical_figure
 ---@field unk_v4201_1 integer
 ---@field metal_ore string[]
 ---@field thread_metal string[]
@@ -345,7 +345,7 @@ df.organic_mat_category = {
   Parchment = 38,
 }
 
----@class special_mat_table
+---@class special_mat_table: df.struct
 ---@field organic_types integer[][]
 ---@field organic_indexes integer[][]
 ---@field organic_unknown integer[][] everything 0

@@ -108,14 +108,14 @@ df.building_extents_type = {
   DistanceBoundary = 4,
 }
 
----@class building_extents
+---@class building_extents: df.struct
 ---@field extents building_extents_type
 ---@field x integer
 ---@field y integer
 ---@field width integer
 ---@field height integer
 
----@class building_drawbuffer
+---@class building_drawbuffer: df.struct
 ---@field texpos1 integer[][]
 ---@field texpos2 integer[][]
 ---@field texpos3 integer[][]
@@ -128,13 +128,13 @@ df.building_extents_type = {
 ---@field y1 integer
 ---@field y2 integer
 
----@class stockpile_links
+---@class stockpile_links: df.struct
 ---@field give_to_pile building[]
 ---@field take_from_pile building[]
 ---@field give_to_workshop building[]
 ---@field take_from_workshop building[]
 
----@class hospital_supplies
+---@class hospital_supplies: df.struct
 ---@field supplies_needed any
 ---@field max_splints integer
 ---@field max_thread integer
@@ -254,12 +254,12 @@ df.civzone_type = {
   Tomb = 97,
 }
 
----@class building_design
----@field builder1 integer
+---@class building_design: df.struct
+---@field builder1 historical_figure
 ---@field unk5 integer
 ---@field build_skill integer
 ---@field build_timer1 integer +1 per 10 frames while building
----@field builder2 integer
+---@field builder2 historical_figure
 ---@field build_timer2 integer
 ---@field quality1 item_quality
 ---@field flags any
@@ -319,7 +319,7 @@ df.workshop_type = {
 ---@type { [string|integer]: workshop_type_attr }
 df.workshop_type.attrs = {}
 
----@class workshop_profile
+---@class workshop_profile: df.struct
 ---@field permitted_workers integer[]
 ---@field min_level integer
 ---@field max_level integer
@@ -329,7 +329,7 @@ df.workshop_type.attrs = {}
 ---@field pad_1 any
 ---@field blocked_labors boolean[]
 
----@class building_users
+---@class building_users: df.struct
 ---@field unit integer[]
 ---@field mode integer[]
 
@@ -406,7 +406,7 @@ df.trap_type = {
   TrackStop = 5,
 }
 
----@class pressure_plate_info
+---@class pressure_plate_info: df.struct
 ---@field unit_min integer
 ---@field unit_max integer
 ---@field water_min integer
@@ -417,8 +417,8 @@ df.trap_type = {
 ---@field track_max integer
 ---@field flags any
 
----@class building_squad_use
----@field squad_id integer
+---@class building_squad_use: df.struct
+---@field squad_id squad
 ---@field mode squad_use_flags
 
 ---@enum dfhack_room_quality_level

@@ -56,18 +56,18 @@ df.ui_advmode_menu = {
   PartyTacticalSettings = 50,
 }
 
----@class conversation
+---@class conversation: df.struct
 ---@field conv_title string
 ---@field state any
 ---@field talk_choices integer[]
----@field unk_30 integer
----@field unk_34 integer
+---@field unk_30 unit
+---@field unk_34 historical_figure
 ---@field unk_38 integer
----@field unk_3c integer
----@field unk_40 integer
+---@field unk_3c unit
+---@field unk_40 historical_figure
 ---@field unk_44 integer
----@field unk_48 integer
----@field unk_4c integer
+---@field unk_48 unit
+---@field unk_4c historical_figure
 ---@field unk_50 integer
 ---@field unk_54 nemesis_record[]
 ---@field unk_64 historical_entity[]
@@ -75,9 +75,9 @@ df.ui_advmode_menu = {
 ---@field unk_78 integer
 ---@field unk_7c integer
 ---@field unk_80 integer
----@field unk_84 any[][]
----@field unk_94 any[][]
----@field unk_a4 any[][]
+---@field unk_84 any[]
+---@field unk_94 any[]
+---@field unk_a4 any[]
 ---@field location building civzone
 ---@field unk_b8 integer
 ---@field unk_bc integer
@@ -321,7 +321,7 @@ df.assume_identity_mode = {
   SelectOrigin = 4,
 }
 
----@class talk_choice
+---@class talk_choice: df.struct
 ---@field type talk_choice_type
 ---@field unk entity_event
 ---@field unk_1 integer
@@ -329,7 +329,7 @@ df.assume_identity_mode = {
 ---@field unk_3 integer
 ---@field unk_4 integer
 
----@class adventurest
+---@class adventurest: df.struct
 ---@field menu ui_advmode_menu
 ---@field site_level_zoom integer when set, the travel map is zoomed in to show site details
 ---@field travel_origin_x integer
@@ -375,7 +375,7 @@ df.assume_identity_mode = {
 ---@field unk_24 integer[]
 ---@field unk_25 integer[]
 ---@field unk_26 integer[]
----@field player_army_id integer
+---@field player_army_id army
 ---@field gait_index integer Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
 ---@field gait_unk integer Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
 ---@field tracks_x integer[] X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
@@ -392,11 +392,11 @@ df.assume_identity_mode = {
 ---@field unk_40 integer[]
 ---@field unk_41 integer[]
 ---@field unk_42 integer[]
----@field odor_race integer race ID of strongest odor creature
----@field odor_caste integer caste ID of strongest odor creature
+---@field odor_race creature_raw race ID of strongest odor creature
+---@field odor_caste caste_raw caste ID of strongest odor creature
 ---@field odor_death integer Overrides creature odor with odor of Death
----@field travel_odor_race integer race ID of strongest odor creature in fast travel mode
----@field travel_odor_caste integer caste ID of strongest odor creature in fast travel mode
+---@field travel_odor_race creature_raw race ID of strongest odor creature in fast travel mode
+---@field travel_odor_caste caste_raw caste ID of strongest odor creature in fast travel mode
 ---@field unk_46 integer
 ---@field multiattack integer Set when the player is preparing to carry out a multi-attack; resetting this to 0 makes the multi-attack window disappear.
 ---@field unk_3170 entity_event[]
@@ -412,26 +412,26 @@ df.assume_identity_mode = {
 ---@field unk_56 integer
 ---@field unk_57 integer
 ---@field unk_58 integer
----@field unk_59 any[][]
+---@field unk_59 any[]
 ---@field unk_60 integer
 ---@field unk_61 integer
 ---@field long_action_duration integer Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
 ---@field travel_start_x integer
 ---@field travel_start_y integer
 ---@field travel_start_z integer
----@field player_id integer
+---@field player_id nemesis_record
 ---@field track_viewed_x integer Set when viewing a spoor; local x coordinate of the track in question.
 ---@field track_viewed_y integer Set when viewing a spoor; local y coordinate of the track in question.
 ---@field track_viewed_unk_1 any Set when viewing a spoor.
 ---@field track_viewed_unk_2 any Set when viewing a spoor.
 ---@field conversation activity_entry[]
----@field unk_70 any[][]
+---@field unk_70 any[]
 ---@field unk_71 integer
----@field unk_72 any[][]
+---@field unk_72 any[]
 ---@field interacts adventure_item_interact_choicest[]
 ---@field commands adventure_optionst[]
 ---@field movements adventure_movement_optionst[]
----@field unk_75 any[][]
+---@field unk_75 any[]
 ---@field sleep_hours integer
 ---@field sleep_until_dawn boolean
 ---@field unk_78 integer
@@ -447,13 +447,13 @@ df.assume_identity_mode = {
 ---@field unk_87 string
 ---@field unk_220 integer
 ---@field unk_224 integer
----@field unk_v40_2 any[][]
+---@field unk_v40_2 any[]
 ---@field unk_v40_3 integer
 ---@field player_unit_projectile_unk any Set when the player is travelling as a unit projectile after falling or jumping.
 ---@field player_unit_projectile_z integer Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
 ---@field unk_90 integer
 ---@field unk_v40_4 integer[]
----@field unk_v40_5 any[][]
+---@field unk_v40_5 any[]
 ---@field unk_v42_1 integer
 ---@field unk_91 any
 ---@field unk_91a integer

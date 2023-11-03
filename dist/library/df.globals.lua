@@ -10,7 +10,7 @@
 ---@field ui_menu_width integer[]
 ---@field created_item_type item_type[]
 ---@field created_item_subtype integer[]
----@field created_item_mattype integer[]
+---@field created_item_mattype material[]
 ---@field created_item_matindex integer[]
 ---@field created_item_count integer[]
 ---@field map_renderer map_renderer
@@ -217,7 +217,7 @@ df.next_global_id = {
   divination_set = 40,
 }
 
----@class global_table_entry
+---@class global_table_entry: df.struct
 ---@field name any
 ---@field address any
 ---@field size any

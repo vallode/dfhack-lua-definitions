@@ -59,18 +59,18 @@ df.item_magicness_type = {
   RustlingLeaves = 8,
 }
 
----@class item_magicness
+---@class item_magicness: df.struct
 ---@field type item_magicness_type
 ---@field value integer boosts item value by 50*this
 ---@field unk_1 integer
 ---@field flags integer 1=does not show up in item description or alter item value
 
----@class temperaturest
+---@class temperaturest: df.struct
 ---@field whole integer
 ---@field fraction integer
 
----@class spatter_common
----@field mat_type integer
+---@class spatter_common: df.struct
+---@field mat_type material
 ---@field mat_index integer
 ---@field mat_state matter_state
 ---@field temperature temperaturest
@@ -125,12 +125,12 @@ df.slab_engraving_type = {
   TavernSign = 27,
 }
 
----@class item_kill_info
+---@class item_kill_info: df.struct
 ---@field targets historical_kills
 ---@field slayers integer[]
 ---@field slayer_kill_counts integer[]
 
----@class item_history_info
+---@class item_history_info: df.struct
 ---@field kills item_kill_info
 ---@field attack_counter integer increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter integer increments by 1 each time the item is used in an attempt to block or parry
@@ -167,7 +167,7 @@ df.body_layer_status = {
   leaking = 1,
 }
 
----@class body_component_info
+---@class body_component_info: df.struct
 ---@field body_part_status body_part_status[]
 ---@field numbered_masks integer[] 1 bit per instance of a numbered body part
 ---@field nonsolid_remaining integer[] 0-100%
@@ -177,7 +177,7 @@ df.body_layer_status = {
 ---@field layer_dent_fraction integer[] 0-10000
 ---@field layer_effect_fraction integer[] 0-1000000000
 
----@class body_size_info
+---@class body_size_info: df.struct
 ---@field size_cur integer
 ---@field size_base integer
 ---@field area_cur integer size_cur^0.666
@@ -208,8 +208,8 @@ df.item_matstate = {
   paste = 2,
 }
 
----@class item_stockpile_ref
----@field id integer
+---@class item_stockpile_ref: df.struct
+---@field id building
 ---@field x integer
 ---@field y integer
 

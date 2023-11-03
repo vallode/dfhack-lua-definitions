@@ -1,38 +1,38 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class dipscript_info
+---@class dipscript_info: df.struct
 ---@field id integer assigned during Save
 ---@field script_steps script_stepst[]
 ---@field script_vars script_varst[]
 ---@field code string DWARF_LIAISON etc
 
----@class dipscript_text
+---@class dipscript_text: df.struct
 ---@field name string dwarf_liaison_bye, etc.
 ---@field contents string[]
 
----@class dipscript_popup
----@field meeting_holder_actor integer
----@field meeting_holder_noble integer
+---@class dipscript_popup: df.struct
+---@field meeting_holder_actor unit
+---@field meeting_holder_noble unit
 ---@field activity activity_info
 ---@field flags any
 
----@class meeting_variable
+---@class meeting_variable: df.struct
 ---@field value integer
 ---@field ref specific_ref
 ---@field active_var active_script_varst
 
----@class meeting_context
+---@class meeting_context: df.struct
 ---@field meeting meeting_diplomat_info
 ---@field popup dipscript_popup
 ---@field unk_2 any
 ---@field unk_3 any
 
----@class meeting_diplomat_info
----@field civ_id integer
+---@class meeting_diplomat_info: df.struct
+---@field civ_id historical_entity
 ---@field unk1 integer maybe is_first_contact
----@field diplomat_id integer
----@field associate_id integer
+---@field diplomat_id historical_figure
+---@field associate_id historical_figure
 ---@field topic_list meeting_topic[]
 ---@field topic_parms integer[]
 ---@field sell_requests entity_sell_requests
@@ -77,7 +77,7 @@ df.meeting_event_type = {
   ImportAgreement = 5,
 }
 
----@class meeting_event
+---@class meeting_event: df.struct
 ---@field type meeting_event_type
 ---@field topic meeting_topic
 ---@field topic_parm integer
@@ -90,17 +90,17 @@ df.meeting_event_type = {
 ---@field sell_prices entity_sell_prices
 ---@field buy_prices entity_buy_prices
 
----@class activity_info
+---@class activity_info: df.struct
 ---@field id integer assigned during Save
----@field unit_actor integer diplomat or worker
----@field unit_noble integer meeting recipient
----@field place integer
+---@field unit_actor unit diplomat or worker
+---@field unit_noble unit meeting recipient
+---@field place building
 ---@field flags any
 ---@field unk3 integer 3
 ---@field delay integer 0
 ---@field tree_quota integer -1
 
----@class room_rent_info
+---@class room_rent_info: df.struct
 ---@field elements building[]
 ---@field rent_value integer
 ---@field flags any
@@ -122,12 +122,12 @@ df.activity_entry_type = {
   Play = 12,
 }
 
----@class activity_entry
+---@class activity_entry: df.struct
 ---@field id integer
 ---@field type activity_entry_type
 ---@field events activity_event[]
 ---@field next_event_id integer
----@field army_controller integer
+---@field army_controller army_controller
 
 ---@enum activity_event_type
 df.activity_event_type = {
@@ -161,12 +161,12 @@ df.activity_event_type = {
   StoreObject = 27,
 }
 
----@class activity_event_participants
----@field histfigs integer[]
----@field units integer[]
----@field free_histfigs integer[]
----@field free_units integer[]
----@field activity_id integer
+---@class activity_event_participants: df.struct
+---@field histfigs historical_figure[]
+---@field units unit[]
+---@field free_histfigs historical_figure[]
+---@field free_units unit[]
+---@field activity_id activity_entry
 ---@field event_id integer
 
 ---@enum conversation_menu
@@ -267,12 +267,12 @@ df.performance_participant_type = {
   HEAR = 5,
 }
 
----@class schedule_info
+---@class schedule_info: df.struct
 ---@field id integer
 ---@field unk_1 integer
 ---@field slots schedule_slot[]
 
----@class schedule_slot
+---@class schedule_slot: df.struct
 ---@field type integer 0:Eat, 1:Sleep, 2-4:???
 ---@field start_time integer
 ---@field end_time integer

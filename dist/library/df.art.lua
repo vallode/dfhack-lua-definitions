@@ -76,32 +76,32 @@ df.art_facet_type = {
   EVIL = 3,
 }
 
----@class art_image
+---@class art_image: df.struct
 ---@field elements art_image_element[]
 ---@field properties art_image_property[]
----@field event integer
+---@field event history_event
 ---@field name language_name
 ---@field spec_ref_type specific_ref_type
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field quality item_quality
----@field artist integer
----@field site integer
+---@field artist historical_figure
+---@field site world_site
 ---@field ref general_ref
 ---@field year integer
 ---@field unk_1 integer
----@field id integer
----@field subid integer
+---@field id art_image_chunk
+---@field subid art_image
 
----@class art_image_chunk
+---@class art_image_chunk: df.struct
 ---@field id integer art_image_*.dat
 ---@field images art_image[]
 
----@class art_image_ref
----@field id integer
----@field subid integer
----@field civ_id integer
----@field site_id integer
+---@class art_image_ref: df.struct
+---@field id art_image_chunk
+---@field subid art_image
+---@field civ_id historical_entity
+---@field site_id world_site
 
 ---@enum poetic_form_action
 df.poetic_form_action = {
@@ -194,8 +194,8 @@ df.poetic_form_subject = {
   Concept = 21,
 }
 
----@class poetic_form_subject_target
----@field Histfig integer
+---@class poetic_form_subject_target: df.struct
+---@field Histfig historical_figure
 ---@field Concept sphere_type
 
 ---@enum poetic_form_feature
@@ -237,12 +237,12 @@ df.poetic_form_additional_feature = {
   MustExpandIdea = 8,
 }
 
----@class poetic_form
+---@class poetic_form: df.struct
 ---@field id integer
 ---@field name language_name
----@field originating_entity integer
----@field original_author integer
----@field subject_hf integer
+---@field originating_entity historical_entity
+---@field original_author historical_figure
+---@field subject_hf historical_figure
 ---@field flags any
 ---@field parts poetic_form_part[]
 ---@field each_line_feet integer
@@ -257,7 +257,7 @@ df.poetic_form_additional_feature = {
 ---@field features poetic_form_feature
 ---@field perspectives poetic_form_perspective[]
 
----@class poetic_form_part
+---@class poetic_form_part: df.struct
 ---@field flags any
 ---@field count_min integer
 ---@field count_max integer
@@ -290,9 +290,9 @@ df.poetic_form_additional_feature = {
 ---@field unk_8 integer
 ---@field unk_9 integer
 
----@class poetic_form_perspective
+---@class poetic_form_perspective: df.struct
 ---@field type any
----@field histfig integer
+---@field histfig historical_figure
 ---@field unk_1 integer
 
 ---@enum musical_form_purpose
@@ -460,27 +460,27 @@ df.musical_form_melody_frequency = {
   Sometimes = 2,
 }
 
----@class musical_form_interval
+---@class musical_form_interval: df.struct
 ---@field degree integer
 ---@field flags any
 
----@class musical_form_melodies
+---@class musical_form_melodies: df.struct
 ---@field style musical_form_melody_style
 ---@field frequency musical_form_melody_frequency
 ---@field intervals musical_form_interval[]
 ---@field features musical_form_feature
 
----@class musical_form_passage
+---@class musical_form_passage: df.struct
 ---@field type musical_form_passage_type
 ---@field passage_reference integer used when doing Exposition, Recapitualation, Synthesis, and Variation
 ---@field passage_range_end integer when doing Synthesis of a range of passages
 ---@field unk_4 integer 'min_times' for a 3-5 range, but doesn't match up with 1 for both repeat 2 times and no repeat mentioned
 ---@field unk_5 integer 'max_times' for a 3-5 range, but doesn't match up with 1 for both repeat 2 times and no repeat mentioned
----@field poetic_form_id integer
----@field written_content_id integer suspect bug in exported legends (and possibly DF itself) as no mentioning of the poems (or any alternative) referenced here were mentioned in the two entries examined
----@field scale_id integer
+---@field poetic_form_id poetic_form
+---@field written_content_id written_content suspect bug in exported legends (and possibly DF itself) as no mentioning of the poems (or any alternative) referenced here were mentioned in the two entries examined
+---@field scale_id scale
 ---@field scale_sub_id integer references the scales element of the scale
----@field rhythm_id integer
+---@field rhythm_id rhythm
 ---@field sub_rhythm integer Guess, based on the pattern above
 ---@field rhythm_pattern integer references the patterns element of rhythm
 ---@field instruments integer[] indices into the instruments vector
@@ -497,8 +497,8 @@ df.musical_form_melody_frequency = {
 ---@field unk_22 integer 0-40 seen
 ---@field unk_23 integer 0-78 seen
 
----@class musical_form_instruments
----@field instrument_subtype integer -1 = vocal
+---@class musical_form_instruments: df.struct
+---@field instrument_subtype itemdef_instrumentst -1 = vocal
 ---@field substitutions any
 ---@field features musical_form_feature
 ---@field minimum_required integer tentative
@@ -506,7 +506,7 @@ df.musical_form_melody_frequency = {
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
 
----@class musical_form_sub4
+---@class musical_form_sub4: df.struct
 ---@field passage integer the passage index this structure refers to
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -514,11 +514,11 @@ df.musical_form_melody_frequency = {
 ---@field unk_5 integer
 ---@field unk_6 integer
 
----@class musical_form
+---@class musical_form: df.struct
 ---@field id integer
 ---@field name language_name
----@field originating_entity integer ID of the entity from which the musical form originated.
----@field original_author integer historical figure ID of the composer
+---@field originating_entity historical_entity ID of the entity from which the musical form originated.
+---@field original_author historical_figure historical figure ID of the composer
 ---@field passages musical_form_passage[]
 ---@field instruments musical_form_instruments[]
 ---@field melodies musical_form_melodies[]
@@ -526,17 +526,17 @@ df.musical_form_melody_frequency = {
 ---@field tempo_style musical_form_style
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
----@field poetic_form_id integer
----@field written_content_id integer
----@field scale_id integer
+---@field poetic_form_id poetic_form
+---@field written_content_id written_content
+---@field scale_id scale
 ---@field scale_subid integer reference to scale_sub2
----@field rhythm_id integer
+---@field rhythm_id rhythm
 ---@field sub_rhythm integer reference to sub_rhythms
 ---@field rhythm_pattern integer reference to patterns
 ---@field features musical_form_feature
 ---@field pitch_style musical_form_pitch_style
 ---@field purpose musical_form_purpose
----@field devotion_target integer
+---@field devotion_target historical_figure
 ---@field flags any
 
 ---@enum dance_form_context
@@ -711,7 +711,7 @@ df.dance_form_move_location = {
   Follower = 7,
 }
 
----@class dance_form_section
+---@class dance_form_section: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -741,7 +741,7 @@ df.dance_form_move_group_type = {
   DanceMove = 4,
 }
 
----@class dance_form_move
+---@class dance_form_move: df.struct
 ---@field name string
 ---@field type dance_form_move_type[]
 ---@field modifier dance_form_move_modifier[]
@@ -749,14 +749,14 @@ df.dance_form_move_group_type = {
 ---@field location dance_form_move_location[]
 ---@field group_type dance_form_move_group_type
 
----@class dance_form
+---@class dance_form: df.struct
 ---@field id integer
 ---@field name language_name
 ---@field musical_form_id integer
----@field music_written_content_id integer at most one of this and musical_form_id is non null
+---@field music_written_content_id written_content at most one of this and musical_form_id is non null
 ---@field context dance_form_context
----@field originating_entity integer ID of the entity from which the dance form originated.
----@field original_author integer ID of the historical figure who developed the dance form.
+---@field originating_entity historical_entity ID of the entity from which the dance form originated.
+---@field original_author historical_figure ID of the historical figure who developed the dance form.
 ---@field produce_individual_dances integer 0:improvise, 1:apply by choreographers. May be bitfield if analogous to corresponding music, but no other values seen
 ---@field group_size dance_form_group_size
 ---@field unk_4 integer 1 seen, and it's always paired with the next field
@@ -770,8 +770,8 @@ df.dance_form_move_group_type = {
 ---@field partner_changes dance_form_partner_change_type[]
 ---@field poetry_referenced boolean Weird, but all instances where it was set examined have the dance act out any composition of a named poetic form, without any presence of the form number found
 ---@field unk_14 integer
----@field hfid integer Character whose story the dance acts out
----@field race integer Creature whose movements are imitated
+---@field hfid historical_figure Character whose story the dance acts out
+---@field race creature_raw Creature whose movements are imitated
 ---@field move_type dance_form_move_type[]
 ---@field move_modifier dance_form_move_modifier[]
 ---@field move_parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
@@ -786,13 +786,13 @@ df.scale_type = {
   PerfectFourth = 2, --The perfect fourth interval is divided into steps of even length
 }
 
----@class chord
+---@class chord: df.struct
 ---@field name string
 ---@field notes integer[] chord_size entries used. Refers to the notes indices
 ---@field chord_size integer
 ---@field unk_3 integer 0 and 1 seen
 
----@class named_scale
+---@class named_scale: df.struct
 ---Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
 ---@field unk_1 integer 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
 ---@field name string
@@ -801,7 +801,7 @@ df.scale_type = {
 ---@field first_chord integer this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
 ---@field second_chord integer
 
----@class scale
+---@class scale: df.struct
 ---@field id integer
 ---@field flags any
 ---@field type scale_type
@@ -811,7 +811,7 @@ df.scale_type = {
 ---@field scales named_scale[] Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
 ---@field notes integer Curiously, the named notes do not have to match the number of defined notes
 
----@class rhythm
+---@class rhythm: df.struct
 ---@field id integer
 ---@field patterns rhythm_pattern[]
 ---@field sub_rhythms sub_rhythm[]
@@ -833,14 +833,14 @@ df.beat_type = {
   AccentedSyncopated = 11, --!'
 }
 
----@class rhythm_pattern
+---@class rhythm_pattern: df.struct
 ---@field name string
 ---@field bars beat_type[]
 ---@field beat_name string length as per length field
 ---@field beat_abbreviation string length as per length field
 ---@field length integer
 
----@class sub_rhythm
+---@class sub_rhythm: df.struct
 ---@field name string
 ---@field patterns integer[] indices into patterns
 ---@field unk_2 integer[] Same length as patterns, but with unknown purpose
@@ -861,21 +861,21 @@ df.occupation_type = {
   BONE_DOCTOR = 10,
 }
 
----@class occupation
+---@class occupation: df.struct
 ---@field id integer
 ---@field type occupation_type
----@field histfig_id integer
----@field unit_id integer
----@field location_id integer
----@field site_id integer
----@field group_id integer
+---@field histfig_id historical_figure
+---@field unit_id unit
+---@field location_id abstract_building
+---@field site_id world_site
+---@field group_id historical_entity
 ---@field unk_1 occupation_sub1[]
 ---@field unk_2 integer
----@field army_controller_id integer
+---@field army_controller_id army_controller
 ---@field unk_4 world_site When these haven't crashed the data has been nonsensical
 ---@field unk_5 abstract_building When these haven't crashed the data has been nonsensical. Has seen duplicate of unk_4 pointer value
 
----@class occupation_sub1
+---@class occupation_sub1: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer

@@ -1,11 +1,11 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class large_integer
+---@class large_integer: df.struct
 ---@field u number
 ---@field quad_part integer
 
----@class musicsoundst
+---@class musicsoundst: df.struct
 ---@field soft_channel_number integer
 ---@field song integer
 ---@field music_active boolean
@@ -18,7 +18,7 @@
 ---@field samp fmod_sound[] sound effects
 ---@field linux_sound_system any
 
----@class fmod_sound
+---@class fmod_sound: df.struct
 ---@field sound any
 ---@field channel any
 
@@ -41,7 +41,7 @@ df.cmv_attribute = {
   bright = 2,
 }
 
----@class graphic_viewportst
+---@class graphic_viewportst: df.struct
 ---@field flag integer
 ---@field dim_x integer
 ---@field dim_y integer
@@ -102,7 +102,7 @@ df.cmv_attribute = {
 ---@field core_tree_species_plus_one integer
 ---@field shadow_tree_species_plus_one integer
 
----@class graphic_map_portst
+---@class graphic_map_portst: df.struct
 ---@field flag integer
 ---@field dim_x integer
 ---@field dim_y integer
@@ -166,18 +166,18 @@ df.cmv_attribute = {
 ---@field edge_biome_sw integer
 ---@field edge_biome_se integer
 
----@class cached_texturest
+---@class cached_texturest: df.struct
 ---@field w integer
 ---@field h integer
 ---@field tex any
 ---@field tex_n integer
 
----@class texblitst
+---@class texblitst: df.struct
 ---@field x integer
 ---@field y integer
 ---@field tex integer
 
----@class graphic
+---@class graphic: df.struct
 ---@field viewport graphic_viewportst[]
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
@@ -246,7 +246,7 @@ df.cmv_attribute = {
 ---@field dimy integer
 ---@field tileset number[]
 
----@class interface_setst
+---@class interface_setst: df.struct
 ---@field texpos_calendar_month integer[][]
 ---@field texpos_calendar_day_past integer[]
 ---@field texpos_calendar_day_current integer[]
@@ -459,7 +459,7 @@ df.justification = {
   not_truetype = 4,
 }
 
----@class tile_pagest
+---@class tile_pagest: df.struct
 ---@field token string
 ---@field graphics_dir string
 ---@field filename string
@@ -473,7 +473,7 @@ df.justification = {
 ---@field datapos_gs number[]
 ---@field loaded boolean
 
----@class palette_pagest
+---@class palette_pagest: df.struct
 ---@field token string
 ---@field graphics_dir string
 ---@field filename string
@@ -481,7 +481,7 @@ df.justification = {
 ---@field color_token string[]
 ---@field color_row integer[]
 
----@class texture_handlerst
+---@class texture_handlerst: df.struct
 ---@field page tile_pagest[]
 ---@field palette palette_pagest[]
 

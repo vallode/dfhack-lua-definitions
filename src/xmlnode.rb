@@ -13,8 +13,6 @@ TYPE_MAP = {
   'stl-string' => 'string',
   'static-string' => 'string',
   'bool' => 'boolean',
-  'stl-vector' => 'any[]',
-  'static-array' => 'any[]',
   'stl-function' => 'function'
 }
 
@@ -45,7 +43,6 @@ class Field < XmlNode
     super
 
     @name = node.attributes['name']
-    @pointer = node['pointer-type'] || node['type-name']
     @type = Field.get_type(node)
   end
 
@@ -54,7 +51,7 @@ class Field < XmlNode
   end
 
   def self.get_type(node)
-    typeName = node['type-name'] || node['pointer-type']
+    typeName = node['type-name'] || node['pointer-type'] || node['ref-target']
 
     if not node.children.empty?
       childType = Field.get_type(node.children.first)
@@ -164,7 +161,7 @@ class StructType < XmlNode
     super
 
     @name = node.attributes['type-name']
-    @inherits = node['inherits-from']
+    @inherits = node['inherits-from'] || 'df.struct'
   end
 
   def render

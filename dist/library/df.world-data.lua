@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class world_site_unk130
+---@class world_site_unk130: df.struct
 ---@field index integer
 ---@field unk_4 integer[][]
 
@@ -17,7 +17,7 @@ df.world_population_type = {
   Bush = 7,
 }
 
----@class embark_note
+---@class embark_note: df.struct
 ---@field tile integer
 ---@field fg_color integer
 ---@field bg_color integer
@@ -28,16 +28,16 @@ df.world_population_type = {
 ---@field top integer
 ---@field bottom integer
 
----@class world_population_ref
+---@class world_population_ref: df.struct
 ---@field region_x integer
 ---@field region_y integer
 ---@field feature_idx integer
----@field cave_id integer
+---@field cave_id world_underground_region
 ---@field unk_28 integer
 ---@field population_idx any
 ---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
 
----@class local_population
+---@class local_population: df.struct
 ---@field type world_population_type
 ---@field quantity integer
 ---@field quantity2 integer
@@ -48,19 +48,19 @@ df.world_population_type = {
 ---@field wp_unk_1c integer only set on subset of animals (including vermin). None seen on fresh embark
 ---@field unk_v47_1 integer set on same animals as wp_unk_1c and only seen 0
 
----@class world_population
+---@class world_population: df.struct
 ---@field type world_population_type
 ---@field count_min integer
 ---@field count_max integer
 ---@field unk_c integer
----@field owner integer
+---@field owner historical_entity
 ---@field unk_10 integer
 ---@field unk_14 integer
 ---@field unk_18 integer
 ---@field unk_1c integer
 ---@field unk_20 integer
 
----@class world_landmass
+---@class world_landmass: df.struct
 ---@field name language_name
 ---@field index integer
 ---@field area integer
@@ -85,7 +85,7 @@ df.world_region_type = {
   Hills = 9, --Steppe and Hills share the same set of biomes, differing only in Drainage
 }
 
----@class world_region
+---@class world_region: df.struct
 ---@field name language_name
 ---@field index integer
 ---@field type world_region_type
@@ -98,11 +98,11 @@ df.world_region_type = {
 ---@field population world_population[]
 ---@field biome_tile_counts integer[]
 ---@field tree_biomes biome_type[]
----@field tree_tiles_1 integer[]
----@field tree_tiles_2 integer[]
----@field tree_tiles_good integer[]
----@field tree_tiles_evil integer[]
----@field tree_tiles_savage integer[]
+---@field tree_tiles_1 plant_raw[]
+---@field tree_tiles_2 plant_raw[]
+---@field tree_tiles_good plant_raw[]
+---@field tree_tiles_evil plant_raw[]
+---@field tree_tiles_savage plant_raw[]
 ---@field dead_percentage integer % vegetation dead on embark. The number increases during world gen history, with the new ones always at 100%
 ---@field unk_1e5 boolean Probably optionally set only on good and evil regions during world gen. Number set increases during world gen history and can affect neutral.
 ---@field unk_1e6 boolean Probably optionally set only on neutral regions
@@ -120,7 +120,7 @@ df.world_region_type = {
 ---@field min_y integer
 ---@field max_y integer
 
----@class world_underground_region
+---@class world_underground_region: df.struct
 ---@field type any
 ---@field name language_name
 ---@field index integer
@@ -136,10 +136,10 @@ df.world_region_type = {
 ---@field region_coords coord2d_path
 ---@field region_min_z integer[]
 ---@field region_max_z integer[]
----@field unk_c8 any[][]
+---@field unk_c8 any[]
 ---@field feature_init feature_init
 
----@class world_river
+---@class world_river: df.struct
 ---Additional river information: The flow element affects the width of the river and seems to follow the formula width = (flow / 40000 * 46) + 1, with a minimum width of 4 and a maximum width of 47. DF uses specific names for rivers with certain flows: - Stream: less than 5000 - Minor River 5000 - 9999 - River 10000 - 19999 - Major River: greather than 20000 Brooks tend to have a flow of 0, but DF has divided the controlling information between this structure, the region map entry (below), and the feature map. Thus, the region map flag 'is_brook' controls whether a water course actually is a (potentially broad) brook or an open water course. Likewise, the 'has_river' flag is needed for DF to properly understand a water course should be present. The exit tile holds the information on which mid level tile the river should exit the region. Presumably the path controls which edge to apply this to. Note that the river up/down/left/right flags of the region map entry should align with the sides rivers enter/exit. The feature map has to have a river entry for the corresponding world tile for a river to be implemented properly. All this is done by DF, but needs to be known if hacking. The world region details (below) data on rivers are generated as the regions are generated. The elevation element affects the level of the river. If the river elevation is lower than the surrounding area DF tends to generate a valley around the river to allow it to reach the correct elevation.
 ---@field name language_name
 ---@field path coord2d_path
@@ -168,9 +168,9 @@ df.geo_layer_type = {
 ---@type { [string|integer]: geo_layer_type_attr }
 df.geo_layer_type.attrs = {}
 
----@class world_geo_layer
+---@class world_geo_layer: df.struct
 ---@field type geo_layer_type
----@field mat_index integer
+---@field mat_index inorganic_raw
 ---@field vein_mat integer[]
 ---@field vein_nested_in integer[] Index of the other vein this one is nested in, or -1
 ---@field vein_type inclusion_type[]
@@ -178,14 +178,14 @@ df.geo_layer_type.attrs = {}
 ---@field top_height integer negative
 ---@field bottom_height integer
 
----@class world_geo_biome
+---@class world_geo_biome: df.struct
 ---@field unk1 integer
 ---@field index integer
 ---@field layers world_geo_layer[]
 
----@class world_region_feature
+---@class world_region_feature: df.struct
 ---@field feature_idx any
----@field layer integer
+---@field layer world_underground_region
 ---@field region_tile_idx any
 ---@field min_z integer
 ---@field max_z integer
@@ -196,7 +196,7 @@ df.geo_layer_type.attrs = {}
 ---@field unk_38 integer[]
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 
----@class world_region_details
+---@class world_region_details: df.struct
 ---biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field biome integer[][] biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field elevation integer[][]
@@ -212,7 +212,7 @@ df.geo_layer_type.attrs = {}
 ---@field rivers_horizontal integer[][]
 ---@field other_features any[][]
 ---@field features world_region_feature[][][]
----@field lava_stone integer
+---@field lava_stone inorganic_raw
 ---@field unk_12 integer[] Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
 ---@field elevation2 integer[][]
 ---@field undef13 integer[]
@@ -277,7 +277,7 @@ df.fog_type = {
   fog_thick = 3,
 }
 
----@class region_map_entry
+---@class region_map_entry: df.struct
 ---@field unk_0 integer
 ---@field finder_rank integer
 ---@field sites world_site[]
@@ -300,33 +300,33 @@ df.fog_type = {
 ---@field unk_3e coord
 ---@field unk_44 coord
 ---@field unk_4a coord
----@field region_id integer
----@field landmass_id integer
----@field geo_index integer
+---@field region_id world_region
+---@field landmass_id world_landmass
+---@field geo_index world_geo_biome
 
----@class entity_claim_mask
+---@class entity_claim_mask: df.struct
 ---@field map integer[]
 ---@field width integer
 ---@field height integer
 
----@class moving_party
+---@class moving_party: df.struct
 ---@field pos coord2d global block x/y
 ---@field unk_4 integer
 ---@field unk_c integer
 ---@field unk_10 integer
----@field members integer[]
----@field entity_id integer
+---@field members nemesis_record[]
+---@field entity_id historical_entity
 ---@field flags any
----@field unk_30 any[][]
----@field unk_40 any[][]
+---@field unk_30 any[]
+---@field unk_40 any[]
 ---@field unk_70 integer
 ---@field unk_72 integer
 ---@field unk_74 integer
 ---@field unk_7c integer
----@field region_id integer
+---@field region_id world_region
 ---@field beast_id integer for FB
 
----@class world_object_data
+---@class world_object_data: df.struct
 ---@field id integer World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
 ---@field altered_items integer[] world_data_subid
 ---@field offloaded_items item[]
@@ -350,13 +350,13 @@ df.mountain_peak_flags = {
   is_volcano = 0,
 }
 
----@class world_mountain_peak
+---@class world_mountain_peak: df.struct
 ---@field name language_name
 ---@field pos coord2d
 ---@field flags any
 ---@field height integer
 
----@class world_data
+---@class world_data: df.struct
 ---Additional feature_map information: The feature_map is a two dimensional structure dividing the world into 16 * 16 world tile "feature shells" (and remember that there's a single tile wide shell at the end of each dimension, so a pocket world has a shell dimension of 2 * 2). These shells are loaded and unloaded dynamically, which means trying to access a shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark cursor is) is invalid and can lead to DF crashing. The "features.feature_init" 16 * 16 structure contains the features of each of the corresponding world tiles within the shell. However, DF only loads the feature vectors for the world tiles in focus, although they seem to remain loaded until the shell is unloaded. Until loaded the vectors have a size of 0. Manipulation of the features is usually preserved as feature vectors are unloaded/reloaded, so spires can be elongated and rivers added, but some details, such as river fauna, seem to be generated on loading. Added features may not necessarily be reloaded at the vector index they were created at.
 ---@field name language_name name of the world
 ---@field unk1 integer[]
@@ -410,11 +410,11 @@ df.mountain_peak_flags = {
 ---@field unk_1c8 any
 ---@field embark_notes embark_note[]
 ---@field unk_1dc army[]
----@field unk_1e0 any[][]
----@field unk_1e4 any[][]
----@field unk_1e8 any[][]
----@field unk_1ec any[][]
----@field unk_1f0 any[][]
+---@field unk_1e0 any[]
+---@field unk_1e4 any[]
+---@field unk_1e8 any[]
+---@field unk_1ec any[]
+---@field unk_1f0 any[]
 ---@field unk_1 integer
 ---@field unk_2 any
 ---@field unk_3 any
@@ -448,14 +448,14 @@ df.mountain_peak_flags = {
 ---@field unk_274 historical_figure[][]
 ---@field unk_482f8 integer[]
 
----@class breed
+---@class breed: df.struct
 ---@field id integer
 ---@field unk_4 integer
 ---@field unk_8 integer[]
 ---@field unk_18 integer[]
 ---@field unk_28 integer[]
 
----@class battlefield
+---@class battlefield: df.struct
 ---@field id integer
 ---@field sapient_deaths integer[] Seems to be by squad. Trolls/Blizzard Men not counted
 ---@field hfs_killed integer[] some victims are not listed, for some reason, and culled HFs can be present
@@ -474,11 +474,11 @@ df.region_weather_type = {
   FallingMaterial = 3, --a.k.a. rain, both blood and syndrome, but not regular
 }
 
----@class region_weather
+---@class region_weather: df.struct
 ---only evil weather, not the regular kind
 ---@field id integer
 ---@field type region_weather_type Creeping Gas/Vapor/Dust='cloud' below, FallingMaterial='rain'
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field announcement boolean Guess based on seeing it appear for an entry when hitting the embark, resulting in an announcement
 ---@field region_x integer world tile, used with evil rain. Probably uninitialized with cloud
@@ -489,5 +489,5 @@ df.region_weather_type = {
 ---@field cloud_x_movement integer -1/0/1, indicating the movement per 10 ticks in X direction. Uninitialized for rain
 ---@field cloud_y_movement integer -1/0/1, indicating the movement per 10 ticks in Y direction. Uninitialized for rain
 ---@field remaining_duration integer ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
----@field region_id integer Set for clouds, -1 for rain
+---@field region_id world_region Set for clouds, -1 for rain
 

@@ -165,7 +165,7 @@ df.entity_name_type = {
   HOSPITAL = 18,
 }
 
----@class entity_raw
+---@class entity_raw: df.struct
 ---@field code string
 ---@field index integer into instace-vector
 ---@field raws string[]
@@ -210,13 +210,13 @@ df.entity_name_type = {
 ---@field stone_shapes_str string[]
 ---@field gem_shapes integer[]
 ---@field stone_shapes integer[]
----@field source_hfid integer
+---@field source_hfid historical_figure
 ---@field unk_v4201_1 integer
 ---@field currency_str1 string[]
 ---@field currency_str2 string[]
 ---@field animal entity_animal_raw[]
 
----@class entity_animal_raw
+---@class entity_animal_raw: df.struct
 ---@field token string
 ---@field caste_token string[]
 ---@field animal_class string[]
@@ -300,7 +300,7 @@ df.entity_position_responsibility = {
   DELIVER_MESSAGES = 43,
 }
 
----@class entity_position_raw
+---@class entity_position_raw: df.struct
 ---@field code string
 ---@field id integer
 ---@field flags any

@@ -6,11 +6,11 @@ df.machine_type = {
   standard = 0,
 }
 
----@class machine_info
----@field machine_id integer
+---@class machine_info: df.struct
+---@field machine_id machine
 ---@field flags any
 
----@class power_info
+---@class power_info: df.struct
 ---@field produced integer
 ---@field consumed integer
 
@@ -24,7 +24,7 @@ df.machine_conn_modes = {
   z_down = 5,
 }
 
----@class machine_tile_set
+---@class machine_tile_set: df.struct
 ---@field tiles coord_path
 ---@field can_connect machine_conn_modes[]
 

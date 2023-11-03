@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class ui_build_item_req
+---@class ui_build_item_req: df.struct
 ---When creating a building, one record per required item type. E.g. Soap Maker's workshop requires a bucket and a building material.
 ---@field filter job_item_filter
 ---@field candidates item[]
@@ -61,7 +61,7 @@ df.construction_category_type = {
   MILITARY = 12,
 }
 
----@class bb_buttonst
+---@class bb_buttonst: df.struct
 ---@field category construction_category_type
 ---@field type integer
 ---@field subtype integer
@@ -80,7 +80,7 @@ df.construction_interface_page_status_type = {
   OFF = 3,
 }
 
----@class construction_interface_pagest
+---@class construction_interface_pagest: df.struct
 ---@field category construction_category_type
 ---@field bb_button bb_buttonst[]
 ---@field last_main_sx integer
@@ -632,7 +632,7 @@ df.main_designation_type = {
   ERASE = 36,
 }
 
----@class main_interface
+---@class main_interface: df.struct
 ---@field designation boolean
 ---@field building interface_button[]
 ---@field construction interface_button[]
@@ -700,7 +700,7 @@ df.main_designation_type = {
 ---@field assigning_position_squad boolean
 ---@field ap_squad_list squad[]
 ---@field ap_squad_sel integer
----@field pref_occupation any[][] occupationst
+---@field pref_occupation any[] occupationst
 ---@field selected_pref_occupation integer
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
@@ -745,7 +745,7 @@ df.main_designation_type = {
 ---@field keyboard_last_track_s coord
 ---@field keyboard_last_track_g coord
 
----@class gamest
+---@class gamest: df.struct
 ---@field main_interface main_interface
 ---@field minimap any
 ---@field command_line string
@@ -760,7 +760,7 @@ df.main_designation_type = {
 ---@field flash_4_by_3 integer[][][]
 ---@field external_flag integer
 
----@class main_interface_settings
+---@class main_interface_settings: df.struct
 ---@field open boolean
 ---@field context settings_context_type
 ---@field tab settings_tab_type[]
@@ -794,10 +794,10 @@ df.main_designation_type = {
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
 
----@class hash_rngst
+---@class hash_rngst: df.struct
 ---@field splitmix64_state integer
 
----@class difficultyst
+---@class difficultyst: df.struct
 ---@field difficulty_enemies integer 0=off, 1=normal, 2=hard, 3=custom
 ---@field difficulty_economy integer 0=normal, 1=hard, 2=custom
 ---@field enemy_pop_trigger integer[]
@@ -839,7 +839,7 @@ df.main_designation_type = {
 ---@field mandate_period integer
 ---@field demand_period integer
 
----@class markup_text_boxst
+---@class markup_text_boxst: df.struct
 ---@field unk1 string[]
 ---@field unk_v50_2 integer[]
 ---@field unk_v50_3 integer
@@ -847,7 +847,7 @@ df.main_designation_type = {
 ---@field unk_v50_5 integer
 ---@field unk_v50_6 integer
 
----@class wqc_item_traitst
+---@class wqc_item_traitst: df.struct
 ---@field flg integer
 ---@field flgn integer
 ---@field reaction_class string
@@ -859,14 +859,14 @@ df.main_designation_type = {
 ---@field display_string string
 ---@field on boolean
 
----@class cwo_buildingst
+---@class cwo_buildingst: df.struct
 ---@field type integer
 ---@field subtype integer
 ---@field custom_id integer
 ---@field jminfo manager_order_template[]
 ---@field name string
 
----@class cri_unitst
+---@class cri_unitst: df.struct
 ---@field un unit
 ---@field it item
 ---@field jb job
@@ -878,7 +878,7 @@ df.main_designation_type = {
 ---@field job_sort_name string
 ---@field owner_un unit
 
----@class actor_entryst
+---@class actor_entryst: df.struct
 ---@field hf historical_figure
 ---@field iden any identityst
 ---@field name_ptr language_name
@@ -891,11 +891,11 @@ df.main_designation_type = {
 ---@field identity_id integer
 ---@field alias_identity_id integer[]
 ---@field principle_org any organization_entryst
----@field associated_org any[][] organization_entryst
+---@field associated_org any[] organization_entryst
 ---@field associated_plot plot_entryst[]
 ---@field flag integer
 
----@class organization_entry_nodest
+---@class organization_entry_nodest: df.struct
 ---@field actor_entry actor_entryst
 ---@field master organization_entry_nodest
 ---@field sort_id integer
@@ -909,7 +909,7 @@ df.main_designation_type = {
 ---@field name string
 ---@field status string
 
----@class organization_entryst
+---@class organization_entryst: df.struct
 ---@field node organization_entry_nodest[]
 ---@field list_name string
 ---@field simple_list_name string
@@ -918,7 +918,7 @@ df.main_designation_type = {
 ---@field principle_actor_entry actor_entryst
 ---@field flag integer
 
----@class plot_entryst
+---@class plot_entryst: df.struct
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
@@ -926,7 +926,7 @@ df.main_designation_type = {
 ---@field master_hfid integer
 ---@field organization_name string
 
----@class mod_headerst
+---@class mod_headerst: df.struct
 ---@field zip_filename string
 ---@field unzipped_folder string
 ---@field id string
@@ -954,9 +954,9 @@ df.main_designation_type = {
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
 
----@class ui_look_list
+---@class ui_look_list: df.struct
 ---@field items any[]
 
----@class ui_unit_view_mode
+---@class ui_unit_view_mode: df.struct
 ---@field value any
 

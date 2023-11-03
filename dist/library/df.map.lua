@@ -1,20 +1,20 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class coord2d
+---@class coord2d: df.struct
 ---@field x integer
 ---@field y integer
 
----@class coord2d_path
+---@class coord2d_path: df.struct
 ---@field x integer[]
 ---@field y integer[]
 
----@class coord
+---@class coord: df.struct
 ---@field x integer
 ---@field y integer
 ---@field z integer
 
----@class coord_path
+---@class coord_path: df.struct
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer[]
@@ -155,26 +155,26 @@ df.tile_liquid_flow = {
   unk_2 = 3, --periodically set whenever perm_flow_dir is nonzero
 }
 
----@class tile_bitmask
+---@class tile_bitmask: df.struct
 ---@field bits integer[]
 
----@class block_burrow
----@field id integer
+---@class block_burrow: df.struct
+---@field id burrow
 ---@field tile_bitmask tile_bitmask
 ---@field link block_burrow_link
 
----@class map_block
+---@class map_block: df.struct
 ---flood; 256*cost for straight, 362*cost for diagonal
 ---@field flags block_flags
 ---@field block_events block_square_event[]
 ---@field block_burrows block_burrow_link
 ---@field local_feature integer index into world_data.region_map
----@field global_feature integer
+---@field global_feature world_underground_region
 ---@field unk2 integer
 ---@field layer_depth integer uninitialized
 ---@field dsgn_check_cooldown integer
 ---@field default_liquid tile_designation
----@field items integer[]
+---@field items item[]
 ---@field flows flow_info[]
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
@@ -193,7 +193,7 @@ df.tile_liquid_flow = {
 ---@field liquid_flow tile_liquid_flow[][]
 ---@field region_offset integer[]
 
----@class map_block_column
+---@class map_block_column: df.struct
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
 ---@field beach_level integer water at this level disappears if above more water
 ---@field ground_level integer for coloring unallocated blocks
@@ -328,11 +328,11 @@ df.construction_flags = {
   top_of_wall = 1, --used on the floors above constructed walls so you cannot remove them
 }
 
----@class construction
+---@class construction: df.struct
 ---@field pos coord
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field flags construction_flags
 ---@field original_tile tiletype
@@ -355,18 +355,18 @@ df.flow_type = {
   ItemCloud = 13,
 }
 
----@class flow_info
+---@class flow_info: df.struct
 ---@field type flow_type
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field density integer
 ---@field pos coord
 ---@field dest coord
 ---@field expanding boolean
 ---@field reuse boolean
----@field guide_id integer
+---@field guide_id flow_guide
 
----@class flow_reuse_pool
+---@class flow_reuse_pool: df.struct
 ---@field reuse_idx integer
 ---@field flags any
 
@@ -376,7 +376,7 @@ df.flow_guide_type = {
   ItemCloud = 1,
 }
 
----@class effect_info
+---@class effect_info: df.struct
 ---@field id integer assigned during Save
 ---@field job job
 ---@field type integer 2 = falling into chasm

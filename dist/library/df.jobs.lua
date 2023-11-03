@@ -75,7 +75,7 @@ df.job_subtype_surgery = {
   RemoveRottenTissue = 4,
 }
 
----@class job
+---@class job: df.struct
 ---@field id integer
 ---@field list_link job_list_link
 ---@field posting_index integer index into world.job_postings
@@ -85,7 +85,7 @@ df.job_subtype_surgery = {
 ---@field completion_timer integer toady: duration; -1 every time unit.counters.job_counter is below 0
 ---@field maxdur integer
 ---@field flags job_flags
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field spell integer almost certainly no longer used
 ---@field item_type item_type for Bait Trap jobs
@@ -104,9 +104,9 @@ df.job_subtype_surgery = {
 ---@field cur_path_index integer
 ---@field spec_loc coord toady: spec_x/spec_y/spec_z
 ---@field art_spec job_art_specification
----@field order_id integer
+---@field order_id manager_order
 
----@class job_item_ref
+---@class job_item_ref: df.struct
 ---@field item item
 ---@field role any
 ---@field is_fetching integer 0 immediately once taken to be brought
@@ -201,10 +201,10 @@ df.job_item_flags3 = {
   edged = 12,
 }
 
----@class job_item
+---@class job_item: df.struct
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field flags1 job_item_flags1
 ---@field quantity integer
@@ -213,23 +213,23 @@ df.job_item_flags3 = {
 ---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore integer
+---@field metal_ore inorganic_raw
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field min_dimension integer pure guess by context
 ---@field reagent_index integer
 ---@field contains integer[] used with custom reactions
----@field reaction_id integer
+---@field reaction_id reaction
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 integer
 ---@field unk_v43_2 integer
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 integer
 
----@class job_item_filter
+---@class job_item_filter: df.struct
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field flags1 job_item_flags1
 ---@field item_vector item[]
@@ -244,12 +244,12 @@ df.job_item_flags3 = {
 ---@field use_flags5 boolean
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field metal_ore integer
+---@field metal_ore inorganic_raw
 ---@field use_metal_ore boolean
 ---@field use_reaction_class boolean
 ---@field use_reaction_product boolean
 ---@field min_dimension integer
----@field reaction_id integer
+---@field reaction_id reaction
 ---@field contains integer[]
 ---@field use_contains boolean
 ---@field has_tool_use tool_uses
@@ -271,21 +271,21 @@ df.manager_order_status = {
   active = 1,
 }
 
----@class job_art_specification
+---@class job_art_specification: df.struct
 ---@field type any
 ---@field id any
 ---@field subid any
 
----@class manager_order
+---@class manager_order: df.struct
 ---@field id integer
 ---@field job_type job_type
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field reaction_name string
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field item_category stockpile_group_set
----@field hist_figure_id integer
+---@field hist_figure_id historical_figure
 ---@field material_category job_material_category
 ---@field art_spec job_art_specification
 ---@field amount_left integer
@@ -294,18 +294,18 @@ df.manager_order_status = {
 ---@field frequency any
 ---@field finished_year integer
 ---@field finished_year_tick integer
----@field workshop_id integer
+---@field workshop_id building
 ---@field max_workshops integer 0 is unlimited
 ---@field item_conditions manager_order_condition_item[]
 ---@field order_conditions manager_order_condition_order[]
 ---@field items job_item[]
 
----@class manager_order_condition_item
+---@class manager_order_condition_item: df.struct
 ---@field compare_type any
 ---@field compare_val integer
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field flags1 job_item_flags1
 ---@field flags2 job_item_flags2
@@ -314,39 +314,39 @@ df.manager_order_status = {
 ---@field flags5 integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field inorganic_bearing integer
+---@field inorganic_bearing inorganic_raw
 ---@field min_dimension integer
 ---@field contains integer[]
----@field reaction_id integer
+---@field reaction_id reaction
 ---@field has_tool_use tool_uses
 
----@class manager_order_condition_order
----@field order_id integer
+---@class manager_order_condition_order: df.struct
+---@field order_id manager_order
 ---@field condition any
 ---@field unk_1 integer
 
----@class manager_order_template
+---@class manager_order_template: df.struct
 ---jminfost
 ---@field job_type job_type
 ---@field reaction_name string
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field item_category stockpile_group_set specflag
----@field hist_figure_id integer
+---@field hist_figure_id historical_figure
 ---@field material_category job_material_category
 ---@field match_value integer
 ---@field name string
 ---@field compare_str string
 ---@field on boolean
 
----@class mandate
+---@class mandate: df.struct
 ---@field unit unit
 ---@field mode any
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field amount_total integer
 ---@field amount_remaining integer
@@ -356,17 +356,17 @@ df.manager_order_status = {
 ---@field punish_multiple integer
 ---@field unk4 integer
 
----@class training_assignment
----@field animal_id integer
----@field trainer_id integer
+---@class training_assignment: df.struct
+---@field animal_id unit
+---@field trainer_id unit
 ---@field flags any
 
----@class unit_demand
+---@class unit_demand: df.struct
 ---@field unk_0 integer
 ---@field place any
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field timeout_counter integer counts once per 10 frames
 ---@field timeout_limit integer once counter passes limit, mandate ends
@@ -510,5 +510,5 @@ df.job_cancel_reason = {
   NEEDS_SPECIFIC_ITEM_2 = 134,
 }
 
----@class job_cancel
+---@class job_cancel: df.struct
 

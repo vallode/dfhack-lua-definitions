@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class scribejob
+---@class scribejob: df.struct
 ---@field idmaybe integer
 ---@field unk_1 integer not locationid
 ---@field item_id integer
@@ -10,7 +10,7 @@
 ---@field activity_entry_id integer
 ---@field unk_2 integer
 
----@class site_reputation_report
+---@class site_reputation_report: df.struct
 ---@field site_id integer
 ---@field location_id integer
 ---@field unk_1 integer
@@ -19,10 +19,10 @@
 ---@field tickmaybe integer
 ---@field unk_3 integer[]
 
----@class site_reputation_info
+---@class site_reputation_info: df.struct
 ---@field reports site_reputation_report[]
 
----@class location_scribe_jobs
+---@class location_scribe_jobs: df.struct
 ---@field scribejobs scribejob[]
 ---@field nextidmaybe integer
 ---@field year integer
@@ -62,12 +62,12 @@ df.abstract_building_flags = {
   Unk7 = 7,
 }
 
----@class abstract_building_entombed
+---@class abstract_building_entombed: df.struct
 ---used within Tomb and Dungeon
 ---@field populations integer[]
 ---@field histfigs integer[]
 
----@class abstract_building_contents
+---@class abstract_building_contents: df.struct
 ---used within Temple, Library, and Inn/Tavern
 ---@field need_more any
 ---@field profession profession
@@ -105,9 +105,9 @@ df.temple_deity_type = {
   Religion = 2,
 }
 
----@class temple_deity_data
----@field Deity integer
----@field Religion integer
+---@class temple_deity_data: df.struct
+---@field Deity historical_figure
+---@field Religion historical_entity
 
 ---@enum world_site_type
 df.world_site_type = {
@@ -165,20 +165,20 @@ df.lair_type = {
   WILDERNESS_LOCATION = 5, --In mountains, hosting Rocs in vanilla
 }
 
----@class property_ownership
+---@class property_ownership: df.struct
 ---@field index integer
 ---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
 ---@field pad_1 any
 ---@field property_index integer index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
----@field unk_hfid integer Always same as owner_hfid when set, but not always set when that field is.
----@field owner_entity_id integer Mutually exclusive with owner_hfid. All seen were merchant companies.
----@field owner_hfid integer
----@field unk_owner_entity_id integer Seen only in subset of owner_entity_id case, and always same value
+---@field unk_hfid historical_figure Always same as owner_hfid when set, but not always set when that field is.
+---@field owner_entity_id historical_entity Mutually exclusive with owner_hfid. All seen were merchant companies.
+---@field owner_hfid historical_figure
+---@field unk_owner_entity_id historical_entity Seen only in subset of owner_entity_id case, and always same value
 
----@class world_site
+---@class world_site: df.struct
 ---@field name language_name
----@field civ_id integer
----@field cur_owner_id integer
+---@field civ_id historical_entity
+---@field cur_owner_id historical_entity
 ---@field type world_site_type
 ---@field pos coord2d
 ---@field id integer
@@ -236,13 +236,13 @@ df.lair_type = {
 ---@field unk_188 integer[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 integer
 ---@field unk_3b0 world_site_unk130
----@field unk_18c any[][]
----@field unk_19c any[][]
+---@field unk_18c any[]
+---@field unk_19c any[]
 ---@field entity_links entity_site_link[]
 ---@field cultural_identities cultural_identity[]
 ---@field unk_v42_1 occupation[]
 ---@field unk_v43_4 integer uninitialized
----@field unk_3 any[][]
+---@field unk_3 any[]
 ---@field unk_4 historical_figure
 ---@field unk_5 historical_figure
 ---@field unk_6 historical_figure
@@ -264,13 +264,13 @@ df.lair_type = {
 ---@field unk_22 any
 ---@field unk_23 any
 ---@field unk_24 integer
----@field unk_25 any[][]
+---@field unk_25 any[]
 
----@class cultural_identity
+---@class cultural_identity: df.struct
 ---@field id integer
----@field site_id integer
----@field civ_id integer
----@field group_log integer[] the circumstances of groups joining or leaving this culture
+---@field site_id world_site
+---@field civ_id historical_entity
+---@field group_log historical_entity[] the circumstances of groups joining or leaving this culture
 ---@field ethic ethic_response[]
 ---@field values integer[]
 ---@field events entity_event[]
@@ -283,20 +283,20 @@ df.lair_type = {
 ---@field unk_2 integer[]
 ---@field unk_f8 integer
 
----@class world_site_inhabitant
+---@class world_site_inhabitant: df.struct
 ---@field count integer
----@field race integer
----@field population_id integer
----@field entity_id integer can be Religion, Civilization, and SiteGovernment as well as Outcast
+---@field race creature_raw
+---@field population_id entity_population
+---@field entity_id historical_entity can be Religion, Civilization, and SiteGovernment as well as Outcast
 ---@field unk_10 integer
----@field cultural_identity_id integer
----@field interaction_id integer
+---@field cultural_identity_id cultural_identity
+---@field interaction_id interaction
 ---@field interaction_effect_idx integer index into the above interaction, usually refers to an ANIMATE effect
----@field related_entity_id integer Founder if outcast_id=-1, else Outcast and equal to outcast_id
+---@field related_entity_id historical_entity Founder if outcast_id=-1, else Outcast and equal to outcast_id
 ---@field unk_24 integer 0 and 1 seen
 ---@field unk_28 integer
 
----@class world_site_realization
+---@class world_site_realization: df.struct
 ---@field buildings site_realization_building[]
 ---@field num_buildings integer
 ---@field unk_14 integer
@@ -317,7 +317,7 @@ df.lair_type = {
 ---@field unk_1 integer
 ---@field army_controller_pos_x integer
 ---@field army_controller_pos_y integer
----@field unk_193bc integer[]
+---@field unk_193bc nemesis_record[]
 ---@field num_unk_193bc integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -349,9 +349,9 @@ df.lair_type = {
 ---@field num_building_type21 integer
 ---@field unk_23 pointer[]
 ---@field unk_24 integer
----@field unk_wsr_vector any[][]
+---@field unk_wsr_vector any[]
 
----@class site_realization_crossroads
+---@class site_realization_crossroads: df.struct
 ---@field road_min_y integer[]
 ---@field road_max_y integer[]
 ---@field road_min_x integer[]
@@ -424,7 +424,7 @@ df.site_realization_building_type = {
   barrow = 31,
 }
 
----@class site_realization_building
+---@class site_realization_building: df.struct
 ---@field id integer
 ---@field type site_realization_building_type
 ---@field min_x integer in tiles relative to site
@@ -440,14 +440,14 @@ df.site_realization_building_type = {
 ---@field building_info site_realization_building_infost
 ---@field unk_4c integer[]
 ---@field unk_5c integer bit 0x01 == abandoned
----@field unk_60 any[][]
+---@field unk_60 any[]
 ---@field unk_v40_1 integer
 
----@class site_building_item
----@field race integer
+---@class site_building_item: df.struct
+---@field race creature_raw
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 
 ---@enum tower_shape

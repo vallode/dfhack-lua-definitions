@@ -23,9 +23,9 @@ df.vermin_category = {
   Underworld = 8, --last used in 40d for vermin in eerie glowing pits
 }
 
----@class vermin
----@field race integer
----@field caste integer
+---@class vermin: df.struct
+---@field race creature_raw
+---@field caste caste_raw
 ---@field pos coord
 ---@field visible boolean 1 = visible vermin
 ---@field countdown integer

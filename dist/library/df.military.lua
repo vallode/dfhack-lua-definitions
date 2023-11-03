@@ -8,25 +8,25 @@ df.uniform_indiv_choice = {
   ranged = 2,
 }
 
----@class item_filter_spec
+---@class item_filter_spec: df.struct
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field material_class entity_material_category
----@field mattype integer
+---@field mattype material
 ---@field matindex integer
 
----@class squad_uniform_spec
----@field item integer
+---@class squad_uniform_spec: df.struct
+---@field item item
 ---@field item_filter item_filter_spec
 ---@field color integer
----@field assigned integer[]
+---@field assigned item[]
 ---@field indiv_choice uniform_indiv_choice
 
----@class squad_ammo_spec
+---@class squad_ammo_spec: df.struct
 ---@field item_filter item_filter_spec
 ---@field amount integer
 ---@field flags any
----@field assigned integer[]
+---@field assigned item[]
 
 ---@enum squad_use_flags
 df.squad_use_flags = {
@@ -69,35 +69,35 @@ df.squad_event_type = {
   Unk2 = 3,
 }
 
----@class squad_position
----@field occupant integer
+---@class squad_position: df.struct
+---@field occupant historical_figure
 ---@field orders squad_order[]
 ---@field preferences integer[][]
 ---@field uniform squad_uniform_spec[][]
 ---@field unk_c4 string
 ---@field flags uniform_flags
----@field assigned_items integer[]
----@field quiver integer
----@field backpack integer
----@field flask integer
+---@field assigned_items item[]
+---@field quiver item
+---@field backpack item
+---@field flask item
 ---@field unk_1 integer
 ---@field activities integer[]
 ---@field events integer[]
 ---@field unk_2 integer
 
----@class squad_schedule_order
+---@class squad_schedule_order: df.struct
 ---@field order squad_order
 ---@field min_count integer
 ---@field positions any
 
----@class squad_schedule_entry
+---@class squad_schedule_entry: df.struct
 ---@field name string
 ---@field sleep_mode integer 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode integer 0 uniformed, 1 civ clothes
 ---@field orders squad_schedule_order[]
 ---@field order_assignments any[]
 
----@class squad
+---@class squad: df.struct
 ---@field id integer
 ---@field name language_name
 ---@field alias string if not empty, used instead of name
@@ -105,15 +105,15 @@ df.squad_event_type = {
 ---@field orders squad_order[]
 ---@field schedule squad_schedule_entry[][]
 ---@field cur_routine_idx integer
----@field rooms integer[]
+---@field rooms building[]
 ---@field rack_combat integer[]
 ---@field rack_training integer[]
 ---@field uniform_priority integer
----@field activity integer
+---@field activity activity_entry
 ---@field ammo squad_ammo_spec[]
 ---@field carry_food integer
 ---@field carry_water integer
----@field entity_id integer
+---@field entity_id historical_entity
 ---@field leader_position integer
 ---@field leader_assignment integer
 ---@field unk_1 integer
@@ -168,10 +168,10 @@ df.squad_order_cannot_reason = {
   cannot_leave_site = 20,
 }
 
----@class army_controller
+---@class army_controller: df.struct
 ---@field id integer all army.controllers seen and reached via InvasionOrder controllers' armies have been of type = Invasion and absent from the 'all' vector
----@field entity_id integer
----@field site_id integer Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'
+---@field entity_id historical_entity
+---@field site_id world_site Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'
 ---@field unk_1 integer
 ---@field pos_x integer Look like the unit is map_block, i.e. 3 * 16 * world tile. Position of target, which is the starting point for defeated invasions
 ---@field pos_y integer
@@ -180,13 +180,13 @@ df.squad_order_cannot_reason = {
 ---@field unk_20 integer[]
 ---@field year integer
 ---@field year_tick integer
----@field unk_34 integer id of other army controller (Invasion) from same entity seen here
----@field unk_38 integer copy of the id seen here, as well as a t7 for a t5 controller
----@field master_hf integer InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector
----@field general_hf integer InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master
+---@field unk_34 army_controller id of other army controller (Invasion) from same entity seen here
+---@field unk_38 army_controller copy of the id seen here, as well as a t7 for a t5 controller
+---@field master_hf historical_figure InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector
+---@field general_hf historical_figure InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master
 ---@field unk_44_1 integer
 ---@field unk_44_2 integer
----@field visitor_nemesis_id integer Set for VillainousVisit
+---@field visitor_nemesis_id nemesis_record Set for VillainousVisit
 ---@field unk_44_4 integer 3, 6 seen for Villain
 ---@field unk_44_5 integer[]
 ---@field unk_50 integer
@@ -197,17 +197,17 @@ df.squad_order_cannot_reason = {
 ---@field data army_controller_sub1
 ---@field type any
 
----@class army_controller_sub1
+---@class army_controller_sub1: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 
----@class army_controller_invasion_order
+---@class army_controller_invasion_order: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field unk_4a integer[]
+---@field unk_4a army[]
 ---@field unk_5 integer[]
 ---@field unk_6 integer[]
 ---@field unk_7 integer
@@ -215,18 +215,18 @@ df.squad_order_cannot_reason = {
 ---@field unk_9 integer
 ---@field unk_10 integer[]
 
----@class army_controller_invasion
+---@class army_controller_invasion: df.struct
 ---@field unk_1 integer
 ---@field unk_2 any
 
----@class army_controller_sub5
+---@class army_controller_sub5: df.struct
 ---@field pos_x integer in map_block coordinates. Same as those of the main struct seen
 ---@field pos_y integer
 ---@field unk_1 integer 0 seen
 ---@field year integer
 ---@field year_tick integer
 
----@class army_controller_sub6
+---@class army_controller_sub6: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -237,7 +237,7 @@ df.squad_order_cannot_reason = {
 ---@field unk_8 integer
 ---@field unk_9 integer
 
----@class army_controller_sub7
+---@class army_controller_sub7: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer[]
@@ -249,12 +249,12 @@ df.squad_order_cannot_reason = {
 ---@field unk_7 integer
 ---@field unk_8 integer
 
----@class army_controller_sub11
+---@class army_controller_sub11: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 integer[]
+---@field unk_3 army[]
 
----@class army_controller_visit
+---@class army_controller_visit: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer 2 seen on exiled character
@@ -264,20 +264,20 @@ df.squad_order_cannot_reason = {
 ---@field abstract_building integer Monster slayers have -1
 ---@field purpose history_event_reason
 
----@class army_controller_sub13
+---@class army_controller_sub13: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer[]
 
----@class army_controller_sub14
+---@class army_controller_sub14: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer[]
 ---@field unk_5 integer
 
----@class army_controller_sub15
+---@class army_controller_sub15: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer[]
@@ -292,47 +292,47 @@ df.squad_order_cannot_reason = {
 ---@field unk_12 integer
 ---@field unk_13 integer
 
----@class army_controller_sub16
+---@class army_controller_sub16: df.struct
 ---@field unk_1 integer
 
----@class army_controller_quest
----@field artifact_id integer
+---@class army_controller_quest: df.struct
+---@field artifact_id artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 
----@class army_controller_sub18
+---@class army_controller_sub18: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 
----@class army_controller_sub19
+---@class army_controller_sub19: df.struct
 ---@field unk_1 integer[]
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 
----@class army_controller_sub20
+---@class army_controller_sub20: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 
----@class army_controller_sub21
+---@class army_controller_sub21: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 
----@class army_controller_sub22
+---@class army_controller_sub22: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 
----@class army_controller_sub23
+---@class army_controller_sub23: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 
----@class army_controller_villainous_visit
----@field site_id integer
----@field entity_id integer
+---@class army_controller_villainous_visit: df.struct
+---@field site_id world_site
+---@field entity_id historical_entity
 ---@field abstract_building integer -1 before arrival
 ---@field purpose history_event_reason none before arrival
 
@@ -341,7 +341,7 @@ df.army_flags = {
   player = 0,
 }
 
----@class army
+---@class army: df.struct
 ---@field id integer
 ---@field pos coord
 ---@field last_pos coord
@@ -353,7 +353,7 @@ df.army_flags = {
 ---@field unk_3c integer
 ---@field unk_1 integer
 ---@field unk_2 integer 16 only value seen
----@field controller_id integer
+---@field controller_id army_controller
 ---@field controller army_controller
 ---@field flags any
 ---@field block_path_x integer[] path in map_block coordinates. Seems to be the near term
@@ -370,7 +370,7 @@ df.army_flags = {
 ---@field creature_class string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type integer
+---@field mat_type material
 ---@field mat_index integer
 ---@field unk_4407_1 item[]
 

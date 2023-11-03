@@ -7,16 +7,16 @@ df.plant_flags = {
   is_shrub = 1, --If it is not a shrub, then it is a tree
 }
 
----@class plant
+---@class plant: df.struct
 ---@field flags plant_flags
----@field material integer
+---@field material plant_raw
 ---@field pos coord
 ---@field grow_counter integer
 ---@field damage_flags any
 ---@field hitpoints integer
 ---@field update_order integer
----@field site_id integer
----@field srb_id integer
+---@field site_id world_site
+---@field srb_id site_realization_building
 ---@field contaminants spatter_common[]
 ---@field tree_info plant_tree_info
 
@@ -44,7 +44,7 @@ df.plant_root_tile = {
   blocked = 7, --e.g. by other tree
 }
 
----@class plant_tree_info
+---@class plant_tree_info: df.struct
 ---@field body plant_tree_tile dimension body_height
 ---@field extent_east integer dimension body_height
 ---@field extent_south integer dimension body_height

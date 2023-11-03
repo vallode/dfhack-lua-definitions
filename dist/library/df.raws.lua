@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class world_raws
+---@class world_raws: df.struct
 ---@field material_templates material_template[]
 ---@field inorganics inorganic_raw[]
 ---@field inorganics_subset inorganic_raw[] all inorganics with value less than 4
@@ -19,10 +19,10 @@
 ---@field reactions reaction[]
 ---@field buildings building_def[]
 ---@field interactions interaction[]
----@field unk_v50_1 any[][]
----@field unk_v50_2 any[][]
----@field unk_v50_3 any[][]
+---@field unk_v50_1 any[]
+---@field unk_v50_2 any[]
+---@field unk_v50_3 any[]
 ---@field mat_table special_mat_table
----@field syndromes integer[]
----@field effects integer[]
+---@field syndromes material[]
+---@field effects material[]
 

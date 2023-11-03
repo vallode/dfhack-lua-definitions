@@ -114,7 +114,7 @@ df.specific_ref_type = {
 ---@type { [string|integer]: specific_ref_type_attr }
 df.specific_ref_type.attrs = {}
 
----@class specific_ref
+---@class specific_ref: df.struct
 ---@field type specific_ref_type
 ---@field data any
 
@@ -180,9 +180,9 @@ df.entity_entity_link_type = {
   RELIGIOUS = 2, --Seen between religion and merc company.
 }
 
----@class entity_entity_link
+---@class entity_entity_link: df.struct
 ---@field type entity_entity_link_type
----@field target integer
+---@field target historical_entity
 ---@field strength integer
 
 ---@enum entity_site_link_type
@@ -217,9 +217,9 @@ df.entity_site_link_flags = {
   holy_city = 16, --for the holy city of a religion
 }
 
----@class entity_site_link
----@field target integer
----@field entity_id integer
+---@class entity_site_link: df.struct
+---@field target world_site
+---@field entity_id historical_entity
 ---@field entity_cache_index integer not saved
 ---@field position_profile_id integer index into entity.positions.assignments of Civilization (?)
 ---@field type entity_site_link_type called location in df source

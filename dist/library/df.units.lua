@@ -482,9 +482,9 @@ df.witness_report_flags = {
   accuses = 0,
 }
 
----@class witness_report
----@field death_id integer
----@field crime_id integer
+---@class witness_report: df.struct
+---@field death_id incident
+---@field crime_id crime
 ---@field type witness_report_type
 ---@field year integer
 ---@field year_tick integer
@@ -495,8 +495,8 @@ df.witness_report_flags = {
 ---@field unk_24 integer
 ---@field unk_28 integer
 ---@field unk_2c integer
----@field unk_30 integer
----@field unk_34 integer
+---@field unk_30 historical_figure
+---@field unk_34 identity
 ---@field pos coord
 
 ---@enum ghost_goal
@@ -512,11 +512,11 @@ df.ghost_goal = {
   ToppleBuilding = 8,
 }
 
----@class unit_ghost_info
+---@class unit_ghost_info: df.struct
 ---@field type ghost_type
 ---@field type2 ghost_type seems to have same value as type
 ---@field goal ghost_goal
----@field target integer
+---@field target unit
 ---@field misplace_pos coord
 ---@field action_timer integer time since last action
 ---@field unk_18 integer
@@ -525,18 +525,18 @@ df.ghost_goal = {
 ---@field death_y integer
 ---@field death_z integer
 
----@class unit_genes
+---@class unit_genes: df.struct
 ---@field appearance integer
 ---@field colors integer
 
----@class unit_inventory_item
+---@class unit_inventory_item: df.struct
 ---@field item item
 ---@field mode any
 ---@field body_part_id integer
 ---@field pet_seed integer RNG seed for Pet mode
 ---@field wound_id integer -1 unless suture
 
----@class unit_attribute
+---@class unit_attribute: df.struct
 ---@field value integer effective = value - soft_demotion
 ---@field max_value integer
 ---@field improve_counter integer counts to PHYS_ATT_RATES improve cost; then value++
@@ -545,8 +545,8 @@ df.ghost_goal = {
 ---@field rust_counter integer counts to PHYS_ATT_RATES rust; then demotion_counter++
 ---@field demotion_counter integer counts to PHYS_ATT_RATES demotion; then value--; soft_demotion++
 
----@class unit_syndrome
----@field type integer
+---@class unit_syndrome: df.struct
+---@field type syndrome
 ---@field year integer
 ---@field year_time integer
 ---@field ticks integer
@@ -614,14 +614,14 @@ df.wound_damage_flags2 = {
   gelded = 2,
 }
 
----@class unit_wound
+---@class unit_wound: df.struct
 ---@field id integer
 ---@field parts integer[]
 ---@field age integer
----@field attacker_unit_id integer
----@field attacker_hist_figure_id integer
+---@field attacker_unit_id unit
+---@field attacker_hist_figure_id historical_figure
 ---@field flags any
----@field syndrome_id integer
+---@field syndrome_id syndrome
 ---@field pain integer
 ---@field nausea integer
 ---@field dizziness integer
@@ -632,13 +632,13 @@ df.wound_damage_flags2 = {
 ---@field unk_v42_1 integer
 ---@field unk_v42_2 integer
 
----@class curse_attr_change
+---@class curse_attr_change: df.struct
 ---@field phys_att_perc integer[]
 ---@field phys_att_add integer[]
 ---@field ment_att_perc integer[]
 ---@field ment_att_add integer[]
 
----@class wound_curse_info
+---@class wound_curse_info: df.struct
 ---@field unk_v40_1 integer
 ---@field add_tags1 cie_add_tag_mask1
 ---@field rem_tags1 cie_add_tag_mask1
@@ -660,8 +660,8 @@ df.wound_damage_flags2 = {
 ---@field unk_v42_2 integer
 ---@field interaction_id integer[]
 ---@field timing integer[]
----@field were_race integer
----@field were_caste integer
+---@field were_race creature_raw
+---@field were_caste caste_raw
 ---@field body_appearance integer[]
 ---@field bp_appearance integer[]
 
@@ -744,24 +744,24 @@ df.misc_trait_type = {
 ---@type { [string|integer]: misc_trait_type_attr }
 df.misc_trait_type.attrs = {}
 
----@class unit_misc_trait
+---@class unit_misc_trait: df.struct
 ---@field id misc_trait_type
 ---@field value integer
 
----@class unit_item_wrestle
----@field unit integer
+---@class unit_item_wrestle: df.struct
+---@field unit unit
 ---@field self_bp integer
 ---@field other_bp integer
 ---@field unk_c integer
 ---@field unk_10 integer
----@field item1 integer
----@field item2 integer
+---@field item1 item
+---@field item2 item
 ---@field unk_1c integer
 ---@field unk_1e integer 1 grabs, -1 grabbed
 ---@field unk_20 integer
 
----@class unit_item_use
----@field id integer
+---@class unit_item_use: df.struct
+---@field id item
 ---@field time_in_use integer
 ---@field has_grown_attached integer
 ---@field affection_level integer min 50 for attached, 1000 for name
@@ -795,8 +795,8 @@ df.unit_bp_health_flags = {
   needs_cast = 9, --used to remove once not needed
 }
 
----@class unit_health_info
----@field unit_id integer
+---@class unit_health_info: df.struct
+---@field unit_id unit
 ---@field flags unit_health_flags
 ---@field body_part_flags unit_bp_health_flags[]
 ---@field unk_18_cntdn integer
@@ -805,7 +805,7 @@ df.unit_bp_health_flags = {
 ---@field suture_cntdn integer
 ---@field crutch_cntdn integer
 ---@field op_history job_type[]
----@field unk_34 any[][]
+---@field unk_34 any[]
 
 ---@enum orientation_flags
 df.orientation_flags = {
@@ -816,12 +816,12 @@ df.orientation_flags = {
   marry_female = 4,
 }
 
----@class unit_soul
+---@class unit_soul: df.struct
 ---@field id integer
 ---@field name language_name
----@field race integer
+---@field race creature_raw
 ---@field sex pronoun_type
----@field caste integer
+---@field caste caste_raw
 ---@field orientation_flags orientation_flags
 ---@field unk2 integer
 ---@field unk3 integer
@@ -837,27 +837,27 @@ df.orientation_flags = {
 ---@field personality unit_personality
 ---@field performance_skills unit_instrument_skill[]
 
----@class unit_instrument_skill
+---@class unit_instrument_skill: df.struct
 ---@field id integer
 ---@field rating skill_rating
 ---@field experience integer
 
----@class unit_poetic_skill
+---@class unit_poetic_skill: df.struct
 ---@field id integer
 ---@field rating skill_rating
 ---@field experience integer
 
----@class unit_musical_skill
+---@class unit_musical_skill: df.struct
 ---@field id integer
 ---@field rating skill_rating
 ---@field experience integer
 
----@class unit_dance_skill
+---@class unit_dance_skill: df.struct
 ---@field id integer
 ---@field rating skill_rating
 ---@field experience integer
 
----@class unit_emotion_memory
+---@class unit_emotion_memory: df.struct
 ---@field type emotion_type
 ---@field unk2 integer
 ---@field strength integer
@@ -870,7 +870,7 @@ df.orientation_flags = {
 ---@field unk_v50_1 integer
 ---@field unk_v50_2 integer
 
----@class unit_personality
+---@class unit_personality: df.struct
 ---@field values value_type[]
 ---@field ethics ethic_type[]
 ---@field emotions emotion_type[]
@@ -878,8 +878,8 @@ df.orientation_flags = {
 ---@field next_dream_id integer
 ---@field unk_v40_6 integer[]
 ---@field traits integer[]
----@field civ_id integer
----@field cultural_identity integer
+---@field civ_id historical_entity
+---@field cultural_identity cultural_identity
 ---@field mannerism integer[]
 ---@field habit integer[]
 ---@field stress integer
@@ -948,12 +948,12 @@ df.unit_action_type = {
 ---@type { [string|integer]: unit_action_type_attr }
 df.unit_action_type.attrs = {}
 
----@class unit_action
+---@class unit_action: df.struct
 ---@field type unit_action_type
 ---@field id integer
 ---@field data integer[]
 
----@class unit_action_data_move
+---@class unit_action_data_move: df.struct
 ---@field x integer
 ---@field y integer
 ---@field z integer
@@ -962,10 +962,10 @@ df.unit_action_type.attrs = {}
 ---@field fatigue integer
 ---@field flags any
 
----@class unit_action_data_attack
----@field target_unit_id integer
+---@class unit_action_data_attack: df.struct
+---@field target_unit_id unit
 ---@field unk_4 any
----@field attack_item_id integer
+---@field attack_item_id item
 ---@field target_body_part_id integer
 ---@field attack_body_part_id integer
 ---@field attack_id integer refers to weapon_attack or caste_attack
@@ -978,7 +978,7 @@ df.unit_action_type.attrs = {}
 ---@field timer1 integer prepare
 ---@field timer2 integer recover
 
----@class unit_action_data_jump
+---@class unit_action_data_jump: df.struct
 ---@field x1 integer
 ---@field y1 integer
 ---@field z1 integer
@@ -986,7 +986,7 @@ df.unit_action_type.attrs = {}
 ---@field y2 integer
 ---@field z2 integer
 
----@class unit_action_data_hold_terrain
+---@class unit_action_data_hold_terrain: df.struct
 ---@field x1 integer
 ---@field y1 integer
 ---@field z1 integer
@@ -999,12 +999,12 @@ df.unit_action_type.attrs = {}
 ---@field timer integer
 ---@field fatigue integer
 
----@class unit_action_data_release_terrain
+---@class unit_action_data_release_terrain: df.struct
 ---@field x integer
 ---@field y integer
 ---@field z integer
 
----@class unit_action_data_climb
+---@class unit_action_data_climb: df.struct
 ---@field x1 integer
 ---@field y1 integer
 ---@field z1 integer
@@ -1018,16 +1018,16 @@ df.unit_action_type.attrs = {}
 ---@field timer_init integer
 ---@field fatigue integer
 
----@class unit_action_data_job
+---@class unit_action_data_job: df.struct
 ---@field x integer
 ---@field y integer
 ---@field z integer
 ---@field timer integer
 
----@class unit_action_data_talk
+---@class unit_action_data_talk: df.struct
 ---@field unk_0 integer
----@field activity_id integer
----@field activity_event_idx integer
+---@field activity_id activity_entry
+---@field activity_event_idx activity_event
 ---@field event entity_event
 ---@field unk_34 integer
 ---@field timer integer
@@ -1039,20 +1039,20 @@ df.unit_action_type.attrs = {}
 ---@field unk_50 integer
 ---@field unk_54 integer
 
----@class unit_action_data_unsteady
+---@class unit_action_data_unsteady: df.struct
 ---@field timer integer
 
----@class unit_action_data_parry
----@field unit_id integer
----@field target_action integer
----@field parry_item_id integer
+---@class unit_action_data_parry: df.struct
+---@field unit_id unit
+---@field target_action unit_action
+---@field parry_item_id item
 
----@class unit_action_data_block
----@field unit_id integer
----@field target_action integer
----@field block_item_id integer
+---@class unit_action_data_block: df.struct
+---@field unit_id unit
+---@field target_action unit_action
+---@field block_item_id item
 
----@class unit_action_data_dodge
+---@class unit_action_data_dodge: df.struct
 ---@field x1 integer
 ---@field y1 integer
 ---@field z1 integer
@@ -1061,20 +1061,20 @@ df.unit_action_type.attrs = {}
 ---@field y2 integer
 ---@field z2 integer
 
----@class unit_action_data_recover
+---@class unit_action_data_recover: df.struct
 ---@field timer integer
 ---@field unk_4 integer
 
----@class unit_action_data_stand_up
+---@class unit_action_data_stand_up: df.struct
 ---@field timer integer
 
----@class unit_action_data_lie_down
+---@class unit_action_data_lie_down: df.struct
 ---@field timer integer
 
----@class unit_action_data_job2
+---@class unit_action_data_job2: df.struct
 ---@field timer integer
 
----@class unit_action_data_push_object
+---@class unit_action_data_push_object: df.struct
 ---@field x1 integer
 ---@field y1 integer
 ---@field z1 integer
@@ -1087,11 +1087,11 @@ df.unit_action_type.attrs = {}
 ---@field timer integer
 ---@field unk_18 integer
 
----@class unit_action_data_suck_blood
----@field unit_id integer
+---@class unit_action_data_suck_blood: df.struct
+---@field unit_id unit
 ---@field timer integer
 
----@class unit_action_data_hold_item
+---@class unit_action_data_hold_item: df.struct
 ---@field x1 integer
 ---@field y1 integer
 ---@field z1 integer
@@ -1102,24 +1102,24 @@ df.unit_action_type.attrs = {}
 ---@field unk_10 integer
 ---@field unk_14 integer
 
----@class unit_action_data_release_item
+---@class unit_action_data_release_item: df.struct
 ---@field unk_0 integer
 
----@class unit_action_data_unk_sub_20
+---@class unit_action_data_unk_sub_20: df.struct
 ---@field unk_0 integer[]
 ---@field unk_1 integer[]
 
----@class unit_action_data_unk_sub_21
+---@class unit_action_data_unk_sub_21: df.struct
 ---@field unk_0 integer[]
 ---@field unk_1 integer[]
 
----@class unit_action_data_unk_sub_22
+---@class unit_action_data_unk_sub_22: df.struct
 ---@field unk_0 integer
 
----@class unit_action_data_unk_sub_23
+---@class unit_action_data_unk_sub_23: df.struct
 ---@field unk_0 integer
 
----@class unit_skill
+---@class unit_skill: df.struct
 ---@field id job_skill
 ---@field rating skill_rating
 ---@field experience integer
@@ -1129,39 +1129,39 @@ df.unit_action_type.attrs = {}
 ---@field demotion_counter integer
 ---@field natural_skill_lvl integer This is the NATURAL_SKILL level for the caste in the raws. This skill cannot rust below this level.
 
----@class unit_preference
+---@class unit_preference: df.struct
 ---@field type any
 ---@field item_subtype integer
----@field mattype integer
+---@field mattype material
 ---@field matindex integer
 ---@field mat_state matter_state
 ---@field active boolean
 ---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
 
----@class unit_complaint
+---@class unit_complaint: df.struct
 ---@field type history_event_reason
 ---@field age integer
 
----@class unit_parley
----@field invasion integer
----@field speaker integer
----@field artifact integer
+---@class unit_parley: df.struct
+---@field invasion invasion_info
+---@field speaker unit
+---@field artifact artifact_record
 ---@field flags any
 
----@class unit_request
+---@class unit_request: df.struct
 ---@field type any
 ---@field source integer
 ---@field count integer
 
----@class unit_coin_debt
----@field recipient integer
+---@class unit_coin_debt: df.struct
+---@field recipient unit
 ---@field amount integer
 
----@class unit_chunk
+---@class unit_chunk: df.struct
 ---@field id integer unit_*.dat
 ---@field units item[][]
 
----@class unit_appearance
+---@class unit_appearance: df.struct
 ---physical_formst
 ---@field unk_1 integer
 ---@field caste_index integer also refers to $global.world.raws.creatures.list_caste[$]
@@ -1190,14 +1190,14 @@ df.work_detail_mode = {
   OnlySelectedDoesThis = 3,
 }
 
----@class work_detail
+---@class work_detail: df.struct
 ---@field name string
 ---@field work_detail_flags any
 ---@field assigned_units integer[] toady: unid
 ---@field allowed_labors boolean[] toady: profession
 ---@field icon any
 
----@class process_unit_aux
+---@class process_unit_aux: df.struct
 ---@field unit unit
 ---@field flags any
 ---@field unitlist any[]

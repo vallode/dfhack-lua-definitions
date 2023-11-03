@@ -1,9 +1,9 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class invasion_info
+---@class invasion_info: df.struct
 ---@field id integer
----@field civ_id integer
+---@field civ_id historical_entity
 ---@field active_size1 integer 0 unless active
 ---@field active_size2 integer
 ---@field size integer
@@ -16,22 +16,22 @@
 ---@field unk_4 integer
 ---@field unk_5 integer
 
----@class entity_population_unk4
+---@class entity_population_unk4: df.struct
 ---@field unk_1 integer[] all 3 vectors share a single index series, with the third being interleaved with at least the second one
 ---@field unk_2 integer[]
 ---@field unk_3 integer[]
 
----@class entity_population
+---@class entity_population: df.struct
 ---@field name language_name
----@field races integer[] all the 3 vectors are always the same length, and thus coupled
+---@field races creature_raw[] all the 3 vectors are always the same length, and thus coupled
 ---@field counts integer[]
 ---@field unk3 integer[] Set only for cave civs. When set, >= counts. Pre first embark all those are equal
 ---@field unk4 entity_population_unk4[]
 ---@field unk5 integer
----@field layer_id integer
+---@field layer_id world_underground_region
 ---@field id integer
 ---@field flags integer ?; layer_id == -1
----@field civ_id integer
+---@field civ_id historical_entity
 
 ---@enum nemesis_flags
 df.nemesis_flags = {
@@ -48,15 +48,15 @@ df.nemesis_flags = {
   DEMIGOD = 10, --Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
 }
 
----@class nemesis_record
+---@class nemesis_record: df.struct
 ---@field id integer sequential index in the array
----@field unit_id integer
----@field save_file_id integer unit-*.dat
+---@field unit_id unit
+---@field save_file_id unit_chunk unit-*.dat
 ---@field member_idx integer index in the file
 ---@field figure historical_figure
 ---@field unit unit
----@field group_leader_id integer
----@field companions integer[]
+---@field group_leader_id nemesis_record
+---@field companions nemesis_record[]
 ---@field unk10 integer
 ---@field unk11 integer
 ---@field unk12 integer
@@ -64,7 +64,7 @@ df.nemesis_flags = {
 ---@field unk_v47_2 integer
 ---@field flags any
 
----@class artifact_record
+---@class artifact_record: df.struct
 ---@field id integer
 ---@field name language_name
 ---@field flags any
@@ -73,30 +73,30 @@ df.nemesis_flags = {
 ---@field abs_tile_y integer
 ---@field abs_tile_z integer
 ---@field unk_1 integer
----@field site integer
----@field structure_local integer
+---@field site world_site
+---@field structure_local abstract_building
 ---@field unk_2 integer
----@field subregion integer
----@field feature_layer integer
----@field owner_hf integer namer/creator does not seem to require a claim to be shown
+---@field subregion world_region
+---@field feature_layer world_underground_region
+---@field owner_hf historical_figure namer/creator does not seem to require a claim to be shown
 ---@field remote_claims integer[] all afar, heirloom from afar seen
 ---@field entity_claims integer[]
 ---@field direct_claims integer[]
----@field storage_site integer
----@field storage_structure_local integer
----@field loss_region integer
+---@field storage_site world_site
+---@field storage_structure_local abstract_building
+---@field loss_region world_region
 ---@field unk_3 integer
----@field holder_hf integer doesn't seem to require a claim
+---@field holder_hf historical_figure doesn't seem to require a claim
 ---@field year integer seems to be current year or -1
 ---@field unk_4 integer
 ---@field unk_5 integer Small set of non zero fairly small numbers seen?
 
----@class artifact_rumor_locationst
+---@class artifact_rumor_locationst: df.struct
 ---@field art artifact_record
----@field stid integer
+---@field stid world_site
 ---@field abid integer abstract building id at site
----@field hfid integer
----@field srid integer
+---@field hfid historical_figure
+---@field srid world_region
 ---@field flid integer feature layer id in region
 ---@field latest_year integer
 ---@field latest_season_count integer
