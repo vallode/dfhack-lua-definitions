@@ -23,7 +23,6 @@ class XmlNode
   def initialize(node)
     @node = node
     @comment = get_comment
-    @attrs = get_attributes
   end
 
   def get_comment
@@ -36,10 +35,6 @@ class XmlNode
 
     comment.text.strip.chomp.gsub(/\s+/, ' ')
   end
-
-  def get_attributes
-    @node.children.css('enum-attr')
-  end
 end
 
 class Field < XmlNode
@@ -47,26 +42,29 @@ class Field < XmlNode
     super
 
     @name = node.attributes['name']
+    @pointer = node.attributes['pointer-type'] || node.attributes['type-name']
     @type = get_type
   end
 
   def render
-    annotation = "---@field #{@name} #{@type}\n"
+    annotation = "---@field #{@name} #{@type}#{' ' + @comment if @comment}\n"
   end
 
-  # TODO: Figure this out better, needs to be recursive for tables.
   def get_type
-    type = TYPE_MAP.fetch(node.name, 'unknown')
-
-    if type == 'any[]' and @node.attributes['type-name']
-      @type = "#{TYPE_MAP.fetch(@node.attributes['type-name'].value, 'unknown')}[]"
+    if ["stl-vector", "static-array"].include?(@node.name) and @pointer
+      type = "#{TYPE_MAP.fetch(@pointer.value, @pointer)}[]"
+    elsif @pointer
+      type = @pointer.value
+    else
+      type = TYPE_MAP.fetch(@node.name, 'any')
     end
 
     return type
   end
 end
 
-# Covers both <enum-type> and <bitfield-type>.
+# <enum-type> and <bitfield-type> both behave identically (in regards to Lua)
+# <enum-item> and <flag-bit> are effectively the same.
 class EnumType < XmlNode
   attr_reader :name, :type
 
@@ -74,8 +72,12 @@ class EnumType < XmlNode
     super
 
     @name = node.attributes['type-name']
-    # Enums always are an integer/"number" type
-    # @type = "number"
+    @attrs = get_attributes
+    # @type = "integer"
+  end
+
+  def get_attributes
+    @node.css('enum-attr')
   end
 
   def render
@@ -84,17 +86,27 @@ class EnumType < XmlNode
     # All <enum-type> elements are globally accessible.
     annotation << "df.#{@name} = {\n"
 
-    index = 0
-    @node.css('enum-item, flag-bit').each do |child|
+    @node.css('enum-item, flag-bit').each_with_index do |child, index|
       item = EnumItem.new(child, index)
-
-      # TODO: <enum-attr> nodes
       annotation << item.render
-
-      index += 1 unless item.value
     end
 
     annotation << "}\n\n"
+
+    if not @attrs.empty?
+      annotation << "---@class #{@name}_attr\n"
+
+      @attrs.each do |attribute, index|
+        annotation << "---@field #{attribute['name']} #{attribute['type-name'] || 'string'}#{'[]' if attribute['is-list']}\n"
+      end
+
+      # TODO: Change to use enum type as index once the discussion on github
+      # is answered.
+      # https://github.com/LuaLS/lua-language-server/discussions/2402
+      annotation << "\n---@type { [string|integer]: #{@name}_attr }\n"
+      annotation << "df.#{@name}.attrs = {}\n\n"
+    end
+
     annotation
   end
 end
@@ -121,15 +133,29 @@ class GlobalObject < XmlNode
     super
 
     @name = node.attributes['name']
-    @type = node.attributes['type-name']
+    @type = get_type
+  end
+
+  def get_type
+    if @node.attributes['type-name']
+      type = @node.attributes['type-name']
+    else
+      nested = @node.at_css('*')
+      if nested
+        type = TYPE_MAP.fetch(nested.attributes['type-name'], nested.attributes['type-name'])
+      end
+    end
+
+    return type
   end
 
   def render
     # TODO: Inline defined types/pointers
     return '' unless @type
 
-    annotation = "---@type #{@type}\n"
-    annotation << "df.global.#{@name} = nil#{' --' + @comment if @comment}\n\n"
+    annotation = "---@type #{TYPE_MAP.fetch(@type.value, @type)}\n"
+    annotation << "---#{@comment}\n" if @comment
+    annotation << "df.global.#{@name} = nil\n\n"
   end
 end
 
@@ -142,6 +168,7 @@ class StructType < XmlNode
 
   def render
     annotation = "---@class #{@name}\n"
+    annotation << "---#{@comment}\n" if @comment 
 
     @node.children.each do |child|
       next if !child.attributes['name'] or child.name == 'code-helper'

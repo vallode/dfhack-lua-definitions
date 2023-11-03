@@ -13,12 +13,11 @@ Lots of manual work can be done on the non-df-structures definitions
 
 df-structures `generate.rb`:
 - [ ] Derive type from string
-- [ ] `<enum-type>`
-  - [ ] `<enum-attr>`
-  - [ ] `<item-attr>`
-- [ ] `<bitfield-type>`
-  - [ ] `<flag-bit>`
-  - [ ] `nil` padding for the unused portions
+- [x] `<enum-type>`
+  - [x] `<enum-attr>`
+  - [x] `<item-attr>`
+- [x] `<bitfield-type>`
+  - [x] `<flag-bit>`
 - [ ] `<struct-type>`
   - [ ] ?
 - [ ] `<class-type>`

@@ -1,6 +1,5 @@
 {
   "Lua.workspace.library": [
-    "/home/vallode/Documents/lualibs//dfhack/library",
-    "/home/vallode/Documents/lualibs/dfhack/library"
+    "/home/vallode/Documents/dfhack-lua-annotations/dist/library"
   ]
 }

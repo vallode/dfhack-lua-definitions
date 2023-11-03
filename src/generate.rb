@@ -5,11 +5,11 @@ require_relative 'xmlnode'
 DF_STRUCTURES_NODES = {
   'enum-type' => EnumType,
   'bitfield-type' => EnumType,
-  'global-object' => GlobalObject,
-  'struct-type' => StructType
+  # 'global-object' => GlobalObject,
+  # 'struct-type' => StructType,
+  # "class-type" => StructType,
   # Unsupported (for now!)
   # "compound" => CompoundType,
-  # "class-type" => StructType,
 }
 
 # Generates lua-language-server compatible definition files.
@@ -27,16 +27,34 @@ Dir.glob(ARGV[0]).each do |xml|
   print "Parsing: #{xml}\n"
   document = Nokogiri::XML(File.open(xml)) { |config| config.noblanks }
 
+  # For each file we should do something like this:
+  # parse XML
+  # Map parsed XML into hash of objects
+  # Use hash objects to write to lua files
   File.open("../dist/library/#{File.basename(xml).sub('.xml', '.lua')}", 'w') do |output|
     output.write("---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.\n")
     output.write("---@meta\n\n")
 
     # Provided files should have a single `<data-definition>` root node.
-    definitions = document.css('data-definition *')
+    definitions = document.css('data-definition > *')
+    lua_annotations = {}
+
+    # Enums - Just normal lua enums
+    # Bitfield type - Also lua enums
+    # Global objects - A single global class
+    # Struct type - Class
+    # Class type - Class
     definitions.each_with_index do |node, index|
       print "Writing definition ##{index}\r"
 
-      output.write(DF_STRUCTURES_NODES[node.name].new(node).render) if DF_STRUCTURES_NODES.key?(node.name)
+      next if not DF_STRUCTURES_NODES.include? node.name
+
+      parsed_node = DF_STRUCTURES_NODES[node.name].new(node)
+      lua_annotations[parsed_node.name.value] = parsed_node
+    end
+
+    lua_annotations.each do |name, annotation|
+      output.write(annotation.render())
     end
   end
 end
