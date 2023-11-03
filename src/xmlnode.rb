@@ -14,7 +14,8 @@ TYPE_MAP = {
   'static-string' => 'string',
   'bool' => 'boolean',
   'stl-vector' => 'any[]',
-  'static-array' => 'any[]'
+  'static-array' => 'any[]',
+  'stl-function' => 'function'
 }
 
 class XmlNode
@@ -38,27 +39,37 @@ class XmlNode
 end
 
 class Field < XmlNode
+  attr_reader :name, :type
+
   def initialize(node)
     super
 
     @name = node.attributes['name']
-    @pointer = node.attributes['pointer-type'] || node.attributes['type-name']
-    @type = get_type
+    @pointer = node['pointer-type'] || node['type-name']
+    @type = Field.get_type(node)
   end
 
   def render
     annotation = "---@field #{@name} #{@type}#{' ' + @comment if @comment}\n"
   end
 
-  def get_type
-    if ["stl-vector", "static-array"].include?(@node.name) and @pointer
-      type = "#{TYPE_MAP.fetch(@pointer.value, @pointer)}[]"
-    elsif @pointer
-      type = @pointer.value
-    else
-      type = TYPE_MAP.fetch(@node.name, 'any')
+  def self.get_type(node)
+    typeName = node['type-name'] || node['pointer-type']
+
+    if not node.children.empty?
+      childType = Field.get_type(node.children.first)
     end
 
+    if childType
+      type = TYPE_MAP.fetch(childType, childType)
+    elsif typeName
+      type = TYPE_MAP.fetch(typeName, typeName)
+    else
+      type = TYPE_MAP.fetch(node.name, 'any')
+    end
+
+    type += '[]' if ['stl-vector', 'static-array'].include?(node.name)
+    
     return type
   end
 end
@@ -129,33 +140,20 @@ class EnumItem < XmlNode
 end
 
 class GlobalObject < XmlNode
-  def initialize(node)
-    super
-
-    @name = node.attributes['name']
-    @type = get_type
-  end
-
-  def get_type
-    if @node.attributes['type-name']
-      type = @node.attributes['type-name']
-    else
-      nested = @node.at_css('*')
-      if nested
-        type = TYPE_MAP.fetch(nested.attributes['type-name'], nested.attributes['type-name'])
-      end
-    end
-
-    return type
+  def initialize(fields)
+    @fields = fields
   end
 
   def render
-    # TODO: Inline defined types/pointers
-    return '' unless @type
+    annotation = "---@class df_global\n"
+    # annotation << "---#{@comment}\n" if @comm1ent
 
-    annotation = "---@type #{TYPE_MAP.fetch(@type.value, @type)}\n"
-    annotation << "---#{@comment}\n" if @comment
-    annotation << "df.global.#{@name} = nil\n\n"
+    @fields.each do |field|
+      fieldNode = Field.new(field)
+      annotation << "---@field #{fieldNode.name} #{fieldNode.type}\n"
+    end
+
+    annotation << "df.global = {}\n\n"
   end
 end
 

@@ -18,13 +18,16 @@ df-structures `generate.rb`:
   - [x] `<item-attr>`
 - [x] `<bitfield-type>`
   - [x] `<flag-bit>`
+- [x] `<global-object>`
+  - [x] `<static-array>`
+  - [x] Nested `<static-array>`
+  - [x] `<enum>`
+  - [x] `<stl-function>`
 - [ ] `<struct-type>`
   - [ ] ?
 - [ ] `<class-type>`
   - [ ] `<vmethod>`
   - [ ] ?
-- [ ] `<global-object>`
-  - [ ] `<field>`
 
 ## Install
 

@@ -39,6 +39,16 @@ Dir.glob(ARGV[0]).each do |xml|
     definitions = document.css('data-definition > *')
     lua_annotations = {}
 
+    # Write globals separately as they only exist in df.global.xml
+    globals = []
+    definitions.css('global-object').each_with_index do |node, index|
+      globals.push(node)
+    end
+
+    if not globals.empty?
+      output.write(GlobalObject.new(globals).render)
+    end
+
     # Enums - Just normal lua enums
     # Bitfield type - Also lua enums
     # Global objects - A single global class
@@ -54,7 +64,7 @@ Dir.glob(ARGV[0]).each do |xml|
     end
 
     lua_annotations.each do |name, annotation|
-      output.write(annotation.render())
+      output.write(annotation.render)
     end
   end
 end
