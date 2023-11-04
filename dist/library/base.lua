@@ -18,7 +18,7 @@
 ---@field is_instance fun(object: any): boolean|nil
 
 ---@class df.instance: df.struct
----@field find fun(key: integer): any Binary search by specified `key` of all instances of the structure.
+---@field find fun(key: integer|number|df.instance): any Binary search by specified `key` of all instances of the structure.
 
 ---@param object table|userdata
 ---@return integer

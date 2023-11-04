@@ -3,13 +3,17 @@
 ---@class df
 df = {}
 
-df.global = {}
-
 ---@class dfhack
 ---@field VERSION string
 ---@field DF_VERSION string
 ---@field RELEASE string
 dfhack = {}
+
+---@param message string
+function dfhack.print(message) end
+
+---@param message string
+function dfhack.printerr(message) end
 
 ---@param script_name? string
 ---@param extension? unknown Currently unused
@@ -32,10 +36,22 @@ function printall(object) end
 function printall_recursive(object) end
 
 ---@param value table
----@param seen any
+---@param seen table
 ---@param indent integer
 ---@param prefix string
 function print_fields(value, seen, indent, prefix) end
+
+---@param printfn function
+---@param value any
+---@param seen table
+---@param indent integer
+function print_userdata(printfn, value, seen, indent) end
+
+---@param printfn function
+---@param value any
+---@param seen table
+---@param indent integer
+function print_array(printfn, value, seen, indent) end
 
 ---@param table table
 ---@return table
@@ -78,7 +94,7 @@ function xy2pos(x, y) end
 ---@param a coord2d
 ---@param b coord2d
 ---@return boolean
-function same_xy(a,b) end
+function same_xy(a, b) end
 
 ---@param path coord2d_path
 ---@param i integer
@@ -86,7 +102,7 @@ function same_xy(a,b) end
 function get_path_xy(path, i) end
 
 ---Walks a sequence of dereferences, which may be represented by numbers or strings. Returns nil if any of obj or indices is nil, or a numeric index is out of array bounds.
----@param object table 
+---@param object table
 ---@param index integer|string
 ---@param ... integer|string
 function safe_index(object, index, ...) end
