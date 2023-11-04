@@ -7,6 +7,8 @@
 ---| 'bitfield-type'
 ---| 'global'
 
+-- TODO: Keep an eye out on the generics issue for Lua LSP
+-- https://github.com/LuaLS/lua-language-server/issues/1861
 ---@class df.struct
 ---@field _kind df.kind
 ---@field _identity any TODO
