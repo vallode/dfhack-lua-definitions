@@ -7,7 +7,7 @@ df.plant_flags = {
   is_shrub = 1, --If it is not a shrub, then it is a tree
 }
 
----@class plant: df.struct
+---@class plant: df.instance
 ---@field flags plant_flags
 ---@field material plant_raw
 ---@field pos coord

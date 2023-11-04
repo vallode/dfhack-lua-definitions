@@ -356,14 +356,14 @@ df.announcement_type = {
 
 ---@enum announcement_flags
 df.announcement_flags = {
-  DO_MEGA = 0, --BOX
-  PAUSE = 1, --P
-  RECENTER = 2, --R
-  A_DISPLAY = 3, --A_D
-  D_DISPLAY = 4, --D_D
-  UNIT_COMBAT_REPORT = 5, --UCR
+  DO_MEGA = 0,                       --BOX
+  PAUSE = 1,                         --P
+  RECENTER = 2,                      --R
+  A_DISPLAY = 3,                     --A_D
+  D_DISPLAY = 4,                     --D_D
+  UNIT_COMBAT_REPORT = 5,            --UCR
   UNIT_COMBAT_REPORT_ALL_ACTIVE = 6, --UCR_A
-  ALERT = 7, --ALERT
+  ALERT = 7,                         --ALERT
 }
 
 ---@class announcements: df.struct
@@ -371,7 +371,7 @@ df.announcement_flags = {
 ---@field unused any needed to fix alignment on 64-bit platforms
 df.announcements = {}
 
----@class report: df.struct
+---@class report: df.instance
 ---@field type announcement_type valid only if coordinates are
 ---@field text string
 ---@field color integer
@@ -421,4 +421,3 @@ df.popup_message = {}
 ---@field speaker_id unit
 ---@field flags any
 df.report_init = {}
-

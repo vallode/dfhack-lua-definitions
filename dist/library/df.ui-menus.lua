@@ -19,6 +19,54 @@ df.build_req_choice_type = {
   Specific = 1,
 }
 
+---@class build_req_choicest: df.struct
+---One choice in the build item selector.
+---@field distance integer
+df.build_req_choicest = {}
+
+---@class build_req_choice_genst: build_req_choicest
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+---@field candidates any[]
+---@field used_count integer
+---@field unk_1 boolean
+df.build_req_choice_genst = {}
+
+---@class build_req_choice_specst: build_req_choicest
+---@field candidate item
+---@field candidate_id any
+df.build_req_choice_specst = {}
+
+---@class buildreq: df.struct
+---@field requirements ui_build_item_req[]
+---@field choices build_req_choicest[]
+---@field building_type building_type if -1, in Build menu; otherwise select item
+---@field building_subtype integer
+---@field custom_type building_def
+---@field stage integer 0 no materials, 1 place, 2 select item
+---@field req_index integer
+---@field sel_index integer
+---@field is_grouped integer
+---@field errors string[]
+---@field unk4 string[]
+---@field tiles integer[][]
+---@field cur_walk_tag integer
+---@field plate_info pressure_plate_info
+---@field min_weight_races integer[]
+---@field max_weight_races integer[]
+---@field friction integer
+---@field use_dump integer
+---@field dump_x_shift integer
+---@field dump_y_shift integer
+---@field speed integer
+---@field pos coord
+---@field direction integer
+---@field selection_pos coord
+---@field selection_area integer
+df.buildreq = {}
+
 ---@enum interface_category_building
 df.interface_category_building = {
   NONE = -1,
@@ -44,6 +92,49 @@ df.interface_category_construction = {
   MACHINE = 7,
   TRACK = 8,
 }
+
+---@class interface_button: df.struct
+---@field hotkey interface_key
+---@field leave_button boolean
+---@field flag integer
+---@field filter_str string
+df.interface_button = {}
+
+---@class interface_button_buildingst: interface_button
+---@field bd building
+df.interface_button_buildingst = {}
+
+---@class interface_button_building_category_selectorst: interface_button_buildingst
+---@field category interface_category_building
+---@field prepare_interface integer
+df.interface_button_building_category_selectorst = {}
+
+---@class interface_button_building_material_selectorst: interface_button_buildingst
+---@field material material
+---@field matgloss integer
+---@field job_item_flag job_material_category
+---@field prepare_interface integer
+df.interface_button_building_material_selectorst = {}
+
+---@class interface_button_building_new_jobst: interface_button_buildingst
+---@field jobtype job_type
+---@field mstring string
+---@field itemtype item_type
+---@field subtype integer
+---@field material material
+---@field matgloss integer
+---@field specflag stockpile_group_set
+---@field spec_id integer refers to various things, such as histfigs OR races
+---@field job_item_flag job_material_category
+---@field add_building_location boolean
+---@field show_help_instead boolean
+---@field objection string
+---@field info string
+df.interface_button_building_new_jobst = {}
+
+---@class interface_button_building_custom_category_selectorst: interface_button_buildingst
+---@field custom_category_token string
+df.interface_button_building_custom_category_selectorst = {}
 
 ---@enum construction_category_type
 df.construction_category_type = {

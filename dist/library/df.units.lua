@@ -470,6 +470,394 @@ df.pronoun_type = {
 ---@type { [string|integer]: pronoun_type_attr }
 df.pronoun_type.attrs = {}
 
+---@class unit: df.instance
+---E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
+---@field name language_name
+---@field custom_profession string
+---@field profession profession
+---@field profession2 profession
+---@field race creature_raw
+---@field pos coord
+---@field idle_area unit_idle_area E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
+---@field idle_area_threshold integer
+---@field idle_area_type unit_station_type
+---@field follow_distance integer
+---@field path unit_path
+---@field flags1 unit_flags1
+---@field flags2 unit_flags2
+---@field flags3 unit_flags3
+---@field flags4 unit_flags4
+---@field meeting unit_meeting
+---@field caste caste_raw
+---@field sex pronoun_type
+---@field id integer
+---@field unk_100 integer
+---@field training_level animal_training_level
+---@field schedule_id schedule_info
+---@field civ_id historical_entity
+---@field population_id entity_population
+---@field unk_c0 integer
+---@field cultural_identity cultural_identity
+---@field invasion_id invasion_info
+---@field patrol_route coord_path used by necromancers for corpse locations, siegers etc
+---@field patrol_index integer from 23a
+---@field specific_refs specific_ref[]
+---@field general_refs general_ref[]
+---@field military unit_military
+---@field social_activities integer[]
+---@field conversations integer[]
+---@field activities integer[]
+---@field unk_1e8 integer[]
+---@field animal unit_animal
+---@field opponent unit_opponent
+---@field mood mood_type
+---@field unk_18e integer
+---@field pregnancy_timer integer
+---@field pregnancy_genes unit_genes genes from mate
+---@field pregnancy_caste caste_raw caste of mate
+---@field pregnancy_spouse historical_figure
+---@field mood_copy mood_type copied from mood type upon entering strange mood
+---@field ghost_info unit_ghost_info
+---@field unk_9 integer
+---@field birth_year integer
+---@field birth_time integer
+---@field curse_year integer
+---@field curse_time integer
+---@field birth_year_bias integer
+---@field birth_time_bias integer
+---@field old_year integer could there be a death of old age time??
+---@field old_time integer
+---@field following unit
+---@field unk_238 integer invalid unless following
+---@field relationship_ids integer[]
+---@field mount_type integer 0 = riding, 1 = being carried, 2/3 = wagon horses, 4 = wagon merchant
+---@field last_hit history_hit_item
+---@field inventory unit_inventory_item[]
+---@field owned_items integer[]
+---@field traded_items integer[] items brought to trade depot
+---@field owned_buildings building[]
+---@field corpse_parts integer[] entries remain even when items are destroyed
+---@field riding_item_id item
+---@field job unit_job
+---@field body unit_body
+---@field appearance unit_appearance
+---@field actions unit_action[]
+---@field next_action_id integer
+---@field counters unit_counters
+---@field curse unit_curse
+---@field counters2 unit_counters2
+---@field status unit_status
+---@field hist_figure_id historical_figure
+---@field hist_figure_id2 historical_figure used for ghost in AttackedByDead thought
+---@field status2 unit_status2
+---@field unknown7 unit_unknown7
+---@field syndromes unit_syndromes
+---@field reports unit_reports
+---@field health unit_health_info
+---@field used_items unit_item_use[] Contains worn clothes, armor, weapons, arrows fired by archers
+---@field enemy unit_enemy
+---@field healing_rate integer[]
+---@field effective_rate integer
+---@field tendons_heal integer
+---@field ligaments_heal integer
+---@field weight integer
+---@field weight_fraction integer 1e-6
+---@field burrows integer[]
+---@field inactive_burrows integer[]
+---@field vision_cone integer[][]
+---@field occupations occupation[]
+---@field adjective string from physical descriptions for use in adv
+---@field texpos integer[][]
+---@field sheet_icon_texpos integer
+---@field texpos_currently_in_use boolean[][]
+---@field cached_glowtile_type integer
+---@field pool_index any
+---@field mtx any
+df.unit = {}
+
+---@class unit_coord: df.struct
+---E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
+df.unit.T_coord = {}
+
+---@class unit_path: df.struct
+---@field dest coord
+---@field goal unit_path_goal
+---@field path coord_path
+df.unit.T_path = {}
+
+---@class unit_meeting: df.struct
+---@field state meeting_state
+---@field target_entity historical_entity
+---@field target_role entity_position_responsibility
+---@field pad_1 any
+df.unit.T_meeting = {}
+
+---@enum meeting_state
+df.meeting.T_state = {
+  SelectNoble = 0,
+  FollowNoble = 1,
+  DoMeeting = 2,
+  LeaveMap = 3,
+}
+
+---@class unit_military: df.struct
+---@field squad_id squad
+---@field squad_position integer
+---@field patrol_cooldown integer
+---@field patrol_timer integer
+---@field cur_uniform integer
+---@field unk_items integer[]
+---@field uniforms integer[][]
+---@field pickup_flags any
+---@field uniform_pickup integer[]
+---@field uniform_drop integer[]
+---@field individual_drills integer[]
+df.unit.T_military = {}
+
+---@class unit_animal: df.struct
+---@field population world_population_ref
+---@field leave_countdown integer once 0, it heads for the edge and leaves
+---@field vanish_countdown integer once 0, it vanishes in a puff of smoke
+df.unit.T_animal = {}
+
+---@class unit_opponent: df.struct
+---@field unit_id unit
+---@field unit_pos coord
+---@field unk_c integer
+df.unit.T_opponent = {}
+
+---@class unit_job: df.struct
+---@field account integer
+---@field satisfaction integer amount earned recently for jobs
+---@field hunt_target unit
+---@field target_flags integer if set, the unit will try to remove the helmet of their target
+---@field destroy_target building
+---@field unk_v40_1 integer
+---@field unk_v40_2 integer
+---@field unk_v40_3 integer
+---@field unk_v40_4 integer
+---@field unk_v40_5 integer
+---@field gait_buildup integer
+---@field climb_hold coord
+---@field unk_v4014_1 integer
+---@field current_job job df_job
+---@field mood_skill job_skill can be uninitialized for children and animals
+---@field mood_timeout integer counts down from 50000, insanity upon reaching zero
+---@field unk_39c integer
+df.unit.T_job = {}
+
+---@class unit_body: df.struct
+---@field components body_component_info
+---@field wounds unit_wound[]
+---@field wound_next_id integer
+---@field unk_39c integer[]
+---@field body_plan caste_body_info
+---@field weapon_bp integer
+---@field physical_attrs unit_attribute[]
+---@field size_info body_size_info
+---@field blood_max integer
+---@field blood_count integer
+---@field infection_level integer GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
+---@field spatters spatter[]
+df.unit.T_body = {}
+
+---@class unit_appearance: df.struct
+---@field body_modifiers integer[]
+---@field bp_modifiers integer[]
+---@field size_modifier integer product of all H/B/LENGTH body modifiers, in %
+---@field tissue_style integer[]
+---@field tissue_style_civ_id integer[]
+---@field tissue_style_id integer[]
+---@field tissue_style_type integer[]
+---@field tissue_length integer[] description uses bp_modifiers[style_list_idx[index]]
+---@field genes unit_genes
+---@field colors integer[]
+df.unit.T_appearance = {}
+
+---@class unit_counters: df.struct
+---@field think_counter integer
+---@field job_counter integer
+---@field swap_counter integer dec per job_counter reroll, can_swap if 0
+---@field death_cause death_type
+---@field death_id incident
+---@field winded integer
+---@field stunned integer
+---@field unconscious integer
+---@field suffocation integer counts up while winded, results in death
+---@field webbed integer
+---@field guts_trail1 coord
+---@field guts_trail2 coord
+---@field soldier_mood_countdown integer plus a random amount
+---@field soldier_mood counters_soldier_mood
+---@field pain integer
+---@field nausea integer
+---@field dizziness integer
+df.unit.T_counters = {}
+
+---@enum counters_soldier_mood
+df.counters.T_soldier_mood = {
+  None = -1,
+  MartialTrance = 1,
+  Enraged = 2,
+  Tantrum = 3,
+  Depressed = 4,
+  Oblivious = 5,
+}
+
+---@class unit_curse: df.struct
+---@field unk_0 integer moved from end of counters in 0.43.05
+---@field add_tags1 cie_add_tag_mask1
+---@field rem_tags1 cie_add_tag_mask1
+---@field add_tags2 cie_add_tag_mask2
+---@field rem_tags2 cie_add_tag_mask2
+---@field name_visible boolean
+---@field name string
+---@field name_plural string
+---@field name_adjective string
+---@field sym_and_color1 integer
+---@field sym_and_color2 integer
+---@field flash_period integer
+---@field flash_time2 integer
+---@field body_appearance integer[]
+---@field bp_appearance integer[] guess!
+---@field speed_add integer
+---@field speed_mul_percent integer
+---@field attr_change curse_attr_change
+---@field luck_mul_percent integer
+---@field unk_98 integer
+---@field interaction_id integer[]
+---@field interaction_time integer[]
+---@field interaction_delay integer[]
+---@field time_on_site integer
+---@field own_interaction integer[]
+---@field own_interaction_delay integer[]
+df.unit.T_curse = {}
+
+---@class unit_counters2: df.struct
+---@field paralysis integer
+---@field numbness integer
+---@field fever integer
+---@field exhaustion integer
+---@field hunger_timer integer
+---@field thirst_timer integer
+---@field sleepiness_timer integer
+---@field stomach_content integer
+---@field stomach_food integer
+---@field vomit_timeout integer blocks nausea causing vomit
+---@field stored_fat integer hunger leads to death only when 0
+df.unit.T_counters2 = {}
+
+---@class unit_status: df.struct
+---@field misc_traits unit_misc_trait[]
+---@field eat_history item_type[]
+---@field demand_timeout integer
+---@field mandate_timeout integer
+---@field attacker_ids integer[]
+---@field attacker_cntdn integer[]
+---@field face_direction integer for wagons
+---@field artifact_name language_name
+---@field souls unit_soul[]
+---@field current_soul unit_soul
+---@field demands unit_demand[]
+---@field labors boolean[]
+---@field wrestle_items unit_item_wrestle[]
+---@field observed_traps integer[]
+---@field complaints unit_complaint[]
+---@field parleys unit_parley[]
+---@field requests unit_request[]
+---@field coin_debts unit_coin_debt[]
+---@field unk_1 integer[]
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer[] initialized together with enemy.gait_index
+---@field unk_5 integer
+---@field adv_sleep_timer integer
+---@field recent_job_area coord
+---@field recent_jobs coord_path
+df.unit.T_status = {}
+
+---@class unit_status2: df.struct
+---@field limbs_stand_max integer
+---@field limbs_stand_count integer
+---@field limbs_grasp_max integer
+---@field limbs_grasp_count integer
+---@field limbs_fly_max integer
+---@field limbs_fly_count integer
+---@field body_part_temperature temperaturest[]
+---@field add_path_flags pathfinding_flags pathing flags to OR, set to None after move
+---@field liquid_type tile_designation
+---@field liquid_depth integer
+---@field histeventcol_id history_event_collection linked to an active invasion or kidnapping
+df.unit.T_status2 = {}
+
+---@class unit_unknown7: df.struct
+---@field unk_7c4 integer[]
+---@field unk_c integer[]
+df.unit.T_unknown7 = {}
+
+---@class unit_syndromes: df.struct
+---@field active unit_syndrome[]
+---@field reinfection_type integer[]
+---@field reinfection_count integer[]
+df.unit.T_syndromes = {}
+
+---@class unit_reports: df.struct
+---@field log integer[][]
+---@field last_year integer[]
+---@field last_year_tick integer[]
+df.unit.T_reports = {}
+
+---@class unit_enemy: df.struct
+---@field sound_cooldown integer[]
+---@field undead integer
+---@field were_race creature_raw
+---@field were_caste caste_raw
+---@field normal_race creature_raw
+---@field normal_caste caste_raw
+---@field interaction integer is set when a RETRACT_INTO_BP interaction is active
+---@field appearances unit_appearance[]
+---@field witness_reports witness_report[]
+---@field unk_a5c entity_event[]
+---@field gait_index integer[]
+---@field unk_unit_id_1 integer[] number of non -1 entries control linked contents in following 4 vectors, rotating
+---@field unk_v40_1b integer[]
+---@field unk_v40_1c integer[] unused elements probably uninitialized
+---@field unk_v40_1d integer[] unused elements probably uninitialized
+---@field unk_v40_1e integer[] unused elements probably uninitialized
+---@field unk_unit_id_2 integer[] Seen own side, enemy side, not involved (witnesses?). Unused fields not cleared
+---@field unk_unit_id_2_count integer
+---@field unk_448 integer
+---@field unk_44c integer
+---@field unk_450 integer
+---@field unk_454 integer
+---@field army_controller_id army_controller
+---@field unk_v40_sub3 enemy_unk_v40_sub3
+---@field combat_side_id integer
+---@field histfig_vector_idx integer
+---@field caste_flags any
+---@field enemy_status_slot integer
+---@field unk_874_cntr integer
+---@field body_part_878 integer[]
+---@field body_part_888 integer[]
+---@field body_part_relsize integer[] with modifiers
+---@field body_part_8a8 integer[]
+---@field body_part_base_ins integer[]
+---@field body_part_clothing_ins integer[]
+---@field body_part_8d8 integer[]
+---@field unk_8e8 integer[]
+---@field unk_8f8 integer[]
+df.unit.T_enemy = {}
+
+---@class enemy_unk_v40_sub3: df.struct
+---@field controller army_controller
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer[]
+---@field visitor_info any[]
+df.enemy.T_unk_v40_sub3 = {}
+
 ---@enum witness_report_type
 df.witness_report_type = {
   None = -1,
@@ -1299,7 +1687,7 @@ df.unit_request.T_type = {
 ---@field amount integer
 df.unit_coin_debt = {}
 
----@class unit_chunk: df.struct
+---@class unit_chunk: df.instance
 ---@field id integer unit_*.dat
 ---@field units item[][]
 df.unit_chunk = {}

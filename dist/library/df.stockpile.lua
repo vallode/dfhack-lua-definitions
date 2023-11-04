@@ -384,7 +384,7 @@ df.stockpile_list = {
 ---@type { [string|integer]: stockpile_list_attr }
 df.stockpile_list.attrs = {}
 
----@class hauling_route: df.struct
+---@class hauling_route: df.instance
 ---@field id integer
 ---@field name string
 ---@field stops hauling_stop[]
@@ -432,7 +432,7 @@ df.stop_depart_condition.T_mode = {
 ---@field mode any
 df.route_stockpile_link = {}
 
----@class vehicle: df.struct
+---@class vehicle: df.instance
 ---@field id integer
 ---@field item_id item
 ---@field offset_x integer -50000..50000

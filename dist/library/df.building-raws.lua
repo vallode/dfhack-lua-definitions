@@ -1,6 +1,30 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class building_def: df.instance
+---@field code string
+---@field id integer
+---@field name string
+---@field building_type building_type
+---@field building_subtype integer
+---@field name_color integer[]
+---@field tile integer[][][]
+---@field tile_color integer[][][][]
+---@field tile_block integer[][]
+---@field graphics_normal integer[][][]
+---@field graphics_overlay integer[][][]
+---@field build_key number
+---@field needs_magma boolean
+---@field build_items building_def_item[]
+---@field dim_x integer
+---@field dim_y integer
+---@field workloc_x integer
+---@field workloc_y integer
+---@field build_labors unit_labor[]
+---@field labor_description string
+---@field build_stages integer
+df.building_def = {}
+
 ---@class building_def_item: df.struct
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -21,4 +45,10 @@
 ---@field material_str string[]
 ---@field metal_ore_str string
 df.building_def_item = {}
+
+---@class building_def_workshopst: building_def
+df.building_def_workshopst = {}
+
+---@class building_def_furnacest: building_def
+df.building_def_furnacest = {}
 

@@ -126,10 +126,30 @@ df.itemdef_flags = {
   GENERATED = 0,
 }
 
+---@class itemdef: df.struct
+---@field id string
+---@field subtype integer
+---@field base_flags any
+---@field source_hfid historical_figure
+---@field source_enid historical_entity
+---@field raw_strings string[]
+df.itemdef = {}
+
 ---@enum ammo_flags
 df.ammo_flags = {
   HAS_EDGE_ATTACK = 0,
 }
+
+---@class itemdef_ammost: df.instance
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field ammo_class string
+---@field flags any
+---@field size integer divided by 10
+---@field value integer
+---@field attacks weapon_attack[]
+df.itemdef_ammost = {}
 
 ---@enum armor_general_flags
 df.armor_general_flags = {
@@ -159,15 +179,58 @@ df.armor_flags = {
   METAL_ARMOR_LEVELS = 0,
 }
 
+---@class itemdef_armorst: df.instance
+---@field name string
+---@field name_plural string
+---@field name_preplural string
+---@field material_placeholder string
+---@field adjective string
+---@field value integer
+---@field armorlevel integer
+---@field ubstep integer
+---@field lbstep integer
+---@field material_size integer
+---@field props armor_properties
+---@field flags any
+df.itemdef_armorst = {}
+
+---@class itemdef_foodst: df.instance
+---@field name string
+---@field level integer
+df.itemdef_foodst = {}
+
 ---@enum gloves_flags
 df.gloves_flags = {
   METAL_ARMOR_LEVELS = 0,
 }
 
+---@class itemdef_glovesst: df.instance
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value integer
+---@field armorlevel integer
+---@field upstep integer
+---@field flags any
+---@field material_size integer
+---@field props armor_properties
+df.itemdef_glovesst = {}
+
 ---@enum helm_flags
 df.helm_flags = {
   METAL_ARMOR_LEVELS = 0,
 }
+
+---@class itemdef_helmst: df.instance
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value integer
+---@field armorlevel integer
+---@field flags any
+---@field material_size integer
+---@field props armor_properties
+df.itemdef_helmst = {}
 
 ---@enum instrument_flags
 df.instrument_flags = {
@@ -181,6 +244,38 @@ df.instrument_flags = {
   SHELL_MAT = 7,
   BONE_MAT = 8,
 }
+
+---@class itemdef_instrumentst: df.instance
+---@field name string
+---@field name_plural string
+---@field flags any
+---@field music_skill job_skill
+---@field size integer
+---@field value integer
+---@field material_size integer
+---@field pieces instrument_piece[]
+---@field dominant_instrument_piece string
+---@field pitch_range_min integer
+---@field pitch_range_max integer
+---@field volume_mb_min integer
+---@field volume_mb_max integer
+---@field sound_production sound_production_type[]
+---@field sound_production_parm1 string[]
+---@field sound_production_parm2 string[]
+---@field unk_100 integer[]
+---@field unk_110 integer[]
+---@field pitch_choice pitch_choice_type[]
+---@field pitch_choice_parm1 string[]
+---@field pitch_choice_parm2 string[]
+---@field unk_150 integer[]
+---@field unk_160 integer[]
+---@field tuning tuning_type[]
+---@field tuning_parm string[]
+---@field unk_190 integer[]
+---@field registers instrument_register[]
+---@field timbre timbre_type[]
+---@field description string
+df.itemdef_instrumentst = {}
 
 ---@enum sound_production_type
 df.sound_production_type = {
@@ -319,10 +414,53 @@ df.pants_flags = {
   METAL_ARMOR_LEVELS = 0,
 }
 
+---@class itemdef_pantsst: df.instance
+---@field name string
+---@field name_plural string
+---@field name_preplural string
+---@field material_placeholder string
+---@field adjective string
+---@field value integer
+---@field armorlevel integer
+---@field flags any
+---@field material_size integer
+---@field lbstep integer
+---@field props armor_properties
+df.itemdef_pantsst = {}
+
+---@class itemdef_shieldst: df.instance
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value integer
+---@field blockchance integer
+---@field armorlevel integer
+---@field upstep integer
+---@field material_size integer
+df.itemdef_shieldst = {}
+
 ---@enum shoes_flags
 df.shoes_flags = {
   METAL_ARMOR_LEVELS = 0,
 }
+
+---@class itemdef_shoesst: df.instance
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value integer
+---@field armorlevel integer
+---@field upstep integer
+---@field flags any
+---@field material_size integer
+---@field props armor_properties
+df.itemdef_shoesst = {}
+
+---@class itemdef_siegeammost: df.instance
+---@field name string
+---@field name_plural string
+---@field ammo_class string
+df.itemdef_siegeammost = {}
 
 ---@enum tool_flags
 df.tool_flags = {
@@ -379,10 +517,41 @@ df.tool_uses = {
   GAMES_OF_CHANCE = 26,
 }
 
+---@class itemdef_toolst: df.instance
+---@field name string
+---@field name_plural string
+---@field flags any
+---@field value integer
+---@field tile integer
+---@field tool_use tool_uses[]
+---@field adjective string
+---@field size integer
+---@field skill_melee job_skill
+---@field skill_ranged job_skill
+---@field ranged_ammo string
+---@field two_handed integer
+---@field minimum_size integer
+---@field material_size integer
+---@field attacks weapon_attack[]
+---@field shoot_force integer
+---@field shoot_maxvel integer
+---@field container_capacity integer
+---@field shape_category_str string[]
+---@field shape_category integer[]
+---@field description string
+---@field default_improvements improvement_type[]
+df.itemdef_toolst = {}
+
 ---@enum toy_flags
 df.toy_flags = {
   HARD_MAT = 0,
 }
+
+---@class itemdef_toyst: df.instance
+---@field name string
+---@field name_plural string
+---@field flags any
+df.itemdef_toyst = {}
 
 ---@enum trapcomp_flags
 df.trapcomp_flags = {
@@ -393,10 +562,40 @@ df.trapcomp_flags = {
   HAS_EDGE_ATTACK = 4,
 }
 
+---@class itemdef_trapcompst: df.instance
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field size integer
+---@field value integer
+---@field hits integer
+---@field material_size integer
+---@field flags any
+---@field attacks weapon_attack[]
+df.itemdef_trapcompst = {}
+
 ---@enum weapon_flags
 df.weapon_flags = {
   CAN_STONE = 0,
   HAS_EDGE_ATTACK = 1,
   TRAINING = 2,
 }
+
+---@class itemdef_weaponst: df.instance
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field size integer
+---@field value integer
+---@field skill_melee job_skill
+---@field skill_ranged job_skill
+---@field ranged_ammo string
+---@field two_handed integer
+---@field minimum_size integer
+---@field material_size integer
+---@field flags any
+---@field attacks weapon_attack[]
+---@field shoot_force integer
+---@field shoot_maxvel integer
+df.itemdef_weaponst = {}
 

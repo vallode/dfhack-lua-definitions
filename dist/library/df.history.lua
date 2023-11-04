@@ -295,7 +295,7 @@ df.vague_relationship_type = {
   shared_entity = 26, --Religion/PerformanceTroupe/MerchantCompany/Guild
 }
 
----@class historical_figure: df.struct
+---@class historical_figure: df.instance
 ---@field profession profession
 ---@field race creature_raw
 ---@field caste caste_raw
@@ -356,7 +356,7 @@ df.identity_type = {
 ---@type { [string|integer]: identity_type_attr }
 df.identity_type.attrs = {}
 
----@class identity: df.struct
+---@class identity: df.instance
 ---@field id integer
 ---@field name language_name Not used when Impersonating
 ---@field race creature_raw
@@ -410,12 +410,82 @@ df.mental_picture_property_type = {
   TIME = 8,
 }
 
+---@class mental_picture_propertyst: df.struct
+---@field unk_0 integer
+df.mental_picture_propertyst = {}
+
+---@class mental_picture_property_datest: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+df.mental_picture_property_datest = {}
+
+---@class mental_picture_property_actionst: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+df.mental_picture_property_actionst = {}
+
+---@class mental_picture_property_toolst: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.mental_picture_property_toolst = {}
+
+---@class mental_picture_property_emotionst: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+df.mental_picture_property_emotionst = {}
+
+---@class mental_picture_property_color_patternst: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+df.mental_picture_property_color_patternst = {}
+
+---@class mental_picture_property_shapest: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+df.mental_picture_property_shapest = {}
+
+---@class mental_picture_property_adjectivest: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+df.mental_picture_property_adjectivest = {}
+
+---@class mental_picture_property_positionst: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.mental_picture_property_positionst = {}
+
+---@class mental_picture_property_timest: mental_picture_propertyst
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.mental_picture_property_timest = {}
+
 ---@enum mental_picture_element_type
 df.mental_picture_element_type = {
   HF = 0,
   SITE = 1,
   REGION = 2,
 }
+
+---@class mental_picture_elementst: df.struct
+---@field unk_1 integer
+df.mental_picture_elementst = {}
+
+---@class mental_picture_element_hfst: mental_picture_elementst
+---@field unk_1 integer
+df.mental_picture_element_hfst = {}
+
+---@class mental_picture_element_sitest: mental_picture_elementst
+---@field unk_1 integer
+df.mental_picture_element_sitest = {}
+
+---@class mental_picture_element_regionst: mental_picture_elementst
+---@field unk_1 integer
+df.mental_picture_element_regionst = {}
 
 ---@enum history_event_type
 df.history_event_type = {
@@ -773,6 +843,41 @@ df.merc_role_type = {
   defender_scout = 1,
 }
 
+---@class history_event: df.instance
+---@field year integer
+---@field seconds integer
+---@field flags any
+---@field id integer
+df.history_event = {}
+
+---@class history_event_war_attacked_sitest: history_event
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field attacker_general_hf historical_figure
+---@field defender_general_hf historical_figure
+---@field attacker_merc_enid historical_entity
+---@field defender_merc_enid historical_entity
+---@field merc_roles merc_role_type
+df.history_event_war_attacked_sitest = {}
+
+---@class history_event_war_destroyed_sitest: history_event
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field unk_1 integer
+df.history_event_war_destroyed_sitest = {}
+
+---@class history_event_created_sitest: history_event
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field resident_civ_id historical_entity
+---@field site world_site
+---@field builder_hf historical_figure
+df.history_event_created_sitest = {}
+
 ---@enum death_type
 df.death_type = {
   NONE = -1,
@@ -833,6 +938,106 @@ df.death_type = {
   EXECUTION_GENERIC = 55,
 }
 
+---@class history_event_hist_figure_diedst: history_event
+---@field victim_hf historical_figure
+---@field slayer_hf historical_figure
+---@field slayer_race creature_raw
+---@field slayer_caste caste_raw
+---@field weapon history_hit_item
+---@field site world_site
+---@field subregion world_region
+---@field feature_layer world_underground_region
+---@field death_cause death_type
+df.history_event_hist_figure_diedst = {}
+
+---@class history_event_add_hf_entity_linkst: history_event
+---@field civ historical_entity
+---@field histfig historical_figure
+---@field link_type histfig_entity_link_type
+---@field position_id integer index into entity.positions.own
+---@field appointer_hfid historical_figure
+---@field promise_to_hfid historical_figure
+df.history_event_add_hf_entity_linkst = {}
+
+---@class history_event_remove_hf_entity_linkst: history_event
+---@field civ historical_entity
+---@field histfig historical_figure
+---@field link_type histfig_entity_link_type
+---@field position_id integer index into entity.positions.own
+df.history_event_remove_hf_entity_linkst = {}
+
+---@class history_event_entity_expels_hfst: history_event
+---@field civ historical_entity
+---@field expelled historical_figure
+---@field site world_site
+df.history_event_entity_expels_hfst = {}
+
+---@class history_event_first_contactst: history_event
+---@field contactor historical_entity
+---@field contacted historical_entity
+---@field site world_site
+df.history_event_first_contactst = {}
+
+---@class history_event_first_contact_failedst: history_event
+---@field contactor historical_entity
+---@field rejector historical_entity
+---@field site world_site
+df.history_event_first_contact_failedst = {}
+
+---@class history_event_topicagreement_concludedst: history_event
+---@field source historical_entity
+---@field destination historical_entity
+---@field site world_site
+---@field topic meeting_topic
+---@field result integer range from -3 to +2
+df.history_event_topicagreement_concludedst = {}
+
+---@class history_event_topicagreement_rejectedst: history_event
+---@field topic meeting_topic
+---@field source historical_entity
+---@field destination historical_entity
+---@field site world_site
+df.history_event_topicagreement_rejectedst = {}
+
+---@class history_event_topicagreement_madest: history_event
+---@field topic meeting_topic
+---@field source historical_entity
+---@field destination historical_entity
+---@field site world_site
+df.history_event_topicagreement_madest = {}
+
+---@class history_event_war_peace_acceptedst: history_event
+---@field topic meeting_topic
+---@field source historical_entity
+---@field destination historical_entity
+---@field site world_site
+df.history_event_war_peace_acceptedst = {}
+
+---@class history_event_war_peace_rejectedst: history_event
+---@field topic meeting_topic
+---@field source historical_entity
+---@field destination historical_entity
+---@field site world_site
+df.history_event_war_peace_rejectedst = {}
+
+---@class history_event_diplomat_lostst: history_event
+---@field entity historical_entity
+---@field involved historical_entity
+---@field site world_site
+df.history_event_diplomat_lostst = {}
+
+---@class history_event_agreements_voidedst: history_event
+---@field source historical_entity
+---@field destination historical_entity
+df.history_event_agreements_voidedst = {}
+
+---@class history_event_merchantst: history_event
+---@field source historical_entity
+---@field destination historical_entity
+---@field site world_site
+---@field flags2 any
+df.history_event_merchantst = {}
+
 ---@enum history_event_merchant_flags
 df.history_event_merchant_flags = {
   vanished = 0, --opposite of communicate in caravan_state
@@ -843,11 +1048,232 @@ df.history_event_merchant_flags = {
   tribute = 5,
 }
 
+---@class history_event_artifact_hiddenst: history_event
+---@field artifact artifact_record
+---@field unit unit
+---@field histfig historical_figure
+---@field site world_site
+df.history_event_artifact_hiddenst = {}
+
+---@class history_event_artifact_possessedst: history_event
+---@field artifact artifact_record
+---@field unit unit
+---@field histfig historical_figure
+---@field site world_site
+---@field subregion_id world_region
+---@field feature_layer_id integer
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_artifact_possessedst = {}
+
+---@class history_event_artifact_createdst: history_event
+---@field artifact_id artifact_record
+---@field creator_unit_id unit the unit who created the artifact
+---@field creator_hfid historical_figure the figure who created the artifact
+---@field site world_site
+---@field flags2 any
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_artifact_createdst = {}
+
+---@class history_event_artifact_lostst: history_event
+---@field artifact artifact_record
+---@field site world_site
+---@field site_property_id integer
+---@field subregion_id world_region
+---@field unk_1 integer probably feature_layer_id, based on other events, but haven't seen non -1
+df.history_event_artifact_lostst = {}
+
+---@class history_event_artifact_foundst: history_event
+---@field artifact artifact_record
+---@field unit unit
+---@field histfig historical_figure
+---@field site world_site
+---@field site_property_id integer
+---@field unk_1 integer probably subregion_id, based on other events, but haven't seen non -1
+---@field unk_2 integer probably feature_layer_id, based on other events, but haven't seen non -1
+df.history_event_artifact_foundst = {}
+
+---@class history_event_artifact_recoveredst: history_event
+---@field artifact artifact_record
+---@field unit unit
+---@field histfig historical_figure
+---@field site world_site
+---@field structure abstract_building
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_artifact_recoveredst = {}
+
+---@class history_event_artifact_droppedst: history_event
+---@field artifact artifact_record
+---@field unit unit
+---@field histfig historical_figure
+---@field site world_site
+---@field flags2 any
+df.history_event_artifact_droppedst = {}
+
+---@class history_event_reclaim_sitest: history_event
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field flags2 any
+df.history_event_reclaim_sitest = {}
+
+---@class history_event_hf_destroyed_sitest: history_event
+---@field attacker_hf historical_figure
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+df.history_event_hf_destroyed_sitest = {}
+
+---@class history_event_site_diedst: history_event
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field flags2 any
+df.history_event_site_diedst = {}
+
+---@class history_event_site_retiredst: history_event
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field flags2 any
+df.history_event_site_retiredst = {}
+
+---@class history_event_entity_createdst: history_event
+---@field entity historical_entity
+---@field site world_site
+---@field structure abstract_building
+---@field creator_hfid historical_figure
+df.history_event_entity_createdst = {}
+
 ---@enum entity_action_type
 df.entity_action_type = {
   entity_primary_criminals = 0,
   entity_relocate = 1,
 }
+
+---@class history_event_entity_actionst: history_event
+---@field entity historical_entity
+---@field site world_site
+---@field structure abstract_building
+---@field action entity_action_type
+df.history_event_entity_actionst = {}
+
+---@class history_event_entity_incorporatedst: history_event
+---@field migrant_entity historical_entity
+---@field join_entity historical_entity
+---@field leader_hfid historical_figure
+---@field site world_site
+---@field partial boolean
+df.history_event_entity_incorporatedst = {}
+
+---@class history_event_created_buildingst: history_event
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field structure abstract_building
+---@field builder_hf historical_figure
+---@field rebuild boolean
+df.history_event_created_buildingst = {}
+
+---@class history_event_replaced_buildingst: history_event
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field old_structure abstract_building
+---@field new_structure abstract_building
+df.history_event_replaced_buildingst = {}
+
+---@class history_event_add_hf_site_linkst: history_event
+---@field site world_site
+---@field structure abstract_building
+---@field histfig historical_figure
+---@field civ historical_entity
+---@field type histfig_site_link_type
+df.history_event_add_hf_site_linkst = {}
+
+---@class history_event_remove_hf_site_linkst: history_event
+---@field site world_site
+---@field structure abstract_building
+---@field histfig historical_figure
+---@field civ historical_entity
+---@field type histfig_site_link_type
+df.history_event_remove_hf_site_linkst = {}
+
+---@class history_event_add_hf_hf_linkst: history_event
+---@field hf historical_figure
+---@field hf_target historical_figure
+---@field type histfig_hf_link_type
+df.history_event_add_hf_hf_linkst = {}
+
+---@class history_event_remove_hf_hf_linkst: history_event
+---@field hf historical_figure
+---@field hf_target historical_figure
+---@field type histfig_hf_link_type
+df.history_event_remove_hf_hf_linkst = {}
+
+---@class history_event_entity_razed_buildingst: history_event
+---@field civ historical_entity
+---@field site world_site
+---@field structure abstract_building
+df.history_event_entity_razed_buildingst = {}
+
+---@class history_event_masterpiece_createdst: history_event
+---@field maker historical_figure
+---@field maker_entity historical_entity
+---@field site world_site
+---@field skill_at_time skill_rating
+df.history_event_masterpiece_createdst = {}
+
+---@class history_event_masterpiece_created_arch_constructst: history_event_masterpiece_createdst
+---@field building_type integer
+---@field building_subtype integer
+---@field building_custom integer
+---@field unk_2 integer
+df.history_event_masterpiece_created_arch_constructst = {}
+
+---@class history_event_masterpiece_created_itemst: history_event_masterpiece_createdst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+---@field item_id item
+df.history_event_masterpiece_created_itemst = {}
+
+---@class history_event_masterpiece_created_dye_itemst: history_event_masterpiece_createdst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+---@field unk_2 integer
+---@field dye_mat_type material
+---@field dye_mat_index integer
+df.history_event_masterpiece_created_dye_itemst = {}
+
+---@class history_event_masterpiece_created_item_improvementst: history_event_masterpiece_createdst
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+---@field unk_2 integer
+---@field improvement_type improvement_type
+---@field improvement_subtype integer
+---@field imp_mat_type material
+---@field imp_mat_index integer
+---@field art_id art_image_chunk
+---@field art_subid art_image
+df.history_event_masterpiece_created_item_improvementst = {}
+
+---@class history_event_masterpiece_created_foodst: history_event_masterpiece_createdst
+---@field item_subtype integer
+---@field item_id item
+df.history_event_masterpiece_created_foodst = {}
+
+---@class history_event_masterpiece_created_engravingst: history_event_masterpiece_createdst
+---@field art_id art_image_chunk
+---@field art_subid art_image
+df.history_event_masterpiece_created_engravingst = {}
 
 ---@enum masterpiece_loss_type
 df.masterpiece_loss_type = {
@@ -859,12 +1285,225 @@ df.masterpiece_loss_type = {
   VEGETATION = 5,
 }
 
+---@class history_event_masterpiece_lostst: history_event
+---@field creation_event history_event
+---@field histfig historical_figure
+---@field site world_site
+---@field method masterpiece_loss_type
+df.history_event_masterpiece_lostst = {}
+
+---@class history_event_change_hf_statest: history_event
+---@field hfid historical_figure
+---@field state whereabouts_type
+---@field reason history_event_reason
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+df.history_event_change_hf_statest = {}
+
+---@class history_event_change_hf_jobst: history_event
+---@field hfid historical_figure
+---@field new_job profession
+---@field old_job profession
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_change_hf_jobst = {}
+
+---@class history_event_war_field_battlest: history_event
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+---@field attacker_general_hf historical_figure
+---@field defender_general_hf historical_figure
+---@field attacker_merc_enid historical_entity
+---@field defender_merc_enid historical_entity
+---@field merc_roles merc_role_type
+df.history_event_war_field_battlest = {}
+
+---@class history_event_war_plundered_sitest: history_event
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field unk_1 integer 2=detected
+df.history_event_war_plundered_sitest = {}
+
+---@class history_event_war_site_new_leaderst: history_event
+---@field attacker_civ historical_entity
+---@field new_site_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field new_leaders integer[]
+df.history_event_war_site_new_leaderst = {}
+
+---@class history_event_war_site_tribute_forcedst: history_event
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field season season
+---@field tribute_flags any
+df.history_event_war_site_tribute_forcedst = {}
+
+---@class history_event_war_site_taken_overst: history_event
+---@field attacker_civ historical_entity
+---@field new_site_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+df.history_event_war_site_taken_overst = {}
+
+---@class history_event_site_surrenderedst: history_event
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+df.history_event_site_surrenderedst = {}
+
+---@class history_event_body_abusedst: history_event
+---@field bodies integer[]
+---@field victim_entity historical_entity
+---@field civ historical_entity
+---@field histfig historical_figure
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+---@field abuse_type history_event_body_abusedst_abuse_type
+---@field abuse_data history_event_body_abusedst_abuse_data
+df.history_event_body_abusedst = {}
+
+---@enum history_event_body_abusedst_abuse_type
+df.history_event_body_abusedst.T_abuse_type = {
+  Impaled = 0,
+  Piled = 1,
+  Flayed = 2,
+  Hung = 3,
+  Mutilated = 4,
+  Animated = 5,
+}
+
+---@class history_event_body_abusedst_abuse_data: df.struct
+---@field Impaled abuse_data_Impaled
+---@field Piled abuse_data_Piled
+---@field Flayed abuse_data_Flayed
+---@field Hung abuse_data_Hung
+---@field Animated abuse_data_Animated
+df.history_event_body_abusedst.T_abuse_data = {}
+
+---@class abuse_data_Impaled: df.struct
+---@field item_type item_type always WEAPON?
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+df.abuse_data.T_Impaled = {}
+
+---@class abuse_data_Piled: df.struct
+---@field pile_type Piled_pile_type
+df.abuse_data.T_Piled = {}
+
+---@enum Piled_pile_type
+df.Piled.T_pile_type = {
+  GrislyMound = 0,
+  GrotesquePillar = 1,
+  GruesomeSculpture = 2,
+}
+
+---@class abuse_data_Flayed: df.struct
+---@field structure abstract_building
+df.abuse_data.T_Flayed = {}
+
+---@class abuse_data_Hung: df.struct
+---@field tree plant_raw
+---@field mat_type material rope
+---@field mat_index integer rope
+df.abuse_data.T_Hung = {}
+
+---@class abuse_data_Animated: df.struct
+---@field interaction interaction
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.abuse_data.T_Animated = {}
+
+---@class history_event_hist_figure_abductedst: history_event
+---@field target historical_figure
+---@field snatcher historical_figure
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hist_figure_abductedst = {}
+
 ---@enum theft_method_type
 df.theft_method_type = {
   Theft = 0,
   Confiscated = 1,
   Looted = 2,
   Recovered = 3,
+}
+
+---@class history_event_item_stolenst: history_event
+---@field item_type item_type
+---@field item_subtype integer
+---@field mattype material
+---@field matindex integer
+---@field item item
+---@field entity historical_entity
+---@field histfig historical_figure
+---@field site world_site
+---@field structure abstract_building
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+---@field stash_site world_site location to which the thief brought the loot
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+---@field theft_method theft_method_type
+df.history_event_item_stolenst = {}
+
+---@class history_event_hf_razed_buildingst: history_event
+---@field histfig historical_figure
+---@field site world_site
+---@field structure abstract_building
+df.history_event_hf_razed_buildingst = {}
+
+---@class history_event_creature_devouredst: history_event
+---@field victim historical_figure
+---@field race creature_raw
+---@field caste caste_raw
+---@field eater historical_figure
+---@field entity historical_entity
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_creature_devouredst = {}
+
+---@class history_event_hist_figure_woundedst: history_event
+---@field woundee historical_figure
+---@field wounder historical_figure
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field woundee_race creature_raw
+---@field woundee_caste caste_raw
+---@field body_part integer
+---@field injury_type history_event_hist_figure_woundedst_injury_type
+---@field part_lost boolean
+---@field flags2 any
+df.history_event_hist_figure_woundedst = {}
+
+---@enum history_event_hist_figure_woundedst_injury_type
+df.history_event_hist_figure_woundedst.T_injury_type = {
+  Smash = 0,
+  Slash = 1,
+  Stab = 2,
+  Rip = 3,
+  Burn = 4,
 }
 
 ---@enum history_event_simple_battle_subtype
@@ -891,6 +1530,71 @@ df.artifact_claim_type = {
   HolyRelic = 3,
 }
 
+---@class history_event_hist_figure_simple_battle_eventst: history_event
+---@field group1 integer[]
+---@field group2 integer[]
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field subtype history_event_simple_battle_subtype
+df.history_event_hist_figure_simple_battle_eventst = {}
+
+---@class history_event_created_world_constructionst: history_event
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field construction integer
+---@field master_construction integer
+---@field site1 world_site
+---@field site2 world_site
+df.history_event_created_world_constructionst = {}
+
+---@class history_event_hist_figure_reunionst: history_event
+---@field missing integer[]
+---@field reunited_with integer[]
+---@field assistant historical_figure
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hist_figure_reunionst = {}
+
+---@class history_event_hist_figure_reach_summitst: history_event
+---@field group integer[]
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+df.history_event_hist_figure_reach_summitst = {}
+
+---@class history_event_hist_figure_travelst: history_event
+---@field group integer[]
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field reason history_event_hist_figure_travelst_reason
+---@field region_pos coord2d
+df.history_event_hist_figure_travelst = {}
+
+---@enum history_event_hist_figure_travelst_reason
+df.history_event_hist_figure_travelst.T_reason = {
+  Journey = 0, --made a journey to
+  Return = 1, --returned to
+  Escape = 2, --escaped from
+}
+
+---@class history_event_hist_figure_new_petst: history_event
+---@field group integer[]
+---@field pets integer[]
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+df.history_event_hist_figure_new_petst = {}
+
+---@class history_event_assume_identityst: history_event
+---@field trickster historical_figure
+---@field identity identity
+---@field target historical_entity
+df.history_event_assume_identityst = {}
+
 ---@enum position_creation_reason_type
 df.position_creation_reason_type = {
   force_of_argument = 0,
@@ -899,6 +1603,43 @@ df.position_creation_reason_type = {
   wave_of_popular_support = 3,
   as_a_matter_of_course = 4,
 }
+
+---@class history_event_create_entity_positionst: history_event
+---@field histfig historical_figure
+---@field civ historical_entity
+---@field site_civ historical_entity
+---@field position integer
+---@field reason position_creation_reason_type
+df.history_event_create_entity_positionst = {}
+
+---@class history_event_change_creature_typest: history_event
+---@field changee historical_figure
+---@field changer historical_figure
+---@field old_race creature_raw
+---@field old_caste caste_raw
+---@field new_race creature_raw
+---@field new_caste caste_raw
+df.history_event_change_creature_typest = {}
+
+---@class history_event_hist_figure_revivedst: history_event
+---@field histfig historical_figure
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field ghost_type ghost_type
+---@field flags2 any
+---@field actor_hfid historical_figure
+---@field interaction interaction
+---@field unk_1 integer
+df.history_event_hist_figure_revivedst = {}
+
+---@class history_event_hf_learns_secretst: history_event
+---@field student historical_figure
+---@field teacher historical_figure
+---@field artifact artifact_record
+---@field interaction interaction
+---@field unk_1 integer
+df.history_event_hf_learns_secretst = {}
 
 ---@enum histfig_body_state
 df.histfig_body_state = {
@@ -911,6 +1652,79 @@ df.histfig_body_state = {
   UnburiedAtSite = 6,
 }
 
+---@class history_event_change_hf_body_statest: history_event
+---@field histfig historical_figure
+---@field body_state histfig_body_state
+---@field site world_site
+---@field structure abstract_building
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+df.history_event_change_hf_body_statest = {}
+
+---@class history_event_hf_act_on_buildingst: history_event
+---@field action history_event_hf_act_on_buildingst_action
+---@field histfig historical_figure
+---@field site world_site
+---@field structure abstract_building
+df.history_event_hf_act_on_buildingst = {}
+
+---@enum history_event_hf_act_on_buildingst_action
+df.history_event_hf_act_on_buildingst.T_action = {
+  Profane = 0,
+  Disturb = 1,
+  PrayedInside = 2,
+}
+
+---@class history_event_hf_does_interactionst: history_event
+---@field doer historical_figure
+---@field target historical_figure
+---@field interaction interaction
+---@field source interaction_source
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hf_does_interactionst = {}
+
+---@class history_event_hf_confrontedst: history_event
+---@field target historical_figure
+---@field accuser historical_figure
+---@field reasons integer[] 0 = ageless, 1 = murder
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+df.history_event_hf_confrontedst = {}
+
+---@class history_event_entity_lawst: history_event
+---@field entity historical_entity
+---@field histfig historical_figure
+---@field add_flags any
+---@field remove_flags any
+df.history_event_entity_lawst = {}
+
+---@class history_event_hf_gains_secret_goalst: history_event
+---@field histfig historical_figure
+---@field goal goal_type
+---@field thought unit_thought_type
+---@field target_hf historical_figure
+---@field reason history_event_reason
+---@field value value_type
+df.history_event_hf_gains_secret_goalst = {}
+
+---@class history_event_artifact_storedst: history_event
+---@field artifact artifact_record
+---@field unit unit
+---@field histfig historical_figure
+---@field site world_site
+---@field building integer Guess. the values seen are low numbers. Legends doesn't provide any additional info
+df.history_event_artifact_storedst = {}
+
+---@class history_event_agreement_formedst: history_event
+---@field agreement_id agreement
+---@field delegated boolean
+df.history_event_agreement_formedst = {}
+
 ---@enum site_dispute_type
 df.site_dispute_type = {
   Territory = 0,
@@ -921,12 +1735,270 @@ df.site_dispute_type = {
   LivestockOwnership = 5,
 }
 
+---@class history_event_site_disputest: history_event
+---@field dispute_type site_dispute_type
+---@field entity_1 historical_entity
+---@field entity_2 historical_entity
+---@field site_1 world_site
+---@field site_2 world_site
+df.history_event_site_disputest = {}
+
+---@class history_event_agreement_concludedst: history_event
+---@field agreement_id agreement
+---@field subject_id integer
+---@field reason history_event_reason
+---@field concluder_hf historical_figure
+df.history_event_agreement_concludedst = {}
+
+---@class history_event_insurrection_startedst: history_event
+---@field target_civ historical_entity
+---@field site world_site
+df.history_event_insurrection_startedst = {}
+
 ---@enum insurrection_outcome
 df.insurrection_outcome = {
   LeadershipOverthrown = 0,
   PopulationGone = 1,
   Crushed = 2,
 }
+
+---@class history_event_insurrection_endedst: history_event
+---@field target_civ historical_entity
+---@field site world_site
+---@field outcome insurrection_outcome
+df.history_event_insurrection_endedst = {}
+
+---@class history_event_hf_attacked_sitest: history_event
+---@field attacker_hf historical_figure
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+df.history_event_hf_attacked_sitest = {}
+
+---@class history_event_performancest: history_event
+---@field entity historical_entity
+---@field occasion integer
+---@field schedule integer
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_performancest = {}
+
+---@class history_event_competitionst: history_event
+---@field entity historical_entity
+---@field occasion integer
+---@field schedule integer
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field competitor_hf integer[]
+---@field winner_hf integer[]
+df.history_event_competitionst = {}
+
+---@class history_event_processionst: history_event
+---@field entity historical_entity
+---@field occasion integer
+---@field schedule integer
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_processionst = {}
+
+---@class history_event_ceremonyst: history_event
+---@field entity historical_entity
+---@field occasion integer
+---@field schedule integer
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_ceremonyst = {}
+
+---@class history_event_knowledge_discoveredst: history_event
+---@field hf historical_figure
+---@field knowledge knowledge_scholar_category_flag
+---@field first integer
+df.history_event_knowledge_discoveredst = {}
+
+---@class history_event_artifact_transformedst: history_event
+---@field new_artifact artifact_record
+---@field old_artifact integer[]
+---@field unit unit
+---@field histfig historical_figure
+---@field site world_site
+df.history_event_artifact_transformedst = {}
+
+---@class history_event_artifact_destroyedst: history_event
+---@field artifact artifact_record
+---@field site world_site
+---@field destroyer_hf historical_figure
+---@field destroyer_civ historical_entity
+df.history_event_artifact_destroyedst = {}
+
+---@class history_event_hf_relationship_deniedst: history_event
+---@field seeker_hf historical_figure
+---@field target_hf historical_figure
+---@field type unit_relationship_type
+---@field reason history_event_reason
+---@field reason_id historical_figure the historical figure that the reason describes
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hf_relationship_deniedst = {}
+
+---@class history_event_regionpop_incorporated_into_entityst: history_event
+---@field pop_race creature_raw
+---@field number_moved integer
+---@field pop_region world_region
+---@field pop_layer world_underground_region
+---@field join_entity historical_entity
+---@field site world_site
+df.history_event_regionpop_incorporated_into_entityst = {}
+
+---@class history_event_poetic_form_createdst: history_event
+---@field histfig historical_figure
+---@field form poetic_form
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_poetic_form_createdst = {}
+
+---@class history_event_musical_form_createdst: history_event
+---@field histfig historical_figure
+---@field form musical_form
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_musical_form_createdst = {}
+
+---@class history_event_dance_form_createdst: history_event
+---@field histfig historical_figure
+---@field form dance_form
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_dance_form_createdst = {}
+
+---@class history_event_written_content_composedst: history_event
+---@field histfig historical_figure
+---@field content written_content
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_written_content_composedst = {}
+
+---@class history_event_change_hf_moodst: history_event
+---@field histfig historical_figure
+---@field mood mood_type
+---@field reason history_event_reason
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+---@field region_pos coord2d
+df.history_event_change_hf_moodst = {}
+
+---@class history_event_artifact_claim_formedst: history_event
+---@field artifact artifact_record
+---@field histfig historical_figure
+---@field entity historical_entity
+---@field position_profile integer
+---@field claim_type artifact_claim_type
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_artifact_claim_formedst = {}
+
+---@class history_event_artifact_givenst: history_event
+---@field artifact artifact_record
+---@field giver_hf historical_figure
+---@field giver_entity historical_entity
+---@field receiver_hf historical_figure
+---@field receiver_entity historical_entity
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+---@field inherited boolean
+df.history_event_artifact_givenst = {}
+
+---@class history_event_hf_act_on_artifactst: history_event
+---@field action history_event_hf_act_on_artifactst_action
+---@field artifact artifact_record
+---@field histfig historical_figure
+---@field site world_site
+---@field structure abstract_building
+df.history_event_hf_act_on_artifactst = {}
+
+---@enum history_event_hf_act_on_artifactst_action
+df.history_event_hf_act_on_artifactst.T_action = {
+  View = 0,
+  AskAbout = 1,
+}
+
+---@class history_event_hf_recruited_unit_type_for_entityst: history_event
+---@field entity historical_entity
+---@field histfig historical_figure
+---@field profession profession
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hf_recruited_unit_type_for_entityst = {}
+
+---@class history_event_hfs_formed_reputation_relationshipst: history_event
+---@field histfig1 historical_figure
+---@field identity1 identity
+---@field histfig2 historical_figure
+---@field identity2 identity
+---@field rep1 reputation_type
+---@field rep2 reputation_type
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hfs_formed_reputation_relationshipst = {}
+
+---@class history_event_artifact_copiedst: history_event
+---@field artifact artifact_record
+---@field entity_dest historical_entity
+---@field entity_src historical_entity
+---@field site_dest world_site
+---@field site_src world_site
+---@field structure_dest abstract_building
+---@field structure_src abstract_building
+---@field flags2 any
+df.history_event_artifact_copiedst = {}
+
+---@class history_event_sneak_into_sitest: history_event
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+df.history_event_sneak_into_sitest = {}
+
+---@class history_event_spotted_leaving_sitest: history_event
+---@field spotter_hf historical_figure
+---@field leaver_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+df.history_event_spotted_leaving_sitest = {}
+
+---@class history_event_entity_searched_sitest: history_event
+---@field searcher_civ historical_entity
+---@field site world_site
+---@field result integer 0 = found nothing
+df.history_event_entity_searched_sitest = {}
+
+---@class history_event_hf_freedst: history_event
+---@field freeing_civ historical_entity
+---@field freeing_hf historical_figure
+---@field holding_civ historical_entity
+---@field site_civ historical_entity
+---@field site world_site
+---@field rescued_hfs integer[]
+df.history_event_hf_freedst = {}
 
 ---@enum simple_action_type
 df.simple_action_type = {
@@ -939,6 +2011,25 @@ df.simple_action_type = {
   performe_horrible_experiments = 6,
 }
 
+---@class history_event_hist_figure_simple_actionst: history_event
+---@field group_hfs integer[]
+---@field type simple_action_type
+---@field site world_site
+---@field structure abstract_building
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hist_figure_simple_actionst = {}
+
+---@class history_event_entity_rampaged_in_sitest: history_event
+---@field rampage_civ_id historical_entity
+---@field site_id world_site
+df.history_event_entity_rampaged_in_sitest = {}
+
+---@class history_event_entity_fled_sitest: history_event
+---@field fled_civ_id historical_entity
+---@field site_id world_site
+df.history_event_entity_fled_sitest = {}
+
 ---@enum tactical_situation
 df.tactical_situation = {
   attacker_strongly_favored = 0,
@@ -949,6 +2040,230 @@ df.tactical_situation = {
   defender_slightly_favored = 5,
   neither_favored = 6,
 }
+
+---@class history_event_tactical_situationst: history_event
+---@field a_tactician_hfid historical_figure
+---@field d_tactician_hfid historical_figure
+---@field a_tactics_roll integer
+---@field d_tactics_roll integer
+---@field situation tactical_situation
+---@field site world_site
+---@field structure abstract_building
+---@field subregion world_region
+---@field feature_layer world_underground_region
+---@field tactics_flags any
+df.history_event_tactical_situationst = {}
+
+---@class history_event_squad_vs_squadst: history_event
+---@field a_leader_hfid historical_figure
+---@field a_leadership_roll integer
+---@field a_hfid integer[]
+---@field a_squad_id integer
+---@field a_race creature_raw
+---@field a_interaction integer
+---@field a_effect integer
+---@field a_number integer
+---@field a_slain integer
+---@field d_leader_hfid historical_figure
+---@field d_leadership_roll integer
+---@field d_hfid integer[]
+---@field d_squad_id integer
+---@field d_race creature_raw
+---@field d_interaction integer
+---@field d_effect integer
+---@field d_number integer
+---@field d_slain integer
+---@field site world_site
+---@field structure abstract_building
+---@field subregion world_region
+---@field feature_layer world_underground_region
+df.history_event_squad_vs_squadst = {}
+
+---@class history_event_tradest: history_event
+---@field hf historical_figure
+---@field entity historical_entity the guild to which the figure belongs?
+---@field source_site world_site
+---@field dest_site world_site
+---@field production_zone integer
+---@field allotment integer
+---@field allotment_index integer
+---@field account_shift integer
+df.history_event_tradest = {}
+
+---@class history_event_add_entity_site_profile_flagst: history_event
+---@field entity historical_entity
+---@field site world_site
+---@field added_flags entity_site_link_flags
+df.history_event_add_entity_site_profile_flagst = {}
+
+---@class history_event_gamblest: history_event
+---@field hf historical_figure
+---@field site world_site
+---@field structure integer
+---@field account_before integer
+---@field account_after integer
+df.history_event_gamblest = {}
+
+---@class history_event_add_hf_entity_honorst: history_event
+---@field entity_id historical_entity
+---@field hfid historical_figure
+---@field honor_id integer index into historical_entity.honors
+df.history_event_add_hf_entity_honorst = {}
+
+---@class history_event_entity_dissolvedst: history_event
+---@field entity historical_entity
+---@field circumstance history_event_circumstance_info
+---@field reason history_event_reason_info
+df.history_event_entity_dissolvedst = {}
+
+---@class history_event_entity_equipment_purchasest: history_event
+---@field entity historical_entity
+---@field quality item_quality
+---@field hfs integer[]
+df.history_event_entity_equipment_purchasest = {}
+
+---@class history_event_modified_buildingst: history_event
+---@field site world_site
+---@field structure integer index into world_site.buildings
+---@field hf historical_figure
+---@field unk_1 integer
+---@field modification any
+df.history_event_modified_buildingst = {}
+
+---@class history_event_building_profile_acquiredst: history_event
+---@field site world_site
+---@field building_profile integer
+---@field acquirer_hf historical_figure
+---@field acquirer_entity historical_entity
+---@field acquisition_type integer 0: purchased, 1: inherited, 2: rebuilt. Doesn't match. Seen purchased_unowned, inherited, and rebuilt_ruined together when value = 0
+---@field previous_owner_hf historical_figure
+---@field unk_1 integer
+df.history_event_building_profile_acquiredst = {}
+
+---@class history_event_hf_preachst: history_event
+---@field speaker_hf historical_figure
+---@field site world_site
+---@field topic reputation_type
+---@field entity1 historical_entity
+---@field entity2 historical_entity
+df.history_event_hf_preachst = {}
+
+---@class history_event_entity_persecutedst: history_event
+---@field persecuting_hf historical_figure
+---@field persecuting_entity historical_entity
+---@field target_entity historical_entity
+---@field site world_site
+---@field property_confiscated_from_hfs integer[]
+---@field destroyed_structures integer[]
+---@field shrines_destroyed integer
+---@field expelled_hfs integer[]
+---@field expelled_populations integer[]
+---@field expelled_races integer[]
+---@field expelled_counts integer[]
+df.history_event_entity_persecutedst = {}
+
+---@class history_event_entity_breach_feature_layerst: history_event
+---@field site world_site
+---@field site_entity historical_entity
+---@field civ_entity historical_entity
+---@field layer world_underground_region
+df.history_event_entity_breach_feature_layerst = {}
+
+---@class history_event_entity_alliance_formedst: history_event
+---@field entity historical_entity
+---@field joining_entities integer[]
+df.history_event_entity_alliance_formedst = {}
+
+---@class history_event_hf_ransomedst: history_event
+---@field ransomed_hf historical_figure
+---@field ransomer_hf historical_figure
+---@field payer_hf historical_figure
+---@field payer_entity historical_entity
+---@field moved_to_site world_site
+df.history_event_hf_ransomedst = {}
+
+---@class history_event_hf_enslavedst: history_event
+---@field enslaved_hf historical_figure
+---@field seller_hf historical_figure
+---@field payer_entity historical_entity
+---@field moved_to_site world_site
+df.history_event_hf_enslavedst = {}
+
+---@class history_event_sabotagest: history_event
+---@field saboteur_hf historical_figure
+---@field target_hf historical_figure
+---@field target_entity historical_entity
+---@field site world_site
+df.history_event_sabotagest = {}
+
+---@class history_event_entity_overthrownst: history_event
+---@field overthrown_hf historical_figure
+---@field position_taker_hf historical_figure
+---@field instigator_hf historical_figure
+---@field entity historical_entity
+---@field position_profile_id integer
+---@field conspirator_hfs integer[]
+---@field site world_site
+df.history_event_entity_overthrownst = {}
+
+---@class history_event_hfs_formed_intrigue_relationshipst: history_event
+---@field corruptor_hf historical_figure
+---@field corruptor_identity integer
+---@field target_hf historical_figure
+---@field target_identity integer
+---@field target_role plot_role_type
+---@field corruptor_role plot_role_type
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_hfs_formed_intrigue_relationshipst = {}
+
+---@class history_event_failed_intrigue_corruptionst: history_event
+---@field corruptor_hf historical_figure
+---@field corruptor_identity integer
+---@field target_hf historical_figure
+---@field target_identity integer
+---@field site world_site
+---@field region world_region
+---@field layer world_underground_region
+df.history_event_failed_intrigue_corruptionst = {}
+
+---@class history_event_hf_convictedst: history_event
+---@field convicted_hf historical_figure
+---@field convicter_entity historical_entity
+---@field recognized_by_entity historical_entity
+---@field recognized_by_hf historical_figure
+---@field implicated_hfs integer[]
+---@field corrupt_hf historical_figure
+---@field behest_of_hf historical_figure
+---@field fooled_hf historical_figure
+---@field framer_hf historical_figure
+---@field surveillance_hf historical_figure
+---@field co_conspirator_hf historical_figure
+---@field target_hf historical_figure
+---@field crime integer references crime::T_mode
+---@field hammerstrokes integer
+---@field prison_months integer
+---@field punishment_flags any
+---@field plot_flags any
+df.history_event_hf_convictedst = {}
+
+---@class history_event_failed_frame_attemptst: history_event
+---@field target_hf historical_figure
+---@field convicter_entity historical_entity
+---@field plotter_hf historical_figure
+---@field fooled_hf historical_figure
+---@field framer_hf historical_figure
+---@field crime integer references crime::T_mode
+df.history_event_failed_frame_attemptst = {}
+
+---@class history_event_hf_interrogatedst: history_event
+---@field target_hf historical_figure
+---@field arresting_entity historical_entity
+---@field interrogator_hf historical_figure
+---@field implicated_hfs integer[]
+---@field interrogation_flags any
+df.history_event_hf_interrogatedst = {}
 
 ---@enum history_event_collection_type
 df.history_event_collection_type = {
@@ -971,6 +2286,226 @@ df.history_event_collection_type = {
   PERSECUTION = 16,
   ENTITY_OVERTHROWN = 17,
 }
+
+---@class history_event_collection: df.instance
+---@field events integer[]
+---@field collections integer[]
+---@field start_year integer
+---@field end_year integer
+---@field start_seconds integer
+---@field end_seconds integer
+---@field flags any
+---@field id integer
+df.history_event_collection = {}
+
+---@class history_event_collection_warst: history_event_collection
+---@field name language_name
+---@field attacker_civ integer[]
+---@field defender_civ integer[]
+---@field unk_1 integer[] when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations
+---@field unk history_event_collection_warst_unk
+df.history_event_collection_warst = {}
+
+---@class history_event_collection_warst_unk: df.struct
+---@field unk_1 integer[] These 5 vectors are the same length,0 or 1. Only 0 seen
+---@field attacker_entity_leader integer[]
+---@field unk_2 integer[] 25, 25, 46 seen. All on the first few (oldest) collections.
+---@field unk_3 integer[] only -1 seen
+---@field unk_4 integer[] -5,-6, -14 -15 seen
+---@field unk_5 integer same as previous vector single element or zero. Sum?
+---@field ethics_unk1 integer[] these three vectors are of the same length
+---@field disputed_ethics ethic_type[]
+---@field ethics_unk3 integer[] not seen other value
+---@field dispute_severities integer[]
+---@field accumulated_ethics_severity integer
+---@field event_unk integer[] values 5 and 10 seen. These three vectors are the same length
+---@field negative_events integer[] Site dispute, war attack site, created site, and culled seen
+---@field event_severities integer[] Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
+---@field accumulated_event_severity integer sum of previous vector values
+df.history_event_collection_warst.T_unk = {}
+
+---@class history_event_collection_battlest: history_event_collection
+---@field name language_name
+---@field parent_collection history_event_collection
+---@field region world_region
+---@field layer world_underground_region
+---@field site world_site
+---@field region_pos coord2d
+---@field attacker_civ integer[]
+---@field defender_civ integer[]
+---@field attacker_hf integer[]
+---@field attacker_role integer[] Tentatively 0: regular, 1/2 merc
+---@field defender_hf integer[]
+---@field defender_role integer[] same as for attacker role, i.e. 0-2, with 1/2 being mercs
+---@field noncombat_hf integer[] saw being beheaded, but that's only one checked
+---@field merc_roles merc_role_type
+---@field attacker_mercs historical_entity
+---@field defender_mercs historical_entity
+---@field attacker_merc_hfs integer[]
+---@field defender_merc_hfs integer[]
+---@field attacker_squad_entity_pop integer[]
+---@field attacker_squad_counts integer[]
+---@field attacker_squad_deaths integer[]
+---@field attacker_squad_races integer[]
+---@field attacker_squad_sites integer[]
+---@field unk_3 integer[] probably a boolean, as only 0/1 seen
+---@field defender_squad_entity_pops integer[]
+---@field defender_squad_counts integer[]
+---@field defender_squad_deaths integer[]
+---@field defender_squad_races integer[]
+---@field defender_squad_sites integer[]
+---@field unk_4 integer[] probably a boolean, as only 0/1 seen
+---@field outcome integer 0 = attacker won, 1 = defender won
+df.history_event_collection_battlest = {}
+
+---@class history_event_collection_duelst: history_event_collection
+---@field parent_collection history_event_collection
+---@field region world_region
+---@field layer world_underground_region
+---@field site world_site
+---@field region_pos coord2d
+---@field attacker_hf historical_figure
+---@field defender_hf historical_figure
+---@field ordinal integer
+---@field unk_1 integer probably boolean. Only 0/1 seen. Looks like winner, with all '1' examined showing defeat of defender, from unscathed to death, and '0' showing no result at all or death of attacker
+df.history_event_collection_duelst = {}
+
+---@class history_event_collection_site_conqueredst: history_event_collection
+---@field parent_collection history_event_collection
+---@field site world_site
+---@field attacker_civ integer[]
+---@field defender_civ integer[]
+---@field unk_1 integer uninitialized
+---@field ordinal integer
+df.history_event_collection_site_conqueredst = {}
+
+---@class history_event_collection_abductionst: history_event_collection
+---@field parent_collection history_event_collection
+---@field region world_region
+---@field layer world_underground_region
+---@field site world_site
+---@field region_pos coord2d
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field snatcher_hf integer[]
+---@field victim_hf integer[]
+---@field unk_1 integer[]
+---@field ordinal integer
+df.history_event_collection_abductionst = {}
+
+---@class history_event_collection_theftst: history_event_collection
+---@field parent_collection history_event_collection
+---@field region world_region
+---@field layer world_underground_region
+---@field site world_site
+---@field region_pos coord2d
+---@field thief_civ historical_entity
+---@field victim_civ historical_entity
+---@field thief_hf integer[]
+---@field stolen_item_types item_type[]
+---@field stolen_item_subtypes integer[]
+---@field stolen_mat_types material[]
+---@field stolen_mat_indices integer[]
+---@field stolen_item_ids integer[]
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer[]
+---@field unk_7 integer[]
+---@field ordinal integer
+df.history_event_collection_theftst = {}
+
+---@class history_event_collection_beast_attackst: history_event_collection
+---@field parent_collection history_event_collection
+---@field region world_region
+---@field layer world_underground_region
+---@field site world_site
+---@field region_pos coord2d
+---@field defender_civ historical_entity
+---@field attacker_hf integer[]
+---@field ordinal integer
+df.history_event_collection_beast_attackst = {}
+
+---@class history_event_collection_journeyst: history_event_collection
+---@field traveler_hf integer[]
+---@field ordinal integer
+df.history_event_collection_journeyst = {}
+
+---@class history_event_collection_insurrectionst: history_event_collection
+---@field site world_site
+---@field target_civ historical_entity
+---@field ordinal integer
+df.history_event_collection_insurrectionst = {}
+
+---@class history_event_collection_occasionst: history_event_collection
+---@field civ historical_entity
+---@field occasion integer
+---@field ordinal integer
+df.history_event_collection_occasionst = {}
+
+---@class history_event_collection_performancest: history_event_collection
+---@field parent_collection history_event_collection all seen were occasions
+---@field civ historical_entity
+---@field unk_1 integer 0-11 seen
+---@field unk_2 integer 0-9 seen
+---@field ordinal integer
+df.history_event_collection_performancest = {}
+
+---@class history_event_collection_competitionst: history_event_collection
+---@field parent_collection history_event_collection all seen were occasions
+---@field civ historical_entity
+---@field unk_1 integer 0-13 seen
+---@field unk_2 integer 0-9 seen
+---@field ordinal integer
+df.history_event_collection_competitionst = {}
+
+---@class history_event_collection_processionst: history_event_collection
+---@field parent_collection history_event_collection all seen were occasions
+---@field civ historical_entity
+---@field unk_1 integer 0-14 seen
+---@field unk_2 integer 0-9 seen
+---@field ordinal integer
+df.history_event_collection_processionst = {}
+
+---@class history_event_collection_ceremonyst: history_event_collection
+---@field parent_collection history_event_collection all seen were occasions
+---@field civ historical_entity
+---@field unk_1 integer 0-14 seen
+---@field unk_2 integer 0-10 seen
+---@field ordinal integer
+df.history_event_collection_ceremonyst = {}
+
+---@class history_event_collection_purgest: history_event_collection
+---@field site world_site
+---@field adjective string
+---@field ordinal integer
+df.history_event_collection_purgest = {}
+
+---@class history_event_collection_raidst: history_event_collection
+---@field parent_collection history_event_collection
+---@field region world_region
+---@field layer world_underground_region
+---@field site world_site
+---@field region_pos coord2d
+---@field attacker_civ historical_entity
+---@field defender_civ historical_entity
+---@field thieves integer[] all of the ones examined were mentioned stealing things during the same raid on the site
+---@field ordinal integer
+df.history_event_collection_raidst = {}
+
+---@class history_event_collection_persecutionst: history_event_collection
+---@field site world_site
+---@field entity historical_entity
+---@field ordinal integer
+df.history_event_collection_persecutionst = {}
+
+---@class history_event_collection_entity_overthrownst: history_event_collection
+---@field site world_site
+---@field entity historical_entity
+---@field ordinal integer
+df.history_event_collection_entity_overthrownst = {}
 
 ---@enum era_type
 df.era_type = {
@@ -1084,7 +2619,7 @@ df.world_history = {}
 ---@field other history_event_collection[][]
 df.world_history.T_event_collections = {}
 
----@class intrigue: df.struct
+---@class intrigue: df.instance
 ---@field event_id history_event NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship
 ---@field corruption intrigue_corruption Mutually exclusive with circumstance. Exactly one is present. Presumably 'bring into network' action doesn't provide membership
 ---@field reason history_event_reason_info

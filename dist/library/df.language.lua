@@ -179,7 +179,7 @@ df.sphere_type = {
   YOUTH = 130,
 }
 
----@class language_word: df.struct
+---@class language_word: df.instance
 ---@field word string
 ---@field forms string[]
 ---@field adj_dist integer
@@ -188,7 +188,7 @@ df.sphere_type = {
 ---@field str string[]
 df.language_word = {}
 
----@class language_translation: df.struct
+---@class language_translation: df.instance
 ---@field name string
 ---@field unknown1 string[] looks like english words
 ---@field unknown2 string[] looks like translated words
@@ -197,7 +197,7 @@ df.language_word = {}
 ---@field str string[]
 df.language_translation = {}
 
----@class language_symbol: df.struct
+---@class language_symbol: df.instance
 ---@field name string
 ---@field unknown any[] empty
 ---@field words language_word[]

@@ -200,6 +200,24 @@ df.block_burrow = {}
 ---@field region_offset integer[]
 df.map_block = {}
 
+---@class cave_column: df.struct
+---@field unk_z1 integer
+---@field unk_z2 integer
+---@field unk_3 integer
+---@field unk_4 any
+df.cave_column = {}
+
+---@class cave_column_rectangle: df.struct
+---@field unk_1 integer
+---@field unk_x1 integer
+---@field unk_y1 integer
+---@field unk_x2 integer
+---@field unk_y2 integer
+---@field z_shift integer
+---@field unk_6 coord_path
+---@field unk_7 any
+df.cave_column_rectangle = {}
+
 ---@class map_block_column: df.struct
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
 ---@field beach_level integer water at this level disappears if above more water
@@ -229,6 +247,66 @@ df.block_square_event_type = {
   designation_priority = 7,
 }
 
+---@class block_square_event: df.struct
+df.block_square_event = {}
+
+---@class block_square_event_mineralst: block_square_event
+---@field inorganic_mat inorganic_raw
+---@field tile_bitmask tile_bitmask
+---@field flags any
+df.block_square_event_mineralst = {}
+
+---@class block_square_event_frozen_liquidst: block_square_event
+---@field tiles tiletype[][]
+---@field liquid_type tile_liquid[][]
+df.block_square_event_frozen_liquidst = {}
+
+---@class block_square_event_world_constructionst: block_square_event
+---@field construction_id world_construction
+---@field tile_bitmask tile_bitmask
+df.block_square_event_world_constructionst = {}
+
+---@class block_square_event_material_spatterst: block_square_event
+---@field mat_type material
+---@field mat_index integer
+---@field mat_state matter_state
+---@field amount integer[][]
+---@field min_temperature integer
+---@field max_temperature integer
+df.block_square_event_material_spatterst = {}
+
+---@class block_square_event_grassst: block_square_event
+---@field plant_index plant_raw
+---@field amount integer[][]
+df.block_square_event_grassst = {}
+
+---@class block_square_event_spoorst: block_square_event
+---@field flags any[][]
+---@field unk_2 any[][]
+---@field unk_3 integer[][]
+---@field race creature_raw[][]
+---@field caste caste_raw[][]
+---@field age integer[][] in half-seconds
+---@field year integer
+---@field year_tick integer
+df.block_square_event_spoorst = {}
+
+---@class block_square_event_item_spatterst: block_square_event
+---@field item_type item_type
+---@field item_subtype integer
+---@field mattype material
+---@field matindex integer
+---@field unk1 integer
+---@field amount integer[][]
+---@field unk2 integer[][]
+---@field temp1 integer
+---@field temp2 integer
+df.block_square_event_item_spatterst = {}
+
+---@class block_square_event_designation_priorityst: block_square_event
+---@field priority integer[][]
+df.block_square_event_designation_priorityst = {}
+
 ---@enum feature_type
 df.feature_type = {
   outdoor_river = 0,
@@ -242,6 +320,47 @@ df.feature_type = {
   magma_core_from_layer = 8,
   underworld_from_layer = 9,
 }
+
+---@class feature: df.struct
+---@field population world_population[]
+---@field irritation_level integer divide by 10k for attack chance, max 100k
+---@field irritation_attacks integer maxes at 10?
+---@field embark_pos coord2d_path
+---@field min_map_z integer[]
+---@field max_map_z integer[]
+df.feature = {}
+
+---@class feature_outdoor_riverst: feature
+df.feature_outdoor_riverst = {}
+
+---@class feature_cavest: feature
+df.feature_cavest = {}
+
+---@class feature_pitst: feature
+df.feature_pitst = {}
+
+---@class feature_magma_poolst: feature
+---@field magma_fill_z integer
+df.feature_magma_poolst = {}
+
+---@class feature_volcanost: feature
+---@field magma_fill_z integer
+df.feature_volcanost = {}
+
+---@class feature_deep_special_tubest: feature
+df.feature_deep_special_tubest = {}
+
+---@class feature_deep_surface_portalst: feature
+df.feature_deep_surface_portalst = {}
+
+---@class feature_subterranean_from_layerst: feature
+df.feature_subterranean_from_layerst = {}
+
+---@class feature_magma_core_from_layerst: feature
+df.feature_magma_core_from_layerst = {}
+
+---@class feature_underworld_from_layerst: feature
+df.feature_underworld_from_layerst = {}
 
 ---@enum feature_init_flags
 df.feature_init_flags = {
@@ -261,11 +380,83 @@ df.layer_type = {
   Underworld = 5,
 }
 
+---@class feature_init: df.struct
+---@field flags any
+---@field alterations feature_alteration[]
+---@field start_x integer
+---@field start_y integer
+---@field end_x integer
+---@field end_y integer
+---@field start_depth layer_type
+---@field end_depth layer_type
+df.feature_init = {}
+
+---@class feature_init_outdoor_riverst: feature_init
+---@field feature feature_outdoor_riverst
+df.feature_init_outdoor_riverst = {}
+
+---@class feature_init_cavest: feature_init
+---@field feature feature_cavest
+df.feature_init_cavest = {}
+
+---@class feature_init_pitst: feature_init
+---@field feature feature_pitst
+df.feature_init_pitst = {}
+
+---@class feature_init_magma_poolst: feature_init
+---@field feature feature_magma_poolst
+df.feature_init_magma_poolst = {}
+
+---@class feature_init_volcanost: feature_init
+---@field feature feature_volcanost
+df.feature_init_volcanost = {}
+
+---@class feature_init_deep_special_tubest: feature_init
+---@field mat_type material
+---@field mat_index integer
+---@field feature feature_deep_special_tubest
+df.feature_init_deep_special_tubest = {}
+
+---@class feature_init_deep_surface_portalst: feature_init
+---@field mat_type material
+---@field mat_index integer
+---@field feature feature_deep_surface_portalst
+df.feature_init_deep_surface_portalst = {}
+
+---@class feature_init_subterranean_from_layerst: feature_init
+---@field layer world_underground_region
+---@field feature feature_subterranean_from_layerst
+df.feature_init_subterranean_from_layerst = {}
+
+---@class feature_init_magma_core_from_layerst: feature_init
+---@field layer world_underground_region
+---@field feature feature_magma_core_from_layerst
+df.feature_init_magma_core_from_layerst = {}
+
+---@class feature_init_underworld_from_layerst: feature_init
+---@field layer world_underground_region
+---@field mat_type material
+---@field mat_index integer
+---@field feature feature_underworld_from_layerst
+df.feature_init_underworld_from_layerst = {}
+
 ---@enum feature_alteration_type
 df.feature_alteration_type = {
   new_pop_max = 0,
   new_lava_fill_z = 1,
 }
+
+---@class feature_alteration: df.struct
+df.feature_alteration = {}
+
+---@class feature_alteration_new_pop_maxst: feature_alteration
+---@field unk_1 integer
+---@field unk_2 integer
+df.feature_alteration_new_pop_maxst = {}
+
+---@class feature_alteration_new_lava_fill_zst: feature_alteration
+---@field magma_fill_z integer
+df.feature_alteration_new_lava_fill_zst = {}
 
 ---@enum world_construction_type
 df.world_construction_type = {
@@ -274,6 +465,62 @@ df.world_construction_type = {
   BRIDGE = 2,
   WALL = 3,
 }
+
+---@class world_construction_square: df.struct
+---@field region_pos coord2d
+---@field construction_id world_construction
+---@field embark_x integer[]
+---@field embark_y integer[]
+---@field embark_unk integer[]
+---@field embark_z integer[]
+df.world_construction_square = {}
+
+---@class world_construction_square_roadst: world_construction_square
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+df.world_construction_square_roadst = {}
+
+---@class world_construction_square_tunnelst: world_construction_square
+df.world_construction_square_tunnelst = {}
+
+---@class world_construction_square_bridgest: world_construction_square
+---@field road_id world_construction guess
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+df.world_construction_square_bridgest = {}
+
+---@class world_construction_square_wallst: world_construction_square
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+df.world_construction_square_wallst = {}
+
+---@class world_construction: df.instance
+---@field id integer
+---@field square_obj world_construction_square[]
+---@field square_pos coord2d_path
+df.world_construction = {}
+
+---@class world_construction_roadst: world_construction
+---@field name language_name
+df.world_construction_roadst = {}
+
+---@class world_construction_tunnelst: world_construction
+---@field name language_name
+df.world_construction_tunnelst = {}
+
+---@class world_construction_bridgest: world_construction
+---@field name language_name
+df.world_construction_bridgest = {}
+
+---@class world_construction_wallst: world_construction
+---@field name language_name
+df.world_construction_wallst = {}
 
 ---@enum biome_type
 df.biome_type = {
@@ -336,7 +583,7 @@ df.construction_flags = {
   top_of_wall = 1, --used on the floors above constructed walls so you cannot remove them
 }
 
----@class construction: df.struct
+---@class construction: df.instance
 ---@field pos coord
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -387,6 +634,25 @@ df.flow_guide_type = {
   ItemCloud = 1,
 }
 
+---@class flow_guide: df.instance
+---@field id integer
+---@field unk_8 integer
+df.flow_guide = {}
+
+---@class flow_guide_trailing_flowst: flow_guide
+---@field unk_1 coord[]
+df.flow_guide_trailing_flowst = {}
+
+---@class flow_guide_item_cloudst: flow_guide
+---@field item_type item_type
+---@field item_subtype integer
+---@field mattype material
+---@field matindex integer
+---@field unk_18 integer
+---@field unk_1c integer
+---@field unk_1 coord[]
+df.flow_guide_item_cloudst = {}
+
 ---@class effect_info: df.struct
 ---@field id integer assigned during Save
 ---@field job job
@@ -402,4 +668,11 @@ df.effect_info = {}
 df.region_block_event_type = {
   SphereField = 0,
 }
+
+---@class region_block_eventst: df.struct
+df.region_block_eventst = {}
+
+---@class region_block_event_sphere_fieldst: region_block_eventst
+---@field unk_1 integer[]
+df.region_block_event_sphere_fieldst = {}
 

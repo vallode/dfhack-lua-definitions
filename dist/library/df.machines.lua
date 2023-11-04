@@ -31,6 +31,52 @@ df.machine_conn_modes = {
 ---@field can_connect machine_conn_modes[]
 df.machine_tile_set = {}
 
+---@class machine: df.instance
+---@field x integer
+---@field y integer
+---@field z integer
+---@field id integer
+---@field components building[]
+---@field cur_power integer
+---@field min_power integer
+---@field visual_phase integer
+---@field phase_timer integer
+---@field flags any
+df.machine = {}
+
+---@class machine_standardst: machine
+df.machine_standardst = {}
+
+---@class building_axle_horizontalst: building_actual
+---@field machine machine_info
+---@field is_vertical boolean
+df.building_axle_horizontalst = {}
+
+---@class building_axle_verticalst: building_actual
+---@field machine machine_info
+df.building_axle_verticalst = {}
+
+---@class building_gear_assemblyst: building_actual
+---@field machine machine_info
+---@field gear_flags any
+df.building_gear_assemblyst = {}
+
+---@class building_windmillst: building_actual
+---@field machine machine_info
+---@field orient_x integer
+---@field orient_y integer
+---@field is_working integer
+---@field visual_rotated boolean
+---@field rotate_timer integer
+---@field orient_timer integer
+df.building_windmillst = {}
+
+---@class building_water_wheelst: building_actual
+---@field machine machine_info
+---@field is_vertical boolean
+---@field gives_power boolean
+df.building_water_wheelst = {}
+
 ---@enum screw_pump_direction
 df.screw_pump_direction = {
   FromNorth = 0,
@@ -38,4 +84,17 @@ df.screw_pump_direction = {
   FromSouth = 2,
   FromWest = 3,
 }
+
+---@class building_screw_pumpst: building_actual
+---@field machine machine_info
+---@field pump_energy integer decreases by 1 every frame. powering or manually pumping maintains near 100
+---@field direction screw_pump_direction
+---@field pump_manually boolean
+df.building_screw_pumpst = {}
+
+---@class building_rollersst: building_actual
+---@field machine machine_info
+---@field direction screw_pump_direction
+---@field speed integer
+df.building_rollersst = {}
 

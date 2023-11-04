@@ -165,7 +165,7 @@ df.entity_name_type = {
   HOSPITAL = 18,
 }
 
----@class entity_raw: df.struct
+---@class entity_raw: df.instance
 ---@field code string
 ---@field index integer into instace-vector
 ---@field raws string[]

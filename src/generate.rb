@@ -6,9 +6,7 @@ DF_STRUCTURES_NODES = {
   'enum-type' => EnumType,
   'bitfield-type' => EnumType,
   'struct-type' => StructType,
-  # "class-type" => StructType,
-  # Unsupported (for now!)
-  # "compound" => CompoundType,
+  "class-type" => StructType,
 }
 
 # Generates lua-language-server compatible definition files.

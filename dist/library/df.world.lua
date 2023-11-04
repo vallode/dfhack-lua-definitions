@@ -73,7 +73,7 @@ df.conflict_level = {
 ---@field unk_3 integer[]
 df.incident_hfid = {}
 
----@class incident: df.struct
+---@class incident: df.instance
 ---@field id integer
 ---@field type incident_type
 ---@field witnesses integer[]
@@ -190,7 +190,7 @@ df.incident_data_writing.T_state = {
 ---@field unk_1 incident_hfid[]
 df.incident_data_identity = {}
 
----@class crime: df.struct
+---@class crime: df.instance
 ---@field id integer
 ---@field mode crime_mode
 ---@field punishment crime_punishment
@@ -521,7 +521,7 @@ df.fire = {}
 ---@field unk_timer integer starts at 120 and randomly decrements
 df.ocean_wave = {}
 
----@class coin_batch: df.struct
+---@class coin_batch: df.instance
 ---@field year integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -541,6 +541,31 @@ df.coin_batch.T_image_front = {}
 ---@field subid art_image
 df.coin_batch.T_image_back = {}
 
+---@class job_handler: df.struct
+---@field list job_list_link
+---@field postings integer[] entries never removed
+---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
+df.job_handler = {}
+
+---@class job_handler_job_application_heap: df.struct
+---this appears to be a priority queue of some sort
+---@field node unit[]
+---@field size integer
+df.job_handler.T_job_application_heap = {}
+
+---@class building_handler: df.struct
+---@field all building[]
+---@field other buildings_other
+---@field bad building[]
+---@field check_bridge_collapse boolean
+---@field check_machine_collapse boolean ?
+df.building_handler = {}
+
+---@class machine_handler: df.struct
+---@field all machine[]
+---@field bad machine[]
+df.machine_handler = {}
+
 ---@class mental_picture: df.struct
 ---@field unk mental_picture_unk
 ---@field unk_1 integer
@@ -554,7 +579,7 @@ df.mental_picture = {}
 ---@field unk_2 integer
 df.mental_picture.T_unk = {}
 
----@class belief_system: df.struct
+---@class belief_system: df.instance
 ---@field id integer
 ---@field mental_pictures mental_picture[][]
 ---@field deities integer[] historical figure ID of gods the belief system is concerned with
@@ -640,7 +665,7 @@ df.divination_set_roll.T_effect_type = {
   Fortune = 4,
 }
 
----@class divination_set: df.struct
+---@class divination_set: df.instance
 ---@field id integer currently matches index into vector
 ---@field deity_id historical_figure
 ---@field owner_id historical_entity religion owning the set
@@ -648,7 +673,7 @@ df.divination_set_roll.T_effect_type = {
 ---@field rolls divination_set_roll[]
 df.divination_set = {}
 
----@class image_set: df.struct
+---@class image_set: df.instance
 ---@field id integer
 ---@field unk_2 integer
 ---@field unk_vec1 integer[]

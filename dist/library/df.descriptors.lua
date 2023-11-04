@@ -11,7 +11,7 @@ df.pattern_type = {
   MOTTLED = 5,
 }
 
----@class descriptor_color: df.struct
+---@class descriptor_color: df.instance
 ---@field id string
 ---@field word_unk string[]
 ---@field words integer[]
@@ -24,7 +24,7 @@ df.pattern_type = {
 ---@field unk_v50_1 integer[]
 df.descriptor_color = {}
 
----@class descriptor_shape: df.struct
+---@class descriptor_shape: df.instance
 ---@field id string
 ---@field words_str string[] temporary storage before resolving to language_word
 ---@field words integer[]
@@ -43,7 +43,7 @@ df.descriptor_color = {}
 ---@field unk_v50_6 any
 df.descriptor_shape = {}
 
----@class descriptor_pattern: df.struct
+---@class descriptor_pattern: df.instance
 ---@field id string
 ---@field colors integer[]
 ---@field pattern pattern_type

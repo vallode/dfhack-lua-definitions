@@ -10,11 +10,47 @@ df.art_image_element_type = {
   ITEM = 4,
 }
 
+---@class art_image_element: df.struct
+---@field count integer
+df.art_image_element = {}
+
+---@class art_image_element_creaturest: art_image_element
+---@field race creature_raw
+---@field caste integer
+---@field histfig historical_figure
+df.art_image_element_creaturest = {}
+
+---@class art_image_element_plantst: art_image_element
+---@field plant_id plant_raw
+df.art_image_element_plantst = {}
+
+---@class art_image_element_treest: art_image_element
+---@field plant_id plant_raw
+df.art_image_element_treest = {}
+
+---@class art_image_element_shapest: art_image_element
+---@field shape_id descriptor_shape
+---@field shape_adj integer
+df.art_image_element_shapest = {}
+
+---@class art_image_element_itemst: art_image_element
+---@field item_type item_type
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+---@field flags item_flags
+---@field item_id item
+df.art_image_element_itemst = {}
+
 ---@enum art_image_property_type
 df.art_image_property_type = {
   transitive_verb = 0,
   intransitive_verb = 1,
 }
+
+---@class art_image_property: df.struct
+---@field flags any
+df.art_image_property = {}
 
 ---@enum art_image_property_verb
 df.art_image_property_verb = {
@@ -68,6 +104,17 @@ df.art_image_property_verb = {
   TriumphantPose = 47,
 }
 
+---@class art_image_property_transitive_verbst: art_image_property
+---@field subject integer
+---@field object integer
+---@field verb art_image_property_verb
+df.art_image_property_transitive_verbst = {}
+
+---@class art_image_property_intransitive_verbst: art_image_property
+---@field subject integer
+---@field verb art_image_property_verb
+df.art_image_property_intransitive_verbst = {}
+
 ---@enum art_facet_type
 df.art_facet_type = {
   OWN_RACE = 0,
@@ -94,7 +141,7 @@ df.art_facet_type = {
 ---@field subid art_image
 df.art_image = {}
 
----@class art_image_chunk: df.struct
+---@class art_image_chunk: df.instance
 ---@field id integer art_image_*.dat
 ---@field images art_image[]
 df.art_image_chunk = {}
@@ -249,7 +296,7 @@ df.poetic_form_additional_feature = {
   MustExpandIdea = 8,
 }
 
----@class poetic_form: df.struct
+---@class poetic_form: df.instance
 ---@field id integer
 ---@field name language_name
 ---@field originating_entity historical_entity
@@ -546,7 +593,7 @@ df.musical_form_instruments = {}
 ---@field unk_6 integer
 df.musical_form_sub4 = {}
 
----@class musical_form: df.struct
+---@class musical_form: df.instance
 ---@field id integer
 ---@field name language_name
 ---@field originating_entity historical_entity ID of the entity from which the musical form originated.
@@ -784,7 +831,7 @@ df.dance_form_move_group_type = {
 ---@field group_type dance_form_move_group_type
 df.dance_form_move = {}
 
----@class dance_form: df.struct
+---@class dance_form: df.instance
 ---@field id integer
 ---@field name language_name
 ---@field musical_form_id integer
@@ -839,7 +886,7 @@ df.chord = {}
 ---@field second_chord integer
 df.named_scale = {}
 
----@class scale: df.struct
+---@class scale: df.instance
 ---@field id integer
 ---@field flags any
 ---@field type scale_type
@@ -859,7 +906,7 @@ df.scale = {}
 ---@field length integer number of elements of the arrays above used
 df.scale.T_notes = {}
 
----@class rhythm: df.struct
+---@class rhythm: df.instance
 ---@field id integer
 ---@field patterns rhythm_pattern[]
 ---@field sub_rhythms sub_rhythm[]
@@ -912,7 +959,7 @@ df.occupation_type = {
   BONE_DOCTOR = 10,
 }
 
----@class occupation: df.struct
+---@class occupation: df.instance
 ---@field id integer
 ---@field type occupation_type
 ---@field histfig_id historical_figure

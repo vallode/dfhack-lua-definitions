@@ -65,7 +65,7 @@ df.local_population = {}
 ---@field unk_20 integer
 df.world_population = {}
 
----@class world_landmass: df.struct
+---@class world_landmass: df.instance
 ---@field name language_name
 ---@field index integer
 ---@field area integer
@@ -91,7 +91,7 @@ df.world_region_type = {
   Hills = 9, --Steppe and Hills share the same set of biomes, differing only in Drainage
 }
 
----@class world_region: df.struct
+---@class world_region: df.instance
 ---@field name language_name
 ---@field index integer
 ---@field type world_region_type
@@ -127,7 +127,7 @@ df.world_region_type = {
 ---@field max_y integer
 df.world_region = {}
 
----@class world_underground_region: df.struct
+---@class world_underground_region: df.instance
 ---@field type world_underground_region_type
 ---@field name language_name
 ---@field index integer
@@ -195,7 +195,7 @@ df.geo_layer_type.attrs = {}
 ---@field bottom_height integer
 df.world_geo_layer = {}
 
----@class world_geo_biome: df.struct
+---@class world_geo_biome: df.instance
 ---@field unk1 integer
 ---@field index integer
 ---@field layers world_geo_layer[]
@@ -372,7 +372,7 @@ df.entity_claim_mask = {}
 ---@field beast_id integer for FB
 df.moving_party = {}
 
----@class world_object_data: df.struct
+---@class world_object_data: df.instance
 ---@field id integer World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
 ---@field altered_items integer[] world_data_subid
 ---@field offloaded_items item[]
@@ -415,7 +415,7 @@ df.mountain_peak_flags = {
   is_volcano = 0,
 }
 
----@class world_mountain_peak: df.struct
+---@class world_mountain_peak: df.instance
 ---@field name language_name
 ---@field pos coord2d
 ---@field flags any
@@ -551,7 +551,7 @@ df.world_data.T_constructions = {}
 ---@field unk_8 integer
 df.world_data.T_unk_482f8 = {}
 
----@class breed: df.struct
+---@class breed: df.instance
 ---@field id integer
 ---@field unk_4 integer
 ---@field unk_8 integer[]
@@ -559,7 +559,7 @@ df.world_data.T_unk_482f8 = {}
 ---@field unk_28 integer[]
 df.breed = {}
 
----@class battlefield: df.struct
+---@class battlefield: df.instance
 ---@field id integer
 ---@field sapient_deaths integer[] Seems to be by squad. Trolls/Blizzard Men not counted
 ---@field hfs_killed integer[] some victims are not listed, for some reason, and culled HFs can be present
@@ -579,7 +579,7 @@ df.region_weather_type = {
   FallingMaterial = 3, --a.k.a. rain, both blood and syndrome, but not regular
 }
 
----@class region_weather: df.struct
+---@class region_weather: df.instance
 ---only evil weather, not the regular kind
 ---@field id integer
 ---@field type region_weather_type Creeping Gas/Vapor/Dust='cloud' below, FallingMaterial='rain'

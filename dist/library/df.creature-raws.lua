@@ -895,7 +895,7 @@ df.creature_raw_graphics = {}
 ---@field word_type part_of_speech 0 singular, 1 plural
 df.tissue_style_raw = {}
 
----@class creature_raw: df.struct
+---@class creature_raw: df.instance
 ---@field creature_id string
 ---@field name string[]
 ---@field general_baby_name string[]
@@ -964,7 +964,7 @@ df.creature_raw.T_hive_product = {}
 ---@field unk_v40_2 string
 df.creature_variation_convert_tag = {}
 
----@class creature_variation: df.struct
+---@class creature_variation: df.instance
 ---@field id string
 ---@field cv_convert_tag creature_variation_convert_tag[]
 ---@field cv_new_tag string[]
@@ -1033,7 +1033,7 @@ df.body_part_template_contype = {
 ---@field name_plural string[]
 df.body_part_template = {}
 
----@class body_template: df.struct
+---@class body_template: df.instance
 ---@field id string
 ---@field parts body_part_template[]
 df.body_template = {}
@@ -1064,7 +1064,7 @@ df.tissue_flags = {
   SPLINTABLE = 21,
 }
 
----@class tissue_template: df.struct
+---@class tissue_template: df.instance
 ---@field id string
 ---@field flags any
 ---@field tissue_name_singular string
@@ -1111,7 +1111,7 @@ df.tissue_template = {}
 ---@field tissue_shape_str string
 df.tissue = {}
 
----@class body_detail_plan: df.struct
+---@class body_detail_plan: df.instance
 ---@field id string
 ---@field add_material_name string[]
 ---@field add_material_template string[]

@@ -30,7 +30,8 @@ df-structures `generate.rb`:
   - [ ] Fields
     - [x] Primitive fields
     - [x] `ref-target`
-    - [ ] ?
+    - [x] `<compound>`
+    - [ ] `<pointer>`
 - [ ] `<class-type>`
   - [ ] `<vmethod>`
   - [ ] ?

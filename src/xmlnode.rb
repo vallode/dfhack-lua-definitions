@@ -13,7 +13,7 @@ TYPE_MAP = {
   'stl-string' => 'string',
   'static-string' => 'string',
   'bool' => 'boolean',
-  'stl-function' => 'function'
+  'stl-function' => 'function',
 }
 
 class XmlNode
@@ -164,7 +164,7 @@ class StructType < XmlNode
 
     @name = node.attributes['type-name'] || node.attributes['name']
     @parent_type = parent_type
-    @inherits = node['inherits-from'] || 'df.struct'
+    @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.struct'
     @type = parent_type ? "#{parent_type}_#{@name}" : @name
   end
 

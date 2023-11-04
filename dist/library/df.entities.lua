@@ -343,7 +343,7 @@ df.artifact_claim = {}
 ---@field unk_v47_9 integer
 df.entity_unk_v47_1 = {}
 
----@class historical_entity: df.struct
+---@class historical_entity: df.instance
 ---@field type historical_entity_type
 ---@field id integer index in the array
 ---@field entity_raw entity_raw
@@ -1162,7 +1162,7 @@ df.data.T_artifact_not_in_inventory = {}
 ---@field unk_3 integer
 df.data.T_artifact_destroyed = {}
 
----@class agreement: df.struct
+---@class agreement: df.instance
 ---@field id integer
 ---@field parties agreement_party[]
 ---@field next_party_id integer

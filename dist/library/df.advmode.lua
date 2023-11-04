@@ -704,3 +704,163 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field unk_4 integer
 df.adventurest.T_assume_identity = {}
 
+---@class text_info_elementst: df.struct
+df.text_info_elementst = {}
+
+---@class text_info_element_longst: text_info_elementst
+---@field val integer
+df.text_info_element_longst = {}
+
+---@class text_info_element_stringst: text_info_elementst
+---@field val string
+df.text_info_element_stringst = {}
+
+---@class adventure_optionst: df.struct
+---for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
+df.adventure_optionst = {}
+
+---@class adventure_option_eat_unit_contaminantst: adventure_optionst
+---@field unit unit
+---@field spatter spatter
+df.adventure_option_eat_unit_contaminantst = {}
+
+---@class adventure_option_eat_item_contaminantst: adventure_optionst
+---@field unit unit
+---@field inv_item unit_inventory_item
+---@field spatter spatter
+df.adventure_option_eat_item_contaminantst = {}
+
+---@class adventure_option_view_contaminantst: adventure_optionst
+---@field unit unit
+---@field spatter spatter
+df.adventure_option_view_contaminantst = {}
+
+---@class adventure_environment_optionst: adventure_optionst
+---@field target_pos coord
+---@field player_pos coord
+df.adventure_environment_optionst = {}
+
+---@class adventure_environment_place_in_it_containerst: adventure_environment_optionst
+---@field container item
+df.adventure_environment_place_in_it_containerst = {}
+
+---@class adventure_environment_ingest_from_containerst: adventure_environment_optionst
+---@field container item
+---@field food item
+df.adventure_environment_ingest_from_containerst = {}
+
+---@class adventure_environment_pickup_ignite_vegst: adventure_environment_optionst
+---@field unk_1 integer
+df.adventure_environment_pickup_ignite_vegst = {}
+
+---@class adventure_environment_ingest_materialst: adventure_environment_optionst
+---@field mat_type integer
+---@field mat_index integer
+---@field mat_state matter_state
+df.adventure_environment_ingest_materialst = {}
+
+---@class adventure_environment_pickup_make_campfirest: adventure_environment_optionst
+df.adventure_environment_pickup_make_campfirest = {}
+
+---@class adventure_environment_place_in_bld_containerst: adventure_environment_optionst
+---@field building building
+df.adventure_environment_place_in_bld_containerst = {}
+
+---@class adventure_environment_pickup_vermin_eventst: adventure_environment_optionst
+---@field vermin_idx integer
+df.adventure_environment_pickup_vermin_eventst = {}
+
+---@class adventure_environment_pickup_chop_treest: adventure_environment_optionst
+df.adventure_environment_pickup_chop_treest = {}
+
+---@class adventure_environment_unit_suck_bloodst: adventure_environment_optionst
+---@field unit_id unit
+df.adventure_environment_unit_suck_bloodst = {}
+
+---@class adventure_movement_optionst: df.struct
+---@field dest coord
+---@field source coord
+df.adventure_movement_optionst = {}
+
+---@class adventure_movement_release_hold_itemst: adventure_movement_optionst
+df.adventure_movement_release_hold_itemst = {}
+
+---@class adventure_movement_release_hold_tilest: adventure_movement_optionst
+df.adventure_movement_release_hold_tilest = {}
+
+---@class adventure_movement_attack_creaturest: adventure_movement_optionst
+---@field targets integer[]
+df.adventure_movement_attack_creaturest = {}
+
+---@class adventure_movement_hold_tilest: adventure_movement_optionst
+---@field grab coord
+df.adventure_movement_hold_tilest = {}
+
+---@class adventure_movement_movest: adventure_movement_optionst
+---@field unit_path_flags integer
+---@field unk_bitfield integer
+df.adventure_movement_movest = {}
+
+---@class adventure_movement_climbst: adventure_movement_optionst
+---@field grab coord
+df.adventure_movement_climbst = {}
+
+---@class adventure_movement_hold_itemst: adventure_movement_optionst
+---@field item_id item
+df.adventure_movement_hold_itemst = {}
+
+---@class adventure_movement_building_interactst: adventure_movement_optionst
+---@field building_id building
+df.adventure_movement_building_interactst = {}
+
+---@class adventure_movement_item_interactst: adventure_movement_optionst
+---@field item_id item
+df.adventure_movement_item_interactst = {}
+
+---@class adventure_movement_item_interact_guidest: adventure_movement_item_interactst
+df.adventure_movement_item_interact_guidest = {}
+
+---@class adventure_movement_item_interact_ridest: adventure_movement_item_interactst
+df.adventure_movement_item_interact_ridest = {}
+
+---@class adventure_movement_item_interact_pushst: adventure_movement_item_interactst
+df.adventure_movement_item_interact_pushst = {}
+
+---@class adventure_item_interact_choicest: df.struct
+df.adventure_item_interact_choicest = {}
+
+---@class adventure_item_interact_pull_outst: adventure_item_interact_choicest
+df.adventure_item_interact_pull_outst = {}
+
+---@class adventure_item_interact_heat_from_tilest: adventure_item_interact_choicest
+---@field item item
+---@field unk_1 coord
+---@field unk_2 coord
+df.adventure_item_interact_heat_from_tilest = {}
+
+---@class adventure_item_interact_fill_from_containerst: adventure_item_interact_choicest
+---@field unk_1 item
+---@field unk_2 item
+---@field unk_3 coord
+---@field unk_4 coord
+df.adventure_item_interact_fill_from_containerst = {}
+
+---@class adventure_item_interact_readst: adventure_item_interact_choicest
+df.adventure_item_interact_readst = {}
+
+---@class adventure_item_interact_fill_with_materialst: adventure_item_interact_choicest
+---@field unk_1 item
+---@field unk_2 coord
+---@field unk_3 coord
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+df.adventure_item_interact_fill_with_materialst = {}
+
+---@class adventure_item_interact_strugglest: adventure_item_interact_choicest
+df.adventure_item_interact_strugglest = {}
+
+---@class adventure_item_interact_give_namest: adventure_item_interact_choicest
+---@field item item
+df.adventure_item_interact_give_namest = {}
+

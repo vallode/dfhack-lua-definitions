@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class burrow: df.struct
+---@class burrow: df.instance
 ---@field id integer
 ---@field name string
 ---@field tile integer

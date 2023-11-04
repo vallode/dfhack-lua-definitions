@@ -426,7 +426,7 @@ df.mandate.T_mode = {
 ---@field give_beating integer
 df.mandate.T_punishment = {}
 
----@class training_assignment: df.struct
+---@class training_assignment: df.instance
 ---@field animal_id unit
 ---@field trainer_id unit
 ---@field flags any

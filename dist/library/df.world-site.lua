@@ -104,6 +104,33 @@ df.abstract_building_entombed = {}
 ---@field building_ids integer[]
 df.abstract_building_contents = {}
 
+---@class abstract_building: df.struct
+---@field id integer
+---@field inhabitants integer[]
+---@field flags any
+---@field unk1 integer[] in temples; hfig is the god
+---@field unk2 integer[]
+---@field parent_building_id abstract_building Tombs use this to hold which catacomb they are part of.
+---@field child_building_ids integer[] Used by catacombs to hold their tombs
+---@field site_owner_id historical_entity entity that constructed the building
+---@field scribeinfo location_scribe_jobs
+---@field reputation_reports site_reputation_info
+---@field unk_v42_3 integer[]
+---@field site_id world_site not initialized/saved/loaded, assumed member of base class
+---@field pos coord2d
+---@field occupations occupation[]
+df.abstract_building = {}
+
+---@class abstract_building_mead_hallst: abstract_building
+---@field name language_name
+---@field item1 site_building_item
+---@field item2 site_building_item
+df.abstract_building_mead_hallst = {}
+
+---@class abstract_building_keepst: abstract_building
+---@field name language_name
+df.abstract_building_keepst = {}
+
 ---@enum temple_deity_type
 df.temple_deity_type = {
   None = -1,
@@ -115,6 +142,85 @@ df.temple_deity_type = {
 ---@field Deity historical_figure
 ---@field Religion historical_entity
 df.temple_deity_data = {}
+
+---@class abstract_building_templest: abstract_building
+---@field deity_type temple_deity_type
+---@field deity_data temple_deity_data
+---@field name language_name
+---@field contents abstract_building_contents
+df.abstract_building_templest = {}
+
+---@class abstract_building_dark_towerst: abstract_building
+---@field name language_name
+df.abstract_building_dark_towerst = {}
+
+---@class abstract_building_marketst: abstract_building
+---@field name language_name
+df.abstract_building_marketst = {}
+
+---@class abstract_building_tombst: abstract_building
+---@field name language_name
+---@field entombed abstract_building_entombed
+---@field precedence integer
+df.abstract_building_tombst = {}
+
+---@class abstract_building_dungeonst: abstract_building
+---@field name language_name
+---@field dungeon_type abstract_building_dungeonst_dungeon_type
+---@field unk_1 integer
+---@field entombed abstract_building_entombed
+---@field unk_2 integer
+---@field unk_3 integer not saved
+---@field unk_4 integer not saved
+df.abstract_building_dungeonst = {}
+
+---@enum abstract_building_dungeonst_dungeon_type
+df.abstract_building_dungeonst.T_dungeon_type = {
+  DUNGEON = 0,
+  SEWERS = 1,
+  CATACOMBS = 2,
+}
+
+---@class abstract_building_underworld_spirest: abstract_building
+---@field name language_name
+---@field unk_bc integer
+df.abstract_building_underworld_spirest = {}
+
+---@class abstract_building_inn_tavernst: abstract_building
+---@field name language_name
+---@field contents abstract_building_contents
+---@field room_info integer[]
+---@field next_room_info_id integer
+df.abstract_building_inn_tavernst = {}
+
+---@class abstract_building_libraryst: abstract_building
+---@field name language_name
+---@field copied_artifacts integer[]
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field contents abstract_building_contents
+df.abstract_building_libraryst = {}
+
+---@class abstract_building_counting_housest: abstract_building
+---@field name language_name
+df.abstract_building_counting_housest = {}
+
+---@class abstract_building_guildhallst: abstract_building
+---@field name language_name
+---@field contents abstract_building_contents
+df.abstract_building_guildhallst = {}
+
+---@class abstract_building_towerst: abstract_building
+---@field name language_name
+---@field unk_1 integer
+df.abstract_building_towerst = {}
+
+---@class abstract_building_hospitalst: abstract_building
+---@field name language_name
+---@field contents abstract_building_contents
+df.abstract_building_hospitalst = {}
 
 ---@enum world_site_type
 df.world_site_type = {
@@ -183,7 +289,7 @@ df.lair_type = {
 ---@field unk_owner_entity_id historical_entity Seen only in subset of owner_entity_id case, and always same value
 df.property_ownership = {}
 
----@class world_site: df.struct
+---@class world_site: df.instance
 ---@field name language_name
 ---@field civ_id historical_entity
 ---@field cur_owner_id historical_entity
@@ -293,7 +399,7 @@ df.world_site = {}
 ---@field unk_v40_1h nemesis_record[]
 df.world_site.T_unk_1 = {}
 
----@class cultural_identity: df.struct
+---@class cultural_identity: df.instance
 ---@field id integer
 ---@field site_id world_site
 ---@field civ_id historical_entity
@@ -475,6 +581,9 @@ df.site_realization_building_type = {
 ---@field unk_v40_1 integer
 df.site_realization_building = {}
 
+---@class site_realization_building_infost: df.struct
+df.site_realization_building_infost = {}
+
 ---@class site_building_item: df.struct
 ---@field race creature_raw
 ---@field item_type item_type
@@ -491,6 +600,36 @@ df.tower_shape = {
   goblin = 3, --ignore set heights and generate automatically
   unk10 = 4, --set on goblin towers. doesnt seem to do anything
 }
+
+---@class site_realization_building_info_castle_wallst: site_realization_building_infost
+---@field length integer
+---@field door_pos integer
+---@field start_x integer
+---@field start_y integer
+---@field start_z integer
+---@field end_x integer
+---@field end_y integer
+---@field end_z integer
+---@field wall_item site_building_item
+---@field door_item site_building_item
+df.site_realization_building_info_castle_wallst = {}
+
+---@class site_realization_building_info_castle_towerst: site_realization_building_infost
+---@field roof_z integer
+---@field base_z integer can be below ground, but not above ground
+---@field door_n_elevation integer
+---@field door_s_elevation integer
+---@field door_e_elevation integer
+---@field door_w_elevation integer
+---@field door_item site_building_item
+---@field wall_item site_building_item
+---@field shape tower_shape
+---@field unk_40 integer
+---@field unk_44 integer
+df.site_realization_building_info_castle_towerst = {}
+
+---@class site_realization_building_info_castle_courtyardst: site_realization_building_infost
+df.site_realization_building_info_castle_courtyardst = {}
 
 ---@enum site_shop_type
 df.site_shop_type = {
@@ -542,6 +681,20 @@ df.town_labor_type = {
   FURNITURE_METAL = 15,
 }
 
+---@class site_realization_building_info_shop_housest: site_realization_building_infost
+---@field type site_shop_type
+---@field name language_name
+df.site_realization_building_info_shop_housest = {}
+
+---@class site_realization_building_info_market_squarest: site_realization_building_infost
+---@field type site_shop_type
+df.site_realization_building_info_market_squarest = {}
+
+---@class site_realization_building_info_trenchesst: site_realization_building_infost
+---@field unk_4 integer
+---@field spokes integer[] N, S, E, W
+df.site_realization_building_info_trenchesst = {}
+
 ---@enum tree_house_type
 df.tree_house_type = {
   TreeHouse = 0,
@@ -552,6 +705,12 @@ df.tree_house_type = {
   Unknown2 = 5,
 }
 
+---@class site_realization_building_info_tree_housest: site_realization_building_infost
+---@field type tree_house_type
+---@field unk_8 integer
+---@field name language_name
+df.site_realization_building_info_tree_housest = {}
+
 ---@enum hillock_house_type
 df.hillock_house_type = {
   unk_0 = 0,
@@ -560,6 +719,15 @@ df.hillock_house_type = {
   DrinkingMound = 3,
 }
 
+---@class site_realization_building_info_hillock_housest: site_realization_building_infost
+---@field type hillock_house_type
+df.site_realization_building_info_hillock_housest = {}
+
+---@class site_realization_building_info_shrinest: site_realization_building_infost
+---@field unk_1 integer
+---@field unk_2 integer
+df.site_realization_building_info_shrinest = {}
+
 ---@enum creation_zone_pwg_alteration_type
 df.creation_zone_pwg_alteration_type = {
   location_death = 0,
@@ -567,4 +735,42 @@ df.creation_zone_pwg_alteration_type = {
   srb_ruined = 2,
   srp_ruined = 3,
 }
+
+---@class creation_zone_pwg_alterationst: df.struct
+---@field unk_0 integer
+df.creation_zone_pwg_alterationst = {}
+
+---@class creation_zone_pwg_alteration_location_deathst: creation_zone_pwg_alterationst
+---@field unk_1 creation_zone_pwg_alteration_location_deathst_unk_1
+---@field unk_2 integer
+df.creation_zone_pwg_alteration_location_deathst = {}
+
+---@class creation_zone_pwg_alteration_location_deathst_unk_1: df.struct
+---@field unk_1a integer[]
+---@field unk_2a integer[]
+df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
+
+---@class creation_zone_pwg_alteration_campst: creation_zone_pwg_alterationst
+---@field unk_1 integer
+---@field x1 integer
+---@field y1 integer
+---@field x2 integer
+---@field y2 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+df.creation_zone_pwg_alteration_campst = {}
+
+---@class creation_zone_pwg_alteration_srb_ruinedst: creation_zone_pwg_alterationst
+---@field site_id world_site
+---@field building_id site_realization_building
+df.creation_zone_pwg_alteration_srb_ruinedst = {}
+
+---@class creation_zone_pwg_alteration_srp_ruinedst: creation_zone_pwg_alterationst
+---@field unk_1 integer
+---@field unk_2 integer
+df.creation_zone_pwg_alteration_srp_ruinedst = {}
 

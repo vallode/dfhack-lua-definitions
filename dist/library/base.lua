@@ -16,7 +16,9 @@
 ---@field sizeof fun(object: any): integer
 ---@field new fun(): table
 ---@field is_instance fun(object: any): boolean|nil
----@field find fun(key: any): any
+
+---@class df.instance: df.struct
+---@field find fun(key: integer): any Binary search by specified `key` of all instances of the structure.
 
 ---@param object table|userdata
 ---@return integer

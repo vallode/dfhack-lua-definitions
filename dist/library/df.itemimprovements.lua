@@ -28,11 +28,85 @@ df.improvement_type = {
 ---@field unk_1 integer
 df.dye_info = {}
 
+---@class itemimprovement: df.struct
+---@field mat_type material
+---@field mat_index integer
+---@field maker historical_figure
+---@field masterpiece_event history_event
+---@field quality item_quality
+---@field skill_rating skill_rating at the moment of creation
+---@field unk_1 integer
+df.itemimprovement = {}
+
+---@class itemimprovement_art_imagest: itemimprovement
+---@field image art_image_ref
+df.itemimprovement_art_imagest = {}
+
+---@class itemimprovement_coveredst: itemimprovement
+---@field cover_flags any
+---@field shape descriptor_shape
+df.itemimprovement_coveredst = {}
+
+---@class itemimprovement_rings_hangingst: itemimprovement
+df.itemimprovement_rings_hangingst = {}
+
+---@class itemimprovement_bandsst: itemimprovement
+---@field shape descriptor_shape
+df.itemimprovement_bandsst = {}
+
+---@class itemimprovement_spikesst: itemimprovement
+df.itemimprovement_spikesst = {}
+
 ---@enum itemimprovement_specific_type
 df.itemimprovement_specific_type = {
   HANDLE = 0,
   ROLLERS = 1,
 }
+
+---@class itemimprovement_itemspecificst: itemimprovement
+---@field type itemimprovement_specific_type
+df.itemimprovement_itemspecificst = {}
+
+---@class itemimprovement_threadst: itemimprovement
+---@field dye dye_info
+df.itemimprovement_threadst = {}
+
+---@class itemimprovement_clothst: itemimprovement
+df.itemimprovement_clothst = {}
+
+---@class itemimprovement_sewn_imagest: itemimprovement
+---@field image art_image_ref
+---@field cloth itemimprovement_sewn_imagest_cloth
+---@field dye dye_info
+df.itemimprovement_sewn_imagest = {}
+
+---@class itemimprovement_sewn_imagest_cloth: df.struct
+---@field unit_id historical_figure
+---@field quality integer
+---@field unk_1 integer
+df.itemimprovement_sewn_imagest.T_cloth = {}
+
+---@class itemimprovement_pagesst: itemimprovement
+---@field count integer
+---@field contents integer[]
+df.itemimprovement_pagesst = {}
+
+---@class itemimprovement_illustrationst: itemimprovement
+---@field image art_image_ref
+---@field unk_2 integer
+df.itemimprovement_illustrationst = {}
+
+---@class itemimprovement_instrument_piecest: itemimprovement
+---@field type string instrument_piece.type
+df.itemimprovement_instrument_piecest = {}
+
+---@class itemimprovement_writingst: itemimprovement
+---@field contents integer[]
+df.itemimprovement_writingst = {}
+
+---@class itemimprovement_image_setst: itemimprovement
+---@field image_set_id image_set
+df.itemimprovement_image_setst = {}
 
 ---@enum written_content_type
 df.written_content_type = {
@@ -86,7 +160,7 @@ df.written_content_style = {
   Ranting = 17,
 }
 
----@class written_content: df.struct
+---@class written_content: df.instance
 ---@field id integer
 ---@field title string
 ---@field page_start integer
@@ -117,7 +191,7 @@ df.engraving_flags = {
   southeast = 9,
 }
 
----@class engraving: df.struct
+---@class engraving: df.instance
 ---@field artist historical_figure
 ---@field masterpiece_event history_event
 ---@field skill_rating skill_rating at the moment of creation

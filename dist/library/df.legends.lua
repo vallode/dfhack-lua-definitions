@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class invasion_info: df.struct
+---@class invasion_info: df.instance
 ---@field id integer
 ---@field civ_id historical_entity
 ---@field active_size1 integer 0 unless active
@@ -23,7 +23,7 @@ df.invasion_info = {}
 ---@field unk_3 integer[]
 df.entity_population_unk4 = {}
 
----@class entity_population: df.struct
+---@class entity_population: df.instance
 ---@field name language_name
 ---@field races creature_raw[] all the 3 vectors are always the same length, and thus coupled
 ---@field counts integer[]
@@ -51,7 +51,7 @@ df.nemesis_flags = {
   DEMIGOD = 10, --Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
 }
 
----@class nemesis_record: df.struct
+---@class nemesis_record: df.instance
 ---@field id integer sequential index in the array
 ---@field unit_id unit
 ---@field save_file_id unit_chunk unit-*.dat
@@ -68,7 +68,7 @@ df.nemesis_flags = {
 ---@field flags any
 df.nemesis_record = {}
 
----@class artifact_record: df.struct
+---@class artifact_record: df.instance
 ---@field id integer
 ---@field name language_name
 ---@field flags any

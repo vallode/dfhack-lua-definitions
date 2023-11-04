@@ -93,7 +93,7 @@ df.plant_raw_flags = {
   TWIGS_BELOW_TRUNK = 87,
 }
 
----@class plant_raw: df.struct
+---@class plant_raw: df.instance
 ---@field id string
 ---@field index integer
 ---@field raws string[]

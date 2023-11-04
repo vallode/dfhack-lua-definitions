@@ -103,7 +103,7 @@ df.squad_schedule_order = {}
 ---@field order_assignments any[]
 df.squad_schedule_entry = {}
 
----@class squad: df.struct
+---@class squad: df.instance
 ---@field id integer
 ---@field name language_name
 ---@field alias string if not empty, used instead of name
@@ -184,7 +184,75 @@ df.squad_order_cannot_reason = {
   cannot_leave_site = 20,
 }
 
----@class army_controller: df.struct
+---@class squad_order: df.struct
+---@field unk_v40_1 integer
+---@field unk_v40_2 integer
+---@field year integer
+---@field year_tick integer
+---@field unk_v40_3 integer
+---@field unk_1 integer
+df.squad_order = {}
+
+---@class squad_order_movest: squad_order
+---@field pos coord
+---@field point_id integer
+df.squad_order_movest = {}
+
+---@class squad_order_kill_listst: squad_order
+---@field units unit[]
+---@field histfigs historical_figure[]
+---@field title string
+df.squad_order_kill_listst = {}
+
+---@class squad_order_defend_burrowsst: squad_order
+---@field burrows integer[]
+df.squad_order_defend_burrowsst = {}
+
+---@class squad_order_patrol_routest: squad_order
+---@field route_id integer
+df.squad_order_patrol_routest = {}
+
+---@class squad_order_trainst: squad_order
+df.squad_order_trainst = {}
+
+---@class squad_order_drive_entity_off_sitest: squad_order
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 string
+df.squad_order_drive_entity_off_sitest = {}
+
+---@class squad_order_cause_trouble_for_entityst: squad_order
+---@field entity_id historical_entity
+---@field override_name string
+df.squad_order_cause_trouble_for_entityst = {}
+
+---@class squad_order_kill_hfst: squad_order
+---@field histfig_id historical_figure
+---@field title string
+df.squad_order_kill_hfst = {}
+
+---@class squad_order_drive_armies_from_sitest: squad_order
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 string
+df.squad_order_drive_armies_from_sitest = {}
+
+---@class squad_order_retrieve_artifactst: squad_order
+---@field artifact_id artifact_record
+---@field unk_2 coord
+df.squad_order_retrieve_artifactst = {}
+
+---@class squad_order_raid_sitest: squad_order
+---@field unk_2 integer
+---@field unk_3 coord
+df.squad_order_raid_sitest = {}
+
+---@class squad_order_rescue_hfst: squad_order
+---@field unk_2 integer
+---@field unk_3 coord
+df.squad_order_rescue_hfst = {}
+
+---@class army_controller: df.instance
 ---@field id integer all army.controllers seen and reached via InvasionOrder controllers' armies have been of type = Invasion and absent from the 'all' vector
 ---@field entity_id historical_entity
 ---@field site_id world_site Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'
@@ -430,7 +498,7 @@ df.army_flags = {
   player = 0,
 }
 
----@class army: df.struct
+---@class army: df.instance
 ---@field id integer
 ---@field pos coord
 ---@field last_pos coord

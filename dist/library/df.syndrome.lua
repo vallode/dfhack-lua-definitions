@@ -126,6 +126,311 @@ df.creature_interaction_effect_target_mode = {
 ---@field tissue string[]
 df.creature_interaction_effect_target = {}
 
+---@class creature_interaction_effect: df.instance
+---@field flags creature_interaction_effect_flags
+---@field prob integer
+---@field start integer
+---@field peak integer
+---@field end integer
+---@field dwf_stretch integer
+---@field syn_id syndrome
+---@field id integer
+---@field syn_index integer index in syndrome
+---@field moon_phase_min integer
+---@field moon_phase_max integer
+---@field counter_trigger creature_interaction_effect_counter_trigger
+df.creature_interaction_effect = {}
+
+---@class creature_interaction_effect_counter_trigger: df.struct
+---@field counter misc_trait_type[]
+---@field minval integer[] ?
+---@field maxval integer[] ?
+---@field required integer[]
+df.creature_interaction_effect.T_counter_trigger = {}
+
+---@class creature_interaction_effect_painst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_painst = {}
+
+---@class creature_interaction_effect_swellingst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_swellingst = {}
+
+---@class creature_interaction_effect_oozingst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_oozingst = {}
+
+---@class creature_interaction_effect_bruisingst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_bruisingst = {}
+
+---@class creature_interaction_effect_blistersst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_blistersst = {}
+
+---@class creature_interaction_effect_numbnessst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_numbnessst = {}
+
+---@class creature_interaction_effect_paralysisst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_paralysisst = {}
+
+---@class creature_interaction_effect_feverst: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_feverst = {}
+
+---@class creature_interaction_effect_bleedingst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_bleedingst = {}
+
+---@class creature_interaction_effect_cough_bloodst: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_cough_bloodst = {}
+
+---@class creature_interaction_effect_vomit_bloodst: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_vomit_bloodst = {}
+
+---@class creature_interaction_effect_nauseast: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_nauseast = {}
+
+---@class creature_interaction_effect_unconsciousnessst: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_unconsciousnessst = {}
+
+---@class creature_interaction_effect_necrosisst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_necrosisst = {}
+
+---@class creature_interaction_effect_impair_functionst: creature_interaction_effect
+---@field sev integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_impair_functionst = {}
+
+---@class creature_interaction_effect_drowsinessst: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_drowsinessst = {}
+
+---@class creature_interaction_effect_dizzinessst: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_dizzinessst = {}
+
+---@class creature_interaction_effect_display_namest: creature_interaction_effect
+---@field name string
+---@field name_plural string
+---@field name_adj string
+---@field unk_1 integer
+df.creature_interaction_effect_display_namest = {}
+
+---@class creature_interaction_effect_body_appearance_modifierst: creature_interaction_effect
+---@field unk_60 integer
+---@field unk_64 integer
+df.creature_interaction_effect_body_appearance_modifierst = {}
+
+---@class creature_interaction_effect_bp_appearance_modifierst: creature_interaction_effect
+---@field unk_6c integer
+---@field value integer
+---@field target creature_interaction_effect_target
+df.creature_interaction_effect_bp_appearance_modifierst = {}
+
+---@class creature_interaction_effect_body_transformationst: creature_interaction_effect
+---@field chance integer %
+---@field race_str string
+---@field caste_str string
+---@field race integer[]
+---@field caste integer[]
+---@field required_creature_flags integer[] contains indexes of flags in creature_raw_flags
+---@field forbidden_creature_flags integer[] contains indexes of flags in creature_raw_flags
+---@field required_caste_flags integer[] contains indexes of flags in caste_raw_flags
+---@field forbidden_caste_flags integer[] contains indexes of flags in caste_raw_flags
+---@field unk_1 integer
+---@field unk_2 integer
+df.creature_interaction_effect_body_transformationst = {}
+
+---@class creature_interaction_effect_skill_roll_adjustst: creature_interaction_effect
+---@field multiplier integer % change for skill
+---@field chance integer % probability per roll
+df.creature_interaction_effect_skill_roll_adjustst = {}
+
+---@class creature_interaction_effect_display_symbolst: creature_interaction_effect
+---@field tile integer
+---@field color integer
+df.creature_interaction_effect_display_symbolst = {}
+
+---@class creature_interaction_effect_flash_symbolst: creature_interaction_effect
+---@field sym_color integer[]
+---@field period integer
+---@field time integer
+---@field unk_78 integer
+df.creature_interaction_effect_flash_symbolst = {}
+
+---@class creature_interaction_effect_phys_att_changest: creature_interaction_effect
+---@field phys_att_perc integer[]
+---@field phys_att_add integer[]
+df.creature_interaction_effect_phys_att_changest = {}
+
+---@class creature_interaction_effect_ment_att_changest: creature_interaction_effect
+---@field ment_att_perc integer[]
+---@field ment_att_add integer[]
+df.creature_interaction_effect_ment_att_changest = {}
+
+---@class creature_interaction_effect_add_simple_flagst: creature_interaction_effect
+---@field tags1 cie_add_tag_mask1
+---@field tags2 cie_add_tag_mask2
+df.creature_interaction_effect_add_simple_flagst = {}
+
+---@class creature_interaction_effect_remove_simple_flagst: creature_interaction_effect
+---@field tags1 cie_add_tag_mask1
+---@field tags2 cie_add_tag_mask2
+df.creature_interaction_effect_remove_simple_flagst = {}
+
+---@class creature_interaction_effect_speed_changest: creature_interaction_effect
+---@field bonus_add integer
+---@field bonus_perc integer
+df.creature_interaction_effect_speed_changest = {}
+
+---@class creature_interaction_effect_body_mat_interactionst: creature_interaction_effect
+---@field interaction_name string
+---@field interaction_id interaction
+---@field unk_8c integer
+---@field unk_90 integer
+---@field unk_94 string
+df.creature_interaction_effect_body_mat_interactionst = {}
+
+---@class creature_interaction_effect_material_force_adjustst: creature_interaction_effect
+---@field unk_6c string
+---@field unk_88 string
+---@field unk_a4 string
+---@field mat_type material
+---@field mat_index integer
+---@field fraction_mul integer
+---@field fraction_div integer
+df.creature_interaction_effect_material_force_adjustst = {}
+
+---@class creature_interaction_effect_can_do_interactionst: creature_interaction_effect
+---@field interaction creature_interaction
+df.creature_interaction_effect_can_do_interactionst = {}
+
+---@class creature_interaction_effect_sense_creature_classst: creature_interaction_effect
+---@field class_name string
+---@field tile integer
+---@field color_foreground integer
+---@field color_background integer
+---@field foreground_brightness integer
+df.creature_interaction_effect_sense_creature_classst = {}
+
+---@class creature_interaction_effect_feel_emotionst: creature_interaction_effect
+---@field emotion emotion_type
+---@field sev integer
+df.creature_interaction_effect_feel_emotionst = {}
+
+---@class creature_interaction_effect_change_personalityst: creature_interaction_effect
+---@field facets integer[]
+df.creature_interaction_effect_change_personalityst = {}
+
+---@class creature_interaction_effect_erratic_behaviorst: creature_interaction_effect
+---@field sev integer
+df.creature_interaction_effect_erratic_behaviorst = {}
+
+---@class creature_interaction_effect_close_open_woundsst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_close_open_woundsst = {}
+
+---@class creature_interaction_effect_cure_infectionsst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_cure_infectionsst = {}
+
+---@class creature_interaction_effect_heal_nervesst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_heal_nervesst = {}
+
+---@class creature_interaction_effect_heal_tissuesst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_heal_tissuesst = {}
+
+---@class creature_interaction_effect_reduce_dizzinessst: creature_interaction_effect
+---@field unk_1 integer
+df.creature_interaction_effect_reduce_dizzinessst = {}
+
+---@class creature_interaction_effect_reduce_feverst: creature_interaction_effect
+---@field unk_1 integer
+df.creature_interaction_effect_reduce_feverst = {}
+
+---@class creature_interaction_effect_reduce_nauseast: creature_interaction_effect
+---@field unk_1 integer
+df.creature_interaction_effect_reduce_nauseast = {}
+
+---@class creature_interaction_effect_reduce_painst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_reduce_painst = {}
+
+---@class creature_interaction_effect_reduce_paralysisst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_reduce_paralysisst = {}
+
+---@class creature_interaction_effect_reduce_swellingst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_reduce_swellingst = {}
+
+---@class creature_interaction_effect_regrow_partsst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_regrow_partsst = {}
+
+---@class creature_interaction_effect_special_attack_interactionst: creature_interaction_effect
+---@field unk_1 integer[]
+---@field unk_2 string[]
+---@field unk_3 string
+df.creature_interaction_effect_special_attack_interactionst = {}
+
+---@class creature_interaction_effect_stop_bleedingst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_stop_bleedingst = {}
+
+---@class creature_interaction_effect_cure_infectionst: creature_interaction_effect
+---@field unk_1 integer
+---@field unk_2 any[]
+---@field unk_3 any[]
+---@field unk_4 any[]
+df.creature_interaction_effect_cure_infectionst = {}
+
 ---@enum syndrome_flags
 df.syndrome_flags = {
   SYN_INJECTED = 0,
@@ -136,7 +441,7 @@ df.syndrome_flags = {
   SYN_NO_HOSPITAL = 5,
 }
 
----@class syndrome: df.struct
+---@class syndrome: df.instance
 ---@field syn_name string
 ---@field ce creature_interaction_effect[]
 ---@field syn_affected_class string[]

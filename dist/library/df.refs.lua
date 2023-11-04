@@ -75,6 +75,274 @@ df.general_ref_type = {
   UNIT_INTERROGATEE = 69,
 }
 
+---@class general_ref: df.struct
+df.general_ref = {}
+
+---@class general_ref_artifact: general_ref
+---@field artifact_id artifact_record
+df.general_ref_artifact = {}
+
+---@class general_ref_nemesis: general_ref
+---@field nemesis_id nemesis_record
+df.general_ref_nemesis = {}
+
+---@class general_ref_item: general_ref
+---@field item_id item
+---@field cached_index integer lookup optimization, tries before binary search
+df.general_ref_item = {}
+
+---@class general_ref_item_type: general_ref
+---@field type item_type
+---@field subtype integer
+---@field mat_type material
+---@field mat_index integer
+df.general_ref_item_type = {}
+
+---@class general_ref_coinbatch: general_ref
+---@field batch integer
+df.general_ref_coinbatch = {}
+
+---@class general_ref_mapsquare: general_ref
+---@field tiletype tiletype
+---@field mat_type material
+---@field mat_index integer
+df.general_ref_mapsquare = {}
+
+---@class general_ref_entity_art_image: general_ref
+---@field entity_id historical_entity
+---@field index integer lookup in entity.resources.art_image_*
+df.general_ref_entity_art_image = {}
+
+---@class general_ref_projectile: general_ref
+---@field projectile_id projectile
+df.general_ref_projectile = {}
+
+---@class general_ref_unit: general_ref
+---@field unit_id unit
+---@field cached_index integer lookup optimization, tries before binary search
+df.general_ref_unit = {}
+
+---@class general_ref_building: general_ref
+---@field building_id building
+df.general_ref_building = {}
+
+---@class general_ref_entity: general_ref
+---@field entity_id historical_entity
+df.general_ref_entity = {}
+
+---@class general_ref_locationst: general_ref
+---@field x integer
+---@field y integer
+---@field z integer
+df.general_ref_locationst = {}
+
+---@class general_ref_interactionst: general_ref
+---@field interaction_id interaction
+---@field source_id interaction_source
+---@field unk_08 integer
+---@field unk_0c integer
+df.general_ref_interactionst = {}
+
+---@class general_ref_abstract_buildingst: general_ref
+---@field site_id world_site
+---@field building_id abstract_building
+df.general_ref_abstract_buildingst = {}
+
+---@class general_ref_historical_eventst: general_ref
+---@field event_id history_event
+df.general_ref_historical_eventst = {}
+
+---@class general_ref_spherest: general_ref
+---@field sphere_type sphere_type
+df.general_ref_spherest = {}
+
+---@class general_ref_sitest: general_ref
+---@field site_id world_site
+df.general_ref_sitest = {}
+
+---@class general_ref_subregionst: general_ref
+---@field region_id world_region
+df.general_ref_subregionst = {}
+
+---@class general_ref_feature_layerst: general_ref
+---@field underground_region_id world_underground_region
+df.general_ref_feature_layerst = {}
+
+---@class general_ref_historical_figurest: general_ref
+---@field hist_figure_id historical_figure
+df.general_ref_historical_figurest = {}
+
+---@class general_ref_entity_popst: general_ref
+---@field unk_1 integer
+---@field race creature_raw
+---@field unk_2 integer
+---@field flags undead_flags
+df.general_ref_entity_popst = {}
+
+---@class general_ref_creaturest: general_ref
+---@field race creature_raw
+---@field caste caste_raw
+---@field unk_1 integer
+---@field unk_2 integer
+---@field flags undead_flags
+df.general_ref_creaturest = {}
+
+---@class general_ref_knowledge_scholar_flagst: general_ref
+---@field knowledge knowledge_scholar_category_flag
+df.general_ref_knowledge_scholar_flagst = {}
+
+---@class general_ref_activity_eventst: general_ref
+---@field activity_id activity_entry
+---@field event_id integer
+df.general_ref_activity_eventst = {}
+
+---@class general_ref_value_levelst: general_ref
+---@field value value_type
+---@field level integer see http://dwarffortresswiki.org/index.php/DF2014:Personality_trait
+df.general_ref_value_levelst = {}
+
+---@class general_ref_languagest: general_ref
+---@field unk_1 integer
+df.general_ref_languagest = {}
+
+---@class general_ref_written_contentst: general_ref
+---@field written_content_id written_content
+df.general_ref_written_contentst = {}
+
+---@class general_ref_poetic_formst: general_ref
+---@field poetic_form_id poetic_form
+df.general_ref_poetic_formst = {}
+
+---@class general_ref_musical_formst: general_ref
+---@field musical_form_id musical_form
+df.general_ref_musical_formst = {}
+
+---@class general_ref_dance_formst: general_ref
+---@field dance_form_id dance_form
+df.general_ref_dance_formst = {}
+
+---@class general_ref_is_artifactst: general_ref_artifact
+df.general_ref_is_artifactst = {}
+
+---@class general_ref_is_nemesisst: general_ref_nemesis
+df.general_ref_is_nemesisst = {}
+
+---@class general_ref_contains_unitst: general_ref_unit
+df.general_ref_contains_unitst = {}
+
+---@class general_ref_contains_itemst: general_ref_item
+df.general_ref_contains_itemst = {}
+
+---@class general_ref_contained_in_itemst: general_ref_item
+df.general_ref_contained_in_itemst = {}
+
+---@class general_ref_unit_milkeest: general_ref_unit
+df.general_ref_unit_milkeest = {}
+
+---@class general_ref_unit_traineest: general_ref_unit
+df.general_ref_unit_traineest = {}
+
+---@class general_ref_unit_itemownerst: general_ref_unit
+---@field flags any
+df.general_ref_unit_itemownerst = {}
+
+---@class general_ref_unit_tradebringerst: general_ref_unit
+df.general_ref_unit_tradebringerst = {}
+
+---@class general_ref_unit_holderst: general_ref_unit
+df.general_ref_unit_holderst = {}
+
+---@class general_ref_unit_workerst: general_ref_unit
+df.general_ref_unit_workerst = {}
+
+---@class general_ref_unit_cageest: general_ref_unit
+df.general_ref_unit_cageest = {}
+
+---@class general_ref_unit_beateest: general_ref_unit
+df.general_ref_unit_beateest = {}
+
+---@class general_ref_unit_foodreceiverst: general_ref_unit
+df.general_ref_unit_foodreceiverst = {}
+
+---@class general_ref_unit_kidnapeest: general_ref_unit
+df.general_ref_unit_kidnapeest = {}
+
+---@class general_ref_unit_patientst: general_ref_unit
+df.general_ref_unit_patientst = {}
+
+---@class general_ref_unit_infantst: general_ref_unit
+df.general_ref_unit_infantst = {}
+
+---@class general_ref_unit_slaughtereest: general_ref_unit
+df.general_ref_unit_slaughtereest = {}
+
+---@class general_ref_unit_sheareest: general_ref_unit
+df.general_ref_unit_sheareest = {}
+
+---@class general_ref_unit_suckeest: general_ref_unit
+df.general_ref_unit_suckeest = {}
+
+---@class general_ref_unit_reporteest: general_ref_unit
+df.general_ref_unit_reporteest = {}
+
+---@class general_ref_unit_riderst: general_ref_unit
+df.general_ref_unit_riderst = {}
+
+---@class general_ref_unit_climberst: general_ref_unit
+df.general_ref_unit_climberst = {}
+
+---@class general_ref_unit_geldeest: general_ref_unit
+df.general_ref_unit_geldeest = {}
+
+---@class general_ref_unit_interrogateest: general_ref_unit
+df.general_ref_unit_interrogateest = {}
+
+---@class general_ref_building_civzone_assignedst: general_ref_building
+df.general_ref_building_civzone_assignedst = {}
+
+---@class general_ref_building_triggerst: general_ref_building
+df.general_ref_building_triggerst = {}
+
+---@class general_ref_building_triggertargetst: general_ref_building
+df.general_ref_building_triggertargetst = {}
+
+---@class general_ref_building_chainst: general_ref_building
+df.general_ref_building_chainst = {}
+
+---@class general_ref_building_cagedst: general_ref_building
+df.general_ref_building_cagedst = {}
+
+---@class general_ref_building_holderst: general_ref_building
+df.general_ref_building_holderst = {}
+
+---@class general_ref_building_well_tag: general_ref_building
+---@field direction integer
+df.general_ref_building_well_tag = {}
+
+---@class general_ref_building_use_target_1st: general_ref_building
+df.general_ref_building_use_target_1st = {}
+
+---@class general_ref_building_use_target_2st: general_ref_building
+df.general_ref_building_use_target_2st = {}
+
+---@class general_ref_building_destinationst: general_ref_building
+df.general_ref_building_destinationst = {}
+
+---@class general_ref_building_nest_boxst: general_ref_building
+df.general_ref_building_nest_boxst = {}
+
+---@class general_ref_building_display_furniturest: general_ref_building
+df.general_ref_building_display_furniturest = {}
+
+---@class general_ref_entity_stolenst: general_ref_entity
+df.general_ref_entity_stolenst = {}
+
+---@class general_ref_entity_offeredst: general_ref_entity
+df.general_ref_entity_offeredst = {}
+
+---@class general_ref_entity_itemownerst: general_ref_entity
+df.general_ref_entity_itemownerst = {}
+
 ---@enum specific_ref_type
 df.specific_ref_type = {
   NONE = -1,
@@ -158,6 +426,82 @@ df.histfig_entity_link_type = {
   FORMER_OCCUPATION = 16,
 }
 
+---@class histfig_entity_link: df.struct
+---@field entity_id historical_entity
+---@field entity_vector_idx integer
+---@field link_strength integer
+df.histfig_entity_link = {}
+
+---@class histfig_entity_link_memberst: histfig_entity_link
+df.histfig_entity_link_memberst = {}
+
+---@class histfig_entity_link_former_memberst: histfig_entity_link
+df.histfig_entity_link_former_memberst = {}
+
+---@class histfig_entity_link_mercenaryst: histfig_entity_link
+df.histfig_entity_link_mercenaryst = {}
+
+---@class histfig_entity_link_former_mercenaryst: histfig_entity_link
+df.histfig_entity_link_former_mercenaryst = {}
+
+---@class histfig_entity_link_slavest: histfig_entity_link
+df.histfig_entity_link_slavest = {}
+
+---@class histfig_entity_link_former_slavest: histfig_entity_link
+df.histfig_entity_link_former_slavest = {}
+
+---@class histfig_entity_link_prisonerst: histfig_entity_link
+df.histfig_entity_link_prisonerst = {}
+
+---@class histfig_entity_link_former_prisonerst: histfig_entity_link
+df.histfig_entity_link_former_prisonerst = {}
+
+---@class histfig_entity_link_enemyst: histfig_entity_link
+df.histfig_entity_link_enemyst = {}
+
+---@class histfig_entity_link_criminalst: histfig_entity_link
+df.histfig_entity_link_criminalst = {}
+
+---@class histfig_entity_link_positionst: histfig_entity_link
+---@field assignment_id integer
+---@field assignment_vector_idx integer
+---@field start_year integer
+df.histfig_entity_link_positionst = {}
+
+---@class histfig_entity_link_former_positionst: histfig_entity_link
+---@field assignment_id integer
+---@field start_year integer
+---@field end_year integer
+df.histfig_entity_link_former_positionst = {}
+
+---@class histfig_entity_link_position_claimst: histfig_entity_link
+---@field assignment_id integer
+---@field start_year integer
+df.histfig_entity_link_position_claimst = {}
+
+---@class histfig_entity_link_squadst: histfig_entity_link
+---@field squad_id integer
+---@field squad_position integer
+---@field start_year integer
+df.histfig_entity_link_squadst = {}
+
+---@class histfig_entity_link_former_squadst: histfig_entity_link
+---@field squad_id integer
+---@field start_year integer
+---@field end_year integer
+df.histfig_entity_link_former_squadst = {}
+
+---@class histfig_entity_link_occupationst: histfig_entity_link
+---@field occupation_id integer
+---@field start_year integer
+df.histfig_entity_link_occupationst = {}
+
+---@class histfig_entity_link_former_occupationst: histfig_entity_link
+---@field occupation_id integer
+---@field start_year integer
+---@field end_year integer
+df.histfig_entity_link_former_occupationst = {}
+
 ---@enum histfig_site_link_type
 df.histfig_site_link_type = {
   OCCUPATION = 0,
@@ -171,6 +515,43 @@ df.histfig_site_link_type = {
   PRISON_ABSTRACT_BUILDING = 8,
   PRISON_SITE_BUILDING_PROFILE = 9,
 }
+
+---@class histfig_site_link: df.struct
+---@field site world_site
+---@field sub_id integer from XML
+---@field entity historical_entity
+df.histfig_site_link = {}
+
+---@class histfig_site_link_occupationst: histfig_site_link
+---@field unk_1 integer
+df.histfig_site_link_occupationst = {}
+
+---@class histfig_site_link_seat_of_powerst: histfig_site_link
+df.histfig_site_link_seat_of_powerst = {}
+
+---@class histfig_site_link_hangoutst: histfig_site_link
+df.histfig_site_link_hangoutst = {}
+
+---@class histfig_site_link_home_site_abstract_buildingst: histfig_site_link
+df.histfig_site_link_home_site_abstract_buildingst = {}
+
+---@class histfig_site_link_home_site_realization_buildingst: histfig_site_link
+df.histfig_site_link_home_site_realization_buildingst = {}
+
+---@class histfig_site_link_lairst: histfig_site_link
+df.histfig_site_link_lairst = {}
+
+---@class histfig_site_link_home_site_realization_sulst: histfig_site_link
+df.histfig_site_link_home_site_realization_sulst = {}
+
+---@class histfig_site_link_home_site_saved_civzonest: histfig_site_link
+df.histfig_site_link_home_site_saved_civzonest = {}
+
+---@class histfig_site_link_prison_abstract_buildingst: histfig_site_link
+df.histfig_site_link_prison_abstract_buildingst = {}
+
+---@class histfig_site_link_prison_site_building_profilest: histfig_site_link
+df.histfig_site_link_prison_site_building_profilest = {}
 
 ---@enum histfig_hf_link_type
 df.histfig_hf_link_type = {
@@ -191,6 +572,61 @@ df.histfig_hf_link_type = {
   FORMER_SPOUSE = 14,
   DECEASED_SPOUSE = 15,
 }
+
+---@class histfig_hf_link: df.struct
+---@field target_hf historical_figure
+---@field link_strength integer
+df.histfig_hf_link = {}
+
+---@class histfig_hf_link_motherst: histfig_hf_link
+df.histfig_hf_link_motherst = {}
+
+---@class histfig_hf_link_fatherst: histfig_hf_link
+df.histfig_hf_link_fatherst = {}
+
+---@class histfig_hf_link_spousest: histfig_hf_link
+df.histfig_hf_link_spousest = {}
+
+---@class histfig_hf_link_childst: histfig_hf_link
+df.histfig_hf_link_childst = {}
+
+---@class histfig_hf_link_deityst: histfig_hf_link
+df.histfig_hf_link_deityst = {}
+
+---@class histfig_hf_link_loverst: histfig_hf_link
+df.histfig_hf_link_loverst = {}
+
+---@class histfig_hf_link_prisonerst: histfig_hf_link
+df.histfig_hf_link_prisonerst = {}
+
+---@class histfig_hf_link_imprisonerst: histfig_hf_link
+df.histfig_hf_link_imprisonerst = {}
+
+---@class histfig_hf_link_masterst: histfig_hf_link
+df.histfig_hf_link_masterst = {}
+
+---@class histfig_hf_link_apprenticest: histfig_hf_link
+df.histfig_hf_link_apprenticest = {}
+
+---@class histfig_hf_link_companionst: histfig_hf_link
+---@field unk_1 integer
+---@field unk_2 integer
+df.histfig_hf_link_companionst = {}
+
+---@class histfig_hf_link_former_apprenticest: histfig_hf_link
+df.histfig_hf_link_former_apprenticest = {}
+
+---@class histfig_hf_link_former_masterst: histfig_hf_link
+df.histfig_hf_link_former_masterst = {}
+
+---@class histfig_hf_link_pet_ownerst: histfig_hf_link
+df.histfig_hf_link_pet_ownerst = {}
+
+---@class histfig_hf_link_former_spousest: histfig_hf_link
+df.histfig_hf_link_former_spousest = {}
+
+---@class histfig_hf_link_deceased_spousest: histfig_hf_link
+df.histfig_hf_link_deceased_spousest = {}
 
 ---@enum entity_entity_link_type
 df.entity_entity_link_type = {

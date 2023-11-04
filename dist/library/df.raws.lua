@@ -1,6 +1,15 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
+---@class creature_handler: df.struct
+---@field alphabetic creature_raw[]
+---@field all creature_raw[]
+---@field num_caste integer seems equal to length of vectors below
+---@field list_creature integer[] Together with list_caste, a list of all caste indexes in order.
+---@field list_caste integer[]
+---@field action_strings string[]
+df.creature_handler = {}
+
 ---@class world_raws: df.struct
 ---@field material_templates material_template[]
 ---@field inorganics inorganic_raw[]

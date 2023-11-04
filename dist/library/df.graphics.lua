@@ -473,6 +473,68 @@ df.graphic.T_tileset = {}
 ---@field texpos_bottom_button_border_e integer
 df.interface_setst = {}
 
+---@class renderer: df.struct
+---@field screen integer
+---@field screentexpos number
+---@field screentexpos_lower number
+---@field screentexpos_anchored number
+---@field screentexpos_anchored_x number
+---@field screentexpos_anchored_y number
+---@field screentexpos_flag integer
+---@field screen_top integer
+---@field screentexpos_top number
+---@field screentexpos_top_lower number
+---@field screentexpos_top_anchored number
+---@field screentexpos_top_anchored_x number
+---@field screentexpos_top_anchored_y number
+---@field screentexpos_top_flag integer
+---@field directtexcopy integer
+---@field screen_old integer
+---@field screentexpos_old number
+---@field screentexpos_lower_old number
+---@field screentexpos_anchored_old number
+---@field screentexpos_anchored_x_old number
+---@field screentexpos_anchored_y_old number
+---@field screentexpos_flag_old integer
+---@field screen_top_old integer
+---@field screentexpos_top_old number
+---@field screentexpos_top_lower_old number
+---@field screentexpos_top_anchored_old number
+---@field screentexpos_top_anchored_x_old number
+---@field screentexpos_top_anchored_y_old number
+---@field screentexpos_top_flag_old integer
+---@field directtexcopy_old integer
+---@field screentexpos_refresh_buffer integer
+df.renderer = {}
+
+---@class renderer_2d_base: renderer
+---@field window any SDL_Window*
+---@field sdl_renderer any SDL_Renderer*
+---@field screen_tex any SDL_Texture*
+---@field tile_cache any unordered_map<texture_fullid, SDL_Texture*\>
+---@field dispx integer
+---@field dispy integer
+---@field dimx integer
+---@field dimy integer
+---@field dispx_z integer
+---@field dispy_z integer
+---@field origin_x integer
+---@field origin_y integer
+---@field cur_w integer
+---@field cur_h integer
+---@field use_viewport_zoom boolean
+---@field viewport_zoom_factor integer
+---@field textures_to_destroy any[] svector<texture_fullid>
+---@field ttfs_to_render any std::list<pair<SDL_Surface*, SDL_Rect>>
+---@field zoom_steps integer
+---@field forced_steps integer
+---@field natural_w integer
+---@field natural_h integer
+df.renderer_2d_base = {}
+
+---@class renderer_2d: renderer_2d_base
+df.renderer_2d = {}
+
 ---@enum zoom_commands
 df.zoom_commands = {
   zoom_in = 0,
@@ -481,6 +543,77 @@ df.zoom_commands = {
   zoom_fullscreen = 3,
   zoom_resetgrid = 4,
 }
+
+---@class enabler: df.struct
+---@field fullscreen_state any
+---@field overridden_grid_sizes integer
+---@field renderer renderer
+---@field calculated_fps integer
+---@field calculated_gfps integer
+---@field frame_timings integer
+---@field gframe_timings integer
+---@field frame_sum integer
+---@field gframe_sum integer
+---@field frame_last integer
+---@field gframe_last integer
+---@field fps number
+---@field gfps number
+---@field fps_per_gfps number
+---@field last_tick integer
+---@field outstanding_frames number
+---@field outstanding_gframes number
+---@field async_frames integer
+---@field async_paused boolean
+---@field async_tobox enabler_async_tobox
+---@field async_frombox enabler_async_frombox
+---@field async_zoom enabler_async_zoom
+---@field async_fromcomplete any
+---@field renderer_threadid any
+---@field must_do_render_things_before_display boolean
+---@field command_line string
+---@field flag any
+---@field mouse_lbut integer
+---@field mouse_rbut integer
+---@field mouse_lbut_down integer
+---@field mouse_rbut_down integer
+---@field mouse_lbut_lift integer
+---@field mouse_rbut_lift integer
+---@field mouse_mbut integer
+---@field mouse_mbut_down integer
+---@field mouse_mbut_lift integer
+---@field tracking_on integer
+---@field textures enabler_textures
+---@field simticks integer
+---@field gputicks integer
+---@field clock integer An *approximation* of the current time for use in garbage collection thingies, updated every frame or so.
+---@field mouse_focus boolean
+---@field last_text_input integer[]
+df.enabler = {}
+
+---@class enabler_async_tobox: df.struct
+---@field mtx any
+---@field cv any
+---@field vals any
+df.enabler.T_async_tobox = {}
+
+---@class enabler_async_frombox: df.struct
+---@field mtx any
+---@field cv any
+---@field vals any
+df.enabler.T_async_frombox = {}
+
+---@class enabler_async_zoom: df.struct
+---@field mtx any
+---@field cv any
+---@field vals zoom_commands
+df.enabler.T_async_zoom = {}
+
+---@class enabler_textures: df.struct
+---@field raws pointer[]
+---@field free_spaces integer[]
+---@field init_texture_size integer
+---@field uploaded boolean
+df.enabler.T_textures = {}
 
 ---@enum justification
 ---from libgraphics

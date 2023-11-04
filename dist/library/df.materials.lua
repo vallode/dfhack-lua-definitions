@@ -323,7 +323,7 @@ df.inclusion_type = {
   CLUSTER_ONE = 4,
 }
 
----@class inorganic_raw: df.struct
+---@class inorganic_raw: df.instance
 ---@field id string
 ---@field str string[]
 ---@field flags any
