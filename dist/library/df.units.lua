@@ -771,7 +771,7 @@ df.unit.T_counters2 = {}
 ---@field parleys unit_parley[]
 ---@field requests unit_request[]
 ---@field coin_debts unit_coin_debt[]
----@field unk_1 integer[]
+---@field unk_1 status_unk_1
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer[] initialized together with enemy.gait_index
@@ -780,6 +780,16 @@ df.unit.T_counters2 = {}
 ---@field recent_job_area coord
 ---@field recent_jobs coord_path
 df.unit.T_status = {}
+
+---@class status_unk_1: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+df.status.T_unk_1 = {}
 
 ---@class unit_status2: df.struct
 ---@field limbs_stand_max integer
@@ -977,11 +987,31 @@ df.unit_attribute = {}
 ---@field ticks integer
 ---@field wounds integer[] refers to unit_wound by id
 ---@field wound_id integer
----@field symptoms integer[]
+---@field symptoms unit_syndrome_symptoms
 ---@field reinfection_count integer set from unit.reinfection_count[i]++
 ---@field flags unit_syndrome_flags
 ---@field unk4 integer[]
 df.unit_syndrome = {}
+
+---@class unit_syndrome_symptoms: df.struct
+---@field quantity integer from spatter size
+---@field delay integer for SIZE_DELAYS
+---@field ticks integer
+---@field target_bp integer[]
+---@field target_layer integer[]
+---@field target_quantity integer[]
+---@field target_delay integer[]
+---@field target_ticks integer[]
+---@field flags symptoms_flags
+---@field random_transformation_race creature_raw With syndromes that transform the unit into a random creature, the target race ID is stored here.
+---@field random_transformation_caste caste_raw With syndromes that transform the unit into a random creature, the target caste ID is stored here.
+df.unit_syndrome.T_symptoms = {}
+
+---@enum symptoms_flags
+df.symptoms.T_flags = {
+  disabled = 0, --if PROB roll fails, or all symptoms expire
+  active = 1,
+}
 
 ---@enum unit_syndrome_flags
 df.unit_syndrome.T_flags = {
@@ -1050,7 +1080,7 @@ df.wound_damage_flags2 = {
 
 ---@class unit_wound: df.struct
 ---@field id integer
----@field parts integer[]
+---@field parts unit_wound_parts
 ---@field age integer
 ---@field attacker_unit_id unit
 ---@field attacker_hist_figure_id historical_figure
@@ -1066,6 +1096,39 @@ df.wound_damage_flags2 = {
 ---@field unk_v42_1 integer
 ---@field unk_v42_2 integer
 df.unit_wound = {}
+
+---@class unit_wound_parts: df.struct
+---@field global_layer_idx integer
+---@field body_part_id integer
+---@field layer_idx integer
+---@field contact_area integer
+---@field surface_perc integer
+---@field strain integer
+---@field effect_perc1 integer[]
+---@field effect_perc2 integer[]
+---@field effect_type parts_effect_type
+---@field edged_curve_perc integer
+---@field flags1 wound_damage_flags1
+---@field flags2 wound_damage_flags2
+---@field bleeding integer
+---@field pain integer
+---@field nausea integer
+---@field dizziness integer
+---@field paralysis integer
+---@field numbness integer
+---@field swelling integer
+---@field impaired integer
+---@field unk_v42_1 integer
+---@field unk_v42_2 integer
+---@field unk_v42_3 integer
+---@field cur_penetration_perc integer
+---@field max_penetration_perc integer
+---@field jammed_layer_idx integer in compound fracture
+---@field partially_butchered integer
+df.unit_wound.T_parts = {}
+
+---@class parts_effect_type: df.struct
+df.parts.T_effect_type = {}
 
 ---@enum unit_wound_flags
 df.unit_wound.T_flags = {
@@ -1259,9 +1322,45 @@ df.unit_bp_health_flags = {
 ---@field dressing_cntdn integer
 ---@field suture_cntdn integer
 ---@field crutch_cntdn integer
----@field op_history job_type[]
+---@field op_history unit_health_info_op_history
 ---@field unk_34 any[]
 df.unit_health_info = {}
+
+---@class unit_health_info_op_history: df.struct
+---@field job_type job_type
+---@field info op_history_info
+---@field year integer
+---@field year_time integer
+---@field doctor_id unit
+df.unit_health_info.T_op_history = {}
+
+---@class op_history_info: df.struct
+---@field crutch info_crutch
+---@field bed_id building
+---@field bandage info_bandage
+---@field surgery info_surgery
+df.op_history.T_info = {}
+
+---@class info_crutch: df.struct
+---@field item_type integer
+---@field item_subtype integer
+---@field mat_type material
+---@field mat_index integer
+---@field item_id item
+df.info.T_crutch = {}
+
+---@class info_bandage: df.struct
+---@field mat_type material
+---@field mat_index integer
+---@field body_part_id integer
+---@field item_id item
+df.info.T_bandage = {}
+
+---@class info_surgery: df.struct
+---@field subtype job_subtype_surgery
+---@field body_part_id integer
+---@field amputated_part_id integer
+df.info.T_surgery = {}
 
 ---@enum orientation_flags
 df.orientation_flags = {
@@ -1333,16 +1432,16 @@ df.unit_dance_skill = {}
 df.unit_emotion_memory = {}
 
 ---@class unit_personality: df.struct
----@field values value_type[]
----@field ethics ethic_type[]
----@field emotions emotion_type[]
----@field dreams integer[]
+---@field values unit_personality_values
+---@field ethics unit_personality_ethics
+---@field emotions unit_personality_emotions
+---@field dreams unit_personality_dreams
 ---@field next_dream_id integer
----@field unk_v40_6 integer[]
+---@field unk_v40_6 unit_personality_unk_v40_6
 ---@field traits integer[]
 ---@field civ_id historical_entity
 ---@field cultural_identity cultural_identity
----@field mannerism integer[]
+---@field mannerism unit_personality_mannerism
 ---@field habit integer[]
 ---@field stress integer
 ---@field time_without_distress integer range 0-806400, higher values cause stress to decrease quicker
@@ -1350,7 +1449,7 @@ df.unit_emotion_memory = {}
 ---@field likes_outdoors integer migrated from misc_traits
 ---@field combat_hardened integer migrated from misc_traits
 ---@field outdoor_dislike_counter integer incremented when unit is in rain
----@field needs need_type[]
+---@field needs unit_personality_needs
 ---@field flags unit_personality_flags
 ---@field temporary_trait_changes integer[] sum of inebriation or so personality changing effects
 ---@field slack_end_year integer
@@ -1364,6 +1463,74 @@ df.unit_emotion_memory = {}
 ---@field current_focus integer weighted sum of needs focus_level-s
 ---@field undistracted_focus integer usually number of needs multiplied by 4
 df.unit_personality = {}
+
+---@class unit_personality_values: df.struct
+---@field type value_type
+---@field strength integer
+df.unit_personality.T_values = {}
+
+---@class unit_personality_ethics: df.struct
+---@field ethic ethic_type
+---@field reponse ethic_response
+df.unit_personality.T_ethics = {}
+
+---@class unit_personality_emotions: df.struct
+---@field type emotion_type
+---@field unk2 integer
+---@field strength integer
+---@field thought unit_thought_type
+---@field subthought integer for certain thoughts
+---@field severity integer
+---@field flags emotions_flags
+---@field unk7 integer
+---@field year integer
+---@field year_tick integer
+df.unit_personality.T_emotions = {}
+
+---@enum emotions_flags
+df.emotions.T_flags = {
+  unk0 = 0,
+  unk1 = 1,
+  unk2 = 2,
+  unk3 = 3,
+  remembered_longterm = 4,
+  remembered_shortterm = 5,
+  remembered_reflected_on = 6,
+}
+
+---@class unit_personality_dreams: df.struct
+---@field local_id integer next_dream_id related
+---@field type goal_type
+---@field id integer
+---@field parent_id integer[]
+---@field flags dreams_flags
+df.unit_personality.T_dreams = {}
+
+---@enum dreams_flags
+df.dreams.T_flags = {
+  accomplished = 0,
+}
+
+---@class unit_personality_unk_v40_6: df.struct
+---@field unk1 integer
+---@field unk2 integer
+---@field unk3 integer
+---@field unk4 integer
+---@field unk5 integer
+---@field unk6 integer
+df.unit_personality.T_unk_v40_6 = {}
+
+---@class unit_personality_mannerism: df.struct
+---@field type integer
+---@field situation integer
+df.unit_personality.T_mannerism = {}
+
+---@class unit_personality_needs: df.struct
+---@field id need_type
+---@field deity_id integer for pray need
+---@field focus_level integer goes to 400 when unit satisfies need
+---@field need_level integer how fast focus_level decreases when it below 0
+df.unit_personality.T_needs = {}
 
 ---@enum unit_personality_flags
 df.unit_personality.T_flags = {

@@ -28,23 +28,48 @@ df.invasion_info.T_flags = {
 }
 
 ---@class entity_population_unk4: df.struct
----@field unk_1 integer[] all 3 vectors share a single index series, with the third being interleaved with at least the second one
----@field unk_2 integer[]
----@field unk_3 integer[]
+---@field unk_1 entity_population_unk4_unk_1 all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@field unk_2 entity_population_unk4_unk_2
+---@field unk_3 entity_population_unk4_unk_3
 df.entity_population_unk4 = {}
+
+---@class entity_population_unk4_unk_1: df.struct
+---all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@field idx integer
+---@field unk1 integer
+---@field unk2 integer
+df.entity_population_unk4.T_unk_1 = {}
+
+---@class entity_population_unk4_unk_2: df.struct
+---@field idx integer
+---@field unk1 integer
+---@field unk2 integer
+df.entity_population_unk4.T_unk_2 = {}
+
+---@class entity_population_unk4_unk_3: df.struct
+---@field idx integer
+---@field unk1 integer
+df.entity_population_unk4.T_unk_3 = {}
 
 ---@class entity_population: df.instance
 ---@field name language_name
----@field races creature_raw[] all the 3 vectors are always the same length, and thus coupled
+---@field races entity_population_races all the 3 vectors are always the same length, and thus coupled
 ---@field counts integer[]
 ---@field unk3 integer[] Set only for cave civs. When set, >= counts. Pre first embark all those are equal
----@field unk4 entity_population_unk4[]
+---@field unk4 entity_population_unk4
 ---@field unk5 integer
 ---@field layer_id world_underground_region
 ---@field id integer
 ---@field flags integer ?; layer_id == -1
 ---@field civ_id historical_entity
 df.entity_population = {}
+
+---@class entity_population_races: df.struct
+---all the 3 vectors are always the same length, and thus coupled
+df.entity_population.T_races = {}
+
+---@class entity_population_unk4: df.struct
+df.entity_population.T_unk4 = {}
 
 ---@enum nemesis_flags
 df.nemesis_flags = {
@@ -69,7 +94,7 @@ df.nemesis_flags = {
 ---@field figure historical_figure
 ---@field unit unit
 ---@field group_leader_id nemesis_record
----@field companions nemesis_record[]
+---@field companions nemesis_record_companions
 ---@field unk10 integer
 ---@field unk11 integer
 ---@field unk12 integer
@@ -77,6 +102,9 @@ df.nemesis_flags = {
 ---@field unk_v47_2 integer
 ---@field flags any
 df.nemesis_record = {}
+
+---@class nemesis_record_companions: df.struct
+df.nemesis_record.T_companions = {}
 
 ---@class artifact_record: df.instance
 ---@field id integer

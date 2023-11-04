@@ -323,6 +323,13 @@ df.resource_allotment_specifier_powderst = {}
 ---@field unk2 integer
 ---@field unk3 integer
 ---@field unk_650 integer
----@field unk_654 integer[]
+---@field unk_654 resource_allotment_data_unk_654
 df.resource_allotment_data = {}
+
+---@class resource_allotment_data_unk_654: df.struct
+---@field unk_0 integer
+---@field unk_4 integer[]
+---@field unk_14 integer[]
+---@field unk_24 integer[]
+df.resource_allotment_data.T_unk_654 = {}
 

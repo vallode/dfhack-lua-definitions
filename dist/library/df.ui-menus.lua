@@ -29,10 +29,13 @@ df.build_req_choicest = {}
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
----@field candidates any[]
+---@field candidates build_req_choice_genst_candidates
 ---@field used_count integer
 ---@field unk_1 boolean
 df.build_req_choice_genst = {}
+
+---@class build_req_choice_genst_candidates: df.struct
+df.build_req_choice_genst.T_candidates = {}
 
 ---@class build_req_choice_specst: build_req_choicest
 ---@field candidate item
@@ -1019,7 +1022,7 @@ df.main_interface.T_buildjob = {}
 ---@field entering_item_filter boolean
 ---@field storeamount integer[]
 ---@field badamount integer[]
----@field unk_a8 item[]
+---@field unk_a8 assign_trade_unk_a8
 ---@field unk_c0 integer[]
 ---@field unk_d8 integer[]
 ---@field unk_f0 integer[]
@@ -1039,6 +1042,9 @@ df.main_interface.T_buildjob = {}
 ---@field pending_on_top boolean
 ---@field exclude_prohib boolean
 df.main_interface.T_assign_trade = {}
+
+---@class assign_trade_unk_a8: df.struct
+df.assign_trade.T_unk_a8 = {}
 
 ---@class main_interface_trade: df.struct
 ---@field open boolean
@@ -1531,10 +1537,22 @@ df.main_interface.T_stockpile_tools = {}
 ---@field sub_mode stockpile_list[]
 ---@field sub_mode_ptr_type stock_pile_pointer_type[]
 ---@field sub_mode_ptr integer[]
----@field spec_item string[]
+---@field spec_item custom_stockpile_spec_item
 ---@field cur_spec_item_sz integer
 ---@field counted_cur_spec_item_sz integer
 df.main_interface.T_custom_stockpile = {}
+
+---@class custom_stockpile_spec_item: df.struct
+---@field name string
+---@field simple_name string
+---@field set_pointer integer
+---@field on boolean
+---@field race integer
+---@field itype integer
+---@field istype integer
+---@field isc1 integer
+---@field isc2 integer
+df.custom_stockpile.T_spec_item = {}
 
 ---@class main_interface_view_sheets: df.struct
 ---@field open boolean
@@ -1870,7 +1888,7 @@ df.info.T_work_orders = {}
 df.work_orders.T_conditions = {}
 
 ---@class info_administrators: df.struct
----@field noblelist unit[]
+---@field noblelist administrators_noblelist
 ---@field spec_prof entity_position_assignment[]
 ---@field spec_hfid integer[]
 ---@field spec_enid integer[]
@@ -1882,7 +1900,7 @@ df.work_orders.T_conditions = {}
 ---@field last_hover_ep_id integer
 ---@field choosing_candidate boolean
 ---@field candidate_noblelist_ind integer
----@field candidate unit[]
+---@field candidate administrators_candidate
 ---@field scroll_position_candidate integer
 ---@field scrolling_candidate boolean
 ---@field assigning_symbol boolean
@@ -1895,6 +1913,21 @@ df.work_orders.T_conditions = {}
 ---@field scrolling_symbol boolean
 ---@field handling_symbol_closure_ind integer
 df.info.T_administrators = {}
+
+---@class administrators_noblelist: df.struct
+---@field un unit
+---@field nem nemesis_record
+---@field upplist any unitpropertyplacementst
+---@field ep entity_position
+---@field epp entity_position_assignment
+---@field enid integer
+---@field value integer
+df.administrators.T_noblelist = {}
+
+---@class administrators_candidate: df.struct
+---@field un unit
+---@field value integer
+df.administrators.T_candidate = {}
 
 ---@class info_artifacts: df.struct
 ---@field mode artifacts_mode_type
@@ -2117,7 +2150,7 @@ df.main_interface.T_help = {}
 ---@field castes_filtered integer[]
 ---@field races_all integer[]
 ---@field castes_all integer[]
----@field skills job_skill[]
+---@field skills arena_unit_skills
 ---@field skill_levels integer[]
 ---@field equipment_item_type integer[]
 ---@field equipment_item_subtype integer[]
@@ -2126,6 +2159,9 @@ df.main_interface.T_help = {}
 ---@field equipment_quantity integer[]
 ---@field interactions interaction_effect[]
 df.main_interface.T_arena_unit = {}
+
+---@class arena_unit_skills: df.struct
+df.arena_unit.T_skills = {}
 
 ---@class main_interface_arena_tree: df.struct
 ---@field open boolean
@@ -2278,13 +2314,30 @@ df.difficultyst.T_flags = {
 }
 
 ---@class markup_text_boxst: df.struct
----@field unk1 string[]
----@field unk_v50_2 integer[]
+---@field unk1 markup_text_boxst_unk1
+---@field unk_v50_2 markup_text_boxst_unk_v50_2
 ---@field unk_v50_3 integer
 ---@field unk_v50_4 integer
 ---@field unk_v50_5 integer
 ---@field unk_v50_6 integer
 df.markup_text_boxst = {}
+
+---@class markup_text_boxst_unk1: df.struct
+---@field unk_00 string
+---@field red integer
+---@field green integer
+---@field blue integer
+---@field unk_24 integer
+---@field unk_28 integer
+---@field unk_2c integer
+---@field unk_30 any
+df.markup_text_boxst.T_unk1 = {}
+
+---@class markup_text_boxst_unk_v50_2: df.struct
+---@field unk_0 integer
+---@field unk_4 integer
+---@field unk_8 integer
+df.markup_text_boxst.T_unk_v50_2 = {}
 
 ---@class wqc_item_traitst: df.struct
 ---@field flg integer
@@ -2409,8 +2462,107 @@ df.mod_headerst.T_flags = {
 }
 
 ---@class ui_look_list: df.struct
----@field items any[]
+---@field items ui_look_list_items
 df.ui_look_list = {}
+
+---@class ui_look_list_items: df.struct
+---@field type items_type
+---@field data items_data
+---@field pos coord
+---@field display_str string
+---@field cf integer
+---@field cb integer
+---@field cbr integer
+df.ui_look_list.T_items = {}
+
+---@enum items_type
+df.items.T_type = {
+  Item = 0,
+  Floor = 1,
+  Unit = 2,
+  Building = 3,
+  Vermin = 4,
+  Flow = 5,
+  Campfire = 6,
+  Spatter = 7,
+  BuildingItem = 8,
+  Fire = 9,
+  Water = 10,
+  Magma = 11,
+  Spoor = 12,
+}
+
+---@class items_data: df.struct
+---@field item data_item
+---@field unit data_unit
+---@field building data_building
+---@field vermin data_vermin
+---@field flow data_flow
+---@field spatter data_spatter
+---@field building_item_adv data_building_item_adv
+---@field liquid_water data_liquid_water
+---@field liquid_magma data_liquid_magma
+---@field spoor data_spoor
+df.items.T_data = {}
+
+---@class data_item: df.struct
+---@field item_id item
+df.data.T_item = {}
+
+---@class data_unit: df.struct
+---@field unit_id unit
+df.data.T_unit = {}
+
+---@class data_building: df.struct
+---@field bld_id building
+df.data.T_building = {}
+
+---@class data_vermin: df.struct
+---@field race integer
+---@field caste integer
+---@field item_id item
+---@field flag integer
+---@field number integer
+df.data.T_vermin = {}
+
+---@class data_flow: df.struct
+---@field type integer
+---@field subtype integer
+---@field sstype integer
+---@field guide_id integer
+---@field flag integer
+df.data.T_flow = {}
+
+---@class data_spatter: df.struct
+---@field i_type item_type
+---@field i_subtype integer
+---@field mat material
+---@field matg integer
+---@field matstate matter_state
+---@field extend integer
+df.data.T_spatter = {}
+
+---@class data_building_item_adv: df.struct
+---@field item_id item
+df.data.T_building_item_adv = {}
+
+---@class data_liquid_water: df.struct
+---@field flag integer
+---@field amount integer
+df.data.T_liquid_water = {}
+
+---@class data_liquid_magma: df.struct
+---@field flag integer
+---@field amount integer
+df.data.T_liquid_magma = {}
+
+---@class data_spoor: df.struct
+---@field flag integer
+---@field type integer
+---@field id1 integer
+---@field id2 integer
+---@field id3 integer
+df.data.T_spoor = {}
 
 ---@class ui_unit_view_mode: df.struct
 ---@field value ui_unit_view_mode_value

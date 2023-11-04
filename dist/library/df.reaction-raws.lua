@@ -31,11 +31,14 @@ df.reaction = {}
 
 ---@class reaction_building: df.struct
 ---@field str string[][]
----@field type building_type[]
+---@field type building_type
 ---@field subtype integer[]
 ---@field custom integer[]
 ---@field hotkey integer[]
 df.reaction.T_building = {}
+
+---@class building_type: df.struct
+df.building.T_type = {}
 
 ---@class reaction_category: df.struct
 ---@field id string

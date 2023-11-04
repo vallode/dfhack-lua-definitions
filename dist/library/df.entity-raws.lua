@@ -198,12 +198,12 @@ df.entity_name_type = {
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
 ---@field religion integer[]
----@field religion_sphere sphere_type[]
+---@field religion_sphere entity_raw_religion_sphere
 ---@field jobs entity_raw_jobs
 ---@field positions entity_position_raw[]
 ---@field variable_positions integer[]
 ---@field site_variable_positions integer[]
----@field tissue_styles string[]
+---@field tissue_styles entity_raw_tissue_styles
 ---@field workshops entity_raw_workshops
 ---@field banditry integer
 ---@field gem_shapes_str string[]
@@ -283,11 +283,21 @@ df.entity_raw.T_scholar = {
   ENGINEER = 8,
 }
 
+---@class entity_raw_religion_sphere: df.struct
+df.entity_raw.T_religion_sphere = {}
+
 ---@class entity_raw_jobs: df.struct
 ---@field permitted_job boolean[]
 ---@field permitted_labor boolean[]
 ---@field world_construction boolean[]
 df.entity_raw.T_jobs = {}
+
+---@class entity_raw_tissue_styles: df.struct
+---@field name string
+---@field preferred_shapings integer[]
+---@field maintain_length_min integer
+---@field maintain_length_max integer
+df.entity_raw.T_tissue_styles = {}
 
 ---@class entity_raw_workshops: df.struct
 ---@field permitted_building_str string[]

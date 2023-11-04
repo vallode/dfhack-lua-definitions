@@ -147,8 +147,11 @@ df.widget_button = {}
 
 ---@class widget_container: widget
 ---@field children_by_name any std::map<std::string,std::shared_ptr<widget>>
----@field children widget[]
+---@field children widget_container_children
 df.widget_container = {}
+
+---@class widget_container_children: df.struct
+df.widget_container.T_children = {}
 
 ---@class widget_stack: widget_container
 df.widget_stack = {}
@@ -508,8 +511,8 @@ df.mission.T_type = {
 ---@field jeweler_mat_count integer
 ---@field jeweler_cutgem integer[]
 ---@field jeweler_encrust integer[]
----@field unit_labors_sidemenu any[]
----@field unit_labors_sidemenu_uplevel unit_labor[]
+---@field unit_labors_sidemenu viewscreen_dwarfmodest_unit_labors_sidemenu
+---@field unit_labors_sidemenu_uplevel viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel
 ---@field unit_labors_sidemenu_uplevel_idx integer
 ---@field sideSubmenu integer
 ---@field keyRepeat integer
@@ -518,6 +521,12 @@ df.mission.T_type = {
 ---@field number_assigned_hunt integer
 ---@field number_assigned_war integer
 df.viewscreen_dwarfmodest = {}
+
+---@class viewscreen_dwarfmodest_unit_labors_sidemenu: df.struct
+df.viewscreen_dwarfmodest.T_unit_labors_sidemenu = {}
+
+---@class viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel: df.struct
+df.viewscreen_dwarfmodest.T_unit_labors_sidemenu_uplevel = {}
 
 ---@class viewscreen_export_regionst: viewscreen
 ---@field play_now boolean
@@ -698,7 +707,7 @@ df.legend_pagest.T_mode = {
 ---@field era_choice_denom integer[]
 ---@field hec_id integer[]
 ---@field showing_all_era_collections integer
----@field region_snapshot integer[]
+---@field region_snapshot viewscreen_legendsst_region_snapshot
 ---@field region_view_x integer
 ---@field region_view_y integer
 ---@field region_view_mode integer
@@ -722,6 +731,16 @@ df.legend_pagest.T_mode = {
 ---@field unk_348 integer
 df.viewscreen_legendsst = {}
 
+---@class viewscreen_legendsst_region_snapshot: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 any
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer[]
+df.viewscreen_legendsst.T_region_snapshot = {}
+
 ---@class loadgame_save_info: df.struct
 ---@field next_ids integer[]
 ---@field game_type game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
@@ -732,15 +751,15 @@ df.viewscreen_legendsst = {}
 df.loadgame_save_info = {}
 
 ---@class matgloss_list: df.struct
----@field unk_0 integer[]
----@field generated_inorganics string[][]
----@field generated_plants string[][]
----@field generated_items string[][]
----@field generated_creatures string[][]
----@field generated_entities string[][]
----@field generated_reactions string[][]
----@field generated_interactions string[][]
----@field generated_languages string[][]
+---@field unk_0 matgloss_list_unk_0
+---@field generated_inorganics matgloss_list_generated_inorganics
+---@field generated_plants matgloss_list_generated_plants
+---@field generated_items matgloss_list_generated_items
+---@field generated_creatures matgloss_list_generated_creatures
+---@field generated_entities matgloss_list_generated_entities
+---@field generated_reactions matgloss_list_generated_reactions
+---@field generated_interactions matgloss_list_generated_interactions
+---@field generated_languages matgloss_list_generated_languages
 ---@field inorganics string[]
 ---@field plants string[]
 ---@field bodies string[]
@@ -771,6 +790,57 @@ df.loadgame_save_info = {}
 ---@field mod_names string[]
 ---@field mod_display_versions string[]
 df.matgloss_list = {}
+
+---@class matgloss_list_unk_0: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
+df.matgloss_list.T_unk_0 = {}
+
+---@class matgloss_list_generated_inorganics: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_inorganics = {}
+
+---@class matgloss_list_generated_plants: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_plants = {}
+
+---@class matgloss_list_generated_items: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_items = {}
+
+---@class matgloss_list_generated_creatures: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_creatures = {}
+
+---@class matgloss_list_generated_entities: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_entities = {}
+
+---@class matgloss_list_generated_reactions: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_reactions = {}
+
+---@class matgloss_list_generated_interactions: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_interactions = {}
+
+---@class matgloss_list_generated_languages: df.struct
+---@field raws string[]
+df.matgloss_list.T_generated_languages = {}
 
 ---@class viewscreen_loadgamest: viewscreen
 ---@field cur_step viewscreen_loadgamest_cur_step After the on-screen text shown while loading.
@@ -1171,7 +1241,7 @@ df.adv_background_option_type = {
 ---@field selecting_atts boolean
 ---@field selected_att integer
 ---@field att_points integer
----@field posskill job_skill[]
+---@field posskill setup_character_info_posskill
 ---@field selected_sk integer
 ---@field ip integer
 ---@field entering_name boolean
@@ -1180,7 +1250,7 @@ df.adv_background_option_type = {
 ---@field goodsite world_site[]
 ---@field active_column integer
 ---@field background_option adv_background_option_type[]
----@field background_option_squad_epp_id integer[]
+---@field background_option_squad_epp_id setup_character_info_background_option_squad_epp_id
 ---@field background_option_unit integer[] type should be profession?
 ---@field religious_practice_option integer[]
 ---@field religious_practice_id integer[]
@@ -1240,12 +1310,21 @@ df.setup_character_info.T_sub_mode = {
   FINAL_CONFIRMATION = 12,
 }
 
+---@class setup_character_info_posskill: df.struct
+df.setup_character_info.T_posskill = {}
+
+---@class setup_character_info_background_option_squad_epp_id: df.struct
+df.setup_character_info.T_background_option_squad_epp_id = {}
+
 ---@class embark_item_choice: df.struct
 ---@field list item_type[][]
 ---@field race integer[]
 ---@field caste integer[]
----@field profession profession[]
+---@field profession embark_item_choice_profession
 df.embark_item_choice = {}
+
+---@class embark_item_choice_profession: df.struct
+df.embark_item_choice.T_profession = {}
 
 ---@class embark_profile: df.struct
 ---@field name string
@@ -1368,7 +1447,7 @@ df.viewscreen_choose_game_typest = {}
 ---@field selected integer
 ---@field selected_r integer
 ---@field game_start_proceed integer
----@field menu_line_id any[]
+---@field menu_line_id viewscreen_titlest_menu_line_id
 ---@field gametype integer[]
 ---@field gametype_str string[]
 ---@field region_choice world_dat_summary[]
@@ -1419,6 +1498,9 @@ df.viewscreen_choose_game_typest = {}
 ---@field scroll_position_about integer
 ---@field scrolling_about boolean
 df.viewscreen_titlest = {}
+
+---@class viewscreen_titlest_menu_line_id: df.struct
+df.viewscreen_titlest.T_menu_line_id = {}
 
 ---@class viewscreen_update_regionst: viewscreen
 ---@field year integer

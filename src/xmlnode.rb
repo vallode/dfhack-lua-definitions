@@ -44,7 +44,7 @@ class Field < XmlNode
     super
 
     @name = node.attributes['name']
-    @is_inline = !node.children.empty? & ["enum", "bitfield", "compound"].include?(node.name)
+    @is_inline = !node.children.empty? & ["stl-vector", "enum", "bitfield", "compound"].include?(node.name)
     @type =  @is_inline ? "#{parent_type}_#{@name}" : Field.get_type(node)
   end
 
@@ -170,10 +170,17 @@ class StructType < XmlNode
 
   def render
     annotation = "---@class #{@type}#{': ' + @inherits if @inherits}\n"
-    annotation << "---#{@comment}\n" if @comment 
+    annotation << "---#{@comment}\n" if @comment
+    has_pointer_child = @node.css('> pointer')
 
+    if has_pointer_child and @parent_type and @node.name == 'stl-vector'
+      children = @node.css('> pointer').children
+    else
+      children = @node.children
+    end
+    
     inline_types = []
-    @node.children.each do |child|
+    children.each do |child|
       next if !child.attributes['name'] or child.name == 'code-helper'
 
       field = Field.new(child, @name.value)

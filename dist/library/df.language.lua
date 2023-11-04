@@ -200,10 +200,13 @@ df.language_translation = {}
 ---@class language_symbol: df.instance
 ---@field name string
 ---@field unknown any[] empty
----@field words language_word[]
+---@field words language_symbol_words
 ---@field flags integer
 ---@field str string[]
 df.language_symbol = {}
+
+---@class language_symbol_words: df.struct
+df.language_symbol.T_words = {}
 
 ---@class language_name: df.struct
 ---@field first_name string

@@ -203,13 +203,24 @@ df.caravan_state.T_flags = {
 df.entity_buy_prices = {}
 
 ---@class entity_buy_requests: df.struct
----@field item_type item_type[] guess
----@field item_subtype integer[] guess
----@field mat_types material[]
+---@field item_type entity_buy_requests_item_type guess
+---@field item_subtype entity_buy_requests_item_subtype guess
+---@field mat_types entity_buy_requests_mat_types
 ---@field mat_indices integer[]
 ---@field mat_cats job_material_category[]
 ---@field priority integer[]
 df.entity_buy_requests = {}
+
+---@class entity_buy_requests_item_type: df.struct
+---guess
+df.entity_buy_requests.T_item_type = {}
+
+---@class entity_buy_requests_item_subtype: df.struct
+---guess
+df.entity_buy_requests.T_item_subtype = {}
+
+---@class entity_buy_requests_mat_types: df.struct
+df.entity_buy_requests.T_mat_types = {}
 
 ---@enum entity_sell_category
 df.entity_sell_category = {
@@ -290,11 +301,20 @@ df.entity_sell_requests = {}
 
 ---@class entity_recipe: df.struct
 ---@field subtype itemdef_foodst
----@field item_types item_type[]
----@field item_subtypes integer[]
----@field mat_types material[]
+---@field item_types entity_recipe_item_types
+---@field item_subtypes entity_recipe_item_subtypes
+---@field mat_types entity_recipe_mat_types
 ---@field mat_indices integer[]
 df.entity_recipe = {}
+
+---@class entity_recipe_item_types: df.struct
+df.entity_recipe.T_item_types = {}
+
+---@class entity_recipe_item_subtypes: df.struct
+df.entity_recipe.T_item_subtypes = {}
+
+---@class entity_recipe_mat_types: df.struct
+df.entity_recipe.T_mat_types = {}
 
 ---@enum historical_entity_type
 df.historical_entity_type = {
@@ -382,7 +402,7 @@ df.entity_unk_v47_1 = {}
 ---@field name language_name
 ---@field race creature_raw
 ---@field flags historical_entity_flags
----@field guild_professions integer[] Only seen 1, and only for guilds
+---@field guild_professions historical_entity_guild_professions Only seen 1, and only for guilds
 ---@field entity_links entity_entity_link[]
 ---@field site_links entity_site_link[]
 ---@field histfig_ids integer[]
@@ -484,9 +504,9 @@ df.entity_unk_v47_1 = {}
 ---@field trade_wanted_amount integer[]
 ---@field trade_maximum_buy_price integer[]
 ---@field town_labor_hours integer[]
----@field unk28 any[]
+---@field unk28 historical_entity_unk28
 ---@field unk_8 integer
----@field unk29 integer[]
+---@field unk29 historical_entity_unk29
 ---@field unk_9 integer
 ---@field unk_10 integer
 ---@field unk_11 integer
@@ -522,6 +542,12 @@ df.historical_entity.T_flags = {
   military_unit_property = 25, --Probably some property only those have. All present in the selection, though
   unk26 = 26, --Set for a significant number of entities
 }
+
+---@class historical_entity_guild_professions: df.struct
+---Only seen 1, and only for guilds
+---@field id integer Guess, but all are 0, and it matches the standard pattern
+---@field profession profession
+df.historical_entity.T_guild_professions = {}
 
 ---@class historical_entity_resources: df.struct
 ---@field digger_type integer[]
@@ -572,10 +598,10 @@ df.historical_entity.T_flags = {
 ---@field art_image_types integer[] 0 = civilization symbol
 ---@field art_image_ids integer[]
 ---@field art_image_subids integer[]
----@field color_ref_type general_ref_type[]
----@field foreground_color_curses curses_color[]
+---@field color_ref_type resources_color_ref_type
+---@field foreground_color_curses resources_foreground_color_curses
 ---@field foreground_color_curses_bright boolean[]
----@field background_color_curses curses_color[]
+---@field background_color_curses resources_background_color_curses
 ---@field foreground_color integer[] foreground color used for the entity symbol in legends mode and the historical maps.
 ---@field background_color integer[] background color used for the entity symbol in legends mode and the historical maps.
 df.historical_entity.T_resources = {}
@@ -630,10 +656,13 @@ df.resources.T_misc_mat = {}
 
 ---@class resources_wood_products: df.struct
 ---lye, charcoal, potash, pearlash, and coke
----@field item_type item_type[]
+---@field item_type wood_products_item_type
 ---@field item_subtype integer[]
 ---@field material material_vec_ref
 df.resources.T_wood_products = {}
+
+---@class wood_products_item_type: df.struct
+df.wood_products.T_item_type = {}
 
 ---@class resources_animals: df.struct
 ---@field pet_races integer[]
@@ -652,13 +681,22 @@ df.resources.T_wood_products = {}
 ---@field exotic_pet_castes integer[]
 df.resources.T_animals = {}
 
+---@class resources_color_ref_type: df.struct
+df.resources.T_color_ref_type = {}
+
+---@class resources_foreground_color_curses: df.struct
+df.resources.T_foreground_color_curses = {}
+
+---@class resources_background_color_curses: df.struct
+df.resources.T_background_color_curses = {}
+
 ---@class historical_entity_relations: df.struct
 ---@field known_sites integer[] only civs and site government. Fresh player site government has empty vector
 ---@field deities integer[]
 ---@field worship integer[] Same length as deities(?). Some kind of relationship strength?
 ---@field belief_systems integer[] In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
----@field constructions coord2d_path[] only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
----@field diplomacy any[]
+---@field constructions relations_constructions only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@field diplomacy relations_diplomacy
 ---@field unk33 integer Non zero seen only on site governments (not all) and one nomadic group. Small values
 ---@field unk34a integer[] same length as unk34b and unk34c
 ---@field unk34b integer[]
@@ -666,6 +704,26 @@ df.resources.T_animals = {}
 ---@field position integer[] position index (not id)
 ---@field official integer[] holder of office of corresponding position index
 df.historical_entity.T_relations = {}
+
+---@class relations_constructions: df.struct
+---only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@field path coord2d_path set only for the first source/destination/construction entry in pairs
+---@field source_site world_site
+---@field destination_site world_site
+---@field construction integer[] set only for the first (source) entry in pairs
+---@field unk_1 integer 0 and 1 seen, paired with same value in the next field
+---@field unk_2 integer 0 and 1 seen
+df.relations.T_constructions = {}
+
+---@class relations_diplomacy: df.struct
+---@field group_id historical_entity
+---@field relation integer only 1 and 5 are 'hostile' (from viewscreen_unitlistst::render). Seems to be range 0-5, 2 not seen. 0:neutral/currently not at war, 3:parent->child, 4:child->parent, 1/5 both 'WAR' pre embark
+---@field war_event_collection history_event_collection always and only with relation = 1/5
+---@field historic_events integer[]
+---@field historic_events_collection integer[] seen with war_event_collection set
+---@field unk_1 integer 0, 1, 4 seen. Non zero seen with relation 0/1
+---@field tribute_season season
+df.relations.T_diplomacy = {}
 
 ---@class historical_entity_positions: df.struct
 ---@field own entity_position[]
@@ -733,6 +791,18 @@ df.historical_entity.T_derived_resources = {}
 ---@field unk1 coord2d_path
 ---@field border coord2d_path
 df.historical_entity.T_claims = {}
+
+---@class historical_entity_unk28: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.historical_entity.T_unk28 = {}
+
+---@class historical_entity_unk29: df.struct
+---@field unk_1 integer
+---@field unk_2 integer[]
+---@field unk_3 integer
+df.historical_entity.T_unk29 = {}
 
 ---@class entity_tissue_style: df.struct
 ---@field name string
@@ -1250,8 +1320,15 @@ df.agreement.T_flags = {
 ---@field id integer
 ---@field histfig_ids integer[]
 ---@field entity_ids integer[]
----@field unk_1 history_event_reason[]
+---@field unk_1 agreement_party_unk_1
 df.agreement_party = {}
+
+---@class agreement_party_unk_1: df.struct
+---@field reason history_event_reason
+---@field unk_2 integer
+---@field year integer
+---@field tick integer
+df.agreement_party.T_unk_1 = {}
 
 ---@enum crime_type
 df.crime_type = {

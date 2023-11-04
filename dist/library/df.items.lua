@@ -511,9 +511,21 @@ df.item_fish_rawst = {}
 ---@field subtype itemdef_foodst
 ---@field entity historical_entity
 ---@field recipe_id integer
----@field ingredients integer[]
+---@field ingredients item_foodst_ingredients
 ---@field rot_timer integer
 df.item_foodst = {}
+
+---@class item_foodst_ingredients: df.struct
+---@field unk_1 integer
+---@field item_type item_type
+---@field unk_4 integer
+---@field mat_type material
+---@field mat_index integer
+---@field maker historical_figure
+---@field quality item_quality
+---@field unk_14 integer
+---@field unk_18 integer
+df.item_foodst.T_ingredients = {}
 
 ---@class item_verminst: item_critter
 df.item_verminst = {}

@@ -145,7 +145,7 @@ df.plant_raw_flags = {
 ---@field root_density integer
 ---@field root_radius integer
 ---@field stockpile_growths integer[] indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
----@field stockpile_growth_flags any[]
+---@field stockpile_growth_flags plant_raw_stockpile_growth_flags
 df.plant_raw = {}
 
 ---@class plant_raw_tiles: df.struct
@@ -183,6 +183,9 @@ df.plant_raw.T_colors = {}
 ---@field idx integer[]
 ---@field str string[][]
 df.plant_raw.T_material_defs = {}
+
+---@class plant_raw_stockpile_growth_flags: df.struct
+df.plant_raw.T_stockpile_growth_flags = {}
 
 ---@enum plant_material_def
 df.plant_material_def = {

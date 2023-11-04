@@ -388,9 +388,15 @@ df.stockpile_list.attrs = {}
 ---@field id integer
 ---@field name string
 ---@field stops hauling_stop[]
----@field vehicle_ids vehicle[]
----@field vehicle_stops integer[]
+---@field vehicle_ids hauling_route_vehicle_ids
+---@field vehicle_stops hauling_route_vehicle_stops
 df.hauling_route = {}
+
+---@class hauling_route_vehicle_ids: df.struct
+df.hauling_route.T_vehicle_ids = {}
+
+---@class hauling_route_vehicle_stops: df.struct
+df.hauling_route.T_vehicle_stops = {}
 
 ---@class hauling_stop: df.struct
 ---@field id integer

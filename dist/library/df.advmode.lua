@@ -81,7 +81,7 @@ df.ui_advmode_menu = {
 ---@field location building civzone
 ---@field unk_b8 integer
 ---@field unk_bc integer
----@field speech string[][]
+---@field speech conversation_speech
 df.conversation = {}
 
 ---@enum conversation_state
@@ -91,6 +91,16 @@ df.conversation.T_state = {
   finished = 2,
   quit = 3,
 }
+
+---@class conversation_speech: df.struct
+---@field text string[] wordwrap
+---@field speaker unit
+---@field unk_14 integer
+---@field unk_18 integer
+---@field fg integer
+---@field bg integer
+---@field bright integer
+df.conversation.T_speech = {}
 
 ---@enum talk_choice_type
 df.talk_choice_type = {
@@ -506,10 +516,29 @@ df.adventurest.T_show_menu = {
 }
 
 ---@class adventurest_unk_3170: df.struct
----@field unk_1 entity_event[]
+---@field unk_1 unk_3170_unk_1
 ---@field unk_2 any[][]
 ---@field unk_3 integer
 df.adventurest.T_unk_3170 = {}
+
+---@class unk_3170_unk_1: df.struct
+---@field unk_0 entity_event
+---@field unk_28 integer
+---@field unk_2c integer
+---@field unk_30 integer
+---@field unk_34 integer
+---@field unk_38 integer
+---@field unk_3c integer
+---@field unk_40 integer
+---@field unk_44 integer
+---@field unk_48 integer
+---@field unk_4c integer
+---@field unk_50 integer
+---@field unk_54 integer
+---@field unk_58 integer
+---@field unk_5c integer
+---@field unk_60 integer
+df.unk_3170.T_unk_1 = {}
 
 ---@class adventurest_unk_3124: df.struct
 ---@field unk_1 integer
@@ -612,12 +641,35 @@ df.adventurest.T_charge_forbidden = {
 ---@field current_page integer
 ---@field page_top_choices integer[]
 ---@field page_bottom_choices integer[]
----@field choices talk_choice[]
+---@field choices conversation_choices
 ---@field filter string
 ---@field unk_1 integer
----@field targets unit[]
+---@field targets conversation_targets
 ---@field cursor_target integer
 df.adventurest.T_conversation = {}
+
+---@class conversation_choices: df.struct
+---@field choice talk_choice
+---@field keywords string[]
+---@field title string[]
+---@field orig_index integer
+---@field ranking integer
+df.conversation.T_choices = {}
+
+---@class conversation_targets: df.struct
+---@field unit_id unit
+---@field histfig_id historical_figure
+---@field type targets_type
+df.conversation.T_targets = {}
+
+---@enum targets_type
+df.targets.T_type = {
+  Talk = 0,
+  unk_1 = 1,
+  unk_2 = 2,
+  Shout = 3,
+  Perform = 4,
+}
 
 ---@enum adventurest_rest_mode
 df.adventurest.T_rest_mode = {

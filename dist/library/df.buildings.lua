@@ -149,15 +149,26 @@ df.building_drawbuffer = {}
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
 ---@field relations building_civzonest[] zone(s) this building is in
----@field job_claim_suppress unit[] after Remv Cre, prevents unit from taking jobs at building
+---@field job_claim_suppress building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
----@field activities activity_entry[]
+---@field activities building_activities
 ---@field world_data_id world_object_data
 ---@field world_data_subid integer
 ---@field unk_v40_2 integer
 ---@field site_id world_site
 ---@field location_id abstract_building
 df.building = {}
+
+---@class building_job_claim_suppress: df.struct
+---after Remv Cre, prevents unit from taking jobs at building
+---@field unit unit
+---@field timer integer
+df.building.T_job_claim_suppress = {}
+
+---@class building_activities: df.struct
+---@field activity_id activity_entry
+---@field event_id activity_event
+df.building.T_activities = {}
 
 ---@class stockpile_links: df.struct
 ---@field give_to_pile building[]
@@ -171,7 +182,7 @@ df.stockpile_links = {}
 ---@field max_barrels integer
 ---@field max_bins integer
 ---@field max_wheelbarrows integer
----@field container_type item_type[]
+---@field container_type building_stockpilest_container_type
 ---@field container_item_id integer[]
 ---@field container_x integer[]
 ---@field container_y integer[]
@@ -180,6 +191,9 @@ df.stockpile_links = {}
 ---@field stockpile_number integer
 ---@field linked_stops hauling_stop[]
 df.building_stockpilest = {}
+
+---@class building_stockpilest_container_type: df.struct
+df.building_stockpilest.T_container_type = {}
 
 ---@class hospital_supplies: df.struct
 ---@field supplies_needed hospital_supplies_supplies_needed
@@ -323,7 +337,7 @@ df.civzone_type = {
 ---@field contained_buildings building[] includes eg workshops and beds
 ---@field assigned_unit_id integer
 ---@field assigned_unit unit
----@field squad_room_info integer[]
+---@field squad_room_info building_civzonest_squad_room_info
 df.building_civzonest = {}
 
 ---@class building_civzonest_zone_settings: df.struct
@@ -368,11 +382,21 @@ df.zone_settings.T_pit_pond = {
   top_of_pond = 3,
 }
 
+---@class building_civzonest_squad_room_info: df.struct
+---@field squad_id integer
+---@field mode squad_use_flags
+df.building_civzonest.T_squad_room_info = {}
+
 ---@class building_actual: building
 ---@field construction_stage integer 0 not started, then 1 or 3 max depending on type
----@field contained_items item[]
+---@field contained_items building_actual_contained_items
 ---@field design building_design
 df.building_actual = {}
+
+---@class building_actual_contained_items: df.struct
+---@field item item
+---@field use_mode integer
+df.building_actual.T_contained_items = {}
 
 ---@class building_design: df.struct
 ---@field builder1 historical_figure

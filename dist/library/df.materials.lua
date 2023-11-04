@@ -247,9 +247,12 @@ df.material_common.T_hardens_with_water = {}
 df.material = {}
 
 ---@class material_vec_ref: df.struct
----@field mat_type material[]
+---@field mat_type material_vec_ref_mat_type
 ---@field mat_index integer[]
 df.material_vec_ref = {}
+
+---@class material_vec_ref_mat_type: df.struct
+df.material_vec_ref.T_mat_type = {}
 
 ---@class material_template: material_common
 ---@field tile integer
@@ -341,28 +344,46 @@ df.inorganic_raw = {}
 
 ---@class inorganic_raw_metal_ore: df.struct
 ---@field str string[] only during parsing
----@field mat_index inorganic_raw[]
+---@field mat_index metal_ore_mat_index
 ---@field probability integer[]
 df.inorganic_raw.T_metal_ore = {}
 
+---@class metal_ore_mat_index: df.struct
+df.metal_ore.T_mat_index = {}
+
 ---@class inorganic_raw_thread_metal: df.struct
 ---@field str string[] only during parsing
----@field mat_index inorganic_raw[]
+---@field mat_index thread_metal_mat_index
 ---@field probability integer[]
 df.inorganic_raw.T_thread_metal = {}
 
+---@class thread_metal_mat_index: df.struct
+df.thread_metal.T_mat_index = {}
+
 ---@class inorganic_raw_environment_spec: df.struct
 ---@field str string[] only during parsing
----@field mat_index inorganic_raw[]
----@field inclusion_type inclusion_type[]
+---@field mat_index environment_spec_mat_index
+---@field inclusion_type environment_spec_inclusion_type
 ---@field probability integer[]
 df.inorganic_raw.T_environment_spec = {}
 
+---@class environment_spec_mat_index: df.struct
+df.environment_spec.T_mat_index = {}
+
+---@class environment_spec_inclusion_type: df.struct
+df.environment_spec.T_inclusion_type = {}
+
 ---@class inorganic_raw_environment: df.struct
----@field location environment_type[]
----@field type inclusion_type[]
+---@field location environment_location
+---@field type environment_type
 ---@field probability integer[]
 df.inorganic_raw.T_environment = {}
+
+---@class environment_location: df.struct
+df.environment.T_location = {}
+
+---@class environment_type: df.struct
+df.environment.T_type = {}
 
 ---@enum organic_mat_category
 df.organic_mat_category = {

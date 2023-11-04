@@ -121,10 +121,13 @@ df.creature_interaction_effect_target_mode = {
 }
 
 ---@class creature_interaction_effect_target: df.struct
----@field mode creature_interaction_effect_target_mode[]
+---@field mode creature_interaction_effect_target_mode
 ---@field key string[]
 ---@field tissue string[]
 df.creature_interaction_effect_target = {}
+
+---@class creature_interaction_effect_target_mode: df.struct
+df.creature_interaction_effect_target.T_mode = {}
 
 ---@class creature_interaction_effect: df.instance
 ---@field flags creature_interaction_effect_flags
@@ -142,11 +145,14 @@ df.creature_interaction_effect_target = {}
 df.creature_interaction_effect = {}
 
 ---@class creature_interaction_effect_counter_trigger: df.struct
----@field counter misc_trait_type[]
+---@field counter counter_trigger_counter
 ---@field minval integer[] ?
 ---@field maxval integer[] ?
 ---@field required integer[]
 df.creature_interaction_effect.T_counter_trigger = {}
+
+---@class counter_trigger_counter: df.struct
+df.counter_trigger.T_counter = {}
 
 ---@class creature_interaction_effect_painst: creature_interaction_effect
 ---@field sev integer

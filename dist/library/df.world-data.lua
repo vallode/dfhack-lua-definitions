@@ -111,12 +111,12 @@ df.world_region_type = {
 ---@field unk_a4 integer
 ---@field population world_population[]
 ---@field biome_tile_counts integer[]
----@field tree_biomes biome_type[]
----@field tree_tiles_1 plant_raw[]
----@field tree_tiles_2 plant_raw[]
----@field tree_tiles_good plant_raw[]
----@field tree_tiles_evil plant_raw[]
----@field tree_tiles_savage plant_raw[]
+---@field tree_biomes world_region_tree_biomes
+---@field tree_tiles_1 world_region_tree_tiles_1
+---@field tree_tiles_2 world_region_tree_tiles_2
+---@field tree_tiles_good world_region_tree_tiles_good
+---@field tree_tiles_evil world_region_tree_tiles_evil
+---@field tree_tiles_savage world_region_tree_tiles_savage
 ---@field dead_percentage integer % vegetation dead on embark. The number increases during world gen history, with the new ones always at 100%
 ---@field unk_1e5 boolean Probably optionally set only on good and evil regions during world gen. Number set increases during world gen history and can affect neutral.
 ---@field unk_1e6 boolean Probably optionally set only on neutral regions
@@ -134,6 +134,24 @@ df.world_region_type = {
 ---@field min_y integer
 ---@field max_y integer
 df.world_region = {}
+
+---@class world_region_tree_biomes: df.struct
+df.world_region.T_tree_biomes = {}
+
+---@class world_region_tree_tiles_1: df.struct
+df.world_region.T_tree_tiles_1 = {}
+
+---@class world_region_tree_tiles_2: df.struct
+df.world_region.T_tree_tiles_2 = {}
+
+---@class world_region_tree_tiles_good: df.struct
+df.world_region.T_tree_tiles_good = {}
+
+---@class world_region_tree_tiles_evil: df.struct
+df.world_region.T_tree_tiles_evil = {}
+
+---@class world_region_tree_tiles_savage: df.struct
+df.world_region.T_tree_tiles_savage = {}
 
 ---@class world_underground_region: df.instance
 ---@field type world_underground_region_type
@@ -196,12 +214,19 @@ df.geo_layer_type.attrs = {}
 ---@field type geo_layer_type
 ---@field mat_index inorganic_raw
 ---@field vein_mat integer[]
----@field vein_nested_in integer[] Index of the other vein this one is nested in, or -1
----@field vein_type inclusion_type[]
+---@field vein_nested_in world_geo_layer_vein_nested_in Index of the other vein this one is nested in, or -1
+---@field vein_type world_geo_layer_vein_type
 ---@field vein_unk_38 integer[] density??
 ---@field top_height integer negative
 ---@field bottom_height integer
 df.world_geo_layer = {}
+
+---@class world_geo_layer_vein_nested_in: df.struct
+---Index of the other vein this one is nested in, or -1
+df.world_geo_layer.T_vein_nested_in = {}
+
+---@class world_geo_layer_vein_type: df.struct
+df.world_geo_layer.T_vein_type = {}
 
 ---@class world_geo_biome: df.instance
 ---@field unk1 integer
@@ -390,7 +415,7 @@ df.entity_claim_mask = {}
 ---@field unk_4 integer
 ---@field unk_c integer
 ---@field unk_10 integer
----@field members nemesis_record[]
+---@field members moving_party_members
 ---@field entity_id historical_entity
 ---@field flags any
 ---@field unk_30 any[]
@@ -403,18 +428,31 @@ df.entity_claim_mask = {}
 ---@field beast_id integer for FB
 df.moving_party = {}
 
+---@class moving_party_members: df.struct
+---@field nemesis_id nemesis_record
+---@field hunger integer
+---@field thirst integer
+---@field sleepiness integer
+---@field stored_fat integer
+---@field unk_14 integer
+---@field unk_18 integer maybe type
+---@field unk_1c integer
+---@field unk_20 integer
+---@field unk_24 integer
+df.moving_party.T_members = {}
+
 ---@class world_object_data: df.instance
 ---@field id integer World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
 ---@field altered_items integer[] world_data_subid
----@field offloaded_items item[]
+---@field offloaded_items world_object_data_offloaded_items
 ---@field unk_24 integer[]
 ---@field unk_34 integer[]
 ---@field unk_44 integer[]
 ---@field unk_54 integer[]
 ---@field unk_64 integer[]
 ---@field altered_buildings integer[] world_data_subid
----@field offloaded_buildings building[]
----@field unk_94 integer[]
+---@field offloaded_buildings world_object_data_offloaded_buildings
+---@field unk_94 world_object_data_unk_94
 ---@field creation_zone_alterations creation_zone_pwg_alterationst[]
 ---@field unk_v40_1 integer
 ---@field year integer
@@ -422,6 +460,31 @@ df.moving_party = {}
 ---@field picked_growths world_object_data_picked_growths also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
 ---@field unk_v43 world_object_data_unk_v43 probably used by Adventurer mode
 df.world_object_data = {}
+
+---@class world_object_data_offloaded_items: df.struct
+---@field item item
+---@field global_x integer in tiles it seems
+---@field global_y integer
+---@field global_z integer
+---@field container item
+---@field building building
+---@field unk_18 integer
+df.world_object_data.T_offloaded_items = {}
+
+---@class world_object_data_offloaded_buildings: df.struct
+---@field building building
+---@field global_x integer in tiles it seems
+---@field global_y integer
+---@field global_z integer
+---@field unk_10 integer
+df.world_object_data.T_offloaded_buildings = {}
+
+---@class world_object_data_unk_94: df.struct
+---@field global_x integer in in-game tiles it seems
+---@field global_y integer
+---@field global_z integer
+---@field unk_c integer
+df.world_object_data.T_unk_94 = {}
 
 ---@class world_object_data_picked_growths: df.struct
 ---also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
@@ -542,7 +605,7 @@ df.world_mountain_peak = {}
 ---@field unk_268 integer
 ---@field unk_26c integer
 ---@field unk_270 integer
----@field unk_274 historical_figure[][]
+---@field unk_274 world_data_unk_274
 ---@field unk_482f8 world_data_unk_482f8
 df.world_data = {}
 
@@ -571,6 +634,22 @@ df.world_data.T_unk_b4 = {}
 ---@field next_id integer
 df.world_data.T_constructions = {}
 
+---@class world_data_unk_274: df.struct
+---@field members historical_figure[]
+---@field unk_10 unk_274_unk_10
+---@field entity historical_entity
+---@field unk_24 integer
+---@field unk_region_name language_name
+---@field unk_2c integer
+---@field unk_30 integer
+df.world_data.T_unk_274 = {}
+
+---@class unk_274_unk_10: df.struct
+---@field unk_0 integer
+---@field race creature_raw
+---@field unk_8 integer
+df.unk_274.T_unk_10 = {}
+
 ---@class world_data_unk_482f8: df.struct
 ---@field unk_1 integer[]
 ---@field unk_2 integer
@@ -585,14 +664,31 @@ df.world_data.T_unk_482f8 = {}
 ---@class breed: df.instance
 ---@field id integer
 ---@field unk_4 integer
----@field unk_8 integer[]
----@field unk_18 integer[]
----@field unk_28 integer[]
+---@field unk_8 breed_unk_8
+---@field unk_18 breed_unk_18
+---@field unk_28 breed_unk_28
 df.breed = {}
+
+---@class breed_unk_8: df.struct
+---@field id integer
+---@field unk_4 integer
+---@field unk_8 integer
+df.breed.T_unk_8 = {}
+
+---@class breed_unk_18: df.struct
+---@field id integer
+---@field unk_4 integer
+---@field unk_8 integer
+df.breed.T_unk_18 = {}
+
+---@class breed_unk_28: df.struct
+---@field unk_0 integer
+---@field unk_4 integer
+df.breed.T_unk_28 = {}
 
 ---@class battlefield: df.instance
 ---@field id integer
----@field sapient_deaths integer[] Seems to be by squad. Trolls/Blizzard Men not counted
+---@field sapient_deaths battlefield_sapient_deaths Seems to be by squad. Trolls/Blizzard Men not counted
 ---@field hfs_killed integer[] some victims are not listed, for some reason, and culled HFs can be present
 ---@field x1 integer
 ---@field y1 integer
@@ -601,6 +697,18 @@ df.breed = {}
 ---@field unk_34 integer wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
 ---@field event_collections integer[]
 df.battlefield = {}
+
+---@class battlefield_sapient_deaths: df.struct
+---Seems to be by squad. Trolls/Blizzard Men not counted
+---@field deaths integer May not sum up, at least not for defenders
+---@field race integer
+---@field squad integer A guess (Don't know how to find squads). Animal people seem to have -1
+---@field unk_c integer
+---@field start_year integer
+---@field end_year integer
+---@field unk_18 integer 0, 1, 4, 5, 7 seen
+---@field unk_1c integer 2-5 seen. 4-5 probably attacker, 2-3 probably defender
+df.battlefield.T_sapient_deaths = {}
 
 ---@enum region_weather_type
 df.region_weather_type = {

@@ -535,7 +535,7 @@ df.tool_uses = {
 ---@field flags any
 ---@field value integer
 ---@field tile integer
----@field tool_use tool_uses[]
+---@field tool_use itemdef_toolst_tool_use
 ---@field adjective string
 ---@field size integer
 ---@field skill_melee job_skill
@@ -551,8 +551,18 @@ df.tool_uses = {
 ---@field shape_category_str string[]
 ---@field shape_category integer[]
 ---@field description string
----@field default_improvements improvement_type[]
+---@field default_improvements itemdef_toolst_default_improvements
 df.itemdef_toolst = {}
+
+---@class itemdef_toolst_tool_use: df.struct
+df.itemdef_toolst.T_tool_use = {}
+
+---@class itemdef_toolst_default_improvements: df.struct
+---@field type improvement_type
+---@field specific_type itemimprovement_specific_type
+---@field instrument_part string
+---@field restriction tool_flags
+df.itemdef_toolst.T_default_improvements = {}
 
 ---@enum toy_flags
 df.toy_flags = {

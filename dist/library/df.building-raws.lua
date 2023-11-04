@@ -20,10 +20,13 @@
 ---@field dim_y integer
 ---@field workloc_x integer
 ---@field workloc_y integer
----@field build_labors unit_labor[]
+---@field build_labors building_def_build_labors
 ---@field labor_description string
 ---@field build_stages integer
 df.building_def = {}
+
+---@class building_def_build_labors: df.struct
+df.building_def.T_build_labors = {}
 
 ---@class building_def_item: df.struct
 ---@field item_type item_type

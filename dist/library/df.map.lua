@@ -180,7 +180,7 @@ df.block_burrow = {}
 ---@field layer_depth integer uninitialized
 ---@field dsgn_check_cooldown integer
 ---@field default_liquid tile_designation
----@field items item[]
+---@field items map_block_items
 ---@field flows flow_info[]
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
@@ -199,6 +199,9 @@ df.block_burrow = {}
 ---@field liquid_flow tile_liquid_flow[][]
 ---@field region_offset integer[]
 df.map_block = {}
+
+---@class map_block_items: df.struct
+df.map_block.T_items = {}
 
 ---@class cave_column: df.struct
 ---@field unk_z1 integer
@@ -235,7 +238,7 @@ df.cave_column_rectangle.T_unk_7 = {
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
 ---@field beach_level integer water at this level disappears if above more water
 ---@field ground_level integer for coloring unallocated blocks
----@field unmined_glyphs integer[][]
+---@field unmined_glyphs map_block_column_unmined_glyphs
 ---@field z_base integer
 ---@field cave_columns cave_column_link[][]
 ---@field column_rectangles cave_column_rectangle[]
@@ -247,6 +250,12 @@ df.cave_column_rectangle.T_unk_7 = {
 ---@field region_pos coord2d
 ---@field plants plant[] Only populated for the top left column in each mid level tile
 df.map_block_column = {}
+
+---@class map_block_column_unmined_glyphs: df.struct
+---@field x integer[]
+---@field y integer[]
+---@field tile integer[]
+df.map_block_column.T_unmined_glyphs = {}
 
 ---@enum block_square_event_type
 df.block_square_event_type = {

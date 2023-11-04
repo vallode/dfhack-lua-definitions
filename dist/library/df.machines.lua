@@ -33,21 +33,29 @@ df.machine_conn_modes = {
 
 ---@class machine_tile_set: df.struct
 ---@field tiles coord_path
----@field can_connect machine_conn_modes[]
+---@field can_connect machine_tile_set_can_connect
 df.machine_tile_set = {}
+
+---@class machine_tile_set_can_connect: df.struct
+df.machine_tile_set.T_can_connect = {}
 
 ---@class machine: df.instance
 ---@field x integer
 ---@field y integer
 ---@field z integer
 ---@field id integer
----@field components building[]
+---@field components machine_components
 ---@field cur_power integer
 ---@field min_power integer
 ---@field visual_phase integer
 ---@field phase_timer integer
 ---@field flags machine_flags
 df.machine = {}
+
+---@class machine_components: df.struct
+---@field building_id building
+---@field connections integer[] indices into the same component vector
+df.machine.T_components = {}
 
 ---@enum machine_flags
 df.machine.T_flags = {

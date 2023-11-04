@@ -8,9 +8,12 @@
 ---@field killed_underground_region integer[]
 ---@field killed_region integer[]
 ---@field killed_site integer[]
----@field killed_undead undead_flags[]
+---@field killed_undead historical_kills_killed_undead
 ---@field killed_count integer[]
 df.historical_kills = {}
+
+---@class historical_kills_killed_undead: df.struct
+df.historical_kills.T_killed_undead = {}
 
 ---@class history_hit_item: df.struct
 ---@field item item
@@ -157,14 +160,83 @@ df.historical_figure_info = {}
 
 ---@class historical_figure_relationships: df.struct
 ---only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
----@field hf_visual historical_figure[]
----@field hf_historical historical_figure[]
----@field unk_1 integer[]
+---@field hf_visual historical_figure_relationships_hf_visual
+---@field hf_historical historical_figure_relationships_hf_historical
+---@field unk_1 historical_figure_relationships_unk_1
 ---@field identities integer[]
----@field artifact_claims artifact_record[]
+---@field artifact_claims historical_figure_relationships_artifact_claims
 ---@field unk_2 integer
 ---@field intrigues any[] only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
 df.historical_figure_relationships = {}
+
+---@class historical_figure_relationships_hf_visual: df.struct
+---@field histfig_id historical_figure
+---@field flags hf_visual_flags
+---@field unk_2v integer[] Involves adventurer knowing name?
+---@field attitude hf_visual_attitude
+---@field counter integer[] One element for each 'attitude' element. Guess 0 - 100
+---@field rank integer seems to be fixed. Might not be used anymore
+---@field loyalty integer 0 - 100. Loyalty, Respect, Fear, and Trust values do not seem to affect the relationship screen description, only Love and Familiarity
+---@field respect integer -100 - 100
+---@field fear integer -100 - 100
+---@field love integer -100 - 100. Affects relation description: -100: Pure Hate, LE -75: Hated, LE -50: Disliked, LE 49: Acquaintance, LE 74: Friend, LE 99: Close Friend, 100: Kindred Spirit. Lower histfig_id is sorted above higher, except Acquaintance which is sorted on Familiarity
+---@field trust integer -100 - 100
+---@field familiarity integer Shifts from 'Passing' to 'Long-term' Acquaintance at 30, but a Love value other than Acquaintance takes presedence. Higher Familiarity is sorted above lower, with lower histfig_id is sorted above higher on a tie
+---@field last_meet_year integer probably latest contact. Seen -1
+---@field last_meet_seconds72 integer
+---@field meet_count integer
+---@field unk_2 integer duplicates meet_count?
+---@field unk_3 integer duplicates meet_count?
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer only seen 0
+---@field unk_9 integer only seen 0
+---@field first_year integer pair less than or equal to year. Guessing it's first contact
+---@field first_year_tick integer
+df.historical_figure_relationships.T_hf_visual = {}
+
+---@enum hf_visual_flags
+df.hf_visual.T_flags = {
+  information_source = 0,
+  unk_1 = 1,
+  believes_false_identity = 2,
+}
+
+---@class hf_visual_attitude: df.struct
+df.hf_visual.T_attitude = {}
+
+---@class historical_figure_relationships_hf_historical: df.struct
+---@field histfig_id historical_figure
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field loyalty integer 0 - 100
+---@field respect integer -100 - 100
+---@field fear integer -100 - 100
+---@field love integer -100 - 100
+---@field trust integer -100 - 100
+df.historical_figure_relationships.T_hf_historical = {}
+
+---@class historical_figure_relationships_unk_1: df.struct
+---@field unk_1 integer
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field loyalty integer 0 - 100
+---@field respect integer -100 - 100
+---@field fear integer -100 - 100
+---@field love integer -100 - 100
+---@field trust integer -100 - 100
+df.historical_figure_relationships.T_unk_1 = {}
+
+---@class historical_figure_relationships_artifact_claims: df.struct
+---@field artifact_id artifact_record
+---@field unk_1 integer only 2 seen
+---@field year integer
+---@field year_tick integer
+---@field unk_2 integer
+df.historical_figure_relationships.T_artifact_claims = {}
 
 ---@enum histfig_flags
 df.histfig_flags = {
@@ -2495,9 +2567,9 @@ df.history_event_collection_abductionst = {}
 ---@field thief_civ historical_entity
 ---@field victim_civ historical_entity
 ---@field thief_hf integer[]
----@field stolen_item_types item_type[]
----@field stolen_item_subtypes integer[]
----@field stolen_mat_types material[]
+---@field stolen_item_types history_event_collection_theftst_stolen_item_types
+---@field stolen_item_subtypes history_event_collection_theftst_stolen_item_subtypes
+---@field stolen_mat_types history_event_collection_theftst_stolen_mat_types
 ---@field stolen_mat_indices integer[]
 ---@field stolen_item_ids integer[]
 ---@field unk_1 integer[]
@@ -2509,6 +2581,15 @@ df.history_event_collection_abductionst = {}
 ---@field unk_7 integer[]
 ---@field ordinal integer
 df.history_event_collection_theftst = {}
+
+---@class history_event_collection_theftst_stolen_item_types: df.struct
+df.history_event_collection_theftst.T_stolen_item_types = {}
+
+---@class history_event_collection_theftst_stolen_item_subtypes: df.struct
+df.history_event_collection_theftst.T_stolen_item_subtypes = {}
+
+---@class history_event_collection_theftst_stolen_mat_types: df.struct
+df.history_event_collection_theftst.T_stolen_mat_types = {}
 
 ---@class history_event_collection_beast_attackst: history_event_collection
 ---@field parent_collection history_event_collection

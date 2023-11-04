@@ -129,7 +129,7 @@ df.meeting_context = {}
 ---@field unk1 integer maybe is_first_contact
 ---@field diplomat_id historical_figure
 ---@field associate_id historical_figure
----@field topic_list meeting_topic[]
+---@field topic_list meeting_diplomat_info_topic_list
 ---@field topic_parms integer[]
 ---@field sell_requests entity_sell_requests
 ---@field buy_requests entity_buy_requests
@@ -149,6 +149,9 @@ df.meeting_context = {}
 ---@field contact_year integer[]
 ---@field contact_tick integer[]
 df.meeting_diplomat_info = {}
+
+---@class meeting_diplomat_info_topic_list: df.struct
+df.meeting_diplomat_info.T_topic_list = {}
 
 ---@enum meeting_diplomat_info_flags
 df.meeting_diplomat_info.T_flags = {
@@ -285,21 +288,33 @@ df.activity_event_type = {
 }
 
 ---@class activity_event_participants: df.struct
----@field histfigs historical_figure[]
----@field units unit[]
----@field free_histfigs historical_figure[]
----@field free_units unit[]
+---@field histfigs activity_event_participants_histfigs
+---@field units activity_event_participants_units
+---@field free_histfigs activity_event_participants_free_histfigs
+---@field free_units activity_event_participants_free_units
 ---@field activity_id activity_entry
 ---@field event_id integer
 df.activity_event_participants = {}
+
+---@class activity_event_participants_histfigs: df.struct
+df.activity_event_participants.T_histfigs = {}
+
+---@class activity_event_participants_units: df.struct
+df.activity_event_participants.T_units = {}
+
+---@class activity_event_participants_free_histfigs: df.struct
+df.activity_event_participants.T_free_histfigs = {}
+
+---@class activity_event_participants_free_units: df.struct
+df.activity_event_participants.T_free_units = {}
 
 ---@class activity_event: df.struct
 ---@field event_id integer mostly, but not always, the index in activity.events
 ---@field activity_id activity_entry
 ---@field parent_event_id activity_event
 ---@field flags activity_event_flags
----@field unk_v42_1 integer[]
----@field unk_v42_2 integer[]
+---@field unk_v42_1 activity_event_unk_v42_1
+---@field unk_v42_2 activity_event_unk_v42_2
 df.activity_event = {}
 
 ---@enum activity_event_flags
@@ -307,6 +322,19 @@ df.activity_event.T_flags = {
   dismissed = 0, --to be removed from squad_position, anyway
   squad = 1, --for all in training session, but not ind.drill
 }
+
+---@class activity_event_unk_v42_1: df.struct
+---@field unk_1 integer
+---@field item_id item is artifact id for some activities ie. copy written
+---@field unk_2 integer
+df.activity_event.T_unk_v42_1 = {}
+
+---@class activity_event_unk_v42_2: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field item_id item is unit ID for writing jobs and reading
+---@field unk_3 integer
+df.activity_event.T_unk_v42_2 = {}
 
 ---@class activity_event_training_sessionst: activity_event
 ---@field participants activity_event_participants
@@ -341,9 +369,15 @@ df.activity_event_individual_skill_drillst = {}
 ---@class activity_event_sparringst: activity_event
 ---@field participants activity_event_participants
 ---@field building_id building
----@field groups integer[][]
+---@field groups activity_event_sparringst_groups
 ---@field countdown integer
 df.activity_event_sparringst = {}
+
+---@class activity_event_sparringst_groups: df.struct
+---@field units integer[]
+---@field countdown integer
+---@field building_id building
+df.activity_event_sparringst.T_groups = {}
 
 ---@class activity_event_ranged_practicest: activity_event
 ---@field participants activity_event_participants
@@ -352,7 +386,7 @@ df.activity_event_ranged_practicest = {}
 
 ---@class activity_event_harassmentst: activity_event
 ---@field unk_1 integer[]
----@field unk_2 integer[]
+---@field unk_2 activity_event_harassmentst_unk_2
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -360,6 +394,22 @@ df.activity_event_ranged_practicest = {}
 ---@field unk_7 integer
 ---@field unk_8 integer
 df.activity_event_harassmentst = {}
+
+---@class activity_event_harassmentst_unk_2: df.struct
+---@field unk_1 integer is an hfid
+---@field unk_2 integer[]
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer[]
+---@field unk_12 integer
+---@field unk_13 integer
+df.activity_event_harassmentst.T_unk_2 = {}
 
 ---@enum conversation_menu
 df.conversation_menu = {
@@ -438,7 +488,7 @@ df.conversation_menu = {
 }
 
 ---@class activity_event_conversationst: activity_event
----@field participants unit[]
+---@field participants activity_event_conversationst_participants
 ---@field menu conversation_menu
 ---@field unk1 entity_event
 ---@field unk_1 integer
@@ -448,11 +498,11 @@ df.conversation_menu = {
 ---@field unk_v42_3 integer
 ---@field unk_v42_4 integer[]
 ---@field unk_5 integer[]
----@field unk_6 integer[]
+---@field unk_6 activity_event_conversationst_unk_6
 ---@field unk_7 integer[]
 ---@field unk_8 integer[]
 ---@field unk_b4 activity_event_conversationst_unk_b4
----@field turns unit[]
+---@field turns activity_event_conversationst_turns
 ---@field floor_holder unit -1 = no one's turn
 ---@field floor_holder_hfid historical_figure -1 = no one's turn
 ---@field pause integer ticks since the last turn
@@ -463,6 +513,23 @@ df.conversation_menu = {
 ---@field unk4 integer[] uninitialized
 df.activity_event_conversationst = {}
 
+---@class activity_event_conversationst_participants: df.struct
+---@field unit_id unit
+---@field histfig_id historical_figure
+df.activity_event_conversationst.T_participants = {}
+
+---@class activity_event_conversationst_unk_6: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+df.activity_event_conversationst.T_unk_6 = {}
+
 ---@class activity_event_conversationst_unk_b4: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -470,6 +537,23 @@ df.activity_event_conversationst = {}
 ---@field unk_4 integer[]
 ---@field unk_5 integer
 df.activity_event_conversationst.T_unk_b4 = {}
+
+---@class activity_event_conversationst_turns: df.struct
+---@field speaker unit
+---@field speaker_hfid historical_figure
+---@field type talk_choice_type
+---@field unk_1 integer[] uninitialized
+---@field unk_2 integer[]
+---@field foreground integer
+---@field background integer
+---@field bright integer
+---@field year integer
+---@field ticks integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_34014_1 integer uninit
+df.activity_event_conversationst.T_turns = {}
 
 ---@enum activity_event_conversationst_flags2
 df.activity_event_conversationst.T_flags2 = {
@@ -510,12 +594,27 @@ df.activity_event_conversationst.T_flags2 = {
 df.activity_event_conversationst.T_unk2 = {}
 
 ---@class activity_event_conflictst: activity_event
----@field sides integer[]
+---@field sides activity_event_conflictst_sides
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_v42_3 integer
 df.activity_event_conflictst = {}
+
+---@class activity_event_conflictst_sides: df.struct
+---@field id integer
+---@field histfig_ids integer[]
+---@field unit_ids integer[]
+---@field enemies sides_enemies relationships to other sides in this conflict
+---@field unk_1 integer
+---@field unk_2 integer
+df.activity_event_conflictst.T_sides = {}
+
+---@class sides_enemies: df.struct
+---relationships to other sides in this conflict
+---@field id integer
+---@field conflict_level conflict_level
+df.sides.T_enemies = {}
 
 ---@class activity_event_guardst: activity_event
 ---@field unk_1 integer[]
@@ -595,7 +694,7 @@ df.performance_participant_type = {
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
----@field participant_actions performance_participant_type[]
+---@field participant_actions activity_event_performancest_participant_actions
 ---@field pos_performer_2d coord2d
 ---@field pos_performer coord
 ---@field unk_pos_1_x0 integer
@@ -617,13 +716,32 @@ df.performance_participant_type = {
 ---@field unk_18 integer
 df.activity_event_performancest = {}
 
+---@class activity_event_performancest_participant_actions: df.struct
+---@field type performance_participant_type
+---@field sub_type integer depends on type. if music: voice index in musical form
+---@field unit_id unit
+---@field histfig_id historical_figure
+---@field unk_act_1 integer
+---@field unk_act_2 integer
+---@field unk_act_3 coord
+---@field unk_act_6 integer
+---@field unk_act_7 integer
+---@field unk_act_8 integer
+---@field unk_act_9 integer
+df.activity_event_performancest.T_participant_actions = {}
+
 ---@class performance_play_orderst: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 integer[][]
+---@field unk_4 performance_play_orderst_unk_4
 ---@field unk_5 integer
 df.performance_play_orderst = {}
+
+---@class performance_play_orderst_unk_4: df.struct
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+df.performance_play_orderst.T_unk_4 = {}
 
 ---@class activity_event_researchst: activity_event
 ---@field participants activity_event_participants
@@ -766,8 +884,8 @@ df.activity_event_play_with_toyst = {}
 df.activity_event_play_with_toyst.T_unk = {}
 
 ---@class activity_event_encounterst: activity_event
----@field unk_1 integer[]
----@field unk_2 integer[]
+---@field unk_1 activity_event_encounterst_unk_1
+---@field unk_2 activity_event_encounterst_unk_2
 ---@field unk_3 integer[]
 ---@field unk_4 integer[]
 ---@field unk_5 integer
@@ -776,6 +894,30 @@ df.activity_event_play_with_toyst.T_unk = {}
 ---@field unk_8 integer
 ---@field unk_9 integer
 df.activity_event_encounterst = {}
+
+---@class activity_event_encounterst_unk_1: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+df.activity_event_encounterst.T_unk_1 = {}
+
+---@class activity_event_encounterst_unk_2: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+df.activity_event_encounterst.T_unk_2 = {}
 
 ---@class activity_event_store_objectst: activity_event
 ---@field unk_1 integer
