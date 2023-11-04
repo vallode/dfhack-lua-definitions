@@ -109,10 +109,10 @@ df.plant_raw_flags = {
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
 ---@field unk2 integer
----@field tiles integer
+---@field tiles plant_raw_tiles
 ---@field growdur integer
 ---@field value integer
----@field colors integer[]
+---@field colors plant_raw_colors
 ---@field alt_period integer[]
 ---@field shrub_drown_level integer
 ---@field tree_drown_level integer
@@ -121,7 +121,7 @@ df.plant_raw_flags = {
 ---@field clustersize integer
 ---@field prefstring string[]
 ---@field material material[]
----@field material_defs material[]
+---@field material_defs plant_raw_material_defs
 ---@field underground_depth_min integer
 ---@field underground_depth_max integer
 ---@field growths plant_growth[]
@@ -148,6 +148,42 @@ df.plant_raw_flags = {
 ---@field stockpile_growth_flags any[]
 df.plant_raw = {}
 
+---@class plant_raw_tiles: df.struct
+---@field picked_tile integer
+---@field dead_picked_tile integer
+---@field shrub_tile integer
+---@field dead_shrub_tile integer
+---@field tree_tile integer unused
+---@field dead_tree_tile integer unused
+---@field sapling_tile integer
+---@field dead_sapling_tile integer
+---@field grass_tiles integer[]
+---@field alt_grass_tiles integer[]
+---@field tree_tiles integer[]
+---@field unk_v50_1 integer[]
+df.plant_raw.T_tiles = {}
+
+---@class plant_raw_colors: df.struct
+---@field picked_color integer[]
+---@field dead_picked_color integer[]
+---@field shrub_color integer[]
+---@field dead_shrub_color integer[]
+---@field seed_color integer[]
+---@field tree_color integer[]
+---@field dead_tree_color integer[]
+---@field sapling_color integer[]
+---@field dead_sapling_color integer[]
+---@field grass_colors_0 integer[]
+---@field grass_colors_1 integer[]
+---@field grass_colors_2 integer[]
+df.plant_raw.T_colors = {}
+
+---@class plant_raw_material_defs: df.struct
+---@field type material[]
+---@field idx integer[]
+---@field str string[][]
+df.plant_raw.T_material_defs = {}
+
 ---@enum plant_material_def
 df.plant_material_def = {
   basic_mat = 0,
@@ -166,7 +202,7 @@ df.plant_material_def = {
 ---@field name string
 ---@field name_plural string
 ---@field str_growth_item string[]
----@field item_type plant_growth_item_type
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
@@ -184,10 +220,6 @@ df.plant_material_def = {
 ---@field trunk_height_perc_1 integer
 ---@field trunk_height_perc_2 integer
 df.plant_growth = {}
-
----@enum plant_growth_item_type
-df.plant_growth.T_item_type = {
-}
 
 ---@class plant_growth_print: df.struct
 ---@field priority integer final token in list

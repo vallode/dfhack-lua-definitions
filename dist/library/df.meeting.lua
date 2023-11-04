@@ -85,7 +85,7 @@ df.meeting_event_type = {
 
 ---@class meeting_event: df.struct
 ---@field type meeting_event_type
----@field topic meeting_event_topic
+---@field topic meeting_topic
 ---@field topic_parm integer
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
@@ -96,14 +96,6 @@ df.meeting_event_type = {
 ---@field sell_prices entity_sell_prices
 ---@field buy_prices entity_buy_prices
 df.meeting_event = {}
-
----@enum meeting_event_meeting_event_type
-df.meeting_event.T_meeting_event_type = {
-}
-
----@enum meeting_event_meeting_topic
-df.meeting_event.T_meeting_topic = {
-}
 
 ---@class activity_info: df.struct
 ---@field id integer assigned during Save
@@ -146,10 +138,6 @@ df.activity_entry_type = {
 ---@field next_event_id integer
 ---@field army_controller army_controller
 df.activity_entry = {}
-
----@enum activity_entry_activity_entry_type
-df.activity_entry.T_activity_entry_type = {
-}
 
 ---@enum activity_event_type
 df.activity_event_type = {

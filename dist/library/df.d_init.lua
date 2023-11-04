@@ -89,8 +89,8 @@ df.d_init_autosave = {
 ---@field track_ramp_invert integer[]
 ---@field tree_tiles integer[]
 ---@field chasm_color integer[]
----@field wound_color integer[]
----@field show_embark_tunnel d_init_show_embark_tunnel
+---@field wound_color d_init_wound_color
+---@field show_embark_tunnel d_init_tunnel
 ---@field number_of_lower_elevations_shown integer
 ---@field flags3 any
 ---@field population_cap integer
@@ -102,27 +102,32 @@ df.d_init_autosave = {
 ---@field fortress_seed_cap integer
 ---@field path_cost integer[]
 ---@field embark_rect integer[]
----@field store_dist integer
+---@field store_dist d_init_store_dist
 ---@field graze_coefficient integer
 ---@field maximum_embark_dim integer
 ---@field cull_dead_units_at integer
 ---@field flags4 any
----@field post_prepare_embark_confirmation d_init_post_prepare_embark_confirmation
+---@field post_prepare_embark_confirmation d_init_embark_confirm
 ---@field autosave d_init_autosave
 ---@field announcements announcements
 ---@field unk_5010_730 integer
 ---@field unk_5010_734 integer
 df.d_init = {}
 
----@enum d_init_d_init_tunnel
-df.d_init.T_d_init_tunnel = {
-}
+---@class d_init_wound_color: df.struct
+---@field none integer[]
+---@field minor integer[]
+---@field inhibited integer[]
+---@field function_loss integer[]
+---@field broken integer[]
+---@field missing integer[]
+df.d_init.T_wound_color = {}
 
----@enum d_init_d_init_embark_confirm
-df.d_init.T_d_init_embark_confirm = {
-}
-
----@enum d_init_d_init_autosave
-df.d_init.T_d_init_autosave = {
-}
+---@class d_init_store_dist: df.struct
+---@field item_decrease integer
+---@field seed_combine integer
+---@field bucket_combine integer
+---@field barrel_combine integer
+---@field bin_combine integer
+df.d_init.T_store_dist = {}
 

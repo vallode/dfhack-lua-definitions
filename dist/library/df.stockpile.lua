@@ -100,27 +100,174 @@ df.stockpile_group_set = {
 
 ---@class stockpile_settings: df.struct
 ---@field flags stockpile_group_set
----@field animals boolean
----@field food boolean[]
----@field furniture boolean[]
----@field corpses boolean[]
----@field refuse boolean[]
----@field stone boolean[]
----@field ore boolean[]
----@field ammo boolean[]
----@field coins boolean[]
----@field bars_blocks boolean[]
----@field gems boolean[]
----@field finished_goods boolean[]
----@field leather boolean[]
----@field cloth boolean[]
----@field wood boolean[]
----@field weapons boolean[]
----@field armor boolean[]
----@field sheet boolean[]
+---@field animals stockpile_settings_animals
+---@field food stockpile_settings_food
+---@field furniture stockpile_settings_furniture
+---@field corpses stockpile_settings_corpses
+---@field refuse stockpile_settings_refuse
+---@field stone stockpile_settings_stone
+---@field ore stockpile_settings_ore
+---@field ammo stockpile_settings_ammo
+---@field coins stockpile_settings_coins
+---@field bars_blocks stockpile_settings_bars_blocks
+---@field gems stockpile_settings_gems
+---@field finished_goods stockpile_settings_finished_goods
+---@field leather stockpile_settings_leather
+---@field cloth stockpile_settings_cloth
+---@field wood stockpile_settings_wood
+---@field weapons stockpile_settings_weapons
+---@field armor stockpile_settings_armor
+---@field sheet stockpile_settings_sheet
 ---@field allow_organic boolean
 ---@field allow_inorganic boolean
 df.stockpile_settings = {}
+
+---@class stockpile_settings_animals: df.struct
+---@field empty_cages boolean
+---@field empty_traps boolean
+---@field enabled boolean[]
+df.stockpile_settings.T_animals = {}
+
+---@class stockpile_settings_food: df.struct
+---@field meat boolean[]
+---@field fish boolean[]
+---@field unprepared_fish boolean[]
+---@field egg boolean[]
+---@field plants boolean[]
+---@field drink_plant boolean[]
+---@field drink_animal boolean[]
+---@field cheese_plant boolean[]
+---@field cheese_animal boolean[]
+---@field seeds boolean[]
+---@field leaves boolean[]
+---@field powder_plant boolean[]
+---@field powder_creature boolean[]
+---@field glob boolean[]
+---@field glob_paste boolean[]
+---@field glob_pressed boolean[]
+---@field liquid_plant boolean[]
+---@field liquid_animal boolean[]
+---@field liquid_misc boolean[]
+---@field prepared_meals boolean
+df.stockpile_settings.T_food = {}
+
+---@class stockpile_settings_furniture: df.struct
+---@field type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core boolean[]
+---@field quality_total boolean[]
+df.stockpile_settings.T_furniture = {}
+
+---@class stockpile_settings_corpses: df.struct
+---@field corpses boolean[]
+df.stockpile_settings.T_corpses = {}
+
+---@class stockpile_settings_refuse: df.struct
+---@field type boolean[]
+---@field corpses boolean[]
+---@field body_parts boolean[]
+---@field skulls boolean[]
+---@field bones boolean[]
+---@field hair boolean[]
+---@field shells boolean[]
+---@field teeth boolean[]
+---@field horns boolean[]
+---@field fresh_raw_hide boolean
+---@field rotten_raw_hide boolean
+df.stockpile_settings.T_refuse = {}
+
+---@class stockpile_settings_stone: df.struct
+---@field mats boolean[]
+df.stockpile_settings.T_stone = {}
+
+---@class stockpile_settings_ore: df.struct
+---@field mats boolean[] unused
+df.stockpile_settings.T_ore = {}
+
+---@class stockpile_settings_ammo: df.struct
+---@field type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core boolean[]
+---@field quality_total boolean[]
+df.stockpile_settings.T_ammo = {}
+
+---@class stockpile_settings_coins: df.struct
+---@field mats boolean[]
+df.stockpile_settings.T_coins = {}
+
+---@class stockpile_settings_bars_blocks: df.struct
+---@field bars_other_mats boolean[]
+---@field blocks_other_mats boolean[]
+---@field bars_mats boolean[]
+---@field blocks_mats boolean[]
+df.stockpile_settings.T_bars_blocks = {}
+
+---@class stockpile_settings_gems: df.struct
+---@field rough_other_mats boolean[]
+---@field cut_other_mats boolean[]
+---@field rough_mats boolean[]
+---@field cut_mats boolean[]
+df.stockpile_settings.T_gems = {}
+
+---@class stockpile_settings_finished_goods: df.struct
+---@field type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core boolean[]
+---@field quality_total boolean[]
+df.stockpile_settings.T_finished_goods = {}
+
+---@class stockpile_settings_leather: df.struct
+---@field mats boolean[]
+df.stockpile_settings.T_leather = {}
+
+---@class stockpile_settings_cloth: df.struct
+---@field thread_silk boolean[]
+---@field thread_plant boolean[]
+---@field thread_yarn boolean[]
+---@field thread_metal boolean[]
+---@field cloth_silk boolean[]
+---@field cloth_plant boolean[]
+---@field cloth_yarn boolean[]
+---@field cloth_metal boolean[]
+df.stockpile_settings.T_cloth = {}
+
+---@class stockpile_settings_wood: df.struct
+---@field mats boolean[]
+df.stockpile_settings.T_wood = {}
+
+---@class stockpile_settings_weapons: df.struct
+---@field weapon_type boolean[]
+---@field trapcomp_type boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core boolean[]
+---@field quality_total boolean[]
+---@field usable boolean
+---@field unusable boolean
+df.stockpile_settings.T_weapons = {}
+
+---@class stockpile_settings_armor: df.struct
+---@field body boolean[]
+---@field head boolean[]
+---@field feet boolean[]
+---@field hands boolean[]
+---@field legs boolean[]
+---@field shield boolean[]
+---@field other_mats boolean[]
+---@field mats boolean[]
+---@field quality_core boolean[]
+---@field quality_total boolean[]
+---@field usable boolean
+---@field unusable boolean
+df.stockpile_settings.T_armor = {}
+
+---@class stockpile_settings_sheet: df.struct
+---@field paper boolean[]
+---@field parchment boolean[]
+df.stockpile_settings.T_sheet = {}
 
 ---@enum stockpile_list
 df.stockpile_list = {

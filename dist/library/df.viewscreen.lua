@@ -59,9 +59,55 @@ df.extentst = {}
 ---@field name language_name
 ---@field unk_1 string
 ---@field unk_2 integer[] same as the one at the top of world_data
----@field last_id integer when loading, DF sets *_next_id to these fields plus 1
----@field unk integer
+---@field last_id world_dat_summary_last_id when loading, DF sets *_next_id to these fields plus 1
+---@field unk world_dat_summary_unk
 df.world_dat_summary = {}
+
+---@class world_dat_summary_last_id: df.struct
+---when loading, DF sets *_next_id to these fields plus 1
+---@field unit integer
+---@field soul integer
+---@field ite integer
+---@field entity integer
+---@field nemesis integer
+---@field artifact integer
+---@field building integer
+---@field machine integer
+---@field hist_figure integer
+---@field hist_event integer
+---@field hist_event_collection integer
+---@field unit_chunk integer
+---@field art_image_chunk integer
+---@field task integer
+---@field squad integer
+---@field formation integer
+---@field activity integer
+---@field interaction_instance integer
+---@field written_content integer
+---@field identity integer
+---@field incident integer
+---@field crime integer
+---@field vehicle integer
+---@field army integer
+---@field army_controller integer
+---@field army_tracking_info integer
+---@field cultural_identity integer
+---@field agreement integer
+---@field poetic_form integer
+---@field musical_form integer
+---@field dance_form integer
+---@field scale integer
+---@field rhythm integer
+---@field occupation integer
+---@field belief_system integer
+---@field image_set integer
+---@field divination_set integer
+df.world_dat_summary.T_last_id = {}
+
+---@class world_dat_summary_unk: df.struct
+---@field unk_3 string
+---@field timeline string
+df.world_dat_summary.T_unk = {}
 
 ---@enum embark_finder_option
 df.embark_finder_option = {
@@ -131,10 +177,17 @@ df.embark_location = {}
 ---@field messengers integer[]
 ---@field unk_23 integer
 ---@field unk_24 integer
----@field details any
+---@field details mission_details
 ---@field type mission_type
 ---@field unk_25 integer
 df.mission = {}
+
+---@class mission_details: df.struct
+---@field raid any
+---@field recovery artifact_record
+---@field rescue historical_figure
+---@field request integer[]
+df.mission.T_details = {}
 
 ---@enum mission_type
 df.mission.T_type = {
@@ -179,17 +232,12 @@ df.legend_pagest.T_mode = {
 
 ---@class loadgame_save_info: df.struct
 ---@field next_ids integer[]
----@field game_type loadgame_save_info_game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
+---@field game_type game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
 ---@field fort_name string
 ---@field world_name string
 ---@field year integer
 ---@field folder_name string
 df.loadgame_save_info = {}
-
----@enum loadgame_save_info_game_type
----only 0 (fort) 1 (adv) 3(reclaim) are valid
-df.loadgame_save_info.T_game_type = {
-}
 
 ---@class matgloss_list: df.struct
 ---@field unk_0 integer[]
@@ -403,7 +451,7 @@ df.adv_background_option_type = {
 ---@field difficulty setup_character_info_difficulty
 ---@field start_site_id world_site
 ---@field background_start_squad_epp_id integer
----@field background_unit setup_character_info_background_unit
+---@field background_unit profession
 ---@field background_skill_bonus integer[]
 ---@field worship_hfid historical_figure
 ---@field worship_enid historical_entity
@@ -473,10 +521,6 @@ df.setup_character_info.T_difficulty = {
   Demigod = 2,
 }
 
----@enum setup_character_info_profession
-df.setup_character_info.T_profession = {
-}
-
 ---@enum setup_character_info_sub_mode
 df.setup_character_info.T_sub_mode = {
   NONE = -1,
@@ -525,9 +569,19 @@ df.embark_profile = {}
 ---@field unk_v43_2 any[]
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
----@field unk_v43_sub9 integer
+---@field unk_v43_sub9 embark_symbol_unk_v43_sub9
 ---@field unk_v43_10 integer[] uninitialized?
 df.embark_symbol = {}
+
+---@class embark_symbol_unk_v43_sub9: df.struct
+---@field unk_s1 integer
+---@field unk_s2 integer
+---@field unk_s3 integer
+---@field unk_s4 integer
+---@field unk_s5 integer
+---@field unk_s6 integer
+---@field unk_s7 any
+df.embark_symbol.T_unk_v43_sub9 = {}
 
 ---@enum world_view_mode_type
 df.world_view_mode_type = {

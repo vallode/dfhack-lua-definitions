@@ -2,9 +2,14 @@
 ---@meta
 
 ---@class large_integer: df.struct
----@field u number
+---@field u large_integer_u
 ---@field quad_part integer
 df.large_integer = {}
+
+---@class large_integer_u: df.struct
+---@field low_part number
+---@field high_part number
+df.large_integer.T_u = {}
 
 ---@class musicsoundst: df.struct
 ---@field soft_channel_number integer
@@ -200,8 +205,8 @@ df.texblitst = {}
 ---@field viewport_zoom_factor integer
 ---@field screenx integer
 ---@field screeny integer
----@field screenf graphic_screenf
----@field screenb graphic_screenb
+---@field screenf curses_color
+---@field screenb curses_color
 ---@field screenbright boolean
 ---@field use_old_16_colors boolean use F:B:BR instead of straight RGB
 ---@field screen_color_r integer
@@ -258,16 +263,20 @@ df.texblitst = {}
 ---@field original_rect integer
 ---@field dimx integer
 ---@field dimy integer
----@field tileset number[]
+---@field tileset graphic_tileset
 df.graphic = {}
 
----@enum graphic_curses_color
-df.graphic.T_curses_color = {
-}
-
----@enum graphic_curses_color
-df.graphic.T_curses_color = {
-}
+---@class graphic_tileset: df.struct
+---@field black_background_texpos number[]
+---@field texture_indices1 integer[]
+---@field texpos_custom_symbol integer[]
+---@field texture_indices2 integer[]
+---@field graphical_interface interface_setst
+---@field classic_interface interface_setst
+---@field texture_indices3 integer[]
+---@field texpos_boulder integer[]
+---@field texture_indices4 integer[]
+df.graphic.T_tileset = {}
 
 ---@class interface_setst: df.struct
 ---@field texpos_calendar_month integer[][]

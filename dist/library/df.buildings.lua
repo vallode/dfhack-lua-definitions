@@ -265,15 +265,11 @@ df.civzone_type = {
 ---@field build_timer1 integer +1 per 10 frames while building
 ---@field builder2 historical_figure
 ---@field build_timer2 integer
----@field quality1 building_design_quality1
+---@field quality1 item_quality
 ---@field flags any
 ---@field hitpoints integer
 ---@field max_hitpoints integer
 df.building_design = {}
-
----@enum building_design_item_quality
-df.building_design.T_item_quality = {
-}
 
 ---@enum furnace_type
 df.furnace_type = {

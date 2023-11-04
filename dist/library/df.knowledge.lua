@@ -371,7 +371,7 @@ df.knowledge_scholar_flags_13 = {
 
 ---@class knowledge_scholar_category_flag: df.struct
 ---@field flag_type knowledge_scholar_category_flag_flag_type determines which bitflags to use
----@field flag_data knowledge_scholar_flags_0
+---@field flag_data knowledge_scholar_category_flag_flag_data
 df.knowledge_scholar_category_flag = {}
 
 ---@enum knowledge_scholar_category_flag_flag_type
@@ -392,6 +392,24 @@ df.knowledge_scholar_category_flag.T_flag_type = {
   flags_12 = 12,
   flags_13 = 13,
 }
+
+---@class knowledge_scholar_category_flag_flag_data: df.struct
+---@field flags_0 knowledge_scholar_flags_0
+---@field flags_1 knowledge_scholar_flags_1
+---@field flags_2 knowledge_scholar_flags_2
+---@field flags_3 knowledge_scholar_flags_3
+---@field flags_4 knowledge_scholar_flags_4
+---@field flags_5 knowledge_scholar_flags_5
+---@field flags_6 knowledge_scholar_flags_6
+---@field flags_7 knowledge_scholar_flags_7
+---@field flags_8 knowledge_scholar_flags_8
+---@field flags_9 knowledge_scholar_flags_9
+---@field flags_10 knowledge_scholar_flags_10
+---@field flags_11 knowledge_scholar_flags_11
+---@field flags_12 knowledge_scholar_flags_12
+---@field flags_13 knowledge_scholar_flags_13
+---@field whole integer
+df.knowledge_scholar_category_flag.T_flag_data = {}
 
 ---@enum dfhack_knowledge_scholar_flag
 ---not in DF

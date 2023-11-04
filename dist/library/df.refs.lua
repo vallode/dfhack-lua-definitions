@@ -116,12 +116,26 @@ df.specific_ref_type.attrs = {}
 
 ---@class specific_ref: df.struct
 ---@field type specific_ref_type
----@field data any
+---@field data specific_ref_data
 df.specific_ref = {}
 
----@enum specific_ref_specific_ref_type
-df.specific_ref.T_specific_ref_type = {
-}
+---@class specific_ref_data: df.struct
+---@field object any raw pointer
+---@field unit unit
+---@field activity activity_info
+---@field screen viewscreen
+---@field effect effect_info
+---@field vermin vermin
+---@field job job
+---@field histfig historical_figure
+---@field entity historical_entity
+---@field wrestle data_wrestle
+df.specific_ref.T_data = {}
+
+---@class data_wrestle: df.struct
+---@field unk_1 any
+---@field item unit_item_wrestle
+df.data.T_wrestle = {}
 
 ---@enum histfig_entity_link_type
 df.histfig_entity_link_type = {
@@ -191,10 +205,6 @@ df.entity_entity_link_type = {
 ---@field strength integer
 df.entity_entity_link = {}
 
----@enum entity_entity_link_entity_entity_link_type
-df.entity_entity_link.T_entity_entity_link_type = {
-}
-
 ---@enum entity_site_link_type
 ---Enum names updated per Putnam
 df.entity_site_link_type = {
@@ -246,11 +256,6 @@ df.entity_site_link_flags = {
 ---@field last_checked_army_year integer all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
 ---@field last_checked_army_year_tick integer paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
 df.entity_site_link = {}
-
----@enum entity_site_link_entity_site_link_type
----called location in df source
-df.entity_site_link.T_entity_site_link_type = {
-}
 
 ---@enum undead_flags
 df.undead_flags = {

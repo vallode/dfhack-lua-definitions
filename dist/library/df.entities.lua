@@ -44,7 +44,7 @@ df.occasion_schedule_type = {
 }
 
 ---@class entity_occasion_schedule: df.struct
----@field type entity_occasion_schedule_type
+---@field type occasion_schedule_type
 ---@field reference integer art form / event / item_type /procession start abstract building
 ---@field reference2 integer item_subtype / procession stop abstract building
 ---@field unk_1 integer
@@ -54,10 +54,6 @@ df.occasion_schedule_type = {
 ---@field start_year_tick integer
 ---@field end_year_tick integer
 df.entity_occasion_schedule = {}
-
----@enum entity_occasion_schedule_occasion_schedule_type
-df.entity_occasion_schedule.T_occasion_schedule_type = {
-}
 
 ---@enum occasion_schedule_feature
 df.occasion_schedule_feature = {
@@ -83,19 +79,15 @@ df.occasion_schedule_feature = {
 }
 
 ---@class entity_occasion_schedule_feature: df.struct
----@field feature entity_occasion_schedule_feature_feature
+---@field feature occasion_schedule_feature
 ---@field reference integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.entity_occasion_schedule_feature = {}
 
----@enum entity_occasion_schedule_feature_occasion_schedule_feature
-df.entity_occasion_schedule_feature.T_occasion_schedule_feature = {
-}
-
 ---@class entity_activity_statistics: df.struct
----@field food integer
+---@field food entity_activity_statistics_food
 ---@field unit_counts integer[]
 ---@field population integer
 ---@field menial_exempt integer
@@ -107,7 +99,7 @@ df.entity_occasion_schedule_feature.T_occasion_schedule_feature = {
 ---@field combat_aptitude integer
 ---@field item_counts integer[]
 ---@field created_weapons integer[]
----@field wealth integer
+---@field wealth entity_activity_statistics_wealth
 ---@field recent_jobs integer[][]
 ---@field excavated_tiles integer unhidden, subterranean, and excluding map features
 ---@field death_history integer[]
@@ -132,6 +124,30 @@ df.entity_occasion_schedule_feature.T_occasion_schedule_feature = {
 ---@field found_minerals integer[] Added after 'you have struck' announcement
 ---@field found_misc any
 df.entity_activity_statistics = {}
+
+---@class entity_activity_statistics_food: df.struct
+---@field total integer
+---@field meat integer
+---@field fish integer
+---@field other integer
+---@field seeds integer
+---@field plant integer
+---@field drink integer
+df.entity_activity_statistics.T_food = {}
+
+---@class entity_activity_statistics_wealth: df.struct
+---@field total integer
+---@field weapons integer
+---@field armor integer
+---@field furniture integer
+---@field other integer
+---@field architecture integer
+---@field displayed integer
+---@field held integer
+---@field imported integer
+---@field unk_1 integer
+---@field exported integer
+df.entity_activity_statistics.T_wealth = {}
 
 ---@class caravan_state: df.struct
 ---@field total_capacity integer
@@ -282,7 +298,7 @@ df.historical_entity_type = {
 ---@field flags any
 ---@field name string
 ---@field precedence_awarded integer
----@field required_skill honors_type_required_skill
+---@field required_skill job_skill
 ---@field required_skill_type any
 ---@field required_skill_points integer
 ---@field required_kills integer
@@ -293,13 +309,9 @@ df.historical_entity_type = {
 ---@field required_former_position integer[]
 df.honors_type = {}
 
----@enum honors_type_job_skill
-df.honors_type.T_job_skill = {
-}
-
 ---@class artifact_claim: df.struct
 ---@field artifact_id artifact_record
----@field claim_type artifact_claim_claim_type
+---@field claim_type artifact_claim_type
 ---@field symbol_claim_id integer different small numbers, but all claimed by the greedy necro diplomat, but not complete number range present
 ---@field claim_year integer Written contents often seem to lack info of being claimed
 ---@field claim_year_tick integer usually init
@@ -317,10 +329,6 @@ df.honors_type.T_job_skill = {
 ---@field unk_5 historical_entity
 ---@field unk_6 historical_entity
 df.artifact_claim = {}
-
----@enum artifact_claim_artifact_claim_type
-df.artifact_claim.T_artifact_claim_type = {
-}
 
 ---@class entity_unk_v47_1: df.struct
 ---The 3 first vectors are of the same length and somehow connected
@@ -351,12 +359,12 @@ df.entity_unk_v47_1 = {}
 ---@field histfig_ids integer[]
 ---@field populations integer[] 1st entry copies to unit.population_id for Adventurer?
 ---@field nemesis_ids integer[]
----@field resources integer[]
+---@field resources historical_entity_resources
 ---@field uniforms entity_uniform[]
 ---@field next_uniform_id integer
----@field relations integer[]
----@field positions entity_position[]
----@field tissue_styles entity_tissue_style[]
+---@field relations historical_entity_relations
+---@field positions historical_entity_positions
+---@field tissue_styles historical_entity_tissue_styles
 ---@field squads integer[]
 ---@field global_event_knowledge_year integer
 ---@field local_known_events integer[] since the above year
@@ -403,9 +411,9 @@ df.entity_unk_v47_1 = {}
 ---@field army_controllers army_controller[]
 ---@field hist_figures historical_figure[]
 ---@field nemesis nemesis_record[]
----@field derived_resources material_vec_ref
+---@field derived_resources historical_entity_derived_resources
 ---@field assignments_by_type entity_position_assignment[][]
----@field claims coord2d_path
+---@field claims historical_entity_claims
 ---@field children integer[] includes self
 ---@field metal_proficiency integer best IMPACT_FRACTURE/10000 + MAX_EDGE/1000 for weapon mats plus best IMPACT_FRACTURE/10000 for armor mats
 ---@field weapon_proficiencies job_skill[]
@@ -455,9 +463,209 @@ df.entity_unk_v47_1 = {}
 ---@field unk_11 integer
 df.historical_entity = {}
 
----@enum historical_entity_historical_entity_type
-df.historical_entity.T_historical_entity_type = {
-}
+---@class historical_entity_resources: df.struct
+---@field digger_type integer[]
+---@field weapon_type integer[]
+---@field training_weapon_type integer[]
+---@field armor_type integer[]
+---@field ammo_type integer[]
+---@field helm_type integer[]
+---@field gloves_type integer[]
+---@field shoes_type integer[]
+---@field pants_type integer[]
+---@field shield_type integer[]
+---@field trapcomp_type integer[]
+---@field toy_type integer[]
+---@field instrument_type integer[]
+---@field siegeammo_type integer[]
+---@field tool_type integer[]
+---@field unk_1 integer[]
+---@field metal resources_metal
+---@field organic resources_organic
+---@field metals integer[] bars
+---@field stones integer[] boulders and blocks
+---@field gems integer[] small and large cut
+---@field refuse resources_refuse
+---@field misc_mat resources_misc_mat
+---@field fish_races integer[]
+---@field fish_castes integer[]
+---@field egg_races integer[]
+---@field egg_castes integer[]
+---@field plants material_vec_ref
+---@field tree_fruit_plants integer[]
+---@field tree_fruit_growths integer[]
+---@field shrub_fruit_plants integer[]
+---@field shrub_fruit_growths integer[]
+---@field seeds material_vec_ref
+---@field wood_products resources_wood_products lye, charcoal, potash, pearlash, and coke
+---@field animals resources_animals
+---@field meat_fish_recipes entity_recipe[]
+---@field other_recipes entity_recipe[]
+---@field unk13 integer[] in 0.23, these were material/matgloss pairs, never used for anything
+---@field unk14 item[] in 0.23, items that would be equipped by the arriving King, never used
+---@field unk15a integer in 0.23, minimum temperature
+---@field unk15b integer in 0.23, maximum temperature
+---@field ethic ethic_response[]
+---@field values integer[]
+---@field unk_2 integer
+---@field permitted_skill boolean[]
+---@field art_image_types integer[] 0 = civilization symbol
+---@field art_image_ids integer[]
+---@field art_image_subids integer[]
+---@field color_ref_type general_ref_type[]
+---@field foreground_color_curses curses_color[]
+---@field foreground_color_curses_bright boolean[]
+---@field background_color_curses curses_color[]
+---@field foreground_color integer[] foreground color used for the entity symbol in legends mode and the historical maps.
+---@field background_color integer[] background color used for the entity symbol in legends mode and the historical maps.
+df.historical_entity.T_resources = {}
+
+---@class resources_metal: df.struct
+---@field pick material_vec_ref
+---@field weapon material_vec_ref
+---@field ranged material_vec_ref
+---@field ammo material_vec_ref
+---@field ammo2 material_vec_ref maybe intended for siege ammo
+---@field armor material_vec_ref also instruments, toys, and tools
+---@field anvil material_vec_ref
+df.resources.T_metal = {}
+
+---@class resources_organic: df.struct
+---@field leather material_vec_ref
+---@field parchment material_vec_ref
+---@field fiber material_vec_ref
+---@field silk material_vec_ref
+---@field wool material_vec_ref
+---@field wood material_vec_ref
+df.resources.T_organic = {}
+
+---@class resources_refuse: df.struct
+---@field bone material_vec_ref
+---@field shell material_vec_ref
+---@field pearl material_vec_ref
+---@field ivory material_vec_ref
+---@field horn material_vec_ref
+df.resources.T_refuse = {}
+
+---@class resources_misc_mat: df.struct
+---@field others material_vec_ref amber and coral
+---@field glass material_vec_ref
+---@field sand material_vec_ref
+---@field clay material_vec_ref
+---@field crafts material_vec_ref
+---@field glass_unused material_vec_ref used for vial extracts on embark
+---@field barrels material_vec_ref also buckets, splints, and crutches
+---@field flasks material_vec_ref
+---@field quivers material_vec_ref
+---@field backpacks material_vec_ref
+---@field cages material_vec_ref
+---@field wood2 material_vec_ref
+---@field rock_metal material_vec_ref
+---@field booze material_vec_ref
+---@field cheese material_vec_ref
+---@field powders material_vec_ref
+---@field extracts material_vec_ref
+---@field meat material_vec_ref
+df.resources.T_misc_mat = {}
+
+---@class resources_wood_products: df.struct
+---lye, charcoal, potash, pearlash, and coke
+---@field item_type item_type[]
+---@field item_subtype integer[]
+---@field material material_vec_ref
+df.resources.T_wood_products = {}
+
+---@class resources_animals: df.struct
+---@field pet_races integer[]
+---@field wagon_races integer[]
+---@field pack_animal_races integer[]
+---@field wagon_puller_races integer[]
+---@field mount_races integer[]
+---@field minion_races integer[]
+---@field exotic_pet_races integer[]
+---@field pet_castes integer[]
+---@field wagon_castes integer[]
+---@field pack_animal_castes integer[]
+---@field wagon_puller_castes integer[]
+---@field mount_castes integer[]
+---@field minion_castes integer[]
+---@field exotic_pet_castes integer[]
+df.resources.T_animals = {}
+
+---@class historical_entity_relations: df.struct
+---@field known_sites integer[] only civs and site government. Fresh player site government has empty vector
+---@field deities integer[]
+---@field worship integer[] Same length as deities(?). Some kind of relationship strength?
+---@field belief_systems integer[] In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
+---@field constructions coord2d_path[] only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@field diplomacy any[]
+---@field unk33 integer Non zero seen only on site governments (not all) and one nomadic group. Small values
+---@field unk34a integer[] same length as unk34b and unk34c
+---@field unk34b integer[]
+---@field unk34c integer[]
+---@field position integer[] position index (not id)
+---@field official integer[] holder of office of corresponding position index
+df.historical_entity.T_relations = {}
+
+---@class historical_entity_positions: df.struct
+---@field own entity_position[]
+---@field site entity_position[]
+---@field conquered_site entity_position[]
+---@field next_position_id integer
+---@field assignments entity_position_assignment[]
+---@field next_assignment_id integer
+---@field possible_evaluate entity_position_assignment[]
+---@field possible_succession entity_position_assignment[]
+---@field possible_appointable entity_position_assignment[]
+---@field possible_elected entity_position_assignment[]
+---@field possible_claimable entity_position_assignment[]
+df.historical_entity.T_positions = {}
+
+---@class historical_entity_tissue_styles: df.struct
+---@field all entity_tissue_style[]
+---@field next_style_id integer
+df.historical_entity.T_tissue_styles = {}
+
+---@class historical_entity_derived_resources: df.struct
+---@field mill_cookable material_vec_ref
+---@field mill_dye material_vec_ref
+---@field armor_leather integer[]
+---@field armor_chain integer[]
+---@field armor_plate integer[]
+---@field armor_under integer[]
+---@field armor_over integer[]
+---@field armor_cover integer[]
+---@field pants_leather integer[]
+---@field pants_chain integer[]
+---@field pants_plate integer[]
+---@field pants_under integer[]
+---@field pants_over integer[]
+---@field pants_cover integer[]
+---@field helm_leather integer[]
+---@field helm_chain integer[]
+---@field helm_plate integer[]
+---@field helm_under integer[]
+---@field helm_over integer[]
+---@field helm_cover integer[]
+---@field shoes_leather integer[]
+---@field shoes_chain integer[]
+---@field shoes_plate integer[]
+---@field shoes_under integer[]
+---@field shoes_over integer[]
+---@field shoes_cover integer[]
+---@field gloves_leather integer[]
+---@field gloves_chain integer[]
+---@field gloves_plate integer[]
+---@field gloves_under integer[]
+---@field gloves_over integer[]
+---@field gloves_cover integer[]
+df.historical_entity.T_derived_resources = {}
+
+---@class historical_entity_claims: df.struct
+---@field areas coord2d_path in world_data.entity_claims1
+---@field unk1 coord2d_path
+---@field border coord2d_path
+df.historical_entity.T_claims = {}
 
 ---@class entity_tissue_style: df.struct
 ---@field name string
@@ -619,21 +827,13 @@ df.entity_material_category = {
 ---@field art_image_id integer
 ---@field art_image_subid integer
 ---@field image_thread_color descriptor_color
----@field image_material_class entity_uniform_item_image_material_class
+---@field image_material_class entity_material_category
 ---@field maker_race integer
 ---@field indiv_choice uniform_indiv_choice
 ---@field mattype material
 ---@field matindex integer
----@field material_class entity_uniform_item_material_class
+---@field material_class entity_material_category
 df.entity_uniform_item = {}
-
----@enum entity_uniform_item_entity_material_category
-df.entity_uniform_item.T_entity_material_category = {
-}
-
----@enum entity_uniform_item_entity_material_category
-df.entity_uniform_item.T_entity_material_category = {
-}
 
 ---@class entity_uniform: df.struct
 ---@field id integer
@@ -684,7 +884,7 @@ df.entity_event_type = {
 }
 
 ---@class entity_event: df.struct
----@field data historical_entity
+---@field data entity_event_data
 ---@field unk_year integer often the same as the other year/tick. Start/stop time?
 ---@field unk_year_tick integer
 ---@field year integer
@@ -693,9 +893,274 @@ df.entity_event_type = {
 ---@field type entity_event_type
 df.entity_event = {}
 
----@enum entity_event_entity_event_type
-df.entity_event.T_entity_event_type = {
+---@class entity_event_data: df.struct
+---@field invasion data_invasion
+---@field abduction data_abduction
+---@field incident data_incident
+---@field occupation data_occupation
+---@field beast data_beast
+---@field group data_group
+---@field harass data_harass
+---@field flee data_flee
+---@field abandon data_abandon
+---@field reclaimed data_reclaimed
+---@field founded data_founded
+---@field reclaiming data_reclaiming
+---@field founding data_founding
+---@field leave data_leave
+---@field insurrection data_insurrection
+---@field insurrection_end data_insurrection_end
+---@field succession data_succession
+---@field claim data_claim
+---@field accept_tribute_offer data_accept_tribute_offer
+---@field refuse_tribute_offer data_refuse_tribute_offer
+---@field accept_tribute_demand data_accept_tribute_demand
+---@field refuse_tribute_demand data_refuse_tribute_demand
+---@field accept_peace_offer data_accept_peace_offer
+---@field refuse_peace_offer data_refuse_peace_offer
+---@field cease_tribute_offer data_cease_tribute_offer
+---@field artifact_in_site data_artifact_in_site
+---@field artifact_in_subregion data_artifact_in_subregion
+---@field artifact_in_feature_layer data_artifact_in_feature_layer
+---@field artifact_in_inventory data_artifact_in_inventory
+---@field artifact_not_in_site data_artifact_not_in_site
+---@field artifact_not_in_subregion data_artifact_not_in_subregion
+---@field artifact_not_in_feature_layer data_artifact_not_in_feature_layer
+---@field artifact_not_in_inventory data_artifact_not_in_inventory
+---@field artifact_destroyed data_artifact_destroyed
+df.entity_event.T_data = {}
+
+---@class data_invasion: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+---@field unk_1 integer can't find match. not defender hf/nemesis, for instance
+---@field attack_leader_hf historical_figure
+df.data.T_invasion = {}
+
+---@class data_abduction: df.struct
+---@field histfig_id historical_figure abductee
+---@field site_id world_site
+---@field abductor_id historical_figure
+---@field event history_event
+df.data.T_abduction = {}
+
+---@class data_incident: df.struct
+---@field unk_1 integer
+---@field incident_id incident
+df.data.T_incident = {}
+
+---@class data_occupation: df.struct
+---@field site_id world_site
+---@field entity_id historical_entity
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_occupation = {}
+
+---@class data_beast: df.struct
+---@field histfig_id historical_figure
+---@field site_id world_site
+---@field region_id world_region
+df.data.T_beast = {}
+
+---@class data_group: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+df.data.T_group = {}
+
+---@class data_harass: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+---@field unk_1 integer
+df.data.T_harass = {}
+
+---@class data_flee: df.struct
+---@field refugee_entity_id historical_entity
+---@field from_site_id world_site
+---@field army_entity_id historical_entity
+---@field army_leader_hf_id historical_figure
+df.data.T_flee = {}
+
+---@class data_abandon: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+---@field parent_entity_id historical_entity
+df.data.T_abandon = {}
+
+---@class data_reclaimed: df.struct
+---@field behalf_entity_id historical_entity
+---@field site_id world_site
+---@field reclaimer_entity_id historical_entity
+---@field leader_hf historical_figure
+df.data.T_reclaimed = {}
+
+---@class data_founded: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+---@field parent_entity_id historical_entity
+---@field unk_1 integer
+df.data.T_founded = {}
+
+---@class data_reclaiming: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+---@field unk_1 integer
+---@field first_settler_hf historical_figure strangely enough not expedition leader (settler #2), nor listed as member of site government
+df.data.T_reclaiming = {}
+
+---@class data_founding: df.struct
+---@field entity_id historical_entity
+---@field region_id world_region
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_founding = {}
+
+---@class data_leave: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+df.data.T_leave = {}
+
+---@class data_insurrection: df.struct
+---@field site_id world_site
+---@field entity_id historical_entity
+df.data.T_insurrection = {}
+
+---@class data_insurrection_end: df.struct
+---@field site_id world_site
+---@field entity_id historical_entity
+---@field result insurrection_end_result
+df.data.T_insurrection_end = {}
+
+---@enum insurrection_end_result
+df.insurrection_end.T_result = {
+  Overthrow = 0,
+  Failure = 1,
+  Crushing = 2,
 }
+
+---@class data_succession: df.struct
+---@field histfig_id historical_figure
+---@field former_histfig_id historical_figure
+---@field entity_id historical_entity
+---@field position_assignment_id integer
+df.data.T_succession = {}
+
+---@class data_claim: df.struct
+---@field entity_id historical_entity
+---@field site_id world_site
+---@field histfig_id historical_figure
+df.data.T_claim = {}
+
+---@class data_accept_tribute_offer: df.struct
+---@field entity1_id historical_entity
+---@field histfig1_id historical_figure
+---@field entity2_id historical_entity
+---@field histfig2_id historical_figure
+df.data.T_accept_tribute_offer = {}
+
+---@class data_refuse_tribute_offer: df.struct
+---@field entity1_id historical_entity
+---@field histfig1_id historical_figure
+---@field entity2_id historical_entity
+---@field histfig2_id historical_figure
+df.data.T_refuse_tribute_offer = {}
+
+---@class data_accept_tribute_demand: df.struct
+---@field entity1_id historical_entity
+---@field histfig1_id historical_figure
+---@field entity2_id historical_entity
+---@field histfig2_id historical_figure
+df.data.T_accept_tribute_demand = {}
+
+---@class data_refuse_tribute_demand: df.struct
+---@field entity1_id historical_entity
+---@field histfig1_id historical_figure
+---@field entity2_id historical_entity
+---@field histfig2_id historical_figure
+df.data.T_refuse_tribute_demand = {}
+
+---@class data_accept_peace_offer: df.struct
+---@field entity1_id historical_entity
+---@field histfig1_id historical_figure
+---@field entity2_id historical_entity
+---@field histfig2_id historical_figure
+df.data.T_accept_peace_offer = {}
+
+---@class data_refuse_peace_offer: df.struct
+---@field entity1_id historical_entity
+---@field histfig1_id historical_figure
+---@field entity2_id historical_entity
+---@field histfig2_id historical_figure
+df.data.T_refuse_peace_offer = {}
+
+---@class data_cease_tribute_offer: df.struct
+---@field entity1_id historical_entity
+---@field histfig1_id historical_figure
+---@field entity2_id historical_entity
+---@field histfig2_id historical_figure
+df.data.T_cease_tribute_offer = {}
+
+---@class data_artifact_in_site: df.struct
+---@field artifact_id artifact_record
+---@field site_id world_site
+---@field structure_id abstract_building
+---@field unk_1 integer looks uninitialized
+df.data.T_artifact_in_site = {}
+
+---@class data_artifact_in_subregion: df.struct
+---@field artifact_id artifact_record
+---@field subregion_id world_region
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_artifact_in_subregion = {}
+
+---@class data_artifact_in_feature_layer: df.struct
+---@field artifact_id artifact_record
+---@field feature_layer_id world_underground_region
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_artifact_in_feature_layer = {}
+
+---@class data_artifact_in_inventory: df.struct
+---@field artifact_id artifact_record
+---@field hist_figure_id historical_figure
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_artifact_in_inventory = {}
+
+---@class data_artifact_not_in_site: df.struct
+---@field artifact_id artifact_record
+---@field site_id world_site
+---@field structure_id abstract_building
+---@field unk_1 integer
+df.data.T_artifact_not_in_site = {}
+
+---@class data_artifact_not_in_subregion: df.struct
+---@field artifact_id artifact_record
+---@field subregion_id world_region
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_artifact_not_in_subregion = {}
+
+---@class data_artifact_not_in_feature_layer: df.struct
+---@field artifact_id artifact_record
+---@field feature_layer_id world_underground_region
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_artifact_not_in_feature_layer = {}
+
+---@class data_artifact_not_in_inventory: df.struct
+---@field artifact_id artifact_record
+---@field hist_figure_id historical_figure
+---@field unk_1 integer
+---@field unk_2 integer
+df.data.T_artifact_not_in_inventory = {}
+
+---@class data_artifact_destroyed: df.struct
+---@field artifact_id artifact_record
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.data.T_artifact_destroyed = {}
 
 ---@class agreement: df.struct
 ---@field id integer
@@ -748,16 +1213,31 @@ df.agreement_details_type = {
 ---@field id integer
 ---@field year integer
 ---@field year_tick integer
----@field data agreement_details_data_join_party
+---@field data agreement_details_data
 ---@field type agreement_details_type
 df.agreement_details = {}
 
----@enum agreement_details_agreement_details_type
-df.agreement_details.T_agreement_details_type = {
-}
+---@class agreement_details_data: df.struct
+---@field JoinParty agreement_details_data_join_party
+---@field DemonicBinding agreement_details_data_demonic_binding
+---@field Residency agreement_details_data_residency
+---@field Citizenship agreement_details_data_citizenship
+---@field Parley agreement_details_data_parley
+---@field PositionCorruption agreement_details_data_position_corruption
+---@field PlotStealArtifact agreement_details_data_plot_steal_artifact
+---@field PromisePosition agreement_details_data_promise_position
+---@field PlotAssassination agreement_details_data_plot_assassination
+---@field PlotAbduct agreement_details_data_plot_abduct
+---@field PlotSabotage agreement_details_data_plot_sabotage
+---@field PlotConviction agreement_details_data_plot_conviction
+---@field Location agreement_details_data_location
+---@field PlotInfiltrationCoup agreement_details_data_plot_infiltration_coup
+---@field PlotFrameTreason agreement_details_data_plot_frame_treason
+---@field PlotInduceWar agreement_details_data_plot_induce_war
+df.agreement_details.T_data = {}
 
 ---@class agreement_details_data_join_party: df.struct
----@field reason agreement_details_data_join_party_reason
+---@field reason history_event_reason
 ---@field member agreement_party
 ---@field party agreement_party
 ---@field site world_site
@@ -767,39 +1247,23 @@ df.agreement_details.T_agreement_details_type = {
 ---@field unk_v50_2 integer
 df.agreement_details_data_join_party = {}
 
----@enum agreement_details_data_join_party_history_event_reason
-df.agreement_details_data_join_party.T_history_event_reason = {
-}
-
 ---@class agreement_details_data_demonic_binding: df.struct
----@field reason agreement_details_data_demonic_binding_reason
+---@field reason history_event_reason
 ---@field demon agreement_party
 ---@field summoner agreement_party
 ---@field site world_site
 ---@field artifact artifact_record
----@field sphere agreement_details_data_demonic_binding_sphere
+---@field sphere sphere_type
 df.agreement_details_data_demonic_binding = {}
 
----@enum agreement_details_data_demonic_binding_history_event_reason
-df.agreement_details_data_demonic_binding.T_history_event_reason = {
-}
-
----@enum agreement_details_data_demonic_binding_sphere_type
-df.agreement_details_data_demonic_binding.T_sphere_type = {
-}
-
 ---@class agreement_details_data_residency: df.struct
----@field reason agreement_details_data_residency_reason
+---@field reason history_event_reason
 ---@field applicant agreement_party
 ---@field government agreement_party
 ---@field site world_site
 ---@field unk_v50_1 integer
 ---@field unk_v50_2 integer
 df.agreement_details_data_residency = {}
-
----@enum agreement_details_data_residency_history_event_reason
-df.agreement_details_data_residency.T_history_event_reason = {
-}
 
 ---@class agreement_details_data_citizenship: df.struct
 ---@field applicant agreement_party
@@ -868,36 +1332,20 @@ df.agreement_details_data_plot_sabotage = {}
 
 ---@class agreement_details_data_plot_conviction: df.struct
 ---@field criminal_indices integer[] agreement.parties index. All indices listed, regardless of confessions
----@field crime agreement_details_data_plot_conviction_crime
+---@field crime crime_type
 df.agreement_details_data_plot_conviction = {}
-
----@enum agreement_details_data_plot_conviction_crime_type
-df.agreement_details_data_plot_conviction.T_crime_type = {
-}
 
 ---@class agreement_details_data_location: df.struct
 ---@field applicant agreement_party
 ---@field government agreement_party
 ---@field site world_site
----@field type agreement_details_data_location_type
----@field deity_type agreement_details_data_location_deity_type
+---@field type abstract_building_type
+---@field deity_type temple_deity_type
 ---@field deity_data temple_deity_data
----@field profession agreement_details_data_location_profession
+---@field profession profession
 ---@field tier integer 1 = temple or guildhall, 2 = temple complex or grand guildhall; matches location_tier in abstract_building_contents
 ---@field unk_v50_1 integer
 df.agreement_details_data_location = {}
-
----@enum agreement_details_data_location_abstract_building_type
-df.agreement_details_data_location.T_abstract_building_type = {
-}
-
----@enum agreement_details_data_location_temple_deity_type
-df.agreement_details_data_location.T_temple_deity_type = {
-}
-
----@enum agreement_details_data_location_profession
-df.agreement_details_data_location.T_profession = {
-}
 
 ---@class agreement_details_data_plot_infiltration_coup: df.struct
 ---@field actor_index integer agreement.parties index

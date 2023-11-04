@@ -458,11 +458,11 @@ df.body_part_raw = {}
 df.color_modifier_raw = {}
 
 ---@class body_appearance_modifier: df.struct
----@field type body_appearance_modifier_type
+---@field type appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
 ---@field growth_rate integer
----@field growth_interval body_appearance_modifier_growth_interval
+---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
 ---@field growth_start integer in days
@@ -475,20 +475,12 @@ df.color_modifier_raw = {}
 ---@field id2 integer same as id
 df.body_appearance_modifier = {}
 
----@enum body_appearance_modifier_appearance_modifier_type
-df.body_appearance_modifier.T_appearance_modifier_type = {
-}
-
----@enum body_appearance_modifier_appearance_modifier_growth_interval
-df.body_appearance_modifier.T_appearance_modifier_growth_interval = {
-}
-
 ---@class bp_appearance_modifier: df.struct
----@field type bp_appearance_modifier_type
+---@field type appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
 ---@field growth_rate integer
----@field growth_interval bp_appearance_modifier_growth_interval
+---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min integer
 ---@field growth_max integer
 ---@field growth_start integer in days
@@ -502,14 +494,6 @@ df.body_appearance_modifier.T_appearance_modifier_growth_interval = {
 ---@field tissue_layer integer[]
 ---@field id integer
 df.bp_appearance_modifier = {}
-
----@enum bp_appearance_modifier_appearance_modifier_type
-df.bp_appearance_modifier.T_appearance_modifier_type = {
-}
-
----@enum bp_appearance_modifier_appearance_modifier_growth_interval
-df.bp_appearance_modifier.T_appearance_modifier_growth_interval = {
-}
 
 ---@class caste_clothing_item: df.struct
 ---@field body_part_id integer
@@ -539,17 +523,13 @@ df.caste_clothing_item = {}
 ---@field unk_v40_2 integer
 ---@field body_part_idx integer[]
 ---@field tissue_layer_idx integer[]
----@field skill caste_attack_skill
+---@field skill job_skill
 ---@field velocity_modifier integer
 ---@field specialattack_interaction_tmp_name string[] parsed during second pass
 ---@field specialattack_interaction_id integer[]
 ---@field unk_v40_3 integer
 ---@field unk_v40_4 integer
 df.caste_attack = {}
-
----@enum caste_attack_job_skill
-df.caste_attack.T_job_skill = {
-}
 
 ---@enum gait_type
 df.gait_type = {
@@ -588,7 +568,7 @@ df.creature_interaction_target_flags = {
 ---@field material_str0 string
 ---@field material_str1 string
 ---@field material_str2 string
----@field material_breath creature_interaction_material_breath
+---@field material_breath breath_attack_type
 ---@field verb_2nd string
 ---@field verb_3rd string
 ---@field verb_mutual string
@@ -611,10 +591,6 @@ df.creature_interaction_target_flags = {
 ---@field adv_name string
 ---@field wait_period integer
 df.creature_interaction = {}
-
----@enum creature_interaction_breath_attack_type
-df.creature_interaction.T_breath_attack_type = {
-}
 
 ---@class caste_body_info: df.struct
 ---@field body_parts body_part_raw[]
@@ -659,22 +635,22 @@ df.caste_body_info = {}
 ---@field max_temp integer
 ---@field fixed_temp integer
 ---@field caste_color integer[]
----@field misc integer
----@field personality integer[]
+---@field misc caste_raw_misc
+---@field personality caste_raw_personality
 ---@field flags any
 ---@field index integer global across creatures
 ---@field body_info caste_body_info
 ---@field caste_speech_1 any[]
 ---@field caste_speech_2 any[]
 ---@field skill_rates integer[][]
----@field attributes integer[][]
----@field sex caste_raw_sex
+---@field attributes caste_raw_attributes
+---@field sex pronoun_type
 ---@field orientation_male integer[]
 ---@field orientation_female integer[]
 ---@field body_size_1 integer[] age in ticks
 ---@field body_size_2 integer[] size at the age at the same index in body_size_1
 ---@field body_appearance_modifiers body_appearance_modifier[]
----@field bp_appearance bp_appearance_modifier[]
+---@field bp_appearance caste_raw_bp_appearance
 ---@field color_modifiers color_modifier_raw[]
 ---@field tissue_styles tissue_style_raw[]
 ---@field shearable_tissue_layer integer[]
@@ -685,11 +661,11 @@ df.caste_body_info = {}
 ---@field natural_skill_id job_skill[]
 ---@field natural_skill_exp integer[]
 ---@field natural_skill_lvl skill_rating[]
----@field caste_profession_name string[]
----@field extracts integer[]
+---@field caste_profession_name caste_raw_caste_profession_name
+---@field extracts caste_raw_extracts
 ---@field secretion material[]
 ---@field creature_class string[]
----@field unknown2 string[]
+---@field unknown2 caste_raw_unknown2
 ---@field habit_num integer[]
 ---@field habit_1 integer[]
 ---@field habit_2 integer[]
@@ -697,8 +673,8 @@ df.caste_body_info = {}
 ---@field lair_2 integer[]
 ---@field lair_characteristic_1 integer[]
 ---@field lair_characteristic_2 integer[]
----@field lair_hunter_speech integer[]
----@field unk29 any[]
+---@field lair_hunter_speech caste_raw_lair_hunter_speech
+---@field unk29 caste_raw_unk29
 ---@field specific_food any[][]
 ---@field sound integer[]
 ---@field sound_alert integer[]
@@ -717,9 +693,158 @@ df.caste_body_info = {}
 ---@field unk_v50_4300 any
 df.caste_raw = {}
 
----@enum caste_raw_pronoun_type
-df.caste_raw.T_pronoun_type = {
-}
+---@class caste_raw_misc: df.struct
+---@field litter_size_min integer
+---@field litter_size_max integer
+---@field penetratepower integer
+---@field vermin_bite_chance integer
+---@field grasstrample integer
+---@field buildingdestroyer integer
+---@field itemcorpse_itemtype item_type no longer used? Changes when the same save is reloaded
+---@field itemcorpse_itemsubtype integer
+---@field itemcorpse_materialtype material no longer used? Changes when the same save is reloaded
+---@field itemcorpse_materialindex integer
+---@field itemcorpse_quality integer
+---@field remains_color integer[]
+---@field difficulty integer
+---@field caste_glowcolor integer[] different from same save with 0.44.12
+---@field beach_frequency integer
+---@field clutch_size_min integer
+---@field clutch_size_max integer
+---@field vision_arc_min integer
+---@field vision_arc_max integer
+---@field speed integer no longer used
+---@field modvalue integer
+---@field petvalue integer
+---@field milkable integer
+---@field viewrange integer
+---@field maxage_min integer
+---@field maxage_max integer
+---@field baby_age integer no longer used? Silly large value 7628903
+---@field child_age integer no longer used? Changes when the same save is reloaded
+---@field swim_speed integer no longer used
+---@field trade_capacity integer
+---@field unk4 integer
+---@field pop_ratio integer
+---@field adult_size integer
+---@field bone_mat material
+---@field bone_matidx integer
+---@field fish_mat_index integer
+---@field egg_mat_index integer
+---@field attack_trigger integer[]
+---@field egg_size integer
+---@field grazer integer
+---@field petvalue_divisor integer
+---@field prone_to_rage integer
+---@field unk6 integer[] different from same save with 0.44.12
+df.caste_raw.T_misc = {}
+
+---@class caste_raw_personality: df.struct
+---@field a integer[]
+---@field b integer[]
+---@field c integer[]
+df.caste_raw.T_personality = {}
+
+---@class caste_raw_attributes: df.struct
+---@field phys_att_range integer[][]
+---@field ment_att_range integer[][]
+---@field phys_att_rates integer[][]
+---@field ment_att_rates integer[][]
+---@field phys_att_cap_perc integer[]
+---@field ment_att_cap_perc integer[]
+df.caste_raw.T_attributes = {}
+
+---@class caste_raw_bp_appearance: df.struct
+---@field modifiers bp_appearance_modifier[]
+---@field modifier_idx integer[]
+---@field part_idx integer[]
+---@field layer_idx integer[]
+---@field style_part_idx integer[]
+---@field style_layer_idx integer[]
+---@field style_list_idx integer[]
+df.caste_raw.T_bp_appearance = {}
+
+---@class caste_raw_caste_profession_name: df.struct
+---@field singular string[]
+---@field plural string[]
+df.caste_raw.T_caste_profession_name = {}
+
+---@class caste_raw_extracts: df.struct
+---@field extract_mat integer[]
+---@field extract_matidx integer[]
+---@field extract_str string[][]
+---@field milkable_mat integer
+---@field milkable_matidx integer
+---@field milkable_str string[]
+---@field webber_mat integer
+---@field webber_matidx integer
+---@field webber_str string[]
+---@field vermin_bite_mat integer
+---@field vermin_bite_matidx integer
+---@field vermin_bite_chance integer
+---@field vermin_bite_str string[]
+---@field tendons_mat integer
+---@field tendons_matidx integer
+---@field tendons_str string[]
+---@field tendons_heal integer
+---@field ligaments_mat integer
+---@field ligaments_matidx integer
+---@field ligaments_str string[]
+---@field ligaments_heal integer
+---@field blood_state integer
+---@field blood_mat integer
+---@field blood_matidx integer
+---@field blood_str string[]
+---@field pus_state integer
+---@field pus_mat integer
+---@field pus_matidx integer
+---@field pus_str string[]
+---@field egg_material_mattype integer[]
+---@field egg_material_matindex integer[]
+---@field egg_material_str string[][]
+---@field lays_unusual_eggs_itemtype item_type[]
+---@field lays_unusual_eggs_itemsubtype integer[]
+---@field lays_unusual_eggs_mattype integer[]
+---@field lays_unusual_eggs_matindex integer[]
+---@field lays_unusual_eggs_str string[][]
+df.caste_raw.T_extracts = {}
+
+---@class caste_raw_unknown2: df.struct
+---@field syndrome_dilution_identifier string[] SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_factor integer[] SYNDROME_DILUTION_FACTOR
+---@field gobble_vermin_class string[]
+---@field gobble_vermin_creature_1 string[]
+---@field gobble_vermin_creature_2 string[]
+---@field infect_all integer[] for spatter applied to all bp
+---@field infect_local integer[] for spatter applied to one bp
+---@field unk23f integer[]
+---@field unk23g integer[]
+---@field unk24_flags any
+---@field unk25_flags any
+---@field armor_sizes integer[][] index by UBSTEP
+---@field pants_sizes integer[] index by LBSTEP
+---@field helm_size integer
+---@field shield_sizes integer[] index by UPSTEP
+---@field shoes_sizes integer[] index by UPSTEP
+---@field gloves_sizes integer[] index by UPSTEP
+---@field materials material_vec_ref
+---@field unk_2f20 integer[]
+---@field unk_2f30 integer[]
+---@field unk_2f40 integer[]
+---@field unk_2f50 integer[]
+---@field mat_type material
+---@field mat_index integer
+df.caste_raw.T_unknown2 = {}
+
+---@class caste_raw_lair_hunter_speech: df.struct
+---@field unk_1 integer[]
+---@field unk_2 any[]
+df.caste_raw.T_lair_hunter_speech = {}
+
+---@class caste_raw_unk29: df.struct
+---@field unk_1 any[]
+---@field unk_2 integer[]
+df.caste_raw.T_unk29 = {}
 
 ---@enum creature_graphics_role
 df.creature_graphics_role = {
@@ -767,13 +892,8 @@ df.creature_raw_graphics = {}
 ---@field list_idx integer[]
 ---@field id integer
 ---@field noun string
----@field word_type tissue_style_raw_word_type 0 singular, 1 plural
+---@field word_type part_of_speech 0 singular, 1 plural
 df.tissue_style_raw = {}
-
----@enum tissue_style_raw_part_of_speech
----0 singular, 1 plural
-df.tissue_style_raw.T_part_of_speech = {
-}
 
 ---@class creature_raw: df.struct
 ---@field creature_id string
@@ -805,18 +925,36 @@ df.tissue_style_raw.T_part_of_speech = {
 ---@field speech2 integer[]
 ---@field material material[]
 ---@field tissue tissue[]
----@field profession_name string[]
+---@field profession_name creature_raw_profession_name
 ---@field underground_layer_min integer
 ---@field underground_layer_max integer
 ---@field modifier_class any[]
 ---@field modifier_num_patterns integer[] for color modifiers, == number of items in their pattern_* vectors
----@field hive_product integer[]
+---@field hive_product creature_raw_hive_product
 ---@field source_hfid historical_figure
 ---@field unk_v4201_1 integer
 ---@field next_modifier_id integer
 ---@field raws string[]
 ---@field statute_texpos integer[]
 df.creature_raw = {}
+
+---@class creature_raw_profession_name: df.struct
+---@field singular string[]
+---@field plural string[]
+df.creature_raw.T_profession_name = {}
+
+---@class creature_raw_hive_product: df.struct
+---@field number integer[]
+---@field time integer[]
+---@field item_type item_type[]
+---@field item_subtype integer[]
+---@field material material_vec_ref
+---@field tmpstr1 string[]
+---@field tmpstr2 string[]
+---@field tmpstr3 string[]
+---@field tmpstr4 string[]
+---@field tmpstr5 string[]
+df.creature_raw.T_hive_product = {}
 
 ---@class creature_variation_convert_tag: df.struct
 ---@field cvct_master string
@@ -895,10 +1033,6 @@ df.body_part_template_contype = {
 ---@field name_plural string[]
 df.body_part_template = {}
 
----@enum body_part_template_body_part_template_contype
-df.body_part_template.T_body_part_template_contype = {
-}
-
 ---@class body_template: df.struct
 ---@field id string
 ---@field parts body_part_template[]
@@ -946,13 +1080,9 @@ df.tissue_flags = {
 ---@field unk1 integer
 ---@field insulation integer
 ---@field subordinate_to_tissue string
----@field tissue_mat_state tissue_template_tissue_mat_state
+---@field tissue_mat_state matter_state
 ---@field tissue_shape_str string
 df.tissue_template = {}
-
----@enum tissue_template_matter_state
-df.tissue_template.T_matter_state = {
-}
 
 ---@class tissue: df.struct
 ---@field id string
@@ -971,7 +1101,7 @@ df.tissue_template.T_matter_state = {
 ---@field insulation integer
 ---@field subordinate_to_tissue string
 ---@field parent_tissue integer
----@field tissue_mat_state tissue_tissue_mat_state
+---@field tissue_mat_state matter_state
 ---@field heatdam_point integer
 ---@field colddam_point integer
 ---@field ignite_point integer
@@ -980,10 +1110,6 @@ df.tissue_template.T_matter_state = {
 ---@field spec_heat integer
 ---@field tissue_shape_str string
 df.tissue = {}
-
----@enum tissue_matter_state
-df.tissue.T_matter_state = {
-}
 
 ---@class body_detail_plan: df.struct
 ---@field id string

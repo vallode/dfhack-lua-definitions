@@ -37,16 +37,11 @@ df.embark_note = {}
 ---@field cave_id world_underground_region
 ---@field unk_28 integer
 ---@field population_idx any
----@field depth world_population_ref_depth Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
+---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
 df.world_population_ref = {}
 
----@enum world_population_ref_layer_type
----Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
-df.world_population_ref.T_layer_type = {
-}
-
 ---@class local_population: df.struct
----@field type local_population_type
+---@field type world_population_type
 ---@field quantity integer
 ---@field quantity2 integer
 ---@field flags any
@@ -56,10 +51,6 @@ df.world_population_ref.T_layer_type = {
 ---@field wp_unk_1c integer only set on subset of animals (including vermin). None seen on fresh embark
 ---@field unk_v47_1 integer set on same animals as wp_unk_1c and only seen 0
 df.local_population = {}
-
----@enum local_population_world_population_type
-df.local_population.T_world_population_type = {
-}
 
 ---@class world_population: df.struct
 ---@field type world_population_type
@@ -73,10 +64,6 @@ df.local_population.T_world_population_type = {
 ---@field unk_1c integer
 ---@field unk_20 integer
 df.world_population = {}
-
----@enum world_population_world_population_type
-df.world_population.T_world_population_type = {
-}
 
 ---@class world_landmass: df.struct
 ---@field name language_name
@@ -140,10 +127,6 @@ df.world_region_type = {
 ---@field max_y integer
 df.world_region = {}
 
----@enum world_region_world_region_type
-df.world_region.T_world_region_type = {
-}
-
 ---@class world_underground_region: df.struct
 ---@field type world_underground_region_type
 ---@field name language_name
@@ -202,7 +185,7 @@ df.geo_layer_type = {
 df.geo_layer_type.attrs = {}
 
 ---@class world_geo_layer: df.struct
----@field type world_geo_layer_type
+---@field type geo_layer_type
 ---@field mat_index inorganic_raw
 ---@field vein_mat integer[]
 ---@field vein_nested_in integer[] Index of the other vein this one is nested in, or -1
@@ -211,10 +194,6 @@ df.geo_layer_type.attrs = {}
 ---@field top_height integer negative
 ---@field bottom_height integer
 df.world_geo_layer = {}
-
----@enum world_geo_layer_geo_layer_type
-df.world_geo_layer.T_geo_layer_type = {
-}
 
 ---@class world_geo_biome: df.struct
 ---@field unk1 integer
@@ -233,28 +212,23 @@ df.world_geo_biome = {}
 ---@field seed integer looks random
 ---@field unk_30 any
 ---@field unk_38 integer[]
----@field top_layer_idx world_region_feature_top_layer_idx topmost cave layer the feature reaches
+---@field top_layer_idx layer_type topmost cave layer the feature reaches
 df.world_region_feature = {}
-
----@enum world_region_feature_layer_type
----topmost cave layer the feature reaches
-df.world_region_feature.T_layer_type = {
-}
 
 ---@class world_region_details: df.struct
 ---biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field biome integer[][] biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field elevation integer[][]
 ---@field seed integer[][] looks random
----@field edges any In order to determine how biomes cross embark tile edges, the rectangle framing an embark tile is split into 4 corners, and 4 straight edge segments, using ranges measured in tiles: +-/----/+ | / / * | / / +-/-/---+ After this, each corner and edge segment is assigned the biome of one of the adjoining 4 or 2 embark tiles, based on the values in these arrays. It may be necessary to access adjacent details objects to collect the full outline: c11 x11 | c21 y11 *** | y21 ------------- c12 x12 | c22 There are also certain rules forcing ocean/lake biomes to lose edges to mountains, and both of them to anything else, no matter what the original array value is. The actual biomes for tiles in the frame are semi-randomly interpolated from this edge spec. For some reason DF provides for all edges of all mid level tiles in a world tile, but not for the corners on the south and east edges: for these you have to go to the next world tile. This has some effect on the corners on the south and east edges of the world where there are no adjacent tiles to get the data from. There the rules are static: the biomes of corners are taken from the easternmost and southernmost of the two touching corners. The rules for corner determination when the biome_corner field has specified a biome that's specified to yield as per the above seems to be to first take the NW corner (0), then the NE (1) one, and then the SW (2) one. If the selected corner doesn't exist (because it's outside of the world) the same fallback corner selection is used, with the exception of a northern row selection of NW (0), where the home corner (3) is selected.
+---@field edges world_region_details_edges In order to determine how biomes cross embark tile edges, the rectangle framing an embark tile is split into 4 corners, and 4 straight edge segments, using ranges measured in tiles: +-/----/+ | / / * | / / +-/-/---+ After this, each corner and edge segment is assigned the biome of one of the adjoining 4 or 2 embark tiles, based on the values in these arrays. It may be necessary to access adjacent details objects to collect the full outline: c11 x11 | c21 y11 *** | y21 ------------- c12 x12 | c22 There are also certain rules forcing ocean/lake biomes to lose edges to mountains, and both of them to anything else, no matter what the original array value is. The actual biomes for tiles in the frame are semi-randomly interpolated from this edge spec. For some reason DF provides for all edges of all mid level tiles in a world tile, but not for the corners on the south and east edges: for these you have to go to the next world tile. This has some effect on the corners on the south and east edges of the world where there are no adjacent tiles to get the data from. There the rules are static: the biomes of corners are taken from the easternmost and southernmost of the two touching corners. The rules for corner determination when the biome_corner field has specified a biome that's specified to yield as per the above seems to be to first take the NW corner (0), then the NE (1) one, and then the SW (2) one. If the selected corner doesn't exist (because it's outside of the world) the same fallback corner selection is used, with the exception of a northern row selection of NW (0), where the home corner (3) is selected.
 ---@field pos coord2d
 ---@field unk12e8 integer
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field rivers_vertical integer[][]
----@field rivers_horizontal integer[][]
+---@field rivers_vertical world_region_details_rivers_vertical
+---@field rivers_horizontal world_region_details_rivers_horizontal
 ---@field other_features any[][]
 ---@field features world_region_feature[][][]
 ---@field lava_stone inorganic_raw
@@ -262,6 +236,29 @@ df.world_region_feature.T_layer_type = {
 ---@field elevation2 integer[][]
 ---@field undef13 integer[]
 df.world_region_details = {}
+
+---@class world_region_details_edges: df.struct
+---In order to determine how biomes cross embark tile edges, the rectangle framing an embark tile is split into 4 corners, and 4 straight edge segments, using ranges measured in tiles: +-/----/+ | / / * | / / +-/-/---+ After this, each corner and edge segment is assigned the biome of one of the adjoining 4 or 2 embark tiles, based on the values in these arrays. It may be necessary to access adjacent details objects to collect the full outline: c11 x11 | c21 y11 *** | y21 ------------- c12 x12 | c22 There are also certain rules forcing ocean/lake biomes to lose edges to mountains, and both of them to anything else, no matter what the original array value is. The actual biomes for tiles in the frame are semi-randomly interpolated from this edge spec. For some reason DF provides for all edges of all mid level tiles in a world tile, but not for the corners on the south and east edges: for these you have to go to the next world tile. This has some effect on the corners on the south and east edges of the world where there are no adjacent tiles to get the data from. There the rules are static: the biomes of corners are taken from the easternmost and southernmost of the two touching corners. The rules for corner determination when the biome_corner field has specified a biome that's specified to yield as per the above seems to be to first take the NW corner (0), then the NE (1) one, and then the SW (2) one. If the selected corner doesn't exist (because it's outside of the world) the same fallback corner selection is used, with the exception of a northern row selection of NW (0), where the home corner (3) is selected.
+---@field split_x coord2d[][] splits for horizontal edges, x=min y=max
+---@field split_y coord2d[][] splits for vertical edges, x=min y=max
+---@field biome_corner integer[][] 0=Reference is NW, 1=Reference is N, 2=Reference is W, 3=Reference is current tile
+---@field biome_x integer[][] 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
+---@field biome_y integer[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
+df.world_region_details.T_edges = {}
+
+---@class world_region_details_rivers_vertical: df.struct
+---@field x_min integer[][]
+---@field x_max integer[][]
+---@field active integer[][]
+---@field elevation integer[][]
+df.world_region_details.T_rivers_vertical = {}
+
+---@class world_region_details_rivers_horizontal: df.struct
+---@field y_min integer[][]
+---@field y_max integer[][]
+---@field active integer[][]
+---@field elevation integer[][]
+df.world_region_details.T_rivers_horizontal = {}
 
 ---@enum region_map_entry_flags
 df.region_map_entry_flags = {
@@ -391,9 +388,27 @@ df.moving_party = {}
 ---@field unk_v40_1 integer
 ---@field year integer
 ---@field year_tick integer
----@field picked_growths integer[] also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
----@field unk_v43 integer[] probably used by Adventurer mode
+---@field picked_growths world_object_data_picked_growths also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
+---@field unk_v43 world_object_data_unk_v43 probably used by Adventurer mode
 df.world_object_data = {}
+
+---@class world_object_data_picked_growths: df.struct
+---also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
+---@field x integer[] 0 - 47, within the MLT
+---@field y integer[] 0 - 47, within the MLT
+---@field z integer[] z coordinate using the elevation coordinate system
+---@field subtype integer[] subtype of the growth picked within the raws of the implicit plant
+---@field density integer[] copy of the density field of the growth raws
+---@field year integer[] presumably to know whether it's the current year's harvest or the previous one's
+df.world_object_data.T_picked_growths = {}
+
+---@class world_object_data_unk_v43: df.struct
+---probably used by Adventurer mode
+---@field x integer[] probably MLT relative x coordinate
+---@field y integer[] probably MLT relative y coordinate
+---@field z integer[] probably z coordinate using the elevation coordinate system
+---@field unk_4 integer[] 233/234 seen
+df.world_object_data.T_unk_v43 = {}
 
 ---@enum mountain_peak_flags
 df.mountain_peak_flags = {
@@ -429,7 +444,7 @@ df.world_mountain_peak = {}
 ---@field unk_8a integer
 ---@field unk_v34_2 integer
 ---@field unk_v34_3 integer
----@field unk_b4 integer
+---@field unk_b4 world_data_unk_b4
 ---@field region_details world_region_details[]
 ---@field adv_region_x integer
 ---@field adv_region_y integer
@@ -440,7 +455,7 @@ df.world_mountain_peak = {}
 ---@field unk_x2 integer
 ---@field unk_y2 integer
 ---@field midmap_place any not saved
----@field constructions integer
+---@field constructions world_data_constructions
 ---@field entity_claims1 entity_claim_mask
 ---@field entity_claims2 entity_claim_mask
 ---@field sites world_site[]
@@ -497,7 +512,7 @@ df.world_mountain_peak = {}
 ---@field unk_26c integer
 ---@field unk_270 integer
 ---@field unk_274 historical_figure[][]
----@field unk_482f8 integer[]
+---@field unk_482f8 world_data_unk_482f8
 df.world_data = {}
 
 ---@enum world_data_flip_latitude
@@ -507,6 +522,34 @@ df.world_data.T_flip_latitude = {
   South = 2,
   Both = 3,
 }
+
+---@class world_data_unk_b4: df.struct
+---@field world_width2 integer
+---@field world_height2 integer
+---@field unk_1 integer align(width,4)*height
+---@field unk_2 integer align(width,4)*height
+---@field unk_3 integer width*height
+---@field unk_4 integer align(width,4)*height
+df.world_data.T_unk_b4 = {}
+
+---@class world_data_constructions: df.struct
+---@field width integer
+---@field height integer
+---@field map world_construction_square[]
+---@field list world_construction[]
+---@field next_id integer
+df.world_data.T_constructions = {}
+
+---@class world_data_unk_482f8: df.struct
+---@field unk_1 integer[]
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+df.world_data.T_unk_482f8 = {}
 
 ---@class breed: df.struct
 ---@field id integer
@@ -553,9 +596,4 @@ df.region_weather_type = {
 ---@field remaining_duration integer ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
 ---@field region_id world_region Set for clouds, -1 for rain
 df.region_weather = {}
-
----@enum region_weather_region_weather_type
----Creeping Gas/Vapor/Dust='cloud' below, FallingMaterial='rain'
-df.region_weather.T_region_weather_type = {
-}
 

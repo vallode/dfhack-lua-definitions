@@ -46,10 +46,6 @@ df.init_display.T_windowed = {
   Exclusive = 3,
 }
 
----@enum init_display_init_display_filter_mode
-df.init_display.T_init_display_filter_mode = {
-}
-
 ---@enum init_media_flags
 df.init_media_flags = {
   SOUND_OFF = 0,

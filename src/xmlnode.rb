@@ -44,7 +44,7 @@ class Field < XmlNode
     super
 
     @name = node.attributes['name']
-    @is_inline = ["enum"].include? node.name
+    @is_inline = !node.children.empty? & ["enum", "compound"].include?(node.name)
     @type =  @is_inline ? "#{parent_type}_#{@name}" : Field.get_type(node)
   end
 
@@ -159,15 +159,17 @@ end
 class StructType < XmlNode
   attr_reader :name
 
-  def initialize(node)
+  def initialize(node, parent_type = nil)
     super
 
-    @name = node.attributes['type-name']
+    @name = node.attributes['type-name'] || node.attributes['name']
+    @parent_type = parent_type
     @inherits = node['inherits-from'] || 'df.struct'
+    @type = parent_type ? "#{parent_type}_#{@name}" : @name
   end
 
   def render
-    annotation = "---@class #{@name}#{': ' + @inherits if @inherits}\n"
+    annotation = "---@class #{@type}#{': ' + @inherits if @inherits}\n"
     annotation << "---#{@comment}\n" if @comment 
 
     inline_types = []
@@ -181,11 +183,15 @@ class StructType < XmlNode
       annotation << field.render
     end
 
-    annotation << "df.#{@name} = {}\n\n"
+    annotation << "df.#{@parent_type + '.T_' if @parent_type}#{@name} = {}\n\n"
 
     if not inline_types.empty?
       inline_types.each do |child|
-        annotation << EnumType.new(child, @name.value).render()
+        if child.name == "enum"
+          annotation << EnumType.new(child, @name.value).render()
+        else
+          annotation << StructType.new(child, @name.value).render()
+        end
       end
     end
 

@@ -191,8 +191,8 @@ df.labor_infost = {}
 ---@class plotinfost: df.struct
 ---@field game_state integer 2 running, 1 lost to siege, 0 lost
 ---@field lost_to_siege_civ historical_entity
----@field tax_collection integer
----@field nobles integer
+---@field tax_collection plotinfost_tax_collection
+---@field nobles plotinfost_nobles
 ---@field caravans caravan_state[]
 ---@field unk_2 integer
 ---@field fortress_rank integer
@@ -219,12 +219,12 @@ df.labor_infost = {}
 ---@field dip_meeting_info meeting_diplomat_info[]
 ---@field aid_requesters integer[]
 ---@field game_over boolean
----@field invasions invasion_info[]
+---@field invasions plotinfost_invasions
 ---@field punishments punishment[]
 ---@field dipscripts dipscript_info[]
 ---@field dipscript_texts dipscript_text[]
 ---@field dipscript_popups dipscript_popup[] cause viewscreen_meetingst to pop up
----@field kitchen item_type[]
+---@field kitchen plotinfost_kitchen
 ---@field economic_stone boolean[]
 ---@field unk23c8_flags any
 ---@field mood_cooldown integer
@@ -235,13 +235,13 @@ df.labor_infost = {}
 ---@field unk_races integer[]
 ---@field farm_crops integer[]
 ---@field farm_seasons season[]
----@field economy_prices integer[]
----@field stockpile integer
+---@field economy_prices plotinfost_economy_prices
+---@field stockpile plotinfost_stockpile
 ---@field unk2a8c integer[][]
 ---@field unk_mapedge_x integer[]
 ---@field unk_mapedge_y integer[]
 ---@field unk_mapedge_z integer[]
----@field map_edge integer[][]
+---@field map_edge plotinfost_map_edge
 ---@field feature_x integer[]
 ---@field feature_y integer[]
 ---@field feature_id_local integer[]
@@ -249,11 +249,11 @@ df.labor_infost = {}
 ---@field event_collections integer[]
 ---@field stone_mat_types integer[]
 ---@field stone_mat_indexes integer[]
----@field waypoints integer[]
----@field burrows burrow[]
----@field alerts integer[]
----@field equipment integer[][]
----@field hauling hauling_route[]
+---@field waypoints plotinfost_waypoints
+---@field burrows plotinfost_burrows
+---@field alerts plotinfost_alerts
+---@field equipment plotinfost_equipment
+---@field hauling plotinfost_hauling
 ---@field labor_info labor_infost
 ---@field petitions integer[] related to agreements
 ---@field unk_6 integer[] observed allocating 4 bytes
@@ -266,13 +266,281 @@ df.labor_infost = {}
 ---@field tutorial_seen help_context_type[]
 ---@field food_warn_year integer
 ---@field food_warn_year_tick integer
----@field main ui_hotkey[]
----@field squads squad[]
+---@field main plotinfost_main
+---@field squads plotinfost_squads
 ---@field follow_unit unit
 ---@field follow_item item
 ---@field selected_farm_crops integer[] valid for the currently queried farm plot
 ---@field available_seeds any
 df.plotinfost = {}
+
+---@class plotinfost_tax_collection: df.struct
+---@field state integer
+---@field check_timer integer
+---@field rooms integer[]
+---@field reach_room_timer integer
+---@field tc_protect_timer integer
+---@field guard1_reach_tc_timer integer
+---@field guard2_reach_tc_timer integer
+---@field collected integer
+---@field quota integer
+---@field collector_pos coord
+---@field guard_pos_x integer[]
+---@field guard_pos_y integer[]
+---@field guard_pos_z integer[]
+---@field collector unit
+---@field guard1 unit
+---@field guard2 unit
+---@field guard_lack_complained integer
+df.plotinfost.T_tax_collection = {}
+
+---@class plotinfost_nobles: df.struct
+---@field unk_1 integer
+---@field manager_cooldown integer 0-1008
+---@field bookkeeper_cooldown integer 0-1008
+---@field bookkeeper_precision integer
+---@field bookkeeper_settings nobles_bookkeeper_settings
+df.plotinfost.T_nobles = {}
+
+---@enum nobles_bookkeeper_settings
+df.nobles.T_bookkeeper_settings = {
+  nearest_10 = 0,
+  nearest_100 = 1,
+  nearest_1000 = 2,
+  nearest_10000 = 3,
+  all_accurate = 4,
+}
+
+---@class plotinfost_invasions: df.struct
+---@field list invasion_info[]
+---@field next_id integer
+df.plotinfost.T_invasions = {}
+
+---@class plotinfost_kitchen: df.struct
+---@field item_types item_type[]
+---@field item_subtypes integer[]
+---@field mat_types material[]
+---@field mat_indices integer[]
+---@field exc_types kitchen_exc_type[]
+df.plotinfost.T_kitchen = {}
+
+---@class plotinfost_economy_prices: df.struct
+---@field price_adjustment economy_prices_price_adjustment
+---@field price_setter economy_prices_price_setter
+df.plotinfost.T_economy_prices = {}
+
+---@class economy_prices_price_adjustment: df.struct
+---@field general_items integer[]
+---@field weapons integer[]
+---@field armor integer[]
+---@field handwear integer[]
+---@field footwear integer[]
+---@field headwear integer[]
+---@field legwear integer[]
+---@field prepared_food integer[]
+---@field wood integer[]
+---@field thread_cloth integer[]
+---@field paper integer[]
+---@field parchment integer[]
+---@field bone integer[]
+---@field tooth integer[]
+---@field horn integer[]
+---@field pearl integer[]
+---@field shell integer[]
+---@field leather integer[]
+---@field silk integer[]
+---@field yarn integer[]
+---@field inorganic integer[]
+---@field meat integer[]
+---@field fish integer[]
+---@field plants integer[]
+---@field drinks integer[]
+---@field extract_animal integer[]
+---@field extract_plant integer[]
+---@field mill_animal integer[]
+---@field mill_plant integer[]
+---@field cheese_animal integer[]
+---@field cheese_plant integer[]
+---@field pets integer[]
+df.economy_prices.T_price_adjustment = {}
+
+---@class economy_prices_price_setter: df.struct
+---@field general_items unit[]
+---@field weapons unit[]
+---@field armor unit[]
+---@field handwear unit[]
+---@field footwear unit[]
+---@field headwear unit[]
+---@field legwear unit[]
+---@field prepared_food unit[]
+---@field wood unit[]
+---@field thread_cloth unit[]
+---@field paper unit[]
+---@field parchment unit[]
+---@field bone unit[]
+---@field tooth unit[]
+---@field horn unit[]
+---@field pearl unit[]
+---@field shell unit[]
+---@field leather unit[]
+---@field silk unit[]
+---@field yarn unit[]
+---@field inorganic unit[]
+---@field meat unit[]
+---@field fish unit[]
+---@field plants unit[]
+---@field drinks unit[]
+---@field extract_animal unit[]
+---@field extract_plant unit[]
+---@field mill_animal unit[]
+---@field mill_plant unit[]
+---@field cheese_animal unit[]
+---@field cheese_plant unit[]
+---@field pets unit[]
+df.economy_prices.T_price_setter = {}
+
+---@class plotinfost_stockpile: df.struct
+---@field reserved_bins integer
+---@field reserved_barrels integer
+---@field custom_settings stockpile_settings
+df.plotinfost.T_stockpile = {}
+
+---@class plotinfost_map_edge: df.struct
+---@field layer_x integer[][]
+---@field surface_x integer[]
+---@field layer_y integer[][]
+---@field surface_y integer[]
+---@field layer_z integer[][]
+---@field surface_z integer[]
+df.plotinfost.T_map_edge = {}
+
+---@class plotinfost_waypoints: df.struct
+---@field points integer[]
+---@field routes integer[]
+---@field sym_selector integer
+---@field unk_1 integer
+---@field cur_point_index integer
+---@field in_edit_name_mode boolean
+---@field in_edit_text_mode boolean
+---@field sym_tile integer
+---@field sym_fg_color integer
+---@field sym_bg_color integer
+---@field unk5c04 string[]
+---@field next_point_id integer
+---@field next_route_id integer
+---@field sel_route_idx integer
+---@field sel_route_waypt_idx integer
+---@field in_edit_waypts_mode boolean
+---@field unk_42_06 any[]
+df.plotinfost.T_waypoints = {}
+
+---@class plotinfost_burrows: df.struct
+---@field list burrow[]
+---@field next_id integer
+---@field sel_index integer
+---@field sel_id burrow
+---@field in_confirm_delete boolean
+---@field in_add_units_mode boolean
+---@field list_units unit[]
+---@field sel_units any
+---@field unit_cursor_pos integer
+---@field in_define_mode boolean
+---@field brush_erasing boolean
+---@field rect_start coord
+---@field brush_mode integer
+---@field in_edit_name_mode boolean
+---@field sym_selector integer
+---@field sym_tile integer
+---@field sym_fg_color integer
+---@field sym_bg_color integer
+df.plotinfost.T_burrows = {}
+
+---@class plotinfost_alerts: df.struct
+---@field list integer[]
+---@field next_id integer
+---@field routines any[]
+---@field next_routine_id integer
+---@field civ_alert_idx integer
+df.plotinfost.T_alerts = {}
+
+---@class plotinfost_equipment: df.struct
+---@field items_unmanifested integer[][]
+---@field items_unassigned integer[][]
+---@field items_assigned integer[][]
+---@field update equipment_update
+---@field work_weapons item[] i.e. woodcutter axes, and miner picks
+---@field work_units unit[]
+---@field hunter_ammunition squad_ammo_spec[]
+---@field ammo_items item[]
+---@field ammo_units unit[]
+---@field training_assignments training_assignment[] sorted by animal_id
+df.plotinfost.T_equipment = {}
+
+---@class plotinfost_hauling: df.struct
+---@field routes hauling_route[]
+---@field next_id integer
+---@field view_routes hauling_route[]
+---@field view_stops hauling_stop[]
+---@field view_bad integer[]
+---@field cursor_top integer
+---@field in_stop boolean
+---@field cursor_stop integer
+df.plotinfost.T_hauling = {}
+
+---@class plotinfost_main: df.struct
+---@field hotkeys ui_hotkey[]
+---@field traffic_cost_high integer
+---@field traffic_cost_normal integer
+---@field traffic_cost_low integer
+---@field traffic_cost_restricted integer
+---@field dead_citizens unit[] ?
+---@field custom_difficulty difficultyst
+---@field fortress_entity historical_entity entity pointed to by group_id
+---@field fortress_site world_site
+---@field mode ui_sidebar_mode
+---@field unk_v50_3 integer
+---@field unk_v50_4 integer
+---@field autosave_request boolean
+---@field autosave_timer integer
+---@field file file_compressorst
+---@field save_progress main_save_progress
+---@field unk_v50_7 integer
+---@field unk_44_12b nemesis_offload
+---@field unk_44_12c boolean
+---@field unk_44_12d integer padding?
+---@field selected_hotkey integer
+---@field in_rename_hotkey boolean
+df.plotinfost.T_main = {}
+
+---@class main_save_progress: df.struct
+---@field substage save_substage
+---@field stage integer
+---@field info nemesis_offload
+df.main.T_save_progress = {}
+
+---@class plotinfost_squads: df.struct
+---@field list squad[] valid only when ui is displayed
+---@field unk6e08 any[]
+---@field sel_squads any
+---@field indiv_selected historical_figure[]
+---@field in_select_indiv boolean
+---@field sel_indiv_squad integer
+---@field unk_70 integer
+---@field squad_list_scroll integer
+---@field squad_list_first_id integer
+---@field nearest_squad squad
+---@field in_move_order boolean
+---@field point_list_scroll integer
+---@field in_kill_order boolean
+---@field kill_rect_targets unit[]
+---@field kill_rect_targets_scroll integer also used for the list of targets at cursor
+---@field in_kill_list boolean
+---@field kill_targets unit[]
+---@field sel_kill_targets any
+---@field kill_list_scroll integer
+---@field in_kill_rect boolean
+---@field rect_start coord
+df.plotinfost.T_squads = {}
 
 ---@enum timed_event_type
 df.timed_event_type = {
@@ -289,7 +557,7 @@ df.timed_event_type = {
 
 ---@class timed_event: df.struct
 ---@field type timed_event_type
----@field season timed_event_season
+---@field season season
 ---@field season_ticks integer 1 tick = 10 frames
 ---@field entity historical_entity
 ---@field unk_1 integer
@@ -297,14 +565,6 @@ df.timed_event_type = {
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.timed_event = {}
-
----@enum timed_event_timed_event_type
-df.timed_event.T_timed_event_type = {
-}
-
----@enum timed_event_season
-df.timed_event.T_season = {
-}
 
 ---@class map_viewport: df.struct
 ---@field adv_mode boolean

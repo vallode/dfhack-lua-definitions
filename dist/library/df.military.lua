@@ -9,20 +9,12 @@ df.uniform_indiv_choice = {
 }
 
 ---@class item_filter_spec: df.struct
----@field item_type item_filter_spec_item_type
+---@field item_type item_type
 ---@field item_subtype integer
----@field material_class item_filter_spec_material_class
+---@field material_class entity_material_category
 ---@field mattype material
 ---@field matindex integer
 df.item_filter_spec = {}
-
----@enum item_filter_spec_item_type
-df.item_filter_spec.T_item_type = {
-}
-
----@enum item_filter_spec_entity_material_category
-df.item_filter_spec.T_entity_material_category = {
-}
 
 ---@class squad_uniform_spec: df.struct
 ---@field item item
@@ -124,7 +116,7 @@ df.squad_schedule_entry = {}
 ---@field rack_training integer[]
 ---@field uniform_priority integer
 ---@field activity activity_entry
----@field ammo squad_ammo_spec[]
+---@field ammo squad_ammo
 ---@field carry_food integer
 ---@field carry_water integer
 ---@field entity_id historical_entity
@@ -141,6 +133,15 @@ df.squad_schedule_entry = {}
 ---@field background_g integer
 ---@field background_b integer
 df.squad = {}
+
+---@class squad_ammo: df.struct
+---@field ammunition squad_ammo_spec[]
+---@field train_weapon_free item[]
+---@field train_weapon_inuse item[]
+---@field ammo_items item[]
+---@field ammo_units unit[]
+---@field update equipment_update
+df.squad.T_ammo = {}
 
 ---@enum squad_order_type
 df.squad_order_type = {
@@ -209,9 +210,32 @@ df.squad_order_cannot_reason = {
 ---@field unk_44_11v integer[]
 ---@field unk_v50_b0 integer[]
 ---@field mission_report mission_report
----@field data army_controller_sub1
+---@field data army_controller_data
 ---@field type army_controller_type
 df.army_controller = {}
+
+---@class army_controller_data: df.struct
+---@field t1 army_controller_sub1
+---@field InvasionOrder army_controller_invasion_order
+---@field Invasion army_controller_invasion
+---@field t5 army_controller_sub5
+---@field t6 army_controller_sub6
+---@field t7 army_controller_sub7
+---@field t11 army_controller_sub11
+---@field Visit army_controller_visit
+---@field t13 army_controller_sub13
+---@field t14 army_controller_sub14
+---@field t15 army_controller_sub15
+---@field t16 army_controller_sub16
+---@field Quest army_controller_quest
+---@field t18 army_controller_sub18
+---@field t19 army_controller_sub19
+---@field t20 army_controller_sub20
+---@field t21 army_controller_sub21
+---@field t22 army_controller_sub22
+---@field t23 army_controller_sub23
+---@field VillainousVisit army_controller_villainous_visit
+df.army_controller.T_data = {}
 
 ---@enum army_controller_type
 df.army_controller.T_type = {
@@ -314,12 +338,8 @@ df.army_controller_sub11 = {}
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field abstract_building integer Monster slayers have -1
----@field purpose army_controller_visit_purpose
+---@field purpose history_event_reason
 df.army_controller_visit = {}
-
----@enum army_controller_visit_history_event_reason
-df.army_controller_visit.T_history_event_reason = {
-}
 
 ---@class army_controller_sub13: df.struct
 ---@field unk_1 integer
@@ -402,13 +422,8 @@ df.army_controller_sub23 = {}
 ---@field site_id world_site
 ---@field entity_id historical_entity
 ---@field abstract_building integer -1 before arrival
----@field purpose army_controller_villainous_visit_purpose none before arrival
+---@field purpose history_event_reason none before arrival
 df.army_controller_villainous_visit = {}
-
----@enum army_controller_villainous_visit_history_event_reason
----none before arrival
-df.army_controller_villainous_visit.T_history_event_reason = {
-}
 
 ---@enum army_flags
 df.army_flags = {
@@ -442,14 +457,10 @@ df.army_flags = {
 ---@field max_low_light_vision integer
 ---@field sense_creature_classes string[]
 ---@field creature_class string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
----@field item_type army_item_type
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 ---@field unk_4407_1 item[]
 df.army = {}
-
----@enum army_item_type
-df.army.T_item_type = {
-}
 

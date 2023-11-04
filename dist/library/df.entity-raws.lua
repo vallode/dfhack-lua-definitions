@@ -171,24 +171,24 @@ df.entity_name_type = {
 ---@field raws string[]
 ---@field creature_ids integer[]
 ---@field creatures string[]
----@field equipment integer[]
+---@field equipment entity_raw_equipment
 ---@field currency_value integer[]
 ---@field flags any
 ---@field translation string
----@field symbols language_word_table[]
+---@field symbols entity_raw_symbols
 ---@field sphere_alignment integer[]
 ---@field art_facet_modifier integer[]
 ---@field art_image_element_modifier integer[]
 ---@field item_improvement_modifier integer[]
 ---@field friendly_color integer[]
----@field default_site_type entity_raw_default_site_type
+---@field default_site_type world_site_type
 ---@field likes_site integer[]
 ---@field tolerates_site integer[]
 ---@field biome_support integer[]
 ---@field start_biome integer[]
 ---@field settlement_biome integer[]
 ---@field active_season integer[]
----@field progress_trigger integer
+---@field progress_trigger entity_raw_progress_trigger
 ---@field ethic ethic_response[]
 ---@field values integer[]
 ---@field variable_value_min integer[]
@@ -199,12 +199,12 @@ df.entity_name_type = {
 ---@field max_starting_civ_number integer
 ---@field religion integer[]
 ---@field religion_sphere sphere_type[]
----@field jobs boolean[]
+---@field jobs entity_raw_jobs
 ---@field positions entity_position_raw[]
 ---@field variable_positions integer[]
 ---@field site_variable_positions integer[]
 ---@field tissue_styles string[]
----@field workshops string[]
+---@field workshops entity_raw_workshops
 ---@field banditry integer
 ---@field gem_shapes_str string[]
 ---@field stone_shapes_str string[]
@@ -217,9 +217,71 @@ df.entity_name_type = {
 ---@field animal entity_animal_raw[]
 df.entity_raw = {}
 
----@enum entity_raw_world_site_type
-df.entity_raw.T_world_site_type = {
-}
+---@class entity_raw_equipment: df.struct
+---@field digger_id integer[]
+---@field weapon_id integer[]
+---@field armor_id integer[]
+---@field ammo_id integer[]
+---@field helm_id integer[]
+---@field gloves_id integer[]
+---@field shoes_id integer[]
+---@field pants_id integer[]
+---@field shield_id integer[]
+---@field trapcomp_id integer[]
+---@field toy_id integer[]
+---@field instrument_id integer[]
+---@field tool_id integer[]
+---@field siegeammo_id integer[]
+---@field armor_rarity integer[]
+---@field helm_rarity integer[]
+---@field gloves_rarity integer[]
+---@field shoes_rarity integer[]
+---@field pants_rarity integer[]
+---@field digger_str string[]
+---@field weapon_str string[]
+---@field armor_str string[]
+---@field ammo_str string[]
+---@field helm_str string[]
+---@field gloves_str string[]
+---@field shoes_str string[]
+---@field pants_str string[]
+---@field shield_str string[]
+---@field trapcomp_str string[]
+---@field toy_str string[]
+---@field instrument_str string[]
+---@field siegeammo_str string[]
+---@field tool_str string[]
+df.entity_raw.T_equipment = {}
+
+---@class entity_raw_symbols: df.struct
+---@field symbols1 language_word_table[]
+---@field symbols2 language_word_table[]
+---@field select_symbol string[][]
+---@field subselect_symbol string[][]
+---@field cull_symbol string[][]
+df.entity_raw.T_symbols = {}
+
+---@class entity_raw_progress_trigger: df.struct
+---@field population integer
+---@field production integer
+---@field trade integer
+---@field pop_siege integer
+---@field prod_siege integer
+---@field trade_siege integer
+df.entity_raw.T_progress_trigger = {}
+
+---@class entity_raw_jobs: df.struct
+---@field permitted_job boolean[]
+---@field permitted_labor boolean[]
+---@field world_construction boolean[]
+df.entity_raw.T_jobs = {}
+
+---@class entity_raw_workshops: df.struct
+---@field permitted_building_str string[]
+---@field permitted_building_id integer[]
+---@field permitted_reaction_str string[]
+---@field permitted_reaction_id integer[]
+df.entity_raw.T_workshops = {}
 
 ---@class entity_animal_raw: df.struct
 ---@field token string
@@ -331,7 +393,7 @@ df.entity_position_responsibility = {
 ---@field land_holder integer
 ---@field number integer
 ---@field requires_population integer
----@field execution_skill entity_position_raw_execution_skill
+---@field execution_skill job_skill
 ---@field precedence integer
 ---@field replaced_by_str string
 ---@field replaced_by integer
@@ -352,8 +414,4 @@ df.entity_position_responsibility = {
 ---@field mandate_max integer
 ---@field demand_max integer
 df.entity_position_raw = {}
-
----@enum entity_position_raw_job_skill
-df.entity_position_raw.T_job_skill = {
-}
 

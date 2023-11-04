@@ -332,19 +332,21 @@ df.assume_identity_mode = {
 
 ---@class talk_choice: df.struct
 ---@field type talk_choice_type
----@field unk entity_event
+---@field unk talk_choice_unk
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.talk_choice = {}
 
----@enum talk_choice_talk_choice_type
-df.talk_choice.T_talk_choice_type = {
-}
+---@class talk_choice_unk: df.struct
+---@field event entity_event
+---@field unk_1 any
+---@field unk_2 integer
+df.talk_choice.T_unk = {}
 
 ---@class adventurest: df.struct
----@field menu adventurest_menu
+---@field menu ui_advmode_menu
 ---@field site_level_zoom integer when set, the travel map is zoomed in to show site details
 ---@field travel_origin_x integer
 ---@field travel_origin_y integer
@@ -413,8 +415,8 @@ df.talk_choice.T_talk_choice_type = {
 ---@field travel_odor_caste caste_raw caste ID of strongest odor creature in fast travel mode
 ---@field unk_46 integer
 ---@field multiattack integer Set when the player is preparing to carry out a multi-attack; resetting this to 0 makes the multi-attack window disappear.
----@field unk_3170 entity_event[]
----@field unk_3124 integer
+---@field unk_3170 adventurest_unk_3170
+---@field unk_3124 adventurest_unk_3124
 ---@field unk_48 integer
 ---@field unk_49 integer
 ---@field unk_50 integer
@@ -438,7 +440,7 @@ df.talk_choice.T_talk_choice_type = {
 ---@field track_viewed_y integer Set when viewing a spoor; local y coordinate of the track in question.
 ---@field track_viewed_unk_1 any Set when viewing a spoor.
 ---@field track_viewed_unk_2 any Set when viewing a spoor.
----@field conversation activity_entry[]
+---@field conversation adventurest_conversation
 ---@field unk_70 any[]
 ---@field unk_71 integer
 ---@field unk_72 any[]
@@ -455,23 +457,23 @@ df.talk_choice.T_talk_choice_type = {
 ---@field player_control_state integer Set to 2 when adventurer is unconscious, etc to prevent player from controlling the unit
 ---@field item_projectiles_state integer Observed to be set to 1 when an item is thrown or fired, or a limb is sent flying after being severed off. Over a number of frames (dependent on the distance travelled by the projectile) this eventually changes to 2 and then finally back to 0 (a number of frames after the projectile has reached its final destination). Sometimes (seemingly when the distance travelled is long) it changes from 1 to 2 and back to 1 immediately midway into this process. The player_control_state is set to 2 until this is complete. Forcing a constant item_projectiles_state of 0 causes item projectiles to hang in the air.
 ---@field unk_84 integer
----@field companions unit[]
+---@field companions adventurest_companions
 ---@field unk_1 integer
----@field interactions integer[]
+---@field interactions adventurest_interactions
 ---@field unk_87 string
 ---@field unk_220 integer
 ---@field unk_224 integer
----@field unk_v40_2 any[]
----@field unk_v40_3 integer
+---@field unk_v40_2 adventurest_unk_v40_2
+---@field unk_v40_3 adventurest_unk_v40_3
 ---@field player_unit_projectile_unk any Set when the player is travelling as a unit projectile after falling or jumping.
 ---@field player_unit_projectile_z integer Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
 ---@field unk_90 integer
----@field unk_v40_4 integer[]
----@field unk_v40_5 any[]
----@field unk_v42_1 integer
+---@field unk_v40_4 adventurest_unk_v40_4
+---@field unk_v40_5 adventurest_unk_v40_5
+---@field unk_v42_1 adventurest_unk_v42_1
 ---@field unk_91 any
 ---@field unk_91a integer
----@field assume_identity assume_identity_mode Manages the Assume Identity UI when the AssumeIdentity menu is open
+---@field assume_identity adventurest_assume_identity Manages the Assume Identity UI when the AssumeIdentity menu is open
 ---@field move_direction_x integer x-axis direction for the last attempted player unit movement: -1 = west, 0 = none, 1 = east
 ---@field move_direction_y integer y-axis direction for the last attempted player unit movement: -1 = north, 0 = none, 1 = south
 ---@field move_direction_z integer z-axis direction for the last attempted player unit movement: -1 = down, 0 = none, 1 = up
@@ -485,10 +487,6 @@ df.talk_choice.T_talk_choice_type = {
 ---@field name_item language_name used when naming items
 ---@field unk_96 integer
 df.adventurest = {}
-
----@enum adventurest_ui_advmode_menu
-df.adventurest.T_ui_advmode_menu = {
-}
 
 ---@enum adventurest_travel_right_map
 df.adventurest.T_travel_right_map = {
@@ -506,6 +504,81 @@ df.adventurest.T_show_menu = {
   TwoRows = 3,
   OneRow = 4,
 }
+
+---@class adventurest_unk_3170: df.struct
+---@field unk_1 entity_event[]
+---@field unk_2 any[][]
+---@field unk_3 integer
+df.adventurest.T_unk_3170 = {}
+
+---@class adventurest_unk_3124: df.struct
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 any
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
+---@field unk_17 integer
+---@field unk_18 integer
+---@field unk_19 integer
+---@field unk_20 pointer[]
+---@field unk_21 integer
+---@field unk_22 integer[]
+---@field unk_23 integer
+---@field unk_24 integer
+---@field unk_25 integer
+---@field unk_26 integer
+---@field unk_27 integer
+---@field unk_28 any
+---@field unk_29 pointer[]
+---@field unk_30 integer
+---@field unk_31 pointer[]
+---@field unk_32 integer
+---@field unk_33 integer[]
+---@field unk_33b integer[]
+---@field unk_34 integer
+---@field unk_35 integer
+---@field unk_36 integer
+---@field unk_36a integer
+---@field unk_36b integer[]
+---@field unk_36c integer
+---@field unk_37 integer[]
+---@field unk_38 integer[]
+---@field unk_39 integer[]
+---@field unk_40 integer[]
+---@field unk_41 integer[]
+---@field unk_42 any[]
+---@field unk_43 any[]
+---@field unk_44 any[]
+---@field unk_45 integer
+---@field unk_46 string
+---@field unk_47 integer
+---@field unk_48 integer
+---@field unk_49 integer
+---@field unk_50 pointer[]
+---@field unk_51 any
+---@field unk_52 any
+---@field unk_53 integer
+---@field unk_54 integer[]
+---@field unk_55 integer[]
+---@field unk_56 integer[]
+---@field unk_57 integer[]
+---@field unk_58 integer[]
+---@field unk_59 integer[]
+---@field unk_60 integer[]
+---@field unk_61 integer[]
+---@field unk_62 integer[]
+df.adventurest.T_unk_3124 = {}
 
 ---@enum adventurest_charge_forbidden
 ---When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
@@ -531,9 +604,103 @@ df.adventurest.T_charge_forbidden = {
   TargetTooFarAway = 18,
 }
 
+---@class adventurest_conversation: df.struct
+---@field activity activity_entry[]
+---@field activity_event activity_event[]
+---@field cursor_activity integer
+---@field cursor_choice integer
+---@field current_page integer
+---@field page_top_choices integer[]
+---@field page_bottom_choices integer[]
+---@field choices talk_choice[]
+---@field filter string
+---@field unk_1 integer
+---@field targets unit[]
+---@field cursor_target integer
+df.adventurest.T_conversation = {}
+
 ---@enum adventurest_rest_mode
 df.adventurest.T_rest_mode = {
   Wait = 0,
   Sleep = 1,
 }
+
+---@class adventurest_companions: df.struct
+---@field unit unit[]
+---@field unit_visible any
+---@field unit_position coord_path
+---@field all_histfigs integer[] includes dead
+df.adventurest.T_companions = {}
+
+---@class adventurest_interactions: df.struct
+---@field party_core_members integer[] Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
+---@field party_pets integer[] Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
+---@field party_extra_members integer[] Contains IDs of non-pet historical figures who joined the player party later on.
+---@field unk_86 any[]
+---@field unk_1 any[]
+---@field unk_1e4 integer
+---@field unk_1e8 integer
+---@field selected_ability integer natural ability
+---@field selected_power integer acquired power
+---@field unk_1f0 any
+---@field max_target_number integer
+---@field target_range integer
+---@field target_flags creature_interaction_target_flags
+---@field unk_200 any
+df.adventurest.T_interactions = {}
+
+---@class adventurest_unk_v40_2: df.struct
+---@field unk_s1 any[]
+---@field unk_s2 any[]
+---@field unk_s3 any[]
+---@field unk_s4 any[]
+---@field unk_s5 integer
+---@field unk_s6 any[]
+---@field unk_s7 any[]
+df.adventurest.T_unk_v40_2 = {}
+
+---@class adventurest_unk_v40_3: df.struct
+---@field unk_s1 integer
+---@field unk_s2 any[]
+df.adventurest.T_unk_v40_3 = {}
+
+---@class adventurest_unk_v40_4: df.struct
+---@field unk_v40_4a integer[]
+---@field unk_v40_4b integer
+df.adventurest.T_unk_v40_4 = {}
+
+---@class adventurest_unk_v40_5: df.struct
+---@field unk_s1 any[]
+---@field unk_s2 any[]
+---@field unk_s3 any[]
+---@field unk_s4 integer
+---@field unk_s5 any[]
+---@field unk_s6 any[]
+df.adventurest.T_unk_v40_5 = {}
+
+---@class adventurest_unk_v42_1: df.struct
+---@field unk_s1 integer
+---@field unk_s2 any[]
+---@field unk_s3 any[]
+---@field unk_s4 string
+---@field unk_s5 integer
+---@field unk_s6 integer
+---@field unk_s7 integer
+---@field unk_s8 integer
+---@field unk_s9 any[]
+df.adventurest.T_unk_v42_1 = {}
+
+---@class adventurest_assume_identity: df.struct
+---Manages the Assume Identity UI when the AssumeIdentity menu is open
+---@field mode assume_identity_mode
+---@field name language_name
+---@field worship_object historical_figure
+---@field profession profession
+---@field origin historical_entity
+---@field unk_1 any[]
+---@field unk_2 any[]
+---@field filter string
+---@field unk_3 integer
+---@field unk_4 integer
+df.adventurest.T_assume_identity = {}
 

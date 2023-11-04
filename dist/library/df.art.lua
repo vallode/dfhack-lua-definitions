@@ -81,10 +81,10 @@ df.art_facet_type = {
 ---@field properties art_image_property[]
 ---@field event history_event
 ---@field name language_name
----@field spec_ref_type art_image_spec_ref_type
+---@field spec_ref_type specific_ref_type
 ---@field mat_type material
 ---@field mat_index integer
----@field quality art_image_quality
+---@field quality item_quality
 ---@field artist historical_figure
 ---@field site world_site
 ---@field ref general_ref
@@ -93,14 +93,6 @@ df.art_facet_type = {
 ---@field id art_image_chunk
 ---@field subid art_image
 df.art_image = {}
-
----@enum art_image_specific_ref_type
-df.art_image.T_specific_ref_type = {
-}
-
----@enum art_image_item_quality
-df.art_image.T_item_quality = {
-}
 
 ---@class art_image_chunk: df.struct
 ---@field id integer art_image_*.dat
@@ -206,9 +198,17 @@ df.poetic_form_subject = {
 }
 
 ---@class poetic_form_subject_target: df.struct
----@field Histfig historical_figure
----@field Concept sphere_type
+---@field Histfig poetic_form_subject_target_Histfig
+---@field Concept poetic_form_subject_target_Concept
 df.poetic_form_subject_target = {}
+
+---@class poetic_form_subject_target_Histfig: df.struct
+---@field subject_histfig historical_figure
+df.poetic_form_subject_target.T_Histfig = {}
+
+---@class poetic_form_subject_target_Concept: df.struct
+---@field subject_topic sphere_type
+df.poetic_form_subject_target.T_Concept = {}
 
 ---@enum poetic_form_feature
 df.poetic_form_feature = {
@@ -258,8 +258,8 @@ df.poetic_form_additional_feature = {
 ---@field flags any
 ---@field parts poetic_form_part[]
 ---@field each_line_feet integer
----@field each_line_pattern poetic_form_each_line_pattern
----@field every_line_caesura_position poetic_form_every_line_caesura_position
+---@field each_line_pattern poetic_form_pattern
+---@field every_line_caesura_position poetic_form_caesura_position
 ---@field common_features poetic_form_additional_feature[]
 ---@field mood poetic_form_mood
 ---@field subject poetic_form_subject
@@ -269,26 +269,6 @@ df.poetic_form_additional_feature = {
 ---@field features poetic_form_feature
 ---@field perspectives poetic_form_perspective[]
 df.poetic_form = {}
-
----@enum poetic_form_poetic_form_pattern
-df.poetic_form.T_poetic_form_pattern = {
-}
-
----@enum poetic_form_poetic_form_caesura_position
-df.poetic_form.T_poetic_form_caesura_position = {
-}
-
----@enum poetic_form_poetic_form_mood
-df.poetic_form.T_poetic_form_mood = {
-}
-
----@enum poetic_form_poetic_form_subject
-df.poetic_form.T_poetic_form_subject = {
-}
-
----@enum poetic_form_poetic_form_action
-df.poetic_form.T_poetic_form_action = {
-}
 
 ---@class poetic_form_part: df.struct
 ---@field flags any
@@ -314,27 +294,15 @@ df.poetic_form.T_poetic_form_action = {
 ---@field unk_5 integer[]
 ---@field some_lines_syllables integer
 ---@field some_lines_pattern integer
----@field each_line_caesura_position poetic_form_part_each_line_caesura_position
+---@field each_line_caesura_position poetic_form_caesura_position
 ---@field certain_lines_additional_features poetic_form_additional_feature[]
----@field mood poetic_form_part_mood
+---@field mood poetic_form_mood
 ---@field unk_6 integer
 ---@field unk_7 integer
----@field action poetic_form_part_action
+---@field action poetic_form_action
 ---@field unk_8 integer
 ---@field unk_9 integer
 df.poetic_form_part = {}
-
----@enum poetic_form_part_poetic_form_caesura_position
-df.poetic_form_part.T_poetic_form_caesura_position = {
-}
-
----@enum poetic_form_part_poetic_form_mood
-df.poetic_form_part.T_poetic_form_mood = {
-}
-
----@enum poetic_form_part_poetic_form_action
-df.poetic_form_part.T_poetic_form_action = {
-}
 
 ---@class poetic_form_perspective: df.struct
 ---@field type poetic_form_perspective_type
@@ -525,19 +493,11 @@ df.musical_form_melody_frequency = {
 df.musical_form_interval = {}
 
 ---@class musical_form_melodies: df.struct
----@field style musical_form_melodies_style
----@field frequency musical_form_melodies_frequency
+---@field style musical_form_melody_style
+---@field frequency musical_form_melody_frequency
 ---@field intervals musical_form_interval[]
 ---@field features musical_form_feature
 df.musical_form_melodies = {}
-
----@enum musical_form_melodies_musical_form_melody_style
-df.musical_form_melodies.T_musical_form_melody_style = {
-}
-
----@enum musical_form_melodies_musical_form_melody_frequency
-df.musical_form_melodies.T_musical_form_melody_frequency = {
-}
 
 ---@class musical_form_passage: df.struct
 ---@field type musical_form_passage_type
@@ -557,35 +517,15 @@ df.musical_form_melodies.T_musical_form_melody_frequency = {
 ---@field passage_lengths musical_form_passage_length_type[]
 ---@field lowest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
 ---@field highest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
----@field tempo_style musical_form_passage_tempo_style
----@field dynamic_style musical_form_passage_dynamic_style
----@field overall_style musical_form_passage_overall_style
+---@field tempo_style musical_form_style
+---@field dynamic_style musical_form_style
+---@field overall_style musical_form_style
 ---@field features musical_form_feature
----@field pitch_style musical_form_passage_pitch_style
+---@field pitch_style musical_form_pitch_style
 ---@field melodies musical_form_melodies[]
 ---@field unk_22 integer 0-40 seen
 ---@field unk_23 integer 0-78 seen
 df.musical_form_passage = {}
-
----@enum musical_form_passage_musical_form_passage_type
-df.musical_form_passage.T_musical_form_passage_type = {
-}
-
----@enum musical_form_passage_musical_form_style
-df.musical_form_passage.T_musical_form_style = {
-}
-
----@enum musical_form_passage_musical_form_style
-df.musical_form_passage.T_musical_form_style = {
-}
-
----@enum musical_form_passage_musical_form_style
-df.musical_form_passage.T_musical_form_style = {
-}
-
----@enum musical_form_passage_musical_form_pitch_style
-df.musical_form_passage.T_musical_form_pitch_style = {
-}
 
 ---@class musical_form_instruments: df.struct
 ---@field instrument_subtype itemdef_instrumentst -1 = vocal
@@ -593,17 +533,9 @@ df.musical_form_passage.T_musical_form_pitch_style = {
 ---@field features musical_form_feature
 ---@field minimum_required integer tentative
 ---@field maximum_permitted integer tentative
----@field dynamic_style musical_form_instruments_dynamic_style
----@field overall_style musical_form_instruments_overall_style
+---@field dynamic_style musical_form_style
+---@field overall_style musical_form_style
 df.musical_form_instruments = {}
-
----@enum musical_form_instruments_musical_form_style
-df.musical_form_instruments.T_musical_form_style = {
-}
-
----@enum musical_form_instruments_musical_form_style
-df.musical_form_instruments.T_musical_form_style = {
-}
 
 ---@class musical_form_sub4: df.struct
 ---@field passage integer the passage index this structure refers to
@@ -623,9 +555,9 @@ df.musical_form_sub4 = {}
 ---@field instruments musical_form_instruments[]
 ---@field melodies musical_form_melodies[]
 ---@field unk_1 musical_form_sub4[]
----@field tempo_style musical_form_tempo_style
----@field dynamic_style musical_form_dynamic_style
----@field overall_style musical_form_overall_style
+---@field tempo_style musical_form_style
+---@field dynamic_style musical_form_style
+---@field overall_style musical_form_style
 ---@field poetic_form_id poetic_form
 ---@field written_content_id written_content
 ---@field scale_id scale
@@ -639,26 +571,6 @@ df.musical_form_sub4 = {}
 ---@field devotion_target historical_figure
 ---@field flags any
 df.musical_form = {}
-
----@enum musical_form_musical_form_style
-df.musical_form.T_musical_form_style = {
-}
-
----@enum musical_form_musical_form_style
-df.musical_form.T_musical_form_style = {
-}
-
----@enum musical_form_musical_form_style
-df.musical_form.T_musical_form_style = {
-}
-
----@enum musical_form_musical_form_pitch_style
-df.musical_form.T_musical_form_pitch_style = {
-}
-
----@enum musical_form_musical_form_purpose
-df.musical_form.T_musical_form_purpose = {
-}
 
 ---@enum dance_form_context
 df.dance_form_context = {
@@ -837,11 +749,11 @@ df.dance_form_move_location = {
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field movement_path dance_form_section_movement_path
+---@field movement_path dance_form_movement_path
 ---@field move_id integer index in the moves vector
----@field partner_distance dance_form_section_partner_distance
----@field partner_intent dance_form_section_partner_intent
----@field partner_cue_frequency dance_form_section_partner_cue_frequency
+---@field partner_distance dance_form_partner_distance
+---@field partner_intent dance_form_partner_intent
+---@field partner_cue_frequency dance_form_partner_cue_frequency
 ---@field partner_changes dance_form_partner_change_type[]
 ---@field unk_11 integer
 ---@field unk_12 integer
@@ -853,22 +765,6 @@ df.dance_form_move_location = {
 ---@field location dance_form_move_location[]
 ---@field id integer
 df.dance_form_section = {}
-
----@enum dance_form_section_dance_form_movement_path
-df.dance_form_section.T_dance_form_movement_path = {
-}
-
----@enum dance_form_section_dance_form_partner_distance
-df.dance_form_section.T_dance_form_partner_distance = {
-}
-
----@enum dance_form_section_dance_form_partner_intent
-df.dance_form_section.T_dance_form_partner_intent = {
-}
-
----@enum dance_form_section_dance_form_partner_cue_frequency
-df.dance_form_section.T_dance_form_partner_cue_frequency = {
-}
 
 ---@enum dance_form_move_group_type
 df.dance_form_move_group_type = {
@@ -887,10 +783,6 @@ df.dance_form_move_group_type = {
 ---@field location dance_form_move_location[]
 ---@field group_type dance_form_move_group_type
 df.dance_form_move = {}
-
----@enum dance_form_move_dance_form_move_group_type
-df.dance_form_move.T_dance_form_move_group_type = {
-}
 
 ---@class dance_form: df.struct
 ---@field id integer
@@ -922,37 +814,6 @@ df.dance_form_move.T_dance_form_move_group_type = {
 ---@field sections dance_form_section[]
 ---@field moves dance_form_move[]
 df.dance_form = {}
-
----@enum dance_form_dance_form_context
-df.dance_form.T_dance_form_context = {
-}
-
----@enum dance_form_dance_form_group_size
-df.dance_form.T_dance_form_group_size = {
-}
-
----@enum dance_form_dance_form_configuration
-df.dance_form.T_dance_form_configuration = {
-}
-
----@enum dance_form_dance_form_movement_path
-df.dance_form.T_dance_form_movement_path = {
-}
-
----@enum dance_form_dance_form_partner_distance
----NONE when not pair dance
-df.dance_form.T_dance_form_partner_distance = {
-}
-
----@enum dance_form_dance_form_partner_intent
----NONE when not pair dance
-df.dance_form.T_dance_form_partner_intent = {
-}
-
----@enum dance_form_dance_form_partner_cue_frequency
----NONE when not pair dance and when 'normal'
-df.dance_form.T_dance_form_partner_cue_frequency = {
-}
 
 ---@enum scale_type
 df.scale_type = {
@@ -986,12 +847,17 @@ df.named_scale = {}
 ---@field scale_length integer Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
 ---@field chords chord[]
 ---@field scales named_scale[] Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
----@field notes integer Curiously, the named notes do not have to match the number of defined notes
+---@field notes scale_notes Curiously, the named notes do not have to match the number of defined notes
 df.scale = {}
 
----@enum scale_scale_type
-df.scale.T_scale_type = {
-}
+---@class scale_notes: df.struct
+---Curiously, the named notes do not have to match the number of defined notes
+---@field unk_1 integer Frequently looks like garbage for all values of type. Suspect it's actually a filler
+---@field name string[]
+---@field abreviation string[]
+---@field number integer[]
+---@field length integer number of elements of the arrays above used
+df.scale.T_notes = {}
 
 ---@class rhythm: df.struct
 ---@field id integer
@@ -1060,10 +926,6 @@ df.occupation_type = {
 ---@field unk_4 world_site When these haven't crashed the data has been nonsensical
 ---@field unk_5 abstract_building When these haven't crashed the data has been nonsensical. Has seen duplicate of unk_4 pointer value
 df.occupation = {}
-
----@enum occupation_occupation_type
-df.occupation.T_occupation_type = {
-}
 
 ---@class occupation_sub1: df.struct
 ---@field unk_1 integer

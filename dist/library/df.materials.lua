@@ -168,34 +168,58 @@ df.strain_type = {
 ---@field gem_name1 string
 ---@field gem_name2 string
 ---@field stone_name string
----@field heat integer
+---@field heat material_common_heat
 ---@field solid_density integer
 ---@field liquid_density integer
 ---@field molar_mass integer
 ---@field state_color integer[]
 ---@field state_name string[]
 ---@field state_adj string[]
----@field strength integer
+---@field strength material_common_strength
 ---@field material_value integer
 ---@field flags any
----@field extract_storage material_common_extract_storage
----@field butcher_special_type material_common_butcher_special_type
+---@field extract_storage item_type
+---@field butcher_special_type item_type
 ---@field butcher_special_subtype integer
 ---@field meat_name string[]
 ---@field meat_organ integer used for texture selection
 ---@field block_name string[]
----@field reaction_product string[]
----@field hardens_with_water material
+---@field reaction_product material_common_reaction_product
+---@field hardens_with_water material_common_hardens_with_water
 ---@field reaction_class string[]
 df.material_common = {}
 
----@enum material_common_item_type
-df.material_common.T_item_type = {
-}
+---@class material_common_heat: df.struct
+---@field spec_heat integer
+---@field heatdam_point integer
+---@field colddam_point integer
+---@field ignite_point integer
+---@field melting_point integer
+---@field boiling_point integer
+---@field mat_fixed_temp integer
+df.material_common.T_heat = {}
 
----@enum material_common_item_type
-df.material_common.T_item_type = {
-}
+---@class material_common_strength: df.struct
+---@field absorption integer
+---@field yield integer[]
+---@field fracture integer[]
+---@field strain_at_yield integer[]
+---@field max_edge integer
+df.material_common.T_strength = {}
+
+---@class material_common_reaction_product: df.struct
+---@field id string[]
+---@field item_type integer[]
+---@field item_subtype integer[]
+---@field material material_vec_ref
+---@field str string[][]
+df.material_common.T_reaction_product = {}
+
+---@class material_common_hardens_with_water: df.struct
+---@field mat_type material
+---@field mat_index integer
+---@field str string[]
+df.material_common.T_hardens_with_water = {}
 
 ---@class material: material_common
 ---@field tile integer
@@ -305,15 +329,40 @@ df.inclusion_type = {
 ---@field flags any
 ---@field source_hfid historical_figure
 ---@field unk_v4201_1 integer
----@field metal_ore string[]
----@field thread_metal string[]
+---@field metal_ore inorganic_raw_metal_ore
+---@field thread_metal inorganic_raw_thread_metal
 ---@field economic_uses integer[]
----@field environment_spec string[]
----@field environment environment_type[]
+---@field environment_spec inorganic_raw_environment_spec
+---@field environment inorganic_raw_environment
 ---@field times_used_land integer
 ---@field times_used_ocean integer
 ---@field material material
 df.inorganic_raw = {}
+
+---@class inorganic_raw_metal_ore: df.struct
+---@field str string[] only during parsing
+---@field mat_index inorganic_raw[]
+---@field probability integer[]
+df.inorganic_raw.T_metal_ore = {}
+
+---@class inorganic_raw_thread_metal: df.struct
+---@field str string[] only during parsing
+---@field mat_index inorganic_raw[]
+---@field probability integer[]
+df.inorganic_raw.T_thread_metal = {}
+
+---@class inorganic_raw_environment_spec: df.struct
+---@field str string[] only during parsing
+---@field mat_index inorganic_raw[]
+---@field inclusion_type inclusion_type[]
+---@field probability integer[]
+df.inorganic_raw.T_environment_spec = {}
+
+---@class inorganic_raw_environment: df.struct
+---@field location environment_type[]
+---@field type inclusion_type[]
+---@field probability integer[]
+df.inorganic_raw.T_environment = {}
 
 ---@enum organic_mat_category
 df.organic_mat_category = {

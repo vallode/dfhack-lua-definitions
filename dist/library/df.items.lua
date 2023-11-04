@@ -66,10 +66,6 @@ df.item_magicness_type = {
 ---@field flags integer 1=does not show up in item description or alter item value
 df.item_magicness = {}
 
----@enum item_magicness_item_magicness_type
-df.item_magicness.T_item_magicness_type = {
-}
-
 ---@class temperaturest: df.struct
 ---@field whole integer
 ---@field fraction integer
@@ -78,16 +74,12 @@ df.temperaturest = {}
 ---@class spatter_common: df.struct
 ---@field mat_type material
 ---@field mat_index integer
----@field mat_state spatter_common_mat_state
+---@field mat_state matter_state
 ---@field temperature temperaturest
 ---@field size integer 1-24=spatter, 25-49=smear, 50-* = coating
 ---@field base_flags any
 ---@field pad_1 any needed for proper alignment of spatter on gcc
 df.spatter_common = {}
-
----@enum spatter_common_matter_state
-df.spatter_common.T_matter_state = {
-}
 
 ---@class spatter: spatter_common
 ---@field body_part_id integer

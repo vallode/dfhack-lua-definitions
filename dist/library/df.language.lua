@@ -215,10 +215,6 @@ df.language_symbol = {}
 ---@field has_name boolean
 df.language_name = {}
 
----@enum language_name_language_name_type
-df.language_name.T_language_name_type = {
-}
-
 ---@class language_word_table: df.struct
 ---word_selectorst
 ---@field words language_word[][]

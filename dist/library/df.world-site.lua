@@ -75,7 +75,7 @@ df.abstract_building_entombed = {}
 ---@class abstract_building_contents: df.struct
 ---used within Temple, Library, and Inn/Tavern
 ---@field need_more any
----@field profession abstract_building_contents_profession
+---@field profession profession
 ---@field desired_goblets integer
 ---@field desired_instruments integer
 ---@field desired_paper integer
@@ -103,10 +103,6 @@ df.abstract_building_entombed = {}
 ---@field unk_v47_3 integer
 ---@field building_ids integer[]
 df.abstract_building_contents = {}
-
----@enum abstract_building_contents_profession
-df.abstract_building_contents.T_profession = {
-}
 
 ---@enum temple_deity_type
 df.temple_deity_type = {
@@ -194,7 +190,7 @@ df.property_ownership = {}
 ---@field type world_site_type
 ---@field pos coord2d
 ---@field id integer
----@field unk_1 integer[]
+---@field unk_1 world_site_unk_1
 ---@field index integer
 ---@field rgn_min_x integer in embark tiles
 ---@field rgn_max_x integer
@@ -279,9 +275,23 @@ df.property_ownership = {}
 ---@field unk_25 any[]
 df.world_site = {}
 
----@enum world_site_world_site_type
-df.world_site.T_world_site_type = {
-}
+---@class world_site_unk_1: df.struct
+---@field nemesis integer[]
+---@field artifacts artifact_record[]
+---@field animals world_population[]
+---@field inhabitants world_site_inhabitant[]
+---@field units unit[]
+---@field unk_d4 integer[]
+---@field unk_v40_1a historical_figure[]
+---@field pad_1 any
+---@field unk_v40_1b nemesis_record[]
+---@field unk_v40_1c nemesis_record[]
+---@field unk_v40_1d nemesis_record[]
+---@field unk_v40_1e nemesis_record[]
+---@field unk_v40_1f nemesis_record[]
+---@field unk_v40_1g nemesis_record[]
+---@field unk_v40_1h nemesis_record[]
+df.world_site.T_unk_1 = {}
 
 ---@class cultural_identity: df.struct
 ---@field id integer
@@ -465,21 +475,13 @@ df.site_realization_building_type = {
 ---@field unk_v40_1 integer
 df.site_realization_building = {}
 
----@enum site_realization_building_site_realization_building_type
-df.site_realization_building.T_site_realization_building_type = {
-}
-
 ---@class site_building_item: df.struct
 ---@field race creature_raw
----@field item_type site_building_item_item_type
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 df.site_building_item = {}
-
----@enum site_building_item_item_type
-df.site_building_item.T_item_type = {
-}
 
 ---@enum tower_shape
 df.tower_shape = {

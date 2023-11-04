@@ -63,7 +63,7 @@ df.construction_category_type = {
 }
 
 ---@class bb_buttonst: df.struct
----@field category bb_buttonst_category
+---@field category construction_category_type
 ---@field type integer
 ---@field subtype integer
 ---@field custom_building_id integer
@@ -71,16 +71,8 @@ df.construction_category_type = {
 ---@field grid_height integer
 ---@field texpos integer
 ---@field str string
----@field hotkey bb_buttonst_hotkey
+---@field hotkey interface_key
 df.bb_buttonst = {}
-
----@enum bb_buttonst_construction_category_type
-df.bb_buttonst.T_construction_category_type = {
-}
-
----@enum bb_buttonst_interface_key
-df.bb_buttonst.T_interface_key = {
-}
 
 ---@enum construction_interface_page_status_type
 df.construction_interface_page_status_type = {
@@ -91,13 +83,13 @@ df.construction_interface_page_status_type = {
 }
 
 ---@class construction_interface_pagest: df.struct
----@field category construction_interface_pagest_category
+---@field category construction_category_type
 ---@field bb_button bb_buttonst[]
 ---@field last_main_sx integer
 ---@field last_main_ex integer
 ---@field last_main_sy integer
 ---@field last_main_ey integer
----@field page_status construction_interface_pagest_page_status
+---@field page_status construction_interface_page_status_type
 ---@field number_of_columns integer
 ---@field column_height integer
 ---@field column_width integer
@@ -105,14 +97,6 @@ df.construction_interface_page_status_type = {
 ---@field scrolling boolean
 ---@field scroll_position integer
 df.construction_interface_pagest = {}
-
----@enum construction_interface_pagest_construction_category_type
-df.construction_interface_pagest.T_construction_category_type = {
-}
-
----@enum construction_interface_pagest_construction_interface_page_status_type
-df.construction_interface_pagest.T_construction_interface_page_status_type = {
-}
 
 ---@enum room_flow_shape_type
 df.room_flow_shape_type = {
@@ -652,54 +636,54 @@ df.main_designation_type = {
 }
 
 ---@class main_interface: df.struct
----@field designation boolean
----@field building interface_button[]
----@field construction interface_button[]
----@field civzone boolean
----@field burrow burrow
----@field view unit_inventory_item[]
----@field hospital integer
----@field location_list abstract_building[]
----@field job_details boolean
----@field buildjob building_display_furniturest
----@field assign_trade boolean
----@field trade boolean
----@field diplomacy boolean
----@field petitions boolean
----@field stocks boolean
+---@field designation main_interface_designation
+---@field building main_interface_building
+---@field construction main_interface_construction
+---@field civzone main_interface_civzone
+---@field burrow main_interface_burrow
+---@field view main_interface_view
+---@field hospital main_interface_hospital
+---@field location_list main_interface_location_list
+---@field job_details main_interface_job_details
+---@field buildjob main_interface_buildjob
+---@field assign_trade main_interface_assign_trade
+---@field trade main_interface_trade
+---@field diplomacy main_interface_diplomacy
+---@field petitions main_interface_petitions
+---@field stocks main_interface_stocks
 ---@field unk0f80 widget_container
----@field assign_display_item boolean
----@field name_creator boolean
----@field image_creator boolean
----@field unit_selector boolean
----@field announcement_alert boolean
----@field custom_symbol boolean
----@field patrol_routes boolean
----@field squad_equipment boolean
----@field squad_schedule boolean
----@field squad_selector boolean
----@field burrow_selector boolean
----@field location_selector boolean
----@field location_details boolean
----@field hauling_stop_conditions boolean
----@field assign_vehicle boolean
----@field stockpile boolean
----@field stockpile_link boolean
----@field stockpile_tools boolean
----@field custom_stockpile boolean
----@field view_sheets boolean
----@field info any
----@field squads boolean
----@field create_squad boolean
----@field squad_supplies boolean
----@field assign_uniform boolean
----@field create_work_order boolean
----@field hotkey boolean
----@field options boolean
----@field help boolean
+---@field assign_display_item main_interface_assign_display_item
+---@field name_creator main_interface_name_creator
+---@field image_creator main_interface_image_creator
+---@field unit_selector main_interface_unit_selector
+---@field announcement_alert main_interface_announcement_alert
+---@field custom_symbol main_interface_custom_symbol
+---@field patrol_routes main_interface_patrol_routes
+---@field squad_equipment main_interface_squad_equipment
+---@field squad_schedule main_interface_squad_schedule
+---@field squad_selector main_interface_squad_selector
+---@field burrow_selector main_interface_burrow_selector
+---@field location_selector main_interface_location_selector
+---@field location_details main_interface_location_details
+---@field hauling_stop_conditions main_interface_hauling_stop_conditions
+---@field assign_vehicle main_interface_assign_vehicle
+---@field stockpile main_interface_stockpile
+---@field stockpile_link main_interface_stockpile_link
+---@field stockpile_tools main_interface_stockpile_tools
+---@field custom_stockpile main_interface_custom_stockpile
+---@field view_sheets main_interface_view_sheets
+---@field info main_interface_info
+---@field squads main_interface_squads
+---@field create_squad main_interface_create_squad
+---@field squad_supplies main_interface_squad_supplies
+---@field assign_uniform main_interface_assign_uniform
+---@field create_work_order main_interface_create_work_order
+---@field hotkey main_interface_hotkey
+---@field options main_interface_options
+---@field help main_interface_help
 ---@field settings main_interface_settings
----@field arena_unit boolean
----@field arena_tree boolean
+---@field arena_unit main_interface_arena_unit
+---@field arena_tree main_interface_arena_tree
 ---@field viewunit_list integer[]
 ---@field exporting_local integer
 ---@field mouse_zone integer
@@ -721,16 +705,16 @@ df.main_designation_type = {
 ---@field ap_squad_sel integer
 ---@field pref_occupation any[] occupationst
 ---@field selected_pref_occupation integer
----@field main_designation_selected main_interface_main_designation_selected
+---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
----@field bottom_mode_selected main_interface_bottom_mode_selected
+---@field bottom_mode_selected main_bottom_mode_type
 ---@field hover_instructions_on boolean
 ---@field hover_instructions_last_hover_tick integer
 ---@field current_hover integer
 ---@field current_hover_id1 integer union with current_hover_building_type
 ---@field current_hover_id2 integer union with current_hover_building_subtype
 ---@field current_hover_id3 integer union with current_hover_building_custom_id
----@field current_hover_key main_interface_current_hover_key
+---@field current_hover_key interface_key
 ---@field current_hover_alert popup_message
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x integer
@@ -765,23 +749,1309 @@ df.main_designation_type = {
 ---@field keyboard_last_track_g coord
 df.main_interface = {}
 
----@enum main_interface_main_designation_type
-df.main_interface.T_main_designation_type = {
-}
+---@class main_interface_designation: df.struct
+---@field marker_only boolean
+---@field show_priorities boolean set to one if using +/-
+---@field priority integer *1000
+---@field mine_mode mine_mode_type
+---@field show_advanced_options boolean
+---@field entering_traffic_high_str boolean
+---@field entering_traffic_normal_str boolean
+---@field entering_traffic_low_str boolean
+---@field entering_traffic_restricted_str boolean
+---@field traffic_high_str string
+---@field traffic_normal_str string
+---@field traffic_low_str string
+---@field traffic_restricted_str string
+---@field sliding_traffic_high boolean
+---@field sliding_traffic_normal boolean
+---@field sliding_traffic_low boolean
+---@field sliding_traffic_restricted boolean
+df.main_interface.T_designation = {}
 
----@enum main_interface_main_bottom_mode_type
-df.main_interface.T_main_bottom_mode_type = {
-}
+---@class main_interface_building: df.struct
+---@field button interface_button[]
+---@field press_button interface_button[]
+---@field filtered_button interface_button[]
+---@field selected integer
+---@field category interface_category_building
+---@field material material
+---@field matgloss integer
+---@field job_item_flag job_material_category
+---@field current_custom_category_token string
+---@field current_tool_tip string[]
+df.main_interface.T_building = {}
 
----@enum main_interface_interface_key
-df.main_interface.T_interface_key = {
-}
+---@class main_interface_construction: df.struct
+---@field button interface_button[]
+---@field press_button interface_button[]
+---@field category interface_category_construction
+---@field selected integer
+---@field page construction_interface_pagest[]
+---@field max_height integer
+---@field total_width integer
+---@field must_update_buttons boolean
+---@field bb_placement_type integer
+---@field bb_placement_subtype integer
+---@field bb_placement_custom_building_id integer
+---@field item_filter string
+---@field entering_item_filter boolean
+---@field scrolling_item boolean
+---@field scroll_position_item integer
+df.main_interface.T_construction = {}
+
+---@class main_interface_civzone: df.struct
+---@field remove boolean
+---@field flow_shape room_flow_shape_type
+---@field doing_rectangle boolean
+---@field doing_multizone boolean
+---@field last_doing_multizone boolean
+---@field box_on_left boolean
+---@field erasing boolean
+---@field adding_new_type integer
+---@field cur_bld building_civzonest
+---@field list building_civzonest[]
+---@field zone_just_created building_civzonest[]
+---@field furniture_rejected_in_use integer
+---@field furniture_rejected_not_enclosed integer
+---@field repainting integer
+df.main_interface.T_civzone = {}
+
+---@class main_interface_burrow: df.struct
+---@field painting_burrow burrow
+---@field doing_rectangle boolean
+---@field erasing boolean
+---@field scroll_position integer
+---@field scrolling boolean
+---@field entering_name boolean
+---@field entering_name_index integer
+df.main_interface.T_burrow = {}
+
+---@class main_interface_view: df.struct
+---@field inv unit_inventory_item[]
+---@field contam spatter[]
+---@field guest_text any[]
+---@field uniform_selection boolean
+---@field selected_uniform integer
+---@field selected_squad integer
+---@field squad_list_sq squad[]
+---@field squad_list_ep entity_position[]
+---@field squad_list_epp entity_position_assignment[]
+---@field squad_list_has_subord_pos any
+---@field squad_list_add_index integer[]
+---@field create_ep entity_position
+---@field create_epp entity_position_assignment
+---@field create_sub_ep entity_position
+---@field can_remove_from_squad boolean
+---@field stuck_commander boolean
+---@field have_calced_info boolean
+---@field naming_squad boolean
+---@field name_squad squad
+---@field expel_total_list unit[]
+---@field expel_outskirt_list world_site[]
+---@field expel_outskirt_list_selected integer
+---@field expel_selecting_destination integer
+---@field expel_cannot_expel_reason cannot_expel_reason_type
+df.main_interface.T_view = {}
+
+---@class main_interface_hospital: df.struct
+---@field cur_scroll integer
+---@field bed_count integer
+---@field table_count integer
+---@field traction_bench_count integer
+---@field box_count integer
+df.main_interface.T_hospital = {}
+
+---@class main_interface_location_list: df.struct
+---@field valid_ab abstract_building[]
+---@field selected_ab integer
+---@field valid_religious_practice temple_deity_type[]
+---@field valid_religious_practice_id temple_deity_data[]
+---@field selected_religious_practice integer
+---@field choosing_location_type boolean
+---@field choosing_temple_religious_practice boolean
+---@field choosing_craft_guild boolean
+---@field valid_craft_guild_type profession[]
+---@field selected_craft_guild integer
+df.main_interface.T_location_list = {}
+
+---@class main_interface_job_details: df.struct
+---@field open boolean
+---@field context job_details_context_type
+---@field jb job
+---@field wq manager_order
+---@field current_option job_details_option_type
+---@field current_option_index integer
+---@field option job_details_option_type[]
+---@field option_index integer[]
+---@field scroll_position_option integer
+---@field scrolling_option boolean
+---@field search coord
+---@field bld building
+---@field material integer[]
+---@field matgloss integer[]
+---@field material_count integer[]
+---@field material_master integer[]
+---@field matgloss_master integer[]
+---@field material_count_master integer[]
+---@field scroll_position_material integer
+---@field scrolling_material boolean
+---@field material_filter string
+---@field material_doing_filter boolean
+---@field clothing_size_race_index integer[] race id
+---@field clothing_size_race_index_master integer[] race id
+---@field scroll_position_race integer
+---@field scrolling_race boolean
+---@field clothing_size_race_filter string
+---@field clothing_size_race_doing_filter boolean
+---@field improvement_type improvement_type[]
+---@field scroll_position_improvement integer
+---@field scrolling_improvement boolean
+df.main_interface.T_job_details = {}
+
+---@class main_interface_buildjob: df.struct
+---@field display_furniture_bld building_display_furniturest
+---@field display_furniture_selected_item integer
+df.main_interface.T_buildjob = {}
+
+---@class main_interface_assign_trade: df.struct
+---@field open boolean
+---@field trade_depot_bld building_tradedepotst
+---@field type_list integer[]
+---@field filtered_type_list integer[]
+---@field current_type item_type
+---@field scroll_position_type integer
+---@field scroll_position_item integer
+---@field scrolling_type boolean
+---@field scrolling_item boolean
+---@field item_filter string
+---@field entering_item_filter boolean
+---@field storeamount integer[]
+---@field badamount integer[]
+---@field unk_a8 item[]
+---@field unk_c0 integer[]
+---@field unk_d8 integer[]
+---@field unk_f0 integer[]
+---@field unk_108 integer[]
+---@field unk_120 integer[]
+---@field unk_138 any
+---@field i_height integer
+---@field current_type_tgi any[]
+---@field current_type_a_subtype integer[]
+---@field current_type_a_subcat1 integer[]
+---@field current_type_a_subcat2 integer[]
+---@field current_type_a_amount integer[]
+---@field current_type_a_expanded any
+---@field current_type_a_on any
+---@field current_type_a_flag integer[]
+---@field sort_by_distance boolean
+---@field pending_on_top boolean
+---@field exclude_prohib boolean
+df.main_interface.T_assign_trade = {}
+
+---@class main_interface_trade: df.struct
+---@field open boolean
+---@field choosing_merchant boolean
+---@field merlist caravan_state[]
+---@field scroll_position_merlist integer
+---@field scrolling_merlist boolean
+---@field title string
+---@field talker string
+---@field fortname string
+---@field place string
+---@field st world_site
+---@field bld building_tradedepotst
+---@field mer caravan_state
+---@field civ historical_entity
+---@field stillunloading integer
+---@field havetalker integer
+---@field merchant_trader unit
+---@field fortress_trader unit
+---@field good item[][]
+---@field goodflag integer[][]
+---@field good_amount integer[][]
+---@field i_height integer[]
+---@field master_type_a_type integer[][]
+---@field master_type_a_subtype integer[][]
+---@field master_type_a_expanded any[]
+---@field current_type_a_type integer[][]
+---@field current_type_a_subtype integer[][]
+---@field current_type_a_expanded any[]
+---@field current_type_a_on any[]
+---@field current_type_a_flag integer[][]
+---@field scroll_position_item integer[]
+---@field scrolling_item boolean[]
+---@field item_filter string[]
+---@field entering_item_filter boolean[]
+---@field talkline integer trade reply
+---@field buildlists integer
+---@field handle_appraisal integer
+---@field counter_offer boolean
+---@field counter_offer_item item[]
+---@field scroll_position_counter_offer integer
+---@field scrolling_counter_offer boolean
+---@field entering_amount integer
+---@field amount_str string
+---@field big_announce string[]
+---@field scroll_position_big_announce integer
+---@field scrolling_big_announce boolean
+df.main_interface.T_trade = {}
+
+---@class main_interface_diplomacy: df.struct
+---@field open boolean
+---@field mm meeting_event
+---@field actor unit
+---@field target unit
+---@field actor_unid integer
+---@field target_unid integer
+---@field flag integer
+---@field text markup_text_boxst
+---@field selecting_land_holder_position boolean
+---@field taking_requests boolean
+---@field land_holder_parent_civ historical_entity
+---@field land_holder_child_civ historical_entity
+---@field land_holder_pos_id integer[]
+---@field land_holder_assigned_hfid integer[]
+---@field land_holder_avail_hfid integer[]
+---@field scroll_position_land_holder_pos integer
+---@field scrolling_land_holder_pos boolean
+---@field scroll_position_land_holder_hf integer
+---@field scrolling_land_holder_hf boolean
+---@field land_holder_selected_pos integer
+---@field taking_requests_tablist integer[]
+---@field scroll_position_taking_requests_tab integer
+---@field scrolling_taking_requests_tab boolean
+---@field scroll_position_taking_requests_tab_item integer
+---@field scrolling_taking_requests_tab_item boolean
+---@field taking_requests_selected_tab integer
+---@field scroll_position_text integer
+---@field scrolling_text boolean
+---@field dipev dipscript_popup
+---@field parley meeting_diplomat_info
+---@field environment meeting_context
+df.main_interface.T_diplomacy = {}
+
+---@class main_interface_petitions: df.struct
+---@field open boolean
+---@field have_responsible_person boolean
+---@field agreement_id integer[]
+---@field selected_agreement_id integer
+---@field scroll_position integer
+---@field scrolling boolean
+df.main_interface.T_petitions = {}
+
+---@class main_interface_stocks: df.struct
+---@field open boolean
+---@field type_list integer[]
+---@field filtered_type_list integer[]
+---@field current_type item_type
+---@field scroll_position_type integer
+---@field scroll_position_item integer
+---@field scrolling_type boolean
+---@field scrolling_item boolean
+---@field item_filter string
+---@field entering_item_filter boolean
+---@field storeamount integer[]
+---@field badamount integer[]
+---@field i_height integer
+---@field current_type_i_list item[]
+---@field current_type_a_subtype integer[]
+---@field current_type_a_subcat1 integer[]
+---@field current_type_a_subcat2 integer[]
+---@field current_type_a_amount integer[]
+---@field current_type_a_expanded any
+---@field current_type_a_on any
+---@field current_type_a_flag integer[]
+df.main_interface.T_stocks = {}
+
+---@class main_interface_assign_display_item: df.struct
+---@field open boolean
+---@field display_bld building_display_furniturest
+---@field new_display_itid integer[]
+---@field type_list integer[]
+---@field filtered_type_list integer[]
+---@field current_type item_type
+---@field scroll_position_type integer
+---@field scroll_position_item integer
+---@field scrolling_type boolean
+---@field scrolling_item boolean
+---@field item_filter string
+---@field entering_item_filter boolean
+---@field storeamount integer[]
+---@field badamount integer[]
+---@field i_height integer
+---@field current_type_i_list item[]
+---@field current_type_a_subtype integer[]
+---@field current_type_a_subcat1 integer[]
+---@field current_type_a_subcat2 integer[]
+---@field current_type_a_amount integer[]
+---@field current_type_a_expanded any
+---@field current_type_a_on any
+df.main_interface.T_assign_display_item = {}
+
+---@class main_interface_name_creator: df.struct
+---@field open boolean
+---@field context name_creator_context_type
+---@field namer historical_entity
+---@field name language_name
+---@field name_type language_name_type
+---@field cur_name_place integer
+---@field cur_word_place integer
+---@field word_sel language_word_table
+---@field word_index integer[]
+---@field word_index_asp integer[]
+---@field scroll_position_word integer
+---@field scrolling_word boolean
+---@field entering_first_name boolean
+---@field entering_cull_str boolean
+---@field cull_str string
+---@field adv_naming_pet_actev activity_event_conversationst
+---@field named_unit unit
+df.main_interface.T_name_creator = {}
+
+---@class main_interface_image_creator: df.struct
+---@field open boolean
+---@field context image_creator_context_type
+---@field header string
+---@field current_option image_creator_option_type
+---@field scrolling_list boolean
+---@field scroll_position_list integer
+---@field doing_filter boolean
+---@field filter string
+---@field entering_number boolean
+---@field number_str string
+---@field st_master pointer[] site ptr, native name, translated name
+---@field ent_master pointer[] entity ptr, native name, translated name
+---@field plant_master pointer[] plant id, name
+---@field tree_master pointer[] plant id, name
+---@field shape_master pointer[] shape id, shape adj, name
+---@field item_master pointer[] item type, item subtype, name
+---@field artifact_master pointer[] artifact ptr, native name, translated name
+---@field hf_master pointer[] histfig ptr, native name, translated name
+---@field property_master pointer[] art property type, bool transitive, name
+---@field hf historical_figure[]
+---@field st world_site[]
+---@field ent historical_entity[]
+---@field hist_event history_event[]
+---@field art_image art_image[]
+---@field new_image art_image
+---@field new_image_race integer[]
+---@field new_image_caste integer[]
+---@field new_image_hf historical_figure[]
+---@field new_image_plant integer[]
+---@field new_image_tree integer[]
+---@field new_image_shape integer[]
+---@field new_image_shape_adj integer[]
+---@field new_image_item integer[]
+---@field new_image_item_subtype integer[]
+---@field new_image_artifact artifact_record[]
+---@field new_image_property integer[]
+---@field new_image_property_transitive any
+---@field new_image_property_actor_target integer[]
+---@field new_image_active_property integer
+---@field new_image_active_property_transitive boolean
+---@field new_image_active_property_actor_ind integer
+---@field new_image_active_property_target_ind integer
+---@field art_box string[]
+---@field scrolling_art_box boolean
+---@field scroll_position_art_box integer
+---@field last_art_box_width integer
+---@field selected_box string[]
+---@field last_selected_box_width integer
+---@field last_selected_index integer
+---@field back_out_warn boolean
+---@field image_back_out_warn boolean
+---@field must_do_image_back_out_warn boolean
+---@field ics image_creator_ics
+df.main_interface.T_image_creator = {}
+
+---@class image_creator_ics: df.struct
+---@field jb job
+---@field wq manager_order
+---@field location_detail any
+---@field image_ent historical_entity
+---@field art_image art_image
+---@field adv_art_specifier any
+---@field hf historical_figure
+---@field exit_flag integer
+---@field flag integer
+df.image_creator.T_ics = {}
+
+---@class main_interface_unit_selector: df.struct
+---@field open boolean
+---@field context unit_selector_context_type
+---@field unid integer[]
+---@field itemid integer[]
+---@field selected integer[]
+---@field already integer[]
+---@field bld_id integer
+---@field skill_used integer[]
+---@field skill_num integer
+---@field loc_occupation any occupationst
+---@field loc_ent historical_entity
+---@field loc_position entity_position
+---@field loc_epp entity_position_assignment
+---@field burrow_id integer
+---@field squad_id integer
+---@field squad_position integer
+---@field scroll_position integer
+---@field scrolling boolean
+df.main_interface.T_unit_selector = {}
+
+---@class main_interface_announcement_alert: df.struct
+---@field open boolean
+---@field viewing_alert report
+---@field viewing_alert_button boolean
+---@field zoom_line_is_start any
+---@field zoom_line_ann report[]
+---@field zoom_line_unit unit[]
+---@field zoom_line_unit_uac integer[]
+---@field alert_text string[]
+---@field alert_width integer
+---@field alert_list_size integer
+---@field scroll_position_alert integer
+---@field scrolling_alert boolean
+---@field viewing_unit unit
+---@field viewing_unit_uac integer
+---@field uac_zoom_line_is_start any
+---@field uac_zoom_line_ann report[]
+---@field uac_text string[]
+---@field uac_width integer
+---@field uac_list_size integer
+---@field scroll_position_uac integer
+---@field scrolling_uac boolean
+df.main_interface.T_announcement_alert = {}
+
+---@class main_interface_custom_symbol: df.struct
+---@field open boolean
+---@field context custom_symbol_context_type
+---@field burrow_id integer
+---@field work_detail_id integer
+---@field squad_id integer
+---@field scroll_position integer
+---@field scrolling boolean
+---@field doing_background_color boolean
+---@field swatch_r integer[][]
+---@field swatch_g integer[][]
+---@field swatch_b integer[][]
+df.main_interface.T_custom_symbol = {}
+
+---@class main_interface_patrol_routes: df.struct
+---@field open boolean
+---@field context patrol_routes_context_type
+---@field scroll_position integer
+---@field scrolling boolean
+---@field adding_new_route boolean
+---@field new_route_name string
+---@field entering_new_route_name boolean
+---@field new_point coord_path
+---@field route_line coord_path[] patrol_route_linest
+---@field add_is_edit_of_route_id integer
+---@field changed_points_on_edit boolean
+df.main_interface.T_patrol_routes = {}
+
+---@class main_interface_squad_equipment: df.struct
+---@field open boolean
+---@field context squad_equipment_context_type
+---@field scroll_position integer
+---@field scrolling boolean
+---@field squad_id integer[]
+---@field squad_pos integer[]
+---@field last_tick_update any
+---@field customizing_equipment boolean
+---@field customizing_squad_id integer
+---@field customizing_squad_pos integer
+---@field customizing_squad_uniform_nickname string
+---@field customizing_squad_entering_uniform_nickname boolean
+---@field scroll_position_cs integer
+---@field scrolling_cs boolean
+---@field scroll_position_cssub integer
+---@field scrolling_cssub boolean
+---@field cs_cat integer[] EntityUniformItemCategory
+---@field cs_it_spec_item_id integer[]
+---@field cs_it_type integer[]
+---@field cs_it_subtype integer[]
+---@field cs_civ_mat integer[] EntityMaterial
+---@field cs_spec_mat integer[]
+---@field cs_spec_matg integer[]
+---@field cs_color_pattern_index integer[] ColoredPattern
+---@field cs_icp_flag integer[]
+---@field cs_assigned_item_number integer[]
+---@field cs_assigned_item_id integer[]
+---@field cs_uniform_flag integer
+---@field cs_adding_new_entry_category integer EntityUniformItemCategory
+---@field cs_add_list_type integer[]
+---@field cs_add_list_subtype integer[]
+---@field cs_add_list_flag integer[]
+---@field cs_add_list_is_foreign any
+---@field cs_setting_material boolean
+---@field cs_setting_list_ind integer
+---@field cs_setting_material_ent integer[] EntityMaterial
+---@field cs_setting_material_mat integer[]
+---@field cs_setting_material_matg integer[]
+---@field cs_setting_color_pattern boolean
+---@field cs_setting_color_pattern_index integer[] ColoredPattern
+---@field cs_setting_color_pattern_is_dye any
+---@field cs_adding_specific_item boolean
+---@field cs_add_spec_id integer[]
+df.main_interface.T_squad_equipment = {}
+
+---@class main_interface_squad_schedule: df.struct
+---@field open boolean
+---@field context squad_schedule_context_type
+---@field scroll_position integer
+---@field scrolling boolean
+---@field scroll_position_month integer
+---@field scrolling_month boolean
+---@field routine_page integer
+---@field squad_id integer[]
+---@field viewing_months_squad_id integer
+---@field last_tick_update any
+---@field editing_routines boolean
+---@field scroll_position_edit_routine integer
+---@field scrolling_edit_routine boolean
+---@field routine_name_str string
+---@field entering_routine_name boolean
+---@field entering_routine_name_id integer
+---@field deleting_routine_id integer
+---@field copying_routine_id integer
+---@field copying_squad_id integer
+---@field copying_squad_month integer
+df.main_interface.T_squad_schedule = {}
+
+---@class main_interface_squad_selector: df.struct
+---@field open boolean
+---@field context squad_selector_context_type
+---@field squad_id integer[]
+---@field bld_id integer
+---@field scroll_position integer
+---@field scrolling integer
+df.main_interface.T_squad_selector = {}
+
+---@class main_interface_burrow_selector: df.struct
+---@field open boolean
+---@field context burrow_selector_context_type
+---@field burrow_id integer[]
+---@field selected any
+---@field scroll_position integer
+---@field scrolling integer
+df.main_interface.T_burrow_selector = {}
+
+---@class main_interface_location_selector: df.struct
+---@field open boolean
+---@field context location_selector_context_type
+---@field valid_ab abstract_building[]
+---@field scroll_position_location integer
+---@field scrolling_location boolean
+---@field current_hover_index integer
+---@field choosing_temple_religious_practice boolean
+---@field valid_religious_practice integer[]
+---@field scroll_position_deity integer
+---@field scrolling_deity boolean
+---@field choosing_craft_guild boolean
+---@field valid_religious_practice_id integer[]
+---@field valid_craft_guild_type profession[]
+---@field scroll_position_guild integer
+---@field scrolling_guild boolean
+df.main_interface.T_location_selector = {}
+
+---@class main_interface_location_details: df.struct
+---@field open boolean
+---@field context location_details_context_type
+---@field selected_ab abstract_building
+---@field open_area_dx integer
+---@field open_area_dy integer
+---@field wc_count integer
+---@field loc_occupation pointer[] occupationst
+---@field loc_ent historical_entity[]
+---@field loc_position entity_position[]
+---@field loc_epp entity_position_assignment[]
+---@field scroll_position_occupation integer
+---@field scrolling_occupation boolean
+---@field desired_number_str string
+---@field entering_desired_number integer
+df.main_interface.T_location_details = {}
+
+---@class main_interface_hauling_stop_conditions: df.struct
+---@field open boolean
+---@field context hauling_stop_conditions_context_type
+---@field route_id integer
+---@field stop_id integer
+---@field scroll_position integer
+---@field scrolling boolean
+df.main_interface.T_hauling_stop_conditions = {}
+
+---@class main_interface_assign_vehicle: df.struct
+---@field open boolean
+---@field context assign_vehicle_context_type
+---@field i_vehicle vehicle[]
+---@field route_id integer
+---@field scroll_position integer
+---@field scrolling boolean
+df.main_interface.T_assign_vehicle = {}
+
+---@class main_interface_stockpile: df.struct
+---@field doing_rectangle boolean
+---@field box_on_left boolean
+---@field erasing boolean
+---@field repainting boolean
+---@field cur_bld building_stockpilest
+df.main_interface.T_stockpile = {}
+
+---@class main_interface_stockpile_link: df.struct
+---@field open boolean
+---@field context stockpile_link_context_type
+---@field bld_id integer
+---@field hr_id integer
+---@field hs_id integer
+---@field scroll_position_link_list integer
+---@field scrolling_link_list boolean
+---@field adding_new_link boolean
+---@field adding_new_link_type integer
+df.main_interface.T_stockpile_link = {}
+
+---@class main_interface_stockpile_tools: df.struct
+---@field open boolean
+---@field context stockpile_tools_context_type
+---@field bld_id integer
+---@field entering_barrels boolean
+---@field entering_bins boolean
+---@field entering_wheelbarrows boolean
+---@field number_str string
+df.main_interface.T_stockpile_tools = {}
+
+---@class main_interface_custom_stockpile: df.struct
+---@field open boolean
+---@field scroll_position_main integer
+---@field scroll_position_sub integer
+---@field scroll_position_spec integer
+---@field scrolling_main boolean
+---@field scrolling_sub boolean
+---@field scrolling_spec boolean
+---@field spec_filter string
+---@field entering_spec_filter boolean
+---@field abd building_stockpilest
+---@field sp stockpile_settings
+---@field cur_main_mode stockpile_list
+---@field cur_main_mode_flag integer
+---@field cur_sub_mode stockpile_list
+---@field main_mode stockpile_list[]
+---@field main_mode_flag integer[]
+---@field sub_mode stockpile_list[]
+---@field sub_mode_ptr_type stock_pile_pointer_type[]
+---@field sub_mode_ptr integer[]
+---@field spec_item string[]
+---@field cur_spec_item_sz integer
+---@field counted_cur_spec_item_sz integer
+df.main_interface.T_custom_stockpile = {}
+
+---@class main_interface_view_sheets: df.struct
+---@field open boolean
+---@field context view_sheets_context_type
+---@field active_sheet view_sheet_type
+---@field active_id integer
+---@field viewing_unid integer[]
+---@field viewing_itid integer[]
+---@field viewing_bldid integer
+---@field viewing_x integer
+---@field viewing_y integer
+---@field viewing_z integer
+---@field scroll_position integer
+---@field scrolling boolean
+---@field tab view_sheet_type[]
+---@field tab_id integer[]
+---@field active_sub_tab integer
+---@field trait view_sheet_trait_type[]
+---@field trait_id integer[]
+---@field trait_magnitude integer[]
+---@field trait_num integer
+---@field last_tick_update any
+---@field reqroom integer[] demands
+---@field curroom integer[] demands
+---@field labor_skill_ind integer[]
+---@field labor_skill_val integer[]
+---@field labor_skill_w_rust integer[]
+---@field labor_skill_num integer
+---@field combat_skill_ind integer[]
+---@field combat_skill_val integer[]
+---@field combat_skill_w_rust integer[]
+---@field combat_skill_num integer
+---@field other_skill_ind integer[]
+---@field other_skill_val integer[]
+---@field other_skill_w_rust integer[]
+---@field other_skill_num integer
+---@field ent_vect historical_entity[]
+---@field ep_vect entity_position[]
+---@field ep_vect_spouse any
+---@field unmet_need_type integer[]
+---@field unmet_need_spec_id integer[]
+---@field unmet_need_se integer[]
+---@field unmet_need_num integer
+---@field raw_thought_str string[]
+---@field thought_box pointer[] color_text_boxst
+---@field thought_box_width integer
+---@field scroll_position_inventory integer
+---@field scrolling_inventory boolean
+---@field scroll_position_relations integer
+---@field scrolling_relations boolean
+---@field rel_name string[]
+---@field relation integer[]
+---@field relation_f integer[]
+---@field rel_unid integer[]
+---@field rel_hf historical_figure[]
+---@field rel_rphv any[] relationship_profile_hf_visualst
+---@field rel_rphh any[] relationship_profile_hf_historicalst
+---@field rel_value integer[]
+---@field unit_overview_customizing boolean
+---@field unit_overview_entering_nickname boolean
+---@field unit_overview_entering_profession_nickname boolean
+---@field unit_overview_entering_str string
+---@field unit_overview_expelling boolean
+---@field unit_overview_expel_cannot_expel_reason cannot_expel_reason_type
+---@field unit_overview_expel_selected_dest_stid integer
+---@field unit_overview_expel_dest_stid integer[]
+---@field unit_overview_expel_total_unid integer[]
+---@field scroll_position_unit_overview_expel integer
+---@field scrolling_unit_overview_expel boolean
+---@field guest_text string[]
+---@field scroll_position_groups integer
+---@field scrolling_groups boolean
+---@field unit_group_enid integer[]
+---@field unit_group_hfel integer[]
+---@field unit_group_epid integer[]
+---@field unit_group_eppid integer[]
+---@field unit_group_ep_is_spouse any
+---@field unit_group_rep integer[]
+---@field unit_group_rep_level integer[]
+---@field scroll_position_thoughts integer
+---@field scrolling_thoughts boolean
+---@field thoughts_active_tab integer
+---@field thoughts_raw_memory_str string[]
+---@field thoughts_memory_box pointer[] color_text_boxst
+---@field thoughts_memory_box_width integer
+---@field scroll_position_personality integer
+---@field scrolling_personality boolean
+---@field personality_active_tab integer
+---@field personality_raw_str string[]
+---@field personality_box pointer[] color_text_boxst
+---@field personality_width integer
+---@field unit_labor_active_tab integer
+---@field scroll_position_unit_labor integer
+---@field scrolling_unit_labor boolean
+---@field unit_workshop_id integer[]
+---@field unit_labor_assigned_animal_unid integer[]
+---@field unit_labor_assignable_animal_unid integer[]
+---@field scroll_position_unit_skill integer
+---@field scrolling_unit_skill boolean
+---@field scroll_position_skill_description integer
+---@field scrolling_skill_description boolean
+---@field unit_skill_active_tab integer
+---@field unit_skill job_skill[]
+---@field unit_skill_val integer[]
+---@field unit_skill_val_w_rust integer[]
+---@field unit_knowledge_type view_sheet_unit_knowledge_type[]
+---@field unit_knowledge_id integer[]
+---@field unit_knowledge_bits integer[]
+---@field skill_description_raw_str string[]
+---@field skill_description_box pointer[] color_text_boxst
+---@field skill_description_width integer
+---@field scroll_position_unit_room integer
+---@field scrolling_unit_room integer
+---@field unit_room_civzone_id integer[]
+---@field unit_room_curval integer[]
+---@field unit_military_active_tab integer
+---@field scroll_position_unit_military_assigned integer
+---@field scrolling_unit_military_assigned boolean
+---@field scroll_position_unit_military_kills integer
+---@field scrolling_unit_military_kills boolean
+---@field kill_description_raw_str string[]
+---@field kill_description_box pointer[] color_text_boxst
+---@field kill_description_width integer
+---@field unit_health_active_tab integer
+---@field scroll_position_unit_health integer
+---@field scrolling_unit_health boolean
+---@field unit_health_raw_str string[]
+---@field unit_health_box pointer[] color_text_boxst
+---@field unit_health_width integer
+---@field raw_current_thought string
+---@field current_thought string[]
+---@field current_thought_width integer
+---@field scroll_position_item integer
+---@field scrolling_item boolean
+---@field scroll_position_building_job integer
+---@field scrolling_building_job boolean
+---@field building_job_filter_str string
+---@field entering_building_job_filter boolean
+---@field scroll_position_cage_occupants integer
+---@field scrolling_cage_occupants boolean
+---@field scroll_position_displayed_items integer
+---@field scrolling_displayed_items boolean
+---@field linking_lever boolean
+---@field need_accessible_mechanism_warning boolean
+---@field linking_lever_bld_id integer
+---@field linking_lever_mech_lever_id integer
+---@field linking_lever_mech_target_id integer
+---@field show_linked_buildings boolean
+---@field scroll_position_linked_buildings integer
+---@field scrolling_linked_buildings boolean
+---@field building_entering_nickname boolean
+---@field building_entering_str string
+---@field work_order_id integer[]
+---@field scroll_position_work_orders integer
+---@field scrolling_work_orders boolean
+---@field gen_work_order_num_str string
+---@field entering_gen_work_order_num boolean
+---@field entering_wq_number boolean
+---@field wq_number_str string
+---@field entering_wq_id integer
+---@field engraving_title string
+---@field raw_description string
+---@field description string[]
+---@field description_width integer
+---@field scroll_position_description integer
+---@field scrolling_description boolean
+---@field scroll_position_item_contents integer
+---@field scrolling_item_contents boolean
+---@field item_use string[]
+---@field item_use_reaction_index integer[]
+df.main_interface.T_view_sheets = {}
+
+---@class main_interface_info: df.struct
+---@field open boolean
+---@field current_mode info_interface_mode_type
+---@field creatures info_creatures
+---@field jobs info_jobs
+---@field buildings info_buildings
+---@field labor info_labor
+---@field work_orders info_work_orders
+---@field administrators info_administrators
+---@field artifacts info_artifacts
+---@field justice info_justice
+df.main_interface.T_info = {}
+
+---@class info_creatures: df.struct
+---@field current_mode unit_list_mode_type
+---@field cri_unit cri_unitst[][]
+---@field scrolling_cri_unit boolean[]
+---@field scroll_position_cri_unit integer[]
+---@field sorting_cit_nameprof boolean
+---@field sorting_cit_nameprof_is_ascending boolean
+---@field sorting_cit_nameprof_doing_name boolean
+---@field sorting_cit_nameprof_doing_prof boolean
+---@field sorting_cit_job boolean
+---@field sorting_cit_job_is_ascending boolean
+---@field sorting_cit_stress boolean
+---@field sorting_cit_stress_is_ascending boolean
+---@field adding_trainer boolean
+---@field trainer_animal_target unit
+---@field trainer unit[]
+---@field trainer_option integer[]
+---@field scrolling_trainer boolean
+---@field scroll_position_trainer integer
+---@field showing_overall_training boolean
+---@field atk_index integer[]
+---@field scrolling_overall_training boolean
+---@field scroll_position_overall_training integer
+---@field assign_work_animal boolean
+---@field assign_work_animal_animal unit
+---@field work_animal_recipient unit[]
+---@field scrolling_work_animal boolean
+---@field scroll_position_work_animal integer
+---@field showing_activity_details boolean
+---@field activity_details_text markup_text_boxst
+---@field scrolling_activity_details boolean
+---@field scroll_position_activity_details integer
+df.info.T_creatures = {}
+
+---@class info_jobs: df.struct
+---@field cri_job cri_unitst[]
+---@field scrolling_cri_job boolean
+---@field scroll_position_cri_job integer
+df.info.T_jobs = {}
+
+---@class info_buildings: df.struct
+---@field mode buildings_mode_type
+---@field list building[][]
+---@field scrolling_position integer[]
+---@field scrolling boolean[]
+df.info.T_buildings = {}
+
+---@class info_labor: df.struct
+---@field mode labor_mode_type
+---@field work_details labor_work_details
+---@field standing_orders labor_standing_orders
+---@field kitchen labor_kitchen
+---@field stone_use labor_stone_use
+df.info.T_labor = {}
+
+---@class labor_work_details: df.struct
+---@field selected_work_detail_index integer
+---@field scroll_position_work_details integer
+---@field scrolling_work_details boolean
+---@field assignable_unit unit[]
+---@field scroll_position_assignable_unit integer
+---@field scrolling_assignable_unit boolean
+---@field entering_custom_detail_name boolean
+---@field editing_work_detail work_detail
+---@field labor_list integer[]
+---@field scroll_position_labor_list integer
+---@field scrolling_labor_list boolean
+---@field skill_used integer[]
+---@field skill_num integer
+df.labor.T_work_details = {}
+
+---@class labor_standing_orders: df.struct
+---@field current_category standing_orders_category_type
+---@field unit unit[]
+---@field labor_list integer[]
+---@field scroll_position_labor_list integer
+---@field scrolling_labor_list boolean
+---@field scroll_position_units integer
+---@field scrolling_units boolean
+df.labor.T_standing_orders = {}
+
+---@class labor_kitchen: df.struct
+---@field current_category kitchen_pref_category_type
+---@field known_type integer[][]
+---@field known_subtype integer[][]
+---@field known_mat integer[][]
+---@field known_matg integer[][]
+---@field known_num integer[][]
+---@field known_rest integer[][]
+---@field known_canrest integer[][]
+---@field known_name string[][]
+---@field scroll_position integer[]
+---@field scrolling boolean[]
+df.labor.T_kitchen = {}
+
+---@class labor_stone_use: df.struct
+---@field current_category stone_use_category_type
+---@field stone_mg_index integer[][]
+---@field stone_restriction_p integer[][]
+---@field stone_item_use_str string[]
+---@field scroll_position integer[]
+---@field scrolling boolean[]
+df.labor.T_stone_use = {}
+
+---@class info_work_orders: df.struct
+---@field scroll_position_work_orders integer
+---@field scrolling_work_orders boolean
+---@field conditions work_orders_conditions
+---@field entering_number boolean
+---@field number_str string
+---@field entering_wq manager_order
+---@field b_entering_number boolean
+---@field b_number_str string
+---@field b_entering_wq manager_order
+df.info.T_work_orders = {}
+
+---@class work_orders_conditions: df.struct
+---@field open boolean
+---@field wq manager_order
+---@field item_condition_satisfied any
+---@field order_condition_satisfied any
+---@field scroll_position_conditions integer
+---@field scrolling_conditions boolean
+---@field suggested_item_condition any[] workquota_item_conditionst
+---@field scroll_position_suggested integer
+---@field scrolling_suggested boolean
+---@field filter string
+---@field compare_master string[]
+---@field change_type integer
+---@field change_wqc any workquota_item_conditions
+---@field scroll_position_change integer
+---@field scrolling_change integer
+---@field item_type_master integer[]
+---@field item_subtype_master integer[]
+---@field item_type_on any
+---@field item_material_master integer[]
+---@field item_matgloss_master integer[]
+---@field item_matstate_master integer[]
+---@field item_material_on any
+---@field item_trait_master wqc_item_traitst[]
+---@field selecting_order_condition boolean
+---@field condition_wq manager_order[]
+---@field scroll_position_condition_wq integer
+---@field scrolling_condition_wq boolean
+---@field entering_logic_number boolean
+---@field logic_number_str string
+---@field entering_logic_wqc any workquota_item_conditionst
+df.work_orders.T_conditions = {}
+
+---@class info_administrators: df.struct
+---@field noblelist unit[]
+---@field spec_prof entity_position_assignment[]
+---@field spec_hfid integer[]
+---@field spec_enid integer[]
+---@field scroll_position_noblelist integer
+---@field scrolling_noblelist boolean
+---@field desc_hover_text string[]
+---@field last_hover_width integer
+---@field last_hover_entity_id integer
+---@field last_hover_ep_id integer
+---@field choosing_candidate boolean
+---@field candidate_noblelist_ind integer
+---@field candidate unit[]
+---@field scroll_position_candidate integer
+---@field scrolling_candidate boolean
+---@field assigning_symbol boolean
+---@field symbol_noblelist_ind integer
+---@field cand_symbol item[]
+---@field cand_symbol_new_ind integer[]
+---@field cand_symbol_is_symbol_of_ind integer[]
+---@field cand_symbol_value integer[]
+---@field scroll_position_symbol integer
+---@field scrolling_symbol boolean
+---@field handling_symbol_closure_ind integer
+df.info.T_administrators = {}
+
+---@class info_artifacts: df.struct
+---@field mode artifacts_mode_type
+---@field list artifact_record[][]
+---@field scroll_position integer[]
+---@field scrolling boolean[]
+df.info.T_artifacts = {}
+
+---@class info_justice: df.struct
+---@field current_mode justice_interface_mode_type
+---@field cage_chain_needed integer
+---@field cage_chain_count integer
+---@field open_case crime[]
+---@field scroll_position_open_cases integer
+---@field scrolling_open_cases boolean
+---@field selected_open_case integer
+---@field scroll_position_selected_open_case integer
+---@field scrolling_selected_open_case boolean
+---@field closed_case crime[]
+---@field scroll_position_closed_cases integer
+---@field scrolling_closed_cases boolean
+---@field selected_closed_case integer
+---@field scroll_position_selected_closed_case integer
+---@field scrolling_selected_closed_case boolean
+---@field cold_case crime[]
+---@field scroll_position_cold_cases integer
+---@field scrolling_cold_cases boolean
+---@field selected_cold_case integer
+---@field scroll_position_selected_cold_case integer
+---@field scrolling_selected_cold_case boolean
+---@field cri_fortress_guard cri_unitst[]
+---@field scroll_position_fortress_guard integer
+---@field scrolling_fortress_guard boolean
+---@field sorting_guard_nameprof boolean
+---@field sorting_guard_nameprof_is_ascending boolean
+---@field sorting_guard_nameprof_doing_name boolean
+---@field sorting_guard_nameprof_doing_prof boolean
+---@field cri_convict cri_unitst[]
+---@field scroll_position_convicts integer
+---@field scrolling_convicts boolean
+---@field selected_convict integer
+---@field convict_crime crime[]
+---@field convict_lawaction any lawactionst
+---@field sorting_convict_nameprof boolean
+---@field sorting_convict_nameprof_is_ascending boolean
+---@field sorting_convict_nameprof_doing_name boolean
+---@field sorting_convict_nameprof_doing_prof boolean
+---@field scroll_position_selected_convict integer
+---@field scrolling_selected_convict boolean
+---@field convicting boolean
+---@field conviction_list unit[]
+---@field scroll_position_conviction integer
+---@field scrolling_conviction boolean
+---@field interrogating boolean
+---@field interrogation_list unit[]
+---@field interrogation_list_flag integer[]
+---@field scroll_position_interrogation integer
+---@field scrolling_interrogation boolean
+---@field interrogation_report_box string[]
+---@field interrogation_report_box_width integer
+---@field interrogation_report any[] interrogation_reportst
+---@field viewing_interrogation_report any interrogation_reportst
+---@field scroll_position_interrogation_list integer
+---@field scrolling_interrogation_list boolean
+---@field scroll_position_interrogation_report integer
+---@field scrolling_interrogation_report boolean
+---@field base_actor_entry actor_entryst[]
+---@field base_organization_entry organization_entryst[]
+---@field base_plot_entry plot_entryst[]
+---@field counterintelligence_mode counterintelligence_mode_type
+---@field counterintelligence_selected integer
+---@field counterintelligence_filter_str string
+---@field entering_counterintelligence_filter boolean
+---@field selected_counterintelligence_oen any organization_entry_nodest
+---@field scroll_position_counterintelligence integer
+---@field scrolling_counterintelligence boolean
+---@field value_actor_entry actor_entryst[]
+---@field value_organization_entry organization_entryst[]
+---@field value_plot_entry plot_entryst[]
+---@field actor_entry actor_entryst[]
+---@field organization_entry organization_entryst[]
+---@field plot_entry plot_entryst[]
+df.info.T_justice = {}
+
+---@class main_interface_squads: df.struct
+---@field open boolean
+---@field scroll_position integer
+---@field scrolling boolean
+---@field squad_id integer[]
+---@field squad_selected any
+---@field viewing_squad_index integer
+---@field squad_hfid_selected integer[]
+---@field entering_squad_nickname boolean
+---@field squad_nickname_str string
+---@field giving_move_order boolean
+---@field giving_kill_order boolean
+---@field kill_unid integer[]
+---@field kill_doing_rectangle boolean
+---@field giving_patrol_order boolean
+---@field giving_burrow_order boolean
+---@field editing_squad_schedule_id integer
+---@field editing_squad_schedule_routine_index integer
+---@field editing_squad_schedule_month integer
+---@field editing_squad_schedule_whole_squad_selected boolean
+---@field editing_squad_schedule_pos_selected integer[]
+---@field editing_squad_schedule_min_follow integer
+---@field scroll_position_orderp integer
+---@field scrolling_orderp boolean
+---@field cell_nickname_str string
+---@field entering_cell_nickname boolean
+df.main_interface.T_squads = {}
+
+---@class main_interface_create_squad: df.struct
+---@field open boolean
+---@field scroll_position integer
+---@field scrolling boolean
+---@field cand_new_squad_appoint_epp entity_position_assignment[]
+---@field cand_new_squad_appoint_epp_ep entity_position[]
+---@field cand_new_squad_existing_epp entity_position_assignment[]
+---@field cand_new_squad_existing_epp_ep entity_position[]
+---@field cand_new_squad_new_epp_from_ep entity_position[]
+---@field new_squad_appoint_epp entity_position_assignment
+---@field new_squad_appoint_epp_ep entity_position
+---@field new_squad_existing_epp entity_position_assignment
+---@field new_squad_existing_epp_ep entity_position
+---@field new_squad_new_epp_from_ep entity_position
+df.main_interface.T_create_squad = {}
+
+---@class main_interface_squad_supplies: df.struct
+---@field open boolean
+---@field squad_id integer
+df.main_interface.T_squad_supplies = {}
+
+---@class main_interface_assign_uniform: df.struct
+---@field open boolean
+---@field context assign_uniform_context_type
+---@field scroll_position integer
+---@field scrolling boolean
+---@field cand_uniform entity_uniform[]
+df.main_interface.T_assign_uniform = {}
+
+---@class main_interface_create_work_order: df.struct
+---@field open boolean
+---@field forced_bld_id integer
+---@field jminfo_master manager_order_template[]
+---@field building cwo_buildingst[]
+---@field scroll_position_building integer
+---@field scrolling_building boolean
+---@field selected_building_index integer
+---@field scroll_position_job integer
+---@field scrolling_job boolean
+---@field job_filter string
+---@field entering_job_filter boolean
+df.main_interface.T_create_work_order = {}
+
+---@class main_interface_hotkey: df.struct
+---@field open boolean
+---@field scroll_position integer
+---@field scrolling boolean
+---@field entering_index integer
+---@field entering_name boolean
+df.main_interface.T_hotkey = {}
+
+---@class main_interface_options: df.struct
+---@field open boolean
+---@field context options_context_type
+---@field header string
+---@field text string[]
+---@field fort_retirement_confirm boolean
+---@field fort_abandon_confirm boolean
+---@field fort_quit_without_saving_confirm boolean
+---@field option main_menu_option_type[]
+---@field option_index integer[]
+---@field entering_manual_folder boolean
+---@field entering_manual_str string
+---@field confirm_manual_overwrite boolean
+---@field entering_timeline boolean
+---@field entering_timeline_str string
+---@field do_manual_save boolean
+---@field manual_save_timer integer
+---@field overwrite_save_folder string[]
+---@field ended_game boolean
+---@field doing_help boolean
+---@field doing_help_box markup_text_boxst
+---@field guide_context integer[]
+---@field scroll_position_guide integer
+---@field scrolling_guide boolean
+---@field popup_context integer[]
+---@field scroll_position_popup integer
+---@field scrolling_popup boolean
+---@field filecomp file_compressorst
+---@field saver options_saver saverst
+df.main_interface.T_options = {}
+
+---@class options_saver: df.struct
+---saverst
+df.options.T_saver = {}
+
+---@class main_interface_help: df.struct
+---@field open boolean
+---@field flag integer
+---@field context_flag integer
+---@field context help_context_type
+---@field header string
+---@field text markup_text_boxst[] tutorials
+---@field floor_dug integer
+df.main_interface.T_help = {}
+
+---@class main_interface_arena_unit: df.struct
+---@field open boolean
+---@field context arena_context_type
+---@field race integer
+---@field caste integer
+---@field team integer
+---@field interaction integer
+---@field tame boolean
+---@field editing_filter boolean
+---@field filter string
+---@field races_filtered integer[]
+---@field castes_filtered integer[]
+---@field races_all integer[]
+---@field castes_all integer[]
+---@field skills job_skill[]
+---@field skill_levels integer[]
+---@field equipment_item_type integer[]
+---@field equipment_item_subtype integer[]
+---@field equipment_mat_type integer[]
+---@field equipment_mat_index integer[]
+---@field equipment_quantity integer[]
+---@field interactions interaction_effect[]
+df.main_interface.T_arena_unit = {}
+
+---@class main_interface_arena_tree: df.struct
+---@field open boolean
+---@field age integer in years
+---@field editing_age boolean
+---@field age_str string string representation of age field
+---@field editing_filter boolean
+---@field filter string
+---@field tree_types_filtered any[]
+---@field tree_types_all any[]
+df.main_interface.T_arena_tree = {}
 
 ---@class gamest: df.struct
 ---@field main_interface main_interface
----@field minimap any
----@field command_line string
----@field mod_manager mod_headerst[]
+---@field minimap gamest_minimap
+---@field command_line gamest_command_line
+---@field mod_manager gamest_mod_manager
 ---@field hash_rng hash_rngst
 ---@field play_rng hash_rngst
 ---@field start_tick_count integer
@@ -793,11 +2063,44 @@ df.main_interface.T_interface_key = {
 ---@field external_flag integer
 df.gamest = {}
 
+---@class gamest_minimap: df.struct
+---@field minimap integer[][]
+---@field update integer
+---@field mustmake integer
+---@field printed_z integer
+---@field buffer_symbol integer[][]
+---@field buffer_f integer[][]
+---@field buffer_b integer[][]
+---@field buffer_br integer[][]
+---@field texpos integer
+df.gamest.T_minimap = {}
+
+---@class gamest_command_line: df.struct
+---@field original string
+---@field arg_vect string[]
+---@field gen_id number
+---@field world_seed number
+---@field use_seed boolean
+---@field world_param string
+---@field use_param integer
+df.gamest.T_command_line = {}
+
+---@class gamest_mod_manager: df.struct
+---@field mod_header mod_headerst[]
+---@field subscribed_file_id any
+---@field doing_mod_upload boolean
+---@field mod_upload_header mod_headerst[]
+---@field mod_upload_completed boolean
+---@field uploading_mod_index integer
+---@field CreateItemResult any
+---@field SubmitItemUpdateResult any
+df.gamest.T_mod_manager = {}
+
 ---@class main_interface_settings: df.struct
 ---@field open boolean
----@field context main_interface_settings_context
+---@field context settings_context_type
 ---@field tab settings_tab_type[]
----@field current_mode main_interface_settings_current_mode
+---@field current_mode settings_tab_type
 ---@field container_widget widget_container
 ---@field scroll_position_params integer
 ---@field scrolling_params boolean
@@ -827,14 +2130,6 @@ df.gamest = {}
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
 df.main_interface_settings = {}
-
----@enum main_interface_settings_settings_context_type
-df.main_interface_settings.T_settings_context_type = {
-}
-
----@enum main_interface_settings_settings_tab_type
-df.main_interface_settings.T_settings_tab_type = {
-}
 
 ---@class hash_rngst: df.struct
 ---@field splitmix64_state integer

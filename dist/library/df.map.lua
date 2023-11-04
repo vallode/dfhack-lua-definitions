@@ -338,21 +338,13 @@ df.construction_flags = {
 
 ---@class construction: df.struct
 ---@field pos coord
----@field item_type construction_item_type
+---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 ---@field flags construction_flags
----@field original_tile construction_original_tile
+---@field original_tile tiletype
 df.construction = {}
-
----@enum construction_item_type
-df.construction.T_item_type = {
-}
-
----@enum construction_tiletype
-df.construction.T_tiletype = {
-}
 
 ---@enum flow_type
 df.flow_type = {
@@ -373,7 +365,7 @@ df.flow_type = {
 }
 
 ---@class flow_info: df.struct
----@field type flow_info_type
+---@field type flow_type
 ---@field mat_type material
 ---@field mat_index integer
 ---@field density integer
@@ -383,10 +375,6 @@ df.flow_type = {
 ---@field reuse boolean
 ---@field guide_id flow_guide
 df.flow_info = {}
-
----@enum flow_info_flow_type
-df.flow_info.T_flow_type = {
-}
 
 ---@class flow_reuse_pool: df.struct
 ---@field reuse_idx integer
