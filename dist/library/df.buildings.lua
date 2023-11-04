@@ -182,7 +182,7 @@ df.stockpile_links = {}
 df.building_stockpilest = {}
 
 ---@class hospital_supplies: df.struct
----@field supplies_needed any
+---@field supplies_needed hospital_supplies_supplies_needed
 ---@field max_splints integer
 ---@field max_thread integer
 ---@field max_cloth integer
@@ -199,6 +199,17 @@ df.building_stockpilest = {}
 ---@field cur_soap integer
 ---@field supply_recheck_timer integer
 df.hospital_supplies = {}
+
+---@enum hospital_supplies_supplies_needed
+df.hospital_supplies.T_supplies_needed = {
+  splints = 0,
+  thread = 1,
+  cloth = 2,
+  crutches = 3,
+  plaster = 4,
+  buckets = 5,
+  soap = 6,
+}
 
 ---@enum civzone_type
 df.civzone_type = {
@@ -317,9 +328,9 @@ df.building_civzonest = {}
 
 ---@class building_civzonest_zone_settings: df.struct
 ---@field whole zone_settings_whole
----@field gather any
+---@field gather zone_settings_gather
 ---@field pen zone_settings_pen
----@field tomb any
+---@field tomb zone_settings_tomb
 ---@field archery zone_settings_archery
 ---@field pit_pond zone_settings_pit_pond
 df.building_civzonest.T_zone_settings = {}
@@ -329,9 +340,22 @@ df.building_civzonest.T_zone_settings = {}
 ---@field i2 integer
 df.zone_settings.T_whole = {}
 
+---@enum zone_settings_gather
+df.zone_settings.T_gather = {
+  pick_trees = 0,
+  pick_shrubs = 1,
+  gather_fallen = 2,
+}
+
 ---@class zone_settings_pen: df.struct
 ---@field unk integer
 df.zone_settings.T_pen = {}
+
+---@enum zone_settings_tomb
+df.zone_settings.T_tomb = {
+  no_pets = 0,
+  no_citizens = 1,
+}
 
 ---@class zone_settings_archery: df.struct
 ---@field dir_x integer
@@ -358,10 +382,17 @@ df.building_actual = {}
 ---@field builder2 historical_figure
 ---@field build_timer2 integer
 ---@field quality1 item_quality
----@field flags any
+---@field flags building_design_flags
 ---@field hitpoints integer
 ---@field max_hitpoints integer
 df.building_design = {}
+
+---@enum building_design_flags
+df.building_design.T_flags = {
+  rough = 0, --rough gabbro road
+  built = 1,
+  designed = 2,
+}
 
 ---@enum furnace_type
 df.furnace_type = {
@@ -511,15 +542,25 @@ df.building_cabinetst = {}
 ---@class building_cagest: building_actual
 ---@field assigned_units integer[]
 ---@field assigned_items integer[]
----@field cage_flags any
+---@field cage_flags building_cagest_cage_flags
 ---@field fill_timer integer
 df.building_cagest = {}
+
+---@enum building_cagest_cage_flags
+df.building_cagest.T_cage_flags = {
+  triggered = 0,
+}
 
 ---@class building_chainst: building_actual
 ---@field assigned unit
 ---@field chained unit
----@field chain_flags any
+---@field chain_flags building_chainst_chain_flags
 df.building_chainst = {}
+
+---@enum building_chainst_chain_flags
+df.building_chainst.T_chain_flags = {
+  triggered = 0,
+}
 
 ---@class building_chairst: building_actual
 ---@field unk_1 integer
@@ -587,12 +628,17 @@ df.building_doorst = {}
 ---@class building_farmplotst: building_actual
 ---@field plant_id plant_raw[]
 ---@field material_amount integer
----@field farm_flags any
+---@field farm_flags building_farmplotst_farm_flags
 ---@field last_season season
 ---@field current_fertilization integer
 ---@field max_fertilization integer
 ---@field terrain_purge_timer integer
 df.building_farmplotst = {}
+
+---@enum building_farmplotst_farm_flags
+df.building_farmplotst.T_farm_flags = {
+  seasonal_fertilize = 0,
+}
 
 ---@class building_floodgatest: building_actual
 ---@field gate_flags gate_flags
@@ -667,9 +713,14 @@ df.shop_type = {
 ---@class building_shopst: building_actual
 ---@field owner unit
 ---@field timer integer increments until reaching 200,000,000
----@field shop_flags any
+---@field shop_flags building_shopst_shop_flags
 ---@field type shop_type
 df.building_shopst = {}
+
+---@enum building_shopst_shop_flags
+df.building_shopst.T_shop_flags = {
+  for_sale = 0,
+}
 
 ---@enum siegeengine_type
 df.siegeengine_type = {
@@ -709,13 +760,23 @@ df.building_slabst = {}
 df.building_statuest = {}
 
 ---@class building_supportst: building_actual
----@field support_flags any
+---@field support_flags building_supportst_support_flags
 df.building_supportst = {}
 
+---@enum building_supportst_support_flags
+df.building_supportst.T_support_flags = {
+  triggered = 0,
+}
+
 ---@class building_tablest: building_actual
----@field table_flags any
+---@field table_flags building_tablest_table_flags
 ---@field users building_users
 df.building_tablest = {}
+
+---@enum building_tablest_table_flags
+df.building_tablest.T_table_flags = {
+  meeting_hall = 0,
+}
 
 ---@class building_traction_benchst: building_actual
 ---@field unk_1 integer
@@ -723,9 +784,15 @@ df.building_tablest = {}
 df.building_traction_benchst = {}
 
 ---@class building_tradedepotst: building_actual
----@field trade_flags any
+---@field trade_flags building_tradedepotst_trade_flags
 ---@field accessible integer
 df.building_tradedepotst = {}
+
+---@enum building_tradedepotst_trade_flags
+df.building_tradedepotst.T_trade_flags = {
+  trader_requested = 0,
+  anyone_can_trade = 1,
+}
 
 ---@enum trap_type
 df.trap_type = {
@@ -746,15 +813,25 @@ df.trap_type = {
 ---@field magma_max integer
 ---@field track_min integer
 ---@field track_max integer
----@field flags any
+---@field flags pressure_plate_info_flags
 df.pressure_plate_info = {}
+
+---@enum pressure_plate_info_flags
+df.pressure_plate_info.T_flags = {
+  units = 0,
+  water = 1,
+  magma = 2,
+  citizens = 3,
+  resets = 4,
+  track = 5,
+}
 
 ---@class building_trapst: building_actual
 ---@field trap_type trap_type
 ---@field state integer !=0 = pulled, tripped/needs reloading
 ---@field ready_timeout integer plate not active if > 0
 ---@field fill_timer integer
----@field stop_flags any
+---@field stop_flags building_trapst_stop_flags
 ---@field linked_mechanisms item[]
 ---@field observed_by_civs integer[]
 ---@field profile workshop_profile
@@ -765,6 +842,13 @@ df.pressure_plate_info = {}
 ---@field dump_y_shift integer
 ---@field stop_trigger_timer integer
 df.building_trapst = {}
+
+---@enum building_trapst_stop_flags
+df.building_trapst.T_stop_flags = {
+  disabled = 0,
+  disabling = 1,
+  enabling = 2,
+}
 
 ---@class building_wagonst: building_actual
 df.building_wagonst = {}
@@ -785,12 +869,18 @@ df.building_squad_use = {}
 df.building_weaponrackst = {}
 
 ---@class building_wellst: building_actual
----@field well_flags any
+---@field well_flags building_wellst_well_flags
 ---@field unk_1 integer
 ---@field bucket_z integer
 ---@field bucket_timer integer 0-9; counts up when raising, down when lowering
 ---@field check_water_timer integer
 df.building_wellst = {}
+
+---@enum building_wellst_well_flags
+df.building_wellst.T_well_flags = {
+  lowering = 0,
+  just_raised = 1,
+}
 
 ---@class building_windowst: building_actual
 ---@field unk_1 integer

@@ -214,12 +214,30 @@ df.plant_material_def = {
 ---@field unk_v50_5 integer
 ---@field timing_1 integer
 ---@field timing_2 integer
----@field locations any
+---@field locations plant_growth_locations
 ---@field density integer
----@field behavior any
+---@field behavior plant_growth_behavior
 ---@field trunk_height_perc_1 integer
 ---@field trunk_height_perc_2 integer
 df.plant_growth = {}
+
+---@enum plant_growth_locations
+df.plant_growth.T_locations = {
+  twigs = 0,
+  light_branches = 1,
+  heavy_branches = 2,
+  trunk = 3,
+  roots = 4,
+  cap = 5,
+  sapling = 6,
+}
+
+---@enum plant_growth_behavior
+df.plant_growth.T_behavior = {
+  drops_off = 0,
+  no_cloud = 1,
+  has_seed = 2,
+}
 
 ---@class plant_growth_print: df.struct
 ---@field priority integer final token in list

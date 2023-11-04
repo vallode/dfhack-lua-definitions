@@ -429,8 +429,16 @@ df.mandate.T_punishment = {}
 ---@class training_assignment: df.instance
 ---@field animal_id unit
 ---@field trainer_id unit
----@field flags any
+---@field flags training_assignment_flags
 df.training_assignment = {}
+
+---@enum training_assignment_flags
+df.training_assignment.T_flags = {
+  any_trainer = 0,
+  any_unassigned_trainer = 1,
+  train_war = 2,
+  train_hunt = 3,
+}
 
 ---@class unit_demand: df.struct
 ---@field unk_0 integer

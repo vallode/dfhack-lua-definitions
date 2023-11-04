@@ -12,7 +12,7 @@ df.plant_flags = {
 ---@field material plant_raw
 ---@field pos coord
 ---@field grow_counter integer
----@field damage_flags any
+---@field damage_flags plant_damage_flags
 ---@field hitpoints integer
 ---@field update_order integer
 ---@field site_id world_site
@@ -20,6 +20,13 @@ df.plant_flags = {
 ---@field contaminants spatter_common[]
 ---@field tree_info plant_tree_info
 df.plant = {}
+
+---@enum plant_damage_flags
+df.plant.T_damage_flags = {
+  is_burning = 0,
+  is_drowning = 1,
+  is_dead = 2,
+}
 
 ---@enum plant_tree_tile
 df.plant_tree_tile = {

@@ -243,8 +243,13 @@ df.general_ref_unit_milkeest = {}
 df.general_ref_unit_traineest = {}
 
 ---@class general_ref_unit_itemownerst: general_ref_unit
----@field flags any
+---@field flags general_ref_unit_itemownerst_flags
 df.general_ref_unit_itemownerst = {}
+
+---@enum general_ref_unit_itemownerst_flags
+df.general_ref_unit_itemownerst.T_flags = {
+  litter = 0, --apparetly set after 1000 ticks, then confiscated in 1000 more ticks
+}
 
 ---@class general_ref_unit_tradebringerst: general_ref_unit
 df.general_ref_unit_tradebringerst = {}

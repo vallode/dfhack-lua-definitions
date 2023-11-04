@@ -302,7 +302,7 @@ df.poetic_form_additional_feature = {
 ---@field originating_entity historical_entity
 ---@field original_author historical_figure
 ---@field subject_hf historical_figure
----@field flags any
+---@field flags poetic_form_flags
 ---@field parts poetic_form_part[]
 ---@field each_line_feet integer
 ---@field each_line_pattern poetic_form_pattern
@@ -317,8 +317,14 @@ df.poetic_form_additional_feature = {
 ---@field perspectives poetic_form_perspective[]
 df.poetic_form = {}
 
+---@enum poetic_form_flags
+df.poetic_form.T_flags = {
+  tone_patterns = 0,
+  produces_individual_poems = 1,
+}
+
 ---@class poetic_form_part: df.struct
----@field flags any
+---@field flags poetic_form_part_flags
 ---@field count_min integer
 ---@field count_max integer
 ---@field size integer
@@ -350,6 +356,11 @@ df.poetic_form = {}
 ---@field unk_8 integer
 ---@field unk_9 integer
 df.poetic_form_part = {}
+
+---@enum poetic_form_part_flags
+df.poetic_form_part.T_flags = {
+  size_in_lines = 0,
+}
 
 ---@class poetic_form_perspective: df.struct
 ---@field type poetic_form_perspective_type
@@ -536,8 +547,15 @@ df.musical_form_melody_frequency = {
 
 ---@class musical_form_interval: df.struct
 ---@field degree integer
----@field flags any
+---@field flags musical_form_interval_flags
 df.musical_form_interval = {}
+
+---@enum musical_form_interval_flags
+df.musical_form_interval.T_flags = {
+  rising = 0, --otherwise falling
+  flattened = 1,
+  sharpened = 2,
+}
 
 ---@class musical_form_melodies: df.struct
 ---@field style musical_form_melody_style
@@ -576,13 +594,20 @@ df.musical_form_passage = {}
 
 ---@class musical_form_instruments: df.struct
 ---@field instrument_subtype itemdef_instrumentst -1 = vocal
----@field substitutions any
+---@field substitutions musical_form_instruments_substitutions
 ---@field features musical_form_feature
 ---@field minimum_required integer tentative
 ---@field maximum_permitted integer tentative
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
 df.musical_form_instruments = {}
+
+---@enum musical_form_instruments_substitutions
+df.musical_form_instruments.T_substitutions = {
+  singer = 0,
+  speaker = 1,
+  chanter = 2,
+}
 
 ---@class musical_form_sub4: df.struct
 ---@field passage integer the passage index this structure refers to
@@ -616,8 +641,14 @@ df.musical_form_sub4 = {}
 ---@field pitch_style musical_form_pitch_style
 ---@field purpose musical_form_purpose
 ---@field devotion_target historical_figure
----@field flags any
+---@field flags musical_form_flags
 df.musical_form = {}
+
+---@enum musical_form_flags
+df.musical_form.T_flags = {
+  produces_individual_songs = 0,
+  repeats_as_necessary = 1,
+}
 
 ---@enum dance_form_context
 df.dance_form_context = {
@@ -888,7 +919,7 @@ df.named_scale = {}
 
 ---@class scale: df.instance
 ---@field id integer
----@field flags any
+---@field flags scale_flags
 ---@field type scale_type
 ---@field quartertones_used integer[] Quartertone corresponding note matches. Scale_length elements are used when type = Variable. Unused elements uninitialized
 ---@field scale_length integer Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
@@ -896,6 +927,11 @@ df.named_scale = {}
 ---@field scales named_scale[] Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
 ---@field notes scale_notes Curiously, the named notes do not have to match the number of defined notes
 df.scale = {}
+
+---@enum scale_flags
+df.scale.T_flags = {
+  tonic_note_fixed_at_performance = 0, --'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
+}
 
 ---@class scale_notes: df.struct
 ---Curiously, the named notes do not have to match the number of defined notes

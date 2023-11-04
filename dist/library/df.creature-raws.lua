@@ -509,7 +509,7 @@ df.caste_clothing_item = {}
 ---@field name string
 ---@field verb_3rd string
 ---@field verb_2nd string
----@field flags any
+---@field flags caste_attack_flags
 ---@field specialattack_type integer[] 0 = inject extract, 1 = suck blood, 2 = perform interaction
 ---@field specialattack_mat_type integer[] extract injected
 ---@field specialattack_mat_index integer[]
@@ -531,6 +531,16 @@ df.caste_clothing_item = {}
 ---@field unk_v40_4 integer
 df.caste_attack = {}
 
+---@enum caste_attack_flags
+df.caste_attack.T_flags = {
+  with = 0,
+  latch = 1,
+  main = 2,
+  edge = 3,
+  unk_4 = 4,
+  unk_5 = 5,
+}
+
 ---@enum gait_type
 df.gait_type = {
   WALK = 0,
@@ -547,9 +557,16 @@ df.gait_type = {
 ---@field turn_max integer
 ---@field start_speed integer
 ---@field energy_use integer
----@field flags any
+---@field flags gait_info_flags
 ---@field stealth_slows integer
 df.gait_info = {}
+
+---@enum gait_info_flags
+df.gait_info.T_flags = {
+  layers_slow = 0,
+  strength = 1,
+  agility = 2,
+}
 
 ---@enum creature_interaction_target_flags
 df.creature_interaction_target_flags = {
@@ -580,7 +597,7 @@ df.creature_interaction_target_flags = {
 ---@field type_id interaction
 ---@field usage_hint interaction_source_usage_hint[]
 ---@field location_hint interaction_effect_location_hint[]
----@field flags any
+---@field flags creature_interaction_flags
 ---@field unk_3 string[]
 ---@field target_flags creature_interaction_target_flags[]
 ---@field target_ranges integer[]
@@ -591,6 +608,13 @@ df.creature_interaction_target_flags = {
 ---@field adv_name string
 ---@field wait_period integer
 df.creature_interaction = {}
+
+---@enum creature_interaction_flags
+df.creature_interaction.T_flags = {
+  CAN_BE_MUTUAL = 0,
+  VERBAL = 1,
+  FREE_ACTION = 2,
+}
 
 ---@class caste_body_info: df.struct
 ---@field body_parts body_part_raw[]
@@ -603,7 +627,7 @@ df.creature_interaction = {}
 ---@field numbered_masks integer[] 1 bit per instance of a numbered body part
 ---@field layer_nonsolid any[]
 ---@field nonsolid_layers any[]
----@field flags any
+---@field flags caste_body_info_flags
 ---@field gait_info gait_info[][]
 ---@field materials material_vec_ref
 ---@field fraction_total integer
@@ -612,6 +636,11 @@ df.creature_interaction = {}
 ---@field fraction_muscle integer
 ---@field unk_v40_2 integer[]
 df.caste_body_info = {}
+
+---@enum caste_body_info_flags
+df.caste_body_info.T_flags = {
+  unk0 = 0,
+}
 
 ---@class caste_raw: df.struct
 ---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg

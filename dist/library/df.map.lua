@@ -204,8 +204,14 @@ df.map_block = {}
 ---@field unk_z1 integer
 ---@field unk_z2 integer
 ---@field unk_3 integer
----@field unk_4 any
+---@field unk_4 cave_column_unk_4
 df.cave_column = {}
+
+---@enum cave_column_unk_4
+df.cave_column.T_unk_4 = {
+  unk_0 = 0,
+  unk_1 = 1,
+}
 
 ---@class cave_column_rectangle: df.struct
 ---@field unk_1 integer
@@ -215,8 +221,15 @@ df.cave_column = {}
 ---@field unk_y2 integer
 ---@field z_shift integer
 ---@field unk_6 coord_path
----@field unk_7 any
+---@field unk_7 cave_column_rectangle_unk_7
 df.cave_column_rectangle = {}
+
+---@enum cave_column_rectangle_unk_7
+df.cave_column_rectangle.T_unk_7 = {
+  unk_0 = 0,
+  unk_1 = 1,
+  unk_2 = 2,
+}
 
 ---@class map_block_column: df.struct
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
@@ -253,8 +266,17 @@ df.block_square_event = {}
 ---@class block_square_event_mineralst: block_square_event
 ---@field inorganic_mat inorganic_raw
 ---@field tile_bitmask tile_bitmask
----@field flags any
+---@field flags block_square_event_mineralst_flags
 df.block_square_event_mineralst = {}
+
+---@enum block_square_event_mineralst_flags
+df.block_square_event_mineralst.T_flags = {
+  discovered = 0,
+  cluster = 1,
+  vein = 2,
+  cluster_small = 3,
+  cluster_one = 4,
+}
 
 ---@class block_square_event_frozen_liquidst: block_square_event
 ---@field tiles tiletype[][]
@@ -625,8 +647,13 @@ df.flow_info = {}
 
 ---@class flow_reuse_pool: df.struct
 ---@field reuse_idx integer
----@field flags any
+---@field flags flow_reuse_pool_flags
 df.flow_reuse_pool = {}
+
+---@enum flow_reuse_pool_flags
+df.flow_reuse_pool.T_flags = {
+  active = 0,
+}
 
 ---@enum flow_guide_type
 df.flow_guide_type = {

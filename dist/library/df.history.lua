@@ -758,7 +758,7 @@ df.history_event_circumstance_info = {}
 df.history_event_circumstance_info.T_data = {}
 
 ---@class history_event_context: df.struct
----@field flags any
+---@field flags history_event_context_flags
 ---@field interrogator_relationships historical_figure_relationships
 ---@field interrogation any
 ---@field artifact_id artifact_record
@@ -811,6 +811,11 @@ df.history_event_circumstance_info.T_data = {}
 ---@field image_set_id image_set
 ---@field divination_set_id divination_set
 df.history_event_context = {}
+
+---@enum history_event_context_flags
+df.history_event_context.T_flags = {
+  is_interrogation_report = 0,
+}
 
 ---@enum architectural_element
 df.architectural_element = {
@@ -1071,10 +1076,15 @@ df.history_event_artifact_possessedst = {}
 ---@field creator_unit_id unit the unit who created the artifact
 ---@field creator_hfid historical_figure the figure who created the artifact
 ---@field site world_site
----@field flags2 any
+---@field flags2 history_event_artifact_createdst_flags2
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 df.history_event_artifact_createdst = {}
+
+---@enum history_event_artifact_createdst_flags2
+df.history_event_artifact_createdst.T_flags2 = {
+  name_only = 0,
+}
 
 ---@class history_event_artifact_lostst: history_event
 ---@field artifact artifact_record
@@ -1116,8 +1126,13 @@ df.history_event_artifact_droppedst = {}
 ---@field civ historical_entity
 ---@field site_civ historical_entity
 ---@field site world_site
----@field flags2 any
+---@field flags2 history_event_reclaim_sitest_flags2
 df.history_event_reclaim_sitest = {}
+
+---@enum history_event_reclaim_sitest_flags2
+df.history_event_reclaim_sitest.T_flags2 = {
+  unretire = 0,
+}
 
 ---@class history_event_hf_destroyed_sitest: history_event
 ---@field attacker_hf historical_figure
@@ -1130,15 +1145,25 @@ df.history_event_hf_destroyed_sitest = {}
 ---@field civ historical_entity
 ---@field site_civ historical_entity
 ---@field site world_site
----@field flags2 any
+---@field flags2 history_event_site_diedst_flags2
 df.history_event_site_diedst = {}
+
+---@enum history_event_site_diedst_flags2
+df.history_event_site_diedst.T_flags2 = {
+  abandoned = 0,
+}
 
 ---@class history_event_site_retiredst: history_event
 ---@field civ historical_entity
 ---@field site_civ historical_entity
 ---@field site world_site
----@field flags2 any
+---@field flags2 history_event_site_retiredst_flags2
 df.history_event_site_retiredst = {}
+
+---@enum history_event_site_retiredst_flags2
+df.history_event_site_retiredst.T_flags2 = {
+  first_time = 0,
+}
 
 ---@class history_event_entity_createdst: history_event
 ---@field entity historical_entity
@@ -1347,8 +1372,13 @@ df.history_event_war_site_new_leaderst = {}
 ---@field site_civ historical_entity
 ---@field site world_site
 ---@field season season
----@field tribute_flags any
+---@field tribute_flags history_event_war_site_tribute_forcedst_tribute_flags
 df.history_event_war_site_tribute_forcedst = {}
+
+---@enum history_event_war_site_tribute_forcedst_tribute_flags
+df.history_event_war_site_tribute_forcedst.T_tribute_flags = {
+  bled_dry = 0, --tribute was demanded, but not received
+}
 
 ---@class history_event_war_site_taken_overst: history_event
 ---@field attacker_civ historical_entity
@@ -1494,7 +1524,7 @@ df.history_event_creature_devouredst = {}
 ---@field body_part integer
 ---@field injury_type history_event_hist_figure_woundedst_injury_type
 ---@field part_lost boolean
----@field flags2 any
+---@field flags2 history_event_hist_figure_woundedst_flags2
 df.history_event_hist_figure_woundedst = {}
 
 ---@enum history_event_hist_figure_woundedst_injury_type
@@ -1504,6 +1534,11 @@ df.history_event_hist_figure_woundedst.T_injury_type = {
   Stab = 2,
   Rip = 3,
   Burn = 4,
+}
+
+---@enum history_event_hist_figure_woundedst_flags2
+df.history_event_hist_figure_woundedst.T_flags2 = {
+  torture = 0,
 }
 
 ---@enum history_event_simple_battle_subtype
@@ -1627,11 +1662,16 @@ df.history_event_change_creature_typest = {}
 ---@field region world_region
 ---@field layer world_underground_region
 ---@field ghost_type ghost_type
----@field flags2 any
+---@field flags2 history_event_hist_figure_revivedst_flags2
 ---@field actor_hfid historical_figure
 ---@field interaction interaction
 ---@field unk_1 integer
 df.history_event_hist_figure_revivedst = {}
+
+---@enum history_event_hist_figure_revivedst_flags2
+df.history_event_hist_figure_revivedst.T_flags2 = {
+  again = 0,
+}
 
 ---@class history_event_hf_learns_secretst: history_event
 ---@field student historical_figure
@@ -1699,9 +1739,19 @@ df.history_event_hf_confrontedst = {}
 ---@class history_event_entity_lawst: history_event
 ---@field entity historical_entity
 ---@field histfig historical_figure
----@field add_flags any
----@field remove_flags any
+---@field add_flags history_event_entity_lawst_add_flags
+---@field remove_flags history_event_entity_lawst_remove_flags
 df.history_event_entity_lawst = {}
+
+---@enum history_event_entity_lawst_add_flags
+df.history_event_entity_lawst.T_add_flags = {
+  harsh = 0,
+}
+
+---@enum history_event_entity_lawst_remove_flags
+df.history_event_entity_lawst.T_remove_flags = {
+  harsh = 0,
+}
 
 ---@class history_event_hf_gains_secret_goalst: history_event
 ---@field histfig historical_figure
@@ -1968,8 +2018,13 @@ df.history_event_hfs_formed_reputation_relationshipst = {}
 ---@field site_src world_site
 ---@field structure_dest abstract_building
 ---@field structure_src abstract_building
----@field flags2 any
+---@field flags2 history_event_artifact_copiedst_flags2
 df.history_event_artifact_copiedst = {}
+
+---@enum history_event_artifact_copiedst_flags2
+df.history_event_artifact_copiedst.T_flags2 = {
+  from_original = 0,
+}
 
 ---@class history_event_sneak_into_sitest: history_event
 ---@field attacker_civ historical_entity
@@ -2051,8 +2106,13 @@ df.tactical_situation = {
 ---@field structure abstract_building
 ---@field subregion world_region
 ---@field feature_layer world_underground_region
----@field tactics_flags any
+---@field tactics_flags history_event_tactical_situationst_tactics_flags
 df.history_event_tactical_situationst = {}
+
+---@enum history_event_tactical_situationst_tactics_flags
+df.history_event_tactical_situationst.T_tactics_flags = {
+  start = 0,
+}
 
 ---@class history_event_squad_vs_squadst: history_event
 ---@field a_leader_hfid historical_figure
@@ -2127,8 +2187,16 @@ df.history_event_entity_equipment_purchasest = {}
 ---@field structure integer index into world_site.buildings
 ---@field hf historical_figure
 ---@field unk_1 integer
----@field modification any
+---@field modification history_event_modified_buildingst_modification
 df.history_event_modified_buildingst = {}
+
+---@enum history_event_modified_buildingst_modification
+df.history_event_modified_buildingst.T_modification = {
+  dungeon = 0,
+  fortifications = 1,
+  courtyard = 2,
+  feast_hall = 3,
+}
 
 ---@class history_event_building_profile_acquiredst: history_event
 ---@field site world_site
@@ -2244,9 +2312,28 @@ df.history_event_failed_intrigue_corruptionst = {}
 ---@field crime integer references crime::T_mode
 ---@field hammerstrokes integer
 ---@field prison_months integer
----@field punishment_flags any
----@field plot_flags any
+---@field punishment_flags history_event_hf_convictedst_punishment_flags
+---@field plot_flags history_event_hf_convictedst_plot_flags
 df.history_event_hf_convictedst = {}
+
+---@enum history_event_hf_convictedst_punishment_flags
+df.history_event_hf_convictedst.T_punishment_flags = {
+  beaten = 0,
+  exiled = 1,
+  death_sentence = 2, --sentenced to death
+  no_prison_available = 3, --would have been imprisoned but for lack of accommodations
+}
+
+---@enum history_event_hf_convictedst_plot_flags
+df.history_event_hf_convictedst.T_plot_flags = {
+  wrongful = 0, --wrongful conviction
+  plot_surveillance = 1, --due to ongoing surveillance as the plot unfolded
+  target_surveillance = 2, --due to ongoing surveillance on the target
+  implicated_others = 3, --implicated others during interrogation
+  co_conspirator_surveillance = 4, --due to ongoing surveillance on a coconspirator
+  go_between = 5, --convicted as go-between
+  revealed_nothing = 6, --revealed nothing during interrogation
+}
 
 ---@class history_event_failed_frame_attemptst: history_event
 ---@field target_hf historical_figure
@@ -2262,8 +2349,14 @@ df.history_event_failed_frame_attemptst = {}
 ---@field arresting_entity historical_entity
 ---@field interrogator_hf historical_figure
 ---@field implicated_hfs integer[]
----@field interrogation_flags any
+---@field interrogation_flags history_event_hf_interrogatedst_interrogation_flags
 df.history_event_hf_interrogatedst = {}
+
+---@enum history_event_hf_interrogatedst_interrogation_flags
+df.history_event_hf_interrogatedst.T_interrogation_flags = {
+  recognized = 0,
+  refused_to_reveal = 1,
+}
 
 ---@enum history_event_collection_type
 df.history_event_collection_type = {
@@ -2645,7 +2738,7 @@ df.intrigue = {}
 ---@field manipulated_emotion intrigue_corruption_manipulated_emotion
 ---@field emotion_rating integer -100 to 125 seen
 ---@field emotion_roll integer -10 to 12 seen
----@field flags any
+---@field flags intrigue_corruption_flags
 ---@field position_entity_id historical_entity Used to pull rank
 ---@field position_assignment_id entity_position_assignment
 ---@field offered_id historical_figure deity or revenge target
@@ -2673,5 +2766,11 @@ df.intrigue_corruption.T_manipulated_emotion = {
   Love = 2,
   Fear = 3,
   Respect = 4,
+}
+
+---@enum intrigue_corruption_flags
+df.intrigue_corruption.T_flags = {
+  succeeded = 0,
+  misread_target = 1,
 }
 

@@ -8,8 +8,13 @@ df.machine_type = {
 
 ---@class machine_info: df.struct
 ---@field machine_id machine
----@field flags any
+---@field flags machine_info_flags
 df.machine_info = {}
+
+---@enum machine_info_flags
+df.machine_info.T_flags = {
+  frozen = 0,
+}
 
 ---@class power_info: df.struct
 ---@field produced integer
@@ -41,8 +46,15 @@ df.machine_tile_set = {}
 ---@field min_power integer
 ---@field visual_phase integer
 ---@field phase_timer integer
----@field flags any
+---@field flags machine_flags
 df.machine = {}
+
+---@enum machine_flags
+df.machine.T_flags = {
+  active = 0,
+  frozen = 1, --?
+  unfreeze = 2, --?
+}
 
 ---@class machine_standardst: machine
 df.machine_standardst = {}
@@ -58,8 +70,13 @@ df.building_axle_verticalst = {}
 
 ---@class building_gear_assemblyst: building_actual
 ---@field machine machine_info
----@field gear_flags any
+---@field gear_flags building_gear_assemblyst_gear_flags
 df.building_gear_assemblyst = {}
+
+---@enum building_gear_assemblyst_gear_flags
+df.building_gear_assemblyst.T_gear_flags = {
+  disengaged = 0,
+}
 
 ---@class building_windmillst: building_actual
 ---@field machine machine_info

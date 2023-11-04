@@ -71,7 +71,7 @@ df.extentst = {}
 ---@field rect extentst
 ---@field custom_feed function
 ---@field name string
----@field visibility_flags any
+---@field visibility_flags widget_visibility_flags
 ---@field offset_bottom integer
 ---@field offset_left integer
 ---@field offset_right integer
@@ -87,6 +87,12 @@ df.extentst = {}
 ---@field displaying_tooltip boolean
 ---@field search_string string
 df.widget = {}
+
+---@enum widget_visibility_flags
+df.widget.T_visibility_flags = {
+  WIDGET_VISIBILITY_ACTIVE = 0,
+  WIDGET_VISIBILITY_ACTUALLY_VISIBLE = 1,
+}
 
 ---@enum widget_tooltip_type
 df.widget.T_tooltip_type = {

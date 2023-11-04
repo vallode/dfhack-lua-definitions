@@ -193,7 +193,7 @@ df.entity_name_type = {
 ---@field values integer[]
 ---@field variable_value_min integer[]
 ---@field variable_value_max integer[]
----@field scholar any
+---@field scholar entity_raw_scholar
 ---@field max_site_pop_number integer
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
@@ -270,6 +270,19 @@ df.entity_raw.T_symbols = {}
 ---@field trade_siege integer
 df.entity_raw.T_progress_trigger = {}
 
+---@enum entity_raw_scholar
+df.entity_raw.T_scholar = {
+  PHILOSOPHER = 0,
+  MATHEMATICIAN = 1,
+  HISTORIAN = 2,
+  ASTRONOMER = 3,
+  NATURALIST = 4,
+  CHEMIST = 5,
+  GEOGRAPHER = 6,
+  DOCTOR = 7,
+  ENGINEER = 8,
+}
+
 ---@class entity_raw_jobs: df.struct
 ---@field permitted_job boolean[]
 ---@field permitted_labor boolean[]
@@ -288,8 +301,23 @@ df.entity_raw.T_workshops = {}
 ---@field caste_token string[]
 ---@field animal_class string[]
 ---@field forbidden_class string[]
----@field flags any
+---@field flags entity_animal_raw_flags
 df.entity_animal_raw = {}
+
+---@enum entity_animal_raw_flags
+df.entity_animal_raw.T_flags = {
+  ALWAYS_PRESENT = 0,
+  NEVER_MOUNT = 1,
+  ALWAYS_MOUNT = 2,
+  NEVER_WAGON_PULLER = 3,
+  ALWAYS_WAGON_PULLER = 4,
+  NEVER_SIEGE = 5,
+  ALWAYS_SIEGE = 6,
+  NEVER_PET = 7,
+  ALWAYS_PET = 8,
+  NEVER_PACK_ANIMAL = 9,
+  ALWAYS_PACK_ANIMAL = 10,
+}
 
 ---@enum entity_position_raw_flags
 df.entity_position_raw_flags = {

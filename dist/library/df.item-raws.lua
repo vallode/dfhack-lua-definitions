@@ -118,8 +118,14 @@ df.item_type.attrs = {}
 ---@field noun string
 ---@field prepare integer
 ---@field recover integer
----@field flags any
+---@field flags weapon_attack_flags
 df.weapon_attack = {}
+
+---@enum weapon_attack_flags
+df.weapon_attack.T_flags = {
+  independent_multiattack = 0,
+  bad_multiattack = 1,
+}
 
 ---@enum itemdef_flags
 df.itemdef_flags = {
@@ -400,8 +406,14 @@ df.timbre_type = {
 ---@field index integer
 ---@field name string
 ---@field name_plural string
----@field flags any
+---@field flags instrument_piece_flags
 df.instrument_piece = {}
+
+---@enum instrument_piece_flags
+df.instrument_piece.T_flags = {
+  always_singular = 0,
+  always_plural = 1,
+}
 
 ---@class instrument_register: df.struct
 ---@field pitch_range_min integer

@@ -27,9 +27,15 @@ df.squad_uniform_spec = {}
 ---@class squad_ammo_spec: df.struct
 ---@field item_filter item_filter_spec
 ---@field amount integer
----@field flags any
+---@field flags squad_ammo_spec_flags
 ---@field assigned item[]
 df.squad_ammo_spec = {}
+
+---@enum squad_ammo_spec_flags
+df.squad_ammo_spec.T_flags = {
+  use_combat = 0,
+  use_training = 1,
+}
 
 ---@enum squad_use_flags
 df.squad_use_flags = {
@@ -356,8 +362,16 @@ df.army_controller_invasion_order = {}
 
 ---@class army_controller_invasion: df.struct
 ---@field unk_1 integer
----@field unk_2 any
+---@field unk_2 army_controller_invasion_unk_2
 df.army_controller_invasion = {}
+
+---@enum army_controller_invasion_unk_2
+df.army_controller_invasion.T_unk_2 = {
+  not_sleeping = 0, --set to 1 to make army wake up
+  unk_2 = 1, --seen set on gobbo/necro attack controller
+  unk_3 = 2,
+  unk_4 = 3, --sen set on gobbo/necro attack controller
+}
 
 ---@class army_controller_sub5: df.struct
 ---@field pos_x integer in map_block coordinates. Same as those of the main struct seen

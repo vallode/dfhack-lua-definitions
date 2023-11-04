@@ -356,14 +356,14 @@ df.announcement_type = {
 
 ---@enum announcement_flags
 df.announcement_flags = {
-  DO_MEGA = 0,                       --BOX
-  PAUSE = 1,                         --P
-  RECENTER = 2,                      --R
-  A_DISPLAY = 3,                     --A_D
-  D_DISPLAY = 4,                     --D_D
-  UNIT_COMBAT_REPORT = 5,            --UCR
+  DO_MEGA = 0, --BOX
+  PAUSE = 1, --P
+  RECENTER = 2, --R
+  A_DISPLAY = 3, --A_D
+  D_DISPLAY = 4, --D_D
+  UNIT_COMBAT_REPORT = 5, --UCR
   UNIT_COMBAT_REPORT_ALL_ACTIVE = 6, --UCR_A
-  ALERT = 7,                         --ALERT
+  ALERT = 7, --ALERT
 }
 
 ---@class announcements: df.struct
@@ -377,7 +377,7 @@ df.announcements = {}
 ---@field color integer
 ---@field bright boolean
 ---@field duration integer remaining graphical frames to display this report in announcement bar
----@field flags any
+---@field flags report_flags
 ---@field repeat_count integer 100 => displays: x101
 ---@field zoom_type report_zoom_type
 ---@field pos coord
@@ -390,6 +390,13 @@ df.announcements = {}
 ---@field unk_v40_2 integer
 ---@field speaker_id unit unit speaking the conversation
 df.report = {}
+
+---@enum report_flags
+df.report.T_flags = {
+  continuation = 0, --When split into multiple lines, set on all but the first
+  unconscious = 1, --units.active[0]
+  announcement = 2,
+}
 
 ---@enum report_zoom_type
 df.report_zoom_type = {
@@ -419,5 +426,11 @@ df.popup_message = {}
 ---@field unk_v40_1 integer same as unknown field in report
 ---@field unk_v40_2 integer same as unknown field in report
 ---@field speaker_id unit
----@field flags any
+---@field flags report_init_flags
 df.report_init = {}
+
+---@enum report_init_flags
+df.report_init.T_flags = {
+  hostile_combat = 0, --hunting or combat report, not sparring
+}
+

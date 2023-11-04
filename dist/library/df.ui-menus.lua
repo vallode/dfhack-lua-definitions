@@ -2250,7 +2250,7 @@ df.hash_rngst = {}
 ---@field cavern_dweller_max_attackers integer
 ---@field tree_fell_count_savage integer
 ---@field tree_fell_count integer
----@field flags any
+---@field flags difficultyst_flags
 ---@field economy_pop_trigger integer[]
 ---@field economy_prod_trigger integer[]
 ---@field economy_trade_trigger integer[]
@@ -2268,6 +2268,14 @@ df.hash_rngst = {}
 ---@field mandate_period integer
 ---@field demand_period integer
 df.difficultyst = {}
+
+---@enum difficultyst_flags
+df.difficultyst.T_flags = {
+  sieges = 0,
+  megabeasts = 1,
+  werebeasts = 2,
+  curiousbeasts = 3,
+}
 
 ---@class markup_text_boxst: df.struct
 ---@field unk1 string[]
@@ -2378,7 +2386,7 @@ df.plot_entryst = {}
 ---@field dependencies string[]
 ---@field dependency_type integer[] 0 exact, 1 before, 2 after
 ---@field conflicts string[]
----@field flags any
+---@field flags mod_headerst_flags
 ---@field src_dir string
 ---@field steam_file_id integer
 ---@field steam_title string
@@ -2392,6 +2400,13 @@ df.plot_entryst = {}
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
 df.mod_headerst = {}
+
+---@enum mod_headerst_flags
+df.mod_headerst.T_flags = {
+  currently_installed = 0,
+  have_other_version = 1,
+  vanilla = 2,
+}
 
 ---@class ui_look_list: df.struct
 ---@field items any[]

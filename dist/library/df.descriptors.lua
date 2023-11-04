@@ -31,7 +31,7 @@ df.descriptor_color = {}
 ---@field name string
 ---@field name_plural string
 ---@field adj string[]
----@field gems_use any
+---@field gems_use descriptor_shape_gems_use
 ---@field category string[]
 ---@field faces integer
 ---@field tile integer
@@ -42,6 +42,13 @@ df.descriptor_color = {}
 ---@field unk_v50_5 any
 ---@field unk_v50_6 any
 df.descriptor_shape = {}
+
+---@enum descriptor_shape_gems_use
+df.descriptor_shape.T_gems_use = {
+  noun = 0,
+  adj = 1,
+  adj_noun = 2,
+}
 
 ---@class descriptor_pattern: df.instance
 ---@field id string

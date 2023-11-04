@@ -44,7 +44,7 @@ class Field < XmlNode
     super
 
     @name = node.attributes['name']
-    @is_inline = !node.children.empty? & ["enum", "compound"].include?(node.name)
+    @is_inline = !node.children.empty? & ["enum", "bitfield", "compound"].include?(node.name)
     @type =  @is_inline ? "#{parent_type}_#{@name}" : Field.get_type(node)
   end
 
@@ -187,7 +187,7 @@ class StructType < XmlNode
 
     if not inline_types.empty?
       inline_types.each do |child|
-        if child.name == "enum"
+        if ["enum", "bitfield"].include?(child.name)
           annotation << EnumType.new(child, @name.value).render()
         else
           annotation << StructType.new(child, @name.value).render()

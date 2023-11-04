@@ -608,11 +608,16 @@ df.meeting.T_state = {
 ---@field cur_uniform integer
 ---@field unk_items integer[]
 ---@field uniforms integer[][]
----@field pickup_flags any
+---@field pickup_flags military_pickup_flags
 ---@field uniform_pickup integer[]
 ---@field uniform_drop integer[]
 ---@field individual_drills integer[]
 df.unit.T_military = {}
+
+---@enum military_pickup_flags
+df.military.T_pickup_flags = {
+  update = 0,
+}
 
 ---@class unit_animal: df.struct
 ---@field population world_population_ref
@@ -909,7 +914,7 @@ df.ghost_goal = {
 ---@field misplace_pos coord
 ---@field action_timer integer time since last action
 ---@field unk_18 integer
----@field flags any
+---@field flags unit_ghost_info_flags
 ---@field death_x integer in tiles, global to world
 ---@field death_y integer
 ---@field death_z integer
@@ -920,6 +925,12 @@ df.unit_ghost_info = {}
 ---@field item item
 ---@field building building
 df.unit_ghost_info.T_target = {}
+
+---@enum unit_ghost_info_flags
+df.unit_ghost_info.T_flags = {
+  announced = 0,
+  was_at_rest = 1,
+}
 
 ---@class unit_genes: df.struct
 ---@field appearance integer
@@ -968,9 +979,17 @@ df.unit_attribute = {}
 ---@field wound_id integer
 ---@field symptoms integer[]
 ---@field reinfection_count integer set from unit.reinfection_count[i]++
----@field flags any
+---@field flags unit_syndrome_flags
 ---@field unk4 integer[]
 df.unit_syndrome = {}
+
+---@enum unit_syndrome_flags
+df.unit_syndrome.T_flags = {
+  is_sick = 0, --causes health.flags.needs_healthcare
+  is_sick_low = 1, --less sick? fever: 5-19 low, 20-* full
+  unk_2 = 2,
+  unk_3 = 3,
+}
 
 ---@enum wound_effect_type
 df.wound_effect_type = {
@@ -1035,7 +1054,7 @@ df.wound_damage_flags2 = {
 ---@field age integer
 ---@field attacker_unit_id unit
 ---@field attacker_hist_figure_id historical_figure
----@field flags any
+---@field flags unit_wound_flags
 ---@field syndrome_id syndrome
 ---@field pain integer
 ---@field nausea integer
@@ -1047,6 +1066,16 @@ df.wound_damage_flags2 = {
 ---@field unk_v42_1 integer
 ---@field unk_v42_2 integer
 df.unit_wound = {}
+
+---@enum unit_wound_flags
+df.unit_wound.T_flags = {
+  severed_part = 0,
+  mortal_wound = 1,
+  stuck_weapon = 2,
+  diagnosed = 3,
+  sutured = 4,
+  infection = 5,
+}
 
 ---@class curse_attr_change: df.struct
 ---@field phys_att_perc integer[]
@@ -1322,7 +1351,7 @@ df.unit_emotion_memory = {}
 ---@field combat_hardened integer migrated from misc_traits
 ---@field outdoor_dislike_counter integer incremented when unit is in rain
 ---@field needs need_type[]
----@field flags any
+---@field flags unit_personality_flags
 ---@field temporary_trait_changes integer[] sum of inebriation or so personality changing effects
 ---@field slack_end_year integer
 ---@field slack_end_year_tick integer
@@ -1335,6 +1364,12 @@ df.unit_emotion_memory = {}
 ---@field current_focus integer weighted sum of needs focus_level-s
 ---@field undistracted_focus integer usually number of needs multiplied by 4
 df.unit_personality = {}
+
+---@enum unit_personality_flags
+df.unit_personality.T_flags = {
+  distraction_calculated = 0,
+  has_unmet_needs = 1, --focus_level is below -999 for at least one need
+}
 
 ---@enum unit_action_type_group
 ---for the action timer API, not in DF
@@ -1423,8 +1458,13 @@ df.unit_action.T_data = {}
 ---@field timer integer
 ---@field timer_init integer
 ---@field fatigue integer
----@field flags any
+---@field flags unit_action_data_move_flags
 df.unit_action_data_move = {}
+
+---@enum unit_action_data_move_flags
+df.unit_action_data_move.T_flags = {
+  charge = 0,
+}
 
 ---@class unit_action_data_attack: df.struct
 ---@field target_unit_id unit
@@ -1436,7 +1476,7 @@ df.unit_action_data_move = {}
 ---@field unk_28 integer
 ---@field unk_2c integer
 ---@field attack_velocity integer
----@field flags any
+---@field flags unit_action_data_attack_flags
 ---@field attack_skill job_skill
 ---@field attack_accuracy integer
 ---@field timer1 integer prepare
@@ -1457,6 +1497,26 @@ df.unit_action_data_attack.T_unk_4 = {}
 df.unk_4.T_wrestle_type = {
   Wrestle = 0,
   Grab = 1,
+}
+
+---@enum unit_action_data_attack_flags
+df.unit_action_data_attack.T_flags = {
+  unk_0 = 0,
+  unk_1 = 1,
+  unk_2 = 2,
+  unk_3 = 3,
+  unk_4 = 4,
+  quick = 5,
+  heavy = 6,
+  wild = 7,
+  precise = 8,
+  charge = 9,
+  unk_10 = 10, --multi-attack
+  unk_11 = 11,
+  lightly_tap = 12,
+  unk_13 = 13,
+  unk_14 = 14,
+  spar_report = 15,
 }
 
 ---@class unit_action_data_jump: df.struct
@@ -1668,8 +1728,14 @@ df.unit_complaint = {}
 ---@field invasion invasion_info
 ---@field speaker unit
 ---@field artifact artifact_record
----@field flags any
+---@field flags unit_parley_flags
 df.unit_parley = {}
+
+---@enum unit_parley_flags
+df.unit_parley.T_flags = {
+  did_topic_meeting = 0,
+  returning_treasure = 1,
+}
 
 ---@class unit_request: df.struct
 ---@field type unit_request_type
@@ -1724,11 +1790,18 @@ df.work_detail_mode = {
 
 ---@class work_detail: df.struct
 ---@field name string
----@field work_detail_flags any
+---@field work_detail_flags work_detail_work_detail_flags
 ---@field assigned_units integer[] toady: unid
 ---@field allowed_labors boolean[] toady: profession
 ---@field icon work_detail_icon
 df.work_detail = {}
+
+---@enum work_detail_work_detail_flags
+df.work_detail.T_work_detail_flags = {
+  no_modify = 0, --toady: DEFAULT
+  cannot_be_everybody = 1,
+  mode = 2,
+}
 
 ---@enum work_detail_icon
 df.work_detail.T_icon = {
@@ -1755,7 +1828,14 @@ df.work_detail.T_icon = {
 
 ---@class process_unit_aux: df.struct
 ---@field unit unit
----@field flags any
+---@field flags process_unit_aux_flags
 ---@field unitlist any[]
 df.process_unit_aux = {}
+
+---@enum process_unit_aux_flags
+df.process_unit_aux.T_flags = {
+  unk0 = 0,
+  unk_1 = 1,
+  unk2 = 2,
+}
 

@@ -77,14 +77,24 @@ df.temperaturest = {}
 ---@field mat_state matter_state
 ---@field temperature temperaturest
 ---@field size integer 1-24=spatter, 25-49=smear, 50-* = coating
----@field base_flags any
+---@field base_flags spatter_common_base_flags
 ---@field pad_1 any needed for proper alignment of spatter on gcc
 df.spatter_common = {}
 
+---@enum spatter_common_base_flags
+df.spatter_common.T_base_flags = {
+  evaporates = 0, --does not contaminate tile when washed away
+}
+
 ---@class spatter: spatter_common
 ---@field body_part_id integer
----@field flags any
+---@field flags spatter_flags
 df.spatter = {}
+
+---@enum spatter_flags
+df.spatter.T_flags = {
+  water_soluble = 0,
+}
 
 ---@enum item_quality
 df.item_quality = {
@@ -288,7 +298,7 @@ df.corpse_material_type = {
 ---@field hist_figure_id2 historical_figure
 ---@field undead_unit_id unit
 ---@field unit_id2 unit
----@field corpse_flags any
+---@field corpse_flags item_body_component_corpse_flags
 ---@field material_amount integer[]
 ---@field bone1 item_body_component_bone1
 ---@field bone2 item_body_component_bone2
@@ -314,6 +324,26 @@ df.item_body_component.T_body = {}
 ---@field tissue_style_id integer[]
 ---@field tissue_style_type integer[]
 df.item_body_component.T_appearance = {}
+
+---@enum item_body_component_corpse_flags
+df.item_body_component.T_corpse_flags = {
+  unbutchered = 0,
+  plant = 1,
+  silk = 2,
+  leather = 3,
+  bone = 4,
+  shell = 5,
+  unk_6 = 6,
+  soap = 7,
+  tooth = 8,
+  horn = 9,
+  pearl = 10,
+  skull1 = 11,
+  skull2 = 12,
+  separated_part = 13, --?
+  hair_wool = 14,
+  yarn = 15,
+}
 
 ---@class item_body_component_bone1: df.struct
 ---@field mat_type material
@@ -490,8 +520,13 @@ df.item_verminst = {}
 
 ---@class item_petst: item_critter
 ---@field owner_id unit
----@field pet_flags any
+---@field pet_flags item_petst_pet_flags
 df.item_petst = {}
+
+---@enum item_petst_pet_flags
+df.item_petst.T_pet_flags = {
+  available_for_adoption = 0,
+}
 
 ---@class item_drinkst: item_liquid
 df.item_drinkst = {}
@@ -522,7 +557,7 @@ df.item_threadst = {}
 ---@field caste caste_raw
 ---@field rot_timer integer
 ---@field egg_materials material_vec_ref
----@field egg_flags any
+---@field egg_flags item_eggst_egg_flags
 ---@field incubation_counter integer increments when fertile in unforbidden nestbox, hatch at >= 100800 (3 months)
 ---@field hatchling_civ_id historical_entity hatchlings will have this civ_id
 ---@field hatchling_population_id entity_population hatchlings will have this population_id
@@ -543,6 +578,11 @@ df.item_threadst = {}
 ---@field hatchling_mother_id unit
 ---@field size integer
 df.item_eggst = {}
+
+---@enum item_eggst_egg_flags
+df.item_eggst.T_egg_flags = {
+  fertile = 0, --allows the incubation_counter to be checked/incremented
+}
 
 ---@class item_doorst: item_constructed
 df.item_doorst = {}

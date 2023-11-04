@@ -98,7 +98,7 @@ df.incident_hfid = {}
 ---@field entity historical_entity
 ---@field event_year integer
 ---@field event_time integer
----@field flags any
+---@field flags incident_flags
 ---@field death_cause death_type
 ---@field conflict_level conflict_level
 ---@field activity_id activity_entry
@@ -123,6 +123,13 @@ df.incident.T_type = {
   Writing = 8,
   SelfID = 9,
   RefusedID = 10,
+}
+
+---@enum incident_flags
+df.incident.T_flags = {
+  announced_missing = 0,
+  discovered = 1,
+  unk2 = 2,
 }
 
 ---@class incident_data: df.struct
@@ -207,7 +214,7 @@ df.incident_data_identity = {}
 ---@field victim_hf_2 historical_figure the two additional copies probably refers to some other roles, but all 3 are identical in cases seen
 ---@field victim_hf_3 historical_figure
 ---@field unk_v47_vector_3 integer[] this vector hasn't been seen, but is guessed at based on the pattern above
----@field flags any
+---@field flags crime_flags
 ---@field incident_id incident
 ---@field event_year integer
 ---@field event_time integer
@@ -260,6 +267,13 @@ df.crime.T_convict_data = {}
 ---@field unk_v47_vector_2 integer[]
 ---@field victim unit
 df.crime.T_victim_data = {}
+
+---@enum crime_flags
+df.crime.T_flags = {
+  sentenced = 0,
+  discovered = 1,
+  needs_trial = 2, --i.e. the player chooses whom to convict
+}
 
 ---@class crime_witness: df.struct
 ---@field incident_id incident
@@ -368,8 +382,13 @@ df.interrogation_report = {}
 ---@field unk_19 integer
 ---@field unk_20 integer
 ---@field unk_21 integer
----@field flags any
+---@field flags unk_flags
 df.interrogation_report.T_unk = {}
+
+---@enum unk_flags
+df.unk.T_flags = {
+  unk_0 = 0,
+}
 
 ---@class divine_treasure: df.struct
 ---@field histfig_id historical_figure
@@ -948,7 +967,7 @@ df.world.T_activities = {}
 ---@field popups popup_message[]
 ---@field unk_v50_1 markup_text_boxst
 ---@field next_report_id integer
----@field flags any
+---@field flags status_flags
 ---@field unk_1 integer[]
 ---@field mission_reports mission_report[]
 ---@field spoils_reports spoils_report[]
@@ -958,6 +977,13 @@ df.world.T_activities = {}
 ---@field display_timer integer
 ---@field slots status_slots
 df.world.T_status = {}
+
+---@enum status_flags
+df.status.T_flags = {
+  combat = 0,
+  hunting = 1,
+  sparring = 2,
+}
 
 ---@class status_slots: df.struct
 ---@field slotdata combat_report_event_type[]
@@ -1410,7 +1436,7 @@ df.world.T_features = {}
 ---@field creature_cnt integer[]
 ---@field selecting_mount_un unit
 ---@field conflict_level conflict_level
----@field flag any
+---@field flag arena_flag
 ---@field temperature integer
 ---@field time integer
 ---@field weather_column integer
@@ -1432,6 +1458,11 @@ df.world.T_arena = {}
 ---@field item_materials material_vec_ref
 ---@field item_counts integer[]
 df.arena.T_equipment = {}
+
+---@enum arena_flag
+df.arena.T_flag = {
+  morale_enable = 0,
+}
 
 ---@class world_dungeon: df.struct
 ---@field creature_race integer[]

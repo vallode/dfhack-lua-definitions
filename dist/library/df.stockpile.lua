@@ -408,7 +408,7 @@ df.hauling_stop = {}
 ---@field direction stop_depart_condition_direction
 ---@field mode stop_depart_condition_mode
 ---@field load_percent integer broken display unless 0, 50 or 100
----@field flags any
+---@field flags stop_depart_condition_flags
 ---@field guide_path coord_path initialized on first run, and saved
 df.stop_depart_condition = {}
 
@@ -427,10 +427,22 @@ df.stop_depart_condition.T_mode = {
   Guide = 2,
 }
 
+---@enum stop_depart_condition_flags
+df.stop_depart_condition.T_flags = {
+  at_most = 0,
+  desired = 1,
+}
+
 ---@class route_stockpile_link: df.struct
 ---@field building_id building
----@field mode any
+---@field mode route_stockpile_link_mode
 df.route_stockpile_link = {}
+
+---@enum route_stockpile_link_mode
+df.route_stockpile_link.T_mode = {
+  take = 0,
+  give = 1,
+}
 
 ---@class vehicle: df.instance
 ---@field id integer

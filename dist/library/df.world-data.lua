@@ -44,13 +44,21 @@ df.world_population_ref = {}
 ---@field type world_population_type
 ---@field quantity integer
 ---@field quantity2 integer
----@field flags any
+---@field flags local_population_flags
 ---@field population world_population_ref
 ---@field wp_unk_10 integer
 ---@field wp_unk_18 integer
 ---@field wp_unk_1c integer only set on subset of animals (including vermin). None seen on fresh embark
 ---@field unk_v47_1 integer set on same animals as wp_unk_1c and only seen 0
 df.local_population = {}
+
+---@enum local_population_flags
+df.local_population.T_flags = {
+  discovered = 0,
+  extinct = 1, --guessed, based on 23a
+  already_removed = 2, --no longer in world.populations
+  unk3 = 3, --prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
+}
 
 ---@class world_population: df.struct
 ---@field type world_population_type
@@ -336,8 +344,8 @@ df.fog_type = {
 ---@field air_temp integer
 ---@field air_x integer Toady: a velocity component?  I dont remember
 ---@field air_y integer
----@field clouds front_type
----@field wind any blows toward direction in morning
+---@field clouds region_map_entry_clouds
+---@field wind region_map_entry_wind blows toward direction in morning
 ---@field snowfall integer 0-5000, humidity?
 ---@field salinity integer 0-100
 ---@field unk_3e coord
@@ -347,6 +355,29 @@ df.fog_type = {
 ---@field landmass_id world_landmass
 ---@field geo_index world_geo_biome
 df.region_map_entry = {}
+
+---@enum region_map_entry_clouds
+df.region_map_entry.T_clouds = {
+  front = 0,
+  cumulus = 1,
+  cirrus = 2,
+  stratus = 3,
+  fog = 4,
+  countdown = 5, --A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+}
+
+---@enum region_map_entry_wind
+---blows toward direction in morning
+df.region_map_entry.T_wind = {
+  north_1 = 0,
+  south_1 = 1,
+  east_1 = 2,
+  west_1 = 3,
+  north_2 = 4,
+  south_2 = 5,
+  east_2 = 6,
+  west_2 = 7,
+}
 
 ---@class entity_claim_mask: df.struct
 ---@field map integer[]

@@ -74,7 +74,7 @@ df.abstract_building_entombed = {}
 
 ---@class abstract_building_contents: df.struct
 ---used within Temple, Library, and Inn/Tavern
----@field need_more any
+---@field need_more abstract_building_contents_need_more
 ---@field profession profession
 ---@field desired_goblets integer
 ---@field desired_instruments integer
@@ -103,6 +103,21 @@ df.abstract_building_entombed = {}
 ---@field unk_v47_3 integer
 ---@field building_ids integer[]
 df.abstract_building_contents = {}
+
+---@enum abstract_building_contents_need_more
+df.abstract_building_contents.T_need_more = {
+  goblets = 0,
+  instruments = 1,
+  paper = 2,
+  unk_3 = 3,
+  splints = 4,
+  thread = 5,
+  cloth = 6,
+  crutches = 7,
+  powder = 8,
+  buckets = 9,
+  soap = 10,
+}
 
 ---@class abstract_building: df.struct
 ---@field id integer

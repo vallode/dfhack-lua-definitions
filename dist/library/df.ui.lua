@@ -182,11 +182,16 @@ df.equipment_update = {
 }
 
 ---@class labor_infost: df.struct
----@field flags any
+---@field flags labor_infost_flags
 ---@field work_details work_detail[]
 ---@field chores boolean[]
 ---@field chores_exempted_children any[] toady: no_chore_child_unid
 df.labor_infost = {}
+
+---@enum labor_infost_flags
+df.labor_infost.T_flags = {
+  children_do_chores = 0,
+}
 
 ---@class plotinfost: df.struct
 ---@field game_state integer 2 running, 1 lost to siege, 0 lost
@@ -226,7 +231,7 @@ df.labor_infost = {}
 ---@field dipscript_popups dipscript_popup[] cause viewscreen_meetingst to pop up
 ---@field kitchen plotinfost_kitchen
 ---@field economic_stone boolean[]
----@field unk23c8_flags any
+---@field unk23c8_flags plotinfost_unk23c8_flags
 ---@field mood_cooldown integer
 ---@field civ_id historical_entity
 ---@field site_id world_site
@@ -323,6 +328,13 @@ df.plotinfost.T_invasions = {}
 ---@field mat_indices integer[]
 ---@field exc_types kitchen_exc_type[]
 df.plotinfost.T_kitchen = {}
+
+---@enum plotinfost_unk23c8_flags
+df.plotinfost.T_unk23c8_flags = {
+  first_year = 0,
+  recheck_aid_requests = 1,
+  force_elections = 2,
+}
 
 ---@class plotinfost_economy_prices: df.struct
 ---@field price_adjustment economy_prices_price_adjustment

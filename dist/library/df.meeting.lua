@@ -17,8 +17,14 @@ df.dipscript_text = {}
 ---@field meeting_holder_actor unit
 ---@field meeting_holder_noble unit
 ---@field activity activity_info
----@field flags any
+---@field flags dipscript_popup_flags
 df.dipscript_popup = {}
+
+---@enum dipscript_popup_flags
+df.dipscript_popup.T_flags = {
+  close_screen = 0,
+  new_screen = 1,
+}
 
 ---@class script_stepst: df.struct
 ---@field next_step_idx integer
@@ -132,7 +138,7 @@ df.meeting_context = {}
 ---@field active_script_vars active_script_varst[]
 ---@field unk_50 string
 ---@field unk_6c string
----@field flags any
+---@field flags meeting_diplomat_info_flags
 ---@field events meeting_event[]
 ---@field agreement_entity integer[]
 ---@field agreement_topic meeting_topic[]
@@ -143,6 +149,13 @@ df.meeting_context = {}
 ---@field contact_year integer[]
 ---@field contact_tick integer[]
 df.meeting_diplomat_info = {}
+
+---@enum meeting_diplomat_info_flags
+df.meeting_diplomat_info.T_flags = {
+  dynamic_load = 0, --destroy dipscript_info in destructor
+  failure = 1,
+  success = 2,
+}
 
 ---@enum meeting_topic
 df.meeting_topic = {
@@ -187,17 +200,32 @@ df.meeting_event = {}
 ---@field unit_actor unit diplomat or worker
 ---@field unit_noble unit meeting recipient
 ---@field place building
----@field flags any
+---@field flags activity_info_flags
 ---@field unk3 integer 3
 ---@field delay integer 0
 ---@field tree_quota integer -1
 df.activity_info = {}
 
+---@enum activity_info_flags
+df.activity_info.T_flags = {
+  next_step = 0,
+  checked_building = 1,
+  add_delay = 2,
+  topic_discussed = 3,
+  meeting_done = 4,
+}
+
 ---@class room_rent_info: df.struct
 ---@field elements building[]
 ---@field rent_value integer
----@field flags any
+---@field flags room_rent_info_flags
 df.room_rent_info = {}
+
+---@enum room_rent_info_flags
+df.room_rent_info.T_flags = {
+  eviction_underway = 0,
+  move_underway = 1,
+}
 
 ---@enum activity_entry_type
 df.activity_entry_type = {
@@ -269,10 +297,16 @@ df.activity_event_participants = {}
 ---@field event_id integer mostly, but not always, the index in activity.events
 ---@field activity_id activity_entry
 ---@field parent_event_id activity_event
----@field flags any
+---@field flags activity_event_flags
 ---@field unk_v42_1 integer[]
 ---@field unk_v42_2 integer[]
 df.activity_event = {}
+
+---@enum activity_event_flags
+df.activity_event.T_flags = {
+  dismissed = 0, --to be removed from squad_position, anyway
+  squad = 1, --for all in training session, but not ind.drill
+}
 
 ---@class activity_event_training_sessionst: activity_event
 ---@field participants activity_event_participants
@@ -422,7 +456,7 @@ df.conversation_menu = {
 ---@field floor_holder unit -1 = no one's turn
 ---@field floor_holder_hfid historical_figure -1 = no one's turn
 ---@field pause integer ticks since the last turn
----@field flags2 any
+---@field flags2 activity_event_conversationst_flags2
 ---@field unk2 activity_event_conversationst_unk2
 ---@field choices talk_choice[]
 ---@field unk3 conversation_menu
@@ -436,6 +470,12 @@ df.activity_event_conversationst = {}
 ---@field unk_4 integer[]
 ---@field unk_5 integer
 df.activity_event_conversationst.T_unk_b4 = {}
+
+---@enum activity_event_conversationst_flags2
+df.activity_event_conversationst.T_flags2 = {
+  unk_0 = 0,
+  shouting = 1,
+}
 
 ---@class activity_event_conversationst_unk2: df.struct
 ---@field unk_1 incident[]
@@ -635,13 +675,20 @@ df.activity_event_fill_service_orderst = {}
 ---@field building_id integer
 ---@field site_id integer
 ---@field location_id integer
----@field unk_1 any
+---@field unk_1 activity_event_writest_unk_1
 ---@field timer integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field mode activity_event_writest_mode
 ---@field knowledge knowledge_scholar_category_flag
 df.activity_event_writest = {}
+
+---@enum activity_event_writest_unk_1
+df.activity_event_writest.T_unk_1 = {
+  unk_0 = 0,
+  unk_1 = 1,
+  unk_2 = 2,
+}
 
 ---@enum activity_event_writest_mode
 df.activity_event_writest.T_mode = {
@@ -655,10 +702,24 @@ df.activity_event_writest.T_mode = {
 ---@field building_id integer
 ---@field site_id integer
 ---@field location_id integer
----@field flagsmaybe any
+---@field flagsmaybe activity_event_copy_written_contentst_flagsmaybe
 ---@field unk_1 integer
 ---@field timer integer
 df.activity_event_copy_written_contentst = {}
+
+---@enum activity_event_copy_written_contentst_flagsmaybe
+df.activity_event_copy_written_contentst.T_flagsmaybe = {
+  unk0 = 0,
+  unk_1 = 1,
+  unk_2 = 2,
+  unk_3 = 3,
+  unk_4 = 4,
+  unk_5 = 5,
+  unk_6 = 6,
+  unk_7 = 7,
+  unk_8 = 8,
+  unk_9 = 9,
+}
 
 ---@class activity_event_teach_topicst: activity_event
 ---@field participants activity_event_participants

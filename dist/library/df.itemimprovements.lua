@@ -43,9 +43,14 @@ df.itemimprovement = {}
 df.itemimprovement_art_imagest = {}
 
 ---@class itemimprovement_coveredst: itemimprovement
----@field cover_flags any
+---@field cover_flags itemimprovement_coveredst_cover_flags
 ---@field shape descriptor_shape
 df.itemimprovement_coveredst = {}
+
+---@enum itemimprovement_coveredst_cover_flags
+df.itemimprovement_coveredst.T_cover_flags = {
+  glazed = 0,
+}
 
 ---@class itemimprovement_rings_hangingst: itemimprovement
 df.itemimprovement_rings_hangingst = {}

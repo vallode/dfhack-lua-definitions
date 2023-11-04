@@ -122,7 +122,7 @@ df.entity_occasion_schedule_feature = {}
 ---@field discovered_feature_layers integer back in 40d, this counted HFS
 ---@field migrant_wave_idx integer when >= 2, no migrants
 ---@field found_minerals integer[] Added after 'you have struck' announcement
----@field found_misc any
+---@field found_misc entity_activity_statistics_found_misc
 df.entity_activity_statistics = {}
 
 ---@class entity_activity_statistics_food: df.struct
@@ -149,6 +149,11 @@ df.entity_activity_statistics.T_food = {}
 ---@field exported integer
 df.entity_activity_statistics.T_wealth = {}
 
+---@enum entity_activity_statistics_found_misc
+df.entity_activity_statistics.T_found_misc = {
+  deep_special = 0,
+}
+
 ---@class caravan_state: df.struct
 ---@field total_capacity integer
 ---@field unk_1 integer
@@ -157,7 +162,7 @@ df.entity_activity_statistics.T_wealth = {}
 ---@field time_remaining integer
 ---@field entity historical_entity
 ---@field activity_stats entity_activity_statistics
----@field flags any
+---@field flags caravan_state_flags
 ---@field import_value integer
 ---@field export_value_total integer
 ---@field export_value_personal integer excluding foreign-produced items
@@ -177,6 +182,19 @@ df.caravan_state.T_trade_state = {
   AtDepot = 2,
   Leaving = 3,
   Stuck = 4,
+}
+
+---@enum caravan_state_flags
+df.caravan_state.T_flags = {
+  check_cleanup = 0, --set each time a merchant leaves the map or dies
+  casualty = 1,
+  hardship = 2,
+  communicate = 3, --send data to mountainhomes
+  seized = 4,
+  offended = 5,
+  announce = 6, --display merchantintro and merchantexit
+  greatly_offended = 7,
+  tribute = 8, --caravan is delivering tribute (not merchant caravan)
 }
 
 ---@class entity_buy_prices: df.struct
@@ -295,11 +313,11 @@ df.historical_entity_type = {
 
 ---@class honors_type: df.struct
 ---@field id integer
----@field flags any
+---@field flags honors_type_flags
 ---@field name string
 ---@field precedence_awarded integer
 ---@field required_skill job_skill
----@field required_skill_type any
+---@field required_skill_type honors_type_required_skill_type
 ---@field required_skill_points integer
 ---@field required_kills integer
 ---@field required_battles integer
@@ -308,6 +326,17 @@ df.historical_entity_type = {
 ---@field required_position integer[]
 ---@field required_former_position integer[]
 df.honors_type = {}
+
+---@enum honors_type_flags
+df.honors_type.T_flags = {
+  granted_to_all_new_members = 0,
+}
+
+---@enum honors_type_required_skill_type
+df.honors_type.T_required_skill_type = {
+  melee_weapon = 0,
+  ranged_weapon = 1,
+}
 
 ---@class artifact_claim: df.struct
 ---@field artifact_id artifact_record
@@ -352,7 +381,7 @@ df.entity_unk_v47_1 = {}
 ---@field next_member_idx integer
 ---@field name language_name
 ---@field race creature_raw
----@field flags any
+---@field flags historical_entity_flags
 ---@field guild_professions integer[] Only seen 1, and only for guilds
 ---@field entity_links entity_entity_link[]
 ---@field site_links entity_site_link[]
@@ -369,7 +398,7 @@ df.entity_unk_v47_1 = {}
 ---@field global_event_knowledge_year integer
 ---@field local_known_events integer[] since the above year
 ---@field production_zone_id integer not sure what this refers to
----@field conquered_site_group_flags any actually lives inside a class
+---@field conquered_site_group_flags historical_entity_conquered_site_group_flags actually lives inside a class
 ---@field worldgen_can_make_guildhall integer[]
 ---@field training_knowledge training_knowledge_level[]
 ---@field events entity_event[]
@@ -462,6 +491,37 @@ df.entity_unk_v47_1 = {}
 ---@field unk_10 integer
 ---@field unk_11 integer
 df.historical_entity = {}
+
+---@enum historical_entity_flags
+df.historical_entity.T_flags = {
+  neighbor = 0, --Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
+  player_civ = 1, --Changes as you change your civ on embark screen
+  unk2 = 2,
+  unk3 = 3,
+  unreliable_lost_last_site = 4, --When set, no sites remain. Doesn't say much about remaining sites when not set
+  worshipping = 5,
+  unk6 = 6,
+  unk7 = 7,
+  player_government = 8, --Appears when embarking (and having unpaused)
+  unk9 = 9,
+  unspecific_race = 10, --Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
+  unk11 = 11, --Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
+  unk12 = 12, --Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
+  unk13 = 13, --Set for a significant number of entities
+  unk14 = 14, --Set for a significant number of entities
+  unk15 = 15, --Set for a limited set of entities
+  unk16 = 16, --Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
+  unk17 = 17, --Set for a limited set of entities
+  unk18 = 18, --Set for a limited set of entities
+  unk19 = 19, --Set for a limited set of entities
+  unk20 = 20, --Set for a limited set of entities
+  unk21 = 21, --Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
+  unk22 = 22, --All are religions, but not the full set
+  unk23 = 23,
+  unk24 = 24, --Set for a significant number of entities
+  military_unit_property = 25, --Probably some property only those have. All present in the selection, though
+  unk26 = 26, --Set for a significant number of entities
+}
 
 ---@class historical_entity_resources: df.struct
 ---@field digger_type integer[]
@@ -625,6 +685,13 @@ df.historical_entity.T_positions = {}
 ---@field all entity_tissue_style[]
 ---@field next_style_id integer
 df.historical_entity.T_tissue_styles = {}
+
+---@enum historical_entity_conquered_site_group_flags
+---actually lives inside a class
+df.historical_entity.T_conquered_site_group_flags = {
+  harsh = 0, --will TORTURE_FOR_INFORMATION
+  hostile_occupation = 1,
+}
 
 ---@class historical_entity_derived_resources: df.struct
 ---@field mill_cookable material_vec_ref
@@ -1170,8 +1237,14 @@ df.data.T_artifact_destroyed = {}
 ---@field next_details_id integer
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field flags any
+---@field flags agreement_flags
 df.agreement = {}
+
+---@enum agreement_flags
+df.agreement.T_flags = {
+  petition_not_accepted = 0, --this gets unset by accepting a petition
+  convicted_accepted = 1, --convicted for PositionCorruption/accepted for Location
+}
 
 ---@class agreement_party: df.struct
 ---@field id integer

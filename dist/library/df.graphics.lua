@@ -545,7 +545,7 @@ df.zoom_commands = {
 }
 
 ---@class enabler: df.struct
----@field fullscreen_state any
+---@field fullscreen_state enabler_fullscreen_state
 ---@field overridden_grid_sizes integer
 ---@field renderer renderer
 ---@field calculated_fps integer
@@ -571,7 +571,7 @@ df.zoom_commands = {
 ---@field renderer_threadid any
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string
----@field flag any
+---@field flag enabler_flag
 ---@field mouse_lbut integer
 ---@field mouse_rbut integer
 ---@field mouse_lbut_down integer
@@ -590,6 +590,12 @@ df.zoom_commands = {
 ---@field last_text_input integer[]
 df.enabler = {}
 
+---@enum enabler_fullscreen_state
+df.enabler.T_fullscreen_state = {
+  fullscreen = 0,
+  exclusive = 1,
+}
+
 ---@class enabler_async_tobox: df.struct
 ---@field mtx any
 ---@field cv any
@@ -607,6 +613,12 @@ df.enabler.T_async_frombox = {}
 ---@field cv any
 ---@field vals zoom_commands
 df.enabler.T_async_zoom = {}
+
+---@enum enabler_flag
+df.enabler.T_flag = {
+  render = 0,
+  maxfps = 1,
+}
 
 ---@class enabler_textures: df.struct
 ---@field raws pointer[]

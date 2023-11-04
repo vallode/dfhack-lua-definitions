@@ -52,10 +52,15 @@ df.interaction_effect_location_hint = {
 ---@field targets_index integer[] for each target used in this effect, list the index of that target within the parent interaction.targets
 ---@field intermittent integer IE_INTERMITTENT, 0 = weekly
 ---@field locations interaction_effect_location_hint[] IE_LOCATION
----@field flags any
+---@field flags interaction_effect_flags
 ---@field interaction_id interaction
 ---@field arena_name string IE_ARENA_NAME
 df.interaction_effect = {}
+
+---@enum interaction_effect_flags
+df.interaction_effect.T_flags = {
+  IMMEDIATE = 0, --IE_IMMEDIATE
+}
 
 ---@class interaction_effect_animatest: interaction_effect
 ---@field unk_1 integer
@@ -168,12 +173,23 @@ df.interaction_source_type = {
 df.interaction_source = {}
 
 ---@class interaction_source_regionst: interaction_source
----@field region_flags any
+---@field region_flags interaction_source_regionst_region_flags
 ---@field regions integer[]
 df.interaction_source_regionst = {}
 
+---@enum interaction_source_regionst_region_flags
+df.interaction_source_regionst.T_region_flags = {
+  NORMAL_ALLOWED = 0,
+  EVIL_ALLOWED = 1,
+  GOOD_ALLOWED = 2,
+  SAVAGE_ALLOWED = 3,
+  EVIL_ONLY = 4,
+  GOOD_ONLY = 5,
+  SAVAGE_ONLY = 6,
+}
+
 ---@class interaction_source_secretst: interaction_source
----@field learn_flags any
+---@field learn_flags interaction_source_secretst_learn_flags
 ---@field spheres sphere_type[]
 ---@field goals goal_type[]
 ---@field book_title_filename string
@@ -181,6 +197,14 @@ df.interaction_source_regionst = {}
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.interaction_source_secretst = {}
+
+---@enum interaction_source_secretst_learn_flags
+df.interaction_source_secretst.T_learn_flags = {
+  SUPERNATURAL_LEARNING_POSSIBLE = 0,
+  MUNDANE_RESEARCH_POSSIBLE = 1,
+  MUNDANE_RECORDING_POSSIBLE = 2,
+  MUNDANE_TEACHING_POSSIBLE = 3,
+}
 
 ---@class interaction_source_disturbancest: interaction_source
 ---@field unk_1 integer
@@ -268,8 +292,13 @@ df.interaction_target = {}
 ---@field requires_2 integer IT_REQUIRES
 ---@field forbidden_1 integer IT_FORBIDDEN
 ---@field forbidden_2 integer IT_FORBIDDEN
----@field restrictions any
+---@field restrictions interaction_target_info_restrictions
 df.interaction_target_info = {}
+
+---@enum interaction_target_info_restrictions
+df.interaction_target_info.T_restrictions = {
+  CANNOT_TARGET_IF_ALREADY_AFFECTED = 0,
+}
 
 ---@class interaction_target_corpsest: interaction_target
 ---@field target_info interaction_target_info
@@ -311,8 +340,13 @@ df.breath_attack_type = {
 ---@field mat_index integer
 ---@field parent_interaction_index integer
 ---@field breath_attack_type breath_attack_type
----@field restrictions any
+---@field restrictions interaction_target_materialst_restrictions
 df.interaction_target_materialst = {}
+
+---@enum interaction_target_materialst_restrictions
+df.interaction_target_materialst.T_restrictions = {
+  CONTEXT_MATERIAL = 0,
+}
 
 ---@class interaction_target_locationst: interaction_target
 df.interaction_target_locationst = {}

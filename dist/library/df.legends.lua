@@ -8,7 +8,7 @@
 ---@field active_size2 integer
 ---@field size integer
 ---@field duration_counter integer
----@field flags any
+---@field flags invasion_info_flags
 ---@field unk4b integer
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -16,6 +16,16 @@
 ---@field unk_4 integer
 ---@field unk_5 integer
 df.invasion_info = {}
+
+---@enum invasion_info_flags
+df.invasion_info.T_flags = {
+  active = 0,
+  siege = 1,
+  unk_2 = 2,
+  unk_3 = 3,
+  unk_4 = 4,
+  parley = 5,
+}
 
 ---@class entity_population_unk4: df.struct
 ---@field unk_1 integer[] all 3 vectors share a single index series, with the third being interleaved with at least the second one
