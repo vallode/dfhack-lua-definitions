@@ -599,6 +599,171 @@ function dfhack.units.getStressCutoffs() end
 
 dfhack.items = {}
 
+---@param item item
+---@return coord
+function dfhack.items.getPosition(item) end
+
+---@param item item
+---@return string
+function dfhack.items.getBookTitle(item) end
+
+---@param item item
+---@param type any
+---@param decorate? boolean
+---@return string
+function dfhack.items.getDescription(item, type, decorate) end
+
+---@param item item
+---@param type any
+---@return any|nil
+function dfhack.items.getGeneralRef(item, type) end
+
+---@param item item
+---@param type any
+---@return any
+function dfhack.items.getSpecificRef(item, type) end
+
+---@param item item
+---@return unit|nil
+---@nodiscard
+function dfhack.items.getOwner(item) end
+
+---@param item item
+---@param unit unit
+---@return boolean
+function dfhack.items.setOwner(item, unit) end
+
+---@param item item
+---@return item|nil
+---@nodiscard
+function dfhack.items.getContainer(item) end
+
+---@param item item
+---@return table
+---@nodiscard
+function dfhack.items.getOuterContainerRef(item) end
+
+---@param item item
+---@return building|nil
+---@nodiscard
+function dfhack.items.getHolderBuilding(item) end
+
+---@param item item
+---@return unit|nil
+---@nodiscard
+function dfhack.items.getHolderUnit(item) end
+
+---@param item item
+---@return boolean
+function dfhack.items.moveToGround(item) end
+
+---@param item item
+---@param container item
+---@return boolean
+function dfhack.items.moveToContainer(item, container) end
+
+---@param item item
+---@param building building
+---@param use_mode? integer
+---@param force_in_building? boolean
+---@return boolean
+function dfhack.items.moveToBuilding(item, building, use_mode, force_in_building) end
+
+---@param item item
+---@param unit unit
+---@param use_mode integer
+---@param body_part any
+---@return boolean
+function dfhack.items.moveToInventory(item, unit, use_mode, body_part) end
+
+---@param item item
+---@param no_uncat? boolean
+---@return boolean
+function dfhack.items.remove(item, no_uncat) end
+
+---@param item item
+---@return item|nil
+function dfhack.items.makeProjectile(item) end
+
+---@param item_type item_type
+---@return boolean
+---@nodiscard
+function dfhack.items.isCasteMaterial(item_type) end
+
+---@param item_type item_type
+---@return integer
+---@nodiscard
+function dfhack.items.getSubtypeCount(item_type) end
+
+---@param item_type item_type
+---@param subtype any
+---@return any|nil
+---@nodiscard
+function dfhack.items.getSubtypeDef(item_type, subtype) end
+
+---@param item_type item_type
+---@param subtype any
+---@param material material
+---@param mat_index integer
+---@return any|nil
+---@nodiscard
+function dfhack.items.getItemBaseValue(item_type, subtype, material, mat_index) end
+
+---@param item item
+---@param caravan_state? caravan_state
+---@return number
+---@nodiscard
+function dfhack.items.getValue(item, caravan_state) end
+
+---@param item item
+---@param caravan_state? caravan_state
+---@return boolean
+---@nodiscard
+function dfhack.items.isRequestedTradeGood(item, caravan_state) end
+
+---@param item_type item_type
+---@param item_subtype any
+---@param mat_type material
+---@param mat_index integer
+---@param unit unit
+---@return boolean
+function dfhack.items.createItem(item_type, item_subtype, mat_type, mat_index, unit) end
+
+---@param item item
+---@return boolean
+---@nodiscard
+function dfhack.items.checkMandates(item) end
+
+---@param item item
+---@return boolean
+---@nodiscard
+function dfhack.items.canTrade(item) end
+
+---@param item item
+---@return boolean
+---@nodiscard
+function dfhack.items.canTradeWithContents(item) end
+
+---@param item item
+---@return boolean
+---@nodiscard
+function dfhack.items.canTradeAnyWithContents(item) end
+
+---@param item item
+---@param depot building_civzonest
+---@return boolean
+function dfhack.items.markForTrade(item, depot) end
+
+---@param item item
+---@return boolean
+---@nodiscard
+function dfhack.items.isRouteVehicle(item) end
+
+---@param item item
+---@return boolean
+---@nodiscard
+function dfhack.items.isSquadEquipment(item) end
+
 dfhack.maps = {}
 
 ---Returns map size in blocks: x, y, z
