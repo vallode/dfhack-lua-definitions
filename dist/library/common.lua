@@ -173,7 +173,7 @@ function dfhack.gui.getViewscreenByType(type, depth) end
 function dfhack.gui.getDFViewscreen(skip_dismissed) end
 
 ---@param silent? boolean
----@return job|nil|error
+---@return job|nil
 function dfhack.gui.getSelectedWorkshopJob(silent) end
 
 ---@param silent? boolean
