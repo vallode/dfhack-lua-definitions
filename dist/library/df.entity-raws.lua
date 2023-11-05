@@ -1,169 +1,606 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum entity_raw_flags
-df.entity_raw_flags = {
-  CIV_CONTROLLABLE = 0,
-  INDIV_CONTROLLABLE = 1,
-  LAYER_LINKED = 2,
-  INDOOR_WOOD = 3,
-  WOOD_ARMOR = 4,
-  SIEGER = 5,
-  AMBUSHER = 6,
-  BABYSNATCHER = 7,
-  ITEM_THIEF = 8,
-  CLOTHING = 9,
-  CURRENCY_BY_YEAR = 10,
-  METAL_PREF = 11,
-  GEM_PREF = 12,
-  STONE_PREF = 13,
-  WOOD_WEAPONS = 14,
-  BUILDS_OUTDOOR_FORTIFICATIONS = 15,
-  RIVER_PRODUCTS = 16,
-  OCEAN_PRODUCTS = 17,
-  INDOOR_FARMING = 18,
-  OUTDOOR_FARMING = 19,
-  USE_CAVE_ANIMALS = 20,
-  USE_EVIL_ANIMALS = 21,
-  USE_ANIMAL_PRODUCTS = 22,
-  COMMON_DOMESTIC_PACK = 23,
-  COMMON_DOMESTIC_PULL = 24,
-  COMMON_DOMESTIC_MOUNT = 25,
-  COMMON_DOMESTIC_PET = 26,
-  SUBTERRANEAN_CLOTHING = 27,
-  USE_EVIL_WOOD = 28,
-  USE_GOOD_WOOD = 29,
-  USE_EVIL_PLANTS = 30,
-  USE_GOOD_PLANTS = 31,
-  USE_GOOD_ANIMALS = 32,
-  USE_ANY_PET_RACE = 33,
-  USE_MISC_PROCESSED_WOOD_PRODUCTS = 34,
-  IMPROVED_BOWS = 35,
-  OUTDOOR_WOOD = 36,
-  LOCAL_BANDITRY = 37,
-  BUILDS_OUTDOOR_TOMBS = 38,
-  INVADERS_IGNORE_NEUTRALS = 39,
-  AT_PEACE_WITH_WILDLIFE = 40,
-  EQUIPMENT_IMPROVEMENTS = 41,
-  ABUSE_BODIES = 42,
-  UNDEAD_CANDIDATE = 43,
-  GENERATED = 44,
-  SKULKING = 45,
-  unk_46 = 46,
-  MERCHANT_NOBILITY = 47,
-  TREE_CAP_DIPLOMACY = 48,
-  DIPLOMAT_BODYGUARDS = 49,
-  MERCHANT_BODYGUARDS = 50,
-  INDOOR_ORCHARDS = 51,
-  OUTDOOR_ORCHARDS = 52,
-  WANDERER = 53,
-  BEAST_HUNTER = 54,
-  SCOUT = 55,
-  WILL_ACCEPT_TRIBUTE = 56,
-  INDOOR_GARDENS = 57,
-  OUTDOOR_GARDENS = 58,
-  MERCENARY = 59,
-  SITE_GUARDIAN = 60,
-  DIVINE_MAT_WEAPONS = 61,
-  DIVINE_MAT_ARMOR = 62,
-  DIVINE_MAT_CRAFTS = 63,
-  DIVINE_MAT_CLOTHING = 64,
-  GENERATE_KEYBOARD_INSTRUMENTS = 65,
-  GENERATE_STRINGED_INSTRUMENTS = 66,
-  GENERATE_WIND_INSTRUMENTS = 67,
-  GENERATE_PERCUSSION_INSTRUMENTS = 68,
-  GENERATE_POETIC_FORMS = 69,
-  GENERATE_MUSICAL_FORMS = 70,
-  GENERATE_DANCE_FORMS = 71,
-  SET_SCHOLARS_ON_VALUES_AND_JOBS = 72,
-  NO_ARTIFACT_CLAIMS = 73,
-}
+---@class (exact) _entity_raw_flags: df.struct
+---@field CIV_CONTROLLABLE 0
+---@field [0] "CIV_CONTROLLABLE"
+---@field INDIV_CONTROLLABLE 1
+---@field [1] "INDIV_CONTROLLABLE"
+---@field LAYER_LINKED 2
+---@field [2] "LAYER_LINKED"
+---@field INDOOR_WOOD 3
+---@field [3] "INDOOR_WOOD"
+---@field WOOD_ARMOR 4
+---@field [4] "WOOD_ARMOR"
+---@field SIEGER 5
+---@field [5] "SIEGER"
+---@field AMBUSHER 6
+---@field [6] "AMBUSHER"
+---@field BABYSNATCHER 7
+---@field [7] "BABYSNATCHER"
+---@field ITEM_THIEF 8
+---@field [8] "ITEM_THIEF"
+---@field CLOTHING 9
+---@field [9] "CLOTHING"
+---@field CURRENCY_BY_YEAR 10
+---@field [10] "CURRENCY_BY_YEAR"
+---@field METAL_PREF 11
+---@field [11] "METAL_PREF"
+---@field GEM_PREF 12
+---@field [12] "GEM_PREF"
+---@field STONE_PREF 13
+---@field [13] "STONE_PREF"
+---@field WOOD_WEAPONS 14
+---@field [14] "WOOD_WEAPONS"
+---@field BUILDS_OUTDOOR_FORTIFICATIONS 15
+---@field [15] "BUILDS_OUTDOOR_FORTIFICATIONS"
+---@field RIVER_PRODUCTS 16
+---@field [16] "RIVER_PRODUCTS"
+---@field OCEAN_PRODUCTS 17
+---@field [17] "OCEAN_PRODUCTS"
+---@field INDOOR_FARMING 18
+---@field [18] "INDOOR_FARMING"
+---@field OUTDOOR_FARMING 19
+---@field [19] "OUTDOOR_FARMING"
+---@field USE_CAVE_ANIMALS 20
+---@field [20] "USE_CAVE_ANIMALS"
+---@field USE_EVIL_ANIMALS 21
+---@field [21] "USE_EVIL_ANIMALS"
+---@field USE_ANIMAL_PRODUCTS 22
+---@field [22] "USE_ANIMAL_PRODUCTS"
+---@field COMMON_DOMESTIC_PACK 23
+---@field [23] "COMMON_DOMESTIC_PACK"
+---@field COMMON_DOMESTIC_PULL 24
+---@field [24] "COMMON_DOMESTIC_PULL"
+---@field COMMON_DOMESTIC_MOUNT 25
+---@field [25] "COMMON_DOMESTIC_MOUNT"
+---@field COMMON_DOMESTIC_PET 26
+---@field [26] "COMMON_DOMESTIC_PET"
+---@field SUBTERRANEAN_CLOTHING 27
+---@field [27] "SUBTERRANEAN_CLOTHING"
+---@field USE_EVIL_WOOD 28
+---@field [28] "USE_EVIL_WOOD"
+---@field USE_GOOD_WOOD 29
+---@field [29] "USE_GOOD_WOOD"
+---@field USE_EVIL_PLANTS 30
+---@field [30] "USE_EVIL_PLANTS"
+---@field USE_GOOD_PLANTS 31
+---@field [31] "USE_GOOD_PLANTS"
+---@field USE_GOOD_ANIMALS 32
+---@field [32] "USE_GOOD_ANIMALS"
+---@field USE_ANY_PET_RACE 33
+---@field [33] "USE_ANY_PET_RACE"
+---@field USE_MISC_PROCESSED_WOOD_PRODUCTS 34
+---@field [34] "USE_MISC_PROCESSED_WOOD_PRODUCTS"
+---@field IMPROVED_BOWS 35
+---@field [35] "IMPROVED_BOWS"
+---@field OUTDOOR_WOOD 36
+---@field [36] "OUTDOOR_WOOD"
+---@field LOCAL_BANDITRY 37
+---@field [37] "LOCAL_BANDITRY"
+---@field BUILDS_OUTDOOR_TOMBS 38
+---@field [38] "BUILDS_OUTDOOR_TOMBS"
+---@field INVADERS_IGNORE_NEUTRALS 39
+---@field [39] "INVADERS_IGNORE_NEUTRALS"
+---@field AT_PEACE_WITH_WILDLIFE 40
+---@field [40] "AT_PEACE_WITH_WILDLIFE"
+---@field EQUIPMENT_IMPROVEMENTS 41
+---@field [41] "EQUIPMENT_IMPROVEMENTS"
+---@field ABUSE_BODIES 42
+---@field [42] "ABUSE_BODIES"
+---@field UNDEAD_CANDIDATE 43
+---@field [43] "UNDEAD_CANDIDATE"
+---@field GENERATED 44
+---@field [44] "GENERATED"
+---@field SKULKING 45
+---@field [45] "SKULKING"
+---@field unk_46 46
+---@field [46] "unk_46"
+---@field MERCHANT_NOBILITY 47
+---@field [47] "MERCHANT_NOBILITY"
+---@field TREE_CAP_DIPLOMACY 48
+---@field [48] "TREE_CAP_DIPLOMACY"
+---@field DIPLOMAT_BODYGUARDS 49
+---@field [49] "DIPLOMAT_BODYGUARDS"
+---@field MERCHANT_BODYGUARDS 50
+---@field [50] "MERCHANT_BODYGUARDS"
+---@field INDOOR_ORCHARDS 51
+---@field [51] "INDOOR_ORCHARDS"
+---@field OUTDOOR_ORCHARDS 52
+---@field [52] "OUTDOOR_ORCHARDS"
+---@field WANDERER 53
+---@field [53] "WANDERER"
+---@field BEAST_HUNTER 54
+---@field [54] "BEAST_HUNTER"
+---@field SCOUT 55
+---@field [55] "SCOUT"
+---@field WILL_ACCEPT_TRIBUTE 56
+---@field [56] "WILL_ACCEPT_TRIBUTE"
+---@field INDOOR_GARDENS 57
+---@field [57] "INDOOR_GARDENS"
+---@field OUTDOOR_GARDENS 58
+---@field [58] "OUTDOOR_GARDENS"
+---@field MERCENARY 59
+---@field [59] "MERCENARY"
+---@field SITE_GUARDIAN 60
+---@field [60] "SITE_GUARDIAN"
+---@field DIVINE_MAT_WEAPONS 61
+---@field [61] "DIVINE_MAT_WEAPONS"
+---@field DIVINE_MAT_ARMOR 62
+---@field [62] "DIVINE_MAT_ARMOR"
+---@field DIVINE_MAT_CRAFTS 63
+---@field [63] "DIVINE_MAT_CRAFTS"
+---@field DIVINE_MAT_CLOTHING 64
+---@field [64] "DIVINE_MAT_CLOTHING"
+---@field GENERATE_KEYBOARD_INSTRUMENTS 65
+---@field [65] "GENERATE_KEYBOARD_INSTRUMENTS"
+---@field GENERATE_STRINGED_INSTRUMENTS 66
+---@field [66] "GENERATE_STRINGED_INSTRUMENTS"
+---@field GENERATE_WIND_INSTRUMENTS 67
+---@field [67] "GENERATE_WIND_INSTRUMENTS"
+---@field GENERATE_PERCUSSION_INSTRUMENTS 68
+---@field [68] "GENERATE_PERCUSSION_INSTRUMENTS"
+---@field GENERATE_POETIC_FORMS 69
+---@field [69] "GENERATE_POETIC_FORMS"
+---@field GENERATE_MUSICAL_FORMS 70
+---@field [70] "GENERATE_MUSICAL_FORMS"
+---@field GENERATE_DANCE_FORMS 71
+---@field [71] "GENERATE_DANCE_FORMS"
+---@field SET_SCHOLARS_ON_VALUES_AND_JOBS 72
+---@field [72] "SET_SCHOLARS_ON_VALUES_AND_JOBS"
+---@field NO_ARTIFACT_CLAIMS 73
+---@field [73] "NO_ARTIFACT_CLAIMS"
+df.entity_raw_flags = {}
 
----@enum site_type
-df.site_type = {
-  PLAYER_FORTRESS = 0,
-  DARK_FORTRESS = 1,
-  CAVE = 2,
-  CAVE_DETAILED = 3,
-  TREE_CITY = 4,
-  CITY = 5,
-  unk_6 = 6,
-  unk_7 = 7,
-  FORTRESS = 8,
-  unk_9 = 9,
-  MONUMENT = 10,
-}
+---@class entity_raw_flags
+---@field [0] boolean
+---@field CIV_CONTROLLABLE boolean
+---@field [1] boolean
+---@field INDIV_CONTROLLABLE boolean
+---@field [2] boolean
+---@field LAYER_LINKED boolean
+---@field [3] boolean
+---@field INDOOR_WOOD boolean
+---@field [4] boolean
+---@field WOOD_ARMOR boolean
+---@field [5] boolean
+---@field SIEGER boolean
+---@field [6] boolean
+---@field AMBUSHER boolean
+---@field [7] boolean
+---@field BABYSNATCHER boolean
+---@field [8] boolean
+---@field ITEM_THIEF boolean
+---@field [9] boolean
+---@field CLOTHING boolean
+---@field [10] boolean
+---@field CURRENCY_BY_YEAR boolean
+---@field [11] boolean
+---@field METAL_PREF boolean
+---@field [12] boolean
+---@field GEM_PREF boolean
+---@field [13] boolean
+---@field STONE_PREF boolean
+---@field [14] boolean
+---@field WOOD_WEAPONS boolean
+---@field [15] boolean
+---@field BUILDS_OUTDOOR_FORTIFICATIONS boolean
+---@field [16] boolean
+---@field RIVER_PRODUCTS boolean
+---@field [17] boolean
+---@field OCEAN_PRODUCTS boolean
+---@field [18] boolean
+---@field INDOOR_FARMING boolean
+---@field [19] boolean
+---@field OUTDOOR_FARMING boolean
+---@field [20] boolean
+---@field USE_CAVE_ANIMALS boolean
+---@field [21] boolean
+---@field USE_EVIL_ANIMALS boolean
+---@field [22] boolean
+---@field USE_ANIMAL_PRODUCTS boolean
+---@field [23] boolean
+---@field COMMON_DOMESTIC_PACK boolean
+---@field [24] boolean
+---@field COMMON_DOMESTIC_PULL boolean
+---@field [25] boolean
+---@field COMMON_DOMESTIC_MOUNT boolean
+---@field [26] boolean
+---@field COMMON_DOMESTIC_PET boolean
+---@field [27] boolean
+---@field SUBTERRANEAN_CLOTHING boolean
+---@field [28] boolean
+---@field USE_EVIL_WOOD boolean
+---@field [29] boolean
+---@field USE_GOOD_WOOD boolean
+---@field [30] boolean
+---@field USE_EVIL_PLANTS boolean
+---@field [31] boolean
+---@field USE_GOOD_PLANTS boolean
+---@field [32] boolean
+---@field USE_GOOD_ANIMALS boolean
+---@field [33] boolean
+---@field USE_ANY_PET_RACE boolean
+---@field [34] boolean
+---@field USE_MISC_PROCESSED_WOOD_PRODUCTS boolean
+---@field [35] boolean
+---@field IMPROVED_BOWS boolean
+---@field [36] boolean
+---@field OUTDOOR_WOOD boolean
+---@field [37] boolean
+---@field LOCAL_BANDITRY boolean
+---@field [38] boolean
+---@field BUILDS_OUTDOOR_TOMBS boolean
+---@field [39] boolean
+---@field INVADERS_IGNORE_NEUTRALS boolean
+---@field [40] boolean
+---@field AT_PEACE_WITH_WILDLIFE boolean
+---@field [41] boolean
+---@field EQUIPMENT_IMPROVEMENTS boolean
+---@field [42] boolean
+---@field ABUSE_BODIES boolean
+---@field [43] boolean
+---@field UNDEAD_CANDIDATE boolean
+---@field [44] boolean
+---@field GENERATED boolean
+---@field [45] boolean
+---@field SKULKING boolean
+---@field [46] boolean
+---@field unk_46 boolean
+---@field [47] boolean
+---@field MERCHANT_NOBILITY boolean
+---@field [48] boolean
+---@field TREE_CAP_DIPLOMACY boolean
+---@field [49] boolean
+---@field DIPLOMAT_BODYGUARDS boolean
+---@field [50] boolean
+---@field MERCHANT_BODYGUARDS boolean
+---@field [51] boolean
+---@field INDOOR_ORCHARDS boolean
+---@field [52] boolean
+---@field OUTDOOR_ORCHARDS boolean
+---@field [53] boolean
+---@field WANDERER boolean
+---@field [54] boolean
+---@field BEAST_HUNTER boolean
+---@field [55] boolean
+---@field SCOUT boolean
+---@field [56] boolean
+---@field WILL_ACCEPT_TRIBUTE boolean
+---@field [57] boolean
+---@field INDOOR_GARDENS boolean
+---@field [58] boolean
+---@field OUTDOOR_GARDENS boolean
+---@field [59] boolean
+---@field MERCENARY boolean
+---@field [60] boolean
+---@field SITE_GUARDIAN boolean
+---@field [61] boolean
+---@field DIVINE_MAT_WEAPONS boolean
+---@field [62] boolean
+---@field DIVINE_MAT_ARMOR boolean
+---@field [63] boolean
+---@field DIVINE_MAT_CRAFTS boolean
+---@field [64] boolean
+---@field DIVINE_MAT_CLOTHING boolean
+---@field [65] boolean
+---@field GENERATE_KEYBOARD_INSTRUMENTS boolean
+---@field [66] boolean
+---@field GENERATE_STRINGED_INSTRUMENTS boolean
+---@field [67] boolean
+---@field GENERATE_WIND_INSTRUMENTS boolean
+---@field [68] boolean
+---@field GENERATE_PERCUSSION_INSTRUMENTS boolean
+---@field [69] boolean
+---@field GENERATE_POETIC_FORMS boolean
+---@field [70] boolean
+---@field GENERATE_MUSICAL_FORMS boolean
+---@field [71] boolean
+---@field GENERATE_DANCE_FORMS boolean
+---@field [72] boolean
+---@field SET_SCHOLARS_ON_VALUES_AND_JOBS boolean
+---@field [73] boolean
+---@field NO_ARTIFACT_CLAIMS boolean
 
----@enum ethic_type
-df.ethic_type = {
-  NONE = -1,
-  KILL_ENTITY_MEMBER = 1,
-  KILL_NEUTRAL = 2,
-  KILL_ENEMY = 3,
-  KILL_ANIMAL = 4,
-  KILL_PLANT = 5,
-  TORTURE_AS_EXAMPLE = 6,
-  TORTURE_FOR_INFORMATION = 7,
-  TORTURE_FOR_FUN = 8,
-  TORTURE_ANIMALS = 9,
-  TREASON = 10,
-  OATH_BREAKING = 11,
-  LYING = 12,
-  VANDALISM = 13,
-  TRESPASSING = 14,
-  THEFT = 15,
-  ASSAULT = 16,
-  SLAVERY = 17,
-  EAT_SAPIENT_OTHER = 18,
-  EAT_SAPIENT_KILL = 19,
-  MAKE_TROPHY_SAME_RACE = 20,
-  MAKE_TROPHY_SAPIENT = 21,
-  MAKE_TROPHY_ANIMAL = 22,
-}
+---@class (exact) _site_type: df.struct
+---@field PLAYER_FORTRESS 0
+---@field [0] "PLAYER_FORTRESS"
+---@field DARK_FORTRESS 1
+---@field [1] "DARK_FORTRESS"
+---@field CAVE 2
+---@field [2] "CAVE"
+---@field CAVE_DETAILED 3
+---@field [3] "CAVE_DETAILED"
+---@field TREE_CITY 4
+---@field [4] "TREE_CITY"
+---@field CITY 5
+---@field [5] "CITY"
+---@field unk_6 6
+---@field [6] "unk_6"
+---@field unk_7 7
+---@field [7] "unk_7"
+---@field FORTRESS 8
+---@field [8] "FORTRESS"
+---@field unk_9 9
+---@field [9] "unk_9"
+---@field MONUMENT 10
+---@field [10] "MONUMENT"
+df.site_type = {}
 
----@enum ethic_response
-df.ethic_response = {
-  NOT_APPLICABLE = 0,
-  ACCEPTABLE = 1,
-  PERSONAL_MATTER = 2,
-  JUSTIFIED_IF_NO_REPERCUSSIONS = 3,
-  JUSTIFIED_IF_GOOD_REASON = 4,
-  JUSTIFIED_IF_EXTREME_REASON = 5,
-  JUSTIFIED_IF_SELF_DEFENSE = 6,
-  ONLY_IF_SANCTIONED = 7,
-  MISGUIDED = 8,
-  SHUN = 9,
-  APPALLING = 10,
-  PUNISH_REPRIMAND = 11,
-  PUNISH_SERIOUS = 12,
-  PUNISH_EXILE = 13,
-  PUNISH_CAPITAL = 14,
-  UNTHINKABLE = 15,
-  REQUIRED = 16,
-}
+---@class site_type
+---@field [0] boolean
+---@field PLAYER_FORTRESS boolean
+---@field [1] boolean
+---@field DARK_FORTRESS boolean
+---@field [2] boolean
+---@field CAVE boolean
+---@field [3] boolean
+---@field CAVE_DETAILED boolean
+---@field [4] boolean
+---@field TREE_CITY boolean
+---@field [5] boolean
+---@field CITY boolean
+---@field [6] boolean
+---@field unk_6 boolean
+---@field [7] boolean
+---@field unk_7 boolean
+---@field [8] boolean
+---@field FORTRESS boolean
+---@field [9] boolean
+---@field unk_9 boolean
+---@field [10] boolean
+---@field MONUMENT boolean
 
----@enum entity_name_type
-df.entity_name_type = {
-  OTHER = 0,
-  CIV = 1,
-  SITE = 2,
-  VESSEL = 3,
-  MILITARY_UNIT = 4,
-  RELIGION = 5,
-  TEMPLE = 6,
-  WAR = 7,
-  BATTLE = 8,
-  SIEGE = 9,
-  ROAD = 10,
-  BRIDGE = 11,
-  TUNNEL = 12,
-  WALL = 13,
-  LIBRARY = 14,
-  FESTIVAL = 15,
-  MERCHANT_COMPANY = 16,
-  CRAFT_GUILD = 17,
-  HOSPITAL = 18,
-}
+---@class (exact) _ethic_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field KILL_ENTITY_MEMBER 1
+---@field [1] "KILL_ENTITY_MEMBER"
+---@field KILL_NEUTRAL 2
+---@field [2] "KILL_NEUTRAL"
+---@field KILL_ENEMY 3
+---@field [3] "KILL_ENEMY"
+---@field KILL_ANIMAL 4
+---@field [4] "KILL_ANIMAL"
+---@field KILL_PLANT 5
+---@field [5] "KILL_PLANT"
+---@field TORTURE_AS_EXAMPLE 6
+---@field [6] "TORTURE_AS_EXAMPLE"
+---@field TORTURE_FOR_INFORMATION 7
+---@field [7] "TORTURE_FOR_INFORMATION"
+---@field TORTURE_FOR_FUN 8
+---@field [8] "TORTURE_FOR_FUN"
+---@field TORTURE_ANIMALS 9
+---@field [9] "TORTURE_ANIMALS"
+---@field TREASON 10
+---@field [10] "TREASON"
+---@field OATH_BREAKING 11
+---@field [11] "OATH_BREAKING"
+---@field LYING 12
+---@field [12] "LYING"
+---@field VANDALISM 13
+---@field [13] "VANDALISM"
+---@field TRESPASSING 14
+---@field [14] "TRESPASSING"
+---@field THEFT 15
+---@field [15] "THEFT"
+---@field ASSAULT 16
+---@field [16] "ASSAULT"
+---@field SLAVERY 17
+---@field [17] "SLAVERY"
+---@field EAT_SAPIENT_OTHER 18
+---@field [18] "EAT_SAPIENT_OTHER"
+---@field EAT_SAPIENT_KILL 19
+---@field [19] "EAT_SAPIENT_KILL"
+---@field MAKE_TROPHY_SAME_RACE 20
+---@field [20] "MAKE_TROPHY_SAME_RACE"
+---@field MAKE_TROPHY_SAPIENT 21
+---@field [21] "MAKE_TROPHY_SAPIENT"
+---@field MAKE_TROPHY_ANIMAL 22
+---@field [22] "MAKE_TROPHY_ANIMAL"
+df.ethic_type = {}
+
+---@class ethic_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field KILL_ENTITY_MEMBER boolean
+---@field [2] boolean
+---@field KILL_NEUTRAL boolean
+---@field [3] boolean
+---@field KILL_ENEMY boolean
+---@field [4] boolean
+---@field KILL_ANIMAL boolean
+---@field [5] boolean
+---@field KILL_PLANT boolean
+---@field [6] boolean
+---@field TORTURE_AS_EXAMPLE boolean
+---@field [7] boolean
+---@field TORTURE_FOR_INFORMATION boolean
+---@field [8] boolean
+---@field TORTURE_FOR_FUN boolean
+---@field [9] boolean
+---@field TORTURE_ANIMALS boolean
+---@field [10] boolean
+---@field TREASON boolean
+---@field [11] boolean
+---@field OATH_BREAKING boolean
+---@field [12] boolean
+---@field LYING boolean
+---@field [13] boolean
+---@field VANDALISM boolean
+---@field [14] boolean
+---@field TRESPASSING boolean
+---@field [15] boolean
+---@field THEFT boolean
+---@field [16] boolean
+---@field ASSAULT boolean
+---@field [17] boolean
+---@field SLAVERY boolean
+---@field [18] boolean
+---@field EAT_SAPIENT_OTHER boolean
+---@field [19] boolean
+---@field EAT_SAPIENT_KILL boolean
+---@field [20] boolean
+---@field MAKE_TROPHY_SAME_RACE boolean
+---@field [21] boolean
+---@field MAKE_TROPHY_SAPIENT boolean
+---@field [22] boolean
+---@field MAKE_TROPHY_ANIMAL boolean
+
+---@class (exact) _ethic_response: df.struct
+---@field NOT_APPLICABLE 0
+---@field [0] "NOT_APPLICABLE"
+---@field ACCEPTABLE 1
+---@field [1] "ACCEPTABLE"
+---@field PERSONAL_MATTER 2
+---@field [2] "PERSONAL_MATTER"
+---@field JUSTIFIED_IF_NO_REPERCUSSIONS 3
+---@field [3] "JUSTIFIED_IF_NO_REPERCUSSIONS"
+---@field JUSTIFIED_IF_GOOD_REASON 4
+---@field [4] "JUSTIFIED_IF_GOOD_REASON"
+---@field JUSTIFIED_IF_EXTREME_REASON 5
+---@field [5] "JUSTIFIED_IF_EXTREME_REASON"
+---@field JUSTIFIED_IF_SELF_DEFENSE 6
+---@field [6] "JUSTIFIED_IF_SELF_DEFENSE"
+---@field ONLY_IF_SANCTIONED 7
+---@field [7] "ONLY_IF_SANCTIONED"
+---@field MISGUIDED 8
+---@field [8] "MISGUIDED"
+---@field SHUN 9
+---@field [9] "SHUN"
+---@field APPALLING 10
+---@field [10] "APPALLING"
+---@field PUNISH_REPRIMAND 11
+---@field [11] "PUNISH_REPRIMAND"
+---@field PUNISH_SERIOUS 12
+---@field [12] "PUNISH_SERIOUS"
+---@field PUNISH_EXILE 13
+---@field [13] "PUNISH_EXILE"
+---@field PUNISH_CAPITAL 14
+---@field [14] "PUNISH_CAPITAL"
+---@field UNTHINKABLE 15
+---@field [15] "UNTHINKABLE"
+---@field REQUIRED 16
+---@field [16] "REQUIRED"
+df.ethic_response = {}
+
+---@class ethic_response
+---@field [0] boolean
+---@field NOT_APPLICABLE boolean
+---@field [1] boolean
+---@field ACCEPTABLE boolean
+---@field [2] boolean
+---@field PERSONAL_MATTER boolean
+---@field [3] boolean
+---@field JUSTIFIED_IF_NO_REPERCUSSIONS boolean
+---@field [4] boolean
+---@field JUSTIFIED_IF_GOOD_REASON boolean
+---@field [5] boolean
+---@field JUSTIFIED_IF_EXTREME_REASON boolean
+---@field [6] boolean
+---@field JUSTIFIED_IF_SELF_DEFENSE boolean
+---@field [7] boolean
+---@field ONLY_IF_SANCTIONED boolean
+---@field [8] boolean
+---@field MISGUIDED boolean
+---@field [9] boolean
+---@field SHUN boolean
+---@field [10] boolean
+---@field APPALLING boolean
+---@field [11] boolean
+---@field PUNISH_REPRIMAND boolean
+---@field [12] boolean
+---@field PUNISH_SERIOUS boolean
+---@field [13] boolean
+---@field PUNISH_EXILE boolean
+---@field [14] boolean
+---@field PUNISH_CAPITAL boolean
+---@field [15] boolean
+---@field UNTHINKABLE boolean
+---@field [16] boolean
+---@field REQUIRED boolean
+
+---@class (exact) _entity_name_type: df.struct
+---@field OTHER 0
+---@field [0] "OTHER"
+---@field CIV 1
+---@field [1] "CIV"
+---@field SITE 2
+---@field [2] "SITE"
+---@field VESSEL 3
+---@field [3] "VESSEL"
+---@field MILITARY_UNIT 4
+---@field [4] "MILITARY_UNIT"
+---@field RELIGION 5
+---@field [5] "RELIGION"
+---@field TEMPLE 6
+---@field [6] "TEMPLE"
+---@field WAR 7
+---@field [7] "WAR"
+---@field BATTLE 8
+---@field [8] "BATTLE"
+---@field SIEGE 9
+---@field [9] "SIEGE"
+---@field ROAD 10
+---@field [10] "ROAD"
+---@field BRIDGE 11
+---@field [11] "BRIDGE"
+---@field TUNNEL 12
+---@field [12] "TUNNEL"
+---@field WALL 13
+---@field [13] "WALL"
+---@field LIBRARY 14
+---@field [14] "LIBRARY"
+---@field FESTIVAL 15
+---@field [15] "FESTIVAL"
+---@field MERCHANT_COMPANY 16
+---@field [16] "MERCHANT_COMPANY"
+---@field CRAFT_GUILD 17
+---@field [17] "CRAFT_GUILD"
+---@field HOSPITAL 18
+---@field [18] "HOSPITAL"
+df.entity_name_type = {}
+
+---@class entity_name_type
+---@field [0] boolean
+---@field OTHER boolean
+---@field [1] boolean
+---@field CIV boolean
+---@field [2] boolean
+---@field SITE boolean
+---@field [3] boolean
+---@field VESSEL boolean
+---@field [4] boolean
+---@field MILITARY_UNIT boolean
+---@field [5] boolean
+---@field RELIGION boolean
+---@field [6] boolean
+---@field TEMPLE boolean
+---@field [7] boolean
+---@field WAR boolean
+---@field [8] boolean
+---@field BATTLE boolean
+---@field [9] boolean
+---@field SIEGE boolean
+---@field [10] boolean
+---@field ROAD boolean
+---@field [11] boolean
+---@field BRIDGE boolean
+---@field [12] boolean
+---@field TUNNEL boolean
+---@field [13] boolean
+---@field WALL boolean
+---@field [14] boolean
+---@field LIBRARY boolean
+---@field [15] boolean
+---@field FESTIVAL boolean
+---@field [16] boolean
+---@field MERCHANT_COMPANY boolean
+---@field [17] boolean
+---@field CRAFT_GUILD boolean
+---@field [18] boolean
+---@field HOSPITAL boolean
 
 ---@class entity_raw: df.instance
 ---@field code string
@@ -270,18 +707,46 @@ df.entity_raw.T_symbols = {}
 ---@field trade_siege integer
 df.entity_raw.T_progress_trigger = {}
 
----@enum entity_raw_scholar
-df.entity_raw.T_scholar = {
-  PHILOSOPHER = 0,
-  MATHEMATICIAN = 1,
-  HISTORIAN = 2,
-  ASTRONOMER = 3,
-  NATURALIST = 4,
-  CHEMIST = 5,
-  GEOGRAPHER = 6,
-  DOCTOR = 7,
-  ENGINEER = 8,
-}
+---@class (exact) _entity_raw_scholar: df.struct
+---@field PHILOSOPHER 0
+---@field [0] "PHILOSOPHER"
+---@field MATHEMATICIAN 1
+---@field [1] "MATHEMATICIAN"
+---@field HISTORIAN 2
+---@field [2] "HISTORIAN"
+---@field ASTRONOMER 3
+---@field [3] "ASTRONOMER"
+---@field NATURALIST 4
+---@field [4] "NATURALIST"
+---@field CHEMIST 5
+---@field [5] "CHEMIST"
+---@field GEOGRAPHER 6
+---@field [6] "GEOGRAPHER"
+---@field DOCTOR 7
+---@field [7] "DOCTOR"
+---@field ENGINEER 8
+---@field [8] "ENGINEER"
+df.entity_raw.T_scholar = {}
+
+---@class entity_raw_scholar
+---@field [0] boolean
+---@field PHILOSOPHER boolean
+---@field [1] boolean
+---@field MATHEMATICIAN boolean
+---@field [2] boolean
+---@field HISTORIAN boolean
+---@field [3] boolean
+---@field ASTRONOMER boolean
+---@field [4] boolean
+---@field NATURALIST boolean
+---@field [5] boolean
+---@field CHEMIST boolean
+---@field [6] boolean
+---@field GEOGRAPHER boolean
+---@field [7] boolean
+---@field DOCTOR boolean
+---@field [8] boolean
+---@field ENGINEER boolean
 
 ---@class entity_raw_religion_sphere: df.struct
 df.entity_raw.T_religion_sphere = {}
@@ -314,97 +779,340 @@ df.entity_raw.T_workshops = {}
 ---@field flags entity_animal_raw_flags
 df.entity_animal_raw = {}
 
----@enum entity_animal_raw_flags
-df.entity_animal_raw.T_flags = {
-  ALWAYS_PRESENT = 0,
-  NEVER_MOUNT = 1,
-  ALWAYS_MOUNT = 2,
-  NEVER_WAGON_PULLER = 3,
-  ALWAYS_WAGON_PULLER = 4,
-  NEVER_SIEGE = 5,
-  ALWAYS_SIEGE = 6,
-  NEVER_PET = 7,
-  ALWAYS_PET = 8,
-  NEVER_PACK_ANIMAL = 9,
-  ALWAYS_PACK_ANIMAL = 10,
-}
+---@class (exact) _entity_animal_raw_flags: df.struct
+---@field ALWAYS_PRESENT 0
+---@field [0] "ALWAYS_PRESENT"
+---@field NEVER_MOUNT 1
+---@field [1] "NEVER_MOUNT"
+---@field ALWAYS_MOUNT 2
+---@field [2] "ALWAYS_MOUNT"
+---@field NEVER_WAGON_PULLER 3
+---@field [3] "NEVER_WAGON_PULLER"
+---@field ALWAYS_WAGON_PULLER 4
+---@field [4] "ALWAYS_WAGON_PULLER"
+---@field NEVER_SIEGE 5
+---@field [5] "NEVER_SIEGE"
+---@field ALWAYS_SIEGE 6
+---@field [6] "ALWAYS_SIEGE"
+---@field NEVER_PET 7
+---@field [7] "NEVER_PET"
+---@field ALWAYS_PET 8
+---@field [8] "ALWAYS_PET"
+---@field NEVER_PACK_ANIMAL 9
+---@field [9] "NEVER_PACK_ANIMAL"
+---@field ALWAYS_PACK_ANIMAL 10
+---@field [10] "ALWAYS_PACK_ANIMAL"
+df.entity_animal_raw.T_flags = {}
 
----@enum entity_position_raw_flags
-df.entity_position_raw_flags = {
-  SITE = 0,
-  ELECTED = 1,
-  CONQUERED_SITE = 2,
-  MILITARY_SCREEN_ONLY = 3,
-  GENDER_MALE = 4,
-  GENDER_FEMALE = 5,
-  SUCCESSION_BY_HEIR = 6,
-  EXPORTED_IN_LEGENDS = 7,
-  FLASHES = 8,
-  BRAG_ON_KILL = 9,
-  CHAT_WORTHY = 10,
-  DO_NOT_CULL = 11,
-  KILL_QUEST = 12,
-  DETERMINES_COIN_DESIGN = 13,
-  ACCOUNT_EXEMPT = 14,
-  DUTY_BOUND = 15,
-  COLOR = 16,
-  RULES_FROM_LOCATION = 17,
-  MENIAL_WORK_EXEMPTION = 18,
-  MENIAL_WORK_EXEMPTION_SPOUSE = 19,
-  SLEEP_PRETENSION = 20,
-  PUNISHMENT_EXEMPTION = 21,
-  QUEST_GIVER = 22,
-  SPECIAL_BURIAL = 23,
-  REQUIRES_MARKET = 24,
-}
+---@class entity_animal_raw_flags
+---@field [0] boolean
+---@field ALWAYS_PRESENT boolean
+---@field [1] boolean
+---@field NEVER_MOUNT boolean
+---@field [2] boolean
+---@field ALWAYS_MOUNT boolean
+---@field [3] boolean
+---@field NEVER_WAGON_PULLER boolean
+---@field [4] boolean
+---@field ALWAYS_WAGON_PULLER boolean
+---@field [5] boolean
+---@field NEVER_SIEGE boolean
+---@field [6] boolean
+---@field ALWAYS_SIEGE boolean
+---@field [7] boolean
+---@field NEVER_PET boolean
+---@field [8] boolean
+---@field ALWAYS_PET boolean
+---@field [9] boolean
+---@field NEVER_PACK_ANIMAL boolean
+---@field [10] boolean
+---@field ALWAYS_PACK_ANIMAL boolean
 
----@enum entity_position_responsibility
-df.entity_position_responsibility = {
-  NONE = -1,
-  LAW_MAKING = 1,
-  LAW_ENFORCEMENT = 2,
-  RECEIVE_DIPLOMATS = 3,
-  MEET_WORKERS = 4,
-  MANAGE_PRODUCTION = 5,
-  TRADE = 6,
-  ACCOUNTING = 7,
-  ESTABLISH_COLONY_TRADE_AGREEMENTS = 8,
-  MAKE_INTRODUCTIONS = 9,
-  MAKE_PEACE_AGREEMENTS = 10,
-  MAKE_TOPIC_AGREEMENTS = 11,
-  COLLECT_TAXES = 12,
-  ESCORT_TAX_COLLECTOR = 13,
-  EXECUTIONS = 14,
-  TAME_EXOTICS = 15,
-  RELIGION = 16,
-  ATTACK_ENEMIES = 17,
-  PATROL_TERRITORY = 18,
-  MILITARY_GOALS = 19,
-  MILITARY_STRATEGY = 20,
-  UPGRADE_SQUAD_EQUIPMENT = 21,
-  EQUIPMENT_MANIFESTS = 22,
-  SORT_AMMUNITION = 23,
-  BUILD_MORALE = 24,
-  HEALTH_MANAGEMENT = 25,
-  ESPIONAGE = 26,
-  ADVISE_LEADERS = 27,
-  OVERSEE_LEADER_HOUSEHOLD = 28,
-  MANAGE_ANIMALS = 29,
-  MANAGE_LEADER_HOUSEHOLD_FOOD = 30,
-  MANAGE_LEADER_HOUSEHOLD_DRINKS = 31,
-  PREPARE_LEADER_MEALS = 32,
-  MANAGE_LEADER_HOUSEHOLD_CLEANLINESS = 33,
-  MAINTAIN_SEWERS = 34,
-  FOOD_SUPPLY = 35,
-  FIRE_SAFETY = 36,
-  JUDGE = 37,
-  BUILDING_SAFETY = 38,
-  CONSTRUCTION_PERMITS = 39,
-  MAINTAIN_ROADS = 40,
-  MAINTAIN_BRIDGES = 41,
-  MAINTAIN_TUNNELS = 42,
-  DELIVER_MESSAGES = 43,
-}
+---@class (exact) _entity_position_raw_flags: df.struct
+---@field SITE 0
+---@field [0] "SITE"
+---@field ELECTED 1
+---@field [1] "ELECTED"
+---@field CONQUERED_SITE 2
+---@field [2] "CONQUERED_SITE"
+---@field MILITARY_SCREEN_ONLY 3
+---@field [3] "MILITARY_SCREEN_ONLY"
+---@field GENDER_MALE 4
+---@field [4] "GENDER_MALE"
+---@field GENDER_FEMALE 5
+---@field [5] "GENDER_FEMALE"
+---@field SUCCESSION_BY_HEIR 6
+---@field [6] "SUCCESSION_BY_HEIR"
+---@field EXPORTED_IN_LEGENDS 7
+---@field [7] "EXPORTED_IN_LEGENDS"
+---@field FLASHES 8
+---@field [8] "FLASHES"
+---@field BRAG_ON_KILL 9
+---@field [9] "BRAG_ON_KILL"
+---@field CHAT_WORTHY 10
+---@field [10] "CHAT_WORTHY"
+---@field DO_NOT_CULL 11
+---@field [11] "DO_NOT_CULL"
+---@field KILL_QUEST 12
+---@field [12] "KILL_QUEST"
+---@field DETERMINES_COIN_DESIGN 13
+---@field [13] "DETERMINES_COIN_DESIGN"
+---@field ACCOUNT_EXEMPT 14
+---@field [14] "ACCOUNT_EXEMPT"
+---@field DUTY_BOUND 15
+---@field [15] "DUTY_BOUND"
+---@field COLOR 16
+---@field [16] "COLOR"
+---@field RULES_FROM_LOCATION 17
+---@field [17] "RULES_FROM_LOCATION"
+---@field MENIAL_WORK_EXEMPTION 18
+---@field [18] "MENIAL_WORK_EXEMPTION"
+---@field MENIAL_WORK_EXEMPTION_SPOUSE 19
+---@field [19] "MENIAL_WORK_EXEMPTION_SPOUSE"
+---@field SLEEP_PRETENSION 20
+---@field [20] "SLEEP_PRETENSION"
+---@field PUNISHMENT_EXEMPTION 21
+---@field [21] "PUNISHMENT_EXEMPTION"
+---@field QUEST_GIVER 22
+---@field [22] "QUEST_GIVER"
+---@field SPECIAL_BURIAL 23
+---@field [23] "SPECIAL_BURIAL"
+---@field REQUIRES_MARKET 24
+---@field [24] "REQUIRES_MARKET"
+df.entity_position_raw_flags = {}
+
+---@class entity_position_raw_flags
+---@field [0] boolean
+---@field SITE boolean
+---@field [1] boolean
+---@field ELECTED boolean
+---@field [2] boolean
+---@field CONQUERED_SITE boolean
+---@field [3] boolean
+---@field MILITARY_SCREEN_ONLY boolean
+---@field [4] boolean
+---@field GENDER_MALE boolean
+---@field [5] boolean
+---@field GENDER_FEMALE boolean
+---@field [6] boolean
+---@field SUCCESSION_BY_HEIR boolean
+---@field [7] boolean
+---@field EXPORTED_IN_LEGENDS boolean
+---@field [8] boolean
+---@field FLASHES boolean
+---@field [9] boolean
+---@field BRAG_ON_KILL boolean
+---@field [10] boolean
+---@field CHAT_WORTHY boolean
+---@field [11] boolean
+---@field DO_NOT_CULL boolean
+---@field [12] boolean
+---@field KILL_QUEST boolean
+---@field [13] boolean
+---@field DETERMINES_COIN_DESIGN boolean
+---@field [14] boolean
+---@field ACCOUNT_EXEMPT boolean
+---@field [15] boolean
+---@field DUTY_BOUND boolean
+---@field [16] boolean
+---@field COLOR boolean
+---@field [17] boolean
+---@field RULES_FROM_LOCATION boolean
+---@field [18] boolean
+---@field MENIAL_WORK_EXEMPTION boolean
+---@field [19] boolean
+---@field MENIAL_WORK_EXEMPTION_SPOUSE boolean
+---@field [20] boolean
+---@field SLEEP_PRETENSION boolean
+---@field [21] boolean
+---@field PUNISHMENT_EXEMPTION boolean
+---@field [22] boolean
+---@field QUEST_GIVER boolean
+---@field [23] boolean
+---@field SPECIAL_BURIAL boolean
+---@field [24] boolean
+---@field REQUIRES_MARKET boolean
+
+---@class (exact) _entity_position_responsibility: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field LAW_MAKING 1
+---@field [1] "LAW_MAKING"
+---@field LAW_ENFORCEMENT 2
+---@field [2] "LAW_ENFORCEMENT"
+---@field RECEIVE_DIPLOMATS 3
+---@field [3] "RECEIVE_DIPLOMATS"
+---@field MEET_WORKERS 4
+---@field [4] "MEET_WORKERS"
+---@field MANAGE_PRODUCTION 5
+---@field [5] "MANAGE_PRODUCTION"
+---@field TRADE 6
+---@field [6] "TRADE"
+---@field ACCOUNTING 7
+---@field [7] "ACCOUNTING"
+---@field ESTABLISH_COLONY_TRADE_AGREEMENTS 8
+---@field [8] "ESTABLISH_COLONY_TRADE_AGREEMENTS"
+---@field MAKE_INTRODUCTIONS 9
+---@field [9] "MAKE_INTRODUCTIONS"
+---@field MAKE_PEACE_AGREEMENTS 10
+---@field [10] "MAKE_PEACE_AGREEMENTS"
+---@field MAKE_TOPIC_AGREEMENTS 11
+---@field [11] "MAKE_TOPIC_AGREEMENTS"
+---@field COLLECT_TAXES 12
+---@field [12] "COLLECT_TAXES"
+---@field ESCORT_TAX_COLLECTOR 13
+---@field [13] "ESCORT_TAX_COLLECTOR"
+---@field EXECUTIONS 14
+---@field [14] "EXECUTIONS"
+---@field TAME_EXOTICS 15
+---@field [15] "TAME_EXOTICS"
+---@field RELIGION 16
+---@field [16] "RELIGION"
+---@field ATTACK_ENEMIES 17
+---@field [17] "ATTACK_ENEMIES"
+---@field PATROL_TERRITORY 18
+---@field [18] "PATROL_TERRITORY"
+---@field MILITARY_GOALS 19
+---@field [19] "MILITARY_GOALS"
+---@field MILITARY_STRATEGY 20
+---@field [20] "MILITARY_STRATEGY"
+---@field UPGRADE_SQUAD_EQUIPMENT 21
+---@field [21] "UPGRADE_SQUAD_EQUIPMENT"
+---@field EQUIPMENT_MANIFESTS 22
+---@field [22] "EQUIPMENT_MANIFESTS"
+---@field SORT_AMMUNITION 23
+---@field [23] "SORT_AMMUNITION"
+---@field BUILD_MORALE 24
+---@field [24] "BUILD_MORALE"
+---@field HEALTH_MANAGEMENT 25
+---@field [25] "HEALTH_MANAGEMENT"
+---@field ESPIONAGE 26
+---@field [26] "ESPIONAGE"
+---@field ADVISE_LEADERS 27
+---@field [27] "ADVISE_LEADERS"
+---@field OVERSEE_LEADER_HOUSEHOLD 28
+---@field [28] "OVERSEE_LEADER_HOUSEHOLD"
+---@field MANAGE_ANIMALS 29
+---@field [29] "MANAGE_ANIMALS"
+---@field MANAGE_LEADER_HOUSEHOLD_FOOD 30
+---@field [30] "MANAGE_LEADER_HOUSEHOLD_FOOD"
+---@field MANAGE_LEADER_HOUSEHOLD_DRINKS 31
+---@field [31] "MANAGE_LEADER_HOUSEHOLD_DRINKS"
+---@field PREPARE_LEADER_MEALS 32
+---@field [32] "PREPARE_LEADER_MEALS"
+---@field MANAGE_LEADER_HOUSEHOLD_CLEANLINESS 33
+---@field [33] "MANAGE_LEADER_HOUSEHOLD_CLEANLINESS"
+---@field MAINTAIN_SEWERS 34
+---@field [34] "MAINTAIN_SEWERS"
+---@field FOOD_SUPPLY 35
+---@field [35] "FOOD_SUPPLY"
+---@field FIRE_SAFETY 36
+---@field [36] "FIRE_SAFETY"
+---@field JUDGE 37
+---@field [37] "JUDGE"
+---@field BUILDING_SAFETY 38
+---@field [38] "BUILDING_SAFETY"
+---@field CONSTRUCTION_PERMITS 39
+---@field [39] "CONSTRUCTION_PERMITS"
+---@field MAINTAIN_ROADS 40
+---@field [40] "MAINTAIN_ROADS"
+---@field MAINTAIN_BRIDGES 41
+---@field [41] "MAINTAIN_BRIDGES"
+---@field MAINTAIN_TUNNELS 42
+---@field [42] "MAINTAIN_TUNNELS"
+---@field DELIVER_MESSAGES 43
+---@field [43] "DELIVER_MESSAGES"
+df.entity_position_responsibility = {}
+
+---@class entity_position_responsibility
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field LAW_MAKING boolean
+---@field [2] boolean
+---@field LAW_ENFORCEMENT boolean
+---@field [3] boolean
+---@field RECEIVE_DIPLOMATS boolean
+---@field [4] boolean
+---@field MEET_WORKERS boolean
+---@field [5] boolean
+---@field MANAGE_PRODUCTION boolean
+---@field [6] boolean
+---@field TRADE boolean
+---@field [7] boolean
+---@field ACCOUNTING boolean
+---@field [8] boolean
+---@field ESTABLISH_COLONY_TRADE_AGREEMENTS boolean
+---@field [9] boolean
+---@field MAKE_INTRODUCTIONS boolean
+---@field [10] boolean
+---@field MAKE_PEACE_AGREEMENTS boolean
+---@field [11] boolean
+---@field MAKE_TOPIC_AGREEMENTS boolean
+---@field [12] boolean
+---@field COLLECT_TAXES boolean
+---@field [13] boolean
+---@field ESCORT_TAX_COLLECTOR boolean
+---@field [14] boolean
+---@field EXECUTIONS boolean
+---@field [15] boolean
+---@field TAME_EXOTICS boolean
+---@field [16] boolean
+---@field RELIGION boolean
+---@field [17] boolean
+---@field ATTACK_ENEMIES boolean
+---@field [18] boolean
+---@field PATROL_TERRITORY boolean
+---@field [19] boolean
+---@field MILITARY_GOALS boolean
+---@field [20] boolean
+---@field MILITARY_STRATEGY boolean
+---@field [21] boolean
+---@field UPGRADE_SQUAD_EQUIPMENT boolean
+---@field [22] boolean
+---@field EQUIPMENT_MANIFESTS boolean
+---@field [23] boolean
+---@field SORT_AMMUNITION boolean
+---@field [24] boolean
+---@field BUILD_MORALE boolean
+---@field [25] boolean
+---@field HEALTH_MANAGEMENT boolean
+---@field [26] boolean
+---@field ESPIONAGE boolean
+---@field [27] boolean
+---@field ADVISE_LEADERS boolean
+---@field [28] boolean
+---@field OVERSEE_LEADER_HOUSEHOLD boolean
+---@field [29] boolean
+---@field MANAGE_ANIMALS boolean
+---@field [30] boolean
+---@field MANAGE_LEADER_HOUSEHOLD_FOOD boolean
+---@field [31] boolean
+---@field MANAGE_LEADER_HOUSEHOLD_DRINKS boolean
+---@field [32] boolean
+---@field PREPARE_LEADER_MEALS boolean
+---@field [33] boolean
+---@field MANAGE_LEADER_HOUSEHOLD_CLEANLINESS boolean
+---@field [34] boolean
+---@field MAINTAIN_SEWERS boolean
+---@field [35] boolean
+---@field FOOD_SUPPLY boolean
+---@field [36] boolean
+---@field FIRE_SAFETY boolean
+---@field [37] boolean
+---@field JUDGE boolean
+---@field [38] boolean
+---@field BUILDING_SAFETY boolean
+---@field [39] boolean
+---@field CONSTRUCTION_PERMITS boolean
+---@field [40] boolean
+---@field MAINTAIN_ROADS boolean
+---@field [41] boolean
+---@field MAINTAIN_BRIDGES boolean
+---@field [42] boolean
+---@field MAINTAIN_TUNNELS boolean
+---@field [43] boolean
+---@field DELIVER_MESSAGES boolean
 
 ---@class entity_position_raw: df.struct
 ---@field code string

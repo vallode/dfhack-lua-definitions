@@ -1,14 +1,30 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum art_image_element_type
-df.art_image_element_type = {
-  CREATURE = 0,
-  PLANT = 1,
-  TREE = 2,
-  SHAPE = 3,
-  ITEM = 4,
-}
+---@class (exact) _art_image_element_type: df.struct
+---@field CREATURE 0
+---@field [0] "CREATURE"
+---@field PLANT 1
+---@field [1] "PLANT"
+---@field TREE 2
+---@field [2] "TREE"
+---@field SHAPE 3
+---@field [3] "SHAPE"
+---@field ITEM 4
+---@field [4] "ITEM"
+df.art_image_element_type = {}
+
+---@class art_image_element_type
+---@field [0] boolean
+---@field CREATURE boolean
+---@field [1] boolean
+---@field PLANT boolean
+---@field [2] boolean
+---@field TREE boolean
+---@field [3] boolean
+---@field SHAPE boolean
+---@field [4] boolean
+---@field ITEM boolean
 
 ---@class art_image_element: df.struct
 ---@field count integer
@@ -42,67 +58,219 @@ df.art_image_element_shapest = {}
 ---@field item_id item
 df.art_image_element_itemst = {}
 
----@enum art_image_property_type
-df.art_image_property_type = {
-  transitive_verb = 0,
-  intransitive_verb = 1,
-}
+---@class (exact) _art_image_property_type: df.struct
+---@field transitive_verb 0
+---@field [0] "transitive_verb"
+---@field intransitive_verb 1
+---@field [1] "intransitive_verb"
+df.art_image_property_type = {}
+
+---@class art_image_property_type
+---@field [0] boolean
+---@field transitive_verb boolean
+---@field [1] boolean
+---@field intransitive_verb boolean
 
 ---@class art_image_property: df.struct
 ---@field flags any
 df.art_image_property = {}
 
----@enum art_image_property_verb
-df.art_image_property_verb = {
-  Withering = 0,
-  SurroundedBy = 1,
-  Massacring = 2,
-  Fighting = 3,
-  Laboring = 4,
-  Greeting = 5,
-  Refusing = 6,
-  Speaking = 7,
-  Embracing = 8,
-  StrikingDown = 9,
-  MenacingPose = 10,
-  Traveling = 11,
-  Raising = 12,
-  Hiding = 13,
-  LookingConfused = 14,
-  LookingTerrified = 15,
-  Devouring = 16,
-  Admiring = 17,
-  Burning = 18,
-  Weeping = 19,
-  LookingDejected = 20,
-  Cringing = 21,
-  Screaming = 22,
-  SubmissiveGesture = 23,
-  FetalPosition = 24,
-  SmearedIntoSpiral = 25,
-  Falling = 26,
-  Dead = 27,
-  Laughing = 28,
-  LookingOffended = 29,
-  BeingShot = 30,
-  PlaintiveGesture = 31,
-  Melting = 32,
-  Shooting = 33,
-  Torturing = 34,
-  CommittingDepravedAct = 35,
-  Praying = 36,
-  Contemplating = 37,
-  Cooking = 38,
-  Engraving = 39,
-  Prostrating = 40,
-  Suffering = 41,
-  BeingImpaled = 42,
-  BeingContorted = 43,
-  BeingFlayed = 44,
-  HangingFrom = 45,
-  BeingMutilated = 46,
-  TriumphantPose = 47,
-}
+---@class (exact) _art_image_property_verb: df.struct
+---@field Withering 0
+---@field [0] "Withering"
+---@field SurroundedBy 1
+---@field [1] "SurroundedBy"
+---@field Massacring 2
+---@field [2] "Massacring"
+---@field Fighting 3
+---@field [3] "Fighting"
+---@field Laboring 4
+---@field [4] "Laboring"
+---@field Greeting 5
+---@field [5] "Greeting"
+---@field Refusing 6
+---@field [6] "Refusing"
+---@field Speaking 7
+---@field [7] "Speaking"
+---@field Embracing 8
+---@field [8] "Embracing"
+---@field StrikingDown 9
+---@field [9] "StrikingDown"
+---@field MenacingPose 10
+---@field [10] "MenacingPose"
+---@field Traveling 11
+---@field [11] "Traveling"
+---@field Raising 12
+---@field [12] "Raising"
+---@field Hiding 13
+---@field [13] "Hiding"
+---@field LookingConfused 14
+---@field [14] "LookingConfused"
+---@field LookingTerrified 15
+---@field [15] "LookingTerrified"
+---@field Devouring 16
+---@field [16] "Devouring"
+---@field Admiring 17
+---@field [17] "Admiring"
+---@field Burning 18
+---@field [18] "Burning"
+---@field Weeping 19
+---@field [19] "Weeping"
+---@field LookingDejected 20
+---@field [20] "LookingDejected"
+---@field Cringing 21
+---@field [21] "Cringing"
+---@field Screaming 22
+---@field [22] "Screaming"
+---@field SubmissiveGesture 23
+---@field [23] "SubmissiveGesture"
+---@field FetalPosition 24
+---@field [24] "FetalPosition"
+---@field SmearedIntoSpiral 25
+---@field [25] "SmearedIntoSpiral"
+---@field Falling 26
+---@field [26] "Falling"
+---@field Dead 27
+---@field [27] "Dead"
+---@field Laughing 28
+---@field [28] "Laughing"
+---@field LookingOffended 29
+---@field [29] "LookingOffended"
+---@field BeingShot 30
+---@field [30] "BeingShot"
+---@field PlaintiveGesture 31
+---@field [31] "PlaintiveGesture"
+---@field Melting 32
+---@field [32] "Melting"
+---@field Shooting 33
+---@field [33] "Shooting"
+---@field Torturing 34
+---@field [34] "Torturing"
+---@field CommittingDepravedAct 35
+---@field [35] "CommittingDepravedAct"
+---@field Praying 36
+---@field [36] "Praying"
+---@field Contemplating 37
+---@field [37] "Contemplating"
+---@field Cooking 38
+---@field [38] "Cooking"
+---@field Engraving 39
+---@field [39] "Engraving"
+---@field Prostrating 40
+---@field [40] "Prostrating"
+---@field Suffering 41
+---@field [41] "Suffering"
+---@field BeingImpaled 42
+---@field [42] "BeingImpaled"
+---@field BeingContorted 43
+---@field [43] "BeingContorted"
+---@field BeingFlayed 44
+---@field [44] "BeingFlayed"
+---@field HangingFrom 45
+---@field [45] "HangingFrom"
+---@field BeingMutilated 46
+---@field [46] "BeingMutilated"
+---@field TriumphantPose 47
+---@field [47] "TriumphantPose"
+df.art_image_property_verb = {}
+
+---@class art_image_property_verb
+---@field [0] boolean
+---@field Withering boolean
+---@field [1] boolean
+---@field SurroundedBy boolean
+---@field [2] boolean
+---@field Massacring boolean
+---@field [3] boolean
+---@field Fighting boolean
+---@field [4] boolean
+---@field Laboring boolean
+---@field [5] boolean
+---@field Greeting boolean
+---@field [6] boolean
+---@field Refusing boolean
+---@field [7] boolean
+---@field Speaking boolean
+---@field [8] boolean
+---@field Embracing boolean
+---@field [9] boolean
+---@field StrikingDown boolean
+---@field [10] boolean
+---@field MenacingPose boolean
+---@field [11] boolean
+---@field Traveling boolean
+---@field [12] boolean
+---@field Raising boolean
+---@field [13] boolean
+---@field Hiding boolean
+---@field [14] boolean
+---@field LookingConfused boolean
+---@field [15] boolean
+---@field LookingTerrified boolean
+---@field [16] boolean
+---@field Devouring boolean
+---@field [17] boolean
+---@field Admiring boolean
+---@field [18] boolean
+---@field Burning boolean
+---@field [19] boolean
+---@field Weeping boolean
+---@field [20] boolean
+---@field LookingDejected boolean
+---@field [21] boolean
+---@field Cringing boolean
+---@field [22] boolean
+---@field Screaming boolean
+---@field [23] boolean
+---@field SubmissiveGesture boolean
+---@field [24] boolean
+---@field FetalPosition boolean
+---@field [25] boolean
+---@field SmearedIntoSpiral boolean
+---@field [26] boolean
+---@field Falling boolean
+---@field [27] boolean
+---@field Dead boolean
+---@field [28] boolean
+---@field Laughing boolean
+---@field [29] boolean
+---@field LookingOffended boolean
+---@field [30] boolean
+---@field BeingShot boolean
+---@field [31] boolean
+---@field PlaintiveGesture boolean
+---@field [32] boolean
+---@field Melting boolean
+---@field [33] boolean
+---@field Shooting boolean
+---@field [34] boolean
+---@field Torturing boolean
+---@field [35] boolean
+---@field CommittingDepravedAct boolean
+---@field [36] boolean
+---@field Praying boolean
+---@field [37] boolean
+---@field Contemplating boolean
+---@field [38] boolean
+---@field Cooking boolean
+---@field [39] boolean
+---@field Engraving boolean
+---@field [40] boolean
+---@field Prostrating boolean
+---@field [41] boolean
+---@field Suffering boolean
+---@field [42] boolean
+---@field BeingImpaled boolean
+---@field [43] boolean
+---@field BeingContorted boolean
+---@field [44] boolean
+---@field BeingFlayed boolean
+---@field [45] boolean
+---@field HangingFrom boolean
+---@field [46] boolean
+---@field BeingMutilated boolean
+---@field [47] boolean
+---@field TriumphantPose boolean
 
 ---@class art_image_property_transitive_verbst: art_image_property
 ---@field subject integer
@@ -115,13 +283,26 @@ df.art_image_property_transitive_verbst = {}
 ---@field verb art_image_property_verb
 df.art_image_property_intransitive_verbst = {}
 
----@enum art_facet_type
-df.art_facet_type = {
-  OWN_RACE = 0,
-  FANCIFUL = 1,
-  GOOD = 2,
-  EVIL = 3,
-}
+---@class (exact) _art_facet_type: df.struct
+---@field OWN_RACE 0
+---@field [0] "OWN_RACE"
+---@field FANCIFUL 1
+---@field [1] "FANCIFUL"
+---@field GOOD 2
+---@field [2] "GOOD"
+---@field EVIL 3
+---@field [3] "EVIL"
+df.art_facet_type = {}
+
+---@class art_facet_type
+---@field [0] boolean
+---@field OWN_RACE boolean
+---@field [1] boolean
+---@field FANCIFUL boolean
+---@field [2] boolean
+---@field GOOD boolean
+---@field [3] boolean
+---@field EVIL boolean
 
 ---@class art_image: df.struct
 ---@field elements art_image_element[]
@@ -153,96 +334,314 @@ df.art_image_chunk = {}
 ---@field site_id world_site
 df.art_image_ref = {}
 
----@enum poetic_form_action
-df.poetic_form_action = {
-  None = -1,
-  Describe = 1,
-  Satirize = 2,
-  AmuseAudience = 3,
-  Complain = 4,
-  Renounce = 5,
-  MakeApology = 6,
-  ExpressPleasure = 7,
-  ExpressGrief = 8,
-  Praise = 9,
-  TeachMoralLesson = 10,
-  MakeAssertion = 11,
-  MakeCounterAssertion = 12,
-  MakeConsession = 13,
-  SynthesizePreviousIdeas = 14,
-  DevelopPreviousIdea = 15,
-  InvertTheAssertion = 16,
-  UndercutAssertion = 17,
-  MoveAwayFromPreviousIdeas = 18,
-  ReflectPreviousIdeas = 19,
-  ConsoleAudience = 20,
-  RefuseConsolation = 21,
-  OfferDifferentPerspective = 22,
-  Beseech = 23,
-}
+---@class (exact) _poetic_form_action: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Describe 1
+---@field [1] "Describe"
+---@field Satirize 2
+---@field [2] "Satirize"
+---@field AmuseAudience 3
+---@field [3] "AmuseAudience"
+---@field Complain 4
+---@field [4] "Complain"
+---@field Renounce 5
+---@field [5] "Renounce"
+---@field MakeApology 6
+---@field [6] "MakeApology"
+---@field ExpressPleasure 7
+---@field [7] "ExpressPleasure"
+---@field ExpressGrief 8
+---@field [8] "ExpressGrief"
+---@field Praise 9
+---@field [9] "Praise"
+---@field TeachMoralLesson 10
+---@field [10] "TeachMoralLesson"
+---@field MakeAssertion 11
+---@field [11] "MakeAssertion"
+---@field MakeCounterAssertion 12
+---@field [12] "MakeCounterAssertion"
+---@field MakeConsession 13
+---@field [13] "MakeConsession"
+---@field SynthesizePreviousIdeas 14
+---@field [14] "SynthesizePreviousIdeas"
+---@field DevelopPreviousIdea 15
+---@field [15] "DevelopPreviousIdea"
+---@field InvertTheAssertion 16
+---@field [16] "InvertTheAssertion"
+---@field UndercutAssertion 17
+---@field [17] "UndercutAssertion"
+---@field MoveAwayFromPreviousIdeas 18
+---@field [18] "MoveAwayFromPreviousIdeas"
+---@field ReflectPreviousIdeas 19
+---@field [19] "ReflectPreviousIdeas"
+---@field ConsoleAudience 20
+---@field [20] "ConsoleAudience"
+---@field RefuseConsolation 21
+---@field [21] "RefuseConsolation"
+---@field OfferDifferentPerspective 22
+---@field [22] "OfferDifferentPerspective"
+---@field Beseech 23
+---@field [23] "Beseech"
+df.poetic_form_action = {}
 
----@enum poetic_form_pattern
-df.poetic_form_pattern = {
-  None = -1,
-  AA = 1,
-  AB = 2,
-  BA = 3,
-  BB = 4,
-  AAA = 5,
-  BAA = 6,
-  ABA = 7,
-  AAB = 8,
-  ABB = 9,
-  BBA = 10,
-  BAB = 11,
-  BBB = 12,
-}
+---@class poetic_form_action
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Describe boolean
+---@field [2] boolean
+---@field Satirize boolean
+---@field [3] boolean
+---@field AmuseAudience boolean
+---@field [4] boolean
+---@field Complain boolean
+---@field [5] boolean
+---@field Renounce boolean
+---@field [6] boolean
+---@field MakeApology boolean
+---@field [7] boolean
+---@field ExpressPleasure boolean
+---@field [8] boolean
+---@field ExpressGrief boolean
+---@field [9] boolean
+---@field Praise boolean
+---@field [10] boolean
+---@field TeachMoralLesson boolean
+---@field [11] boolean
+---@field MakeAssertion boolean
+---@field [12] boolean
+---@field MakeCounterAssertion boolean
+---@field [13] boolean
+---@field MakeConsession boolean
+---@field [14] boolean
+---@field SynthesizePreviousIdeas boolean
+---@field [15] boolean
+---@field DevelopPreviousIdea boolean
+---@field [16] boolean
+---@field InvertTheAssertion boolean
+---@field [17] boolean
+---@field UndercutAssertion boolean
+---@field [18] boolean
+---@field MoveAwayFromPreviousIdeas boolean
+---@field [19] boolean
+---@field ReflectPreviousIdeas boolean
+---@field [20] boolean
+---@field ConsoleAudience boolean
+---@field [21] boolean
+---@field RefuseConsolation boolean
+---@field [22] boolean
+---@field OfferDifferentPerspective boolean
+---@field [23] boolean
+---@field Beseech boolean
 
----@enum poetic_form_caesura_position
-df.poetic_form_caesura_position = {
-  None = -1,
-  Initial = 1,
-  Medial = 2,
-  Terminal = 3,
-}
+---@class (exact) _poetic_form_pattern: df.struct
+---@field None -1
+---@field [0] "None"
+---@field AA 1
+---@field [1] "AA"
+---@field AB 2
+---@field [2] "AB"
+---@field BA 3
+---@field [3] "BA"
+---@field BB 4
+---@field [4] "BB"
+---@field AAA 5
+---@field [5] "AAA"
+---@field BAA 6
+---@field [6] "BAA"
+---@field ABA 7
+---@field [7] "ABA"
+---@field AAB 8
+---@field [8] "AAB"
+---@field ABB 9
+---@field [9] "ABB"
+---@field BBA 10
+---@field [10] "BBA"
+---@field BAB 11
+---@field [11] "BAB"
+---@field BBB 12
+---@field [12] "BBB"
+df.poetic_form_pattern = {}
 
----@enum poetic_form_mood
-df.poetic_form_mood = {
-  None = -1,
-  Narrative = 1,
-  Dramatic = 2,
-  Reflective = 3,
-  Riddle = 4,
-  Ribald = 5,
-  Light = 6,
-  Solemn = 7,
-}
+---@class poetic_form_pattern
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field AA boolean
+---@field [2] boolean
+---@field AB boolean
+---@field [3] boolean
+---@field BA boolean
+---@field [4] boolean
+---@field BB boolean
+---@field [5] boolean
+---@field AAA boolean
+---@field [6] boolean
+---@field BAA boolean
+---@field [7] boolean
+---@field ABA boolean
+---@field [8] boolean
+---@field AAB boolean
+---@field [9] boolean
+---@field ABB boolean
+---@field [10] boolean
+---@field BBA boolean
+---@field [11] boolean
+---@field BAB boolean
+---@field [12] boolean
+---@field BBB boolean
 
----@enum poetic_form_subject
-df.poetic_form_subject = {
-  None = -1,
-  Past = 1,
-  CurrentEvents = 2,
-  Future = 3,
-  SomeoneRecentlyDeceased = 4,
-  SomeoneRecentlyRetired = 5,
-  Religion = 6,
-  SpecificPlace = 7,
-  SpecificWildernessRegion = 8,
-  Nature = 9,
-  Lover = 10,
-  Family = 11,
-  AlcoholicBeverages = 12,
-  Journey = 13,
-  War = 14,
-  Hunt = 15,
-  Mining = 16,
-  Death = 17,
-  Immortality = 18,
-  SomeonesCharacter = 19,
-  Histfig = 20,
-  Concept = 21,
-}
+---@class (exact) _poetic_form_caesura_position: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Initial 1
+---@field [1] "Initial"
+---@field Medial 2
+---@field [2] "Medial"
+---@field Terminal 3
+---@field [3] "Terminal"
+df.poetic_form_caesura_position = {}
+
+---@class poetic_form_caesura_position
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Initial boolean
+---@field [2] boolean
+---@field Medial boolean
+---@field [3] boolean
+---@field Terminal boolean
+
+---@class (exact) _poetic_form_mood: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Narrative 1
+---@field [1] "Narrative"
+---@field Dramatic 2
+---@field [2] "Dramatic"
+---@field Reflective 3
+---@field [3] "Reflective"
+---@field Riddle 4
+---@field [4] "Riddle"
+---@field Ribald 5
+---@field [5] "Ribald"
+---@field Light 6
+---@field [6] "Light"
+---@field Solemn 7
+---@field [7] "Solemn"
+df.poetic_form_mood = {}
+
+---@class poetic_form_mood
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Narrative boolean
+---@field [2] boolean
+---@field Dramatic boolean
+---@field [3] boolean
+---@field Reflective boolean
+---@field [4] boolean
+---@field Riddle boolean
+---@field [5] boolean
+---@field Ribald boolean
+---@field [6] boolean
+---@field Light boolean
+---@field [7] boolean
+---@field Solemn boolean
+
+---@class (exact) _poetic_form_subject: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Past 1
+---@field [1] "Past"
+---@field CurrentEvents 2
+---@field [2] "CurrentEvents"
+---@field Future 3
+---@field [3] "Future"
+---@field SomeoneRecentlyDeceased 4
+---@field [4] "SomeoneRecentlyDeceased"
+---@field SomeoneRecentlyRetired 5
+---@field [5] "SomeoneRecentlyRetired"
+---@field Religion 6
+---@field [6] "Religion"
+---@field SpecificPlace 7
+---@field [7] "SpecificPlace"
+---@field SpecificWildernessRegion 8
+---@field [8] "SpecificWildernessRegion"
+---@field Nature 9
+---@field [9] "Nature"
+---@field Lover 10
+---@field [10] "Lover"
+---@field Family 11
+---@field [11] "Family"
+---@field AlcoholicBeverages 12
+---@field [12] "AlcoholicBeverages"
+---@field Journey 13
+---@field [13] "Journey"
+---@field War 14
+---@field [14] "War"
+---@field Hunt 15
+---@field [15] "Hunt"
+---@field Mining 16
+---@field [16] "Mining"
+---@field Death 17
+---@field [17] "Death"
+---@field Immortality 18
+---@field [18] "Immortality"
+---@field SomeonesCharacter 19
+---@field [19] "SomeonesCharacter"
+---@field Histfig 20
+---@field [20] "Histfig"
+---@field Concept 21
+---@field [21] "Concept"
+df.poetic_form_subject = {}
+
+---@class poetic_form_subject
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Past boolean
+---@field [2] boolean
+---@field CurrentEvents boolean
+---@field [3] boolean
+---@field Future boolean
+---@field [4] boolean
+---@field SomeoneRecentlyDeceased boolean
+---@field [5] boolean
+---@field SomeoneRecentlyRetired boolean
+---@field [6] boolean
+---@field Religion boolean
+---@field [7] boolean
+---@field SpecificPlace boolean
+---@field [8] boolean
+---@field SpecificWildernessRegion boolean
+---@field [9] boolean
+---@field Nature boolean
+---@field [10] boolean
+---@field Lover boolean
+---@field [11] boolean
+---@field Family boolean
+---@field [12] boolean
+---@field AlcoholicBeverages boolean
+---@field [13] boolean
+---@field Journey boolean
+---@field [14] boolean
+---@field War boolean
+---@field [15] boolean
+---@field Hunt boolean
+---@field [16] boolean
+---@field Mining boolean
+---@field [17] boolean
+---@field Death boolean
+---@field [18] boolean
+---@field Immortality boolean
+---@field [19] boolean
+---@field SomeonesCharacter boolean
+---@field [20] boolean
+---@field Histfig boolean
+---@field [21] boolean
+---@field Concept boolean
 
 ---@class poetic_form_subject_target: df.struct
 ---@field Histfig poetic_form_subject_target_Histfig
@@ -257,44 +656,139 @@ df.poetic_form_subject_target.T_Histfig = {}
 ---@field subject_topic sphere_type
 df.poetic_form_subject_target.T_Concept = {}
 
----@enum poetic_form_feature
-df.poetic_form_feature = {
-  InternalRhyme = 0,
-  EndRhymesDontMatch = 1,
-  Alliteration = 2,
-  Onomatopoeia = 3,
-  Antanaclasis = 4,
-  DifferentReadings = 5,
-  ReadBackwards = 6,
-  ReadOrthogonally = 7,
-  Emerge = 8,
-  Assonance = 9,
-  Consonance = 10,
-  Elision = 11,
-  Epenthesis = 12,
-  Synchysis = 13,
-  Allegory = 14,
-  Ambiguity = 15,
-  Symbolism = 16,
-  Metaphor = 17,
-  Simile = 18,
-  Metonymy = 19,
-  VividImagery = 20,
-  Juxtaposision = 21,
-}
+---@class (exact) _poetic_form_feature: df.struct
+---@field InternalRhyme 0
+---@field [0] "InternalRhyme"
+---@field EndRhymesDontMatch 1
+---@field [1] "EndRhymesDontMatch"
+---@field Alliteration 2
+---@field [2] "Alliteration"
+---@field Onomatopoeia 3
+---@field [3] "Onomatopoeia"
+---@field Antanaclasis 4
+---@field [4] "Antanaclasis"
+---@field DifferentReadings 5
+---@field [5] "DifferentReadings"
+---@field ReadBackwards 6
+---@field [6] "ReadBackwards"
+---@field ReadOrthogonally 7
+---@field [7] "ReadOrthogonally"
+---@field Emerge 8
+---@field [8] "Emerge"
+---@field Assonance 9
+---@field [9] "Assonance"
+---@field Consonance 10
+---@field [10] "Consonance"
+---@field Elision 11
+---@field [11] "Elision"
+---@field Epenthesis 12
+---@field [12] "Epenthesis"
+---@field Synchysis 13
+---@field [13] "Synchysis"
+---@field Allegory 14
+---@field [14] "Allegory"
+---@field Ambiguity 15
+---@field [15] "Ambiguity"
+---@field Symbolism 16
+---@field [16] "Symbolism"
+---@field Metaphor 17
+---@field [17] "Metaphor"
+---@field Simile 18
+---@field [18] "Simile"
+---@field Metonymy 19
+---@field [19] "Metonymy"
+---@field VividImagery 20
+---@field [20] "VividImagery"
+---@field Juxtaposision 21
+---@field [21] "Juxtaposision"
+df.poetic_form_feature = {}
 
----@enum poetic_form_additional_feature
-df.poetic_form_additional_feature = {
-  SharesUnderlyingMeaning = 0,
-  ContrastsUnderlyingMeaning = 1,
-  RequiredToMaintainPhrasing = 2,
-  SameGrammaticalStructure = 3,
-  SamePlacementOfAllusions = 4,
-  ReverseWordOrder = 5,
-  ReverseGrammaticalStructure = 6,
-  PresentsDifferentView = 7,
-  MustExpandIdea = 8,
-}
+---@class poetic_form_feature
+---@field [0] boolean
+---@field InternalRhyme boolean
+---@field [1] boolean
+---@field EndRhymesDontMatch boolean
+---@field [2] boolean
+---@field Alliteration boolean
+---@field [3] boolean
+---@field Onomatopoeia boolean
+---@field [4] boolean
+---@field Antanaclasis boolean
+---@field [5] boolean
+---@field DifferentReadings boolean
+---@field [6] boolean
+---@field ReadBackwards boolean
+---@field [7] boolean
+---@field ReadOrthogonally boolean
+---@field [8] boolean
+---@field Emerge boolean
+---@field [9] boolean
+---@field Assonance boolean
+---@field [10] boolean
+---@field Consonance boolean
+---@field [11] boolean
+---@field Elision boolean
+---@field [12] boolean
+---@field Epenthesis boolean
+---@field [13] boolean
+---@field Synchysis boolean
+---@field [14] boolean
+---@field Allegory boolean
+---@field [15] boolean
+---@field Ambiguity boolean
+---@field [16] boolean
+---@field Symbolism boolean
+---@field [17] boolean
+---@field Metaphor boolean
+---@field [18] boolean
+---@field Simile boolean
+---@field [19] boolean
+---@field Metonymy boolean
+---@field [20] boolean
+---@field VividImagery boolean
+---@field [21] boolean
+---@field Juxtaposision boolean
+
+---@class (exact) _poetic_form_additional_feature: df.struct
+---@field SharesUnderlyingMeaning 0
+---@field [0] "SharesUnderlyingMeaning"
+---@field ContrastsUnderlyingMeaning 1
+---@field [1] "ContrastsUnderlyingMeaning"
+---@field RequiredToMaintainPhrasing 2
+---@field [2] "RequiredToMaintainPhrasing"
+---@field SameGrammaticalStructure 3
+---@field [3] "SameGrammaticalStructure"
+---@field SamePlacementOfAllusions 4
+---@field [4] "SamePlacementOfAllusions"
+---@field ReverseWordOrder 5
+---@field [5] "ReverseWordOrder"
+---@field ReverseGrammaticalStructure 6
+---@field [6] "ReverseGrammaticalStructure"
+---@field PresentsDifferentView 7
+---@field [7] "PresentsDifferentView"
+---@field MustExpandIdea 8
+---@field [8] "MustExpandIdea"
+df.poetic_form_additional_feature = {}
+
+---@class poetic_form_additional_feature
+---@field [0] boolean
+---@field SharesUnderlyingMeaning boolean
+---@field [1] boolean
+---@field ContrastsUnderlyingMeaning boolean
+---@field [2] boolean
+---@field RequiredToMaintainPhrasing boolean
+---@field [3] boolean
+---@field SameGrammaticalStructure boolean
+---@field [4] boolean
+---@field SamePlacementOfAllusions boolean
+---@field [5] boolean
+---@field ReverseWordOrder boolean
+---@field [6] boolean
+---@field ReverseGrammaticalStructure boolean
+---@field [7] boolean
+---@field PresentsDifferentView boolean
+---@field [8] boolean
+---@field MustExpandIdea boolean
 
 ---@class poetic_form: df.instance
 ---@field id integer
@@ -317,11 +811,18 @@ df.poetic_form_additional_feature = {
 ---@field perspectives poetic_form_perspective[]
 df.poetic_form = {}
 
----@enum poetic_form_flags
-df.poetic_form.T_flags = {
-  tone_patterns = 0,
-  produces_individual_poems = 1,
-}
+---@class (exact) _poetic_form_flags: df.struct
+---@field tone_patterns 0
+---@field [0] "tone_patterns"
+---@field produces_individual_poems 1
+---@field [1] "produces_individual_poems"
+df.poetic_form.T_flags = {}
+
+---@class poetic_form_flags
+---@field [0] boolean
+---@field tone_patterns boolean
+---@field [1] boolean
+---@field produces_individual_poems boolean
 
 ---@class poetic_form_common_features: df.struct
 df.poetic_form.T_common_features = {}
@@ -360,10 +861,14 @@ df.poetic_form.T_common_features = {}
 ---@field unk_9 integer
 df.poetic_form_part = {}
 
----@enum poetic_form_part_flags
-df.poetic_form_part.T_flags = {
-  size_in_lines = 0,
-}
+---@class (exact) _poetic_form_part_flags: df.struct
+---@field size_in_lines 0
+---@field [0] "size_in_lines"
+df.poetic_form_part.T_flags = {}
+
+---@class poetic_form_part_flags
+---@field [0] boolean
+---@field size_in_lines boolean
 
 ---@class poetic_form_part_line_patterns: df.struct
 df.poetic_form_part.T_line_patterns = {}
@@ -395,194 +900,625 @@ df.poetic_form_part.T_certain_lines_additional_features = {}
 ---@field unk_1 integer
 df.poetic_form_perspective = {}
 
----@enum poetic_form_perspective_type
-df.poetic_form_perspective.T_type = {
-  Author = 0,
-  Soldier = 1,
-  Traveller = 2,
-  RelativeOfAuthor = 3,
-  PartyOfDebate = 4,
-  FictionalPoet = 5,
-  Histfig = 6,
-  Animal = 7,
-}
+---@class (exact) _poetic_form_perspective_type: df.struct
+---@field Author 0
+---@field [0] "Author"
+---@field Soldier 1
+---@field [1] "Soldier"
+---@field Traveller 2
+---@field [2] "Traveller"
+---@field RelativeOfAuthor 3
+---@field [3] "RelativeOfAuthor"
+---@field PartyOfDebate 4
+---@field [4] "PartyOfDebate"
+---@field FictionalPoet 5
+---@field [5] "FictionalPoet"
+---@field Histfig 6
+---@field [6] "Histfig"
+---@field Animal 7
+---@field [7] "Animal"
+df.poetic_form_perspective.T_type = {}
 
----@enum musical_form_purpose
-df.musical_form_purpose = {
-  Entertainment = 0,
-  Commemoration = 1,
-  Devotion = 2,
-  Military = 3,
-}
+---@class poetic_form_perspective_type
+---@field [0] boolean
+---@field Author boolean
+---@field [1] boolean
+---@field Soldier boolean
+---@field [2] boolean
+---@field Traveller boolean
+---@field [3] boolean
+---@field RelativeOfAuthor boolean
+---@field [4] boolean
+---@field PartyOfDebate boolean
+---@field [5] boolean
+---@field FictionalPoet boolean
+---@field [6] boolean
+---@field Histfig boolean
+---@field [7] boolean
+---@field Animal boolean
 
----@enum musical_form_style
-df.musical_form_style = {
-  None = -1,
-  FreeTempo = 1,
-  VerySlow = 2,
-  Slow = 3,
-  WalkingPace = 4,
-  ModeratelyPaced = 5,
-  ModeratelyFast = 6,
-  Fast = 7,
-  VeryFast = 8,
-  ExtremelyFast = 9,
-  DoubleTempo = 10, --twice the tempo of the last passage
-  HalfTempo = 11, --half the tempo of the previous passage
-  Faster = 12, --more quickly than the last passage
-  Slower = 13, --slower than the last passage
-  ResumeTempo = 14, --resumes the previous tempo
-  OriginalTempo = 15, --resumes the original tempo
-  Accelerates = 16,
-  SlowsAndBroadens = 17,
-  ConsistentlySlowing = 18,
-  HurriedPace = 19,
-  GraduallySlowsAtEnd = 20,
-  WhisperedUndertones = 21,
-  VerySoft = 22,
-  Soft = 23,
-  ModeratelySoft = 24,
-  ModeratelyLoud = 25,
-  Loud = 26,
-  VeryLoud = 27,
-  BecomeLouderAndLouder = 28,
-  BecomeSofterAndSofter = 29,
-  FadeIntoSilence = 30,
-  StartLoudThenImmediatelySoft = 31,
-  SlowsAndDiesAwayAtEnd = 32,
-  BecomesCalmerAtEnd = 33,
-  BecomesFrenzied = 34,
-  StressRhythm = 35,
-  BeStately = 36,
-  BeBright = 37,
-  BeLively = 38,
-  BeSkilled = 39,
-  BeVigorous = 40,
-  BeSpirited = 41,
-  BeDelicate = 42,
-  BeFiery = 43,
-  BringSenseOfMotion = 44,
-  BeFiery2 = 45,
-  WithFeeling = 46,
-  FeelAgitated = 47,
-  BePassionate = 48,
-  Sparkle = 49,
-  BeBroad = 50,
-  BeMadeSweetly = 51,
-  BeStrong = 52,
-  BeEnergetic = 53,
-  BeForceful = 54,
-  FeelHeroic = 55,
-  BeMadeExpressively = 56,
-  FeelFurious = 57,
-  BeJoyful = 58,
-  BeGrand = 59,
-  BeMerry = 60,
-  BeGraceful = 61,
-  BuildAsItProceeds = 62,
-  EvokeTears = 63,
-  BeMelancholic = 64,
-  FeelMournful = 65,
-  BeMadeWithLightTouch = 66,
-  FeelHeavy = 67,
-  FeelMysterious = 68,
-  BeJumpy = 69,
-  FeelPlayful = 70,
-  FeelTender = 71,
-  FeelCalm = 72,
-  BeTriumphant = 73,
-}
+---@class (exact) _musical_form_purpose: df.struct
+---@field Entertainment 0
+---@field [0] "Entertainment"
+---@field Commemoration 1
+---@field [1] "Commemoration"
+---@field Devotion 2
+---@field [2] "Devotion"
+---@field Military 3
+---@field [3] "Military"
+df.musical_form_purpose = {}
 
----@enum musical_form_pitch_style
-df.musical_form_pitch_style = {
-  None = -1,
-  SinglePitchesOnly = 1,
-  IntervalsOnly = 2,
-  SparseChords = 3,
-  PitchClusters = 4,
-  ChordLayers = 5,
-}
+---@class musical_form_purpose
+---@field [0] boolean
+---@field Entertainment boolean
+---@field [1] boolean
+---@field Commemoration boolean
+---@field [2] boolean
+---@field Devotion boolean
+---@field [3] boolean
+---@field Military boolean
 
----@enum musical_form_feature
-df.musical_form_feature = {
-  GlideFromNoteToNote = 0,
-  UseGraceNotes = 1,
-  UseMordents = 2,
-  MakeTrills = 3,
-  PlayRapidRuns = 4,
-  LocallyImprovise = 5,
-  SpreadSyllablesOverManyNotes = 6,
-  MatchNotesAndSyllables = 7,
-  Syncopate = 8,
-  AddFills = 9,
-  AlternateTensionAndRepose = 10,
-  ModulateFrequently = 11,
-  PlayArpeggios = 12,
-  PlayStaccato = 13,
-  PlayLegato = 14,
-  FreelyAdjustBeats = 15,
-}
+---@class (exact) _musical_form_style: df.struct
+---@field None -1
+---@field [0] "None"
+---@field FreeTempo 1
+---@field [1] "FreeTempo"
+---@field VerySlow 2
+---@field [2] "VerySlow"
+---@field Slow 3
+---@field [3] "Slow"
+---@field WalkingPace 4
+---@field [4] "WalkingPace"
+---@field ModeratelyPaced 5
+---@field [5] "ModeratelyPaced"
+---@field ModeratelyFast 6
+---@field [6] "ModeratelyFast"
+---@field Fast 7
+---@field [7] "Fast"
+---@field VeryFast 8
+---@field [8] "VeryFast"
+---@field ExtremelyFast 9
+---@field [9] "ExtremelyFast"
+---@field DoubleTempo 10
+---@field [10] "DoubleTempo"
+---@field HalfTempo 11
+---@field [11] "HalfTempo"
+---@field Faster 12
+---@field [12] "Faster"
+---@field Slower 13
+---@field [13] "Slower"
+---@field ResumeTempo 14
+---@field [14] "ResumeTempo"
+---@field OriginalTempo 15
+---@field [15] "OriginalTempo"
+---@field Accelerates 16
+---@field [16] "Accelerates"
+---@field SlowsAndBroadens 17
+---@field [17] "SlowsAndBroadens"
+---@field ConsistentlySlowing 18
+---@field [18] "ConsistentlySlowing"
+---@field HurriedPace 19
+---@field [19] "HurriedPace"
+---@field GraduallySlowsAtEnd 20
+---@field [20] "GraduallySlowsAtEnd"
+---@field WhisperedUndertones 21
+---@field [21] "WhisperedUndertones"
+---@field VerySoft 22
+---@field [22] "VerySoft"
+---@field Soft 23
+---@field [23] "Soft"
+---@field ModeratelySoft 24
+---@field [24] "ModeratelySoft"
+---@field ModeratelyLoud 25
+---@field [25] "ModeratelyLoud"
+---@field Loud 26
+---@field [26] "Loud"
+---@field VeryLoud 27
+---@field [27] "VeryLoud"
+---@field BecomeLouderAndLouder 28
+---@field [28] "BecomeLouderAndLouder"
+---@field BecomeSofterAndSofter 29
+---@field [29] "BecomeSofterAndSofter"
+---@field FadeIntoSilence 30
+---@field [30] "FadeIntoSilence"
+---@field StartLoudThenImmediatelySoft 31
+---@field [31] "StartLoudThenImmediatelySoft"
+---@field SlowsAndDiesAwayAtEnd 32
+---@field [32] "SlowsAndDiesAwayAtEnd"
+---@field BecomesCalmerAtEnd 33
+---@field [33] "BecomesCalmerAtEnd"
+---@field BecomesFrenzied 34
+---@field [34] "BecomesFrenzied"
+---@field StressRhythm 35
+---@field [35] "StressRhythm"
+---@field BeStately 36
+---@field [36] "BeStately"
+---@field BeBright 37
+---@field [37] "BeBright"
+---@field BeLively 38
+---@field [38] "BeLively"
+---@field BeSkilled 39
+---@field [39] "BeSkilled"
+---@field BeVigorous 40
+---@field [40] "BeVigorous"
+---@field BeSpirited 41
+---@field [41] "BeSpirited"
+---@field BeDelicate 42
+---@field [42] "BeDelicate"
+---@field BeFiery 43
+---@field [43] "BeFiery"
+---@field BringSenseOfMotion 44
+---@field [44] "BringSenseOfMotion"
+---@field BeFiery2 45
+---@field [45] "BeFiery2"
+---@field WithFeeling 46
+---@field [46] "WithFeeling"
+---@field FeelAgitated 47
+---@field [47] "FeelAgitated"
+---@field BePassionate 48
+---@field [48] "BePassionate"
+---@field Sparkle 49
+---@field [49] "Sparkle"
+---@field BeBroad 50
+---@field [50] "BeBroad"
+---@field BeMadeSweetly 51
+---@field [51] "BeMadeSweetly"
+---@field BeStrong 52
+---@field [52] "BeStrong"
+---@field BeEnergetic 53
+---@field [53] "BeEnergetic"
+---@field BeForceful 54
+---@field [54] "BeForceful"
+---@field FeelHeroic 55
+---@field [55] "FeelHeroic"
+---@field BeMadeExpressively 56
+---@field [56] "BeMadeExpressively"
+---@field FeelFurious 57
+---@field [57] "FeelFurious"
+---@field BeJoyful 58
+---@field [58] "BeJoyful"
+---@field BeGrand 59
+---@field [59] "BeGrand"
+---@field BeMerry 60
+---@field [60] "BeMerry"
+---@field BeGraceful 61
+---@field [61] "BeGraceful"
+---@field BuildAsItProceeds 62
+---@field [62] "BuildAsItProceeds"
+---@field EvokeTears 63
+---@field [63] "EvokeTears"
+---@field BeMelancholic 64
+---@field [64] "BeMelancholic"
+---@field FeelMournful 65
+---@field [65] "FeelMournful"
+---@field BeMadeWithLightTouch 66
+---@field [66] "BeMadeWithLightTouch"
+---@field FeelHeavy 67
+---@field [67] "FeelHeavy"
+---@field FeelMysterious 68
+---@field [68] "FeelMysterious"
+---@field BeJumpy 69
+---@field [69] "BeJumpy"
+---@field FeelPlayful 70
+---@field [70] "FeelPlayful"
+---@field FeelTender 71
+---@field [71] "FeelTender"
+---@field FeelCalm 72
+---@field [72] "FeelCalm"
+---@field BeTriumphant 73
+---@field [73] "BeTriumphant"
+df.musical_form_style = {}
 
----@enum musical_form_passage_component_type
-df.musical_form_passage_component_type = {
-  Melody = 0,
-  Counterpoint = 1,
-  Harmony = 2,
-  Rhythm = 3,
-  Unspecified = 4,
-}
+---@class musical_form_style
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field FreeTempo boolean
+---@field [2] boolean
+---@field VerySlow boolean
+---@field [3] boolean
+---@field Slow boolean
+---@field [4] boolean
+---@field WalkingPace boolean
+---@field [5] boolean
+---@field ModeratelyPaced boolean
+---@field [6] boolean
+---@field ModeratelyFast boolean
+---@field [7] boolean
+---@field Fast boolean
+---@field [8] boolean
+---@field VeryFast boolean
+---@field [9] boolean
+---@field ExtremelyFast boolean
+---@field [10] boolean
+---@field DoubleTempo boolean
+---@field [11] boolean
+---@field HalfTempo boolean
+---@field [12] boolean
+---@field Faster boolean
+---@field [13] boolean
+---@field Slower boolean
+---@field [14] boolean
+---@field ResumeTempo boolean
+---@field [15] boolean
+---@field OriginalTempo boolean
+---@field [16] boolean
+---@field Accelerates boolean
+---@field [17] boolean
+---@field SlowsAndBroadens boolean
+---@field [18] boolean
+---@field ConsistentlySlowing boolean
+---@field [19] boolean
+---@field HurriedPace boolean
+---@field [20] boolean
+---@field GraduallySlowsAtEnd boolean
+---@field [21] boolean
+---@field WhisperedUndertones boolean
+---@field [22] boolean
+---@field VerySoft boolean
+---@field [23] boolean
+---@field Soft boolean
+---@field [24] boolean
+---@field ModeratelySoft boolean
+---@field [25] boolean
+---@field ModeratelyLoud boolean
+---@field [26] boolean
+---@field Loud boolean
+---@field [27] boolean
+---@field VeryLoud boolean
+---@field [28] boolean
+---@field BecomeLouderAndLouder boolean
+---@field [29] boolean
+---@field BecomeSofterAndSofter boolean
+---@field [30] boolean
+---@field FadeIntoSilence boolean
+---@field [31] boolean
+---@field StartLoudThenImmediatelySoft boolean
+---@field [32] boolean
+---@field SlowsAndDiesAwayAtEnd boolean
+---@field [33] boolean
+---@field BecomesCalmerAtEnd boolean
+---@field [34] boolean
+---@field BecomesFrenzied boolean
+---@field [35] boolean
+---@field StressRhythm boolean
+---@field [36] boolean
+---@field BeStately boolean
+---@field [37] boolean
+---@field BeBright boolean
+---@field [38] boolean
+---@field BeLively boolean
+---@field [39] boolean
+---@field BeSkilled boolean
+---@field [40] boolean
+---@field BeVigorous boolean
+---@field [41] boolean
+---@field BeSpirited boolean
+---@field [42] boolean
+---@field BeDelicate boolean
+---@field [43] boolean
+---@field BeFiery boolean
+---@field [44] boolean
+---@field BringSenseOfMotion boolean
+---@field [45] boolean
+---@field BeFiery2 boolean
+---@field [46] boolean
+---@field WithFeeling boolean
+---@field [47] boolean
+---@field FeelAgitated boolean
+---@field [48] boolean
+---@field BePassionate boolean
+---@field [49] boolean
+---@field Sparkle boolean
+---@field [50] boolean
+---@field BeBroad boolean
+---@field [51] boolean
+---@field BeMadeSweetly boolean
+---@field [52] boolean
+---@field BeStrong boolean
+---@field [53] boolean
+---@field BeEnergetic boolean
+---@field [54] boolean
+---@field BeForceful boolean
+---@field [55] boolean
+---@field FeelHeroic boolean
+---@field [56] boolean
+---@field BeMadeExpressively boolean
+---@field [57] boolean
+---@field FeelFurious boolean
+---@field [58] boolean
+---@field BeJoyful boolean
+---@field [59] boolean
+---@field BeGrand boolean
+---@field [60] boolean
+---@field BeMerry boolean
+---@field [61] boolean
+---@field BeGraceful boolean
+---@field [62] boolean
+---@field BuildAsItProceeds boolean
+---@field [63] boolean
+---@field EvokeTears boolean
+---@field [64] boolean
+---@field BeMelancholic boolean
+---@field [65] boolean
+---@field FeelMournful boolean
+---@field [66] boolean
+---@field BeMadeWithLightTouch boolean
+---@field [67] boolean
+---@field FeelHeavy boolean
+---@field [68] boolean
+---@field FeelMysterious boolean
+---@field [69] boolean
+---@field BeJumpy boolean
+---@field [70] boolean
+---@field FeelPlayful boolean
+---@field [71] boolean
+---@field FeelTender boolean
+---@field [72] boolean
+---@field FeelCalm boolean
+---@field [73] boolean
+---@field BeTriumphant boolean
 
----@enum musical_form_passage_type
-df.musical_form_passage_type = {
-  Unrelated = 0,
-  Introduction = 1,
-  Exposition = 2,
-  Recapitulation = 3,
-  Synthesis = 4,
-  Verse = 5,
-  Chorus = 6,
-  Finale = 7,
-  Coda = 8,
-  BridgePassage = 9,
-  Theme = 10,
-  Variation = 11,
-}
+---@class (exact) _musical_form_pitch_style: df.struct
+---@field None -1
+---@field [0] "None"
+---@field SinglePitchesOnly 1
+---@field [1] "SinglePitchesOnly"
+---@field IntervalsOnly 2
+---@field [2] "IntervalsOnly"
+---@field SparseChords 3
+---@field [3] "SparseChords"
+---@field PitchClusters 4
+---@field [4] "PitchClusters"
+---@field ChordLayers 5
+---@field [5] "ChordLayers"
+df.musical_form_pitch_style = {}
 
----@enum musical_form_passage_length_type
-df.musical_form_passage_length_type = {
-  NONE = -1,
-  Short = 1,
-  MidLength = 2,
-  Long = 3,
-  Varied = 4,
-}
+---@class musical_form_pitch_style
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field SinglePitchesOnly boolean
+---@field [2] boolean
+---@field IntervalsOnly boolean
+---@field [3] boolean
+---@field SparseChords boolean
+---@field [4] boolean
+---@field PitchClusters boolean
+---@field [5] boolean
+---@field ChordLayers boolean
 
----@enum musical_form_melody_style
-df.musical_form_melody_style = {
-  Rising = 0,
-  Falling = 1,
-  RisingFalling = 2,
-  FallingRising = 3,
-}
+---@class (exact) _musical_form_feature: df.struct
+---@field GlideFromNoteToNote 0
+---@field [0] "GlideFromNoteToNote"
+---@field UseGraceNotes 1
+---@field [1] "UseGraceNotes"
+---@field UseMordents 2
+---@field [2] "UseMordents"
+---@field MakeTrills 3
+---@field [3] "MakeTrills"
+---@field PlayRapidRuns 4
+---@field [4] "PlayRapidRuns"
+---@field LocallyImprovise 5
+---@field [5] "LocallyImprovise"
+---@field SpreadSyllablesOverManyNotes 6
+---@field [6] "SpreadSyllablesOverManyNotes"
+---@field MatchNotesAndSyllables 7
+---@field [7] "MatchNotesAndSyllables"
+---@field Syncopate 8
+---@field [8] "Syncopate"
+---@field AddFills 9
+---@field [9] "AddFills"
+---@field AlternateTensionAndRepose 10
+---@field [10] "AlternateTensionAndRepose"
+---@field ModulateFrequently 11
+---@field [11] "ModulateFrequently"
+---@field PlayArpeggios 12
+---@field [12] "PlayArpeggios"
+---@field PlayStaccato 13
+---@field [13] "PlayStaccato"
+---@field PlayLegato 14
+---@field [14] "PlayLegato"
+---@field FreelyAdjustBeats 15
+---@field [15] "FreelyAdjustBeats"
+df.musical_form_feature = {}
 
----@enum musical_form_melody_frequency
-df.musical_form_melody_frequency = {
-  Always = 0,
-  Often = 1,
-  Sometimes = 2,
-}
+---@class musical_form_feature
+---@field [0] boolean
+---@field GlideFromNoteToNote boolean
+---@field [1] boolean
+---@field UseGraceNotes boolean
+---@field [2] boolean
+---@field UseMordents boolean
+---@field [3] boolean
+---@field MakeTrills boolean
+---@field [4] boolean
+---@field PlayRapidRuns boolean
+---@field [5] boolean
+---@field LocallyImprovise boolean
+---@field [6] boolean
+---@field SpreadSyllablesOverManyNotes boolean
+---@field [7] boolean
+---@field MatchNotesAndSyllables boolean
+---@field [8] boolean
+---@field Syncopate boolean
+---@field [9] boolean
+---@field AddFills boolean
+---@field [10] boolean
+---@field AlternateTensionAndRepose boolean
+---@field [11] boolean
+---@field ModulateFrequently boolean
+---@field [12] boolean
+---@field PlayArpeggios boolean
+---@field [13] boolean
+---@field PlayStaccato boolean
+---@field [14] boolean
+---@field PlayLegato boolean
+---@field [15] boolean
+---@field FreelyAdjustBeats boolean
+
+---@class (exact) _musical_form_passage_component_type: df.struct
+---@field Melody 0
+---@field [0] "Melody"
+---@field Counterpoint 1
+---@field [1] "Counterpoint"
+---@field Harmony 2
+---@field [2] "Harmony"
+---@field Rhythm 3
+---@field [3] "Rhythm"
+---@field Unspecified 4
+---@field [4] "Unspecified"
+df.musical_form_passage_component_type = {}
+
+---@class musical_form_passage_component_type
+---@field [0] boolean
+---@field Melody boolean
+---@field [1] boolean
+---@field Counterpoint boolean
+---@field [2] boolean
+---@field Harmony boolean
+---@field [3] boolean
+---@field Rhythm boolean
+---@field [4] boolean
+---@field Unspecified boolean
+
+---@class (exact) _musical_form_passage_type: df.struct
+---@field Unrelated 0
+---@field [0] "Unrelated"
+---@field Introduction 1
+---@field [1] "Introduction"
+---@field Exposition 2
+---@field [2] "Exposition"
+---@field Recapitulation 3
+---@field [3] "Recapitulation"
+---@field Synthesis 4
+---@field [4] "Synthesis"
+---@field Verse 5
+---@field [5] "Verse"
+---@field Chorus 6
+---@field [6] "Chorus"
+---@field Finale 7
+---@field [7] "Finale"
+---@field Coda 8
+---@field [8] "Coda"
+---@field BridgePassage 9
+---@field [9] "BridgePassage"
+---@field Theme 10
+---@field [10] "Theme"
+---@field Variation 11
+---@field [11] "Variation"
+df.musical_form_passage_type = {}
+
+---@class musical_form_passage_type
+---@field [0] boolean
+---@field Unrelated boolean
+---@field [1] boolean
+---@field Introduction boolean
+---@field [2] boolean
+---@field Exposition boolean
+---@field [3] boolean
+---@field Recapitulation boolean
+---@field [4] boolean
+---@field Synthesis boolean
+---@field [5] boolean
+---@field Verse boolean
+---@field [6] boolean
+---@field Chorus boolean
+---@field [7] boolean
+---@field Finale boolean
+---@field [8] boolean
+---@field Coda boolean
+---@field [9] boolean
+---@field BridgePassage boolean
+---@field [10] boolean
+---@field Theme boolean
+---@field [11] boolean
+---@field Variation boolean
+
+---@class (exact) _musical_form_passage_length_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field Short 1
+---@field [1] "Short"
+---@field MidLength 2
+---@field [2] "MidLength"
+---@field Long 3
+---@field [3] "Long"
+---@field Varied 4
+---@field [4] "Varied"
+df.musical_form_passage_length_type = {}
+
+---@class musical_form_passage_length_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field Short boolean
+---@field [2] boolean
+---@field MidLength boolean
+---@field [3] boolean
+---@field Long boolean
+---@field [4] boolean
+---@field Varied boolean
+
+---@class (exact) _musical_form_melody_style: df.struct
+---@field Rising 0
+---@field [0] "Rising"
+---@field Falling 1
+---@field [1] "Falling"
+---@field RisingFalling 2
+---@field [2] "RisingFalling"
+---@field FallingRising 3
+---@field [3] "FallingRising"
+df.musical_form_melody_style = {}
+
+---@class musical_form_melody_style
+---@field [0] boolean
+---@field Rising boolean
+---@field [1] boolean
+---@field Falling boolean
+---@field [2] boolean
+---@field RisingFalling boolean
+---@field [3] boolean
+---@field FallingRising boolean
+
+---@class (exact) _musical_form_melody_frequency: df.struct
+---@field Always 0
+---@field [0] "Always"
+---@field Often 1
+---@field [1] "Often"
+---@field Sometimes 2
+---@field [2] "Sometimes"
+df.musical_form_melody_frequency = {}
+
+---@class musical_form_melody_frequency
+---@field [0] boolean
+---@field Always boolean
+---@field [1] boolean
+---@field Often boolean
+---@field [2] boolean
+---@field Sometimes boolean
 
 ---@class musical_form_interval: df.struct
 ---@field degree integer
 ---@field flags musical_form_interval_flags
 df.musical_form_interval = {}
 
----@enum musical_form_interval_flags
-df.musical_form_interval.T_flags = {
-  rising = 0, --otherwise falling
-  flattened = 1,
-  sharpened = 2,
-}
+---@class (exact) _musical_form_interval_flags: df.struct
+---@field rising 0
+---@field [0] "rising"
+---@field flattened 1
+---@field [1] "flattened"
+---@field sharpened 2
+---@field [2] "sharpened"
+df.musical_form_interval.T_flags = {}
+
+---@class musical_form_interval_flags
+---@field [0] boolean
+---@field rising boolean
+---@field [1] boolean
+---@field flattened boolean
+---@field [2] boolean
+---@field sharpened boolean
 
 ---@class musical_form_melodies: df.struct
 ---@field style musical_form_melody_style
@@ -635,12 +1571,22 @@ df.musical_form_passage.T_passage_lengths = {}
 ---@field overall_style musical_form_style
 df.musical_form_instruments = {}
 
----@enum musical_form_instruments_substitutions
-df.musical_form_instruments.T_substitutions = {
-  singer = 0,
-  speaker = 1,
-  chanter = 2,
-}
+---@class (exact) _musical_form_instruments_substitutions: df.struct
+---@field singer 0
+---@field [0] "singer"
+---@field speaker 1
+---@field [1] "speaker"
+---@field chanter 2
+---@field [2] "chanter"
+df.musical_form_instruments.T_substitutions = {}
+
+---@class musical_form_instruments_substitutions
+---@field [0] boolean
+---@field singer boolean
+---@field [1] boolean
+---@field speaker boolean
+---@field [2] boolean
+---@field chanter boolean
 
 ---@class musical_form_sub4: df.struct
 ---@field passage integer the passage index this structure refers to
@@ -677,183 +1623,585 @@ df.musical_form_sub4 = {}
 ---@field flags musical_form_flags
 df.musical_form = {}
 
----@enum musical_form_flags
-df.musical_form.T_flags = {
-  produces_individual_songs = 0,
-  repeats_as_necessary = 1,
-}
+---@class (exact) _musical_form_flags: df.struct
+---@field produces_individual_songs 0
+---@field [0] "produces_individual_songs"
+---@field repeats_as_necessary 1
+---@field [1] "repeats_as_necessary"
+df.musical_form.T_flags = {}
 
----@enum dance_form_context
-df.dance_form_context = {
-  Sacred = 0,
-  Celebration = 1,
-  Participation = 2,
-  Social = 3,
-  Performance = 4,
-  War = 5,
-}
+---@class musical_form_flags
+---@field [0] boolean
+---@field produces_individual_songs boolean
+---@field [1] boolean
+---@field repeats_as_necessary boolean
 
----@enum dance_form_group_size
-df.dance_form_group_size = {
-  Solo = 0,
-  Partner = 1,
-  Group = 2,
-}
+---@class (exact) _dance_form_context: df.struct
+---@field Sacred 0
+---@field [0] "Sacred"
+---@field Celebration 1
+---@field [1] "Celebration"
+---@field Participation 2
+---@field [2] "Participation"
+---@field Social 3
+---@field [3] "Social"
+---@field Performance 4
+---@field [4] "Performance"
+---@field War 5
+---@field [5] "War"
+df.dance_form_context = {}
 
----@enum dance_form_configuration
-df.dance_form_configuration = {
-  NONE = -1, --hard to have a configuration with a solo performer
-  SingleLine = 1,
-  SeveralLines = 2,
-  Circle = 3,
-  DoubleCircle = 4,
-  LooselyMingled = 5,
-}
+---@class dance_form_context
+---@field [0] boolean
+---@field Sacred boolean
+---@field [1] boolean
+---@field Celebration boolean
+---@field [2] boolean
+---@field Participation boolean
+---@field [3] boolean
+---@field Social boolean
+---@field [4] boolean
+---@field Performance boolean
+---@field [5] boolean
+---@field War boolean
 
----@enum dance_form_movement_path
-df.dance_form_movement_path = {
-  NONE = -1,
-  TurnClockwise = 1,
-  TurnCounterClockwise = 2,
-  ImprovisedPath = 3,
-  IntricatePath = 4,
-}
+---@class (exact) _dance_form_group_size: df.struct
+---@field Solo 0
+---@field [0] "Solo"
+---@field Partner 1
+---@field [1] "Partner"
+---@field Group 2
+---@field [2] "Group"
+df.dance_form_group_size = {}
 
----@enum dance_form_partner_distance
-df.dance_form_partner_distance = {
-  NONE = -1,
-  Closely = 1,
-  OpenContact = 2,
-  RareContact = 3,
-}
+---@class dance_form_group_size
+---@field [0] boolean
+---@field Solo boolean
+---@field [1] boolean
+---@field Partner boolean
+---@field [2] boolean
+---@field Group boolean
 
----@enum dance_form_partner_intent
-df.dance_form_partner_intent = {
-  NONE = -1,
-  PushingTogether = 1,
-  PullingAway = 2,
-  Touch = 3,
-  LightTouch = 4,
-  VisualCues = 5,
-  SpokenCues = 6,
-}
+---@class (exact) _dance_form_configuration: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field SingleLine 1
+---@field [1] "SingleLine"
+---@field SeveralLines 2
+---@field [2] "SeveralLines"
+---@field Circle 3
+---@field [3] "Circle"
+---@field DoubleCircle 4
+---@field [4] "DoubleCircle"
+---@field LooselyMingled 5
+---@field [5] "LooselyMingled"
+df.dance_form_configuration = {}
 
----@enum dance_form_partner_cue_frequency
-df.dance_form_partner_cue_frequency = {
-  NONE = -1,
-  Constantly = 1,
-  Briefly = 2,
-}
+---@class dance_form_configuration
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field SingleLine boolean
+---@field [2] boolean
+---@field SeveralLines boolean
+---@field [3] boolean
+---@field Circle boolean
+---@field [4] boolean
+---@field DoubleCircle boolean
+---@field [5] boolean
+---@field LooselyMingled boolean
 
----@enum dance_form_partner_change_type
-df.dance_form_partner_change_type = {
-  NONE = -1,
-  LeadAdvanceAlongMainLineOfMotion = 1,
-  LeadAdvanceAgainstMainLineOfMotion = 2,
-  LeadTurningOutClockwise = 3,
-  LeadTurningOutCounterClockwise = 4,
-}
+---@class (exact) _dance_form_movement_path: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field TurnClockwise 1
+---@field [1] "TurnClockwise"
+---@field TurnCounterClockwise 2
+---@field [2] "TurnCounterClockwise"
+---@field ImprovisedPath 3
+---@field [3] "ImprovisedPath"
+---@field IntricatePath 4
+---@field [4] "IntricatePath"
+df.dance_form_movement_path = {}
 
----@enum dance_form_move_type
-df.dance_form_move_type = {
-  SquareStep = 0,
-  CircularStep = 1,
-  TriangleStep = 2,
-  FigureEightStep = 3,
-  IntricateStep = 4,
-  Dance = 5,
-  Turn = 6,
-  FacialExpression = 7,
-  HandGesture = 8,
-  StraightWalk = 9,
-  CurvedWalk = 10,
-  Run = 11,
-  Leap = 12,
-  Kick = 13,
-  LeftKick = 14,
-  RightKick = 15,
-  LegLift = 16,
-  LeftLegLift = 17,
-  RightLegLift = 18,
-  BodyLevel = 19,
-  BodyLevelChange = 20,
-  ArmCarriage = 21,
-  RaisedLeftArm = 22,
-  RaisedRightArm = 23,
-  RaisedArms = 24,
-  Spin = 25,
-  IndependentBodyMovement = 26,
-  Sway = 27,
-  ForwardBend = 28,
-  BackwardBend = 29,
-  LeftwardBend = 30,
-  RightwardBend = 31,
-  Footwork = 32,
-  MovementAlongLineOfDance = 33,
-}
+---@class dance_form_movement_path
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field TurnClockwise boolean
+---@field [2] boolean
+---@field TurnCounterClockwise boolean
+---@field [3] boolean
+---@field ImprovisedPath boolean
+---@field [4] boolean
+---@field IntricatePath boolean
 
----@enum dance_form_move_modifier
-df.dance_form_move_modifier = {
-  NONE = -1,
-  Graceful = 1,
-  Serene = 2,
-  SharpEdged = 3,
-  Grotesque = 4,
-  Crude = 5,
-  Refined = 6,
-  Understated = 7,
-  Delicate = 8,
-  Elaborate = 9,
-  Expressive = 10,
-  Strong = 11,
-  Large = 12,
-  Weightless = 13,
-  Fluid = 14,
-  Undulating = 15,
-  Soft = 16,
-  Jerking = 17,
-  Calm = 18,
-  StraightLined = 19,
-  High = 20,
-  Low = 21,
-  LoudlyPercussive = 22,
-  SoftlyPercussive = 23,
-  Aborted = 24,
-  PartiallyRealized = 25,
-  Energetic = 26,
-  Passionate = 27,
-  Vivacious = 28,
-  Joyous = 29,
-  Proud = 30,
-  Flamboyant = 31,
-  Lively = 32,
-  Spirited = 33,
-  Vigorous = 34,
-  Intense = 35,
-  Aggressive = 36,
-  Powerful = 37,
-  Sluggish = 38,
-  Relaxed = 39,
-  Passive = 40,
-  Subtle = 41,
-  Sensual = 42,
-  Debauched = 43,
-  Twisting = 44,
-  Sprightly = 45,
-  Sinuous = 46,
-}
+---@class (exact) _dance_form_partner_distance: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field Closely 1
+---@field [1] "Closely"
+---@field OpenContact 2
+---@field [2] "OpenContact"
+---@field RareContact 3
+---@field [3] "RareContact"
+df.dance_form_partner_distance = {}
 
----@enum dance_form_move_location
-df.dance_form_move_location = {
-  unk_0 = 0, --Standard value, but not described
-  unk_1 = 1, --Common value, but not described
-  MirroredByGroupMembers = 2,
-  InRetrogradeByGroupMembers = 3,
-  InSuccessionByGroupMembers = 4,
-  ShadowedByGroupMembers = 5,
-  Lead = 6,
-  Follower = 7,
-}
+---@class dance_form_partner_distance
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field Closely boolean
+---@field [2] boolean
+---@field OpenContact boolean
+---@field [3] boolean
+---@field RareContact boolean
+
+---@class (exact) _dance_form_partner_intent: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field PushingTogether 1
+---@field [1] "PushingTogether"
+---@field PullingAway 2
+---@field [2] "PullingAway"
+---@field Touch 3
+---@field [3] "Touch"
+---@field LightTouch 4
+---@field [4] "LightTouch"
+---@field VisualCues 5
+---@field [5] "VisualCues"
+---@field SpokenCues 6
+---@field [6] "SpokenCues"
+df.dance_form_partner_intent = {}
+
+---@class dance_form_partner_intent
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field PushingTogether boolean
+---@field [2] boolean
+---@field PullingAway boolean
+---@field [3] boolean
+---@field Touch boolean
+---@field [4] boolean
+---@field LightTouch boolean
+---@field [5] boolean
+---@field VisualCues boolean
+---@field [6] boolean
+---@field SpokenCues boolean
+
+---@class (exact) _dance_form_partner_cue_frequency: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field Constantly 1
+---@field [1] "Constantly"
+---@field Briefly 2
+---@field [2] "Briefly"
+df.dance_form_partner_cue_frequency = {}
+
+---@class dance_form_partner_cue_frequency
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field Constantly boolean
+---@field [2] boolean
+---@field Briefly boolean
+
+---@class (exact) _dance_form_partner_change_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field LeadAdvanceAlongMainLineOfMotion 1
+---@field [1] "LeadAdvanceAlongMainLineOfMotion"
+---@field LeadAdvanceAgainstMainLineOfMotion 2
+---@field [2] "LeadAdvanceAgainstMainLineOfMotion"
+---@field LeadTurningOutClockwise 3
+---@field [3] "LeadTurningOutClockwise"
+---@field LeadTurningOutCounterClockwise 4
+---@field [4] "LeadTurningOutCounterClockwise"
+df.dance_form_partner_change_type = {}
+
+---@class dance_form_partner_change_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field LeadAdvanceAlongMainLineOfMotion boolean
+---@field [2] boolean
+---@field LeadAdvanceAgainstMainLineOfMotion boolean
+---@field [3] boolean
+---@field LeadTurningOutClockwise boolean
+---@field [4] boolean
+---@field LeadTurningOutCounterClockwise boolean
+
+---@class (exact) _dance_form_move_type: df.struct
+---@field SquareStep 0
+---@field [0] "SquareStep"
+---@field CircularStep 1
+---@field [1] "CircularStep"
+---@field TriangleStep 2
+---@field [2] "TriangleStep"
+---@field FigureEightStep 3
+---@field [3] "FigureEightStep"
+---@field IntricateStep 4
+---@field [4] "IntricateStep"
+---@field Dance 5
+---@field [5] "Dance"
+---@field Turn 6
+---@field [6] "Turn"
+---@field FacialExpression 7
+---@field [7] "FacialExpression"
+---@field HandGesture 8
+---@field [8] "HandGesture"
+---@field StraightWalk 9
+---@field [9] "StraightWalk"
+---@field CurvedWalk 10
+---@field [10] "CurvedWalk"
+---@field Run 11
+---@field [11] "Run"
+---@field Leap 12
+---@field [12] "Leap"
+---@field Kick 13
+---@field [13] "Kick"
+---@field LeftKick 14
+---@field [14] "LeftKick"
+---@field RightKick 15
+---@field [15] "RightKick"
+---@field LegLift 16
+---@field [16] "LegLift"
+---@field LeftLegLift 17
+---@field [17] "LeftLegLift"
+---@field RightLegLift 18
+---@field [18] "RightLegLift"
+---@field BodyLevel 19
+---@field [19] "BodyLevel"
+---@field BodyLevelChange 20
+---@field [20] "BodyLevelChange"
+---@field ArmCarriage 21
+---@field [21] "ArmCarriage"
+---@field RaisedLeftArm 22
+---@field [22] "RaisedLeftArm"
+---@field RaisedRightArm 23
+---@field [23] "RaisedRightArm"
+---@field RaisedArms 24
+---@field [24] "RaisedArms"
+---@field Spin 25
+---@field [25] "Spin"
+---@field IndependentBodyMovement 26
+---@field [26] "IndependentBodyMovement"
+---@field Sway 27
+---@field [27] "Sway"
+---@field ForwardBend 28
+---@field [28] "ForwardBend"
+---@field BackwardBend 29
+---@field [29] "BackwardBend"
+---@field LeftwardBend 30
+---@field [30] "LeftwardBend"
+---@field RightwardBend 31
+---@field [31] "RightwardBend"
+---@field Footwork 32
+---@field [32] "Footwork"
+---@field MovementAlongLineOfDance 33
+---@field [33] "MovementAlongLineOfDance"
+df.dance_form_move_type = {}
+
+---@class dance_form_move_type
+---@field [0] boolean
+---@field SquareStep boolean
+---@field [1] boolean
+---@field CircularStep boolean
+---@field [2] boolean
+---@field TriangleStep boolean
+---@field [3] boolean
+---@field FigureEightStep boolean
+---@field [4] boolean
+---@field IntricateStep boolean
+---@field [5] boolean
+---@field Dance boolean
+---@field [6] boolean
+---@field Turn boolean
+---@field [7] boolean
+---@field FacialExpression boolean
+---@field [8] boolean
+---@field HandGesture boolean
+---@field [9] boolean
+---@field StraightWalk boolean
+---@field [10] boolean
+---@field CurvedWalk boolean
+---@field [11] boolean
+---@field Run boolean
+---@field [12] boolean
+---@field Leap boolean
+---@field [13] boolean
+---@field Kick boolean
+---@field [14] boolean
+---@field LeftKick boolean
+---@field [15] boolean
+---@field RightKick boolean
+---@field [16] boolean
+---@field LegLift boolean
+---@field [17] boolean
+---@field LeftLegLift boolean
+---@field [18] boolean
+---@field RightLegLift boolean
+---@field [19] boolean
+---@field BodyLevel boolean
+---@field [20] boolean
+---@field BodyLevelChange boolean
+---@field [21] boolean
+---@field ArmCarriage boolean
+---@field [22] boolean
+---@field RaisedLeftArm boolean
+---@field [23] boolean
+---@field RaisedRightArm boolean
+---@field [24] boolean
+---@field RaisedArms boolean
+---@field [25] boolean
+---@field Spin boolean
+---@field [26] boolean
+---@field IndependentBodyMovement boolean
+---@field [27] boolean
+---@field Sway boolean
+---@field [28] boolean
+---@field ForwardBend boolean
+---@field [29] boolean
+---@field BackwardBend boolean
+---@field [30] boolean
+---@field LeftwardBend boolean
+---@field [31] boolean
+---@field RightwardBend boolean
+---@field [32] boolean
+---@field Footwork boolean
+---@field [33] boolean
+---@field MovementAlongLineOfDance boolean
+
+---@class (exact) _dance_form_move_modifier: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field Graceful 1
+---@field [1] "Graceful"
+---@field Serene 2
+---@field [2] "Serene"
+---@field SharpEdged 3
+---@field [3] "SharpEdged"
+---@field Grotesque 4
+---@field [4] "Grotesque"
+---@field Crude 5
+---@field [5] "Crude"
+---@field Refined 6
+---@field [6] "Refined"
+---@field Understated 7
+---@field [7] "Understated"
+---@field Delicate 8
+---@field [8] "Delicate"
+---@field Elaborate 9
+---@field [9] "Elaborate"
+---@field Expressive 10
+---@field [10] "Expressive"
+---@field Strong 11
+---@field [11] "Strong"
+---@field Large 12
+---@field [12] "Large"
+---@field Weightless 13
+---@field [13] "Weightless"
+---@field Fluid 14
+---@field [14] "Fluid"
+---@field Undulating 15
+---@field [15] "Undulating"
+---@field Soft 16
+---@field [16] "Soft"
+---@field Jerking 17
+---@field [17] "Jerking"
+---@field Calm 18
+---@field [18] "Calm"
+---@field StraightLined 19
+---@field [19] "StraightLined"
+---@field High 20
+---@field [20] "High"
+---@field Low 21
+---@field [21] "Low"
+---@field LoudlyPercussive 22
+---@field [22] "LoudlyPercussive"
+---@field SoftlyPercussive 23
+---@field [23] "SoftlyPercussive"
+---@field Aborted 24
+---@field [24] "Aborted"
+---@field PartiallyRealized 25
+---@field [25] "PartiallyRealized"
+---@field Energetic 26
+---@field [26] "Energetic"
+---@field Passionate 27
+---@field [27] "Passionate"
+---@field Vivacious 28
+---@field [28] "Vivacious"
+---@field Joyous 29
+---@field [29] "Joyous"
+---@field Proud 30
+---@field [30] "Proud"
+---@field Flamboyant 31
+---@field [31] "Flamboyant"
+---@field Lively 32
+---@field [32] "Lively"
+---@field Spirited 33
+---@field [33] "Spirited"
+---@field Vigorous 34
+---@field [34] "Vigorous"
+---@field Intense 35
+---@field [35] "Intense"
+---@field Aggressive 36
+---@field [36] "Aggressive"
+---@field Powerful 37
+---@field [37] "Powerful"
+---@field Sluggish 38
+---@field [38] "Sluggish"
+---@field Relaxed 39
+---@field [39] "Relaxed"
+---@field Passive 40
+---@field [40] "Passive"
+---@field Subtle 41
+---@field [41] "Subtle"
+---@field Sensual 42
+---@field [42] "Sensual"
+---@field Debauched 43
+---@field [43] "Debauched"
+---@field Twisting 44
+---@field [44] "Twisting"
+---@field Sprightly 45
+---@field [45] "Sprightly"
+---@field Sinuous 46
+---@field [46] "Sinuous"
+df.dance_form_move_modifier = {}
+
+---@class dance_form_move_modifier
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field Graceful boolean
+---@field [2] boolean
+---@field Serene boolean
+---@field [3] boolean
+---@field SharpEdged boolean
+---@field [4] boolean
+---@field Grotesque boolean
+---@field [5] boolean
+---@field Crude boolean
+---@field [6] boolean
+---@field Refined boolean
+---@field [7] boolean
+---@field Understated boolean
+---@field [8] boolean
+---@field Delicate boolean
+---@field [9] boolean
+---@field Elaborate boolean
+---@field [10] boolean
+---@field Expressive boolean
+---@field [11] boolean
+---@field Strong boolean
+---@field [12] boolean
+---@field Large boolean
+---@field [13] boolean
+---@field Weightless boolean
+---@field [14] boolean
+---@field Fluid boolean
+---@field [15] boolean
+---@field Undulating boolean
+---@field [16] boolean
+---@field Soft boolean
+---@field [17] boolean
+---@field Jerking boolean
+---@field [18] boolean
+---@field Calm boolean
+---@field [19] boolean
+---@field StraightLined boolean
+---@field [20] boolean
+---@field High boolean
+---@field [21] boolean
+---@field Low boolean
+---@field [22] boolean
+---@field LoudlyPercussive boolean
+---@field [23] boolean
+---@field SoftlyPercussive boolean
+---@field [24] boolean
+---@field Aborted boolean
+---@field [25] boolean
+---@field PartiallyRealized boolean
+---@field [26] boolean
+---@field Energetic boolean
+---@field [27] boolean
+---@field Passionate boolean
+---@field [28] boolean
+---@field Vivacious boolean
+---@field [29] boolean
+---@field Joyous boolean
+---@field [30] boolean
+---@field Proud boolean
+---@field [31] boolean
+---@field Flamboyant boolean
+---@field [32] boolean
+---@field Lively boolean
+---@field [33] boolean
+---@field Spirited boolean
+---@field [34] boolean
+---@field Vigorous boolean
+---@field [35] boolean
+---@field Intense boolean
+---@field [36] boolean
+---@field Aggressive boolean
+---@field [37] boolean
+---@field Powerful boolean
+---@field [38] boolean
+---@field Sluggish boolean
+---@field [39] boolean
+---@field Relaxed boolean
+---@field [40] boolean
+---@field Passive boolean
+---@field [41] boolean
+---@field Subtle boolean
+---@field [42] boolean
+---@field Sensual boolean
+---@field [43] boolean
+---@field Debauched boolean
+---@field [44] boolean
+---@field Twisting boolean
+---@field [45] boolean
+---@field Sprightly boolean
+---@field [46] boolean
+---@field Sinuous boolean
+
+---@class (exact) _dance_form_move_location: df.struct
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field MirroredByGroupMembers 2
+---@field [2] "MirroredByGroupMembers"
+---@field InRetrogradeByGroupMembers 3
+---@field [3] "InRetrogradeByGroupMembers"
+---@field InSuccessionByGroupMembers 4
+---@field [4] "InSuccessionByGroupMembers"
+---@field ShadowedByGroupMembers 5
+---@field [5] "ShadowedByGroupMembers"
+---@field Lead 6
+---@field [6] "Lead"
+---@field Follower 7
+---@field [7] "Follower"
+df.dance_form_move_location = {}
+
+---@class dance_form_move_location
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field MirroredByGroupMembers boolean
+---@field [3] boolean
+---@field InRetrogradeByGroupMembers boolean
+---@field [4] boolean
+---@field InSuccessionByGroupMembers boolean
+---@field [5] boolean
+---@field ShadowedByGroupMembers boolean
+---@field [6] boolean
+---@field Lead boolean
+---@field [7] boolean
+---@field Follower boolean
 
 ---@class dance_form_section: df.struct
 ---@field unk_1 integer
@@ -889,14 +2237,30 @@ df.dance_form_section.T_modifier = {}
 ---@class dance_form_section_location: df.struct
 df.dance_form_section.T_location = {}
 
----@enum dance_form_move_group_type
-df.dance_form_move_group_type = {
-  unk_0 = 0, --Might be a null value. Hacked in it did not result in any entry in exported Legends info
-  BasicMovement = 1,
-  DancePosition = 2,
-  unk_3 = 3, --Might not be a group value. Hacked into a group dance it did result in the name but not any description in exported Legends info
-  DanceMove = 4,
-}
+---@class (exact) _dance_form_move_group_type: df.struct
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field BasicMovement 1
+---@field [1] "BasicMovement"
+---@field DancePosition 2
+---@field [2] "DancePosition"
+---@field unk_3 3
+---@field [3] "unk_3"
+---@field DanceMove 4
+---@field [4] "DanceMove"
+df.dance_form_move_group_type = {}
+
+---@class dance_form_move_group_type
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field BasicMovement boolean
+---@field [2] boolean
+---@field DancePosition boolean
+---@field [3] boolean
+---@field unk_3 boolean
+---@field [4] boolean
+---@field DanceMove boolean
 
 ---@class dance_form_move: df.struct
 ---@field name string
@@ -959,12 +2323,22 @@ df.dance_form.T_move_modifier = {}
 ---@class dance_form_move_location: df.struct
 df.dance_form.T_move_location = {}
 
----@enum scale_type
-df.scale_type = {
-  Octave = 0, --The octave is divided into X steps of even length
-  Variable = 1, --The octave is divided into notes at varying intervals, approximated by quartertones
-  PerfectFourth = 2, --The perfect fourth interval is divided into steps of even length
-}
+---@class (exact) _scale_type: df.struct
+---@field Octave 0
+---@field [0] "Octave"
+---@field Variable 1
+---@field [1] "Variable"
+---@field PerfectFourth 2
+---@field [2] "PerfectFourth"
+df.scale_type = {}
+
+---@class scale_type
+---@field [0] boolean
+---@field Octave boolean
+---@field [1] boolean
+---@field Variable boolean
+---@field [2] boolean
+---@field PerfectFourth boolean
 
 ---@class chord: df.struct
 ---@field name string
@@ -994,10 +2368,14 @@ df.named_scale = {}
 ---@field notes scale_notes Curiously, the named notes do not have to match the number of defined notes
 df.scale = {}
 
----@enum scale_flags
-df.scale.T_flags = {
-  tonic_note_fixed_at_performance = 0, --'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
-}
+---@class (exact) _scale_flags: df.struct
+---@field tonic_note_fixed_at_performance 0
+---@field [0] "tonic_note_fixed_at_performance"
+df.scale.T_flags = {}
+
+---@class scale_flags
+---@field [0] boolean
+---@field tonic_note_fixed_at_performance boolean
 
 ---@class scale_notes: df.struct
 ---Curiously, the named notes do not have to match the number of defined notes
@@ -1015,21 +2393,58 @@ df.scale.T_notes = {}
 ---@field unk_2 integer
 df.rhythm = {}
 
----@enum beat_type
-df.beat_type = {
-  Silent = 0, ---
-  AccentedBeat = 1, --X
-  Beat = 2, --x
-  PrimaryAccent = 3, --!
-  SilentEarly = 4, ---`
-  AccentedBeatEarly = 5, --X`
-  BeatEarly = 6, --x`
-  AccentedEarly = 7, --!`
-  SilentSyncopated = 8, ---'
-  AccentedBeatSyncopated = 9, --X'
-  BeatSyncopated = 10, --x'
-  AccentedSyncopated = 11, --!'
-}
+---@class (exact) _beat_type: df.struct
+---@field Silent 0
+---@field [0] "Silent"
+---@field AccentedBeat 1
+---@field [1] "AccentedBeat"
+---@field Beat 2
+---@field [2] "Beat"
+---@field PrimaryAccent 3
+---@field [3] "PrimaryAccent"
+---@field SilentEarly 4
+---@field [4] "SilentEarly"
+---@field AccentedBeatEarly 5
+---@field [5] "AccentedBeatEarly"
+---@field BeatEarly 6
+---@field [6] "BeatEarly"
+---@field AccentedEarly 7
+---@field [7] "AccentedEarly"
+---@field SilentSyncopated 8
+---@field [8] "SilentSyncopated"
+---@field AccentedBeatSyncopated 9
+---@field [9] "AccentedBeatSyncopated"
+---@field BeatSyncopated 10
+---@field [10] "BeatSyncopated"
+---@field AccentedSyncopated 11
+---@field [11] "AccentedSyncopated"
+df.beat_type = {}
+
+---@class beat_type
+---@field [0] boolean
+---@field Silent boolean
+---@field [1] boolean
+---@field AccentedBeat boolean
+---@field [2] boolean
+---@field Beat boolean
+---@field [3] boolean
+---@field PrimaryAccent boolean
+---@field [4] boolean
+---@field SilentEarly boolean
+---@field [5] boolean
+---@field AccentedBeatEarly boolean
+---@field [6] boolean
+---@field BeatEarly boolean
+---@field [7] boolean
+---@field AccentedEarly boolean
+---@field [8] boolean
+---@field SilentSyncopated boolean
+---@field [9] boolean
+---@field AccentedBeatSyncopated boolean
+---@field [10] boolean
+---@field BeatSyncopated boolean
+---@field [11] boolean
+---@field AccentedSyncopated boolean
 
 ---@class rhythm_pattern: df.struct
 ---@field name string
@@ -1051,20 +2466,54 @@ df.rhythm_pattern.T_bars = {}
 ---@field unk_3 integer
 df.sub_rhythm = {}
 
----@enum occupation_type
-df.occupation_type = {
-  TAVERN_KEEPER = 0,
-  PERFORMER = 1,
-  SCHOLAR = 2,
-  MERCENARY = 3,
-  MONSTER_SLAYER = 4,
-  SCRIBE = 5,
-  MESSENGER = 6,
-  DOCTOR = 7,
-  DIAGNOSTICIAN = 8,
-  SURGEON = 9,
-  BONE_DOCTOR = 10,
-}
+---@class (exact) _occupation_type: df.struct
+---@field TAVERN_KEEPER 0
+---@field [0] "TAVERN_KEEPER"
+---@field PERFORMER 1
+---@field [1] "PERFORMER"
+---@field SCHOLAR 2
+---@field [2] "SCHOLAR"
+---@field MERCENARY 3
+---@field [3] "MERCENARY"
+---@field MONSTER_SLAYER 4
+---@field [4] "MONSTER_SLAYER"
+---@field SCRIBE 5
+---@field [5] "SCRIBE"
+---@field MESSENGER 6
+---@field [6] "MESSENGER"
+---@field DOCTOR 7
+---@field [7] "DOCTOR"
+---@field DIAGNOSTICIAN 8
+---@field [8] "DIAGNOSTICIAN"
+---@field SURGEON 9
+---@field [9] "SURGEON"
+---@field BONE_DOCTOR 10
+---@field [10] "BONE_DOCTOR"
+df.occupation_type = {}
+
+---@class occupation_type
+---@field [0] boolean
+---@field TAVERN_KEEPER boolean
+---@field [1] boolean
+---@field PERFORMER boolean
+---@field [2] boolean
+---@field SCHOLAR boolean
+---@field [3] boolean
+---@field MERCENARY boolean
+---@field [4] boolean
+---@field MONSTER_SLAYER boolean
+---@field [5] boolean
+---@field SCRIBE boolean
+---@field [6] boolean
+---@field MESSENGER boolean
+---@field [7] boolean
+---@field DOCTOR boolean
+---@field [8] boolean
+---@field DIAGNOSTICIAN boolean
+---@field [9] boolean
+---@field SURGEON boolean
+---@field [10] boolean
+---@field BONE_DOCTOR boolean
 
 ---@class occupation: df.instance
 ---@field id integer

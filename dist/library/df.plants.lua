@@ -1,11 +1,18 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum plant_flags
-df.plant_flags = {
-  watery = 0,
-  is_shrub = 1, --If it is not a shrub, then it is a tree
-}
+---@class (exact) _plant_flags: df.struct
+---@field watery 0
+---@field [0] "watery"
+---@field is_shrub 1
+---@field [1] "is_shrub"
+df.plant_flags = {}
+
+---@class plant_flags
+---@field [0] boolean
+---@field watery boolean
+---@field [1] boolean
+---@field is_shrub boolean
 
 ---@class plant: df.instance
 ---@field flags plant_flags
@@ -21,36 +28,96 @@ df.plant_flags = {
 ---@field tree_info plant_tree_info
 df.plant = {}
 
----@enum plant_damage_flags
-df.plant.T_damage_flags = {
-  is_burning = 0,
-  is_drowning = 1,
-  is_dead = 2,
-}
+---@class (exact) _plant_damage_flags: df.struct
+---@field is_burning 0
+---@field [0] "is_burning"
+---@field is_drowning 1
+---@field [1] "is_drowning"
+---@field is_dead 2
+---@field [2] "is_dead"
+df.plant.T_damage_flags = {}
 
----@enum plant_tree_tile
-df.plant_tree_tile = {
-  trunk = 0,
-  connection_east = 1,
-  connection_south = 2,
-  connection_west = 3,
-  connection_north = 4,
-  branches = 5,
-  twigs = 6,
-  blocked = 7, --e.g. by other tree
-}
+---@class plant_damage_flags
+---@field [0] boolean
+---@field is_burning boolean
+---@field [1] boolean
+---@field is_drowning boolean
+---@field [2] boolean
+---@field is_dead boolean
 
----@enum plant_root_tile
-df.plant_root_tile = {
-  trunk = 0,
-  connection_east = 1,
-  connection_south = 2,
-  connection_west = 3,
-  connection_north = 4,
-  branches = 5,
-  twigs = 6,
-  blocked = 7, --e.g. by other tree
-}
+---@class (exact) _plant_tree_tile: df.struct
+---@field trunk 0
+---@field [0] "trunk"
+---@field connection_east 1
+---@field [1] "connection_east"
+---@field connection_south 2
+---@field [2] "connection_south"
+---@field connection_west 3
+---@field [3] "connection_west"
+---@field connection_north 4
+---@field [4] "connection_north"
+---@field branches 5
+---@field [5] "branches"
+---@field twigs 6
+---@field [6] "twigs"
+---@field blocked 7
+---@field [7] "blocked"
+df.plant_tree_tile = {}
+
+---@class plant_tree_tile
+---@field [0] boolean
+---@field trunk boolean
+---@field [1] boolean
+---@field connection_east boolean
+---@field [2] boolean
+---@field connection_south boolean
+---@field [3] boolean
+---@field connection_west boolean
+---@field [4] boolean
+---@field connection_north boolean
+---@field [5] boolean
+---@field branches boolean
+---@field [6] boolean
+---@field twigs boolean
+---@field [7] boolean
+---@field blocked boolean
+
+---@class (exact) _plant_root_tile: df.struct
+---@field trunk 0
+---@field [0] "trunk"
+---@field connection_east 1
+---@field [1] "connection_east"
+---@field connection_south 2
+---@field [2] "connection_south"
+---@field connection_west 3
+---@field [3] "connection_west"
+---@field connection_north 4
+---@field [4] "connection_north"
+---@field branches 5
+---@field [5] "branches"
+---@field twigs 6
+---@field [6] "twigs"
+---@field blocked 7
+---@field [7] "blocked"
+df.plant_root_tile = {}
+
+---@class plant_root_tile
+---@field [0] boolean
+---@field trunk boolean
+---@field [1] boolean
+---@field connection_east boolean
+---@field [2] boolean
+---@field connection_south boolean
+---@field [3] boolean
+---@field connection_west boolean
+---@field [4] boolean
+---@field connection_north boolean
+---@field [5] boolean
+---@field branches boolean
+---@field [6] boolean
+---@field twigs boolean
+---@field [7] boolean
+---@field blocked boolean
 
 ---@class plant_tree_info: df.struct
 ---@field body plant_tree_tile dimension body_height

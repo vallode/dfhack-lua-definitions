@@ -1,65 +1,234 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum building_type
-df.building_type = {
-  NONE = -1,
-  Chair = 1,
-  Bed = 2,
-  Table = 3,
-  Coffin = 4,
-  FarmPlot = 5,
-  Furnace = 6,
-  TradeDepot = 7,
-  Shop = 8,
-  Door = 9,
-  Floodgate = 10,
-  Box = 11,
-  Weaponrack = 12,
-  Armorstand = 13,
-  Workshop = 14,
-  Cabinet = 15,
-  Statue = 16,
-  WindowGlass = 17,
-  WindowGem = 18,
-  Well = 19,
-  Bridge = 20,
-  RoadDirt = 21,
-  RoadPaved = 22,
-  SiegeEngine = 23,
-  Trap = 24,
-  AnimalTrap = 25,
-  Support = 26,
-  ArcheryTarget = 27,
-  Chain = 28,
-  Cage = 29,
-  Stockpile = 30,
-  Civzone = 31,
-  Weapon = 32,
-  Wagon = 33,
-  ScrewPump = 34,
-  Construction = 35,
-  Hatch = 36,
-  GrateWall = 37,
-  GrateFloor = 38,
-  BarsVertical = 39,
-  BarsFloor = 40,
-  GearAssembly = 41,
-  AxleHorizontal = 42,
-  AxleVertical = 43,
-  WaterWheel = 44,
-  Windmill = 45,
-  TractionBench = 46,
-  Slab = 47,
-  Nest = 48,
-  NestBox = 49,
-  Hive = 50,
-  Rollers = 51,
-  Instrument = 52,
-  Bookcase = 53,
-  DisplayFurniture = 54,
-  OfferingPlace = 55,
-}
+---@class (exact) _building_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field Chair 1
+---@field [1] "Chair"
+---@field Bed 2
+---@field [2] "Bed"
+---@field Table 3
+---@field [3] "Table"
+---@field Coffin 4
+---@field [4] "Coffin"
+---@field FarmPlot 5
+---@field [5] "FarmPlot"
+---@field Furnace 6
+---@field [6] "Furnace"
+---@field TradeDepot 7
+---@field [7] "TradeDepot"
+---@field Shop 8
+---@field [8] "Shop"
+---@field Door 9
+---@field [9] "Door"
+---@field Floodgate 10
+---@field [10] "Floodgate"
+---@field Box 11
+---@field [11] "Box"
+---@field Weaponrack 12
+---@field [12] "Weaponrack"
+---@field Armorstand 13
+---@field [13] "Armorstand"
+---@field Workshop 14
+---@field [14] "Workshop"
+---@field Cabinet 15
+---@field [15] "Cabinet"
+---@field Statue 16
+---@field [16] "Statue"
+---@field WindowGlass 17
+---@field [17] "WindowGlass"
+---@field WindowGem 18
+---@field [18] "WindowGem"
+---@field Well 19
+---@field [19] "Well"
+---@field Bridge 20
+---@field [20] "Bridge"
+---@field RoadDirt 21
+---@field [21] "RoadDirt"
+---@field RoadPaved 22
+---@field [22] "RoadPaved"
+---@field SiegeEngine 23
+---@field [23] "SiegeEngine"
+---@field Trap 24
+---@field [24] "Trap"
+---@field AnimalTrap 25
+---@field [25] "AnimalTrap"
+---@field Support 26
+---@field [26] "Support"
+---@field ArcheryTarget 27
+---@field [27] "ArcheryTarget"
+---@field Chain 28
+---@field [28] "Chain"
+---@field Cage 29
+---@field [29] "Cage"
+---@field Stockpile 30
+---@field [30] "Stockpile"
+---@field Civzone 31
+---@field [31] "Civzone"
+---@field Weapon 32
+---@field [32] "Weapon"
+---@field Wagon 33
+---@field [33] "Wagon"
+---@field ScrewPump 34
+---@field [34] "ScrewPump"
+---@field Construction 35
+---@field [35] "Construction"
+---@field Hatch 36
+---@field [36] "Hatch"
+---@field GrateWall 37
+---@field [37] "GrateWall"
+---@field GrateFloor 38
+---@field [38] "GrateFloor"
+---@field BarsVertical 39
+---@field [39] "BarsVertical"
+---@field BarsFloor 40
+---@field [40] "BarsFloor"
+---@field GearAssembly 41
+---@field [41] "GearAssembly"
+---@field AxleHorizontal 42
+---@field [42] "AxleHorizontal"
+---@field AxleVertical 43
+---@field [43] "AxleVertical"
+---@field WaterWheel 44
+---@field [44] "WaterWheel"
+---@field Windmill 45
+---@field [45] "Windmill"
+---@field TractionBench 46
+---@field [46] "TractionBench"
+---@field Slab 47
+---@field [47] "Slab"
+---@field Nest 48
+---@field [48] "Nest"
+---@field NestBox 49
+---@field [49] "NestBox"
+---@field Hive 50
+---@field [50] "Hive"
+---@field Rollers 51
+---@field [51] "Rollers"
+---@field Instrument 52
+---@field [52] "Instrument"
+---@field Bookcase 53
+---@field [53] "Bookcase"
+---@field DisplayFurniture 54
+---@field [54] "DisplayFurniture"
+---@field OfferingPlace 55
+---@field [55] "OfferingPlace"
+df.building_type = {}
+
+---@class building_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field Chair boolean
+---@field [2] boolean
+---@field Bed boolean
+---@field [3] boolean
+---@field Table boolean
+---@field [4] boolean
+---@field Coffin boolean
+---@field [5] boolean
+---@field FarmPlot boolean
+---@field [6] boolean
+---@field Furnace boolean
+---@field [7] boolean
+---@field TradeDepot boolean
+---@field [8] boolean
+---@field Shop boolean
+---@field [9] boolean
+---@field Door boolean
+---@field [10] boolean
+---@field Floodgate boolean
+---@field [11] boolean
+---@field Box boolean
+---@field [12] boolean
+---@field Weaponrack boolean
+---@field [13] boolean
+---@field Armorstand boolean
+---@field [14] boolean
+---@field Workshop boolean
+---@field [15] boolean
+---@field Cabinet boolean
+---@field [16] boolean
+---@field Statue boolean
+---@field [17] boolean
+---@field WindowGlass boolean
+---@field [18] boolean
+---@field WindowGem boolean
+---@field [19] boolean
+---@field Well boolean
+---@field [20] boolean
+---@field Bridge boolean
+---@field [21] boolean
+---@field RoadDirt boolean
+---@field [22] boolean
+---@field RoadPaved boolean
+---@field [23] boolean
+---@field SiegeEngine boolean
+---@field [24] boolean
+---@field Trap boolean
+---@field [25] boolean
+---@field AnimalTrap boolean
+---@field [26] boolean
+---@field Support boolean
+---@field [27] boolean
+---@field ArcheryTarget boolean
+---@field [28] boolean
+---@field Chain boolean
+---@field [29] boolean
+---@field Cage boolean
+---@field [30] boolean
+---@field Stockpile boolean
+---@field [31] boolean
+---@field Civzone boolean
+---@field [32] boolean
+---@field Weapon boolean
+---@field [33] boolean
+---@field Wagon boolean
+---@field [34] boolean
+---@field ScrewPump boolean
+---@field [35] boolean
+---@field Construction boolean
+---@field [36] boolean
+---@field Hatch boolean
+---@field [37] boolean
+---@field GrateWall boolean
+---@field [38] boolean
+---@field GrateFloor boolean
+---@field [39] boolean
+---@field BarsVertical boolean
+---@field [40] boolean
+---@field BarsFloor boolean
+---@field [41] boolean
+---@field GearAssembly boolean
+---@field [42] boolean
+---@field AxleHorizontal boolean
+---@field [43] boolean
+---@field AxleVertical boolean
+---@field [44] boolean
+---@field WaterWheel boolean
+---@field [45] boolean
+---@field Windmill boolean
+---@field [46] boolean
+---@field TractionBench boolean
+---@field [47] boolean
+---@field Slab boolean
+---@field [48] boolean
+---@field Nest boolean
+---@field [49] boolean
+---@field NestBox boolean
+---@field [50] boolean
+---@field Hive boolean
+---@field [51] boolean
+---@field Rollers boolean
+---@field [52] boolean
+---@field Instrument boolean
+---@field [53] boolean
+---@field Bookcase boolean
+---@field [54] boolean
+---@field DisplayFurniture boolean
+---@field [55] boolean
+---@field OfferingPlace boolean
 
 ---@class building_type_attr
 ---@field name string
@@ -68,45 +237,121 @@ df.building_type = {
 ---@type { [string|integer]: building_type_attr }
 df.building_type.attrs = {}
 
----@enum building_flags
-df.building_flags = {
-  exists = 0, --actually built, not just ordered
-  site_blocked = 1, --items on ground on site
-  room_collision = 2, --major intersection with another room?
-  unk_3 = 3,
-  almost_deleted = 4, --when requesting delete while in_update
-  in_update = 5,
-  from_worldgen = 6,
-}
+---@class (exact) _building_flags: df.struct
+---@field exists 0
+---@field [0] "exists"
+---@field site_blocked 1
+---@field [1] "site_blocked"
+---@field room_collision 2
+---@field [2] "room_collision"
+---@field unk_3 3
+---@field [3] "unk_3"
+---@field almost_deleted 4
+---@field [4] "almost_deleted"
+---@field in_update 5
+---@field [5] "in_update"
+---@field from_worldgen 6
+---@field [6] "from_worldgen"
+df.building_flags = {}
 
----@enum door_flags
-df.door_flags = {
-  forbidden = 0,
-  internal = 1,
-  taken_by_invaders = 2,
-  used_by_intruder = 3,
-  closed = 4,
-  operated_by_mechanisms = 5,
-  pet_passable = 6,
-}
+---@class building_flags
+---@field [0] boolean
+---@field exists boolean
+---@field [1] boolean
+---@field site_blocked boolean
+---@field [2] boolean
+---@field room_collision boolean
+---@field [3] boolean
+---@field unk_3 boolean
+---@field [4] boolean
+---@field almost_deleted boolean
+---@field [5] boolean
+---@field in_update boolean
+---@field [6] boolean
+---@field from_worldgen boolean
 
----@enum gate_flags
-df.gate_flags = {
-  closed = 0,
-  closing = 1,
-  opening = 2,
-  collapsing = 3, --?; bridge
-  has_support = 4, --bridge
-}
+---@class (exact) _door_flags: df.struct
+---@field forbidden 0
+---@field [0] "forbidden"
+---@field internal 1
+---@field [1] "internal"
+---@field taken_by_invaders 2
+---@field [2] "taken_by_invaders"
+---@field used_by_intruder 3
+---@field [3] "used_by_intruder"
+---@field closed 4
+---@field [4] "closed"
+---@field operated_by_mechanisms 5
+---@field [5] "operated_by_mechanisms"
+---@field pet_passable 6
+---@field [6] "pet_passable"
+df.door_flags = {}
 
----@enum building_extents_type
-df.building_extents_type = {
-  None = 0,
-  Stockpile = 1,
-  Wall = 2,
-  Interior = 3,
-  DistanceBoundary = 4,
-}
+---@class door_flags
+---@field [0] boolean
+---@field forbidden boolean
+---@field [1] boolean
+---@field internal boolean
+---@field [2] boolean
+---@field taken_by_invaders boolean
+---@field [3] boolean
+---@field used_by_intruder boolean
+---@field [4] boolean
+---@field closed boolean
+---@field [5] boolean
+---@field operated_by_mechanisms boolean
+---@field [6] boolean
+---@field pet_passable boolean
+
+---@class (exact) _gate_flags: df.struct
+---@field closed 0
+---@field [0] "closed"
+---@field closing 1
+---@field [1] "closing"
+---@field opening 2
+---@field [2] "opening"
+---@field collapsing 3
+---@field [3] "collapsing"
+---@field has_support 4
+---@field [4] "has_support"
+df.gate_flags = {}
+
+---@class gate_flags
+---@field [0] boolean
+---@field closed boolean
+---@field [1] boolean
+---@field closing boolean
+---@field [2] boolean
+---@field opening boolean
+---@field [3] boolean
+---@field collapsing boolean
+---@field [4] boolean
+---@field has_support boolean
+
+---@class (exact) _building_extents_type: df.struct
+---@field None 0
+---@field [0] "None"
+---@field Stockpile 1
+---@field [1] "Stockpile"
+---@field Wall 2
+---@field [2] "Wall"
+---@field Interior 3
+---@field [3] "Interior"
+---@field DistanceBoundary 4
+---@field [4] "DistanceBoundary"
+df.building_extents_type = {}
+
+---@class building_extents_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Stockpile boolean
+---@field [2] boolean
+---@field Wall boolean
+---@field [3] boolean
+---@field Interior boolean
+---@field [4] boolean
+---@field DistanceBoundary boolean
 
 ---@class building_extents: df.struct
 ---@field extents building_extents_type
@@ -214,118 +459,435 @@ df.building_stockpilest.T_container_type = {}
 ---@field supply_recheck_timer integer
 df.hospital_supplies = {}
 
----@enum hospital_supplies_supplies_needed
-df.hospital_supplies.T_supplies_needed = {
-  splints = 0,
-  thread = 1,
-  cloth = 2,
-  crutches = 3,
-  plaster = 4,
-  buckets = 5,
-  soap = 6,
-}
+---@class (exact) _hospital_supplies_supplies_needed: df.struct
+---@field splints 0
+---@field [0] "splints"
+---@field thread 1
+---@field [1] "thread"
+---@field cloth 2
+---@field [2] "cloth"
+---@field crutches 3
+---@field [3] "crutches"
+---@field plaster 4
+---@field [4] "plaster"
+---@field buckets 5
+---@field [5] "buckets"
+---@field soap 6
+---@field [6] "soap"
+df.hospital_supplies.T_supplies_needed = {}
 
----@enum civzone_type
-df.civzone_type = {
-  Home = 0,
-  Depot = 1,
-  Stockpile = 2,
-  NobleQuarters = 3,
-  unk_4 = 4,
-  unk_5 = 5,
-  unk_6 = 6,
-  MeadHall = 7,
-  ThroneRoom = 8,
-  unk_9 = 9,
-  Temple = 10,
-  Kitchen = 11,
-  CaptiveRoom = 12,
-  TowerTop = 13,
-  Courtyard = 14,
-  Treasury = 15,
-  GuardPost = 16,
-  Entrance = 17,
-  SecretLibrary = 18,
-  Library = 19,
-  Plot = 20,
-  MarketStall = 21,
-  unk_22 = 22,
-  Campground = 23,
-  CommandTent = 24,
-  Tent = 25,
-  CommandTentBld = 26,
-  TentBld = 27,
-  MechanismRoom = 28,
-  DungeonCell = 29,
-  AnimalPit = 30,
-  ClothPit = 31,
-  TanningPit = 32,
-  ClothClothingPit = 33,
-  LeatherClothingPit = 34,
-  BoneCarvingPit = 35,
-  GemCuttingPit = 36,
-  WeaponsmithingPit = 37,
-  BowmakingPit = 38,
-  BlacksmithingPit = 39,
-  ArmorsmithingPit = 40,
-  MetalCraftingPit = 41,
-  LeatherworkingPit = 42,
-  CarpentryPit = 43,
-  StoneworkingPit = 44,
-  ForgingPit = 45,
-  FightingPit = 46,
-  unk_47 = 47,
-  unk_48 = 48,
-  unk_49 = 49,
-  unk_50 = 50,
-  unk_51 = 51,
-  unk_52 = 52,
-  AnimalWorkshop = 53,
-  ClothWorkshop = 54,
-  TanningWorkshop = 55,
-  ClothClothingWorkshop = 56,
-  LeatherClothingWorkshop = 57,
-  BoneCarvingWorkshop = 58,
-  GemCuttingWorkshop = 59,
-  WeaponsmithingWorkshop = 60,
-  BowmakingWorkshop = 61,
-  BlacksmithingWorkshop = 62,
-  ArmorsmithingWorkshop = 63,
-  MetalCraftingWorkshop = 64,
-  LeatherworkingShop = 65,
-  CarpentryWorkshop = 66,
-  StoneworkingWorkshop = 67,
-  ForgingWorkshop = 68,
-  CountingHouseOffices = 69,
-  CountingHouseStorage = 70,
-  GuildhallOffices = 71,
-  GuildhallStorage = 72,
-  TowerEntrance = 73,
-  TowerFeasthall = 74,
-  TowerBedroom = 75,
-  TowerTreasury = 76,
-  TowerDungeon = 77,
-  TowerAttic = 78,
-  Dormitory = 79,
-  DiningHall = 80,
-  unk_81 = 81,
-  WaterSource = 82,
-  Dump = 83,
-  SandCollection = 84,
-  FishingArea = 85,
-  Pond = 86,
-  MeetingHall = 87,
-  Pen = 88,
-  ClayCollection = 89,
-  AnimalTraining = 90,
-  PlantGathering = 91,
-  Bedroom = 92,
-  Office = 93,
-  ArcheryRange = 94,
-  Barracks = 95,
-  Dungeon = 96,
-  Tomb = 97,
-}
+---@class hospital_supplies_supplies_needed
+---@field [0] boolean
+---@field splints boolean
+---@field [1] boolean
+---@field thread boolean
+---@field [2] boolean
+---@field cloth boolean
+---@field [3] boolean
+---@field crutches boolean
+---@field [4] boolean
+---@field plaster boolean
+---@field [5] boolean
+---@field buckets boolean
+---@field [6] boolean
+---@field soap boolean
+
+---@class (exact) _civzone_type: df.struct
+---@field Home 0
+---@field [0] "Home"
+---@field Depot 1
+---@field [1] "Depot"
+---@field Stockpile 2
+---@field [2] "Stockpile"
+---@field NobleQuarters 3
+---@field [3] "NobleQuarters"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field unk_5 5
+---@field [5] "unk_5"
+---@field unk_6 6
+---@field [6] "unk_6"
+---@field MeadHall 7
+---@field [7] "MeadHall"
+---@field ThroneRoom 8
+---@field [8] "ThroneRoom"
+---@field unk_9 9
+---@field [9] "unk_9"
+---@field Temple 10
+---@field [10] "Temple"
+---@field Kitchen 11
+---@field [11] "Kitchen"
+---@field CaptiveRoom 12
+---@field [12] "CaptiveRoom"
+---@field TowerTop 13
+---@field [13] "TowerTop"
+---@field Courtyard 14
+---@field [14] "Courtyard"
+---@field Treasury 15
+---@field [15] "Treasury"
+---@field GuardPost 16
+---@field [16] "GuardPost"
+---@field Entrance 17
+---@field [17] "Entrance"
+---@field SecretLibrary 18
+---@field [18] "SecretLibrary"
+---@field Library 19
+---@field [19] "Library"
+---@field Plot 20
+---@field [20] "Plot"
+---@field MarketStall 21
+---@field [21] "MarketStall"
+---@field unk_22 22
+---@field [22] "unk_22"
+---@field Campground 23
+---@field [23] "Campground"
+---@field CommandTent 24
+---@field [24] "CommandTent"
+---@field Tent 25
+---@field [25] "Tent"
+---@field CommandTentBld 26
+---@field [26] "CommandTentBld"
+---@field TentBld 27
+---@field [27] "TentBld"
+---@field MechanismRoom 28
+---@field [28] "MechanismRoom"
+---@field DungeonCell 29
+---@field [29] "DungeonCell"
+---@field AnimalPit 30
+---@field [30] "AnimalPit"
+---@field ClothPit 31
+---@field [31] "ClothPit"
+---@field TanningPit 32
+---@field [32] "TanningPit"
+---@field ClothClothingPit 33
+---@field [33] "ClothClothingPit"
+---@field LeatherClothingPit 34
+---@field [34] "LeatherClothingPit"
+---@field BoneCarvingPit 35
+---@field [35] "BoneCarvingPit"
+---@field GemCuttingPit 36
+---@field [36] "GemCuttingPit"
+---@field WeaponsmithingPit 37
+---@field [37] "WeaponsmithingPit"
+---@field BowmakingPit 38
+---@field [38] "BowmakingPit"
+---@field BlacksmithingPit 39
+---@field [39] "BlacksmithingPit"
+---@field ArmorsmithingPit 40
+---@field [40] "ArmorsmithingPit"
+---@field MetalCraftingPit 41
+---@field [41] "MetalCraftingPit"
+---@field LeatherworkingPit 42
+---@field [42] "LeatherworkingPit"
+---@field CarpentryPit 43
+---@field [43] "CarpentryPit"
+---@field StoneworkingPit 44
+---@field [44] "StoneworkingPit"
+---@field ForgingPit 45
+---@field [45] "ForgingPit"
+---@field FightingPit 46
+---@field [46] "FightingPit"
+---@field unk_47 47
+---@field [47] "unk_47"
+---@field unk_48 48
+---@field [48] "unk_48"
+---@field unk_49 49
+---@field [49] "unk_49"
+---@field unk_50 50
+---@field [50] "unk_50"
+---@field unk_51 51
+---@field [51] "unk_51"
+---@field unk_52 52
+---@field [52] "unk_52"
+---@field AnimalWorkshop 53
+---@field [53] "AnimalWorkshop"
+---@field ClothWorkshop 54
+---@field [54] "ClothWorkshop"
+---@field TanningWorkshop 55
+---@field [55] "TanningWorkshop"
+---@field ClothClothingWorkshop 56
+---@field [56] "ClothClothingWorkshop"
+---@field LeatherClothingWorkshop 57
+---@field [57] "LeatherClothingWorkshop"
+---@field BoneCarvingWorkshop 58
+---@field [58] "BoneCarvingWorkshop"
+---@field GemCuttingWorkshop 59
+---@field [59] "GemCuttingWorkshop"
+---@field WeaponsmithingWorkshop 60
+---@field [60] "WeaponsmithingWorkshop"
+---@field BowmakingWorkshop 61
+---@field [61] "BowmakingWorkshop"
+---@field BlacksmithingWorkshop 62
+---@field [62] "BlacksmithingWorkshop"
+---@field ArmorsmithingWorkshop 63
+---@field [63] "ArmorsmithingWorkshop"
+---@field MetalCraftingWorkshop 64
+---@field [64] "MetalCraftingWorkshop"
+---@field LeatherworkingShop 65
+---@field [65] "LeatherworkingShop"
+---@field CarpentryWorkshop 66
+---@field [66] "CarpentryWorkshop"
+---@field StoneworkingWorkshop 67
+---@field [67] "StoneworkingWorkshop"
+---@field ForgingWorkshop 68
+---@field [68] "ForgingWorkshop"
+---@field CountingHouseOffices 69
+---@field [69] "CountingHouseOffices"
+---@field CountingHouseStorage 70
+---@field [70] "CountingHouseStorage"
+---@field GuildhallOffices 71
+---@field [71] "GuildhallOffices"
+---@field GuildhallStorage 72
+---@field [72] "GuildhallStorage"
+---@field TowerEntrance 73
+---@field [73] "TowerEntrance"
+---@field TowerFeasthall 74
+---@field [74] "TowerFeasthall"
+---@field TowerBedroom 75
+---@field [75] "TowerBedroom"
+---@field TowerTreasury 76
+---@field [76] "TowerTreasury"
+---@field TowerDungeon 77
+---@field [77] "TowerDungeon"
+---@field TowerAttic 78
+---@field [78] "TowerAttic"
+---@field Dormitory 79
+---@field [79] "Dormitory"
+---@field DiningHall 80
+---@field [80] "DiningHall"
+---@field unk_81 81
+---@field [81] "unk_81"
+---@field WaterSource 82
+---@field [82] "WaterSource"
+---@field Dump 83
+---@field [83] "Dump"
+---@field SandCollection 84
+---@field [84] "SandCollection"
+---@field FishingArea 85
+---@field [85] "FishingArea"
+---@field Pond 86
+---@field [86] "Pond"
+---@field MeetingHall 87
+---@field [87] "MeetingHall"
+---@field Pen 88
+---@field [88] "Pen"
+---@field ClayCollection 89
+---@field [89] "ClayCollection"
+---@field AnimalTraining 90
+---@field [90] "AnimalTraining"
+---@field PlantGathering 91
+---@field [91] "PlantGathering"
+---@field Bedroom 92
+---@field [92] "Bedroom"
+---@field Office 93
+---@field [93] "Office"
+---@field ArcheryRange 94
+---@field [94] "ArcheryRange"
+---@field Barracks 95
+---@field [95] "Barracks"
+---@field Dungeon 96
+---@field [96] "Dungeon"
+---@field Tomb 97
+---@field [97] "Tomb"
+df.civzone_type = {}
+
+---@class civzone_type
+---@field [0] boolean
+---@field Home boolean
+---@field [1] boolean
+---@field Depot boolean
+---@field [2] boolean
+---@field Stockpile boolean
+---@field [3] boolean
+---@field NobleQuarters boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field unk_5 boolean
+---@field [6] boolean
+---@field unk_6 boolean
+---@field [7] boolean
+---@field MeadHall boolean
+---@field [8] boolean
+---@field ThroneRoom boolean
+---@field [9] boolean
+---@field unk_9 boolean
+---@field [10] boolean
+---@field Temple boolean
+---@field [11] boolean
+---@field Kitchen boolean
+---@field [12] boolean
+---@field CaptiveRoom boolean
+---@field [13] boolean
+---@field TowerTop boolean
+---@field [14] boolean
+---@field Courtyard boolean
+---@field [15] boolean
+---@field Treasury boolean
+---@field [16] boolean
+---@field GuardPost boolean
+---@field [17] boolean
+---@field Entrance boolean
+---@field [18] boolean
+---@field SecretLibrary boolean
+---@field [19] boolean
+---@field Library boolean
+---@field [20] boolean
+---@field Plot boolean
+---@field [21] boolean
+---@field MarketStall boolean
+---@field [22] boolean
+---@field unk_22 boolean
+---@field [23] boolean
+---@field Campground boolean
+---@field [24] boolean
+---@field CommandTent boolean
+---@field [25] boolean
+---@field Tent boolean
+---@field [26] boolean
+---@field CommandTentBld boolean
+---@field [27] boolean
+---@field TentBld boolean
+---@field [28] boolean
+---@field MechanismRoom boolean
+---@field [29] boolean
+---@field DungeonCell boolean
+---@field [30] boolean
+---@field AnimalPit boolean
+---@field [31] boolean
+---@field ClothPit boolean
+---@field [32] boolean
+---@field TanningPit boolean
+---@field [33] boolean
+---@field ClothClothingPit boolean
+---@field [34] boolean
+---@field LeatherClothingPit boolean
+---@field [35] boolean
+---@field BoneCarvingPit boolean
+---@field [36] boolean
+---@field GemCuttingPit boolean
+---@field [37] boolean
+---@field WeaponsmithingPit boolean
+---@field [38] boolean
+---@field BowmakingPit boolean
+---@field [39] boolean
+---@field BlacksmithingPit boolean
+---@field [40] boolean
+---@field ArmorsmithingPit boolean
+---@field [41] boolean
+---@field MetalCraftingPit boolean
+---@field [42] boolean
+---@field LeatherworkingPit boolean
+---@field [43] boolean
+---@field CarpentryPit boolean
+---@field [44] boolean
+---@field StoneworkingPit boolean
+---@field [45] boolean
+---@field ForgingPit boolean
+---@field [46] boolean
+---@field FightingPit boolean
+---@field [47] boolean
+---@field unk_47 boolean
+---@field [48] boolean
+---@field unk_48 boolean
+---@field [49] boolean
+---@field unk_49 boolean
+---@field [50] boolean
+---@field unk_50 boolean
+---@field [51] boolean
+---@field unk_51 boolean
+---@field [52] boolean
+---@field unk_52 boolean
+---@field [53] boolean
+---@field AnimalWorkshop boolean
+---@field [54] boolean
+---@field ClothWorkshop boolean
+---@field [55] boolean
+---@field TanningWorkshop boolean
+---@field [56] boolean
+---@field ClothClothingWorkshop boolean
+---@field [57] boolean
+---@field LeatherClothingWorkshop boolean
+---@field [58] boolean
+---@field BoneCarvingWorkshop boolean
+---@field [59] boolean
+---@field GemCuttingWorkshop boolean
+---@field [60] boolean
+---@field WeaponsmithingWorkshop boolean
+---@field [61] boolean
+---@field BowmakingWorkshop boolean
+---@field [62] boolean
+---@field BlacksmithingWorkshop boolean
+---@field [63] boolean
+---@field ArmorsmithingWorkshop boolean
+---@field [64] boolean
+---@field MetalCraftingWorkshop boolean
+---@field [65] boolean
+---@field LeatherworkingShop boolean
+---@field [66] boolean
+---@field CarpentryWorkshop boolean
+---@field [67] boolean
+---@field StoneworkingWorkshop boolean
+---@field [68] boolean
+---@field ForgingWorkshop boolean
+---@field [69] boolean
+---@field CountingHouseOffices boolean
+---@field [70] boolean
+---@field CountingHouseStorage boolean
+---@field [71] boolean
+---@field GuildhallOffices boolean
+---@field [72] boolean
+---@field GuildhallStorage boolean
+---@field [73] boolean
+---@field TowerEntrance boolean
+---@field [74] boolean
+---@field TowerFeasthall boolean
+---@field [75] boolean
+---@field TowerBedroom boolean
+---@field [76] boolean
+---@field TowerTreasury boolean
+---@field [77] boolean
+---@field TowerDungeon boolean
+---@field [78] boolean
+---@field TowerAttic boolean
+---@field [79] boolean
+---@field Dormitory boolean
+---@field [80] boolean
+---@field DiningHall boolean
+---@field [81] boolean
+---@field unk_81 boolean
+---@field [82] boolean
+---@field WaterSource boolean
+---@field [83] boolean
+---@field Dump boolean
+---@field [84] boolean
+---@field SandCollection boolean
+---@field [85] boolean
+---@field FishingArea boolean
+---@field [86] boolean
+---@field Pond boolean
+---@field [87] boolean
+---@field MeetingHall boolean
+---@field [88] boolean
+---@field Pen boolean
+---@field [89] boolean
+---@field ClayCollection boolean
+---@field [90] boolean
+---@field AnimalTraining boolean
+---@field [91] boolean
+---@field PlantGathering boolean
+---@field [92] boolean
+---@field Bedroom boolean
+---@field [93] boolean
+---@field Office boolean
+---@field [94] boolean
+---@field ArcheryRange boolean
+---@field [95] boolean
+---@field Barracks boolean
+---@field [96] boolean
+---@field Dungeon boolean
+---@field [97] boolean
+---@field Tomb boolean
 
 ---@class building_civzonest: building
 ---@field assigned_units integer[]
@@ -354,33 +916,57 @@ df.building_civzonest.T_zone_settings = {}
 ---@field i2 integer
 df.zone_settings.T_whole = {}
 
----@enum zone_settings_gather
-df.zone_settings.T_gather = {
-  pick_trees = 0,
-  pick_shrubs = 1,
-  gather_fallen = 2,
-}
+---@class (exact) _zone_settings_gather: df.struct
+---@field pick_trees 0
+---@field [0] "pick_trees"
+---@field pick_shrubs 1
+---@field [1] "pick_shrubs"
+---@field gather_fallen 2
+---@field [2] "gather_fallen"
+df.zone_settings.T_gather = {}
+
+---@class zone_settings_gather
+---@field [0] boolean
+---@field pick_trees boolean
+---@field [1] boolean
+---@field pick_shrubs boolean
+---@field [2] boolean
+---@field gather_fallen boolean
 
 ---@class zone_settings_pen: df.struct
 ---@field unk integer
 df.zone_settings.T_pen = {}
 
----@enum zone_settings_tomb
-df.zone_settings.T_tomb = {
-  no_pets = 0,
-  no_citizens = 1,
-}
+---@class (exact) _zone_settings_tomb: df.struct
+---@field no_pets 0
+---@field [0] "no_pets"
+---@field no_citizens 1
+---@field [1] "no_citizens"
+df.zone_settings.T_tomb = {}
+
+---@class zone_settings_tomb
+---@field [0] boolean
+---@field no_pets boolean
+---@field [1] boolean
+---@field no_citizens boolean
 
 ---@class zone_settings_archery: df.struct
 ---@field dir_x integer
 ---@field dir_y integer
 df.zone_settings.T_archery = {}
 
----@enum zone_settings_pit_pond
-df.zone_settings.T_pit_pond = {
-  top_of_pit = 2,
-  top_of_pond = 3,
-}
+---@class (exact) _zone_settings_pit_pond: df.struct
+---@field top_of_pit 2
+---@field [0] "top_of_pit"
+---@field top_of_pond 3
+---@field [1] "top_of_pond"
+df.zone_settings.T_pit_pond = {}
+
+---@class zone_settings_pit_pond
+---@field [0] boolean
+---@field top_of_pit boolean
+---@field [1] boolean
+---@field top_of_pond boolean
 
 ---@class building_civzonest_squad_room_info: df.struct
 ---@field squad_id integer
@@ -411,24 +997,59 @@ df.building_actual.T_contained_items = {}
 ---@field max_hitpoints integer
 df.building_design = {}
 
----@enum building_design_flags
-df.building_design.T_flags = {
-  rough = 0, --rough gabbro road
-  built = 1,
-  designed = 2,
-}
+---@class (exact) _building_design_flags: df.struct
+---@field rough 0
+---@field [0] "rough"
+---@field built 1
+---@field [1] "built"
+---@field designed 2
+---@field [2] "designed"
+df.building_design.T_flags = {}
 
----@enum furnace_type
-df.furnace_type = {
-  WoodFurnace = 0,
-  Smelter = 1,
-  GlassFurnace = 2,
-  Kiln = 3,
-  MagmaSmelter = 4,
-  MagmaGlassFurnace = 5,
-  MagmaKiln = 6,
-  Custom = 7,
-}
+---@class building_design_flags
+---@field [0] boolean
+---@field rough boolean
+---@field [1] boolean
+---@field built boolean
+---@field [2] boolean
+---@field designed boolean
+
+---@class (exact) _furnace_type: df.struct
+---@field WoodFurnace 0
+---@field [0] "WoodFurnace"
+---@field Smelter 1
+---@field [1] "Smelter"
+---@field GlassFurnace 2
+---@field [2] "GlassFurnace"
+---@field Kiln 3
+---@field [3] "Kiln"
+---@field MagmaSmelter 4
+---@field [4] "MagmaSmelter"
+---@field MagmaGlassFurnace 5
+---@field [5] "MagmaGlassFurnace"
+---@field MagmaKiln 6
+---@field [6] "MagmaKiln"
+---@field Custom 7
+---@field [7] "Custom"
+df.furnace_type = {}
+
+---@class furnace_type
+---@field [0] boolean
+---@field WoodFurnace boolean
+---@field [1] boolean
+---@field Smelter boolean
+---@field [2] boolean
+---@field GlassFurnace boolean
+---@field [3] boolean
+---@field Kiln boolean
+---@field [4] boolean
+---@field MagmaSmelter boolean
+---@field [5] boolean
+---@field MagmaGlassFurnace boolean
+---@field [6] boolean
+---@field MagmaKiln boolean
+---@field [7] boolean
+---@field Custom boolean
 
 ---@class furnace_type_attr
 ---@field name string
@@ -444,34 +1065,110 @@ df.furnace_type.attrs = {}
 ---@field custom_type building_def
 df.building_furnacest = {}
 
----@enum workshop_type
-df.workshop_type = {
-  Carpenters = 0,
-  Farmers = 1,
-  Masons = 2,
-  Craftsdwarfs = 3,
-  Jewelers = 4,
-  MetalsmithsForge = 5,
-  MagmaForge = 6,
-  Bowyers = 7,
-  Mechanics = 8,
-  Siege = 9,
-  Butchers = 10,
-  Leatherworks = 11,
-  Tanners = 12,
-  Clothiers = 13,
-  Fishery = 14,
-  Still = 15,
-  Loom = 16,
-  Quern = 17,
-  Kennels = 18,
-  Kitchen = 19,
-  Ashery = 20,
-  Dyers = 21,
-  Millstone = 22,
-  Custom = 23,
-  Tool = 24,
-}
+---@class (exact) _workshop_type: df.struct
+---@field Carpenters 0
+---@field [0] "Carpenters"
+---@field Farmers 1
+---@field [1] "Farmers"
+---@field Masons 2
+---@field [2] "Masons"
+---@field Craftsdwarfs 3
+---@field [3] "Craftsdwarfs"
+---@field Jewelers 4
+---@field [4] "Jewelers"
+---@field MetalsmithsForge 5
+---@field [5] "MetalsmithsForge"
+---@field MagmaForge 6
+---@field [6] "MagmaForge"
+---@field Bowyers 7
+---@field [7] "Bowyers"
+---@field Mechanics 8
+---@field [8] "Mechanics"
+---@field Siege 9
+---@field [9] "Siege"
+---@field Butchers 10
+---@field [10] "Butchers"
+---@field Leatherworks 11
+---@field [11] "Leatherworks"
+---@field Tanners 12
+---@field [12] "Tanners"
+---@field Clothiers 13
+---@field [13] "Clothiers"
+---@field Fishery 14
+---@field [14] "Fishery"
+---@field Still 15
+---@field [15] "Still"
+---@field Loom 16
+---@field [16] "Loom"
+---@field Quern 17
+---@field [17] "Quern"
+---@field Kennels 18
+---@field [18] "Kennels"
+---@field Kitchen 19
+---@field [19] "Kitchen"
+---@field Ashery 20
+---@field [20] "Ashery"
+---@field Dyers 21
+---@field [21] "Dyers"
+---@field Millstone 22
+---@field [22] "Millstone"
+---@field Custom 23
+---@field [23] "Custom"
+---@field Tool 24
+---@field [24] "Tool"
+df.workshop_type = {}
+
+---@class workshop_type
+---@field [0] boolean
+---@field Carpenters boolean
+---@field [1] boolean
+---@field Farmers boolean
+---@field [2] boolean
+---@field Masons boolean
+---@field [3] boolean
+---@field Craftsdwarfs boolean
+---@field [4] boolean
+---@field Jewelers boolean
+---@field [5] boolean
+---@field MetalsmithsForge boolean
+---@field [6] boolean
+---@field MagmaForge boolean
+---@field [7] boolean
+---@field Bowyers boolean
+---@field [8] boolean
+---@field Mechanics boolean
+---@field [9] boolean
+---@field Siege boolean
+---@field [10] boolean
+---@field Butchers boolean
+---@field [11] boolean
+---@field Leatherworks boolean
+---@field [12] boolean
+---@field Tanners boolean
+---@field [13] boolean
+---@field Clothiers boolean
+---@field [14] boolean
+---@field Fishery boolean
+---@field [15] boolean
+---@field Still boolean
+---@field [16] boolean
+---@field Loom boolean
+---@field [17] boolean
+---@field Quern boolean
+---@field [18] boolean
+---@field Kennels boolean
+---@field [19] boolean
+---@field Kitchen boolean
+---@field [20] boolean
+---@field Ashery boolean
+---@field [21] boolean
+---@field Dyers boolean
+---@field [22] boolean
+---@field Millstone boolean
+---@field [23] boolean
+---@field Custom boolean
+---@field [24] boolean
+---@field Tool boolean
 
 ---@class workshop_type_attr
 ---@field name string
@@ -548,14 +1245,30 @@ df.building_boxst = {}
 ---@field material_amount integer
 df.building_bridgest = {}
 
----@enum building_bridgest_direction
-df.building_bridgest.T_direction = {
-  Retracting = -1,
-  Left = 1,
-  Right = 2,
-  Up = 3,
-  Down = 4,
-}
+---@class (exact) _building_bridgest_direction: df.struct
+---@field Retracting -1
+---@field [0] "Retracting"
+---@field Left 1
+---@field [1] "Left"
+---@field Right 2
+---@field [2] "Right"
+---@field Up 3
+---@field [3] "Up"
+---@field Down 4
+---@field [4] "Down"
+df.building_bridgest.T_direction = {}
+
+---@class building_bridgest_direction
+---@field [0] boolean
+---@field Retracting boolean
+---@field [1] boolean
+---@field Left boolean
+---@field [2] boolean
+---@field Right boolean
+---@field [3] boolean
+---@field Up boolean
+---@field [4] boolean
+---@field Down boolean
 
 ---@class building_cabinetst: building_actual
 ---@field unk_1 integer
@@ -570,10 +1283,14 @@ df.building_cabinetst = {}
 ---@field fill_timer integer
 df.building_cagest = {}
 
----@enum building_cagest_cage_flags
-df.building_cagest.T_cage_flags = {
-  triggered = 0,
-}
+---@class (exact) _building_cagest_cage_flags: df.struct
+---@field triggered 0
+---@field [0] "triggered"
+df.building_cagest.T_cage_flags = {}
+
+---@class building_cagest_cage_flags
+---@field [0] boolean
+---@field triggered boolean
 
 ---@class building_chainst: building_actual
 ---@field assigned unit
@@ -581,10 +1298,14 @@ df.building_cagest.T_cage_flags = {
 ---@field chain_flags building_chainst_chain_flags
 df.building_chainst = {}
 
----@enum building_chainst_chain_flags
-df.building_chainst.T_chain_flags = {
-  triggered = 0,
-}
+---@class (exact) _building_chainst_chain_flags: df.struct
+---@field triggered 0
+---@field [0] "triggered"
+df.building_chainst.T_chain_flags = {}
+
+---@class building_chainst_chain_flags
+---@field [0] boolean
+---@field triggered boolean
 
 ---@class building_chairst: building_actual
 ---@field unk_1 integer
@@ -594,47 +1315,162 @@ df.building_chairst = {}
 ---@class building_coffinst: building_actual
 df.building_coffinst = {}
 
----@enum construction_type
-df.construction_type = {
-  NONE = -1, --unused
-  Fortification = 1,
-  Wall = 2,
-  Floor = 3,
-  UpStair = 4,
-  DownStair = 5,
-  UpDownStair = 6,
-  Ramp = 7,
-  TrackN = 8,
-  TrackS = 9,
-  TrackE = 10,
-  TrackW = 11,
-  TrackNS = 12,
-  TrackNE = 13,
-  TrackNW = 14,
-  TrackSE = 15,
-  TrackSW = 16,
-  TrackEW = 17,
-  TrackNSE = 18,
-  TrackNSW = 19,
-  TrackNEW = 20,
-  TrackSEW = 21,
-  TrackNSEW = 22,
-  TrackRampN = 23,
-  TrackRampS = 24,
-  TrackRampE = 25,
-  TrackRampW = 26,
-  TrackRampNS = 27,
-  TrackRampNE = 28,
-  TrackRampNW = 29,
-  TrackRampSE = 30,
-  TrackRampSW = 31,
-  TrackRampEW = 32,
-  TrackRampNSE = 33,
-  TrackRampNSW = 34,
-  TrackRampNEW = 35,
-  TrackRampSEW = 36,
-  TrackRampNSEW = 37,
-}
+---@class (exact) _construction_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field Fortification 1
+---@field [1] "Fortification"
+---@field Wall 2
+---@field [2] "Wall"
+---@field Floor 3
+---@field [3] "Floor"
+---@field UpStair 4
+---@field [4] "UpStair"
+---@field DownStair 5
+---@field [5] "DownStair"
+---@field UpDownStair 6
+---@field [6] "UpDownStair"
+---@field Ramp 7
+---@field [7] "Ramp"
+---@field TrackN 8
+---@field [8] "TrackN"
+---@field TrackS 9
+---@field [9] "TrackS"
+---@field TrackE 10
+---@field [10] "TrackE"
+---@field TrackW 11
+---@field [11] "TrackW"
+---@field TrackNS 12
+---@field [12] "TrackNS"
+---@field TrackNE 13
+---@field [13] "TrackNE"
+---@field TrackNW 14
+---@field [14] "TrackNW"
+---@field TrackSE 15
+---@field [15] "TrackSE"
+---@field TrackSW 16
+---@field [16] "TrackSW"
+---@field TrackEW 17
+---@field [17] "TrackEW"
+---@field TrackNSE 18
+---@field [18] "TrackNSE"
+---@field TrackNSW 19
+---@field [19] "TrackNSW"
+---@field TrackNEW 20
+---@field [20] "TrackNEW"
+---@field TrackSEW 21
+---@field [21] "TrackSEW"
+---@field TrackNSEW 22
+---@field [22] "TrackNSEW"
+---@field TrackRampN 23
+---@field [23] "TrackRampN"
+---@field TrackRampS 24
+---@field [24] "TrackRampS"
+---@field TrackRampE 25
+---@field [25] "TrackRampE"
+---@field TrackRampW 26
+---@field [26] "TrackRampW"
+---@field TrackRampNS 27
+---@field [27] "TrackRampNS"
+---@field TrackRampNE 28
+---@field [28] "TrackRampNE"
+---@field TrackRampNW 29
+---@field [29] "TrackRampNW"
+---@field TrackRampSE 30
+---@field [30] "TrackRampSE"
+---@field TrackRampSW 31
+---@field [31] "TrackRampSW"
+---@field TrackRampEW 32
+---@field [32] "TrackRampEW"
+---@field TrackRampNSE 33
+---@field [33] "TrackRampNSE"
+---@field TrackRampNSW 34
+---@field [34] "TrackRampNSW"
+---@field TrackRampNEW 35
+---@field [35] "TrackRampNEW"
+---@field TrackRampSEW 36
+---@field [36] "TrackRampSEW"
+---@field TrackRampNSEW 37
+---@field [37] "TrackRampNSEW"
+df.construction_type = {}
+
+---@class construction_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field Fortification boolean
+---@field [2] boolean
+---@field Wall boolean
+---@field [3] boolean
+---@field Floor boolean
+---@field [4] boolean
+---@field UpStair boolean
+---@field [5] boolean
+---@field DownStair boolean
+---@field [6] boolean
+---@field UpDownStair boolean
+---@field [7] boolean
+---@field Ramp boolean
+---@field [8] boolean
+---@field TrackN boolean
+---@field [9] boolean
+---@field TrackS boolean
+---@field [10] boolean
+---@field TrackE boolean
+---@field [11] boolean
+---@field TrackW boolean
+---@field [12] boolean
+---@field TrackNS boolean
+---@field [13] boolean
+---@field TrackNE boolean
+---@field [14] boolean
+---@field TrackNW boolean
+---@field [15] boolean
+---@field TrackSE boolean
+---@field [16] boolean
+---@field TrackSW boolean
+---@field [17] boolean
+---@field TrackEW boolean
+---@field [18] boolean
+---@field TrackNSE boolean
+---@field [19] boolean
+---@field TrackNSW boolean
+---@field [20] boolean
+---@field TrackNEW boolean
+---@field [21] boolean
+---@field TrackSEW boolean
+---@field [22] boolean
+---@field TrackNSEW boolean
+---@field [23] boolean
+---@field TrackRampN boolean
+---@field [24] boolean
+---@field TrackRampS boolean
+---@field [25] boolean
+---@field TrackRampE boolean
+---@field [26] boolean
+---@field TrackRampW boolean
+---@field [27] boolean
+---@field TrackRampNS boolean
+---@field [28] boolean
+---@field TrackRampNE boolean
+---@field [29] boolean
+---@field TrackRampNW boolean
+---@field [30] boolean
+---@field TrackRampSE boolean
+---@field [31] boolean
+---@field TrackRampSW boolean
+---@field [32] boolean
+---@field TrackRampEW boolean
+---@field [33] boolean
+---@field TrackRampNSE boolean
+---@field [34] boolean
+---@field TrackRampNSW boolean
+---@field [35] boolean
+---@field TrackRampNEW boolean
+---@field [36] boolean
+---@field TrackRampSEW boolean
+---@field [37] boolean
+---@field TrackRampNSEW boolean
 
 ---@class building_constructionst: building_actual
 ---@field type construction_type
@@ -659,10 +1495,14 @@ df.building_doorst = {}
 ---@field terrain_purge_timer integer
 df.building_farmplotst = {}
 
----@enum building_farmplotst_farm_flags
-df.building_farmplotst.T_farm_flags = {
-  seasonal_fertilize = 0,
-}
+---@class (exact) _building_farmplotst_farm_flags: df.struct
+---@field seasonal_fertilize 0
+---@field [0] "seasonal_fertilize"
+df.building_farmplotst.T_farm_flags = {}
+
+---@class building_farmplotst_farm_flags
+---@field [0] boolean
+---@field seasonal_fertilize boolean
 
 ---@class building_floodgatest: building_actual
 ---@field gate_flags gate_flags
@@ -684,12 +1524,22 @@ df.building_grate_wallst = {}
 ---@field close_timer integer
 df.building_hatchst = {}
 
----@enum hive_flags
-df.hive_flags = {
-  do_install = 0,
-  do_gather = 1,
-  ready_split = 2,
-}
+---@class (exact) _hive_flags: df.struct
+---@field do_install 0
+---@field [0] "do_install"
+---@field do_gather 1
+---@field [1] "do_gather"
+---@field ready_split 2
+---@field [2] "ready_split"
+df.hive_flags = {}
+
+---@class hive_flags
+---@field [0] boolean
+---@field do_install boolean
+---@field [1] boolean
+---@field do_gather boolean
+---@field [2] boolean
+---@field ready_split boolean
 
 ---@class building_hivest: building_actual
 ---@field hive_flags hive_flags
@@ -726,13 +1576,26 @@ df.building_road_dirtst = {}
 ---@field terrain_purge_timer integer
 df.building_road_pavedst = {}
 
----@enum shop_type
-df.shop_type = {
-  GeneralStore = 0,
-  CraftsMarket = 1,
-  ClothingShop = 2,
-  ExoticClothingShop = 3,
-}
+---@class (exact) _shop_type: df.struct
+---@field GeneralStore 0
+---@field [0] "GeneralStore"
+---@field CraftsMarket 1
+---@field [1] "CraftsMarket"
+---@field ClothingShop 2
+---@field [2] "ClothingShop"
+---@field ExoticClothingShop 3
+---@field [3] "ExoticClothingShop"
+df.shop_type = {}
+
+---@class shop_type
+---@field [0] boolean
+---@field GeneralStore boolean
+---@field [1] boolean
+---@field CraftsMarket boolean
+---@field [2] boolean
+---@field ClothingShop boolean
+---@field [3] boolean
+---@field ExoticClothingShop boolean
 
 ---@class building_shopst: building_actual
 ---@field owner unit
@@ -741,16 +1604,27 @@ df.shop_type = {
 ---@field type shop_type
 df.building_shopst = {}
 
----@enum building_shopst_shop_flags
-df.building_shopst.T_shop_flags = {
-  for_sale = 0,
-}
+---@class (exact) _building_shopst_shop_flags: df.struct
+---@field for_sale 0
+---@field [0] "for_sale"
+df.building_shopst.T_shop_flags = {}
 
----@enum siegeengine_type
-df.siegeengine_type = {
-  Catapult = 0,
-  Ballista = 1,
-}
+---@class building_shopst_shop_flags
+---@field [0] boolean
+---@field for_sale boolean
+
+---@class (exact) _siegeengine_type: df.struct
+---@field Catapult 0
+---@field [0] "Catapult"
+---@field Ballista 1
+---@field [1] "Ballista"
+df.siegeengine_type = {}
+
+---@class siegeengine_type
+---@field [0] boolean
+---@field Catapult boolean
+---@field [1] boolean
+---@field Ballista boolean
 
 ---@class building_siegeenginest: building_actual
 ---@field type siegeengine_type
@@ -760,20 +1634,43 @@ df.siegeengine_type = {
 ---@field fill_timer integer
 df.building_siegeenginest = {}
 
----@enum building_siegeenginest_facing
-df.building_siegeenginest.T_facing = {
-  Left = 0,
-  Up = 1,
-  Right = 2,
-  Down = 3,
-}
+---@class (exact) _building_siegeenginest_facing: df.struct
+---@field Left 0
+---@field [0] "Left"
+---@field Up 1
+---@field [1] "Up"
+---@field Right 2
+---@field [2] "Right"
+---@field Down 3
+---@field [3] "Down"
+df.building_siegeenginest.T_facing = {}
 
----@enum building_siegeenginest_action
-df.building_siegeenginest.T_action = {
-  NotInUse = 0,
-  PrepareToFire = 1,
-  FireAtWill = 2,
-}
+---@class building_siegeenginest_facing
+---@field [0] boolean
+---@field Left boolean
+---@field [1] boolean
+---@field Up boolean
+---@field [2] boolean
+---@field Right boolean
+---@field [3] boolean
+---@field Down boolean
+
+---@class (exact) _building_siegeenginest_action: df.struct
+---@field NotInUse 0
+---@field [0] "NotInUse"
+---@field PrepareToFire 1
+---@field [1] "PrepareToFire"
+---@field FireAtWill 2
+---@field [2] "FireAtWill"
+df.building_siegeenginest.T_action = {}
+
+---@class building_siegeenginest_action
+---@field [0] boolean
+---@field NotInUse boolean
+---@field [1] boolean
+---@field PrepareToFire boolean
+---@field [2] boolean
+---@field FireAtWill boolean
 
 ---@class building_slabst: building_actual
 ---@field unk_1 integer
@@ -787,20 +1684,28 @@ df.building_statuest = {}
 ---@field support_flags building_supportst_support_flags
 df.building_supportst = {}
 
----@enum building_supportst_support_flags
-df.building_supportst.T_support_flags = {
-  triggered = 0,
-}
+---@class (exact) _building_supportst_support_flags: df.struct
+---@field triggered 0
+---@field [0] "triggered"
+df.building_supportst.T_support_flags = {}
+
+---@class building_supportst_support_flags
+---@field [0] boolean
+---@field triggered boolean
 
 ---@class building_tablest: building_actual
 ---@field table_flags building_tablest_table_flags
 ---@field users building_users
 df.building_tablest = {}
 
----@enum building_tablest_table_flags
-df.building_tablest.T_table_flags = {
-  meeting_hall = 0,
-}
+---@class (exact) _building_tablest_table_flags: df.struct
+---@field meeting_hall 0
+---@field [0] "meeting_hall"
+df.building_tablest.T_table_flags = {}
+
+---@class building_tablest_table_flags
+---@field [0] boolean
+---@field meeting_hall boolean
 
 ---@class building_traction_benchst: building_actual
 ---@field unk_1 integer
@@ -812,21 +1717,47 @@ df.building_traction_benchst = {}
 ---@field accessible integer
 df.building_tradedepotst = {}
 
----@enum building_tradedepotst_trade_flags
-df.building_tradedepotst.T_trade_flags = {
-  trader_requested = 0,
-  anyone_can_trade = 1,
-}
+---@class (exact) _building_tradedepotst_trade_flags: df.struct
+---@field trader_requested 0
+---@field [0] "trader_requested"
+---@field anyone_can_trade 1
+---@field [1] "anyone_can_trade"
+df.building_tradedepotst.T_trade_flags = {}
 
----@enum trap_type
-df.trap_type = {
-  Lever = 0,
-  PressurePlate = 1,
-  CageTrap = 2,
-  StoneFallTrap = 3,
-  WeaponTrap = 4,
-  TrackStop = 5,
-}
+---@class building_tradedepotst_trade_flags
+---@field [0] boolean
+---@field trader_requested boolean
+---@field [1] boolean
+---@field anyone_can_trade boolean
+
+---@class (exact) _trap_type: df.struct
+---@field Lever 0
+---@field [0] "Lever"
+---@field PressurePlate 1
+---@field [1] "PressurePlate"
+---@field CageTrap 2
+---@field [2] "CageTrap"
+---@field StoneFallTrap 3
+---@field [3] "StoneFallTrap"
+---@field WeaponTrap 4
+---@field [4] "WeaponTrap"
+---@field TrackStop 5
+---@field [5] "TrackStop"
+df.trap_type = {}
+
+---@class trap_type
+---@field [0] boolean
+---@field Lever boolean
+---@field [1] boolean
+---@field PressurePlate boolean
+---@field [2] boolean
+---@field CageTrap boolean
+---@field [3] boolean
+---@field StoneFallTrap boolean
+---@field [4] boolean
+---@field WeaponTrap boolean
+---@field [5] boolean
+---@field TrackStop boolean
 
 ---@class pressure_plate_info: df.struct
 ---@field unit_min integer
@@ -840,15 +1771,34 @@ df.trap_type = {
 ---@field flags pressure_plate_info_flags
 df.pressure_plate_info = {}
 
----@enum pressure_plate_info_flags
-df.pressure_plate_info.T_flags = {
-  units = 0,
-  water = 1,
-  magma = 2,
-  citizens = 3,
-  resets = 4,
-  track = 5,
-}
+---@class (exact) _pressure_plate_info_flags: df.struct
+---@field units 0
+---@field [0] "units"
+---@field water 1
+---@field [1] "water"
+---@field magma 2
+---@field [2] "magma"
+---@field citizens 3
+---@field [3] "citizens"
+---@field resets 4
+---@field [4] "resets"
+---@field track 5
+---@field [5] "track"
+df.pressure_plate_info.T_flags = {}
+
+---@class pressure_plate_info_flags
+---@field [0] boolean
+---@field units boolean
+---@field [1] boolean
+---@field water boolean
+---@field [2] boolean
+---@field magma boolean
+---@field [3] boolean
+---@field citizens boolean
+---@field [4] boolean
+---@field resets boolean
+---@field [5] boolean
+---@field track boolean
 
 ---@class building_trapst: building_actual
 ---@field trap_type trap_type
@@ -867,12 +1817,22 @@ df.pressure_plate_info.T_flags = {
 ---@field stop_trigger_timer integer
 df.building_trapst = {}
 
----@enum building_trapst_stop_flags
-df.building_trapst.T_stop_flags = {
-  disabled = 0,
-  disabling = 1,
-  enabling = 2,
-}
+---@class (exact) _building_trapst_stop_flags: df.struct
+---@field disabled 0
+---@field [0] "disabled"
+---@field disabling 1
+---@field [1] "disabling"
+---@field enabling 2
+---@field [2] "enabling"
+df.building_trapst.T_stop_flags = {}
+
+---@class building_trapst_stop_flags
+---@field [0] boolean
+---@field disabled boolean
+---@field [1] boolean
+---@field disabling boolean
+---@field [2] boolean
+---@field enabling boolean
 
 ---@class building_wagonst: building_actual
 df.building_wagonst = {}
@@ -900,11 +1860,18 @@ df.building_weaponrackst = {}
 ---@field check_water_timer integer
 df.building_wellst = {}
 
----@enum building_wellst_well_flags
-df.building_wellst.T_well_flags = {
-  lowering = 0,
-  just_raised = 1,
-}
+---@class (exact) _building_wellst_well_flags: df.struct
+---@field lowering 0
+---@field [0] "lowering"
+---@field just_raised 1
+---@field [1] "just_raised"
+df.building_wellst.T_well_flags = {}
+
+---@class building_wellst_well_flags
+---@field [0] boolean
+---@field lowering boolean
+---@field [1] boolean
+---@field just_raised boolean
 
 ---@class building_windowst: building_actual
 ---@field unk_1 integer
@@ -916,18 +1883,43 @@ df.building_window_glassst = {}
 ---@class building_window_gemst: building_windowst
 df.building_window_gemst = {}
 
----@enum dfhack_room_quality_level
+---@class (exact) _dfhack_room_quality_level: df.struct
 ---Not in DF Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum Throne Room | Great Bedroom | Great Dining Room | Mausoleum Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb Decent Office | Decent Quarters | Decent Dining Room | Tomb Office | Quarters | Dining Room | Burial Chamber Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber Meager Office | Meager Quarters | Meager Dining Room | Grave
-df.dfhack_room_quality_level = {
-  Meager = 0,
-  Modest = 1,
-  Normal = 2,
-  Decent = 3,
-  Fine = 4,
-  Great = 5,
-  Grand = 6,
-  Royal = 7,
-}
+---@field Meager 0
+---@field [0] "Meager"
+---@field Modest 1
+---@field [1] "Modest"
+---@field Normal 2
+---@field [2] "Normal"
+---@field Decent 3
+---@field [3] "Decent"
+---@field Fine 4
+---@field [4] "Fine"
+---@field Great 5
+---@field [5] "Great"
+---@field Grand 6
+---@field [6] "Grand"
+---@field Royal 7
+---@field [7] "Royal"
+df.dfhack_room_quality_level = {}
+
+---@class dfhack_room_quality_level
+---@field [0] boolean
+---@field Meager boolean
+---@field [1] boolean
+---@field Modest boolean
+---@field [2] boolean
+---@field Normal boolean
+---@field [3] boolean
+---@field Decent boolean
+---@field [4] boolean
+---@field Fine boolean
+---@field [5] boolean
+---@field Great boolean
+---@field [6] boolean
+---@field Grand boolean
+---@field [7] boolean
+---@field Royal boolean
 
 ---@class dfhack_room_quality_level_attr
 ---@field min_value int32_t

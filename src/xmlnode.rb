@@ -73,8 +73,6 @@ class Field < XmlNode
   end
 end
 
-# <enum-type> and <bitfield-type> both behave identically (in regards to Lua)
-# <enum-item> and <flag-bit> are effectively the same.
 class EnumType < XmlNode
   attr_reader :name, :type
 
@@ -91,17 +89,24 @@ class EnumType < XmlNode
   end
 
   def render
-    annotation = "---@enum #{@parent_type + '_' if @parent_type}#{@name}\n"
+    annotation = "---@class (exact) _#{@parent_type + '_' if @parent_type}#{@name}: df.struct\n"
     annotation << "---#{@comment}\n" if @comment
     # All <enum-type> elements are globally accessible.
-    annotation << "df.#{@parent_type + '.T_' if @parent_type}#{@name} = {\n"
-
+    
     @node.css('enum-item, flag-bit').each_with_index do |child, index|
       item = EnumItem.new(child, index)
       annotation << item.render
     end
 
-    annotation << "}\n\n"
+    annotation << "df.#{@parent_type + '.T_' if @parent_type}#{@name} = {}\n\n"
+
+    annotation << "---@class #{@parent_type + '_' if @parent_type}#{@name}\n"
+
+    @node.css('enum-item, flag-bit').each_with_index do |child, index|
+      annotation << EnumItem.new(child, index).render_field
+    end
+
+    annotation << "\n"
 
     if not @attrs.empty?
       annotation << "---@class #{@name}_attr\n"
@@ -127,14 +132,20 @@ class EnumItem < XmlNode
   def initialize(node, index)
     super(node)
 
-    # TODO: Does unknown need enumerated value or index here?
+    # Unknowns use index value.
     @name = node.attributes['name'] || "unk_#{index}"
     @index = index
     @value = node.attributes['value']
   end
 
   def render
-    "  #{@name} = #{@value || @index},#{' --' + @comment if @comment}\n"
+    annotation = "---@field #{@name} #{@value || @index}\n"
+    annotation << "---@field [#{@index}] \"#{@name}\"\n"
+  end
+
+  def render_field
+    annotation = "---@field [#{@index}] boolean\n"
+    annotation << "---@field #{@name} boolean\n"
   end
 end
 
@@ -145,7 +156,7 @@ class GlobalObject < XmlNode
 
   def render
     annotation = "---@class df_global\n"
-    # annotation << "---#{@comment}\n" if @comm1ent
+    annotation << "---#{@comment}\n" if @comment
 
     @fields.each do |field|
       fieldNode = Field.new(field)

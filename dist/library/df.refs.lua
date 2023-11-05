@@ -1,79 +1,290 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum general_ref_type
-df.general_ref_type = {
-  ARTIFACT = 0,
-  IS_ARTIFACT = 1,
-  NEMESIS = 2,
-  IS_NEMESIS = 3,
-  ITEM = 4,
-  ITEM_TYPE = 5,
-  COINBATCH = 6,
-  MAPSQUARE = 7,
-  ENTITY_ART_IMAGE = 8,
-  CONTAINS_UNIT = 9,
-  CONTAINS_ITEM = 10,
-  CONTAINED_IN_ITEM = 11,
-  PROJECTILE = 12,
-  UNIT = 13,
-  UNIT_MILKEE = 14,
-  UNIT_TRAINEE = 15,
-  UNIT_ITEMOWNER = 16,
-  UNIT_TRADEBRINGER = 17,
-  UNIT_HOLDER = 18,
-  UNIT_WORKER = 19,
-  UNIT_CAGEE = 20,
-  UNIT_BEATEE = 21,
-  UNIT_FOODRECEIVER = 22,
-  UNIT_KIDNAPEE = 23,
-  UNIT_PATIENT = 24,
-  UNIT_INFANT = 25,
-  UNIT_SLAUGHTEREE = 26,
-  UNIT_SHEAREE = 27,
-  UNIT_SUCKEE = 28,
-  UNIT_REPORTEE = 29,
-  BUILDING = 30,
-  BUILDING_CIVZONE_ASSIGNED = 31,
-  BUILDING_TRIGGER = 32,
-  BUILDING_TRIGGERTARGET = 33,
-  BUILDING_CHAIN = 34,
-  BUILDING_CAGED = 35,
-  BUILDING_HOLDER = 36,
-  BUILDING_WELL_TAG = 37,
-  BUILDING_USE_TARGET_1 = 38,
-  BUILDING_USE_TARGET_2 = 39,
-  BUILDING_DESTINATION = 40,
-  BUILDING_NEST_BOX = 41,
-  ENTITY = 42,
-  ENTITY_STOLEN = 43,
-  ENTITY_OFFERED = 44,
-  ENTITY_ITEMOWNER = 45,
-  LOCATION = 46,
-  INTERACTION = 47,
-  ABSTRACT_BUILDING = 48,
-  HISTORICAL_EVENT = 49,
-  SPHERE = 50,
-  SITE = 51,
-  SUBREGION = 52,
-  FEATURE_LAYER = 53,
-  HISTORICAL_FIGURE = 54,
-  ENTITY_POP = 55,
-  CREATURE = 56,
-  UNIT_RIDER = 57,
-  UNIT_CLIMBER = 58,
-  UNIT_GELDEE = 59,
-  KNOWLEDGE_SCHOLAR_FLAG = 60,
-  ACTIVITY_EVENT = 61,
-  VALUE_LEVEL = 62,
-  LANGUAGE = 63,
-  WRITTEN_CONTENT = 64,
-  POETIC_FORM = 65,
-  MUSICAL_FORM = 66,
-  DANCE_FORM = 67,
-  BUILDING_DISPLAY_FURNITURE = 68,
-  UNIT_INTERROGATEE = 69,
-}
+---@class (exact) _general_ref_type: df.struct
+---@field ARTIFACT 0
+---@field [0] "ARTIFACT"
+---@field IS_ARTIFACT 1
+---@field [1] "IS_ARTIFACT"
+---@field NEMESIS 2
+---@field [2] "NEMESIS"
+---@field IS_NEMESIS 3
+---@field [3] "IS_NEMESIS"
+---@field ITEM 4
+---@field [4] "ITEM"
+---@field ITEM_TYPE 5
+---@field [5] "ITEM_TYPE"
+---@field COINBATCH 6
+---@field [6] "COINBATCH"
+---@field MAPSQUARE 7
+---@field [7] "MAPSQUARE"
+---@field ENTITY_ART_IMAGE 8
+---@field [8] "ENTITY_ART_IMAGE"
+---@field CONTAINS_UNIT 9
+---@field [9] "CONTAINS_UNIT"
+---@field CONTAINS_ITEM 10
+---@field [10] "CONTAINS_ITEM"
+---@field CONTAINED_IN_ITEM 11
+---@field [11] "CONTAINED_IN_ITEM"
+---@field PROJECTILE 12
+---@field [12] "PROJECTILE"
+---@field UNIT 13
+---@field [13] "UNIT"
+---@field UNIT_MILKEE 14
+---@field [14] "UNIT_MILKEE"
+---@field UNIT_TRAINEE 15
+---@field [15] "UNIT_TRAINEE"
+---@field UNIT_ITEMOWNER 16
+---@field [16] "UNIT_ITEMOWNER"
+---@field UNIT_TRADEBRINGER 17
+---@field [17] "UNIT_TRADEBRINGER"
+---@field UNIT_HOLDER 18
+---@field [18] "UNIT_HOLDER"
+---@field UNIT_WORKER 19
+---@field [19] "UNIT_WORKER"
+---@field UNIT_CAGEE 20
+---@field [20] "UNIT_CAGEE"
+---@field UNIT_BEATEE 21
+---@field [21] "UNIT_BEATEE"
+---@field UNIT_FOODRECEIVER 22
+---@field [22] "UNIT_FOODRECEIVER"
+---@field UNIT_KIDNAPEE 23
+---@field [23] "UNIT_KIDNAPEE"
+---@field UNIT_PATIENT 24
+---@field [24] "UNIT_PATIENT"
+---@field UNIT_INFANT 25
+---@field [25] "UNIT_INFANT"
+---@field UNIT_SLAUGHTEREE 26
+---@field [26] "UNIT_SLAUGHTEREE"
+---@field UNIT_SHEAREE 27
+---@field [27] "UNIT_SHEAREE"
+---@field UNIT_SUCKEE 28
+---@field [28] "UNIT_SUCKEE"
+---@field UNIT_REPORTEE 29
+---@field [29] "UNIT_REPORTEE"
+---@field BUILDING 30
+---@field [30] "BUILDING"
+---@field BUILDING_CIVZONE_ASSIGNED 31
+---@field [31] "BUILDING_CIVZONE_ASSIGNED"
+---@field BUILDING_TRIGGER 32
+---@field [32] "BUILDING_TRIGGER"
+---@field BUILDING_TRIGGERTARGET 33
+---@field [33] "BUILDING_TRIGGERTARGET"
+---@field BUILDING_CHAIN 34
+---@field [34] "BUILDING_CHAIN"
+---@field BUILDING_CAGED 35
+---@field [35] "BUILDING_CAGED"
+---@field BUILDING_HOLDER 36
+---@field [36] "BUILDING_HOLDER"
+---@field BUILDING_WELL_TAG 37
+---@field [37] "BUILDING_WELL_TAG"
+---@field BUILDING_USE_TARGET_1 38
+---@field [38] "BUILDING_USE_TARGET_1"
+---@field BUILDING_USE_TARGET_2 39
+---@field [39] "BUILDING_USE_TARGET_2"
+---@field BUILDING_DESTINATION 40
+---@field [40] "BUILDING_DESTINATION"
+---@field BUILDING_NEST_BOX 41
+---@field [41] "BUILDING_NEST_BOX"
+---@field ENTITY 42
+---@field [42] "ENTITY"
+---@field ENTITY_STOLEN 43
+---@field [43] "ENTITY_STOLEN"
+---@field ENTITY_OFFERED 44
+---@field [44] "ENTITY_OFFERED"
+---@field ENTITY_ITEMOWNER 45
+---@field [45] "ENTITY_ITEMOWNER"
+---@field LOCATION 46
+---@field [46] "LOCATION"
+---@field INTERACTION 47
+---@field [47] "INTERACTION"
+---@field ABSTRACT_BUILDING 48
+---@field [48] "ABSTRACT_BUILDING"
+---@field HISTORICAL_EVENT 49
+---@field [49] "HISTORICAL_EVENT"
+---@field SPHERE 50
+---@field [50] "SPHERE"
+---@field SITE 51
+---@field [51] "SITE"
+---@field SUBREGION 52
+---@field [52] "SUBREGION"
+---@field FEATURE_LAYER 53
+---@field [53] "FEATURE_LAYER"
+---@field HISTORICAL_FIGURE 54
+---@field [54] "HISTORICAL_FIGURE"
+---@field ENTITY_POP 55
+---@field [55] "ENTITY_POP"
+---@field CREATURE 56
+---@field [56] "CREATURE"
+---@field UNIT_RIDER 57
+---@field [57] "UNIT_RIDER"
+---@field UNIT_CLIMBER 58
+---@field [58] "UNIT_CLIMBER"
+---@field UNIT_GELDEE 59
+---@field [59] "UNIT_GELDEE"
+---@field KNOWLEDGE_SCHOLAR_FLAG 60
+---@field [60] "KNOWLEDGE_SCHOLAR_FLAG"
+---@field ACTIVITY_EVENT 61
+---@field [61] "ACTIVITY_EVENT"
+---@field VALUE_LEVEL 62
+---@field [62] "VALUE_LEVEL"
+---@field LANGUAGE 63
+---@field [63] "LANGUAGE"
+---@field WRITTEN_CONTENT 64
+---@field [64] "WRITTEN_CONTENT"
+---@field POETIC_FORM 65
+---@field [65] "POETIC_FORM"
+---@field MUSICAL_FORM 66
+---@field [66] "MUSICAL_FORM"
+---@field DANCE_FORM 67
+---@field [67] "DANCE_FORM"
+---@field BUILDING_DISPLAY_FURNITURE 68
+---@field [68] "BUILDING_DISPLAY_FURNITURE"
+---@field UNIT_INTERROGATEE 69
+---@field [69] "UNIT_INTERROGATEE"
+df.general_ref_type = {}
+
+---@class general_ref_type
+---@field [0] boolean
+---@field ARTIFACT boolean
+---@field [1] boolean
+---@field IS_ARTIFACT boolean
+---@field [2] boolean
+---@field NEMESIS boolean
+---@field [3] boolean
+---@field IS_NEMESIS boolean
+---@field [4] boolean
+---@field ITEM boolean
+---@field [5] boolean
+---@field ITEM_TYPE boolean
+---@field [6] boolean
+---@field COINBATCH boolean
+---@field [7] boolean
+---@field MAPSQUARE boolean
+---@field [8] boolean
+---@field ENTITY_ART_IMAGE boolean
+---@field [9] boolean
+---@field CONTAINS_UNIT boolean
+---@field [10] boolean
+---@field CONTAINS_ITEM boolean
+---@field [11] boolean
+---@field CONTAINED_IN_ITEM boolean
+---@field [12] boolean
+---@field PROJECTILE boolean
+---@field [13] boolean
+---@field UNIT boolean
+---@field [14] boolean
+---@field UNIT_MILKEE boolean
+---@field [15] boolean
+---@field UNIT_TRAINEE boolean
+---@field [16] boolean
+---@field UNIT_ITEMOWNER boolean
+---@field [17] boolean
+---@field UNIT_TRADEBRINGER boolean
+---@field [18] boolean
+---@field UNIT_HOLDER boolean
+---@field [19] boolean
+---@field UNIT_WORKER boolean
+---@field [20] boolean
+---@field UNIT_CAGEE boolean
+---@field [21] boolean
+---@field UNIT_BEATEE boolean
+---@field [22] boolean
+---@field UNIT_FOODRECEIVER boolean
+---@field [23] boolean
+---@field UNIT_KIDNAPEE boolean
+---@field [24] boolean
+---@field UNIT_PATIENT boolean
+---@field [25] boolean
+---@field UNIT_INFANT boolean
+---@field [26] boolean
+---@field UNIT_SLAUGHTEREE boolean
+---@field [27] boolean
+---@field UNIT_SHEAREE boolean
+---@field [28] boolean
+---@field UNIT_SUCKEE boolean
+---@field [29] boolean
+---@field UNIT_REPORTEE boolean
+---@field [30] boolean
+---@field BUILDING boolean
+---@field [31] boolean
+---@field BUILDING_CIVZONE_ASSIGNED boolean
+---@field [32] boolean
+---@field BUILDING_TRIGGER boolean
+---@field [33] boolean
+---@field BUILDING_TRIGGERTARGET boolean
+---@field [34] boolean
+---@field BUILDING_CHAIN boolean
+---@field [35] boolean
+---@field BUILDING_CAGED boolean
+---@field [36] boolean
+---@field BUILDING_HOLDER boolean
+---@field [37] boolean
+---@field BUILDING_WELL_TAG boolean
+---@field [38] boolean
+---@field BUILDING_USE_TARGET_1 boolean
+---@field [39] boolean
+---@field BUILDING_USE_TARGET_2 boolean
+---@field [40] boolean
+---@field BUILDING_DESTINATION boolean
+---@field [41] boolean
+---@field BUILDING_NEST_BOX boolean
+---@field [42] boolean
+---@field ENTITY boolean
+---@field [43] boolean
+---@field ENTITY_STOLEN boolean
+---@field [44] boolean
+---@field ENTITY_OFFERED boolean
+---@field [45] boolean
+---@field ENTITY_ITEMOWNER boolean
+---@field [46] boolean
+---@field LOCATION boolean
+---@field [47] boolean
+---@field INTERACTION boolean
+---@field [48] boolean
+---@field ABSTRACT_BUILDING boolean
+---@field [49] boolean
+---@field HISTORICAL_EVENT boolean
+---@field [50] boolean
+---@field SPHERE boolean
+---@field [51] boolean
+---@field SITE boolean
+---@field [52] boolean
+---@field SUBREGION boolean
+---@field [53] boolean
+---@field FEATURE_LAYER boolean
+---@field [54] boolean
+---@field HISTORICAL_FIGURE boolean
+---@field [55] boolean
+---@field ENTITY_POP boolean
+---@field [56] boolean
+---@field CREATURE boolean
+---@field [57] boolean
+---@field UNIT_RIDER boolean
+---@field [58] boolean
+---@field UNIT_CLIMBER boolean
+---@field [59] boolean
+---@field UNIT_GELDEE boolean
+---@field [60] boolean
+---@field KNOWLEDGE_SCHOLAR_FLAG boolean
+---@field [61] boolean
+---@field ACTIVITY_EVENT boolean
+---@field [62] boolean
+---@field VALUE_LEVEL boolean
+---@field [63] boolean
+---@field LANGUAGE boolean
+---@field [64] boolean
+---@field WRITTEN_CONTENT boolean
+---@field [65] boolean
+---@field POETIC_FORM boolean
+---@field [66] boolean
+---@field MUSICAL_FORM boolean
+---@field [67] boolean
+---@field DANCE_FORM boolean
+---@field [68] boolean
+---@field BUILDING_DISPLAY_FURNITURE boolean
+---@field [69] boolean
+---@field UNIT_INTERROGATEE boolean
 
 ---@class general_ref: df.struct
 df.general_ref = {}
@@ -246,10 +457,14 @@ df.general_ref_unit_traineest = {}
 ---@field flags general_ref_unit_itemownerst_flags
 df.general_ref_unit_itemownerst = {}
 
----@enum general_ref_unit_itemownerst_flags
-df.general_ref_unit_itemownerst.T_flags = {
-  litter = 0, --apparetly set after 1000 ticks, then confiscated in 1000 more ticks
-}
+---@class (exact) _general_ref_unit_itemownerst_flags: df.struct
+---@field litter 0
+---@field [0] "litter"
+df.general_ref_unit_itemownerst.T_flags = {}
+
+---@class general_ref_unit_itemownerst_flags
+---@field [0] boolean
+---@field litter boolean
 
 ---@class general_ref_unit_tradebringerst: general_ref_unit
 df.general_ref_unit_tradebringerst = {}
@@ -348,38 +563,126 @@ df.general_ref_entity_offeredst = {}
 ---@class general_ref_entity_itemownerst: general_ref_entity
 df.general_ref_entity_itemownerst = {}
 
----@enum specific_ref_type
-df.specific_ref_type = {
-  NONE = -1,
-  unk_1 = 1,
-  UNIT = 2,
-  JOB = 3,
-  ACTIVITY = 4,
-  ITEM_GENERAL = 5,
-  EFFECT = 6,
-  VERMIN_EVENT = 7,
-  VERMIN_ESCAPED_PET = 8,
-  ENTITY = 9,
-  PLOT_INFO = 10,
-  VIEWSCREEN = 11,
-  UNIT_ITEM_WRESTLE = 12,
-  NULL_REF = 13,
-  HIST_FIG = 14,
-  SITE = 15,
-  ARTIFACT = 16,
-  ITEM_IMPROVEMENT = 17,
-  COIN_FRONT = 18,
-  COIN_BACK = 19,
-  DETAIL_EVENT = 20,
-  SUBREGION = 21,
-  FEATURE_LAYER = 22,
-  ART_IMAGE = 23,
-  CREATURE_DEF = 24,
-  ENTITY_ART_IMAGE = 25, --unused?
-  unk_26 = 26,
-  ENTITY_POPULATION = 27,
-  BREED = 28,
-}
+---@class (exact) _specific_ref_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field UNIT 2
+---@field [2] "UNIT"
+---@field JOB 3
+---@field [3] "JOB"
+---@field ACTIVITY 4
+---@field [4] "ACTIVITY"
+---@field ITEM_GENERAL 5
+---@field [5] "ITEM_GENERAL"
+---@field EFFECT 6
+---@field [6] "EFFECT"
+---@field VERMIN_EVENT 7
+---@field [7] "VERMIN_EVENT"
+---@field VERMIN_ESCAPED_PET 8
+---@field [8] "VERMIN_ESCAPED_PET"
+---@field ENTITY 9
+---@field [9] "ENTITY"
+---@field PLOT_INFO 10
+---@field [10] "PLOT_INFO"
+---@field VIEWSCREEN 11
+---@field [11] "VIEWSCREEN"
+---@field UNIT_ITEM_WRESTLE 12
+---@field [12] "UNIT_ITEM_WRESTLE"
+---@field NULL_REF 13
+---@field [13] "NULL_REF"
+---@field HIST_FIG 14
+---@field [14] "HIST_FIG"
+---@field SITE 15
+---@field [15] "SITE"
+---@field ARTIFACT 16
+---@field [16] "ARTIFACT"
+---@field ITEM_IMPROVEMENT 17
+---@field [17] "ITEM_IMPROVEMENT"
+---@field COIN_FRONT 18
+---@field [18] "COIN_FRONT"
+---@field COIN_BACK 19
+---@field [19] "COIN_BACK"
+---@field DETAIL_EVENT 20
+---@field [20] "DETAIL_EVENT"
+---@field SUBREGION 21
+---@field [21] "SUBREGION"
+---@field FEATURE_LAYER 22
+---@field [22] "FEATURE_LAYER"
+---@field ART_IMAGE 23
+---@field [23] "ART_IMAGE"
+---@field CREATURE_DEF 24
+---@field [24] "CREATURE_DEF"
+---@field ENTITY_ART_IMAGE 25
+---@field [25] "ENTITY_ART_IMAGE"
+---@field unk_26 26
+---@field [26] "unk_26"
+---@field ENTITY_POPULATION 27
+---@field [27] "ENTITY_POPULATION"
+---@field BREED 28
+---@field [28] "BREED"
+df.specific_ref_type = {}
+
+---@class specific_ref_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field UNIT boolean
+---@field [3] boolean
+---@field JOB boolean
+---@field [4] boolean
+---@field ACTIVITY boolean
+---@field [5] boolean
+---@field ITEM_GENERAL boolean
+---@field [6] boolean
+---@field EFFECT boolean
+---@field [7] boolean
+---@field VERMIN_EVENT boolean
+---@field [8] boolean
+---@field VERMIN_ESCAPED_PET boolean
+---@field [9] boolean
+---@field ENTITY boolean
+---@field [10] boolean
+---@field PLOT_INFO boolean
+---@field [11] boolean
+---@field VIEWSCREEN boolean
+---@field [12] boolean
+---@field UNIT_ITEM_WRESTLE boolean
+---@field [13] boolean
+---@field NULL_REF boolean
+---@field [14] boolean
+---@field HIST_FIG boolean
+---@field [15] boolean
+---@field SITE boolean
+---@field [16] boolean
+---@field ARTIFACT boolean
+---@field [17] boolean
+---@field ITEM_IMPROVEMENT boolean
+---@field [18] boolean
+---@field COIN_FRONT boolean
+---@field [19] boolean
+---@field COIN_BACK boolean
+---@field [20] boolean
+---@field DETAIL_EVENT boolean
+---@field [21] boolean
+---@field SUBREGION boolean
+---@field [22] boolean
+---@field FEATURE_LAYER boolean
+---@field [23] boolean
+---@field ART_IMAGE boolean
+---@field [24] boolean
+---@field CREATURE_DEF boolean
+---@field [25] boolean
+---@field ENTITY_ART_IMAGE boolean
+---@field [26] boolean
+---@field unk_26 boolean
+---@field [27] boolean
+---@field ENTITY_POPULATION boolean
+---@field [28] boolean
+---@field BREED boolean
 
 ---@class specific_ref_type_attr
 ---@field union_field string
@@ -410,26 +713,78 @@ df.specific_ref.T_data = {}
 ---@field item unit_item_wrestle
 df.data.T_wrestle = {}
 
----@enum histfig_entity_link_type
-df.histfig_entity_link_type = {
-  MEMBER = 0,
-  FORMER_MEMBER = 1,
-  MERCENARY = 2,
-  FORMER_MERCENARY = 3,
-  SLAVE = 4,
-  FORMER_SLAVE = 5,
-  PRISONER = 6,
-  FORMER_PRISONER = 7,
-  ENEMY = 8,
-  CRIMINAL = 9,
-  POSITION = 10,
-  FORMER_POSITION = 11,
-  POSITION_CLAIM = 12,
-  SQUAD = 13,
-  FORMER_SQUAD = 14,
-  OCCUPATION = 15,
-  FORMER_OCCUPATION = 16,
-}
+---@class (exact) _histfig_entity_link_type: df.struct
+---@field MEMBER 0
+---@field [0] "MEMBER"
+---@field FORMER_MEMBER 1
+---@field [1] "FORMER_MEMBER"
+---@field MERCENARY 2
+---@field [2] "MERCENARY"
+---@field FORMER_MERCENARY 3
+---@field [3] "FORMER_MERCENARY"
+---@field SLAVE 4
+---@field [4] "SLAVE"
+---@field FORMER_SLAVE 5
+---@field [5] "FORMER_SLAVE"
+---@field PRISONER 6
+---@field [6] "PRISONER"
+---@field FORMER_PRISONER 7
+---@field [7] "FORMER_PRISONER"
+---@field ENEMY 8
+---@field [8] "ENEMY"
+---@field CRIMINAL 9
+---@field [9] "CRIMINAL"
+---@field POSITION 10
+---@field [10] "POSITION"
+---@field FORMER_POSITION 11
+---@field [11] "FORMER_POSITION"
+---@field POSITION_CLAIM 12
+---@field [12] "POSITION_CLAIM"
+---@field SQUAD 13
+---@field [13] "SQUAD"
+---@field FORMER_SQUAD 14
+---@field [14] "FORMER_SQUAD"
+---@field OCCUPATION 15
+---@field [15] "OCCUPATION"
+---@field FORMER_OCCUPATION 16
+---@field [16] "FORMER_OCCUPATION"
+df.histfig_entity_link_type = {}
+
+---@class histfig_entity_link_type
+---@field [0] boolean
+---@field MEMBER boolean
+---@field [1] boolean
+---@field FORMER_MEMBER boolean
+---@field [2] boolean
+---@field MERCENARY boolean
+---@field [3] boolean
+---@field FORMER_MERCENARY boolean
+---@field [4] boolean
+---@field SLAVE boolean
+---@field [5] boolean
+---@field FORMER_SLAVE boolean
+---@field [6] boolean
+---@field PRISONER boolean
+---@field [7] boolean
+---@field FORMER_PRISONER boolean
+---@field [8] boolean
+---@field ENEMY boolean
+---@field [9] boolean
+---@field CRIMINAL boolean
+---@field [10] boolean
+---@field POSITION boolean
+---@field [11] boolean
+---@field FORMER_POSITION boolean
+---@field [12] boolean
+---@field POSITION_CLAIM boolean
+---@field [13] boolean
+---@field SQUAD boolean
+---@field [14] boolean
+---@field FORMER_SQUAD boolean
+---@field [15] boolean
+---@field OCCUPATION boolean
+---@field [16] boolean
+---@field FORMER_OCCUPATION boolean
 
 ---@class histfig_entity_link: df.struct
 ---@field entity_id historical_entity
@@ -507,19 +862,50 @@ df.histfig_entity_link_occupationst = {}
 ---@field end_year integer
 df.histfig_entity_link_former_occupationst = {}
 
----@enum histfig_site_link_type
-df.histfig_site_link_type = {
-  OCCUPATION = 0,
-  SEAT_OF_POWER = 1,
-  HANGOUT = 2,
-  HOME_SITE_ABSTRACT_BUILDING = 3,
-  HOME_SITE_REALIZATION_BUILDING = 4,
-  LAIR = 5,
-  HOME_SITE_REALIZATION_SUL = 6,
-  HOME_SITE_SAVED_CIVZONE = 7,
-  PRISON_ABSTRACT_BUILDING = 8,
-  PRISON_SITE_BUILDING_PROFILE = 9,
-}
+---@class (exact) _histfig_site_link_type: df.struct
+---@field OCCUPATION 0
+---@field [0] "OCCUPATION"
+---@field SEAT_OF_POWER 1
+---@field [1] "SEAT_OF_POWER"
+---@field HANGOUT 2
+---@field [2] "HANGOUT"
+---@field HOME_SITE_ABSTRACT_BUILDING 3
+---@field [3] "HOME_SITE_ABSTRACT_BUILDING"
+---@field HOME_SITE_REALIZATION_BUILDING 4
+---@field [4] "HOME_SITE_REALIZATION_BUILDING"
+---@field LAIR 5
+---@field [5] "LAIR"
+---@field HOME_SITE_REALIZATION_SUL 6
+---@field [6] "HOME_SITE_REALIZATION_SUL"
+---@field HOME_SITE_SAVED_CIVZONE 7
+---@field [7] "HOME_SITE_SAVED_CIVZONE"
+---@field PRISON_ABSTRACT_BUILDING 8
+---@field [8] "PRISON_ABSTRACT_BUILDING"
+---@field PRISON_SITE_BUILDING_PROFILE 9
+---@field [9] "PRISON_SITE_BUILDING_PROFILE"
+df.histfig_site_link_type = {}
+
+---@class histfig_site_link_type
+---@field [0] boolean
+---@field OCCUPATION boolean
+---@field [1] boolean
+---@field SEAT_OF_POWER boolean
+---@field [2] boolean
+---@field HANGOUT boolean
+---@field [3] boolean
+---@field HOME_SITE_ABSTRACT_BUILDING boolean
+---@field [4] boolean
+---@field HOME_SITE_REALIZATION_BUILDING boolean
+---@field [5] boolean
+---@field LAIR boolean
+---@field [6] boolean
+---@field HOME_SITE_REALIZATION_SUL boolean
+---@field [7] boolean
+---@field HOME_SITE_SAVED_CIVZONE boolean
+---@field [8] boolean
+---@field PRISON_ABSTRACT_BUILDING boolean
+---@field [9] boolean
+---@field PRISON_SITE_BUILDING_PROFILE boolean
 
 ---@class histfig_site_link: df.struct
 ---@field site world_site
@@ -558,25 +944,74 @@ df.histfig_site_link_prison_abstract_buildingst = {}
 ---@class histfig_site_link_prison_site_building_profilest: histfig_site_link
 df.histfig_site_link_prison_site_building_profilest = {}
 
----@enum histfig_hf_link_type
-df.histfig_hf_link_type = {
-  MOTHER = 0,
-  FATHER = 1,
-  SPOUSE = 2,
-  CHILD = 3,
-  DEITY = 4,
-  LOVER = 5,
-  PRISONER = 6,
-  IMPRISONER = 7,
-  MASTER = 8,
-  APPRENTICE = 9,
-  COMPANION = 10,
-  FORMER_MASTER = 11,
-  FORMER_APPRENTICE = 12,
-  PET_OWNER = 13,
-  FORMER_SPOUSE = 14,
-  DECEASED_SPOUSE = 15,
-}
+---@class (exact) _histfig_hf_link_type: df.struct
+---@field MOTHER 0
+---@field [0] "MOTHER"
+---@field FATHER 1
+---@field [1] "FATHER"
+---@field SPOUSE 2
+---@field [2] "SPOUSE"
+---@field CHILD 3
+---@field [3] "CHILD"
+---@field DEITY 4
+---@field [4] "DEITY"
+---@field LOVER 5
+---@field [5] "LOVER"
+---@field PRISONER 6
+---@field [6] "PRISONER"
+---@field IMPRISONER 7
+---@field [7] "IMPRISONER"
+---@field MASTER 8
+---@field [8] "MASTER"
+---@field APPRENTICE 9
+---@field [9] "APPRENTICE"
+---@field COMPANION 10
+---@field [10] "COMPANION"
+---@field FORMER_MASTER 11
+---@field [11] "FORMER_MASTER"
+---@field FORMER_APPRENTICE 12
+---@field [12] "FORMER_APPRENTICE"
+---@field PET_OWNER 13
+---@field [13] "PET_OWNER"
+---@field FORMER_SPOUSE 14
+---@field [14] "FORMER_SPOUSE"
+---@field DECEASED_SPOUSE 15
+---@field [15] "DECEASED_SPOUSE"
+df.histfig_hf_link_type = {}
+
+---@class histfig_hf_link_type
+---@field [0] boolean
+---@field MOTHER boolean
+---@field [1] boolean
+---@field FATHER boolean
+---@field [2] boolean
+---@field SPOUSE boolean
+---@field [3] boolean
+---@field CHILD boolean
+---@field [4] boolean
+---@field DEITY boolean
+---@field [5] boolean
+---@field LOVER boolean
+---@field [6] boolean
+---@field PRISONER boolean
+---@field [7] boolean
+---@field IMPRISONER boolean
+---@field [8] boolean
+---@field MASTER boolean
+---@field [9] boolean
+---@field APPRENTICE boolean
+---@field [10] boolean
+---@field COMPANION boolean
+---@field [11] boolean
+---@field FORMER_MASTER boolean
+---@field [12] boolean
+---@field FORMER_APPRENTICE boolean
+---@field [13] boolean
+---@field PET_OWNER boolean
+---@field [14] boolean
+---@field FORMER_SPOUSE boolean
+---@field [15] boolean
+---@field DECEASED_SPOUSE boolean
 
 ---@class histfig_hf_link: df.struct
 ---@field target_hf historical_figure
@@ -633,12 +1068,22 @@ df.histfig_hf_link_former_spousest = {}
 ---@class histfig_hf_link_deceased_spousest: histfig_hf_link
 df.histfig_hf_link_deceased_spousest = {}
 
----@enum entity_entity_link_type
-df.entity_entity_link_type = {
-  PARENT = 0,
-  CHILD = 1,
-  RELIGIOUS = 2, --Seen between religion and merc company.
-}
+---@class (exact) _entity_entity_link_type: df.struct
+---@field PARENT 0
+---@field [0] "PARENT"
+---@field CHILD 1
+---@field [1] "CHILD"
+---@field RELIGIOUS 2
+---@field [2] "RELIGIOUS"
+df.entity_entity_link_type = {}
+
+---@class entity_entity_link_type
+---@field [0] boolean
+---@field PARENT boolean
+---@field [1] boolean
+---@field CHILD boolean
+---@field [2] boolean
+---@field RELIGIOUS boolean
 
 ---@class entity_entity_link: df.struct
 ---@field type entity_entity_link_type
@@ -646,37 +1091,108 @@ df.entity_entity_link_type = {
 ---@field strength integer
 df.entity_entity_link = {}
 
----@enum entity_site_link_type
+---@class (exact) _entity_site_link_type: df.struct
 ---Enum names updated per Putnam
-df.entity_site_link_type = {
-  None = -1,
-  All = 1,
-  Inside_Wall = 2,
-  Outside_Wall = 3,
-  Outskirts = 4,
-  Local_Activity = 5,
-}
+---@field None -1
+---@field [0] "None"
+---@field All 1
+---@field [1] "All"
+---@field Inside_Wall 2
+---@field [2] "Inside_Wall"
+---@field Outside_Wall 3
+---@field [3] "Outside_Wall"
+---@field Outskirts 4
+---@field [4] "Outskirts"
+---@field Local_Activity 5
+---@field [5] "Local_Activity"
+df.entity_site_link_type = {}
 
----@enum entity_site_link_flags
-df.entity_site_link_flags = {
-  residence = 0, --site is residence
-  capital = 1, --site is capital
-  fortress = 2, --used at least by those castles which arent currently in
-  local_market = 3, --for villages to think about their market town
-  trade_partner = 4, --for markets to think about other markets
-  monument = 5, --for a civ to know its tomb sites
-  primary_criminal_gang = 6,
-  criminal_gang = 7,
-  invasion_marked = 8, --marked for invasion
-  land_for_holding = 9, --all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
-  central_holding_land = 10, --only dwarf fortresses get this for now
-  land_holder_residence = 11, --the regular sites where a baron etc. actually lives
-  invasion_push_out = 12, --pushed out by invasion
-  reclaim = 13, --marked for reclaim
-  occupation_failed = 14, --failed to hold hostile occupation
-  base_of_operation = 15, --set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
-  holy_city = 16, --for the holy city of a religion
-}
+---@class entity_site_link_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field All boolean
+---@field [2] boolean
+---@field Inside_Wall boolean
+---@field [3] boolean
+---@field Outside_Wall boolean
+---@field [4] boolean
+---@field Outskirts boolean
+---@field [5] boolean
+---@field Local_Activity boolean
+
+---@class (exact) _entity_site_link_flags: df.struct
+---@field residence 0
+---@field [0] "residence"
+---@field capital 1
+---@field [1] "capital"
+---@field fortress 2
+---@field [2] "fortress"
+---@field local_market 3
+---@field [3] "local_market"
+---@field trade_partner 4
+---@field [4] "trade_partner"
+---@field monument 5
+---@field [5] "monument"
+---@field primary_criminal_gang 6
+---@field [6] "primary_criminal_gang"
+---@field criminal_gang 7
+---@field [7] "criminal_gang"
+---@field invasion_marked 8
+---@field [8] "invasion_marked"
+---@field land_for_holding 9
+---@field [9] "land_for_holding"
+---@field central_holding_land 10
+---@field [10] "central_holding_land"
+---@field land_holder_residence 11
+---@field [11] "land_holder_residence"
+---@field invasion_push_out 12
+---@field [12] "invasion_push_out"
+---@field reclaim 13
+---@field [13] "reclaim"
+---@field occupation_failed 14
+---@field [14] "occupation_failed"
+---@field base_of_operation 15
+---@field [15] "base_of_operation"
+---@field holy_city 16
+---@field [16] "holy_city"
+df.entity_site_link_flags = {}
+
+---@class entity_site_link_flags
+---@field [0] boolean
+---@field residence boolean
+---@field [1] boolean
+---@field capital boolean
+---@field [2] boolean
+---@field fortress boolean
+---@field [3] boolean
+---@field local_market boolean
+---@field [4] boolean
+---@field trade_partner boolean
+---@field [5] boolean
+---@field monument boolean
+---@field [6] boolean
+---@field primary_criminal_gang boolean
+---@field [7] boolean
+---@field criminal_gang boolean
+---@field [8] boolean
+---@field invasion_marked boolean
+---@field [9] boolean
+---@field land_for_holding boolean
+---@field [10] boolean
+---@field central_holding_land boolean
+---@field [11] boolean
+---@field land_holder_residence boolean
+---@field [12] boolean
+---@field invasion_push_out boolean
+---@field [13] boolean
+---@field reclaim boolean
+---@field [14] boolean
+---@field occupation_failed boolean
+---@field [15] boolean
+---@field base_of_operation boolean
+---@field [16] boolean
+---@field holy_city boolean
 
 ---@class entity_site_link: df.struct
 ---@field target world_site
@@ -704,9 +1220,16 @@ df.entity_site_link = {}
 ---@field unk_2 integer 1, 2, 5 seen
 df.entity_site_link.T_ab_profile = {}
 
----@enum undead_flags
-df.undead_flags = {
-  zombie = 0,
-  ghostly = 1,
-}
+---@class (exact) _undead_flags: df.struct
+---@field zombie 0
+---@field [0] "zombie"
+---@field ghostly 1
+---@field [1] "ghostly"
+df.undead_flags = {}
+
+---@class undead_flags
+---@field [0] boolean
+---@field zombie boolean
+---@field [1] boolean
+---@field ghostly boolean
 

@@ -6,17 +6,42 @@
 ---@field unk_4 integer[][]
 df.world_site_unk130 = {}
 
----@enum world_population_type
-df.world_population_type = {
-  Animal = 0,
-  Vermin = 1,
-  Unk2 = 2,
-  VerminInnumerable = 3,
-  ColonyInsect = 4,
-  Tree = 5,
-  Grass = 6,
-  Bush = 7,
-}
+---@class (exact) _world_population_type: df.struct
+---@field Animal 0
+---@field [0] "Animal"
+---@field Vermin 1
+---@field [1] "Vermin"
+---@field Unk2 2
+---@field [2] "Unk2"
+---@field VerminInnumerable 3
+---@field [3] "VerminInnumerable"
+---@field ColonyInsect 4
+---@field [4] "ColonyInsect"
+---@field Tree 5
+---@field [5] "Tree"
+---@field Grass 6
+---@field [6] "Grass"
+---@field Bush 7
+---@field [7] "Bush"
+df.world_population_type = {}
+
+---@class world_population_type
+---@field [0] boolean
+---@field Animal boolean
+---@field [1] boolean
+---@field Vermin boolean
+---@field [2] boolean
+---@field Unk2 boolean
+---@field [3] boolean
+---@field VerminInnumerable boolean
+---@field [4] boolean
+---@field ColonyInsect boolean
+---@field [5] boolean
+---@field Tree boolean
+---@field [6] boolean
+---@field Grass boolean
+---@field [7] boolean
+---@field Bush boolean
 
 ---@class embark_note: df.struct
 ---@field tile integer
@@ -52,13 +77,26 @@ df.world_population_ref = {}
 ---@field unk_v47_1 integer set on same animals as wp_unk_1c and only seen 0
 df.local_population = {}
 
----@enum local_population_flags
-df.local_population.T_flags = {
-  discovered = 0,
-  extinct = 1, --guessed, based on 23a
-  already_removed = 2, --no longer in world.populations
-  unk3 = 3, --prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
-}
+---@class (exact) _local_population_flags: df.struct
+---@field discovered 0
+---@field [0] "discovered"
+---@field extinct 1
+---@field [1] "extinct"
+---@field already_removed 2
+---@field [2] "already_removed"
+---@field unk3 3
+---@field [3] "unk3"
+df.local_population.T_flags = {}
+
+---@class local_population_flags
+---@field [0] boolean
+---@field discovered boolean
+---@field [1] boolean
+---@field extinct boolean
+---@field [2] boolean
+---@field already_removed boolean
+---@field [3] boolean
+---@field unk3 boolean
 
 ---@class world_population: df.struct
 ---@field type world_population_type
@@ -85,19 +123,50 @@ df.world_population = {}
 ---@field unk_84 integer[]
 df.world_landmass = {}
 
----@enum world_region_type
-df.world_region_type = {
-  Swamp = 0,
-  Desert = 1,
-  Jungle = 2,
-  Mountains = 3,
-  Ocean = 4,
-  Lake = 5,
-  Glacier = 6,
-  Tundra = 7,
-  Steppe = 8,
-  Hills = 9, --Steppe and Hills share the same set of biomes, differing only in Drainage
-}
+---@class (exact) _world_region_type: df.struct
+---@field Swamp 0
+---@field [0] "Swamp"
+---@field Desert 1
+---@field [1] "Desert"
+---@field Jungle 2
+---@field [2] "Jungle"
+---@field Mountains 3
+---@field [3] "Mountains"
+---@field Ocean 4
+---@field [4] "Ocean"
+---@field Lake 5
+---@field [5] "Lake"
+---@field Glacier 6
+---@field [6] "Glacier"
+---@field Tundra 7
+---@field [7] "Tundra"
+---@field Steppe 8
+---@field [8] "Steppe"
+---@field Hills 9
+---@field [9] "Hills"
+df.world_region_type = {}
+
+---@class world_region_type
+---@field [0] boolean
+---@field Swamp boolean
+---@field [1] boolean
+---@field Desert boolean
+---@field [2] boolean
+---@field Jungle boolean
+---@field [3] boolean
+---@field Mountains boolean
+---@field [4] boolean
+---@field Ocean boolean
+---@field [5] boolean
+---@field Lake boolean
+---@field [6] boolean
+---@field Glacier boolean
+---@field [7] boolean
+---@field Tundra boolean
+---@field [8] boolean
+---@field Steppe boolean
+---@field [9] boolean
+---@field Hills boolean
 
 ---@class world_region: df.instance
 ---@field name language_name
@@ -173,12 +242,22 @@ df.world_region.T_tree_tiles_savage = {}
 ---@field feature_init feature_init
 df.world_underground_region = {}
 
----@enum world_underground_region_type
-df.world_underground_region.T_type = {
-  Cavern = 0,
-  MagmaSea = 1,
-  Underworld = 2,
-}
+---@class (exact) _world_underground_region_type: df.struct
+---@field Cavern 0
+---@field [0] "Cavern"
+---@field MagmaSea 1
+---@field [1] "MagmaSea"
+---@field Underworld 2
+---@field [2] "Underworld"
+df.world_underground_region.T_type = {}
+
+---@class world_underground_region_type
+---@field [0] boolean
+---@field Cavern boolean
+---@field [1] boolean
+---@field MagmaSea boolean
+---@field [2] boolean
+---@field Underworld boolean
 
 ---@class world_river: df.struct
 ---Additional river information: The flow element affects the width of the river and seems to follow the formula width = (flow / 40000 * 46) + 1, with a minimum width of 4 and a maximum width of 47. DF uses specific names for rivers with certain flows: - Stream: less than 5000 - Minor River 5000 - 9999 - River 10000 - 19999 - Major River: greather than 20000 Brooks tend to have a flow of 0, but DF has divided the controlling information between this structure, the region map entry (below), and the feature map. Thus, the region map flag 'is_brook' controls whether a water course actually is a (potentially broad) brook or an open water course. Likewise, the 'has_river' flag is needed for DF to properly understand a water course should be present. The exit tile holds the information on which mid level tile the river should exit the region. Presumably the path controls which edge to apply this to. Note that the river up/down/left/right flags of the region map entry should align with the sides rivers enter/exit. The feature map has to have a river entry for the corresponding world tile for a river to be implemented properly. All this is done by DF, but needs to be known if hacking. The world region details (below) data on rivers are generated as the regions are generated. The elevation element affects the level of the river. If the river elevation is lower than the surrounding area DF tends to generate a valley around the river to allow it to reach the correct elevation.
@@ -191,18 +270,46 @@ df.world_underground_region.T_type = {
 ---@field flags any
 df.world_river = {}
 
----@enum geo_layer_type
-df.geo_layer_type = {
-  SOIL = 0,
-  SEDIMENTARY = 1,
-  METAMORPHIC = 2,
-  IGNEOUS_EXTRUSIVE = 3,
-  IGNEOUS_INTRUSIVE = 4,
-  SOIL_OCEAN = 5,
-  SOIL_SAND = 6,
-  SEDIMENTARY_OCEAN_SHALLOW = 7,
-  SEDIMENTARY_OCEAN_DEEP = 8,
-}
+---@class (exact) _geo_layer_type: df.struct
+---@field SOIL 0
+---@field [0] "SOIL"
+---@field SEDIMENTARY 1
+---@field [1] "SEDIMENTARY"
+---@field METAMORPHIC 2
+---@field [2] "METAMORPHIC"
+---@field IGNEOUS_EXTRUSIVE 3
+---@field [3] "IGNEOUS_EXTRUSIVE"
+---@field IGNEOUS_INTRUSIVE 4
+---@field [4] "IGNEOUS_INTRUSIVE"
+---@field SOIL_OCEAN 5
+---@field [5] "SOIL_OCEAN"
+---@field SOIL_SAND 6
+---@field [6] "SOIL_SAND"
+---@field SEDIMENTARY_OCEAN_SHALLOW 7
+---@field [7] "SEDIMENTARY_OCEAN_SHALLOW"
+---@field SEDIMENTARY_OCEAN_DEEP 8
+---@field [8] "SEDIMENTARY_OCEAN_DEEP"
+df.geo_layer_type = {}
+
+---@class geo_layer_type
+---@field [0] boolean
+---@field SOIL boolean
+---@field [1] boolean
+---@field SEDIMENTARY boolean
+---@field [2] boolean
+---@field METAMORPHIC boolean
+---@field [3] boolean
+---@field IGNEOUS_EXTRUSIVE boolean
+---@field [4] boolean
+---@field IGNEOUS_INTRUSIVE boolean
+---@field [5] boolean
+---@field SOIL_OCEAN boolean
+---@field [6] boolean
+---@field SOIL_SAND boolean
+---@field [7] boolean
+---@field SEDIMENTARY_OCEAN_SHALLOW boolean
+---@field [8] boolean
+---@field SEDIMENTARY_OCEAN_DEEP boolean
 
 ---@class geo_layer_type_attr
 ---@field flag inorganic_flags
@@ -293,65 +400,190 @@ df.world_region_details.T_rivers_vertical = {}
 ---@field elevation integer[][]
 df.world_region_details.T_rivers_horizontal = {}
 
----@enum region_map_entry_flags
-df.region_map_entry_flags = {
-  has_river = 0,
-  tile_variant = 1,
-  unk_2 = 2,
-  has_site = 3,
-  unk_4 = 4,
-  river_up = 5,
-  river_down = 6,
-  river_right = 7,
-  river_left = 8,
-  discovered = 9,
-  unk_10 = 10,
-  unk_11 = 11,
-  has_army = 12,
-  is_peak = 13,
-  is_lake = 14,
-  is_brook = 15,
-  has_road = 16,
-  unk_17 = 17,
-  unk_18 = 18,
-  unk_19 = 19,
-  unk_20 = 20,
-  unk_21 = 21,
-  unk_22 = 22,
-  unk_23 = 23,
-}
+---@class (exact) _region_map_entry_flags: df.struct
+---@field has_river 0
+---@field [0] "has_river"
+---@field tile_variant 1
+---@field [1] "tile_variant"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field has_site 3
+---@field [3] "has_site"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field river_up 5
+---@field [5] "river_up"
+---@field river_down 6
+---@field [6] "river_down"
+---@field river_right 7
+---@field [7] "river_right"
+---@field river_left 8
+---@field [8] "river_left"
+---@field discovered 9
+---@field [9] "discovered"
+---@field unk_10 10
+---@field [10] "unk_10"
+---@field unk_11 11
+---@field [11] "unk_11"
+---@field has_army 12
+---@field [12] "has_army"
+---@field is_peak 13
+---@field [13] "is_peak"
+---@field is_lake 14
+---@field [14] "is_lake"
+---@field is_brook 15
+---@field [15] "is_brook"
+---@field has_road 16
+---@field [16] "has_road"
+---@field unk_17 17
+---@field [17] "unk_17"
+---@field unk_18 18
+---@field [18] "unk_18"
+---@field unk_19 19
+---@field [19] "unk_19"
+---@field unk_20 20
+---@field [20] "unk_20"
+---@field unk_21 21
+---@field [21] "unk_21"
+---@field unk_22 22
+---@field [22] "unk_22"
+---@field unk_23 23
+---@field [23] "unk_23"
+df.region_map_entry_flags = {}
 
----@enum front_type
-df.front_type = {
-  front_none = 0,
-  front_warm = 1,
-  front_cold = 2,
-  front_occluded = 3,
-}
+---@class region_map_entry_flags
+---@field [0] boolean
+---@field has_river boolean
+---@field [1] boolean
+---@field tile_variant boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field has_site boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field river_up boolean
+---@field [6] boolean
+---@field river_down boolean
+---@field [7] boolean
+---@field river_right boolean
+---@field [8] boolean
+---@field river_left boolean
+---@field [9] boolean
+---@field discovered boolean
+---@field [10] boolean
+---@field unk_10 boolean
+---@field [11] boolean
+---@field unk_11 boolean
+---@field [12] boolean
+---@field has_army boolean
+---@field [13] boolean
+---@field is_peak boolean
+---@field [14] boolean
+---@field is_lake boolean
+---@field [15] boolean
+---@field is_brook boolean
+---@field [16] boolean
+---@field has_road boolean
+---@field [17] boolean
+---@field unk_17 boolean
+---@field [18] boolean
+---@field unk_18 boolean
+---@field [19] boolean
+---@field unk_19 boolean
+---@field [20] boolean
+---@field unk_20 boolean
+---@field [21] boolean
+---@field unk_21 boolean
+---@field [22] boolean
+---@field unk_22 boolean
+---@field [23] boolean
+---@field unk_23 boolean
 
----@enum cumulus_type
-df.cumulus_type = {
-  cumulus_none = 0,
-  cumulus_medium = 1,
-  cumulus_multi = 2,
-  cumulus_nimbus = 3,
-}
+---@class (exact) _front_type: df.struct
+---@field front_none 0
+---@field [0] "front_none"
+---@field front_warm 1
+---@field [1] "front_warm"
+---@field front_cold 2
+---@field [2] "front_cold"
+---@field front_occluded 3
+---@field [3] "front_occluded"
+df.front_type = {}
 
----@enum stratus_type
-df.stratus_type = {
-  stratus_none = 0,
-  stratus_alto = 1,
-  stratus_proper = 2,
-  stratus_nimbus = 3,
-}
+---@class front_type
+---@field [0] boolean
+---@field front_none boolean
+---@field [1] boolean
+---@field front_warm boolean
+---@field [2] boolean
+---@field front_cold boolean
+---@field [3] boolean
+---@field front_occluded boolean
 
----@enum fog_type
-df.fog_type = {
-  fog_none = 0,
-  fog_mist = 1,
-  fog_normal = 2,
-  fog_thick = 3,
-}
+---@class (exact) _cumulus_type: df.struct
+---@field cumulus_none 0
+---@field [0] "cumulus_none"
+---@field cumulus_medium 1
+---@field [1] "cumulus_medium"
+---@field cumulus_multi 2
+---@field [2] "cumulus_multi"
+---@field cumulus_nimbus 3
+---@field [3] "cumulus_nimbus"
+df.cumulus_type = {}
+
+---@class cumulus_type
+---@field [0] boolean
+---@field cumulus_none boolean
+---@field [1] boolean
+---@field cumulus_medium boolean
+---@field [2] boolean
+---@field cumulus_multi boolean
+---@field [3] boolean
+---@field cumulus_nimbus boolean
+
+---@class (exact) _stratus_type: df.struct
+---@field stratus_none 0
+---@field [0] "stratus_none"
+---@field stratus_alto 1
+---@field [1] "stratus_alto"
+---@field stratus_proper 2
+---@field [2] "stratus_proper"
+---@field stratus_nimbus 3
+---@field [3] "stratus_nimbus"
+df.stratus_type = {}
+
+---@class stratus_type
+---@field [0] boolean
+---@field stratus_none boolean
+---@field [1] boolean
+---@field stratus_alto boolean
+---@field [2] boolean
+---@field stratus_proper boolean
+---@field [3] boolean
+---@field stratus_nimbus boolean
+
+---@class (exact) _fog_type: df.struct
+---@field fog_none 0
+---@field [0] "fog_none"
+---@field fog_mist 1
+---@field [1] "fog_mist"
+---@field fog_normal 2
+---@field [2] "fog_normal"
+---@field fog_thick 3
+---@field [3] "fog_thick"
+df.fog_type = {}
+
+---@class fog_type
+---@field [0] boolean
+---@field fog_none boolean
+---@field [1] boolean
+---@field fog_mist boolean
+---@field [2] boolean
+---@field fog_normal boolean
+---@field [3] boolean
+---@field fog_thick boolean
 
 ---@class region_map_entry: df.struct
 ---@field unk_0 integer
@@ -381,28 +613,72 @@ df.fog_type = {
 ---@field geo_index world_geo_biome
 df.region_map_entry = {}
 
----@enum region_map_entry_clouds
-df.region_map_entry.T_clouds = {
-  front = 0,
-  cumulus = 1,
-  cirrus = 2,
-  stratus = 3,
-  fog = 4,
-  countdown = 5, --A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
-}
+---@class (exact) _region_map_entry_clouds: df.struct
+---@field front 0
+---@field [0] "front"
+---@field cumulus 1
+---@field [1] "cumulus"
+---@field cirrus 2
+---@field [2] "cirrus"
+---@field stratus 3
+---@field [3] "stratus"
+---@field fog 4
+---@field [4] "fog"
+---@field countdown 5
+---@field [5] "countdown"
+df.region_map_entry.T_clouds = {}
 
----@enum region_map_entry_wind
+---@class region_map_entry_clouds
+---@field [0] boolean
+---@field front boolean
+---@field [1] boolean
+---@field cumulus boolean
+---@field [2] boolean
+---@field cirrus boolean
+---@field [3] boolean
+---@field stratus boolean
+---@field [4] boolean
+---@field fog boolean
+---@field [5] boolean
+---@field countdown boolean
+
+---@class (exact) _region_map_entry_wind: df.struct
 ---blows toward direction in morning
-df.region_map_entry.T_wind = {
-  north_1 = 0,
-  south_1 = 1,
-  east_1 = 2,
-  west_1 = 3,
-  north_2 = 4,
-  south_2 = 5,
-  east_2 = 6,
-  west_2 = 7,
-}
+---@field north_1 0
+---@field [0] "north_1"
+---@field south_1 1
+---@field [1] "south_1"
+---@field east_1 2
+---@field [2] "east_1"
+---@field west_1 3
+---@field [3] "west_1"
+---@field north_2 4
+---@field [4] "north_2"
+---@field south_2 5
+---@field [5] "south_2"
+---@field east_2 6
+---@field [6] "east_2"
+---@field west_2 7
+---@field [7] "west_2"
+df.region_map_entry.T_wind = {}
+
+---@class region_map_entry_wind
+---@field [0] boolean
+---@field north_1 boolean
+---@field [1] boolean
+---@field south_1 boolean
+---@field [2] boolean
+---@field east_1 boolean
+---@field [3] boolean
+---@field west_1 boolean
+---@field [4] boolean
+---@field north_2 boolean
+---@field [5] boolean
+---@field south_2 boolean
+---@field [6] boolean
+---@field east_2 boolean
+---@field [7] boolean
+---@field west_2 boolean
 
 ---@class entity_claim_mask: df.struct
 ---@field map integer[]
@@ -504,10 +780,14 @@ df.world_object_data.T_picked_growths = {}
 ---@field unk_4 integer[] 233/234 seen
 df.world_object_data.T_unk_v43 = {}
 
----@enum mountain_peak_flags
-df.mountain_peak_flags = {
-  is_volcano = 0,
-}
+---@class (exact) _mountain_peak_flags: df.struct
+---@field is_volcano 0
+---@field [0] "is_volcano"
+df.mountain_peak_flags = {}
+
+---@class mountain_peak_flags
+---@field [0] boolean
+---@field is_volcano boolean
 
 ---@class world_mountain_peak: df.instance
 ---@field name language_name
@@ -609,13 +889,26 @@ df.world_mountain_peak = {}
 ---@field unk_482f8 world_data_unk_482f8
 df.world_data = {}
 
----@enum world_data_flip_latitude
-df.world_data.T_flip_latitude = {
-  None = -1,
-  North = 1,
-  South = 2,
-  Both = 3,
-}
+---@class (exact) _world_data_flip_latitude: df.struct
+---@field None -1
+---@field [0] "None"
+---@field North 1
+---@field [1] "North"
+---@field South 2
+---@field [2] "South"
+---@field Both 3
+---@field [3] "Both"
+df.world_data.T_flip_latitude = {}
+
+---@class world_data_flip_latitude
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field North boolean
+---@field [2] boolean
+---@field South boolean
+---@field [3] boolean
+---@field Both boolean
 
 ---@class world_data_unk_b4: df.struct
 ---@field world_width2 integer
@@ -710,13 +1003,26 @@ df.battlefield = {}
 ---@field unk_1c integer 2-5 seen. 4-5 probably attacker, 2-3 probably defender
 df.battlefield.T_sapient_deaths = {}
 
----@enum region_weather_type
-df.region_weather_type = {
-  CreepingGas = 0,
-  CreepingVapor = 1, --doesn't seem to be generated by DF, but appears if hacked
-  CreepingDust = 2,
-  FallingMaterial = 3, --a.k.a. rain, both blood and syndrome, but not regular
-}
+---@class (exact) _region_weather_type: df.struct
+---@field CreepingGas 0
+---@field [0] "CreepingGas"
+---@field CreepingVapor 1
+---@field [1] "CreepingVapor"
+---@field CreepingDust 2
+---@field [2] "CreepingDust"
+---@field FallingMaterial 3
+---@field [3] "FallingMaterial"
+df.region_weather_type = {}
+
+---@class region_weather_type
+---@field [0] boolean
+---@field CreepingGas boolean
+---@field [1] boolean
+---@field CreepingVapor boolean
+---@field [2] boolean
+---@field CreepingDust boolean
+---@field [3] boolean
+---@field FallingMaterial boolean
 
 ---@class region_weather: df.instance
 ---only evil weather, not the regular kind

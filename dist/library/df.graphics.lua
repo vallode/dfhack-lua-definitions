@@ -25,36 +25,81 @@ df.large_integer.T_u = {}
 ---@field linux_sound_system musicsoundst_linux_sound_system
 df.musicsoundst = {}
 
----@enum musicsoundst_linux_sound_system
-df.musicsoundst.T_linux_sound_system = {
-  ALSA = 0,
-  OSS = 1,
-  ESD = 2,
-}
+---@class (exact) _musicsoundst_linux_sound_system: df.struct
+---@field ALSA 0
+---@field [0] "ALSA"
+---@field OSS 1
+---@field [1] "OSS"
+---@field ESD 2
+---@field [2] "ESD"
+df.musicsoundst.T_linux_sound_system = {}
+
+---@class musicsoundst_linux_sound_system
+---@field [0] boolean
+---@field ALSA boolean
+---@field [1] boolean
+---@field OSS boolean
+---@field [2] boolean
+---@field ESD boolean
 
 ---@class fmod_sound: df.struct
 ---@field sound any
 ---@field channel any
 df.fmod_sound = {}
 
----@enum curses_color
-df.curses_color = {
-  Black = 0,
-  Blue = 1,
-  Green = 2,
-  Cyan = 3,
-  Red = 4,
-  Magenta = 5,
-  Yellow = 6,
-  White = 7,
-}
+---@class (exact) _curses_color: df.struct
+---@field Black 0
+---@field [0] "Black"
+---@field Blue 1
+---@field [1] "Blue"
+---@field Green 2
+---@field [2] "Green"
+---@field Cyan 3
+---@field [3] "Cyan"
+---@field Red 4
+---@field [4] "Red"
+---@field Magenta 5
+---@field [5] "Magenta"
+---@field Yellow 6
+---@field [6] "Yellow"
+---@field White 7
+---@field [7] "White"
+df.curses_color = {}
 
----@enum cmv_attribute
-df.cmv_attribute = {
-  fg = 0,
-  bg = 1,
-  bright = 2,
-}
+---@class curses_color
+---@field [0] boolean
+---@field Black boolean
+---@field [1] boolean
+---@field Blue boolean
+---@field [2] boolean
+---@field Green boolean
+---@field [3] boolean
+---@field Cyan boolean
+---@field [4] boolean
+---@field Red boolean
+---@field [5] boolean
+---@field Magenta boolean
+---@field [6] boolean
+---@field Yellow boolean
+---@field [7] boolean
+---@field White boolean
+
+---@class (exact) _cmv_attribute: df.struct
+---@field fg 0
+---@field [0] "fg"
+---@field bg 1
+---@field [1] "bg"
+---@field bright 2
+---@field [2] "bright"
+df.cmv_attribute = {}
+
+---@class cmv_attribute
+---@field [0] boolean
+---@field fg boolean
+---@field [1] boolean
+---@field bg boolean
+---@field [2] boolean
+---@field bright boolean
 
 ---@class graphic_viewportst: df.struct
 ---@field flag integer
@@ -535,14 +580,30 @@ df.renderer_2d_base = {}
 ---@class renderer_2d: renderer_2d_base
 df.renderer_2d = {}
 
----@enum zoom_commands
-df.zoom_commands = {
-  zoom_in = 0,
-  zoom_out = 1,
-  zoom_reset = 2,
-  zoom_fullscreen = 3,
-  zoom_resetgrid = 4,
-}
+---@class (exact) _zoom_commands: df.struct
+---@field zoom_in 0
+---@field [0] "zoom_in"
+---@field zoom_out 1
+---@field [1] "zoom_out"
+---@field zoom_reset 2
+---@field [2] "zoom_reset"
+---@field zoom_fullscreen 3
+---@field [3] "zoom_fullscreen"
+---@field zoom_resetgrid 4
+---@field [4] "zoom_resetgrid"
+df.zoom_commands = {}
+
+---@class zoom_commands
+---@field [0] boolean
+---@field zoom_in boolean
+---@field [1] boolean
+---@field zoom_out boolean
+---@field [2] boolean
+---@field zoom_reset boolean
+---@field [3] boolean
+---@field zoom_fullscreen boolean
+---@field [4] boolean
+---@field zoom_resetgrid boolean
 
 ---@class enabler: df.struct
 ---@field fullscreen_state enabler_fullscreen_state
@@ -590,11 +651,18 @@ df.zoom_commands = {
 ---@field last_text_input integer[]
 df.enabler = {}
 
----@enum enabler_fullscreen_state
-df.enabler.T_fullscreen_state = {
-  fullscreen = 0,
-  exclusive = 1,
-}
+---@class (exact) _enabler_fullscreen_state: df.struct
+---@field fullscreen 0
+---@field [0] "fullscreen"
+---@field exclusive 1
+---@field [1] "exclusive"
+df.enabler.T_fullscreen_state = {}
+
+---@class enabler_fullscreen_state
+---@field [0] boolean
+---@field fullscreen boolean
+---@field [1] boolean
+---@field exclusive boolean
 
 ---@class enabler_async_tobox: df.struct
 ---@field mtx any
@@ -614,11 +682,18 @@ df.enabler.T_async_frombox = {}
 ---@field vals zoom_commands
 df.enabler.T_async_zoom = {}
 
----@enum enabler_flag
-df.enabler.T_flag = {
-  render = 0,
-  maxfps = 1,
-}
+---@class (exact) _enabler_flag: df.struct
+---@field render 0
+---@field [0] "render"
+---@field maxfps 1
+---@field [1] "maxfps"
+df.enabler.T_flag = {}
+
+---@class enabler_flag
+---@field [0] boolean
+---@field render boolean
+---@field [1] boolean
+---@field maxfps boolean
 
 ---@class enabler_textures: df.struct
 ---@field raws pointer[]
@@ -627,15 +702,31 @@ df.enabler.T_flag = {
 ---@field uploaded boolean
 df.enabler.T_textures = {}
 
----@enum justification
+---@class (exact) _justification: df.struct
 ---from libgraphics
-df.justification = {
-  justify_left = 0,
-  justify_center = 1,
-  justify_right = 2,
-  justify_cont = 3,
-  not_truetype = 4,
-}
+---@field justify_left 0
+---@field [0] "justify_left"
+---@field justify_center 1
+---@field [1] "justify_center"
+---@field justify_right 2
+---@field [2] "justify_right"
+---@field justify_cont 3
+---@field [3] "justify_cont"
+---@field not_truetype 4
+---@field [4] "not_truetype"
+df.justification = {}
+
+---@class justification
+---@field [0] boolean
+---@field justify_left boolean
+---@field [1] boolean
+---@field justify_center boolean
+---@field [2] boolean
+---@field justify_right boolean
+---@field [3] boolean
+---@field justify_cont boolean
+---@field [4] boolean
+---@field not_truetype boolean
 
 ---@class tile_pagest: df.struct
 ---@field token string

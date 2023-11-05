@@ -17,15 +17,34 @@
 ---@field unk_5 integer
 df.invasion_info = {}
 
----@enum invasion_info_flags
-df.invasion_info.T_flags = {
-  active = 0,
-  siege = 1,
-  unk_2 = 2,
-  unk_3 = 3,
-  unk_4 = 4,
-  parley = 5,
-}
+---@class (exact) _invasion_info_flags: df.struct
+---@field active 0
+---@field [0] "active"
+---@field siege 1
+---@field [1] "siege"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field unk_3 3
+---@field [3] "unk_3"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field parley 5
+---@field [5] "parley"
+df.invasion_info.T_flags = {}
+
+---@class invasion_info_flags
+---@field [0] boolean
+---@field active boolean
+---@field [1] boolean
+---@field siege boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field unk_3 boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field parley boolean
 
 ---@class entity_population_unk4: df.struct
 ---@field unk_1 entity_population_unk4_unk_1 all 3 vectors share a single index series, with the third being interleaved with at least the second one
@@ -71,20 +90,54 @@ df.entity_population.T_races = {}
 ---@class entity_population_unk4: df.struct
 df.entity_population.T_unk4 = {}
 
----@enum nemesis_flags
-df.nemesis_flags = {
-  ACTIVE_ADVENTURER = 0, --used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.
-  RETIRED_ADVENTURER = 1, --allows resuming play
-  ADVENTURER = 2, --blue color and guided by forces unknown description in legends mode
-  unk_3 = 3,
-  unk_4 = 4,
-  unk_5 = 5,
-  unk_6 = 6,
-  unk_7 = 7, --Causes the unit tile to flash between dark and light.
-  unk_8 = 8,
-  HERO = 9, --Set after assigning the Hero status during adventure mode character creation, produces the vanguard of destiny description in legends mode.
-  DEMIGOD = 10, --Set after assigning the Demigod status during adventure mode character creation, produces the divine parentage description in legends mode.
-}
+---@class (exact) _nemesis_flags: df.struct
+---@field ACTIVE_ADVENTURER 0
+---@field [0] "ACTIVE_ADVENTURER"
+---@field RETIRED_ADVENTURER 1
+---@field [1] "RETIRED_ADVENTURER"
+---@field ADVENTURER 2
+---@field [2] "ADVENTURER"
+---@field unk_3 3
+---@field [3] "unk_3"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field unk_5 5
+---@field [5] "unk_5"
+---@field unk_6 6
+---@field [6] "unk_6"
+---@field unk_7 7
+---@field [7] "unk_7"
+---@field unk_8 8
+---@field [8] "unk_8"
+---@field HERO 9
+---@field [9] "HERO"
+---@field DEMIGOD 10
+---@field [10] "DEMIGOD"
+df.nemesis_flags = {}
+
+---@class nemesis_flags
+---@field [0] boolean
+---@field ACTIVE_ADVENTURER boolean
+---@field [1] boolean
+---@field RETIRED_ADVENTURER boolean
+---@field [2] boolean
+---@field ADVENTURER boolean
+---@field [3] boolean
+---@field unk_3 boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field unk_5 boolean
+---@field [6] boolean
+---@field unk_6 boolean
+---@field [7] boolean
+---@field unk_7 boolean
+---@field [8] boolean
+---@field unk_8 boolean
+---@field [9] boolean
+---@field HERO boolean
+---@field [10] boolean
+---@field DEMIGOD boolean
 
 ---@class nemesis_record: df.instance
 ---@field id integer sequential index in the array

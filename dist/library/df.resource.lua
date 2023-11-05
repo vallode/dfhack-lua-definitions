@@ -1,53 +1,186 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum resource_allotment_specifier_type
-df.resource_allotment_specifier_type = {
-  CROP = 0,
-  STONE = 1,
-  METAL = 2,
-  WOOD = 3,
-  ARMOR_BODY = 4,
-  ARMOR_PANTS = 5,
-  ARMOR_GLOVES = 6,
-  ARMOR_BOOTS = 7,
-  ARMOR_HELM = 8,
-  CLOTHING_BODY = 9,
-  CLOTHING_PANTS = 10,
-  CLOTHING_GLOVES = 11,
-  CLOTHING_BOOTS = 12,
-  CLOTHING_HELM = 13,
-  WEAPON_MELEE = 14,
-  WEAPON_RANGED = 15,
-  ANVIL = 16,
-  GEMS = 17,
-  THREAD = 18,
-  CLOTH = 19,
-  LEATHER = 20,
-  QUIVER = 21,
-  BACKPACK = 22,
-  FLASK = 23,
-  BAG = 24,
-  TABLE = 25,
-  CABINET = 26,
-  CHAIR = 27,
-  BOX = 28,
-  BED = 29,
-  CRAFTS = 30,
-  MEAT = 31,
-  BONE = 32,
-  HORN = 33,
-  SHELL = 34,
-  TALLOW = 35,
-  TOOTH = 36,
-  PEARL = 37,
-  SOAP = 38,
-  EXTRACT = 39,
-  CHEESE = 40,
-  SKIN = 41,
-  POWDER = 42,
-  AMMO = 43,
-}
+---@class (exact) _resource_allotment_specifier_type: df.struct
+---@field CROP 0
+---@field [0] "CROP"
+---@field STONE 1
+---@field [1] "STONE"
+---@field METAL 2
+---@field [2] "METAL"
+---@field WOOD 3
+---@field [3] "WOOD"
+---@field ARMOR_BODY 4
+---@field [4] "ARMOR_BODY"
+---@field ARMOR_PANTS 5
+---@field [5] "ARMOR_PANTS"
+---@field ARMOR_GLOVES 6
+---@field [6] "ARMOR_GLOVES"
+---@field ARMOR_BOOTS 7
+---@field [7] "ARMOR_BOOTS"
+---@field ARMOR_HELM 8
+---@field [8] "ARMOR_HELM"
+---@field CLOTHING_BODY 9
+---@field [9] "CLOTHING_BODY"
+---@field CLOTHING_PANTS 10
+---@field [10] "CLOTHING_PANTS"
+---@field CLOTHING_GLOVES 11
+---@field [11] "CLOTHING_GLOVES"
+---@field CLOTHING_BOOTS 12
+---@field [12] "CLOTHING_BOOTS"
+---@field CLOTHING_HELM 13
+---@field [13] "CLOTHING_HELM"
+---@field WEAPON_MELEE 14
+---@field [14] "WEAPON_MELEE"
+---@field WEAPON_RANGED 15
+---@field [15] "WEAPON_RANGED"
+---@field ANVIL 16
+---@field [16] "ANVIL"
+---@field GEMS 17
+---@field [17] "GEMS"
+---@field THREAD 18
+---@field [18] "THREAD"
+---@field CLOTH 19
+---@field [19] "CLOTH"
+---@field LEATHER 20
+---@field [20] "LEATHER"
+---@field QUIVER 21
+---@field [21] "QUIVER"
+---@field BACKPACK 22
+---@field [22] "BACKPACK"
+---@field FLASK 23
+---@field [23] "FLASK"
+---@field BAG 24
+---@field [24] "BAG"
+---@field TABLE 25
+---@field [25] "TABLE"
+---@field CABINET 26
+---@field [26] "CABINET"
+---@field CHAIR 27
+---@field [27] "CHAIR"
+---@field BOX 28
+---@field [28] "BOX"
+---@field BED 29
+---@field [29] "BED"
+---@field CRAFTS 30
+---@field [30] "CRAFTS"
+---@field MEAT 31
+---@field [31] "MEAT"
+---@field BONE 32
+---@field [32] "BONE"
+---@field HORN 33
+---@field [33] "HORN"
+---@field SHELL 34
+---@field [34] "SHELL"
+---@field TALLOW 35
+---@field [35] "TALLOW"
+---@field TOOTH 36
+---@field [36] "TOOTH"
+---@field PEARL 37
+---@field [37] "PEARL"
+---@field SOAP 38
+---@field [38] "SOAP"
+---@field EXTRACT 39
+---@field [39] "EXTRACT"
+---@field CHEESE 40
+---@field [40] "CHEESE"
+---@field SKIN 41
+---@field [41] "SKIN"
+---@field POWDER 42
+---@field [42] "POWDER"
+---@field AMMO 43
+---@field [43] "AMMO"
+df.resource_allotment_specifier_type = {}
+
+---@class resource_allotment_specifier_type
+---@field [0] boolean
+---@field CROP boolean
+---@field [1] boolean
+---@field STONE boolean
+---@field [2] boolean
+---@field METAL boolean
+---@field [3] boolean
+---@field WOOD boolean
+---@field [4] boolean
+---@field ARMOR_BODY boolean
+---@field [5] boolean
+---@field ARMOR_PANTS boolean
+---@field [6] boolean
+---@field ARMOR_GLOVES boolean
+---@field [7] boolean
+---@field ARMOR_BOOTS boolean
+---@field [8] boolean
+---@field ARMOR_HELM boolean
+---@field [9] boolean
+---@field CLOTHING_BODY boolean
+---@field [10] boolean
+---@field CLOTHING_PANTS boolean
+---@field [11] boolean
+---@field CLOTHING_GLOVES boolean
+---@field [12] boolean
+---@field CLOTHING_BOOTS boolean
+---@field [13] boolean
+---@field CLOTHING_HELM boolean
+---@field [14] boolean
+---@field WEAPON_MELEE boolean
+---@field [15] boolean
+---@field WEAPON_RANGED boolean
+---@field [16] boolean
+---@field ANVIL boolean
+---@field [17] boolean
+---@field GEMS boolean
+---@field [18] boolean
+---@field THREAD boolean
+---@field [19] boolean
+---@field CLOTH boolean
+---@field [20] boolean
+---@field LEATHER boolean
+---@field [21] boolean
+---@field QUIVER boolean
+---@field [22] boolean
+---@field BACKPACK boolean
+---@field [23] boolean
+---@field FLASK boolean
+---@field [24] boolean
+---@field BAG boolean
+---@field [25] boolean
+---@field TABLE boolean
+---@field [26] boolean
+---@field CABINET boolean
+---@field [27] boolean
+---@field CHAIR boolean
+---@field [28] boolean
+---@field BOX boolean
+---@field [29] boolean
+---@field BED boolean
+---@field [30] boolean
+---@field CRAFTS boolean
+---@field [31] boolean
+---@field MEAT boolean
+---@field [32] boolean
+---@field BONE boolean
+---@field [33] boolean
+---@field HORN boolean
+---@field [34] boolean
+---@field SHELL boolean
+---@field [35] boolean
+---@field TALLOW boolean
+---@field [36] boolean
+---@field TOOTH boolean
+---@field [37] boolean
+---@field PEARL boolean
+---@field [38] boolean
+---@field SOAP boolean
+---@field [39] boolean
+---@field EXTRACT boolean
+---@field [40] boolean
+---@field CHEESE boolean
+---@field [41] boolean
+---@field SKIN boolean
+---@field [42] boolean
+---@field POWDER boolean
+---@field [43] boolean
+---@field AMMO boolean
 
 ---@class resource_allotment_specifier: df.struct
 ---@field unk_1 integer

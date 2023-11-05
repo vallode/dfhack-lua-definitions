@@ -13,21 +13,47 @@
 ---@field out_buffer_amount_written integer
 df.file_compressorst = {}
 
----@enum interface_breakdown_types
-df.interface_breakdown_types = {
-  NONE = 0,
-  QUIT = 1,
-  STOPSCREEN = 2,
-  TOFIRST = 3,
-}
+---@class (exact) _interface_breakdown_types: df.struct
+---@field NONE 0
+---@field [0] "NONE"
+---@field QUIT 1
+---@field [1] "QUIT"
+---@field STOPSCREEN 2
+---@field [2] "STOPSCREEN"
+---@field TOFIRST 3
+---@field [3] "TOFIRST"
+df.interface_breakdown_types = {}
 
----@enum interface_push_types
-df.interface_push_types = {
-  AS_PARENT = 0,
-  AS_CHILD = 1,
-  AT_BACK = 2,
-  AT_FRONT = 3,
-}
+---@class interface_breakdown_types
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field QUIT boolean
+---@field [2] boolean
+---@field STOPSCREEN boolean
+---@field [3] boolean
+---@field TOFIRST boolean
+
+---@class (exact) _interface_push_types: df.struct
+---@field AS_PARENT 0
+---@field [0] "AS_PARENT"
+---@field AS_CHILD 1
+---@field [1] "AS_CHILD"
+---@field AT_BACK 2
+---@field [2] "AT_BACK"
+---@field AT_FRONT 3
+---@field [3] "AT_FRONT"
+df.interface_push_types = {}
+
+---@class interface_push_types
+---@field [0] boolean
+---@field AS_PARENT boolean
+---@field [1] boolean
+---@field AS_CHILD boolean
+---@field [2] boolean
+---@field AT_BACK boolean
+---@field [3] boolean
+---@field AT_FRONT boolean
 
 ---@class abstract_interfacest: df.struct
 df.abstract_interfacest = {}
@@ -88,19 +114,39 @@ df.extentst = {}
 ---@field search_string string
 df.widget = {}
 
----@enum widget_visibility_flags
-df.widget.T_visibility_flags = {
-  WIDGET_VISIBILITY_ACTIVE = 0,
-  WIDGET_VISIBILITY_ACTUALLY_VISIBLE = 1,
-}
+---@class (exact) _widget_visibility_flags: df.struct
+---@field WIDGET_VISIBILITY_ACTIVE 0
+---@field [0] "WIDGET_VISIBILITY_ACTIVE"
+---@field WIDGET_VISIBILITY_ACTUALLY_VISIBLE 1
+---@field [1] "WIDGET_VISIBILITY_ACTUALLY_VISIBLE"
+df.widget.T_visibility_flags = {}
 
----@enum widget_tooltip_type
-df.widget.T_tooltip_type = {
-  NONE = -1,
-  REPLACE_MINIMAP = 1,
-  ABOVE = 2,
-  BELOW = 3,
-}
+---@class widget_visibility_flags
+---@field [0] boolean
+---@field WIDGET_VISIBILITY_ACTIVE boolean
+---@field [1] boolean
+---@field WIDGET_VISIBILITY_ACTUALLY_VISIBLE boolean
+
+---@class (exact) _widget_tooltip_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field REPLACE_MINIMAP 1
+---@field [1] "REPLACE_MINIMAP"
+---@field ABOVE 2
+---@field [2] "ABOVE"
+---@field BELOW 3
+---@field [3] "BELOW"
+df.widget.T_tooltip_type = {}
+
+---@class widget_tooltip_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field REPLACE_MINIMAP boolean
+---@field [2] boolean
+---@field ABOVE boolean
+---@field [3] boolean
+---@field BELOW boolean
 
 ---@class widget_text: widget
 ---@field str string
@@ -171,13 +217,26 @@ df.widget_columns_container = {}
 ---@field tab_type widget_tabs_tab_type
 df.widget_tabs = {}
 
----@enum widget_tabs_tab_type
-df.widget_tabs.T_tab_type = {
-  DEFAULT = 0,
-  SHORT = 1,
-  SHORT_SUB = 2,
-  SHORT_SUBSUB = 3,
-}
+---@class (exact) _widget_tabs_tab_type: df.struct
+---@field DEFAULT 0
+---@field [0] "DEFAULT"
+---@field SHORT 1
+---@field [1] "SHORT"
+---@field SHORT_SUB 2
+---@field [2] "SHORT_SUB"
+---@field SHORT_SUBSUB 3
+---@field [3] "SHORT_SUBSUB"
+df.widget_tabs.T_tab_type = {}
+
+---@class widget_tabs_tab_type
+---@field [0] boolean
+---@field DEFAULT boolean
+---@field [1] boolean
+---@field SHORT boolean
+---@field [2] boolean
+---@field SHORT_SUB boolean
+---@field [3] boolean
+---@field SHORT_SUBSUB boolean
 
 ---@class widget_scroll_rows: widget_rows_container
 ---@field scroll integer
@@ -264,71 +323,247 @@ df.world_dat_summary.T_unk = {}
 ---@field progress integer 0..35
 df.viewscreen_adopt_regionst = {}
 
----@enum viewscreen_adopt_regionst_cur_step
-df.viewscreen_adopt_regionst.T_cur_step = {
-  OpeningFile = 0,
-  ProcessingRawData = 1,
-  AllocatingSpace = 2,
-  LoadingItems = 3,
-  LoadingBuildings = 4,
-  LoadingEntities = 5,
-  LoadingCoinInformation = 6,
-  LoadingMapData = 7,
-  LoadingCivilizedPopulations = 8,
-  LoadingHistory = 9,
-  LoadingParameters = 10,
-  LoadingArtifacts = 11,
-  LoadingActiveHistoricalFigures = 12,
-  LoadingSquads = 13,
-  LoadingFormations = 14,
-  LoadingActivities = 15,
-  LoadingInteractions = 16,
-  LoadingWrittenContent = 17,
-  LoadingIdentities = 18,
-  LoadingIncidents = 19,
-  LoadingCrimes = 20,
-  LoadingVehicles = 21,
-  LoadingArmies = 22,
-  LoadingArmyControllers = 23,
-  LoadingTrackingInformation = 24,
-  LoadingCulturalIdentities = 25,
-  LoadingAgreements = 26,
-  LoadingArtForms = 27,
-  LoadingOccupations = 28,
-  LoadingBeliefSystems = 29,
-  LoadingImageSets = 30,
-  LoadingDivinationSets = 31,
-  ClosingFile = 32,
-  RebuildingTemporaryInformation = 33,
-  PreparingGame = 34,
-  Failed = 35,
-}
+---@class (exact) _viewscreen_adopt_regionst_cur_step: df.struct
+---@field OpeningFile 0
+---@field [0] "OpeningFile"
+---@field ProcessingRawData 1
+---@field [1] "ProcessingRawData"
+---@field AllocatingSpace 2
+---@field [2] "AllocatingSpace"
+---@field LoadingItems 3
+---@field [3] "LoadingItems"
+---@field LoadingBuildings 4
+---@field [4] "LoadingBuildings"
+---@field LoadingEntities 5
+---@field [5] "LoadingEntities"
+---@field LoadingCoinInformation 6
+---@field [6] "LoadingCoinInformation"
+---@field LoadingMapData 7
+---@field [7] "LoadingMapData"
+---@field LoadingCivilizedPopulations 8
+---@field [8] "LoadingCivilizedPopulations"
+---@field LoadingHistory 9
+---@field [9] "LoadingHistory"
+---@field LoadingParameters 10
+---@field [10] "LoadingParameters"
+---@field LoadingArtifacts 11
+---@field [11] "LoadingArtifacts"
+---@field LoadingActiveHistoricalFigures 12
+---@field [12] "LoadingActiveHistoricalFigures"
+---@field LoadingSquads 13
+---@field [13] "LoadingSquads"
+---@field LoadingFormations 14
+---@field [14] "LoadingFormations"
+---@field LoadingActivities 15
+---@field [15] "LoadingActivities"
+---@field LoadingInteractions 16
+---@field [16] "LoadingInteractions"
+---@field LoadingWrittenContent 17
+---@field [17] "LoadingWrittenContent"
+---@field LoadingIdentities 18
+---@field [18] "LoadingIdentities"
+---@field LoadingIncidents 19
+---@field [19] "LoadingIncidents"
+---@field LoadingCrimes 20
+---@field [20] "LoadingCrimes"
+---@field LoadingVehicles 21
+---@field [21] "LoadingVehicles"
+---@field LoadingArmies 22
+---@field [22] "LoadingArmies"
+---@field LoadingArmyControllers 23
+---@field [23] "LoadingArmyControllers"
+---@field LoadingTrackingInformation 24
+---@field [24] "LoadingTrackingInformation"
+---@field LoadingCulturalIdentities 25
+---@field [25] "LoadingCulturalIdentities"
+---@field LoadingAgreements 26
+---@field [26] "LoadingAgreements"
+---@field LoadingArtForms 27
+---@field [27] "LoadingArtForms"
+---@field LoadingOccupations 28
+---@field [28] "LoadingOccupations"
+---@field LoadingBeliefSystems 29
+---@field [29] "LoadingBeliefSystems"
+---@field LoadingImageSets 30
+---@field [30] "LoadingImageSets"
+---@field LoadingDivinationSets 31
+---@field [31] "LoadingDivinationSets"
+---@field ClosingFile 32
+---@field [32] "ClosingFile"
+---@field RebuildingTemporaryInformation 33
+---@field [33] "RebuildingTemporaryInformation"
+---@field PreparingGame 34
+---@field [34] "PreparingGame"
+---@field Failed 35
+---@field [35] "Failed"
+df.viewscreen_adopt_regionst.T_cur_step = {}
 
----@enum embark_finder_option
-df.embark_finder_option = {
-  DimensionX = 0,
-  DimensionY = 1,
-  Savagery = 2,
-  Spirit = 3,
-  Elevation = 4,
-  Temperature = 5,
-  Rain = 6,
-  Drainage = 7,
-  FluxStone = 8,
-  AquiferLight = 9,
-  AquiferHeavy = 10,
-  River = 11,
-  UndergroundRiver = 12,
-  UndergroundPool = 13,
-  MagmaPool = 14,
-  MagmaPipe = 15,
-  Chasm = 16,
-  BottomlessPit = 17,
-  OtherFeatures = 18,
-  Soil = 19,
-  Clay = 20,
-  Sand = 21,
-}
+---@class viewscreen_adopt_regionst_cur_step
+---@field [0] boolean
+---@field OpeningFile boolean
+---@field [1] boolean
+---@field ProcessingRawData boolean
+---@field [2] boolean
+---@field AllocatingSpace boolean
+---@field [3] boolean
+---@field LoadingItems boolean
+---@field [4] boolean
+---@field LoadingBuildings boolean
+---@field [5] boolean
+---@field LoadingEntities boolean
+---@field [6] boolean
+---@field LoadingCoinInformation boolean
+---@field [7] boolean
+---@field LoadingMapData boolean
+---@field [8] boolean
+---@field LoadingCivilizedPopulations boolean
+---@field [9] boolean
+---@field LoadingHistory boolean
+---@field [10] boolean
+---@field LoadingParameters boolean
+---@field [11] boolean
+---@field LoadingArtifacts boolean
+---@field [12] boolean
+---@field LoadingActiveHistoricalFigures boolean
+---@field [13] boolean
+---@field LoadingSquads boolean
+---@field [14] boolean
+---@field LoadingFormations boolean
+---@field [15] boolean
+---@field LoadingActivities boolean
+---@field [16] boolean
+---@field LoadingInteractions boolean
+---@field [17] boolean
+---@field LoadingWrittenContent boolean
+---@field [18] boolean
+---@field LoadingIdentities boolean
+---@field [19] boolean
+---@field LoadingIncidents boolean
+---@field [20] boolean
+---@field LoadingCrimes boolean
+---@field [21] boolean
+---@field LoadingVehicles boolean
+---@field [22] boolean
+---@field LoadingArmies boolean
+---@field [23] boolean
+---@field LoadingArmyControllers boolean
+---@field [24] boolean
+---@field LoadingTrackingInformation boolean
+---@field [25] boolean
+---@field LoadingCulturalIdentities boolean
+---@field [26] boolean
+---@field LoadingAgreements boolean
+---@field [27] boolean
+---@field LoadingArtForms boolean
+---@field [28] boolean
+---@field LoadingOccupations boolean
+---@field [29] boolean
+---@field LoadingBeliefSystems boolean
+---@field [30] boolean
+---@field LoadingImageSets boolean
+---@field [31] boolean
+---@field LoadingDivinationSets boolean
+---@field [32] boolean
+---@field ClosingFile boolean
+---@field [33] boolean
+---@field RebuildingTemporaryInformation boolean
+---@field [34] boolean
+---@field PreparingGame boolean
+---@field [35] boolean
+---@field Failed boolean
+
+---@class (exact) _embark_finder_option: df.struct
+---@field DimensionX 0
+---@field [0] "DimensionX"
+---@field DimensionY 1
+---@field [1] "DimensionY"
+---@field Savagery 2
+---@field [2] "Savagery"
+---@field Spirit 3
+---@field [3] "Spirit"
+---@field Elevation 4
+---@field [4] "Elevation"
+---@field Temperature 5
+---@field [5] "Temperature"
+---@field Rain 6
+---@field [6] "Rain"
+---@field Drainage 7
+---@field [7] "Drainage"
+---@field FluxStone 8
+---@field [8] "FluxStone"
+---@field AquiferLight 9
+---@field [9] "AquiferLight"
+---@field AquiferHeavy 10
+---@field [10] "AquiferHeavy"
+---@field River 11
+---@field [11] "River"
+---@field UndergroundRiver 12
+---@field [12] "UndergroundRiver"
+---@field UndergroundPool 13
+---@field [13] "UndergroundPool"
+---@field MagmaPool 14
+---@field [14] "MagmaPool"
+---@field MagmaPipe 15
+---@field [15] "MagmaPipe"
+---@field Chasm 16
+---@field [16] "Chasm"
+---@field BottomlessPit 17
+---@field [17] "BottomlessPit"
+---@field OtherFeatures 18
+---@field [18] "OtherFeatures"
+---@field Soil 19
+---@field [19] "Soil"
+---@field Clay 20
+---@field [20] "Clay"
+---@field Sand 21
+---@field [21] "Sand"
+df.embark_finder_option = {}
+
+---@class embark_finder_option
+---@field [0] boolean
+---@field DimensionX boolean
+---@field [1] boolean
+---@field DimensionY boolean
+---@field [2] boolean
+---@field Savagery boolean
+---@field [3] boolean
+---@field Spirit boolean
+---@field [4] boolean
+---@field Elevation boolean
+---@field [5] boolean
+---@field Temperature boolean
+---@field [6] boolean
+---@field Rain boolean
+---@field [7] boolean
+---@field Drainage boolean
+---@field [8] boolean
+---@field FluxStone boolean
+---@field [9] boolean
+---@field AquiferLight boolean
+---@field [10] boolean
+---@field AquiferHeavy boolean
+---@field [11] boolean
+---@field River boolean
+---@field [12] boolean
+---@field UndergroundRiver boolean
+---@field [13] boolean
+---@field UndergroundPool boolean
+---@field [14] boolean
+---@field MagmaPool boolean
+---@field [15] boolean
+---@field MagmaPipe boolean
+---@field [16] boolean
+---@field Chasm boolean
+---@field [17] boolean
+---@field BottomlessPit boolean
+---@field [18] boolean
+---@field OtherFeatures boolean
+---@field [19] boolean
+---@field Soil boolean
+---@field [20] boolean
+---@field Clay boolean
+---@field [21] boolean
+---@field Sand boolean
 
 ---@class embark_location: df.struct
 ---starter_infost?
@@ -431,27 +666,71 @@ df.embark_location = {}
 ---@field notes_selected_note integer
 df.viewscreen_choose_start_sitest = {}
 
----@enum viewscreen_choose_start_sitest_page
-df.viewscreen_choose_start_sitest.T_page = {
-  Biome = 0,
-  Neighbors = 1,
-  Civilization = 2,
-  Elevation = 3,
-  Cliffs = 4,
-  Reclaim = 5,
-  Reclaim2 = 6,
-  Find = 7,
-  Notes = 8,
-}
+---@class (exact) _viewscreen_choose_start_sitest_page: df.struct
+---@field Biome 0
+---@field [0] "Biome"
+---@field Neighbors 1
+---@field [1] "Neighbors"
+---@field Civilization 2
+---@field [2] "Civilization"
+---@field Elevation 3
+---@field [3] "Elevation"
+---@field Cliffs 4
+---@field [4] "Cliffs"
+---@field Reclaim 5
+---@field [5] "Reclaim"
+---@field Reclaim2 6
+---@field [6] "Reclaim2"
+---@field Find 7
+---@field [7] "Find"
+---@field Notes 8
+---@field [8] "Notes"
+df.viewscreen_choose_start_sitest.T_page = {}
 
----@enum viewscreen_choose_start_sitest_find_results
-df.viewscreen_choose_start_sitest.T_find_results = {
-  None = -1,
-  Searching = 1,
-  NoResult = 2,
-  Partial = 3,
-  Suitable = 4,
-}
+---@class viewscreen_choose_start_sitest_page
+---@field [0] boolean
+---@field Biome boolean
+---@field [1] boolean
+---@field Neighbors boolean
+---@field [2] boolean
+---@field Civilization boolean
+---@field [3] boolean
+---@field Elevation boolean
+---@field [4] boolean
+---@field Cliffs boolean
+---@field [5] boolean
+---@field Reclaim boolean
+---@field [6] boolean
+---@field Reclaim2 boolean
+---@field [7] boolean
+---@field Find boolean
+---@field [8] boolean
+---@field Notes boolean
+
+---@class (exact) _viewscreen_choose_start_sitest_find_results: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Searching 1
+---@field [1] "Searching"
+---@field NoResult 2
+---@field [2] "NoResult"
+---@field Partial 3
+---@field [3] "Partial"
+---@field Suitable 4
+---@field [4] "Suitable"
+df.viewscreen_choose_start_sitest.T_find_results = {}
+
+---@class viewscreen_choose_start_sitest_find_results
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Searching boolean
+---@field [2] boolean
+---@field NoResult boolean
+---@field [3] boolean
+---@field Partial boolean
+---@field [4] boolean
+---@field Suitable boolean
 
 ---@class mission: df.struct
 ---@field army_controller army_controller
@@ -498,13 +777,26 @@ df.mission = {}
 ---@field request integer[]
 df.mission.T_details = {}
 
----@enum mission_type
-df.mission.T_type = {
-  Raid = 2,
-  RecoverArtifact = 17,
-  RescuePerson = 18,
-  RequestWorkers = 19,
-}
+---@class (exact) _mission_type: df.struct
+---@field Raid 2
+---@field [0] "Raid"
+---@field RecoverArtifact 17
+---@field [1] "RecoverArtifact"
+---@field RescuePerson 18
+---@field [2] "RescuePerson"
+---@field RequestWorkers 19
+---@field [3] "RequestWorkers"
+df.mission.T_type = {}
+
+---@class mission_type
+---@field [0] boolean
+---@field Raid boolean
+---@field [1] boolean
+---@field RecoverArtifact boolean
+---@field [2] boolean
+---@field RescuePerson boolean
+---@field [3] boolean
+---@field RequestWorkers boolean
 
 ---@class viewscreen_dwarfmodest: viewscreen
 ---@field shown_site_name integer
@@ -538,48 +830,166 @@ df.viewscreen_dwarfmodest.T_unit_labors_sidemenu_uplevel = {}
 ---@field timeline_name string
 df.viewscreen_export_regionst = {}
 
----@enum viewscreen_export_regionst_state
-df.viewscreen_export_regionst.T_state = {
-  Initializing = 0,
-  PreliminaryCleaning = 1,
-  OffloadingUnits = 2,
-  OffloadingArtImages = 3,
-  OffloadingFile = 4,
-  CharacterizingRawData = 5,
-  SortingWorldInformation = 6,
-  AllocatingSpace = 7,
-  SavingItems = 8,
-  SavingBuildings = 9,
-  SavingEntities = 10,
-  SavingCoinInformation = 11,
-  SavingMapData = 12,
-  SavingCivilizedPopulations = 13,
-  SavingHistory = 14,
-  SavingParameters = 15,
-  SavingArtifacts = 16,
-  SavingActiveHistoricalFigures = 17,
-  SavingSquads = 18,
-  SavingFormations = 19,
-  SavingActivities = 20,
-  SavingInteractions = 21,
-  SavingWrittenContent = 22,
-  SavingIdentities = 23,
-  SavingIncidents = 24,
-  SavingCrimes = 25,
-  SavingVehicles = 26,
-  SavingArmies = 27,
-  SavingArmyControllers = 28,
-  SavingTrackingInfo = 29,
-  SavingCulturalIdentities = 30,
-  SavingAgreements = 31,
-  SavingArtForms = 32,
-  SavingOccupations = 33,
-  SavingBeliefSystems = 34,
-  SavingImageSets = 35,
-  SavingDivinationSets = 36,
-  ClosingFile = 37,
-  SynchronizingFolders = 38,
-}
+---@class (exact) _viewscreen_export_regionst_state: df.struct
+---@field Initializing 0
+---@field [0] "Initializing"
+---@field PreliminaryCleaning 1
+---@field [1] "PreliminaryCleaning"
+---@field OffloadingUnits 2
+---@field [2] "OffloadingUnits"
+---@field OffloadingArtImages 3
+---@field [3] "OffloadingArtImages"
+---@field OffloadingFile 4
+---@field [4] "OffloadingFile"
+---@field CharacterizingRawData 5
+---@field [5] "CharacterizingRawData"
+---@field SortingWorldInformation 6
+---@field [6] "SortingWorldInformation"
+---@field AllocatingSpace 7
+---@field [7] "AllocatingSpace"
+---@field SavingItems 8
+---@field [8] "SavingItems"
+---@field SavingBuildings 9
+---@field [9] "SavingBuildings"
+---@field SavingEntities 10
+---@field [10] "SavingEntities"
+---@field SavingCoinInformation 11
+---@field [11] "SavingCoinInformation"
+---@field SavingMapData 12
+---@field [12] "SavingMapData"
+---@field SavingCivilizedPopulations 13
+---@field [13] "SavingCivilizedPopulations"
+---@field SavingHistory 14
+---@field [14] "SavingHistory"
+---@field SavingParameters 15
+---@field [15] "SavingParameters"
+---@field SavingArtifacts 16
+---@field [16] "SavingArtifacts"
+---@field SavingActiveHistoricalFigures 17
+---@field [17] "SavingActiveHistoricalFigures"
+---@field SavingSquads 18
+---@field [18] "SavingSquads"
+---@field SavingFormations 19
+---@field [19] "SavingFormations"
+---@field SavingActivities 20
+---@field [20] "SavingActivities"
+---@field SavingInteractions 21
+---@field [21] "SavingInteractions"
+---@field SavingWrittenContent 22
+---@field [22] "SavingWrittenContent"
+---@field SavingIdentities 23
+---@field [23] "SavingIdentities"
+---@field SavingIncidents 24
+---@field [24] "SavingIncidents"
+---@field SavingCrimes 25
+---@field [25] "SavingCrimes"
+---@field SavingVehicles 26
+---@field [26] "SavingVehicles"
+---@field SavingArmies 27
+---@field [27] "SavingArmies"
+---@field SavingArmyControllers 28
+---@field [28] "SavingArmyControllers"
+---@field SavingTrackingInfo 29
+---@field [29] "SavingTrackingInfo"
+---@field SavingCulturalIdentities 30
+---@field [30] "SavingCulturalIdentities"
+---@field SavingAgreements 31
+---@field [31] "SavingAgreements"
+---@field SavingArtForms 32
+---@field [32] "SavingArtForms"
+---@field SavingOccupations 33
+---@field [33] "SavingOccupations"
+---@field SavingBeliefSystems 34
+---@field [34] "SavingBeliefSystems"
+---@field SavingImageSets 35
+---@field [35] "SavingImageSets"
+---@field SavingDivinationSets 36
+---@field [36] "SavingDivinationSets"
+---@field ClosingFile 37
+---@field [37] "ClosingFile"
+---@field SynchronizingFolders 38
+---@field [38] "SynchronizingFolders"
+df.viewscreen_export_regionst.T_state = {}
+
+---@class viewscreen_export_regionst_state
+---@field [0] boolean
+---@field Initializing boolean
+---@field [1] boolean
+---@field PreliminaryCleaning boolean
+---@field [2] boolean
+---@field OffloadingUnits boolean
+---@field [3] boolean
+---@field OffloadingArtImages boolean
+---@field [4] boolean
+---@field OffloadingFile boolean
+---@field [5] boolean
+---@field CharacterizingRawData boolean
+---@field [6] boolean
+---@field SortingWorldInformation boolean
+---@field [7] boolean
+---@field AllocatingSpace boolean
+---@field [8] boolean
+---@field SavingItems boolean
+---@field [9] boolean
+---@field SavingBuildings boolean
+---@field [10] boolean
+---@field SavingEntities boolean
+---@field [11] boolean
+---@field SavingCoinInformation boolean
+---@field [12] boolean
+---@field SavingMapData boolean
+---@field [13] boolean
+---@field SavingCivilizedPopulations boolean
+---@field [14] boolean
+---@field SavingHistory boolean
+---@field [15] boolean
+---@field SavingParameters boolean
+---@field [16] boolean
+---@field SavingArtifacts boolean
+---@field [17] boolean
+---@field SavingActiveHistoricalFigures boolean
+---@field [18] boolean
+---@field SavingSquads boolean
+---@field [19] boolean
+---@field SavingFormations boolean
+---@field [20] boolean
+---@field SavingActivities boolean
+---@field [21] boolean
+---@field SavingInteractions boolean
+---@field [22] boolean
+---@field SavingWrittenContent boolean
+---@field [23] boolean
+---@field SavingIdentities boolean
+---@field [24] boolean
+---@field SavingIncidents boolean
+---@field [25] boolean
+---@field SavingCrimes boolean
+---@field [26] boolean
+---@field SavingVehicles boolean
+---@field [27] boolean
+---@field SavingArmies boolean
+---@field [28] boolean
+---@field SavingArmyControllers boolean
+---@field [29] boolean
+---@field SavingTrackingInfo boolean
+---@field [30] boolean
+---@field SavingCulturalIdentities boolean
+---@field [31] boolean
+---@field SavingAgreements boolean
+---@field [32] boolean
+---@field SavingArtForms boolean
+---@field [33] boolean
+---@field SavingOccupations boolean
+---@field [34] boolean
+---@field SavingBeliefSystems boolean
+---@field [35] boolean
+---@field SavingImageSets boolean
+---@field [36] boolean
+---@field SavingDivinationSets boolean
+---@field [37] boolean
+---@field ClosingFile boolean
+---@field [38] boolean
+---@field SynchronizingFolders boolean
 
 ---@class viewscreen_export_regionst_units_progress: df.struct
 ---@field save_file_id integer[]
@@ -594,12 +1004,22 @@ df.viewscreen_export_regionst.T_units_progress = {}
 ---@field state viewscreen_game_cleanerst_state
 df.viewscreen_game_cleanerst = {}
 
----@enum viewscreen_game_cleanerst_state
-df.viewscreen_game_cleanerst.T_state = {
-  CleaningGameObjects = 0,
-  CleaningStrandedObjects = 1,
-  CleaningPlayObjects = 2,
-}
+---@class (exact) _viewscreen_game_cleanerst_state: df.struct
+---@field CleaningGameObjects 0
+---@field [0] "CleaningGameObjects"
+---@field CleaningStrandedObjects 1
+---@field [1] "CleaningStrandedObjects"
+---@field CleaningPlayObjects 2
+---@field [2] "CleaningPlayObjects"
+df.viewscreen_game_cleanerst.T_state = {}
+
+---@class viewscreen_game_cleanerst_state
+---@field [0] boolean
+---@field CleaningGameObjects boolean
+---@field [1] boolean
+---@field CleaningStrandedObjects boolean
+---@field [2] boolean
+---@field CleaningPlayObjects boolean
 
 ---@class viewscreen_initial_prepst: viewscreen
 ---@field render_count integer
@@ -665,24 +1085,70 @@ df.world_gen_param_flagarrayst = {}
 ---@field entering_filter boolean
 df.legend_pagest = {}
 
----@enum legend_pagest_mode
-df.legend_pagest.T_mode = {
-  NONE = -1,
-  MAIN = 1,
-  HFS = 2,
-  SITES = 3,
-  ARTIFACTS = 4,
-  BOOKS = 5,
-  SUBREGIONS = 6,
-  ENTITIES = 7,
-  ART = 8,
-  ABS = 9,
-  ERA = 10,
-  HEC = 11,
-  MAPS = 12,
-  FEATURE_LAYERS = 13,
-  POPULATIONS = 14,
-}
+---@class (exact) _legend_pagest_mode: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field MAIN 1
+---@field [1] "MAIN"
+---@field HFS 2
+---@field [2] "HFS"
+---@field SITES 3
+---@field [3] "SITES"
+---@field ARTIFACTS 4
+---@field [4] "ARTIFACTS"
+---@field BOOKS 5
+---@field [5] "BOOKS"
+---@field SUBREGIONS 6
+---@field [6] "SUBREGIONS"
+---@field ENTITIES 7
+---@field [7] "ENTITIES"
+---@field ART 8
+---@field [8] "ART"
+---@field ABS 9
+---@field [9] "ABS"
+---@field ERA 10
+---@field [10] "ERA"
+---@field HEC 11
+---@field [11] "HEC"
+---@field MAPS 12
+---@field [12] "MAPS"
+---@field FEATURE_LAYERS 13
+---@field [13] "FEATURE_LAYERS"
+---@field POPULATIONS 14
+---@field [14] "POPULATIONS"
+df.legend_pagest.T_mode = {}
+
+---@class legend_pagest_mode
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field MAIN boolean
+---@field [2] boolean
+---@field HFS boolean
+---@field [3] boolean
+---@field SITES boolean
+---@field [4] boolean
+---@field ARTIFACTS boolean
+---@field [5] boolean
+---@field BOOKS boolean
+---@field [6] boolean
+---@field SUBREGIONS boolean
+---@field [7] boolean
+---@field ENTITIES boolean
+---@field [8] boolean
+---@field ART boolean
+---@field [9] boolean
+---@field ABS boolean
+---@field [10] boolean
+---@field ERA boolean
+---@field [11] boolean
+---@field HEC boolean
+---@field [12] boolean
+---@field MAPS boolean
+---@field [13] boolean
+---@field FEATURE_LAYERS boolean
+---@field [14] boolean
+---@field POPULATIONS boolean
 
 ---@class viewscreen_legendsst: viewscreen
 ---@field unhid_sum integer
@@ -852,61 +1318,215 @@ df.matgloss_list.T_generated_languages = {}
 ---@field cur_save loadgame_save_info
 df.viewscreen_loadgamest = {}
 
----@enum viewscreen_loadgamest_cur_step
+---@class (exact) _viewscreen_loadgamest_cur_step: df.struct
 ---After the on-screen text shown while loading.
-df.viewscreen_loadgamest.T_cur_step = {
-  OpeningFile = 0,
-  ProcessingRawData = 1,
-  AllocatingSpace = 2,
-  LoadingItems = 3,
-  LoadingUnits = 4,
-  LoadingJobs = 5,
-  LoadingSchedules = 6,
-  LoadingProjectiles = 7,
-  LoadingBuildings = 8,
-  LoadingMachines = 9,
-  LoadingFlowGuides = 10,
-  LoadingEffects = 11,
-  LoadingEntities = 12,
-  LoadingLocalAnimalPopulations = 13,
-  LoadingEvents = 14,
-  LoadingMandates = 15,
-  LoadingWorkQuotas = 16,
-  LoadingWorldEvents = 17,
-  LoadingCoinInformation = 18,
-  LoadingSquads = 19,
-  LoadingFormations = 20,
-  LoadingActivities = 21,
-  LoadingInteractions = 22,
-  LoadingWrittenContent = 23,
-  LoadingIdentities = 24,
-  LoadingIncidents = 25,
-  LoadingCrimes = 26,
-  LoadingVehicles = 27,
-  LoadingArmies = 28,
-  LoadingArmyControllers = 29,
-  LoadingTrackingInformation = 30,
-  LoadingCulturalIdentities = 31,
-  LoadingAgreements = 32,
-  LoadingArtForms = 33,
-  LoadingOccupations = 34,
-  LoadingBeliefSystems = 35,
-  LoadingImageSets = 36,
-  LoadingDivinationSets = 37,
-  LoadingAnnouncements = 38,
-  LoadingFortressInformation = 39,
-  LoadingWorldInformation = 40,
-  LoadingArtifacts = 41,
-  LoadingActiveHistoricalFigures = 42,
-  LoadingAdventure = 43,
-  LoadingGeneralInformation = 44,
-  ClosingFile = 45,
-  RebuildingTemporaryInformation = 46,
-  RebuildingMoreTemporaryInformation = 47,
-  PreparingGameScreen = 48,
-  HandlingCompatibilityIssues = 49,
-  Finishing = 50,
-}
+---@field OpeningFile 0
+---@field [0] "OpeningFile"
+---@field ProcessingRawData 1
+---@field [1] "ProcessingRawData"
+---@field AllocatingSpace 2
+---@field [2] "AllocatingSpace"
+---@field LoadingItems 3
+---@field [3] "LoadingItems"
+---@field LoadingUnits 4
+---@field [4] "LoadingUnits"
+---@field LoadingJobs 5
+---@field [5] "LoadingJobs"
+---@field LoadingSchedules 6
+---@field [6] "LoadingSchedules"
+---@field LoadingProjectiles 7
+---@field [7] "LoadingProjectiles"
+---@field LoadingBuildings 8
+---@field [8] "LoadingBuildings"
+---@field LoadingMachines 9
+---@field [9] "LoadingMachines"
+---@field LoadingFlowGuides 10
+---@field [10] "LoadingFlowGuides"
+---@field LoadingEffects 11
+---@field [11] "LoadingEffects"
+---@field LoadingEntities 12
+---@field [12] "LoadingEntities"
+---@field LoadingLocalAnimalPopulations 13
+---@field [13] "LoadingLocalAnimalPopulations"
+---@field LoadingEvents 14
+---@field [14] "LoadingEvents"
+---@field LoadingMandates 15
+---@field [15] "LoadingMandates"
+---@field LoadingWorkQuotas 16
+---@field [16] "LoadingWorkQuotas"
+---@field LoadingWorldEvents 17
+---@field [17] "LoadingWorldEvents"
+---@field LoadingCoinInformation 18
+---@field [18] "LoadingCoinInformation"
+---@field LoadingSquads 19
+---@field [19] "LoadingSquads"
+---@field LoadingFormations 20
+---@field [20] "LoadingFormations"
+---@field LoadingActivities 21
+---@field [21] "LoadingActivities"
+---@field LoadingInteractions 22
+---@field [22] "LoadingInteractions"
+---@field LoadingWrittenContent 23
+---@field [23] "LoadingWrittenContent"
+---@field LoadingIdentities 24
+---@field [24] "LoadingIdentities"
+---@field LoadingIncidents 25
+---@field [25] "LoadingIncidents"
+---@field LoadingCrimes 26
+---@field [26] "LoadingCrimes"
+---@field LoadingVehicles 27
+---@field [27] "LoadingVehicles"
+---@field LoadingArmies 28
+---@field [28] "LoadingArmies"
+---@field LoadingArmyControllers 29
+---@field [29] "LoadingArmyControllers"
+---@field LoadingTrackingInformation 30
+---@field [30] "LoadingTrackingInformation"
+---@field LoadingCulturalIdentities 31
+---@field [31] "LoadingCulturalIdentities"
+---@field LoadingAgreements 32
+---@field [32] "LoadingAgreements"
+---@field LoadingArtForms 33
+---@field [33] "LoadingArtForms"
+---@field LoadingOccupations 34
+---@field [34] "LoadingOccupations"
+---@field LoadingBeliefSystems 35
+---@field [35] "LoadingBeliefSystems"
+---@field LoadingImageSets 36
+---@field [36] "LoadingImageSets"
+---@field LoadingDivinationSets 37
+---@field [37] "LoadingDivinationSets"
+---@field LoadingAnnouncements 38
+---@field [38] "LoadingAnnouncements"
+---@field LoadingFortressInformation 39
+---@field [39] "LoadingFortressInformation"
+---@field LoadingWorldInformation 40
+---@field [40] "LoadingWorldInformation"
+---@field LoadingArtifacts 41
+---@field [41] "LoadingArtifacts"
+---@field LoadingActiveHistoricalFigures 42
+---@field [42] "LoadingActiveHistoricalFigures"
+---@field LoadingAdventure 43
+---@field [43] "LoadingAdventure"
+---@field LoadingGeneralInformation 44
+---@field [44] "LoadingGeneralInformation"
+---@field ClosingFile 45
+---@field [45] "ClosingFile"
+---@field RebuildingTemporaryInformation 46
+---@field [46] "RebuildingTemporaryInformation"
+---@field RebuildingMoreTemporaryInformation 47
+---@field [47] "RebuildingMoreTemporaryInformation"
+---@field PreparingGameScreen 48
+---@field [48] "PreparingGameScreen"
+---@field HandlingCompatibilityIssues 49
+---@field [49] "HandlingCompatibilityIssues"
+---@field Finishing 50
+---@field [50] "Finishing"
+df.viewscreen_loadgamest.T_cur_step = {}
+
+---@class viewscreen_loadgamest_cur_step
+---@field [0] boolean
+---@field OpeningFile boolean
+---@field [1] boolean
+---@field ProcessingRawData boolean
+---@field [2] boolean
+---@field AllocatingSpace boolean
+---@field [3] boolean
+---@field LoadingItems boolean
+---@field [4] boolean
+---@field LoadingUnits boolean
+---@field [5] boolean
+---@field LoadingJobs boolean
+---@field [6] boolean
+---@field LoadingSchedules boolean
+---@field [7] boolean
+---@field LoadingProjectiles boolean
+---@field [8] boolean
+---@field LoadingBuildings boolean
+---@field [9] boolean
+---@field LoadingMachines boolean
+---@field [10] boolean
+---@field LoadingFlowGuides boolean
+---@field [11] boolean
+---@field LoadingEffects boolean
+---@field [12] boolean
+---@field LoadingEntities boolean
+---@field [13] boolean
+---@field LoadingLocalAnimalPopulations boolean
+---@field [14] boolean
+---@field LoadingEvents boolean
+---@field [15] boolean
+---@field LoadingMandates boolean
+---@field [16] boolean
+---@field LoadingWorkQuotas boolean
+---@field [17] boolean
+---@field LoadingWorldEvents boolean
+---@field [18] boolean
+---@field LoadingCoinInformation boolean
+---@field [19] boolean
+---@field LoadingSquads boolean
+---@field [20] boolean
+---@field LoadingFormations boolean
+---@field [21] boolean
+---@field LoadingActivities boolean
+---@field [22] boolean
+---@field LoadingInteractions boolean
+---@field [23] boolean
+---@field LoadingWrittenContent boolean
+---@field [24] boolean
+---@field LoadingIdentities boolean
+---@field [25] boolean
+---@field LoadingIncidents boolean
+---@field [26] boolean
+---@field LoadingCrimes boolean
+---@field [27] boolean
+---@field LoadingVehicles boolean
+---@field [28] boolean
+---@field LoadingArmies boolean
+---@field [29] boolean
+---@field LoadingArmyControllers boolean
+---@field [30] boolean
+---@field LoadingTrackingInformation boolean
+---@field [31] boolean
+---@field LoadingCulturalIdentities boolean
+---@field [32] boolean
+---@field LoadingAgreements boolean
+---@field [33] boolean
+---@field LoadingArtForms boolean
+---@field [34] boolean
+---@field LoadingOccupations boolean
+---@field [35] boolean
+---@field LoadingBeliefSystems boolean
+---@field [36] boolean
+---@field LoadingImageSets boolean
+---@field [37] boolean
+---@field LoadingDivinationSets boolean
+---@field [38] boolean
+---@field LoadingAnnouncements boolean
+---@field [39] boolean
+---@field LoadingFortressInformation boolean
+---@field [40] boolean
+---@field LoadingWorldInformation boolean
+---@field [41] boolean
+---@field LoadingArtifacts boolean
+---@field [42] boolean
+---@field LoadingActiveHistoricalFigures boolean
+---@field [43] boolean
+---@field LoadingAdventure boolean
+---@field [44] boolean
+---@field LoadingGeneralInformation boolean
+---@field [45] boolean
+---@field ClosingFile boolean
+---@field [46] boolean
+---@field RebuildingTemporaryInformation boolean
+---@field [47] boolean
+---@field RebuildingMoreTemporaryInformation boolean
+---@field [48] boolean
+---@field PreparingGameScreen boolean
+---@field [49] boolean
+---@field HandlingCompatibilityIssues boolean
+---@field [50] boolean
+---@field Finishing boolean
 
 ---@class worldgen_parms: df.struct
 ---@field title string
@@ -1123,72 +1743,251 @@ df.nemesis_offload = {}
 ---@field compressor file_compressorst
 df.viewscreen_savegamest = {}
 
----@enum viewscreen_savegamest_cur_step
-df.viewscreen_savegamest.T_cur_step = {
-  Initializing = 0,
-  CheckingDirectoryStructure = 1,
-  PreliminaryCleaning = 2,
-  OffloadingUnits = 3,
-  OffloadingArt = 4,
-  OpeningFile = 5,
-  CharacterizingRawData = 6,
-  AllocatingSpace = 7,
-  SavingItems = 8,
-  SavingUnits = 9,
-  SavingJobs = 10,
-  SavingSchedules = 11,
-  SavingProjectiles = 12,
-  SavingBuildings = 13,
-  SavingMachines = 14,
-  SavingFlowGuides = 15,
-  SavingEffects = 16,
-  SavingEntities = 17,
-  SavingLocalAnimalPopulations = 18,
-  SavingEvents = 19,
-  SavingMandates = 20,
-  SavingWorkQuotas = 21,
-  SavingWorldEvents = 22,
-  SavingCoinInformation = 23,
-  SavingSquads = 24,
-  SavingFormations = 25,
-  SavingActivities = 26,
-  SavingInteractions = 27,
-  SavingWrittenContent = 28,
-  SavingIdentities = 29,
-  SavingIncidents = 30,
-  SavingCrimes = 31,
-  SavingVehicles = 32,
-  SavingArmies = 33,
-  SavingArmyControllers = 34,
-  SavingTrackingInformation = 35,
-  SavingCulturalIdentities = 36,
-  SavingAgreement = 37,
-  SavingArtForms = 38,
-  SavingOccupations = 39,
-  SavingBeliefSystems = 40,
-  SavingImageSets = 41,
-  SavingDivinationSets = 42,
-  SavingAnnouncements = 43,
-  SavingFortressInformation = 44,
-  SavingWorldInformation = 45,
-  SavingArtifacts = 46,
-  SavingActiveHistoricalFigures = 47,
-  SavingAdventureData = 48,
-  SavingGeneralInformation = 49,
-  ClosingFile = 50,
-  Finishing = 51,
-}
+---@class (exact) _viewscreen_savegamest_cur_step: df.struct
+---@field Initializing 0
+---@field [0] "Initializing"
+---@field CheckingDirectoryStructure 1
+---@field [1] "CheckingDirectoryStructure"
+---@field PreliminaryCleaning 2
+---@field [2] "PreliminaryCleaning"
+---@field OffloadingUnits 3
+---@field [3] "OffloadingUnits"
+---@field OffloadingArt 4
+---@field [4] "OffloadingArt"
+---@field OpeningFile 5
+---@field [5] "OpeningFile"
+---@field CharacterizingRawData 6
+---@field [6] "CharacterizingRawData"
+---@field AllocatingSpace 7
+---@field [7] "AllocatingSpace"
+---@field SavingItems 8
+---@field [8] "SavingItems"
+---@field SavingUnits 9
+---@field [9] "SavingUnits"
+---@field SavingJobs 10
+---@field [10] "SavingJobs"
+---@field SavingSchedules 11
+---@field [11] "SavingSchedules"
+---@field SavingProjectiles 12
+---@field [12] "SavingProjectiles"
+---@field SavingBuildings 13
+---@field [13] "SavingBuildings"
+---@field SavingMachines 14
+---@field [14] "SavingMachines"
+---@field SavingFlowGuides 15
+---@field [15] "SavingFlowGuides"
+---@field SavingEffects 16
+---@field [16] "SavingEffects"
+---@field SavingEntities 17
+---@field [17] "SavingEntities"
+---@field SavingLocalAnimalPopulations 18
+---@field [18] "SavingLocalAnimalPopulations"
+---@field SavingEvents 19
+---@field [19] "SavingEvents"
+---@field SavingMandates 20
+---@field [20] "SavingMandates"
+---@field SavingWorkQuotas 21
+---@field [21] "SavingWorkQuotas"
+---@field SavingWorldEvents 22
+---@field [22] "SavingWorldEvents"
+---@field SavingCoinInformation 23
+---@field [23] "SavingCoinInformation"
+---@field SavingSquads 24
+---@field [24] "SavingSquads"
+---@field SavingFormations 25
+---@field [25] "SavingFormations"
+---@field SavingActivities 26
+---@field [26] "SavingActivities"
+---@field SavingInteractions 27
+---@field [27] "SavingInteractions"
+---@field SavingWrittenContent 28
+---@field [28] "SavingWrittenContent"
+---@field SavingIdentities 29
+---@field [29] "SavingIdentities"
+---@field SavingIncidents 30
+---@field [30] "SavingIncidents"
+---@field SavingCrimes 31
+---@field [31] "SavingCrimes"
+---@field SavingVehicles 32
+---@field [32] "SavingVehicles"
+---@field SavingArmies 33
+---@field [33] "SavingArmies"
+---@field SavingArmyControllers 34
+---@field [34] "SavingArmyControllers"
+---@field SavingTrackingInformation 35
+---@field [35] "SavingTrackingInformation"
+---@field SavingCulturalIdentities 36
+---@field [36] "SavingCulturalIdentities"
+---@field SavingAgreement 37
+---@field [37] "SavingAgreement"
+---@field SavingArtForms 38
+---@field [38] "SavingArtForms"
+---@field SavingOccupations 39
+---@field [39] "SavingOccupations"
+---@field SavingBeliefSystems 40
+---@field [40] "SavingBeliefSystems"
+---@field SavingImageSets 41
+---@field [41] "SavingImageSets"
+---@field SavingDivinationSets 42
+---@field [42] "SavingDivinationSets"
+---@field SavingAnnouncements 43
+---@field [43] "SavingAnnouncements"
+---@field SavingFortressInformation 44
+---@field [44] "SavingFortressInformation"
+---@field SavingWorldInformation 45
+---@field [45] "SavingWorldInformation"
+---@field SavingArtifacts 46
+---@field [46] "SavingArtifacts"
+---@field SavingActiveHistoricalFigures 47
+---@field [47] "SavingActiveHistoricalFigures"
+---@field SavingAdventureData 48
+---@field [48] "SavingAdventureData"
+---@field SavingGeneralInformation 49
+---@field [49] "SavingGeneralInformation"
+---@field ClosingFile 50
+---@field [50] "ClosingFile"
+---@field Finishing 51
+---@field [51] "Finishing"
+df.viewscreen_savegamest.T_cur_step = {}
 
----@enum adventurer_attribute_level
-df.adventurer_attribute_level = {
-  VeryLow = 0,
-  Low = 1,
-  BelowAverage = 2,
-  Average = 3,
-  AboveAverage = 4,
-  High = 5,
-  Superior = 6,
-}
+---@class viewscreen_savegamest_cur_step
+---@field [0] boolean
+---@field Initializing boolean
+---@field [1] boolean
+---@field CheckingDirectoryStructure boolean
+---@field [2] boolean
+---@field PreliminaryCleaning boolean
+---@field [3] boolean
+---@field OffloadingUnits boolean
+---@field [4] boolean
+---@field OffloadingArt boolean
+---@field [5] boolean
+---@field OpeningFile boolean
+---@field [6] boolean
+---@field CharacterizingRawData boolean
+---@field [7] boolean
+---@field AllocatingSpace boolean
+---@field [8] boolean
+---@field SavingItems boolean
+---@field [9] boolean
+---@field SavingUnits boolean
+---@field [10] boolean
+---@field SavingJobs boolean
+---@field [11] boolean
+---@field SavingSchedules boolean
+---@field [12] boolean
+---@field SavingProjectiles boolean
+---@field [13] boolean
+---@field SavingBuildings boolean
+---@field [14] boolean
+---@field SavingMachines boolean
+---@field [15] boolean
+---@field SavingFlowGuides boolean
+---@field [16] boolean
+---@field SavingEffects boolean
+---@field [17] boolean
+---@field SavingEntities boolean
+---@field [18] boolean
+---@field SavingLocalAnimalPopulations boolean
+---@field [19] boolean
+---@field SavingEvents boolean
+---@field [20] boolean
+---@field SavingMandates boolean
+---@field [21] boolean
+---@field SavingWorkQuotas boolean
+---@field [22] boolean
+---@field SavingWorldEvents boolean
+---@field [23] boolean
+---@field SavingCoinInformation boolean
+---@field [24] boolean
+---@field SavingSquads boolean
+---@field [25] boolean
+---@field SavingFormations boolean
+---@field [26] boolean
+---@field SavingActivities boolean
+---@field [27] boolean
+---@field SavingInteractions boolean
+---@field [28] boolean
+---@field SavingWrittenContent boolean
+---@field [29] boolean
+---@field SavingIdentities boolean
+---@field [30] boolean
+---@field SavingIncidents boolean
+---@field [31] boolean
+---@field SavingCrimes boolean
+---@field [32] boolean
+---@field SavingVehicles boolean
+---@field [33] boolean
+---@field SavingArmies boolean
+---@field [34] boolean
+---@field SavingArmyControllers boolean
+---@field [35] boolean
+---@field SavingTrackingInformation boolean
+---@field [36] boolean
+---@field SavingCulturalIdentities boolean
+---@field [37] boolean
+---@field SavingAgreement boolean
+---@field [38] boolean
+---@field SavingArtForms boolean
+---@field [39] boolean
+---@field SavingOccupations boolean
+---@field [40] boolean
+---@field SavingBeliefSystems boolean
+---@field [41] boolean
+---@field SavingImageSets boolean
+---@field [42] boolean
+---@field SavingDivinationSets boolean
+---@field [43] boolean
+---@field SavingAnnouncements boolean
+---@field [44] boolean
+---@field SavingFortressInformation boolean
+---@field [45] boolean
+---@field SavingWorldInformation boolean
+---@field [46] boolean
+---@field SavingArtifacts boolean
+---@field [47] boolean
+---@field SavingActiveHistoricalFigures boolean
+---@field [48] boolean
+---@field SavingAdventureData boolean
+---@field [49] boolean
+---@field SavingGeneralInformation boolean
+---@field [50] boolean
+---@field ClosingFile boolean
+---@field [51] boolean
+---@field Finishing boolean
+
+---@class (exact) _adventurer_attribute_level: df.struct
+---@field VeryLow 0
+---@field [0] "VeryLow"
+---@field Low 1
+---@field [1] "Low"
+---@field BelowAverage 2
+---@field [2] "BelowAverage"
+---@field Average 3
+---@field [3] "Average"
+---@field AboveAverage 4
+---@field [4] "AboveAverage"
+---@field High 5
+---@field [5] "High"
+---@field Superior 6
+---@field [6] "Superior"
+df.adventurer_attribute_level = {}
+
+---@class adventurer_attribute_level
+---@field [0] boolean
+---@field VeryLow boolean
+---@field [1] boolean
+---@field Low boolean
+---@field [2] boolean
+---@field BelowAverage boolean
+---@field [3] boolean
+---@field Average boolean
+---@field [4] boolean
+---@field AboveAverage boolean
+---@field [5] boolean
+---@field High boolean
+---@field [6] boolean
+---@field Superior boolean
 
 ---@class startup_charactersheet_petst: df.struct
 ---@field name language_name
@@ -1197,12 +1996,22 @@ df.adventurer_attribute_level = {
 ---@field type integer
 df.startup_charactersheet_petst = {}
 
----@enum adv_background_option_type
-df.adv_background_option_type = {
-  NONE = -1,
-  SQUAD_EPPID = 1,
-  REGULAR_UNIT = 2,
-}
+---@class (exact) _adv_background_option_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field SQUAD_EPPID 1
+---@field [1] "SQUAD_EPPID"
+---@field REGULAR_UNIT 2
+---@field [2] "REGULAR_UNIT"
+df.adv_background_option_type = {}
+
+---@class adv_background_option_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field SQUAD_EPPID boolean
+---@field [2] boolean
+---@field REGULAR_UNIT boolean
 
 ---@class setup_character_info: df.struct
 ---startup_charactersheetst
@@ -1286,29 +2095,79 @@ df.adv_background_option_type = {
 ---@field pet startup_charactersheet_petst[]
 df.setup_character_info = {}
 
----@enum setup_character_info_difficulty
-df.setup_character_info.T_difficulty = {
-  Peasant = 0,
-  Hero = 1,
-  Demigod = 2,
-}
+---@class (exact) _setup_character_info_difficulty: df.struct
+---@field Peasant 0
+---@field [0] "Peasant"
+---@field Hero 1
+---@field [1] "Hero"
+---@field Demigod 2
+---@field [2] "Demigod"
+df.setup_character_info.T_difficulty = {}
 
----@enum setup_character_info_sub_mode
-df.setup_character_info.T_sub_mode = {
-  NONE = -1,
-  RACE = 1,
-  SUBRACE = 2,
-  NEMESIS = 3,
-  ENTITY = 4,
-  DOING_SUB = 5,
-  SUB_SKILLS = 6,
-  SUB_APPEARANCE = 7,
-  SUB_PERSONALITY = 8,
-  SUB_BACKGROUND = 9,
-  SUB_EQUIPMENT = 10,
-  SUB_MOUNTS_AND_PETS = 11,
-  FINAL_CONFIRMATION = 12,
-}
+---@class setup_character_info_difficulty
+---@field [0] boolean
+---@field Peasant boolean
+---@field [1] boolean
+---@field Hero boolean
+---@field [2] boolean
+---@field Demigod boolean
+
+---@class (exact) _setup_character_info_sub_mode: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field RACE 1
+---@field [1] "RACE"
+---@field SUBRACE 2
+---@field [2] "SUBRACE"
+---@field NEMESIS 3
+---@field [3] "NEMESIS"
+---@field ENTITY 4
+---@field [4] "ENTITY"
+---@field DOING_SUB 5
+---@field [5] "DOING_SUB"
+---@field SUB_SKILLS 6
+---@field [6] "SUB_SKILLS"
+---@field SUB_APPEARANCE 7
+---@field [7] "SUB_APPEARANCE"
+---@field SUB_PERSONALITY 8
+---@field [8] "SUB_PERSONALITY"
+---@field SUB_BACKGROUND 9
+---@field [9] "SUB_BACKGROUND"
+---@field SUB_EQUIPMENT 10
+---@field [10] "SUB_EQUIPMENT"
+---@field SUB_MOUNTS_AND_PETS 11
+---@field [11] "SUB_MOUNTS_AND_PETS"
+---@field FINAL_CONFIRMATION 12
+---@field [12] "FINAL_CONFIRMATION"
+df.setup_character_info.T_sub_mode = {}
+
+---@class setup_character_info_sub_mode
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field RACE boolean
+---@field [2] boolean
+---@field SUBRACE boolean
+---@field [3] boolean
+---@field NEMESIS boolean
+---@field [4] boolean
+---@field ENTITY boolean
+---@field [5] boolean
+---@field DOING_SUB boolean
+---@field [6] boolean
+---@field SUB_SKILLS boolean
+---@field [7] boolean
+---@field SUB_APPEARANCE boolean
+---@field [8] boolean
+---@field SUB_PERSONALITY boolean
+---@field [9] boolean
+---@field SUB_BACKGROUND boolean
+---@field [10] boolean
+---@field SUB_EQUIPMENT boolean
+---@field [11] boolean
+---@field SUB_MOUNTS_AND_PETS boolean
+---@field [12] boolean
+---@field FINAL_CONFIRMATION boolean
 
 ---@class setup_character_info_posskill: df.struct
 df.setup_character_info.T_posskill = {}
@@ -1507,18 +2366,46 @@ df.viewscreen_titlest.T_menu_line_id = {}
 ---@field year_tick integer
 df.viewscreen_update_regionst = {}
 
----@enum world_view_mode_type
-df.world_view_mode_type = {
-  NONE = -1,
-  NORMAL = 1,
-  CIVILIZATIONS = 2,
-  MISSIONS_LIST = 3,
-  MISSION_DETAILS = 4,
-  NEWS = 5,
-  REPORTS = 6,
-  CITIZENS = 7,
-  ARTIFACTS = 8,
-}
+---@class (exact) _world_view_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field NORMAL 1
+---@field [1] "NORMAL"
+---@field CIVILIZATIONS 2
+---@field [2] "CIVILIZATIONS"
+---@field MISSIONS_LIST 3
+---@field [3] "MISSIONS_LIST"
+---@field MISSION_DETAILS 4
+---@field [4] "MISSION_DETAILS"
+---@field NEWS 5
+---@field [5] "NEWS"
+---@field REPORTS 6
+---@field [6] "REPORTS"
+---@field CITIZENS 7
+---@field [7] "CITIZENS"
+---@field ARTIFACTS 8
+---@field [8] "ARTIFACTS"
+df.world_view_mode_type = {}
+
+---@class world_view_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field NORMAL boolean
+---@field [2] boolean
+---@field CIVILIZATIONS boolean
+---@field [3] boolean
+---@field MISSIONS_LIST boolean
+---@field [4] boolean
+---@field MISSION_DETAILS boolean
+---@field [5] boolean
+---@field NEWS boolean
+---@field [6] boolean
+---@field REPORTS boolean
+---@field [7] boolean
+---@field CITIZENS boolean
+---@field [8] boolean
+---@field ARTIFACTS boolean
 
 ---@class viewscreen_worldst: viewscreen
 ---@field region_cent_x integer

@@ -1,196 +1,689 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum unit_flags1
-df.unit_flags1 = {
-  move_state = 0, --(CANMOVE) Can the dwarf move or are they waiting for their movement timer
-  inactive = 1, --(DEAD) Set for dead units and incoming/leaving critters that are alive but off-map
-  has_mood = 2, --(MOOD) Currently in mood
-  had_mood = 3, --(MOODSPENT) Had a mood already
-  marauder = 4, --wide class of invader/inside creature attackers
-  drowning = 5, --Is currently drowning
-  merchant = 6, --An active merchant
-  forest = 7, --used for units no longer linked to merchant/diplomacy, they just try to leave mostly
-  left = 8, --left the map
-  rider = 9, --Is riding an another creature
-  incoming = 10,
-  diplomat = 11,
-  zombie = 12, --(TEMPORARY_FLAG) used as a temporary marker in certain places
-  skeleton = 13, --(SHOULD_CHECK_FOR_ACTIVE_HEIST)
-  can_swap = 14, --(CANSWAP) Can swap tiles during movement (prevents multiple swaps)
-  on_ground = 15, --(GROUNDED) The creature is laying on the floor, can be conscious
-  projectile = 16, --Launched into the air? Funny.
-  active_invader = 17, --(INVADER) Active invader (for organized ones)
-  hidden_in_ambush = 18, --(AMBUSH)
-  invader_origin = 19, --(INVADER_ORIG) Invader origin (could be inactive and fleeing)
-  coward = 20, --(WILLFLEEUNDERLOSSES) Will flee if invasion turns around
-  hidden_ambusher = 21, --(INVADERFORAY) Active marauder/invader moving inward?
-  invades = 22, --(INVADERFORAY2) Marauder resident/invader moving in all the way
-  check_flows = 23, --(FLOWCHECK) Check against flows next time you get a chance
-  ridden = 24,
-  caged = 25,
-  tame = 26,
-  chained = 27,
-  royal_guard = 28, --(UNUSED_1_29)
-  fortress_guard = 29, --(UNUSED_1_30)
-  suppress_wield = 30, --(WIELDSUPPRESS)
-  important_historical_figure = 31, --(NEMESIS) Is an important historical figure
-}
+---@class (exact) _unit_flags1: df.struct
+---@field move_state 0
+---@field [0] "move_state"
+---@field inactive 1
+---@field [1] "inactive"
+---@field has_mood 2
+---@field [2] "has_mood"
+---@field had_mood 3
+---@field [3] "had_mood"
+---@field marauder 4
+---@field [4] "marauder"
+---@field drowning 5
+---@field [5] "drowning"
+---@field merchant 6
+---@field [6] "merchant"
+---@field forest 7
+---@field [7] "forest"
+---@field left 8
+---@field [8] "left"
+---@field rider 9
+---@field [9] "rider"
+---@field incoming 10
+---@field [10] "incoming"
+---@field diplomat 11
+---@field [11] "diplomat"
+---@field zombie 12
+---@field [12] "zombie"
+---@field skeleton 13
+---@field [13] "skeleton"
+---@field can_swap 14
+---@field [14] "can_swap"
+---@field on_ground 15
+---@field [15] "on_ground"
+---@field projectile 16
+---@field [16] "projectile"
+---@field active_invader 17
+---@field [17] "active_invader"
+---@field hidden_in_ambush 18
+---@field [18] "hidden_in_ambush"
+---@field invader_origin 19
+---@field [19] "invader_origin"
+---@field coward 20
+---@field [20] "coward"
+---@field hidden_ambusher 21
+---@field [21] "hidden_ambusher"
+---@field invades 22
+---@field [22] "invades"
+---@field check_flows 23
+---@field [23] "check_flows"
+---@field ridden 24
+---@field [24] "ridden"
+---@field caged 25
+---@field [25] "caged"
+---@field tame 26
+---@field [26] "tame"
+---@field chained 27
+---@field [27] "chained"
+---@field royal_guard 28
+---@field [28] "royal_guard"
+---@field fortress_guard 29
+---@field [29] "fortress_guard"
+---@field suppress_wield 30
+---@field [30] "suppress_wield"
+---@field important_historical_figure 31
+---@field [31] "important_historical_figure"
+df.unit_flags1 = {}
 
----@enum unit_flags2
-df.unit_flags2 = {
-  swimming = 0,
-  sparring = 1, --(PLAYCOMBAT) works, but not set for sparring military dwarves(?) (since 0.40.01?)
-  no_notify = 2, --(NO_NOTIFICATIONS) Do not notify about level gains (for embark etc)
-  uniquebody = 3, --this unit has a unique body plan which will be stored in and loaded from the savefile individually
-  calculated_nerves = 4, --(NERVES_CALCULATED)
-  calculated_bodyparts = 5, --(BPS_CALCULATED)
-  important_historical_figure = 6, --(IS_NEMESIS) Is important historical figure (slight variation)
-  killed = 7, --(HAS_BEEN_KILLED) Has been killed by kill function (slightly different from dead, not necessarily violent death)
-  cleanup_1 = 8, --(MUST_FORGET_COMPLETELY) Must be forgotten by forget function (just cleanup)
-  cleanup_2 = 9, --(MUST_DELETE) Must be deleted (cleanup)
-  cleanup_3 = 10, --(JUST_FORGOTTEN) Recently forgotten (cleanup)
-  for_trade = 11, --(CIV_OFFERED) Offered for trade
-  trade_resolved = 12, --(CIV_RESOLVED)
-  has_breaks = 13, --(EVALUATE_LEAKS)
-  gutted = 14, --(HEALTH_GUTTED)
-  circulatory_spray = 15, --(UNUSED_16)
-  locked_in_for_trading = 16, --(TRADE_LOCKED) Locked in for trading (it's a projectile on the other set of flags, might be what the flying was)
-  slaughter = 17, --(BUTCHERABLE) marked for slaughter
-  underworld = 18, --(DEFENDER) Underworld creature
-  resident = 19, --(CURRENT_RESIDENT) Current resident
-  cleanup_4 = 20, --(NONGLOBAL_DELETE) Marked for special cleanup as unused load from unit block on disk
-  calculated_insulation = 21, --(INSULATION_CALCULATED) Insulation from clothing calculated
-  visitor_uninvited = 22, --(UNINVITED_GUEST) Uninvited guest
-  visitor = 23,
-  calculated_inventory = 24, --(INVORDER_CALCULATED) Inventory order calculated
-  vision_good = 25, --(HEALTH_VISION_HAVEFINE) Vision -- have good part
-  vision_damaged = 26, --(HEALTH_VISION_HAVEDAMAGE) Vision -- have damaged part
-  vision_missing = 27, --(HEALTH_VISION_HAVEMISSING) Vision -- have missing part
-  breathing_good = 28, --(HEALTH_BREATHING_HAVEFINE) Breathing -- have good part
-  breathing_problem = 29, --(HEALTH_BREATHING_HAVEPROBLEM) Breathing -- having a problem
-  roaming_wilderness_population_source = 30, --ROMAING_WILDERPOP
-  roaming_wilderness_population_source_not_a_map_feature = 31, --ROAMING_WILDERPOP_NOT_FEATURE
-}
+---@class unit_flags1
+---@field [0] boolean
+---@field move_state boolean
+---@field [1] boolean
+---@field inactive boolean
+---@field [2] boolean
+---@field has_mood boolean
+---@field [3] boolean
+---@field had_mood boolean
+---@field [4] boolean
+---@field marauder boolean
+---@field [5] boolean
+---@field drowning boolean
+---@field [6] boolean
+---@field merchant boolean
+---@field [7] boolean
+---@field forest boolean
+---@field [8] boolean
+---@field left boolean
+---@field [9] boolean
+---@field rider boolean
+---@field [10] boolean
+---@field incoming boolean
+---@field [11] boolean
+---@field diplomat boolean
+---@field [12] boolean
+---@field zombie boolean
+---@field [13] boolean
+---@field skeleton boolean
+---@field [14] boolean
+---@field can_swap boolean
+---@field [15] boolean
+---@field on_ground boolean
+---@field [16] boolean
+---@field projectile boolean
+---@field [17] boolean
+---@field active_invader boolean
+---@field [18] boolean
+---@field hidden_in_ambush boolean
+---@field [19] boolean
+---@field invader_origin boolean
+---@field [20] boolean
+---@field coward boolean
+---@field [21] boolean
+---@field hidden_ambusher boolean
+---@field [22] boolean
+---@field invades boolean
+---@field [23] boolean
+---@field check_flows boolean
+---@field [24] boolean
+---@field ridden boolean
+---@field [25] boolean
+---@field caged boolean
+---@field [26] boolean
+---@field tame boolean
+---@field [27] boolean
+---@field chained boolean
+---@field [28] boolean
+---@field royal_guard boolean
+---@field [29] boolean
+---@field fortress_guard boolean
+---@field [30] boolean
+---@field suppress_wield boolean
+---@field [31] boolean
+---@field important_historical_figure boolean
 
----@enum unit_flags3
+---@class (exact) _unit_flags2: df.struct
+---@field swimming 0
+---@field [0] "swimming"
+---@field sparring 1
+---@field [1] "sparring"
+---@field no_notify 2
+---@field [2] "no_notify"
+---@field uniquebody 3
+---@field [3] "uniquebody"
+---@field calculated_nerves 4
+---@field [4] "calculated_nerves"
+---@field calculated_bodyparts 5
+---@field [5] "calculated_bodyparts"
+---@field important_historical_figure 6
+---@field [6] "important_historical_figure"
+---@field killed 7
+---@field [7] "killed"
+---@field cleanup_1 8
+---@field [8] "cleanup_1"
+---@field cleanup_2 9
+---@field [9] "cleanup_2"
+---@field cleanup_3 10
+---@field [10] "cleanup_3"
+---@field for_trade 11
+---@field [11] "for_trade"
+---@field trade_resolved 12
+---@field [12] "trade_resolved"
+---@field has_breaks 13
+---@field [13] "has_breaks"
+---@field gutted 14
+---@field [14] "gutted"
+---@field circulatory_spray 15
+---@field [15] "circulatory_spray"
+---@field locked_in_for_trading 16
+---@field [16] "locked_in_for_trading"
+---@field slaughter 17
+---@field [17] "slaughter"
+---@field underworld 18
+---@field [18] "underworld"
+---@field resident 19
+---@field [19] "resident"
+---@field cleanup_4 20
+---@field [20] "cleanup_4"
+---@field calculated_insulation 21
+---@field [21] "calculated_insulation"
+---@field visitor_uninvited 22
+---@field [22] "visitor_uninvited"
+---@field visitor 23
+---@field [23] "visitor"
+---@field calculated_inventory 24
+---@field [24] "calculated_inventory"
+---@field vision_good 25
+---@field [25] "vision_good"
+---@field vision_damaged 26
+---@field [26] "vision_damaged"
+---@field vision_missing 27
+---@field [27] "vision_missing"
+---@field breathing_good 28
+---@field [28] "breathing_good"
+---@field breathing_problem 29
+---@field [29] "breathing_problem"
+---@field roaming_wilderness_population_source 30
+---@field [30] "roaming_wilderness_population_source"
+---@field roaming_wilderness_population_source_not_a_map_feature 31
+---@field [31] "roaming_wilderness_population_source_not_a_map_feature"
+df.unit_flags2 = {}
+
+---@class unit_flags2
+---@field [0] boolean
+---@field swimming boolean
+---@field [1] boolean
+---@field sparring boolean
+---@field [2] boolean
+---@field no_notify boolean
+---@field [3] boolean
+---@field uniquebody boolean
+---@field [4] boolean
+---@field calculated_nerves boolean
+---@field [5] boolean
+---@field calculated_bodyparts boolean
+---@field [6] boolean
+---@field important_historical_figure boolean
+---@field [7] boolean
+---@field killed boolean
+---@field [8] boolean
+---@field cleanup_1 boolean
+---@field [9] boolean
+---@field cleanup_2 boolean
+---@field [10] boolean
+---@field cleanup_3 boolean
+---@field [11] boolean
+---@field for_trade boolean
+---@field [12] boolean
+---@field trade_resolved boolean
+---@field [13] boolean
+---@field has_breaks boolean
+---@field [14] boolean
+---@field gutted boolean
+---@field [15] boolean
+---@field circulatory_spray boolean
+---@field [16] boolean
+---@field locked_in_for_trading boolean
+---@field [17] boolean
+---@field slaughter boolean
+---@field [18] boolean
+---@field underworld boolean
+---@field [19] boolean
+---@field resident boolean
+---@field [20] boolean
+---@field cleanup_4 boolean
+---@field [21] boolean
+---@field calculated_insulation boolean
+---@field [22] boolean
+---@field visitor_uninvited boolean
+---@field [23] boolean
+---@field visitor boolean
+---@field [24] boolean
+---@field calculated_inventory boolean
+---@field [25] boolean
+---@field vision_good boolean
+---@field [26] boolean
+---@field vision_damaged boolean
+---@field [27] boolean
+---@field vision_missing boolean
+---@field [28] boolean
+---@field breathing_good boolean
+---@field [29] boolean
+---@field breathing_problem boolean
+---@field [30] boolean
+---@field roaming_wilderness_population_source boolean
+---@field [31] boolean
+---@field roaming_wilderness_population_source_not_a_map_feature boolean
+
+---@class (exact) _unit_flags3: df.struct
 ---(IS_EQUIPMENT) Scuttle creature: causes creature to be killed, leaving a behind corpse and generating negative thoughts like a real kill.
-df.unit_flags3 = {
-  body_part_relsize_computed = 0, --(RELSIZES_CALCULATED)
-  size_modifier_computed = 1, --(TOTAL_APP_SIZE_MOD_CALCULATED)
-  stuck_weapon_computed = 2, --(STUCKIN_WOULD_FLAGS_CALCULATED) cleared if removing StuckIn item to recompute wound flags.
-  compute_health = 3, --(WOUND_CHECK_REQUIRED) causes the health structure to be created or updated
-  announce_titan = 4, --*(UNANNOUNCED) Announces creature like an FB or titan.
-  training_tired_wait = 5,
-  on_crutch = 6, --(CRUTCH_WALKING)
-  weight_computed = 7, --(MASS_CALCULATED)
-  body_temp_in_range = 8, --(BP_TEMP_CHECK_OFF) Is set to 1 every tick for non-dead creatures.
-  wait_until_reveal = 9, --(FROZEN_IN_TIME) Blocks all kind of things until tile is revealed.
-  scuttle = 10, --(IS_EQUIPMENT) Scuttle creature: causes creature to be killed, leaving a behind corpse and generating negative thoughts like a real kill.
-  verify_personal_training = 11,
-  ghostly = 12, --(GHOST)
-  just_sprung_ambush = 13,
-  disturbed_from_death = 14,
-  diving = 15, --dropped when znew >= zold
-  flee_if_birth_race = 16, --something to do with werewolves?
-  no_meandering = 17, --(FLEE_WHEN_JOBLESS) for active_invaders
-  floundering = 18, --(FLOUNDERING_IN_LIQUID)
-  exit_vehicle1 = 19, --(ON_VEHICLE) trapavoid
-  exit_vehicle2 = 20, --(ON_PROJECTILE) trapavoid
-  dangerous_terrain = 21, --(HAVE_FLED_TERRAIN_RECENTLY)
-  adv_yield = 22, --(YIELDED)
-  vision_cone_set = 23, --(VISION_ARC_OBSOLETE)
-  multipart_vision_have_at_least_damaged = 24,
-  emotionally_overloaded = 25, --(PERSONALITY_MOOD_PREVENTS_WORK)
-  check_reorganize_possessions = 26,
-  available_for_adoption = 27, --(AVAILABLE_FOR_PET_SALE)
-  gelded = 28,
-  marked_for_gelding = 29, --(WANT_GELD_JOB)
-  injury_thought = 30, --(DID_WOUND_THOUGHT_AND_NOT_WOUNDED_AGAIN)
-  guest = 31, --causes No Activity to be displayed
-}
+---@field body_part_relsize_computed 0
+---@field [0] "body_part_relsize_computed"
+---@field size_modifier_computed 1
+---@field [1] "size_modifier_computed"
+---@field stuck_weapon_computed 2
+---@field [2] "stuck_weapon_computed"
+---@field compute_health 3
+---@field [3] "compute_health"
+---@field announce_titan 4
+---@field [4] "announce_titan"
+---@field training_tired_wait 5
+---@field [5] "training_tired_wait"
+---@field on_crutch 6
+---@field [6] "on_crutch"
+---@field weight_computed 7
+---@field [7] "weight_computed"
+---@field body_temp_in_range 8
+---@field [8] "body_temp_in_range"
+---@field wait_until_reveal 9
+---@field [9] "wait_until_reveal"
+---@field scuttle 10
+---@field [10] "scuttle"
+---@field verify_personal_training 11
+---@field [11] "verify_personal_training"
+---@field ghostly 12
+---@field [12] "ghostly"
+---@field just_sprung_ambush 13
+---@field [13] "just_sprung_ambush"
+---@field disturbed_from_death 14
+---@field [14] "disturbed_from_death"
+---@field diving 15
+---@field [15] "diving"
+---@field flee_if_birth_race 16
+---@field [16] "flee_if_birth_race"
+---@field no_meandering 17
+---@field [17] "no_meandering"
+---@field floundering 18
+---@field [18] "floundering"
+---@field exit_vehicle1 19
+---@field [19] "exit_vehicle1"
+---@field exit_vehicle2 20
+---@field [20] "exit_vehicle2"
+---@field dangerous_terrain 21
+---@field [21] "dangerous_terrain"
+---@field adv_yield 22
+---@field [22] "adv_yield"
+---@field vision_cone_set 23
+---@field [23] "vision_cone_set"
+---@field multipart_vision_have_at_least_damaged 24
+---@field [24] "multipart_vision_have_at_least_damaged"
+---@field emotionally_overloaded 25
+---@field [25] "emotionally_overloaded"
+---@field check_reorganize_possessions 26
+---@field [26] "check_reorganize_possessions"
+---@field available_for_adoption 27
+---@field [27] "available_for_adoption"
+---@field gelded 28
+---@field [28] "gelded"
+---@field marked_for_gelding 29
+---@field [29] "marked_for_gelding"
+---@field injury_thought 30
+---@field [30] "injury_thought"
+---@field guest 31
+---@field [31] "guest"
+df.unit_flags3 = {}
 
----@enum unit_flags4
-df.unit_flags4 = {
-  lazy_goblet_check = 0,
-  urgent_goblet_check = 1,
-  counts_as_great_beast = 2,
-  counts_as_animal = 3,
-  counts_as_merchant_for_del = 4,
-  might_be_holding_artifact = 5, --does not count containers
-  might_possess_artifact = 6, --counts containers and inventory
-  invader_waits_for_parley = 7,
-  might_have_moving_inventory = 8,
-  any_texture_must_be_refreshed = 9,
-  only_do_assigned_jobs = 10,
-  mood_succeeded = 11,
-  agitated_wilderness_creature = 12,
-}
+---@class unit_flags3
+---@field [0] boolean
+---@field body_part_relsize_computed boolean
+---@field [1] boolean
+---@field size_modifier_computed boolean
+---@field [2] boolean
+---@field stuck_weapon_computed boolean
+---@field [3] boolean
+---@field compute_health boolean
+---@field [4] boolean
+---@field announce_titan boolean
+---@field [5] boolean
+---@field training_tired_wait boolean
+---@field [6] boolean
+---@field on_crutch boolean
+---@field [7] boolean
+---@field weight_computed boolean
+---@field [8] boolean
+---@field body_temp_in_range boolean
+---@field [9] boolean
+---@field wait_until_reveal boolean
+---@field [10] boolean
+---@field scuttle boolean
+---@field [11] boolean
+---@field verify_personal_training boolean
+---@field [12] boolean
+---@field ghostly boolean
+---@field [13] boolean
+---@field just_sprung_ambush boolean
+---@field [14] boolean
+---@field disturbed_from_death boolean
+---@field [15] boolean
+---@field diving boolean
+---@field [16] boolean
+---@field flee_if_birth_race boolean
+---@field [17] boolean
+---@field no_meandering boolean
+---@field [18] boolean
+---@field floundering boolean
+---@field [19] boolean
+---@field exit_vehicle1 boolean
+---@field [20] boolean
+---@field exit_vehicle2 boolean
+---@field [21] boolean
+---@field dangerous_terrain boolean
+---@field [22] boolean
+---@field adv_yield boolean
+---@field [23] boolean
+---@field vision_cone_set boolean
+---@field [24] boolean
+---@field multipart_vision_have_at_least_damaged boolean
+---@field [25] boolean
+---@field emotionally_overloaded boolean
+---@field [26] boolean
+---@field check_reorganize_possessions boolean
+---@field [27] boolean
+---@field available_for_adoption boolean
+---@field [28] boolean
+---@field gelded boolean
+---@field [29] boolean
+---@field marked_for_gelding boolean
+---@field [30] boolean
+---@field injury_thought boolean
+---@field [31] boolean
+---@field guest boolean
 
----@enum work_detail_flags
-df.work_detail_flags = {
-  no_modify = 0,
-  no_everyone_does_this = 1,
-  enabled = 2, --by itself is everybody does this, enabled|limited is only selected
-  limited = 3, --by itself is nobody does this
-}
+---@class (exact) _unit_flags4: df.struct
+---@field lazy_goblet_check 0
+---@field [0] "lazy_goblet_check"
+---@field urgent_goblet_check 1
+---@field [1] "urgent_goblet_check"
+---@field counts_as_great_beast 2
+---@field [2] "counts_as_great_beast"
+---@field counts_as_animal 3
+---@field [3] "counts_as_animal"
+---@field counts_as_merchant_for_del 4
+---@field [4] "counts_as_merchant_for_del"
+---@field might_be_holding_artifact 5
+---@field [5] "might_be_holding_artifact"
+---@field might_possess_artifact 6
+---@field [6] "might_possess_artifact"
+---@field invader_waits_for_parley 7
+---@field [7] "invader_waits_for_parley"
+---@field might_have_moving_inventory 8
+---@field [8] "might_have_moving_inventory"
+---@field any_texture_must_be_refreshed 9
+---@field [9] "any_texture_must_be_refreshed"
+---@field only_do_assigned_jobs 10
+---@field [10] "only_do_assigned_jobs"
+---@field mood_succeeded 11
+---@field [11] "mood_succeeded"
+---@field agitated_wilderness_creature 12
+---@field [12] "agitated_wilderness_creature"
+df.unit_flags4 = {}
 
----@enum value_type
-df.value_type = {
-  NONE = -1,
-  LAW = 1,
-  LOYALTY = 2,
-  FAMILY = 3,
-  FRIENDSHIP = 4,
-  POWER = 5,
-  TRUTH = 6,
-  CUNNING = 7,
-  ELOQUENCE = 8,
-  FAIRNESS = 9,
-  DECORUM = 10,
-  TRADITION = 11,
-  ARTWORK = 12,
-  COOPERATION = 13,
-  INDEPENDENCE = 14,
-  STOICISM = 15,
-  INTROSPECTION = 16,
-  SELF_CONTROL = 17,
-  TRANQUILITY = 18,
-  HARMONY = 19,
-  MERRIMENT = 20,
-  CRAFTSMANSHIP = 21,
-  MARTIAL_PROWESS = 22,
-  SKILL = 23,
-  HARD_WORK = 24,
-  SACRIFICE = 25,
-  COMPETITION = 26,
-  PERSEVERENCE = 27,
-  LEISURE_TIME = 28,
-  COMMERCE = 29,
-  ROMANCE = 30,
-  NATURE = 31,
-  PEACE = 32,
-  KNOWLEDGE = 33,
-}
+---@class unit_flags4
+---@field [0] boolean
+---@field lazy_goblet_check boolean
+---@field [1] boolean
+---@field urgent_goblet_check boolean
+---@field [2] boolean
+---@field counts_as_great_beast boolean
+---@field [3] boolean
+---@field counts_as_animal boolean
+---@field [4] boolean
+---@field counts_as_merchant_for_del boolean
+---@field [5] boolean
+---@field might_be_holding_artifact boolean
+---@field [6] boolean
+---@field might_possess_artifact boolean
+---@field [7] boolean
+---@field invader_waits_for_parley boolean
+---@field [8] boolean
+---@field might_have_moving_inventory boolean
+---@field [9] boolean
+---@field any_texture_must_be_refreshed boolean
+---@field [10] boolean
+---@field only_do_assigned_jobs boolean
+---@field [11] boolean
+---@field mood_succeeded boolean
+---@field [12] boolean
+---@field agitated_wilderness_creature boolean
 
----@enum goal_type
-df.goal_type = {
-  STAY_ALIVE = 0,
-  MAINTAIN_ENTITY_STATUS = 1,
-  START_A_FAMILY = 2,
-  RULE_THE_WORLD = 3,
-  CREATE_A_GREAT_WORK_OF_ART = 4,
-  CRAFT_A_MASTERWORK = 5,
-  BRING_PEACE_TO_THE_WORLD = 6,
-  BECOME_A_LEGENDARY_WARRIOR = 7,
-  MASTER_A_SKILL = 8,
-  FALL_IN_LOVE = 9,
-  SEE_THE_GREAT_NATURAL_SITES = 10,
-  IMMORTALITY = 11,
-  MAKE_A_GREAT_DISCOVERY = 12,
-  ATTAIN_RANK_IN_SOCIETY = 13,
-  BATHE_WORLD_IN_CHAOS = 14,
-}
+---@class (exact) _work_detail_flags: df.struct
+---@field no_modify 0
+---@field [0] "no_modify"
+---@field no_everyone_does_this 1
+---@field [1] "no_everyone_does_this"
+---@field enabled 2
+---@field [2] "enabled"
+---@field limited 3
+---@field [3] "limited"
+df.work_detail_flags = {}
+
+---@class work_detail_flags
+---@field [0] boolean
+---@field no_modify boolean
+---@field [1] boolean
+---@field no_everyone_does_this boolean
+---@field [2] boolean
+---@field enabled boolean
+---@field [3] boolean
+---@field limited boolean
+
+---@class (exact) _value_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field LAW 1
+---@field [1] "LAW"
+---@field LOYALTY 2
+---@field [2] "LOYALTY"
+---@field FAMILY 3
+---@field [3] "FAMILY"
+---@field FRIENDSHIP 4
+---@field [4] "FRIENDSHIP"
+---@field POWER 5
+---@field [5] "POWER"
+---@field TRUTH 6
+---@field [6] "TRUTH"
+---@field CUNNING 7
+---@field [7] "CUNNING"
+---@field ELOQUENCE 8
+---@field [8] "ELOQUENCE"
+---@field FAIRNESS 9
+---@field [9] "FAIRNESS"
+---@field DECORUM 10
+---@field [10] "DECORUM"
+---@field TRADITION 11
+---@field [11] "TRADITION"
+---@field ARTWORK 12
+---@field [12] "ARTWORK"
+---@field COOPERATION 13
+---@field [13] "COOPERATION"
+---@field INDEPENDENCE 14
+---@field [14] "INDEPENDENCE"
+---@field STOICISM 15
+---@field [15] "STOICISM"
+---@field INTROSPECTION 16
+---@field [16] "INTROSPECTION"
+---@field SELF_CONTROL 17
+---@field [17] "SELF_CONTROL"
+---@field TRANQUILITY 18
+---@field [18] "TRANQUILITY"
+---@field HARMONY 19
+---@field [19] "HARMONY"
+---@field MERRIMENT 20
+---@field [20] "MERRIMENT"
+---@field CRAFTSMANSHIP 21
+---@field [21] "CRAFTSMANSHIP"
+---@field MARTIAL_PROWESS 22
+---@field [22] "MARTIAL_PROWESS"
+---@field SKILL 23
+---@field [23] "SKILL"
+---@field HARD_WORK 24
+---@field [24] "HARD_WORK"
+---@field SACRIFICE 25
+---@field [25] "SACRIFICE"
+---@field COMPETITION 26
+---@field [26] "COMPETITION"
+---@field PERSEVERENCE 27
+---@field [27] "PERSEVERENCE"
+---@field LEISURE_TIME 28
+---@field [28] "LEISURE_TIME"
+---@field COMMERCE 29
+---@field [29] "COMMERCE"
+---@field ROMANCE 30
+---@field [30] "ROMANCE"
+---@field NATURE 31
+---@field [31] "NATURE"
+---@field PEACE 32
+---@field [32] "PEACE"
+---@field KNOWLEDGE 33
+---@field [33] "KNOWLEDGE"
+df.value_type = {}
+
+---@class value_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field LAW boolean
+---@field [2] boolean
+---@field LOYALTY boolean
+---@field [3] boolean
+---@field FAMILY boolean
+---@field [4] boolean
+---@field FRIENDSHIP boolean
+---@field [5] boolean
+---@field POWER boolean
+---@field [6] boolean
+---@field TRUTH boolean
+---@field [7] boolean
+---@field CUNNING boolean
+---@field [8] boolean
+---@field ELOQUENCE boolean
+---@field [9] boolean
+---@field FAIRNESS boolean
+---@field [10] boolean
+---@field DECORUM boolean
+---@field [11] boolean
+---@field TRADITION boolean
+---@field [12] boolean
+---@field ARTWORK boolean
+---@field [13] boolean
+---@field COOPERATION boolean
+---@field [14] boolean
+---@field INDEPENDENCE boolean
+---@field [15] boolean
+---@field STOICISM boolean
+---@field [16] boolean
+---@field INTROSPECTION boolean
+---@field [17] boolean
+---@field SELF_CONTROL boolean
+---@field [18] boolean
+---@field TRANQUILITY boolean
+---@field [19] boolean
+---@field HARMONY boolean
+---@field [20] boolean
+---@field MERRIMENT boolean
+---@field [21] boolean
+---@field CRAFTSMANSHIP boolean
+---@field [22] boolean
+---@field MARTIAL_PROWESS boolean
+---@field [23] boolean
+---@field SKILL boolean
+---@field [24] boolean
+---@field HARD_WORK boolean
+---@field [25] boolean
+---@field SACRIFICE boolean
+---@field [26] boolean
+---@field COMPETITION boolean
+---@field [27] boolean
+---@field PERSEVERENCE boolean
+---@field [28] boolean
+---@field LEISURE_TIME boolean
+---@field [29] boolean
+---@field COMMERCE boolean
+---@field [30] boolean
+---@field ROMANCE boolean
+---@field [31] boolean
+---@field NATURE boolean
+---@field [32] boolean
+---@field PEACE boolean
+---@field [33] boolean
+---@field KNOWLEDGE boolean
+
+---@class (exact) _goal_type: df.struct
+---@field STAY_ALIVE 0
+---@field [0] "STAY_ALIVE"
+---@field MAINTAIN_ENTITY_STATUS 1
+---@field [1] "MAINTAIN_ENTITY_STATUS"
+---@field START_A_FAMILY 2
+---@field [2] "START_A_FAMILY"
+---@field RULE_THE_WORLD 3
+---@field [3] "RULE_THE_WORLD"
+---@field CREATE_A_GREAT_WORK_OF_ART 4
+---@field [4] "CREATE_A_GREAT_WORK_OF_ART"
+---@field CRAFT_A_MASTERWORK 5
+---@field [5] "CRAFT_A_MASTERWORK"
+---@field BRING_PEACE_TO_THE_WORLD 6
+---@field [6] "BRING_PEACE_TO_THE_WORLD"
+---@field BECOME_A_LEGENDARY_WARRIOR 7
+---@field [7] "BECOME_A_LEGENDARY_WARRIOR"
+---@field MASTER_A_SKILL 8
+---@field [8] "MASTER_A_SKILL"
+---@field FALL_IN_LOVE 9
+---@field [9] "FALL_IN_LOVE"
+---@field SEE_THE_GREAT_NATURAL_SITES 10
+---@field [10] "SEE_THE_GREAT_NATURAL_SITES"
+---@field IMMORTALITY 11
+---@field [11] "IMMORTALITY"
+---@field MAKE_A_GREAT_DISCOVERY 12
+---@field [12] "MAKE_A_GREAT_DISCOVERY"
+---@field ATTAIN_RANK_IN_SOCIETY 13
+---@field [13] "ATTAIN_RANK_IN_SOCIETY"
+---@field BATHE_WORLD_IN_CHAOS 14
+---@field [14] "BATHE_WORLD_IN_CHAOS"
+df.goal_type = {}
+
+---@class goal_type
+---@field [0] boolean
+---@field STAY_ALIVE boolean
+---@field [1] boolean
+---@field MAINTAIN_ENTITY_STATUS boolean
+---@field [2] boolean
+---@field START_A_FAMILY boolean
+---@field [3] boolean
+---@field RULE_THE_WORLD boolean
+---@field [4] boolean
+---@field CREATE_A_GREAT_WORK_OF_ART boolean
+---@field [5] boolean
+---@field CRAFT_A_MASTERWORK boolean
+---@field [6] boolean
+---@field BRING_PEACE_TO_THE_WORLD boolean
+---@field [7] boolean
+---@field BECOME_A_LEGENDARY_WARRIOR boolean
+---@field [8] boolean
+---@field MASTER_A_SKILL boolean
+---@field [9] boolean
+---@field FALL_IN_LOVE boolean
+---@field [10] boolean
+---@field SEE_THE_GREAT_NATURAL_SITES boolean
+---@field [11] boolean
+---@field IMMORTALITY boolean
+---@field [12] boolean
+---@field MAKE_A_GREAT_DISCOVERY boolean
+---@field [13] boolean
+---@field ATTAIN_RANK_IN_SOCIETY boolean
+---@field [14] boolean
+---@field BATHE_WORLD_IN_CHAOS boolean
 
 ---@class goal_type_attr
 ---@field short_name string
@@ -199,164 +692,553 @@ df.goal_type = {
 ---@type { [string|integer]: goal_type_attr }
 df.goal_type.attrs = {}
 
----@enum personality_facet_type
-df.personality_facet_type = {
-  NONE = -1,
-  LOVE_PROPENSITY = 1,
-  HATE_PROPENSITY = 2,
-  ENVY_PROPENSITY = 3,
-  CHEER_PROPENSITY = 4,
-  DEPRESSION_PROPENSITY = 5,
-  ANGER_PROPENSITY = 6,
-  ANXIETY_PROPENSITY = 7,
-  LUST_PROPENSITY = 8,
-  STRESS_VULNERABILITY = 9,
-  GREED = 10,
-  IMMODERATION = 11,
-  VIOLENT = 12,
-  PERSEVERENCE = 13,
-  WASTEFULNESS = 14,
-  DISCORD = 15,
-  FRIENDLINESS = 16,
-  POLITENESS = 17,
-  DISDAIN_ADVICE = 18,
-  BRAVERY = 19,
-  CONFIDENCE = 20,
-  VANITY = 21,
-  AMBITION = 22,
-  GRATITUDE = 23,
-  IMMODESTY = 24,
-  HUMOR = 25,
-  VENGEFUL = 26,
-  PRIDE = 27,
-  CRUELTY = 28,
-  SINGLEMINDED = 29,
-  HOPEFUL = 30,
-  CURIOUS = 31,
-  BASHFUL = 32,
-  PRIVACY = 33,
-  PERFECTIONIST = 34,
-  CLOSEMINDED = 35,
-  TOLERANT = 36,
-  EMOTIONALLY_OBSESSIVE = 37,
-  SWAYED_BY_EMOTIONS = 38,
-  ALTRUISM = 39,
-  DUTIFULNESS = 40,
-  THOUGHTLESSNESS = 41,
-  ORDERLINESS = 42,
-  TRUST = 43,
-  GREGARIOUSNESS = 44,
-  ASSERTIVENESS = 45,
-  ACTIVITY_LEVEL = 46,
-  EXCITEMENT_SEEKING = 47,
-  IMAGINATION = 48,
-  ABSTRACT_INCLINED = 49,
-  ART_INCLINED = 50,
-}
+---@class (exact) _personality_facet_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field LOVE_PROPENSITY 1
+---@field [1] "LOVE_PROPENSITY"
+---@field HATE_PROPENSITY 2
+---@field [2] "HATE_PROPENSITY"
+---@field ENVY_PROPENSITY 3
+---@field [3] "ENVY_PROPENSITY"
+---@field CHEER_PROPENSITY 4
+---@field [4] "CHEER_PROPENSITY"
+---@field DEPRESSION_PROPENSITY 5
+---@field [5] "DEPRESSION_PROPENSITY"
+---@field ANGER_PROPENSITY 6
+---@field [6] "ANGER_PROPENSITY"
+---@field ANXIETY_PROPENSITY 7
+---@field [7] "ANXIETY_PROPENSITY"
+---@field LUST_PROPENSITY 8
+---@field [8] "LUST_PROPENSITY"
+---@field STRESS_VULNERABILITY 9
+---@field [9] "STRESS_VULNERABILITY"
+---@field GREED 10
+---@field [10] "GREED"
+---@field IMMODERATION 11
+---@field [11] "IMMODERATION"
+---@field VIOLENT 12
+---@field [12] "VIOLENT"
+---@field PERSEVERENCE 13
+---@field [13] "PERSEVERENCE"
+---@field WASTEFULNESS 14
+---@field [14] "WASTEFULNESS"
+---@field DISCORD 15
+---@field [15] "DISCORD"
+---@field FRIENDLINESS 16
+---@field [16] "FRIENDLINESS"
+---@field POLITENESS 17
+---@field [17] "POLITENESS"
+---@field DISDAIN_ADVICE 18
+---@field [18] "DISDAIN_ADVICE"
+---@field BRAVERY 19
+---@field [19] "BRAVERY"
+---@field CONFIDENCE 20
+---@field [20] "CONFIDENCE"
+---@field VANITY 21
+---@field [21] "VANITY"
+---@field AMBITION 22
+---@field [22] "AMBITION"
+---@field GRATITUDE 23
+---@field [23] "GRATITUDE"
+---@field IMMODESTY 24
+---@field [24] "IMMODESTY"
+---@field HUMOR 25
+---@field [25] "HUMOR"
+---@field VENGEFUL 26
+---@field [26] "VENGEFUL"
+---@field PRIDE 27
+---@field [27] "PRIDE"
+---@field CRUELTY 28
+---@field [28] "CRUELTY"
+---@field SINGLEMINDED 29
+---@field [29] "SINGLEMINDED"
+---@field HOPEFUL 30
+---@field [30] "HOPEFUL"
+---@field CURIOUS 31
+---@field [31] "CURIOUS"
+---@field BASHFUL 32
+---@field [32] "BASHFUL"
+---@field PRIVACY 33
+---@field [33] "PRIVACY"
+---@field PERFECTIONIST 34
+---@field [34] "PERFECTIONIST"
+---@field CLOSEMINDED 35
+---@field [35] "CLOSEMINDED"
+---@field TOLERANT 36
+---@field [36] "TOLERANT"
+---@field EMOTIONALLY_OBSESSIVE 37
+---@field [37] "EMOTIONALLY_OBSESSIVE"
+---@field SWAYED_BY_EMOTIONS 38
+---@field [38] "SWAYED_BY_EMOTIONS"
+---@field ALTRUISM 39
+---@field [39] "ALTRUISM"
+---@field DUTIFULNESS 40
+---@field [40] "DUTIFULNESS"
+---@field THOUGHTLESSNESS 41
+---@field [41] "THOUGHTLESSNESS"
+---@field ORDERLINESS 42
+---@field [42] "ORDERLINESS"
+---@field TRUST 43
+---@field [43] "TRUST"
+---@field GREGARIOUSNESS 44
+---@field [44] "GREGARIOUSNESS"
+---@field ASSERTIVENESS 45
+---@field [45] "ASSERTIVENESS"
+---@field ACTIVITY_LEVEL 46
+---@field [46] "ACTIVITY_LEVEL"
+---@field EXCITEMENT_SEEKING 47
+---@field [47] "EXCITEMENT_SEEKING"
+---@field IMAGINATION 48
+---@field [48] "IMAGINATION"
+---@field ABSTRACT_INCLINED 49
+---@field [49] "ABSTRACT_INCLINED"
+---@field ART_INCLINED 50
+---@field [50] "ART_INCLINED"
+df.personality_facet_type = {}
 
----@enum physical_attribute_type
-df.physical_attribute_type = {
-  STRENGTH = 0,
-  AGILITY = 1,
-  TOUGHNESS = 2,
-  ENDURANCE = 3,
-  RECUPERATION = 4,
-  DISEASE_RESISTANCE = 5,
-}
+---@class personality_facet_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field LOVE_PROPENSITY boolean
+---@field [2] boolean
+---@field HATE_PROPENSITY boolean
+---@field [3] boolean
+---@field ENVY_PROPENSITY boolean
+---@field [4] boolean
+---@field CHEER_PROPENSITY boolean
+---@field [5] boolean
+---@field DEPRESSION_PROPENSITY boolean
+---@field [6] boolean
+---@field ANGER_PROPENSITY boolean
+---@field [7] boolean
+---@field ANXIETY_PROPENSITY boolean
+---@field [8] boolean
+---@field LUST_PROPENSITY boolean
+---@field [9] boolean
+---@field STRESS_VULNERABILITY boolean
+---@field [10] boolean
+---@field GREED boolean
+---@field [11] boolean
+---@field IMMODERATION boolean
+---@field [12] boolean
+---@field VIOLENT boolean
+---@field [13] boolean
+---@field PERSEVERENCE boolean
+---@field [14] boolean
+---@field WASTEFULNESS boolean
+---@field [15] boolean
+---@field DISCORD boolean
+---@field [16] boolean
+---@field FRIENDLINESS boolean
+---@field [17] boolean
+---@field POLITENESS boolean
+---@field [18] boolean
+---@field DISDAIN_ADVICE boolean
+---@field [19] boolean
+---@field BRAVERY boolean
+---@field [20] boolean
+---@field CONFIDENCE boolean
+---@field [21] boolean
+---@field VANITY boolean
+---@field [22] boolean
+---@field AMBITION boolean
+---@field [23] boolean
+---@field GRATITUDE boolean
+---@field [24] boolean
+---@field IMMODESTY boolean
+---@field [25] boolean
+---@field HUMOR boolean
+---@field [26] boolean
+---@field VENGEFUL boolean
+---@field [27] boolean
+---@field PRIDE boolean
+---@field [28] boolean
+---@field CRUELTY boolean
+---@field [29] boolean
+---@field SINGLEMINDED boolean
+---@field [30] boolean
+---@field HOPEFUL boolean
+---@field [31] boolean
+---@field CURIOUS boolean
+---@field [32] boolean
+---@field BASHFUL boolean
+---@field [33] boolean
+---@field PRIVACY boolean
+---@field [34] boolean
+---@field PERFECTIONIST boolean
+---@field [35] boolean
+---@field CLOSEMINDED boolean
+---@field [36] boolean
+---@field TOLERANT boolean
+---@field [37] boolean
+---@field EMOTIONALLY_OBSESSIVE boolean
+---@field [38] boolean
+---@field SWAYED_BY_EMOTIONS boolean
+---@field [39] boolean
+---@field ALTRUISM boolean
+---@field [40] boolean
+---@field DUTIFULNESS boolean
+---@field [41] boolean
+---@field THOUGHTLESSNESS boolean
+---@field [42] boolean
+---@field ORDERLINESS boolean
+---@field [43] boolean
+---@field TRUST boolean
+---@field [44] boolean
+---@field GREGARIOUSNESS boolean
+---@field [45] boolean
+---@field ASSERTIVENESS boolean
+---@field [46] boolean
+---@field ACTIVITY_LEVEL boolean
+---@field [47] boolean
+---@field EXCITEMENT_SEEKING boolean
+---@field [48] boolean
+---@field IMAGINATION boolean
+---@field [49] boolean
+---@field ABSTRACT_INCLINED boolean
+---@field [50] boolean
+---@field ART_INCLINED boolean
 
----@enum mental_attribute_type
-df.mental_attribute_type = {
-  ANALYTICAL_ABILITY = 0,
-  FOCUS = 1,
-  WILLPOWER = 2,
-  CREATIVITY = 3,
-  INTUITION = 4,
-  PATIENCE = 5,
-  MEMORY = 6,
-  LINGUISTIC_ABILITY = 7,
-  SPATIAL_SENSE = 8,
-  MUSICALITY = 9,
-  KINESTHETIC_SENSE = 10,
-  EMPATHY = 11,
-  SOCIAL_AWARENESS = 12,
-}
+---@class (exact) _physical_attribute_type: df.struct
+---@field STRENGTH 0
+---@field [0] "STRENGTH"
+---@field AGILITY 1
+---@field [1] "AGILITY"
+---@field TOUGHNESS 2
+---@field [2] "TOUGHNESS"
+---@field ENDURANCE 3
+---@field [3] "ENDURANCE"
+---@field RECUPERATION 4
+---@field [4] "RECUPERATION"
+---@field DISEASE_RESISTANCE 5
+---@field [5] "DISEASE_RESISTANCE"
+df.physical_attribute_type = {}
 
----@enum mood_type
-df.mood_type = {
-  None = -1,
-  Fey = 1,
-  Secretive = 2,
-  Possessed = 3,
-  Macabre = 4,
-  Fell = 5,
-  Melancholy = 6,
-  Raving = 7,
-  Berserk = 8,
-  Baby = 9,
-  Traumatized = 10,
-}
+---@class physical_attribute_type
+---@field [0] boolean
+---@field STRENGTH boolean
+---@field [1] boolean
+---@field AGILITY boolean
+---@field [2] boolean
+---@field TOUGHNESS boolean
+---@field [3] boolean
+---@field ENDURANCE boolean
+---@field [4] boolean
+---@field RECUPERATION boolean
+---@field [5] boolean
+---@field DISEASE_RESISTANCE boolean
 
----@enum ghost_type
-df.ghost_type = {
-  None = -1,
-  MurderousGhost = 1,
-  SadisticGhost = 2,
-  SecretivePoltergeist = 3,
-  EnergeticPoltergeist = 4,
-  AngryGhost = 5,
-  ViolentGhost = 6,
-  MoaningSpirit = 7,
-  HowlingSpirit = 8,
-  TroublesomePoltergeist = 9,
-  RestlessHaunt = 10,
-  ForlornHaunt = 11,
-}
+---@class (exact) _mental_attribute_type: df.struct
+---@field ANALYTICAL_ABILITY 0
+---@field [0] "ANALYTICAL_ABILITY"
+---@field FOCUS 1
+---@field [1] "FOCUS"
+---@field WILLPOWER 2
+---@field [2] "WILLPOWER"
+---@field CREATIVITY 3
+---@field [3] "CREATIVITY"
+---@field INTUITION 4
+---@field [4] "INTUITION"
+---@field PATIENCE 5
+---@field [5] "PATIENCE"
+---@field MEMORY 6
+---@field [6] "MEMORY"
+---@field LINGUISTIC_ABILITY 7
+---@field [7] "LINGUISTIC_ABILITY"
+---@field SPATIAL_SENSE 8
+---@field [8] "SPATIAL_SENSE"
+---@field MUSICALITY 9
+---@field [9] "MUSICALITY"
+---@field KINESTHETIC_SENSE 10
+---@field [10] "KINESTHETIC_SENSE"
+---@field EMPATHY 11
+---@field [11] "EMPATHY"
+---@field SOCIAL_AWARENESS 12
+---@field [12] "SOCIAL_AWARENESS"
+df.mental_attribute_type = {}
 
----@enum animal_training_level
-df.animal_training_level = {
-  SemiWild = 0,
-  Trained = 1,
-  WellTrained = 2,
-  SkilfullyTrained = 3,
-  ExpertlyTrained = 4,
-  ExceptionallyTrained = 5,
-  MasterfullyTrained = 6,
-  Domesticated = 7,
-  Unk8 = 8,
-  WildUntamed = 9, --Seems to be used as default when not flags1.tame
-}
+---@class mental_attribute_type
+---@field [0] boolean
+---@field ANALYTICAL_ABILITY boolean
+---@field [1] boolean
+---@field FOCUS boolean
+---@field [2] boolean
+---@field WILLPOWER boolean
+---@field [3] boolean
+---@field CREATIVITY boolean
+---@field [4] boolean
+---@field INTUITION boolean
+---@field [5] boolean
+---@field PATIENCE boolean
+---@field [6] boolean
+---@field MEMORY boolean
+---@field [7] boolean
+---@field LINGUISTIC_ABILITY boolean
+---@field [8] boolean
+---@field SPATIAL_SENSE boolean
+---@field [9] boolean
+---@field MUSICALITY boolean
+---@field [10] boolean
+---@field KINESTHETIC_SENSE boolean
+---@field [11] boolean
+---@field EMPATHY boolean
+---@field [12] boolean
+---@field SOCIAL_AWARENESS boolean
 
----@enum unit_report_type
-df.unit_report_type = {
-  Combat = 0,
-  Sparring = 1,
-  Hunting = 2,
-}
+---@class (exact) _mood_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Fey 1
+---@field [1] "Fey"
+---@field Secretive 2
+---@field [2] "Secretive"
+---@field Possessed 3
+---@field [3] "Possessed"
+---@field Macabre 4
+---@field [4] "Macabre"
+---@field Fell 5
+---@field [5] "Fell"
+---@field Melancholy 6
+---@field [6] "Melancholy"
+---@field Raving 7
+---@field [7] "Raving"
+---@field Berserk 8
+---@field [8] "Berserk"
+---@field Baby 9
+---@field [9] "Baby"
+---@field Traumatized 10
+---@field [10] "Traumatized"
+df.mood_type = {}
 
----@enum skill_rating
-df.skill_rating = {
-  Dabbling = 0,
-  Novice = 1,
-  Adequate = 2,
-  Competent = 3,
-  Skilled = 4,
-  Proficient = 5,
-  Talented = 6,
-  Adept = 7,
-  Expert = 8,
-  Professional = 9,
-  Accomplished = 10,
-  Great = 11,
-  Master = 12,
-  HighMaster = 13,
-  GrandMaster = 14,
-  Legendary = 15,
-  Legendary1 = 16,
-  Legendary2 = 17,
-  Legendary3 = 18,
-  Legendary4 = 19,
-  Legendary5 = 20,
-}
+---@class mood_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Fey boolean
+---@field [2] boolean
+---@field Secretive boolean
+---@field [3] boolean
+---@field Possessed boolean
+---@field [4] boolean
+---@field Macabre boolean
+---@field [5] boolean
+---@field Fell boolean
+---@field [6] boolean
+---@field Melancholy boolean
+---@field [7] boolean
+---@field Raving boolean
+---@field [8] boolean
+---@field Berserk boolean
+---@field [9] boolean
+---@field Baby boolean
+---@field [10] boolean
+---@field Traumatized boolean
+
+---@class (exact) _ghost_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field MurderousGhost 1
+---@field [1] "MurderousGhost"
+---@field SadisticGhost 2
+---@field [2] "SadisticGhost"
+---@field SecretivePoltergeist 3
+---@field [3] "SecretivePoltergeist"
+---@field EnergeticPoltergeist 4
+---@field [4] "EnergeticPoltergeist"
+---@field AngryGhost 5
+---@field [5] "AngryGhost"
+---@field ViolentGhost 6
+---@field [6] "ViolentGhost"
+---@field MoaningSpirit 7
+---@field [7] "MoaningSpirit"
+---@field HowlingSpirit 8
+---@field [8] "HowlingSpirit"
+---@field TroublesomePoltergeist 9
+---@field [9] "TroublesomePoltergeist"
+---@field RestlessHaunt 10
+---@field [10] "RestlessHaunt"
+---@field ForlornHaunt 11
+---@field [11] "ForlornHaunt"
+df.ghost_type = {}
+
+---@class ghost_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field MurderousGhost boolean
+---@field [2] boolean
+---@field SadisticGhost boolean
+---@field [3] boolean
+---@field SecretivePoltergeist boolean
+---@field [4] boolean
+---@field EnergeticPoltergeist boolean
+---@field [5] boolean
+---@field AngryGhost boolean
+---@field [6] boolean
+---@field ViolentGhost boolean
+---@field [7] boolean
+---@field MoaningSpirit boolean
+---@field [8] boolean
+---@field HowlingSpirit boolean
+---@field [9] boolean
+---@field TroublesomePoltergeist boolean
+---@field [10] boolean
+---@field RestlessHaunt boolean
+---@field [11] boolean
+---@field ForlornHaunt boolean
+
+---@class (exact) _animal_training_level: df.struct
+---@field SemiWild 0
+---@field [0] "SemiWild"
+---@field Trained 1
+---@field [1] "Trained"
+---@field WellTrained 2
+---@field [2] "WellTrained"
+---@field SkilfullyTrained 3
+---@field [3] "SkilfullyTrained"
+---@field ExpertlyTrained 4
+---@field [4] "ExpertlyTrained"
+---@field ExceptionallyTrained 5
+---@field [5] "ExceptionallyTrained"
+---@field MasterfullyTrained 6
+---@field [6] "MasterfullyTrained"
+---@field Domesticated 7
+---@field [7] "Domesticated"
+---@field Unk8 8
+---@field [8] "Unk8"
+---@field WildUntamed 9
+---@field [9] "WildUntamed"
+df.animal_training_level = {}
+
+---@class animal_training_level
+---@field [0] boolean
+---@field SemiWild boolean
+---@field [1] boolean
+---@field Trained boolean
+---@field [2] boolean
+---@field WellTrained boolean
+---@field [3] boolean
+---@field SkilfullyTrained boolean
+---@field [4] boolean
+---@field ExpertlyTrained boolean
+---@field [5] boolean
+---@field ExceptionallyTrained boolean
+---@field [6] boolean
+---@field MasterfullyTrained boolean
+---@field [7] boolean
+---@field Domesticated boolean
+---@field [8] boolean
+---@field Unk8 boolean
+---@field [9] boolean
+---@field WildUntamed boolean
+
+---@class (exact) _unit_report_type: df.struct
+---@field Combat 0
+---@field [0] "Combat"
+---@field Sparring 1
+---@field [1] "Sparring"
+---@field Hunting 2
+---@field [2] "Hunting"
+df.unit_report_type = {}
+
+---@class unit_report_type
+---@field [0] boolean
+---@field Combat boolean
+---@field [1] boolean
+---@field Sparring boolean
+---@field [2] boolean
+---@field Hunting boolean
+
+---@class (exact) _skill_rating: df.struct
+---@field Dabbling 0
+---@field [0] "Dabbling"
+---@field Novice 1
+---@field [1] "Novice"
+---@field Adequate 2
+---@field [2] "Adequate"
+---@field Competent 3
+---@field [3] "Competent"
+---@field Skilled 4
+---@field [4] "Skilled"
+---@field Proficient 5
+---@field [5] "Proficient"
+---@field Talented 6
+---@field [6] "Talented"
+---@field Adept 7
+---@field [7] "Adept"
+---@field Expert 8
+---@field [8] "Expert"
+---@field Professional 9
+---@field [9] "Professional"
+---@field Accomplished 10
+---@field [10] "Accomplished"
+---@field Great 11
+---@field [11] "Great"
+---@field Master 12
+---@field [12] "Master"
+---@field HighMaster 13
+---@field [13] "HighMaster"
+---@field GrandMaster 14
+---@field [14] "GrandMaster"
+---@field Legendary 15
+---@field [15] "Legendary"
+---@field Legendary1 16
+---@field [16] "Legendary1"
+---@field Legendary2 17
+---@field [17] "Legendary2"
+---@field Legendary3 18
+---@field [18] "Legendary3"
+---@field Legendary4 19
+---@field [19] "Legendary4"
+---@field Legendary5 20
+---@field [20] "Legendary5"
+df.skill_rating = {}
+
+---@class skill_rating
+---@field [0] boolean
+---@field Dabbling boolean
+---@field [1] boolean
+---@field Novice boolean
+---@field [2] boolean
+---@field Adequate boolean
+---@field [3] boolean
+---@field Competent boolean
+---@field [4] boolean
+---@field Skilled boolean
+---@field [5] boolean
+---@field Proficient boolean
+---@field [6] boolean
+---@field Talented boolean
+---@field [7] boolean
+---@field Adept boolean
+---@field [8] boolean
+---@field Expert boolean
+---@field [9] boolean
+---@field Professional boolean
+---@field [10] boolean
+---@field Accomplished boolean
+---@field [11] boolean
+---@field Great boolean
+---@field [12] boolean
+---@field Master boolean
+---@field [13] boolean
+---@field HighMaster boolean
+---@field [14] boolean
+---@field GrandMaster boolean
+---@field [15] boolean
+---@field Legendary boolean
+---@field [16] boolean
+---@field Legendary1 boolean
+---@field [17] boolean
+---@field Legendary2 boolean
+---@field [18] boolean
+---@field Legendary3 boolean
+---@field [19] boolean
+---@field Legendary4 boolean
+---@field [20] boolean
+---@field Legendary5 boolean
 
 ---@class skill_rating_attr
 ---@field xp_threshold uint32_t
@@ -365,100 +1247,349 @@ df.skill_rating = {
 ---@type { [string|integer]: skill_rating_attr }
 df.skill_rating.attrs = {}
 
----@enum unit_relationship_type
+---@class (exact) _unit_relationship_type: df.struct
 ---Used in unit.relations
-df.unit_relationship_type = {
-  None = -1,
-  Pet = 1,
-  Spouse = 2,
-  Mother = 3,
-  Father = 4,
-  LastAttacker = 5,
-  GroupLeader = 6,
-  Draggee = 7,
-  Dragger = 8,
-  RiderMount = 9,
-  Lover = 10,
-  unk10 = 11,
-  Sibling = 12,
-  Child = 13,
-  Friend = 14,
-  Grudge = 15,
-  Worship = 16,
-  AcquaintanceLong = 17,
-  AcquaintancePassing = 18,
-  Bonded = 19,
-  Hero = 20,
-  ConsidersViolent = 21,
-  ConsidersPsychotic = 22,
-  GoodForBusiness = 23,
-  FriendlyTerms = 24,
-  ConsidersKiller = 25,
-  ConsidersMurderer = 26,
-  Comrade = 27,
-  MemberOfRespectedGroup = 28,
-  MemberOfHatedGroup = 29,
-  EnemyFighter = 30,
-  FriendlyFighter = 31,
-  ConsidersBully = 32,
-  ConsidersBrigand = 33,
-  LoyalSoldier = 34,
-  ConsidersMonster = 35,
-  ConsidersStoryteller = 36,
-  ConsidersPoet = 37,
-  ConsidersBard = 38,
-  ConsidersDancer = 39,
-  Master = 40,
-  Apprentice = 41,
-  Companion = 42,
-  FormerMaster = 43,
-  FormerApprentice = 44,
-  ConsidersQuarreler = 45,
-  ConsidersFlatterer = 46,
-  Hunter = 47,
-  ProtectorOfTheWeak = 48,
-}
+---@field None -1
+---@field [0] "None"
+---@field Pet 1
+---@field [1] "Pet"
+---@field Spouse 2
+---@field [2] "Spouse"
+---@field Mother 3
+---@field [3] "Mother"
+---@field Father 4
+---@field [4] "Father"
+---@field LastAttacker 5
+---@field [5] "LastAttacker"
+---@field GroupLeader 6
+---@field [6] "GroupLeader"
+---@field Draggee 7
+---@field [7] "Draggee"
+---@field Dragger 8
+---@field [8] "Dragger"
+---@field RiderMount 9
+---@field [9] "RiderMount"
+---@field Lover 10
+---@field [10] "Lover"
+---@field unk10 11
+---@field [11] "unk10"
+---@field Sibling 12
+---@field [12] "Sibling"
+---@field Child 13
+---@field [13] "Child"
+---@field Friend 14
+---@field [14] "Friend"
+---@field Grudge 15
+---@field [15] "Grudge"
+---@field Worship 16
+---@field [16] "Worship"
+---@field AcquaintanceLong 17
+---@field [17] "AcquaintanceLong"
+---@field AcquaintancePassing 18
+---@field [18] "AcquaintancePassing"
+---@field Bonded 19
+---@field [19] "Bonded"
+---@field Hero 20
+---@field [20] "Hero"
+---@field ConsidersViolent 21
+---@field [21] "ConsidersViolent"
+---@field ConsidersPsychotic 22
+---@field [22] "ConsidersPsychotic"
+---@field GoodForBusiness 23
+---@field [23] "GoodForBusiness"
+---@field FriendlyTerms 24
+---@field [24] "FriendlyTerms"
+---@field ConsidersKiller 25
+---@field [25] "ConsidersKiller"
+---@field ConsidersMurderer 26
+---@field [26] "ConsidersMurderer"
+---@field Comrade 27
+---@field [27] "Comrade"
+---@field MemberOfRespectedGroup 28
+---@field [28] "MemberOfRespectedGroup"
+---@field MemberOfHatedGroup 29
+---@field [29] "MemberOfHatedGroup"
+---@field EnemyFighter 30
+---@field [30] "EnemyFighter"
+---@field FriendlyFighter 31
+---@field [31] "FriendlyFighter"
+---@field ConsidersBully 32
+---@field [32] "ConsidersBully"
+---@field ConsidersBrigand 33
+---@field [33] "ConsidersBrigand"
+---@field LoyalSoldier 34
+---@field [34] "LoyalSoldier"
+---@field ConsidersMonster 35
+---@field [35] "ConsidersMonster"
+---@field ConsidersStoryteller 36
+---@field [36] "ConsidersStoryteller"
+---@field ConsidersPoet 37
+---@field [37] "ConsidersPoet"
+---@field ConsidersBard 38
+---@field [38] "ConsidersBard"
+---@field ConsidersDancer 39
+---@field [39] "ConsidersDancer"
+---@field Master 40
+---@field [40] "Master"
+---@field Apprentice 41
+---@field [41] "Apprentice"
+---@field Companion 42
+---@field [42] "Companion"
+---@field FormerMaster 43
+---@field [43] "FormerMaster"
+---@field FormerApprentice 44
+---@field [44] "FormerApprentice"
+---@field ConsidersQuarreler 45
+---@field [45] "ConsidersQuarreler"
+---@field ConsidersFlatterer 46
+---@field [46] "ConsidersFlatterer"
+---@field Hunter 47
+---@field [47] "Hunter"
+---@field ProtectorOfTheWeak 48
+---@field [48] "ProtectorOfTheWeak"
+df.unit_relationship_type = {}
 
----@enum need_type
-df.need_type = {
-  Socialize = 0,
-  DrinkAlcohol = 1,
-  PrayOrMeditate = 2,
-  StayOccupied = 3,
-  BeCreative = 4,
-  Excitement = 5,
-  LearnSomething = 6,
-  BeWithFamily = 7,
-  BeWithFriends = 8,
-  HearEloquence = 9,
-  UpholdTradition = 10,
-  SelfExamination = 11,
-  MakeMerry = 12,
-  CraftObject = 13,
-  MartialTraining = 14,
-  PracticeSkill = 15,
-  TakeItEasy = 16,
-  MakeRomance = 17,
-  SeeAnimal = 18,
-  SeeGreatBeast = 19,
-  AcquireObject = 20,
-  EatGoodMeal = 21,
-  Fight = 22,
-  CauseTrouble = 23,
-  Argue = 24,
-  BeExtravagant = 25,
-  Wander = 26,
-  HelpSomebody = 27,
-  ThinkAbstractly = 28,
-  AdmireArt = 29,
-}
+---@class unit_relationship_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Pet boolean
+---@field [2] boolean
+---@field Spouse boolean
+---@field [3] boolean
+---@field Mother boolean
+---@field [4] boolean
+---@field Father boolean
+---@field [5] boolean
+---@field LastAttacker boolean
+---@field [6] boolean
+---@field GroupLeader boolean
+---@field [7] boolean
+---@field Draggee boolean
+---@field [8] boolean
+---@field Dragger boolean
+---@field [9] boolean
+---@field RiderMount boolean
+---@field [10] boolean
+---@field Lover boolean
+---@field [11] boolean
+---@field unk10 boolean
+---@field [12] boolean
+---@field Sibling boolean
+---@field [13] boolean
+---@field Child boolean
+---@field [14] boolean
+---@field Friend boolean
+---@field [15] boolean
+---@field Grudge boolean
+---@field [16] boolean
+---@field Worship boolean
+---@field [17] boolean
+---@field AcquaintanceLong boolean
+---@field [18] boolean
+---@field AcquaintancePassing boolean
+---@field [19] boolean
+---@field Bonded boolean
+---@field [20] boolean
+---@field Hero boolean
+---@field [21] boolean
+---@field ConsidersViolent boolean
+---@field [22] boolean
+---@field ConsidersPsychotic boolean
+---@field [23] boolean
+---@field GoodForBusiness boolean
+---@field [24] boolean
+---@field FriendlyTerms boolean
+---@field [25] boolean
+---@field ConsidersKiller boolean
+---@field [26] boolean
+---@field ConsidersMurderer boolean
+---@field [27] boolean
+---@field Comrade boolean
+---@field [28] boolean
+---@field MemberOfRespectedGroup boolean
+---@field [29] boolean
+---@field MemberOfHatedGroup boolean
+---@field [30] boolean
+---@field EnemyFighter boolean
+---@field [31] boolean
+---@field FriendlyFighter boolean
+---@field [32] boolean
+---@field ConsidersBully boolean
+---@field [33] boolean
+---@field ConsidersBrigand boolean
+---@field [34] boolean
+---@field LoyalSoldier boolean
+---@field [35] boolean
+---@field ConsidersMonster boolean
+---@field [36] boolean
+---@field ConsidersStoryteller boolean
+---@field [37] boolean
+---@field ConsidersPoet boolean
+---@field [38] boolean
+---@field ConsidersBard boolean
+---@field [39] boolean
+---@field ConsidersDancer boolean
+---@field [40] boolean
+---@field Master boolean
+---@field [41] boolean
+---@field Apprentice boolean
+---@field [42] boolean
+---@field Companion boolean
+---@field [43] boolean
+---@field FormerMaster boolean
+---@field [44] boolean
+---@field FormerApprentice boolean
+---@field [45] boolean
+---@field ConsidersQuarreler boolean
+---@field [46] boolean
+---@field ConsidersFlatterer boolean
+---@field [47] boolean
+---@field Hunter boolean
+---@field [48] boolean
+---@field ProtectorOfTheWeak boolean
 
----@enum pronoun_type
-df.pronoun_type = {
-  it = -1,
-  she = 1,
-  he = 2,
-}
+---@class (exact) _need_type: df.struct
+---@field Socialize 0
+---@field [0] "Socialize"
+---@field DrinkAlcohol 1
+---@field [1] "DrinkAlcohol"
+---@field PrayOrMeditate 2
+---@field [2] "PrayOrMeditate"
+---@field StayOccupied 3
+---@field [3] "StayOccupied"
+---@field BeCreative 4
+---@field [4] "BeCreative"
+---@field Excitement 5
+---@field [5] "Excitement"
+---@field LearnSomething 6
+---@field [6] "LearnSomething"
+---@field BeWithFamily 7
+---@field [7] "BeWithFamily"
+---@field BeWithFriends 8
+---@field [8] "BeWithFriends"
+---@field HearEloquence 9
+---@field [9] "HearEloquence"
+---@field UpholdTradition 10
+---@field [10] "UpholdTradition"
+---@field SelfExamination 11
+---@field [11] "SelfExamination"
+---@field MakeMerry 12
+---@field [12] "MakeMerry"
+---@field CraftObject 13
+---@field [13] "CraftObject"
+---@field MartialTraining 14
+---@field [14] "MartialTraining"
+---@field PracticeSkill 15
+---@field [15] "PracticeSkill"
+---@field TakeItEasy 16
+---@field [16] "TakeItEasy"
+---@field MakeRomance 17
+---@field [17] "MakeRomance"
+---@field SeeAnimal 18
+---@field [18] "SeeAnimal"
+---@field SeeGreatBeast 19
+---@field [19] "SeeGreatBeast"
+---@field AcquireObject 20
+---@field [20] "AcquireObject"
+---@field EatGoodMeal 21
+---@field [21] "EatGoodMeal"
+---@field Fight 22
+---@field [22] "Fight"
+---@field CauseTrouble 23
+---@field [23] "CauseTrouble"
+---@field Argue 24
+---@field [24] "Argue"
+---@field BeExtravagant 25
+---@field [25] "BeExtravagant"
+---@field Wander 26
+---@field [26] "Wander"
+---@field HelpSomebody 27
+---@field [27] "HelpSomebody"
+---@field ThinkAbstractly 28
+---@field [28] "ThinkAbstractly"
+---@field AdmireArt 29
+---@field [29] "AdmireArt"
+df.need_type = {}
+
+---@class need_type
+---@field [0] boolean
+---@field Socialize boolean
+---@field [1] boolean
+---@field DrinkAlcohol boolean
+---@field [2] boolean
+---@field PrayOrMeditate boolean
+---@field [3] boolean
+---@field StayOccupied boolean
+---@field [4] boolean
+---@field BeCreative boolean
+---@field [5] boolean
+---@field Excitement boolean
+---@field [6] boolean
+---@field LearnSomething boolean
+---@field [7] boolean
+---@field BeWithFamily boolean
+---@field [8] boolean
+---@field BeWithFriends boolean
+---@field [9] boolean
+---@field HearEloquence boolean
+---@field [10] boolean
+---@field UpholdTradition boolean
+---@field [11] boolean
+---@field SelfExamination boolean
+---@field [12] boolean
+---@field MakeMerry boolean
+---@field [13] boolean
+---@field CraftObject boolean
+---@field [14] boolean
+---@field MartialTraining boolean
+---@field [15] boolean
+---@field PracticeSkill boolean
+---@field [16] boolean
+---@field TakeItEasy boolean
+---@field [17] boolean
+---@field MakeRomance boolean
+---@field [18] boolean
+---@field SeeAnimal boolean
+---@field [19] boolean
+---@field SeeGreatBeast boolean
+---@field [20] boolean
+---@field AcquireObject boolean
+---@field [21] boolean
+---@field EatGoodMeal boolean
+---@field [22] boolean
+---@field Fight boolean
+---@field [23] boolean
+---@field CauseTrouble boolean
+---@field [24] boolean
+---@field Argue boolean
+---@field [25] boolean
+---@field BeExtravagant boolean
+---@field [26] boolean
+---@field Wander boolean
+---@field [27] boolean
+---@field HelpSomebody boolean
+---@field [28] boolean
+---@field ThinkAbstractly boolean
+---@field [29] boolean
+---@field AdmireArt boolean
+
+---@class (exact) _pronoun_type: df.struct
+---@field it -1
+---@field [0] "it"
+---@field she 1
+---@field [1] "she"
+---@field he 2
+---@field [2] "he"
+df.pronoun_type = {}
+
+---@class pronoun_type
+---@field [0] boolean
+---@field it boolean
+---@field [1] boolean
+---@field she boolean
+---@field [2] boolean
+---@field he boolean
 
 ---@class pronoun_type_attr
 ---@field symbol string
@@ -592,13 +1723,26 @@ df.unit.T_path = {}
 ---@field pad_1 any
 df.unit.T_meeting = {}
 
----@enum meeting_state
-df.meeting.T_state = {
-  SelectNoble = 0,
-  FollowNoble = 1,
-  DoMeeting = 2,
-  LeaveMap = 3,
-}
+---@class (exact) _meeting_state: df.struct
+---@field SelectNoble 0
+---@field [0] "SelectNoble"
+---@field FollowNoble 1
+---@field [1] "FollowNoble"
+---@field DoMeeting 2
+---@field [2] "DoMeeting"
+---@field LeaveMap 3
+---@field [3] "LeaveMap"
+df.meeting.T_state = {}
+
+---@class meeting_state
+---@field [0] boolean
+---@field SelectNoble boolean
+---@field [1] boolean
+---@field FollowNoble boolean
+---@field [2] boolean
+---@field DoMeeting boolean
+---@field [3] boolean
+---@field LeaveMap boolean
 
 ---@class unit_military: df.struct
 ---@field squad_id squad
@@ -614,10 +1758,14 @@ df.meeting.T_state = {
 ---@field individual_drills integer[]
 df.unit.T_military = {}
 
----@enum military_pickup_flags
-df.military.T_pickup_flags = {
-  update = 0,
-}
+---@class (exact) _military_pickup_flags: df.struct
+---@field update 0
+---@field [0] "update"
+df.military.T_pickup_flags = {}
+
+---@class military_pickup_flags
+---@field [0] boolean
+---@field update boolean
 
 ---@class unit_animal: df.struct
 ---@field population world_population_ref
@@ -699,15 +1847,34 @@ df.unit.T_appearance = {}
 ---@field dizziness integer
 df.unit.T_counters = {}
 
----@enum counters_soldier_mood
-df.counters.T_soldier_mood = {
-  None = -1,
-  MartialTrance = 1,
-  Enraged = 2,
-  Tantrum = 3,
-  Depressed = 4,
-  Oblivious = 5,
-}
+---@class (exact) _counters_soldier_mood: df.struct
+---@field None -1
+---@field [0] "None"
+---@field MartialTrance 1
+---@field [1] "MartialTrance"
+---@field Enraged 2
+---@field [2] "Enraged"
+---@field Tantrum 3
+---@field [3] "Tantrum"
+---@field Depressed 4
+---@field [4] "Depressed"
+---@field Oblivious 5
+---@field [5] "Oblivious"
+df.counters.T_soldier_mood = {}
+
+---@class counters_soldier_mood
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field MartialTrance boolean
+---@field [2] boolean
+---@field Enraged boolean
+---@field [3] boolean
+---@field Tantrum boolean
+---@field [4] boolean
+---@field Depressed boolean
+---@field [5] boolean
+---@field Oblivious boolean
 
 ---@class unit_curse: df.struct
 ---@field unk_0 integer moved from end of counters in 0.43.05
@@ -873,17 +2040,31 @@ df.unit.T_enemy = {}
 ---@field visitor_info any[]
 df.enemy.T_unk_v40_sub3 = {}
 
----@enum witness_report_type
-df.witness_report_type = {
-  None = -1,
-  WitnessedCrime = 1,
-  FoundCorpse = 2,
-}
+---@class (exact) _witness_report_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field WitnessedCrime 1
+---@field [1] "WitnessedCrime"
+---@field FoundCorpse 2
+---@field [2] "FoundCorpse"
+df.witness_report_type = {}
 
----@enum witness_report_flags
-df.witness_report_flags = {
-  accuses = 0,
-}
+---@class witness_report_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field WitnessedCrime boolean
+---@field [2] boolean
+---@field FoundCorpse boolean
+
+---@class (exact) _witness_report_flags: df.struct
+---@field accuses 0
+---@field [0] "accuses"
+df.witness_report_flags = {}
+
+---@class witness_report_flags
+---@field [0] boolean
+---@field accuses boolean
 
 ---@class witness_report: df.struct
 ---@field death_id incident
@@ -903,18 +2084,46 @@ df.witness_report_flags = {
 ---@field pos coord
 df.witness_report = {}
 
----@enum ghost_goal
-df.ghost_goal = {
-  None = -1,
-  ScareToDeath = 1,
-  Stun = 2,
-  Batter = 3,
-  Possess = 4,
-  MisplaceItem = 5,
-  Haunt = 6,
-  Torment = 7,
-  ToppleBuilding = 8,
-}
+---@class (exact) _ghost_goal: df.struct
+---@field None -1
+---@field [0] "None"
+---@field ScareToDeath 1
+---@field [1] "ScareToDeath"
+---@field Stun 2
+---@field [2] "Stun"
+---@field Batter 3
+---@field [3] "Batter"
+---@field Possess 4
+---@field [4] "Possess"
+---@field MisplaceItem 5
+---@field [5] "MisplaceItem"
+---@field Haunt 6
+---@field [6] "Haunt"
+---@field Torment 7
+---@field [7] "Torment"
+---@field ToppleBuilding 8
+---@field [8] "ToppleBuilding"
+df.ghost_goal = {}
+
+---@class ghost_goal
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field ScareToDeath boolean
+---@field [2] boolean
+---@field Stun boolean
+---@field [3] boolean
+---@field Batter boolean
+---@field [4] boolean
+---@field Possess boolean
+---@field [5] boolean
+---@field MisplaceItem boolean
+---@field [6] boolean
+---@field Haunt boolean
+---@field [7] boolean
+---@field Torment boolean
+---@field [8] boolean
+---@field ToppleBuilding boolean
 
 ---@class unit_ghost_info: df.struct
 ---@field type ghost_type
@@ -936,11 +2145,18 @@ df.unit_ghost_info = {}
 ---@field building building
 df.unit_ghost_info.T_target = {}
 
----@enum unit_ghost_info_flags
-df.unit_ghost_info.T_flags = {
-  announced = 0,
-  was_at_rest = 1,
-}
+---@class (exact) _unit_ghost_info_flags: df.struct
+---@field announced 0
+---@field [0] "announced"
+---@field was_at_rest 1
+---@field [1] "was_at_rest"
+df.unit_ghost_info.T_flags = {}
+
+---@class unit_ghost_info_flags
+---@field [0] boolean
+---@field announced boolean
+---@field [1] boolean
+---@field was_at_rest boolean
 
 ---@class unit_genes: df.struct
 ---@field appearance integer
@@ -955,20 +2171,54 @@ df.unit_genes = {}
 ---@field wound_id integer -1 unless suture
 df.unit_inventory_item = {}
 
----@enum unit_inventory_item_mode
-df.unit_inventory_item.T_mode = {
-  Hauled = 0,
-  Weapon = 1, --also shield, crutch
-  Worn = 2, --quiver
-  Piercing = 3,
-  Flask = 4, --attached to clothing
-  WrappedAround = 5, --e.g. bandage
-  StuckIn = 6,
-  InMouth = 7, --string descr like Worn
-  Pet = 8, --Left shoulder, right shoulder, or head, selected randomly using pet_seed
-  SewnInto = 9,
-  Strapped = 10,
-}
+---@class (exact) _unit_inventory_item_mode: df.struct
+---@field Hauled 0
+---@field [0] "Hauled"
+---@field Weapon 1
+---@field [1] "Weapon"
+---@field Worn 2
+---@field [2] "Worn"
+---@field Piercing 3
+---@field [3] "Piercing"
+---@field Flask 4
+---@field [4] "Flask"
+---@field WrappedAround 5
+---@field [5] "WrappedAround"
+---@field StuckIn 6
+---@field [6] "StuckIn"
+---@field InMouth 7
+---@field [7] "InMouth"
+---@field Pet 8
+---@field [8] "Pet"
+---@field SewnInto 9
+---@field [9] "SewnInto"
+---@field Strapped 10
+---@field [10] "Strapped"
+df.unit_inventory_item.T_mode = {}
+
+---@class unit_inventory_item_mode
+---@field [0] boolean
+---@field Hauled boolean
+---@field [1] boolean
+---@field Weapon boolean
+---@field [2] boolean
+---@field Worn boolean
+---@field [3] boolean
+---@field Piercing boolean
+---@field [4] boolean
+---@field Flask boolean
+---@field [5] boolean
+---@field WrappedAround boolean
+---@field [6] boolean
+---@field StuckIn boolean
+---@field [7] boolean
+---@field InMouth boolean
+---@field [8] boolean
+---@field Pet boolean
+---@field [9] boolean
+---@field SewnInto boolean
+---@field [10] boolean
+---@field Strapped boolean
 
 ---@class unit_attribute: df.struct
 ---@field value integer effective = value - soft_demotion
@@ -1007,76 +2257,234 @@ df.unit_syndrome = {}
 ---@field random_transformation_caste caste_raw With syndromes that transform the unit into a random creature, the target caste ID is stored here.
 df.unit_syndrome.T_symptoms = {}
 
----@enum symptoms_flags
-df.symptoms.T_flags = {
-  disabled = 0, --if PROB roll fails, or all symptoms expire
-  active = 1,
-}
+---@class (exact) _symptoms_flags: df.struct
+---@field disabled 0
+---@field [0] "disabled"
+---@field active 1
+---@field [1] "active"
+df.symptoms.T_flags = {}
 
----@enum unit_syndrome_flags
-df.unit_syndrome.T_flags = {
-  is_sick = 0, --causes health.flags.needs_healthcare
-  is_sick_low = 1, --less sick? fever: 5-19 low, 20-* full
-  unk_2 = 2,
-  unk_3 = 3,
-}
+---@class symptoms_flags
+---@field [0] boolean
+---@field disabled boolean
+---@field [1] boolean
+---@field active boolean
 
----@enum wound_effect_type
-df.wound_effect_type = {
-  Bruise = 0,
-  Burn = 1,
-  Frostbite = 2,
-  Burn2 = 3,
-  Melting = 4,
-  Boiling = 5,
-  Freezing = 6,
-  Condensation = 7,
-  Necrosis = 8,
-  Blister = 9,
-}
+---@class (exact) _unit_syndrome_flags: df.struct
+---@field is_sick 0
+---@field [0] "is_sick"
+---@field is_sick_low 1
+---@field [1] "is_sick_low"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field unk_3 3
+---@field [3] "unk_3"
+df.unit_syndrome.T_flags = {}
 
----@enum wound_damage_flags1
-df.wound_damage_flags1 = {
-  cut = 0,
-  smashed = 1,
-  scar_cut = 2, --straight scar
-  scar_smashed = 3, --huge dent
-  tendon_bruised = 4,
-  tendon_strained = 5,
-  tendon_torn = 6,
-  ligament_bruised = 7,
-  ligament_sprained = 8,
-  ligament_torn = 9,
-  motor_nerve_severed = 10,
-  sensory_nerve_severed = 11,
-  edged_damage = 12,
-  smashed_apart = 13, --?
-  major_artery = 14,
-  guts_spilled = 15,
-  edged_shake1 = 16,
-  scar_edged_shake1 = 17, --jagged scar
-  edged_shake2 = 18,
-  broken = 19,
-  scar_broken = 20, --huge dent
-  gouged = 21,
-  blunt_shake1 = 22,
-  scar_blunt_shake1 = 23, --jagged scar
-  blunt_shake2 = 24,
-  joint_bend1 = 25,
-  scar_joint_bend1 = 26, --jagged scar
-  joint_bend2 = 27,
-  compound_fracture = 28,
-  diagnosed = 29,
-  artery = 30,
-  overlapping_fracture = 31,
-}
+---@class unit_syndrome_flags
+---@field [0] boolean
+---@field is_sick boolean
+---@field [1] boolean
+---@field is_sick_low boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field unk_3 boolean
 
----@enum wound_damage_flags2
-df.wound_damage_flags2 = {
-  needs_setting = 0,
-  entire_surface = 1,
-  gelded = 2,
-}
+---@class (exact) _wound_effect_type: df.struct
+---@field Bruise 0
+---@field [0] "Bruise"
+---@field Burn 1
+---@field [1] "Burn"
+---@field Frostbite 2
+---@field [2] "Frostbite"
+---@field Burn2 3
+---@field [3] "Burn2"
+---@field Melting 4
+---@field [4] "Melting"
+---@field Boiling 5
+---@field [5] "Boiling"
+---@field Freezing 6
+---@field [6] "Freezing"
+---@field Condensation 7
+---@field [7] "Condensation"
+---@field Necrosis 8
+---@field [8] "Necrosis"
+---@field Blister 9
+---@field [9] "Blister"
+df.wound_effect_type = {}
+
+---@class wound_effect_type
+---@field [0] boolean
+---@field Bruise boolean
+---@field [1] boolean
+---@field Burn boolean
+---@field [2] boolean
+---@field Frostbite boolean
+---@field [3] boolean
+---@field Burn2 boolean
+---@field [4] boolean
+---@field Melting boolean
+---@field [5] boolean
+---@field Boiling boolean
+---@field [6] boolean
+---@field Freezing boolean
+---@field [7] boolean
+---@field Condensation boolean
+---@field [8] boolean
+---@field Necrosis boolean
+---@field [9] boolean
+---@field Blister boolean
+
+---@class (exact) _wound_damage_flags1: df.struct
+---@field cut 0
+---@field [0] "cut"
+---@field smashed 1
+---@field [1] "smashed"
+---@field scar_cut 2
+---@field [2] "scar_cut"
+---@field scar_smashed 3
+---@field [3] "scar_smashed"
+---@field tendon_bruised 4
+---@field [4] "tendon_bruised"
+---@field tendon_strained 5
+---@field [5] "tendon_strained"
+---@field tendon_torn 6
+---@field [6] "tendon_torn"
+---@field ligament_bruised 7
+---@field [7] "ligament_bruised"
+---@field ligament_sprained 8
+---@field [8] "ligament_sprained"
+---@field ligament_torn 9
+---@field [9] "ligament_torn"
+---@field motor_nerve_severed 10
+---@field [10] "motor_nerve_severed"
+---@field sensory_nerve_severed 11
+---@field [11] "sensory_nerve_severed"
+---@field edged_damage 12
+---@field [12] "edged_damage"
+---@field smashed_apart 13
+---@field [13] "smashed_apart"
+---@field major_artery 14
+---@field [14] "major_artery"
+---@field guts_spilled 15
+---@field [15] "guts_spilled"
+---@field edged_shake1 16
+---@field [16] "edged_shake1"
+---@field scar_edged_shake1 17
+---@field [17] "scar_edged_shake1"
+---@field edged_shake2 18
+---@field [18] "edged_shake2"
+---@field broken 19
+---@field [19] "broken"
+---@field scar_broken 20
+---@field [20] "scar_broken"
+---@field gouged 21
+---@field [21] "gouged"
+---@field blunt_shake1 22
+---@field [22] "blunt_shake1"
+---@field scar_blunt_shake1 23
+---@field [23] "scar_blunt_shake1"
+---@field blunt_shake2 24
+---@field [24] "blunt_shake2"
+---@field joint_bend1 25
+---@field [25] "joint_bend1"
+---@field scar_joint_bend1 26
+---@field [26] "scar_joint_bend1"
+---@field joint_bend2 27
+---@field [27] "joint_bend2"
+---@field compound_fracture 28
+---@field [28] "compound_fracture"
+---@field diagnosed 29
+---@field [29] "diagnosed"
+---@field artery 30
+---@field [30] "artery"
+---@field overlapping_fracture 31
+---@field [31] "overlapping_fracture"
+df.wound_damage_flags1 = {}
+
+---@class wound_damage_flags1
+---@field [0] boolean
+---@field cut boolean
+---@field [1] boolean
+---@field smashed boolean
+---@field [2] boolean
+---@field scar_cut boolean
+---@field [3] boolean
+---@field scar_smashed boolean
+---@field [4] boolean
+---@field tendon_bruised boolean
+---@field [5] boolean
+---@field tendon_strained boolean
+---@field [6] boolean
+---@field tendon_torn boolean
+---@field [7] boolean
+---@field ligament_bruised boolean
+---@field [8] boolean
+---@field ligament_sprained boolean
+---@field [9] boolean
+---@field ligament_torn boolean
+---@field [10] boolean
+---@field motor_nerve_severed boolean
+---@field [11] boolean
+---@field sensory_nerve_severed boolean
+---@field [12] boolean
+---@field edged_damage boolean
+---@field [13] boolean
+---@field smashed_apart boolean
+---@field [14] boolean
+---@field major_artery boolean
+---@field [15] boolean
+---@field guts_spilled boolean
+---@field [16] boolean
+---@field edged_shake1 boolean
+---@field [17] boolean
+---@field scar_edged_shake1 boolean
+---@field [18] boolean
+---@field edged_shake2 boolean
+---@field [19] boolean
+---@field broken boolean
+---@field [20] boolean
+---@field scar_broken boolean
+---@field [21] boolean
+---@field gouged boolean
+---@field [22] boolean
+---@field blunt_shake1 boolean
+---@field [23] boolean
+---@field scar_blunt_shake1 boolean
+---@field [24] boolean
+---@field blunt_shake2 boolean
+---@field [25] boolean
+---@field joint_bend1 boolean
+---@field [26] boolean
+---@field scar_joint_bend1 boolean
+---@field [27] boolean
+---@field joint_bend2 boolean
+---@field [28] boolean
+---@field compound_fracture boolean
+---@field [29] boolean
+---@field diagnosed boolean
+---@field [30] boolean
+---@field artery boolean
+---@field [31] boolean
+---@field overlapping_fracture boolean
+
+---@class (exact) _wound_damage_flags2: df.struct
+---@field needs_setting 0
+---@field [0] "needs_setting"
+---@field entire_surface 1
+---@field [1] "entire_surface"
+---@field gelded 2
+---@field [2] "gelded"
+df.wound_damage_flags2 = {}
+
+---@class wound_damage_flags2
+---@field [0] boolean
+---@field needs_setting boolean
+---@field [1] boolean
+---@field entire_surface boolean
+---@field [2] boolean
+---@field gelded boolean
 
 ---@class unit_wound: df.struct
 ---@field id integer
@@ -1130,15 +2538,34 @@ df.unit_wound.T_parts = {}
 ---@class parts_effect_type: df.struct
 df.parts.T_effect_type = {}
 
----@enum unit_wound_flags
-df.unit_wound.T_flags = {
-  severed_part = 0,
-  mortal_wound = 1,
-  stuck_weapon = 2,
-  diagnosed = 3,
-  sutured = 4,
-  infection = 5,
-}
+---@class (exact) _unit_wound_flags: df.struct
+---@field severed_part 0
+---@field [0] "severed_part"
+---@field mortal_wound 1
+---@field [1] "mortal_wound"
+---@field stuck_weapon 2
+---@field [2] "stuck_weapon"
+---@field diagnosed 3
+---@field [3] "diagnosed"
+---@field sutured 4
+---@field [4] "sutured"
+---@field infection 5
+---@field [5] "infection"
+df.unit_wound.T_flags = {}
+
+---@class unit_wound_flags
+---@field [0] boolean
+---@field severed_part boolean
+---@field [1] boolean
+---@field mortal_wound boolean
+---@field [2] boolean
+---@field stuck_weapon boolean
+---@field [3] boolean
+---@field diagnosed boolean
+---@field [4] boolean
+---@field sutured boolean
+---@field [5] boolean
+---@field infection boolean
 
 ---@class curse_attr_change: df.struct
 ---@field phys_att_perc integer[]
@@ -1180,78 +2607,286 @@ df.wound_curse_info = {}
 ---@field time_counter integer
 df.wound_curse_info.T_timing = {}
 
----@enum misc_trait_type
-df.misc_trait_type = {
-  RequestWaterCooldown = 0,
-  RequestFoodCooldown = 1,
-  RequestRescueCooldown = 2,
-  RequestHealthcareCooldown = 3,
-  GetDrinkCooldown = 4, --auto-decrement
-  GetFoodCooldown = 5, --auto-decrement
-  CleanSelfCooldown = 6, --auto-decrement
-  Migrant = 7, --auto-decrement
-  RoomComplaint = 8, --auto-decrement
-  UnnamedResident = 9, --upon reaching zero, resident creature gets named
-  RentBedroomCooldown = 10, --auto-decrement
-  ClaimTrinketCooldown = 11, --auto-decrement
-  ClaimClothingCooldown = 12, --auto-decrement
-  WantsDrink = 13, --auto-increment to 403200
-  unk_14 = 14,
-  PrepareToDie = 15, --auto-decrement
-  CaveAdapt = 16,
-  unk_17 = 17, --auto-decrement
-  unk_18 = 18, --auto-decrement
-  unk_19 = 19,
-  unk_20 = 20, --auto-decrement
-  FollowUnitCooldown = 21, --0-20, 200 on failed path, auto-decrement
-  unk_22 = 22, --auto-decrement
-  unk_23 = 23, --auto-decrement
-  unk_24 = 24,
-  DangerousTerrainCooldown = 25, --created at 200, blocks repath?, auto-decrement
-  Beaching = 26, --triggered by BEACH_FREQUENCY, auto-decrement
-  IdleAreaCooldown = 27, --auto-decrement
-  unk_28 = 28, --auto-decrement
-  DiagnosePatientCooldown = 29, --0-2000, auto-decrement
-  DressWoundCooldown = 30, --auto-decrement
-  CleanPatientCooldown = 31, --auto-decrement
-  SurgeryCooldown = 32, --auto-decrement
-  SutureCooldown = 33, --auto-decrement
-  SetBoneCooldown = 34, --auto-decrement
-  PlaceInTractionCooldown = 35, --auto-decrement
-  ApplyCastCooldown = 36, --auto-decrement
-  ImmobilizeBreakCooldown = 37, --auto-decrement
-  BringCrutchCooldown = 38, --auto-decrement
-  unk_39 = 39, --auto-decrement, set military pickup flag upon reaching zero
-  MilkCounter = 40, --auto-decrement
-  HadDrill = 41, --auto-decrement
-  CompletedDrill = 42, --auto-decrement
-  EggSpent = 43, --auto-decrement
-  GroundedAnimalAnger = 44, --auto-decrement
-  unk_45 = 45, --auto-decrement
-  TimeSinceSuckedBlood = 46,
-  DrinkingBlood = 47, --auto-decrement
-  unk_48 = 48, --auto-decrement
-  unk_49 = 49, --auto-decrement
-  RevertWildTimer = 50, --one trigger => --training_level, auto-decrement
-  unk_51 = 51, --auto-decrement
-  NoPantsAnger = 52, --auto-decrement
-  NoShirtAnger = 53, --auto-decrement
-  NoShoesAnger = 54, --auto-decrement
-  unk_55 = 55, --auto-decrement
-  unk_56 = 56, --auto-decrement
-  unk_57 = 57,
-  unk_58 = 58, --auto-decrement
-  unk_59 = 59, --auto-decrement
-  unk_60 = 60, --auto-decrement
-  unk_61 = 61, --auto-decrement
-  unk_62 = 62, --auto-decrement
-  unk_63 = 63, --auto-decrement
-  CitizenshipCooldown = 64, --starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
-  unk_65 = 65, --auto-decrement
-  unk_66 = 66, --auto-decrement
-  unk_67 = 67, --auto-decrement
-  unk_68 = 68, --related to (job_type)0xf1
-}
+---@class (exact) _misc_trait_type: df.struct
+---@field RequestWaterCooldown 0
+---@field [0] "RequestWaterCooldown"
+---@field RequestFoodCooldown 1
+---@field [1] "RequestFoodCooldown"
+---@field RequestRescueCooldown 2
+---@field [2] "RequestRescueCooldown"
+---@field RequestHealthcareCooldown 3
+---@field [3] "RequestHealthcareCooldown"
+---@field GetDrinkCooldown 4
+---@field [4] "GetDrinkCooldown"
+---@field GetFoodCooldown 5
+---@field [5] "GetFoodCooldown"
+---@field CleanSelfCooldown 6
+---@field [6] "CleanSelfCooldown"
+---@field Migrant 7
+---@field [7] "Migrant"
+---@field RoomComplaint 8
+---@field [8] "RoomComplaint"
+---@field UnnamedResident 9
+---@field [9] "UnnamedResident"
+---@field RentBedroomCooldown 10
+---@field [10] "RentBedroomCooldown"
+---@field ClaimTrinketCooldown 11
+---@field [11] "ClaimTrinketCooldown"
+---@field ClaimClothingCooldown 12
+---@field [12] "ClaimClothingCooldown"
+---@field WantsDrink 13
+---@field [13] "WantsDrink"
+---@field unk_14 14
+---@field [14] "unk_14"
+---@field PrepareToDie 15
+---@field [15] "PrepareToDie"
+---@field CaveAdapt 16
+---@field [16] "CaveAdapt"
+---@field unk_17 17
+---@field [17] "unk_17"
+---@field unk_18 18
+---@field [18] "unk_18"
+---@field unk_19 19
+---@field [19] "unk_19"
+---@field unk_20 20
+---@field [20] "unk_20"
+---@field FollowUnitCooldown 21
+---@field [21] "FollowUnitCooldown"
+---@field unk_22 22
+---@field [22] "unk_22"
+---@field unk_23 23
+---@field [23] "unk_23"
+---@field unk_24 24
+---@field [24] "unk_24"
+---@field DangerousTerrainCooldown 25
+---@field [25] "DangerousTerrainCooldown"
+---@field Beaching 26
+---@field [26] "Beaching"
+---@field IdleAreaCooldown 27
+---@field [27] "IdleAreaCooldown"
+---@field unk_28 28
+---@field [28] "unk_28"
+---@field DiagnosePatientCooldown 29
+---@field [29] "DiagnosePatientCooldown"
+---@field DressWoundCooldown 30
+---@field [30] "DressWoundCooldown"
+---@field CleanPatientCooldown 31
+---@field [31] "CleanPatientCooldown"
+---@field SurgeryCooldown 32
+---@field [32] "SurgeryCooldown"
+---@field SutureCooldown 33
+---@field [33] "SutureCooldown"
+---@field SetBoneCooldown 34
+---@field [34] "SetBoneCooldown"
+---@field PlaceInTractionCooldown 35
+---@field [35] "PlaceInTractionCooldown"
+---@field ApplyCastCooldown 36
+---@field [36] "ApplyCastCooldown"
+---@field ImmobilizeBreakCooldown 37
+---@field [37] "ImmobilizeBreakCooldown"
+---@field BringCrutchCooldown 38
+---@field [38] "BringCrutchCooldown"
+---@field unk_39 39
+---@field [39] "unk_39"
+---@field MilkCounter 40
+---@field [40] "MilkCounter"
+---@field HadDrill 41
+---@field [41] "HadDrill"
+---@field CompletedDrill 42
+---@field [42] "CompletedDrill"
+---@field EggSpent 43
+---@field [43] "EggSpent"
+---@field GroundedAnimalAnger 44
+---@field [44] "GroundedAnimalAnger"
+---@field unk_45 45
+---@field [45] "unk_45"
+---@field TimeSinceSuckedBlood 46
+---@field [46] "TimeSinceSuckedBlood"
+---@field DrinkingBlood 47
+---@field [47] "DrinkingBlood"
+---@field unk_48 48
+---@field [48] "unk_48"
+---@field unk_49 49
+---@field [49] "unk_49"
+---@field RevertWildTimer 50
+---@field [50] "RevertWildTimer"
+---@field unk_51 51
+---@field [51] "unk_51"
+---@field NoPantsAnger 52
+---@field [52] "NoPantsAnger"
+---@field NoShirtAnger 53
+---@field [53] "NoShirtAnger"
+---@field NoShoesAnger 54
+---@field [54] "NoShoesAnger"
+---@field unk_55 55
+---@field [55] "unk_55"
+---@field unk_56 56
+---@field [56] "unk_56"
+---@field unk_57 57
+---@field [57] "unk_57"
+---@field unk_58 58
+---@field [58] "unk_58"
+---@field unk_59 59
+---@field [59] "unk_59"
+---@field unk_60 60
+---@field [60] "unk_60"
+---@field unk_61 61
+---@field [61] "unk_61"
+---@field unk_62 62
+---@field [62] "unk_62"
+---@field unk_63 63
+---@field [63] "unk_63"
+---@field CitizenshipCooldown 64
+---@field [64] "CitizenshipCooldown"
+---@field unk_65 65
+---@field [65] "unk_65"
+---@field unk_66 66
+---@field [66] "unk_66"
+---@field unk_67 67
+---@field [67] "unk_67"
+---@field unk_68 68
+---@field [68] "unk_68"
+df.misc_trait_type = {}
+
+---@class misc_trait_type
+---@field [0] boolean
+---@field RequestWaterCooldown boolean
+---@field [1] boolean
+---@field RequestFoodCooldown boolean
+---@field [2] boolean
+---@field RequestRescueCooldown boolean
+---@field [3] boolean
+---@field RequestHealthcareCooldown boolean
+---@field [4] boolean
+---@field GetDrinkCooldown boolean
+---@field [5] boolean
+---@field GetFoodCooldown boolean
+---@field [6] boolean
+---@field CleanSelfCooldown boolean
+---@field [7] boolean
+---@field Migrant boolean
+---@field [8] boolean
+---@field RoomComplaint boolean
+---@field [9] boolean
+---@field UnnamedResident boolean
+---@field [10] boolean
+---@field RentBedroomCooldown boolean
+---@field [11] boolean
+---@field ClaimTrinketCooldown boolean
+---@field [12] boolean
+---@field ClaimClothingCooldown boolean
+---@field [13] boolean
+---@field WantsDrink boolean
+---@field [14] boolean
+---@field unk_14 boolean
+---@field [15] boolean
+---@field PrepareToDie boolean
+---@field [16] boolean
+---@field CaveAdapt boolean
+---@field [17] boolean
+---@field unk_17 boolean
+---@field [18] boolean
+---@field unk_18 boolean
+---@field [19] boolean
+---@field unk_19 boolean
+---@field [20] boolean
+---@field unk_20 boolean
+---@field [21] boolean
+---@field FollowUnitCooldown boolean
+---@field [22] boolean
+---@field unk_22 boolean
+---@field [23] boolean
+---@field unk_23 boolean
+---@field [24] boolean
+---@field unk_24 boolean
+---@field [25] boolean
+---@field DangerousTerrainCooldown boolean
+---@field [26] boolean
+---@field Beaching boolean
+---@field [27] boolean
+---@field IdleAreaCooldown boolean
+---@field [28] boolean
+---@field unk_28 boolean
+---@field [29] boolean
+---@field DiagnosePatientCooldown boolean
+---@field [30] boolean
+---@field DressWoundCooldown boolean
+---@field [31] boolean
+---@field CleanPatientCooldown boolean
+---@field [32] boolean
+---@field SurgeryCooldown boolean
+---@field [33] boolean
+---@field SutureCooldown boolean
+---@field [34] boolean
+---@field SetBoneCooldown boolean
+---@field [35] boolean
+---@field PlaceInTractionCooldown boolean
+---@field [36] boolean
+---@field ApplyCastCooldown boolean
+---@field [37] boolean
+---@field ImmobilizeBreakCooldown boolean
+---@field [38] boolean
+---@field BringCrutchCooldown boolean
+---@field [39] boolean
+---@field unk_39 boolean
+---@field [40] boolean
+---@field MilkCounter boolean
+---@field [41] boolean
+---@field HadDrill boolean
+---@field [42] boolean
+---@field CompletedDrill boolean
+---@field [43] boolean
+---@field EggSpent boolean
+---@field [44] boolean
+---@field GroundedAnimalAnger boolean
+---@field [45] boolean
+---@field unk_45 boolean
+---@field [46] boolean
+---@field TimeSinceSuckedBlood boolean
+---@field [47] boolean
+---@field DrinkingBlood boolean
+---@field [48] boolean
+---@field unk_48 boolean
+---@field [49] boolean
+---@field unk_49 boolean
+---@field [50] boolean
+---@field RevertWildTimer boolean
+---@field [51] boolean
+---@field unk_51 boolean
+---@field [52] boolean
+---@field NoPantsAnger boolean
+---@field [53] boolean
+---@field NoShirtAnger boolean
+---@field [54] boolean
+---@field NoShoesAnger boolean
+---@field [55] boolean
+---@field unk_55 boolean
+---@field [56] boolean
+---@field unk_56 boolean
+---@field [57] boolean
+---@field unk_57 boolean
+---@field [58] boolean
+---@field unk_58 boolean
+---@field [59] boolean
+---@field unk_59 boolean
+---@field [60] boolean
+---@field unk_60 boolean
+---@field [61] boolean
+---@field unk_61 boolean
+---@field [62] boolean
+---@field unk_62 boolean
+---@field [63] boolean
+---@field unk_63 boolean
+---@field [64] boolean
+---@field CitizenshipCooldown boolean
+---@field [65] boolean
+---@field unk_65 boolean
+---@field [66] boolean
+---@field unk_66 boolean
+---@field [67] boolean
+---@field unk_67 boolean
+---@field [68] boolean
+---@field unk_68 boolean
 
 ---@class misc_trait_type_attr
 ---@field tag string
@@ -1284,34 +2919,99 @@ df.unit_item_wrestle = {}
 ---@field affection_level integer min 50 for attached, 1000 for name
 df.unit_item_use = {}
 
----@enum unit_health_flags
-df.unit_health_flags = {
-  rq_diagnosis = 0,
-  needs_recovery = 1, --needs diagnosis but cannot walk
-  needs_healthcare = 2, --???; set when rq_diagnosis is, and not blocked by having a diagnosis
-  rq_immobilize = 3,
-  rq_dressing = 4,
-  rq_cleaning = 5,
-  rq_surgery = 6,
-  rq_suture = 7,
-  rq_setting = 8,
-  rq_traction = 9,
-  rq_crutch = 10,
-}
+---@class (exact) _unit_health_flags: df.struct
+---@field rq_diagnosis 0
+---@field [0] "rq_diagnosis"
+---@field needs_recovery 1
+---@field [1] "needs_recovery"
+---@field needs_healthcare 2
+---@field [2] "needs_healthcare"
+---@field rq_immobilize 3
+---@field [3] "rq_immobilize"
+---@field rq_dressing 4
+---@field [4] "rq_dressing"
+---@field rq_cleaning 5
+---@field [5] "rq_cleaning"
+---@field rq_surgery 6
+---@field [6] "rq_surgery"
+---@field rq_suture 7
+---@field [7] "rq_suture"
+---@field rq_setting 8
+---@field [8] "rq_setting"
+---@field rq_traction 9
+---@field [9] "rq_traction"
+---@field rq_crutch 10
+---@field [10] "rq_crutch"
+df.unit_health_flags = {}
 
----@enum unit_bp_health_flags
-df.unit_bp_health_flags = {
-  rq_immobilize = 0,
-  rq_dressing = 1,
-  rq_cleaning = 2,
-  rq_surgery = 3,
-  rq_suture = 4,
-  rq_setting = 5,
-  rq_traction = 6,
-  inoperable_rot = 7,
-  needs_bandage = 8, --used to remove once not needed
-  needs_cast = 9, --used to remove once not needed
-}
+---@class unit_health_flags
+---@field [0] boolean
+---@field rq_diagnosis boolean
+---@field [1] boolean
+---@field needs_recovery boolean
+---@field [2] boolean
+---@field needs_healthcare boolean
+---@field [3] boolean
+---@field rq_immobilize boolean
+---@field [4] boolean
+---@field rq_dressing boolean
+---@field [5] boolean
+---@field rq_cleaning boolean
+---@field [6] boolean
+---@field rq_surgery boolean
+---@field [7] boolean
+---@field rq_suture boolean
+---@field [8] boolean
+---@field rq_setting boolean
+---@field [9] boolean
+---@field rq_traction boolean
+---@field [10] boolean
+---@field rq_crutch boolean
+
+---@class (exact) _unit_bp_health_flags: df.struct
+---@field rq_immobilize 0
+---@field [0] "rq_immobilize"
+---@field rq_dressing 1
+---@field [1] "rq_dressing"
+---@field rq_cleaning 2
+---@field [2] "rq_cleaning"
+---@field rq_surgery 3
+---@field [3] "rq_surgery"
+---@field rq_suture 4
+---@field [4] "rq_suture"
+---@field rq_setting 5
+---@field [5] "rq_setting"
+---@field rq_traction 6
+---@field [6] "rq_traction"
+---@field inoperable_rot 7
+---@field [7] "inoperable_rot"
+---@field needs_bandage 8
+---@field [8] "needs_bandage"
+---@field needs_cast 9
+---@field [9] "needs_cast"
+df.unit_bp_health_flags = {}
+
+---@class unit_bp_health_flags
+---@field [0] boolean
+---@field rq_immobilize boolean
+---@field [1] boolean
+---@field rq_dressing boolean
+---@field [2] boolean
+---@field rq_cleaning boolean
+---@field [3] boolean
+---@field rq_surgery boolean
+---@field [4] boolean
+---@field rq_suture boolean
+---@field [5] boolean
+---@field rq_setting boolean
+---@field [6] boolean
+---@field rq_traction boolean
+---@field [7] boolean
+---@field inoperable_rot boolean
+---@field [8] boolean
+---@field needs_bandage boolean
+---@field [9] boolean
+---@field needs_cast boolean
 
 ---@class unit_health_info: df.struct
 ---@field unit_id unit
@@ -1362,14 +3062,30 @@ df.info.T_bandage = {}
 ---@field amputated_part_id integer
 df.info.T_surgery = {}
 
----@enum orientation_flags
-df.orientation_flags = {
-  indeterminate = 0, --only seen on adventurers
-  romance_male = 1,
-  marry_male = 2,
-  romance_female = 3,
-  marry_female = 4,
-}
+---@class (exact) _orientation_flags: df.struct
+---@field indeterminate 0
+---@field [0] "indeterminate"
+---@field romance_male 1
+---@field [1] "romance_male"
+---@field marry_male 2
+---@field [2] "marry_male"
+---@field romance_female 3
+---@field [3] "romance_female"
+---@field marry_female 4
+---@field [4] "marry_female"
+df.orientation_flags = {}
+
+---@class orientation_flags
+---@field [0] boolean
+---@field indeterminate boolean
+---@field [1] boolean
+---@field romance_male boolean
+---@field [2] boolean
+---@field marry_male boolean
+---@field [3] boolean
+---@field romance_female boolean
+---@field [4] boolean
+---@field marry_female boolean
 
 ---@class unit_soul: df.struct
 ---@field id integer
@@ -1487,16 +3203,38 @@ df.unit_personality.T_ethics = {}
 ---@field year_tick integer
 df.unit_personality.T_emotions = {}
 
----@enum emotions_flags
-df.emotions.T_flags = {
-  unk0 = 0,
-  unk1 = 1,
-  unk2 = 2,
-  unk3 = 3,
-  remembered_longterm = 4,
-  remembered_shortterm = 5,
-  remembered_reflected_on = 6,
-}
+---@class (exact) _emotions_flags: df.struct
+---@field unk0 0
+---@field [0] "unk0"
+---@field unk1 1
+---@field [1] "unk1"
+---@field unk2 2
+---@field [2] "unk2"
+---@field unk3 3
+---@field [3] "unk3"
+---@field remembered_longterm 4
+---@field [4] "remembered_longterm"
+---@field remembered_shortterm 5
+---@field [5] "remembered_shortterm"
+---@field remembered_reflected_on 6
+---@field [6] "remembered_reflected_on"
+df.emotions.T_flags = {}
+
+---@class emotions_flags
+---@field [0] boolean
+---@field unk0 boolean
+---@field [1] boolean
+---@field unk1 boolean
+---@field [2] boolean
+---@field unk2 boolean
+---@field [3] boolean
+---@field unk3 boolean
+---@field [4] boolean
+---@field remembered_longterm boolean
+---@field [5] boolean
+---@field remembered_shortterm boolean
+---@field [6] boolean
+---@field remembered_reflected_on boolean
 
 ---@class unit_personality_dreams: df.struct
 ---@field local_id integer next_dream_id related
@@ -1506,10 +3244,14 @@ df.emotions.T_flags = {
 ---@field flags dreams_flags
 df.unit_personality.T_dreams = {}
 
----@enum dreams_flags
-df.dreams.T_flags = {
-  accomplished = 0,
-}
+---@class (exact) _dreams_flags: df.struct
+---@field accomplished 0
+---@field [0] "accomplished"
+df.dreams.T_flags = {}
+
+---@class dreams_flags
+---@field [0] boolean
+---@field accomplished boolean
 
 ---@class unit_personality_unk_v40_6: df.struct
 ---@field unk1 integer
@@ -1532,50 +3274,149 @@ df.unit_personality.T_mannerism = {}
 ---@field need_level integer how fast focus_level decreases when it below 0
 df.unit_personality.T_needs = {}
 
----@enum unit_personality_flags
-df.unit_personality.T_flags = {
-  distraction_calculated = 0,
-  has_unmet_needs = 1, --focus_level is below -999 for at least one need
-}
+---@class (exact) _unit_personality_flags: df.struct
+---@field distraction_calculated 0
+---@field [0] "distraction_calculated"
+---@field has_unmet_needs 1
+---@field [1] "has_unmet_needs"
+df.unit_personality.T_flags = {}
 
----@enum unit_action_type_group
+---@class unit_personality_flags
+---@field [0] boolean
+---@field distraction_calculated boolean
+---@field [1] boolean
+---@field has_unmet_needs boolean
+
+---@class (exact) _unit_action_type_group: df.struct
 ---for the action timer API, not in DF
-df.unit_action_type_group = {
-  All = 0,
-  Movement = 1,
-  MovementFeet = 2,
-  Combat = 3,
-  Work = 4,
-}
+---@field All 0
+---@field [0] "All"
+---@field Movement 1
+---@field [1] "Movement"
+---@field MovementFeet 2
+---@field [2] "MovementFeet"
+---@field Combat 3
+---@field [3] "Combat"
+---@field Work 4
+---@field [4] "Work"
+df.unit_action_type_group = {}
 
----@enum unit_action_type
-df.unit_action_type = {
-  None = -1,
-  Move = 1,
-  Attack = 2,
-  Jump = 3,
-  HoldTerrain = 4,
-  ReleaseTerrain = 5,
-  Climb = 6,
-  Job = 7,
-  Talk = 8,
-  Unsteady = 9,
-  Parry = 10,
-  Block = 11,
-  Dodge = 12,
-  Recover = 13,
-  StandUp = 14,
-  LieDown = 15,
-  Job2 = 16,
-  PushObject = 17,
-  SuckBlood = 18,
-  HoldItem = 19,
-  ReleaseItem = 20,
-  Unk20 = 21,
-  Unk21 = 22,
-  Unk22 = 23,
-  Unk23 = 24,
-}
+---@class unit_action_type_group
+---@field [0] boolean
+---@field All boolean
+---@field [1] boolean
+---@field Movement boolean
+---@field [2] boolean
+---@field MovementFeet boolean
+---@field [3] boolean
+---@field Combat boolean
+---@field [4] boolean
+---@field Work boolean
+
+---@class (exact) _unit_action_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Move 1
+---@field [1] "Move"
+---@field Attack 2
+---@field [2] "Attack"
+---@field Jump 3
+---@field [3] "Jump"
+---@field HoldTerrain 4
+---@field [4] "HoldTerrain"
+---@field ReleaseTerrain 5
+---@field [5] "ReleaseTerrain"
+---@field Climb 6
+---@field [6] "Climb"
+---@field Job 7
+---@field [7] "Job"
+---@field Talk 8
+---@field [8] "Talk"
+---@field Unsteady 9
+---@field [9] "Unsteady"
+---@field Parry 10
+---@field [10] "Parry"
+---@field Block 11
+---@field [11] "Block"
+---@field Dodge 12
+---@field [12] "Dodge"
+---@field Recover 13
+---@field [13] "Recover"
+---@field StandUp 14
+---@field [14] "StandUp"
+---@field LieDown 15
+---@field [15] "LieDown"
+---@field Job2 16
+---@field [16] "Job2"
+---@field PushObject 17
+---@field [17] "PushObject"
+---@field SuckBlood 18
+---@field [18] "SuckBlood"
+---@field HoldItem 19
+---@field [19] "HoldItem"
+---@field ReleaseItem 20
+---@field [20] "ReleaseItem"
+---@field Unk20 21
+---@field [21] "Unk20"
+---@field Unk21 22
+---@field [22] "Unk21"
+---@field Unk22 23
+---@field [23] "Unk22"
+---@field Unk23 24
+---@field [24] "Unk23"
+df.unit_action_type = {}
+
+---@class unit_action_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Move boolean
+---@field [2] boolean
+---@field Attack boolean
+---@field [3] boolean
+---@field Jump boolean
+---@field [4] boolean
+---@field HoldTerrain boolean
+---@field [5] boolean
+---@field ReleaseTerrain boolean
+---@field [6] boolean
+---@field Climb boolean
+---@field [7] boolean
+---@field Job boolean
+---@field [8] boolean
+---@field Talk boolean
+---@field [9] boolean
+---@field Unsteady boolean
+---@field [10] boolean
+---@field Parry boolean
+---@field [11] boolean
+---@field Block boolean
+---@field [12] boolean
+---@field Dodge boolean
+---@field [13] boolean
+---@field Recover boolean
+---@field [14] boolean
+---@field StandUp boolean
+---@field [15] boolean
+---@field LieDown boolean
+---@field [16] boolean
+---@field Job2 boolean
+---@field [17] boolean
+---@field PushObject boolean
+---@field [18] boolean
+---@field SuckBlood boolean
+---@field [19] boolean
+---@field HoldItem boolean
+---@field [20] boolean
+---@field ReleaseItem boolean
+---@field [21] boolean
+---@field Unk20 boolean
+---@field [22] boolean
+---@field Unk21 boolean
+---@field [23] boolean
+---@field Unk22 boolean
+---@field [24] boolean
+---@field Unk23 boolean
 
 ---@class unit_action_type_attr
 ---@field tag string
@@ -1628,10 +3469,14 @@ df.unit_action.T_data = {}
 ---@field flags unit_action_data_move_flags
 df.unit_action_data_move = {}
 
----@enum unit_action_data_move_flags
-df.unit_action_data_move.T_flags = {
-  charge = 0,
-}
+---@class (exact) _unit_action_data_move_flags: df.struct
+---@field charge 0
+---@field [0] "charge"
+df.unit_action_data_move.T_flags = {}
+
+---@class unit_action_data_move_flags
+---@field [0] boolean
+---@field charge boolean
 
 ---@class unit_action_data_attack: df.struct
 ---@field target_unit_id unit
@@ -1660,31 +3505,87 @@ df.unit_action_data_attack = {}
 ---@field unk_14 integer
 df.unit_action_data_attack.T_unk_4 = {}
 
----@enum unk_4_wrestle_type
-df.unk_4.T_wrestle_type = {
-  Wrestle = 0,
-  Grab = 1,
-}
+---@class (exact) _unk_4_wrestle_type: df.struct
+---@field Wrestle 0
+---@field [0] "Wrestle"
+---@field Grab 1
+---@field [1] "Grab"
+df.unk_4.T_wrestle_type = {}
 
----@enum unit_action_data_attack_flags
-df.unit_action_data_attack.T_flags = {
-  unk_0 = 0,
-  unk_1 = 1,
-  unk_2 = 2,
-  unk_3 = 3,
-  unk_4 = 4,
-  quick = 5,
-  heavy = 6,
-  wild = 7,
-  precise = 8,
-  charge = 9,
-  unk_10 = 10, --multi-attack
-  unk_11 = 11,
-  lightly_tap = 12,
-  unk_13 = 13,
-  unk_14 = 14,
-  spar_report = 15,
-}
+---@class unk_4_wrestle_type
+---@field [0] boolean
+---@field Wrestle boolean
+---@field [1] boolean
+---@field Grab boolean
+
+---@class (exact) _unit_action_data_attack_flags: df.struct
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field unk_3 3
+---@field [3] "unk_3"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field quick 5
+---@field [5] "quick"
+---@field heavy 6
+---@field [6] "heavy"
+---@field wild 7
+---@field [7] "wild"
+---@field precise 8
+---@field [8] "precise"
+---@field charge 9
+---@field [9] "charge"
+---@field unk_10 10
+---@field [10] "unk_10"
+---@field unk_11 11
+---@field [11] "unk_11"
+---@field lightly_tap 12
+---@field [12] "lightly_tap"
+---@field unk_13 13
+---@field [13] "unk_13"
+---@field unk_14 14
+---@field [14] "unk_14"
+---@field spar_report 15
+---@field [15] "spar_report"
+df.unit_action_data_attack.T_flags = {}
+
+---@class unit_action_data_attack_flags
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field unk_3 boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field quick boolean
+---@field [6] boolean
+---@field heavy boolean
+---@field [7] boolean
+---@field wild boolean
+---@field [8] boolean
+---@field precise boolean
+---@field [9] boolean
+---@field charge boolean
+---@field [10] boolean
+---@field unk_10 boolean
+---@field [11] boolean
+---@field unk_11 boolean
+---@field [12] boolean
+---@field lightly_tap boolean
+---@field [13] boolean
+---@field unk_13 boolean
+---@field [14] boolean
+---@field unk_14 boolean
+---@field [15] boolean
+---@field spar_report boolean
 
 ---@class unit_action_data_jump: df.struct
 ---@field x1 integer
@@ -1870,21 +3771,58 @@ df.unit_skill = {}
 ---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
 df.unit_preference = {}
 
----@enum unit_preference_type
-df.unit_preference.T_type = {
-  LikeMaterial = 0,
-  LikeCreature = 1,
-  LikeFood = 2,
-  HateCreature = 3,
-  LikeItem = 4,
-  LikePlant = 5,
-  LikeTree = 6,
-  LikeColor = 7,
-  LikeShape = 8,
-  LikePoeticForm = 9,
-  LikeMusicalForm = 10,
-  LikeDanceForm = 11,
-}
+---@class (exact) _unit_preference_type: df.struct
+---@field LikeMaterial 0
+---@field [0] "LikeMaterial"
+---@field LikeCreature 1
+---@field [1] "LikeCreature"
+---@field LikeFood 2
+---@field [2] "LikeFood"
+---@field HateCreature 3
+---@field [3] "HateCreature"
+---@field LikeItem 4
+---@field [4] "LikeItem"
+---@field LikePlant 5
+---@field [5] "LikePlant"
+---@field LikeTree 6
+---@field [6] "LikeTree"
+---@field LikeColor 7
+---@field [7] "LikeColor"
+---@field LikeShape 8
+---@field [8] "LikeShape"
+---@field LikePoeticForm 9
+---@field [9] "LikePoeticForm"
+---@field LikeMusicalForm 10
+---@field [10] "LikeMusicalForm"
+---@field LikeDanceForm 11
+---@field [11] "LikeDanceForm"
+df.unit_preference.T_type = {}
+
+---@class unit_preference_type
+---@field [0] boolean
+---@field LikeMaterial boolean
+---@field [1] boolean
+---@field LikeCreature boolean
+---@field [2] boolean
+---@field LikeFood boolean
+---@field [3] boolean
+---@field HateCreature boolean
+---@field [4] boolean
+---@field LikeItem boolean
+---@field [5] boolean
+---@field LikePlant boolean
+---@field [6] boolean
+---@field LikeTree boolean
+---@field [7] boolean
+---@field LikeColor boolean
+---@field [8] boolean
+---@field LikeShape boolean
+---@field [9] boolean
+---@field LikePoeticForm boolean
+---@field [10] boolean
+---@field LikeMusicalForm boolean
+---@field [11] boolean
+---@field LikeDanceForm boolean
 
 ---@class unit_complaint: df.struct
 ---@field type history_event_reason
@@ -1898,11 +3836,18 @@ df.unit_complaint = {}
 ---@field flags unit_parley_flags
 df.unit_parley = {}
 
----@enum unit_parley_flags
-df.unit_parley.T_flags = {
-  did_topic_meeting = 0,
-  returning_treasure = 1,
-}
+---@class (exact) _unit_parley_flags: df.struct
+---@field did_topic_meeting 0
+---@field [0] "did_topic_meeting"
+---@field returning_treasure 1
+---@field [1] "returning_treasure"
+df.unit_parley.T_flags = {}
+
+---@class unit_parley_flags
+---@field [0] boolean
+---@field did_topic_meeting boolean
+---@field [1] boolean
+---@field returning_treasure boolean
 
 ---@class unit_request: df.struct
 ---@field type unit_request_type
@@ -1910,10 +3855,14 @@ df.unit_parley.T_flags = {
 ---@field count integer
 df.unit_request = {}
 
----@enum unit_request_type
-df.unit_request.T_type = {
-  DoGuildJobs = 0,
-}
+---@class (exact) _unit_request_type: df.struct
+---@field DoGuildJobs 0
+---@field [0] "DoGuildJobs"
+df.unit_request.T_type = {}
+
+---@class unit_request_type
+---@field [0] boolean
+---@field DoGuildJobs boolean
 
 ---@class unit_coin_debt: df.struct
 ---@field recipient unit
@@ -1947,13 +3896,26 @@ df.unit_chunk = {}
 ---@field unk_19 integer
 df.unit_appearance = {}
 
----@enum work_detail_mode
-df.work_detail_mode = {
-  Default = 0,
-  EverybodyDoesThis = 1,
-  NobodyDoesThis = 2,
-  OnlySelectedDoesThis = 3,
-}
+---@class (exact) _work_detail_mode: df.struct
+---@field Default 0
+---@field [0] "Default"
+---@field EverybodyDoesThis 1
+---@field [1] "EverybodyDoesThis"
+---@field NobodyDoesThis 2
+---@field [2] "NobodyDoesThis"
+---@field OnlySelectedDoesThis 3
+---@field [3] "OnlySelectedDoesThis"
+df.work_detail_mode = {}
+
+---@class work_detail_mode
+---@field [0] boolean
+---@field Default boolean
+---@field [1] boolean
+---@field EverybodyDoesThis boolean
+---@field [2] boolean
+---@field NobodyDoesThis boolean
+---@field [3] boolean
+---@field OnlySelectedDoesThis boolean
 
 ---@class work_detail: df.struct
 ---@field name string
@@ -1963,35 +3925,103 @@ df.work_detail_mode = {
 ---@field icon work_detail_icon
 df.work_detail = {}
 
----@enum work_detail_work_detail_flags
-df.work_detail.T_work_detail_flags = {
-  no_modify = 0, --toady: DEFAULT
-  cannot_be_everybody = 1,
-  mode = 2,
-}
+---@class (exact) _work_detail_work_detail_flags: df.struct
+---@field no_modify 0
+---@field [0] "no_modify"
+---@field cannot_be_everybody 1
+---@field [1] "cannot_be_everybody"
+---@field mode 2
+---@field [2] "mode"
+df.work_detail.T_work_detail_flags = {}
 
----@enum work_detail_icon
-df.work_detail.T_icon = {
-  ICON_NONE = -1,
-  ICON_MINERS = 1,
-  ICON_WOODCUTTERS = 2,
-  ICON_HUNTERS = 3,
-  ICON_PLANTERS = 4,
-  ICON_FISHERMEN = 5,
-  ICON_STONECUTTERS = 6,
-  ICON_ENGRAVERS = 7,
-  ICON_PLANT_GATHERERS = 8,
-  ICON_HAULERS = 9,
-  ICON_ORDERLIES = 10,
-  ICON_CUSTOM_1 = 11,
-  ICON_CUSTOM_2 = 12,
-  ICON_CUSTOM_3 = 13,
-  ICON_CUSTOM_4 = 14,
-  ICON_CUSTOM_5 = 15,
-  ICON_CUSTOM_6 = 16,
-  ICON_CUSTOM_7 = 17,
-  ICON_CUSTOM_8 = 18,
-}
+---@class work_detail_work_detail_flags
+---@field [0] boolean
+---@field no_modify boolean
+---@field [1] boolean
+---@field cannot_be_everybody boolean
+---@field [2] boolean
+---@field mode boolean
+
+---@class (exact) _work_detail_icon: df.struct
+---@field ICON_NONE -1
+---@field [0] "ICON_NONE"
+---@field ICON_MINERS 1
+---@field [1] "ICON_MINERS"
+---@field ICON_WOODCUTTERS 2
+---@field [2] "ICON_WOODCUTTERS"
+---@field ICON_HUNTERS 3
+---@field [3] "ICON_HUNTERS"
+---@field ICON_PLANTERS 4
+---@field [4] "ICON_PLANTERS"
+---@field ICON_FISHERMEN 5
+---@field [5] "ICON_FISHERMEN"
+---@field ICON_STONECUTTERS 6
+---@field [6] "ICON_STONECUTTERS"
+---@field ICON_ENGRAVERS 7
+---@field [7] "ICON_ENGRAVERS"
+---@field ICON_PLANT_GATHERERS 8
+---@field [8] "ICON_PLANT_GATHERERS"
+---@field ICON_HAULERS 9
+---@field [9] "ICON_HAULERS"
+---@field ICON_ORDERLIES 10
+---@field [10] "ICON_ORDERLIES"
+---@field ICON_CUSTOM_1 11
+---@field [11] "ICON_CUSTOM_1"
+---@field ICON_CUSTOM_2 12
+---@field [12] "ICON_CUSTOM_2"
+---@field ICON_CUSTOM_3 13
+---@field [13] "ICON_CUSTOM_3"
+---@field ICON_CUSTOM_4 14
+---@field [14] "ICON_CUSTOM_4"
+---@field ICON_CUSTOM_5 15
+---@field [15] "ICON_CUSTOM_5"
+---@field ICON_CUSTOM_6 16
+---@field [16] "ICON_CUSTOM_6"
+---@field ICON_CUSTOM_7 17
+---@field [17] "ICON_CUSTOM_7"
+---@field ICON_CUSTOM_8 18
+---@field [18] "ICON_CUSTOM_8"
+df.work_detail.T_icon = {}
+
+---@class work_detail_icon
+---@field [0] boolean
+---@field ICON_NONE boolean
+---@field [1] boolean
+---@field ICON_MINERS boolean
+---@field [2] boolean
+---@field ICON_WOODCUTTERS boolean
+---@field [3] boolean
+---@field ICON_HUNTERS boolean
+---@field [4] boolean
+---@field ICON_PLANTERS boolean
+---@field [5] boolean
+---@field ICON_FISHERMEN boolean
+---@field [6] boolean
+---@field ICON_STONECUTTERS boolean
+---@field [7] boolean
+---@field ICON_ENGRAVERS boolean
+---@field [8] boolean
+---@field ICON_PLANT_GATHERERS boolean
+---@field [9] boolean
+---@field ICON_HAULERS boolean
+---@field [10] boolean
+---@field ICON_ORDERLIES boolean
+---@field [11] boolean
+---@field ICON_CUSTOM_1 boolean
+---@field [12] boolean
+---@field ICON_CUSTOM_2 boolean
+---@field [13] boolean
+---@field ICON_CUSTOM_3 boolean
+---@field [14] boolean
+---@field ICON_CUSTOM_4 boolean
+---@field [15] boolean
+---@field ICON_CUSTOM_5 boolean
+---@field [16] boolean
+---@field ICON_CUSTOM_6 boolean
+---@field [17] boolean
+---@field ICON_CUSTOM_7 boolean
+---@field [18] boolean
+---@field ICON_CUSTOM_8 boolean
 
 ---@class process_unit_aux: df.struct
 ---@field unit unit
@@ -1999,10 +4029,20 @@ df.work_detail.T_icon = {
 ---@field unitlist any[]
 df.process_unit_aux = {}
 
----@enum process_unit_aux_flags
-df.process_unit_aux.T_flags = {
-  unk0 = 0,
-  unk_1 = 1,
-  unk2 = 2,
-}
+---@class (exact) _process_unit_aux_flags: df.struct
+---@field unk0 0
+---@field [0] "unk0"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field unk2 2
+---@field [2] "unk2"
+df.process_unit_aux.T_flags = {}
+
+---@class process_unit_aux_flags
+---@field [0] boolean
+---@field unk0 boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field unk2 boolean
 

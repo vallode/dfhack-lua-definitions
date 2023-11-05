@@ -1,63 +1,204 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum item_flags
-df.item_flags = {
-  on_ground = 0, --Item on ground
-  in_job = 1, --Item currently being used in a job
-  hostile = 2, --Item owned by hostile
-  in_inventory = 3, --Item in a creature, workshop or container inventory
-  removed = 4, --completely invisible and with no position
-  in_building = 5, --Part of a building (including mechanisms, bodies in coffins)
-  container = 6, --Set on anything that contains or contained items?
-  dead_dwarf = 7, --Dwarfs dead body or body part
-  rotten = 8, --Rotten food
-  spider_web = 9, --Thread in spider web
-  construction = 10, --Material used in construction
-  encased = 11, --Item encased in ice or obsidian
-  unk12 = 12, --unknown, unseen
-  murder = 13, --Implies murder - used in fell moods
-  foreign = 14, --Item is imported
-  trader = 15, --Item ownwed by trader
-  owned = 16, --Item is owned by a dwarf
-  garbage_collect = 17, --Marked for deallocation by DF it seems
-  artifact = 18, --Artifact
-  forbid = 19, --Forbidden item
-  already_uncategorized = 20, --unknown, unseen
-  dump = 21, --Designated for dumping
-  on_fire = 22, --Indicates if item is on fire, Will Set Item On Fire if Set!
-  melt = 23, --Designated for melting, if applicable
-  hidden = 24, --Hidden item
-  in_chest = 25, --Stored in chest/part of well?
-  use_recorded = 26, --transient in unit.used_items update
-  artifact_mood = 27, --created by mood/named existing item
-  temps_computed = 28, --melting/boiling/ignite/etc. points
-  weight_computed = 29,
-  unk30 = 30, --unknown, unseen
-  from_worldgen = 31, --created by underground critters?
-}
+---@class (exact) _item_flags: df.struct
+---@field on_ground 0
+---@field [0] "on_ground"
+---@field in_job 1
+---@field [1] "in_job"
+---@field hostile 2
+---@field [2] "hostile"
+---@field in_inventory 3
+---@field [3] "in_inventory"
+---@field removed 4
+---@field [4] "removed"
+---@field in_building 5
+---@field [5] "in_building"
+---@field container 6
+---@field [6] "container"
+---@field dead_dwarf 7
+---@field [7] "dead_dwarf"
+---@field rotten 8
+---@field [8] "rotten"
+---@field spider_web 9
+---@field [9] "spider_web"
+---@field construction 10
+---@field [10] "construction"
+---@field encased 11
+---@field [11] "encased"
+---@field unk12 12
+---@field [12] "unk12"
+---@field murder 13
+---@field [13] "murder"
+---@field foreign 14
+---@field [14] "foreign"
+---@field trader 15
+---@field [15] "trader"
+---@field owned 16
+---@field [16] "owned"
+---@field garbage_collect 17
+---@field [17] "garbage_collect"
+---@field artifact 18
+---@field [18] "artifact"
+---@field forbid 19
+---@field [19] "forbid"
+---@field already_uncategorized 20
+---@field [20] "already_uncategorized"
+---@field dump 21
+---@field [21] "dump"
+---@field on_fire 22
+---@field [22] "on_fire"
+---@field melt 23
+---@field [23] "melt"
+---@field hidden 24
+---@field [24] "hidden"
+---@field in_chest 25
+---@field [25] "in_chest"
+---@field use_recorded 26
+---@field [26] "use_recorded"
+---@field artifact_mood 27
+---@field [27] "artifact_mood"
+---@field temps_computed 28
+---@field [28] "temps_computed"
+---@field weight_computed 29
+---@field [29] "weight_computed"
+---@field unk30 30
+---@field [30] "unk30"
+---@field from_worldgen 31
+---@field [31] "from_worldgen"
+df.item_flags = {}
 
----@enum item_flags2
-df.item_flags2 = {
-  has_rider = 0, --vehicle with a rider
-  unk1 = 1,
-  grown = 2,
-  unk_book = 3, --possibly book/written-content-related
-  unk_4 = 4,
-}
+---@class item_flags
+---@field [0] boolean
+---@field on_ground boolean
+---@field [1] boolean
+---@field in_job boolean
+---@field [2] boolean
+---@field hostile boolean
+---@field [3] boolean
+---@field in_inventory boolean
+---@field [4] boolean
+---@field removed boolean
+---@field [5] boolean
+---@field in_building boolean
+---@field [6] boolean
+---@field container boolean
+---@field [7] boolean
+---@field dead_dwarf boolean
+---@field [8] boolean
+---@field rotten boolean
+---@field [9] boolean
+---@field spider_web boolean
+---@field [10] boolean
+---@field construction boolean
+---@field [11] boolean
+---@field encased boolean
+---@field [12] boolean
+---@field unk12 boolean
+---@field [13] boolean
+---@field murder boolean
+---@field [14] boolean
+---@field foreign boolean
+---@field [15] boolean
+---@field trader boolean
+---@field [16] boolean
+---@field owned boolean
+---@field [17] boolean
+---@field garbage_collect boolean
+---@field [18] boolean
+---@field artifact boolean
+---@field [19] boolean
+---@field forbid boolean
+---@field [20] boolean
+---@field already_uncategorized boolean
+---@field [21] boolean
+---@field dump boolean
+---@field [22] boolean
+---@field on_fire boolean
+---@field [23] boolean
+---@field melt boolean
+---@field [24] boolean
+---@field hidden boolean
+---@field [25] boolean
+---@field in_chest boolean
+---@field [26] boolean
+---@field use_recorded boolean
+---@field [27] boolean
+---@field artifact_mood boolean
+---@field [28] boolean
+---@field temps_computed boolean
+---@field [29] boolean
+---@field weight_computed boolean
+---@field [30] boolean
+---@field unk30 boolean
+---@field [31] boolean
+---@field from_worldgen boolean
 
----@enum item_magicness_type
-df.item_magicness_type = {
-  Sparkle = 0,
-  AirWarped = 1,
-  Whistle = 2,
-  OddlySquare = 3,
-  SmallBumps = 4,
-  EarthSmell = 5,
-  Lightning = 6,
-  GrayHairs = 7, --with value of 10 or higher, creatures that look at the item cannot think negative thoughts
-  RustlingLeaves = 8,
-}
+---@class (exact) _item_flags2: df.struct
+---@field has_rider 0
+---@field [0] "has_rider"
+---@field unk1 1
+---@field [1] "unk1"
+---@field grown 2
+---@field [2] "grown"
+---@field unk_book 3
+---@field [3] "unk_book"
+---@field unk_4 4
+---@field [4] "unk_4"
+df.item_flags2 = {}
+
+---@class item_flags2
+---@field [0] boolean
+---@field has_rider boolean
+---@field [1] boolean
+---@field unk1 boolean
+---@field [2] boolean
+---@field grown boolean
+---@field [3] boolean
+---@field unk_book boolean
+---@field [4] boolean
+---@field unk_4 boolean
+
+---@class (exact) _item_magicness_type: df.struct
+---@field Sparkle 0
+---@field [0] "Sparkle"
+---@field AirWarped 1
+---@field [1] "AirWarped"
+---@field Whistle 2
+---@field [2] "Whistle"
+---@field OddlySquare 3
+---@field [3] "OddlySquare"
+---@field SmallBumps 4
+---@field [4] "SmallBumps"
+---@field EarthSmell 5
+---@field [5] "EarthSmell"
+---@field Lightning 6
+---@field [6] "Lightning"
+---@field GrayHairs 7
+---@field [7] "GrayHairs"
+---@field RustlingLeaves 8
+---@field [8] "RustlingLeaves"
+df.item_magicness_type = {}
+
+---@class item_magicness_type
+---@field [0] boolean
+---@field Sparkle boolean
+---@field [1] boolean
+---@field AirWarped boolean
+---@field [2] boolean
+---@field Whistle boolean
+---@field [3] boolean
+---@field OddlySquare boolean
+---@field [4] boolean
+---@field SmallBumps boolean
+---@field [5] boolean
+---@field EarthSmell boolean
+---@field [6] boolean
+---@field Lightning boolean
+---@field [7] boolean
+---@field GrayHairs boolean
+---@field [8] boolean
+---@field RustlingLeaves boolean
 
 ---@class item_magicness: df.struct
 ---@field type item_magicness_type
@@ -81,63 +222,178 @@ df.temperaturest = {}
 ---@field pad_1 any needed for proper alignment of spatter on gcc
 df.spatter_common = {}
 
----@enum spatter_common_base_flags
-df.spatter_common.T_base_flags = {
-  evaporates = 0, --does not contaminate tile when washed away
-}
+---@class (exact) _spatter_common_base_flags: df.struct
+---@field evaporates 0
+---@field [0] "evaporates"
+df.spatter_common.T_base_flags = {}
+
+---@class spatter_common_base_flags
+---@field [0] boolean
+---@field evaporates boolean
 
 ---@class spatter: spatter_common
 ---@field body_part_id integer
 ---@field flags spatter_flags
 df.spatter = {}
 
----@enum spatter_flags
-df.spatter.T_flags = {
-  water_soluble = 0,
-}
+---@class (exact) _spatter_flags: df.struct
+---@field water_soluble 0
+---@field [0] "water_soluble"
+df.spatter.T_flags = {}
 
----@enum item_quality
-df.item_quality = {
-  Ordinary = 0,
-  WellCrafted = 1,
-  FinelyCrafted = 2,
-  Superior = 3,
-  Exceptional = 4,
-  Masterful = 5,
-  Artifact = 6,
-}
+---@class spatter_flags
+---@field [0] boolean
+---@field water_soluble boolean
 
----@enum slab_engraving_type
-df.slab_engraving_type = {
-  Slab = -1,
-  Memorial = 1,
-  CraftShopSign = 2,
-  WeaponsmithShopSign = 3,
-  ArmorsmithShopSign = 4,
-  GeneralStoreSign = 5,
-  FoodShopSign = 6,
-  Secrets = 7, --from the gods?
-  FoodImportsSign = 8,
-  ClothingImportsSign = 9,
-  GeneralImportsSign = 10,
-  ClothShopSign = 11,
-  LeatherShopSign = 12,
-  WovenClothingShopSign = 13,
-  LeatherClothingShopSign = 14,
-  BoneCarverShopSign = 15,
-  GemCutterShopSign = 16,
-  WeaponsmithShopSign2 = 17,
-  BowyerShopSign = 18,
-  BlacksmithShopSign = 19,
-  ArmorsmithShopSign2 = 20,
-  MetalCraftShopSign = 21,
-  LeatherGoodsShopSign = 22,
-  CarpenterShopSign = 23,
-  StoneFurnitureShopSign = 24,
-  MetalFurnitureShopSign = 25,
-  DemonIdentity = 26, --when a demon assumes identity?
-  TavernSign = 27,
-}
+---@class (exact) _item_quality: df.struct
+---@field Ordinary 0
+---@field [0] "Ordinary"
+---@field WellCrafted 1
+---@field [1] "WellCrafted"
+---@field FinelyCrafted 2
+---@field [2] "FinelyCrafted"
+---@field Superior 3
+---@field [3] "Superior"
+---@field Exceptional 4
+---@field [4] "Exceptional"
+---@field Masterful 5
+---@field [5] "Masterful"
+---@field Artifact 6
+---@field [6] "Artifact"
+df.item_quality = {}
+
+---@class item_quality
+---@field [0] boolean
+---@field Ordinary boolean
+---@field [1] boolean
+---@field WellCrafted boolean
+---@field [2] boolean
+---@field FinelyCrafted boolean
+---@field [3] boolean
+---@field Superior boolean
+---@field [4] boolean
+---@field Exceptional boolean
+---@field [5] boolean
+---@field Masterful boolean
+---@field [6] boolean
+---@field Artifact boolean
+
+---@class (exact) _slab_engraving_type: df.struct
+---@field Slab -1
+---@field [0] "Slab"
+---@field Memorial 1
+---@field [1] "Memorial"
+---@field CraftShopSign 2
+---@field [2] "CraftShopSign"
+---@field WeaponsmithShopSign 3
+---@field [3] "WeaponsmithShopSign"
+---@field ArmorsmithShopSign 4
+---@field [4] "ArmorsmithShopSign"
+---@field GeneralStoreSign 5
+---@field [5] "GeneralStoreSign"
+---@field FoodShopSign 6
+---@field [6] "FoodShopSign"
+---@field Secrets 7
+---@field [7] "Secrets"
+---@field FoodImportsSign 8
+---@field [8] "FoodImportsSign"
+---@field ClothingImportsSign 9
+---@field [9] "ClothingImportsSign"
+---@field GeneralImportsSign 10
+---@field [10] "GeneralImportsSign"
+---@field ClothShopSign 11
+---@field [11] "ClothShopSign"
+---@field LeatherShopSign 12
+---@field [12] "LeatherShopSign"
+---@field WovenClothingShopSign 13
+---@field [13] "WovenClothingShopSign"
+---@field LeatherClothingShopSign 14
+---@field [14] "LeatherClothingShopSign"
+---@field BoneCarverShopSign 15
+---@field [15] "BoneCarverShopSign"
+---@field GemCutterShopSign 16
+---@field [16] "GemCutterShopSign"
+---@field WeaponsmithShopSign2 17
+---@field [17] "WeaponsmithShopSign2"
+---@field BowyerShopSign 18
+---@field [18] "BowyerShopSign"
+---@field BlacksmithShopSign 19
+---@field [19] "BlacksmithShopSign"
+---@field ArmorsmithShopSign2 20
+---@field [20] "ArmorsmithShopSign2"
+---@field MetalCraftShopSign 21
+---@field [21] "MetalCraftShopSign"
+---@field LeatherGoodsShopSign 22
+---@field [22] "LeatherGoodsShopSign"
+---@field CarpenterShopSign 23
+---@field [23] "CarpenterShopSign"
+---@field StoneFurnitureShopSign 24
+---@field [24] "StoneFurnitureShopSign"
+---@field MetalFurnitureShopSign 25
+---@field [25] "MetalFurnitureShopSign"
+---@field DemonIdentity 26
+---@field [26] "DemonIdentity"
+---@field TavernSign 27
+---@field [27] "TavernSign"
+df.slab_engraving_type = {}
+
+---@class slab_engraving_type
+---@field [0] boolean
+---@field Slab boolean
+---@field [1] boolean
+---@field Memorial boolean
+---@field [2] boolean
+---@field CraftShopSign boolean
+---@field [3] boolean
+---@field WeaponsmithShopSign boolean
+---@field [4] boolean
+---@field ArmorsmithShopSign boolean
+---@field [5] boolean
+---@field GeneralStoreSign boolean
+---@field [6] boolean
+---@field FoodShopSign boolean
+---@field [7] boolean
+---@field Secrets boolean
+---@field [8] boolean
+---@field FoodImportsSign boolean
+---@field [9] boolean
+---@field ClothingImportsSign boolean
+---@field [10] boolean
+---@field GeneralImportsSign boolean
+---@field [11] boolean
+---@field ClothShopSign boolean
+---@field [12] boolean
+---@field LeatherShopSign boolean
+---@field [13] boolean
+---@field WovenClothingShopSign boolean
+---@field [14] boolean
+---@field LeatherClothingShopSign boolean
+---@field [15] boolean
+---@field BoneCarverShopSign boolean
+---@field [16] boolean
+---@field GemCutterShopSign boolean
+---@field [17] boolean
+---@field WeaponsmithShopSign2 boolean
+---@field [18] boolean
+---@field BowyerShopSign boolean
+---@field [19] boolean
+---@field BlacksmithShopSign boolean
+---@field [20] boolean
+---@field ArmorsmithShopSign2 boolean
+---@field [21] boolean
+---@field MetalCraftShopSign boolean
+---@field [22] boolean
+---@field LeatherGoodsShopSign boolean
+---@field [23] boolean
+---@field CarpenterShopSign boolean
+---@field [24] boolean
+---@field StoneFurnitureShopSign boolean
+---@field [25] boolean
+---@field MetalFurnitureShopSign boolean
+---@field [26] boolean
+---@field DemonIdentity boolean
+---@field [27] boolean
+---@field TavernSign boolean
 
 ---@class item: df.instance
 ---In item_foodst, requires MEAT or FISH ingredient.
@@ -204,37 +460,111 @@ df.item_crafted = {}
 ---@field improvements itemimprovement[]
 df.item_constructed = {}
 
----@enum body_part_status
-df.body_part_status = {
-  on_fire = 0,
-  missing = 1,
-  organ_loss = 2, --cyan
-  organ_damage = 3, --yellow
-  muscle_loss = 4, --red
-  muscle_damage = 5, --yellow
-  bone_loss = 6, --red
-  bone_damage = 7, --yellow
-  skin_damage = 8, --brown
-  motor_nerve_severed = 9,
-  sensory_nerve_severed = 10,
-  spilled_guts = 11,
-  has_splint = 12,
-  has_bandage = 13,
-  has_plaster_cast = 14,
-  grime = 15,
-  severed_or_jammed = 16, --seen e.g. on ribs smashed by blunt attack, but quickly disappeared
-  under_shell = 17,
-  is_shell = 18,
-  mangled = 19, --a wounded body part is described as being mangled beyond recognition when this flag is set
-  unk20 = 20, --on zombified head
-  gelded = 21, --set on GELDABLE body parts after a unit has been gelded
-}
+---@class (exact) _body_part_status: df.struct
+---@field on_fire 0
+---@field [0] "on_fire"
+---@field missing 1
+---@field [1] "missing"
+---@field organ_loss 2
+---@field [2] "organ_loss"
+---@field organ_damage 3
+---@field [3] "organ_damage"
+---@field muscle_loss 4
+---@field [4] "muscle_loss"
+---@field muscle_damage 5
+---@field [5] "muscle_damage"
+---@field bone_loss 6
+---@field [6] "bone_loss"
+---@field bone_damage 7
+---@field [7] "bone_damage"
+---@field skin_damage 8
+---@field [8] "skin_damage"
+---@field motor_nerve_severed 9
+---@field [9] "motor_nerve_severed"
+---@field sensory_nerve_severed 10
+---@field [10] "sensory_nerve_severed"
+---@field spilled_guts 11
+---@field [11] "spilled_guts"
+---@field has_splint 12
+---@field [12] "has_splint"
+---@field has_bandage 13
+---@field [13] "has_bandage"
+---@field has_plaster_cast 14
+---@field [14] "has_plaster_cast"
+---@field grime 15
+---@field [15] "grime"
+---@field severed_or_jammed 16
+---@field [16] "severed_or_jammed"
+---@field under_shell 17
+---@field [17] "under_shell"
+---@field is_shell 18
+---@field [18] "is_shell"
+---@field mangled 19
+---@field [19] "mangled"
+---@field unk20 20
+---@field [20] "unk20"
+---@field gelded 21
+---@field [21] "gelded"
+df.body_part_status = {}
 
----@enum body_layer_status
-df.body_layer_status = {
-  gone = 0,
-  leaking = 1,
-}
+---@class body_part_status
+---@field [0] boolean
+---@field on_fire boolean
+---@field [1] boolean
+---@field missing boolean
+---@field [2] boolean
+---@field organ_loss boolean
+---@field [3] boolean
+---@field organ_damage boolean
+---@field [4] boolean
+---@field muscle_loss boolean
+---@field [5] boolean
+---@field muscle_damage boolean
+---@field [6] boolean
+---@field bone_loss boolean
+---@field [7] boolean
+---@field bone_damage boolean
+---@field [8] boolean
+---@field skin_damage boolean
+---@field [9] boolean
+---@field motor_nerve_severed boolean
+---@field [10] boolean
+---@field sensory_nerve_severed boolean
+---@field [11] boolean
+---@field spilled_guts boolean
+---@field [12] boolean
+---@field has_splint boolean
+---@field [13] boolean
+---@field has_bandage boolean
+---@field [14] boolean
+---@field has_plaster_cast boolean
+---@field [15] boolean
+---@field grime boolean
+---@field [16] boolean
+---@field severed_or_jammed boolean
+---@field [17] boolean
+---@field under_shell boolean
+---@field [18] boolean
+---@field is_shell boolean
+---@field [19] boolean
+---@field mangled boolean
+---@field [20] boolean
+---@field unk20 boolean
+---@field [21] boolean
+---@field gelded boolean
+
+---@class (exact) _body_layer_status: df.struct
+---@field gone 0
+---@field [0] "gone"
+---@field leaking 1
+---@field [1] "leaking"
+df.body_layer_status = {}
+
+---@class body_layer_status
+---@field [0] boolean
+---@field gone boolean
+---@field [1] boolean
+---@field leaking boolean
 
 ---@class body_component_info: df.struct
 ---@field body_part_status body_part_status[]
@@ -256,21 +586,58 @@ df.body_component_info = {}
 ---@field length_base integer (size_base*10000)^0.333
 df.body_size_info = {}
 
----@enum corpse_material_type
-df.corpse_material_type = {
-  Plant = 0,
-  Silk = 1,
-  Leather = 2,
-  Bone = 3,
-  Shell = 4,
-  unk_5 = 5,
-  Soap = 6,
-  Tooth = 7,
-  Horn = 8,
-  Pearl = 9,
-  HairWool = 10,
-  Yarn = 11,
-}
+---@class (exact) _corpse_material_type: df.struct
+---@field Plant 0
+---@field [0] "Plant"
+---@field Silk 1
+---@field [1] "Silk"
+---@field Leather 2
+---@field [2] "Leather"
+---@field Bone 3
+---@field [3] "Bone"
+---@field Shell 4
+---@field [4] "Shell"
+---@field unk_5 5
+---@field [5] "unk_5"
+---@field Soap 6
+---@field [6] "Soap"
+---@field Tooth 7
+---@field [7] "Tooth"
+---@field Horn 8
+---@field [8] "Horn"
+---@field Pearl 9
+---@field [9] "Pearl"
+---@field HairWool 10
+---@field [10] "HairWool"
+---@field Yarn 11
+---@field [11] "Yarn"
+df.corpse_material_type = {}
+
+---@class corpse_material_type
+---@field [0] boolean
+---@field Plant boolean
+---@field [1] boolean
+---@field Silk boolean
+---@field [2] boolean
+---@field Leather boolean
+---@field [3] boolean
+---@field Bone boolean
+---@field [4] boolean
+---@field Shell boolean
+---@field [5] boolean
+---@field unk_5 boolean
+---@field [6] boolean
+---@field Soap boolean
+---@field [7] boolean
+---@field Tooth boolean
+---@field [8] boolean
+---@field Horn boolean
+---@field [9] boolean
+---@field Pearl boolean
+---@field [10] boolean
+---@field HairWool boolean
+---@field [11] boolean
+---@field Yarn boolean
 
 ---@class item_body_component: item_actual
 ---@field race creature_raw
@@ -325,25 +692,74 @@ df.item_body_component.T_body = {}
 ---@field tissue_style_type integer[]
 df.item_body_component.T_appearance = {}
 
----@enum item_body_component_corpse_flags
-df.item_body_component.T_corpse_flags = {
-  unbutchered = 0,
-  plant = 1,
-  silk = 2,
-  leather = 3,
-  bone = 4,
-  shell = 5,
-  unk_6 = 6,
-  soap = 7,
-  tooth = 8,
-  horn = 9,
-  pearl = 10,
-  skull1 = 11,
-  skull2 = 12,
-  separated_part = 13, --?
-  hair_wool = 14,
-  yarn = 15,
-}
+---@class (exact) _item_body_component_corpse_flags: df.struct
+---@field unbutchered 0
+---@field [0] "unbutchered"
+---@field plant 1
+---@field [1] "plant"
+---@field silk 2
+---@field [2] "silk"
+---@field leather 3
+---@field [3] "leather"
+---@field bone 4
+---@field [4] "bone"
+---@field shell 5
+---@field [5] "shell"
+---@field unk_6 6
+---@field [6] "unk_6"
+---@field soap 7
+---@field [7] "soap"
+---@field tooth 8
+---@field [8] "tooth"
+---@field horn 9
+---@field [9] "horn"
+---@field pearl 10
+---@field [10] "pearl"
+---@field skull1 11
+---@field [11] "skull1"
+---@field skull2 12
+---@field [12] "skull2"
+---@field separated_part 13
+---@field [13] "separated_part"
+---@field hair_wool 14
+---@field [14] "hair_wool"
+---@field yarn 15
+---@field [15] "yarn"
+df.item_body_component.T_corpse_flags = {}
+
+---@class item_body_component_corpse_flags
+---@field [0] boolean
+---@field unbutchered boolean
+---@field [1] boolean
+---@field plant boolean
+---@field [2] boolean
+---@field silk boolean
+---@field [3] boolean
+---@field leather boolean
+---@field [4] boolean
+---@field bone boolean
+---@field [5] boolean
+---@field shell boolean
+---@field [6] boolean
+---@field unk_6 boolean
+---@field [7] boolean
+---@field soap boolean
+---@field [8] boolean
+---@field tooth boolean
+---@field [9] boolean
+---@field horn boolean
+---@field [10] boolean
+---@field pearl boolean
+---@field [11] boolean
+---@field skull1 boolean
+---@field [12] boolean
+---@field skull2 boolean
+---@field [13] boolean
+---@field separated_part boolean
+---@field [14] boolean
+---@field hair_wool boolean
+---@field [15] boolean
+---@field yarn boolean
 
 ---@class item_body_component_bone1: df.struct
 ---@field mat_type material
@@ -375,12 +791,22 @@ df.item_corpsepiecest = {}
 ---@field name language_name
 df.item_critter = {}
 
----@enum item_matstate
-df.item_matstate = {
-  no_auto_clean = 0, --isAutoClean returns false
-  pressed = 1,
-  paste = 2,
-}
+---@class (exact) _item_matstate: df.struct
+---@field no_auto_clean 0
+---@field [0] "no_auto_clean"
+---@field pressed 1
+---@field [1] "pressed"
+---@field paste 2
+---@field [2] "paste"
+df.item_matstate = {}
+
+---@class item_matstate
+---@field [0] boolean
+---@field no_auto_clean boolean
+---@field [1] boolean
+---@field pressed boolean
+---@field [2] boolean
+---@field paste boolean
 
 ---@class item_liquipowder: item_actual
 ---@field mat_state item_matstate
@@ -535,10 +961,14 @@ df.item_verminst = {}
 ---@field pet_flags item_petst_pet_flags
 df.item_petst = {}
 
----@enum item_petst_pet_flags
-df.item_petst.T_pet_flags = {
-  available_for_adoption = 0,
-}
+---@class (exact) _item_petst_pet_flags: df.struct
+---@field available_for_adoption 0
+---@field [0] "available_for_adoption"
+df.item_petst.T_pet_flags = {}
+
+---@class item_petst_pet_flags
+---@field [0] boolean
+---@field available_for_adoption boolean
 
 ---@class item_drinkst: item_liquid
 df.item_drinkst = {}
@@ -591,10 +1021,14 @@ df.item_threadst = {}
 ---@field size integer
 df.item_eggst = {}
 
----@enum item_eggst_egg_flags
-df.item_eggst.T_egg_flags = {
-  fertile = 0, --allows the incubation_counter to be checked/incremented
-}
+---@class (exact) _item_eggst_egg_flags: df.struct
+---@field fertile 0
+---@field [0] "fertile"
+df.item_eggst.T_egg_flags = {}
+
+---@class item_eggst_egg_flags
+---@field [0] boolean
+---@field fertile boolean
 
 ---@class item_doorst: item_constructed
 df.item_doorst = {}

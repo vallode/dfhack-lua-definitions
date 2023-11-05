@@ -1,70 +1,206 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum worldgen_region_type
-df.worldgen_region_type = {
-  SWAMP = 0,
-  DESERT = 1,
-  FOREST = 2,
-  MOUNTAINS = 3,
-  OCEAN = 4,
-  LAKE = 5,
-  GLACIER = 6,
-  TUNDRA = 7,
-  GRASSLAND = 8,
-  HILLS = 9,
-}
+---@class (exact) _worldgen_region_type: df.struct
+---@field SWAMP 0
+---@field [0] "SWAMP"
+---@field DESERT 1
+---@field [1] "DESERT"
+---@field FOREST 2
+---@field [2] "FOREST"
+---@field MOUNTAINS 3
+---@field [3] "MOUNTAINS"
+---@field OCEAN 4
+---@field [4] "OCEAN"
+---@field LAKE 5
+---@field [5] "LAKE"
+---@field GLACIER 6
+---@field [6] "GLACIER"
+---@field TUNDRA 7
+---@field [7] "TUNDRA"
+---@field GRASSLAND 8
+---@field [8] "GRASSLAND"
+---@field HILLS 9
+---@field [9] "HILLS"
+df.worldgen_region_type = {}
 
----@enum worldgen_range_type
-df.worldgen_range_type = {
-  ELEVATION = 0,
-  RAINFALL = 1,
-  unk_2 = 2,
-  TEMPERATURE = 3,
-  unk_4 = 4,
-  DRAINAGE = 5,
-  VOLCANISM = 6,
-  SAVAGERY = 7,
-  unk_8 = 8,
-  unk_9 = 9,
-  unk_10 = 10,
-  unk_11 = 11,
-  unk_12 = 12,
-  unk_13 = 13,
-  unk_14 = 14,
-  unk_15 = 15,
-  unk_16 = 16,
-  unk_17 = 17,
-  unk_18 = 18,
-  unk_19 = 19,
-  unk_20 = 20,
-  unk_21 = 21,
-  unk_22 = 22,
-  unk_23 = 23,
-}
+---@class worldgen_region_type
+---@field [0] boolean
+---@field SWAMP boolean
+---@field [1] boolean
+---@field DESERT boolean
+---@field [2] boolean
+---@field FOREST boolean
+---@field [3] boolean
+---@field MOUNTAINS boolean
+---@field [4] boolean
+---@field OCEAN boolean
+---@field [5] boolean
+---@field LAKE boolean
+---@field [6] boolean
+---@field GLACIER boolean
+---@field [7] boolean
+---@field TUNDRA boolean
+---@field [8] boolean
+---@field GRASSLAND boolean
+---@field [9] boolean
+---@field HILLS boolean
 
----@enum units_other_id
-df.units_other_id = {
-  ANY_RIDER = 0,
-  ANY_BABY2 = 1,
-}
+---@class (exact) _worldgen_range_type: df.struct
+---@field ELEVATION 0
+---@field [0] "ELEVATION"
+---@field RAINFALL 1
+---@field [1] "RAINFALL"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field TEMPERATURE 3
+---@field [3] "TEMPERATURE"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field DRAINAGE 5
+---@field [5] "DRAINAGE"
+---@field VOLCANISM 6
+---@field [6] "VOLCANISM"
+---@field SAVAGERY 7
+---@field [7] "SAVAGERY"
+---@field unk_8 8
+---@field [8] "unk_8"
+---@field unk_9 9
+---@field [9] "unk_9"
+---@field unk_10 10
+---@field [10] "unk_10"
+---@field unk_11 11
+---@field [11] "unk_11"
+---@field unk_12 12
+---@field [12] "unk_12"
+---@field unk_13 13
+---@field [13] "unk_13"
+---@field unk_14 14
+---@field [14] "unk_14"
+---@field unk_15 15
+---@field [15] "unk_15"
+---@field unk_16 16
+---@field [16] "unk_16"
+---@field unk_17 17
+---@field [17] "unk_17"
+---@field unk_18 18
+---@field [18] "unk_18"
+---@field unk_19 19
+---@field [19] "unk_19"
+---@field unk_20 20
+---@field [20] "unk_20"
+---@field unk_21 21
+---@field [21] "unk_21"
+---@field unk_22 22
+---@field [22] "unk_22"
+---@field unk_23 23
+---@field [23] "unk_23"
+df.worldgen_range_type = {}
+
+---@class worldgen_range_type
+---@field [0] boolean
+---@field ELEVATION boolean
+---@field [1] boolean
+---@field RAINFALL boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field TEMPERATURE boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field DRAINAGE boolean
+---@field [6] boolean
+---@field VOLCANISM boolean
+---@field [7] boolean
+---@field SAVAGERY boolean
+---@field [8] boolean
+---@field unk_8 boolean
+---@field [9] boolean
+---@field unk_9 boolean
+---@field [10] boolean
+---@field unk_10 boolean
+---@field [11] boolean
+---@field unk_11 boolean
+---@field [12] boolean
+---@field unk_12 boolean
+---@field [13] boolean
+---@field unk_13 boolean
+---@field [14] boolean
+---@field unk_14 boolean
+---@field [15] boolean
+---@field unk_15 boolean
+---@field [16] boolean
+---@field unk_16 boolean
+---@field [17] boolean
+---@field unk_17 boolean
+---@field [18] boolean
+---@field unk_18 boolean
+---@field [19] boolean
+---@field unk_19 boolean
+---@field [20] boolean
+---@field unk_20 boolean
+---@field [21] boolean
+---@field unk_21 boolean
+---@field [22] boolean
+---@field unk_22 boolean
+---@field [23] boolean
+---@field unk_23 boolean
+
+---@class (exact) _units_other_id: df.struct
+---@field ANY_RIDER 0
+---@field [0] "ANY_RIDER"
+---@field ANY_BABY2 1
+---@field [1] "ANY_BABY2"
+df.units_other_id = {}
+
+---@class units_other_id
+---@field [0] boolean
+---@field ANY_RIDER boolean
+---@field [1] boolean
+---@field ANY_BABY2 boolean
 
 ---@class unit_context_block: df.struct
 ---@field context_unit unit[]
 ---@field num integer
 df.unit_context_block = {}
 
----@enum conflict_level
-df.conflict_level = {
-  None = -1,
-  Encounter = 1,
-  Horseplay = 2,
-  Training = 3,
-  Brawl = 4,
-  Nonlethal = 5,
-  Lethal = 6,
-  NoQuarter = 7,
-}
+---@class (exact) _conflict_level: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Encounter 1
+---@field [1] "Encounter"
+---@field Horseplay 2
+---@field [2] "Horseplay"
+---@field Training 3
+---@field [3] "Training"
+---@field Brawl 4
+---@field [4] "Brawl"
+---@field Nonlethal 5
+---@field [5] "Nonlethal"
+---@field Lethal 6
+---@field [6] "Lethal"
+---@field NoQuarter 7
+---@field [7] "NoQuarter"
+df.conflict_level = {}
+
+---@class conflict_level
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Encounter boolean
+---@field [2] boolean
+---@field Horseplay boolean
+---@field [3] boolean
+---@field Training boolean
+---@field [4] boolean
+---@field Brawl boolean
+---@field [5] boolean
+---@field Nonlethal boolean
+---@field [6] boolean
+---@field Lethal boolean
+---@field [7] boolean
+---@field NoQuarter boolean
 
 ---@class incident_hfid: df.struct
 ---@field hfid historical_figure
@@ -110,27 +246,71 @@ df.incident_hfid = {}
 ---@field data incident_data
 df.incident = {}
 
----@enum incident_type
-df.incident.T_type = {
-  Death = 0,
-  Crime = 1, --Visible indirectly through convictions or crime effects (e.g. killing/maiming someone)
-  Attack = 2,
-  Escalation = 3,
-  Reunion = 4,
-  YieldDemand = 5,
-  Performance = 6,
-  Artifact = 7,
-  Writing = 8,
-  SelfID = 9,
-  RefusedID = 10,
-}
+---@class (exact) _incident_type: df.struct
+---@field Death 0
+---@field [0] "Death"
+---@field Crime 1
+---@field [1] "Crime"
+---@field Attack 2
+---@field [2] "Attack"
+---@field Escalation 3
+---@field [3] "Escalation"
+---@field Reunion 4
+---@field [4] "Reunion"
+---@field YieldDemand 5
+---@field [5] "YieldDemand"
+---@field Performance 6
+---@field [6] "Performance"
+---@field Artifact 7
+---@field [7] "Artifact"
+---@field Writing 8
+---@field [8] "Writing"
+---@field SelfID 9
+---@field [9] "SelfID"
+---@field RefusedID 10
+---@field [10] "RefusedID"
+df.incident.T_type = {}
 
----@enum incident_flags
-df.incident.T_flags = {
-  announced_missing = 0,
-  discovered = 1,
-  unk2 = 2,
-}
+---@class incident_type
+---@field [0] boolean
+---@field Death boolean
+---@field [1] boolean
+---@field Crime boolean
+---@field [2] boolean
+---@field Attack boolean
+---@field [3] boolean
+---@field Escalation boolean
+---@field [4] boolean
+---@field Reunion boolean
+---@field [5] boolean
+---@field YieldDemand boolean
+---@field [6] boolean
+---@field Performance boolean
+---@field [7] boolean
+---@field Artifact boolean
+---@field [8] boolean
+---@field Writing boolean
+---@field [9] boolean
+---@field SelfID boolean
+---@field [10] boolean
+---@field RefusedID boolean
+
+---@class (exact) _incident_flags: df.struct
+---@field announced_missing 0
+---@field [0] "announced_missing"
+---@field discovered 1
+---@field [1] "discovered"
+---@field unk2 2
+---@field [2] "unk2"
+df.incident.T_flags = {}
+
+---@class incident_flags
+---@field [0] boolean
+---@field announced_missing boolean
+---@field [1] boolean
+---@field discovered boolean
+---@field [2] boolean
+---@field unk2 boolean
 
 ---@class incident_data: df.struct
 ---@field Performance incident_data_performance
@@ -171,15 +351,34 @@ df.incident_data_performance.T_participants = {}
 ---@field unk_9 integer
 df.incident_data_artifact = {}
 
----@enum incident_data_artifact_state
-df.incident_data_artifact.T_state = {
-  Held = 0,
-  Dropped = 1,
-  Gained = 2,
-  Given = 3,
-  Denied = 4,
-  Destroyed = 5,
-}
+---@class (exact) _incident_data_artifact_state: df.struct
+---@field Held 0
+---@field [0] "Held"
+---@field Dropped 1
+---@field [1] "Dropped"
+---@field Gained 2
+---@field [2] "Gained"
+---@field Given 3
+---@field [3] "Given"
+---@field Denied 4
+---@field [4] "Denied"
+---@field Destroyed 5
+---@field [5] "Destroyed"
+df.incident_data_artifact.T_state = {}
+
+---@class incident_data_artifact_state
+---@field [0] boolean
+---@field Held boolean
+---@field [1] boolean
+---@field Dropped boolean
+---@field [2] boolean
+---@field Gained boolean
+---@field [3] boolean
+---@field Given boolean
+---@field [4] boolean
+---@field Denied boolean
+---@field [5] boolean
+---@field Destroyed boolean
 
 ---@class incident_data_writing: df.struct
 ---@field state incident_data_writing_state
@@ -194,11 +393,18 @@ df.incident_data_artifact.T_state = {
 ---@field unk_8 integer
 df.incident_data_writing = {}
 
----@enum incident_data_writing_state
-df.incident_data_writing.T_state = {
-  Dropped = 0,
-  Given = 1,
-}
+---@class (exact) _incident_data_writing_state: df.struct
+---@field Dropped 0
+---@field [0] "Dropped"
+---@field Given 1
+---@field [1] "Given"
+df.incident_data_writing.T_state = {}
+
+---@class incident_data_writing_state
+---@field [0] boolean
+---@field Dropped boolean
+---@field [1] boolean
+---@field Given boolean
 
 ---@class incident_data_identity: df.struct
 ---@field unk_1 incident_hfid[]
@@ -236,28 +442,86 @@ df.incident_data_identity = {}
 ---@field agreement_id agreement
 df.crime = {}
 
----@enum crime_mode
-df.crime.T_mode = {
-  ProductionOrderViolation = 0,
-  ExportViolation = 1,
-  JobOrderViolation = 2,
-  ConspiracyToSlowLabor = 3,
-  Murder = 4,
-  DisorderlyBehavior = 5,
-  BuildingDestruction = 6,
-  Vandalism = 7,
-  Theft = 8,
-  Robbery = 9,
-  BloodDrinking = 10,
-  Embezzlement = 11,
-  AttemptedMurder = 12,
-  Kidnapping = 13,
-  AttemptedKidnapping = 14,
-  AttemptedTheft = 15,
-  Treason = 16,
-  Espionage = 17,
-  Bribery = 18,
-}
+---@class (exact) _crime_mode: df.struct
+---@field ProductionOrderViolation 0
+---@field [0] "ProductionOrderViolation"
+---@field ExportViolation 1
+---@field [1] "ExportViolation"
+---@field JobOrderViolation 2
+---@field [2] "JobOrderViolation"
+---@field ConspiracyToSlowLabor 3
+---@field [3] "ConspiracyToSlowLabor"
+---@field Murder 4
+---@field [4] "Murder"
+---@field DisorderlyBehavior 5
+---@field [5] "DisorderlyBehavior"
+---@field BuildingDestruction 6
+---@field [6] "BuildingDestruction"
+---@field Vandalism 7
+---@field [7] "Vandalism"
+---@field Theft 8
+---@field [8] "Theft"
+---@field Robbery 9
+---@field [9] "Robbery"
+---@field BloodDrinking 10
+---@field [10] "BloodDrinking"
+---@field Embezzlement 11
+---@field [11] "Embezzlement"
+---@field AttemptedMurder 12
+---@field [12] "AttemptedMurder"
+---@field Kidnapping 13
+---@field [13] "Kidnapping"
+---@field AttemptedKidnapping 14
+---@field [14] "AttemptedKidnapping"
+---@field AttemptedTheft 15
+---@field [15] "AttemptedTheft"
+---@field Treason 16
+---@field [16] "Treason"
+---@field Espionage 17
+---@field [17] "Espionage"
+---@field Bribery 18
+---@field [18] "Bribery"
+df.crime.T_mode = {}
+
+---@class crime_mode
+---@field [0] boolean
+---@field ProductionOrderViolation boolean
+---@field [1] boolean
+---@field ExportViolation boolean
+---@field [2] boolean
+---@field JobOrderViolation boolean
+---@field [3] boolean
+---@field ConspiracyToSlowLabor boolean
+---@field [4] boolean
+---@field Murder boolean
+---@field [5] boolean
+---@field DisorderlyBehavior boolean
+---@field [6] boolean
+---@field BuildingDestruction boolean
+---@field [7] boolean
+---@field Vandalism boolean
+---@field [8] boolean
+---@field Theft boolean
+---@field [9] boolean
+---@field Robbery boolean
+---@field [10] boolean
+---@field BloodDrinking boolean
+---@field [11] boolean
+---@field Embezzlement boolean
+---@field [12] boolean
+---@field AttemptedMurder boolean
+---@field [13] boolean
+---@field Kidnapping boolean
+---@field [14] boolean
+---@field AttemptedKidnapping boolean
+---@field [15] boolean
+---@field AttemptedTheft boolean
+---@field [16] boolean
+---@field Treason boolean
+---@field [17] boolean
+---@field Espionage boolean
+---@field [18] boolean
+---@field Bribery boolean
 
 ---@class crime_punishment: df.struct
 ---@field hammerstrikes integer
@@ -275,12 +539,22 @@ df.crime.T_convict_data = {}
 ---@field victim unit
 df.crime.T_victim_data = {}
 
----@enum crime_flags
-df.crime.T_flags = {
-  sentenced = 0,
-  discovered = 1,
-  needs_trial = 2, --i.e. the player chooses whom to convict
-}
+---@class (exact) _crime_flags: df.struct
+---@field sentenced 0
+---@field [0] "sentenced"
+---@field discovered 1
+---@field [1] "discovered"
+---@field needs_trial 2
+---@field [2] "needs_trial"
+df.crime.T_flags = {}
+
+---@class crime_flags
+---@field [0] boolean
+---@field sentenced boolean
+---@field [1] boolean
+---@field discovered boolean
+---@field [2] boolean
+---@field needs_trial boolean
 
 ---@class crime_reports: df.struct
 ---@field death_id incident -1...
@@ -311,17 +585,42 @@ df.crime.T_counterintelligence = {}
 ---@field reported_tick integer
 df.crime_witness = {}
 
----@enum crime_witness_witness_claim
-df.crime_witness.T_witness_claim = {
-  SawDisorderlyConduct = 0,
-  FoundTheBody = 1,
-  SawObjectWasMissing = 2,
-  SawObjectWasDisturbed = 3,
-  SawSomebodyAdmireObject = 4,
-  Confessed = 5,
-  ImplicatesSomeone = 6,
-  AccusesSomeone = 7,
-}
+---@class (exact) _crime_witness_witness_claim: df.struct
+---@field SawDisorderlyConduct 0
+---@field [0] "SawDisorderlyConduct"
+---@field FoundTheBody 1
+---@field [1] "FoundTheBody"
+---@field SawObjectWasMissing 2
+---@field [2] "SawObjectWasMissing"
+---@field SawObjectWasDisturbed 3
+---@field [3] "SawObjectWasDisturbed"
+---@field SawSomebodyAdmireObject 4
+---@field [4] "SawSomebodyAdmireObject"
+---@field Confessed 5
+---@field [5] "Confessed"
+---@field ImplicatesSomeone 6
+---@field [6] "ImplicatesSomeone"
+---@field AccusesSomeone 7
+---@field [7] "AccusesSomeone"
+df.crime_witness.T_witness_claim = {}
+
+---@class crime_witness_witness_claim
+---@field [0] boolean
+---@field SawDisorderlyConduct boolean
+---@field [1] boolean
+---@field FoundTheBody boolean
+---@field [2] boolean
+---@field SawObjectWasMissing boolean
+---@field [3] boolean
+---@field SawObjectWasDisturbed boolean
+---@field [4] boolean
+---@field SawSomebodyAdmireObject boolean
+---@field [5] boolean
+---@field Confessed boolean
+---@field [6] boolean
+---@field ImplicatesSomeone boolean
+---@field [7] boolean
+---@field AccusesSomeone boolean
 
 ---@class mission_campaign_report: df.struct
 ---@field travel_x integer[]
@@ -412,10 +711,14 @@ df.interrogation_report = {}
 ---@field flags unk_flags
 df.interrogation_report.T_unk = {}
 
----@enum unk_flags
-df.unk.T_flags = {
-  unk_0 = 0,
-}
+---@class (exact) _unk_flags: df.struct
+---@field unk_0 0
+---@field [0] "unk_0"
+df.unk.T_flags = {}
+
+---@class unk_flags
+---@field [0] boolean
+---@field unk_0 boolean
 
 ---@class divine_treasure: df.struct
 ---@field histfig_id historical_figure
@@ -490,44 +793,150 @@ df.coord_rect = {}
 ---@field z_max integer
 df.embark_feature = {}
 
----@enum combat_report_event_type
-df.combat_report_event_type = {
-  unk_0 = 0,
-  Deflected = 1,
-  unk_2 = 2,
-  unk_3 = 3,
-  unk_4 = 4,
-  unk_5 = 5,
-  Unconscious = 6,
-  Stunned = 7,
-  MoreStunned = 8,
-  Winded = 9,
-  MoreWinded = 10,
-  Nausea = 11,
-  MoreNausea = 12,
-  unk_13 = 13,
-  unk_14 = 14,
-  ExtractInjected = 15,
-  ExtractSprayed = 16,
-  BloodSucked = 17,
-  SeveredPart = 18,
-  unk_19 = 19,
-  KnockedBack = 20,
-  StuckIn = 21,
-  LatchOnPart = 22,
-  LatchOn = 23,
-  Enraged = 24,
-  PassThrough = 25,
-  GlancesAway = 26,
-  unk_27 = 27,
-  unk_28 = 28,
-  MajorArtery = 29,
-  Artery = 30,
-  MotorNerve = 31,
-  SensoryNerve = 32,
-  NoForce = 33,
-  Interrupted = 34,
-}
+---@class (exact) _combat_report_event_type: df.struct
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field Deflected 1
+---@field [1] "Deflected"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field unk_3 3
+---@field [3] "unk_3"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field unk_5 5
+---@field [5] "unk_5"
+---@field Unconscious 6
+---@field [6] "Unconscious"
+---@field Stunned 7
+---@field [7] "Stunned"
+---@field MoreStunned 8
+---@field [8] "MoreStunned"
+---@field Winded 9
+---@field [9] "Winded"
+---@field MoreWinded 10
+---@field [10] "MoreWinded"
+---@field Nausea 11
+---@field [11] "Nausea"
+---@field MoreNausea 12
+---@field [12] "MoreNausea"
+---@field unk_13 13
+---@field [13] "unk_13"
+---@field unk_14 14
+---@field [14] "unk_14"
+---@field ExtractInjected 15
+---@field [15] "ExtractInjected"
+---@field ExtractSprayed 16
+---@field [16] "ExtractSprayed"
+---@field BloodSucked 17
+---@field [17] "BloodSucked"
+---@field SeveredPart 18
+---@field [18] "SeveredPart"
+---@field unk_19 19
+---@field [19] "unk_19"
+---@field KnockedBack 20
+---@field [20] "KnockedBack"
+---@field StuckIn 21
+---@field [21] "StuckIn"
+---@field LatchOnPart 22
+---@field [22] "LatchOnPart"
+---@field LatchOn 23
+---@field [23] "LatchOn"
+---@field Enraged 24
+---@field [24] "Enraged"
+---@field PassThrough 25
+---@field [25] "PassThrough"
+---@field GlancesAway 26
+---@field [26] "GlancesAway"
+---@field unk_27 27
+---@field [27] "unk_27"
+---@field unk_28 28
+---@field [28] "unk_28"
+---@field MajorArtery 29
+---@field [29] "MajorArtery"
+---@field Artery 30
+---@field [30] "Artery"
+---@field MotorNerve 31
+---@field [31] "MotorNerve"
+---@field SensoryNerve 32
+---@field [32] "SensoryNerve"
+---@field NoForce 33
+---@field [33] "NoForce"
+---@field Interrupted 34
+---@field [34] "Interrupted"
+df.combat_report_event_type = {}
+
+---@class combat_report_event_type
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field Deflected boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field unk_3 boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field unk_5 boolean
+---@field [6] boolean
+---@field Unconscious boolean
+---@field [7] boolean
+---@field Stunned boolean
+---@field [8] boolean
+---@field MoreStunned boolean
+---@field [9] boolean
+---@field Winded boolean
+---@field [10] boolean
+---@field MoreWinded boolean
+---@field [11] boolean
+---@field Nausea boolean
+---@field [12] boolean
+---@field MoreNausea boolean
+---@field [13] boolean
+---@field unk_13 boolean
+---@field [14] boolean
+---@field unk_14 boolean
+---@field [15] boolean
+---@field ExtractInjected boolean
+---@field [16] boolean
+---@field ExtractSprayed boolean
+---@field [17] boolean
+---@field BloodSucked boolean
+---@field [18] boolean
+---@field SeveredPart boolean
+---@field [19] boolean
+---@field unk_19 boolean
+---@field [20] boolean
+---@field KnockedBack boolean
+---@field [21] boolean
+---@field StuckIn boolean
+---@field [22] boolean
+---@field LatchOnPart boolean
+---@field [23] boolean
+---@field LatchOn boolean
+---@field [24] boolean
+---@field Enraged boolean
+---@field [25] boolean
+---@field PassThrough boolean
+---@field [26] boolean
+---@field GlancesAway boolean
+---@field [27] boolean
+---@field unk_27 boolean
+---@field [28] boolean
+---@field unk_28 boolean
+---@field [29] boolean
+---@field MajorArtery boolean
+---@field [30] boolean
+---@field Artery boolean
+---@field [31] boolean
+---@field MotorNerve boolean
+---@field [32] boolean
+---@field SensoryNerve boolean
+---@field [33] boolean
+---@field NoForce boolean
+---@field [34] boolean
+---@field Interrupted boolean
 
 ---@class glowing_barrier: df.struct
 ---@field triggered boolean set when the glowing barrier vanishes, preventing later HFS events
@@ -611,10 +1020,14 @@ df.job_handler = {}
 ---@field unk_1 integer not saved
 df.job_handler.T_postings = {}
 
----@enum postings_flags
-df.postings.T_flags = {
-  dead = 0,
-}
+---@class (exact) _postings_flags: df.struct
+---@field dead 0
+---@field [0] "dead"
+df.postings.T_flags = {}
+
+---@class postings_flags
+---@field [0] boolean
+---@field dead boolean
 
 ---@class job_handler_job_application_heap: df.struct
 ---this appears to be a priority queue of some sort
@@ -729,14 +1142,30 @@ df.belief_system.T_mental_pictures = {}
 ---@field effect integer When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
 df.divination_set_roll = {}
 
----@enum divination_set_roll_effect_type
-df.divination_set_roll.T_effect_type = {
-  MediumBlessing = 0,
-  MinorBlessing = 1,
-  MediumCurse = 2,
-  MinorCurse = 3,
-  Fortune = 4,
-}
+---@class (exact) _divination_set_roll_effect_type: df.struct
+---@field MediumBlessing 0
+---@field [0] "MediumBlessing"
+---@field MinorBlessing 1
+---@field [1] "MinorBlessing"
+---@field MediumCurse 2
+---@field [2] "MediumCurse"
+---@field MinorCurse 3
+---@field [3] "MinorCurse"
+---@field Fortune 4
+---@field [4] "Fortune"
+df.divination_set_roll.T_effect_type = {}
+
+---@class divination_set_roll_effect_type
+---@field [0] boolean
+---@field MediumBlessing boolean
+---@field [1] boolean
+---@field MinorBlessing boolean
+---@field [2] boolean
+---@field MediumCurse boolean
+---@field [3] boolean
+---@field MinorCurse boolean
+---@field [4] boolean
+---@field Fortune boolean
 
 ---@class divination_set: df.instance
 ---@field id integer currently matches index into vector
@@ -1045,12 +1474,22 @@ df.world.T_activities = {}
 ---@field slots status_slots
 df.world.T_status = {}
 
----@enum status_flags
-df.status.T_flags = {
-  combat = 0,
-  hunting = 1,
-  sparring = 2,
-}
+---@class (exact) _status_flags: df.struct
+---@field combat 0
+---@field [0] "combat"
+---@field hunting 1
+---@field [1] "hunting"
+---@field sparring 2
+---@field [2] "sparring"
+df.status.T_flags = {}
+
+---@class status_flags
+---@field [0] boolean
+---@field combat boolean
+---@field [1] boolean
+---@field hunting boolean
+---@field [2] boolean
+---@field sparring boolean
 
 ---@class status_slots: df.struct
 ---@field slotdata combat_report_event_type[]
@@ -1272,21 +1711,58 @@ df.world.T_map_extras = {}
 ---@field unk_32 integer[]
 df.world.T_worldgen_status = {}
 
----@enum worldgen_status_state
-df.worldgen_status.T_state = {
-  None = -1,
-  Initializing = 1,
-  PreparingElevation = 2,
-  SettingTemperature = 3,
-  RunningRivers = 4,
-  FormingLakesAndMinerals = 5,
-  GrowingVegetation = 6,
-  VerifyingTerrain = 7,
-  ImportingWildlife = 8,
-  RecountingLegends = 9,
-  Finalizing = 10,
-  Done = 11,
-}
+---@class (exact) _worldgen_status_state: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Initializing 1
+---@field [1] "Initializing"
+---@field PreparingElevation 2
+---@field [2] "PreparingElevation"
+---@field SettingTemperature 3
+---@field [3] "SettingTemperature"
+---@field RunningRivers 4
+---@field [4] "RunningRivers"
+---@field FormingLakesAndMinerals 5
+---@field [5] "FormingLakesAndMinerals"
+---@field GrowingVegetation 6
+---@field [6] "GrowingVegetation"
+---@field VerifyingTerrain 7
+---@field [7] "VerifyingTerrain"
+---@field ImportingWildlife 8
+---@field [8] "ImportingWildlife"
+---@field RecountingLegends 9
+---@field [9] "RecountingLegends"
+---@field Finalizing 10
+---@field [10] "Finalizing"
+---@field Done 11
+---@field [11] "Done"
+df.worldgen_status.T_state = {}
+
+---@class worldgen_status_state
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Initializing boolean
+---@field [2] boolean
+---@field PreparingElevation boolean
+---@field [3] boolean
+---@field SettingTemperature boolean
+---@field [4] boolean
+---@field RunningRivers boolean
+---@field [5] boolean
+---@field FormingLakesAndMinerals boolean
+---@field [6] boolean
+---@field GrowingVegetation boolean
+---@field [7] boolean
+---@field VerifyingTerrain boolean
+---@field [8] boolean
+---@field ImportingWildlife boolean
+---@field [9] boolean
+---@field RecountingLegends boolean
+---@field [10] boolean
+---@field Finalizing boolean
+---@field [11] boolean
+---@field Done boolean
 
 ---@class world_area_grasses: df.struct
 ---grasses in world tiles around embark. Populated at embark
@@ -1415,51 +1891,178 @@ df.world.T_cur_savegame = {}
 ---@field advs_played integer
 df.cur_savegame.T_world_header = {}
 
----@enum world_header_load_stage
-df.world_header.T_load_stage = {
-  LoadingObjectFiles = 0,
-  SortingMaterialTemplates = 1,
-  SortingInorganics = 2,
-  SortingPlants = 3,
-  SortingTissueTemplates = 4,
-  SortingItems = 5,
-  SortingBuildings = 6,
-  SortingBodyDetailPlans = 7,
-  SortingCreatureBodies = 8,
-  SortingCreatureVariations = 9,
-  SortingCreatures = 10,
-  SortingEntities = 11,
-  SortingLanguages = 12,
-  SortingDescriptions = 13,
-  SortingReactions = 14,
-  SortingInteractions = 15,
-  FinalizingLanguages = 16,
-  FinalizingDescriptors = 17,
-  FinalizingMaterialTemplates = 18,
-  FinalizingInorganics = 19,
-  FinalizingPlants = 20,
-  FinalizingTissueTemplates = 21,
-  FinalizingItems = 22,
-  FinalizingBuildings = 23,
-  FinalizingBodyDetailPlans = 24,
-  FinalizingCreatureVariations = 25,
-  FinalizingCreatures = 26,
-  FinalizingEntities = 27,
-  FinalizingReactions = 28,
-  FinalizingInteractions = 29,
-  PreparingMaterialData = 30,
-  GeneratingInorganics = 31,
-  GeneratingPlants = 32,
-  GeneratingItems = 33,
-  GeneratingCreatures = 34,
-  GeneratingEntities = 35,
-  GeneratingReactions = 36,
-  GeneratingInteractions = 37,
-  FinalizingGeneratedObjects = 38,
-  PreparingTextObjects = 39,
-  PreparingGraphics = 40,
-  Finishing = 41,
-}
+---@class (exact) _world_header_load_stage: df.struct
+---@field LoadingObjectFiles 0
+---@field [0] "LoadingObjectFiles"
+---@field SortingMaterialTemplates 1
+---@field [1] "SortingMaterialTemplates"
+---@field SortingInorganics 2
+---@field [2] "SortingInorganics"
+---@field SortingPlants 3
+---@field [3] "SortingPlants"
+---@field SortingTissueTemplates 4
+---@field [4] "SortingTissueTemplates"
+---@field SortingItems 5
+---@field [5] "SortingItems"
+---@field SortingBuildings 6
+---@field [6] "SortingBuildings"
+---@field SortingBodyDetailPlans 7
+---@field [7] "SortingBodyDetailPlans"
+---@field SortingCreatureBodies 8
+---@field [8] "SortingCreatureBodies"
+---@field SortingCreatureVariations 9
+---@field [9] "SortingCreatureVariations"
+---@field SortingCreatures 10
+---@field [10] "SortingCreatures"
+---@field SortingEntities 11
+---@field [11] "SortingEntities"
+---@field SortingLanguages 12
+---@field [12] "SortingLanguages"
+---@field SortingDescriptions 13
+---@field [13] "SortingDescriptions"
+---@field SortingReactions 14
+---@field [14] "SortingReactions"
+---@field SortingInteractions 15
+---@field [15] "SortingInteractions"
+---@field FinalizingLanguages 16
+---@field [16] "FinalizingLanguages"
+---@field FinalizingDescriptors 17
+---@field [17] "FinalizingDescriptors"
+---@field FinalizingMaterialTemplates 18
+---@field [18] "FinalizingMaterialTemplates"
+---@field FinalizingInorganics 19
+---@field [19] "FinalizingInorganics"
+---@field FinalizingPlants 20
+---@field [20] "FinalizingPlants"
+---@field FinalizingTissueTemplates 21
+---@field [21] "FinalizingTissueTemplates"
+---@field FinalizingItems 22
+---@field [22] "FinalizingItems"
+---@field FinalizingBuildings 23
+---@field [23] "FinalizingBuildings"
+---@field FinalizingBodyDetailPlans 24
+---@field [24] "FinalizingBodyDetailPlans"
+---@field FinalizingCreatureVariations 25
+---@field [25] "FinalizingCreatureVariations"
+---@field FinalizingCreatures 26
+---@field [26] "FinalizingCreatures"
+---@field FinalizingEntities 27
+---@field [27] "FinalizingEntities"
+---@field FinalizingReactions 28
+---@field [28] "FinalizingReactions"
+---@field FinalizingInteractions 29
+---@field [29] "FinalizingInteractions"
+---@field PreparingMaterialData 30
+---@field [30] "PreparingMaterialData"
+---@field GeneratingInorganics 31
+---@field [31] "GeneratingInorganics"
+---@field GeneratingPlants 32
+---@field [32] "GeneratingPlants"
+---@field GeneratingItems 33
+---@field [33] "GeneratingItems"
+---@field GeneratingCreatures 34
+---@field [34] "GeneratingCreatures"
+---@field GeneratingEntities 35
+---@field [35] "GeneratingEntities"
+---@field GeneratingReactions 36
+---@field [36] "GeneratingReactions"
+---@field GeneratingInteractions 37
+---@field [37] "GeneratingInteractions"
+---@field FinalizingGeneratedObjects 38
+---@field [38] "FinalizingGeneratedObjects"
+---@field PreparingTextObjects 39
+---@field [39] "PreparingTextObjects"
+---@field PreparingGraphics 40
+---@field [40] "PreparingGraphics"
+---@field Finishing 41
+---@field [41] "Finishing"
+df.world_header.T_load_stage = {}
+
+---@class world_header_load_stage
+---@field [0] boolean
+---@field LoadingObjectFiles boolean
+---@field [1] boolean
+---@field SortingMaterialTemplates boolean
+---@field [2] boolean
+---@field SortingInorganics boolean
+---@field [3] boolean
+---@field SortingPlants boolean
+---@field [4] boolean
+---@field SortingTissueTemplates boolean
+---@field [5] boolean
+---@field SortingItems boolean
+---@field [6] boolean
+---@field SortingBuildings boolean
+---@field [7] boolean
+---@field SortingBodyDetailPlans boolean
+---@field [8] boolean
+---@field SortingCreatureBodies boolean
+---@field [9] boolean
+---@field SortingCreatureVariations boolean
+---@field [10] boolean
+---@field SortingCreatures boolean
+---@field [11] boolean
+---@field SortingEntities boolean
+---@field [12] boolean
+---@field SortingLanguages boolean
+---@field [13] boolean
+---@field SortingDescriptions boolean
+---@field [14] boolean
+---@field SortingReactions boolean
+---@field [15] boolean
+---@field SortingInteractions boolean
+---@field [16] boolean
+---@field FinalizingLanguages boolean
+---@field [17] boolean
+---@field FinalizingDescriptors boolean
+---@field [18] boolean
+---@field FinalizingMaterialTemplates boolean
+---@field [19] boolean
+---@field FinalizingInorganics boolean
+---@field [20] boolean
+---@field FinalizingPlants boolean
+---@field [21] boolean
+---@field FinalizingTissueTemplates boolean
+---@field [22] boolean
+---@field FinalizingItems boolean
+---@field [23] boolean
+---@field FinalizingBuildings boolean
+---@field [24] boolean
+---@field FinalizingBodyDetailPlans boolean
+---@field [25] boolean
+---@field FinalizingCreatureVariations boolean
+---@field [26] boolean
+---@field FinalizingCreatures boolean
+---@field [27] boolean
+---@field FinalizingEntities boolean
+---@field [28] boolean
+---@field FinalizingReactions boolean
+---@field [29] boolean
+---@field FinalizingInteractions boolean
+---@field [30] boolean
+---@field PreparingMaterialData boolean
+---@field [31] boolean
+---@field GeneratingInorganics boolean
+---@field [32] boolean
+---@field GeneratingPlants boolean
+---@field [33] boolean
+---@field GeneratingItems boolean
+---@field [34] boolean
+---@field GeneratingCreatures boolean
+---@field [35] boolean
+---@field GeneratingEntities boolean
+---@field [36] boolean
+---@field GeneratingReactions boolean
+---@field [37] boolean
+---@field GeneratingInteractions boolean
+---@field [38] boolean
+---@field FinalizingGeneratedObjects boolean
+---@field [39] boolean
+---@field PreparingTextObjects boolean
+---@field [40] boolean
+---@field PreparingGraphics boolean
+---@field [41] boolean
+---@field Finishing boolean
 
 ---@class world_rod_loader: df.struct
 ---@field state rod_loader_state
@@ -1473,28 +2076,86 @@ df.world_header.T_load_stage = {
 ---@field flag integer
 df.world.T_rod_loader = {}
 
----@enum rod_loader_state
-df.rod_loader.T_state = {
-  Initializing = 0,
-  Languages = 1,
-  Shapes = 2,
-  Colors = 3,
-  Patterns = 4,
-  MaterialTemplates = 5,
-  Inorganics = 6,
-  Plants = 7,
-  TissueTemplates = 8,
-  Items = 9,
-  Buildings = 10,
-  BodyDetailPlans = 11,
-  CreatureBodies = 12,
-  CreatureVariations = 13,
-  Creatures = 14,
-  Entities = 15,
-  Reactions = 16,
-  Interactions = 17,
-  Finishing = 18,
-}
+---@class (exact) _rod_loader_state: df.struct
+---@field Initializing 0
+---@field [0] "Initializing"
+---@field Languages 1
+---@field [1] "Languages"
+---@field Shapes 2
+---@field [2] "Shapes"
+---@field Colors 3
+---@field [3] "Colors"
+---@field Patterns 4
+---@field [4] "Patterns"
+---@field MaterialTemplates 5
+---@field [5] "MaterialTemplates"
+---@field Inorganics 6
+---@field [6] "Inorganics"
+---@field Plants 7
+---@field [7] "Plants"
+---@field TissueTemplates 8
+---@field [8] "TissueTemplates"
+---@field Items 9
+---@field [9] "Items"
+---@field Buildings 10
+---@field [10] "Buildings"
+---@field BodyDetailPlans 11
+---@field [11] "BodyDetailPlans"
+---@field CreatureBodies 12
+---@field [12] "CreatureBodies"
+---@field CreatureVariations 13
+---@field [13] "CreatureVariations"
+---@field Creatures 14
+---@field [14] "Creatures"
+---@field Entities 15
+---@field [15] "Entities"
+---@field Reactions 16
+---@field [16] "Reactions"
+---@field Interactions 17
+---@field [17] "Interactions"
+---@field Finishing 18
+---@field [18] "Finishing"
+df.rod_loader.T_state = {}
+
+---@class rod_loader_state
+---@field [0] boolean
+---@field Initializing boolean
+---@field [1] boolean
+---@field Languages boolean
+---@field [2] boolean
+---@field Shapes boolean
+---@field [3] boolean
+---@field Colors boolean
+---@field [4] boolean
+---@field Patterns boolean
+---@field [5] boolean
+---@field MaterialTemplates boolean
+---@field [6] boolean
+---@field Inorganics boolean
+---@field [7] boolean
+---@field Plants boolean
+---@field [8] boolean
+---@field TissueTemplates boolean
+---@field [9] boolean
+---@field Items boolean
+---@field [10] boolean
+---@field Buildings boolean
+---@field [11] boolean
+---@field BodyDetailPlans boolean
+---@field [12] boolean
+---@field CreatureBodies boolean
+---@field [13] boolean
+---@field CreatureVariations boolean
+---@field [14] boolean
+---@field Creatures boolean
+---@field [15] boolean
+---@field Entities boolean
+---@field [16] boolean
+---@field Reactions boolean
+---@field [17] boolean
+---@field Interactions boolean
+---@field [18] boolean
+---@field Finishing boolean
 
 ---@class world_object_loader: df.struct
 ---@field load_object_stage integer
@@ -1591,10 +2252,14 @@ df.equipment.T_item_types = {}
 ---@class equipment_item_subtypes: df.struct
 df.equipment.T_item_subtypes = {}
 
----@enum arena_flag
-df.arena.T_flag = {
-  morale_enable = 0,
-}
+---@class (exact) _arena_flag: df.struct
+---@field morale_enable 0
+---@field [0] "morale_enable"
+df.arena.T_flag = {}
+
+---@class arena_flag
+---@field [0] boolean
+---@field morale_enable boolean
 
 ---@class world_dungeon: df.struct
 ---@field creature_race integer[]
@@ -1655,8 +2320,12 @@ df.attack_chance_info.T_target = {}
 ---@field active_step integer
 df.world.T_active_tutorial = {}
 
----@enum world_cavein_flags
-df.world_cavein_flags = {
-  process_columns = 0,
-}
+---@class (exact) _world_cavein_flags: df.struct
+---@field process_columns 0
+---@field [0] "process_columns"
+df.world_cavein_flags = {}
+
+---@class world_cavein_flags
+---@field [0] boolean
+---@field process_columns boolean
 

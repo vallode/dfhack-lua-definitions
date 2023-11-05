@@ -1,97 +1,362 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum plant_raw_flags
-df.plant_raw_flags = {
-  SPRING = 0,
-  SUMMER = 1,
-  AUTUMN = 2,
-  WINTER = 3,
-  unk_4 = 4,
-  SEED = 5,
-  TREE_HAS_MUSHROOM_CAP = 6,
-  DRINK = 7,
-  EXTRACT_BARREL = 8,
-  EXTRACT_VIAL = 9,
-  EXTRACT_STILL_VIAL = 10,
-  GENERATED = 11,
-  THREAD = 12,
-  MILL = 13,
-  unk_14 = 14,
-  unk_15 = 15,
-  unk_16 = 16,
-  unk_17 = 17,
-  unk_18 = 18,
-  unk_19 = 19,
-  WET = 20,
-  DRY = 21,
-  BIOME_MOUNTAIN = 22,
-  BIOME_GLACIER = 23,
-  BIOME_TUNDRA = 24,
-  BIOME_SWAMP_TEMPERATE_FRESHWATER = 25,
-  BIOME_SWAMP_TEMPERATE_SALTWATER = 26,
-  BIOME_MARSH_TEMPERATE_FRESHWATER = 27,
-  BIOME_MARSH_TEMPERATE_SALTWATER = 28,
-  BIOME_SWAMP_TROPICAL_FRESHWATER = 29,
-  BIOME_SWAMP_TROPICAL_SALTWATER = 30,
-  BIOME_SWAMP_MANGROVE = 31,
-  BIOME_MARSH_TROPICAL_FRESHWATER = 32,
-  BIOME_MARSH_TROPICAL_SALTWATER = 33,
-  BIOME_FOREST_TAIGA = 34,
-  BIOME_FOREST_TEMPERATE_CONIFER = 35,
-  BIOME_FOREST_TEMPERATE_BROADLEAF = 36,
-  BIOME_FOREST_TROPICAL_CONIFER = 37,
-  BIOME_FOREST_TROPICAL_DRY_BROADLEAF = 38,
-  BIOME_FOREST_TROPICAL_MOIST_BROADLEAF = 39,
-  BIOME_GRASSLAND_TEMPERATE = 40,
-  BIOME_SAVANNA_TEMPERATE = 41,
-  BIOME_SHRUBLAND_TEMPERATE = 42,
-  BIOME_GRASSLAND_TROPICAL = 43,
-  BIOME_SAVANNA_TROPICAL = 44,
-  BIOME_SHRUBLAND_TROPICAL = 45,
-  BIOME_DESERT_BADLAND = 46,
-  BIOME_DESERT_ROCK = 47,
-  BIOME_DESERT_SAND = 48,
-  BIOME_OCEAN_TROPICAL = 49,
-  BIOME_OCEAN_TEMPERATE = 50,
-  BIOME_OCEAN_ARCTIC = 51,
-  BIOME_POOL_TEMPERATE_FRESHWATER = 52,
-  BIOME_SUBTERRANEAN_WATER = 53,
-  BIOME_SUBTERRANEAN_CHASM = 54,
-  BIOME_SUBTERRANEAN_LAVA = 55,
-  GOOD = 56,
-  EVIL = 57,
-  SAVAGE = 58,
-  BIOME_POOL_TEMPERATE_BRACKISHWATER = 59,
-  BIOME_POOL_TEMPERATE_SALTWATER = 60,
-  BIOME_POOL_TROPICAL_FRESHWATER = 61,
-  BIOME_POOL_TROPICAL_BRACKISHWATER = 62,
-  BIOME_POOL_TROPICAL_SALTWATER = 63,
-  BIOME_LAKE_TEMPERATE_FRESHWATER = 64,
-  BIOME_LAKE_TEMPERATE_BRACKISHWATER = 65,
-  BIOME_LAKE_TEMPERATE_SALTWATER = 66,
-  BIOME_LAKE_TROPICAL_FRESHWATER = 67,
-  BIOME_LAKE_TROPICAL_BRACKISHWATER = 68,
-  BIOME_LAKE_TROPICAL_SALTWATER = 69,
-  BIOME_RIVER_TEMPERATE_FRESHWATER = 70,
-  BIOME_RIVER_TEMPERATE_BRACKISHWATER = 71,
-  BIOME_RIVER_TEMPERATE_SALTWATER = 72,
-  BIOME_RIVER_TROPICAL_FRESHWATER = 73,
-  BIOME_RIVER_TROPICAL_BRACKISHWATER = 74,
-  BIOME_RIVER_TROPICAL_SALTWATER = 75,
-  TWIGS_SIDE_BRANCHES = 76,
-  SAPLING = 77,
-  TREE = 78,
-  GRASS = 79,
-  TWIGS_ABOVE_BRANCHES = 80,
-  TWIGS_BELOW_BRANCHES = 81,
-  TWIGS_SIDE_HEAVY_BRANCHES = 82,
-  TWIGS_ABOVE_HEAVY_BRANCHES = 83,
-  TWIGS_BELOW_HEAVY_BRANCHES = 84,
-  TWIGS_SIDE_TRUNK = 85,
-  TWIGS_ABOVE_TRUNK = 86,
-  TWIGS_BELOW_TRUNK = 87,
-}
+---@class (exact) _plant_raw_flags: df.struct
+---@field SPRING 0
+---@field [0] "SPRING"
+---@field SUMMER 1
+---@field [1] "SUMMER"
+---@field AUTUMN 2
+---@field [2] "AUTUMN"
+---@field WINTER 3
+---@field [3] "WINTER"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field SEED 5
+---@field [5] "SEED"
+---@field TREE_HAS_MUSHROOM_CAP 6
+---@field [6] "TREE_HAS_MUSHROOM_CAP"
+---@field DRINK 7
+---@field [7] "DRINK"
+---@field EXTRACT_BARREL 8
+---@field [8] "EXTRACT_BARREL"
+---@field EXTRACT_VIAL 9
+---@field [9] "EXTRACT_VIAL"
+---@field EXTRACT_STILL_VIAL 10
+---@field [10] "EXTRACT_STILL_VIAL"
+---@field GENERATED 11
+---@field [11] "GENERATED"
+---@field THREAD 12
+---@field [12] "THREAD"
+---@field MILL 13
+---@field [13] "MILL"
+---@field unk_14 14
+---@field [14] "unk_14"
+---@field unk_15 15
+---@field [15] "unk_15"
+---@field unk_16 16
+---@field [16] "unk_16"
+---@field unk_17 17
+---@field [17] "unk_17"
+---@field unk_18 18
+---@field [18] "unk_18"
+---@field unk_19 19
+---@field [19] "unk_19"
+---@field WET 20
+---@field [20] "WET"
+---@field DRY 21
+---@field [21] "DRY"
+---@field BIOME_MOUNTAIN 22
+---@field [22] "BIOME_MOUNTAIN"
+---@field BIOME_GLACIER 23
+---@field [23] "BIOME_GLACIER"
+---@field BIOME_TUNDRA 24
+---@field [24] "BIOME_TUNDRA"
+---@field BIOME_SWAMP_TEMPERATE_FRESHWATER 25
+---@field [25] "BIOME_SWAMP_TEMPERATE_FRESHWATER"
+---@field BIOME_SWAMP_TEMPERATE_SALTWATER 26
+---@field [26] "BIOME_SWAMP_TEMPERATE_SALTWATER"
+---@field BIOME_MARSH_TEMPERATE_FRESHWATER 27
+---@field [27] "BIOME_MARSH_TEMPERATE_FRESHWATER"
+---@field BIOME_MARSH_TEMPERATE_SALTWATER 28
+---@field [28] "BIOME_MARSH_TEMPERATE_SALTWATER"
+---@field BIOME_SWAMP_TROPICAL_FRESHWATER 29
+---@field [29] "BIOME_SWAMP_TROPICAL_FRESHWATER"
+---@field BIOME_SWAMP_TROPICAL_SALTWATER 30
+---@field [30] "BIOME_SWAMP_TROPICAL_SALTWATER"
+---@field BIOME_SWAMP_MANGROVE 31
+---@field [31] "BIOME_SWAMP_MANGROVE"
+---@field BIOME_MARSH_TROPICAL_FRESHWATER 32
+---@field [32] "BIOME_MARSH_TROPICAL_FRESHWATER"
+---@field BIOME_MARSH_TROPICAL_SALTWATER 33
+---@field [33] "BIOME_MARSH_TROPICAL_SALTWATER"
+---@field BIOME_FOREST_TAIGA 34
+---@field [34] "BIOME_FOREST_TAIGA"
+---@field BIOME_FOREST_TEMPERATE_CONIFER 35
+---@field [35] "BIOME_FOREST_TEMPERATE_CONIFER"
+---@field BIOME_FOREST_TEMPERATE_BROADLEAF 36
+---@field [36] "BIOME_FOREST_TEMPERATE_BROADLEAF"
+---@field BIOME_FOREST_TROPICAL_CONIFER 37
+---@field [37] "BIOME_FOREST_TROPICAL_CONIFER"
+---@field BIOME_FOREST_TROPICAL_DRY_BROADLEAF 38
+---@field [38] "BIOME_FOREST_TROPICAL_DRY_BROADLEAF"
+---@field BIOME_FOREST_TROPICAL_MOIST_BROADLEAF 39
+---@field [39] "BIOME_FOREST_TROPICAL_MOIST_BROADLEAF"
+---@field BIOME_GRASSLAND_TEMPERATE 40
+---@field [40] "BIOME_GRASSLAND_TEMPERATE"
+---@field BIOME_SAVANNA_TEMPERATE 41
+---@field [41] "BIOME_SAVANNA_TEMPERATE"
+---@field BIOME_SHRUBLAND_TEMPERATE 42
+---@field [42] "BIOME_SHRUBLAND_TEMPERATE"
+---@field BIOME_GRASSLAND_TROPICAL 43
+---@field [43] "BIOME_GRASSLAND_TROPICAL"
+---@field BIOME_SAVANNA_TROPICAL 44
+---@field [44] "BIOME_SAVANNA_TROPICAL"
+---@field BIOME_SHRUBLAND_TROPICAL 45
+---@field [45] "BIOME_SHRUBLAND_TROPICAL"
+---@field BIOME_DESERT_BADLAND 46
+---@field [46] "BIOME_DESERT_BADLAND"
+---@field BIOME_DESERT_ROCK 47
+---@field [47] "BIOME_DESERT_ROCK"
+---@field BIOME_DESERT_SAND 48
+---@field [48] "BIOME_DESERT_SAND"
+---@field BIOME_OCEAN_TROPICAL 49
+---@field [49] "BIOME_OCEAN_TROPICAL"
+---@field BIOME_OCEAN_TEMPERATE 50
+---@field [50] "BIOME_OCEAN_TEMPERATE"
+---@field BIOME_OCEAN_ARCTIC 51
+---@field [51] "BIOME_OCEAN_ARCTIC"
+---@field BIOME_POOL_TEMPERATE_FRESHWATER 52
+---@field [52] "BIOME_POOL_TEMPERATE_FRESHWATER"
+---@field BIOME_SUBTERRANEAN_WATER 53
+---@field [53] "BIOME_SUBTERRANEAN_WATER"
+---@field BIOME_SUBTERRANEAN_CHASM 54
+---@field [54] "BIOME_SUBTERRANEAN_CHASM"
+---@field BIOME_SUBTERRANEAN_LAVA 55
+---@field [55] "BIOME_SUBTERRANEAN_LAVA"
+---@field GOOD 56
+---@field [56] "GOOD"
+---@field EVIL 57
+---@field [57] "EVIL"
+---@field SAVAGE 58
+---@field [58] "SAVAGE"
+---@field BIOME_POOL_TEMPERATE_BRACKISHWATER 59
+---@field [59] "BIOME_POOL_TEMPERATE_BRACKISHWATER"
+---@field BIOME_POOL_TEMPERATE_SALTWATER 60
+---@field [60] "BIOME_POOL_TEMPERATE_SALTWATER"
+---@field BIOME_POOL_TROPICAL_FRESHWATER 61
+---@field [61] "BIOME_POOL_TROPICAL_FRESHWATER"
+---@field BIOME_POOL_TROPICAL_BRACKISHWATER 62
+---@field [62] "BIOME_POOL_TROPICAL_BRACKISHWATER"
+---@field BIOME_POOL_TROPICAL_SALTWATER 63
+---@field [63] "BIOME_POOL_TROPICAL_SALTWATER"
+---@field BIOME_LAKE_TEMPERATE_FRESHWATER 64
+---@field [64] "BIOME_LAKE_TEMPERATE_FRESHWATER"
+---@field BIOME_LAKE_TEMPERATE_BRACKISHWATER 65
+---@field [65] "BIOME_LAKE_TEMPERATE_BRACKISHWATER"
+---@field BIOME_LAKE_TEMPERATE_SALTWATER 66
+---@field [66] "BIOME_LAKE_TEMPERATE_SALTWATER"
+---@field BIOME_LAKE_TROPICAL_FRESHWATER 67
+---@field [67] "BIOME_LAKE_TROPICAL_FRESHWATER"
+---@field BIOME_LAKE_TROPICAL_BRACKISHWATER 68
+---@field [68] "BIOME_LAKE_TROPICAL_BRACKISHWATER"
+---@field BIOME_LAKE_TROPICAL_SALTWATER 69
+---@field [69] "BIOME_LAKE_TROPICAL_SALTWATER"
+---@field BIOME_RIVER_TEMPERATE_FRESHWATER 70
+---@field [70] "BIOME_RIVER_TEMPERATE_FRESHWATER"
+---@field BIOME_RIVER_TEMPERATE_BRACKISHWATER 71
+---@field [71] "BIOME_RIVER_TEMPERATE_BRACKISHWATER"
+---@field BIOME_RIVER_TEMPERATE_SALTWATER 72
+---@field [72] "BIOME_RIVER_TEMPERATE_SALTWATER"
+---@field BIOME_RIVER_TROPICAL_FRESHWATER 73
+---@field [73] "BIOME_RIVER_TROPICAL_FRESHWATER"
+---@field BIOME_RIVER_TROPICAL_BRACKISHWATER 74
+---@field [74] "BIOME_RIVER_TROPICAL_BRACKISHWATER"
+---@field BIOME_RIVER_TROPICAL_SALTWATER 75
+---@field [75] "BIOME_RIVER_TROPICAL_SALTWATER"
+---@field TWIGS_SIDE_BRANCHES 76
+---@field [76] "TWIGS_SIDE_BRANCHES"
+---@field SAPLING 77
+---@field [77] "SAPLING"
+---@field TREE 78
+---@field [78] "TREE"
+---@field GRASS 79
+---@field [79] "GRASS"
+---@field TWIGS_ABOVE_BRANCHES 80
+---@field [80] "TWIGS_ABOVE_BRANCHES"
+---@field TWIGS_BELOW_BRANCHES 81
+---@field [81] "TWIGS_BELOW_BRANCHES"
+---@field TWIGS_SIDE_HEAVY_BRANCHES 82
+---@field [82] "TWIGS_SIDE_HEAVY_BRANCHES"
+---@field TWIGS_ABOVE_HEAVY_BRANCHES 83
+---@field [83] "TWIGS_ABOVE_HEAVY_BRANCHES"
+---@field TWIGS_BELOW_HEAVY_BRANCHES 84
+---@field [84] "TWIGS_BELOW_HEAVY_BRANCHES"
+---@field TWIGS_SIDE_TRUNK 85
+---@field [85] "TWIGS_SIDE_TRUNK"
+---@field TWIGS_ABOVE_TRUNK 86
+---@field [86] "TWIGS_ABOVE_TRUNK"
+---@field TWIGS_BELOW_TRUNK 87
+---@field [87] "TWIGS_BELOW_TRUNK"
+df.plant_raw_flags = {}
+
+---@class plant_raw_flags
+---@field [0] boolean
+---@field SPRING boolean
+---@field [1] boolean
+---@field SUMMER boolean
+---@field [2] boolean
+---@field AUTUMN boolean
+---@field [3] boolean
+---@field WINTER boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field SEED boolean
+---@field [6] boolean
+---@field TREE_HAS_MUSHROOM_CAP boolean
+---@field [7] boolean
+---@field DRINK boolean
+---@field [8] boolean
+---@field EXTRACT_BARREL boolean
+---@field [9] boolean
+---@field EXTRACT_VIAL boolean
+---@field [10] boolean
+---@field EXTRACT_STILL_VIAL boolean
+---@field [11] boolean
+---@field GENERATED boolean
+---@field [12] boolean
+---@field THREAD boolean
+---@field [13] boolean
+---@field MILL boolean
+---@field [14] boolean
+---@field unk_14 boolean
+---@field [15] boolean
+---@field unk_15 boolean
+---@field [16] boolean
+---@field unk_16 boolean
+---@field [17] boolean
+---@field unk_17 boolean
+---@field [18] boolean
+---@field unk_18 boolean
+---@field [19] boolean
+---@field unk_19 boolean
+---@field [20] boolean
+---@field WET boolean
+---@field [21] boolean
+---@field DRY boolean
+---@field [22] boolean
+---@field BIOME_MOUNTAIN boolean
+---@field [23] boolean
+---@field BIOME_GLACIER boolean
+---@field [24] boolean
+---@field BIOME_TUNDRA boolean
+---@field [25] boolean
+---@field BIOME_SWAMP_TEMPERATE_FRESHWATER boolean
+---@field [26] boolean
+---@field BIOME_SWAMP_TEMPERATE_SALTWATER boolean
+---@field [27] boolean
+---@field BIOME_MARSH_TEMPERATE_FRESHWATER boolean
+---@field [28] boolean
+---@field BIOME_MARSH_TEMPERATE_SALTWATER boolean
+---@field [29] boolean
+---@field BIOME_SWAMP_TROPICAL_FRESHWATER boolean
+---@field [30] boolean
+---@field BIOME_SWAMP_TROPICAL_SALTWATER boolean
+---@field [31] boolean
+---@field BIOME_SWAMP_MANGROVE boolean
+---@field [32] boolean
+---@field BIOME_MARSH_TROPICAL_FRESHWATER boolean
+---@field [33] boolean
+---@field BIOME_MARSH_TROPICAL_SALTWATER boolean
+---@field [34] boolean
+---@field BIOME_FOREST_TAIGA boolean
+---@field [35] boolean
+---@field BIOME_FOREST_TEMPERATE_CONIFER boolean
+---@field [36] boolean
+---@field BIOME_FOREST_TEMPERATE_BROADLEAF boolean
+---@field [37] boolean
+---@field BIOME_FOREST_TROPICAL_CONIFER boolean
+---@field [38] boolean
+---@field BIOME_FOREST_TROPICAL_DRY_BROADLEAF boolean
+---@field [39] boolean
+---@field BIOME_FOREST_TROPICAL_MOIST_BROADLEAF boolean
+---@field [40] boolean
+---@field BIOME_GRASSLAND_TEMPERATE boolean
+---@field [41] boolean
+---@field BIOME_SAVANNA_TEMPERATE boolean
+---@field [42] boolean
+---@field BIOME_SHRUBLAND_TEMPERATE boolean
+---@field [43] boolean
+---@field BIOME_GRASSLAND_TROPICAL boolean
+---@field [44] boolean
+---@field BIOME_SAVANNA_TROPICAL boolean
+---@field [45] boolean
+---@field BIOME_SHRUBLAND_TROPICAL boolean
+---@field [46] boolean
+---@field BIOME_DESERT_BADLAND boolean
+---@field [47] boolean
+---@field BIOME_DESERT_ROCK boolean
+---@field [48] boolean
+---@field BIOME_DESERT_SAND boolean
+---@field [49] boolean
+---@field BIOME_OCEAN_TROPICAL boolean
+---@field [50] boolean
+---@field BIOME_OCEAN_TEMPERATE boolean
+---@field [51] boolean
+---@field BIOME_OCEAN_ARCTIC boolean
+---@field [52] boolean
+---@field BIOME_POOL_TEMPERATE_FRESHWATER boolean
+---@field [53] boolean
+---@field BIOME_SUBTERRANEAN_WATER boolean
+---@field [54] boolean
+---@field BIOME_SUBTERRANEAN_CHASM boolean
+---@field [55] boolean
+---@field BIOME_SUBTERRANEAN_LAVA boolean
+---@field [56] boolean
+---@field GOOD boolean
+---@field [57] boolean
+---@field EVIL boolean
+---@field [58] boolean
+---@field SAVAGE boolean
+---@field [59] boolean
+---@field BIOME_POOL_TEMPERATE_BRACKISHWATER boolean
+---@field [60] boolean
+---@field BIOME_POOL_TEMPERATE_SALTWATER boolean
+---@field [61] boolean
+---@field BIOME_POOL_TROPICAL_FRESHWATER boolean
+---@field [62] boolean
+---@field BIOME_POOL_TROPICAL_BRACKISHWATER boolean
+---@field [63] boolean
+---@field BIOME_POOL_TROPICAL_SALTWATER boolean
+---@field [64] boolean
+---@field BIOME_LAKE_TEMPERATE_FRESHWATER boolean
+---@field [65] boolean
+---@field BIOME_LAKE_TEMPERATE_BRACKISHWATER boolean
+---@field [66] boolean
+---@field BIOME_LAKE_TEMPERATE_SALTWATER boolean
+---@field [67] boolean
+---@field BIOME_LAKE_TROPICAL_FRESHWATER boolean
+---@field [68] boolean
+---@field BIOME_LAKE_TROPICAL_BRACKISHWATER boolean
+---@field [69] boolean
+---@field BIOME_LAKE_TROPICAL_SALTWATER boolean
+---@field [70] boolean
+---@field BIOME_RIVER_TEMPERATE_FRESHWATER boolean
+---@field [71] boolean
+---@field BIOME_RIVER_TEMPERATE_BRACKISHWATER boolean
+---@field [72] boolean
+---@field BIOME_RIVER_TEMPERATE_SALTWATER boolean
+---@field [73] boolean
+---@field BIOME_RIVER_TROPICAL_FRESHWATER boolean
+---@field [74] boolean
+---@field BIOME_RIVER_TROPICAL_BRACKISHWATER boolean
+---@field [75] boolean
+---@field BIOME_RIVER_TROPICAL_SALTWATER boolean
+---@field [76] boolean
+---@field TWIGS_SIDE_BRANCHES boolean
+---@field [77] boolean
+---@field SAPLING boolean
+---@field [78] boolean
+---@field TREE boolean
+---@field [79] boolean
+---@field GRASS boolean
+---@field [80] boolean
+---@field TWIGS_ABOVE_BRANCHES boolean
+---@field [81] boolean
+---@field TWIGS_BELOW_BRANCHES boolean
+---@field [82] boolean
+---@field TWIGS_SIDE_HEAVY_BRANCHES boolean
+---@field [83] boolean
+---@field TWIGS_ABOVE_HEAVY_BRANCHES boolean
+---@field [84] boolean
+---@field TWIGS_BELOW_HEAVY_BRANCHES boolean
+---@field [85] boolean
+---@field TWIGS_SIDE_TRUNK boolean
+---@field [86] boolean
+---@field TWIGS_ABOVE_TRUNK boolean
+---@field [87] boolean
+---@field TWIGS_BELOW_TRUNK boolean
 
 ---@class plant_raw: df.instance
 ---@field id string
@@ -187,18 +452,46 @@ df.plant_raw.T_material_defs = {}
 ---@class plant_raw_stockpile_growth_flags: df.struct
 df.plant_raw.T_stockpile_growth_flags = {}
 
----@enum plant_material_def
-df.plant_material_def = {
-  basic_mat = 0,
-  tree = 1,
-  drink = 2,
-  seed = 3,
-  thread = 4,
-  mill = 5,
-  extract_vial = 6,
-  extract_barrel = 7,
-  extract_still_vial = 8,
-}
+---@class (exact) _plant_material_def: df.struct
+---@field basic_mat 0
+---@field [0] "basic_mat"
+---@field tree 1
+---@field [1] "tree"
+---@field drink 2
+---@field [2] "drink"
+---@field seed 3
+---@field [3] "seed"
+---@field thread 4
+---@field [4] "thread"
+---@field mill 5
+---@field [5] "mill"
+---@field extract_vial 6
+---@field [6] "extract_vial"
+---@field extract_barrel 7
+---@field [7] "extract_barrel"
+---@field extract_still_vial 8
+---@field [8] "extract_still_vial"
+df.plant_material_def = {}
+
+---@class plant_material_def
+---@field [0] boolean
+---@field basic_mat boolean
+---@field [1] boolean
+---@field tree boolean
+---@field [2] boolean
+---@field drink boolean
+---@field [3] boolean
+---@field seed boolean
+---@field [4] boolean
+---@field thread boolean
+---@field [5] boolean
+---@field mill boolean
+---@field [6] boolean
+---@field extract_vial boolean
+---@field [7] boolean
+---@field extract_barrel boolean
+---@field [8] boolean
+---@field extract_still_vial boolean
 
 ---@class plant_growth: df.struct
 ---@field id string
@@ -224,23 +517,55 @@ df.plant_material_def = {
 ---@field trunk_height_perc_2 integer
 df.plant_growth = {}
 
----@enum plant_growth_locations
-df.plant_growth.T_locations = {
-  twigs = 0,
-  light_branches = 1,
-  heavy_branches = 2,
-  trunk = 3,
-  roots = 4,
-  cap = 5,
-  sapling = 6,
-}
+---@class (exact) _plant_growth_locations: df.struct
+---@field twigs 0
+---@field [0] "twigs"
+---@field light_branches 1
+---@field [1] "light_branches"
+---@field heavy_branches 2
+---@field [2] "heavy_branches"
+---@field trunk 3
+---@field [3] "trunk"
+---@field roots 4
+---@field [4] "roots"
+---@field cap 5
+---@field [5] "cap"
+---@field sapling 6
+---@field [6] "sapling"
+df.plant_growth.T_locations = {}
 
----@enum plant_growth_behavior
-df.plant_growth.T_behavior = {
-  drops_off = 0,
-  no_cloud = 1,
-  has_seed = 2,
-}
+---@class plant_growth_locations
+---@field [0] boolean
+---@field twigs boolean
+---@field [1] boolean
+---@field light_branches boolean
+---@field [2] boolean
+---@field heavy_branches boolean
+---@field [3] boolean
+---@field trunk boolean
+---@field [4] boolean
+---@field roots boolean
+---@field [5] boolean
+---@field cap boolean
+---@field [6] boolean
+---@field sapling boolean
+
+---@class (exact) _plant_growth_behavior: df.struct
+---@field drops_off 0
+---@field [0] "drops_off"
+---@field no_cloud 1
+---@field [1] "no_cloud"
+---@field has_seed 2
+---@field [2] "has_seed"
+df.plant_growth.T_behavior = {}
+
+---@class plant_growth_behavior
+---@field [0] boolean
+---@field drops_off boolean
+---@field [1] boolean
+---@field no_cloud boolean
+---@field [2] boolean
+---@field has_seed boolean
 
 ---@class plant_growth_print: df.struct
 ---@field priority integer final token in list

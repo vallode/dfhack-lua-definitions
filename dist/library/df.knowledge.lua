@@ -1,397 +1,1390 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum knowledge_scholar_flags_0
-df.knowledge_scholar_flags_0 = {
-  philosophy_logic_formal_reasoning = 0,
-  philosophy_logic_deductive_reasoning = 1,
-  philosophy_logic_syllogistic_logic = 2,
-  philosophy_logic_hypothetical_syllogisms = 3,
-  philosophy_logic_propositional_logic = 4,
-  philosophy_logic_dialectic_reasoning = 5,
-  philosophy_logic_analogical_inference = 6,
-  philosophy_ethics_applied_medical = 7,
-  philosophy_ethics_individual_value = 8,
-  philosophy_ethics_state_consequentialism = 9,
-  philosophy_epistemology_truth = 10,
-  philosophy_epistemology_perception = 11,
-  philosophy_epistemology_justification = 12,
-  philosophy_epistemology_belief = 13,
-  philosophy_metaphysics_existence = 14,
-  philosophy_metaphysics_time = 15,
-  philosophy_metaphysics_mind_body = 16,
-  philosophy_metaphysics_objects_and_properties = 17,
-  philosophy_metaphysics_wholes_and_parts = 18,
-  philosophy_metaphysics_events = 19,
-  philosophy_metaphysics_processes = 20,
-  philosophy_metaphysics_causation = 21,
-  philosophy_ethics_applied_military = 22,
-  philosophy_ethics_applied_interpersonal_conduct = 23,
-  philosophy_specialized_law = 24,
-  philosophy_specialized_education = 25,
-  philosophy_specialized_language_grammar = 26,
-  philosophy_specialized_language_etymology = 27,
-  philosophy_specialized_politics_diplomacy = 28,
-  philosophy_specialized_politics_government_forms = 29,
-  philosophy_specialized_politics_economic_policy = 30,
-  philosophy_specialized_politics_social_welfare = 31,
-}
+---@class (exact) _knowledge_scholar_flags_0: df.struct
+---@field philosophy_logic_formal_reasoning 0
+---@field [0] "philosophy_logic_formal_reasoning"
+---@field philosophy_logic_deductive_reasoning 1
+---@field [1] "philosophy_logic_deductive_reasoning"
+---@field philosophy_logic_syllogistic_logic 2
+---@field [2] "philosophy_logic_syllogistic_logic"
+---@field philosophy_logic_hypothetical_syllogisms 3
+---@field [3] "philosophy_logic_hypothetical_syllogisms"
+---@field philosophy_logic_propositional_logic 4
+---@field [4] "philosophy_logic_propositional_logic"
+---@field philosophy_logic_dialectic_reasoning 5
+---@field [5] "philosophy_logic_dialectic_reasoning"
+---@field philosophy_logic_analogical_inference 6
+---@field [6] "philosophy_logic_analogical_inference"
+---@field philosophy_ethics_applied_medical 7
+---@field [7] "philosophy_ethics_applied_medical"
+---@field philosophy_ethics_individual_value 8
+---@field [8] "philosophy_ethics_individual_value"
+---@field philosophy_ethics_state_consequentialism 9
+---@field [9] "philosophy_ethics_state_consequentialism"
+---@field philosophy_epistemology_truth 10
+---@field [10] "philosophy_epistemology_truth"
+---@field philosophy_epistemology_perception 11
+---@field [11] "philosophy_epistemology_perception"
+---@field philosophy_epistemology_justification 12
+---@field [12] "philosophy_epistemology_justification"
+---@field philosophy_epistemology_belief 13
+---@field [13] "philosophy_epistemology_belief"
+---@field philosophy_metaphysics_existence 14
+---@field [14] "philosophy_metaphysics_existence"
+---@field philosophy_metaphysics_time 15
+---@field [15] "philosophy_metaphysics_time"
+---@field philosophy_metaphysics_mind_body 16
+---@field [16] "philosophy_metaphysics_mind_body"
+---@field philosophy_metaphysics_objects_and_properties 17
+---@field [17] "philosophy_metaphysics_objects_and_properties"
+---@field philosophy_metaphysics_wholes_and_parts 18
+---@field [18] "philosophy_metaphysics_wholes_and_parts"
+---@field philosophy_metaphysics_events 19
+---@field [19] "philosophy_metaphysics_events"
+---@field philosophy_metaphysics_processes 20
+---@field [20] "philosophy_metaphysics_processes"
+---@field philosophy_metaphysics_causation 21
+---@field [21] "philosophy_metaphysics_causation"
+---@field philosophy_ethics_applied_military 22
+---@field [22] "philosophy_ethics_applied_military"
+---@field philosophy_ethics_applied_interpersonal_conduct 23
+---@field [23] "philosophy_ethics_applied_interpersonal_conduct"
+---@field philosophy_specialized_law 24
+---@field [24] "philosophy_specialized_law"
+---@field philosophy_specialized_education 25
+---@field [25] "philosophy_specialized_education"
+---@field philosophy_specialized_language_grammar 26
+---@field [26] "philosophy_specialized_language_grammar"
+---@field philosophy_specialized_language_etymology 27
+---@field [27] "philosophy_specialized_language_etymology"
+---@field philosophy_specialized_politics_diplomacy 28
+---@field [28] "philosophy_specialized_politics_diplomacy"
+---@field philosophy_specialized_politics_government_forms 29
+---@field [29] "philosophy_specialized_politics_government_forms"
+---@field philosophy_specialized_politics_economic_policy 30
+---@field [30] "philosophy_specialized_politics_economic_policy"
+---@field philosophy_specialized_politics_social_welfare 31
+---@field [31] "philosophy_specialized_politics_social_welfare"
+df.knowledge_scholar_flags_0 = {}
 
----@enum knowledge_scholar_flags_1
-df.knowledge_scholar_flags_1 = {
-  philosophy_logic_inductive_reasoning = 0,
-  philosophy_logic_direct_inference = 1,
-  philosophy_aesthetics_nature_of_beauty = 2,
-  philosophy_aesthetics_value_of_art = 3,
-  philosophy_specialized_language_dictionary = 4,
-}
+---@class knowledge_scholar_flags_0
+---@field [0] boolean
+---@field philosophy_logic_formal_reasoning boolean
+---@field [1] boolean
+---@field philosophy_logic_deductive_reasoning boolean
+---@field [2] boolean
+---@field philosophy_logic_syllogistic_logic boolean
+---@field [3] boolean
+---@field philosophy_logic_hypothetical_syllogisms boolean
+---@field [4] boolean
+---@field philosophy_logic_propositional_logic boolean
+---@field [5] boolean
+---@field philosophy_logic_dialectic_reasoning boolean
+---@field [6] boolean
+---@field philosophy_logic_analogical_inference boolean
+---@field [7] boolean
+---@field philosophy_ethics_applied_medical boolean
+---@field [8] boolean
+---@field philosophy_ethics_individual_value boolean
+---@field [9] boolean
+---@field philosophy_ethics_state_consequentialism boolean
+---@field [10] boolean
+---@field philosophy_epistemology_truth boolean
+---@field [11] boolean
+---@field philosophy_epistemology_perception boolean
+---@field [12] boolean
+---@field philosophy_epistemology_justification boolean
+---@field [13] boolean
+---@field philosophy_epistemology_belief boolean
+---@field [14] boolean
+---@field philosophy_metaphysics_existence boolean
+---@field [15] boolean
+---@field philosophy_metaphysics_time boolean
+---@field [16] boolean
+---@field philosophy_metaphysics_mind_body boolean
+---@field [17] boolean
+---@field philosophy_metaphysics_objects_and_properties boolean
+---@field [18] boolean
+---@field philosophy_metaphysics_wholes_and_parts boolean
+---@field [19] boolean
+---@field philosophy_metaphysics_events boolean
+---@field [20] boolean
+---@field philosophy_metaphysics_processes boolean
+---@field [21] boolean
+---@field philosophy_metaphysics_causation boolean
+---@field [22] boolean
+---@field philosophy_ethics_applied_military boolean
+---@field [23] boolean
+---@field philosophy_ethics_applied_interpersonal_conduct boolean
+---@field [24] boolean
+---@field philosophy_specialized_law boolean
+---@field [25] boolean
+---@field philosophy_specialized_education boolean
+---@field [26] boolean
+---@field philosophy_specialized_language_grammar boolean
+---@field [27] boolean
+---@field philosophy_specialized_language_etymology boolean
+---@field [28] boolean
+---@field philosophy_specialized_politics_diplomacy boolean
+---@field [29] boolean
+---@field philosophy_specialized_politics_government_forms boolean
+---@field [30] boolean
+---@field philosophy_specialized_politics_economic_policy boolean
+---@field [31] boolean
+---@field philosophy_specialized_politics_social_welfare boolean
 
----@enum knowledge_scholar_flags_2
-df.knowledge_scholar_flags_2 = {
-  mathematics_method_proof_by_contradiction = 0,
-  mathematics_notation_zero = 1,
-  mathematics_notation_negative_numbers = 2,
-  mathematics_notation_large_numbers = 3,
-  mathematics_notation_positional = 4,
-  mathematics_geometry_basic_objects = 5,
-  mathematics_method_exhaustion = 6,
-  mathematics_geometry_similar_and_congruent_triangles = 7,
-  mathematics_geometry_geometric_mean_theorem = 8,
-  mathematics_geometry_isosceles_base_angles_equal = 9,
-  mathematics_geometry_inscribed_triangle_on_diameter_is_right = 10,
-  mathematics_geometry_pythagorean_theorem = 11,
-  mathematics_geometry_pythagorean_triples_small = 12,
-  mathematics_geometry_pythagorean_triples_3_digit = 13,
-  mathematics_geometry_pythagorean_triples_4_digit = 14,
-  mathematics_geometry_existence_of_incommensurable_ratios = 15,
-  mathematics_method_axiomatic_reasoning = 16,
-  mathematics_numbers_unique_prime_factorization = 17,
-  mathematics_numbers_algorithm_for_computing_gcd = 18,
-  mathematics_geometry_volume_of_pyramid = 19,
-  mathematics_geometry_volume_of_cone = 20,
-  mathematics_geometry_volume_of_sphere = 21,
-  mathematics_geometry_pi_to_4_digits = 22,
-  mathematics_numbers_division_algorithm = 23,
-  mathematics_geometry_table_of_chord_values = 24,
-  mathematics_geometry_area_of_triangle_from_side_lengths = 25,
-  mathematics_geometry_area_of_circle = 26,
-  mathematics_geometry_pi_to_6_digits = 27,
-  mathematics_geometry_definitions_and_basic_properties_of_conic_sections = 28,
-  mathematics_numbers_chinese_remainder_algorithm = 29,
-  mathematics_geometry_area_enclosed_by_line_and_parabola = 30,
-  mathematics_numbers_sieve_algorithm_for_primes = 31,
-}
+---@class (exact) _knowledge_scholar_flags_1: df.struct
+---@field philosophy_logic_inductive_reasoning 0
+---@field [0] "philosophy_logic_inductive_reasoning"
+---@field philosophy_logic_direct_inference 1
+---@field [1] "philosophy_logic_direct_inference"
+---@field philosophy_aesthetics_nature_of_beauty 2
+---@field [2] "philosophy_aesthetics_nature_of_beauty"
+---@field philosophy_aesthetics_value_of_art 3
+---@field [3] "philosophy_aesthetics_value_of_art"
+---@field philosophy_specialized_language_dictionary 4
+---@field [4] "philosophy_specialized_language_dictionary"
+df.knowledge_scholar_flags_1 = {}
 
----@enum knowledge_scholar_flags_3
-df.knowledge_scholar_flags_3 = {
-  mathematics_numbers_root_2_to_5_digits = 0,
-  mathematics_numbers_infinite_primes = 1,
-  mathematics_numbers_root_2_irrational = 2,
-  mathematics_geometry_surface_area_of_sphere = 3,
-  mathematics_algebra_finite_summation_formulas = 4,
-  mathematics_algebra_solving_linear_systems = 5,
-  mathematics_algebra_balancing_and_completion = 6,
-  mathematics_algebra_quadratic_by_completing_square = 7,
-  mathematics_algebra_quadratic_formula = 8,
-  mathematics_notation_syncopated_algebra = 9,
-  mathematics_geometry_law_of_sines = 10,
-  mathematics_geometry_angle_sum_difference_trig_identities = 11,
-  mathematics_algebra_pascals_triangle = 12,
-  mathematics_algebra_solving_higher_order_polynomials = 13,
-  mathematics_notation_early_symbols_for_operations = 14,
-  mathematics_algebra_divergence_of_harmonic_series = 15,
-  mathematics_geometry_properties_of_chords = 16,
-}
+---@class knowledge_scholar_flags_1
+---@field [0] boolean
+---@field philosophy_logic_inductive_reasoning boolean
+---@field [1] boolean
+---@field philosophy_logic_direct_inference boolean
+---@field [2] boolean
+---@field philosophy_aesthetics_nature_of_beauty boolean
+---@field [3] boolean
+---@field philosophy_aesthetics_value_of_art boolean
+---@field [4] boolean
+---@field philosophy_specialized_language_dictionary boolean
 
----@enum knowledge_scholar_flags_4
-df.knowledge_scholar_flags_4 = {
-  history_sourcing_basic_reliability = 0,
-  history_sourcing_role_of_systemic_bias = 1,
-  history_sourcing_role_of_state_bias_and_propaganda = 2,
-  history_sourcing_personal_interviews = 3,
-  history_theory_historical_causation = 4,
-  history_theory_historical_cycles = 5,
-  history_theory_social_cohesion = 6,
-  history_theory_social_conflict = 7,
-  history_form_biography = 8,
-  history_form_comparative_biography = 9,
-  history_form_biographical_dictionaries = 10,
-  history_form_autobiographical_adventure = 11,
-  history_form_genealogy = 12,
-  history_form_encyclopedia = 13,
-  history_form_cultural_history = 14,
-  history_form_cultural_comparison = 15,
-  history_sourcing_role_of_cultural_differences = 16,
-  history_form_alternate_history = 17,
-  history_sourcing_basic_archaeology = 18,
-  history_form_treatise_on_tech_evolution = 19,
-}
+---@class (exact) _knowledge_scholar_flags_2: df.struct
+---@field mathematics_method_proof_by_contradiction 0
+---@field [0] "mathematics_method_proof_by_contradiction"
+---@field mathematics_notation_zero 1
+---@field [1] "mathematics_notation_zero"
+---@field mathematics_notation_negative_numbers 2
+---@field [2] "mathematics_notation_negative_numbers"
+---@field mathematics_notation_large_numbers 3
+---@field [3] "mathematics_notation_large_numbers"
+---@field mathematics_notation_positional 4
+---@field [4] "mathematics_notation_positional"
+---@field mathematics_geometry_basic_objects 5
+---@field [5] "mathematics_geometry_basic_objects"
+---@field mathematics_method_exhaustion 6
+---@field [6] "mathematics_method_exhaustion"
+---@field mathematics_geometry_similar_and_congruent_triangles 7
+---@field [7] "mathematics_geometry_similar_and_congruent_triangles"
+---@field mathematics_geometry_geometric_mean_theorem 8
+---@field [8] "mathematics_geometry_geometric_mean_theorem"
+---@field mathematics_geometry_isosceles_base_angles_equal 9
+---@field [9] "mathematics_geometry_isosceles_base_angles_equal"
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right 10
+---@field [10] "mathematics_geometry_inscribed_triangle_on_diameter_is_right"
+---@field mathematics_geometry_pythagorean_theorem 11
+---@field [11] "mathematics_geometry_pythagorean_theorem"
+---@field mathematics_geometry_pythagorean_triples_small 12
+---@field [12] "mathematics_geometry_pythagorean_triples_small"
+---@field mathematics_geometry_pythagorean_triples_3_digit 13
+---@field [13] "mathematics_geometry_pythagorean_triples_3_digit"
+---@field mathematics_geometry_pythagorean_triples_4_digit 14
+---@field [14] "mathematics_geometry_pythagorean_triples_4_digit"
+---@field mathematics_geometry_existence_of_incommensurable_ratios 15
+---@field [15] "mathematics_geometry_existence_of_incommensurable_ratios"
+---@field mathematics_method_axiomatic_reasoning 16
+---@field [16] "mathematics_method_axiomatic_reasoning"
+---@field mathematics_numbers_unique_prime_factorization 17
+---@field [17] "mathematics_numbers_unique_prime_factorization"
+---@field mathematics_numbers_algorithm_for_computing_gcd 18
+---@field [18] "mathematics_numbers_algorithm_for_computing_gcd"
+---@field mathematics_geometry_volume_of_pyramid 19
+---@field [19] "mathematics_geometry_volume_of_pyramid"
+---@field mathematics_geometry_volume_of_cone 20
+---@field [20] "mathematics_geometry_volume_of_cone"
+---@field mathematics_geometry_volume_of_sphere 21
+---@field [21] "mathematics_geometry_volume_of_sphere"
+---@field mathematics_geometry_pi_to_4_digits 22
+---@field [22] "mathematics_geometry_pi_to_4_digits"
+---@field mathematics_numbers_division_algorithm 23
+---@field [23] "mathematics_numbers_division_algorithm"
+---@field mathematics_geometry_table_of_chord_values 24
+---@field [24] "mathematics_geometry_table_of_chord_values"
+---@field mathematics_geometry_area_of_triangle_from_side_lengths 25
+---@field [25] "mathematics_geometry_area_of_triangle_from_side_lengths"
+---@field mathematics_geometry_area_of_circle 26
+---@field [26] "mathematics_geometry_area_of_circle"
+---@field mathematics_geometry_pi_to_6_digits 27
+---@field [27] "mathematics_geometry_pi_to_6_digits"
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections 28
+---@field [28] "mathematics_geometry_definitions_and_basic_properties_of_conic_sections"
+---@field mathematics_numbers_chinese_remainder_algorithm 29
+---@field [29] "mathematics_numbers_chinese_remainder_algorithm"
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola 30
+---@field [30] "mathematics_geometry_area_enclosed_by_line_and_parabola"
+---@field mathematics_numbers_sieve_algorithm_for_primes 31
+---@field [31] "mathematics_numbers_sieve_algorithm_for_primes"
+df.knowledge_scholar_flags_2 = {}
 
----@enum knowledge_scholar_flags_5
-df.knowledge_scholar_flags_5 = {
-  astronomy_phases_of_the_moon = 0,
-  astronomy_summer_winter_moon = 1,
-  astronomy_path_of_the_moon = 2,
-  astronomy_tides_and_the_moon = 3,
-  astronomy_height_of_tides_vs_moon_and_sun = 4,
-  astronomy_summer_winter_sun = 5,
-  astronomy_relationship_between_lunar_solar_year = 6,
-  astronomy_daylight_variation_with_solar_year = 7,
-  astronomy_geocentric_model = 8,
-  astronomy_heliocentric_model = 9,
-  astronomy_dates_of_lunar_and_solar_eclipses = 10,
-  astronomy_star_charts = 11,
-  astronomy_star_catalogues_100 = 12,
-  astronomy_star_catalogues_1000 = 13,
-  astronomy_star_color_classification = 14,
-  astronomy_star_magnitude_classification = 15,
-  astronomy_shape_of_the_world = 16,
-  astronomy_precession_of_equinoxes = 17,
-  astronomy_method_empirical_observation = 18,
-  astronomy_method_path_models = 19,
-}
+---@class knowledge_scholar_flags_2
+---@field [0] boolean
+---@field mathematics_method_proof_by_contradiction boolean
+---@field [1] boolean
+---@field mathematics_notation_zero boolean
+---@field [2] boolean
+---@field mathematics_notation_negative_numbers boolean
+---@field [3] boolean
+---@field mathematics_notation_large_numbers boolean
+---@field [4] boolean
+---@field mathematics_notation_positional boolean
+---@field [5] boolean
+---@field mathematics_geometry_basic_objects boolean
+---@field [6] boolean
+---@field mathematics_method_exhaustion boolean
+---@field [7] boolean
+---@field mathematics_geometry_similar_and_congruent_triangles boolean
+---@field [8] boolean
+---@field mathematics_geometry_geometric_mean_theorem boolean
+---@field [9] boolean
+---@field mathematics_geometry_isosceles_base_angles_equal boolean
+---@field [10] boolean
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right boolean
+---@field [11] boolean
+---@field mathematics_geometry_pythagorean_theorem boolean
+---@field [12] boolean
+---@field mathematics_geometry_pythagorean_triples_small boolean
+---@field [13] boolean
+---@field mathematics_geometry_pythagorean_triples_3_digit boolean
+---@field [14] boolean
+---@field mathematics_geometry_pythagorean_triples_4_digit boolean
+---@field [15] boolean
+---@field mathematics_geometry_existence_of_incommensurable_ratios boolean
+---@field [16] boolean
+---@field mathematics_method_axiomatic_reasoning boolean
+---@field [17] boolean
+---@field mathematics_numbers_unique_prime_factorization boolean
+---@field [18] boolean
+---@field mathematics_numbers_algorithm_for_computing_gcd boolean
+---@field [19] boolean
+---@field mathematics_geometry_volume_of_pyramid boolean
+---@field [20] boolean
+---@field mathematics_geometry_volume_of_cone boolean
+---@field [21] boolean
+---@field mathematics_geometry_volume_of_sphere boolean
+---@field [22] boolean
+---@field mathematics_geometry_pi_to_4_digits boolean
+---@field [23] boolean
+---@field mathematics_numbers_division_algorithm boolean
+---@field [24] boolean
+---@field mathematics_geometry_table_of_chord_values boolean
+---@field [25] boolean
+---@field mathematics_geometry_area_of_triangle_from_side_lengths boolean
+---@field [26] boolean
+---@field mathematics_geometry_area_of_circle boolean
+---@field [27] boolean
+---@field mathematics_geometry_pi_to_6_digits boolean
+---@field [28] boolean
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections boolean
+---@field [29] boolean
+---@field mathematics_numbers_chinese_remainder_algorithm boolean
+---@field [30] boolean
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola boolean
+---@field [31] boolean
+---@field mathematics_numbers_sieve_algorithm_for_primes boolean
 
----@enum knowledge_scholar_flags_6
-df.knowledge_scholar_flags_6 = {
-  naturalist_method_dissection = 0,
-  naturalist_observation_anatomy = 1,
-  naturalist_theory_comparative_anatomy = 2,
-  naturalist_theory_classification_by_physical_features = 3,
-  naturalist_observation_migration_patterns = 4,
-  naturalist_observation_reproductive_behavior = 5,
-  naturalist_observation_foraging_behavior_and_diet = 6,
-  naturalist_theory_food_chain = 7,
-  naturalist_observation_social_behavior = 8,
-  naturalist_observation_diseases = 9,
-  naturalist_theory_climactic_adaptation = 10,
-  naturalist_observation_embriological_development = 11,
-  naturalist_theory_struggle_for_existence = 12,
-}
+---@class (exact) _knowledge_scholar_flags_3: df.struct
+---@field mathematics_numbers_root_2_to_5_digits 0
+---@field [0] "mathematics_numbers_root_2_to_5_digits"
+---@field mathematics_numbers_infinite_primes 1
+---@field [1] "mathematics_numbers_infinite_primes"
+---@field mathematics_numbers_root_2_irrational 2
+---@field [2] "mathematics_numbers_root_2_irrational"
+---@field mathematics_geometry_surface_area_of_sphere 3
+---@field [3] "mathematics_geometry_surface_area_of_sphere"
+---@field mathematics_algebra_finite_summation_formulas 4
+---@field [4] "mathematics_algebra_finite_summation_formulas"
+---@field mathematics_algebra_solving_linear_systems 5
+---@field [5] "mathematics_algebra_solving_linear_systems"
+---@field mathematics_algebra_balancing_and_completion 6
+---@field [6] "mathematics_algebra_balancing_and_completion"
+---@field mathematics_algebra_quadratic_by_completing_square 7
+---@field [7] "mathematics_algebra_quadratic_by_completing_square"
+---@field mathematics_algebra_quadratic_formula 8
+---@field [8] "mathematics_algebra_quadratic_formula"
+---@field mathematics_notation_syncopated_algebra 9
+---@field [9] "mathematics_notation_syncopated_algebra"
+---@field mathematics_geometry_law_of_sines 10
+---@field [10] "mathematics_geometry_law_of_sines"
+---@field mathematics_geometry_angle_sum_difference_trig_identities 11
+---@field [11] "mathematics_geometry_angle_sum_difference_trig_identities"
+---@field mathematics_algebra_pascals_triangle 12
+---@field [12] "mathematics_algebra_pascals_triangle"
+---@field mathematics_algebra_solving_higher_order_polynomials 13
+---@field [13] "mathematics_algebra_solving_higher_order_polynomials"
+---@field mathematics_notation_early_symbols_for_operations 14
+---@field [14] "mathematics_notation_early_symbols_for_operations"
+---@field mathematics_algebra_divergence_of_harmonic_series 15
+---@field [15] "mathematics_algebra_divergence_of_harmonic_series"
+---@field mathematics_geometry_properties_of_chords 16
+---@field [16] "mathematics_geometry_properties_of_chords"
+df.knowledge_scholar_flags_3 = {}
 
----@enum knowledge_scholar_flags_7
-df.knowledge_scholar_flags_7 = {
-  chemistry_classification_combustibles = 0,
-  chemistry_classification_ores = 1,
-  chemistry_metallurgy_alloys = 2,
-  chemistry_classification_scratch_test = 3,
-  chemistry_classification_elemental_theory = 4,
-  chemistry_chemicals_adhesives = 5,
-  chemistry_laboratory_blast_furnace = 6,
-  chemistry_laboratory_alembic = 7,
-  chemistry_laboratory_theory_of_liquid_liquid_extraction = 8,
-  chemistry_laboratory_theory_of_distillation = 9,
-  chemistry_laboratory_theory_of_evaporation = 10,
-  chemistry_classification_alkali_and_acids = 11,
-  chemistry_laboratory_systematic_experiments = 12,
-  chemistry_laboratory_glass_flask = 13,
-  chemistry_laboratory_glass_beaker = 14,
-  chemistry_laboratory_glass_vial = 15,
-  chemistry_laboratory_glass_funnel = 16,
-  chemistry_laboratory_crucible = 17,
-  chemistry_chemicals_nitric_acid = 18,
-  chemistry_chemicals_sulfuric_acid = 19,
-  chemistry_chemicals_aqua_regia = 20,
-  chemistry_laboratory_glass_ampoule = 21,
-  chemistry_laboratory_glass_retort = 22,
-  chemistry_laboratory_lab_ovens = 23,
-}
+---@class knowledge_scholar_flags_3
+---@field [0] boolean
+---@field mathematics_numbers_root_2_to_5_digits boolean
+---@field [1] boolean
+---@field mathematics_numbers_infinite_primes boolean
+---@field [2] boolean
+---@field mathematics_numbers_root_2_irrational boolean
+---@field [3] boolean
+---@field mathematics_geometry_surface_area_of_sphere boolean
+---@field [4] boolean
+---@field mathematics_algebra_finite_summation_formulas boolean
+---@field [5] boolean
+---@field mathematics_algebra_solving_linear_systems boolean
+---@field [6] boolean
+---@field mathematics_algebra_balancing_and_completion boolean
+---@field [7] boolean
+---@field mathematics_algebra_quadratic_by_completing_square boolean
+---@field [8] boolean
+---@field mathematics_algebra_quadratic_formula boolean
+---@field [9] boolean
+---@field mathematics_notation_syncopated_algebra boolean
+---@field [10] boolean
+---@field mathematics_geometry_law_of_sines boolean
+---@field [11] boolean
+---@field mathematics_geometry_angle_sum_difference_trig_identities boolean
+---@field [12] boolean
+---@field mathematics_algebra_pascals_triangle boolean
+---@field [13] boolean
+---@field mathematics_algebra_solving_higher_order_polynomials boolean
+---@field [14] boolean
+---@field mathematics_notation_early_symbols_for_operations boolean
+---@field [15] boolean
+---@field mathematics_algebra_divergence_of_harmonic_series boolean
+---@field [16] boolean
+---@field mathematics_geometry_properties_of_chords boolean
 
----@enum knowledge_scholar_flags_8
-df.knowledge_scholar_flags_8 = {
-  geography_surveying_basic = 0,
-  geography_surveying_staff = 1,
-  geography_cartography_basic = 2,
-  geography_surveying_triangulation = 3,
-  geography_surveying_cartographical = 4,
-  geography_surveying_land = 5,
-  geography_surveying_military = 6,
-  geography_surveying_engineering = 7,
-  geography_cartography_geological = 8,
-  geography_cartography_grid_system = 9,
-  geography_cartography_distance_scale = 10,
-  geography_cartography_height_measurements = 11,
-  geography_method_economic_data_collection = 12,
-  geography_cartography_economic = 13,
-  geography_form_atlas = 14,
-  geography_theory_delta_formation = 15,
-  geography_theory_wind_patterns = 16,
-  geography_theory_origin_of_rainfall_from_evap_condense = 17,
-  geography_theory_water_cycle = 18,
-  geography_theory_latitude_climate_zones = 19,
-  geography_cartography_accurate_maps = 20,
-  geography_cartography_map_projections = 21,
-}
+---@class (exact) _knowledge_scholar_flags_4: df.struct
+---@field history_sourcing_basic_reliability 0
+---@field [0] "history_sourcing_basic_reliability"
+---@field history_sourcing_role_of_systemic_bias 1
+---@field [1] "history_sourcing_role_of_systemic_bias"
+---@field history_sourcing_role_of_state_bias_and_propaganda 2
+---@field [2] "history_sourcing_role_of_state_bias_and_propaganda"
+---@field history_sourcing_personal_interviews 3
+---@field [3] "history_sourcing_personal_interviews"
+---@field history_theory_historical_causation 4
+---@field [4] "history_theory_historical_causation"
+---@field history_theory_historical_cycles 5
+---@field [5] "history_theory_historical_cycles"
+---@field history_theory_social_cohesion 6
+---@field [6] "history_theory_social_cohesion"
+---@field history_theory_social_conflict 7
+---@field [7] "history_theory_social_conflict"
+---@field history_form_biography 8
+---@field [8] "history_form_biography"
+---@field history_form_comparative_biography 9
+---@field [9] "history_form_comparative_biography"
+---@field history_form_biographical_dictionaries 10
+---@field [10] "history_form_biographical_dictionaries"
+---@field history_form_autobiographical_adventure 11
+---@field [11] "history_form_autobiographical_adventure"
+---@field history_form_genealogy 12
+---@field [12] "history_form_genealogy"
+---@field history_form_encyclopedia 13
+---@field [13] "history_form_encyclopedia"
+---@field history_form_cultural_history 14
+---@field [14] "history_form_cultural_history"
+---@field history_form_cultural_comparison 15
+---@field [15] "history_form_cultural_comparison"
+---@field history_sourcing_role_of_cultural_differences 16
+---@field [16] "history_sourcing_role_of_cultural_differences"
+---@field history_form_alternate_history 17
+---@field [17] "history_form_alternate_history"
+---@field history_sourcing_basic_archaeology 18
+---@field [18] "history_sourcing_basic_archaeology"
+---@field history_form_treatise_on_tech_evolution 19
+---@field [19] "history_form_treatise_on_tech_evolution"
+df.knowledge_scholar_flags_4 = {}
 
----@enum knowledge_scholar_flags_9
-df.knowledge_scholar_flags_9 = {
-  medicine_theory_disease_and_fouled_water = 0,
-  medicine_method_physical_examination = 1,
-  medicine_method_autopsy = 2,
-  medicine_theory_prognosis = 3,
-  medicine_tool_herbal_remedies = 4,
-  medicine_tool_animal_remedies = 5,
-  medicine_tool_mineral_remedies = 6,
-  medicine_tool_bandages = 7,
-  medicine_theory_disease_classification = 8,
-  medicine_theory_toxicology = 9,
-  medicine_theory_acute_and_chronic_conditions = 10,
-  medicine_theory_endemic_disease = 11,
-  medicine_theory_epidemic_disease = 12,
-  medicine_theory_exacerbation = 13,
-  medicine_theory_paroxysm = 14,
-  medicine_theory_relapse = 15,
-  medicine_theory_convalescence = 16,
-  medicine_method_treatment_of_traumatic_injuries = 17,
-  medicine_method_fracture_treatment = 18,
-  medicine_theory_fracture_classification = 19,
-  medicine_tool_traction_bench = 20,
-  medicine_method_fracture_immobilization = 21,
-  medicine_tool_orthopedic_cast = 22,
-  medicine_method_surgery_excision = 23,
-  medicine_method_surgery_incision = 24,
-  medicine_method_hernia_surgery = 25,
-  medicine_method_tracheotomy_surgery = 26,
-  medicine_method_lithotomy_surgery = 27,
-  medicine_method_surgery_scraping = 28,
-  medicine_method_surgery_draining = 29,
-  medicine_method_surgery_probing = 30,
-  medicine_method_surgery_suturing = 31,
-}
+---@class knowledge_scholar_flags_4
+---@field [0] boolean
+---@field history_sourcing_basic_reliability boolean
+---@field [1] boolean
+---@field history_sourcing_role_of_systemic_bias boolean
+---@field [2] boolean
+---@field history_sourcing_role_of_state_bias_and_propaganda boolean
+---@field [3] boolean
+---@field history_sourcing_personal_interviews boolean
+---@field [4] boolean
+---@field history_theory_historical_causation boolean
+---@field [5] boolean
+---@field history_theory_historical_cycles boolean
+---@field [6] boolean
+---@field history_theory_social_cohesion boolean
+---@field [7] boolean
+---@field history_theory_social_conflict boolean
+---@field [8] boolean
+---@field history_form_biography boolean
+---@field [9] boolean
+---@field history_form_comparative_biography boolean
+---@field [10] boolean
+---@field history_form_biographical_dictionaries boolean
+---@field [11] boolean
+---@field history_form_autobiographical_adventure boolean
+---@field [12] boolean
+---@field history_form_genealogy boolean
+---@field [13] boolean
+---@field history_form_encyclopedia boolean
+---@field [14] boolean
+---@field history_form_cultural_history boolean
+---@field [15] boolean
+---@field history_form_cultural_comparison boolean
+---@field [16] boolean
+---@field history_sourcing_role_of_cultural_differences boolean
+---@field [17] boolean
+---@field history_form_alternate_history boolean
+---@field [18] boolean
+---@field history_sourcing_basic_archaeology boolean
+---@field [19] boolean
+---@field history_form_treatise_on_tech_evolution boolean
 
----@enum knowledge_scholar_flags_10
-df.knowledge_scholar_flags_10 = {
-  medicine_method_surgery_ligature = 0,
-  medicine_theory_surgical_models = 1,
-  medicine_tool_mud_bags_as_surgical_models = 2,
-  medicine_tool_plants_as_surgical_models = 3,
-  medicine_tool_animals_as_surgical_models = 4,
-  medicine_theory_specialized_surgical_instruments = 5,
-  medicine_tool_forceps = 6,
-  medicine_tool_scalpel = 7,
-  medicine_tool_surgical_scissors = 8,
-  medicine_tool_surgical_needles = 9,
-  medicine_method_cataract_surgery = 10,
-  medicine_method_cauterization = 11,
-  medicine_method_anesthesia = 12,
-  medicine_theory_pulmonary_medicine = 13,
-  medicine_theory_anatomical_studies = 14,
-  medicine_theory_classification_of_bodily_fluids = 15,
-  medicine_theory_eye_anatomy = 16,
-  medicine_theory_motor_vs_sensory_nerves = 17,
-  medicine_theory_nervous_system_function = 18,
-  medicine_theory_reaction_time = 19,
-  medicine_theory_blood_vessels = 20,
-  medicine_theory_pulmonary_circulation = 21,
-  medicine_theory_comparative_anatomy = 22,
-  medicine_theory_the_voice = 23,
-  medicine_theory_classification_of_muscles = 24,
-  medicine_theory_classification_of_mental_illnesses = 25,
-  medicine_theory_treatment_of_mental_illnesses = 26,
-  medicine_tool_dedicated_hospitals = 27,
-  medicine_method_professional_hospital_staff = 28,
-  medicine_method_specialized_wards = 29,
-  medicine_method_hospital_lab = 30,
-  medicine_method_medical_school = 31,
-}
+---@class (exact) _knowledge_scholar_flags_5: df.struct
+---@field astronomy_phases_of_the_moon 0
+---@field [0] "astronomy_phases_of_the_moon"
+---@field astronomy_summer_winter_moon 1
+---@field [1] "astronomy_summer_winter_moon"
+---@field astronomy_path_of_the_moon 2
+---@field [2] "astronomy_path_of_the_moon"
+---@field astronomy_tides_and_the_moon 3
+---@field [3] "astronomy_tides_and_the_moon"
+---@field astronomy_height_of_tides_vs_moon_and_sun 4
+---@field [4] "astronomy_height_of_tides_vs_moon_and_sun"
+---@field astronomy_summer_winter_sun 5
+---@field [5] "astronomy_summer_winter_sun"
+---@field astronomy_relationship_between_lunar_solar_year 6
+---@field [6] "astronomy_relationship_between_lunar_solar_year"
+---@field astronomy_daylight_variation_with_solar_year 7
+---@field [7] "astronomy_daylight_variation_with_solar_year"
+---@field astronomy_geocentric_model 8
+---@field [8] "astronomy_geocentric_model"
+---@field astronomy_heliocentric_model 9
+---@field [9] "astronomy_heliocentric_model"
+---@field astronomy_dates_of_lunar_and_solar_eclipses 10
+---@field [10] "astronomy_dates_of_lunar_and_solar_eclipses"
+---@field astronomy_star_charts 11
+---@field [11] "astronomy_star_charts"
+---@field astronomy_star_catalogues_100 12
+---@field [12] "astronomy_star_catalogues_100"
+---@field astronomy_star_catalogues_1000 13
+---@field [13] "astronomy_star_catalogues_1000"
+---@field astronomy_star_color_classification 14
+---@field [14] "astronomy_star_color_classification"
+---@field astronomy_star_magnitude_classification 15
+---@field [15] "astronomy_star_magnitude_classification"
+---@field astronomy_shape_of_the_world 16
+---@field [16] "astronomy_shape_of_the_world"
+---@field astronomy_precession_of_equinoxes 17
+---@field [17] "astronomy_precession_of_equinoxes"
+---@field astronomy_method_empirical_observation 18
+---@field [18] "astronomy_method_empirical_observation"
+---@field astronomy_method_path_models 19
+---@field [19] "astronomy_method_path_models"
+df.knowledge_scholar_flags_5 = {}
 
----@enum knowledge_scholar_flags_11
-df.knowledge_scholar_flags_11 = {
-  medicine_method_asylum_for_mentally_ill = 0,
-}
+---@class knowledge_scholar_flags_5
+---@field [0] boolean
+---@field astronomy_phases_of_the_moon boolean
+---@field [1] boolean
+---@field astronomy_summer_winter_moon boolean
+---@field [2] boolean
+---@field astronomy_path_of_the_moon boolean
+---@field [3] boolean
+---@field astronomy_tides_and_the_moon boolean
+---@field [4] boolean
+---@field astronomy_height_of_tides_vs_moon_and_sun boolean
+---@field [5] boolean
+---@field astronomy_summer_winter_sun boolean
+---@field [6] boolean
+---@field astronomy_relationship_between_lunar_solar_year boolean
+---@field [7] boolean
+---@field astronomy_daylight_variation_with_solar_year boolean
+---@field [8] boolean
+---@field astronomy_geocentric_model boolean
+---@field [9] boolean
+---@field astronomy_heliocentric_model boolean
+---@field [10] boolean
+---@field astronomy_dates_of_lunar_and_solar_eclipses boolean
+---@field [11] boolean
+---@field astronomy_star_charts boolean
+---@field [12] boolean
+---@field astronomy_star_catalogues_100 boolean
+---@field [13] boolean
+---@field astronomy_star_catalogues_1000 boolean
+---@field [14] boolean
+---@field astronomy_star_color_classification boolean
+---@field [15] boolean
+---@field astronomy_star_magnitude_classification boolean
+---@field [16] boolean
+---@field astronomy_shape_of_the_world boolean
+---@field [17] boolean
+---@field astronomy_precession_of_equinoxes boolean
+---@field [18] boolean
+---@field astronomy_method_empirical_observation boolean
+---@field [19] boolean
+---@field astronomy_method_path_models boolean
 
----@enum knowledge_scholar_flags_12
-df.knowledge_scholar_flags_12 = {
-  engineering_horology_shadow_clock = 0,
-  engineering_horology_water_clock = 1,
-  engineering_horology_conical_water_clock = 2,
-  engineering_horology_water_clock_reservoir = 3,
-  engineering_horology_astrarium = 4,
-  engineering_horology_hourglass = 5,
-  engineering_horology_mechanical_clock = 6,
-  engineering_machine_theory_of_pulley = 7,
-  engineering_machine_pulley = 8,
-  engineering_machine_theory_of_screw = 9,
-  engineering_machine_screw = 10,
-  engineering_machine_theory_of_wheel_and_axle = 11,
-  engineering_machine_windlass = 12,
-  engineering_machine_theory_of_wedge = 13,
-  engineering_machine_theory_of_lever = 14,
-  engineering_machine_lever = 15,
-  engineering_machine_straight_beam_balance = 16,
-  engineering_machine_theory_of_gears = 17,
-  engineering_machine_warded_lock = 18,
-  engineering_machine_tumbler_lock = 19,
-  engineering_machine_padlock = 20,
-  engineering_machine_camshaft = 21,
-  engineering_machine_crankshaft = 22,
-  engineering_machine_water_powered_sawmill = 23,
-  engineering_machine_chariot_odometer = 24,
-  engineering_machine_chain_drive = 25,
-  engineering_machine_mechanical_compass = 26,
-  engineering_machine_differential_gear = 27,
-  engineering_machine_combination_lock = 28,
-  engineering_machine_verge_escapement = 29,
-  engineering_machine_balance_wheel = 30,
-  engineering_fluid_theory_of_siphon = 31,
-}
+---@class (exact) _knowledge_scholar_flags_6: df.struct
+---@field naturalist_method_dissection 0
+---@field [0] "naturalist_method_dissection"
+---@field naturalist_observation_anatomy 1
+---@field [1] "naturalist_observation_anatomy"
+---@field naturalist_theory_comparative_anatomy 2
+---@field [2] "naturalist_theory_comparative_anatomy"
+---@field naturalist_theory_classification_by_physical_features 3
+---@field [3] "naturalist_theory_classification_by_physical_features"
+---@field naturalist_observation_migration_patterns 4
+---@field [4] "naturalist_observation_migration_patterns"
+---@field naturalist_observation_reproductive_behavior 5
+---@field [5] "naturalist_observation_reproductive_behavior"
+---@field naturalist_observation_foraging_behavior_and_diet 6
+---@field [6] "naturalist_observation_foraging_behavior_and_diet"
+---@field naturalist_theory_food_chain 7
+---@field [7] "naturalist_theory_food_chain"
+---@field naturalist_observation_social_behavior 8
+---@field [8] "naturalist_observation_social_behavior"
+---@field naturalist_observation_diseases 9
+---@field [9] "naturalist_observation_diseases"
+---@field naturalist_theory_climactic_adaptation 10
+---@field [10] "naturalist_theory_climactic_adaptation"
+---@field naturalist_observation_embriological_development 11
+---@field [11] "naturalist_observation_embriological_development"
+---@field naturalist_theory_struggle_for_existence 12
+---@field [12] "naturalist_theory_struggle_for_existence"
+df.knowledge_scholar_flags_6 = {}
 
----@enum knowledge_scholar_flags_13
-df.knowledge_scholar_flags_13 = {
-  engineering_fluid_valves = 0,
-  engineering_fluid_force_pump = 1,
-  engineering_optics_crystal_lens = 2,
-  engineering_optics_water_filled_spheres = 3,
-  engineering_optics_glass_lens = 4,
-  engineering_optics_camera_obscura = 5,
-  engineering_optics_parabolic_mirror = 6,
-  engineering_optics_theory_of_color = 7,
-  engineering_optics_theory_of_rainbows = 8,
-  engineering_optics_law_of_refraction = 9,
-  engineering_design_models_and_templates = 10,
-  engineering_construction_wood_lamination = 11,
-  engineering_astronomy_dioptra = 12,
-  engineering_astronomy_astrolabe = 13,
-  engineering_astronomy_armillary_sphere = 14,
-  engineering_astronomy_spherical_astrolabe = 15,
-  engineering_astronomy_mural_instrument = 16,
-  engineering_astronomy_orrery = 17,
-  engineering_machine_water_powered_trip_hammer = 18,
-  engineering_machine_double_acting_piston_bellows = 19,
-  engineering_fluid_archimedes_principle = 20,
-  engineering_optics_atmospheric_refraction = 21,
-  engineering_optics_cause_of_twilight = 22,
-  engineering_optics_height_of_atmosphere = 23,
-  engineering_machine_piston = 24,
-  engineering_machine_crank = 25,
-  engineering_machine_bellows = 26,
-  engineering_machine_water_powered_piston_bellows = 27,
-  engineering_machine_water_wheel = 28,
-  engineering_machine_trip_hammer = 29,
-}
+---@class knowledge_scholar_flags_6
+---@field [0] boolean
+---@field naturalist_method_dissection boolean
+---@field [1] boolean
+---@field naturalist_observation_anatomy boolean
+---@field [2] boolean
+---@field naturalist_theory_comparative_anatomy boolean
+---@field [3] boolean
+---@field naturalist_theory_classification_by_physical_features boolean
+---@field [4] boolean
+---@field naturalist_observation_migration_patterns boolean
+---@field [5] boolean
+---@field naturalist_observation_reproductive_behavior boolean
+---@field [6] boolean
+---@field naturalist_observation_foraging_behavior_and_diet boolean
+---@field [7] boolean
+---@field naturalist_theory_food_chain boolean
+---@field [8] boolean
+---@field naturalist_observation_social_behavior boolean
+---@field [9] boolean
+---@field naturalist_observation_diseases boolean
+---@field [10] boolean
+---@field naturalist_theory_climactic_adaptation boolean
+---@field [11] boolean
+---@field naturalist_observation_embriological_development boolean
+---@field [12] boolean
+---@field naturalist_theory_struggle_for_existence boolean
+
+---@class (exact) _knowledge_scholar_flags_7: df.struct
+---@field chemistry_classification_combustibles 0
+---@field [0] "chemistry_classification_combustibles"
+---@field chemistry_classification_ores 1
+---@field [1] "chemistry_classification_ores"
+---@field chemistry_metallurgy_alloys 2
+---@field [2] "chemistry_metallurgy_alloys"
+---@field chemistry_classification_scratch_test 3
+---@field [3] "chemistry_classification_scratch_test"
+---@field chemistry_classification_elemental_theory 4
+---@field [4] "chemistry_classification_elemental_theory"
+---@field chemistry_chemicals_adhesives 5
+---@field [5] "chemistry_chemicals_adhesives"
+---@field chemistry_laboratory_blast_furnace 6
+---@field [6] "chemistry_laboratory_blast_furnace"
+---@field chemistry_laboratory_alembic 7
+---@field [7] "chemistry_laboratory_alembic"
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction 8
+---@field [8] "chemistry_laboratory_theory_of_liquid_liquid_extraction"
+---@field chemistry_laboratory_theory_of_distillation 9
+---@field [9] "chemistry_laboratory_theory_of_distillation"
+---@field chemistry_laboratory_theory_of_evaporation 10
+---@field [10] "chemistry_laboratory_theory_of_evaporation"
+---@field chemistry_classification_alkali_and_acids 11
+---@field [11] "chemistry_classification_alkali_and_acids"
+---@field chemistry_laboratory_systematic_experiments 12
+---@field [12] "chemistry_laboratory_systematic_experiments"
+---@field chemistry_laboratory_glass_flask 13
+---@field [13] "chemistry_laboratory_glass_flask"
+---@field chemistry_laboratory_glass_beaker 14
+---@field [14] "chemistry_laboratory_glass_beaker"
+---@field chemistry_laboratory_glass_vial 15
+---@field [15] "chemistry_laboratory_glass_vial"
+---@field chemistry_laboratory_glass_funnel 16
+---@field [16] "chemistry_laboratory_glass_funnel"
+---@field chemistry_laboratory_crucible 17
+---@field [17] "chemistry_laboratory_crucible"
+---@field chemistry_chemicals_nitric_acid 18
+---@field [18] "chemistry_chemicals_nitric_acid"
+---@field chemistry_chemicals_sulfuric_acid 19
+---@field [19] "chemistry_chemicals_sulfuric_acid"
+---@field chemistry_chemicals_aqua_regia 20
+---@field [20] "chemistry_chemicals_aqua_regia"
+---@field chemistry_laboratory_glass_ampoule 21
+---@field [21] "chemistry_laboratory_glass_ampoule"
+---@field chemistry_laboratory_glass_retort 22
+---@field [22] "chemistry_laboratory_glass_retort"
+---@field chemistry_laboratory_lab_ovens 23
+---@field [23] "chemistry_laboratory_lab_ovens"
+df.knowledge_scholar_flags_7 = {}
+
+---@class knowledge_scholar_flags_7
+---@field [0] boolean
+---@field chemistry_classification_combustibles boolean
+---@field [1] boolean
+---@field chemistry_classification_ores boolean
+---@field [2] boolean
+---@field chemistry_metallurgy_alloys boolean
+---@field [3] boolean
+---@field chemistry_classification_scratch_test boolean
+---@field [4] boolean
+---@field chemistry_classification_elemental_theory boolean
+---@field [5] boolean
+---@field chemistry_chemicals_adhesives boolean
+---@field [6] boolean
+---@field chemistry_laboratory_blast_furnace boolean
+---@field [7] boolean
+---@field chemistry_laboratory_alembic boolean
+---@field [8] boolean
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction boolean
+---@field [9] boolean
+---@field chemistry_laboratory_theory_of_distillation boolean
+---@field [10] boolean
+---@field chemistry_laboratory_theory_of_evaporation boolean
+---@field [11] boolean
+---@field chemistry_classification_alkali_and_acids boolean
+---@field [12] boolean
+---@field chemistry_laboratory_systematic_experiments boolean
+---@field [13] boolean
+---@field chemistry_laboratory_glass_flask boolean
+---@field [14] boolean
+---@field chemistry_laboratory_glass_beaker boolean
+---@field [15] boolean
+---@field chemistry_laboratory_glass_vial boolean
+---@field [16] boolean
+---@field chemistry_laboratory_glass_funnel boolean
+---@field [17] boolean
+---@field chemistry_laboratory_crucible boolean
+---@field [18] boolean
+---@field chemistry_chemicals_nitric_acid boolean
+---@field [19] boolean
+---@field chemistry_chemicals_sulfuric_acid boolean
+---@field [20] boolean
+---@field chemistry_chemicals_aqua_regia boolean
+---@field [21] boolean
+---@field chemistry_laboratory_glass_ampoule boolean
+---@field [22] boolean
+---@field chemistry_laboratory_glass_retort boolean
+---@field [23] boolean
+---@field chemistry_laboratory_lab_ovens boolean
+
+---@class (exact) _knowledge_scholar_flags_8: df.struct
+---@field geography_surveying_basic 0
+---@field [0] "geography_surveying_basic"
+---@field geography_surveying_staff 1
+---@field [1] "geography_surveying_staff"
+---@field geography_cartography_basic 2
+---@field [2] "geography_cartography_basic"
+---@field geography_surveying_triangulation 3
+---@field [3] "geography_surveying_triangulation"
+---@field geography_surveying_cartographical 4
+---@field [4] "geography_surveying_cartographical"
+---@field geography_surveying_land 5
+---@field [5] "geography_surveying_land"
+---@field geography_surveying_military 6
+---@field [6] "geography_surveying_military"
+---@field geography_surveying_engineering 7
+---@field [7] "geography_surveying_engineering"
+---@field geography_cartography_geological 8
+---@field [8] "geography_cartography_geological"
+---@field geography_cartography_grid_system 9
+---@field [9] "geography_cartography_grid_system"
+---@field geography_cartography_distance_scale 10
+---@field [10] "geography_cartography_distance_scale"
+---@field geography_cartography_height_measurements 11
+---@field [11] "geography_cartography_height_measurements"
+---@field geography_method_economic_data_collection 12
+---@field [12] "geography_method_economic_data_collection"
+---@field geography_cartography_economic 13
+---@field [13] "geography_cartography_economic"
+---@field geography_form_atlas 14
+---@field [14] "geography_form_atlas"
+---@field geography_theory_delta_formation 15
+---@field [15] "geography_theory_delta_formation"
+---@field geography_theory_wind_patterns 16
+---@field [16] "geography_theory_wind_patterns"
+---@field geography_theory_origin_of_rainfall_from_evap_condense 17
+---@field [17] "geography_theory_origin_of_rainfall_from_evap_condense"
+---@field geography_theory_water_cycle 18
+---@field [18] "geography_theory_water_cycle"
+---@field geography_theory_latitude_climate_zones 19
+---@field [19] "geography_theory_latitude_climate_zones"
+---@field geography_cartography_accurate_maps 20
+---@field [20] "geography_cartography_accurate_maps"
+---@field geography_cartography_map_projections 21
+---@field [21] "geography_cartography_map_projections"
+df.knowledge_scholar_flags_8 = {}
+
+---@class knowledge_scholar_flags_8
+---@field [0] boolean
+---@field geography_surveying_basic boolean
+---@field [1] boolean
+---@field geography_surveying_staff boolean
+---@field [2] boolean
+---@field geography_cartography_basic boolean
+---@field [3] boolean
+---@field geography_surveying_triangulation boolean
+---@field [4] boolean
+---@field geography_surveying_cartographical boolean
+---@field [5] boolean
+---@field geography_surveying_land boolean
+---@field [6] boolean
+---@field geography_surveying_military boolean
+---@field [7] boolean
+---@field geography_surveying_engineering boolean
+---@field [8] boolean
+---@field geography_cartography_geological boolean
+---@field [9] boolean
+---@field geography_cartography_grid_system boolean
+---@field [10] boolean
+---@field geography_cartography_distance_scale boolean
+---@field [11] boolean
+---@field geography_cartography_height_measurements boolean
+---@field [12] boolean
+---@field geography_method_economic_data_collection boolean
+---@field [13] boolean
+---@field geography_cartography_economic boolean
+---@field [14] boolean
+---@field geography_form_atlas boolean
+---@field [15] boolean
+---@field geography_theory_delta_formation boolean
+---@field [16] boolean
+---@field geography_theory_wind_patterns boolean
+---@field [17] boolean
+---@field geography_theory_origin_of_rainfall_from_evap_condense boolean
+---@field [18] boolean
+---@field geography_theory_water_cycle boolean
+---@field [19] boolean
+---@field geography_theory_latitude_climate_zones boolean
+---@field [20] boolean
+---@field geography_cartography_accurate_maps boolean
+---@field [21] boolean
+---@field geography_cartography_map_projections boolean
+
+---@class (exact) _knowledge_scholar_flags_9: df.struct
+---@field medicine_theory_disease_and_fouled_water 0
+---@field [0] "medicine_theory_disease_and_fouled_water"
+---@field medicine_method_physical_examination 1
+---@field [1] "medicine_method_physical_examination"
+---@field medicine_method_autopsy 2
+---@field [2] "medicine_method_autopsy"
+---@field medicine_theory_prognosis 3
+---@field [3] "medicine_theory_prognosis"
+---@field medicine_tool_herbal_remedies 4
+---@field [4] "medicine_tool_herbal_remedies"
+---@field medicine_tool_animal_remedies 5
+---@field [5] "medicine_tool_animal_remedies"
+---@field medicine_tool_mineral_remedies 6
+---@field [6] "medicine_tool_mineral_remedies"
+---@field medicine_tool_bandages 7
+---@field [7] "medicine_tool_bandages"
+---@field medicine_theory_disease_classification 8
+---@field [8] "medicine_theory_disease_classification"
+---@field medicine_theory_toxicology 9
+---@field [9] "medicine_theory_toxicology"
+---@field medicine_theory_acute_and_chronic_conditions 10
+---@field [10] "medicine_theory_acute_and_chronic_conditions"
+---@field medicine_theory_endemic_disease 11
+---@field [11] "medicine_theory_endemic_disease"
+---@field medicine_theory_epidemic_disease 12
+---@field [12] "medicine_theory_epidemic_disease"
+---@field medicine_theory_exacerbation 13
+---@field [13] "medicine_theory_exacerbation"
+---@field medicine_theory_paroxysm 14
+---@field [14] "medicine_theory_paroxysm"
+---@field medicine_theory_relapse 15
+---@field [15] "medicine_theory_relapse"
+---@field medicine_theory_convalescence 16
+---@field [16] "medicine_theory_convalescence"
+---@field medicine_method_treatment_of_traumatic_injuries 17
+---@field [17] "medicine_method_treatment_of_traumatic_injuries"
+---@field medicine_method_fracture_treatment 18
+---@field [18] "medicine_method_fracture_treatment"
+---@field medicine_theory_fracture_classification 19
+---@field [19] "medicine_theory_fracture_classification"
+---@field medicine_tool_traction_bench 20
+---@field [20] "medicine_tool_traction_bench"
+---@field medicine_method_fracture_immobilization 21
+---@field [21] "medicine_method_fracture_immobilization"
+---@field medicine_tool_orthopedic_cast 22
+---@field [22] "medicine_tool_orthopedic_cast"
+---@field medicine_method_surgery_excision 23
+---@field [23] "medicine_method_surgery_excision"
+---@field medicine_method_surgery_incision 24
+---@field [24] "medicine_method_surgery_incision"
+---@field medicine_method_hernia_surgery 25
+---@field [25] "medicine_method_hernia_surgery"
+---@field medicine_method_tracheotomy_surgery 26
+---@field [26] "medicine_method_tracheotomy_surgery"
+---@field medicine_method_lithotomy_surgery 27
+---@field [27] "medicine_method_lithotomy_surgery"
+---@field medicine_method_surgery_scraping 28
+---@field [28] "medicine_method_surgery_scraping"
+---@field medicine_method_surgery_draining 29
+---@field [29] "medicine_method_surgery_draining"
+---@field medicine_method_surgery_probing 30
+---@field [30] "medicine_method_surgery_probing"
+---@field medicine_method_surgery_suturing 31
+---@field [31] "medicine_method_surgery_suturing"
+df.knowledge_scholar_flags_9 = {}
+
+---@class knowledge_scholar_flags_9
+---@field [0] boolean
+---@field medicine_theory_disease_and_fouled_water boolean
+---@field [1] boolean
+---@field medicine_method_physical_examination boolean
+---@field [2] boolean
+---@field medicine_method_autopsy boolean
+---@field [3] boolean
+---@field medicine_theory_prognosis boolean
+---@field [4] boolean
+---@field medicine_tool_herbal_remedies boolean
+---@field [5] boolean
+---@field medicine_tool_animal_remedies boolean
+---@field [6] boolean
+---@field medicine_tool_mineral_remedies boolean
+---@field [7] boolean
+---@field medicine_tool_bandages boolean
+---@field [8] boolean
+---@field medicine_theory_disease_classification boolean
+---@field [9] boolean
+---@field medicine_theory_toxicology boolean
+---@field [10] boolean
+---@field medicine_theory_acute_and_chronic_conditions boolean
+---@field [11] boolean
+---@field medicine_theory_endemic_disease boolean
+---@field [12] boolean
+---@field medicine_theory_epidemic_disease boolean
+---@field [13] boolean
+---@field medicine_theory_exacerbation boolean
+---@field [14] boolean
+---@field medicine_theory_paroxysm boolean
+---@field [15] boolean
+---@field medicine_theory_relapse boolean
+---@field [16] boolean
+---@field medicine_theory_convalescence boolean
+---@field [17] boolean
+---@field medicine_method_treatment_of_traumatic_injuries boolean
+---@field [18] boolean
+---@field medicine_method_fracture_treatment boolean
+---@field [19] boolean
+---@field medicine_theory_fracture_classification boolean
+---@field [20] boolean
+---@field medicine_tool_traction_bench boolean
+---@field [21] boolean
+---@field medicine_method_fracture_immobilization boolean
+---@field [22] boolean
+---@field medicine_tool_orthopedic_cast boolean
+---@field [23] boolean
+---@field medicine_method_surgery_excision boolean
+---@field [24] boolean
+---@field medicine_method_surgery_incision boolean
+---@field [25] boolean
+---@field medicine_method_hernia_surgery boolean
+---@field [26] boolean
+---@field medicine_method_tracheotomy_surgery boolean
+---@field [27] boolean
+---@field medicine_method_lithotomy_surgery boolean
+---@field [28] boolean
+---@field medicine_method_surgery_scraping boolean
+---@field [29] boolean
+---@field medicine_method_surgery_draining boolean
+---@field [30] boolean
+---@field medicine_method_surgery_probing boolean
+---@field [31] boolean
+---@field medicine_method_surgery_suturing boolean
+
+---@class (exact) _knowledge_scholar_flags_10: df.struct
+---@field medicine_method_surgery_ligature 0
+---@field [0] "medicine_method_surgery_ligature"
+---@field medicine_theory_surgical_models 1
+---@field [1] "medicine_theory_surgical_models"
+---@field medicine_tool_mud_bags_as_surgical_models 2
+---@field [2] "medicine_tool_mud_bags_as_surgical_models"
+---@field medicine_tool_plants_as_surgical_models 3
+---@field [3] "medicine_tool_plants_as_surgical_models"
+---@field medicine_tool_animals_as_surgical_models 4
+---@field [4] "medicine_tool_animals_as_surgical_models"
+---@field medicine_theory_specialized_surgical_instruments 5
+---@field [5] "medicine_theory_specialized_surgical_instruments"
+---@field medicine_tool_forceps 6
+---@field [6] "medicine_tool_forceps"
+---@field medicine_tool_scalpel 7
+---@field [7] "medicine_tool_scalpel"
+---@field medicine_tool_surgical_scissors 8
+---@field [8] "medicine_tool_surgical_scissors"
+---@field medicine_tool_surgical_needles 9
+---@field [9] "medicine_tool_surgical_needles"
+---@field medicine_method_cataract_surgery 10
+---@field [10] "medicine_method_cataract_surgery"
+---@field medicine_method_cauterization 11
+---@field [11] "medicine_method_cauterization"
+---@field medicine_method_anesthesia 12
+---@field [12] "medicine_method_anesthesia"
+---@field medicine_theory_pulmonary_medicine 13
+---@field [13] "medicine_theory_pulmonary_medicine"
+---@field medicine_theory_anatomical_studies 14
+---@field [14] "medicine_theory_anatomical_studies"
+---@field medicine_theory_classification_of_bodily_fluids 15
+---@field [15] "medicine_theory_classification_of_bodily_fluids"
+---@field medicine_theory_eye_anatomy 16
+---@field [16] "medicine_theory_eye_anatomy"
+---@field medicine_theory_motor_vs_sensory_nerves 17
+---@field [17] "medicine_theory_motor_vs_sensory_nerves"
+---@field medicine_theory_nervous_system_function 18
+---@field [18] "medicine_theory_nervous_system_function"
+---@field medicine_theory_reaction_time 19
+---@field [19] "medicine_theory_reaction_time"
+---@field medicine_theory_blood_vessels 20
+---@field [20] "medicine_theory_blood_vessels"
+---@field medicine_theory_pulmonary_circulation 21
+---@field [21] "medicine_theory_pulmonary_circulation"
+---@field medicine_theory_comparative_anatomy 22
+---@field [22] "medicine_theory_comparative_anatomy"
+---@field medicine_theory_the_voice 23
+---@field [23] "medicine_theory_the_voice"
+---@field medicine_theory_classification_of_muscles 24
+---@field [24] "medicine_theory_classification_of_muscles"
+---@field medicine_theory_classification_of_mental_illnesses 25
+---@field [25] "medicine_theory_classification_of_mental_illnesses"
+---@field medicine_theory_treatment_of_mental_illnesses 26
+---@field [26] "medicine_theory_treatment_of_mental_illnesses"
+---@field medicine_tool_dedicated_hospitals 27
+---@field [27] "medicine_tool_dedicated_hospitals"
+---@field medicine_method_professional_hospital_staff 28
+---@field [28] "medicine_method_professional_hospital_staff"
+---@field medicine_method_specialized_wards 29
+---@field [29] "medicine_method_specialized_wards"
+---@field medicine_method_hospital_lab 30
+---@field [30] "medicine_method_hospital_lab"
+---@field medicine_method_medical_school 31
+---@field [31] "medicine_method_medical_school"
+df.knowledge_scholar_flags_10 = {}
+
+---@class knowledge_scholar_flags_10
+---@field [0] boolean
+---@field medicine_method_surgery_ligature boolean
+---@field [1] boolean
+---@field medicine_theory_surgical_models boolean
+---@field [2] boolean
+---@field medicine_tool_mud_bags_as_surgical_models boolean
+---@field [3] boolean
+---@field medicine_tool_plants_as_surgical_models boolean
+---@field [4] boolean
+---@field medicine_tool_animals_as_surgical_models boolean
+---@field [5] boolean
+---@field medicine_theory_specialized_surgical_instruments boolean
+---@field [6] boolean
+---@field medicine_tool_forceps boolean
+---@field [7] boolean
+---@field medicine_tool_scalpel boolean
+---@field [8] boolean
+---@field medicine_tool_surgical_scissors boolean
+---@field [9] boolean
+---@field medicine_tool_surgical_needles boolean
+---@field [10] boolean
+---@field medicine_method_cataract_surgery boolean
+---@field [11] boolean
+---@field medicine_method_cauterization boolean
+---@field [12] boolean
+---@field medicine_method_anesthesia boolean
+---@field [13] boolean
+---@field medicine_theory_pulmonary_medicine boolean
+---@field [14] boolean
+---@field medicine_theory_anatomical_studies boolean
+---@field [15] boolean
+---@field medicine_theory_classification_of_bodily_fluids boolean
+---@field [16] boolean
+---@field medicine_theory_eye_anatomy boolean
+---@field [17] boolean
+---@field medicine_theory_motor_vs_sensory_nerves boolean
+---@field [18] boolean
+---@field medicine_theory_nervous_system_function boolean
+---@field [19] boolean
+---@field medicine_theory_reaction_time boolean
+---@field [20] boolean
+---@field medicine_theory_blood_vessels boolean
+---@field [21] boolean
+---@field medicine_theory_pulmonary_circulation boolean
+---@field [22] boolean
+---@field medicine_theory_comparative_anatomy boolean
+---@field [23] boolean
+---@field medicine_theory_the_voice boolean
+---@field [24] boolean
+---@field medicine_theory_classification_of_muscles boolean
+---@field [25] boolean
+---@field medicine_theory_classification_of_mental_illnesses boolean
+---@field [26] boolean
+---@field medicine_theory_treatment_of_mental_illnesses boolean
+---@field [27] boolean
+---@field medicine_tool_dedicated_hospitals boolean
+---@field [28] boolean
+---@field medicine_method_professional_hospital_staff boolean
+---@field [29] boolean
+---@field medicine_method_specialized_wards boolean
+---@field [30] boolean
+---@field medicine_method_hospital_lab boolean
+---@field [31] boolean
+---@field medicine_method_medical_school boolean
+
+---@class (exact) _knowledge_scholar_flags_11: df.struct
+---@field medicine_method_asylum_for_mentally_ill 0
+---@field [0] "medicine_method_asylum_for_mentally_ill"
+df.knowledge_scholar_flags_11 = {}
+
+---@class knowledge_scholar_flags_11
+---@field [0] boolean
+---@field medicine_method_asylum_for_mentally_ill boolean
+
+---@class (exact) _knowledge_scholar_flags_12: df.struct
+---@field engineering_horology_shadow_clock 0
+---@field [0] "engineering_horology_shadow_clock"
+---@field engineering_horology_water_clock 1
+---@field [1] "engineering_horology_water_clock"
+---@field engineering_horology_conical_water_clock 2
+---@field [2] "engineering_horology_conical_water_clock"
+---@field engineering_horology_water_clock_reservoir 3
+---@field [3] "engineering_horology_water_clock_reservoir"
+---@field engineering_horology_astrarium 4
+---@field [4] "engineering_horology_astrarium"
+---@field engineering_horology_hourglass 5
+---@field [5] "engineering_horology_hourglass"
+---@field engineering_horology_mechanical_clock 6
+---@field [6] "engineering_horology_mechanical_clock"
+---@field engineering_machine_theory_of_pulley 7
+---@field [7] "engineering_machine_theory_of_pulley"
+---@field engineering_machine_pulley 8
+---@field [8] "engineering_machine_pulley"
+---@field engineering_machine_theory_of_screw 9
+---@field [9] "engineering_machine_theory_of_screw"
+---@field engineering_machine_screw 10
+---@field [10] "engineering_machine_screw"
+---@field engineering_machine_theory_of_wheel_and_axle 11
+---@field [11] "engineering_machine_theory_of_wheel_and_axle"
+---@field engineering_machine_windlass 12
+---@field [12] "engineering_machine_windlass"
+---@field engineering_machine_theory_of_wedge 13
+---@field [13] "engineering_machine_theory_of_wedge"
+---@field engineering_machine_theory_of_lever 14
+---@field [14] "engineering_machine_theory_of_lever"
+---@field engineering_machine_lever 15
+---@field [15] "engineering_machine_lever"
+---@field engineering_machine_straight_beam_balance 16
+---@field [16] "engineering_machine_straight_beam_balance"
+---@field engineering_machine_theory_of_gears 17
+---@field [17] "engineering_machine_theory_of_gears"
+---@field engineering_machine_warded_lock 18
+---@field [18] "engineering_machine_warded_lock"
+---@field engineering_machine_tumbler_lock 19
+---@field [19] "engineering_machine_tumbler_lock"
+---@field engineering_machine_padlock 20
+---@field [20] "engineering_machine_padlock"
+---@field engineering_machine_camshaft 21
+---@field [21] "engineering_machine_camshaft"
+---@field engineering_machine_crankshaft 22
+---@field [22] "engineering_machine_crankshaft"
+---@field engineering_machine_water_powered_sawmill 23
+---@field [23] "engineering_machine_water_powered_sawmill"
+---@field engineering_machine_chariot_odometer 24
+---@field [24] "engineering_machine_chariot_odometer"
+---@field engineering_machine_chain_drive 25
+---@field [25] "engineering_machine_chain_drive"
+---@field engineering_machine_mechanical_compass 26
+---@field [26] "engineering_machine_mechanical_compass"
+---@field engineering_machine_differential_gear 27
+---@field [27] "engineering_machine_differential_gear"
+---@field engineering_machine_combination_lock 28
+---@field [28] "engineering_machine_combination_lock"
+---@field engineering_machine_verge_escapement 29
+---@field [29] "engineering_machine_verge_escapement"
+---@field engineering_machine_balance_wheel 30
+---@field [30] "engineering_machine_balance_wheel"
+---@field engineering_fluid_theory_of_siphon 31
+---@field [31] "engineering_fluid_theory_of_siphon"
+df.knowledge_scholar_flags_12 = {}
+
+---@class knowledge_scholar_flags_12
+---@field [0] boolean
+---@field engineering_horology_shadow_clock boolean
+---@field [1] boolean
+---@field engineering_horology_water_clock boolean
+---@field [2] boolean
+---@field engineering_horology_conical_water_clock boolean
+---@field [3] boolean
+---@field engineering_horology_water_clock_reservoir boolean
+---@field [4] boolean
+---@field engineering_horology_astrarium boolean
+---@field [5] boolean
+---@field engineering_horology_hourglass boolean
+---@field [6] boolean
+---@field engineering_horology_mechanical_clock boolean
+---@field [7] boolean
+---@field engineering_machine_theory_of_pulley boolean
+---@field [8] boolean
+---@field engineering_machine_pulley boolean
+---@field [9] boolean
+---@field engineering_machine_theory_of_screw boolean
+---@field [10] boolean
+---@field engineering_machine_screw boolean
+---@field [11] boolean
+---@field engineering_machine_theory_of_wheel_and_axle boolean
+---@field [12] boolean
+---@field engineering_machine_windlass boolean
+---@field [13] boolean
+---@field engineering_machine_theory_of_wedge boolean
+---@field [14] boolean
+---@field engineering_machine_theory_of_lever boolean
+---@field [15] boolean
+---@field engineering_machine_lever boolean
+---@field [16] boolean
+---@field engineering_machine_straight_beam_balance boolean
+---@field [17] boolean
+---@field engineering_machine_theory_of_gears boolean
+---@field [18] boolean
+---@field engineering_machine_warded_lock boolean
+---@field [19] boolean
+---@field engineering_machine_tumbler_lock boolean
+---@field [20] boolean
+---@field engineering_machine_padlock boolean
+---@field [21] boolean
+---@field engineering_machine_camshaft boolean
+---@field [22] boolean
+---@field engineering_machine_crankshaft boolean
+---@field [23] boolean
+---@field engineering_machine_water_powered_sawmill boolean
+---@field [24] boolean
+---@field engineering_machine_chariot_odometer boolean
+---@field [25] boolean
+---@field engineering_machine_chain_drive boolean
+---@field [26] boolean
+---@field engineering_machine_mechanical_compass boolean
+---@field [27] boolean
+---@field engineering_machine_differential_gear boolean
+---@field [28] boolean
+---@field engineering_machine_combination_lock boolean
+---@field [29] boolean
+---@field engineering_machine_verge_escapement boolean
+---@field [30] boolean
+---@field engineering_machine_balance_wheel boolean
+---@field [31] boolean
+---@field engineering_fluid_theory_of_siphon boolean
+
+---@class (exact) _knowledge_scholar_flags_13: df.struct
+---@field engineering_fluid_valves 0
+---@field [0] "engineering_fluid_valves"
+---@field engineering_fluid_force_pump 1
+---@field [1] "engineering_fluid_force_pump"
+---@field engineering_optics_crystal_lens 2
+---@field [2] "engineering_optics_crystal_lens"
+---@field engineering_optics_water_filled_spheres 3
+---@field [3] "engineering_optics_water_filled_spheres"
+---@field engineering_optics_glass_lens 4
+---@field [4] "engineering_optics_glass_lens"
+---@field engineering_optics_camera_obscura 5
+---@field [5] "engineering_optics_camera_obscura"
+---@field engineering_optics_parabolic_mirror 6
+---@field [6] "engineering_optics_parabolic_mirror"
+---@field engineering_optics_theory_of_color 7
+---@field [7] "engineering_optics_theory_of_color"
+---@field engineering_optics_theory_of_rainbows 8
+---@field [8] "engineering_optics_theory_of_rainbows"
+---@field engineering_optics_law_of_refraction 9
+---@field [9] "engineering_optics_law_of_refraction"
+---@field engineering_design_models_and_templates 10
+---@field [10] "engineering_design_models_and_templates"
+---@field engineering_construction_wood_lamination 11
+---@field [11] "engineering_construction_wood_lamination"
+---@field engineering_astronomy_dioptra 12
+---@field [12] "engineering_astronomy_dioptra"
+---@field engineering_astronomy_astrolabe 13
+---@field [13] "engineering_astronomy_astrolabe"
+---@field engineering_astronomy_armillary_sphere 14
+---@field [14] "engineering_astronomy_armillary_sphere"
+---@field engineering_astronomy_spherical_astrolabe 15
+---@field [15] "engineering_astronomy_spherical_astrolabe"
+---@field engineering_astronomy_mural_instrument 16
+---@field [16] "engineering_astronomy_mural_instrument"
+---@field engineering_astronomy_orrery 17
+---@field [17] "engineering_astronomy_orrery"
+---@field engineering_machine_water_powered_trip_hammer 18
+---@field [18] "engineering_machine_water_powered_trip_hammer"
+---@field engineering_machine_double_acting_piston_bellows 19
+---@field [19] "engineering_machine_double_acting_piston_bellows"
+---@field engineering_fluid_archimedes_principle 20
+---@field [20] "engineering_fluid_archimedes_principle"
+---@field engineering_optics_atmospheric_refraction 21
+---@field [21] "engineering_optics_atmospheric_refraction"
+---@field engineering_optics_cause_of_twilight 22
+---@field [22] "engineering_optics_cause_of_twilight"
+---@field engineering_optics_height_of_atmosphere 23
+---@field [23] "engineering_optics_height_of_atmosphere"
+---@field engineering_machine_piston 24
+---@field [24] "engineering_machine_piston"
+---@field engineering_machine_crank 25
+---@field [25] "engineering_machine_crank"
+---@field engineering_machine_bellows 26
+---@field [26] "engineering_machine_bellows"
+---@field engineering_machine_water_powered_piston_bellows 27
+---@field [27] "engineering_machine_water_powered_piston_bellows"
+---@field engineering_machine_water_wheel 28
+---@field [28] "engineering_machine_water_wheel"
+---@field engineering_machine_trip_hammer 29
+---@field [29] "engineering_machine_trip_hammer"
+df.knowledge_scholar_flags_13 = {}
+
+---@class knowledge_scholar_flags_13
+---@field [0] boolean
+---@field engineering_fluid_valves boolean
+---@field [1] boolean
+---@field engineering_fluid_force_pump boolean
+---@field [2] boolean
+---@field engineering_optics_crystal_lens boolean
+---@field [3] boolean
+---@field engineering_optics_water_filled_spheres boolean
+---@field [4] boolean
+---@field engineering_optics_glass_lens boolean
+---@field [5] boolean
+---@field engineering_optics_camera_obscura boolean
+---@field [6] boolean
+---@field engineering_optics_parabolic_mirror boolean
+---@field [7] boolean
+---@field engineering_optics_theory_of_color boolean
+---@field [8] boolean
+---@field engineering_optics_theory_of_rainbows boolean
+---@field [9] boolean
+---@field engineering_optics_law_of_refraction boolean
+---@field [10] boolean
+---@field engineering_design_models_and_templates boolean
+---@field [11] boolean
+---@field engineering_construction_wood_lamination boolean
+---@field [12] boolean
+---@field engineering_astronomy_dioptra boolean
+---@field [13] boolean
+---@field engineering_astronomy_astrolabe boolean
+---@field [14] boolean
+---@field engineering_astronomy_armillary_sphere boolean
+---@field [15] boolean
+---@field engineering_astronomy_spherical_astrolabe boolean
+---@field [16] boolean
+---@field engineering_astronomy_mural_instrument boolean
+---@field [17] boolean
+---@field engineering_astronomy_orrery boolean
+---@field [18] boolean
+---@field engineering_machine_water_powered_trip_hammer boolean
+---@field [19] boolean
+---@field engineering_machine_double_acting_piston_bellows boolean
+---@field [20] boolean
+---@field engineering_fluid_archimedes_principle boolean
+---@field [21] boolean
+---@field engineering_optics_atmospheric_refraction boolean
+---@field [22] boolean
+---@field engineering_optics_cause_of_twilight boolean
+---@field [23] boolean
+---@field engineering_optics_height_of_atmosphere boolean
+---@field [24] boolean
+---@field engineering_machine_piston boolean
+---@field [25] boolean
+---@field engineering_machine_crank boolean
+---@field [26] boolean
+---@field engineering_machine_bellows boolean
+---@field [27] boolean
+---@field engineering_machine_water_powered_piston_bellows boolean
+---@field [28] boolean
+---@field engineering_machine_water_wheel boolean
+---@field [29] boolean
+---@field engineering_machine_trip_hammer boolean
 
 ---@class knowledge_scholar_category_flag: df.struct
 ---@field flag_type knowledge_scholar_category_flag_flag_type determines which bitflags to use
 ---@field flag_data knowledge_scholar_category_flag_flag_data
 df.knowledge_scholar_category_flag = {}
 
----@enum knowledge_scholar_category_flag_flag_type
+---@class (exact) _knowledge_scholar_category_flag_flag_type: df.struct
 ---determines which bitflags to use
-df.knowledge_scholar_category_flag.T_flag_type = {
-  flags_0 = 0,
-  flags_1 = 1,
-  flags_2 = 2,
-  flags_3 = 3,
-  flags_4 = 4,
-  flags_5 = 5,
-  flags_6 = 6,
-  flags_7 = 7,
-  flags_8 = 8,
-  flags_9 = 9,
-  flags_10 = 10,
-  flags_11 = 11,
-  flags_12 = 12,
-  flags_13 = 13,
-}
+---@field flags_0 0
+---@field [0] "flags_0"
+---@field flags_1 1
+---@field [1] "flags_1"
+---@field flags_2 2
+---@field [2] "flags_2"
+---@field flags_3 3
+---@field [3] "flags_3"
+---@field flags_4 4
+---@field [4] "flags_4"
+---@field flags_5 5
+---@field [5] "flags_5"
+---@field flags_6 6
+---@field [6] "flags_6"
+---@field flags_7 7
+---@field [7] "flags_7"
+---@field flags_8 8
+---@field [8] "flags_8"
+---@field flags_9 9
+---@field [9] "flags_9"
+---@field flags_10 10
+---@field [10] "flags_10"
+---@field flags_11 11
+---@field [11] "flags_11"
+---@field flags_12 12
+---@field [12] "flags_12"
+---@field flags_13 13
+---@field [13] "flags_13"
+df.knowledge_scholar_category_flag.T_flag_type = {}
+
+---@class knowledge_scholar_category_flag_flag_type
+---@field [0] boolean
+---@field flags_0 boolean
+---@field [1] boolean
+---@field flags_1 boolean
+---@field [2] boolean
+---@field flags_2 boolean
+---@field [3] boolean
+---@field flags_3 boolean
+---@field [4] boolean
+---@field flags_4 boolean
+---@field [5] boolean
+---@field flags_5 boolean
+---@field [6] boolean
+---@field flags_6 boolean
+---@field [7] boolean
+---@field flags_7 boolean
+---@field [8] boolean
+---@field flags_8 boolean
+---@field [9] boolean
+---@field flags_9 boolean
+---@field [10] boolean
+---@field flags_10 boolean
+---@field [11] boolean
+---@field flags_11 boolean
+---@field [12] boolean
+---@field flags_12 boolean
+---@field [13] boolean
+---@field flags_13 boolean
 
 ---@class knowledge_scholar_category_flag_flag_data: df.struct
 ---@field flags_0 knowledge_scholar_flags_0
@@ -411,320 +1404,1257 @@ df.knowledge_scholar_category_flag.T_flag_type = {
 ---@field whole integer
 df.knowledge_scholar_category_flag.T_flag_data = {}
 
----@enum dfhack_knowledge_scholar_flag
+---@class (exact) _dfhack_knowledge_scholar_flag: df.struct
 ---not in DF
-df.dfhack_knowledge_scholar_flag = {
-  philosophy_logic_formal_reasoning = 0,
-  philosophy_logic_deductive_reasoning = 1,
-  philosophy_logic_syllogistic_logic = 2,
-  philosophy_logic_hypothetical_syllogisms = 3,
-  philosophy_logic_propositional_logic = 4,
-  philosophy_logic_dialectic_reasoning = 5,
-  philosophy_logic_analogical_inference = 6,
-  philosophy_ethics_applied_medical = 7,
-  philosophy_ethics_individual_value = 8,
-  philosophy_ethics_state_consequentialism = 9,
-  philosophy_epistemology_truth = 10,
-  philosophy_epistemology_perception = 11,
-  philosophy_epistemology_justification = 12,
-  philosophy_epistemology_belief = 13,
-  philosophy_metaphysics_existence = 14,
-  philosophy_metaphysics_time = 15,
-  philosophy_metaphysics_mind_body = 16,
-  philosophy_metaphysics_objects_and_properties = 17,
-  philosophy_metaphysics_wholes_and_parts = 18,
-  philosophy_metaphysics_events = 19,
-  philosophy_metaphysics_processes = 20,
-  philosophy_metaphysics_causation = 21,
-  philosophy_ethics_applied_military = 22,
-  philosophy_ethics_applied_interpersonal_conduct = 23,
-  philosophy_specialized_law = 24,
-  philosophy_specialized_education = 25,
-  philosophy_specialized_language_grammar = 26,
-  philosophy_specialized_language_etymology = 27,
-  philosophy_specialized_politics_diplomacy = 28,
-  philosophy_specialized_politics_government_forms = 29,
-  philosophy_specialized_politics_economic_policy = 30,
-  philosophy_specialized_politics_social_welfare = 31,
-  philosophy_logic_inductive_reasoning = 32,
-  philosophy_logic_direct_inference = 33,
-  philosophy_aesthetics_nature_of_beauty = 34,
-  philosophy_aesthetics_value_of_art = 35,
-  philosophy_specialized_language_dictionary = 36,
-  mathematics_method_proof_by_contradiction = 64,
-  mathematics_notation_zero = 38,
-  mathematics_notation_negative_numbers = 39,
-  mathematics_notation_large_numbers = 40,
-  mathematics_notation_positional = 41,
-  mathematics_geometry_basic_objects = 42,
-  mathematics_method_exhaustion = 43,
-  mathematics_geometry_similar_and_congruent_triangles = 44,
-  mathematics_geometry_geometric_mean_theorem = 45,
-  mathematics_geometry_isosceles_base_angles_equal = 46,
-  mathematics_geometry_inscribed_triangle_on_diameter_is_right = 47,
-  mathematics_geometry_pythagorean_theorem = 48,
-  mathematics_geometry_pythagorean_triples_small = 49,
-  mathematics_geometry_pythagorean_triples_3_digit = 50,
-  mathematics_geometry_pythagorean_triples_4_digit = 51,
-  mathematics_geometry_existence_of_incommensurable_ratios = 52,
-  mathematics_method_axiomatic_reasoning = 53,
-  mathematics_numbers_unique_prime_factorization = 54,
-  mathematics_numbers_algorithm_for_computing_gcd = 55,
-  mathematics_geometry_volume_of_pyramid = 56,
-  mathematics_geometry_volume_of_cone = 57,
-  mathematics_geometry_volume_of_sphere = 58,
-  mathematics_geometry_pi_to_4_digits = 59,
-  mathematics_numbers_division_algorithm = 60,
-  mathematics_geometry_table_of_chord_values = 61,
-  mathematics_geometry_area_of_triangle_from_side_lengths = 62,
-  mathematics_geometry_area_of_circle = 63,
-  mathematics_geometry_pi_to_6_digits = 64,
-  mathematics_geometry_definitions_and_basic_properties_of_conic_sections = 65,
-  mathematics_numbers_chinese_remainder_algorithm = 66,
-  mathematics_geometry_area_enclosed_by_line_and_parabola = 67,
-  mathematics_numbers_sieve_algorithm_for_primes = 68,
-  mathematics_numbers_root_2_to_5_digits = 96,
-  mathematics_numbers_infinite_primes = 70,
-  mathematics_numbers_root_2_irrational = 71,
-  mathematics_geometry_surface_area_of_sphere = 72,
-  mathematics_algebra_finite_summation_formulas = 73,
-  mathematics_algebra_solving_linear_systems = 74,
-  mathematics_algebra_balancing_and_completion = 75,
-  mathematics_algebra_quadratic_by_completing_square = 76,
-  mathematics_algebra_quadratic_formula = 77,
-  mathematics_notation_syncopated_algebra = 78,
-  mathematics_geometry_law_of_sines = 79,
-  mathematics_geometry_angle_sum_difference_trig_identities = 80,
-  mathematics_algebra_pascals_triangle = 81,
-  mathematics_algebra_solving_higher_order_polynomials = 82,
-  mathematics_notation_early_symbols_for_operations = 83,
-  mathematics_algebra_divergence_of_harmonic_series = 84,
-  mathematics_geometry_properties_of_chords = 85,
-  history_sourcing_basic_reliability = 128,
-  history_sourcing_role_of_systemic_bias = 87,
-  history_sourcing_role_of_state_bias_and_propaganda = 88,
-  history_sourcing_personal_interviews = 89,
-  history_theory_historical_causation = 90,
-  history_theory_historical_cycles = 91,
-  history_theory_social_cohesion = 92,
-  history_theory_social_conflict = 93,
-  history_form_biography = 94,
-  history_form_comparative_biography = 95,
-  history_form_biographical_dictionaries = 96,
-  history_form_autobiographical_adventure = 97,
-  history_form_genealogy = 98,
-  history_form_encyclopedia = 99,
-  history_form_cultural_history = 100,
-  history_form_cultural_comparison = 101,
-  history_sourcing_role_of_cultural_differences = 102,
-  history_form_alternate_history = 103,
-  history_sourcing_basic_archaeology = 104,
-  history_form_treatise_on_tech_evolution = 105,
-  astronomy_phases_of_the_moon = 160,
-  astronomy_summer_winter_moon = 107,
-  astronomy_path_of_the_moon = 108,
-  astronomy_tides_and_the_moon = 109,
-  astronomy_height_of_tides_vs_moon_and_sun = 110,
-  astronomy_summer_winter_sun = 111,
-  astronomy_relationship_between_lunar_solar_year = 112,
-  astronomy_daylight_variation_with_solar_year = 113,
-  astronomy_geocentric_model = 114,
-  astronomy_heliocentric_model = 115,
-  astronomy_dates_of_lunar_and_solar_eclipses = 116,
-  astronomy_star_charts = 117,
-  astronomy_star_catalogues_100 = 118,
-  astronomy_star_catalogues_1000 = 119,
-  astronomy_star_color_classification = 120,
-  astronomy_star_magnitude_classification = 121,
-  astronomy_shape_of_the_world = 122,
-  astronomy_precession_of_equinoxes = 123,
-  astronomy_method_empirical_observation = 124,
-  astronomy_method_path_models = 125,
-  naturalist_method_dissection = 192,
-  naturalist_observation_anatomy = 127,
-  naturalist_theory_comparative_anatomy = 128,
-  naturalist_theory_classification_by_physical_features = 129,
-  naturalist_observation_migration_patterns = 130,
-  naturalist_observation_reproductive_behavior = 131,
-  naturalist_observation_foraging_behavior_and_diet = 132,
-  naturalist_theory_food_chain = 133,
-  naturalist_observation_social_behavior = 134,
-  naturalist_observation_diseases = 135,
-  naturalist_theory_climactic_adaptation = 136,
-  naturalist_observation_embriological_development = 137,
-  naturalist_theory_struggle_for_existence = 138,
-  chemistry_classification_combustibles = 224,
-  chemistry_classification_ores = 140,
-  chemistry_metallurgy_alloys = 141,
-  chemistry_classification_scratch_test = 142,
-  chemistry_classification_elemental_theory = 143,
-  chemistry_chemicals_adhesives = 144,
-  chemistry_laboratory_blast_furnace = 145,
-  chemistry_laboratory_alembic = 146,
-  chemistry_laboratory_theory_of_liquid_liquid_extraction = 147,
-  chemistry_laboratory_theory_of_distillation = 148,
-  chemistry_laboratory_theory_of_evaporation = 149,
-  chemistry_classification_alkali_and_acids = 150,
-  chemistry_laboratory_systematic_experiments = 151,
-  chemistry_laboratory_glass_flask = 152,
-  chemistry_laboratory_glass_beaker = 153,
-  chemistry_laboratory_glass_vial = 154,
-  chemistry_laboratory_glass_funnel = 155,
-  chemistry_laboratory_crucible = 156,
-  chemistry_chemicals_nitric_acid = 157,
-  chemistry_chemicals_sulfuric_acid = 158,
-  chemistry_chemicals_aqua_regia = 159,
-  chemistry_laboratory_glass_ampoule = 160,
-  chemistry_laboratory_glass_retort = 161,
-  chemistry_laboratory_lab_ovens = 162,
-  geography_surveying_basic = 256,
-  geography_surveying_staff = 164,
-  geography_cartography_basic = 165,
-  geography_surveying_triangulation = 166,
-  geography_surveying_cartographical = 167,
-  geography_surveying_land = 168,
-  geography_surveying_military = 169,
-  geography_surveying_engineering = 170,
-  geography_cartography_geological = 171,
-  geography_cartography_grid_system = 172,
-  geography_cartography_distance_scale = 173,
-  geography_cartography_height_measurements = 174,
-  geography_method_economic_data_collection = 175,
-  geography_cartography_economic = 176,
-  geography_form_atlas = 177,
-  geography_theory_delta_formation = 178,
-  geography_theory_wind_patterns = 179,
-  geography_theory_origin_of_rainfall_from_evap_condense = 180,
-  geography_theory_water_cycle = 181,
-  geography_theory_latitude_climate_zones = 182,
-  geography_cartography_accurate_maps = 183,
-  geography_cartography_map_projections = 184,
-  medicine_theory_disease_and_fouled_water = 288,
-  medicine_method_physical_examination = 186,
-  medicine_method_autopsy = 187,
-  medicine_theory_prognosis = 188,
-  medicine_tool_herbal_remedies = 189,
-  medicine_tool_animal_remedies = 190,
-  medicine_tool_mineral_remedies = 191,
-  medicine_tool_bandages = 192,
-  medicine_theory_disease_classification = 193,
-  medicine_theory_toxicology = 194,
-  medicine_theory_acute_and_chronic_conditions = 195,
-  medicine_theory_endemic_disease = 196,
-  medicine_theory_epidemic_disease = 197,
-  medicine_theory_exacerbation = 198,
-  medicine_theory_paroxysm = 199,
-  medicine_theory_relapse = 200,
-  medicine_theory_convalescence = 201,
-  medicine_method_treatment_of_traumatic_injuries = 202,
-  medicine_method_fracture_treatment = 203,
-  medicine_theory_fracture_classification = 204,
-  medicine_tool_traction_bench = 205,
-  medicine_method_fracture_immobilization = 206,
-  medicine_tool_orthopedic_cast = 207,
-  medicine_method_surgery_excision = 208,
-  medicine_method_surgery_incision = 209,
-  medicine_method_hernia_surgery = 210,
-  medicine_method_tracheotomy_surgery = 211,
-  medicine_method_lithotomy_surgery = 212,
-  medicine_method_surgery_scraping = 213,
-  medicine_method_surgery_draining = 214,
-  medicine_method_surgery_probing = 215,
-  medicine_method_surgery_suturing = 216,
-  medicine_method_surgery_ligature = 320,
-  medicine_theory_surgical_models = 218,
-  medicine_tool_mud_bags_as_surgical_models = 219,
-  medicine_tool_plants_as_surgical_models = 220,
-  medicine_tool_animals_as_surgical_models = 221,
-  medicine_theory_specialized_surgical_instruments = 222,
-  medicine_tool_forceps = 223,
-  medicine_tool_scalpel = 224,
-  medicine_tool_surgical_scissors = 225,
-  medicine_tool_surgical_needles = 226,
-  medicine_method_cataract_surgery = 227,
-  medicine_method_cauterization = 228,
-  medicine_method_anesthesia = 229,
-  medicine_theory_pulmonary_medicine = 230,
-  medicine_theory_anatomical_studies = 231,
-  medicine_theory_classification_of_bodily_fluids = 232,
-  medicine_theory_eye_anatomy = 233,
-  medicine_theory_motor_vs_sensory_nerves = 234,
-  medicine_theory_nervous_system_function = 235,
-  medicine_theory_reaction_time = 236,
-  medicine_theory_blood_vessels = 237,
-  medicine_theory_pulmonary_circulation = 238,
-  medicine_theory_comparative_anatomy = 239,
-  medicine_theory_the_voice = 240,
-  medicine_theory_classification_of_muscles = 241,
-  medicine_theory_classification_of_mental_illnesses = 242,
-  medicine_theory_treatment_of_mental_illnesses = 243,
-  medicine_tool_dedicated_hospitals = 244,
-  medicine_method_professional_hospital_staff = 245,
-  medicine_method_specialized_wards = 246,
-  medicine_method_hospital_lab = 247,
-  medicine_method_medical_school = 248,
-  medicine_method_asylum_for_mentally_ill = 352,
-  engineering_horology_shadow_clock = 384,
-  engineering_horology_water_clock = 251,
-  engineering_horology_conical_water_clock = 252,
-  engineering_horology_water_clock_reservoir = 253,
-  engineering_horology_astrarium = 254,
-  engineering_horology_hourglass = 255,
-  engineering_horology_mechanical_clock = 256,
-  engineering_machine_theory_of_pulley = 257,
-  engineering_machine_pulley = 258,
-  engineering_machine_theory_of_screw = 259,
-  engineering_machine_screw = 260,
-  engineering_machine_theory_of_wheel_and_axle = 261,
-  engineering_machine_windlass = 262,
-  engineering_machine_theory_of_wedge = 263,
-  engineering_machine_theory_of_lever = 264,
-  engineering_machine_lever = 265,
-  engineering_machine_straight_beam_balance = 266,
-  engineering_machine_theory_of_gears = 267,
-  engineering_machine_warded_lock = 268,
-  engineering_machine_tumbler_lock = 269,
-  engineering_machine_padlock = 270,
-  engineering_machine_camshaft = 271,
-  engineering_machine_crankshaft = 272,
-  engineering_machine_water_powered_sawmill = 273,
-  engineering_machine_chariot_odometer = 274,
-  engineering_machine_chain_drive = 275,
-  engineering_machine_mechanical_compass = 276,
-  engineering_machine_differential_gear = 277,
-  engineering_machine_combination_lock = 278,
-  engineering_machine_verge_escapement = 279,
-  engineering_machine_balance_wheel = 280,
-  engineering_fluid_theory_of_siphon = 281,
-  engineering_fluid_valves = 416,
-  engineering_fluid_force_pump = 283,
-  engineering_optics_crystal_lens = 284,
-  engineering_optics_water_filled_spheres = 285,
-  engineering_optics_glass_lens = 286,
-  engineering_optics_camera_obscura = 287,
-  engineering_optics_parabolic_mirror = 288,
-  engineering_optics_theory_of_color = 289,
-  engineering_optics_theory_of_rainbows = 290,
-  engineering_optics_law_of_refraction = 291,
-  engineering_design_models_and_templates = 292,
-  engineering_construction_wood_lamination = 293,
-  engineering_astronomy_dioptra = 294,
-  engineering_astronomy_astrolabe = 295,
-  engineering_astronomy_armillary_sphere = 296,
-  engineering_astronomy_spherical_astrolabe = 297,
-  engineering_astronomy_mural_instrument = 298,
-  engineering_astronomy_orrery = 299,
-  engineering_machine_water_powered_trip_hammer = 300,
-  engineering_machine_double_acting_piston_bellows = 301,
-  engineering_fluid_archimedes_principle = 302,
-  engineering_optics_atmospheric_refraction = 303,
-  engineering_optics_cause_of_twilight = 304,
-  engineering_optics_height_of_atmosphere = 305,
-  engineering_machine_piston = 306,
-  engineering_machine_crank = 307,
-  engineering_machine_bellows = 308,
-  engineering_machine_water_powered_piston_bellows = 309,
-  engineering_machine_water_wheel = 310,
-  engineering_machine_trip_hammer = 311,
-}
+---@field philosophy_logic_formal_reasoning 0
+---@field [0] "philosophy_logic_formal_reasoning"
+---@field philosophy_logic_deductive_reasoning 1
+---@field [1] "philosophy_logic_deductive_reasoning"
+---@field philosophy_logic_syllogistic_logic 2
+---@field [2] "philosophy_logic_syllogistic_logic"
+---@field philosophy_logic_hypothetical_syllogisms 3
+---@field [3] "philosophy_logic_hypothetical_syllogisms"
+---@field philosophy_logic_propositional_logic 4
+---@field [4] "philosophy_logic_propositional_logic"
+---@field philosophy_logic_dialectic_reasoning 5
+---@field [5] "philosophy_logic_dialectic_reasoning"
+---@field philosophy_logic_analogical_inference 6
+---@field [6] "philosophy_logic_analogical_inference"
+---@field philosophy_ethics_applied_medical 7
+---@field [7] "philosophy_ethics_applied_medical"
+---@field philosophy_ethics_individual_value 8
+---@field [8] "philosophy_ethics_individual_value"
+---@field philosophy_ethics_state_consequentialism 9
+---@field [9] "philosophy_ethics_state_consequentialism"
+---@field philosophy_epistemology_truth 10
+---@field [10] "philosophy_epistemology_truth"
+---@field philosophy_epistemology_perception 11
+---@field [11] "philosophy_epistemology_perception"
+---@field philosophy_epistemology_justification 12
+---@field [12] "philosophy_epistemology_justification"
+---@field philosophy_epistemology_belief 13
+---@field [13] "philosophy_epistemology_belief"
+---@field philosophy_metaphysics_existence 14
+---@field [14] "philosophy_metaphysics_existence"
+---@field philosophy_metaphysics_time 15
+---@field [15] "philosophy_metaphysics_time"
+---@field philosophy_metaphysics_mind_body 16
+---@field [16] "philosophy_metaphysics_mind_body"
+---@field philosophy_metaphysics_objects_and_properties 17
+---@field [17] "philosophy_metaphysics_objects_and_properties"
+---@field philosophy_metaphysics_wholes_and_parts 18
+---@field [18] "philosophy_metaphysics_wholes_and_parts"
+---@field philosophy_metaphysics_events 19
+---@field [19] "philosophy_metaphysics_events"
+---@field philosophy_metaphysics_processes 20
+---@field [20] "philosophy_metaphysics_processes"
+---@field philosophy_metaphysics_causation 21
+---@field [21] "philosophy_metaphysics_causation"
+---@field philosophy_ethics_applied_military 22
+---@field [22] "philosophy_ethics_applied_military"
+---@field philosophy_ethics_applied_interpersonal_conduct 23
+---@field [23] "philosophy_ethics_applied_interpersonal_conduct"
+---@field philosophy_specialized_law 24
+---@field [24] "philosophy_specialized_law"
+---@field philosophy_specialized_education 25
+---@field [25] "philosophy_specialized_education"
+---@field philosophy_specialized_language_grammar 26
+---@field [26] "philosophy_specialized_language_grammar"
+---@field philosophy_specialized_language_etymology 27
+---@field [27] "philosophy_specialized_language_etymology"
+---@field philosophy_specialized_politics_diplomacy 28
+---@field [28] "philosophy_specialized_politics_diplomacy"
+---@field philosophy_specialized_politics_government_forms 29
+---@field [29] "philosophy_specialized_politics_government_forms"
+---@field philosophy_specialized_politics_economic_policy 30
+---@field [30] "philosophy_specialized_politics_economic_policy"
+---@field philosophy_specialized_politics_social_welfare 31
+---@field [31] "philosophy_specialized_politics_social_welfare"
+---@field philosophy_logic_inductive_reasoning 32
+---@field [32] "philosophy_logic_inductive_reasoning"
+---@field philosophy_logic_direct_inference 33
+---@field [33] "philosophy_logic_direct_inference"
+---@field philosophy_aesthetics_nature_of_beauty 34
+---@field [34] "philosophy_aesthetics_nature_of_beauty"
+---@field philosophy_aesthetics_value_of_art 35
+---@field [35] "philosophy_aesthetics_value_of_art"
+---@field philosophy_specialized_language_dictionary 36
+---@field [36] "philosophy_specialized_language_dictionary"
+---@field mathematics_method_proof_by_contradiction 64
+---@field [37] "mathematics_method_proof_by_contradiction"
+---@field mathematics_notation_zero 38
+---@field [38] "mathematics_notation_zero"
+---@field mathematics_notation_negative_numbers 39
+---@field [39] "mathematics_notation_negative_numbers"
+---@field mathematics_notation_large_numbers 40
+---@field [40] "mathematics_notation_large_numbers"
+---@field mathematics_notation_positional 41
+---@field [41] "mathematics_notation_positional"
+---@field mathematics_geometry_basic_objects 42
+---@field [42] "mathematics_geometry_basic_objects"
+---@field mathematics_method_exhaustion 43
+---@field [43] "mathematics_method_exhaustion"
+---@field mathematics_geometry_similar_and_congruent_triangles 44
+---@field [44] "mathematics_geometry_similar_and_congruent_triangles"
+---@field mathematics_geometry_geometric_mean_theorem 45
+---@field [45] "mathematics_geometry_geometric_mean_theorem"
+---@field mathematics_geometry_isosceles_base_angles_equal 46
+---@field [46] "mathematics_geometry_isosceles_base_angles_equal"
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right 47
+---@field [47] "mathematics_geometry_inscribed_triangle_on_diameter_is_right"
+---@field mathematics_geometry_pythagorean_theorem 48
+---@field [48] "mathematics_geometry_pythagorean_theorem"
+---@field mathematics_geometry_pythagorean_triples_small 49
+---@field [49] "mathematics_geometry_pythagorean_triples_small"
+---@field mathematics_geometry_pythagorean_triples_3_digit 50
+---@field [50] "mathematics_geometry_pythagorean_triples_3_digit"
+---@field mathematics_geometry_pythagorean_triples_4_digit 51
+---@field [51] "mathematics_geometry_pythagorean_triples_4_digit"
+---@field mathematics_geometry_existence_of_incommensurable_ratios 52
+---@field [52] "mathematics_geometry_existence_of_incommensurable_ratios"
+---@field mathematics_method_axiomatic_reasoning 53
+---@field [53] "mathematics_method_axiomatic_reasoning"
+---@field mathematics_numbers_unique_prime_factorization 54
+---@field [54] "mathematics_numbers_unique_prime_factorization"
+---@field mathematics_numbers_algorithm_for_computing_gcd 55
+---@field [55] "mathematics_numbers_algorithm_for_computing_gcd"
+---@field mathematics_geometry_volume_of_pyramid 56
+---@field [56] "mathematics_geometry_volume_of_pyramid"
+---@field mathematics_geometry_volume_of_cone 57
+---@field [57] "mathematics_geometry_volume_of_cone"
+---@field mathematics_geometry_volume_of_sphere 58
+---@field [58] "mathematics_geometry_volume_of_sphere"
+---@field mathematics_geometry_pi_to_4_digits 59
+---@field [59] "mathematics_geometry_pi_to_4_digits"
+---@field mathematics_numbers_division_algorithm 60
+---@field [60] "mathematics_numbers_division_algorithm"
+---@field mathematics_geometry_table_of_chord_values 61
+---@field [61] "mathematics_geometry_table_of_chord_values"
+---@field mathematics_geometry_area_of_triangle_from_side_lengths 62
+---@field [62] "mathematics_geometry_area_of_triangle_from_side_lengths"
+---@field mathematics_geometry_area_of_circle 63
+---@field [63] "mathematics_geometry_area_of_circle"
+---@field mathematics_geometry_pi_to_6_digits 64
+---@field [64] "mathematics_geometry_pi_to_6_digits"
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections 65
+---@field [65] "mathematics_geometry_definitions_and_basic_properties_of_conic_sections"
+---@field mathematics_numbers_chinese_remainder_algorithm 66
+---@field [66] "mathematics_numbers_chinese_remainder_algorithm"
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola 67
+---@field [67] "mathematics_geometry_area_enclosed_by_line_and_parabola"
+---@field mathematics_numbers_sieve_algorithm_for_primes 68
+---@field [68] "mathematics_numbers_sieve_algorithm_for_primes"
+---@field mathematics_numbers_root_2_to_5_digits 96
+---@field [69] "mathematics_numbers_root_2_to_5_digits"
+---@field mathematics_numbers_infinite_primes 70
+---@field [70] "mathematics_numbers_infinite_primes"
+---@field mathematics_numbers_root_2_irrational 71
+---@field [71] "mathematics_numbers_root_2_irrational"
+---@field mathematics_geometry_surface_area_of_sphere 72
+---@field [72] "mathematics_geometry_surface_area_of_sphere"
+---@field mathematics_algebra_finite_summation_formulas 73
+---@field [73] "mathematics_algebra_finite_summation_formulas"
+---@field mathematics_algebra_solving_linear_systems 74
+---@field [74] "mathematics_algebra_solving_linear_systems"
+---@field mathematics_algebra_balancing_and_completion 75
+---@field [75] "mathematics_algebra_balancing_and_completion"
+---@field mathematics_algebra_quadratic_by_completing_square 76
+---@field [76] "mathematics_algebra_quadratic_by_completing_square"
+---@field mathematics_algebra_quadratic_formula 77
+---@field [77] "mathematics_algebra_quadratic_formula"
+---@field mathematics_notation_syncopated_algebra 78
+---@field [78] "mathematics_notation_syncopated_algebra"
+---@field mathematics_geometry_law_of_sines 79
+---@field [79] "mathematics_geometry_law_of_sines"
+---@field mathematics_geometry_angle_sum_difference_trig_identities 80
+---@field [80] "mathematics_geometry_angle_sum_difference_trig_identities"
+---@field mathematics_algebra_pascals_triangle 81
+---@field [81] "mathematics_algebra_pascals_triangle"
+---@field mathematics_algebra_solving_higher_order_polynomials 82
+---@field [82] "mathematics_algebra_solving_higher_order_polynomials"
+---@field mathematics_notation_early_symbols_for_operations 83
+---@field [83] "mathematics_notation_early_symbols_for_operations"
+---@field mathematics_algebra_divergence_of_harmonic_series 84
+---@field [84] "mathematics_algebra_divergence_of_harmonic_series"
+---@field mathematics_geometry_properties_of_chords 85
+---@field [85] "mathematics_geometry_properties_of_chords"
+---@field history_sourcing_basic_reliability 128
+---@field [86] "history_sourcing_basic_reliability"
+---@field history_sourcing_role_of_systemic_bias 87
+---@field [87] "history_sourcing_role_of_systemic_bias"
+---@field history_sourcing_role_of_state_bias_and_propaganda 88
+---@field [88] "history_sourcing_role_of_state_bias_and_propaganda"
+---@field history_sourcing_personal_interviews 89
+---@field [89] "history_sourcing_personal_interviews"
+---@field history_theory_historical_causation 90
+---@field [90] "history_theory_historical_causation"
+---@field history_theory_historical_cycles 91
+---@field [91] "history_theory_historical_cycles"
+---@field history_theory_social_cohesion 92
+---@field [92] "history_theory_social_cohesion"
+---@field history_theory_social_conflict 93
+---@field [93] "history_theory_social_conflict"
+---@field history_form_biography 94
+---@field [94] "history_form_biography"
+---@field history_form_comparative_biography 95
+---@field [95] "history_form_comparative_biography"
+---@field history_form_biographical_dictionaries 96
+---@field [96] "history_form_biographical_dictionaries"
+---@field history_form_autobiographical_adventure 97
+---@field [97] "history_form_autobiographical_adventure"
+---@field history_form_genealogy 98
+---@field [98] "history_form_genealogy"
+---@field history_form_encyclopedia 99
+---@field [99] "history_form_encyclopedia"
+---@field history_form_cultural_history 100
+---@field [100] "history_form_cultural_history"
+---@field history_form_cultural_comparison 101
+---@field [101] "history_form_cultural_comparison"
+---@field history_sourcing_role_of_cultural_differences 102
+---@field [102] "history_sourcing_role_of_cultural_differences"
+---@field history_form_alternate_history 103
+---@field [103] "history_form_alternate_history"
+---@field history_sourcing_basic_archaeology 104
+---@field [104] "history_sourcing_basic_archaeology"
+---@field history_form_treatise_on_tech_evolution 105
+---@field [105] "history_form_treatise_on_tech_evolution"
+---@field astronomy_phases_of_the_moon 160
+---@field [106] "astronomy_phases_of_the_moon"
+---@field astronomy_summer_winter_moon 107
+---@field [107] "astronomy_summer_winter_moon"
+---@field astronomy_path_of_the_moon 108
+---@field [108] "astronomy_path_of_the_moon"
+---@field astronomy_tides_and_the_moon 109
+---@field [109] "astronomy_tides_and_the_moon"
+---@field astronomy_height_of_tides_vs_moon_and_sun 110
+---@field [110] "astronomy_height_of_tides_vs_moon_and_sun"
+---@field astronomy_summer_winter_sun 111
+---@field [111] "astronomy_summer_winter_sun"
+---@field astronomy_relationship_between_lunar_solar_year 112
+---@field [112] "astronomy_relationship_between_lunar_solar_year"
+---@field astronomy_daylight_variation_with_solar_year 113
+---@field [113] "astronomy_daylight_variation_with_solar_year"
+---@field astronomy_geocentric_model 114
+---@field [114] "astronomy_geocentric_model"
+---@field astronomy_heliocentric_model 115
+---@field [115] "astronomy_heliocentric_model"
+---@field astronomy_dates_of_lunar_and_solar_eclipses 116
+---@field [116] "astronomy_dates_of_lunar_and_solar_eclipses"
+---@field astronomy_star_charts 117
+---@field [117] "astronomy_star_charts"
+---@field astronomy_star_catalogues_100 118
+---@field [118] "astronomy_star_catalogues_100"
+---@field astronomy_star_catalogues_1000 119
+---@field [119] "astronomy_star_catalogues_1000"
+---@field astronomy_star_color_classification 120
+---@field [120] "astronomy_star_color_classification"
+---@field astronomy_star_magnitude_classification 121
+---@field [121] "astronomy_star_magnitude_classification"
+---@field astronomy_shape_of_the_world 122
+---@field [122] "astronomy_shape_of_the_world"
+---@field astronomy_precession_of_equinoxes 123
+---@field [123] "astronomy_precession_of_equinoxes"
+---@field astronomy_method_empirical_observation 124
+---@field [124] "astronomy_method_empirical_observation"
+---@field astronomy_method_path_models 125
+---@field [125] "astronomy_method_path_models"
+---@field naturalist_method_dissection 192
+---@field [126] "naturalist_method_dissection"
+---@field naturalist_observation_anatomy 127
+---@field [127] "naturalist_observation_anatomy"
+---@field naturalist_theory_comparative_anatomy 128
+---@field [128] "naturalist_theory_comparative_anatomy"
+---@field naturalist_theory_classification_by_physical_features 129
+---@field [129] "naturalist_theory_classification_by_physical_features"
+---@field naturalist_observation_migration_patterns 130
+---@field [130] "naturalist_observation_migration_patterns"
+---@field naturalist_observation_reproductive_behavior 131
+---@field [131] "naturalist_observation_reproductive_behavior"
+---@field naturalist_observation_foraging_behavior_and_diet 132
+---@field [132] "naturalist_observation_foraging_behavior_and_diet"
+---@field naturalist_theory_food_chain 133
+---@field [133] "naturalist_theory_food_chain"
+---@field naturalist_observation_social_behavior 134
+---@field [134] "naturalist_observation_social_behavior"
+---@field naturalist_observation_diseases 135
+---@field [135] "naturalist_observation_diseases"
+---@field naturalist_theory_climactic_adaptation 136
+---@field [136] "naturalist_theory_climactic_adaptation"
+---@field naturalist_observation_embriological_development 137
+---@field [137] "naturalist_observation_embriological_development"
+---@field naturalist_theory_struggle_for_existence 138
+---@field [138] "naturalist_theory_struggle_for_existence"
+---@field chemistry_classification_combustibles 224
+---@field [139] "chemistry_classification_combustibles"
+---@field chemistry_classification_ores 140
+---@field [140] "chemistry_classification_ores"
+---@field chemistry_metallurgy_alloys 141
+---@field [141] "chemistry_metallurgy_alloys"
+---@field chemistry_classification_scratch_test 142
+---@field [142] "chemistry_classification_scratch_test"
+---@field chemistry_classification_elemental_theory 143
+---@field [143] "chemistry_classification_elemental_theory"
+---@field chemistry_chemicals_adhesives 144
+---@field [144] "chemistry_chemicals_adhesives"
+---@field chemistry_laboratory_blast_furnace 145
+---@field [145] "chemistry_laboratory_blast_furnace"
+---@field chemistry_laboratory_alembic 146
+---@field [146] "chemistry_laboratory_alembic"
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction 147
+---@field [147] "chemistry_laboratory_theory_of_liquid_liquid_extraction"
+---@field chemistry_laboratory_theory_of_distillation 148
+---@field [148] "chemistry_laboratory_theory_of_distillation"
+---@field chemistry_laboratory_theory_of_evaporation 149
+---@field [149] "chemistry_laboratory_theory_of_evaporation"
+---@field chemistry_classification_alkali_and_acids 150
+---@field [150] "chemistry_classification_alkali_and_acids"
+---@field chemistry_laboratory_systematic_experiments 151
+---@field [151] "chemistry_laboratory_systematic_experiments"
+---@field chemistry_laboratory_glass_flask 152
+---@field [152] "chemistry_laboratory_glass_flask"
+---@field chemistry_laboratory_glass_beaker 153
+---@field [153] "chemistry_laboratory_glass_beaker"
+---@field chemistry_laboratory_glass_vial 154
+---@field [154] "chemistry_laboratory_glass_vial"
+---@field chemistry_laboratory_glass_funnel 155
+---@field [155] "chemistry_laboratory_glass_funnel"
+---@field chemistry_laboratory_crucible 156
+---@field [156] "chemistry_laboratory_crucible"
+---@field chemistry_chemicals_nitric_acid 157
+---@field [157] "chemistry_chemicals_nitric_acid"
+---@field chemistry_chemicals_sulfuric_acid 158
+---@field [158] "chemistry_chemicals_sulfuric_acid"
+---@field chemistry_chemicals_aqua_regia 159
+---@field [159] "chemistry_chemicals_aqua_regia"
+---@field chemistry_laboratory_glass_ampoule 160
+---@field [160] "chemistry_laboratory_glass_ampoule"
+---@field chemistry_laboratory_glass_retort 161
+---@field [161] "chemistry_laboratory_glass_retort"
+---@field chemistry_laboratory_lab_ovens 162
+---@field [162] "chemistry_laboratory_lab_ovens"
+---@field geography_surveying_basic 256
+---@field [163] "geography_surveying_basic"
+---@field geography_surveying_staff 164
+---@field [164] "geography_surveying_staff"
+---@field geography_cartography_basic 165
+---@field [165] "geography_cartography_basic"
+---@field geography_surveying_triangulation 166
+---@field [166] "geography_surveying_triangulation"
+---@field geography_surveying_cartographical 167
+---@field [167] "geography_surveying_cartographical"
+---@field geography_surveying_land 168
+---@field [168] "geography_surveying_land"
+---@field geography_surveying_military 169
+---@field [169] "geography_surveying_military"
+---@field geography_surveying_engineering 170
+---@field [170] "geography_surveying_engineering"
+---@field geography_cartography_geological 171
+---@field [171] "geography_cartography_geological"
+---@field geography_cartography_grid_system 172
+---@field [172] "geography_cartography_grid_system"
+---@field geography_cartography_distance_scale 173
+---@field [173] "geography_cartography_distance_scale"
+---@field geography_cartography_height_measurements 174
+---@field [174] "geography_cartography_height_measurements"
+---@field geography_method_economic_data_collection 175
+---@field [175] "geography_method_economic_data_collection"
+---@field geography_cartography_economic 176
+---@field [176] "geography_cartography_economic"
+---@field geography_form_atlas 177
+---@field [177] "geography_form_atlas"
+---@field geography_theory_delta_formation 178
+---@field [178] "geography_theory_delta_formation"
+---@field geography_theory_wind_patterns 179
+---@field [179] "geography_theory_wind_patterns"
+---@field geography_theory_origin_of_rainfall_from_evap_condense 180
+---@field [180] "geography_theory_origin_of_rainfall_from_evap_condense"
+---@field geography_theory_water_cycle 181
+---@field [181] "geography_theory_water_cycle"
+---@field geography_theory_latitude_climate_zones 182
+---@field [182] "geography_theory_latitude_climate_zones"
+---@field geography_cartography_accurate_maps 183
+---@field [183] "geography_cartography_accurate_maps"
+---@field geography_cartography_map_projections 184
+---@field [184] "geography_cartography_map_projections"
+---@field medicine_theory_disease_and_fouled_water 288
+---@field [185] "medicine_theory_disease_and_fouled_water"
+---@field medicine_method_physical_examination 186
+---@field [186] "medicine_method_physical_examination"
+---@field medicine_method_autopsy 187
+---@field [187] "medicine_method_autopsy"
+---@field medicine_theory_prognosis 188
+---@field [188] "medicine_theory_prognosis"
+---@field medicine_tool_herbal_remedies 189
+---@field [189] "medicine_tool_herbal_remedies"
+---@field medicine_tool_animal_remedies 190
+---@field [190] "medicine_tool_animal_remedies"
+---@field medicine_tool_mineral_remedies 191
+---@field [191] "medicine_tool_mineral_remedies"
+---@field medicine_tool_bandages 192
+---@field [192] "medicine_tool_bandages"
+---@field medicine_theory_disease_classification 193
+---@field [193] "medicine_theory_disease_classification"
+---@field medicine_theory_toxicology 194
+---@field [194] "medicine_theory_toxicology"
+---@field medicine_theory_acute_and_chronic_conditions 195
+---@field [195] "medicine_theory_acute_and_chronic_conditions"
+---@field medicine_theory_endemic_disease 196
+---@field [196] "medicine_theory_endemic_disease"
+---@field medicine_theory_epidemic_disease 197
+---@field [197] "medicine_theory_epidemic_disease"
+---@field medicine_theory_exacerbation 198
+---@field [198] "medicine_theory_exacerbation"
+---@field medicine_theory_paroxysm 199
+---@field [199] "medicine_theory_paroxysm"
+---@field medicine_theory_relapse 200
+---@field [200] "medicine_theory_relapse"
+---@field medicine_theory_convalescence 201
+---@field [201] "medicine_theory_convalescence"
+---@field medicine_method_treatment_of_traumatic_injuries 202
+---@field [202] "medicine_method_treatment_of_traumatic_injuries"
+---@field medicine_method_fracture_treatment 203
+---@field [203] "medicine_method_fracture_treatment"
+---@field medicine_theory_fracture_classification 204
+---@field [204] "medicine_theory_fracture_classification"
+---@field medicine_tool_traction_bench 205
+---@field [205] "medicine_tool_traction_bench"
+---@field medicine_method_fracture_immobilization 206
+---@field [206] "medicine_method_fracture_immobilization"
+---@field medicine_tool_orthopedic_cast 207
+---@field [207] "medicine_tool_orthopedic_cast"
+---@field medicine_method_surgery_excision 208
+---@field [208] "medicine_method_surgery_excision"
+---@field medicine_method_surgery_incision 209
+---@field [209] "medicine_method_surgery_incision"
+---@field medicine_method_hernia_surgery 210
+---@field [210] "medicine_method_hernia_surgery"
+---@field medicine_method_tracheotomy_surgery 211
+---@field [211] "medicine_method_tracheotomy_surgery"
+---@field medicine_method_lithotomy_surgery 212
+---@field [212] "medicine_method_lithotomy_surgery"
+---@field medicine_method_surgery_scraping 213
+---@field [213] "medicine_method_surgery_scraping"
+---@field medicine_method_surgery_draining 214
+---@field [214] "medicine_method_surgery_draining"
+---@field medicine_method_surgery_probing 215
+---@field [215] "medicine_method_surgery_probing"
+---@field medicine_method_surgery_suturing 216
+---@field [216] "medicine_method_surgery_suturing"
+---@field medicine_method_surgery_ligature 320
+---@field [217] "medicine_method_surgery_ligature"
+---@field medicine_theory_surgical_models 218
+---@field [218] "medicine_theory_surgical_models"
+---@field medicine_tool_mud_bags_as_surgical_models 219
+---@field [219] "medicine_tool_mud_bags_as_surgical_models"
+---@field medicine_tool_plants_as_surgical_models 220
+---@field [220] "medicine_tool_plants_as_surgical_models"
+---@field medicine_tool_animals_as_surgical_models 221
+---@field [221] "medicine_tool_animals_as_surgical_models"
+---@field medicine_theory_specialized_surgical_instruments 222
+---@field [222] "medicine_theory_specialized_surgical_instruments"
+---@field medicine_tool_forceps 223
+---@field [223] "medicine_tool_forceps"
+---@field medicine_tool_scalpel 224
+---@field [224] "medicine_tool_scalpel"
+---@field medicine_tool_surgical_scissors 225
+---@field [225] "medicine_tool_surgical_scissors"
+---@field medicine_tool_surgical_needles 226
+---@field [226] "medicine_tool_surgical_needles"
+---@field medicine_method_cataract_surgery 227
+---@field [227] "medicine_method_cataract_surgery"
+---@field medicine_method_cauterization 228
+---@field [228] "medicine_method_cauterization"
+---@field medicine_method_anesthesia 229
+---@field [229] "medicine_method_anesthesia"
+---@field medicine_theory_pulmonary_medicine 230
+---@field [230] "medicine_theory_pulmonary_medicine"
+---@field medicine_theory_anatomical_studies 231
+---@field [231] "medicine_theory_anatomical_studies"
+---@field medicine_theory_classification_of_bodily_fluids 232
+---@field [232] "medicine_theory_classification_of_bodily_fluids"
+---@field medicine_theory_eye_anatomy 233
+---@field [233] "medicine_theory_eye_anatomy"
+---@field medicine_theory_motor_vs_sensory_nerves 234
+---@field [234] "medicine_theory_motor_vs_sensory_nerves"
+---@field medicine_theory_nervous_system_function 235
+---@field [235] "medicine_theory_nervous_system_function"
+---@field medicine_theory_reaction_time 236
+---@field [236] "medicine_theory_reaction_time"
+---@field medicine_theory_blood_vessels 237
+---@field [237] "medicine_theory_blood_vessels"
+---@field medicine_theory_pulmonary_circulation 238
+---@field [238] "medicine_theory_pulmonary_circulation"
+---@field medicine_theory_comparative_anatomy 239
+---@field [239] "medicine_theory_comparative_anatomy"
+---@field medicine_theory_the_voice 240
+---@field [240] "medicine_theory_the_voice"
+---@field medicine_theory_classification_of_muscles 241
+---@field [241] "medicine_theory_classification_of_muscles"
+---@field medicine_theory_classification_of_mental_illnesses 242
+---@field [242] "medicine_theory_classification_of_mental_illnesses"
+---@field medicine_theory_treatment_of_mental_illnesses 243
+---@field [243] "medicine_theory_treatment_of_mental_illnesses"
+---@field medicine_tool_dedicated_hospitals 244
+---@field [244] "medicine_tool_dedicated_hospitals"
+---@field medicine_method_professional_hospital_staff 245
+---@field [245] "medicine_method_professional_hospital_staff"
+---@field medicine_method_specialized_wards 246
+---@field [246] "medicine_method_specialized_wards"
+---@field medicine_method_hospital_lab 247
+---@field [247] "medicine_method_hospital_lab"
+---@field medicine_method_medical_school 248
+---@field [248] "medicine_method_medical_school"
+---@field medicine_method_asylum_for_mentally_ill 352
+---@field [249] "medicine_method_asylum_for_mentally_ill"
+---@field engineering_horology_shadow_clock 384
+---@field [250] "engineering_horology_shadow_clock"
+---@field engineering_horology_water_clock 251
+---@field [251] "engineering_horology_water_clock"
+---@field engineering_horology_conical_water_clock 252
+---@field [252] "engineering_horology_conical_water_clock"
+---@field engineering_horology_water_clock_reservoir 253
+---@field [253] "engineering_horology_water_clock_reservoir"
+---@field engineering_horology_astrarium 254
+---@field [254] "engineering_horology_astrarium"
+---@field engineering_horology_hourglass 255
+---@field [255] "engineering_horology_hourglass"
+---@field engineering_horology_mechanical_clock 256
+---@field [256] "engineering_horology_mechanical_clock"
+---@field engineering_machine_theory_of_pulley 257
+---@field [257] "engineering_machine_theory_of_pulley"
+---@field engineering_machine_pulley 258
+---@field [258] "engineering_machine_pulley"
+---@field engineering_machine_theory_of_screw 259
+---@field [259] "engineering_machine_theory_of_screw"
+---@field engineering_machine_screw 260
+---@field [260] "engineering_machine_screw"
+---@field engineering_machine_theory_of_wheel_and_axle 261
+---@field [261] "engineering_machine_theory_of_wheel_and_axle"
+---@field engineering_machine_windlass 262
+---@field [262] "engineering_machine_windlass"
+---@field engineering_machine_theory_of_wedge 263
+---@field [263] "engineering_machine_theory_of_wedge"
+---@field engineering_machine_theory_of_lever 264
+---@field [264] "engineering_machine_theory_of_lever"
+---@field engineering_machine_lever 265
+---@field [265] "engineering_machine_lever"
+---@field engineering_machine_straight_beam_balance 266
+---@field [266] "engineering_machine_straight_beam_balance"
+---@field engineering_machine_theory_of_gears 267
+---@field [267] "engineering_machine_theory_of_gears"
+---@field engineering_machine_warded_lock 268
+---@field [268] "engineering_machine_warded_lock"
+---@field engineering_machine_tumbler_lock 269
+---@field [269] "engineering_machine_tumbler_lock"
+---@field engineering_machine_padlock 270
+---@field [270] "engineering_machine_padlock"
+---@field engineering_machine_camshaft 271
+---@field [271] "engineering_machine_camshaft"
+---@field engineering_machine_crankshaft 272
+---@field [272] "engineering_machine_crankshaft"
+---@field engineering_machine_water_powered_sawmill 273
+---@field [273] "engineering_machine_water_powered_sawmill"
+---@field engineering_machine_chariot_odometer 274
+---@field [274] "engineering_machine_chariot_odometer"
+---@field engineering_machine_chain_drive 275
+---@field [275] "engineering_machine_chain_drive"
+---@field engineering_machine_mechanical_compass 276
+---@field [276] "engineering_machine_mechanical_compass"
+---@field engineering_machine_differential_gear 277
+---@field [277] "engineering_machine_differential_gear"
+---@field engineering_machine_combination_lock 278
+---@field [278] "engineering_machine_combination_lock"
+---@field engineering_machine_verge_escapement 279
+---@field [279] "engineering_machine_verge_escapement"
+---@field engineering_machine_balance_wheel 280
+---@field [280] "engineering_machine_balance_wheel"
+---@field engineering_fluid_theory_of_siphon 281
+---@field [281] "engineering_fluid_theory_of_siphon"
+---@field engineering_fluid_valves 416
+---@field [282] "engineering_fluid_valves"
+---@field engineering_fluid_force_pump 283
+---@field [283] "engineering_fluid_force_pump"
+---@field engineering_optics_crystal_lens 284
+---@field [284] "engineering_optics_crystal_lens"
+---@field engineering_optics_water_filled_spheres 285
+---@field [285] "engineering_optics_water_filled_spheres"
+---@field engineering_optics_glass_lens 286
+---@field [286] "engineering_optics_glass_lens"
+---@field engineering_optics_camera_obscura 287
+---@field [287] "engineering_optics_camera_obscura"
+---@field engineering_optics_parabolic_mirror 288
+---@field [288] "engineering_optics_parabolic_mirror"
+---@field engineering_optics_theory_of_color 289
+---@field [289] "engineering_optics_theory_of_color"
+---@field engineering_optics_theory_of_rainbows 290
+---@field [290] "engineering_optics_theory_of_rainbows"
+---@field engineering_optics_law_of_refraction 291
+---@field [291] "engineering_optics_law_of_refraction"
+---@field engineering_design_models_and_templates 292
+---@field [292] "engineering_design_models_and_templates"
+---@field engineering_construction_wood_lamination 293
+---@field [293] "engineering_construction_wood_lamination"
+---@field engineering_astronomy_dioptra 294
+---@field [294] "engineering_astronomy_dioptra"
+---@field engineering_astronomy_astrolabe 295
+---@field [295] "engineering_astronomy_astrolabe"
+---@field engineering_astronomy_armillary_sphere 296
+---@field [296] "engineering_astronomy_armillary_sphere"
+---@field engineering_astronomy_spherical_astrolabe 297
+---@field [297] "engineering_astronomy_spherical_astrolabe"
+---@field engineering_astronomy_mural_instrument 298
+---@field [298] "engineering_astronomy_mural_instrument"
+---@field engineering_astronomy_orrery 299
+---@field [299] "engineering_astronomy_orrery"
+---@field engineering_machine_water_powered_trip_hammer 300
+---@field [300] "engineering_machine_water_powered_trip_hammer"
+---@field engineering_machine_double_acting_piston_bellows 301
+---@field [301] "engineering_machine_double_acting_piston_bellows"
+---@field engineering_fluid_archimedes_principle 302
+---@field [302] "engineering_fluid_archimedes_principle"
+---@field engineering_optics_atmospheric_refraction 303
+---@field [303] "engineering_optics_atmospheric_refraction"
+---@field engineering_optics_cause_of_twilight 304
+---@field [304] "engineering_optics_cause_of_twilight"
+---@field engineering_optics_height_of_atmosphere 305
+---@field [305] "engineering_optics_height_of_atmosphere"
+---@field engineering_machine_piston 306
+---@field [306] "engineering_machine_piston"
+---@field engineering_machine_crank 307
+---@field [307] "engineering_machine_crank"
+---@field engineering_machine_bellows 308
+---@field [308] "engineering_machine_bellows"
+---@field engineering_machine_water_powered_piston_bellows 309
+---@field [309] "engineering_machine_water_powered_piston_bellows"
+---@field engineering_machine_water_wheel 310
+---@field [310] "engineering_machine_water_wheel"
+---@field engineering_machine_trip_hammer 311
+---@field [311] "engineering_machine_trip_hammer"
+df.dfhack_knowledge_scholar_flag = {}
+
+---@class dfhack_knowledge_scholar_flag
+---@field [0] boolean
+---@field philosophy_logic_formal_reasoning boolean
+---@field [1] boolean
+---@field philosophy_logic_deductive_reasoning boolean
+---@field [2] boolean
+---@field philosophy_logic_syllogistic_logic boolean
+---@field [3] boolean
+---@field philosophy_logic_hypothetical_syllogisms boolean
+---@field [4] boolean
+---@field philosophy_logic_propositional_logic boolean
+---@field [5] boolean
+---@field philosophy_logic_dialectic_reasoning boolean
+---@field [6] boolean
+---@field philosophy_logic_analogical_inference boolean
+---@field [7] boolean
+---@field philosophy_ethics_applied_medical boolean
+---@field [8] boolean
+---@field philosophy_ethics_individual_value boolean
+---@field [9] boolean
+---@field philosophy_ethics_state_consequentialism boolean
+---@field [10] boolean
+---@field philosophy_epistemology_truth boolean
+---@field [11] boolean
+---@field philosophy_epistemology_perception boolean
+---@field [12] boolean
+---@field philosophy_epistemology_justification boolean
+---@field [13] boolean
+---@field philosophy_epistemology_belief boolean
+---@field [14] boolean
+---@field philosophy_metaphysics_existence boolean
+---@field [15] boolean
+---@field philosophy_metaphysics_time boolean
+---@field [16] boolean
+---@field philosophy_metaphysics_mind_body boolean
+---@field [17] boolean
+---@field philosophy_metaphysics_objects_and_properties boolean
+---@field [18] boolean
+---@field philosophy_metaphysics_wholes_and_parts boolean
+---@field [19] boolean
+---@field philosophy_metaphysics_events boolean
+---@field [20] boolean
+---@field philosophy_metaphysics_processes boolean
+---@field [21] boolean
+---@field philosophy_metaphysics_causation boolean
+---@field [22] boolean
+---@field philosophy_ethics_applied_military boolean
+---@field [23] boolean
+---@field philosophy_ethics_applied_interpersonal_conduct boolean
+---@field [24] boolean
+---@field philosophy_specialized_law boolean
+---@field [25] boolean
+---@field philosophy_specialized_education boolean
+---@field [26] boolean
+---@field philosophy_specialized_language_grammar boolean
+---@field [27] boolean
+---@field philosophy_specialized_language_etymology boolean
+---@field [28] boolean
+---@field philosophy_specialized_politics_diplomacy boolean
+---@field [29] boolean
+---@field philosophy_specialized_politics_government_forms boolean
+---@field [30] boolean
+---@field philosophy_specialized_politics_economic_policy boolean
+---@field [31] boolean
+---@field philosophy_specialized_politics_social_welfare boolean
+---@field [32] boolean
+---@field philosophy_logic_inductive_reasoning boolean
+---@field [33] boolean
+---@field philosophy_logic_direct_inference boolean
+---@field [34] boolean
+---@field philosophy_aesthetics_nature_of_beauty boolean
+---@field [35] boolean
+---@field philosophy_aesthetics_value_of_art boolean
+---@field [36] boolean
+---@field philosophy_specialized_language_dictionary boolean
+---@field [37] boolean
+---@field mathematics_method_proof_by_contradiction boolean
+---@field [38] boolean
+---@field mathematics_notation_zero boolean
+---@field [39] boolean
+---@field mathematics_notation_negative_numbers boolean
+---@field [40] boolean
+---@field mathematics_notation_large_numbers boolean
+---@field [41] boolean
+---@field mathematics_notation_positional boolean
+---@field [42] boolean
+---@field mathematics_geometry_basic_objects boolean
+---@field [43] boolean
+---@field mathematics_method_exhaustion boolean
+---@field [44] boolean
+---@field mathematics_geometry_similar_and_congruent_triangles boolean
+---@field [45] boolean
+---@field mathematics_geometry_geometric_mean_theorem boolean
+---@field [46] boolean
+---@field mathematics_geometry_isosceles_base_angles_equal boolean
+---@field [47] boolean
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right boolean
+---@field [48] boolean
+---@field mathematics_geometry_pythagorean_theorem boolean
+---@field [49] boolean
+---@field mathematics_geometry_pythagorean_triples_small boolean
+---@field [50] boolean
+---@field mathematics_geometry_pythagorean_triples_3_digit boolean
+---@field [51] boolean
+---@field mathematics_geometry_pythagorean_triples_4_digit boolean
+---@field [52] boolean
+---@field mathematics_geometry_existence_of_incommensurable_ratios boolean
+---@field [53] boolean
+---@field mathematics_method_axiomatic_reasoning boolean
+---@field [54] boolean
+---@field mathematics_numbers_unique_prime_factorization boolean
+---@field [55] boolean
+---@field mathematics_numbers_algorithm_for_computing_gcd boolean
+---@field [56] boolean
+---@field mathematics_geometry_volume_of_pyramid boolean
+---@field [57] boolean
+---@field mathematics_geometry_volume_of_cone boolean
+---@field [58] boolean
+---@field mathematics_geometry_volume_of_sphere boolean
+---@field [59] boolean
+---@field mathematics_geometry_pi_to_4_digits boolean
+---@field [60] boolean
+---@field mathematics_numbers_division_algorithm boolean
+---@field [61] boolean
+---@field mathematics_geometry_table_of_chord_values boolean
+---@field [62] boolean
+---@field mathematics_geometry_area_of_triangle_from_side_lengths boolean
+---@field [63] boolean
+---@field mathematics_geometry_area_of_circle boolean
+---@field [64] boolean
+---@field mathematics_geometry_pi_to_6_digits boolean
+---@field [65] boolean
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections boolean
+---@field [66] boolean
+---@field mathematics_numbers_chinese_remainder_algorithm boolean
+---@field [67] boolean
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola boolean
+---@field [68] boolean
+---@field mathematics_numbers_sieve_algorithm_for_primes boolean
+---@field [69] boolean
+---@field mathematics_numbers_root_2_to_5_digits boolean
+---@field [70] boolean
+---@field mathematics_numbers_infinite_primes boolean
+---@field [71] boolean
+---@field mathematics_numbers_root_2_irrational boolean
+---@field [72] boolean
+---@field mathematics_geometry_surface_area_of_sphere boolean
+---@field [73] boolean
+---@field mathematics_algebra_finite_summation_formulas boolean
+---@field [74] boolean
+---@field mathematics_algebra_solving_linear_systems boolean
+---@field [75] boolean
+---@field mathematics_algebra_balancing_and_completion boolean
+---@field [76] boolean
+---@field mathematics_algebra_quadratic_by_completing_square boolean
+---@field [77] boolean
+---@field mathematics_algebra_quadratic_formula boolean
+---@field [78] boolean
+---@field mathematics_notation_syncopated_algebra boolean
+---@field [79] boolean
+---@field mathematics_geometry_law_of_sines boolean
+---@field [80] boolean
+---@field mathematics_geometry_angle_sum_difference_trig_identities boolean
+---@field [81] boolean
+---@field mathematics_algebra_pascals_triangle boolean
+---@field [82] boolean
+---@field mathematics_algebra_solving_higher_order_polynomials boolean
+---@field [83] boolean
+---@field mathematics_notation_early_symbols_for_operations boolean
+---@field [84] boolean
+---@field mathematics_algebra_divergence_of_harmonic_series boolean
+---@field [85] boolean
+---@field mathematics_geometry_properties_of_chords boolean
+---@field [86] boolean
+---@field history_sourcing_basic_reliability boolean
+---@field [87] boolean
+---@field history_sourcing_role_of_systemic_bias boolean
+---@field [88] boolean
+---@field history_sourcing_role_of_state_bias_and_propaganda boolean
+---@field [89] boolean
+---@field history_sourcing_personal_interviews boolean
+---@field [90] boolean
+---@field history_theory_historical_causation boolean
+---@field [91] boolean
+---@field history_theory_historical_cycles boolean
+---@field [92] boolean
+---@field history_theory_social_cohesion boolean
+---@field [93] boolean
+---@field history_theory_social_conflict boolean
+---@field [94] boolean
+---@field history_form_biography boolean
+---@field [95] boolean
+---@field history_form_comparative_biography boolean
+---@field [96] boolean
+---@field history_form_biographical_dictionaries boolean
+---@field [97] boolean
+---@field history_form_autobiographical_adventure boolean
+---@field [98] boolean
+---@field history_form_genealogy boolean
+---@field [99] boolean
+---@field history_form_encyclopedia boolean
+---@field [100] boolean
+---@field history_form_cultural_history boolean
+---@field [101] boolean
+---@field history_form_cultural_comparison boolean
+---@field [102] boolean
+---@field history_sourcing_role_of_cultural_differences boolean
+---@field [103] boolean
+---@field history_form_alternate_history boolean
+---@field [104] boolean
+---@field history_sourcing_basic_archaeology boolean
+---@field [105] boolean
+---@field history_form_treatise_on_tech_evolution boolean
+---@field [106] boolean
+---@field astronomy_phases_of_the_moon boolean
+---@field [107] boolean
+---@field astronomy_summer_winter_moon boolean
+---@field [108] boolean
+---@field astronomy_path_of_the_moon boolean
+---@field [109] boolean
+---@field astronomy_tides_and_the_moon boolean
+---@field [110] boolean
+---@field astronomy_height_of_tides_vs_moon_and_sun boolean
+---@field [111] boolean
+---@field astronomy_summer_winter_sun boolean
+---@field [112] boolean
+---@field astronomy_relationship_between_lunar_solar_year boolean
+---@field [113] boolean
+---@field astronomy_daylight_variation_with_solar_year boolean
+---@field [114] boolean
+---@field astronomy_geocentric_model boolean
+---@field [115] boolean
+---@field astronomy_heliocentric_model boolean
+---@field [116] boolean
+---@field astronomy_dates_of_lunar_and_solar_eclipses boolean
+---@field [117] boolean
+---@field astronomy_star_charts boolean
+---@field [118] boolean
+---@field astronomy_star_catalogues_100 boolean
+---@field [119] boolean
+---@field astronomy_star_catalogues_1000 boolean
+---@field [120] boolean
+---@field astronomy_star_color_classification boolean
+---@field [121] boolean
+---@field astronomy_star_magnitude_classification boolean
+---@field [122] boolean
+---@field astronomy_shape_of_the_world boolean
+---@field [123] boolean
+---@field astronomy_precession_of_equinoxes boolean
+---@field [124] boolean
+---@field astronomy_method_empirical_observation boolean
+---@field [125] boolean
+---@field astronomy_method_path_models boolean
+---@field [126] boolean
+---@field naturalist_method_dissection boolean
+---@field [127] boolean
+---@field naturalist_observation_anatomy boolean
+---@field [128] boolean
+---@field naturalist_theory_comparative_anatomy boolean
+---@field [129] boolean
+---@field naturalist_theory_classification_by_physical_features boolean
+---@field [130] boolean
+---@field naturalist_observation_migration_patterns boolean
+---@field [131] boolean
+---@field naturalist_observation_reproductive_behavior boolean
+---@field [132] boolean
+---@field naturalist_observation_foraging_behavior_and_diet boolean
+---@field [133] boolean
+---@field naturalist_theory_food_chain boolean
+---@field [134] boolean
+---@field naturalist_observation_social_behavior boolean
+---@field [135] boolean
+---@field naturalist_observation_diseases boolean
+---@field [136] boolean
+---@field naturalist_theory_climactic_adaptation boolean
+---@field [137] boolean
+---@field naturalist_observation_embriological_development boolean
+---@field [138] boolean
+---@field naturalist_theory_struggle_for_existence boolean
+---@field [139] boolean
+---@field chemistry_classification_combustibles boolean
+---@field [140] boolean
+---@field chemistry_classification_ores boolean
+---@field [141] boolean
+---@field chemistry_metallurgy_alloys boolean
+---@field [142] boolean
+---@field chemistry_classification_scratch_test boolean
+---@field [143] boolean
+---@field chemistry_classification_elemental_theory boolean
+---@field [144] boolean
+---@field chemistry_chemicals_adhesives boolean
+---@field [145] boolean
+---@field chemistry_laboratory_blast_furnace boolean
+---@field [146] boolean
+---@field chemistry_laboratory_alembic boolean
+---@field [147] boolean
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction boolean
+---@field [148] boolean
+---@field chemistry_laboratory_theory_of_distillation boolean
+---@field [149] boolean
+---@field chemistry_laboratory_theory_of_evaporation boolean
+---@field [150] boolean
+---@field chemistry_classification_alkali_and_acids boolean
+---@field [151] boolean
+---@field chemistry_laboratory_systematic_experiments boolean
+---@field [152] boolean
+---@field chemistry_laboratory_glass_flask boolean
+---@field [153] boolean
+---@field chemistry_laboratory_glass_beaker boolean
+---@field [154] boolean
+---@field chemistry_laboratory_glass_vial boolean
+---@field [155] boolean
+---@field chemistry_laboratory_glass_funnel boolean
+---@field [156] boolean
+---@field chemistry_laboratory_crucible boolean
+---@field [157] boolean
+---@field chemistry_chemicals_nitric_acid boolean
+---@field [158] boolean
+---@field chemistry_chemicals_sulfuric_acid boolean
+---@field [159] boolean
+---@field chemistry_chemicals_aqua_regia boolean
+---@field [160] boolean
+---@field chemistry_laboratory_glass_ampoule boolean
+---@field [161] boolean
+---@field chemistry_laboratory_glass_retort boolean
+---@field [162] boolean
+---@field chemistry_laboratory_lab_ovens boolean
+---@field [163] boolean
+---@field geography_surveying_basic boolean
+---@field [164] boolean
+---@field geography_surveying_staff boolean
+---@field [165] boolean
+---@field geography_cartography_basic boolean
+---@field [166] boolean
+---@field geography_surveying_triangulation boolean
+---@field [167] boolean
+---@field geography_surveying_cartographical boolean
+---@field [168] boolean
+---@field geography_surveying_land boolean
+---@field [169] boolean
+---@field geography_surveying_military boolean
+---@field [170] boolean
+---@field geography_surveying_engineering boolean
+---@field [171] boolean
+---@field geography_cartography_geological boolean
+---@field [172] boolean
+---@field geography_cartography_grid_system boolean
+---@field [173] boolean
+---@field geography_cartography_distance_scale boolean
+---@field [174] boolean
+---@field geography_cartography_height_measurements boolean
+---@field [175] boolean
+---@field geography_method_economic_data_collection boolean
+---@field [176] boolean
+---@field geography_cartography_economic boolean
+---@field [177] boolean
+---@field geography_form_atlas boolean
+---@field [178] boolean
+---@field geography_theory_delta_formation boolean
+---@field [179] boolean
+---@field geography_theory_wind_patterns boolean
+---@field [180] boolean
+---@field geography_theory_origin_of_rainfall_from_evap_condense boolean
+---@field [181] boolean
+---@field geography_theory_water_cycle boolean
+---@field [182] boolean
+---@field geography_theory_latitude_climate_zones boolean
+---@field [183] boolean
+---@field geography_cartography_accurate_maps boolean
+---@field [184] boolean
+---@field geography_cartography_map_projections boolean
+---@field [185] boolean
+---@field medicine_theory_disease_and_fouled_water boolean
+---@field [186] boolean
+---@field medicine_method_physical_examination boolean
+---@field [187] boolean
+---@field medicine_method_autopsy boolean
+---@field [188] boolean
+---@field medicine_theory_prognosis boolean
+---@field [189] boolean
+---@field medicine_tool_herbal_remedies boolean
+---@field [190] boolean
+---@field medicine_tool_animal_remedies boolean
+---@field [191] boolean
+---@field medicine_tool_mineral_remedies boolean
+---@field [192] boolean
+---@field medicine_tool_bandages boolean
+---@field [193] boolean
+---@field medicine_theory_disease_classification boolean
+---@field [194] boolean
+---@field medicine_theory_toxicology boolean
+---@field [195] boolean
+---@field medicine_theory_acute_and_chronic_conditions boolean
+---@field [196] boolean
+---@field medicine_theory_endemic_disease boolean
+---@field [197] boolean
+---@field medicine_theory_epidemic_disease boolean
+---@field [198] boolean
+---@field medicine_theory_exacerbation boolean
+---@field [199] boolean
+---@field medicine_theory_paroxysm boolean
+---@field [200] boolean
+---@field medicine_theory_relapse boolean
+---@field [201] boolean
+---@field medicine_theory_convalescence boolean
+---@field [202] boolean
+---@field medicine_method_treatment_of_traumatic_injuries boolean
+---@field [203] boolean
+---@field medicine_method_fracture_treatment boolean
+---@field [204] boolean
+---@field medicine_theory_fracture_classification boolean
+---@field [205] boolean
+---@field medicine_tool_traction_bench boolean
+---@field [206] boolean
+---@field medicine_method_fracture_immobilization boolean
+---@field [207] boolean
+---@field medicine_tool_orthopedic_cast boolean
+---@field [208] boolean
+---@field medicine_method_surgery_excision boolean
+---@field [209] boolean
+---@field medicine_method_surgery_incision boolean
+---@field [210] boolean
+---@field medicine_method_hernia_surgery boolean
+---@field [211] boolean
+---@field medicine_method_tracheotomy_surgery boolean
+---@field [212] boolean
+---@field medicine_method_lithotomy_surgery boolean
+---@field [213] boolean
+---@field medicine_method_surgery_scraping boolean
+---@field [214] boolean
+---@field medicine_method_surgery_draining boolean
+---@field [215] boolean
+---@field medicine_method_surgery_probing boolean
+---@field [216] boolean
+---@field medicine_method_surgery_suturing boolean
+---@field [217] boolean
+---@field medicine_method_surgery_ligature boolean
+---@field [218] boolean
+---@field medicine_theory_surgical_models boolean
+---@field [219] boolean
+---@field medicine_tool_mud_bags_as_surgical_models boolean
+---@field [220] boolean
+---@field medicine_tool_plants_as_surgical_models boolean
+---@field [221] boolean
+---@field medicine_tool_animals_as_surgical_models boolean
+---@field [222] boolean
+---@field medicine_theory_specialized_surgical_instruments boolean
+---@field [223] boolean
+---@field medicine_tool_forceps boolean
+---@field [224] boolean
+---@field medicine_tool_scalpel boolean
+---@field [225] boolean
+---@field medicine_tool_surgical_scissors boolean
+---@field [226] boolean
+---@field medicine_tool_surgical_needles boolean
+---@field [227] boolean
+---@field medicine_method_cataract_surgery boolean
+---@field [228] boolean
+---@field medicine_method_cauterization boolean
+---@field [229] boolean
+---@field medicine_method_anesthesia boolean
+---@field [230] boolean
+---@field medicine_theory_pulmonary_medicine boolean
+---@field [231] boolean
+---@field medicine_theory_anatomical_studies boolean
+---@field [232] boolean
+---@field medicine_theory_classification_of_bodily_fluids boolean
+---@field [233] boolean
+---@field medicine_theory_eye_anatomy boolean
+---@field [234] boolean
+---@field medicine_theory_motor_vs_sensory_nerves boolean
+---@field [235] boolean
+---@field medicine_theory_nervous_system_function boolean
+---@field [236] boolean
+---@field medicine_theory_reaction_time boolean
+---@field [237] boolean
+---@field medicine_theory_blood_vessels boolean
+---@field [238] boolean
+---@field medicine_theory_pulmonary_circulation boolean
+---@field [239] boolean
+---@field medicine_theory_comparative_anatomy boolean
+---@field [240] boolean
+---@field medicine_theory_the_voice boolean
+---@field [241] boolean
+---@field medicine_theory_classification_of_muscles boolean
+---@field [242] boolean
+---@field medicine_theory_classification_of_mental_illnesses boolean
+---@field [243] boolean
+---@field medicine_theory_treatment_of_mental_illnesses boolean
+---@field [244] boolean
+---@field medicine_tool_dedicated_hospitals boolean
+---@field [245] boolean
+---@field medicine_method_professional_hospital_staff boolean
+---@field [246] boolean
+---@field medicine_method_specialized_wards boolean
+---@field [247] boolean
+---@field medicine_method_hospital_lab boolean
+---@field [248] boolean
+---@field medicine_method_medical_school boolean
+---@field [249] boolean
+---@field medicine_method_asylum_for_mentally_ill boolean
+---@field [250] boolean
+---@field engineering_horology_shadow_clock boolean
+---@field [251] boolean
+---@field engineering_horology_water_clock boolean
+---@field [252] boolean
+---@field engineering_horology_conical_water_clock boolean
+---@field [253] boolean
+---@field engineering_horology_water_clock_reservoir boolean
+---@field [254] boolean
+---@field engineering_horology_astrarium boolean
+---@field [255] boolean
+---@field engineering_horology_hourglass boolean
+---@field [256] boolean
+---@field engineering_horology_mechanical_clock boolean
+---@field [257] boolean
+---@field engineering_machine_theory_of_pulley boolean
+---@field [258] boolean
+---@field engineering_machine_pulley boolean
+---@field [259] boolean
+---@field engineering_machine_theory_of_screw boolean
+---@field [260] boolean
+---@field engineering_machine_screw boolean
+---@field [261] boolean
+---@field engineering_machine_theory_of_wheel_and_axle boolean
+---@field [262] boolean
+---@field engineering_machine_windlass boolean
+---@field [263] boolean
+---@field engineering_machine_theory_of_wedge boolean
+---@field [264] boolean
+---@field engineering_machine_theory_of_lever boolean
+---@field [265] boolean
+---@field engineering_machine_lever boolean
+---@field [266] boolean
+---@field engineering_machine_straight_beam_balance boolean
+---@field [267] boolean
+---@field engineering_machine_theory_of_gears boolean
+---@field [268] boolean
+---@field engineering_machine_warded_lock boolean
+---@field [269] boolean
+---@field engineering_machine_tumbler_lock boolean
+---@field [270] boolean
+---@field engineering_machine_padlock boolean
+---@field [271] boolean
+---@field engineering_machine_camshaft boolean
+---@field [272] boolean
+---@field engineering_machine_crankshaft boolean
+---@field [273] boolean
+---@field engineering_machine_water_powered_sawmill boolean
+---@field [274] boolean
+---@field engineering_machine_chariot_odometer boolean
+---@field [275] boolean
+---@field engineering_machine_chain_drive boolean
+---@field [276] boolean
+---@field engineering_machine_mechanical_compass boolean
+---@field [277] boolean
+---@field engineering_machine_differential_gear boolean
+---@field [278] boolean
+---@field engineering_machine_combination_lock boolean
+---@field [279] boolean
+---@field engineering_machine_verge_escapement boolean
+---@field [280] boolean
+---@field engineering_machine_balance_wheel boolean
+---@field [281] boolean
+---@field engineering_fluid_theory_of_siphon boolean
+---@field [282] boolean
+---@field engineering_fluid_valves boolean
+---@field [283] boolean
+---@field engineering_fluid_force_pump boolean
+---@field [284] boolean
+---@field engineering_optics_crystal_lens boolean
+---@field [285] boolean
+---@field engineering_optics_water_filled_spheres boolean
+---@field [286] boolean
+---@field engineering_optics_glass_lens boolean
+---@field [287] boolean
+---@field engineering_optics_camera_obscura boolean
+---@field [288] boolean
+---@field engineering_optics_parabolic_mirror boolean
+---@field [289] boolean
+---@field engineering_optics_theory_of_color boolean
+---@field [290] boolean
+---@field engineering_optics_theory_of_rainbows boolean
+---@field [291] boolean
+---@field engineering_optics_law_of_refraction boolean
+---@field [292] boolean
+---@field engineering_design_models_and_templates boolean
+---@field [293] boolean
+---@field engineering_construction_wood_lamination boolean
+---@field [294] boolean
+---@field engineering_astronomy_dioptra boolean
+---@field [295] boolean
+---@field engineering_astronomy_astrolabe boolean
+---@field [296] boolean
+---@field engineering_astronomy_armillary_sphere boolean
+---@field [297] boolean
+---@field engineering_astronomy_spherical_astrolabe boolean
+---@field [298] boolean
+---@field engineering_astronomy_mural_instrument boolean
+---@field [299] boolean
+---@field engineering_astronomy_orrery boolean
+---@field [300] boolean
+---@field engineering_machine_water_powered_trip_hammer boolean
+---@field [301] boolean
+---@field engineering_machine_double_acting_piston_bellows boolean
+---@field [302] boolean
+---@field engineering_fluid_archimedes_principle boolean
+---@field [303] boolean
+---@field engineering_optics_atmospheric_refraction boolean
+---@field [304] boolean
+---@field engineering_optics_cause_of_twilight boolean
+---@field [305] boolean
+---@field engineering_optics_height_of_atmosphere boolean
+---@field [306] boolean
+---@field engineering_machine_piston boolean
+---@field [307] boolean
+---@field engineering_machine_crank boolean
+---@field [308] boolean
+---@field engineering_machine_bellows boolean
+---@field [309] boolean
+---@field engineering_machine_water_powered_piston_bellows boolean
+---@field [310] boolean
+---@field engineering_machine_water_wheel boolean
+---@field [311] boolean
+---@field engineering_machine_trip_hammer boolean
 

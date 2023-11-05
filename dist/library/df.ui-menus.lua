@@ -13,11 +13,18 @@
 ---@field count_provided integer
 df.ui_build_item_req = {}
 
----@enum build_req_choice_type
-df.build_req_choice_type = {
-  General = 0,
-  Specific = 1,
-}
+---@class (exact) _build_req_choice_type: df.struct
+---@field General 0
+---@field [0] "General"
+---@field Specific 1
+---@field [1] "Specific"
+df.build_req_choice_type = {}
+
+---@class build_req_choice_type
+---@field [0] boolean
+---@field General boolean
+---@field [1] boolean
+---@field Specific boolean
 
 ---@class build_req_choicest: df.struct
 ---One choice in the build item selector.
@@ -70,31 +77,87 @@ df.build_req_choice_specst = {}
 ---@field selection_area integer
 df.buildreq = {}
 
----@enum interface_category_building
-df.interface_category_building = {
-  NONE = -1,
-  WEAPON = 1,
-  ARMOR = 2,
-  FURNITURE = 3,
-  SIEGE = 4,
-  TRAP = 5,
-  OTHER = 6,
-  METAL = 7,
-  SELECT_MEMORIAL_UNIT = 8,
-}
+---@class (exact) _interface_category_building: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field WEAPON 1
+---@field [1] "WEAPON"
+---@field ARMOR 2
+---@field [2] "ARMOR"
+---@field FURNITURE 3
+---@field [3] "FURNITURE"
+---@field SIEGE 4
+---@field [4] "SIEGE"
+---@field TRAP 5
+---@field [5] "TRAP"
+---@field OTHER 6
+---@field [6] "OTHER"
+---@field METAL 7
+---@field [7] "METAL"
+---@field SELECT_MEMORIAL_UNIT 8
+---@field [8] "SELECT_MEMORIAL_UNIT"
+df.interface_category_building = {}
 
----@enum interface_category_construction
-df.interface_category_construction = {
-  NONE = -1,
-  MAIN = 1,
-  SIEGEENGINE = 2,
-  TRAP = 3,
-  WORKSHOP = 4,
-  FURNACE = 5,
-  CONSTRUCTION = 6,
-  MACHINE = 7,
-  TRACK = 8,
-}
+---@class interface_category_building
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field WEAPON boolean
+---@field [2] boolean
+---@field ARMOR boolean
+---@field [3] boolean
+---@field FURNITURE boolean
+---@field [4] boolean
+---@field SIEGE boolean
+---@field [5] boolean
+---@field TRAP boolean
+---@field [6] boolean
+---@field OTHER boolean
+---@field [7] boolean
+---@field METAL boolean
+---@field [8] boolean
+---@field SELECT_MEMORIAL_UNIT boolean
+
+---@class (exact) _interface_category_construction: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field MAIN 1
+---@field [1] "MAIN"
+---@field SIEGEENGINE 2
+---@field [2] "SIEGEENGINE"
+---@field TRAP 3
+---@field [3] "TRAP"
+---@field WORKSHOP 4
+---@field [4] "WORKSHOP"
+---@field FURNACE 5
+---@field [5] "FURNACE"
+---@field CONSTRUCTION 6
+---@field [6] "CONSTRUCTION"
+---@field MACHINE 7
+---@field [7] "MACHINE"
+---@field TRACK 8
+---@field [8] "TRACK"
+df.interface_category_construction = {}
+
+---@class interface_category_construction
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field MAIN boolean
+---@field [2] boolean
+---@field SIEGEENGINE boolean
+---@field [3] boolean
+---@field TRAP boolean
+---@field [4] boolean
+---@field WORKSHOP boolean
+---@field [5] boolean
+---@field FURNACE boolean
+---@field [6] boolean
+---@field CONSTRUCTION boolean
+---@field [7] boolean
+---@field MACHINE boolean
+---@field [8] boolean
+---@field TRACK boolean
 
 ---@class interface_button: df.struct
 ---@field hotkey interface_key
@@ -139,22 +202,62 @@ df.interface_button_building_new_jobst = {}
 ---@field custom_category_token string
 df.interface_button_building_custom_category_selectorst = {}
 
----@enum construction_category_type
-df.construction_category_type = {
-  NONE = -1,
-  MAIN = 1,
-  WORKSHOPS = 2,
-  WORKSHOPS_FURNACES = 3,
-  WORKSHOPS_CLOTHING = 4,
-  WORKSHOPS_FARMING = 5,
-  FURNITURE = 6,
-  DOORS_HATCHES = 7,
-  WALLS_FLOORS = 8,
-  MACHINES_FLUIDS = 9,
-  CAGES_RESTRAINTS = 10,
-  TRAPS = 11,
-  MILITARY = 12,
-}
+---@class (exact) _construction_category_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field MAIN 1
+---@field [1] "MAIN"
+---@field WORKSHOPS 2
+---@field [2] "WORKSHOPS"
+---@field WORKSHOPS_FURNACES 3
+---@field [3] "WORKSHOPS_FURNACES"
+---@field WORKSHOPS_CLOTHING 4
+---@field [4] "WORKSHOPS_CLOTHING"
+---@field WORKSHOPS_FARMING 5
+---@field [5] "WORKSHOPS_FARMING"
+---@field FURNITURE 6
+---@field [6] "FURNITURE"
+---@field DOORS_HATCHES 7
+---@field [7] "DOORS_HATCHES"
+---@field WALLS_FLOORS 8
+---@field [8] "WALLS_FLOORS"
+---@field MACHINES_FLUIDS 9
+---@field [9] "MACHINES_FLUIDS"
+---@field CAGES_RESTRAINTS 10
+---@field [10] "CAGES_RESTRAINTS"
+---@field TRAPS 11
+---@field [11] "TRAPS"
+---@field MILITARY 12
+---@field [12] "MILITARY"
+df.construction_category_type = {}
+
+---@class construction_category_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field MAIN boolean
+---@field [2] boolean
+---@field WORKSHOPS boolean
+---@field [3] boolean
+---@field WORKSHOPS_FURNACES boolean
+---@field [4] boolean
+---@field WORKSHOPS_CLOTHING boolean
+---@field [5] boolean
+---@field WORKSHOPS_FARMING boolean
+---@field [6] boolean
+---@field FURNITURE boolean
+---@field [7] boolean
+---@field DOORS_HATCHES boolean
+---@field [8] boolean
+---@field WALLS_FLOORS boolean
+---@field [9] boolean
+---@field MACHINES_FLUIDS boolean
+---@field [10] boolean
+---@field CAGES_RESTRAINTS boolean
+---@field [11] boolean
+---@field TRAPS boolean
+---@field [12] boolean
+---@field MILITARY boolean
 
 ---@class bb_buttonst: df.struct
 ---@field category construction_category_type
@@ -168,13 +271,26 @@ df.construction_category_type = {
 ---@field hotkey interface_key
 df.bb_buttonst = {}
 
----@enum construction_interface_page_status_type
-df.construction_interface_page_status_type = {
-  NONE = -1,
-  FULL = 1,
-  ICONS_ONLY = 2,
-  OFF = 3,
-}
+---@class (exact) _construction_interface_page_status_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field FULL 1
+---@field [1] "FULL"
+---@field ICONS_ONLY 2
+---@field [2] "ICONS_ONLY"
+---@field OFF 3
+---@field [3] "OFF"
+df.construction_interface_page_status_type = {}
+
+---@class construction_interface_page_status_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field FULL boolean
+---@field [2] boolean
+---@field ICONS_ONLY boolean
+---@field [3] boolean
+---@field OFF boolean
 
 ---@class construction_interface_pagest: df.struct
 ---@field category construction_category_type
@@ -192,542 +308,1658 @@ df.construction_interface_page_status_type = {
 ---@field scroll_position integer
 df.construction_interface_pagest = {}
 
----@enum room_flow_shape_type
-df.room_flow_shape_type = {
-  NONE = -1,
-  RECTANGLE = 1,
-  WALL_FLOW = 2,
-  FLOOR_FLOW = 3,
-}
+---@class (exact) _room_flow_shape_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field RECTANGLE 1
+---@field [1] "RECTANGLE"
+---@field WALL_FLOW 2
+---@field [2] "WALL_FLOW"
+---@field FLOOR_FLOW 3
+---@field [3] "FLOOR_FLOW"
+df.room_flow_shape_type = {}
 
----@enum cannot_expel_reason_type
-df.cannot_expel_reason_type = {
-  NONE = -1,
-  HEREDITARY = 1,
-  ELECTED = 2,
-  MEET_WORKERS = 3,
-  SPOUSE_NOT_PRESENT = 4,
-  SPOUSE_HEREDITARY = 5,
-  SPOUSE_ELECTED = 6,
-  SPOUSE_MEET_WORKERS = 7,
-  CHILD_NOT_PRESENT = 8,
-  CHILD_HEREDITARY = 9,
-  CHILD_ELECTED = 10,
-  CHILD_MEET_WORKERS = 11,
-}
+---@class room_flow_shape_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field RECTANGLE boolean
+---@field [2] boolean
+---@field WALL_FLOW boolean
+---@field [3] boolean
+---@field FLOOR_FLOW boolean
 
----@enum mine_mode_type
-df.mine_mode_type = {
-  NONE = -1,
-  ALL = 1,
-  AUTOMINE_NON_LAYER_MATERIAL = 2,
-  MARK_ECONOMIC_ONLY = 3,
-  MARK_GEMS_ONLY = 4,
-}
+---@class (exact) _cannot_expel_reason_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field HEREDITARY 1
+---@field [1] "HEREDITARY"
+---@field ELECTED 2
+---@field [2] "ELECTED"
+---@field MEET_WORKERS 3
+---@field [3] "MEET_WORKERS"
+---@field SPOUSE_NOT_PRESENT 4
+---@field [4] "SPOUSE_NOT_PRESENT"
+---@field SPOUSE_HEREDITARY 5
+---@field [5] "SPOUSE_HEREDITARY"
+---@field SPOUSE_ELECTED 6
+---@field [6] "SPOUSE_ELECTED"
+---@field SPOUSE_MEET_WORKERS 7
+---@field [7] "SPOUSE_MEET_WORKERS"
+---@field CHILD_NOT_PRESENT 8
+---@field [8] "CHILD_NOT_PRESENT"
+---@field CHILD_HEREDITARY 9
+---@field [9] "CHILD_HEREDITARY"
+---@field CHILD_ELECTED 10
+---@field [10] "CHILD_ELECTED"
+---@field CHILD_MEET_WORKERS 11
+---@field [11] "CHILD_MEET_WORKERS"
+df.cannot_expel_reason_type = {}
 
----@enum job_details_option_type
-df.job_details_option_type = {
-  NONE = -1,
-  MATERIAL = 1,
-  IMAGE = 2,
-  CLOTHING_SIZE = 3,
-  IMPROVEMENT_TYPE = 4,
-}
+---@class cannot_expel_reason_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field HEREDITARY boolean
+---@field [2] boolean
+---@field ELECTED boolean
+---@field [3] boolean
+---@field MEET_WORKERS boolean
+---@field [4] boolean
+---@field SPOUSE_NOT_PRESENT boolean
+---@field [5] boolean
+---@field SPOUSE_HEREDITARY boolean
+---@field [6] boolean
+---@field SPOUSE_ELECTED boolean
+---@field [7] boolean
+---@field SPOUSE_MEET_WORKERS boolean
+---@field [8] boolean
+---@field CHILD_NOT_PRESENT boolean
+---@field [9] boolean
+---@field CHILD_HEREDITARY boolean
+---@field [10] boolean
+---@field CHILD_ELECTED boolean
+---@field [11] boolean
+---@field CHILD_MEET_WORKERS boolean
 
----@enum job_details_context_type
-df.job_details_context_type = {
-  NONE = -1,
-  BUILDING_TASK_LIST = 1,
-  CREATURES_LIST_TASK = 2,
-  TASK_LIST_TASK = 3,
-  BUILDING_WORK_ORDER = 4,
-  MANAGER_WORK_ORDER = 5,
-}
+---@class (exact) _mine_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ALL 1
+---@field [1] "ALL"
+---@field AUTOMINE_NON_LAYER_MATERIAL 2
+---@field [2] "AUTOMINE_NON_LAYER_MATERIAL"
+---@field MARK_ECONOMIC_ONLY 3
+---@field [3] "MARK_ECONOMIC_ONLY"
+---@field MARK_GEMS_ONLY 4
+---@field [4] "MARK_GEMS_ONLY"
+df.mine_mode_type = {}
 
----@enum stock_pile_pointer_type
-df.stock_pile_pointer_type = {
-  NONE = -1,
-  ANIMAL_EMPTY_CAGES = 1,
-  ANIMAL_EMPTY_ANIMAL_TRAPS = 2,
-  FOOD_PREPARED_FOOD = 3,
-  REFUSE_ROTTEN_RAW_HIDE = 4,
-  REFUSE_UNROTTEN_RAW_HIDE = 5,
-  WEAPON_USABLE = 6,
-  WEAPON_NON_USABLE = 7,
-  ARMOR_USABLE = 8,
-  ARMOR_NON_USABLE = 9,
-}
+---@class mine_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ALL boolean
+---@field [2] boolean
+---@field AUTOMINE_NON_LAYER_MATERIAL boolean
+---@field [3] boolean
+---@field MARK_ECONOMIC_ONLY boolean
+---@field [4] boolean
+---@field MARK_GEMS_ONLY boolean
 
----@enum stockpile_tools_context_type
-df.stockpile_tools_context_type = {
-  NONE = -1,
-  STOCKPILE = 1,
-}
+---@class (exact) _job_details_option_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field MATERIAL 1
+---@field [1] "MATERIAL"
+---@field IMAGE 2
+---@field [2] "IMAGE"
+---@field CLOTHING_SIZE 3
+---@field [3] "CLOTHING_SIZE"
+---@field IMPROVEMENT_TYPE 4
+---@field [4] "IMPROVEMENT_TYPE"
+df.job_details_option_type = {}
 
----@enum stockpile_link_context_type
-df.stockpile_link_context_type = {
-  NONE = -1,
-  STOCKPILE = 1,
-  WORKSHOP = 2,
-  HAULING_STOP = 3,
-}
+---@class job_details_option_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field MATERIAL boolean
+---@field [2] boolean
+---@field IMAGE boolean
+---@field [3] boolean
+---@field CLOTHING_SIZE boolean
+---@field [4] boolean
+---@field IMPROVEMENT_TYPE boolean
 
----@enum hauling_stop_conditions_context_type
-df.hauling_stop_conditions_context_type = {
-  NONE = -1,
-  HAULING_MENU = 1,
-}
+---@class (exact) _job_details_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field BUILDING_TASK_LIST 1
+---@field [1] "BUILDING_TASK_LIST"
+---@field CREATURES_LIST_TASK 2
+---@field [2] "CREATURES_LIST_TASK"
+---@field TASK_LIST_TASK 3
+---@field [3] "TASK_LIST_TASK"
+---@field BUILDING_WORK_ORDER 4
+---@field [4] "BUILDING_WORK_ORDER"
+---@field MANAGER_WORK_ORDER 5
+---@field [5] "MANAGER_WORK_ORDER"
+df.job_details_context_type = {}
 
----@enum assign_vehicle_context_type
-df.assign_vehicle_context_type = {
-  NONE = -1,
-  HAULING_MENU = 1,
-}
+---@class job_details_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field BUILDING_TASK_LIST boolean
+---@field [2] boolean
+---@field CREATURES_LIST_TASK boolean
+---@field [3] boolean
+---@field TASK_LIST_TASK boolean
+---@field [4] boolean
+---@field BUILDING_WORK_ORDER boolean
+---@field [5] boolean
+---@field MANAGER_WORK_ORDER boolean
 
----@enum location_details_context_type
-df.location_details_context_type = {
-  NONE = -1,
-  FROM_ZONE = 1,
-  FROM_LOCATION_SELECTOR = 2,
-}
+---@class (exact) _stock_pile_pointer_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ANIMAL_EMPTY_CAGES 1
+---@field [1] "ANIMAL_EMPTY_CAGES"
+---@field ANIMAL_EMPTY_ANIMAL_TRAPS 2
+---@field [2] "ANIMAL_EMPTY_ANIMAL_TRAPS"
+---@field FOOD_PREPARED_FOOD 3
+---@field [3] "FOOD_PREPARED_FOOD"
+---@field REFUSE_ROTTEN_RAW_HIDE 4
+---@field [4] "REFUSE_ROTTEN_RAW_HIDE"
+---@field REFUSE_UNROTTEN_RAW_HIDE 5
+---@field [5] "REFUSE_UNROTTEN_RAW_HIDE"
+---@field WEAPON_USABLE 6
+---@field [6] "WEAPON_USABLE"
+---@field WEAPON_NON_USABLE 7
+---@field [7] "WEAPON_NON_USABLE"
+---@field ARMOR_USABLE 8
+---@field [8] "ARMOR_USABLE"
+---@field ARMOR_NON_USABLE 9
+---@field [9] "ARMOR_NON_USABLE"
+df.stock_pile_pointer_type = {}
 
----@enum location_selector_context_type
-df.location_selector_context_type = {
-  NONE = -1,
-  ZONE_MEETING_AREA_ASSIGNMENT = 1,
-}
+---@class stock_pile_pointer_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ANIMAL_EMPTY_CAGES boolean
+---@field [2] boolean
+---@field ANIMAL_EMPTY_ANIMAL_TRAPS boolean
+---@field [3] boolean
+---@field FOOD_PREPARED_FOOD boolean
+---@field [4] boolean
+---@field REFUSE_ROTTEN_RAW_HIDE boolean
+---@field [5] boolean
+---@field REFUSE_UNROTTEN_RAW_HIDE boolean
+---@field [6] boolean
+---@field WEAPON_USABLE boolean
+---@field [7] boolean
+---@field WEAPON_NON_USABLE boolean
+---@field [8] boolean
+---@field ARMOR_USABLE boolean
+---@field [9] boolean
+---@field ARMOR_NON_USABLE boolean
 
----@enum custom_symbol_context_type
-df.custom_symbol_context_type = {
-  NONE = -1,
-  BURROW = 1,
-  BURROW_PAINT = 2,
-  WORK_DETAIL = 3,
-  SQUAD_MENU = 4,
-}
+---@class (exact) _stockpile_tools_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field STOCKPILE 1
+---@field [1] "STOCKPILE"
+df.stockpile_tools_context_type = {}
 
----@enum name_creator_context_type
-df.name_creator_context_type = {
-  NONE = -1,
-  EMBARK_FORT_NAME = 1,
-  EMBARK_GROUP_NAME = 2,
-  IMAGE_CREATOR_NAME = 3,
-  LOCATION_NAME = 4,
-  SQUAD_NAME = 5,
-  INFO_NOBLES_ELEVATING_POSITION_SYMBOL = 6,
-}
+---@class stockpile_tools_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field STOCKPILE boolean
 
----@enum image_creator_context_type
-df.image_creator_context_type = {
-  NONE = -1,
-  EMBARK_FORT_SYMBOL = 1,
-  JOB_DETAILS_MAIN = 2,
-  JOB_DETAILS_IMPROVEMENT = 3,
-  DESIGNATION_ENGRAVING = 4,
-}
+---@class (exact) _stockpile_link_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field STOCKPILE 1
+---@field [1] "STOCKPILE"
+---@field WORKSHOP 2
+---@field [2] "WORKSHOP"
+---@field HAULING_STOP 3
+---@field [3] "HAULING_STOP"
+df.stockpile_link_context_type = {}
 
----@enum image_creator_option_type
-df.image_creator_option_type = {
-  NONE = -1,
-  ALLOW_ARTIST_TO_CHOOSE = 1,
-  RELATED_TO_HFID = 2,
-  RELATED_TO_STID = 3,
-  RELATED_TO_ENID = 4,
-  RELATED_TO_HEID = 5,
-  EXISTING_IMAGE = 6,
-  NEW_IMAGE = 7,
-  NEW_IMAGE_ELEMENT_CREATURE = 8,
-  NEW_IMAGE_ELEMENT_HF = 9,
-  NEW_IMAGE_ELEMENT_PLANT = 10,
-  NEW_IMAGE_ELEMENT_TREE = 11,
-  NEW_IMAGE_ELEMENT_SHAPE = 12,
-  NEW_IMAGE_ELEMENT_ITEM = 13,
-  NEW_IMAGE_ELEMENT_ARTIFACT = 14,
-  NEW_IMAGE_PROPERTY = 15,
-  NEW_IMAGE_PROPERTY_ACTOR = 16,
-  NEW_IMAGE_PROPERTY_TARGET = 17,
-  NEW_IMAGE_DELETE_ELEMENTS = 18,
-}
+---@class stockpile_link_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field STOCKPILE boolean
+---@field [2] boolean
+---@field WORKSHOP boolean
+---@field [3] boolean
+---@field HAULING_STOP boolean
 
----@enum unit_selector_context_type
-df.unit_selector_context_type = {
-  NONE = -1,
-  ZONE_PEN_ASSIGNMENT = 1,
-  ZONE_PIT_ASSIGNMENT = 2,
-  ZONE_BEDROOM_ASSIGNMENT = 3,
-  ZONE_OFFICE_ASSIGNMENT = 4,
-  ZONE_DINING_HALL_ASSIGNMENT = 5,
-  ZONE_TOMB_ASSIGNMENT = 6,
-  CHAIN_ASSIGNMENT = 7,
-  CAGE_ASSIGNMENT = 8,
-  WORKER_ASSIGNMENT = 9,
-  OCCUPATION_ASSIGNMENT = 10,
-  BURROW_ASSIGNMENT = 11,
-  SQUAD_KILL_ORDER = 12,
-  SQUAD_FILL_POSITION = 13,
-}
+---@class (exact) _hauling_stop_conditions_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field HAULING_MENU 1
+---@field [1] "HAULING_MENU"
+df.hauling_stop_conditions_context_type = {}
 
----@enum squad_selector_context_type
-df.squad_selector_context_type = {
-  NONE = -1,
-  ZONE_BARRACKS_ASSIGNMENT = 1,
-  ZONE_ARCHERY_RANGE_ASSIGNMENT = 2,
-}
+---@class hauling_stop_conditions_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field HAULING_MENU boolean
 
----@enum squad_schedule_context_type
-df.squad_schedule_context_type = {
-  NONE = -1,
-  FROM_SQUAD_MENU = 1,
-}
+---@class (exact) _assign_vehicle_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field HAULING_MENU 1
+---@field [1] "HAULING_MENU"
+df.assign_vehicle_context_type = {}
 
----@enum squad_equipment_context_type
-df.squad_equipment_context_type = {
-  NONE = -1,
-  FROM_SQUAD_MENU = 1,
-}
+---@class assign_vehicle_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field HAULING_MENU boolean
 
----@enum patrol_routes_context_type
-df.patrol_routes_context_type = {
-  NONE = -1,
-  GIVING_SQUAD_PATROL_ORDER = 1,
-}
+---@class (exact) _location_details_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field FROM_ZONE 1
+---@field [1] "FROM_ZONE"
+---@field FROM_LOCATION_SELECTOR 2
+---@field [2] "FROM_LOCATION_SELECTOR"
+df.location_details_context_type = {}
 
----@enum burrow_selector_context_type
-df.burrow_selector_context_type = {
-  NONE = -1,
-  GIVING_SQUAD_ORDER = 1,
-}
+---@class location_details_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field FROM_ZONE boolean
+---@field [2] boolean
+---@field FROM_LOCATION_SELECTOR boolean
 
----@enum view_sheet_trait_type
-df.view_sheet_trait_type = {
-  NONE = -1,
-  PHYS_ATT_PLUS = 1,
-  PHYS_ATT_MINUS = 2,
-  MENT_ATT_PLUS = 3,
-  MENT_ATT_MINUS = 4,
-  PERSONALITY_FACET_HIGH = 5,
-  PERSONALITY_FACET_LOW = 6,
-  VALUE_HIGH = 7,
-  VALUE_LOW = 8,
-}
+---@class (exact) _location_selector_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ZONE_MEETING_AREA_ASSIGNMENT 1
+---@field [1] "ZONE_MEETING_AREA_ASSIGNMENT"
+df.location_selector_context_type = {}
 
----@enum view_sheet_unit_knowledge_type
-df.view_sheet_unit_knowledge_type = {
-  NONE = -1,
-  PHILOSOPHY_FLAG = 1,
-  PHILOSOPHY_FLAG2 = 2,
-  MATHEMATICS_FLAG = 3,
-  MATHEMATICS_FLAG2 = 4,
-  HISTORY_FLAG = 5,
-  ASTRONOMY_FLAG = 6,
-  NATURALIST_FLAG = 7,
-  CHEMISTRY_FLAG = 8,
-  GEOGRAPHY_FLAG = 9,
-  MEDICINE_FLAG = 10,
-  MEDICINE_FLAG2 = 11,
-  MEDICINE_FLAG3 = 12,
-  ENGINEERING_FLAG = 13,
-  ENGINEERING_FLAG2 = 14,
-  POETIC_FORM = 15,
-  MUSICAL_FORM = 16,
-  DANCE_FORM = 17,
-  WRITTEN_CONTENT = 18,
-}
+---@class location_selector_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ZONE_MEETING_AREA_ASSIGNMENT boolean
 
----@enum view_sheets_context_type
-df.view_sheets_context_type = {
-  NONE = -1,
-  REGULAR_PLAY = 1,
-  PREPARE_CAREFULLY = 2,
-}
+---@class (exact) _custom_symbol_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field BURROW 1
+---@field [1] "BURROW"
+---@field BURROW_PAINT 2
+---@field [2] "BURROW_PAINT"
+---@field WORK_DETAIL 3
+---@field [3] "WORK_DETAIL"
+---@field SQUAD_MENU 4
+---@field [4] "SQUAD_MENU"
+df.custom_symbol_context_type = {}
 
----@enum view_sheet_type
-df.view_sheet_type = {
-  NONE = -1,
-  UNIT = 1,
-  ITEM = 2,
-  BUILDING = 3,
-  ENGRAVING = 4,
-  ENGRAVING_PLANNED = 5,
-  UNIT_LIST = 6,
-  ITEM_LIST = 7,
-}
+---@class custom_symbol_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field BURROW boolean
+---@field [2] boolean
+---@field BURROW_PAINT boolean
+---@field [3] boolean
+---@field WORK_DETAIL boolean
+---@field [4] boolean
+---@field SQUAD_MENU boolean
 
----@enum unit_list_mode_type
-df.unit_list_mode_type = {
-  NONE = -1,
-  CITIZEN = 1,
-  PET = 2,
-  OTHER = 3,
-  DECEASED = 4,
-}
+---@class (exact) _name_creator_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field EMBARK_FORT_NAME 1
+---@field [1] "EMBARK_FORT_NAME"
+---@field EMBARK_GROUP_NAME 2
+---@field [2] "EMBARK_GROUP_NAME"
+---@field IMAGE_CREATOR_NAME 3
+---@field [3] "IMAGE_CREATOR_NAME"
+---@field LOCATION_NAME 4
+---@field [4] "LOCATION_NAME"
+---@field SQUAD_NAME 5
+---@field [5] "SQUAD_NAME"
+---@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL 6
+---@field [6] "INFO_NOBLES_ELEVATING_POSITION_SYMBOL"
+df.name_creator_context_type = {}
 
----@enum buildings_mode_type
-df.buildings_mode_type = {
-  NONE = -1,
-  ZONES = 1,
-  LOCATIONS = 2,
-  STOCKPILES = 3,
-  WORKSHOPS = 4,
-  FARMPLOTS = 5,
-}
+---@class name_creator_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field EMBARK_FORT_NAME boolean
+---@field [2] boolean
+---@field EMBARK_GROUP_NAME boolean
+---@field [3] boolean
+---@field IMAGE_CREATOR_NAME boolean
+---@field [4] boolean
+---@field LOCATION_NAME boolean
+---@field [5] boolean
+---@field SQUAD_NAME boolean
+---@field [6] boolean
+---@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL boolean
 
----@enum kitchen_pref_category_type
-df.kitchen_pref_category_type = {
-  NONE = -1,
-  PLANTS = 1,
-  SEEDS = 2,
-  DRINK = 3,
-  OTHER = 4,
-}
+---@class (exact) _image_creator_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field EMBARK_FORT_SYMBOL 1
+---@field [1] "EMBARK_FORT_SYMBOL"
+---@field JOB_DETAILS_MAIN 2
+---@field [2] "JOB_DETAILS_MAIN"
+---@field JOB_DETAILS_IMPROVEMENT 3
+---@field [3] "JOB_DETAILS_IMPROVEMENT"
+---@field DESIGNATION_ENGRAVING 4
+---@field [4] "DESIGNATION_ENGRAVING"
+df.image_creator_context_type = {}
 
----@enum standing_orders_category_type
-df.standing_orders_category_type = {
-  NONE = -1,
-  AUTOMATED_WORKSHOPS = 1,
-  HAULING = 2,
-  REFUSE_AND_DUMPING = 3,
-  AUTOMATIC_FORBIDDING = 4,
-  CHORES = 5,
-  OTHER = 6,
-}
+---@class image_creator_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field EMBARK_FORT_SYMBOL boolean
+---@field [2] boolean
+---@field JOB_DETAILS_MAIN boolean
+---@field [3] boolean
+---@field JOB_DETAILS_IMPROVEMENT boolean
+---@field [4] boolean
+---@field DESIGNATION_ENGRAVING boolean
 
----@enum stone_use_category_type
-df.stone_use_category_type = {
-  NONE = -1,
-  ECONOMIC = 1,
-  OTHER = 2,
-}
+---@class (exact) _image_creator_option_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ALLOW_ARTIST_TO_CHOOSE 1
+---@field [1] "ALLOW_ARTIST_TO_CHOOSE"
+---@field RELATED_TO_HFID 2
+---@field [2] "RELATED_TO_HFID"
+---@field RELATED_TO_STID 3
+---@field [3] "RELATED_TO_STID"
+---@field RELATED_TO_ENID 4
+---@field [4] "RELATED_TO_ENID"
+---@field RELATED_TO_HEID 5
+---@field [5] "RELATED_TO_HEID"
+---@field EXISTING_IMAGE 6
+---@field [6] "EXISTING_IMAGE"
+---@field NEW_IMAGE 7
+---@field [7] "NEW_IMAGE"
+---@field NEW_IMAGE_ELEMENT_CREATURE 8
+---@field [8] "NEW_IMAGE_ELEMENT_CREATURE"
+---@field NEW_IMAGE_ELEMENT_HF 9
+---@field [9] "NEW_IMAGE_ELEMENT_HF"
+---@field NEW_IMAGE_ELEMENT_PLANT 10
+---@field [10] "NEW_IMAGE_ELEMENT_PLANT"
+---@field NEW_IMAGE_ELEMENT_TREE 11
+---@field [11] "NEW_IMAGE_ELEMENT_TREE"
+---@field NEW_IMAGE_ELEMENT_SHAPE 12
+---@field [12] "NEW_IMAGE_ELEMENT_SHAPE"
+---@field NEW_IMAGE_ELEMENT_ITEM 13
+---@field [13] "NEW_IMAGE_ELEMENT_ITEM"
+---@field NEW_IMAGE_ELEMENT_ARTIFACT 14
+---@field [14] "NEW_IMAGE_ELEMENT_ARTIFACT"
+---@field NEW_IMAGE_PROPERTY 15
+---@field [15] "NEW_IMAGE_PROPERTY"
+---@field NEW_IMAGE_PROPERTY_ACTOR 16
+---@field [16] "NEW_IMAGE_PROPERTY_ACTOR"
+---@field NEW_IMAGE_PROPERTY_TARGET 17
+---@field [17] "NEW_IMAGE_PROPERTY_TARGET"
+---@field NEW_IMAGE_DELETE_ELEMENTS 18
+---@field [18] "NEW_IMAGE_DELETE_ELEMENTS"
+df.image_creator_option_type = {}
 
----@enum labor_mode_type
-df.labor_mode_type = {
-  NONE = -1,
-  WORK_DETAILS = 1,
-  STANDING_ORDERS = 2,
-  KITCHEN = 3,
-  STONE_USE = 4,
-}
+---@class image_creator_option_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ALLOW_ARTIST_TO_CHOOSE boolean
+---@field [2] boolean
+---@field RELATED_TO_HFID boolean
+---@field [3] boolean
+---@field RELATED_TO_STID boolean
+---@field [4] boolean
+---@field RELATED_TO_ENID boolean
+---@field [5] boolean
+---@field RELATED_TO_HEID boolean
+---@field [6] boolean
+---@field EXISTING_IMAGE boolean
+---@field [7] boolean
+---@field NEW_IMAGE boolean
+---@field [8] boolean
+---@field NEW_IMAGE_ELEMENT_CREATURE boolean
+---@field [9] boolean
+---@field NEW_IMAGE_ELEMENT_HF boolean
+---@field [10] boolean
+---@field NEW_IMAGE_ELEMENT_PLANT boolean
+---@field [11] boolean
+---@field NEW_IMAGE_ELEMENT_TREE boolean
+---@field [12] boolean
+---@field NEW_IMAGE_ELEMENT_SHAPE boolean
+---@field [13] boolean
+---@field NEW_IMAGE_ELEMENT_ITEM boolean
+---@field [14] boolean
+---@field NEW_IMAGE_ELEMENT_ARTIFACT boolean
+---@field [15] boolean
+---@field NEW_IMAGE_PROPERTY boolean
+---@field [16] boolean
+---@field NEW_IMAGE_PROPERTY_ACTOR boolean
+---@field [17] boolean
+---@field NEW_IMAGE_PROPERTY_TARGET boolean
+---@field [18] boolean
+---@field NEW_IMAGE_DELETE_ELEMENTS boolean
 
----@enum artifacts_mode_type
-df.artifacts_mode_type = {
-  NONE = -1,
-  ARTIFACTS = 1,
-  SYMBOLS = 2,
-  NAMED_OBJECTS = 3,
-  WRITTEN_CONTENT = 4,
-}
+---@class (exact) _unit_selector_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ZONE_PEN_ASSIGNMENT 1
+---@field [1] "ZONE_PEN_ASSIGNMENT"
+---@field ZONE_PIT_ASSIGNMENT 2
+---@field [2] "ZONE_PIT_ASSIGNMENT"
+---@field ZONE_BEDROOM_ASSIGNMENT 3
+---@field [3] "ZONE_BEDROOM_ASSIGNMENT"
+---@field ZONE_OFFICE_ASSIGNMENT 4
+---@field [4] "ZONE_OFFICE_ASSIGNMENT"
+---@field ZONE_DINING_HALL_ASSIGNMENT 5
+---@field [5] "ZONE_DINING_HALL_ASSIGNMENT"
+---@field ZONE_TOMB_ASSIGNMENT 6
+---@field [6] "ZONE_TOMB_ASSIGNMENT"
+---@field CHAIN_ASSIGNMENT 7
+---@field [7] "CHAIN_ASSIGNMENT"
+---@field CAGE_ASSIGNMENT 8
+---@field [8] "CAGE_ASSIGNMENT"
+---@field WORKER_ASSIGNMENT 9
+---@field [9] "WORKER_ASSIGNMENT"
+---@field OCCUPATION_ASSIGNMENT 10
+---@field [10] "OCCUPATION_ASSIGNMENT"
+---@field BURROW_ASSIGNMENT 11
+---@field [11] "BURROW_ASSIGNMENT"
+---@field SQUAD_KILL_ORDER 12
+---@field [12] "SQUAD_KILL_ORDER"
+---@field SQUAD_FILL_POSITION 13
+---@field [13] "SQUAD_FILL_POSITION"
+df.unit_selector_context_type = {}
 
----@enum counterintelligence_mode_type
-df.counterintelligence_mode_type = {
-  NONE = -1,
-  INTERROGATIONS = 1,
-  ACTORS = 2,
-  ORGANIZATIONS = 3,
-  PLOTS = 4,
-}
+---@class unit_selector_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ZONE_PEN_ASSIGNMENT boolean
+---@field [2] boolean
+---@field ZONE_PIT_ASSIGNMENT boolean
+---@field [3] boolean
+---@field ZONE_BEDROOM_ASSIGNMENT boolean
+---@field [4] boolean
+---@field ZONE_OFFICE_ASSIGNMENT boolean
+---@field [5] boolean
+---@field ZONE_DINING_HALL_ASSIGNMENT boolean
+---@field [6] boolean
+---@field ZONE_TOMB_ASSIGNMENT boolean
+---@field [7] boolean
+---@field CHAIN_ASSIGNMENT boolean
+---@field [8] boolean
+---@field CAGE_ASSIGNMENT boolean
+---@field [9] boolean
+---@field WORKER_ASSIGNMENT boolean
+---@field [10] boolean
+---@field OCCUPATION_ASSIGNMENT boolean
+---@field [11] boolean
+---@field BURROW_ASSIGNMENT boolean
+---@field [12] boolean
+---@field SQUAD_KILL_ORDER boolean
+---@field [13] boolean
+---@field SQUAD_FILL_POSITION boolean
 
----@enum justice_interface_mode_type
-df.justice_interface_mode_type = {
-  NONE = -1,
-  OPEN_CASES = 1,
-  CLOSED_CASES = 2,
-  COLD_CASES = 3,
-  FORTRESS_GUARD = 4,
-  CONVICTS = 5,
-  COUNTERINTELLIGENCE = 6,
-}
+---@class (exact) _squad_selector_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ZONE_BARRACKS_ASSIGNMENT 1
+---@field [1] "ZONE_BARRACKS_ASSIGNMENT"
+---@field ZONE_ARCHERY_RANGE_ASSIGNMENT 2
+---@field [2] "ZONE_ARCHERY_RANGE_ASSIGNMENT"
+df.squad_selector_context_type = {}
 
----@enum info_interface_mode_type
-df.info_interface_mode_type = {
-  NONE = -1,
-  CREATURES = 1,
-  JOBS = 2,
-  BUILDINGS = 3,
-  LABOR = 4,
-  WORK_ORDERS = 5,
-  ADMINISTRATORS = 6,
-  ARTIFACTS = 7,
-  JUSTICE = 8,
-}
+---@class squad_selector_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ZONE_BARRACKS_ASSIGNMENT boolean
+---@field [2] boolean
+---@field ZONE_ARCHERY_RANGE_ASSIGNMENT boolean
 
----@enum main_menu_option_type
-df.main_menu_option_type = {
-  NONE = -1,
-  RETURN = 1,
-  SAVE_AND_QUIT = 2,
-  SAVE_AND_CONTINUE = 3,
-  SETTINGS = 4,
-  SUCCUMB_TO_INVASION = 5,
-  ABANDON_FORTRESS = 6,
-  RETIRE_FORTRESS = 7,
-  QUIT_WITHOUT_SAVING = 8,
-  END_GAME = 9,
-  SAVE_TO_EXISTING_FOLDER = 10,
-  SAVE_TO_NEW_FOLDER_NEW_TIMELINE = 11,
-  SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE = 12,
-  RETURN_TO_TITLE = 13,
-  CONTINUE = 14,
-}
+---@class (exact) _squad_schedule_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field FROM_SQUAD_MENU 1
+---@field [1] "FROM_SQUAD_MENU"
+df.squad_schedule_context_type = {}
 
----@enum options_context_type
-df.options_context_type = {
-  NONE = -1,
-  MAIN_DWARF = 1,
-  MAIN_DWARF_GAME_OVER = 2,
-  MAIN_DWARF_HELP = 3,
-  MAIN_DWARF_SAVE_AND_EXIT_CHOICES = 4,
-  MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED = 5,
-  ABORT_FROM_STARTING_GAME = 6,
-}
+---@class squad_schedule_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field FROM_SQUAD_MENU boolean
 
----@enum help_context_type
-df.help_context_type = {
-  NONE = -1,
-  WORLD_GEN_MESSAGE = 1,
-  EMBARK_TUTORIAL_CHOICE = 2,
-  EMBARK_MESSAGE = 3,
-  START_TUTORIAL_CAMERA_CONTROLS = 4,
-  START_TUTORIAL_MINING = 5,
-  START_TUTORIAL_STOCKPILES = 6,
-  START_TUTORIAL_CHOPPING = 7,
-  START_TUTORIAL_WORKSHOPS_AND_TASKS = 8,
-  START_TUTORIAL_SHEETS = 9,
-  START_TUTORIAL_ALERTS = 10,
-  START_TUTORIAL_PREPARING_FOR_CARAVAN = 11,
-  DONE_WITH_FIRST_STEPS_MESSAGE = 12,
-  POPUP_ZONES = 13,
-  POPUP_BURROWS = 14,
-  POPUP_HAULING = 15,
-  POPUP_STOCKS = 16,
-  POPUP_WORK_DETAILS = 17,
-  POPUP_NOBLES = 18,
-  POPUP_JUSTICE = 19,
-  POPUP_SQUADS = 20,
-  POPUP_WORLD = 21,
-  POPUP_WORK_ORDERS = 22,
-  REVISIT_CAMERA_CONTROLS = 23,
-  REVISIT_MINING = 24,
-  REVISIT_STOCKPILES = 25,
-  REVISIT_CHOPPING = 26,
-  REVISIT_WORKSHOPS_AND_TASKS = 27,
-  REVISIT_SHEETS = 28,
-  REVISIT_ALERTS = 29,
-  REVISIT_PREPARING_FOR_CARAVAN = 30,
-  GUIDE_SURVIVAL = 31,
-  GUIDE_PLANTING = 32,
-  GUIDE_OTHER_FOOD_SOURCES = 33,
-  GUIDE_BINS_BAGS_AND_BARRELS = 34,
-  GUIDE_TRADE = 35,
-  GUIDE_OFFICES = 36,
-  GUIDE_ORE_AND_SMELTING = 37,
-  GUIDE_TRAPS_AND_LEVERS = 38,
-  GUIDE_WELLS = 39,
-  GUIDE_HANDLING_LIGHT_AQUIFERS = 40,
-  GUIDE_CLOTHING = 41,
-  GUIDE_MEETING_AREAS_AND_LOCATIONS = 42,
-  GUIDE_MILITARY = 43,
-  GUIDE_CHANNELS_AND_RAMPS = 44,
-  GUIDE_REFUSE = 45,
-  GUIDE_DEEPER = 46,
-  GUIDE_HAPPINESS = 47,
-  GUIDE_GOALS = 48,
-}
+---@class (exact) _squad_equipment_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field FROM_SQUAD_MENU 1
+---@field [1] "FROM_SQUAD_MENU"
+df.squad_equipment_context_type = {}
 
----@enum settings_tab_type
-df.settings_tab_type = {
-  NONE = -1,
-  VIDEO = 1,
-  AUDIO = 2,
-  GAME = 3,
-  KEYBINDINGS = 4,
-  DIFFICULTY = 5,
-}
+---@class squad_equipment_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field FROM_SQUAD_MENU boolean
 
----@enum settings_context_type
-df.settings_context_type = {
-  NONE = -1,
-  OUTSIDE_PLAY = 1,
-  FORT_MODE = 2,
-}
+---@class (exact) _patrol_routes_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field GIVING_SQUAD_PATROL_ORDER 1
+---@field [1] "GIVING_SQUAD_PATROL_ORDER"
+df.patrol_routes_context_type = {}
 
----@enum arena_context_type
-df.arena_context_type = {
-  NONE = -1,
-  CREATURE = 1,
-  SKILLS = 2,
-  EQUIPMENT = 3,
-  CONDITIONS = 4,
-}
+---@class patrol_routes_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field GIVING_SQUAD_PATROL_ORDER boolean
 
----@enum assign_uniform_context_type
-df.assign_uniform_context_type = {
-  NONE = -1,
-  CREATE_SQUAD_FROM_SQUAD_MENU = 1,
-  FROM_SQUAD_EQUIPMENT_MENU = 2,
-}
+---@class (exact) _burrow_selector_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field GIVING_SQUAD_ORDER 1
+---@field [1] "GIVING_SQUAD_ORDER"
+df.burrow_selector_context_type = {}
 
----@enum main_bottom_mode_type
-df.main_bottom_mode_type = {
-  NONE = -1,
-  BUILDING = 1,
-  BUILDING_PLACEMENT = 2,
-  BUILDING_PICK_MATERIALS = 3,
-  ZONE = 4,
-  ZONE_PAINT = 5,
-  STOCKPILE = 6,
-  STOCKPILE_PAINT = 7,
-  BURROW = 8,
-  BURROW_PAINT = 9,
-  HAULING = 10,
-  ARENA_UNIT = 11,
-  ARENA_TREE = 12,
-  ARENA_WATER_PAINT = 13,
-  ARENA_MAGMA_PAINT = 14,
-  ARENA_SNOW_PAINT = 15,
-  ARENA_MUD_PAINT = 16,
-  ARENA_REMOVE_PAINT = 17,
-}
+---@class burrow_selector_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field GIVING_SQUAD_ORDER boolean
 
----@enum main_designation_type
-df.main_designation_type = {
-  NONE = -1,
-  DIG_DIG = 1,
-  DIG_REMOVE_STAIRS_RAMPS = 2,
-  DIG_STAIR_UP = 3,
-  DIG_STAIR_UPDOWN = 4,
-  DIG_STAIR_DOWN = 5,
-  DIG_RAMP = 6,
-  DIG_CHANNEL = 7,
-  CHOP = 8,
-  GATHER = 9,
-  SMOOTH = 10,
-  TRACK = 11,
-  ENGRAVE = 12,
-  FORTIFY = 13,
-  REMOVE_CONSTRUCTION = 14,
-  CLAIM = 15,
-  UNCLAIM = 16,
-  MELT = 17,
-  NO_MELT = 18,
-  DUMP = 19,
-  NO_DUMP = 20,
-  HIDE = 21,
-  NO_HIDE = 22,
-  TOGGLE_ENGRAVING = 23,
-  DIG_FROM_MARKER = 24,
-  DIG_TO_MARKER = 25,
-  CHOP_FROM_MARKER = 26,
-  CHOP_TO_MARKER = 27,
-  GATHER_FROM_MARKER = 28,
-  GATHER_TO_MARKER = 29,
-  SMOOTH_FROM_MARKER = 30,
-  SMOOTH_TO_MARKER = 31,
-  DESIGNATE_TRAFFIC_HIGH = 32,
-  DESIGNATE_TRAFFIC_NORMAL = 33,
-  DESIGNATE_TRAFFIC_LOW = 34,
-  DESIGNATE_TRAFFIC_RESTRICTED = 35,
-  ERASE = 36,
-}
+---@class (exact) _view_sheet_trait_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field PHYS_ATT_PLUS 1
+---@field [1] "PHYS_ATT_PLUS"
+---@field PHYS_ATT_MINUS 2
+---@field [2] "PHYS_ATT_MINUS"
+---@field MENT_ATT_PLUS 3
+---@field [3] "MENT_ATT_PLUS"
+---@field MENT_ATT_MINUS 4
+---@field [4] "MENT_ATT_MINUS"
+---@field PERSONALITY_FACET_HIGH 5
+---@field [5] "PERSONALITY_FACET_HIGH"
+---@field PERSONALITY_FACET_LOW 6
+---@field [6] "PERSONALITY_FACET_LOW"
+---@field VALUE_HIGH 7
+---@field [7] "VALUE_HIGH"
+---@field VALUE_LOW 8
+---@field [8] "VALUE_LOW"
+df.view_sheet_trait_type = {}
+
+---@class view_sheet_trait_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field PHYS_ATT_PLUS boolean
+---@field [2] boolean
+---@field PHYS_ATT_MINUS boolean
+---@field [3] boolean
+---@field MENT_ATT_PLUS boolean
+---@field [4] boolean
+---@field MENT_ATT_MINUS boolean
+---@field [5] boolean
+---@field PERSONALITY_FACET_HIGH boolean
+---@field [6] boolean
+---@field PERSONALITY_FACET_LOW boolean
+---@field [7] boolean
+---@field VALUE_HIGH boolean
+---@field [8] boolean
+---@field VALUE_LOW boolean
+
+---@class (exact) _view_sheet_unit_knowledge_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field PHILOSOPHY_FLAG 1
+---@field [1] "PHILOSOPHY_FLAG"
+---@field PHILOSOPHY_FLAG2 2
+---@field [2] "PHILOSOPHY_FLAG2"
+---@field MATHEMATICS_FLAG 3
+---@field [3] "MATHEMATICS_FLAG"
+---@field MATHEMATICS_FLAG2 4
+---@field [4] "MATHEMATICS_FLAG2"
+---@field HISTORY_FLAG 5
+---@field [5] "HISTORY_FLAG"
+---@field ASTRONOMY_FLAG 6
+---@field [6] "ASTRONOMY_FLAG"
+---@field NATURALIST_FLAG 7
+---@field [7] "NATURALIST_FLAG"
+---@field CHEMISTRY_FLAG 8
+---@field [8] "CHEMISTRY_FLAG"
+---@field GEOGRAPHY_FLAG 9
+---@field [9] "GEOGRAPHY_FLAG"
+---@field MEDICINE_FLAG 10
+---@field [10] "MEDICINE_FLAG"
+---@field MEDICINE_FLAG2 11
+---@field [11] "MEDICINE_FLAG2"
+---@field MEDICINE_FLAG3 12
+---@field [12] "MEDICINE_FLAG3"
+---@field ENGINEERING_FLAG 13
+---@field [13] "ENGINEERING_FLAG"
+---@field ENGINEERING_FLAG2 14
+---@field [14] "ENGINEERING_FLAG2"
+---@field POETIC_FORM 15
+---@field [15] "POETIC_FORM"
+---@field MUSICAL_FORM 16
+---@field [16] "MUSICAL_FORM"
+---@field DANCE_FORM 17
+---@field [17] "DANCE_FORM"
+---@field WRITTEN_CONTENT 18
+---@field [18] "WRITTEN_CONTENT"
+df.view_sheet_unit_knowledge_type = {}
+
+---@class view_sheet_unit_knowledge_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field PHILOSOPHY_FLAG boolean
+---@field [2] boolean
+---@field PHILOSOPHY_FLAG2 boolean
+---@field [3] boolean
+---@field MATHEMATICS_FLAG boolean
+---@field [4] boolean
+---@field MATHEMATICS_FLAG2 boolean
+---@field [5] boolean
+---@field HISTORY_FLAG boolean
+---@field [6] boolean
+---@field ASTRONOMY_FLAG boolean
+---@field [7] boolean
+---@field NATURALIST_FLAG boolean
+---@field [8] boolean
+---@field CHEMISTRY_FLAG boolean
+---@field [9] boolean
+---@field GEOGRAPHY_FLAG boolean
+---@field [10] boolean
+---@field MEDICINE_FLAG boolean
+---@field [11] boolean
+---@field MEDICINE_FLAG2 boolean
+---@field [12] boolean
+---@field MEDICINE_FLAG3 boolean
+---@field [13] boolean
+---@field ENGINEERING_FLAG boolean
+---@field [14] boolean
+---@field ENGINEERING_FLAG2 boolean
+---@field [15] boolean
+---@field POETIC_FORM boolean
+---@field [16] boolean
+---@field MUSICAL_FORM boolean
+---@field [17] boolean
+---@field DANCE_FORM boolean
+---@field [18] boolean
+---@field WRITTEN_CONTENT boolean
+
+---@class (exact) _view_sheets_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field REGULAR_PLAY 1
+---@field [1] "REGULAR_PLAY"
+---@field PREPARE_CAREFULLY 2
+---@field [2] "PREPARE_CAREFULLY"
+df.view_sheets_context_type = {}
+
+---@class view_sheets_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field REGULAR_PLAY boolean
+---@field [2] boolean
+---@field PREPARE_CAREFULLY boolean
+
+---@class (exact) _view_sheet_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field UNIT 1
+---@field [1] "UNIT"
+---@field ITEM 2
+---@field [2] "ITEM"
+---@field BUILDING 3
+---@field [3] "BUILDING"
+---@field ENGRAVING 4
+---@field [4] "ENGRAVING"
+---@field ENGRAVING_PLANNED 5
+---@field [5] "ENGRAVING_PLANNED"
+---@field UNIT_LIST 6
+---@field [6] "UNIT_LIST"
+---@field ITEM_LIST 7
+---@field [7] "ITEM_LIST"
+df.view_sheet_type = {}
+
+---@class view_sheet_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field UNIT boolean
+---@field [2] boolean
+---@field ITEM boolean
+---@field [3] boolean
+---@field BUILDING boolean
+---@field [4] boolean
+---@field ENGRAVING boolean
+---@field [5] boolean
+---@field ENGRAVING_PLANNED boolean
+---@field [6] boolean
+---@field UNIT_LIST boolean
+---@field [7] boolean
+---@field ITEM_LIST boolean
+
+---@class (exact) _unit_list_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field CITIZEN 1
+---@field [1] "CITIZEN"
+---@field PET 2
+---@field [2] "PET"
+---@field OTHER 3
+---@field [3] "OTHER"
+---@field DECEASED 4
+---@field [4] "DECEASED"
+df.unit_list_mode_type = {}
+
+---@class unit_list_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field CITIZEN boolean
+---@field [2] boolean
+---@field PET boolean
+---@field [3] boolean
+---@field OTHER boolean
+---@field [4] boolean
+---@field DECEASED boolean
+
+---@class (exact) _buildings_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ZONES 1
+---@field [1] "ZONES"
+---@field LOCATIONS 2
+---@field [2] "LOCATIONS"
+---@field STOCKPILES 3
+---@field [3] "STOCKPILES"
+---@field WORKSHOPS 4
+---@field [4] "WORKSHOPS"
+---@field FARMPLOTS 5
+---@field [5] "FARMPLOTS"
+df.buildings_mode_type = {}
+
+---@class buildings_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ZONES boolean
+---@field [2] boolean
+---@field LOCATIONS boolean
+---@field [3] boolean
+---@field STOCKPILES boolean
+---@field [4] boolean
+---@field WORKSHOPS boolean
+---@field [5] boolean
+---@field FARMPLOTS boolean
+
+---@class (exact) _kitchen_pref_category_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field PLANTS 1
+---@field [1] "PLANTS"
+---@field SEEDS 2
+---@field [2] "SEEDS"
+---@field DRINK 3
+---@field [3] "DRINK"
+---@field OTHER 4
+---@field [4] "OTHER"
+df.kitchen_pref_category_type = {}
+
+---@class kitchen_pref_category_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field PLANTS boolean
+---@field [2] boolean
+---@field SEEDS boolean
+---@field [3] boolean
+---@field DRINK boolean
+---@field [4] boolean
+---@field OTHER boolean
+
+---@class (exact) _standing_orders_category_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field AUTOMATED_WORKSHOPS 1
+---@field [1] "AUTOMATED_WORKSHOPS"
+---@field HAULING 2
+---@field [2] "HAULING"
+---@field REFUSE_AND_DUMPING 3
+---@field [3] "REFUSE_AND_DUMPING"
+---@field AUTOMATIC_FORBIDDING 4
+---@field [4] "AUTOMATIC_FORBIDDING"
+---@field CHORES 5
+---@field [5] "CHORES"
+---@field OTHER 6
+---@field [6] "OTHER"
+df.standing_orders_category_type = {}
+
+---@class standing_orders_category_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field AUTOMATED_WORKSHOPS boolean
+---@field [2] boolean
+---@field HAULING boolean
+---@field [3] boolean
+---@field REFUSE_AND_DUMPING boolean
+---@field [4] boolean
+---@field AUTOMATIC_FORBIDDING boolean
+---@field [5] boolean
+---@field CHORES boolean
+---@field [6] boolean
+---@field OTHER boolean
+
+---@class (exact) _stone_use_category_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ECONOMIC 1
+---@field [1] "ECONOMIC"
+---@field OTHER 2
+---@field [2] "OTHER"
+df.stone_use_category_type = {}
+
+---@class stone_use_category_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ECONOMIC boolean
+---@field [2] boolean
+---@field OTHER boolean
+
+---@class (exact) _labor_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field WORK_DETAILS 1
+---@field [1] "WORK_DETAILS"
+---@field STANDING_ORDERS 2
+---@field [2] "STANDING_ORDERS"
+---@field KITCHEN 3
+---@field [3] "KITCHEN"
+---@field STONE_USE 4
+---@field [4] "STONE_USE"
+df.labor_mode_type = {}
+
+---@class labor_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field WORK_DETAILS boolean
+---@field [2] boolean
+---@field STANDING_ORDERS boolean
+---@field [3] boolean
+---@field KITCHEN boolean
+---@field [4] boolean
+---@field STONE_USE boolean
+
+---@class (exact) _artifacts_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field ARTIFACTS 1
+---@field [1] "ARTIFACTS"
+---@field SYMBOLS 2
+---@field [2] "SYMBOLS"
+---@field NAMED_OBJECTS 3
+---@field [3] "NAMED_OBJECTS"
+---@field WRITTEN_CONTENT 4
+---@field [4] "WRITTEN_CONTENT"
+df.artifacts_mode_type = {}
+
+---@class artifacts_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field ARTIFACTS boolean
+---@field [2] boolean
+---@field SYMBOLS boolean
+---@field [3] boolean
+---@field NAMED_OBJECTS boolean
+---@field [4] boolean
+---@field WRITTEN_CONTENT boolean
+
+---@class (exact) _counterintelligence_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field INTERROGATIONS 1
+---@field [1] "INTERROGATIONS"
+---@field ACTORS 2
+---@field [2] "ACTORS"
+---@field ORGANIZATIONS 3
+---@field [3] "ORGANIZATIONS"
+---@field PLOTS 4
+---@field [4] "PLOTS"
+df.counterintelligence_mode_type = {}
+
+---@class counterintelligence_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field INTERROGATIONS boolean
+---@field [2] boolean
+---@field ACTORS boolean
+---@field [3] boolean
+---@field ORGANIZATIONS boolean
+---@field [4] boolean
+---@field PLOTS boolean
+
+---@class (exact) _justice_interface_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field OPEN_CASES 1
+---@field [1] "OPEN_CASES"
+---@field CLOSED_CASES 2
+---@field [2] "CLOSED_CASES"
+---@field COLD_CASES 3
+---@field [3] "COLD_CASES"
+---@field FORTRESS_GUARD 4
+---@field [4] "FORTRESS_GUARD"
+---@field CONVICTS 5
+---@field [5] "CONVICTS"
+---@field COUNTERINTELLIGENCE 6
+---@field [6] "COUNTERINTELLIGENCE"
+df.justice_interface_mode_type = {}
+
+---@class justice_interface_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field OPEN_CASES boolean
+---@field [2] boolean
+---@field CLOSED_CASES boolean
+---@field [3] boolean
+---@field COLD_CASES boolean
+---@field [4] boolean
+---@field FORTRESS_GUARD boolean
+---@field [5] boolean
+---@field CONVICTS boolean
+---@field [6] boolean
+---@field COUNTERINTELLIGENCE boolean
+
+---@class (exact) _info_interface_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field CREATURES 1
+---@field [1] "CREATURES"
+---@field JOBS 2
+---@field [2] "JOBS"
+---@field BUILDINGS 3
+---@field [3] "BUILDINGS"
+---@field LABOR 4
+---@field [4] "LABOR"
+---@field WORK_ORDERS 5
+---@field [5] "WORK_ORDERS"
+---@field ADMINISTRATORS 6
+---@field [6] "ADMINISTRATORS"
+---@field ARTIFACTS 7
+---@field [7] "ARTIFACTS"
+---@field JUSTICE 8
+---@field [8] "JUSTICE"
+df.info_interface_mode_type = {}
+
+---@class info_interface_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field CREATURES boolean
+---@field [2] boolean
+---@field JOBS boolean
+---@field [3] boolean
+---@field BUILDINGS boolean
+---@field [4] boolean
+---@field LABOR boolean
+---@field [5] boolean
+---@field WORK_ORDERS boolean
+---@field [6] boolean
+---@field ADMINISTRATORS boolean
+---@field [7] boolean
+---@field ARTIFACTS boolean
+---@field [8] boolean
+---@field JUSTICE boolean
+
+---@class (exact) _main_menu_option_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field RETURN 1
+---@field [1] "RETURN"
+---@field SAVE_AND_QUIT 2
+---@field [2] "SAVE_AND_QUIT"
+---@field SAVE_AND_CONTINUE 3
+---@field [3] "SAVE_AND_CONTINUE"
+---@field SETTINGS 4
+---@field [4] "SETTINGS"
+---@field SUCCUMB_TO_INVASION 5
+---@field [5] "SUCCUMB_TO_INVASION"
+---@field ABANDON_FORTRESS 6
+---@field [6] "ABANDON_FORTRESS"
+---@field RETIRE_FORTRESS 7
+---@field [7] "RETIRE_FORTRESS"
+---@field QUIT_WITHOUT_SAVING 8
+---@field [8] "QUIT_WITHOUT_SAVING"
+---@field END_GAME 9
+---@field [9] "END_GAME"
+---@field SAVE_TO_EXISTING_FOLDER 10
+---@field [10] "SAVE_TO_EXISTING_FOLDER"
+---@field SAVE_TO_NEW_FOLDER_NEW_TIMELINE 11
+---@field [11] "SAVE_TO_NEW_FOLDER_NEW_TIMELINE"
+---@field SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE 12
+---@field [12] "SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE"
+---@field RETURN_TO_TITLE 13
+---@field [13] "RETURN_TO_TITLE"
+---@field CONTINUE 14
+---@field [14] "CONTINUE"
+df.main_menu_option_type = {}
+
+---@class main_menu_option_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field RETURN boolean
+---@field [2] boolean
+---@field SAVE_AND_QUIT boolean
+---@field [3] boolean
+---@field SAVE_AND_CONTINUE boolean
+---@field [4] boolean
+---@field SETTINGS boolean
+---@field [5] boolean
+---@field SUCCUMB_TO_INVASION boolean
+---@field [6] boolean
+---@field ABANDON_FORTRESS boolean
+---@field [7] boolean
+---@field RETIRE_FORTRESS boolean
+---@field [8] boolean
+---@field QUIT_WITHOUT_SAVING boolean
+---@field [9] boolean
+---@field END_GAME boolean
+---@field [10] boolean
+---@field SAVE_TO_EXISTING_FOLDER boolean
+---@field [11] boolean
+---@field SAVE_TO_NEW_FOLDER_NEW_TIMELINE boolean
+---@field [12] boolean
+---@field SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE boolean
+---@field [13] boolean
+---@field RETURN_TO_TITLE boolean
+---@field [14] boolean
+---@field CONTINUE boolean
+
+---@class (exact) _options_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field MAIN_DWARF 1
+---@field [1] "MAIN_DWARF"
+---@field MAIN_DWARF_GAME_OVER 2
+---@field [2] "MAIN_DWARF_GAME_OVER"
+---@field MAIN_DWARF_HELP 3
+---@field [3] "MAIN_DWARF_HELP"
+---@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES 4
+---@field [4] "MAIN_DWARF_SAVE_AND_EXIT_CHOICES"
+---@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED 5
+---@field [5] "MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED"
+---@field ABORT_FROM_STARTING_GAME 6
+---@field [6] "ABORT_FROM_STARTING_GAME"
+df.options_context_type = {}
+
+---@class options_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field MAIN_DWARF boolean
+---@field [2] boolean
+---@field MAIN_DWARF_GAME_OVER boolean
+---@field [3] boolean
+---@field MAIN_DWARF_HELP boolean
+---@field [4] boolean
+---@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES boolean
+---@field [5] boolean
+---@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED boolean
+---@field [6] boolean
+---@field ABORT_FROM_STARTING_GAME boolean
+
+---@class (exact) _help_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field WORLD_GEN_MESSAGE 1
+---@field [1] "WORLD_GEN_MESSAGE"
+---@field EMBARK_TUTORIAL_CHOICE 2
+---@field [2] "EMBARK_TUTORIAL_CHOICE"
+---@field EMBARK_MESSAGE 3
+---@field [3] "EMBARK_MESSAGE"
+---@field START_TUTORIAL_CAMERA_CONTROLS 4
+---@field [4] "START_TUTORIAL_CAMERA_CONTROLS"
+---@field START_TUTORIAL_MINING 5
+---@field [5] "START_TUTORIAL_MINING"
+---@field START_TUTORIAL_STOCKPILES 6
+---@field [6] "START_TUTORIAL_STOCKPILES"
+---@field START_TUTORIAL_CHOPPING 7
+---@field [7] "START_TUTORIAL_CHOPPING"
+---@field START_TUTORIAL_WORKSHOPS_AND_TASKS 8
+---@field [8] "START_TUTORIAL_WORKSHOPS_AND_TASKS"
+---@field START_TUTORIAL_SHEETS 9
+---@field [9] "START_TUTORIAL_SHEETS"
+---@field START_TUTORIAL_ALERTS 10
+---@field [10] "START_TUTORIAL_ALERTS"
+---@field START_TUTORIAL_PREPARING_FOR_CARAVAN 11
+---@field [11] "START_TUTORIAL_PREPARING_FOR_CARAVAN"
+---@field DONE_WITH_FIRST_STEPS_MESSAGE 12
+---@field [12] "DONE_WITH_FIRST_STEPS_MESSAGE"
+---@field POPUP_ZONES 13
+---@field [13] "POPUP_ZONES"
+---@field POPUP_BURROWS 14
+---@field [14] "POPUP_BURROWS"
+---@field POPUP_HAULING 15
+---@field [15] "POPUP_HAULING"
+---@field POPUP_STOCKS 16
+---@field [16] "POPUP_STOCKS"
+---@field POPUP_WORK_DETAILS 17
+---@field [17] "POPUP_WORK_DETAILS"
+---@field POPUP_NOBLES 18
+---@field [18] "POPUP_NOBLES"
+---@field POPUP_JUSTICE 19
+---@field [19] "POPUP_JUSTICE"
+---@field POPUP_SQUADS 20
+---@field [20] "POPUP_SQUADS"
+---@field POPUP_WORLD 21
+---@field [21] "POPUP_WORLD"
+---@field POPUP_WORK_ORDERS 22
+---@field [22] "POPUP_WORK_ORDERS"
+---@field REVISIT_CAMERA_CONTROLS 23
+---@field [23] "REVISIT_CAMERA_CONTROLS"
+---@field REVISIT_MINING 24
+---@field [24] "REVISIT_MINING"
+---@field REVISIT_STOCKPILES 25
+---@field [25] "REVISIT_STOCKPILES"
+---@field REVISIT_CHOPPING 26
+---@field [26] "REVISIT_CHOPPING"
+---@field REVISIT_WORKSHOPS_AND_TASKS 27
+---@field [27] "REVISIT_WORKSHOPS_AND_TASKS"
+---@field REVISIT_SHEETS 28
+---@field [28] "REVISIT_SHEETS"
+---@field REVISIT_ALERTS 29
+---@field [29] "REVISIT_ALERTS"
+---@field REVISIT_PREPARING_FOR_CARAVAN 30
+---@field [30] "REVISIT_PREPARING_FOR_CARAVAN"
+---@field GUIDE_SURVIVAL 31
+---@field [31] "GUIDE_SURVIVAL"
+---@field GUIDE_PLANTING 32
+---@field [32] "GUIDE_PLANTING"
+---@field GUIDE_OTHER_FOOD_SOURCES 33
+---@field [33] "GUIDE_OTHER_FOOD_SOURCES"
+---@field GUIDE_BINS_BAGS_AND_BARRELS 34
+---@field [34] "GUIDE_BINS_BAGS_AND_BARRELS"
+---@field GUIDE_TRADE 35
+---@field [35] "GUIDE_TRADE"
+---@field GUIDE_OFFICES 36
+---@field [36] "GUIDE_OFFICES"
+---@field GUIDE_ORE_AND_SMELTING 37
+---@field [37] "GUIDE_ORE_AND_SMELTING"
+---@field GUIDE_TRAPS_AND_LEVERS 38
+---@field [38] "GUIDE_TRAPS_AND_LEVERS"
+---@field GUIDE_WELLS 39
+---@field [39] "GUIDE_WELLS"
+---@field GUIDE_HANDLING_LIGHT_AQUIFERS 40
+---@field [40] "GUIDE_HANDLING_LIGHT_AQUIFERS"
+---@field GUIDE_CLOTHING 41
+---@field [41] "GUIDE_CLOTHING"
+---@field GUIDE_MEETING_AREAS_AND_LOCATIONS 42
+---@field [42] "GUIDE_MEETING_AREAS_AND_LOCATIONS"
+---@field GUIDE_MILITARY 43
+---@field [43] "GUIDE_MILITARY"
+---@field GUIDE_CHANNELS_AND_RAMPS 44
+---@field [44] "GUIDE_CHANNELS_AND_RAMPS"
+---@field GUIDE_REFUSE 45
+---@field [45] "GUIDE_REFUSE"
+---@field GUIDE_DEEPER 46
+---@field [46] "GUIDE_DEEPER"
+---@field GUIDE_HAPPINESS 47
+---@field [47] "GUIDE_HAPPINESS"
+---@field GUIDE_GOALS 48
+---@field [48] "GUIDE_GOALS"
+df.help_context_type = {}
+
+---@class help_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field WORLD_GEN_MESSAGE boolean
+---@field [2] boolean
+---@field EMBARK_TUTORIAL_CHOICE boolean
+---@field [3] boolean
+---@field EMBARK_MESSAGE boolean
+---@field [4] boolean
+---@field START_TUTORIAL_CAMERA_CONTROLS boolean
+---@field [5] boolean
+---@field START_TUTORIAL_MINING boolean
+---@field [6] boolean
+---@field START_TUTORIAL_STOCKPILES boolean
+---@field [7] boolean
+---@field START_TUTORIAL_CHOPPING boolean
+---@field [8] boolean
+---@field START_TUTORIAL_WORKSHOPS_AND_TASKS boolean
+---@field [9] boolean
+---@field START_TUTORIAL_SHEETS boolean
+---@field [10] boolean
+---@field START_TUTORIAL_ALERTS boolean
+---@field [11] boolean
+---@field START_TUTORIAL_PREPARING_FOR_CARAVAN boolean
+---@field [12] boolean
+---@field DONE_WITH_FIRST_STEPS_MESSAGE boolean
+---@field [13] boolean
+---@field POPUP_ZONES boolean
+---@field [14] boolean
+---@field POPUP_BURROWS boolean
+---@field [15] boolean
+---@field POPUP_HAULING boolean
+---@field [16] boolean
+---@field POPUP_STOCKS boolean
+---@field [17] boolean
+---@field POPUP_WORK_DETAILS boolean
+---@field [18] boolean
+---@field POPUP_NOBLES boolean
+---@field [19] boolean
+---@field POPUP_JUSTICE boolean
+---@field [20] boolean
+---@field POPUP_SQUADS boolean
+---@field [21] boolean
+---@field POPUP_WORLD boolean
+---@field [22] boolean
+---@field POPUP_WORK_ORDERS boolean
+---@field [23] boolean
+---@field REVISIT_CAMERA_CONTROLS boolean
+---@field [24] boolean
+---@field REVISIT_MINING boolean
+---@field [25] boolean
+---@field REVISIT_STOCKPILES boolean
+---@field [26] boolean
+---@field REVISIT_CHOPPING boolean
+---@field [27] boolean
+---@field REVISIT_WORKSHOPS_AND_TASKS boolean
+---@field [28] boolean
+---@field REVISIT_SHEETS boolean
+---@field [29] boolean
+---@field REVISIT_ALERTS boolean
+---@field [30] boolean
+---@field REVISIT_PREPARING_FOR_CARAVAN boolean
+---@field [31] boolean
+---@field GUIDE_SURVIVAL boolean
+---@field [32] boolean
+---@field GUIDE_PLANTING boolean
+---@field [33] boolean
+---@field GUIDE_OTHER_FOOD_SOURCES boolean
+---@field [34] boolean
+---@field GUIDE_BINS_BAGS_AND_BARRELS boolean
+---@field [35] boolean
+---@field GUIDE_TRADE boolean
+---@field [36] boolean
+---@field GUIDE_OFFICES boolean
+---@field [37] boolean
+---@field GUIDE_ORE_AND_SMELTING boolean
+---@field [38] boolean
+---@field GUIDE_TRAPS_AND_LEVERS boolean
+---@field [39] boolean
+---@field GUIDE_WELLS boolean
+---@field [40] boolean
+---@field GUIDE_HANDLING_LIGHT_AQUIFERS boolean
+---@field [41] boolean
+---@field GUIDE_CLOTHING boolean
+---@field [42] boolean
+---@field GUIDE_MEETING_AREAS_AND_LOCATIONS boolean
+---@field [43] boolean
+---@field GUIDE_MILITARY boolean
+---@field [44] boolean
+---@field GUIDE_CHANNELS_AND_RAMPS boolean
+---@field [45] boolean
+---@field GUIDE_REFUSE boolean
+---@field [46] boolean
+---@field GUIDE_DEEPER boolean
+---@field [47] boolean
+---@field GUIDE_HAPPINESS boolean
+---@field [48] boolean
+---@field GUIDE_GOALS boolean
+
+---@class (exact) _settings_tab_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field VIDEO 1
+---@field [1] "VIDEO"
+---@field AUDIO 2
+---@field [2] "AUDIO"
+---@field GAME 3
+---@field [3] "GAME"
+---@field KEYBINDINGS 4
+---@field [4] "KEYBINDINGS"
+---@field DIFFICULTY 5
+---@field [5] "DIFFICULTY"
+df.settings_tab_type = {}
+
+---@class settings_tab_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field VIDEO boolean
+---@field [2] boolean
+---@field AUDIO boolean
+---@field [3] boolean
+---@field GAME boolean
+---@field [4] boolean
+---@field KEYBINDINGS boolean
+---@field [5] boolean
+---@field DIFFICULTY boolean
+
+---@class (exact) _settings_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field OUTSIDE_PLAY 1
+---@field [1] "OUTSIDE_PLAY"
+---@field FORT_MODE 2
+---@field [2] "FORT_MODE"
+df.settings_context_type = {}
+
+---@class settings_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field OUTSIDE_PLAY boolean
+---@field [2] boolean
+---@field FORT_MODE boolean
+
+---@class (exact) _arena_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field CREATURE 1
+---@field [1] "CREATURE"
+---@field SKILLS 2
+---@field [2] "SKILLS"
+---@field EQUIPMENT 3
+---@field [3] "EQUIPMENT"
+---@field CONDITIONS 4
+---@field [4] "CONDITIONS"
+df.arena_context_type = {}
+
+---@class arena_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field CREATURE boolean
+---@field [2] boolean
+---@field SKILLS boolean
+---@field [3] boolean
+---@field EQUIPMENT boolean
+---@field [4] boolean
+---@field CONDITIONS boolean
+
+---@class (exact) _assign_uniform_context_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field CREATE_SQUAD_FROM_SQUAD_MENU 1
+---@field [1] "CREATE_SQUAD_FROM_SQUAD_MENU"
+---@field FROM_SQUAD_EQUIPMENT_MENU 2
+---@field [2] "FROM_SQUAD_EQUIPMENT_MENU"
+df.assign_uniform_context_type = {}
+
+---@class assign_uniform_context_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field CREATE_SQUAD_FROM_SQUAD_MENU boolean
+---@field [2] boolean
+---@field FROM_SQUAD_EQUIPMENT_MENU boolean
+
+---@class (exact) _main_bottom_mode_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field BUILDING 1
+---@field [1] "BUILDING"
+---@field BUILDING_PLACEMENT 2
+---@field [2] "BUILDING_PLACEMENT"
+---@field BUILDING_PICK_MATERIALS 3
+---@field [3] "BUILDING_PICK_MATERIALS"
+---@field ZONE 4
+---@field [4] "ZONE"
+---@field ZONE_PAINT 5
+---@field [5] "ZONE_PAINT"
+---@field STOCKPILE 6
+---@field [6] "STOCKPILE"
+---@field STOCKPILE_PAINT 7
+---@field [7] "STOCKPILE_PAINT"
+---@field BURROW 8
+---@field [8] "BURROW"
+---@field BURROW_PAINT 9
+---@field [9] "BURROW_PAINT"
+---@field HAULING 10
+---@field [10] "HAULING"
+---@field ARENA_UNIT 11
+---@field [11] "ARENA_UNIT"
+---@field ARENA_TREE 12
+---@field [12] "ARENA_TREE"
+---@field ARENA_WATER_PAINT 13
+---@field [13] "ARENA_WATER_PAINT"
+---@field ARENA_MAGMA_PAINT 14
+---@field [14] "ARENA_MAGMA_PAINT"
+---@field ARENA_SNOW_PAINT 15
+---@field [15] "ARENA_SNOW_PAINT"
+---@field ARENA_MUD_PAINT 16
+---@field [16] "ARENA_MUD_PAINT"
+---@field ARENA_REMOVE_PAINT 17
+---@field [17] "ARENA_REMOVE_PAINT"
+df.main_bottom_mode_type = {}
+
+---@class main_bottom_mode_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field BUILDING boolean
+---@field [2] boolean
+---@field BUILDING_PLACEMENT boolean
+---@field [3] boolean
+---@field BUILDING_PICK_MATERIALS boolean
+---@field [4] boolean
+---@field ZONE boolean
+---@field [5] boolean
+---@field ZONE_PAINT boolean
+---@field [6] boolean
+---@field STOCKPILE boolean
+---@field [7] boolean
+---@field STOCKPILE_PAINT boolean
+---@field [8] boolean
+---@field BURROW boolean
+---@field [9] boolean
+---@field BURROW_PAINT boolean
+---@field [10] boolean
+---@field HAULING boolean
+---@field [11] boolean
+---@field ARENA_UNIT boolean
+---@field [12] boolean
+---@field ARENA_TREE boolean
+---@field [13] boolean
+---@field ARENA_WATER_PAINT boolean
+---@field [14] boolean
+---@field ARENA_MAGMA_PAINT boolean
+---@field [15] boolean
+---@field ARENA_SNOW_PAINT boolean
+---@field [16] boolean
+---@field ARENA_MUD_PAINT boolean
+---@field [17] boolean
+---@field ARENA_REMOVE_PAINT boolean
+
+---@class (exact) _main_designation_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field DIG_DIG 1
+---@field [1] "DIG_DIG"
+---@field DIG_REMOVE_STAIRS_RAMPS 2
+---@field [2] "DIG_REMOVE_STAIRS_RAMPS"
+---@field DIG_STAIR_UP 3
+---@field [3] "DIG_STAIR_UP"
+---@field DIG_STAIR_UPDOWN 4
+---@field [4] "DIG_STAIR_UPDOWN"
+---@field DIG_STAIR_DOWN 5
+---@field [5] "DIG_STAIR_DOWN"
+---@field DIG_RAMP 6
+---@field [6] "DIG_RAMP"
+---@field DIG_CHANNEL 7
+---@field [7] "DIG_CHANNEL"
+---@field CHOP 8
+---@field [8] "CHOP"
+---@field GATHER 9
+---@field [9] "GATHER"
+---@field SMOOTH 10
+---@field [10] "SMOOTH"
+---@field TRACK 11
+---@field [11] "TRACK"
+---@field ENGRAVE 12
+---@field [12] "ENGRAVE"
+---@field FORTIFY 13
+---@field [13] "FORTIFY"
+---@field REMOVE_CONSTRUCTION 14
+---@field [14] "REMOVE_CONSTRUCTION"
+---@field CLAIM 15
+---@field [15] "CLAIM"
+---@field UNCLAIM 16
+---@field [16] "UNCLAIM"
+---@field MELT 17
+---@field [17] "MELT"
+---@field NO_MELT 18
+---@field [18] "NO_MELT"
+---@field DUMP 19
+---@field [19] "DUMP"
+---@field NO_DUMP 20
+---@field [20] "NO_DUMP"
+---@field HIDE 21
+---@field [21] "HIDE"
+---@field NO_HIDE 22
+---@field [22] "NO_HIDE"
+---@field TOGGLE_ENGRAVING 23
+---@field [23] "TOGGLE_ENGRAVING"
+---@field DIG_FROM_MARKER 24
+---@field [24] "DIG_FROM_MARKER"
+---@field DIG_TO_MARKER 25
+---@field [25] "DIG_TO_MARKER"
+---@field CHOP_FROM_MARKER 26
+---@field [26] "CHOP_FROM_MARKER"
+---@field CHOP_TO_MARKER 27
+---@field [27] "CHOP_TO_MARKER"
+---@field GATHER_FROM_MARKER 28
+---@field [28] "GATHER_FROM_MARKER"
+---@field GATHER_TO_MARKER 29
+---@field [29] "GATHER_TO_MARKER"
+---@field SMOOTH_FROM_MARKER 30
+---@field [30] "SMOOTH_FROM_MARKER"
+---@field SMOOTH_TO_MARKER 31
+---@field [31] "SMOOTH_TO_MARKER"
+---@field DESIGNATE_TRAFFIC_HIGH 32
+---@field [32] "DESIGNATE_TRAFFIC_HIGH"
+---@field DESIGNATE_TRAFFIC_NORMAL 33
+---@field [33] "DESIGNATE_TRAFFIC_NORMAL"
+---@field DESIGNATE_TRAFFIC_LOW 34
+---@field [34] "DESIGNATE_TRAFFIC_LOW"
+---@field DESIGNATE_TRAFFIC_RESTRICTED 35
+---@field [35] "DESIGNATE_TRAFFIC_RESTRICTED"
+---@field ERASE 36
+---@field [36] "ERASE"
+df.main_designation_type = {}
+
+---@class main_designation_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field DIG_DIG boolean
+---@field [2] boolean
+---@field DIG_REMOVE_STAIRS_RAMPS boolean
+---@field [3] boolean
+---@field DIG_STAIR_UP boolean
+---@field [4] boolean
+---@field DIG_STAIR_UPDOWN boolean
+---@field [5] boolean
+---@field DIG_STAIR_DOWN boolean
+---@field [6] boolean
+---@field DIG_RAMP boolean
+---@field [7] boolean
+---@field DIG_CHANNEL boolean
+---@field [8] boolean
+---@field CHOP boolean
+---@field [9] boolean
+---@field GATHER boolean
+---@field [10] boolean
+---@field SMOOTH boolean
+---@field [11] boolean
+---@field TRACK boolean
+---@field [12] boolean
+---@field ENGRAVE boolean
+---@field [13] boolean
+---@field FORTIFY boolean
+---@field [14] boolean
+---@field REMOVE_CONSTRUCTION boolean
+---@field [15] boolean
+---@field CLAIM boolean
+---@field [16] boolean
+---@field UNCLAIM boolean
+---@field [17] boolean
+---@field MELT boolean
+---@field [18] boolean
+---@field NO_MELT boolean
+---@field [19] boolean
+---@field DUMP boolean
+---@field [20] boolean
+---@field NO_DUMP boolean
+---@field [21] boolean
+---@field HIDE boolean
+---@field [22] boolean
+---@field NO_HIDE boolean
+---@field [23] boolean
+---@field TOGGLE_ENGRAVING boolean
+---@field [24] boolean
+---@field DIG_FROM_MARKER boolean
+---@field [25] boolean
+---@field DIG_TO_MARKER boolean
+---@field [26] boolean
+---@field CHOP_FROM_MARKER boolean
+---@field [27] boolean
+---@field CHOP_TO_MARKER boolean
+---@field [28] boolean
+---@field GATHER_FROM_MARKER boolean
+---@field [29] boolean
+---@field GATHER_TO_MARKER boolean
+---@field [30] boolean
+---@field SMOOTH_FROM_MARKER boolean
+---@field [31] boolean
+---@field SMOOTH_TO_MARKER boolean
+---@field [32] boolean
+---@field DESIGNATE_TRAFFIC_HIGH boolean
+---@field [33] boolean
+---@field DESIGNATE_TRAFFIC_NORMAL boolean
+---@field [34] boolean
+---@field DESIGNATE_TRAFFIC_LOW boolean
+---@field [35] boolean
+---@field DESIGNATE_TRAFFIC_RESTRICTED boolean
+---@field [36] boolean
+---@field ERASE boolean
 
 ---@class main_interface: df.struct
 ---@field designation main_interface_designation
@@ -2305,13 +3537,26 @@ df.hash_rngst = {}
 ---@field demand_period integer
 df.difficultyst = {}
 
----@enum difficultyst_flags
-df.difficultyst.T_flags = {
-  sieges = 0,
-  megabeasts = 1,
-  werebeasts = 2,
-  curiousbeasts = 3,
-}
+---@class (exact) _difficultyst_flags: df.struct
+---@field sieges 0
+---@field [0] "sieges"
+---@field megabeasts 1
+---@field [1] "megabeasts"
+---@field werebeasts 2
+---@field [2] "werebeasts"
+---@field curiousbeasts 3
+---@field [3] "curiousbeasts"
+df.difficultyst.T_flags = {}
+
+---@class difficultyst_flags
+---@field [0] boolean
+---@field sieges boolean
+---@field [1] boolean
+---@field megabeasts boolean
+---@field [2] boolean
+---@field werebeasts boolean
+---@field [3] boolean
+---@field curiousbeasts boolean
 
 ---@class markup_text_boxst: df.struct
 ---@field unk1 markup_text_boxst_unk1
@@ -2454,12 +3699,22 @@ df.plot_entryst = {}
 ---@field steamapi_3 integer
 df.mod_headerst = {}
 
----@enum mod_headerst_flags
-df.mod_headerst.T_flags = {
-  currently_installed = 0,
-  have_other_version = 1,
-  vanilla = 2,
-}
+---@class (exact) _mod_headerst_flags: df.struct
+---@field currently_installed 0
+---@field [0] "currently_installed"
+---@field have_other_version 1
+---@field [1] "have_other_version"
+---@field vanilla 2
+---@field [2] "vanilla"
+df.mod_headerst.T_flags = {}
+
+---@class mod_headerst_flags
+---@field [0] boolean
+---@field currently_installed boolean
+---@field [1] boolean
+---@field have_other_version boolean
+---@field [2] boolean
+---@field vanilla boolean
 
 ---@class ui_look_list: df.struct
 ---@field items ui_look_list_items
@@ -2475,22 +3730,62 @@ df.ui_look_list = {}
 ---@field cbr integer
 df.ui_look_list.T_items = {}
 
----@enum items_type
-df.items.T_type = {
-  Item = 0,
-  Floor = 1,
-  Unit = 2,
-  Building = 3,
-  Vermin = 4,
-  Flow = 5,
-  Campfire = 6,
-  Spatter = 7,
-  BuildingItem = 8,
-  Fire = 9,
-  Water = 10,
-  Magma = 11,
-  Spoor = 12,
-}
+---@class (exact) _items_type: df.struct
+---@field Item 0
+---@field [0] "Item"
+---@field Floor 1
+---@field [1] "Floor"
+---@field Unit 2
+---@field [2] "Unit"
+---@field Building 3
+---@field [3] "Building"
+---@field Vermin 4
+---@field [4] "Vermin"
+---@field Flow 5
+---@field [5] "Flow"
+---@field Campfire 6
+---@field [6] "Campfire"
+---@field Spatter 7
+---@field [7] "Spatter"
+---@field BuildingItem 8
+---@field [8] "BuildingItem"
+---@field Fire 9
+---@field [9] "Fire"
+---@field Water 10
+---@field [10] "Water"
+---@field Magma 11
+---@field [11] "Magma"
+---@field Spoor 12
+---@field [12] "Spoor"
+df.items.T_type = {}
+
+---@class items_type
+---@field [0] boolean
+---@field Item boolean
+---@field [1] boolean
+---@field Floor boolean
+---@field [2] boolean
+---@field Unit boolean
+---@field [3] boolean
+---@field Building boolean
+---@field [4] boolean
+---@field Vermin boolean
+---@field [5] boolean
+---@field Flow boolean
+---@field [6] boolean
+---@field Campfire boolean
+---@field [7] boolean
+---@field Spatter boolean
+---@field [8] boolean
+---@field BuildingItem boolean
+---@field [9] boolean
+---@field Fire boolean
+---@field [10] boolean
+---@field Water boolean
+---@field [11] boolean
+---@field Magma boolean
+---@field [12] boolean
+---@field Spoor boolean
 
 ---@class items_data: df.struct
 ---@field item data_item
@@ -2568,14 +3863,36 @@ df.data.T_spoor = {}
 ---@field value ui_unit_view_mode_value
 df.ui_unit_view_mode = {}
 
----@enum ui_unit_view_mode_value
-df.ui_unit_view_mode.T_value = {
-  General = 0,
-  Inventory = 1,
-  Preferences = 2,
-  Wounds = 3,
-  PrefLabor = 4,
-  PrefDogs = 5,
-  PrefOccupation = 6,
-}
+---@class (exact) _ui_unit_view_mode_value: df.struct
+---@field General 0
+---@field [0] "General"
+---@field Inventory 1
+---@field [1] "Inventory"
+---@field Preferences 2
+---@field [2] "Preferences"
+---@field Wounds 3
+---@field [3] "Wounds"
+---@field PrefLabor 4
+---@field [4] "PrefLabor"
+---@field PrefDogs 5
+---@field [5] "PrefDogs"
+---@field PrefOccupation 6
+---@field [6] "PrefOccupation"
+df.ui_unit_view_mode.T_value = {}
+
+---@class ui_unit_view_mode_value
+---@field [0] boolean
+---@field General boolean
+---@field [1] boolean
+---@field Inventory boolean
+---@field [2] boolean
+---@field Preferences boolean
+---@field [3] boolean
+---@field Wounds boolean
+---@field [4] boolean
+---@field PrefLabor boolean
+---@field [5] boolean
+---@field PrefDogs boolean
+---@field [6] boolean
+---@field PrefOccupation boolean
 

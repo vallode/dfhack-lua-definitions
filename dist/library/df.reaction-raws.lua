@@ -1,12 +1,22 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum reaction_flags
-df.reaction_flags = {
-  FUEL = 0,
-  AUTOMATIC = 1,
-  ADVENTURE_MODE_ENABLED = 2,
-}
+---@class (exact) _reaction_flags: df.struct
+---@field FUEL 0
+---@field [0] "FUEL"
+---@field AUTOMATIC 1
+---@field [1] "AUTOMATIC"
+---@field ADVENTURE_MODE_ENABLED 2
+---@field [2] "ADVENTURE_MODE_ENABLED"
+df.reaction_flags = {}
+
+---@class reaction_flags
+---@field [0] boolean
+---@field FUEL boolean
+---@field [1] boolean
+---@field AUTOMATIC boolean
+---@field [2] boolean
+---@field ADVENTURE_MODE_ENABLED boolean
 
 ---@class reaction: df.instance
 ---@field code string
@@ -54,10 +64,14 @@ df.reaction_category = {}
 ---@field unk_2 string
 df.reaction_description = {}
 
----@enum reaction_reagent_type
-df.reaction_reagent_type = {
-  item = 0,
-}
+---@class (exact) _reaction_reagent_type: df.struct
+---@field item 0
+---@field [0] "item"
+df.reaction_reagent_type = {}
+
+---@class reaction_reagent_type
+---@field [0] boolean
+---@field item boolean
 
 ---@class reaction_reagent: df.struct
 ---@field code string
@@ -65,12 +79,22 @@ df.reaction_reagent_type = {
 ---@field flags reaction_reagent_flags
 df.reaction_reagent = {}
 
----@enum reaction_reagent_flags
-df.reaction_reagent_flags = {
-  PRESERVE_REAGENT = 0,
-  IN_CONTAINER = 1,
-  DOES_NOT_DETERMINE_PRODUCT_AMOUNT = 2,
-}
+---@class (exact) _reaction_reagent_flags: df.struct
+---@field PRESERVE_REAGENT 0
+---@field [0] "PRESERVE_REAGENT"
+---@field IN_CONTAINER 1
+---@field [1] "IN_CONTAINER"
+---@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT 2
+---@field [2] "DOES_NOT_DETERMINE_PRODUCT_AMOUNT"
+df.reaction_reagent_flags = {}
+
+---@class reaction_reagent_flags
+---@field [0] boolean
+---@field PRESERVE_REAGENT boolean
+---@field [1] boolean
+---@field IN_CONTAINER boolean
+---@field [2] boolean
+---@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT boolean
 
 ---@class reaction_reagent_itemst: reaction_reagent
 ---@field item_type item_type
@@ -94,26 +118,52 @@ df.reaction_reagent_flags = {
 ---@field contains_str string[]
 df.reaction_reagent_itemst = {}
 
----@enum reaction_product_type
-df.reaction_product_type = {
-  item = 0,
-  improvement = 1,
-}
+---@class (exact) _reaction_product_type: df.struct
+---@field item 0
+---@field [0] "item"
+---@field improvement 1
+---@field [1] "improvement"
+df.reaction_product_type = {}
+
+---@class reaction_product_type
+---@field [0] boolean
+---@field item boolean
+---@field [1] boolean
+---@field improvement boolean
 
 ---@class reaction_product: df.struct
 ---@field product_token string
 ---@field product_to_container string
 df.reaction_product = {}
 
----@enum reaction_product_item_flags
-df.reaction_product_item_flags = {
-  GET_MATERIAL_SAME = 0,
-  GET_MATERIAL_PRODUCT = 1,
-  FORCE_EDGE = 2,
-  PASTE = 3,
-  PRESSED = 4,
-  CRAFTS = 5,
-}
+---@class (exact) _reaction_product_item_flags: df.struct
+---@field GET_MATERIAL_SAME 0
+---@field [0] "GET_MATERIAL_SAME"
+---@field GET_MATERIAL_PRODUCT 1
+---@field [1] "GET_MATERIAL_PRODUCT"
+---@field FORCE_EDGE 2
+---@field [2] "FORCE_EDGE"
+---@field PASTE 3
+---@field [3] "PASTE"
+---@field PRESSED 4
+---@field [4] "PRESSED"
+---@field CRAFTS 5
+---@field [5] "CRAFTS"
+df.reaction_product_item_flags = {}
+
+---@class reaction_product_item_flags
+---@field [0] boolean
+---@field GET_MATERIAL_SAME boolean
+---@field [1] boolean
+---@field GET_MATERIAL_PRODUCT boolean
+---@field [2] boolean
+---@field FORCE_EDGE boolean
+---@field [3] boolean
+---@field PASTE boolean
+---@field [4] boolean
+---@field PRESSED boolean
+---@field [5] boolean
+---@field CRAFTS boolean
 
 ---@class reaction_product_itemst: reaction_product
 ---@field item_type item_type
@@ -134,12 +184,22 @@ df.reaction_product_itemst = {}
 ---@field product_code string
 df.reaction_product_itemst.T_get_material = {}
 
----@enum reaction_product_improvement_flags
-df.reaction_product_improvement_flags = {
-  GET_MATERIAL_SAME = 0,
-  GET_MATERIAL_PRODUCT = 1,
-  GLAZED = 2,
-}
+---@class (exact) _reaction_product_improvement_flags: df.struct
+---@field GET_MATERIAL_SAME 0
+---@field [0] "GET_MATERIAL_SAME"
+---@field GET_MATERIAL_PRODUCT 1
+---@field [1] "GET_MATERIAL_PRODUCT"
+---@field GLAZED 2
+---@field [2] "GLAZED"
+df.reaction_product_improvement_flags = {}
+
+---@class reaction_product_improvement_flags
+---@field [0] boolean
+---@field GET_MATERIAL_SAME boolean
+---@field [1] boolean
+---@field GET_MATERIAL_PRODUCT boolean
+---@field [2] boolean
+---@field GLAZED boolean
 
 ---@class reaction_product_item_improvementst: reaction_product
 ---@field target_reagent string

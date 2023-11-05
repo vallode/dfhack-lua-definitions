@@ -164,58 +164,192 @@
 ---@field buildingst_completebuild function
 df.global = {}
 
----@enum weather_type
-df.weather_type = {
-  None = 0,
-  Rain = 1,
-  Snow = 2,
-}
+---@class (exact) _weather_type: df.struct
+---@field None 0
+---@field [0] "None"
+---@field Rain 1
+---@field [1] "Rain"
+---@field Snow 2
+---@field [2] "Snow"
+df.weather_type = {}
 
----@enum next_global_id
+---@class weather_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Rain boolean
+---@field [2] boolean
+---@field Snow boolean
+
+---@class (exact) _next_global_id: df.struct
 ---The storage order of "next ID" fields in the save file. Followed by game type. The enum item name is the part between next_ and _global_id in the Dwarf Fortress global variable table.
-df.next_global_id = {
-  unit = 0,
-  soul = 1,
-  item = 2,
-  civ = 3,
-  nem = 4,
-  artifact = 5,
-  job = 6,
-  schedule = 7,
-  proj = 8,
-  building = 9,
-  machine = 10,
-  flow_guide = 11,
-  histfig = 12,
-  histevent = 13,
-  histeventcol = 14,
-  unitchunk = 15,
-  imagechunk = 16,
-  task = 17,
-  squad = 18,
-  formation = 19,
-  activity = 20,
-  interaction_instance = 21,
-  written_content = 22,
-  identity = 23,
-  incident = 24,
-  crime = 25,
-  vehicle = 26,
-  army = 27,
-  army_controller = 28,
-  army_tracking_info = 29,
-  cultural_identity = 30,
-  agreement = 31,
-  poetic_form = 32,
-  musical_form = 33,
-  dance_form = 34,
-  scale = 35,
-  rhythm = 36,
-  occupation = 37,
-  belief_system = 38,
-  image_set = 39,
-  divination_set = 40,
-}
+---@field unit 0
+---@field [0] "unit"
+---@field soul 1
+---@field [1] "soul"
+---@field item 2
+---@field [2] "item"
+---@field civ 3
+---@field [3] "civ"
+---@field nem 4
+---@field [4] "nem"
+---@field artifact 5
+---@field [5] "artifact"
+---@field job 6
+---@field [6] "job"
+---@field schedule 7
+---@field [7] "schedule"
+---@field proj 8
+---@field [8] "proj"
+---@field building 9
+---@field [9] "building"
+---@field machine 10
+---@field [10] "machine"
+---@field flow_guide 11
+---@field [11] "flow_guide"
+---@field histfig 12
+---@field [12] "histfig"
+---@field histevent 13
+---@field [13] "histevent"
+---@field histeventcol 14
+---@field [14] "histeventcol"
+---@field unitchunk 15
+---@field [15] "unitchunk"
+---@field imagechunk 16
+---@field [16] "imagechunk"
+---@field task 17
+---@field [17] "task"
+---@field squad 18
+---@field [18] "squad"
+---@field formation 19
+---@field [19] "formation"
+---@field activity 20
+---@field [20] "activity"
+---@field interaction_instance 21
+---@field [21] "interaction_instance"
+---@field written_content 22
+---@field [22] "written_content"
+---@field identity 23
+---@field [23] "identity"
+---@field incident 24
+---@field [24] "incident"
+---@field crime 25
+---@field [25] "crime"
+---@field vehicle 26
+---@field [26] "vehicle"
+---@field army 27
+---@field [27] "army"
+---@field army_controller 28
+---@field [28] "army_controller"
+---@field army_tracking_info 29
+---@field [29] "army_tracking_info"
+---@field cultural_identity 30
+---@field [30] "cultural_identity"
+---@field agreement 31
+---@field [31] "agreement"
+---@field poetic_form 32
+---@field [32] "poetic_form"
+---@field musical_form 33
+---@field [33] "musical_form"
+---@field dance_form 34
+---@field [34] "dance_form"
+---@field scale 35
+---@field [35] "scale"
+---@field rhythm 36
+---@field [36] "rhythm"
+---@field occupation 37
+---@field [37] "occupation"
+---@field belief_system 38
+---@field [38] "belief_system"
+---@field image_set 39
+---@field [39] "image_set"
+---@field divination_set 40
+---@field [40] "divination_set"
+df.next_global_id = {}
+
+---@class next_global_id
+---@field [0] boolean
+---@field unit boolean
+---@field [1] boolean
+---@field soul boolean
+---@field [2] boolean
+---@field item boolean
+---@field [3] boolean
+---@field civ boolean
+---@field [4] boolean
+---@field nem boolean
+---@field [5] boolean
+---@field artifact boolean
+---@field [6] boolean
+---@field job boolean
+---@field [7] boolean
+---@field schedule boolean
+---@field [8] boolean
+---@field proj boolean
+---@field [9] boolean
+---@field building boolean
+---@field [10] boolean
+---@field machine boolean
+---@field [11] boolean
+---@field flow_guide boolean
+---@field [12] boolean
+---@field histfig boolean
+---@field [13] boolean
+---@field histevent boolean
+---@field [14] boolean
+---@field histeventcol boolean
+---@field [15] boolean
+---@field unitchunk boolean
+---@field [16] boolean
+---@field imagechunk boolean
+---@field [17] boolean
+---@field task boolean
+---@field [18] boolean
+---@field squad boolean
+---@field [19] boolean
+---@field formation boolean
+---@field [20] boolean
+---@field activity boolean
+---@field [21] boolean
+---@field interaction_instance boolean
+---@field [22] boolean
+---@field written_content boolean
+---@field [23] boolean
+---@field identity boolean
+---@field [24] boolean
+---@field incident boolean
+---@field [25] boolean
+---@field crime boolean
+---@field [26] boolean
+---@field vehicle boolean
+---@field [27] boolean
+---@field army boolean
+---@field [28] boolean
+---@field army_controller boolean
+---@field [29] boolean
+---@field army_tracking_info boolean
+---@field [30] boolean
+---@field cultural_identity boolean
+---@field [31] boolean
+---@field agreement boolean
+---@field [32] boolean
+---@field poetic_form boolean
+---@field [33] boolean
+---@field musical_form boolean
+---@field [34] boolean
+---@field dance_form boolean
+---@field [35] boolean
+---@field scale boolean
+---@field [36] boolean
+---@field rhythm boolean
+---@field [37] boolean
+---@field occupation boolean
+---@field [38] boolean
+---@field belief_system boolean
+---@field [39] boolean
+---@field image_set boolean
+---@field [40] boolean
+---@field divination_set boolean
 
 ---@class global_table_entry: df.struct
 ---@field name any
@@ -223,51 +357,156 @@ df.next_global_id = {
 ---@field size any
 df.global_table_entry = {}
 
----@enum game_mode
-df.game_mode = {
-  DWARF = 0,
-  ADVENTURE = 1,
-  num = 2,
-  NONE = 3,
-}
+---@class (exact) _game_mode: df.struct
+---@field DWARF 0
+---@field [0] "DWARF"
+---@field ADVENTURE 1
+---@field [1] "ADVENTURE"
+---@field num 2
+---@field [2] "num"
+---@field NONE 3
+---@field [3] "NONE"
+df.game_mode = {}
 
----@enum game_type
-df.game_type = {
-  DWARF_MAIN = 0,
-  ADVENTURE_MAIN = 1,
-  VIEW_LEGENDS = 2,
-  DWARF_RECLAIM = 3,
-  DWARF_ARENA = 4,
-  ADVENTURE_ARENA = 5,
-  ADVENTURE_DUNGEON = 6,
-  DWARF_TUTORIAL = 7,
-  DWARF_UNRETIRE = 8,
-  ADVENTURE_WORLD_DEBUG = 9,
-  num = 10,
-  NONE = 11,
-}
+---@class game_mode
+---@field [0] boolean
+---@field DWARF boolean
+---@field [1] boolean
+---@field ADVENTURE boolean
+---@field [2] boolean
+---@field num boolean
+---@field [3] boolean
+---@field NONE boolean
 
----@enum lever_target_type
-df.lever_target_type = {
-  NONE = -1,
-  BarsVertical = 66,
-  BarsFloor = 70,
-  SpearsSpikes = 83,
-  TrackStop = 84,
-  GearAssembly = 97,
-  Bridge = 98,
-  Chain = 99,
-  Door = 100,
-  EncrustGems = 101,
-  Floodgate = 102,
-  GrateFloor = 103,
-  Hatch = 104,
-  Cage = 106,
-  LeverMechanism = 108, --use in lever
-  Support = 115,
-  TargetMechanism = 116, --use in target
-  GrateWall = 119,
-}
+---@class (exact) _game_type: df.struct
+---@field DWARF_MAIN 0
+---@field [0] "DWARF_MAIN"
+---@field ADVENTURE_MAIN 1
+---@field [1] "ADVENTURE_MAIN"
+---@field VIEW_LEGENDS 2
+---@field [2] "VIEW_LEGENDS"
+---@field DWARF_RECLAIM 3
+---@field [3] "DWARF_RECLAIM"
+---@field DWARF_ARENA 4
+---@field [4] "DWARF_ARENA"
+---@field ADVENTURE_ARENA 5
+---@field [5] "ADVENTURE_ARENA"
+---@field ADVENTURE_DUNGEON 6
+---@field [6] "ADVENTURE_DUNGEON"
+---@field DWARF_TUTORIAL 7
+---@field [7] "DWARF_TUTORIAL"
+---@field DWARF_UNRETIRE 8
+---@field [8] "DWARF_UNRETIRE"
+---@field ADVENTURE_WORLD_DEBUG 9
+---@field [9] "ADVENTURE_WORLD_DEBUG"
+---@field num 10
+---@field [10] "num"
+---@field NONE 11
+---@field [11] "NONE"
+df.game_type = {}
+
+---@class game_type
+---@field [0] boolean
+---@field DWARF_MAIN boolean
+---@field [1] boolean
+---@field ADVENTURE_MAIN boolean
+---@field [2] boolean
+---@field VIEW_LEGENDS boolean
+---@field [3] boolean
+---@field DWARF_RECLAIM boolean
+---@field [4] boolean
+---@field DWARF_ARENA boolean
+---@field [5] boolean
+---@field ADVENTURE_ARENA boolean
+---@field [6] boolean
+---@field ADVENTURE_DUNGEON boolean
+---@field [7] boolean
+---@field DWARF_TUTORIAL boolean
+---@field [8] boolean
+---@field DWARF_UNRETIRE boolean
+---@field [9] boolean
+---@field ADVENTURE_WORLD_DEBUG boolean
+---@field [10] boolean
+---@field num boolean
+---@field [11] boolean
+---@field NONE boolean
+
+---@class (exact) _lever_target_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field BarsVertical 66
+---@field [1] "BarsVertical"
+---@field BarsFloor 70
+---@field [2] "BarsFloor"
+---@field SpearsSpikes 83
+---@field [3] "SpearsSpikes"
+---@field TrackStop 84
+---@field [4] "TrackStop"
+---@field GearAssembly 97
+---@field [5] "GearAssembly"
+---@field Bridge 98
+---@field [6] "Bridge"
+---@field Chain 99
+---@field [7] "Chain"
+---@field Door 100
+---@field [8] "Door"
+---@field EncrustGems 101
+---@field [9] "EncrustGems"
+---@field Floodgate 102
+---@field [10] "Floodgate"
+---@field GrateFloor 103
+---@field [11] "GrateFloor"
+---@field Hatch 104
+---@field [12] "Hatch"
+---@field Cage 106
+---@field [13] "Cage"
+---@field LeverMechanism 108
+---@field [14] "LeverMechanism"
+---@field Support 115
+---@field [15] "Support"
+---@field TargetMechanism 116
+---@field [16] "TargetMechanism"
+---@field GrateWall 119
+---@field [17] "GrateWall"
+df.lever_target_type = {}
+
+---@class lever_target_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field BarsVertical boolean
+---@field [2] boolean
+---@field BarsFloor boolean
+---@field [3] boolean
+---@field SpearsSpikes boolean
+---@field [4] boolean
+---@field TrackStop boolean
+---@field [5] boolean
+---@field GearAssembly boolean
+---@field [6] boolean
+---@field Bridge boolean
+---@field [7] boolean
+---@field Chain boolean
+---@field [8] boolean
+---@field Door boolean
+---@field [9] boolean
+---@field EncrustGems boolean
+---@field [10] boolean
+---@field Floodgate boolean
+---@field [11] boolean
+---@field GrateFloor boolean
+---@field [12] boolean
+---@field Hatch boolean
+---@field [13] boolean
+---@field Cage boolean
+---@field [14] boolean
+---@field LeverMechanism boolean
+---@field [15] boolean
+---@field Support boolean
+---@field [16] boolean
+---@field TargetMechanism boolean
+---@field [17] boolean
+---@field GrateWall boolean
 
 ---@class lever_target_type_attr
 ---@field building_type building_type

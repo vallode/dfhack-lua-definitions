@@ -28,112 +28,367 @@ df.historical_kills.T_killed_undead = {}
 ---@field shooter_matindex integer
 df.history_hit_item = {}
 
----@enum reputation_type
-df.reputation_type = {
-  Hero = 0,
-  AnimalPartner = 1,
-  Brawler = 2,
-  Psycho = 3,
-  TradePartner = 4,
-  Friendly = 5,
-  Killer = 6,
-  Murderer = 7,
-  Comrade = 8,
-  RespectedGroup = 9,
-  HatedGroup = 10,
-  EnemyFighter = 11,
-  FriendlyFighter = 12,
-  Bully = 13,
-  Brigand = 14,
-  LoyalSoldier = 15,
-  Monster = 16,
-  Storyteller = 17,
-  Poet = 18,
-  Bard = 19,
-  Dancer = 20,
-  Quarreler = 21,
-  Flatterer = 22,
-  Hunter = 23,
-  ProtectorOfWeak = 24,
-  TreasureHunter = 25,
-  Thief = 26,
-  InformationSource = 27,
-  PreserverOfKnowledge = 28,
-  Intruder = 29,
-  Preacher = 30,
-}
+---@class (exact) _reputation_type: df.struct
+---@field Hero 0
+---@field [0] "Hero"
+---@field AnimalPartner 1
+---@field [1] "AnimalPartner"
+---@field Brawler 2
+---@field [2] "Brawler"
+---@field Psycho 3
+---@field [3] "Psycho"
+---@field TradePartner 4
+---@field [4] "TradePartner"
+---@field Friendly 5
+---@field [5] "Friendly"
+---@field Killer 6
+---@field [6] "Killer"
+---@field Murderer 7
+---@field [7] "Murderer"
+---@field Comrade 8
+---@field [8] "Comrade"
+---@field RespectedGroup 9
+---@field [9] "RespectedGroup"
+---@field HatedGroup 10
+---@field [10] "HatedGroup"
+---@field EnemyFighter 11
+---@field [11] "EnemyFighter"
+---@field FriendlyFighter 12
+---@field [12] "FriendlyFighter"
+---@field Bully 13
+---@field [13] "Bully"
+---@field Brigand 14
+---@field [14] "Brigand"
+---@field LoyalSoldier 15
+---@field [15] "LoyalSoldier"
+---@field Monster 16
+---@field [16] "Monster"
+---@field Storyteller 17
+---@field [17] "Storyteller"
+---@field Poet 18
+---@field [18] "Poet"
+---@field Bard 19
+---@field [19] "Bard"
+---@field Dancer 20
+---@field [20] "Dancer"
+---@field Quarreler 21
+---@field [21] "Quarreler"
+---@field Flatterer 22
+---@field [22] "Flatterer"
+---@field Hunter 23
+---@field [23] "Hunter"
+---@field ProtectorOfWeak 24
+---@field [24] "ProtectorOfWeak"
+---@field TreasureHunter 25
+---@field [25] "TreasureHunter"
+---@field Thief 26
+---@field [26] "Thief"
+---@field InformationSource 27
+---@field [27] "InformationSource"
+---@field PreserverOfKnowledge 28
+---@field [28] "PreserverOfKnowledge"
+---@field Intruder 29
+---@field [29] "Intruder"
+---@field Preacher 30
+---@field [30] "Preacher"
+df.reputation_type = {}
 
----@enum whereabouts_type
-df.whereabouts_type = {
-  NONE = -1,
-  wanderer = 1, --wandering the wilds/region/depths of the world (none/region/underground_region)
-  settler = 2, --site/region, region only for dead 'monsters'
-  refugee = 3, --into region only for dead. refugees and abucted-imprisoned-turned
-  army_died = 4, --either no record of participation in battle, or character died and defender won (character on either side)
-  army_survived = 5, --either no record of participation in battle, or character survived and defender won (character on either side)
-  visitor = 6, --'visited' as last movement seems to be the key
-}
+---@class reputation_type
+---@field [0] boolean
+---@field Hero boolean
+---@field [1] boolean
+---@field AnimalPartner boolean
+---@field [2] boolean
+---@field Brawler boolean
+---@field [3] boolean
+---@field Psycho boolean
+---@field [4] boolean
+---@field TradePartner boolean
+---@field [5] boolean
+---@field Friendly boolean
+---@field [6] boolean
+---@field Killer boolean
+---@field [7] boolean
+---@field Murderer boolean
+---@field [8] boolean
+---@field Comrade boolean
+---@field [9] boolean
+---@field RespectedGroup boolean
+---@field [10] boolean
+---@field HatedGroup boolean
+---@field [11] boolean
+---@field EnemyFighter boolean
+---@field [12] boolean
+---@field FriendlyFighter boolean
+---@field [13] boolean
+---@field Bully boolean
+---@field [14] boolean
+---@field Brigand boolean
+---@field [15] boolean
+---@field LoyalSoldier boolean
+---@field [16] boolean
+---@field Monster boolean
+---@field [17] boolean
+---@field Storyteller boolean
+---@field [18] boolean
+---@field Poet boolean
+---@field [19] boolean
+---@field Bard boolean
+---@field [20] boolean
+---@field Dancer boolean
+---@field [21] boolean
+---@field Quarreler boolean
+---@field [22] boolean
+---@field Flatterer boolean
+---@field [23] boolean
+---@field Hunter boolean
+---@field [24] boolean
+---@field ProtectorOfWeak boolean
+---@field [25] boolean
+---@field TreasureHunter boolean
+---@field [26] boolean
+---@field Thief boolean
+---@field [27] boolean
+---@field InformationSource boolean
+---@field [28] boolean
+---@field PreserverOfKnowledge boolean
+---@field [29] boolean
+---@field Intruder boolean
+---@field [30] boolean
+---@field Preacher boolean
 
----@enum season
-df.season = {
-  None = -1,
-  Spring = 1,
-  Summer = 2,
-  Autumn = 3,
-  Winter = 4,
-}
+---@class (exact) _whereabouts_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field wanderer 1
+---@field [1] "wanderer"
+---@field settler 2
+---@field [2] "settler"
+---@field refugee 3
+---@field [3] "refugee"
+---@field army_died 4
+---@field [4] "army_died"
+---@field army_survived 5
+---@field [5] "army_survived"
+---@field visitor 6
+---@field [6] "visitor"
+df.whereabouts_type = {}
 
----@enum death_condition_type
-df.death_condition_type = {
-  no_statement = 0, --alive or dead, but death conditions not registered here
-  site_battle = 1, --parameters: site id + optional structure
-  region_battle = 2, --parameters: two unknown values, usually small, with same pair being the same region, but neither is region_id
-  wilderness = 3, --parameters: region_id + -1
-  unk_4 = 4,
-  entombed = 5, --same parameters as for site_battle, but structure seems to always be present and be a tomb
-  site = 6, --same parameters as for site_battle, old age and deadly confrontation seen
-}
+---@class whereabouts_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field wanderer boolean
+---@field [2] boolean
+---@field settler boolean
+---@field [3] boolean
+---@field refugee boolean
+---@field [4] boolean
+---@field army_died boolean
+---@field [5] boolean
+---@field army_survived boolean
+---@field [6] boolean
+---@field visitor boolean
 
----@enum plot_role_type
-df.plot_role_type = {
-  None = -1,
-  Possible_Threat = 1,
-  Rebuffed = 2,
-  Source_Of_Funds = 3,
-  Source_Of_Funds_For_Master = 4,
-  Master = 5,
-  Suspected_Criminal = 6,
-  Asset = 7,
-  Lieutenant = 8,
-  Usable_Thief = 9,
-  Potential_Employer = 10,
-  Indirect_Director = 11, --Seen as 'possibly unknown director' in actor's exported XML when influencing the plotter using an intermediary in Legends Mode
-  Corrupt_Position_Holder = 12,
-  Delivery_Target = 13,
-  Handler = 14,
-  Usable_Assassin = 15,
-  Director = 16, --Seen with no role or 'potential employer' in actor's exported XML, and as the one influencing the plotter in Legends Mode
-  Enemy = 17,
-  Usable_Snatcher = 18,
-  unk_19 = 19,
-  unk_20 = 20,
-  Underworld_Contact = 21,
-  Possibly_Unknown_Director = 22,
-}
+---@class (exact) _season: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Spring 1
+---@field [1] "Spring"
+---@field Summer 2
+---@field [2] "Summer"
+---@field Autumn 3
+---@field [3] "Autumn"
+---@field Winter 4
+---@field [4] "Winter"
+df.season = {}
 
----@enum plot_strategy_type
-df.plot_strategy_type = {
-  None = -1,
-  Corrupt_And_Pacify = 1,
-  Obey = 2,
-  Avoid = 3,
-  Use = 4,
-  Tax = 5,
-  Neutralize = 6,
-  Monitor = 7,
-  Work_If_Suited = 8,
-  Torment = 9,
-}
+---@class season
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Spring boolean
+---@field [2] boolean
+---@field Summer boolean
+---@field [3] boolean
+---@field Autumn boolean
+---@field [4] boolean
+---@field Winter boolean
+
+---@class (exact) _death_condition_type: df.struct
+---@field no_statement 0
+---@field [0] "no_statement"
+---@field site_battle 1
+---@field [1] "site_battle"
+---@field region_battle 2
+---@field [2] "region_battle"
+---@field wilderness 3
+---@field [3] "wilderness"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field entombed 5
+---@field [5] "entombed"
+---@field site 6
+---@field [6] "site"
+df.death_condition_type = {}
+
+---@class death_condition_type
+---@field [0] boolean
+---@field no_statement boolean
+---@field [1] boolean
+---@field site_battle boolean
+---@field [2] boolean
+---@field region_battle boolean
+---@field [3] boolean
+---@field wilderness boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field entombed boolean
+---@field [6] boolean
+---@field site boolean
+
+---@class (exact) _plot_role_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Possible_Threat 1
+---@field [1] "Possible_Threat"
+---@field Rebuffed 2
+---@field [2] "Rebuffed"
+---@field Source_Of_Funds 3
+---@field [3] "Source_Of_Funds"
+---@field Source_Of_Funds_For_Master 4
+---@field [4] "Source_Of_Funds_For_Master"
+---@field Master 5
+---@field [5] "Master"
+---@field Suspected_Criminal 6
+---@field [6] "Suspected_Criminal"
+---@field Asset 7
+---@field [7] "Asset"
+---@field Lieutenant 8
+---@field [8] "Lieutenant"
+---@field Usable_Thief 9
+---@field [9] "Usable_Thief"
+---@field Potential_Employer 10
+---@field [10] "Potential_Employer"
+---@field Indirect_Director 11
+---@field [11] "Indirect_Director"
+---@field Corrupt_Position_Holder 12
+---@field [12] "Corrupt_Position_Holder"
+---@field Delivery_Target 13
+---@field [13] "Delivery_Target"
+---@field Handler 14
+---@field [14] "Handler"
+---@field Usable_Assassin 15
+---@field [15] "Usable_Assassin"
+---@field Director 16
+---@field [16] "Director"
+---@field Enemy 17
+---@field [17] "Enemy"
+---@field Usable_Snatcher 18
+---@field [18] "Usable_Snatcher"
+---@field unk_19 19
+---@field [19] "unk_19"
+---@field unk_20 20
+---@field [20] "unk_20"
+---@field Underworld_Contact 21
+---@field [21] "Underworld_Contact"
+---@field Possibly_Unknown_Director 22
+---@field [22] "Possibly_Unknown_Director"
+df.plot_role_type = {}
+
+---@class plot_role_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Possible_Threat boolean
+---@field [2] boolean
+---@field Rebuffed boolean
+---@field [3] boolean
+---@field Source_Of_Funds boolean
+---@field [4] boolean
+---@field Source_Of_Funds_For_Master boolean
+---@field [5] boolean
+---@field Master boolean
+---@field [6] boolean
+---@field Suspected_Criminal boolean
+---@field [7] boolean
+---@field Asset boolean
+---@field [8] boolean
+---@field Lieutenant boolean
+---@field [9] boolean
+---@field Usable_Thief boolean
+---@field [10] boolean
+---@field Potential_Employer boolean
+---@field [11] boolean
+---@field Indirect_Director boolean
+---@field [12] boolean
+---@field Corrupt_Position_Holder boolean
+---@field [13] boolean
+---@field Delivery_Target boolean
+---@field [14] boolean
+---@field Handler boolean
+---@field [15] boolean
+---@field Usable_Assassin boolean
+---@field [16] boolean
+---@field Director boolean
+---@field [17] boolean
+---@field Enemy boolean
+---@field [18] boolean
+---@field Usable_Snatcher boolean
+---@field [19] boolean
+---@field unk_19 boolean
+---@field [20] boolean
+---@field unk_20 boolean
+---@field [21] boolean
+---@field Underworld_Contact boolean
+---@field [22] boolean
+---@field Possibly_Unknown_Director boolean
+
+---@class (exact) _plot_strategy_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Corrupt_And_Pacify 1
+---@field [1] "Corrupt_And_Pacify"
+---@field Obey 2
+---@field [2] "Obey"
+---@field Avoid 3
+---@field [3] "Avoid"
+---@field Use 4
+---@field [4] "Use"
+---@field Tax 5
+---@field [5] "Tax"
+---@field Neutralize 6
+---@field [6] "Neutralize"
+---@field Monitor 7
+---@field [7] "Monitor"
+---@field Work_If_Suited 8
+---@field [8] "Work_If_Suited"
+---@field Torment 9
+---@field [9] "Torment"
+df.plot_strategy_type = {}
+
+---@class plot_strategy_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Corrupt_And_Pacify boolean
+---@field [2] boolean
+---@field Obey boolean
+---@field [3] boolean
+---@field Avoid boolean
+---@field [4] boolean
+---@field Use boolean
+---@field [5] boolean
+---@field Tax boolean
+---@field [6] boolean
+---@field Neutralize boolean
+---@field [7] boolean
+---@field Monitor boolean
+---@field [8] boolean
+---@field Work_If_Suited boolean
+---@field [9] boolean
+---@field Torment boolean
 
 ---@class plot_agreement: df.struct
 ---@field actor_id historical_figure
@@ -197,12 +452,22 @@ df.historical_figure_relationships = {}
 ---@field first_year_tick integer
 df.historical_figure_relationships.T_hf_visual = {}
 
----@enum hf_visual_flags
-df.hf_visual.T_flags = {
-  information_source = 0,
-  unk_1 = 1,
-  believes_false_identity = 2,
-}
+---@class (exact) _hf_visual_flags: df.struct
+---@field information_source 0
+---@field [0] "information_source"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field believes_false_identity 2
+---@field [2] "believes_false_identity"
+df.hf_visual.T_flags = {}
+
+---@class hf_visual_flags
+---@field [0] boolean
+---@field information_source boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field believes_false_identity boolean
 
 ---@class hf_visual_attitude: df.struct
 df.hf_visual.T_attitude = {}
@@ -238,134 +503,485 @@ df.historical_figure_relationships.T_unk_1 = {}
 ---@field unk_2 integer
 df.historical_figure_relationships.T_artifact_claims = {}
 
----@enum histfig_flags
-df.histfig_flags = {
-  reveal_artwork = 0,
-  equipment_created = 1,
-  deity = 2,
-  force = 3,
-  skeletal_deity = 4,
-  rotting_deity = 5,
-  worldgen_acted = 6,
-  ghost = 7,
-  skin_destroyed = 8,
-  meat_destroyed = 9,
-  bones_destroyed = 10,
-  brag_on_kill = 11,
-  kill_quest = 12,
-  chatworthy = 13,
-  flashes = 14,
-  never_cull = 15,
-}
+---@class (exact) _histfig_flags: df.struct
+---@field reveal_artwork 0
+---@field [0] "reveal_artwork"
+---@field equipment_created 1
+---@field [1] "equipment_created"
+---@field deity 2
+---@field [2] "deity"
+---@field force 3
+---@field [3] "force"
+---@field skeletal_deity 4
+---@field [4] "skeletal_deity"
+---@field rotting_deity 5
+---@field [5] "rotting_deity"
+---@field worldgen_acted 6
+---@field [6] "worldgen_acted"
+---@field ghost 7
+---@field [7] "ghost"
+---@field skin_destroyed 8
+---@field [8] "skin_destroyed"
+---@field meat_destroyed 9
+---@field [9] "meat_destroyed"
+---@field bones_destroyed 10
+---@field [10] "bones_destroyed"
+---@field brag_on_kill 11
+---@field [11] "brag_on_kill"
+---@field kill_quest 12
+---@field [12] "kill_quest"
+---@field chatworthy 13
+---@field [13] "chatworthy"
+---@field flashes 14
+---@field [14] "flashes"
+---@field never_cull 15
+---@field [15] "never_cull"
+df.histfig_flags = {}
 
----@enum histfig_relationship_type
-df.histfig_relationship_type = {
-  None = -1,
-  Mother = 1,
-  Father = 2,
-  Parent = 3,
-  Husband = 4,
-  Wife = 5,
-  Spouse = 6,
-  SonEldest = 7,
-  SonEldest2 = 8,
-  SonEldest3 = 9,
-  SonEldest4 = 10,
-  SonEldest5 = 11,
-  SonEldest6 = 12,
-  SonEldest7 = 13,
-  SonEldest8 = 14,
-  SonEldest9 = 15,
-  SonEldest10 = 16,
-  Son = 17,
-  SonYoungest = 18,
-  SonOnly = 19,
-  DaughterEldest = 20,
-  DaughterEldest2 = 21,
-  DaughterEldest3 = 22,
-  DaughterEldest4 = 23,
-  DaughterEldest5 = 24,
-  DaughterEldest6 = 25,
-  DaughterEldest7 = 26,
-  DaughterEldest8 = 27,
-  DaughterEldest9 = 28,
-  DaughterEldest10 = 29,
-  Daughter = 30,
-  DaughterOnly = 31,
-  DaughterYoungest = 32,
-  ChildEldest = 33,
-  ChildEldest2 = 34,
-  ChildEldest3 = 35,
-  ChildEldest4 = 36,
-  ChildEldest5 = 37,
-  ChildEldest6 = 38,
-  ChildEldest7 = 39,
-  ChildEldest8 = 40,
-  ChildEldest9 = 41,
-  ChildEldest10 = 42,
-  Child = 43,
-  ChildYoungest = 44,
-  ChildOnly = 45,
-  PaternalGrandmother = 46,
-  PaternalGrandfather = 47,
-  MaternalGrandmother = 48,
-  MaternalGrandfather = 49,
-  Grandmother = 50,
-  Grandfather = 51,
-  Grandparent = 52,
-  OlderBrother = 53,
-  OlderSister = 54,
-  OlderSibling = 55,
-  YoungerBrother = 56,
-  YoungerSister = 57,
-  YoungerSibling = 58,
-  Cousin = 59,
-  Aunt = 60,
-  Uncle = 61,
-  Niece = 62,
-  Nephew = 63,
-  Sibling = 64,
-  Grandchild = 65,
-  OlderHalfBrother = 66, --'since' valid for this entry and those below
-  OlderHalfSister = 67,
-  OlderHalfSibling = 68,
-  YoungerHalfBrother = 69,
-  YoungerHalfSister = 70,
-  YoungerHalfSibling = 71,
-  HalfSibling = 72,
-}
+---@class histfig_flags
+---@field [0] boolean
+---@field reveal_artwork boolean
+---@field [1] boolean
+---@field equipment_created boolean
+---@field [2] boolean
+---@field deity boolean
+---@field [3] boolean
+---@field force boolean
+---@field [4] boolean
+---@field skeletal_deity boolean
+---@field [5] boolean
+---@field rotting_deity boolean
+---@field [6] boolean
+---@field worldgen_acted boolean
+---@field [7] boolean
+---@field ghost boolean
+---@field [8] boolean
+---@field skin_destroyed boolean
+---@field [9] boolean
+---@field meat_destroyed boolean
+---@field [10] boolean
+---@field bones_destroyed boolean
+---@field [11] boolean
+---@field brag_on_kill boolean
+---@field [12] boolean
+---@field kill_quest boolean
+---@field [13] boolean
+---@field chatworthy boolean
+---@field [14] boolean
+---@field flashes boolean
+---@field [15] boolean
+---@field never_cull boolean
 
----@enum vague_relationship_type
+---@class (exact) _histfig_relationship_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Mother 1
+---@field [1] "Mother"
+---@field Father 2
+---@field [2] "Father"
+---@field Parent 3
+---@field [3] "Parent"
+---@field Husband 4
+---@field [4] "Husband"
+---@field Wife 5
+---@field [5] "Wife"
+---@field Spouse 6
+---@field [6] "Spouse"
+---@field SonEldest 7
+---@field [7] "SonEldest"
+---@field SonEldest2 8
+---@field [8] "SonEldest2"
+---@field SonEldest3 9
+---@field [9] "SonEldest3"
+---@field SonEldest4 10
+---@field [10] "SonEldest4"
+---@field SonEldest5 11
+---@field [11] "SonEldest5"
+---@field SonEldest6 12
+---@field [12] "SonEldest6"
+---@field SonEldest7 13
+---@field [13] "SonEldest7"
+---@field SonEldest8 14
+---@field [14] "SonEldest8"
+---@field SonEldest9 15
+---@field [15] "SonEldest9"
+---@field SonEldest10 16
+---@field [16] "SonEldest10"
+---@field Son 17
+---@field [17] "Son"
+---@field SonYoungest 18
+---@field [18] "SonYoungest"
+---@field SonOnly 19
+---@field [19] "SonOnly"
+---@field DaughterEldest 20
+---@field [20] "DaughterEldest"
+---@field DaughterEldest2 21
+---@field [21] "DaughterEldest2"
+---@field DaughterEldest3 22
+---@field [22] "DaughterEldest3"
+---@field DaughterEldest4 23
+---@field [23] "DaughterEldest4"
+---@field DaughterEldest5 24
+---@field [24] "DaughterEldest5"
+---@field DaughterEldest6 25
+---@field [25] "DaughterEldest6"
+---@field DaughterEldest7 26
+---@field [26] "DaughterEldest7"
+---@field DaughterEldest8 27
+---@field [27] "DaughterEldest8"
+---@field DaughterEldest9 28
+---@field [28] "DaughterEldest9"
+---@field DaughterEldest10 29
+---@field [29] "DaughterEldest10"
+---@field Daughter 30
+---@field [30] "Daughter"
+---@field DaughterOnly 31
+---@field [31] "DaughterOnly"
+---@field DaughterYoungest 32
+---@field [32] "DaughterYoungest"
+---@field ChildEldest 33
+---@field [33] "ChildEldest"
+---@field ChildEldest2 34
+---@field [34] "ChildEldest2"
+---@field ChildEldest3 35
+---@field [35] "ChildEldest3"
+---@field ChildEldest4 36
+---@field [36] "ChildEldest4"
+---@field ChildEldest5 37
+---@field [37] "ChildEldest5"
+---@field ChildEldest6 38
+---@field [38] "ChildEldest6"
+---@field ChildEldest7 39
+---@field [39] "ChildEldest7"
+---@field ChildEldest8 40
+---@field [40] "ChildEldest8"
+---@field ChildEldest9 41
+---@field [41] "ChildEldest9"
+---@field ChildEldest10 42
+---@field [42] "ChildEldest10"
+---@field Child 43
+---@field [43] "Child"
+---@field ChildYoungest 44
+---@field [44] "ChildYoungest"
+---@field ChildOnly 45
+---@field [45] "ChildOnly"
+---@field PaternalGrandmother 46
+---@field [46] "PaternalGrandmother"
+---@field PaternalGrandfather 47
+---@field [47] "PaternalGrandfather"
+---@field MaternalGrandmother 48
+---@field [48] "MaternalGrandmother"
+---@field MaternalGrandfather 49
+---@field [49] "MaternalGrandfather"
+---@field Grandmother 50
+---@field [50] "Grandmother"
+---@field Grandfather 51
+---@field [51] "Grandfather"
+---@field Grandparent 52
+---@field [52] "Grandparent"
+---@field OlderBrother 53
+---@field [53] "OlderBrother"
+---@field OlderSister 54
+---@field [54] "OlderSister"
+---@field OlderSibling 55
+---@field [55] "OlderSibling"
+---@field YoungerBrother 56
+---@field [56] "YoungerBrother"
+---@field YoungerSister 57
+---@field [57] "YoungerSister"
+---@field YoungerSibling 58
+---@field [58] "YoungerSibling"
+---@field Cousin 59
+---@field [59] "Cousin"
+---@field Aunt 60
+---@field [60] "Aunt"
+---@field Uncle 61
+---@field [61] "Uncle"
+---@field Niece 62
+---@field [62] "Niece"
+---@field Nephew 63
+---@field [63] "Nephew"
+---@field Sibling 64
+---@field [64] "Sibling"
+---@field Grandchild 65
+---@field [65] "Grandchild"
+---@field OlderHalfBrother 66
+---@field [66] "OlderHalfBrother"
+---@field OlderHalfSister 67
+---@field [67] "OlderHalfSister"
+---@field OlderHalfSibling 68
+---@field [68] "OlderHalfSibling"
+---@field YoungerHalfBrother 69
+---@field [69] "YoungerHalfBrother"
+---@field YoungerHalfSister 70
+---@field [70] "YoungerHalfSister"
+---@field YoungerHalfSibling 71
+---@field [71] "YoungerHalfSibling"
+---@field HalfSibling 72
+---@field [72] "HalfSibling"
+df.histfig_relationship_type = {}
+
+---@class histfig_relationship_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Mother boolean
+---@field [2] boolean
+---@field Father boolean
+---@field [3] boolean
+---@field Parent boolean
+---@field [4] boolean
+---@field Husband boolean
+---@field [5] boolean
+---@field Wife boolean
+---@field [6] boolean
+---@field Spouse boolean
+---@field [7] boolean
+---@field SonEldest boolean
+---@field [8] boolean
+---@field SonEldest2 boolean
+---@field [9] boolean
+---@field SonEldest3 boolean
+---@field [10] boolean
+---@field SonEldest4 boolean
+---@field [11] boolean
+---@field SonEldest5 boolean
+---@field [12] boolean
+---@field SonEldest6 boolean
+---@field [13] boolean
+---@field SonEldest7 boolean
+---@field [14] boolean
+---@field SonEldest8 boolean
+---@field [15] boolean
+---@field SonEldest9 boolean
+---@field [16] boolean
+---@field SonEldest10 boolean
+---@field [17] boolean
+---@field Son boolean
+---@field [18] boolean
+---@field SonYoungest boolean
+---@field [19] boolean
+---@field SonOnly boolean
+---@field [20] boolean
+---@field DaughterEldest boolean
+---@field [21] boolean
+---@field DaughterEldest2 boolean
+---@field [22] boolean
+---@field DaughterEldest3 boolean
+---@field [23] boolean
+---@field DaughterEldest4 boolean
+---@field [24] boolean
+---@field DaughterEldest5 boolean
+---@field [25] boolean
+---@field DaughterEldest6 boolean
+---@field [26] boolean
+---@field DaughterEldest7 boolean
+---@field [27] boolean
+---@field DaughterEldest8 boolean
+---@field [28] boolean
+---@field DaughterEldest9 boolean
+---@field [29] boolean
+---@field DaughterEldest10 boolean
+---@field [30] boolean
+---@field Daughter boolean
+---@field [31] boolean
+---@field DaughterOnly boolean
+---@field [32] boolean
+---@field DaughterYoungest boolean
+---@field [33] boolean
+---@field ChildEldest boolean
+---@field [34] boolean
+---@field ChildEldest2 boolean
+---@field [35] boolean
+---@field ChildEldest3 boolean
+---@field [36] boolean
+---@field ChildEldest4 boolean
+---@field [37] boolean
+---@field ChildEldest5 boolean
+---@field [38] boolean
+---@field ChildEldest6 boolean
+---@field [39] boolean
+---@field ChildEldest7 boolean
+---@field [40] boolean
+---@field ChildEldest8 boolean
+---@field [41] boolean
+---@field ChildEldest9 boolean
+---@field [42] boolean
+---@field ChildEldest10 boolean
+---@field [43] boolean
+---@field Child boolean
+---@field [44] boolean
+---@field ChildYoungest boolean
+---@field [45] boolean
+---@field ChildOnly boolean
+---@field [46] boolean
+---@field PaternalGrandmother boolean
+---@field [47] boolean
+---@field PaternalGrandfather boolean
+---@field [48] boolean
+---@field MaternalGrandmother boolean
+---@field [49] boolean
+---@field MaternalGrandfather boolean
+---@field [50] boolean
+---@field Grandmother boolean
+---@field [51] boolean
+---@field Grandfather boolean
+---@field [52] boolean
+---@field Grandparent boolean
+---@field [53] boolean
+---@field OlderBrother boolean
+---@field [54] boolean
+---@field OlderSister boolean
+---@field [55] boolean
+---@field OlderSibling boolean
+---@field [56] boolean
+---@field YoungerBrother boolean
+---@field [57] boolean
+---@field YoungerSister boolean
+---@field [58] boolean
+---@field YoungerSibling boolean
+---@field [59] boolean
+---@field Cousin boolean
+---@field [60] boolean
+---@field Aunt boolean
+---@field [61] boolean
+---@field Uncle boolean
+---@field [62] boolean
+---@field Niece boolean
+---@field [63] boolean
+---@field Nephew boolean
+---@field [64] boolean
+---@field Sibling boolean
+---@field [65] boolean
+---@field Grandchild boolean
+---@field [66] boolean
+---@field OlderHalfBrother boolean
+---@field [67] boolean
+---@field OlderHalfSister boolean
+---@field [68] boolean
+---@field OlderHalfSibling boolean
+---@field [69] boolean
+---@field YoungerHalfBrother boolean
+---@field [70] boolean
+---@field YoungerHalfSister boolean
+---@field [71] boolean
+---@field YoungerHalfSibling boolean
+---@field [72] boolean
+---@field HalfSibling boolean
+
+---@class (exact) _vague_relationship_type: df.struct
 ---not a great name given that lovers, ex lovers, and lieutenants appear here, but histfig and unit are both used...
-df.vague_relationship_type = {
-  none = -1,
-  childhood_friend = 1,
-  war_buddy = 2,
-  jealous_obsession = 3,
-  jealous_relationship_grudge = 4,
-  lover = 5,
-  former_lover = 6, --broke up
-  scholar_buddy = 7,
-  artistic_buddy = 8,
-  athlete_buddy = 9,
-  atheletic_rival = 10,
-  business_rival = 11,
-  religious_persecution_grudge = 12,
-  grudge = 13,
-  persecution_grudge = 14,
-  supernatural_grudge = 15,
-  lieutenant = 16,
-  worshipped_deity = 17,
-  spouse = 18,
-  mother = 19,
-  father = 20,
-  master = 21,
-  apprentice = 22,
-  companion = 23,
-  ex_spouse = 24,
-  neighbor = 25,
-  shared_entity = 26, --Religion/PerformanceTroupe/MerchantCompany/Guild
-}
+---@field none -1
+---@field [0] "none"
+---@field childhood_friend 1
+---@field [1] "childhood_friend"
+---@field war_buddy 2
+---@field [2] "war_buddy"
+---@field jealous_obsession 3
+---@field [3] "jealous_obsession"
+---@field jealous_relationship_grudge 4
+---@field [4] "jealous_relationship_grudge"
+---@field lover 5
+---@field [5] "lover"
+---@field former_lover 6
+---@field [6] "former_lover"
+---@field scholar_buddy 7
+---@field [7] "scholar_buddy"
+---@field artistic_buddy 8
+---@field [8] "artistic_buddy"
+---@field athlete_buddy 9
+---@field [9] "athlete_buddy"
+---@field atheletic_rival 10
+---@field [10] "atheletic_rival"
+---@field business_rival 11
+---@field [11] "business_rival"
+---@field religious_persecution_grudge 12
+---@field [12] "religious_persecution_grudge"
+---@field grudge 13
+---@field [13] "grudge"
+---@field persecution_grudge 14
+---@field [14] "persecution_grudge"
+---@field supernatural_grudge 15
+---@field [15] "supernatural_grudge"
+---@field lieutenant 16
+---@field [16] "lieutenant"
+---@field worshipped_deity 17
+---@field [17] "worshipped_deity"
+---@field spouse 18
+---@field [18] "spouse"
+---@field mother 19
+---@field [19] "mother"
+---@field father 20
+---@field [20] "father"
+---@field master 21
+---@field [21] "master"
+---@field apprentice 22
+---@field [22] "apprentice"
+---@field companion 23
+---@field [23] "companion"
+---@field ex_spouse 24
+---@field [24] "ex_spouse"
+---@field neighbor 25
+---@field [25] "neighbor"
+---@field shared_entity 26
+---@field [26] "shared_entity"
+df.vague_relationship_type = {}
+
+---@class vague_relationship_type
+---@field [0] boolean
+---@field none boolean
+---@field [1] boolean
+---@field childhood_friend boolean
+---@field [2] boolean
+---@field war_buddy boolean
+---@field [3] boolean
+---@field jealous_obsession boolean
+---@field [4] boolean
+---@field jealous_relationship_grudge boolean
+---@field [5] boolean
+---@field lover boolean
+---@field [6] boolean
+---@field former_lover boolean
+---@field [7] boolean
+---@field scholar_buddy boolean
+---@field [8] boolean
+---@field artistic_buddy boolean
+---@field [9] boolean
+---@field athlete_buddy boolean
+---@field [10] boolean
+---@field atheletic_rival boolean
+---@field [11] boolean
+---@field business_rival boolean
+---@field [12] boolean
+---@field religious_persecution_grudge boolean
+---@field [13] boolean
+---@field grudge boolean
+---@field [14] boolean
+---@field persecution_grudge boolean
+---@field [15] boolean
+---@field supernatural_grudge boolean
+---@field [16] boolean
+---@field lieutenant boolean
+---@field [17] boolean
+---@field worshipped_deity boolean
+---@field [18] boolean
+---@field spouse boolean
+---@field [19] boolean
+---@field mother boolean
+---@field [20] boolean
+---@field father boolean
+---@field [21] boolean
+---@field master boolean
+---@field [22] boolean
+---@field apprentice boolean
+---@field [23] boolean
+---@field companion boolean
+---@field [24] boolean
+---@field ex_spouse boolean
+---@field [25] boolean
+---@field neighbor boolean
+---@field [26] boolean
+---@field shared_entity boolean
 
 ---@class historical_figure: df.instance
 ---@field profession profession
@@ -411,16 +1027,38 @@ df.vague_relationship_type = {
 ---@field unk_5 integer
 df.historical_figure = {}
 
----@enum identity_type
-df.identity_type = {
-  None = -1, --Seen on adventurer assuming an identity for reasons unknown
-  HidingCurse = 1, --Inferred from Units.cpp after examining code using 'unk_4c'
-  Impersonating = 2, --Seen where primeval creatures impersonate 'real' gods in modded game
-  TrueName = 3, --E.g. of demonic overlords. Can be used by adventurers to gain sway over them
-  FalseIdentity = 4, --For underhanded purposes
-  InfiltrationIdentity = 5, --A guess. The cases seen all had the HFs fool the same entity that they were members of it, but no actual purpose was seen
-  Identity = 6, --Claim a new official identity, seen when religious appointments are received
-}
+---@class (exact) _identity_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field HidingCurse 1
+---@field [1] "HidingCurse"
+---@field Impersonating 2
+---@field [2] "Impersonating"
+---@field TrueName 3
+---@field [3] "TrueName"
+---@field FalseIdentity 4
+---@field [4] "FalseIdentity"
+---@field InfiltrationIdentity 5
+---@field [5] "InfiltrationIdentity"
+---@field Identity 6
+---@field [6] "Identity"
+df.identity_type = {}
+
+---@class identity_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field HidingCurse boolean
+---@field [2] boolean
+---@field Impersonating boolean
+---@field [3] boolean
+---@field TrueName boolean
+---@field [4] boolean
+---@field FalseIdentity boolean
+---@field [5] boolean
+---@field InfiltrationIdentity boolean
+---@field [6] boolean
+---@field Identity boolean
 
 ---@class identity_type_attr
 ---@field id_tag string
@@ -469,18 +1107,46 @@ df.identity_unk_94 = {}
 ---@field unk_5 integer
 df.identity_unk_95 = {}
 
----@enum mental_picture_property_type
-df.mental_picture_property_type = {
-  DATE = 0,
-  ACTION = 1,
-  TOOL = 2,
-  EMOTION = 3,
-  COLOR_PATTERN = 4,
-  SHAPE = 5,
-  ADJECTIVE = 6,
-  POSITION = 7,
-  TIME = 8,
-}
+---@class (exact) _mental_picture_property_type: df.struct
+---@field DATE 0
+---@field [0] "DATE"
+---@field ACTION 1
+---@field [1] "ACTION"
+---@field TOOL 2
+---@field [2] "TOOL"
+---@field EMOTION 3
+---@field [3] "EMOTION"
+---@field COLOR_PATTERN 4
+---@field [4] "COLOR_PATTERN"
+---@field SHAPE 5
+---@field [5] "SHAPE"
+---@field ADJECTIVE 6
+---@field [6] "ADJECTIVE"
+---@field POSITION 7
+---@field [7] "POSITION"
+---@field TIME 8
+---@field [8] "TIME"
+df.mental_picture_property_type = {}
+
+---@class mental_picture_property_type
+---@field [0] boolean
+---@field DATE boolean
+---@field [1] boolean
+---@field ACTION boolean
+---@field [2] boolean
+---@field TOOL boolean
+---@field [3] boolean
+---@field EMOTION boolean
+---@field [4] boolean
+---@field COLOR_PATTERN boolean
+---@field [5] boolean
+---@field SHAPE boolean
+---@field [6] boolean
+---@field ADJECTIVE boolean
+---@field [7] boolean
+---@field POSITION boolean
+---@field [8] boolean
+---@field TIME boolean
 
 ---@class mental_picture_propertyst: df.struct
 ---@field unk_0 integer
@@ -536,12 +1202,22 @@ df.mental_picture_property_positionst = {}
 ---@field unk_3 integer
 df.mental_picture_property_timest = {}
 
----@enum mental_picture_element_type
-df.mental_picture_element_type = {
-  HF = 0,
-  SITE = 1,
-  REGION = 2,
-}
+---@class (exact) _mental_picture_element_type: df.struct
+---@field HF 0
+---@field [0] "HF"
+---@field SITE 1
+---@field [1] "SITE"
+---@field REGION 2
+---@field [2] "REGION"
+df.mental_picture_element_type = {}
+
+---@class mental_picture_element_type
+---@field [0] boolean
+---@field HF boolean
+---@field [1] boolean
+---@field SITE boolean
+---@field [2] boolean
+---@field REGION boolean
 
 ---@class mental_picture_elementst: df.struct
 ---@field unk_1 integer
@@ -559,242 +1235,928 @@ df.mental_picture_element_sitest = {}
 ---@field unk_1 integer
 df.mental_picture_element_regionst = {}
 
----@enum history_event_type
-df.history_event_type = {
-  WAR_ATTACKED_SITE = 0,
-  WAR_DESTROYED_SITE = 1,
-  CREATED_SITE = 2,
-  HIST_FIGURE_DIED = 3,
-  ADD_HF_ENTITY_LINK = 4,
-  REMOVE_HF_ENTITY_LINK = 5,
-  FIRST_CONTACT = 6,
-  FIRST_CONTACT_FAILED = 7,
-  TOPICAGREEMENT_CONCLUDED = 8,
-  TOPICAGREEMENT_REJECTED = 9,
-  TOPICAGREEMENT_MADE = 10,
-  WAR_PEACE_ACCEPTED = 11,
-  WAR_PEACE_REJECTED = 12,
-  DIPLOMAT_LOST = 13,
-  AGREEMENTS_VOIDED = 14,
-  MERCHANT = 15,
-  ARTIFACT_HIDDEN = 16,
-  ARTIFACT_POSSESSED = 17,
-  ARTIFACT_CREATED = 18,
-  ARTIFACT_LOST = 19,
-  ARTIFACT_FOUND = 20,
-  ARTIFACT_RECOVERED = 21,
-  ARTIFACT_DROPPED = 22,
-  RECLAIM_SITE = 23,
-  HF_DESTROYED_SITE = 24,
-  SITE_DIED = 25,
-  SITE_RETIRED = 26,
-  ENTITY_CREATED = 27,
-  ENTITY_ACTION = 28,
-  ENTITY_INCORPORATED = 29,
-  CREATED_BUILDING = 30,
-  REPLACED_BUILDING = 31,
-  ADD_HF_SITE_LINK = 32,
-  REMOVE_HF_SITE_LINK = 33,
-  ADD_HF_HF_LINK = 34,
-  REMOVE_HF_HF_LINK = 35,
-  ENTITY_RAZED_BUILDING = 36,
-  MASTERPIECE_CREATED_ARCH_CONSTRUCT = 37,
-  MASTERPIECE_CREATED_ITEM = 38,
-  MASTERPIECE_CREATED_DYE_ITEM = 39,
-  MASTERPIECE_CREATED_ITEM_IMPROVEMENT = 40,
-  MASTERPIECE_CREATED_FOOD = 41,
-  MASTERPIECE_CREATED_ENGRAVING = 42,
-  MASTERPIECE_LOST = 43,
-  CHANGE_HF_STATE = 44,
-  CHANGE_HF_JOB = 45,
-  WAR_FIELD_BATTLE = 46,
-  WAR_PLUNDERED_SITE = 47,
-  WAR_SITE_NEW_LEADER = 48,
-  WAR_SITE_TRIBUTE_FORCED = 49,
-  WAR_SITE_TAKEN_OVER = 50,
-  BODY_ABUSED = 51,
-  HIST_FIGURE_ABDUCTED = 52,
-  ITEM_STOLEN = 53,
-  HF_RAZED_BUILDING = 54,
-  CREATURE_DEVOURED = 55,
-  HIST_FIGURE_WOUNDED = 56,
-  HIST_FIGURE_SIMPLE_BATTLE_EVENT = 57,
-  CREATED_WORLD_CONSTRUCTION = 58,
-  HIST_FIGURE_REUNION = 59,
-  HIST_FIGURE_REACH_SUMMIT = 60,
-  HIST_FIGURE_TRAVEL = 61,
-  HIST_FIGURE_NEW_PET = 62,
-  ASSUME_IDENTITY = 63,
-  CREATE_ENTITY_POSITION = 64,
-  CHANGE_CREATURE_TYPE = 65,
-  HIST_FIGURE_REVIVED = 66,
-  HF_LEARNS_SECRET = 67,
-  CHANGE_HF_BODY_STATE = 68,
-  HF_ACT_ON_BUILDING = 69,
-  HF_DOES_INTERACTION = 70,
-  HF_CONFRONTED = 71,
-  ENTITY_LAW = 72,
-  HF_GAINS_SECRET_GOAL = 73,
-  ARTIFACT_STORED = 74,
-  AGREEMENT_FORMED = 75,
-  SITE_DISPUTE = 76,
-  AGREEMENT_CONCLUDED = 77,
-  INSURRECTION_STARTED = 78,
-  INSURRECTION_ENDED = 79,
-  HF_ATTACKED_SITE = 80,
-  PERFORMANCE = 81,
-  COMPETITION = 82,
-  PROCESSION = 83,
-  CEREMONY = 84,
-  KNOWLEDGE_DISCOVERED = 85,
-  ARTIFACT_TRANSFORMED = 86,
-  ARTIFACT_DESTROYED = 87,
-  HF_RELATIONSHIP_DENIED = 88,
-  REGIONPOP_INCORPORATED_INTO_ENTITY = 89,
-  POETIC_FORM_CREATED = 90,
-  MUSICAL_FORM_CREATED = 91,
-  DANCE_FORM_CREATED = 92,
-  WRITTEN_CONTENT_COMPOSED = 93,
-  CHANGE_HF_MOOD = 94,
-  ARTIFACT_CLAIM_FORMED = 95,
-  ARTIFACT_GIVEN = 96,
-  HF_ACT_ON_ARTIFACT = 97,
-  HF_RECRUITED_UNIT_TYPE_FOR_ENTITY = 98,
-  HFS_FORMED_REPUTATION_RELATIONSHIP = 99,
-  ARTIFACT_COPIED = 100,
-  SNEAK_INTO_SITE = 101,
-  SPOTTED_LEAVING_SITE = 102,
-  ENTITY_SEARCHED_SITE = 103,
-  HF_FREED = 104,
-  HIST_FIGURE_SIMPLE_ACTION = 105,
-  ENTITY_RAMPAGED_IN_SITE = 106,
-  ENTITY_FLED_SITE = 107,
-  TACTICAL_SITUATION = 108,
-  SQUAD_VS_SQUAD = 109,
-  SITE_SURRENDERED = 110,
-  ENTITY_EXPELS_HF = 111,
-  TRADE = 112,
-  ADD_ENTITY_SITE_PROFILE_FLAG = 113,
-  GAMBLE = 114,
-  ADD_HF_ENTITY_HONOR = 115,
-  ENTITY_DISSOLVED = 116,
-  ENTITY_EQUIPMENT_PURCHASE = 117,
-  MODIFIED_BUILDING = 118,
-  BUILDING_PROFILE_ACQUIRED = 119,
-  HF_PREACH = 120,
-  ENTITY_PERSECUTED = 121,
-  ENTITY_BREACH_FEATURE_LAYER = 122,
-  ENTITY_ALLIANCE_FORMED = 123,
-  HF_RANSOMED = 124,
-  HF_ENSLAVED = 125,
-  SABOTAGE = 126,
-  ENTITY_OVERTHROWN = 127,
-  HFS_FORMED_INTRIGUE_RELATIONSHIP = 128,
-  FAILED_INTRIGUE_CORRUPTION = 129,
-  HF_CONVICTED = 130,
-  FAILED_FRAME_ATTEMPT = 131,
-  HF_INTERROGATED = 132,
-}
+---@class (exact) _history_event_type: df.struct
+---@field WAR_ATTACKED_SITE 0
+---@field [0] "WAR_ATTACKED_SITE"
+---@field WAR_DESTROYED_SITE 1
+---@field [1] "WAR_DESTROYED_SITE"
+---@field CREATED_SITE 2
+---@field [2] "CREATED_SITE"
+---@field HIST_FIGURE_DIED 3
+---@field [3] "HIST_FIGURE_DIED"
+---@field ADD_HF_ENTITY_LINK 4
+---@field [4] "ADD_HF_ENTITY_LINK"
+---@field REMOVE_HF_ENTITY_LINK 5
+---@field [5] "REMOVE_HF_ENTITY_LINK"
+---@field FIRST_CONTACT 6
+---@field [6] "FIRST_CONTACT"
+---@field FIRST_CONTACT_FAILED 7
+---@field [7] "FIRST_CONTACT_FAILED"
+---@field TOPICAGREEMENT_CONCLUDED 8
+---@field [8] "TOPICAGREEMENT_CONCLUDED"
+---@field TOPICAGREEMENT_REJECTED 9
+---@field [9] "TOPICAGREEMENT_REJECTED"
+---@field TOPICAGREEMENT_MADE 10
+---@field [10] "TOPICAGREEMENT_MADE"
+---@field WAR_PEACE_ACCEPTED 11
+---@field [11] "WAR_PEACE_ACCEPTED"
+---@field WAR_PEACE_REJECTED 12
+---@field [12] "WAR_PEACE_REJECTED"
+---@field DIPLOMAT_LOST 13
+---@field [13] "DIPLOMAT_LOST"
+---@field AGREEMENTS_VOIDED 14
+---@field [14] "AGREEMENTS_VOIDED"
+---@field MERCHANT 15
+---@field [15] "MERCHANT"
+---@field ARTIFACT_HIDDEN 16
+---@field [16] "ARTIFACT_HIDDEN"
+---@field ARTIFACT_POSSESSED 17
+---@field [17] "ARTIFACT_POSSESSED"
+---@field ARTIFACT_CREATED 18
+---@field [18] "ARTIFACT_CREATED"
+---@field ARTIFACT_LOST 19
+---@field [19] "ARTIFACT_LOST"
+---@field ARTIFACT_FOUND 20
+---@field [20] "ARTIFACT_FOUND"
+---@field ARTIFACT_RECOVERED 21
+---@field [21] "ARTIFACT_RECOVERED"
+---@field ARTIFACT_DROPPED 22
+---@field [22] "ARTIFACT_DROPPED"
+---@field RECLAIM_SITE 23
+---@field [23] "RECLAIM_SITE"
+---@field HF_DESTROYED_SITE 24
+---@field [24] "HF_DESTROYED_SITE"
+---@field SITE_DIED 25
+---@field [25] "SITE_DIED"
+---@field SITE_RETIRED 26
+---@field [26] "SITE_RETIRED"
+---@field ENTITY_CREATED 27
+---@field [27] "ENTITY_CREATED"
+---@field ENTITY_ACTION 28
+---@field [28] "ENTITY_ACTION"
+---@field ENTITY_INCORPORATED 29
+---@field [29] "ENTITY_INCORPORATED"
+---@field CREATED_BUILDING 30
+---@field [30] "CREATED_BUILDING"
+---@field REPLACED_BUILDING 31
+---@field [31] "REPLACED_BUILDING"
+---@field ADD_HF_SITE_LINK 32
+---@field [32] "ADD_HF_SITE_LINK"
+---@field REMOVE_HF_SITE_LINK 33
+---@field [33] "REMOVE_HF_SITE_LINK"
+---@field ADD_HF_HF_LINK 34
+---@field [34] "ADD_HF_HF_LINK"
+---@field REMOVE_HF_HF_LINK 35
+---@field [35] "REMOVE_HF_HF_LINK"
+---@field ENTITY_RAZED_BUILDING 36
+---@field [36] "ENTITY_RAZED_BUILDING"
+---@field MASTERPIECE_CREATED_ARCH_CONSTRUCT 37
+---@field [37] "MASTERPIECE_CREATED_ARCH_CONSTRUCT"
+---@field MASTERPIECE_CREATED_ITEM 38
+---@field [38] "MASTERPIECE_CREATED_ITEM"
+---@field MASTERPIECE_CREATED_DYE_ITEM 39
+---@field [39] "MASTERPIECE_CREATED_DYE_ITEM"
+---@field MASTERPIECE_CREATED_ITEM_IMPROVEMENT 40
+---@field [40] "MASTERPIECE_CREATED_ITEM_IMPROVEMENT"
+---@field MASTERPIECE_CREATED_FOOD 41
+---@field [41] "MASTERPIECE_CREATED_FOOD"
+---@field MASTERPIECE_CREATED_ENGRAVING 42
+---@field [42] "MASTERPIECE_CREATED_ENGRAVING"
+---@field MASTERPIECE_LOST 43
+---@field [43] "MASTERPIECE_LOST"
+---@field CHANGE_HF_STATE 44
+---@field [44] "CHANGE_HF_STATE"
+---@field CHANGE_HF_JOB 45
+---@field [45] "CHANGE_HF_JOB"
+---@field WAR_FIELD_BATTLE 46
+---@field [46] "WAR_FIELD_BATTLE"
+---@field WAR_PLUNDERED_SITE 47
+---@field [47] "WAR_PLUNDERED_SITE"
+---@field WAR_SITE_NEW_LEADER 48
+---@field [48] "WAR_SITE_NEW_LEADER"
+---@field WAR_SITE_TRIBUTE_FORCED 49
+---@field [49] "WAR_SITE_TRIBUTE_FORCED"
+---@field WAR_SITE_TAKEN_OVER 50
+---@field [50] "WAR_SITE_TAKEN_OVER"
+---@field BODY_ABUSED 51
+---@field [51] "BODY_ABUSED"
+---@field HIST_FIGURE_ABDUCTED 52
+---@field [52] "HIST_FIGURE_ABDUCTED"
+---@field ITEM_STOLEN 53
+---@field [53] "ITEM_STOLEN"
+---@field HF_RAZED_BUILDING 54
+---@field [54] "HF_RAZED_BUILDING"
+---@field CREATURE_DEVOURED 55
+---@field [55] "CREATURE_DEVOURED"
+---@field HIST_FIGURE_WOUNDED 56
+---@field [56] "HIST_FIGURE_WOUNDED"
+---@field HIST_FIGURE_SIMPLE_BATTLE_EVENT 57
+---@field [57] "HIST_FIGURE_SIMPLE_BATTLE_EVENT"
+---@field CREATED_WORLD_CONSTRUCTION 58
+---@field [58] "CREATED_WORLD_CONSTRUCTION"
+---@field HIST_FIGURE_REUNION 59
+---@field [59] "HIST_FIGURE_REUNION"
+---@field HIST_FIGURE_REACH_SUMMIT 60
+---@field [60] "HIST_FIGURE_REACH_SUMMIT"
+---@field HIST_FIGURE_TRAVEL 61
+---@field [61] "HIST_FIGURE_TRAVEL"
+---@field HIST_FIGURE_NEW_PET 62
+---@field [62] "HIST_FIGURE_NEW_PET"
+---@field ASSUME_IDENTITY 63
+---@field [63] "ASSUME_IDENTITY"
+---@field CREATE_ENTITY_POSITION 64
+---@field [64] "CREATE_ENTITY_POSITION"
+---@field CHANGE_CREATURE_TYPE 65
+---@field [65] "CHANGE_CREATURE_TYPE"
+---@field HIST_FIGURE_REVIVED 66
+---@field [66] "HIST_FIGURE_REVIVED"
+---@field HF_LEARNS_SECRET 67
+---@field [67] "HF_LEARNS_SECRET"
+---@field CHANGE_HF_BODY_STATE 68
+---@field [68] "CHANGE_HF_BODY_STATE"
+---@field HF_ACT_ON_BUILDING 69
+---@field [69] "HF_ACT_ON_BUILDING"
+---@field HF_DOES_INTERACTION 70
+---@field [70] "HF_DOES_INTERACTION"
+---@field HF_CONFRONTED 71
+---@field [71] "HF_CONFRONTED"
+---@field ENTITY_LAW 72
+---@field [72] "ENTITY_LAW"
+---@field HF_GAINS_SECRET_GOAL 73
+---@field [73] "HF_GAINS_SECRET_GOAL"
+---@field ARTIFACT_STORED 74
+---@field [74] "ARTIFACT_STORED"
+---@field AGREEMENT_FORMED 75
+---@field [75] "AGREEMENT_FORMED"
+---@field SITE_DISPUTE 76
+---@field [76] "SITE_DISPUTE"
+---@field AGREEMENT_CONCLUDED 77
+---@field [77] "AGREEMENT_CONCLUDED"
+---@field INSURRECTION_STARTED 78
+---@field [78] "INSURRECTION_STARTED"
+---@field INSURRECTION_ENDED 79
+---@field [79] "INSURRECTION_ENDED"
+---@field HF_ATTACKED_SITE 80
+---@field [80] "HF_ATTACKED_SITE"
+---@field PERFORMANCE 81
+---@field [81] "PERFORMANCE"
+---@field COMPETITION 82
+---@field [82] "COMPETITION"
+---@field PROCESSION 83
+---@field [83] "PROCESSION"
+---@field CEREMONY 84
+---@field [84] "CEREMONY"
+---@field KNOWLEDGE_DISCOVERED 85
+---@field [85] "KNOWLEDGE_DISCOVERED"
+---@field ARTIFACT_TRANSFORMED 86
+---@field [86] "ARTIFACT_TRANSFORMED"
+---@field ARTIFACT_DESTROYED 87
+---@field [87] "ARTIFACT_DESTROYED"
+---@field HF_RELATIONSHIP_DENIED 88
+---@field [88] "HF_RELATIONSHIP_DENIED"
+---@field REGIONPOP_INCORPORATED_INTO_ENTITY 89
+---@field [89] "REGIONPOP_INCORPORATED_INTO_ENTITY"
+---@field POETIC_FORM_CREATED 90
+---@field [90] "POETIC_FORM_CREATED"
+---@field MUSICAL_FORM_CREATED 91
+---@field [91] "MUSICAL_FORM_CREATED"
+---@field DANCE_FORM_CREATED 92
+---@field [92] "DANCE_FORM_CREATED"
+---@field WRITTEN_CONTENT_COMPOSED 93
+---@field [93] "WRITTEN_CONTENT_COMPOSED"
+---@field CHANGE_HF_MOOD 94
+---@field [94] "CHANGE_HF_MOOD"
+---@field ARTIFACT_CLAIM_FORMED 95
+---@field [95] "ARTIFACT_CLAIM_FORMED"
+---@field ARTIFACT_GIVEN 96
+---@field [96] "ARTIFACT_GIVEN"
+---@field HF_ACT_ON_ARTIFACT 97
+---@field [97] "HF_ACT_ON_ARTIFACT"
+---@field HF_RECRUITED_UNIT_TYPE_FOR_ENTITY 98
+---@field [98] "HF_RECRUITED_UNIT_TYPE_FOR_ENTITY"
+---@field HFS_FORMED_REPUTATION_RELATIONSHIP 99
+---@field [99] "HFS_FORMED_REPUTATION_RELATIONSHIP"
+---@field ARTIFACT_COPIED 100
+---@field [100] "ARTIFACT_COPIED"
+---@field SNEAK_INTO_SITE 101
+---@field [101] "SNEAK_INTO_SITE"
+---@field SPOTTED_LEAVING_SITE 102
+---@field [102] "SPOTTED_LEAVING_SITE"
+---@field ENTITY_SEARCHED_SITE 103
+---@field [103] "ENTITY_SEARCHED_SITE"
+---@field HF_FREED 104
+---@field [104] "HF_FREED"
+---@field HIST_FIGURE_SIMPLE_ACTION 105
+---@field [105] "HIST_FIGURE_SIMPLE_ACTION"
+---@field ENTITY_RAMPAGED_IN_SITE 106
+---@field [106] "ENTITY_RAMPAGED_IN_SITE"
+---@field ENTITY_FLED_SITE 107
+---@field [107] "ENTITY_FLED_SITE"
+---@field TACTICAL_SITUATION 108
+---@field [108] "TACTICAL_SITUATION"
+---@field SQUAD_VS_SQUAD 109
+---@field [109] "SQUAD_VS_SQUAD"
+---@field SITE_SURRENDERED 110
+---@field [110] "SITE_SURRENDERED"
+---@field ENTITY_EXPELS_HF 111
+---@field [111] "ENTITY_EXPELS_HF"
+---@field TRADE 112
+---@field [112] "TRADE"
+---@field ADD_ENTITY_SITE_PROFILE_FLAG 113
+---@field [113] "ADD_ENTITY_SITE_PROFILE_FLAG"
+---@field GAMBLE 114
+---@field [114] "GAMBLE"
+---@field ADD_HF_ENTITY_HONOR 115
+---@field [115] "ADD_HF_ENTITY_HONOR"
+---@field ENTITY_DISSOLVED 116
+---@field [116] "ENTITY_DISSOLVED"
+---@field ENTITY_EQUIPMENT_PURCHASE 117
+---@field [117] "ENTITY_EQUIPMENT_PURCHASE"
+---@field MODIFIED_BUILDING 118
+---@field [118] "MODIFIED_BUILDING"
+---@field BUILDING_PROFILE_ACQUIRED 119
+---@field [119] "BUILDING_PROFILE_ACQUIRED"
+---@field HF_PREACH 120
+---@field [120] "HF_PREACH"
+---@field ENTITY_PERSECUTED 121
+---@field [121] "ENTITY_PERSECUTED"
+---@field ENTITY_BREACH_FEATURE_LAYER 122
+---@field [122] "ENTITY_BREACH_FEATURE_LAYER"
+---@field ENTITY_ALLIANCE_FORMED 123
+---@field [123] "ENTITY_ALLIANCE_FORMED"
+---@field HF_RANSOMED 124
+---@field [124] "HF_RANSOMED"
+---@field HF_ENSLAVED 125
+---@field [125] "HF_ENSLAVED"
+---@field SABOTAGE 126
+---@field [126] "SABOTAGE"
+---@field ENTITY_OVERTHROWN 127
+---@field [127] "ENTITY_OVERTHROWN"
+---@field HFS_FORMED_INTRIGUE_RELATIONSHIP 128
+---@field [128] "HFS_FORMED_INTRIGUE_RELATIONSHIP"
+---@field FAILED_INTRIGUE_CORRUPTION 129
+---@field [129] "FAILED_INTRIGUE_CORRUPTION"
+---@field HF_CONVICTED 130
+---@field [130] "HF_CONVICTED"
+---@field FAILED_FRAME_ATTEMPT 131
+---@field [131] "FAILED_FRAME_ATTEMPT"
+---@field HF_INTERROGATED 132
+---@field [132] "HF_INTERROGATED"
+df.history_event_type = {}
 
----@enum history_event_reason
+---@class history_event_type
+---@field [0] boolean
+---@field WAR_ATTACKED_SITE boolean
+---@field [1] boolean
+---@field WAR_DESTROYED_SITE boolean
+---@field [2] boolean
+---@field CREATED_SITE boolean
+---@field [3] boolean
+---@field HIST_FIGURE_DIED boolean
+---@field [4] boolean
+---@field ADD_HF_ENTITY_LINK boolean
+---@field [5] boolean
+---@field REMOVE_HF_ENTITY_LINK boolean
+---@field [6] boolean
+---@field FIRST_CONTACT boolean
+---@field [7] boolean
+---@field FIRST_CONTACT_FAILED boolean
+---@field [8] boolean
+---@field TOPICAGREEMENT_CONCLUDED boolean
+---@field [9] boolean
+---@field TOPICAGREEMENT_REJECTED boolean
+---@field [10] boolean
+---@field TOPICAGREEMENT_MADE boolean
+---@field [11] boolean
+---@field WAR_PEACE_ACCEPTED boolean
+---@field [12] boolean
+---@field WAR_PEACE_REJECTED boolean
+---@field [13] boolean
+---@field DIPLOMAT_LOST boolean
+---@field [14] boolean
+---@field AGREEMENTS_VOIDED boolean
+---@field [15] boolean
+---@field MERCHANT boolean
+---@field [16] boolean
+---@field ARTIFACT_HIDDEN boolean
+---@field [17] boolean
+---@field ARTIFACT_POSSESSED boolean
+---@field [18] boolean
+---@field ARTIFACT_CREATED boolean
+---@field [19] boolean
+---@field ARTIFACT_LOST boolean
+---@field [20] boolean
+---@field ARTIFACT_FOUND boolean
+---@field [21] boolean
+---@field ARTIFACT_RECOVERED boolean
+---@field [22] boolean
+---@field ARTIFACT_DROPPED boolean
+---@field [23] boolean
+---@field RECLAIM_SITE boolean
+---@field [24] boolean
+---@field HF_DESTROYED_SITE boolean
+---@field [25] boolean
+---@field SITE_DIED boolean
+---@field [26] boolean
+---@field SITE_RETIRED boolean
+---@field [27] boolean
+---@field ENTITY_CREATED boolean
+---@field [28] boolean
+---@field ENTITY_ACTION boolean
+---@field [29] boolean
+---@field ENTITY_INCORPORATED boolean
+---@field [30] boolean
+---@field CREATED_BUILDING boolean
+---@field [31] boolean
+---@field REPLACED_BUILDING boolean
+---@field [32] boolean
+---@field ADD_HF_SITE_LINK boolean
+---@field [33] boolean
+---@field REMOVE_HF_SITE_LINK boolean
+---@field [34] boolean
+---@field ADD_HF_HF_LINK boolean
+---@field [35] boolean
+---@field REMOVE_HF_HF_LINK boolean
+---@field [36] boolean
+---@field ENTITY_RAZED_BUILDING boolean
+---@field [37] boolean
+---@field MASTERPIECE_CREATED_ARCH_CONSTRUCT boolean
+---@field [38] boolean
+---@field MASTERPIECE_CREATED_ITEM boolean
+---@field [39] boolean
+---@field MASTERPIECE_CREATED_DYE_ITEM boolean
+---@field [40] boolean
+---@field MASTERPIECE_CREATED_ITEM_IMPROVEMENT boolean
+---@field [41] boolean
+---@field MASTERPIECE_CREATED_FOOD boolean
+---@field [42] boolean
+---@field MASTERPIECE_CREATED_ENGRAVING boolean
+---@field [43] boolean
+---@field MASTERPIECE_LOST boolean
+---@field [44] boolean
+---@field CHANGE_HF_STATE boolean
+---@field [45] boolean
+---@field CHANGE_HF_JOB boolean
+---@field [46] boolean
+---@field WAR_FIELD_BATTLE boolean
+---@field [47] boolean
+---@field WAR_PLUNDERED_SITE boolean
+---@field [48] boolean
+---@field WAR_SITE_NEW_LEADER boolean
+---@field [49] boolean
+---@field WAR_SITE_TRIBUTE_FORCED boolean
+---@field [50] boolean
+---@field WAR_SITE_TAKEN_OVER boolean
+---@field [51] boolean
+---@field BODY_ABUSED boolean
+---@field [52] boolean
+---@field HIST_FIGURE_ABDUCTED boolean
+---@field [53] boolean
+---@field ITEM_STOLEN boolean
+---@field [54] boolean
+---@field HF_RAZED_BUILDING boolean
+---@field [55] boolean
+---@field CREATURE_DEVOURED boolean
+---@field [56] boolean
+---@field HIST_FIGURE_WOUNDED boolean
+---@field [57] boolean
+---@field HIST_FIGURE_SIMPLE_BATTLE_EVENT boolean
+---@field [58] boolean
+---@field CREATED_WORLD_CONSTRUCTION boolean
+---@field [59] boolean
+---@field HIST_FIGURE_REUNION boolean
+---@field [60] boolean
+---@field HIST_FIGURE_REACH_SUMMIT boolean
+---@field [61] boolean
+---@field HIST_FIGURE_TRAVEL boolean
+---@field [62] boolean
+---@field HIST_FIGURE_NEW_PET boolean
+---@field [63] boolean
+---@field ASSUME_IDENTITY boolean
+---@field [64] boolean
+---@field CREATE_ENTITY_POSITION boolean
+---@field [65] boolean
+---@field CHANGE_CREATURE_TYPE boolean
+---@field [66] boolean
+---@field HIST_FIGURE_REVIVED boolean
+---@field [67] boolean
+---@field HF_LEARNS_SECRET boolean
+---@field [68] boolean
+---@field CHANGE_HF_BODY_STATE boolean
+---@field [69] boolean
+---@field HF_ACT_ON_BUILDING boolean
+---@field [70] boolean
+---@field HF_DOES_INTERACTION boolean
+---@field [71] boolean
+---@field HF_CONFRONTED boolean
+---@field [72] boolean
+---@field ENTITY_LAW boolean
+---@field [73] boolean
+---@field HF_GAINS_SECRET_GOAL boolean
+---@field [74] boolean
+---@field ARTIFACT_STORED boolean
+---@field [75] boolean
+---@field AGREEMENT_FORMED boolean
+---@field [76] boolean
+---@field SITE_DISPUTE boolean
+---@field [77] boolean
+---@field AGREEMENT_CONCLUDED boolean
+---@field [78] boolean
+---@field INSURRECTION_STARTED boolean
+---@field [79] boolean
+---@field INSURRECTION_ENDED boolean
+---@field [80] boolean
+---@field HF_ATTACKED_SITE boolean
+---@field [81] boolean
+---@field PERFORMANCE boolean
+---@field [82] boolean
+---@field COMPETITION boolean
+---@field [83] boolean
+---@field PROCESSION boolean
+---@field [84] boolean
+---@field CEREMONY boolean
+---@field [85] boolean
+---@field KNOWLEDGE_DISCOVERED boolean
+---@field [86] boolean
+---@field ARTIFACT_TRANSFORMED boolean
+---@field [87] boolean
+---@field ARTIFACT_DESTROYED boolean
+---@field [88] boolean
+---@field HF_RELATIONSHIP_DENIED boolean
+---@field [89] boolean
+---@field REGIONPOP_INCORPORATED_INTO_ENTITY boolean
+---@field [90] boolean
+---@field POETIC_FORM_CREATED boolean
+---@field [91] boolean
+---@field MUSICAL_FORM_CREATED boolean
+---@field [92] boolean
+---@field DANCE_FORM_CREATED boolean
+---@field [93] boolean
+---@field WRITTEN_CONTENT_COMPOSED boolean
+---@field [94] boolean
+---@field CHANGE_HF_MOOD boolean
+---@field [95] boolean
+---@field ARTIFACT_CLAIM_FORMED boolean
+---@field [96] boolean
+---@field ARTIFACT_GIVEN boolean
+---@field [97] boolean
+---@field HF_ACT_ON_ARTIFACT boolean
+---@field [98] boolean
+---@field HF_RECRUITED_UNIT_TYPE_FOR_ENTITY boolean
+---@field [99] boolean
+---@field HFS_FORMED_REPUTATION_RELATIONSHIP boolean
+---@field [100] boolean
+---@field ARTIFACT_COPIED boolean
+---@field [101] boolean
+---@field SNEAK_INTO_SITE boolean
+---@field [102] boolean
+---@field SPOTTED_LEAVING_SITE boolean
+---@field [103] boolean
+---@field ENTITY_SEARCHED_SITE boolean
+---@field [104] boolean
+---@field HF_FREED boolean
+---@field [105] boolean
+---@field HIST_FIGURE_SIMPLE_ACTION boolean
+---@field [106] boolean
+---@field ENTITY_RAMPAGED_IN_SITE boolean
+---@field [107] boolean
+---@field ENTITY_FLED_SITE boolean
+---@field [108] boolean
+---@field TACTICAL_SITUATION boolean
+---@field [109] boolean
+---@field SQUAD_VS_SQUAD boolean
+---@field [110] boolean
+---@field SITE_SURRENDERED boolean
+---@field [111] boolean
+---@field ENTITY_EXPELS_HF boolean
+---@field [112] boolean
+---@field TRADE boolean
+---@field [113] boolean
+---@field ADD_ENTITY_SITE_PROFILE_FLAG boolean
+---@field [114] boolean
+---@field GAMBLE boolean
+---@field [115] boolean
+---@field ADD_HF_ENTITY_HONOR boolean
+---@field [116] boolean
+---@field ENTITY_DISSOLVED boolean
+---@field [117] boolean
+---@field ENTITY_EQUIPMENT_PURCHASE boolean
+---@field [118] boolean
+---@field MODIFIED_BUILDING boolean
+---@field [119] boolean
+---@field BUILDING_PROFILE_ACQUIRED boolean
+---@field [120] boolean
+---@field HF_PREACH boolean
+---@field [121] boolean
+---@field ENTITY_PERSECUTED boolean
+---@field [122] boolean
+---@field ENTITY_BREACH_FEATURE_LAYER boolean
+---@field [123] boolean
+---@field ENTITY_ALLIANCE_FORMED boolean
+---@field [124] boolean
+---@field HF_RANSOMED boolean
+---@field [125] boolean
+---@field HF_ENSLAVED boolean
+---@field [126] boolean
+---@field SABOTAGE boolean
+---@field [127] boolean
+---@field ENTITY_OVERTHROWN boolean
+---@field [128] boolean
+---@field HFS_FORMED_INTRIGUE_RELATIONSHIP boolean
+---@field [129] boolean
+---@field FAILED_INTRIGUE_CORRUPTION boolean
+---@field [130] boolean
+---@field HF_CONVICTED boolean
+---@field [131] boolean
+---@field FAILED_FRAME_ATTEMPT boolean
+---@field [132] boolean
+---@field HF_INTERROGATED boolean
+
+---@class (exact) _history_event_reason: df.struct
 ---Some of these require at least one parameter of varying type. The text is what DF provides without parameter
-df.history_event_reason = {
-  none = -1,
-  insurrection = 1,
-  adventure = 2,
-  guide = 3,
-  rescued = 4,
-  sphere_alignment = 5,
-  maintain_balance_in_universe = 6,
-  highlight_boundaries_between_worlds = 7,
-  sow_the_seeds_of_chaos_in_the_world = 8,
-  provide_opportunities_for_courage = 9,
-  bring_death_to_the_world = 10,
-  liked_appearance = 11,
-  because_it_was_destined = 12,
-  great_fortresses_built_and_tested = 13,
-  whim = 14,
-  bring_misery_to_the_world = 15,
-  bring_murder_to_the_world = 16,
-  bring_nightmares_into_reality = 17,
-  bring_thralldom_to_the_world = 18,
-  bring_torture_to_the_world = 19,
-  provide_opportunities_for_acts_of_valor = 20,
-  bring_war_to_the_world = 21,
-  find_relative = 22,
-  offer_condolences = 23,
-  be_brought_to_safety = 24,
-  help_with_rescue = 25,
-  insufficient_work = 26,
-  work_request = 27,
-  make_weapon = 28,
-  vent_at_boss = 29,
-  cry_on_boss = 30,
-  should_have_reached_goal = 31,
-  insufficient_progress_toward_goal = 32,
-  going_wrong_direction = 33,
-  arrived_at_location = 34,
-  entity_no_longer_rules = 35,
-  left_site = 36,
-  reunited_with_loved_one = 37,
-  violent_disagreement = 38,
-  adopted = 39,
-  true_name_invocation = 40,
-  arrived_at_person = 41,
-  eradicate_beasts = 42,
-  entertain_people = 43,
-  make_a_living_as_a_warrior = 44,
-  study = 45,
-  flight = 46,
-  scholarship = 47,
-  be_with_master = 48,
-  become_citizen = 49,
-  prefers_working_alone = 50,
-  jealousy = 51,
-  glorify_hf = 52,
-  have_not_performed = 53,
-  prevented_from_leaving = 54,
-  curiosity = 55,
-  hire_on_as_mercenary = 56,
-  hire_on_as_performer = 57,
-  hire_on_as_scholar = 58,
-  drink = 59,
-  admire_architecture = 60,
-  pray = 61,
-  relax = 62,
-  danger = 63,
-  cannot_find_artifact = 64,
-  failed_mood = 65,
-  lack_of_sleep = 66,
-  trapped_in_cage = 67,
-  great_deal_of_stress = 68,
-  unable_to_leave_location = 69,
-  sanctify_hf = 70,
-  artifact_is_heirloom_of_family_hfid = 71,
-  cement_bonds_of_friendship = 72,
-  as_a_symbol_of_everlasting_peace = 73,
-  on_a_pilgrimage = 74,
-  gather_information = 75,
-  seek_sanctuary = 76,
-  part_of_trade_negotiation = 77,
-  artifact_is_symbol_of_entity_position = 78,
-  fear_of_persecution = 79, --The ones below were introduced in 0.47.01 as well
-  smooth_operation = 80,
-  nuance_belief = 81,
-  shared_interest = 82,
-  envy_living = 83,
-  death_panic = 84,
-  death_fear = 85,
-  avoid_judgement = 86,
-  death_pride = 87,
-  death_vain = 88,
-  death_ambition = 89,
-  lack_of_funds = 90,
-  battle_losses = 91,
-  conviction_exile = 92,
-  priest_vent = 93,
-  priest_cry = 94,
-}
+---@field none -1
+---@field [0] "none"
+---@field insurrection 1
+---@field [1] "insurrection"
+---@field adventure 2
+---@field [2] "adventure"
+---@field guide 3
+---@field [3] "guide"
+---@field rescued 4
+---@field [4] "rescued"
+---@field sphere_alignment 5
+---@field [5] "sphere_alignment"
+---@field maintain_balance_in_universe 6
+---@field [6] "maintain_balance_in_universe"
+---@field highlight_boundaries_between_worlds 7
+---@field [7] "highlight_boundaries_between_worlds"
+---@field sow_the_seeds_of_chaos_in_the_world 8
+---@field [8] "sow_the_seeds_of_chaos_in_the_world"
+---@field provide_opportunities_for_courage 9
+---@field [9] "provide_opportunities_for_courage"
+---@field bring_death_to_the_world 10
+---@field [10] "bring_death_to_the_world"
+---@field liked_appearance 11
+---@field [11] "liked_appearance"
+---@field because_it_was_destined 12
+---@field [12] "because_it_was_destined"
+---@field great_fortresses_built_and_tested 13
+---@field [13] "great_fortresses_built_and_tested"
+---@field whim 14
+---@field [14] "whim"
+---@field bring_misery_to_the_world 15
+---@field [15] "bring_misery_to_the_world"
+---@field bring_murder_to_the_world 16
+---@field [16] "bring_murder_to_the_world"
+---@field bring_nightmares_into_reality 17
+---@field [17] "bring_nightmares_into_reality"
+---@field bring_thralldom_to_the_world 18
+---@field [18] "bring_thralldom_to_the_world"
+---@field bring_torture_to_the_world 19
+---@field [19] "bring_torture_to_the_world"
+---@field provide_opportunities_for_acts_of_valor 20
+---@field [20] "provide_opportunities_for_acts_of_valor"
+---@field bring_war_to_the_world 21
+---@field [21] "bring_war_to_the_world"
+---@field find_relative 22
+---@field [22] "find_relative"
+---@field offer_condolences 23
+---@field [23] "offer_condolences"
+---@field be_brought_to_safety 24
+---@field [24] "be_brought_to_safety"
+---@field help_with_rescue 25
+---@field [25] "help_with_rescue"
+---@field insufficient_work 26
+---@field [26] "insufficient_work"
+---@field work_request 27
+---@field [27] "work_request"
+---@field make_weapon 28
+---@field [28] "make_weapon"
+---@field vent_at_boss 29
+---@field [29] "vent_at_boss"
+---@field cry_on_boss 30
+---@field [30] "cry_on_boss"
+---@field should_have_reached_goal 31
+---@field [31] "should_have_reached_goal"
+---@field insufficient_progress_toward_goal 32
+---@field [32] "insufficient_progress_toward_goal"
+---@field going_wrong_direction 33
+---@field [33] "going_wrong_direction"
+---@field arrived_at_location 34
+---@field [34] "arrived_at_location"
+---@field entity_no_longer_rules 35
+---@field [35] "entity_no_longer_rules"
+---@field left_site 36
+---@field [36] "left_site"
+---@field reunited_with_loved_one 37
+---@field [37] "reunited_with_loved_one"
+---@field violent_disagreement 38
+---@field [38] "violent_disagreement"
+---@field adopted 39
+---@field [39] "adopted"
+---@field true_name_invocation 40
+---@field [40] "true_name_invocation"
+---@field arrived_at_person 41
+---@field [41] "arrived_at_person"
+---@field eradicate_beasts 42
+---@field [42] "eradicate_beasts"
+---@field entertain_people 43
+---@field [43] "entertain_people"
+---@field make_a_living_as_a_warrior 44
+---@field [44] "make_a_living_as_a_warrior"
+---@field study 45
+---@field [45] "study"
+---@field flight 46
+---@field [46] "flight"
+---@field scholarship 47
+---@field [47] "scholarship"
+---@field be_with_master 48
+---@field [48] "be_with_master"
+---@field become_citizen 49
+---@field [49] "become_citizen"
+---@field prefers_working_alone 50
+---@field [50] "prefers_working_alone"
+---@field jealousy 51
+---@field [51] "jealousy"
+---@field glorify_hf 52
+---@field [52] "glorify_hf"
+---@field have_not_performed 53
+---@field [53] "have_not_performed"
+---@field prevented_from_leaving 54
+---@field [54] "prevented_from_leaving"
+---@field curiosity 55
+---@field [55] "curiosity"
+---@field hire_on_as_mercenary 56
+---@field [56] "hire_on_as_mercenary"
+---@field hire_on_as_performer 57
+---@field [57] "hire_on_as_performer"
+---@field hire_on_as_scholar 58
+---@field [58] "hire_on_as_scholar"
+---@field drink 59
+---@field [59] "drink"
+---@field admire_architecture 60
+---@field [60] "admire_architecture"
+---@field pray 61
+---@field [61] "pray"
+---@field relax 62
+---@field [62] "relax"
+---@field danger 63
+---@field [63] "danger"
+---@field cannot_find_artifact 64
+---@field [64] "cannot_find_artifact"
+---@field failed_mood 65
+---@field [65] "failed_mood"
+---@field lack_of_sleep 66
+---@field [66] "lack_of_sleep"
+---@field trapped_in_cage 67
+---@field [67] "trapped_in_cage"
+---@field great_deal_of_stress 68
+---@field [68] "great_deal_of_stress"
+---@field unable_to_leave_location 69
+---@field [69] "unable_to_leave_location"
+---@field sanctify_hf 70
+---@field [70] "sanctify_hf"
+---@field artifact_is_heirloom_of_family_hfid 71
+---@field [71] "artifact_is_heirloom_of_family_hfid"
+---@field cement_bonds_of_friendship 72
+---@field [72] "cement_bonds_of_friendship"
+---@field as_a_symbol_of_everlasting_peace 73
+---@field [73] "as_a_symbol_of_everlasting_peace"
+---@field on_a_pilgrimage 74
+---@field [74] "on_a_pilgrimage"
+---@field gather_information 75
+---@field [75] "gather_information"
+---@field seek_sanctuary 76
+---@field [76] "seek_sanctuary"
+---@field part_of_trade_negotiation 77
+---@field [77] "part_of_trade_negotiation"
+---@field artifact_is_symbol_of_entity_position 78
+---@field [78] "artifact_is_symbol_of_entity_position"
+---@field fear_of_persecution 79
+---@field [79] "fear_of_persecution"
+---@field smooth_operation 80
+---@field [80] "smooth_operation"
+---@field nuance_belief 81
+---@field [81] "nuance_belief"
+---@field shared_interest 82
+---@field [82] "shared_interest"
+---@field envy_living 83
+---@field [83] "envy_living"
+---@field death_panic 84
+---@field [84] "death_panic"
+---@field death_fear 85
+---@field [85] "death_fear"
+---@field avoid_judgement 86
+---@field [86] "avoid_judgement"
+---@field death_pride 87
+---@field [87] "death_pride"
+---@field death_vain 88
+---@field [88] "death_vain"
+---@field death_ambition 89
+---@field [89] "death_ambition"
+---@field lack_of_funds 90
+---@field [90] "lack_of_funds"
+---@field battle_losses 91
+---@field [91] "battle_losses"
+---@field conviction_exile 92
+---@field [92] "conviction_exile"
+---@field priest_vent 93
+---@field [93] "priest_vent"
+---@field priest_cry 94
+---@field [94] "priest_cry"
+df.history_event_reason = {}
+
+---@class history_event_reason
+---@field [0] boolean
+---@field none boolean
+---@field [1] boolean
+---@field insurrection boolean
+---@field [2] boolean
+---@field adventure boolean
+---@field [3] boolean
+---@field guide boolean
+---@field [4] boolean
+---@field rescued boolean
+---@field [5] boolean
+---@field sphere_alignment boolean
+---@field [6] boolean
+---@field maintain_balance_in_universe boolean
+---@field [7] boolean
+---@field highlight_boundaries_between_worlds boolean
+---@field [8] boolean
+---@field sow_the_seeds_of_chaos_in_the_world boolean
+---@field [9] boolean
+---@field provide_opportunities_for_courage boolean
+---@field [10] boolean
+---@field bring_death_to_the_world boolean
+---@field [11] boolean
+---@field liked_appearance boolean
+---@field [12] boolean
+---@field because_it_was_destined boolean
+---@field [13] boolean
+---@field great_fortresses_built_and_tested boolean
+---@field [14] boolean
+---@field whim boolean
+---@field [15] boolean
+---@field bring_misery_to_the_world boolean
+---@field [16] boolean
+---@field bring_murder_to_the_world boolean
+---@field [17] boolean
+---@field bring_nightmares_into_reality boolean
+---@field [18] boolean
+---@field bring_thralldom_to_the_world boolean
+---@field [19] boolean
+---@field bring_torture_to_the_world boolean
+---@field [20] boolean
+---@field provide_opportunities_for_acts_of_valor boolean
+---@field [21] boolean
+---@field bring_war_to_the_world boolean
+---@field [22] boolean
+---@field find_relative boolean
+---@field [23] boolean
+---@field offer_condolences boolean
+---@field [24] boolean
+---@field be_brought_to_safety boolean
+---@field [25] boolean
+---@field help_with_rescue boolean
+---@field [26] boolean
+---@field insufficient_work boolean
+---@field [27] boolean
+---@field work_request boolean
+---@field [28] boolean
+---@field make_weapon boolean
+---@field [29] boolean
+---@field vent_at_boss boolean
+---@field [30] boolean
+---@field cry_on_boss boolean
+---@field [31] boolean
+---@field should_have_reached_goal boolean
+---@field [32] boolean
+---@field insufficient_progress_toward_goal boolean
+---@field [33] boolean
+---@field going_wrong_direction boolean
+---@field [34] boolean
+---@field arrived_at_location boolean
+---@field [35] boolean
+---@field entity_no_longer_rules boolean
+---@field [36] boolean
+---@field left_site boolean
+---@field [37] boolean
+---@field reunited_with_loved_one boolean
+---@field [38] boolean
+---@field violent_disagreement boolean
+---@field [39] boolean
+---@field adopted boolean
+---@field [40] boolean
+---@field true_name_invocation boolean
+---@field [41] boolean
+---@field arrived_at_person boolean
+---@field [42] boolean
+---@field eradicate_beasts boolean
+---@field [43] boolean
+---@field entertain_people boolean
+---@field [44] boolean
+---@field make_a_living_as_a_warrior boolean
+---@field [45] boolean
+---@field study boolean
+---@field [46] boolean
+---@field flight boolean
+---@field [47] boolean
+---@field scholarship boolean
+---@field [48] boolean
+---@field be_with_master boolean
+---@field [49] boolean
+---@field become_citizen boolean
+---@field [50] boolean
+---@field prefers_working_alone boolean
+---@field [51] boolean
+---@field jealousy boolean
+---@field [52] boolean
+---@field glorify_hf boolean
+---@field [53] boolean
+---@field have_not_performed boolean
+---@field [54] boolean
+---@field prevented_from_leaving boolean
+---@field [55] boolean
+---@field curiosity boolean
+---@field [56] boolean
+---@field hire_on_as_mercenary boolean
+---@field [57] boolean
+---@field hire_on_as_performer boolean
+---@field [58] boolean
+---@field hire_on_as_scholar boolean
+---@field [59] boolean
+---@field drink boolean
+---@field [60] boolean
+---@field admire_architecture boolean
+---@field [61] boolean
+---@field pray boolean
+---@field [62] boolean
+---@field relax boolean
+---@field [63] boolean
+---@field danger boolean
+---@field [64] boolean
+---@field cannot_find_artifact boolean
+---@field [65] boolean
+---@field failed_mood boolean
+---@field [66] boolean
+---@field lack_of_sleep boolean
+---@field [67] boolean
+---@field trapped_in_cage boolean
+---@field [68] boolean
+---@field great_deal_of_stress boolean
+---@field [69] boolean
+---@field unable_to_leave_location boolean
+---@field [70] boolean
+---@field sanctify_hf boolean
+---@field [71] boolean
+---@field artifact_is_heirloom_of_family_hfid boolean
+---@field [72] boolean
+---@field cement_bonds_of_friendship boolean
+---@field [73] boolean
+---@field as_a_symbol_of_everlasting_peace boolean
+---@field [74] boolean
+---@field on_a_pilgrimage boolean
+---@field [75] boolean
+---@field gather_information boolean
+---@field [76] boolean
+---@field seek_sanctuary boolean
+---@field [77] boolean
+---@field part_of_trade_negotiation boolean
+---@field [78] boolean
+---@field artifact_is_symbol_of_entity_position boolean
+---@field [79] boolean
+---@field fear_of_persecution boolean
+---@field [80] boolean
+---@field smooth_operation boolean
+---@field [81] boolean
+---@field nuance_belief boolean
+---@field [82] boolean
+---@field shared_interest boolean
+---@field [83] boolean
+---@field envy_living boolean
+---@field [84] boolean
+---@field death_panic boolean
+---@field [85] boolean
+---@field death_fear boolean
+---@field [86] boolean
+---@field avoid_judgement boolean
+---@field [87] boolean
+---@field death_pride boolean
+---@field [88] boolean
+---@field death_vain boolean
+---@field [89] boolean
+---@field death_ambition boolean
+---@field [90] boolean
+---@field lack_of_funds boolean
+---@field [91] boolean
+---@field battle_losses boolean
+---@field [92] boolean
+---@field conviction_exile boolean
+---@field [93] boolean
+---@field priest_vent boolean
+---@field [94] boolean
+---@field priest_cry boolean
 
 ---@class history_event_reason_attr
 ---@field caption string
@@ -884,41 +2246,102 @@ df.history_event_circumstance_info.T_data = {}
 ---@field divination_set_id divination_set
 df.history_event_context = {}
 
----@enum history_event_context_flags
-df.history_event_context.T_flags = {
-  is_interrogation_report = 0,
-}
+---@class (exact) _history_event_context_flags: df.struct
+---@field is_interrogation_report 0
+---@field [0] "is_interrogation_report"
+df.history_event_context.T_flags = {}
 
----@enum architectural_element
-df.architectural_element = {
-  NONE = -1,
-  paved_outdoor_area = 1,
-  uneven_pillars = 2,
-  square_of_pillars = 3,
-  pillars_on_the_perimeter = 4,
-  upper_floors = 5,
-  lower_floors = 6,
-  water_pool = 7,
-  lava_pool = 8,
-  stagnant_pool = 9,
-  open_structure = 10,
-  paved_indoor_areas = 11,
-  detailed_surfaces = 12,
-}
+---@class history_event_context_flags
+---@field [0] boolean
+---@field is_interrogation_report boolean
 
----@enum history_event_flags
-df.history_event_flags = {
-  hidden = 0, --event is hidden from legends mode when this is set
-  unk_1 = 1,
-  unk_2 = 2, --related to intrigues (checked in df::history_event_failed_intrigue_corruptionst::getRelatedHistfigIDs)
-}
+---@class (exact) _architectural_element: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field paved_outdoor_area 1
+---@field [1] "paved_outdoor_area"
+---@field uneven_pillars 2
+---@field [2] "uneven_pillars"
+---@field square_of_pillars 3
+---@field [3] "square_of_pillars"
+---@field pillars_on_the_perimeter 4
+---@field [4] "pillars_on_the_perimeter"
+---@field upper_floors 5
+---@field [5] "upper_floors"
+---@field lower_floors 6
+---@field [6] "lower_floors"
+---@field water_pool 7
+---@field [7] "water_pool"
+---@field lava_pool 8
+---@field [8] "lava_pool"
+---@field stagnant_pool 9
+---@field [9] "stagnant_pool"
+---@field open_structure 10
+---@field [10] "open_structure"
+---@field paved_indoor_areas 11
+---@field [11] "paved_indoor_areas"
+---@field detailed_surfaces 12
+---@field [12] "detailed_surfaces"
+df.architectural_element = {}
 
----@enum merc_role_type
+---@class architectural_element
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field paved_outdoor_area boolean
+---@field [2] boolean
+---@field uneven_pillars boolean
+---@field [3] boolean
+---@field square_of_pillars boolean
+---@field [4] boolean
+---@field pillars_on_the_perimeter boolean
+---@field [5] boolean
+---@field upper_floors boolean
+---@field [6] boolean
+---@field lower_floors boolean
+---@field [7] boolean
+---@field water_pool boolean
+---@field [8] boolean
+---@field lava_pool boolean
+---@field [9] boolean
+---@field stagnant_pool boolean
+---@field [10] boolean
+---@field open_structure boolean
+---@field [11] boolean
+---@field paved_indoor_areas boolean
+---@field [12] boolean
+---@field detailed_surfaces boolean
+
+---@class (exact) _history_event_flags: df.struct
+---@field hidden 0
+---@field [0] "hidden"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field unk_2 2
+---@field [2] "unk_2"
+df.history_event_flags = {}
+
+---@class history_event_flags
+---@field [0] boolean
+---@field hidden boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field unk_2 boolean
+
+---@class (exact) _merc_role_type: df.struct
 ---regular if bit not set
-df.merc_role_type = {
-  attacker_scout = 0,
-  defender_scout = 1,
-}
+---@field attacker_scout 0
+---@field [0] "attacker_scout"
+---@field defender_scout 1
+---@field [1] "defender_scout"
+df.merc_role_type = {}
+
+---@class merc_role_type
+---@field [0] boolean
+---@field attacker_scout boolean
+---@field [1] boolean
+---@field defender_scout boolean
 
 ---@class history_event: df.instance
 ---@field year integer
@@ -955,65 +2378,234 @@ df.history_event_war_destroyed_sitest = {}
 ---@field builder_hf historical_figure
 df.history_event_created_sitest = {}
 
----@enum death_type
-df.death_type = {
-  NONE = -1,
-  OLD_AGE = 1,
-  HUNGER = 2,
-  THIRST = 3,
-  SHOT = 4,
-  BLEED = 5,
-  DROWN = 6,
-  SUFFOCATE = 7,
-  STRUCK_DOWN = 8,
-  SCUTTLE = 9, --stuck wagons
-  COLLISION = 10,
-  MAGMA = 11, --does not happen anymore?
-  MAGMA_MIST = 12, --does not happen anymore?
-  DRAGONFIRE = 13,
-  FIRE = 14,
-  SCALD = 15, --does not happen anymore?
-  CAVEIN = 16,
-  DRAWBRIDGE = 17,
-  FALLING_ROCKS = 18, --does not happen anymore?
-  CHASM = 19,
-  CAGE = 20,
-  MURDER = 21,
-  TRAP = 22,
-  VANISH = 23, --bogeyman
-  QUIT = 24, --Give in to starvation as adventurer
-  ABANDON = 25,
-  HEAT = 26,
-  COLD = 27,
-  SPIKE = 28,
-  ENCASE_LAVA = 29,
-  ENCASE_MAGMA = 30,
-  ENCASE_ICE = 31,
-  BEHEAD = 32, --execution during worldgen
-  CRUCIFY = 33, --execution during worldgen
-  BURY_ALIVE = 34, --execution during worldgen
-  DROWN_ALT = 35, --execution during worldgen
-  BURN_ALIVE = 36, --execution during worldgen
-  FEED_TO_BEASTS = 37, --execution during worldgen
-  HACK_TO_PIECES = 38, --execution during worldgen
-  LEAVE_OUT_IN_AIR = 39, --execution during worldgen
-  BOIL = 40, --material state change
-  MELT = 41, --material state change
-  CONDENSE = 42, --material state change
-  SOLIDIFY = 43, --material state change
-  INFECTION = 44,
-  MEMORIALIZE = 45, --put to rest
-  SCARE = 46,
-  DARKNESS = 47, --died in the dark
-  COLLAPSE = 48, --used in 0.31 for undead
-  DRAIN_BLOOD = 49,
-  SLAUGHTER = 50,
-  VEHICLE = 51,
-  FALLING_OBJECT = 52,
-  LEAPT_FROM_HEIGHT = 53,
-  DROWN_ALT2 = 54,
-  EXECUTION_GENERIC = 55,
-}
+---@class (exact) _death_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field OLD_AGE 1
+---@field [1] "OLD_AGE"
+---@field HUNGER 2
+---@field [2] "HUNGER"
+---@field THIRST 3
+---@field [3] "THIRST"
+---@field SHOT 4
+---@field [4] "SHOT"
+---@field BLEED 5
+---@field [5] "BLEED"
+---@field DROWN 6
+---@field [6] "DROWN"
+---@field SUFFOCATE 7
+---@field [7] "SUFFOCATE"
+---@field STRUCK_DOWN 8
+---@field [8] "STRUCK_DOWN"
+---@field SCUTTLE 9
+---@field [9] "SCUTTLE"
+---@field COLLISION 10
+---@field [10] "COLLISION"
+---@field MAGMA 11
+---@field [11] "MAGMA"
+---@field MAGMA_MIST 12
+---@field [12] "MAGMA_MIST"
+---@field DRAGONFIRE 13
+---@field [13] "DRAGONFIRE"
+---@field FIRE 14
+---@field [14] "FIRE"
+---@field SCALD 15
+---@field [15] "SCALD"
+---@field CAVEIN 16
+---@field [16] "CAVEIN"
+---@field DRAWBRIDGE 17
+---@field [17] "DRAWBRIDGE"
+---@field FALLING_ROCKS 18
+---@field [18] "FALLING_ROCKS"
+---@field CHASM 19
+---@field [19] "CHASM"
+---@field CAGE 20
+---@field [20] "CAGE"
+---@field MURDER 21
+---@field [21] "MURDER"
+---@field TRAP 22
+---@field [22] "TRAP"
+---@field VANISH 23
+---@field [23] "VANISH"
+---@field QUIT 24
+---@field [24] "QUIT"
+---@field ABANDON 25
+---@field [25] "ABANDON"
+---@field HEAT 26
+---@field [26] "HEAT"
+---@field COLD 27
+---@field [27] "COLD"
+---@field SPIKE 28
+---@field [28] "SPIKE"
+---@field ENCASE_LAVA 29
+---@field [29] "ENCASE_LAVA"
+---@field ENCASE_MAGMA 30
+---@field [30] "ENCASE_MAGMA"
+---@field ENCASE_ICE 31
+---@field [31] "ENCASE_ICE"
+---@field BEHEAD 32
+---@field [32] "BEHEAD"
+---@field CRUCIFY 33
+---@field [33] "CRUCIFY"
+---@field BURY_ALIVE 34
+---@field [34] "BURY_ALIVE"
+---@field DROWN_ALT 35
+---@field [35] "DROWN_ALT"
+---@field BURN_ALIVE 36
+---@field [36] "BURN_ALIVE"
+---@field FEED_TO_BEASTS 37
+---@field [37] "FEED_TO_BEASTS"
+---@field HACK_TO_PIECES 38
+---@field [38] "HACK_TO_PIECES"
+---@field LEAVE_OUT_IN_AIR 39
+---@field [39] "LEAVE_OUT_IN_AIR"
+---@field BOIL 40
+---@field [40] "BOIL"
+---@field MELT 41
+---@field [41] "MELT"
+---@field CONDENSE 42
+---@field [42] "CONDENSE"
+---@field SOLIDIFY 43
+---@field [43] "SOLIDIFY"
+---@field INFECTION 44
+---@field [44] "INFECTION"
+---@field MEMORIALIZE 45
+---@field [45] "MEMORIALIZE"
+---@field SCARE 46
+---@field [46] "SCARE"
+---@field DARKNESS 47
+---@field [47] "DARKNESS"
+---@field COLLAPSE 48
+---@field [48] "COLLAPSE"
+---@field DRAIN_BLOOD 49
+---@field [49] "DRAIN_BLOOD"
+---@field SLAUGHTER 50
+---@field [50] "SLAUGHTER"
+---@field VEHICLE 51
+---@field [51] "VEHICLE"
+---@field FALLING_OBJECT 52
+---@field [52] "FALLING_OBJECT"
+---@field LEAPT_FROM_HEIGHT 53
+---@field [53] "LEAPT_FROM_HEIGHT"
+---@field DROWN_ALT2 54
+---@field [54] "DROWN_ALT2"
+---@field EXECUTION_GENERIC 55
+---@field [55] "EXECUTION_GENERIC"
+df.death_type = {}
+
+---@class death_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field OLD_AGE boolean
+---@field [2] boolean
+---@field HUNGER boolean
+---@field [3] boolean
+---@field THIRST boolean
+---@field [4] boolean
+---@field SHOT boolean
+---@field [5] boolean
+---@field BLEED boolean
+---@field [6] boolean
+---@field DROWN boolean
+---@field [7] boolean
+---@field SUFFOCATE boolean
+---@field [8] boolean
+---@field STRUCK_DOWN boolean
+---@field [9] boolean
+---@field SCUTTLE boolean
+---@field [10] boolean
+---@field COLLISION boolean
+---@field [11] boolean
+---@field MAGMA boolean
+---@field [12] boolean
+---@field MAGMA_MIST boolean
+---@field [13] boolean
+---@field DRAGONFIRE boolean
+---@field [14] boolean
+---@field FIRE boolean
+---@field [15] boolean
+---@field SCALD boolean
+---@field [16] boolean
+---@field CAVEIN boolean
+---@field [17] boolean
+---@field DRAWBRIDGE boolean
+---@field [18] boolean
+---@field FALLING_ROCKS boolean
+---@field [19] boolean
+---@field CHASM boolean
+---@field [20] boolean
+---@field CAGE boolean
+---@field [21] boolean
+---@field MURDER boolean
+---@field [22] boolean
+---@field TRAP boolean
+---@field [23] boolean
+---@field VANISH boolean
+---@field [24] boolean
+---@field QUIT boolean
+---@field [25] boolean
+---@field ABANDON boolean
+---@field [26] boolean
+---@field HEAT boolean
+---@field [27] boolean
+---@field COLD boolean
+---@field [28] boolean
+---@field SPIKE boolean
+---@field [29] boolean
+---@field ENCASE_LAVA boolean
+---@field [30] boolean
+---@field ENCASE_MAGMA boolean
+---@field [31] boolean
+---@field ENCASE_ICE boolean
+---@field [32] boolean
+---@field BEHEAD boolean
+---@field [33] boolean
+---@field CRUCIFY boolean
+---@field [34] boolean
+---@field BURY_ALIVE boolean
+---@field [35] boolean
+---@field DROWN_ALT boolean
+---@field [36] boolean
+---@field BURN_ALIVE boolean
+---@field [37] boolean
+---@field FEED_TO_BEASTS boolean
+---@field [38] boolean
+---@field HACK_TO_PIECES boolean
+---@field [39] boolean
+---@field LEAVE_OUT_IN_AIR boolean
+---@field [40] boolean
+---@field BOIL boolean
+---@field [41] boolean
+---@field MELT boolean
+---@field [42] boolean
+---@field CONDENSE boolean
+---@field [43] boolean
+---@field SOLIDIFY boolean
+---@field [44] boolean
+---@field INFECTION boolean
+---@field [45] boolean
+---@field MEMORIALIZE boolean
+---@field [46] boolean
+---@field SCARE boolean
+---@field [47] boolean
+---@field DARKNESS boolean
+---@field [48] boolean
+---@field COLLAPSE boolean
+---@field [49] boolean
+---@field DRAIN_BLOOD boolean
+---@field [50] boolean
+---@field SLAUGHTER boolean
+---@field [51] boolean
+---@field VEHICLE boolean
+---@field [52] boolean
+---@field FALLING_OBJECT boolean
+---@field [53] boolean
+---@field LEAPT_FROM_HEIGHT boolean
+---@field [54] boolean
+---@field DROWN_ALT2 boolean
+---@field [55] boolean
+---@field EXECUTION_GENERIC boolean
 
 ---@class history_event_hist_figure_diedst: history_event
 ---@field victim_hf historical_figure
@@ -1115,15 +2707,34 @@ df.history_event_agreements_voidedst = {}
 ---@field flags2 any
 df.history_event_merchantst = {}
 
----@enum history_event_merchant_flags
-df.history_event_merchant_flags = {
-  vanished = 0, --opposite of communicate in caravan_state
-  hardship = 1,
-  seized = 2,
-  offended = 3,
-  missing_goods = 4,
-  tribute = 5,
-}
+---@class (exact) _history_event_merchant_flags: df.struct
+---@field vanished 0
+---@field [0] "vanished"
+---@field hardship 1
+---@field [1] "hardship"
+---@field seized 2
+---@field [2] "seized"
+---@field offended 3
+---@field [3] "offended"
+---@field missing_goods 4
+---@field [4] "missing_goods"
+---@field tribute 5
+---@field [5] "tribute"
+df.history_event_merchant_flags = {}
+
+---@class history_event_merchant_flags
+---@field [0] boolean
+---@field vanished boolean
+---@field [1] boolean
+---@field hardship boolean
+---@field [2] boolean
+---@field seized boolean
+---@field [3] boolean
+---@field offended boolean
+---@field [4] boolean
+---@field missing_goods boolean
+---@field [5] boolean
+---@field tribute boolean
 
 ---@class history_event_artifact_hiddenst: history_event
 ---@field artifact artifact_record
@@ -1153,10 +2764,14 @@ df.history_event_artifact_possessedst = {}
 ---@field reason history_event_reason_info
 df.history_event_artifact_createdst = {}
 
----@enum history_event_artifact_createdst_flags2
-df.history_event_artifact_createdst.T_flags2 = {
-  name_only = 0,
-}
+---@class (exact) _history_event_artifact_createdst_flags2: df.struct
+---@field name_only 0
+---@field [0] "name_only"
+df.history_event_artifact_createdst.T_flags2 = {}
+
+---@class history_event_artifact_createdst_flags2
+---@field [0] boolean
+---@field name_only boolean
 
 ---@class history_event_artifact_lostst: history_event
 ---@field artifact artifact_record
@@ -1201,10 +2816,14 @@ df.history_event_artifact_droppedst = {}
 ---@field flags2 history_event_reclaim_sitest_flags2
 df.history_event_reclaim_sitest = {}
 
----@enum history_event_reclaim_sitest_flags2
-df.history_event_reclaim_sitest.T_flags2 = {
-  unretire = 0,
-}
+---@class (exact) _history_event_reclaim_sitest_flags2: df.struct
+---@field unretire 0
+---@field [0] "unretire"
+df.history_event_reclaim_sitest.T_flags2 = {}
+
+---@class history_event_reclaim_sitest_flags2
+---@field [0] boolean
+---@field unretire boolean
 
 ---@class history_event_hf_destroyed_sitest: history_event
 ---@field attacker_hf historical_figure
@@ -1220,10 +2839,14 @@ df.history_event_hf_destroyed_sitest = {}
 ---@field flags2 history_event_site_diedst_flags2
 df.history_event_site_diedst = {}
 
----@enum history_event_site_diedst_flags2
-df.history_event_site_diedst.T_flags2 = {
-  abandoned = 0,
-}
+---@class (exact) _history_event_site_diedst_flags2: df.struct
+---@field abandoned 0
+---@field [0] "abandoned"
+df.history_event_site_diedst.T_flags2 = {}
+
+---@class history_event_site_diedst_flags2
+---@field [0] boolean
+---@field abandoned boolean
 
 ---@class history_event_site_retiredst: history_event
 ---@field civ historical_entity
@@ -1232,10 +2855,14 @@ df.history_event_site_diedst.T_flags2 = {
 ---@field flags2 history_event_site_retiredst_flags2
 df.history_event_site_retiredst = {}
 
----@enum history_event_site_retiredst_flags2
-df.history_event_site_retiredst.T_flags2 = {
-  first_time = 0,
-}
+---@class (exact) _history_event_site_retiredst_flags2: df.struct
+---@field first_time 0
+---@field [0] "first_time"
+df.history_event_site_retiredst.T_flags2 = {}
+
+---@class history_event_site_retiredst_flags2
+---@field [0] boolean
+---@field first_time boolean
 
 ---@class history_event_entity_createdst: history_event
 ---@field entity historical_entity
@@ -1244,11 +2871,18 @@ df.history_event_site_retiredst.T_flags2 = {
 ---@field creator_hfid historical_figure
 df.history_event_entity_createdst = {}
 
----@enum entity_action_type
-df.entity_action_type = {
-  entity_primary_criminals = 0,
-  entity_relocate = 1,
-}
+---@class (exact) _entity_action_type: df.struct
+---@field entity_primary_criminals 0
+---@field [0] "entity_primary_criminals"
+---@field entity_relocate 1
+---@field [1] "entity_relocate"
+df.entity_action_type = {}
+
+---@class entity_action_type
+---@field [0] boolean
+---@field entity_primary_criminals boolean
+---@field [1] boolean
+---@field entity_relocate boolean
 
 ---@class history_event_entity_actionst: history_event
 ---@field entity historical_entity
@@ -1372,15 +3006,34 @@ df.history_event_masterpiece_created_foodst = {}
 ---@field art_subid art_image
 df.history_event_masterpiece_created_engravingst = {}
 
----@enum masterpiece_loss_type
-df.masterpiece_loss_type = {
-  MELT = 0,
-  MAGMA = 1,
-  FORTIFICATION = 2,
-  MINING = 3,
-  CAVEIN = 4,
-  VEGETATION = 5,
-}
+---@class (exact) _masterpiece_loss_type: df.struct
+---@field MELT 0
+---@field [0] "MELT"
+---@field MAGMA 1
+---@field [1] "MAGMA"
+---@field FORTIFICATION 2
+---@field [2] "FORTIFICATION"
+---@field MINING 3
+---@field [3] "MINING"
+---@field CAVEIN 4
+---@field [4] "CAVEIN"
+---@field VEGETATION 5
+---@field [5] "VEGETATION"
+df.masterpiece_loss_type = {}
+
+---@class masterpiece_loss_type
+---@field [0] boolean
+---@field MELT boolean
+---@field [1] boolean
+---@field MAGMA boolean
+---@field [2] boolean
+---@field FORTIFICATION boolean
+---@field [3] boolean
+---@field MINING boolean
+---@field [4] boolean
+---@field CAVEIN boolean
+---@field [5] boolean
+---@field VEGETATION boolean
 
 ---@class history_event_masterpiece_lostst: history_event
 ---@field creation_event history_event
@@ -1447,10 +3100,14 @@ df.history_event_war_site_new_leaderst = {}
 ---@field tribute_flags history_event_war_site_tribute_forcedst_tribute_flags
 df.history_event_war_site_tribute_forcedst = {}
 
----@enum history_event_war_site_tribute_forcedst_tribute_flags
-df.history_event_war_site_tribute_forcedst.T_tribute_flags = {
-  bled_dry = 0, --tribute was demanded, but not received
-}
+---@class (exact) _history_event_war_site_tribute_forcedst_tribute_flags: df.struct
+---@field bled_dry 0
+---@field [0] "bled_dry"
+df.history_event_war_site_tribute_forcedst.T_tribute_flags = {}
+
+---@class history_event_war_site_tribute_forcedst_tribute_flags
+---@field [0] boolean
+---@field bled_dry boolean
 
 ---@class history_event_war_site_taken_overst: history_event
 ---@field attacker_civ historical_entity
@@ -1480,15 +3137,34 @@ df.history_event_site_surrenderedst = {}
 ---@field abuse_data history_event_body_abusedst_abuse_data
 df.history_event_body_abusedst = {}
 
----@enum history_event_body_abusedst_abuse_type
-df.history_event_body_abusedst.T_abuse_type = {
-  Impaled = 0,
-  Piled = 1,
-  Flayed = 2,
-  Hung = 3,
-  Mutilated = 4,
-  Animated = 5,
-}
+---@class (exact) _history_event_body_abusedst_abuse_type: df.struct
+---@field Impaled 0
+---@field [0] "Impaled"
+---@field Piled 1
+---@field [1] "Piled"
+---@field Flayed 2
+---@field [2] "Flayed"
+---@field Hung 3
+---@field [3] "Hung"
+---@field Mutilated 4
+---@field [4] "Mutilated"
+---@field Animated 5
+---@field [5] "Animated"
+df.history_event_body_abusedst.T_abuse_type = {}
+
+---@class history_event_body_abusedst_abuse_type
+---@field [0] boolean
+---@field Impaled boolean
+---@field [1] boolean
+---@field Piled boolean
+---@field [2] boolean
+---@field Flayed boolean
+---@field [3] boolean
+---@field Hung boolean
+---@field [4] boolean
+---@field Mutilated boolean
+---@field [5] boolean
+---@field Animated boolean
 
 ---@class history_event_body_abusedst_abuse_data: df.struct
 ---@field Impaled abuse_data_Impaled
@@ -1509,12 +3185,22 @@ df.abuse_data.T_Impaled = {}
 ---@field pile_type Piled_pile_type
 df.abuse_data.T_Piled = {}
 
----@enum Piled_pile_type
-df.Piled.T_pile_type = {
-  GrislyMound = 0,
-  GrotesquePillar = 1,
-  GruesomeSculpture = 2,
-}
+---@class (exact) _Piled_pile_type: df.struct
+---@field GrislyMound 0
+---@field [0] "GrislyMound"
+---@field GrotesquePillar 1
+---@field [1] "GrotesquePillar"
+---@field GruesomeSculpture 2
+---@field [2] "GruesomeSculpture"
+df.Piled.T_pile_type = {}
+
+---@class Piled_pile_type
+---@field [0] boolean
+---@field GrislyMound boolean
+---@field [1] boolean
+---@field GrotesquePillar boolean
+---@field [2] boolean
+---@field GruesomeSculpture boolean
 
 ---@class abuse_data_Flayed: df.struct
 ---@field structure abstract_building
@@ -1541,13 +3227,26 @@ df.abuse_data.T_Animated = {}
 ---@field layer world_underground_region
 df.history_event_hist_figure_abductedst = {}
 
----@enum theft_method_type
-df.theft_method_type = {
-  Theft = 0,
-  Confiscated = 1,
-  Looted = 2,
-  Recovered = 3,
-}
+---@class (exact) _theft_method_type: df.struct
+---@field Theft 0
+---@field [0] "Theft"
+---@field Confiscated 1
+---@field [1] "Confiscated"
+---@field Looted 2
+---@field [2] "Looted"
+---@field Recovered 3
+---@field [3] "Recovered"
+df.theft_method_type = {}
+
+---@class theft_method_type
+---@field [0] boolean
+---@field Theft boolean
+---@field [1] boolean
+---@field Confiscated boolean
+---@field [2] boolean
+---@field Looted boolean
+---@field [3] boolean
+---@field Recovered boolean
 
 ---@class history_event_item_stolenst: history_event
 ---@field item_type item_type
@@ -1599,43 +3298,113 @@ df.history_event_creature_devouredst = {}
 ---@field flags2 history_event_hist_figure_woundedst_flags2
 df.history_event_hist_figure_woundedst = {}
 
----@enum history_event_hist_figure_woundedst_injury_type
-df.history_event_hist_figure_woundedst.T_injury_type = {
-  Smash = 0,
-  Slash = 1,
-  Stab = 2,
-  Rip = 3,
-  Burn = 4,
-}
+---@class (exact) _history_event_hist_figure_woundedst_injury_type: df.struct
+---@field Smash 0
+---@field [0] "Smash"
+---@field Slash 1
+---@field [1] "Slash"
+---@field Stab 2
+---@field [2] "Stab"
+---@field Rip 3
+---@field [3] "Rip"
+---@field Burn 4
+---@field [4] "Burn"
+df.history_event_hist_figure_woundedst.T_injury_type = {}
 
----@enum history_event_hist_figure_woundedst_flags2
-df.history_event_hist_figure_woundedst.T_flags2 = {
-  torture = 0,
-}
+---@class history_event_hist_figure_woundedst_injury_type
+---@field [0] boolean
+---@field Smash boolean
+---@field [1] boolean
+---@field Slash boolean
+---@field [2] boolean
+---@field Stab boolean
+---@field [3] boolean
+---@field Rip boolean
+---@field [4] boolean
+---@field Burn boolean
 
----@enum history_event_simple_battle_subtype
-df.history_event_simple_battle_subtype = {
-  SCUFFLE = 0,
-  ATTACK = 1,
-  SURPRISE = 2,
-  AMBUSH = 3,
-  HAPPEN_UPON = 4,
-  CORNER = 5,
-  CONFRONT = 6,
-  LOSE_AFTER_RECEIVE_WOUND = 7,
-  LOSE_AFTER_INFLICT_WOUND = 8,
-  LOSE_AFTER_EXCHANGE_WOUND = 9,
-  SUBDUED = 10,
-  GOT_INTO_A_BRAWL = 11,
-}
+---@class (exact) _history_event_hist_figure_woundedst_flags2: df.struct
+---@field torture 0
+---@field [0] "torture"
+df.history_event_hist_figure_woundedst.T_flags2 = {}
 
----@enum artifact_claim_type
-df.artifact_claim_type = {
-  Symbol = 0,
-  Heirloom = 1,
-  Treasure = 2,
-  HolyRelic = 3,
-}
+---@class history_event_hist_figure_woundedst_flags2
+---@field [0] boolean
+---@field torture boolean
+
+---@class (exact) _history_event_simple_battle_subtype: df.struct
+---@field SCUFFLE 0
+---@field [0] "SCUFFLE"
+---@field ATTACK 1
+---@field [1] "ATTACK"
+---@field SURPRISE 2
+---@field [2] "SURPRISE"
+---@field AMBUSH 3
+---@field [3] "AMBUSH"
+---@field HAPPEN_UPON 4
+---@field [4] "HAPPEN_UPON"
+---@field CORNER 5
+---@field [5] "CORNER"
+---@field CONFRONT 6
+---@field [6] "CONFRONT"
+---@field LOSE_AFTER_RECEIVE_WOUND 7
+---@field [7] "LOSE_AFTER_RECEIVE_WOUND"
+---@field LOSE_AFTER_INFLICT_WOUND 8
+---@field [8] "LOSE_AFTER_INFLICT_WOUND"
+---@field LOSE_AFTER_EXCHANGE_WOUND 9
+---@field [9] "LOSE_AFTER_EXCHANGE_WOUND"
+---@field SUBDUED 10
+---@field [10] "SUBDUED"
+---@field GOT_INTO_A_BRAWL 11
+---@field [11] "GOT_INTO_A_BRAWL"
+df.history_event_simple_battle_subtype = {}
+
+---@class history_event_simple_battle_subtype
+---@field [0] boolean
+---@field SCUFFLE boolean
+---@field [1] boolean
+---@field ATTACK boolean
+---@field [2] boolean
+---@field SURPRISE boolean
+---@field [3] boolean
+---@field AMBUSH boolean
+---@field [4] boolean
+---@field HAPPEN_UPON boolean
+---@field [5] boolean
+---@field CORNER boolean
+---@field [6] boolean
+---@field CONFRONT boolean
+---@field [7] boolean
+---@field LOSE_AFTER_RECEIVE_WOUND boolean
+---@field [8] boolean
+---@field LOSE_AFTER_INFLICT_WOUND boolean
+---@field [9] boolean
+---@field LOSE_AFTER_EXCHANGE_WOUND boolean
+---@field [10] boolean
+---@field SUBDUED boolean
+---@field [11] boolean
+---@field GOT_INTO_A_BRAWL boolean
+
+---@class (exact) _artifact_claim_type: df.struct
+---@field Symbol 0
+---@field [0] "Symbol"
+---@field Heirloom 1
+---@field [1] "Heirloom"
+---@field Treasure 2
+---@field [2] "Treasure"
+---@field HolyRelic 3
+---@field [3] "HolyRelic"
+df.artifact_claim_type = {}
+
+---@class artifact_claim_type
+---@field [0] boolean
+---@field Symbol boolean
+---@field [1] boolean
+---@field Heirloom boolean
+---@field [2] boolean
+---@field Treasure boolean
+---@field [3] boolean
+---@field HolyRelic boolean
 
 ---@class history_event_hist_figure_simple_battle_eventst: history_event
 ---@field group1 integer[]
@@ -1680,12 +3449,22 @@ df.history_event_hist_figure_reach_summitst = {}
 ---@field region_pos coord2d
 df.history_event_hist_figure_travelst = {}
 
----@enum history_event_hist_figure_travelst_reason
-df.history_event_hist_figure_travelst.T_reason = {
-  Journey = 0, --made a journey to
-  Return = 1, --returned to
-  Escape = 2, --escaped from
-}
+---@class (exact) _history_event_hist_figure_travelst_reason: df.struct
+---@field Journey 0
+---@field [0] "Journey"
+---@field Return 1
+---@field [1] "Return"
+---@field Escape 2
+---@field [2] "Escape"
+df.history_event_hist_figure_travelst.T_reason = {}
+
+---@class history_event_hist_figure_travelst_reason
+---@field [0] boolean
+---@field Journey boolean
+---@field [1] boolean
+---@field Return boolean
+---@field [2] boolean
+---@field Escape boolean
 
 ---@class history_event_hist_figure_new_petst: history_event
 ---@field group integer[]
@@ -1702,14 +3481,30 @@ df.history_event_hist_figure_new_petst = {}
 ---@field target historical_entity
 df.history_event_assume_identityst = {}
 
----@enum position_creation_reason_type
-df.position_creation_reason_type = {
-  force_of_argument = 0,
-  threat_of_violence = 1,
-  collaboration = 2,
-  wave_of_popular_support = 3,
-  as_a_matter_of_course = 4,
-}
+---@class (exact) _position_creation_reason_type: df.struct
+---@field force_of_argument 0
+---@field [0] "force_of_argument"
+---@field threat_of_violence 1
+---@field [1] "threat_of_violence"
+---@field collaboration 2
+---@field [2] "collaboration"
+---@field wave_of_popular_support 3
+---@field [3] "wave_of_popular_support"
+---@field as_a_matter_of_course 4
+---@field [4] "as_a_matter_of_course"
+df.position_creation_reason_type = {}
+
+---@class position_creation_reason_type
+---@field [0] boolean
+---@field force_of_argument boolean
+---@field [1] boolean
+---@field threat_of_violence boolean
+---@field [2] boolean
+---@field collaboration boolean
+---@field [3] boolean
+---@field wave_of_popular_support boolean
+---@field [4] boolean
+---@field as_a_matter_of_course boolean
 
 ---@class history_event_create_entity_positionst: history_event
 ---@field histfig historical_figure
@@ -1740,10 +3535,14 @@ df.history_event_change_creature_typest = {}
 ---@field unk_1 integer
 df.history_event_hist_figure_revivedst = {}
 
----@enum history_event_hist_figure_revivedst_flags2
-df.history_event_hist_figure_revivedst.T_flags2 = {
-  again = 0,
-}
+---@class (exact) _history_event_hist_figure_revivedst_flags2: df.struct
+---@field again 0
+---@field [0] "again"
+df.history_event_hist_figure_revivedst.T_flags2 = {}
+
+---@class history_event_hist_figure_revivedst_flags2
+---@field [0] boolean
+---@field again boolean
 
 ---@class history_event_hf_learns_secretst: history_event
 ---@field student historical_figure
@@ -1753,16 +3552,38 @@ df.history_event_hist_figure_revivedst.T_flags2 = {
 ---@field unk_1 integer
 df.history_event_hf_learns_secretst = {}
 
----@enum histfig_body_state
-df.histfig_body_state = {
-  Active = 0,
-  BuriedAtSite = 1,
-  UnburiedAtBattlefield = 2,
-  UnburiedAtSubregion = 3,
-  UnburiedAtFeatureLayer = 4,
-  EntombedAtSite = 5,
-  UnburiedAtSite = 6,
-}
+---@class (exact) _histfig_body_state: df.struct
+---@field Active 0
+---@field [0] "Active"
+---@field BuriedAtSite 1
+---@field [1] "BuriedAtSite"
+---@field UnburiedAtBattlefield 2
+---@field [2] "UnburiedAtBattlefield"
+---@field UnburiedAtSubregion 3
+---@field [3] "UnburiedAtSubregion"
+---@field UnburiedAtFeatureLayer 4
+---@field [4] "UnburiedAtFeatureLayer"
+---@field EntombedAtSite 5
+---@field [5] "EntombedAtSite"
+---@field UnburiedAtSite 6
+---@field [6] "UnburiedAtSite"
+df.histfig_body_state = {}
+
+---@class histfig_body_state
+---@field [0] boolean
+---@field Active boolean
+---@field [1] boolean
+---@field BuriedAtSite boolean
+---@field [2] boolean
+---@field UnburiedAtBattlefield boolean
+---@field [3] boolean
+---@field UnburiedAtSubregion boolean
+---@field [4] boolean
+---@field UnburiedAtFeatureLayer boolean
+---@field [5] boolean
+---@field EntombedAtSite boolean
+---@field [6] boolean
+---@field UnburiedAtSite boolean
 
 ---@class history_event_change_hf_body_statest: history_event
 ---@field histfig historical_figure
@@ -1781,12 +3602,22 @@ df.history_event_change_hf_body_statest = {}
 ---@field structure abstract_building
 df.history_event_hf_act_on_buildingst = {}
 
----@enum history_event_hf_act_on_buildingst_action
-df.history_event_hf_act_on_buildingst.T_action = {
-  Profane = 0,
-  Disturb = 1,
-  PrayedInside = 2,
-}
+---@class (exact) _history_event_hf_act_on_buildingst_action: df.struct
+---@field Profane 0
+---@field [0] "Profane"
+---@field Disturb 1
+---@field [1] "Disturb"
+---@field PrayedInside 2
+---@field [2] "PrayedInside"
+df.history_event_hf_act_on_buildingst.T_action = {}
+
+---@class history_event_hf_act_on_buildingst_action
+---@field [0] boolean
+---@field Profane boolean
+---@field [1] boolean
+---@field Disturb boolean
+---@field [2] boolean
+---@field PrayedInside boolean
 
 ---@class history_event_hf_does_interactionst: history_event
 ---@field doer historical_figure
@@ -1815,15 +3646,23 @@ df.history_event_hf_confrontedst = {}
 ---@field remove_flags history_event_entity_lawst_remove_flags
 df.history_event_entity_lawst = {}
 
----@enum history_event_entity_lawst_add_flags
-df.history_event_entity_lawst.T_add_flags = {
-  harsh = 0,
-}
+---@class (exact) _history_event_entity_lawst_add_flags: df.struct
+---@field harsh 0
+---@field [0] "harsh"
+df.history_event_entity_lawst.T_add_flags = {}
 
----@enum history_event_entity_lawst_remove_flags
-df.history_event_entity_lawst.T_remove_flags = {
-  harsh = 0,
-}
+---@class history_event_entity_lawst_add_flags
+---@field [0] boolean
+---@field harsh boolean
+
+---@class (exact) _history_event_entity_lawst_remove_flags: df.struct
+---@field harsh 0
+---@field [0] "harsh"
+df.history_event_entity_lawst.T_remove_flags = {}
+
+---@class history_event_entity_lawst_remove_flags
+---@field [0] boolean
+---@field harsh boolean
 
 ---@class history_event_hf_gains_secret_goalst: history_event
 ---@field histfig historical_figure
@@ -1847,15 +3686,34 @@ df.history_event_artifact_storedst = {}
 ---@field delegated boolean
 df.history_event_agreement_formedst = {}
 
----@enum site_dispute_type
-df.site_dispute_type = {
-  Territory = 0,
-  WaterRights = 1,
-  GrazingRights = 2,
-  FishingRights = 3,
-  RightsOfWay = 4,
-  LivestockOwnership = 5,
-}
+---@class (exact) _site_dispute_type: df.struct
+---@field Territory 0
+---@field [0] "Territory"
+---@field WaterRights 1
+---@field [1] "WaterRights"
+---@field GrazingRights 2
+---@field [2] "GrazingRights"
+---@field FishingRights 3
+---@field [3] "FishingRights"
+---@field RightsOfWay 4
+---@field [4] "RightsOfWay"
+---@field LivestockOwnership 5
+---@field [5] "LivestockOwnership"
+df.site_dispute_type = {}
+
+---@class site_dispute_type
+---@field [0] boolean
+---@field Territory boolean
+---@field [1] boolean
+---@field WaterRights boolean
+---@field [2] boolean
+---@field GrazingRights boolean
+---@field [3] boolean
+---@field FishingRights boolean
+---@field [4] boolean
+---@field RightsOfWay boolean
+---@field [5] boolean
+---@field LivestockOwnership boolean
 
 ---@class history_event_site_disputest: history_event
 ---@field dispute_type site_dispute_type
@@ -1877,12 +3735,22 @@ df.history_event_agreement_concludedst = {}
 ---@field site world_site
 df.history_event_insurrection_startedst = {}
 
----@enum insurrection_outcome
-df.insurrection_outcome = {
-  LeadershipOverthrown = 0,
-  PopulationGone = 1,
-  Crushed = 2,
-}
+---@class (exact) _insurrection_outcome: df.struct
+---@field LeadershipOverthrown 0
+---@field [0] "LeadershipOverthrown"
+---@field PopulationGone 1
+---@field [1] "PopulationGone"
+---@field Crushed 2
+---@field [2] "Crushed"
+df.insurrection_outcome = {}
+
+---@class insurrection_outcome
+---@field [0] boolean
+---@field LeadershipOverthrown boolean
+---@field [1] boolean
+---@field PopulationGone boolean
+---@field [2] boolean
+---@field Crushed boolean
 
 ---@class history_event_insurrection_endedst: history_event
 ---@field target_civ historical_entity
@@ -2055,11 +3923,18 @@ df.history_event_artifact_givenst = {}
 ---@field structure abstract_building
 df.history_event_hf_act_on_artifactst = {}
 
----@enum history_event_hf_act_on_artifactst_action
-df.history_event_hf_act_on_artifactst.T_action = {
-  View = 0,
-  AskAbout = 1,
-}
+---@class (exact) _history_event_hf_act_on_artifactst_action: df.struct
+---@field View 0
+---@field [0] "View"
+---@field AskAbout 1
+---@field [1] "AskAbout"
+df.history_event_hf_act_on_artifactst.T_action = {}
+
+---@class history_event_hf_act_on_artifactst_action
+---@field [0] boolean
+---@field View boolean
+---@field [1] boolean
+---@field AskAbout boolean
 
 ---@class history_event_hf_recruited_unit_type_for_entityst: history_event
 ---@field entity historical_entity
@@ -2093,10 +3968,14 @@ df.history_event_hfs_formed_reputation_relationshipst = {}
 ---@field flags2 history_event_artifact_copiedst_flags2
 df.history_event_artifact_copiedst = {}
 
----@enum history_event_artifact_copiedst_flags2
-df.history_event_artifact_copiedst.T_flags2 = {
-  from_original = 0,
-}
+---@class (exact) _history_event_artifact_copiedst_flags2: df.struct
+---@field from_original 0
+---@field [0] "from_original"
+df.history_event_artifact_copiedst.T_flags2 = {}
+
+---@class history_event_artifact_copiedst_flags2
+---@field [0] boolean
+---@field from_original boolean
 
 ---@class history_event_sneak_into_sitest: history_event
 ---@field attacker_civ historical_entity
@@ -2127,16 +4006,38 @@ df.history_event_entity_searched_sitest = {}
 ---@field rescued_hfs integer[]
 df.history_event_hf_freedst = {}
 
----@enum simple_action_type
-df.simple_action_type = {
-  carouse = 0,
-  purchase_well_crafted_equipment = 1,
-  purchase_finely_crafted_equipment = 2,
-  purchase_superior_equipment = 3,
-  purchase_exceptional_equipment = 4,
-  purchase_masterwork_equipment = 5,
-  performe_horrible_experiments = 6,
-}
+---@class (exact) _simple_action_type: df.struct
+---@field carouse 0
+---@field [0] "carouse"
+---@field purchase_well_crafted_equipment 1
+---@field [1] "purchase_well_crafted_equipment"
+---@field purchase_finely_crafted_equipment 2
+---@field [2] "purchase_finely_crafted_equipment"
+---@field purchase_superior_equipment 3
+---@field [3] "purchase_superior_equipment"
+---@field purchase_exceptional_equipment 4
+---@field [4] "purchase_exceptional_equipment"
+---@field purchase_masterwork_equipment 5
+---@field [5] "purchase_masterwork_equipment"
+---@field performe_horrible_experiments 6
+---@field [6] "performe_horrible_experiments"
+df.simple_action_type = {}
+
+---@class simple_action_type
+---@field [0] boolean
+---@field carouse boolean
+---@field [1] boolean
+---@field purchase_well_crafted_equipment boolean
+---@field [2] boolean
+---@field purchase_finely_crafted_equipment boolean
+---@field [3] boolean
+---@field purchase_superior_equipment boolean
+---@field [4] boolean
+---@field purchase_exceptional_equipment boolean
+---@field [5] boolean
+---@field purchase_masterwork_equipment boolean
+---@field [6] boolean
+---@field performe_horrible_experiments boolean
 
 ---@class history_event_hist_figure_simple_actionst: history_event
 ---@field group_hfs integer[]
@@ -2157,16 +4058,38 @@ df.history_event_entity_rampaged_in_sitest = {}
 ---@field site_id world_site
 df.history_event_entity_fled_sitest = {}
 
----@enum tactical_situation
-df.tactical_situation = {
-  attacker_strongly_favored = 0,
-  attacker_favored = 1,
-  attacker_slightly_favored = 2,
-  defender_strongly_favored = 3,
-  defender_favored = 4,
-  defender_slightly_favored = 5,
-  neither_favored = 6,
-}
+---@class (exact) _tactical_situation: df.struct
+---@field attacker_strongly_favored 0
+---@field [0] "attacker_strongly_favored"
+---@field attacker_favored 1
+---@field [1] "attacker_favored"
+---@field attacker_slightly_favored 2
+---@field [2] "attacker_slightly_favored"
+---@field defender_strongly_favored 3
+---@field [3] "defender_strongly_favored"
+---@field defender_favored 4
+---@field [4] "defender_favored"
+---@field defender_slightly_favored 5
+---@field [5] "defender_slightly_favored"
+---@field neither_favored 6
+---@field [6] "neither_favored"
+df.tactical_situation = {}
+
+---@class tactical_situation
+---@field [0] boolean
+---@field attacker_strongly_favored boolean
+---@field [1] boolean
+---@field attacker_favored boolean
+---@field [2] boolean
+---@field attacker_slightly_favored boolean
+---@field [3] boolean
+---@field defender_strongly_favored boolean
+---@field [4] boolean
+---@field defender_favored boolean
+---@field [5] boolean
+---@field defender_slightly_favored boolean
+---@field [6] boolean
+---@field neither_favored boolean
 
 ---@class history_event_tactical_situationst: history_event
 ---@field a_tactician_hfid historical_figure
@@ -2181,10 +4104,14 @@ df.tactical_situation = {
 ---@field tactics_flags history_event_tactical_situationst_tactics_flags
 df.history_event_tactical_situationst = {}
 
----@enum history_event_tactical_situationst_tactics_flags
-df.history_event_tactical_situationst.T_tactics_flags = {
-  start = 0,
-}
+---@class (exact) _history_event_tactical_situationst_tactics_flags: df.struct
+---@field start 0
+---@field [0] "start"
+df.history_event_tactical_situationst.T_tactics_flags = {}
+
+---@class history_event_tactical_situationst_tactics_flags
+---@field [0] boolean
+---@field start boolean
 
 ---@class history_event_squad_vs_squadst: history_event
 ---@field a_leader_hfid historical_figure
@@ -2262,13 +4189,26 @@ df.history_event_entity_equipment_purchasest = {}
 ---@field modification history_event_modified_buildingst_modification
 df.history_event_modified_buildingst = {}
 
----@enum history_event_modified_buildingst_modification
-df.history_event_modified_buildingst.T_modification = {
-  dungeon = 0,
-  fortifications = 1,
-  courtyard = 2,
-  feast_hall = 3,
-}
+---@class (exact) _history_event_modified_buildingst_modification: df.struct
+---@field dungeon 0
+---@field [0] "dungeon"
+---@field fortifications 1
+---@field [1] "fortifications"
+---@field courtyard 2
+---@field [2] "courtyard"
+---@field feast_hall 3
+---@field [3] "feast_hall"
+df.history_event_modified_buildingst.T_modification = {}
+
+---@class history_event_modified_buildingst_modification
+---@field [0] boolean
+---@field dungeon boolean
+---@field [1] boolean
+---@field fortifications boolean
+---@field [2] boolean
+---@field courtyard boolean
+---@field [3] boolean
+---@field feast_hall boolean
 
 ---@class history_event_building_profile_acquiredst: history_event
 ---@field site world_site
@@ -2388,24 +4328,59 @@ df.history_event_failed_intrigue_corruptionst = {}
 ---@field plot_flags history_event_hf_convictedst_plot_flags
 df.history_event_hf_convictedst = {}
 
----@enum history_event_hf_convictedst_punishment_flags
-df.history_event_hf_convictedst.T_punishment_flags = {
-  beaten = 0,
-  exiled = 1,
-  death_sentence = 2, --sentenced to death
-  no_prison_available = 3, --would have been imprisoned but for lack of accommodations
-}
+---@class (exact) _history_event_hf_convictedst_punishment_flags: df.struct
+---@field beaten 0
+---@field [0] "beaten"
+---@field exiled 1
+---@field [1] "exiled"
+---@field death_sentence 2
+---@field [2] "death_sentence"
+---@field no_prison_available 3
+---@field [3] "no_prison_available"
+df.history_event_hf_convictedst.T_punishment_flags = {}
 
----@enum history_event_hf_convictedst_plot_flags
-df.history_event_hf_convictedst.T_plot_flags = {
-  wrongful = 0, --wrongful conviction
-  plot_surveillance = 1, --due to ongoing surveillance as the plot unfolded
-  target_surveillance = 2, --due to ongoing surveillance on the target
-  implicated_others = 3, --implicated others during interrogation
-  co_conspirator_surveillance = 4, --due to ongoing surveillance on a coconspirator
-  go_between = 5, --convicted as go-between
-  revealed_nothing = 6, --revealed nothing during interrogation
-}
+---@class history_event_hf_convictedst_punishment_flags
+---@field [0] boolean
+---@field beaten boolean
+---@field [1] boolean
+---@field exiled boolean
+---@field [2] boolean
+---@field death_sentence boolean
+---@field [3] boolean
+---@field no_prison_available boolean
+
+---@class (exact) _history_event_hf_convictedst_plot_flags: df.struct
+---@field wrongful 0
+---@field [0] "wrongful"
+---@field plot_surveillance 1
+---@field [1] "plot_surveillance"
+---@field target_surveillance 2
+---@field [2] "target_surveillance"
+---@field implicated_others 3
+---@field [3] "implicated_others"
+---@field co_conspirator_surveillance 4
+---@field [4] "co_conspirator_surveillance"
+---@field go_between 5
+---@field [5] "go_between"
+---@field revealed_nothing 6
+---@field [6] "revealed_nothing"
+df.history_event_hf_convictedst.T_plot_flags = {}
+
+---@class history_event_hf_convictedst_plot_flags
+---@field [0] boolean
+---@field wrongful boolean
+---@field [1] boolean
+---@field plot_surveillance boolean
+---@field [2] boolean
+---@field target_surveillance boolean
+---@field [3] boolean
+---@field implicated_others boolean
+---@field [4] boolean
+---@field co_conspirator_surveillance boolean
+---@field [5] boolean
+---@field go_between boolean
+---@field [6] boolean
+---@field revealed_nothing boolean
 
 ---@class history_event_failed_frame_attemptst: history_event
 ---@field target_hf historical_figure
@@ -2424,33 +4399,95 @@ df.history_event_failed_frame_attemptst = {}
 ---@field interrogation_flags history_event_hf_interrogatedst_interrogation_flags
 df.history_event_hf_interrogatedst = {}
 
----@enum history_event_hf_interrogatedst_interrogation_flags
-df.history_event_hf_interrogatedst.T_interrogation_flags = {
-  recognized = 0,
-  refused_to_reveal = 1,
-}
+---@class (exact) _history_event_hf_interrogatedst_interrogation_flags: df.struct
+---@field recognized 0
+---@field [0] "recognized"
+---@field refused_to_reveal 1
+---@field [1] "refused_to_reveal"
+df.history_event_hf_interrogatedst.T_interrogation_flags = {}
 
----@enum history_event_collection_type
-df.history_event_collection_type = {
-  WAR = 0,
-  BATTLE = 1,
-  DUEL = 2,
-  SITE_CONQUERED = 3,
-  ABDUCTION = 4,
-  THEFT = 5,
-  BEAST_ATTACK = 6,
-  JOURNEY = 7,
-  INSURRECTION = 8,
-  OCCASION = 9,
-  PERFORMANCE = 10,
-  COMPETITION = 11,
-  PROCESSION = 12,
-  CEREMONY = 13,
-  PURGE = 14,
-  RAID = 15,
-  PERSECUTION = 16,
-  ENTITY_OVERTHROWN = 17,
-}
+---@class history_event_hf_interrogatedst_interrogation_flags
+---@field [0] boolean
+---@field recognized boolean
+---@field [1] boolean
+---@field refused_to_reveal boolean
+
+---@class (exact) _history_event_collection_type: df.struct
+---@field WAR 0
+---@field [0] "WAR"
+---@field BATTLE 1
+---@field [1] "BATTLE"
+---@field DUEL 2
+---@field [2] "DUEL"
+---@field SITE_CONQUERED 3
+---@field [3] "SITE_CONQUERED"
+---@field ABDUCTION 4
+---@field [4] "ABDUCTION"
+---@field THEFT 5
+---@field [5] "THEFT"
+---@field BEAST_ATTACK 6
+---@field [6] "BEAST_ATTACK"
+---@field JOURNEY 7
+---@field [7] "JOURNEY"
+---@field INSURRECTION 8
+---@field [8] "INSURRECTION"
+---@field OCCASION 9
+---@field [9] "OCCASION"
+---@field PERFORMANCE 10
+---@field [10] "PERFORMANCE"
+---@field COMPETITION 11
+---@field [11] "COMPETITION"
+---@field PROCESSION 12
+---@field [12] "PROCESSION"
+---@field CEREMONY 13
+---@field [13] "CEREMONY"
+---@field PURGE 14
+---@field [14] "PURGE"
+---@field RAID 15
+---@field [15] "RAID"
+---@field PERSECUTION 16
+---@field [16] "PERSECUTION"
+---@field ENTITY_OVERTHROWN 17
+---@field [17] "ENTITY_OVERTHROWN"
+df.history_event_collection_type = {}
+
+---@class history_event_collection_type
+---@field [0] boolean
+---@field WAR boolean
+---@field [1] boolean
+---@field BATTLE boolean
+---@field [2] boolean
+---@field DUEL boolean
+---@field [3] boolean
+---@field SITE_CONQUERED boolean
+---@field [4] boolean
+---@field ABDUCTION boolean
+---@field [5] boolean
+---@field THEFT boolean
+---@field [6] boolean
+---@field BEAST_ATTACK boolean
+---@field [7] boolean
+---@field JOURNEY boolean
+---@field [8] boolean
+---@field INSURRECTION boolean
+---@field [9] boolean
+---@field OCCASION boolean
+---@field [10] boolean
+---@field PERFORMANCE boolean
+---@field [11] boolean
+---@field COMPETITION boolean
+---@field [12] boolean
+---@field PROCESSION boolean
+---@field [13] boolean
+---@field CEREMONY boolean
+---@field [14] boolean
+---@field PURGE boolean
+---@field [15] boolean
+---@field RAID boolean
+---@field [16] boolean
+---@field PERSECUTION boolean
+---@field [17] boolean
+---@field ENTITY_OVERTHROWN boolean
 
 ---@class history_event_collection: df.instance
 ---@field events integer[]
@@ -2681,22 +4718,62 @@ df.history_event_collection_persecutionst = {}
 ---@field ordinal integer
 df.history_event_collection_entity_overthrownst = {}
 
----@enum era_type
-df.era_type = {
-  ThreePowers = 0,
-  TwoPowers = 1,
-  OnePower = 2,
-  Myth = 3,
-  Legends = 4,
-  Twilight = 5,
-  FairyTales = 6,
-  Race = 7,
-  Heroes = 8,
-  Golden = 9,
-  Death = 10,
-  Civilization = 11,
-  Emptiness = 12,
-}
+---@class (exact) _era_type: df.struct
+---@field ThreePowers 0
+---@field [0] "ThreePowers"
+---@field TwoPowers 1
+---@field [1] "TwoPowers"
+---@field OnePower 2
+---@field [2] "OnePower"
+---@field Myth 3
+---@field [3] "Myth"
+---@field Legends 4
+---@field [4] "Legends"
+---@field Twilight 5
+---@field [5] "Twilight"
+---@field FairyTales 6
+---@field [6] "FairyTales"
+---@field Race 7
+---@field [7] "Race"
+---@field Heroes 8
+---@field [8] "Heroes"
+---@field Golden 9
+---@field [9] "Golden"
+---@field Death 10
+---@field [10] "Death"
+---@field Civilization 11
+---@field [11] "Civilization"
+---@field Emptiness 12
+---@field [12] "Emptiness"
+df.era_type = {}
+
+---@class era_type
+---@field [0] boolean
+---@field ThreePowers boolean
+---@field [1] boolean
+---@field TwoPowers boolean
+---@field [2] boolean
+---@field OnePower boolean
+---@field [3] boolean
+---@field Myth boolean
+---@field [4] boolean
+---@field Legends boolean
+---@field [5] boolean
+---@field Twilight boolean
+---@field [6] boolean
+---@field FairyTales boolean
+---@field [7] boolean
+---@field Race boolean
+---@field [8] boolean
+---@field Heroes boolean
+---@field [9] boolean
+---@field Golden boolean
+---@field [10] boolean
+---@field Death boolean
+---@field [11] boolean
+---@field Civilization boolean
+---@field [12] boolean
+---@field Emptiness boolean
 
 ---@class history_era: df.struct
 ---@field year integer
@@ -2828,30 +4905,78 @@ df.intrigue = {}
 ---@field target_ally_roll integer
 df.intrigue_corruption = {}
 
----@enum intrigue_corruption_manipulation_type
-df.intrigue_corruption.T_manipulation_type = {
-  Threat = 0,
-  Flattery = 1,
-  Authority = 2,
-  BlackmailForEmbezzlement = 3,
-  Bribery = 4,
-  Sympathy = 5,
-  Revenge = 6,
-  Immortality = 7,
-}
+---@class (exact) _intrigue_corruption_manipulation_type: df.struct
+---@field Threat 0
+---@field [0] "Threat"
+---@field Flattery 1
+---@field [1] "Flattery"
+---@field Authority 2
+---@field [2] "Authority"
+---@field BlackmailForEmbezzlement 3
+---@field [3] "BlackmailForEmbezzlement"
+---@field Bribery 4
+---@field [4] "Bribery"
+---@field Sympathy 5
+---@field [5] "Sympathy"
+---@field Revenge 6
+---@field [6] "Revenge"
+---@field Immortality 7
+---@field [7] "Immortality"
+df.intrigue_corruption.T_manipulation_type = {}
 
----@enum intrigue_corruption_manipulated_emotion
-df.intrigue_corruption.T_manipulated_emotion = {
-  Trust = 0,
-  Loyalty = 1,
-  Love = 2,
-  Fear = 3,
-  Respect = 4,
-}
+---@class intrigue_corruption_manipulation_type
+---@field [0] boolean
+---@field Threat boolean
+---@field [1] boolean
+---@field Flattery boolean
+---@field [2] boolean
+---@field Authority boolean
+---@field [3] boolean
+---@field BlackmailForEmbezzlement boolean
+---@field [4] boolean
+---@field Bribery boolean
+---@field [5] boolean
+---@field Sympathy boolean
+---@field [6] boolean
+---@field Revenge boolean
+---@field [7] boolean
+---@field Immortality boolean
 
----@enum intrigue_corruption_flags
-df.intrigue_corruption.T_flags = {
-  succeeded = 0,
-  misread_target = 1,
-}
+---@class (exact) _intrigue_corruption_manipulated_emotion: df.struct
+---@field Trust 0
+---@field [0] "Trust"
+---@field Loyalty 1
+---@field [1] "Loyalty"
+---@field Love 2
+---@field [2] "Love"
+---@field Fear 3
+---@field [3] "Fear"
+---@field Respect 4
+---@field [4] "Respect"
+df.intrigue_corruption.T_manipulated_emotion = {}
+
+---@class intrigue_corruption_manipulated_emotion
+---@field [0] boolean
+---@field Trust boolean
+---@field [1] boolean
+---@field Loyalty boolean
+---@field [2] boolean
+---@field Love boolean
+---@field [3] boolean
+---@field Fear boolean
+---@field [4] boolean
+---@field Respect boolean
+
+---@class (exact) _intrigue_corruption_flags: df.struct
+---@field succeeded 0
+---@field [0] "succeeded"
+---@field misread_target 1
+---@field [1] "misread_target"
+df.intrigue_corruption.T_flags = {}
+
+---@class intrigue_corruption_flags
+---@field [0] boolean
+---@field succeeded boolean
+---@field [1] boolean
+---@field misread_target boolean
 

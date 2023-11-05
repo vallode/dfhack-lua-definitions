@@ -22,74 +22,259 @@ df.burrow = {}
 ---@field z integer
 df.ui_hotkey = {}
 
----@enum ui_hotkey_cmd
-df.ui_hotkey.T_cmd = {
-  None = -1,
-  Zoom = 1,
-  FollowUnit = 2,
-  FollowItem = 3,
-}
+---@class (exact) _ui_hotkey_cmd: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Zoom 1
+---@field [1] "Zoom"
+---@field FollowUnit 2
+---@field [2] "FollowUnit"
+---@field FollowItem 3
+---@field [3] "FollowItem"
+df.ui_hotkey.T_cmd = {}
 
----@enum ui_sidebar_mode
-df.ui_sidebar_mode = {
-  Default = 0,
-  Squads = 1,
-  DesignateMine = 2,
-  DesignateRemoveRamps = 3,
-  DesignateUpStair = 4,
-  DesignateDownStair = 5,
-  DesignateUpDownStair = 6,
-  DesignateUpRamp = 7,
-  DesignateChannel = 8,
-  DesignateGatherPlants = 9,
-  DesignateRemoveDesignation = 10,
-  DesignateSmooth = 11,
-  DesignateCarveTrack = 12,
-  DesignateEngrave = 13,
-  DesignateCarveFortification = 14,
-  Stockpiles = 15,
-  Build = 16,
-  QueryBuilding = 17,
-  Orders = 18,
-  OrdersForbid = 19,
-  OrdersRefuse = 20,
-  OrdersWorkshop = 21,
-  OrdersZone = 22,
-  BuildingItems = 23,
-  ViewUnits = 24,
-  LookAround = 25,
-  DesignateItemsClaim = 26,
-  DesignateItemsForbid = 27,
-  DesignateItemsMelt = 28,
-  DesignateItemsUnmelt = 29,
-  DesignateItemsDump = 30,
-  DesignateItemsUndump = 31,
-  DesignateItemsHide = 32,
-  DesignateItemsUnhide = 33,
-  DesignateChopTrees = 34,
-  DesignateToggleEngravings = 35,
-  DesignateToggleMarker = 36,
-  Hotkeys = 37,
-  DesignateTrafficHigh = 38,
-  DesignateTrafficNormal = 39,
-  DesignateTrafficLow = 40,
-  DesignateTrafficRestricted = 41,
-  Zones = 42,
-  ZonesPenInfo = 43,
-  ZonesPitInfo = 44,
-  ZonesHospitalInfo = 45,
-  ZonesGatherInfo = 46,
-  DesignateRemoveConstruction = 47,
-  DepotAccess = 48,
-  NotesPoints = 49,
-  NotesRoutes = 50,
-  Burrows = 51,
-  Hauling = 52,
-  ArenaWeather = 53,
-  ArenaTrees = 54,
-  BuildingLocationInfo = 55,
-  ZonesLocationInfo = 56,
-}
+---@class ui_hotkey_cmd
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Zoom boolean
+---@field [2] boolean
+---@field FollowUnit boolean
+---@field [3] boolean
+---@field FollowItem boolean
+
+---@class (exact) _ui_sidebar_mode: df.struct
+---@field Default 0
+---@field [0] "Default"
+---@field Squads 1
+---@field [1] "Squads"
+---@field DesignateMine 2
+---@field [2] "DesignateMine"
+---@field DesignateRemoveRamps 3
+---@field [3] "DesignateRemoveRamps"
+---@field DesignateUpStair 4
+---@field [4] "DesignateUpStair"
+---@field DesignateDownStair 5
+---@field [5] "DesignateDownStair"
+---@field DesignateUpDownStair 6
+---@field [6] "DesignateUpDownStair"
+---@field DesignateUpRamp 7
+---@field [7] "DesignateUpRamp"
+---@field DesignateChannel 8
+---@field [8] "DesignateChannel"
+---@field DesignateGatherPlants 9
+---@field [9] "DesignateGatherPlants"
+---@field DesignateRemoveDesignation 10
+---@field [10] "DesignateRemoveDesignation"
+---@field DesignateSmooth 11
+---@field [11] "DesignateSmooth"
+---@field DesignateCarveTrack 12
+---@field [12] "DesignateCarveTrack"
+---@field DesignateEngrave 13
+---@field [13] "DesignateEngrave"
+---@field DesignateCarveFortification 14
+---@field [14] "DesignateCarveFortification"
+---@field Stockpiles 15
+---@field [15] "Stockpiles"
+---@field Build 16
+---@field [16] "Build"
+---@field QueryBuilding 17
+---@field [17] "QueryBuilding"
+---@field Orders 18
+---@field [18] "Orders"
+---@field OrdersForbid 19
+---@field [19] "OrdersForbid"
+---@field OrdersRefuse 20
+---@field [20] "OrdersRefuse"
+---@field OrdersWorkshop 21
+---@field [21] "OrdersWorkshop"
+---@field OrdersZone 22
+---@field [22] "OrdersZone"
+---@field BuildingItems 23
+---@field [23] "BuildingItems"
+---@field ViewUnits 24
+---@field [24] "ViewUnits"
+---@field LookAround 25
+---@field [25] "LookAround"
+---@field DesignateItemsClaim 26
+---@field [26] "DesignateItemsClaim"
+---@field DesignateItemsForbid 27
+---@field [27] "DesignateItemsForbid"
+---@field DesignateItemsMelt 28
+---@field [28] "DesignateItemsMelt"
+---@field DesignateItemsUnmelt 29
+---@field [29] "DesignateItemsUnmelt"
+---@field DesignateItemsDump 30
+---@field [30] "DesignateItemsDump"
+---@field DesignateItemsUndump 31
+---@field [31] "DesignateItemsUndump"
+---@field DesignateItemsHide 32
+---@field [32] "DesignateItemsHide"
+---@field DesignateItemsUnhide 33
+---@field [33] "DesignateItemsUnhide"
+---@field DesignateChopTrees 34
+---@field [34] "DesignateChopTrees"
+---@field DesignateToggleEngravings 35
+---@field [35] "DesignateToggleEngravings"
+---@field DesignateToggleMarker 36
+---@field [36] "DesignateToggleMarker"
+---@field Hotkeys 37
+---@field [37] "Hotkeys"
+---@field DesignateTrafficHigh 38
+---@field [38] "DesignateTrafficHigh"
+---@field DesignateTrafficNormal 39
+---@field [39] "DesignateTrafficNormal"
+---@field DesignateTrafficLow 40
+---@field [40] "DesignateTrafficLow"
+---@field DesignateTrafficRestricted 41
+---@field [41] "DesignateTrafficRestricted"
+---@field Zones 42
+---@field [42] "Zones"
+---@field ZonesPenInfo 43
+---@field [43] "ZonesPenInfo"
+---@field ZonesPitInfo 44
+---@field [44] "ZonesPitInfo"
+---@field ZonesHospitalInfo 45
+---@field [45] "ZonesHospitalInfo"
+---@field ZonesGatherInfo 46
+---@field [46] "ZonesGatherInfo"
+---@field DesignateRemoveConstruction 47
+---@field [47] "DesignateRemoveConstruction"
+---@field DepotAccess 48
+---@field [48] "DepotAccess"
+---@field NotesPoints 49
+---@field [49] "NotesPoints"
+---@field NotesRoutes 50
+---@field [50] "NotesRoutes"
+---@field Burrows 51
+---@field [51] "Burrows"
+---@field Hauling 52
+---@field [52] "Hauling"
+---@field ArenaWeather 53
+---@field [53] "ArenaWeather"
+---@field ArenaTrees 54
+---@field [54] "ArenaTrees"
+---@field BuildingLocationInfo 55
+---@field [55] "BuildingLocationInfo"
+---@field ZonesLocationInfo 56
+---@field [56] "ZonesLocationInfo"
+df.ui_sidebar_mode = {}
+
+---@class ui_sidebar_mode
+---@field [0] boolean
+---@field Default boolean
+---@field [1] boolean
+---@field Squads boolean
+---@field [2] boolean
+---@field DesignateMine boolean
+---@field [3] boolean
+---@field DesignateRemoveRamps boolean
+---@field [4] boolean
+---@field DesignateUpStair boolean
+---@field [5] boolean
+---@field DesignateDownStair boolean
+---@field [6] boolean
+---@field DesignateUpDownStair boolean
+---@field [7] boolean
+---@field DesignateUpRamp boolean
+---@field [8] boolean
+---@field DesignateChannel boolean
+---@field [9] boolean
+---@field DesignateGatherPlants boolean
+---@field [10] boolean
+---@field DesignateRemoveDesignation boolean
+---@field [11] boolean
+---@field DesignateSmooth boolean
+---@field [12] boolean
+---@field DesignateCarveTrack boolean
+---@field [13] boolean
+---@field DesignateEngrave boolean
+---@field [14] boolean
+---@field DesignateCarveFortification boolean
+---@field [15] boolean
+---@field Stockpiles boolean
+---@field [16] boolean
+---@field Build boolean
+---@field [17] boolean
+---@field QueryBuilding boolean
+---@field [18] boolean
+---@field Orders boolean
+---@field [19] boolean
+---@field OrdersForbid boolean
+---@field [20] boolean
+---@field OrdersRefuse boolean
+---@field [21] boolean
+---@field OrdersWorkshop boolean
+---@field [22] boolean
+---@field OrdersZone boolean
+---@field [23] boolean
+---@field BuildingItems boolean
+---@field [24] boolean
+---@field ViewUnits boolean
+---@field [25] boolean
+---@field LookAround boolean
+---@field [26] boolean
+---@field DesignateItemsClaim boolean
+---@field [27] boolean
+---@field DesignateItemsForbid boolean
+---@field [28] boolean
+---@field DesignateItemsMelt boolean
+---@field [29] boolean
+---@field DesignateItemsUnmelt boolean
+---@field [30] boolean
+---@field DesignateItemsDump boolean
+---@field [31] boolean
+---@field DesignateItemsUndump boolean
+---@field [32] boolean
+---@field DesignateItemsHide boolean
+---@field [33] boolean
+---@field DesignateItemsUnhide boolean
+---@field [34] boolean
+---@field DesignateChopTrees boolean
+---@field [35] boolean
+---@field DesignateToggleEngravings boolean
+---@field [36] boolean
+---@field DesignateToggleMarker boolean
+---@field [37] boolean
+---@field Hotkeys boolean
+---@field [38] boolean
+---@field DesignateTrafficHigh boolean
+---@field [39] boolean
+---@field DesignateTrafficNormal boolean
+---@field [40] boolean
+---@field DesignateTrafficLow boolean
+---@field [41] boolean
+---@field DesignateTrafficRestricted boolean
+---@field [42] boolean
+---@field Zones boolean
+---@field [43] boolean
+---@field ZonesPenInfo boolean
+---@field [44] boolean
+---@field ZonesPitInfo boolean
+---@field [45] boolean
+---@field ZonesHospitalInfo boolean
+---@field [46] boolean
+---@field ZonesGatherInfo boolean
+---@field [47] boolean
+---@field DesignateRemoveConstruction boolean
+---@field [48] boolean
+---@field DepotAccess boolean
+---@field [49] boolean
+---@field NotesPoints boolean
+---@field [50] boolean
+---@field NotesRoutes boolean
+---@field [51] boolean
+---@field Burrows boolean
+---@field [52] boolean
+---@field Hauling boolean
+---@field [53] boolean
+---@field ArenaWeather boolean
+---@field [54] boolean
+---@field ArenaTrees boolean
+---@field [55] boolean
+---@field BuildingLocationInfo boolean
+---@field [56] boolean
+---@field ZonesLocationInfo boolean
 
 ---@class punishment: df.struct
 ---@field criminal unit
@@ -102,84 +287,288 @@ df.ui_sidebar_mode = {
 ---@field victims integer[]
 df.punishment = {}
 
----@enum kitchen_exc_type
-df.kitchen_exc_type = {
-  Cook = 1,
-  Brew = 1,
-}
+---@class (exact) _kitchen_exc_type: df.struct
+---@field Cook 1
+---@field [0] "Cook"
+---@field Brew 1
+---@field [1] "Brew"
+df.kitchen_exc_type = {}
 
----@enum save_substage
-df.save_substage = {
-  Initializing = 0,
-  CheckingDirectoryStructure = 1,
-  PreliminaryCleaning = 2,
-  OffloadingUnits = 3,
-  OffloadingArt = 4,
-  OpeningFile = 5,
-  CharacterizingRawData = 6,
-  AllocatingSpace = 7,
-  SavingItems = 8,
-  SavingUnits = 9,
-  SavingJobs = 10,
-  SavingSchedules = 11,
-  SavingProjectiles = 12,
-  SavingBuildings = 13,
-  SavingMachines = 14,
-  SavingFlowGuides = 15,
-  SavingEffects = 16,
-  SavingEntities = 17,
-  SavingLocalAnimalPopulations = 18,
-  SavingEvents = 19,
-  SavingMandates = 20,
-  SavingWorkQuotas = 21,
-  SavingWorldEvents = 22,
-  SavingCoinInformation = 23,
-  SavingSquads = 24,
-  SavingFormations = 25,
-  SavingActivities = 26,
-  SavingInteractions = 27,
-  SavingWrittenContent = 28,
-  SavingIdentities = 29,
-  SavingIncidents = 30,
-  SavingCrimes = 31,
-  SavingVehicles = 32,
-  SavingArmies = 33,
-  SavingArmyControllers = 34,
-  SavingTrackingInformation = 35,
-  SavingCulturalIdentities = 36,
-  SavingAgreement = 37,
-  SavingArtForms = 38,
-  SavingOccupations = 39,
-  SavingBeliefSystems = 40,
-  SavingImageSets = 41,
-  SavingDivinationSets = 42,
-  SavingAnnouncements = 43,
-  SavingFortressInformation = 44,
-  SavingWorldInformation = 45,
-  SavingArtifacts = 46,
-  SavingActiveHistoricalFigures = 47,
-  SavingAdventureData = 48,
-  SavingGeneralInformation = 49,
-  ClosingFile = 50,
-  Finishing = 51,
-}
+---@class kitchen_exc_type
+---@field [0] boolean
+---@field Cook boolean
+---@field [1] boolean
+---@field Brew boolean
 
----@enum equipment_update
-df.equipment_update = {
-  weapon = 0,
-  armor = 1,
-  shoes = 2,
-  shield = 3,
-  helm = 4,
-  gloves = 5,
-  ammo = 6,
-  pants = 7,
-  backpack = 8,
-  quiver = 9,
-  flask = 10,
-  unk_11 = 11,
-  buildings = 12,
-}
+---@class (exact) _save_substage: df.struct
+---@field Initializing 0
+---@field [0] "Initializing"
+---@field CheckingDirectoryStructure 1
+---@field [1] "CheckingDirectoryStructure"
+---@field PreliminaryCleaning 2
+---@field [2] "PreliminaryCleaning"
+---@field OffloadingUnits 3
+---@field [3] "OffloadingUnits"
+---@field OffloadingArt 4
+---@field [4] "OffloadingArt"
+---@field OpeningFile 5
+---@field [5] "OpeningFile"
+---@field CharacterizingRawData 6
+---@field [6] "CharacterizingRawData"
+---@field AllocatingSpace 7
+---@field [7] "AllocatingSpace"
+---@field SavingItems 8
+---@field [8] "SavingItems"
+---@field SavingUnits 9
+---@field [9] "SavingUnits"
+---@field SavingJobs 10
+---@field [10] "SavingJobs"
+---@field SavingSchedules 11
+---@field [11] "SavingSchedules"
+---@field SavingProjectiles 12
+---@field [12] "SavingProjectiles"
+---@field SavingBuildings 13
+---@field [13] "SavingBuildings"
+---@field SavingMachines 14
+---@field [14] "SavingMachines"
+---@field SavingFlowGuides 15
+---@field [15] "SavingFlowGuides"
+---@field SavingEffects 16
+---@field [16] "SavingEffects"
+---@field SavingEntities 17
+---@field [17] "SavingEntities"
+---@field SavingLocalAnimalPopulations 18
+---@field [18] "SavingLocalAnimalPopulations"
+---@field SavingEvents 19
+---@field [19] "SavingEvents"
+---@field SavingMandates 20
+---@field [20] "SavingMandates"
+---@field SavingWorkQuotas 21
+---@field [21] "SavingWorkQuotas"
+---@field SavingWorldEvents 22
+---@field [22] "SavingWorldEvents"
+---@field SavingCoinInformation 23
+---@field [23] "SavingCoinInformation"
+---@field SavingSquads 24
+---@field [24] "SavingSquads"
+---@field SavingFormations 25
+---@field [25] "SavingFormations"
+---@field SavingActivities 26
+---@field [26] "SavingActivities"
+---@field SavingInteractions 27
+---@field [27] "SavingInteractions"
+---@field SavingWrittenContent 28
+---@field [28] "SavingWrittenContent"
+---@field SavingIdentities 29
+---@field [29] "SavingIdentities"
+---@field SavingIncidents 30
+---@field [30] "SavingIncidents"
+---@field SavingCrimes 31
+---@field [31] "SavingCrimes"
+---@field SavingVehicles 32
+---@field [32] "SavingVehicles"
+---@field SavingArmies 33
+---@field [33] "SavingArmies"
+---@field SavingArmyControllers 34
+---@field [34] "SavingArmyControllers"
+---@field SavingTrackingInformation 35
+---@field [35] "SavingTrackingInformation"
+---@field SavingCulturalIdentities 36
+---@field [36] "SavingCulturalIdentities"
+---@field SavingAgreement 37
+---@field [37] "SavingAgreement"
+---@field SavingArtForms 38
+---@field [38] "SavingArtForms"
+---@field SavingOccupations 39
+---@field [39] "SavingOccupations"
+---@field SavingBeliefSystems 40
+---@field [40] "SavingBeliefSystems"
+---@field SavingImageSets 41
+---@field [41] "SavingImageSets"
+---@field SavingDivinationSets 42
+---@field [42] "SavingDivinationSets"
+---@field SavingAnnouncements 43
+---@field [43] "SavingAnnouncements"
+---@field SavingFortressInformation 44
+---@field [44] "SavingFortressInformation"
+---@field SavingWorldInformation 45
+---@field [45] "SavingWorldInformation"
+---@field SavingArtifacts 46
+---@field [46] "SavingArtifacts"
+---@field SavingActiveHistoricalFigures 47
+---@field [47] "SavingActiveHistoricalFigures"
+---@field SavingAdventureData 48
+---@field [48] "SavingAdventureData"
+---@field SavingGeneralInformation 49
+---@field [49] "SavingGeneralInformation"
+---@field ClosingFile 50
+---@field [50] "ClosingFile"
+---@field Finishing 51
+---@field [51] "Finishing"
+df.save_substage = {}
+
+---@class save_substage
+---@field [0] boolean
+---@field Initializing boolean
+---@field [1] boolean
+---@field CheckingDirectoryStructure boolean
+---@field [2] boolean
+---@field PreliminaryCleaning boolean
+---@field [3] boolean
+---@field OffloadingUnits boolean
+---@field [4] boolean
+---@field OffloadingArt boolean
+---@field [5] boolean
+---@field OpeningFile boolean
+---@field [6] boolean
+---@field CharacterizingRawData boolean
+---@field [7] boolean
+---@field AllocatingSpace boolean
+---@field [8] boolean
+---@field SavingItems boolean
+---@field [9] boolean
+---@field SavingUnits boolean
+---@field [10] boolean
+---@field SavingJobs boolean
+---@field [11] boolean
+---@field SavingSchedules boolean
+---@field [12] boolean
+---@field SavingProjectiles boolean
+---@field [13] boolean
+---@field SavingBuildings boolean
+---@field [14] boolean
+---@field SavingMachines boolean
+---@field [15] boolean
+---@field SavingFlowGuides boolean
+---@field [16] boolean
+---@field SavingEffects boolean
+---@field [17] boolean
+---@field SavingEntities boolean
+---@field [18] boolean
+---@field SavingLocalAnimalPopulations boolean
+---@field [19] boolean
+---@field SavingEvents boolean
+---@field [20] boolean
+---@field SavingMandates boolean
+---@field [21] boolean
+---@field SavingWorkQuotas boolean
+---@field [22] boolean
+---@field SavingWorldEvents boolean
+---@field [23] boolean
+---@field SavingCoinInformation boolean
+---@field [24] boolean
+---@field SavingSquads boolean
+---@field [25] boolean
+---@field SavingFormations boolean
+---@field [26] boolean
+---@field SavingActivities boolean
+---@field [27] boolean
+---@field SavingInteractions boolean
+---@field [28] boolean
+---@field SavingWrittenContent boolean
+---@field [29] boolean
+---@field SavingIdentities boolean
+---@field [30] boolean
+---@field SavingIncidents boolean
+---@field [31] boolean
+---@field SavingCrimes boolean
+---@field [32] boolean
+---@field SavingVehicles boolean
+---@field [33] boolean
+---@field SavingArmies boolean
+---@field [34] boolean
+---@field SavingArmyControllers boolean
+---@field [35] boolean
+---@field SavingTrackingInformation boolean
+---@field [36] boolean
+---@field SavingCulturalIdentities boolean
+---@field [37] boolean
+---@field SavingAgreement boolean
+---@field [38] boolean
+---@field SavingArtForms boolean
+---@field [39] boolean
+---@field SavingOccupations boolean
+---@field [40] boolean
+---@field SavingBeliefSystems boolean
+---@field [41] boolean
+---@field SavingImageSets boolean
+---@field [42] boolean
+---@field SavingDivinationSets boolean
+---@field [43] boolean
+---@field SavingAnnouncements boolean
+---@field [44] boolean
+---@field SavingFortressInformation boolean
+---@field [45] boolean
+---@field SavingWorldInformation boolean
+---@field [46] boolean
+---@field SavingArtifacts boolean
+---@field [47] boolean
+---@field SavingActiveHistoricalFigures boolean
+---@field [48] boolean
+---@field SavingAdventureData boolean
+---@field [49] boolean
+---@field SavingGeneralInformation boolean
+---@field [50] boolean
+---@field ClosingFile boolean
+---@field [51] boolean
+---@field Finishing boolean
+
+---@class (exact) _equipment_update: df.struct
+---@field weapon 0
+---@field [0] "weapon"
+---@field armor 1
+---@field [1] "armor"
+---@field shoes 2
+---@field [2] "shoes"
+---@field shield 3
+---@field [3] "shield"
+---@field helm 4
+---@field [4] "helm"
+---@field gloves 5
+---@field [5] "gloves"
+---@field ammo 6
+---@field [6] "ammo"
+---@field pants 7
+---@field [7] "pants"
+---@field backpack 8
+---@field [8] "backpack"
+---@field quiver 9
+---@field [9] "quiver"
+---@field flask 10
+---@field [10] "flask"
+---@field unk_11 11
+---@field [11] "unk_11"
+---@field buildings 12
+---@field [12] "buildings"
+df.equipment_update = {}
+
+---@class equipment_update
+---@field [0] boolean
+---@field weapon boolean
+---@field [1] boolean
+---@field armor boolean
+---@field [2] boolean
+---@field shoes boolean
+---@field [3] boolean
+---@field shield boolean
+---@field [4] boolean
+---@field helm boolean
+---@field [5] boolean
+---@field gloves boolean
+---@field [6] boolean
+---@field ammo boolean
+---@field [7] boolean
+---@field pants boolean
+---@field [8] boolean
+---@field backpack boolean
+---@field [9] boolean
+---@field quiver boolean
+---@field [10] boolean
+---@field flask boolean
+---@field [11] boolean
+---@field unk_11 boolean
+---@field [12] boolean
+---@field buildings boolean
 
 ---@class labor_infost: df.struct
 ---@field flags labor_infost_flags
@@ -188,10 +577,14 @@ df.equipment_update = {
 ---@field chores_exempted_children labor_infost_chores_exempted_children toady: no_chore_child_unid
 df.labor_infost = {}
 
----@enum labor_infost_flags
-df.labor_infost.T_flags = {
-  children_do_chores = 0,
-}
+---@class (exact) _labor_infost_flags: df.struct
+---@field children_do_chores 0
+---@field [0] "children_do_chores"
+df.labor_infost.T_flags = {}
+
+---@class labor_infost_flags
+---@field [0] boolean
+---@field children_do_chores boolean
 
 ---@class labor_infost_chores_exempted_children: df.struct
 ---toady: no_chore_child_unid
@@ -311,14 +704,30 @@ df.plotinfost.T_tax_collection = {}
 ---@field bookkeeper_settings nobles_bookkeeper_settings
 df.plotinfost.T_nobles = {}
 
----@enum nobles_bookkeeper_settings
-df.nobles.T_bookkeeper_settings = {
-  nearest_10 = 0,
-  nearest_100 = 1,
-  nearest_1000 = 2,
-  nearest_10000 = 3,
-  all_accurate = 4,
-}
+---@class (exact) _nobles_bookkeeper_settings: df.struct
+---@field nearest_10 0
+---@field [0] "nearest_10"
+---@field nearest_100 1
+---@field [1] "nearest_100"
+---@field nearest_1000 2
+---@field [2] "nearest_1000"
+---@field nearest_10000 3
+---@field [3] "nearest_10000"
+---@field all_accurate 4
+---@field [4] "all_accurate"
+df.nobles.T_bookkeeper_settings = {}
+
+---@class nobles_bookkeeper_settings
+---@field [0] boolean
+---@field nearest_10 boolean
+---@field [1] boolean
+---@field nearest_100 boolean
+---@field [2] boolean
+---@field nearest_1000 boolean
+---@field [3] boolean
+---@field nearest_10000 boolean
+---@field [4] boolean
+---@field all_accurate boolean
 
 ---@class plotinfost_invasions: df.struct
 ---@field list invasion_info[]
@@ -345,12 +754,22 @@ df.kitchen.T_mat_types = {}
 ---@class kitchen_exc_types: df.struct
 df.kitchen.T_exc_types = {}
 
----@enum plotinfost_unk23c8_flags
-df.plotinfost.T_unk23c8_flags = {
-  first_year = 0,
-  recheck_aid_requests = 1,
-  force_elections = 2,
-}
+---@class (exact) _plotinfost_unk23c8_flags: df.struct
+---@field first_year 0
+---@field [0] "first_year"
+---@field recheck_aid_requests 1
+---@field [1] "recheck_aid_requests"
+---@field force_elections 2
+---@field [2] "force_elections"
+df.plotinfost.T_unk23c8_flags = {}
+
+---@class plotinfost_unk23c8_flags
+---@field [0] boolean
+---@field first_year boolean
+---@field [1] boolean
+---@field recheck_aid_requests boolean
+---@field [2] boolean
+---@field force_elections boolean
 
 ---@class plotinfost_farm_seasons: df.struct
 df.plotinfost.T_farm_seasons = {}
@@ -660,18 +1079,46 @@ df.plotinfost.T_squads = {}
 ---@class squads_indiv_selected: df.struct
 df.squads.T_indiv_selected = {}
 
----@enum timed_event_type
-df.timed_event_type = {
-  Caravan = 0,
-  Migrants = 1,
-  Diplomat = 2,
-  FeatureAttack = 3, --unused, does nothing
-  Megabeast = 4,
-  WildlifeCurious = 5,
-  WildlifeMischievous = 6,
-  WildlifeFlier = 7,
-  NightCreature = 8,
-}
+---@class (exact) _timed_event_type: df.struct
+---@field Caravan 0
+---@field [0] "Caravan"
+---@field Migrants 1
+---@field [1] "Migrants"
+---@field Diplomat 2
+---@field [2] "Diplomat"
+---@field FeatureAttack 3
+---@field [3] "FeatureAttack"
+---@field Megabeast 4
+---@field [4] "Megabeast"
+---@field WildlifeCurious 5
+---@field [5] "WildlifeCurious"
+---@field WildlifeMischievous 6
+---@field [6] "WildlifeMischievous"
+---@field WildlifeFlier 7
+---@field [7] "WildlifeFlier"
+---@field NightCreature 8
+---@field [8] "NightCreature"
+df.timed_event_type = {}
+
+---@class timed_event_type
+---@field [0] boolean
+---@field Caravan boolean
+---@field [1] boolean
+---@field Migrants boolean
+---@field [2] boolean
+---@field Diplomat boolean
+---@field [3] boolean
+---@field FeatureAttack boolean
+---@field [4] boolean
+---@field Megabeast boolean
+---@field [5] boolean
+---@field WildlifeCurious boolean
+---@field [6] boolean
+---@field WildlifeMischievous boolean
+---@field [7] boolean
+---@field WildlifeFlier boolean
+---@field [8] boolean
+---@field NightCreature boolean
 
 ---@class timed_event: df.struct
 ---@field type timed_event_type

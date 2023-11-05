@@ -1,35 +1,62 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum machine_type
-df.machine_type = {
-  standard = 0,
-}
+---@class (exact) _machine_type: df.struct
+---@field standard 0
+---@field [0] "standard"
+df.machine_type = {}
+
+---@class machine_type
+---@field [0] boolean
+---@field standard boolean
 
 ---@class machine_info: df.struct
 ---@field machine_id machine
 ---@field flags machine_info_flags
 df.machine_info = {}
 
----@enum machine_info_flags
-df.machine_info.T_flags = {
-  frozen = 0,
-}
+---@class (exact) _machine_info_flags: df.struct
+---@field frozen 0
+---@field [0] "frozen"
+df.machine_info.T_flags = {}
+
+---@class machine_info_flags
+---@field [0] boolean
+---@field frozen boolean
 
 ---@class power_info: df.struct
 ---@field produced integer
 ---@field consumed integer
 df.power_info = {}
 
----@enum machine_conn_modes
-df.machine_conn_modes = {
-  up = 0,
-  down = 1,
-  right = 2,
-  left = 3,
-  z_up = 4,
-  z_down = 5,
-}
+---@class (exact) _machine_conn_modes: df.struct
+---@field up 0
+---@field [0] "up"
+---@field down 1
+---@field [1] "down"
+---@field right 2
+---@field [2] "right"
+---@field left 3
+---@field [3] "left"
+---@field z_up 4
+---@field [4] "z_up"
+---@field z_down 5
+---@field [5] "z_down"
+df.machine_conn_modes = {}
+
+---@class machine_conn_modes
+---@field [0] boolean
+---@field up boolean
+---@field [1] boolean
+---@field down boolean
+---@field [2] boolean
+---@field right boolean
+---@field [3] boolean
+---@field left boolean
+---@field [4] boolean
+---@field z_up boolean
+---@field [5] boolean
+---@field z_down boolean
 
 ---@class machine_tile_set: df.struct
 ---@field tiles coord_path
@@ -57,12 +84,22 @@ df.machine = {}
 ---@field connections integer[] indices into the same component vector
 df.machine.T_components = {}
 
----@enum machine_flags
-df.machine.T_flags = {
-  active = 0,
-  frozen = 1, --?
-  unfreeze = 2, --?
-}
+---@class (exact) _machine_flags: df.struct
+---@field active 0
+---@field [0] "active"
+---@field frozen 1
+---@field [1] "frozen"
+---@field unfreeze 2
+---@field [2] "unfreeze"
+df.machine.T_flags = {}
+
+---@class machine_flags
+---@field [0] boolean
+---@field active boolean
+---@field [1] boolean
+---@field frozen boolean
+---@field [2] boolean
+---@field unfreeze boolean
 
 ---@class machine_standardst: machine
 df.machine_standardst = {}
@@ -81,10 +118,14 @@ df.building_axle_verticalst = {}
 ---@field gear_flags building_gear_assemblyst_gear_flags
 df.building_gear_assemblyst = {}
 
----@enum building_gear_assemblyst_gear_flags
-df.building_gear_assemblyst.T_gear_flags = {
-  disengaged = 0,
-}
+---@class (exact) _building_gear_assemblyst_gear_flags: df.struct
+---@field disengaged 0
+---@field [0] "disengaged"
+df.building_gear_assemblyst.T_gear_flags = {}
+
+---@class building_gear_assemblyst_gear_flags
+---@field [0] boolean
+---@field disengaged boolean
 
 ---@class building_windmillst: building_actual
 ---@field machine machine_info
@@ -102,13 +143,26 @@ df.building_windmillst = {}
 ---@field gives_power boolean
 df.building_water_wheelst = {}
 
----@enum screw_pump_direction
-df.screw_pump_direction = {
-  FromNorth = 0,
-  FromEast = 1,
-  FromSouth = 2,
-  FromWest = 3,
-}
+---@class (exact) _screw_pump_direction: df.struct
+---@field FromNorth 0
+---@field [0] "FromNorth"
+---@field FromEast 1
+---@field [1] "FromEast"
+---@field FromSouth 2
+---@field [2] "FromSouth"
+---@field FromWest 3
+---@field [3] "FromWest"
+df.screw_pump_direction = {}
+
+---@class screw_pump_direction
+---@field [0] boolean
+---@field FromNorth boolean
+---@field [1] boolean
+---@field FromEast boolean
+---@field [2] boolean
+---@field FromSouth boolean
+---@field [3] boolean
+---@field FromWest boolean
 
 ---@class building_screw_pumpst: building_actual
 ---@field machine machine_info

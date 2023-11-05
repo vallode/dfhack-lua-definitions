@@ -36,35 +36,103 @@ df.site_reputation_info = {}
 ---@field unk_5 integer
 df.location_scribe_jobs = {}
 
----@enum abstract_building_type
-df.abstract_building_type = {
-  MEAD_HALL = 0,
-  KEEP = 1,
-  TEMPLE = 2,
-  DARK_TOWER = 3,
-  MARKET = 4,
-  TOMB = 5,
-  DUNGEON = 6,
-  UNDERWORLD_SPIRE = 7,
-  INN_TAVERN = 8,
-  LIBRARY = 9,
-  COUNTING_HOUSE = 10,
-  GUILDHALL = 11,
-  TOWER = 12,
-  HOSPITAL = 13,
-}
+---@class (exact) _abstract_building_type: df.struct
+---@field MEAD_HALL 0
+---@field [0] "MEAD_HALL"
+---@field KEEP 1
+---@field [1] "KEEP"
+---@field TEMPLE 2
+---@field [2] "TEMPLE"
+---@field DARK_TOWER 3
+---@field [3] "DARK_TOWER"
+---@field MARKET 4
+---@field [4] "MARKET"
+---@field TOMB 5
+---@field [5] "TOMB"
+---@field DUNGEON 6
+---@field [6] "DUNGEON"
+---@field UNDERWORLD_SPIRE 7
+---@field [7] "UNDERWORLD_SPIRE"
+---@field INN_TAVERN 8
+---@field [8] "INN_TAVERN"
+---@field LIBRARY 9
+---@field [9] "LIBRARY"
+---@field COUNTING_HOUSE 10
+---@field [10] "COUNTING_HOUSE"
+---@field GUILDHALL 11
+---@field [11] "GUILDHALL"
+---@field TOWER 12
+---@field [12] "TOWER"
+---@field HOSPITAL 13
+---@field [13] "HOSPITAL"
+df.abstract_building_type = {}
 
----@enum abstract_building_flags
-df.abstract_building_flags = {
-  Unk0 = 0,
-  Unk1 = 1,
-  Unk2 = 2, --gets toggled when an adventurer has visited it.
-  Unk3 = 3,
-  AllowVisitors = 4,
-  AllowResidents = 5,
-  OnlyMembers = 6,
-  Unk7 = 7,
-}
+---@class abstract_building_type
+---@field [0] boolean
+---@field MEAD_HALL boolean
+---@field [1] boolean
+---@field KEEP boolean
+---@field [2] boolean
+---@field TEMPLE boolean
+---@field [3] boolean
+---@field DARK_TOWER boolean
+---@field [4] boolean
+---@field MARKET boolean
+---@field [5] boolean
+---@field TOMB boolean
+---@field [6] boolean
+---@field DUNGEON boolean
+---@field [7] boolean
+---@field UNDERWORLD_SPIRE boolean
+---@field [8] boolean
+---@field INN_TAVERN boolean
+---@field [9] boolean
+---@field LIBRARY boolean
+---@field [10] boolean
+---@field COUNTING_HOUSE boolean
+---@field [11] boolean
+---@field GUILDHALL boolean
+---@field [12] boolean
+---@field TOWER boolean
+---@field [13] boolean
+---@field HOSPITAL boolean
+
+---@class (exact) _abstract_building_flags: df.struct
+---@field Unk0 0
+---@field [0] "Unk0"
+---@field Unk1 1
+---@field [1] "Unk1"
+---@field Unk2 2
+---@field [2] "Unk2"
+---@field Unk3 3
+---@field [3] "Unk3"
+---@field AllowVisitors 4
+---@field [4] "AllowVisitors"
+---@field AllowResidents 5
+---@field [5] "AllowResidents"
+---@field OnlyMembers 6
+---@field [6] "OnlyMembers"
+---@field Unk7 7
+---@field [7] "Unk7"
+df.abstract_building_flags = {}
+
+---@class abstract_building_flags
+---@field [0] boolean
+---@field Unk0 boolean
+---@field [1] boolean
+---@field Unk1 boolean
+---@field [2] boolean
+---@field Unk2 boolean
+---@field [3] boolean
+---@field Unk3 boolean
+---@field [4] boolean
+---@field AllowVisitors boolean
+---@field [5] boolean
+---@field AllowResidents boolean
+---@field [6] boolean
+---@field OnlyMembers boolean
+---@field [7] boolean
+---@field Unk7 boolean
 
 ---@class abstract_building_entombed: df.struct
 ---used within Tomb and Dungeon
@@ -115,20 +183,54 @@ df.abstract_building_entombed.T_populations = {}
 ---@field building_ids integer[]
 df.abstract_building_contents = {}
 
----@enum abstract_building_contents_need_more
-df.abstract_building_contents.T_need_more = {
-  goblets = 0,
-  instruments = 1,
-  paper = 2,
-  unk_3 = 3,
-  splints = 4,
-  thread = 5,
-  cloth = 6,
-  crutches = 7,
-  powder = 8,
-  buckets = 9,
-  soap = 10,
-}
+---@class (exact) _abstract_building_contents_need_more: df.struct
+---@field goblets 0
+---@field [0] "goblets"
+---@field instruments 1
+---@field [1] "instruments"
+---@field paper 2
+---@field [2] "paper"
+---@field unk_3 3
+---@field [3] "unk_3"
+---@field splints 4
+---@field [4] "splints"
+---@field thread 5
+---@field [5] "thread"
+---@field cloth 6
+---@field [6] "cloth"
+---@field crutches 7
+---@field [7] "crutches"
+---@field powder 8
+---@field [8] "powder"
+---@field buckets 9
+---@field [9] "buckets"
+---@field soap 10
+---@field [10] "soap"
+df.abstract_building_contents.T_need_more = {}
+
+---@class abstract_building_contents_need_more
+---@field [0] boolean
+---@field goblets boolean
+---@field [1] boolean
+---@field instruments boolean
+---@field [2] boolean
+---@field paper boolean
+---@field [3] boolean
+---@field unk_3 boolean
+---@field [4] boolean
+---@field splints boolean
+---@field [5] boolean
+---@field thread boolean
+---@field [6] boolean
+---@field cloth boolean
+---@field [7] boolean
+---@field crutches boolean
+---@field [8] boolean
+---@field powder boolean
+---@field [9] boolean
+---@field buckets boolean
+---@field [10] boolean
+---@field soap boolean
 
 ---@class abstract_building: df.struct
 ---@field id integer
@@ -162,12 +264,22 @@ df.abstract_building_mead_hallst = {}
 ---@field name language_name
 df.abstract_building_keepst = {}
 
----@enum temple_deity_type
-df.temple_deity_type = {
-  None = -1,
-  Deity = 1,
-  Religion = 2,
-}
+---@class (exact) _temple_deity_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Deity 1
+---@field [1] "Deity"
+---@field Religion 2
+---@field [2] "Religion"
+df.temple_deity_type = {}
+
+---@class temple_deity_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Deity boolean
+---@field [2] boolean
+---@field Religion boolean
 
 ---@class temple_deity_data: df.struct
 ---@field Deity historical_figure
@@ -205,12 +317,22 @@ df.abstract_building_tombst = {}
 ---@field unk_4 integer not saved
 df.abstract_building_dungeonst = {}
 
----@enum abstract_building_dungeonst_dungeon_type
-df.abstract_building_dungeonst.T_dungeon_type = {
-  DUNGEON = 0,
-  SEWERS = 1,
-  CATACOMBS = 2,
-}
+---@class (exact) _abstract_building_dungeonst_dungeon_type: df.struct
+---@field DUNGEON 0
+---@field [0] "DUNGEON"
+---@field SEWERS 1
+---@field [1] "SEWERS"
+---@field CATACOMBS 2
+---@field [2] "CATACOMBS"
+df.abstract_building_dungeonst.T_dungeon_type = {}
+
+---@class abstract_building_dungeonst_dungeon_type
+---@field [0] boolean
+---@field DUNGEON boolean
+---@field [1] boolean
+---@field SEWERS boolean
+---@field [2] boolean
+---@field CATACOMBS boolean
 
 ---@class abstract_building_underworld_spirest: abstract_building
 ---@field name language_name
@@ -261,61 +383,174 @@ df.abstract_building_towerst = {}
 ---@field contents abstract_building_contents
 df.abstract_building_hospitalst = {}
 
----@enum world_site_type
-df.world_site_type = {
-  PlayerFortress = 0,
-  DarkFortress = 1,
-  Cave = 2,
-  MountainHalls = 3,
-  ForestRetreat = 4,
-  Town = 5,
-  ImportantLocation = 6,
-  LairShrine = 7,
-  Fortress = 8,
-  Camp = 9,
-  Monument = 10,
-}
+---@class (exact) _world_site_type: df.struct
+---@field PlayerFortress 0
+---@field [0] "PlayerFortress"
+---@field DarkFortress 1
+---@field [1] "DarkFortress"
+---@field Cave 2
+---@field [2] "Cave"
+---@field MountainHalls 3
+---@field [3] "MountainHalls"
+---@field ForestRetreat 4
+---@field [4] "ForestRetreat"
+---@field Town 5
+---@field [5] "Town"
+---@field ImportantLocation 6
+---@field [6] "ImportantLocation"
+---@field LairShrine 7
+---@field [7] "LairShrine"
+---@field Fortress 8
+---@field [8] "Fortress"
+---@field Camp 9
+---@field [9] "Camp"
+---@field Monument 10
+---@field [10] "Monument"
+df.world_site_type = {}
 
----@enum world_site_flags
-df.world_site_flags = {
-  Undiscovered = 0,
-  unk_1 = 1,
-  unk_2 = 2,
-  Town = 3, --not hamlet
-  unk_4 = 4,
-  unk_5 = 5,
-  unk_6 = 6,
-  unk_7 = 7,
-  unk_8 = 8,
-  CaveCapital = 9, --set on caves (only) that have capital entity links, i.e. Kobold civs in vanilla
-  unk_10 = 10,
-}
+---@class world_site_type
+---@field [0] boolean
+---@field PlayerFortress boolean
+---@field [1] boolean
+---@field DarkFortress boolean
+---@field [2] boolean
+---@field Cave boolean
+---@field [3] boolean
+---@field MountainHalls boolean
+---@field [4] boolean
+---@field ForestRetreat boolean
+---@field [5] boolean
+---@field Town boolean
+---@field [6] boolean
+---@field ImportantLocation boolean
+---@field [7] boolean
+---@field LairShrine boolean
+---@field [8] boolean
+---@field Fortress boolean
+---@field [9] boolean
+---@field Camp boolean
+---@field [10] boolean
+---@field Monument boolean
 
----@enum fortress_type
-df.fortress_type = {
-  NONE = -1,
-  CASTLE = 1,
-  TOWER = 2,
-  MONASTERY = 3,
-  FORT = 4,
-}
+---@class (exact) _world_site_flags: df.struct
+---@field Undiscovered 0
+---@field [0] "Undiscovered"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field Town 3
+---@field [3] "Town"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field unk_5 5
+---@field [5] "unk_5"
+---@field unk_6 6
+---@field [6] "unk_6"
+---@field unk_7 7
+---@field [7] "unk_7"
+---@field unk_8 8
+---@field [8] "unk_8"
+---@field CaveCapital 9
+---@field [9] "CaveCapital"
+---@field unk_10 10
+---@field [10] "unk_10"
+df.world_site_flags = {}
 
----@enum monument_type
-df.monument_type = {
-  NONE = -1,
-  TOMB = 1,
-  VAULT = 2,
-}
+---@class world_site_flags
+---@field [0] boolean
+---@field Undiscovered boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field Town boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field unk_5 boolean
+---@field [6] boolean
+---@field unk_6 boolean
+---@field [7] boolean
+---@field unk_7 boolean
+---@field [8] boolean
+---@field unk_8 boolean
+---@field [9] boolean
+---@field CaveCapital boolean
+---@field [10] boolean
+---@field unk_10 boolean
 
----@enum lair_type
-df.lair_type = {
-  NONE = -1,
-  SIMPLE_MOUND = 1, --Night creatures
-  SIMPLE_BURROW = 2, --animal, (semi)megabeast, night creature(!)
-  LABYRINTH = 3,
-  SHRINE = 4,
-  WILDERNESS_LOCATION = 5, --In mountains, hosting Rocs in vanilla
-}
+---@class (exact) _fortress_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field CASTLE 1
+---@field [1] "CASTLE"
+---@field TOWER 2
+---@field [2] "TOWER"
+---@field MONASTERY 3
+---@field [3] "MONASTERY"
+---@field FORT 4
+---@field [4] "FORT"
+df.fortress_type = {}
+
+---@class fortress_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field CASTLE boolean
+---@field [2] boolean
+---@field TOWER boolean
+---@field [3] boolean
+---@field MONASTERY boolean
+---@field [4] boolean
+---@field FORT boolean
+
+---@class (exact) _monument_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field TOMB 1
+---@field [1] "TOMB"
+---@field VAULT 2
+---@field [2] "VAULT"
+df.monument_type = {}
+
+---@class monument_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field TOMB boolean
+---@field [2] boolean
+---@field VAULT boolean
+
+---@class (exact) _lair_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field SIMPLE_MOUND 1
+---@field [1] "SIMPLE_MOUND"
+---@field SIMPLE_BURROW 2
+---@field [2] "SIMPLE_BURROW"
+---@field LABYRINTH 3
+---@field [3] "LABYRINTH"
+---@field SHRINE 4
+---@field [4] "SHRINE"
+---@field WILDERNESS_LOCATION 5
+---@field [5] "WILDERNESS_LOCATION"
+df.lair_type = {}
+
+---@class lair_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field SIMPLE_MOUND boolean
+---@field [2] boolean
+---@field SIMPLE_BURROW boolean
+---@field [3] boolean
+---@field LABYRINTH boolean
+---@field [4] boolean
+---@field SHRINE boolean
+---@field [5] boolean
+---@field WILDERNESS_LOCATION boolean
 
 ---@class property_ownership: df.struct
 ---@field index integer
@@ -578,12 +813,22 @@ df.cultural_identity = {}
 ---@field unk_44 integer
 df.cultural_identity.T_group_log = {}
 
----@enum group_log_join_type
-df.group_log.T_join_type = {
-  Peaceful = 0,
-  CompleteTakeOver = 1, --The previous group left the culture.
-  TakeOver = 2, --The previous group's end_year is still -1.
-}
+---@class (exact) _group_log_join_type: df.struct
+---@field Peaceful 0
+---@field [0] "Peaceful"
+---@field CompleteTakeOver 1
+---@field [1] "CompleteTakeOver"
+---@field TakeOver 2
+---@field [2] "TakeOver"
+df.group_log.T_join_type = {}
+
+---@class group_log_join_type
+---@field [0] boolean
+---@field Peaceful boolean
+---@field [1] boolean
+---@field CompleteTakeOver boolean
+---@field [2] boolean
+---@field TakeOver boolean
 
 ---@class cultural_identity_unk_1: df.struct
 ---@field unk_1 integer
@@ -681,18 +926,46 @@ df.world_site_realization = {}
 ---@field unk_20 integer
 df.world_site_realization.T_areas = {}
 
----@enum areas_type
-df.areas.T_type = {
-  Crops1 = 0,
-  Crops2 = 1,
-  Crops3 = 2,
-  Meadow = 3,
-  Pasture = 4,
-  Orchard = 5,
-  Woodland = 6,
-  Waste = 7,
-  Unknown1 = 8,
-}
+---@class (exact) _areas_type: df.struct
+---@field Crops1 0
+---@field [0] "Crops1"
+---@field Crops2 1
+---@field [1] "Crops2"
+---@field Crops3 2
+---@field [2] "Crops3"
+---@field Meadow 3
+---@field [3] "Meadow"
+---@field Pasture 4
+---@field [4] "Pasture"
+---@field Orchard 5
+---@field [5] "Orchard"
+---@field Woodland 6
+---@field [6] "Woodland"
+---@field Waste 7
+---@field [7] "Waste"
+---@field Unknown1 8
+---@field [8] "Unknown1"
+df.areas.T_type = {}
+
+---@class areas_type
+---@field [0] boolean
+---@field Crops1 boolean
+---@field [1] boolean
+---@field Crops2 boolean
+---@field [2] boolean
+---@field Crops3 boolean
+---@field [3] boolean
+---@field Meadow boolean
+---@field [4] boolean
+---@field Pasture boolean
+---@field [5] boolean
+---@field Orchard boolean
+---@field [6] boolean
+---@field Woodland boolean
+---@field [7] boolean
+---@field Waste boolean
+---@field [8] boolean
+---@field Unknown1 boolean
 
 ---@class site_realization_crossroads: df.struct
 ---@field road_min_y integer[]
@@ -732,41 +1005,138 @@ df.areas.T_type = {
 ---@field unk_3d0 integer[]
 df.site_realization_crossroads = {}
 
----@enum site_realization_building_type
-df.site_realization_building_type = {
-  cottage_plot = 0,
-  castle_wall = 1,
-  castle_tower = 2,
-  castle_courtyard = 3,
-  house = 4,
-  temple = 5,
-  tomb = 6,
-  shop_house = 7,
-  warehouse = 8,
-  market_square = 9,
-  pasture = 10,
-  waste = 11,
-  courtyard = 12,
-  well = 13,
-  vault = 14,
-  great_tower = 15,
-  trenches = 16,
-  tree_house = 17,
-  hillock_house = 18,
-  mead_hall = 19,
-  fortress_entrance = 20,
-  library = 21,
-  tavern = 22,
-  counting_house = 23,
-  guild_hall = 24,
-  city_tower = 25,
-  shrine = 26,
-  unk_27 = 27,
-  dormitory = 28,
-  dininghall = 29,
-  necromancer_tower = 30,
-  barrow = 31,
-}
+---@class (exact) _site_realization_building_type: df.struct
+---@field cottage_plot 0
+---@field [0] "cottage_plot"
+---@field castle_wall 1
+---@field [1] "castle_wall"
+---@field castle_tower 2
+---@field [2] "castle_tower"
+---@field castle_courtyard 3
+---@field [3] "castle_courtyard"
+---@field house 4
+---@field [4] "house"
+---@field temple 5
+---@field [5] "temple"
+---@field tomb 6
+---@field [6] "tomb"
+---@field shop_house 7
+---@field [7] "shop_house"
+---@field warehouse 8
+---@field [8] "warehouse"
+---@field market_square 9
+---@field [9] "market_square"
+---@field pasture 10
+---@field [10] "pasture"
+---@field waste 11
+---@field [11] "waste"
+---@field courtyard 12
+---@field [12] "courtyard"
+---@field well 13
+---@field [13] "well"
+---@field vault 14
+---@field [14] "vault"
+---@field great_tower 15
+---@field [15] "great_tower"
+---@field trenches 16
+---@field [16] "trenches"
+---@field tree_house 17
+---@field [17] "tree_house"
+---@field hillock_house 18
+---@field [18] "hillock_house"
+---@field mead_hall 19
+---@field [19] "mead_hall"
+---@field fortress_entrance 20
+---@field [20] "fortress_entrance"
+---@field library 21
+---@field [21] "library"
+---@field tavern 22
+---@field [22] "tavern"
+---@field counting_house 23
+---@field [23] "counting_house"
+---@field guild_hall 24
+---@field [24] "guild_hall"
+---@field city_tower 25
+---@field [25] "city_tower"
+---@field shrine 26
+---@field [26] "shrine"
+---@field unk_27 27
+---@field [27] "unk_27"
+---@field dormitory 28
+---@field [28] "dormitory"
+---@field dininghall 29
+---@field [29] "dininghall"
+---@field necromancer_tower 30
+---@field [30] "necromancer_tower"
+---@field barrow 31
+---@field [31] "barrow"
+df.site_realization_building_type = {}
+
+---@class site_realization_building_type
+---@field [0] boolean
+---@field cottage_plot boolean
+---@field [1] boolean
+---@field castle_wall boolean
+---@field [2] boolean
+---@field castle_tower boolean
+---@field [3] boolean
+---@field castle_courtyard boolean
+---@field [4] boolean
+---@field house boolean
+---@field [5] boolean
+---@field temple boolean
+---@field [6] boolean
+---@field tomb boolean
+---@field [7] boolean
+---@field shop_house boolean
+---@field [8] boolean
+---@field warehouse boolean
+---@field [9] boolean
+---@field market_square boolean
+---@field [10] boolean
+---@field pasture boolean
+---@field [11] boolean
+---@field waste boolean
+---@field [12] boolean
+---@field courtyard boolean
+---@field [13] boolean
+---@field well boolean
+---@field [14] boolean
+---@field vault boolean
+---@field [15] boolean
+---@field great_tower boolean
+---@field [16] boolean
+---@field trenches boolean
+---@field [17] boolean
+---@field tree_house boolean
+---@field [18] boolean
+---@field hillock_house boolean
+---@field [19] boolean
+---@field mead_hall boolean
+---@field [20] boolean
+---@field fortress_entrance boolean
+---@field [21] boolean
+---@field library boolean
+---@field [22] boolean
+---@field tavern boolean
+---@field [23] boolean
+---@field counting_house boolean
+---@field [24] boolean
+---@field guild_hall boolean
+---@field [25] boolean
+---@field city_tower boolean
+---@field [26] boolean
+---@field shrine boolean
+---@field [27] boolean
+---@field unk_27 boolean
+---@field [28] boolean
+---@field dormitory boolean
+---@field [29] boolean
+---@field dininghall boolean
+---@field [30] boolean
+---@field necromancer_tower boolean
+---@field [31] boolean
+---@field barrow boolean
 
 ---@class site_realization_building: df.struct
 ---@field id integer
@@ -808,14 +1178,30 @@ df.site_realization_building_infost = {}
 ---@field mat_index integer
 df.site_building_item = {}
 
----@enum tower_shape
-df.tower_shape = {
-  round = 0,
-  hollow = 1, --no internal floors or fortifications
-  keep = 2, --fill with rooms at the bottom
-  goblin = 3, --ignore set heights and generate automatically
-  unk10 = 4, --set on goblin towers. doesnt seem to do anything
-}
+---@class (exact) _tower_shape: df.struct
+---@field round 0
+---@field [0] "round"
+---@field hollow 1
+---@field [1] "hollow"
+---@field keep 2
+---@field [2] "keep"
+---@field goblin 3
+---@field [3] "goblin"
+---@field unk10 4
+---@field [4] "unk10"
+df.tower_shape = {}
+
+---@class tower_shape
+---@field [0] boolean
+---@field round boolean
+---@field [1] boolean
+---@field hollow boolean
+---@field [2] boolean
+---@field keep boolean
+---@field [3] boolean
+---@field goblin boolean
+---@field [4] boolean
+---@field unk10 boolean
 
 ---@class site_realization_building_info_castle_wallst: site_realization_building_infost
 ---@field length integer
@@ -847,55 +1233,183 @@ df.site_realization_building_info_castle_towerst = {}
 ---@class site_realization_building_info_castle_courtyardst: site_realization_building_infost
 df.site_realization_building_info_castle_courtyardst = {}
 
----@enum site_shop_type
-df.site_shop_type = {
-  GeneralImports = 0,
-  FoodImports = 1,
-  ClothingImports = 2,
-  Cloth = 3,
-  Leather = 4,
-  WovenClothing = 5,
-  LeatherClothing = 6,
-  BoneCarver = 7,
-  GemCutter = 8,
-  Weaponsmith = 9,
-  Bowyer = 10,
-  Blacksmith = 11,
-  Armorsmith = 12,
-  MetalCraft = 13,
-  LeatherGoods = 14,
-  Carpenter = 15,
-  StoneFurniture = 16,
-  MetalFurniture = 17,
-  ImportedGoodsMarket = 18,
-  ImportedFoodMarket = 19,
-  ImportedClothingMarket = 20,
-  MeatMarket = 21,
-  FruitAndVegetableMarket = 22,
-  CheeseMarket = 23,
-  ProcessedGoodsMarket = 24,
-  Tavern = 25,
-}
+---@class (exact) _site_shop_type: df.struct
+---@field GeneralImports 0
+---@field [0] "GeneralImports"
+---@field FoodImports 1
+---@field [1] "FoodImports"
+---@field ClothingImports 2
+---@field [2] "ClothingImports"
+---@field Cloth 3
+---@field [3] "Cloth"
+---@field Leather 4
+---@field [4] "Leather"
+---@field WovenClothing 5
+---@field [5] "WovenClothing"
+---@field LeatherClothing 6
+---@field [6] "LeatherClothing"
+---@field BoneCarver 7
+---@field [7] "BoneCarver"
+---@field GemCutter 8
+---@field [8] "GemCutter"
+---@field Weaponsmith 9
+---@field [9] "Weaponsmith"
+---@field Bowyer 10
+---@field [10] "Bowyer"
+---@field Blacksmith 11
+---@field [11] "Blacksmith"
+---@field Armorsmith 12
+---@field [12] "Armorsmith"
+---@field MetalCraft 13
+---@field [13] "MetalCraft"
+---@field LeatherGoods 14
+---@field [14] "LeatherGoods"
+---@field Carpenter 15
+---@field [15] "Carpenter"
+---@field StoneFurniture 16
+---@field [16] "StoneFurniture"
+---@field MetalFurniture 17
+---@field [17] "MetalFurniture"
+---@field ImportedGoodsMarket 18
+---@field [18] "ImportedGoodsMarket"
+---@field ImportedFoodMarket 19
+---@field [19] "ImportedFoodMarket"
+---@field ImportedClothingMarket 20
+---@field [20] "ImportedClothingMarket"
+---@field MeatMarket 21
+---@field [21] "MeatMarket"
+---@field FruitAndVegetableMarket 22
+---@field [22] "FruitAndVegetableMarket"
+---@field CheeseMarket 23
+---@field [23] "CheeseMarket"
+---@field ProcessedGoodsMarket 24
+---@field [24] "ProcessedGoodsMarket"
+---@field Tavern 25
+---@field [25] "Tavern"
+df.site_shop_type = {}
 
----@enum town_labor_type
-df.town_labor_type = {
-  NONE = -1,
-  CLOTH = 1,
-  TANNING = 2,
-  CLOTHING_CLOTH = 3,
-  CLOTHING_LEATHER = 4,
-  CRAFTS_BONE_CARVER = 5,
-  GEM_CUTTER = 6,
-  METAL_WEAPON_SMITH = 7,
-  WOOD_WEAPON_SMITH = 8,
-  BLACK_SMITH = 9,
-  METAL_ARMOR_SMITH = 10,
-  METAL_CRAFTER = 11,
-  LEATHER_ACCESSORIES = 12,
-  FURNITURE_WOOD = 13,
-  FURNITURE_STONE = 14,
-  FURNITURE_METAL = 15,
-}
+---@class site_shop_type
+---@field [0] boolean
+---@field GeneralImports boolean
+---@field [1] boolean
+---@field FoodImports boolean
+---@field [2] boolean
+---@field ClothingImports boolean
+---@field [3] boolean
+---@field Cloth boolean
+---@field [4] boolean
+---@field Leather boolean
+---@field [5] boolean
+---@field WovenClothing boolean
+---@field [6] boolean
+---@field LeatherClothing boolean
+---@field [7] boolean
+---@field BoneCarver boolean
+---@field [8] boolean
+---@field GemCutter boolean
+---@field [9] boolean
+---@field Weaponsmith boolean
+---@field [10] boolean
+---@field Bowyer boolean
+---@field [11] boolean
+---@field Blacksmith boolean
+---@field [12] boolean
+---@field Armorsmith boolean
+---@field [13] boolean
+---@field MetalCraft boolean
+---@field [14] boolean
+---@field LeatherGoods boolean
+---@field [15] boolean
+---@field Carpenter boolean
+---@field [16] boolean
+---@field StoneFurniture boolean
+---@field [17] boolean
+---@field MetalFurniture boolean
+---@field [18] boolean
+---@field ImportedGoodsMarket boolean
+---@field [19] boolean
+---@field ImportedFoodMarket boolean
+---@field [20] boolean
+---@field ImportedClothingMarket boolean
+---@field [21] boolean
+---@field MeatMarket boolean
+---@field [22] boolean
+---@field FruitAndVegetableMarket boolean
+---@field [23] boolean
+---@field CheeseMarket boolean
+---@field [24] boolean
+---@field ProcessedGoodsMarket boolean
+---@field [25] boolean
+---@field Tavern boolean
+
+---@class (exact) _town_labor_type: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field CLOTH 1
+---@field [1] "CLOTH"
+---@field TANNING 2
+---@field [2] "TANNING"
+---@field CLOTHING_CLOTH 3
+---@field [3] "CLOTHING_CLOTH"
+---@field CLOTHING_LEATHER 4
+---@field [4] "CLOTHING_LEATHER"
+---@field CRAFTS_BONE_CARVER 5
+---@field [5] "CRAFTS_BONE_CARVER"
+---@field GEM_CUTTER 6
+---@field [6] "GEM_CUTTER"
+---@field METAL_WEAPON_SMITH 7
+---@field [7] "METAL_WEAPON_SMITH"
+---@field WOOD_WEAPON_SMITH 8
+---@field [8] "WOOD_WEAPON_SMITH"
+---@field BLACK_SMITH 9
+---@field [9] "BLACK_SMITH"
+---@field METAL_ARMOR_SMITH 10
+---@field [10] "METAL_ARMOR_SMITH"
+---@field METAL_CRAFTER 11
+---@field [11] "METAL_CRAFTER"
+---@field LEATHER_ACCESSORIES 12
+---@field [12] "LEATHER_ACCESSORIES"
+---@field FURNITURE_WOOD 13
+---@field [13] "FURNITURE_WOOD"
+---@field FURNITURE_STONE 14
+---@field [14] "FURNITURE_STONE"
+---@field FURNITURE_METAL 15
+---@field [15] "FURNITURE_METAL"
+df.town_labor_type = {}
+
+---@class town_labor_type
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field CLOTH boolean
+---@field [2] boolean
+---@field TANNING boolean
+---@field [3] boolean
+---@field CLOTHING_CLOTH boolean
+---@field [4] boolean
+---@field CLOTHING_LEATHER boolean
+---@field [5] boolean
+---@field CRAFTS_BONE_CARVER boolean
+---@field [6] boolean
+---@field GEM_CUTTER boolean
+---@field [7] boolean
+---@field METAL_WEAPON_SMITH boolean
+---@field [8] boolean
+---@field WOOD_WEAPON_SMITH boolean
+---@field [9] boolean
+---@field BLACK_SMITH boolean
+---@field [10] boolean
+---@field METAL_ARMOR_SMITH boolean
+---@field [11] boolean
+---@field METAL_CRAFTER boolean
+---@field [12] boolean
+---@field LEATHER_ACCESSORIES boolean
+---@field [13] boolean
+---@field FURNITURE_WOOD boolean
+---@field [14] boolean
+---@field FURNITURE_STONE boolean
+---@field [15] boolean
+---@field FURNITURE_METAL boolean
 
 ---@class site_realization_building_info_shop_housest: site_realization_building_infost
 ---@field type site_shop_type
@@ -911,15 +1425,34 @@ df.site_realization_building_info_market_squarest = {}
 ---@field spokes integer[] N, S, E, W
 df.site_realization_building_info_trenchesst = {}
 
----@enum tree_house_type
-df.tree_house_type = {
-  TreeHouse = 0,
-  HomeTree = 1,
-  ShapingTree = 2,
-  MarketTree = 3,
-  Unknown1 = 4,
-  Unknown2 = 5,
-}
+---@class (exact) _tree_house_type: df.struct
+---@field TreeHouse 0
+---@field [0] "TreeHouse"
+---@field HomeTree 1
+---@field [1] "HomeTree"
+---@field ShapingTree 2
+---@field [2] "ShapingTree"
+---@field MarketTree 3
+---@field [3] "MarketTree"
+---@field Unknown1 4
+---@field [4] "Unknown1"
+---@field Unknown2 5
+---@field [5] "Unknown2"
+df.tree_house_type = {}
+
+---@class tree_house_type
+---@field [0] boolean
+---@field TreeHouse boolean
+---@field [1] boolean
+---@field HomeTree boolean
+---@field [2] boolean
+---@field ShapingTree boolean
+---@field [3] boolean
+---@field MarketTree boolean
+---@field [4] boolean
+---@field Unknown1 boolean
+---@field [5] boolean
+---@field Unknown2 boolean
 
 ---@class site_realization_building_info_tree_housest: site_realization_building_infost
 ---@field type tree_house_type
@@ -927,13 +1460,26 @@ df.tree_house_type = {
 ---@field name language_name
 df.site_realization_building_info_tree_housest = {}
 
----@enum hillock_house_type
-df.hillock_house_type = {
-  unk_0 = 0,
-  CivicMound = 1,
-  CastleMound = 2,
-  DrinkingMound = 3,
-}
+---@class (exact) _hillock_house_type: df.struct
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field CivicMound 1
+---@field [1] "CivicMound"
+---@field CastleMound 2
+---@field [2] "CastleMound"
+---@field DrinkingMound 3
+---@field [3] "DrinkingMound"
+df.hillock_house_type = {}
+
+---@class hillock_house_type
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field CivicMound boolean
+---@field [2] boolean
+---@field CastleMound boolean
+---@field [3] boolean
+---@field DrinkingMound boolean
 
 ---@class site_realization_building_info_hillock_housest: site_realization_building_infost
 ---@field type hillock_house_type
@@ -944,13 +1490,26 @@ df.site_realization_building_info_hillock_housest = {}
 ---@field unk_2 integer
 df.site_realization_building_info_shrinest = {}
 
----@enum creation_zone_pwg_alteration_type
-df.creation_zone_pwg_alteration_type = {
-  location_death = 0,
-  camp = 1,
-  srb_ruined = 2,
-  srp_ruined = 3,
-}
+---@class (exact) _creation_zone_pwg_alteration_type: df.struct
+---@field location_death 0
+---@field [0] "location_death"
+---@field camp 1
+---@field [1] "camp"
+---@field srb_ruined 2
+---@field [2] "srb_ruined"
+---@field srp_ruined 3
+---@field [3] "srp_ruined"
+df.creation_zone_pwg_alteration_type = {}
+
+---@class creation_zone_pwg_alteration_type
+---@field [0] boolean
+---@field location_death boolean
+---@field [1] boolean
+---@field camp boolean
+---@field [2] boolean
+---@field srb_ruined boolean
+---@field [3] boolean
+---@field srp_ruined boolean
 
 ---@class creation_zone_pwg_alterationst: df.struct
 ---@field unk_0 integer

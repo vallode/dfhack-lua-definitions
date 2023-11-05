@@ -1,79 +1,251 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum job_material_category
-df.job_material_category = {
-  plant = 0,
-  wood = 1, --wood log
-  cloth = 2,
-  silk = 3,
-  leather = 4,
-  bone = 5,
-  shell = 6,
-  wood2 = 7, --wood material
-  soap = 8,
-  tooth = 9,
-  horn = 10,
-  pearl = 11,
-  yarn = 12,
-  strand = 13,
-}
+---@class (exact) _job_material_category: df.struct
+---@field plant 0
+---@field [0] "plant"
+---@field wood 1
+---@field [1] "wood"
+---@field cloth 2
+---@field [2] "cloth"
+---@field silk 3
+---@field [3] "silk"
+---@field leather 4
+---@field [4] "leather"
+---@field bone 5
+---@field [5] "bone"
+---@field shell 6
+---@field [6] "shell"
+---@field wood2 7
+---@field [7] "wood2"
+---@field soap 8
+---@field [8] "soap"
+---@field tooth 9
+---@field [9] "tooth"
+---@field horn 10
+---@field [10] "horn"
+---@field pearl 11
+---@field [11] "pearl"
+---@field yarn 12
+---@field [12] "yarn"
+---@field strand 13
+---@field [13] "strand"
+df.job_material_category = {}
 
----@enum dfhack_material_category
+---@class job_material_category
+---@field [0] boolean
+---@field plant boolean
+---@field [1] boolean
+---@field wood boolean
+---@field [2] boolean
+---@field cloth boolean
+---@field [3] boolean
+---@field silk boolean
+---@field [4] boolean
+---@field leather boolean
+---@field [5] boolean
+---@field bone boolean
+---@field [6] boolean
+---@field shell boolean
+---@field [7] boolean
+---@field wood2 boolean
+---@field [8] boolean
+---@field soap boolean
+---@field [9] boolean
+---@field tooth boolean
+---@field [10] boolean
+---@field horn boolean
+---@field [11] boolean
+---@field pearl boolean
+---@field [12] boolean
+---@field yarn boolean
+---@field [13] boolean
+---@field strand boolean
+
+---@class (exact) _dfhack_material_category: df.struct
 ---An extended version of job_material_category, for use in some plugins, like workflow.
-df.dfhack_material_category = {
-  plant = 0,
-  wood = 1,
-  cloth = 2,
-  silk = 3,
-  leather = 4,
-  bone = 5,
-  shell = 6,
-  wood2 = 7,
-  soap = 8,
-  tooth = 9,
-  horn = 10,
-  pearl = 11,
-  yarn = 12,
-  strand = 13,
-  metal = 14,
-  stone = 15,
-  sand = 16,
-  glass = 17,
-  clay = 18,
-  milk = 19,
-  gem = 20,
-}
+---@field plant 0
+---@field [0] "plant"
+---@field wood 1
+---@field [1] "wood"
+---@field cloth 2
+---@field [2] "cloth"
+---@field silk 3
+---@field [3] "silk"
+---@field leather 4
+---@field [4] "leather"
+---@field bone 5
+---@field [5] "bone"
+---@field shell 6
+---@field [6] "shell"
+---@field wood2 7
+---@field [7] "wood2"
+---@field soap 8
+---@field [8] "soap"
+---@field tooth 9
+---@field [9] "tooth"
+---@field horn 10
+---@field [10] "horn"
+---@field pearl 11
+---@field [11] "pearl"
+---@field yarn 12
+---@field [12] "yarn"
+---@field strand 13
+---@field [13] "strand"
+---@field metal 14
+---@field [14] "metal"
+---@field stone 15
+---@field [15] "stone"
+---@field sand 16
+---@field [16] "sand"
+---@field glass 17
+---@field [17] "glass"
+---@field clay 18
+---@field [18] "clay"
+---@field milk 19
+---@field [19] "milk"
+---@field gem 20
+---@field [20] "gem"
+df.dfhack_material_category = {}
 
----@enum job_flags
+---@class dfhack_material_category
+---@field [0] boolean
+---@field plant boolean
+---@field [1] boolean
+---@field wood boolean
+---@field [2] boolean
+---@field cloth boolean
+---@field [3] boolean
+---@field silk boolean
+---@field [4] boolean
+---@field leather boolean
+---@field [5] boolean
+---@field bone boolean
+---@field [6] boolean
+---@field shell boolean
+---@field [7] boolean
+---@field wood2 boolean
+---@field [8] boolean
+---@field soap boolean
+---@field [9] boolean
+---@field tooth boolean
+---@field [10] boolean
+---@field horn boolean
+---@field [11] boolean
+---@field pearl boolean
+---@field [12] boolean
+---@field yarn boolean
+---@field [13] boolean
+---@field strand boolean
+---@field [14] boolean
+---@field metal boolean
+---@field [15] boolean
+---@field stone boolean
+---@field [16] boolean
+---@field sand boolean
+---@field [17] boolean
+---@field glass boolean
+---@field [18] boolean
+---@field clay boolean
+---@field [19] boolean
+---@field milk boolean
+---@field [20] boolean
+---@field gem boolean
+
+---@class (exact) _job_flags: df.struct
 ---toady: RETURNING When actually carrying non-last item to the workshop. If last, 'working' is used instead.
-df.job_flags = {
-  repeat = 0,
-  suspend = 1,
-  working = 2, --not for food, or store in sp
-  fetching = 3, --Actually going out to bring; corresponds to items->is_fetching
-  special = 4, --toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
-  bringing = 5, --toady: RETURNING When actually carrying non-last item to the workshop. If last, 'working' is used instead.
-  item_lost = 6, --toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
-  noise = 7, --on the sleep job causes thoughts
-  by_manager = 8, --toady: QUOTASOURCE
-  store_item = 9, --toady: ITEMSOURCE
-  quality = 10, --toady: BONUS1/2/3; set by improvement code
-  non_fluid = 11,
-  could_not_find_building_use_1 = 12,
-  on_break = 13, --toady: COUNTS_AS_BREAK; job displayed as On Break
-  dessource = 14,
-  do_now = 15, --toady: DO_ME_NOW
-}
+---@field repeat 0
+---@field [0] "repeat"
+---@field suspend 1
+---@field [1] "suspend"
+---@field working 2
+---@field [2] "working"
+---@field fetching 3
+---@field [3] "fetching"
+---@field special 4
+---@field [4] "special"
+---@field bringing 5
+---@field [5] "bringing"
+---@field item_lost 6
+---@field [6] "item_lost"
+---@field noise 7
+---@field [7] "noise"
+---@field by_manager 8
+---@field [8] "by_manager"
+---@field store_item 9
+---@field [9] "store_item"
+---@field quality 10
+---@field [10] "quality"
+---@field non_fluid 11
+---@field [11] "non_fluid"
+---@field could_not_find_building_use_1 12
+---@field [12] "could_not_find_building_use_1"
+---@field on_break 13
+---@field [13] "on_break"
+---@field dessource 14
+---@field [14] "dessource"
+---@field do_now 15
+---@field [15] "do_now"
+df.job_flags = {}
 
----@enum job_subtype_surgery
-df.job_subtype_surgery = {
-  None = -1,
-  Surgery = 1,
-  StopBleeding = 2,
-  RepairCompoundFracture = 3,
-  RemoveRottenTissue = 4,
-}
+---@class job_flags
+---@field [0] boolean
+---@field repeat boolean
+---@field [1] boolean
+---@field suspend boolean
+---@field [2] boolean
+---@field working boolean
+---@field [3] boolean
+---@field fetching boolean
+---@field [4] boolean
+---@field special boolean
+---@field [5] boolean
+---@field bringing boolean
+---@field [6] boolean
+---@field item_lost boolean
+---@field [7] boolean
+---@field noise boolean
+---@field [8] boolean
+---@field by_manager boolean
+---@field [9] boolean
+---@field store_item boolean
+---@field [10] boolean
+---@field quality boolean
+---@field [11] boolean
+---@field non_fluid boolean
+---@field [12] boolean
+---@field could_not_find_building_use_1 boolean
+---@field [13] boolean
+---@field on_break boolean
+---@field [14] boolean
+---@field dessource boolean
+---@field [15] boolean
+---@field do_now boolean
+
+---@class (exact) _job_subtype_surgery: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Surgery 1
+---@field [1] "Surgery"
+---@field StopBleeding 2
+---@field [2] "StopBleeding"
+---@field RepairCompoundFracture 3
+---@field [3] "RepairCompoundFracture"
+---@field RemoveRottenTissue 4
+---@field [4] "RemoveRottenTissue"
+df.job_subtype_surgery = {}
+
+---@class job_subtype_surgery
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Surgery boolean
+---@field [2] boolean
+---@field StopBleeding boolean
+---@field [3] boolean
+---@field RepairCompoundFracture boolean
+---@field [4] boolean
+---@field RemoveRottenTissue boolean
 
 ---@class job: df.struct
 ---@field id integer
@@ -114,107 +286,369 @@ df.job = {}
 ---@field job_item_idx integer
 df.job_item_ref = {}
 
----@enum job_item_ref_role
-df.job_item_ref.T_role = {
-  Other = 0, --eat, drink, pickup equipment
-  Reagent = 1,
-  Hauled = 2,
-  LinkToTarget = 3, --used when linking a lever to a building, not sure if swapped
-  LinkToTrigger = 4,
-  unk_5 = 5,
-  TargetContainer = 6,
-  QueuedContainer = 7, --queued to be put in a container
-  PushHaulVehicle = 8, --wheelbarrow
-}
+---@class (exact) _job_item_ref_role: df.struct
+---@field Other 0
+---@field [0] "Other"
+---@field Reagent 1
+---@field [1] "Reagent"
+---@field Hauled 2
+---@field [2] "Hauled"
+---@field LinkToTarget 3
+---@field [3] "LinkToTarget"
+---@field LinkToTrigger 4
+---@field [4] "LinkToTrigger"
+---@field unk_5 5
+---@field [5] "unk_5"
+---@field TargetContainer 6
+---@field [6] "TargetContainer"
+---@field QueuedContainer 7
+---@field [7] "QueuedContainer"
+---@field PushHaulVehicle 8
+---@field [8] "PushHaulVehicle"
+df.job_item_ref.T_role = {}
 
----@enum job_item_flags1
-df.job_item_flags1 = {
-  improvable = 0, --vtable[155]:eax,-1,-1
-  butcherable = 1, --(call 0074c6d0)
-  millable = 2, --vtable[79]
-  allow_buryable = 3, --ALLOW items with flag "dead_dwarf"
-  unrotten = 4, --check for item flag "rotten"
-  undisturbed = 5, --check for item flag "spider_web"
-  collected = 6, --check for item flag "spider_web"
-  sharpenable = 7, --vtable[25]
-  murdered = 8, --check for item flag
-  distillable = 9, --vtable[105],1
-  empty = 10, --(call 00753a40)
-  processable = 11, --vtable[80]
-  bag = 12, --vtable[131]
-  cookable = 13, --(call 00753fe0)
-  extract_bearing_plant = 14, --vtable[164]
-  extract_bearing_fish = 15, --vtable[181]
-  extract_bearing_vermin = 16, --vtable[182]
-  processable_to_vial = 17, --vtable[81]
-  processable_to_bag = 18, --vtable[82]
-  processable_to_barrel = 19, --vtable[83]
-  solid = 20, --vtable[74]
-  tameable_vermin = 21, --vtable[104]
-  nearby = 22,
-  sand_bearing = 23, --vtable[108]
-  glass = 24, --check for material flag IS_GLASS
-  milk = 25, --(call 00753d30 - check if material has CHEESE_MAT?)
-  milkable = 26, --vtable[107],1,1
-  finished_goods = 27,
-  ammo = 28,
-  furniture = 29,
-  not_bin = 30,
-  lye_bearing = 31,
-}
+---@class job_item_ref_role
+---@field [0] boolean
+---@field Other boolean
+---@field [1] boolean
+---@field Reagent boolean
+---@field [2] boolean
+---@field Hauled boolean
+---@field [3] boolean
+---@field LinkToTarget boolean
+---@field [4] boolean
+---@field LinkToTrigger boolean
+---@field [5] boolean
+---@field unk_5 boolean
+---@field [6] boolean
+---@field TargetContainer boolean
+---@field [7] boolean
+---@field QueuedContainer boolean
+---@field [8] boolean
+---@field PushHaulVehicle boolean
 
----@enum job_item_flags2
-df.job_item_flags2 = {
-  dye = 0, --vtable[106]
-  dyeable = 1, --vtable[159]
-  dyed = 2, --vtable[161]
-  sewn_imageless = 3, --vtable[162]
-  glass_making = 4, --vtable[26]
-  screw = 5, --vtable[46]
-  building_material = 6, --vtable[47]
-  fire_safe = 7, --vtable[48],1
-  magma_safe = 8, --vtable[48],2
-  deep_material = 9, --check for inorganic material flag DEEP
-  melt_designated = 10, --check for item flag "melt"
-  non_economic = 11, --(call 0076be60)
-  allow_melt_dump = 12, --item can be designated for melting or dumping
-  allow_artifact = 13, --item can be artifact
-  plant = 14, --check if material is a PLANT_MAT
-  silk = 15, --check for material flag SILK
-  leather = 16, --check for material flag LEATHER
-  bone = 17, --check for material flag BONE
-  shell = 18, --check for material flag SHELL
-  totemable = 19, --vtable[158]
-  horn = 20, --check for material flag HORN
-  pearl = 21, --check for material flag PEARL
-  plaster_containing = 22, --vtable[17]
-  unk_23 = 23,
-  soap = 24, --check for material flag SOAP
-  body_part = 25, --itemtype CORPSE or CORPSEPIECE
-  ivory_tooth = 26, --check for material flag TOOTH
-  lye_milk_free = 27, --(call 00759110)
-  blunt = 28, --vtable[157]
-  unengraved = 29, --vtable[214]
-  hair_wool = 30, --??? (pretty sure this is [ANY_STRAND_TISSUE])
-  yarn = 31, --check for material flag YARN
-}
+---@class (exact) _job_item_flags1: df.struct
+---@field improvable 0
+---@field [0] "improvable"
+---@field butcherable 1
+---@field [1] "butcherable"
+---@field millable 2
+---@field [2] "millable"
+---@field allow_buryable 3
+---@field [3] "allow_buryable"
+---@field unrotten 4
+---@field [4] "unrotten"
+---@field undisturbed 5
+---@field [5] "undisturbed"
+---@field collected 6
+---@field [6] "collected"
+---@field sharpenable 7
+---@field [7] "sharpenable"
+---@field murdered 8
+---@field [8] "murdered"
+---@field distillable 9
+---@field [9] "distillable"
+---@field empty 10
+---@field [10] "empty"
+---@field processable 11
+---@field [11] "processable"
+---@field bag 12
+---@field [12] "bag"
+---@field cookable 13
+---@field [13] "cookable"
+---@field extract_bearing_plant 14
+---@field [14] "extract_bearing_plant"
+---@field extract_bearing_fish 15
+---@field [15] "extract_bearing_fish"
+---@field extract_bearing_vermin 16
+---@field [16] "extract_bearing_vermin"
+---@field processable_to_vial 17
+---@field [17] "processable_to_vial"
+---@field processable_to_bag 18
+---@field [18] "processable_to_bag"
+---@field processable_to_barrel 19
+---@field [19] "processable_to_barrel"
+---@field solid 20
+---@field [20] "solid"
+---@field tameable_vermin 21
+---@field [21] "tameable_vermin"
+---@field nearby 22
+---@field [22] "nearby"
+---@field sand_bearing 23
+---@field [23] "sand_bearing"
+---@field glass 24
+---@field [24] "glass"
+---@field milk 25
+---@field [25] "milk"
+---@field milkable 26
+---@field [26] "milkable"
+---@field finished_goods 27
+---@field [27] "finished_goods"
+---@field ammo 28
+---@field [28] "ammo"
+---@field furniture 29
+---@field [29] "furniture"
+---@field not_bin 30
+---@field [30] "not_bin"
+---@field lye_bearing 31
+---@field [31] "lye_bearing"
+df.job_item_flags1 = {}
 
----@enum job_item_flags3
-df.job_item_flags3 = {
-  unimproved = 0, --vtable[176]
-  any_raw_material = 1, --itemtype BAR, BOULDER, POWDER_MISC, or GLOB
-  non_absorbent = 2, --vtable[215]
-  non_pressed = 3, --vtable[91]
-  allow_liquid_powder = 4,
-  any_craft = 5, --FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
-  hard = 6, --check for material flag ITEMS_HARD
-  food_storage = 7, --vtable[15]
-  metal = 8,
-  sand = 9,
-  unk_10 = 10,
-  written_on = 11,
-  edged = 12,
-}
+---@class job_item_flags1
+---@field [0] boolean
+---@field improvable boolean
+---@field [1] boolean
+---@field butcherable boolean
+---@field [2] boolean
+---@field millable boolean
+---@field [3] boolean
+---@field allow_buryable boolean
+---@field [4] boolean
+---@field unrotten boolean
+---@field [5] boolean
+---@field undisturbed boolean
+---@field [6] boolean
+---@field collected boolean
+---@field [7] boolean
+---@field sharpenable boolean
+---@field [8] boolean
+---@field murdered boolean
+---@field [9] boolean
+---@field distillable boolean
+---@field [10] boolean
+---@field empty boolean
+---@field [11] boolean
+---@field processable boolean
+---@field [12] boolean
+---@field bag boolean
+---@field [13] boolean
+---@field cookable boolean
+---@field [14] boolean
+---@field extract_bearing_plant boolean
+---@field [15] boolean
+---@field extract_bearing_fish boolean
+---@field [16] boolean
+---@field extract_bearing_vermin boolean
+---@field [17] boolean
+---@field processable_to_vial boolean
+---@field [18] boolean
+---@field processable_to_bag boolean
+---@field [19] boolean
+---@field processable_to_barrel boolean
+---@field [20] boolean
+---@field solid boolean
+---@field [21] boolean
+---@field tameable_vermin boolean
+---@field [22] boolean
+---@field nearby boolean
+---@field [23] boolean
+---@field sand_bearing boolean
+---@field [24] boolean
+---@field glass boolean
+---@field [25] boolean
+---@field milk boolean
+---@field [26] boolean
+---@field milkable boolean
+---@field [27] boolean
+---@field finished_goods boolean
+---@field [28] boolean
+---@field ammo boolean
+---@field [29] boolean
+---@field furniture boolean
+---@field [30] boolean
+---@field not_bin boolean
+---@field [31] boolean
+---@field lye_bearing boolean
+
+---@class (exact) _job_item_flags2: df.struct
+---@field dye 0
+---@field [0] "dye"
+---@field dyeable 1
+---@field [1] "dyeable"
+---@field dyed 2
+---@field [2] "dyed"
+---@field sewn_imageless 3
+---@field [3] "sewn_imageless"
+---@field glass_making 4
+---@field [4] "glass_making"
+---@field screw 5
+---@field [5] "screw"
+---@field building_material 6
+---@field [6] "building_material"
+---@field fire_safe 7
+---@field [7] "fire_safe"
+---@field magma_safe 8
+---@field [8] "magma_safe"
+---@field deep_material 9
+---@field [9] "deep_material"
+---@field melt_designated 10
+---@field [10] "melt_designated"
+---@field non_economic 11
+---@field [11] "non_economic"
+---@field allow_melt_dump 12
+---@field [12] "allow_melt_dump"
+---@field allow_artifact 13
+---@field [13] "allow_artifact"
+---@field plant 14
+---@field [14] "plant"
+---@field silk 15
+---@field [15] "silk"
+---@field leather 16
+---@field [16] "leather"
+---@field bone 17
+---@field [17] "bone"
+---@field shell 18
+---@field [18] "shell"
+---@field totemable 19
+---@field [19] "totemable"
+---@field horn 20
+---@field [20] "horn"
+---@field pearl 21
+---@field [21] "pearl"
+---@field plaster_containing 22
+---@field [22] "plaster_containing"
+---@field unk_23 23
+---@field [23] "unk_23"
+---@field soap 24
+---@field [24] "soap"
+---@field body_part 25
+---@field [25] "body_part"
+---@field ivory_tooth 26
+---@field [26] "ivory_tooth"
+---@field lye_milk_free 27
+---@field [27] "lye_milk_free"
+---@field blunt 28
+---@field [28] "blunt"
+---@field unengraved 29
+---@field [29] "unengraved"
+---@field hair_wool 30
+---@field [30] "hair_wool"
+---@field yarn 31
+---@field [31] "yarn"
+df.job_item_flags2 = {}
+
+---@class job_item_flags2
+---@field [0] boolean
+---@field dye boolean
+---@field [1] boolean
+---@field dyeable boolean
+---@field [2] boolean
+---@field dyed boolean
+---@field [3] boolean
+---@field sewn_imageless boolean
+---@field [4] boolean
+---@field glass_making boolean
+---@field [5] boolean
+---@field screw boolean
+---@field [6] boolean
+---@field building_material boolean
+---@field [7] boolean
+---@field fire_safe boolean
+---@field [8] boolean
+---@field magma_safe boolean
+---@field [9] boolean
+---@field deep_material boolean
+---@field [10] boolean
+---@field melt_designated boolean
+---@field [11] boolean
+---@field non_economic boolean
+---@field [12] boolean
+---@field allow_melt_dump boolean
+---@field [13] boolean
+---@field allow_artifact boolean
+---@field [14] boolean
+---@field plant boolean
+---@field [15] boolean
+---@field silk boolean
+---@field [16] boolean
+---@field leather boolean
+---@field [17] boolean
+---@field bone boolean
+---@field [18] boolean
+---@field shell boolean
+---@field [19] boolean
+---@field totemable boolean
+---@field [20] boolean
+---@field horn boolean
+---@field [21] boolean
+---@field pearl boolean
+---@field [22] boolean
+---@field plaster_containing boolean
+---@field [23] boolean
+---@field unk_23 boolean
+---@field [24] boolean
+---@field soap boolean
+---@field [25] boolean
+---@field body_part boolean
+---@field [26] boolean
+---@field ivory_tooth boolean
+---@field [27] boolean
+---@field lye_milk_free boolean
+---@field [28] boolean
+---@field blunt boolean
+---@field [29] boolean
+---@field unengraved boolean
+---@field [30] boolean
+---@field hair_wool boolean
+---@field [31] boolean
+---@field yarn boolean
+
+---@class (exact) _job_item_flags3: df.struct
+---@field unimproved 0
+---@field [0] "unimproved"
+---@field any_raw_material 1
+---@field [1] "any_raw_material"
+---@field non_absorbent 2
+---@field [2] "non_absorbent"
+---@field non_pressed 3
+---@field [3] "non_pressed"
+---@field allow_liquid_powder 4
+---@field [4] "allow_liquid_powder"
+---@field any_craft 5
+---@field [5] "any_craft"
+---@field hard 6
+---@field [6] "hard"
+---@field food_storage 7
+---@field [7] "food_storage"
+---@field metal 8
+---@field [8] "metal"
+---@field sand 9
+---@field [9] "sand"
+---@field unk_10 10
+---@field [10] "unk_10"
+---@field written_on 11
+---@field [11] "written_on"
+---@field edged 12
+---@field [12] "edged"
+df.job_item_flags3 = {}
+
+---@class job_item_flags3
+---@field [0] boolean
+---@field unimproved boolean
+---@field [1] boolean
+---@field any_raw_material boolean
+---@field [2] boolean
+---@field non_absorbent boolean
+---@field [3] boolean
+---@field non_pressed boolean
+---@field [4] boolean
+---@field allow_liquid_powder boolean
+---@field [5] boolean
+---@field any_craft boolean
+---@field [6] boolean
+---@field hard boolean
+---@field [7] boolean
+---@field food_storage boolean
+---@field [8] boolean
+---@field metal boolean
+---@field [9] boolean
+---@field sand boolean
+---@field [10] boolean
+---@field unk_10 boolean
+---@field [11] boolean
+---@field written_on boolean
+---@field [12] boolean
+---@field edged boolean
 
 ---@class job_item: df.struct
 ---@field item_type item_type
@@ -282,11 +716,18 @@ df.job_item = {}
 ---@field take_from building[]
 df.job_item_filter = {}
 
----@enum manager_order_status
-df.manager_order_status = {
-  validated = 0,
-  active = 1,
-}
+---@class (exact) _manager_order_status: df.struct
+---@field validated 0
+---@field [0] "validated"
+---@field active 1
+---@field [1] "active"
+df.manager_order_status = {}
+
+---@class manager_order_status
+---@field [0] boolean
+---@field validated boolean
+---@field [1] boolean
+---@field active boolean
 
 ---@class job_art_specification: df.struct
 ---@field type job_art_specification_type
@@ -294,14 +735,30 @@ df.manager_order_status = {
 ---@field subid any
 df.job_art_specification = {}
 
----@enum job_art_specification_type
-df.job_art_specification.T_type = {
-  None = -1,
-  HistoricalFigure = 1,
-  Site = 2,
-  Entity = 3,
-  ArtImage = 4,
-}
+---@class (exact) _job_art_specification_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field HistoricalFigure 1
+---@field [1] "HistoricalFigure"
+---@field Site 2
+---@field [2] "Site"
+---@field Entity 3
+---@field [3] "Entity"
+---@field ArtImage 4
+---@field [4] "ArtImage"
+df.job_art_specification.T_type = {}
+
+---@class job_art_specification_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field HistoricalFigure boolean
+---@field [2] boolean
+---@field Site boolean
+---@field [3] boolean
+---@field Entity boolean
+---@field [4] boolean
+---@field ArtImage boolean
 
 ---@class manager_order: df.struct
 ---@field id integer
@@ -328,14 +785,30 @@ df.job_art_specification.T_type = {
 ---@field items job_item[]
 df.manager_order = {}
 
----@enum manager_order_frequency
-df.manager_order.T_frequency = {
-  OneTime = 0,
-  Daily = 1,
-  Monthly = 2,
-  Seasonally = 3,
-  Yearly = 4,
-}
+---@class (exact) _manager_order_frequency: df.struct
+---@field OneTime 0
+---@field [0] "OneTime"
+---@field Daily 1
+---@field [1] "Daily"
+---@field Monthly 2
+---@field [2] "Monthly"
+---@field Seasonally 3
+---@field [3] "Seasonally"
+---@field Yearly 4
+---@field [4] "Yearly"
+df.manager_order.T_frequency = {}
+
+---@class manager_order_frequency
+---@field [0] boolean
+---@field OneTime boolean
+---@field [1] boolean
+---@field Daily boolean
+---@field [2] boolean
+---@field Monthly boolean
+---@field [3] boolean
+---@field Seasonally boolean
+---@field [4] boolean
+---@field Yearly boolean
 
 ---@class manager_order_condition_item: df.struct
 ---@field compare_type manager_order_condition_item_compare_type
@@ -358,15 +831,34 @@ df.manager_order.T_frequency = {
 ---@field has_tool_use tool_uses
 df.manager_order_condition_item = {}
 
----@enum manager_order_condition_item_compare_type
-df.manager_order_condition_item.T_compare_type = {
-  AtLeast = 0,
-  AtMost = 1,
-  GreaterThan = 2,
-  LessThan = 3,
-  Exactly = 4,
-  Not = 5,
-}
+---@class (exact) _manager_order_condition_item_compare_type: df.struct
+---@field AtLeast 0
+---@field [0] "AtLeast"
+---@field AtMost 1
+---@field [1] "AtMost"
+---@field GreaterThan 2
+---@field [2] "GreaterThan"
+---@field LessThan 3
+---@field [3] "LessThan"
+---@field Exactly 4
+---@field [4] "Exactly"
+---@field Not 5
+---@field [5] "Not"
+df.manager_order_condition_item.T_compare_type = {}
+
+---@class manager_order_condition_item_compare_type
+---@field [0] boolean
+---@field AtLeast boolean
+---@field [1] boolean
+---@field AtMost boolean
+---@field [2] boolean
+---@field GreaterThan boolean
+---@field [3] boolean
+---@field LessThan boolean
+---@field [4] boolean
+---@field Exactly boolean
+---@field [5] boolean
+---@field Not boolean
 
 ---@class manager_order_condition_order: df.struct
 ---@field order_id manager_order
@@ -374,11 +866,18 @@ df.manager_order_condition_item.T_compare_type = {
 ---@field unk_1 integer
 df.manager_order_condition_order = {}
 
----@enum manager_order_condition_order_condition
-df.manager_order_condition_order.T_condition = {
-  Activated = 0,
-  Completed = 1,
-}
+---@class (exact) _manager_order_condition_order_condition: df.struct
+---@field Activated 0
+---@field [0] "Activated"
+---@field Completed 1
+---@field [1] "Completed"
+df.manager_order_condition_order.T_condition = {}
+
+---@class manager_order_condition_order_condition
+---@field [0] boolean
+---@field Activated boolean
+---@field [1] boolean
+---@field Completed boolean
 
 ---@class manager_order_template: df.struct
 ---jminfost
@@ -413,12 +912,22 @@ df.manager_order_template = {}
 ---@field unk4 integer
 df.mandate = {}
 
----@enum mandate_mode
-df.mandate.T_mode = {
-  Export = 0,
-  Make = 1,
-  Guild = 2,
-}
+---@class (exact) _mandate_mode: df.struct
+---@field Export 0
+---@field [0] "Export"
+---@field Make 1
+---@field [1] "Make"
+---@field Guild 2
+---@field [2] "Guild"
+df.mandate.T_mode = {}
+
+---@class mandate_mode
+---@field [0] boolean
+---@field Export boolean
+---@field [1] boolean
+---@field Make boolean
+---@field [2] boolean
+---@field Guild boolean
 
 ---@class mandate_punishment: df.struct
 ---@field hammerstrikes integer
@@ -432,13 +941,26 @@ df.mandate.T_punishment = {}
 ---@field flags training_assignment_flags
 df.training_assignment = {}
 
----@enum training_assignment_flags
-df.training_assignment.T_flags = {
-  any_trainer = 0,
-  any_unassigned_trainer = 1,
-  train_war = 2,
-  train_hunt = 3,
-}
+---@class (exact) _training_assignment_flags: df.struct
+---@field any_trainer 0
+---@field [0] "any_trainer"
+---@field any_unassigned_trainer 1
+---@field [1] "any_unassigned_trainer"
+---@field train_war 2
+---@field [2] "train_war"
+---@field train_hunt 3
+---@field [3] "train_hunt"
+df.training_assignment.T_flags = {}
+
+---@class training_assignment_flags
+---@field [0] boolean
+---@field any_trainer boolean
+---@field [1] boolean
+---@field any_unassigned_trainer boolean
+---@field [2] boolean
+---@field train_war boolean
+---@field [3] boolean
+---@field train_hunt boolean
 
 ---@class unit_demand: df.struct
 ---@field unk_0 integer
@@ -451,152 +973,571 @@ df.training_assignment.T_flags = {
 ---@field timeout_limit integer once counter passes limit, mandate ends
 df.unit_demand = {}
 
----@enum unit_demand_place
-df.unit_demand.T_place = {
-  Office = 0,
-  Bedroom = 1,
-  DiningRoom = 2,
-  Tomb = 3,
-}
+---@class (exact) _unit_demand_place: df.struct
+---@field Office 0
+---@field [0] "Office"
+---@field Bedroom 1
+---@field [1] "Bedroom"
+---@field DiningRoom 2
+---@field [2] "DiningRoom"
+---@field Tomb 3
+---@field [3] "Tomb"
+df.unit_demand.T_place = {}
 
----@enum job_cancel_reason
-df.job_cancel_reason = {
-  CANNOT_REACH_SITE = 0,
-  INTERRUPTED = 1,
-  MOVED = 2,
-  NEED_EMPTY_BUCKET = 3,
-  NEED_EMPTY_TRAP = 4,
-  NEED_EMPTY_BAG = 5,
-  NEED_EMPTY_CAGE = 6,
-  INCAPABLE_OF_CARRYING = 7,
-  TOO_INJURED = 8,
-  EXHAUSTED = 9,
-  ANIMAL_INACCESSIBLE = 10,
-  ITEM_INACCESSIBLE = 11,
-  PATIENT_INACCESSIBLE = 12,
-  INFANT_INACCESSIBLE = 13,
-  NO_PARTNER = 14,
-  NOTHING_IN_CAGE = 15,
-  NOTHING_TO_CAGE = 16,
-  NOTHING_TO_CATCH = 17,
-  NO_PATIENT = 18,
-  PATIENT_NOT_RESTING = 19,
-  NO_INFANT = 20,
-  ALREADY_LEADING_CREATURE = 21,
-  NO_FOOD_AVAILABLE = 22,
-  NEEDS_SPECIFIC_ITEM = 23,
-  NO_ITEM = 24,
-  NO_AMMUNITION = 25,
-  NO_WEAPON = 26,
-  WRONG_AMMUNITION = 27,
-  AMMUNITION_INACCESSIBLE = 28,
-  ITEM_BLOCKING_SITE = 29,
-  ANIMAL_NOT_RESTRAINED = 30,
-  NO_CREATURE = 31,
-  NO_BUILDING = 32,
-  INAPPROPRIATE_BUILDING = 33,
-  NO_DESIGNATED_AREA = 34,
-  NO_FLOOR_SPACE = 35,
-  NO_PARTY = 36,
-  WRONG_JUSTICE_STATE = 37,
-  NOTHING_IN_BUILDING = 38,
-  RELIEVED = 39,
-  WATER_IS_FROZEN = 40,
-  TOO_INSANE = 41,
-  TAKEN_BY_MOOD = 42,
-  WENT_INSANE = 43,
-  THROWING_TANTRUM = 44,
-  COULD_NOT_FIND_PATH = 45,
-  PATH_BLOCKED = 46,
-  SEEKING_ARTIFACT = 47,
-  HANDLING_DANGEROUS_CREATURE = 48,
-  GOING_TO_BED = 49,
-  SEEKING_INFANT = 50,
-  DANGEROUS_TERRAIN = 51,
-  JOB_ITEM_LOST = 52,
-  GETTING_FOOD = 53,
-  GETTING_WATER = 54,
-  HUNTING_VERMIN_FOR_FOOD = 55,
-  TARGET_INACCESSIBLE = 56,
-  NO_TARGET = 57,
-  NO_MECHANISM_FOR_TARGET = 58,
-  NO_TARGET_BUILDING = 59,
-  NO_MECHANISM_FOR_TRIGGER = 60,
-  NO_TRIGGER = 61,
-  NO_AVAILABLE_TRACTION_BENCH = 62,
-  ATTACKING_BUILDING = 63,
-  LOST_PICK = 64,
-  INVALID_OFFICER = 65,
-  FAREWELL = 66,
-  REMOVED_FROM_GUARD = 67,
-  EQUIPMENT_MISMATCH = 68,
-  UNCONSCIOUS = 69,
-  WEBBED = 70,
-  PARALYZED = 71,
-  CAGED = 72,
-  GETTING_DRINK = 73,
-  USING_WELL = 74,
-  LOST_AXE = 75,
-  RESTING_INJURY = 76,
-  UNSCHEDULED = 77,
-  FORBIDDEN_AREA = 78,
-  DROFOFF_INACCESSIBLE = 79,
-  BUILDING_INACCESSIBLE = 80,
-  AREA_INACCESSIBLE = 81,
-  WATER_SOURCE_VANISHED = 82,
-  NO_WATER_SOURCE = 83,
-  NO_BUCKET_AT_WELL = 84,
-  BUCKET_NOT_EMPTY = 85,
-  WELL_DRY = 86,
-  BUILDING_SITE_SUBMERGED = 87,
-  NEED_SAND_COLLECTION_ZONE = 88,
-  SAND_VANISHED = 89,
-  AREA_BECAME_INAPPROPRIATE = 90,
-  WATER_SOURCE_CONTAMINATED = 91,
-  CREATURE_OCCUPYING_SITE = 92,
-  NEED_OFFICE = 93,
-  NOT_RESPONSIBLE_FOR_TRADE = 94,
-  INAPPROPRIATE_DIG_SQUARE = 95,
-  TARGET_TOO_INJURED = 96,
-  GETTING_MARRIED = 97,
-  NEED_SPLINT = 98,
-  NEED_THREAD = 99,
-  NEED_CLOTH = 100,
-  NEED_CRUTCH = 101,
-  BAD_SCRIPT_1 = 102,
-  BAD_SCRIPT_2 = 103,
-  BAD_SCRIPT_3 = 104,
-  NEED_CAST_POWDER_BAG = 105,
-  NO_WEAPON_2 = 106,
-  NO_APPROPRIATE_AMMUNITION = 107,
-  CLAY_VANISHED = 108,
-  NEED_CLAY_COLLECTION_ZONE = 109,
-  NO_COLONY = 110,
-  NOT_APPOINTED = 111,
-  NO_WEAPON_FOR_EXECUTION = 112,
-  NO_LONGER_REQUESTED = 113,
-  MORTALLY_AFRAID = 114,
-  EMOTIONAL_SHOCK = 115,
-  HORRIFIED = 116,
-  GRIEVING = 117,
-  TERRIFIED = 118,
-  IN_CUSTODY = 119,
-  TOO_DEPRESSED = 120,
-  OBLIVIOUS = 121,
-  CATATONIC = 122,
-  TOO_SAD = 123,
-  IN_AGONY = 124,
-  ANGUISHED = 125,
-  DESPAIRING = 126,
-  DISMAYED = 127,
-  DISTRESSED = 128,
-  FRIGHTENED = 129,
-  MISERABLE = 130,
-  MORTIFIED = 131,
-  SHAKEN = 132,
-  IN_EXISTENTIAL_CRISIS = 133,
-  NEEDS_SPECIFIC_ITEM_2 = 134,
-}
+---@class unit_demand_place
+---@field [0] boolean
+---@field Office boolean
+---@field [1] boolean
+---@field Bedroom boolean
+---@field [2] boolean
+---@field DiningRoom boolean
+---@field [3] boolean
+---@field Tomb boolean
+
+---@class (exact) _job_cancel_reason: df.struct
+---@field CANNOT_REACH_SITE 0
+---@field [0] "CANNOT_REACH_SITE"
+---@field INTERRUPTED 1
+---@field [1] "INTERRUPTED"
+---@field MOVED 2
+---@field [2] "MOVED"
+---@field NEED_EMPTY_BUCKET 3
+---@field [3] "NEED_EMPTY_BUCKET"
+---@field NEED_EMPTY_TRAP 4
+---@field [4] "NEED_EMPTY_TRAP"
+---@field NEED_EMPTY_BAG 5
+---@field [5] "NEED_EMPTY_BAG"
+---@field NEED_EMPTY_CAGE 6
+---@field [6] "NEED_EMPTY_CAGE"
+---@field INCAPABLE_OF_CARRYING 7
+---@field [7] "INCAPABLE_OF_CARRYING"
+---@field TOO_INJURED 8
+---@field [8] "TOO_INJURED"
+---@field EXHAUSTED 9
+---@field [9] "EXHAUSTED"
+---@field ANIMAL_INACCESSIBLE 10
+---@field [10] "ANIMAL_INACCESSIBLE"
+---@field ITEM_INACCESSIBLE 11
+---@field [11] "ITEM_INACCESSIBLE"
+---@field PATIENT_INACCESSIBLE 12
+---@field [12] "PATIENT_INACCESSIBLE"
+---@field INFANT_INACCESSIBLE 13
+---@field [13] "INFANT_INACCESSIBLE"
+---@field NO_PARTNER 14
+---@field [14] "NO_PARTNER"
+---@field NOTHING_IN_CAGE 15
+---@field [15] "NOTHING_IN_CAGE"
+---@field NOTHING_TO_CAGE 16
+---@field [16] "NOTHING_TO_CAGE"
+---@field NOTHING_TO_CATCH 17
+---@field [17] "NOTHING_TO_CATCH"
+---@field NO_PATIENT 18
+---@field [18] "NO_PATIENT"
+---@field PATIENT_NOT_RESTING 19
+---@field [19] "PATIENT_NOT_RESTING"
+---@field NO_INFANT 20
+---@field [20] "NO_INFANT"
+---@field ALREADY_LEADING_CREATURE 21
+---@field [21] "ALREADY_LEADING_CREATURE"
+---@field NO_FOOD_AVAILABLE 22
+---@field [22] "NO_FOOD_AVAILABLE"
+---@field NEEDS_SPECIFIC_ITEM 23
+---@field [23] "NEEDS_SPECIFIC_ITEM"
+---@field NO_ITEM 24
+---@field [24] "NO_ITEM"
+---@field NO_AMMUNITION 25
+---@field [25] "NO_AMMUNITION"
+---@field NO_WEAPON 26
+---@field [26] "NO_WEAPON"
+---@field WRONG_AMMUNITION 27
+---@field [27] "WRONG_AMMUNITION"
+---@field AMMUNITION_INACCESSIBLE 28
+---@field [28] "AMMUNITION_INACCESSIBLE"
+---@field ITEM_BLOCKING_SITE 29
+---@field [29] "ITEM_BLOCKING_SITE"
+---@field ANIMAL_NOT_RESTRAINED 30
+---@field [30] "ANIMAL_NOT_RESTRAINED"
+---@field NO_CREATURE 31
+---@field [31] "NO_CREATURE"
+---@field NO_BUILDING 32
+---@field [32] "NO_BUILDING"
+---@field INAPPROPRIATE_BUILDING 33
+---@field [33] "INAPPROPRIATE_BUILDING"
+---@field NO_DESIGNATED_AREA 34
+---@field [34] "NO_DESIGNATED_AREA"
+---@field NO_FLOOR_SPACE 35
+---@field [35] "NO_FLOOR_SPACE"
+---@field NO_PARTY 36
+---@field [36] "NO_PARTY"
+---@field WRONG_JUSTICE_STATE 37
+---@field [37] "WRONG_JUSTICE_STATE"
+---@field NOTHING_IN_BUILDING 38
+---@field [38] "NOTHING_IN_BUILDING"
+---@field RELIEVED 39
+---@field [39] "RELIEVED"
+---@field WATER_IS_FROZEN 40
+---@field [40] "WATER_IS_FROZEN"
+---@field TOO_INSANE 41
+---@field [41] "TOO_INSANE"
+---@field TAKEN_BY_MOOD 42
+---@field [42] "TAKEN_BY_MOOD"
+---@field WENT_INSANE 43
+---@field [43] "WENT_INSANE"
+---@field THROWING_TANTRUM 44
+---@field [44] "THROWING_TANTRUM"
+---@field COULD_NOT_FIND_PATH 45
+---@field [45] "COULD_NOT_FIND_PATH"
+---@field PATH_BLOCKED 46
+---@field [46] "PATH_BLOCKED"
+---@field SEEKING_ARTIFACT 47
+---@field [47] "SEEKING_ARTIFACT"
+---@field HANDLING_DANGEROUS_CREATURE 48
+---@field [48] "HANDLING_DANGEROUS_CREATURE"
+---@field GOING_TO_BED 49
+---@field [49] "GOING_TO_BED"
+---@field SEEKING_INFANT 50
+---@field [50] "SEEKING_INFANT"
+---@field DANGEROUS_TERRAIN 51
+---@field [51] "DANGEROUS_TERRAIN"
+---@field JOB_ITEM_LOST 52
+---@field [52] "JOB_ITEM_LOST"
+---@field GETTING_FOOD 53
+---@field [53] "GETTING_FOOD"
+---@field GETTING_WATER 54
+---@field [54] "GETTING_WATER"
+---@field HUNTING_VERMIN_FOR_FOOD 55
+---@field [55] "HUNTING_VERMIN_FOR_FOOD"
+---@field TARGET_INACCESSIBLE 56
+---@field [56] "TARGET_INACCESSIBLE"
+---@field NO_TARGET 57
+---@field [57] "NO_TARGET"
+---@field NO_MECHANISM_FOR_TARGET 58
+---@field [58] "NO_MECHANISM_FOR_TARGET"
+---@field NO_TARGET_BUILDING 59
+---@field [59] "NO_TARGET_BUILDING"
+---@field NO_MECHANISM_FOR_TRIGGER 60
+---@field [60] "NO_MECHANISM_FOR_TRIGGER"
+---@field NO_TRIGGER 61
+---@field [61] "NO_TRIGGER"
+---@field NO_AVAILABLE_TRACTION_BENCH 62
+---@field [62] "NO_AVAILABLE_TRACTION_BENCH"
+---@field ATTACKING_BUILDING 63
+---@field [63] "ATTACKING_BUILDING"
+---@field LOST_PICK 64
+---@field [64] "LOST_PICK"
+---@field INVALID_OFFICER 65
+---@field [65] "INVALID_OFFICER"
+---@field FAREWELL 66
+---@field [66] "FAREWELL"
+---@field REMOVED_FROM_GUARD 67
+---@field [67] "REMOVED_FROM_GUARD"
+---@field EQUIPMENT_MISMATCH 68
+---@field [68] "EQUIPMENT_MISMATCH"
+---@field UNCONSCIOUS 69
+---@field [69] "UNCONSCIOUS"
+---@field WEBBED 70
+---@field [70] "WEBBED"
+---@field PARALYZED 71
+---@field [71] "PARALYZED"
+---@field CAGED 72
+---@field [72] "CAGED"
+---@field GETTING_DRINK 73
+---@field [73] "GETTING_DRINK"
+---@field USING_WELL 74
+---@field [74] "USING_WELL"
+---@field LOST_AXE 75
+---@field [75] "LOST_AXE"
+---@field RESTING_INJURY 76
+---@field [76] "RESTING_INJURY"
+---@field UNSCHEDULED 77
+---@field [77] "UNSCHEDULED"
+---@field FORBIDDEN_AREA 78
+---@field [78] "FORBIDDEN_AREA"
+---@field DROFOFF_INACCESSIBLE 79
+---@field [79] "DROFOFF_INACCESSIBLE"
+---@field BUILDING_INACCESSIBLE 80
+---@field [80] "BUILDING_INACCESSIBLE"
+---@field AREA_INACCESSIBLE 81
+---@field [81] "AREA_INACCESSIBLE"
+---@field WATER_SOURCE_VANISHED 82
+---@field [82] "WATER_SOURCE_VANISHED"
+---@field NO_WATER_SOURCE 83
+---@field [83] "NO_WATER_SOURCE"
+---@field NO_BUCKET_AT_WELL 84
+---@field [84] "NO_BUCKET_AT_WELL"
+---@field BUCKET_NOT_EMPTY 85
+---@field [85] "BUCKET_NOT_EMPTY"
+---@field WELL_DRY 86
+---@field [86] "WELL_DRY"
+---@field BUILDING_SITE_SUBMERGED 87
+---@field [87] "BUILDING_SITE_SUBMERGED"
+---@field NEED_SAND_COLLECTION_ZONE 88
+---@field [88] "NEED_SAND_COLLECTION_ZONE"
+---@field SAND_VANISHED 89
+---@field [89] "SAND_VANISHED"
+---@field AREA_BECAME_INAPPROPRIATE 90
+---@field [90] "AREA_BECAME_INAPPROPRIATE"
+---@field WATER_SOURCE_CONTAMINATED 91
+---@field [91] "WATER_SOURCE_CONTAMINATED"
+---@field CREATURE_OCCUPYING_SITE 92
+---@field [92] "CREATURE_OCCUPYING_SITE"
+---@field NEED_OFFICE 93
+---@field [93] "NEED_OFFICE"
+---@field NOT_RESPONSIBLE_FOR_TRADE 94
+---@field [94] "NOT_RESPONSIBLE_FOR_TRADE"
+---@field INAPPROPRIATE_DIG_SQUARE 95
+---@field [95] "INAPPROPRIATE_DIG_SQUARE"
+---@field TARGET_TOO_INJURED 96
+---@field [96] "TARGET_TOO_INJURED"
+---@field GETTING_MARRIED 97
+---@field [97] "GETTING_MARRIED"
+---@field NEED_SPLINT 98
+---@field [98] "NEED_SPLINT"
+---@field NEED_THREAD 99
+---@field [99] "NEED_THREAD"
+---@field NEED_CLOTH 100
+---@field [100] "NEED_CLOTH"
+---@field NEED_CRUTCH 101
+---@field [101] "NEED_CRUTCH"
+---@field BAD_SCRIPT_1 102
+---@field [102] "BAD_SCRIPT_1"
+---@field BAD_SCRIPT_2 103
+---@field [103] "BAD_SCRIPT_2"
+---@field BAD_SCRIPT_3 104
+---@field [104] "BAD_SCRIPT_3"
+---@field NEED_CAST_POWDER_BAG 105
+---@field [105] "NEED_CAST_POWDER_BAG"
+---@field NO_WEAPON_2 106
+---@field [106] "NO_WEAPON_2"
+---@field NO_APPROPRIATE_AMMUNITION 107
+---@field [107] "NO_APPROPRIATE_AMMUNITION"
+---@field CLAY_VANISHED 108
+---@field [108] "CLAY_VANISHED"
+---@field NEED_CLAY_COLLECTION_ZONE 109
+---@field [109] "NEED_CLAY_COLLECTION_ZONE"
+---@field NO_COLONY 110
+---@field [110] "NO_COLONY"
+---@field NOT_APPOINTED 111
+---@field [111] "NOT_APPOINTED"
+---@field NO_WEAPON_FOR_EXECUTION 112
+---@field [112] "NO_WEAPON_FOR_EXECUTION"
+---@field NO_LONGER_REQUESTED 113
+---@field [113] "NO_LONGER_REQUESTED"
+---@field MORTALLY_AFRAID 114
+---@field [114] "MORTALLY_AFRAID"
+---@field EMOTIONAL_SHOCK 115
+---@field [115] "EMOTIONAL_SHOCK"
+---@field HORRIFIED 116
+---@field [116] "HORRIFIED"
+---@field GRIEVING 117
+---@field [117] "GRIEVING"
+---@field TERRIFIED 118
+---@field [118] "TERRIFIED"
+---@field IN_CUSTODY 119
+---@field [119] "IN_CUSTODY"
+---@field TOO_DEPRESSED 120
+---@field [120] "TOO_DEPRESSED"
+---@field OBLIVIOUS 121
+---@field [121] "OBLIVIOUS"
+---@field CATATONIC 122
+---@field [122] "CATATONIC"
+---@field TOO_SAD 123
+---@field [123] "TOO_SAD"
+---@field IN_AGONY 124
+---@field [124] "IN_AGONY"
+---@field ANGUISHED 125
+---@field [125] "ANGUISHED"
+---@field DESPAIRING 126
+---@field [126] "DESPAIRING"
+---@field DISMAYED 127
+---@field [127] "DISMAYED"
+---@field DISTRESSED 128
+---@field [128] "DISTRESSED"
+---@field FRIGHTENED 129
+---@field [129] "FRIGHTENED"
+---@field MISERABLE 130
+---@field [130] "MISERABLE"
+---@field MORTIFIED 131
+---@field [131] "MORTIFIED"
+---@field SHAKEN 132
+---@field [132] "SHAKEN"
+---@field IN_EXISTENTIAL_CRISIS 133
+---@field [133] "IN_EXISTENTIAL_CRISIS"
+---@field NEEDS_SPECIFIC_ITEM_2 134
+---@field [134] "NEEDS_SPECIFIC_ITEM_2"
+df.job_cancel_reason = {}
+
+---@class job_cancel_reason
+---@field [0] boolean
+---@field CANNOT_REACH_SITE boolean
+---@field [1] boolean
+---@field INTERRUPTED boolean
+---@field [2] boolean
+---@field MOVED boolean
+---@field [3] boolean
+---@field NEED_EMPTY_BUCKET boolean
+---@field [4] boolean
+---@field NEED_EMPTY_TRAP boolean
+---@field [5] boolean
+---@field NEED_EMPTY_BAG boolean
+---@field [6] boolean
+---@field NEED_EMPTY_CAGE boolean
+---@field [7] boolean
+---@field INCAPABLE_OF_CARRYING boolean
+---@field [8] boolean
+---@field TOO_INJURED boolean
+---@field [9] boolean
+---@field EXHAUSTED boolean
+---@field [10] boolean
+---@field ANIMAL_INACCESSIBLE boolean
+---@field [11] boolean
+---@field ITEM_INACCESSIBLE boolean
+---@field [12] boolean
+---@field PATIENT_INACCESSIBLE boolean
+---@field [13] boolean
+---@field INFANT_INACCESSIBLE boolean
+---@field [14] boolean
+---@field NO_PARTNER boolean
+---@field [15] boolean
+---@field NOTHING_IN_CAGE boolean
+---@field [16] boolean
+---@field NOTHING_TO_CAGE boolean
+---@field [17] boolean
+---@field NOTHING_TO_CATCH boolean
+---@field [18] boolean
+---@field NO_PATIENT boolean
+---@field [19] boolean
+---@field PATIENT_NOT_RESTING boolean
+---@field [20] boolean
+---@field NO_INFANT boolean
+---@field [21] boolean
+---@field ALREADY_LEADING_CREATURE boolean
+---@field [22] boolean
+---@field NO_FOOD_AVAILABLE boolean
+---@field [23] boolean
+---@field NEEDS_SPECIFIC_ITEM boolean
+---@field [24] boolean
+---@field NO_ITEM boolean
+---@field [25] boolean
+---@field NO_AMMUNITION boolean
+---@field [26] boolean
+---@field NO_WEAPON boolean
+---@field [27] boolean
+---@field WRONG_AMMUNITION boolean
+---@field [28] boolean
+---@field AMMUNITION_INACCESSIBLE boolean
+---@field [29] boolean
+---@field ITEM_BLOCKING_SITE boolean
+---@field [30] boolean
+---@field ANIMAL_NOT_RESTRAINED boolean
+---@field [31] boolean
+---@field NO_CREATURE boolean
+---@field [32] boolean
+---@field NO_BUILDING boolean
+---@field [33] boolean
+---@field INAPPROPRIATE_BUILDING boolean
+---@field [34] boolean
+---@field NO_DESIGNATED_AREA boolean
+---@field [35] boolean
+---@field NO_FLOOR_SPACE boolean
+---@field [36] boolean
+---@field NO_PARTY boolean
+---@field [37] boolean
+---@field WRONG_JUSTICE_STATE boolean
+---@field [38] boolean
+---@field NOTHING_IN_BUILDING boolean
+---@field [39] boolean
+---@field RELIEVED boolean
+---@field [40] boolean
+---@field WATER_IS_FROZEN boolean
+---@field [41] boolean
+---@field TOO_INSANE boolean
+---@field [42] boolean
+---@field TAKEN_BY_MOOD boolean
+---@field [43] boolean
+---@field WENT_INSANE boolean
+---@field [44] boolean
+---@field THROWING_TANTRUM boolean
+---@field [45] boolean
+---@field COULD_NOT_FIND_PATH boolean
+---@field [46] boolean
+---@field PATH_BLOCKED boolean
+---@field [47] boolean
+---@field SEEKING_ARTIFACT boolean
+---@field [48] boolean
+---@field HANDLING_DANGEROUS_CREATURE boolean
+---@field [49] boolean
+---@field GOING_TO_BED boolean
+---@field [50] boolean
+---@field SEEKING_INFANT boolean
+---@field [51] boolean
+---@field DANGEROUS_TERRAIN boolean
+---@field [52] boolean
+---@field JOB_ITEM_LOST boolean
+---@field [53] boolean
+---@field GETTING_FOOD boolean
+---@field [54] boolean
+---@field GETTING_WATER boolean
+---@field [55] boolean
+---@field HUNTING_VERMIN_FOR_FOOD boolean
+---@field [56] boolean
+---@field TARGET_INACCESSIBLE boolean
+---@field [57] boolean
+---@field NO_TARGET boolean
+---@field [58] boolean
+---@field NO_MECHANISM_FOR_TARGET boolean
+---@field [59] boolean
+---@field NO_TARGET_BUILDING boolean
+---@field [60] boolean
+---@field NO_MECHANISM_FOR_TRIGGER boolean
+---@field [61] boolean
+---@field NO_TRIGGER boolean
+---@field [62] boolean
+---@field NO_AVAILABLE_TRACTION_BENCH boolean
+---@field [63] boolean
+---@field ATTACKING_BUILDING boolean
+---@field [64] boolean
+---@field LOST_PICK boolean
+---@field [65] boolean
+---@field INVALID_OFFICER boolean
+---@field [66] boolean
+---@field FAREWELL boolean
+---@field [67] boolean
+---@field REMOVED_FROM_GUARD boolean
+---@field [68] boolean
+---@field EQUIPMENT_MISMATCH boolean
+---@field [69] boolean
+---@field UNCONSCIOUS boolean
+---@field [70] boolean
+---@field WEBBED boolean
+---@field [71] boolean
+---@field PARALYZED boolean
+---@field [72] boolean
+---@field CAGED boolean
+---@field [73] boolean
+---@field GETTING_DRINK boolean
+---@field [74] boolean
+---@field USING_WELL boolean
+---@field [75] boolean
+---@field LOST_AXE boolean
+---@field [76] boolean
+---@field RESTING_INJURY boolean
+---@field [77] boolean
+---@field UNSCHEDULED boolean
+---@field [78] boolean
+---@field FORBIDDEN_AREA boolean
+---@field [79] boolean
+---@field DROFOFF_INACCESSIBLE boolean
+---@field [80] boolean
+---@field BUILDING_INACCESSIBLE boolean
+---@field [81] boolean
+---@field AREA_INACCESSIBLE boolean
+---@field [82] boolean
+---@field WATER_SOURCE_VANISHED boolean
+---@field [83] boolean
+---@field NO_WATER_SOURCE boolean
+---@field [84] boolean
+---@field NO_BUCKET_AT_WELL boolean
+---@field [85] boolean
+---@field BUCKET_NOT_EMPTY boolean
+---@field [86] boolean
+---@field WELL_DRY boolean
+---@field [87] boolean
+---@field BUILDING_SITE_SUBMERGED boolean
+---@field [88] boolean
+---@field NEED_SAND_COLLECTION_ZONE boolean
+---@field [89] boolean
+---@field SAND_VANISHED boolean
+---@field [90] boolean
+---@field AREA_BECAME_INAPPROPRIATE boolean
+---@field [91] boolean
+---@field WATER_SOURCE_CONTAMINATED boolean
+---@field [92] boolean
+---@field CREATURE_OCCUPYING_SITE boolean
+---@field [93] boolean
+---@field NEED_OFFICE boolean
+---@field [94] boolean
+---@field NOT_RESPONSIBLE_FOR_TRADE boolean
+---@field [95] boolean
+---@field INAPPROPRIATE_DIG_SQUARE boolean
+---@field [96] boolean
+---@field TARGET_TOO_INJURED boolean
+---@field [97] boolean
+---@field GETTING_MARRIED boolean
+---@field [98] boolean
+---@field NEED_SPLINT boolean
+---@field [99] boolean
+---@field NEED_THREAD boolean
+---@field [100] boolean
+---@field NEED_CLOTH boolean
+---@field [101] boolean
+---@field NEED_CRUTCH boolean
+---@field [102] boolean
+---@field BAD_SCRIPT_1 boolean
+---@field [103] boolean
+---@field BAD_SCRIPT_2 boolean
+---@field [104] boolean
+---@field BAD_SCRIPT_3 boolean
+---@field [105] boolean
+---@field NEED_CAST_POWDER_BAG boolean
+---@field [106] boolean
+---@field NO_WEAPON_2 boolean
+---@field [107] boolean
+---@field NO_APPROPRIATE_AMMUNITION boolean
+---@field [108] boolean
+---@field CLAY_VANISHED boolean
+---@field [109] boolean
+---@field NEED_CLAY_COLLECTION_ZONE boolean
+---@field [110] boolean
+---@field NO_COLONY boolean
+---@field [111] boolean
+---@field NOT_APPOINTED boolean
+---@field [112] boolean
+---@field NO_WEAPON_FOR_EXECUTION boolean
+---@field [113] boolean
+---@field NO_LONGER_REQUESTED boolean
+---@field [114] boolean
+---@field MORTALLY_AFRAID boolean
+---@field [115] boolean
+---@field EMOTIONAL_SHOCK boolean
+---@field [116] boolean
+---@field HORRIFIED boolean
+---@field [117] boolean
+---@field GRIEVING boolean
+---@field [118] boolean
+---@field TERRIFIED boolean
+---@field [119] boolean
+---@field IN_CUSTODY boolean
+---@field [120] boolean
+---@field TOO_DEPRESSED boolean
+---@field [121] boolean
+---@field OBLIVIOUS boolean
+---@field [122] boolean
+---@field CATATONIC boolean
+---@field [123] boolean
+---@field TOO_SAD boolean
+---@field [124] boolean
+---@field IN_AGONY boolean
+---@field [125] boolean
+---@field ANGUISHED boolean
+---@field [126] boolean
+---@field DESPAIRING boolean
+---@field [127] boolean
+---@field DISMAYED boolean
+---@field [128] boolean
+---@field DISTRESSED boolean
+---@field [129] boolean
+---@field FRIGHTENED boolean
+---@field [130] boolean
+---@field MISERABLE boolean
+---@field [131] boolean
+---@field MORTIFIED boolean
+---@field [132] boolean
+---@field SHAKEN boolean
+---@field [133] boolean
+---@field IN_EXISTENTIAL_CRISIS boolean
+---@field [134] boolean
+---@field NEEDS_SPECIFIC_ITEM_2 boolean
 
 ---@class job_cancel: df.struct
 df.job_cancel = {}

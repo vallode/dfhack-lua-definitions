@@ -1,21 +1,47 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum init_display_flags
-df.init_display_flags = {
-  USE_GRAPHICS = 0,
-  SOFTWARE = 1,
-  TEXT = 2,
-  NOT_RESIZABLE = 3,
-  INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH = 4,
-}
+---@class (exact) _init_display_flags: df.struct
+---@field USE_GRAPHICS 0
+---@field [0] "USE_GRAPHICS"
+---@field SOFTWARE 1
+---@field [1] "SOFTWARE"
+---@field TEXT 2
+---@field [2] "TEXT"
+---@field NOT_RESIZABLE 3
+---@field [3] "NOT_RESIZABLE"
+---@field INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH 4
+---@field [4] "INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"
+df.init_display_flags = {}
 
----@enum init_display_filter_mode
-df.init_display_filter_mode = {
-  AUTO = 0,
-  NEAREST = 1,
-  LANCZOS = 2,
-}
+---@class init_display_flags
+---@field [0] boolean
+---@field USE_GRAPHICS boolean
+---@field [1] boolean
+---@field SOFTWARE boolean
+---@field [2] boolean
+---@field TEXT boolean
+---@field [3] boolean
+---@field NOT_RESIZABLE boolean
+---@field [4] boolean
+---@field INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH boolean
+
+---@class (exact) _init_display_filter_mode: df.struct
+---@field AUTO 0
+---@field [0] "AUTO"
+---@field NEAREST 1
+---@field [1] "NEAREST"
+---@field LANCZOS 2
+---@field [2] "LANCZOS"
+df.init_display_filter_mode = {}
+
+---@class init_display_filter_mode
+---@field [0] boolean
+---@field AUTO boolean
+---@field [1] boolean
+---@field NEAREST boolean
+---@field [2] boolean
+---@field LANCZOS boolean
 
 ---@class init_display: df.struct
 ---@field flag any
@@ -38,20 +64,43 @@ df.init_display_filter_mode = {
 ---@field filter_mode init_display_filter_mode
 df.init_display = {}
 
----@enum init_display_windowed
-df.init_display.T_windowed = {
-  True = 0,
-  False = 1,
-  Prompt = 2,
-  Exclusive = 3,
-}
+---@class (exact) _init_display_windowed: df.struct
+---@field True 0
+---@field [0] "True"
+---@field False 1
+---@field [1] "False"
+---@field Prompt 2
+---@field [2] "Prompt"
+---@field Exclusive 3
+---@field [3] "Exclusive"
+df.init_display.T_windowed = {}
 
----@enum init_media_flags
-df.init_media_flags = {
-  SOUND_OFF = 0,
-  UNUSED_01_02 = 1,
-  COMPRESS_SAVES = 2,
-}
+---@class init_display_windowed
+---@field [0] boolean
+---@field True boolean
+---@field [1] boolean
+---@field False boolean
+---@field [2] boolean
+---@field Prompt boolean
+---@field [3] boolean
+---@field Exclusive boolean
+
+---@class (exact) _init_media_flags: df.struct
+---@field SOUND_OFF 0
+---@field [0] "SOUND_OFF"
+---@field UNUSED_01_02 1
+---@field [1] "UNUSED_01_02"
+---@field COMPRESS_SAVES 2
+---@field [2] "COMPRESS_SAVES"
+df.init_media_flags = {}
+
+---@class init_media_flags
+---@field [0] boolean
+---@field SOUND_OFF boolean
+---@field [1] boolean
+---@field UNUSED_01_02 boolean
+---@field [2] boolean
+---@field COMPRESS_SAVES boolean
 
 ---@class init_media: df.struct
 ---@field flag any
@@ -62,11 +111,18 @@ df.init_media_flags = {
 ---@field time_between_songs integer
 df.init_media = {}
 
----@enum init_input_flags
-df.init_input_flags = {
-  MOUSE_OFF = 0,
-  MOUSE_PICTURE = 1,
-}
+---@class (exact) _init_input_flags: df.struct
+---@field MOUSE_OFF 0
+---@field [0] "MOUSE_OFF"
+---@field MOUSE_PICTURE 1
+---@field [1] "MOUSE_PICTURE"
+df.init_input_flags = {}
+
+---@class init_input_flags
+---@field [0] boolean
+---@field MOUSE_OFF boolean
+---@field [1] boolean
+---@field MOUSE_PICTURE boolean
 
 ---@class init_input: df.struct
 ---@field hold_time integer
@@ -106,12 +162,22 @@ df.init_input = {}
 ---@field large_font_dispy number
 df.init_font = {}
 
----@enum init_window_flags
-df.init_window_flags = {
-  VSYNC_ON = 0,
-  VSYNC_OFF = 1,
-  TEXTURE_LINEAR = 2,
-}
+---@class (exact) _init_window_flags: df.struct
+---@field VSYNC_ON 0
+---@field [0] "VSYNC_ON"
+---@field VSYNC_OFF 1
+---@field [1] "VSYNC_OFF"
+---@field TEXTURE_LINEAR 2
+---@field [2] "TEXTURE_LINEAR"
+df.init_window_flags = {}
+
+---@class init_window_flags
+---@field [0] boolean
+---@field VSYNC_ON boolean
+---@field [1] boolean
+---@field VSYNC_OFF boolean
+---@field [2] boolean
+---@field TEXTURE_LINEAR boolean
 
 ---@class init_window: df.struct
 ---@field flag any

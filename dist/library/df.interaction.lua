@@ -1,11 +1,18 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum interaction_flags
-df.interaction_flags = {
-  GENERATED = 0,
-  EXPERIMENT_ONLY = 1,
-}
+---@class (exact) _interaction_flags: df.struct
+---@field GENERATED 0
+---@field [0] "GENERATED"
+---@field EXPERIMENT_ONLY 1
+---@field [1] "EXPERIMENT_ONLY"
+df.interaction_flags = {}
+
+---@class interaction_flags
+---@field [0] boolean
+---@field GENERATED boolean
+---@field [1] boolean
+---@field EXPERIMENT_ONLY boolean
 
 ---@class interaction: df.instance
 ---@field name string
@@ -19,32 +26,91 @@ df.interaction_flags = {
 ---@field source_enid historical_entity
 df.interaction = {}
 
----@enum interaction_effect_type
-df.interaction_effect_type = {
-  ANIMATE = 0,
-  ADD_SYNDROME = 1,
-  RESURRECT = 2,
-  CLEAN = 3,
-  CONTACT = 4,
-  MATERIAL_EMISSION = 5,
-  HIDE = 6,
-  PROPEL_UNIT = 7,
-  SUMMON_UNIT = 8,
-  CHANGE_WEATHER = 9,
-  RAISE_GHOST = 10,
-  CREATE_ITEM = 11,
-  CHANGE_ITEM_QUALITY = 12,
-}
+---@class (exact) _interaction_effect_type: df.struct
+---@field ANIMATE 0
+---@field [0] "ANIMATE"
+---@field ADD_SYNDROME 1
+---@field [1] "ADD_SYNDROME"
+---@field RESURRECT 2
+---@field [2] "RESURRECT"
+---@field CLEAN 3
+---@field [3] "CLEAN"
+---@field CONTACT 4
+---@field [4] "CONTACT"
+---@field MATERIAL_EMISSION 5
+---@field [5] "MATERIAL_EMISSION"
+---@field HIDE 6
+---@field [6] "HIDE"
+---@field PROPEL_UNIT 7
+---@field [7] "PROPEL_UNIT"
+---@field SUMMON_UNIT 8
+---@field [8] "SUMMON_UNIT"
+---@field CHANGE_WEATHER 9
+---@field [9] "CHANGE_WEATHER"
+---@field RAISE_GHOST 10
+---@field [10] "RAISE_GHOST"
+---@field CREATE_ITEM 11
+---@field [11] "CREATE_ITEM"
+---@field CHANGE_ITEM_QUALITY 12
+---@field [12] "CHANGE_ITEM_QUALITY"
+df.interaction_effect_type = {}
 
----@enum interaction_effect_location_hint
-df.interaction_effect_location_hint = {
-  IN_WATER = 0,
-  IN_MAGMA = 1,
-  NO_WATER = 2,
-  NO_MAGMA = 3,
-  NO_THICK_FOG = 4,
-  OUTSIDE = 5,
-}
+---@class interaction_effect_type
+---@field [0] boolean
+---@field ANIMATE boolean
+---@field [1] boolean
+---@field ADD_SYNDROME boolean
+---@field [2] boolean
+---@field RESURRECT boolean
+---@field [3] boolean
+---@field CLEAN boolean
+---@field [4] boolean
+---@field CONTACT boolean
+---@field [5] boolean
+---@field MATERIAL_EMISSION boolean
+---@field [6] boolean
+---@field HIDE boolean
+---@field [7] boolean
+---@field PROPEL_UNIT boolean
+---@field [8] boolean
+---@field SUMMON_UNIT boolean
+---@field [9] boolean
+---@field CHANGE_WEATHER boolean
+---@field [10] boolean
+---@field RAISE_GHOST boolean
+---@field [11] boolean
+---@field CREATE_ITEM boolean
+---@field [12] boolean
+---@field CHANGE_ITEM_QUALITY boolean
+
+---@class (exact) _interaction_effect_location_hint: df.struct
+---@field IN_WATER 0
+---@field [0] "IN_WATER"
+---@field IN_MAGMA 1
+---@field [1] "IN_MAGMA"
+---@field NO_WATER 2
+---@field [2] "NO_WATER"
+---@field NO_MAGMA 3
+---@field [3] "NO_MAGMA"
+---@field NO_THICK_FOG 4
+---@field [4] "NO_THICK_FOG"
+---@field OUTSIDE 5
+---@field [5] "OUTSIDE"
+df.interaction_effect_location_hint = {}
+
+---@class interaction_effect_location_hint
+---@field [0] boolean
+---@field IN_WATER boolean
+---@field [1] boolean
+---@field IN_MAGMA boolean
+---@field [2] boolean
+---@field NO_WATER boolean
+---@field [3] boolean
+---@field NO_MAGMA boolean
+---@field [4] boolean
+---@field NO_THICK_FOG boolean
+---@field [5] boolean
+---@field OUTSIDE boolean
 
 ---@class interaction_effect: df.struct
 ---@field index integer index of the effect within the parent interaction.effects
@@ -57,10 +123,14 @@ df.interaction_effect_location_hint = {
 ---@field arena_name string IE_ARENA_NAME
 df.interaction_effect = {}
 
----@enum interaction_effect_flags
-df.interaction_effect.T_flags = {
-  IMMEDIATE = 0, --IE_IMMEDIATE
-}
+---@class (exact) _interaction_effect_flags: df.struct
+---@field IMMEDIATE 0
+---@field [0] "IMMEDIATE"
+df.interaction_effect.T_flags = {}
+
+---@class interaction_effect_flags
+---@field [0] boolean
+---@field IMMEDIATE boolean
 
 ---@class interaction_effect_animatest: interaction_effect
 ---@field unk_1 integer
@@ -148,18 +218,46 @@ df.interaction_effect_propel_unitst = {}
 ---@field time_range_max integer IE_TIME_RANGE
 df.interaction_effect_summon_unitst = {}
 
----@enum interaction_source_type
-df.interaction_source_type = {
-  REGION = 0,
-  SECRET = 1,
-  DISTURBANCE = 2,
-  DEITY = 3,
-  ATTACK = 4,
-  INGESTION = 5,
-  CREATURE_ACTION = 6,
-  UNDERGROUND_SPECIAL = 7,
-  EXPERIMENT = 8,
-}
+---@class (exact) _interaction_source_type: df.struct
+---@field REGION 0
+---@field [0] "REGION"
+---@field SECRET 1
+---@field [1] "SECRET"
+---@field DISTURBANCE 2
+---@field [2] "DISTURBANCE"
+---@field DEITY 3
+---@field [3] "DEITY"
+---@field ATTACK 4
+---@field [4] "ATTACK"
+---@field INGESTION 5
+---@field [5] "INGESTION"
+---@field CREATURE_ACTION 6
+---@field [6] "CREATURE_ACTION"
+---@field UNDERGROUND_SPECIAL 7
+---@field [7] "UNDERGROUND_SPECIAL"
+---@field EXPERIMENT 8
+---@field [8] "EXPERIMENT"
+df.interaction_source_type = {}
+
+---@class interaction_source_type
+---@field [0] boolean
+---@field REGION boolean
+---@field [1] boolean
+---@field SECRET boolean
+---@field [2] boolean
+---@field DISTURBANCE boolean
+---@field [3] boolean
+---@field DEITY boolean
+---@field [4] boolean
+---@field ATTACK boolean
+---@field [5] boolean
+---@field INGESTION boolean
+---@field [6] boolean
+---@field CREATURE_ACTION boolean
+---@field [7] boolean
+---@field UNDERGROUND_SPECIAL boolean
+---@field [8] boolean
+---@field EXPERIMENT boolean
 
 ---@class interaction_source: df.struct
 ---@field id integer
@@ -177,16 +275,38 @@ df.interaction_source = {}
 ---@field regions integer[]
 df.interaction_source_regionst = {}
 
----@enum interaction_source_regionst_region_flags
-df.interaction_source_regionst.T_region_flags = {
-  NORMAL_ALLOWED = 0,
-  EVIL_ALLOWED = 1,
-  GOOD_ALLOWED = 2,
-  SAVAGE_ALLOWED = 3,
-  EVIL_ONLY = 4,
-  GOOD_ONLY = 5,
-  SAVAGE_ONLY = 6,
-}
+---@class (exact) _interaction_source_regionst_region_flags: df.struct
+---@field NORMAL_ALLOWED 0
+---@field [0] "NORMAL_ALLOWED"
+---@field EVIL_ALLOWED 1
+---@field [1] "EVIL_ALLOWED"
+---@field GOOD_ALLOWED 2
+---@field [2] "GOOD_ALLOWED"
+---@field SAVAGE_ALLOWED 3
+---@field [3] "SAVAGE_ALLOWED"
+---@field EVIL_ONLY 4
+---@field [4] "EVIL_ONLY"
+---@field GOOD_ONLY 5
+---@field [5] "GOOD_ONLY"
+---@field SAVAGE_ONLY 6
+---@field [6] "SAVAGE_ONLY"
+df.interaction_source_regionst.T_region_flags = {}
+
+---@class interaction_source_regionst_region_flags
+---@field [0] boolean
+---@field NORMAL_ALLOWED boolean
+---@field [1] boolean
+---@field EVIL_ALLOWED boolean
+---@field [2] boolean
+---@field GOOD_ALLOWED boolean
+---@field [3] boolean
+---@field SAVAGE_ALLOWED boolean
+---@field [4] boolean
+---@field EVIL_ONLY boolean
+---@field [5] boolean
+---@field GOOD_ONLY boolean
+---@field [6] boolean
+---@field SAVAGE_ONLY boolean
 
 ---@class interaction_source_secretst: interaction_source
 ---@field learn_flags interaction_source_secretst_learn_flags
@@ -198,13 +318,26 @@ df.interaction_source_regionst.T_region_flags = {
 ---@field unk_2 integer
 df.interaction_source_secretst = {}
 
----@enum interaction_source_secretst_learn_flags
-df.interaction_source_secretst.T_learn_flags = {
-  SUPERNATURAL_LEARNING_POSSIBLE = 0,
-  MUNDANE_RESEARCH_POSSIBLE = 1,
-  MUNDANE_RECORDING_POSSIBLE = 2,
-  MUNDANE_TEACHING_POSSIBLE = 3,
-}
+---@class (exact) _interaction_source_secretst_learn_flags: df.struct
+---@field SUPERNATURAL_LEARNING_POSSIBLE 0
+---@field [0] "SUPERNATURAL_LEARNING_POSSIBLE"
+---@field MUNDANE_RESEARCH_POSSIBLE 1
+---@field [1] "MUNDANE_RESEARCH_POSSIBLE"
+---@field MUNDANE_RECORDING_POSSIBLE 2
+---@field [2] "MUNDANE_RECORDING_POSSIBLE"
+---@field MUNDANE_TEACHING_POSSIBLE 3
+---@field [3] "MUNDANE_TEACHING_POSSIBLE"
+df.interaction_source_secretst.T_learn_flags = {}
+
+---@class interaction_source_secretst_learn_flags
+---@field [0] boolean
+---@field SUPERNATURAL_LEARNING_POSSIBLE boolean
+---@field [1] boolean
+---@field MUNDANE_RESEARCH_POSSIBLE boolean
+---@field [2] boolean
+---@field MUNDANE_RECORDING_POSSIBLE boolean
+---@field [3] boolean
+---@field MUNDANE_TEACHING_POSSIBLE boolean
 
 ---@class interaction_source_secretst_spheres: df.struct
 df.interaction_source_secretst.T_spheres = {}
@@ -213,22 +346,62 @@ df.interaction_source_secretst.T_spheres = {}
 ---@field unk_1 integer
 df.interaction_source_disturbancest = {}
 
----@enum interaction_source_usage_hint
-df.interaction_source_usage_hint = {
-  MAJOR_CURSE = 0,
-  GREETING = 1,
-  CLEAN_SELF = 2,
-  CLEAN_FRIEND = 3,
-  ATTACK = 4,
-  FLEEING = 5,
-  NEGATIVE_SOCIAL_RESPONSE = 6,
-  TORMENT = 7,
-  DEFEND = 8,
-  MEDIUM_CURSE = 9,
-  MINOR_CURSE = 10,
-  MEDIUM_BLESSING = 11,
-  MINOR_BLESSING = 12,
-}
+---@class (exact) _interaction_source_usage_hint: df.struct
+---@field MAJOR_CURSE 0
+---@field [0] "MAJOR_CURSE"
+---@field GREETING 1
+---@field [1] "GREETING"
+---@field CLEAN_SELF 2
+---@field [2] "CLEAN_SELF"
+---@field CLEAN_FRIEND 3
+---@field [3] "CLEAN_FRIEND"
+---@field ATTACK 4
+---@field [4] "ATTACK"
+---@field FLEEING 5
+---@field [5] "FLEEING"
+---@field NEGATIVE_SOCIAL_RESPONSE 6
+---@field [6] "NEGATIVE_SOCIAL_RESPONSE"
+---@field TORMENT 7
+---@field [7] "TORMENT"
+---@field DEFEND 8
+---@field [8] "DEFEND"
+---@field MEDIUM_CURSE 9
+---@field [9] "MEDIUM_CURSE"
+---@field MINOR_CURSE 10
+---@field [10] "MINOR_CURSE"
+---@field MEDIUM_BLESSING 11
+---@field [11] "MEDIUM_BLESSING"
+---@field MINOR_BLESSING 12
+---@field [12] "MINOR_BLESSING"
+df.interaction_source_usage_hint = {}
+
+---@class interaction_source_usage_hint
+---@field [0] boolean
+---@field MAJOR_CURSE boolean
+---@field [1] boolean
+---@field GREETING boolean
+---@field [2] boolean
+---@field CLEAN_SELF boolean
+---@field [3] boolean
+---@field CLEAN_FRIEND boolean
+---@field [4] boolean
+---@field ATTACK boolean
+---@field [5] boolean
+---@field FLEEING boolean
+---@field [6] boolean
+---@field NEGATIVE_SOCIAL_RESPONSE boolean
+---@field [7] boolean
+---@field TORMENT boolean
+---@field [8] boolean
+---@field DEFEND boolean
+---@field [9] boolean
+---@field MEDIUM_CURSE boolean
+---@field [10] boolean
+---@field MINOR_CURSE boolean
+---@field [11] boolean
+---@field MEDIUM_BLESSING boolean
+---@field [12] boolean
+---@field MINOR_BLESSING boolean
 
 ---@class interaction_source_deityst: interaction_source
 ---@field unk_1 integer
@@ -254,25 +427,63 @@ df.interaction_source_underground_specialst = {}
 ---@field unk_1 integer
 df.interaction_source_experimentst = {}
 
----@enum interaction_target_type
-df.interaction_target_type = {
-  CORPSE = 0,
-  CREATURE = 1,
-  MATERIAL = 2,
-  LOCATION = 3,
-}
+---@class (exact) _interaction_target_type: df.struct
+---@field CORPSE 0
+---@field [0] "CORPSE"
+---@field CREATURE 1
+---@field [1] "CREATURE"
+---@field MATERIAL 2
+---@field [2] "MATERIAL"
+---@field LOCATION 3
+---@field [3] "LOCATION"
+df.interaction_target_type = {}
 
----@enum interaction_target_location_type
-df.interaction_target_location_type = {
-  CONTEXT_NONE = -1,
-  CONTEXT_REGION = 1,
-  CONTEXT_CREATURE = 2,
-  CONTEXT_ITEM = 3,
-  CONTEXT_BP = 4,
-  CONTEXT_LOCATION = 5,
-  CONTEXT_CREATURE_OR_LOCATION = 6,
-  RANDOM_NEARBY_LOCATION = 7,
-}
+---@class interaction_target_type
+---@field [0] boolean
+---@field CORPSE boolean
+---@field [1] boolean
+---@field CREATURE boolean
+---@field [2] boolean
+---@field MATERIAL boolean
+---@field [3] boolean
+---@field LOCATION boolean
+
+---@class (exact) _interaction_target_location_type: df.struct
+---@field CONTEXT_NONE -1
+---@field [0] "CONTEXT_NONE"
+---@field CONTEXT_REGION 1
+---@field [1] "CONTEXT_REGION"
+---@field CONTEXT_CREATURE 2
+---@field [2] "CONTEXT_CREATURE"
+---@field CONTEXT_ITEM 3
+---@field [3] "CONTEXT_ITEM"
+---@field CONTEXT_BP 4
+---@field [4] "CONTEXT_BP"
+---@field CONTEXT_LOCATION 5
+---@field [5] "CONTEXT_LOCATION"
+---@field CONTEXT_CREATURE_OR_LOCATION 6
+---@field [6] "CONTEXT_CREATURE_OR_LOCATION"
+---@field RANDOM_NEARBY_LOCATION 7
+---@field [7] "RANDOM_NEARBY_LOCATION"
+df.interaction_target_location_type = {}
+
+---@class interaction_target_location_type
+---@field [0] boolean
+---@field CONTEXT_NONE boolean
+---@field [1] boolean
+---@field CONTEXT_REGION boolean
+---@field [2] boolean
+---@field CONTEXT_CREATURE boolean
+---@field [3] boolean
+---@field CONTEXT_ITEM boolean
+---@field [4] boolean
+---@field CONTEXT_BP boolean
+---@field [5] boolean
+---@field CONTEXT_LOCATION boolean
+---@field [6] boolean
+---@field CONTEXT_CREATURE_OR_LOCATION boolean
+---@field [7] boolean
+---@field RANDOM_NEARBY_LOCATION boolean
 
 ---@class interaction_target: df.struct
 ---@field index integer
@@ -298,10 +509,14 @@ df.interaction_target = {}
 ---@field restrictions interaction_target_info_restrictions
 df.interaction_target_info = {}
 
----@enum interaction_target_info_restrictions
-df.interaction_target_info.T_restrictions = {
-  CANNOT_TARGET_IF_ALREADY_AFFECTED = 0,
-}
+---@class (exact) _interaction_target_info_restrictions: df.struct
+---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
+---@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED"
+df.interaction_target_info.T_restrictions = {}
+
+---@class interaction_target_info_restrictions
+---@field [0] boolean
+---@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean
 
 ---@class interaction_target_corpsest: interaction_target
 ---@field target_info interaction_target_info
@@ -311,31 +526,98 @@ df.interaction_target_corpsest = {}
 ---@field target_info interaction_target_info
 df.interaction_target_creaturest = {}
 
----@enum breath_attack_type
-df.breath_attack_type = {
-  TRAILING_DUST_FLOW = 0,
-  TRAILING_VAPOR_FLOW = 1,
-  TRAILING_GAS_FLOW = 2,
-  SOLID_GLOB = 3,
-  LIQUID_GLOB = 4,
-  UNDIRECTED_GAS = 5,
-  UNDIRECTED_VAPOR = 6,
-  UNDIRECTED_DUST = 7,
-  WEB_SPRAY = 8,
-  DRAGONFIRE = 9,
-  FIREJET = 10,
-  FIREBALL = 11,
-  WEATHER_CREEPING_GAS = 12,
-  WEATHER_CREEPING_VAPOR = 13,
-  WEATHER_CREEPING_DUST = 14,
-  WEATHER_FALLING_MATERIAL = 15,
-  SPATTER_POWDER = 16,
-  SPATTER_LIQUID = 17,
-  UNDIRECTED_ITEM_CLOUD = 18,
-  TRAILING_ITEM_FLOW = 19,
-  SHARP_ROCK = 20,
-  OTHER = 21,
-}
+---@class (exact) _breath_attack_type: df.struct
+---@field TRAILING_DUST_FLOW 0
+---@field [0] "TRAILING_DUST_FLOW"
+---@field TRAILING_VAPOR_FLOW 1
+---@field [1] "TRAILING_VAPOR_FLOW"
+---@field TRAILING_GAS_FLOW 2
+---@field [2] "TRAILING_GAS_FLOW"
+---@field SOLID_GLOB 3
+---@field [3] "SOLID_GLOB"
+---@field LIQUID_GLOB 4
+---@field [4] "LIQUID_GLOB"
+---@field UNDIRECTED_GAS 5
+---@field [5] "UNDIRECTED_GAS"
+---@field UNDIRECTED_VAPOR 6
+---@field [6] "UNDIRECTED_VAPOR"
+---@field UNDIRECTED_DUST 7
+---@field [7] "UNDIRECTED_DUST"
+---@field WEB_SPRAY 8
+---@field [8] "WEB_SPRAY"
+---@field DRAGONFIRE 9
+---@field [9] "DRAGONFIRE"
+---@field FIREJET 10
+---@field [10] "FIREJET"
+---@field FIREBALL 11
+---@field [11] "FIREBALL"
+---@field WEATHER_CREEPING_GAS 12
+---@field [12] "WEATHER_CREEPING_GAS"
+---@field WEATHER_CREEPING_VAPOR 13
+---@field [13] "WEATHER_CREEPING_VAPOR"
+---@field WEATHER_CREEPING_DUST 14
+---@field [14] "WEATHER_CREEPING_DUST"
+---@field WEATHER_FALLING_MATERIAL 15
+---@field [15] "WEATHER_FALLING_MATERIAL"
+---@field SPATTER_POWDER 16
+---@field [16] "SPATTER_POWDER"
+---@field SPATTER_LIQUID 17
+---@field [17] "SPATTER_LIQUID"
+---@field UNDIRECTED_ITEM_CLOUD 18
+---@field [18] "UNDIRECTED_ITEM_CLOUD"
+---@field TRAILING_ITEM_FLOW 19
+---@field [19] "TRAILING_ITEM_FLOW"
+---@field SHARP_ROCK 20
+---@field [20] "SHARP_ROCK"
+---@field OTHER 21
+---@field [21] "OTHER"
+df.breath_attack_type = {}
+
+---@class breath_attack_type
+---@field [0] boolean
+---@field TRAILING_DUST_FLOW boolean
+---@field [1] boolean
+---@field TRAILING_VAPOR_FLOW boolean
+---@field [2] boolean
+---@field TRAILING_GAS_FLOW boolean
+---@field [3] boolean
+---@field SOLID_GLOB boolean
+---@field [4] boolean
+---@field LIQUID_GLOB boolean
+---@field [5] boolean
+---@field UNDIRECTED_GAS boolean
+---@field [6] boolean
+---@field UNDIRECTED_VAPOR boolean
+---@field [7] boolean
+---@field UNDIRECTED_DUST boolean
+---@field [8] boolean
+---@field WEB_SPRAY boolean
+---@field [9] boolean
+---@field DRAGONFIRE boolean
+---@field [10] boolean
+---@field FIREJET boolean
+---@field [11] boolean
+---@field FIREBALL boolean
+---@field [12] boolean
+---@field WEATHER_CREEPING_GAS boolean
+---@field [13] boolean
+---@field WEATHER_CREEPING_VAPOR boolean
+---@field [14] boolean
+---@field WEATHER_CREEPING_DUST boolean
+---@field [15] boolean
+---@field WEATHER_FALLING_MATERIAL boolean
+---@field [16] boolean
+---@field SPATTER_POWDER boolean
+---@field [17] boolean
+---@field SPATTER_LIQUID boolean
+---@field [18] boolean
+---@field UNDIRECTED_ITEM_CLOUD boolean
+---@field [19] boolean
+---@field TRAILING_ITEM_FLOW boolean
+---@field [20] boolean
+---@field SHARP_ROCK boolean
+---@field [21] boolean
+---@field OTHER boolean
 
 ---@class interaction_target_materialst: interaction_target
 ---@field material_str string[]
@@ -346,10 +628,14 @@ df.breath_attack_type = {
 ---@field restrictions interaction_target_materialst_restrictions
 df.interaction_target_materialst = {}
 
----@enum interaction_target_materialst_restrictions
-df.interaction_target_materialst.T_restrictions = {
-  CONTEXT_MATERIAL = 0,
-}
+---@class (exact) _interaction_target_materialst_restrictions: df.struct
+---@field CONTEXT_MATERIAL 0
+---@field [0] "CONTEXT_MATERIAL"
+df.interaction_target_materialst.T_restrictions = {}
+
+---@class interaction_target_materialst_restrictions
+---@field [0] boolean
+---@field CONTEXT_MATERIAL boolean
 
 ---@class interaction_target_locationst: interaction_target
 df.interaction_target_locationst = {}

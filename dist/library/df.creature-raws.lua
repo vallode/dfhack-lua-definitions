@@ -1,395 +1,1499 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum creature_raw_flags
-df.creature_raw_flags = {
-  EQUIPMENT = 0, --[EQUIPMENT_WAGON]
-  EQUIPMENT_WAGON = 1, --[EQUIPMENT_WAGON]
-  MUNDANE = 2, --[MUNDANE]
-  VERMIN_EATER = 3, --[VERMIN_EATER] and [PENETRATEPOWER]
-  VERMIN_GROUNDER = 4, --[VERMIN_GROUNDER]
-  VERMIN_ROTTER = 5, --[VERMIN_ROTTER]
-  VERMIN_SOIL = 6, --[VERMIN_SOIL]
-  VERMIN_SOIL_COLONY = 7, --[VERMIN_SOIL_COLONY]
-  LARGE_ROAMING = 8, --[LARGE_ROAMING]
-  VERMIN_FISH = 9, --[VERMIN_FISH]
-  LOOSE_CLUSTERS = 10, --[LOOSE_CLUSTERS]
-  FANCIFUL = 11, --[FANCIFUL]
-  BIOME_MOUNTAIN = 12,
-  BIOME_GLACIER = 13,
-  BIOME_TUNDRA = 14,
-  BIOME_SWAMP_TEMPERATE_FRESHWATER = 15,
-  BIOME_SWAMP_TEMPERATE_SALTWATER = 16,
-  BIOME_MARSH_TEMPERATE_FRESHWATER = 17,
-  BIOME_MARSH_TEMPERATE_SALTWATER = 18,
-  BIOME_SWAMP_TROPICAL_FRESHWATER = 19,
-  BIOME_SWAMP_TROPICAL_SALTWATER = 20,
-  BIOME_SWAMP_MANGROVE = 21,
-  BIOME_MARSH_TROPICAL_FRESHWATER = 22,
-  BIOME_MARSH_TROPICAL_SALTWATER = 23,
-  BIOME_FOREST_TAIGA = 24,
-  BIOME_FOREST_TEMPERATE_CONIFER = 25,
-  BIOME_FOREST_TEMPERATE_BROADLEAF = 26,
-  BIOME_FOREST_TROPICAL_CONIFER = 27,
-  BIOME_FOREST_TROPICAL_DRY_BROADLEAF = 28,
-  BIOME_FOREST_TROPICAL_MOIST_BROADLEAF = 29,
-  BIOME_GRASSLAND_TEMPERATE = 30,
-  BIOME_SAVANNA_TEMPERATE = 31,
-  BIOME_SHRUBLAND_TEMPERATE = 32,
-  BIOME_GRASSLAND_TROPICAL = 33,
-  BIOME_SAVANNA_TROPICAL = 34,
-  BIOME_SHRUBLAND_TROPICAL = 35,
-  BIOME_DESERT_BADLAND = 36,
-  BIOME_DESERT_ROCK = 37,
-  BIOME_DESERT_SAND = 38,
-  BIOME_OCEAN_TROPICAL = 39,
-  BIOME_OCEAN_TEMPERATE = 40,
-  BIOME_OCEAN_ARCTIC = 41,
-  BIOME_SUBTERRANEAN_WATER = 42,
-  BIOME_SUBTERRANEAN_CHASM = 43,
-  BIOME_SUBTERRANEAN_LAVA = 44,
-  BIOME_POOL_TEMPERATE_FRESHWATER = 45,
-  BIOME_POOL_TEMPERATE_BRACKISHWATER = 46,
-  BIOME_POOL_TEMPERATE_SALTWATER = 47,
-  BIOME_POOL_TROPICAL_FRESHWATER = 48,
-  BIOME_POOL_TROPICAL_BRACKISHWATER = 49,
-  BIOME_POOL_TROPICAL_SALTWATER = 50,
-  BIOME_LAKE_TEMPERATE_FRESHWATER = 51,
-  BIOME_LAKE_TEMPERATE_BRACKISHWATER = 52,
-  BIOME_LAKE_TEMPERATE_SALTWATER = 53,
-  BIOME_LAKE_TROPICAL_FRESHWATER = 54,
-  BIOME_LAKE_TROPICAL_BRACKISHWATER = 55,
-  BIOME_LAKE_TROPICAL_SALTWATER = 56,
-  BIOME_RIVER_TEMPERATE_FRESHWATER = 57,
-  BIOME_RIVER_TEMPERATE_BRACKISHWATER = 58,
-  BIOME_RIVER_TEMPERATE_SALTWATER = 59,
-  BIOME_RIVER_TROPICAL_FRESHWATER = 60,
-  BIOME_RIVER_TROPICAL_BRACKISHWATER = 61,
-  BIOME_RIVER_TROPICAL_SALTWATER = 62,
-  GOOD = 63, --[GOOD]
-  EVIL = 64, --[EVIL]
-  SAVAGE = 65, --[SAVAGE]
-  TWO_GENDERS = 66,
-  MATES_TO_BREED = 67, --capable of breeding, [MALE] and [FEMALE] tags
-  HAS_MALE = 68, --[MALE]
-  HAS_FEMALE = 69, --[FEMALE]
-  SMALL_RACE = 70, --any vermin
-  HAS_ANY_INTELLIGENT_LEARNS = 71,
-  HAS_ANY_VERMIN_HATEABLE = 72, --[VERMIN_HATEABLE]
-  OCCURS_AS_ENTITY_RACE = 73, --included in entity_defaults.txt
-  HAS_ANY_LARGE_PREDATOR = 74, --[LARGE_PREDATOR]
-  HAS_ANY_CURIOUS_BEAST = 75,
-  HAS_ANY_BENIGN = 76, --[BENIGN]
-  HAS_ANY_NATURAL_ANIMAL = 77, --[NATURAL]
-  HAS_ANY_MEGABEAST = 78, --[MEGABEAST]
-  HAS_ANY_SEMIMEGABEAST = 79, --[SEMIMEGABEAST]
-  HAS_ANY_POWER = 80,
-  HAS_ANY_VERMIN_MICRO = 81, --[VERMIN_MICRO]
-  HAS_ANY_NOT_FIREIMMUNE = 82,
-  HAS_ANY_CANNOT_BREATHE_WATER = 83,
-  HAS_ANY_CANNOT_BREATHE_AIR = 84, --[AQUATIC]
-  HAS_ANY_NOT_FLIER = 85,
-  HAS_ANY_CAN_SWIM = 86,
-  HAS_ANY_COMMON_DOMESTIC = 87, --[COMMON_DOMESTIC]
-  HAS_ANY_UTTERANCES = 88, --[UTTERANCES]
-  HAS_ANY_INTELLIGENT_SPEAKS = 89,
-  HAS_ANY_FEATURE_BEAST = 90, --[FEATURE_BEAST]
-  GENERATED = 91, --[GENERATED]
-  HAS_ANY_TITAN = 92, --[TITAN]
-  HAS_ANY_UNIQUE_DEMON = 93, --[UNIQUE_DEMON]
-  DOES_NOT_EXIST = 94, --[DOES_NOT_EXIST]
-  HAS_ANY_NOT_LIVING = 95, --[NOT_LIVING]
-  HAS_ANY_MISCHIEVOUS = 96, --[MISCHIEVOUS], the flag used internally is actually HAS_ANY_MISCHIEVIOUS
-  HAS_ANY_FLIER = 97, --[FLIER]
-  HAS_ANY_DEMON = 98,
-  HAS_ANY_NIGHT_CREATURE = 99,
-  HAS_ANY_NIGHT_CREATURE_HUNTER = 100, --[NIGHT_CREATURE_HUNTER]
-  HAS_ANY_NIGHT_CREATURE_BOGEYMAN = 101, --[NIGHT_CREATURE_BOGEYMAN]
-  HAS_ANY_CARNIVORE = 102,
-  ARTIFICIAL_HIVEABLE = 103, --[ARTIFICIAL_HIVEABLE]
-  UBIQUITOUS = 104, --[UBIQUITOUS]
-  ALL_CASTES_ALIVE = 105, --does not have [NOT_LIVING] tag
-  HAS_ANY_SUPERNATURAL = 106, --[SUPERNATURAL]
-  HAS_ANY_HAS_BLOOD = 107, --[BLOOD]
-  HAS_ANY_GRAZER = 108, --[STANDARD_GRAZER]
-  HAS_ANY_IMMOBILE = 109, --[IMMOBILE]
-  HAS_ANY_LOCAL_POPS_CONTROLLABLE = 110, --[LOCAL_POPS_CONTROLLABLE]
-  HAS_ANY_OUTSIDER_CONTROLLABLE = 111, --[OUTSIDER_CONTROLLABLE]
-  HAS_ANY_LOCAL_POPS_PRODUCE_HEROES = 112, --[LOCAL_POPS_PRODUCE_HEROES]
-  HAS_ANY_GRASP = 113,
-  HAS_ANY_RACE_GAIT = 114,
-  HAS_ANY_FLY_RACE_GAIT = 115, --[FLIER]
-  HAS_ANY_SLOW_LEARNER = 116,
-  HAS_ANY_NIGHT_CREATURE_NIGHTMARE = 117,
-  HAS_ANY_NIGHT_CREATURE_EXPERIMENTER = 118,
-}
+---@class (exact) _creature_raw_flags: df.struct
+---@field EQUIPMENT 0
+---@field [0] "EQUIPMENT"
+---@field EQUIPMENT_WAGON 1
+---@field [1] "EQUIPMENT_WAGON"
+---@field MUNDANE 2
+---@field [2] "MUNDANE"
+---@field VERMIN_EATER 3
+---@field [3] "VERMIN_EATER"
+---@field VERMIN_GROUNDER 4
+---@field [4] "VERMIN_GROUNDER"
+---@field VERMIN_ROTTER 5
+---@field [5] "VERMIN_ROTTER"
+---@field VERMIN_SOIL 6
+---@field [6] "VERMIN_SOIL"
+---@field VERMIN_SOIL_COLONY 7
+---@field [7] "VERMIN_SOIL_COLONY"
+---@field LARGE_ROAMING 8
+---@field [8] "LARGE_ROAMING"
+---@field VERMIN_FISH 9
+---@field [9] "VERMIN_FISH"
+---@field LOOSE_CLUSTERS 10
+---@field [10] "LOOSE_CLUSTERS"
+---@field FANCIFUL 11
+---@field [11] "FANCIFUL"
+---@field BIOME_MOUNTAIN 12
+---@field [12] "BIOME_MOUNTAIN"
+---@field BIOME_GLACIER 13
+---@field [13] "BIOME_GLACIER"
+---@field BIOME_TUNDRA 14
+---@field [14] "BIOME_TUNDRA"
+---@field BIOME_SWAMP_TEMPERATE_FRESHWATER 15
+---@field [15] "BIOME_SWAMP_TEMPERATE_FRESHWATER"
+---@field BIOME_SWAMP_TEMPERATE_SALTWATER 16
+---@field [16] "BIOME_SWAMP_TEMPERATE_SALTWATER"
+---@field BIOME_MARSH_TEMPERATE_FRESHWATER 17
+---@field [17] "BIOME_MARSH_TEMPERATE_FRESHWATER"
+---@field BIOME_MARSH_TEMPERATE_SALTWATER 18
+---@field [18] "BIOME_MARSH_TEMPERATE_SALTWATER"
+---@field BIOME_SWAMP_TROPICAL_FRESHWATER 19
+---@field [19] "BIOME_SWAMP_TROPICAL_FRESHWATER"
+---@field BIOME_SWAMP_TROPICAL_SALTWATER 20
+---@field [20] "BIOME_SWAMP_TROPICAL_SALTWATER"
+---@field BIOME_SWAMP_MANGROVE 21
+---@field [21] "BIOME_SWAMP_MANGROVE"
+---@field BIOME_MARSH_TROPICAL_FRESHWATER 22
+---@field [22] "BIOME_MARSH_TROPICAL_FRESHWATER"
+---@field BIOME_MARSH_TROPICAL_SALTWATER 23
+---@field [23] "BIOME_MARSH_TROPICAL_SALTWATER"
+---@field BIOME_FOREST_TAIGA 24
+---@field [24] "BIOME_FOREST_TAIGA"
+---@field BIOME_FOREST_TEMPERATE_CONIFER 25
+---@field [25] "BIOME_FOREST_TEMPERATE_CONIFER"
+---@field BIOME_FOREST_TEMPERATE_BROADLEAF 26
+---@field [26] "BIOME_FOREST_TEMPERATE_BROADLEAF"
+---@field BIOME_FOREST_TROPICAL_CONIFER 27
+---@field [27] "BIOME_FOREST_TROPICAL_CONIFER"
+---@field BIOME_FOREST_TROPICAL_DRY_BROADLEAF 28
+---@field [28] "BIOME_FOREST_TROPICAL_DRY_BROADLEAF"
+---@field BIOME_FOREST_TROPICAL_MOIST_BROADLEAF 29
+---@field [29] "BIOME_FOREST_TROPICAL_MOIST_BROADLEAF"
+---@field BIOME_GRASSLAND_TEMPERATE 30
+---@field [30] "BIOME_GRASSLAND_TEMPERATE"
+---@field BIOME_SAVANNA_TEMPERATE 31
+---@field [31] "BIOME_SAVANNA_TEMPERATE"
+---@field BIOME_SHRUBLAND_TEMPERATE 32
+---@field [32] "BIOME_SHRUBLAND_TEMPERATE"
+---@field BIOME_GRASSLAND_TROPICAL 33
+---@field [33] "BIOME_GRASSLAND_TROPICAL"
+---@field BIOME_SAVANNA_TROPICAL 34
+---@field [34] "BIOME_SAVANNA_TROPICAL"
+---@field BIOME_SHRUBLAND_TROPICAL 35
+---@field [35] "BIOME_SHRUBLAND_TROPICAL"
+---@field BIOME_DESERT_BADLAND 36
+---@field [36] "BIOME_DESERT_BADLAND"
+---@field BIOME_DESERT_ROCK 37
+---@field [37] "BIOME_DESERT_ROCK"
+---@field BIOME_DESERT_SAND 38
+---@field [38] "BIOME_DESERT_SAND"
+---@field BIOME_OCEAN_TROPICAL 39
+---@field [39] "BIOME_OCEAN_TROPICAL"
+---@field BIOME_OCEAN_TEMPERATE 40
+---@field [40] "BIOME_OCEAN_TEMPERATE"
+---@field BIOME_OCEAN_ARCTIC 41
+---@field [41] "BIOME_OCEAN_ARCTIC"
+---@field BIOME_SUBTERRANEAN_WATER 42
+---@field [42] "BIOME_SUBTERRANEAN_WATER"
+---@field BIOME_SUBTERRANEAN_CHASM 43
+---@field [43] "BIOME_SUBTERRANEAN_CHASM"
+---@field BIOME_SUBTERRANEAN_LAVA 44
+---@field [44] "BIOME_SUBTERRANEAN_LAVA"
+---@field BIOME_POOL_TEMPERATE_FRESHWATER 45
+---@field [45] "BIOME_POOL_TEMPERATE_FRESHWATER"
+---@field BIOME_POOL_TEMPERATE_BRACKISHWATER 46
+---@field [46] "BIOME_POOL_TEMPERATE_BRACKISHWATER"
+---@field BIOME_POOL_TEMPERATE_SALTWATER 47
+---@field [47] "BIOME_POOL_TEMPERATE_SALTWATER"
+---@field BIOME_POOL_TROPICAL_FRESHWATER 48
+---@field [48] "BIOME_POOL_TROPICAL_FRESHWATER"
+---@field BIOME_POOL_TROPICAL_BRACKISHWATER 49
+---@field [49] "BIOME_POOL_TROPICAL_BRACKISHWATER"
+---@field BIOME_POOL_TROPICAL_SALTWATER 50
+---@field [50] "BIOME_POOL_TROPICAL_SALTWATER"
+---@field BIOME_LAKE_TEMPERATE_FRESHWATER 51
+---@field [51] "BIOME_LAKE_TEMPERATE_FRESHWATER"
+---@field BIOME_LAKE_TEMPERATE_BRACKISHWATER 52
+---@field [52] "BIOME_LAKE_TEMPERATE_BRACKISHWATER"
+---@field BIOME_LAKE_TEMPERATE_SALTWATER 53
+---@field [53] "BIOME_LAKE_TEMPERATE_SALTWATER"
+---@field BIOME_LAKE_TROPICAL_FRESHWATER 54
+---@field [54] "BIOME_LAKE_TROPICAL_FRESHWATER"
+---@field BIOME_LAKE_TROPICAL_BRACKISHWATER 55
+---@field [55] "BIOME_LAKE_TROPICAL_BRACKISHWATER"
+---@field BIOME_LAKE_TROPICAL_SALTWATER 56
+---@field [56] "BIOME_LAKE_TROPICAL_SALTWATER"
+---@field BIOME_RIVER_TEMPERATE_FRESHWATER 57
+---@field [57] "BIOME_RIVER_TEMPERATE_FRESHWATER"
+---@field BIOME_RIVER_TEMPERATE_BRACKISHWATER 58
+---@field [58] "BIOME_RIVER_TEMPERATE_BRACKISHWATER"
+---@field BIOME_RIVER_TEMPERATE_SALTWATER 59
+---@field [59] "BIOME_RIVER_TEMPERATE_SALTWATER"
+---@field BIOME_RIVER_TROPICAL_FRESHWATER 60
+---@field [60] "BIOME_RIVER_TROPICAL_FRESHWATER"
+---@field BIOME_RIVER_TROPICAL_BRACKISHWATER 61
+---@field [61] "BIOME_RIVER_TROPICAL_BRACKISHWATER"
+---@field BIOME_RIVER_TROPICAL_SALTWATER 62
+---@field [62] "BIOME_RIVER_TROPICAL_SALTWATER"
+---@field GOOD 63
+---@field [63] "GOOD"
+---@field EVIL 64
+---@field [64] "EVIL"
+---@field SAVAGE 65
+---@field [65] "SAVAGE"
+---@field TWO_GENDERS 66
+---@field [66] "TWO_GENDERS"
+---@field MATES_TO_BREED 67
+---@field [67] "MATES_TO_BREED"
+---@field HAS_MALE 68
+---@field [68] "HAS_MALE"
+---@field HAS_FEMALE 69
+---@field [69] "HAS_FEMALE"
+---@field SMALL_RACE 70
+---@field [70] "SMALL_RACE"
+---@field HAS_ANY_INTELLIGENT_LEARNS 71
+---@field [71] "HAS_ANY_INTELLIGENT_LEARNS"
+---@field HAS_ANY_VERMIN_HATEABLE 72
+---@field [72] "HAS_ANY_VERMIN_HATEABLE"
+---@field OCCURS_AS_ENTITY_RACE 73
+---@field [73] "OCCURS_AS_ENTITY_RACE"
+---@field HAS_ANY_LARGE_PREDATOR 74
+---@field [74] "HAS_ANY_LARGE_PREDATOR"
+---@field HAS_ANY_CURIOUS_BEAST 75
+---@field [75] "HAS_ANY_CURIOUS_BEAST"
+---@field HAS_ANY_BENIGN 76
+---@field [76] "HAS_ANY_BENIGN"
+---@field HAS_ANY_NATURAL_ANIMAL 77
+---@field [77] "HAS_ANY_NATURAL_ANIMAL"
+---@field HAS_ANY_MEGABEAST 78
+---@field [78] "HAS_ANY_MEGABEAST"
+---@field HAS_ANY_SEMIMEGABEAST 79
+---@field [79] "HAS_ANY_SEMIMEGABEAST"
+---@field HAS_ANY_POWER 80
+---@field [80] "HAS_ANY_POWER"
+---@field HAS_ANY_VERMIN_MICRO 81
+---@field [81] "HAS_ANY_VERMIN_MICRO"
+---@field HAS_ANY_NOT_FIREIMMUNE 82
+---@field [82] "HAS_ANY_NOT_FIREIMMUNE"
+---@field HAS_ANY_CANNOT_BREATHE_WATER 83
+---@field [83] "HAS_ANY_CANNOT_BREATHE_WATER"
+---@field HAS_ANY_CANNOT_BREATHE_AIR 84
+---@field [84] "HAS_ANY_CANNOT_BREATHE_AIR"
+---@field HAS_ANY_NOT_FLIER 85
+---@field [85] "HAS_ANY_NOT_FLIER"
+---@field HAS_ANY_CAN_SWIM 86
+---@field [86] "HAS_ANY_CAN_SWIM"
+---@field HAS_ANY_COMMON_DOMESTIC 87
+---@field [87] "HAS_ANY_COMMON_DOMESTIC"
+---@field HAS_ANY_UTTERANCES 88
+---@field [88] "HAS_ANY_UTTERANCES"
+---@field HAS_ANY_INTELLIGENT_SPEAKS 89
+---@field [89] "HAS_ANY_INTELLIGENT_SPEAKS"
+---@field HAS_ANY_FEATURE_BEAST 90
+---@field [90] "HAS_ANY_FEATURE_BEAST"
+---@field GENERATED 91
+---@field [91] "GENERATED"
+---@field HAS_ANY_TITAN 92
+---@field [92] "HAS_ANY_TITAN"
+---@field HAS_ANY_UNIQUE_DEMON 93
+---@field [93] "HAS_ANY_UNIQUE_DEMON"
+---@field DOES_NOT_EXIST 94
+---@field [94] "DOES_NOT_EXIST"
+---@field HAS_ANY_NOT_LIVING 95
+---@field [95] "HAS_ANY_NOT_LIVING"
+---@field HAS_ANY_MISCHIEVOUS 96
+---@field [96] "HAS_ANY_MISCHIEVOUS"
+---@field HAS_ANY_FLIER 97
+---@field [97] "HAS_ANY_FLIER"
+---@field HAS_ANY_DEMON 98
+---@field [98] "HAS_ANY_DEMON"
+---@field HAS_ANY_NIGHT_CREATURE 99
+---@field [99] "HAS_ANY_NIGHT_CREATURE"
+---@field HAS_ANY_NIGHT_CREATURE_HUNTER 100
+---@field [100] "HAS_ANY_NIGHT_CREATURE_HUNTER"
+---@field HAS_ANY_NIGHT_CREATURE_BOGEYMAN 101
+---@field [101] "HAS_ANY_NIGHT_CREATURE_BOGEYMAN"
+---@field HAS_ANY_CARNIVORE 102
+---@field [102] "HAS_ANY_CARNIVORE"
+---@field ARTIFICIAL_HIVEABLE 103
+---@field [103] "ARTIFICIAL_HIVEABLE"
+---@field UBIQUITOUS 104
+---@field [104] "UBIQUITOUS"
+---@field ALL_CASTES_ALIVE 105
+---@field [105] "ALL_CASTES_ALIVE"
+---@field HAS_ANY_SUPERNATURAL 106
+---@field [106] "HAS_ANY_SUPERNATURAL"
+---@field HAS_ANY_HAS_BLOOD 107
+---@field [107] "HAS_ANY_HAS_BLOOD"
+---@field HAS_ANY_GRAZER 108
+---@field [108] "HAS_ANY_GRAZER"
+---@field HAS_ANY_IMMOBILE 109
+---@field [109] "HAS_ANY_IMMOBILE"
+---@field HAS_ANY_LOCAL_POPS_CONTROLLABLE 110
+---@field [110] "HAS_ANY_LOCAL_POPS_CONTROLLABLE"
+---@field HAS_ANY_OUTSIDER_CONTROLLABLE 111
+---@field [111] "HAS_ANY_OUTSIDER_CONTROLLABLE"
+---@field HAS_ANY_LOCAL_POPS_PRODUCE_HEROES 112
+---@field [112] "HAS_ANY_LOCAL_POPS_PRODUCE_HEROES"
+---@field HAS_ANY_GRASP 113
+---@field [113] "HAS_ANY_GRASP"
+---@field HAS_ANY_RACE_GAIT 114
+---@field [114] "HAS_ANY_RACE_GAIT"
+---@field HAS_ANY_FLY_RACE_GAIT 115
+---@field [115] "HAS_ANY_FLY_RACE_GAIT"
+---@field HAS_ANY_SLOW_LEARNER 116
+---@field [116] "HAS_ANY_SLOW_LEARNER"
+---@field HAS_ANY_NIGHT_CREATURE_NIGHTMARE 117
+---@field [117] "HAS_ANY_NIGHT_CREATURE_NIGHTMARE"
+---@field HAS_ANY_NIGHT_CREATURE_EXPERIMENTER 118
+---@field [118] "HAS_ANY_NIGHT_CREATURE_EXPERIMENTER"
+df.creature_raw_flags = {}
 
----@enum caste_raw_flags
-df.caste_raw_flags = {
-  CAN_BREATHE_WATER = 0,
-  CANNOT_BREATHE_AIR = 1,
-  LOCKPICKER = 2,
-  MISCHIEVOUS = 3, --the flag used internally is actually MISCHIEVIOUS
-  PATTERNFLIER = 4,
-  CURIOUS_BEAST = 5,
-  CURIOUS_BEAST_ITEM = 6,
-  CURIOUS_BEAST_GUZZLER = 7,
-  FLEEQUICK = 8,
-  AT_PEACE_WITH_WILDLIFE = 9,
-  CAN_SWIM = 10,
-  OPPOSED_TO_LIFE = 11,
-  CURIOUS_BEAST_EATER = 12,
-  NO_EAT = 13,
-  NO_DRINK = 14,
-  NO_SLEEP = 15,
-  COMMON_DOMESTIC = 16,
-  WAGON_PULLER = 17,
-  PACK_ANIMAL = 18,
-  FLIER = 19,
-  LARGE_PREDATOR = 20,
-  MAGMA_VISION = 21,
-  FIREIMMUNE = 22,
-  FIREIMMUNE_SUPER = 23,
-  WEBBER = 24,
-  WEBIMMUNE = 25,
-  FISHITEM = 26,
-  IMMOBILE_LAND = 27,
-  IMMOLATE = 28,
-  MILKABLE = 29,
-  NO_SPRING = 30,
-  NO_SUMMER = 31,
-  NO_AUTUMN = 32,
-  NO_WINTER = 33,
-  BENIGN = 34,
-  VERMIN_NOROAM = 35,
-  VERMIN_NOTRAP = 36,
-  VERMIN_NOFISH = 37,
-  HAS_NERVES = 38,
-  NO_DIZZINESS = 39,
-  NO_FEVERS = 40,
-  NO_UNIT_TYPE_COLOR = 41,
-  NO_CONNECTIONS_FOR_MOVEMENT = 42,
-  SUPERNATURAL = 43,
-  AMBUSHPREDATOR = 44,
-  GNAWER = 45,
-  NOT_BUTCHERABLE = 46,
-  COOKABLE_LIVE = 47,
-  HAS_SECRETION = 48,
-  IMMOBILE = 49,
-  MULTIPART_FULL_VISION = 50,
-  MEANDERER = 51,
-  THICKWEB = 52,
-  TRAINABLE_HUNTING = 53,
-  PET = 54,
-  PET_EXOTIC = 55,
-  HAS_ROTTABLE = 56,
-  CAN_SPEAK = 57, --aka INTELLIGENT_SPEAKS
-  CAN_LEARN = 58, --aka INTELLIGENT_LEARNS
-  UTTERANCES = 59,
-  BONECARN = 60,
-  CARNIVORE = 61,
-  AQUATIC_UNDERSWIM = 62,
-  NOEXERT = 63,
-  NOPAIN = 64,
-  EXTRAVISION = 65,
-  NOBREATHE = 66,
-  NOSTUN = 67,
-  NONAUSEA = 68,
-  HAS_BLOOD = 69,
-  TRANCES = 70,
-  NOEMOTION = 71,
-  SLOW_LEARNER = 72,
-  NOSTUCKINS = 73,
-  HAS_PUS = 74,
-  NOSKULL = 75,
-  NOSKIN = 76,
-  NOBONES = 77,
-  NOMEAT = 78,
-  PARALYZEIMMUNE = 79,
-  NOFEAR = 80,
-  CANOPENDOORS = 81,
-  ITEMCORPSE = 82, --set if the tag is present; corpse parts go to map_renderer.cursor_other
-  GETS_WOUND_INFECTIONS = 83,
-  NOSMELLYROT = 84,
-  REMAINS_UNDETERMINED = 85,
-  HASSHELL = 86,
-  PEARL = 87,
-  TRAINABLE_WAR = 88,
-  NO_THOUGHT_CENTER_FOR_MOVEMENT = 89,
-  ARENA_RESTRICTED = 90,
-  LAIR_HUNTER = 91,
-  GELDABLE = 92, --previously LIKES_FIGHTING
-  VERMIN_HATEABLE = 93,
-  VEGETATION = 94,
-  MAGICAL = 95,
-  NATURAL_ANIMAL = 96,
-  HAS_BABYSTATE = 97,
-  HAS_CHILDSTATE = 98,
-  MULTIPLE_LITTER_RARE = 99,
-  MOUNT = 100,
-  MOUNT_EXOTIC = 101,
-  FEATURE_ATTACK_GROUP = 102,
-  VERMIN_MICRO = 103,
-  EQUIPS = 104,
-  LAYS_EGGS = 105,
-  GRAZER = 106,
-  NOTHOUGHT = 107,
-  TRAPAVOID = 108,
-  CAVE_ADAPT = 109,
-  MEGABEAST = 110,
-  SEMIMEGABEAST = 111,
-  ALL_ACTIVE = 112,
-  DIURNAL = 113,
-  NOCTURNAL = 114,
-  CREPUSCULAR = 115,
-  MATUTINAL = 116,
-  VESPERTINE = 117,
-  LIGHT_GEN = 118,
-  LISP = 119,
-  GETS_INFECTIONS_FROM_ROT = 120,
-  HAS_SOLDIER_TILE = 121,
-  ALCOHOL_DEPENDENT = 122,
-  CAN_SWIM_INNATE = 123,
-  POWER = 124,
-  TENDONS = 125,
-  LIGAMENTS = 126,
-  HAS_TILE = 127,
-  HAS_COLOR = 128,
-  HAS_GLOW_TILE = 129,
-  HAS_GLOW_COLOR = 130,
-  FEATURE_BEAST = 131,
-  TITAN = 132,
-  UNIQUE_DEMON = 133,
-  DEMON = 134,
-  MANNERISM_LAUGH = 135,
-  MANNERISM_SMILE = 136,
-  MANNERISM_WALK = 137,
-  MANNERISM_SIT = 138,
-  MANNERISM_BREATH = 139,
-  MANNERISM_POSTURE = 140,
-  MANNERISM_STRETCH = 141,
-  MANNERISM_EYELIDS = 142,
-  NIGHT_CREATURE = 143,
-  NIGHT_CREATURE_HUNTER = 144,
-  NIGHT_CREATURE_BOGEYMAN = 145,
-  CONVERTED_SPOUSE = 146,
-  SPOUSE_CONVERTER = 147,
-  SPOUSE_CONVERSION_TARGET = 148,
-  DIE_WHEN_VERMIN_BITE = 149,
-  REMAINS_ON_VERMIN_BITE_DEATH = 150,
-  COLONY_EXTERNAL = 151,
-  LAYS_UNUSUAL_EGGS = 152,
-  RETURNS_VERMIN_KILLS_TO_OWNER = 153,
-  HUNTS_VERMIN = 154,
-  ADOPTS_OWNER = 155,
-  HAS_SOUND_ALERT = 156,
-  HAS_SOUND_PEACEFUL_INTERMITTENT = 157,
-  NOT_LIVING = 158,
-  NO_PHYS_ATT_GAIN = 159,
-  NO_PHYS_ATT_RUST = 160,
-  CRAZED = 161,
-  BLOODSUCKER = 162,
-  NO_VEGETATION_PERTURB = 163,
-  DIVE_HUNTS_VERMIN = 164,
-  VERMIN_GOBBLER = 165,
-  CANNOT_JUMP = 166,
-  STANCE_CLIMBER = 167,
-  CANNOT_CLIMB = 168,
-  LOCAL_POPS_CONTROLLABLE = 169,
-  OUTSIDER_CONTROLLABLE = 170,
-  LOCAL_POPS_PRODUCE_HEROES = 171,
-  STRANGE_MOODS = 172,
-  HAS_GRASP = 173,
-  HAS_FLY_RACE_GAIT = 174,
-  HAS_RACE_GAIT = 175,
-  NIGHT_CREATURE_NIGHTMARE = 176,
-  NIGHT_CREATURE_EXPERIMENTER = 177,
-  SPREAD_EVIL_SPHERES_IF_RULER = 178,
-}
+---@class creature_raw_flags
+---@field [0] boolean
+---@field EQUIPMENT boolean
+---@field [1] boolean
+---@field EQUIPMENT_WAGON boolean
+---@field [2] boolean
+---@field MUNDANE boolean
+---@field [3] boolean
+---@field VERMIN_EATER boolean
+---@field [4] boolean
+---@field VERMIN_GROUNDER boolean
+---@field [5] boolean
+---@field VERMIN_ROTTER boolean
+---@field [6] boolean
+---@field VERMIN_SOIL boolean
+---@field [7] boolean
+---@field VERMIN_SOIL_COLONY boolean
+---@field [8] boolean
+---@field LARGE_ROAMING boolean
+---@field [9] boolean
+---@field VERMIN_FISH boolean
+---@field [10] boolean
+---@field LOOSE_CLUSTERS boolean
+---@field [11] boolean
+---@field FANCIFUL boolean
+---@field [12] boolean
+---@field BIOME_MOUNTAIN boolean
+---@field [13] boolean
+---@field BIOME_GLACIER boolean
+---@field [14] boolean
+---@field BIOME_TUNDRA boolean
+---@field [15] boolean
+---@field BIOME_SWAMP_TEMPERATE_FRESHWATER boolean
+---@field [16] boolean
+---@field BIOME_SWAMP_TEMPERATE_SALTWATER boolean
+---@field [17] boolean
+---@field BIOME_MARSH_TEMPERATE_FRESHWATER boolean
+---@field [18] boolean
+---@field BIOME_MARSH_TEMPERATE_SALTWATER boolean
+---@field [19] boolean
+---@field BIOME_SWAMP_TROPICAL_FRESHWATER boolean
+---@field [20] boolean
+---@field BIOME_SWAMP_TROPICAL_SALTWATER boolean
+---@field [21] boolean
+---@field BIOME_SWAMP_MANGROVE boolean
+---@field [22] boolean
+---@field BIOME_MARSH_TROPICAL_FRESHWATER boolean
+---@field [23] boolean
+---@field BIOME_MARSH_TROPICAL_SALTWATER boolean
+---@field [24] boolean
+---@field BIOME_FOREST_TAIGA boolean
+---@field [25] boolean
+---@field BIOME_FOREST_TEMPERATE_CONIFER boolean
+---@field [26] boolean
+---@field BIOME_FOREST_TEMPERATE_BROADLEAF boolean
+---@field [27] boolean
+---@field BIOME_FOREST_TROPICAL_CONIFER boolean
+---@field [28] boolean
+---@field BIOME_FOREST_TROPICAL_DRY_BROADLEAF boolean
+---@field [29] boolean
+---@field BIOME_FOREST_TROPICAL_MOIST_BROADLEAF boolean
+---@field [30] boolean
+---@field BIOME_GRASSLAND_TEMPERATE boolean
+---@field [31] boolean
+---@field BIOME_SAVANNA_TEMPERATE boolean
+---@field [32] boolean
+---@field BIOME_SHRUBLAND_TEMPERATE boolean
+---@field [33] boolean
+---@field BIOME_GRASSLAND_TROPICAL boolean
+---@field [34] boolean
+---@field BIOME_SAVANNA_TROPICAL boolean
+---@field [35] boolean
+---@field BIOME_SHRUBLAND_TROPICAL boolean
+---@field [36] boolean
+---@field BIOME_DESERT_BADLAND boolean
+---@field [37] boolean
+---@field BIOME_DESERT_ROCK boolean
+---@field [38] boolean
+---@field BIOME_DESERT_SAND boolean
+---@field [39] boolean
+---@field BIOME_OCEAN_TROPICAL boolean
+---@field [40] boolean
+---@field BIOME_OCEAN_TEMPERATE boolean
+---@field [41] boolean
+---@field BIOME_OCEAN_ARCTIC boolean
+---@field [42] boolean
+---@field BIOME_SUBTERRANEAN_WATER boolean
+---@field [43] boolean
+---@field BIOME_SUBTERRANEAN_CHASM boolean
+---@field [44] boolean
+---@field BIOME_SUBTERRANEAN_LAVA boolean
+---@field [45] boolean
+---@field BIOME_POOL_TEMPERATE_FRESHWATER boolean
+---@field [46] boolean
+---@field BIOME_POOL_TEMPERATE_BRACKISHWATER boolean
+---@field [47] boolean
+---@field BIOME_POOL_TEMPERATE_SALTWATER boolean
+---@field [48] boolean
+---@field BIOME_POOL_TROPICAL_FRESHWATER boolean
+---@field [49] boolean
+---@field BIOME_POOL_TROPICAL_BRACKISHWATER boolean
+---@field [50] boolean
+---@field BIOME_POOL_TROPICAL_SALTWATER boolean
+---@field [51] boolean
+---@field BIOME_LAKE_TEMPERATE_FRESHWATER boolean
+---@field [52] boolean
+---@field BIOME_LAKE_TEMPERATE_BRACKISHWATER boolean
+---@field [53] boolean
+---@field BIOME_LAKE_TEMPERATE_SALTWATER boolean
+---@field [54] boolean
+---@field BIOME_LAKE_TROPICAL_FRESHWATER boolean
+---@field [55] boolean
+---@field BIOME_LAKE_TROPICAL_BRACKISHWATER boolean
+---@field [56] boolean
+---@field BIOME_LAKE_TROPICAL_SALTWATER boolean
+---@field [57] boolean
+---@field BIOME_RIVER_TEMPERATE_FRESHWATER boolean
+---@field [58] boolean
+---@field BIOME_RIVER_TEMPERATE_BRACKISHWATER boolean
+---@field [59] boolean
+---@field BIOME_RIVER_TEMPERATE_SALTWATER boolean
+---@field [60] boolean
+---@field BIOME_RIVER_TROPICAL_FRESHWATER boolean
+---@field [61] boolean
+---@field BIOME_RIVER_TROPICAL_BRACKISHWATER boolean
+---@field [62] boolean
+---@field BIOME_RIVER_TROPICAL_SALTWATER boolean
+---@field [63] boolean
+---@field GOOD boolean
+---@field [64] boolean
+---@field EVIL boolean
+---@field [65] boolean
+---@field SAVAGE boolean
+---@field [66] boolean
+---@field TWO_GENDERS boolean
+---@field [67] boolean
+---@field MATES_TO_BREED boolean
+---@field [68] boolean
+---@field HAS_MALE boolean
+---@field [69] boolean
+---@field HAS_FEMALE boolean
+---@field [70] boolean
+---@field SMALL_RACE boolean
+---@field [71] boolean
+---@field HAS_ANY_INTELLIGENT_LEARNS boolean
+---@field [72] boolean
+---@field HAS_ANY_VERMIN_HATEABLE boolean
+---@field [73] boolean
+---@field OCCURS_AS_ENTITY_RACE boolean
+---@field [74] boolean
+---@field HAS_ANY_LARGE_PREDATOR boolean
+---@field [75] boolean
+---@field HAS_ANY_CURIOUS_BEAST boolean
+---@field [76] boolean
+---@field HAS_ANY_BENIGN boolean
+---@field [77] boolean
+---@field HAS_ANY_NATURAL_ANIMAL boolean
+---@field [78] boolean
+---@field HAS_ANY_MEGABEAST boolean
+---@field [79] boolean
+---@field HAS_ANY_SEMIMEGABEAST boolean
+---@field [80] boolean
+---@field HAS_ANY_POWER boolean
+---@field [81] boolean
+---@field HAS_ANY_VERMIN_MICRO boolean
+---@field [82] boolean
+---@field HAS_ANY_NOT_FIREIMMUNE boolean
+---@field [83] boolean
+---@field HAS_ANY_CANNOT_BREATHE_WATER boolean
+---@field [84] boolean
+---@field HAS_ANY_CANNOT_BREATHE_AIR boolean
+---@field [85] boolean
+---@field HAS_ANY_NOT_FLIER boolean
+---@field [86] boolean
+---@field HAS_ANY_CAN_SWIM boolean
+---@field [87] boolean
+---@field HAS_ANY_COMMON_DOMESTIC boolean
+---@field [88] boolean
+---@field HAS_ANY_UTTERANCES boolean
+---@field [89] boolean
+---@field HAS_ANY_INTELLIGENT_SPEAKS boolean
+---@field [90] boolean
+---@field HAS_ANY_FEATURE_BEAST boolean
+---@field [91] boolean
+---@field GENERATED boolean
+---@field [92] boolean
+---@field HAS_ANY_TITAN boolean
+---@field [93] boolean
+---@field HAS_ANY_UNIQUE_DEMON boolean
+---@field [94] boolean
+---@field DOES_NOT_EXIST boolean
+---@field [95] boolean
+---@field HAS_ANY_NOT_LIVING boolean
+---@field [96] boolean
+---@field HAS_ANY_MISCHIEVOUS boolean
+---@field [97] boolean
+---@field HAS_ANY_FLIER boolean
+---@field [98] boolean
+---@field HAS_ANY_DEMON boolean
+---@field [99] boolean
+---@field HAS_ANY_NIGHT_CREATURE boolean
+---@field [100] boolean
+---@field HAS_ANY_NIGHT_CREATURE_HUNTER boolean
+---@field [101] boolean
+---@field HAS_ANY_NIGHT_CREATURE_BOGEYMAN boolean
+---@field [102] boolean
+---@field HAS_ANY_CARNIVORE boolean
+---@field [103] boolean
+---@field ARTIFICIAL_HIVEABLE boolean
+---@field [104] boolean
+---@field UBIQUITOUS boolean
+---@field [105] boolean
+---@field ALL_CASTES_ALIVE boolean
+---@field [106] boolean
+---@field HAS_ANY_SUPERNATURAL boolean
+---@field [107] boolean
+---@field HAS_ANY_HAS_BLOOD boolean
+---@field [108] boolean
+---@field HAS_ANY_GRAZER boolean
+---@field [109] boolean
+---@field HAS_ANY_IMMOBILE boolean
+---@field [110] boolean
+---@field HAS_ANY_LOCAL_POPS_CONTROLLABLE boolean
+---@field [111] boolean
+---@field HAS_ANY_OUTSIDER_CONTROLLABLE boolean
+---@field [112] boolean
+---@field HAS_ANY_LOCAL_POPS_PRODUCE_HEROES boolean
+---@field [113] boolean
+---@field HAS_ANY_GRASP boolean
+---@field [114] boolean
+---@field HAS_ANY_RACE_GAIT boolean
+---@field [115] boolean
+---@field HAS_ANY_FLY_RACE_GAIT boolean
+---@field [116] boolean
+---@field HAS_ANY_SLOW_LEARNER boolean
+---@field [117] boolean
+---@field HAS_ANY_NIGHT_CREATURE_NIGHTMARE boolean
+---@field [118] boolean
+---@field HAS_ANY_NIGHT_CREATURE_EXPERIMENTER boolean
 
----@enum body_part_raw_flags
-df.body_part_raw_flags = {
-  HEAD = 0,
-  UPPERBODY = 1,
-  LOWERBODY = 2,
-  SIGHT = 3,
-  EMBEDDED = 4,
-  INTERNAL = 5,
-  CIRCULATION = 6,
-  SKELETON = 7,
-  LIMB = 8,
-  GRASP = 9,
-  STANCE = 10,
-  GUTS = 11,
-  BREATHE = 12,
-  SMALL = 13,
-  THROAT = 14,
-  JOINT = 15,
-  THOUGHT = 16,
-  NERVOUS = 17,
-  RIGHT = 18,
-  LEFT = 19,
-  HEAR = 20,
-  SMELL = 21,
-  FLIER = 22,
-  DIGIT = 23,
-  MOUTH = 24,
-  APERTURE = 25,
-  SOCKET = 26,
-  TOTEMABLE = 27,
-  unk_28 = 28,
-  unk_29 = 29,
-  UNDER_PRESSURE = 30,
-  unk_31 = 31,
-  VERMIN_BUTCHER_ITEM = 32,
-  CONNECTOR = 33,
-  unk_34 = 34,
-  unk_35 = 35,
-  unk_36 = 36,
-  unk_37 = 37,
-  GELDABLE = 38,
-}
+---@class (exact) _caste_raw_flags: df.struct
+---@field CAN_BREATHE_WATER 0
+---@field [0] "CAN_BREATHE_WATER"
+---@field CANNOT_BREATHE_AIR 1
+---@field [1] "CANNOT_BREATHE_AIR"
+---@field LOCKPICKER 2
+---@field [2] "LOCKPICKER"
+---@field MISCHIEVOUS 3
+---@field [3] "MISCHIEVOUS"
+---@field PATTERNFLIER 4
+---@field [4] "PATTERNFLIER"
+---@field CURIOUS_BEAST 5
+---@field [5] "CURIOUS_BEAST"
+---@field CURIOUS_BEAST_ITEM 6
+---@field [6] "CURIOUS_BEAST_ITEM"
+---@field CURIOUS_BEAST_GUZZLER 7
+---@field [7] "CURIOUS_BEAST_GUZZLER"
+---@field FLEEQUICK 8
+---@field [8] "FLEEQUICK"
+---@field AT_PEACE_WITH_WILDLIFE 9
+---@field [9] "AT_PEACE_WITH_WILDLIFE"
+---@field CAN_SWIM 10
+---@field [10] "CAN_SWIM"
+---@field OPPOSED_TO_LIFE 11
+---@field [11] "OPPOSED_TO_LIFE"
+---@field CURIOUS_BEAST_EATER 12
+---@field [12] "CURIOUS_BEAST_EATER"
+---@field NO_EAT 13
+---@field [13] "NO_EAT"
+---@field NO_DRINK 14
+---@field [14] "NO_DRINK"
+---@field NO_SLEEP 15
+---@field [15] "NO_SLEEP"
+---@field COMMON_DOMESTIC 16
+---@field [16] "COMMON_DOMESTIC"
+---@field WAGON_PULLER 17
+---@field [17] "WAGON_PULLER"
+---@field PACK_ANIMAL 18
+---@field [18] "PACK_ANIMAL"
+---@field FLIER 19
+---@field [19] "FLIER"
+---@field LARGE_PREDATOR 20
+---@field [20] "LARGE_PREDATOR"
+---@field MAGMA_VISION 21
+---@field [21] "MAGMA_VISION"
+---@field FIREIMMUNE 22
+---@field [22] "FIREIMMUNE"
+---@field FIREIMMUNE_SUPER 23
+---@field [23] "FIREIMMUNE_SUPER"
+---@field WEBBER 24
+---@field [24] "WEBBER"
+---@field WEBIMMUNE 25
+---@field [25] "WEBIMMUNE"
+---@field FISHITEM 26
+---@field [26] "FISHITEM"
+---@field IMMOBILE_LAND 27
+---@field [27] "IMMOBILE_LAND"
+---@field IMMOLATE 28
+---@field [28] "IMMOLATE"
+---@field MILKABLE 29
+---@field [29] "MILKABLE"
+---@field NO_SPRING 30
+---@field [30] "NO_SPRING"
+---@field NO_SUMMER 31
+---@field [31] "NO_SUMMER"
+---@field NO_AUTUMN 32
+---@field [32] "NO_AUTUMN"
+---@field NO_WINTER 33
+---@field [33] "NO_WINTER"
+---@field BENIGN 34
+---@field [34] "BENIGN"
+---@field VERMIN_NOROAM 35
+---@field [35] "VERMIN_NOROAM"
+---@field VERMIN_NOTRAP 36
+---@field [36] "VERMIN_NOTRAP"
+---@field VERMIN_NOFISH 37
+---@field [37] "VERMIN_NOFISH"
+---@field HAS_NERVES 38
+---@field [38] "HAS_NERVES"
+---@field NO_DIZZINESS 39
+---@field [39] "NO_DIZZINESS"
+---@field NO_FEVERS 40
+---@field [40] "NO_FEVERS"
+---@field NO_UNIT_TYPE_COLOR 41
+---@field [41] "NO_UNIT_TYPE_COLOR"
+---@field NO_CONNECTIONS_FOR_MOVEMENT 42
+---@field [42] "NO_CONNECTIONS_FOR_MOVEMENT"
+---@field SUPERNATURAL 43
+---@field [43] "SUPERNATURAL"
+---@field AMBUSHPREDATOR 44
+---@field [44] "AMBUSHPREDATOR"
+---@field GNAWER 45
+---@field [45] "GNAWER"
+---@field NOT_BUTCHERABLE 46
+---@field [46] "NOT_BUTCHERABLE"
+---@field COOKABLE_LIVE 47
+---@field [47] "COOKABLE_LIVE"
+---@field HAS_SECRETION 48
+---@field [48] "HAS_SECRETION"
+---@field IMMOBILE 49
+---@field [49] "IMMOBILE"
+---@field MULTIPART_FULL_VISION 50
+---@field [50] "MULTIPART_FULL_VISION"
+---@field MEANDERER 51
+---@field [51] "MEANDERER"
+---@field THICKWEB 52
+---@field [52] "THICKWEB"
+---@field TRAINABLE_HUNTING 53
+---@field [53] "TRAINABLE_HUNTING"
+---@field PET 54
+---@field [54] "PET"
+---@field PET_EXOTIC 55
+---@field [55] "PET_EXOTIC"
+---@field HAS_ROTTABLE 56
+---@field [56] "HAS_ROTTABLE"
+---@field CAN_SPEAK 57
+---@field [57] "CAN_SPEAK"
+---@field CAN_LEARN 58
+---@field [58] "CAN_LEARN"
+---@field UTTERANCES 59
+---@field [59] "UTTERANCES"
+---@field BONECARN 60
+---@field [60] "BONECARN"
+---@field CARNIVORE 61
+---@field [61] "CARNIVORE"
+---@field AQUATIC_UNDERSWIM 62
+---@field [62] "AQUATIC_UNDERSWIM"
+---@field NOEXERT 63
+---@field [63] "NOEXERT"
+---@field NOPAIN 64
+---@field [64] "NOPAIN"
+---@field EXTRAVISION 65
+---@field [65] "EXTRAVISION"
+---@field NOBREATHE 66
+---@field [66] "NOBREATHE"
+---@field NOSTUN 67
+---@field [67] "NOSTUN"
+---@field NONAUSEA 68
+---@field [68] "NONAUSEA"
+---@field HAS_BLOOD 69
+---@field [69] "HAS_BLOOD"
+---@field TRANCES 70
+---@field [70] "TRANCES"
+---@field NOEMOTION 71
+---@field [71] "NOEMOTION"
+---@field SLOW_LEARNER 72
+---@field [72] "SLOW_LEARNER"
+---@field NOSTUCKINS 73
+---@field [73] "NOSTUCKINS"
+---@field HAS_PUS 74
+---@field [74] "HAS_PUS"
+---@field NOSKULL 75
+---@field [75] "NOSKULL"
+---@field NOSKIN 76
+---@field [76] "NOSKIN"
+---@field NOBONES 77
+---@field [77] "NOBONES"
+---@field NOMEAT 78
+---@field [78] "NOMEAT"
+---@field PARALYZEIMMUNE 79
+---@field [79] "PARALYZEIMMUNE"
+---@field NOFEAR 80
+---@field [80] "NOFEAR"
+---@field CANOPENDOORS 81
+---@field [81] "CANOPENDOORS"
+---@field ITEMCORPSE 82
+---@field [82] "ITEMCORPSE"
+---@field GETS_WOUND_INFECTIONS 83
+---@field [83] "GETS_WOUND_INFECTIONS"
+---@field NOSMELLYROT 84
+---@field [84] "NOSMELLYROT"
+---@field REMAINS_UNDETERMINED 85
+---@field [85] "REMAINS_UNDETERMINED"
+---@field HASSHELL 86
+---@field [86] "HASSHELL"
+---@field PEARL 87
+---@field [87] "PEARL"
+---@field TRAINABLE_WAR 88
+---@field [88] "TRAINABLE_WAR"
+---@field NO_THOUGHT_CENTER_FOR_MOVEMENT 89
+---@field [89] "NO_THOUGHT_CENTER_FOR_MOVEMENT"
+---@field ARENA_RESTRICTED 90
+---@field [90] "ARENA_RESTRICTED"
+---@field LAIR_HUNTER 91
+---@field [91] "LAIR_HUNTER"
+---@field GELDABLE 92
+---@field [92] "GELDABLE"
+---@field VERMIN_HATEABLE 93
+---@field [93] "VERMIN_HATEABLE"
+---@field VEGETATION 94
+---@field [94] "VEGETATION"
+---@field MAGICAL 95
+---@field [95] "MAGICAL"
+---@field NATURAL_ANIMAL 96
+---@field [96] "NATURAL_ANIMAL"
+---@field HAS_BABYSTATE 97
+---@field [97] "HAS_BABYSTATE"
+---@field HAS_CHILDSTATE 98
+---@field [98] "HAS_CHILDSTATE"
+---@field MULTIPLE_LITTER_RARE 99
+---@field [99] "MULTIPLE_LITTER_RARE"
+---@field MOUNT 100
+---@field [100] "MOUNT"
+---@field MOUNT_EXOTIC 101
+---@field [101] "MOUNT_EXOTIC"
+---@field FEATURE_ATTACK_GROUP 102
+---@field [102] "FEATURE_ATTACK_GROUP"
+---@field VERMIN_MICRO 103
+---@field [103] "VERMIN_MICRO"
+---@field EQUIPS 104
+---@field [104] "EQUIPS"
+---@field LAYS_EGGS 105
+---@field [105] "LAYS_EGGS"
+---@field GRAZER 106
+---@field [106] "GRAZER"
+---@field NOTHOUGHT 107
+---@field [107] "NOTHOUGHT"
+---@field TRAPAVOID 108
+---@field [108] "TRAPAVOID"
+---@field CAVE_ADAPT 109
+---@field [109] "CAVE_ADAPT"
+---@field MEGABEAST 110
+---@field [110] "MEGABEAST"
+---@field SEMIMEGABEAST 111
+---@field [111] "SEMIMEGABEAST"
+---@field ALL_ACTIVE 112
+---@field [112] "ALL_ACTIVE"
+---@field DIURNAL 113
+---@field [113] "DIURNAL"
+---@field NOCTURNAL 114
+---@field [114] "NOCTURNAL"
+---@field CREPUSCULAR 115
+---@field [115] "CREPUSCULAR"
+---@field MATUTINAL 116
+---@field [116] "MATUTINAL"
+---@field VESPERTINE 117
+---@field [117] "VESPERTINE"
+---@field LIGHT_GEN 118
+---@field [118] "LIGHT_GEN"
+---@field LISP 119
+---@field [119] "LISP"
+---@field GETS_INFECTIONS_FROM_ROT 120
+---@field [120] "GETS_INFECTIONS_FROM_ROT"
+---@field HAS_SOLDIER_TILE 121
+---@field [121] "HAS_SOLDIER_TILE"
+---@field ALCOHOL_DEPENDENT 122
+---@field [122] "ALCOHOL_DEPENDENT"
+---@field CAN_SWIM_INNATE 123
+---@field [123] "CAN_SWIM_INNATE"
+---@field POWER 124
+---@field [124] "POWER"
+---@field TENDONS 125
+---@field [125] "TENDONS"
+---@field LIGAMENTS 126
+---@field [126] "LIGAMENTS"
+---@field HAS_TILE 127
+---@field [127] "HAS_TILE"
+---@field HAS_COLOR 128
+---@field [128] "HAS_COLOR"
+---@field HAS_GLOW_TILE 129
+---@field [129] "HAS_GLOW_TILE"
+---@field HAS_GLOW_COLOR 130
+---@field [130] "HAS_GLOW_COLOR"
+---@field FEATURE_BEAST 131
+---@field [131] "FEATURE_BEAST"
+---@field TITAN 132
+---@field [132] "TITAN"
+---@field UNIQUE_DEMON 133
+---@field [133] "UNIQUE_DEMON"
+---@field DEMON 134
+---@field [134] "DEMON"
+---@field MANNERISM_LAUGH 135
+---@field [135] "MANNERISM_LAUGH"
+---@field MANNERISM_SMILE 136
+---@field [136] "MANNERISM_SMILE"
+---@field MANNERISM_WALK 137
+---@field [137] "MANNERISM_WALK"
+---@field MANNERISM_SIT 138
+---@field [138] "MANNERISM_SIT"
+---@field MANNERISM_BREATH 139
+---@field [139] "MANNERISM_BREATH"
+---@field MANNERISM_POSTURE 140
+---@field [140] "MANNERISM_POSTURE"
+---@field MANNERISM_STRETCH 141
+---@field [141] "MANNERISM_STRETCH"
+---@field MANNERISM_EYELIDS 142
+---@field [142] "MANNERISM_EYELIDS"
+---@field NIGHT_CREATURE 143
+---@field [143] "NIGHT_CREATURE"
+---@field NIGHT_CREATURE_HUNTER 144
+---@field [144] "NIGHT_CREATURE_HUNTER"
+---@field NIGHT_CREATURE_BOGEYMAN 145
+---@field [145] "NIGHT_CREATURE_BOGEYMAN"
+---@field CONVERTED_SPOUSE 146
+---@field [146] "CONVERTED_SPOUSE"
+---@field SPOUSE_CONVERTER 147
+---@field [147] "SPOUSE_CONVERTER"
+---@field SPOUSE_CONVERSION_TARGET 148
+---@field [148] "SPOUSE_CONVERSION_TARGET"
+---@field DIE_WHEN_VERMIN_BITE 149
+---@field [149] "DIE_WHEN_VERMIN_BITE"
+---@field REMAINS_ON_VERMIN_BITE_DEATH 150
+---@field [150] "REMAINS_ON_VERMIN_BITE_DEATH"
+---@field COLONY_EXTERNAL 151
+---@field [151] "COLONY_EXTERNAL"
+---@field LAYS_UNUSUAL_EGGS 152
+---@field [152] "LAYS_UNUSUAL_EGGS"
+---@field RETURNS_VERMIN_KILLS_TO_OWNER 153
+---@field [153] "RETURNS_VERMIN_KILLS_TO_OWNER"
+---@field HUNTS_VERMIN 154
+---@field [154] "HUNTS_VERMIN"
+---@field ADOPTS_OWNER 155
+---@field [155] "ADOPTS_OWNER"
+---@field HAS_SOUND_ALERT 156
+---@field [156] "HAS_SOUND_ALERT"
+---@field HAS_SOUND_PEACEFUL_INTERMITTENT 157
+---@field [157] "HAS_SOUND_PEACEFUL_INTERMITTENT"
+---@field NOT_LIVING 158
+---@field [158] "NOT_LIVING"
+---@field NO_PHYS_ATT_GAIN 159
+---@field [159] "NO_PHYS_ATT_GAIN"
+---@field NO_PHYS_ATT_RUST 160
+---@field [160] "NO_PHYS_ATT_RUST"
+---@field CRAZED 161
+---@field [161] "CRAZED"
+---@field BLOODSUCKER 162
+---@field [162] "BLOODSUCKER"
+---@field NO_VEGETATION_PERTURB 163
+---@field [163] "NO_VEGETATION_PERTURB"
+---@field DIVE_HUNTS_VERMIN 164
+---@field [164] "DIVE_HUNTS_VERMIN"
+---@field VERMIN_GOBBLER 165
+---@field [165] "VERMIN_GOBBLER"
+---@field CANNOT_JUMP 166
+---@field [166] "CANNOT_JUMP"
+---@field STANCE_CLIMBER 167
+---@field [167] "STANCE_CLIMBER"
+---@field CANNOT_CLIMB 168
+---@field [168] "CANNOT_CLIMB"
+---@field LOCAL_POPS_CONTROLLABLE 169
+---@field [169] "LOCAL_POPS_CONTROLLABLE"
+---@field OUTSIDER_CONTROLLABLE 170
+---@field [170] "OUTSIDER_CONTROLLABLE"
+---@field LOCAL_POPS_PRODUCE_HEROES 171
+---@field [171] "LOCAL_POPS_PRODUCE_HEROES"
+---@field STRANGE_MOODS 172
+---@field [172] "STRANGE_MOODS"
+---@field HAS_GRASP 173
+---@field [173] "HAS_GRASP"
+---@field HAS_FLY_RACE_GAIT 174
+---@field [174] "HAS_FLY_RACE_GAIT"
+---@field HAS_RACE_GAIT 175
+---@field [175] "HAS_RACE_GAIT"
+---@field NIGHT_CREATURE_NIGHTMARE 176
+---@field [176] "NIGHT_CREATURE_NIGHTMARE"
+---@field NIGHT_CREATURE_EXPERIMENTER 177
+---@field [177] "NIGHT_CREATURE_EXPERIMENTER"
+---@field SPREAD_EVIL_SPHERES_IF_RULER 178
+---@field [178] "SPREAD_EVIL_SPHERES_IF_RULER"
+df.caste_raw_flags = {}
 
----@enum appearance_modifier_type
-df.appearance_modifier_type = {
-  HEIGHT = 0,
-  BROADNESS = 1,
-  LENGTH = 2,
-  CLOSE_SET = 3,
-  DEEP_SET = 4,
-  HIGH_POSITION = 5,
-  LARGE_IRIS = 6,
-  WRINKLY = 7,
-  CURLY = 8,
-  CONVEX = 9,
-  DENSE = 10,
-  THICKNESS = 11,
-  UPTURNED = 12,
-  SPLAYED_OUT = 13,
-  HANGING_LOBES = 14,
-  GAPS = 15,
-  HIGH_CHEEKBONES = 16,
-  BROAD_CHIN = 17,
-  JUTTING_CHIN = 18,
-  SQUARE_CHIN = 19,
-  ROUND_VS_NARROW = 20,
-  GREASY = 21,
-  DEEP_VOICE = 22,
-  RASPY_VOICE = 23,
-}
+---@class caste_raw_flags
+---@field [0] boolean
+---@field CAN_BREATHE_WATER boolean
+---@field [1] boolean
+---@field CANNOT_BREATHE_AIR boolean
+---@field [2] boolean
+---@field LOCKPICKER boolean
+---@field [3] boolean
+---@field MISCHIEVOUS boolean
+---@field [4] boolean
+---@field PATTERNFLIER boolean
+---@field [5] boolean
+---@field CURIOUS_BEAST boolean
+---@field [6] boolean
+---@field CURIOUS_BEAST_ITEM boolean
+---@field [7] boolean
+---@field CURIOUS_BEAST_GUZZLER boolean
+---@field [8] boolean
+---@field FLEEQUICK boolean
+---@field [9] boolean
+---@field AT_PEACE_WITH_WILDLIFE boolean
+---@field [10] boolean
+---@field CAN_SWIM boolean
+---@field [11] boolean
+---@field OPPOSED_TO_LIFE boolean
+---@field [12] boolean
+---@field CURIOUS_BEAST_EATER boolean
+---@field [13] boolean
+---@field NO_EAT boolean
+---@field [14] boolean
+---@field NO_DRINK boolean
+---@field [15] boolean
+---@field NO_SLEEP boolean
+---@field [16] boolean
+---@field COMMON_DOMESTIC boolean
+---@field [17] boolean
+---@field WAGON_PULLER boolean
+---@field [18] boolean
+---@field PACK_ANIMAL boolean
+---@field [19] boolean
+---@field FLIER boolean
+---@field [20] boolean
+---@field LARGE_PREDATOR boolean
+---@field [21] boolean
+---@field MAGMA_VISION boolean
+---@field [22] boolean
+---@field FIREIMMUNE boolean
+---@field [23] boolean
+---@field FIREIMMUNE_SUPER boolean
+---@field [24] boolean
+---@field WEBBER boolean
+---@field [25] boolean
+---@field WEBIMMUNE boolean
+---@field [26] boolean
+---@field FISHITEM boolean
+---@field [27] boolean
+---@field IMMOBILE_LAND boolean
+---@field [28] boolean
+---@field IMMOLATE boolean
+---@field [29] boolean
+---@field MILKABLE boolean
+---@field [30] boolean
+---@field NO_SPRING boolean
+---@field [31] boolean
+---@field NO_SUMMER boolean
+---@field [32] boolean
+---@field NO_AUTUMN boolean
+---@field [33] boolean
+---@field NO_WINTER boolean
+---@field [34] boolean
+---@field BENIGN boolean
+---@field [35] boolean
+---@field VERMIN_NOROAM boolean
+---@field [36] boolean
+---@field VERMIN_NOTRAP boolean
+---@field [37] boolean
+---@field VERMIN_NOFISH boolean
+---@field [38] boolean
+---@field HAS_NERVES boolean
+---@field [39] boolean
+---@field NO_DIZZINESS boolean
+---@field [40] boolean
+---@field NO_FEVERS boolean
+---@field [41] boolean
+---@field NO_UNIT_TYPE_COLOR boolean
+---@field [42] boolean
+---@field NO_CONNECTIONS_FOR_MOVEMENT boolean
+---@field [43] boolean
+---@field SUPERNATURAL boolean
+---@field [44] boolean
+---@field AMBUSHPREDATOR boolean
+---@field [45] boolean
+---@field GNAWER boolean
+---@field [46] boolean
+---@field NOT_BUTCHERABLE boolean
+---@field [47] boolean
+---@field COOKABLE_LIVE boolean
+---@field [48] boolean
+---@field HAS_SECRETION boolean
+---@field [49] boolean
+---@field IMMOBILE boolean
+---@field [50] boolean
+---@field MULTIPART_FULL_VISION boolean
+---@field [51] boolean
+---@field MEANDERER boolean
+---@field [52] boolean
+---@field THICKWEB boolean
+---@field [53] boolean
+---@field TRAINABLE_HUNTING boolean
+---@field [54] boolean
+---@field PET boolean
+---@field [55] boolean
+---@field PET_EXOTIC boolean
+---@field [56] boolean
+---@field HAS_ROTTABLE boolean
+---@field [57] boolean
+---@field CAN_SPEAK boolean
+---@field [58] boolean
+---@field CAN_LEARN boolean
+---@field [59] boolean
+---@field UTTERANCES boolean
+---@field [60] boolean
+---@field BONECARN boolean
+---@field [61] boolean
+---@field CARNIVORE boolean
+---@field [62] boolean
+---@field AQUATIC_UNDERSWIM boolean
+---@field [63] boolean
+---@field NOEXERT boolean
+---@field [64] boolean
+---@field NOPAIN boolean
+---@field [65] boolean
+---@field EXTRAVISION boolean
+---@field [66] boolean
+---@field NOBREATHE boolean
+---@field [67] boolean
+---@field NOSTUN boolean
+---@field [68] boolean
+---@field NONAUSEA boolean
+---@field [69] boolean
+---@field HAS_BLOOD boolean
+---@field [70] boolean
+---@field TRANCES boolean
+---@field [71] boolean
+---@field NOEMOTION boolean
+---@field [72] boolean
+---@field SLOW_LEARNER boolean
+---@field [73] boolean
+---@field NOSTUCKINS boolean
+---@field [74] boolean
+---@field HAS_PUS boolean
+---@field [75] boolean
+---@field NOSKULL boolean
+---@field [76] boolean
+---@field NOSKIN boolean
+---@field [77] boolean
+---@field NOBONES boolean
+---@field [78] boolean
+---@field NOMEAT boolean
+---@field [79] boolean
+---@field PARALYZEIMMUNE boolean
+---@field [80] boolean
+---@field NOFEAR boolean
+---@field [81] boolean
+---@field CANOPENDOORS boolean
+---@field [82] boolean
+---@field ITEMCORPSE boolean
+---@field [83] boolean
+---@field GETS_WOUND_INFECTIONS boolean
+---@field [84] boolean
+---@field NOSMELLYROT boolean
+---@field [85] boolean
+---@field REMAINS_UNDETERMINED boolean
+---@field [86] boolean
+---@field HASSHELL boolean
+---@field [87] boolean
+---@field PEARL boolean
+---@field [88] boolean
+---@field TRAINABLE_WAR boolean
+---@field [89] boolean
+---@field NO_THOUGHT_CENTER_FOR_MOVEMENT boolean
+---@field [90] boolean
+---@field ARENA_RESTRICTED boolean
+---@field [91] boolean
+---@field LAIR_HUNTER boolean
+---@field [92] boolean
+---@field GELDABLE boolean
+---@field [93] boolean
+---@field VERMIN_HATEABLE boolean
+---@field [94] boolean
+---@field VEGETATION boolean
+---@field [95] boolean
+---@field MAGICAL boolean
+---@field [96] boolean
+---@field NATURAL_ANIMAL boolean
+---@field [97] boolean
+---@field HAS_BABYSTATE boolean
+---@field [98] boolean
+---@field HAS_CHILDSTATE boolean
+---@field [99] boolean
+---@field MULTIPLE_LITTER_RARE boolean
+---@field [100] boolean
+---@field MOUNT boolean
+---@field [101] boolean
+---@field MOUNT_EXOTIC boolean
+---@field [102] boolean
+---@field FEATURE_ATTACK_GROUP boolean
+---@field [103] boolean
+---@field VERMIN_MICRO boolean
+---@field [104] boolean
+---@field EQUIPS boolean
+---@field [105] boolean
+---@field LAYS_EGGS boolean
+---@field [106] boolean
+---@field GRAZER boolean
+---@field [107] boolean
+---@field NOTHOUGHT boolean
+---@field [108] boolean
+---@field TRAPAVOID boolean
+---@field [109] boolean
+---@field CAVE_ADAPT boolean
+---@field [110] boolean
+---@field MEGABEAST boolean
+---@field [111] boolean
+---@field SEMIMEGABEAST boolean
+---@field [112] boolean
+---@field ALL_ACTIVE boolean
+---@field [113] boolean
+---@field DIURNAL boolean
+---@field [114] boolean
+---@field NOCTURNAL boolean
+---@field [115] boolean
+---@field CREPUSCULAR boolean
+---@field [116] boolean
+---@field MATUTINAL boolean
+---@field [117] boolean
+---@field VESPERTINE boolean
+---@field [118] boolean
+---@field LIGHT_GEN boolean
+---@field [119] boolean
+---@field LISP boolean
+---@field [120] boolean
+---@field GETS_INFECTIONS_FROM_ROT boolean
+---@field [121] boolean
+---@field HAS_SOLDIER_TILE boolean
+---@field [122] boolean
+---@field ALCOHOL_DEPENDENT boolean
+---@field [123] boolean
+---@field CAN_SWIM_INNATE boolean
+---@field [124] boolean
+---@field POWER boolean
+---@field [125] boolean
+---@field TENDONS boolean
+---@field [126] boolean
+---@field LIGAMENTS boolean
+---@field [127] boolean
+---@field HAS_TILE boolean
+---@field [128] boolean
+---@field HAS_COLOR boolean
+---@field [129] boolean
+---@field HAS_GLOW_TILE boolean
+---@field [130] boolean
+---@field HAS_GLOW_COLOR boolean
+---@field [131] boolean
+---@field FEATURE_BEAST boolean
+---@field [132] boolean
+---@field TITAN boolean
+---@field [133] boolean
+---@field UNIQUE_DEMON boolean
+---@field [134] boolean
+---@field DEMON boolean
+---@field [135] boolean
+---@field MANNERISM_LAUGH boolean
+---@field [136] boolean
+---@field MANNERISM_SMILE boolean
+---@field [137] boolean
+---@field MANNERISM_WALK boolean
+---@field [138] boolean
+---@field MANNERISM_SIT boolean
+---@field [139] boolean
+---@field MANNERISM_BREATH boolean
+---@field [140] boolean
+---@field MANNERISM_POSTURE boolean
+---@field [141] boolean
+---@field MANNERISM_STRETCH boolean
+---@field [142] boolean
+---@field MANNERISM_EYELIDS boolean
+---@field [143] boolean
+---@field NIGHT_CREATURE boolean
+---@field [144] boolean
+---@field NIGHT_CREATURE_HUNTER boolean
+---@field [145] boolean
+---@field NIGHT_CREATURE_BOGEYMAN boolean
+---@field [146] boolean
+---@field CONVERTED_SPOUSE boolean
+---@field [147] boolean
+---@field SPOUSE_CONVERTER boolean
+---@field [148] boolean
+---@field SPOUSE_CONVERSION_TARGET boolean
+---@field [149] boolean
+---@field DIE_WHEN_VERMIN_BITE boolean
+---@field [150] boolean
+---@field REMAINS_ON_VERMIN_BITE_DEATH boolean
+---@field [151] boolean
+---@field COLONY_EXTERNAL boolean
+---@field [152] boolean
+---@field LAYS_UNUSUAL_EGGS boolean
+---@field [153] boolean
+---@field RETURNS_VERMIN_KILLS_TO_OWNER boolean
+---@field [154] boolean
+---@field HUNTS_VERMIN boolean
+---@field [155] boolean
+---@field ADOPTS_OWNER boolean
+---@field [156] boolean
+---@field HAS_SOUND_ALERT boolean
+---@field [157] boolean
+---@field HAS_SOUND_PEACEFUL_INTERMITTENT boolean
+---@field [158] boolean
+---@field NOT_LIVING boolean
+---@field [159] boolean
+---@field NO_PHYS_ATT_GAIN boolean
+---@field [160] boolean
+---@field NO_PHYS_ATT_RUST boolean
+---@field [161] boolean
+---@field CRAZED boolean
+---@field [162] boolean
+---@field BLOODSUCKER boolean
+---@field [163] boolean
+---@field NO_VEGETATION_PERTURB boolean
+---@field [164] boolean
+---@field DIVE_HUNTS_VERMIN boolean
+---@field [165] boolean
+---@field VERMIN_GOBBLER boolean
+---@field [166] boolean
+---@field CANNOT_JUMP boolean
+---@field [167] boolean
+---@field STANCE_CLIMBER boolean
+---@field [168] boolean
+---@field CANNOT_CLIMB boolean
+---@field [169] boolean
+---@field LOCAL_POPS_CONTROLLABLE boolean
+---@field [170] boolean
+---@field OUTSIDER_CONTROLLABLE boolean
+---@field [171] boolean
+---@field LOCAL_POPS_PRODUCE_HEROES boolean
+---@field [172] boolean
+---@field STRANGE_MOODS boolean
+---@field [173] boolean
+---@field HAS_GRASP boolean
+---@field [174] boolean
+---@field HAS_FLY_RACE_GAIT boolean
+---@field [175] boolean
+---@field HAS_RACE_GAIT boolean
+---@field [176] boolean
+---@field NIGHT_CREATURE_NIGHTMARE boolean
+---@field [177] boolean
+---@field NIGHT_CREATURE_EXPERIMENTER boolean
+---@field [178] boolean
+---@field SPREAD_EVIL_SPHERES_IF_RULER boolean
 
----@enum body_part_layer_flags
-df.body_part_layer_flags = {
-  CONNECTS = 0,
-}
+---@class (exact) _body_part_raw_flags: df.struct
+---@field HEAD 0
+---@field [0] "HEAD"
+---@field UPPERBODY 1
+---@field [1] "UPPERBODY"
+---@field LOWERBODY 2
+---@field [2] "LOWERBODY"
+---@field SIGHT 3
+---@field [3] "SIGHT"
+---@field EMBEDDED 4
+---@field [4] "EMBEDDED"
+---@field INTERNAL 5
+---@field [5] "INTERNAL"
+---@field CIRCULATION 6
+---@field [6] "CIRCULATION"
+---@field SKELETON 7
+---@field [7] "SKELETON"
+---@field LIMB 8
+---@field [8] "LIMB"
+---@field GRASP 9
+---@field [9] "GRASP"
+---@field STANCE 10
+---@field [10] "STANCE"
+---@field GUTS 11
+---@field [11] "GUTS"
+---@field BREATHE 12
+---@field [12] "BREATHE"
+---@field SMALL 13
+---@field [13] "SMALL"
+---@field THROAT 14
+---@field [14] "THROAT"
+---@field JOINT 15
+---@field [15] "JOINT"
+---@field THOUGHT 16
+---@field [16] "THOUGHT"
+---@field NERVOUS 17
+---@field [17] "NERVOUS"
+---@field RIGHT 18
+---@field [18] "RIGHT"
+---@field LEFT 19
+---@field [19] "LEFT"
+---@field HEAR 20
+---@field [20] "HEAR"
+---@field SMELL 21
+---@field [21] "SMELL"
+---@field FLIER 22
+---@field [22] "FLIER"
+---@field DIGIT 23
+---@field [23] "DIGIT"
+---@field MOUTH 24
+---@field [24] "MOUTH"
+---@field APERTURE 25
+---@field [25] "APERTURE"
+---@field SOCKET 26
+---@field [26] "SOCKET"
+---@field TOTEMABLE 27
+---@field [27] "TOTEMABLE"
+---@field unk_28 28
+---@field [28] "unk_28"
+---@field unk_29 29
+---@field [29] "unk_29"
+---@field UNDER_PRESSURE 30
+---@field [30] "UNDER_PRESSURE"
+---@field unk_31 31
+---@field [31] "unk_31"
+---@field VERMIN_BUTCHER_ITEM 32
+---@field [32] "VERMIN_BUTCHER_ITEM"
+---@field CONNECTOR 33
+---@field [33] "CONNECTOR"
+---@field unk_34 34
+---@field [34] "unk_34"
+---@field unk_35 35
+---@field [35] "unk_35"
+---@field unk_36 36
+---@field [36] "unk_36"
+---@field unk_37 37
+---@field [37] "unk_37"
+---@field GELDABLE 38
+---@field [38] "GELDABLE"
+df.body_part_raw_flags = {}
 
----@enum appearance_modifier_growth_interval
-df.appearance_modifier_growth_interval = {
-  DAILY = 0,
-  WEEKLY = 1,
-  MONTHLY = 2,
-  YEARLY = 3,
-}
+---@class body_part_raw_flags
+---@field [0] boolean
+---@field HEAD boolean
+---@field [1] boolean
+---@field UPPERBODY boolean
+---@field [2] boolean
+---@field LOWERBODY boolean
+---@field [3] boolean
+---@field SIGHT boolean
+---@field [4] boolean
+---@field EMBEDDED boolean
+---@field [5] boolean
+---@field INTERNAL boolean
+---@field [6] boolean
+---@field CIRCULATION boolean
+---@field [7] boolean
+---@field SKELETON boolean
+---@field [8] boolean
+---@field LIMB boolean
+---@field [9] boolean
+---@field GRASP boolean
+---@field [10] boolean
+---@field STANCE boolean
+---@field [11] boolean
+---@field GUTS boolean
+---@field [12] boolean
+---@field BREATHE boolean
+---@field [13] boolean
+---@field SMALL boolean
+---@field [14] boolean
+---@field THROAT boolean
+---@field [15] boolean
+---@field JOINT boolean
+---@field [16] boolean
+---@field THOUGHT boolean
+---@field [17] boolean
+---@field NERVOUS boolean
+---@field [18] boolean
+---@field RIGHT boolean
+---@field [19] boolean
+---@field LEFT boolean
+---@field [20] boolean
+---@field HEAR boolean
+---@field [21] boolean
+---@field SMELL boolean
+---@field [22] boolean
+---@field FLIER boolean
+---@field [23] boolean
+---@field DIGIT boolean
+---@field [24] boolean
+---@field MOUTH boolean
+---@field [25] boolean
+---@field APERTURE boolean
+---@field [26] boolean
+---@field SOCKET boolean
+---@field [27] boolean
+---@field TOTEMABLE boolean
+---@field [28] boolean
+---@field unk_28 boolean
+---@field [29] boolean
+---@field unk_29 boolean
+---@field [30] boolean
+---@field UNDER_PRESSURE boolean
+---@field [31] boolean
+---@field unk_31 boolean
+---@field [32] boolean
+---@field VERMIN_BUTCHER_ITEM boolean
+---@field [33] boolean
+---@field CONNECTOR boolean
+---@field [34] boolean
+---@field unk_34 boolean
+---@field [35] boolean
+---@field unk_35 boolean
+---@field [36] boolean
+---@field unk_36 boolean
+---@field [37] boolean
+---@field unk_37 boolean
+---@field [38] boolean
+---@field GELDABLE boolean
+
+---@class (exact) _appearance_modifier_type: df.struct
+---@field HEIGHT 0
+---@field [0] "HEIGHT"
+---@field BROADNESS 1
+---@field [1] "BROADNESS"
+---@field LENGTH 2
+---@field [2] "LENGTH"
+---@field CLOSE_SET 3
+---@field [3] "CLOSE_SET"
+---@field DEEP_SET 4
+---@field [4] "DEEP_SET"
+---@field HIGH_POSITION 5
+---@field [5] "HIGH_POSITION"
+---@field LARGE_IRIS 6
+---@field [6] "LARGE_IRIS"
+---@field WRINKLY 7
+---@field [7] "WRINKLY"
+---@field CURLY 8
+---@field [8] "CURLY"
+---@field CONVEX 9
+---@field [9] "CONVEX"
+---@field DENSE 10
+---@field [10] "DENSE"
+---@field THICKNESS 11
+---@field [11] "THICKNESS"
+---@field UPTURNED 12
+---@field [12] "UPTURNED"
+---@field SPLAYED_OUT 13
+---@field [13] "SPLAYED_OUT"
+---@field HANGING_LOBES 14
+---@field [14] "HANGING_LOBES"
+---@field GAPS 15
+---@field [15] "GAPS"
+---@field HIGH_CHEEKBONES 16
+---@field [16] "HIGH_CHEEKBONES"
+---@field BROAD_CHIN 17
+---@field [17] "BROAD_CHIN"
+---@field JUTTING_CHIN 18
+---@field [18] "JUTTING_CHIN"
+---@field SQUARE_CHIN 19
+---@field [19] "SQUARE_CHIN"
+---@field ROUND_VS_NARROW 20
+---@field [20] "ROUND_VS_NARROW"
+---@field GREASY 21
+---@field [21] "GREASY"
+---@field DEEP_VOICE 22
+---@field [22] "DEEP_VOICE"
+---@field RASPY_VOICE 23
+---@field [23] "RASPY_VOICE"
+df.appearance_modifier_type = {}
+
+---@class appearance_modifier_type
+---@field [0] boolean
+---@field HEIGHT boolean
+---@field [1] boolean
+---@field BROADNESS boolean
+---@field [2] boolean
+---@field LENGTH boolean
+---@field [3] boolean
+---@field CLOSE_SET boolean
+---@field [4] boolean
+---@field DEEP_SET boolean
+---@field [5] boolean
+---@field HIGH_POSITION boolean
+---@field [6] boolean
+---@field LARGE_IRIS boolean
+---@field [7] boolean
+---@field WRINKLY boolean
+---@field [8] boolean
+---@field CURLY boolean
+---@field [9] boolean
+---@field CONVEX boolean
+---@field [10] boolean
+---@field DENSE boolean
+---@field [11] boolean
+---@field THICKNESS boolean
+---@field [12] boolean
+---@field UPTURNED boolean
+---@field [13] boolean
+---@field SPLAYED_OUT boolean
+---@field [14] boolean
+---@field HANGING_LOBES boolean
+---@field [15] boolean
+---@field GAPS boolean
+---@field [16] boolean
+---@field HIGH_CHEEKBONES boolean
+---@field [17] boolean
+---@field BROAD_CHIN boolean
+---@field [18] boolean
+---@field JUTTING_CHIN boolean
+---@field [19] boolean
+---@field SQUARE_CHIN boolean
+---@field [20] boolean
+---@field ROUND_VS_NARROW boolean
+---@field [21] boolean
+---@field GREASY boolean
+---@field [22] boolean
+---@field DEEP_VOICE boolean
+---@field [23] boolean
+---@field RASPY_VOICE boolean
+
+---@class (exact) _body_part_layer_flags: df.struct
+---@field CONNECTS 0
+---@field [0] "CONNECTS"
+df.body_part_layer_flags = {}
+
+---@class body_part_layer_flags
+---@field [0] boolean
+---@field CONNECTS boolean
+
+---@class (exact) _appearance_modifier_growth_interval: df.struct
+---@field DAILY 0
+---@field [0] "DAILY"
+---@field WEEKLY 1
+---@field [1] "WEEKLY"
+---@field MONTHLY 2
+---@field [2] "MONTHLY"
+---@field YEARLY 3
+---@field [3] "YEARLY"
+df.appearance_modifier_growth_interval = {}
+
+---@class appearance_modifier_growth_interval
+---@field [0] boolean
+---@field DAILY boolean
+---@field [1] boolean
+---@field WEEKLY boolean
+---@field [2] boolean
+---@field MONTHLY boolean
+---@field [3] boolean
+---@field YEARLY boolean
 
 ---@class body_part_layer_raw: df.struct
 ---@field layer_name string
@@ -537,24 +1641,59 @@ df.caste_clothing_item = {}
 ---@field unk_v40_4 integer
 df.caste_attack = {}
 
----@enum caste_attack_flags
-df.caste_attack.T_flags = {
-  with = 0,
-  latch = 1,
-  main = 2,
-  edge = 3,
-  unk_4 = 4,
-  unk_5 = 5,
-}
+---@class (exact) _caste_attack_flags: df.struct
+---@field with 0
+---@field [0] "with"
+---@field latch 1
+---@field [1] "latch"
+---@field main 2
+---@field [2] "main"
+---@field edge 3
+---@field [3] "edge"
+---@field unk_4 4
+---@field [4] "unk_4"
+---@field unk_5 5
+---@field [5] "unk_5"
+df.caste_attack.T_flags = {}
 
----@enum gait_type
-df.gait_type = {
-  WALK = 0,
-  FLY = 1,
-  SWIM = 2,
-  CRAWL = 3,
-  CLIMB = 4,
-}
+---@class caste_attack_flags
+---@field [0] boolean
+---@field with boolean
+---@field [1] boolean
+---@field latch boolean
+---@field [2] boolean
+---@field main boolean
+---@field [3] boolean
+---@field edge boolean
+---@field [4] boolean
+---@field unk_4 boolean
+---@field [5] boolean
+---@field unk_5 boolean
+
+---@class (exact) _gait_type: df.struct
+---@field WALK 0
+---@field [0] "WALK"
+---@field FLY 1
+---@field [1] "FLY"
+---@field SWIM 2
+---@field [2] "SWIM"
+---@field CRAWL 3
+---@field [3] "CRAWL"
+---@field CLIMB 4
+---@field [4] "CLIMB"
+df.gait_type = {}
+
+---@class gait_type
+---@field [0] boolean
+---@field WALK boolean
+---@field [1] boolean
+---@field FLY boolean
+---@field [2] boolean
+---@field SWIM boolean
+---@field [3] boolean
+---@field CRAWL boolean
+---@field [4] boolean
+---@field CLIMB boolean
 
 ---@class gait_info: df.struct
 ---@field action_string_idx integer
@@ -567,21 +1706,47 @@ df.gait_type = {
 ---@field stealth_slows integer
 df.gait_info = {}
 
----@enum gait_info_flags
-df.gait_info.T_flags = {
-  layers_slow = 0,
-  strength = 1,
-  agility = 2,
-}
+---@class (exact) _gait_info_flags: df.struct
+---@field layers_slow 0
+---@field [0] "layers_slow"
+---@field strength 1
+---@field [1] "strength"
+---@field agility 2
+---@field [2] "agility"
+df.gait_info.T_flags = {}
 
----@enum creature_interaction_target_flags
-df.creature_interaction_target_flags = {
-  LINE_OF_SIGHT = 0,
-  TOUCHABLE = 1,
-  DISTURBER_ONLY = 2,
-  SELF_ALLOWED = 3,
-  SELF_ONLY = 4,
-}
+---@class gait_info_flags
+---@field [0] boolean
+---@field layers_slow boolean
+---@field [1] boolean
+---@field strength boolean
+---@field [2] boolean
+---@field agility boolean
+
+---@class (exact) _creature_interaction_target_flags: df.struct
+---@field LINE_OF_SIGHT 0
+---@field [0] "LINE_OF_SIGHT"
+---@field TOUCHABLE 1
+---@field [1] "TOUCHABLE"
+---@field DISTURBER_ONLY 2
+---@field [2] "DISTURBER_ONLY"
+---@field SELF_ALLOWED 3
+---@field [3] "SELF_ALLOWED"
+---@field SELF_ONLY 4
+---@field [4] "SELF_ONLY"
+df.creature_interaction_target_flags = {}
+
+---@class creature_interaction_target_flags
+---@field [0] boolean
+---@field LINE_OF_SIGHT boolean
+---@field [1] boolean
+---@field TOUCHABLE boolean
+---@field [2] boolean
+---@field DISTURBER_ONLY boolean
+---@field [3] boolean
+---@field SELF_ALLOWED boolean
+---@field [4] boolean
+---@field SELF_ONLY boolean
 
 ---@class creature_interaction: df.struct
 ---@field bp_required_type string[]
@@ -615,12 +1780,22 @@ df.creature_interaction_target_flags = {
 ---@field wait_period integer
 df.creature_interaction = {}
 
----@enum creature_interaction_flags
-df.creature_interaction.T_flags = {
-  CAN_BE_MUTUAL = 0,
-  VERBAL = 1,
-  FREE_ACTION = 2,
-}
+---@class (exact) _creature_interaction_flags: df.struct
+---@field CAN_BE_MUTUAL 0
+---@field [0] "CAN_BE_MUTUAL"
+---@field VERBAL 1
+---@field [1] "VERBAL"
+---@field FREE_ACTION 2
+---@field [2] "FREE_ACTION"
+df.creature_interaction.T_flags = {}
+
+---@class creature_interaction_flags
+---@field [0] boolean
+---@field CAN_BE_MUTUAL boolean
+---@field [1] boolean
+---@field VERBAL boolean
+---@field [2] boolean
+---@field FREE_ACTION boolean
 
 ---@class caste_body_info: df.struct
 ---@field body_parts body_part_raw[]
@@ -648,12 +1823,22 @@ df.caste_body_info = {}
 ---@field interaction creature_interaction
 df.caste_body_info.T_interactions = {}
 
----@enum interactions_type
-df.interactions.T_type = {
-  RETRACT_INTO_BP = 0,
-  CAN_DO_INTERACTION = 1,
-  ROOT_AROUND = 2,
-}
+---@class (exact) _interactions_type: df.struct
+---@field RETRACT_INTO_BP 0
+---@field [0] "RETRACT_INTO_BP"
+---@field CAN_DO_INTERACTION 1
+---@field [1] "CAN_DO_INTERACTION"
+---@field ROOT_AROUND 2
+---@field [2] "ROOT_AROUND"
+df.interactions.T_type = {}
+
+---@class interactions_type
+---@field [0] boolean
+---@field RETRACT_INTO_BP boolean
+---@field [1] boolean
+---@field CAN_DO_INTERACTION boolean
+---@field [2] boolean
+---@field ROOT_AROUND boolean
 
 ---@class caste_body_info_extra_butcher_objects: df.struct
 ---@field unk_1 integer
@@ -683,10 +1868,14 @@ df.caste_body_info.T_layer_nonsolid = {}
 ---@class caste_body_info_nonsolid_layers: df.struct
 df.caste_body_info.T_nonsolid_layers = {}
 
----@enum caste_body_info_flags
-df.caste_body_info.T_flags = {
-  unk0 = 0,
-}
+---@class (exact) _caste_body_info_flags: df.struct
+---@field unk0 0
+---@field [0] "unk0"
+df.caste_body_info.T_flags = {}
+
+---@class caste_body_info_flags
+---@field [0] boolean
+---@field unk0 boolean
 
 ---@class caste_raw: df.struct
 ---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
@@ -966,25 +2155,63 @@ df.caste_raw.T_sound = {}
 ---@field unk_7 integer
 df.caste_raw.T_unk_1 = {}
 
----@enum creature_graphics_role
-df.creature_graphics_role = {
-  DEFAULT = 0,
-  LAW_ENFORCE = 1,
-  TAX_ESCORT = 2,
-  ANIMATED = 3,
-  ADVENTURER = 4,
-  GHOST = 5,
-  CORPSE = 6,
-}
+---@class (exact) _creature_graphics_role: df.struct
+---@field DEFAULT 0
+---@field [0] "DEFAULT"
+---@field LAW_ENFORCE 1
+---@field [1] "LAW_ENFORCE"
+---@field TAX_ESCORT 2
+---@field [2] "TAX_ESCORT"
+---@field ANIMATED 3
+---@field [3] "ANIMATED"
+---@field ADVENTURER 4
+---@field [4] "ADVENTURER"
+---@field GHOST 5
+---@field [5] "GHOST"
+---@field CORPSE 6
+---@field [6] "CORPSE"
+df.creature_graphics_role = {}
 
----@enum tissue_style_type
-df.tissue_style_type = {
-  NEATLY_COMBED = 0,
-  BRAIDED = 1,
-  DOUBLE_BRAIDS = 2,
-  PONY_TAILS = 3,
-  CLEAN_SHAVEN = 4,
-}
+---@class creature_graphics_role
+---@field [0] boolean
+---@field DEFAULT boolean
+---@field [1] boolean
+---@field LAW_ENFORCE boolean
+---@field [2] boolean
+---@field TAX_ESCORT boolean
+---@field [3] boolean
+---@field ANIMATED boolean
+---@field [4] boolean
+---@field ADVENTURER boolean
+---@field [5] boolean
+---@field GHOST boolean
+---@field [6] boolean
+---@field CORPSE boolean
+
+---@class (exact) _tissue_style_type: df.struct
+---@field NEATLY_COMBED 0
+---@field [0] "NEATLY_COMBED"
+---@field BRAIDED 1
+---@field [1] "BRAIDED"
+---@field DOUBLE_BRAIDS 2
+---@field [2] "DOUBLE_BRAIDS"
+---@field PONY_TAILS 3
+---@field [3] "PONY_TAILS"
+---@field CLEAN_SHAVEN 4
+---@field [4] "CLEAN_SHAVEN"
+df.tissue_style_type = {}
+
+---@class tissue_style_type
+---@field [0] boolean
+---@field NEATLY_COMBED boolean
+---@field [1] boolean
+---@field BRAIDED boolean
+---@field [2] boolean
+---@field DOUBLE_BRAIDS boolean
+---@field [3] boolean
+---@field PONY_TAILS boolean
+---@field [4] boolean
+---@field CLEAN_SHAVEN boolean
 
 ---@class creature_raw_graphics: df.struct
 ---@field creature_texture_texpos integer[][][][]
@@ -1101,50 +2328,163 @@ df.creature_variation_convert_tag = {}
 ---@field cv_remove_unk_v40_2 string[]
 df.creature_variation = {}
 
----@enum body_part_template_flags
-df.body_part_template_flags = {
-  HEAD = 0,
-  UPPERBODY = 1,
-  LOWERBODY = 2,
-  SIGHT = 3,
-  EMBEDDED = 4,
-  INTERNAL = 5,
-  CIRCULATION = 6,
-  SKELETON = 7,
-  LIMB = 8,
-  GRASP = 9,
-  STANCE = 10,
-  GUTS = 11,
-  BREATHE = 12,
-  SMALL = 13,
-  THROAT = 14,
-  JOINT = 15,
-  THOUGHT = 16,
-  NERVOUS = 17,
-  RIGHT = 18,
-  LEFT = 19,
-  HEAR = 20,
-  SMELL = 21,
-  FLIER = 22,
-  DIGIT = 23,
-  MOUTH = 24,
-  APERTURE = 25,
-  SOCKET = 26,
-  TOTEMABLE = 27,
-  UNDER_PRESSURE = 28,
-  VERMIN_BUTCHER_ITEM = 29,
-  CONNECTOR = 30,
-}
+---@class (exact) _body_part_template_flags: df.struct
+---@field HEAD 0
+---@field [0] "HEAD"
+---@field UPPERBODY 1
+---@field [1] "UPPERBODY"
+---@field LOWERBODY 2
+---@field [2] "LOWERBODY"
+---@field SIGHT 3
+---@field [3] "SIGHT"
+---@field EMBEDDED 4
+---@field [4] "EMBEDDED"
+---@field INTERNAL 5
+---@field [5] "INTERNAL"
+---@field CIRCULATION 6
+---@field [6] "CIRCULATION"
+---@field SKELETON 7
+---@field [7] "SKELETON"
+---@field LIMB 8
+---@field [8] "LIMB"
+---@field GRASP 9
+---@field [9] "GRASP"
+---@field STANCE 10
+---@field [10] "STANCE"
+---@field GUTS 11
+---@field [11] "GUTS"
+---@field BREATHE 12
+---@field [12] "BREATHE"
+---@field SMALL 13
+---@field [13] "SMALL"
+---@field THROAT 14
+---@field [14] "THROAT"
+---@field JOINT 15
+---@field [15] "JOINT"
+---@field THOUGHT 16
+---@field [16] "THOUGHT"
+---@field NERVOUS 17
+---@field [17] "NERVOUS"
+---@field RIGHT 18
+---@field [18] "RIGHT"
+---@field LEFT 19
+---@field [19] "LEFT"
+---@field HEAR 20
+---@field [20] "HEAR"
+---@field SMELL 21
+---@field [21] "SMELL"
+---@field FLIER 22
+---@field [22] "FLIER"
+---@field DIGIT 23
+---@field [23] "DIGIT"
+---@field MOUTH 24
+---@field [24] "MOUTH"
+---@field APERTURE 25
+---@field [25] "APERTURE"
+---@field SOCKET 26
+---@field [26] "SOCKET"
+---@field TOTEMABLE 27
+---@field [27] "TOTEMABLE"
+---@field UNDER_PRESSURE 28
+---@field [28] "UNDER_PRESSURE"
+---@field VERMIN_BUTCHER_ITEM 29
+---@field [29] "VERMIN_BUTCHER_ITEM"
+---@field CONNECTOR 30
+---@field [30] "CONNECTOR"
+df.body_part_template_flags = {}
 
----@enum body_part_template_contype
-df.body_part_template_contype = {
-  NONE = -1,
-  UPPERBODY = 1,
-  LOWERBODY = 2,
-  HEAD = 3,
-  GRASP = 4,
-  STANCE = 5,
-}
+---@class body_part_template_flags
+---@field [0] boolean
+---@field HEAD boolean
+---@field [1] boolean
+---@field UPPERBODY boolean
+---@field [2] boolean
+---@field LOWERBODY boolean
+---@field [3] boolean
+---@field SIGHT boolean
+---@field [4] boolean
+---@field EMBEDDED boolean
+---@field [5] boolean
+---@field INTERNAL boolean
+---@field [6] boolean
+---@field CIRCULATION boolean
+---@field [7] boolean
+---@field SKELETON boolean
+---@field [8] boolean
+---@field LIMB boolean
+---@field [9] boolean
+---@field GRASP boolean
+---@field [10] boolean
+---@field STANCE boolean
+---@field [11] boolean
+---@field GUTS boolean
+---@field [12] boolean
+---@field BREATHE boolean
+---@field [13] boolean
+---@field SMALL boolean
+---@field [14] boolean
+---@field THROAT boolean
+---@field [15] boolean
+---@field JOINT boolean
+---@field [16] boolean
+---@field THOUGHT boolean
+---@field [17] boolean
+---@field NERVOUS boolean
+---@field [18] boolean
+---@field RIGHT boolean
+---@field [19] boolean
+---@field LEFT boolean
+---@field [20] boolean
+---@field HEAR boolean
+---@field [21] boolean
+---@field SMELL boolean
+---@field [22] boolean
+---@field FLIER boolean
+---@field [23] boolean
+---@field DIGIT boolean
+---@field [24] boolean
+---@field MOUTH boolean
+---@field [25] boolean
+---@field APERTURE boolean
+---@field [26] boolean
+---@field SOCKET boolean
+---@field [27] boolean
+---@field TOTEMABLE boolean
+---@field [28] boolean
+---@field UNDER_PRESSURE boolean
+---@field [29] boolean
+---@field VERMIN_BUTCHER_ITEM boolean
+---@field [30] boolean
+---@field CONNECTOR boolean
+
+---@class (exact) _body_part_template_contype: df.struct
+---@field NONE -1
+---@field [0] "NONE"
+---@field UPPERBODY 1
+---@field [1] "UPPERBODY"
+---@field LOWERBODY 2
+---@field [2] "LOWERBODY"
+---@field HEAD 3
+---@field [3] "HEAD"
+---@field GRASP 4
+---@field [4] "GRASP"
+---@field STANCE 5
+---@field [5] "STANCE"
+df.body_part_template_contype = {}
+
+---@class body_part_template_contype
+---@field [0] boolean
+---@field NONE boolean
+---@field [1] boolean
+---@field UPPERBODY boolean
+---@field [2] boolean
+---@field LOWERBODY boolean
+---@field [3] boolean
+---@field HEAD boolean
+---@field [4] boolean
+---@field GRASP boolean
+---@field [5] boolean
+---@field STANCE boolean
 
 ---@class body_part_template: df.struct
 ---@field id string
@@ -1164,31 +2504,98 @@ df.body_part_template = {}
 ---@field parts body_part_template[]
 df.body_template = {}
 
----@enum tissue_flags
-df.tissue_flags = {
-  THICKENS_ON_STRENGTH = 0,
-  THICKENS_ON_ENERGY_STORAGE = 1,
-  ARTERIES = 2,
-  SCARS = 3,
-  STRUCTURAL = 4,
-  NERVOUS = 5,
-  THOUGHT = 6,
-  MUSCULAR = 7,
-  SMELL = 8,
-  HEAR = 9,
-  FLIGHT = 10,
-  BREATHE = 11,
-  SIGHT = 12,
-  COSMETIC = 13,
-  CONNECTS = 14,
-  FUNCTIONAL = 15,
-  MAJOR_ARTERIES = 16,
-  TISSUE_LEAKS = 17,
-  STYLEABLE = 18,
-  CONNECTIVE_TISSUE_ANCHOR = 19,
-  SETTABLE = 20,
-  SPLINTABLE = 21,
-}
+---@class (exact) _tissue_flags: df.struct
+---@field THICKENS_ON_STRENGTH 0
+---@field [0] "THICKENS_ON_STRENGTH"
+---@field THICKENS_ON_ENERGY_STORAGE 1
+---@field [1] "THICKENS_ON_ENERGY_STORAGE"
+---@field ARTERIES 2
+---@field [2] "ARTERIES"
+---@field SCARS 3
+---@field [3] "SCARS"
+---@field STRUCTURAL 4
+---@field [4] "STRUCTURAL"
+---@field NERVOUS 5
+---@field [5] "NERVOUS"
+---@field THOUGHT 6
+---@field [6] "THOUGHT"
+---@field MUSCULAR 7
+---@field [7] "MUSCULAR"
+---@field SMELL 8
+---@field [8] "SMELL"
+---@field HEAR 9
+---@field [9] "HEAR"
+---@field FLIGHT 10
+---@field [10] "FLIGHT"
+---@field BREATHE 11
+---@field [11] "BREATHE"
+---@field SIGHT 12
+---@field [12] "SIGHT"
+---@field COSMETIC 13
+---@field [13] "COSMETIC"
+---@field CONNECTS 14
+---@field [14] "CONNECTS"
+---@field FUNCTIONAL 15
+---@field [15] "FUNCTIONAL"
+---@field MAJOR_ARTERIES 16
+---@field [16] "MAJOR_ARTERIES"
+---@field TISSUE_LEAKS 17
+---@field [17] "TISSUE_LEAKS"
+---@field STYLEABLE 18
+---@field [18] "STYLEABLE"
+---@field CONNECTIVE_TISSUE_ANCHOR 19
+---@field [19] "CONNECTIVE_TISSUE_ANCHOR"
+---@field SETTABLE 20
+---@field [20] "SETTABLE"
+---@field SPLINTABLE 21
+---@field [21] "SPLINTABLE"
+df.tissue_flags = {}
+
+---@class tissue_flags
+---@field [0] boolean
+---@field THICKENS_ON_STRENGTH boolean
+---@field [1] boolean
+---@field THICKENS_ON_ENERGY_STORAGE boolean
+---@field [2] boolean
+---@field ARTERIES boolean
+---@field [3] boolean
+---@field SCARS boolean
+---@field [4] boolean
+---@field STRUCTURAL boolean
+---@field [5] boolean
+---@field NERVOUS boolean
+---@field [6] boolean
+---@field THOUGHT boolean
+---@field [7] boolean
+---@field MUSCULAR boolean
+---@field [8] boolean
+---@field SMELL boolean
+---@field [9] boolean
+---@field HEAR boolean
+---@field [10] boolean
+---@field FLIGHT boolean
+---@field [11] boolean
+---@field BREATHE boolean
+---@field [12] boolean
+---@field SIGHT boolean
+---@field [13] boolean
+---@field COSMETIC boolean
+---@field [14] boolean
+---@field CONNECTS boolean
+---@field [15] boolean
+---@field FUNCTIONAL boolean
+---@field [16] boolean
+---@field MAJOR_ARTERIES boolean
+---@field [17] boolean
+---@field TISSUE_LEAKS boolean
+---@field [18] boolean
+---@field STYLEABLE boolean
+---@field [19] boolean
+---@field CONNECTIVE_TISSUE_ANCHOR boolean
+---@field [20] boolean
+---@field SETTABLE boolean
+---@field [21] boolean
+---@field SPLINTABLE boolean
 
 ---@class tissue_template: df.instance
 ---@field id string

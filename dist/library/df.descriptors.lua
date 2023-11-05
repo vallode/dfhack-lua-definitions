@@ -1,15 +1,34 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum pattern_type
-df.pattern_type = {
-  MONOTONE = 0,
-  STRIPES = 1,
-  IRIS_EYE = 2,
-  SPOTS = 3,
-  PUPIL_EYE = 4,
-  MOTTLED = 5,
-}
+---@class (exact) _pattern_type: df.struct
+---@field MONOTONE 0
+---@field [0] "MONOTONE"
+---@field STRIPES 1
+---@field [1] "STRIPES"
+---@field IRIS_EYE 2
+---@field [2] "IRIS_EYE"
+---@field SPOTS 3
+---@field [3] "SPOTS"
+---@field PUPIL_EYE 4
+---@field [4] "PUPIL_EYE"
+---@field MOTTLED 5
+---@field [5] "MOTTLED"
+df.pattern_type = {}
+
+---@class pattern_type
+---@field [0] boolean
+---@field MONOTONE boolean
+---@field [1] boolean
+---@field STRIPES boolean
+---@field [2] boolean
+---@field IRIS_EYE boolean
+---@field [3] boolean
+---@field SPOTS boolean
+---@field [4] boolean
+---@field PUPIL_EYE boolean
+---@field [5] boolean
+---@field MOTTLED boolean
 
 ---@class descriptor_color: df.instance
 ---@field id string
@@ -43,12 +62,22 @@ df.descriptor_color = {}
 ---@field unk_v50_6 any
 df.descriptor_shape = {}
 
----@enum descriptor_shape_gems_use
-df.descriptor_shape.T_gems_use = {
-  noun = 0,
-  adj = 1,
-  adj_noun = 2,
-}
+---@class (exact) _descriptor_shape_gems_use: df.struct
+---@field noun 0
+---@field [0] "noun"
+---@field adj 1
+---@field [1] "adj"
+---@field adj_noun 2
+---@field [2] "adj_noun"
+df.descriptor_shape.T_gems_use = {}
+
+---@class descriptor_shape_gems_use
+---@field [0] boolean
+---@field noun boolean
+---@field [1] boolean
+---@field adj boolean
+---@field [2] boolean
+---@field adj_noun boolean
 
 ---@class descriptor_pattern: df.instance
 ---@field id string

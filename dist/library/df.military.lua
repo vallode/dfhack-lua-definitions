@@ -1,12 +1,22 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@enum uniform_indiv_choice
-df.uniform_indiv_choice = {
-  any = 0,
-  melee = 1,
-  ranged = 2,
-}
+---@class (exact) _uniform_indiv_choice: df.struct
+---@field any 0
+---@field [0] "any"
+---@field melee 1
+---@field [1] "melee"
+---@field ranged 2
+---@field [2] "ranged"
+df.uniform_indiv_choice = {}
+
+---@class uniform_indiv_choice
+---@field [0] boolean
+---@field any boolean
+---@field [1] boolean
+---@field melee boolean
+---@field [2] boolean
+---@field ranged boolean
 
 ---@class item_filter_spec: df.struct
 ---@field item_type item_type
@@ -34,55 +44,130 @@ df.squad_uniform_spec.T_assigned = {}
 ---@field assigned squad_ammo_spec_assigned
 df.squad_ammo_spec = {}
 
----@enum squad_ammo_spec_flags
-df.squad_ammo_spec.T_flags = {
-  use_combat = 0,
-  use_training = 1,
-}
+---@class (exact) _squad_ammo_spec_flags: df.struct
+---@field use_combat 0
+---@field [0] "use_combat"
+---@field use_training 1
+---@field [1] "use_training"
+df.squad_ammo_spec.T_flags = {}
+
+---@class squad_ammo_spec_flags
+---@field [0] boolean
+---@field use_combat boolean
+---@field [1] boolean
+---@field use_training boolean
 
 ---@class squad_ammo_spec_assigned: df.struct
 df.squad_ammo_spec.T_assigned = {}
 
----@enum squad_use_flags
-df.squad_use_flags = {
-  sleep = 0,
-  train = 1,
-  indiv_eq = 2,
-  squad_eq = 3,
-}
+---@class (exact) _squad_use_flags: df.struct
+---@field sleep 0
+---@field [0] "sleep"
+---@field train 1
+---@field [1] "train"
+---@field indiv_eq 2
+---@field [2] "indiv_eq"
+---@field squad_eq 3
+---@field [3] "squad_eq"
+df.squad_use_flags = {}
 
----@enum uniform_category
-df.uniform_category = {
-  body = 0,
-  head = 1,
-  pants = 2,
-  gloves = 3,
-  shoes = 4,
-  shield = 5,
-  weapon = 6,
-}
+---@class squad_use_flags
+---@field [0] boolean
+---@field sleep boolean
+---@field [1] boolean
+---@field train boolean
+---@field [2] boolean
+---@field indiv_eq boolean
+---@field [3] boolean
+---@field squad_eq boolean
 
----@enum uniform_flags
-df.uniform_flags = {
-  replace_clothing = 0,
-  exact_matches = 1,
-}
+---@class (exact) _uniform_category: df.struct
+---@field body 0
+---@field [0] "body"
+---@field head 1
+---@field [1] "head"
+---@field pants 2
+---@field [2] "pants"
+---@field gloves 3
+---@field [3] "gloves"
+---@field shoes 4
+---@field [4] "shoes"
+---@field shield 5
+---@field [5] "shield"
+---@field weapon 6
+---@field [6] "weapon"
+df.uniform_category = {}
 
----@enum barrack_preference_category
-df.barrack_preference_category = {
-  Bed = 0,
-  Armorstand = 1,
-  Box = 2,
-  Cabinet = 3,
-}
+---@class uniform_category
+---@field [0] boolean
+---@field body boolean
+---@field [1] boolean
+---@field head boolean
+---@field [2] boolean
+---@field pants boolean
+---@field [3] boolean
+---@field gloves boolean
+---@field [4] boolean
+---@field shoes boolean
+---@field [5] boolean
+---@field shield boolean
+---@field [6] boolean
+---@field weapon boolean
 
----@enum squad_event_type
-df.squad_event_type = {
-  None = -1,
-  Unk0 = 1,
-  Unk1 = 2,
-  Unk2 = 3,
-}
+---@class (exact) _uniform_flags: df.struct
+---@field replace_clothing 0
+---@field [0] "replace_clothing"
+---@field exact_matches 1
+---@field [1] "exact_matches"
+df.uniform_flags = {}
+
+---@class uniform_flags
+---@field [0] boolean
+---@field replace_clothing boolean
+---@field [1] boolean
+---@field exact_matches boolean
+
+---@class (exact) _barrack_preference_category: df.struct
+---@field Bed 0
+---@field [0] "Bed"
+---@field Armorstand 1
+---@field [1] "Armorstand"
+---@field Box 2
+---@field [2] "Box"
+---@field Cabinet 3
+---@field [3] "Cabinet"
+df.barrack_preference_category = {}
+
+---@class barrack_preference_category
+---@field [0] boolean
+---@field Bed boolean
+---@field [1] boolean
+---@field Armorstand boolean
+---@field [2] boolean
+---@field Box boolean
+---@field [3] boolean
+---@field Cabinet boolean
+
+---@class (exact) _squad_event_type: df.struct
+---@field None -1
+---@field [0] "None"
+---@field Unk0 1
+---@field [1] "Unk0"
+---@field Unk1 2
+---@field [2] "Unk1"
+---@field Unk2 3
+---@field [3] "Unk2"
+df.squad_event_type = {}
+
+---@class squad_event_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Unk0 boolean
+---@field [2] boolean
+---@field Unk1 boolean
+---@field [3] boolean
+---@field Unk2 boolean
 
 ---@class squad_position: df.struct
 ---@field occupant historical_figure
@@ -181,46 +266,147 @@ df.ammo.T_ammo_items = {}
 ---@class ammo_ammo_units: df.struct
 df.ammo.T_ammo_units = {}
 
----@enum squad_order_type
-df.squad_order_type = {
-  MOVE = 0,
-  KILL_LIST = 1,
-  DEFEND_BURROWS = 2,
-  PATROL_ROUTE = 3,
-  TRAIN = 4,
-  DRIVE_ENTITY_OFF_SITE = 5,
-  CAUSE_TROUBLE_FOR_ENTITY = 6,
-  KILL_HF = 7,
-  DRIVE_ARMIES_FROM_SITE = 8,
-  RETRIEVE_ARTIFACT = 9,
-  RAID_SITE = 10,
-  RESCUE_HF = 11,
-}
+---@class (exact) _squad_order_type: df.struct
+---@field MOVE 0
+---@field [0] "MOVE"
+---@field KILL_LIST 1
+---@field [1] "KILL_LIST"
+---@field DEFEND_BURROWS 2
+---@field [2] "DEFEND_BURROWS"
+---@field PATROL_ROUTE 3
+---@field [3] "PATROL_ROUTE"
+---@field TRAIN 4
+---@field [4] "TRAIN"
+---@field DRIVE_ENTITY_OFF_SITE 5
+---@field [5] "DRIVE_ENTITY_OFF_SITE"
+---@field CAUSE_TROUBLE_FOR_ENTITY 6
+---@field [6] "CAUSE_TROUBLE_FOR_ENTITY"
+---@field KILL_HF 7
+---@field [7] "KILL_HF"
+---@field DRIVE_ARMIES_FROM_SITE 8
+---@field [8] "DRIVE_ARMIES_FROM_SITE"
+---@field RETRIEVE_ARTIFACT 9
+---@field [9] "RETRIEVE_ARTIFACT"
+---@field RAID_SITE 10
+---@field [10] "RAID_SITE"
+---@field RESCUE_HF 11
+---@field [11] "RESCUE_HF"
+df.squad_order_type = {}
 
----@enum squad_order_cannot_reason
-df.squad_order_cannot_reason = {
-  not_following_order = 0,
-  activity_cancelled = 1,
-  no_barracks = 2,
-  improper_barracks = 3,
-  no_activity = 4,
-  cannot_individually_drill = 5,
-  does_not_exist = 6,
-  no_archery_target = 7,
-  improper_building = 8,
-  unreachable_location = 9,
-  invalid_location = 10,
-  no_reachable_valid_target = 11,
-  no_burrow = 12,
-  not_in_squad = 13,
-  no_patrol_route = 14,
-  no_reachable_point_on_route = 15,
-  invalid_order = 16,
-  no_temple = 17,
-  no_library = 18,
-  no_item = 19,
-  cannot_leave_site = 20,
-}
+---@class squad_order_type
+---@field [0] boolean
+---@field MOVE boolean
+---@field [1] boolean
+---@field KILL_LIST boolean
+---@field [2] boolean
+---@field DEFEND_BURROWS boolean
+---@field [3] boolean
+---@field PATROL_ROUTE boolean
+---@field [4] boolean
+---@field TRAIN boolean
+---@field [5] boolean
+---@field DRIVE_ENTITY_OFF_SITE boolean
+---@field [6] boolean
+---@field CAUSE_TROUBLE_FOR_ENTITY boolean
+---@field [7] boolean
+---@field KILL_HF boolean
+---@field [8] boolean
+---@field DRIVE_ARMIES_FROM_SITE boolean
+---@field [9] boolean
+---@field RETRIEVE_ARTIFACT boolean
+---@field [10] boolean
+---@field RAID_SITE boolean
+---@field [11] boolean
+---@field RESCUE_HF boolean
+
+---@class (exact) _squad_order_cannot_reason: df.struct
+---@field not_following_order 0
+---@field [0] "not_following_order"
+---@field activity_cancelled 1
+---@field [1] "activity_cancelled"
+---@field no_barracks 2
+---@field [2] "no_barracks"
+---@field improper_barracks 3
+---@field [3] "improper_barracks"
+---@field no_activity 4
+---@field [4] "no_activity"
+---@field cannot_individually_drill 5
+---@field [5] "cannot_individually_drill"
+---@field does_not_exist 6
+---@field [6] "does_not_exist"
+---@field no_archery_target 7
+---@field [7] "no_archery_target"
+---@field improper_building 8
+---@field [8] "improper_building"
+---@field unreachable_location 9
+---@field [9] "unreachable_location"
+---@field invalid_location 10
+---@field [10] "invalid_location"
+---@field no_reachable_valid_target 11
+---@field [11] "no_reachable_valid_target"
+---@field no_burrow 12
+---@field [12] "no_burrow"
+---@field not_in_squad 13
+---@field [13] "not_in_squad"
+---@field no_patrol_route 14
+---@field [14] "no_patrol_route"
+---@field no_reachable_point_on_route 15
+---@field [15] "no_reachable_point_on_route"
+---@field invalid_order 16
+---@field [16] "invalid_order"
+---@field no_temple 17
+---@field [17] "no_temple"
+---@field no_library 18
+---@field [18] "no_library"
+---@field no_item 19
+---@field [19] "no_item"
+---@field cannot_leave_site 20
+---@field [20] "cannot_leave_site"
+df.squad_order_cannot_reason = {}
+
+---@class squad_order_cannot_reason
+---@field [0] boolean
+---@field not_following_order boolean
+---@field [1] boolean
+---@field activity_cancelled boolean
+---@field [2] boolean
+---@field no_barracks boolean
+---@field [3] boolean
+---@field improper_barracks boolean
+---@field [4] boolean
+---@field no_activity boolean
+---@field [5] boolean
+---@field cannot_individually_drill boolean
+---@field [6] boolean
+---@field does_not_exist boolean
+---@field [7] boolean
+---@field no_archery_target boolean
+---@field [8] boolean
+---@field improper_building boolean
+---@field [9] boolean
+---@field unreachable_location boolean
+---@field [10] boolean
+---@field invalid_location boolean
+---@field [11] boolean
+---@field no_reachable_valid_target boolean
+---@field [12] boolean
+---@field no_burrow boolean
+---@field [13] boolean
+---@field not_in_squad boolean
+---@field [14] boolean
+---@field no_patrol_route boolean
+---@field [15] boolean
+---@field no_reachable_point_on_route boolean
+---@field [16] boolean
+---@field invalid_order boolean
+---@field [17] boolean
+---@field no_temple boolean
+---@field [18] boolean
+---@field no_library boolean
+---@field [19] boolean
+---@field no_item boolean
+---@field [20] boolean
+---@field cannot_leave_site boolean
 
 ---@class squad_order: df.struct
 ---@field unk_v40_1 integer
@@ -349,34 +535,110 @@ df.army_controller = {}
 ---@field VillainousVisit army_controller_villainous_visit
 df.army_controller.T_data = {}
 
----@enum army_controller_type
-df.army_controller.T_type = {
-  t0 = 0,
-  t1 = 1,
-  InvasionOrder = 2,
-  t3 = 3,
-  Invasion = 4, --Seen on army_controller entries of armies referenced by InvasionOrder controllers (which do not refer to the InvasionOrder entries). These Invasion entries are not in the 'all' vector
-  t5 = 5,
-  t6 = 6,
-  t7 = 7,
-  t8 = 8,
-  t9 = 9,
-  t10 = 10,
-  t11 = 11,
-  Visit = 12, --Used both for regular visitors to a fortress and exiled characters sent to 'visit' other sites
-  t13 = 13,
-  t14 = 14,
-  t15 = 15,
-  t16 = 16,
-  Quest = 17, --Used to indicate artifact quests
-  t18 = 18,
-  t19 = 19,
-  t20 = 20,
-  t21 = 21,
-  t22 = 22,
-  t23 = 23,
-  VillainousVisit = 24,
-}
+---@class (exact) _army_controller_type: df.struct
+---@field t0 0
+---@field [0] "t0"
+---@field t1 1
+---@field [1] "t1"
+---@field InvasionOrder 2
+---@field [2] "InvasionOrder"
+---@field t3 3
+---@field [3] "t3"
+---@field Invasion 4
+---@field [4] "Invasion"
+---@field t5 5
+---@field [5] "t5"
+---@field t6 6
+---@field [6] "t6"
+---@field t7 7
+---@field [7] "t7"
+---@field t8 8
+---@field [8] "t8"
+---@field t9 9
+---@field [9] "t9"
+---@field t10 10
+---@field [10] "t10"
+---@field t11 11
+---@field [11] "t11"
+---@field Visit 12
+---@field [12] "Visit"
+---@field t13 13
+---@field [13] "t13"
+---@field t14 14
+---@field [14] "t14"
+---@field t15 15
+---@field [15] "t15"
+---@field t16 16
+---@field [16] "t16"
+---@field Quest 17
+---@field [17] "Quest"
+---@field t18 18
+---@field [18] "t18"
+---@field t19 19
+---@field [19] "t19"
+---@field t20 20
+---@field [20] "t20"
+---@field t21 21
+---@field [21] "t21"
+---@field t22 22
+---@field [22] "t22"
+---@field t23 23
+---@field [23] "t23"
+---@field VillainousVisit 24
+---@field [24] "VillainousVisit"
+df.army_controller.T_type = {}
+
+---@class army_controller_type
+---@field [0] boolean
+---@field t0 boolean
+---@field [1] boolean
+---@field t1 boolean
+---@field [2] boolean
+---@field InvasionOrder boolean
+---@field [3] boolean
+---@field t3 boolean
+---@field [4] boolean
+---@field Invasion boolean
+---@field [5] boolean
+---@field t5 boolean
+---@field [6] boolean
+---@field t6 boolean
+---@field [7] boolean
+---@field t7 boolean
+---@field [8] boolean
+---@field t8 boolean
+---@field [9] boolean
+---@field t9 boolean
+---@field [10] boolean
+---@field t10 boolean
+---@field [11] boolean
+---@field t11 boolean
+---@field [12] boolean
+---@field Visit boolean
+---@field [13] boolean
+---@field t13 boolean
+---@field [14] boolean
+---@field t14 boolean
+---@field [15] boolean
+---@field t15 boolean
+---@field [16] boolean
+---@field t16 boolean
+---@field [17] boolean
+---@field Quest boolean
+---@field [18] boolean
+---@field t18 boolean
+---@field [19] boolean
+---@field t19 boolean
+---@field [20] boolean
+---@field t20 boolean
+---@field [21] boolean
+---@field t21 boolean
+---@field [22] boolean
+---@field t22 boolean
+---@field [23] boolean
+---@field t23 boolean
+---@field [24] boolean
+---@field VillainousVisit boolean
 
 ---@class army_controller_sub1: df.struct
 ---@field unk_1 integer
@@ -412,13 +674,26 @@ df.army_controller_invasion_order.T_unk_4a = {}
 ---@field unk_2 army_controller_invasion_unk_2
 df.army_controller_invasion = {}
 
----@enum army_controller_invasion_unk_2
-df.army_controller_invasion.T_unk_2 = {
-  not_sleeping = 0, --set to 1 to make army wake up
-  unk_2 = 1, --seen set on gobbo/necro attack controller
-  unk_3 = 2,
-  unk_4 = 3, --sen set on gobbo/necro attack controller
-}
+---@class (exact) _army_controller_invasion_unk_2: df.struct
+---@field not_sleeping 0
+---@field [0] "not_sleeping"
+---@field unk_2 1
+---@field [1] "unk_2"
+---@field unk_3 2
+---@field [2] "unk_3"
+---@field unk_4 3
+---@field [3] "unk_4"
+df.army_controller_invasion.T_unk_2 = {}
+
+---@class army_controller_invasion_unk_2
+---@field [0] boolean
+---@field not_sleeping boolean
+---@field [1] boolean
+---@field unk_2 boolean
+---@field [2] boolean
+---@field unk_3 boolean
+---@field [3] boolean
+---@field unk_4 boolean
 
 ---@class army_controller_sub5: df.struct
 ---@field pos_x integer in map_block coordinates. Same as those of the main struct seen
@@ -608,10 +883,14 @@ df.army_controller_sub23 = {}
 ---@field purpose history_event_reason none before arrival
 df.army_controller_villainous_visit = {}
 
----@enum army_flags
-df.army_flags = {
-  player = 0,
-}
+---@class (exact) _army_flags: df.struct
+---@field player 0
+---@field [0] "player"
+df.army_flags = {}
+
+---@class army_flags
+---@field [0] boolean
+---@field player boolean
 
 ---@class army: df.instance
 ---@field id integer
