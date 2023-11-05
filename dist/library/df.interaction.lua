@@ -121,6 +121,15 @@ df.interaction_effect_location_hint = {}
 ---@field flags interaction_effect_flags
 ---@field interaction_id interaction
 ---@field arena_name string IE_ARENA_NAME
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field activateOnUnit fun(self, any...): any
+---@field activateOnItem fun(self, any...): any
+---@field parseRaws fun(self, any...): any
+---@field finalize fun(self, any...): any
+---@field applySyndromes fun(self, any...): any
+---@field hasSyndrome fun(self, any...): any
 df.interaction_effect = {}
 
 ---@class _interaction_effect_flags: df.bitfield
@@ -268,6 +277,10 @@ df.interaction_source_type = {}
 ---@field trigger_string_second string IS_TRIGGER_STRING_SECOND
 ---@field trigger_string_third string IS_TRIGGER_STRING_THIRD
 ---@field trigger_string string IS_TRIGGER_STRING
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field parseRaws fun(self, any...): any
 df.interaction_source = {}
 
 ---@class interaction_source_regionst: interaction_source
@@ -492,6 +505,10 @@ df.interaction_target_location_type = {}
 ---@field location interaction_target_location_type IT_LOCATION
 ---@field reference_name string IT_LOCATION:RANDOM_NEARBY_LOCATION
 ---@field reference_distance integer IT_LOCATION:RANDOM_NEARBY_LOCATION
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field parseRaws fun(self, any...): any
 df.interaction_target = {}
 
 ---@class interaction_target_info: df.struct

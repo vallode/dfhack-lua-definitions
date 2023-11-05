@@ -186,6 +186,9 @@ df.resource_allotment_specifier_type = {}
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.resource_allotment_specifier = {}
 
 ---@class resource_allotment_specifier_cropst: resource_allotment_specifier

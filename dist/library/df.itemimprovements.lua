@@ -79,6 +79,15 @@ df.dye_info = {}
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 integer
+---@field getImage fun(self, any...): any
+---@field getColorAndShape fun(self, any...): any
+---@field clone fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getType fun(self, any...): any
+---@field isDecoration fun(self, any...): any
+---@field getDyeValue fun(self, any...): any
+---@field setShape fun(self, any...): any
 df.itemimprovement = {}
 
 ---@class itemimprovement_art_imagest: itemimprovement

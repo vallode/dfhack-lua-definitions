@@ -77,6 +77,12 @@ df.reaction_reagent_type = {}
 ---@field code string
 ---@field quantity integer
 ---@field flags reaction_reagent_flags
+---@field getType fun(self, any...): any
+---@field resolveTokens fun(self, any...): any
+---@field matchesRoot fun(self, any...): any
+---@field matchesChild fun(self, any...): any
+---@field getDescription fun(self, any...): any
+---@field isLyeBearing fun(self, any...): any
 df.reaction_reagent = {}
 
 ---@class _reaction_reagent_flags: df.bitfield
@@ -134,6 +140,10 @@ df.reaction_product_type = {}
 ---@class reaction_product: df.struct
 ---@field product_token string
 ---@field product_to_container string
+---@field getType fun(self, any...): any
+---@field resolveTokens fun(self, any...): any
+---@field produce fun(self, any...): any
+---@field getDescription fun(self, any...): any used in Adventurer mode reactions?
 df.reaction_product = {}
 
 ---@class _reaction_product_item_flags: df.enum

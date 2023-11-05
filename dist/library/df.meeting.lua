@@ -35,6 +35,9 @@ df.dipscript_popup.T_flags = {}
 
 ---@class script_stepst: df.struct
 ---@field next_step_idx integer
+---@field setNextStep fun(self, any...): any
+---@field execute fun(self, any...): any
+---@field skip fun(self, any...): any
 df.script_stepst = {}
 
 ---@class script_step_setvarst: script_stepst
@@ -98,6 +101,7 @@ df.script_step_eventst = {}
 
 ---@class script_varst: df.struct
 ---@field name string
+---@field instantiate fun(self, any...): any
 df.script_varst = {}
 
 ---@class script_var_unitst: script_varst
@@ -108,6 +112,13 @@ df.script_var_longst = {}
 
 ---@class active_script_varst: df.struct
 ---@field name string
+---@field setColor fun(self, any...): any
+---@field formatString fun(self, any...): any
+---@field getValue fun(self, any...): any
+---@field setValue fun(self, any...): any
+---@field removeUnit fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.active_script_varst = {}
 
 ---@class active_script_var_unitst: active_script_varst
@@ -530,6 +541,26 @@ df.activity_event_participants.T_free_units = {}
 ---@field flags activity_event_flags
 ---@field unk_v42_1 activity_event_unk_v42_1
 ---@field unk_v42_2 activity_event_unk_v42_2
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field isEmpty fun(self, any...): any returns true if hist_figure_ids empty or if various subclass fields are uninitialized
+---@field getParticipantInfo fun(self, any...): any
+---@field dismiss fun(self, any...): any
+---@field move fun(self, any...): any
+---@field removeParticipant fun(self, any...): any
+---@field process fun(self, any...): any
+---@field checkDrillInvalid fun(self, any...): any
+---@field decUniformLock fun(self, any...): any
+---@field getSquadEventType fun(self, any...): any
+---@field setDemoSkill fun(self, any...): any
+---@field setSkillDemoTimers fun(self, any...): any
+---@field adjustOrganizeCounter fun(self, any...): any
+---@field getOrganizer fun(self, any...): any or perhaps somebody else - only works for combat_training and skill_demonstration
+---@field getBuilding fun(self, any...): any returns pointer to building_id
+---@field isSparring fun(self, any...): any
+---@field getUniformType fun(self, any...): any
+---@field getName fun(self, any...): any
 df.activity_event = {}
 
 ---@class _activity_event_flags: df.bitfield
@@ -1226,6 +1257,8 @@ df.activity_event_performancest.T_participant_actions = {}
 ---@field unk_3 integer
 ---@field unk_4 performance_play_orderst_unk_4
 ---@field unk_5 integer
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.performance_play_orderst = {}
 
 ---@class performance_play_orderst_unk_4: df.struct

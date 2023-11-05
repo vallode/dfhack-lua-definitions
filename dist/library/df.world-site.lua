@@ -247,6 +247,15 @@ df.abstract_building_contents.T_need_more = {}
 ---@field site_id world_site not initialized/saved/loaded, assumed member of base class
 ---@field pos coord2d
 ---@field occupations occupation[]
+---@field getType fun(self, any...): any
+---@field getDisplayTile fun(self, any...): any on navigation minimap
+---@field getName fun(self, any...): any
+---@field getContents fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getReligionID fun(self, any...): any
+---@field getEntombed fun(self, any...): any
+---@field generate_xml fun(self, any...): any
 df.abstract_building = {}
 
 ---@class abstract_building_inhabitants: df.struct
@@ -1168,6 +1177,9 @@ df.site_realization_building = {}
 df.site_realization_building.T_unk_4c = {}
 
 ---@class site_realization_building_infost: df.struct
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.site_realization_building_infost = {}
 
 ---@class site_building_item: df.struct
@@ -1513,6 +1525,9 @@ df.creation_zone_pwg_alteration_type = {}
 
 ---@class creation_zone_pwg_alterationst: df.struct
 ---@field unk_0 integer
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.creation_zone_pwg_alterationst = {}
 
 ---@class creation_zone_pwg_alteration_location_deathst: creation_zone_pwg_alterationst

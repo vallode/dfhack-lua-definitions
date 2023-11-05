@@ -415,6 +415,22 @@ df.squad_order_cannot_reason = {}
 ---@field year_tick integer
 ---@field unk_v40_3 integer
 ---@field unk_1 integer
+---@field clone fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getType fun(self, any...): any
+---@field isPatrol fun(self, any...): any
+---@field offsetPosition fun(self, any...): any
+---@field process fun(self, any...): any
+---@field reasonCannot fun(self, any...): any
+---@field decUniformLock fun(self, any...): any
+---@field isFulfilled fun(self, any...): any true if all killed
+---@field getTargetUnits fun(self, any...): any
+---@field getUniformType fun(self, any...): any
+---@field getDescription fun(self, any...): any
+---@field isInactive fun(self, any...): any always false
+---@field isCombat fun(self, any...): any not train
+---@field isEqual fun(self, any...): any
 df.squad_order = {}
 
 ---@class squad_order_movest: squad_order

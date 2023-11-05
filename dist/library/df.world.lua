@@ -1010,6 +1010,7 @@ df.coin_batch.T_image_back = {}
 ---@field list job_list_link
 ---@field postings job_handler_postings entries never removed
 ---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
+---@field cancel_job fun(self, any...): any
 df.job_handler = {}
 
 ---@class job_handler_postings: df.struct
@@ -1041,6 +1042,7 @@ df.job_handler.T_job_application_heap = {}
 ---@field bad building[]
 ---@field check_bridge_collapse boolean
 ---@field check_machine_collapse boolean ?
+---@field get_machine_hookup_list fun(self, any...): any ToadyOnes name
 df.building_handler = {}
 
 ---@class machine_handler: df.struct

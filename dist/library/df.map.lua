@@ -506,6 +506,8 @@ df.map_block.T_items = {}
 ---@field unk_z2 integer
 ---@field unk_3 integer
 ---@field unk_4 cave_column_unk_4
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.cave_column = {}
 
 ---@class _cave_column_unk_4: df.bitfield
@@ -530,6 +532,8 @@ df.cave_column.T_unk_4 = {}
 ---@field z_shift integer
 ---@field unk_6 coord_path
 ---@field unk_7 cave_column_rectangle_unk_7
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.cave_column_rectangle = {}
 
 ---@class _cave_column_rectangle_unk_7: df.bitfield
@@ -610,6 +614,11 @@ df.block_square_event_type = {}
 ---@field designation_priority boolean
 
 ---@class block_square_event: df.struct
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field isEmpty fun(self, any...): any
+---@field checkTemperature fun(self, any...): any
 df.block_square_event = {}
 
 ---@class block_square_event_mineralst: block_square_event
@@ -746,6 +755,10 @@ df.feature_type = {}
 ---@field embark_pos coord2d_path
 ---@field min_map_z integer[]
 ---@field max_map_z integer[]
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field shiftCoords fun(self, any...): any
 df.feature = {}
 
 ---@class feature_outdoor_riverst: feature
@@ -839,6 +852,22 @@ df.layer_type = {}
 ---@field end_y integer
 ---@field start_depth layer_type
 ---@field end_depth layer_type
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field createFeature fun(self, any...): any
+---@field recreateFeature fun(self, any...): any destroyFeature(), then createFeature()
+---@field destroyFeature fun(self, any...): any
+---@field getFeature fun(self, any...): any
+---@field getMaterial fun(self, any...): any
+---@field getColor fun(self, any...): any
+---@field getName fun(self, any...): any
+---@field isWater fun(self, any...): any
+---@field isSubterranean fun(self, any...): any
+---@field isMagma fun(self, any...): any
+---@field isChasm fun(self, any...): any
+---@field isLayer fun(self, any...): any
+---@field getLayer fun(self, any...): any
 df.feature_init = {}
 
 ---@class feature_init_outdoor_riverst: feature_init
@@ -904,6 +933,9 @@ df.feature_alteration_type = {}
 ---@field new_lava_fill_z boolean
 
 ---@class feature_alteration: df.struct
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.feature_alteration = {}
 
 ---@class feature_alteration_new_pop_maxst: feature_alteration
@@ -943,6 +975,9 @@ df.world_construction_type = {}
 ---@field embark_y integer[]
 ---@field embark_unk integer[]
 ---@field embark_z integer[]
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.world_construction_square = {}
 
 ---@class world_construction_square_roadst: world_construction_square
@@ -974,6 +1009,10 @@ df.world_construction_square_wallst = {}
 ---@field id integer
 ---@field square_obj world_construction_square[]
 ---@field square_pos coord2d_path
+---@field getType fun(self, any...): any
+---@field getName fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.world_construction = {}
 
 ---@class world_construction_roadst: world_construction
@@ -1327,6 +1366,10 @@ df.flow_guide_type = {}
 ---@class flow_guide: df.instance
 ---@field id integer
 ---@field unk_8 integer
+---@field getType fun(self, any...): any
+---@field shiftCoords fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.flow_guide = {}
 
 ---@class flow_guide_trailing_flowst: flow_guide
@@ -1364,6 +1407,9 @@ df.region_block_event_type = {}
 ---@field SphereField boolean
 
 ---@class region_block_eventst: df.struct
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.region_block_eventst = {}
 
 ---@class region_block_event_sphere_fieldst: region_block_eventst

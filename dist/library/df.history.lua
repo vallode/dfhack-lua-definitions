@@ -1150,6 +1150,9 @@ df.mental_picture_property_type = {}
 
 ---@class mental_picture_propertyst: df.struct
 ---@field unk_0 integer
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.mental_picture_propertyst = {}
 
 ---@class mental_picture_property_datest: mental_picture_propertyst
@@ -1221,6 +1224,9 @@ df.mental_picture_element_type = {}
 
 ---@class mental_picture_elementst: df.struct
 ---@field unk_1 integer
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.mental_picture_elementst = {}
 
 ---@class mental_picture_element_hfst: mental_picture_elementst
@@ -2348,6 +2354,38 @@ df.merc_role_type = {}
 ---@field seconds integer
 ---@field flags any
 ---@field id integer
+---@field getType fun(self, any...): any
+---@field getWarStatus fun(self, any...): any
+---@field getAngerModifier fun(self, any...): any
+---@field getHappinessModifier fun(self, any...): any
+---@field madeFirstContact fun(self, any...): any
+---@field getKilledHistfigID fun(self, any...): any
+---@field wasHistfigKilled fun(self, any...): any
+---@field wasHistfigRevived fun(self, any...): any
+---@field getRelatedHistfigIDs fun(self, any...): any
+---@field getRelatedSiteIDs fun(self, any...): any
+---@field getRelatedSiteStructureIDs fun(self, any...): any
+---@field getRelatedArtifactIDs fun(self, any...): any
+---@field getRelatedRegionIDs fun(self, any...): any
+---@field getRelatedLayerIDs fun(self, any...): any
+---@field getRelatedEntityIDs fun(self, any...): any
+---@field isRelatedToHistfigID fun(self, any...): any
+---@field isRelatedToSiteID fun(self, any...): any
+---@field isRelatedToSiteStructure fun(self, any...): any
+---@field isRelatedToArtifactID fun(self, any...): any
+---@field isRelatedToRegionID fun(self, any...): any
+---@field isRelatedToLayerID fun(self, any...): any
+---@field isRelatedToAgreementID fun(self, any...): any broken; always returns false
+---@field isRelatedToEntityID fun(self, any...): any
+---@field getSentence fun(self, any...): any
+---@field getPhrase fun(self, any...): any
+---@field populateArtImage fun(self, any...): any
+---@field isChangedHistfigID fun(self, any...): any
+---@field categorize fun(self, any...): any inserts event into world_history.events_death if relevant
+---@field uncategorize fun(self, any...): any removes event from world_history.events_death if relevant
+---@field generate_xml fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
 df.history_event = {}
 
 ---@class history_event_war_attacked_sitest: history_event
@@ -4498,6 +4536,17 @@ df.history_event_collection_type = {}
 ---@field end_seconds integer
 ---@field flags any
 ---@field id integer
+---@field getType fun(self, any...): any
+---@field generate_xml fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field categorize fun(self, any...): any
+---@field uncategorize fun(self, any...): any
+---@field getName fun(self, any...): any
+---@field getRegionCoords fun(self, any...): any
+---@field getParent fun(self, any...): any
+---@field isBetweenEntities fun(self, any...): any
+---@field updateEndTime fun(self, any...): any
 df.history_event_collection = {}
 
 ---@class history_event_collection_warst: history_event_collection

@@ -28,6 +28,16 @@ df.art_image_element_type = {}
 
 ---@class art_image_element: df.struct
 ---@field count integer
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getType fun(self, any...): any
+---@field setID fun(self, any...): any
+---@field clone fun(self, any...): any
+---@field getSymbol fun(self, any...): any
+---@field getName1 fun(self, any...): any
+---@field getName2 fun(self, any...): any
+---@field markDiscovered fun(self, any...): any
+---@field getColorAndShape fun(self, any...): any
 df.art_image_element = {}
 
 ---@class art_image_element_creaturest: art_image_element
@@ -73,6 +83,11 @@ df.art_image_property_type = {}
 
 ---@class art_image_property: df.struct
 ---@field flags any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getType fun(self, any...): any
+---@field clone fun(self, any...): any
+---@field getName fun(self, any...): any
 df.art_image_property = {}
 
 ---@class _art_image_property_verb: df.enum

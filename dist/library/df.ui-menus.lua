@@ -29,6 +29,11 @@ df.build_req_choice_type = {}
 ---@class build_req_choicest: df.struct
 ---One choice in the build item selector.
 ---@field distance integer
+---@field getType fun(self, any...): any
+---@field getName fun(self, any...): any
+---@field isCandidate fun(self, any...): any
+---@field getUsedCount fun(self, any...): any
+---@field getNumCandidates fun(self, any...): any
 df.build_req_choicest = {}
 
 ---@class build_req_choice_genst: build_req_choicest
@@ -164,6 +169,19 @@ df.interface_category_construction = {}
 ---@field leave_button boolean
 ---@field flag integer
 ---@field filter_str string
+---@field print_info fun(self, any...): any ghost, buried, memorialized
+---@field text fun(self, any...): any
+---@field press fun(self, any...): any
+---@field set_button_color fun(self, any...): any
+---@field set_leave_button fun(self, any...): any
+---@field tile fun(self, any...): any
+---@field set_tile_color fun(self, any...): any
+---@field prepare_tool_tip fun(self, any...): any
+---@field pressable fun(self, any...): any
+---@field has_view fun(self, any...): any
+---@field is_alphabetized fun(self, any...): any
+---@field get_objection_string fun(self, any...): any
+---@field get_info_string fun(self, any...): any
 df.interface_button = {}
 
 ---@class interface_button_buildingst: interface_button

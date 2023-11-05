@@ -16,6 +16,7 @@ TYPE_MAP = {
   'stl-function' => 'function',
   # TODO: Figure out a better way.
   'pointer' => 'any',
+  'vmethod' => 'fun(self, any...): any',
 }
 
 class XmlNode
@@ -57,7 +58,7 @@ class Field < XmlNode
   def self.get_type(node)
     typeName = node['type-name'] || node['pointer-type'] || node['ref-target']
 
-    if not node.children.empty?
+    if not node.children.empty? and not node.name == 'vmethod'
       childType = Field.get_type(node.children.first)
     end
 
@@ -191,14 +192,23 @@ class StructType < XmlNode
 
     if has_pointer_child and @parent_type and @node.name == 'stl-vector'
       children = @node.css('> pointer').children
+    # elsif has_pointer_child and @parent_type and @node.name == 'virtual-methods'
     else
       children = @node.children
     end
     
     inline_types = []
     children.each do |child|
-      next if !child.attributes['name'] or child.name == 'code-helper'
+      next if (!child.attributes['name'] and not child.name == 'virtual-methods') or child.name == 'code-helper'
 
+      if child.name == 'virtual-methods'
+        child.css('> vmethod').each do |method|
+          next if not method.attributes['name']
+          annotation << Field.new(method, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
+        end
+
+        next
+      end
       field = Field.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}")
 
       inline_types.push(child) if field.is_inline

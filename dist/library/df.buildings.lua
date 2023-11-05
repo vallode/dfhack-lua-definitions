@@ -402,6 +402,91 @@ df.building_drawbuffer = {}
 ---@field unk_v40_2 integer
 ---@field site_id world_site
 ---@field location_id abstract_building
+---@field getCustomType fun(self, any...): any
+---@field setCustomType fun(self, any...): any
+---@field countHospitalSupplies fun(self, any...): any
+---@field getStockpileLinks fun(self, any...): any
+---@field detachWorldData fun(self, any...): any ?
+---@field canLinkToStockpile fun(self, any...): any used by the give to building ui of stockpile
+---@field getUsers fun(self, any...): any
+---@field moveBuilding fun(self, any...): any
+---@field initOccupancy fun(self, any...): any
+---@field setFillTimer fun(self, any...): any
+---@field isOnFire fun(self, any...): any
+---@field isUnpowered fun(self, any...): any from magma OR machine power
+---@field canCollapse fun(self, any...): any
+---@field getPassableOccupancy fun(self, any...): any
+---@field getImpassableOccupancy fun(self, any...): any
+---@field isPowerSource fun(self, any...): any
+---@field updateFromWeather fun(self, any...): any
+---@field updateTemperature fun(self, any...): any
+---@field updateItems fun(self, any...): any
+---@field updateTempFromTile fun(self, any...): any
+---@field isNormalFurniture fun(self, any...): any
+---@field isFarmPlot fun(self, any...): any
+---@field getWorkshopProfile fun(self, any...): any
+---@field getMachineInfo fun(self, any...): any
+---@field getPowerInfo fun(self, any...): any
+---@field canConnectToMachine fun(self, any...): any
+---@field getType fun(self, any...): any
+---@field getSubtype fun(self, any...): any
+---@field setSubtype fun(self, any...): any
+---@field isActual fun(self, any...): any
+---@field isCoffin2 fun(self, any...): any
+---@field updateAction fun(self, any...): any
+---@field isStatueOrRestraint fun(self, any...): any
+---@field setMaterialAmount fun(self, any...): any
+---@field setBuildStage fun(self, any...): any
+---@field getBuildStage fun(self, any...): any
+---@field getMaxBuildStage fun(self, any...): any
+---@field getArchitectureValue fun(self, any...): any bridge: material*10 rough, material*30 smooth
+---@field isSettingOccupancy fun(self, any...): any
+---@field isActual2 fun(self, any...): any
+---@field isExtentShaped fun(self, any...): any
+---@field updateOccupancy fun(self, any...): any
+---@field getPersonalValue fun(self, any...): any
+---@field canBeRoom fun(self, any...): any
+---@field getConstructionValue fun(self, any...): any bridge: material*10
+---@field queueDestroy fun(self, any...): any same as querying and pressing X
+---@field isImpassableTile fun(self, any...): any
+---@field getFreeCapacity fun(self, any...): any
+---@field canStoreItem fun(self, any...): any
+---@field getName fun(self, any...): any
+---@field getNameColor fun(self, any...): any
+---@field initFarmSeasons fun(self, any...): any
+---@field getClutterLevel fun(self, any...): any 1..10
+---@field needsDesign fun(self, any...): any
+---@field canUseForMood fun(self, any...): any
+---@field canBeRoomSubset fun(self, any...): any
+---@field isCoffin fun(self, any...): any
+---@field canUseSpouseRoom fun(self, any...): any
+---@field canMakeRoom fun(self, any...): any false if already, or cannot be
+---@field isAssigned fun(self, any...): any building is assigned to a unit (if a zone) or is in a zone that is assigned to a unit
+---@field isJusticeRestraint fun(self, any...): any
+---@field detachRestrainedUnit fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field isImpassableAtCreation fun(self, any...): any the true set looks like things where the unit should stand aside
+---@field categorize fun(self, any...): any Add to world.buildings.other.*
+---@field uncategorize fun(self, any...): any Remove from world.buildings.other.*
+---@field getBaseValue fun(self, any...): any
+---@field setTriggerState fun(self, any...): any
+---@field needsMagma fun(self, any...): any
+---@field removeUses fun(self, any...): any
+---@field deconstructItems fun(self, any...): any
+---@field cleanupMap fun(self, any...): any
+---@field isFireSafe fun(self, any...): any checks contained_items[0] for FIREIMMUNE
+---@field fillSidebarMenu fun(self, any...): any
+---@field isForbidden fun(self, any...): any
+---@field isHidden fun(self, any...): any
+---@field isVisibleInUI fun(self, any...): any not hidden, or hide/unhide UI mode
+---@field isVisibleInViewport fun(self, any...): any checks coordinates, calls isVisibleInUI and checks window_xy
+---@field getDrawExtents fun(self, any...): any
+---@field drawBuilding fun(self, any...): any
+---@field getSpecificSquad fun(self, any...): any
+---@field getSpecificPosition fun(self, any...): any
+---@field setSpecificSquadPos fun(self, any...): any
+---@field clearSpecificSquad fun(self, any...): any
 df.building = {}
 
 ---@class building_job_claim_suppress: df.struct
@@ -977,6 +1062,7 @@ df.building_civzonest.T_squad_room_info = {}
 ---@field construction_stage integer 0 not started, then 1 or 3 max depending on type
 ---@field contained_items building_actual_contained_items
 ---@field design building_design
+---@field isDestroyedByItemRemoval fun(self, any...): any
 df.building_actual = {}
 
 ---@class building_actual_contained_items: df.struct

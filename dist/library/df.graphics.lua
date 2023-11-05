@@ -550,6 +550,26 @@ df.interface_setst = {}
 ---@field screentexpos_top_flag_old integer
 ---@field directtexcopy_old integer
 ---@field screentexpos_refresh_buffer integer
+---@field update_tile fun(self, any...): any
+---@field update_anchor_tile fun(self, any...): any
+---@field update_top_tile fun(self, any...): any
+---@field update_top_anchor_tile fun(self, any...): any
+---@field update_viewport_tile fun(self, any...): any
+---@field update_map_port_tile fun(self, any...): any
+---@field update_all fun(self, any...): any
+---@field do_blank_screen_fill fun(self, any...): any
+---@field update_full_viewport fun(self, any...): any
+---@field update_full_map_port fun(self, any...): any
+---@field clean_tile_cache fun(self, any...): any
+---@field render fun(self, any...): any
+---@field set_fullscreen fun(self, any...): any
+---@field zoom fun(self, any...): any
+---@field resize fun(self, any...): any
+---@field grid_resize fun(self, any...): any
+---@field set_viewport_zoom_factor fun(self, any...): any
+---@field get_precise_mouse_coords fun(self, any...): any
+---@field get_current_interface_tile_dims fun(self, any...): any
+---@field uses_opengl fun(self, any...): any
 df.renderer = {}
 
 ---@class renderer_2d_base: renderer
@@ -575,6 +595,7 @@ df.renderer = {}
 ---@field forced_steps integer
 ---@field natural_w integer
 ---@field natural_h integer
+---@field init_video fun(self, any...): any
 df.renderer_2d_base = {}
 
 ---@class renderer_2d: renderer_2d_base
@@ -649,6 +670,7 @@ df.zoom_commands = {}
 ---@field clock integer An *approximation* of the current time for use in garbage collection thingies, updated every frame or so.
 ---@field mouse_focus boolean
 ---@field last_text_input integer[]
+---@field GetKeyDisplay fun(self, any...): any
 df.enabler = {}
 
 ---@class _enabler_fullscreen_state: df.bitfield

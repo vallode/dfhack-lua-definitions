@@ -8,6 +8,8 @@
 ---@field list_creature integer[] Together with list_caste, a list of all caste indexes in order.
 ---@field list_caste integer[]
 ---@field action_strings string[]
+---@field getTile fun(self, any...): any
+---@field getGlowTile fun(self, any...): any
 df.creature_handler = {}
 
 ---@class world_raws: df.struct

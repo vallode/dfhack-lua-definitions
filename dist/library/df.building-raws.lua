@@ -23,6 +23,9 @@
 ---@field build_labors building_def_build_labors
 ---@field labor_description string
 ---@field build_stages integer
+---@field parseRaws fun(self, any...): any
+---@field categorize fun(self, any...): any add to world.raws.buildings.whatever
+---@field finalize fun(self, any...): any
 df.building_def = {}
 
 ---@class building_def_build_labors: df.struct

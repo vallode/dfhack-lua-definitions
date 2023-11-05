@@ -420,6 +420,231 @@ df.slab_engraving_type = {}
 ---@field fixed_temp integer
 ---@field weight integer if flags.weight_computed
 ---@field weight_fraction integer 1e-6
+---@field getType fun(self, any...): any
+---@field getSubtype fun(self, any...): any
+---@field getMaterial fun(self, any...): any
+---@field getMaterialIndex fun(self, any...): any
+---@field setSubtype fun(self, any...): any
+---@field setMaterial fun(self, any...): any
+---@field setMaterialIndex fun(self, any...): any
+---@field getActualMaterial fun(self, any...): any returns an actual material type, never a race
+---@field getActualMaterialIndex fun(self, any...): any returns an actual material index, never a caste
+---@field getRace fun(self, any...): any only if the object is made of a "specific creature mat"
+---@field getCaste fun(self, any...): any only if the object is made of a "specific creature mat"
+---@field getPlantID fun(self, any...): any only if the object is made of a plant material
+---@field getGrowthPrint fun(self, any...): any
+---@field setGrowthPrint fun(self, any...): any
+---@field getDimension fun(self, any...): any
+---@field getTotalDimension fun(self, any...): any
+---@field setDimension fun(self, any...): any
+---@field subtractDimension fun(self, any...): any
+---@field isFoodStorage fun(self, any...): any
+---@field isTrackCart fun(self, any...): any
+---@field isWheelbarrow fun(self, any...): any
+---@field getVehicleID fun(self, any...): any
+---@field isAmmo fun(self, any...): any
+---@field getStockpile fun(self, any...): any
+---@field containsPlaster fun(self, any...): any
+---@field isPlaster fun(self, any...): any
+---@field getColorOverride fun(self, any...): any
+---@field getHistoryInfo fun(self, any...): any
+---@field hasToolUse fun(self, any...): any
+---@field hasInvertedTile fun(self, any...): any
+---@field becomePaste fun(self, any...): any
+---@field becomePressed fun(self, any...): any
+---@field calculateWeight fun(self, any...): any
+---@field isSharpStone fun(self, any...): any
+---@field isCrystalGlassable fun(self, any...): any
+---@field isMetalOre fun(self, any...): any
+---@field clearLastTempUpdateTS fun(self, any...): any
+---@field listNotableKills fun(self, any...): any
+---@field getSpecHeat fun(self, any...): any
+---@field getIgnitePoint fun(self, any...): any
+---@field getHeatdamPoint fun(self, any...): any
+---@field getColddamPoint fun(self, any...): any
+---@field getBoilingPoint fun(self, any...): any
+---@field getMeltingPoint fun(self, any...): any
+---@field getFixedTemp fun(self, any...): any
+---@field getSolidDensity fun(self, any...): any
+---@field materialRots fun(self, any...): any
+---@field getTemperature fun(self, any...): any
+---@field adjustTemperature fun(self, any...): any
+---@field extinguish fun(self, any...): any
+---@field getGloveHandedness fun(self, any...): any
+---@field setGloveHandedness fun(self, any...): any
+---@field isSpike fun(self, any...): any
+---@field isScrew fun(self, any...): any
+---@field isBuildMat fun(self, any...): any
+---@field isTemperatureSafe fun(self, any...): any
+---@field setRandSubtype fun(self, any...): any
+---@field getWeaponSize fun(self, any...): any weapon racks have capacity 5
+---@field getWear fun(self, any...): any
+---@field setWear fun(self, any...): any
+---@field getMaker fun(self, any...): any
+---@field setMaker fun(self, any...): any
+---@field getCorpseInfo fun(self, any...): any
+---@field getBodyInfo fun(self, any...): any
+---@field getGloveFlags fun(self, any...): any
+---@field getItemShapeDesc fun(self, any...): any a statue/figurine of "string goes here"
+---@field isMatchingAmmoItem fun(self, any...): any
+---@field getImageRef fun(self, any...): any
+---@field getImageCivSite fun(self, any...): any
+---@field setImageCivSite fun(self, any...): any
+---@field setSeedsPlantSkillLevel fun(self, any...): any
+---@field getCorpseSize fun(self, any...): any size_info.size_cur
+---@field ageItem fun(self, any...): any
+---@field getCritterAirdrownTimer fun(self, any...): any
+---@field setCritterAirdrownTimer fun(self, any...): any
+---@field incrementCritterAirdrownTimer fun(self, any...): any
+---@field getRotTimer fun(self, any...): any
+---@field setRotTimer fun(self, any...): any
+---@field incrementRotTimer fun(self, any...): any
+---@field isBogeymanCorpse fun(self, any...): any
+---@field testMaterialFlag fun(self, any...): any return true if item satisfies flag
+---@field getAmmoType fun(self, any...): any
+---@field isLiquidPowder fun(self, any...): any
+---@field isLiquid fun(self, any...): any
+---@field isLiveAnimal fun(self, any...): any vermin, pet, or critter
+---@field getVolume fun(self, any...): any for putting in containers, building clutter
+---@field addImprovementFromJob fun(self, any...): any
+---@field isWeapon fun(self, any...): any
+---@field isArmorNotClothing fun(self, any...): any
+---@field isMillable fun(self, any...): any
+---@field isProcessableThread fun(self, any...): any
+---@field isProcessableVial fun(self, any...): any
+---@field isProcessableBarrel fun(self, any...): any
+---@field isEdiblePlant fun(self, any...): any
+---@field isEdibleRaw fun(self, any...): any
+---@field isEdibleCarnivore fun(self, any...): any In item_foodst, requires MEAT or FISH ingredient.
+---@field isEdibleBonecarn fun(self, any...): any In item_foodst, requires CORPSEPIECE, MEAT or FISH ingredient.
+---@field moveToGround fun(self, any...): any
+---@field categorize fun(self, any...): any Add item to world.items.other.*
+---@field uncategorize fun(self, any...): any Remove item from world.items.other.*
+---@field isFurniture fun(self, any...): any
+---@field isPressed fun(self, any...): any
+---@field isAnimal fun(self, any...): any stored in Animal stockpiles
+---@field assignQuality fun(self, any...): any
+---@field assignQuality2 fun(self, any...): any
+---@field notifyCreatedMasterwork fun(self, any...): any
+---@field notifyLostMasterwork fun(self, any...): any
+---@field addMagic fun(self, any...): any
+---@field magic_unk1 fun(self, any...): any
+---@field magic_unk2 fun(self, any...): any
+---@field magic_unk3 fun(self, any...): any
+---@field magic_unk4 fun(self, any...): any
+---@field setDisplayColor fun(self, any...): any
+---@field isDamagedByHeat fun(self, any...): any
+---@field needTwoHandedWield fun(self, any...): any
+---@field splitStack fun(self, any...): any
+---@field isTameableVermin fun(self, any...): any
+---@field isDye fun(self, any...): any
+---@field isMilkable fun(self, any...): any
+---@field isSandBearing fun(self, any...): any
+---@field isLyeBearing fun(self, any...): any
+---@field isAnimalProduct fun(self, any...): any
+---@field getStorageInfo fun(self, any...): any
+---@field addWear fun(self, any...): any
+---@field incWearTimer fun(self, any...): any
+---@field checkWearDestroy fun(self, any...): any
+---@field addContaminant fun(self, any...): any
+---@field removeContaminantByIdx fun(self, any...): any
+---@field removeContaminant fun(self, any...): any
+---@field tradeUnitContaminants fun(self, any...): any
+---@field tradeItemContaminants fun(self, any...): any calls item.tIC2(this)
+---@field tradeItemContaminants2 fun(self, any...): any
+---@field contaminateWound fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getWeaponAttacks fun(self, any...): any
+---@field isNotHeld fun(self, any...): any
+---@field isSplittable fun(self, any...): any if false, you throw the entire stack at once
+---@field addDefaultThreadImprovement fun(self, any...): any
+---@field addThreadImprovement fun(self, any...): any
+---@field propagateUnitRefs fun(self, any...): any
+---@field isSand fun(self, any...): any
+---@field getStackSize fun(self, any...): any
+---@field addStackSize fun(self, any...): any
+---@field setStackSize fun(self, any...): any
+---@field isAmmoClass fun(self, any...): any
+---@field isAutoClean fun(self, any...): any delete on_ground every season when in ANY_AUTO_CLEAN; default true
+---@field setTemperatureFromMapTile fun(self, any...): any
+---@field setTemperatureFromMap fun(self, any...): any
+---@field setTemperature fun(self, any...): any
+---@field updateTempFromMap fun(self, any...): any
+---@field updateTemperature fun(self, any...): any
+---@field updateFromWeather fun(self, any...): any
+---@field updateContaminants fun(self, any...): any
+---@field checkTemperatureDamage fun(self, any...): any
+---@field checkHeatColdDamage fun(self, any...): any
+---@field checkMeltBoil fun(self, any...): any
+---@field getMeleeSkill fun(self, any...): any
+---@field getRangedSkill fun(self, any...): any
+---@field setQuality fun(self, any...): any
+---@field getQuality fun(self, any...): any
+---@field getOverallQuality fun(self, any...): any
+---@field getImprovementQuality fun(self, any...): any
+---@field getProjectileSize fun(self, any...): any
+---@field isImprovable fun(self, any...): any
+---@field setSharpness fun(self, any...): any
+---@field getSharpness fun(self, any...): any
+---@field isTotemable fun(self, any...): any
+---@field isDyeable fun(self, any...): any
+---@field isNotDyed fun(self, any...): any
+---@field isDyed fun(self, any...): any
+---@field canSewImage fun(self, any...): any
+---@field canHaveImageSewnOnto fun(self, any...): any
+---@field isProcessableVialAtStill fun(self, any...): any
+---@field isSimilarToItem fun(self, any...): any
+---@field getBlockChance fun(self, any...): any
+---@field getParryChance fun(self, any...): any
+---@field getMakerRace fun(self, any...): any
+---@field setMakerRace fun(self, any...): any
+---@field getEffectiveArmorLevel fun(self, any...): any adds 1 if it has [METAL_ARMOR_LEVELS] and it's made of an inorganic mat
+---@field isConstructed fun(self, any...): any
+---@field isItemOrganicCloth fun(self, any...): any
+---@field isMadeOfOrganicCloth fun(self, any...): any
+---@field coverWithContaminant fun(self, any...): any also stops fire; used for rain
+---@field hasSpecificImprovements fun(self, any...): any
+---@field hasImprovements fun(self, any...): any
+---@field isImproved fun(self, any...): any
+---@field getMagic fun(self, any...): any
+---@field getItemDescription fun(self, any...): any
+---@field getItemDescriptionPrefix fun(self, any...): any "a " or "the "
+---@field getItemBasicName fun(self, any...): any usually just "item"
+---@field getImprovementsValue fun(self, any...): any
+---@field isExtractBearingFish fun(self, any...): any
+---@field isExtractBearingVermin fun(self, any...): any
+---@field getMaterialSizeForMelting fun(self, any...): any for armor, clothing, weapons, and tools, returns material size from the corresponding itemdef
+---@field getBaseWeight fun(self, any...): any
+---@field getWeightShiftBits fun(self, any...): any
+---@field isCollected fun(self, any...): any
+---@field isEdibleVermin fun(self, any...): any
+---@field drawSelf fun(self, any...): any
+---@field isRangedWeapon fun(self, any...): any
+---@field isClothing fun(self, any...): any
+---@field isWet fun(self, any...): any
+---@field getCurrencyValue fun(self, any...): any that is, value of coins
+---@field isAssignedToStockpile fun(self, any...): any
+---@field isAssignedToThisStockpile fun(self, any...): any
+---@field detachStockpileAssignment fun(self, any...): any also removes links from the pile
+---@field removeStockpileAssignment fun(self, any...): any just wipes the fields
+---@field getStockpile2 fun(self, any...): any
+---@field randomizeThreadImprovement fun(self, any...): any this updates the quality of a thread improvement already added to the item (or adjusts the quality of a thread item) based on the skill of the dyer
+---@field addImprovement fun(self, any...): any
+---@field copyImprovementsFrom fun(self, any...): any
+---@field getThreadDyeValue fun(self, any...): any
+---@field getColorAndShape fun(self, any...): any
+---@field isCritter fun(self, any...): any
+---@field isArmor fun(self, any...): any for armor user skill encumberance
+---@field calcUniformScore fun(self, any...): any
+---@field calcBaseUniformScore fun(self, any...): any
+---@field getSlabEngravingType fun(self, any...): any
+---@field getAbsorption fun(self, any...): any
+---@field isGemMaterial fun(self, any...): any
+---@field setGemShape fun(self, any...): any
+---@field hasGemShape fun(self, any...): any
+---@field getGemShape fun(self, any...): any
+---@field hasWriting fun(self, any...): any
 df.item = {}
 
 ---@class item_kill_info: df.struct

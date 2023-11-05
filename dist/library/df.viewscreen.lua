@@ -56,6 +56,13 @@ df.interface_push_types = {}
 ---@field AT_FRONT boolean
 
 ---@class abstract_interfacest: df.struct
+---@field get_rect fun(self, any...): any
+---@field feed fun(self, any...): any
+---@field logic fun(self, any...): any
+---@field render fun(self, any...): any
+---@field arrange fun(self, any...): any
+---@field remove_child fun(self, any...): any
+---@field clear fun(self, any...): any
 df.abstract_interfacest = {}
 
 ---@class viewscreen: abstract_interfacest
@@ -64,6 +71,8 @@ df.abstract_interfacest = {}
 ---@field breakdown_level interface_breakdown_types
 ---@field option_key_pressed integer
 ---@field widgets widget_container
+---@field resize fun(self, any...): any
+---@field set_port_flags fun(self, any...): any
 df.viewscreen = {}
 
 ---@class interfacest: df.struct
@@ -112,6 +121,14 @@ df.extentst = {}
 ---@field tooltip_type widget_tooltip_type
 ---@field displaying_tooltip boolean
 ---@field search_string string
+---@field get_rect fun(self, any...): any
+---@field feed fun(self, any...): any
+---@field logic fun(self, any...): any
+---@field render fun(self, any...): any
+---@field arrange fun(self, any...): any
+---@field remove_child fun(self, any...): any
+---@field clear fun(self, any...): any
+---@field is_container fun(self, any...): any
 df.widget = {}
 
 ---@class _widget_visibility_flags: df.bitfield
@@ -1029,6 +1046,19 @@ df.viewscreen_initial_prepst = {}
 
 ---@class world_gen_param_basest: df.struct
 ---@field text string
+---@field get_text fun(self, any...): any
+---@field has_string_entry fun(self, any...): any
+---@field nullifiable fun(self, any...): any
+---@field togglealble fun(self, any...): any
+---@field has_max_min fun(self, any...): any
+---@field has_increase_decrease fun(self, any...): any
+---@field get_min fun(self, any...): any
+---@field get_max fun(self, any...): any
+---@field set_value fun(self, any...): any
+---@field nullify fun(self, any...): any
+---@field toggle fun(self, any...): any
+---@field decrease fun(self, any...): any
+---@field increase fun(self, any...): any
 df.world_gen_param_basest = {}
 
 ---@class world_gen_param_seedst: world_gen_param_basest

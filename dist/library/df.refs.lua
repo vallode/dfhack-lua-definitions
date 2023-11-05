@@ -287,6 +287,25 @@ df.general_ref_type = {}
 ---@field UNIT_INTERROGATEE boolean
 
 ---@class general_ref: df.struct
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getType fun(self, any...): any
+---@field getItem fun(self, any...): any
+---@field getUnit fun(self, any...): any
+---@field getProjectile fun(self, any...): any
+---@field getBuilding fun(self, any...): any
+---@field getEntity fun(self, any...): any
+---@field getArtifact fun(self, any...): any
+---@field getNemesis fun(self, any...): any
+---@field getEvent fun(self, any...): any
+---@field setID fun(self, any...): any
+---@field getID fun(self, any...): any
+---@field setLocation fun(self, any...): any
+---@field getLocation fun(self, any...): any
+---@field clone fun(self, any...): any
+---@field getDescription fun(self, any...): any
+---@field getDescription2 fun(self, any...): any
+---@field getDescription3 fun(self, any...): any for scholar flags
 df.general_ref = {}
 
 ---@class general_ref_artifact: general_ref
@@ -790,6 +809,14 @@ df.histfig_entity_link_type = {}
 ---@field entity_id historical_entity
 ---@field entity_vector_idx integer
 ---@field link_strength integer
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field getPosition fun(self, any...): any
+---@field getOccupation fun(self, any...): any
+---@field getPositionStartYear fun(self, any...): any
+---@field getPositionEndYear fun(self, any...): any
+---@field generate_xml fun(self, any...): any
 df.histfig_entity_link = {}
 
 ---@class histfig_entity_link_memberst: histfig_entity_link
@@ -911,6 +938,10 @@ df.histfig_site_link_type = {}
 ---@field site world_site
 ---@field sub_id integer from XML
 ---@field entity historical_entity
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field generate_xml fun(self, any...): any
 df.histfig_site_link = {}
 
 ---@class histfig_site_link_occupationst: histfig_site_link
@@ -1016,6 +1047,10 @@ df.histfig_hf_link_type = {}
 ---@class histfig_hf_link: df.struct
 ---@field target_hf historical_figure
 ---@field link_strength integer
+---@field getType fun(self, any...): any
+---@field write_file fun(self, any...): any
+---@field read_file fun(self, any...): any
+---@field generate_xml fun(self, any...): any
 df.histfig_hf_link = {}
 
 ---@class histfig_hf_link_motherst: histfig_hf_link

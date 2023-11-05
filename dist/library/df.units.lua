@@ -1704,6 +1704,9 @@ df.pronoun_type.attrs = {}
 ---@field cached_glowtile_type integer
 ---@field pool_index any
 ---@field mtx any
+---@field getCreatureTile fun(self, any...): any
+---@field getCorpseTile fun(self, any...): any
+---@field getGlowTile fun(self, any...): any
 df.unit = {}
 
 ---@class unit_coord: df.struct
