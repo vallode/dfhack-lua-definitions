@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _knowledge_scholar_flags_0: df.bitfield
+---@class _knowledge_scholar_flags_0: df.bitfield
 ---@field philosophy_logic_formal_reasoning 0
 ---@field [0] "philosophy_logic_formal_reasoning"
 ---@field philosophy_logic_deductive_reasoning 1
@@ -134,7 +134,7 @@ df.knowledge_scholar_flags_0 = {}
 ---@field [31] boolean
 ---@field philosophy_specialized_politics_social_welfare boolean
 
----@class (exact) _knowledge_scholar_flags_1: df.bitfield
+---@class _knowledge_scholar_flags_1: df.bitfield
 ---@field philosophy_logic_inductive_reasoning 0
 ---@field [0] "philosophy_logic_inductive_reasoning"
 ---@field philosophy_logic_direct_inference 1
@@ -159,7 +159,7 @@ df.knowledge_scholar_flags_1 = {}
 ---@field [4] boolean
 ---@field philosophy_specialized_language_dictionary boolean
 
----@class (exact) _knowledge_scholar_flags_2: df.bitfield
+---@class _knowledge_scholar_flags_2: df.bitfield
 ---@field mathematics_method_proof_by_contradiction 0
 ---@field [0] "mathematics_method_proof_by_contradiction"
 ---@field mathematics_notation_zero 1
@@ -292,7 +292,7 @@ df.knowledge_scholar_flags_2 = {}
 ---@field [31] boolean
 ---@field mathematics_numbers_sieve_algorithm_for_primes boolean
 
----@class (exact) _knowledge_scholar_flags_3: df.bitfield
+---@class _knowledge_scholar_flags_3: df.bitfield
 ---@field mathematics_numbers_root_2_to_5_digits 0
 ---@field [0] "mathematics_numbers_root_2_to_5_digits"
 ---@field mathematics_numbers_infinite_primes 1
@@ -365,7 +365,7 @@ df.knowledge_scholar_flags_3 = {}
 ---@field [16] boolean
 ---@field mathematics_geometry_properties_of_chords boolean
 
----@class (exact) _knowledge_scholar_flags_4: df.bitfield
+---@class _knowledge_scholar_flags_4: df.bitfield
 ---@field history_sourcing_basic_reliability 0
 ---@field [0] "history_sourcing_basic_reliability"
 ---@field history_sourcing_role_of_systemic_bias 1
@@ -450,7 +450,7 @@ df.knowledge_scholar_flags_4 = {}
 ---@field [19] boolean
 ---@field history_form_treatise_on_tech_evolution boolean
 
----@class (exact) _knowledge_scholar_flags_5: df.bitfield
+---@class _knowledge_scholar_flags_5: df.bitfield
 ---@field astronomy_phases_of_the_moon 0
 ---@field [0] "astronomy_phases_of_the_moon"
 ---@field astronomy_summer_winter_moon 1
@@ -535,7 +535,7 @@ df.knowledge_scholar_flags_5 = {}
 ---@field [19] boolean
 ---@field astronomy_method_path_models boolean
 
----@class (exact) _knowledge_scholar_flags_6: df.bitfield
+---@class _knowledge_scholar_flags_6: df.bitfield
 ---@field naturalist_method_dissection 0
 ---@field [0] "naturalist_method_dissection"
 ---@field naturalist_observation_anatomy 1
@@ -592,7 +592,7 @@ df.knowledge_scholar_flags_6 = {}
 ---@field [12] boolean
 ---@field naturalist_theory_struggle_for_existence boolean
 
----@class (exact) _knowledge_scholar_flags_7: df.bitfield
+---@class _knowledge_scholar_flags_7: df.bitfield
 ---@field chemistry_classification_combustibles 0
 ---@field [0] "chemistry_classification_combustibles"
 ---@field chemistry_classification_ores 1
@@ -693,7 +693,7 @@ df.knowledge_scholar_flags_7 = {}
 ---@field [23] boolean
 ---@field chemistry_laboratory_lab_ovens boolean
 
----@class (exact) _knowledge_scholar_flags_8: df.bitfield
+---@class _knowledge_scholar_flags_8: df.bitfield
 ---@field geography_surveying_basic 0
 ---@field [0] "geography_surveying_basic"
 ---@field geography_surveying_staff 1
@@ -786,7 +786,7 @@ df.knowledge_scholar_flags_8 = {}
 ---@field [21] boolean
 ---@field geography_cartography_map_projections boolean
 
----@class (exact) _knowledge_scholar_flags_9: df.bitfield
+---@class _knowledge_scholar_flags_9: df.bitfield
 ---@field medicine_theory_disease_and_fouled_water 0
 ---@field [0] "medicine_theory_disease_and_fouled_water"
 ---@field medicine_method_physical_examination 1
@@ -919,7 +919,7 @@ df.knowledge_scholar_flags_9 = {}
 ---@field [31] boolean
 ---@field medicine_method_surgery_suturing boolean
 
----@class (exact) _knowledge_scholar_flags_10: df.bitfield
+---@class _knowledge_scholar_flags_10: df.bitfield
 ---@field medicine_method_surgery_ligature 0
 ---@field [0] "medicine_method_surgery_ligature"
 ---@field medicine_theory_surgical_models 1
@@ -1052,7 +1052,7 @@ df.knowledge_scholar_flags_10 = {}
 ---@field [31] boolean
 ---@field medicine_method_medical_school boolean
 
----@class (exact) _knowledge_scholar_flags_11: df.bitfield
+---@class _knowledge_scholar_flags_11: df.bitfield
 ---@field medicine_method_asylum_for_mentally_ill 0
 ---@field [0] "medicine_method_asylum_for_mentally_ill"
 df.knowledge_scholar_flags_11 = {}
@@ -1061,7 +1061,7 @@ df.knowledge_scholar_flags_11 = {}
 ---@field [0] boolean
 ---@field medicine_method_asylum_for_mentally_ill boolean
 
----@class (exact) _knowledge_scholar_flags_12: df.bitfield
+---@class _knowledge_scholar_flags_12: df.bitfield
 ---@field engineering_horology_shadow_clock 0
 ---@field [0] "engineering_horology_shadow_clock"
 ---@field engineering_horology_water_clock 1
@@ -1194,7 +1194,7 @@ df.knowledge_scholar_flags_12 = {}
 ---@field [31] boolean
 ---@field engineering_fluid_theory_of_siphon boolean
 
----@class (exact) _knowledge_scholar_flags_13: df.bitfield
+---@class _knowledge_scholar_flags_13: df.bitfield
 ---@field engineering_fluid_valves 0
 ---@field [0] "engineering_fluid_valves"
 ---@field engineering_fluid_force_pump 1
@@ -1324,7 +1324,7 @@ df.knowledge_scholar_flags_13 = {}
 ---@field flag_data knowledge_scholar_category_flag_flag_data
 df.knowledge_scholar_category_flag = {}
 
----@class (exact) _knowledge_scholar_category_flag_flag_type: df.enum
+---@class _knowledge_scholar_category_flag_flag_type: df.enum
 ---determines which bitflags to use
 ---@field flags_0 0
 ---@field [0] "flags_0"
@@ -1404,7 +1404,7 @@ df.knowledge_scholar_category_flag.T_flag_type = {}
 ---@field whole integer
 df.knowledge_scholar_category_flag.T_flag_data = {}
 
----@class (exact) _dfhack_knowledge_scholar_flag: df.enum
+---@class _dfhack_knowledge_scholar_flag: df.enum
 ---not in DF
 ---@field philosophy_logic_formal_reasoning 0
 ---@field [0] "philosophy_logic_formal_reasoning"

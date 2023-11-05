@@ -22,7 +22,7 @@ df.burrow = {}
 ---@field z integer
 df.ui_hotkey = {}
 
----@class (exact) _ui_hotkey_cmd: df.enum
+---@class _ui_hotkey_cmd: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Zoom 1
@@ -43,7 +43,7 @@ df.ui_hotkey.T_cmd = {}
 ---@field [3] boolean
 ---@field FollowItem boolean
 
----@class (exact) _ui_sidebar_mode: df.enum
+---@class _ui_sidebar_mode: df.enum
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Squads 1
@@ -287,7 +287,7 @@ df.ui_sidebar_mode = {}
 ---@field victims integer[]
 df.punishment = {}
 
----@class (exact) _kitchen_exc_type: df.enum
+---@class _kitchen_exc_type: df.enum
 ---@field Cook 1
 ---@field [0] "Cook"
 ---@field Brew 1
@@ -300,7 +300,7 @@ df.kitchen_exc_type = {}
 ---@field [1] boolean
 ---@field Brew boolean
 
----@class (exact) _save_substage: df.enum
+---@class _save_substage: df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -513,7 +513,7 @@ df.save_substage = {}
 ---@field [51] boolean
 ---@field Finishing boolean
 
----@class (exact) _equipment_update: df.bitfield
+---@class _equipment_update: df.bitfield
 ---@field weapon 0
 ---@field [0] "weapon"
 ---@field armor 1
@@ -577,7 +577,7 @@ df.equipment_update = {}
 ---@field chores_exempted_children labor_infost_chores_exempted_children toady: no_chore_child_unid
 df.labor_infost = {}
 
----@class (exact) _labor_infost_flags: df.bitfield
+---@class _labor_infost_flags: df.bitfield
 ---@field children_do_chores 0
 ---@field [0] "children_do_chores"
 df.labor_infost.T_flags = {}
@@ -701,10 +701,10 @@ df.plotinfost.T_tax_collection = {}
 ---@field manager_cooldown integer 0-1008
 ---@field bookkeeper_cooldown integer 0-1008
 ---@field bookkeeper_precision integer
----@field bookkeeper_settings nobles_bookkeeper_settings
+---@field bookkeeper_settings plotinfost.T_nobles_bookkeeper_settings
 df.plotinfost.T_nobles = {}
 
----@class (exact) _nobles_bookkeeper_settings: df.enum
+---@class _plotinfost.T_nobles_bookkeeper_settings: df.enum
 ---@field nearest_10 0
 ---@field [0] "nearest_10"
 ---@field nearest_100 1
@@ -715,9 +715,9 @@ df.plotinfost.T_nobles = {}
 ---@field [3] "nearest_10000"
 ---@field all_accurate 4
 ---@field [4] "all_accurate"
-df.nobles.T_bookkeeper_settings = {}
+df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 
----@class nobles_bookkeeper_settings
+---@class plotinfost.T_nobles_bookkeeper_settings
 ---@field [0] boolean
 ---@field nearest_10 boolean
 ---@field [1] boolean
@@ -735,26 +735,26 @@ df.nobles.T_bookkeeper_settings = {}
 df.plotinfost.T_invasions = {}
 
 ---@class plotinfost_kitchen: df.struct
----@field item_types kitchen_item_types
----@field item_subtypes kitchen_item_subtypes
----@field mat_types kitchen_mat_types
+---@field item_types plotinfost.T_kitchen_item_types
+---@field item_subtypes plotinfost.T_kitchen_item_subtypes
+---@field mat_types plotinfost.T_kitchen_mat_types
 ---@field mat_indices integer[]
----@field exc_types kitchen_exc_types
+---@field exc_types plotinfost.T_kitchen_exc_types
 df.plotinfost.T_kitchen = {}
 
----@class kitchen_item_types: df.struct
-df.kitchen.T_item_types = {}
+---@class plotinfost.T_kitchen_item_types: df.struct
+df.plotinfost.T_kitchen.T_item_types = {}
 
----@class kitchen_item_subtypes: df.struct
-df.kitchen.T_item_subtypes = {}
+---@class plotinfost.T_kitchen_item_subtypes: df.struct
+df.plotinfost.T_kitchen.T_item_subtypes = {}
 
----@class kitchen_mat_types: df.struct
-df.kitchen.T_mat_types = {}
+---@class plotinfost.T_kitchen_mat_types: df.struct
+df.plotinfost.T_kitchen.T_mat_types = {}
 
----@class kitchen_exc_types: df.struct
-df.kitchen.T_exc_types = {}
+---@class plotinfost.T_kitchen_exc_types: df.struct
+df.plotinfost.T_kitchen.T_exc_types = {}
 
----@class (exact) _plotinfost_unk23c8_flags: df.bitfield
+---@class _plotinfost_unk23c8_flags: df.bitfield
 ---@field first_year 0
 ---@field [0] "first_year"
 ---@field recheck_aid_requests 1
@@ -775,11 +775,11 @@ df.plotinfost.T_unk23c8_flags = {}
 df.plotinfost.T_farm_seasons = {}
 
 ---@class plotinfost_economy_prices: df.struct
----@field price_adjustment economy_prices_price_adjustment
----@field price_setter economy_prices_price_setter
+---@field price_adjustment plotinfost.T_economy_prices_price_adjustment
+---@field price_setter plotinfost.T_economy_prices_price_setter
 df.plotinfost.T_economy_prices = {}
 
----@class economy_prices_price_adjustment: df.struct
+---@class plotinfost.T_economy_prices_price_adjustment: df.struct
 ---@field general_items integer[]
 ---@field weapons integer[]
 ---@field armor integer[]
@@ -812,9 +812,9 @@ df.plotinfost.T_economy_prices = {}
 ---@field cheese_animal integer[]
 ---@field cheese_plant integer[]
 ---@field pets integer[]
-df.economy_prices.T_price_adjustment = {}
+df.plotinfost.T_economy_prices.T_price_adjustment = {}
 
----@class economy_prices_price_setter: df.struct
+---@class plotinfost.T_economy_prices_price_setter: df.struct
 ---@field general_items unit[]
 ---@field weapons unit[]
 ---@field armor unit[]
@@ -847,7 +847,7 @@ df.economy_prices.T_price_adjustment = {}
 ---@field cheese_animal unit[]
 ---@field cheese_plant unit[]
 ---@field pets unit[]
-df.economy_prices.T_price_setter = {}
+df.plotinfost.T_economy_prices.T_price_setter = {}
 
 ---@class plotinfost_stockpile: df.struct
 ---@field reserved_bins integer
@@ -865,8 +865,8 @@ df.plotinfost.T_stockpile = {}
 df.plotinfost.T_map_edge = {}
 
 ---@class plotinfost_waypoints: df.struct
----@field points waypoints_points
----@field routes waypoints_routes
+---@field points plotinfost.T_waypoints_points
+---@field routes plotinfost.T_waypoints_routes
 ---@field sym_selector integer
 ---@field unk_1 integer
 ---@field cur_point_index integer
@@ -884,7 +884,7 @@ df.plotinfost.T_map_edge = {}
 ---@field unk_42_06 any[]
 df.plotinfost.T_waypoints = {}
 
----@class waypoints_points: df.struct
+---@class plotinfost.T_waypoints_points: df.struct
 ---@field id integer
 ---@field tile integer
 ---@field fg_color integer
@@ -892,16 +892,16 @@ df.plotinfost.T_waypoints = {}
 ---@field name string
 ---@field comment string
 ---@field pos coord
-df.waypoints.T_points = {}
+df.plotinfost.T_waypoints.T_points = {}
 
----@class waypoints_routes: df.struct
+---@class plotinfost.T_waypoints_routes: df.struct
 ---@field id integer
 ---@field name string
----@field points routes_points
-df.waypoints.T_routes = {}
+---@field points plotinfost.T_waypoints.T_routes_points
+df.plotinfost.T_waypoints.T_routes = {}
 
----@class routes_points: df.struct
-df.routes.T_points = {}
+---@class plotinfost.T_waypoints.T_routes_points: df.struct
+df.plotinfost.T_waypoints.T_routes.T_points = {}
 
 ---@class plotinfost_burrows: df.struct
 ---@field list burrow[]
@@ -925,64 +925,64 @@ df.routes.T_points = {}
 df.plotinfost.T_burrows = {}
 
 ---@class plotinfost_alerts: df.struct
----@field list alerts_list
+---@field list plotinfost.T_alerts_list
 ---@field next_id integer
----@field routines alerts_routines
+---@field routines plotinfost.T_alerts_routines
 ---@field next_routine_id integer
 ---@field civ_alert_idx integer
 df.plotinfost.T_alerts = {}
 
----@class alerts_list: df.struct
+---@class plotinfost.T_alerts_list: df.struct
 ---@field id integer
 ---@field name string
 ---@field burrows integer[]
-df.alerts.T_list = {}
+df.plotinfost.T_alerts.T_list = {}
 
----@class alerts_routines: df.struct
+---@class plotinfost.T_alerts_routines: df.struct
 ---@field id integer
 ---@field unk_1 integer
 ---@field name string
-df.alerts.T_routines = {}
+df.plotinfost.T_alerts.T_routines = {}
 
 ---@class plotinfost_equipment: df.struct
 ---@field items_unmanifested integer[][]
 ---@field items_unassigned integer[][]
 ---@field items_assigned integer[][]
 ---@field update equipment_update
----@field work_weapons equipment_work_weapons i.e. woodcutter axes, and miner picks
----@field work_units equipment_work_units
+---@field work_weapons plotinfost.T_equipment_work_weapons i.e. woodcutter axes, and miner picks
+---@field work_units plotinfost.T_equipment_work_units
 ---@field hunter_ammunition squad_ammo_spec[]
----@field ammo_items equipment_ammo_items
----@field ammo_units equipment_ammo_units
+---@field ammo_items plotinfost.T_equipment_ammo_items
+---@field ammo_units plotinfost.T_equipment_ammo_units
 ---@field training_assignments training_assignment[] sorted by animal_id
 df.plotinfost.T_equipment = {}
 
----@class equipment_work_weapons: df.struct
+---@class plotinfost.T_equipment_work_weapons: df.struct
 ---i.e. woodcutter axes, and miner picks
-df.equipment.T_work_weapons = {}
+df.plotinfost.T_equipment.T_work_weapons = {}
 
----@class equipment_work_units: df.struct
-df.equipment.T_work_units = {}
+---@class plotinfost.T_equipment_work_units: df.struct
+df.plotinfost.T_equipment.T_work_units = {}
 
----@class equipment_ammo_items: df.struct
-df.equipment.T_ammo_items = {}
+---@class plotinfost.T_equipment_ammo_items: df.struct
+df.plotinfost.T_equipment.T_ammo_items = {}
 
----@class equipment_ammo_units: df.struct
-df.equipment.T_ammo_units = {}
+---@class plotinfost.T_equipment_ammo_units: df.struct
+df.plotinfost.T_equipment.T_ammo_units = {}
 
 ---@class plotinfost_hauling: df.struct
 ---@field routes hauling_route[]
 ---@field next_id integer
 ---@field view_routes hauling_route[]
 ---@field view_stops hauling_stop[]
----@field view_bad hauling_view_bad
+---@field view_bad plotinfost.T_hauling_view_bad
 ---@field cursor_top integer
 ---@field in_stop boolean
 ---@field cursor_stop integer
 df.plotinfost.T_hauling = {}
 
----@class hauling_view_bad: df.struct
-df.hauling.T_view_bad = {}
+---@class plotinfost.T_hauling_view_bad: df.struct
+df.plotinfost.T_hauling.T_view_bad = {}
 
 ---@class plotinfost_theft_intrigues: df.struct
 ---related to job_type unk_fake_no_activity
@@ -1017,7 +1017,7 @@ df.plotinfost.T_theft_intrigues = {}
 ---@field traffic_cost_normal integer
 ---@field traffic_cost_low integer
 ---@field traffic_cost_restricted integer
----@field dead_citizens main_dead_citizens ?
+---@field dead_citizens plotinfost.T_main_dead_citizens ?
 ---@field custom_difficulty difficultyst
 ---@field fortress_entity historical_entity entity pointed to by group_id
 ---@field fortress_site world_site
@@ -1027,7 +1027,7 @@ df.plotinfost.T_theft_intrigues = {}
 ---@field autosave_request boolean
 ---@field autosave_timer integer
 ---@field file file_compressorst
----@field save_progress main_save_progress
+---@field save_progress plotinfost.T_main_save_progress
 ---@field unk_v50_7 integer
 ---@field unk_44_12b nemesis_offload
 ---@field unk_44_12c boolean
@@ -1036,7 +1036,7 @@ df.plotinfost.T_theft_intrigues = {}
 ---@field in_rename_hotkey boolean
 df.plotinfost.T_main = {}
 
----@class main_dead_citizens: df.struct
+---@class plotinfost.T_main_dead_citizens: df.struct
 ---?
 ---@field unit_id unit
 ---@field histfig_id historical_figure
@@ -1044,19 +1044,19 @@ df.plotinfost.T_main = {}
 ---@field death_time integer
 ---@field timer integer +1 per 10
 ---@field ghost_type ghost_type
-df.main.T_dead_citizens = {}
+df.plotinfost.T_main.T_dead_citizens = {}
 
----@class main_save_progress: df.struct
+---@class plotinfost.T_main_save_progress: df.struct
 ---@field substage save_substage
 ---@field stage integer
 ---@field info nemesis_offload
-df.main.T_save_progress = {}
+df.plotinfost.T_main.T_save_progress = {}
 
 ---@class plotinfost_squads: df.struct
 ---@field list squad[] valid only when ui is displayed
 ---@field unk6e08 any[]
 ---@field sel_squads any
----@field indiv_selected squads_indiv_selected
+---@field indiv_selected plotinfost.T_squads_indiv_selected
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad integer
 ---@field unk_70 integer
@@ -1076,10 +1076,10 @@ df.main.T_save_progress = {}
 ---@field rect_start coord
 df.plotinfost.T_squads = {}
 
----@class squads_indiv_selected: df.struct
-df.squads.T_indiv_selected = {}
+---@class plotinfost.T_squads_indiv_selected: df.struct
+df.plotinfost.T_squads.T_indiv_selected = {}
 
----@class (exact) _timed_event_type: df.enum
+---@class _timed_event_type: df.enum
 ---@field Caravan 0
 ---@field [0] "Caravan"
 ---@field Migrants 1

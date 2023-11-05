@@ -36,7 +36,7 @@ df.site_reputation_info = {}
 ---@field unk_5 integer
 df.location_scribe_jobs = {}
 
----@class (exact) _abstract_building_type: df.enum
+---@class _abstract_building_type: df.enum
 ---@field MEAD_HALL 0
 ---@field [0] "MEAD_HALL"
 ---@field KEEP 1
@@ -97,7 +97,7 @@ df.abstract_building_type = {}
 ---@field [13] boolean
 ---@field HOSPITAL boolean
 
----@class (exact) _abstract_building_flags: df.enum
+---@class _abstract_building_flags: df.enum
 ---@field Unk0 0
 ---@field [0] "Unk0"
 ---@field Unk1 1
@@ -183,7 +183,7 @@ df.abstract_building_entombed.T_populations = {}
 ---@field building_ids integer[]
 df.abstract_building_contents = {}
 
----@class (exact) _abstract_building_contents_need_more: df.bitfield
+---@class _abstract_building_contents_need_more: df.bitfield
 ---@field goblets 0
 ---@field [0] "goblets"
 ---@field instruments 1
@@ -264,7 +264,7 @@ df.abstract_building_mead_hallst = {}
 ---@field name language_name
 df.abstract_building_keepst = {}
 
----@class (exact) _temple_deity_type: df.enum
+---@class _temple_deity_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Deity 1
@@ -317,7 +317,7 @@ df.abstract_building_tombst = {}
 ---@field unk_4 integer not saved
 df.abstract_building_dungeonst = {}
 
----@class (exact) _abstract_building_dungeonst_dungeon_type: df.enum
+---@class _abstract_building_dungeonst_dungeon_type: df.enum
 ---@field DUNGEON 0
 ---@field [0] "DUNGEON"
 ---@field SEWERS 1
@@ -383,7 +383,7 @@ df.abstract_building_towerst = {}
 ---@field contents abstract_building_contents
 df.abstract_building_hospitalst = {}
 
----@class (exact) _world_site_type: df.enum
+---@class _world_site_type: df.enum
 ---@field PlayerFortress 0
 ---@field [0] "PlayerFortress"
 ---@field DarkFortress 1
@@ -432,7 +432,7 @@ df.world_site_type = {}
 ---@field [10] boolean
 ---@field Monument boolean
 
----@class (exact) _world_site_flags: df.enum
+---@class _world_site_flags: df.enum
 ---@field Undiscovered 0
 ---@field [0] "Undiscovered"
 ---@field unk_1 1
@@ -481,7 +481,7 @@ df.world_site_flags = {}
 ---@field [10] boolean
 ---@field unk_10 boolean
 
----@class (exact) _fortress_type: df.enum
+---@class _fortress_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CASTLE 1
@@ -506,7 +506,7 @@ df.fortress_type = {}
 ---@field [4] boolean
 ---@field FORT boolean
 
----@class (exact) _monument_type: df.enum
+---@class _monument_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field TOMB 1
@@ -523,7 +523,7 @@ df.monument_type = {}
 ---@field [2] boolean
 ---@field VAULT boolean
 
----@class (exact) _lair_type: df.enum
+---@class _lair_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SIMPLE_MOUND 1
@@ -660,7 +660,7 @@ df.world_site = {}
 ---@field artifacts artifact_record[]
 ---@field animals world_population[]
 ---@field inhabitants world_site_inhabitant[]
----@field units unk_1_units
+---@field units world_site.T_unk_1_units
 ---@field unk_d4 integer[]
 ---@field unk_v40_1a historical_figure[]
 ---@field pad_1 any
@@ -673,13 +673,13 @@ df.world_site = {}
 ---@field unk_v40_1h nemesis_record[]
 df.world_site.T_unk_1 = {}
 
----@class unk_1_units: df.struct
+---@class world_site.T_unk_1_units: df.struct
 ---@field unit_id unit
 ---@field pos_x integer
 ---@field pos_y integer
 ---@field pos_z integer
 ---@field unk_10 integer
-df.unk_1.T_units = {}
+df.world_site.T_unk_1.T_units = {}
 
 ---@class world_site_unk_13c: df.struct
 ---MountainHall, Town, DarkFortress, but not all
@@ -743,12 +743,12 @@ df.world_site.T_unk_v40_4c = {}
 ---@class world_site_unk_v40_4d: df.struct
 ---only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field id integer
----@field unk_1 unk_v40_4d_unk_1
+---@field unk_1 world_site.T_unk_v40_4d_unk_1
 ---@field unk_2 integer[]
 ---@field entity_id historical_entity single attacking site civ is only one seen
 df.world_site.T_unk_v40_4d = {}
 
----@class unk_v40_4d_unk_1: df.struct
+---@class world_site.T_unk_v40_4d_unk_1: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer might be race
 ---@field unk_3 integer
@@ -757,7 +757,7 @@ df.world_site.T_unk_v40_4d = {}
 ---@field unk_6 integer might be year
 ---@field unk_7 integer
 ---@field unk_8 integer
-df.unk_v40_4d.T_unk_1 = {}
+df.world_site.T_unk_v40_4d.T_unk_1 = {}
 
 ---@class world_site_unk_v43_2: df.struct
 ---@field unk_1 integer
@@ -806,23 +806,23 @@ df.cultural_identity = {}
 ---@field end_tick integer
 ---@field unk_14 integer copy of start_year
 ---@field unk_18 integer copy of start_tick
----@field join_type group_log_join_type
+---@field join_type cultural_identity.T_group_log_join_type
 ---@field unk_20 integer
 ---@field unk_24 integer[]
 ---@field unk_34 integer[] same length as unk_24; elements always sum to 10000
 ---@field unk_44 integer
 df.cultural_identity.T_group_log = {}
 
----@class (exact) _group_log_join_type: df.enum
+---@class _cultural_identity.T_group_log_join_type: df.enum
 ---@field Peaceful 0
 ---@field [0] "Peaceful"
 ---@field CompleteTakeOver 1
 ---@field [1] "CompleteTakeOver"
 ---@field TakeOver 2
 ---@field [2] "TakeOver"
-df.group_log.T_join_type = {}
+df.cultural_identity.T_group_log.T_join_type = {}
 
----@class group_log_join_type
+---@class cultural_identity.T_group_log_join_type
 ---@field [0] boolean
 ---@field Peaceful boolean
 ---@field [1] boolean
@@ -885,21 +885,21 @@ df.world_site_inhabitant = {}
 ---@field unk_3 integer
 ---@field unk_4 integer[][]
 ---@field unk_5 integer
----@field unk_6 pointer[]
+---@field unk_6 any[]
 ---@field unk_7 integer
----@field unk_8 pointer[]
+---@field unk_8 any[]
 ---@field unk_9 integer
----@field unk_10 pointer[]
+---@field unk_10 any[]
 ---@field unk_11 integer
----@field unk_12 pointer[]
+---@field unk_12 any[]
 ---@field unk_13 integer
----@field unk_15 pointer[]
+---@field unk_15 any[]
 ---@field unk_16 integer
----@field unk_17 pointer[]
+---@field unk_17 any[]
 ---@field unk_18 integer
----@field unk_19 pointer[]
+---@field unk_19 any[]
 ---@field unk_20 integer
----@field unk_21 pointer[]
+---@field unk_21 any[]
 ---@field unk_22 integer
 ---@field building_well site_realization_building[]
 ---@field num_building_well integer
@@ -909,13 +909,13 @@ df.world_site_inhabitant = {}
 ---@field num_building_type22 integer
 ---@field building_type21 site_realization_building[]
 ---@field num_building_type21 integer
----@field unk_23 pointer[]
+---@field unk_23 any[]
 ---@field unk_24 integer
 ---@field unk_wsr_vector any[]
 df.world_site_realization = {}
 
 ---@class world_site_realization_areas: df.struct
----@field type areas_type
+---@field type world_site_realization.T_areas_type
 ---@field index integer
 ---@field unk_8 integer
 ---@field min_x integer
@@ -926,7 +926,7 @@ df.world_site_realization = {}
 ---@field unk_20 integer
 df.world_site_realization.T_areas = {}
 
----@class (exact) _areas_type: df.enum
+---@class _world_site_realization.T_areas_type: df.enum
 ---@field Crops1 0
 ---@field [0] "Crops1"
 ---@field Crops2 1
@@ -945,9 +945,9 @@ df.world_site_realization.T_areas = {}
 ---@field [7] "Waste"
 ---@field Unknown1 8
 ---@field [8] "Unknown1"
-df.areas.T_type = {}
+df.world_site_realization.T_areas.T_type = {}
 
----@class areas_type
+---@class world_site_realization.T_areas_type
 ---@field [0] boolean
 ---@field Crops1 boolean
 ---@field [1] boolean
@@ -1005,7 +1005,7 @@ df.areas.T_type = {}
 ---@field unk_3d0 integer[]
 df.site_realization_crossroads = {}
 
----@class (exact) _site_realization_building_type: df.enum
+---@class _site_realization_building_type: df.enum
 ---@field cottage_plot 0
 ---@field [0] "cottage_plot"
 ---@field castle_wall 1
@@ -1178,7 +1178,7 @@ df.site_realization_building_infost = {}
 ---@field mat_index integer
 df.site_building_item = {}
 
----@class (exact) _tower_shape: df.bitfield
+---@class _tower_shape: df.bitfield
 ---@field round 0
 ---@field [0] "round"
 ---@field hollow 1
@@ -1233,7 +1233,7 @@ df.site_realization_building_info_castle_towerst = {}
 ---@class site_realization_building_info_castle_courtyardst: site_realization_building_infost
 df.site_realization_building_info_castle_courtyardst = {}
 
----@class (exact) _site_shop_type: df.enum
+---@class _site_shop_type: df.enum
 ---@field GeneralImports 0
 ---@field [0] "GeneralImports"
 ---@field FoodImports 1
@@ -1342,7 +1342,7 @@ df.site_shop_type = {}
 ---@field [25] boolean
 ---@field Tavern boolean
 
----@class (exact) _town_labor_type: df.enum
+---@class _town_labor_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CLOTH 1
@@ -1425,7 +1425,7 @@ df.site_realization_building_info_market_squarest = {}
 ---@field spokes integer[] N, S, E, W
 df.site_realization_building_info_trenchesst = {}
 
----@class (exact) _tree_house_type: df.enum
+---@class _tree_house_type: df.enum
 ---@field TreeHouse 0
 ---@field [0] "TreeHouse"
 ---@field HomeTree 1
@@ -1460,7 +1460,7 @@ df.tree_house_type = {}
 ---@field name language_name
 df.site_realization_building_info_tree_housest = {}
 
----@class (exact) _hillock_house_type: df.enum
+---@class _hillock_house_type: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field CivicMound 1
@@ -1490,7 +1490,7 @@ df.site_realization_building_info_hillock_housest = {}
 ---@field unk_2 integer
 df.site_realization_building_info_shrinest = {}
 
----@class (exact) _creation_zone_pwg_alteration_type: df.enum
+---@class _creation_zone_pwg_alteration_type: df.enum
 ---@field location_death 0
 ---@field [0] "location_death"
 ---@field camp 1
@@ -1521,11 +1521,11 @@ df.creation_zone_pwg_alterationst = {}
 df.creation_zone_pwg_alteration_location_deathst = {}
 
 ---@class creation_zone_pwg_alteration_location_deathst_unk_1: df.struct
----@field unk_1a unk_1_unk_1a
+---@field unk_1a creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a
 ---@field unk_2a integer[]
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 
----@class unk_1_unk_1a: df.struct
+---@class creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1534,7 +1534,7 @@ df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 ---@field unk_6 integer
 ---@field unk_7 integer
 ---@field unk_8 integer
-df.unk_1.T_unk_1a = {}
+df.creation_zone_pwg_alteration_location_deathst.T_unk_1.T_unk_1a = {}
 
 ---@class creation_zone_pwg_alteration_campst: creation_zone_pwg_alterationst
 ---@field unk_1 integer

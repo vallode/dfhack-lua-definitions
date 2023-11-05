@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _job_material_category: df.bitfield
+---@class _job_material_category: df.bitfield
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1
@@ -62,7 +62,7 @@ df.job_material_category = {}
 ---@field [13] boolean
 ---@field strand boolean
 
----@class (exact) _dfhack_material_category: df.bitfield
+---@class _dfhack_material_category: df.bitfield
 ---An extended version of job_material_category, for use in some plugins, like workflow.
 ---@field plant 0
 ---@field [0] "plant"
@@ -152,7 +152,7 @@ df.dfhack_material_category = {}
 ---@field [20] boolean
 ---@field gem boolean
 
----@class (exact) _job_flags: df.bitfield
+---@class _job_flags: df.bitfield
 ---toady: RETURNING When actually carrying non-last item to the workshop. If last, 'working' is used instead.
 ---@field repeat 0
 ---@field [0] "repeat"
@@ -222,7 +222,7 @@ df.job_flags = {}
 ---@field [15] boolean
 ---@field do_now boolean
 
----@class (exact) _job_subtype_surgery: df.enum
+---@class _job_subtype_surgery: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Surgery 1
@@ -286,7 +286,7 @@ df.job = {}
 ---@field job_item_idx integer
 df.job_item_ref = {}
 
----@class (exact) _job_item_ref_role: df.enum
+---@class _job_item_ref_role: df.enum
 ---@field Other 0
 ---@field [0] "Other"
 ---@field Reagent 1
@@ -327,7 +327,7 @@ df.job_item_ref.T_role = {}
 ---@field [8] boolean
 ---@field PushHaulVehicle boolean
 
----@class (exact) _job_item_flags1: df.bitfield
+---@class _job_item_flags1: df.bitfield
 ---@field improvable 0
 ---@field [0] "improvable"
 ---@field butcherable 1
@@ -460,7 +460,7 @@ df.job_item_flags1 = {}
 ---@field [31] boolean
 ---@field lye_bearing boolean
 
----@class (exact) _job_item_flags2: df.bitfield
+---@class _job_item_flags2: df.bitfield
 ---@field dye 0
 ---@field [0] "dye"
 ---@field dyeable 1
@@ -593,7 +593,7 @@ df.job_item_flags2 = {}
 ---@field [31] boolean
 ---@field yarn boolean
 
----@class (exact) _job_item_flags3: df.bitfield
+---@class _job_item_flags3: df.bitfield
 ---@field unimproved 0
 ---@field [0] "unimproved"
 ---@field any_raw_material 1
@@ -716,7 +716,7 @@ df.job_item = {}
 ---@field take_from building[]
 df.job_item_filter = {}
 
----@class (exact) _manager_order_status: df.bitfield
+---@class _manager_order_status: df.bitfield
 ---@field validated 0
 ---@field [0] "validated"
 ---@field active 1
@@ -735,7 +735,7 @@ df.manager_order_status = {}
 ---@field subid any
 df.job_art_specification = {}
 
----@class (exact) _job_art_specification_type: df.enum
+---@class _job_art_specification_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field HistoricalFigure 1
@@ -785,7 +785,7 @@ df.job_art_specification.T_type = {}
 ---@field items job_item[]
 df.manager_order = {}
 
----@class (exact) _manager_order_frequency: df.enum
+---@class _manager_order_frequency: df.enum
 ---@field OneTime 0
 ---@field [0] "OneTime"
 ---@field Daily 1
@@ -831,7 +831,7 @@ df.manager_order.T_frequency = {}
 ---@field has_tool_use tool_uses
 df.manager_order_condition_item = {}
 
----@class (exact) _manager_order_condition_item_compare_type: df.enum
+---@class _manager_order_condition_item_compare_type: df.enum
 ---@field AtLeast 0
 ---@field [0] "AtLeast"
 ---@field AtMost 1
@@ -866,7 +866,7 @@ df.manager_order_condition_item.T_compare_type = {}
 ---@field unk_1 integer
 df.manager_order_condition_order = {}
 
----@class (exact) _manager_order_condition_order_condition: df.enum
+---@class _manager_order_condition_order_condition: df.enum
 ---@field Activated 0
 ---@field [0] "Activated"
 ---@field Completed 1
@@ -912,7 +912,7 @@ df.manager_order_template = {}
 ---@field unk4 integer
 df.mandate = {}
 
----@class (exact) _mandate_mode: df.enum
+---@class _mandate_mode: df.enum
 ---@field Export 0
 ---@field [0] "Export"
 ---@field Make 1
@@ -941,7 +941,7 @@ df.mandate.T_punishment = {}
 ---@field flags training_assignment_flags
 df.training_assignment = {}
 
----@class (exact) _training_assignment_flags: df.bitfield
+---@class _training_assignment_flags: df.bitfield
 ---@field any_trainer 0
 ---@field [0] "any_trainer"
 ---@field any_unassigned_trainer 1
@@ -973,7 +973,7 @@ df.training_assignment.T_flags = {}
 ---@field timeout_limit integer once counter passes limit, mandate ends
 df.unit_demand = {}
 
----@class (exact) _unit_demand_place: df.enum
+---@class _unit_demand_place: df.enum
 ---@field Office 0
 ---@field [0] "Office"
 ---@field Bedroom 1
@@ -994,7 +994,7 @@ df.unit_demand.T_place = {}
 ---@field [3] boolean
 ---@field Tomb boolean
 
----@class (exact) _job_cancel_reason: df.enum
+---@class _job_cancel_reason: df.enum
 ---@field CANNOT_REACH_SITE 0
 ---@field [0] "CANNOT_REACH_SITE"
 ---@field INTERRUPTED 1

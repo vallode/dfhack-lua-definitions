@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _tiletype_shape_basic: df.enum
+---@class _tiletype_shape_basic: df.enum
 ---Basic tile shape (not in DF)
 ---@field None -1
 ---@field [0] "None"
@@ -31,7 +31,7 @@ df.tiletype_shape_basic = {}
 ---@field [5] boolean
 ---@field Stair boolean
 
----@class (exact) _tiletype_shape: df.enum
+---@class _tiletype_shape: df.enum
 ---Tile shape (not in DF)
 ---@field NONE -1
 ---@field [0] "NONE"
@@ -130,7 +130,7 @@ df.tiletype_shape = {}
 ---@type { [string|integer]: tiletype_shape_attr }
 df.tiletype_shape.attrs = {}
 
----@class (exact) _tiletype_material: df.enum
+---@class _tiletype_material: df.enum
 ---Tile material (not in DF)
 ---@field NONE -1
 ---@field [0] "NONE"
@@ -250,7 +250,7 @@ df.tiletype_material = {}
 ---@type { [string|integer]: tiletype_material_attr }
 df.tiletype_material.attrs = {}
 
----@class (exact) _tiletype_variant: df.enum
+---@class _tiletype_variant: df.enum
 ---Cosmetic tile variant (not in DF)
 ---@field NONE -1
 ---@field [0] "NONE"
@@ -276,7 +276,7 @@ df.tiletype_variant = {}
 ---@field [4] boolean
 ---@field VAR_4 boolean
 
----@class (exact) _tiletype_special: df.enum
+---@class _tiletype_special: df.enum
 ---Functional tile variant (not in DF)
 ---@field NONE -1
 ---@field [0] "NONE"
@@ -340,7 +340,7 @@ df.tiletype_special = {}
 ---@type { [string|integer]: tiletype_special_attr }
 df.tiletype_special.attrs = {}
 
----@class (exact) _tiletype: df.enum
+---@class _tiletype: df.enum
 ---@field Void 0
 ---@field [0] "Void"
 ---@field RampTop 1

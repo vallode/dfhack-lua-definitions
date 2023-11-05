@@ -17,7 +17,7 @@
 ---@field unk_5 integer
 df.invasion_info = {}
 
----@class (exact) _invasion_info_flags: df.bitfield
+---@class _invasion_info_flags: df.bitfield
 ---@field active 0
 ---@field [0] "active"
 ---@field siege 1
@@ -90,7 +90,7 @@ df.entity_population.T_races = {}
 ---@class entity_population_unk4: df.struct
 df.entity_population.T_unk4 = {}
 
----@class (exact) _nemesis_flags: df.enum
+---@class _nemesis_flags: df.enum
 ---@field ACTIVE_ADVENTURER 0
 ---@field [0] "ACTIVE_ADVENTURER"
 ---@field RETIRED_ADVENTURER 1

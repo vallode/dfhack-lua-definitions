@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _item_flags: df.bitfield
+---@class _item_flags: df.bitfield
 ---@field on_ground 0
 ---@field [0] "on_ground"
 ---@field in_job 1
@@ -134,7 +134,7 @@ df.item_flags = {}
 ---@field [31] boolean
 ---@field from_worldgen boolean
 
----@class (exact) _item_flags2: df.bitfield
+---@class _item_flags2: df.bitfield
 ---@field has_rider 0
 ---@field [0] "has_rider"
 ---@field unk1 1
@@ -159,7 +159,7 @@ df.item_flags2 = {}
 ---@field [4] boolean
 ---@field unk_4 boolean
 
----@class (exact) _item_magicness_type: df.enum
+---@class _item_magicness_type: df.enum
 ---@field Sparkle 0
 ---@field [0] "Sparkle"
 ---@field AirWarped 1
@@ -222,7 +222,7 @@ df.temperaturest = {}
 ---@field pad_1 any needed for proper alignment of spatter on gcc
 df.spatter_common = {}
 
----@class (exact) _spatter_common_base_flags: df.bitfield
+---@class _spatter_common_base_flags: df.bitfield
 ---@field evaporates 0
 ---@field [0] "evaporates"
 df.spatter_common.T_base_flags = {}
@@ -236,7 +236,7 @@ df.spatter_common.T_base_flags = {}
 ---@field flags spatter_flags
 df.spatter = {}
 
----@class (exact) _spatter_flags: df.bitfield
+---@class _spatter_flags: df.bitfield
 ---@field water_soluble 0
 ---@field [0] "water_soluble"
 df.spatter.T_flags = {}
@@ -245,7 +245,7 @@ df.spatter.T_flags = {}
 ---@field [0] boolean
 ---@field water_soluble boolean
 
----@class (exact) _item_quality: df.enum
+---@class _item_quality: df.enum
 ---@field Ordinary 0
 ---@field [0] "Ordinary"
 ---@field WellCrafted 1
@@ -278,7 +278,7 @@ df.item_quality = {}
 ---@field [6] boolean
 ---@field Artifact boolean
 
----@class (exact) _slab_engraving_type: df.enum
+---@class _slab_engraving_type: df.enum
 ---@field Slab -1
 ---@field [0] "Slab"
 ---@field Memorial 1
@@ -460,7 +460,7 @@ df.item_crafted = {}
 ---@field improvements itemimprovement[]
 df.item_constructed = {}
 
----@class (exact) _body_part_status: df.bitfield
+---@class _body_part_status: df.bitfield
 ---@field on_fire 0
 ---@field [0] "on_fire"
 ---@field missing 1
@@ -553,7 +553,7 @@ df.body_part_status = {}
 ---@field [21] boolean
 ---@field gelded boolean
 
----@class (exact) _body_layer_status: df.bitfield
+---@class _body_layer_status: df.bitfield
 ---@field gone 0
 ---@field [0] "gone"
 ---@field leaking 1
@@ -586,7 +586,7 @@ df.body_component_info = {}
 ---@field length_base integer (size_base*10000)^0.333
 df.body_size_info = {}
 
----@class (exact) _corpse_material_type: df.enum
+---@class _corpse_material_type: df.enum
 ---@field Plant 0
 ---@field [0] "Plant"
 ---@field Silk 1
@@ -692,7 +692,7 @@ df.item_body_component.T_body = {}
 ---@field tissue_style_type integer[]
 df.item_body_component.T_appearance = {}
 
----@class (exact) _item_body_component_corpse_flags: df.bitfield
+---@class _item_body_component_corpse_flags: df.bitfield
 ---@field unbutchered 0
 ---@field [0] "unbutchered"
 ---@field plant 1
@@ -791,7 +791,7 @@ df.item_corpsepiecest = {}
 ---@field name language_name
 df.item_critter = {}
 
----@class (exact) _item_matstate: df.bitfield
+---@class _item_matstate: df.bitfield
 ---@field no_auto_clean 0
 ---@field [0] "no_auto_clean"
 ---@field pressed 1
@@ -961,7 +961,7 @@ df.item_verminst = {}
 ---@field pet_flags item_petst_pet_flags
 df.item_petst = {}
 
----@class (exact) _item_petst_pet_flags: df.bitfield
+---@class _item_petst_pet_flags: df.bitfield
 ---@field available_for_adoption 0
 ---@field [0] "available_for_adoption"
 df.item_petst.T_pet_flags = {}
@@ -1021,7 +1021,7 @@ df.item_threadst = {}
 ---@field size integer
 df.item_eggst = {}
 
----@class (exact) _item_eggst_egg_flags: df.bitfield
+---@class _item_eggst_egg_flags: df.bitfield
 ---@field fertile 0
 ---@field [0] "fertile"
 df.item_eggst.T_egg_flags = {}

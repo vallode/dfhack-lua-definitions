@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _creature_raw_flags: df.enum
+---@class _creature_raw_flags: df.enum
 ---@field EQUIPMENT 0
 ---@field [0] "EQUIPMENT"
 ---@field EQUIPMENT_WAGON 1
@@ -482,7 +482,7 @@ df.creature_raw_flags = {}
 ---@field [118] boolean
 ---@field HAS_ANY_NIGHT_CREATURE_EXPERIMENTER boolean
 
----@class (exact) _caste_raw_flags: df.enum
+---@class _caste_raw_flags: df.enum
 ---@field CAN_BREATHE_WATER 0
 ---@field [0] "CAN_BREATHE_WATER"
 ---@field CANNOT_BREATHE_AIR 1
@@ -1203,7 +1203,7 @@ df.caste_raw_flags = {}
 ---@field [178] boolean
 ---@field SPREAD_EVIL_SPHERES_IF_RULER boolean
 
----@class (exact) _body_part_raw_flags: df.enum
+---@class _body_part_raw_flags: df.enum
 ---@field HEAD 0
 ---@field [0] "HEAD"
 ---@field UPPERBODY 1
@@ -1364,7 +1364,7 @@ df.body_part_raw_flags = {}
 ---@field [38] boolean
 ---@field GELDABLE boolean
 
----@class (exact) _appearance_modifier_type: df.enum
+---@class _appearance_modifier_type: df.enum
 ---@field HEIGHT 0
 ---@field [0] "HEIGHT"
 ---@field BROADNESS 1
@@ -1465,7 +1465,7 @@ df.appearance_modifier_type = {}
 ---@field [23] boolean
 ---@field RASPY_VOICE boolean
 
----@class (exact) _body_part_layer_flags: df.enum
+---@class _body_part_layer_flags: df.enum
 ---@field CONNECTS 0
 ---@field [0] "CONNECTS"
 df.body_part_layer_flags = {}
@@ -1474,7 +1474,7 @@ df.body_part_layer_flags = {}
 ---@field [0] boolean
 ---@field CONNECTS boolean
 
----@class (exact) _appearance_modifier_growth_interval: df.enum
+---@class _appearance_modifier_growth_interval: df.enum
 ---@field DAILY 0
 ---@field [0] "DAILY"
 ---@field WEEKLY 1
@@ -1641,7 +1641,7 @@ df.caste_clothing_item = {}
 ---@field unk_v40_4 integer
 df.caste_attack = {}
 
----@class (exact) _caste_attack_flags: df.bitfield
+---@class _caste_attack_flags: df.bitfield
 ---@field with 0
 ---@field [0] "with"
 ---@field latch 1
@@ -1670,7 +1670,7 @@ df.caste_attack.T_flags = {}
 ---@field [5] boolean
 ---@field unk_5 boolean
 
----@class (exact) _gait_type: df.enum
+---@class _gait_type: df.enum
 ---@field WALK 0
 ---@field [0] "WALK"
 ---@field FLY 1
@@ -1706,7 +1706,7 @@ df.gait_type = {}
 ---@field stealth_slows integer
 df.gait_info = {}
 
----@class (exact) _gait_info_flags: df.bitfield
+---@class _gait_info_flags: df.bitfield
 ---@field layers_slow 0
 ---@field [0] "layers_slow"
 ---@field strength 1
@@ -1723,7 +1723,7 @@ df.gait_info.T_flags = {}
 ---@field [2] boolean
 ---@field agility boolean
 
----@class (exact) _creature_interaction_target_flags: df.bitfield
+---@class _creature_interaction_target_flags: df.bitfield
 ---@field LINE_OF_SIGHT 0
 ---@field [0] "LINE_OF_SIGHT"
 ---@field TOUCHABLE 1
@@ -1780,7 +1780,7 @@ df.creature_interaction_target_flags = {}
 ---@field wait_period integer
 df.creature_interaction = {}
 
----@class (exact) _creature_interaction_flags: df.bitfield
+---@class _creature_interaction_flags: df.bitfield
 ---@field CAN_BE_MUTUAL 0
 ---@field [0] "CAN_BE_MUTUAL"
 ---@field VERBAL 1
@@ -1819,20 +1819,20 @@ df.creature_interaction.T_flags = {}
 df.caste_body_info = {}
 
 ---@class caste_body_info_interactions: df.struct
----@field type interactions_type
+---@field type caste_body_info.T_interactions_type
 ---@field interaction creature_interaction
 df.caste_body_info.T_interactions = {}
 
----@class (exact) _interactions_type: df.enum
+---@class _caste_body_info.T_interactions_type: df.enum
 ---@field RETRACT_INTO_BP 0
 ---@field [0] "RETRACT_INTO_BP"
 ---@field CAN_DO_INTERACTION 1
 ---@field [1] "CAN_DO_INTERACTION"
 ---@field ROOT_AROUND 2
 ---@field [2] "ROOT_AROUND"
-df.interactions.T_type = {}
+df.caste_body_info.T_interactions.T_type = {}
 
----@class interactions_type
+---@class caste_body_info.T_interactions_type
 ---@field [0] boolean
 ---@field RETRACT_INTO_BP boolean
 ---@field [1] boolean
@@ -1868,7 +1868,7 @@ df.caste_body_info.T_layer_nonsolid = {}
 ---@class caste_body_info_nonsolid_layers: df.struct
 df.caste_body_info.T_nonsolid_layers = {}
 
----@class (exact) _caste_body_info_flags: df.bitfield
+---@class _caste_body_info_flags: df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
 df.caste_body_info.T_flags = {}
@@ -2078,15 +2078,15 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field egg_material_mattype integer[]
 ---@field egg_material_matindex integer[]
 ---@field egg_material_str string[][]
----@field lays_unusual_eggs_itemtype extracts_lays_unusual_eggs_itemtype
+---@field lays_unusual_eggs_itemtype caste_raw.T_extracts_lays_unusual_eggs_itemtype
 ---@field lays_unusual_eggs_itemsubtype integer[]
 ---@field lays_unusual_eggs_mattype integer[]
 ---@field lays_unusual_eggs_matindex integer[]
 ---@field lays_unusual_eggs_str string[][]
 df.caste_raw.T_extracts = {}
 
----@class extracts_lays_unusual_eggs_itemtype: df.struct
-df.extracts.T_lays_unusual_eggs_itemtype = {}
+---@class caste_raw.T_extracts_lays_unusual_eggs_itemtype: df.struct
+df.caste_raw.T_extracts.T_lays_unusual_eggs_itemtype = {}
 
 ---@class caste_raw_secretion: df.struct
 ---@field mat_type material
@@ -2155,7 +2155,7 @@ df.caste_raw.T_sound = {}
 ---@field unk_7 integer
 df.caste_raw.T_unk_1 = {}
 
----@class (exact) _creature_graphics_role: df.enum
+---@class _creature_graphics_role: df.enum
 ---@field DEFAULT 0
 ---@field [0] "DEFAULT"
 ---@field LAW_ENFORCE 1
@@ -2188,7 +2188,7 @@ df.creature_graphics_role = {}
 ---@field [6] boolean
 ---@field CORPSE boolean
 
----@class (exact) _tissue_style_type: df.enum
+---@class _tissue_style_type: df.enum
 ---@field NEATLY_COMBED 0
 ---@field [0] "NEATLY_COMBED"
 ---@field BRAIDED 1
@@ -2226,7 +2226,7 @@ df.tissue_style_type = {}
 ---@field profession_texpos integer[][][][][]
 ---@field profession_add_color boolean[][]
 ---@field profession_unk integer[][][]
----@field ptr_unk pointer[][]
+---@field ptr_unk any[][]
 ---@field vec_unk integer[][]
 ---@field profession_vec_unk integer[][]
 df.creature_raw_graphics = {}
@@ -2296,7 +2296,7 @@ df.creature_raw.T_modifier_class = {}
 ---@class creature_raw_hive_product: df.struct
 ---@field number integer[]
 ---@field time integer[]
----@field item_type hive_product_item_type
+---@field item_type creature_raw.T_hive_product_item_type
 ---@field item_subtype integer[]
 ---@field material material_vec_ref
 ---@field tmpstr1 string[]
@@ -2306,8 +2306,8 @@ df.creature_raw.T_modifier_class = {}
 ---@field tmpstr5 string[]
 df.creature_raw.T_hive_product = {}
 
----@class hive_product_item_type: df.struct
-df.hive_product.T_item_type = {}
+---@class creature_raw.T_hive_product_item_type: df.struct
+df.creature_raw.T_hive_product.T_item_type = {}
 
 ---@class creature_variation_convert_tag: df.struct
 ---@field cvct_master string
@@ -2328,7 +2328,7 @@ df.creature_variation_convert_tag = {}
 ---@field cv_remove_unk_v40_2 string[]
 df.creature_variation = {}
 
----@class (exact) _body_part_template_flags: df.enum
+---@class _body_part_template_flags: df.enum
 ---@field HEAD 0
 ---@field [0] "HEAD"
 ---@field UPPERBODY 1
@@ -2457,7 +2457,7 @@ df.body_part_template_flags = {}
 ---@field [30] boolean
 ---@field CONNECTOR boolean
 
----@class (exact) _body_part_template_contype: df.enum
+---@class _body_part_template_contype: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field UPPERBODY 1
@@ -2504,7 +2504,7 @@ df.body_part_template = {}
 ---@field parts body_part_template[]
 df.body_template = {}
 
----@class (exact) _tissue_flags: df.enum
+---@class _tissue_flags: df.enum
 ---@field THICKENS_ON_STRENGTH 0
 ---@field [0] "THICKENS_ON_STRENGTH"
 ---@field THICKENS_ON_ENERGY_STORAGE 1

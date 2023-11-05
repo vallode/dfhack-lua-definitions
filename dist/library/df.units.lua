@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _unit_flags1: df.bitfield
+---@class _unit_flags1: df.bitfield
 ---@field move_state 0
 ---@field [0] "move_state"
 ---@field inactive 1
@@ -134,7 +134,7 @@ df.unit_flags1 = {}
 ---@field [31] boolean
 ---@field important_historical_figure boolean
 
----@class (exact) _unit_flags2: df.bitfield
+---@class _unit_flags2: df.bitfield
 ---@field swimming 0
 ---@field [0] "swimming"
 ---@field sparring 1
@@ -267,7 +267,7 @@ df.unit_flags2 = {}
 ---@field [31] boolean
 ---@field roaming_wilderness_population_source_not_a_map_feature boolean
 
----@class (exact) _unit_flags3: df.bitfield
+---@class _unit_flags3: df.bitfield
 ---(IS_EQUIPMENT) Scuttle creature: causes creature to be killed, leaving a behind corpse and generating negative thoughts like a real kill.
 ---@field body_part_relsize_computed 0
 ---@field [0] "body_part_relsize_computed"
@@ -401,7 +401,7 @@ df.unit_flags3 = {}
 ---@field [31] boolean
 ---@field guest boolean
 
----@class (exact) _unit_flags4: df.bitfield
+---@class _unit_flags4: df.bitfield
 ---@field lazy_goblet_check 0
 ---@field [0] "lazy_goblet_check"
 ---@field urgent_goblet_check 1
@@ -458,7 +458,7 @@ df.unit_flags4 = {}
 ---@field [12] boolean
 ---@field agitated_wilderness_creature boolean
 
----@class (exact) _work_detail_flags: df.bitfield
+---@class _work_detail_flags: df.bitfield
 ---@field no_modify 0
 ---@field [0] "no_modify"
 ---@field no_everyone_does_this 1
@@ -479,7 +479,7 @@ df.work_detail_flags = {}
 ---@field [3] boolean
 ---@field limited boolean
 
----@class (exact) _value_type: df.enum
+---@class _value_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LAW 1
@@ -620,7 +620,7 @@ df.value_type = {}
 ---@field [33] boolean
 ---@field KNOWLEDGE boolean
 
----@class (exact) _goal_type: df.enum
+---@class _goal_type: df.enum
 ---@field STAY_ALIVE 0
 ---@field [0] "STAY_ALIVE"
 ---@field MAINTAIN_ENTITY_STATUS 1
@@ -692,7 +692,7 @@ df.goal_type = {}
 ---@type { [string|integer]: goal_type_attr }
 df.goal_type.attrs = {}
 
----@class (exact) _personality_facet_type: df.enum
+---@class _personality_facet_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LOVE_PROPENSITY 1
@@ -901,7 +901,7 @@ df.personality_facet_type = {}
 ---@field [50] boolean
 ---@field ART_INCLINED boolean
 
----@class (exact) _physical_attribute_type: df.enum
+---@class _physical_attribute_type: df.enum
 ---@field STRENGTH 0
 ---@field [0] "STRENGTH"
 ---@field AGILITY 1
@@ -930,7 +930,7 @@ df.physical_attribute_type = {}
 ---@field [5] boolean
 ---@field DISEASE_RESISTANCE boolean
 
----@class (exact) _mental_attribute_type: df.enum
+---@class _mental_attribute_type: df.enum
 ---@field ANALYTICAL_ABILITY 0
 ---@field [0] "ANALYTICAL_ABILITY"
 ---@field FOCUS 1
@@ -987,7 +987,7 @@ df.mental_attribute_type = {}
 ---@field [12] boolean
 ---@field SOCIAL_AWARENESS boolean
 
----@class (exact) _mood_type: df.enum
+---@class _mood_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Fey 1
@@ -1036,7 +1036,7 @@ df.mood_type = {}
 ---@field [10] boolean
 ---@field Traumatized boolean
 
----@class (exact) _ghost_type: df.enum
+---@class _ghost_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field MurderousGhost 1
@@ -1089,7 +1089,7 @@ df.ghost_type = {}
 ---@field [11] boolean
 ---@field ForlornHaunt boolean
 
----@class (exact) _animal_training_level: df.enum
+---@class _animal_training_level: df.enum
 ---@field SemiWild 0
 ---@field [0] "SemiWild"
 ---@field Trained 1
@@ -1134,7 +1134,7 @@ df.animal_training_level = {}
 ---@field [9] boolean
 ---@field WildUntamed boolean
 
----@class (exact) _unit_report_type: df.enum
+---@class _unit_report_type: df.enum
 ---@field Combat 0
 ---@field [0] "Combat"
 ---@field Sparring 1
@@ -1151,7 +1151,7 @@ df.unit_report_type = {}
 ---@field [2] boolean
 ---@field Hunting boolean
 
----@class (exact) _skill_rating: df.enum
+---@class _skill_rating: df.enum
 ---@field Dabbling 0
 ---@field [0] "Dabbling"
 ---@field Novice 1
@@ -1247,7 +1247,7 @@ df.skill_rating = {}
 ---@type { [string|integer]: skill_rating_attr }
 df.skill_rating.attrs = {}
 
----@class (exact) _unit_relationship_type: df.enum
+---@class _unit_relationship_type: df.enum
 ---Used in unit.relations
 ---@field None -1
 ---@field [0] "None"
@@ -1449,7 +1449,7 @@ df.unit_relationship_type = {}
 ---@field [48] boolean
 ---@field ProtectorOfTheWeak boolean
 
----@class (exact) _need_type: df.enum
+---@class _need_type: df.enum
 ---@field Socialize 0
 ---@field [0] "Socialize"
 ---@field DrinkAlcohol 1
@@ -1574,7 +1574,7 @@ df.need_type = {}
 ---@field [29] boolean
 ---@field AdmireArt boolean
 
----@class (exact) _pronoun_type: df.enum
+---@class _pronoun_type: df.enum
 ---@field it -1
 ---@field [0] "it"
 ---@field she 1
@@ -1717,13 +1717,13 @@ df.unit.T_coord = {}
 df.unit.T_path = {}
 
 ---@class unit_meeting: df.struct
----@field state meeting_state
+---@field state unit.T_meeting_state
 ---@field target_entity historical_entity
 ---@field target_role entity_position_responsibility
 ---@field pad_1 any
 df.unit.T_meeting = {}
 
----@class (exact) _meeting_state: df.enum
+---@class _unit.T_meeting_state: df.enum
 ---@field SelectNoble 0
 ---@field [0] "SelectNoble"
 ---@field FollowNoble 1
@@ -1732,9 +1732,9 @@ df.unit.T_meeting = {}
 ---@field [2] "DoMeeting"
 ---@field LeaveMap 3
 ---@field [3] "LeaveMap"
-df.meeting.T_state = {}
+df.unit.T_meeting.T_state = {}
 
----@class meeting_state
+---@class unit.T_meeting_state
 ---@field [0] boolean
 ---@field SelectNoble boolean
 ---@field [1] boolean
@@ -1752,18 +1752,18 @@ df.meeting.T_state = {}
 ---@field cur_uniform integer
 ---@field unk_items integer[]
 ---@field uniforms integer[][]
----@field pickup_flags military_pickup_flags
+---@field pickup_flags unit.T_military_pickup_flags
 ---@field uniform_pickup integer[]
 ---@field uniform_drop integer[]
 ---@field individual_drills integer[]
 df.unit.T_military = {}
 
----@class (exact) _military_pickup_flags: df.bitfield
+---@class _unit.T_military_pickup_flags: df.bitfield
 ---@field update 0
 ---@field [0] "update"
-df.military.T_pickup_flags = {}
+df.unit.T_military.T_pickup_flags = {}
 
----@class military_pickup_flags
+---@class unit.T_military_pickup_flags
 ---@field [0] boolean
 ---@field update boolean
 
@@ -1841,13 +1841,13 @@ df.unit.T_appearance = {}
 ---@field guts_trail1 coord
 ---@field guts_trail2 coord
 ---@field soldier_mood_countdown integer plus a random amount
----@field soldier_mood counters_soldier_mood
+---@field soldier_mood unit.T_counters_soldier_mood
 ---@field pain integer
 ---@field nausea integer
 ---@field dizziness integer
 df.unit.T_counters = {}
 
----@class (exact) _counters_soldier_mood: df.enum
+---@class _unit.T_counters_soldier_mood: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field MartialTrance 1
@@ -1860,9 +1860,9 @@ df.unit.T_counters = {}
 ---@field [4] "Depressed"
 ---@field Oblivious 5
 ---@field [5] "Oblivious"
-df.counters.T_soldier_mood = {}
+df.unit.T_counters.T_soldier_mood = {}
 
----@class counters_soldier_mood
+---@class unit.T_counters_soldier_mood
 ---@field [0] boolean
 ---@field None boolean
 ---@field [1] boolean
@@ -1938,7 +1938,7 @@ df.unit.T_counters2 = {}
 ---@field parleys unit_parley[]
 ---@field requests unit_request[]
 ---@field coin_debts unit_coin_debt[]
----@field unk_1 status_unk_1
+---@field unk_1 unit.T_status_unk_1
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer[] initialized together with enemy.gait_index
@@ -1948,7 +1948,7 @@ df.unit.T_counters2 = {}
 ---@field recent_jobs coord_path
 df.unit.T_status = {}
 
----@class status_unk_1: df.struct
+---@class unit.T_status_unk_1: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1956,7 +1956,7 @@ df.unit.T_status = {}
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
-df.status.T_unk_1 = {}
+df.unit.T_status.T_unk_1 = {}
 
 ---@class unit_status2: df.struct
 ---@field limbs_stand_max integer
@@ -2013,7 +2013,7 @@ df.unit.T_reports = {}
 ---@field unk_450 integer
 ---@field unk_454 integer
 ---@field army_controller_id army_controller
----@field unk_v40_sub3 enemy_unk_v40_sub3
+---@field unk_v40_sub3 unit.T_enemy_unk_v40_sub3
 ---@field combat_side_id integer
 ---@field histfig_vector_idx integer
 ---@field caste_flags any
@@ -2030,7 +2030,7 @@ df.unit.T_reports = {}
 ---@field unk_8f8 integer[]
 df.unit.T_enemy = {}
 
----@class enemy_unk_v40_sub3: df.struct
+---@class unit.T_enemy_unk_v40_sub3: df.struct
 ---@field controller army_controller
 ---@field unk_2 integer[]
 ---@field unk_3 integer[]
@@ -2038,9 +2038,9 @@ df.unit.T_enemy = {}
 ---@field unk_5 integer[]
 ---@field unk_6 integer[]
 ---@field visitor_info any[]
-df.enemy.T_unk_v40_sub3 = {}
+df.unit.T_enemy.T_unk_v40_sub3 = {}
 
----@class (exact) _witness_report_type: df.enum
+---@class _witness_report_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field WitnessedCrime 1
@@ -2057,7 +2057,7 @@ df.witness_report_type = {}
 ---@field [2] boolean
 ---@field FoundCorpse boolean
 
----@class (exact) _witness_report_flags: df.bitfield
+---@class _witness_report_flags: df.bitfield
 ---@field accuses 0
 ---@field [0] "accuses"
 df.witness_report_flags = {}
@@ -2084,7 +2084,7 @@ df.witness_report_flags = {}
 ---@field pos coord
 df.witness_report = {}
 
----@class (exact) _ghost_goal: df.enum
+---@class _ghost_goal: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field ScareToDeath 1
@@ -2145,7 +2145,7 @@ df.unit_ghost_info = {}
 ---@field building building
 df.unit_ghost_info.T_target = {}
 
----@class (exact) _unit_ghost_info_flags: df.bitfield
+---@class _unit_ghost_info_flags: df.bitfield
 ---@field announced 0
 ---@field [0] "announced"
 ---@field was_at_rest 1
@@ -2171,7 +2171,7 @@ df.unit_genes = {}
 ---@field wound_id integer -1 unless suture
 df.unit_inventory_item = {}
 
----@class (exact) _unit_inventory_item_mode: df.enum
+---@class _unit_inventory_item_mode: df.enum
 ---@field Hauled 0
 ---@field [0] "Hauled"
 ---@field Weapon 1
@@ -2252,25 +2252,25 @@ df.unit_syndrome = {}
 ---@field target_quantity integer[]
 ---@field target_delay integer[]
 ---@field target_ticks integer[]
----@field flags symptoms_flags
+---@field flags unit_syndrome.T_symptoms_flags
 ---@field random_transformation_race creature_raw With syndromes that transform the unit into a random creature, the target race ID is stored here.
 ---@field random_transformation_caste caste_raw With syndromes that transform the unit into a random creature, the target caste ID is stored here.
 df.unit_syndrome.T_symptoms = {}
 
----@class (exact) _symptoms_flags: df.bitfield
+---@class _unit_syndrome.T_symptoms_flags: df.bitfield
 ---@field disabled 0
 ---@field [0] "disabled"
 ---@field active 1
 ---@field [1] "active"
-df.symptoms.T_flags = {}
+df.unit_syndrome.T_symptoms.T_flags = {}
 
----@class symptoms_flags
+---@class unit_syndrome.T_symptoms_flags
 ---@field [0] boolean
 ---@field disabled boolean
 ---@field [1] boolean
 ---@field active boolean
 
----@class (exact) _unit_syndrome_flags: df.bitfield
+---@class _unit_syndrome_flags: df.bitfield
 ---@field is_sick 0
 ---@field [0] "is_sick"
 ---@field is_sick_low 1
@@ -2291,7 +2291,7 @@ df.unit_syndrome.T_flags = {}
 ---@field [3] boolean
 ---@field unk_3 boolean
 
----@class (exact) _wound_effect_type: df.enum
+---@class _wound_effect_type: df.enum
 ---@field Bruise 0
 ---@field [0] "Bruise"
 ---@field Burn 1
@@ -2336,7 +2336,7 @@ df.wound_effect_type = {}
 ---@field [9] boolean
 ---@field Blister boolean
 
----@class (exact) _wound_damage_flags1: df.bitfield
+---@class _wound_damage_flags1: df.bitfield
 ---@field cut 0
 ---@field [0] "cut"
 ---@field smashed 1
@@ -2469,7 +2469,7 @@ df.wound_damage_flags1 = {}
 ---@field [31] boolean
 ---@field overlapping_fracture boolean
 
----@class (exact) _wound_damage_flags2: df.bitfield
+---@class _wound_damage_flags2: df.bitfield
 ---@field needs_setting 0
 ---@field [0] "needs_setting"
 ---@field entire_surface 1
@@ -2514,7 +2514,7 @@ df.unit_wound = {}
 ---@field strain integer
 ---@field effect_perc1 integer[]
 ---@field effect_perc2 integer[]
----@field effect_type parts_effect_type
+---@field effect_type unit_wound.T_parts_effect_type
 ---@field edged_curve_perc integer
 ---@field flags1 wound_damage_flags1
 ---@field flags2 wound_damage_flags2
@@ -2535,10 +2535,10 @@ df.unit_wound = {}
 ---@field partially_butchered integer
 df.unit_wound.T_parts = {}
 
----@class parts_effect_type: df.struct
-df.parts.T_effect_type = {}
+---@class unit_wound.T_parts_effect_type: df.struct
+df.unit_wound.T_parts.T_effect_type = {}
 
----@class (exact) _unit_wound_flags: df.bitfield
+---@class _unit_wound_flags: df.bitfield
 ---@field severed_part 0
 ---@field [0] "severed_part"
 ---@field mortal_wound 1
@@ -2607,7 +2607,7 @@ df.wound_curse_info = {}
 ---@field time_counter integer
 df.wound_curse_info.T_timing = {}
 
----@class (exact) _misc_trait_type: df.enum
+---@class _misc_trait_type: df.enum
 ---@field RequestWaterCooldown 0
 ---@field [0] "RequestWaterCooldown"
 ---@field RequestFoodCooldown 1
@@ -2919,7 +2919,7 @@ df.unit_item_wrestle = {}
 ---@field affection_level integer min 50 for attached, 1000 for name
 df.unit_item_use = {}
 
----@class (exact) _unit_health_flags: df.bitfield
+---@class _unit_health_flags: df.bitfield
 ---@field rq_diagnosis 0
 ---@field [0] "rq_diagnosis"
 ---@field needs_recovery 1
@@ -2968,7 +2968,7 @@ df.unit_health_flags = {}
 ---@field [10] boolean
 ---@field rq_crutch boolean
 
----@class (exact) _unit_bp_health_flags: df.bitfield
+---@class _unit_bp_health_flags: df.bitfield
 ---@field rq_immobilize 0
 ---@field [0] "rq_immobilize"
 ---@field rq_dressing 1
@@ -3028,41 +3028,41 @@ df.unit_health_info = {}
 
 ---@class unit_health_info_op_history: df.struct
 ---@field job_type job_type
----@field info op_history_info
+---@field info unit_health_info.T_op_history_info
 ---@field year integer
 ---@field year_time integer
 ---@field doctor_id unit
 df.unit_health_info.T_op_history = {}
 
----@class op_history_info: df.struct
----@field crutch info_crutch
+---@class unit_health_info.T_op_history_info: df.struct
+---@field crutch unit_health_info.T_op_history.T_info_crutch
 ---@field bed_id building
----@field bandage info_bandage
----@field surgery info_surgery
-df.op_history.T_info = {}
+---@field bandage unit_health_info.T_op_history.T_info_bandage
+---@field surgery unit_health_info.T_op_history.T_info_surgery
+df.unit_health_info.T_op_history.T_info = {}
 
----@class info_crutch: df.struct
+---@class unit_health_info.T_op_history.T_info_crutch: df.struct
 ---@field item_type integer
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 ---@field item_id item
-df.info.T_crutch = {}
+df.unit_health_info.T_op_history.T_info.T_crutch = {}
 
----@class info_bandage: df.struct
+---@class unit_health_info.T_op_history.T_info_bandage: df.struct
 ---@field mat_type material
 ---@field mat_index integer
 ---@field body_part_id integer
 ---@field item_id item
-df.info.T_bandage = {}
+df.unit_health_info.T_op_history.T_info.T_bandage = {}
 
----@class info_surgery: df.struct
+---@class unit_health_info.T_op_history.T_info_surgery: df.struct
 ---@field subtype job_subtype_surgery
 ---@field body_part_id integer
 ---@field amputated_part_id integer
-df.info.T_surgery = {}
+df.unit_health_info.T_op_history.T_info.T_surgery = {}
 
----@class (exact) _orientation_flags: df.bitfield
+---@class _orientation_flags: df.bitfield
 ---@field indeterminate 0
 ---@field [0] "indeterminate"
 ---@field romance_male 1
@@ -3197,13 +3197,13 @@ df.unit_personality.T_ethics = {}
 ---@field thought unit_thought_type
 ---@field subthought integer for certain thoughts
 ---@field severity integer
----@field flags emotions_flags
+---@field flags unit_personality.T_emotions_flags
 ---@field unk7 integer
 ---@field year integer
 ---@field year_tick integer
 df.unit_personality.T_emotions = {}
 
----@class (exact) _emotions_flags: df.bitfield
+---@class _unit_personality.T_emotions_flags: df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
 ---@field unk1 1
@@ -3218,9 +3218,9 @@ df.unit_personality.T_emotions = {}
 ---@field [5] "remembered_shortterm"
 ---@field remembered_reflected_on 6
 ---@field [6] "remembered_reflected_on"
-df.emotions.T_flags = {}
+df.unit_personality.T_emotions.T_flags = {}
 
----@class emotions_flags
+---@class unit_personality.T_emotions_flags
 ---@field [0] boolean
 ---@field unk0 boolean
 ---@field [1] boolean
@@ -3241,15 +3241,15 @@ df.emotions.T_flags = {}
 ---@field type goal_type
 ---@field id integer
 ---@field parent_id integer[]
----@field flags dreams_flags
+---@field flags unit_personality.T_dreams_flags
 df.unit_personality.T_dreams = {}
 
----@class (exact) _dreams_flags: df.bitfield
+---@class _unit_personality.T_dreams_flags: df.bitfield
 ---@field accomplished 0
 ---@field [0] "accomplished"
-df.dreams.T_flags = {}
+df.unit_personality.T_dreams.T_flags = {}
 
----@class dreams_flags
+---@class unit_personality.T_dreams_flags
 ---@field [0] boolean
 ---@field accomplished boolean
 
@@ -3274,7 +3274,7 @@ df.unit_personality.T_mannerism = {}
 ---@field need_level integer how fast focus_level decreases when it below 0
 df.unit_personality.T_needs = {}
 
----@class (exact) _unit_personality_flags: df.bitfield
+---@class _unit_personality_flags: df.bitfield
 ---@field distraction_calculated 0
 ---@field [0] "distraction_calculated"
 ---@field has_unmet_needs 1
@@ -3287,7 +3287,7 @@ df.unit_personality.T_flags = {}
 ---@field [1] boolean
 ---@field has_unmet_needs boolean
 
----@class (exact) _unit_action_type_group: df.enum
+---@class _unit_action_type_group: df.enum
 ---for the action timer API, not in DF
 ---@field All 0
 ---@field [0] "All"
@@ -3313,7 +3313,7 @@ df.unit_action_type_group = {}
 ---@field [4] boolean
 ---@field Work boolean
 
----@class (exact) _unit_action_type: df.enum
+---@class _unit_action_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Move 1
@@ -3469,7 +3469,7 @@ df.unit_action.T_data = {}
 ---@field flags unit_action_data_move_flags
 df.unit_action_data_move = {}
 
----@class (exact) _unit_action_data_move_flags: df.bitfield
+---@class _unit_action_data_move_flags: df.bitfield
 ---@field charge 0
 ---@field [0] "charge"
 df.unit_action_data_move.T_flags = {}
@@ -3496,7 +3496,7 @@ df.unit_action_data_move.T_flags = {}
 df.unit_action_data_attack = {}
 
 ---@class unit_action_data_attack_unk_4: df.struct
----@field wrestle_type unk_4_wrestle_type
+---@field wrestle_type unit_action_data_attack.T_unk_4_wrestle_type
 ---@field unk_4 integer
 ---@field unk_6 integer
 ---@field unk_8 integer
@@ -3505,20 +3505,20 @@ df.unit_action_data_attack = {}
 ---@field unk_14 integer
 df.unit_action_data_attack.T_unk_4 = {}
 
----@class (exact) _unk_4_wrestle_type: df.enum
+---@class _unit_action_data_attack.T_unk_4_wrestle_type: df.enum
 ---@field Wrestle 0
 ---@field [0] "Wrestle"
 ---@field Grab 1
 ---@field [1] "Grab"
-df.unk_4.T_wrestle_type = {}
+df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
 
----@class unk_4_wrestle_type
+---@class unit_action_data_attack.T_unk_4_wrestle_type
 ---@field [0] boolean
 ---@field Wrestle boolean
 ---@field [1] boolean
 ---@field Grab boolean
 
----@class (exact) _unit_action_data_attack_flags: df.bitfield
+---@class _unit_action_data_attack_flags: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -3771,7 +3771,7 @@ df.unit_skill = {}
 ---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
 df.unit_preference = {}
 
----@class (exact) _unit_preference_type: df.enum
+---@class _unit_preference_type: df.enum
 ---@field LikeMaterial 0
 ---@field [0] "LikeMaterial"
 ---@field LikeCreature 1
@@ -3836,7 +3836,7 @@ df.unit_complaint = {}
 ---@field flags unit_parley_flags
 df.unit_parley = {}
 
----@class (exact) _unit_parley_flags: df.bitfield
+---@class _unit_parley_flags: df.bitfield
 ---@field did_topic_meeting 0
 ---@field [0] "did_topic_meeting"
 ---@field returning_treasure 1
@@ -3855,7 +3855,7 @@ df.unit_parley.T_flags = {}
 ---@field count integer
 df.unit_request = {}
 
----@class (exact) _unit_request_type: df.enum
+---@class _unit_request_type: df.enum
 ---@field DoGuildJobs 0
 ---@field [0] "DoGuildJobs"
 df.unit_request.T_type = {}
@@ -3896,7 +3896,7 @@ df.unit_chunk = {}
 ---@field unk_19 integer
 df.unit_appearance = {}
 
----@class (exact) _work_detail_mode: df.enum
+---@class _work_detail_mode: df.enum
 ---@field Default 0
 ---@field [0] "Default"
 ---@field EverybodyDoesThis 1
@@ -3925,7 +3925,7 @@ df.work_detail_mode = {}
 ---@field icon work_detail_icon
 df.work_detail = {}
 
----@class (exact) _work_detail_work_detail_flags: df.bitfield
+---@class _work_detail_work_detail_flags: df.bitfield
 ---@field no_modify 0
 ---@field [0] "no_modify"
 ---@field cannot_be_everybody 1
@@ -3942,7 +3942,7 @@ df.work_detail.T_work_detail_flags = {}
 ---@field [2] boolean
 ---@field mode boolean
 
----@class (exact) _work_detail_icon: df.enum
+---@class _work_detail_icon: df.enum
 ---@field ICON_NONE -1
 ---@field [0] "ICON_NONE"
 ---@field ICON_MINERS 1
@@ -4029,7 +4029,7 @@ df.work_detail.T_icon = {}
 ---@field unitlist any[]
 df.process_unit_aux = {}
 
----@class (exact) _process_unit_aux_flags: df.bitfield
+---@class _process_unit_aux_flags: df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
 ---@field unk_1 1

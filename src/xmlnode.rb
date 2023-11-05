@@ -14,6 +14,8 @@ TYPE_MAP = {
   'static-string' => 'string',
   'bool' => 'boolean',
   'stl-function' => 'function',
+  # TODO: Figure out a better way.
+  'pointer' => 'any',
 }
 
 class XmlNode
@@ -178,7 +180,7 @@ class StructType < XmlNode
     @name = node.attributes['type-name'] || node.attributes['name']
     @parent_type = parent_type
     @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.struct'
-    @type = parent_type ? "#{parent_type}_#{@name}" : @name
+    @type = parent_type ? "#{parent_type}_#{@name}" : @name.value
   end
 
   def render
@@ -196,7 +198,7 @@ class StructType < XmlNode
     children.each do |child|
       next if !child.attributes['name'] or child.name == 'code-helper'
 
-      field = Field.new(child, @name.value)
+      field = Field.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}")
 
       inline_types.push(child) if field.is_inline
 
@@ -208,9 +210,9 @@ class StructType < XmlNode
     if not inline_types.empty?
       inline_types.each do |child|
         if ["enum", "bitfield"].include?(child.name)
-          annotation << EnumType.new(child, @name.value).render()
+          annotation << EnumType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render()
         else
-          annotation << StructType.new(child, @name.value).render()
+          annotation << StructType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render()
         end
       end
     end

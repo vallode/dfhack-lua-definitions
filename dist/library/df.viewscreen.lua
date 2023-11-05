@@ -13,7 +13,7 @@
 ---@field out_buffer_amount_written integer
 df.file_compressorst = {}
 
----@class (exact) _interface_breakdown_types: df.enum
+---@class _interface_breakdown_types: df.enum
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field QUIT 1
@@ -34,7 +34,7 @@ df.interface_breakdown_types = {}
 ---@field [3] boolean
 ---@field TOFIRST boolean
 
----@class (exact) _interface_push_types: df.enum
+---@class _interface_push_types: df.enum
 ---@field AS_PARENT 0
 ---@field [0] "AS_PARENT"
 ---@field AS_CHILD 1
@@ -114,7 +114,7 @@ df.extentst = {}
 ---@field search_string string
 df.widget = {}
 
----@class (exact) _widget_visibility_flags: df.bitfield
+---@class _widget_visibility_flags: df.bitfield
 ---@field WIDGET_VISIBILITY_ACTIVE 0
 ---@field [0] "WIDGET_VISIBILITY_ACTIVE"
 ---@field WIDGET_VISIBILITY_ACTUALLY_VISIBLE 1
@@ -127,7 +127,7 @@ df.widget.T_visibility_flags = {}
 ---@field [1] boolean
 ---@field WIDGET_VISIBILITY_ACTUALLY_VISIBLE boolean
 
----@class (exact) _widget_tooltip_type: df.enum
+---@class _widget_tooltip_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field REPLACE_MINIMAP 1
@@ -217,7 +217,7 @@ df.widget_columns_container = {}
 ---@field tab_type widget_tabs_tab_type
 df.widget_tabs = {}
 
----@class (exact) _widget_tabs_tab_type: df.enum
+---@class _widget_tabs_tab_type: df.enum
 ---@field DEFAULT 0
 ---@field [0] "DEFAULT"
 ---@field SHORT 1
@@ -323,7 +323,7 @@ df.world_dat_summary.T_unk = {}
 ---@field progress integer 0..35
 df.viewscreen_adopt_regionst = {}
 
----@class (exact) _viewscreen_adopt_regionst_cur_step: df.enum
+---@class _viewscreen_adopt_regionst_cur_step: df.enum
 ---@field OpeningFile 0
 ---@field [0] "OpeningFile"
 ---@field ProcessingRawData 1
@@ -472,7 +472,7 @@ df.viewscreen_adopt_regionst.T_cur_step = {}
 ---@field [35] boolean
 ---@field Failed boolean
 
----@class (exact) _embark_finder_option: df.enum
+---@class _embark_finder_option: df.enum
 ---@field DimensionX 0
 ---@field [0] "DimensionX"
 ---@field DimensionY 1
@@ -666,7 +666,7 @@ df.embark_location = {}
 ---@field notes_selected_note integer
 df.viewscreen_choose_start_sitest = {}
 
----@class (exact) _viewscreen_choose_start_sitest_page: df.enum
+---@class _viewscreen_choose_start_sitest_page: df.enum
 ---@field Biome 0
 ---@field [0] "Biome"
 ---@field Neighbors 1
@@ -707,7 +707,7 @@ df.viewscreen_choose_start_sitest.T_page = {}
 ---@field [8] boolean
 ---@field Notes boolean
 
----@class (exact) _viewscreen_choose_start_sitest_find_results: df.enum
+---@class _viewscreen_choose_start_sitest_find_results: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Searching 1
@@ -777,7 +777,7 @@ df.mission = {}
 ---@field request integer[]
 df.mission.T_details = {}
 
----@class (exact) _mission_type: df.enum
+---@class _mission_type: df.enum
 ---@field Raid 2
 ---@field [0] "Raid"
 ---@field RecoverArtifact 17
@@ -830,7 +830,7 @@ df.viewscreen_dwarfmodest.T_unit_labors_sidemenu_uplevel = {}
 ---@field timeline_name string
 df.viewscreen_export_regionst = {}
 
----@class (exact) _viewscreen_export_regionst_state: df.enum
+---@class _viewscreen_export_regionst_state: df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field PreliminaryCleaning 1
@@ -1004,7 +1004,7 @@ df.viewscreen_export_regionst.T_units_progress = {}
 ---@field state viewscreen_game_cleanerst_state
 df.viewscreen_game_cleanerst = {}
 
----@class (exact) _viewscreen_game_cleanerst_state: df.enum
+---@class _viewscreen_game_cleanerst_state: df.enum
 ---@field CleaningGameObjects 0
 ---@field [0] "CleaningGameObjects"
 ---@field CleaningStrandedObjects 1
@@ -1085,7 +1085,7 @@ df.world_gen_param_flagarrayst = {}
 ---@field entering_filter boolean
 df.legend_pagest = {}
 
----@class (exact) _legend_pagest_mode: df.enum
+---@class _legend_pagest_mode: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN 1
@@ -1318,7 +1318,7 @@ df.matgloss_list.T_generated_languages = {}
 ---@field cur_save loadgame_save_info
 df.viewscreen_loadgamest = {}
 
----@class (exact) _viewscreen_loadgamest_cur_step: df.enum
+---@class _viewscreen_loadgamest_cur_step: df.enum
 ---After the on-screen text shown while loading.
 ---@field OpeningFile 0
 ---@field [0] "OpeningFile"
@@ -1743,7 +1743,7 @@ df.nemesis_offload = {}
 ---@field compressor file_compressorst
 df.viewscreen_savegamest = {}
 
----@class (exact) _viewscreen_savegamest_cur_step: df.enum
+---@class _viewscreen_savegamest_cur_step: df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -1956,7 +1956,7 @@ df.viewscreen_savegamest.T_cur_step = {}
 ---@field [51] boolean
 ---@field Finishing boolean
 
----@class (exact) _adventurer_attribute_level: df.enum
+---@class _adventurer_attribute_level: df.enum
 ---@field VeryLow 0
 ---@field [0] "VeryLow"
 ---@field Low 1
@@ -1996,7 +1996,7 @@ df.adventurer_attribute_level = {}
 ---@field type integer
 df.startup_charactersheet_petst = {}
 
----@class (exact) _adv_background_option_type: df.enum
+---@class _adv_background_option_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SQUAD_EPPID 1
@@ -2095,7 +2095,7 @@ df.adv_background_option_type = {}
 ---@field pet startup_charactersheet_petst[]
 df.setup_character_info = {}
 
----@class (exact) _setup_character_info_difficulty: df.enum
+---@class _setup_character_info_difficulty: df.enum
 ---@field Peasant 0
 ---@field [0] "Peasant"
 ---@field Hero 1
@@ -2112,7 +2112,7 @@ df.setup_character_info.T_difficulty = {}
 ---@field [2] boolean
 ---@field Demigod boolean
 
----@class (exact) _setup_character_info_sub_mode: df.enum
+---@class _setup_character_info_sub_mode: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field RACE 1
@@ -2366,7 +2366,7 @@ df.viewscreen_titlest.T_menu_line_id = {}
 ---@field year_tick integer
 df.viewscreen_update_regionst = {}
 
----@class (exact) _world_view_mode_type: df.enum
+---@class _world_view_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field NORMAL 1

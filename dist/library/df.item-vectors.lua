@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _items_other_id: df.enum
+---@class _items_other_id: df.enum
 ---@field ANY -1
 ---@field [0] "ANY"
 ---@field IN_PLAY 1
@@ -549,7 +549,7 @@ df.items_other_id = {}
 ---@type { [string|integer]: items_other_id_attr }
 df.items_other_id.attrs = {}
 
----@class (exact) _job_item_vector_id: df.enum
+---@class _job_item_vector_id: df.enum
 ---@field ANY 0
 ---@field [0] "ANY"
 ---@field IN_PLAY 1

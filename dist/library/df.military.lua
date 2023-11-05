@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _uniform_indiv_choice: df.bitfield
+---@class _uniform_indiv_choice: df.bitfield
 ---@field any 0
 ---@field [0] "any"
 ---@field melee 1
@@ -44,7 +44,7 @@ df.squad_uniform_spec.T_assigned = {}
 ---@field assigned squad_ammo_spec_assigned
 df.squad_ammo_spec = {}
 
----@class (exact) _squad_ammo_spec_flags: df.bitfield
+---@class _squad_ammo_spec_flags: df.bitfield
 ---@field use_combat 0
 ---@field [0] "use_combat"
 ---@field use_training 1
@@ -60,7 +60,7 @@ df.squad_ammo_spec.T_flags = {}
 ---@class squad_ammo_spec_assigned: df.struct
 df.squad_ammo_spec.T_assigned = {}
 
----@class (exact) _squad_use_flags: df.bitfield
+---@class _squad_use_flags: df.bitfield
 ---@field sleep 0
 ---@field [0] "sleep"
 ---@field train 1
@@ -81,7 +81,7 @@ df.squad_use_flags = {}
 ---@field [3] boolean
 ---@field squad_eq boolean
 
----@class (exact) _uniform_category: df.enum
+---@class _uniform_category: df.enum
 ---@field body 0
 ---@field [0] "body"
 ---@field head 1
@@ -114,7 +114,7 @@ df.uniform_category = {}
 ---@field [6] boolean
 ---@field weapon boolean
 
----@class (exact) _uniform_flags: df.bitfield
+---@class _uniform_flags: df.bitfield
 ---@field replace_clothing 0
 ---@field [0] "replace_clothing"
 ---@field exact_matches 1
@@ -127,7 +127,7 @@ df.uniform_flags = {}
 ---@field [1] boolean
 ---@field exact_matches boolean
 
----@class (exact) _barrack_preference_category: df.enum
+---@class _barrack_preference_category: df.enum
 ---@field Bed 0
 ---@field [0] "Bed"
 ---@field Armorstand 1
@@ -148,7 +148,7 @@ df.barrack_preference_category = {}
 ---@field [3] boolean
 ---@field Cabinet boolean
 
----@class (exact) _squad_event_type: df.enum
+---@class _squad_event_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Unk0 1
@@ -247,26 +247,26 @@ df.squad.T_rooms = {}
 
 ---@class squad_ammo: df.struct
 ---@field ammunition squad_ammo_spec[]
----@field train_weapon_free ammo_train_weapon_free
----@field train_weapon_inuse ammo_train_weapon_inuse
----@field ammo_items ammo_ammo_items
----@field ammo_units ammo_ammo_units
+---@field train_weapon_free squad.T_ammo_train_weapon_free
+---@field train_weapon_inuse squad.T_ammo_train_weapon_inuse
+---@field ammo_items squad.T_ammo_ammo_items
+---@field ammo_units squad.T_ammo_ammo_units
 ---@field update equipment_update
 df.squad.T_ammo = {}
 
----@class ammo_train_weapon_free: df.struct
-df.ammo.T_train_weapon_free = {}
+---@class squad.T_ammo_train_weapon_free: df.struct
+df.squad.T_ammo.T_train_weapon_free = {}
 
----@class ammo_train_weapon_inuse: df.struct
-df.ammo.T_train_weapon_inuse = {}
+---@class squad.T_ammo_train_weapon_inuse: df.struct
+df.squad.T_ammo.T_train_weapon_inuse = {}
 
----@class ammo_ammo_items: df.struct
-df.ammo.T_ammo_items = {}
+---@class squad.T_ammo_ammo_items: df.struct
+df.squad.T_ammo.T_ammo_items = {}
 
----@class ammo_ammo_units: df.struct
-df.ammo.T_ammo_units = {}
+---@class squad.T_ammo_ammo_units: df.struct
+df.squad.T_ammo.T_ammo_units = {}
 
----@class (exact) _squad_order_type: df.enum
+---@class _squad_order_type: df.enum
 ---@field MOVE 0
 ---@field [0] "MOVE"
 ---@field KILL_LIST 1
@@ -319,7 +319,7 @@ df.squad_order_type = {}
 ---@field [11] boolean
 ---@field RESCUE_HF boolean
 
----@class (exact) _squad_order_cannot_reason: df.enum
+---@class _squad_order_cannot_reason: df.enum
 ---@field not_following_order 0
 ---@field [0] "not_following_order"
 ---@field activity_cancelled 1
@@ -535,7 +535,7 @@ df.army_controller = {}
 ---@field VillainousVisit army_controller_villainous_visit
 df.army_controller.T_data = {}
 
----@class (exact) _army_controller_type: df.enum
+---@class _army_controller_type: df.enum
 ---@field t0 0
 ---@field [0] "t0"
 ---@field t1 1
@@ -674,7 +674,7 @@ df.army_controller_invasion_order.T_unk_4a = {}
 ---@field unk_2 army_controller_invasion_unk_2
 df.army_controller_invasion = {}
 
----@class (exact) _army_controller_invasion_unk_2: df.bitfield
+---@class _army_controller_invasion_unk_2: df.bitfield
 ---@field not_sleeping 0
 ---@field [0] "not_sleeping"
 ---@field unk_2 1
@@ -883,7 +883,7 @@ df.army_controller_sub23 = {}
 ---@field purpose history_event_reason none before arrival
 df.army_controller_villainous_visit = {}
 
----@class (exact) _army_flags: df.enum
+---@class _army_flags: df.enum
 ---@field player 0
 ---@field [0] "player"
 df.army_flags = {}

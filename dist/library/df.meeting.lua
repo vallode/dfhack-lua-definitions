@@ -20,7 +20,7 @@ df.dipscript_text = {}
 ---@field flags dipscript_popup_flags
 df.dipscript_popup = {}
 
----@class (exact) _dipscript_popup_flags: df.bitfield
+---@class _dipscript_popup_flags: df.bitfield
 ---@field close_screen 0
 ---@field [0] "close_screen"
 ---@field new_screen 1
@@ -160,7 +160,7 @@ df.meeting_diplomat_info = {}
 ---@class meeting_diplomat_info_topic_list: df.struct
 df.meeting_diplomat_info.T_topic_list = {}
 
----@class (exact) _meeting_diplomat_info_flags: df.bitfield
+---@class _meeting_diplomat_info_flags: df.bitfield
 ---@field dynamic_load 0
 ---@field [0] "dynamic_load"
 ---@field failure 1
@@ -177,7 +177,7 @@ df.meeting_diplomat_info.T_flags = {}
 ---@field [2] boolean
 ---@field success boolean
 
----@class (exact) _meeting_topic: df.enum
+---@class _meeting_topic: df.enum
 ---@field DiscussCurrent 0
 ---@field [0] "DiscussCurrent"
 ---@field RequestPeace 1
@@ -222,7 +222,7 @@ df.meeting_topic = {}
 ---@field [9] boolean
 ---@field TributeAgreement boolean
 
----@class (exact) _meeting_event_type: df.enum
+---@class _meeting_event_type: df.enum
 ---@field AcceptAgreement 0
 ---@field [0] "AcceptAgreement"
 ---@field RejectAgreement 1
@@ -276,7 +276,7 @@ df.meeting_event = {}
 ---@field tree_quota integer -1
 df.activity_info = {}
 
----@class (exact) _activity_info_flags: df.bitfield
+---@class _activity_info_flags: df.bitfield
 ---@field next_step 0
 ---@field [0] "next_step"
 ---@field checked_building 1
@@ -307,7 +307,7 @@ df.activity_info.T_flags = {}
 ---@field flags room_rent_info_flags
 df.room_rent_info = {}
 
----@class (exact) _room_rent_info_flags: df.bitfield
+---@class _room_rent_info_flags: df.bitfield
 ---@field eviction_underway 0
 ---@field [0] "eviction_underway"
 ---@field move_underway 1
@@ -320,7 +320,7 @@ df.room_rent_info.T_flags = {}
 ---@field [1] boolean
 ---@field move_underway boolean
 
----@class (exact) _activity_entry_type: df.enum
+---@class _activity_entry_type: df.enum
 ---@field TrainingSession 0
 ---@field [0] "TrainingSession"
 ---@field IndividualSkillDrill 1
@@ -385,7 +385,7 @@ df.activity_entry_type = {}
 ---@field army_controller army_controller
 df.activity_entry = {}
 
----@class (exact) _activity_event_type: df.enum
+---@class _activity_event_type: df.enum
 ---@field TrainingSession 0
 ---@field [0] "TrainingSession"
 ---@field CombatTraining 1
@@ -532,7 +532,7 @@ df.activity_event_participants.T_free_units = {}
 ---@field unk_v42_2 activity_event_unk_v42_2
 df.activity_event = {}
 
----@class (exact) _activity_event_flags: df.bitfield
+---@class _activity_event_flags: df.bitfield
 ---@field dismissed 0
 ---@field [0] "dismissed"
 ---@field squad 1
@@ -633,7 +633,7 @@ df.activity_event_harassmentst = {}
 ---@field unk_13 integer
 df.activity_event_harassmentst.T_unk_2 = {}
 
----@class (exact) _conversation_menu: df.enum
+---@class _conversation_menu: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field RespondGreeting 1
@@ -994,7 +994,7 @@ df.activity_event_conversationst.T_unk_b4 = {}
 ---@field unk_34014_1 integer uninit
 df.activity_event_conversationst.T_turns = {}
 
----@class (exact) _activity_event_conversationst_flags2: df.bitfield
+---@class _activity_event_conversationst_flags2: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field shouting 1
@@ -1051,16 +1051,16 @@ df.activity_event_conflictst = {}
 ---@field id integer
 ---@field histfig_ids integer[]
 ---@field unit_ids integer[]
----@field enemies sides_enemies relationships to other sides in this conflict
+---@field enemies activity_event_conflictst.T_sides_enemies relationships to other sides in this conflict
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.activity_event_conflictst.T_sides = {}
 
----@class sides_enemies: df.struct
+---@class activity_event_conflictst.T_sides_enemies: df.struct
 ---relationships to other sides in this conflict
 ---@field id integer
 ---@field conflict_level conflict_level
-df.sides.T_enemies = {}
+df.activity_event_conflictst.T_sides.T_enemies = {}
 
 ---@class activity_event_guardst: activity_event
 ---@field unk_1 integer[]
@@ -1104,7 +1104,7 @@ df.activity_event_socializest = {}
 ---@field unk_1 integer
 df.activity_event_worshipst = {}
 
----@class (exact) _performance_event_type: df.enum
+---@class _performance_event_type: df.enum
 ---@field STORY 0
 ---@field [0] "STORY"
 ---@field POETRY 1
@@ -1141,7 +1141,7 @@ df.performance_event_type = {}
 ---@field [7] boolean
 ---@field SERMON_INVEIGH_AGAINST_VALUE boolean
 
----@class (exact) _performance_participant_type: df.enum
+---@class _performance_participant_type: df.enum
 ---@field TELL_STORY 0
 ---@field [0] "TELL_STORY"
 ---@field RECITE_POETRY 1
@@ -1291,7 +1291,7 @@ df.activity_event_fill_service_orderst = {}
 ---@field knowledge knowledge_scholar_category_flag
 df.activity_event_writest = {}
 
----@class (exact) _activity_event_writest_unk_1: df.bitfield
+---@class _activity_event_writest_unk_1: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -1308,7 +1308,7 @@ df.activity_event_writest.T_unk_1 = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@class (exact) _activity_event_writest_mode: df.enum
+---@class _activity_event_writest_mode: df.enum
 ---@field WriteAboutKnowledge 0
 ---@field [0] "WriteAboutKnowledge"
 df.activity_event_writest.T_mode = {}
@@ -1329,7 +1329,7 @@ df.activity_event_writest.T_mode = {}
 ---@field timer integer
 df.activity_event_copy_written_contentst = {}
 
----@class (exact) _activity_event_copy_written_contentst_flagsmaybe: df.bitfield
+---@class _activity_event_copy_written_contentst_flagsmaybe: df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
 ---@field unk_1 1
@@ -1410,7 +1410,7 @@ df.activity_event_make_believest = {}
 ---@field unk_3 integer
 ---@field unk activity_event_play_with_toyst_unk
 ---@field unk_4 integer
----@field unk_5 pointer[]
+---@field unk_5 any[]
 df.activity_event_play_with_toyst = {}
 
 ---@class activity_event_play_with_toyst_unk: df.struct

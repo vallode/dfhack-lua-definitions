@@ -39,21 +39,21 @@ df.world_raws = {}
 ---@class world_raws_plants: df.struct
 ---@field all plant_raw[]
 ---@field bushes plant_raw[]
----@field bushes_idx plants_bushes_idx
+---@field bushes_idx world_raws.T_plants_bushes_idx
 ---@field trees plant_raw[]
----@field trees_idx plants_trees_idx
+---@field trees_idx world_raws.T_plants_trees_idx
 ---@field grasses plant_raw[]
----@field grasses_idx plants_grasses_idx
+---@field grasses_idx world_raws.T_plants_grasses_idx
 df.world_raws.T_plants = {}
 
----@class plants_bushes_idx: df.struct
-df.plants.T_bushes_idx = {}
+---@class world_raws.T_plants_bushes_idx: df.struct
+df.world_raws.T_plants.T_bushes_idx = {}
 
----@class plants_trees_idx: df.struct
-df.plants.T_trees_idx = {}
+---@class world_raws.T_plants_trees_idx: df.struct
+df.world_raws.T_plants.T_trees_idx = {}
 
----@class plants_grasses_idx: df.struct
-df.plants.T_grasses_idx = {}
+---@class world_raws.T_plants_grasses_idx: df.struct
+df.world_raws.T_plants.T_grasses_idx = {}
 
 ---@class world_raws_bodyglosses: df.struct
 ---@field id string
@@ -120,28 +120,28 @@ df.world_raws.T_unk_v50_2 = {}
 df.world_raws.T_unk_v50_3 = {}
 
 ---@class world_raws_syndromes: df.struct
----@field mat_types syndromes_mat_types
+---@field mat_types world_raws.T_syndromes_mat_types
 ---@field mat_indexes integer[]
----@field interactions syndromes_interactions
+---@field interactions world_raws.T_syndromes_interactions
 ---@field all syndrome[]
 df.world_raws.T_syndromes = {}
 
----@class syndromes_mat_types: df.struct
-df.syndromes.T_mat_types = {}
+---@class world_raws.T_syndromes_mat_types: df.struct
+df.world_raws.T_syndromes.T_mat_types = {}
 
----@class syndromes_interactions: df.struct
-df.syndromes.T_interactions = {}
+---@class world_raws.T_syndromes_interactions: df.struct
+df.world_raws.T_syndromes.T_interactions = {}
 
 ---@class world_raws_effects: df.struct
----@field mat_types effects_mat_types
+---@field mat_types world_raws.T_effects_mat_types
 ---@field mat_indexes integer[]
----@field interactions effects_interactions
+---@field interactions world_raws.T_effects_interactions
 ---@field all creature_interaction_effect[]
 df.world_raws.T_effects = {}
 
----@class effects_mat_types: df.struct
-df.effects.T_mat_types = {}
+---@class world_raws.T_effects_mat_types: df.struct
+df.world_raws.T_effects.T_mat_types = {}
 
----@class effects_interactions: df.struct
-df.effects.T_interactions = {}
+---@class world_raws.T_effects_interactions: df.struct
+df.world_raws.T_effects.T_interactions = {}
 

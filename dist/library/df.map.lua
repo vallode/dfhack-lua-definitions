@@ -23,7 +23,7 @@ df.coord = {}
 ---@field z integer[]
 df.coord_path = {}
 
----@class (exact) _tile_traffic: df.enum
+---@class _tile_traffic: df.enum
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Low 1
@@ -44,7 +44,7 @@ df.tile_traffic = {}
 ---@field [3] boolean
 ---@field Restricted boolean
 
----@class (exact) _tile_dig_designation: df.enum
+---@class _tile_dig_designation: df.enum
 ---@field No 0
 ---@field [0] "No"
 ---@field Default 1
@@ -77,7 +77,7 @@ df.tile_dig_designation = {}
 ---@field [6] boolean
 ---@field UpStair boolean
 
----@class (exact) _tile_liquid: df.enum
+---@class _tile_liquid: df.enum
 ---@field Water 0
 ---@field [0] "Water"
 ---@field Magma 1
@@ -90,7 +90,7 @@ df.tile_liquid = {}
 ---@field [1] boolean
 ---@field Magma boolean
 
----@class (exact) _tile_designation: df.bitfield
+---@class _tile_designation: df.bitfield
 ---@field flow_size 0
 ---@field [0] "flow_size"
 ---@field pile 1
@@ -175,7 +175,7 @@ df.tile_designation = {}
 ---@field [19] boolean
 ---@field water_salt boolean
 
----@class (exact) _tile_building_occ: df.enum
+---@class _tile_building_occ: df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Planned 1
@@ -212,7 +212,7 @@ df.tile_building_occ = {}
 ---@field [7] boolean
 ---@field Dynamic boolean
 
----@class (exact) _tile_occupancy: df.bitfield
+---@class _tile_occupancy: df.bitfield
 ---@field building 0
 ---@field [0] "building"
 ---@field unit 1
@@ -305,7 +305,7 @@ df.tile_occupancy = {}
 ---@field [21] boolean
 ---@field heavy_aquifer boolean
 
----@class (exact) _block_flags: df.bitfield
+---@class _block_flags: df.bitfield
 ---@field designated 0
 ---@field [0] "designated"
 ---@field update_temperature 1
@@ -350,7 +350,7 @@ df.block_flags = {}
 ---@field [9] boolean
 ---@field subterranean_water boolean
 
----@class (exact) _z_level_flags: df.bitfield
+---@class _z_level_flags: df.bitfield
 ---@field update 0
 ---@field [0] "update"
 ---@field can_stop 1
@@ -367,7 +367,7 @@ df.z_level_flags = {}
 ---@field [2] boolean
 ---@field update_twice boolean
 
----@class (exact) _tile_liquid_flow_dir: df.enum
+---@class _tile_liquid_flow_dir: df.enum
 ---@field none 0
 ---@field [0] "none"
 ---@field south 1
@@ -436,7 +436,7 @@ df.tile_liquid_flow_dir = {}
 ---@field [15] boolean
 ---@field inv_f boolean
 
----@class (exact) _tile_liquid_flow: df.bitfield
+---@class _tile_liquid_flow: df.bitfield
 ---@field temp_flow_timer 0
 ---@field [0] "temp_flow_timer"
 ---@field unk_1 1
@@ -508,7 +508,7 @@ df.map_block.T_items = {}
 ---@field unk_4 cave_column_unk_4
 df.cave_column = {}
 
----@class (exact) _cave_column_unk_4: df.bitfield
+---@class _cave_column_unk_4: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -532,7 +532,7 @@ df.cave_column.T_unk_4 = {}
 ---@field unk_7 cave_column_rectangle_unk_7
 df.cave_column_rectangle = {}
 
----@class (exact) _cave_column_rectangle_unk_7: df.bitfield
+---@class _cave_column_rectangle_unk_7: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -572,7 +572,7 @@ df.map_block_column = {}
 ---@field tile integer[]
 df.map_block_column.T_unmined_glyphs = {}
 
----@class (exact) _block_square_event_type: df.enum
+---@class _block_square_event_type: df.enum
 ---@field mineral 0
 ---@field [0] "mineral"
 ---@field frozen_liquid 1
@@ -618,7 +618,7 @@ df.block_square_event = {}
 ---@field flags block_square_event_mineralst_flags
 df.block_square_event_mineralst = {}
 
----@class (exact) _block_square_event_mineralst_flags: df.bitfield
+---@class _block_square_event_mineralst_flags: df.bitfield
 ---@field discovered 0
 ---@field [0] "discovered"
 ---@field cluster 1
@@ -694,7 +694,7 @@ df.block_square_event_item_spatterst = {}
 ---@field priority integer[][]
 df.block_square_event_designation_priorityst = {}
 
----@class (exact) _feature_type: df.enum
+---@class _feature_type: df.enum
 ---@field outdoor_river 0
 ---@field [0] "outdoor_river"
 ---@field cave 1
@@ -780,7 +780,7 @@ df.feature_magma_core_from_layerst = {}
 ---@class feature_underworld_from_layerst: feature
 df.feature_underworld_from_layerst = {}
 
----@class (exact) _feature_init_flags: df.enum
+---@class _feature_init_flags: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -801,7 +801,7 @@ df.feature_init_flags = {}
 ---@field [3] boolean
 ---@field Discovered boolean
 
----@class (exact) _layer_type: df.enum
+---@class _layer_type: df.enum
 ---@field Surface -1
 ---@field [0] "Surface"
 ---@field Cavern1 1
@@ -890,7 +890,7 @@ df.feature_init_magma_core_from_layerst = {}
 ---@field feature feature_underworld_from_layerst
 df.feature_init_underworld_from_layerst = {}
 
----@class (exact) _feature_alteration_type: df.enum
+---@class _feature_alteration_type: df.enum
 ---@field new_pop_max 0
 ---@field [0] "new_pop_max"
 ---@field new_lava_fill_z 1
@@ -915,7 +915,7 @@ df.feature_alteration_new_pop_maxst = {}
 ---@field magma_fill_z integer
 df.feature_alteration_new_lava_fill_zst = {}
 
----@class (exact) _world_construction_type: df.enum
+---@class _world_construction_type: df.enum
 ---@field ROAD 0
 ---@field [0] "ROAD"
 ---@field TUNNEL 1
@@ -992,7 +992,7 @@ df.world_construction_bridgest = {}
 ---@field name language_name
 df.world_construction_wallst = {}
 
----@class (exact) _biome_type: df.enum
+---@class _biome_type: df.enum
 ---@field MOUNTAIN 0
 ---@field [0] "MOUNTAIN"
 ---@field GLACIER 1
@@ -1201,7 +1201,7 @@ df.biome_type = {}
 ---@field [50] boolean
 ---@field SUBTERRANEAN_LAVA boolean
 
----@class (exact) _construction_flags: df.bitfield
+---@class _construction_flags: df.bitfield
 ---@field no_build_item 0
 ---@field [0] "no_build_item"
 ---@field top_of_wall 1
@@ -1224,7 +1224,7 @@ df.construction_flags = {}
 ---@field original_tile tiletype
 df.construction = {}
 
----@class (exact) _flow_type: df.enum
+---@class _flow_type: df.enum
 ---@field Miasma 0
 ---@field [0] "Miasma"
 ---@field Steam 1
@@ -1302,7 +1302,7 @@ df.flow_info = {}
 ---@field flags flow_reuse_pool_flags
 df.flow_reuse_pool = {}
 
----@class (exact) _flow_reuse_pool_flags: df.bitfield
+---@class _flow_reuse_pool_flags: df.bitfield
 ---@field active 0
 ---@field [0] "active"
 df.flow_reuse_pool.T_flags = {}
@@ -1311,7 +1311,7 @@ df.flow_reuse_pool.T_flags = {}
 ---@field [0] boolean
 ---@field active boolean
 
----@class (exact) _flow_guide_type: df.enum
+---@class _flow_guide_type: df.enum
 ---@field TrailingFlow 0
 ---@field [0] "TrailingFlow"
 ---@field ItemCloud 1
@@ -1354,7 +1354,7 @@ df.flow_guide_item_cloudst = {}
 ---@field timer integer
 df.effect_info = {}
 
----@class (exact) _region_block_event_type: df.enum
+---@class _region_block_event_type: df.enum
 ---@field SphereField 0
 ---@field [0] "SphereField"
 df.region_block_event_type = {}

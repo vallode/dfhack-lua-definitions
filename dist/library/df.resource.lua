@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _resource_allotment_specifier_type: df.enum
+---@class _resource_allotment_specifier_type: df.enum
 ---@field CROP 0
 ---@field [0] "CROP"
 ---@field STONE 1

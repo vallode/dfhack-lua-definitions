@@ -13,7 +13,7 @@
 ---@field count_provided integer
 df.ui_build_item_req = {}
 
----@class (exact) _build_req_choice_type: df.enum
+---@class _build_req_choice_type: df.enum
 ---@field General 0
 ---@field [0] "General"
 ---@field Specific 1
@@ -77,7 +77,7 @@ df.build_req_choice_specst = {}
 ---@field selection_area integer
 df.buildreq = {}
 
----@class (exact) _interface_category_building: df.enum
+---@class _interface_category_building: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field WEAPON 1
@@ -118,7 +118,7 @@ df.interface_category_building = {}
 ---@field [8] boolean
 ---@field SELECT_MEMORIAL_UNIT boolean
 
----@class (exact) _interface_category_construction: df.enum
+---@class _interface_category_construction: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN 1
@@ -202,7 +202,7 @@ df.interface_button_building_new_jobst = {}
 ---@field custom_category_token string
 df.interface_button_building_custom_category_selectorst = {}
 
----@class (exact) _construction_category_type: df.enum
+---@class _construction_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN 1
@@ -271,7 +271,7 @@ df.construction_category_type = {}
 ---@field hotkey interface_key
 df.bb_buttonst = {}
 
----@class (exact) _construction_interface_page_status_type: df.enum
+---@class _construction_interface_page_status_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FULL 1
@@ -308,7 +308,7 @@ df.construction_interface_page_status_type = {}
 ---@field scroll_position integer
 df.construction_interface_pagest = {}
 
----@class (exact) _room_flow_shape_type: df.enum
+---@class _room_flow_shape_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field RECTANGLE 1
@@ -329,7 +329,7 @@ df.room_flow_shape_type = {}
 ---@field [3] boolean
 ---@field FLOOR_FLOW boolean
 
----@class (exact) _cannot_expel_reason_type: df.enum
+---@class _cannot_expel_reason_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field HEREDITARY 1
@@ -382,7 +382,7 @@ df.cannot_expel_reason_type = {}
 ---@field [11] boolean
 ---@field CHILD_MEET_WORKERS boolean
 
----@class (exact) _mine_mode_type: df.enum
+---@class _mine_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ALL 1
@@ -407,7 +407,7 @@ df.mine_mode_type = {}
 ---@field [4] boolean
 ---@field MARK_GEMS_ONLY boolean
 
----@class (exact) _job_details_option_type: df.enum
+---@class _job_details_option_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MATERIAL 1
@@ -432,7 +432,7 @@ df.job_details_option_type = {}
 ---@field [4] boolean
 ---@field IMPROVEMENT_TYPE boolean
 
----@class (exact) _job_details_context_type: df.enum
+---@class _job_details_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BUILDING_TASK_LIST 1
@@ -461,7 +461,7 @@ df.job_details_context_type = {}
 ---@field [5] boolean
 ---@field MANAGER_WORK_ORDER boolean
 
----@class (exact) _stock_pile_pointer_type: df.enum
+---@class _stock_pile_pointer_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ANIMAL_EMPTY_CAGES 1
@@ -506,7 +506,7 @@ df.stock_pile_pointer_type = {}
 ---@field [9] boolean
 ---@field ARMOR_NON_USABLE boolean
 
----@class (exact) _stockpile_tools_context_type: df.enum
+---@class _stockpile_tools_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field STOCKPILE 1
@@ -519,7 +519,7 @@ df.stockpile_tools_context_type = {}
 ---@field [1] boolean
 ---@field STOCKPILE boolean
 
----@class (exact) _stockpile_link_context_type: df.enum
+---@class _stockpile_link_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field STOCKPILE 1
@@ -540,7 +540,7 @@ df.stockpile_link_context_type = {}
 ---@field [3] boolean
 ---@field HAULING_STOP boolean
 
----@class (exact) _hauling_stop_conditions_context_type: df.enum
+---@class _hauling_stop_conditions_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field HAULING_MENU 1
@@ -553,7 +553,7 @@ df.hauling_stop_conditions_context_type = {}
 ---@field [1] boolean
 ---@field HAULING_MENU boolean
 
----@class (exact) _assign_vehicle_context_type: df.enum
+---@class _assign_vehicle_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field HAULING_MENU 1
@@ -566,7 +566,7 @@ df.assign_vehicle_context_type = {}
 ---@field [1] boolean
 ---@field HAULING_MENU boolean
 
----@class (exact) _location_details_context_type: df.enum
+---@class _location_details_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FROM_ZONE 1
@@ -583,7 +583,7 @@ df.location_details_context_type = {}
 ---@field [2] boolean
 ---@field FROM_LOCATION_SELECTOR boolean
 
----@class (exact) _location_selector_context_type: df.enum
+---@class _location_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONE_MEETING_AREA_ASSIGNMENT 1
@@ -596,7 +596,7 @@ df.location_selector_context_type = {}
 ---@field [1] boolean
 ---@field ZONE_MEETING_AREA_ASSIGNMENT boolean
 
----@class (exact) _custom_symbol_context_type: df.enum
+---@class _custom_symbol_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BURROW 1
@@ -621,7 +621,7 @@ df.custom_symbol_context_type = {}
 ---@field [4] boolean
 ---@field SQUAD_MENU boolean
 
----@class (exact) _name_creator_context_type: df.enum
+---@class _name_creator_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field EMBARK_FORT_NAME 1
@@ -654,7 +654,7 @@ df.name_creator_context_type = {}
 ---@field [6] boolean
 ---@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL boolean
 
----@class (exact) _image_creator_context_type: df.enum
+---@class _image_creator_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field EMBARK_FORT_SYMBOL 1
@@ -679,7 +679,7 @@ df.image_creator_context_type = {}
 ---@field [4] boolean
 ---@field DESIGNATION_ENGRAVING boolean
 
----@class (exact) _image_creator_option_type: df.enum
+---@class _image_creator_option_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ALLOW_ARTIST_TO_CHOOSE 1
@@ -760,7 +760,7 @@ df.image_creator_option_type = {}
 ---@field [18] boolean
 ---@field NEW_IMAGE_DELETE_ELEMENTS boolean
 
----@class (exact) _unit_selector_context_type: df.enum
+---@class _unit_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONE_PEN_ASSIGNMENT 1
@@ -821,7 +821,7 @@ df.unit_selector_context_type = {}
 ---@field [13] boolean
 ---@field SQUAD_FILL_POSITION boolean
 
----@class (exact) _squad_selector_context_type: df.enum
+---@class _squad_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONE_BARRACKS_ASSIGNMENT 1
@@ -838,7 +838,7 @@ df.squad_selector_context_type = {}
 ---@field [2] boolean
 ---@field ZONE_ARCHERY_RANGE_ASSIGNMENT boolean
 
----@class (exact) _squad_schedule_context_type: df.enum
+---@class _squad_schedule_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FROM_SQUAD_MENU 1
@@ -851,7 +851,7 @@ df.squad_schedule_context_type = {}
 ---@field [1] boolean
 ---@field FROM_SQUAD_MENU boolean
 
----@class (exact) _squad_equipment_context_type: df.enum
+---@class _squad_equipment_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FROM_SQUAD_MENU 1
@@ -864,7 +864,7 @@ df.squad_equipment_context_type = {}
 ---@field [1] boolean
 ---@field FROM_SQUAD_MENU boolean
 
----@class (exact) _patrol_routes_context_type: df.enum
+---@class _patrol_routes_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field GIVING_SQUAD_PATROL_ORDER 1
@@ -877,7 +877,7 @@ df.patrol_routes_context_type = {}
 ---@field [1] boolean
 ---@field GIVING_SQUAD_PATROL_ORDER boolean
 
----@class (exact) _burrow_selector_context_type: df.enum
+---@class _burrow_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field GIVING_SQUAD_ORDER 1
@@ -890,7 +890,7 @@ df.burrow_selector_context_type = {}
 ---@field [1] boolean
 ---@field GIVING_SQUAD_ORDER boolean
 
----@class (exact) _view_sheet_trait_type: df.enum
+---@class _view_sheet_trait_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PHYS_ATT_PLUS 1
@@ -931,7 +931,7 @@ df.view_sheet_trait_type = {}
 ---@field [8] boolean
 ---@field VALUE_LOW boolean
 
----@class (exact) _view_sheet_unit_knowledge_type: df.enum
+---@class _view_sheet_unit_knowledge_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PHILOSOPHY_FLAG 1
@@ -1012,7 +1012,7 @@ df.view_sheet_unit_knowledge_type = {}
 ---@field [18] boolean
 ---@field WRITTEN_CONTENT boolean
 
----@class (exact) _view_sheets_context_type: df.enum
+---@class _view_sheets_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field REGULAR_PLAY 1
@@ -1029,7 +1029,7 @@ df.view_sheets_context_type = {}
 ---@field [2] boolean
 ---@field PREPARE_CAREFULLY boolean
 
----@class (exact) _view_sheet_type: df.enum
+---@class _view_sheet_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field UNIT 1
@@ -1066,7 +1066,7 @@ df.view_sheet_type = {}
 ---@field [7] boolean
 ---@field ITEM_LIST boolean
 
----@class (exact) _unit_list_mode_type: df.enum
+---@class _unit_list_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CITIZEN 1
@@ -1091,7 +1091,7 @@ df.unit_list_mode_type = {}
 ---@field [4] boolean
 ---@field DECEASED boolean
 
----@class (exact) _buildings_mode_type: df.enum
+---@class _buildings_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONES 1
@@ -1120,7 +1120,7 @@ df.buildings_mode_type = {}
 ---@field [5] boolean
 ---@field FARMPLOTS boolean
 
----@class (exact) _kitchen_pref_category_type: df.enum
+---@class _kitchen_pref_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PLANTS 1
@@ -1145,7 +1145,7 @@ df.kitchen_pref_category_type = {}
 ---@field [4] boolean
 ---@field OTHER boolean
 
----@class (exact) _standing_orders_category_type: df.enum
+---@class _standing_orders_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field AUTOMATED_WORKSHOPS 1
@@ -1178,7 +1178,7 @@ df.standing_orders_category_type = {}
 ---@field [6] boolean
 ---@field OTHER boolean
 
----@class (exact) _stone_use_category_type: df.enum
+---@class _stone_use_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ECONOMIC 1
@@ -1195,7 +1195,7 @@ df.stone_use_category_type = {}
 ---@field [2] boolean
 ---@field OTHER boolean
 
----@class (exact) _labor_mode_type: df.enum
+---@class _labor_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field WORK_DETAILS 1
@@ -1220,7 +1220,7 @@ df.labor_mode_type = {}
 ---@field [4] boolean
 ---@field STONE_USE boolean
 
----@class (exact) _artifacts_mode_type: df.enum
+---@class _artifacts_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ARTIFACTS 1
@@ -1245,7 +1245,7 @@ df.artifacts_mode_type = {}
 ---@field [4] boolean
 ---@field WRITTEN_CONTENT boolean
 
----@class (exact) _counterintelligence_mode_type: df.enum
+---@class _counterintelligence_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field INTERROGATIONS 1
@@ -1270,7 +1270,7 @@ df.counterintelligence_mode_type = {}
 ---@field [4] boolean
 ---@field PLOTS boolean
 
----@class (exact) _justice_interface_mode_type: df.enum
+---@class _justice_interface_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field OPEN_CASES 1
@@ -1303,7 +1303,7 @@ df.justice_interface_mode_type = {}
 ---@field [6] boolean
 ---@field COUNTERINTELLIGENCE boolean
 
----@class (exact) _info_interface_mode_type: df.enum
+---@class _info_interface_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CREATURES 1
@@ -1344,7 +1344,7 @@ df.info_interface_mode_type = {}
 ---@field [8] boolean
 ---@field JUSTICE boolean
 
----@class (exact) _main_menu_option_type: df.enum
+---@class _main_menu_option_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field RETURN 1
@@ -1409,7 +1409,7 @@ df.main_menu_option_type = {}
 ---@field [14] boolean
 ---@field CONTINUE boolean
 
----@class (exact) _options_context_type: df.enum
+---@class _options_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN_DWARF 1
@@ -1442,7 +1442,7 @@ df.options_context_type = {}
 ---@field [6] boolean
 ---@field ABORT_FROM_STARTING_GAME boolean
 
----@class (exact) _help_context_type: df.enum
+---@class _help_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field WORLD_GEN_MESSAGE 1
@@ -1643,7 +1643,7 @@ df.help_context_type = {}
 ---@field [48] boolean
 ---@field GUIDE_GOALS boolean
 
----@class (exact) _settings_tab_type: df.enum
+---@class _settings_tab_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field VIDEO 1
@@ -1672,7 +1672,7 @@ df.settings_tab_type = {}
 ---@field [5] boolean
 ---@field DIFFICULTY boolean
 
----@class (exact) _settings_context_type: df.enum
+---@class _settings_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field OUTSIDE_PLAY 1
@@ -1689,7 +1689,7 @@ df.settings_context_type = {}
 ---@field [2] boolean
 ---@field FORT_MODE boolean
 
----@class (exact) _arena_context_type: df.enum
+---@class _arena_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CREATURE 1
@@ -1714,7 +1714,7 @@ df.arena_context_type = {}
 ---@field [4] boolean
 ---@field CONDITIONS boolean
 
----@class (exact) _assign_uniform_context_type: df.enum
+---@class _assign_uniform_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CREATE_SQUAD_FROM_SQUAD_MENU 1
@@ -1731,7 +1731,7 @@ df.assign_uniform_context_type = {}
 ---@field [2] boolean
 ---@field FROM_SQUAD_EQUIPMENT_MENU boolean
 
----@class (exact) _main_bottom_mode_type: df.enum
+---@class _main_bottom_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BUILDING 1
@@ -1808,7 +1808,7 @@ df.main_bottom_mode_type = {}
 ---@field [17] boolean
 ---@field ARENA_REMOVE_PAINT boolean
 
----@class (exact) _main_designation_type: df.enum
+---@class _main_designation_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field DIG_DIG 1
@@ -2254,7 +2254,7 @@ df.main_interface.T_buildjob = {}
 ---@field entering_item_filter boolean
 ---@field storeamount integer[]
 ---@field badamount integer[]
----@field unk_a8 assign_trade_unk_a8
+---@field unk_a8 main_interface.T_assign_trade_unk_a8
 ---@field unk_c0 integer[]
 ---@field unk_d8 integer[]
 ---@field unk_f0 integer[]
@@ -2275,8 +2275,8 @@ df.main_interface.T_buildjob = {}
 ---@field exclude_prohib boolean
 df.main_interface.T_assign_trade = {}
 
----@class assign_trade_unk_a8: df.struct
-df.assign_trade.T_unk_a8 = {}
+---@class main_interface.T_assign_trade_unk_a8: df.struct
+df.main_interface.T_assign_trade.T_unk_a8 = {}
 
 ---@class main_interface_trade: df.struct
 ---@field open boolean
@@ -2449,15 +2449,15 @@ df.main_interface.T_name_creator = {}
 ---@field filter string
 ---@field entering_number boolean
 ---@field number_str string
----@field st_master pointer[] site ptr, native name, translated name
----@field ent_master pointer[] entity ptr, native name, translated name
----@field plant_master pointer[] plant id, name
----@field tree_master pointer[] plant id, name
----@field shape_master pointer[] shape id, shape adj, name
----@field item_master pointer[] item type, item subtype, name
----@field artifact_master pointer[] artifact ptr, native name, translated name
----@field hf_master pointer[] histfig ptr, native name, translated name
----@field property_master pointer[] art property type, bool transitive, name
+---@field st_master any[] site ptr, native name, translated name
+---@field ent_master any[] entity ptr, native name, translated name
+---@field plant_master any[] plant id, name
+---@field tree_master any[] plant id, name
+---@field shape_master any[] shape id, shape adj, name
+---@field item_master any[] item type, item subtype, name
+---@field artifact_master any[] artifact ptr, native name, translated name
+---@field hf_master any[] histfig ptr, native name, translated name
+---@field property_master any[] art property type, bool transitive, name
 ---@field hf historical_figure[]
 ---@field st world_site[]
 ---@field ent historical_entity[]
@@ -2491,10 +2491,10 @@ df.main_interface.T_name_creator = {}
 ---@field back_out_warn boolean
 ---@field image_back_out_warn boolean
 ---@field must_do_image_back_out_warn boolean
----@field ics image_creator_ics
+---@field ics main_interface.T_image_creator_ics
 df.main_interface.T_image_creator = {}
 
----@class image_creator_ics: df.struct
+---@class main_interface.T_image_creator_ics: df.struct
 ---@field jb job
 ---@field wq manager_order
 ---@field location_detail any
@@ -2504,7 +2504,7 @@ df.main_interface.T_image_creator = {}
 ---@field hf historical_figure
 ---@field exit_flag integer
 ---@field flag integer
-df.image_creator.T_ics = {}
+df.main_interface.T_image_creator.T_ics = {}
 
 ---@class main_interface_unit_selector: df.struct
 ---@field open boolean
@@ -2691,7 +2691,7 @@ df.main_interface.T_location_selector = {}
 ---@field open_area_dx integer
 ---@field open_area_dy integer
 ---@field wc_count integer
----@field loc_occupation pointer[] occupationst
+---@field loc_occupation any[] occupationst
 ---@field loc_ent historical_entity[]
 ---@field loc_position entity_position[]
 ---@field loc_epp entity_position_assignment[]
@@ -2769,12 +2769,12 @@ df.main_interface.T_stockpile_tools = {}
 ---@field sub_mode stockpile_list[]
 ---@field sub_mode_ptr_type stock_pile_pointer_type[]
 ---@field sub_mode_ptr integer[]
----@field spec_item custom_stockpile_spec_item
+---@field spec_item main_interface.T_custom_stockpile_spec_item
 ---@field cur_spec_item_sz integer
 ---@field counted_cur_spec_item_sz integer
 df.main_interface.T_custom_stockpile = {}
 
----@class custom_stockpile_spec_item: df.struct
+---@class main_interface.T_custom_stockpile_spec_item: df.struct
 ---@field name string
 ---@field simple_name string
 ---@field set_pointer integer
@@ -2784,7 +2784,7 @@ df.main_interface.T_custom_stockpile = {}
 ---@field istype integer
 ---@field isc1 integer
 ---@field isc2 integer
-df.custom_stockpile.T_spec_item = {}
+df.main_interface.T_custom_stockpile.T_spec_item = {}
 
 ---@class main_interface_view_sheets: df.struct
 ---@field open boolean
@@ -2829,7 +2829,7 @@ df.custom_stockpile.T_spec_item = {}
 ---@field unmet_need_se integer[]
 ---@field unmet_need_num integer
 ---@field raw_thought_str string[]
----@field thought_box pointer[] color_text_boxst
+---@field thought_box any[] color_text_boxst
 ---@field thought_box_width integer
 ---@field scroll_position_inventory integer
 ---@field scrolling_inventory boolean
@@ -2868,13 +2868,13 @@ df.custom_stockpile.T_spec_item = {}
 ---@field scrolling_thoughts boolean
 ---@field thoughts_active_tab integer
 ---@field thoughts_raw_memory_str string[]
----@field thoughts_memory_box pointer[] color_text_boxst
+---@field thoughts_memory_box any[] color_text_boxst
 ---@field thoughts_memory_box_width integer
 ---@field scroll_position_personality integer
 ---@field scrolling_personality boolean
 ---@field personality_active_tab integer
 ---@field personality_raw_str string[]
----@field personality_box pointer[] color_text_boxst
+---@field personality_box any[] color_text_boxst
 ---@field personality_width integer
 ---@field unit_labor_active_tab integer
 ---@field scroll_position_unit_labor integer
@@ -2894,7 +2894,7 @@ df.custom_stockpile.T_spec_item = {}
 ---@field unit_knowledge_id integer[]
 ---@field unit_knowledge_bits integer[]
 ---@field skill_description_raw_str string[]
----@field skill_description_box pointer[] color_text_boxst
+---@field skill_description_box any[] color_text_boxst
 ---@field skill_description_width integer
 ---@field scroll_position_unit_room integer
 ---@field scrolling_unit_room integer
@@ -2906,13 +2906,13 @@ df.custom_stockpile.T_spec_item = {}
 ---@field scroll_position_unit_military_kills integer
 ---@field scrolling_unit_military_kills boolean
 ---@field kill_description_raw_str string[]
----@field kill_description_box pointer[] color_text_boxst
+---@field kill_description_box any[] color_text_boxst
 ---@field kill_description_width integer
 ---@field unit_health_active_tab integer
 ---@field scroll_position_unit_health integer
 ---@field scrolling_unit_health boolean
 ---@field unit_health_raw_str string[]
----@field unit_health_box pointer[] color_text_boxst
+---@field unit_health_box any[] color_text_boxst
 ---@field unit_health_width integer
 ---@field raw_current_thought string
 ---@field current_thought string[]
@@ -2960,17 +2960,17 @@ df.main_interface.T_view_sheets = {}
 ---@class main_interface_info: df.struct
 ---@field open boolean
 ---@field current_mode info_interface_mode_type
----@field creatures info_creatures
----@field jobs info_jobs
----@field buildings info_buildings
----@field labor info_labor
----@field work_orders info_work_orders
----@field administrators info_administrators
----@field artifacts info_artifacts
----@field justice info_justice
+---@field creatures main_interface.T_info_creatures
+---@field jobs main_interface.T_info_jobs
+---@field buildings main_interface.T_info_buildings
+---@field labor main_interface.T_info_labor
+---@field work_orders main_interface.T_info_work_orders
+---@field administrators main_interface.T_info_administrators
+---@field artifacts main_interface.T_info_artifacts
+---@field justice main_interface.T_info_justice
 df.main_interface.T_info = {}
 
----@class info_creatures: df.struct
+---@class main_interface.T_info_creatures: df.struct
 ---@field current_mode unit_list_mode_type
 ---@field cri_unit cri_unitst[][]
 ---@field scrolling_cri_unit boolean[]
@@ -3002,30 +3002,30 @@ df.main_interface.T_info = {}
 ---@field activity_details_text markup_text_boxst
 ---@field scrolling_activity_details boolean
 ---@field scroll_position_activity_details integer
-df.info.T_creatures = {}
+df.main_interface.T_info.T_creatures = {}
 
----@class info_jobs: df.struct
+---@class main_interface.T_info_jobs: df.struct
 ---@field cri_job cri_unitst[]
 ---@field scrolling_cri_job boolean
 ---@field scroll_position_cri_job integer
-df.info.T_jobs = {}
+df.main_interface.T_info.T_jobs = {}
 
----@class info_buildings: df.struct
+---@class main_interface.T_info_buildings: df.struct
 ---@field mode buildings_mode_type
 ---@field list building[][]
 ---@field scrolling_position integer[]
 ---@field scrolling boolean[]
-df.info.T_buildings = {}
+df.main_interface.T_info.T_buildings = {}
 
----@class info_labor: df.struct
+---@class main_interface.T_info_labor: df.struct
 ---@field mode labor_mode_type
----@field work_details labor_work_details
----@field standing_orders labor_standing_orders
----@field kitchen labor_kitchen
----@field stone_use labor_stone_use
-df.info.T_labor = {}
+---@field work_details main_interface.T_info.T_labor_work_details
+---@field standing_orders main_interface.T_info.T_labor_standing_orders
+---@field kitchen main_interface.T_info.T_labor_kitchen
+---@field stone_use main_interface.T_info.T_labor_stone_use
+df.main_interface.T_info.T_labor = {}
 
----@class labor_work_details: df.struct
+---@class main_interface.T_info.T_labor_work_details: df.struct
 ---@field selected_work_detail_index integer
 ---@field scroll_position_work_details integer
 ---@field scrolling_work_details boolean
@@ -3039,9 +3039,9 @@ df.info.T_labor = {}
 ---@field scrolling_labor_list boolean
 ---@field skill_used integer[]
 ---@field skill_num integer
-df.labor.T_work_details = {}
+df.main_interface.T_info.T_labor.T_work_details = {}
 
----@class labor_standing_orders: df.struct
+---@class main_interface.T_info.T_labor_standing_orders: df.struct
 ---@field current_category standing_orders_category_type
 ---@field unit unit[]
 ---@field labor_list integer[]
@@ -3049,9 +3049,9 @@ df.labor.T_work_details = {}
 ---@field scrolling_labor_list boolean
 ---@field scroll_position_units integer
 ---@field scrolling_units boolean
-df.labor.T_standing_orders = {}
+df.main_interface.T_info.T_labor.T_standing_orders = {}
 
----@class labor_kitchen: df.struct
+---@class main_interface.T_info.T_labor_kitchen: df.struct
 ---@field current_category kitchen_pref_category_type
 ---@field known_type integer[][]
 ---@field known_subtype integer[][]
@@ -3063,30 +3063,30 @@ df.labor.T_standing_orders = {}
 ---@field known_name string[][]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
-df.labor.T_kitchen = {}
+df.main_interface.T_info.T_labor.T_kitchen = {}
 
----@class labor_stone_use: df.struct
+---@class main_interface.T_info.T_labor_stone_use: df.struct
 ---@field current_category stone_use_category_type
 ---@field stone_mg_index integer[][]
 ---@field stone_restriction_p integer[][]
 ---@field stone_item_use_str string[]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
-df.labor.T_stone_use = {}
+df.main_interface.T_info.T_labor.T_stone_use = {}
 
----@class info_work_orders: df.struct
+---@class main_interface.T_info_work_orders: df.struct
 ---@field scroll_position_work_orders integer
 ---@field scrolling_work_orders boolean
----@field conditions work_orders_conditions
+---@field conditions main_interface.T_info.T_work_orders_conditions
 ---@field entering_number boolean
 ---@field number_str string
 ---@field entering_wq manager_order
 ---@field b_entering_number boolean
 ---@field b_number_str string
 ---@field b_entering_wq manager_order
-df.info.T_work_orders = {}
+df.main_interface.T_info.T_work_orders = {}
 
----@class work_orders_conditions: df.struct
+---@class main_interface.T_info.T_work_orders_conditions: df.struct
 ---@field open boolean
 ---@field wq manager_order
 ---@field item_condition_satisfied any
@@ -3117,10 +3117,10 @@ df.info.T_work_orders = {}
 ---@field entering_logic_number boolean
 ---@field logic_number_str string
 ---@field entering_logic_wqc any workquota_item_conditionst
-df.work_orders.T_conditions = {}
+df.main_interface.T_info.T_work_orders.T_conditions = {}
 
----@class info_administrators: df.struct
----@field noblelist administrators_noblelist
+---@class main_interface.T_info_administrators: df.struct
+---@field noblelist main_interface.T_info.T_administrators_noblelist
 ---@field spec_prof entity_position_assignment[]
 ---@field spec_hfid integer[]
 ---@field spec_enid integer[]
@@ -3132,7 +3132,7 @@ df.work_orders.T_conditions = {}
 ---@field last_hover_ep_id integer
 ---@field choosing_candidate boolean
 ---@field candidate_noblelist_ind integer
----@field candidate administrators_candidate
+---@field candidate main_interface.T_info.T_administrators_candidate
 ---@field scroll_position_candidate integer
 ---@field scrolling_candidate boolean
 ---@field assigning_symbol boolean
@@ -3144,9 +3144,9 @@ df.work_orders.T_conditions = {}
 ---@field scroll_position_symbol integer
 ---@field scrolling_symbol boolean
 ---@field handling_symbol_closure_ind integer
-df.info.T_administrators = {}
+df.main_interface.T_info.T_administrators = {}
 
----@class administrators_noblelist: df.struct
+---@class main_interface.T_info.T_administrators_noblelist: df.struct
 ---@field un unit
 ---@field nem nemesis_record
 ---@field upplist any unitpropertyplacementst
@@ -3154,21 +3154,21 @@ df.info.T_administrators = {}
 ---@field epp entity_position_assignment
 ---@field enid integer
 ---@field value integer
-df.administrators.T_noblelist = {}
+df.main_interface.T_info.T_administrators.T_noblelist = {}
 
----@class administrators_candidate: df.struct
+---@class main_interface.T_info.T_administrators_candidate: df.struct
 ---@field un unit
 ---@field value integer
-df.administrators.T_candidate = {}
+df.main_interface.T_info.T_administrators.T_candidate = {}
 
----@class info_artifacts: df.struct
+---@class main_interface.T_info_artifacts: df.struct
 ---@field mode artifacts_mode_type
 ---@field list artifact_record[][]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
-df.info.T_artifacts = {}
+df.main_interface.T_info.T_artifacts = {}
 
----@class info_justice: df.struct
+---@class main_interface.T_info_justice: df.struct
 ---@field current_mode justice_interface_mode_type
 ---@field cage_chain_needed integer
 ---@field cage_chain_count integer
@@ -3242,7 +3242,7 @@ df.info.T_artifacts = {}
 ---@field actor_entry actor_entryst[]
 ---@field organization_entry organization_entryst[]
 ---@field plot_entry plot_entryst[]
-df.info.T_justice = {}
+df.main_interface.T_info.T_justice = {}
 
 ---@class main_interface_squads: df.struct
 ---@field open boolean
@@ -3351,12 +3351,12 @@ df.main_interface.T_hotkey = {}
 ---@field scroll_position_popup integer
 ---@field scrolling_popup boolean
 ---@field filecomp file_compressorst
----@field saver options_saver saverst
+---@field saver main_interface.T_options_saver saverst
 df.main_interface.T_options = {}
 
----@class options_saver: df.struct
+---@class main_interface.T_options_saver: df.struct
 ---saverst
-df.options.T_saver = {}
+df.main_interface.T_options.T_saver = {}
 
 ---@class main_interface_help: df.struct
 ---@field open boolean
@@ -3382,7 +3382,7 @@ df.main_interface.T_help = {}
 ---@field castes_filtered integer[]
 ---@field races_all integer[]
 ---@field castes_all integer[]
----@field skills arena_unit_skills
+---@field skills main_interface.T_arena_unit_skills
 ---@field skill_levels integer[]
 ---@field equipment_item_type integer[]
 ---@field equipment_item_subtype integer[]
@@ -3392,8 +3392,8 @@ df.main_interface.T_help = {}
 ---@field interactions interaction_effect[]
 df.main_interface.T_arena_unit = {}
 
----@class arena_unit_skills: df.struct
-df.arena_unit.T_skills = {}
+---@class main_interface.T_arena_unit_skills: df.struct
+df.main_interface.T_arena_unit.T_skills = {}
 
 ---@class main_interface_arena_tree: df.struct
 ---@field open boolean
@@ -3478,7 +3478,7 @@ df.gamest.T_mod_manager = {}
 ---@field keybinding_scrolling_cat boolean
 ---@field keybinding_name string[][]
 ---@field keybinding_key interface_key[][]
----@field keybinding_binding pointer[][]
+---@field keybinding_binding any[][]
 ---@field keybinding_binding_name string[][]
 ---@field keybinding_flag integer[][]
 ---@field keybinding_scroll_position_key integer
@@ -3537,7 +3537,7 @@ df.hash_rngst = {}
 ---@field demand_period integer
 df.difficultyst = {}
 
----@class (exact) _difficultyst_flags: df.bitfield
+---@class _difficultyst_flags: df.bitfield
 ---@field sieges 0
 ---@field [0] "sieges"
 ---@field megabeasts 1
@@ -3699,7 +3699,7 @@ df.plot_entryst = {}
 ---@field steamapi_3 integer
 df.mod_headerst = {}
 
----@class (exact) _mod_headerst_flags: df.bitfield
+---@class _mod_headerst_flags: df.bitfield
 ---@field currently_installed 0
 ---@field [0] "currently_installed"
 ---@field have_other_version 1
@@ -3721,8 +3721,8 @@ df.mod_headerst.T_flags = {}
 df.ui_look_list = {}
 
 ---@class ui_look_list_items: df.struct
----@field type items_type
----@field data items_data
+---@field type ui_look_list.T_items_type
+---@field data ui_look_list.T_items_data
 ---@field pos coord
 ---@field display_str string
 ---@field cf integer
@@ -3730,7 +3730,7 @@ df.ui_look_list = {}
 ---@field cbr integer
 df.ui_look_list.T_items = {}
 
----@class (exact) _items_type: df.enum
+---@class _ui_look_list.T_items_type: df.enum
 ---@field Item 0
 ---@field [0] "Item"
 ---@field Floor 1
@@ -3757,9 +3757,9 @@ df.ui_look_list.T_items = {}
 ---@field [11] "Magma"
 ---@field Spoor 12
 ---@field [12] "Spoor"
-df.items.T_type = {}
+df.ui_look_list.T_items.T_type = {}
 
----@class items_type
+---@class ui_look_list.T_items_type
 ---@field [0] boolean
 ---@field Item boolean
 ---@field [1] boolean
@@ -3787,83 +3787,83 @@ df.items.T_type = {}
 ---@field [12] boolean
 ---@field Spoor boolean
 
----@class items_data: df.struct
----@field item data_item
----@field unit data_unit
----@field building data_building
----@field vermin data_vermin
----@field flow data_flow
----@field spatter data_spatter
----@field building_item_adv data_building_item_adv
----@field liquid_water data_liquid_water
----@field liquid_magma data_liquid_magma
----@field spoor data_spoor
-df.items.T_data = {}
+---@class ui_look_list.T_items_data: df.struct
+---@field item ui_look_list.T_items.T_data_item
+---@field unit ui_look_list.T_items.T_data_unit
+---@field building ui_look_list.T_items.T_data_building
+---@field vermin ui_look_list.T_items.T_data_vermin
+---@field flow ui_look_list.T_items.T_data_flow
+---@field spatter ui_look_list.T_items.T_data_spatter
+---@field building_item_adv ui_look_list.T_items.T_data_building_item_adv
+---@field liquid_water ui_look_list.T_items.T_data_liquid_water
+---@field liquid_magma ui_look_list.T_items.T_data_liquid_magma
+---@field spoor ui_look_list.T_items.T_data_spoor
+df.ui_look_list.T_items.T_data = {}
 
----@class data_item: df.struct
+---@class ui_look_list.T_items.T_data_item: df.struct
 ---@field item_id item
-df.data.T_item = {}
+df.ui_look_list.T_items.T_data.T_item = {}
 
----@class data_unit: df.struct
+---@class ui_look_list.T_items.T_data_unit: df.struct
 ---@field unit_id unit
-df.data.T_unit = {}
+df.ui_look_list.T_items.T_data.T_unit = {}
 
----@class data_building: df.struct
+---@class ui_look_list.T_items.T_data_building: df.struct
 ---@field bld_id building
-df.data.T_building = {}
+df.ui_look_list.T_items.T_data.T_building = {}
 
----@class data_vermin: df.struct
+---@class ui_look_list.T_items.T_data_vermin: df.struct
 ---@field race integer
 ---@field caste integer
 ---@field item_id item
 ---@field flag integer
 ---@field number integer
-df.data.T_vermin = {}
+df.ui_look_list.T_items.T_data.T_vermin = {}
 
----@class data_flow: df.struct
+---@class ui_look_list.T_items.T_data_flow: df.struct
 ---@field type integer
 ---@field subtype integer
 ---@field sstype integer
 ---@field guide_id integer
 ---@field flag integer
-df.data.T_flow = {}
+df.ui_look_list.T_items.T_data.T_flow = {}
 
----@class data_spatter: df.struct
+---@class ui_look_list.T_items.T_data_spatter: df.struct
 ---@field i_type item_type
 ---@field i_subtype integer
 ---@field mat material
 ---@field matg integer
 ---@field matstate matter_state
 ---@field extend integer
-df.data.T_spatter = {}
+df.ui_look_list.T_items.T_data.T_spatter = {}
 
----@class data_building_item_adv: df.struct
+---@class ui_look_list.T_items.T_data_building_item_adv: df.struct
 ---@field item_id item
-df.data.T_building_item_adv = {}
+df.ui_look_list.T_items.T_data.T_building_item_adv = {}
 
----@class data_liquid_water: df.struct
+---@class ui_look_list.T_items.T_data_liquid_water: df.struct
 ---@field flag integer
 ---@field amount integer
-df.data.T_liquid_water = {}
+df.ui_look_list.T_items.T_data.T_liquid_water = {}
 
----@class data_liquid_magma: df.struct
+---@class ui_look_list.T_items.T_data_liquid_magma: df.struct
 ---@field flag integer
 ---@field amount integer
-df.data.T_liquid_magma = {}
+df.ui_look_list.T_items.T_data.T_liquid_magma = {}
 
----@class data_spoor: df.struct
+---@class ui_look_list.T_items.T_data_spoor: df.struct
 ---@field flag integer
 ---@field type integer
 ---@field id1 integer
 ---@field id2 integer
 ---@field id3 integer
-df.data.T_spoor = {}
+df.ui_look_list.T_items.T_data.T_spoor = {}
 
 ---@class ui_unit_view_mode: df.struct
 ---@field value ui_unit_view_mode_value
 df.ui_unit_view_mode = {}
 
----@class (exact) _ui_unit_view_mode_value: df.enum
+---@class _ui_unit_view_mode_value: df.enum
 ---@field General 0
 ---@field [0] "General"
 ---@field Inventory 1

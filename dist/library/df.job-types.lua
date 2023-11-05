@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _job_type_class: df.enum
+---@class _job_type_class: df.enum
 ---not in DF
 ---@field Misc 0
 ---@field [0] "Misc"
@@ -71,7 +71,7 @@ df.job_type_class = {}
 ---@field [15] boolean
 ---@field Medicine boolean
 
----@class (exact) _job_type: df.enum
+---@class _job_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CarveFortification 1

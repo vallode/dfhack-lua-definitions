@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _announcement_type: df.enum
+---@class _announcement_type: df.enum
 ---@field REACHED_PEAK 0
 ---@field [0] "REACHED_PEAK"
 ---@field ERA_CHANGE 1
@@ -1402,7 +1402,7 @@ df.announcement_type = {}
 ---@field [348] boolean
 ---@field FOOD_WARNING boolean
 
----@class (exact) _announcement_flags: df.bitfield
+---@class _announcement_flags: df.bitfield
 ---@field DO_MEGA 0
 ---@field [0] "DO_MEGA"
 ---@field PAUSE 1
@@ -1464,7 +1464,7 @@ df.announcements = {}
 ---@field speaker_id unit unit speaking the conversation
 df.report = {}
 
----@class (exact) _report_flags: df.bitfield
+---@class _report_flags: df.bitfield
 ---@field continuation 0
 ---@field [0] "continuation"
 ---@field unconscious 1
@@ -1481,7 +1481,7 @@ df.report.T_flags = {}
 ---@field [2] boolean
 ---@field announcement boolean
 
----@class (exact) _report_zoom_type: df.enum
+---@class _report_zoom_type: df.enum
 ---@field Generic 0
 ---@field [0] "Generic"
 ---@field Item 1
@@ -1522,7 +1522,7 @@ df.popup_message = {}
 ---@field flags report_init_flags
 df.report_init = {}
 
----@class (exact) _report_init_flags: df.bitfield
+---@class _report_init_flags: df.bitfield
 ---@field hostile_combat 0
 ---@field [0] "hostile_combat"
 df.report_init.T_flags = {}

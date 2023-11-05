@@ -28,7 +28,7 @@ df.historical_kills.T_killed_undead = {}
 ---@field shooter_matindex integer
 df.history_hit_item = {}
 
----@class (exact) _reputation_type: df.enum
+---@class _reputation_type: df.enum
 ---@field Hero 0
 ---@field [0] "Hero"
 ---@field AnimalPartner 1
@@ -157,7 +157,7 @@ df.reputation_type = {}
 ---@field [30] boolean
 ---@field Preacher boolean
 
----@class (exact) _whereabouts_type: df.enum
+---@class _whereabouts_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field wanderer 1
@@ -190,7 +190,7 @@ df.whereabouts_type = {}
 ---@field [6] boolean
 ---@field visitor boolean
 
----@class (exact) _season: df.enum
+---@class _season: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Spring 1
@@ -215,7 +215,7 @@ df.season = {}
 ---@field [4] boolean
 ---@field Winter boolean
 
----@class (exact) _death_condition_type: df.enum
+---@class _death_condition_type: df.enum
 ---@field no_statement 0
 ---@field [0] "no_statement"
 ---@field site_battle 1
@@ -248,7 +248,7 @@ df.death_condition_type = {}
 ---@field [6] boolean
 ---@field site boolean
 
----@class (exact) _plot_role_type: df.enum
+---@class _plot_role_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Possible_Threat 1
@@ -345,7 +345,7 @@ df.plot_role_type = {}
 ---@field [22] boolean
 ---@field Possibly_Unknown_Director boolean
 
----@class (exact) _plot_strategy_type: df.enum
+---@class _plot_strategy_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Corrupt_And_Pacify 1
@@ -426,9 +426,9 @@ df.historical_figure_relationships = {}
 
 ---@class historical_figure_relationships_hf_visual: df.struct
 ---@field histfig_id historical_figure
----@field flags hf_visual_flags
+---@field flags historical_figure_relationships.T_hf_visual_flags
 ---@field unk_2v integer[] Involves adventurer knowing name?
----@field attitude hf_visual_attitude
+---@field attitude historical_figure_relationships.T_hf_visual_attitude
 ---@field counter integer[] One element for each 'attitude' element. Guess 0 - 100
 ---@field rank integer seems to be fixed. Might not be used anymore
 ---@field loyalty integer 0 - 100. Loyalty, Respect, Fear, and Trust values do not seem to affect the relationship screen description, only Love and Familiarity
@@ -452,16 +452,16 @@ df.historical_figure_relationships = {}
 ---@field first_year_tick integer
 df.historical_figure_relationships.T_hf_visual = {}
 
----@class (exact) _hf_visual_flags: df.bitfield
+---@class _historical_figure_relationships.T_hf_visual_flags: df.bitfield
 ---@field information_source 0
 ---@field [0] "information_source"
 ---@field unk_1 1
 ---@field [1] "unk_1"
 ---@field believes_false_identity 2
 ---@field [2] "believes_false_identity"
-df.hf_visual.T_flags = {}
+df.historical_figure_relationships.T_hf_visual.T_flags = {}
 
----@class hf_visual_flags
+---@class historical_figure_relationships.T_hf_visual_flags
 ---@field [0] boolean
 ---@field information_source boolean
 ---@field [1] boolean
@@ -469,8 +469,8 @@ df.hf_visual.T_flags = {}
 ---@field [2] boolean
 ---@field believes_false_identity boolean
 
----@class hf_visual_attitude: df.struct
-df.hf_visual.T_attitude = {}
+---@class historical_figure_relationships.T_hf_visual_attitude: df.struct
+df.historical_figure_relationships.T_hf_visual.T_attitude = {}
 
 ---@class historical_figure_relationships_hf_historical: df.struct
 ---@field histfig_id historical_figure
@@ -503,7 +503,7 @@ df.historical_figure_relationships.T_unk_1 = {}
 ---@field unk_2 integer
 df.historical_figure_relationships.T_artifact_claims = {}
 
----@class (exact) _histfig_flags: df.enum
+---@class _histfig_flags: df.enum
 ---@field reveal_artwork 0
 ---@field [0] "reveal_artwork"
 ---@field equipment_created 1
@@ -572,7 +572,7 @@ df.histfig_flags = {}
 ---@field [15] boolean
 ---@field never_cull boolean
 
----@class (exact) _histfig_relationship_type: df.enum
+---@class _histfig_relationship_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Mother 1
@@ -869,7 +869,7 @@ df.histfig_relationship_type = {}
 ---@field [72] boolean
 ---@field HalfSibling boolean
 
----@class (exact) _vague_relationship_type: df.enum
+---@class _vague_relationship_type: df.enum
 ---not a great name given that lovers, ex lovers, and lieutenants appear here, but histfig and unit are both used...
 ---@field none -1
 ---@field [0] "none"
@@ -1027,7 +1027,7 @@ df.vague_relationship_type = {}
 ---@field unk_5 integer
 df.historical_figure = {}
 
----@class (exact) _identity_type: df.enum
+---@class _identity_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field HidingCurse 1
@@ -1107,7 +1107,7 @@ df.identity_unk_94 = {}
 ---@field unk_5 integer
 df.identity_unk_95 = {}
 
----@class (exact) _mental_picture_property_type: df.enum
+---@class _mental_picture_property_type: df.enum
 ---@field DATE 0
 ---@field [0] "DATE"
 ---@field ACTION 1
@@ -1202,7 +1202,7 @@ df.mental_picture_property_positionst = {}
 ---@field unk_3 integer
 df.mental_picture_property_timest = {}
 
----@class (exact) _mental_picture_element_type: df.enum
+---@class _mental_picture_element_type: df.enum
 ---@field HF 0
 ---@field [0] "HF"
 ---@field SITE 1
@@ -1235,7 +1235,7 @@ df.mental_picture_element_sitest = {}
 ---@field unk_1 integer
 df.mental_picture_element_regionst = {}
 
----@class (exact) _history_event_type: df.enum
+---@class _history_event_type: df.enum
 ---@field WAR_ATTACKED_SITE 0
 ---@field [0] "WAR_ATTACKED_SITE"
 ---@field WAR_DESTROYED_SITE 1
@@ -1772,7 +1772,7 @@ df.history_event_type = {}
 ---@field [132] boolean
 ---@field HF_INTERROGATED boolean
 
----@class (exact) _history_event_reason: df.enum
+---@class _history_event_reason: df.enum
 ---Some of these require at least one parameter of varying type. The text is what DF provides without parameter
 ---@field none -1
 ---@field [0] "none"
@@ -2246,7 +2246,7 @@ df.history_event_circumstance_info.T_data = {}
 ---@field divination_set_id divination_set
 df.history_event_context = {}
 
----@class (exact) _history_event_context_flags: df.bitfield
+---@class _history_event_context_flags: df.bitfield
 ---@field is_interrogation_report 0
 ---@field [0] "is_interrogation_report"
 df.history_event_context.T_flags = {}
@@ -2255,7 +2255,7 @@ df.history_event_context.T_flags = {}
 ---@field [0] boolean
 ---@field is_interrogation_report boolean
 
----@class (exact) _architectural_element: df.enum
+---@class _architectural_element: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field paved_outdoor_area 1
@@ -2312,7 +2312,7 @@ df.architectural_element = {}
 ---@field [12] boolean
 ---@field detailed_surfaces boolean
 
----@class (exact) _history_event_flags: df.enum
+---@class _history_event_flags: df.enum
 ---@field hidden 0
 ---@field [0] "hidden"
 ---@field unk_1 1
@@ -2329,7 +2329,7 @@ df.history_event_flags = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@class (exact) _merc_role_type: df.bitfield
+---@class _merc_role_type: df.bitfield
 ---regular if bit not set
 ---@field attacker_scout 0
 ---@field [0] "attacker_scout"
@@ -2378,7 +2378,7 @@ df.history_event_war_destroyed_sitest = {}
 ---@field builder_hf historical_figure
 df.history_event_created_sitest = {}
 
----@class (exact) _death_type: df.enum
+---@class _death_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field OLD_AGE 1
@@ -2707,7 +2707,7 @@ df.history_event_agreements_voidedst = {}
 ---@field flags2 any
 df.history_event_merchantst = {}
 
----@class (exact) _history_event_merchant_flags: df.enum
+---@class _history_event_merchant_flags: df.enum
 ---@field vanished 0
 ---@field [0] "vanished"
 ---@field hardship 1
@@ -2764,7 +2764,7 @@ df.history_event_artifact_possessedst = {}
 ---@field reason history_event_reason_info
 df.history_event_artifact_createdst = {}
 
----@class (exact) _history_event_artifact_createdst_flags2: df.bitfield
+---@class _history_event_artifact_createdst_flags2: df.bitfield
 ---@field name_only 0
 ---@field [0] "name_only"
 df.history_event_artifact_createdst.T_flags2 = {}
@@ -2816,7 +2816,7 @@ df.history_event_artifact_droppedst = {}
 ---@field flags2 history_event_reclaim_sitest_flags2
 df.history_event_reclaim_sitest = {}
 
----@class (exact) _history_event_reclaim_sitest_flags2: df.bitfield
+---@class _history_event_reclaim_sitest_flags2: df.bitfield
 ---@field unretire 0
 ---@field [0] "unretire"
 df.history_event_reclaim_sitest.T_flags2 = {}
@@ -2839,7 +2839,7 @@ df.history_event_hf_destroyed_sitest = {}
 ---@field flags2 history_event_site_diedst_flags2
 df.history_event_site_diedst = {}
 
----@class (exact) _history_event_site_diedst_flags2: df.bitfield
+---@class _history_event_site_diedst_flags2: df.bitfield
 ---@field abandoned 0
 ---@field [0] "abandoned"
 df.history_event_site_diedst.T_flags2 = {}
@@ -2855,7 +2855,7 @@ df.history_event_site_diedst.T_flags2 = {}
 ---@field flags2 history_event_site_retiredst_flags2
 df.history_event_site_retiredst = {}
 
----@class (exact) _history_event_site_retiredst_flags2: df.bitfield
+---@class _history_event_site_retiredst_flags2: df.bitfield
 ---@field first_time 0
 ---@field [0] "first_time"
 df.history_event_site_retiredst.T_flags2 = {}
@@ -2871,7 +2871,7 @@ df.history_event_site_retiredst.T_flags2 = {}
 ---@field creator_hfid historical_figure
 df.history_event_entity_createdst = {}
 
----@class (exact) _entity_action_type: df.enum
+---@class _entity_action_type: df.enum
 ---@field entity_primary_criminals 0
 ---@field [0] "entity_primary_criminals"
 ---@field entity_relocate 1
@@ -3006,7 +3006,7 @@ df.history_event_masterpiece_created_foodst = {}
 ---@field art_subid art_image
 df.history_event_masterpiece_created_engravingst = {}
 
----@class (exact) _masterpiece_loss_type: df.enum
+---@class _masterpiece_loss_type: df.enum
 ---@field MELT 0
 ---@field [0] "MELT"
 ---@field MAGMA 1
@@ -3100,7 +3100,7 @@ df.history_event_war_site_new_leaderst = {}
 ---@field tribute_flags history_event_war_site_tribute_forcedst_tribute_flags
 df.history_event_war_site_tribute_forcedst = {}
 
----@class (exact) _history_event_war_site_tribute_forcedst_tribute_flags: df.bitfield
+---@class _history_event_war_site_tribute_forcedst_tribute_flags: df.bitfield
 ---@field bled_dry 0
 ---@field [0] "bled_dry"
 df.history_event_war_site_tribute_forcedst.T_tribute_flags = {}
@@ -3137,7 +3137,7 @@ df.history_event_site_surrenderedst = {}
 ---@field abuse_data history_event_body_abusedst_abuse_data
 df.history_event_body_abusedst = {}
 
----@class (exact) _history_event_body_abusedst_abuse_type: df.enum
+---@class _history_event_body_abusedst_abuse_type: df.enum
 ---@field Impaled 0
 ---@field [0] "Impaled"
 ---@field Piled 1
@@ -3167,34 +3167,34 @@ df.history_event_body_abusedst.T_abuse_type = {}
 ---@field Animated boolean
 
 ---@class history_event_body_abusedst_abuse_data: df.struct
----@field Impaled abuse_data_Impaled
----@field Piled abuse_data_Piled
----@field Flayed abuse_data_Flayed
----@field Hung abuse_data_Hung
----@field Animated abuse_data_Animated
+---@field Impaled history_event_body_abusedst.T_abuse_data_Impaled
+---@field Piled history_event_body_abusedst.T_abuse_data_Piled
+---@field Flayed history_event_body_abusedst.T_abuse_data_Flayed
+---@field Hung history_event_body_abusedst.T_abuse_data_Hung
+---@field Animated history_event_body_abusedst.T_abuse_data_Animated
 df.history_event_body_abusedst.T_abuse_data = {}
 
----@class abuse_data_Impaled: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Impaled: df.struct
 ---@field item_type item_type always WEAPON?
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
-df.abuse_data.T_Impaled = {}
+df.history_event_body_abusedst.T_abuse_data.T_Impaled = {}
 
----@class abuse_data_Piled: df.struct
----@field pile_type Piled_pile_type
-df.abuse_data.T_Piled = {}
+---@class history_event_body_abusedst.T_abuse_data_Piled: df.struct
+---@field pile_type history_event_body_abusedst.T_abuse_data.T_Piled_pile_type
+df.history_event_body_abusedst.T_abuse_data.T_Piled = {}
 
----@class (exact) _Piled_pile_type: df.enum
+---@class _history_event_body_abusedst.T_abuse_data.T_Piled_pile_type: df.enum
 ---@field GrislyMound 0
 ---@field [0] "GrislyMound"
 ---@field GrotesquePillar 1
 ---@field [1] "GrotesquePillar"
 ---@field GruesomeSculpture 2
 ---@field [2] "GruesomeSculpture"
-df.Piled.T_pile_type = {}
+df.history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type = {}
 
----@class Piled_pile_type
+---@class history_event_body_abusedst.T_abuse_data.T_Piled_pile_type
 ---@field [0] boolean
 ---@field GrislyMound boolean
 ---@field [1] boolean
@@ -3202,22 +3202,22 @@ df.Piled.T_pile_type = {}
 ---@field [2] boolean
 ---@field GruesomeSculpture boolean
 
----@class abuse_data_Flayed: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Flayed: df.struct
 ---@field structure abstract_building
-df.abuse_data.T_Flayed = {}
+df.history_event_body_abusedst.T_abuse_data.T_Flayed = {}
 
----@class abuse_data_Hung: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Hung: df.struct
 ---@field tree plant_raw
 ---@field mat_type material rope
 ---@field mat_index integer rope
-df.abuse_data.T_Hung = {}
+df.history_event_body_abusedst.T_abuse_data.T_Hung = {}
 
----@class abuse_data_Animated: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Animated: df.struct
 ---@field interaction interaction
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
-df.abuse_data.T_Animated = {}
+df.history_event_body_abusedst.T_abuse_data.T_Animated = {}
 
 ---@class history_event_hist_figure_abductedst: history_event
 ---@field target historical_figure
@@ -3227,7 +3227,7 @@ df.abuse_data.T_Animated = {}
 ---@field layer world_underground_region
 df.history_event_hist_figure_abductedst = {}
 
----@class (exact) _theft_method_type: df.enum
+---@class _theft_method_type: df.enum
 ---@field Theft 0
 ---@field [0] "Theft"
 ---@field Confiscated 1
@@ -3298,7 +3298,7 @@ df.history_event_creature_devouredst = {}
 ---@field flags2 history_event_hist_figure_woundedst_flags2
 df.history_event_hist_figure_woundedst = {}
 
----@class (exact) _history_event_hist_figure_woundedst_injury_type: df.enum
+---@class _history_event_hist_figure_woundedst_injury_type: df.enum
 ---@field Smash 0
 ---@field [0] "Smash"
 ---@field Slash 1
@@ -3323,7 +3323,7 @@ df.history_event_hist_figure_woundedst.T_injury_type = {}
 ---@field [4] boolean
 ---@field Burn boolean
 
----@class (exact) _history_event_hist_figure_woundedst_flags2: df.bitfield
+---@class _history_event_hist_figure_woundedst_flags2: df.bitfield
 ---@field torture 0
 ---@field [0] "torture"
 df.history_event_hist_figure_woundedst.T_flags2 = {}
@@ -3332,7 +3332,7 @@ df.history_event_hist_figure_woundedst.T_flags2 = {}
 ---@field [0] boolean
 ---@field torture boolean
 
----@class (exact) _history_event_simple_battle_subtype: df.enum
+---@class _history_event_simple_battle_subtype: df.enum
 ---@field SCUFFLE 0
 ---@field [0] "SCUFFLE"
 ---@field ATTACK 1
@@ -3385,7 +3385,7 @@ df.history_event_simple_battle_subtype = {}
 ---@field [11] boolean
 ---@field GOT_INTO_A_BRAWL boolean
 
----@class (exact) _artifact_claim_type: df.enum
+---@class _artifact_claim_type: df.enum
 ---@field Symbol 0
 ---@field [0] "Symbol"
 ---@field Heirloom 1
@@ -3449,7 +3449,7 @@ df.history_event_hist_figure_reach_summitst = {}
 ---@field region_pos coord2d
 df.history_event_hist_figure_travelst = {}
 
----@class (exact) _history_event_hist_figure_travelst_reason: df.enum
+---@class _history_event_hist_figure_travelst_reason: df.enum
 ---@field Journey 0
 ---@field [0] "Journey"
 ---@field Return 1
@@ -3481,7 +3481,7 @@ df.history_event_hist_figure_new_petst = {}
 ---@field target historical_entity
 df.history_event_assume_identityst = {}
 
----@class (exact) _position_creation_reason_type: df.enum
+---@class _position_creation_reason_type: df.enum
 ---@field force_of_argument 0
 ---@field [0] "force_of_argument"
 ---@field threat_of_violence 1
@@ -3535,7 +3535,7 @@ df.history_event_change_creature_typest = {}
 ---@field unk_1 integer
 df.history_event_hist_figure_revivedst = {}
 
----@class (exact) _history_event_hist_figure_revivedst_flags2: df.bitfield
+---@class _history_event_hist_figure_revivedst_flags2: df.bitfield
 ---@field again 0
 ---@field [0] "again"
 df.history_event_hist_figure_revivedst.T_flags2 = {}
@@ -3552,7 +3552,7 @@ df.history_event_hist_figure_revivedst.T_flags2 = {}
 ---@field unk_1 integer
 df.history_event_hf_learns_secretst = {}
 
----@class (exact) _histfig_body_state: df.enum
+---@class _histfig_body_state: df.enum
 ---@field Active 0
 ---@field [0] "Active"
 ---@field BuriedAtSite 1
@@ -3602,7 +3602,7 @@ df.history_event_change_hf_body_statest = {}
 ---@field structure abstract_building
 df.history_event_hf_act_on_buildingst = {}
 
----@class (exact) _history_event_hf_act_on_buildingst_action: df.enum
+---@class _history_event_hf_act_on_buildingst_action: df.enum
 ---@field Profane 0
 ---@field [0] "Profane"
 ---@field Disturb 1
@@ -3646,7 +3646,7 @@ df.history_event_hf_confrontedst = {}
 ---@field remove_flags history_event_entity_lawst_remove_flags
 df.history_event_entity_lawst = {}
 
----@class (exact) _history_event_entity_lawst_add_flags: df.bitfield
+---@class _history_event_entity_lawst_add_flags: df.bitfield
 ---@field harsh 0
 ---@field [0] "harsh"
 df.history_event_entity_lawst.T_add_flags = {}
@@ -3655,7 +3655,7 @@ df.history_event_entity_lawst.T_add_flags = {}
 ---@field [0] boolean
 ---@field harsh boolean
 
----@class (exact) _history_event_entity_lawst_remove_flags: df.bitfield
+---@class _history_event_entity_lawst_remove_flags: df.bitfield
 ---@field harsh 0
 ---@field [0] "harsh"
 df.history_event_entity_lawst.T_remove_flags = {}
@@ -3686,7 +3686,7 @@ df.history_event_artifact_storedst = {}
 ---@field delegated boolean
 df.history_event_agreement_formedst = {}
 
----@class (exact) _site_dispute_type: df.enum
+---@class _site_dispute_type: df.enum
 ---@field Territory 0
 ---@field [0] "Territory"
 ---@field WaterRights 1
@@ -3735,7 +3735,7 @@ df.history_event_agreement_concludedst = {}
 ---@field site world_site
 df.history_event_insurrection_startedst = {}
 
----@class (exact) _insurrection_outcome: df.enum
+---@class _insurrection_outcome: df.enum
 ---@field LeadershipOverthrown 0
 ---@field [0] "LeadershipOverthrown"
 ---@field PopulationGone 1
@@ -3923,7 +3923,7 @@ df.history_event_artifact_givenst = {}
 ---@field structure abstract_building
 df.history_event_hf_act_on_artifactst = {}
 
----@class (exact) _history_event_hf_act_on_artifactst_action: df.enum
+---@class _history_event_hf_act_on_artifactst_action: df.enum
 ---@field View 0
 ---@field [0] "View"
 ---@field AskAbout 1
@@ -3968,7 +3968,7 @@ df.history_event_hfs_formed_reputation_relationshipst = {}
 ---@field flags2 history_event_artifact_copiedst_flags2
 df.history_event_artifact_copiedst = {}
 
----@class (exact) _history_event_artifact_copiedst_flags2: df.bitfield
+---@class _history_event_artifact_copiedst_flags2: df.bitfield
 ---@field from_original 0
 ---@field [0] "from_original"
 df.history_event_artifact_copiedst.T_flags2 = {}
@@ -4006,7 +4006,7 @@ df.history_event_entity_searched_sitest = {}
 ---@field rescued_hfs integer[]
 df.history_event_hf_freedst = {}
 
----@class (exact) _simple_action_type: df.enum
+---@class _simple_action_type: df.enum
 ---@field carouse 0
 ---@field [0] "carouse"
 ---@field purchase_well_crafted_equipment 1
@@ -4058,7 +4058,7 @@ df.history_event_entity_rampaged_in_sitest = {}
 ---@field site_id world_site
 df.history_event_entity_fled_sitest = {}
 
----@class (exact) _tactical_situation: df.enum
+---@class _tactical_situation: df.enum
 ---@field attacker_strongly_favored 0
 ---@field [0] "attacker_strongly_favored"
 ---@field attacker_favored 1
@@ -4104,7 +4104,7 @@ df.tactical_situation = {}
 ---@field tactics_flags history_event_tactical_situationst_tactics_flags
 df.history_event_tactical_situationst = {}
 
----@class (exact) _history_event_tactical_situationst_tactics_flags: df.bitfield
+---@class _history_event_tactical_situationst_tactics_flags: df.bitfield
 ---@field start 0
 ---@field [0] "start"
 df.history_event_tactical_situationst.T_tactics_flags = {}
@@ -4189,7 +4189,7 @@ df.history_event_entity_equipment_purchasest = {}
 ---@field modification history_event_modified_buildingst_modification
 df.history_event_modified_buildingst = {}
 
----@class (exact) _history_event_modified_buildingst_modification: df.bitfield
+---@class _history_event_modified_buildingst_modification: df.bitfield
 ---@field dungeon 0
 ---@field [0] "dungeon"
 ---@field fortifications 1
@@ -4328,7 +4328,7 @@ df.history_event_failed_intrigue_corruptionst = {}
 ---@field plot_flags history_event_hf_convictedst_plot_flags
 df.history_event_hf_convictedst = {}
 
----@class (exact) _history_event_hf_convictedst_punishment_flags: df.bitfield
+---@class _history_event_hf_convictedst_punishment_flags: df.bitfield
 ---@field beaten 0
 ---@field [0] "beaten"
 ---@field exiled 1
@@ -4349,7 +4349,7 @@ df.history_event_hf_convictedst.T_punishment_flags = {}
 ---@field [3] boolean
 ---@field no_prison_available boolean
 
----@class (exact) _history_event_hf_convictedst_plot_flags: df.bitfield
+---@class _history_event_hf_convictedst_plot_flags: df.bitfield
 ---@field wrongful 0
 ---@field [0] "wrongful"
 ---@field plot_surveillance 1
@@ -4399,7 +4399,7 @@ df.history_event_failed_frame_attemptst = {}
 ---@field interrogation_flags history_event_hf_interrogatedst_interrogation_flags
 df.history_event_hf_interrogatedst = {}
 
----@class (exact) _history_event_hf_interrogatedst_interrogation_flags: df.bitfield
+---@class _history_event_hf_interrogatedst_interrogation_flags: df.bitfield
 ---@field recognized 0
 ---@field [0] "recognized"
 ---@field refused_to_reveal 1
@@ -4412,7 +4412,7 @@ df.history_event_hf_interrogatedst.T_interrogation_flags = {}
 ---@field [1] boolean
 ---@field refused_to_reveal boolean
 
----@class (exact) _history_event_collection_type: df.enum
+---@class _history_event_collection_type: df.enum
 ---@field WAR 0
 ---@field [0] "WAR"
 ---@field BATTLE 1
@@ -4718,7 +4718,7 @@ df.history_event_collection_persecutionst = {}
 ---@field ordinal integer
 df.history_event_collection_entity_overthrownst = {}
 
----@class (exact) _era_type: df.enum
+---@class _era_type: df.enum
 ---@field ThreePowers 0
 ---@field [0] "ThreePowers"
 ---@field TwoPowers 1
@@ -4905,7 +4905,7 @@ df.intrigue = {}
 ---@field target_ally_roll integer
 df.intrigue_corruption = {}
 
----@class (exact) _intrigue_corruption_manipulation_type: df.enum
+---@class _intrigue_corruption_manipulation_type: df.enum
 ---@field Threat 0
 ---@field [0] "Threat"
 ---@field Flattery 1
@@ -4942,7 +4942,7 @@ df.intrigue_corruption.T_manipulation_type = {}
 ---@field [7] boolean
 ---@field Immortality boolean
 
----@class (exact) _intrigue_corruption_manipulated_emotion: df.enum
+---@class _intrigue_corruption_manipulated_emotion: df.enum
 ---@field Trust 0
 ---@field [0] "Trust"
 ---@field Loyalty 1
@@ -4967,7 +4967,7 @@ df.intrigue_corruption.T_manipulated_emotion = {}
 ---@field [4] boolean
 ---@field Respect boolean
 
----@class (exact) _intrigue_corruption_flags: df.bitfield
+---@class _intrigue_corruption_flags: df.bitfield
 ---@field succeeded 0
 ---@field [0] "succeeded"
 ---@field misread_target 1

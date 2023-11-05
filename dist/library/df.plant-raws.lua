@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _plant_raw_flags: df.enum
+---@class _plant_raw_flags: df.enum
 ---@field SPRING 0
 ---@field [0] "SPRING"
 ---@field SUMMER 1
@@ -452,7 +452,7 @@ df.plant_raw.T_material_defs = {}
 ---@class plant_raw_stockpile_growth_flags: df.struct
 df.plant_raw.T_stockpile_growth_flags = {}
 
----@class (exact) _plant_material_def: df.enum
+---@class _plant_material_def: df.enum
 ---@field basic_mat 0
 ---@field [0] "basic_mat"
 ---@field tree 1
@@ -517,7 +517,7 @@ df.plant_material_def = {}
 ---@field trunk_height_perc_2 integer
 df.plant_growth = {}
 
----@class (exact) _plant_growth_locations: df.bitfield
+---@class _plant_growth_locations: df.bitfield
 ---@field twigs 0
 ---@field [0] "twigs"
 ---@field light_branches 1
@@ -550,7 +550,7 @@ df.plant_growth.T_locations = {}
 ---@field [6] boolean
 ---@field sapling boolean
 
----@class (exact) _plant_growth_behavior: df.bitfield
+---@class _plant_growth_behavior: df.bitfield
 ---@field drops_off 0
 ---@field [0] "drops_off"
 ---@field no_cloud 1

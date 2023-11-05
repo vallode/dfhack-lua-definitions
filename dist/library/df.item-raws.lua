@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _item_type: df.enum
+---@class _item_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BAR 1
@@ -401,7 +401,7 @@ df.item_type.attrs = {}
 ---@field flags weapon_attack_flags
 df.weapon_attack = {}
 
----@class (exact) _weapon_attack_flags: df.bitfield
+---@class _weapon_attack_flags: df.bitfield
 ---@field independent_multiattack 0
 ---@field [0] "independent_multiattack"
 ---@field bad_multiattack 1
@@ -414,7 +414,7 @@ df.weapon_attack.T_flags = {}
 ---@field [1] boolean
 ---@field bad_multiattack boolean
 
----@class (exact) _itemdef_flags: df.enum
+---@class _itemdef_flags: df.enum
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 df.itemdef_flags = {}
@@ -432,7 +432,7 @@ df.itemdef_flags = {}
 ---@field raw_strings string[]
 df.itemdef = {}
 
----@class (exact) _ammo_flags: df.enum
+---@class _ammo_flags: df.enum
 ---@field HAS_EDGE_ATTACK 0
 ---@field [0] "HAS_EDGE_ATTACK"
 df.ammo_flags = {}
@@ -452,7 +452,7 @@ df.ammo_flags = {}
 ---@field attacks weapon_attack[]
 df.itemdef_ammost = {}
 
----@class (exact) _armor_general_flags: df.enum
+---@class _armor_general_flags: df.enum
 ---@field SOFT 0
 ---@field [0] "SOFT"
 ---@field HARD 1
@@ -509,7 +509,7 @@ df.armor_general_flags = {}
 ---@field coverage integer
 df.armor_properties = {}
 
----@class (exact) _armor_flags: df.enum
+---@class _armor_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.armor_flags = {}
@@ -538,7 +538,7 @@ df.itemdef_armorst = {}
 ---@field level integer
 df.itemdef_foodst = {}
 
----@class (exact) _gloves_flags: df.enum
+---@class _gloves_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.gloves_flags = {}
@@ -559,7 +559,7 @@ df.gloves_flags = {}
 ---@field props armor_properties
 df.itemdef_glovesst = {}
 
----@class (exact) _helm_flags: df.enum
+---@class _helm_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.helm_flags = {}
@@ -579,7 +579,7 @@ df.helm_flags = {}
 ---@field props armor_properties
 df.itemdef_helmst = {}
 
----@class (exact) _instrument_flags: df.enum
+---@class _instrument_flags: df.enum
 ---@field INDEFINITE_PITCH 0
 ---@field [0] "INDEFINITE_PITCH"
 ---@field PLACED_AS_BUILDING 1
@@ -652,7 +652,7 @@ df.instrument_flags = {}
 ---@field description string
 df.itemdef_instrumentst = {}
 
----@class (exact) _sound_production_type: df.enum
+---@class _sound_production_type: df.enum
 ---@field PLUCKED_BY_BP 0
 ---@field [0] "PLUCKED_BY_BP"
 ---@field PLUCKED 1
@@ -741,7 +741,7 @@ df.sound_production_type = {}
 ---@field [20] boolean
 ---@field AIR_AGAINST_FIPPLE boolean
 
----@class (exact) _pitch_choice_type: df.enum
+---@class _pitch_choice_type: df.enum
 ---@field MEMBRANE_POSITION 0
 ---@field [0] "MEMBRANE_POSITION"
 ---@field SUBPART_CHOICE 1
@@ -794,7 +794,7 @@ df.pitch_choice_type = {}
 ---@field [11] boolean
 ---@field FOOT_PEDALS boolean
 
----@class (exact) _tuning_type: df.enum
+---@class _tuning_type: df.enum
 ---@field PEGS 0
 ---@field [0] "PEGS"
 ---@field ADJUSTABLE_BRIDGES 1
@@ -819,7 +819,7 @@ df.tuning_type = {}
 ---@field [4] boolean
 ---@field LEVERS boolean
 
----@class (exact) _timbre_type: df.enum
+---@class _timbre_type: df.enum
 ---@field CLEAR 0
 ---@field [0] "CLEAR"
 ---@field NOISY 1
@@ -1085,7 +1085,7 @@ df.timbre_type = {}
 ---@field flags instrument_piece_flags
 df.instrument_piece = {}
 
----@class (exact) _instrument_piece_flags: df.bitfield
+---@class _instrument_piece_flags: df.bitfield
 ---@field always_singular 0
 ---@field [0] "always_singular"
 ---@field always_plural 1
@@ -1104,7 +1104,7 @@ df.instrument_piece.T_flags = {}
 ---@field timbres timbre_type[]
 df.instrument_register = {}
 
----@class (exact) _pants_flags: df.enum
+---@class _pants_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.pants_flags = {}
@@ -1138,7 +1138,7 @@ df.itemdef_pantsst = {}
 ---@field material_size integer
 df.itemdef_shieldst = {}
 
----@class (exact) _shoes_flags: df.enum
+---@class _shoes_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.shoes_flags = {}
@@ -1165,7 +1165,7 @@ df.itemdef_shoesst = {}
 ---@field ammo_class string
 df.itemdef_siegeammost = {}
 
----@class (exact) _tool_flags: df.enum
+---@class _tool_flags: df.enum
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 ---@field METAL_MAT 1
@@ -1250,7 +1250,7 @@ df.tool_flags = {}
 ---@field [19] boolean
 ---@field SHEET_MAT boolean
 
----@class (exact) _tool_uses: df.enum
+---@class _tool_uses: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LIQUID_COOKING 1
@@ -1398,7 +1398,7 @@ df.itemdef_toolst.T_tool_use = {}
 ---@field restriction tool_flags
 df.itemdef_toolst.T_default_improvements = {}
 
----@class (exact) _toy_flags: df.enum
+---@class _toy_flags: df.enum
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 df.toy_flags = {}
@@ -1413,7 +1413,7 @@ df.toy_flags = {}
 ---@field flags any
 df.itemdef_toyst = {}
 
----@class (exact) _trapcomp_flags: df.enum
+---@class _trapcomp_flags: df.enum
 ---@field IS_SCREW 0
 ---@field [0] "IS_SCREW"
 ---@field IS_SPIKE 1
@@ -1450,7 +1450,7 @@ df.trapcomp_flags = {}
 ---@field attacks weapon_attack[]
 df.itemdef_trapcompst = {}
 
----@class (exact) _weapon_flags: df.enum
+---@class _weapon_flags: df.enum
 ---@field CAN_STONE 0
 ---@field [0] "CAN_STONE"
 ---@field HAS_EDGE_ATTACK 1
