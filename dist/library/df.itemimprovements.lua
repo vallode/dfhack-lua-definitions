@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _improvement_type: df.struct
+---@class (exact) _improvement_type: df.enum
 ---@field ART_IMAGE 0
 ---@field [0] "ART_IMAGE"
 ---@field COVERED 1
@@ -90,7 +90,7 @@ df.itemimprovement_art_imagest = {}
 ---@field shape descriptor_shape
 df.itemimprovement_coveredst = {}
 
----@class (exact) _itemimprovement_coveredst_cover_flags: df.struct
+---@class (exact) _itemimprovement_coveredst_cover_flags: df.bitfield
 ---@field glazed 0
 ---@field [0] "glazed"
 df.itemimprovement_coveredst.T_cover_flags = {}
@@ -109,7 +109,7 @@ df.itemimprovement_bandsst = {}
 ---@class itemimprovement_spikesst: itemimprovement
 df.itemimprovement_spikesst = {}
 
----@class (exact) _itemimprovement_specific_type: df.struct
+---@class (exact) _itemimprovement_specific_type: df.enum
 ---@field HANDLE 0
 ---@field [0] "HANDLE"
 ---@field ROLLERS 1
@@ -167,7 +167,7 @@ df.itemimprovement_writingst = {}
 ---@field image_set_id image_set
 df.itemimprovement_image_setst = {}
 
----@class (exact) _written_content_type: df.struct
+---@class (exact) _written_content_type: df.enum
 ---@field Manual 0
 ---@field [0] "Manual"
 ---@field Guide 1
@@ -276,7 +276,7 @@ df.written_content_type = {}
 ---@field [25] boolean
 ---@field Atlas boolean
 
----@class (exact) _written_content_style: df.struct
+---@class (exact) _written_content_style: df.enum
 ---@field Meandering 0
 ---@field [0] "Meandering"
 ---@field Cheerful 1
@@ -370,7 +370,7 @@ df.written_content_style = {}
 ---@field author_roll integer
 df.written_content = {}
 
----@class (exact) _engraving_flags: df.struct
+---@class (exact) _engraving_flags: df.bitfield
 ---@field floor 0
 ---@field [0] "floor"
 ---@field west 1

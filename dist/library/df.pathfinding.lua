@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _unit_path_goal: df.struct
+---@class (exact) _unit_path_goal: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field ComeToJobBuilding 1
@@ -866,7 +866,7 @@ df.unit_path_goal = {}
 ---@field [214] boolean
 ---@field SeekHeistHandoff boolean
 
----@class (exact) _unit_station_type: df.struct
+---@class (exact) _unit_station_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Nonsense 1
@@ -1043,7 +1043,7 @@ df.unit_station_type = {}
 ---@field [42] boolean
 ---@field WaitOrder boolean
 
----@class (exact) _pathfinding_flags: df.struct
+---@class (exact) _pathfinding_flags: df.bitfield
 ---@field Desperate 0
 ---@field [0] "Desperate"
 ---@field Reckless 1

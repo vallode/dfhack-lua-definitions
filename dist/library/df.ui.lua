@@ -22,7 +22,7 @@ df.burrow = {}
 ---@field z integer
 df.ui_hotkey = {}
 
----@class (exact) _ui_hotkey_cmd: df.struct
+---@class (exact) _ui_hotkey_cmd: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Zoom 1
@@ -43,7 +43,7 @@ df.ui_hotkey.T_cmd = {}
 ---@field [3] boolean
 ---@field FollowItem boolean
 
----@class (exact) _ui_sidebar_mode: df.struct
+---@class (exact) _ui_sidebar_mode: df.enum
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Squads 1
@@ -287,7 +287,7 @@ df.ui_sidebar_mode = {}
 ---@field victims integer[]
 df.punishment = {}
 
----@class (exact) _kitchen_exc_type: df.struct
+---@class (exact) _kitchen_exc_type: df.enum
 ---@field Cook 1
 ---@field [0] "Cook"
 ---@field Brew 1
@@ -300,7 +300,7 @@ df.kitchen_exc_type = {}
 ---@field [1] boolean
 ---@field Brew boolean
 
----@class (exact) _save_substage: df.struct
+---@class (exact) _save_substage: df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -513,7 +513,7 @@ df.save_substage = {}
 ---@field [51] boolean
 ---@field Finishing boolean
 
----@class (exact) _equipment_update: df.struct
+---@class (exact) _equipment_update: df.bitfield
 ---@field weapon 0
 ---@field [0] "weapon"
 ---@field armor 1
@@ -577,7 +577,7 @@ df.equipment_update = {}
 ---@field chores_exempted_children labor_infost_chores_exempted_children toady: no_chore_child_unid
 df.labor_infost = {}
 
----@class (exact) _labor_infost_flags: df.struct
+---@class (exact) _labor_infost_flags: df.bitfield
 ---@field children_do_chores 0
 ---@field [0] "children_do_chores"
 df.labor_infost.T_flags = {}
@@ -704,7 +704,7 @@ df.plotinfost.T_tax_collection = {}
 ---@field bookkeeper_settings nobles_bookkeeper_settings
 df.plotinfost.T_nobles = {}
 
----@class (exact) _nobles_bookkeeper_settings: df.struct
+---@class (exact) _nobles_bookkeeper_settings: df.enum
 ---@field nearest_10 0
 ---@field [0] "nearest_10"
 ---@field nearest_100 1
@@ -754,7 +754,7 @@ df.kitchen.T_mat_types = {}
 ---@class kitchen_exc_types: df.struct
 df.kitchen.T_exc_types = {}
 
----@class (exact) _plotinfost_unk23c8_flags: df.struct
+---@class (exact) _plotinfost_unk23c8_flags: df.bitfield
 ---@field first_year 0
 ---@field [0] "first_year"
 ---@field recheck_aid_requests 1
@@ -1079,7 +1079,7 @@ df.plotinfost.T_squads = {}
 ---@class squads_indiv_selected: df.struct
 df.squads.T_indiv_selected = {}
 
----@class (exact) _timed_event_type: df.struct
+---@class (exact) _timed_event_type: df.enum
 ---@field Caravan 0
 ---@field [0] "Caravan"
 ---@field Migrants 1

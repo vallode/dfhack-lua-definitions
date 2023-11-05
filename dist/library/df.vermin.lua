@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _vermin_flags: df.struct
+---@class (exact) _vermin_flags: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field is_colony 1
@@ -26,7 +26,7 @@ df.vermin_flags = {}
 ---@field [4] boolean
 ---@field unk_4 boolean
 
----@class (exact) _vermin_category: df.struct
+---@class (exact) _vermin_category: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Eater 1

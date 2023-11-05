@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _art_image_element_type: df.struct
+---@class (exact) _art_image_element_type: df.enum
 ---@field CREATURE 0
 ---@field [0] "CREATURE"
 ---@field PLANT 1
@@ -58,7 +58,7 @@ df.art_image_element_shapest = {}
 ---@field item_id item
 df.art_image_element_itemst = {}
 
----@class (exact) _art_image_property_type: df.struct
+---@class (exact) _art_image_property_type: df.enum
 ---@field transitive_verb 0
 ---@field [0] "transitive_verb"
 ---@field intransitive_verb 1
@@ -75,7 +75,7 @@ df.art_image_property_type = {}
 ---@field flags any
 df.art_image_property = {}
 
----@class (exact) _art_image_property_verb: df.struct
+---@class (exact) _art_image_property_verb: df.enum
 ---@field Withering 0
 ---@field [0] "Withering"
 ---@field SurroundedBy 1
@@ -283,7 +283,7 @@ df.art_image_property_transitive_verbst = {}
 ---@field verb art_image_property_verb
 df.art_image_property_intransitive_verbst = {}
 
----@class (exact) _art_facet_type: df.struct
+---@class (exact) _art_facet_type: df.enum
 ---@field OWN_RACE 0
 ---@field [0] "OWN_RACE"
 ---@field FANCIFUL 1
@@ -334,7 +334,7 @@ df.art_image_chunk = {}
 ---@field site_id world_site
 df.art_image_ref = {}
 
----@class (exact) _poetic_form_action: df.struct
+---@class (exact) _poetic_form_action: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Describe 1
@@ -435,7 +435,7 @@ df.poetic_form_action = {}
 ---@field [23] boolean
 ---@field Beseech boolean
 
----@class (exact) _poetic_form_pattern: df.struct
+---@class (exact) _poetic_form_pattern: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field AA 1
@@ -492,7 +492,7 @@ df.poetic_form_pattern = {}
 ---@field [12] boolean
 ---@field BBB boolean
 
----@class (exact) _poetic_form_caesura_position: df.struct
+---@class (exact) _poetic_form_caesura_position: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Initial 1
@@ -513,7 +513,7 @@ df.poetic_form_caesura_position = {}
 ---@field [3] boolean
 ---@field Terminal boolean
 
----@class (exact) _poetic_form_mood: df.struct
+---@class (exact) _poetic_form_mood: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Narrative 1
@@ -550,7 +550,7 @@ df.poetic_form_mood = {}
 ---@field [7] boolean
 ---@field Solemn boolean
 
----@class (exact) _poetic_form_subject: df.struct
+---@class (exact) _poetic_form_subject: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Past 1
@@ -656,7 +656,7 @@ df.poetic_form_subject_target.T_Histfig = {}
 ---@field subject_topic sphere_type
 df.poetic_form_subject_target.T_Concept = {}
 
----@class (exact) _poetic_form_feature: df.struct
+---@class (exact) _poetic_form_feature: df.bitfield
 ---@field InternalRhyme 0
 ---@field [0] "InternalRhyme"
 ---@field EndRhymesDontMatch 1
@@ -749,7 +749,7 @@ df.poetic_form_feature = {}
 ---@field [21] boolean
 ---@field Juxtaposision boolean
 
----@class (exact) _poetic_form_additional_feature: df.struct
+---@class (exact) _poetic_form_additional_feature: df.enum
 ---@field SharesUnderlyingMeaning 0
 ---@field [0] "SharesUnderlyingMeaning"
 ---@field ContrastsUnderlyingMeaning 1
@@ -811,7 +811,7 @@ df.poetic_form_additional_feature = {}
 ---@field perspectives poetic_form_perspective[]
 df.poetic_form = {}
 
----@class (exact) _poetic_form_flags: df.struct
+---@class (exact) _poetic_form_flags: df.bitfield
 ---@field tone_patterns 0
 ---@field [0] "tone_patterns"
 ---@field produces_individual_poems 1
@@ -861,7 +861,7 @@ df.poetic_form.T_common_features = {}
 ---@field unk_9 integer
 df.poetic_form_part = {}
 
----@class (exact) _poetic_form_part_flags: df.struct
+---@class (exact) _poetic_form_part_flags: df.bitfield
 ---@field size_in_lines 0
 ---@field [0] "size_in_lines"
 df.poetic_form_part.T_flags = {}
@@ -900,7 +900,7 @@ df.poetic_form_part.T_certain_lines_additional_features = {}
 ---@field unk_1 integer
 df.poetic_form_perspective = {}
 
----@class (exact) _poetic_form_perspective_type: df.struct
+---@class (exact) _poetic_form_perspective_type: df.enum
 ---@field Author 0
 ---@field [0] "Author"
 ---@field Soldier 1
@@ -937,7 +937,7 @@ df.poetic_form_perspective.T_type = {}
 ---@field [7] boolean
 ---@field Animal boolean
 
----@class (exact) _musical_form_purpose: df.struct
+---@class (exact) _musical_form_purpose: df.enum
 ---@field Entertainment 0
 ---@field [0] "Entertainment"
 ---@field Commemoration 1
@@ -958,7 +958,7 @@ df.musical_form_purpose = {}
 ---@field [3] boolean
 ---@field Military boolean
 
----@class (exact) _musical_form_style: df.struct
+---@class (exact) _musical_form_style: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field FreeTempo 1
@@ -1259,7 +1259,7 @@ df.musical_form_style = {}
 ---@field [73] boolean
 ---@field BeTriumphant boolean
 
----@class (exact) _musical_form_pitch_style: df.struct
+---@class (exact) _musical_form_pitch_style: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field SinglePitchesOnly 1
@@ -1288,7 +1288,7 @@ df.musical_form_pitch_style = {}
 ---@field [5] boolean
 ---@field ChordLayers boolean
 
----@class (exact) _musical_form_feature: df.struct
+---@class (exact) _musical_form_feature: df.bitfield
 ---@field GlideFromNoteToNote 0
 ---@field [0] "GlideFromNoteToNote"
 ---@field UseGraceNotes 1
@@ -1357,7 +1357,7 @@ df.musical_form_feature = {}
 ---@field [15] boolean
 ---@field FreelyAdjustBeats boolean
 
----@class (exact) _musical_form_passage_component_type: df.struct
+---@class (exact) _musical_form_passage_component_type: df.enum
 ---@field Melody 0
 ---@field [0] "Melody"
 ---@field Counterpoint 1
@@ -1382,7 +1382,7 @@ df.musical_form_passage_component_type = {}
 ---@field [4] boolean
 ---@field Unspecified boolean
 
----@class (exact) _musical_form_passage_type: df.struct
+---@class (exact) _musical_form_passage_type: df.enum
 ---@field Unrelated 0
 ---@field [0] "Unrelated"
 ---@field Introduction 1
@@ -1435,7 +1435,7 @@ df.musical_form_passage_type = {}
 ---@field [11] boolean
 ---@field Variation boolean
 
----@class (exact) _musical_form_passage_length_type: df.struct
+---@class (exact) _musical_form_passage_length_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Short 1
@@ -1460,7 +1460,7 @@ df.musical_form_passage_length_type = {}
 ---@field [4] boolean
 ---@field Varied boolean
 
----@class (exact) _musical_form_melody_style: df.struct
+---@class (exact) _musical_form_melody_style: df.enum
 ---@field Rising 0
 ---@field [0] "Rising"
 ---@field Falling 1
@@ -1481,7 +1481,7 @@ df.musical_form_melody_style = {}
 ---@field [3] boolean
 ---@field FallingRising boolean
 
----@class (exact) _musical_form_melody_frequency: df.struct
+---@class (exact) _musical_form_melody_frequency: df.enum
 ---@field Always 0
 ---@field [0] "Always"
 ---@field Often 1
@@ -1503,7 +1503,7 @@ df.musical_form_melody_frequency = {}
 ---@field flags musical_form_interval_flags
 df.musical_form_interval = {}
 
----@class (exact) _musical_form_interval_flags: df.struct
+---@class (exact) _musical_form_interval_flags: df.bitfield
 ---@field rising 0
 ---@field [0] "rising"
 ---@field flattened 1
@@ -1571,7 +1571,7 @@ df.musical_form_passage.T_passage_lengths = {}
 ---@field overall_style musical_form_style
 df.musical_form_instruments = {}
 
----@class (exact) _musical_form_instruments_substitutions: df.struct
+---@class (exact) _musical_form_instruments_substitutions: df.bitfield
 ---@field singer 0
 ---@field [0] "singer"
 ---@field speaker 1
@@ -1623,7 +1623,7 @@ df.musical_form_sub4 = {}
 ---@field flags musical_form_flags
 df.musical_form = {}
 
----@class (exact) _musical_form_flags: df.struct
+---@class (exact) _musical_form_flags: df.bitfield
 ---@field produces_individual_songs 0
 ---@field [0] "produces_individual_songs"
 ---@field repeats_as_necessary 1
@@ -1636,7 +1636,7 @@ df.musical_form.T_flags = {}
 ---@field [1] boolean
 ---@field repeats_as_necessary boolean
 
----@class (exact) _dance_form_context: df.struct
+---@class (exact) _dance_form_context: df.enum
 ---@field Sacred 0
 ---@field [0] "Sacred"
 ---@field Celebration 1
@@ -1665,7 +1665,7 @@ df.dance_form_context = {}
 ---@field [5] boolean
 ---@field War boolean
 
----@class (exact) _dance_form_group_size: df.struct
+---@class (exact) _dance_form_group_size: df.enum
 ---@field Solo 0
 ---@field [0] "Solo"
 ---@field Partner 1
@@ -1682,7 +1682,7 @@ df.dance_form_group_size = {}
 ---@field [2] boolean
 ---@field Group boolean
 
----@class (exact) _dance_form_configuration: df.struct
+---@class (exact) _dance_form_configuration: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SingleLine 1
@@ -1711,7 +1711,7 @@ df.dance_form_configuration = {}
 ---@field [5] boolean
 ---@field LooselyMingled boolean
 
----@class (exact) _dance_form_movement_path: df.struct
+---@class (exact) _dance_form_movement_path: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field TurnClockwise 1
@@ -1736,7 +1736,7 @@ df.dance_form_movement_path = {}
 ---@field [4] boolean
 ---@field IntricatePath boolean
 
----@class (exact) _dance_form_partner_distance: df.struct
+---@class (exact) _dance_form_partner_distance: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Closely 1
@@ -1757,7 +1757,7 @@ df.dance_form_partner_distance = {}
 ---@field [3] boolean
 ---@field RareContact boolean
 
----@class (exact) _dance_form_partner_intent: df.struct
+---@class (exact) _dance_form_partner_intent: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PushingTogether 1
@@ -1790,7 +1790,7 @@ df.dance_form_partner_intent = {}
 ---@field [6] boolean
 ---@field SpokenCues boolean
 
----@class (exact) _dance_form_partner_cue_frequency: df.struct
+---@class (exact) _dance_form_partner_cue_frequency: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Constantly 1
@@ -1807,7 +1807,7 @@ df.dance_form_partner_cue_frequency = {}
 ---@field [2] boolean
 ---@field Briefly boolean
 
----@class (exact) _dance_form_partner_change_type: df.struct
+---@class (exact) _dance_form_partner_change_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LeadAdvanceAlongMainLineOfMotion 1
@@ -1832,7 +1832,7 @@ df.dance_form_partner_change_type = {}
 ---@field [4] boolean
 ---@field LeadTurningOutCounterClockwise boolean
 
----@class (exact) _dance_form_move_type: df.struct
+---@class (exact) _dance_form_move_type: df.enum
 ---@field SquareStep 0
 ---@field [0] "SquareStep"
 ---@field CircularStep 1
@@ -1973,7 +1973,7 @@ df.dance_form_move_type = {}
 ---@field [33] boolean
 ---@field MovementAlongLineOfDance boolean
 
----@class (exact) _dance_form_move_modifier: df.struct
+---@class (exact) _dance_form_move_modifier: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Graceful 1
@@ -2166,7 +2166,7 @@ df.dance_form_move_modifier = {}
 ---@field [46] boolean
 ---@field Sinuous boolean
 
----@class (exact) _dance_form_move_location: df.struct
+---@class (exact) _dance_form_move_location: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -2237,7 +2237,7 @@ df.dance_form_section.T_modifier = {}
 ---@class dance_form_section_location: df.struct
 df.dance_form_section.T_location = {}
 
----@class (exact) _dance_form_move_group_type: df.struct
+---@class (exact) _dance_form_move_group_type: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field BasicMovement 1
@@ -2323,7 +2323,7 @@ df.dance_form.T_move_modifier = {}
 ---@class dance_form_move_location: df.struct
 df.dance_form.T_move_location = {}
 
----@class (exact) _scale_type: df.struct
+---@class (exact) _scale_type: df.enum
 ---@field Octave 0
 ---@field [0] "Octave"
 ---@field Variable 1
@@ -2368,7 +2368,7 @@ df.named_scale = {}
 ---@field notes scale_notes Curiously, the named notes do not have to match the number of defined notes
 df.scale = {}
 
----@class (exact) _scale_flags: df.struct
+---@class (exact) _scale_flags: df.bitfield
 ---@field tonic_note_fixed_at_performance 0
 ---@field [0] "tonic_note_fixed_at_performance"
 df.scale.T_flags = {}
@@ -2393,7 +2393,7 @@ df.scale.T_notes = {}
 ---@field unk_2 integer
 df.rhythm = {}
 
----@class (exact) _beat_type: df.struct
+---@class (exact) _beat_type: df.enum
 ---@field Silent 0
 ---@field [0] "Silent"
 ---@field AccentedBeat 1
@@ -2466,7 +2466,7 @@ df.rhythm_pattern.T_bars = {}
 ---@field unk_3 integer
 df.sub_rhythm = {}
 
----@class (exact) _occupation_type: df.struct
+---@class (exact) _occupation_type: df.enum
 ---@field TAVERN_KEEPER 0
 ---@field [0] "TAVERN_KEEPER"
 ---@field PERFORMER 1

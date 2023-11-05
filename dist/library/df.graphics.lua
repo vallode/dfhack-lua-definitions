@@ -25,7 +25,7 @@ df.large_integer.T_u = {}
 ---@field linux_sound_system musicsoundst_linux_sound_system
 df.musicsoundst = {}
 
----@class (exact) _musicsoundst_linux_sound_system: df.struct
+---@class (exact) _musicsoundst_linux_sound_system: df.enum
 ---@field ALSA 0
 ---@field [0] "ALSA"
 ---@field OSS 1
@@ -47,7 +47,7 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@field channel any
 df.fmod_sound = {}
 
----@class (exact) _curses_color: df.struct
+---@class (exact) _curses_color: df.enum
 ---@field Black 0
 ---@field [0] "Black"
 ---@field Blue 1
@@ -84,7 +84,7 @@ df.curses_color = {}
 ---@field [7] boolean
 ---@field White boolean
 
----@class (exact) _cmv_attribute: df.struct
+---@class (exact) _cmv_attribute: df.bitfield
 ---@field fg 0
 ---@field [0] "fg"
 ---@field bg 1
@@ -580,7 +580,7 @@ df.renderer_2d_base = {}
 ---@class renderer_2d: renderer_2d_base
 df.renderer_2d = {}
 
----@class (exact) _zoom_commands: df.struct
+---@class (exact) _zoom_commands: df.enum
 ---@field zoom_in 0
 ---@field [0] "zoom_in"
 ---@field zoom_out 1
@@ -651,7 +651,7 @@ df.zoom_commands = {}
 ---@field last_text_input integer[]
 df.enabler = {}
 
----@class (exact) _enabler_fullscreen_state: df.struct
+---@class (exact) _enabler_fullscreen_state: df.bitfield
 ---@field fullscreen 0
 ---@field [0] "fullscreen"
 ---@field exclusive 1
@@ -682,7 +682,7 @@ df.enabler.T_async_frombox = {}
 ---@field vals zoom_commands
 df.enabler.T_async_zoom = {}
 
----@class (exact) _enabler_flag: df.struct
+---@class (exact) _enabler_flag: df.bitfield
 ---@field render 0
 ---@field [0] "render"
 ---@field maxfps 1
@@ -702,7 +702,7 @@ df.enabler.T_flag = {}
 ---@field uploaded boolean
 df.enabler.T_textures = {}
 
----@class (exact) _justification: df.struct
+---@class (exact) _justification: df.enum
 ---from libgraphics
 ---@field justify_left 0
 ---@field [0] "justify_left"

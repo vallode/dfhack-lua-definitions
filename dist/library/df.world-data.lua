@@ -6,7 +6,7 @@
 ---@field unk_4 integer[][]
 df.world_site_unk130 = {}
 
----@class (exact) _world_population_type: df.struct
+---@class (exact) _world_population_type: df.enum
 ---@field Animal 0
 ---@field [0] "Animal"
 ---@field Vermin 1
@@ -77,7 +77,7 @@ df.world_population_ref = {}
 ---@field unk_v47_1 integer set on same animals as wp_unk_1c and only seen 0
 df.local_population = {}
 
----@class (exact) _local_population_flags: df.struct
+---@class (exact) _local_population_flags: df.bitfield
 ---@field discovered 0
 ---@field [0] "discovered"
 ---@field extinct 1
@@ -123,7 +123,7 @@ df.world_population = {}
 ---@field unk_84 integer[]
 df.world_landmass = {}
 
----@class (exact) _world_region_type: df.struct
+---@class (exact) _world_region_type: df.enum
 ---@field Swamp 0
 ---@field [0] "Swamp"
 ---@field Desert 1
@@ -242,7 +242,7 @@ df.world_region.T_tree_tiles_savage = {}
 ---@field feature_init feature_init
 df.world_underground_region = {}
 
----@class (exact) _world_underground_region_type: df.struct
+---@class (exact) _world_underground_region_type: df.enum
 ---@field Cavern 0
 ---@field [0] "Cavern"
 ---@field MagmaSea 1
@@ -270,7 +270,7 @@ df.world_underground_region.T_type = {}
 ---@field flags any
 df.world_river = {}
 
----@class (exact) _geo_layer_type: df.struct
+---@class (exact) _geo_layer_type: df.enum
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SEDIMENTARY 1
@@ -400,7 +400,7 @@ df.world_region_details.T_rivers_vertical = {}
 ---@field elevation integer[][]
 df.world_region_details.T_rivers_horizontal = {}
 
----@class (exact) _region_map_entry_flags: df.struct
+---@class (exact) _region_map_entry_flags: df.enum
 ---@field has_river 0
 ---@field [0] "has_river"
 ---@field tile_variant 1
@@ -501,7 +501,7 @@ df.region_map_entry_flags = {}
 ---@field [23] boolean
 ---@field unk_23 boolean
 
----@class (exact) _front_type: df.struct
+---@class (exact) _front_type: df.enum
 ---@field front_none 0
 ---@field [0] "front_none"
 ---@field front_warm 1
@@ -522,7 +522,7 @@ df.front_type = {}
 ---@field [3] boolean
 ---@field front_occluded boolean
 
----@class (exact) _cumulus_type: df.struct
+---@class (exact) _cumulus_type: df.enum
 ---@field cumulus_none 0
 ---@field [0] "cumulus_none"
 ---@field cumulus_medium 1
@@ -543,7 +543,7 @@ df.cumulus_type = {}
 ---@field [3] boolean
 ---@field cumulus_nimbus boolean
 
----@class (exact) _stratus_type: df.struct
+---@class (exact) _stratus_type: df.enum
 ---@field stratus_none 0
 ---@field [0] "stratus_none"
 ---@field stratus_alto 1
@@ -564,7 +564,7 @@ df.stratus_type = {}
 ---@field [3] boolean
 ---@field stratus_nimbus boolean
 
----@class (exact) _fog_type: df.struct
+---@class (exact) _fog_type: df.enum
 ---@field fog_none 0
 ---@field [0] "fog_none"
 ---@field fog_mist 1
@@ -613,7 +613,7 @@ df.fog_type = {}
 ---@field geo_index world_geo_biome
 df.region_map_entry = {}
 
----@class (exact) _region_map_entry_clouds: df.struct
+---@class (exact) _region_map_entry_clouds: df.bitfield
 ---@field front 0
 ---@field [0] "front"
 ---@field cumulus 1
@@ -642,7 +642,7 @@ df.region_map_entry.T_clouds = {}
 ---@field [5] boolean
 ---@field countdown boolean
 
----@class (exact) _region_map_entry_wind: df.struct
+---@class (exact) _region_map_entry_wind: df.bitfield
 ---blows toward direction in morning
 ---@field north_1 0
 ---@field [0] "north_1"
@@ -780,7 +780,7 @@ df.world_object_data.T_picked_growths = {}
 ---@field unk_4 integer[] 233/234 seen
 df.world_object_data.T_unk_v43 = {}
 
----@class (exact) _mountain_peak_flags: df.struct
+---@class (exact) _mountain_peak_flags: df.enum
 ---@field is_volcano 0
 ---@field [0] "is_volcano"
 df.mountain_peak_flags = {}
@@ -889,7 +889,7 @@ df.world_mountain_peak = {}
 ---@field unk_482f8 world_data_unk_482f8
 df.world_data = {}
 
----@class (exact) _world_data_flip_latitude: df.struct
+---@class (exact) _world_data_flip_latitude: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field North 1
@@ -1003,7 +1003,7 @@ df.battlefield = {}
 ---@field unk_1c integer 2-5 seen. 4-5 probably attacker, 2-3 probably defender
 df.battlefield.T_sapient_deaths = {}
 
----@class (exact) _region_weather_type: df.struct
+---@class (exact) _region_weather_type: df.enum
 ---@field CreepingGas 0
 ---@field [0] "CreepingGas"
 ---@field CreepingVapor 1

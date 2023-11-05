@@ -13,7 +13,7 @@
 ---@field count_provided integer
 df.ui_build_item_req = {}
 
----@class (exact) _build_req_choice_type: df.struct
+---@class (exact) _build_req_choice_type: df.enum
 ---@field General 0
 ---@field [0] "General"
 ---@field Specific 1
@@ -77,7 +77,7 @@ df.build_req_choice_specst = {}
 ---@field selection_area integer
 df.buildreq = {}
 
----@class (exact) _interface_category_building: df.struct
+---@class (exact) _interface_category_building: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field WEAPON 1
@@ -118,7 +118,7 @@ df.interface_category_building = {}
 ---@field [8] boolean
 ---@field SELECT_MEMORIAL_UNIT boolean
 
----@class (exact) _interface_category_construction: df.struct
+---@class (exact) _interface_category_construction: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN 1
@@ -202,7 +202,7 @@ df.interface_button_building_new_jobst = {}
 ---@field custom_category_token string
 df.interface_button_building_custom_category_selectorst = {}
 
----@class (exact) _construction_category_type: df.struct
+---@class (exact) _construction_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN 1
@@ -271,7 +271,7 @@ df.construction_category_type = {}
 ---@field hotkey interface_key
 df.bb_buttonst = {}
 
----@class (exact) _construction_interface_page_status_type: df.struct
+---@class (exact) _construction_interface_page_status_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FULL 1
@@ -308,7 +308,7 @@ df.construction_interface_page_status_type = {}
 ---@field scroll_position integer
 df.construction_interface_pagest = {}
 
----@class (exact) _room_flow_shape_type: df.struct
+---@class (exact) _room_flow_shape_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field RECTANGLE 1
@@ -329,7 +329,7 @@ df.room_flow_shape_type = {}
 ---@field [3] boolean
 ---@field FLOOR_FLOW boolean
 
----@class (exact) _cannot_expel_reason_type: df.struct
+---@class (exact) _cannot_expel_reason_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field HEREDITARY 1
@@ -382,7 +382,7 @@ df.cannot_expel_reason_type = {}
 ---@field [11] boolean
 ---@field CHILD_MEET_WORKERS boolean
 
----@class (exact) _mine_mode_type: df.struct
+---@class (exact) _mine_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ALL 1
@@ -407,7 +407,7 @@ df.mine_mode_type = {}
 ---@field [4] boolean
 ---@field MARK_GEMS_ONLY boolean
 
----@class (exact) _job_details_option_type: df.struct
+---@class (exact) _job_details_option_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MATERIAL 1
@@ -432,7 +432,7 @@ df.job_details_option_type = {}
 ---@field [4] boolean
 ---@field IMPROVEMENT_TYPE boolean
 
----@class (exact) _job_details_context_type: df.struct
+---@class (exact) _job_details_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BUILDING_TASK_LIST 1
@@ -461,7 +461,7 @@ df.job_details_context_type = {}
 ---@field [5] boolean
 ---@field MANAGER_WORK_ORDER boolean
 
----@class (exact) _stock_pile_pointer_type: df.struct
+---@class (exact) _stock_pile_pointer_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ANIMAL_EMPTY_CAGES 1
@@ -506,7 +506,7 @@ df.stock_pile_pointer_type = {}
 ---@field [9] boolean
 ---@field ARMOR_NON_USABLE boolean
 
----@class (exact) _stockpile_tools_context_type: df.struct
+---@class (exact) _stockpile_tools_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field STOCKPILE 1
@@ -519,7 +519,7 @@ df.stockpile_tools_context_type = {}
 ---@field [1] boolean
 ---@field STOCKPILE boolean
 
----@class (exact) _stockpile_link_context_type: df.struct
+---@class (exact) _stockpile_link_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field STOCKPILE 1
@@ -540,7 +540,7 @@ df.stockpile_link_context_type = {}
 ---@field [3] boolean
 ---@field HAULING_STOP boolean
 
----@class (exact) _hauling_stop_conditions_context_type: df.struct
+---@class (exact) _hauling_stop_conditions_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field HAULING_MENU 1
@@ -553,7 +553,7 @@ df.hauling_stop_conditions_context_type = {}
 ---@field [1] boolean
 ---@field HAULING_MENU boolean
 
----@class (exact) _assign_vehicle_context_type: df.struct
+---@class (exact) _assign_vehicle_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field HAULING_MENU 1
@@ -566,7 +566,7 @@ df.assign_vehicle_context_type = {}
 ---@field [1] boolean
 ---@field HAULING_MENU boolean
 
----@class (exact) _location_details_context_type: df.struct
+---@class (exact) _location_details_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FROM_ZONE 1
@@ -583,7 +583,7 @@ df.location_details_context_type = {}
 ---@field [2] boolean
 ---@field FROM_LOCATION_SELECTOR boolean
 
----@class (exact) _location_selector_context_type: df.struct
+---@class (exact) _location_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONE_MEETING_AREA_ASSIGNMENT 1
@@ -596,7 +596,7 @@ df.location_selector_context_type = {}
 ---@field [1] boolean
 ---@field ZONE_MEETING_AREA_ASSIGNMENT boolean
 
----@class (exact) _custom_symbol_context_type: df.struct
+---@class (exact) _custom_symbol_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BURROW 1
@@ -621,7 +621,7 @@ df.custom_symbol_context_type = {}
 ---@field [4] boolean
 ---@field SQUAD_MENU boolean
 
----@class (exact) _name_creator_context_type: df.struct
+---@class (exact) _name_creator_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field EMBARK_FORT_NAME 1
@@ -654,7 +654,7 @@ df.name_creator_context_type = {}
 ---@field [6] boolean
 ---@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL boolean
 
----@class (exact) _image_creator_context_type: df.struct
+---@class (exact) _image_creator_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field EMBARK_FORT_SYMBOL 1
@@ -679,7 +679,7 @@ df.image_creator_context_type = {}
 ---@field [4] boolean
 ---@field DESIGNATION_ENGRAVING boolean
 
----@class (exact) _image_creator_option_type: df.struct
+---@class (exact) _image_creator_option_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ALLOW_ARTIST_TO_CHOOSE 1
@@ -760,7 +760,7 @@ df.image_creator_option_type = {}
 ---@field [18] boolean
 ---@field NEW_IMAGE_DELETE_ELEMENTS boolean
 
----@class (exact) _unit_selector_context_type: df.struct
+---@class (exact) _unit_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONE_PEN_ASSIGNMENT 1
@@ -821,7 +821,7 @@ df.unit_selector_context_type = {}
 ---@field [13] boolean
 ---@field SQUAD_FILL_POSITION boolean
 
----@class (exact) _squad_selector_context_type: df.struct
+---@class (exact) _squad_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONE_BARRACKS_ASSIGNMENT 1
@@ -838,7 +838,7 @@ df.squad_selector_context_type = {}
 ---@field [2] boolean
 ---@field ZONE_ARCHERY_RANGE_ASSIGNMENT boolean
 
----@class (exact) _squad_schedule_context_type: df.struct
+---@class (exact) _squad_schedule_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FROM_SQUAD_MENU 1
@@ -851,7 +851,7 @@ df.squad_schedule_context_type = {}
 ---@field [1] boolean
 ---@field FROM_SQUAD_MENU boolean
 
----@class (exact) _squad_equipment_context_type: df.struct
+---@class (exact) _squad_equipment_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field FROM_SQUAD_MENU 1
@@ -864,7 +864,7 @@ df.squad_equipment_context_type = {}
 ---@field [1] boolean
 ---@field FROM_SQUAD_MENU boolean
 
----@class (exact) _patrol_routes_context_type: df.struct
+---@class (exact) _patrol_routes_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field GIVING_SQUAD_PATROL_ORDER 1
@@ -877,7 +877,7 @@ df.patrol_routes_context_type = {}
 ---@field [1] boolean
 ---@field GIVING_SQUAD_PATROL_ORDER boolean
 
----@class (exact) _burrow_selector_context_type: df.struct
+---@class (exact) _burrow_selector_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field GIVING_SQUAD_ORDER 1
@@ -890,7 +890,7 @@ df.burrow_selector_context_type = {}
 ---@field [1] boolean
 ---@field GIVING_SQUAD_ORDER boolean
 
----@class (exact) _view_sheet_trait_type: df.struct
+---@class (exact) _view_sheet_trait_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PHYS_ATT_PLUS 1
@@ -931,7 +931,7 @@ df.view_sheet_trait_type = {}
 ---@field [8] boolean
 ---@field VALUE_LOW boolean
 
----@class (exact) _view_sheet_unit_knowledge_type: df.struct
+---@class (exact) _view_sheet_unit_knowledge_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PHILOSOPHY_FLAG 1
@@ -1012,7 +1012,7 @@ df.view_sheet_unit_knowledge_type = {}
 ---@field [18] boolean
 ---@field WRITTEN_CONTENT boolean
 
----@class (exact) _view_sheets_context_type: df.struct
+---@class (exact) _view_sheets_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field REGULAR_PLAY 1
@@ -1029,7 +1029,7 @@ df.view_sheets_context_type = {}
 ---@field [2] boolean
 ---@field PREPARE_CAREFULLY boolean
 
----@class (exact) _view_sheet_type: df.struct
+---@class (exact) _view_sheet_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field UNIT 1
@@ -1066,7 +1066,7 @@ df.view_sheet_type = {}
 ---@field [7] boolean
 ---@field ITEM_LIST boolean
 
----@class (exact) _unit_list_mode_type: df.struct
+---@class (exact) _unit_list_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CITIZEN 1
@@ -1091,7 +1091,7 @@ df.unit_list_mode_type = {}
 ---@field [4] boolean
 ---@field DECEASED boolean
 
----@class (exact) _buildings_mode_type: df.struct
+---@class (exact) _buildings_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ZONES 1
@@ -1120,7 +1120,7 @@ df.buildings_mode_type = {}
 ---@field [5] boolean
 ---@field FARMPLOTS boolean
 
----@class (exact) _kitchen_pref_category_type: df.struct
+---@class (exact) _kitchen_pref_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PLANTS 1
@@ -1145,7 +1145,7 @@ df.kitchen_pref_category_type = {}
 ---@field [4] boolean
 ---@field OTHER boolean
 
----@class (exact) _standing_orders_category_type: df.struct
+---@class (exact) _standing_orders_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field AUTOMATED_WORKSHOPS 1
@@ -1178,7 +1178,7 @@ df.standing_orders_category_type = {}
 ---@field [6] boolean
 ---@field OTHER boolean
 
----@class (exact) _stone_use_category_type: df.struct
+---@class (exact) _stone_use_category_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ECONOMIC 1
@@ -1195,7 +1195,7 @@ df.stone_use_category_type = {}
 ---@field [2] boolean
 ---@field OTHER boolean
 
----@class (exact) _labor_mode_type: df.struct
+---@class (exact) _labor_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field WORK_DETAILS 1
@@ -1220,7 +1220,7 @@ df.labor_mode_type = {}
 ---@field [4] boolean
 ---@field STONE_USE boolean
 
----@class (exact) _artifacts_mode_type: df.struct
+---@class (exact) _artifacts_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field ARTIFACTS 1
@@ -1245,7 +1245,7 @@ df.artifacts_mode_type = {}
 ---@field [4] boolean
 ---@field WRITTEN_CONTENT boolean
 
----@class (exact) _counterintelligence_mode_type: df.struct
+---@class (exact) _counterintelligence_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field INTERROGATIONS 1
@@ -1270,7 +1270,7 @@ df.counterintelligence_mode_type = {}
 ---@field [4] boolean
 ---@field PLOTS boolean
 
----@class (exact) _justice_interface_mode_type: df.struct
+---@class (exact) _justice_interface_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field OPEN_CASES 1
@@ -1303,7 +1303,7 @@ df.justice_interface_mode_type = {}
 ---@field [6] boolean
 ---@field COUNTERINTELLIGENCE boolean
 
----@class (exact) _info_interface_mode_type: df.struct
+---@class (exact) _info_interface_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CREATURES 1
@@ -1344,7 +1344,7 @@ df.info_interface_mode_type = {}
 ---@field [8] boolean
 ---@field JUSTICE boolean
 
----@class (exact) _main_menu_option_type: df.struct
+---@class (exact) _main_menu_option_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field RETURN 1
@@ -1409,7 +1409,7 @@ df.main_menu_option_type = {}
 ---@field [14] boolean
 ---@field CONTINUE boolean
 
----@class (exact) _options_context_type: df.struct
+---@class (exact) _options_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN_DWARF 1
@@ -1442,7 +1442,7 @@ df.options_context_type = {}
 ---@field [6] boolean
 ---@field ABORT_FROM_STARTING_GAME boolean
 
----@class (exact) _help_context_type: df.struct
+---@class (exact) _help_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field WORLD_GEN_MESSAGE 1
@@ -1643,7 +1643,7 @@ df.help_context_type = {}
 ---@field [48] boolean
 ---@field GUIDE_GOALS boolean
 
----@class (exact) _settings_tab_type: df.struct
+---@class (exact) _settings_tab_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field VIDEO 1
@@ -1672,7 +1672,7 @@ df.settings_tab_type = {}
 ---@field [5] boolean
 ---@field DIFFICULTY boolean
 
----@class (exact) _settings_context_type: df.struct
+---@class (exact) _settings_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field OUTSIDE_PLAY 1
@@ -1689,7 +1689,7 @@ df.settings_context_type = {}
 ---@field [2] boolean
 ---@field FORT_MODE boolean
 
----@class (exact) _arena_context_type: df.struct
+---@class (exact) _arena_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CREATURE 1
@@ -1714,7 +1714,7 @@ df.arena_context_type = {}
 ---@field [4] boolean
 ---@field CONDITIONS boolean
 
----@class (exact) _assign_uniform_context_type: df.struct
+---@class (exact) _assign_uniform_context_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CREATE_SQUAD_FROM_SQUAD_MENU 1
@@ -1731,7 +1731,7 @@ df.assign_uniform_context_type = {}
 ---@field [2] boolean
 ---@field FROM_SQUAD_EQUIPMENT_MENU boolean
 
----@class (exact) _main_bottom_mode_type: df.struct
+---@class (exact) _main_bottom_mode_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BUILDING 1
@@ -1808,7 +1808,7 @@ df.main_bottom_mode_type = {}
 ---@field [17] boolean
 ---@field ARENA_REMOVE_PAINT boolean
 
----@class (exact) _main_designation_type: df.struct
+---@class (exact) _main_designation_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field DIG_DIG 1
@@ -3537,7 +3537,7 @@ df.hash_rngst = {}
 ---@field demand_period integer
 df.difficultyst = {}
 
----@class (exact) _difficultyst_flags: df.struct
+---@class (exact) _difficultyst_flags: df.bitfield
 ---@field sieges 0
 ---@field [0] "sieges"
 ---@field megabeasts 1
@@ -3699,7 +3699,7 @@ df.plot_entryst = {}
 ---@field steamapi_3 integer
 df.mod_headerst = {}
 
----@class (exact) _mod_headerst_flags: df.struct
+---@class (exact) _mod_headerst_flags: df.bitfield
 ---@field currently_installed 0
 ---@field [0] "currently_installed"
 ---@field have_other_version 1
@@ -3730,7 +3730,7 @@ df.ui_look_list = {}
 ---@field cbr integer
 df.ui_look_list.T_items = {}
 
----@class (exact) _items_type: df.struct
+---@class (exact) _items_type: df.enum
 ---@field Item 0
 ---@field [0] "Item"
 ---@field Floor 1
@@ -3863,7 +3863,7 @@ df.data.T_spoor = {}
 ---@field value ui_unit_view_mode_value
 df.ui_unit_view_mode = {}
 
----@class (exact) _ui_unit_view_mode_value: df.struct
+---@class (exact) _ui_unit_view_mode_value: df.enum
 ---@field General 0
 ---@field [0] "General"
 ---@field Inventory 1

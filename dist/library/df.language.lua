@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _language_word_flags: df.struct
+---@class (exact) _language_word_flags: df.bitfield
 ---@field front_compound_noun_sing 0
 ---@field [0] "front_compound_noun_sing"
 ---@field front_compound_noun_plur 1
@@ -70,7 +70,7 @@ df.language_word_flags = {}
 ---@field [15] boolean
 ---@field standard_verb boolean
 
----@class (exact) _part_of_speech: df.struct
+---@class (exact) _part_of_speech: df.enum
 ---@field Noun 0
 ---@field [0] "Noun"
 ---@field NounPlural 1
@@ -111,7 +111,7 @@ df.part_of_speech = {}
 ---@field [8] boolean
 ---@field VerbGerund boolean
 
----@class (exact) _language_word_table_index: df.struct
+---@class (exact) _language_word_table_index: df.enum
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1
@@ -140,7 +140,7 @@ df.language_word_table_index = {}
 ---@field [5] boolean
 ---@field OfX boolean
 
----@class (exact) _sphere_type: df.struct
+---@class (exact) _sphere_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field AGRICULTURE 1
@@ -714,7 +714,7 @@ df.language_name = {}
 ---@field parts part_of_speech[][]
 df.language_word_table = {}
 
----@class (exact) _language_name_category: df.struct
+---@class (exact) _language_name_category: df.enum
 ---@field Unit 0
 ---@field [0] "Unit"
 ---@field Artifact 1
@@ -991,7 +991,7 @@ df.language_name_category = {}
 ---@field [67] boolean
 ---@field Hospital boolean
 
----@class (exact) _language_name_type: df.struct
+---@class (exact) _language_name_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Figure 1
@@ -1220,7 +1220,7 @@ df.language_name_type = {}
 ---@field [55] boolean
 ---@field Hospital boolean
 
----@class (exact) _language_name_component: df.struct
+---@class (exact) _language_name_component: df.enum
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1

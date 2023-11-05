@@ -89,7 +89,8 @@ class EnumType < XmlNode
   end
 
   def render
-    annotation = "---@class (exact) _#{@parent_type + '_' if @parent_type}#{@name}: df.struct\n"
+    inherit_type = @node.name.include?('enum') ? 'df.enum' : 'df.bitfield'
+    annotation = "---@class (exact) _#{@parent_type + '_' if @parent_type}#{@name}: #{inherit_type}\n"
     annotation << "---#{@comment}\n" if @comment
     # All <enum-type> elements are globally accessible.
     

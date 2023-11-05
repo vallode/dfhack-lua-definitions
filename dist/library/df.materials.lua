@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _craft_material_class: df.struct
+---@class (exact) _craft_material_class: df.enum
 ---not in DF
 ---@field None -1
 ---@field [0] "None"
@@ -66,7 +66,7 @@ df.craft_material_class = {}
 ---@type { [string|integer]: craft_material_class_attr }
 df.craft_material_class.attrs = {}
 
----@class (exact) _builtin_mats: df.struct
+---@class (exact) _builtin_mats: df.enum
 ---@field INORGANIC 0
 ---@field [0] "INORGANIC"
 ---@field AMBER 1
@@ -147,7 +147,7 @@ df.builtin_mats = {}
 ---@field [18] boolean
 ---@field GRIME boolean
 
----@class (exact) _material_flags: df.struct
+---@class (exact) _material_flags: df.enum
 ---@field BONE 0
 ---@field [0] "BONE"
 ---@field MEAT 1
@@ -490,7 +490,7 @@ df.material_flags = {}
 ---@type { [string|integer]: material_flags_attr }
 df.material_flags.attrs = {}
 
----@class (exact) _matter_state: df.struct
+---@class (exact) _matter_state: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Solid 1
@@ -523,7 +523,7 @@ df.matter_state = {}
 ---@field [6] boolean
 ---@field Pressed boolean
 
----@class (exact) _strain_type: df.struct
+---@class (exact) _strain_type: df.enum
 ---@field BENDING 0
 ---@field [0] "BENDING"
 ---@field SHEAR 1
@@ -658,7 +658,7 @@ df.material_vec_ref.T_mat_type = {}
 ---@field state_color_str string[]
 df.material_template = {}
 
----@class (exact) _inorganic_flags: df.struct
+---@class (exact) _inorganic_flags: df.enum
 ---@field LAVA 0
 ---@field [0] "LAVA"
 ---@field GENERATED 1
@@ -791,7 +791,7 @@ df.inorganic_flags = {}
 ---@field [31] boolean
 ---@field unk_31 boolean
 
----@class (exact) _environment_type: df.struct
+---@class (exact) _environment_type: df.enum
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SOIL_OCEAN 1
@@ -828,7 +828,7 @@ df.environment_type = {}
 ---@field [7] boolean
 ---@field ALLUVIAL boolean
 
----@class (exact) _inclusion_type: df.struct
+---@class (exact) _inclusion_type: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field VEIN 1
@@ -912,7 +912,7 @@ df.environment.T_location = {}
 ---@class environment_type: df.struct
 df.environment.T_type = {}
 
----@class (exact) _organic_mat_category: df.struct
+---@class (exact) _organic_mat_category: df.enum
 ---@field Meat 0
 ---@field [0] "Meat"
 ---@field Fish 1

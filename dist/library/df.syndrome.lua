@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _creature_interaction_effect_type: df.struct
+---@class (exact) _creature_interaction_effect_type: df.enum
 ---@field PAIN 0
 ---@field [0] "PAIN"
 ---@field SWELLING 1
@@ -202,7 +202,7 @@ df.creature_interaction_effect_type = {}
 ---@field [48] boolean
 ---@field REDUCE_FEVER boolean
 
----@class (exact) _creature_interaction_effect_flags: df.struct
+---@class (exact) _creature_interaction_effect_flags: df.bitfield
 ---@field SIZE_DELAYS 0
 ---@field [0] "SIZE_DELAYS"
 ---@field SIZE_DILUTES 1
@@ -247,7 +247,7 @@ df.creature_interaction_effect_flags = {}
 ---@field [9] boolean
 ---@field ABRUPT_END boolean
 
----@class (exact) _cie_add_tag_mask1: df.struct
+---@class (exact) _cie_add_tag_mask1: df.bitfield
 ---@field EXTRAVISION 0
 ---@field [0] "EXTRAVISION"
 ---@field OPPOSED_TO_LIFE 1
@@ -380,7 +380,7 @@ df.cie_add_tag_mask1 = {}
 ---@field [31] boolean
 ---@field unk_31 boolean
 
----@class (exact) _cie_add_tag_mask2: df.struct
+---@class (exact) _cie_add_tag_mask2: df.bitfield
 ---@field NO_AGING 0
 ---@field [0] "NO_AGING"
 ---@field MORTAL 1
@@ -405,7 +405,7 @@ df.cie_add_tag_mask2 = {}
 ---@field [4] boolean
 ---@field FIT_FOR_RESURRECTION boolean
 
----@class (exact) _creature_interaction_effect_target_mode: df.struct
+---@class (exact) _creature_interaction_effect_target_mode: df.enum
 ---@field BY_TYPE 0
 ---@field [0] "BY_TYPE"
 ---@field BY_TOKEN 1
@@ -739,7 +739,7 @@ df.creature_interaction_effect_stop_bleedingst = {}
 ---@field unk_4 any[]
 df.creature_interaction_effect_cure_infectionst = {}
 
----@class (exact) _syndrome_flags: df.struct
+---@class (exact) _syndrome_flags: df.bitfield
 ---@field SYN_INJECTED 0
 ---@field [0] "SYN_INJECTED"
 ---@field SYN_CONTACT 1

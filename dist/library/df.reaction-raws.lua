@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _reaction_flags: df.struct
+---@class (exact) _reaction_flags: df.enum
 ---@field FUEL 0
 ---@field [0] "FUEL"
 ---@field AUTOMATIC 1
@@ -64,7 +64,7 @@ df.reaction_category = {}
 ---@field unk_2 string
 df.reaction_description = {}
 
----@class (exact) _reaction_reagent_type: df.struct
+---@class (exact) _reaction_reagent_type: df.enum
 ---@field item 0
 ---@field [0] "item"
 df.reaction_reagent_type = {}
@@ -79,7 +79,7 @@ df.reaction_reagent_type = {}
 ---@field flags reaction_reagent_flags
 df.reaction_reagent = {}
 
----@class (exact) _reaction_reagent_flags: df.struct
+---@class (exact) _reaction_reagent_flags: df.bitfield
 ---@field PRESERVE_REAGENT 0
 ---@field [0] "PRESERVE_REAGENT"
 ---@field IN_CONTAINER 1
@@ -118,7 +118,7 @@ df.reaction_reagent_flags = {}
 ---@field contains_str string[]
 df.reaction_reagent_itemst = {}
 
----@class (exact) _reaction_product_type: df.struct
+---@class (exact) _reaction_product_type: df.enum
 ---@field item 0
 ---@field [0] "item"
 ---@field improvement 1
@@ -136,7 +136,7 @@ df.reaction_product_type = {}
 ---@field product_to_container string
 df.reaction_product = {}
 
----@class (exact) _reaction_product_item_flags: df.struct
+---@class (exact) _reaction_product_item_flags: df.enum
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1
@@ -184,7 +184,7 @@ df.reaction_product_itemst = {}
 ---@field product_code string
 df.reaction_product_itemst.T_get_material = {}
 
----@class (exact) _reaction_product_improvement_flags: df.struct
+---@class (exact) _reaction_product_improvement_flags: df.enum
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1

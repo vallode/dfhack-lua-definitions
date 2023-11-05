@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _machine_type: df.struct
+---@class (exact) _machine_type: df.enum
 ---@field standard 0
 ---@field [0] "standard"
 df.machine_type = {}
@@ -15,7 +15,7 @@ df.machine_type = {}
 ---@field flags machine_info_flags
 df.machine_info = {}
 
----@class (exact) _machine_info_flags: df.struct
+---@class (exact) _machine_info_flags: df.bitfield
 ---@field frozen 0
 ---@field [0] "frozen"
 df.machine_info.T_flags = {}
@@ -29,7 +29,7 @@ df.machine_info.T_flags = {}
 ---@field consumed integer
 df.power_info = {}
 
----@class (exact) _machine_conn_modes: df.struct
+---@class (exact) _machine_conn_modes: df.bitfield
 ---@field up 0
 ---@field [0] "up"
 ---@field down 1
@@ -84,7 +84,7 @@ df.machine = {}
 ---@field connections integer[] indices into the same component vector
 df.machine.T_components = {}
 
----@class (exact) _machine_flags: df.struct
+---@class (exact) _machine_flags: df.bitfield
 ---@field active 0
 ---@field [0] "active"
 ---@field frozen 1
@@ -118,7 +118,7 @@ df.building_axle_verticalst = {}
 ---@field gear_flags building_gear_assemblyst_gear_flags
 df.building_gear_assemblyst = {}
 
----@class (exact) _building_gear_assemblyst_gear_flags: df.struct
+---@class (exact) _building_gear_assemblyst_gear_flags: df.bitfield
 ---@field disengaged 0
 ---@field [0] "disengaged"
 df.building_gear_assemblyst.T_gear_flags = {}
@@ -143,7 +143,7 @@ df.building_windmillst = {}
 ---@field gives_power boolean
 df.building_water_wheelst = {}
 
----@class (exact) _screw_pump_direction: df.struct
+---@class (exact) _screw_pump_direction: df.enum
 ---@field FromNorth 0
 ---@field [0] "FromNorth"
 ---@field FromEast 1

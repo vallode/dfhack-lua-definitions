@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _building_type: df.struct
+---@class (exact) _building_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Chair 1
@@ -237,7 +237,7 @@ df.building_type = {}
 ---@type { [string|integer]: building_type_attr }
 df.building_type.attrs = {}
 
----@class (exact) _building_flags: df.struct
+---@class (exact) _building_flags: df.bitfield
 ---@field exists 0
 ---@field [0] "exists"
 ---@field site_blocked 1
@@ -270,7 +270,7 @@ df.building_flags = {}
 ---@field [6] boolean
 ---@field from_worldgen boolean
 
----@class (exact) _door_flags: df.struct
+---@class (exact) _door_flags: df.bitfield
 ---@field forbidden 0
 ---@field [0] "forbidden"
 ---@field internal 1
@@ -303,7 +303,7 @@ df.door_flags = {}
 ---@field [6] boolean
 ---@field pet_passable boolean
 
----@class (exact) _gate_flags: df.struct
+---@class (exact) _gate_flags: df.bitfield
 ---@field closed 0
 ---@field [0] "closed"
 ---@field closing 1
@@ -328,7 +328,7 @@ df.gate_flags = {}
 ---@field [4] boolean
 ---@field has_support boolean
 
----@class (exact) _building_extents_type: df.struct
+---@class (exact) _building_extents_type: df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Stockpile 1
@@ -459,7 +459,7 @@ df.building_stockpilest.T_container_type = {}
 ---@field supply_recheck_timer integer
 df.hospital_supplies = {}
 
----@class (exact) _hospital_supplies_supplies_needed: df.struct
+---@class (exact) _hospital_supplies_supplies_needed: df.bitfield
 ---@field splints 0
 ---@field [0] "splints"
 ---@field thread 1
@@ -492,7 +492,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [6] boolean
 ---@field soap boolean
 
----@class (exact) _civzone_type: df.struct
+---@class (exact) _civzone_type: df.enum
 ---@field Home 0
 ---@field [0] "Home"
 ---@field Depot 1
@@ -916,7 +916,7 @@ df.building_civzonest.T_zone_settings = {}
 ---@field i2 integer
 df.zone_settings.T_whole = {}
 
----@class (exact) _zone_settings_gather: df.struct
+---@class (exact) _zone_settings_gather: df.bitfield
 ---@field pick_trees 0
 ---@field [0] "pick_trees"
 ---@field pick_shrubs 1
@@ -937,7 +937,7 @@ df.zone_settings.T_gather = {}
 ---@field unk integer
 df.zone_settings.T_pen = {}
 
----@class (exact) _zone_settings_tomb: df.struct
+---@class (exact) _zone_settings_tomb: df.bitfield
 ---@field no_pets 0
 ---@field [0] "no_pets"
 ---@field no_citizens 1
@@ -955,7 +955,7 @@ df.zone_settings.T_tomb = {}
 ---@field dir_y integer
 df.zone_settings.T_archery = {}
 
----@class (exact) _zone_settings_pit_pond: df.struct
+---@class (exact) _zone_settings_pit_pond: df.enum
 ---@field top_of_pit 2
 ---@field [0] "top_of_pit"
 ---@field top_of_pond 3
@@ -997,7 +997,7 @@ df.building_actual.T_contained_items = {}
 ---@field max_hitpoints integer
 df.building_design = {}
 
----@class (exact) _building_design_flags: df.struct
+---@class (exact) _building_design_flags: df.bitfield
 ---@field rough 0
 ---@field [0] "rough"
 ---@field built 1
@@ -1014,7 +1014,7 @@ df.building_design.T_flags = {}
 ---@field [2] boolean
 ---@field designed boolean
 
----@class (exact) _furnace_type: df.struct
+---@class (exact) _furnace_type: df.enum
 ---@field WoodFurnace 0
 ---@field [0] "WoodFurnace"
 ---@field Smelter 1
@@ -1065,7 +1065,7 @@ df.furnace_type.attrs = {}
 ---@field custom_type building_def
 df.building_furnacest = {}
 
----@class (exact) _workshop_type: df.struct
+---@class (exact) _workshop_type: df.enum
 ---@field Carpenters 0
 ---@field [0] "Carpenters"
 ---@field Farmers 1
@@ -1245,7 +1245,7 @@ df.building_boxst = {}
 ---@field material_amount integer
 df.building_bridgest = {}
 
----@class (exact) _building_bridgest_direction: df.struct
+---@class (exact) _building_bridgest_direction: df.enum
 ---@field Retracting -1
 ---@field [0] "Retracting"
 ---@field Left 1
@@ -1283,7 +1283,7 @@ df.building_cabinetst = {}
 ---@field fill_timer integer
 df.building_cagest = {}
 
----@class (exact) _building_cagest_cage_flags: df.struct
+---@class (exact) _building_cagest_cage_flags: df.bitfield
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_cagest.T_cage_flags = {}
@@ -1298,7 +1298,7 @@ df.building_cagest.T_cage_flags = {}
 ---@field chain_flags building_chainst_chain_flags
 df.building_chainst = {}
 
----@class (exact) _building_chainst_chain_flags: df.struct
+---@class (exact) _building_chainst_chain_flags: df.bitfield
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_chainst.T_chain_flags = {}
@@ -1315,7 +1315,7 @@ df.building_chairst = {}
 ---@class building_coffinst: building_actual
 df.building_coffinst = {}
 
----@class (exact) _construction_type: df.struct
+---@class (exact) _construction_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Fortification 1
@@ -1495,7 +1495,7 @@ df.building_doorst = {}
 ---@field terrain_purge_timer integer
 df.building_farmplotst = {}
 
----@class (exact) _building_farmplotst_farm_flags: df.struct
+---@class (exact) _building_farmplotst_farm_flags: df.bitfield
 ---@field seasonal_fertilize 0
 ---@field [0] "seasonal_fertilize"
 df.building_farmplotst.T_farm_flags = {}
@@ -1524,7 +1524,7 @@ df.building_grate_wallst = {}
 ---@field close_timer integer
 df.building_hatchst = {}
 
----@class (exact) _hive_flags: df.struct
+---@class (exact) _hive_flags: df.bitfield
 ---@field do_install 0
 ---@field [0] "do_install"
 ---@field do_gather 1
@@ -1576,7 +1576,7 @@ df.building_road_dirtst = {}
 ---@field terrain_purge_timer integer
 df.building_road_pavedst = {}
 
----@class (exact) _shop_type: df.struct
+---@class (exact) _shop_type: df.enum
 ---@field GeneralStore 0
 ---@field [0] "GeneralStore"
 ---@field CraftsMarket 1
@@ -1604,7 +1604,7 @@ df.shop_type = {}
 ---@field type shop_type
 df.building_shopst = {}
 
----@class (exact) _building_shopst_shop_flags: df.struct
+---@class (exact) _building_shopst_shop_flags: df.bitfield
 ---@field for_sale 0
 ---@field [0] "for_sale"
 df.building_shopst.T_shop_flags = {}
@@ -1613,7 +1613,7 @@ df.building_shopst.T_shop_flags = {}
 ---@field [0] boolean
 ---@field for_sale boolean
 
----@class (exact) _siegeengine_type: df.struct
+---@class (exact) _siegeengine_type: df.enum
 ---@field Catapult 0
 ---@field [0] "Catapult"
 ---@field Ballista 1
@@ -1634,7 +1634,7 @@ df.siegeengine_type = {}
 ---@field fill_timer integer
 df.building_siegeenginest = {}
 
----@class (exact) _building_siegeenginest_facing: df.struct
+---@class (exact) _building_siegeenginest_facing: df.enum
 ---@field Left 0
 ---@field [0] "Left"
 ---@field Up 1
@@ -1655,7 +1655,7 @@ df.building_siegeenginest.T_facing = {}
 ---@field [3] boolean
 ---@field Down boolean
 
----@class (exact) _building_siegeenginest_action: df.struct
+---@class (exact) _building_siegeenginest_action: df.enum
 ---@field NotInUse 0
 ---@field [0] "NotInUse"
 ---@field PrepareToFire 1
@@ -1684,7 +1684,7 @@ df.building_statuest = {}
 ---@field support_flags building_supportst_support_flags
 df.building_supportst = {}
 
----@class (exact) _building_supportst_support_flags: df.struct
+---@class (exact) _building_supportst_support_flags: df.bitfield
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_supportst.T_support_flags = {}
@@ -1698,7 +1698,7 @@ df.building_supportst.T_support_flags = {}
 ---@field users building_users
 df.building_tablest = {}
 
----@class (exact) _building_tablest_table_flags: df.struct
+---@class (exact) _building_tablest_table_flags: df.bitfield
 ---@field meeting_hall 0
 ---@field [0] "meeting_hall"
 df.building_tablest.T_table_flags = {}
@@ -1717,7 +1717,7 @@ df.building_traction_benchst = {}
 ---@field accessible integer
 df.building_tradedepotst = {}
 
----@class (exact) _building_tradedepotst_trade_flags: df.struct
+---@class (exact) _building_tradedepotst_trade_flags: df.bitfield
 ---@field trader_requested 0
 ---@field [0] "trader_requested"
 ---@field anyone_can_trade 1
@@ -1730,7 +1730,7 @@ df.building_tradedepotst.T_trade_flags = {}
 ---@field [1] boolean
 ---@field anyone_can_trade boolean
 
----@class (exact) _trap_type: df.struct
+---@class (exact) _trap_type: df.enum
 ---@field Lever 0
 ---@field [0] "Lever"
 ---@field PressurePlate 1
@@ -1771,7 +1771,7 @@ df.trap_type = {}
 ---@field flags pressure_plate_info_flags
 df.pressure_plate_info = {}
 
----@class (exact) _pressure_plate_info_flags: df.struct
+---@class (exact) _pressure_plate_info_flags: df.bitfield
 ---@field units 0
 ---@field [0] "units"
 ---@field water 1
@@ -1817,7 +1817,7 @@ df.pressure_plate_info.T_flags = {}
 ---@field stop_trigger_timer integer
 df.building_trapst = {}
 
----@class (exact) _building_trapst_stop_flags: df.struct
+---@class (exact) _building_trapst_stop_flags: df.bitfield
 ---@field disabled 0
 ---@field [0] "disabled"
 ---@field disabling 1
@@ -1860,7 +1860,7 @@ df.building_weaponrackst = {}
 ---@field check_water_timer integer
 df.building_wellst = {}
 
----@class (exact) _building_wellst_well_flags: df.struct
+---@class (exact) _building_wellst_well_flags: df.bitfield
 ---@field lowering 0
 ---@field [0] "lowering"
 ---@field just_raised 1
@@ -1883,7 +1883,7 @@ df.building_window_glassst = {}
 ---@class building_window_gemst: building_windowst
 df.building_window_gemst = {}
 
----@class (exact) _dfhack_room_quality_level: df.struct
+---@class (exact) _dfhack_room_quality_level: df.enum
 ---Not in DF Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum Throne Room | Great Bedroom | Great Dining Room | Mausoleum Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb Decent Office | Decent Quarters | Decent Dining Room | Tomb Office | Quarters | Dining Room | Burial Chamber Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber Meager Office | Meager Quarters | Meager Dining Room | Grave
 ---@field Meager 0
 ---@field [0] "Meager"

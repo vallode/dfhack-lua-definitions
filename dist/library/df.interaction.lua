@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _interaction_flags: df.struct
+---@class (exact) _interaction_flags: df.enum
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 ---@field EXPERIMENT_ONLY 1
@@ -26,7 +26,7 @@ df.interaction_flags = {}
 ---@field source_enid historical_entity
 df.interaction = {}
 
----@class (exact) _interaction_effect_type: df.struct
+---@class (exact) _interaction_effect_type: df.enum
 ---@field ANIMATE 0
 ---@field [0] "ANIMATE"
 ---@field ADD_SYNDROME 1
@@ -83,7 +83,7 @@ df.interaction_effect_type = {}
 ---@field [12] boolean
 ---@field CHANGE_ITEM_QUALITY boolean
 
----@class (exact) _interaction_effect_location_hint: df.struct
+---@class (exact) _interaction_effect_location_hint: df.enum
 ---@field IN_WATER 0
 ---@field [0] "IN_WATER"
 ---@field IN_MAGMA 1
@@ -123,7 +123,7 @@ df.interaction_effect_location_hint = {}
 ---@field arena_name string IE_ARENA_NAME
 df.interaction_effect = {}
 
----@class (exact) _interaction_effect_flags: df.struct
+---@class (exact) _interaction_effect_flags: df.bitfield
 ---@field IMMEDIATE 0
 ---@field [0] "IMMEDIATE"
 df.interaction_effect.T_flags = {}
@@ -218,7 +218,7 @@ df.interaction_effect_propel_unitst = {}
 ---@field time_range_max integer IE_TIME_RANGE
 df.interaction_effect_summon_unitst = {}
 
----@class (exact) _interaction_source_type: df.struct
+---@class (exact) _interaction_source_type: df.enum
 ---@field REGION 0
 ---@field [0] "REGION"
 ---@field SECRET 1
@@ -275,7 +275,7 @@ df.interaction_source = {}
 ---@field regions integer[]
 df.interaction_source_regionst = {}
 
----@class (exact) _interaction_source_regionst_region_flags: df.struct
+---@class (exact) _interaction_source_regionst_region_flags: df.bitfield
 ---@field NORMAL_ALLOWED 0
 ---@field [0] "NORMAL_ALLOWED"
 ---@field EVIL_ALLOWED 1
@@ -318,7 +318,7 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field unk_2 integer
 df.interaction_source_secretst = {}
 
----@class (exact) _interaction_source_secretst_learn_flags: df.struct
+---@class (exact) _interaction_source_secretst_learn_flags: df.bitfield
 ---@field SUPERNATURAL_LEARNING_POSSIBLE 0
 ---@field [0] "SUPERNATURAL_LEARNING_POSSIBLE"
 ---@field MUNDANE_RESEARCH_POSSIBLE 1
@@ -346,7 +346,7 @@ df.interaction_source_secretst.T_spheres = {}
 ---@field unk_1 integer
 df.interaction_source_disturbancest = {}
 
----@class (exact) _interaction_source_usage_hint: df.struct
+---@class (exact) _interaction_source_usage_hint: df.enum
 ---@field MAJOR_CURSE 0
 ---@field [0] "MAJOR_CURSE"
 ---@field GREETING 1
@@ -427,7 +427,7 @@ df.interaction_source_underground_specialst = {}
 ---@field unk_1 integer
 df.interaction_source_experimentst = {}
 
----@class (exact) _interaction_target_type: df.struct
+---@class (exact) _interaction_target_type: df.enum
 ---@field CORPSE 0
 ---@field [0] "CORPSE"
 ---@field CREATURE 1
@@ -448,7 +448,7 @@ df.interaction_target_type = {}
 ---@field [3] boolean
 ---@field LOCATION boolean
 
----@class (exact) _interaction_target_location_type: df.struct
+---@class (exact) _interaction_target_location_type: df.enum
 ---@field CONTEXT_NONE -1
 ---@field [0] "CONTEXT_NONE"
 ---@field CONTEXT_REGION 1
@@ -509,7 +509,7 @@ df.interaction_target = {}
 ---@field restrictions interaction_target_info_restrictions
 df.interaction_target_info = {}
 
----@class (exact) _interaction_target_info_restrictions: df.struct
+---@class (exact) _interaction_target_info_restrictions: df.bitfield
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
 ---@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED"
 df.interaction_target_info.T_restrictions = {}
@@ -526,7 +526,7 @@ df.interaction_target_corpsest = {}
 ---@field target_info interaction_target_info
 df.interaction_target_creaturest = {}
 
----@class (exact) _breath_attack_type: df.struct
+---@class (exact) _breath_attack_type: df.enum
 ---@field TRAILING_DUST_FLOW 0
 ---@field [0] "TRAILING_DUST_FLOW"
 ---@field TRAILING_VAPOR_FLOW 1
@@ -628,7 +628,7 @@ df.breath_attack_type = {}
 ---@field restrictions interaction_target_materialst_restrictions
 df.interaction_target_materialst = {}
 
----@class (exact) _interaction_target_materialst_restrictions: df.struct
+---@class (exact) _interaction_target_materialst_restrictions: df.bitfield
 ---@field CONTEXT_MATERIAL 0
 ---@field [0] "CONTEXT_MATERIAL"
 df.interaction_target_materialst.T_restrictions = {}

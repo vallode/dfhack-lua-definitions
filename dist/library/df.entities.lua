@@ -24,7 +24,7 @@ df.entity_occasion_info = {}
 ---@field unk_5 integer only value seen
 df.entity_occasion = {}
 
----@class (exact) _occasion_schedule_type: df.struct
+---@class (exact) _occasion_schedule_type: df.enum
 ---@field DANCE_PERFORMANCE 0
 ---@field [0] "DANCE_PERFORMANCE"
 ---@field MUSICAL_PERFORMANCE 1
@@ -101,7 +101,7 @@ df.occasion_schedule_type = {}
 ---@field end_year_tick integer
 df.entity_occasion_schedule = {}
 
----@class (exact) _occasion_schedule_feature: df.struct
+---@class (exact) _occasion_schedule_feature: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -253,7 +253,7 @@ df.entity_activity_statistics.T_food = {}
 ---@field exported integer
 df.entity_activity_statistics.T_wealth = {}
 
----@class (exact) _entity_activity_statistics_found_misc: df.struct
+---@class (exact) _entity_activity_statistics_found_misc: df.bitfield
 ---@field deep_special 0
 ---@field [0] "deep_special"
 df.entity_activity_statistics.T_found_misc = {}
@@ -283,7 +283,7 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field unk_2 integer
 df.caravan_state = {}
 
----@class (exact) _caravan_state_trade_state: df.struct
+---@class (exact) _caravan_state_trade_state: df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Approaching 1
@@ -308,7 +308,7 @@ df.caravan_state.T_trade_state = {}
 ---@field [4] boolean
 ---@field Stuck boolean
 
----@class (exact) _caravan_state_flags: df.struct
+---@class (exact) _caravan_state_flags: df.bitfield
 ---@field check_cleanup 0
 ---@field [0] "check_cleanup"
 ---@field casualty 1
@@ -374,7 +374,7 @@ df.entity_buy_requests.T_item_subtype = {}
 ---@class entity_buy_requests_mat_types: df.struct
 df.entity_buy_requests.T_mat_types = {}
 
----@class (exact) _entity_sell_category: df.struct
+---@class (exact) _entity_sell_category: df.enum
 ---@field Leather 0
 ---@field [0] "Leather"
 ---@field ClothPlant 1
@@ -661,7 +661,7 @@ df.entity_recipe.T_item_subtypes = {}
 ---@class entity_recipe_mat_types: df.struct
 df.entity_recipe.T_mat_types = {}
 
----@class (exact) _historical_entity_type: df.struct
+---@class (exact) _historical_entity_type: df.enum
 ---@field Civilization 0
 ---@field [0] "Civilization"
 ---@field SiteGovernment 1
@@ -726,7 +726,7 @@ df.historical_entity_type = {}
 ---@field required_former_position integer[]
 df.honors_type = {}
 
----@class (exact) _honors_type_flags: df.struct
+---@class (exact) _honors_type_flags: df.bitfield
 ---@field granted_to_all_new_members 0
 ---@field [0] "granted_to_all_new_members"
 df.honors_type.T_flags = {}
@@ -735,7 +735,7 @@ df.honors_type.T_flags = {}
 ---@field [0] boolean
 ---@field granted_to_all_new_members boolean
 
----@class (exact) _honors_type_required_skill_type: df.struct
+---@class (exact) _honors_type_required_skill_type: df.bitfield
 ---@field melee_weapon 0
 ---@field [0] "melee_weapon"
 ---@field ranged_weapon 1
@@ -902,7 +902,7 @@ df.entity_unk_v47_1 = {}
 ---@field unk_11 integer
 df.historical_entity = {}
 
----@class (exact) _historical_entity_flags: df.struct
+---@class (exact) _historical_entity_flags: df.bitfield
 ---@field neighbor 0
 ---@field [0] "neighbor"
 ---@field player_civ 1
@@ -1216,7 +1216,7 @@ df.historical_entity.T_positions = {}
 ---@field next_style_id integer
 df.historical_entity.T_tissue_styles = {}
 
----@class (exact) _historical_entity_conquered_site_group_flags: df.struct
+---@class (exact) _historical_entity_conquered_site_group_flags: df.bitfield
 ---actually lives inside a class
 ---@field harsh 0
 ---@field [0] "harsh"
@@ -1292,7 +1292,7 @@ df.historical_entity.T_unk29 = {}
 ---@field id integer
 df.entity_tissue_style = {}
 
----@class (exact) _training_knowledge_level: df.struct
+---@class (exact) _training_knowledge_level: df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field FewFacts 1
@@ -1321,7 +1321,7 @@ df.training_knowledge_level = {}
 ---@field [5] boolean
 ---@field Domesticated boolean
 
----@class (exact) _entity_position_flags: df.struct
+---@class (exact) _entity_position_flags: df.enum
 ---@field IS_LAW_MAKER 0
 ---@field [0] "IS_LAW_MAKER"
 ---@field ELECTED 1
@@ -1515,7 +1515,7 @@ df.entity_position = {}
 ---@field unk_6 integer unknown size, not initialized or saved
 df.entity_position_assignment = {}
 
----@class (exact) _entity_material_category: df.struct
+---@class (exact) _entity_material_category: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Clothing 1
@@ -1677,7 +1677,7 @@ df.entity_uniform_item = {}
 ---@field flags uniform_flags
 df.entity_uniform = {}
 
----@class (exact) _entity_event_type: df.struct
+---@class (exact) _entity_event_type: df.enum
 ---@field invasion 0
 ---@field [0] "invasion"
 ---@field abduction 1
@@ -1965,7 +1965,7 @@ df.data.T_insurrection = {}
 ---@field result insurrection_end_result
 df.data.T_insurrection_end = {}
 
----@class (exact) _insurrection_end_result: df.struct
+---@class (exact) _insurrection_end_result: df.enum
 ---@field Overthrow 0
 ---@field [0] "Overthrow"
 ---@field Failure 1
@@ -2118,7 +2118,7 @@ df.data.T_artifact_destroyed = {}
 ---@field flags agreement_flags
 df.agreement = {}
 
----@class (exact) _agreement_flags: df.struct
+---@class (exact) _agreement_flags: df.bitfield
 ---@field petition_not_accepted 0
 ---@field [0] "petition_not_accepted"
 ---@field convicted_accepted 1
@@ -2145,7 +2145,7 @@ df.agreement_party = {}
 ---@field tick integer
 df.agreement_party.T_unk_1 = {}
 
----@class (exact) _crime_type: df.struct
+---@class (exact) _crime_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Bribery 1
@@ -2170,7 +2170,7 @@ df.crime_type = {}
 ---@field [4] boolean
 ---@field Embezzlement boolean
 
----@class (exact) _agreement_details_type: df.struct
+---@class (exact) _agreement_details_type: df.enum
 ---@field JoinParty 0
 ---@field [0] "JoinParty"
 ---@field DemonicBinding 1

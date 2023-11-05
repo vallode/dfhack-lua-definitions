@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _worldgen_region_type: df.struct
+---@class (exact) _worldgen_region_type: df.enum
 ---@field SWAMP 0
 ---@field [0] "SWAMP"
 ---@field DESERT 1
@@ -46,7 +46,7 @@ df.worldgen_region_type = {}
 ---@field [9] boolean
 ---@field HILLS boolean
 
----@class (exact) _worldgen_range_type: df.struct
+---@class (exact) _worldgen_range_type: df.enum
 ---@field ELEVATION 0
 ---@field [0] "ELEVATION"
 ---@field RAINFALL 1
@@ -147,7 +147,7 @@ df.worldgen_range_type = {}
 ---@field [23] boolean
 ---@field unk_23 boolean
 
----@class (exact) _units_other_id: df.struct
+---@class (exact) _units_other_id: df.enum
 ---@field ANY_RIDER 0
 ---@field [0] "ANY_RIDER"
 ---@field ANY_BABY2 1
@@ -165,7 +165,7 @@ df.units_other_id = {}
 ---@field num integer
 df.unit_context_block = {}
 
----@class (exact) _conflict_level: df.struct
+---@class (exact) _conflict_level: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Encounter 1
@@ -246,7 +246,7 @@ df.incident_hfid = {}
 ---@field data incident_data
 df.incident = {}
 
----@class (exact) _incident_type: df.struct
+---@class (exact) _incident_type: df.enum
 ---@field Death 0
 ---@field [0] "Death"
 ---@field Crime 1
@@ -295,7 +295,7 @@ df.incident.T_type = {}
 ---@field [10] boolean
 ---@field RefusedID boolean
 
----@class (exact) _incident_flags: df.struct
+---@class (exact) _incident_flags: df.bitfield
 ---@field announced_missing 0
 ---@field [0] "announced_missing"
 ---@field discovered 1
@@ -351,7 +351,7 @@ df.incident_data_performance.T_participants = {}
 ---@field unk_9 integer
 df.incident_data_artifact = {}
 
----@class (exact) _incident_data_artifact_state: df.struct
+---@class (exact) _incident_data_artifact_state: df.enum
 ---@field Held 0
 ---@field [0] "Held"
 ---@field Dropped 1
@@ -393,7 +393,7 @@ df.incident_data_artifact.T_state = {}
 ---@field unk_8 integer
 df.incident_data_writing = {}
 
----@class (exact) _incident_data_writing_state: df.struct
+---@class (exact) _incident_data_writing_state: df.enum
 ---@field Dropped 0
 ---@field [0] "Dropped"
 ---@field Given 1
@@ -442,7 +442,7 @@ df.incident_data_identity = {}
 ---@field agreement_id agreement
 df.crime = {}
 
----@class (exact) _crime_mode: df.struct
+---@class (exact) _crime_mode: df.enum
 ---@field ProductionOrderViolation 0
 ---@field [0] "ProductionOrderViolation"
 ---@field ExportViolation 1
@@ -539,7 +539,7 @@ df.crime.T_convict_data = {}
 ---@field victim unit
 df.crime.T_victim_data = {}
 
----@class (exact) _crime_flags: df.struct
+---@class (exact) _crime_flags: df.bitfield
 ---@field sentenced 0
 ---@field [0] "sentenced"
 ---@field discovered 1
@@ -585,7 +585,7 @@ df.crime.T_counterintelligence = {}
 ---@field reported_tick integer
 df.crime_witness = {}
 
----@class (exact) _crime_witness_witness_claim: df.struct
+---@class (exact) _crime_witness_witness_claim: df.enum
 ---@field SawDisorderlyConduct 0
 ---@field [0] "SawDisorderlyConduct"
 ---@field FoundTheBody 1
@@ -711,7 +711,7 @@ df.interrogation_report = {}
 ---@field flags unk_flags
 df.interrogation_report.T_unk = {}
 
----@class (exact) _unk_flags: df.struct
+---@class (exact) _unk_flags: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 df.unk.T_flags = {}
@@ -793,7 +793,7 @@ df.coord_rect = {}
 ---@field z_max integer
 df.embark_feature = {}
 
----@class (exact) _combat_report_event_type: df.struct
+---@class (exact) _combat_report_event_type: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field Deflected 1
@@ -1020,7 +1020,7 @@ df.job_handler = {}
 ---@field unk_1 integer not saved
 df.job_handler.T_postings = {}
 
----@class (exact) _postings_flags: df.struct
+---@class (exact) _postings_flags: df.bitfield
 ---@field dead 0
 ---@field [0] "dead"
 df.postings.T_flags = {}
@@ -1142,7 +1142,7 @@ df.belief_system.T_mental_pictures = {}
 ---@field effect integer When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
 df.divination_set_roll = {}
 
----@class (exact) _divination_set_roll_effect_type: df.struct
+---@class (exact) _divination_set_roll_effect_type: df.enum
 ---@field MediumBlessing 0
 ---@field [0] "MediumBlessing"
 ---@field MinorBlessing 1
@@ -1474,7 +1474,7 @@ df.world.T_activities = {}
 ---@field slots status_slots
 df.world.T_status = {}
 
----@class (exact) _status_flags: df.struct
+---@class (exact) _status_flags: df.bitfield
 ---@field combat 0
 ---@field [0] "combat"
 ---@field hunting 1
@@ -1711,7 +1711,7 @@ df.world.T_map_extras = {}
 ---@field unk_32 integer[]
 df.world.T_worldgen_status = {}
 
----@class (exact) _worldgen_status_state: df.struct
+---@class (exact) _worldgen_status_state: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Initializing 1
@@ -1891,7 +1891,7 @@ df.world.T_cur_savegame = {}
 ---@field advs_played integer
 df.cur_savegame.T_world_header = {}
 
----@class (exact) _world_header_load_stage: df.struct
+---@class (exact) _world_header_load_stage: df.enum
 ---@field LoadingObjectFiles 0
 ---@field [0] "LoadingObjectFiles"
 ---@field SortingMaterialTemplates 1
@@ -2076,7 +2076,7 @@ df.world_header.T_load_stage = {}
 ---@field flag integer
 df.world.T_rod_loader = {}
 
----@class (exact) _rod_loader_state: df.struct
+---@class (exact) _rod_loader_state: df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field Languages 1
@@ -2252,7 +2252,7 @@ df.equipment.T_item_types = {}
 ---@class equipment_item_subtypes: df.struct
 df.equipment.T_item_subtypes = {}
 
----@class (exact) _arena_flag: df.struct
+---@class (exact) _arena_flag: df.bitfield
 ---@field morale_enable 0
 ---@field [0] "morale_enable"
 df.arena.T_flag = {}
@@ -2320,7 +2320,7 @@ df.attack_chance_info.T_target = {}
 ---@field active_step integer
 df.world.T_active_tutorial = {}
 
----@class (exact) _world_cavein_flags: df.struct
+---@class (exact) _world_cavein_flags: df.enum
 ---@field process_columns 0
 ---@field [0] "process_columns"
 df.world_cavein_flags = {}

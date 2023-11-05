@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _ui_advmode_menu: df.struct
+---@class (exact) _ui_advmode_menu: df.enum
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Look 1
@@ -238,7 +238,7 @@ df.ui_advmode_menu = {}
 ---@field speech conversation_speech
 df.conversation = {}
 
----@class (exact) _conversation_state: df.struct
+---@class (exact) _conversation_state: df.enum
 ---@field started 0
 ---@field [0] "started"
 ---@field active 1
@@ -269,7 +269,7 @@ df.conversation.T_state = {}
 ---@field bright integer
 df.conversation.T_speech = {}
 
----@class (exact) _talk_choice_type: df.struct
+---@class (exact) _talk_choice_type: df.enum
 ---@field Greet 0
 ---@field [0] "Greet"
 ---@field Nevermind 1
@@ -1174,7 +1174,7 @@ df.talk_choice_type = {}
 ---@field [224] boolean
 ---@field DemandIdentity boolean
 
----@class (exact) _assume_identity_mode: df.struct
+---@class (exact) _assume_identity_mode: df.enum
 ---@field SelectIdentity 0
 ---@field [0] "SelectIdentity"
 ---@field CreateIdentity 1
@@ -1357,7 +1357,7 @@ df.talk_choice.T_unk = {}
 ---@field unk_96 integer
 df.adventurest = {}
 
----@class (exact) _adventurest_travel_right_map: df.struct
+---@class (exact) _adventurest_travel_right_map: df.enum
 ---@field MapNone 0
 ---@field [0] "MapNone"
 ---@field MapSite 1
@@ -1374,7 +1374,7 @@ df.adventurest.T_travel_right_map = {}
 ---@field [2] boolean
 ---@field MapWorld boolean
 
----@class (exact) _adventurest_show_menu: df.struct
+---@class (exact) _adventurest_show_menu: df.enum
 ---bottom menu in travel mode
 ---@field TwoBlankRows -1
 ---@field [0] "TwoBlankRows"
@@ -1494,7 +1494,7 @@ df.unk_3170.T_unk_1 = {}
 ---@field unk_62 integer[]
 df.adventurest.T_unk_3124 = {}
 
----@class (exact) _adventurest_charge_forbidden: df.struct
+---@class (exact) _adventurest_charge_forbidden: df.enum
 ---When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
 ---@field None -1
 ---@field [0] "None"
@@ -1605,7 +1605,7 @@ df.conversation.T_choices = {}
 ---@field type targets_type
 df.conversation.T_targets = {}
 
----@class (exact) _targets_type: df.struct
+---@class (exact) _targets_type: df.enum
 ---@field Talk 0
 ---@field [0] "Talk"
 ---@field unk_1 1
@@ -1630,7 +1630,7 @@ df.targets.T_type = {}
 ---@field [4] boolean
 ---@field Perform boolean
 
----@class (exact) _adventurest_rest_mode: df.struct
+---@class (exact) _adventurest_rest_mode: df.enum
 ---@field Wait 0
 ---@field [0] "Wait"
 ---@field Sleep 1
@@ -1881,3 +1881,4 @@ df.adventure_item_interact_strugglest = {}
 ---@class adventure_item_interact_give_namest: adventure_item_interact_choicest
 ---@field item item
 df.adventure_item_interact_give_namest = {}
+

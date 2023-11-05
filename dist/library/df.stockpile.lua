@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _hauler_type: df.struct
+---@class (exact) _hauler_type: df.enum
 ---@field Any 0
 ---@field [0] "Any"
 ---@field Stone 1
@@ -46,7 +46,7 @@ df.hauler_type = {}
 ---@field [9] boolean
 ---@field Animal boolean
 
----@class (exact) _furniture_type: df.struct
+---@class (exact) _furniture_type: df.enum
 ---@field FLOODGATE 0
 ---@field [0] "FLOODGATE"
 ---@field HATCH_COVER 1
@@ -187,7 +187,7 @@ df.furniture_type = {}
 ---@field [33] boolean
 ---@field SAND_BAG boolean
 
----@class (exact) _stockpile_category: df.struct
+---@class (exact) _stockpile_category: df.enum
 ---@field Remove -1
 ---@field [0] "Remove"
 ---@field Animals 1
@@ -272,7 +272,7 @@ df.stockpile_category = {}
 ---@field [19] boolean
 ---@field Custom boolean
 
----@class (exact) _stockpile_group_set: df.struct
+---@class (exact) _stockpile_group_set: df.bitfield
 ---@field animals 0
 ---@field [0] "animals"
 ---@field food 1
@@ -516,7 +516,7 @@ df.stockpile_settings.T_armor = {}
 ---@field parchment boolean[]
 df.stockpile_settings.T_sheet = {}
 
----@class (exact) _stockpile_list: df.struct
+---@class (exact) _stockpile_list: df.enum
 ---@field Animals 0
 ---@field [0] "Animals"
 ---@field Food 1
@@ -981,7 +981,7 @@ df.hauling_stop = {}
 ---@field guide_path coord_path initialized on first run, and saved
 df.stop_depart_condition = {}
 
----@class (exact) _stop_depart_condition_direction: df.struct
+---@class (exact) _stop_depart_condition_direction: df.enum
 ---@field North 0
 ---@field [0] "North"
 ---@field South 1
@@ -1002,7 +1002,7 @@ df.stop_depart_condition.T_direction = {}
 ---@field [3] boolean
 ---@field West boolean
 
----@class (exact) _stop_depart_condition_mode: df.struct
+---@class (exact) _stop_depart_condition_mode: df.enum
 ---@field Push 0
 ---@field [0] "Push"
 ---@field Ride 1
@@ -1019,7 +1019,7 @@ df.stop_depart_condition.T_mode = {}
 ---@field [2] boolean
 ---@field Guide boolean
 
----@class (exact) _stop_depart_condition_flags: df.struct
+---@class (exact) _stop_depart_condition_flags: df.bitfield
 ---@field at_most 0
 ---@field [0] "at_most"
 ---@field desired 1
@@ -1037,7 +1037,7 @@ df.stop_depart_condition.T_flags = {}
 ---@field mode route_stockpile_link_mode
 df.route_stockpile_link = {}
 
----@class (exact) _route_stockpile_link_mode: df.struct
+---@class (exact) _route_stockpile_link_mode: df.bitfield
 ---@field take 0
 ---@field [0] "take"
 ---@field give 1

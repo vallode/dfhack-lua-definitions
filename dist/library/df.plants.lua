@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _plant_flags: df.struct
+---@class (exact) _plant_flags: df.bitfield
 ---@field watery 0
 ---@field [0] "watery"
 ---@field is_shrub 1
@@ -28,7 +28,7 @@ df.plant_flags = {}
 ---@field tree_info plant_tree_info
 df.plant = {}
 
----@class (exact) _plant_damage_flags: df.struct
+---@class (exact) _plant_damage_flags: df.bitfield
 ---@field is_burning 0
 ---@field [0] "is_burning"
 ---@field is_drowning 1
@@ -45,7 +45,7 @@ df.plant.T_damage_flags = {}
 ---@field [2] boolean
 ---@field is_dead boolean
 
----@class (exact) _plant_tree_tile: df.struct
+---@class (exact) _plant_tree_tile: df.bitfield
 ---@field trunk 0
 ---@field [0] "trunk"
 ---@field connection_east 1
@@ -82,7 +82,7 @@ df.plant_tree_tile = {}
 ---@field [7] boolean
 ---@field blocked boolean
 
----@class (exact) _plant_root_tile: df.struct
+---@class (exact) _plant_root_tile: df.bitfield
 ---@field trunk 0
 ---@field [0] "trunk"
 ---@field connection_east 1

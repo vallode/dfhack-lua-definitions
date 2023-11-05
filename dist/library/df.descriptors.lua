@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _pattern_type: df.struct
+---@class (exact) _pattern_type: df.enum
 ---@field MONOTONE 0
 ---@field [0] "MONOTONE"
 ---@field STRIPES 1
@@ -62,7 +62,7 @@ df.descriptor_color = {}
 ---@field unk_v50_6 any
 df.descriptor_shape = {}
 
----@class (exact) _descriptor_shape_gems_use: df.struct
+---@class (exact) _descriptor_shape_gems_use: df.bitfield
 ---@field noun 0
 ---@field [0] "noun"
 ---@field adj 1

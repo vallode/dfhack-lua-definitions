@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _general_ref_type: df.struct
+---@class (exact) _general_ref_type: df.enum
 ---@field ARTIFACT 0
 ---@field [0] "ARTIFACT"
 ---@field IS_ARTIFACT 1
@@ -457,7 +457,7 @@ df.general_ref_unit_traineest = {}
 ---@field flags general_ref_unit_itemownerst_flags
 df.general_ref_unit_itemownerst = {}
 
----@class (exact) _general_ref_unit_itemownerst_flags: df.struct
+---@class (exact) _general_ref_unit_itemownerst_flags: df.bitfield
 ---@field litter 0
 ---@field [0] "litter"
 df.general_ref_unit_itemownerst.T_flags = {}
@@ -563,7 +563,7 @@ df.general_ref_entity_offeredst = {}
 ---@class general_ref_entity_itemownerst: general_ref_entity
 df.general_ref_entity_itemownerst = {}
 
----@class (exact) _specific_ref_type: df.struct
+---@class (exact) _specific_ref_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field unk_1 1
@@ -713,7 +713,7 @@ df.specific_ref.T_data = {}
 ---@field item unit_item_wrestle
 df.data.T_wrestle = {}
 
----@class (exact) _histfig_entity_link_type: df.struct
+---@class (exact) _histfig_entity_link_type: df.enum
 ---@field MEMBER 0
 ---@field [0] "MEMBER"
 ---@field FORMER_MEMBER 1
@@ -862,7 +862,7 @@ df.histfig_entity_link_occupationst = {}
 ---@field end_year integer
 df.histfig_entity_link_former_occupationst = {}
 
----@class (exact) _histfig_site_link_type: df.struct
+---@class (exact) _histfig_site_link_type: df.enum
 ---@field OCCUPATION 0
 ---@field [0] "OCCUPATION"
 ---@field SEAT_OF_POWER 1
@@ -944,7 +944,7 @@ df.histfig_site_link_prison_abstract_buildingst = {}
 ---@class histfig_site_link_prison_site_building_profilest: histfig_site_link
 df.histfig_site_link_prison_site_building_profilest = {}
 
----@class (exact) _histfig_hf_link_type: df.struct
+---@class (exact) _histfig_hf_link_type: df.enum
 ---@field MOTHER 0
 ---@field [0] "MOTHER"
 ---@field FATHER 1
@@ -1068,7 +1068,7 @@ df.histfig_hf_link_former_spousest = {}
 ---@class histfig_hf_link_deceased_spousest: histfig_hf_link
 df.histfig_hf_link_deceased_spousest = {}
 
----@class (exact) _entity_entity_link_type: df.struct
+---@class (exact) _entity_entity_link_type: df.enum
 ---@field PARENT 0
 ---@field [0] "PARENT"
 ---@field CHILD 1
@@ -1091,7 +1091,7 @@ df.entity_entity_link_type = {}
 ---@field strength integer
 df.entity_entity_link = {}
 
----@class (exact) _entity_site_link_type: df.struct
+---@class (exact) _entity_site_link_type: df.enum
 ---Enum names updated per Putnam
 ---@field None -1
 ---@field [0] "None"
@@ -1121,7 +1121,7 @@ df.entity_site_link_type = {}
 ---@field [5] boolean
 ---@field Local_Activity boolean
 
----@class (exact) _entity_site_link_flags: df.struct
+---@class (exact) _entity_site_link_flags: df.bitfield
 ---@field residence 0
 ---@field [0] "residence"
 ---@field capital 1
@@ -1220,7 +1220,7 @@ df.entity_site_link = {}
 ---@field unk_2 integer 1, 2, 5 seen
 df.entity_site_link.T_ab_profile = {}
 
----@class (exact) _undead_flags: df.struct
+---@class (exact) _undead_flags: df.bitfield
 ---@field zombie 0
 ---@field [0] "zombie"
 ---@field ghostly 1

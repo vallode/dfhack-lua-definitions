@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _entity_raw_flags: df.struct
+---@class (exact) _entity_raw_flags: df.enum
 ---@field CIV_CONTROLLABLE 0
 ---@field [0] "CIV_CONTROLLABLE"
 ---@field INDIV_CONTROLLABLE 1
@@ -302,7 +302,7 @@ df.entity_raw_flags = {}
 ---@field [73] boolean
 ---@field NO_ARTIFACT_CLAIMS boolean
 
----@class (exact) _site_type: df.struct
+---@class (exact) _site_type: df.enum
 ---@field PLAYER_FORTRESS 0
 ---@field [0] "PLAYER_FORTRESS"
 ---@field DARK_FORTRESS 1
@@ -351,7 +351,7 @@ df.site_type = {}
 ---@field [10] boolean
 ---@field MONUMENT boolean
 
----@class (exact) _ethic_type: df.struct
+---@class (exact) _ethic_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field KILL_ENTITY_MEMBER 1
@@ -448,7 +448,7 @@ df.ethic_type = {}
 ---@field [22] boolean
 ---@field MAKE_TROPHY_ANIMAL boolean
 
----@class (exact) _ethic_response: df.struct
+---@class (exact) _ethic_response: df.enum
 ---@field NOT_APPLICABLE 0
 ---@field [0] "NOT_APPLICABLE"
 ---@field ACCEPTABLE 1
@@ -521,7 +521,7 @@ df.ethic_response = {}
 ---@field [16] boolean
 ---@field REQUIRED boolean
 
----@class (exact) _entity_name_type: df.struct
+---@class (exact) _entity_name_type: df.enum
 ---@field OTHER 0
 ---@field [0] "OTHER"
 ---@field CIV 1
@@ -707,7 +707,7 @@ df.entity_raw.T_symbols = {}
 ---@field trade_siege integer
 df.entity_raw.T_progress_trigger = {}
 
----@class (exact) _entity_raw_scholar: df.struct
+---@class (exact) _entity_raw_scholar: df.bitfield
 ---@field PHILOSOPHER 0
 ---@field [0] "PHILOSOPHER"
 ---@field MATHEMATICIAN 1
@@ -779,7 +779,7 @@ df.entity_raw.T_workshops = {}
 ---@field flags entity_animal_raw_flags
 df.entity_animal_raw = {}
 
----@class (exact) _entity_animal_raw_flags: df.struct
+---@class (exact) _entity_animal_raw_flags: df.bitfield
 ---@field ALWAYS_PRESENT 0
 ---@field [0] "ALWAYS_PRESENT"
 ---@field NEVER_MOUNT 1
@@ -828,7 +828,7 @@ df.entity_animal_raw.T_flags = {}
 ---@field [10] boolean
 ---@field ALWAYS_PACK_ANIMAL boolean
 
----@class (exact) _entity_position_raw_flags: df.struct
+---@class (exact) _entity_position_raw_flags: df.enum
 ---@field SITE 0
 ---@field [0] "SITE"
 ---@field ELECTED 1
@@ -933,7 +933,7 @@ df.entity_position_raw_flags = {}
 ---@field [24] boolean
 ---@field REQUIRES_MARKET boolean
 
----@class (exact) _entity_position_responsibility: df.struct
+---@class (exact) _entity_position_responsibility: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LAW_MAKING 1

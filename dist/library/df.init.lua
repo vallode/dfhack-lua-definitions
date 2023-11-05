@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _init_display_flags: df.struct
+---@class (exact) _init_display_flags: df.enum
 ---@field USE_GRAPHICS 0
 ---@field [0] "USE_GRAPHICS"
 ---@field SOFTWARE 1
@@ -26,7 +26,7 @@ df.init_display_flags = {}
 ---@field [4] boolean
 ---@field INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH boolean
 
----@class (exact) _init_display_filter_mode: df.struct
+---@class (exact) _init_display_filter_mode: df.enum
 ---@field AUTO 0
 ---@field [0] "AUTO"
 ---@field NEAREST 1
@@ -64,7 +64,7 @@ df.init_display_filter_mode = {}
 ---@field filter_mode init_display_filter_mode
 df.init_display = {}
 
----@class (exact) _init_display_windowed: df.struct
+---@class (exact) _init_display_windowed: df.enum
 ---@field True 0
 ---@field [0] "True"
 ---@field False 1
@@ -85,7 +85,7 @@ df.init_display.T_windowed = {}
 ---@field [3] boolean
 ---@field Exclusive boolean
 
----@class (exact) _init_media_flags: df.struct
+---@class (exact) _init_media_flags: df.enum
 ---@field SOUND_OFF 0
 ---@field [0] "SOUND_OFF"
 ---@field UNUSED_01_02 1
@@ -111,7 +111,7 @@ df.init_media_flags = {}
 ---@field time_between_songs integer
 df.init_media = {}
 
----@class (exact) _init_input_flags: df.struct
+---@class (exact) _init_input_flags: df.enum
 ---@field MOUSE_OFF 0
 ---@field [0] "MOUSE_OFF"
 ---@field MOUSE_PICTURE 1
@@ -162,7 +162,7 @@ df.init_input = {}
 ---@field large_font_dispy number
 df.init_font = {}
 
----@class (exact) _init_window_flags: df.struct
+---@class (exact) _init_window_flags: df.enum
 ---@field VSYNC_ON 0
 ---@field [0] "VSYNC_ON"
 ---@field VSYNC_OFF 1

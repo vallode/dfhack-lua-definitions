@@ -164,7 +164,7 @@
 ---@field buildingst_completebuild function
 df.global = {}
 
----@class (exact) _weather_type: df.struct
+---@class (exact) _weather_type: df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Rain 1
@@ -181,7 +181,7 @@ df.weather_type = {}
 ---@field [2] boolean
 ---@field Snow boolean
 
----@class (exact) _next_global_id: df.struct
+---@class (exact) _next_global_id: df.enum
 ---The storage order of "next ID" fields in the save file. Followed by game type. The enum item name is the part between next_ and _global_id in the Dwarf Fortress global variable table.
 ---@field unit 0
 ---@field [0] "unit"
@@ -357,7 +357,7 @@ df.next_global_id = {}
 ---@field size any
 df.global_table_entry = {}
 
----@class (exact) _game_mode: df.struct
+---@class (exact) _game_mode: df.enum
 ---@field DWARF 0
 ---@field [0] "DWARF"
 ---@field ADVENTURE 1
@@ -378,7 +378,7 @@ df.game_mode = {}
 ---@field [3] boolean
 ---@field NONE boolean
 
----@class (exact) _game_type: df.struct
+---@class (exact) _game_type: df.enum
 ---@field DWARF_MAIN 0
 ---@field [0] "DWARF_MAIN"
 ---@field ADVENTURE_MAIN 1
@@ -431,7 +431,7 @@ df.game_type = {}
 ---@field [11] boolean
 ---@field NONE boolean
 
----@class (exact) _lever_target_type: df.struct
+---@class (exact) _lever_target_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BarsVertical 66

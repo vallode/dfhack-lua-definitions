@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _d_init_nickname: df.struct
+---@class (exact) _d_init_nickname: df.enum
 ---@field REPLACE_FIRST 0
 ---@field [0] "REPLACE_FIRST"
 ---@field CENTRALIZE 1
@@ -18,7 +18,7 @@ df.d_init_nickname = {}
 ---@field [2] boolean
 ---@field REPLACE_ALL boolean
 
----@class (exact) _d_init_embark_confirm: df.struct
+---@class (exact) _d_init_embark_confirm: df.enum
 ---@field ALWAYS 0
 ---@field [0] "ALWAYS"
 ---@field IF_POINTS_REMAIN 1
@@ -35,7 +35,7 @@ df.d_init_embark_confirm = {}
 ---@field [2] boolean
 ---@field NO boolean
 
----@class (exact) _d_init_tunnel: df.struct
+---@class (exact) _d_init_tunnel: df.enum
 ---@field NO 0
 ---@field [0] "NO"
 ---@field FINDER 1
@@ -52,7 +52,7 @@ df.d_init_tunnel = {}
 ---@field [2] boolean
 ---@field ALWAYS boolean
 
----@class (exact) _d_init_flags1: df.struct
+---@class (exact) _d_init_flags1: df.enum
 ---@field VARIED_GROUND_TILES 0
 ---@field [0] "VARIED_GROUND_TILES"
 ---@field ENGRAVINGS_START_OBSCURED 1
@@ -77,7 +77,7 @@ df.d_init_flags1 = {}
 ---@field [4] boolean
 ---@field SHOW_RAMP_ARROWS boolean
 
----@class (exact) _d_init_flags2: df.struct
+---@class (exact) _d_init_flags2: df.enum
 ---@field MORE 0
 ---@field [0] "MORE"
 ---@field ADVENTURER_TRAPS 1
@@ -94,7 +94,7 @@ df.d_init_flags2 = {}
 ---@field [2] boolean
 ---@field ADVENTURER_ALWAYS_CENTER boolean
 
----@class (exact) _d_init_flags3: df.struct
+---@class (exact) _d_init_flags3: df.enum
 ---@field COFFIN_NO_PETS_DEFAULT 0
 ---@field [0] "COFFIN_NO_PETS_DEFAULT"
 df.d_init_flags3 = {}
@@ -103,7 +103,7 @@ df.d_init_flags3 = {}
 ---@field [0] boolean
 ---@field COFFIN_NO_PETS_DEFAULT boolean
 
----@class (exact) _d_init_flags4: df.struct
+---@class (exact) _d_init_flags4: df.enum
 ---@field TEMPERATURE 0
 ---@field [0] "TEMPERATURE"
 ---@field WEATHER 1
@@ -192,7 +192,7 @@ df.d_init_flags4 = {}
 ---@field [20] boolean
 ---@field MULTITHREADING boolean
 
----@class (exact) _d_init_autosave: df.struct
+---@class (exact) _d_init_autosave: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SEASONAL 1

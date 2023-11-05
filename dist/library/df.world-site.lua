@@ -36,7 +36,7 @@ df.site_reputation_info = {}
 ---@field unk_5 integer
 df.location_scribe_jobs = {}
 
----@class (exact) _abstract_building_type: df.struct
+---@class (exact) _abstract_building_type: df.enum
 ---@field MEAD_HALL 0
 ---@field [0] "MEAD_HALL"
 ---@field KEEP 1
@@ -97,7 +97,7 @@ df.abstract_building_type = {}
 ---@field [13] boolean
 ---@field HOSPITAL boolean
 
----@class (exact) _abstract_building_flags: df.struct
+---@class (exact) _abstract_building_flags: df.enum
 ---@field Unk0 0
 ---@field [0] "Unk0"
 ---@field Unk1 1
@@ -183,7 +183,7 @@ df.abstract_building_entombed.T_populations = {}
 ---@field building_ids integer[]
 df.abstract_building_contents = {}
 
----@class (exact) _abstract_building_contents_need_more: df.struct
+---@class (exact) _abstract_building_contents_need_more: df.bitfield
 ---@field goblets 0
 ---@field [0] "goblets"
 ---@field instruments 1
@@ -264,7 +264,7 @@ df.abstract_building_mead_hallst = {}
 ---@field name language_name
 df.abstract_building_keepst = {}
 
----@class (exact) _temple_deity_type: df.struct
+---@class (exact) _temple_deity_type: df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Deity 1
@@ -317,7 +317,7 @@ df.abstract_building_tombst = {}
 ---@field unk_4 integer not saved
 df.abstract_building_dungeonst = {}
 
----@class (exact) _abstract_building_dungeonst_dungeon_type: df.struct
+---@class (exact) _abstract_building_dungeonst_dungeon_type: df.enum
 ---@field DUNGEON 0
 ---@field [0] "DUNGEON"
 ---@field SEWERS 1
@@ -383,7 +383,7 @@ df.abstract_building_towerst = {}
 ---@field contents abstract_building_contents
 df.abstract_building_hospitalst = {}
 
----@class (exact) _world_site_type: df.struct
+---@class (exact) _world_site_type: df.enum
 ---@field PlayerFortress 0
 ---@field [0] "PlayerFortress"
 ---@field DarkFortress 1
@@ -432,7 +432,7 @@ df.world_site_type = {}
 ---@field [10] boolean
 ---@field Monument boolean
 
----@class (exact) _world_site_flags: df.struct
+---@class (exact) _world_site_flags: df.enum
 ---@field Undiscovered 0
 ---@field [0] "Undiscovered"
 ---@field unk_1 1
@@ -481,7 +481,7 @@ df.world_site_flags = {}
 ---@field [10] boolean
 ---@field unk_10 boolean
 
----@class (exact) _fortress_type: df.struct
+---@class (exact) _fortress_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CASTLE 1
@@ -506,7 +506,7 @@ df.fortress_type = {}
 ---@field [4] boolean
 ---@field FORT boolean
 
----@class (exact) _monument_type: df.struct
+---@class (exact) _monument_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field TOMB 1
@@ -523,7 +523,7 @@ df.monument_type = {}
 ---@field [2] boolean
 ---@field VAULT boolean
 
----@class (exact) _lair_type: df.struct
+---@class (exact) _lair_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SIMPLE_MOUND 1
@@ -813,7 +813,7 @@ df.cultural_identity = {}
 ---@field unk_44 integer
 df.cultural_identity.T_group_log = {}
 
----@class (exact) _group_log_join_type: df.struct
+---@class (exact) _group_log_join_type: df.enum
 ---@field Peaceful 0
 ---@field [0] "Peaceful"
 ---@field CompleteTakeOver 1
@@ -926,7 +926,7 @@ df.world_site_realization = {}
 ---@field unk_20 integer
 df.world_site_realization.T_areas = {}
 
----@class (exact) _areas_type: df.struct
+---@class (exact) _areas_type: df.enum
 ---@field Crops1 0
 ---@field [0] "Crops1"
 ---@field Crops2 1
@@ -1005,7 +1005,7 @@ df.areas.T_type = {}
 ---@field unk_3d0 integer[]
 df.site_realization_crossroads = {}
 
----@class (exact) _site_realization_building_type: df.struct
+---@class (exact) _site_realization_building_type: df.enum
 ---@field cottage_plot 0
 ---@field [0] "cottage_plot"
 ---@field castle_wall 1
@@ -1178,7 +1178,7 @@ df.site_realization_building_infost = {}
 ---@field mat_index integer
 df.site_building_item = {}
 
----@class (exact) _tower_shape: df.struct
+---@class (exact) _tower_shape: df.bitfield
 ---@field round 0
 ---@field [0] "round"
 ---@field hollow 1
@@ -1233,7 +1233,7 @@ df.site_realization_building_info_castle_towerst = {}
 ---@class site_realization_building_info_castle_courtyardst: site_realization_building_infost
 df.site_realization_building_info_castle_courtyardst = {}
 
----@class (exact) _site_shop_type: df.struct
+---@class (exact) _site_shop_type: df.enum
 ---@field GeneralImports 0
 ---@field [0] "GeneralImports"
 ---@field FoodImports 1
@@ -1342,7 +1342,7 @@ df.site_shop_type = {}
 ---@field [25] boolean
 ---@field Tavern boolean
 
----@class (exact) _town_labor_type: df.struct
+---@class (exact) _town_labor_type: df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CLOTH 1
@@ -1425,7 +1425,7 @@ df.site_realization_building_info_market_squarest = {}
 ---@field spokes integer[] N, S, E, W
 df.site_realization_building_info_trenchesst = {}
 
----@class (exact) _tree_house_type: df.struct
+---@class (exact) _tree_house_type: df.enum
 ---@field TreeHouse 0
 ---@field [0] "TreeHouse"
 ---@field HomeTree 1
@@ -1460,7 +1460,7 @@ df.tree_house_type = {}
 ---@field name language_name
 df.site_realization_building_info_tree_housest = {}
 
----@class (exact) _hillock_house_type: df.struct
+---@class (exact) _hillock_house_type: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field CivicMound 1
@@ -1490,7 +1490,7 @@ df.site_realization_building_info_hillock_housest = {}
 ---@field unk_2 integer
 df.site_realization_building_info_shrinest = {}
 
----@class (exact) _creation_zone_pwg_alteration_type: df.struct
+---@class (exact) _creation_zone_pwg_alteration_type: df.enum
 ---@field location_death 0
 ---@field [0] "location_death"
 ---@field camp 1

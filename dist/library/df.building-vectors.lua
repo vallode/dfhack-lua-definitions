@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta
 
----@class (exact) _buildings_other_id: df.struct
+---@class (exact) _buildings_other_id: df.enum
 ---@field ANY -1
 ---@field [0] "ANY"
 ---@field IN_PLAY 1
