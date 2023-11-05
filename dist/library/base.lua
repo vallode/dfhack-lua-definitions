@@ -13,9 +13,9 @@
 ---@class df.base
 ---@field _kind df.kind
 ---@field _identity any TODO
----@field sizeof fun(object: any): integer
----@field new fun(): table
----@field is_instance fun(object: any): boolean|nil
+---@field sizeof fun(self: any): integer
+---@field new fun(self: any): table
+---@field is_instance fun(self: any, object: any): boolean|nil
 
 ---@class df.struct: df.base
 ---@field _kind "struct-type"
@@ -39,9 +39,8 @@
 ---@return integer
 function df.sizeof(object) end
 
----@generic T: df.base
----@param object T
----@return T
+---@param object any
+---@return table
 function df.new(object) end
 
 ---@param object table
