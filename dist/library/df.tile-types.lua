@@ -120,12 +120,12 @@ df.tiletype_shape = {}
 ---@class tiletype_shape_attr
 ---@field caption string
 ---@field basic_shape tiletype_shape_basic
----@field passable_low bool
----@field passable_high bool
----@field passable_flow bool
----@field passable_flow_down bool
----@field walkable bool
----@field walkable_up bool
+---@field passable_low boolean
+---@field passable_high boolean
+---@field passable_flow boolean
+---@field passable_flow_down boolean
+---@field walkable boolean
+---@field walkable_up boolean
 
 ---@type { [string|integer]: tiletype_shape_attr }
 df.tiletype_shape.attrs = {}

@@ -552,11 +552,11 @@ df.profession = {}
 
 ---@class profession_attr
 ---@field caption string
----@field military bool
+---@field military boolean
 ---@field parent profession
----@field can_assign_labor bool
----@field color int8_t
----@field moodable bool
+---@field can_assign_labor boolean
+---@field color integer
+---@field moodable boolean
 
 ---@type { [string|integer]: profession_attr }
 df.profession.attrs = {}

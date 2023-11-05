@@ -687,8 +687,8 @@ df.emotion_type = {}
 ---@field ADMIRATION boolean
 
 ---@class emotion_type_attr
----@field color int8_t
----@field divider int8_t
+---@field color integer
+---@field divider integer
 
 ---@type { [string|integer]: emotion_type_attr }
 df.emotion_type.attrs = {}

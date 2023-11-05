@@ -1881,3 +1881,4 @@ df.adventure_item_interact_strugglest = {}
 ---@class adventure_item_interact_give_namest: adventure_item_interact_choicest
 ---@field item item
 df.adventure_item_interact_give_namest = {}
+

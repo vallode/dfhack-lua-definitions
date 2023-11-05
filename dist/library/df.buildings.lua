@@ -1922,7 +1922,7 @@ df.dfhack_room_quality_level = {}
 ---@field Royal boolean
 
 ---@class dfhack_room_quality_level_attr
----@field min_value int32_t
+---@field min_value integer
 ---@field office string
 ---@field bedroom string
 ---@field dining_room string

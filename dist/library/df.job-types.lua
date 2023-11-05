@@ -1059,7 +1059,7 @@ df.job_type = {}
 ---@field skill_stone job_skill
 ---@field skill_wood job_skill
 ---@field skill_metal job_skill
----@field is_designation bool
+---@field is_designation boolean
 ---@field tag_op_history string
 
 ---@type { [string|integer]: job_type_attr }

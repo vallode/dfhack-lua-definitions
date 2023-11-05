@@ -1241,7 +1241,7 @@ df.skill_rating = {}
 ---@field Legendary5 boolean
 
 ---@class skill_rating_attr
----@field xp_threshold uint32_t
+---@field xp_threshold integer
 ---@field caption string
 
 ---@type { [string|integer]: skill_rating_attr }

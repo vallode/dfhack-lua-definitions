@@ -942,7 +942,7 @@ df.stockpile_list = {}
 ---@field AdditionalOptions boolean
 
 ---@class stockpile_list_attr
----@field is_category bool
+---@field is_category boolean
 
 ---@type { [string|integer]: stockpile_list_attr }
 df.stockpile_list.attrs = {}

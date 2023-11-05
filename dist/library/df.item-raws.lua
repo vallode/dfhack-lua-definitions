@@ -380,9 +380,9 @@ df.item_type = {}
 
 ---@class item_type_attr
 ---@field caption string
----@field is_rawable bool
----@field is_stackable bool
----@field is_caste_mat bool
+---@field is_rawable boolean
+---@field is_stackable boolean
+---@field is_caste_mat boolean
 ---@field classname string
 
 ---@type { [string|integer]: item_type_attr }

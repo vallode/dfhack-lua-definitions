@@ -116,7 +116,8 @@ class EnumType < XmlNode
       annotation << "---@class #{@name}_attr\n"
 
       @attrs.each do |attribute, index|
-        annotation << "---@field #{attribute['name']} #{attribute['type-name'] || 'string'}#{'[]' if attribute['is-list']}\n"
+        attribute_type = Field.get_type(attribute)
+        annotation << "---@field #{attribute['name']} #{attribute_type.sub("any", "string")}#{'[]' if attribute['is-list']}\n"
       end
 
       # TODO: Change to use enum type as index once the discussion on github
