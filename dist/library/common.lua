@@ -35,24 +35,6 @@ function printall(object) end
 ---@param object table|userdata
 function printall_recursive(object) end
 
----@param value table
----@param seen table
----@param indent integer
----@param prefix string
-function print_fields(value, seen, indent, prefix) end
-
----@param printfn function
----@param value any
----@param seen table
----@param indent integer
-function print_userdata(printfn, value, seen, indent) end
-
----@param printfn function
----@param value any
----@param seen table
----@param indent integer
-function print_array(printfn, value, seen, indent) end
-
 ---@param table table
 ---@return table
 function copyall(table) end
