@@ -106,13 +106,23 @@ df.projectile_flags = {}
 ---@field accel_x integer
 ---@field accel_y integer
 ---@field accel_z integer
----@field getType fun(self, any...): any
----@field checkImpact fun(self, any...): any
----@field checkMovement fun(self, any...): any
----@field read_file fun(self, any...): any
----@field write_file fun(self, any...): any
----@field isObjectLost fun(self, any...): any
 df.projectile = {}
+
+function df.projectile:getType() end
+
+---@param noDamageFloor boolean
+function df.projectile:checkImpact(noDamageFloor) end
+
+function df.projectile:checkMovement() end
+
+---@param file any
+---@param loadversion any
+function df.projectile:read_file(file, loadversion) end
+
+---@param file any
+function df.projectile:write_file(file) end
+
+function df.projectile:isObjectLost() end
 
 ---@class proj_itemst: projectile
 ---@field item item

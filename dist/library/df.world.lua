@@ -1010,7 +1010,6 @@ df.coin_batch.T_image_back = {}
 ---@field list job_list_link
 ---@field postings job_handler_postings entries never removed
 ---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
----@field cancel_job fun(self, any...): any
 df.job_handler = {}
 
 ---@class job_handler_postings: df.struct
@@ -1036,14 +1035,27 @@ df.job_handler.T_postings.T_flags = {}
 ---@field size integer
 df.job_handler.T_job_application_heap = {}
 
+function df.job_handler:cancel_job() end
+
 ---@class building_handler: df.struct
 ---@field all building[]
 ---@field other buildings_other
 ---@field bad building[]
 ---@field check_bridge_collapse boolean
 ---@field check_machine_collapse boolean ?
----@field get_machine_hookup_list fun(self, any...): any ToadyOnes name
 df.building_handler = {}
+
+---ToadyOnes name
+---@param hookups any
+---@param type integer
+---@param subtype integer
+---@param x1 integer
+---@param y1 integer
+---@param x2 integer
+---@param y2 integer
+---@param z integer
+---@param is_vertical integer
+function df.building_handler:get_machine_hookup_list(hookups, type, subtype, x1, y1, x2, y2, z, is_vertical) end
 
 ---@class machine_handler: df.struct
 ---@field all machine[]

@@ -1723,9 +1723,12 @@ df.adventurest.T_unk_v42_1 = {}
 df.adventurest.T_assume_identity = {}
 
 ---@class text_info_elementst: df.struct
----@field getString fun(self, any...): any
----@field getLong fun(self, any...): any
 df.text_info_elementst = {}
+
+---@param val any
+function df.text_info_elementst:getString(val) end
+
+function df.text_info_elementst:getLong() end
 
 ---@class text_info_element_longst: text_info_elementst
 ---@field val integer
@@ -1737,22 +1740,38 @@ df.text_info_element_stringst = {}
 
 ---@class adventure_optionst: df.struct
 ---for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
----@field getDescription fun(self, any...): any
----@field getIngestedItem fun(self, any...): any
----@field performAction fun(self, any...): any for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
----@field getPlayerPosX fun(self, any...): any
----@field getPlayerPosY fun(self, any...): any
----@field getPlayerPosZ fun(self, any...): any
----@field getTargetPosX fun(self, any...): any
----@field getTargetPosY fun(self, any...): any
----@field getTargetPosZ fun(self, any...): any
----@field deleteSpatter fun(self, any...): any
----@field getSuckBloodUnitID fun(self, any...): any
----@field isIngestFromContainer fun(self, any...): any
----@field getBuildingContainer fun(self, any...): any
----@field getItemContainer fun(self, any...): any
----@field getUnitContainer fun(self, any...): any
 df.adventure_optionst = {}
+
+function df.adventure_optionst:getDescription() end
+
+function df.adventure_optionst:getIngestedItem() end
+
+---for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
+function df.adventure_optionst:performAction() end
+
+function df.adventure_optionst:getPlayerPosX() end
+
+function df.adventure_optionst:getPlayerPosY() end
+
+function df.adventure_optionst:getPlayerPosZ() end
+
+function df.adventure_optionst:getTargetPosX() end
+
+function df.adventure_optionst:getTargetPosY() end
+
+function df.adventure_optionst:getTargetPosZ() end
+
+function df.adventure_optionst:deleteSpatter() end
+
+function df.adventure_optionst:getSuckBloodUnitID() end
+
+function df.adventure_optionst:isIngestFromContainer() end
+
+function df.adventure_optionst:getBuildingContainer() end
+
+function df.adventure_optionst:getItemContainer() end
+
+function df.adventure_optionst:getUnitContainer() end
 
 ---@class adventure_option_eat_unit_contaminantst: adventure_optionst
 ---@field unit unit
@@ -1862,9 +1881,11 @@ df.adventure_movement_item_interact_ridest = {}
 df.adventure_movement_item_interact_pushst = {}
 
 ---@class adventure_item_interact_choicest: df.struct
----@field getDescription fun(self, any...): any
----@field performAction fun(self, any...): any
 df.adventure_item_interact_choicest = {}
+
+function df.adventure_item_interact_choicest:getDescription() end
+
+function df.adventure_item_interact_choicest:performAction() end
 
 ---@class adventure_item_interact_pull_outst: adventure_item_interact_choicest
 df.adventure_item_interact_pull_outst = {}

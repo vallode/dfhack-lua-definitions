@@ -402,91 +402,6 @@ df.building_drawbuffer = {}
 ---@field unk_v40_2 integer
 ---@field site_id world_site
 ---@field location_id abstract_building
----@field getCustomType fun(self, any...): any
----@field setCustomType fun(self, any...): any
----@field countHospitalSupplies fun(self, any...): any
----@field getStockpileLinks fun(self, any...): any
----@field detachWorldData fun(self, any...): any ?
----@field canLinkToStockpile fun(self, any...): any used by the give to building ui of stockpile
----@field getUsers fun(self, any...): any
----@field moveBuilding fun(self, any...): any
----@field initOccupancy fun(self, any...): any
----@field setFillTimer fun(self, any...): any
----@field isOnFire fun(self, any...): any
----@field isUnpowered fun(self, any...): any from magma OR machine power
----@field canCollapse fun(self, any...): any
----@field getPassableOccupancy fun(self, any...): any
----@field getImpassableOccupancy fun(self, any...): any
----@field isPowerSource fun(self, any...): any
----@field updateFromWeather fun(self, any...): any
----@field updateTemperature fun(self, any...): any
----@field updateItems fun(self, any...): any
----@field updateTempFromTile fun(self, any...): any
----@field isNormalFurniture fun(self, any...): any
----@field isFarmPlot fun(self, any...): any
----@field getWorkshopProfile fun(self, any...): any
----@field getMachineInfo fun(self, any...): any
----@field getPowerInfo fun(self, any...): any
----@field canConnectToMachine fun(self, any...): any
----@field getType fun(self, any...): any
----@field getSubtype fun(self, any...): any
----@field setSubtype fun(self, any...): any
----@field isActual fun(self, any...): any
----@field isCoffin2 fun(self, any...): any
----@field updateAction fun(self, any...): any
----@field isStatueOrRestraint fun(self, any...): any
----@field setMaterialAmount fun(self, any...): any
----@field setBuildStage fun(self, any...): any
----@field getBuildStage fun(self, any...): any
----@field getMaxBuildStage fun(self, any...): any
----@field getArchitectureValue fun(self, any...): any bridge: material*10 rough, material*30 smooth
----@field isSettingOccupancy fun(self, any...): any
----@field isActual2 fun(self, any...): any
----@field isExtentShaped fun(self, any...): any
----@field updateOccupancy fun(self, any...): any
----@field getPersonalValue fun(self, any...): any
----@field canBeRoom fun(self, any...): any
----@field getConstructionValue fun(self, any...): any bridge: material*10
----@field queueDestroy fun(self, any...): any same as querying and pressing X
----@field isImpassableTile fun(self, any...): any
----@field getFreeCapacity fun(self, any...): any
----@field canStoreItem fun(self, any...): any
----@field getName fun(self, any...): any
----@field getNameColor fun(self, any...): any
----@field initFarmSeasons fun(self, any...): any
----@field getClutterLevel fun(self, any...): any 1..10
----@field needsDesign fun(self, any...): any
----@field canUseForMood fun(self, any...): any
----@field canBeRoomSubset fun(self, any...): any
----@field isCoffin fun(self, any...): any
----@field canUseSpouseRoom fun(self, any...): any
----@field canMakeRoom fun(self, any...): any false if already, or cannot be
----@field isAssigned fun(self, any...): any building is assigned to a unit (if a zone) or is in a zone that is assigned to a unit
----@field isJusticeRestraint fun(self, any...): any
----@field detachRestrainedUnit fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field isImpassableAtCreation fun(self, any...): any the true set looks like things where the unit should stand aside
----@field categorize fun(self, any...): any Add to world.buildings.other.*
----@field uncategorize fun(self, any...): any Remove from world.buildings.other.*
----@field getBaseValue fun(self, any...): any
----@field setTriggerState fun(self, any...): any
----@field needsMagma fun(self, any...): any
----@field removeUses fun(self, any...): any
----@field deconstructItems fun(self, any...): any
----@field cleanupMap fun(self, any...): any
----@field isFireSafe fun(self, any...): any checks contained_items[0] for FIREIMMUNE
----@field fillSidebarMenu fun(self, any...): any
----@field isForbidden fun(self, any...): any
----@field isHidden fun(self, any...): any
----@field isVisibleInUI fun(self, any...): any not hidden, or hide/unhide UI mode
----@field isVisibleInViewport fun(self, any...): any checks coordinates, calls isVisibleInUI and checks window_xy
----@field getDrawExtents fun(self, any...): any
----@field drawBuilding fun(self, any...): any
----@field getSpecificSquad fun(self, any...): any
----@field getSpecificPosition fun(self, any...): any
----@field setSpecificSquadPos fun(self, any...): any
----@field clearSpecificSquad fun(self, any...): any
 df.building = {}
 
 ---@class building_job_claim_suppress: df.struct
@@ -499,6 +414,224 @@ df.building.T_job_claim_suppress = {}
 ---@field activity_id activity_entry
 ---@field event_id activity_event
 df.building.T_activities = {}
+
+function df.building:getCustomType() end
+
+---@param type integer
+function df.building:setCustomType(type) end
+
+---@param supplies any
+function df.building:countHospitalSupplies(supplies) end
+
+function df.building:getStockpileLinks() end
+
+---?
+function df.building:detachWorldData() end
+
+---used by the give to building ui of stockpile
+function df.building:canLinkToStockpile() end
+
+function df.building:getUsers() end
+
+---@param delta_x integer
+---@param delta_y integer
+---@param delta_z integer
+function df.building:moveBuilding(delta_x, delta_y, delta_z) end
+
+---@param abs_x integer
+---@param abs_y integer
+function df.building:initOccupancy(abs_x, abs_y) end
+
+function df.building:setFillTimer() end
+
+function df.building:isOnFire() end
+
+---from magma OR machine power
+function df.building:isUnpowered() end
+
+function df.building:canCollapse() end
+
+function df.building:getPassableOccupancy() end
+
+function df.building:getImpassableOccupancy() end
+
+function df.building:isPowerSource() end
+
+function df.building:updateFromWeather() end
+
+function df.building:updateTemperature() end
+
+function df.building:updateItems() end
+
+---@param temp integer
+function df.building:updateTempFromTile(temp) end
+
+function df.building:isNormalFurniture() end
+
+function df.building:isFarmPlot() end
+
+function df.building:getWorkshopProfile() end
+
+function df.building:getMachineInfo() end
+
+---@param power_info any
+function df.building:getPowerInfo(power_info) end
+
+function df.building:canConnectToMachine() end
+
+function df.building:getType() end
+
+function df.building:getSubtype() end
+
+---@param subtype integer
+function df.building:setSubtype(subtype) end
+
+function df.building:isActual() end
+
+function df.building:isCoffin2() end
+
+function df.building:updateAction() end
+
+function df.building:isStatueOrRestraint() end
+
+function df.building:setMaterialAmount() end
+
+---@param stage integer
+function df.building:setBuildStage(stage) end
+
+function df.building:getBuildStage() end
+
+function df.building:getMaxBuildStage() end
+
+---bridge: material*10 rough, material*30 smooth
+function df.building:getArchitectureValue() end
+
+function df.building:isSettingOccupancy() end
+
+function df.building:isActual2() end
+
+function df.building:isExtentShaped() end
+
+---@param abs_x integer
+---@param abs_y integer
+function df.building:updateOccupancy(abs_x, abs_y) end
+
+function df.building:getPersonalValue() end
+
+function df.building:canBeRoom() end
+
+---bridge: material*10
+function df.building:getConstructionValue() end
+
+---same as querying and pressing X
+function df.building:queueDestroy() end
+
+---@param rel_x integer
+---@param rel_y integer
+function df.building:isImpassableTile(rel_x, rel_y) end
+
+---@param subtract_pending_jobs boolean
+function df.building:getFreeCapacity(subtract_pending_jobs) end
+
+---@param subtract_pending_jobs boolean
+function df.building:canStoreItem(subtract_pending_jobs) end
+
+---@param name any
+function df.building:getName(name) end
+
+function df.building:getNameColor() end
+
+function df.building:initFarmSeasons() end
+
+---1..10
+function df.building:getClutterLevel() end
+
+function df.building:needsDesign() end
+
+function df.building:canUseForMood() end
+
+function df.building:canBeRoomSubset() end
+
+function df.building:isCoffin() end
+
+function df.building:canUseSpouseRoom() end
+
+---false if already, or cannot be
+function df.building:canMakeRoom() end
+
+---building is assigned to a unit (if a zone) or is in a zone that is assigned to a unit
+function df.building:isAssigned() end
+
+function df.building:isJusticeRestraint() end
+
+function df.building:detachRestrainedUnit() end
+
+---@param file any
+function df.building:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.building:read_file(file, loadversion) end
+
+---the true set looks like things where the unit should stand aside
+function df.building:isImpassableAtCreation() end
+
+---Add to world.buildings.other.*
+---@param in_play boolean
+function df.building:categorize(in_play) end
+
+---Remove from world.buildings.other.*
+function df.building:uncategorize() end
+
+function df.building:getBaseValue() end
+
+---@param new_state integer
+function df.building:setTriggerState(new_state) end
+
+function df.building:needsMagma() end
+
+---@param noscatter boolean
+---@param lost boolean
+function df.building:removeUses(noscatter, lost) end
+
+---@param noscatter boolean
+---@param lost boolean
+function df.building:deconstructItems(noscatter, lost) end
+
+function df.building:cleanupMap() end
+
+---checks contained_items[0] for FIREIMMUNE
+---@param fire_type integer
+function df.building:isFireSafe(fire_type) end
+
+function df.building:fillSidebarMenu() end
+
+function df.building:isForbidden() end
+
+function df.building:isHidden() end
+
+---not hidden, or hide/unhide UI mode
+function df.building:isVisibleInUI() end
+
+---checks coordinates, calls isVisibleInUI and checks window_xy
+---@param viewport any
+function df.building:isVisibleInViewport(viewport) end
+
+---@param buffer any
+function df.building:getDrawExtents(buffer) end
+
+---@param unk_item integer
+---@param buffer any
+---@param z_offset integer
+function df.building:drawBuilding(unk_item, buffer, z_offset) end
+
+function df.building:getSpecificSquad() end
+
+function df.building:getSpecificPosition() end
+
+function df.building:setSpecificSquadPos() end
+
+function df.building:clearSpecificSquad() end
 
 ---@class stockpile_links: df.struct
 ---@field give_to_pile building[]
@@ -1062,13 +1195,14 @@ df.building_civzonest.T_squad_room_info = {}
 ---@field construction_stage integer 0 not started, then 1 or 3 max depending on type
 ---@field contained_items building_actual_contained_items
 ---@field design building_design
----@field isDestroyedByItemRemoval fun(self, any...): any
 df.building_actual = {}
 
 ---@class building_actual_contained_items: df.struct
 ---@field item item
 ---@field use_mode integer
 df.building_actual.T_contained_items = {}
+
+function df.building_actual:isDestroyedByItemRemoval() end
 
 ---@class building_design: df.struct
 ---@field builder1 historical_figure

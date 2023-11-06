@@ -247,21 +247,39 @@ df.abstract_building_contents.T_need_more = {}
 ---@field site_id world_site not initialized/saved/loaded, assumed member of base class
 ---@field pos coord2d
 ---@field occupations occupation[]
----@field getType fun(self, any...): any
----@field getDisplayTile fun(self, any...): any on navigation minimap
----@field getName fun(self, any...): any
----@field getContents fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field getReligionID fun(self, any...): any
----@field getEntombed fun(self, any...): any
----@field generate_xml fun(self, any...): any
 df.abstract_building = {}
 
 ---@class abstract_building_inhabitants: df.struct
 ---@field unk_1 integer
 ---@field histfig_id historical_figure
 df.abstract_building.T_inhabitants = {}
+
+function df.abstract_building:getType() end
+
+---on navigation minimap
+---@param tile any
+---@param fg any
+---@param bg any
+---@param bright any
+function df.abstract_building:getDisplayTile(tile, fg, bg, bright) end
+
+function df.abstract_building:getName() end
+
+function df.abstract_building:getContents() end
+
+---@param file any
+function df.abstract_building:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.abstract_building:read_file(file, loadversion) end
+
+function df.abstract_building:getReligionID() end
+
+function df.abstract_building:getEntombed() end
+
+---@param indent integer
+function df.abstract_building:generate_xml(indent) end
 
 ---@class abstract_building_mead_hallst: abstract_building
 ---@field name language_name
@@ -1177,10 +1195,16 @@ df.site_realization_building = {}
 df.site_realization_building.T_unk_4c = {}
 
 ---@class site_realization_building_infost: df.struct
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.site_realization_building_infost = {}
+
+function df.site_realization_building_infost:getType() end
+
+---@param file any
+function df.site_realization_building_infost:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.site_realization_building_infost:read_file(file, loadversion) end
 
 ---@class site_building_item: df.struct
 ---@field race creature_raw
@@ -1525,10 +1549,16 @@ df.creation_zone_pwg_alteration_type = {}
 
 ---@class creation_zone_pwg_alterationst: df.struct
 ---@field unk_0 integer
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.creation_zone_pwg_alterationst = {}
+
+function df.creation_zone_pwg_alterationst:getType() end
+
+---@param file any
+function df.creation_zone_pwg_alterationst:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.creation_zone_pwg_alterationst:read_file(file, loadversion) end
 
 ---@class creation_zone_pwg_alteration_location_deathst: creation_zone_pwg_alterationst
 ---@field unk_1 creation_zone_pwg_alteration_location_deathst_unk_1

@@ -2,8 +2,10 @@
 
 Type definitions for DFHack's Lua API.
 
-> **Warning**
-> These definitions are heavily work-in-progress, they can and will lie to you.
+> **Note**
+> These definitions are work-in-progress, they can lie to you. You can find
+> up to date documentation on DFHack's website:
+> https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html
 > That being said, please raise any problems here or on discord.
 
 ## Status
@@ -11,11 +13,8 @@ Type definitions for DFHack's Lua API.
 Lots of manual work can be done on the non-df-structures definitions
 (like `common.lua`) in order to boost coverage of the core dfhack lua library.
 
-df-structures `generate.rb`:
-- [ ] `<struct-type>`
-  - [ ] `is-union`
-- [ ] `<class-type>`
-  - [ ] `<vmethod>`
+- [ ] `<vmethod>` generation
+- [ ] `<struct-type>` `is-union` parsing
 
 ## Install
 

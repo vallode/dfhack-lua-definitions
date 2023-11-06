@@ -28,17 +28,38 @@ df.art_image_element_type = {}
 
 ---@class art_image_element: df.struct
 ---@field count integer
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field getType fun(self, any...): any
----@field setID fun(self, any...): any
----@field clone fun(self, any...): any
----@field getSymbol fun(self, any...): any
----@field getName1 fun(self, any...): any
----@field getName2 fun(self, any...): any
----@field markDiscovered fun(self, any...): any
----@field getColorAndShape fun(self, any...): any
 df.art_image_element = {}
+
+---@param file any
+function df.art_image_element:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.art_image_element:read_file(file, loadversion) end
+
+function df.art_image_element:getType() end
+
+---@param ID integer
+function df.art_image_element:setID(ID) end
+
+function df.art_image_element:clone() end
+
+---@param sym any
+function df.art_image_element:getSymbol(sym) end
+
+---@param name any
+---@param useThe boolean
+---@param useName boolean
+function df.art_image_element:getName1(name, useThe, useName) end
+
+---@param name any
+function df.art_image_element:getName2(name) end
+
+function df.art_image_element:markDiscovered() end
+
+---@param colors any
+---@param shapes any
+function df.art_image_element:getColorAndShape(colors, shapes) end
 
 ---@class art_image_element_creaturest: art_image_element
 ---@field race creature_raw
@@ -83,12 +104,21 @@ df.art_image_property_type = {}
 
 ---@class art_image_property: df.struct
 ---@field flags any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field getType fun(self, any...): any
----@field clone fun(self, any...): any
----@field getName fun(self, any...): any
 df.art_image_property = {}
+
+---@param file any
+function df.art_image_property:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.art_image_property:read_file(file, loadversion) end
+
+function df.art_image_property:getType() end
+
+function df.art_image_property:clone() end
+
+---@param useName boolean
+function df.art_image_property:getName(useName) end
 
 ---@class _art_image_property_verb: df.enum
 ---@field Withering 0

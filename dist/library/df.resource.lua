@@ -186,10 +186,16 @@ df.resource_allotment_specifier_type = {}
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.resource_allotment_specifier = {}
+
+function df.resource_allotment_specifier:getType() end
+
+---@param file any
+function df.resource_allotment_specifier:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.resource_allotment_specifier:read_file(file, loadversion) end
 
 ---@class resource_allotment_specifier_cropst: resource_allotment_specifier
 ---@field mat_type plant_raw index to world.raws.plant.all

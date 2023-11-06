@@ -29,12 +29,19 @@ df.build_req_choice_type = {}
 ---@class build_req_choicest: df.struct
 ---One choice in the build item selector.
 ---@field distance integer
----@field getType fun(self, any...): any
----@field getName fun(self, any...): any
----@field isCandidate fun(self, any...): any
----@field getUsedCount fun(self, any...): any
----@field getNumCandidates fun(self, any...): any
 df.build_req_choicest = {}
+
+function df.build_req_choicest:getType() end
+
+---@param str any
+function df.build_req_choicest:getName(str) end
+
+---@param item_id integer
+function df.build_req_choicest:isCandidate(item_id) end
+
+function df.build_req_choicest:getUsedCount() end
+
+function df.build_req_choicest:getNumCandidates() end
 
 ---@class build_req_choice_genst: build_req_choicest
 ---@field item_type item_type
@@ -169,20 +176,40 @@ df.interface_category_construction = {}
 ---@field leave_button boolean
 ---@field flag integer
 ---@field filter_str string
----@field print_info fun(self, any...): any ghost, buried, memorialized
----@field text fun(self, any...): any
----@field press fun(self, any...): any
----@field set_button_color fun(self, any...): any
----@field set_leave_button fun(self, any...): any
----@field tile fun(self, any...): any
----@field set_tile_color fun(self, any...): any
----@field prepare_tool_tip fun(self, any...): any
----@field pressable fun(self, any...): any
----@field has_view fun(self, any...): any
----@field is_alphabetized fun(self, any...): any
----@field get_objection_string fun(self, any...): any
----@field get_info_string fun(self, any...): any
 df.interface_button = {}
+
+---ghost, buried, memorialized
+---@param y integer
+---@param limx_min integer
+---@param limx_max integer
+function df.interface_button:print_info(y, limx_min, limx_max) end
+
+---@param str any
+function df.interface_button:text(str) end
+
+function df.interface_button:press() end
+
+---@param selected boolean
+function df.interface_button:set_button_color(selected) end
+
+function df.interface_button:set_leave_button() end
+
+function df.interface_button:tile() end
+
+function df.interface_button:set_tile_color() end
+
+---@param box any
+function df.interface_button:prepare_tool_tip(box) end
+
+function df.interface_button:pressable() end
+
+function df.interface_button:has_view() end
+
+function df.interface_button:is_alphabetized() end
+
+function df.interface_button:get_objection_string() end
+
+function df.interface_button:get_info_string() end
 
 ---@class interface_button_buildingst: interface_button
 ---@field bd building

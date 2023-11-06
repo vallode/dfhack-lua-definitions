@@ -76,6 +76,54 @@ class Field < XmlNode
   end
 end
 
+class FunctionType < Field
+  def initialize(node, parent_type = nil)
+    super
+
+    @return_type = get_return_type
+  end
+
+  def render
+    annotation = ""
+    annotation << "---#{@comment}\n" if @comment
+
+    if get_parameters
+      get_parameters.each do |paramater|
+        annotation << "---@param #{paramater[0]} #{paramater[1]}\n"
+      end
+
+      inline_params = get_parameters.map(&:first).join(", ")
+    end
+
+    annotation << "---@return #{@return_type}\n" if @return_type
+    annotation << "function df.#{@parent_type + ':' if @parent_type}#{@name}(#{inline_params}) end\n\n"
+  end
+
+  def get_return_type
+    return_type = TYPE_MAP.fetch(node['ret-type'], node['ret-type'])
+
+    if not return_type
+      return_type_child = @node.at_css('ret-type')
+
+      return_type = return_type_child.attributes['name'] if return_type_child
+    end
+  end
+
+  def get_parameters
+    parameters = [] 
+
+    return nil if not @node.children
+
+    @node.children.each do |node|
+      next if not node.attributes['name']
+
+      parameters.push([node.attributes['name'], TYPE_MAP.fetch(node.name, 'any')])
+    end
+
+    parameters
+  end
+end
+
 class EnumType < XmlNode
   attr_reader :name, :type
 
@@ -199,16 +247,18 @@ class StructType < XmlNode
     
     inline_types = []
     children.each do |child|
-      next if (!child.attributes['name'] and not child.name == 'virtual-methods') or child.name == 'code-helper'
-
       if child.name == 'virtual-methods'
         child.css('> vmethod').each do |method|
           next if not method.attributes['name']
-          annotation << Field.new(method, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
+
+          inline_types.push(method)
         end
 
         next
       end
+
+      next if !child.attributes['name'] or child.name == 'code-helper'
+
       field = Field.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}")
 
       inline_types.push(child) if field.is_inline
@@ -221,9 +271,11 @@ class StructType < XmlNode
     if not inline_types.empty?
       inline_types.each do |child|
         if ["enum", "bitfield"].include?(child.name)
-          annotation << EnumType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render()
+          annotation << EnumType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
+        elsif child.name == "vmethod"
+          annotation << FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
         else
-          annotation << StructType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render()
+          annotation << StructType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
         end
       end
     end

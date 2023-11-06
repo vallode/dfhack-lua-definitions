@@ -23,13 +23,17 @@
 ---@field build_labors building_def_build_labors
 ---@field labor_description string
 ---@field build_stages integer
----@field parseRaws fun(self, any...): any
----@field categorize fun(self, any...): any add to world.raws.buildings.whatever
----@field finalize fun(self, any...): any
 df.building_def = {}
 
 ---@class building_def_build_labors: df.struct
 df.building_def.T_build_labors = {}
+
+function df.building_def:parseRaws() end
+
+---add to world.raws.buildings.whatever
+function df.building_def:categorize() end
+
+function df.building_def:finalize() end
 
 ---@class building_def_item: df.struct
 ---@field item_type item_type

@@ -1704,9 +1704,6 @@ df.pronoun_type.attrs = {}
 ---@field cached_glowtile_type integer
 ---@field pool_index any
 ---@field mtx any
----@field getCreatureTile fun(self, any...): any
----@field getCorpseTile fun(self, any...): any
----@field getGlowTile fun(self, any...): any
 df.unit = {}
 
 ---@class unit_coord: df.struct
@@ -2042,6 +2039,12 @@ df.unit.T_enemy = {}
 ---@field unk_6 integer[]
 ---@field visitor_info any[]
 df.unit.T_enemy.T_unk_v40_sub3 = {}
+
+function df.unit:getCreatureTile() end
+
+function df.unit:getCorpseTile() end
+
+function df.unit:getGlowTile() end
 
 ---@class _witness_report_type: df.enum
 ---@field None -1

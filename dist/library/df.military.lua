@@ -415,23 +415,53 @@ df.squad_order_cannot_reason = {}
 ---@field year_tick integer
 ---@field unk_v40_3 integer
 ---@field unk_1 integer
----@field clone fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field getType fun(self, any...): any
----@field isPatrol fun(self, any...): any
----@field offsetPosition fun(self, any...): any
----@field process fun(self, any...): any
----@field reasonCannot fun(self, any...): any
----@field decUniformLock fun(self, any...): any
----@field isFulfilled fun(self, any...): any true if all killed
----@field getTargetUnits fun(self, any...): any
----@field getUniformType fun(self, any...): any
----@field getDescription fun(self, any...): any
----@field isInactive fun(self, any...): any always false
----@field isCombat fun(self, any...): any not train
----@field isEqual fun(self, any...): any
 df.squad_order = {}
+
+function df.squad_order:clone() end
+
+---@param file any
+function df.squad_order:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.squad_order:read_file(file, loadversion) end
+
+function df.squad_order:getType() end
+
+function df.squad_order:isPatrol() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+function df.squad_order:offsetPosition(x, y, z) end
+
+---@param soldier any
+function df.squad_order:process(soldier) end
+
+---@param soldier any
+function df.squad_order:reasonCannot(soldier) end
+
+---@param soldier any
+function df.squad_order:decUniformLock(soldier) end
+
+---true if all killed
+function df.squad_order:isFulfilled() end
+
+function df.squad_order:getTargetUnits() end
+
+---@param soldier any
+function df.squad_order:getUniformType(soldier) end
+
+function df.squad_order:getDescription() end
+
+---always false
+function df.squad_order:isInactive() end
+
+---not train
+function df.squad_order:isCombat() end
+
+---@param other any
+function df.squad_order:isEqual(other) end
 
 ---@class squad_order_movest: squad_order
 ---@field pos coord

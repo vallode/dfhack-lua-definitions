@@ -121,15 +121,6 @@ df.interaction_effect_location_hint = {}
 ---@field flags interaction_effect_flags
 ---@field interaction_id interaction
 ---@field arena_name string IE_ARENA_NAME
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field activateOnUnit fun(self, any...): any
----@field activateOnItem fun(self, any...): any
----@field parseRaws fun(self, any...): any
----@field finalize fun(self, any...): any
----@field applySyndromes fun(self, any...): any
----@field hasSyndrome fun(self, any...): any
 df.interaction_effect = {}
 
 ---@class _interaction_effect_flags: df.bitfield
@@ -140,6 +131,29 @@ df.interaction_effect.T_flags = {}
 ---@class interaction_effect_flags
 ---@field [0] boolean
 ---@field IMMEDIATE boolean
+
+function df.interaction_effect:getType() end
+
+---@param file any
+function df.interaction_effect:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.interaction_effect:read_file(file, loadversion) end
+
+---@param target any
+function df.interaction_effect:activateOnUnit(target) end
+
+---@param target any
+function df.interaction_effect:activateOnItem(target) end
+
+function df.interaction_effect:parseRaws() end
+
+function df.interaction_effect:finalize() end
+
+function df.interaction_effect:applySyndromes() end
+
+function df.interaction_effect:hasSyndrome() end
 
 ---@class interaction_effect_animatest: interaction_effect
 ---@field unk_1 integer
@@ -277,11 +291,18 @@ df.interaction_source_type = {}
 ---@field trigger_string_second string IS_TRIGGER_STRING_SECOND
 ---@field trigger_string_third string IS_TRIGGER_STRING_THIRD
 ---@field trigger_string string IS_TRIGGER_STRING
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field parseRaws fun(self, any...): any
 df.interaction_source = {}
+
+function df.interaction_source:getType() end
+
+---@param file any
+function df.interaction_source:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.interaction_source:read_file(file, loadversion) end
+
+function df.interaction_source:parseRaws() end
 
 ---@class interaction_source_regionst: interaction_source
 ---@field region_flags interaction_source_regionst_region_flags
@@ -505,11 +526,18 @@ df.interaction_target_location_type = {}
 ---@field location interaction_target_location_type IT_LOCATION
 ---@field reference_name string IT_LOCATION:RANDOM_NEARBY_LOCATION
 ---@field reference_distance integer IT_LOCATION:RANDOM_NEARBY_LOCATION
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field parseRaws fun(self, any...): any
 df.interaction_target = {}
+
+function df.interaction_target:getType() end
+
+---@param file any
+function df.interaction_target:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.interaction_target:read_file(file, loadversion) end
+
+function df.interaction_target:parseRaws() end
 
 ---@class interaction_target_info: df.struct
 ---@field affected_creature_str string[][]

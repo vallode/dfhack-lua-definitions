@@ -35,10 +35,16 @@ df.dipscript_popup.T_flags = {}
 
 ---@class script_stepst: df.struct
 ---@field next_step_idx integer
----@field setNextStep fun(self, any...): any
----@field execute fun(self, any...): any
----@field skip fun(self, any...): any
 df.script_stepst = {}
+
+---@param idx integer
+function df.script_stepst:setNextStep(idx) end
+
+---@param context any
+function df.script_stepst:execute(context) end
+
+---@param context any
+function df.script_stepst:skip(context) end
 
 ---@class script_step_setvarst: script_stepst
 ---@field dest_type string
@@ -101,8 +107,9 @@ df.script_step_eventst = {}
 
 ---@class script_varst: df.struct
 ---@field name string
----@field instantiate fun(self, any...): any
 df.script_varst = {}
+
+function df.script_varst:instantiate() end
 
 ---@class script_var_unitst: script_varst
 df.script_var_unitst = {}
@@ -112,14 +119,30 @@ df.script_var_longst = {}
 
 ---@class active_script_varst: df.struct
 ---@field name string
----@field setColor fun(self, any...): any
----@field formatString fun(self, any...): any
----@field getValue fun(self, any...): any
----@field setValue fun(self, any...): any
----@field removeUnit fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.active_script_varst = {}
+
+function df.active_script_varst:setColor() end
+
+---@param output any
+---@param format any
+function df.active_script_varst:formatString(output, format) end
+
+---@param int_value any
+---@param ref_value any
+function df.active_script_varst:getValue(int_value, ref_value) end
+
+---@param var any
+function df.active_script_varst:setValue(var) end
+
+---@param ref_value any
+function df.active_script_varst:removeUnit(ref_value) end
+
+---@param file any
+function df.active_script_varst:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.active_script_varst:read_file(file, loadversion) end
 
 ---@class active_script_var_unitst: active_script_varst
 ---@field unit unit
@@ -541,26 +564,6 @@ df.activity_event_participants.T_free_units = {}
 ---@field flags activity_event_flags
 ---@field unk_v42_1 activity_event_unk_v42_1
 ---@field unk_v42_2 activity_event_unk_v42_2
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field isEmpty fun(self, any...): any returns true if hist_figure_ids empty or if various subclass fields are uninitialized
----@field getParticipantInfo fun(self, any...): any
----@field dismiss fun(self, any...): any
----@field move fun(self, any...): any
----@field removeParticipant fun(self, any...): any
----@field process fun(self, any...): any
----@field checkDrillInvalid fun(self, any...): any
----@field decUniformLock fun(self, any...): any
----@field getSquadEventType fun(self, any...): any
----@field setDemoSkill fun(self, any...): any
----@field setSkillDemoTimers fun(self, any...): any
----@field adjustOrganizeCounter fun(self, any...): any
----@field getOrganizer fun(self, any...): any or perhaps somebody else - only works for combat_training and skill_demonstration
----@field getBuilding fun(self, any...): any returns pointer to building_id
----@field isSparring fun(self, any...): any
----@field getUniformType fun(self, any...): any
----@field getName fun(self, any...): any
 df.activity_event = {}
 
 ---@class _activity_event_flags: df.bitfield
@@ -588,6 +591,69 @@ df.activity_event.T_unk_v42_1 = {}
 ---@field item_id item is unit ID for writing jobs and reading
 ---@field unk_3 integer
 df.activity_event.T_unk_v42_2 = {}
+
+function df.activity_event:getType() end
+
+---@param file any
+function df.activity_event:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.activity_event:read_file(file, loadversion) end
+
+---returns true if hist_figure_ids empty or if various subclass fields are uninitialized
+function df.activity_event:isEmpty() end
+
+function df.activity_event:getParticipantInfo() end
+
+---@param children_too boolean
+function df.activity_event:dismiss(children_too) end
+
+---@param dx integer
+---@param dy integer
+---@param dz integer
+function df.activity_event:move(dx, dy, dz) end
+
+---@param histfig integer
+---@param unit integer
+function df.activity_event:removeParticipant(histfig, unit) end
+
+---@param unit any
+function df.activity_event:process(unit) end
+
+---@param unit any
+function df.activity_event:checkDrillInvalid(unit) end
+
+function df.activity_event:decUniformLock() end
+
+function df.activity_event:getSquadEventType() end
+
+---@param skill any
+function df.activity_event:setDemoSkill(skill) end
+
+---@param wait_countdown integer
+---@param train_rounds integer
+---@param train_countdown integer
+function df.activity_event:setSkillDemoTimers(wait_countdown, train_rounds, train_countdown) end
+
+---@param amount integer
+function df.activity_event:adjustOrganizeCounter(amount) end
+
+---or perhaps somebody else - only works for combat_training and skill_demonstration
+---@param hist_figure_id any
+---@param unit_id any
+function df.activity_event:getOrganizer(hist_figure_id, unit_id) end
+
+---returns pointer to building_id
+function df.activity_event:getBuilding() end
+
+function df.activity_event:isSparring() end
+
+function df.activity_event:getUniformType() end
+
+---@param unit_id integer
+---@param str any
+function df.activity_event:getName(unit_id, str) end
 
 ---@class activity_event_training_sessionst: activity_event
 ---@field participants activity_event_participants
@@ -1257,14 +1323,19 @@ df.activity_event_performancest.T_participant_actions = {}
 ---@field unk_3 integer
 ---@field unk_4 performance_play_orderst_unk_4
 ---@field unk_5 integer
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.performance_play_orderst = {}
 
 ---@class performance_play_orderst_unk_4: df.struct
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
 df.performance_play_orderst.T_unk_4 = {}
+
+---@param file any
+function df.performance_play_orderst:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.performance_play_orderst:read_file(file, loadversion) end
 
 ---@class activity_event_researchst: activity_event
 ---@field participants activity_event_participants

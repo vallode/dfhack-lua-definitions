@@ -79,16 +79,32 @@ df.dye_info = {}
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 integer
----@field getImage fun(self, any...): any
----@field getColorAndShape fun(self, any...): any
----@field clone fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field getType fun(self, any...): any
----@field isDecoration fun(self, any...): any
----@field getDyeValue fun(self, any...): any
----@field setShape fun(self, any...): any
 df.itemimprovement = {}
+
+function df.itemimprovement:getImage() end
+
+---@param colors any
+---@param shapes any
+function df.itemimprovement:getColorAndShape(colors, shapes) end
+
+function df.itemimprovement:clone() end
+
+---@param file any
+function df.itemimprovement:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.itemimprovement:read_file(file, loadversion) end
+
+function df.itemimprovement:getType() end
+
+function df.itemimprovement:isDecoration() end
+
+---@param caravan any
+function df.itemimprovement:getDyeValue(caravan) end
+
+---@param shape integer
+function df.itemimprovement:setShape(shape) end
 
 ---@class itemimprovement_art_imagest: itemimprovement
 ---@field image art_image_ref

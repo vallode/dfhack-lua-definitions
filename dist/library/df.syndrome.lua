@@ -444,19 +444,6 @@ df.creature_interaction_effect_target.T_mode = {}
 ---@field moon_phase_min integer
 ---@field moon_phase_max integer
 ---@field counter_trigger creature_interaction_effect_counter_trigger
----@field getType fun(self, any...): any
----@field clone fun(self, any...): any
----@field doAction fun(self, any...): any
----@field isUntargeted fun(self, any...): any
----@field getTargetModes fun(self, any...): any
----@field getTargetKeys fun(self, any...): any
----@field getTargetTissues fun(self, any...): any
----@field checkAddFlag1 fun(self, any...): any
----@field setBodyMatInteractionName fun(self, any...): any
----@field parseSynAcquireType fun(self, any...): any
----@field setBodyTransform fun(self, any...): any
----@field addPeriodic fun(self, any...): any
----@field addCounterTrigger fun(self, any...): any
 df.creature_interaction_effect = {}
 
 ---@class creature_interaction_effect_counter_trigger: df.struct
@@ -468,6 +455,38 @@ df.creature_interaction_effect.T_counter_trigger = {}
 
 ---@class creature_interaction_effect.T_counter_trigger_counter: df.struct
 df.creature_interaction_effect.T_counter_trigger.T_counter = {}
+
+function df.creature_interaction_effect:getType() end
+
+function df.creature_interaction_effect:clone() end
+
+---@param intensity integer
+---@param bp_index integer
+---@param bp_layer integer
+function df.creature_interaction_effect:doAction(intensity, bp_index, bp_layer) end
+
+function df.creature_interaction_effect:isUntargeted() end
+
+function df.creature_interaction_effect:getTargetModes() end
+
+function df.creature_interaction_effect:getTargetKeys() end
+
+function df.creature_interaction_effect:getTargetTissues() end
+
+function df.creature_interaction_effect:checkAddFlag1() end
+
+function df.creature_interaction_effect:setBodyMatInteractionName() end
+
+---@param type any
+function df.creature_interaction_effect:parseSynAcquireType(type) end
+
+---@param race any
+---@param caste any
+function df.creature_interaction_effect:setBodyTransform(race, caste) end
+
+function df.creature_interaction_effect:addPeriodic() end
+
+function df.creature_interaction_effect:addCounterTrigger() end
 
 ---@class creature_interaction_effect_painst: creature_interaction_effect
 ---@field sev integer

@@ -56,14 +56,23 @@ df.interface_push_types = {}
 ---@field AT_FRONT boolean
 
 ---@class abstract_interfacest: df.struct
----@field get_rect fun(self, any...): any
----@field feed fun(self, any...): any
----@field logic fun(self, any...): any
----@field render fun(self, any...): any
----@field arrange fun(self, any...): any
----@field remove_child fun(self, any...): any
----@field clear fun(self, any...): any
 df.abstract_interfacest = {}
+
+function df.abstract_interfacest:get_rect() end
+
+---@param events any
+function df.abstract_interfacest:feed(events) end
+
+function df.abstract_interfacest:logic() end
+
+function df.abstract_interfacest:render() end
+
+function df.abstract_interfacest:arrange() end
+
+---@param w any
+function df.abstract_interfacest:remove_child(w) end
+
+function df.abstract_interfacest:clear() end
 
 ---@class viewscreen: abstract_interfacest
 ---@field child viewscreen
@@ -71,9 +80,13 @@ df.abstract_interfacest = {}
 ---@field breakdown_level interface_breakdown_types
 ---@field option_key_pressed integer
 ---@field widgets widget_container
----@field resize fun(self, any...): any
----@field set_port_flags fun(self, any...): any
 df.viewscreen = {}
+
+---@param w integer
+---@param h integer
+function df.viewscreen:resize(w, h) end
+
+function df.viewscreen:set_port_flags() end
 
 ---@class interfacest: df.struct
 ---@field original_fps integer
@@ -121,14 +134,6 @@ df.extentst = {}
 ---@field tooltip_type widget_tooltip_type
 ---@field displaying_tooltip boolean
 ---@field search_string string
----@field get_rect fun(self, any...): any
----@field feed fun(self, any...): any
----@field logic fun(self, any...): any
----@field render fun(self, any...): any
----@field arrange fun(self, any...): any
----@field remove_child fun(self, any...): any
----@field clear fun(self, any...): any
----@field is_container fun(self, any...): any
 df.widget = {}
 
 ---@class _widget_visibility_flags: df.bitfield
@@ -164,6 +169,24 @@ df.widget.T_tooltip_type = {}
 ---@field ABOVE boolean
 ---@field [3] boolean
 ---@field BELOW boolean
+
+function df.widget:get_rect() end
+
+---@param events any
+function df.widget:feed(events) end
+
+function df.widget:logic() end
+
+function df.widget:render() end
+
+function df.widget:arrange() end
+
+---@param w any
+function df.widget:remove_child(w) end
+
+function df.widget:clear() end
+
+function df.widget:is_container() end
 
 ---@class widget_text: widget
 ---@field str string
@@ -1046,20 +1069,35 @@ df.viewscreen_initial_prepst = {}
 
 ---@class world_gen_param_basest: df.struct
 ---@field text string
----@field get_text fun(self, any...): any
----@field has_string_entry fun(self, any...): any
----@field nullifiable fun(self, any...): any
----@field togglealble fun(self, any...): any
----@field has_max_min fun(self, any...): any
----@field has_increase_decrease fun(self, any...): any
----@field get_min fun(self, any...): any
----@field get_max fun(self, any...): any
----@field set_value fun(self, any...): any
----@field nullify fun(self, any...): any
----@field toggle fun(self, any...): any
----@field decrease fun(self, any...): any
----@field increase fun(self, any...): any
 df.world_gen_param_basest = {}
+
+---@param num any
+function df.world_gen_param_basest:get_text(num) end
+
+function df.world_gen_param_basest:has_string_entry() end
+
+function df.world_gen_param_basest:nullifiable() end
+
+function df.world_gen_param_basest:togglealble() end
+
+function df.world_gen_param_basest:has_max_min() end
+
+function df.world_gen_param_basest:has_increase_decrease() end
+
+function df.world_gen_param_basest:get_min() end
+
+function df.world_gen_param_basest:get_max() end
+
+---@param value_str any
+function df.world_gen_param_basest:set_value(value_str) end
+
+function df.world_gen_param_basest:nullify() end
+
+function df.world_gen_param_basest:toggle() end
+
+function df.world_gen_param_basest:decrease() end
+
+function df.world_gen_param_basest:increase() end
 
 ---@class world_gen_param_seedst: world_gen_param_basest
 ---@field val_ptr string

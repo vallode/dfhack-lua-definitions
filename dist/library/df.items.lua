@@ -420,232 +420,616 @@ df.slab_engraving_type = {}
 ---@field fixed_temp integer
 ---@field weight integer if flags.weight_computed
 ---@field weight_fraction integer 1e-6
----@field getType fun(self, any...): any
----@field getSubtype fun(self, any...): any
----@field getMaterial fun(self, any...): any
----@field getMaterialIndex fun(self, any...): any
----@field setSubtype fun(self, any...): any
----@field setMaterial fun(self, any...): any
----@field setMaterialIndex fun(self, any...): any
----@field getActualMaterial fun(self, any...): any returns an actual material type, never a race
----@field getActualMaterialIndex fun(self, any...): any returns an actual material index, never a caste
----@field getRace fun(self, any...): any only if the object is made of a "specific creature mat"
----@field getCaste fun(self, any...): any only if the object is made of a "specific creature mat"
----@field getPlantID fun(self, any...): any only if the object is made of a plant material
----@field getGrowthPrint fun(self, any...): any
----@field setGrowthPrint fun(self, any...): any
----@field getDimension fun(self, any...): any
----@field getTotalDimension fun(self, any...): any
----@field setDimension fun(self, any...): any
----@field subtractDimension fun(self, any...): any
----@field isFoodStorage fun(self, any...): any
----@field isTrackCart fun(self, any...): any
----@field isWheelbarrow fun(self, any...): any
----@field getVehicleID fun(self, any...): any
----@field isAmmo fun(self, any...): any
----@field getStockpile fun(self, any...): any
----@field containsPlaster fun(self, any...): any
----@field isPlaster fun(self, any...): any
----@field getColorOverride fun(self, any...): any
----@field getHistoryInfo fun(self, any...): any
----@field hasToolUse fun(self, any...): any
----@field hasInvertedTile fun(self, any...): any
----@field becomePaste fun(self, any...): any
----@field becomePressed fun(self, any...): any
----@field calculateWeight fun(self, any...): any
----@field isSharpStone fun(self, any...): any
----@field isCrystalGlassable fun(self, any...): any
----@field isMetalOre fun(self, any...): any
----@field clearLastTempUpdateTS fun(self, any...): any
----@field listNotableKills fun(self, any...): any
----@field getSpecHeat fun(self, any...): any
----@field getIgnitePoint fun(self, any...): any
----@field getHeatdamPoint fun(self, any...): any
----@field getColddamPoint fun(self, any...): any
----@field getBoilingPoint fun(self, any...): any
----@field getMeltingPoint fun(self, any...): any
----@field getFixedTemp fun(self, any...): any
----@field getSolidDensity fun(self, any...): any
----@field materialRots fun(self, any...): any
----@field getTemperature fun(self, any...): any
----@field adjustTemperature fun(self, any...): any
----@field extinguish fun(self, any...): any
----@field getGloveHandedness fun(self, any...): any
----@field setGloveHandedness fun(self, any...): any
----@field isSpike fun(self, any...): any
----@field isScrew fun(self, any...): any
----@field isBuildMat fun(self, any...): any
----@field isTemperatureSafe fun(self, any...): any
----@field setRandSubtype fun(self, any...): any
----@field getWeaponSize fun(self, any...): any weapon racks have capacity 5
----@field getWear fun(self, any...): any
----@field setWear fun(self, any...): any
----@field getMaker fun(self, any...): any
----@field setMaker fun(self, any...): any
----@field getCorpseInfo fun(self, any...): any
----@field getBodyInfo fun(self, any...): any
----@field getGloveFlags fun(self, any...): any
----@field getItemShapeDesc fun(self, any...): any a statue/figurine of "string goes here"
----@field isMatchingAmmoItem fun(self, any...): any
----@field getImageRef fun(self, any...): any
----@field getImageCivSite fun(self, any...): any
----@field setImageCivSite fun(self, any...): any
----@field setSeedsPlantSkillLevel fun(self, any...): any
----@field getCorpseSize fun(self, any...): any size_info.size_cur
----@field ageItem fun(self, any...): any
----@field getCritterAirdrownTimer fun(self, any...): any
----@field setCritterAirdrownTimer fun(self, any...): any
----@field incrementCritterAirdrownTimer fun(self, any...): any
----@field getRotTimer fun(self, any...): any
----@field setRotTimer fun(self, any...): any
----@field incrementRotTimer fun(self, any...): any
----@field isBogeymanCorpse fun(self, any...): any
----@field testMaterialFlag fun(self, any...): any return true if item satisfies flag
----@field getAmmoType fun(self, any...): any
----@field isLiquidPowder fun(self, any...): any
----@field isLiquid fun(self, any...): any
----@field isLiveAnimal fun(self, any...): any vermin, pet, or critter
----@field getVolume fun(self, any...): any for putting in containers, building clutter
----@field addImprovementFromJob fun(self, any...): any
----@field isWeapon fun(self, any...): any
----@field isArmorNotClothing fun(self, any...): any
----@field isMillable fun(self, any...): any
----@field isProcessableThread fun(self, any...): any
----@field isProcessableVial fun(self, any...): any
----@field isProcessableBarrel fun(self, any...): any
----@field isEdiblePlant fun(self, any...): any
----@field isEdibleRaw fun(self, any...): any
----@field isEdibleCarnivore fun(self, any...): any In item_foodst, requires MEAT or FISH ingredient.
----@field isEdibleBonecarn fun(self, any...): any In item_foodst, requires CORPSEPIECE, MEAT or FISH ingredient.
----@field moveToGround fun(self, any...): any
----@field categorize fun(self, any...): any Add item to world.items.other.*
----@field uncategorize fun(self, any...): any Remove item from world.items.other.*
----@field isFurniture fun(self, any...): any
----@field isPressed fun(self, any...): any
----@field isAnimal fun(self, any...): any stored in Animal stockpiles
----@field assignQuality fun(self, any...): any
----@field assignQuality2 fun(self, any...): any
----@field notifyCreatedMasterwork fun(self, any...): any
----@field notifyLostMasterwork fun(self, any...): any
----@field addMagic fun(self, any...): any
----@field magic_unk1 fun(self, any...): any
----@field magic_unk2 fun(self, any...): any
----@field magic_unk3 fun(self, any...): any
----@field magic_unk4 fun(self, any...): any
----@field setDisplayColor fun(self, any...): any
----@field isDamagedByHeat fun(self, any...): any
----@field needTwoHandedWield fun(self, any...): any
----@field splitStack fun(self, any...): any
----@field isTameableVermin fun(self, any...): any
----@field isDye fun(self, any...): any
----@field isMilkable fun(self, any...): any
----@field isSandBearing fun(self, any...): any
----@field isLyeBearing fun(self, any...): any
----@field isAnimalProduct fun(self, any...): any
----@field getStorageInfo fun(self, any...): any
----@field addWear fun(self, any...): any
----@field incWearTimer fun(self, any...): any
----@field checkWearDestroy fun(self, any...): any
----@field addContaminant fun(self, any...): any
----@field removeContaminantByIdx fun(self, any...): any
----@field removeContaminant fun(self, any...): any
----@field tradeUnitContaminants fun(self, any...): any
----@field tradeItemContaminants fun(self, any...): any calls item.tIC2(this)
----@field tradeItemContaminants2 fun(self, any...): any
----@field contaminateWound fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field getWeaponAttacks fun(self, any...): any
----@field isNotHeld fun(self, any...): any
----@field isSplittable fun(self, any...): any if false, you throw the entire stack at once
----@field addDefaultThreadImprovement fun(self, any...): any
----@field addThreadImprovement fun(self, any...): any
----@field propagateUnitRefs fun(self, any...): any
----@field isSand fun(self, any...): any
----@field getStackSize fun(self, any...): any
----@field addStackSize fun(self, any...): any
----@field setStackSize fun(self, any...): any
----@field isAmmoClass fun(self, any...): any
----@field isAutoClean fun(self, any...): any delete on_ground every season when in ANY_AUTO_CLEAN; default true
----@field setTemperatureFromMapTile fun(self, any...): any
----@field setTemperatureFromMap fun(self, any...): any
----@field setTemperature fun(self, any...): any
----@field updateTempFromMap fun(self, any...): any
----@field updateTemperature fun(self, any...): any
----@field updateFromWeather fun(self, any...): any
----@field updateContaminants fun(self, any...): any
----@field checkTemperatureDamage fun(self, any...): any
----@field checkHeatColdDamage fun(self, any...): any
----@field checkMeltBoil fun(self, any...): any
----@field getMeleeSkill fun(self, any...): any
----@field getRangedSkill fun(self, any...): any
----@field setQuality fun(self, any...): any
----@field getQuality fun(self, any...): any
----@field getOverallQuality fun(self, any...): any
----@field getImprovementQuality fun(self, any...): any
----@field getProjectileSize fun(self, any...): any
----@field isImprovable fun(self, any...): any
----@field setSharpness fun(self, any...): any
----@field getSharpness fun(self, any...): any
----@field isTotemable fun(self, any...): any
----@field isDyeable fun(self, any...): any
----@field isNotDyed fun(self, any...): any
----@field isDyed fun(self, any...): any
----@field canSewImage fun(self, any...): any
----@field canHaveImageSewnOnto fun(self, any...): any
----@field isProcessableVialAtStill fun(self, any...): any
----@field isSimilarToItem fun(self, any...): any
----@field getBlockChance fun(self, any...): any
----@field getParryChance fun(self, any...): any
----@field getMakerRace fun(self, any...): any
----@field setMakerRace fun(self, any...): any
----@field getEffectiveArmorLevel fun(self, any...): any adds 1 if it has [METAL_ARMOR_LEVELS] and it's made of an inorganic mat
----@field isConstructed fun(self, any...): any
----@field isItemOrganicCloth fun(self, any...): any
----@field isMadeOfOrganicCloth fun(self, any...): any
----@field coverWithContaminant fun(self, any...): any also stops fire; used for rain
----@field hasSpecificImprovements fun(self, any...): any
----@field hasImprovements fun(self, any...): any
----@field isImproved fun(self, any...): any
----@field getMagic fun(self, any...): any
----@field getItemDescription fun(self, any...): any
----@field getItemDescriptionPrefix fun(self, any...): any "a " or "the "
----@field getItemBasicName fun(self, any...): any usually just "item"
----@field getImprovementsValue fun(self, any...): any
----@field isExtractBearingFish fun(self, any...): any
----@field isExtractBearingVermin fun(self, any...): any
----@field getMaterialSizeForMelting fun(self, any...): any for armor, clothing, weapons, and tools, returns material size from the corresponding itemdef
----@field getBaseWeight fun(self, any...): any
----@field getWeightShiftBits fun(self, any...): any
----@field isCollected fun(self, any...): any
----@field isEdibleVermin fun(self, any...): any
----@field drawSelf fun(self, any...): any
----@field isRangedWeapon fun(self, any...): any
----@field isClothing fun(self, any...): any
----@field isWet fun(self, any...): any
----@field getCurrencyValue fun(self, any...): any that is, value of coins
----@field isAssignedToStockpile fun(self, any...): any
----@field isAssignedToThisStockpile fun(self, any...): any
----@field detachStockpileAssignment fun(self, any...): any also removes links from the pile
----@field removeStockpileAssignment fun(self, any...): any just wipes the fields
----@field getStockpile2 fun(self, any...): any
----@field randomizeThreadImprovement fun(self, any...): any this updates the quality of a thread improvement already added to the item (or adjusts the quality of a thread item) based on the skill of the dyer
----@field addImprovement fun(self, any...): any
----@field copyImprovementsFrom fun(self, any...): any
----@field getThreadDyeValue fun(self, any...): any
----@field getColorAndShape fun(self, any...): any
----@field isCritter fun(self, any...): any
----@field isArmor fun(self, any...): any for armor user skill encumberance
----@field calcUniformScore fun(self, any...): any
----@field calcBaseUniformScore fun(self, any...): any
----@field getSlabEngravingType fun(self, any...): any
----@field getAbsorption fun(self, any...): any
----@field isGemMaterial fun(self, any...): any
----@field setGemShape fun(self, any...): any
----@field hasGemShape fun(self, any...): any
----@field getGemShape fun(self, any...): any
----@field hasWriting fun(self, any...): any
 df.item = {}
+
+function df.item:getType() end
+
+function df.item:getSubtype() end
+
+function df.item:getMaterial() end
+
+function df.item:getMaterialIndex() end
+
+function df.item:setSubtype() end
+
+function df.item:setMaterial() end
+
+function df.item:setMaterialIndex() end
+
+---returns an actual material type, never a race
+function df.item:getActualMaterial() end
+
+---returns an actual material index, never a caste
+function df.item:getActualMaterialIndex() end
+
+---only if the object is made of a "specific creature mat"
+function df.item:getRace() end
+
+---only if the object is made of a "specific creature mat"
+function df.item:getCaste() end
+
+---only if the object is made of a plant material
+function df.item:getPlantID() end
+
+function df.item:getGrowthPrint() end
+
+---@param print integer
+function df.item:setGrowthPrint(print) end
+
+function df.item:getDimension() end
+
+function df.item:getTotalDimension() end
+
+---@param amount integer
+function df.item:setDimension(amount) end
+
+---@param amount integer
+function df.item:subtractDimension(amount) end
+
+function df.item:isFoodStorage() end
+
+function df.item:isTrackCart() end
+
+function df.item:isWheelbarrow() end
+
+function df.item:getVehicleID() end
+
+function df.item:isAmmo() end
+
+function df.item:getStockpile() end
+
+function df.item:containsPlaster() end
+
+function df.item:isPlaster() end
+
+function df.item:getColorOverride() end
+
+function df.item:getHistoryInfo() end
+
+---@param use any
+function df.item:hasToolUse(use) end
+
+function df.item:hasInvertedTile() end
+
+function df.item:becomePaste() end
+
+function df.item:becomePressed() end
+
+function df.item:calculateWeight() end
+
+function df.item:isSharpStone() end
+
+function df.item:isCrystalGlassable() end
+
+---@param matIndex integer
+function df.item:isMetalOre(matIndex) end
+
+function df.item:clearLastTempUpdateTS() end
+
+---@param string_ptr any
+function df.item:listNotableKills(string_ptr) end
+
+function df.item:getSpecHeat() end
+
+function df.item:getIgnitePoint() end
+
+function df.item:getHeatdamPoint() end
+
+function df.item:getColddamPoint() end
+
+function df.item:getBoilingPoint() end
+
+function df.item:getMeltingPoint() end
+
+function df.item:getFixedTemp() end
+
+function df.item:getSolidDensity() end
+
+function df.item:materialRots() end
+
+function df.item:getTemperature() end
+
+---@param target integer
+---@param unk integer
+function df.item:adjustTemperature(target, unk) end
+
+function df.item:extinguish() end
+
+function df.item:getGloveHandedness() end
+
+function df.item:setGloveHandedness() end
+
+function df.item:isSpike() end
+
+function df.item:isScrew() end
+
+function df.item:isBuildMat() end
+
+function df.item:isTemperatureSafe() end
+
+---@param entity_id integer
+function df.item:setRandSubtype(entity_id) end
+
+---weapon racks have capacity 5
+function df.item:getWeaponSize() end
+
+function df.item:getWear() end
+
+function df.item:setWear() end
+
+function df.item:getMaker() end
+
+---@param unit_id integer
+function df.item:setMaker(unit_id) end
+
+---@param prace any
+---@param pcaste any
+---@param phfig any
+---@param punit any
+function df.item:getCorpseInfo(prace, pcaste, phfig, punit) end
+
+function df.item:getBodyInfo() end
+
+function df.item:getGloveFlags() end
+
+---a statue/figurine of "string goes here"
+function df.item:getItemShapeDesc() end
+
+function df.item:isMatchingAmmoItem() end
+
+---@param id any
+---@param subid any
+function df.item:getImageRef(id, subid) end
+
+---@param civ_id any
+---@param site_id any
+function df.item:getImageCivSite(civ_id, site_id) end
+
+---@param civ_id integer
+---@param site_id integer
+function df.item:setImageCivSite(civ_id, site_id) end
+
+---@param level integer
+function df.item:setSeedsPlantSkillLevel(level) end
+
+---size_info.size_cur
+function df.item:getCorpseSize() end
+
+---@param amount integer
+function df.item:ageItem(amount) end
+
+function df.item:getCritterAirdrownTimer() end
+
+function df.item:setCritterAirdrownTimer() end
+
+function df.item:incrementCritterAirdrownTimer() end
+
+function df.item:getRotTimer() end
+
+---@param val integer
+function df.item:setRotTimer(val) end
+
+function df.item:incrementRotTimer() end
+
+function df.item:isBogeymanCorpse() end
+
+---return true if item satisfies flag
+---@param mat_flag any
+function df.item:testMaterialFlag(mat_flag) end
+
+function df.item:getAmmoType() end
+
+function df.item:isLiquidPowder() end
+
+function df.item:isLiquid() end
+
+---vermin, pet, or critter
+function df.item:isLiveAnimal() end
+
+---for putting in containers, building clutter
+function df.item:getVolume() end
+
+---@param imp_type any
+---@param job any
+---@param unit any
+---@param mat_type integer
+---@param mat_index integer
+---@param shape integer
+---@param forced_quality integer
+---@param entity any
+---@param site any
+---@param unk integer
+---@param unshaped boolean
+function df.item:addImprovementFromJob(imp_type, job, unit, mat_type, mat_index, shape, forced_quality, entity, site, unk, unshaped) end
+
+function df.item:isWeapon() end
+
+function df.item:isArmorNotClothing() end
+
+function df.item:isMillable() end
+
+function df.item:isProcessableThread() end
+
+function df.item:isProcessableVial() end
+
+function df.item:isProcessableBarrel() end
+
+function df.item:isEdiblePlant() end
+
+---@param hunger integer
+function df.item:isEdibleRaw(hunger) end
+
+---In item_foodst, requires MEAT or FISH ingredient.
+---@param hunger integer
+function df.item:isEdibleCarnivore(hunger) end
+
+---In item_foodst, requires CORPSEPIECE, MEAT or FISH ingredient.
+---@param hunger integer
+function df.item:isEdibleBonecarn(hunger) end
+
+---@param x integer
+---@param y integer
+---@param z integer
+function df.item:moveToGround(x, y, z) end
+
+---Add item to world.items.other.*
+---@param in_play boolean
+function df.item:categorize(in_play) end
+
+---Remove item from world.items.other.*
+function df.item:uncategorize() end
+
+---@param empty boolean
+function df.item:isFurniture(empty) end
+
+function df.item:isPressed() end
+
+---stored in Animal stockpiles
+function df.item:isAnimal() end
+
+---@param maker any
+---@param job_skill any
+function df.item:assignQuality(maker, job_skill) end
+
+---@param maker any
+---@param job_skill any
+---@param skill_roll integer
+function df.item:assignQuality2(maker, job_skill, skill_roll) end
+
+---@param maker any
+function df.item:notifyCreatedMasterwork(maker) end
+
+function df.item:notifyLostMasterwork() end
+
+function df.item:addMagic() end
+
+function df.item:magic_unk1() end
+
+function df.item:magic_unk2() end
+
+function df.item:magic_unk3() end
+
+function df.item:magic_unk4() end
+
+function df.item:setDisplayColor() end
+
+function df.item:isDamagedByHeat() end
+
+function df.item:needTwoHandedWield() end
+
+---@param stack_size integer
+---@param preserve_containment boolean
+function df.item:splitStack(stack_size, preserve_containment) end
+
+function df.item:isTameableVermin() end
+
+function df.item:isDye() end
+
+function df.item:isMilkable() end
+
+function df.item:isSandBearing() end
+
+function df.item:isLyeBearing() end
+
+function df.item:isAnimalProduct() end
+
+---@param item_type any
+---@param material_category any
+function df.item:getStorageInfo(item_type, material_category) end
+
+---@param delta integer
+---@param simple boolean
+---@param lose_masterwork boolean
+function df.item:addWear(delta, simple, lose_masterwork) end
+
+---@param delta integer
+function df.item:incWearTimer(delta) end
+
+---@param simple boolean
+---@param lose_masterwork boolean
+function df.item:checkWearDestroy(simple, lose_masterwork) end
+
+---@param mat_type integer
+---@param mat_index integer
+---@param mat_state any
+---@param temp integer
+---@param size integer
+---@param body_part_id integer
+---@param flags integer
+function df.item:addContaminant(mat_type, mat_index, mat_state, temp, size, body_part_id, flags) end
+
+---@param index integer
+---@param amount integer
+function df.item:removeContaminantByIdx(index, amount) end
+
+---@param mat_type integer
+---@param mat_index integer
+---@param amount integer
+function df.item:removeContaminant(mat_type, mat_index, amount) end
+
+---@param body_part_id integer
+function df.item:tradeUnitContaminants(body_part_id) end
+
+---calls item.tIC2(this)
+function df.item:tradeItemContaminants() end
+
+function df.item:tradeItemContaminants2() end
+
+---@param shift integer
+---@param body_part_id integer
+function df.item:contaminateWound(shift, body_part_id) end
+
+---@param file any
+function df.item:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.item:read_file(file, loadversion) end
+
+function df.item:getWeaponAttacks() end
+
+function df.item:isNotHeld() end
+
+---if false, you throw the entire stack at once
+function df.item:isSplittable() end
+
+function df.item:addDefaultThreadImprovement() end
+
+function df.item:addThreadImprovement() end
+
+function df.item:propagateUnitRefs() end
+
+function df.item:isSand() end
+
+function df.item:getStackSize() end
+
+---@param amount integer
+function df.item:addStackSize(amount) end
+
+---@param amount integer
+function df.item:setStackSize(amount) end
+
+function df.item:isAmmoClass() end
+
+---delete on_ground every season when in ANY_AUTO_CLEAN; default true
+function df.item:isAutoClean() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+---@param local boolean
+---@param contained boolean
+function df.item:setTemperatureFromMapTile(x, y, z, local, contained) end
+
+---@param local boolean
+---@param contained boolean
+function df.item:setTemperatureFromMap(local, contained) end
+
+---@param temp integer
+---@param local boolean
+---@param contained boolean
+function df.item:setTemperature(temp, local, contained) end
+
+---@param local boolean
+---@param contained boolean
+---@param adjust boolean
+---@param multiplier integer
+function df.item:updateTempFromMap(local, contained, adjust, multiplier) end
+
+---@param temp integer
+---@param local boolean
+---@param contained boolean
+---@param adjust boolean
+---@param multiplier integer
+function df.item:updateTemperature(temp, local, contained, adjust, multiplier) end
+
+function df.item:updateFromWeather() end
+
+function df.item:updateContaminants() end
+
+function df.item:checkTemperatureDamage() end
+
+function df.item:checkHeatColdDamage() end
+
+function df.item:checkMeltBoil() end
+
+function df.item:getMeleeSkill() end
+
+function df.item:getRangedSkill() end
+
+---@param quality integer
+function df.item:setQuality(quality) end
+
+function df.item:getQuality() end
+
+function df.item:getOverallQuality() end
+
+function df.item:getImprovementQuality() end
+
+function df.item:getProjectileSize() end
+
+---@param mat_type integer
+---@param mat_index integer
+function df.item:isImprovable(mat_type, mat_index) end
+
+---@param item_quality integer
+---@param unk1 integer
+function df.item:setSharpness(item_quality, unk1) end
+
+function df.item:getSharpness() end
+
+function df.item:isTotemable() end
+
+function df.item:isDyeable() end
+
+function df.item:isNotDyed() end
+
+function df.item:isDyed() end
+
+function df.item:canSewImage() end
+
+function df.item:canHaveImageSewnOnto() end
+
+function df.item:isProcessableVialAtStill() end
+
+---@param item_type any
+---@param item_subtype integer
+---@param mat_type integer
+---@param mat_index integer
+function df.item:isSimilarToItem(item_type, item_subtype, mat_type, mat_index) end
+
+function df.item:getBlockChance() end
+
+function df.item:getParryChance() end
+
+function df.item:getMakerRace() end
+
+function df.item:setMakerRace() end
+
+---adds 1 if it has [METAL_ARMOR_LEVELS] and it's made of an inorganic mat
+function df.item:getEffectiveArmorLevel() end
+
+function df.item:isConstructed() end
+
+function df.item:isItemOrganicCloth() end
+
+function df.item:isMadeOfOrganicCloth() end
+
+---also stops fire; used for rain
+---@param mat_type integer
+---@param mat_index integer
+---@param mat_state any
+---@param temperature integer
+function df.item:coverWithContaminant(mat_type, mat_index, mat_state, temperature) end
+
+---@param imp_type any
+function df.item:hasSpecificImprovements(imp_type) end
+
+function df.item:hasImprovements() end
+
+function df.item:isImproved() end
+
+function df.item:getMagic() end
+
+---@param plurality integer
+function df.item:getItemDescription(plurality) end
+
+---"a " or "the "
+---@param mode integer
+function df.item:getItemDescriptionPrefix(mode) end
+
+---usually just "item"
+function df.item:getItemBasicName() end
+
+---@param caravan any
+function df.item:getImprovementsValue(caravan) end
+
+function df.item:isExtractBearingFish() end
+
+function df.item:isExtractBearingVermin() end
+
+---for armor, clothing, weapons, and tools, returns material size from the corresponding itemdef
+function df.item:getMaterialSizeForMelting() end
+
+function df.item:getBaseWeight() end
+
+function df.item:getWeightShiftBits() end
+
+function df.item:isCollected() end
+
+function df.item:isEdibleVermin() end
+
+function df.item:drawSelf() end
+
+function df.item:isRangedWeapon() end
+
+function df.item:isClothing() end
+
+function df.item:isWet() end
+
+---that is, value of coins
+---@param appraiser any
+function df.item:getCurrencyValue(appraiser) end
+
+function df.item:isAssignedToStockpile() end
+
+function df.item:isAssignedToThisStockpile() end
+
+---also removes links from the pile
+function df.item:detachStockpileAssignment() end
+
+---just wipes the fields
+function df.item:removeStockpileAssignment() end
+
+function df.item:getStockpile2() end
+
+---this updates the quality of a thread improvement already added to the item (or adjusts the quality of a thread item) based on the skill of the dyer
+---@param mat_type integer
+---@param mat_index integer
+---@param u any
+---@param j any
+function df.item:randomizeThreadImprovement(mat_type, mat_index, u, j) end
+
+---@param material integer
+---@param matgloss integer
+function df.item:addImprovement(material, matgloss) end
+
+function df.item:copyImprovementsFrom() end
+
+---@param caravan any
+function df.item:getThreadDyeValue(caravan) end
+
+---@param colors any
+---@param shapes any
+function df.item:getColorAndShape(colors, shapes) end
+
+function df.item:isCritter() end
+
+---for armor user skill encumberance
+function df.item:isArmor() end
+
+---@param exact_match boolean
+---@param best_any any
+---@param best_melee any
+---@param best_ranged any
+function df.item:calcUniformScore(exact_match, best_any, best_melee, best_ranged) end
+
+function df.item:calcBaseUniformScore() end
+
+function df.item:getSlabEngravingType() end
+
+function df.item:getAbsorption() end
+
+function df.item:isGemMaterial() end
+
+---@param shape integer
+function df.item:setGemShape(shape) end
+
+function df.item:hasGemShape() end
+
+function df.item:getGemShape() end
+
+function df.item:hasWriting() end
 
 ---@class item_kill_info: df.struct
 ---@field targets historical_kills

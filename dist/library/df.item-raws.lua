@@ -430,10 +430,15 @@ df.itemdef_flags = {}
 ---@field source_hfid historical_figure
 ---@field source_enid historical_entity
 ---@field raw_strings string[]
----@field parseRaws fun(self, any...): any
----@field categorize fun(self, any...): any add to world.raws.itemdefs.whatever
----@field finalize fun(self, any...): any calculate stuff like base value
 df.itemdef = {}
+
+function df.itemdef:parseRaws() end
+
+---add to world.raws.itemdefs.whatever
+function df.itemdef:categorize() end
+
+---calculate stuff like base value
+function df.itemdef:finalize() end
 
 ---@class _ammo_flags: df.enum
 ---@field HAS_EDGE_ATTACK 0

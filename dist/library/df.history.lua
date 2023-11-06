@@ -1150,10 +1150,16 @@ df.mental_picture_property_type = {}
 
 ---@class mental_picture_propertyst: df.struct
 ---@field unk_0 integer
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.mental_picture_propertyst = {}
+
+function df.mental_picture_propertyst:getType() end
+
+---@param file any
+function df.mental_picture_propertyst:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.mental_picture_propertyst:read_file(file, loadversion) end
 
 ---@class mental_picture_property_datest: mental_picture_propertyst
 ---@field unk_1 integer
@@ -1224,10 +1230,16 @@ df.mental_picture_element_type = {}
 
 ---@class mental_picture_elementst: df.struct
 ---@field unk_1 integer
----@field getType fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.mental_picture_elementst = {}
+
+function df.mental_picture_elementst:getType() end
+
+---@param file any
+function df.mental_picture_elementst:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.mental_picture_elementst:read_file(file, loadversion) end
 
 ---@class mental_picture_element_hfst: mental_picture_elementst
 ---@field unk_1 integer
@@ -2354,39 +2366,113 @@ df.merc_role_type = {}
 ---@field seconds integer
 ---@field flags any
 ---@field id integer
----@field getType fun(self, any...): any
----@field getWarStatus fun(self, any...): any
----@field getAngerModifier fun(self, any...): any
----@field getHappinessModifier fun(self, any...): any
----@field madeFirstContact fun(self, any...): any
----@field getKilledHistfigID fun(self, any...): any
----@field wasHistfigKilled fun(self, any...): any
----@field wasHistfigRevived fun(self, any...): any
----@field getRelatedHistfigIDs fun(self, any...): any
----@field getRelatedSiteIDs fun(self, any...): any
----@field getRelatedSiteStructureIDs fun(self, any...): any
----@field getRelatedArtifactIDs fun(self, any...): any
----@field getRelatedRegionIDs fun(self, any...): any
----@field getRelatedLayerIDs fun(self, any...): any
----@field getRelatedEntityIDs fun(self, any...): any
----@field isRelatedToHistfigID fun(self, any...): any
----@field isRelatedToSiteID fun(self, any...): any
----@field isRelatedToSiteStructure fun(self, any...): any
----@field isRelatedToArtifactID fun(self, any...): any
----@field isRelatedToRegionID fun(self, any...): any
----@field isRelatedToLayerID fun(self, any...): any
----@field isRelatedToAgreementID fun(self, any...): any broken; always returns false
----@field isRelatedToEntityID fun(self, any...): any
----@field getSentence fun(self, any...): any
----@field getPhrase fun(self, any...): any
----@field populateArtImage fun(self, any...): any
----@field isChangedHistfigID fun(self, any...): any
----@field categorize fun(self, any...): any inserts event into world_history.events_death if relevant
----@field uncategorize fun(self, any...): any removes event from world_history.events_death if relevant
----@field generate_xml fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.history_event = {}
+
+function df.history_event:getType() end
+
+---@param entity1 integer
+---@param entity2 integer
+function df.history_event:getWarStatus(entity1, entity2) end
+
+---@param entity1 integer
+---@param entity2 integer
+function df.history_event:getAngerModifier(entity1, entity2) end
+
+---@param entity1 integer
+---@param entity2 integer
+function df.history_event:getHappinessModifier(entity1, entity2) end
+
+---@param entity1 integer
+---@param entity2 integer
+---@param site integer
+function df.history_event:madeFirstContact(entity1, entity2, site) end
+
+---@param killer integer
+function df.history_event:getKilledHistfigID(killer) end
+
+---@param victim integer
+function df.history_event:wasHistfigKilled(victim) end
+
+---@param histfig integer
+function df.history_event:wasHistfigRevived(histfig) end
+
+---@param vec any
+function df.history_event:getRelatedHistfigIDs(vec) end
+
+---@param vec any
+function df.history_event:getRelatedSiteIDs(vec) end
+
+---@param vec1 any
+---@param vec2 any
+function df.history_event:getRelatedSiteStructureIDs(vec1, vec2) end
+
+---@param vec any
+function df.history_event:getRelatedArtifactIDs(vec) end
+
+---@param vec any
+function df.history_event:getRelatedRegionIDs(vec) end
+
+---@param vec any
+function df.history_event:getRelatedLayerIDs(vec) end
+
+---@param vec any
+function df.history_event:getRelatedEntityIDs(vec) end
+
+---@param histfig integer
+function df.history_event:isRelatedToHistfigID(histfig) end
+
+---@param site integer
+function df.history_event:isRelatedToSiteID(site) end
+
+---@param site integer
+---@param structure integer
+function df.history_event:isRelatedToSiteStructure(site, structure) end
+
+---@param artifact integer
+function df.history_event:isRelatedToArtifactID(artifact) end
+
+---@param region integer
+function df.history_event:isRelatedToRegionID(region) end
+
+---@param region integer
+function df.history_event:isRelatedToLayerID(region) end
+
+---broken; always returns false
+---@param agreement integer
+function df.history_event:isRelatedToAgreementID(agreement) end
+
+---@param entity integer
+function df.history_event:isRelatedToEntityID(entity) end
+
+---@param str any
+---@param context any
+function df.history_event:getSentence(str, context) end
+
+---@param str any
+---@param context any
+function df.history_event:getPhrase(str, context) end
+
+---@param image any
+function df.history_event:populateArtImage(image) end
+
+---@param histfig integer
+function df.history_event:isChangedHistfigID(histfig) end
+
+---inserts event into world_history.events_death if relevant
+function df.history_event:categorize() end
+
+---removes event from world_history.events_death if relevant
+function df.history_event:uncategorize() end
+
+---@param indent integer
+function df.history_event:generate_xml(indent) end
+
+---@param file any
+function df.history_event:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.history_event:read_file(file, loadversion) end
 
 ---@class history_event_war_attacked_sitest: history_event
 ---@field attacker_civ historical_entity
@@ -4536,18 +4622,38 @@ df.history_event_collection_type = {}
 ---@field end_seconds integer
 ---@field flags any
 ---@field id integer
----@field getType fun(self, any...): any
----@field generate_xml fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
----@field categorize fun(self, any...): any
----@field uncategorize fun(self, any...): any
----@field getName fun(self, any...): any
----@field getRegionCoords fun(self, any...): any
----@field getParent fun(self, any...): any
----@field isBetweenEntities fun(self, any...): any
----@field updateEndTime fun(self, any...): any
 df.history_event_collection = {}
+
+function df.history_event_collection:getType() end
+
+---@param indent integer
+function df.history_event_collection:generate_xml(indent) end
+
+---@param file any
+function df.history_event_collection:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.history_event_collection:read_file(file, loadversion) end
+
+function df.history_event_collection:categorize() end
+
+function df.history_event_collection:uncategorize() end
+
+---@param string any
+function df.history_event_collection:getName(string) end
+
+---@param x any
+---@param y any
+function df.history_event_collection:getRegionCoords(x, y) end
+
+function df.history_event_collection:getParent() end
+
+---@param defender_civ integer
+---@param attacker_civ integer
+function df.history_event_collection:isBetweenEntities(defender_civ, attacker_civ) end
+
+function df.history_event_collection:updateEndTime() end
 
 ---@class history_event_collection_warst: history_event_collection
 ---@field name language_name

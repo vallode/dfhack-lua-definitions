@@ -77,10 +77,6 @@ df.machine_tile_set.T_can_connect = {}
 ---@field visual_phase integer
 ---@field phase_timer integer
 ---@field flags machine_flags
----@field getType fun(self, any...): any
----@field moveMachine fun(self, any...): any
----@field write_file fun(self, any...): any
----@field read_file fun(self, any...): any
 df.machine = {}
 
 ---@class machine_components: df.struct
@@ -104,6 +100,20 @@ df.machine.T_flags = {}
 ---@field frozen boolean
 ---@field [2] boolean
 ---@field unfreeze boolean
+
+function df.machine:getType() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+function df.machine:moveMachine(x, y, z) end
+
+---@param file any
+function df.machine:write_file(file) end
+
+---@param file any
+---@param loadversion any
+function df.machine:read_file(file, loadversion) end
 
 ---@class machine_standardst: machine
 df.machine_standardst = {}

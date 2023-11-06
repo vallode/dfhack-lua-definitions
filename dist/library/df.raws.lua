@@ -8,9 +8,17 @@
 ---@field list_creature integer[] Together with list_caste, a list of all caste indexes in order.
 ---@field list_caste integer[]
 ---@field action_strings string[]
----@field getTile fun(self, any...): any
----@field getGlowTile fun(self, any...): any
 df.creature_handler = {}
+
+---@param creature_index integer
+---@param caste_index integer
+---@param alt boolean
+---@param soldier boolean
+function df.creature_handler:getTile(creature_index, caste_index, alt, soldier) end
+
+---@param creature_index integer
+---@param caste_index integer
+function df.creature_handler:getGlowTile(creature_index, caste_index) end
 
 ---@class world_raws: df.struct
 ---@field material_templates material_template[]

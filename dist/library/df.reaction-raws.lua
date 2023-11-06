@@ -77,13 +77,23 @@ df.reaction_reagent_type = {}
 ---@field code string
 ---@field quantity integer
 ---@field flags reaction_reagent_flags
----@field getType fun(self, any...): any
----@field resolveTokens fun(self, any...): any
----@field matchesRoot fun(self, any...): any
----@field matchesChild fun(self, any...): any
----@field getDescription fun(self, any...): any
----@field isLyeBearing fun(self, any...): any
 df.reaction_reagent = {}
+
+function df.reaction_reagent:getType() end
+
+---@param reactionID integer
+function df.reaction_reagent:resolveTokens(reactionID) end
+
+---@param index integer
+function df.reaction_reagent:matchesRoot(index) end
+
+---@param index integer
+function df.reaction_reagent:matchesChild(index) end
+
+---@param index integer
+function df.reaction_reagent:getDescription(index) end
+
+function df.reaction_reagent:isLyeBearing() end
 
 ---@class _reaction_reagent_flags: df.bitfield
 ---@field PRESERVE_REAGENT 0
@@ -140,11 +150,29 @@ df.reaction_product_type = {}
 ---@class reaction_product: df.struct
 ---@field product_token string
 ---@field product_to_container string
----@field getType fun(self, any...): any
----@field resolveTokens fun(self, any...): any
----@field produce fun(self, any...): any
----@field getDescription fun(self, any...): any used in Adventurer mode reactions?
 df.reaction_product = {}
+
+function df.reaction_product:getType() end
+
+---@param reactionID integer
+function df.reaction_product:resolveTokens(reactionID) end
+
+---@param maker any
+---@param out_products any
+---@param out_items any
+---@param in_reag any
+---@param in_items any
+---@param quantity integer
+---@param skill any
+---@param job_quality integer
+---@param entity any
+---@param site any
+---@param unk4 any
+function df.reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
+
+---used in Adventurer mode reactions?
+---@param desc any
+function df.reaction_product:getDescription(desc) end
 
 ---@class _reaction_product_item_flags: df.enum
 ---@field GET_MATERIAL_SAME 0
