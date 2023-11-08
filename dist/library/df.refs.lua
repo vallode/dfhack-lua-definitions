@@ -296,6 +296,7 @@ function df.general_ref:write_file(file) end
 ---@param loadversion save_version
 function df.general_ref:read_file(file, loadversion) end
 
+---@return general_ref_type
 function df.general_ref:getType() end
 
 function df.general_ref:getItem() end
@@ -316,6 +317,7 @@ function df.general_ref:getEvent() end
 
 function df.general_ref:setID() end
 
+---@return integer
 function df.general_ref:getID() end
 
 ---@param x integer
@@ -843,6 +845,7 @@ df.histfig_entity_link_type = {}
 ---@field link_strength integer
 df.histfig_entity_link = {}
 
+---@return histfig_entity_link_type
 function df.histfig_entity_link:getType() end
 
 ---@param file file_compressorst
@@ -852,12 +855,16 @@ function df.histfig_entity_link:write_file(file) end
 ---@param loadversion save_version
 function df.histfig_entity_link:read_file(file, loadversion) end
 
+---@return integer
 function df.histfig_entity_link:getPosition() end
 
+---@return integer
 function df.histfig_entity_link:getOccupation() end
 
+---@return integer
 function df.histfig_entity_link:getPositionStartYear() end
 
+---@return integer
 function df.histfig_entity_link:getPositionEndYear() end
 
 ---@param indent integer
@@ -984,6 +991,7 @@ df.histfig_site_link_type = {}
 ---@field entity historical_entity
 df.histfig_site_link = {}
 
+---@return histfig_site_link_type
 function df.histfig_site_link:getType() end
 
 ---@param file file_compressorst
@@ -1101,6 +1109,7 @@ df.histfig_hf_link_type = {}
 ---@field link_strength integer
 df.histfig_hf_link = {}
 
+---@return histfig_hf_link_type
 function df.histfig_hf_link:getType() end
 
 ---@param file file_compressorst

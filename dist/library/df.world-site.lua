@@ -263,6 +263,7 @@ df.abstract_building.T_inhabitants = {}
 ---@field mat_index integer
 df.abstract_building.T_unk1 = {}
 
+---@return abstract_building_type
 function df.abstract_building:getType() end
 
 ---on navigation minimap
@@ -283,6 +284,7 @@ function df.abstract_building:write_file(file) end
 ---@param loadversion save_version
 function df.abstract_building:read_file(file, loadversion) end
 
+---@return integer
 function df.abstract_building:getReligionID() end
 
 function df.abstract_building:getEntombed() end
@@ -1230,6 +1232,7 @@ df.site_realization_building.T_unk_4c = {}
 ---@class site_realization_building_infost: df.class
 df.site_realization_building_infost = {}
 
+---@return site_realization_building_type
 function df.site_realization_building_infost:getType() end
 
 ---@param file file_compressorst
@@ -1584,6 +1587,7 @@ df.creation_zone_pwg_alteration_type = {}
 ---@field unk_0 integer
 df.creation_zone_pwg_alterationst = {}
 
+---@return creation_zone_pwg_alteration_type
 function df.creation_zone_pwg_alterationst:getType() end
 
 ---@param file file_compressorst

@@ -37,6 +37,7 @@ function df.art_image_element:write_file(file) end
 ---@param loadversion save_version
 function df.art_image_element:read_file(file, loadversion) end
 
+---@return art_image_element_type
 function df.art_image_element:getType() end
 
 ---@param ID integer
@@ -113,6 +114,7 @@ function df.art_image_property:write_file(file) end
 ---@param loadversion save_version
 function df.art_image_property:read_file(file, loadversion) end
 
+---@return art_image_property_type
 function df.art_image_property:getType() end
 
 function df.art_image_property:clone() end

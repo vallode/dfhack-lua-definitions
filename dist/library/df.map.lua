@@ -623,6 +623,7 @@ df.block_square_event_type = {}
 ---@class block_square_event: df.class
 df.block_square_event = {}
 
+---@return block_square_event_type
 function df.block_square_event:getType() end
 
 ---@param file file_compressorst
@@ -632,6 +633,7 @@ function df.block_square_event:write_file(file) end
 ---@param loadversion save_version
 function df.block_square_event:read_file(file, loadversion) end
 
+---@return boolean
 function df.block_square_event:isEmpty() end
 
 ---@param x integer
@@ -775,6 +777,7 @@ df.feature_type = {}
 ---@field max_map_z integer[]
 df.feature = {}
 
+---@return feature_type
 function df.feature:getType() end
 
 ---@param file file_compressorst
@@ -882,6 +885,7 @@ df.layer_type = {}
 ---@field end_depth layer_type
 df.feature_init = {}
 
+---@return feature_type
 function df.feature_init:getType() end
 
 ---@param file file_compressorst
@@ -914,16 +918,22 @@ function df.feature_init:getColor(foreground, background, bright) end
 ---@param name string
 function df.feature_init:getName(name) end
 
+---@return boolean
 function df.feature_init:isWater() end
 
+---@return boolean
 function df.feature_init:isSubterranean() end
 
+---@return boolean
 function df.feature_init:isMagma() end
 
+---@return boolean
 function df.feature_init:isChasm() end
 
+---@return boolean
 function df.feature_init:isLayer() end
 
+---@return integer
 function df.feature_init:getLayer() end
 
 ---@class feature_init_outdoor_riverst: feature_init
@@ -991,6 +1001,7 @@ df.feature_alteration_type = {}
 ---@class feature_alteration: df.class
 df.feature_alteration = {}
 
+---@return feature_alteration_type
 function df.feature_alteration:getType() end
 
 ---@param file file_compressorst
@@ -1039,6 +1050,7 @@ df.world_construction_type = {}
 ---@field embark_z integer[]
 df.world_construction_square = {}
 
+---@return world_construction_type
 function df.world_construction_square:getType() end
 
 ---@param file file_compressorst
@@ -1079,6 +1091,7 @@ df.world_construction_square_wallst = {}
 ---@field square_pos coord2d_path
 df.world_construction = {}
 
+---@return world_construction_type
 function df.world_construction:getType() end
 
 function df.world_construction:getName() end
@@ -1443,6 +1456,7 @@ df.flow_guide_type = {}
 ---@field unk_8 integer
 df.flow_guide = {}
 
+---@return flow_guide_type
 function df.flow_guide:getType() end
 
 ---@param x integer
@@ -1494,6 +1508,7 @@ df.region_block_event_type = {}
 ---@class region_block_eventst: df.class
 df.region_block_eventst = {}
 
+---@return region_block_event_type
 function df.region_block_eventst:getType() end
 
 ---@param file file_compressorst

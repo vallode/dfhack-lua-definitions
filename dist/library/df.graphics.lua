@@ -611,12 +611,14 @@ function df.renderer:set_viewport_zoom_factor(nfactor) end
 ---@param py integer
 ---@param x integer
 ---@param y integer
+---@return boolean
 function df.renderer:get_precise_mouse_coords(px, py, x, y) end
 
 ---@param cur_tx integer
 ---@param cur_ty integer
 function df.renderer:get_current_interface_tile_dims(cur_tx, cur_ty) end
 
+---@return boolean
 function df.renderer:uses_opengl() end
 
 ---@class renderer_2d_base: renderer
@@ -646,6 +648,7 @@ df.renderer_2d_base = {}
 
 ---@param w integer
 ---@param h integer
+---@return boolean
 function df.renderer_2d_base:init_video(w, h) end
 
 ---@class renderer_2d: renderer_2d_base
@@ -773,6 +776,7 @@ df.enabler.T_flag = {}
 ---@field uploaded boolean
 df.enabler.T_textures = {}
 
+---@return string
 function df.enabler:GetKeyDisplay() end
 
 ---@class _justification: df.enum

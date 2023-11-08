@@ -422,12 +422,16 @@ df.slab_engraving_type = {}
 ---@field weight_fraction integer 1e-6
 df.item = {}
 
+---@return item_type
 function df.item:getType() end
 
+---@return integer
 function df.item:getSubtype() end
 
+---@return integer
 function df.item:getMaterial() end
 
+---@return integer
 function df.item:getMaterialIndex() end
 
 function df.item:setSubtype() end
@@ -437,58 +441,77 @@ function df.item:setMaterial() end
 function df.item:setMaterialIndex() end
 
 ---returns an actual material type, never a race
+---@return integer
 function df.item:getActualMaterial() end
 
 ---returns an actual material index, never a caste
+---@return integer
 function df.item:getActualMaterialIndex() end
 
 ---only if the object is made of a "specific creature mat"
+---@return integer
 function df.item:getRace() end
 
 ---only if the object is made of a "specific creature mat"
+---@return integer
 function df.item:getCaste() end
 
 ---only if the object is made of a plant material
+---@return integer
 function df.item:getPlantID() end
 
+---@return integer
 function df.item:getGrowthPrint() end
 
 ---@param print integer
 function df.item:setGrowthPrint(print) end
 
+---@return integer
 function df.item:getDimension() end
 
+---@return integer
 function df.item:getTotalDimension() end
 
 ---@param amount integer
 function df.item:setDimension(amount) end
 
 ---@param amount integer
+---@return boolean
 function df.item:subtractDimension(amount) end
 
+---@return boolean
 function df.item:isFoodStorage() end
 
+---@return boolean
 function df.item:isTrackCart() end
 
+---@return boolean
 function df.item:isWheelbarrow() end
 
+---@return integer
 function df.item:getVehicleID() end
 
+---@return boolean
 function df.item:isAmmo() end
 
 function df.item:getStockpile() end
 
+---@return boolean
 function df.item:containsPlaster() end
 
+---@return boolean
 function df.item:isPlaster() end
 
+---@return boolean
 function df.item:getColorOverride() end
 
 function df.item:getHistoryInfo() end
 
 ---@param use tool_uses
+---@return boolean
 function df.item:hasToolUse(use) end
 
+---@return boolean
 function df.item:hasInvertedTile() end
 
 function df.item:becomePaste() end
@@ -497,11 +520,14 @@ function df.item:becomePressed() end
 
 function df.item:calculateWeight() end
 
+---@return boolean
 function df.item:isSharpStone() end
 
+---@return boolean
 function df.item:isCrystalGlassable() end
 
 ---@param matIndex integer
+---@return boolean
 function df.item:isMetalOre(matIndex) end
 
 function df.item:clearLastTempUpdateTS() end
@@ -509,54 +535,73 @@ function df.item:clearLastTempUpdateTS() end
 ---@param string_ptr string
 function df.item:listNotableKills(string_ptr) end
 
+---@return integer
 function df.item:getSpecHeat() end
 
+---@return integer
 function df.item:getIgnitePoint() end
 
+---@return integer
 function df.item:getHeatdamPoint() end
 
+---@return integer
 function df.item:getColddamPoint() end
 
+---@return integer
 function df.item:getBoilingPoint() end
 
+---@return integer
 function df.item:getMeltingPoint() end
 
+---@return integer
 function df.item:getFixedTemp() end
 
+---@return integer
 function df.item:getSolidDensity() end
 
+---@return boolean
 function df.item:materialRots() end
 
+---@return integer
 function df.item:getTemperature() end
 
 ---@param target integer
 ---@param unk integer
+---@return boolean
 function df.item:adjustTemperature(target, unk) end
 
 function df.item:extinguish() end
 
+---@return integer
 function df.item:getGloveHandedness() end
 
 function df.item:setGloveHandedness() end
 
+---@return boolean
 function df.item:isSpike() end
 
+---@return boolean
 function df.item:isScrew() end
 
+---@return boolean
 function df.item:isBuildMat() end
 
+---@return boolean
 function df.item:isTemperatureSafe() end
 
 ---@param entity_id integer
 function df.item:setRandSubtype(entity_id) end
 
 ---weapon racks have capacity 5
+---@return integer
 function df.item:getWeaponSize() end
 
+---@return integer
 function df.item:getWear() end
 
 function df.item:setWear() end
 
+---@return integer
 function df.item:getMaker() end
 
 ---@param unit_id integer
@@ -575,6 +620,7 @@ function df.item:getGloveFlags() end
 ---a statue/figurine of "string goes here"
 function df.item:getItemShapeDesc() end
 
+---@return boolean
 function df.item:isMatchingAmmoItem() end
 
 ---@param id integer
@@ -593,17 +639,21 @@ function df.item:setImageCivSite(civ_id, site_id) end
 function df.item:setSeedsPlantSkillLevel(level) end
 
 ---size_info.size_cur
+---@return integer
 function df.item:getCorpseSize() end
 
 ---@param amount integer
+---@return boolean
 function df.item:ageItem(amount) end
 
+---@return integer
 function df.item:getCritterAirdrownTimer() end
 
 function df.item:setCritterAirdrownTimer() end
 
 function df.item:incrementCritterAirdrownTimer() end
 
+---@return integer
 function df.item:getRotTimer() end
 
 ---@param val integer
@@ -611,22 +661,28 @@ function df.item:setRotTimer(val) end
 
 function df.item:incrementRotTimer() end
 
+---@return boolean
 function df.item:isBogeymanCorpse() end
 
 ---return true if item satisfies flag
 ---@param mat_flag material_flags
+---@return boolean
 function df.item:testMaterialFlag(mat_flag) end
 
 function df.item:getAmmoType() end
 
+---@return boolean
 function df.item:isLiquidPowder() end
 
+---@return boolean
 function df.item:isLiquid() end
 
 ---vermin, pet, or critter
+---@return boolean
 function df.item:isLiveAnimal() end
 
 ---for putting in containers, building clutter
+---@return integer
 function df.item:getVolume() end
 
 ---@param imp_type improvement_type
@@ -642,34 +698,45 @@ function df.item:getVolume() end
 ---@param unshaped boolean
 function df.item:addImprovementFromJob(imp_type, job, unit, mat_type, mat_index, shape, forced_quality, entity, site, unk, unshaped) end
 
+---@return boolean
 function df.item:isWeapon() end
 
+---@return boolean
 function df.item:isArmorNotClothing() end
 
+---@return boolean
 function df.item:isMillable() end
 
+---@return boolean
 function df.item:isProcessableThread() end
 
+---@return boolean
 function df.item:isProcessableVial() end
 
+---@return boolean
 function df.item:isProcessableBarrel() end
 
+---@return boolean
 function df.item:isEdiblePlant() end
 
 ---@param hunger integer
+---@return boolean
 function df.item:isEdibleRaw(hunger) end
 
 ---In item_foodst, requires MEAT or FISH ingredient.
 ---@param hunger integer
+---@return boolean
 function df.item:isEdibleCarnivore(hunger) end
 
 ---In item_foodst, requires CORPSEPIECE, MEAT or FISH ingredient.
 ---@param hunger integer
+---@return boolean
 function df.item:isEdibleBonecarn(hunger) end
 
 ---@param x integer
 ---@param y integer
 ---@param z integer
+---@return boolean
 function df.item:moveToGround(x, y, z) end
 
 ---Add item to world.items.other.*
@@ -680,20 +747,25 @@ function df.item:categorize(in_play) end
 function df.item:uncategorize() end
 
 ---@param empty boolean
+---@return boolean
 function df.item:isFurniture(empty) end
 
+---@return boolean
 function df.item:isPressed() end
 
 ---stored in Animal stockpiles
+---@return boolean
 function df.item:isAnimal() end
 
 ---@param maker unit
 ---@param job_skill job_skill
+---@return item_quality
 function df.item:assignQuality(maker, job_skill) end
 
 ---@param maker unit
 ---@param job_skill job_skill
 ---@param skill_roll integer
+---@return item_quality
 function df.item:assignQuality2(maker, job_skill, skill_roll) end
 
 ---@param maker unit
@@ -713,24 +785,32 @@ function df.item:magic_unk4() end
 
 function df.item:setDisplayColor() end
 
+---@return boolean
 function df.item:isDamagedByHeat() end
 
+---@return boolean
 function df.item:needTwoHandedWield() end
 
 ---@param stack_size integer
 ---@param preserve_containment boolean
 function df.item:splitStack(stack_size, preserve_containment) end
 
+---@return boolean
 function df.item:isTameableVermin() end
 
+---@return boolean
 function df.item:isDye() end
 
+---@return boolean
 function df.item:isMilkable() end
 
+---@return boolean
 function df.item:isSandBearing() end
 
+---@return boolean
 function df.item:isLyeBearing() end
 
+---@return boolean
 function df.item:isAnimalProduct() end
 
 ---@param item_type integer
@@ -740,13 +820,16 @@ function df.item:getStorageInfo(item_type, material_category) end
 ---@param delta integer
 ---@param simple boolean
 ---@param lose_masterwork boolean
+---@return boolean
 function df.item:addWear(delta, simple, lose_masterwork) end
 
 ---@param delta integer
+---@return boolean
 function df.item:incWearTimer(delta) end
 
 ---@param simple boolean
 ---@param lose_masterwork boolean
+---@return boolean
 function df.item:checkWearDestroy(simple, lose_masterwork) end
 
 ---@param mat_type integer
@@ -788,9 +871,11 @@ function df.item:read_file(file, loadversion) end
 
 function df.item:getWeaponAttacks() end
 
+---@return boolean
 function df.item:isNotHeld() end
 
 ---if false, you throw the entire stack at once
+---@return boolean
 function df.item:isSplittable() end
 
 function df.item:addDefaultThreadImprovement() end
@@ -799,8 +884,10 @@ function df.item:addThreadImprovement() end
 
 function df.item:propagateUnitRefs() end
 
+---@return boolean
 function df.item:isSand() end
 
+---@return integer
 function df.item:getStackSize() end
 
 ---@param amount integer
@@ -809,9 +896,11 @@ function df.item:addStackSize(amount) end
 ---@param amount integer
 function df.item:setStackSize(amount) end
 
+---@return boolean
 function df.item:isAmmoClass() end
 
 ---delete on_ground every season when in ANY_AUTO_CLEAN; default true
+---@return boolean
 function df.item:isAutoClean() end
 
 ---@param x integer
@@ -819,21 +908,25 @@ function df.item:isAutoClean() end
 ---@param z integer
 ---@param local_ boolean
 ---@param contained boolean
+---@return boolean
 function df.item:setTemperatureFromMapTile(x, y, z, local_, contained) end
 
 ---@param local_ boolean
 ---@param contained boolean
+---@return boolean
 function df.item:setTemperatureFromMap(local_, contained) end
 
 ---@param temp integer
 ---@param local_ boolean
 ---@param contained boolean
+---@return boolean
 function df.item:setTemperature(temp, local_, contained) end
 
 ---@param local_ boolean
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier integer
+---@return boolean
 function df.item:updateTempFromMap(local_, contained, adjust, multiplier) end
 
 ---@param temp integer
@@ -841,78 +934,107 @@ function df.item:updateTempFromMap(local_, contained, adjust, multiplier) end
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier integer
+---@return boolean
 function df.item:updateTemperature(temp, local_, contained, adjust, multiplier) end
 
+---@return boolean
 function df.item:updateFromWeather() end
 
+---@return boolean
 function df.item:updateContaminants() end
 
+---@return boolean
 function df.item:checkTemperatureDamage() end
 
+---@return boolean
 function df.item:checkHeatColdDamage() end
 
+---@return boolean
 function df.item:checkMeltBoil() end
 
+---@return integer
 function df.item:getMeleeSkill() end
 
+---@return integer
 function df.item:getRangedSkill() end
 
 ---@param quality integer
 function df.item:setQuality(quality) end
 
+---@return integer
 function df.item:getQuality() end
 
+---@return integer
 function df.item:getOverallQuality() end
 
+---@return integer
 function df.item:getImprovementQuality() end
 
+---@return integer
 function df.item:getProjectileSize() end
 
 ---@param mat_type integer
 ---@param mat_index integer
+---@return boolean
 function df.item:isImprovable(mat_type, mat_index) end
 
 ---@param item_quality integer
 ---@param unk1 integer
 function df.item:setSharpness(item_quality, unk1) end
 
+---@return integer
 function df.item:getSharpness() end
 
+---@return boolean
 function df.item:isTotemable() end
 
+---@return boolean
 function df.item:isDyeable() end
 
+---@return boolean
 function df.item:isNotDyed() end
 
+---@return boolean
 function df.item:isDyed() end
 
+---@return boolean
 function df.item:canSewImage() end
 
+---@return boolean
 function df.item:canHaveImageSewnOnto() end
 
+---@return boolean
 function df.item:isProcessableVialAtStill() end
 
 ---@param item_type item_type
 ---@param item_subtype integer
 ---@param mat_type integer
 ---@param mat_index integer
+---@return boolean
 function df.item:isSimilarToItem(item_type, item_subtype, mat_type, mat_index) end
 
+---@return integer
 function df.item:getBlockChance() end
 
+---@return integer
 function df.item:getParryChance() end
 
+---@return integer
 function df.item:getMakerRace() end
 
 function df.item:setMakerRace() end
 
 ---adds 1 if it has [METAL_ARMOR_LEVELS] and it's made of an inorganic mat
+---@return integer
 function df.item:getEffectiveArmorLevel() end
 
+---@return boolean
 function df.item:isConstructed() end
 
+---@return boolean
 function df.item:isItemOrganicCloth() end
 
+---@return boolean
 function df.item:isMadeOfOrganicCloth() end
 
 ---also stops fire; used for rain
@@ -923,10 +1045,13 @@ function df.item:isMadeOfOrganicCloth() end
 function df.item:coverWithContaminant(mat_type, mat_index, mat_state, temperature) end
 
 ---@param imp_type improvement_type
+---@return boolean
 function df.item:hasSpecificImprovements(imp_type) end
 
+---@return boolean
 function df.item:hasImprovements() end
 
+---@return boolean
 function df.item:isImproved() end
 
 function df.item:getMagic() end
@@ -942,37 +1067,52 @@ function df.item:getItemDescriptionPrefix(mode) end
 function df.item:getItemBasicName() end
 
 ---@param caravan caravan_state
+---@return integer
 function df.item:getImprovementsValue(caravan) end
 
+---@return boolean
 function df.item:isExtractBearingFish() end
 
+---@return boolean
 function df.item:isExtractBearingVermin() end
 
 ---for armor, clothing, weapons, and tools, returns material size from the corresponding itemdef
+---@return integer
 function df.item:getMaterialSizeForMelting() end
 
+---@return integer
 function df.item:getBaseWeight() end
 
+---@return integer
 function df.item:getWeightShiftBits() end
 
+---@return boolean
 function df.item:isCollected() end
 
+---@return boolean
 function df.item:isEdibleVermin() end
 
+---@return integer
 function df.item:drawSelf() end
 
+---@return boolean
 function df.item:isRangedWeapon() end
 
+---@return boolean
 function df.item:isClothing() end
 
+---@return boolean
 function df.item:isWet() end
 
 ---that is, value of coins
 ---@param appraiser historical_entity
+---@return integer
 function df.item:getCurrencyValue(appraiser) end
 
+---@return boolean
 function df.item:isAssignedToStockpile() end
 
+---@return boolean
 function df.item:isAssignedToThisStockpile() end
 
 ---also removes links from the pile
@@ -997,38 +1137,47 @@ function df.item:addImprovement(material, matgloss) end
 function df.item:copyImprovementsFrom() end
 
 ---@param caravan caravan_state
+---@return integer
 function df.item:getThreadDyeValue(caravan) end
 
 ---@param colors integer[]
 ---@param shapes integer[]
 function df.item:getColorAndShape(colors, shapes) end
 
+---@return boolean
 function df.item:isCritter() end
 
 ---for armor user skill encumberance
+---@return boolean
 function df.item:isArmor() end
 
 ---@param exact_match boolean
 ---@param best_any job_skill
 ---@param best_melee job_skill
 ---@param best_ranged job_skill
+---@return integer
 function df.item:calcUniformScore(exact_match, best_any, best_melee, best_ranged) end
 
+---@return integer
 function df.item:calcBaseUniformScore() end
 
 function df.item:getSlabEngravingType() end
 
+---@return integer
 function df.item:getAbsorption() end
 
+---@return boolean
 function df.item:isGemMaterial() end
 
 ---@param shape descriptor_shape
 function df.item:setGemShape(shape) end
 
+---@return boolean
 function df.item:hasGemShape() end
 
 function df.item:getGemShape() end
 
+---@return boolean
 function df.item:hasWriting() end
 
 ---@class item_kill_info: df.class

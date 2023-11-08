@@ -58,6 +58,7 @@ df.interface_push_types = {}
 ---@class abstract_interfacest: df.class
 df.abstract_interfacest = {}
 
+---@return extentst
 function df.abstract_interfacest:get_rect() end
 
 ---@param events interface_key
@@ -170,6 +171,7 @@ df.widget.T_tooltip_type = {}
 ---@field [3] boolean
 ---@field BELOW boolean
 
+---@return extentst
 function df.widget:get_rect() end
 
 ---@param events interface_key
@@ -186,6 +188,7 @@ function df.widget:remove_child(w) end
 
 function df.widget:clear() end
 
+---@return boolean
 function df.widget:is_container() end
 
 ---@class widget_text: widget
@@ -1196,18 +1199,25 @@ df.world_gen_param_basest = {}
 ---@param num string
 function df.world_gen_param_basest:get_text(num) end
 
+---@return boolean
 function df.world_gen_param_basest:has_string_entry() end
 
+---@return boolean
 function df.world_gen_param_basest:nullifiable() end
 
+---@return boolean
 function df.world_gen_param_basest:togglealble() end
 
+---@return boolean
 function df.world_gen_param_basest:has_max_min() end
 
+---@return boolean
 function df.world_gen_param_basest:has_increase_decrease() end
 
+---@return integer
 function df.world_gen_param_basest:get_min() end
 
+---@return integer
 function df.world_gen_param_basest:get_max() end
 
 ---@param value_str string

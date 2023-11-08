@@ -38,12 +38,15 @@ df.dipscript_popup.T_flags = {}
 df.script_stepst = {}
 
 ---@param idx integer
+---@return boolean
 function df.script_stepst:setNextStep(idx) end
 
 ---@param context meeting_context
+---@return integer
 function df.script_stepst:execute(context) end
 
 ---@param context meeting_context
+---@return integer
 function df.script_stepst:skip(context) end
 
 ---@class script_step_setvarst: script_stepst
@@ -577,6 +580,7 @@ df.activity_event.T_unk_v42_1 = {}
 ---@field unk_3 integer
 df.activity_event.T_unk_v42_2 = {}
 
+---@return activity_event_type
 function df.activity_event:getType() end
 
 ---@param file file_compressorst
@@ -587,6 +591,7 @@ function df.activity_event:write_file(file) end
 function df.activity_event:read_file(file, loadversion) end
 
 ---returns true if hist_figure_ids empty or if various subclass fields are uninitialized
+---@return boolean
 function df.activity_event:isEmpty() end
 
 function df.activity_event:getParticipantInfo() end
@@ -607,8 +612,10 @@ function df.activity_event:removeParticipant(histfig, unit) end
 function df.activity_event:process(unit) end
 
 ---@param unit unit
+---@return integer
 function df.activity_event:checkDrillInvalid(unit) end
 
+---@return boolean
 function df.activity_event:decUniformLock() end
 
 function df.activity_event:getSquadEventType() end
@@ -632,8 +639,10 @@ function df.activity_event:getOrganizer(hist_figure_id, unit_id) end
 ---returns pointer to building_id
 function df.activity_event:getBuilding() end
 
+---@return boolean
 function df.activity_event:isSparring() end
 
+---@return integer
 function df.activity_event:getUniformType() end
 
 ---@param unit_id integer

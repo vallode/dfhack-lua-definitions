@@ -14,10 +14,12 @@ df.creature_handler = {}
 ---@param caste_index caste_raw
 ---@param alt boolean
 ---@param soldier boolean
+---@return integer
 function df.creature_handler:getTile(creature_index, caste_index, alt, soldier) end
 
 ---@param creature_index creature_raw
 ---@param caste_index caste_raw
+---@return integer
 function df.creature_handler:getGlowTile(creature_index, caste_index) end
 
 ---@class world_raws: df.class

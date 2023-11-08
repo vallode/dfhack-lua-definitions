@@ -2216,10 +2216,13 @@ df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_flags = {}
 ---@field [2] boolean
 ---@field ready_to_leave boolean
 
+---@return integer
 function df.unit:getCreatureTile() end
 
+---@return integer
 function df.unit:getCorpseTile() end
 
+---@return integer
 function df.unit:getGlowTile() end
 
 ---@class _witness_report_type: df.enum

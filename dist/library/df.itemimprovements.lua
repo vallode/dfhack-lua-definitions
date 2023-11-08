@@ -96,11 +96,14 @@ function df.itemimprovement:write_file(file) end
 ---@param loadversion save_version
 function df.itemimprovement:read_file(file, loadversion) end
 
+---@return improvement_type
 function df.itemimprovement:getType() end
 
+---@return boolean
 function df.itemimprovement:isDecoration() end
 
 ---@param caravan caravan_state
+---@return integer
 function df.itemimprovement:getDyeValue(caravan) end
 
 ---@param shape descriptor_shape

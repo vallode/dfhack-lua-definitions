@@ -405,8 +405,10 @@ function df.squad_order:write_file(file) end
 ---@param loadversion save_version
 function df.squad_order:read_file(file, loadversion) end
 
+---@return squad_order_type
 function df.squad_order:getType() end
 
+---@return boolean
 function df.squad_order:isPatrol() end
 
 ---@param x integer
@@ -418,28 +420,35 @@ function df.squad_order:offsetPosition(x, y, z) end
 function df.squad_order:process(soldier) end
 
 ---@param soldier unit
+---@return squad_order_cannot_reason
 function df.squad_order:reasonCannot(soldier) end
 
 ---@param soldier unit
+---@return boolean
 function df.squad_order:decUniformLock(soldier) end
 
 ---true if all killed
+---@return boolean
 function df.squad_order:isFulfilled() end
 
 function df.squad_order:getTargetUnits() end
 
 ---@param soldier unit
+---@return integer
 function df.squad_order:getUniformType(soldier) end
 
 function df.squad_order:getDescription() end
 
 ---always false
+---@return boolean
 function df.squad_order:isInactive() end
 
 ---not train
+---@return boolean
 function df.squad_order:isCombat() end
 
 ---@param other squad_order
+---@return boolean
 function df.squad_order:isEqual(other) end
 
 ---@class squad_order_movest: squad_order

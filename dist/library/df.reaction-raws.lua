@@ -76,20 +76,24 @@ df.reaction_reagent_type = {}
 ---@field flags reaction_reagent_flags
 df.reaction_reagent = {}
 
+---@return reaction_reagent_type
 function df.reaction_reagent:getType() end
 
 ---@param reactionID integer
 function df.reaction_reagent:resolveTokens(reactionID) end
 
 ---@param index reaction
+---@return boolean
 function df.reaction_reagent:matchesRoot(index) end
 
 ---@param index reaction
+---@return boolean
 function df.reaction_reagent:matchesChild(index) end
 
 ---@param index reaction
 function df.reaction_reagent:getDescription(index) end
 
+---@return boolean
 function df.reaction_reagent:isLyeBearing() end
 
 ---@class _reaction_reagent_flags: df.bitfield
@@ -149,6 +153,7 @@ df.reaction_product_type = {}
 ---@field product_to_container string
 df.reaction_product = {}
 
+---@return reaction_product_type
 function df.reaction_product:getType() end
 
 ---@param reactionID integer

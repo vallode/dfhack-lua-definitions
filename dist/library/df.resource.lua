@@ -188,6 +188,7 @@ df.resource_allotment_specifier_type = {}
 ---@field unk_3 integer
 df.resource_allotment_specifier = {}
 
+---@return resource_allotment_specifier_type
 function df.resource_allotment_specifier:getType() end
 
 ---@param file file_compressorst

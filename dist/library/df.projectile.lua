@@ -108,11 +108,14 @@ df.projectile_flags = {}
 ---@field accel_z integer
 df.projectile = {}
 
+---@return projectile_type
 function df.projectile:getType() end
 
 ---@param noDamageFloor boolean
+---@return boolean
 function df.projectile:checkImpact(noDamageFloor) end
 
+---@return boolean
 function df.projectile:checkMovement() end
 
 ---@param file file_compressorst
@@ -122,6 +125,7 @@ function df.projectile:read_file(file, loadversion) end
 ---@param file file_compressorst
 function df.projectile:write_file(file) end
 
+---@return boolean
 function df.projectile:isObjectLost() end
 
 ---@class proj_itemst: projectile

@@ -132,6 +132,7 @@ df.interaction_effect.T_flags = {}
 ---@field [0] boolean
 ---@field IMMEDIATE boolean
 
+---@return interaction_effect_type
 function df.interaction_effect:getType() end
 
 ---@param file file_compressorst
@@ -153,6 +154,7 @@ function df.interaction_effect:finalize() end
 
 function df.interaction_effect:applySyndromes() end
 
+---@return boolean
 function df.interaction_effect:hasSyndrome() end
 
 ---@class interaction_effect_animatest: interaction_effect
@@ -293,6 +295,7 @@ df.interaction_source_type = {}
 ---@field trigger_string string IS_TRIGGER_STRING
 df.interaction_source = {}
 
+---@return interaction_source_type
 function df.interaction_source:getType() end
 
 ---@param file file_compressorst
@@ -525,6 +528,7 @@ df.interaction_target_location_type = {}
 ---@field reference_distance integer IT_LOCATION:RANDOM_NEARBY_LOCATION
 df.interaction_target = {}
 
+---@return interaction_target_type
 function df.interaction_target:getType() end
 
 ---@param file file_compressorst

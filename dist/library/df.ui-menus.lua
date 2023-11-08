@@ -31,16 +31,20 @@ df.build_req_choice_type = {}
 ---@field distance integer
 df.build_req_choicest = {}
 
+---@return build_req_choice_type
 function df.build_req_choicest:getType() end
 
 ---@param str string
 function df.build_req_choicest:getName(str) end
 
 ---@param item_id integer
+---@return boolean
 function df.build_req_choicest:isCandidate(item_id) end
 
+---@return integer
 function df.build_req_choicest:getUsedCount() end
 
+---@return integer
 function df.build_req_choicest:getNumCandidates() end
 
 ---@class build_req_choice_genst: build_req_choicest
@@ -191,6 +195,7 @@ function df.interface_button:set_button_color(selected) end
 
 function df.interface_button:set_leave_button() end
 
+---@return integer
 function df.interface_button:tile() end
 
 function df.interface_button:set_tile_color() end
@@ -198,10 +203,13 @@ function df.interface_button:set_tile_color() end
 ---@param box string[]
 function df.interface_button:prepare_tool_tip(box) end
 
+---@return boolean
 function df.interface_button:pressable() end
 
+---@return boolean
 function df.interface_button:has_view() end
 
+---@return boolean
 function df.interface_button:is_alphabetized() end
 
 function df.interface_button:get_objection_string() end

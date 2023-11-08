@@ -415,6 +415,7 @@ df.building.T_job_claim_suppress = {}
 ---@field event_id activity_event
 df.building.T_activities = {}
 
+---@return integer
 function df.building:getCustomType() end
 
 ---@param type integer
@@ -429,6 +430,7 @@ function df.building:getStockpileLinks() end
 function df.building:detachWorldData() end
 
 ---used by the give to building ui of stockpile
+---@return boolean
 function df.building:canLinkToStockpile() end
 
 function df.building:getUsers() end
@@ -444,17 +446,23 @@ function df.building:initOccupancy(abs_x, abs_y) end
 
 function df.building:setFillTimer() end
 
+---@return boolean
 function df.building:isOnFire() end
 
 ---from magma OR machine power
+---@return boolean
 function df.building:isUnpowered() end
 
+---@return boolean
 function df.building:canCollapse() end
 
+---@return integer
 function df.building:getPassableOccupancy() end
 
+---@return integer
 function df.building:getImpassableOccupancy() end
 
+---@return boolean
 function df.building:isPowerSource() end
 
 function df.building:updateFromWeather() end
@@ -466,8 +474,10 @@ function df.building:updateItems() end
 ---@param temp integer
 function df.building:updateTempFromTile(temp) end
 
+---@return boolean
 function df.building:isNormalFurniture() end
 
+---@return boolean
 function df.building:isFarmPlot() end
 
 function df.building:getWorkshopProfile() end
@@ -477,21 +487,27 @@ function df.building:getMachineInfo() end
 ---@param power_info power_info
 function df.building:getPowerInfo(power_info) end
 
+---@return boolean
 function df.building:canConnectToMachine() end
 
+---@return building_type
 function df.building:getType() end
 
+---@return integer
 function df.building:getSubtype() end
 
 ---@param subtype integer
 function df.building:setSubtype(subtype) end
 
+---@return boolean
 function df.building:isActual() end
 
+---@return boolean
 function df.building:isCoffin2() end
 
 function df.building:updateAction() end
 
+---@return boolean
 function df.building:isStatueOrRestraint() end
 
 function df.building:setMaterialAmount() end
@@ -499,28 +515,37 @@ function df.building:setMaterialAmount() end
 ---@param stage integer
 function df.building:setBuildStage(stage) end
 
+---@return integer
 function df.building:getBuildStage() end
 
+---@return integer
 function df.building:getMaxBuildStage() end
 
 ---bridge: material*10 rough, material*30 smooth
+---@return integer
 function df.building:getArchitectureValue() end
 
+---@return boolean
 function df.building:isSettingOccupancy() end
 
+---@return boolean
 function df.building:isActual2() end
 
+---@return boolean
 function df.building:isExtentShaped() end
 
 ---@param abs_x integer
 ---@param abs_y integer
 function df.building:updateOccupancy(abs_x, abs_y) end
 
+---@return integer
 function df.building:getPersonalValue() end
 
+---@return boolean
 function df.building:canBeRoom() end
 
 ---bridge: material*10
+---@return integer
 function df.building:getConstructionValue() end
 
 ---same as querying and pressing X
@@ -528,12 +553,15 @@ function df.building:queueDestroy() end
 
 ---@param rel_x integer
 ---@param rel_y integer
+---@return boolean
 function df.building:isImpassableTile(rel_x, rel_y) end
 
 ---@param subtract_pending_jobs boolean
+---@return integer
 function df.building:getFreeCapacity(subtract_pending_jobs) end
 
 ---@param subtract_pending_jobs boolean
+---@return boolean
 function df.building:canStoreItem(subtract_pending_jobs) end
 
 ---@param name string
@@ -544,24 +572,33 @@ function df.building:getNameColor() end
 function df.building:initFarmSeasons() end
 
 ---1..10
+---@return integer
 function df.building:getClutterLevel() end
 
+---@return boolean
 function df.building:needsDesign() end
 
+---@return boolean
 function df.building:canUseForMood() end
 
+---@return boolean
 function df.building:canBeRoomSubset() end
 
+---@return boolean
 function df.building:isCoffin() end
 
+---@return boolean
 function df.building:canUseSpouseRoom() end
 
 ---false if already, or cannot be
+---@return boolean
 function df.building:canMakeRoom() end
 
 ---building is assigned to a unit (if a zone) or is in a zone that is assigned to a unit
+---@return boolean
 function df.building:isAssigned() end
 
+---@return boolean
 function df.building:isJusticeRestraint() end
 
 function df.building:detachRestrainedUnit() end
@@ -574,6 +611,7 @@ function df.building:write_file(file) end
 function df.building:read_file(file, loadversion) end
 
 ---the true set looks like things where the unit should stand aside
+---@return boolean
 function df.building:isImpassableAtCreation() end
 
 ---Add to world.buildings.other.*
@@ -583,11 +621,13 @@ function df.building:categorize(in_play) end
 ---Remove from world.buildings.other.*
 function df.building:uncategorize() end
 
+---@return integer
 function df.building:getBaseValue() end
 
 ---@param new_state integer
 function df.building:setTriggerState(new_state) end
 
+---@return boolean
 function df.building:needsMagma() end
 
 ---@param noscatter boolean
@@ -602,19 +642,24 @@ function df.building:cleanupMap() end
 
 ---checks contained_items[0] for FIREIMMUNE
 ---@param fire_type integer
+---@return boolean
 function df.building:isFireSafe(fire_type) end
 
 function df.building:fillSidebarMenu() end
 
+---@return boolean
 function df.building:isForbidden() end
 
+---@return boolean
 function df.building:isHidden() end
 
 ---not hidden, or hide/unhide UI mode
+---@return boolean
 function df.building:isVisibleInUI() end
 
 ---checks coordinates, calls isVisibleInUI and checks window_xy
 ---@param viewport map_viewport
+---@return boolean
 function df.building:isVisibleInViewport(viewport) end
 
 ---@param buffer building_drawbuffer
@@ -625,8 +670,10 @@ function df.building:getDrawExtents(buffer) end
 ---@param z_offset integer
 function df.building:drawBuilding(unk_item, buffer, z_offset) end
 
+---@return integer
 function df.building:getSpecificSquad() end
 
+---@return integer
 function df.building:getSpecificPosition() end
 
 function df.building:setSpecificSquadPos() end
@@ -1199,6 +1246,7 @@ df.building_actual = {}
 ---@field use_mode integer
 df.building_actual.T_contained_items = {}
 
+---@return boolean
 function df.building_actual:isDestroyedByItemRemoval() end
 
 ---@class building_design: df.class

@@ -450,6 +450,7 @@ df.creature_interaction_effect = {}
 ---@field required integer[]
 df.creature_interaction_effect.T_counter_trigger = {}
 
+---@return creature_interaction_effect_type
 function df.creature_interaction_effect:getType() end
 
 function df.creature_interaction_effect:clone() end
@@ -459,6 +460,7 @@ function df.creature_interaction_effect:clone() end
 ---@param bp_layer integer
 function df.creature_interaction_effect:doAction(intensity, bp_index, bp_layer) end
 
+---@return boolean
 function df.creature_interaction_effect:isUntargeted() end
 
 function df.creature_interaction_effect:getTargetModes() end
@@ -467,6 +469,7 @@ function df.creature_interaction_effect:getTargetKeys() end
 
 function df.creature_interaction_effect:getTargetTissues() end
 
+---@return boolean
 function df.creature_interaction_effect:checkAddFlag1() end
 
 function df.creature_interaction_effect:setBodyMatInteractionName() end

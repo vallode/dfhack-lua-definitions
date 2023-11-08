@@ -98,6 +98,7 @@ df.machine.T_flags = {}
 ---@field [2] boolean
 ---@field unfreeze boolean
 
+---@return machine_type
 function df.machine:getType() end
 
 ---@param x integer
