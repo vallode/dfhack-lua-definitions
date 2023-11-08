@@ -1743,14 +1743,20 @@ df.text_info_element_stringst = {}
 ---for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
 df.adventure_optionst = {}
 
-function df.adventure_optionst:getDescription() end
+---@param unk_0 string
+function df.adventure_optionst:getDescription(unk_0) end
 
+---@param unk_0 item
 ---@return item
-function df.adventure_optionst:getIngestedItem() end
+function df.adventure_optionst:getIngestedItem(unk_0) end
 
 ---for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
+---@param unk_0 integer
+---@param unk_1 boolean
+---@param unk_2 boolean
+---@param unk_3 item
 ---@return item
-function df.adventure_optionst:performAction() end
+function df.adventure_optionst:performAction(unk_0, unk_1, unk_2, unk_3) end
 
 ---@return integer
 function df.adventure_optionst:getPlayerPosX() end
@@ -1772,20 +1778,24 @@ function df.adventure_optionst:getTargetPosZ() end
 
 function df.adventure_optionst:deleteSpatter() end
 
+---@param unk_0 unit
 ---@return unit
-function df.adventure_optionst:getSuckBloodUnitID() end
+function df.adventure_optionst:getSuckBloodUnitID(unk_0) end
 
 ---@return boolean
 function df.adventure_optionst:isIngestFromContainer() end
 
+---@param unk_0 building
 ---@return building
-function df.adventure_optionst:getBuildingContainer() end
+function df.adventure_optionst:getBuildingContainer(unk_0) end
 
+---@param unk_0 item
 ---@return item
-function df.adventure_optionst:getItemContainer() end
+function df.adventure_optionst:getItemContainer(unk_0) end
 
+---@param unk_0 unit
 ---@return unit
-function df.adventure_optionst:getUnitContainer() end
+function df.adventure_optionst:getUnitContainer(unk_0) end
 
 ---@class adventure_option_eat_unit_contaminantst: adventure_optionst
 ---@field unit unit
@@ -1897,7 +1907,8 @@ df.adventure_movement_item_interact_pushst = {}
 ---@class adventure_item_interact_choicest: df.class
 df.adventure_item_interact_choicest = {}
 
-function df.adventure_item_interact_choicest:getDescription() end
+---@param unk_0 string
+function df.adventure_item_interact_choicest:getDescription(unk_0) end
 
 function df.adventure_item_interact_choicest:performAction() end
 

@@ -112,8 +112,9 @@ df.script_step_eventst = {}
 ---@field name string
 df.script_varst = {}
 
+---@param unk_0 active_script_varst
 ---@return active_script_varst
-function df.script_varst:instantiate() end
+function df.script_varst:instantiate(unk_0) end
 
 ---@class script_var_unitst: script_varst
 df.script_var_unitst = {}
@@ -595,8 +596,9 @@ function df.activity_event:read_file(file, loadversion) end
 ---@return boolean
 function df.activity_event:isEmpty() end
 
+---@param unk_0 activity_event_participants
 ---@return activity_event_participants
-function df.activity_event:getParticipantInfo() end
+function df.activity_event:getParticipantInfo(unk_0) end
 
 ---@param children_too boolean
 function df.activity_event:dismiss(children_too) end
@@ -608,20 +610,24 @@ function df.activity_event:move(dx, dy, dz) end
 
 ---@param histfig integer
 ---@param unit integer
-function df.activity_event:removeParticipant(histfig, unit) end
+---@param unk_2 boolean
+function df.activity_event:removeParticipant(histfig, unit, unk_2) end
 
+---@param unk_0 process_unit_aux
 ---@param unit unit
-function df.activity_event:process(unit) end
+function df.activity_event:process(unk_0, unit) end
 
 ---@param unit unit
 ---@return integer
 function df.activity_event:checkDrillInvalid(unit) end
 
+---@param unk_0 integer
 ---@return boolean
-function df.activity_event:decUniformLock() end
+function df.activity_event:decUniformLock(unk_0) end
 
+---@param unk_0 squad_event_type
 ---@return squad_event_type
-function df.activity_event:getSquadEventType() end
+function df.activity_event:getSquadEventType(unk_0) end
 
 ---@param skill job_skill
 function df.activity_event:setDemoSkill(skill) end
@@ -640,8 +646,9 @@ function df.activity_event:adjustOrganizeCounter(amount) end
 function df.activity_event:getOrganizer(hist_figure_id, unit_id) end
 
 ---returns pointer to building_id
+---@param unk_0 integer
 ---@return integer
-function df.activity_event:getBuilding() end
+function df.activity_event:getBuilding(unk_0) end
 
 ---@return boolean
 function df.activity_event:isSparring() end

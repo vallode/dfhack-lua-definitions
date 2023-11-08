@@ -1029,7 +1029,8 @@ df.job_handler.T_postings.T_flags = {}
 ---@field size integer
 df.job_handler.T_job_application_heap = {}
 
-function df.job_handler:cancel_job() end
+---@param unk_0 job
+function df.job_handler:cancel_job(unk_0) end
 
 ---@class building_handler: df.class
 ---@field all building[]

@@ -40,14 +40,16 @@ function df.art_image_element:read_file(file, loadversion) end
 ---@return art_image_element_type
 function df.art_image_element:getType() end
 
----@param ID integer
+---@param ID integer race, item type, plant ID, or shape ID
 function df.art_image_element:setID(ID) end
 
+---@param unk_0 art_image_element
 ---@return art_image_element
-function df.art_image_element:clone() end
+function df.art_image_element:clone(unk_0) end
 
 ---@param sym integer
-function df.art_image_element:getSymbol(sym) end
+---@param unk_1 integer
+function df.art_image_element:getSymbol(sym, unk_1) end
 
 ---@param name string
 ---@param useThe boolean
@@ -55,7 +57,8 @@ function df.art_image_element:getSymbol(sym) end
 function df.art_image_element:getName1(name, useThe, useName) end
 
 ---@param name string
-function df.art_image_element:getName2(name) end
+---@param unk_1 boolean
+function df.art_image_element:getName2(name, unk_1) end
 
 function df.art_image_element:markDiscovered() end
 
@@ -118,11 +121,14 @@ function df.art_image_property:read_file(file, loadversion) end
 ---@return art_image_property_type
 function df.art_image_property:getType() end
 
+---@param unk_0 art_image_element
 ---@return art_image_element
-function df.art_image_property:clone() end
+function df.art_image_property:clone(unk_0) end
 
+---@param unk_0 string
+---@param unk_1 art_image
 ---@param useName boolean
-function df.art_image_property:getName(useName) end
+function df.art_image_property:getName(unk_0, unk_1, useName) end
 
 ---@class _art_image_property_verb: df.enum
 ---@field Withering 0

@@ -594,7 +594,8 @@ function df.renderer:render() end
 
 function df.renderer:set_fullscreen() end
 
-function df.renderer:zoom() end
+---@param unk_0 zoom_commands
+function df.renderer:zoom(unk_0) end
 
 ---@param w integer
 ---@param h integer
@@ -776,8 +777,9 @@ df.enabler.T_flag = {}
 ---@field uploaded boolean
 df.enabler.T_textures = {}
 
+---@param unk_0 interface_key
 ---@return string
-function df.enabler:GetKeyDisplay() end
+function df.enabler:GetKeyDisplay(unk_0) end
 
 ---@class _justification: df.enum
 ---from libgraphics

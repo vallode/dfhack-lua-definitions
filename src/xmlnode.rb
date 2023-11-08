@@ -118,7 +118,7 @@ class FunctionType < Field
 
     if get_parameters
       get_parameters.each do |paramater|
-        annotation << "---@param #{paramater[0]} #{paramater[1]}\n"
+        annotation << "---@param #{paramater[0]} #{paramater[1]}#{' ' + paramater[2] if paramater[2]}\n"
       end
 
       inline_params = get_parameters.map(&:first).join(", ")
@@ -143,16 +143,16 @@ class FunctionType < Field
 
     return nil if not @has_children
 
-    @children.each do |child|
-      next if not child.attributes['name']
-      name = child['name']
+    @children.each_with_index do |child, index|
+      name = child['name'] || "unk_#{index}"
       type = Field.get_type(child)
+      comment = child['comment']
 
       if RESERVED_KEYWORDS.include?(name)
         name += '_'
       end
 
-      parameters.push([name, type])
+      parameters.push([name, type, comment])
     end
 
     parameters

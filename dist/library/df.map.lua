@@ -897,17 +897,20 @@ function df.feature_init:write_file(file, include_feature) end
 ---@param include_feature boolean
 function df.feature_init:read_file(file, loadversion, include_feature) end
 
+---@param unk_0 feature
 ---@return feature
-function df.feature_init:createFeature() end
+function df.feature_init:createFeature(unk_0) end
 
 ---destroyFeature(), then createFeature()
+---@param unk_0 feature
 ---@return feature
-function df.feature_init:recreateFeature() end
+function df.feature_init:recreateFeature(unk_0) end
 
 function df.feature_init:destroyFeature() end
 
+---@param unk_0 feature
 ---@return feature
-function df.feature_init:getFeature() end
+function df.feature_init:getFeature(unk_0) end
 
 ---@param mat_type integer
 ---@param mat_index integer
@@ -1097,8 +1100,9 @@ df.world_construction = {}
 ---@return world_construction_type
 function df.world_construction:getType() end
 
+---@param unk_0 language_name
 ---@return language_name
-function df.world_construction:getName() end
+function df.world_construction:getName(unk_0) end
 
 ---@param file file_compressorst
 function df.world_construction:write_file(file) end

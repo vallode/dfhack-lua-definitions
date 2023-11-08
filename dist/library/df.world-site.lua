@@ -273,11 +273,13 @@ function df.abstract_building:getType() end
 ---@param bright integer
 function df.abstract_building:getDisplayTile(tile, fg, bg, bright) end
 
+---@param unk_0 language_name
 ---@return language_name
-function df.abstract_building:getName() end
+function df.abstract_building:getName(unk_0) end
 
+---@param unk_0 abstract_building_contents
 ---@return abstract_building_contents
-function df.abstract_building:getContents() end
+function df.abstract_building:getContents(unk_0) end
 
 ---@param file file_compressorst
 function df.abstract_building:write_file(file) end
@@ -289,11 +291,13 @@ function df.abstract_building:read_file(file, loadversion) end
 ---@return integer
 function df.abstract_building:getReligionID() end
 
+---@param unk_0 abstract_building_entombed
 ---@return abstract_building_entombed
-function df.abstract_building:getEntombed() end
+function df.abstract_building:getEntombed(unk_0) end
 
+---@param unk_0 lightuserdata
 ---@param indent integer
-function df.abstract_building:generate_xml(indent) end
+function df.abstract_building:generate_xml(unk_0, indent) end
 
 ---@class abstract_building_mead_hallst: abstract_building
 ---@field name language_name

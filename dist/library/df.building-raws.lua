@@ -25,7 +25,11 @@
 ---@field build_stages integer
 df.building_def = {}
 
-function df.building_def:parseRaws() end
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+function df.building_def:parseRaws(unk_0, unk_1, unk_2, unk_3) end
 
 ---add to world.raws.buildings.whatever
 function df.building_def:categorize() end

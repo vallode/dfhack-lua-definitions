@@ -396,8 +396,9 @@ df.squad_order_cannot_reason = {}
 ---@field unk_1 integer
 df.squad_order = {}
 
+---@param unk_0 squad_order
 ---@return squad_order
-function df.squad_order:clone() end
+function df.squad_order:clone(unk_0) end
 
 ---@param file file_compressorst
 function df.squad_order:write_file(file) end
@@ -417,8 +418,10 @@ function df.squad_order:isPatrol() end
 ---@param z integer
 function df.squad_order:offsetPosition(x, y, z) end
 
+---@param unk_0 integer
+---@param unk_1 integer
 ---@param soldier unit
-function df.squad_order:process(soldier) end
+function df.squad_order:process(unk_0, unk_1, soldier) end
 
 ---@param soldier unit
 ---@return squad_order_cannot_reason
@@ -432,18 +435,21 @@ function df.squad_order:decUniformLock(soldier) end
 ---@return boolean
 function df.squad_order:isFulfilled() end
 
+---@param unk_0 integer[]
 ---@return integer[]
-function df.squad_order:getTargetUnits() end
+function df.squad_order:getTargetUnits(unk_0) end
 
 ---@param soldier unit
 ---@return integer
 function df.squad_order:getUniformType(soldier) end
 
-function df.squad_order:getDescription() end
+---@param unk_0 string
+function df.squad_order:getDescription(unk_0) end
 
 ---always false
+---@param unk_0 integer
 ---@return boolean
-function df.squad_order:isInactive() end
+function df.squad_order:isInactive(unk_0) end
 
 ---not train
 ---@return boolean

@@ -2989,8 +2989,9 @@ function df.history_event:getHappinessModifier(entity1, entity2) end
 function df.history_event:madeFirstContact(entity1, entity2, site) end
 
 ---@param killer historical_figure
+---@param unk_1 historical_figure
 ---@return historical_figure
-function df.history_event:getKilledHistfigID(killer) end
+function df.history_event:getKilledHistfigID(killer, unk_1) end
 
 ---@param victim historical_figure
 ---@return boolean
@@ -3077,8 +3078,9 @@ function df.history_event:categorize() end
 ---removes event from world_history.events_death if relevant
 function df.history_event:uncategorize() end
 
+---@param unk_0 lightuserdata
 ---@param indent integer
-function df.history_event:generate_xml(indent) end
+function df.history_event:generate_xml(unk_0, indent) end
 
 ---@param file file_compressorst
 function df.history_event:write_file(file) end
@@ -5240,8 +5242,9 @@ df.history_event_collection = {}
 ---@return history_event_collection_type
 function df.history_event_collection:getType() end
 
+---@param unk_0 lightuserdata
 ---@param indent integer
-function df.history_event_collection:generate_xml(indent) end
+function df.history_event_collection:generate_xml(unk_0, indent) end
 
 ---@param file file_compressorst
 function df.history_event_collection:write_file(file) end

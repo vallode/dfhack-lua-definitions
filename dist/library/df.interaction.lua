@@ -143,19 +143,28 @@ function df.interaction_effect:write_file(file) end
 function df.interaction_effect:read_file(file, loadversion) end
 
 ---@param target unit
-function df.interaction_effect:activateOnUnit(target) end
+---@param unk_1 integer has pointer-vector at offset 0x10
+---@param unk_2 boolean only used by animate
+function df.interaction_effect:activateOnUnit(target, unk_1, unk_2) end
 
 ---@param target item
 function df.interaction_effect:activateOnItem(target) end
 
-function df.interaction_effect:parseRaws() end
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param unk_4 integer
+function df.interaction_effect:parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 
-function df.interaction_effect:finalize() end
+---@param unk_0 integer
+function df.interaction_effect:finalize(unk_0) end
 
 function df.interaction_effect:applySyndromes() end
 
+---@param unk_0 syndrome
 ---@return boolean
-function df.interaction_effect:hasSyndrome() end
+function df.interaction_effect:hasSyndrome(unk_0) end
 
 ---@class interaction_effect_animatest: interaction_effect
 ---@field unk_1 integer
@@ -305,7 +314,12 @@ function df.interaction_source:write_file(file) end
 ---@param loadversion save_version
 function df.interaction_source:read_file(file, loadversion) end
 
-function df.interaction_source:parseRaws() end
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param unk_4 integer
+function df.interaction_source:parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 
 ---@class interaction_source_regionst: interaction_source
 ---@field region_flags interaction_source_regionst_region_flags
@@ -538,7 +552,12 @@ function df.interaction_target:write_file(file) end
 ---@param loadversion save_version
 function df.interaction_target:read_file(file, loadversion) end
 
-function df.interaction_target:parseRaws() end
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param unk_4 integer
+function df.interaction_target:parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 
 ---@class interaction_target_info: df.class
 ---@field affected_creature_str string[][]
