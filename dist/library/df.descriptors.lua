@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.descriptors
 
 ---@class _pattern_type: df.enum
 ---@field MONOTONE 0
@@ -54,12 +54,12 @@ df.descriptor_color = {}
 ---@field category string[]
 ---@field faces integer
 ---@field tile integer
----@field unk_v50_1 any
+---@field unk_v50_1 integer
 ---@field unk_v50_2 integer[]
 ---@field unk_v50_3 integer[]
----@field unk_v50_4 any
----@field unk_v50_5 any
----@field unk_v50_6 any
+---@field unk_v50_4 integer
+---@field unk_v50_5 integer
+---@field unk_v50_6 integer
 df.descriptor_shape = {}
 
 ---@class _descriptor_shape_gems_use: df.bitfield

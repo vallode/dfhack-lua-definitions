@@ -9,12 +9,11 @@
 
 -- TODO: Keep an eye out on the generics issue for Lua LSP
 -- https://github.com/LuaLS/lua-language-server/issues/1861
----@generic T
 ---@class df.base
 ---@field _kind df.kind
 ---@field _identity any TODO
 ---@field sizeof fun(self: any): integer
----@field new fun(self: any): table
+---@field new fun(self: any): any
 ---@field is_instance fun(self: any, object: any): boolean|nil
 
 ---@class df.struct: df.base

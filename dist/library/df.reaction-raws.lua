@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.reaction-raws
 
 ---@class _reaction_flags: df.enum
 ---@field FUEL 0
@@ -157,21 +157,21 @@ function df.reaction_product:getType() end
 ---@param reactionID integer
 function df.reaction_product:resolveTokens(reactionID) end
 
----@param maker any
----@param out_products any
----@param out_items any
----@param in_reag any
----@param in_items any
+---@param maker integer
+---@param out_products integer
+---@param out_items integer
+---@param in_reag integer
+---@param in_items integer
 ---@param quantity integer
 ---@param skill any
 ---@param job_quality integer
----@param entity any
----@param site any
----@param unk4 any
+---@param entity integer
+---@param site integer
+---@param unk4 integer
 function df.reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
 
 ---used in Adventurer mode reactions?
----@param desc any
+---@param desc integer
 function df.reaction_product:getDescription(desc) end
 
 ---@class _reaction_product_item_flags: df.enum

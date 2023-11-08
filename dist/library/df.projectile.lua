@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.projectile
 
 ---@class _projectile_type: df.enum
 ---@field Item 0
@@ -115,11 +115,11 @@ function df.projectile:checkImpact(noDamageFloor) end
 
 function df.projectile:checkMovement() end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.projectile:read_file(file, loadversion) end
 
----@param file any
+---@param file integer
 function df.projectile:write_file(file) end
 
 function df.projectile:isObjectLost() end

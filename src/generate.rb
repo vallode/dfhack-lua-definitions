@@ -30,7 +30,7 @@ Dir.glob(ARGV[0]).each do |xml|
   # Use hash objects to write to lua files
   File.open("../dist/library/#{File.basename(xml).sub('.xml', '.lua')}", 'w') do |output|
     output.write("---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.\n")
-    output.write("---@meta\n\n")
+    output.write("---@meta #{File.basename(xml, ".xml")}\n\n")
 
     # Provided files should have a single `<data-definition>` root node.
     definitions = document.css('data-definition > *')

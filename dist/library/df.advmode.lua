@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.advmode
 
 ---@class _ui_advmode_menu: df.enum
 ---@field Default 0
@@ -1210,7 +1210,7 @@ df.talk_choice = {}
 
 ---@class talk_choice_unk: df.struct
 ---@field event entity_event
----@field unk_1 any
+---@field unk_1 integer
 ---@field unk_2 integer
 df.talk_choice.T_unk = {}
 
@@ -1233,7 +1233,7 @@ df.talk_choice.T_unk = {}
 ---@field fell_tree_x integer Set to the local x + df.global.world.map.region_x*48 coordinate of the target tree when the map is offloaded for a tree felling action.
 ---@field fell_tree_y integer Set to the local y + df.global.world.map.region_y*48 coordinate of the target tree when the map is offloaded for a tree felling action.
 ---@field fell_tree_z integer Set to the local z + df.global.world.map.region_z coordinate of the target tree when the map is offloaded for a tree felling action.
----@field unk_8 any
+---@field unk_8 integer
 ---@field unk_9 integer
 ---@field unk_10 integer
 ---@field unk_11 integer
@@ -1307,8 +1307,8 @@ df.talk_choice.T_unk = {}
 ---@field player_id nemesis_record
 ---@field track_viewed_x integer Set when viewing a spoor; local x coordinate of the track in question.
 ---@field track_viewed_y integer Set when viewing a spoor; local y coordinate of the track in question.
----@field track_viewed_unk_1 any Set when viewing a spoor.
----@field track_viewed_unk_2 any Set when viewing a spoor.
+---@field track_viewed_unk_1 integer Set when viewing a spoor.
+---@field track_viewed_unk_2 integer Set when viewing a spoor.
 ---@field conversation adventurest_conversation
 ---@field unk_70 any[]
 ---@field unk_71 integer
@@ -1334,13 +1334,13 @@ df.talk_choice.T_unk = {}
 ---@field unk_224 integer
 ---@field unk_v40_2 adventurest_unk_v40_2
 ---@field unk_v40_3 adventurest_unk_v40_3
----@field player_unit_projectile_unk any Set when the player is travelling as a unit projectile after falling or jumping.
+---@field player_unit_projectile_unk integer Set when the player is travelling as a unit projectile after falling or jumping.
 ---@field player_unit_projectile_z integer Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
 ---@field unk_90 integer
 ---@field unk_v40_4 adventurest_unk_v40_4
 ---@field unk_v40_5 adventurest_unk_v40_5
 ---@field unk_v42_1 adventurest_unk_v42_1
----@field unk_91 any
+---@field unk_91 integer
 ---@field unk_91a integer
 ---@field assume_identity adventurest_assume_identity Manages the Assume Identity UI when the AssumeIdentity menu is open
 ---@field move_direction_x integer x-axis direction for the last attempted player unit movement: -1 = west, 0 = none, 1 = east
@@ -1433,7 +1433,7 @@ df.adventurest.T_unk_3170.T_unk_1 = {}
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
----@field unk_8 any
+---@field unk_8 integer
 ---@field unk_9 integer
 ---@field unk_10 integer
 ---@field unk_11 integer
@@ -1445,7 +1445,7 @@ df.adventurest.T_unk_3170.T_unk_1 = {}
 ---@field unk_17 integer
 ---@field unk_18 integer
 ---@field unk_19 integer
----@field unk_20 any[]
+---@field unk_20 integer[]
 ---@field unk_21 integer
 ---@field unk_22 integer[]
 ---@field unk_23 integer
@@ -1453,10 +1453,10 @@ df.adventurest.T_unk_3170.T_unk_1 = {}
 ---@field unk_25 integer
 ---@field unk_26 integer
 ---@field unk_27 integer
----@field unk_28 any
----@field unk_29 any[]
+---@field unk_28 integer
+---@field unk_29 integer[]
 ---@field unk_30 integer
----@field unk_31 any[]
+---@field unk_31 integer[]
 ---@field unk_32 integer
 ---@field unk_33 integer[]
 ---@field unk_33b integer[]
@@ -1479,7 +1479,7 @@ df.adventurest.T_unk_3170.T_unk_1 = {}
 ---@field unk_47 integer
 ---@field unk_48 integer
 ---@field unk_49 integer
----@field unk_50 any[]
+---@field unk_50 integer[]
 ---@field unk_51 any
 ---@field unk_52 any
 ---@field unk_53 integer
@@ -1660,11 +1660,11 @@ df.adventurest.T_companions = {}
 ---@field unk_1e8 integer
 ---@field selected_ability integer natural ability
 ---@field selected_power integer acquired power
----@field unk_1f0 any
+---@field unk_1f0 integer
 ---@field max_target_number integer
 ---@field target_range integer
 ---@field target_flags creature_interaction_target_flags
----@field unk_200 any
+---@field unk_200 integer
 df.adventurest.T_interactions = {}
 
 ---@class adventurest_unk_v40_2: df.struct
@@ -1725,7 +1725,7 @@ df.adventurest.T_assume_identity = {}
 ---@class text_info_elementst: df.struct
 df.text_info_elementst = {}
 
----@param val any
+---@param val integer
 function df.text_info_elementst:getString(val) end
 
 function df.text_info_elementst:getLong() end

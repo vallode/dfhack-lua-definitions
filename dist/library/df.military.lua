@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.military
 
 ---@class _uniform_indiv_choice: df.bitfield
 ---@field any 0
@@ -419,10 +419,10 @@ df.squad_order = {}
 
 function df.squad_order:clone() end
 
----@param file any
+---@param file integer
 function df.squad_order:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.squad_order:read_file(file, loadversion) end
 
@@ -435,13 +435,13 @@ function df.squad_order:isPatrol() end
 ---@param z integer
 function df.squad_order:offsetPosition(x, y, z) end
 
----@param soldier any
+---@param soldier integer
 function df.squad_order:process(soldier) end
 
----@param soldier any
+---@param soldier integer
 function df.squad_order:reasonCannot(soldier) end
 
----@param soldier any
+---@param soldier integer
 function df.squad_order:decUniformLock(soldier) end
 
 ---true if all killed
@@ -449,7 +449,7 @@ function df.squad_order:isFulfilled() end
 
 function df.squad_order:getTargetUnits() end
 
----@param soldier any
+---@param soldier integer
 function df.squad_order:getUniformType(soldier) end
 
 function df.squad_order:getDescription() end
@@ -460,7 +460,7 @@ function df.squad_order:isInactive() end
 ---not train
 function df.squad_order:isCombat() end
 
----@param other any
+---@param other integer
 function df.squad_order:isEqual(other) end
 
 ---@class squad_order_movest: squad_order

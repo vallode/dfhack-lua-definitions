@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.items
 
 ---@class _item_flags: df.bitfield
 ---@field on_ground 0
@@ -506,7 +506,7 @@ function df.item:isMetalOre(matIndex) end
 
 function df.item:clearLastTempUpdateTS() end
 
----@param string_ptr any
+---@param string_ptr integer
 function df.item:listNotableKills(string_ptr) end
 
 function df.item:getSpecHeat() end
@@ -562,10 +562,10 @@ function df.item:getMaker() end
 ---@param unit_id integer
 function df.item:setMaker(unit_id) end
 
----@param prace any
----@param pcaste any
----@param phfig any
----@param punit any
+---@param prace integer
+---@param pcaste integer
+---@param phfig integer
+---@param punit integer
 function df.item:getCorpseInfo(prace, pcaste, phfig, punit) end
 
 function df.item:getBodyInfo() end
@@ -577,12 +577,12 @@ function df.item:getItemShapeDesc() end
 
 function df.item:isMatchingAmmoItem() end
 
----@param id any
----@param subid any
+---@param id integer
+---@param subid integer
 function df.item:getImageRef(id, subid) end
 
----@param civ_id any
----@param site_id any
+---@param civ_id integer
+---@param site_id integer
 function df.item:getImageCivSite(civ_id, site_id) end
 
 ---@param civ_id integer
@@ -630,14 +630,14 @@ function df.item:isLiveAnimal() end
 function df.item:getVolume() end
 
 ---@param imp_type any
----@param job any
----@param unit any
+---@param job integer
+---@param unit integer
 ---@param mat_type integer
 ---@param mat_index integer
 ---@param shape integer
 ---@param forced_quality integer
----@param entity any
----@param site any
+---@param entity integer
+---@param site integer
 ---@param unk integer
 ---@param unshaped boolean
 function df.item:addImprovementFromJob(imp_type, job, unit, mat_type, mat_index, shape, forced_quality, entity, site, unk, unshaped) end
@@ -687,16 +687,16 @@ function df.item:isPressed() end
 ---stored in Animal stockpiles
 function df.item:isAnimal() end
 
----@param maker any
+---@param maker integer
 ---@param job_skill any
 function df.item:assignQuality(maker, job_skill) end
 
----@param maker any
+---@param maker integer
 ---@param job_skill any
 ---@param skill_roll integer
 function df.item:assignQuality2(maker, job_skill, skill_roll) end
 
----@param maker any
+---@param maker integer
 function df.item:notifyCreatedMasterwork(maker) end
 
 function df.item:notifyLostMasterwork() end
@@ -733,8 +733,8 @@ function df.item:isLyeBearing() end
 
 function df.item:isAnimalProduct() end
 
----@param item_type any
----@param material_category any
+---@param item_type integer
+---@param material_category integer
 function df.item:getStorageInfo(item_type, material_category) end
 
 ---@param delta integer
@@ -779,10 +779,10 @@ function df.item:tradeItemContaminants2() end
 ---@param body_part_id integer
 function df.item:contaminateWound(shift, body_part_id) end
 
----@param file any
+---@param file integer
 function df.item:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.item:read_file(file, loadversion) end
 
@@ -817,31 +817,31 @@ function df.item:isAutoClean() end
 ---@param x integer
 ---@param y integer
 ---@param z integer
----@param local boolean
+---@param local_ boolean
 ---@param contained boolean
-function df.item:setTemperatureFromMapTile(x, y, z, local, contained) end
+function df.item:setTemperatureFromMapTile(x, y, z, local_, contained) end
 
----@param local boolean
+---@param local_ boolean
 ---@param contained boolean
-function df.item:setTemperatureFromMap(local, contained) end
+function df.item:setTemperatureFromMap(local_, contained) end
 
 ---@param temp integer
----@param local boolean
+---@param local_ boolean
 ---@param contained boolean
-function df.item:setTemperature(temp, local, contained) end
+function df.item:setTemperature(temp, local_, contained) end
 
----@param local boolean
+---@param local_ boolean
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier integer
-function df.item:updateTempFromMap(local, contained, adjust, multiplier) end
+function df.item:updateTempFromMap(local_, contained, adjust, multiplier) end
 
 ---@param temp integer
----@param local boolean
+---@param local_ boolean
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier integer
-function df.item:updateTemperature(temp, local, contained, adjust, multiplier) end
+function df.item:updateTemperature(temp, local_, contained, adjust, multiplier) end
 
 function df.item:updateFromWeather() end
 
@@ -941,7 +941,7 @@ function df.item:getItemDescriptionPrefix(mode) end
 ---usually just "item"
 function df.item:getItemBasicName() end
 
----@param caravan any
+---@param caravan integer
 function df.item:getImprovementsValue(caravan) end
 
 function df.item:isExtractBearingFish() end
@@ -968,7 +968,7 @@ function df.item:isClothing() end
 function df.item:isWet() end
 
 ---that is, value of coins
----@param appraiser any
+---@param appraiser integer
 function df.item:getCurrencyValue(appraiser) end
 
 function df.item:isAssignedToStockpile() end
@@ -986,8 +986,8 @@ function df.item:getStockpile2() end
 ---this updates the quality of a thread improvement already added to the item (or adjusts the quality of a thread item) based on the skill of the dyer
 ---@param mat_type integer
 ---@param mat_index integer
----@param u any
----@param j any
+---@param u integer
+---@param j integer
 function df.item:randomizeThreadImprovement(mat_type, mat_index, u, j) end
 
 ---@param material integer
@@ -996,11 +996,11 @@ function df.item:addImprovement(material, matgloss) end
 
 function df.item:copyImprovementsFrom() end
 
----@param caravan any
+---@param caravan integer
 function df.item:getThreadDyeValue(caravan) end
 
----@param colors any
----@param shapes any
+---@param colors integer
+---@param shapes integer
 function df.item:getColorAndShape(colors, shapes) end
 
 function df.item:isCritter() end
@@ -1381,9 +1381,9 @@ df.item_body_component.T_bone1 = {}
 df.item_body_component.T_bone2 = {}
 
 ---@class item_corpsest: item_body_component
----@field unused_380 any
----@field unused_388 any
----@field unused_390 any
+---@field unused_380 integer
+---@field unused_388 integer
+---@field unused_390 integer
 ---@field unused_398 integer
 ---@field unused_39c integer
 ---@field unused_3a0 integer

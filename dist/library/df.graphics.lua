@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.graphics
 
 ---@class large_integer: df.struct
 ---@field u large_integer_u
@@ -18,8 +18,8 @@ df.large_integer.T_u = {}
 ---@field sound_priority boolean
 ---@field sound_playing integer
 ---@field on boolean
----@field fmod_system any
----@field fmod_master_channel_group any
+---@field fmod_system integer
+---@field fmod_master_channel_group integer
 ---@field mod fmod_sound[] songs
 ---@field samp fmod_sound[] sound effects
 ---@field linux_sound_system musicsoundst_linux_sound_system
@@ -43,8 +43,8 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@field ESD boolean
 
 ---@class fmod_sound: df.struct
----@field sound any
----@field channel any
+---@field sound integer
+---@field channel integer
 df.fmod_sound = {}
 
 ---@class _curses_color: df.enum
@@ -231,7 +231,7 @@ df.graphic_map_portst = {}
 ---@class cached_texturest: df.struct
 ---@field w integer
 ---@field h integer
----@field tex any
+---@field tex integer
 ---@field tex_n integer
 df.cached_texturest = {}
 
@@ -568,12 +568,12 @@ function df.renderer:update_top_tile(x, y) end
 ---@param y integer
 function df.renderer:update_top_anchor_tile(x, y) end
 
----@param vp any
+---@param vp integer
 ---@param x integer
 ---@param y integer
 function df.renderer:update_viewport_tile(vp, x, y) end
 
----@param vp any
+---@param vp integer
 ---@param x integer
 ---@param y integer
 function df.renderer:update_map_port_tile(vp, x, y) end
@@ -582,10 +582,10 @@ function df.renderer:update_all() end
 
 function df.renderer:do_blank_screen_fill() end
 
----@param vp any
+---@param vp integer
 function df.renderer:update_full_viewport(vp) end
 
----@param vp any
+---@param vp integer
 function df.renderer:update_full_map_port(vp) end
 
 function df.renderer:clean_tile_cache() end
@@ -607,22 +607,22 @@ function df.renderer:grid_resize(w, h) end
 ---@param nfactor integer
 function df.renderer:set_viewport_zoom_factor(nfactor) end
 
----@param px any
----@param py any
----@param x any
----@param y any
+---@param px integer
+---@param py integer
+---@param x integer
+---@param y integer
 function df.renderer:get_precise_mouse_coords(px, py, x, y) end
 
----@param cur_tx any
----@param cur_ty any
+---@param cur_tx integer
+---@param cur_ty integer
 function df.renderer:get_current_interface_tile_dims(cur_tx, cur_ty) end
 
 function df.renderer:uses_opengl() end
 
 ---@class renderer_2d_base: renderer
----@field window any SDL_Window*
----@field sdl_renderer any SDL_Renderer*
----@field screen_tex any SDL_Texture*
+---@field window integer SDL_Window*
+---@field sdl_renderer integer SDL_Renderer*
+---@field screen_tex integer SDL_Texture*
 ---@field tile_cache any unordered_map<texture_fullid, SDL_Texture*\>
 ---@field dispx integer
 ---@field dispy integer
@@ -699,7 +699,7 @@ df.zoom_commands = {}
 ---@field async_tobox enabler_async_tobox
 ---@field async_frombox enabler_async_frombox
 ---@field async_zoom enabler_async_zoom
----@field async_fromcomplete any
+---@field async_fromcomplete integer
 ---@field renderer_threadid any
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string
@@ -767,7 +767,7 @@ df.enabler.T_flag = {}
 ---@field maxfps boolean
 
 ---@class enabler_textures: df.struct
----@field raws any[]
+---@field raws integer[]
 ---@field free_spaces integer[]
 ---@field init_texture_size integer
 ---@field uploaded boolean

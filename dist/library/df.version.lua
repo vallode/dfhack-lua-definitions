@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.version
 
 ---@class _cmv_version: df.enum
 ---@field CMV_0 10000

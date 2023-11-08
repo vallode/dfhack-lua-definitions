@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.meeting
 
 ---@class dipscript_info: df.struct
 ---@field id integer assigned during Save
@@ -40,10 +40,10 @@ df.script_stepst = {}
 ---@param idx integer
 function df.script_stepst:setNextStep(idx) end
 
----@param context any
+---@param context integer
 function df.script_stepst:execute(context) end
 
----@param context any
+---@param context integer
 function df.script_stepst:skip(context) end
 
 ---@class script_step_setvarst: script_stepst
@@ -123,24 +123,24 @@ df.active_script_varst = {}
 
 function df.active_script_varst:setColor() end
 
----@param output any
----@param format any
+---@param output integer
+---@param format integer
 function df.active_script_varst:formatString(output, format) end
 
----@param int_value any
----@param ref_value any
+---@param int_value integer
+---@param ref_value integer
 function df.active_script_varst:getValue(int_value, ref_value) end
 
----@param var any
+---@param var integer
 function df.active_script_varst:setValue(var) end
 
----@param ref_value any
+---@param ref_value integer
 function df.active_script_varst:removeUnit(ref_value) end
 
----@param file any
+---@param file integer
 function df.active_script_varst:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.active_script_varst:read_file(file, loadversion) end
 
@@ -161,8 +161,8 @@ df.meeting_variable = {}
 ---@class meeting_context: df.struct
 ---@field meeting meeting_diplomat_info
 ---@field popup dipscript_popup
----@field unk_2 any
----@field unk_3 any
+---@field unk_2 integer
+---@field unk_3 integer
 df.meeting_context = {}
 
 ---@class meeting_diplomat_info: df.struct
@@ -594,10 +594,10 @@ df.activity_event.T_unk_v42_2 = {}
 
 function df.activity_event:getType() end
 
----@param file any
+---@param file integer
 function df.activity_event:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.activity_event:read_file(file, loadversion) end
 
@@ -618,10 +618,10 @@ function df.activity_event:move(dx, dy, dz) end
 ---@param unit integer
 function df.activity_event:removeParticipant(histfig, unit) end
 
----@param unit any
+---@param unit integer
 function df.activity_event:process(unit) end
 
----@param unit any
+---@param unit integer
 function df.activity_event:checkDrillInvalid(unit) end
 
 function df.activity_event:decUniformLock() end
@@ -640,8 +640,8 @@ function df.activity_event:setSkillDemoTimers(wait_countdown, train_rounds, trai
 function df.activity_event:adjustOrganizeCounter(amount) end
 
 ---or perhaps somebody else - only works for combat_training and skill_demonstration
----@param hist_figure_id any
----@param unit_id any
+---@param hist_figure_id integer
+---@param unit_id integer
 function df.activity_event:getOrganizer(hist_figure_id, unit_id) end
 
 ---returns pointer to building_id
@@ -652,7 +652,7 @@ function df.activity_event:isSparring() end
 function df.activity_event:getUniformType() end
 
 ---@param unit_id integer
----@param str any
+---@param str integer
 function df.activity_event:getName(unit_id, str) end
 
 ---@class activity_event_training_sessionst: activity_event
@@ -1330,10 +1330,10 @@ df.performance_play_orderst = {}
 ---@field unk_2 integer[]
 df.performance_play_orderst.T_unk_4 = {}
 
----@param file any
+---@param file integer
 function df.performance_play_orderst:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.performance_play_orderst:read_file(file, loadversion) end
 
@@ -1514,7 +1514,7 @@ df.activity_event_make_believest = {}
 ---@field unk_3 integer
 ---@field unk activity_event_play_with_toyst_unk
 ---@field unk_4 integer
----@field unk_5 any[]
+---@field unk_5 integer[]
 df.activity_event_play_with_toyst = {}
 
 ---@class activity_event_play_with_toyst_unk: df.struct

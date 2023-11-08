@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.world-site
 
 ---@class scribejob: df.struct
 ---@field idmaybe integer
@@ -257,20 +257,20 @@ df.abstract_building.T_inhabitants = {}
 function df.abstract_building:getType() end
 
 ---on navigation minimap
----@param tile any
----@param fg any
----@param bg any
----@param bright any
+---@param tile integer
+---@param fg integer
+---@param bg integer
+---@param bright integer
 function df.abstract_building:getDisplayTile(tile, fg, bg, bright) end
 
 function df.abstract_building:getName() end
 
 function df.abstract_building:getContents() end
 
----@param file any
+---@param file integer
 function df.abstract_building:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.abstract_building:read_file(file, loadversion) end
 
@@ -663,21 +663,21 @@ df.property_ownership = {}
 ---@field unk_6 historical_figure
 ---@field unk_7 historical_figure
 ---@field unk_8 historical_figure
----@field unk_9 any
----@field unk_10 any
----@field unk_11 any
----@field unk_12 any
----@field unk_13 any
----@field unk_14 any
----@field unk_15 any
----@field unk_16 any
----@field unk_17 any
----@field unk_18 any
----@field unk_19 any
----@field unk_20 any
----@field unk_21 any
----@field unk_22 any
----@field unk_23 any
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
+---@field unk_17 integer
+---@field unk_18 integer
+---@field unk_19 integer
+---@field unk_20 integer
+---@field unk_21 integer
+---@field unk_22 integer
+---@field unk_23 integer
 ---@field unk_24 integer
 ---@field unk_25 any[]
 df.world_site = {}
@@ -912,21 +912,21 @@ df.world_site_inhabitant = {}
 ---@field unk_3 integer
 ---@field unk_4 integer[][]
 ---@field unk_5 integer
----@field unk_6 any[]
+---@field unk_6 integer[]
 ---@field unk_7 integer
----@field unk_8 any[]
+---@field unk_8 integer[]
 ---@field unk_9 integer
----@field unk_10 any[]
+---@field unk_10 integer[]
 ---@field unk_11 integer
----@field unk_12 any[]
+---@field unk_12 integer[]
 ---@field unk_13 integer
----@field unk_15 any[]
+---@field unk_15 integer[]
 ---@field unk_16 integer
----@field unk_17 any[]
+---@field unk_17 integer[]
 ---@field unk_18 integer
----@field unk_19 any[]
+---@field unk_19 integer[]
 ---@field unk_20 integer
----@field unk_21 any[]
+---@field unk_21 integer[]
 ---@field unk_22 integer
 ---@field building_well site_realization_building[]
 ---@field num_building_well integer
@@ -936,7 +936,7 @@ df.world_site_inhabitant = {}
 ---@field num_building_type22 integer
 ---@field building_type21 site_realization_building[]
 ---@field num_building_type21 integer
----@field unk_23 any[]
+---@field unk_23 integer[]
 ---@field unk_24 integer
 ---@field unk_wsr_vector any[]
 df.world_site_realization = {}
@@ -1199,10 +1199,10 @@ df.site_realization_building_infost = {}
 
 function df.site_realization_building_infost:getType() end
 
----@param file any
+---@param file integer
 function df.site_realization_building_infost:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.site_realization_building_infost:read_file(file, loadversion) end
 
@@ -1553,10 +1553,10 @@ df.creation_zone_pwg_alterationst = {}
 
 function df.creation_zone_pwg_alterationst:getType() end
 
----@param file any
+---@param file integer
 function df.creation_zone_pwg_alterationst:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.creation_zone_pwg_alterationst:read_file(file, loadversion) end
 

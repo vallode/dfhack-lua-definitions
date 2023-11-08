@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.raws
 
 ---@class creature_handler: df.struct
 ---@field alphabetic creature_raw[]

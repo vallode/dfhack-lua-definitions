@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.buildings
 
 ---@class _building_type: df.enum
 ---@field NONE -1
@@ -420,7 +420,7 @@ function df.building:getCustomType() end
 ---@param type integer
 function df.building:setCustomType(type) end
 
----@param supplies any
+---@param supplies integer
 function df.building:countHospitalSupplies(supplies) end
 
 function df.building:getStockpileLinks() end
@@ -474,7 +474,7 @@ function df.building:getWorkshopProfile() end
 
 function df.building:getMachineInfo() end
 
----@param power_info any
+---@param power_info integer
 function df.building:getPowerInfo(power_info) end
 
 function df.building:canConnectToMachine() end
@@ -536,7 +536,7 @@ function df.building:getFreeCapacity(subtract_pending_jobs) end
 ---@param subtract_pending_jobs boolean
 function df.building:canStoreItem(subtract_pending_jobs) end
 
----@param name any
+---@param name integer
 function df.building:getName(name) end
 
 function df.building:getNameColor() end
@@ -566,10 +566,10 @@ function df.building:isJusticeRestraint() end
 
 function df.building:detachRestrainedUnit() end
 
----@param file any
+---@param file integer
 function df.building:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.building:read_file(file, loadversion) end
 
@@ -614,14 +614,14 @@ function df.building:isHidden() end
 function df.building:isVisibleInUI() end
 
 ---checks coordinates, calls isVisibleInUI and checks window_xy
----@param viewport any
+---@param viewport integer
 function df.building:isVisibleInViewport(viewport) end
 
----@param buffer any
+---@param buffer integer
 function df.building:getDrawExtents(buffer) end
 
 ---@param unk_item integer
----@param buffer any
+---@param buffer integer
 ---@param z_offset integer
 function df.building:drawBuilding(unk_item, buffer, z_offset) end
 

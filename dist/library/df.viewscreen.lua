@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.viewscreen
 
 ---@class file_compressorst: df.struct
 ---@field compressed boolean
@@ -60,7 +60,7 @@ df.abstract_interfacest = {}
 
 function df.abstract_interfacest:get_rect() end
 
----@param events any
+---@param events integer
 function df.abstract_interfacest:feed(events) end
 
 function df.abstract_interfacest:logic() end
@@ -69,7 +69,7 @@ function df.abstract_interfacest:render() end
 
 function df.abstract_interfacest:arrange() end
 
----@param w any
+---@param w integer
 function df.abstract_interfacest:remove_child(w) end
 
 function df.abstract_interfacest:clear() end
@@ -115,7 +115,7 @@ df.scrollbarst = {}
 df.extentst = {}
 
 ---@class widget: df.struct
----@field parent any
+---@field parent integer
 ---@field rect extentst
 ---@field custom_feed function
 ---@field name string
@@ -172,7 +172,7 @@ df.widget.T_tooltip_type = {}
 
 function df.widget:get_rect() end
 
----@param events any
+---@param events integer
 function df.widget:feed(events) end
 
 function df.widget:logic() end
@@ -181,7 +181,7 @@ function df.widget:render() end
 
 function df.widget:arrange() end
 
----@param w any
+---@param w integer
 function df.widget:remove_child(w) end
 
 function df.widget:clear() end
@@ -1071,7 +1071,7 @@ df.viewscreen_initial_prepst = {}
 ---@field text string
 df.world_gen_param_basest = {}
 
----@param num any
+---@param num integer
 function df.world_gen_param_basest:get_text(num) end
 
 function df.world_gen_param_basest:has_string_entry() end
@@ -1088,7 +1088,7 @@ function df.world_gen_param_basest:get_min() end
 
 function df.world_gen_param_basest:get_max() end
 
----@param value_str any
+---@param value_str integer
 function df.world_gen_param_basest:set_value(value_str) end
 
 function df.world_gen_param_basest:nullify() end
@@ -1268,7 +1268,7 @@ df.viewscreen_legendsst = {}
 ---@class viewscreen_legendsst_region_snapshot: df.struct
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 any
+---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
@@ -2288,7 +2288,7 @@ df.embark_symbol = {}
 ---@field unk_s4 integer
 ---@field unk_s5 integer
 ---@field unk_s6 integer
----@field unk_s7 any
+---@field unk_s7 integer
 df.embark_symbol.T_unk_v43_sub9 = {}
 
 ---@class viewscreen_setupdwarfgamest: viewscreen
@@ -2418,8 +2418,8 @@ df.viewscreen_choose_game_typest = {}
 ---@field deleting_region boolean
 ---@field deleting_savegame_game boolean
 ---@field deleting_savegame_world boolean
----@field deleting_savegame_header any
----@field deleting_region_header any
+---@field deleting_savegame_header integer
+---@field deleting_region_header integer
 ---@field credit_line string[]
 ---@field credit_line_type integer[]
 ---@field scroll_position_about integer
@@ -2531,7 +2531,7 @@ df.world_view_mode_type = {}
 ---@field tribute_report_index integer[]
 ---@field croll_position_report integer
 ---@field scrolling_report boolean
----@field active_mission_report any mission_reportst
+---@field active_mission_report integer mission_reportst
 ---@field mission_cursor_x integer
 ---@field mission_cursor_y integer
 ---@field mission_path_data_index integer
@@ -2548,7 +2548,7 @@ df.world_view_mode_type = {}
 ---@field mission_fade_start_ind integer
 ---@field scroll_position_mission integer
 ---@field scrolling_mission boolean
----@field active_tribute_report any tribute_reportst
+---@field active_tribute_report integer tribute_reportst
 ---@field scroll_position_tribute integer
 ---@field scrolling_tribute boolean
 ---@field hf historical_figure[]
@@ -2561,7 +2561,7 @@ df.world_view_mode_type = {}
 ---@field scrolling_artifacts boolean
 ---@field last_hover_artifact artifact_record
 ---@field artifact_description string[]
----@field artifact_eac any entity_artifact_claimst
+---@field artifact_eac integer entity_artifact_claimst
 ---@field artifact_rpa_holder historical_figure
 ---@field artifact_fac_holder historical_figure
 df.viewscreen_worldst = {}

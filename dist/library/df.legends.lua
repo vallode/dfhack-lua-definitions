@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.legends
 
 ---@class invasion_info: df.instance
 ---@field id integer
@@ -197,6 +197,6 @@ df.artifact_record = {}
 ---@field latest_year integer
 ---@field latest_season_count integer
 ---@field flag integer
----@field latest_wi any witness_incidentst
+---@field latest_wi integer witness_incidentst
 df.artifact_rumor_locationst = {}
 

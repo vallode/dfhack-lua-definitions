@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.building-vectors
 
 ---@class _buildings_other_id: df.enum
 ---@field ANY -1

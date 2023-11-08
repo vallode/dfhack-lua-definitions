@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.tile-types
 
 ---@class _tiletype_shape_basic: df.enum
 ---Basic tile shape (not in DF)

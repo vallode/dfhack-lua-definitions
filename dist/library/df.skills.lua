@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.skills
 
 ---@class _profession: df.enum
 ---@field NONE -1

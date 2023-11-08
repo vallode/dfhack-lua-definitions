@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.d_init
 
 ---@class _d_init_nickname: df.enum
 ---@field REPLACE_FIRST 0

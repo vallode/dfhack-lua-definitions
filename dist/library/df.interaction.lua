@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.interaction
 
 ---@class _interaction_flags: df.enum
 ---@field GENERATED 0
@@ -134,17 +134,17 @@ df.interaction_effect.T_flags = {}
 
 function df.interaction_effect:getType() end
 
----@param file any
+---@param file integer
 function df.interaction_effect:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.interaction_effect:read_file(file, loadversion) end
 
----@param target any
+---@param target integer
 function df.interaction_effect:activateOnUnit(target) end
 
----@param target any
+---@param target integer
 function df.interaction_effect:activateOnItem(target) end
 
 function df.interaction_effect:parseRaws() end
@@ -295,10 +295,10 @@ df.interaction_source = {}
 
 function df.interaction_source:getType() end
 
----@param file any
+---@param file integer
 function df.interaction_source:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.interaction_source:read_file(file, loadversion) end
 
@@ -530,10 +530,10 @@ df.interaction_target = {}
 
 function df.interaction_target:getType() end
 
----@param file any
+---@param file integer
 function df.interaction_target:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.interaction_target:read_file(file, loadversion) end
 

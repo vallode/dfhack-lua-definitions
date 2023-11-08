@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.units
 
 ---@class _unit_flags1: df.bitfield
 ---@field move_state 0

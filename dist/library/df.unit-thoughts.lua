@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.unit-thoughts
 
 ---@class _emotion_type: df.enum
 ---@field ANYTHING -1

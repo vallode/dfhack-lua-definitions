@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.world-data
 
 ---@class world_site_unk130: df.struct
 ---@field index integer
@@ -381,7 +381,7 @@ df.world_region_details = {}
 ---In order to determine how biomes cross embark tile edges, the rectangle framing an embark tile is split into 4 corners, and 4 straight edge segments, using ranges measured in tiles: +-/----/+ | / / * | / / +-/-/---+ After this, each corner and edge segment is assigned the biome of one of the adjoining 4 or 2 embark tiles, based on the values in these arrays. It may be necessary to access adjacent details objects to collect the full outline: c11 x11 | c21 y11 *** | y21 ------------- c12 x12 | c22 There are also certain rules forcing ocean/lake biomes to lose edges to mountains, and both of them to anything else, no matter what the original array value is. The actual biomes for tiles in the frame are semi-randomly interpolated from this edge spec. For some reason DF provides for all edges of all mid level tiles in a world tile, but not for the corners on the south and east edges: for these you have to go to the next world tile. This has some effect on the corners on the south and east edges of the world where there are no adjacent tiles to get the data from. There the rules are static: the biomes of corners are taken from the easternmost and southernmost of the two touching corners. The rules for corner determination when the biome_corner field has specified a biome that's specified to yield as per the above seems to be to first take the NW corner (0), then the NE (1) one, and then the SW (2) one. If the selected corner doesn't exist (because it's outside of the world) the same fallback corner selection is used, with the exception of a northern row selection of NW (0), where the home corner (3) is selected.
 ---@field split_x coord2d[][] splits for horizontal edges, x=min y=max
 ---@field split_y coord2d[][] splits for vertical edges, x=min y=max
----@field biome_corner integer[][] 0=Reference is NW, 1=Reference is N, 2=Reference is W, 3=Reference is current tile
+---@field biome_corner integer[][] All 4 corners touching get the same reference (which determines the biome), i.e. SE corner of the tile to the NW, SW corner of the tile to the N, NE corner of the tile to the W, and the NW corner of the current tile, as directed by the biome_corner value.
 ---@field biome_x integer[][] 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
 ---@field biome_y integer[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 df.world_region_details.T_edges = {}
@@ -856,21 +856,21 @@ df.world_mountain_peak = {}
 ---@field unk_1ec any[]
 ---@field unk_1f0 any[]
 ---@field unk_1 integer
----@field unk_2 any
----@field unk_3 any
----@field unk_4 any
----@field unk_5 any
----@field unk_6 any
----@field unk_7 any
----@field unk_8 any
----@field unk_9 any
----@field unk_10 any
----@field unk_11 any
----@field unk_12 any
----@field unk_13 any
----@field unk_14 any
----@field unk_15 any
----@field unk_16 any
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
 ---@field pad_1 any
 ---@field unk_17 integer
 ---@field unk_18 integer

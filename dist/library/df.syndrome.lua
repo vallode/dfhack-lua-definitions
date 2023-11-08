@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.syndrome
 
 ---@class _creature_interaction_effect_type: df.enum
 ---@field PAIN 0
@@ -477,11 +477,11 @@ function df.creature_interaction_effect:checkAddFlag1() end
 
 function df.creature_interaction_effect:setBodyMatInteractionName() end
 
----@param type any
+---@param type integer
 function df.creature_interaction_effect:parseSynAcquireType(type) end
 
----@param race any
----@param caste any
+---@param race integer
+---@param caste integer
 function df.creature_interaction_effect:setBodyTransform(race, caste) end
 
 function df.creature_interaction_effect:addPeriodic() end

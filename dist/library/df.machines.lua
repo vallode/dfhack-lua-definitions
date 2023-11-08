@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.machines
 
 ---@class _machine_type: df.enum
 ---@field standard 0
@@ -108,10 +108,10 @@ function df.machine:getType() end
 ---@param z integer
 function df.machine:moveMachine(x, y, z) end
 
----@param file any
+---@param file integer
 function df.machine:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.machine:read_file(file, loadversion) end
 

@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.plant-raws
 
 ---@class _plant_raw_flags: df.enum
 ---@field SPRING 0

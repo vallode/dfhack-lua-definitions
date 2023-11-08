@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.announcements
 
 ---@class _announcement_type: df.enum
 ---@field REACHED_PEAK 0
@@ -1441,7 +1441,7 @@ df.announcement_flags = {}
 
 ---@class announcements: df.struct
 ---@field flags announcement_flags[]
----@field unused any needed to fix alignment on 64-bit platforms
+---@field unused integer needed to fix alignment on 64-bit platforms
 df.announcements = {}
 
 ---@class report: df.instance

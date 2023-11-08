@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.ui-menus
 
 ---@class ui_build_item_req: df.struct
 ---When creating a building, one record per required item type. E.g. Soap Maker's workshop requires a bucket and a building material.
@@ -33,7 +33,7 @@ df.build_req_choicest = {}
 
 function df.build_req_choicest:getType() end
 
----@param str any
+---@param str integer
 function df.build_req_choicest:getName(str) end
 
 ---@param item_id integer
@@ -184,7 +184,7 @@ df.interface_button = {}
 ---@param limx_max integer
 function df.interface_button:print_info(y, limx_min, limx_max) end
 
----@param str any
+---@param str integer
 function df.interface_button:text(str) end
 
 function df.interface_button:press() end
@@ -198,7 +198,7 @@ function df.interface_button:tile() end
 
 function df.interface_button:set_tile_color() end
 
----@param box any
+---@param box integer
 function df.interface_button:prepare_tool_tip(box) end
 
 function df.interface_button:pressable() end
@@ -2494,15 +2494,15 @@ df.main_interface.T_name_creator = {}
 ---@field filter string
 ---@field entering_number boolean
 ---@field number_str string
----@field st_master any[] site ptr, native name, translated name
----@field ent_master any[] entity ptr, native name, translated name
----@field plant_master any[] plant id, name
----@field tree_master any[] plant id, name
----@field shape_master any[] shape id, shape adj, name
----@field item_master any[] item type, item subtype, name
----@field artifact_master any[] artifact ptr, native name, translated name
----@field hf_master any[] histfig ptr, native name, translated name
----@field property_master any[] art property type, bool transitive, name
+---@field st_master integer[] site ptr, native name, translated name
+---@field ent_master integer[] entity ptr, native name, translated name
+---@field plant_master integer[] plant id, name
+---@field tree_master integer[] plant id, name
+---@field shape_master integer[] shape id, shape adj, name
+---@field item_master integer[] item type, item subtype, name
+---@field artifact_master integer[] artifact ptr, native name, translated name
+---@field hf_master integer[] histfig ptr, native name, translated name
+---@field property_master integer[] art property type, bool transitive, name
 ---@field hf historical_figure[]
 ---@field st world_site[]
 ---@field ent historical_entity[]
@@ -2542,10 +2542,10 @@ df.main_interface.T_image_creator = {}
 ---@class main_interface.T_image_creator_ics: df.struct
 ---@field jb job
 ---@field wq manager_order
----@field location_detail any
+---@field location_detail integer
 ---@field image_ent historical_entity
 ---@field art_image art_image
----@field adv_art_specifier any
+---@field adv_art_specifier integer
 ---@field hf historical_figure
 ---@field exit_flag integer
 ---@field flag integer
@@ -2561,7 +2561,7 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field bld_id integer
 ---@field skill_used integer[]
 ---@field skill_num integer
----@field loc_occupation any occupationst
+---@field loc_occupation integer occupationst
 ---@field loc_ent historical_entity
 ---@field loc_position entity_position
 ---@field loc_epp entity_position_assignment
@@ -2736,7 +2736,7 @@ df.main_interface.T_location_selector = {}
 ---@field open_area_dx integer
 ---@field open_area_dy integer
 ---@field wc_count integer
----@field loc_occupation any[] occupationst
+---@field loc_occupation integer[] occupationst
 ---@field loc_ent historical_entity[]
 ---@field loc_position entity_position[]
 ---@field loc_epp entity_position_assignment[]
@@ -2874,7 +2874,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field unmet_need_se integer[]
 ---@field unmet_need_num integer
 ---@field raw_thought_str string[]
----@field thought_box any[] color_text_boxst
+---@field thought_box integer[] color_text_boxst
 ---@field thought_box_width integer
 ---@field scroll_position_inventory integer
 ---@field scrolling_inventory boolean
@@ -2913,13 +2913,13 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field scrolling_thoughts boolean
 ---@field thoughts_active_tab integer
 ---@field thoughts_raw_memory_str string[]
----@field thoughts_memory_box any[] color_text_boxst
+---@field thoughts_memory_box integer[] color_text_boxst
 ---@field thoughts_memory_box_width integer
 ---@field scroll_position_personality integer
 ---@field scrolling_personality boolean
 ---@field personality_active_tab integer
 ---@field personality_raw_str string[]
----@field personality_box any[] color_text_boxst
+---@field personality_box integer[] color_text_boxst
 ---@field personality_width integer
 ---@field unit_labor_active_tab integer
 ---@field scroll_position_unit_labor integer
@@ -2939,7 +2939,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field unit_knowledge_id integer[]
 ---@field unit_knowledge_bits integer[]
 ---@field skill_description_raw_str string[]
----@field skill_description_box any[] color_text_boxst
+---@field skill_description_box integer[] color_text_boxst
 ---@field skill_description_width integer
 ---@field scroll_position_unit_room integer
 ---@field scrolling_unit_room integer
@@ -2951,13 +2951,13 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field scroll_position_unit_military_kills integer
 ---@field scrolling_unit_military_kills boolean
 ---@field kill_description_raw_str string[]
----@field kill_description_box any[] color_text_boxst
+---@field kill_description_box integer[] color_text_boxst
 ---@field kill_description_width integer
 ---@field unit_health_active_tab integer
 ---@field scroll_position_unit_health integer
 ---@field scrolling_unit_health boolean
 ---@field unit_health_raw_str string[]
----@field unit_health_box any[] color_text_boxst
+---@field unit_health_box integer[] color_text_boxst
 ---@field unit_health_width integer
 ---@field raw_current_thought string
 ---@field current_thought string[]
@@ -3144,7 +3144,7 @@ df.main_interface.T_info.T_work_orders = {}
 ---@field filter string
 ---@field compare_master string[]
 ---@field change_type integer
----@field change_wqc any workquota_item_conditions
+---@field change_wqc integer workquota_item_conditions
 ---@field scroll_position_change integer
 ---@field scrolling_change integer
 ---@field item_type_master integer[]
@@ -3161,7 +3161,7 @@ df.main_interface.T_info.T_work_orders = {}
 ---@field scrolling_condition_wq boolean
 ---@field entering_logic_number boolean
 ---@field logic_number_str string
----@field entering_logic_wqc any workquota_item_conditionst
+---@field entering_logic_wqc integer workquota_item_conditionst
 df.main_interface.T_info.T_work_orders.T_conditions = {}
 
 ---@class main_interface.T_info_administrators: df.struct
@@ -3194,7 +3194,7 @@ df.main_interface.T_info.T_administrators = {}
 ---@class main_interface.T_info.T_administrators_noblelist: df.struct
 ---@field un unit
 ---@field nem nemesis_record
----@field upplist any unitpropertyplacementst
+---@field upplist integer unitpropertyplacementst
 ---@field ep entity_position
 ---@field epp entity_position_assignment
 ---@field enid integer
@@ -3247,7 +3247,7 @@ df.main_interface.T_info.T_artifacts = {}
 ---@field scrolling_convicts boolean
 ---@field selected_convict integer
 ---@field convict_crime crime[]
----@field convict_lawaction any lawactionst
+---@field convict_lawaction integer lawactionst
 ---@field sorting_convict_nameprof boolean
 ---@field sorting_convict_nameprof_is_ascending boolean
 ---@field sorting_convict_nameprof_doing_name boolean
@@ -3266,7 +3266,7 @@ df.main_interface.T_info.T_artifacts = {}
 ---@field interrogation_report_box string[]
 ---@field interrogation_report_box_width integer
 ---@field interrogation_report any[] interrogation_reportst
----@field viewing_interrogation_report any interrogation_reportst
+---@field viewing_interrogation_report integer interrogation_reportst
 ---@field scroll_position_interrogation_list integer
 ---@field scrolling_interrogation_list boolean
 ---@field scroll_position_interrogation_report integer
@@ -3278,7 +3278,7 @@ df.main_interface.T_info.T_artifacts = {}
 ---@field counterintelligence_selected integer
 ---@field counterintelligence_filter_str string
 ---@field entering_counterintelligence_filter boolean
----@field selected_counterintelligence_oen any organization_entry_nodest
+---@field selected_counterintelligence_oen integer organization_entry_nodest
 ---@field scroll_position_counterintelligence integer
 ---@field scrolling_counterintelligence boolean
 ---@field value_actor_entry actor_entryst[]
@@ -3491,13 +3491,13 @@ df.gamest.T_command_line = {}
 
 ---@class gamest_mod_manager: df.struct
 ---@field mod_header mod_headerst[]
----@field subscribed_file_id any
+---@field subscribed_file_id integer
 ---@field doing_mod_upload boolean
 ---@field mod_upload_header mod_headerst[]
 ---@field mod_upload_completed boolean
 ---@field uploading_mod_index integer
----@field CreateItemResult any
----@field SubmitItemUpdateResult any
+---@field CreateItemResult integer
+---@field SubmitItemUpdateResult integer
 df.gamest.T_mod_manager = {}
 
 ---@class main_interface_settings: df.struct
@@ -3523,7 +3523,7 @@ df.gamest.T_mod_manager = {}
 ---@field keybinding_scrolling_cat boolean
 ---@field keybinding_name string[][]
 ---@field keybinding_key interface_key[][]
----@field keybinding_binding any[][]
+---@field keybinding_binding integer[][]
 ---@field keybinding_binding_name string[][]
 ---@field keybinding_flag integer[][]
 ---@field keybinding_scroll_position_key integer
@@ -3665,7 +3665,7 @@ df.cri_unitst = {}
 
 ---@class actor_entryst: df.struct
 ---@field hf historical_figure
----@field iden any identityst
+---@field iden integer identityst
 ---@field name_ptr language_name
 ---@field list_name string
 ---@field simple_list_name string
@@ -3675,7 +3675,7 @@ df.cri_unitst = {}
 ---@field historical_hfid integer
 ---@field identity_id integer
 ---@field alias_identity_id integer[]
----@field principle_org any organization_entryst
+---@field principle_org integer organization_entryst
 ---@field associated_org any[] organization_entryst
 ---@field associated_plot plot_entryst[]
 ---@field flag integer
@@ -3710,7 +3710,7 @@ df.organization_entryst = {}
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
----@field agreement any agreementst
+---@field agreement integer agreementst
 ---@field master_hfid integer
 ---@field organization_name string
 df.plot_entryst = {}

@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.item-vectors
 
 ---@class _items_other_id: df.enum
 ---@field ANY -1

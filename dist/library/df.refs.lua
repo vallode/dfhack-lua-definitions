@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.refs
 
 ---@class _general_ref_type: df.enum
 ---@field ARTIFACT 0
@@ -289,10 +289,10 @@ df.general_ref_type = {}
 ---@class general_ref: df.struct
 df.general_ref = {}
 
----@param file any
+---@param file integer
 function df.general_ref:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.general_ref:read_file(file, loadversion) end
 
@@ -323,21 +323,21 @@ function df.general_ref:getID() end
 ---@param z integer
 function df.general_ref:setLocation(x, y, z) end
 
----@param out_x any
----@param out_y any
----@param out_z any
+---@param out_x integer
+---@param out_y integer
+---@param out_z integer
 function df.general_ref:getLocation(out_x, out_y, out_z) end
 
 function df.general_ref:clone() end
 
----@param str any
+---@param str integer
 function df.general_ref:getDescription(str) end
 
----@param str any
+---@param str integer
 function df.general_ref:getDescription2(str) end
 
 ---for scholar flags
----@param str any
+---@param str integer
 function df.general_ref:getDescription3(str) end
 
 ---@class general_ref_artifact: general_ref
@@ -747,7 +747,7 @@ df.specific_ref_type.attrs = {}
 df.specific_ref = {}
 
 ---@class specific_ref_data: df.struct
----@field object any raw pointer
+---@field object integer raw pointer
 ---@field unit unit
 ---@field activity activity_info
 ---@field screen viewscreen
@@ -760,7 +760,7 @@ df.specific_ref = {}
 df.specific_ref.T_data = {}
 
 ---@class specific_ref.T_data_wrestle: df.struct
----@field unk_1 any
+---@field unk_1 integer
 ---@field item unit_item_wrestle
 df.specific_ref.T_data.T_wrestle = {}
 
@@ -845,10 +845,10 @@ df.histfig_entity_link = {}
 
 function df.histfig_entity_link:getType() end
 
----@param file any
+---@param file integer
 function df.histfig_entity_link:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.histfig_entity_link:read_file(file, loadversion) end
 
@@ -986,10 +986,10 @@ df.histfig_site_link = {}
 
 function df.histfig_site_link:getType() end
 
----@param file any
+---@param file integer
 function df.histfig_site_link:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.histfig_site_link:read_file(file, loadversion) end
 
@@ -1103,10 +1103,10 @@ df.histfig_hf_link = {}
 
 function df.histfig_hf_link:getType() end
 
----@param file any
+---@param file integer
 function df.histfig_hf_link:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.histfig_hf_link:read_file(file, loadversion) end
 

@@ -1,42 +1,45 @@
-TYPE_MAP = {
-  's-float' => 'number',
-  'd-float' => 'number',
-  'long' => 'number',
-  'int8_t' => 'integer',
-  'uint8_t' => 'integer',
-  'int16_t' => 'integer',
-  'uint16_t' => 'integer',
-  'int32_t' => 'integer',
-  'uint32_t' => 'integer',
-  'int64_t' => 'integer',
-  'uint64_t' => 'integer',
-  'stl-string' => 'string',
-  'static-string' => 'string',
-  'bool' => 'boolean',
-  'stl-function' => 'function',
-  # TODO: Figure out a better way.
-  'pointer' => 'any',
-  'vmethod' => 'fun(self, any...): any',
-}
+RESERVED_KEYWORDS = ["local"]
 
 class XmlNode
   attr_reader :node
 
   def initialize(node, parent_type = nil)
+    # Nokogiri attributes
     @node = node
-    @comment = get_comment
+    @children = node.children
+    @has_children = !node.children.empty?
+    # @parent = parent
     @parent_type = parent_type
+
+    # Parsed attributes
+    @comment = XmlNode.get_comment(node)
   end
 
-  def get_comment
-    if @node.attributes.key?('comment')
-      comment = @node.attributes['comment']
-      return comment.value unless comment.value.empty?
+  def self.get_comment(node)
+    comment = node['comment']
+
+    return comment unless node.at_css('comment')
+
+    node.at_css('comment').text.strip.gsub(/\s+/, ' ')
+  end
+
+  def self.parse_type(string, default = nil)
+    case string
+    when "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"
+      "integer"
+    when "s-float", "d-float", "long"
+      "number"
+    when "stl-string", "static-string"
+      "string"
+    when "bool"
+      "boolean"
+    when "stl-function"
+      "function"
+    when "pointer"
+      "integer"
+    else
+      default
     end
-
-    return unless comment = @node.children.at_css('comment')
-
-    comment.text.strip.chomp.gsub(/\s+/, ' ')
   end
 end
 
@@ -63,11 +66,11 @@ class Field < XmlNode
     end
 
     if childType
-      type = TYPE_MAP.fetch(childType, childType)
+      type = XmlNode.parse_type(childType, childType)
     elsif typeName
-      type = TYPE_MAP.fetch(typeName, typeName)
+      type = XmlNode.parse_type(typeName, typeName)
     else
-      type = TYPE_MAP.fetch(node.name, 'any')
+      type = XmlNode.parse_type(node.name, 'any')
     end
 
     type += '[]' if ['stl-vector', 'static-array'].include?(node.name)
@@ -100,7 +103,7 @@ class FunctionType < Field
   end
 
   def get_return_type
-    return_type = TYPE_MAP.fetch(node['ret-type'], node['ret-type'])
+    return_type = XmlNode.parse_type(node['ret-type'], node['ret-type'])
 
     if not return_type
       return_type_child = @node.at_css('ret-type')
@@ -112,12 +115,18 @@ class FunctionType < Field
   def get_parameters
     parameters = [] 
 
-    return nil if not @node.children
+    return nil if not @has_children
 
-    @node.children.each do |node|
-      next if not node.attributes['name']
+    @children.each do |child|
+      next if not child.attributes['name']
+      name = child['name']
+      type = XmlNode.parse_type(child.name, 'any')
 
-      parameters.push([node.attributes['name'], TYPE_MAP.fetch(node.name, 'any')])
+      if RESERVED_KEYWORDS.include?(name)
+        name += '_'
+      end
+
+      parameters.push([name, type])
     end
 
     parameters

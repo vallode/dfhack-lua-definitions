@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.resource
 
 ---@class _resource_allotment_specifier_type: df.enum
 ---@field CROP 0
@@ -190,10 +190,10 @@ df.resource_allotment_specifier = {}
 
 function df.resource_allotment_specifier:getType() end
 
----@param file any
+---@param file integer
 function df.resource_allotment_specifier:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.resource_allotment_specifier:read_file(file, loadversion) end
 

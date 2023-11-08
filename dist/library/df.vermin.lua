@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.vermin
 
 ---@class _vermin_flags: df.bitfield
 ---@field unk_0 0

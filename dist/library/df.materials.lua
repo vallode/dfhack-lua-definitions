@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.materials
 
 ---@class _craft_material_class: df.enum
 ---not in DF

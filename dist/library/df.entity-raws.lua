@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.entity-raws
 
 ---@class _entity_raw_flags: df.enum
 ---@field CIV_CONTROLLABLE 0

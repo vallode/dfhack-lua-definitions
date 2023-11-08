@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.map
 
 ---@class coord2d: df.struct
 ---@field x integer
@@ -521,10 +521,10 @@ df.cave_column.T_unk_4 = {}
 ---@field [1] boolean
 ---@field unk_1 boolean
 
----@param file any
+---@param file integer
 function df.cave_column:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.cave_column:read_file(file, loadversion) end
 
@@ -556,10 +556,10 @@ df.cave_column_rectangle.T_unk_7 = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@param file any
+---@param file integer
 function df.cave_column_rectangle:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.cave_column_rectangle:read_file(file, loadversion) end
 
@@ -628,10 +628,10 @@ df.block_square_event = {}
 
 function df.block_square_event:getType() end
 
----@param file any
+---@param file integer
 function df.block_square_event:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.block_square_event:read_file(file, loadversion) end
 
@@ -780,10 +780,10 @@ df.feature = {}
 
 function df.feature:getType() end
 
----@param file any
+---@param file integer
 function df.feature:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.feature:read_file(file, loadversion) end
 
@@ -887,11 +887,11 @@ df.feature_init = {}
 
 function df.feature_init:getType() end
 
----@param file any
+---@param file integer
 ---@param include_feature boolean
 function df.feature_init:write_file(file, include_feature) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 ---@param include_feature boolean
 function df.feature_init:read_file(file, loadversion, include_feature) end
@@ -905,16 +905,16 @@ function df.feature_init:destroyFeature() end
 
 function df.feature_init:getFeature() end
 
----@param mat_type any
----@param mat_index any
+---@param mat_type integer
+---@param mat_index integer
 function df.feature_init:getMaterial(mat_type, mat_index) end
 
----@param foreground any
----@param background any
----@param bright any
+---@param foreground integer
+---@param background integer
+---@param bright integer
 function df.feature_init:getColor(foreground, background, bright) end
 
----@param name any
+---@param name integer
 function df.feature_init:getName(name) end
 
 function df.feature_init:isWater() end
@@ -996,10 +996,10 @@ df.feature_alteration = {}
 
 function df.feature_alteration:getType() end
 
----@param file any
+---@param file integer
 function df.feature_alteration:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.feature_alteration:read_file(file, loadversion) end
 
@@ -1044,10 +1044,10 @@ df.world_construction_square = {}
 
 function df.world_construction_square:getType() end
 
----@param file any
+---@param file integer
 function df.world_construction_square:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.world_construction_square:read_file(file, loadversion) end
 
@@ -1086,10 +1086,10 @@ function df.world_construction:getType() end
 
 function df.world_construction:getName() end
 
----@param file any
+---@param file integer
 function df.world_construction:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.world_construction:read_file(file, loadversion) end
 
@@ -1453,10 +1453,10 @@ function df.flow_guide:getType() end
 ---@param z integer
 function df.flow_guide:shiftCoords(x, y, z) end
 
----@param file any
+---@param file integer
 function df.flow_guide:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.flow_guide:read_file(file, loadversion) end
 
@@ -1499,10 +1499,10 @@ df.region_block_eventst = {}
 
 function df.region_block_eventst:getType() end
 
----@param file any
+---@param file integer
 function df.region_block_eventst:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.region_block_eventst:read_file(file, loadversion) end
 

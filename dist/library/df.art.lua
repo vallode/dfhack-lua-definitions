@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.art
 
 ---@class _art_image_element_type: df.enum
 ---@field CREATURE 0
@@ -30,10 +30,10 @@ df.art_image_element_type = {}
 ---@field count integer
 df.art_image_element = {}
 
----@param file any
+---@param file integer
 function df.art_image_element:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.art_image_element:read_file(file, loadversion) end
 
@@ -44,21 +44,21 @@ function df.art_image_element:setID(ID) end
 
 function df.art_image_element:clone() end
 
----@param sym any
+---@param sym integer
 function df.art_image_element:getSymbol(sym) end
 
----@param name any
+---@param name integer
 ---@param useThe boolean
 ---@param useName boolean
 function df.art_image_element:getName1(name, useThe, useName) end
 
----@param name any
+---@param name integer
 function df.art_image_element:getName2(name) end
 
 function df.art_image_element:markDiscovered() end
 
----@param colors any
----@param shapes any
+---@param colors integer
+---@param shapes integer
 function df.art_image_element:getColorAndShape(colors, shapes) end
 
 ---@class art_image_element_creaturest: art_image_element
@@ -106,10 +106,10 @@ df.art_image_property_type = {}
 ---@field flags any
 df.art_image_property = {}
 
----@param file any
+---@param file integer
 function df.art_image_property:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.art_image_property:read_file(file, loadversion) end
 

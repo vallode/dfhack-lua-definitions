@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.entities
 
 ---@class entity_occasion_info: df.struct
 ---@field occasions entity_occasion[]
@@ -764,7 +764,7 @@ df.honors_type.T_required_skill_type = {}
 ---@field unk_year integer seems to be current year or -1. Matches up with corresponding field of artifact_record
 ---@field unk_2 integer only other value seen was 0
 ---@field unk_3 integer uninitialized
----@field unk_4 any
+---@field unk_4 integer
 ---@field unk_5 historical_entity
 ---@field unk_6 historical_entity
 df.artifact_claim = {}

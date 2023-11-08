@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.job-types
 
 ---@class _job_type_class: df.enum
 ---not in DF

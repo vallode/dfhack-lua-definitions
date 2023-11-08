@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.stockpile
 
 ---@class _hauler_type: df.enum
 ---@field Any 0

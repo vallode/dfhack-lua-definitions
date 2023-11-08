@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.itemimprovements
 
 ---@class _improvement_type: df.enum
 ---@field ART_IMAGE 0
@@ -83,16 +83,16 @@ df.itemimprovement = {}
 
 function df.itemimprovement:getImage() end
 
----@param colors any
----@param shapes any
+---@param colors integer
+---@param shapes integer
 function df.itemimprovement:getColorAndShape(colors, shapes) end
 
 function df.itemimprovement:clone() end
 
----@param file any
+---@param file integer
 function df.itemimprovement:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.itemimprovement:read_file(file, loadversion) end
 
@@ -100,7 +100,7 @@ function df.itemimprovement:getType() end
 
 function df.itemimprovement:isDecoration() end
 
----@param caravan any
+---@param caravan integer
 function df.itemimprovement:getDyeValue(caravan) end
 
 ---@param shape integer

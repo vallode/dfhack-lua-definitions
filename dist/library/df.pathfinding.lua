@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.pathfinding
 
 ---@class _unit_path_goal: df.enum
 ---@field None -1

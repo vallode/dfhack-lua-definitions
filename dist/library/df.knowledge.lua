@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.knowledge
 
 ---@class _knowledge_scholar_flags_0: df.bitfield
 ---@field philosophy_logic_formal_reasoning 0

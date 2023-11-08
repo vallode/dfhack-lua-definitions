@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.creature-raws
 
 ---@class _creature_raw_flags: df.enum
 ---@field EQUIPMENT 0
@@ -1954,7 +1954,7 @@ df.caste_body_info.T_flags = {}
 ---@field sense_creature_class_4 integer[]
 ---@field sense_creature_class_5 integer[]
 ---@field caste_graphics creature_raw_graphics
----@field unk_v50_4300 any
+---@field unk_v50_4300 integer
 df.caste_raw = {}
 
 ---@class caste_raw_misc: df.struct
@@ -2226,7 +2226,7 @@ df.tissue_style_type = {}
 ---@field profession_texpos integer[][][][][]
 ---@field profession_add_color boolean[][]
 ---@field profession_unk integer[][][]
----@field ptr_unk any[][]
+---@field ptr_unk integer[][]
 ---@field vec_unk integer[][]
 ---@field profession_vec_unk integer[][]
 df.creature_raw_graphics = {}

@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.plants
 
 ---@class _plant_flags: df.bitfield
 ---@field watery 0

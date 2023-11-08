@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.history
 
 ---@class historical_kills: df.struct
 ---@field events integer[]
@@ -1154,10 +1154,10 @@ df.mental_picture_propertyst = {}
 
 function df.mental_picture_propertyst:getType() end
 
----@param file any
+---@param file integer
 function df.mental_picture_propertyst:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.mental_picture_propertyst:read_file(file, loadversion) end
 
@@ -1234,10 +1234,10 @@ df.mental_picture_elementst = {}
 
 function df.mental_picture_elementst:getType() end
 
----@param file any
+---@param file integer
 function df.mental_picture_elementst:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.mental_picture_elementst:read_file(file, loadversion) end
 
@@ -2396,26 +2396,26 @@ function df.history_event:wasHistfigKilled(victim) end
 ---@param histfig integer
 function df.history_event:wasHistfigRevived(histfig) end
 
----@param vec any
+---@param vec integer
 function df.history_event:getRelatedHistfigIDs(vec) end
 
----@param vec any
+---@param vec integer
 function df.history_event:getRelatedSiteIDs(vec) end
 
----@param vec1 any
----@param vec2 any
+---@param vec1 integer
+---@param vec2 integer
 function df.history_event:getRelatedSiteStructureIDs(vec1, vec2) end
 
----@param vec any
+---@param vec integer
 function df.history_event:getRelatedArtifactIDs(vec) end
 
----@param vec any
+---@param vec integer
 function df.history_event:getRelatedRegionIDs(vec) end
 
----@param vec any
+---@param vec integer
 function df.history_event:getRelatedLayerIDs(vec) end
 
----@param vec any
+---@param vec integer
 function df.history_event:getRelatedEntityIDs(vec) end
 
 ---@param histfig integer
@@ -2444,15 +2444,15 @@ function df.history_event:isRelatedToAgreementID(agreement) end
 ---@param entity integer
 function df.history_event:isRelatedToEntityID(entity) end
 
----@param str any
----@param context any
+---@param str integer
+---@param context integer
 function df.history_event:getSentence(str, context) end
 
----@param str any
----@param context any
+---@param str integer
+---@param context integer
 function df.history_event:getPhrase(str, context) end
 
----@param image any
+---@param image integer
 function df.history_event:populateArtImage(image) end
 
 ---@param histfig integer
@@ -2467,10 +2467,10 @@ function df.history_event:uncategorize() end
 ---@param indent integer
 function df.history_event:generate_xml(indent) end
 
----@param file any
+---@param file integer
 function df.history_event:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.history_event:read_file(file, loadversion) end
 
@@ -4629,10 +4629,10 @@ function df.history_event_collection:getType() end
 ---@param indent integer
 function df.history_event_collection:generate_xml(indent) end
 
----@param file any
+---@param file integer
 function df.history_event_collection:write_file(file) end
 
----@param file any
+---@param file integer
 ---@param loadversion any
 function df.history_event_collection:read_file(file, loadversion) end
 
@@ -4640,11 +4640,11 @@ function df.history_event_collection:categorize() end
 
 function df.history_event_collection:uncategorize() end
 
----@param string any
+---@param string integer
 function df.history_event_collection:getName(string) end
 
----@param x any
----@param y any
+---@param x integer
+---@param y integer
 function df.history_event_collection:getRegionCoords(x, y) end
 
 function df.history_event_collection:getParent() end

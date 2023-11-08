@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.init
 
 ---@class _init_display_flags: df.enum
 ---@field USE_GRAPHICS 0

@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.world
 
 ---@class _worldgen_region_type: df.enum
 ---@field SWAMP 0
@@ -1046,7 +1046,7 @@ function df.job_handler:cancel_job() end
 df.building_handler = {}
 
 ---ToadyOnes name
----@param hookups any
+---@param hookups integer
 ---@param type integer
 ---@param subtype integer
 ---@param x1 integer
@@ -1675,8 +1675,8 @@ df.world.T_map_extras = {}
 ---@field sites world_site[]
 ---@field cursor_x integer
 ---@field cursor_y integer
----@field unk_13 any[]
----@field unk_14 any[]
+---@field unk_13 integer[]
+---@field unk_14 integer[]
 ---@field rivers_total integer
 ---@field rivers_cur integer
 ---@field unk_15 integer
@@ -2308,7 +2308,7 @@ df.world.T_dungeon.T_item_subtypes = {}
 df.world.T_attack_chance_info = {}
 
 ---@class world.T_attack_chance_info_modifier: df.struct
----@field unk_1 any
+---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer

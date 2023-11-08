@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.language
 
 ---@class _language_word_flags: df.bitfield
 ---@field front_compound_noun_sing 0

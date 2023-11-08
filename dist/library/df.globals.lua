@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.globals
 
 ---@class df_global
 ---@field global_table global_table_entry[]
@@ -353,7 +353,7 @@ df.next_global_id = {}
 
 ---@class global_table_entry: df.struct
 ---@field name any
----@field address any
+---@field address integer
 ---@field size any
 df.global_table_entry = {}
 

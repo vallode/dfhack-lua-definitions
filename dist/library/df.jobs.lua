@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.jobs
 
 ---@class _job_material_category: df.bitfield
 ---@field plant 0
@@ -709,7 +709,7 @@ df.job_item = {}
 ---@field unit unit
 ---@field job job
 ---@field building building
----@field unk_74 any
+---@field unk_74 integer
 ---@field unk_v4305_1 integer
 ---@field burrows integer[]
 ---@field use_burrows boolean

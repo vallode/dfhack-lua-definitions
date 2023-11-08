@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta
+---@meta df.keybindings
 
 ---@class _interface_key: df.enum
 ---@field NONE 0
