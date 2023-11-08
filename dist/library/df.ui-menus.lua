@@ -2631,7 +2631,7 @@ df.main_interface.T_patrol_routes = {}
 ---@field scrolling boolean
 ---@field squad_id integer[]
 ---@field squad_pos integer[]
----@field last_tick_update any
+---@field last_tick_update number
 ---@field customizing_equipment boolean
 ---@field customizing_squad_id integer
 ---@field customizing_squad_pos integer
@@ -2680,7 +2680,7 @@ df.main_interface.T_squad_equipment = {}
 ---@field routine_page integer
 ---@field squad_id integer[]
 ---@field viewing_months_squad_id integer
----@field last_tick_update any
+---@field last_tick_update number
 ---@field editing_routines boolean
 ---@field scroll_position_edit_routine integer
 ---@field scrolling_edit_routine boolean
@@ -2851,7 +2851,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field trait_id integer[]
 ---@field trait_magnitude integer[]
 ---@field trait_num integer
----@field last_tick_update any
+---@field last_tick_update number
 ---@field reqroom integer[] demands
 ---@field curroom integer[] demands
 ---@field labor_skill_ind integer[]

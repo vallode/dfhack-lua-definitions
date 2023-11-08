@@ -1258,7 +1258,7 @@ df.image_set.T_unk_vec1 = {}
 ---@field formations world_formations
 ---@field activities world_activities
 ---@field status world_status
----@field unk_v5010_1166a8 any
+---@field unk_v5010_1166a8 lightuserdata
 ---@field interaction_instances world_interaction_instances
 ---@field written_contents world_written_contents
 ---@field identities world_identities

@@ -27,7 +27,7 @@ class XmlNode
     case string
     when "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"
       "integer"
-    when "s-float", "d-float", "long"
+    when "s-float", "d-float", "long", "ulong"
       "number"
     when "stl-string", "static-string"
       "string"
@@ -37,6 +37,8 @@ class XmlNode
       "function"
     when "pointer", "padding", "stl-vector"
       "integer"
+    when "stl-mutex", "stl-condition-variable", "stl-deque"
+      "lightuserdata"
     else
       default
     end

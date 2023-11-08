@@ -1703,7 +1703,7 @@ df.pronoun_type.attrs = {}
 ---@field texpos_currently_in_use boolean[][]
 ---@field cached_glowtile_type integer
 ---@field pool_index any
----@field mtx any
+---@field mtx lightuserdata
 df.unit = {}
 
 ---@class unit_coord: df.class

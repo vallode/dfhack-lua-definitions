@@ -700,7 +700,7 @@ df.zoom_commands = {}
 ---@field async_frombox enabler_async_frombox
 ---@field async_zoom enabler_async_zoom
 ---@field async_fromcomplete integer
----@field renderer_threadid any
+---@field renderer_threadid number
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string
 ---@field flag enabler_flag
@@ -736,20 +736,20 @@ df.enabler.T_fullscreen_state = {}
 ---@field exclusive boolean
 
 ---@class enabler_async_tobox: df.class
----@field mtx any
----@field cv any
+---@field mtx lightuserdata
+---@field cv lightuserdata
 ---@field vals any
 df.enabler.T_async_tobox = {}
 
 ---@class enabler_async_frombox: df.class
----@field mtx any
----@field cv any
+---@field mtx lightuserdata
+---@field cv lightuserdata
 ---@field vals any
 df.enabler.T_async_frombox = {}
 
 ---@class enabler_async_zoom: df.class
----@field mtx any
----@field cv any
+---@field mtx lightuserdata
+---@field cv lightuserdata
 ---@field vals zoom_commands
 df.enabler.T_async_zoom = {}
 

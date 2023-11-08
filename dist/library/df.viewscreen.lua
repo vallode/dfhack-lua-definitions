@@ -1739,8 +1739,8 @@ df.worldgen_parms_ps = {}
 ---@field entering_value_index integer
 ---@field value_str string
 ---@field member world_gen_param_basest[]
----@field last_saved_tc any
----@field last_loaded_tc any
+---@field last_saved_tc number
+---@field last_loaded_tc number
 ---@field doing_simple_params integer
 ---@field simple_sel integer
 ---@field simple_world_size integer
