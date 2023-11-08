@@ -8,18 +8,11 @@ Type definitions for DFHack's Lua API.
 > https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html
 > That being said, please raise any problems here or on discord.
 
-## Status
+## Installation
 
-Lots of manual work can be done on the non-df-structures definitions
-(like `common.lua`) in order to boost coverage of the core dfhack lua library.
+These definitions require [`lua-language-server`](https://github.com/LuaLS/lua-language-server) installed. You can find instructions on [their website](https://luals.github.io/#vscode-install).
 
-- [ ] `<struct-type>` `is-union` parsing
-
-## Install
-
-For all installations you should have 
-[`lua-language-server`](https://github.com/LuaLS/lua-language-server) ready,
-and this repository downloaded somewhere.
+You can either clone this repository locally or download [the latest release](https://github.com/vallode/dfhack-lua-definitions/releases/latest/).
 
 ### VSCode / Code - OSS
 
@@ -27,7 +20,7 @@ and this repository downloaded somewhere.
   ```
   {
     "Lua.workspace.library": [
-      "<repository_location>/library"
+      "<library_location>/library"
     ]
   }
   ```
@@ -39,11 +32,19 @@ and this repository downloaded somewhere.
   {
     "workspace": {
       "library": [
-        "<repository_location>/library"
+        "<library_location>/library"
       ]
     }
   }
   ```
+
+## Status
+
+Lots of manual work can be done on the non-df-structures definitions
+(like `common.lua`) in order to boost coverage of the core dfhack lua library.
+
+- [ ] `<struct-type>` `is-union` parsing
+- [ ] Head start on parsing the c++ modules
 
 ## Development
 
