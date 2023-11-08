@@ -13,7 +13,6 @@ Type definitions for DFHack's Lua API.
 Lots of manual work can be done on the non-df-structures definitions
 (like `common.lua`) in order to boost coverage of the core dfhack lua library.
 
-- [ ] `<vmethod>` generation
 - [ ] `<struct-type>` `is-union` parsing
 
 ## Install
