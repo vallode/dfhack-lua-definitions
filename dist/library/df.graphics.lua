@@ -568,12 +568,12 @@ function df.renderer:update_top_tile(x, y) end
 ---@param y integer
 function df.renderer:update_top_anchor_tile(x, y) end
 
----@param vp integer
+---@param vp graphic_viewportst
 ---@param x integer
 ---@param y integer
 function df.renderer:update_viewport_tile(vp, x, y) end
 
----@param vp integer
+---@param vp graphic_map_portst
 ---@param x integer
 ---@param y integer
 function df.renderer:update_map_port_tile(vp, x, y) end
@@ -582,10 +582,10 @@ function df.renderer:update_all() end
 
 function df.renderer:do_blank_screen_fill() end
 
----@param vp integer
+---@param vp graphic_viewportst
 function df.renderer:update_full_viewport(vp) end
 
----@param vp integer
+---@param vp graphic_map_portst
 function df.renderer:update_full_map_port(vp) end
 
 function df.renderer:clean_tile_cache() end

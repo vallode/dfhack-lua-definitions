@@ -267,11 +267,11 @@ function df.abstract_building:getName() end
 
 function df.abstract_building:getContents() end
 
----@param file integer
+---@param file file_compressorst
 function df.abstract_building:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.abstract_building:read_file(file, loadversion) end
 
 function df.abstract_building:getReligionID() end
@@ -1199,11 +1199,11 @@ df.site_realization_building_infost = {}
 
 function df.site_realization_building_infost:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.site_realization_building_infost:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.site_realization_building_infost:read_file(file, loadversion) end
 
 ---@class site_building_item: df.class
@@ -1553,11 +1553,11 @@ df.creation_zone_pwg_alterationst = {}
 
 function df.creation_zone_pwg_alterationst:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.creation_zone_pwg_alterationst:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.creation_zone_pwg_alterationst:read_file(file, loadversion) end
 
 ---@class creation_zone_pwg_alteration_location_deathst: creation_zone_pwg_alterationst

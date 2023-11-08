@@ -190,11 +190,11 @@ df.resource_allotment_specifier = {}
 
 function df.resource_allotment_specifier:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.resource_allotment_specifier:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.resource_allotment_specifier:read_file(file, loadversion) end
 
 ---@class resource_allotment_specifier_cropst: resource_allotment_specifier

@@ -1154,11 +1154,11 @@ df.mental_picture_propertyst = {}
 
 function df.mental_picture_propertyst:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.mental_picture_propertyst:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.mental_picture_propertyst:read_file(file, loadversion) end
 
 ---@class mental_picture_property_datest: mental_picture_propertyst
@@ -1234,11 +1234,11 @@ df.mental_picture_elementst = {}
 
 function df.mental_picture_elementst:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.mental_picture_elementst:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.mental_picture_elementst:read_file(file, loadversion) end
 
 ---@class mental_picture_element_hfst: mental_picture_elementst
@@ -2370,92 +2370,92 @@ df.history_event = {}
 
 function df.history_event:getType() end
 
----@param entity1 integer
----@param entity2 integer
+---@param entity1 historical_entity
+---@param entity2 historical_entity
 function df.history_event:getWarStatus(entity1, entity2) end
 
----@param entity1 integer
----@param entity2 integer
+---@param entity1 historical_entity
+---@param entity2 historical_entity
 function df.history_event:getAngerModifier(entity1, entity2) end
 
----@param entity1 integer
----@param entity2 integer
+---@param entity1 historical_entity
+---@param entity2 historical_entity
 function df.history_event:getHappinessModifier(entity1, entity2) end
 
----@param entity1 integer
----@param entity2 integer
----@param site integer
+---@param entity1 historical_entity
+---@param entity2 historical_entity
+---@param site world_site
 function df.history_event:madeFirstContact(entity1, entity2, site) end
 
----@param killer integer
+---@param killer historical_figure
 function df.history_event:getKilledHistfigID(killer) end
 
----@param victim integer
+---@param victim historical_figure
 function df.history_event:wasHistfigKilled(victim) end
 
----@param histfig integer
+---@param histfig historical_figure
 function df.history_event:wasHistfigRevived(histfig) end
 
----@param vec integer
+---@param vec integer[]
 function df.history_event:getRelatedHistfigIDs(vec) end
 
----@param vec integer
+---@param vec integer[]
 function df.history_event:getRelatedSiteIDs(vec) end
 
----@param vec1 integer
----@param vec2 integer
+---@param vec1 integer[]
+---@param vec2 integer[]
 function df.history_event:getRelatedSiteStructureIDs(vec1, vec2) end
 
----@param vec integer
+---@param vec integer[]
 function df.history_event:getRelatedArtifactIDs(vec) end
 
----@param vec integer
+---@param vec integer[]
 function df.history_event:getRelatedRegionIDs(vec) end
 
----@param vec integer
+---@param vec integer[]
 function df.history_event:getRelatedLayerIDs(vec) end
 
----@param vec integer
+---@param vec integer[]
 function df.history_event:getRelatedEntityIDs(vec) end
 
----@param histfig integer
+---@param histfig historical_figure
 function df.history_event:isRelatedToHistfigID(histfig) end
 
----@param site integer
+---@param site world_site
 function df.history_event:isRelatedToSiteID(site) end
 
----@param site integer
----@param structure integer
+---@param site world_site
+---@param structure abstract_building
 function df.history_event:isRelatedToSiteStructure(site, structure) end
 
----@param artifact integer
+---@param artifact artifact_record
 function df.history_event:isRelatedToArtifactID(artifact) end
 
----@param region integer
+---@param region world_region
 function df.history_event:isRelatedToRegionID(region) end
 
----@param region integer
+---@param region world_underground_region
 function df.history_event:isRelatedToLayerID(region) end
 
 ---broken; always returns false
----@param agreement integer
+---@param agreement agreement
 function df.history_event:isRelatedToAgreementID(agreement) end
 
----@param entity integer
+---@param entity historical_entity
 function df.history_event:isRelatedToEntityID(entity) end
 
----@param str integer
----@param context integer
+---@param str string
+---@param context history_event_context
 function df.history_event:getSentence(str, context) end
 
----@param str integer
----@param context integer
+---@param str string
+---@param context history_event_context
 function df.history_event:getPhrase(str, context) end
 
----@param image integer
+---@param image art_image
 function df.history_event:populateArtImage(image) end
 
----@param histfig integer
+---@param histfig historical_figure
 function df.history_event:isChangedHistfigID(histfig) end
 
 ---inserts event into world_history.events_death if relevant
@@ -2467,11 +2467,11 @@ function df.history_event:uncategorize() end
 ---@param indent integer
 function df.history_event:generate_xml(indent) end
 
----@param file integer
+---@param file file_compressorst
 function df.history_event:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.history_event:read_file(file, loadversion) end
 
 ---@class history_event_war_attacked_sitest: history_event
@@ -4629,18 +4629,18 @@ function df.history_event_collection:getType() end
 ---@param indent integer
 function df.history_event_collection:generate_xml(indent) end
 
----@param file integer
+---@param file file_compressorst
 function df.history_event_collection:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.history_event_collection:read_file(file, loadversion) end
 
 function df.history_event_collection:categorize() end
 
 function df.history_event_collection:uncategorize() end
 
----@param string integer
+---@param string string
 function df.history_event_collection:getName(string) end
 
 ---@param x integer

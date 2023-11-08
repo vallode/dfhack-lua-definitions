@@ -120,7 +120,7 @@ class FunctionType < Field
     @children.each do |child|
       next if not child.attributes['name']
       name = child['name']
-      type = XmlNode.parse_type(child.name, 'any')
+      type = Field.get_type(child)
 
       if RESERVED_KEYWORDS.include?(name)
         name += '_'

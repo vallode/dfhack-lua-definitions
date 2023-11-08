@@ -521,11 +521,11 @@ df.cave_column.T_unk_4 = {}
 ---@field [1] boolean
 ---@field unk_1 boolean
 
----@param file integer
+---@param file file_compressorst
 function df.cave_column:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.cave_column:read_file(file, loadversion) end
 
 ---@class cave_column_rectangle: df.class
@@ -556,11 +556,11 @@ df.cave_column_rectangle.T_unk_7 = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@param file integer
+---@param file file_compressorst
 function df.cave_column_rectangle:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.cave_column_rectangle:read_file(file, loadversion) end
 
 ---@class map_block_column: df.class
@@ -628,11 +628,11 @@ df.block_square_event = {}
 
 function df.block_square_event:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.block_square_event:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.block_square_event:read_file(file, loadversion) end
 
 function df.block_square_event:isEmpty() end
@@ -780,11 +780,11 @@ df.feature = {}
 
 function df.feature:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.feature:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.feature:read_file(file, loadversion) end
 
 ---@param x integer
@@ -887,12 +887,12 @@ df.feature_init = {}
 
 function df.feature_init:getType() end
 
----@param file integer
+---@param file file_compressorst
 ---@param include_feature boolean
 function df.feature_init:write_file(file, include_feature) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 ---@param include_feature boolean
 function df.feature_init:read_file(file, loadversion, include_feature) end
 
@@ -914,7 +914,7 @@ function df.feature_init:getMaterial(mat_type, mat_index) end
 ---@param bright integer
 function df.feature_init:getColor(foreground, background, bright) end
 
----@param name integer
+---@param name string
 function df.feature_init:getName(name) end
 
 function df.feature_init:isWater() end
@@ -996,11 +996,11 @@ df.feature_alteration = {}
 
 function df.feature_alteration:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.feature_alteration:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.feature_alteration:read_file(file, loadversion) end
 
 ---@class feature_alteration_new_pop_maxst: feature_alteration
@@ -1044,11 +1044,11 @@ df.world_construction_square = {}
 
 function df.world_construction_square:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.world_construction_square:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.world_construction_square:read_file(file, loadversion) end
 
 ---@class world_construction_square_roadst: world_construction_square
@@ -1086,11 +1086,11 @@ function df.world_construction:getType() end
 
 function df.world_construction:getName() end
 
----@param file integer
+---@param file file_compressorst
 function df.world_construction:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.world_construction:read_file(file, loadversion) end
 
 ---@class world_construction_roadst: world_construction
@@ -1453,11 +1453,11 @@ function df.flow_guide:getType() end
 ---@param z integer
 function df.flow_guide:shiftCoords(x, y, z) end
 
----@param file integer
+---@param file file_compressorst
 function df.flow_guide:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.flow_guide:read_file(file, loadversion) end
 
 ---@class flow_guide_trailing_flowst: flow_guide
@@ -1499,11 +1499,11 @@ df.region_block_eventst = {}
 
 function df.region_block_eventst:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.region_block_eventst:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.region_block_eventst:read_file(file, loadversion) end
 
 ---@class region_block_event_sphere_fieldst: region_block_eventst

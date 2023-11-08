@@ -84,13 +84,13 @@ function df.reaction_reagent:getType() end
 ---@param reactionID integer
 function df.reaction_reagent:resolveTokens(reactionID) end
 
----@param index integer
+---@param index reaction
 function df.reaction_reagent:matchesRoot(index) end
 
----@param index integer
+---@param index reaction
 function df.reaction_reagent:matchesChild(index) end
 
----@param index integer
+---@param index reaction
 function df.reaction_reagent:getDescription(index) end
 
 function df.reaction_reagent:isLyeBearing() end
@@ -157,21 +157,21 @@ function df.reaction_product:getType() end
 ---@param reactionID integer
 function df.reaction_product:resolveTokens(reactionID) end
 
----@param maker integer
----@param out_products integer
----@param out_items integer
----@param in_reag integer
----@param in_items integer
+---@param maker unit
+---@param out_products reaction_product[]
+---@param out_items item[]
+---@param in_reag reaction_reagent[]
+---@param in_items item[]
 ---@param quantity integer
----@param skill any
+---@param skill job_skill
 ---@param job_quality integer
----@param entity integer
----@param site integer
----@param unk4 integer
+---@param entity historical_entity
+---@param site world_site
+---@param unk4 integer[]
 function df.reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
 
 ---used in Adventurer mode reactions?
----@param desc integer
+---@param desc string
 function df.reaction_product:getDescription(desc) end
 
 ---@class _reaction_product_item_flags: df.enum

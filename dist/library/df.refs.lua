@@ -289,11 +289,11 @@ df.general_ref_type = {}
 ---@class general_ref: df.class
 df.general_ref = {}
 
----@param file integer
+---@param file file_compressorst
 function df.general_ref:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.general_ref:read_file(file, loadversion) end
 
 function df.general_ref:getType() end
@@ -330,14 +330,14 @@ function df.general_ref:getLocation(out_x, out_y, out_z) end
 
 function df.general_ref:clone() end
 
----@param str integer
+---@param str string
 function df.general_ref:getDescription(str) end
 
----@param str integer
+---@param str string
 function df.general_ref:getDescription2(str) end
 
 ---for scholar flags
----@param str integer
+---@param str string
 function df.general_ref:getDescription3(str) end
 
 ---@class general_ref_artifact: general_ref
@@ -845,11 +845,11 @@ df.histfig_entity_link = {}
 
 function df.histfig_entity_link:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.histfig_entity_link:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.histfig_entity_link:read_file(file, loadversion) end
 
 function df.histfig_entity_link:getPosition() end
@@ -986,11 +986,11 @@ df.histfig_site_link = {}
 
 function df.histfig_site_link:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.histfig_site_link:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.histfig_site_link:read_file(file, loadversion) end
 
 ---@param indent integer
@@ -1103,11 +1103,11 @@ df.histfig_hf_link = {}
 
 function df.histfig_hf_link:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.histfig_hf_link:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.histfig_hf_link:read_file(file, loadversion) end
 
 ---@param indent integer

@@ -134,17 +134,17 @@ df.interaction_effect.T_flags = {}
 
 function df.interaction_effect:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.interaction_effect:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.interaction_effect:read_file(file, loadversion) end
 
----@param target integer
+---@param target unit
 function df.interaction_effect:activateOnUnit(target) end
 
----@param target integer
+---@param target item
 function df.interaction_effect:activateOnItem(target) end
 
 function df.interaction_effect:parseRaws() end
@@ -295,11 +295,11 @@ df.interaction_source = {}
 
 function df.interaction_source:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.interaction_source:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.interaction_source:read_file(file, loadversion) end
 
 function df.interaction_source:parseRaws() end
@@ -530,11 +530,11 @@ df.interaction_target = {}
 
 function df.interaction_target:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.interaction_target:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.interaction_target:read_file(file, loadversion) end
 
 function df.interaction_target:parseRaws() end

@@ -420,7 +420,7 @@ function df.building:getCustomType() end
 ---@param type integer
 function df.building:setCustomType(type) end
 
----@param supplies integer
+---@param supplies hospital_supplies
 function df.building:countHospitalSupplies(supplies) end
 
 function df.building:getStockpileLinks() end
@@ -474,7 +474,7 @@ function df.building:getWorkshopProfile() end
 
 function df.building:getMachineInfo() end
 
----@param power_info integer
+---@param power_info power_info
 function df.building:getPowerInfo(power_info) end
 
 function df.building:canConnectToMachine() end
@@ -536,7 +536,7 @@ function df.building:getFreeCapacity(subtract_pending_jobs) end
 ---@param subtract_pending_jobs boolean
 function df.building:canStoreItem(subtract_pending_jobs) end
 
----@param name integer
+---@param name string
 function df.building:getName(name) end
 
 function df.building:getNameColor() end
@@ -566,11 +566,11 @@ function df.building:isJusticeRestraint() end
 
 function df.building:detachRestrainedUnit() end
 
----@param file integer
+---@param file file_compressorst
 function df.building:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.building:read_file(file, loadversion) end
 
 ---the true set looks like things where the unit should stand aside
@@ -614,14 +614,14 @@ function df.building:isHidden() end
 function df.building:isVisibleInUI() end
 
 ---checks coordinates, calls isVisibleInUI and checks window_xy
----@param viewport integer
+---@param viewport map_viewport
 function df.building:isVisibleInViewport(viewport) end
 
----@param buffer integer
+---@param buffer building_drawbuffer
 function df.building:getDrawExtents(buffer) end
 
 ---@param unk_item integer
----@param buffer integer
+---@param buffer building_drawbuffer
 ---@param z_offset integer
 function df.building:drawBuilding(unk_item, buffer, z_offset) end
 

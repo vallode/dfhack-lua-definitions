@@ -83,27 +83,27 @@ df.itemimprovement = {}
 
 function df.itemimprovement:getImage() end
 
----@param colors integer
----@param shapes integer
+---@param colors integer[]
+---@param shapes integer[]
 function df.itemimprovement:getColorAndShape(colors, shapes) end
 
 function df.itemimprovement:clone() end
 
----@param file integer
+---@param file file_compressorst
 function df.itemimprovement:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.itemimprovement:read_file(file, loadversion) end
 
 function df.itemimprovement:getType() end
 
 function df.itemimprovement:isDecoration() end
 
----@param caravan integer
+---@param caravan caravan_state
 function df.itemimprovement:getDyeValue(caravan) end
 
----@param shape integer
+---@param shape descriptor_shape
 function df.itemimprovement:setShape(shape) end
 
 ---@class itemimprovement_art_imagest: itemimprovement

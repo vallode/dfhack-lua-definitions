@@ -1046,7 +1046,7 @@ function df.job_handler:cancel_job() end
 df.building_handler = {}
 
 ---ToadyOnes name
----@param hookups integer
+---@param hookups machine_tile_set
 ---@param type integer
 ---@param subtype integer
 ---@param x1 integer

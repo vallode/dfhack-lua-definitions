@@ -115,11 +115,11 @@ function df.projectile:checkImpact(noDamageFloor) end
 
 function df.projectile:checkMovement() end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.projectile:read_file(file, loadversion) end
 
----@param file integer
+---@param file file_compressorst
 function df.projectile:write_file(file) end
 
 function df.projectile:isObjectLost() end

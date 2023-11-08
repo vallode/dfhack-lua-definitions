@@ -40,10 +40,10 @@ df.script_stepst = {}
 ---@param idx integer
 function df.script_stepst:setNextStep(idx) end
 
----@param context integer
+---@param context meeting_context
 function df.script_stepst:execute(context) end
 
----@param context integer
+---@param context meeting_context
 function df.script_stepst:skip(context) end
 
 ---@class script_step_setvarst: script_stepst
@@ -123,25 +123,25 @@ df.active_script_varst = {}
 
 function df.active_script_varst:setColor() end
 
----@param output integer
----@param format integer
+---@param output string
+---@param format string
 function df.active_script_varst:formatString(output, format) end
 
 ---@param int_value integer
----@param ref_value integer
+---@param ref_value specific_ref
 function df.active_script_varst:getValue(int_value, ref_value) end
 
----@param var integer
+---@param var meeting_variable
 function df.active_script_varst:setValue(var) end
 
----@param ref_value integer
+---@param ref_value specific_ref
 function df.active_script_varst:removeUnit(ref_value) end
 
----@param file integer
+---@param file file_compressorst
 function df.active_script_varst:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.active_script_varst:read_file(file, loadversion) end
 
 ---@class active_script_var_unitst: active_script_varst
@@ -594,11 +594,11 @@ df.activity_event.T_unk_v42_2 = {}
 
 function df.activity_event:getType() end
 
----@param file integer
+---@param file file_compressorst
 function df.activity_event:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.activity_event:read_file(file, loadversion) end
 
 ---returns true if hist_figure_ids empty or if various subclass fields are uninitialized
@@ -618,17 +618,17 @@ function df.activity_event:move(dx, dy, dz) end
 ---@param unit integer
 function df.activity_event:removeParticipant(histfig, unit) end
 
----@param unit integer
+---@param unit unit
 function df.activity_event:process(unit) end
 
----@param unit integer
+---@param unit unit
 function df.activity_event:checkDrillInvalid(unit) end
 
 function df.activity_event:decUniformLock() end
 
 function df.activity_event:getSquadEventType() end
 
----@param skill any
+---@param skill job_skill
 function df.activity_event:setDemoSkill(skill) end
 
 ---@param wait_countdown integer
@@ -652,7 +652,7 @@ function df.activity_event:isSparring() end
 function df.activity_event:getUniformType() end
 
 ---@param unit_id integer
----@param str integer
+---@param str string
 function df.activity_event:getName(unit_id, str) end
 
 ---@class activity_event_training_sessionst: activity_event
@@ -1330,11 +1330,11 @@ df.performance_play_orderst = {}
 ---@field unk_2 integer[]
 df.performance_play_orderst.T_unk_4 = {}
 
----@param file integer
+---@param file file_compressorst
 function df.performance_play_orderst:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.performance_play_orderst:read_file(file, loadversion) end
 
 ---@class activity_event_researchst: activity_event

@@ -486,7 +486,7 @@ function df.item:getColorOverride() end
 
 function df.item:getHistoryInfo() end
 
----@param use any
+---@param use tool_uses
 function df.item:hasToolUse(use) end
 
 function df.item:hasInvertedTile() end
@@ -506,7 +506,7 @@ function df.item:isMetalOre(matIndex) end
 
 function df.item:clearLastTempUpdateTS() end
 
----@param string_ptr integer
+---@param string_ptr string
 function df.item:listNotableKills(string_ptr) end
 
 function df.item:getSpecHeat() end
@@ -564,8 +564,8 @@ function df.item:setMaker(unit_id) end
 
 ---@param prace integer
 ---@param pcaste integer
----@param phfig integer
----@param punit integer
+---@param phfig historical_figure
+---@param punit unit
 function df.item:getCorpseInfo(prace, pcaste, phfig, punit) end
 
 function df.item:getBodyInfo() end
@@ -585,8 +585,8 @@ function df.item:getImageRef(id, subid) end
 ---@param site_id integer
 function df.item:getImageCivSite(civ_id, site_id) end
 
----@param civ_id integer
----@param site_id integer
+---@param civ_id historical_entity
+---@param site_id world_site
 function df.item:setImageCivSite(civ_id, site_id) end
 
 ---@param level integer
@@ -614,7 +614,7 @@ function df.item:incrementRotTimer() end
 function df.item:isBogeymanCorpse() end
 
 ---return true if item satisfies flag
----@param mat_flag any
+---@param mat_flag material_flags
 function df.item:testMaterialFlag(mat_flag) end
 
 function df.item:getAmmoType() end
@@ -629,15 +629,15 @@ function df.item:isLiveAnimal() end
 ---for putting in containers, building clutter
 function df.item:getVolume() end
 
----@param imp_type any
----@param job integer
----@param unit integer
+---@param imp_type improvement_type
+---@param job job
+---@param unit unit
 ---@param mat_type integer
 ---@param mat_index integer
----@param shape integer
+---@param shape descriptor_shape
 ---@param forced_quality integer
----@param entity integer
----@param site integer
+---@param entity historical_entity
+---@param site world_site
 ---@param unk integer
 ---@param unshaped boolean
 function df.item:addImprovementFromJob(imp_type, job, unit, mat_type, mat_index, shape, forced_quality, entity, site, unk, unshaped) end
@@ -687,16 +687,16 @@ function df.item:isPressed() end
 ---stored in Animal stockpiles
 function df.item:isAnimal() end
 
----@param maker integer
----@param job_skill any
+---@param maker unit
+---@param job_skill job_skill
 function df.item:assignQuality(maker, job_skill) end
 
----@param maker integer
----@param job_skill any
+---@param maker unit
+---@param job_skill job_skill
 ---@param skill_roll integer
 function df.item:assignQuality2(maker, job_skill, skill_roll) end
 
----@param maker integer
+---@param maker unit
 function df.item:notifyCreatedMasterwork(maker) end
 
 function df.item:notifyLostMasterwork() end
@@ -751,7 +751,7 @@ function df.item:checkWearDestroy(simple, lose_masterwork) end
 
 ---@param mat_type integer
 ---@param mat_index integer
----@param mat_state any
+---@param mat_state matter_state
 ---@param temp integer
 ---@param size integer
 ---@param body_part_id integer
@@ -779,11 +779,11 @@ function df.item:tradeItemContaminants2() end
 ---@param body_part_id integer
 function df.item:contaminateWound(shift, body_part_id) end
 
----@param file integer
+---@param file file_compressorst
 function df.item:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.item:read_file(file, loadversion) end
 
 function df.item:getWeaponAttacks() end
@@ -892,7 +892,7 @@ function df.item:canHaveImageSewnOnto() end
 
 function df.item:isProcessableVialAtStill() end
 
----@param item_type any
+---@param item_type item_type
 ---@param item_subtype integer
 ---@param mat_type integer
 ---@param mat_index integer
@@ -918,11 +918,11 @@ function df.item:isMadeOfOrganicCloth() end
 ---also stops fire; used for rain
 ---@param mat_type integer
 ---@param mat_index integer
----@param mat_state any
+---@param mat_state matter_state
 ---@param temperature integer
 function df.item:coverWithContaminant(mat_type, mat_index, mat_state, temperature) end
 
----@param imp_type any
+---@param imp_type improvement_type
 function df.item:hasSpecificImprovements(imp_type) end
 
 function df.item:hasImprovements() end
@@ -941,7 +941,7 @@ function df.item:getItemDescriptionPrefix(mode) end
 ---usually just "item"
 function df.item:getItemBasicName() end
 
----@param caravan integer
+---@param caravan caravan_state
 function df.item:getImprovementsValue(caravan) end
 
 function df.item:isExtractBearingFish() end
@@ -968,7 +968,7 @@ function df.item:isClothing() end
 function df.item:isWet() end
 
 ---that is, value of coins
----@param appraiser integer
+---@param appraiser historical_entity
 function df.item:getCurrencyValue(appraiser) end
 
 function df.item:isAssignedToStockpile() end
@@ -986,8 +986,8 @@ function df.item:getStockpile2() end
 ---this updates the quality of a thread improvement already added to the item (or adjusts the quality of a thread item) based on the skill of the dyer
 ---@param mat_type integer
 ---@param mat_index integer
----@param u integer
----@param j integer
+---@param u unit
+---@param j job
 function df.item:randomizeThreadImprovement(mat_type, mat_index, u, j) end
 
 ---@param material integer
@@ -996,11 +996,11 @@ function df.item:addImprovement(material, matgloss) end
 
 function df.item:copyImprovementsFrom() end
 
----@param caravan integer
+---@param caravan caravan_state
 function df.item:getThreadDyeValue(caravan) end
 
----@param colors integer
----@param shapes integer
+---@param colors integer[]
+---@param shapes integer[]
 function df.item:getColorAndShape(colors, shapes) end
 
 function df.item:isCritter() end
@@ -1009,9 +1009,9 @@ function df.item:isCritter() end
 function df.item:isArmor() end
 
 ---@param exact_match boolean
----@param best_any any
----@param best_melee any
----@param best_ranged any
+---@param best_any job_skill
+---@param best_melee job_skill
+---@param best_ranged job_skill
 function df.item:calcUniformScore(exact_match, best_any, best_melee, best_ranged) end
 
 function df.item:calcBaseUniformScore() end
@@ -1022,7 +1022,7 @@ function df.item:getAbsorption() end
 
 function df.item:isGemMaterial() end
 
----@param shape integer
+---@param shape descriptor_shape
 function df.item:setGemShape(shape) end
 
 function df.item:hasGemShape() end

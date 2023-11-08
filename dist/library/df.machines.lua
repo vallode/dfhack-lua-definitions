@@ -108,11 +108,11 @@ function df.machine:getType() end
 ---@param z integer
 function df.machine:moveMachine(x, y, z) end
 
----@param file integer
+---@param file file_compressorst
 function df.machine:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.machine:read_file(file, loadversion) end
 
 ---@class machine_standardst: machine

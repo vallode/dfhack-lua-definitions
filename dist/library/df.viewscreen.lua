@@ -60,7 +60,7 @@ df.abstract_interfacest = {}
 
 function df.abstract_interfacest:get_rect() end
 
----@param events integer
+---@param events interface_key
 function df.abstract_interfacest:feed(events) end
 
 function df.abstract_interfacest:logic() end
@@ -172,7 +172,7 @@ df.widget.T_tooltip_type = {}
 
 function df.widget:get_rect() end
 
----@param events integer
+---@param events interface_key
 function df.widget:feed(events) end
 
 function df.widget:logic() end
@@ -1071,7 +1071,7 @@ df.viewscreen_initial_prepst = {}
 ---@field text string
 df.world_gen_param_basest = {}
 
----@param num integer
+---@param num string
 function df.world_gen_param_basest:get_text(num) end
 
 function df.world_gen_param_basest:has_string_entry() end
@@ -1088,7 +1088,7 @@ function df.world_gen_param_basest:get_min() end
 
 function df.world_gen_param_basest:get_max() end
 
----@param value_str integer
+---@param value_str string
 function df.world_gen_param_basest:set_value(value_str) end
 
 function df.world_gen_param_basest:nullify() end

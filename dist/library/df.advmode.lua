@@ -1725,7 +1725,7 @@ df.adventurest.T_assume_identity = {}
 ---@class text_info_elementst: df.class
 df.text_info_elementst = {}
 
----@param val integer
+---@param val string
 function df.text_info_elementst:getString(val) end
 
 function df.text_info_elementst:getLong() end

@@ -33,7 +33,7 @@ df.build_req_choicest = {}
 
 function df.build_req_choicest:getType() end
 
----@param str integer
+---@param str string
 function df.build_req_choicest:getName(str) end
 
 ---@param item_id integer
@@ -184,7 +184,7 @@ df.interface_button = {}
 ---@param limx_max integer
 function df.interface_button:print_info(y, limx_min, limx_max) end
 
----@param str integer
+---@param str string
 function df.interface_button:text(str) end
 
 function df.interface_button:press() end
@@ -198,7 +198,7 @@ function df.interface_button:tile() end
 
 function df.interface_button:set_tile_color() end
 
----@param box integer
+---@param box string[]
 function df.interface_button:prepare_tool_tip(box) end
 
 function df.interface_button:pressable() end

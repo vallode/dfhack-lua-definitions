@@ -30,11 +30,11 @@ df.art_image_element_type = {}
 ---@field count integer
 df.art_image_element = {}
 
----@param file integer
+---@param file file_compressorst
 function df.art_image_element:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.art_image_element:read_file(file, loadversion) end
 
 function df.art_image_element:getType() end
@@ -47,18 +47,18 @@ function df.art_image_element:clone() end
 ---@param sym integer
 function df.art_image_element:getSymbol(sym) end
 
----@param name integer
+---@param name string
 ---@param useThe boolean
 ---@param useName boolean
 function df.art_image_element:getName1(name, useThe, useName) end
 
----@param name integer
+---@param name string
 function df.art_image_element:getName2(name) end
 
 function df.art_image_element:markDiscovered() end
 
----@param colors integer
----@param shapes integer
+---@param colors integer[]
+---@param shapes integer[]
 function df.art_image_element:getColorAndShape(colors, shapes) end
 
 ---@class art_image_element_creaturest: art_image_element
@@ -106,11 +106,11 @@ df.art_image_property_type = {}
 ---@field flags any
 df.art_image_property = {}
 
----@param file integer
+---@param file file_compressorst
 function df.art_image_property:write_file(file) end
 
----@param file integer
----@param loadversion any
+---@param file file_compressorst
+---@param loadversion save_version
 function df.art_image_property:read_file(file, loadversion) end
 
 function df.art_image_property:getType() end
