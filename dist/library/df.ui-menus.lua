@@ -2208,7 +2208,7 @@ df.main_interface.T_burrow = {}
 ---@field squad_list_sq squad[]
 ---@field squad_list_ep entity_position[]
 ---@field squad_list_epp entity_position_assignment[]
----@field squad_list_has_subord_pos any
+---@field squad_list_has_subord_pos boolean[]
 ---@field squad_list_add_index integer[]
 ---@field create_ep entity_position
 ---@field create_epp entity_position_assignment
@@ -2305,15 +2305,15 @@ df.main_interface.T_buildjob = {}
 ---@field unk_f0 integer[]
 ---@field unk_108 integer[]
 ---@field unk_120 integer[]
----@field unk_138 any
+---@field unk_138 boolean[]
 ---@field i_height integer
 ---@field current_type_tgi integer[]
 ---@field current_type_a_subtype integer[]
 ---@field current_type_a_subcat1 integer[]
 ---@field current_type_a_subcat2 integer[]
 ---@field current_type_a_amount integer[]
----@field current_type_a_expanded any
----@field current_type_a_on any
+---@field current_type_a_expanded boolean[]
+---@field current_type_a_on boolean[]
 ---@field current_type_a_flag integer[]
 ---@field sort_by_distance boolean
 ---@field pending_on_top boolean
@@ -2347,11 +2347,11 @@ df.main_interface.T_assign_trade.T_unk_a8 = {}
 ---@field i_height integer[]
 ---@field master_type_a_type integer[][]
 ---@field master_type_a_subtype integer[][]
----@field master_type_a_expanded any[]
+---@field master_type_a_expanded boolean[][]
 ---@field current_type_a_type integer[][]
 ---@field current_type_a_subtype integer[][]
----@field current_type_a_expanded any[]
----@field current_type_a_on any[]
+---@field current_type_a_expanded boolean[][]
+---@field current_type_a_on boolean[][]
 ---@field current_type_a_flag integer[][]
 ---@field scroll_position_item integer[]
 ---@field scrolling_item boolean[]
@@ -2433,8 +2433,8 @@ df.main_interface.T_petitions = {}
 ---@field current_type_a_subcat1 integer[]
 ---@field current_type_a_subcat2 integer[]
 ---@field current_type_a_amount integer[]
----@field current_type_a_expanded any
----@field current_type_a_on any
+---@field current_type_a_expanded boolean[]
+---@field current_type_a_on boolean[]
 ---@field current_type_a_flag integer[]
 df.main_interface.T_stocks = {}
 
@@ -2459,8 +2459,8 @@ df.main_interface.T_stocks = {}
 ---@field current_type_a_subcat1 integer[]
 ---@field current_type_a_subcat2 integer[]
 ---@field current_type_a_amount integer[]
----@field current_type_a_expanded any
----@field current_type_a_on any
+---@field current_type_a_expanded boolean[]
+---@field current_type_a_on boolean[]
 df.main_interface.T_assign_display_item = {}
 
 ---@class main_interface_name_creator: df.class
@@ -2520,7 +2520,7 @@ df.main_interface.T_name_creator = {}
 ---@field new_image_item_subtype integer[]
 ---@field new_image_artifact artifact_record[]
 ---@field new_image_property integer[]
----@field new_image_property_transitive any
+---@field new_image_property_transitive boolean[]
 ---@field new_image_property_actor_target integer[]
 ---@field new_image_active_property integer
 ---@field new_image_active_property_transitive boolean
@@ -2576,7 +2576,7 @@ df.main_interface.T_unit_selector = {}
 ---@field open boolean
 ---@field viewing_alert report
 ---@field viewing_alert_button boolean
----@field zoom_line_is_start any
+---@field zoom_line_is_start boolean[]
 ---@field zoom_line_ann report[]
 ---@field zoom_line_unit unit[]
 ---@field zoom_line_unit_uac integer[]
@@ -2587,7 +2587,7 @@ df.main_interface.T_unit_selector = {}
 ---@field scrolling_alert boolean
 ---@field viewing_unit unit
 ---@field viewing_unit_uac integer
----@field uac_zoom_line_is_start any
+---@field uac_zoom_line_is_start boolean[]
 ---@field uac_zoom_line_ann report[]
 ---@field uac_text string[]
 ---@field uac_width integer
@@ -2657,7 +2657,7 @@ df.main_interface.T_patrol_routes = {}
 ---@field cs_add_list_type integer[]
 ---@field cs_add_list_subtype integer[]
 ---@field cs_add_list_flag integer[]
----@field cs_add_list_is_foreign any
+---@field cs_add_list_is_foreign boolean[]
 ---@field cs_setting_material boolean
 ---@field cs_setting_list_ind integer
 ---@field cs_setting_material_ent integer[] EntityMaterial
@@ -2665,7 +2665,7 @@ df.main_interface.T_patrol_routes = {}
 ---@field cs_setting_material_matg integer[]
 ---@field cs_setting_color_pattern boolean
 ---@field cs_setting_color_pattern_index integer[] ColoredPattern
----@field cs_setting_color_pattern_is_dye any
+---@field cs_setting_color_pattern_is_dye boolean[]
 ---@field cs_adding_specific_item boolean
 ---@field cs_add_spec_id integer[]
 df.main_interface.T_squad_equipment = {}
@@ -2706,7 +2706,7 @@ df.main_interface.T_squad_selector = {}
 ---@field open boolean
 ---@field context burrow_selector_context_type
 ---@field burrow_id integer[]
----@field selected any
+---@field selected boolean[]
 ---@field scroll_position integer
 ---@field scrolling integer
 df.main_interface.T_burrow_selector = {}
@@ -2868,7 +2868,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field other_skill_num integer
 ---@field ent_vect historical_entity[]
 ---@field ep_vect entity_position[]
----@field ep_vect_spouse any
+---@field ep_vect_spouse boolean[]
 ---@field unmet_need_type integer[]
 ---@field unmet_need_spec_id integer[]
 ---@field unmet_need_se integer[]
@@ -2906,7 +2906,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field unit_group_hfel integer[]
 ---@field unit_group_epid integer[]
 ---@field unit_group_eppid integer[]
----@field unit_group_ep_is_spouse any
+---@field unit_group_ep_is_spouse boolean[]
 ---@field unit_group_rep integer[]
 ---@field unit_group_rep_level integer[]
 ---@field scroll_position_thoughts integer
@@ -3134,8 +3134,8 @@ df.main_interface.T_info.T_work_orders = {}
 ---@class main_interface.T_info.T_work_orders_conditions: df.class
 ---@field open boolean
 ---@field wq manager_order
----@field item_condition_satisfied any
----@field order_condition_satisfied any
+---@field item_condition_satisfied boolean[]
+---@field order_condition_satisfied boolean[]
 ---@field scroll_position_conditions integer
 ---@field scrolling_conditions boolean
 ---@field suggested_item_condition integer[] workquota_item_conditionst
@@ -3149,11 +3149,11 @@ df.main_interface.T_info.T_work_orders = {}
 ---@field scrolling_change integer
 ---@field item_type_master integer[]
 ---@field item_subtype_master integer[]
----@field item_type_on any
+---@field item_type_on boolean[]
 ---@field item_material_master integer[]
 ---@field item_matgloss_master integer[]
 ---@field item_matstate_master integer[]
----@field item_material_on any
+---@field item_material_on boolean[]
 ---@field item_trait_master wqc_item_traitst[]
 ---@field selecting_order_condition boolean
 ---@field condition_wq manager_order[]
@@ -3294,7 +3294,7 @@ df.main_interface.T_info.T_justice = {}
 ---@field scroll_position integer
 ---@field scrolling boolean
 ---@field squad_id integer[]
----@field squad_selected any
+---@field squad_selected boolean[]
 ---@field viewing_squad_index integer
 ---@field squad_hfid_selected integer[]
 ---@field entering_squad_nickname boolean

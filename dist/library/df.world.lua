@@ -2208,7 +2208,7 @@ df.world.T_object_loader = {}
 ---@field newpop_min_z integer[]
 ---@field newpop_mid_z integer[]
 ---@field newpop_max_z integer[]
----@field newpop_from_saved_pop any
+---@field newpop_from_saved_pop boolean[]
 df.world.T_features = {}
 
 ---@class world_arena: df.class

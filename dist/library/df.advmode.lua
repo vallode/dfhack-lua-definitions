@@ -1480,8 +1480,8 @@ df.adventurest.T_unk_3170.T_unk_1 = {}
 ---@field unk_48 integer
 ---@field unk_49 integer
 ---@field unk_50 integer[]
----@field unk_51 any
----@field unk_52 any
+---@field unk_51 boolean[]
+---@field unk_52 boolean[]
 ---@field unk_53 integer
 ---@field unk_54 integer[]
 ---@field unk_55 integer[]
@@ -1645,7 +1645,7 @@ df.adventurest.T_rest_mode = {}
 
 ---@class adventurest_companions: df.class
 ---@field unit unit[]
----@field unit_visible any
+---@field unit_visible boolean[]
 ---@field unit_position coord_path
 ---@field all_histfigs integer[] includes dead
 df.adventurest.T_companions = {}

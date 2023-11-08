@@ -31,7 +31,7 @@ class XmlNode
       "number"
     when "stl-string", "static-string"
       "string"
-    when "bool"
+    when "bool", "stl-bit-vector"
       "boolean"
     when "stl-function"
       "function"
@@ -73,7 +73,7 @@ class Field < XmlNode
       type = XmlNode.parse_type(node.name, 'any')
     end
 
-    type += '[]' if ['stl-vector', 'static-array'].include?(node.name)
+    type += '[]' if ['stl-vector', 'static-array', 'stl-bit-vector'].include?(node.name)
     
     return type
   end

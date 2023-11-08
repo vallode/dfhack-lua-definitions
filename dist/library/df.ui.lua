@@ -673,7 +673,7 @@ df.labor_infost.T_chores_exempted_children = {}
 ---@field follow_unit unit
 ---@field follow_item item
 ---@field selected_farm_crops integer[] valid for the currently queried farm plot
----@field available_seeds any
+---@field available_seeds boolean[]
 df.plotinfost = {}
 
 ---@class plotinfost_tax_collection: df.class
@@ -911,7 +911,7 @@ df.plotinfost.T_waypoints.T_routes.T_points = {}
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
 ---@field list_units unit[]
----@field sel_units any
+---@field sel_units boolean[]
 ---@field unit_cursor_pos integer
 ---@field in_define_mode boolean
 ---@field brush_erasing boolean
@@ -1055,7 +1055,7 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@class plotinfost_squads: df.class
 ---@field list squad[] valid only when ui is displayed
 ---@field unk6e08 integer[]
----@field sel_squads any
+---@field sel_squads boolean[]
 ---@field indiv_selected plotinfost.T_squads_indiv_selected
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad integer
@@ -1070,7 +1070,7 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field kill_rect_targets_scroll integer also used for the list of targets at cursor
 ---@field in_kill_list boolean
 ---@field kill_targets unit[]
----@field sel_kill_targets any
+---@field sel_kill_targets boolean[]
 ---@field kill_list_scroll integer
 ---@field in_kill_rect boolean
 ---@field rect_start coord

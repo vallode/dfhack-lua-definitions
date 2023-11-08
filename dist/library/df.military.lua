@@ -192,7 +192,7 @@ df.squad_position.T_assigned_items = {}
 ---@class squad_schedule_order: df.class
 ---@field order squad_order
 ---@field min_count integer
----@field positions any
+---@field positions boolean[]
 df.squad_schedule_order = {}
 
 ---@class squad_schedule_entry: df.class
