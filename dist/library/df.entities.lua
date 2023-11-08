@@ -1457,7 +1457,7 @@ df.entity_position_flags = {}
 ---@class entity_position: df.class
 ---@field code string
 ---@field id integer
----@field flags any
+---@field flags entity_position_flags[]
 ---@field allowed_creature integer[]
 ---@field allowed_class string[]
 ---@field rejected_creature integer[]
@@ -1505,7 +1505,7 @@ df.entity_position = {}
 ---@field histfig2 historical_figure
 ---@field position_id integer position within relevant entity
 ---@field position_vector_idx integer
----@field flags any
+---@field flags boolean[]
 ---@field squad_id squad
 ---@field unk_1 integer
 ---@field unk_2 integer

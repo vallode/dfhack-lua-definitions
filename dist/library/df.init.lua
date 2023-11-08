@@ -44,7 +44,7 @@ df.init_display_filter_mode = {}
 ---@field LANCZOS boolean
 
 ---@class init_display: df.class
----@field flag any
+---@field flag init_display_flags[]
 ---@field windowed init_display_windowed
 ---@field grid_x integer
 ---@field grid_y integer
@@ -103,7 +103,7 @@ df.init_media_flags = {}
 ---@field COMPRESS_SAVES boolean
 
 ---@class init_media: df.class
----@field flag any
+---@field flag init_media_flags[]
 ---@field volume_master integer
 ---@field volume_music integer
 ---@field volume_ambience integer
@@ -129,7 +129,7 @@ df.init_input_flags = {}
 ---@field repeat_time integer
 ---@field macro_time integer
 ---@field pause_zoom_no_interface_ms integer
----@field flag any
+---@field flag init_input_flags[]
 ---@field zoom_speed integer
 ---@field repeat_accel_start integer
 ---@field repeat_accel_limit integer
@@ -180,7 +180,7 @@ df.init_window_flags = {}
 ---@field TEXTURE_LINEAR boolean
 
 ---@class init_window: df.class
----@field flag any
+---@field flag init_window_flags[]
 df.init_window = {}
 
 ---@class init: df.class

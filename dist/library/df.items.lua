@@ -1779,7 +1779,7 @@ df.item_helmst = {}
 
 ---@class item_glovesst: item_constructed
 ---@field subtype itemdef_glovesst
----@field handedness any 1 right, 2 left
+---@field handedness boolean[] 1 right, 2 left
 df.item_glovesst = {}
 
 ---@class item_pantsst: item_constructed

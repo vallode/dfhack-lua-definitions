@@ -1134,7 +1134,7 @@ df.world_gen_param_memberst = {}
 df.world_gen_param_flagst = {}
 
 ---@class world_gen_param_flagarrayst: world_gen_param_valuest
----@field val_ptr any
+---@field val_ptr boolean[]
 ---@field flag integer
 ---@field value_val integer[]
 df.world_gen_param_flagarrayst = {}

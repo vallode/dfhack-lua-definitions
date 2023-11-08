@@ -1006,7 +1006,7 @@ df.vague_relationship_type = {}
 ---@field breed_id integer from legends export
 ---@field cultural_identity cultural_identity
 ---@field family_head_id historical_figure When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor.
----@field flags any
+---@field flags histfig_flags[]
 ---@field unit_id unit
 ---@field nemesis_id nemesis_record sometimes garbage
 ---@field id integer
@@ -2364,7 +2364,7 @@ df.merc_role_type = {}
 ---@class history_event: df.instance
 ---@field year integer
 ---@field seconds integer
----@field flags any
+---@field flags history_event_flags[]
 ---@field id integer
 df.history_event = {}
 
@@ -2828,7 +2828,7 @@ df.history_event_agreements_voidedst = {}
 ---@field source historical_entity
 ---@field destination historical_entity
 ---@field site world_site
----@field flags2 any
+---@field flags2 history_event_merchant_flags[]
 df.history_event_merchantst = {}
 
 ---@class _history_event_merchant_flags: df.enum
@@ -2930,7 +2930,7 @@ df.history_event_artifact_recoveredst = {}
 ---@field unit unit
 ---@field histfig historical_figure
 ---@field site world_site
----@field flags2 any
+---@field flags2 boolean[]
 df.history_event_artifact_droppedst = {}
 
 ---@class history_event_reclaim_sitest: history_event
@@ -4620,7 +4620,7 @@ df.history_event_collection_type = {}
 ---@field end_year integer
 ---@field start_seconds integer
 ---@field end_seconds integer
----@field flags any
+---@field flags boolean[]
 ---@field id integer
 df.history_event_collection = {}
 

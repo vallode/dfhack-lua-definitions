@@ -21,7 +21,7 @@ df.reaction_flags = {}
 ---@class reaction: df.instance
 ---@field code string
 ---@field name string
----@field flags any
+---@field flags reaction_flags[]
 ---@field reagents reaction_reagent[]
 ---@field products reaction_product[]
 ---@field skill job_skill
@@ -211,7 +211,7 @@ df.reaction_product_item_flags = {}
 ---@field probability integer
 ---@field count integer
 ---@field product_dimension integer
----@field flags any
+---@field flags reaction_product_item_flags[]
 ---@field get_material reaction_product_itemst_get_material
 ---@field item_str string[]
 ---@field material_str string[]
@@ -246,7 +246,7 @@ df.reaction_product_improvement_flags = {}
 ---@field mat_type material
 ---@field mat_index integer
 ---@field probability integer
----@field flags any
+---@field flags reaction_product_improvement_flags[]
 ---@field get_material reaction_product_item_improvementst_get_material
 ---@field material_str string[]
 ---@field unk_v4201_2 string

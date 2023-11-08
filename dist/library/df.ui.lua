@@ -815,7 +815,7 @@ df.plotinfost.T_economy_prices = {}
 df.plotinfost.T_economy_prices.T_price_adjustment = {}
 
 ---@class plotinfost.T_economy_prices_price_setter: df.class
----@field general_items unit[]
+---@field general_items item_type[]
 ---@field weapons unit[]
 ---@field armor unit[]
 ---@field handwear unit[]

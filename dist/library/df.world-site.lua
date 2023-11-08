@@ -235,7 +235,7 @@ df.abstract_building_contents.T_need_more = {}
 ---@class abstract_building: df.class
 ---@field id integer
 ---@field inhabitants abstract_building_inhabitants
----@field flags any
+---@field flags abstract_building_flags[]
 ---@field unk1 integer[] in temples; hfig is the god
 ---@field unk2 integer[]
 ---@field parent_building_id abstract_building Tombs use this to hold which catacomb they are part of.
@@ -623,7 +623,7 @@ df.property_ownership = {}
 ---@field unk_13c world_site_unk_13c MountainHall, Town, DarkFortress, but not all
 ---@field unk_v40_2 world_site_unk_v40_2 forest retreat
 ---@field unk_v47_1 world_site_unk_v47_1 Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
----@field flags any
+---@field flags world_site_flags[]
 ---@field buildings abstract_building[]
 ---@field next_building_id integer
 ---@field property_ownership property_ownership[]

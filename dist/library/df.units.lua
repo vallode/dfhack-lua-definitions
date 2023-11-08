@@ -2016,7 +2016,7 @@ df.unit.T_reports = {}
 ---@field unk_v40_sub3 unit.T_enemy_unk_v40_sub3
 ---@field combat_side_id integer
 ---@field histfig_vector_idx integer
----@field caste_flags any
+---@field caste_flags caste_raw_flags[]
 ---@field enemy_status_slot integer
 ---@field unk_874_cntr integer
 ---@field body_part_878 integer[]

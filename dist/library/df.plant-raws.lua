@@ -362,7 +362,7 @@ df.plant_raw_flags = {}
 ---@field id string
 ---@field index integer
 ---@field raws string[]
----@field flags any
+---@field flags plant_raw_flags[]
 ---@field name string
 ---@field name_plural string
 ---@field adj string

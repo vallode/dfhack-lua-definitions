@@ -1296,7 +1296,7 @@ df.image_set.T_unk_vec1 = {}
 ---@field area_grasses world_area_grasses grasses in world tiles around embark. Populated at embark
 ---@field flow_engine world_flow_engine
 ---@field busy_buildings integer[] buildings with nonempty getUsers
----@field cavein_flags any
+---@field cavein_flags world_cavein_flags[]
 ---@field original_save_version save_version DF version on which the world was first created
 ---@field worldgen world_worldgen
 ---@field unk_rng hash_rngst

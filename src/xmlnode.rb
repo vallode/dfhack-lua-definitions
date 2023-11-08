@@ -31,7 +31,7 @@ class XmlNode
       "number"
     when "stl-string", "static-string"
       "string"
-    when "bool", "stl-bit-vector"
+    when "bool", "stl-bit-vector", "df-flagarray"
       "boolean"
     when "stl-function"
       "function"
@@ -59,7 +59,7 @@ class Field < XmlNode
   end
 
   def self.get_type(node)
-    type_name = node['type-name'] || node['pointer-type'] || node['ref-target']
+    type_name = node['type-name'] || node['index-enum'] || node['pointer-type'] || node['ref-target']
 
     if not node.children.empty? and not node.name == 'vmethod'
       child_type = Field.get_type(node.children.first)
@@ -73,7 +73,9 @@ class Field < XmlNode
       type = XmlNode.parse_type(node.name, 'any')
     end
 
-    type += '[]' if ['stl-vector', 'static-array', 'stl-bit-vector'].include?(node.name)
+    if ['stl-vector', 'static-array', 'stl-bit-vector', "df-flagarray"].include?(node.name)
+      type += '[]' 
+    end
     
     return type
   end

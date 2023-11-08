@@ -214,7 +214,7 @@ df.d_init_autosave = {}
 ---@field SEMIANNUAL boolean
 
 ---@class d_init: df.class
----@field flags1 any
+---@field flags1 d_init_flags1[]
 ---@field nickname d_init_nickname[]
 ---@field sky_tile integer
 ---@field sky_color integer[]
@@ -229,7 +229,7 @@ df.d_init_autosave = {}
 ---@field wound_color d_init_wound_color
 ---@field show_embark_tunnel d_init_tunnel
 ---@field number_of_lower_elevations_shown integer
----@field flags3 any
+---@field flags3 d_init_flags3[]
 ---@field population_cap integer
 ---@field strict_population_cap integer
 ---@field baby_cap_absolute integer
@@ -243,7 +243,7 @@ df.d_init_autosave = {}
 ---@field graze_coefficient integer
 ---@field maximum_embark_dim integer
 ---@field cull_dead_units_at integer
----@field flags4 any
+---@field flags4 d_init_flags4[]
 ---@field post_prepare_embark_confirmation d_init_embark_confirm
 ---@field autosave d_init_autosave
 ---@field announcements announcements

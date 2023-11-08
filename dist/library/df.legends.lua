@@ -153,7 +153,7 @@ df.nemesis_flags = {}
 ---@field unk12 integer
 ---@field unk_v47_1 integer
 ---@field unk_v47_2 integer
----@field flags any
+---@field flags nemesis_flags[]
 df.nemesis_record = {}
 
 ---@class nemesis_record_companions: df.class
@@ -162,7 +162,7 @@ df.nemesis_record.T_companions = {}
 ---@class artifact_record: df.instance
 ---@field id integer
 ---@field name language_name
----@field flags any
+---@field flags boolean[]
 ---@field item item
 ---@field abs_tile_x integer
 ---@field abs_tile_y integer

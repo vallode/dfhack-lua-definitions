@@ -3620,7 +3620,7 @@ df.markup_text_boxst = {}
 ---@field unk_24 integer
 ---@field unk_28 integer
 ---@field unk_2c integer
----@field unk_30 any
+---@field unk_30 boolean[]
 df.markup_text_boxst.T_unk1 = {}
 
 ---@class markup_text_boxst_unk_v50_2: df.class

@@ -566,7 +566,7 @@ df.strain_type = {}
 ---@field state_adj string[]
 ---@field strength material_common_strength
 ---@field material_value integer
----@field flags any
+---@field flags material_flags[]
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype integer
@@ -856,7 +856,7 @@ df.inclusion_type = {}
 ---@class inorganic_raw: df.instance
 ---@field id string
 ---@field str string[]
----@field flags any
+---@field flags inorganic_flags[]
 ---@field source_hfid historical_figure
 ---@field unk_v4201_1 integer
 ---@field metal_ore inorganic_raw_metal_ore

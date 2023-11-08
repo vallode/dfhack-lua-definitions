@@ -1498,7 +1498,7 @@ df.appearance_modifier_growth_interval = {}
 ---@class body_part_layer_raw: df.class
 ---@field layer_name string
 ---@field tissue_id integer
----@field flags any
+---@field flags body_part_layer_flags[]
 ---@field part_fraction integer total 1000
 ---@field healing_rate integer
 ---@field vascular integer
@@ -1519,7 +1519,7 @@ df.body_part_layer_raw = {}
 ---@field token string
 ---@field category string
 ---@field con_part_id integer
----@field flags any
+---@field flags body_part_raw_flags[]
 ---@field layers body_part_layer_raw[]
 ---@field fraction_total integer
 ---@field fraction_base integer
@@ -1901,7 +1901,7 @@ df.caste_body_info.T_flags = {}
 ---@field caste_color integer[]
 ---@field misc caste_raw_misc
 ---@field personality caste_raw_personality
----@field flags any
+---@field flags caste_raw_flags[]
 ---@field index integer global across creatures
 ---@field body_info caste_body_info
 ---@field caste_speech_1 integer[]
@@ -2110,8 +2110,8 @@ df.caste_raw.T_secretion = {}
 ---@field infect_local integer[] for spatter applied to one bp
 ---@field unk23f integer[]
 ---@field unk23g integer[]
----@field unk24_flags any
----@field unk25_flags any
+---@field unk24_flags boolean[]
+---@field unk25_flags boolean[]
 ---@field armor_sizes integer[][] index by UBSTEP
 ---@field pants_sizes integer[] index by LBSTEP
 ---@field helm_size integer
@@ -2266,7 +2266,7 @@ df.tissue_style_raw = {}
 ---@field sphere integer[]
 ---@field caste caste_raw[]
 ---@field pop_ratio integer[]
----@field flags any
+---@field flags creature_raw_flags[]
 ---@field graphics creature_raw_graphics
 ---@field speech1 integer[]
 ---@field speech2 integer[]
@@ -2492,7 +2492,7 @@ df.body_part_template_contype = {}
 ---@field category string
 ---@field con_cat string
 ---@field contype body_part_template_contype
----@field flags any
+---@field flags body_part_template_flags[]
 ---@field default_relsize integer
 ---@field number integer
 ---@field name_singular string[] first comes from BP, rest come from INDIVIDUAL_NAME
@@ -2599,7 +2599,7 @@ df.tissue_flags = {}
 
 ---@class tissue_template: df.instance
 ---@field id string
----@field flags any
+---@field flags tissue_flags[]
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
@@ -2619,7 +2619,7 @@ df.tissue_template = {}
 
 ---@class tissue: df.class
 ---@field id string
----@field flags any
+---@field flags tissue_flags[]
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]

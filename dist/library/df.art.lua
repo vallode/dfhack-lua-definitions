@@ -103,7 +103,7 @@ df.art_image_property_type = {}
 ---@field intransitive_verb boolean
 
 ---@class art_image_property: df.class
----@field flags any
+---@field flags boolean[]
 df.art_image_property = {}
 
 ---@param file file_compressorst

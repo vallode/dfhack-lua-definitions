@@ -610,7 +610,7 @@ df.entity_name_type = {}
 ---@field creatures string[]
 ---@field equipment entity_raw_equipment
 ---@field currency_value integer[]
----@field flags any
+---@field flags entity_raw_flags[]
 ---@field translation string
 ---@field symbols entity_raw_symbols
 ---@field sphere_alignment integer[]
@@ -1117,7 +1117,7 @@ df.entity_position_responsibility = {}
 ---@class entity_position_raw: df.class
 ---@field code string
 ---@field id integer
----@field flags any
+---@field flags entity_position_raw_flags[]
 ---@field allowed_creature_str string[][]
 ---@field allowed_creature integer[]
 ---@field allowed_class string[]

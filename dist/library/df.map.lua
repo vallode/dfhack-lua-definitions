@@ -572,7 +572,7 @@ function df.cave_column_rectangle:read_file(file, loadversion) end
 ---@field cave_columns cave_column_link[][]
 ---@field column_rectangles cave_column_rectangle[]
 ---@field z_shift integer seems to be 0 originally, but updated when map is shifted
----@field flags any 0 process cave columns for caveins
+---@field flags boolean[] 0 process cave columns for caveins
 ---@field elevation integer[][]
 ---@field map_pos coord2d top left in tiles
 ---@field unk_c3c integer uninitialized
@@ -875,7 +875,7 @@ df.layer_type = {}
 ---@field Underworld boolean
 
 ---@class feature_init: df.class
----@field flags any
+---@field flags feature_init_flags[]
 ---@field alterations feature_alteration[]
 ---@field start_x integer
 ---@field start_y integer

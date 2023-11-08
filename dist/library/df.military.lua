@@ -952,7 +952,7 @@ df.army_flags = {}
 ---@field unk_2 integer 16 only value seen
 ---@field controller_id army_controller
 ---@field controller army_controller
----@field flags any
+---@field flags army_flags[]
 ---@field block_path_x integer[] path in map_block coordinates. Seems to be the near term
 ---@field block_path_y integer[]
 ---@field path_x integer[] path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
