@@ -61,7 +61,7 @@ df.embark_note = {}
 ---@field feature_idx integer
 ---@field cave_id world_underground_region
 ---@field unk_28 integer
----@field population_idx any
+---@field population_idx integer
 ---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
 df.world_population_ref = {}
 
@@ -317,9 +317,9 @@ df.world_geo_layer = {}
 df.world_geo_biome = {}
 
 ---@class world_region_feature: df.class
----@field feature_idx any
+---@field feature_idx integer
 ---@field layer world_underground_region
----@field region_tile_idx any
+---@field region_tile_idx integer
 ---@field min_z integer
 ---@field max_z integer
 ---@field unk_c coord2d[]
@@ -344,7 +344,7 @@ df.world_region_feature = {}
 ---@field unk_4 integer
 ---@field rivers_vertical world_region_details_rivers_vertical
 ---@field rivers_horizontal world_region_details_rivers_horizontal
----@field other_features any[][]
+---@field other_features integer[][]
 ---@field features world_region_feature[][][]
 ---@field lava_stone inorganic_raw
 ---@field unk_12 integer[] Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though

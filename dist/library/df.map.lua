@@ -695,8 +695,8 @@ df.block_square_event_material_spatterst = {}
 df.block_square_event_grassst = {}
 
 ---@class block_square_event_spoorst: block_square_event
----@field flags any[][]
----@field unk_2 any[][]
+---@field flags integer[][]
+---@field unk_2 integer[][]
 ---@field unk_3 integer[][]
 ---@field race creature_raw[][]
 ---@field caste caste_raw[][]

@@ -731,8 +731,8 @@ df.manager_order_status = {}
 
 ---@class job_art_specification: df.class
 ---@field type job_art_specification_type
----@field id any
----@field subid any
+---@field id integer
+---@field subid integer
 df.job_art_specification = {}
 
 ---@class _job_art_specification_type: df.enum

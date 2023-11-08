@@ -48,17 +48,14 @@ function df.build_req_choicest:getNumCandidates() end
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
----@field candidates build_req_choice_genst_candidates[]
+---@field candidates integer[]
 ---@field used_count integer
 ---@field unk_1 boolean
 df.build_req_choice_genst = {}
 
----@class build_req_choice_genst_candidates: df.class
-df.build_req_choice_genst.T_candidates = {}
-
 ---@class build_req_choice_specst: build_req_choicest
 ---@field candidate item
----@field candidate_id any
+---@field candidate_id integer
 df.build_req_choice_specst = {}
 
 ---@class buildreq: df.class

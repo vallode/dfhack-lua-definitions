@@ -738,13 +738,13 @@ df.enabler.T_fullscreen_state = {}
 ---@class enabler_async_tobox: df.class
 ---@field mtx lightuserdata
 ---@field cv lightuserdata
----@field vals any
+---@field vals integer
 df.enabler.T_async_tobox = {}
 
 ---@class enabler_async_frombox: df.class
 ---@field mtx lightuserdata
 ---@field cv lightuserdata
----@field vals any
+---@field vals integer
 df.enabler.T_async_frombox = {}
 
 ---@class enabler_async_zoom: df.class

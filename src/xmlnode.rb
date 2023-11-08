@@ -35,7 +35,7 @@ class XmlNode
       "boolean"
     when "stl-function"
       "function"
-    when "pointer", "padding", "stl-vector"
+    when "enum-item", "flag-bit", "pointer", "padding", "stl-vector"
       "integer"
     when "stl-mutex", "stl-condition-variable", "stl-deque", "stl-fstream", "stl-unordered-map"
       "lightuserdata"

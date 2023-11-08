@@ -489,7 +489,7 @@ df.historical_figure_info.T_whereabouts.T_flags = {}
 
 ---@class historical_figure_info_wounds: df.class
 ---@field events integer[]
----@field status any[]
+---@field status boolean[]
 ---@field childbirth_year integer
 ---@field childbirth_tick integer
 ---@field unk_flags historical_figure_info.T_wounds_unk_flags

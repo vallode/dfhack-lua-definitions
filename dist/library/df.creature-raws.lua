@@ -2251,7 +2251,7 @@ df.tissue_style_raw = {}
 ---@field profession_name creature_raw_profession_name
 ---@field underground_layer_min integer
 ---@field underground_layer_max integer
----@field modifier_class creature_raw_modifier_class[]
+---@field modifier_class integer[]
 ---@field modifier_num_patterns integer[] for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product creature_raw_hive_product
 ---@field source_hfid historical_figure
@@ -2265,9 +2265,6 @@ df.creature_raw = {}
 ---@field singular string[]
 ---@field plural string[]
 df.creature_raw.T_profession_name = {}
-
----@class creature_raw_modifier_class: df.class
-df.creature_raw.T_modifier_class = {}
 
 ---@class creature_raw_hive_product: df.class
 ---@field number integer[]
