@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RESERVED_KEYWORDS = ['local'].freeze
 
 class XmlNode
