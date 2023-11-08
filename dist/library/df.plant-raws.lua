@@ -413,7 +413,7 @@ df.plant_raw_flags = {}
 ---@field stockpile_growth_flags plant_raw_stockpile_growth_flags
 df.plant_raw = {}
 
----@class plant_raw_tiles: df.struct
+---@class plant_raw_tiles: df.class
 ---@field picked_tile integer
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
@@ -428,7 +428,7 @@ df.plant_raw = {}
 ---@field unk_v50_1 integer[]
 df.plant_raw.T_tiles = {}
 
----@class plant_raw_colors: df.struct
+---@class plant_raw_colors: df.class
 ---@field picked_color integer[]
 ---@field dead_picked_color integer[]
 ---@field shrub_color integer[]
@@ -443,13 +443,13 @@ df.plant_raw.T_tiles = {}
 ---@field grass_colors_2 integer[]
 df.plant_raw.T_colors = {}
 
----@class plant_raw_material_defs: df.struct
+---@class plant_raw_material_defs: df.class
 ---@field type material[]
 ---@field idx integer[]
 ---@field str string[][]
 df.plant_raw.T_material_defs = {}
 
----@class plant_raw_stockpile_growth_flags: df.struct
+---@class plant_raw_stockpile_growth_flags: df.class
 df.plant_raw.T_stockpile_growth_flags = {}
 
 ---@class _plant_material_def: df.enum
@@ -493,7 +493,7 @@ df.plant_material_def = {}
 ---@field [8] boolean
 ---@field extract_still_vial boolean
 
----@class plant_growth: df.struct
+---@class plant_growth: df.class
 ---@field id string
 ---@field name string
 ---@field name_plural string
@@ -567,7 +567,7 @@ df.plant_growth.T_behavior = {}
 ---@field [2] boolean
 ---@field has_seed boolean
 
----@class plant_growth_print: df.struct
+---@class plant_growth_print: df.class
 ---@field priority integer final token in list
 ---@field tile_growth integer
 ---@field tile_item integer

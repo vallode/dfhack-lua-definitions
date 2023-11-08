@@ -654,7 +654,7 @@ df.entity_name_type = {}
 ---@field animal entity_animal_raw[]
 df.entity_raw = {}
 
----@class entity_raw_equipment: df.struct
+---@class entity_raw_equipment: df.class
 ---@field digger_id integer[]
 ---@field weapon_id integer[]
 ---@field armor_id integer[]
@@ -690,7 +690,7 @@ df.entity_raw = {}
 ---@field tool_str string[]
 df.entity_raw.T_equipment = {}
 
----@class entity_raw_symbols: df.struct
+---@class entity_raw_symbols: df.class
 ---@field symbols1 language_word_table[]
 ---@field symbols2 language_word_table[]
 ---@field select_symbol string[][]
@@ -698,7 +698,7 @@ df.entity_raw.T_equipment = {}
 ---@field cull_symbol string[][]
 df.entity_raw.T_symbols = {}
 
----@class entity_raw_progress_trigger: df.struct
+---@class entity_raw_progress_trigger: df.class
 ---@field population integer
 ---@field production integer
 ---@field trade integer
@@ -748,30 +748,30 @@ df.entity_raw.T_scholar = {}
 ---@field [8] boolean
 ---@field ENGINEER boolean
 
----@class entity_raw_religion_sphere: df.struct
+---@class entity_raw_religion_sphere: df.class
 df.entity_raw.T_religion_sphere = {}
 
----@class entity_raw_jobs: df.struct
+---@class entity_raw_jobs: df.class
 ---@field permitted_job boolean[]
 ---@field permitted_labor boolean[]
 ---@field world_construction boolean[]
 df.entity_raw.T_jobs = {}
 
----@class entity_raw_tissue_styles: df.struct
+---@class entity_raw_tissue_styles: df.class
 ---@field name string
 ---@field preferred_shapings integer[]
 ---@field maintain_length_min integer
 ---@field maintain_length_max integer
 df.entity_raw.T_tissue_styles = {}
 
----@class entity_raw_workshops: df.struct
+---@class entity_raw_workshops: df.class
 ---@field permitted_building_str string[]
 ---@field permitted_building_id integer[]
 ---@field permitted_reaction_str string[]
 ---@field permitted_reaction_id integer[]
 df.entity_raw.T_workshops = {}
 
----@class entity_animal_raw: df.struct
+---@class entity_animal_raw: df.class
 ---@field token string
 ---@field caste_token string[]
 ---@field animal_class string[]
@@ -1114,7 +1114,7 @@ df.entity_position_responsibility = {}
 ---@field [43] boolean
 ---@field DELIVER_MESSAGES boolean
 
----@class entity_position_raw: df.struct
+---@class entity_position_raw: df.class
 ---@field code string
 ---@field id integer
 ---@field flags any

@@ -37,11 +37,7 @@ Dir.glob(ARGV[0]).each do |xml|
     lua_annotations = {}
 
     # Write globals separately as they only exist in df.global.xml
-    globals = []
-    definitions.css('global-object').each_with_index do |node, index|
-      globals.push(node)
-    end
-
+    globals = definitions.css('global-object')
     if not globals.empty?
       output.write(GlobalObject.new(globals).render)
     end

@@ -182,7 +182,7 @@ df.resource_allotment_specifier_type = {}
 ---@field [43] boolean
 ---@field AMMO boolean
 
----@class resource_allotment_specifier: df.struct
+---@class resource_allotment_specifier: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -468,7 +468,7 @@ df.resource_allotment_specifier_powderst = {}
 ---@field unk_654 resource_allotment_data_unk_654
 df.resource_allotment_data = {}
 
----@class resource_allotment_data_unk_654: df.struct
+---@class resource_allotment_data_unk_654: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer[]
 ---@field unk_14 integer[]

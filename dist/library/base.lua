@@ -7,22 +7,49 @@
 ---| 'bitfield-type'
 ---| 'global'
 
+---@alias df.struct.mode
+---| 'END'
+---| 'PRIMITIVE'
+---| 'STATIC_STRING'
+---| 'POINTER'
+---| 'STATIC_ARRAY'
+---| 'SUBSTRUCT'
+---| 'CONTAINER'
+---| 'STL_VECTOR_PTR'
+---| 'OBJ_METHOD'
+---| 'CLASS_METHOD'
+
+---@class df.compound.field
+---@field name string
+---@field offset integer
+---@field count integer
+---@field mode df.struct.mode
+---@field type_name? string
+---@field type? table
+---@field type_identity? lightuserdata
+---@field index_enum? table
+---@field ref_target? table
+---@field union_tag_field? string
+---@field union_tag_attr? string
+---@field original_name? string
+
 -- TODO: Keep an eye out on the generics issue for Lua LSP
 -- https://github.com/LuaLS/lua-language-server/issues/1861
 ---@class df.base
 ---@field _kind df.kind
----@field _identity any TODO
+---@field _identity lightuserdata
+
+---@class df.compound: df.base
+---@field _fields df.compound.field[]
+
+---@class df.class: df.compound
 ---@field sizeof fun(self: any): integer
----@field new fun(self: any): any
----@field is_instance fun(self: any, object: any): boolean|nil
+---@field new fun(self: any): table
+---@field is_instance fun(self: any, object: table): boolean|nil
 
----@class df.struct: df.base
----@field _kind "struct-type"
----@field _fields any[] TODO
-
----@class df.instance: df.struct
----@field get_vector function TODO
----@field find fun(key: integer|number|df.instance): any Binary search by specified `key` of all instances of the structure.
+---@class df.instance: df.class
+---@field get_vector fun(): any[] The same as doing `df.global.<instance>.all`
+---@field find fun(key: integer): any Binary search by specified `key` of all instances of the structure.
 
 ---@class df.iter: df.base
 ---@field _first_item integer

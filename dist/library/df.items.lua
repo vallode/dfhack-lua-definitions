@@ -200,19 +200,19 @@ df.item_magicness_type = {}
 ---@field [8] boolean
 ---@field RustlingLeaves boolean
 
----@class item_magicness: df.struct
+---@class item_magicness: df.class
 ---@field type item_magicness_type
 ---@field value integer boosts item value by 50*this
 ---@field unk_1 integer
 ---@field flags integer 1=does not show up in item description or alter item value
 df.item_magicness = {}
 
----@class temperaturest: df.struct
+---@class temperaturest: df.class
 ---@field whole integer
 ---@field fraction integer
 df.temperaturest = {}
 
----@class spatter_common: df.struct
+---@class spatter_common: df.class
 ---@field mat_type material
 ---@field mat_index integer
 ---@field mat_state matter_state
@@ -1031,13 +1031,13 @@ function df.item:getGemShape() end
 
 function df.item:hasWriting() end
 
----@class item_kill_info: df.struct
+---@class item_kill_info: df.class
 ---@field targets historical_kills
 ---@field slayers integer[]
 ---@field slayer_kill_counts integer[]
 df.item_kill_info = {}
 
----@class item_history_info: df.struct
+---@class item_history_info: df.class
 ---@field kills item_kill_info
 ---@field attack_counter integer increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter integer increments by 1 each time the item is used in an attempt to block or parry
@@ -1175,7 +1175,7 @@ df.body_layer_status = {}
 ---@field [1] boolean
 ---@field leaking boolean
 
----@class body_component_info: df.struct
+---@class body_component_info: df.class
 ---@field body_part_status body_part_status[]
 ---@field numbered_masks integer[] 1 bit per instance of a numbered body part
 ---@field nonsolid_remaining integer[] 0-100%
@@ -1186,7 +1186,7 @@ df.body_layer_status = {}
 ---@field layer_effect_fraction integer[] 0-1000000000
 df.body_component_info = {}
 
----@class body_size_info: df.struct
+---@class body_size_info: df.class
 ---@field size_cur integer
 ---@field size_base integer
 ---@field area_cur integer size_cur^0.666
@@ -1280,7 +1280,7 @@ df.corpse_material_type = {}
 ---@field bone2 item_body_component_bone2
 df.item_body_component = {}
 
----@class item_body_component_body: df.struct
+---@class item_body_component_body: df.class
 ---@field wounds unit_wound[]
 ---@field unk_100 integer[] unit.body.unk_39c
 ---@field wound_next_id integer
@@ -1293,7 +1293,7 @@ df.item_body_component = {}
 ---@field bp_modifiers integer[]
 df.item_body_component.T_body = {}
 
----@class item_body_component_appearance: df.struct
+---@class item_body_component_appearance: df.class
 ---@field colors integer[]
 ---@field tissue_style integer[]
 ---@field tissue_style_civ_id integer[]
@@ -1370,12 +1370,12 @@ df.item_body_component.T_corpse_flags = {}
 ---@field [15] boolean
 ---@field yarn boolean
 
----@class item_body_component_bone1: df.struct
+---@class item_body_component_bone1: df.class
 ---@field mat_type material
 ---@field mat_index integer
 df.item_body_component.T_bone1 = {}
 
----@class item_body_component_bone2: df.struct
+---@class item_body_component_bone2: df.class
 ---@field mat_type material
 ---@field mat_index integer
 df.item_body_component.T_bone2 = {}
@@ -1550,7 +1550,7 @@ df.item_fish_rawst = {}
 ---@field rot_timer integer
 df.item_foodst = {}
 
----@class item_foodst_ingredients: df.struct
+---@class item_foodst_ingredients: df.class
 ---@field unk_1 integer
 ---@field item_type item_type
 ---@field unk_4 integer
@@ -1815,7 +1815,7 @@ df.item_trapcompst = {}
 ---@field unk_3 integer
 df.item_toolst = {}
 
----@class item_stockpile_ref: df.struct
+---@class item_stockpile_ref: df.class
 ---@field id building
 ---@field x integer
 ---@field y integer

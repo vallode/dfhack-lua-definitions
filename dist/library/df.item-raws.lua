@@ -388,7 +388,7 @@ df.item_type = {}
 ---@type { [string|integer]: item_type_attr }
 df.item_type.attrs = {}
 
----@class weapon_attack: df.struct
+---@class weapon_attack: df.class
 ---@field edged boolean
 ---@field contact integer
 ---@field penetration integer
@@ -423,7 +423,7 @@ df.itemdef_flags = {}
 ---@field [0] boolean
 ---@field GENERATED boolean
 
----@class itemdef: df.struct
+---@class itemdef: df.class
 ---@field id string
 ---@field subtype integer
 ---@field base_flags any
@@ -509,7 +509,7 @@ df.armor_general_flags = {}
 ---@field [10] boolean
 ---@field STRUCTURAL_ELASTICITY_CHAIN_ALL boolean
 
----@class armor_properties: df.struct
+---@class armor_properties: df.class
 ---@field flags any
 ---@field layer integer
 ---@field layer_size integer
@@ -1084,7 +1084,7 @@ df.timbre_type = {}
 ---@field [62] boolean
 ---@field SPARKLING boolean
 
----@class instrument_piece: df.struct
+---@class instrument_piece: df.class
 ---@field type string
 ---@field id string
 ---@field index integer
@@ -1106,7 +1106,7 @@ df.instrument_piece.T_flags = {}
 ---@field [1] boolean
 ---@field always_plural boolean
 
----@class instrument_register: df.struct
+---@class instrument_register: df.class
 ---@field pitch_range_min integer
 ---@field pitch_range_max integer
 ---@field timbres timbre_type[]
@@ -1396,10 +1396,10 @@ df.tool_uses = {}
 ---@field default_improvements itemdef_toolst_default_improvements
 df.itemdef_toolst = {}
 
----@class itemdef_toolst_tool_use: df.struct
+---@class itemdef_toolst_tool_use: df.class
 df.itemdef_toolst.T_tool_use = {}
 
----@class itemdef_toolst_default_improvements: df.struct
+---@class itemdef_toolst_default_improvements: df.class
 ---@field type improvement_type
 ---@field specific_type itemimprovement_specific_type
 ---@field instrument_part string

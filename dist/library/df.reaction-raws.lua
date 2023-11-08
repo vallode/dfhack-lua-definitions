@@ -39,7 +39,7 @@ df.reaction_flags = {}
 ---@field exp_gain integer
 df.reaction = {}
 
----@class reaction_building: df.struct
+---@class reaction_building: df.class
 ---@field str string[][]
 ---@field type reaction.T_building_type
 ---@field subtype integer[]
@@ -47,10 +47,10 @@ df.reaction = {}
 ---@field hotkey integer[]
 df.reaction.T_building = {}
 
----@class reaction.T_building_type: df.struct
+---@class reaction.T_building_type: df.class
 df.reaction.T_building.T_type = {}
 
----@class reaction_category: df.struct
+---@class reaction_category: df.class
 ---@field id string
 ---@field parent string
 ---@field name string
@@ -58,7 +58,7 @@ df.reaction.T_building.T_type = {}
 ---@field description string
 df.reaction_category = {}
 
----@class reaction_description: df.struct
+---@class reaction_description: df.class
 ---@field unk_1 string
 ---@field item_type item_type
 ---@field unk_2 string
@@ -73,7 +73,7 @@ df.reaction_reagent_type = {}
 ---@field [0] boolean
 ---@field item boolean
 
----@class reaction_reagent: df.struct
+---@class reaction_reagent: df.class
 ---@field code string
 ---@field quantity integer
 ---@field flags reaction_reagent_flags
@@ -147,7 +147,7 @@ df.reaction_product_type = {}
 ---@field [1] boolean
 ---@field improvement boolean
 
----@class reaction_product: df.struct
+---@class reaction_product: df.class
 ---@field product_token string
 ---@field product_to_container string
 df.reaction_product = {}
@@ -217,7 +217,7 @@ df.reaction_product_item_flags = {}
 ---@field material_str string[]
 df.reaction_product_itemst = {}
 
----@class reaction_product_itemst_get_material: df.struct
+---@class reaction_product_itemst_get_material: df.class
 ---@field reagent_code string
 ---@field product_code string
 df.reaction_product_itemst.T_get_material = {}
@@ -252,7 +252,7 @@ df.reaction_product_improvement_flags = {}
 ---@field unk_v4201_2 string
 df.reaction_product_item_improvementst = {}
 
----@class reaction_product_item_improvementst_get_material: df.struct
+---@class reaction_product_item_improvementst_get_material: df.class
 ---@field reagent_code string
 ---@field product_code string
 df.reaction_product_item_improvementst.T_get_material = {}

@@ -75,7 +75,7 @@ df.projectile_flags = {}
 ---@field [12] boolean
 ---@field safe_landing boolean
 
----@class projectile: df.struct
+---@class projectile: df.class
 ---@field link proj_list_link
 ---@field id integer
 ---@field firer unit

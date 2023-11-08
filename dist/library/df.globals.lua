@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.globals
 
----@class df_global
+---@class (exact) df.global: df.compound
 ---@field global_table global_table_entry[]
 ---@field cursor integer
 ---@field selection_rect integer
@@ -351,7 +351,7 @@ df.next_global_id = {}
 ---@field [40] boolean
 ---@field divination_set boolean
 
----@class global_table_entry: df.struct
+---@class global_table_entry: df.class
 ---@field name any
 ---@field address integer
 ---@field size any

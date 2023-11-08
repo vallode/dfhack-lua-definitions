@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.ui-menus
 
----@class ui_build_item_req: df.struct
+---@class ui_build_item_req: df.class
 ---When creating a building, one record per required item type. E.g. Soap Maker's workshop requires a bucket and a building material.
 ---@field filter job_item_filter
 ---@field candidates item[]
@@ -26,7 +26,7 @@ df.build_req_choice_type = {}
 ---@field [1] boolean
 ---@field Specific boolean
 
----@class build_req_choicest: df.struct
+---@class build_req_choicest: df.class
 ---One choice in the build item selector.
 ---@field distance integer
 df.build_req_choicest = {}
@@ -53,7 +53,7 @@ function df.build_req_choicest:getNumCandidates() end
 ---@field unk_1 boolean
 df.build_req_choice_genst = {}
 
----@class build_req_choice_genst_candidates: df.struct
+---@class build_req_choice_genst_candidates: df.class
 df.build_req_choice_genst.T_candidates = {}
 
 ---@class build_req_choice_specst: build_req_choicest
@@ -61,7 +61,7 @@ df.build_req_choice_genst.T_candidates = {}
 ---@field candidate_id any
 df.build_req_choice_specst = {}
 
----@class buildreq: df.struct
+---@class buildreq: df.class
 ---@field requirements ui_build_item_req[]
 ---@field choices build_req_choicest[]
 ---@field building_type building_type if -1, in Build menu; otherwise select item
@@ -171,7 +171,7 @@ df.interface_category_construction = {}
 ---@field [8] boolean
 ---@field TRACK boolean
 
----@class interface_button: df.struct
+---@class interface_button: df.class
 ---@field hotkey interface_key
 ---@field leave_button boolean
 ---@field flag integer
@@ -304,7 +304,7 @@ df.construction_category_type = {}
 ---@field [12] boolean
 ---@field MILITARY boolean
 
----@class bb_buttonst: df.struct
+---@class bb_buttonst: df.class
 ---@field category construction_category_type
 ---@field type integer
 ---@field subtype integer
@@ -337,7 +337,7 @@ df.construction_interface_page_status_type = {}
 ---@field [3] boolean
 ---@field OFF boolean
 
----@class construction_interface_pagest: df.struct
+---@class construction_interface_pagest: df.class
 ---@field category construction_category_type
 ---@field bb_button bb_buttonst[]
 ---@field last_main_sx integer
@@ -2006,7 +2006,7 @@ df.main_designation_type = {}
 ---@field [36] boolean
 ---@field ERASE boolean
 
----@class main_interface: df.struct
+---@class main_interface: df.class
 ---@field designation main_interface_designation
 ---@field building main_interface_building
 ---@field construction main_interface_construction
@@ -2120,7 +2120,7 @@ df.main_designation_type = {}
 ---@field keyboard_last_track_g coord
 df.main_interface = {}
 
----@class main_interface_designation: df.struct
+---@class main_interface_designation: df.class
 ---@field marker_only boolean
 ---@field show_priorities boolean set to one if using +/-
 ---@field priority integer *1000
@@ -2140,7 +2140,7 @@ df.main_interface = {}
 ---@field sliding_traffic_restricted boolean
 df.main_interface.T_designation = {}
 
----@class main_interface_building: df.struct
+---@class main_interface_building: df.class
 ---@field button interface_button[]
 ---@field press_button interface_button[]
 ---@field filtered_button interface_button[]
@@ -2153,7 +2153,7 @@ df.main_interface.T_designation = {}
 ---@field current_tool_tip string[]
 df.main_interface.T_building = {}
 
----@class main_interface_construction: df.struct
+---@class main_interface_construction: df.class
 ---@field button interface_button[]
 ---@field press_button interface_button[]
 ---@field category interface_category_construction
@@ -2171,7 +2171,7 @@ df.main_interface.T_building = {}
 ---@field scroll_position_item integer
 df.main_interface.T_construction = {}
 
----@class main_interface_civzone: df.struct
+---@class main_interface_civzone: df.class
 ---@field remove boolean
 ---@field flow_shape room_flow_shape_type
 ---@field doing_rectangle boolean
@@ -2188,7 +2188,7 @@ df.main_interface.T_construction = {}
 ---@field repainting integer
 df.main_interface.T_civzone = {}
 
----@class main_interface_burrow: df.struct
+---@class main_interface_burrow: df.class
 ---@field painting_burrow burrow
 ---@field doing_rectangle boolean
 ---@field erasing boolean
@@ -2198,7 +2198,7 @@ df.main_interface.T_civzone = {}
 ---@field entering_name_index integer
 df.main_interface.T_burrow = {}
 
----@class main_interface_view: df.struct
+---@class main_interface_view: df.class
 ---@field inv unit_inventory_item[]
 ---@field contam spatter[]
 ---@field guest_text any[]
@@ -2225,7 +2225,7 @@ df.main_interface.T_burrow = {}
 ---@field expel_cannot_expel_reason cannot_expel_reason_type
 df.main_interface.T_view = {}
 
----@class main_interface_hospital: df.struct
+---@class main_interface_hospital: df.class
 ---@field cur_scroll integer
 ---@field bed_count integer
 ---@field table_count integer
@@ -2233,7 +2233,7 @@ df.main_interface.T_view = {}
 ---@field box_count integer
 df.main_interface.T_hospital = {}
 
----@class main_interface_location_list: df.struct
+---@class main_interface_location_list: df.class
 ---@field valid_ab abstract_building[]
 ---@field selected_ab integer
 ---@field valid_religious_practice temple_deity_type[]
@@ -2246,7 +2246,7 @@ df.main_interface.T_hospital = {}
 ---@field selected_craft_guild integer
 df.main_interface.T_location_list = {}
 
----@class main_interface_job_details: df.struct
+---@class main_interface_job_details: df.class
 ---@field open boolean
 ---@field context job_details_context_type
 ---@field jb job
@@ -2280,12 +2280,12 @@ df.main_interface.T_location_list = {}
 ---@field scrolling_improvement boolean
 df.main_interface.T_job_details = {}
 
----@class main_interface_buildjob: df.struct
+---@class main_interface_buildjob: df.class
 ---@field display_furniture_bld building_display_furniturest
 ---@field display_furniture_selected_item integer
 df.main_interface.T_buildjob = {}
 
----@class main_interface_assign_trade: df.struct
+---@class main_interface_assign_trade: df.class
 ---@field open boolean
 ---@field trade_depot_bld building_tradedepotst
 ---@field type_list integer[]
@@ -2320,10 +2320,10 @@ df.main_interface.T_buildjob = {}
 ---@field exclude_prohib boolean
 df.main_interface.T_assign_trade = {}
 
----@class main_interface.T_assign_trade_unk_a8: df.struct
+---@class main_interface.T_assign_trade_unk_a8: df.class
 df.main_interface.T_assign_trade.T_unk_a8 = {}
 
----@class main_interface_trade: df.struct
+---@class main_interface_trade: df.class
 ---@field open boolean
 ---@field choosing_merchant boolean
 ---@field merlist caravan_state[]
@@ -2371,7 +2371,7 @@ df.main_interface.T_assign_trade.T_unk_a8 = {}
 ---@field scrolling_big_announce boolean
 df.main_interface.T_trade = {}
 
----@class main_interface_diplomacy: df.struct
+---@class main_interface_diplomacy: df.class
 ---@field open boolean
 ---@field mm meeting_event
 ---@field actor unit
@@ -2405,7 +2405,7 @@ df.main_interface.T_trade = {}
 ---@field environment meeting_context
 df.main_interface.T_diplomacy = {}
 
----@class main_interface_petitions: df.struct
+---@class main_interface_petitions: df.class
 ---@field open boolean
 ---@field have_responsible_person boolean
 ---@field agreement_id integer[]
@@ -2414,7 +2414,7 @@ df.main_interface.T_diplomacy = {}
 ---@field scrolling boolean
 df.main_interface.T_petitions = {}
 
----@class main_interface_stocks: df.struct
+---@class main_interface_stocks: df.class
 ---@field open boolean
 ---@field type_list integer[]
 ---@field filtered_type_list integer[]
@@ -2438,7 +2438,7 @@ df.main_interface.T_petitions = {}
 ---@field current_type_a_flag integer[]
 df.main_interface.T_stocks = {}
 
----@class main_interface_assign_display_item: df.struct
+---@class main_interface_assign_display_item: df.class
 ---@field open boolean
 ---@field display_bld building_display_furniturest
 ---@field new_display_itid integer[]
@@ -2463,7 +2463,7 @@ df.main_interface.T_stocks = {}
 ---@field current_type_a_on any
 df.main_interface.T_assign_display_item = {}
 
----@class main_interface_name_creator: df.struct
+---@class main_interface_name_creator: df.class
 ---@field open boolean
 ---@field context name_creator_context_type
 ---@field namer historical_entity
@@ -2483,7 +2483,7 @@ df.main_interface.T_assign_display_item = {}
 ---@field named_unit unit
 df.main_interface.T_name_creator = {}
 
----@class main_interface_image_creator: df.struct
+---@class main_interface_image_creator: df.class
 ---@field open boolean
 ---@field context image_creator_context_type
 ---@field header string
@@ -2539,7 +2539,7 @@ df.main_interface.T_name_creator = {}
 ---@field ics main_interface.T_image_creator_ics
 df.main_interface.T_image_creator = {}
 
----@class main_interface.T_image_creator_ics: df.struct
+---@class main_interface.T_image_creator_ics: df.class
 ---@field jb job
 ---@field wq manager_order
 ---@field location_detail integer
@@ -2551,7 +2551,7 @@ df.main_interface.T_image_creator = {}
 ---@field flag integer
 df.main_interface.T_image_creator.T_ics = {}
 
----@class main_interface_unit_selector: df.struct
+---@class main_interface_unit_selector: df.class
 ---@field open boolean
 ---@field context unit_selector_context_type
 ---@field unid integer[]
@@ -2572,7 +2572,7 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field scrolling boolean
 df.main_interface.T_unit_selector = {}
 
----@class main_interface_announcement_alert: df.struct
+---@class main_interface_announcement_alert: df.class
 ---@field open boolean
 ---@field viewing_alert report
 ---@field viewing_alert_button boolean
@@ -2596,7 +2596,7 @@ df.main_interface.T_unit_selector = {}
 ---@field scrolling_uac boolean
 df.main_interface.T_announcement_alert = {}
 
----@class main_interface_custom_symbol: df.struct
+---@class main_interface_custom_symbol: df.class
 ---@field open boolean
 ---@field context custom_symbol_context_type
 ---@field burrow_id integer
@@ -2610,7 +2610,7 @@ df.main_interface.T_announcement_alert = {}
 ---@field swatch_b integer[][]
 df.main_interface.T_custom_symbol = {}
 
----@class main_interface_patrol_routes: df.struct
+---@class main_interface_patrol_routes: df.class
 ---@field open boolean
 ---@field context patrol_routes_context_type
 ---@field scroll_position integer
@@ -2624,7 +2624,7 @@ df.main_interface.T_custom_symbol = {}
 ---@field changed_points_on_edit boolean
 df.main_interface.T_patrol_routes = {}
 
----@class main_interface_squad_equipment: df.struct
+---@class main_interface_squad_equipment: df.class
 ---@field open boolean
 ---@field context squad_equipment_context_type
 ---@field scroll_position integer
@@ -2670,7 +2670,7 @@ df.main_interface.T_patrol_routes = {}
 ---@field cs_add_spec_id integer[]
 df.main_interface.T_squad_equipment = {}
 
----@class main_interface_squad_schedule: df.struct
+---@class main_interface_squad_schedule: df.class
 ---@field open boolean
 ---@field context squad_schedule_context_type
 ---@field scroll_position integer
@@ -2693,7 +2693,7 @@ df.main_interface.T_squad_equipment = {}
 ---@field copying_squad_month integer
 df.main_interface.T_squad_schedule = {}
 
----@class main_interface_squad_selector: df.struct
+---@class main_interface_squad_selector: df.class
 ---@field open boolean
 ---@field context squad_selector_context_type
 ---@field squad_id integer[]
@@ -2702,7 +2702,7 @@ df.main_interface.T_squad_schedule = {}
 ---@field scrolling integer
 df.main_interface.T_squad_selector = {}
 
----@class main_interface_burrow_selector: df.struct
+---@class main_interface_burrow_selector: df.class
 ---@field open boolean
 ---@field context burrow_selector_context_type
 ---@field burrow_id integer[]
@@ -2711,7 +2711,7 @@ df.main_interface.T_squad_selector = {}
 ---@field scrolling integer
 df.main_interface.T_burrow_selector = {}
 
----@class main_interface_location_selector: df.struct
+---@class main_interface_location_selector: df.class
 ---@field open boolean
 ---@field context location_selector_context_type
 ---@field valid_ab abstract_building[]
@@ -2729,7 +2729,7 @@ df.main_interface.T_burrow_selector = {}
 ---@field scrolling_guild boolean
 df.main_interface.T_location_selector = {}
 
----@class main_interface_location_details: df.struct
+---@class main_interface_location_details: df.class
 ---@field open boolean
 ---@field context location_details_context_type
 ---@field selected_ab abstract_building
@@ -2746,7 +2746,7 @@ df.main_interface.T_location_selector = {}
 ---@field entering_desired_number integer
 df.main_interface.T_location_details = {}
 
----@class main_interface_hauling_stop_conditions: df.struct
+---@class main_interface_hauling_stop_conditions: df.class
 ---@field open boolean
 ---@field context hauling_stop_conditions_context_type
 ---@field route_id integer
@@ -2755,7 +2755,7 @@ df.main_interface.T_location_details = {}
 ---@field scrolling boolean
 df.main_interface.T_hauling_stop_conditions = {}
 
----@class main_interface_assign_vehicle: df.struct
+---@class main_interface_assign_vehicle: df.class
 ---@field open boolean
 ---@field context assign_vehicle_context_type
 ---@field i_vehicle vehicle[]
@@ -2764,7 +2764,7 @@ df.main_interface.T_hauling_stop_conditions = {}
 ---@field scrolling boolean
 df.main_interface.T_assign_vehicle = {}
 
----@class main_interface_stockpile: df.struct
+---@class main_interface_stockpile: df.class
 ---@field doing_rectangle boolean
 ---@field box_on_left boolean
 ---@field erasing boolean
@@ -2772,7 +2772,7 @@ df.main_interface.T_assign_vehicle = {}
 ---@field cur_bld building_stockpilest
 df.main_interface.T_stockpile = {}
 
----@class main_interface_stockpile_link: df.struct
+---@class main_interface_stockpile_link: df.class
 ---@field open boolean
 ---@field context stockpile_link_context_type
 ---@field bld_id integer
@@ -2784,7 +2784,7 @@ df.main_interface.T_stockpile = {}
 ---@field adding_new_link_type integer
 df.main_interface.T_stockpile_link = {}
 
----@class main_interface_stockpile_tools: df.struct
+---@class main_interface_stockpile_tools: df.class
 ---@field open boolean
 ---@field context stockpile_tools_context_type
 ---@field bld_id integer
@@ -2794,7 +2794,7 @@ df.main_interface.T_stockpile_link = {}
 ---@field number_str string
 df.main_interface.T_stockpile_tools = {}
 
----@class main_interface_custom_stockpile: df.struct
+---@class main_interface_custom_stockpile: df.class
 ---@field open boolean
 ---@field scroll_position_main integer
 ---@field scroll_position_sub integer
@@ -2819,7 +2819,7 @@ df.main_interface.T_stockpile_tools = {}
 ---@field counted_cur_spec_item_sz integer
 df.main_interface.T_custom_stockpile = {}
 
----@class main_interface.T_custom_stockpile_spec_item: df.struct
+---@class main_interface.T_custom_stockpile_spec_item: df.class
 ---@field name string
 ---@field simple_name string
 ---@field set_pointer integer
@@ -2831,7 +2831,7 @@ df.main_interface.T_custom_stockpile = {}
 ---@field isc2 integer
 df.main_interface.T_custom_stockpile.T_spec_item = {}
 
----@class main_interface_view_sheets: df.struct
+---@class main_interface_view_sheets: df.class
 ---@field open boolean
 ---@field context view_sheets_context_type
 ---@field active_sheet view_sheet_type
@@ -3002,7 +3002,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field item_use_reaction_index integer[]
 df.main_interface.T_view_sheets = {}
 
----@class main_interface_info: df.struct
+---@class main_interface_info: df.class
 ---@field open boolean
 ---@field current_mode info_interface_mode_type
 ---@field creatures main_interface.T_info_creatures
@@ -3015,7 +3015,7 @@ df.main_interface.T_view_sheets = {}
 ---@field justice main_interface.T_info_justice
 df.main_interface.T_info = {}
 
----@class main_interface.T_info_creatures: df.struct
+---@class main_interface.T_info_creatures: df.class
 ---@field current_mode unit_list_mode_type
 ---@field cri_unit cri_unitst[][]
 ---@field scrolling_cri_unit boolean[]
@@ -3049,20 +3049,20 @@ df.main_interface.T_info = {}
 ---@field scroll_position_activity_details integer
 df.main_interface.T_info.T_creatures = {}
 
----@class main_interface.T_info_jobs: df.struct
+---@class main_interface.T_info_jobs: df.class
 ---@field cri_job cri_unitst[]
 ---@field scrolling_cri_job boolean
 ---@field scroll_position_cri_job integer
 df.main_interface.T_info.T_jobs = {}
 
----@class main_interface.T_info_buildings: df.struct
+---@class main_interface.T_info_buildings: df.class
 ---@field mode buildings_mode_type
 ---@field list building[][]
 ---@field scrolling_position integer[]
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_buildings = {}
 
----@class main_interface.T_info_labor: df.struct
+---@class main_interface.T_info_labor: df.class
 ---@field mode labor_mode_type
 ---@field work_details main_interface.T_info.T_labor_work_details
 ---@field standing_orders main_interface.T_info.T_labor_standing_orders
@@ -3070,7 +3070,7 @@ df.main_interface.T_info.T_buildings = {}
 ---@field stone_use main_interface.T_info.T_labor_stone_use
 df.main_interface.T_info.T_labor = {}
 
----@class main_interface.T_info.T_labor_work_details: df.struct
+---@class main_interface.T_info.T_labor_work_details: df.class
 ---@field selected_work_detail_index integer
 ---@field scroll_position_work_details integer
 ---@field scrolling_work_details boolean
@@ -3086,7 +3086,7 @@ df.main_interface.T_info.T_labor = {}
 ---@field skill_num integer
 df.main_interface.T_info.T_labor.T_work_details = {}
 
----@class main_interface.T_info.T_labor_standing_orders: df.struct
+---@class main_interface.T_info.T_labor_standing_orders: df.class
 ---@field current_category standing_orders_category_type
 ---@field unit unit[]
 ---@field labor_list integer[]
@@ -3096,7 +3096,7 @@ df.main_interface.T_info.T_labor.T_work_details = {}
 ---@field scrolling_units boolean
 df.main_interface.T_info.T_labor.T_standing_orders = {}
 
----@class main_interface.T_info.T_labor_kitchen: df.struct
+---@class main_interface.T_info.T_labor_kitchen: df.class
 ---@field current_category kitchen_pref_category_type
 ---@field known_type integer[][]
 ---@field known_subtype integer[][]
@@ -3110,7 +3110,7 @@ df.main_interface.T_info.T_labor.T_standing_orders = {}
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_labor.T_kitchen = {}
 
----@class main_interface.T_info.T_labor_stone_use: df.struct
+---@class main_interface.T_info.T_labor_stone_use: df.class
 ---@field current_category stone_use_category_type
 ---@field stone_mg_index integer[][]
 ---@field stone_restriction_p integer[][]
@@ -3119,7 +3119,7 @@ df.main_interface.T_info.T_labor.T_kitchen = {}
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_labor.T_stone_use = {}
 
----@class main_interface.T_info_work_orders: df.struct
+---@class main_interface.T_info_work_orders: df.class
 ---@field scroll_position_work_orders integer
 ---@field scrolling_work_orders boolean
 ---@field conditions main_interface.T_info.T_work_orders_conditions
@@ -3131,7 +3131,7 @@ df.main_interface.T_info.T_labor.T_stone_use = {}
 ---@field b_entering_wq manager_order
 df.main_interface.T_info.T_work_orders = {}
 
----@class main_interface.T_info.T_work_orders_conditions: df.struct
+---@class main_interface.T_info.T_work_orders_conditions: df.class
 ---@field open boolean
 ---@field wq manager_order
 ---@field item_condition_satisfied any
@@ -3164,7 +3164,7 @@ df.main_interface.T_info.T_work_orders = {}
 ---@field entering_logic_wqc integer workquota_item_conditionst
 df.main_interface.T_info.T_work_orders.T_conditions = {}
 
----@class main_interface.T_info_administrators: df.struct
+---@class main_interface.T_info_administrators: df.class
 ---@field noblelist main_interface.T_info.T_administrators_noblelist
 ---@field spec_prof entity_position_assignment[]
 ---@field spec_hfid integer[]
@@ -3191,7 +3191,7 @@ df.main_interface.T_info.T_work_orders.T_conditions = {}
 ---@field handling_symbol_closure_ind integer
 df.main_interface.T_info.T_administrators = {}
 
----@class main_interface.T_info.T_administrators_noblelist: df.struct
+---@class main_interface.T_info.T_administrators_noblelist: df.class
 ---@field un unit
 ---@field nem nemesis_record
 ---@field upplist integer unitpropertyplacementst
@@ -3201,19 +3201,19 @@ df.main_interface.T_info.T_administrators = {}
 ---@field value integer
 df.main_interface.T_info.T_administrators.T_noblelist = {}
 
----@class main_interface.T_info.T_administrators_candidate: df.struct
+---@class main_interface.T_info.T_administrators_candidate: df.class
 ---@field un unit
 ---@field value integer
 df.main_interface.T_info.T_administrators.T_candidate = {}
 
----@class main_interface.T_info_artifacts: df.struct
+---@class main_interface.T_info_artifacts: df.class
 ---@field mode artifacts_mode_type
 ---@field list artifact_record[][]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_artifacts = {}
 
----@class main_interface.T_info_justice: df.struct
+---@class main_interface.T_info_justice: df.class
 ---@field current_mode justice_interface_mode_type
 ---@field cage_chain_needed integer
 ---@field cage_chain_count integer
@@ -3289,7 +3289,7 @@ df.main_interface.T_info.T_artifacts = {}
 ---@field plot_entry plot_entryst[]
 df.main_interface.T_info.T_justice = {}
 
----@class main_interface_squads: df.struct
+---@class main_interface_squads: df.class
 ---@field open boolean
 ---@field scroll_position integer
 ---@field scrolling boolean
@@ -3317,7 +3317,7 @@ df.main_interface.T_info.T_justice = {}
 ---@field entering_cell_nickname boolean
 df.main_interface.T_squads = {}
 
----@class main_interface_create_squad: df.struct
+---@class main_interface_create_squad: df.class
 ---@field open boolean
 ---@field scroll_position integer
 ---@field scrolling boolean
@@ -3333,12 +3333,12 @@ df.main_interface.T_squads = {}
 ---@field new_squad_new_epp_from_ep entity_position
 df.main_interface.T_create_squad = {}
 
----@class main_interface_squad_supplies: df.struct
+---@class main_interface_squad_supplies: df.class
 ---@field open boolean
 ---@field squad_id integer
 df.main_interface.T_squad_supplies = {}
 
----@class main_interface_assign_uniform: df.struct
+---@class main_interface_assign_uniform: df.class
 ---@field open boolean
 ---@field context assign_uniform_context_type
 ---@field scroll_position integer
@@ -3346,7 +3346,7 @@ df.main_interface.T_squad_supplies = {}
 ---@field cand_uniform entity_uniform[]
 df.main_interface.T_assign_uniform = {}
 
----@class main_interface_create_work_order: df.struct
+---@class main_interface_create_work_order: df.class
 ---@field open boolean
 ---@field forced_bld_id integer
 ---@field jminfo_master manager_order_template[]
@@ -3360,7 +3360,7 @@ df.main_interface.T_assign_uniform = {}
 ---@field entering_job_filter boolean
 df.main_interface.T_create_work_order = {}
 
----@class main_interface_hotkey: df.struct
+---@class main_interface_hotkey: df.class
 ---@field open boolean
 ---@field scroll_position integer
 ---@field scrolling boolean
@@ -3368,7 +3368,7 @@ df.main_interface.T_create_work_order = {}
 ---@field entering_name boolean
 df.main_interface.T_hotkey = {}
 
----@class main_interface_options: df.struct
+---@class main_interface_options: df.class
 ---@field open boolean
 ---@field context options_context_type
 ---@field header string
@@ -3399,11 +3399,11 @@ df.main_interface.T_hotkey = {}
 ---@field saver main_interface.T_options_saver saverst
 df.main_interface.T_options = {}
 
----@class main_interface.T_options_saver: df.struct
+---@class main_interface.T_options_saver: df.class
 ---saverst
 df.main_interface.T_options.T_saver = {}
 
----@class main_interface_help: df.struct
+---@class main_interface_help: df.class
 ---@field open boolean
 ---@field flag integer
 ---@field context_flag integer
@@ -3413,7 +3413,7 @@ df.main_interface.T_options.T_saver = {}
 ---@field floor_dug integer
 df.main_interface.T_help = {}
 
----@class main_interface_arena_unit: df.struct
+---@class main_interface_arena_unit: df.class
 ---@field open boolean
 ---@field context arena_context_type
 ---@field race integer
@@ -3437,10 +3437,10 @@ df.main_interface.T_help = {}
 ---@field interactions interaction_effect[]
 df.main_interface.T_arena_unit = {}
 
----@class main_interface.T_arena_unit_skills: df.struct
+---@class main_interface.T_arena_unit_skills: df.class
 df.main_interface.T_arena_unit.T_skills = {}
 
----@class main_interface_arena_tree: df.struct
+---@class main_interface_arena_tree: df.class
 ---@field open boolean
 ---@field age integer in years
 ---@field editing_age boolean
@@ -3451,7 +3451,7 @@ df.main_interface.T_arena_unit.T_skills = {}
 ---@field tree_types_all any[]
 df.main_interface.T_arena_tree = {}
 
----@class gamest: df.struct
+---@class gamest: df.class
 ---@field main_interface main_interface
 ---@field minimap gamest_minimap
 ---@field command_line gamest_command_line
@@ -3467,7 +3467,7 @@ df.main_interface.T_arena_tree = {}
 ---@field external_flag integer
 df.gamest = {}
 
----@class gamest_minimap: df.struct
+---@class gamest_minimap: df.class
 ---@field minimap integer[][]
 ---@field update integer
 ---@field mustmake integer
@@ -3479,7 +3479,7 @@ df.gamest = {}
 ---@field texpos integer
 df.gamest.T_minimap = {}
 
----@class gamest_command_line: df.struct
+---@class gamest_command_line: df.class
 ---@field original string
 ---@field arg_vect string[]
 ---@field gen_id number
@@ -3489,7 +3489,7 @@ df.gamest.T_minimap = {}
 ---@field use_param integer
 df.gamest.T_command_line = {}
 
----@class gamest_mod_manager: df.struct
+---@class gamest_mod_manager: df.class
 ---@field mod_header mod_headerst[]
 ---@field subscribed_file_id integer
 ---@field doing_mod_upload boolean
@@ -3500,7 +3500,7 @@ df.gamest.T_command_line = {}
 ---@field SubmitItemUpdateResult integer
 df.gamest.T_mod_manager = {}
 
----@class main_interface_settings: df.struct
+---@class main_interface_settings: df.class
 ---@field open boolean
 ---@field context settings_context_type
 ---@field tab settings_tab_type[]
@@ -3535,11 +3535,11 @@ df.gamest.T_mod_manager = {}
 ---@field doing_custom_settings boolean
 df.main_interface_settings = {}
 
----@class hash_rngst: df.struct
+---@class hash_rngst: df.class
 ---@field splitmix64_state integer
 df.hash_rngst = {}
 
----@class difficultyst: df.struct
+---@class difficultyst: df.class
 ---@field difficulty_enemies integer 0=off, 1=normal, 2=hard, 3=custom
 ---@field difficulty_economy integer 0=normal, 1=hard, 2=custom
 ---@field enemy_pop_trigger integer[]
@@ -3603,7 +3603,7 @@ df.difficultyst.T_flags = {}
 ---@field [3] boolean
 ---@field curiousbeasts boolean
 
----@class markup_text_boxst: df.struct
+---@class markup_text_boxst: df.class
 ---@field unk1 markup_text_boxst_unk1
 ---@field unk_v50_2 markup_text_boxst_unk_v50_2
 ---@field unk_v50_3 integer
@@ -3612,7 +3612,7 @@ df.difficultyst.T_flags = {}
 ---@field unk_v50_6 integer
 df.markup_text_boxst = {}
 
----@class markup_text_boxst_unk1: df.struct
+---@class markup_text_boxst_unk1: df.class
 ---@field unk_00 string
 ---@field red integer
 ---@field green integer
@@ -3623,13 +3623,13 @@ df.markup_text_boxst = {}
 ---@field unk_30 any
 df.markup_text_boxst.T_unk1 = {}
 
----@class markup_text_boxst_unk_v50_2: df.struct
+---@class markup_text_boxst_unk_v50_2: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
 ---@field unk_8 integer
 df.markup_text_boxst.T_unk_v50_2 = {}
 
----@class wqc_item_traitst: df.struct
+---@class wqc_item_traitst: df.class
 ---@field flg integer
 ---@field flgn integer
 ---@field reaction_class string
@@ -3642,7 +3642,7 @@ df.markup_text_boxst.T_unk_v50_2 = {}
 ---@field on boolean
 df.wqc_item_traitst = {}
 
----@class cwo_buildingst: df.struct
+---@class cwo_buildingst: df.class
 ---@field type integer
 ---@field subtype integer
 ---@field custom_id integer
@@ -3650,7 +3650,7 @@ df.wqc_item_traitst = {}
 ---@field name string
 df.cwo_buildingst = {}
 
----@class cri_unitst: df.struct
+---@class cri_unitst: df.class
 ---@field un unit
 ---@field it item
 ---@field jb job
@@ -3663,7 +3663,7 @@ df.cwo_buildingst = {}
 ---@field owner_un unit
 df.cri_unitst = {}
 
----@class actor_entryst: df.struct
+---@class actor_entryst: df.class
 ---@field hf historical_figure
 ---@field iden integer identityst
 ---@field name_ptr language_name
@@ -3681,7 +3681,7 @@ df.cri_unitst = {}
 ---@field flag integer
 df.actor_entryst = {}
 
----@class organization_entry_nodest: df.struct
+---@class organization_entry_nodest: df.class
 ---@field actor_entry actor_entryst
 ---@field master organization_entry_nodest
 ---@field sort_id integer
@@ -3696,7 +3696,7 @@ df.actor_entryst = {}
 ---@field status string
 df.organization_entry_nodest = {}
 
----@class organization_entryst: df.struct
+---@class organization_entryst: df.class
 ---@field node organization_entry_nodest[]
 ---@field list_name string
 ---@field simple_list_name string
@@ -3706,7 +3706,7 @@ df.organization_entry_nodest = {}
 ---@field flag integer
 df.organization_entryst = {}
 
----@class plot_entryst: df.struct
+---@class plot_entryst: df.class
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
@@ -3715,7 +3715,7 @@ df.organization_entryst = {}
 ---@field organization_name string
 df.plot_entryst = {}
 
----@class mod_headerst: df.struct
+---@class mod_headerst: df.class
 ---@field zip_filename string
 ---@field unzipped_folder string
 ---@field id string
@@ -3761,11 +3761,11 @@ df.mod_headerst.T_flags = {}
 ---@field [2] boolean
 ---@field vanilla boolean
 
----@class ui_look_list: df.struct
+---@class ui_look_list: df.class
 ---@field items ui_look_list_items
 df.ui_look_list = {}
 
----@class ui_look_list_items: df.struct
+---@class ui_look_list_items: df.class
 ---@field type ui_look_list.T_items_type
 ---@field data ui_look_list.T_items_data
 ---@field pos coord
@@ -3832,7 +3832,7 @@ df.ui_look_list.T_items.T_type = {}
 ---@field [12] boolean
 ---@field Spoor boolean
 
----@class ui_look_list.T_items_data: df.struct
+---@class ui_look_list.T_items_data: df.class
 ---@field item ui_look_list.T_items.T_data_item
 ---@field unit ui_look_list.T_items.T_data_unit
 ---@field building ui_look_list.T_items.T_data_building
@@ -3845,19 +3845,19 @@ df.ui_look_list.T_items.T_type = {}
 ---@field spoor ui_look_list.T_items.T_data_spoor
 df.ui_look_list.T_items.T_data = {}
 
----@class ui_look_list.T_items.T_data_item: df.struct
+---@class ui_look_list.T_items.T_data_item: df.class
 ---@field item_id item
 df.ui_look_list.T_items.T_data.T_item = {}
 
----@class ui_look_list.T_items.T_data_unit: df.struct
+---@class ui_look_list.T_items.T_data_unit: df.class
 ---@field unit_id unit
 df.ui_look_list.T_items.T_data.T_unit = {}
 
----@class ui_look_list.T_items.T_data_building: df.struct
+---@class ui_look_list.T_items.T_data_building: df.class
 ---@field bld_id building
 df.ui_look_list.T_items.T_data.T_building = {}
 
----@class ui_look_list.T_items.T_data_vermin: df.struct
+---@class ui_look_list.T_items.T_data_vermin: df.class
 ---@field race integer
 ---@field caste integer
 ---@field item_id item
@@ -3865,7 +3865,7 @@ df.ui_look_list.T_items.T_data.T_building = {}
 ---@field number integer
 df.ui_look_list.T_items.T_data.T_vermin = {}
 
----@class ui_look_list.T_items.T_data_flow: df.struct
+---@class ui_look_list.T_items.T_data_flow: df.class
 ---@field type integer
 ---@field subtype integer
 ---@field sstype integer
@@ -3873,7 +3873,7 @@ df.ui_look_list.T_items.T_data.T_vermin = {}
 ---@field flag integer
 df.ui_look_list.T_items.T_data.T_flow = {}
 
----@class ui_look_list.T_items.T_data_spatter: df.struct
+---@class ui_look_list.T_items.T_data_spatter: df.class
 ---@field i_type item_type
 ---@field i_subtype integer
 ---@field mat material
@@ -3882,21 +3882,21 @@ df.ui_look_list.T_items.T_data.T_flow = {}
 ---@field extend integer
 df.ui_look_list.T_items.T_data.T_spatter = {}
 
----@class ui_look_list.T_items.T_data_building_item_adv: df.struct
+---@class ui_look_list.T_items.T_data_building_item_adv: df.class
 ---@field item_id item
 df.ui_look_list.T_items.T_data.T_building_item_adv = {}
 
----@class ui_look_list.T_items.T_data_liquid_water: df.struct
+---@class ui_look_list.T_items.T_data_liquid_water: df.class
 ---@field flag integer
 ---@field amount integer
 df.ui_look_list.T_items.T_data.T_liquid_water = {}
 
----@class ui_look_list.T_items.T_data_liquid_magma: df.struct
+---@class ui_look_list.T_items.T_data_liquid_magma: df.class
 ---@field flag integer
 ---@field amount integer
 df.ui_look_list.T_items.T_data.T_liquid_magma = {}
 
----@class ui_look_list.T_items.T_data_spoor: df.struct
+---@class ui_look_list.T_items.T_data_spoor: df.class
 ---@field flag integer
 ---@field type integer
 ---@field id1 integer
@@ -3904,7 +3904,7 @@ df.ui_look_list.T_items.T_data.T_liquid_magma = {}
 ---@field id3 integer
 df.ui_look_list.T_items.T_data.T_spoor = {}
 
----@class ui_unit_view_mode: df.struct
+---@class ui_unit_view_mode: df.class
 ---@field value ui_unit_view_mode_value
 df.ui_unit_view_mode = {}
 

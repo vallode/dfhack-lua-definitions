@@ -160,7 +160,7 @@ df.units_other_id = {}
 ---@field [1] boolean
 ---@field ANY_BABY2 boolean
 
----@class unit_context_block: df.struct
+---@class unit_context_block: df.class
 ---@field context_unit unit[]
 ---@field num integer
 df.unit_context_block = {}
@@ -202,7 +202,7 @@ df.conflict_level = {}
 ---@field [7] boolean
 ---@field NoQuarter boolean
 
----@class incident_hfid: df.struct
+---@class incident_hfid: df.class
 ---@field hfid historical_figure
 ---@field unk_hfid historical_figure same as hfid seen
 ---@field unk_hfid2 historical_figure same as hfid seen
@@ -312,7 +312,7 @@ df.incident.T_flags = {}
 ---@field [2] boolean
 ---@field unk2 boolean
 
----@class incident_data: df.struct
+---@class incident_data: df.class
 ---@field Performance incident_data_performance
 ---@field Artifact incident_data_artifact
 ---@field Writing incident_data_writing
@@ -320,7 +320,7 @@ df.incident.T_flags = {}
 ---@field RefusedID incident_data_identity
 df.incident.T_data = {}
 
----@class incident_data_performance: df.struct
+---@class incident_data_performance: df.class
 ---@field performance_event performance_event_type
 ---@field participants incident_data_performance_participants
 ---@field reference_id integer history_event id/poetic_form id/musical_form id/dance_form_id or -1
@@ -331,14 +331,14 @@ df.incident.T_data = {}
 ---@field dance_form_id dance_form
 df.incident_data_performance = {}
 
----@class incident_data_performance_participants: df.struct
+---@class incident_data_performance_participants: df.class
 ---@field performance_event performance_event_type can e.g. be music for a dance musician
 ---@field role_index integer index into the instruments vector for music, with corresponding roles for other forms, possibly a dance_form_sub1 entry for dances
 ---@field unk_1 incident_hfid
 ---@field unk_2 integer
 df.incident_data_performance.T_participants = {}
 
----@class incident_data_artifact: df.struct
+---@class incident_data_artifact: df.class
 ---@field state incident_data_artifact_state
 ---@field artifact_id artifact_record
 ---@field unk_3 incident_hfid
@@ -380,7 +380,7 @@ df.incident_data_artifact.T_state = {}
 ---@field [5] boolean
 ---@field Destroyed boolean
 
----@class incident_data_writing: df.struct
+---@class incident_data_writing: df.class
 ---@field state incident_data_writing_state
 ---@field content_id written_content
 ---@field unk_1 incident_hfid
@@ -406,7 +406,7 @@ df.incident_data_writing.T_state = {}
 ---@field [1] boolean
 ---@field Given boolean
 
----@class incident_data_identity: df.struct
+---@class incident_data_identity: df.class
 ---@field unk_1 incident_hfid[]
 df.incident_data_identity = {}
 
@@ -523,18 +523,18 @@ df.crime.T_mode = {}
 ---@field [18] boolean
 ---@field Bribery boolean
 
----@class crime_punishment: df.struct
+---@class crime_punishment: df.class
 ---@field hammerstrikes integer
 ---@field prison_time integer
 ---@field give_beating integer
 df.crime.T_punishment = {}
 
----@class crime_convict_data: df.struct
+---@class crime_convict_data: df.class
 ---@field unk_v47_vector_1 integer[] don't know what the number refers to
 ---@field convicted unit
 df.crime.T_convict_data = {}
 
----@class crime_victim_data: df.struct
+---@class crime_victim_data: df.class
 ---@field unk_v47_vector_2 integer[]
 ---@field victim unit
 df.crime.T_victim_data = {}
@@ -556,21 +556,21 @@ df.crime.T_flags = {}
 ---@field [2] boolean
 ---@field needs_trial boolean
 
----@class crime_reports: df.struct
+---@class crime_reports: df.class
 ---@field death_id incident -1...
 ---@field accused_id historical_figure hfid of accused
 ---@field accused_id_2 historical_figure copy of accused_id?
 ---@field unk_vec any[]
 df.crime.T_reports = {}
 
----@class crime_counterintelligence: df.struct
+---@class crime_counterintelligence: df.class
 ---@field unk_1 integer suspect entity, as counterintelligence shows organization unknown for examined cases. Also -1 when there is no organization
 ---@field identified_hf historical_figure
 ---@field identified_hf_2 historical_figure same as the one above or -1 only ones seen.
 ---@field unk_vec any[]
 df.crime.T_counterintelligence = {}
 
----@class crime_witness: df.struct
+---@class crime_witness: df.class
 ---@field incident_id incident
 ---@field crime_id crime
 ---@field witness_claim crime_witness_witness_claim
@@ -622,7 +622,7 @@ df.crime_witness.T_witness_claim = {}
 ---@field [7] boolean
 ---@field AccusesSomeone boolean
 
----@class mission_campaign_report: df.struct
+---@class mission_campaign_report: df.class
 ---@field travel_x integer[]
 ---@field travel_y integer[]
 ---@field travel_year integer[]
@@ -634,7 +634,7 @@ df.crime_witness.T_witness_claim = {}
 ---@field events_count integer
 df.mission_campaign_report = {}
 
----@class mission_report: df.struct
+---@class mission_report: df.class
 ---@field campaigns mission_campaign_report[]
 ---@field current_campaign integer
 ---@field origin_x integer
@@ -649,7 +649,7 @@ df.mission_campaign_report = {}
 ---@field unk_12 integer
 df.mission_report = {}
 
----@class spoils_report: df.struct
+---@class spoils_report: df.class
 ---@field title string
 ---@field unk_1 integer
 ---@field year integer
@@ -664,13 +664,13 @@ df.mission_report = {}
 ---@field creature_counts integer[]
 df.spoils_report = {}
 
----@class spoils_report_item_types: df.struct
+---@class spoils_report_item_types: df.class
 df.spoils_report.T_item_types = {}
 
----@class spoils_report_item_subtypes: df.struct
+---@class spoils_report_item_subtypes: df.class
 df.spoils_report.T_item_subtypes = {}
 
----@class interrogation_report: df.struct
+---@class interrogation_report: df.class
 ---@field title string
 ---@field officer_hf historical_figure
 ---@field subject_hf historical_figure
@@ -691,7 +691,7 @@ df.spoils_report.T_item_subtypes = {}
 ---@field details string[]
 df.interrogation_report = {}
 
----@class interrogation_report_unk: df.struct
+---@class interrogation_report_unk: df.class
 ---@field officer_hf2 historical_figure appears identical to officer_hf
 ---@field subject_hf2 historical_figure appears identical to subject_hf
 ---@field unk_8 integer
@@ -720,7 +720,7 @@ df.interrogation_report.T_unk.T_flags = {}
 ---@field [0] boolean
 ---@field unk_0 boolean
 
----@class divine_treasure: df.struct
+---@class divine_treasure: df.class
 ---@field histfig_id historical_figure
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -731,7 +731,7 @@ df.interrogation_report.T_unk.T_flags = {}
 ---@field pos coord announcement zoom location
 df.divine_treasure = {}
 
----@class encased_horror: df.struct
+---@class encased_horror: df.class
 ---@field state integer
 ---@field race integer
 ---@field caste integer
@@ -744,7 +744,7 @@ df.divine_treasure = {}
 ---@field pos coord announcement zoom location
 df.encased_horror = {}
 
----@class cursed_tomb: df.struct
+---@class cursed_tomb: df.class
 ---@field triggered boolean
 ---@field coffin_skeletons integer[]
 ---@field disturbance interaction
@@ -755,7 +755,7 @@ df.encased_horror = {}
 ---@field coffin_pos coord
 df.cursed_tomb = {}
 
----@class cursed_tomb_trigger_regions: df.struct
+---@class cursed_tomb_trigger_regions: df.class
 ---normally just one, 3x3 around the coffin
 ---@field x_min integer
 ---@field y_min integer
@@ -765,14 +765,14 @@ df.cursed_tomb = {}
 ---@field z_max integer
 df.cursed_tomb.T_trigger_regions = {}
 
----@class ocean_wave_maker: df.struct
+---@class ocean_wave_maker: df.class
 ---@field pos coord
 ---@field interval integer
 ---@field coastline coord2d_path
 ---@field wave_origin coord2d_path
 df.ocean_wave_maker = {}
 
----@class coord_rect: df.struct
+---@class coord_rect: df.class
 ---@field x1 integer
 ---@field y1 integer
 ---@field x2 integer
@@ -780,7 +780,7 @@ df.ocean_wave_maker = {}
 ---@field z integer
 df.coord_rect = {}
 
----@class embark_feature: df.struct
+---@class embark_feature: df.class
 ---layers plus river seen
 ---@field world_tile coord2d
 ---@field mid_level_tile coord2d the MLT the feature resides in
@@ -938,26 +938,26 @@ df.combat_report_event_type = {}
 ---@field [34] boolean
 ---@field Interrupted boolean
 
----@class glowing_barrier: df.struct
+---@class glowing_barrier: df.class
 ---@field triggered boolean set when the glowing barrier vanishes, preventing later HFS events
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field buildings integer[] when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
 ---@field pos coord coordinates of a GlowingBarrier or GlowingFloor tiletype
 df.glowing_barrier = {}
 
----@class deep_vein_hollow: df.struct
+---@class deep_vein_hollow: df.class
 ---@field triggered boolean set when the underworld spire is breached, preventing subsequent HFS events
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field tiles coord_path tile coordinates correspond to open spaces within an underworld spire; revealing one of these tiles triggers the HFS demon wave
 ---@field pos coord announcement zoom location
 df.deep_vein_hollow = {}
 
----@class campfire: df.struct
+---@class campfire: df.class
 ---@field pos coord
 ---@field timer integer
 df.campfire = {}
 
----@class web_cluster: df.struct
+---@class web_cluster: df.class
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer
@@ -968,7 +968,7 @@ df.campfire = {}
 ---@field ambushers integer[]
 df.web_cluster = {}
 
----@class fire: df.struct
+---@class fire: df.class
 ---@field pos coord
 ---@field timer integer
 ---@field inner_temp_cur integer applied to own tile
@@ -977,7 +977,7 @@ df.web_cluster = {}
 ---@field outer_temp_max integer
 df.fire = {}
 
----@class ocean_wave: df.struct
+---@class ocean_wave: df.class
 ---@field dest coord2d
 ---@field cur coord2d
 ---@field z integer
@@ -996,23 +996,23 @@ df.ocean_wave = {}
 ---@field image_back coin_batch_image_back
 df.coin_batch = {}
 
----@class coin_batch_image_front: df.struct
+---@class coin_batch_image_front: df.class
 ---@field id art_image_chunk
 ---@field subid art_image
 df.coin_batch.T_image_front = {}
 
----@class coin_batch_image_back: df.struct
+---@class coin_batch_image_back: df.class
 ---@field id art_image_chunk
 ---@field subid art_image
 df.coin_batch.T_image_back = {}
 
----@class job_handler: df.struct
+---@class job_handler: df.class
 ---@field list job_list_link
 ---@field postings job_handler_postings entries never removed
 ---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
 df.job_handler = {}
 
----@class job_handler_postings: df.struct
+---@class job_handler_postings: df.class
 ---entries never removed
 ---@field idx integer equal to position in vector
 ---@field job job bad if dead flag is set
@@ -1029,7 +1029,7 @@ df.job_handler.T_postings.T_flags = {}
 ---@field [0] boolean
 ---@field dead boolean
 
----@class job_handler_job_application_heap: df.struct
+---@class job_handler_job_application_heap: df.class
 ---this appears to be a priority queue of some sort
 ---@field node unit[]
 ---@field size integer
@@ -1037,7 +1037,7 @@ df.job_handler.T_job_application_heap = {}
 
 function df.job_handler:cancel_job() end
 
----@class building_handler: df.struct
+---@class building_handler: df.class
 ---@field all building[]
 ---@field other buildings_other
 ---@field bad building[]
@@ -1057,18 +1057,18 @@ df.building_handler = {}
 ---@param is_vertical integer
 function df.building_handler:get_machine_hookup_list(hookups, type, subtype, x1, y1, x2, y2, z, is_vertical) end
 
----@class machine_handler: df.struct
+---@class machine_handler: df.class
 ---@field all machine[]
 ---@field bad machine[]
 df.machine_handler = {}
 
----@class mental_picture: df.struct
+---@class mental_picture: df.class
 ---@field unk mental_picture_unk
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.mental_picture = {}
 
----@class mental_picture_unk: df.struct
+---@class mental_picture_unk: df.class
 ---@field elements mental_picture_elementst[]
 ---@field unk_1 integer
 ---@field properties mental_picture_propertyst[]
@@ -1146,11 +1146,11 @@ df.mental_picture.T_unk = {}
 ---@field unk_64 integer
 df.belief_system = {}
 
----@class belief_system_mental_pictures: df.struct
+---@class belief_system_mental_pictures: df.class
 ---@field unk_1 mental_picture[]
 df.belief_system.T_mental_pictures = {}
 
----@class divination_set_roll: df.struct
+---@class divination_set_roll: df.class
 ---@field result integer[] When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
 ---@field effect_type divination_set_roll_effect_type
 ---@field effect integer When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
@@ -1196,14 +1196,14 @@ df.divination_set = {}
 ---@field unk_vec2 integer[]
 df.image_set = {}
 
----@class image_set_unk_vec1: df.struct
+---@class image_set_unk_vec1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.image_set.T_unk_vec1 = {}
 
----@class world: df.struct
+---@class world: df.class
 ---A heap of current boundary tiles.
 ---@field glowing_barriers glowing_barrier[]
 ---@field deep_vein_hollows deep_vein_hollow[]
@@ -1327,22 +1327,22 @@ df.image_set.T_unk_vec1 = {}
 ---@field active_tutorial world_active_tutorial
 df.world = {}
 
----@class world_vermin: df.struct
+---@class world_vermin: df.class
 ---@field all vermin[]
 ---@field colonies vermin[]
 df.world.T_vermin = {}
 
----@class world_entities: df.struct
+---@class world_entities: df.class
 ---@field all historical_entity[]
 ---@field bad historical_entity[]
 df.world.T_entities = {}
 
----@class world_worldgen_coord_buf: df.struct
+---@class world_worldgen_coord_buf: df.class
 ---@field slots coord2d[]
 ---@field next_slot integer
 df.world.T_worldgen_coord_buf = {}
 
----@class world_units: df.struct
+---@class world_units: df.class
 ---@field all unit[]
 ---@field active unit[] not sorted, entry 0 is adventurer
 ---@field other units_other
@@ -1350,31 +1350,31 @@ df.world.T_worldgen_coord_buf = {}
 ---@field unit_context_block unit_context_block[]
 df.world.T_units = {}
 
----@class world_nemesis: df.struct
+---@class world_nemesis: df.class
 ---@field all nemesis_record[]
 ---@field other nemesis_record[][]
 ---@field bad nemesis_record[]
 ---@field unk4 boolean
 df.world.T_nemesis = {}
 
----@class world_items: df.struct
+---@class world_items: df.class
 ---@field all item[]
 ---@field other items_other
 ---@field bad item[]
 ---@field bad_tag integer[]
 df.world.T_items = {}
 
----@class world_artifacts: df.struct
+---@class world_artifacts: df.class
 ---@field all artifact_record[]
 ---@field bad artifact_record[]
 df.world.T_artifacts = {}
 
----@class world_flow_guides: df.struct
+---@class world_flow_guides: df.class
 ---@field all flow_guide[]
 ---@field bad flow_guide[]
 df.world.T_flow_guides = {}
 
----@class world_stockpile: df.struct
+---@class world_stockpile: df.class
 ---@field num_jobs integer[]
 ---@field num_haulers integer[]
 ---@field simple1 world.T_stockpile_simple1
@@ -1392,14 +1392,14 @@ df.world.T_flow_guides = {}
 ---@field simple3 world.T_stockpile_simple3
 df.world.T_stockpile = {}
 
----@class world.T_stockpile_simple1: df.struct
+---@class world.T_stockpile_simple1: df.class
 ---@field unk_1 integer
 ---@field food integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.world.T_stockpile.T_simple1 = {}
 
----@class world.T_stockpile_simple2: df.struct
+---@class world.T_stockpile_simple2: df.class
 ---@field seeds integer
 ---@field plants integer
 ---@field cheese integer
@@ -1410,7 +1410,7 @@ df.world.T_stockpile.T_simple1 = {}
 ---@field eggs integer
 df.world.T_stockpile.T_simple2 = {}
 
----@class world.T_stockpile_simple3: df.struct
+---@class world.T_stockpile_simple3: df.class
 ---@field glob_fat integer
 ---@field glob_tallow integer
 ---@field glob_paste integer
@@ -1429,7 +1429,7 @@ df.world.T_stockpile.T_simple2 = {}
 ---@field unk_3 integer
 df.world.T_stockpile.T_simple3 = {}
 
----@class world_plants: df.struct
+---@class world_plants: df.class
 ---@field all plant[]
 ---@field shrub_dry plant[]
 ---@field shrub_wet plant[]
@@ -1438,40 +1438,40 @@ df.world.T_stockpile.T_simple3 = {}
 ---@field empty plant[]
 df.world.T_plants = {}
 
----@class world_enemy_status_cache: df.struct
+---@class world_enemy_status_cache: df.class
 ---?
 ---@field slot_used boolean[]
 ---@field rel_map integer[][]
 ---@field next_slot integer
 df.world.T_enemy_status_cache = {}
 
----@class world_schedules: df.struct
+---@class world_schedules: df.class
 ---@field all schedule_info[]
 ---@field bad schedule_info[]
 df.world.T_schedules = {}
 
----@class world_squads: df.struct
+---@class world_squads: df.class
 ---@field all squad[]
 ---@field bad squad[]
 df.world.T_squads = {}
 
----@class world_formations: df.struct
+---@class world_formations: df.class
 ---@field all world.T_formations_all
 ---@field bad world.T_formations_bad
 df.world.T_formations = {}
 
----@class world.T_formations_all: df.struct
+---@class world.T_formations_all: df.class
 df.world.T_formations.T_all = {}
 
----@class world.T_formations_bad: df.struct
+---@class world.T_formations_bad: df.class
 df.world.T_formations.T_bad = {}
 
----@class world_activities: df.struct
+---@class world_activities: df.class
 ---@field all activity_entry[]
 ---@field bad activity_entry[]
 df.world.T_activities = {}
 
----@class world_status: df.struct
+---@class world_status: df.class
 ---@field reports report[]
 ---@field announcements report[]
 ---@field popups popup_message[]
@@ -1505,7 +1505,7 @@ df.world.T_status.T_flags = {}
 ---@field [2] boolean
 ---@field sparring boolean
 
----@class world.T_status_slots: df.struct
+---@class world.T_status_slots: df.class
 ---@field slotdata combat_report_event_type[]
 ---@field slot_id_used integer[]
 ---@field slot_id_idx1 integer[]
@@ -1513,108 +1513,108 @@ df.world.T_status.T_flags = {}
 ---@field slots_used integer
 df.world.T_status.T_slots = {}
 
----@class world_interaction_instances: df.struct
+---@class world_interaction_instances: df.class
 ---@field all interaction_instance[]
 ---@field bad interaction_instance[]
 df.world.T_interaction_instances = {}
 
----@class world_written_contents: df.struct
+---@class world_written_contents: df.class
 ---@field all written_content[]
 ---@field bad written_content[]
 df.world.T_written_contents = {}
 
----@class world_identities: df.struct
+---@class world_identities: df.class
 ---@field all identity[]
 ---@field bad identity[]
 df.world.T_identities = {}
 
----@class world_incidents: df.struct
+---@class world_incidents: df.class
 ---@field all incident[]
 ---@field bad incident[]
 df.world.T_incidents = {}
 
----@class world_crimes: df.struct
+---@class world_crimes: df.class
 ---@field all crime[]
 ---@field bad crime[]
 df.world.T_crimes = {}
 
----@class world_vehicles: df.struct
+---@class world_vehicles: df.class
 ---@field all vehicle[]
 ---@field active vehicle[]
 ---@field bad vehicle[]
 df.world.T_vehicles = {}
 
----@class world_armies: df.struct
+---@class world_armies: df.class
 ---@field all army[]
 ---@field bad army[]
 df.world.T_armies = {}
 
----@class world_army_controllers: df.struct
+---@class world_army_controllers: df.class
 ---@field all army_controller[]
 ---@field bad army_controller[]
 df.world.T_army_controllers = {}
 
----@class world_army_tracking_info: df.struct
+---@class world_army_tracking_info: df.class
 ---@field all any[]
 ---@field bad any[]
 df.world.T_army_tracking_info = {}
 
----@class world_cultural_identities: df.struct
+---@class world_cultural_identities: df.class
 ---@field all cultural_identity[]
 ---@field bad cultural_identity[]
 df.world.T_cultural_identities = {}
 
----@class world_agreements: df.struct
+---@class world_agreements: df.class
 ---@field all agreement[]
 ---@field bad agreement[]
 df.world.T_agreements = {}
 
----@class world_poetic_forms: df.struct
+---@class world_poetic_forms: df.class
 ---@field all poetic_form[]
 ---@field bad poetic_form[]
 df.world.T_poetic_forms = {}
 
----@class world_musical_forms: df.struct
+---@class world_musical_forms: df.class
 ---@field all musical_form[]
 ---@field bad musical_form[]
 df.world.T_musical_forms = {}
 
----@class world_dance_forms: df.struct
+---@class world_dance_forms: df.class
 ---@field all dance_form[]
 ---@field bad dance_form[]
 df.world.T_dance_forms = {}
 
----@class world_scales: df.struct
+---@class world_scales: df.class
 ---@field all scale[]
 ---@field bad scale[]
 df.world.T_scales = {}
 
----@class world_rhythms: df.struct
+---@class world_rhythms: df.class
 ---@field all rhythm[]
 ---@field bad rhythm[]
 df.world.T_rhythms = {}
 
----@class world_occupations: df.struct
+---@class world_occupations: df.class
 ---@field all occupation[]
 ---@field bad occupation[]
 df.world.T_occupations = {}
 
----@class world_belief_systems: df.struct
+---@class world_belief_systems: df.class
 ---@field all belief_system[]
 ---@field bad belief_system[]
 df.world.T_belief_systems = {}
 
----@class world_image_sets: df.struct
+---@class world_image_sets: df.class
 ---@field all image_set[]
 ---@field bad image_set[]
 df.world.T_image_sets = {}
 
----@class world_divination_sets: df.struct
+---@class world_divination_sets: df.class
 ---@field all divination_set[]
 ---@field bad divination_set[]
 df.world.T_divination_sets = {}
 
----@class world_map: df.struct
+---@class world_map: df.class
 ---@field map_blocks map_block[]
 ---@field block_index map_block
 ---@field map_block_columns map_block_column[]
@@ -1631,18 +1631,18 @@ df.world.T_divination_sets = {}
 ---@field distance_lookup integer[][]
 df.world.T_map = {}
 
----@class world_profession_skills: df.struct
+---@class world_profession_skills: df.class
 ---@field primary job_skill[][]
 ---@field secondary job_skill[][]
 df.world.T_profession_skills = {}
 
----@class world_math: df.struct
+---@class world_math: df.class
 ---@field approx integer[] 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
 ---@field cos number[] 100 * cosine of the index in degrees
 ---@field hypot number[][] square root of the sum of the squares of the indices
 df.world.T_math = {}
 
----@class world_map_extras: df.struct
+---@class world_map_extras: df.class
 ---@field rotation integer
 ---@field z_level_flags z_level_flags
 ---@field unk_v40_3a block_square_event_spoorst[]
@@ -1651,7 +1651,7 @@ df.world.T_math = {}
 ---@field unk_v40_3d integer[]
 df.world.T_map_extras = {}
 
----@class world_worldgen_status: df.struct
+---@class world_worldgen_status: df.class
 ---@field state world.T_worldgen_status_state
 ---@field num_rejects integer
 ---@field unk_1 integer[]
@@ -1778,22 +1778,22 @@ df.world.T_worldgen_status.T_state = {}
 ---@field [11] boolean
 ---@field Done boolean
 
----@class world_area_grasses: df.struct
+---@class world_area_grasses: df.class
 ---grasses in world tiles around embark. Populated at embark
 ---@field world_tiles coord2d_path 7*7 world tile area centered around embark, stunted at edges
 ---@field layer_grasses world.T_area_grasses_layer_grasses one per layer per world tile
 df.world.T_area_grasses = {}
 
----@class world.T_area_grasses_layer_grasses: df.struct
+---@class world.T_area_grasses_layer_grasses: df.class
 ---one per layer per world tile
 ---@field ref world_population_ref
 ---@field grasses world.T_area_grasses.T_layer_grasses_grasses
 df.world.T_area_grasses.T_layer_grasses = {}
 
----@class world.T_area_grasses.T_layer_grasses_grasses: df.struct
+---@class world.T_area_grasses.T_layer_grasses_grasses: df.class
 df.world.T_area_grasses.T_layer_grasses.T_grasses = {}
 
----@class world_flow_engine: df.struct
+---@class world_flow_engine: df.class
 ---@field rnd_16 integer
 ---@field rnd_256 integer
 ---@field rnd_pos integer
@@ -1806,7 +1806,7 @@ df.world.T_area_grasses.T_layer_grasses.T_grasses = {}
 ---@field unk7_cntdn integer[]
 df.world.T_flow_engine = {}
 
----@class world_worldgen: df.struct
+---@class world_worldgen: df.class
 ---@field version string
 ---@field next_unit_chunk_id integer
 ---@field next_unit_chunk_offset integer
@@ -1815,7 +1815,7 @@ df.world.T_flow_engine = {}
 ---@field worldgen_parms worldgen_parms
 df.world.T_worldgen = {}
 
----@class world_daily_events: df.struct
+---@class world_daily_events: df.class
 ---for each calendar day, a list of major life events (by nemesis id)
 ---@field deaths integer[][]
 ---@field pregnancies integer[][]
@@ -1825,7 +1825,7 @@ df.world.T_worldgen = {}
 ---@field marriage_2 integer[][]
 df.world.T_daily_events = {}
 
----@class world_unk_131ec0: df.struct
+---@class world_unk_131ec0: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1844,13 +1844,13 @@ df.world.T_daily_events = {}
 ---@field unk_16 integer
 df.world.T_unk_131ec0 = {}
 
----@class world_languages: df.struct
+---@class world_languages: df.class
 ---@field name string
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.world.T_languages = {}
 
----@class world_unk_131ef0: df.struct
+---@class world_unk_131ef0: df.class
 ---@field hfid historical_figure confusing. usually the creator, but sometimes completely unrelated or culled
 ---@field claims world.T_unk_131ef0_claims
 ---@field unk_hfid historical_figure hfid or completely unrelated hf seen?
@@ -1858,7 +1858,7 @@ df.world.T_languages = {}
 ---@field unk_2 integer only seen 0
 df.world.T_unk_131ef0 = {}
 
----@class world.T_unk_131ef0_claims: df.struct
+---@class world.T_unk_131ef0_claims: df.class
 ---@field artifact artifact_record
 ---@field unk_1 integer only seen 1, and only family heirloom...
 ---@field year integer matches up with creation or a claim...
@@ -1866,7 +1866,7 @@ df.world.T_unk_131ef0 = {}
 ---@field unk_2 integer only seen -1
 df.world.T_unk_131ef0.T_claims = {}
 
----@class world_pathfinder: df.struct
+---@class world_pathfinder: df.class
 ---A heap of current boundary tiles.
 ---@field boundary_heap any[] A heap of current boundary tiles.
 ---@field heap_count integer
@@ -1884,7 +1884,7 @@ df.world.T_unk_131ef0.T_claims = {}
 ---@field unk_1 boolean
 df.world.T_pathfinder = {}
 
----@class world_cur_savegame: df.struct
+---@class world_cur_savegame: df.class
 ---not actually a compound
 ---@field save_dir string
 ---@field world_header world.T_cur_savegame_world_header
@@ -1892,7 +1892,7 @@ df.world.T_pathfinder = {}
 ---@field must_end_civ_history boolean
 df.world.T_cur_savegame = {}
 
----@class world.T_cur_savegame_world_header: df.struct
+---@class world.T_cur_savegame_world_header: df.class
 ---@field id1 integer
 ---@field id2 integer
 ---@field world_name string
@@ -2078,7 +2078,7 @@ df.world.T_cur_savegame.T_world_header.T_load_stage = {}
 ---@field [41] boolean
 ---@field Finishing boolean
 
----@class world_rod_loader: df.struct
+---@class world_rod_loader: df.class
 ---@field state world.T_rod_loader_state
 ---@field progress integer 0..19
 ---@field verify_load_order_index integer
@@ -2171,7 +2171,7 @@ df.world.T_rod_loader.T_state = {}
 ---@field [18] boolean
 ---@field Finishing boolean
 
----@class world_object_loader: df.struct
+---@class world_object_loader: df.class
 ---@field load_object_stage integer
 ---@field load_object_stage_count integer
 ---@field object_files ptr-string[]
@@ -2187,7 +2187,7 @@ df.world.T_rod_loader.T_state = {}
 ---@field object_load_order_displayed_version string[]
 df.world.T_object_loader = {}
 
----@class world_features: df.struct
+---@class world_features: df.class
 ---@field wg_market_site world_site[]
 ---@field map_features feature_init[]
 ---@field feature_x integer[]
@@ -2211,7 +2211,7 @@ df.world.T_object_loader = {}
 ---@field newpop_from_saved_pop any
 df.world.T_features = {}
 
----@class world_arena: df.struct
+---@class world_arena: df.class
 ---@field templates world.T_arena_templates
 ---@field cur_template_idx integer
 ---@field race integer[]
@@ -2242,13 +2242,13 @@ df.world.T_features = {}
 ---@field arena_tree_entering_age boolean
 df.world.T_arena = {}
 
----@class world.T_arena_templates: df.struct
+---@class world.T_arena_templates: df.class
 df.world.T_arena.T_templates = {}
 
----@class world.T_arena_skills: df.struct
+---@class world.T_arena_skills: df.class
 df.world.T_arena.T_skills = {}
 
----@class world.T_arena_equipment: df.struct
+---@class world.T_arena_equipment: df.class
 ---@field skills world.T_arena.T_equipment_skills
 ---@field skill_levels integer[]
 ---@field item_types world.T_arena.T_equipment_item_types
@@ -2257,13 +2257,13 @@ df.world.T_arena.T_skills = {}
 ---@field item_counts integer[]
 df.world.T_arena.T_equipment = {}
 
----@class world.T_arena.T_equipment_skills: df.struct
+---@class world.T_arena.T_equipment_skills: df.class
 df.world.T_arena.T_equipment.T_skills = {}
 
----@class world.T_arena.T_equipment_item_types: df.struct
+---@class world.T_arena.T_equipment_item_types: df.class
 df.world.T_arena.T_equipment.T_item_types = {}
 
----@class world.T_arena.T_equipment_item_subtypes: df.struct
+---@class world.T_arena.T_equipment_item_subtypes: df.class
 df.world.T_arena.T_equipment.T_item_subtypes = {}
 
 ---@class _world.T_arena_flag: df.bitfield
@@ -2275,7 +2275,7 @@ df.world.T_arena.T_flag = {}
 ---@field [0] boolean
 ---@field morale_enable boolean
 
----@class world_dungeon: df.struct
+---@class world_dungeon: df.class
 ---@field creature_race integer[]
 ---@field creature_caste integer[]
 ---@field last_selected_creature_index integer
@@ -2289,16 +2289,16 @@ df.world.T_arena.T_flag = {}
 ---@field race_count integer[]
 df.world.T_dungeon = {}
 
----@class world.T_dungeon_skill_type: df.struct
+---@class world.T_dungeon_skill_type: df.class
 df.world.T_dungeon.T_skill_type = {}
 
----@class world.T_dungeon_item_types: df.struct
+---@class world.T_dungeon_item_types: df.class
 df.world.T_dungeon.T_item_types = {}
 
----@class world.T_dungeon_item_subtypes: df.struct
+---@class world.T_dungeon_item_subtypes: df.class
 df.world.T_dungeon.T_item_subtypes = {}
 
----@class world_attack_chance_info: df.struct
+---@class world_attack_chance_info: df.class
 ---@field modifier world.T_attack_chance_info_modifier
 ---@field attack world.T_attack_chance_info_attack
 ---@field target world.T_attack_chance_info_target
@@ -2307,7 +2307,7 @@ df.world.T_dungeon.T_item_subtypes = {}
 ---@field current_target_number integer
 df.world.T_attack_chance_info = {}
 
----@class world.T_attack_chance_info_modifier: df.struct
+---@class world.T_attack_chance_info_modifier: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -2316,20 +2316,20 @@ df.world.T_attack_chance_info = {}
 ---@field unk_6 integer
 df.world.T_attack_chance_info.T_modifier = {}
 
----@class world.T_attack_chance_info_attack: df.struct
+---@class world.T_attack_chance_info_attack: df.class
 ---@field unk_1 item
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.world.T_attack_chance_info.T_attack = {}
 
----@class world.T_attack_chance_info_target: df.struct
+---@class world.T_attack_chance_info_target: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.world.T_attack_chance_info.T_target = {}
 
----@class world_active_tutorial: df.struct
+---@class world_active_tutorial: df.class
 ---@field index integer
 ---@field active_step integer
 df.world.T_active_tutorial = {}

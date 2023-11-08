@@ -247,7 +247,7 @@ df.job_subtype_surgery = {}
 ---@field [4] boolean
 ---@field RemoveRottenTissue boolean
 
----@class job: df.struct
+---@class job: df.class
 ---@field id integer
 ---@field list_link job_list_link
 ---@field posting_index integer index into world.job_postings
@@ -279,7 +279,7 @@ df.job_subtype_surgery = {}
 ---@field order_id manager_order
 df.job = {}
 
----@class job_item_ref: df.struct
+---@class job_item_ref: df.class
 ---@field item item
 ---@field role job_item_ref_role
 ---@field is_fetching integer 0 immediately once taken to be brought
@@ -650,7 +650,7 @@ df.job_item_flags3 = {}
 ---@field [12] boolean
 ---@field edged boolean
 
----@class job_item: df.struct
+---@class job_item: df.class
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type material
@@ -676,7 +676,7 @@ df.job_item_flags3 = {}
 ---@field unk_v43_4 integer
 df.job_item = {}
 
----@class job_item_filter: df.struct
+---@class job_item_filter: df.class
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type material
@@ -729,7 +729,7 @@ df.manager_order_status = {}
 ---@field [1] boolean
 ---@field active boolean
 
----@class job_art_specification: df.struct
+---@class job_art_specification: df.class
 ---@field type job_art_specification_type
 ---@field id any
 ---@field subid any
@@ -760,7 +760,7 @@ df.job_art_specification.T_type = {}
 ---@field [4] boolean
 ---@field ArtImage boolean
 
----@class manager_order: df.struct
+---@class manager_order: df.class
 ---@field id integer
 ---@field job_type job_type
 ---@field item_type item_type
@@ -810,7 +810,7 @@ df.manager_order.T_frequency = {}
 ---@field [4] boolean
 ---@field Yearly boolean
 
----@class manager_order_condition_item: df.struct
+---@class manager_order_condition_item: df.class
 ---@field compare_type manager_order_condition_item_compare_type
 ---@field compare_val integer
 ---@field item_type item_type
@@ -860,7 +860,7 @@ df.manager_order_condition_item.T_compare_type = {}
 ---@field [5] boolean
 ---@field Not boolean
 
----@class manager_order_condition_order: df.struct
+---@class manager_order_condition_order: df.class
 ---@field order_id manager_order
 ---@field condition manager_order_condition_order_condition
 ---@field unk_1 integer
@@ -879,7 +879,7 @@ df.manager_order_condition_order.T_condition = {}
 ---@field [1] boolean
 ---@field Completed boolean
 
----@class manager_order_template: df.struct
+---@class manager_order_template: df.class
 ---jminfost
 ---@field job_type job_type
 ---@field reaction_name string
@@ -896,7 +896,7 @@ df.manager_order_condition_order.T_condition = {}
 ---@field on boolean
 df.manager_order_template = {}
 
----@class mandate: df.struct
+---@class mandate: df.class
 ---@field unit unit
 ---@field mode mandate_mode
 ---@field item_type item_type
@@ -929,7 +929,7 @@ df.mandate.T_mode = {}
 ---@field [2] boolean
 ---@field Guild boolean
 
----@class mandate_punishment: df.struct
+---@class mandate_punishment: df.class
 ---@field hammerstrikes integer
 ---@field prison_time integer
 ---@field give_beating integer
@@ -962,7 +962,7 @@ df.training_assignment.T_flags = {}
 ---@field [3] boolean
 ---@field train_hunt boolean
 
----@class unit_demand: df.struct
+---@class unit_demand: df.class
 ---@field unk_0 integer
 ---@field place unit_demand_place
 ---@field item_type item_type
@@ -1539,6 +1539,6 @@ df.job_cancel_reason = {}
 ---@field [134] boolean
 ---@field NEEDS_SPECIFIC_ITEM_2 boolean
 
----@class job_cancel: df.struct
+---@class job_cancel: df.class
 df.job_cancel = {}
 

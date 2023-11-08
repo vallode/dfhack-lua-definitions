@@ -1,19 +1,19 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.meeting
 
----@class dipscript_info: df.struct
+---@class dipscript_info: df.class
 ---@field id integer assigned during Save
 ---@field script_steps script_stepst[]
 ---@field script_vars script_varst[]
 ---@field code string DWARF_LIAISON etc
 df.dipscript_info = {}
 
----@class dipscript_text: df.struct
+---@class dipscript_text: df.class
 ---@field name string dwarf_liaison_bye, etc.
 ---@field contents string[]
 df.dipscript_text = {}
 
----@class dipscript_popup: df.struct
+---@class dipscript_popup: df.class
 ---@field meeting_holder_actor unit
 ---@field meeting_holder_noble unit
 ---@field activity activity_info
@@ -33,7 +33,7 @@ df.dipscript_popup.T_flags = {}
 ---@field [1] boolean
 ---@field new_screen boolean
 
----@class script_stepst: df.struct
+---@class script_stepst: df.class
 ---@field next_step_idx integer
 df.script_stepst = {}
 
@@ -63,7 +63,7 @@ df.script_step_simpleactionst = {}
 ---@field conditional_next_step_idx integer
 df.script_step_conditionalst = {}
 
----@class script_step_conditionalst_condition: df.struct
+---@class script_step_conditionalst_condition: df.class
 ---@field var1_type string
 ---@field var1_name string
 ---@field comparison string
@@ -105,7 +105,7 @@ df.script_step_invasionst = {}
 ---@class script_step_eventst: script_stepst
 df.script_step_eventst = {}
 
----@class script_varst: df.struct
+---@class script_varst: df.class
 ---@field name string
 df.script_varst = {}
 
@@ -117,7 +117,7 @@ df.script_var_unitst = {}
 ---@class script_var_longst: script_varst
 df.script_var_longst = {}
 
----@class active_script_varst: df.struct
+---@class active_script_varst: df.class
 ---@field name string
 df.active_script_varst = {}
 
@@ -152,20 +152,20 @@ df.active_script_var_unitst = {}
 ---@field value integer
 df.active_script_var_longst = {}
 
----@class meeting_variable: df.struct
+---@class meeting_variable: df.class
 ---@field value integer
 ---@field ref specific_ref
 ---@field active_var active_script_varst
 df.meeting_variable = {}
 
----@class meeting_context: df.struct
+---@class meeting_context: df.class
 ---@field meeting meeting_diplomat_info
 ---@field popup dipscript_popup
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.meeting_context = {}
 
----@class meeting_diplomat_info: df.struct
+---@class meeting_diplomat_info: df.class
 ---@field civ_id historical_entity
 ---@field unk1 integer maybe is_first_contact
 ---@field diplomat_id historical_figure
@@ -191,7 +191,7 @@ df.meeting_context = {}
 ---@field contact_tick integer[]
 df.meeting_diplomat_info = {}
 
----@class meeting_diplomat_info_topic_list: df.struct
+---@class meeting_diplomat_info_topic_list: df.class
 df.meeting_diplomat_info.T_topic_list = {}
 
 ---@class _meeting_diplomat_info_flags: df.bitfield
@@ -285,7 +285,7 @@ df.meeting_event_type = {}
 ---@field [5] boolean
 ---@field ImportAgreement boolean
 
----@class meeting_event: df.struct
+---@class meeting_event: df.class
 ---@field type meeting_event_type
 ---@field topic meeting_topic
 ---@field topic_parm integer
@@ -299,7 +299,7 @@ df.meeting_event_type = {}
 ---@field buy_prices entity_buy_prices
 df.meeting_event = {}
 
----@class activity_info: df.struct
+---@class activity_info: df.class
 ---@field id integer assigned during Save
 ---@field unit_actor unit diplomat or worker
 ---@field unit_noble unit meeting recipient
@@ -335,7 +335,7 @@ df.activity_info.T_flags = {}
 ---@field [4] boolean
 ---@field meeting_done boolean
 
----@class room_rent_info: df.struct
+---@class room_rent_info: df.class
 ---@field elements building[]
 ---@field rent_value integer
 ---@field flags room_rent_info_flags
@@ -536,7 +536,7 @@ df.activity_event_type = {}
 ---@field [27] boolean
 ---@field StoreObject boolean
 
----@class activity_event_participants: df.struct
+---@class activity_event_participants: df.class
 ---@field histfigs activity_event_participants_histfigs
 ---@field units activity_event_participants_units
 ---@field free_histfigs activity_event_participants_free_histfigs
@@ -545,19 +545,19 @@ df.activity_event_type = {}
 ---@field event_id integer
 df.activity_event_participants = {}
 
----@class activity_event_participants_histfigs: df.struct
+---@class activity_event_participants_histfigs: df.class
 df.activity_event_participants.T_histfigs = {}
 
----@class activity_event_participants_units: df.struct
+---@class activity_event_participants_units: df.class
 df.activity_event_participants.T_units = {}
 
----@class activity_event_participants_free_histfigs: df.struct
+---@class activity_event_participants_free_histfigs: df.class
 df.activity_event_participants.T_free_histfigs = {}
 
----@class activity_event_participants_free_units: df.struct
+---@class activity_event_participants_free_units: df.class
 df.activity_event_participants.T_free_units = {}
 
----@class activity_event: df.struct
+---@class activity_event: df.class
 ---@field event_id integer mostly, but not always, the index in activity.events
 ---@field activity_id activity_entry
 ---@field parent_event_id activity_event
@@ -579,13 +579,13 @@ df.activity_event.T_flags = {}
 ---@field [1] boolean
 ---@field squad boolean
 
----@class activity_event_unk_v42_1: df.struct
+---@class activity_event_unk_v42_1: df.class
 ---@field unk_1 integer
 ---@field item_id item is artifact id for some activities ie. copy written
 ---@field unk_2 integer
 df.activity_event.T_unk_v42_1 = {}
 
----@class activity_event_unk_v42_2: df.struct
+---@class activity_event_unk_v42_2: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field item_id item is unit ID for writing jobs and reading
@@ -692,7 +692,7 @@ df.activity_event_individual_skill_drillst = {}
 ---@field countdown integer
 df.activity_event_sparringst = {}
 
----@class activity_event_sparringst_groups: df.struct
+---@class activity_event_sparringst_groups: df.class
 ---@field units integer[]
 ---@field countdown integer
 ---@field building_id building
@@ -714,7 +714,7 @@ df.activity_event_ranged_practicest = {}
 ---@field unk_8 integer
 df.activity_event_harassmentst = {}
 
----@class activity_event_harassmentst_unk_2: df.struct
+---@class activity_event_harassmentst_unk_2: df.class
 ---@field unk_1 integer is an hfid
 ---@field unk_2 integer[]
 ---@field unk_3 integer
@@ -1049,12 +1049,12 @@ df.conversation_menu = {}
 ---@field unk4 integer[] uninitialized
 df.activity_event_conversationst = {}
 
----@class activity_event_conversationst_participants: df.struct
+---@class activity_event_conversationst_participants: df.class
 ---@field unit_id unit
 ---@field histfig_id historical_figure
 df.activity_event_conversationst.T_participants = {}
 
----@class activity_event_conversationst_unk_6: df.struct
+---@class activity_event_conversationst_unk_6: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1066,7 +1066,7 @@ df.activity_event_conversationst.T_participants = {}
 ---@field unk_9 integer
 df.activity_event_conversationst.T_unk_6 = {}
 
----@class activity_event_conversationst_unk_b4: df.struct
+---@class activity_event_conversationst_unk_b4: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1074,7 +1074,7 @@ df.activity_event_conversationst.T_unk_6 = {}
 ---@field unk_5 integer
 df.activity_event_conversationst.T_unk_b4 = {}
 
----@class activity_event_conversationst_turns: df.struct
+---@class activity_event_conversationst_turns: df.class
 ---@field speaker unit
 ---@field speaker_hfid historical_figure
 ---@field type talk_choice_type
@@ -1104,7 +1104,7 @@ df.activity_event_conversationst.T_flags2 = {}
 ---@field [1] boolean
 ---@field shouting boolean
 
----@class activity_event_conversationst_unk2: df.struct
+---@class activity_event_conversationst_unk2: df.class
 ---@field unk_1 incident[]
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1144,7 +1144,7 @@ df.activity_event_conversationst.T_unk2 = {}
 ---@field unk_v42_3 integer
 df.activity_event_conflictst = {}
 
----@class activity_event_conflictst_sides: df.struct
+---@class activity_event_conflictst_sides: df.class
 ---@field id integer
 ---@field histfig_ids integer[]
 ---@field unit_ids integer[]
@@ -1153,7 +1153,7 @@ df.activity_event_conflictst = {}
 ---@field unk_2 integer
 df.activity_event_conflictst.T_sides = {}
 
----@class activity_event_conflictst.T_sides_enemies: df.struct
+---@class activity_event_conflictst.T_sides_enemies: df.class
 ---relationships to other sides in this conflict
 ---@field id integer
 ---@field conflict_level conflict_level
@@ -1303,7 +1303,7 @@ df.performance_participant_type = {}
 ---@field unk_18 integer
 df.activity_event_performancest = {}
 
----@class activity_event_performancest_participant_actions: df.struct
+---@class activity_event_performancest_participant_actions: df.class
 ---@field type performance_participant_type
 ---@field sub_type integer depends on type. if music: voice index in musical form
 ---@field unit_id unit
@@ -1317,7 +1317,7 @@ df.activity_event_performancest = {}
 ---@field unk_act_9 integer
 df.activity_event_performancest.T_participant_actions = {}
 
----@class performance_play_orderst: df.struct
+---@class performance_play_orderst: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1325,7 +1325,7 @@ df.activity_event_performancest.T_participant_actions = {}
 ---@field unk_5 integer
 df.performance_play_orderst = {}
 
----@class performance_play_orderst_unk_4: df.struct
+---@class performance_play_orderst_unk_4: df.class
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
 df.performance_play_orderst.T_unk_4 = {}
@@ -1517,7 +1517,7 @@ df.activity_event_make_believest = {}
 ---@field unk_5 integer[]
 df.activity_event_play_with_toyst = {}
 
----@class activity_event_play_with_toyst_unk: df.struct
+---@class activity_event_play_with_toyst_unk: df.class
 ---@field unk_1 integer[]
 ---@field unk_2 coord
 df.activity_event_play_with_toyst.T_unk = {}
@@ -1534,7 +1534,7 @@ df.activity_event_play_with_toyst.T_unk = {}
 ---@field unk_9 integer
 df.activity_event_encounterst = {}
 
----@class activity_event_encounterst_unk_1: df.struct
+---@class activity_event_encounterst_unk_1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1547,7 +1547,7 @@ df.activity_event_encounterst = {}
 ---@field unk_10 integer
 df.activity_event_encounterst.T_unk_1 = {}
 
----@class activity_event_encounterst_unk_2: df.struct
+---@class activity_event_encounterst_unk_2: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1572,7 +1572,7 @@ df.activity_event_store_objectst = {}
 ---@field slots schedule_slot[]
 df.schedule_info = {}
 
----@class schedule_slot: df.struct
+---@class schedule_slot: df.class
 ---@field type integer 0:Eat, 1:Sleep, 2-4:???
 ---@field start_time integer
 ---@field end_time integer

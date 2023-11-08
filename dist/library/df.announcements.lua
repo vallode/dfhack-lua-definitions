@@ -1439,7 +1439,7 @@ df.announcement_flags = {}
 ---@field [7] boolean
 ---@field ALERT boolean
 
----@class announcements: df.struct
+---@class announcements: df.class
 ---@field flags announcement_flags[]
 ---@field unused integer needed to fix alignment on 64-bit platforms
 df.announcements = {}
@@ -1498,13 +1498,13 @@ df.report_zoom_type = {}
 ---@field [2] boolean
 ---@field Unit boolean
 
----@class popup_message: df.struct
+---@class popup_message: df.class
 ---@field text string
 ---@field color integer
 ---@field bright boolean
 df.popup_message = {}
 
----@class report_init: df.struct
+---@class report_init: df.class
 ---allocated on the stack, included in df-structures to assist with disassembly
 ---@field type announcement_type
 ---@field color integer

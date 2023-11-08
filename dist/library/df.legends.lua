@@ -46,26 +46,26 @@ df.invasion_info.T_flags = {}
 ---@field [5] boolean
 ---@field parley boolean
 
----@class entity_population_unk4: df.struct
+---@class entity_population_unk4: df.class
 ---@field unk_1 entity_population_unk4_unk_1 all 3 vectors share a single index series, with the third being interleaved with at least the second one
 ---@field unk_2 entity_population_unk4_unk_2
 ---@field unk_3 entity_population_unk4_unk_3
 df.entity_population_unk4 = {}
 
----@class entity_population_unk4_unk_1: df.struct
+---@class entity_population_unk4_unk_1: df.class
 ---all 3 vectors share a single index series, with the third being interleaved with at least the second one
 ---@field idx integer
 ---@field unk1 integer
 ---@field unk2 integer
 df.entity_population_unk4.T_unk_1 = {}
 
----@class entity_population_unk4_unk_2: df.struct
+---@class entity_population_unk4_unk_2: df.class
 ---@field idx integer
 ---@field unk1 integer
 ---@field unk2 integer
 df.entity_population_unk4.T_unk_2 = {}
 
----@class entity_population_unk4_unk_3: df.struct
+---@class entity_population_unk4_unk_3: df.class
 ---@field idx integer
 ---@field unk1 integer
 df.entity_population_unk4.T_unk_3 = {}
@@ -83,11 +83,11 @@ df.entity_population_unk4.T_unk_3 = {}
 ---@field civ_id historical_entity
 df.entity_population = {}
 
----@class entity_population_races: df.struct
+---@class entity_population_races: df.class
 ---all the 3 vectors are always the same length, and thus coupled
 df.entity_population.T_races = {}
 
----@class entity_population_unk4: df.struct
+---@class entity_population_unk4: df.class
 df.entity_population.T_unk4 = {}
 
 ---@class _nemesis_flags: df.enum
@@ -156,7 +156,7 @@ df.nemesis_flags = {}
 ---@field flags any
 df.nemesis_record = {}
 
----@class nemesis_record_companions: df.struct
+---@class nemesis_record_companions: df.class
 df.nemesis_record.T_companions = {}
 
 ---@class artifact_record: df.instance
@@ -187,7 +187,7 @@ df.nemesis_record.T_companions = {}
 ---@field unk_5 integer Small set of non zero fairly small numbers seen?
 df.artifact_record = {}
 
----@class artifact_rumor_locationst: df.struct
+---@class artifact_rumor_locationst: df.class
 ---@field art artifact_record
 ---@field stid world_site
 ---@field abid integer abstract building id at site

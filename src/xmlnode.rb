@@ -218,8 +218,7 @@ class GlobalObject < XmlNode
   end
 
   def render
-    annotation = "---@class df_global\n"
-    annotation << "---#{@comment}\n" if @comment
+    annotation = "---@class (exact) df.global: df.compound\n"
 
     @fields.each do |field|
       fieldNode = Field.new(field)
@@ -238,7 +237,7 @@ class StructType < XmlNode
 
     @name = node.attributes['type-name'] || node.attributes['name']
     @parent_type = parent_type
-    @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.struct'
+    @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.class'
     @type = parent_type ? "#{parent_type}_#{@name}" : @name.value
   end
 
@@ -258,6 +257,8 @@ class StructType < XmlNode
     children.each do |child|
       if child.name == 'virtual-methods'
         child.css('> vmethod').each do |method|
+          # Methods without names "technically" exist but calling them is
+          # impossible. They are placeholders for unknown slots.
           next if not method.attributes['name']
 
           inline_types.push(method)

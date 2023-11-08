@@ -112,7 +112,7 @@ df.interaction_effect_location_hint = {}
 ---@field [5] boolean
 ---@field OUTSIDE boolean
 
----@class interaction_effect: df.struct
+---@class interaction_effect: df.class
 ---@field index integer index of the effect within the parent interaction.effects
 ---@field targets string[]
 ---@field targets_index integer[] for each target used in this effect, list the index of that target within the parent interaction.targets
@@ -282,7 +282,7 @@ df.interaction_source_type = {}
 ---@field [8] boolean
 ---@field EXPERIMENT boolean
 
----@class interaction_source: df.struct
+---@class interaction_source: df.class
 ---@field id integer
 ---@field frequency integer IS_FREQUENCY
 ---@field name string IS_NAME
@@ -373,7 +373,7 @@ df.interaction_source_secretst.T_learn_flags = {}
 ---@field [3] boolean
 ---@field MUNDANE_TEACHING_POSSIBLE boolean
 
----@class interaction_source_secretst_spheres: df.struct
+---@class interaction_source_secretst_spheres: df.class
 df.interaction_source_secretst.T_spheres = {}
 
 ---@class interaction_source_disturbancest: interaction_source
@@ -519,7 +519,7 @@ df.interaction_target_location_type = {}
 ---@field [7] boolean
 ---@field RANDOM_NEARBY_LOCATION boolean
 
----@class interaction_target: df.struct
+---@class interaction_target: df.class
 ---@field index integer
 ---@field name string
 ---@field manual_input string IT_MANUAL_INPUT
@@ -539,7 +539,7 @@ function df.interaction_target:read_file(file, loadversion) end
 
 function df.interaction_target:parseRaws() end
 
----@class interaction_target_info: df.struct
+---@class interaction_target_info: df.class
 ---@field affected_creature_str string[][]
 ---@field affected_creature integer[] IT_AFFECTED_CREATURE
 ---@field affected_class string[] IT_AFFECTED_CLASS

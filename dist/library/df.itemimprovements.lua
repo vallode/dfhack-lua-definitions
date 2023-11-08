@@ -62,7 +62,7 @@ df.improvement_type = {}
 ---@field [13] boolean
 ---@field IMAGE_SET boolean
 
----@class dye_info: df.struct
+---@class dye_info: df.class
 ---@field mat_type material
 ---@field mat_index integer
 ---@field dyer historical_figure
@@ -71,7 +71,7 @@ df.improvement_type = {}
 ---@field unk_1 integer
 df.dye_info = {}
 
----@class itemimprovement: df.struct
+---@class itemimprovement: df.class
 ---@field mat_type material
 ---@field mat_index integer
 ---@field maker historical_figure
@@ -164,7 +164,7 @@ df.itemimprovement_clothst = {}
 ---@field dye dye_info
 df.itemimprovement_sewn_imagest = {}
 
----@class itemimprovement_sewn_imagest_cloth: df.struct
+---@class itemimprovement_sewn_imagest_cloth: df.class
 ---@field unit_id historical_figure
 ---@field quality integer
 ---@field unk_1 integer

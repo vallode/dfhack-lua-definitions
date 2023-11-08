@@ -286,7 +286,7 @@ df.general_ref_type = {}
 ---@field [69] boolean
 ---@field UNIT_INTERROGATEE boolean
 
----@class general_ref: df.struct
+---@class general_ref: df.class
 df.general_ref = {}
 
 ---@param file integer
@@ -741,12 +741,12 @@ df.specific_ref_type = {}
 ---@type { [string|integer]: specific_ref_type_attr }
 df.specific_ref_type.attrs = {}
 
----@class specific_ref: df.struct
+---@class specific_ref: df.class
 ---@field type specific_ref_type
 ---@field data specific_ref_data
 df.specific_ref = {}
 
----@class specific_ref_data: df.struct
+---@class specific_ref_data: df.class
 ---@field object integer raw pointer
 ---@field unit unit
 ---@field activity activity_info
@@ -759,7 +759,7 @@ df.specific_ref = {}
 ---@field wrestle specific_ref.T_data_wrestle
 df.specific_ref.T_data = {}
 
----@class specific_ref.T_data_wrestle: df.struct
+---@class specific_ref.T_data_wrestle: df.class
 ---@field unk_1 integer
 ---@field item unit_item_wrestle
 df.specific_ref.T_data.T_wrestle = {}
@@ -837,7 +837,7 @@ df.histfig_entity_link_type = {}
 ---@field [16] boolean
 ---@field FORMER_OCCUPATION boolean
 
----@class histfig_entity_link: df.struct
+---@class histfig_entity_link: df.class
 ---@field entity_id historical_entity
 ---@field entity_vector_idx integer
 ---@field link_strength integer
@@ -978,7 +978,7 @@ df.histfig_site_link_type = {}
 ---@field [9] boolean
 ---@field PRISON_SITE_BUILDING_PROFILE boolean
 
----@class histfig_site_link: df.struct
+---@class histfig_site_link: df.class
 ---@field site world_site
 ---@field sub_id integer from XML
 ---@field entity historical_entity
@@ -1096,7 +1096,7 @@ df.histfig_hf_link_type = {}
 ---@field [15] boolean
 ---@field DECEASED_SPOUSE boolean
 
----@class histfig_hf_link: df.struct
+---@class histfig_hf_link: df.class
 ---@field target_hf historical_figure
 ---@field link_strength integer
 df.histfig_hf_link = {}
@@ -1180,7 +1180,7 @@ df.entity_entity_link_type = {}
 ---@field [2] boolean
 ---@field RELIGIOUS boolean
 
----@class entity_entity_link: df.struct
+---@class entity_entity_link: df.class
 ---@field type entity_entity_link_type
 ---@field target historical_entity
 ---@field strength integer
@@ -1289,7 +1289,7 @@ df.entity_site_link_flags = {}
 ---@field [16] boolean
 ---@field holy_city boolean
 
----@class entity_site_link: df.struct
+---@class entity_site_link: df.class
 ---@field target world_site
 ---@field entity_id historical_entity
 ---@field entity_cache_index integer not saved
@@ -1309,7 +1309,7 @@ df.entity_site_link_flags = {}
 ---@field last_checked_army_year_tick integer paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
 df.entity_site_link = {}
 
----@class entity_site_link_ab_profile: df.struct
+---@class entity_site_link_ab_profile: df.class
 ---When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
 ---@field unk_1 integer
 ---@field unk_2 integer 1, 2, 5 seen

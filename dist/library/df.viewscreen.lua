@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.viewscreen
 
----@class file_compressorst: df.struct
+---@class file_compressorst: df.class
 ---@field compressed boolean
 ---@field f any
 ---@field in_buffer integer
@@ -55,7 +55,7 @@ df.interface_push_types = {}
 ---@field [3] boolean
 ---@field AT_FRONT boolean
 
----@class abstract_interfacest: df.struct
+---@class abstract_interfacest: df.class
 df.abstract_interfacest = {}
 
 function df.abstract_interfacest:get_rect() end
@@ -88,7 +88,7 @@ function df.viewscreen:resize(w, h) end
 
 function df.viewscreen:set_port_flags() end
 
----@class interfacest: df.struct
+---@class interfacest: df.class
 ---@field original_fps integer
 ---@field view viewscreen
 ---@field flag integer
@@ -96,7 +96,7 @@ function df.viewscreen:set_port_flags() end
 ---@field shutdown_interface_for_ms integer
 df.interfacest = {}
 
----@class scrollbarst: df.struct
+---@class scrollbarst: df.class
 ---@field sel integer
 ---@field sel_min integer
 ---@field sel_max integer
@@ -107,14 +107,14 @@ df.interfacest = {}
 ---@field scroller_ey integer
 df.scrollbarst = {}
 
----@class extentst: df.struct
+---@class extentst: df.class
 ---@field x integer
 ---@field y integer
 ---@field w integer
 ---@field h integer
 df.extentst = {}
 
----@class widget: df.struct
+---@class widget: df.class
 ---@field parent integer
 ---@field rect extentst
 ---@field custom_feed function
@@ -236,7 +236,7 @@ df.widget_button = {}
 ---@field children widget_container_children
 df.widget_container = {}
 
----@class widget_container_children: df.struct
+---@class widget_container_children: df.class
 df.widget_container.T_children = {}
 
 ---@class widget_stack: widget_container
@@ -300,7 +300,7 @@ df.MacroScreenLoad = {}
 ---@field id widget_textbox
 df.MacroScreenSave = {}
 
----@class world_dat_summary: df.struct
+---@class world_dat_summary: df.class
 ---@field name language_name
 ---@field unk_1 string
 ---@field unk_2 integer[] same as the one at the top of world_data
@@ -308,7 +308,7 @@ df.MacroScreenSave = {}
 ---@field unk world_dat_summary_unk
 df.world_dat_summary = {}
 
----@class world_dat_summary_last_id: df.struct
+---@class world_dat_summary_last_id: df.class
 ---when loading, DF sets *_next_id to these fields plus 1
 ---@field unit integer
 ---@field soul integer
@@ -349,7 +349,7 @@ df.world_dat_summary = {}
 ---@field divination_set integer
 df.world_dat_summary.T_last_id = {}
 
----@class world_dat_summary_unk: df.struct
+---@class world_dat_summary_unk: df.class
 ---@field unk_3 string
 ---@field timeline string
 df.world_dat_summary.T_unk = {}
@@ -605,7 +605,7 @@ df.embark_finder_option = {}
 ---@field [21] boolean
 ---@field Sand boolean
 
----@class embark_location: df.struct
+---@class embark_location: df.class
 ---starter_infost?
 ---@field region_pos coord2d
 ---@field reclaim_site world_site
@@ -772,7 +772,7 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field [4] boolean
 ---@field Suitable boolean
 
----@class mission: df.struct
+---@class mission: df.class
 ---@field army_controller army_controller
 ---@field entity historical_entity
 ---@field target_site world_site
@@ -810,7 +810,7 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field unk_25 integer
 df.mission = {}
 
----@class mission_details: df.struct
+---@class mission_details: df.class
 ---@field raid any
 ---@field recovery artifact_record
 ---@field rescue historical_figure
@@ -854,10 +854,10 @@ df.mission.T_type = {}
 ---@field number_assigned_war integer
 df.viewscreen_dwarfmodest = {}
 
----@class viewscreen_dwarfmodest_unit_labors_sidemenu: df.struct
+---@class viewscreen_dwarfmodest_unit_labors_sidemenu: df.class
 df.viewscreen_dwarfmodest.T_unit_labors_sidemenu = {}
 
----@class viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel: df.struct
+---@class viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel: df.class
 df.viewscreen_dwarfmodest.T_unit_labors_sidemenu_uplevel = {}
 
 ---@class viewscreen_export_regionst: viewscreen
@@ -1031,7 +1031,7 @@ df.viewscreen_export_regionst.T_state = {}
 ---@field [38] boolean
 ---@field SynchronizingFolders boolean
 
----@class viewscreen_export_regionst_units_progress: df.struct
+---@class viewscreen_export_regionst_units_progress: df.class
 ---@field save_file_id integer[]
 ---@field save_file_member_idx integer[]
 ---@field units unit[]
@@ -1067,7 +1067,7 @@ df.viewscreen_game_cleanerst.T_state = {}
 ---@field unk_90 any
 df.viewscreen_initial_prepst = {}
 
----@class world_gen_param_basest: df.struct
+---@class world_gen_param_basest: df.class
 ---@field text string
 df.world_gen_param_basest = {}
 
@@ -1139,7 +1139,7 @@ df.world_gen_param_flagst = {}
 ---@field value_val integer[]
 df.world_gen_param_flagarrayst = {}
 
----@class legend_pagest: df.struct
+---@class legend_pagest: df.class
 ---@field header string
 ---@field mode legend_pagest_mode
 ---@field index integer
@@ -1265,7 +1265,7 @@ df.legend_pagest.T_mode = {}
 ---@field unk_348 integer
 df.viewscreen_legendsst = {}
 
----@class viewscreen_legendsst_region_snapshot: df.struct
+---@class viewscreen_legendsst_region_snapshot: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1275,7 +1275,7 @@ df.viewscreen_legendsst = {}
 ---@field unk_7 integer[]
 df.viewscreen_legendsst.T_region_snapshot = {}
 
----@class loadgame_save_info: df.struct
+---@class loadgame_save_info: df.class
 ---@field next_ids integer[]
 ---@field game_type game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
 ---@field fort_name string
@@ -1284,7 +1284,7 @@ df.viewscreen_legendsst.T_region_snapshot = {}
 ---@field folder_name string
 df.loadgame_save_info = {}
 
----@class matgloss_list: df.struct
+---@class matgloss_list: df.class
 ---@field unk_0 matgloss_list_unk_0
 ---@field generated_inorganics matgloss_list_generated_inorganics
 ---@field generated_plants matgloss_list_generated_plants
@@ -1325,7 +1325,7 @@ df.loadgame_save_info = {}
 ---@field mod_display_versions string[]
 df.matgloss_list = {}
 
----@class matgloss_list_unk_0: df.struct
+---@class matgloss_list_unk_0: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1344,35 +1344,35 @@ df.matgloss_list = {}
 ---@field unk_16 integer
 df.matgloss_list.T_unk_0 = {}
 
----@class matgloss_list_generated_inorganics: df.struct
+---@class matgloss_list_generated_inorganics: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_inorganics = {}
 
----@class matgloss_list_generated_plants: df.struct
+---@class matgloss_list_generated_plants: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_plants = {}
 
----@class matgloss_list_generated_items: df.struct
+---@class matgloss_list_generated_items: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_items = {}
 
----@class matgloss_list_generated_creatures: df.struct
+---@class matgloss_list_generated_creatures: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_creatures = {}
 
----@class matgloss_list_generated_entities: df.struct
+---@class matgloss_list_generated_entities: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_entities = {}
 
----@class matgloss_list_generated_reactions: df.struct
+---@class matgloss_list_generated_reactions: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_reactions = {}
 
----@class matgloss_list_generated_interactions: df.struct
+---@class matgloss_list_generated_interactions: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_interactions = {}
 
----@class matgloss_list_generated_languages: df.struct
+---@class matgloss_list_generated_languages: df.class
 ---@field raws string[]
 df.matgloss_list.T_generated_languages = {}
 
@@ -1596,7 +1596,7 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field [50] boolean
 ---@field Finishing boolean
 
----@class worldgen_parms: df.struct
+---@class worldgen_parms: df.class
 ---@field title string
 ---@field seed string
 ---@field history_seed string
@@ -1708,7 +1708,7 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field unk_1 boolean
 df.worldgen_parms = {}
 
----@class worldgen_parms_ps: df.struct
+---@class worldgen_parms_ps: df.class
 ---@field width integer
 ---@field height integer
 ---@field data integer[]
@@ -1794,7 +1794,7 @@ df.worldgen_parms_ps = {}
 ---@field last_hover_width integer
 df.viewscreen_new_regionst = {}
 
----@class nemesis_offload: df.struct
+---@class nemesis_offload: df.class
 ---@field nemesis_save_file_id integer[]
 ---@field nemesis_member_idx integer[]
 ---@field units unit[]
@@ -2057,7 +2057,7 @@ df.adventurer_attribute_level = {}
 ---@field [6] boolean
 ---@field Superior boolean
 
----@class startup_charactersheet_petst: df.struct
+---@class startup_charactersheet_petst: df.class
 ---@field name language_name
 ---@field race creature_raw
 ---@field caste caste_raw
@@ -2081,7 +2081,7 @@ df.adv_background_option_type = {}
 ---@field [2] boolean
 ---@field REGULAR_UNIT boolean
 
----@class setup_character_info: df.struct
+---@class setup_character_info: df.class
 ---startup_charactersheetst
 ---@field name language_name
 ---@field race creature_raw
@@ -2237,23 +2237,23 @@ df.setup_character_info.T_sub_mode = {}
 ---@field [12] boolean
 ---@field FINAL_CONFIRMATION boolean
 
----@class setup_character_info_posskill: df.struct
+---@class setup_character_info_posskill: df.class
 df.setup_character_info.T_posskill = {}
 
----@class setup_character_info_background_option_squad_epp_id: df.struct
+---@class setup_character_info_background_option_squad_epp_id: df.class
 df.setup_character_info.T_background_option_squad_epp_id = {}
 
----@class embark_item_choice: df.struct
+---@class embark_item_choice: df.class
 ---@field list item_type[][]
 ---@field race integer[]
 ---@field caste integer[]
 ---@field profession embark_item_choice_profession
 df.embark_item_choice = {}
 
----@class embark_item_choice_profession: df.struct
+---@class embark_item_choice_profession: df.class
 df.embark_item_choice.T_profession = {}
 
----@class embark_profile: df.struct
+---@class embark_profile: df.class
 ---@field name string
 ---@field skill_type integer[]
 ---@field skill_dwarf_idx integer[]
@@ -2272,7 +2272,7 @@ df.embark_item_choice.T_profession = {}
 ---@field pet_count integer[]
 df.embark_profile = {}
 
----@class embark_symbol: df.struct
+---@class embark_symbol: df.class
 ---@field unk_v43_1 any[]
 ---@field unk_v43_2 any[]
 ---@field unk_v43_3 integer
@@ -2281,7 +2281,7 @@ df.embark_profile = {}
 ---@field unk_v43_10 integer[] uninitialized?
 df.embark_symbol = {}
 
----@class embark_symbol_unk_v43_sub9: df.struct
+---@class embark_symbol_unk_v43_sub9: df.class
 ---@field unk_s1 integer
 ---@field unk_s2 integer
 ---@field unk_s3 integer
@@ -2426,7 +2426,7 @@ df.viewscreen_choose_game_typest = {}
 ---@field scrolling_about boolean
 df.viewscreen_titlest = {}
 
----@class viewscreen_titlest_menu_line_id: df.struct
+---@class viewscreen_titlest_menu_line_id: df.class
 df.viewscreen_titlest.T_menu_line_id = {}
 
 ---@class viewscreen_update_regionst: viewscreen
@@ -2566,11 +2566,11 @@ df.world_view_mode_type = {}
 ---@field artifact_fac_holder historical_figure
 df.viewscreen_worldst = {}
 
----@class viewscreen_worldst_rumor_rpd: df.struct
+---@class viewscreen_worldst_rumor_rpd: df.class
 ---region_print_datast
 df.viewscreen_worldst.T_rumor_rpd = {}
 
----@class viewscreen_worldst_rumor_rpd_indicator_data: df.struct
+---@class viewscreen_worldst_rumor_rpd_indicator_data: df.class
 ---rpd_indicator_datast
 df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 

@@ -1,23 +1,23 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.map
 
----@class coord2d: df.struct
+---@class coord2d: df.class
 ---@field x integer
 ---@field y integer
 df.coord2d = {}
 
----@class coord2d_path: df.struct
+---@class coord2d_path: df.class
 ---@field x integer[]
 ---@field y integer[]
 df.coord2d_path = {}
 
----@class coord: df.struct
+---@class coord: df.class
 ---@field x integer
 ---@field y integer
 ---@field z integer
 df.coord = {}
 
----@class coord_path: df.struct
+---@class coord_path: df.class
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer[]
@@ -457,17 +457,17 @@ df.tile_liquid_flow = {}
 ---@field [3] boolean
 ---@field unk_2 boolean
 
----@class tile_bitmask: df.struct
+---@class tile_bitmask: df.class
 ---@field bits integer[]
 df.tile_bitmask = {}
 
----@class block_burrow: df.struct
+---@class block_burrow: df.class
 ---@field id burrow
 ---@field tile_bitmask tile_bitmask
 ---@field link block_burrow_link
 df.block_burrow = {}
 
----@class map_block: df.struct
+---@class map_block: df.class
 ---flood; 256*cost for straight, 362*cost for diagonal
 ---@field flags block_flags
 ---@field block_events block_square_event[]
@@ -498,10 +498,10 @@ df.block_burrow = {}
 ---@field region_offset integer[]
 df.map_block = {}
 
----@class map_block_items: df.struct
+---@class map_block_items: df.class
 df.map_block.T_items = {}
 
----@class cave_column: df.struct
+---@class cave_column: df.class
 ---@field unk_z1 integer
 ---@field unk_z2 integer
 ---@field unk_3 integer
@@ -528,7 +528,7 @@ function df.cave_column:write_file(file) end
 ---@param loadversion any
 function df.cave_column:read_file(file, loadversion) end
 
----@class cave_column_rectangle: df.struct
+---@class cave_column_rectangle: df.class
 ---@field unk_1 integer
 ---@field unk_x1 integer
 ---@field unk_y1 integer
@@ -563,7 +563,7 @@ function df.cave_column_rectangle:write_file(file) end
 ---@param loadversion any
 function df.cave_column_rectangle:read_file(file, loadversion) end
 
----@class map_block_column: df.struct
+---@class map_block_column: df.class
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
 ---@field beach_level integer water at this level disappears if above more water
 ---@field ground_level integer for coloring unallocated blocks
@@ -580,7 +580,7 @@ function df.cave_column_rectangle:read_file(file, loadversion) end
 ---@field plants plant[] Only populated for the top left column in each mid level tile
 df.map_block_column = {}
 
----@class map_block_column_unmined_glyphs: df.struct
+---@class map_block_column_unmined_glyphs: df.class
 ---@field x integer[]
 ---@field y integer[]
 ---@field tile integer[]
@@ -623,7 +623,7 @@ df.block_square_event_type = {}
 ---@field [7] boolean
 ---@field designation_priority boolean
 
----@class block_square_event: df.struct
+---@class block_square_event: df.class
 df.block_square_event = {}
 
 function df.block_square_event:getType() end
@@ -769,7 +769,7 @@ df.feature_type = {}
 ---@field [9] boolean
 ---@field underworld_from_layer boolean
 
----@class feature: df.struct
+---@class feature: df.class
 ---@field population world_population[]
 ---@field irritation_level integer divide by 10k for attack chance, max 100k
 ---@field irritation_attacks integer maxes at 10?
@@ -874,7 +874,7 @@ df.layer_type = {}
 ---@field [5] boolean
 ---@field Underworld boolean
 
----@class feature_init: df.struct
+---@class feature_init: df.class
 ---@field flags any
 ---@field alterations feature_alteration[]
 ---@field start_x integer
@@ -991,7 +991,7 @@ df.feature_alteration_type = {}
 ---@field [1] boolean
 ---@field new_lava_fill_z boolean
 
----@class feature_alteration: df.struct
+---@class feature_alteration: df.class
 df.feature_alteration = {}
 
 function df.feature_alteration:getType() end
@@ -1033,7 +1033,7 @@ df.world_construction_type = {}
 ---@field [3] boolean
 ---@field WALL boolean
 
----@class world_construction_square: df.struct
+---@class world_construction_square: df.class
 ---@field region_pos coord2d
 ---@field construction_id world_construction
 ---@field embark_x integer[]
@@ -1402,7 +1402,7 @@ df.flow_type = {}
 ---@field [13] boolean
 ---@field ItemCloud boolean
 
----@class flow_info: df.struct
+---@class flow_info: df.class
 ---@field type flow_type
 ---@field mat_type material
 ---@field mat_index integer
@@ -1414,7 +1414,7 @@ df.flow_type = {}
 ---@field guide_id flow_guide
 df.flow_info = {}
 
----@class flow_reuse_pool: df.struct
+---@class flow_reuse_pool: df.class
 ---@field reuse_idx integer
 ---@field flags flow_reuse_pool_flags
 df.flow_reuse_pool = {}
@@ -1474,7 +1474,7 @@ df.flow_guide_trailing_flowst = {}
 ---@field unk_1 coord[]
 df.flow_guide_item_cloudst = {}
 
----@class effect_info: df.struct
+---@class effect_info: df.class
 ---@field id integer assigned during Save
 ---@field job job
 ---@field type integer 2 = falling into chasm
@@ -1494,7 +1494,7 @@ df.region_block_event_type = {}
 ---@field [0] boolean
 ---@field SphereField boolean
 
----@class region_block_eventst: df.struct
+---@class region_block_eventst: df.class
 df.region_block_eventst = {}
 
 function df.region_block_eventst:getType() end

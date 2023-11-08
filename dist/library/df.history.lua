@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.history
 
----@class historical_kills: df.struct
+---@class historical_kills: df.class
 ---@field events integer[]
 ---@field killed_race integer[]
 ---@field killed_caste integer[]
@@ -12,10 +12,10 @@
 ---@field killed_count integer[]
 df.historical_kills = {}
 
----@class historical_kills_killed_undead: df.struct
+---@class historical_kills_killed_undead: df.class
 df.historical_kills.T_killed_undead = {}
 
----@class history_hit_item: df.struct
+---@class history_hit_item: df.class
 ---@field item item
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -390,14 +390,14 @@ df.plot_strategy_type = {}
 ---@field [9] boolean
 ---@field Torment boolean
 
----@class plot_agreement: df.struct
+---@class plot_agreement: df.class
 ---@field actor_id historical_figure
 ---@field plot_role plot_role_type
 ---@field agreement_id agreement
 ---@field agreement_has_messenger boolean
 df.plot_agreement = {}
 
----@class historical_figure_info: df.struct
+---@class historical_figure_info: df.class
 ---@field spheres sphere_type[]
 ---@field skills job_skill[]
 ---@field pets integer[]
@@ -413,7 +413,7 @@ df.plot_agreement = {}
 ---@field relationships historical_figure_relationships
 df.historical_figure_info = {}
 
----@class historical_figure_relationships: df.struct
+---@class historical_figure_relationships: df.class
 ---only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
 ---@field hf_visual historical_figure_relationships_hf_visual
 ---@field hf_historical historical_figure_relationships_hf_historical
@@ -424,7 +424,7 @@ df.historical_figure_info = {}
 ---@field intrigues any[] only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
 df.historical_figure_relationships = {}
 
----@class historical_figure_relationships_hf_visual: df.struct
+---@class historical_figure_relationships_hf_visual: df.class
 ---@field histfig_id historical_figure
 ---@field flags historical_figure_relationships.T_hf_visual_flags
 ---@field unk_2v integer[] Involves adventurer knowing name?
@@ -469,10 +469,10 @@ df.historical_figure_relationships.T_hf_visual.T_flags = {}
 ---@field [2] boolean
 ---@field believes_false_identity boolean
 
----@class historical_figure_relationships.T_hf_visual_attitude: df.struct
+---@class historical_figure_relationships.T_hf_visual_attitude: df.class
 df.historical_figure_relationships.T_hf_visual.T_attitude = {}
 
----@class historical_figure_relationships_hf_historical: df.struct
+---@class historical_figure_relationships_hf_historical: df.class
 ---@field histfig_id historical_figure
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
@@ -484,7 +484,7 @@ df.historical_figure_relationships.T_hf_visual.T_attitude = {}
 ---@field trust integer -100 - 100
 df.historical_figure_relationships.T_hf_historical = {}
 
----@class historical_figure_relationships_unk_1: df.struct
+---@class historical_figure_relationships_unk_1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer[]
 ---@field unk_3 integer[]
@@ -495,7 +495,7 @@ df.historical_figure_relationships.T_hf_historical = {}
 ---@field trust integer -100 - 100
 df.historical_figure_relationships.T_unk_1 = {}
 
----@class historical_figure_relationships_artifact_claims: df.struct
+---@class historical_figure_relationships_artifact_claims: df.class
 ---@field artifact_id artifact_record
 ---@field unk_1 integer only 2 seen
 ---@field year integer
@@ -1085,7 +1085,7 @@ df.identity_type.attrs = {}
 ---@field unk_5 identity_unk_95[]
 df.identity = {}
 
----@class identity_unk_94: df.struct
+---@class identity_unk_94: df.class
 ---@field unk_0 integer
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
@@ -1098,7 +1098,7 @@ df.identity = {}
 ---@field unk_9 integer uninitialized
 df.identity_unk_94 = {}
 
----@class identity_unk_95: df.struct
+---@class identity_unk_95: df.class
 ---@field unk_0 integer
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
@@ -1148,7 +1148,7 @@ df.mental_picture_property_type = {}
 ---@field [8] boolean
 ---@field TIME boolean
 
----@class mental_picture_propertyst: df.struct
+---@class mental_picture_propertyst: df.class
 ---@field unk_0 integer
 df.mental_picture_propertyst = {}
 
@@ -1228,7 +1228,7 @@ df.mental_picture_element_type = {}
 ---@field [2] boolean
 ---@field REGION boolean
 
----@class mental_picture_elementst: df.struct
+---@class mental_picture_elementst: df.class
 ---@field unk_1 integer
 df.mental_picture_elementst = {}
 
@@ -2182,24 +2182,24 @@ df.history_event_reason = {}
 ---@type { [string|integer]: history_event_reason_attr }
 df.history_event_reason.attrs = {}
 
----@class history_event_reason_info: df.struct
+---@class history_event_reason_info: df.class
 ---@field type history_event_reason
 ---@field data history_event_reason_info_data
 df.history_event_reason_info = {}
 
----@class history_event_reason_info_data: df.struct
+---@class history_event_reason_info_data: df.class
 ---@field glorify_hf historical_figure
 ---@field sanctify_hf historical_figure
 ---@field artifact_is_heirloom_of_family_hfid historical_figure
 ---@field artifact_is_symbol_of_entity_position historical_entity
 df.history_event_reason_info.T_data = {}
 
----@class history_event_circumstance_info: df.struct
+---@class history_event_circumstance_info: df.class
 ---@field type unit_thought_type
 ---@field data history_event_circumstance_info_data
 df.history_event_circumstance_info = {}
 
----@class history_event_circumstance_info_data: df.struct
+---@class history_event_circumstance_info_data: df.class
 ---@field Death historical_figure
 ---@field Prayer historical_figure
 ---@field DreamAbout historical_figure
@@ -2209,7 +2209,7 @@ df.history_event_circumstance_info = {}
 ---@field AfterAbducting historical_figure
 df.history_event_circumstance_info.T_data = {}
 
----@class history_event_context: df.struct
+---@class history_event_context: df.class
 ---@field flags history_event_context_flags
 ---@field interrogator_relationships historical_figure_relationships
 ---@field interrogation any
@@ -3290,7 +3290,7 @@ df.history_event_body_abusedst.T_abuse_type = {}
 ---@field [5] boolean
 ---@field Animated boolean
 
----@class history_event_body_abusedst_abuse_data: df.struct
+---@class history_event_body_abusedst_abuse_data: df.class
 ---@field Impaled history_event_body_abusedst.T_abuse_data_Impaled
 ---@field Piled history_event_body_abusedst.T_abuse_data_Piled
 ---@field Flayed history_event_body_abusedst.T_abuse_data_Flayed
@@ -3298,14 +3298,14 @@ df.history_event_body_abusedst.T_abuse_type = {}
 ---@field Animated history_event_body_abusedst.T_abuse_data_Animated
 df.history_event_body_abusedst.T_abuse_data = {}
 
----@class history_event_body_abusedst.T_abuse_data_Impaled: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Impaled: df.class
 ---@field item_type item_type always WEAPON?
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
 df.history_event_body_abusedst.T_abuse_data.T_Impaled = {}
 
----@class history_event_body_abusedst.T_abuse_data_Piled: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Piled: df.class
 ---@field pile_type history_event_body_abusedst.T_abuse_data.T_Piled_pile_type
 df.history_event_body_abusedst.T_abuse_data.T_Piled = {}
 
@@ -3326,17 +3326,17 @@ df.history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type = {}
 ---@field [2] boolean
 ---@field GruesomeSculpture boolean
 
----@class history_event_body_abusedst.T_abuse_data_Flayed: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Flayed: df.class
 ---@field structure abstract_building
 df.history_event_body_abusedst.T_abuse_data.T_Flayed = {}
 
----@class history_event_body_abusedst.T_abuse_data_Hung: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Hung: df.class
 ---@field tree plant_raw
 ---@field mat_type material rope
 ---@field mat_index integer rope
 df.history_event_body_abusedst.T_abuse_data.T_Hung = {}
 
----@class history_event_body_abusedst.T_abuse_data_Animated: df.struct
+---@class history_event_body_abusedst.T_abuse_data_Animated: df.class
 ---@field interaction interaction
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -4663,7 +4663,7 @@ function df.history_event_collection:updateEndTime() end
 ---@field unk history_event_collection_warst_unk
 df.history_event_collection_warst = {}
 
----@class history_event_collection_warst_unk: df.struct
+---@class history_event_collection_warst_unk: df.class
 ---@field unk_1 integer[] These 5 vectors are the same length,0 or 1. Only 0 seen
 ---@field attacker_entity_leader integer[]
 ---@field unk_2 integer[] 25, 25, 46 seen. All on the first few (oldest) collections.
@@ -4774,13 +4774,13 @@ df.history_event_collection_abductionst = {}
 ---@field ordinal integer
 df.history_event_collection_theftst = {}
 
----@class history_event_collection_theftst_stolen_item_types: df.struct
+---@class history_event_collection_theftst_stolen_item_types: df.class
 df.history_event_collection_theftst.T_stolen_item_types = {}
 
----@class history_event_collection_theftst_stolen_item_subtypes: df.struct
+---@class history_event_collection_theftst_stolen_item_subtypes: df.class
 df.history_event_collection_theftst.T_stolen_item_subtypes = {}
 
----@class history_event_collection_theftst_stolen_mat_types: df.struct
+---@class history_event_collection_theftst_stolen_mat_types: df.class
 df.history_event_collection_theftst.T_stolen_mat_types = {}
 
 ---@class history_event_collection_beast_attackst: history_event_collection
@@ -4930,13 +4930,13 @@ df.era_type = {}
 ---@field [12] boolean
 ---@field Emptiness boolean
 
----@class history_era: df.struct
+---@class history_era: df.class
 ---@field year integer
 ---@field title history_era_title
 ---@field details history_era_details
 df.history_era = {}
 
----@class history_era_title: df.struct
+---@class history_era_title: df.class
 ---@field type era_type
 ---@field histfig_1 historical_figure
 ---@field histfig_2 historical_figure
@@ -4945,7 +4945,7 @@ df.history_era = {}
 ---@field percent integer either percentage of single race or percentage of mundane
 df.history_era.T_title = {}
 
----@class history_era_details: df.struct
+---@class history_era_details: df.class
 ---@field living_powers integer
 ---@field living_megabeasts integer
 ---@field living_semimegabeasts integer
@@ -4957,7 +4957,7 @@ df.history_era.T_title = {}
 ---@field civilized_mundane integer
 df.history_era.T_details = {}
 
----@class relationship_event: df.struct
+---@class relationship_event: df.class
 ---@field event integer[] not included in the main list
 ---@field relationship vague_relationship_type[]
 ---@field source_hf integer[]
@@ -4967,7 +4967,7 @@ df.history_era.T_details = {}
 ---@field start_year integer first year of the events contained in the element
 df.relationship_event = {}
 
----@class relationship_event_supplement: df.struct
+---@class relationship_event_supplement: df.class
 ---@field event integer can be found in the relationship_events
 ---@field occasion_type integer only 245/246 seen. 245:scholarly lecture, 246: performance
 ---@field site world_site
@@ -4975,7 +4975,7 @@ df.relationship_event = {}
 ---@field profession profession
 df.relationship_event_supplement = {}
 
----@class world_history: df.struct
+---@class world_history: df.class
 ---@field events history_event[]
 ---@field events_death history_event[]
 ---@field relationship_events relationship_event[]
@@ -5020,7 +5020,7 @@ df.relationship_event_supplement = {}
 ---@field active_mission mission_report
 df.world_history = {}
 
----@class world_history_event_collections: df.struct
+---@class world_history_event_collections: df.class
 ---@field all history_event_collection[]
 ---@field other history_event_collection[][]
 df.world_history.T_event_collections = {}
@@ -5032,7 +5032,7 @@ df.world_history.T_event_collections = {}
 ---@field circumstance history_event_circumstance_info
 df.intrigue = {}
 
----@class intrigue_corruption: df.struct
+---@class intrigue_corruption: df.class
 ---@field crime crime_type
 ---@field corruptor_id historical_figure
 ---@field target_id historical_figure

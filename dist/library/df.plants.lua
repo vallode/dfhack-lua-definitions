@@ -119,7 +119,7 @@ df.plant_root_tile = {}
 ---@field [7] boolean
 ---@field blocked boolean
 
----@class plant_tree_info: df.struct
+---@class plant_tree_info: df.class
 ---@field body plant_tree_tile dimension body_height
 ---@field extent_east integer dimension body_height
 ---@field extent_south integer dimension body_height

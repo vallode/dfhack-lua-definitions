@@ -1,14 +1,14 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.entities
 
----@class entity_occasion_info: df.struct
+---@class entity_occasion_info: df.class
 ---@field occasions entity_occasion[]
 ---@field next_occasion_id integer
 ---@field events integer[]
 ---@field count integer number of elements used in array above
 df.entity_occasion_info = {}
 
----@class entity_occasion: df.struct
+---@class entity_occasion: df.class
 ---some festivals are annual, some single time. unk_1=0 plus unk_3=0 seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
 ---@field id integer
 ---@field unk_1 integer 0 and 1 seen
@@ -89,7 +89,7 @@ df.occasion_schedule_type = {}
 ---@field [14] boolean
 ---@field CEREMONY boolean
 
----@class entity_occasion_schedule: df.struct
+---@class entity_occasion_schedule: df.class
 ---@field type occasion_schedule_type
 ---@field reference integer art form / event / item_type /procession start abstract building
 ---@field reference2 integer item_subtype / procession stop abstract building
@@ -182,7 +182,7 @@ df.occasion_schedule_feature = {}
 ---@field [18] boolean
 ---@field THE_SACRIFICE_OF_ITEMS boolean
 
----@class entity_occasion_schedule_feature: df.struct
+---@class entity_occasion_schedule_feature: df.class
 ---@field feature occasion_schedule_feature
 ---@field reference integer
 ---@field unk_1 integer
@@ -190,7 +190,7 @@ df.occasion_schedule_feature = {}
 ---@field unk_3 integer
 df.entity_occasion_schedule_feature = {}
 
----@class entity_activity_statistics: df.struct
+---@class entity_activity_statistics: df.class
 ---@field food entity_activity_statistics_food
 ---@field unit_counts integer[]
 ---@field population integer
@@ -229,7 +229,7 @@ df.entity_occasion_schedule_feature = {}
 ---@field found_misc entity_activity_statistics_found_misc
 df.entity_activity_statistics = {}
 
----@class entity_activity_statistics_food: df.struct
+---@class entity_activity_statistics_food: df.class
 ---@field total integer
 ---@field meat integer
 ---@field fish integer
@@ -239,7 +239,7 @@ df.entity_activity_statistics = {}
 ---@field drink integer
 df.entity_activity_statistics.T_food = {}
 
----@class entity_activity_statistics_wealth: df.struct
+---@class entity_activity_statistics_wealth: df.class
 ---@field total integer
 ---@field weapons integer
 ---@field armor integer
@@ -262,7 +262,7 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field [0] boolean
 ---@field deep_special boolean
 
----@class caravan_state: df.struct
+---@class caravan_state: df.class
 ---@field total_capacity integer
 ---@field unk_1 integer
 ---@field trade_state caravan_state_trade_state
@@ -349,12 +349,12 @@ df.caravan_state.T_flags = {}
 ---@field [8] boolean
 ---@field tribute boolean
 
----@class entity_buy_prices: df.struct
+---@class entity_buy_prices: df.class
 ---@field items entity_buy_requests
 ---@field price integer[]
 df.entity_buy_prices = {}
 
----@class entity_buy_requests: df.struct
+---@class entity_buy_requests: df.class
 ---@field item_type entity_buy_requests_item_type guess
 ---@field item_subtype entity_buy_requests_item_subtype guess
 ---@field mat_types entity_buy_requests_mat_types
@@ -363,15 +363,15 @@ df.entity_buy_prices = {}
 ---@field priority integer[]
 df.entity_buy_requests = {}
 
----@class entity_buy_requests_item_type: df.struct
+---@class entity_buy_requests_item_type: df.class
 ---guess
 df.entity_buy_requests.T_item_type = {}
 
----@class entity_buy_requests_item_subtype: df.struct
+---@class entity_buy_requests_item_subtype: df.class
 ---guess
 df.entity_buy_requests.T_item_subtype = {}
 
----@class entity_buy_requests_mat_types: df.struct
+---@class entity_buy_requests_mat_types: df.class
 df.entity_buy_requests.T_mat_types = {}
 
 ---@class _entity_sell_category: df.enum
@@ -635,16 +635,16 @@ df.entity_sell_category = {}
 ---@field [63] boolean
 ---@field CupsMugsGoblets boolean
 
----@class entity_sell_prices: df.struct
+---@class entity_sell_prices: df.class
 ---@field items entity_sell_requests
 ---@field price integer[][]
 df.entity_sell_prices = {}
 
----@class entity_sell_requests: df.struct
+---@class entity_sell_requests: df.class
 ---@field priority integer[][]
 df.entity_sell_requests = {}
 
----@class entity_recipe: df.struct
+---@class entity_recipe: df.class
 ---@field subtype itemdef_foodst
 ---@field item_types entity_recipe_item_types
 ---@field item_subtypes entity_recipe_item_subtypes
@@ -652,13 +652,13 @@ df.entity_sell_requests = {}
 ---@field mat_indices integer[]
 df.entity_recipe = {}
 
----@class entity_recipe_item_types: df.struct
+---@class entity_recipe_item_types: df.class
 df.entity_recipe.T_item_types = {}
 
----@class entity_recipe_item_subtypes: df.struct
+---@class entity_recipe_item_subtypes: df.class
 df.entity_recipe.T_item_subtypes = {}
 
----@class entity_recipe_mat_types: df.struct
+---@class entity_recipe_mat_types: df.class
 df.entity_recipe.T_mat_types = {}
 
 ---@class _historical_entity_type: df.enum
@@ -710,7 +710,7 @@ df.historical_entity_type = {}
 ---@field [10] boolean
 ---@field Guild boolean
 
----@class honors_type: df.struct
+---@class honors_type: df.class
 ---@field id integer
 ---@field flags honors_type_flags
 ---@field name string
@@ -748,7 +748,7 @@ df.honors_type.T_required_skill_type = {}
 ---@field [1] boolean
 ---@field ranged_weapon boolean
 
----@class artifact_claim: df.struct
+---@class artifact_claim: df.class
 ---@field artifact_id artifact_record
 ---@field claim_type artifact_claim_type
 ---@field symbol_claim_id integer different small numbers, but all claimed by the greedy necro diplomat, but not complete number range present
@@ -769,7 +769,7 @@ df.honors_type.T_required_skill_type = {}
 ---@field unk_6 historical_entity
 df.artifact_claim = {}
 
----@class entity_unk_v47_1: df.struct
+---@class entity_unk_v47_1: df.class
 ---The 3 first vectors are of the same length and somehow connected
 ---@field unk_v47_1 historical_figure seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled
 ---@field unk_v47_2 integer some enum?
@@ -1015,13 +1015,13 @@ df.historical_entity.T_flags = {}
 ---@field [26] boolean
 ---@field unk26 boolean
 
----@class historical_entity_guild_professions: df.struct
+---@class historical_entity_guild_professions: df.class
 ---Only seen 1, and only for guilds
 ---@field id integer Guess, but all are 0, and it matches the standard pattern
 ---@field profession profession
 df.historical_entity.T_guild_professions = {}
 
----@class historical_entity_resources: df.struct
+---@class historical_entity_resources: df.class
 ---@field digger_type integer[]
 ---@field weapon_type integer[]
 ---@field training_weapon_type integer[]
@@ -1078,7 +1078,7 @@ df.historical_entity.T_guild_professions = {}
 ---@field background_color integer[] background color used for the entity symbol in legends mode and the historical maps.
 df.historical_entity.T_resources = {}
 
----@class historical_entity.T_resources_metal: df.struct
+---@class historical_entity.T_resources_metal: df.class
 ---@field pick material_vec_ref
 ---@field weapon material_vec_ref
 ---@field ranged material_vec_ref
@@ -1088,7 +1088,7 @@ df.historical_entity.T_resources = {}
 ---@field anvil material_vec_ref
 df.historical_entity.T_resources.T_metal = {}
 
----@class historical_entity.T_resources_organic: df.struct
+---@class historical_entity.T_resources_organic: df.class
 ---@field leather material_vec_ref
 ---@field parchment material_vec_ref
 ---@field fiber material_vec_ref
@@ -1097,7 +1097,7 @@ df.historical_entity.T_resources.T_metal = {}
 ---@field wood material_vec_ref
 df.historical_entity.T_resources.T_organic = {}
 
----@class historical_entity.T_resources_refuse: df.struct
+---@class historical_entity.T_resources_refuse: df.class
 ---@field bone material_vec_ref
 ---@field shell material_vec_ref
 ---@field pearl material_vec_ref
@@ -1105,7 +1105,7 @@ df.historical_entity.T_resources.T_organic = {}
 ---@field horn material_vec_ref
 df.historical_entity.T_resources.T_refuse = {}
 
----@class historical_entity.T_resources_misc_mat: df.struct
+---@class historical_entity.T_resources_misc_mat: df.class
 ---@field others material_vec_ref amber and coral
 ---@field glass material_vec_ref
 ---@field sand material_vec_ref
@@ -1126,17 +1126,17 @@ df.historical_entity.T_resources.T_refuse = {}
 ---@field meat material_vec_ref
 df.historical_entity.T_resources.T_misc_mat = {}
 
----@class historical_entity.T_resources_wood_products: df.struct
+---@class historical_entity.T_resources_wood_products: df.class
 ---lye, charcoal, potash, pearlash, and coke
 ---@field item_type historical_entity.T_resources.T_wood_products_item_type
 ---@field item_subtype integer[]
 ---@field material material_vec_ref
 df.historical_entity.T_resources.T_wood_products = {}
 
----@class historical_entity.T_resources.T_wood_products_item_type: df.struct
+---@class historical_entity.T_resources.T_wood_products_item_type: df.class
 df.historical_entity.T_resources.T_wood_products.T_item_type = {}
 
----@class historical_entity.T_resources_animals: df.struct
+---@class historical_entity.T_resources_animals: df.class
 ---@field pet_races integer[]
 ---@field wagon_races integer[]
 ---@field pack_animal_races integer[]
@@ -1153,16 +1153,16 @@ df.historical_entity.T_resources.T_wood_products.T_item_type = {}
 ---@field exotic_pet_castes integer[]
 df.historical_entity.T_resources.T_animals = {}
 
----@class historical_entity.T_resources_color_ref_type: df.struct
+---@class historical_entity.T_resources_color_ref_type: df.class
 df.historical_entity.T_resources.T_color_ref_type = {}
 
----@class historical_entity.T_resources_foreground_color_curses: df.struct
+---@class historical_entity.T_resources_foreground_color_curses: df.class
 df.historical_entity.T_resources.T_foreground_color_curses = {}
 
----@class historical_entity.T_resources_background_color_curses: df.struct
+---@class historical_entity.T_resources_background_color_curses: df.class
 df.historical_entity.T_resources.T_background_color_curses = {}
 
----@class historical_entity_relations: df.struct
+---@class historical_entity_relations: df.class
 ---@field known_sites integer[] only civs and site government. Fresh player site government has empty vector
 ---@field deities integer[]
 ---@field worship integer[] Same length as deities(?). Some kind of relationship strength?
@@ -1177,7 +1177,7 @@ df.historical_entity.T_resources.T_background_color_curses = {}
 ---@field official integer[] holder of office of corresponding position index
 df.historical_entity.T_relations = {}
 
----@class historical_entity.T_relations_constructions: df.struct
+---@class historical_entity.T_relations_constructions: df.class
 ---only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
 ---@field path coord2d_path set only for the first source/destination/construction entry in pairs
 ---@field source_site world_site
@@ -1187,7 +1187,7 @@ df.historical_entity.T_relations = {}
 ---@field unk_2 integer 0 and 1 seen
 df.historical_entity.T_relations.T_constructions = {}
 
----@class historical_entity.T_relations_diplomacy: df.struct
+---@class historical_entity.T_relations_diplomacy: df.class
 ---@field group_id historical_entity
 ---@field relation integer only 1 and 5 are 'hostile' (from viewscreen_unitlistst::render). Seems to be range 0-5, 2 not seen. 0:neutral/currently not at war, 3:parent->child, 4:child->parent, 1/5 both 'WAR' pre embark
 ---@field war_event_collection history_event_collection always and only with relation = 1/5
@@ -1197,7 +1197,7 @@ df.historical_entity.T_relations.T_constructions = {}
 ---@field tribute_season season
 df.historical_entity.T_relations.T_diplomacy = {}
 
----@class historical_entity_positions: df.struct
+---@class historical_entity_positions: df.class
 ---@field own entity_position[]
 ---@field site entity_position[]
 ---@field conquered_site entity_position[]
@@ -1211,7 +1211,7 @@ df.historical_entity.T_relations.T_diplomacy = {}
 ---@field possible_claimable entity_position_assignment[]
 df.historical_entity.T_positions = {}
 
----@class historical_entity_tissue_styles: df.struct
+---@class historical_entity_tissue_styles: df.class
 ---@field all entity_tissue_style[]
 ---@field next_style_id integer
 df.historical_entity.T_tissue_styles = {}
@@ -1230,7 +1230,7 @@ df.historical_entity.T_conquered_site_group_flags = {}
 ---@field [1] boolean
 ---@field hostile_occupation boolean
 
----@class historical_entity_derived_resources: df.struct
+---@class historical_entity_derived_resources: df.class
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
 ---@field armor_leather integer[]
@@ -1265,25 +1265,25 @@ df.historical_entity.T_conquered_site_group_flags = {}
 ---@field gloves_cover integer[]
 df.historical_entity.T_derived_resources = {}
 
----@class historical_entity_claims: df.struct
+---@class historical_entity_claims: df.class
 ---@field areas coord2d_path in world_data.entity_claims1
 ---@field unk1 coord2d_path
 ---@field border coord2d_path
 df.historical_entity.T_claims = {}
 
----@class historical_entity_unk28: df.struct
+---@class historical_entity_unk28: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.historical_entity.T_unk28 = {}
 
----@class historical_entity_unk29: df.struct
+---@class historical_entity_unk29: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer[]
 ---@field unk_3 integer
 df.historical_entity.T_unk29 = {}
 
----@class entity_tissue_style: df.struct
+---@class entity_tissue_style: df.class
 ---@field name string
 ---@field preferred_shapings integer[]
 ---@field unk_1 integer[] maybe probability?
@@ -1454,7 +1454,7 @@ df.entity_position_flags = {}
 ---@field [31] boolean
 ---@field unk_1f boolean
 
----@class entity_position: df.struct
+---@class entity_position: df.class
 ---@field code string
 ---@field id integer
 ---@field flags any
@@ -1499,7 +1499,7 @@ df.entity_position_flags = {}
 ---@field unk_2 integer
 df.entity_position = {}
 
----@class entity_position_assignment: df.struct
+---@class entity_position_assignment: df.class
 ---@field id integer
 ---@field histfig historical_figure
 ---@field histfig2 historical_figure
@@ -1652,7 +1652,7 @@ df.entity_material_category = {}
 ---@field [32] boolean
 ---@field MiscWood2 boolean
 
----@class entity_uniform_item: df.struct
+---@class entity_uniform_item: df.class
 ---@field random_dye integer
 ---@field armorlevel integer
 ---@field item_color descriptor_color
@@ -1667,7 +1667,7 @@ df.entity_material_category = {}
 ---@field material_class entity_material_category
 df.entity_uniform_item = {}
 
----@class entity_uniform: df.struct
+---@class entity_uniform: df.class
 ---@field id integer
 ---@field unk_4 integer
 ---@field uniform_item_types item_type[][]
@@ -1818,7 +1818,7 @@ df.entity_event_type = {}
 ---@field [33] boolean
 ---@field artifact_was_destroyed boolean
 
----@class entity_event: df.struct
+---@class entity_event: df.class
 ---@field data entity_event_data
 ---@field unk_year integer often the same as the other year/tick. Start/stop time?
 ---@field unk_year_tick integer
@@ -1828,7 +1828,7 @@ df.entity_event_type = {}
 ---@field type entity_event_type
 df.entity_event = {}
 
----@class entity_event_data: df.struct
+---@class entity_event_data: df.class
 ---@field invasion entity_event.T_data_invasion
 ---@field abduction entity_event.T_data_abduction
 ---@field incident entity_event.T_data_incident
@@ -1865,101 +1865,101 @@ df.entity_event = {}
 ---@field artifact_destroyed entity_event.T_data_artifact_destroyed
 df.entity_event.T_data = {}
 
----@class entity_event.T_data_invasion: df.struct
+---@class entity_event.T_data_invasion: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 ---@field unk_1 integer can't find match. not defender hf/nemesis, for instance
 ---@field attack_leader_hf historical_figure
 df.entity_event.T_data.T_invasion = {}
 
----@class entity_event.T_data_abduction: df.struct
+---@class entity_event.T_data_abduction: df.class
 ---@field histfig_id historical_figure abductee
 ---@field site_id world_site
 ---@field abductor_id historical_figure
 ---@field event history_event
 df.entity_event.T_data.T_abduction = {}
 
----@class entity_event.T_data_incident: df.struct
+---@class entity_event.T_data_incident: df.class
 ---@field unk_1 integer
 ---@field incident_id incident
 df.entity_event.T_data.T_incident = {}
 
----@class entity_event.T_data_occupation: df.struct
+---@class entity_event.T_data_occupation: df.class
 ---@field site_id world_site
 ---@field entity_id historical_entity
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_occupation = {}
 
----@class entity_event.T_data_beast: df.struct
+---@class entity_event.T_data_beast: df.class
 ---@field histfig_id historical_figure
 ---@field site_id world_site
 ---@field region_id world_region
 df.entity_event.T_data.T_beast = {}
 
----@class entity_event.T_data_group: df.struct
+---@class entity_event.T_data_group: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 df.entity_event.T_data.T_group = {}
 
----@class entity_event.T_data_harass: df.struct
+---@class entity_event.T_data_harass: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 ---@field unk_1 integer
 df.entity_event.T_data.T_harass = {}
 
----@class entity_event.T_data_flee: df.struct
+---@class entity_event.T_data_flee: df.class
 ---@field refugee_entity_id historical_entity
 ---@field from_site_id world_site
 ---@field army_entity_id historical_entity
 ---@field army_leader_hf_id historical_figure
 df.entity_event.T_data.T_flee = {}
 
----@class entity_event.T_data_abandon: df.struct
+---@class entity_event.T_data_abandon: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 ---@field parent_entity_id historical_entity
 df.entity_event.T_data.T_abandon = {}
 
----@class entity_event.T_data_reclaimed: df.struct
+---@class entity_event.T_data_reclaimed: df.class
 ---@field behalf_entity_id historical_entity
 ---@field site_id world_site
 ---@field reclaimer_entity_id historical_entity
 ---@field leader_hf historical_figure
 df.entity_event.T_data.T_reclaimed = {}
 
----@class entity_event.T_data_founded: df.struct
+---@class entity_event.T_data_founded: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 ---@field parent_entity_id historical_entity
 ---@field unk_1 integer
 df.entity_event.T_data.T_founded = {}
 
----@class entity_event.T_data_reclaiming: df.struct
+---@class entity_event.T_data_reclaiming: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 ---@field unk_1 integer
 ---@field first_settler_hf historical_figure strangely enough not expedition leader (settler #2), nor listed as member of site government
 df.entity_event.T_data.T_reclaiming = {}
 
----@class entity_event.T_data_founding: df.struct
+---@class entity_event.T_data_founding: df.class
 ---@field entity_id historical_entity
 ---@field region_id world_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_founding = {}
 
----@class entity_event.T_data_leave: df.struct
+---@class entity_event.T_data_leave: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 df.entity_event.T_data.T_leave = {}
 
----@class entity_event.T_data_insurrection: df.struct
+---@class entity_event.T_data_insurrection: df.class
 ---@field site_id world_site
 ---@field entity_id historical_entity
 df.entity_event.T_data.T_insurrection = {}
 
----@class entity_event.T_data_insurrection_end: df.struct
+---@class entity_event.T_data_insurrection_end: df.class
 ---@field site_id world_site
 ---@field entity_id historical_entity
 ---@field result entity_event.T_data.T_insurrection_end_result
@@ -1982,125 +1982,125 @@ df.entity_event.T_data.T_insurrection_end.T_result = {}
 ---@field [2] boolean
 ---@field Crushing boolean
 
----@class entity_event.T_data_succession: df.struct
+---@class entity_event.T_data_succession: df.class
 ---@field histfig_id historical_figure
 ---@field former_histfig_id historical_figure
 ---@field entity_id historical_entity
 ---@field position_assignment_id integer
 df.entity_event.T_data.T_succession = {}
 
----@class entity_event.T_data_claim: df.struct
+---@class entity_event.T_data_claim: df.class
 ---@field entity_id historical_entity
 ---@field site_id world_site
 ---@field histfig_id historical_figure
 df.entity_event.T_data.T_claim = {}
 
----@class entity_event.T_data_accept_tribute_offer: df.struct
+---@class entity_event.T_data_accept_tribute_offer: df.class
 ---@field entity1_id historical_entity
 ---@field histfig1_id historical_figure
 ---@field entity2_id historical_entity
 ---@field histfig2_id historical_figure
 df.entity_event.T_data.T_accept_tribute_offer = {}
 
----@class entity_event.T_data_refuse_tribute_offer: df.struct
+---@class entity_event.T_data_refuse_tribute_offer: df.class
 ---@field entity1_id historical_entity
 ---@field histfig1_id historical_figure
 ---@field entity2_id historical_entity
 ---@field histfig2_id historical_figure
 df.entity_event.T_data.T_refuse_tribute_offer = {}
 
----@class entity_event.T_data_accept_tribute_demand: df.struct
+---@class entity_event.T_data_accept_tribute_demand: df.class
 ---@field entity1_id historical_entity
 ---@field histfig1_id historical_figure
 ---@field entity2_id historical_entity
 ---@field histfig2_id historical_figure
 df.entity_event.T_data.T_accept_tribute_demand = {}
 
----@class entity_event.T_data_refuse_tribute_demand: df.struct
+---@class entity_event.T_data_refuse_tribute_demand: df.class
 ---@field entity1_id historical_entity
 ---@field histfig1_id historical_figure
 ---@field entity2_id historical_entity
 ---@field histfig2_id historical_figure
 df.entity_event.T_data.T_refuse_tribute_demand = {}
 
----@class entity_event.T_data_accept_peace_offer: df.struct
+---@class entity_event.T_data_accept_peace_offer: df.class
 ---@field entity1_id historical_entity
 ---@field histfig1_id historical_figure
 ---@field entity2_id historical_entity
 ---@field histfig2_id historical_figure
 df.entity_event.T_data.T_accept_peace_offer = {}
 
----@class entity_event.T_data_refuse_peace_offer: df.struct
+---@class entity_event.T_data_refuse_peace_offer: df.class
 ---@field entity1_id historical_entity
 ---@field histfig1_id historical_figure
 ---@field entity2_id historical_entity
 ---@field histfig2_id historical_figure
 df.entity_event.T_data.T_refuse_peace_offer = {}
 
----@class entity_event.T_data_cease_tribute_offer: df.struct
+---@class entity_event.T_data_cease_tribute_offer: df.class
 ---@field entity1_id historical_entity
 ---@field histfig1_id historical_figure
 ---@field entity2_id historical_entity
 ---@field histfig2_id historical_figure
 df.entity_event.T_data.T_cease_tribute_offer = {}
 
----@class entity_event.T_data_artifact_in_site: df.struct
+---@class entity_event.T_data_artifact_in_site: df.class
 ---@field artifact_id artifact_record
 ---@field site_id world_site
 ---@field structure_id abstract_building
 ---@field unk_1 integer looks uninitialized
 df.entity_event.T_data.T_artifact_in_site = {}
 
----@class entity_event.T_data_artifact_in_subregion: df.struct
+---@class entity_event.T_data_artifact_in_subregion: df.class
 ---@field artifact_id artifact_record
 ---@field subregion_id world_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_in_subregion = {}
 
----@class entity_event.T_data_artifact_in_feature_layer: df.struct
+---@class entity_event.T_data_artifact_in_feature_layer: df.class
 ---@field artifact_id artifact_record
 ---@field feature_layer_id world_underground_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_in_feature_layer = {}
 
----@class entity_event.T_data_artifact_in_inventory: df.struct
+---@class entity_event.T_data_artifact_in_inventory: df.class
 ---@field artifact_id artifact_record
 ---@field hist_figure_id historical_figure
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_in_inventory = {}
 
----@class entity_event.T_data_artifact_not_in_site: df.struct
+---@class entity_event.T_data_artifact_not_in_site: df.class
 ---@field artifact_id artifact_record
 ---@field site_id world_site
 ---@field structure_id abstract_building
 ---@field unk_1 integer
 df.entity_event.T_data.T_artifact_not_in_site = {}
 
----@class entity_event.T_data_artifact_not_in_subregion: df.struct
+---@class entity_event.T_data_artifact_not_in_subregion: df.class
 ---@field artifact_id artifact_record
 ---@field subregion_id world_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_not_in_subregion = {}
 
----@class entity_event.T_data_artifact_not_in_feature_layer: df.struct
+---@class entity_event.T_data_artifact_not_in_feature_layer: df.class
 ---@field artifact_id artifact_record
 ---@field feature_layer_id world_underground_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_not_in_feature_layer = {}
 
----@class entity_event.T_data_artifact_not_in_inventory: df.struct
+---@class entity_event.T_data_artifact_not_in_inventory: df.class
 ---@field artifact_id artifact_record
 ---@field hist_figure_id historical_figure
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_not_in_inventory = {}
 
----@class entity_event.T_data_artifact_destroyed: df.struct
+---@class entity_event.T_data_artifact_destroyed: df.class
 ---@field artifact_id artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -2131,14 +2131,14 @@ df.agreement.T_flags = {}
 ---@field [1] boolean
 ---@field convicted_accepted boolean
 
----@class agreement_party: df.struct
+---@class agreement_party: df.class
 ---@field id integer
 ---@field histfig_ids integer[]
 ---@field entity_ids integer[]
 ---@field unk_1 agreement_party_unk_1
 df.agreement_party = {}
 
----@class agreement_party_unk_1: df.struct
+---@class agreement_party_unk_1: df.class
 ---@field reason history_event_reason
 ---@field unk_2 integer
 ---@field year integer
@@ -2239,7 +2239,7 @@ df.agreement_details_type = {}
 ---@field [15] boolean
 ---@field PlotInduceWar boolean
 
----@class agreement_details: df.struct
+---@class agreement_details: df.class
 ---@field id integer
 ---@field year integer
 ---@field year_tick integer
@@ -2247,7 +2247,7 @@ df.agreement_details_type = {}
 ---@field type agreement_details_type
 df.agreement_details = {}
 
----@class agreement_details_data: df.struct
+---@class agreement_details_data: df.class
 ---@field JoinParty agreement_details_data_join_party
 ---@field DemonicBinding agreement_details_data_demonic_binding
 ---@field Residency agreement_details_data_residency
@@ -2266,7 +2266,7 @@ df.agreement_details = {}
 ---@field PlotInduceWar agreement_details_data_plot_induce_war
 df.agreement_details.T_data = {}
 
----@class agreement_details_data_join_party: df.struct
+---@class agreement_details_data_join_party: df.class
 ---@field reason history_event_reason
 ---@field member agreement_party
 ---@field party agreement_party
@@ -2277,7 +2277,7 @@ df.agreement_details.T_data = {}
 ---@field unk_v50_2 integer
 df.agreement_details_data_join_party = {}
 
----@class agreement_details_data_demonic_binding: df.struct
+---@class agreement_details_data_demonic_binding: df.class
 ---@field reason history_event_reason
 ---@field demon agreement_party
 ---@field summoner agreement_party
@@ -2286,7 +2286,7 @@ df.agreement_details_data_join_party = {}
 ---@field sphere sphere_type
 df.agreement_details_data_demonic_binding = {}
 
----@class agreement_details_data_residency: df.struct
+---@class agreement_details_data_residency: df.class
 ---@field reason history_event_reason
 ---@field applicant agreement_party
 ---@field government agreement_party
@@ -2295,7 +2295,7 @@ df.agreement_details_data_demonic_binding = {}
 ---@field unk_v50_2 integer
 df.agreement_details_data_residency = {}
 
----@class agreement_details_data_citizenship: df.struct
+---@class agreement_details_data_citizenship: df.class
 ---@field applicant agreement_party
 ---@field government agreement_party
 ---@field site world_site
@@ -2303,7 +2303,7 @@ df.agreement_details_data_residency = {}
 ---@field unk_v50_2 integer
 df.agreement_details_data_citizenship = {}
 
----@class agreement_details_data_parley: df.struct
+---@class agreement_details_data_parley: df.class
 ---@field unk_1 integer
 ---@field party_id agreement_party
 ---@field unk_v50_1 integer
@@ -2312,7 +2312,7 @@ df.agreement_details_data_citizenship = {}
 ---@field unk_v50_4 integer
 df.agreement_details_data_parley = {}
 
----@class agreement_details_data_position_corruption: df.struct
+---@class agreement_details_data_position_corruption: df.class
 ---@field unk_1 integer 247-249 seen
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
@@ -2321,14 +2321,14 @@ df.agreement_details_data_parley = {}
 ---@field position_id integer position index in the entity's Own entity_position vector
 df.agreement_details_data_position_corruption = {}
 
----@class agreement_details_data_plot_steal_artifact: df.struct
+---@class agreement_details_data_plot_steal_artifact: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index
 ---@field artifact_id artifact_record
 df.agreement_details_data_plot_steal_artifact = {}
 
----@class agreement_details_data_promise_position: df.struct
+---@class agreement_details_data_promise_position: df.class
 ---@field beneficiary_index integer agreement.parties index
 ---@field actor_index integer agreement.parties index
 ---@field promisee_index integer agreement.parties index
@@ -2337,21 +2337,21 @@ df.agreement_details_data_plot_steal_artifact = {}
 ---@field entity_id historical_entity
 df.agreement_details_data_promise_position = {}
 
----@class agreement_details_data_plot_assassination: df.struct
+---@class agreement_details_data_plot_assassination: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index
 ---@field target_id historical_figure
 df.agreement_details_data_plot_assassination = {}
 
----@class agreement_details_data_plot_abduct: df.struct
+---@class agreement_details_data_plot_abduct: df.class
 ---@field actor_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index
 ---@field target_id historical_figure
 ---@field unk_v50_1 integer
 df.agreement_details_data_plot_abduct = {}
 
----@class agreement_details_data_plot_sabotage: df.struct
+---@class agreement_details_data_plot_sabotage: df.class
 ---@field plotter_index integer agreement.parties index
 ---@field actor_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index. A guess, as no intermediary cases have been seen
@@ -2360,12 +2360,12 @@ df.agreement_details_data_plot_abduct = {}
 ---@field unk_2 integer
 df.agreement_details_data_plot_sabotage = {}
 
----@class agreement_details_data_plot_conviction: df.struct
+---@class agreement_details_data_plot_conviction: df.class
 ---@field criminal_indices integer[] agreement.parties index. All indices listed, regardless of confessions
 ---@field crime crime_type
 df.agreement_details_data_plot_conviction = {}
 
----@class agreement_details_data_location: df.struct
+---@class agreement_details_data_location: df.class
 ---@field applicant agreement_party
 ---@field government agreement_party
 ---@field site world_site
@@ -2377,14 +2377,14 @@ df.agreement_details_data_plot_conviction = {}
 ---@field unk_v50_1 integer
 df.agreement_details_data_location = {}
 
----@class agreement_details_data_plot_infiltration_coup: df.struct
+---@class agreement_details_data_plot_infiltration_coup: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field target integer action=8: site id, 9: entity id
 ---@field action integer 8 and 9 seen. Probably matches up with corresponding hist fig Infiltrate_Society action
 df.agreement_details_data_plot_infiltration_coup = {}
 
----@class agreement_details_data_plot_frame_treason: df.struct
+---@class agreement_details_data_plot_frame_treason: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field victim_id historical_figure
@@ -2392,7 +2392,7 @@ df.agreement_details_data_plot_infiltration_coup = {}
 ---@field unk_1 historical_figure only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though
 df.agreement_details_data_plot_frame_treason = {}
 
----@class agreement_details_data_plot_induce_war: df.struct
+---@class agreement_details_data_plot_induce_war: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field attacker historical_entity

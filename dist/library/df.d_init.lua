@@ -213,7 +213,7 @@ df.d_init_autosave = {}
 ---@field [3] boolean
 ---@field SEMIANNUAL boolean
 
----@class d_init: df.struct
+---@class d_init: df.class
 ---@field flags1 any
 ---@field nickname d_init_nickname[]
 ---@field sky_tile integer
@@ -251,7 +251,7 @@ df.d_init_autosave = {}
 ---@field unk_5010_734 integer
 df.d_init = {}
 
----@class d_init_wound_color: df.struct
+---@class d_init_wound_color: df.class
 ---@field none integer[]
 ---@field minor integer[]
 ---@field inhibited integer[]
@@ -260,7 +260,7 @@ df.d_init = {}
 ---@field missing integer[]
 df.d_init.T_wound_color = {}
 
----@class d_init_store_dist: df.struct
+---@class d_init_store_dist: df.class
 ---@field item_decrease integer
 ---@field seed_combine integer
 ---@field bucket_combine integer

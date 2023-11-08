@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.world-data
 
----@class world_site_unk130: df.struct
+---@class world_site_unk130: df.class
 ---@field index integer
 ---@field unk_4 integer[][]
 df.world_site_unk130 = {}
@@ -43,7 +43,7 @@ df.world_population_type = {}
 ---@field [7] boolean
 ---@field Bush boolean
 
----@class embark_note: df.struct
+---@class embark_note: df.class
 ---@field tile integer
 ---@field fg_color integer
 ---@field bg_color integer
@@ -55,7 +55,7 @@ df.world_population_type = {}
 ---@field bottom integer
 df.embark_note = {}
 
----@class world_population_ref: df.struct
+---@class world_population_ref: df.class
 ---@field region_x integer
 ---@field region_y integer
 ---@field feature_idx integer
@@ -65,7 +65,7 @@ df.embark_note = {}
 ---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
 df.world_population_ref = {}
 
----@class local_population: df.struct
+---@class local_population: df.class
 ---@field type world_population_type
 ---@field quantity integer
 ---@field quantity2 integer
@@ -98,7 +98,7 @@ df.local_population.T_flags = {}
 ---@field [3] boolean
 ---@field unk3 boolean
 
----@class world_population: df.struct
+---@class world_population: df.class
 ---@field type world_population_type
 ---@field count_min integer
 ---@field count_max integer
@@ -204,22 +204,22 @@ df.world_region_type = {}
 ---@field max_y integer
 df.world_region = {}
 
----@class world_region_tree_biomes: df.struct
+---@class world_region_tree_biomes: df.class
 df.world_region.T_tree_biomes = {}
 
----@class world_region_tree_tiles_1: df.struct
+---@class world_region_tree_tiles_1: df.class
 df.world_region.T_tree_tiles_1 = {}
 
----@class world_region_tree_tiles_2: df.struct
+---@class world_region_tree_tiles_2: df.class
 df.world_region.T_tree_tiles_2 = {}
 
----@class world_region_tree_tiles_good: df.struct
+---@class world_region_tree_tiles_good: df.class
 df.world_region.T_tree_tiles_good = {}
 
----@class world_region_tree_tiles_evil: df.struct
+---@class world_region_tree_tiles_evil: df.class
 df.world_region.T_tree_tiles_evil = {}
 
----@class world_region_tree_tiles_savage: df.struct
+---@class world_region_tree_tiles_savage: df.class
 df.world_region.T_tree_tiles_savage = {}
 
 ---@class world_underground_region: df.instance
@@ -259,7 +259,7 @@ df.world_underground_region.T_type = {}
 ---@field [2] boolean
 ---@field Underworld boolean
 
----@class world_river: df.struct
+---@class world_river: df.class
 ---Additional river information: The flow element affects the width of the river and seems to follow the formula width = (flow / 40000 * 46) + 1, with a minimum width of 4 and a maximum width of 47. DF uses specific names for rivers with certain flows: - Stream: less than 5000 - Minor River 5000 - 9999 - River 10000 - 19999 - Major River: greather than 20000 Brooks tend to have a flow of 0, but DF has divided the controlling information between this structure, the region map entry (below), and the feature map. Thus, the region map flag 'is_brook' controls whether a water course actually is a (potentially broad) brook or an open water course. Likewise, the 'has_river' flag is needed for DF to properly understand a water course should be present. The exit tile holds the information on which mid level tile the river should exit the region. Presumably the path controls which edge to apply this to. Note that the river up/down/left/right flags of the region map entry should align with the sides rivers enter/exit. The feature map has to have a river entry for the corresponding world tile for a river to be implemented properly. All this is done by DF, but needs to be known if hacking. The world region details (below) data on rivers are generated as the regions are generated. The elevation element affects the level of the river. If the river elevation is lower than the surrounding area DF tends to generate a valley around the river to allow it to reach the correct elevation.
 ---@field name language_name
 ---@field path coord2d_path
@@ -317,7 +317,7 @@ df.geo_layer_type = {}
 ---@type { [string|integer]: geo_layer_type_attr }
 df.geo_layer_type.attrs = {}
 
----@class world_geo_layer: df.struct
+---@class world_geo_layer: df.class
 ---@field type geo_layer_type
 ---@field mat_index inorganic_raw
 ---@field vein_mat integer[]
@@ -328,11 +328,11 @@ df.geo_layer_type.attrs = {}
 ---@field bottom_height integer
 df.world_geo_layer = {}
 
----@class world_geo_layer_vein_nested_in: df.struct
+---@class world_geo_layer_vein_nested_in: df.class
 ---Index of the other vein this one is nested in, or -1
 df.world_geo_layer.T_vein_nested_in = {}
 
----@class world_geo_layer_vein_type: df.struct
+---@class world_geo_layer_vein_type: df.class
 df.world_geo_layer.T_vein_type = {}
 
 ---@class world_geo_biome: df.instance
@@ -341,7 +341,7 @@ df.world_geo_layer.T_vein_type = {}
 ---@field layers world_geo_layer[]
 df.world_geo_biome = {}
 
----@class world_region_feature: df.struct
+---@class world_region_feature: df.class
 ---@field feature_idx any
 ---@field layer world_underground_region
 ---@field region_tile_idx any
@@ -355,7 +355,7 @@ df.world_geo_biome = {}
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 df.world_region_feature = {}
 
----@class world_region_details: df.struct
+---@class world_region_details: df.class
 ---biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field biome integer[][] biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field elevation integer[][]
@@ -377,7 +377,7 @@ df.world_region_feature = {}
 ---@field undef13 integer[]
 df.world_region_details = {}
 
----@class world_region_details_edges: df.struct
+---@class world_region_details_edges: df.class
 ---In order to determine how biomes cross embark tile edges, the rectangle framing an embark tile is split into 4 corners, and 4 straight edge segments, using ranges measured in tiles: +-/----/+ | / / * | / / +-/-/---+ After this, each corner and edge segment is assigned the biome of one of the adjoining 4 or 2 embark tiles, based on the values in these arrays. It may be necessary to access adjacent details objects to collect the full outline: c11 x11 | c21 y11 *** | y21 ------------- c12 x12 | c22 There are also certain rules forcing ocean/lake biomes to lose edges to mountains, and both of them to anything else, no matter what the original array value is. The actual biomes for tiles in the frame are semi-randomly interpolated from this edge spec. For some reason DF provides for all edges of all mid level tiles in a world tile, but not for the corners on the south and east edges: for these you have to go to the next world tile. This has some effect on the corners on the south and east edges of the world where there are no adjacent tiles to get the data from. There the rules are static: the biomes of corners are taken from the easternmost and southernmost of the two touching corners. The rules for corner determination when the biome_corner field has specified a biome that's specified to yield as per the above seems to be to first take the NW corner (0), then the NE (1) one, and then the SW (2) one. If the selected corner doesn't exist (because it's outside of the world) the same fallback corner selection is used, with the exception of a northern row selection of NW (0), where the home corner (3) is selected.
 ---@field split_x coord2d[][] splits for horizontal edges, x=min y=max
 ---@field split_y coord2d[][] splits for vertical edges, x=min y=max
@@ -386,14 +386,14 @@ df.world_region_details = {}
 ---@field biome_y integer[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 df.world_region_details.T_edges = {}
 
----@class world_region_details_rivers_vertical: df.struct
+---@class world_region_details_rivers_vertical: df.class
 ---@field x_min integer[][]
 ---@field x_max integer[][]
 ---@field active integer[][]
 ---@field elevation integer[][]
 df.world_region_details.T_rivers_vertical = {}
 
----@class world_region_details_rivers_horizontal: df.struct
+---@class world_region_details_rivers_horizontal: df.class
 ---@field y_min integer[][]
 ---@field y_max integer[][]
 ---@field active integer[][]
@@ -585,7 +585,7 @@ df.fog_type = {}
 ---@field [3] boolean
 ---@field fog_thick boolean
 
----@class region_map_entry: df.struct
+---@class region_map_entry: df.class
 ---@field unk_0 integer
 ---@field finder_rank integer
 ---@field sites world_site[]
@@ -680,13 +680,13 @@ df.region_map_entry.T_wind = {}
 ---@field [7] boolean
 ---@field west_2 boolean
 
----@class entity_claim_mask: df.struct
+---@class entity_claim_mask: df.class
 ---@field map integer[]
 ---@field width integer
 ---@field height integer
 df.entity_claim_mask = {}
 
----@class moving_party: df.struct
+---@class moving_party: df.class
 ---@field pos coord2d global block x/y
 ---@field unk_4 integer
 ---@field unk_c integer
@@ -704,7 +704,7 @@ df.entity_claim_mask = {}
 ---@field beast_id integer for FB
 df.moving_party = {}
 
----@class moving_party_members: df.struct
+---@class moving_party_members: df.class
 ---@field nemesis_id nemesis_record
 ---@field hunger integer
 ---@field thirst integer
@@ -737,7 +737,7 @@ df.moving_party.T_members = {}
 ---@field unk_v43 world_object_data_unk_v43 probably used by Adventurer mode
 df.world_object_data = {}
 
----@class world_object_data_offloaded_items: df.struct
+---@class world_object_data_offloaded_items: df.class
 ---@field item item
 ---@field global_x integer in tiles it seems
 ---@field global_y integer
@@ -747,7 +747,7 @@ df.world_object_data = {}
 ---@field unk_18 integer
 df.world_object_data.T_offloaded_items = {}
 
----@class world_object_data_offloaded_buildings: df.struct
+---@class world_object_data_offloaded_buildings: df.class
 ---@field building building
 ---@field global_x integer in tiles it seems
 ---@field global_y integer
@@ -755,14 +755,14 @@ df.world_object_data.T_offloaded_items = {}
 ---@field unk_10 integer
 df.world_object_data.T_offloaded_buildings = {}
 
----@class world_object_data_unk_94: df.struct
+---@class world_object_data_unk_94: df.class
 ---@field global_x integer in in-game tiles it seems
 ---@field global_y integer
 ---@field global_z integer
 ---@field unk_c integer
 df.world_object_data.T_unk_94 = {}
 
----@class world_object_data_picked_growths: df.struct
+---@class world_object_data_picked_growths: df.class
 ---also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
 ---@field x integer[] 0 - 47, within the MLT
 ---@field y integer[] 0 - 47, within the MLT
@@ -772,7 +772,7 @@ df.world_object_data.T_unk_94 = {}
 ---@field year integer[] presumably to know whether it's the current year's harvest or the previous one's
 df.world_object_data.T_picked_growths = {}
 
----@class world_object_data_unk_v43: df.struct
+---@class world_object_data_unk_v43: df.class
 ---probably used by Adventurer mode
 ---@field x integer[] probably MLT relative x coordinate
 ---@field y integer[] probably MLT relative y coordinate
@@ -796,7 +796,7 @@ df.mountain_peak_flags = {}
 ---@field height integer
 df.world_mountain_peak = {}
 
----@class world_data: df.struct
+---@class world_data: df.class
 ---Additional feature_map information: The feature_map is a two dimensional structure dividing the world into 16 * 16 world tile "feature shells" (and remember that there's a single tile wide shell at the end of each dimension, so a pocket world has a shell dimension of 2 * 2). These shells are loaded and unloaded dynamically, which means trying to access a shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark cursor is) is invalid and can lead to DF crashing. The "features.feature_init" 16 * 16 structure contains the features of each of the corresponding world tiles within the shell. However, DF only loads the feature vectors for the world tiles in focus, although they seem to remain loaded until the shell is unloaded. Until loaded the vectors have a size of 0. Manipulation of the features is usually preserved as feature vectors are unloaded/reloaded, so spires can be elongated and rivers added, but some details, such as river fauna, seem to be generated on loading. Added features may not necessarily be reloaded at the vector index they were created at.
 ---@field name language_name name of the world
 ---@field unk1 integer[]
@@ -910,7 +910,7 @@ df.world_data.T_flip_latitude = {}
 ---@field [3] boolean
 ---@field Both boolean
 
----@class world_data_unk_b4: df.struct
+---@class world_data_unk_b4: df.class
 ---@field world_width2 integer
 ---@field world_height2 integer
 ---@field unk_1 integer align(width,4)*height
@@ -919,7 +919,7 @@ df.world_data.T_flip_latitude = {}
 ---@field unk_4 integer align(width,4)*height
 df.world_data.T_unk_b4 = {}
 
----@class world_data_constructions: df.struct
+---@class world_data_constructions: df.class
 ---@field width integer
 ---@field height integer
 ---@field map world_construction_square[]
@@ -927,7 +927,7 @@ df.world_data.T_unk_b4 = {}
 ---@field next_id integer
 df.world_data.T_constructions = {}
 
----@class world_data_unk_274: df.struct
+---@class world_data_unk_274: df.class
 ---@field members historical_figure[]
 ---@field unk_10 world_data.T_unk_274_unk_10
 ---@field entity historical_entity
@@ -937,13 +937,13 @@ df.world_data.T_constructions = {}
 ---@field unk_30 integer
 df.world_data.T_unk_274 = {}
 
----@class world_data.T_unk_274_unk_10: df.struct
+---@class world_data.T_unk_274_unk_10: df.class
 ---@field unk_0 integer
 ---@field race creature_raw
 ---@field unk_8 integer
 df.world_data.T_unk_274.T_unk_10 = {}
 
----@class world_data_unk_482f8: df.struct
+---@class world_data_unk_482f8: df.class
 ---@field unk_1 integer[]
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -962,19 +962,19 @@ df.world_data.T_unk_482f8 = {}
 ---@field unk_28 breed_unk_28
 df.breed = {}
 
----@class breed_unk_8: df.struct
+---@class breed_unk_8: df.class
 ---@field id integer
 ---@field unk_4 integer
 ---@field unk_8 integer
 df.breed.T_unk_8 = {}
 
----@class breed_unk_18: df.struct
+---@class breed_unk_18: df.class
 ---@field id integer
 ---@field unk_4 integer
 ---@field unk_8 integer
 df.breed.T_unk_18 = {}
 
----@class breed_unk_28: df.struct
+---@class breed_unk_28: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
 df.breed.T_unk_28 = {}
@@ -991,7 +991,7 @@ df.breed.T_unk_28 = {}
 ---@field event_collections integer[]
 df.battlefield = {}
 
----@class battlefield_sapient_deaths: df.struct
+---@class battlefield_sapient_deaths: df.class
 ---Seems to be by squad. Trolls/Blizzard Men not counted
 ---@field deaths integer May not sum up, at least not for defenders
 ---@field race integer

@@ -10,7 +10,7 @@ df.machine_type = {}
 ---@field [0] boolean
 ---@field standard boolean
 
----@class machine_info: df.struct
+---@class machine_info: df.class
 ---@field machine_id machine
 ---@field flags machine_info_flags
 df.machine_info = {}
@@ -24,7 +24,7 @@ df.machine_info.T_flags = {}
 ---@field [0] boolean
 ---@field frozen boolean
 
----@class power_info: df.struct
+---@class power_info: df.class
 ---@field produced integer
 ---@field consumed integer
 df.power_info = {}
@@ -58,12 +58,12 @@ df.machine_conn_modes = {}
 ---@field [5] boolean
 ---@field z_down boolean
 
----@class machine_tile_set: df.struct
+---@class machine_tile_set: df.class
 ---@field tiles coord_path
 ---@field can_connect machine_tile_set_can_connect
 df.machine_tile_set = {}
 
----@class machine_tile_set_can_connect: df.struct
+---@class machine_tile_set_can_connect: df.class
 df.machine_tile_set.T_can_connect = {}
 
 ---@class machine: df.instance
@@ -79,7 +79,7 @@ df.machine_tile_set.T_can_connect = {}
 ---@field flags machine_flags
 df.machine = {}
 
----@class machine_components: df.struct
+---@class machine_components: df.class
 ---@field building_id building
 ---@field connections integer[] indices into the same component vector
 df.machine.T_components = {}

@@ -210,7 +210,7 @@ df.ui_advmode_menu = {}
 ---@field [50] boolean
 ---@field PartyTacticalSettings boolean
 
----@class conversation: df.struct
+---@class conversation: df.class
 ---@field conv_title string
 ---@field state conversation_state
 ---@field talk_choices integer[]
@@ -259,7 +259,7 @@ df.conversation.T_state = {}
 ---@field [3] boolean
 ---@field quit boolean
 
----@class conversation_speech: df.struct
+---@class conversation_speech: df.class
 ---@field text string[] wordwrap
 ---@field speaker unit
 ---@field unk_14 integer
@@ -1199,7 +1199,7 @@ df.assume_identity_mode = {}
 ---@field [4] boolean
 ---@field SelectOrigin boolean
 
----@class talk_choice: df.struct
+---@class talk_choice: df.class
 ---@field type talk_choice_type
 ---@field unk talk_choice_unk
 ---@field unk_1 integer
@@ -1208,13 +1208,13 @@ df.assume_identity_mode = {}
 ---@field unk_4 integer
 df.talk_choice = {}
 
----@class talk_choice_unk: df.struct
+---@class talk_choice_unk: df.class
 ---@field event entity_event
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.talk_choice.T_unk = {}
 
----@class adventurest: df.struct
+---@class adventurest: df.class
 ---@field menu ui_advmode_menu
 ---@field site_level_zoom integer when set, the travel map is zoomed in to show site details
 ---@field travel_origin_x integer
@@ -1400,13 +1400,13 @@ df.adventurest.T_show_menu = {}
 ---@field [4] boolean
 ---@field OneRow boolean
 
----@class adventurest_unk_3170: df.struct
+---@class adventurest_unk_3170: df.class
 ---@field unk_1 adventurest.T_unk_3170_unk_1
 ---@field unk_2 any[][]
 ---@field unk_3 integer
 df.adventurest.T_unk_3170 = {}
 
----@class adventurest.T_unk_3170_unk_1: df.struct
+---@class adventurest.T_unk_3170_unk_1: df.class
 ---@field unk_0 entity_event
 ---@field unk_28 integer
 ---@field unk_2c integer
@@ -1425,7 +1425,7 @@ df.adventurest.T_unk_3170 = {}
 ---@field unk_60 integer
 df.adventurest.T_unk_3170.T_unk_1 = {}
 
----@class adventurest_unk_3124: df.struct
+---@class adventurest_unk_3124: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1576,7 +1576,7 @@ df.adventurest.T_charge_forbidden = {}
 ---@field [18] boolean
 ---@field TargetTooFarAway boolean
 
----@class adventurest_conversation: df.struct
+---@class adventurest_conversation: df.class
 ---@field activity activity_entry[]
 ---@field activity_event activity_event[]
 ---@field cursor_activity integer
@@ -1591,7 +1591,7 @@ df.adventurest.T_charge_forbidden = {}
 ---@field cursor_target integer
 df.adventurest.T_conversation = {}
 
----@class adventurest.T_conversation_choices: df.struct
+---@class adventurest.T_conversation_choices: df.class
 ---@field choice talk_choice
 ---@field keywords string[]
 ---@field title string[]
@@ -1599,7 +1599,7 @@ df.adventurest.T_conversation = {}
 ---@field ranking integer
 df.adventurest.T_conversation.T_choices = {}
 
----@class adventurest.T_conversation_targets: df.struct
+---@class adventurest.T_conversation_targets: df.class
 ---@field unit_id unit
 ---@field histfig_id historical_figure
 ---@field type adventurest.T_conversation.T_targets_type
@@ -1643,14 +1643,14 @@ df.adventurest.T_rest_mode = {}
 ---@field [1] boolean
 ---@field Sleep boolean
 
----@class adventurest_companions: df.struct
+---@class adventurest_companions: df.class
 ---@field unit unit[]
 ---@field unit_visible any
 ---@field unit_position coord_path
 ---@field all_histfigs integer[] includes dead
 df.adventurest.T_companions = {}
 
----@class adventurest_interactions: df.struct
+---@class adventurest_interactions: df.class
 ---@field party_core_members integer[] Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
 ---@field party_pets integer[] Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
 ---@field party_extra_members integer[] Contains IDs of non-pet historical figures who joined the player party later on.
@@ -1667,7 +1667,7 @@ df.adventurest.T_companions = {}
 ---@field unk_200 integer
 df.adventurest.T_interactions = {}
 
----@class adventurest_unk_v40_2: df.struct
+---@class adventurest_unk_v40_2: df.class
 ---@field unk_s1 any[]
 ---@field unk_s2 any[]
 ---@field unk_s3 any[]
@@ -1677,17 +1677,17 @@ df.adventurest.T_interactions = {}
 ---@field unk_s7 any[]
 df.adventurest.T_unk_v40_2 = {}
 
----@class adventurest_unk_v40_3: df.struct
+---@class adventurest_unk_v40_3: df.class
 ---@field unk_s1 integer
 ---@field unk_s2 any[]
 df.adventurest.T_unk_v40_3 = {}
 
----@class adventurest_unk_v40_4: df.struct
+---@class adventurest_unk_v40_4: df.class
 ---@field unk_v40_4a integer[]
 ---@field unk_v40_4b integer
 df.adventurest.T_unk_v40_4 = {}
 
----@class adventurest_unk_v40_5: df.struct
+---@class adventurest_unk_v40_5: df.class
 ---@field unk_s1 any[]
 ---@field unk_s2 any[]
 ---@field unk_s3 any[]
@@ -1696,7 +1696,7 @@ df.adventurest.T_unk_v40_4 = {}
 ---@field unk_s6 any[]
 df.adventurest.T_unk_v40_5 = {}
 
----@class adventurest_unk_v42_1: df.struct
+---@class adventurest_unk_v42_1: df.class
 ---@field unk_s1 integer
 ---@field unk_s2 any[]
 ---@field unk_s3 any[]
@@ -1708,7 +1708,7 @@ df.adventurest.T_unk_v40_5 = {}
 ---@field unk_s9 any[]
 df.adventurest.T_unk_v42_1 = {}
 
----@class adventurest_assume_identity: df.struct
+---@class adventurest_assume_identity: df.class
 ---Manages the Assume Identity UI when the AssumeIdentity menu is open
 ---@field mode assume_identity_mode
 ---@field name language_name
@@ -1722,7 +1722,7 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field unk_4 integer
 df.adventurest.T_assume_identity = {}
 
----@class text_info_elementst: df.struct
+---@class text_info_elementst: df.class
 df.text_info_elementst = {}
 
 ---@param val integer
@@ -1738,7 +1738,7 @@ df.text_info_element_longst = {}
 ---@field val string
 df.text_info_element_stringst = {}
 
----@class adventure_optionst: df.struct
+---@class adventure_optionst: df.class
 ---for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
 df.adventure_optionst = {}
 
@@ -1831,7 +1831,7 @@ df.adventure_environment_pickup_chop_treest = {}
 ---@field unit_id unit
 df.adventure_environment_unit_suck_bloodst = {}
 
----@class adventure_movement_optionst: df.struct
+---@class adventure_movement_optionst: df.class
 ---@field dest coord
 ---@field source coord
 df.adventure_movement_optionst = {}
@@ -1880,7 +1880,7 @@ df.adventure_movement_item_interact_ridest = {}
 ---@class adventure_movement_item_interact_pushst: adventure_movement_item_interactst
 df.adventure_movement_item_interact_pushst = {}
 
----@class adventure_item_interact_choicest: df.struct
+---@class adventure_item_interact_choicest: df.class
 df.adventure_item_interact_choicest = {}
 
 function df.adventure_item_interact_choicest:getDescription() end

@@ -1319,7 +1319,7 @@ df.knowledge_scholar_flags_13 = {}
 ---@field [29] boolean
 ---@field engineering_machine_trip_hammer boolean
 
----@class knowledge_scholar_category_flag: df.struct
+---@class knowledge_scholar_category_flag: df.class
 ---@field flag_type knowledge_scholar_category_flag_flag_type determines which bitflags to use
 ---@field flag_data knowledge_scholar_category_flag_flag_data
 df.knowledge_scholar_category_flag = {}
@@ -1386,7 +1386,7 @@ df.knowledge_scholar_category_flag.T_flag_type = {}
 ---@field [13] boolean
 ---@field flags_13 boolean
 
----@class knowledge_scholar_category_flag_flag_data: df.struct
+---@class knowledge_scholar_category_flag_flag_data: df.class
 ---@field flags_0 knowledge_scholar_flags_0
 ---@field flags_1 knowledge_scholar_flags_1
 ---@field flags_2 knowledge_scholar_flags_2

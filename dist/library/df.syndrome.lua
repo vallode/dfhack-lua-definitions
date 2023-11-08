@@ -422,13 +422,13 @@ df.creature_interaction_effect_target_mode = {}
 ---@field [2] boolean
 ---@field BY_CATEGORY boolean
 
----@class creature_interaction_effect_target: df.struct
+---@class creature_interaction_effect_target: df.class
 ---@field mode creature_interaction_effect_target_mode
 ---@field key string[]
 ---@field tissue string[]
 df.creature_interaction_effect_target = {}
 
----@class creature_interaction_effect_target_mode: df.struct
+---@class creature_interaction_effect_target_mode: df.class
 df.creature_interaction_effect_target.T_mode = {}
 
 ---@class creature_interaction_effect: df.instance
@@ -446,14 +446,14 @@ df.creature_interaction_effect_target.T_mode = {}
 ---@field counter_trigger creature_interaction_effect_counter_trigger
 df.creature_interaction_effect = {}
 
----@class creature_interaction_effect_counter_trigger: df.struct
+---@class creature_interaction_effect_counter_trigger: df.class
 ---@field counter creature_interaction_effect.T_counter_trigger_counter
 ---@field minval integer[] ?
 ---@field maxval integer[] ?
 ---@field required integer[]
 df.creature_interaction_effect.T_counter_trigger = {}
 
----@class creature_interaction_effect.T_counter_trigger_counter: df.struct
+---@class creature_interaction_effect.T_counter_trigger_counter: df.class
 df.creature_interaction_effect.T_counter_trigger.T_counter = {}
 
 function df.creature_interaction_effect:getType() end

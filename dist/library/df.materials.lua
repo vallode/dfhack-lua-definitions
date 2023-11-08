@@ -552,7 +552,7 @@ df.strain_type = {}
 ---@field [5] boolean
 ---@field COMPRESSIVE boolean
 
----@class material_common: df.struct
+---@class material_common: df.class
 ---@field id string
 ---@field gem_name1 string
 ---@field gem_name2 string
@@ -578,7 +578,7 @@ df.strain_type = {}
 ---@field reaction_class string[]
 df.material_common = {}
 
----@class material_common_heat: df.struct
+---@class material_common_heat: df.class
 ---@field spec_heat integer
 ---@field heatdam_point integer
 ---@field colddam_point integer
@@ -588,7 +588,7 @@ df.material_common = {}
 ---@field mat_fixed_temp integer
 df.material_common.T_heat = {}
 
----@class material_common_strength: df.struct
+---@class material_common_strength: df.class
 ---@field absorption integer
 ---@field yield integer[]
 ---@field fracture integer[]
@@ -596,7 +596,7 @@ df.material_common.T_heat = {}
 ---@field max_edge integer
 df.material_common.T_strength = {}
 
----@class material_common_reaction_product: df.struct
+---@class material_common_reaction_product: df.class
 ---@field id string[]
 ---@field item_type integer[]
 ---@field item_subtype integer[]
@@ -604,7 +604,7 @@ df.material_common.T_strength = {}
 ---@field str string[][]
 df.material_common.T_reaction_product = {}
 
----@class material_common_hardens_with_water: df.struct
+---@class material_common_hardens_with_water: df.class
 ---@field mat_type material
 ---@field mat_index integer
 ---@field str string[]
@@ -635,12 +635,12 @@ df.material_common.T_hardens_with_water = {}
 ---@field cheese_texpos2 integer
 df.material = {}
 
----@class material_vec_ref: df.struct
+---@class material_vec_ref: df.class
 ---@field mat_type material_vec_ref_mat_type
 ---@field mat_index integer[]
 df.material_vec_ref = {}
 
----@class material_vec_ref_mat_type: df.struct
+---@class material_vec_ref_mat_type: df.class
 df.material_vec_ref.T_mat_type = {}
 
 ---@class material_template: material_common
@@ -869,47 +869,47 @@ df.inclusion_type = {}
 ---@field material material
 df.inorganic_raw = {}
 
----@class inorganic_raw_metal_ore: df.struct
+---@class inorganic_raw_metal_ore: df.class
 ---@field str string[] only during parsing
 ---@field mat_index inorganic_raw.T_metal_ore_mat_index
 ---@field probability integer[]
 df.inorganic_raw.T_metal_ore = {}
 
----@class inorganic_raw.T_metal_ore_mat_index: df.struct
+---@class inorganic_raw.T_metal_ore_mat_index: df.class
 df.inorganic_raw.T_metal_ore.T_mat_index = {}
 
----@class inorganic_raw_thread_metal: df.struct
+---@class inorganic_raw_thread_metal: df.class
 ---@field str string[] only during parsing
 ---@field mat_index inorganic_raw.T_thread_metal_mat_index
 ---@field probability integer[]
 df.inorganic_raw.T_thread_metal = {}
 
----@class inorganic_raw.T_thread_metal_mat_index: df.struct
+---@class inorganic_raw.T_thread_metal_mat_index: df.class
 df.inorganic_raw.T_thread_metal.T_mat_index = {}
 
----@class inorganic_raw_environment_spec: df.struct
+---@class inorganic_raw_environment_spec: df.class
 ---@field str string[] only during parsing
 ---@field mat_index inorganic_raw.T_environment_spec_mat_index
 ---@field inclusion_type inorganic_raw.T_environment_spec_inclusion_type
 ---@field probability integer[]
 df.inorganic_raw.T_environment_spec = {}
 
----@class inorganic_raw.T_environment_spec_mat_index: df.struct
+---@class inorganic_raw.T_environment_spec_mat_index: df.class
 df.inorganic_raw.T_environment_spec.T_mat_index = {}
 
----@class inorganic_raw.T_environment_spec_inclusion_type: df.struct
+---@class inorganic_raw.T_environment_spec_inclusion_type: df.class
 df.inorganic_raw.T_environment_spec.T_inclusion_type = {}
 
----@class inorganic_raw_environment: df.struct
+---@class inorganic_raw_environment: df.class
 ---@field location inorganic_raw.T_environment_location
 ---@field type inorganic_raw.T_environment_type
 ---@field probability integer[]
 df.inorganic_raw.T_environment = {}
 
----@class inorganic_raw.T_environment_location: df.struct
+---@class inorganic_raw.T_environment_location: df.class
 df.inorganic_raw.T_environment.T_location = {}
 
----@class inorganic_raw.T_environment_type: df.struct
+---@class inorganic_raw.T_environment_type: df.class
 df.inorganic_raw.T_environment.T_type = {}
 
 ---@class _organic_mat_category: df.enum
@@ -1073,7 +1073,7 @@ df.organic_mat_category = {}
 ---@field [38] boolean
 ---@field Parchment boolean
 
----@class special_mat_table: df.struct
+---@class special_mat_table: df.class
 ---@field organic_types integer[][]
 ---@field organic_indexes integer[][]
 ---@field organic_unknown integer[][] everything 0

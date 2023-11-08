@@ -345,7 +345,7 @@ df.stockpile_group_set = {}
 ---@field [16] boolean
 ---@field sheet boolean
 
----@class stockpile_settings: df.struct
+---@class stockpile_settings: df.class
 ---@field flags stockpile_group_set
 ---@field animals stockpile_settings_animals
 ---@field food stockpile_settings_food
@@ -369,13 +369,13 @@ df.stockpile_group_set = {}
 ---@field allow_inorganic boolean
 df.stockpile_settings = {}
 
----@class stockpile_settings_animals: df.struct
+---@class stockpile_settings_animals: df.class
 ---@field empty_cages boolean
 ---@field empty_traps boolean
 ---@field enabled boolean[]
 df.stockpile_settings.T_animals = {}
 
----@class stockpile_settings_food: df.struct
+---@class stockpile_settings_food: df.class
 ---@field meat boolean[]
 ---@field fish boolean[]
 ---@field unprepared_fish boolean[]
@@ -398,7 +398,7 @@ df.stockpile_settings.T_animals = {}
 ---@field prepared_meals boolean
 df.stockpile_settings.T_food = {}
 
----@class stockpile_settings_furniture: df.struct
+---@class stockpile_settings_furniture: df.class
 ---@field type boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
@@ -406,11 +406,11 @@ df.stockpile_settings.T_food = {}
 ---@field quality_total boolean[]
 df.stockpile_settings.T_furniture = {}
 
----@class stockpile_settings_corpses: df.struct
+---@class stockpile_settings_corpses: df.class
 ---@field corpses boolean[]
 df.stockpile_settings.T_corpses = {}
 
----@class stockpile_settings_refuse: df.struct
+---@class stockpile_settings_refuse: df.class
 ---@field type boolean[]
 ---@field corpses boolean[]
 ---@field body_parts boolean[]
@@ -424,15 +424,15 @@ df.stockpile_settings.T_corpses = {}
 ---@field rotten_raw_hide boolean
 df.stockpile_settings.T_refuse = {}
 
----@class stockpile_settings_stone: df.struct
+---@class stockpile_settings_stone: df.class
 ---@field mats boolean[]
 df.stockpile_settings.T_stone = {}
 
----@class stockpile_settings_ore: df.struct
+---@class stockpile_settings_ore: df.class
 ---@field mats boolean[] unused
 df.stockpile_settings.T_ore = {}
 
----@class stockpile_settings_ammo: df.struct
+---@class stockpile_settings_ammo: df.class
 ---@field type boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
@@ -440,25 +440,25 @@ df.stockpile_settings.T_ore = {}
 ---@field quality_total boolean[]
 df.stockpile_settings.T_ammo = {}
 
----@class stockpile_settings_coins: df.struct
+---@class stockpile_settings_coins: df.class
 ---@field mats boolean[]
 df.stockpile_settings.T_coins = {}
 
----@class stockpile_settings_bars_blocks: df.struct
+---@class stockpile_settings_bars_blocks: df.class
 ---@field bars_other_mats boolean[]
 ---@field blocks_other_mats boolean[]
 ---@field bars_mats boolean[]
 ---@field blocks_mats boolean[]
 df.stockpile_settings.T_bars_blocks = {}
 
----@class stockpile_settings_gems: df.struct
+---@class stockpile_settings_gems: df.class
 ---@field rough_other_mats boolean[]
 ---@field cut_other_mats boolean[]
 ---@field rough_mats boolean[]
 ---@field cut_mats boolean[]
 df.stockpile_settings.T_gems = {}
 
----@class stockpile_settings_finished_goods: df.struct
+---@class stockpile_settings_finished_goods: df.class
 ---@field type boolean[]
 ---@field other_mats boolean[]
 ---@field mats boolean[]
@@ -466,11 +466,11 @@ df.stockpile_settings.T_gems = {}
 ---@field quality_total boolean[]
 df.stockpile_settings.T_finished_goods = {}
 
----@class stockpile_settings_leather: df.struct
+---@class stockpile_settings_leather: df.class
 ---@field mats boolean[]
 df.stockpile_settings.T_leather = {}
 
----@class stockpile_settings_cloth: df.struct
+---@class stockpile_settings_cloth: df.class
 ---@field thread_silk boolean[]
 ---@field thread_plant boolean[]
 ---@field thread_yarn boolean[]
@@ -481,11 +481,11 @@ df.stockpile_settings.T_leather = {}
 ---@field cloth_metal boolean[]
 df.stockpile_settings.T_cloth = {}
 
----@class stockpile_settings_wood: df.struct
+---@class stockpile_settings_wood: df.class
 ---@field mats boolean[]
 df.stockpile_settings.T_wood = {}
 
----@class stockpile_settings_weapons: df.struct
+---@class stockpile_settings_weapons: df.class
 ---@field weapon_type boolean[]
 ---@field trapcomp_type boolean[]
 ---@field other_mats boolean[]
@@ -496,7 +496,7 @@ df.stockpile_settings.T_wood = {}
 ---@field unusable boolean
 df.stockpile_settings.T_weapons = {}
 
----@class stockpile_settings_armor: df.struct
+---@class stockpile_settings_armor: df.class
 ---@field body boolean[]
 ---@field head boolean[]
 ---@field feet boolean[]
@@ -511,7 +511,7 @@ df.stockpile_settings.T_weapons = {}
 ---@field unusable boolean
 df.stockpile_settings.T_armor = {}
 
----@class stockpile_settings_sheet: df.struct
+---@class stockpile_settings_sheet: df.class
 ---@field paper boolean[]
 ---@field parchment boolean[]
 df.stockpile_settings.T_sheet = {}
@@ -955,13 +955,13 @@ df.stockpile_list.attrs = {}
 ---@field vehicle_stops hauling_route_vehicle_stops
 df.hauling_route = {}
 
----@class hauling_route_vehicle_ids: df.struct
+---@class hauling_route_vehicle_ids: df.class
 df.hauling_route.T_vehicle_ids = {}
 
----@class hauling_route_vehicle_stops: df.struct
+---@class hauling_route_vehicle_stops: df.class
 df.hauling_route.T_vehicle_stops = {}
 
----@class hauling_stop: df.struct
+---@class hauling_stop: df.class
 ---@field id integer
 ---@field name string
 ---@field pos coord
@@ -972,7 +972,7 @@ df.hauling_route.T_vehicle_stops = {}
 ---@field cart_id item
 df.hauling_stop = {}
 
----@class stop_depart_condition: df.struct
+---@class stop_depart_condition: df.class
 ---@field timeout integer
 ---@field direction stop_depart_condition_direction
 ---@field mode stop_depart_condition_mode
@@ -1032,7 +1032,7 @@ df.stop_depart_condition.T_flags = {}
 ---@field [1] boolean
 ---@field desired boolean
 
----@class route_stockpile_link: df.struct
+---@class route_stockpile_link: df.class
 ---@field building_id building
 ---@field mode route_stockpile_link_mode
 df.route_stockpile_link = {}

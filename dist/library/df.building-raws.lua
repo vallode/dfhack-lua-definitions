@@ -25,7 +25,7 @@
 ---@field build_stages integer
 df.building_def = {}
 
----@class building_def_build_labors: df.struct
+---@class building_def_build_labors: df.class
 df.building_def.T_build_labors = {}
 
 function df.building_def:parseRaws() end
@@ -35,7 +35,7 @@ function df.building_def:categorize() end
 
 function df.building_def:finalize() end
 
----@class building_def_item: df.struct
+---@class building_def_item: df.class
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type material

@@ -18,7 +18,7 @@ df.uniform_indiv_choice = {}
 ---@field [2] boolean
 ---@field ranged boolean
 
----@class item_filter_spec: df.struct
+---@class item_filter_spec: df.class
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field material_class entity_material_category
@@ -26,7 +26,7 @@ df.uniform_indiv_choice = {}
 ---@field matindex integer
 df.item_filter_spec = {}
 
----@class squad_uniform_spec: df.struct
+---@class squad_uniform_spec: df.class
 ---@field item item
 ---@field item_filter item_filter_spec
 ---@field color integer
@@ -34,10 +34,10 @@ df.item_filter_spec = {}
 ---@field indiv_choice uniform_indiv_choice
 df.squad_uniform_spec = {}
 
----@class squad_uniform_spec_assigned: df.struct
+---@class squad_uniform_spec_assigned: df.class
 df.squad_uniform_spec.T_assigned = {}
 
----@class squad_ammo_spec: df.struct
+---@class squad_ammo_spec: df.class
 ---@field item_filter item_filter_spec
 ---@field amount integer
 ---@field flags squad_ammo_spec_flags
@@ -57,7 +57,7 @@ df.squad_ammo_spec.T_flags = {}
 ---@field [1] boolean
 ---@field use_training boolean
 
----@class squad_ammo_spec_assigned: df.struct
+---@class squad_ammo_spec_assigned: df.class
 df.squad_ammo_spec.T_assigned = {}
 
 ---@class _squad_use_flags: df.bitfield
@@ -169,7 +169,7 @@ df.squad_event_type = {}
 ---@field [3] boolean
 ---@field Unk2 boolean
 
----@class squad_position: df.struct
+---@class squad_position: df.class
 ---@field occupant historical_figure
 ---@field orders squad_order[]
 ---@field preferences integer[][]
@@ -186,16 +186,16 @@ df.squad_event_type = {}
 ---@field unk_2 integer
 df.squad_position = {}
 
----@class squad_position_assigned_items: df.struct
+---@class squad_position_assigned_items: df.class
 df.squad_position.T_assigned_items = {}
 
----@class squad_schedule_order: df.struct
+---@class squad_schedule_order: df.class
 ---@field order squad_order
 ---@field min_count integer
 ---@field positions any
 df.squad_schedule_order = {}
 
----@class squad_schedule_entry: df.struct
+---@class squad_schedule_entry: df.class
 ---@field name string
 ---@field sleep_mode integer 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode integer 0 uniformed, 1 civ clothes
@@ -203,7 +203,7 @@ df.squad_schedule_order = {}
 ---@field order_assignments squad_schedule_entry_order_assignments
 df.squad_schedule_entry = {}
 
----@class squad_schedule_entry_order_assignments: df.struct
+---@class squad_schedule_entry_order_assignments: df.class
 df.squad_schedule_entry.T_order_assignments = {}
 
 ---@class squad: df.instance
@@ -237,15 +237,15 @@ df.squad_schedule_entry.T_order_assignments = {}
 ---@field background_b integer
 df.squad = {}
 
----@class squad_schedule: df.struct
+---@class squad_schedule: df.class
 df.squad.T_schedule = {}
 
----@class squad_rooms: df.struct
+---@class squad_rooms: df.class
 ---@field building_id building
 ---@field mode squad_use_flags
 df.squad.T_rooms = {}
 
----@class squad_ammo: df.struct
+---@class squad_ammo: df.class
 ---@field ammunition squad_ammo_spec[]
 ---@field train_weapon_free squad.T_ammo_train_weapon_free
 ---@field train_weapon_inuse squad.T_ammo_train_weapon_inuse
@@ -254,16 +254,16 @@ df.squad.T_rooms = {}
 ---@field update equipment_update
 df.squad.T_ammo = {}
 
----@class squad.T_ammo_train_weapon_free: df.struct
+---@class squad.T_ammo_train_weapon_free: df.class
 df.squad.T_ammo.T_train_weapon_free = {}
 
----@class squad.T_ammo_train_weapon_inuse: df.struct
+---@class squad.T_ammo_train_weapon_inuse: df.class
 df.squad.T_ammo.T_train_weapon_inuse = {}
 
----@class squad.T_ammo_ammo_items: df.struct
+---@class squad.T_ammo_ammo_items: df.class
 df.squad.T_ammo.T_ammo_items = {}
 
----@class squad.T_ammo_ammo_units: df.struct
+---@class squad.T_ammo_ammo_units: df.class
 df.squad.T_ammo.T_ammo_units = {}
 
 ---@class _squad_order_type: df.enum
@@ -408,7 +408,7 @@ df.squad_order_cannot_reason = {}
 ---@field [20] boolean
 ---@field cannot_leave_site boolean
 
----@class squad_order: df.struct
+---@class squad_order: df.class
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 integer
 ---@field year integer
@@ -474,10 +474,10 @@ df.squad_order_movest = {}
 ---@field title string
 df.squad_order_kill_listst = {}
 
----@class squad_order_kill_listst_units: df.struct
+---@class squad_order_kill_listst_units: df.class
 df.squad_order_kill_listst.T_units = {}
 
----@class squad_order_kill_listst_histfigs: df.struct
+---@class squad_order_kill_listst_histfigs: df.class
 df.squad_order_kill_listst.T_histfigs = {}
 
 ---@class squad_order_defend_burrowsst: squad_order
@@ -558,7 +558,7 @@ df.squad_order_rescue_hfst = {}
 ---@field type army_controller_type
 df.army_controller = {}
 
----@class army_controller_data: df.struct
+---@class army_controller_data: df.class
 ---@field t1 army_controller_sub1
 ---@field InvasionOrder army_controller_invasion_order
 ---@field Invasion army_controller_invasion
@@ -686,13 +686,13 @@ df.army_controller.T_type = {}
 ---@field [24] boolean
 ---@field VillainousVisit boolean
 
----@class army_controller_sub1: df.struct
+---@class army_controller_sub1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.army_controller_sub1 = {}
 
----@class army_controller_invasion_order: df.struct
+---@class army_controller_invasion_order: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -706,7 +706,7 @@ df.army_controller_sub1 = {}
 ---@field unk_10 integer[]
 df.army_controller_invasion_order = {}
 
----@class army_controller_invasion_order_unk_4a: df.struct
+---@class army_controller_invasion_order_unk_4a: df.class
 ---@field army_id army no longer available when an attack has started
 ---@field pos_x_a integer In map_blocks, i.e. in 3 * 16 * world tiles
 ---@field pos_y_a integer
@@ -715,7 +715,7 @@ df.army_controller_invasion_order = {}
 ---@field invasion_count integer size of the army, including leaders
 df.army_controller_invasion_order.T_unk_4a = {}
 
----@class army_controller_invasion: df.struct
+---@class army_controller_invasion: df.class
 ---@field unk_1 integer
 ---@field unk_2 army_controller_invasion_unk_2
 df.army_controller_invasion = {}
@@ -741,7 +741,7 @@ df.army_controller_invasion.T_unk_2 = {}
 ---@field [3] boolean
 ---@field unk_4 boolean
 
----@class army_controller_sub5: df.struct
+---@class army_controller_sub5: df.class
 ---@field pos_x integer in map_block coordinates. Same as those of the main struct seen
 ---@field pos_y integer
 ---@field unk_1 integer 0 seen
@@ -749,7 +749,7 @@ df.army_controller_invasion.T_unk_2 = {}
 ---@field year_tick integer
 df.army_controller_sub5 = {}
 
----@class army_controller_sub6: df.struct
+---@class army_controller_sub6: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -761,7 +761,7 @@ df.army_controller_sub5 = {}
 ---@field unk_9 integer
 df.army_controller_sub6 = {}
 
----@class army_controller_sub7: df.struct
+---@class army_controller_sub7: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 army_controller_sub7_unk_3
@@ -774,7 +774,7 @@ df.army_controller_sub6 = {}
 ---@field unk_8 integer
 df.army_controller_sub7 = {}
 
----@class army_controller_sub7_unk_3: df.struct
+---@class army_controller_sub7_unk_3: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -783,13 +783,13 @@ df.army_controller_sub7 = {}
 ---@field unk_6 integer
 df.army_controller_sub7.T_unk_3 = {}
 
----@class army_controller_sub11: df.struct
+---@class army_controller_sub11: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 army_controller_sub11_unk_3
 df.army_controller_sub11 = {}
 
----@class army_controller_sub11_unk_3: df.struct
+---@class army_controller_sub11_unk_3: df.class
 ---@field army_id army
 ---@field pos_x_a integer map_block coordinates
 ---@field pos_y_a integer
@@ -798,7 +798,7 @@ df.army_controller_sub11 = {}
 ---@field invasion_count integer very much a guess from one sample, but it matched the army size
 df.army_controller_sub11.T_unk_3 = {}
 
----@class army_controller_visit: df.struct
+---@class army_controller_visit: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer 2 seen on exiled character
@@ -809,7 +809,7 @@ df.army_controller_sub11.T_unk_3 = {}
 ---@field purpose history_event_reason
 df.army_controller_visit = {}
 
----@class army_controller_visit_unk_4: df.struct
+---@class army_controller_visit_unk_4: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -818,14 +818,14 @@ df.army_controller_visit = {}
 ---@field unk_6 integer
 df.army_controller_visit.T_unk_4 = {}
 
----@class army_controller_sub13: df.struct
+---@class army_controller_sub13: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 army_controller_sub13_unk_4
 df.army_controller_sub13 = {}
 
----@class army_controller_sub13_unk_4: df.struct
+---@class army_controller_sub13_unk_4: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -834,7 +834,7 @@ df.army_controller_sub13 = {}
 ---@field unk_6 integer
 df.army_controller_sub13.T_unk_4 = {}
 
----@class army_controller_sub14: df.struct
+---@class army_controller_sub14: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -842,7 +842,7 @@ df.army_controller_sub13.T_unk_4 = {}
 ---@field unk_5 integer
 df.army_controller_sub14 = {}
 
----@class army_controller_sub14_unk_4: df.struct
+---@class army_controller_sub14_unk_4: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -851,7 +851,7 @@ df.army_controller_sub14 = {}
 ---@field unk_6 integer
 df.army_controller_sub14.T_unk_4 = {}
 
----@class army_controller_sub15: df.struct
+---@class army_controller_sub15: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 army_controller_sub15_unk_3
@@ -867,7 +867,7 @@ df.army_controller_sub14.T_unk_4 = {}
 ---@field unk_13 integer
 df.army_controller_sub15 = {}
 
----@class army_controller_sub15_unk_3: df.struct
+---@class army_controller_sub15_unk_3: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -876,53 +876,53 @@ df.army_controller_sub15 = {}
 ---@field unk_6 integer
 df.army_controller_sub15.T_unk_3 = {}
 
----@class army_controller_sub16: df.struct
+---@class army_controller_sub16: df.class
 ---@field unk_1 integer
 df.army_controller_sub16 = {}
 
----@class army_controller_quest: df.struct
+---@class army_controller_quest: df.class
 ---@field artifact_id artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.army_controller_quest = {}
 
----@class army_controller_sub18: df.struct
+---@class army_controller_sub18: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.army_controller_sub18 = {}
 
----@class army_controller_sub19: df.struct
+---@class army_controller_sub19: df.class
 ---@field unk_1 integer[]
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.army_controller_sub19 = {}
 
----@class army_controller_sub20: df.struct
+---@class army_controller_sub20: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.army_controller_sub20 = {}
 
----@class army_controller_sub21: df.struct
+---@class army_controller_sub21: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.army_controller_sub21 = {}
 
----@class army_controller_sub22: df.struct
+---@class army_controller_sub22: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.army_controller_sub22 = {}
 
----@class army_controller_sub23: df.struct
+---@class army_controller_sub23: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.army_controller_sub23 = {}
 
----@class army_controller_villainous_visit: df.struct
+---@class army_controller_villainous_visit: df.class
 ---@field site_id world_site
 ---@field entity_id historical_entity
 ---@field abstract_building integer -1 before arrival
@@ -972,7 +972,7 @@ df.army_flags = {}
 ---@field unk_4407_1 item[]
 df.army = {}
 
----@class army_members: df.struct
+---@class army_members: df.class
 ---@field nemesis_id integer
 ---@field hunger_timer integer
 ---@field thirst_timer integer

@@ -695,10 +695,10 @@ df.language_translation = {}
 ---@field str string[]
 df.language_symbol = {}
 
----@class language_symbol_words: df.struct
+---@class language_symbol_words: df.class
 df.language_symbol.T_words = {}
 
----@class language_name: df.struct
+---@class language_name: df.class
 ---@field first_name string
 ---@field nickname string
 ---@field words language_word[]
@@ -708,7 +708,7 @@ df.language_symbol.T_words = {}
 ---@field has_name boolean
 df.language_name = {}
 
----@class language_word_table: df.struct
+---@class language_word_table: df.class
 ---word_selectorst
 ---@field words language_word[][]
 ---@field parts part_of_speech[][]

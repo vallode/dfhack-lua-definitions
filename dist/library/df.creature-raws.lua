@@ -1495,7 +1495,7 @@ df.appearance_modifier_growth_interval = {}
 ---@field [3] boolean
 ---@field YEARLY boolean
 
----@class body_part_layer_raw: df.struct
+---@class body_part_layer_raw: df.class
 ---@field layer_name string
 ---@field tissue_id integer
 ---@field flags any
@@ -1515,7 +1515,7 @@ df.appearance_modifier_growth_interval = {}
 ---@field styleable_id integer
 df.body_part_layer_raw = {}
 
----@class body_part_raw: df.struct
+---@class body_part_raw: df.class
 ---@field token string
 ---@field category string
 ---@field con_part_id integer
@@ -1543,7 +1543,7 @@ df.body_part_layer_raw = {}
 ---@field clothing_item_id integer
 df.body_part_raw = {}
 
----@class color_modifier_raw: df.struct
+---@class color_modifier_raw: df.class
 ---@field pattern_index integer[]
 ---@field pattern_frequency integer[]
 ---@field body_part_id integer[]
@@ -1561,7 +1561,7 @@ df.body_part_raw = {}
 ---@field unk_88 string[]
 df.color_modifier_raw = {}
 
----@class body_appearance_modifier: df.struct
+---@class body_appearance_modifier: df.class
 ---@field type appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
@@ -1579,7 +1579,7 @@ df.color_modifier_raw = {}
 ---@field id2 integer same as id
 df.body_appearance_modifier = {}
 
----@class bp_appearance_modifier: df.struct
+---@class bp_appearance_modifier: df.class
 ---@field type appearance_modifier_type
 ---@field ranges integer[]
 ---@field desc_range integer[]
@@ -1599,13 +1599,13 @@ df.body_appearance_modifier = {}
 ---@field id integer
 df.bp_appearance_modifier = {}
 
----@class bp_appearance_modifier_body_parts: df.struct
+---@class bp_appearance_modifier_body_parts: df.class
 df.bp_appearance_modifier.T_body_parts = {}
 
----@class bp_appearance_modifier_tissue_layer: df.struct
+---@class bp_appearance_modifier_tissue_layer: df.class
 df.bp_appearance_modifier.T_tissue_layer = {}
 
----@class caste_clothing_item: df.struct
+---@class caste_clothing_item: df.class
 ---@field body_part_id integer
 ---@field unk_4 integer
 ---@field item item[] under, over, cover
@@ -1615,7 +1615,7 @@ df.bp_appearance_modifier.T_tissue_layer = {}
 ---@field unk_38 integer[]
 df.caste_clothing_item = {}
 
----@class caste_attack: df.struct
+---@class caste_attack: df.class
 ---@field name string
 ---@field verb_3rd string
 ---@field verb_2nd string
@@ -1695,7 +1695,7 @@ df.gait_type = {}
 ---@field [4] boolean
 ---@field CLIMB boolean
 
----@class gait_info: df.struct
+---@class gait_info: df.class
 ---@field action_string_idx integer
 ---@field full_speed integer
 ---@field buildup_time integer
@@ -1748,7 +1748,7 @@ df.creature_interaction_target_flags = {}
 ---@field [4] boolean
 ---@field SELF_ONLY boolean
 
----@class creature_interaction: df.struct
+---@class creature_interaction: df.class
 ---@field bp_required_type string[]
 ---@field bp_required_name string[]
 ---@field unk_1 string
@@ -1797,7 +1797,7 @@ df.creature_interaction.T_flags = {}
 ---@field [2] boolean
 ---@field FREE_ACTION boolean
 
----@class caste_body_info: df.struct
+---@class caste_body_info: df.class
 ---@field body_parts body_part_raw[]
 ---@field attacks caste_attack[]
 ---@field interactions caste_body_info_interactions
@@ -1818,7 +1818,7 @@ df.creature_interaction.T_flags = {}
 ---@field unk_v40_2 integer[]
 df.caste_body_info = {}
 
----@class caste_body_info_interactions: df.struct
+---@class caste_body_info_interactions: df.class
 ---@field type caste_body_info.T_interactions_type
 ---@field interaction creature_interaction
 df.caste_body_info.T_interactions = {}
@@ -1840,7 +1840,7 @@ df.caste_body_info.T_interactions.T_type = {}
 ---@field [2] boolean
 ---@field ROOT_AROUND boolean
 
----@class caste_body_info_extra_butcher_objects: df.struct
+---@class caste_body_info_extra_butcher_objects: df.class
 ---@field unk_1 integer
 ---@field unk_2 string
 ---@field unk_3 integer
@@ -1856,16 +1856,16 @@ df.caste_body_info.T_interactions.T_type = {}
 ---@field unk_13 integer
 df.caste_body_info.T_extra_butcher_objects = {}
 
----@class caste_body_info_layer_part: df.struct
+---@class caste_body_info_layer_part: df.class
 df.caste_body_info.T_layer_part = {}
 
----@class caste_body_info_layer_idx: df.struct
+---@class caste_body_info_layer_idx: df.class
 df.caste_body_info.T_layer_idx = {}
 
----@class caste_body_info_layer_nonsolid: df.struct
+---@class caste_body_info_layer_nonsolid: df.class
 df.caste_body_info.T_layer_nonsolid = {}
 
----@class caste_body_info_nonsolid_layers: df.struct
+---@class caste_body_info_nonsolid_layers: df.class
 df.caste_body_info.T_nonsolid_layers = {}
 
 ---@class _caste_body_info_flags: df.bitfield
@@ -1877,7 +1877,7 @@ df.caste_body_info.T_flags = {}
 ---@field [0] boolean
 ---@field unk0 boolean
 
----@class caste_raw: df.struct
+---@class caste_raw: df.class
 ---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
 ---@field caste_id string
 ---@field caste_name string[]
@@ -1957,7 +1957,7 @@ df.caste_body_info.T_flags = {}
 ---@field unk_v50_4300 integer
 df.caste_raw = {}
 
----@class caste_raw_misc: df.struct
+---@class caste_raw_misc: df.class
 ---@field litter_size_min integer
 ---@field litter_size_max integer
 ---@field penetratepower integer
@@ -2003,13 +2003,13 @@ df.caste_raw = {}
 ---@field unk6 integer[] different from same save with 0.44.12
 df.caste_raw.T_misc = {}
 
----@class caste_raw_personality: df.struct
+---@class caste_raw_personality: df.class
 ---@field a integer[]
 ---@field b integer[]
 ---@field c integer[]
 df.caste_raw.T_personality = {}
 
----@class caste_raw_attributes: df.struct
+---@class caste_raw_attributes: df.class
 ---@field phys_att_range integer[][]
 ---@field ment_att_range integer[][]
 ---@field phys_att_rates integer[][]
@@ -2018,7 +2018,7 @@ df.caste_raw.T_personality = {}
 ---@field ment_att_cap_perc integer[]
 df.caste_raw.T_attributes = {}
 
----@class caste_raw_bp_appearance: df.struct
+---@class caste_raw_bp_appearance: df.class
 ---@field modifiers bp_appearance_modifier[]
 ---@field modifier_idx integer[]
 ---@field part_idx integer[]
@@ -2028,7 +2028,7 @@ df.caste_raw.T_attributes = {}
 ---@field style_list_idx integer[]
 df.caste_raw.T_bp_appearance = {}
 
----@class caste_raw_shearable_tissue_layer: df.struct
+---@class caste_raw_shearable_tissue_layer: df.class
 ---@field unk_0 integer
 ---@field unk_1 integer
 ---@field length integer
@@ -2037,15 +2037,15 @@ df.caste_raw.T_bp_appearance = {}
 ---@field bp_modifiers_idx integer[]
 df.caste_raw.T_shearable_tissue_layer = {}
 
----@class caste_raw_natural_skill_id: df.struct
+---@class caste_raw_natural_skill_id: df.class
 df.caste_raw.T_natural_skill_id = {}
 
----@class caste_raw_caste_profession_name: df.struct
+---@class caste_raw_caste_profession_name: df.class
 ---@field singular string[]
 ---@field plural string[]
 df.caste_raw.T_caste_profession_name = {}
 
----@class caste_raw_extracts: df.struct
+---@class caste_raw_extracts: df.class
 ---@field extract_mat integer[]
 ---@field extract_matidx integer[]
 ---@field extract_str string[][]
@@ -2085,10 +2085,10 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field lays_unusual_eggs_str string[][]
 df.caste_raw.T_extracts = {}
 
----@class caste_raw.T_extracts_lays_unusual_eggs_itemtype: df.struct
+---@class caste_raw.T_extracts_lays_unusual_eggs_itemtype: df.class
 df.caste_raw.T_extracts.T_lays_unusual_eggs_itemtype = {}
 
----@class caste_raw_secretion: df.struct
+---@class caste_raw_secretion: df.class
 ---@field mat_type material
 ---@field mat_index integer
 ---@field mat_state matter_state
@@ -2100,7 +2100,7 @@ df.caste_raw.T_extracts.T_lays_unusual_eggs_itemtype = {}
 ---@field cause integer 2 EXERTION, 1 EXTREME_EMOTION, 0 always?
 df.caste_raw.T_secretion = {}
 
----@class caste_raw_unknown2: df.struct
+---@class caste_raw_unknown2: df.class
 ---@field syndrome_dilution_identifier string[] SYNDROME_DILUTION_FACTOR
 ---@field syndrome_dilution_factor integer[] SYNDROME_DILUTION_FACTOR
 ---@field gobble_vermin_class string[]
@@ -2127,17 +2127,17 @@ df.caste_raw.T_secretion = {}
 ---@field mat_index integer
 df.caste_raw.T_unknown2 = {}
 
----@class caste_raw_lair_hunter_speech: df.struct
+---@class caste_raw_lair_hunter_speech: df.class
 ---@field unk_1 integer[]
 ---@field unk_2 any[]
 df.caste_raw.T_lair_hunter_speech = {}
 
----@class caste_raw_unk29: df.struct
+---@class caste_raw_unk29: df.class
 ---@field unk_1 any[]
 ---@field unk_2 integer[]
 df.caste_raw.T_unk29 = {}
 
----@class caste_raw_sound: df.struct
+---@class caste_raw_sound: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -2145,7 +2145,7 @@ df.caste_raw.T_unk29 = {}
 ---@field caption string[]
 df.caste_raw.T_sound = {}
 
----@class caste_raw_unk_1: df.struct
+---@class caste_raw_unk_1: df.class
 ---@field unk_1 string
 ---@field unk_2 string
 ---@field unk_3 string
@@ -2213,7 +2213,7 @@ df.tissue_style_type = {}
 ---@field [4] boolean
 ---@field CLEAN_SHAVEN boolean
 
----@class creature_raw_graphics: df.struct
+---@class creature_raw_graphics: df.class
 ---@field creature_texture_texpos integer[][][][]
 ---@field creature_texture_add_color boolean[]
 ---@field creature_texture_unk integer[][]
@@ -2231,7 +2231,7 @@ df.tissue_style_type = {}
 ---@field profession_vec_unk integer[][]
 df.creature_raw_graphics = {}
 
----@class tissue_style_raw: df.struct
+---@class tissue_style_raw: df.class
 ---@field token string
 ---@field part_idx integer[]
 ---@field layer_idx integer[]
@@ -2285,15 +2285,15 @@ df.tissue_style_raw = {}
 ---@field statute_texpos integer[]
 df.creature_raw = {}
 
----@class creature_raw_profession_name: df.struct
+---@class creature_raw_profession_name: df.class
 ---@field singular string[]
 ---@field plural string[]
 df.creature_raw.T_profession_name = {}
 
----@class creature_raw_modifier_class: df.struct
+---@class creature_raw_modifier_class: df.class
 df.creature_raw.T_modifier_class = {}
 
----@class creature_raw_hive_product: df.struct
+---@class creature_raw_hive_product: df.class
 ---@field number integer[]
 ---@field time integer[]
 ---@field item_type creature_raw.T_hive_product_item_type
@@ -2306,10 +2306,10 @@ df.creature_raw.T_modifier_class = {}
 ---@field tmpstr5 string[]
 df.creature_raw.T_hive_product = {}
 
----@class creature_raw.T_hive_product_item_type: df.struct
+---@class creature_raw.T_hive_product_item_type: df.class
 df.creature_raw.T_hive_product.T_item_type = {}
 
----@class creature_variation_convert_tag: df.struct
+---@class creature_variation_convert_tag: df.class
 ---@field cvct_master string
 ---@field cvct_target string
 ---@field cvct_replacement string
@@ -2486,7 +2486,7 @@ df.body_part_template_contype = {}
 ---@field [5] boolean
 ---@field STANCE boolean
 
----@class body_part_template: df.struct
+---@class body_part_template: df.class
 ---@field id string
 ---@field con string
 ---@field category string
@@ -2617,7 +2617,7 @@ df.tissue_flags = {}
 ---@field tissue_shape_str string
 df.tissue_template = {}
 
----@class tissue: df.struct
+---@class tissue: df.class
 ---@field id string
 ---@field flags any
 ---@field tissue_name_singular string

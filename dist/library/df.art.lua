@@ -26,7 +26,7 @@ df.art_image_element_type = {}
 ---@field [4] boolean
 ---@field ITEM boolean
 
----@class art_image_element: df.struct
+---@class art_image_element: df.class
 ---@field count integer
 df.art_image_element = {}
 
@@ -102,7 +102,7 @@ df.art_image_property_type = {}
 ---@field [1] boolean
 ---@field intransitive_verb boolean
 
----@class art_image_property: df.struct
+---@class art_image_property: df.class
 ---@field flags any
 df.art_image_property = {}
 
@@ -349,7 +349,7 @@ df.art_facet_type = {}
 ---@field [3] boolean
 ---@field EVIL boolean
 
----@class art_image: df.struct
+---@class art_image: df.class
 ---@field elements art_image_element[]
 ---@field properties art_image_property[]
 ---@field event history_event
@@ -372,7 +372,7 @@ df.art_image = {}
 ---@field images art_image[]
 df.art_image_chunk = {}
 
----@class art_image_ref: df.struct
+---@class art_image_ref: df.class
 ---@field id art_image_chunk
 ---@field subid art_image
 ---@field civ_id historical_entity
@@ -688,16 +688,16 @@ df.poetic_form_subject = {}
 ---@field [21] boolean
 ---@field Concept boolean
 
----@class poetic_form_subject_target: df.struct
+---@class poetic_form_subject_target: df.class
 ---@field Histfig poetic_form_subject_target_Histfig
 ---@field Concept poetic_form_subject_target_Concept
 df.poetic_form_subject_target = {}
 
----@class poetic_form_subject_target_Histfig: df.struct
+---@class poetic_form_subject_target_Histfig: df.class
 ---@field subject_histfig historical_figure
 df.poetic_form_subject_target.T_Histfig = {}
 
----@class poetic_form_subject_target_Concept: df.struct
+---@class poetic_form_subject_target_Concept: df.class
 ---@field subject_topic sphere_type
 df.poetic_form_subject_target.T_Concept = {}
 
@@ -869,10 +869,10 @@ df.poetic_form.T_flags = {}
 ---@field [1] boolean
 ---@field produces_individual_poems boolean
 
----@class poetic_form_common_features: df.struct
+---@class poetic_form_common_features: df.class
 df.poetic_form.T_common_features = {}
 
----@class poetic_form_part: df.struct
+---@class poetic_form_part: df.class
 ---@field flags poetic_form_part_flags
 ---@field count_min integer
 ---@field count_max integer
@@ -915,31 +915,31 @@ df.poetic_form_part.T_flags = {}
 ---@field [0] boolean
 ---@field size_in_lines boolean
 
----@class poetic_form_part_line_patterns: df.struct
+---@class poetic_form_part_line_patterns: df.class
 df.poetic_form_part.T_line_patterns = {}
 
----@class poetic_form_part_line_caesura_positions: df.struct
+---@class poetic_form_part_line_caesura_positions: df.class
 df.poetic_form_part.T_line_caesura_positions = {}
 
----@class poetic_form_part_line_features: df.struct
+---@class poetic_form_part_line_features: df.class
 df.poetic_form_part.T_line_features = {}
 
----@class poetic_form_part_additional_features: df.struct
+---@class poetic_form_part_additional_features: df.class
 df.poetic_form_part.T_additional_features = {}
 
----@class poetic_form_part_line_mood: df.struct
+---@class poetic_form_part_line_mood: df.class
 df.poetic_form_part.T_line_mood = {}
 
----@class poetic_form_part_line_subject: df.struct
+---@class poetic_form_part_line_subject: df.class
 df.poetic_form_part.T_line_subject = {}
 
----@class poetic_form_part_line_action: df.struct
+---@class poetic_form_part_line_action: df.class
 df.poetic_form_part.T_line_action = {}
 
----@class poetic_form_part_certain_lines_additional_features: df.struct
+---@class poetic_form_part_certain_lines_additional_features: df.class
 df.poetic_form_part.T_certain_lines_additional_features = {}
 
----@class poetic_form_perspective: df.struct
+---@class poetic_form_perspective: df.class
 ---@field type poetic_form_perspective_type
 ---@field histfig historical_figure
 ---@field unk_1 integer
@@ -1543,7 +1543,7 @@ df.musical_form_melody_frequency = {}
 ---@field [2] boolean
 ---@field Sometimes boolean
 
----@class musical_form_interval: df.struct
+---@class musical_form_interval: df.class
 ---@field degree integer
 ---@field flags musical_form_interval_flags
 df.musical_form_interval = {}
@@ -1565,14 +1565,14 @@ df.musical_form_interval.T_flags = {}
 ---@field [2] boolean
 ---@field sharpened boolean
 
----@class musical_form_melodies: df.struct
+---@class musical_form_melodies: df.class
 ---@field style musical_form_melody_style
 ---@field frequency musical_form_melody_frequency
 ---@field intervals musical_form_interval[]
 ---@field features musical_form_feature
 df.musical_form_melodies = {}
 
----@class musical_form_passage: df.struct
+---@class musical_form_passage: df.class
 ---@field type musical_form_passage_type
 ---@field passage_reference integer used when doing Exposition, Recapitualation, Synthesis, and Variation
 ---@field passage_range_end integer when doing Synthesis of a range of passages
@@ -1600,13 +1600,13 @@ df.musical_form_melodies = {}
 ---@field unk_23 integer 0-78 seen
 df.musical_form_passage = {}
 
----@class musical_form_passage_components: df.struct
+---@class musical_form_passage_components: df.class
 df.musical_form_passage.T_components = {}
 
----@class musical_form_passage_passage_lengths: df.struct
+---@class musical_form_passage_passage_lengths: df.class
 df.musical_form_passage.T_passage_lengths = {}
 
----@class musical_form_instruments: df.struct
+---@class musical_form_instruments: df.class
 ---@field instrument_subtype itemdef_instrumentst -1 = vocal
 ---@field substitutions musical_form_instruments_substitutions
 ---@field features musical_form_feature
@@ -1633,7 +1633,7 @@ df.musical_form_instruments.T_substitutions = {}
 ---@field [2] boolean
 ---@field chanter boolean
 
----@class musical_form_sub4: df.struct
+---@class musical_form_sub4: df.class
 ---@field passage integer the passage index this structure refers to
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -2248,7 +2248,7 @@ df.dance_form_move_location = {}
 ---@field [7] boolean
 ---@field Follower boolean
 
----@class dance_form_section: df.struct
+---@class dance_form_section: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -2270,16 +2270,16 @@ df.dance_form_move_location = {}
 ---@field id integer
 df.dance_form_section = {}
 
----@class dance_form_section_partner_changes: df.struct
+---@class dance_form_section_partner_changes: df.class
 df.dance_form_section.T_partner_changes = {}
 
----@class dance_form_section_type: df.struct
+---@class dance_form_section_type: df.class
 df.dance_form_section.T_type = {}
 
----@class dance_form_section_modifier: df.struct
+---@class dance_form_section_modifier: df.class
 df.dance_form_section.T_modifier = {}
 
----@class dance_form_section_location: df.struct
+---@class dance_form_section_location: df.class
 df.dance_form_section.T_location = {}
 
 ---@class _dance_form_move_group_type: df.enum
@@ -2307,7 +2307,7 @@ df.dance_form_move_group_type = {}
 ---@field [4] boolean
 ---@field DanceMove boolean
 
----@class dance_form_move: df.struct
+---@class dance_form_move: df.class
 ---@field name string
 ---@field type dance_form_move_type
 ---@field modifier dance_form_move_modifier
@@ -2316,13 +2316,13 @@ df.dance_form_move_group_type = {}
 ---@field group_type dance_form_move_group_type
 df.dance_form_move = {}
 
----@class dance_form_move_type: df.struct
+---@class dance_form_move_type: df.class
 df.dance_form_move.T_type = {}
 
----@class dance_form_move_modifier: df.struct
+---@class dance_form_move_modifier: df.class
 df.dance_form_move.T_modifier = {}
 
----@class dance_form_move_location: df.struct
+---@class dance_form_move_location: df.class
 df.dance_form_move.T_location = {}
 
 ---@class dance_form: df.instance
@@ -2356,16 +2356,16 @@ df.dance_form_move.T_location = {}
 ---@field moves dance_form_move[]
 df.dance_form = {}
 
----@class dance_form_partner_changes: df.struct
+---@class dance_form_partner_changes: df.class
 df.dance_form.T_partner_changes = {}
 
----@class dance_form_move_type: df.struct
+---@class dance_form_move_type: df.class
 df.dance_form.T_move_type = {}
 
----@class dance_form_move_modifier: df.struct
+---@class dance_form_move_modifier: df.class
 df.dance_form.T_move_modifier = {}
 
----@class dance_form_move_location: df.struct
+---@class dance_form_move_location: df.class
 df.dance_form.T_move_location = {}
 
 ---@class _scale_type: df.enum
@@ -2385,14 +2385,14 @@ df.scale_type = {}
 ---@field [2] boolean
 ---@field PerfectFourth boolean
 
----@class chord: df.struct
+---@class chord: df.class
 ---@field name string
 ---@field notes integer[] chord_size entries used. Refers to the notes indices
 ---@field chord_size integer
 ---@field unk_3 integer 0 and 1 seen
 df.chord = {}
 
----@class named_scale: df.struct
+---@class named_scale: df.class
 ---Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
 ---@field unk_1 integer 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
 ---@field name string
@@ -2422,7 +2422,7 @@ df.scale.T_flags = {}
 ---@field [0] boolean
 ---@field tonic_note_fixed_at_performance boolean
 
----@class scale_notes: df.struct
+---@class scale_notes: df.class
 ---Curiously, the named notes do not have to match the number of defined notes
 ---@field unk_1 integer Frequently looks like garbage for all values of type. Suspect it's actually a filler
 ---@field name string[]
@@ -2491,7 +2491,7 @@ df.beat_type = {}
 ---@field [11] boolean
 ---@field AccentedSyncopated boolean
 
----@class rhythm_pattern: df.struct
+---@class rhythm_pattern: df.class
 ---@field name string
 ---@field bars rhythm_pattern_bars
 ---@field beat_name string length as per length field
@@ -2499,12 +2499,12 @@ df.beat_type = {}
 ---@field length integer
 df.rhythm_pattern = {}
 
----@class rhythm_pattern_bars: df.struct
+---@class rhythm_pattern_bars: df.class
 ---@field beat beat_type Length as per length field
 ---@field length integer
 df.rhythm_pattern.T_bars = {}
 
----@class sub_rhythm: df.struct
+---@class sub_rhythm: df.class
 ---@field name string
 ---@field patterns integer[] indices into patterns
 ---@field unk_2 integer[] Same length as patterns, but with unknown purpose
@@ -2575,7 +2575,7 @@ df.occupation_type = {}
 ---@field unk_5 abstract_building When these haven't crashed the data has been nonsensical. Has seen duplicate of unk_4 pointer value
 df.occupation = {}
 
----@class occupation_sub1: df.struct
+---@class occupation_sub1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer

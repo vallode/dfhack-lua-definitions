@@ -1,17 +1,17 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.graphics
 
----@class large_integer: df.struct
+---@class large_integer: df.class
 ---@field u large_integer_u
 ---@field quad_part integer
 df.large_integer = {}
 
----@class large_integer_u: df.struct
+---@class large_integer_u: df.class
 ---@field low_part number
 ---@field high_part number
 df.large_integer.T_u = {}
 
----@class musicsoundst: df.struct
+---@class musicsoundst: df.class
 ---@field soft_channel_number integer
 ---@field song integer
 ---@field music_active boolean
@@ -42,7 +42,7 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@field [2] boolean
 ---@field ESD boolean
 
----@class fmod_sound: df.struct
+---@class fmod_sound: df.class
 ---@field sound integer
 ---@field channel integer
 df.fmod_sound = {}
@@ -101,7 +101,7 @@ df.cmv_attribute = {}
 ---@field [2] boolean
 ---@field bright boolean
 
----@class graphic_viewportst: df.struct
+---@class graphic_viewportst: df.class
 ---@field flag integer
 ---@field dim_x integer
 ---@field dim_y integer
@@ -163,7 +163,7 @@ df.cmv_attribute = {}
 ---@field shadow_tree_species_plus_one integer
 df.graphic_viewportst = {}
 
----@class graphic_map_portst: df.struct
+---@class graphic_map_portst: df.class
 ---@field flag integer
 ---@field dim_x integer
 ---@field dim_y integer
@@ -228,20 +228,20 @@ df.graphic_viewportst = {}
 ---@field edge_biome_se integer
 df.graphic_map_portst = {}
 
----@class cached_texturest: df.struct
+---@class cached_texturest: df.class
 ---@field w integer
 ---@field h integer
 ---@field tex integer
 ---@field tex_n integer
 df.cached_texturest = {}
 
----@class texblitst: df.struct
+---@class texblitst: df.class
 ---@field x integer
 ---@field y integer
 ---@field tex integer
 df.texblitst = {}
 
----@class graphic: df.struct
+---@class graphic: df.class
 ---@field viewport graphic_viewportst[]
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
@@ -311,7 +311,7 @@ df.texblitst = {}
 ---@field tileset graphic_tileset
 df.graphic = {}
 
----@class graphic_tileset: df.struct
+---@class graphic_tileset: df.class
 ---@field black_background_texpos number[]
 ---@field texture_indices1 integer[]
 ---@field texpos_custom_symbol integer[]
@@ -323,7 +323,7 @@ df.graphic = {}
 ---@field texture_indices4 integer[]
 df.graphic.T_tileset = {}
 
----@class interface_setst: df.struct
+---@class interface_setst: df.class
 ---@field texpos_calendar_month integer[][]
 ---@field texpos_calendar_day_past integer[]
 ---@field texpos_calendar_day_current integer[]
@@ -518,7 +518,7 @@ df.graphic.T_tileset = {}
 ---@field texpos_bottom_button_border_e integer
 df.interface_setst = {}
 
----@class renderer: df.struct
+---@class renderer: df.class
 ---@field screen integer
 ---@field screentexpos number
 ---@field screentexpos_lower number
@@ -676,7 +676,7 @@ df.zoom_commands = {}
 ---@field [4] boolean
 ---@field zoom_resetgrid boolean
 
----@class enabler: df.struct
+---@class enabler: df.class
 ---@field fullscreen_state enabler_fullscreen_state
 ---@field overridden_grid_sizes integer
 ---@field renderer renderer
@@ -735,19 +735,19 @@ df.enabler.T_fullscreen_state = {}
 ---@field [1] boolean
 ---@field exclusive boolean
 
----@class enabler_async_tobox: df.struct
+---@class enabler_async_tobox: df.class
 ---@field mtx any
 ---@field cv any
 ---@field vals any
 df.enabler.T_async_tobox = {}
 
----@class enabler_async_frombox: df.struct
+---@class enabler_async_frombox: df.class
 ---@field mtx any
 ---@field cv any
 ---@field vals any
 df.enabler.T_async_frombox = {}
 
----@class enabler_async_zoom: df.struct
+---@class enabler_async_zoom: df.class
 ---@field mtx any
 ---@field cv any
 ---@field vals zoom_commands
@@ -766,7 +766,7 @@ df.enabler.T_flag = {}
 ---@field [1] boolean
 ---@field maxfps boolean
 
----@class enabler_textures: df.struct
+---@class enabler_textures: df.class
 ---@field raws integer[]
 ---@field free_spaces integer[]
 ---@field init_texture_size integer
@@ -801,7 +801,7 @@ df.justification = {}
 ---@field [4] boolean
 ---@field not_truetype boolean
 
----@class tile_pagest: df.struct
+---@class tile_pagest: df.class
 ---@field token string
 ---@field graphics_dir string
 ---@field filename string
@@ -816,7 +816,7 @@ df.justification = {}
 ---@field loaded boolean
 df.tile_pagest = {}
 
----@class palette_pagest: df.struct
+---@class palette_pagest: df.class
 ---@field token string
 ---@field graphics_dir string
 ---@field filename string
@@ -825,7 +825,7 @@ df.tile_pagest = {}
 ---@field color_row integer[]
 df.palette_pagest = {}
 
----@class texture_handlerst: df.struct
+---@class texture_handlerst: df.class
 ---@field page tile_pagest[]
 ---@field palette palette_pagest[]
 df.texture_handlerst = {}

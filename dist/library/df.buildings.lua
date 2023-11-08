@@ -353,7 +353,7 @@ df.building_extents_type = {}
 ---@field [4] boolean
 ---@field DistanceBoundary boolean
 
----@class building_extents: df.struct
+---@class building_extents: df.class
 ---@field extents building_extents_type
 ---@field x integer
 ---@field y integer
@@ -361,7 +361,7 @@ df.building_extents_type = {}
 ---@field height integer
 df.building_extents = {}
 
----@class building_drawbuffer: df.struct
+---@class building_drawbuffer: df.class
 ---@field texpos1 integer[][]
 ---@field texpos2 integer[][]
 ---@field texpos3 integer[][]
@@ -404,13 +404,13 @@ df.building_drawbuffer = {}
 ---@field location_id abstract_building
 df.building = {}
 
----@class building_job_claim_suppress: df.struct
+---@class building_job_claim_suppress: df.class
 ---after Remv Cre, prevents unit from taking jobs at building
 ---@field unit unit
 ---@field timer integer
 df.building.T_job_claim_suppress = {}
 
----@class building_activities: df.struct
+---@class building_activities: df.class
 ---@field activity_id activity_entry
 ---@field event_id activity_event
 df.building.T_activities = {}
@@ -633,7 +633,7 @@ function df.building:setSpecificSquadPos() end
 
 function df.building:clearSpecificSquad() end
 
----@class stockpile_links: df.struct
+---@class stockpile_links: df.class
 ---@field give_to_pile building[]
 ---@field take_from_pile building[]
 ---@field give_to_workshop building[]
@@ -655,10 +655,10 @@ df.stockpile_links = {}
 ---@field linked_stops hauling_stop[]
 df.building_stockpilest = {}
 
----@class building_stockpilest_container_type: df.struct
+---@class building_stockpilest_container_type: df.class
 df.building_stockpilest.T_container_type = {}
 
----@class hospital_supplies: df.struct
+---@class hospital_supplies: df.class
 ---@field supplies_needed hospital_supplies_supplies_needed
 ---@field max_splints integer
 ---@field max_thread integer
@@ -1120,7 +1120,7 @@ df.civzone_type = {}
 ---@field squad_room_info building_civzonest_squad_room_info
 df.building_civzonest = {}
 
----@class building_civzonest_zone_settings: df.struct
+---@class building_civzonest_zone_settings: df.class
 ---@field whole building_civzonest.T_zone_settings_whole
 ---@field gather building_civzonest.T_zone_settings_gather
 ---@field pen building_civzonest.T_zone_settings_pen
@@ -1129,7 +1129,7 @@ df.building_civzonest = {}
 ---@field pit_pond building_civzonest.T_zone_settings_pit_pond
 df.building_civzonest.T_zone_settings = {}
 
----@class building_civzonest.T_zone_settings_whole: df.struct
+---@class building_civzonest.T_zone_settings_whole: df.class
 ---@field i1 integer
 ---@field i2 integer
 df.building_civzonest.T_zone_settings.T_whole = {}
@@ -1151,7 +1151,7 @@ df.building_civzonest.T_zone_settings.T_gather = {}
 ---@field [2] boolean
 ---@field gather_fallen boolean
 
----@class building_civzonest.T_zone_settings_pen: df.struct
+---@class building_civzonest.T_zone_settings_pen: df.class
 ---@field unk integer
 df.building_civzonest.T_zone_settings.T_pen = {}
 
@@ -1168,7 +1168,7 @@ df.building_civzonest.T_zone_settings.T_tomb = {}
 ---@field [1] boolean
 ---@field no_citizens boolean
 
----@class building_civzonest.T_zone_settings_archery: df.struct
+---@class building_civzonest.T_zone_settings_archery: df.class
 ---@field dir_x integer
 ---@field dir_y integer
 df.building_civzonest.T_zone_settings.T_archery = {}
@@ -1186,7 +1186,7 @@ df.building_civzonest.T_zone_settings.T_pit_pond = {}
 ---@field [1] boolean
 ---@field top_of_pond boolean
 
----@class building_civzonest_squad_room_info: df.struct
+---@class building_civzonest_squad_room_info: df.class
 ---@field squad_id integer
 ---@field mode squad_use_flags
 df.building_civzonest.T_squad_room_info = {}
@@ -1197,14 +1197,14 @@ df.building_civzonest.T_squad_room_info = {}
 ---@field design building_design
 df.building_actual = {}
 
----@class building_actual_contained_items: df.struct
+---@class building_actual_contained_items: df.class
 ---@field item item
 ---@field use_mode integer
 df.building_actual.T_contained_items = {}
 
 function df.building_actual:isDestroyedByItemRemoval() end
 
----@class building_design: df.struct
+---@class building_design: df.class
 ---@field builder1 historical_figure
 ---@field unk5 integer
 ---@field build_skill integer
@@ -1396,7 +1396,7 @@ df.workshop_type = {}
 ---@type { [string|integer]: workshop_type_attr }
 df.workshop_type.attrs = {}
 
----@class workshop_profile: df.struct
+---@class workshop_profile: df.class
 ---@field permitted_workers integer[]
 ---@field min_level integer
 ---@field max_level integer
@@ -1438,7 +1438,7 @@ df.building_bars_verticalst = {}
 ---@field timer integer
 df.building_bars_floorst = {}
 
----@class building_users: df.struct
+---@class building_users: df.class
 ---@field unit integer[]
 ---@field mode integer[]
 df.building_users = {}
@@ -1979,7 +1979,7 @@ df.trap_type = {}
 ---@field [5] boolean
 ---@field TrackStop boolean
 
----@class pressure_plate_info: df.struct
+---@class pressure_plate_info: df.class
 ---@field unit_min integer
 ---@field unit_max integer
 ---@field water_min integer
@@ -2062,7 +2062,7 @@ df.building_wagonst = {}
 ---@field timer integer
 df.building_weaponst = {}
 
----@class building_squad_use: df.struct
+---@class building_squad_use: df.class
 ---@field squad_id squad
 ---@field mode squad_use_flags
 df.building_squad_use = {}

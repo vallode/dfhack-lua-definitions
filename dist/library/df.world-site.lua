@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.world-site
 
----@class scribejob: df.struct
+---@class scribejob: df.class
 ---@field idmaybe integer
 ---@field unk_1 integer not locationid
 ---@field item_id integer
@@ -11,7 +11,7 @@
 ---@field unk_2 integer
 df.scribejob = {}
 
----@class site_reputation_report: df.struct
+---@class site_reputation_report: df.class
 ---@field site_id integer
 ---@field location_id integer
 ---@field unk_1 integer
@@ -21,11 +21,11 @@ df.scribejob = {}
 ---@field unk_3 integer[]
 df.site_reputation_report = {}
 
----@class site_reputation_info: df.struct
+---@class site_reputation_info: df.class
 ---@field reports site_reputation_report[]
 df.site_reputation_info = {}
 
----@class location_scribe_jobs: df.struct
+---@class location_scribe_jobs: df.class
 ---@field scribejobs scribejob[]
 ---@field nextidmaybe integer
 ---@field year integer
@@ -134,13 +134,13 @@ df.abstract_building_flags = {}
 ---@field [7] boolean
 ---@field Unk7 boolean
 
----@class abstract_building_entombed: df.struct
+---@class abstract_building_entombed: df.class
 ---used within Tomb and Dungeon
 ---@field populations abstract_building_entombed_populations
 ---@field histfigs integer[]
 df.abstract_building_entombed = {}
 
----@class abstract_building_entombed_populations: df.struct
+---@class abstract_building_entombed_populations: df.class
 ---@field count integer
 ---@field race creature_raw
 ---@field population entity_population
@@ -151,7 +151,7 @@ df.abstract_building_entombed = {}
 ---@field unk_8 integer seen values 0, 6
 df.abstract_building_entombed.T_populations = {}
 
----@class abstract_building_contents: df.struct
+---@class abstract_building_contents: df.class
 ---used within Temple, Library, and Inn/Tavern
 ---@field need_more abstract_building_contents_need_more
 ---@field profession profession
@@ -232,7 +232,7 @@ df.abstract_building_contents.T_need_more = {}
 ---@field [10] boolean
 ---@field soap boolean
 
----@class abstract_building: df.struct
+---@class abstract_building: df.class
 ---@field id integer
 ---@field inhabitants abstract_building_inhabitants
 ---@field flags any
@@ -249,7 +249,7 @@ df.abstract_building_contents.T_need_more = {}
 ---@field occupations occupation[]
 df.abstract_building = {}
 
----@class abstract_building_inhabitants: df.struct
+---@class abstract_building_inhabitants: df.class
 ---@field unk_1 integer
 ---@field histfig_id historical_figure
 df.abstract_building.T_inhabitants = {}
@@ -308,7 +308,7 @@ df.temple_deity_type = {}
 ---@field [2] boolean
 ---@field Religion boolean
 
----@class temple_deity_data: df.struct
+---@class temple_deity_data: df.class
 ---@field Deity historical_figure
 ---@field Religion historical_entity
 df.temple_deity_data = {}
@@ -373,7 +373,7 @@ df.abstract_building_underworld_spirest = {}
 ---@field next_room_info_id integer
 df.abstract_building_inn_tavernst = {}
 
----@class abstract_building_inn_tavernst_room_info: df.struct
+---@class abstract_building_inn_tavernst_room_info: df.class
 ---@field id integer
 ---@field unk_1 string
 ---@field world_x integer
@@ -579,7 +579,7 @@ df.lair_type = {}
 ---@field [5] boolean
 ---@field WILDERNESS_LOCATION boolean
 
----@class property_ownership: df.struct
+---@class property_ownership: df.class
 ---@field index integer
 ---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
 ---@field pad_1 any
@@ -682,7 +682,7 @@ df.property_ownership = {}
 ---@field unk_25 any[]
 df.world_site = {}
 
----@class world_site_unk_1: df.struct
+---@class world_site_unk_1: df.class
 ---@field nemesis integer[]
 ---@field artifacts artifact_record[]
 ---@field animals world_population[]
@@ -700,7 +700,7 @@ df.world_site = {}
 ---@field unk_v40_1h nemesis_record[]
 df.world_site.T_unk_1 = {}
 
----@class world_site.T_unk_1_units: df.struct
+---@class world_site.T_unk_1_units: df.class
 ---@field unit_id unit
 ---@field pos_x integer
 ---@field pos_y integer
@@ -708,7 +708,7 @@ df.world_site.T_unk_1 = {}
 ---@field unk_10 integer
 df.world_site.T_unk_1.T_units = {}
 
----@class world_site_unk_13c: df.struct
+---@class world_site_unk_13c: df.class
 ---MountainHall, Town, DarkFortress, but not all
 ---@field unk_0 integer
 ---@field unk_4 integer
@@ -719,7 +719,7 @@ df.world_site.T_unk_1.T_units = {}
 ---@field unk_30 integer
 df.world_site.T_unk_13c = {}
 
----@class world_site_unk_v40_2: df.struct
+---@class world_site_unk_v40_2: df.class
 ---forest retreat
 ---@field unk_0 integer
 ---@field unk_4 integer
@@ -730,11 +730,11 @@ df.world_site.T_unk_13c = {}
 ---@field unk_30 integer
 df.world_site.T_unk_v40_2 = {}
 
----@class world_site_unk_v47_1: df.struct
+---@class world_site_unk_v47_1: df.class
 ---Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
 df.world_site.T_unk_v47_1 = {}
 
----@class world_site_unk_21c: df.struct
+---@class world_site_unk_21c: df.class
 ---@field unk_0 integer
 ---@field race integer
 ---@field entity_id historical_entity failed to see any connections between these entities and the sites. Might be something else
@@ -745,7 +745,7 @@ df.world_site.T_unk_v47_1 = {}
 ---@field unk_1c integer
 df.world_site.T_unk_21c = {}
 
----@class world_site_unk_v40_4a: df.struct
+---@class world_site_unk_v40_4a: df.class
 ---@field unk_0 integer
 ---@field entity_id historical_entity
 ---@field year integer
@@ -754,12 +754,12 @@ df.world_site.T_unk_21c = {}
 ---@field unk_14 integer
 df.world_site.T_unk_v40_4a = {}
 
----@class world_site_unk_v40_4b: df.struct
+---@class world_site_unk_v40_4b: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.world_site.T_unk_v40_4b = {}
 
----@class world_site_unk_v40_4c: df.struct
+---@class world_site_unk_v40_4c: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer[]
@@ -767,7 +767,7 @@ df.world_site.T_unk_v40_4b = {}
 ---@field unk_5 integer
 df.world_site.T_unk_v40_4c = {}
 
----@class world_site_unk_v40_4d: df.struct
+---@class world_site_unk_v40_4d: df.class
 ---only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field id integer
 ---@field unk_1 world_site.T_unk_v40_4d_unk_1
@@ -775,7 +775,7 @@ df.world_site.T_unk_v40_4c = {}
 ---@field entity_id historical_entity single attacking site civ is only one seen
 df.world_site.T_unk_v40_4d = {}
 
----@class world_site.T_unk_v40_4d_unk_1: df.struct
+---@class world_site.T_unk_v40_4d_unk_1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer might be race
 ---@field unk_3 integer
@@ -786,7 +786,7 @@ df.world_site.T_unk_v40_4d = {}
 ---@field unk_8 integer
 df.world_site.T_unk_v40_4d.T_unk_1 = {}
 
----@class world_site_unk_v43_2: df.struct
+---@class world_site_unk_v43_2: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -824,7 +824,7 @@ df.world_site.T_unk_v43_2 = {}
 ---@field unk_f8 integer
 df.cultural_identity = {}
 
----@class cultural_identity_group_log: df.struct
+---@class cultural_identity_group_log: df.class
 ---the circumstances of groups joining or leaving this culture
 ---@field group_id historical_entity
 ---@field start_year integer when the group joined the culture, or -1 if it founded the culture
@@ -857,13 +857,13 @@ df.cultural_identity.T_group_log.T_join_type = {}
 ---@field [2] boolean
 ---@field TakeOver boolean
 
----@class cultural_identity_unk_1: df.struct
+---@class cultural_identity_unk_1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.cultural_identity.T_unk_1 = {}
 
----@class cultural_identity_unk_2: df.struct
+---@class cultural_identity_unk_2: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -871,7 +871,7 @@ df.cultural_identity.T_unk_1 = {}
 ---@field unk_5 integer
 df.cultural_identity.T_unk_2 = {}
 
----@class world_site_inhabitant: df.struct
+---@class world_site_inhabitant: df.class
 ---@field count integer
 ---@field race creature_raw
 ---@field population_id entity_population
@@ -885,7 +885,7 @@ df.cultural_identity.T_unk_2 = {}
 ---@field unk_28 integer
 df.world_site_inhabitant = {}
 
----@class world_site_realization: df.struct
+---@class world_site_realization: df.class
 ---@field buildings site_realization_building[]
 ---@field num_buildings integer
 ---@field unk_14 integer
@@ -941,7 +941,7 @@ df.world_site_inhabitant = {}
 ---@field unk_wsr_vector any[]
 df.world_site_realization = {}
 
----@class world_site_realization_areas: df.struct
+---@class world_site_realization_areas: df.class
 ---@field type world_site_realization.T_areas_type
 ---@field index integer
 ---@field unk_8 integer
@@ -994,7 +994,7 @@ df.world_site_realization.T_areas.T_type = {}
 ---@field [8] boolean
 ---@field Unknown1 boolean
 
----@class site_realization_crossroads: df.struct
+---@class site_realization_crossroads: df.class
 ---@field road_min_y integer[]
 ---@field road_max_y integer[]
 ---@field road_min_x integer[]
@@ -1165,7 +1165,7 @@ df.site_realization_building_type = {}
 ---@field [31] boolean
 ---@field barrow boolean
 
----@class site_realization_building: df.struct
+---@class site_realization_building: df.class
 ---@field id integer
 ---@field type site_realization_building_type
 ---@field min_x integer in tiles relative to site
@@ -1185,7 +1185,7 @@ df.site_realization_building_type = {}
 ---@field unk_v40_1 integer
 df.site_realization_building = {}
 
----@class site_realization_building_unk_4c: df.struct
+---@class site_realization_building_unk_4c: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
 ---@field owner historical_entity
@@ -1194,7 +1194,7 @@ df.site_realization_building = {}
 ---@field unk_14 integer
 df.site_realization_building.T_unk_4c = {}
 
----@class site_realization_building_infost: df.struct
+---@class site_realization_building_infost: df.class
 df.site_realization_building_infost = {}
 
 function df.site_realization_building_infost:getType() end
@@ -1206,7 +1206,7 @@ function df.site_realization_building_infost:write_file(file) end
 ---@param loadversion any
 function df.site_realization_building_infost:read_file(file, loadversion) end
 
----@class site_building_item: df.struct
+---@class site_building_item: df.class
 ---@field race creature_raw
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -1547,7 +1547,7 @@ df.creation_zone_pwg_alteration_type = {}
 ---@field [3] boolean
 ---@field srp_ruined boolean
 
----@class creation_zone_pwg_alterationst: df.struct
+---@class creation_zone_pwg_alterationst: df.class
 ---@field unk_0 integer
 df.creation_zone_pwg_alterationst = {}
 
@@ -1565,12 +1565,12 @@ function df.creation_zone_pwg_alterationst:read_file(file, loadversion) end
 ---@field unk_2 integer
 df.creation_zone_pwg_alteration_location_deathst = {}
 
----@class creation_zone_pwg_alteration_location_deathst_unk_1: df.struct
+---@class creation_zone_pwg_alteration_location_deathst_unk_1: df.class
 ---@field unk_1a creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a
 ---@field unk_2a integer[]
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 
----@class creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a: df.struct
+---@class creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
