@@ -30,6 +30,10 @@ Dir.glob(ARGV[0]).each do |xml|
 
     # Provided files should have a single `<data-definition>` root node.
     definitions = document.css('data-definition > *')
+
+    # <code-helper> tags have no use (yet)
+    definitions.xpath("//code-helper").remove
+
     lua_annotations = {}
 
     # Write globals separately as they only exist in df.global.xml
