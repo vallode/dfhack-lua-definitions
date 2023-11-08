@@ -1,5 +1,6 @@
 {
   "Lua.workspace.library": [
     "/home/vallode/Documents/dfhack-lua-annotations/dist/library"
-  ]
+  ],
+  "rubyLsp.bundleGemfile": "../src/Gemfile",
 }

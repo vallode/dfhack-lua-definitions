@@ -1,4 +1,6 @@
-RESERVED_KEYWORDS = ["local"]
+# frozen_string_literal: true
+
+RESERVED_KEYWORDS = ['local'].freeze
 
 class XmlNode
   attr_reader :node
@@ -25,20 +27,20 @@ class XmlNode
 
   def self.parse_type(string, default = nil)
     case string
-    when "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t", "size_t"
-      "integer"
-    when "s-float", "d-float", "long", "ulong"
-      "number"
-    when "ptr-string", "stl-string", "static-string"
-      "string"
-    when "bool", "stl-bit-vector", "df-flagarray"
-      "boolean"
-    when "stl-function"
-      "function"
-    when "enum-item", "flag-bit", "pointer", "padding", "stl-vector"
-      "integer"
-    when "stl-mutex", "stl-condition-variable", "stl-deque", "stl-fstream", "stl-unordered-map"
-      "lightuserdata"
+    when 'int8_t', 'uint8_t', 'int16_t', 'uint16_t', 'int32_t', 'uint32_t', 'int64_t', 'uint64_t', 'size_t'
+      'integer'
+    when 's-float', 'd-float', 'long', 'ulong'
+      'number'
+    when 'ptr-string', 'stl-string', 'static-string'
+      'string'
+    when 'bool', 'stl-bit-vector', 'df-flagarray'
+      'boolean'
+    when 'stl-function'
+      'function'
+    when 'enum-item', 'flag-bit', 'pointer', 'padding', 'stl-vector'
+      'integer'
+    when 'stl-mutex', 'stl-condition-variable', 'stl-deque', 'stl-fstream', 'stl-unordered-map'
+      'lightuserdata'
     else
       default
     end
@@ -53,28 +55,20 @@ class Field < XmlNode
 
     @name = node.attributes['name']
     @is_inline = is_inline
-    @is_array = ['stl-vector', 'static-array', 'stl-bit-vector', "df-flagarray"].include?(node.name)
-    @type =  @is_inline ? "#{parent_type}_#{@name}#{'[]' if @is_array}" : Field.get_type(node)
+    @is_array = %w[stl-vector static-array stl-bit-vector df-flagarray].include?(node.name)
+    @type = @is_inline ? "#{parent_type}_#{@name}#{'[]' if @is_array}" : Field.get_type(node)
   end
-  
+
   def is_inline
-    if @children.empty?
-      return false
-    end
+    return false if @children.empty?
 
-    if @node.name == 'pointer' and @children.length > 1
-      return true
-    end
+    return true if @node.name == 'pointer' and @children.length > 1
 
-    if @node.name == 'stl-vector' and not @children.first.children.empty?
-      return true
-    end
+    return true if @node.name == 'stl-vector' and !@children.first.children.empty?
 
-    if ["enum", "bitfield", "compound"].include?(@node.name)
-      return true
-    end
+    return true if %w[enum bitfield compound].include?(@node.name)
 
-    return false
+    false
   end
 
   def render
@@ -85,23 +79,19 @@ class Field < XmlNode
     type_name = node['type-name'] || node['index-enum'] || node['pointer-type'] || node['ref-target']
     children = node.xpath('*[not(self::comment)]')
 
-    if not children.empty? and not node.name == 'vmethod'
-      child_type = Field.get_type(children.first)
-    end
+    child_type = Field.get_type(children.first) if !children.empty? and node.name != 'vmethod'
 
-    if child_type
-      type = XmlNode.parse_type(child_type, child_type)
-    elsif type_name
-      type = XmlNode.parse_type(type_name, type_name)
-    else
-      type = XmlNode.parse_type(node.name, 'any')
-    end
+    type = if child_type
+             XmlNode.parse_type(child_type, child_type)
+           elsif type_name
+             XmlNode.parse_type(type_name, type_name)
+           else
+             XmlNode.parse_type(node.name, 'any')
+           end
 
-    if ['stl-vector', 'static-array', 'stl-bit-vector', "df-flagarray"].include?(node.name)
-      type += '[]' 
-    end
-    
-    return type
+    type += '[]' if %w[stl-vector static-array stl-bit-vector df-flagarray].include?(node.name)
+
+    type
   end
 end
 
@@ -113,7 +103,7 @@ class FunctionType < Field
   end
 
   def render
-    annotation = ""
+    annotation = ''
     annotation << "---#{@comment}\n" if @comment
 
     if get_parameters
@@ -121,7 +111,7 @@ class FunctionType < Field
         annotation << "---@param #{paramater[0]} #{paramater[1]}#{' ' + paramater[2] if paramater[2]}\n"
       end
 
-      inline_params = get_parameters.map(&:first).join(", ")
+      inline_params = get_parameters.map(&:first).join(', ')
     end
 
     annotation << "---@return #{@return_type}\n" if @return_type
@@ -131,26 +121,22 @@ class FunctionType < Field
   def get_return_type
     return_type = XmlNode.parse_type(@node['ret-type'], @node['ret-type'])
 
-    if @node.at_css('ret-type')
-      return_type = Field.get_type(@node.at_css('ret-type'))
-    end
+    return_type = Field.get_type(@node.at_css('ret-type')) if @node.at_css('ret-type')
 
-    return return_type
+    return_type
   end
 
   def get_parameters
-    parameters = [] 
+    parameters = []
 
-    return nil if not @has_children
+    return nil unless @has_children
 
     @children.each_with_index do |child, index|
       name = child['name'] || "unk_#{index}"
       type = Field.get_type(child)
       comment = child['comment']
 
-      if RESERVED_KEYWORDS.include?(name)
-        name += '_'
-      end
+      name += '_' if RESERVED_KEYWORDS.include?(name)
 
       parameters.push([name, type, comment])
     end
@@ -180,7 +166,7 @@ class EnumType < XmlNode
     annotation = "---@class _#{@parent_type + '_' if @parent_type}#{@name}: #{inherit_type}\n"
     annotation << "---#{@comment}\n" if @comment
     # All <enum-type> elements are globally accessible.
-    
+
     @node.css('enum-item, flag-bit').each_with_index do |child, index|
       item = EnumItem.new(child, index)
       annotation << item.render
@@ -196,12 +182,13 @@ class EnumType < XmlNode
 
     annotation << "\n"
 
-    if not @attrs.empty?
+    unless @attrs.empty?
       annotation << "---@class #{@name}_attr\n"
 
-      @attrs.each do |attribute, index|
+      @attrs.each do |attribute, _index|
         attribute_type = Field.get_type(attribute)
-        annotation << "---@field #{attribute['name']} #{attribute_type.sub("any", "string")}#{'[]' if attribute['is-list']}\n"
+        annotation << "---@field #{attribute['name']} #{attribute_type.sub('any',
+                                                                           'string')}#{'[]' if attribute['is-list']}\n"
       end
 
       # TODO: Change to use enum type as index once the discussion on github
@@ -272,20 +259,20 @@ class StructType < XmlNode
     annotation << "---#{@comment}\n" if @comment
     has_pointer_child = @node.at_xpath('./pointer|./compound')
 
-    if has_pointer_child and @parent_type and @node.name == 'stl-vector'
-      children = @node.at_xpath('./pointer|./compound').children
-    # elsif has_pointer_child and @parent_type and @node.name == 'virtual-methods'
-    else
-      children = @node.children
-    end
-    
+    children = if has_pointer_child and @parent_type and @node.name == 'stl-vector'
+                 @node.at_xpath('./pointer|./compound').children
+               # elsif has_pointer_child and @parent_type and @node.name == 'virtual-methods'
+               else
+                 @node.children
+               end
+
     inline_types = []
     children.each do |child|
       if child.name == 'virtual-methods'
         child.css('> vmethod').each do |method|
           # Methods without names "technically" exist but calling them is
           # impossible. They are placeholders for unknown slots.
-          next if not method.attributes['name']
+          next unless method.attributes['name']
 
           inline_types.push(method)
         end
@@ -293,7 +280,7 @@ class StructType < XmlNode
         next
       end
 
-      next if not child['name'] or child.name == 'code-helper'
+      next if !(child['name']) or child.name == 'code-helper'
 
       field = Field.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}")
 
@@ -304,15 +291,15 @@ class StructType < XmlNode
 
     annotation << "df.#{@parent_type + '.T_' if @parent_type}#{@name} = {}\n\n"
 
-    if not inline_types.empty?
+    unless inline_types.empty?
       inline_types.each do |child|
-        if ["enum", "bitfield"].include?(child.name)
-          annotation << EnumType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
-        elsif child.name == "vmethod"
-          annotation << FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
-        else
-          annotation << StructType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
-        end
+        annotation << if %w[enum bitfield].include?(child.name)
+                        EnumType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
+                      elsif child.name == 'vmethod'
+                        FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
+                      else
+                        StructType.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}").render
+                      end
       end
     end
 
