@@ -219,7 +219,7 @@ df.temperaturest = {}
 ---@field temperature temperaturest
 ---@field size integer 1-24=spatter, 25-49=smear, 50-* = coating
 ---@field base_flags spatter_common_base_flags
----@field pad_1 any needed for proper alignment of spatter on gcc
+---@field pad_1 integer needed for proper alignment of spatter on gcc
 df.spatter_common = {}
 
 ---@class _spatter_common_base_flags: df.bitfield

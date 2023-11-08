@@ -1511,7 +1511,7 @@ df.entity_position = {}
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field unk_5 any[] not saved
+---@field unk_5 integer[] not saved
 ---@field unk_6 integer unknown size, not initialized or saved
 df.entity_position_assignment = {}
 

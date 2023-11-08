@@ -636,8 +636,8 @@ function df.renderer:uses_opengl() end
 ---@field cur_h integer
 ---@field use_viewport_zoom boolean
 ---@field viewport_zoom_factor integer
----@field textures_to_destroy any[] svector<texture_fullid>
----@field ttfs_to_render any std::list<pair<SDL_Surface*, SDL_Rect>>
+---@field textures_to_destroy integer[] svector<texture_fullid>
+---@field ttfs_to_render integer std::list<pair<SDL_Surface*, SDL_Rect>>
 ---@field zoom_steps integer
 ---@field forced_steps integer
 ---@field natural_w integer

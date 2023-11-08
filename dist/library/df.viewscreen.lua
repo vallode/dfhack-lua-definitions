@@ -253,7 +253,7 @@ df.widget_columns_container = {}
 ---@class widget_tabs: widget_container
 ---@field cur_idx any
 ---@field tab_labels string[]
----@field rows any[] actually std::pair of size_t, size_t
+---@field rows integer[] actually std::pair of size_t, size_t
 ---@field tab_type widget_tabs_tab_type
 df.widget_tabs = {}
 
@@ -2273,8 +2273,8 @@ df.embark_item_choice.T_profession = {}
 df.embark_profile = {}
 
 ---@class embark_symbol: df.class
----@field unk_v43_1 any[]
----@field unk_v43_2 any[]
+---@field unk_v43_1 integer[]
+---@field unk_v43_2 integer[]
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
 ---@field unk_v43_sub9 embark_symbol_unk_v43_sub9
@@ -2497,7 +2497,7 @@ df.world_view_mode_type = {}
 ---@field last_hover_ent historical_entity
 ---@field relnem nemesis_record[]
 ---@field relnem_precedence integer[]
----@field relag any[] civ_agreementst
+---@field relag integer[] civ_agreementst
 ---@field relag_pending integer[]
 ---@field scroll_position_civlist integer
 ---@field scrolling_civlist boolean
@@ -2518,7 +2518,7 @@ df.world_view_mode_type = {}
 ---@field request_nem nemesis_record[]
 ---@field scroll_position_request_nem integer
 ---@field scrolling_request_nem boolean
----@field rumor_master any[]
+---@field rumor_master integer[]
 ---@field rumor_rpd viewscreen_worldst_rumor_rpd region_print_datast
 ---@field rumor_rpd_indicator_data viewscreen_worldst_rumor_rpd_indicator_data rpd_indicator_datast
 ---@field last_hover_rumor_x integer
@@ -2604,8 +2604,8 @@ df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 ---@field unk_230 integer[]
 ---@field unk_248 string[]
 ---@field unk_260 string[]
----@field unk_278 any[]
----@field unk_290 any[]
+---@field unk_278 integer[]
+---@field unk_290 integer[]
 ---@field unk_2a8 string[]
 ---@field unk_2c0 string
 ---@field unk_2e0 integer

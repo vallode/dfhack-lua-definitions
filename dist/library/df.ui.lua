@@ -659,7 +659,7 @@ df.labor_infost.T_chores_exempted_children = {}
 ---@field labor_info labor_infost
 ---@field petitions integer[] related to agreements
 ---@field unk_6 integer[] observed allocating 4 bytes
----@field unk_7 any[]
+---@field unk_7 integer[]
 ---@field theft_intrigues plotinfost_theft_intrigues related to job_type unk_fake_no_activity
 ---@field infiltrator_histfigs integer[]
 ---@field infiltrator_years integer[]
@@ -881,7 +881,7 @@ df.plotinfost.T_map_edge = {}
 ---@field sel_route_idx integer
 ---@field sel_route_waypt_idx integer
 ---@field in_edit_waypts_mode boolean
----@field unk_42_06 any[]
+---@field unk_42_06 integer[]
 df.plotinfost.T_waypoints = {}
 
 ---@class plotinfost.T_waypoints_points: df.class
@@ -1054,7 +1054,7 @@ df.plotinfost.T_main.T_save_progress = {}
 
 ---@class plotinfost_squads: df.class
 ---@field list squad[] valid only when ui is displayed
----@field unk6e08 any[]
+---@field unk6e08 integer[]
 ---@field sel_squads any
 ---@field indiv_selected plotinfost.T_squads_indiv_selected
 ---@field in_select_indiv boolean

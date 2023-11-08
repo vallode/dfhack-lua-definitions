@@ -229,9 +229,9 @@ df.ui_advmode_menu = {}
 ---@field unk_78 integer
 ---@field unk_7c integer
 ---@field unk_80 integer
----@field unk_84 any[]
----@field unk_94 any[]
----@field unk_a4 any[]
+---@field unk_84 integer[]
+---@field unk_94 integer[]
+---@field unk_a4 integer[]
 ---@field location building civzone
 ---@field unk_b8 integer
 ---@field unk_bc integer
@@ -1297,7 +1297,7 @@ df.talk_choice.T_unk = {}
 ---@field unk_56 integer
 ---@field unk_57 integer
 ---@field unk_58 integer
----@field unk_59 any[]
+---@field unk_59 integer[]
 ---@field unk_60 integer
 ---@field unk_61 integer
 ---@field long_action_duration integer Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
@@ -1310,13 +1310,13 @@ df.talk_choice.T_unk = {}
 ---@field track_viewed_unk_1 integer Set when viewing a spoor.
 ---@field track_viewed_unk_2 integer Set when viewing a spoor.
 ---@field conversation adventurest_conversation
----@field unk_70 any[]
+---@field unk_70 integer[]
 ---@field unk_71 integer
----@field unk_72 any[]
+---@field unk_72 integer[]
 ---@field interacts adventure_item_interact_choicest[]
 ---@field commands adventure_optionst[]
 ---@field movements adventure_movement_optionst[]
----@field unk_75 any[]
+---@field unk_75 integer[]
 ---@field sleep_hours integer
 ---@field sleep_until_dawn boolean
 ---@field unk_78 integer
@@ -1402,7 +1402,7 @@ df.adventurest.T_show_menu = {}
 
 ---@class adventurest_unk_3170: df.class
 ---@field unk_1 adventurest.T_unk_3170_unk_1
----@field unk_2 any[][]
+---@field unk_2 integer[][]
 ---@field unk_3 integer
 df.adventurest.T_unk_3170 = {}
 
@@ -1471,9 +1471,9 @@ df.adventurest.T_unk_3170.T_unk_1 = {}
 ---@field unk_39 integer[]
 ---@field unk_40 integer[]
 ---@field unk_41 integer[]
----@field unk_42 any[]
----@field unk_43 any[]
----@field unk_44 any[]
+---@field unk_42 integer[]
+---@field unk_43 integer[]
+---@field unk_44 integer[]
 ---@field unk_45 integer
 ---@field unk_46 string
 ---@field unk_47 integer
@@ -1654,8 +1654,8 @@ df.adventurest.T_companions = {}
 ---@field party_core_members integer[] Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
 ---@field party_pets integer[] Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
 ---@field party_extra_members integer[] Contains IDs of non-pet historical figures who joined the player party later on.
----@field unk_86 any[]
----@field unk_1 any[]
+---@field unk_86 integer[]
+---@field unk_1 integer[]
 ---@field unk_1e4 integer
 ---@field unk_1e8 integer
 ---@field selected_ability integer natural ability
@@ -1668,18 +1668,18 @@ df.adventurest.T_companions = {}
 df.adventurest.T_interactions = {}
 
 ---@class adventurest_unk_v40_2: df.class
----@field unk_s1 any[]
----@field unk_s2 any[]
----@field unk_s3 any[]
----@field unk_s4 any[]
+---@field unk_s1 integer[]
+---@field unk_s2 integer[]
+---@field unk_s3 integer[]
+---@field unk_s4 integer[]
 ---@field unk_s5 integer
----@field unk_s6 any[]
----@field unk_s7 any[]
+---@field unk_s6 integer[]
+---@field unk_s7 integer[]
 df.adventurest.T_unk_v40_2 = {}
 
 ---@class adventurest_unk_v40_3: df.class
 ---@field unk_s1 integer
----@field unk_s2 any[]
+---@field unk_s2 integer[]
 df.adventurest.T_unk_v40_3 = {}
 
 ---@class adventurest_unk_v40_4: df.class
@@ -1688,24 +1688,24 @@ df.adventurest.T_unk_v40_3 = {}
 df.adventurest.T_unk_v40_4 = {}
 
 ---@class adventurest_unk_v40_5: df.class
----@field unk_s1 any[]
----@field unk_s2 any[]
----@field unk_s3 any[]
+---@field unk_s1 integer[]
+---@field unk_s2 integer[]
+---@field unk_s3 integer[]
 ---@field unk_s4 integer
----@field unk_s5 any[]
----@field unk_s6 any[]
+---@field unk_s5 integer[]
+---@field unk_s6 integer[]
 df.adventurest.T_unk_v40_5 = {}
 
 ---@class adventurest_unk_v42_1: df.class
 ---@field unk_s1 integer
----@field unk_s2 any[]
----@field unk_s3 any[]
+---@field unk_s2 integer[]
+---@field unk_s3 integer[]
 ---@field unk_s4 string
 ---@field unk_s5 integer
 ---@field unk_s6 integer
 ---@field unk_s7 integer
 ---@field unk_s8 integer
----@field unk_s9 any[]
+---@field unk_s9 integer[]
 df.adventurest.T_unk_v42_1 = {}
 
 ---@class adventurest_assume_identity: df.class
@@ -1715,8 +1715,8 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field worship_object historical_figure
 ---@field profession profession
 ---@field origin historical_entity
----@field unk_1 any[]
----@field unk_2 any[]
+---@field unk_1 integer[]
+---@field unk_2 integer[]
 ---@field filter string
 ---@field unk_3 integer
 ---@field unk_4 integer

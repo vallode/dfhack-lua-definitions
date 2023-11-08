@@ -238,7 +238,7 @@ df.world_region.T_tree_tiles_savage = {}
 ---@field region_coords coord2d_path
 ---@field region_min_z integer[]
 ---@field region_max_z integer[]
----@field unk_c8 any[]
+---@field unk_c8 integer[]
 ---@field feature_init feature_init
 df.world_underground_region = {}
 
@@ -694,8 +694,8 @@ df.entity_claim_mask = {}
 ---@field members moving_party_members
 ---@field entity_id historical_entity
 ---@field flags any
----@field unk_30 any[]
----@field unk_40 any[]
+---@field unk_30 integer[]
+---@field unk_40 integer[]
 ---@field unk_70 integer
 ---@field unk_72 integer
 ---@field unk_74 integer
@@ -847,14 +847,14 @@ df.world_mountain_peak = {}
 ---@field rivers world_river[]
 ---@field region_map region_map_entry
 ---@field unk_1c4 integer
----@field unk_1c8 any
+---@field unk_1c8 integer
 ---@field embark_notes embark_note[]
 ---@field unk_1dc army[]
----@field unk_1e0 any[]
----@field unk_1e4 any[]
----@field unk_1e8 any[]
----@field unk_1ec any[]
----@field unk_1f0 any[]
+---@field unk_1e0 integer[]
+---@field unk_1e4 integer[]
+---@field unk_1e8 integer[]
+---@field unk_1ec integer[]
+---@field unk_1f0 integer[]
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -871,7 +871,7 @@ df.world_mountain_peak = {}
 ---@field unk_14 integer
 ---@field unk_15 integer
 ---@field unk_16 integer
----@field pad_1 any
+---@field pad_1 integer
 ---@field unk_17 integer
 ---@field unk_18 integer
 ---@field active_site world_site[]

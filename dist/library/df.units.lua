@@ -1720,7 +1720,7 @@ df.unit.T_path = {}
 ---@field state unit.T_meeting_state
 ---@field target_entity historical_entity
 ---@field target_role entity_position_responsibility
----@field pad_1 any
+---@field pad_1 integer
 df.unit.T_meeting = {}
 
 ---@class _unit.T_meeting_state: df.enum
@@ -3029,7 +3029,7 @@ df.unit_bp_health_flags = {}
 ---@field suture_cntdn integer
 ---@field crutch_cntdn integer
 ---@field op_history unit_health_info_op_history
----@field unk_34 any[]
+---@field unk_34 integer[]
 df.unit_health_info = {}
 
 ---@class unit_health_info_op_history: df.class

@@ -685,30 +685,30 @@ df.creature_interaction_effect_erratic_behaviorst = {}
 
 ---@class creature_interaction_effect_close_open_woundsst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_close_open_woundsst = {}
 
 ---@class creature_interaction_effect_cure_infectionsst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_cure_infectionsst = {}
 
 ---@class creature_interaction_effect_heal_nervesst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_heal_nervesst = {}
 
 ---@class creature_interaction_effect_heal_tissuesst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_heal_tissuesst = {}
 
 ---@class creature_interaction_effect_reduce_dizzinessst: creature_interaction_effect
@@ -725,30 +725,30 @@ df.creature_interaction_effect_reduce_nauseast = {}
 
 ---@class creature_interaction_effect_reduce_painst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_reduce_painst = {}
 
 ---@class creature_interaction_effect_reduce_paralysisst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_reduce_paralysisst = {}
 
 ---@class creature_interaction_effect_reduce_swellingst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_reduce_swellingst = {}
 
 ---@class creature_interaction_effect_regrow_partsst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_regrow_partsst = {}
 
 ---@class creature_interaction_effect_special_attack_interactionst: creature_interaction_effect
@@ -759,16 +759,16 @@ df.creature_interaction_effect_special_attack_interactionst = {}
 
 ---@class creature_interaction_effect_stop_bleedingst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_stop_bleedingst = {}
 
 ---@class creature_interaction_effect_cure_infectionst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 any[]
----@field unk_3 any[]
----@field unk_4 any[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
 df.creature_interaction_effect_cure_infectionst = {}
 
 ---@class _syndrome_flags: df.bitfield

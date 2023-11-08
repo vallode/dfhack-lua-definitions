@@ -582,7 +582,7 @@ df.lair_type = {}
 ---@class property_ownership: df.class
 ---@field index integer
 ---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
----@field pad_1 any
+---@field pad_1 integer
 ---@field property_index integer index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
 ---@field unk_hfid historical_figure Always same as owner_hfid when set, but not always set when that field is.
 ---@field owner_entity_id historical_entity Mutually exclusive with owner_hfid. All seen were merchant companies.
@@ -651,13 +651,13 @@ df.property_ownership = {}
 ---@field unk_188 integer[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 integer
 ---@field unk_3b0 world_site_unk130
----@field unk_18c any[]
----@field unk_19c any[]
+---@field unk_18c integer[]
+---@field unk_19c integer[]
 ---@field entity_links entity_site_link[]
 ---@field cultural_identities cultural_identity[]
 ---@field unk_v42_1 occupation[]
 ---@field unk_v43_4 integer uninitialized
----@field unk_3 any[]
+---@field unk_3 integer[]
 ---@field unk_4 historical_figure
 ---@field unk_5 historical_figure
 ---@field unk_6 historical_figure
@@ -679,7 +679,7 @@ df.property_ownership = {}
 ---@field unk_22 integer
 ---@field unk_23 integer
 ---@field unk_24 integer
----@field unk_25 any[]
+---@field unk_25 integer[]
 df.world_site = {}
 
 ---@class world_site_unk_1: df.class
@@ -690,7 +690,7 @@ df.world_site = {}
 ---@field units world_site.T_unk_1_units
 ---@field unk_d4 integer[]
 ---@field unk_v40_1a historical_figure[]
----@field pad_1 any
+---@field pad_1 integer
 ---@field unk_v40_1b nemesis_record[]
 ---@field unk_v40_1c nemesis_record[]
 ---@field unk_v40_1d nemesis_record[]
@@ -938,7 +938,7 @@ df.world_site_inhabitant = {}
 ---@field num_building_type21 integer
 ---@field unk_23 integer[]
 ---@field unk_24 integer
----@field unk_wsr_vector any[]
+---@field unk_wsr_vector integer[]
 df.world_site_realization = {}
 
 ---@class world_site_realization_areas: df.class
@@ -1181,7 +1181,7 @@ df.site_realization_building_type = {}
 ---@field building_info site_realization_building_infost
 ---@field unk_4c site_realization_building_unk_4c
 ---@field unk_5c integer bit 0x01 == abandoned
----@field unk_60 any[]
+---@field unk_60 integer[]
 ---@field unk_v40_1 integer
 df.site_realization_building = {}
 

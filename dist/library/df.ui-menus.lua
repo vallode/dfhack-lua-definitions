@@ -2074,7 +2074,7 @@ df.main_designation_type = {}
 ---@field assigning_position_squad boolean
 ---@field ap_squad_list squad[]
 ---@field ap_squad_sel integer
----@field pref_occupation any[] occupationst
+---@field pref_occupation integer[] occupationst
 ---@field selected_pref_occupation integer
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
@@ -2201,7 +2201,7 @@ df.main_interface.T_burrow = {}
 ---@class main_interface_view: df.class
 ---@field inv unit_inventory_item[]
 ---@field contam spatter[]
----@field guest_text any[]
+---@field guest_text integer[]
 ---@field uniform_selection boolean
 ---@field selected_uniform integer
 ---@field selected_squad integer
@@ -2307,7 +2307,7 @@ df.main_interface.T_buildjob = {}
 ---@field unk_120 integer[]
 ---@field unk_138 any
 ---@field i_height integer
----@field current_type_tgi any[]
+---@field current_type_tgi integer[]
 ---@field current_type_a_subtype integer[]
 ---@field current_type_a_subcat1 integer[]
 ---@field current_type_a_subcat2 integer[]
@@ -2885,8 +2885,8 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field relation_f integer[]
 ---@field rel_unid integer[]
 ---@field rel_hf historical_figure[]
----@field rel_rphv any[] relationship_profile_hf_visualst
----@field rel_rphh any[] relationship_profile_hf_historicalst
+---@field rel_rphv integer[] relationship_profile_hf_visualst
+---@field rel_rphh integer[] relationship_profile_hf_historicalst
 ---@field rel_value integer[]
 ---@field unit_overview_customizing boolean
 ---@field unit_overview_entering_nickname boolean
@@ -3138,7 +3138,7 @@ df.main_interface.T_info.T_work_orders = {}
 ---@field order_condition_satisfied any
 ---@field scroll_position_conditions integer
 ---@field scrolling_conditions boolean
----@field suggested_item_condition any[] workquota_item_conditionst
+---@field suggested_item_condition integer[] workquota_item_conditionst
 ---@field scroll_position_suggested integer
 ---@field scrolling_suggested boolean
 ---@field filter string
@@ -3265,7 +3265,7 @@ df.main_interface.T_info.T_artifacts = {}
 ---@field scrolling_interrogation boolean
 ---@field interrogation_report_box string[]
 ---@field interrogation_report_box_width integer
----@field interrogation_report any[] interrogation_reportst
+---@field interrogation_report integer[] interrogation_reportst
 ---@field viewing_interrogation_report integer interrogation_reportst
 ---@field scroll_position_interrogation_list integer
 ---@field scrolling_interrogation_list boolean
@@ -3447,8 +3447,8 @@ df.main_interface.T_arena_unit.T_skills = {}
 ---@field age_str string string representation of age field
 ---@field editing_filter boolean
 ---@field filter string
----@field tree_types_filtered any[]
----@field tree_types_all any[]
+---@field tree_types_filtered integer[]
+---@field tree_types_all integer[]
 df.main_interface.T_arena_tree = {}
 
 ---@class gamest: df.class
@@ -3676,7 +3676,7 @@ df.cri_unitst = {}
 ---@field identity_id integer
 ---@field alias_identity_id integer[]
 ---@field principle_org integer organization_entryst
----@field associated_org any[] organization_entryst
+---@field associated_org integer[] organization_entryst
 ---@field associated_plot plot_entryst[]
 ---@field flag integer
 df.actor_entryst = {}

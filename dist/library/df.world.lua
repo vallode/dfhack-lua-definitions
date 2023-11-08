@@ -560,14 +560,14 @@ df.crime.T_flags = {}
 ---@field death_id incident -1...
 ---@field accused_id historical_figure hfid of accused
 ---@field accused_id_2 historical_figure copy of accused_id?
----@field unk_vec any[]
+---@field unk_vec integer[]
 df.crime.T_reports = {}
 
 ---@class crime_counterintelligence: df.class
 ---@field unk_1 integer suspect entity, as counterintelligence shows organization unknown for examined cases. Also -1 when there is no organization
 ---@field identified_hf historical_figure
 ---@field identified_hf_2 historical_figure same as the one above or -1 only ones seen.
----@field unk_vec any[]
+---@field unk_vec integer[]
 df.crime.T_counterintelligence = {}
 
 ---@class crime_witness: df.class
@@ -644,7 +644,7 @@ df.mission_campaign_report = {}
 ---@field unk_7 integer
 ---@field year integer
 ---@field year_tick integer
----@field unk_10 any[]
+---@field unk_10 integer[]
 ---@field unk_11 integer
 ---@field unk_12 integer
 df.mission_report = {}
@@ -685,7 +685,7 @@ df.spoils_report.T_item_subtypes = {}
 ---@field unk_26 integer
 ---@field unk_27 integer[]
 ---@field subject_identity_id identity
----@field unk_29 any[]
+---@field unk_29 integer[]
 ---@field unk_30 integer[]
 ---@field unk_31 integer[] seen hfs_formed_intrigue_relationship
 ---@field details string[]
@@ -1482,8 +1482,8 @@ df.world.T_activities = {}
 ---@field mission_reports mission_report[]
 ---@field spoils_reports spoils_report[]
 ---@field interrogation_reports interrogation_report[]
----@field unk_v50_2 any[]
----@field unk_v50_3 any[]
+---@field unk_v50_2 integer[]
+---@field unk_v50_3 integer[]
 ---@field display_timer integer
 ---@field slots world.T_status_slots
 df.world.T_status = {}
@@ -1555,8 +1555,8 @@ df.world.T_armies = {}
 df.world.T_army_controllers = {}
 
 ---@class world_army_tracking_info: df.class
----@field all any[]
----@field bad any[]
+---@field all integer[]
+---@field bad integer[]
 df.world.T_army_tracking_info = {}
 
 ---@class world_cultural_identities: df.class
@@ -1721,7 +1721,7 @@ df.world.T_map_extras = {}
 ---@field unk_30 integer
 ---@field temples abstract_building[]
 ---@field some_artifacts artifact_record[]
----@field unk_31 any[]
+---@field unk_31 integer[]
 ---@field unk_32 integer[]
 df.world.T_worldgen_status = {}
 

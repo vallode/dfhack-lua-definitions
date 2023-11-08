@@ -1775,7 +1775,7 @@ df.creature_interaction_target_flags = {}
 ---@field unk_4 string[]
 ---@field max_target_numbers integer[]
 ---@field verbal_speeches integer[]
----@field unk_5 any[]
+---@field unk_5 integer[]
 ---@field adv_name string
 ---@field wait_period integer
 df.creature_interaction = {}
@@ -1904,8 +1904,8 @@ df.caste_body_info.T_flags = {}
 ---@field flags any
 ---@field index integer global across creatures
 ---@field body_info caste_body_info
----@field caste_speech_1 any[]
----@field caste_speech_2 any[]
+---@field caste_speech_1 integer[]
+---@field caste_speech_2 integer[]
 ---@field skill_rates integer[][]
 ---@field attributes caste_raw_attributes
 ---@field sex pronoun_type
@@ -1918,7 +1918,7 @@ df.caste_body_info.T_flags = {}
 ---@field color_modifiers color_modifier_raw[]
 ---@field tissue_styles tissue_style_raw[]
 ---@field shearable_tissue_layer caste_raw_shearable_tissue_layer
----@field unk16a any[][]
+---@field unk16a integer[][]
 ---@field unk16b integer[][]
 ---@field appearance_gene_count integer
 ---@field color_gene_count integer
@@ -1939,7 +1939,7 @@ df.caste_body_info.T_flags = {}
 ---@field lair_characteristic_2 integer[]
 ---@field lair_hunter_speech caste_raw_lair_hunter_speech
 ---@field unk29 caste_raw_unk29
----@field specific_food any[][]
+---@field specific_food integer[][]
 ---@field sound caste_raw_sound
 ---@field sound_alert integer[]
 ---@field sound_peaceful_intermittent integer[]
@@ -2129,11 +2129,11 @@ df.caste_raw.T_unknown2 = {}
 
 ---@class caste_raw_lair_hunter_speech: df.class
 ---@field unk_1 integer[]
----@field unk_2 any[]
+---@field unk_2 integer[]
 df.caste_raw.T_lair_hunter_speech = {}
 
 ---@class caste_raw_unk29: df.class
----@field unk_1 any[]
+---@field unk_1 integer[]
 ---@field unk_2 integer[]
 df.caste_raw.T_unk29 = {}
 

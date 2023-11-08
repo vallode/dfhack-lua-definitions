@@ -673,7 +673,7 @@ df.sphere_type = {}
 ---@field word string
 ---@field forms string[]
 ---@field adj_dist integer
----@field pad_1 any looks like garbage
+---@field pad_1 integer looks like garbage
 ---@field flags language_word_flags
 ---@field str string[]
 df.language_word = {}
@@ -689,7 +689,7 @@ df.language_translation = {}
 
 ---@class language_symbol: df.instance
 ---@field name string
----@field unknown any[] empty
+---@field unknown integer[] empty
 ---@field words language_symbol_words
 ---@field flags integer
 ---@field str string[]

@@ -4989,7 +4989,7 @@ df.relationship_event_supplement = {}
 ---@field total_powers integer also includes megabeasts
 ---@field total_megabeasts integer
 ---@field total_semimegabeasts integer
----@field unk_14 any[]
+---@field unk_14 integer[]
 ---@field unk_v42_1 integer[]
 ---@field intrigues intrigue[]
 ---@field live_megabeasts historical_figure[]
@@ -5008,9 +5008,9 @@ df.relationship_event_supplement = {}
 ---@field unk_histfig_12 historical_figure[]
 ---@field unk_histfig_13 historical_figure[]
 ---@field unk_3 historical_figure[]
----@field unk_4 any[]
+---@field unk_4 integer[]
 ---@field unk_5 historical_figure[]
----@field unk_6 any[]
+---@field unk_6 integer[]
 ---@field unk_7 integer[]
 ---@field unk_8 integer
 ---@field active_event_collections history_event_collection[]

@@ -35,7 +35,7 @@ class XmlNode
       "boolean"
     when "stl-function"
       "function"
-    when "pointer"
+    when "pointer", "padding", "stl-vector"
       "integer"
     else
       default
@@ -59,16 +59,16 @@ class Field < XmlNode
   end
 
   def self.get_type(node)
-    typeName = node['type-name'] || node['pointer-type'] || node['ref-target']
+    type_name = node['type-name'] || node['pointer-type'] || node['ref-target']
 
     if not node.children.empty? and not node.name == 'vmethod'
-      childType = Field.get_type(node.children.first)
+      child_type = Field.get_type(node.children.first)
     end
 
-    if childType
-      type = XmlNode.parse_type(childType, childType)
-    elsif typeName
-      type = XmlNode.parse_type(typeName, typeName)
+    if child_type
+      type = XmlNode.parse_type(child_type, child_type)
+    elsif type_name
+      type = XmlNode.parse_type(type_name, type_name)
     else
       type = XmlNode.parse_type(node.name, 'any')
     end

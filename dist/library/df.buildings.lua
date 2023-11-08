@@ -1403,7 +1403,7 @@ df.workshop_type.attrs = {}
 ---@field links stockpile_links
 ---@field max_general_orders integer
 ---@field block_general_orders boolean
----@field pad_1 any
+---@field pad_1 integer
 ---@field blocked_labors boolean[]
 df.workshop_profile = {}
 
