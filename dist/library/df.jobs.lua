@@ -620,6 +620,24 @@ df.job_item_flags2 = {}
 ---@field [11] "written_on"
 ---@field edged 12
 ---@field [12] "edged"
+---@field on_ground 13
+---@field [13] "on_ground"
+---@field divine 14
+---@field [14] "divine"
+---@field crafted_artifact 15
+---@field [15] "crafted_artifact"
+---@field wood 16
+---@field [16] "wood"
+---@field stone 17
+---@field [17] "stone"
+---@field non_artifact 18
+---@field [18] "non_artifact"
+---@field woven 19
+---@field [19] "woven"
+---@field gem 20
+---@field [20] "gem"
+---@field empty_or_water 21
+---@field [21] "empty_or_water"
 df.job_item_flags3 = {}
 
 ---@class job_item_flags3
@@ -649,6 +667,24 @@ df.job_item_flags3 = {}
 ---@field written_on boolean
 ---@field [12] boolean
 ---@field edged boolean
+---@field [13] boolean
+---@field on_ground boolean
+---@field [14] boolean
+---@field divine boolean
+---@field [15] boolean
+---@field crafted_artifact boolean
+---@field [16] boolean
+---@field wood boolean
+---@field [17] boolean
+---@field stone boolean
+---@field [18] boolean
+---@field non_artifact boolean
+---@field [19] boolean
+---@field woven boolean
+---@field [20] boolean
+---@field gem boolean
+---@field [21] boolean
+---@field empty_or_water boolean
 
 ---@class job_item: df.class
 ---@field item_type item_type

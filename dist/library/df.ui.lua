@@ -12,6 +12,15 @@
 ---@field block_z integer[]
 ---@field units integer[]
 ---@field limit_workshops integer
+---@field solid_texpos integer
+---@field blended_texpos integer
+---@field symbol_index integer
+---@field texture_r integer
+---@field texture_g integer
+---@field texture_b integer
+---@field texture_br integer
+---@field texture_bg integer
+---@field texture_bb integer
 df.burrow = {}
 
 ---@class ui_hotkey: df.class
