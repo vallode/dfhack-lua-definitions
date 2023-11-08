@@ -1546,7 +1546,7 @@ df.item_fish_rawst = {}
 ---@field subtype itemdef_foodst
 ---@field entity historical_entity
 ---@field recipe_id integer
----@field ingredients item_foodst_ingredients
+---@field ingredients item_foodst_ingredients[]
 ---@field rot_timer integer
 df.item_foodst = {}
 

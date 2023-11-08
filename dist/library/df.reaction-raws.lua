@@ -41,14 +41,11 @@ df.reaction = {}
 
 ---@class reaction_building: df.class
 ---@field str string[][]
----@field type reaction.T_building_type
+---@field type building_type[]
 ---@field subtype integer[]
 ---@field custom integer[]
 ---@field hotkey integer[]
 df.reaction.T_building = {}
-
----@class reaction.T_building_type: df.class
-df.reaction.T_building.T_type = {}
 
 ---@class reaction_category: df.class
 ---@field id string

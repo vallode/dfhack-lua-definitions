@@ -410,7 +410,7 @@ df.plant_raw_flags = {}
 ---@field root_density integer
 ---@field root_radius integer
 ---@field stockpile_growths integer[] indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
----@field stockpile_growth_flags plant_raw_stockpile_growth_flags
+---@field stockpile_growth_flags plant_raw_stockpile_growth_flags[]
 df.plant_raw = {}
 
 ---@class plant_raw_tiles: df.class

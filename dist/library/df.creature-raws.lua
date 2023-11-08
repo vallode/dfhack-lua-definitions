@@ -1594,16 +1594,10 @@ df.body_appearance_modifier = {}
 ---@field single_plural integer
 ---@field unk1 integer
 ---@field id1 integer
----@field body_parts bp_appearance_modifier_body_parts
----@field tissue_layer bp_appearance_modifier_tissue_layer
+---@field body_parts integer[]
+---@field tissue_layer integer[]
 ---@field id integer
 df.bp_appearance_modifier = {}
-
----@class bp_appearance_modifier_body_parts: df.class
-df.bp_appearance_modifier.T_body_parts = {}
-
----@class bp_appearance_modifier_tissue_layer: df.class
-df.bp_appearance_modifier.T_tissue_layer = {}
 
 ---@class caste_clothing_item: df.class
 ---@field body_part_id integer
@@ -1800,14 +1794,14 @@ df.creature_interaction.T_flags = {}
 ---@class caste_body_info: df.class
 ---@field body_parts body_part_raw[]
 ---@field attacks caste_attack[]
----@field interactions caste_body_info_interactions
----@field extra_butcher_objects caste_body_info_extra_butcher_objects
+---@field interactions caste_body_info_interactions[]
+---@field extra_butcher_objects caste_body_info_extra_butcher_objects[]
 ---@field total_relsize integer unless INTERNAL or EMBEDDED
----@field layer_part caste_body_info_layer_part
----@field layer_idx caste_body_info_layer_idx
+---@field layer_part integer[]
+---@field layer_idx integer[]
 ---@field numbered_masks integer[] 1 bit per instance of a numbered body part
----@field layer_nonsolid caste_body_info_layer_nonsolid
----@field nonsolid_layers caste_body_info_nonsolid_layers
+---@field layer_nonsolid integer[]
+---@field nonsolid_layers integer[]
 ---@field flags caste_body_info_flags
 ---@field gait_info gait_info[][]
 ---@field materials material_vec_ref
@@ -1856,18 +1850,6 @@ df.caste_body_info.T_interactions.T_type = {}
 ---@field unk_13 integer
 df.caste_body_info.T_extra_butcher_objects = {}
 
----@class caste_body_info_layer_part: df.class
-df.caste_body_info.T_layer_part = {}
-
----@class caste_body_info_layer_idx: df.class
-df.caste_body_info.T_layer_idx = {}
-
----@class caste_body_info_layer_nonsolid: df.class
-df.caste_body_info.T_layer_nonsolid = {}
-
----@class caste_body_info_nonsolid_layers: df.class
-df.caste_body_info.T_nonsolid_layers = {}
-
 ---@class _caste_body_info_flags: df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
@@ -1888,7 +1870,7 @@ df.caste_body_info.T_flags = {}
 ---@field itemcorpse_str string[]
 ---@field remains string[]
 ---@field description string
----@field mannerisms any[] fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
+---@field mannerisms string[] fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
 ---@field caste_tile integer
 ---@field caste_soldier_tile integer
 ---@field caste_alttile integer
@@ -1917,17 +1899,17 @@ df.caste_body_info.T_flags = {}
 ---@field bp_appearance caste_raw_bp_appearance
 ---@field color_modifiers color_modifier_raw[]
 ---@field tissue_styles tissue_style_raw[]
----@field shearable_tissue_layer caste_raw_shearable_tissue_layer
+---@field shearable_tissue_layer caste_raw_shearable_tissue_layer[]
 ---@field unk16a integer[][]
 ---@field unk16b integer[][]
 ---@field appearance_gene_count integer
 ---@field color_gene_count integer
----@field natural_skill_id caste_raw_natural_skill_id
+---@field natural_skill_id job_skill[]
 ---@field natural_skill_exp integer[]
 ---@field natural_skill_lvl skill_rating[]
 ---@field caste_profession_name caste_raw_caste_profession_name
 ---@field extracts caste_raw_extracts
----@field secretion caste_raw_secretion
+---@field secretion caste_raw_secretion[]
 ---@field creature_class string[]
 ---@field unknown2 caste_raw_unknown2
 ---@field habit_num integer[]
@@ -1940,10 +1922,10 @@ df.caste_body_info.T_flags = {}
 ---@field lair_hunter_speech caste_raw_lair_hunter_speech
 ---@field unk29 caste_raw_unk29
 ---@field specific_food integer[][]
----@field sound caste_raw_sound
+---@field sound caste_raw_sound[]
 ---@field sound_alert integer[]
 ---@field sound_peaceful_intermittent integer[]
----@field unk_1 caste_raw_unk_1
+---@field unk_1 caste_raw_unk_1[]
 ---@field smell_trigger integer
 ---@field odor_level integer
 ---@field odor_string string
@@ -2037,9 +2019,6 @@ df.caste_raw.T_bp_appearance = {}
 ---@field bp_modifiers_idx integer[]
 df.caste_raw.T_shearable_tissue_layer = {}
 
----@class caste_raw_natural_skill_id: df.class
-df.caste_raw.T_natural_skill_id = {}
-
 ---@class caste_raw_caste_profession_name: df.class
 ---@field singular string[]
 ---@field plural string[]
@@ -2078,15 +2057,12 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field egg_material_mattype integer[]
 ---@field egg_material_matindex integer[]
 ---@field egg_material_str string[][]
----@field lays_unusual_eggs_itemtype caste_raw.T_extracts_lays_unusual_eggs_itemtype
+---@field lays_unusual_eggs_itemtype item_type[]
 ---@field lays_unusual_eggs_itemsubtype integer[]
 ---@field lays_unusual_eggs_mattype integer[]
 ---@field lays_unusual_eggs_matindex integer[]
 ---@field lays_unusual_eggs_str string[][]
 df.caste_raw.T_extracts = {}
-
----@class caste_raw.T_extracts_lays_unusual_eggs_itemtype: df.class
-df.caste_raw.T_extracts.T_lays_unusual_eggs_itemtype = {}
 
 ---@class caste_raw_secretion: df.class
 ---@field mat_type material
@@ -2275,7 +2251,7 @@ df.tissue_style_raw = {}
 ---@field profession_name creature_raw_profession_name
 ---@field underground_layer_min integer
 ---@field underground_layer_max integer
----@field modifier_class creature_raw_modifier_class
+---@field modifier_class creature_raw_modifier_class[]
 ---@field modifier_num_patterns integer[] for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product creature_raw_hive_product
 ---@field source_hfid historical_figure
@@ -2296,7 +2272,7 @@ df.creature_raw.T_modifier_class = {}
 ---@class creature_raw_hive_product: df.class
 ---@field number integer[]
 ---@field time integer[]
----@field item_type creature_raw.T_hive_product_item_type
+---@field item_type item_type[]
 ---@field item_subtype integer[]
 ---@field material material_vec_ref
 ---@field tmpstr1 string[]
@@ -2305,9 +2281,6 @@ df.creature_raw.T_modifier_class = {}
 ---@field tmpstr4 string[]
 ---@field tmpstr5 string[]
 df.creature_raw.T_hive_product = {}
-
----@class creature_raw.T_hive_product_item_type: df.class
-df.creature_raw.T_hive_product.T_item_type = {}
 
 ---@class creature_variation_convert_tag: df.class
 ---@field cvct_master string

@@ -574,7 +574,7 @@ df.equipment_update = {}
 ---@field flags labor_infost_flags
 ---@field work_details work_detail[]
 ---@field chores boolean[]
----@field chores_exempted_children labor_infost_chores_exempted_children toady: no_chore_child_unid
+---@field chores_exempted_children unit[] toady: no_chore_child_unid
 df.labor_infost = {}
 
 ---@class _labor_infost_flags: df.bitfield
@@ -585,10 +585,6 @@ df.labor_infost.T_flags = {}
 ---@class labor_infost_flags
 ---@field [0] boolean
 ---@field children_do_chores boolean
-
----@class labor_infost_chores_exempted_children: df.class
----toady: no_chore_child_unid
-df.labor_infost.T_chores_exempted_children = {}
 
 ---@class plotinfost: df.class
 ---@field game_state integer 2 running, 1 lost to siege, 0 lost
@@ -636,7 +632,7 @@ df.labor_infost.T_chores_exempted_children = {}
 ---@field race_id creature_raw
 ---@field unk_races integer[]
 ---@field farm_crops integer[]
----@field farm_seasons plotinfost_farm_seasons
+---@field farm_seasons season[]
 ---@field economy_prices plotinfost_economy_prices
 ---@field stockpile plotinfost_stockpile
 ---@field unk2a8c integer[][]
@@ -660,7 +656,7 @@ df.labor_infost.T_chores_exempted_children = {}
 ---@field petitions integer[] related to agreements
 ---@field unk_6 integer[] observed allocating 4 bytes
 ---@field unk_7 integer[]
----@field theft_intrigues plotinfost_theft_intrigues related to job_type unk_fake_no_activity
+---@field theft_intrigues plotinfost_theft_intrigues[] related to job_type unk_fake_no_activity
 ---@field infiltrator_histfigs integer[]
 ---@field infiltrator_years integer[]
 ---@field infiltrator_year_ticks integer[]
@@ -735,24 +731,12 @@ df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 df.plotinfost.T_invasions = {}
 
 ---@class plotinfost_kitchen: df.class
----@field item_types plotinfost.T_kitchen_item_types
----@field item_subtypes plotinfost.T_kitchen_item_subtypes
----@field mat_types plotinfost.T_kitchen_mat_types
+---@field item_types item_type[]
+---@field item_subtypes integer[]
+---@field mat_types material[]
 ---@field mat_indices integer[]
----@field exc_types plotinfost.T_kitchen_exc_types
+---@field exc_types kitchen_exc_type[]
 df.plotinfost.T_kitchen = {}
-
----@class plotinfost.T_kitchen_item_types: df.class
-df.plotinfost.T_kitchen.T_item_types = {}
-
----@class plotinfost.T_kitchen_item_subtypes: df.class
-df.plotinfost.T_kitchen.T_item_subtypes = {}
-
----@class plotinfost.T_kitchen_mat_types: df.class
-df.plotinfost.T_kitchen.T_mat_types = {}
-
----@class plotinfost.T_kitchen_exc_types: df.class
-df.plotinfost.T_kitchen.T_exc_types = {}
 
 ---@class _plotinfost_unk23c8_flags: df.bitfield
 ---@field first_year 0
@@ -770,9 +754,6 @@ df.plotinfost.T_unk23c8_flags = {}
 ---@field recheck_aid_requests boolean
 ---@field [2] boolean
 ---@field force_elections boolean
-
----@class plotinfost_farm_seasons: df.class
-df.plotinfost.T_farm_seasons = {}
 
 ---@class plotinfost_economy_prices: df.class
 ---@field price_adjustment plotinfost.T_economy_prices_price_adjustment
@@ -865,8 +846,8 @@ df.plotinfost.T_stockpile = {}
 df.plotinfost.T_map_edge = {}
 
 ---@class plotinfost_waypoints: df.class
----@field points plotinfost.T_waypoints_points
----@field routes plotinfost.T_waypoints_routes
+---@field points plotinfost.T_waypoints_points[]
+---@field routes plotinfost.T_waypoints_routes[]
 ---@field sym_selector integer
 ---@field unk_1 integer
 ---@field cur_point_index integer
@@ -897,11 +878,8 @@ df.plotinfost.T_waypoints.T_points = {}
 ---@class plotinfost.T_waypoints_routes: df.class
 ---@field id integer
 ---@field name string
----@field points plotinfost.T_waypoints.T_routes_points
+---@field points integer[]
 df.plotinfost.T_waypoints.T_routes = {}
-
----@class plotinfost.T_waypoints.T_routes_points: df.class
-df.plotinfost.T_waypoints.T_routes.T_points = {}
 
 ---@class plotinfost_burrows: df.class
 ---@field list burrow[]
@@ -925,9 +903,9 @@ df.plotinfost.T_waypoints.T_routes.T_points = {}
 df.plotinfost.T_burrows = {}
 
 ---@class plotinfost_alerts: df.class
----@field list plotinfost.T_alerts_list
+---@field list plotinfost.T_alerts_list[]
 ---@field next_id integer
----@field routines plotinfost.T_alerts_routines
+---@field routines plotinfost.T_alerts_routines[]
 ---@field next_routine_id integer
 ---@field civ_alert_idx integer
 df.plotinfost.T_alerts = {}
@@ -949,40 +927,24 @@ df.plotinfost.T_alerts.T_routines = {}
 ---@field items_unassigned integer[][]
 ---@field items_assigned integer[][]
 ---@field update equipment_update
----@field work_weapons plotinfost.T_equipment_work_weapons i.e. woodcutter axes, and miner picks
----@field work_units plotinfost.T_equipment_work_units
+---@field work_weapons item[] i.e. woodcutter axes, and miner picks
+---@field work_units unit[]
 ---@field hunter_ammunition squad_ammo_spec[]
----@field ammo_items plotinfost.T_equipment_ammo_items
----@field ammo_units plotinfost.T_equipment_ammo_units
+---@field ammo_items item[]
+---@field ammo_units unit[]
 ---@field training_assignments training_assignment[] sorted by animal_id
 df.plotinfost.T_equipment = {}
-
----@class plotinfost.T_equipment_work_weapons: df.class
----i.e. woodcutter axes, and miner picks
-df.plotinfost.T_equipment.T_work_weapons = {}
-
----@class plotinfost.T_equipment_work_units: df.class
-df.plotinfost.T_equipment.T_work_units = {}
-
----@class plotinfost.T_equipment_ammo_items: df.class
-df.plotinfost.T_equipment.T_ammo_items = {}
-
----@class plotinfost.T_equipment_ammo_units: df.class
-df.plotinfost.T_equipment.T_ammo_units = {}
 
 ---@class plotinfost_hauling: df.class
 ---@field routes hauling_route[]
 ---@field next_id integer
 ---@field view_routes hauling_route[]
 ---@field view_stops hauling_stop[]
----@field view_bad plotinfost.T_hauling_view_bad
+---@field view_bad integer[]
 ---@field cursor_top integer
 ---@field in_stop boolean
 ---@field cursor_stop integer
 df.plotinfost.T_hauling = {}
-
----@class plotinfost.T_hauling_view_bad: df.class
-df.plotinfost.T_hauling.T_view_bad = {}
 
 ---@class plotinfost_theft_intrigues: df.class
 ---related to job_type unk_fake_no_activity
@@ -1017,7 +979,7 @@ df.plotinfost.T_theft_intrigues = {}
 ---@field traffic_cost_normal integer
 ---@field traffic_cost_low integer
 ---@field traffic_cost_restricted integer
----@field dead_citizens plotinfost.T_main_dead_citizens ?
+---@field dead_citizens plotinfost.T_main_dead_citizens[] ?
 ---@field custom_difficulty difficultyst
 ---@field fortress_entity historical_entity entity pointed to by group_id
 ---@field fortress_site world_site
@@ -1056,7 +1018,7 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field list squad[] valid only when ui is displayed
 ---@field unk6e08 integer[]
 ---@field sel_squads boolean[]
----@field indiv_selected plotinfost.T_squads_indiv_selected
+---@field indiv_selected historical_figure[]
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad integer
 ---@field unk_70 integer
@@ -1075,9 +1037,6 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field in_kill_rect boolean
 ---@field rect_start coord
 df.plotinfost.T_squads = {}
-
----@class plotinfost.T_squads_indiv_selected: df.class
-df.plotinfost.T_squads.T_indiv_selected = {}
 
 ---@class _timed_event_type: df.enum
 ---@field Caravan 0

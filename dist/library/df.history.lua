@@ -8,12 +8,9 @@
 ---@field killed_underground_region integer[]
 ---@field killed_region integer[]
 ---@field killed_site integer[]
----@field killed_undead historical_kills_killed_undead
+---@field killed_undead undead_flags[]
 ---@field killed_count integer[]
 df.historical_kills = {}
-
----@class historical_kills_killed_undead: df.class
-df.historical_kills.T_killed_undead = {}
 
 ---@class history_hit_item: df.class
 ---@field item item
@@ -398,37 +395,371 @@ df.plot_strategy_type = {}
 df.plot_agreement = {}
 
 ---@class historical_figure_info: df.class
----@field spheres sphere_type[]
----@field skills job_skill[]
+---@field spheres historical_figure_info_spheres
+---@field skills historical_figure_info_skills
 ---@field pets integer[]
----@field personality unit_personality
----@field masterpieces integer[]
----@field whereabouts whereabouts_type
+---@field personality historical_figure_info_personality
+---@field masterpieces historical_figure_info_masterpieces
+---@field whereabouts historical_figure_info_whereabouts
 ---@field kills historical_kills
----@field wounds integer[]
----@field known_info interaction[]
----@field curse interaction[]
----@field books artifact_record[] seems to be misnamed. Artifacts seen have been of all kinds
----@field reputation historical_entity[]
+---@field wounds historical_figure_info_wounds
+---@field known_info historical_figure_info_known_info
+---@field curse historical_figure_info_curse
+---@field books historical_figure_info_books seems to be misnamed. Artifacts seen have been of all kinds
+---@field reputation historical_figure_info_reputation
 ---@field relationships historical_figure_relationships
 df.historical_figure_info = {}
 
+---@class historical_figure_info_spheres: df.class
+---@field spheres sphere_type[]
+---@field unk_1 integer[]
+df.historical_figure_info.T_spheres = {}
+
+---@class historical_figure_info_skills: df.class
+---@field skills job_skill[]
+---@field points integer[]
+---@field professions_held profession[]
+---@field profession_years integer[] Number of years on each profession above. Need not be consecutive, so non registered periods can happen
+---@field profession profession
+---@field unk_1 integer
+---@field account_balance integer Abstract tracker of this individual's wealth
+---@field employment_held historical_figure_info.T_skills_employment_held
+df.historical_figure_info.T_skills = {}
+
+---@class historical_figure_info.T_skills_employment_held: df.class
+---@field employment historical_figure_info.T_skills.T_employment_held_employment[]
+---@field resignment_year integer
+---@field resignment_year_tick integer
+df.historical_figure_info.T_skills.T_employment_held = {}
+
+---@class historical_figure_info.T_skills.T_employment_held_employment: df.class
+---@field employer historical_entity
+---@field held_honors integer[]
+---@field battle_count integer
+---@field kill_count integer
+---@field employment_year integer
+---@field employment_year_tick integer
+df.historical_figure_info.T_skills.T_employment_held.T_employment = {}
+
+---@class historical_figure_info_personality: df.class
+---@field personality unit_personality
+---@field unk_1 integer
+df.historical_figure_info.T_personality = {}
+
+---@class historical_figure_info_masterpieces: df.class
+---@field events integer[]
+---@field events2 integer[] ones that were stolen or destroyed?
+---@field unk_v43_1 integer[]
+---@field unk_v43_2 integer[]
+---@field unk_v50_1 integer[]
+---@field unk_v50_2 integer amount used in unk_v50_1
+---@field unk_v50_3 integer
+df.historical_figure_info.T_masterpieces = {}
+
+---@class historical_figure_info_whereabouts: df.class
+---@field whereabouts_type whereabouts_type
+---@field site world_site
+---@field region_id world_region
+---@field underground_region_id world_underground_region
+---@field army_id army
+---@field unk_1 integer
+---@field unk_2 integer
+---@field pos_x integer same coordinate system as army
+---@field pos_y integer
+---@field flags historical_figure_info.T_whereabouts_flags
+---@field death_condition death_condition_type
+---@field death_condition_parameter_1 integer -1/site     /?/region_id/?/site     /site
+---@field death_condition_parameter_2 integer -1/structure/?/-1       /?/structure/structure
+---@field year integer time of arrival at site/region_id, not time of death
+---@field year_tick integer
+df.historical_figure_info.T_whereabouts = {}
+
+---@class _historical_figure_info.T_whereabouts_flags: df.bitfield
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field unk_1 1
+---@field [1] "unk_1"
+df.historical_figure_info.T_whereabouts.T_flags = {}
+
+---@class historical_figure_info.T_whereabouts_flags
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field unk_1 boolean
+
+---@class historical_figure_info_wounds: df.class
+---@field events integer[]
+---@field status any[]
+---@field childbirth_year integer
+---@field childbirth_tick integer
+---@field unk_flags historical_figure_info.T_wounds_unk_flags
+df.historical_figure_info.T_wounds = {}
+
+---@class _historical_figure_info.T_wounds_unk_flags: df.bitfield
+---@field unk_0 0
+---@field [0] "unk_0"
+df.historical_figure_info.T_wounds.T_unk_flags = {}
+
+---@class historical_figure_info.T_wounds_unk_flags
+---@field [0] boolean
+---@field unk_0 boolean
+
+---@class historical_figure_info_known_info: df.class
+---@field known_secrets interaction[] Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
+---@field unk_10 integer All are gods with the DEATH sphere having created slabs, but the value isn't the id of the slab
+---@field known_written_contents integer[] ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
+---@field known_identities integer[] identity ID of identities known to the historical figure, such as demon true names
+---@field known_witness_reports witness_report[]
+---@field known_events entity_event[]
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer[] same length as next vector. Some are definitely entities (e.g. player fortress or attacker site government), but others make no such sense
+---@field unk_7 integer[] 5, 7, 8 seen. 7/8 only seen on humanoid experiments
+---@field unk_8 historical_figure_info.T_known_info_unk_8[]
+---@field known_poetic_forms integer[]
+---@field known_musical_forms integer[]
+---@field known_dance_forms integer[]
+---@field knowledge historical_figure_info.T_known_info_knowledge
+---@field belief_systems integer[] found in prophets; contains the ID of the belief system developed by that particular prophet
+---@field known_locations world_site[]
+---@field unk_3 integer[]
+df.historical_figure_info.T_known_info = {}
+
+---@class historical_figure_info.T_known_info_unk_8: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer
+df.historical_figure_info.T_known_info.T_unk_8 = {}
+
+---@class historical_figure_info.T_known_info_knowledge: df.class
+---@field philosophy knowledge_scholar_flags_0
+---@field philosophy2 knowledge_scholar_flags_1
+---@field math knowledge_scholar_flags_2
+---@field math2 knowledge_scholar_flags_3
+---@field history knowledge_scholar_flags_4
+---@field astronomy knowledge_scholar_flags_5
+---@field naturalist knowledge_scholar_flags_6
+---@field chemistry knowledge_scholar_flags_7
+---@field geography knowledge_scholar_flags_8
+---@field medicine knowledge_scholar_flags_9
+---@field medicine2 knowledge_scholar_flags_10
+---@field medicine3 knowledge_scholar_flags_11
+---@field engineering knowledge_scholar_flags_12
+---@field engineering2 knowledge_scholar_flags_13
+---@field knowledge_goal_category integer
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field knowledge_goal historical_figure_info.T_known_info.T_knowledge_knowledge_goal
+---@field research_points integer research is finished at 100k? amount gained depends on skills, attributes
+---@field times_pondered integer one per ponder no matter what. turns into research_points somewhere around 40-60.
+df.historical_figure_info.T_known_info.T_knowledge = {}
+
+---@class _historical_figure_info.T_known_info.T_knowledge_knowledge_goal: df.bitfield
+---@field unk0 0
+---@field [0] "unk0"
+df.historical_figure_info.T_known_info.T_knowledge.T_knowledge_goal = {}
+
+---@class historical_figure_info.T_known_info.T_knowledge_knowledge_goal
+---@field [0] boolean
+---@field unk0 boolean
+
+---@class historical_figure_info_curse: df.class
+---@field active_interactions interaction[]
+---@field active_effects interaction_effect[]
+---@field can_do interaction[]
+---@field unk_30 integer
+---@field unk_34 integer
+---@field unk_38 historical_figure_info.T_curse_unk_38
+---@field unk_3c historical_figure_info.T_curse_unk_3c
+---@field unk_40 integer
+---@field name string
+---@field name_plural string
+---@field name_adjective string
+---@field race creature_raw
+---@field caste caste_raw
+---@field body_transformation_effects integer[]
+---@field unk_b0 integer[]
+---@field body_mat_interaction_effects integer[]
+---@field original_histfig_id historical_figure ID of the historical figure who was reanimated to produce undead historical figure
+---@field original_race creature_raw race of the historical figure who was reanimated to produce undead historical figure
+---@field original_caste caste_raw caste of the historical figure who was reanimated to produce undead historical figure
+---@field root_body_part_id integer ID of the root body part in the corpse or corpse piece which was reanimated to produce undead historical figure
+---@field undead_name string display name of reanimated creatures in legends mode
+---@field unk_fc integer
+---@field divination historical_figure_info.T_curse_divination
+---@field experiments historical_figure_info.T_curse_experiments
+df.historical_figure_info.T_curse = {}
+
+---@class _historical_figure_info.T_curse_unk_38: df.bitfield
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field unk_2 2
+---@field [2] "unk_2"
+df.historical_figure_info.T_curse.T_unk_38 = {}
+
+---@class historical_figure_info.T_curse_unk_38
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field unk_2 boolean
+
+---@class _historical_figure_info.T_curse_unk_3c: df.bitfield
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field unk_2 2
+---@field [2] "unk_2"
+df.historical_figure_info.T_curse.T_unk_3c = {}
+
+---@class historical_figure_info.T_curse_unk_3c
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field unk_2 boolean
+
+---@class historical_figure_info.T_curse_divination: df.class
+---@field deities integer[] When a divination die is rolled, the historical figure ID of the associated god is inserted here.
+---@field divination_sets integer[] When a divination die is rolled, the ID of the associated divination_set is inserted here.
+---@field roll_results integer[] When a divination die is rolled, the numerical roll result is inserted here.
+---@field year_rolled integer[] When a divination die is rolled, the cur_year value at the time of rolling is inserted here.
+---@field year_tick_rolled integer[] When a divination die is rolled, the cur_year_tick at the time of rolling is inserted here.
+---@field fate_sealed integer This is set to 1 when a divination die is rolled excessively in a given timespan, preventing all future divination die rolls from having an effect. Attempts at further divination will produce the following message instead: Your fate is sealed.
+df.historical_figure_info.T_curse.T_divination = {}
+
+---@class historical_figure_info.T_curse_experiments: df.class
+---@field unk_1 integer[]
+---@field races integer[] contains IDs of races created by the historical figure through experimentation
+df.historical_figure_info.T_curse.T_experiments = {}
+
+---@class historical_figure_info_books: df.class
+---seems to be misnamed. Artifacts seen have been of all kinds
+---@field artifacts_held artifact_record[] held as in possession, doesn't include stored
+---@field unk_1 integer values seen: 0, 3, 69, 164, 178, 226, 514
+---@field unk_2 integer values seen: 0-5
+---@field unk_3 integer[] wildly varying contents. Probably unitialized, as at least some change when same save reloaded
+---@field unk_4 integer[] ditto
+---@field flags historical_figure_info.T_books_flags
+---@field unk_5 integer not saved
+---@field unk_6 historical_figure_info.T_books_unk_6
+df.historical_figure_info.T_books = {}
+
+---@class _historical_figure_info.T_books_flags: df.bitfield
+---@field unk_0 0
+---@field [0] "unk_0"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field unk_2 2
+---@field [2] "unk_2"
+---@field unk_3 3
+---@field [3] "unk_3"
+df.historical_figure_info.T_books.T_flags = {}
+
+---@class historical_figure_info.T_books_flags
+---@field [0] boolean
+---@field unk_0 boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field unk_2 boolean
+---@field [3] boolean
+---@field unk_3 boolean
+
+---@class historical_figure_info.T_books_unk_6: df.class
+---@field unk_1 historical_figure_info.T_books.T_unk_6_unk_1[]
+---@field unk_2 integer
+df.historical_figure_info.T_books.T_unk_6 = {}
+
+---@class historical_figure_info.T_books.T_unk_6_unk_1: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+df.historical_figure_info.T_books.T_unk_6.T_unk_1 = {}
+
+---@class historical_figure_info_reputation: df.class
+---@field wanted historical_figure_info.T_reputation_wanted[]
+---@field unk_1 historical_figure_info.T_reputation_unk_1[]
+---@field cur_identity identity
+---@field all_identities integer[]
+---@field next_identity_idx integer
+---@field unk_2c historical_figure_info.T_reputation_unk_2c
+df.historical_figure_info.T_reputation = {}
+
+---@class historical_figure_info.T_reputation_wanted: df.class
+---@field unk historical_figure_info.T_reputation.T_wanted_unk
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.historical_figure_info.T_reputation.T_wanted = {}
+
+---@class historical_figure_info.T_reputation.T_wanted_unk: df.class
+---@field entity_id historical_entity
+---@field types reputation_type[]
+---@field levels integer[] 1 to 100: rumored to legendary
+---@field discovered_year integer
+---@field discovered_time integer
+---@field unsolved_murders integer
+df.historical_figure_info.T_reputation.T_wanted.T_unk = {}
+
+---@class historical_figure_info.T_reputation_unk_1: df.class
+---@field entity_id historical_entity
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field discovered_year integer
+---@field discovered_time integer
+---@field unsolved_murders integer
+df.historical_figure_info.T_reputation.T_unk_1 = {}
+
+---@class historical_figure_info.T_reputation_unk_2c: df.class
+---@field unk_1 integer
+---@field year integer Seen in visitors during fort mode, logs the time that they arrived
+---@field year_ticks integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 historical_figure_info.T_reputation.T_unk_2c_unk_12[]
+---@field unk_13 integer[]
+df.historical_figure_info.T_reputation.T_unk_2c = {}
+
+---@class historical_figure_info.T_reputation.T_unk_2c_unk_12: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+df.historical_figure_info.T_reputation.T_unk_2c.T_unk_12 = {}
+
 ---@class historical_figure_relationships: df.class
 ---only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
----@field hf_visual historical_figure_relationships_hf_visual
----@field hf_historical historical_figure_relationships_hf_historical
----@field unk_1 historical_figure_relationships_unk_1
+---@field hf_visual historical_figure_relationships_hf_visual[]
+---@field hf_historical historical_figure_relationships_hf_historical[]
+---@field unk_1 historical_figure_relationships_unk_1[]
 ---@field identities integer[]
----@field artifact_claims historical_figure_relationships_artifact_claims
+---@field artifact_claims historical_figure_relationships_artifact_claims[]
 ---@field unk_2 integer
----@field intrigues any[] only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
+---@field intrigues historical_figure_relationships_intrigues only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
 df.historical_figure_relationships = {}
 
 ---@class historical_figure_relationships_hf_visual: df.class
 ---@field histfig_id historical_figure
 ---@field flags historical_figure_relationships.T_hf_visual_flags
 ---@field unk_2v integer[] Involves adventurer knowing name?
----@field attitude historical_figure_relationships.T_hf_visual_attitude
+---@field attitude reputation_type[]
 ---@field counter integer[] One element for each 'attitude' element. Guess 0 - 100
 ---@field rank integer seems to be fixed. Might not be used anymore
 ---@field loyalty integer 0 - 100. Loyalty, Respect, Fear, and Trust values do not seem to affect the relationship screen description, only Love and Familiarity
@@ -469,9 +800,6 @@ df.historical_figure_relationships.T_hf_visual.T_flags = {}
 ---@field [2] boolean
 ---@field believes_false_identity boolean
 
----@class historical_figure_relationships.T_hf_visual_attitude: df.class
-df.historical_figure_relationships.T_hf_visual.T_attitude = {}
-
 ---@class historical_figure_relationships_hf_historical: df.class
 ---@field histfig_id historical_figure
 ---@field unk_1 integer[]
@@ -502,6 +830,234 @@ df.historical_figure_relationships.T_unk_1 = {}
 ---@field year_tick integer
 ---@field unk_2 integer
 df.historical_figure_relationships.T_artifact_claims = {}
+
+---@class historical_figure_relationships_intrigues: df.class
+---only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
+---@field potential_corrupt_skill job_skill[] only CONVERSATION, INTIMIDATION, and LYING seen; could easily be an entirely different type
+---@field potential_corrupt_target historical_figure_relationships.T_intrigues_potential_corrupt_target[]
+---@field potential_corrupt_circumstance unit_thought_type[]
+---@field potential_corrupt_unk4 integer[] only -1 seen
+---@field plots historical_figure_relationships.T_intrigues_plots[]
+---@field next_plot_id integer
+---@field revealed_agreements agreement[]
+---@field agreemeents agreement[]
+---@field intrigue historical_figure_relationships.T_intrigues_intrigue[]
+---@field next_intrigue_id integer
+---@field unk11 integer[] 4 bytes allocated observed, which cant' host a pointer
+---@field unk12 historical_figure_relationships.T_intrigues_unk12[]
+---@field unk13 integer
+---@field unk14 integer[]
+---@field unk15 integer
+---@field unk16 integer
+---@field unk17 integer
+df.historical_figure_relationships.T_intrigues = {}
+
+---@class historical_figure_relationships.T_intrigues_potential_corrupt_target: df.class
+---@field LYING integer
+---@field INTIMIDATION historical_entity
+---@field CONVERSATION value_type
+df.historical_figure_relationships.T_intrigues.T_potential_corrupt_target = {}
+
+---@class historical_figure_relationships.T_intrigues_plots: df.class
+---@field id integer starts as index in parent vector
+---@field plot_type historical_figure_relationships.T_intrigues.T_plots_plot_type
+---@field parameter integer 0/3/5:local_id, 2:artifact_id, 7/8/9/10/11:actor_id, 12/15:entity_id, 1/4:not seen
+---@field on_hold integer
+---@field plot_agreements plot_agreement[]
+---@field plot_data historical_figure_relationships.T_intrigues.T_plots_plot_data
+---@field delegated_plot_id integer
+---@field delegated_plot_hfid historical_figure
+---@field parent_plot integer
+---@field parent_plot_hfid historical_figure
+---@field agreement agreement
+---@field actor_nemesis_id nemesis_record
+---@field unk5_13 integer 0-8 seen
+---@field plotter_nemesis_id nemesis_record
+---@field unk5_15 integer 0-5 seen
+df.historical_figure_relationships.T_intrigues.T_plots = {}
+
+---@class _historical_figure_relationships.T_intrigues.T_plots_plot_type: df.enum
+---@field None -1
+---@field [0] "None"
+---@field Grow_Funding_Network 1
+---@field [1] "Grow_Funding_Network"
+---@field Grow_Asset_Network 2
+---@field [2] "Grow_Asset_Network"
+---@field Acquire_Artifact 3
+---@field [3] "Acquire_Artifact"
+---@field Grow_Corruption_Network 4
+---@field [4] "Grow_Corruption_Network"
+---@field Attain_Rank 5
+---@field [5] "Attain_Rank"
+---@field Assassinate_Actor 6
+---@field [6] "Assassinate_Actor"
+---@field Corruptly_Punish_Actor 7
+---@field [7] "Corruptly_Punish_Actor"
+---@field Frame_Actor 8
+---@field [8] "Frame_Actor"
+---@field Kidnap_Actor 9
+---@field [9] "Kidnap_Actor"
+---@field Sabotage_Actor 10
+---@field [10] "Sabotage_Actor"
+---@field Direct_War_To_Actor 11
+---@field [11] "Direct_War_To_Actor"
+---@field Corrupt_Actors_Government 12
+---@field [12] "Corrupt_Actors_Government"
+---@field Counterintelligence 13
+---@field [13] "Counterintelligence"
+---@field Become_Immortal 14
+---@field [14] "Become_Immortal"
+---@field Undead_World_Conquest 15
+---@field [15] "Undead_World_Conquest"
+---@field Infiltrate_Society 16
+---@field [16] "Infiltrate_Society"
+df.historical_figure_relationships.T_intrigues.T_plots.T_plot_type = {}
+
+---@class historical_figure_relationships.T_intrigues.T_plots_plot_type
+---@field [0] boolean
+---@field None boolean
+---@field [1] boolean
+---@field Grow_Funding_Network boolean
+---@field [2] boolean
+---@field Grow_Asset_Network boolean
+---@field [3] boolean
+---@field Acquire_Artifact boolean
+---@field [4] boolean
+---@field Grow_Corruption_Network boolean
+---@field [5] boolean
+---@field Attain_Rank boolean
+---@field [6] boolean
+---@field Assassinate_Actor boolean
+---@field [7] boolean
+---@field Corruptly_Punish_Actor boolean
+---@field [8] boolean
+---@field Frame_Actor boolean
+---@field [9] boolean
+---@field Kidnap_Actor boolean
+---@field [10] boolean
+---@field Sabotage_Actor boolean
+---@field [11] boolean
+---@field Direct_War_To_Actor boolean
+---@field [12] boolean
+---@field Corrupt_Actors_Government boolean
+---@field [13] boolean
+---@field Counterintelligence boolean
+---@field [14] boolean
+---@field Become_Immortal boolean
+---@field [15] boolean
+---@field Undead_World_Conquest boolean
+---@field [16] boolean
+---@field Infiltrate_Society boolean
+
+---@class historical_figure_relationships.T_intrigues.T_plots_plot_data: df.class
+---@field None integer seems uninitialized
+---@field Grow_Funding_Network integer seems uninitialized
+---@field Grow_Asset_Network integer pointer not seen
+---@field Acquire_Artifact integer seems uninitialized
+---@field Grow_Corruption_Network integer seems uninitialized
+---@field Attain_Rank integer pointer not seen
+---@field Assassinate_Actor integer pointer not seen
+---@field Corruptly_Punish_Actor integer
+---@field Frame_Actor integer seems uninitialized
+---@field Kidnap_Actor integer pointer not seen
+---@field Sabotage_Actor historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Sabotage_Actor
+---@field Direct_War_To_Actor integer pointer not seen
+---@field Corrupt_Actors_Government integer pointer not seen
+---@field Counterintelligence integer pointer not seen
+---@field Become_Immortal integer pointer not seen
+---@field Undead_World_Conquest integer[]
+---@field Infiltrate_Society historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Infiltrate_Society
+df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data = {}
+
+---@class historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Sabotage_Actor: df.class
+---@field unk_1 integer not seen anything else
+---@field unk_2 integer not seen anything else
+df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_Sabotage_Actor = {}
+
+---@class historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Infiltrate_Society: df.class
+---@field action integer 8:prepare coup, 9:steal treasures and prepare coup. Bitmap?
+---@field unk5_t15_2 integer not seen anything else
+---@field unk5_t15_3 integer not seen anything else
+df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_Infiltrate_Society = {}
+
+---@class historical_figure_relationships.T_intrigues_intrigue: df.class
+---@field id integer index into the parent vector (at least initially)
+---@field unk9_2 integer 0 seen
+---@field hf_1 historical_figure visual relation seen
+---@field hf_2 historical_figure visual relation seen
+---@field unk9_5 integer
+---@field unk9_6 historical_entity site government seen. Target? Possible threat?
+---@field handle_actor_id integer based on exported XML instances
+---@field role plot_role_type
+---@field strategy plot_strategy_type
+---@field unk9_10 historical_entity site government seen. Target? Member of/possible threat?
+---@field unk9_11 integer 1 seen
+---@field unk9_12 integer[]
+df.historical_figure_relationships.T_intrigues.T_intrigue = {}
+
+---@class historical_figure_relationships.T_intrigues_unk12: df.class
+---@field unk_1 integer
+---@field type historical_figure_relationships.T_intrigues.T_unk12_type
+---@field unk_2 integer
+---@field data historical_figure_relationships.T_intrigues.T_unk12_data
+df.historical_figure_relationships.T_intrigues.T_unk12 = {}
+
+---@class _historical_figure_relationships.T_intrigues.T_unk12_type: df.enum
+---@field type_0 0
+---@field [0] "type_0"
+---@field type_1 1
+---@field [1] "type_1"
+---@field type_2 2
+---@field [2] "type_2"
+df.historical_figure_relationships.T_intrigues.T_unk12.T_type = {}
+
+---@class historical_figure_relationships.T_intrigues.T_unk12_type
+---@field [0] boolean
+---@field type_0 boolean
+---@field [1] boolean
+---@field type_1 boolean
+---@field [2] boolean
+---@field type_2 boolean
+
+---@class historical_figure_relationships.T_intrigues.T_unk12_data: df.class
+---@field type_0 historical_figure_relationships.T_intrigues.T_unk12.T_data_type_0
+---@field type_1 historical_figure_relationships.T_intrigues.T_unk12.T_data_type_1
+---@field type_2 historical_figure_relationships.T_intrigues.T_unk12.T_data_type_2
+df.historical_figure_relationships.T_intrigues.T_unk12.T_data = {}
+
+---@class historical_figure_relationships.T_intrigues.T_unk12.T_data_type_0: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_0 = {}
+
+---@class historical_figure_relationships.T_intrigues.T_unk12.T_data_type_1: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_1 = {}
+
+---@class historical_figure_relationships.T_intrigues.T_unk12.T_data_type_2: df.class
+---@field unk_1 historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2_unk_1
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2 = {}
+
+---@class historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2_unk_1: df.class
+---@field unk_0 integer
+---@field unk_type integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5a integer
+---@field unk_5b integer
+---@field unk_5c integer
+---@field unk_5d integer
+---@field unk_5e integer
+---@field unk_6 integer
+df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2.T_unk_1 = {}
 
 ---@class _histfig_flags: df.enum
 ---@field reveal_artwork 0
@@ -1015,17 +1571,48 @@ df.vague_relationship_type = {}
 ---@field site_links histfig_site_link[]
 ---@field histfig_links histfig_hf_link[]
 ---@field info historical_figure_info
----@field vague_relationships integer[] Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
+---@field vague_relationships historical_figure_vague_relationships Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@field unk_f0 world_site
 ---@field unk_f4 world_region
 ---@field unk_f8 world_underground_region
----@field unk_fc integer
----@field unk_v47_2 historical_figure
+---@field unk_fc historical_figure_unk_fc
+---@field unk_v47_2 historical_figure_unk_v47_2
 ---@field unk_v47_3 integer
 ---@field unk_v47_4 integer
 ---@field unk_v4019_1 integer
 ---@field unk_5 integer
 df.historical_figure = {}
+
+---@class historical_figure_vague_relationships: df.class
+---Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
+---@field hfid integer[]
+---@field relationship vague_relationship_type[] unused elements are uninitialized
+---@field count integer number of hf/relationship pairs above
+df.historical_figure.T_vague_relationships = {}
+
+---@class historical_figure_unk_fc: df.class
+---@field unk_0 integer
+---@field unk_8 integer
+df.historical_figure.T_unk_fc = {}
+
+---@class historical_figure_unk_v47_2: df.class
+---@field unk_1 historical_figure
+---@field unk_2 historical_figure
+---@field unk_3 historical_figure
+---@field unk_4 historical_figure
+---@field unk_5 historical_figure
+---@field unk_6 historical_figure
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 historical_figure
+---@field unk_15 historical_figure
+---@field unk_16 historical_figure
+df.historical_figure.T_unk_v47_2 = {}
 
 ---@class _identity_type: df.enum
 ---@field None -1
@@ -2212,7 +2799,7 @@ df.history_event_circumstance_info.T_data = {}
 ---@class history_event_context: df.class
 ---@field flags history_event_context_flags
 ---@field interrogator_relationships historical_figure_relationships
----@field interrogation any
+---@field interrogation history_event_context_interrogation
 ---@field artifact_id artifact_record
 ---@field entity_id historical_entity
 ---@field histfig_id historical_figure
@@ -2272,6 +2859,13 @@ df.history_event_context.T_flags = {}
 ---@class history_event_context_flags
 ---@field [0] boolean
 ---@field is_interrogation_report boolean
+
+---@class history_event_context_interrogation: df.class
+---@field unk_00 integer
+---@field unk_04 integer
+---@field interrogator_id historical_figure
+---@field subject_id historical_figure
+df.history_event_context.T_interrogation = {}
 
 ---@class _architectural_element: df.enum
 ---@field NONE -1
@@ -4759,9 +5353,9 @@ df.history_event_collection_abductionst = {}
 ---@field thief_civ historical_entity
 ---@field victim_civ historical_entity
 ---@field thief_hf integer[]
----@field stolen_item_types history_event_collection_theftst_stolen_item_types
----@field stolen_item_subtypes history_event_collection_theftst_stolen_item_subtypes
----@field stolen_mat_types history_event_collection_theftst_stolen_mat_types
+---@field stolen_item_types item_type[]
+---@field stolen_item_subtypes integer[]
+---@field stolen_mat_types material[]
 ---@field stolen_mat_indices integer[]
 ---@field stolen_item_ids integer[]
 ---@field unk_1 integer[]
@@ -4773,15 +5367,6 @@ df.history_event_collection_abductionst = {}
 ---@field unk_7 integer[]
 ---@field ordinal integer
 df.history_event_collection_theftst = {}
-
----@class history_event_collection_theftst_stolen_item_types: df.class
-df.history_event_collection_theftst.T_stolen_item_types = {}
-
----@class history_event_collection_theftst_stolen_item_subtypes: df.class
-df.history_event_collection_theftst.T_stolen_item_subtypes = {}
-
----@class history_event_collection_theftst_stolen_mat_types: df.class
-df.history_event_collection_theftst.T_stolen_mat_types = {}
 
 ---@class history_event_collection_beast_attackst: history_event_collection
 ---@field parent_collection history_event_collection

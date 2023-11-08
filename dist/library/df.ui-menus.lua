@@ -48,7 +48,7 @@ function df.build_req_choicest:getNumCandidates() end
 ---@field item_subtype integer
 ---@field mat_type material
 ---@field mat_index integer
----@field candidates build_req_choice_genst_candidates
+---@field candidates build_req_choice_genst_candidates[]
 ---@field used_count integer
 ---@field unk_1 boolean
 df.build_req_choice_genst = {}
@@ -2299,7 +2299,7 @@ df.main_interface.T_buildjob = {}
 ---@field entering_item_filter boolean
 ---@field storeamount integer[]
 ---@field badamount integer[]
----@field unk_a8 main_interface.T_assign_trade_unk_a8
+---@field unk_a8 main_interface.T_assign_trade_unk_a8[]
 ---@field unk_c0 integer[]
 ---@field unk_d8 integer[]
 ---@field unk_f0 integer[]
@@ -2814,7 +2814,7 @@ df.main_interface.T_stockpile_tools = {}
 ---@field sub_mode stockpile_list[]
 ---@field sub_mode_ptr_type stock_pile_pointer_type[]
 ---@field sub_mode_ptr integer[]
----@field spec_item main_interface.T_custom_stockpile_spec_item
+---@field spec_item main_interface.T_custom_stockpile_spec_item[]
 ---@field cur_spec_item_sz integer
 ---@field counted_cur_spec_item_sz integer
 df.main_interface.T_custom_stockpile = {}
@@ -3165,7 +3165,7 @@ df.main_interface.T_info.T_work_orders = {}
 df.main_interface.T_info.T_work_orders.T_conditions = {}
 
 ---@class main_interface.T_info_administrators: df.class
----@field noblelist main_interface.T_info.T_administrators_noblelist
+---@field noblelist main_interface.T_info.T_administrators_noblelist[]
 ---@field spec_prof entity_position_assignment[]
 ---@field spec_hfid integer[]
 ---@field spec_enid integer[]
@@ -3177,7 +3177,7 @@ df.main_interface.T_info.T_work_orders.T_conditions = {}
 ---@field last_hover_ep_id integer
 ---@field choosing_candidate boolean
 ---@field candidate_noblelist_ind integer
----@field candidate main_interface.T_info.T_administrators_candidate
+---@field candidate main_interface.T_info.T_administrators_candidate[]
 ---@field scroll_position_candidate integer
 ---@field scrolling_candidate boolean
 ---@field assigning_symbol boolean
@@ -3427,7 +3427,7 @@ df.main_interface.T_help = {}
 ---@field castes_filtered integer[]
 ---@field races_all integer[]
 ---@field castes_all integer[]
----@field skills main_interface.T_arena_unit_skills
+---@field skills job_skill[]
 ---@field skill_levels integer[]
 ---@field equipment_item_type integer[]
 ---@field equipment_item_subtype integer[]
@@ -3436,9 +3436,6 @@ df.main_interface.T_help = {}
 ---@field equipment_quantity integer[]
 ---@field interactions interaction_effect[]
 df.main_interface.T_arena_unit = {}
-
----@class main_interface.T_arena_unit_skills: df.class
-df.main_interface.T_arena_unit.T_skills = {}
 
 ---@class main_interface_arena_tree: df.class
 ---@field open boolean
@@ -3604,8 +3601,8 @@ df.difficultyst.T_flags = {}
 ---@field curiousbeasts boolean
 
 ---@class markup_text_boxst: df.class
----@field unk1 markup_text_boxst_unk1
----@field unk_v50_2 markup_text_boxst_unk_v50_2
+---@field unk1 markup_text_boxst_unk1[]
+---@field unk_v50_2 markup_text_boxst_unk_v50_2[]
 ---@field unk_v50_3 integer
 ---@field unk_v50_4 integer
 ---@field unk_v50_5 integer
@@ -3762,7 +3759,7 @@ df.mod_headerst.T_flags = {}
 ---@field vanilla boolean
 
 ---@class ui_look_list: df.class
----@field items ui_look_list_items
+---@field items ui_look_list_items[]
 df.ui_look_list = {}
 
 ---@class ui_look_list_items: df.class

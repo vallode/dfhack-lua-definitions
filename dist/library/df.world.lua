@@ -322,7 +322,7 @@ df.incident.T_data = {}
 
 ---@class incident_data_performance: df.class
 ---@field performance_event performance_event_type
----@field participants incident_data_performance_participants
+---@field participants incident_data_performance_participants[]
 ---@field reference_id integer history_event id/poetic_form id/musical_form id/dance_form_id or -1
 ---@field written_content_id integer -1 if not used
 ---@field abstract_location integer location at which the performance was held
@@ -436,8 +436,8 @@ df.incident_data_identity = {}
 ---@field site world_site
 ---@field entity historical_entity
 ---@field item_id item seen with crime of theft
----@field reports crime_reports
----@field counterintelligence crime_counterintelligence
+---@field reports crime_reports[]
+---@field counterintelligence crime_counterintelligence[]
 ---@field witnesses crime_witness[]
 ---@field agreement_id agreement
 df.crime = {}
@@ -654,8 +654,8 @@ df.mission_report = {}
 ---@field unk_1 integer
 ---@field year integer
 ---@field year_tick integer
----@field item_types spoils_report_item_types
----@field item_subtypes spoils_report_item_subtypes
+---@field item_types item_type[]
+---@field item_subtypes integer[]
 ---@field mat_types integer[]
 ---@field mat_indices integer[]
 ---@field item_counts integer[]
@@ -663,12 +663,6 @@ df.mission_report = {}
 ---@field creature_castes integer[]
 ---@field creature_counts integer[]
 df.spoils_report = {}
-
----@class spoils_report_item_types: df.class
-df.spoils_report.T_item_types = {}
-
----@class spoils_report_item_subtypes: df.class
-df.spoils_report.T_item_subtypes = {}
 
 ---@class interrogation_report: df.class
 ---@field title string
@@ -751,7 +745,7 @@ df.encased_horror = {}
 ---@field treasures integer[]
 ---@field site_id world_site
 ---@field structure_id abstract_building
----@field trigger_regions cursed_tomb_trigger_regions normally just one, 3x3 around the coffin
+---@field trigger_regions cursed_tomb_trigger_regions[] normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
 df.cursed_tomb = {}
 
@@ -1008,7 +1002,7 @@ df.coin_batch.T_image_back = {}
 
 ---@class job_handler: df.class
 ---@field list job_list_link
----@field postings job_handler_postings entries never removed
+---@field postings job_handler_postings[] entries never removed
 ---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
 df.job_handler = {}
 
@@ -1077,7 +1071,7 @@ df.mental_picture.T_unk = {}
 
 ---@class belief_system: df.instance
 ---@field id integer
----@field mental_pictures belief_system_mental_pictures
+---@field mental_pictures belief_system_mental_pictures[]
 ---@field deities integer[] historical figure ID of gods the belief system is concerned with
 ---@field worship_levels integer[] worship level for each god referenced in the deities field
 ---@field unk_1 integer
@@ -1192,7 +1186,7 @@ df.divination_set = {}
 ---@class image_set: df.instance
 ---@field id integer
 ---@field unk_2 integer
----@field unk_vec1 image_set_unk_vec1
+---@field unk_vec1 image_set_unk_vec1[]
 ---@field unk_vec2 integer[]
 df.image_set = {}
 
@@ -1303,9 +1297,9 @@ df.image_set.T_unk_vec1 = {}
 ---@field history world_history
 ---@field entity_populations entity_population[]
 ---@field daily_events world_daily_events for each calendar day, a list of major life events (by nemesis id)
----@field unk_131ec0 world_unk_131ec0
----@field languages world_languages
----@field unk_131ef0 world_unk_131ef0
+---@field unk_131ec0 world_unk_131ec0[]
+---@field languages world_languages[]
+---@field unk_131ef0 world_unk_131ef0[]
 ---@field viewport map_viewport
 ---@field unk_131f08 integer
 ---@field reindex_pathfinding boolean forces map_block.passable to be recomputed
@@ -1456,15 +1450,12 @@ df.world.T_schedules = {}
 df.world.T_squads = {}
 
 ---@class world_formations: df.class
----@field all world.T_formations_all
----@field bad world.T_formations_bad
+---@field all world.T_formations_all[]
+---@field bad integer[]
 df.world.T_formations = {}
 
 ---@class world.T_formations_all: df.class
 df.world.T_formations.T_all = {}
-
----@class world.T_formations_bad: df.class
-df.world.T_formations.T_bad = {}
 
 ---@class world_activities: df.class
 ---@field all activity_entry[]
@@ -1781,17 +1772,14 @@ df.world.T_worldgen_status.T_state = {}
 ---@class world_area_grasses: df.class
 ---grasses in world tiles around embark. Populated at embark
 ---@field world_tiles coord2d_path 7*7 world tile area centered around embark, stunted at edges
----@field layer_grasses world.T_area_grasses_layer_grasses one per layer per world tile
+---@field layer_grasses world.T_area_grasses_layer_grasses[] one per layer per world tile
 df.world.T_area_grasses = {}
 
 ---@class world.T_area_grasses_layer_grasses: df.class
 ---one per layer per world tile
 ---@field ref world_population_ref
----@field grasses world.T_area_grasses.T_layer_grasses_grasses
+---@field grasses plant_raw[]
 df.world.T_area_grasses.T_layer_grasses = {}
-
----@class world.T_area_grasses.T_layer_grasses_grasses: df.class
-df.world.T_area_grasses.T_layer_grasses.T_grasses = {}
 
 ---@class world_flow_engine: df.class
 ---@field rnd_16 integer
@@ -1852,7 +1840,7 @@ df.world.T_languages = {}
 
 ---@class world_unk_131ef0: df.class
 ---@field hfid historical_figure confusing. usually the creator, but sometimes completely unrelated or culled
----@field claims world.T_unk_131ef0_claims
+---@field claims world.T_unk_131ef0_claims[]
 ---@field unk_hfid historical_figure hfid or completely unrelated hf seen?
 ---@field unk_1 integer only seen 0
 ---@field unk_2 integer only seen 0
@@ -1868,7 +1856,7 @@ df.world.T_unk_131ef0.T_claims = {}
 
 ---@class world_pathfinder: df.class
 ---A heap of current boundary tiles.
----@field boundary_heap any[] A heap of current boundary tiles.
+---@field boundary_heap integer[] A heap of current boundary tiles.
 ---@field heap_count integer
 ---@field pos1 coord
 ---@field pos2 coord
@@ -2174,7 +2162,7 @@ df.world.T_rod_loader.T_state = {}
 ---@class world_object_loader: df.class
 ---@field load_object_stage integer
 ---@field load_object_stage_count integer
----@field object_files ptr-string[]
+---@field object_files string[]
 ---@field object_file_index integer
 ---@field current_load_order_index integer
 ---@field current_load_order_graphics_index integer
@@ -2212,13 +2200,13 @@ df.world.T_object_loader = {}
 df.world.T_features = {}
 
 ---@class world_arena: df.class
----@field templates world.T_arena_templates
+---@field templates world.T_arena_templates[]
 ---@field cur_template_idx integer
 ---@field race integer[]
 ---@field caste integer[]
 ---@field type integer
 ---@field item_types embark_item_choice
----@field skills world.T_arena_skills
+---@field skills job_skill[]
 ---@field skill_levels integer[]
 ---@field equipment world.T_arena_equipment
 ---@field side integer
@@ -2245,26 +2233,14 @@ df.world.T_arena = {}
 ---@class world.T_arena_templates: df.class
 df.world.T_arena.T_templates = {}
 
----@class world.T_arena_skills: df.class
-df.world.T_arena.T_skills = {}
-
 ---@class world.T_arena_equipment: df.class
----@field skills world.T_arena.T_equipment_skills
+---@field skills job_skill[]
 ---@field skill_levels integer[]
----@field item_types world.T_arena.T_equipment_item_types
----@field item_subtypes world.T_arena.T_equipment_item_subtypes
+---@field item_types item_type[]
+---@field item_subtypes integer[]
 ---@field item_materials material_vec_ref
 ---@field item_counts integer[]
 df.world.T_arena.T_equipment = {}
-
----@class world.T_arena.T_equipment_skills: df.class
-df.world.T_arena.T_equipment.T_skills = {}
-
----@class world.T_arena.T_equipment_item_types: df.class
-df.world.T_arena.T_equipment.T_item_types = {}
-
----@class world.T_arena.T_equipment_item_subtypes: df.class
-df.world.T_arena.T_equipment.T_item_subtypes = {}
 
 ---@class _world.T_arena_flag: df.bitfield
 ---@field morale_enable 0
@@ -2280,28 +2256,19 @@ df.world.T_arena.T_flag = {}
 ---@field creature_caste integer[]
 ---@field last_selected_creature_index integer
 ---@field etl embark_item_choice
----@field skill_type world.T_dungeon_skill_type
+---@field skill_type job_skill[]
 ---@field skill_value integer[]
----@field item_types world.T_dungeon_item_types
----@field item_subtypes world.T_dungeon_item_subtypes
+---@field item_types item_type[]
+---@field item_subtypes integer[]
 ---@field item_materials material_vec_ref
 ---@field item_amount integer[]
 ---@field race_count integer[]
 df.world.T_dungeon = {}
 
----@class world.T_dungeon_skill_type: df.class
-df.world.T_dungeon.T_skill_type = {}
-
----@class world.T_dungeon_item_types: df.class
-df.world.T_dungeon.T_item_types = {}
-
----@class world.T_dungeon_item_subtypes: df.class
-df.world.T_dungeon.T_item_subtypes = {}
-
 ---@class world_attack_chance_info: df.class
----@field modifier world.T_attack_chance_info_modifier
----@field attack world.T_attack_chance_info_attack
----@field target world.T_attack_chance_info_target
+---@field modifier world.T_attack_chance_info_modifier[]
+---@field attack world.T_attack_chance_info_attack[]
+---@field target world.T_attack_chance_info_target[]
 ---@field current_modifier_number integer
 ---@field current_attack_number integer
 ---@field current_target_number integer

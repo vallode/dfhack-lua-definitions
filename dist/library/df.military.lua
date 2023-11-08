@@ -30,18 +30,15 @@ df.item_filter_spec = {}
 ---@field item item
 ---@field item_filter item_filter_spec
 ---@field color integer
----@field assigned squad_uniform_spec_assigned
+---@field assigned item[]
 ---@field indiv_choice uniform_indiv_choice
 df.squad_uniform_spec = {}
-
----@class squad_uniform_spec_assigned: df.class
-df.squad_uniform_spec.T_assigned = {}
 
 ---@class squad_ammo_spec: df.class
 ---@field item_filter item_filter_spec
 ---@field amount integer
 ---@field flags squad_ammo_spec_flags
----@field assigned squad_ammo_spec_assigned
+---@field assigned item[]
 df.squad_ammo_spec = {}
 
 ---@class _squad_ammo_spec_flags: df.bitfield
@@ -56,9 +53,6 @@ df.squad_ammo_spec.T_flags = {}
 ---@field use_combat boolean
 ---@field [1] boolean
 ---@field use_training boolean
-
----@class squad_ammo_spec_assigned: df.class
-df.squad_ammo_spec.T_assigned = {}
 
 ---@class _squad_use_flags: df.bitfield
 ---@field sleep 0
@@ -176,7 +170,7 @@ df.squad_event_type = {}
 ---@field uniform squad_uniform_spec[][]
 ---@field unk_c4 string
 ---@field flags uniform_flags
----@field assigned_items squad_position_assigned_items
+---@field assigned_items item[]
 ---@field quiver item
 ---@field backpack item
 ---@field flask item
@@ -185,9 +179,6 @@ df.squad_event_type = {}
 ---@field events integer[]
 ---@field unk_2 integer
 df.squad_position = {}
-
----@class squad_position_assigned_items: df.class
-df.squad_position.T_assigned_items = {}
 
 ---@class squad_schedule_order: df.class
 ---@field order squad_order
@@ -200,7 +191,7 @@ df.squad_schedule_order = {}
 ---@field sleep_mode integer 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode integer 0 uniformed, 1 civ clothes
 ---@field orders squad_schedule_order[]
----@field order_assignments squad_schedule_entry_order_assignments
+---@field order_assignments squad_schedule_entry_order_assignments[]
 df.squad_schedule_entry = {}
 
 ---@class squad_schedule_entry_order_assignments: df.class
@@ -212,9 +203,9 @@ df.squad_schedule_entry.T_order_assignments = {}
 ---@field alias string if not empty, used instead of name
 ---@field positions squad_position[]
 ---@field orders squad_order[]
----@field schedule squad_schedule
+---@field schedule squad_schedule[]
 ---@field cur_routine_idx integer
----@field rooms squad_rooms
+---@field rooms squad_rooms[]
 ---@field rack_combat integer[]
 ---@field rack_training integer[]
 ---@field uniform_priority integer
@@ -247,24 +238,12 @@ df.squad.T_rooms = {}
 
 ---@class squad_ammo: df.class
 ---@field ammunition squad_ammo_spec[]
----@field train_weapon_free squad.T_ammo_train_weapon_free
----@field train_weapon_inuse squad.T_ammo_train_weapon_inuse
----@field ammo_items squad.T_ammo_ammo_items
----@field ammo_units squad.T_ammo_ammo_units
+---@field train_weapon_free item[]
+---@field train_weapon_inuse item[]
+---@field ammo_items item[]
+---@field ammo_units unit[]
 ---@field update equipment_update
 df.squad.T_ammo = {}
-
----@class squad.T_ammo_train_weapon_free: df.class
-df.squad.T_ammo.T_train_weapon_free = {}
-
----@class squad.T_ammo_train_weapon_inuse: df.class
-df.squad.T_ammo.T_train_weapon_inuse = {}
-
----@class squad.T_ammo_ammo_items: df.class
-df.squad.T_ammo.T_ammo_items = {}
-
----@class squad.T_ammo_ammo_units: df.class
-df.squad.T_ammo.T_ammo_units = {}
 
 ---@class _squad_order_type: df.enum
 ---@field MOVE 0
@@ -469,16 +448,10 @@ function df.squad_order:isEqual(other) end
 df.squad_order_movest = {}
 
 ---@class squad_order_kill_listst: squad_order
----@field units squad_order_kill_listst_units
----@field histfigs squad_order_kill_listst_histfigs
+---@field units unit[]
+---@field histfigs historical_figure[]
 ---@field title string
 df.squad_order_kill_listst = {}
-
----@class squad_order_kill_listst_units: df.class
-df.squad_order_kill_listst.T_units = {}
-
----@class squad_order_kill_listst_histfigs: df.class
-df.squad_order_kill_listst.T_histfigs = {}
 
 ---@class squad_order_defend_burrowsst: squad_order
 ---@field burrows integer[]
@@ -697,7 +670,7 @@ df.army_controller_sub1 = {}
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field unk_4a army_controller_invasion_order_unk_4a
+---@field unk_4a army_controller_invasion_order_unk_4a[]
 ---@field unk_5 integer[]
 ---@field unk_6 integer[]
 ---@field unk_7 integer
@@ -764,7 +737,7 @@ df.army_controller_sub6 = {}
 ---@class army_controller_sub7: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 army_controller_sub7_unk_3
+---@field unk_3 army_controller_sub7_unk_3[]
 ---@field unk_4 integer 0 seen
 ---@field pos_x integer map_block coordinates. Same as those of the main struct seen
 ---@field pos_y integer
@@ -786,7 +759,7 @@ df.army_controller_sub7.T_unk_3 = {}
 ---@class army_controller_sub11: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 army_controller_sub11_unk_3
+---@field unk_3 army_controller_sub11_unk_3[]
 df.army_controller_sub11 = {}
 
 ---@class army_controller_sub11_unk_3: df.class
@@ -802,7 +775,7 @@ df.army_controller_sub11.T_unk_3 = {}
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer 2 seen on exiled character
----@field unk_4 army_controller_visit_unk_4
+---@field unk_4 army_controller_visit_unk_4[]
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field abstract_building integer Monster slayers have -1
@@ -822,7 +795,7 @@ df.army_controller_visit.T_unk_4 = {}
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 army_controller_sub13_unk_4
+---@field unk_4 army_controller_sub13_unk_4[]
 df.army_controller_sub13 = {}
 
 ---@class army_controller_sub13_unk_4: df.class
@@ -838,7 +811,7 @@ df.army_controller_sub13.T_unk_4 = {}
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 army_controller_sub14_unk_4
+---@field unk_4 army_controller_sub14_unk_4[]
 ---@field unk_5 integer
 df.army_controller_sub14 = {}
 
@@ -854,7 +827,7 @@ df.army_controller_sub14.T_unk_4 = {}
 ---@class army_controller_sub15: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 army_controller_sub15_unk_3
+---@field unk_3 army_controller_sub15_unk_3[]
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
@@ -945,7 +918,7 @@ df.army_flags = {}
 ---@field unk_10 integer 1, 2, 5, 10, 15, 20, 21 seen
 ---@field unk_14 integer When set, large value like army or army_controller id, but no match found
 ---@field unk_18 integer
----@field members army_members
+---@field members army_members[]
 ---@field squads world_site_inhabitant[]
 ---@field unk_3c integer
 ---@field unk_1 integer

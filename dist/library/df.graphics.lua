@@ -623,7 +623,7 @@ function df.renderer:uses_opengl() end
 ---@field window integer SDL_Window*
 ---@field sdl_renderer integer SDL_Renderer*
 ---@field screen_tex integer SDL_Texture*
----@field tile_cache any unordered_map<texture_fullid, SDL_Texture*\>
+---@field tile_cache lightuserdata unordered_map<texture_fullid, SDL_Texture*\>
 ---@field dispx integer
 ---@field dispy integer
 ---@field dimx integer

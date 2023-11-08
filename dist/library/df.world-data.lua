@@ -180,12 +180,12 @@ df.world_region_type = {}
 ---@field unk_a4 integer
 ---@field population world_population[]
 ---@field biome_tile_counts integer[]
----@field tree_biomes world_region_tree_biomes
----@field tree_tiles_1 world_region_tree_tiles_1
----@field tree_tiles_2 world_region_tree_tiles_2
----@field tree_tiles_good world_region_tree_tiles_good
----@field tree_tiles_evil world_region_tree_tiles_evil
----@field tree_tiles_savage world_region_tree_tiles_savage
+---@field tree_biomes biome_type[]
+---@field tree_tiles_1 plant_raw[]
+---@field tree_tiles_2 plant_raw[]
+---@field tree_tiles_good plant_raw[]
+---@field tree_tiles_evil plant_raw[]
+---@field tree_tiles_savage plant_raw[]
 ---@field dead_percentage integer % vegetation dead on embark. The number increases during world gen history, with the new ones always at 100%
 ---@field unk_1e5 boolean Probably optionally set only on good and evil regions during world gen. Number set increases during world gen history and can affect neutral.
 ---@field unk_1e6 boolean Probably optionally set only on neutral regions
@@ -203,24 +203,6 @@ df.world_region_type = {}
 ---@field min_y integer
 ---@field max_y integer
 df.world_region = {}
-
----@class world_region_tree_biomes: df.class
-df.world_region.T_tree_biomes = {}
-
----@class world_region_tree_tiles_1: df.class
-df.world_region.T_tree_tiles_1 = {}
-
----@class world_region_tree_tiles_2: df.class
-df.world_region.T_tree_tiles_2 = {}
-
----@class world_region_tree_tiles_good: df.class
-df.world_region.T_tree_tiles_good = {}
-
----@class world_region_tree_tiles_evil: df.class
-df.world_region.T_tree_tiles_evil = {}
-
----@class world_region_tree_tiles_savage: df.class
-df.world_region.T_tree_tiles_savage = {}
 
 ---@class world_underground_region: df.instance
 ---@field type world_underground_region_type
@@ -321,19 +303,12 @@ df.geo_layer_type.attrs = {}
 ---@field type geo_layer_type
 ---@field mat_index inorganic_raw
 ---@field vein_mat integer[]
----@field vein_nested_in world_geo_layer_vein_nested_in Index of the other vein this one is nested in, or -1
----@field vein_type world_geo_layer_vein_type
+---@field vein_nested_in integer[] Index of the other vein this one is nested in, or -1
+---@field vein_type inclusion_type[]
 ---@field vein_unk_38 integer[] density??
 ---@field top_height integer negative
 ---@field bottom_height integer
 df.world_geo_layer = {}
-
----@class world_geo_layer_vein_nested_in: df.class
----Index of the other vein this one is nested in, or -1
-df.world_geo_layer.T_vein_nested_in = {}
-
----@class world_geo_layer_vein_type: df.class
-df.world_geo_layer.T_vein_type = {}
 
 ---@class world_geo_biome: df.instance
 ---@field unk1 integer
@@ -691,7 +666,7 @@ df.entity_claim_mask = {}
 ---@field unk_4 integer
 ---@field unk_c integer
 ---@field unk_10 integer
----@field members moving_party_members
+---@field members moving_party_members[]
 ---@field entity_id historical_entity
 ---@field flags boolean[]
 ---@field unk_30 integer[]
@@ -720,15 +695,15 @@ df.moving_party.T_members = {}
 ---@class world_object_data: df.instance
 ---@field id integer World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
 ---@field altered_items integer[] world_data_subid
----@field offloaded_items world_object_data_offloaded_items
+---@field offloaded_items world_object_data_offloaded_items[]
 ---@field unk_24 integer[]
 ---@field unk_34 integer[]
 ---@field unk_44 integer[]
 ---@field unk_54 integer[]
 ---@field unk_64 integer[]
 ---@field altered_buildings integer[] world_data_subid
----@field offloaded_buildings world_object_data_offloaded_buildings
----@field unk_94 world_object_data_unk_94
+---@field offloaded_buildings world_object_data_offloaded_buildings[]
+---@field unk_94 world_object_data_unk_94[]
 ---@field creation_zone_alterations creation_zone_pwg_alterationst[]
 ---@field unk_v40_1 integer
 ---@field year integer
@@ -885,7 +860,7 @@ df.world_mountain_peak = {}
 ---@field unk_268 integer
 ---@field unk_26c integer
 ---@field unk_270 integer
----@field unk_274 world_data_unk_274
+---@field unk_274 world_data_unk_274[]
 ---@field unk_482f8 world_data_unk_482f8
 df.world_data = {}
 
@@ -929,7 +904,7 @@ df.world_data.T_constructions = {}
 
 ---@class world_data_unk_274: df.class
 ---@field members historical_figure[]
----@field unk_10 world_data.T_unk_274_unk_10
+---@field unk_10 world_data.T_unk_274_unk_10[]
 ---@field entity historical_entity
 ---@field unk_24 integer
 ---@field unk_region_name language_name
@@ -957,9 +932,9 @@ df.world_data.T_unk_482f8 = {}
 ---@class breed: df.instance
 ---@field id integer
 ---@field unk_4 integer
----@field unk_8 breed_unk_8
----@field unk_18 breed_unk_18
----@field unk_28 breed_unk_28
+---@field unk_8 breed_unk_8[]
+---@field unk_18 breed_unk_18[]
+---@field unk_28 breed_unk_28[]
 df.breed = {}
 
 ---@class breed_unk_8: df.class
@@ -981,7 +956,7 @@ df.breed.T_unk_28 = {}
 
 ---@class battlefield: df.instance
 ---@field id integer
----@field sapient_deaths battlefield_sapient_deaths Seems to be by squad. Trolls/Blizzard Men not counted
+---@field sapient_deaths battlefield_sapient_deaths[] Seems to be by squad. Trolls/Blizzard Men not counted
 ---@field hfs_killed integer[] some victims are not listed, for some reason, and culled HFs can be present
 ---@field x1 integer
 ---@field y1 integer

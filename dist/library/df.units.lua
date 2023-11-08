@@ -1609,7 +1609,7 @@ df.pronoun_type.attrs = {}
 ---@field profession2 profession
 ---@field race creature_raw
 ---@field pos coord
----@field idle_area unit_idle_area E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
+---@field idle_area coord E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
 ---@field idle_area_threshold integer
 ---@field idle_area_type unit_station_type
 ---@field follow_distance integer
@@ -1702,13 +1702,9 @@ df.pronoun_type.attrs = {}
 ---@field sheet_icon_texpos integer
 ---@field texpos_currently_in_use boolean[][]
 ---@field cached_glowtile_type integer
----@field pool_index any
+---@field pool_index integer
 ---@field mtx lightuserdata
 df.unit = {}
-
----@class unit_coord: df.class
----E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
-df.unit.T_coord = {}
 
 ---@class unit_path: df.class
 ---@field dest coord
@@ -1921,7 +1917,7 @@ df.unit.T_counters2 = {}
 
 ---@class unit_status: df.class
 ---@field misc_traits unit_misc_trait[]
----@field eat_history item_type[]
+---@field eat_history unit.T_status_eat_history
 ---@field demand_timeout integer
 ---@field mandate_timeout integer
 ---@field attacker_ids integer[]
@@ -1938,7 +1934,7 @@ df.unit.T_counters2 = {}
 ---@field parleys unit_parley[]
 ---@field requests unit_request[]
 ---@field coin_debts unit_coin_debt[]
----@field unk_1 unit.T_status_unk_1
+---@field unk_1 unit.T_status_unk_1[]
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer[] initialized together with enemy.gait_index
@@ -1947,6 +1943,27 @@ df.unit.T_counters2 = {}
 ---@field recent_job_area coord
 ---@field recent_jobs coord_path
 df.unit.T_status = {}
+
+---@class unit.T_status_eat_history: df.class
+---@field food unit.T_status.T_eat_history_food
+---@field drink unit.T_status.T_eat_history_drink
+df.unit.T_status.T_eat_history = {}
+
+---@class unit.T_status.T_eat_history_food: df.class
+---@field item_type item_type[]
+---@field item_subtype integer[]
+---@field material material_vec_ref
+---@field year integer[]
+---@field year_time integer[]
+df.unit.T_status.T_eat_history.T_food = {}
+
+---@class unit.T_status.T_eat_history_drink: df.class
+---@field item_type item_type[]
+---@field item_subtype integer[]
+---@field material material_vec_ref
+---@field year integer[]
+---@field year_time integer[]
+df.unit.T_status.T_eat_history.T_drink = {}
 
 ---@class unit.T_status_unk_1: df.class
 ---@field unk_1 integer
@@ -1991,7 +2008,7 @@ df.unit.T_reports = {}
 
 ---@class unit_enemy: df.class
 ---@field sound_cooldown integer[]
----@field undead integer
+---@field undead unit.T_enemy_undead
 ---@field were_race creature_raw
 ---@field were_caste caste_raw
 ---@field normal_race creature_raw
@@ -2008,8 +2025,8 @@ df.unit.T_reports = {}
 ---@field unk_v40_1e integer[] unused elements probably uninitialized
 ---@field unk_unit_id_2 integer[] Seen own side, enemy side, not involved (witnesses?). Unused fields not cleared
 ---@field unk_unit_id_2_count integer
----@field unk_448 integer
----@field unk_44c integer
+---@field unk_448 unit.T_enemy_unk_448
+---@field unk_44c unit.T_enemy_unk_44c
 ---@field unk_450 integer
 ---@field unk_454 integer
 ---@field army_controller_id army_controller
@@ -2030,15 +2047,174 @@ df.unit.T_reports = {}
 ---@field unk_8f8 integer[]
 df.unit.T_enemy = {}
 
+---@class unit.T_enemy_undead: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field root_body_part_id integer ID of the root body part in the corpse or corpse piece from which the reanimated unit was produced
+---@field undead_name string display name of reanimated creatures
+---@field unk_v43_1 integer
+---@field unk_v43_2 integer
+df.unit.T_enemy.T_undead = {}
+
+---@class unit.T_enemy_unk_448: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk unit.T_enemy.T_unk_448_unk
+df.unit.T_enemy.T_unk_448 = {}
+
+---@class unit.T_enemy.T_unk_448_unk: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer not saved
+df.unit.T_enemy.T_unk_448.T_unk = {}
+
+---@class unit.T_enemy_unk_44c: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer[]
+---@field unk_8 integer[]
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+df.unit.T_enemy.T_unk_44c = {}
+
 ---@class unit.T_enemy_unk_v40_sub3: df.class
 ---@field controller army_controller
----@field unk_2 integer[]
+---@field unk_2 unit.T_enemy.T_unk_v40_sub3_unk_2
 ---@field unk_3 integer[]
 ---@field unk_4 integer[]
 ---@field unk_5 integer[]
----@field unk_6 integer[]
----@field visitor_info any[]
+---@field unk_6 unit.T_enemy.T_unk_v40_sub3_unk_6
+---@field visitor_info unit.T_enemy.T_unk_v40_sub3_visitor_info
 df.unit.T_enemy.T_unk_v40_sub3 = {}
+
+---@class unit.T_enemy.T_unk_v40_sub3_unk_2: df.class
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+df.unit.T_enemy.T_unk_v40_sub3.T_unk_2 = {}
+
+---@class unit.T_enemy.T_unk_v40_sub3_unk_6: df.class
+---@field unk_0 integer[]
+---@field unk_10 integer[]
+df.unit.T_enemy.T_unk_v40_sub3.T_unk_6 = {}
+
+---@class unit.T_enemy.T_unk_v40_sub3_visitor_info: df.class
+---@field visit_reasons unit.T_enemy.T_unk_v40_sub3.T_visitor_info_visit_reasons[]
+---@field flags unit.T_enemy.T_unk_v40_sub3.T_visitor_info_flags Affects the text shown in the unit summary
+---@field year integer
+---@field year_tick integer
+---@field unk_4 integer
+---@field unk_5 integer
+---@field rumour_type history_event_reason for the "heard ... was the place for ..." text
+---@field rumour_location_id abstract_building
+df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info = {}
+
+---@class unit.T_enemy.T_unk_v40_sub3.T_visitor_info_visit_reasons: df.class
+---@field reason unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_reason
+---@field site_id world_site
+---@field location_id abstract_building
+---@field remaining integer set when praying; counts down to 0
+---@field year integer
+---@field year_tick integer
+---@field flags unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_flags
+---@field unk_sub1_8 integer
+---@field unk_sub1_9 integer
+df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons = {}
+
+---@class _unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_reason: df.enum
+---@field PRAY 0
+---@field [0] "PRAY"
+---@field STUDY 1
+---@field [1] "STUDY"
+---@field RELAX 2
+---@field [2] "RELAX"
+---@field PERFORM 3
+---@field [3] "PERFORM"
+---@field SLAY_BEASTS 4
+---@field [4] "SLAY_BEASTS"
+---@field WORK_AS_PERFORMER 5
+---@field [5] "WORK_AS_PERFORMER"
+---@field WORK_AS_MERCENARY 6
+---@field [6] "WORK_AS_MERCENARY"
+---@field WORK_AS_SCHOLAR 7
+---@field [7] "WORK_AS_SCHOLAR"
+---@field DIPLOMACY 8
+---@field [8] "DIPLOMACY"
+---@field SEEKING_SANCTUARY 9
+---@field [9] "SEEKING_SANCTUARY"
+---@field ASKING_QUESTIONS 10
+---@field [10] "ASKING_QUESTIONS"
+df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons.T_reason = {}
+
+---@class unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_reason
+---@field [0] boolean
+---@field PRAY boolean
+---@field [1] boolean
+---@field STUDY boolean
+---@field [2] boolean
+---@field RELAX boolean
+---@field [3] boolean
+---@field PERFORM boolean
+---@field [4] boolean
+---@field SLAY_BEASTS boolean
+---@field [5] boolean
+---@field WORK_AS_PERFORMER boolean
+---@field [6] boolean
+---@field WORK_AS_MERCENARY boolean
+---@field [7] boolean
+---@field WORK_AS_SCHOLAR boolean
+---@field [8] boolean
+---@field DIPLOMACY boolean
+---@field [9] boolean
+---@field SEEKING_SANCTUARY boolean
+---@field [10] boolean
+---@field ASKING_QUESTIONS boolean
+
+---@class _unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_flags: df.bitfield
+---@field unk_0 0
+---@field [0] "unk_0"
+df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons.T_flags = {}
+
+---@class unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_flags
+---@field [0] boolean
+---@field unk_0 boolean
+
+---@class _unit.T_enemy.T_unk_v40_sub3.T_visitor_info_flags: df.bitfield
+---Affects the text shown in the unit summary
+---@field talked_to_local 0
+---@field [0] "talked_to_local"
+---@field unk_1 1
+---@field [1] "unk_1"
+---@field ready_to_leave 2
+---@field [2] "ready_to_leave"
+df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_flags = {}
+
+---@class unit.T_enemy.T_unk_v40_sub3.T_visitor_info_flags
+---@field [0] boolean
+---@field talked_to_local boolean
+---@field [1] boolean
+---@field unk_1 boolean
+---@field [2] boolean
+---@field ready_to_leave boolean
 
 function df.unit:getCreatureTile() end
 
@@ -2243,7 +2419,7 @@ df.unit_attribute = {}
 ---@field ticks integer
 ---@field wounds integer[] refers to unit_wound by id
 ---@field wound_id integer
----@field symptoms unit_syndrome_symptoms
+---@field symptoms unit_syndrome_symptoms[]
 ---@field reinfection_count integer set from unit.reinfection_count[i]++
 ---@field flags unit_syndrome_flags
 ---@field unk4 integer[]
@@ -2494,7 +2670,7 @@ df.wound_damage_flags2 = {}
 
 ---@class unit_wound: df.class
 ---@field id integer
----@field parts unit_wound_parts
+---@field parts unit_wound_parts[]
 ---@field age integer
 ---@field attacker_unit_id unit
 ---@field attacker_hist_figure_id historical_figure
@@ -2520,7 +2696,7 @@ df.unit_wound = {}
 ---@field strain integer
 ---@field effect_perc1 integer[]
 ---@field effect_perc2 integer[]
----@field effect_type unit_wound.T_parts_effect_type
+---@field effect_type wound_effect_type[]
 ---@field edged_curve_perc integer
 ---@field flags1 wound_damage_flags1
 ---@field flags2 wound_damage_flags2
@@ -2540,9 +2716,6 @@ df.unit_wound = {}
 ---@field jammed_layer_idx integer in compound fracture
 ---@field partially_butchered integer
 df.unit_wound.T_parts = {}
-
----@class unit_wound.T_parts_effect_type: df.class
-df.unit_wound.T_parts.T_effect_type = {}
 
 ---@class _unit_wound_flags: df.bitfield
 ---@field severed_part 0
@@ -3028,7 +3201,7 @@ df.unit_bp_health_flags = {}
 ---@field dressing_cntdn integer
 ---@field suture_cntdn integer
 ---@field crutch_cntdn integer
----@field op_history unit_health_info_op_history
+---@field op_history unit_health_info_op_history[]
 ---@field unk_34 integer[]
 df.unit_health_info = {}
 
@@ -3112,8 +3285,15 @@ df.orientation_flags = {}
 ---@field skills unit_skill[]
 ---@field preferences unit_preference[]
 ---@field personality unit_personality
----@field performance_skills unit_instrument_skill[]
+---@field performance_skills unit_soul_performance_skills
 df.unit_soul = {}
+
+---@class unit_soul_performance_skills: df.class
+---@field musical_instruments unit_instrument_skill[]
+---@field poetic_forms unit_poetic_skill[]
+---@field musical_forms unit_musical_skill[]
+---@field dance_forms unit_dance_skill[]
+df.unit_soul.T_performance_skills = {}
 
 ---@class unit_instrument_skill: df.class
 ---@field id integer
@@ -3154,16 +3334,16 @@ df.unit_dance_skill = {}
 df.unit_emotion_memory = {}
 
 ---@class unit_personality: df.class
----@field values unit_personality_values
----@field ethics unit_personality_ethics
----@field emotions unit_personality_emotions
----@field dreams unit_personality_dreams
+---@field values unit_personality_values[]
+---@field ethics unit_personality_ethics[]
+---@field emotions unit_personality_emotions[]
+---@field dreams unit_personality_dreams[]
 ---@field next_dream_id integer
----@field unk_v40_6 unit_personality_unk_v40_6
+---@field unk_v40_6 unit_personality_unk_v40_6[]
 ---@field traits integer[]
 ---@field civ_id historical_entity
 ---@field cultural_identity cultural_identity
----@field mannerism unit_personality_mannerism
+---@field mannerism unit_personality_mannerism[]
 ---@field habit integer[]
 ---@field stress integer
 ---@field time_without_distress integer range 0-806400, higher values cause stress to decrease quicker
@@ -3171,12 +3351,12 @@ df.unit_emotion_memory = {}
 ---@field likes_outdoors integer migrated from misc_traits
 ---@field combat_hardened integer migrated from misc_traits
 ---@field outdoor_dislike_counter integer incremented when unit is in rain
----@field needs unit_personality_needs
+---@field needs unit_personality_needs[]
 ---@field flags unit_personality_flags
 ---@field temporary_trait_changes integer[] sum of inebriation or so personality changing effects
 ---@field slack_end_year integer
 ---@field slack_end_year_tick integer
----@field memories unit_emotion_memory[]
+---@field memories unit_personality_memories
 ---@field temptation_greed integer 0-100, for corruption
 ---@field temptation_lust integer
 ---@field temptation_power integer
@@ -3292,6 +3472,22 @@ df.unit_personality.T_flags = {}
 ---@field distraction_calculated boolean
 ---@field [1] boolean
 ---@field has_unmet_needs boolean
+
+---@class unit_personality_memories: df.class
+---@field shortterm unit_emotion_memory[]
+---@field longterm unit_emotion_memory[]
+---@field core_memories unit_personality.T_memories_core_memories[]
+df.unit_personality.T_memories = {}
+
+---@class unit_personality.T_memories_core_memories: df.class
+---@field memory unit_emotion_memory
+---@field changed_facet personality_facet_type
+---@field facet_old integer
+---@field facet_new integer
+---@field changed_value value_type
+---@field value_old integer
+---@field value_new integer
+df.unit_personality.T_memories.T_core_memories = {}
 
 ---@class _unit_action_type_group: df.enum
 ---for the action timer API, not in DF
@@ -4032,7 +4228,7 @@ df.work_detail.T_icon = {}
 ---@class process_unit_aux: df.class
 ---@field unit unit
 ---@field flags process_unit_aux_flags
----@field unitlist any[]
+---@field unitlist unit[]
 df.process_unit_aux = {}
 
 ---@class _process_unit_aux_flags: df.bitfield

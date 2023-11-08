@@ -1302,7 +1302,7 @@ df.entity_site_link_flags = {}
 ---@field link_strength integer
 ---@field initial_controlling_population integer all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
 ---@field last_check_controlling_population integer same value as previous field
----@field ab_profile entity_site_link_ab_profile When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
+---@field ab_profile entity_site_link_ab_profile[] When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
 ---@field target_site_x integer target site world coordinate x
 ---@field target_site_y integer target site world coordinate y
 ---@field last_checked_army_year integer all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well

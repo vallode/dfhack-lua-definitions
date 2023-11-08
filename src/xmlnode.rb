@@ -6,7 +6,7 @@ class XmlNode
   def initialize(node, parent_type = nil)
     # Nokogiri attributes
     @node = node
-    @children = node.children
+    @children = node.xpath('*[not(self::comment)]')
     @has_children = !node.children.empty?
     # @parent = parent
     @parent_type = parent_type
@@ -25,11 +25,11 @@ class XmlNode
 
   def self.parse_type(string, default = nil)
     case string
-    when "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t"
+    when "int8_t", "uint8_t", "int16_t", "uint16_t", "int32_t", "uint32_t", "int64_t", "uint64_t", "size_t"
       "integer"
     when "s-float", "d-float", "long", "ulong"
       "number"
-    when "stl-string", "static-string"
+    when "ptr-string", "stl-string", "static-string"
       "string"
     when "bool", "stl-bit-vector", "df-flagarray"
       "boolean"
@@ -37,7 +37,7 @@ class XmlNode
       "function"
     when "pointer", "padding", "stl-vector"
       "integer"
-    when "stl-mutex", "stl-condition-variable", "stl-deque"
+    when "stl-mutex", "stl-condition-variable", "stl-deque", "stl-fstream", "stl-unordered-map"
       "lightuserdata"
     else
       default
@@ -52,8 +52,29 @@ class Field < XmlNode
     super
 
     @name = node.attributes['name']
-    @is_inline = !node.children.empty? & ["stl-vector", "enum", "bitfield", "compound"].include?(node.name)
-    @type =  @is_inline ? "#{parent_type}_#{@name}" : Field.get_type(node)
+    @is_inline = is_inline
+    @is_array = ['stl-vector', 'static-array', 'stl-bit-vector', "df-flagarray"].include?(node.name)
+    @type =  @is_inline ? "#{parent_type}_#{@name}#{'[]' if @is_array}" : Field.get_type(node)
+  end
+  
+  def is_inline
+    if @children.empty?
+      return false
+    end
+
+    if @node.name == 'pointer' and @children.length > 1
+      return true
+    end
+
+    if @node.name == 'stl-vector' and not @children.first.children.empty?
+      return true
+    end
+
+    if ["enum", "bitfield", "compound"].include?(@node.name)
+      return true
+    end
+
+    return false
   end
 
   def render
@@ -62,9 +83,10 @@ class Field < XmlNode
 
   def self.get_type(node)
     type_name = node['type-name'] || node['index-enum'] || node['pointer-type'] || node['ref-target']
+    children = node.xpath('*[not(self::comment)]')
 
-    if not node.children.empty? and not node.name == 'vmethod'
-      child_type = Field.get_type(node.children.first)
+    if not children.empty? and not node.name == 'vmethod'
+      child_type = Field.get_type(children.first)
     end
 
     if child_type
@@ -248,10 +270,10 @@ class StructType < XmlNode
   def render
     annotation = "---@class #{@type}#{': ' + @inherits if @inherits}\n"
     annotation << "---#{@comment}\n" if @comment
-    has_pointer_child = @node.css('> pointer')
+    has_pointer_child = @node.at_xpath('./pointer|./compound')
 
     if has_pointer_child and @parent_type and @node.name == 'stl-vector'
-      children = @node.css('> pointer').children
+      children = @node.at_xpath('./pointer|./compound').children
     # elsif has_pointer_child and @parent_type and @node.name == 'virtual-methods'
     else
       children = @node.children
@@ -271,7 +293,7 @@ class StructType < XmlNode
         next
       end
 
-      next if !child.attributes['name'] or child.name == 'code-helper'
+      next if not child['name'] or child.name == 'code-helper'
 
       field = Field.new(child, "#{@parent_type + '.T_' if @parent_type}#{@name}")
 

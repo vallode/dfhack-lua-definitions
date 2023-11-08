@@ -235,7 +235,7 @@ df.ui_advmode_menu = {}
 ---@field location building civzone
 ---@field unk_b8 integer
 ---@field unk_bc integer
----@field speech conversation_speech
+---@field speech conversation_speech[]
 df.conversation = {}
 
 ---@class _conversation_state: df.enum
@@ -1401,7 +1401,7 @@ df.adventurest.T_show_menu = {}
 ---@field OneRow boolean
 
 ---@class adventurest_unk_3170: df.class
----@field unk_1 adventurest.T_unk_3170_unk_1
+---@field unk_1 adventurest.T_unk_3170_unk_1[]
 ---@field unk_2 integer[][]
 ---@field unk_3 integer
 df.adventurest.T_unk_3170 = {}
@@ -1584,10 +1584,10 @@ df.adventurest.T_charge_forbidden = {}
 ---@field current_page integer
 ---@field page_top_choices integer[]
 ---@field page_bottom_choices integer[]
----@field choices adventurest.T_conversation_choices
+---@field choices adventurest.T_conversation_choices[]
 ---@field filter string
 ---@field unk_1 integer
----@field targets adventurest.T_conversation_targets
+---@field targets adventurest.T_conversation_targets[]
 ---@field cursor_target integer
 df.adventurest.T_conversation = {}
 

@@ -394,9 +394,9 @@ df.building_drawbuffer = {}
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
 ---@field relations building_civzonest[] zone(s) this building is in
----@field job_claim_suppress building_job_claim_suppress after Remv Cre, prevents unit from taking jobs at building
+---@field job_claim_suppress building_job_claim_suppress[] after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
----@field activities building_activities
+---@field activities building_activities[]
 ---@field world_data_id world_object_data
 ---@field world_data_subid integer
 ---@field unk_v40_2 integer
@@ -645,7 +645,7 @@ df.stockpile_links = {}
 ---@field max_barrels integer
 ---@field max_bins integer
 ---@field max_wheelbarrows integer
----@field container_type building_stockpilest_container_type
+---@field container_type item_type[]
 ---@field container_item_id integer[]
 ---@field container_x integer[]
 ---@field container_y integer[]
@@ -654,9 +654,6 @@ df.stockpile_links = {}
 ---@field stockpile_number integer
 ---@field linked_stops hauling_stop[]
 df.building_stockpilest = {}
-
----@class building_stockpilest_container_type: df.class
-df.building_stockpilest.T_container_type = {}
 
 ---@class hospital_supplies: df.class
 ---@field supplies_needed hospital_supplies_supplies_needed
@@ -1117,7 +1114,7 @@ df.civzone_type = {}
 ---@field contained_buildings building[] includes eg workshops and beds
 ---@field assigned_unit_id integer
 ---@field assigned_unit unit
----@field squad_room_info building_civzonest_squad_room_info
+---@field squad_room_info building_civzonest_squad_room_info[]
 df.building_civzonest = {}
 
 ---@class building_civzonest_zone_settings: df.class
@@ -1193,7 +1190,7 @@ df.building_civzonest.T_squad_room_info = {}
 
 ---@class building_actual: building
 ---@field construction_stage integer 0 not started, then 1 or 3 max depending on type
----@field contained_items building_actual_contained_items
+---@field contained_items building_actual_contained_items[]
 ---@field design building_design
 df.building_actual = {}
 

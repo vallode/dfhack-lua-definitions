@@ -478,7 +478,7 @@ df.block_burrow = {}
 ---@field layer_depth integer uninitialized
 ---@field dsgn_check_cooldown integer
 ---@field default_liquid tile_designation
----@field items map_block_items
+---@field items item[]
 ---@field flows flow_info[]
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
@@ -487,19 +487,16 @@ df.block_burrow = {}
 ---@field designation tile_designation[][]
 ---@field occupancy tile_occupancy[][]
 ---@field fog_of_war integer[][] for adventure mode
----@field path_cost any[] flood; 256*cost for straight, 362*cost for diagonal
----@field path_tag any[] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
----@field walkable any[] 0 = non-walkable; same nonzero at A and B = walkable from A to B
----@field map_edge_distance any[] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@field path_cost integer[][] flood; 256*cost for straight, 362*cost for diagonal
+---@field path_tag integer[][] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
+---@field walkable integer[][] 0 = non-walkable; same nonzero at A and B = walkable from A to B
+---@field map_edge_distance integer[][] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
 ---@field temperature_1 integer[][]
 ---@field temperature_2 integer[][]
 ---@field unk13 integer[][]
 ---@field liquid_flow tile_liquid_flow[][]
 ---@field region_offset integer[]
 df.map_block = {}
-
----@class map_block_items: df.class
-df.map_block.T_items = {}
 
 ---@class cave_column: df.class
 ---@field unk_z1 integer
@@ -567,7 +564,7 @@ function df.cave_column_rectangle:read_file(file, loadversion) end
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
 ---@field beach_level integer water at this level disappears if above more water
 ---@field ground_level integer for coloring unallocated blocks
----@field unmined_glyphs map_block_column_unmined_glyphs
+---@field unmined_glyphs map_block_column_unmined_glyphs[]
 ---@field z_base integer
 ---@field cave_columns cave_column_link[][]
 ---@field column_rectangles cave_column_rectangle[]

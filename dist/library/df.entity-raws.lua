@@ -635,12 +635,12 @@ df.entity_name_type = {}
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
 ---@field religion integer[]
----@field religion_sphere entity_raw_religion_sphere
+---@field religion_sphere sphere_type[]
 ---@field jobs entity_raw_jobs
 ---@field positions entity_position_raw[]
 ---@field variable_positions integer[]
 ---@field site_variable_positions integer[]
----@field tissue_styles entity_raw_tissue_styles
+---@field tissue_styles entity_raw_tissue_styles[]
 ---@field workshops entity_raw_workshops
 ---@field banditry integer
 ---@field gem_shapes_str string[]
@@ -747,9 +747,6 @@ df.entity_raw.T_scholar = {}
 ---@field DOCTOR boolean
 ---@field [8] boolean
 ---@field ENGINEER boolean
-
----@class entity_raw_religion_sphere: df.class
-df.entity_raw.T_religion_sphere = {}
 
 ---@class entity_raw_jobs: df.class
 ---@field permitted_job boolean[]

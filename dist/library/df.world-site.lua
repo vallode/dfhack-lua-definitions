@@ -136,7 +136,7 @@ df.abstract_building_flags = {}
 
 ---@class abstract_building_entombed: df.class
 ---used within Tomb and Dungeon
----@field populations abstract_building_entombed_populations
+---@field populations abstract_building_entombed_populations[]
 ---@field histfigs integer[]
 df.abstract_building_entombed = {}
 
@@ -234,9 +234,9 @@ df.abstract_building_contents.T_need_more = {}
 
 ---@class abstract_building: df.class
 ---@field id integer
----@field inhabitants abstract_building_inhabitants
+---@field inhabitants abstract_building_inhabitants[]
 ---@field flags abstract_building_flags[]
----@field unk1 integer[] in temples; hfig is the god
+---@field unk1 abstract_building_unk1 in temples; hfig is the god
 ---@field unk2 integer[]
 ---@field parent_building_id abstract_building Tombs use this to hold which catacomb they are part of.
 ---@field child_building_ids integer[] Used by catacombs to hold their tombs
@@ -253,6 +253,15 @@ df.abstract_building = {}
 ---@field unk_1 integer
 ---@field histfig_id historical_figure
 df.abstract_building.T_inhabitants = {}
+
+---@class abstract_building_unk1: df.class
+---in temples; hfig is the god
+---@field hfig integer[]
+---@field unk_1 integer
+---@field architectural_elements architectural_element[] used by temples
+---@field mat_type material just a guess
+---@field mat_index integer
+df.abstract_building.T_unk1 = {}
 
 function df.abstract_building:getType() end
 
@@ -369,7 +378,7 @@ df.abstract_building_underworld_spirest = {}
 ---@class abstract_building_inn_tavernst: abstract_building
 ---@field name language_name
 ---@field contents abstract_building_contents
----@field room_info abstract_building_inn_tavernst_room_info
+---@field room_info abstract_building_inn_tavernst_room_info[]
 ---@field next_room_info_id integer
 df.abstract_building_inn_tavernst = {}
 
@@ -614,15 +623,15 @@ df.property_ownership = {}
 ---@field resident_count integer count living in houses and shops
 ---@field unk_110 integer
 ---@field unk_114 integer
----@field unk_118 integer[]
+---@field unk_118 world_site_unk_118
 ---@field unk_11c integer Caves have non zero numbers. No others.
 ---@field unk_120 integer Subset of caves can have non zero.
 ---@field unk_124 integer Monument 0, LairShrine 5, Camp 20, others varying
 ---@field unk_128 integer  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
 ---@field unk_2 integer[] Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
----@field unk_13c world_site_unk_13c MountainHall, Town, DarkFortress, but not all
----@field unk_v40_2 world_site_unk_v40_2 forest retreat
----@field unk_v47_1 world_site_unk_v47_1 Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
+---@field unk_13c world_site_unk_13c[] MountainHall, Town, DarkFortress, but not all
+---@field unk_v40_2 world_site_unk_v40_2[] forest retreat
+---@field unk_v47_1 world_site_unk_v47_1[] Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
 ---@field flags world_site_flags[]
 ---@field buildings abstract_building[]
 ---@field next_building_id integer
@@ -634,18 +643,18 @@ df.property_ownership = {}
 ---@field unk_174 integer constant 0
 ---@field unk_178 coord
 ---@field realization world_site_realization
----@field subtype_info fortress_type
----@field unk_21c world_site_unk_21c
+---@field subtype_info world_site_subtype_info
+---@field unk_21c world_site_unk_21c[]
 ---@field deaths integer[] killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
 ---@field is_mountain_halls integer
 ---@field is_fortress integer
 ---@field unk_v47_2 integer only MountainHalls, but only subset of them
----@field unk_v40_4a world_site_unk_v40_4a
----@field unk_v40_4b world_site_unk_v40_4b
----@field unk_v40_4c world_site_unk_v40_4c
----@field unk_v40_4d world_site_unk_v40_4d only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
+---@field unk_v40_4a world_site_unk_v40_4a[]
+---@field unk_v40_4b world_site_unk_v40_4b[]
+---@field unk_v40_4c world_site_unk_v40_4c[]
+---@field unk_v40_4d world_site_unk_v40_4d[] only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field unk_v40_4d_next_id integer only single non zero entry, matching vector above. Might guess 'since' is scrambled
----@field unk_v43_2 world_site_unk_v43_2
+---@field unk_v43_2 world_site_unk_v43_2[]
 ---@field unk_v43_3 integer constant 0?
 ---@field unk_v40_5 integer constant -1?
 ---@field unk_188 integer[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
@@ -687,7 +696,7 @@ df.world_site = {}
 ---@field artifacts artifact_record[]
 ---@field animals world_population[]
 ---@field inhabitants world_site_inhabitant[]
----@field units world_site.T_unk_1_units
+---@field units world_site.T_unk_1_units[]
 ---@field unk_d4 integer[]
 ---@field unk_v40_1a historical_figure[]
 ---@field pad_1 integer
@@ -707,6 +716,15 @@ df.world_site.T_unk_1 = {}
 ---@field pos_z integer
 ---@field unk_10 integer
 df.world_site.T_unk_1.T_units = {}
+
+---@class world_site_unk_118: df.class
+---@field unk_1 integer[]
+---@field unk_2 integer[]
+---@field unk_3 integer[]
+---@field unk_4 integer[]
+---@field unk_5 integer[]
+---@field unk_6 integer[]
+df.world_site.T_unk_118 = {}
 
 ---@class world_site_unk_13c: df.class
 ---MountainHall, Town, DarkFortress, but not all
@@ -733,6 +751,21 @@ df.world_site.T_unk_v40_2 = {}
 ---@class world_site_unk_v47_1: df.class
 ---Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
 df.world_site.T_unk_v47_1 = {}
+
+---@class world_site_subtype_info: df.class
+---@field fortress_type fortress_type Only when site.type=Fortress
+---@field monument_type monument_type Only when site.type=Monument
+---@field lair_type lair_type Only when site.type=LairShrine
+---@field unk_night_creature_lair integer[] only on SIMPLE_MOUND and SIMPLE_BURROW, all mounds but not all burrows, all had night creatures. All instances seen had single element with value 0
+---@field unk_14 integer
+---@field unk_18 integer
+---@field unk_1c integer
+---@field creator historical_figure all vaults, no others seen
+---@field unk_vault integer all vaults, no others seen, always 100
+---@field tower_seed integer all towers, no others. Seed is a guess based on the very large numbers
+---@field unk_monastery integer all monasteries, no others. Only seen '1'
+---@field founding_entity historical_entity all monasteries, no others
+df.world_site.T_subtype_info = {}
 
 ---@class world_site_unk_21c: df.class
 ---@field unk_0 integer
@@ -770,7 +803,7 @@ df.world_site.T_unk_v40_4c = {}
 ---@class world_site_unk_v40_4d: df.class
 ---only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field id integer
----@field unk_1 world_site.T_unk_v40_4d_unk_1
+---@field unk_1 world_site.T_unk_v40_4d_unk_1[]
 ---@field unk_2 integer[]
 ---@field entity_id historical_entity single attacking site civ is only one seen
 df.world_site.T_unk_v40_4d = {}
@@ -810,7 +843,7 @@ df.world_site.T_unk_v43_2 = {}
 ---@field id integer
 ---@field site_id world_site
 ---@field civ_id historical_entity
----@field group_log cultural_identity_group_log the circumstances of groups joining or leaving this culture
+---@field group_log cultural_identity_group_log[] the circumstances of groups joining or leaving this culture
 ---@field ethic ethic_response[]
 ---@field values integer[]
 ---@field events entity_event[]
@@ -819,8 +852,8 @@ df.world_site.T_unk_v43_2 = {}
 ---@field unk_ec integer
 ---@field unk_f0 integer
 ---@field unk_f4 integer 0 or 800000
----@field unk_1 cultural_identity_unk_1
----@field unk_2 cultural_identity_unk_2
+---@field unk_1 cultural_identity_unk_1[]
+---@field unk_2 cultural_identity_unk_2[]
 ---@field unk_f8 integer
 df.cultural_identity = {}
 
@@ -902,7 +935,7 @@ df.world_site_inhabitant = {}
 ---@field zoom_colors integer[][]
 ---@field zoom_movemask integer[][]
 ---@field area_map integer[][]
----@field areas world_site_realization_areas
+---@field areas world_site_realization_areas[]
 ---@field unk_1 integer
 ---@field army_controller_pos_x integer
 ---@field army_controller_pos_y integer
@@ -1179,7 +1212,7 @@ df.site_realization_building_type = {}
 ---@field abstract_building_id integer used for temple and mead hall
 ---@field unk_44 integer
 ---@field building_info site_realization_building_infost
----@field unk_4c site_realization_building_unk_4c
+---@field unk_4c site_realization_building_unk_4c[]
 ---@field unk_5c integer bit 0x01 == abandoned
 ---@field unk_60 integer[]
 ---@field unk_v40_1 integer
@@ -1566,7 +1599,7 @@ function df.creation_zone_pwg_alterationst:read_file(file, loadversion) end
 df.creation_zone_pwg_alteration_location_deathst = {}
 
 ---@class creation_zone_pwg_alteration_location_deathst_unk_1: df.class
----@field unk_1a creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a
+---@field unk_1a creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a[]
 ---@field unk_2a integer[]
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 

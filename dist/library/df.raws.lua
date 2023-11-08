@@ -28,7 +28,7 @@ function df.creature_handler:getGlowTile(creature_index, caste_index) end
 ---@field tissue_templates tissue_template[]
 ---@field body_detail_plans body_detail_plan[]
 ---@field body_templates body_template[]
----@field bodyglosses world_raws_bodyglosses
+---@field bodyglosses world_raws_bodyglosses[]
 ---@field creature_variations creature_variation[]
 ---@field creatures creature_handler
 ---@field itemdefs world_raws_itemdefs
@@ -49,21 +49,12 @@ df.world_raws = {}
 ---@class world_raws_plants: df.class
 ---@field all plant_raw[]
 ---@field bushes plant_raw[]
----@field bushes_idx world_raws.T_plants_bushes_idx
+---@field bushes_idx plant_raw[]
 ---@field trees plant_raw[]
----@field trees_idx world_raws.T_plants_trees_idx
+---@field trees_idx plant_raw[]
 ---@field grasses plant_raw[]
----@field grasses_idx world_raws.T_plants_grasses_idx
+---@field grasses_idx plant_raw[]
 df.world_raws.T_plants = {}
-
----@class world_raws.T_plants_bushes_idx: df.class
-df.world_raws.T_plants.T_bushes_idx = {}
-
----@class world_raws.T_plants_trees_idx: df.class
-df.world_raws.T_plants.T_trees_idx = {}
-
----@class world_raws.T_plants_grasses_idx: df.class
-df.world_raws.T_plants.T_grasses_idx = {}
 
 ---@class world_raws_bodyglosses: df.class
 ---@field id string
@@ -130,28 +121,16 @@ df.world_raws.T_unk_v50_2 = {}
 df.world_raws.T_unk_v50_3 = {}
 
 ---@class world_raws_syndromes: df.class
----@field mat_types world_raws.T_syndromes_mat_types
+---@field mat_types material[]
 ---@field mat_indexes integer[]
----@field interactions world_raws.T_syndromes_interactions
+---@field interactions interaction[]
 ---@field all syndrome[]
 df.world_raws.T_syndromes = {}
 
----@class world_raws.T_syndromes_mat_types: df.class
-df.world_raws.T_syndromes.T_mat_types = {}
-
----@class world_raws.T_syndromes_interactions: df.class
-df.world_raws.T_syndromes.T_interactions = {}
-
 ---@class world_raws_effects: df.class
----@field mat_types world_raws.T_effects_mat_types
+---@field mat_types material[]
 ---@field mat_indexes integer[]
----@field interactions world_raws.T_effects_interactions
+---@field interactions interaction[]
 ---@field all creature_interaction_effect[]
 df.world_raws.T_effects = {}
-
----@class world_raws.T_effects_mat_types: df.class
-df.world_raws.T_effects.T_mat_types = {}
-
----@class world_raws.T_effects_interactions: df.class
-df.world_raws.T_effects.T_interactions = {}
 

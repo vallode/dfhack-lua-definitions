@@ -3,7 +3,7 @@
 
 ---@class file_compressorst: df.class
 ---@field compressed boolean
----@field f any
+---@field f lightuserdata
 ---@field in_buffer integer
 ---@field in_buffersize number
 ---@field in_buffer_amount_loaded number
@@ -233,11 +233,8 @@ df.widget_button = {}
 
 ---@class widget_container: widget
 ---@field children_by_name any std::map<std::string,std::shared_ptr<widget>>
----@field children widget_container_children
+---@field children widget[]
 df.widget_container = {}
-
----@class widget_container_children: df.class
-df.widget_container.T_children = {}
 
 ---@class widget_stack: widget_container
 df.widget_stack = {}
@@ -251,7 +248,7 @@ df.widget_rows_container = {}
 df.widget_columns_container = {}
 
 ---@class widget_tabs: widget_container
----@field cur_idx any
+---@field cur_idx integer
 ---@field tab_labels string[]
 ---@field rows integer[] actually std::pair of size_t, size_t
 ---@field tab_type widget_tabs_tab_type
@@ -811,11 +808,142 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 df.mission = {}
 
 ---@class mission_details: df.class
----@field raid any
----@field recovery artifact_record
----@field rescue historical_figure
----@field request integer[]
+---@field raid mission.T_details_raid
+---@field recovery mission.T_details_recovery
+---@field rescue mission.T_details_rescue
+---@field request mission.T_details_request
 df.mission.T_details = {}
+
+---@class mission.T_details_raid: df.class
+---@field raid_type mission.T_details.T_raid_raid_type
+---@field unk_2 integer
+---@field unk_5 integer
+---@field unk_6 integer
+---@field unk_7 integer
+---@field unk_8 integer
+---@field unk_9 integer
+---@field unk_10 integer
+---@field unk_11 integer
+---@field unk_12 integer
+---@field unk_13 integer
+---@field unk_14 integer
+---@field unk_15 integer
+---@field unk_16 integer
+---@field unk_17 integer
+---@field unk_18 integer
+---@field unk_19 integer
+---@field unk_20 integer
+---@field unk_21 integer
+---@field unk_22 integer
+---@field unk_23 integer
+---@field unk_24 integer
+---@field raid_flags mission.T_details.T_raid_raid_flags
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_25 integer
+---@field unk_26 integer
+---@field unk_27 integer
+---@field unk_28 integer
+---@field unk_29 integer
+---@field unk_30 integer
+---@field unk_31 integer
+df.mission.T_details.T_raid = {}
+
+---@class _mission.T_details.T_raid_raid_type: df.enum
+---@field Raze 0
+---@field [0] "Raze"
+---@field TakeOver 1
+---@field [1] "TakeOver"
+---@field Occupy 2
+---@field [2] "Occupy"
+---@field DemandTribute 3
+---@field [3] "DemandTribute"
+---@field Raid 4
+---@field [4] "Raid"
+---@field Explore 5
+---@field [5] "Explore"
+---@field Pillage 6
+---@field [6] "Pillage"
+df.mission.T_details.T_raid.T_raid_type = {}
+
+---@class mission.T_details.T_raid_raid_type
+---@field [0] boolean
+---@field Raze boolean
+---@field [1] boolean
+---@field TakeOver boolean
+---@field [2] boolean
+---@field Occupy boolean
+---@field [3] boolean
+---@field DemandTribute boolean
+---@field [4] boolean
+---@field Raid boolean
+---@field [5] boolean
+---@field Explore boolean
+---@field [6] boolean
+---@field Pillage boolean
+
+---@class _mission.T_details.T_raid_raid_flags: df.bitfield
+---@field Unknown1 0
+---@field [0] "Unknown1"
+---@field OneTimeTribute 1
+---@field [1] "OneTimeTribute"
+---@field OngoingTribute 2
+---@field [2] "OngoingTribute"
+---@field FreeCaptives 3
+---@field [3] "FreeCaptives"
+---@field ReleaseOtherPrisoners 4
+---@field [4] "ReleaseOtherPrisoners"
+---@field TakeImportantTreasures 5
+---@field [5] "TakeImportantTreasures"
+---@field LootOtherItems 6
+---@field [6] "LootOtherItems"
+---@field StealLivestock 7
+---@field [7] "StealLivestock"
+---@field Unknown256 8
+---@field [8] "Unknown256"
+---@field DemandSurrender 9
+---@field [9] "DemandSurrender"
+df.mission.T_details.T_raid.T_raid_flags = {}
+
+---@class mission.T_details.T_raid_raid_flags
+---@field [0] boolean
+---@field Unknown1 boolean
+---@field [1] boolean
+---@field OneTimeTribute boolean
+---@field [2] boolean
+---@field OngoingTribute boolean
+---@field [3] boolean
+---@field FreeCaptives boolean
+---@field [4] boolean
+---@field ReleaseOtherPrisoners boolean
+---@field [5] boolean
+---@field TakeImportantTreasures boolean
+---@field [6] boolean
+---@field LootOtherItems boolean
+---@field [7] boolean
+---@field StealLivestock boolean
+---@field [8] boolean
+---@field Unknown256 boolean
+---@field [9] boolean
+---@field DemandSurrender boolean
+
+---@class mission.T_details_recovery: df.class
+---@field artifact artifact_record
+---@field unk_2 integer
+df.mission.T_details.T_recovery = {}
+
+---@class mission.T_details_rescue: df.class
+---@field histfig historical_figure
+---@field unk_2 integer
+df.mission.T_details.T_rescue = {}
+
+---@class mission.T_details_request: df.class
+---@field workers integer[]
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+df.mission.T_details.T_request = {}
 
 ---@class _mission_type: df.enum
 ---@field Raid 2
@@ -843,8 +971,8 @@ df.mission.T_type = {}
 ---@field jeweler_mat_count integer
 ---@field jeweler_cutgem integer[]
 ---@field jeweler_encrust integer[]
----@field unit_labors_sidemenu viewscreen_dwarfmodest_unit_labors_sidemenu
----@field unit_labors_sidemenu_uplevel viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel
+---@field unit_labors_sidemenu unit_labor[]
+---@field unit_labors_sidemenu_uplevel unit_labor[]
 ---@field unit_labors_sidemenu_uplevel_idx integer
 ---@field sideSubmenu integer
 ---@field keyRepeat integer
@@ -853,12 +981,6 @@ df.mission.T_type = {}
 ---@field number_assigned_hunt integer
 ---@field number_assigned_war integer
 df.viewscreen_dwarfmodest = {}
-
----@class viewscreen_dwarfmodest_unit_labors_sidemenu: df.class
-df.viewscreen_dwarfmodest.T_unit_labors_sidemenu = {}
-
----@class viewscreen_dwarfmodest_unit_labors_sidemenu_uplevel: df.class
-df.viewscreen_dwarfmodest.T_unit_labors_sidemenu_uplevel = {}
 
 ---@class viewscreen_export_regionst: viewscreen
 ---@field play_now boolean
@@ -1241,7 +1363,7 @@ df.legend_pagest.T_mode = {}
 ---@field era_choice_denom integer[]
 ---@field hec_id integer[]
 ---@field showing_all_era_collections integer
----@field region_snapshot viewscreen_legendsst_region_snapshot
+---@field region_snapshot viewscreen_legendsst_region_snapshot[]
 ---@field region_view_x integer
 ---@field region_view_y integer
 ---@field region_view_mode integer
@@ -1268,12 +1390,20 @@ df.viewscreen_legendsst = {}
 ---@class viewscreen_legendsst_region_snapshot: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 integer
+---@field unk_3 viewscreen_legendsst.T_region_snapshot_unk_3
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer[]
 df.viewscreen_legendsst.T_region_snapshot = {}
+
+---@class viewscreen_legendsst.T_region_snapshot_unk_3: df.class
+---@field unk_1 integer
+---@field unk_2 integer
+---@field unk_3 integer
+---@field unk_4 integer
+---@field unk_5 integer
+df.viewscreen_legendsst.T_region_snapshot.T_unk_3 = {}
 
 ---@class loadgame_save_info: df.class
 ---@field next_ids integer[]
@@ -1285,15 +1415,15 @@ df.viewscreen_legendsst.T_region_snapshot = {}
 df.loadgame_save_info = {}
 
 ---@class matgloss_list: df.class
----@field unk_0 matgloss_list_unk_0
----@field generated_inorganics matgloss_list_generated_inorganics
----@field generated_plants matgloss_list_generated_plants
----@field generated_items matgloss_list_generated_items
----@field generated_creatures matgloss_list_generated_creatures
----@field generated_entities matgloss_list_generated_entities
----@field generated_reactions matgloss_list_generated_reactions
----@field generated_interactions matgloss_list_generated_interactions
----@field generated_languages matgloss_list_generated_languages
+---@field unk_0 matgloss_list_unk_0[]
+---@field generated_inorganics matgloss_list_generated_inorganics[]
+---@field generated_plants matgloss_list_generated_plants[]
+---@field generated_items matgloss_list_generated_items[]
+---@field generated_creatures matgloss_list_generated_creatures[]
+---@field generated_entities matgloss_list_generated_entities[]
+---@field generated_reactions matgloss_list_generated_reactions[]
+---@field generated_interactions matgloss_list_generated_interactions[]
+---@field generated_languages matgloss_list_generated_languages[]
 ---@field inorganics string[]
 ---@field plants string[]
 ---@field bodies string[]
@@ -2118,7 +2248,7 @@ df.adv_background_option_type = {}
 ---@field selecting_atts boolean
 ---@field selected_att integer
 ---@field att_points integer
----@field posskill setup_character_info_posskill
+---@field posskill job_skill[]
 ---@field selected_sk integer
 ---@field ip integer
 ---@field entering_name boolean
@@ -2127,7 +2257,7 @@ df.adv_background_option_type = {}
 ---@field goodsite world_site[]
 ---@field active_column integer
 ---@field background_option adv_background_option_type[]
----@field background_option_squad_epp_id setup_character_info_background_option_squad_epp_id
+---@field background_option_squad_epp_id integer[]
 ---@field background_option_unit integer[] type should be profession?
 ---@field religious_practice_option integer[]
 ---@field religious_practice_id integer[]
@@ -2237,21 +2367,12 @@ df.setup_character_info.T_sub_mode = {}
 ---@field [12] boolean
 ---@field FINAL_CONFIRMATION boolean
 
----@class setup_character_info_posskill: df.class
-df.setup_character_info.T_posskill = {}
-
----@class setup_character_info_background_option_squad_epp_id: df.class
-df.setup_character_info.T_background_option_squad_epp_id = {}
-
 ---@class embark_item_choice: df.class
 ---@field list item_type[][]
 ---@field race integer[]
 ---@field caste integer[]
----@field profession embark_item_choice_profession
+---@field profession profession[]
 df.embark_item_choice = {}
-
----@class embark_item_choice_profession: df.class
-df.embark_item_choice.T_profession = {}
 
 ---@class embark_profile: df.class
 ---@field name string
@@ -2374,7 +2495,7 @@ df.viewscreen_choose_game_typest = {}
 ---@field selected integer
 ---@field selected_r integer
 ---@field game_start_proceed integer
----@field menu_line_id viewscreen_titlest_menu_line_id
+---@field menu_line_id viewscreen_titlest_menu_line_id[]
 ---@field gametype integer[]
 ---@field gametype_str string[]
 ---@field region_choice world_dat_summary[]
@@ -2427,7 +2548,45 @@ df.viewscreen_choose_game_typest = {}
 df.viewscreen_titlest = {}
 
 ---@class viewscreen_titlest_menu_line_id: df.class
+---@field menu_line_id viewscreen_titlest.T_menu_line_id_menu_line_id
 df.viewscreen_titlest.T_menu_line_id = {}
+
+---@class _viewscreen_titlest.T_menu_line_id_menu_line_id: df.enum
+---@field Continue 0
+---@field [0] "Continue"
+---@field Start 1
+---@field [1] "Start"
+---@field NewWorld 2
+---@field [2] "NewWorld"
+---@field TestingArena 3
+---@field [3] "TestingArena"
+---@field Mods 4
+---@field [4] "Mods"
+---@field Settings 5
+---@field [5] "Settings"
+---@field AboutDF 6
+---@field [6] "AboutDF"
+---@field Quit 7
+---@field [7] "Quit"
+df.viewscreen_titlest.T_menu_line_id.T_menu_line_id = {}
+
+---@class viewscreen_titlest.T_menu_line_id_menu_line_id
+---@field [0] boolean
+---@field Continue boolean
+---@field [1] boolean
+---@field Start boolean
+---@field [2] boolean
+---@field NewWorld boolean
+---@field [3] boolean
+---@field TestingArena boolean
+---@field [4] boolean
+---@field Mods boolean
+---@field [5] boolean
+---@field Settings boolean
+---@field [6] boolean
+---@field AboutDF boolean
+---@field [7] boolean
+---@field Quit boolean
 
 ---@class viewscreen_update_regionst: viewscreen
 ---@field year integer

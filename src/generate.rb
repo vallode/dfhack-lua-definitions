@@ -24,10 +24,6 @@ Dir.glob(ARGV[0]).each do |xml|
   print "Parsing: #{xml}\n"
   document = Nokogiri::XML(File.open(xml)) { |config| config.noblanks }
 
-  # For each file we should do something like this:
-  # parse XML
-  # Map parsed XML into hash of objects
-  # Use hash objects to write to lua files
   File.open("../dist/library/#{File.basename(xml).sub('.xml', '.lua')}", 'w') do |output|
     output.write("---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.\n")
     output.write("---@meta #{File.basename(xml, ".xml")}\n\n")
@@ -42,11 +38,6 @@ Dir.glob(ARGV[0]).each do |xml|
       output.write(GlobalObject.new(globals).render)
     end
 
-    # Enums - Just normal lua enums
-    # Bitfield type - Also lua enums
-    # Global objects - A single global class
-    # Struct type - Class
-    # Class type - Class
     definitions.each_with_index do |node, index|
       print "Writing definition ##{index}\r"
 

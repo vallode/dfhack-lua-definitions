@@ -846,7 +846,7 @@ df.poetic_form_additional_feature = {}
 ---@field each_line_feet integer
 ---@field each_line_pattern poetic_form_pattern
 ---@field every_line_caesura_position poetic_form_caesura_position
----@field common_features poetic_form_common_features
+---@field common_features poetic_form_additional_feature[]
 ---@field mood poetic_form_mood
 ---@field subject poetic_form_subject
 ---@field subject_target poetic_form_subject_target
@@ -869,9 +869,6 @@ df.poetic_form.T_flags = {}
 ---@field [1] boolean
 ---@field produces_individual_poems boolean
 
----@class poetic_form_common_features: df.class
-df.poetic_form.T_common_features = {}
-
 ---@class poetic_form_part: df.class
 ---@field flags poetic_form_part_flags
 ---@field count_min integer
@@ -883,21 +880,21 @@ df.poetic_form.T_common_features = {}
 ---@field unk_4 integer
 ---@field line_endings integer[]
 ---@field line_feet integer[]
----@field line_patterns poetic_form_part_line_patterns
----@field line_caesura_positions poetic_form_part_line_caesura_positions
----@field line_features poetic_form_part_line_features
----@field additional_features poetic_form_part_additional_features
+---@field line_patterns poetic_form_pattern[]
+---@field line_caesura_positions poetic_form_caesura_position[]
+---@field line_features poetic_form_feature[]
+---@field additional_features poetic_form_additional_feature[]
 ---@field additional_targets integer[]
 ---@field additional_lines integer[]
----@field line_mood poetic_form_part_line_mood
----@field line_subject poetic_form_part_line_subject
+---@field line_mood poetic_form_mood[]
+---@field line_subject poetic_form_subject[]
 ---@field line_subject_target poetic_form_subject_target[]
----@field line_action poetic_form_part_line_action
+---@field line_action poetic_form_action[]
 ---@field unk_5 integer[]
 ---@field some_lines_syllables integer
 ---@field some_lines_pattern integer
 ---@field each_line_caesura_position poetic_form_caesura_position
----@field certain_lines_additional_features poetic_form_part_certain_lines_additional_features
+---@field certain_lines_additional_features poetic_form_additional_feature[]
 ---@field mood poetic_form_mood
 ---@field unk_6 integer
 ---@field unk_7 integer
@@ -914,30 +911,6 @@ df.poetic_form_part.T_flags = {}
 ---@class poetic_form_part_flags
 ---@field [0] boolean
 ---@field size_in_lines boolean
-
----@class poetic_form_part_line_patterns: df.class
-df.poetic_form_part.T_line_patterns = {}
-
----@class poetic_form_part_line_caesura_positions: df.class
-df.poetic_form_part.T_line_caesura_positions = {}
-
----@class poetic_form_part_line_features: df.class
-df.poetic_form_part.T_line_features = {}
-
----@class poetic_form_part_additional_features: df.class
-df.poetic_form_part.T_additional_features = {}
-
----@class poetic_form_part_line_mood: df.class
-df.poetic_form_part.T_line_mood = {}
-
----@class poetic_form_part_line_subject: df.class
-df.poetic_form_part.T_line_subject = {}
-
----@class poetic_form_part_line_action: df.class
-df.poetic_form_part.T_line_action = {}
-
----@class poetic_form_part_certain_lines_additional_features: df.class
-df.poetic_form_part.T_certain_lines_additional_features = {}
 
 ---@class poetic_form_perspective: df.class
 ---@field type poetic_form_perspective_type
@@ -1586,8 +1559,8 @@ df.musical_form_melodies = {}
 ---@field sub_rhythm integer Guess, based on the pattern above
 ---@field rhythm_pattern integer references the patterns element of rhythm
 ---@field instruments integer[] indices into the instruments vector
----@field components musical_form_passage_components
----@field passage_lengths musical_form_passage_passage_lengths
+---@field components musical_form_passage_component_type[]
+---@field passage_lengths musical_form_passage_length_type[]
 ---@field lowest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
 ---@field highest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
 ---@field tempo_style musical_form_style
@@ -1599,12 +1572,6 @@ df.musical_form_melodies = {}
 ---@field unk_22 integer 0-40 seen
 ---@field unk_23 integer 0-78 seen
 df.musical_form_passage = {}
-
----@class musical_form_passage_components: df.class
-df.musical_form_passage.T_components = {}
-
----@class musical_form_passage_passage_lengths: df.class
-df.musical_form_passage.T_passage_lengths = {}
 
 ---@class musical_form_instruments: df.class
 ---@field instrument_subtype itemdef_instrumentst -1 = vocal
@@ -2258,29 +2225,17 @@ df.dance_form_move_location = {}
 ---@field partner_distance dance_form_partner_distance
 ---@field partner_intent dance_form_partner_intent
 ---@field partner_cue_frequency dance_form_partner_cue_frequency
----@field partner_changes dance_form_section_partner_changes
+---@field partner_changes dance_form_partner_change_type[]
 ---@field unk_11 integer
 ---@field unk_12 integer
 ---@field unk_13 integer
 ---@field unk_14 integer
----@field type dance_form_section_type
----@field modifier dance_form_section_modifier
+---@field type dance_form_move_type[]
+---@field modifier dance_form_move_modifier[]
 ---@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field location dance_form_section_location
+---@field location dance_form_move_location[]
 ---@field id integer
 df.dance_form_section = {}
-
----@class dance_form_section_partner_changes: df.class
-df.dance_form_section.T_partner_changes = {}
-
----@class dance_form_section_type: df.class
-df.dance_form_section.T_type = {}
-
----@class dance_form_section_modifier: df.class
-df.dance_form_section.T_modifier = {}
-
----@class dance_form_section_location: df.class
-df.dance_form_section.T_location = {}
 
 ---@class _dance_form_move_group_type: df.enum
 ---@field unk_0 0
@@ -2309,21 +2264,12 @@ df.dance_form_move_group_type = {}
 
 ---@class dance_form_move: df.class
 ---@field name string
----@field type dance_form_move_type
----@field modifier dance_form_move_modifier
+---@field type dance_form_move_type[]
+---@field modifier dance_form_move_modifier[]
 ---@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field location dance_form_move_location
+---@field location dance_form_move_location[]
 ---@field group_type dance_form_move_group_type
 df.dance_form_move = {}
-
----@class dance_form_move_type: df.class
-df.dance_form_move.T_type = {}
-
----@class dance_form_move_modifier: df.class
-df.dance_form_move.T_modifier = {}
-
----@class dance_form_move_location: df.class
-df.dance_form_move.T_location = {}
 
 ---@class dance_form: df.instance
 ---@field id integer
@@ -2343,30 +2289,18 @@ df.dance_form_move.T_location = {}
 ---@field partner_distance dance_form_partner_distance NONE when not pair dance
 ---@field partner_intent dance_form_partner_intent NONE when not pair dance
 ---@field partner_cue_frequency dance_form_partner_cue_frequency NONE when not pair dance and when 'normal'
----@field partner_changes dance_form_partner_changes
+---@field partner_changes dance_form_partner_change_type[]
 ---@field poetry_referenced boolean Weird, but all instances where it was set examined have the dance act out any composition of a named poetic form, without any presence of the form number found
 ---@field unk_14 integer
 ---@field hfid historical_figure Character whose story the dance acts out
 ---@field race creature_raw Creature whose movements are imitated
----@field move_type dance_form_move_type
----@field move_modifier dance_form_move_modifier
+---@field move_type dance_form_move_type[]
+---@field move_modifier dance_form_move_modifier[]
 ---@field move_parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
----@field move_location dance_form_move_location
+---@field move_location dance_form_move_location[]
 ---@field sections dance_form_section[]
 ---@field moves dance_form_move[]
 df.dance_form = {}
-
----@class dance_form_partner_changes: df.class
-df.dance_form.T_partner_changes = {}
-
----@class dance_form_move_type: df.class
-df.dance_form.T_move_type = {}
-
----@class dance_form_move_modifier: df.class
-df.dance_form.T_move_modifier = {}
-
----@class dance_form_move_location: df.class
-df.dance_form.T_move_location = {}
 
 ---@class _scale_type: df.enum
 ---@field Octave 0
@@ -2493,7 +2427,7 @@ df.beat_type = {}
 
 ---@class rhythm_pattern: df.class
 ---@field name string
----@field bars rhythm_pattern_bars
+---@field bars rhythm_pattern_bars[]
 ---@field beat_name string length as per length field
 ---@field beat_abbreviation string length as per length field
 ---@field length integer

@@ -344,7 +344,7 @@ df.interaction_source_regionst.T_region_flags = {}
 
 ---@class interaction_source_secretst: interaction_source
 ---@field learn_flags interaction_source_secretst_learn_flags
----@field spheres interaction_source_secretst_spheres
+---@field spheres sphere_type[]
 ---@field goals goal_type[]
 ---@field book_title_filename string
 ---@field book_name_filename string
@@ -372,9 +372,6 @@ df.interaction_source_secretst.T_learn_flags = {}
 ---@field MUNDANE_RECORDING_POSSIBLE boolean
 ---@field [3] boolean
 ---@field MUNDANE_TEACHING_POSSIBLE boolean
-
----@class interaction_source_secretst_spheres: df.class
-df.interaction_source_secretst.T_spheres = {}
 
 ---@class interaction_source_disturbancest: interaction_source
 ---@field unk_1 integer

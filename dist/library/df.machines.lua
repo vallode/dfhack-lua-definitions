@@ -60,18 +60,15 @@ df.machine_conn_modes = {}
 
 ---@class machine_tile_set: df.class
 ---@field tiles coord_path
----@field can_connect machine_tile_set_can_connect
+---@field can_connect machine_conn_modes[]
 df.machine_tile_set = {}
-
----@class machine_tile_set_can_connect: df.class
-df.machine_tile_set.T_can_connect = {}
 
 ---@class machine: df.instance
 ---@field x integer
 ---@field y integer
 ---@field z integer
 ---@field id integer
----@field components machine_components
+---@field components machine_components[]
 ---@field cur_power integer
 ---@field min_power integer
 ---@field visual_phase integer

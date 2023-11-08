@@ -352,9 +352,9 @@ df.next_global_id = {}
 ---@field divination_set boolean
 
 ---@class global_table_entry: df.class
----@field name any
+---@field name string
 ---@field address integer
----@field size any
+---@field size integer
 df.global_table_entry = {}
 
 ---@class _game_mode: df.enum

@@ -20,13 +20,10 @@
 ---@field dim_y integer
 ---@field workloc_x integer
 ---@field workloc_y integer
----@field build_labors building_def_build_labors
+---@field build_labors unit_labor[]
 ---@field labor_description string
 ---@field build_stages integer
 df.building_def = {}
-
----@class building_def_build_labors: df.class
-df.building_def.T_build_labors = {}
 
 function df.building_def:parseRaws() end
 
