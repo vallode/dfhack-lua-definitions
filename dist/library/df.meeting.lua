@@ -112,6 +112,7 @@ df.script_step_eventst = {}
 ---@field name string
 df.script_varst = {}
 
+---@return active_script_varst
 function df.script_varst:instantiate() end
 
 ---@class script_var_unitst: script_varst
@@ -594,6 +595,7 @@ function df.activity_event:read_file(file, loadversion) end
 ---@return boolean
 function df.activity_event:isEmpty() end
 
+---@return activity_event_participants
 function df.activity_event:getParticipantInfo() end
 
 ---@param children_too boolean
@@ -618,6 +620,7 @@ function df.activity_event:checkDrillInvalid(unit) end
 ---@return boolean
 function df.activity_event:decUniformLock() end
 
+---@return squad_event_type
 function df.activity_event:getSquadEventType() end
 
 ---@param skill job_skill
@@ -637,6 +640,7 @@ function df.activity_event:adjustOrganizeCounter(amount) end
 function df.activity_event:getOrganizer(hist_figure_id, unit_id) end
 
 ---returns pointer to building_id
+---@return integer
 function df.activity_event:getBuilding() end
 
 ---@return boolean

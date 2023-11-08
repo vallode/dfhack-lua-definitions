@@ -131,10 +131,8 @@ class FunctionType < Field
   def get_return_type
     return_type = XmlNode.parse_type(@node['ret-type'], @node['ret-type'])
 
-    if not return_type
-      return_type_child = @node.at_css('ret-type')
-
-      return_type = return_type_child.attributes['name'] if return_type_child
+    if @node.at_css('ret-type')
+      return_type = Field.get_type(@node.at_css('ret-type'))
     end
 
     return return_type

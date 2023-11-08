@@ -212,8 +212,10 @@ function df.interface_button:has_view() end
 ---@return boolean
 function df.interface_button:is_alphabetized() end
 
+---@return string
 function df.interface_button:get_objection_string() end
 
+---@return string
 function df.interface_button:get_info_string() end
 
 ---@class interface_button_buildingst: interface_button

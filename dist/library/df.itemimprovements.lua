@@ -81,12 +81,14 @@ df.dye_info = {}
 ---@field unk_1 integer
 df.itemimprovement = {}
 
+---@return art_image
 function df.itemimprovement:getImage() end
 
 ---@param colors integer[]
 ---@param shapes integer[]
 function df.itemimprovement:getColorAndShape(colors, shapes) end
 
+---@return itemimprovement
 function df.itemimprovement:clone() end
 
 ---@param file file_compressorst

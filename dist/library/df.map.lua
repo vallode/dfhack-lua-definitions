@@ -897,13 +897,16 @@ function df.feature_init:write_file(file, include_feature) end
 ---@param include_feature boolean
 function df.feature_init:read_file(file, loadversion, include_feature) end
 
+---@return feature
 function df.feature_init:createFeature() end
 
 ---destroyFeature(), then createFeature()
+---@return feature
 function df.feature_init:recreateFeature() end
 
 function df.feature_init:destroyFeature() end
 
+---@return feature
 function df.feature_init:getFeature() end
 
 ---@param mat_type integer
@@ -1094,6 +1097,7 @@ df.world_construction = {}
 ---@return world_construction_type
 function df.world_construction:getType() end
 
+---@return language_name
 function df.world_construction:getName() end
 
 ---@param file file_compressorst

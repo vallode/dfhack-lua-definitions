@@ -2989,7 +2989,7 @@ function df.history_event:getHappinessModifier(entity1, entity2) end
 function df.history_event:madeFirstContact(entity1, entity2, site) end
 
 ---@param killer historical_figure
----@return integer
+---@return historical_figure
 function df.history_event:getKilledHistfigID(killer) end
 
 ---@param victim historical_figure

@@ -494,6 +494,7 @@ function df.item:getVehicleID() end
 ---@return boolean
 function df.item:isAmmo() end
 
+---@return item_stockpile_ref
 function df.item:getStockpile() end
 
 ---@return boolean
@@ -505,6 +506,7 @@ function df.item:isPlaster() end
 ---@return boolean
 function df.item:getColorOverride() end
 
+---@return item_history_info
 function df.item:getHistoryInfo() end
 
 ---@param use tool_uses
@@ -613,11 +615,14 @@ function df.item:setMaker(unit_id) end
 ---@param punit unit
 function df.item:getCorpseInfo(prace, pcaste, phfig, punit) end
 
+---@return caste_body_info
 function df.item:getBodyInfo() end
 
+---@return boolean[]
 function df.item:getGloveFlags() end
 
 ---a statue/figurine of "string goes here"
+---@return string
 function df.item:getItemShapeDesc() end
 
 ---@return boolean
@@ -669,6 +674,7 @@ function df.item:isBogeymanCorpse() end
 ---@return boolean
 function df.item:testMaterialFlag(mat_flag) end
 
+---@return string
 function df.item:getAmmoType() end
 
 ---@return boolean
@@ -696,6 +702,7 @@ function df.item:getVolume() end
 ---@param site world_site
 ---@param unk integer
 ---@param unshaped boolean
+---@return itemimprovement
 function df.item:addImprovementFromJob(imp_type, job, unit, mat_type, mat_index, shape, forced_quality, entity, site, unk, unshaped) end
 
 ---@return boolean
@@ -793,6 +800,7 @@ function df.item:needTwoHandedWield() end
 
 ---@param stack_size integer
 ---@param preserve_containment boolean
+---@return item
 function df.item:splitStack(stack_size, preserve_containment) end
 
 ---@return boolean
@@ -869,6 +877,7 @@ function df.item:write_file(file) end
 ---@param loadversion save_version
 function df.item:read_file(file, loadversion) end
 
+---@return integer[]
 function df.item:getWeaponAttacks() end
 
 ---@return boolean
@@ -1054,6 +1063,7 @@ function df.item:hasImprovements() end
 ---@return boolean
 function df.item:isImproved() end
 
+---@return item_magicness[]
 function df.item:getMagic() end
 
 ---@param plurality integer
@@ -1121,6 +1131,7 @@ function df.item:detachStockpileAssignment() end
 ---just wipes the fields
 function df.item:removeStockpileAssignment() end
 
+---@return item_stockpile_ref
 function df.item:getStockpile2() end
 
 ---this updates the quality of a thread improvement already added to the item (or adjusts the quality of a thread item) based on the skill of the dyer
@@ -1161,6 +1172,7 @@ function df.item:calcUniformScore(exact_match, best_any, best_melee, best_ranged
 ---@return integer
 function df.item:calcBaseUniformScore() end
 
+---@return slab_engraving_type
 function df.item:getSlabEngravingType() end
 
 ---@return integer
@@ -1175,6 +1187,7 @@ function df.item:setGemShape(shape) end
 ---@return boolean
 function df.item:hasGemShape() end
 
+---@return descriptor_shape
 function df.item:getGemShape() end
 
 ---@return boolean

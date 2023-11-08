@@ -1745,9 +1745,11 @@ df.adventure_optionst = {}
 
 function df.adventure_optionst:getDescription() end
 
+---@return item
 function df.adventure_optionst:getIngestedItem() end
 
 ---for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
+---@return item
 function df.adventure_optionst:performAction() end
 
 ---@return integer
@@ -1770,15 +1772,19 @@ function df.adventure_optionst:getTargetPosZ() end
 
 function df.adventure_optionst:deleteSpatter() end
 
+---@return unit
 function df.adventure_optionst:getSuckBloodUnitID() end
 
 ---@return boolean
 function df.adventure_optionst:isIngestFromContainer() end
 
+---@return building
 function df.adventure_optionst:getBuildingContainer() end
 
+---@return item
 function df.adventure_optionst:getItemContainer() end
 
+---@return unit
 function df.adventure_optionst:getUnitContainer() end
 
 ---@class adventure_option_eat_unit_contaminantst: adventure_optionst

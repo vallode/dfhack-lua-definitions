@@ -424,6 +424,7 @@ function df.building:setCustomType(type) end
 ---@param supplies hospital_supplies
 function df.building:countHospitalSupplies(supplies) end
 
+---@return stockpile_links
 function df.building:getStockpileLinks() end
 
 ---?
@@ -433,6 +434,7 @@ function df.building:detachWorldData() end
 ---@return boolean
 function df.building:canLinkToStockpile() end
 
+---@return building_users
 function df.building:getUsers() end
 
 ---@param delta_x integer
@@ -480,8 +482,10 @@ function df.building:isNormalFurniture() end
 ---@return boolean
 function df.building:isFarmPlot() end
 
+---@return workshop_profile
 function df.building:getWorkshopProfile() end
 
+---@return machine_info
 function df.building:getMachineInfo() end
 
 ---@param power_info power_info

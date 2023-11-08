@@ -43,6 +43,7 @@ function df.art_image_element:getType() end
 ---@param ID integer
 function df.art_image_element:setID(ID) end
 
+---@return art_image_element
 function df.art_image_element:clone() end
 
 ---@param sym integer
@@ -117,6 +118,7 @@ function df.art_image_property:read_file(file, loadversion) end
 ---@return art_image_property_type
 function df.art_image_property:getType() end
 
+---@return art_image_element
 function df.art_image_property:clone() end
 
 ---@param useName boolean

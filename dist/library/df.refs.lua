@@ -299,20 +299,28 @@ function df.general_ref:read_file(file, loadversion) end
 ---@return general_ref_type
 function df.general_ref:getType() end
 
+---@return item
 function df.general_ref:getItem() end
 
+---@return unit
 function df.general_ref:getUnit() end
 
+---@return projectile
 function df.general_ref:getProjectile() end
 
+---@return building
 function df.general_ref:getBuilding() end
 
+---@return historical_entity
 function df.general_ref:getEntity() end
 
+---@return artifact_record
 function df.general_ref:getArtifact() end
 
+---@return nemesis_record
 function df.general_ref:getNemesis() end
 
+---@return activity_event
 function df.general_ref:getEvent() end
 
 function df.general_ref:setID() end
@@ -330,6 +338,7 @@ function df.general_ref:setLocation(x, y, z) end
 ---@param out_z integer
 function df.general_ref:getLocation(out_x, out_y, out_z) end
 
+---@return general_ref
 function df.general_ref:clone() end
 
 ---@param str string

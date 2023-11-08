@@ -273,8 +273,10 @@ function df.abstract_building:getType() end
 ---@param bright integer
 function df.abstract_building:getDisplayTile(tile, fg, bg, bright) end
 
+---@return language_name
 function df.abstract_building:getName() end
 
+---@return abstract_building_contents
 function df.abstract_building:getContents() end
 
 ---@param file file_compressorst
@@ -287,6 +289,7 @@ function df.abstract_building:read_file(file, loadversion) end
 ---@return integer
 function df.abstract_building:getReligionID() end
 
+---@return abstract_building_entombed
 function df.abstract_building:getEntombed() end
 
 ---@param indent integer

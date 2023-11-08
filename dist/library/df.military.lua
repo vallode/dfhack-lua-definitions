@@ -396,6 +396,7 @@ df.squad_order_cannot_reason = {}
 ---@field unk_1 integer
 df.squad_order = {}
 
+---@return squad_order
 function df.squad_order:clone() end
 
 ---@param file file_compressorst
@@ -431,6 +432,7 @@ function df.squad_order:decUniformLock(soldier) end
 ---@return boolean
 function df.squad_order:isFulfilled() end
 
+---@return integer[]
 function df.squad_order:getTargetUnits() end
 
 ---@param soldier unit
