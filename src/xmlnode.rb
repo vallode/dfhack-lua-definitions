@@ -1,5 +1,18 @@
-RESERVED_KEYWORDS = ['local'].freeze
+# frozen_string_literal: false
 
+RESERVED_KEYWORDS = %w[local].freeze
+
+TYPE_MAP = {
+  'integer' => %w[int8_t uint8_t int16_t uint16_t int32_t uint32_t int64_t uint64_t size_t enum-item flag-bit pointer
+                  padding stl-vector],
+  'number' => %w[s-float d-float long ulong],
+  'string' => %w[ptr-string stl-string static-string],
+  'boolean' => %w[bool stl-bit-vector df-flagarray],
+  'function' => %w[stl-function],
+  'lightuserdata' => %w[stl-mutex stl-condition-variable stl-deque stl-fstream stl-unordered-map]
+}.freeze
+
+# Represents a generic XML element.
 class XmlNode
   attr_reader :node
 
@@ -24,24 +37,7 @@ class XmlNode
   end
 
   def self.parse_type(string, default = nil)
-    case string
-    when 'int8_t', 'uint8_t', 'int16_t', 'uint16_t', 'int32_t', 'uint32_t', 'int64_t', 'uint64_t', 'size_t'
-      'integer'
-    when 's-float', 'd-float', 'long', 'ulong'
-      'number'
-    when 'ptr-string', 'stl-string', 'static-string'
-      'string'
-    when 'bool', 'stl-bit-vector', 'df-flagarray'
-      'boolean'
-    when 'stl-function'
-      'function'
-    when 'enum-item', 'flag-bit', 'pointer', 'padding', 'stl-vector'
-      'integer'
-    when 'stl-mutex', 'stl-condition-variable', 'stl-deque', 'stl-fstream', 'stl-unordered-map'
-      'lightuserdata'
-    else
-      default
-    end
+    TYPE_MAP.filter { |_, value| value.include?(string) }.keys[0] || default || string
   end
 end
 
@@ -51,23 +47,28 @@ class Field < XmlNode
   def initialize(node, parent_type = nil)
     super
 
-    @name = node.attributes['name']
+    @name = node['name']
 
-    @is_inline = is_inline
-    @is_array = %w[stl-vector static-array stl-bit-vector df-flagarray].include?(node.name)
+    @is_inline = inline?
+    @is_array = array?
     @type = @is_inline ? "#{parent_type}_#{@name}#{'[]' if @is_array}" : Field.get_type(node)
   end
 
-  def is_inline
+  def array?
+    %w[stl-vector static-array stl-bit-vector df-flagarray].include?(node.name)
+  end
+
+  def inline?
     return false if @children.empty?
 
-    return true if %w[global-object pointer].include?(@node.name) && @children.length > 1
-
-    return true if @node.name == 'stl-vector' && !@children.first.children.empty?
-
-    return true if %w[enum bitfield compound].include?(@node.name)
-
-    false
+    case @node.name
+    when 'global-object', 'pointer'
+      @children.length > 1
+    when 'stl-vector'
+      true unless @children.first.children.empty?
+    when 'enum', 'bitfield', 'compound'
+      true
+    end
   end
 
   def comment
@@ -82,22 +83,18 @@ class Field < XmlNode
     "---@field #{@name} #{@type}#{comment}\n"
   end
 
+  def self.extract_type_name(node)
+    node['type-name'] || node['index-enum'] || node['pointer-type']
+  end
+
   def self.get_type(node)
-    type_name = node['type-name'] || node['index-enum'] || node['pointer-type']
+    type_name = Field.extract_type_name(node)
     children = node.xpath('*[not(self::comment)]')
 
-    child_type = Field.get_type(children.first) if !children.empty? and node.name != 'vmethod'
-
-    type = if child_type
-             XmlNode.parse_type(child_type, child_type)
-           elsif type_name
-             XmlNode.parse_type(type_name, type_name)
-           else
-             XmlNode.parse_type(node.name, 'any')
-           end
+    child_type = Field.get_type(children.first) if !children.empty? && node.name != 'vmethod'
+    type = XmlNode.parse_type(child_type) || XmlNode.parse_type(type_name) || XmlNode.parse_type(node.name, 'any')
 
     type += '[]' if %w[stl-vector static-array stl-bit-vector df-flagarray].include?(node.name)
-
     type
   end
 end
@@ -106,7 +103,7 @@ class FunctionType < Field
   def initialize(node, parent_type = nil)
     super
 
-    @return_type = get_return_type
+    @return_type = return_type
   end
 
   def render
@@ -125,7 +122,7 @@ class FunctionType < Field
     annotation << "function df.#{@parent_type + ':' if @parent_type}#{@name}(#{inline_params}) end\n\n"
   end
 
-  def get_return_type
+  def return_type
     return_type = XmlNode.parse_type(@node['ret-type'], @node['ret-type'])
 
     return_type = Field.get_type(@node.at_css('ret-type')) if @node.at_css('ret-type')
@@ -212,9 +209,9 @@ class EnumItem < XmlNode
     super(node)
 
     # Unknowns use index value.
-    @name = node.attributes['name'] || "unk_#{index}"
+    @name = node['name'] || "unk_#{index}"
     @index = index
-    @value = node.attributes['value']
+    @value = node['value']
   end
 
   def render
@@ -261,7 +258,7 @@ class StructType < XmlNode
   def initialize(node, parent_type = nil, type_separator = '.T_')
     super(node, parent_type)
 
-    @name = node.attributes['type-name'] || node.attributes['name']
+    @name = node['type-name'] || node['name']
     @parent_type = parent_type
     @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.class'
     @type = parent_type ? "#{parent_type}_#{@name}" : @name.value
