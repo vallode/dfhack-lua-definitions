@@ -2,5 +2,10 @@
     "name": "DFHack Lua",
     "words": [
         "dfhack"
-    ]
+    ],
+    "settings": {
+        "Lua.diagnostics.disable": [
+            "lowercase-global"
+        ]
+    }
 }
