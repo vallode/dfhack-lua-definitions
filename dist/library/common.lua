@@ -96,9 +96,11 @@ function get_path_xy(path, i) end
 function safe_index(object, index, ...) end
 
 ---If the Lua table t doesn’t include the specified key, t[key] is set to the value of default_value, which defaults to {} if not set. The new or existing value of t[key] is then returned.
----@param t table
+---@generic T
+---@param t `T`
 ---@param key integer|string
----@param default_value any
+---@param default_value? any
+---@return table T
 function ensure_key(t, key, default_value) end
 
 ---@param prefix string
