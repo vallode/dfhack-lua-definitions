@@ -4,8 +4,7 @@ Type definitions for DFHack's Lua API.
 
 > **Note**
 > These definitions are work-in-progress, they can lie to you. You can find
-> up to date documentation on DFHack's website:
-> https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html
+> up to date documentation on the [DFHack website](https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html).
 > That being said, please raise any problems here or on discord.
 
 ## Installation
