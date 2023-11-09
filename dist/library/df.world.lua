@@ -160,6 +160,9 @@ df.units_other_id = {}
 ---@field [1] boolean
 ---@field ANY_BABY2 boolean
 
+---@class units_other: df.class
+df.units_other = {}
+
 ---@class unit_context_block: df.class
 ---@field context_unit unit[]
 ---@field num integer

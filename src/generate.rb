@@ -41,10 +41,10 @@ Dir.glob(ARGV[0]).each do |xml|
       case node.name
       when 'enum-type', 'bitfield-type'
         parsed_node = EnumType.new(node)
-        lua_annotations[parsed_node.name.value] = parsed_node
-      when 'struct-type', 'class-type'
+        lua_annotations[parsed_node.name] = parsed_node
+      when 'struct-type', 'class-type', 'df-other-vectors-type'
         parsed_node = StructType.new(node)
-        lua_annotations[parsed_node.name.value] = parsed_node
+        lua_annotations[parsed_node.name] = parsed_node
       end
     end
 

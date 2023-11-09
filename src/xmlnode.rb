@@ -261,7 +261,7 @@ class StructType < XmlNode
     @name = node['type-name'] || node['name']
     @parent_type = parent_type
     @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.class'
-    @type = parent_type ? "#{parent_type}_#{@name}" : @name.value
+    @type = parent_type ? "#{parent_type}_#{@name}" : @name
     @type_separator = type_separator
   end
 
