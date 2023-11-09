@@ -9,6 +9,12 @@ df = {}
 ---@field RELEASE string
 dfhack = {}
 
+---@param name string
+---@return unknown
+---@return unknown
+function dfhack.reqscript(name) end
+reqscript = dfhack.reqscript
+
 ---@param message string
 function dfhack.print(message) end
 
