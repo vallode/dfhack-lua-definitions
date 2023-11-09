@@ -93,9 +93,9 @@ df.projectile_flags = {}
 ---@field hit_rating integer
 ---@field unk21 integer
 ---@field unk22 integer
----@field bow_id item
----@field unk_item_id item
----@field unk_unit_id unit
+---@field bow_id integer References: item
+---@field unk_item_id integer References: item
+---@field unk_unit_id integer References: unit
 ---@field unk_v40_1 integer uninitialized+saved
 ---@field pos_x integer
 ---@field pos_y integer

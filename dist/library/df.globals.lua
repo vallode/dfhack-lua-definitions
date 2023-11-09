@@ -3,14 +3,14 @@
 
 ---@class (exact) df.global: df.compound
 ---@field global_table global_table_entry[]
----@field cursor integer
----@field selection_rect integer
+---@field cursor global_cursor
+---@field selection_rect global_selection_rect
 ---@field gamemode game_mode
 ---@field gametype game_type
 ---@field ui_menu_width integer[]
 ---@field created_item_type item_type[]
 ---@field created_item_subtype integer[]
----@field created_item_mattype material[]
+---@field created_item_mattype integer[]
 ---@field created_item_matindex integer[]
 ---@field created_item_count integer[]
 ---@field map_renderer map_renderer
@@ -164,6 +164,22 @@
 ---@field buildingst_completebuild function
 df.global = {}
 
+---@class global_cursor: df.class
+---@field x integer
+---@field y integer
+---@field z integer
+df.global.cursor = {}
+
+---@class global_selection_rect: df.class
+---@field start_x integer
+---@field start_y integer
+---@field start_z integer
+---@field end_x integer only valid for an instant while its being completed
+---@field end_y integer
+---@field end_z integer
+df.global.selection_rect = {}
+
+
 ---@class _weather_type: df.enum
 ---@field None 0
 ---@field [0] "None"
@@ -182,7 +198,7 @@ df.weather_type = {}
 ---@field Snow boolean
 
 ---@class _next_global_id: df.enum
----The storage order of "next ID" fields in the save file. Followed by game type. The enum item name is the part between next_ and _global_id in the Dwarf Fortress global variable table.
+---<br> The storage order of "next ID" fields in the save file.<br> Followed by game type. The enum item name is the part between<br> next_ and _global_id in the Dwarf Fortress global variable table.<br>
 ---@field unit 0
 ---@field [0] "unit"
 ---@field soul 1

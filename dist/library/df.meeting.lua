@@ -14,8 +14,8 @@ df.dipscript_info = {}
 df.dipscript_text = {}
 
 ---@class dipscript_popup: df.class
----@field meeting_holder_actor unit
----@field meeting_holder_noble unit
+---@field meeting_holder_actor integer References: unit
+---@field meeting_holder_noble integer References: unit
 ---@field activity activity_info
 ---@field flags dipscript_popup_flags
 df.dipscript_popup = {}
@@ -171,10 +171,10 @@ df.meeting_variable = {}
 df.meeting_context = {}
 
 ---@class meeting_diplomat_info: df.class
----@field civ_id historical_entity
+---@field civ_id integer References: historical_entity
 ---@field unk1 integer maybe is_first_contact
----@field diplomat_id historical_figure
----@field associate_id historical_figure
+---@field diplomat_id integer References: historical_figure
+---@field associate_id integer References: historical_figure
 ---@field topic_list meeting_topic[]
 ---@field topic_parms integer[]
 ---@field sell_requests entity_sell_requests
@@ -186,12 +186,12 @@ df.meeting_context = {}
 ---@field unk_6c string
 ---@field flags meeting_diplomat_info_flags
 ---@field events meeting_event[]
----@field agreement_entity integer[]
+---@field agreement_entity integer[] References: historical_entity
 ---@field agreement_topic meeting_topic[]
 ---@field agreement_year integer[]
 ---@field agreement_tick integer[]
 ---@field agreement_outcome integer[]
----@field contact_entity integer[]
+---@field contact_entity integer[] References: historical_entity
 ---@field contact_year integer[]
 ---@field contact_tick integer[]
 df.meeting_diplomat_info = {}
@@ -303,9 +303,9 @@ df.meeting_event = {}
 
 ---@class activity_info: df.class
 ---@field id integer assigned during Save
----@field unit_actor unit diplomat or worker
----@field unit_noble unit meeting recipient
----@field place building
+---@field unit_actor integer References: unit<br>diplomat or worker
+---@field unit_noble integer References: unit<br>meeting recipient
+---@field place integer References: building
 ---@field flags activity_info_flags
 ---@field unk3 integer 3
 ---@field delay integer 0
@@ -418,7 +418,7 @@ df.activity_entry_type = {}
 ---@field type activity_entry_type
 ---@field events activity_event[]
 ---@field next_event_id integer
----@field army_controller army_controller
+---@field army_controller integer References: army_controller
 df.activity_entry = {}
 
 ---@class _activity_event_type: df.enum
@@ -539,18 +539,18 @@ df.activity_event_type = {}
 ---@field StoreObject boolean
 
 ---@class activity_event_participants: df.class
----@field histfigs historical_figure[]
----@field units unit[]
----@field free_histfigs historical_figure[]
----@field free_units unit[]
----@field activity_id activity_entry
+---@field histfigs integer[]
+---@field units integer[]
+---@field free_histfigs integer[]
+---@field free_units integer[]
+---@field activity_id integer References: activity_entry
 ---@field event_id integer
 df.activity_event_participants = {}
 
 ---@class activity_event: df.class
 ---@field event_id integer mostly, but not always, the index in activity.events
----@field activity_id activity_entry
----@field parent_event_id activity_event
+---@field activity_id integer References: activity_entry
+---@field parent_event_id integer References: activity_event
 ---@field flags activity_event_flags
 ---@field unk_v42_1 activity_event_unk_v42_1[]
 ---@field unk_v42_2 activity_event_unk_v42_2[]
@@ -571,14 +571,14 @@ df.activity_event.T_flags = {}
 
 ---@class activity_event_unk_v42_1: df.class
 ---@field unk_1 integer
----@field item_id item is artifact id for some activities ie. copy written
+---@field item_id integer References: item<br>is artifact id for some activities ie. copy written
 ---@field unk_2 integer
 df.activity_event.T_unk_v42_1 = {}
 
 ---@class activity_event_unk_v42_2: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field item_id item is unit ID for writing jobs and reading
+---@field item_id integer References: item<br>is unit ID for writing jobs and reading
 ---@field unk_3 integer
 df.activity_event.T_unk_v42_2 = {}
 
@@ -666,17 +666,17 @@ df.activity_event_training_sessionst = {}
 
 ---@class activity_event_combat_trainingst: activity_event
 ---@field participants activity_event_participants
----@field building_id building
----@field hist_figure_id historical_figure
----@field unit_id unit
+---@field building_id integer References: building
+---@field hist_figure_id integer References: historical_figure
+---@field unit_id integer References: unit
 ---@field organize_counter integer gt 0 => organizing, lt 0 => done
 df.activity_event_combat_trainingst = {}
 
 ---@class activity_event_skill_demonstrationst: activity_event
 ---@field participants activity_event_participants
----@field building_id building
----@field hist_figure_id historical_figure
----@field unit_id unit
+---@field building_id integer References: building
+---@field hist_figure_id integer References: historical_figure
+---@field unit_id integer References: unit
 ---@field skill job_skill
 ---@field organize_counter integer
 ---@field wait_countdown integer
@@ -686,26 +686,26 @@ df.activity_event_skill_demonstrationst = {}
 
 ---@class activity_event_individual_skill_drillst: activity_event
 ---@field participants activity_event_participants
----@field building_id building
+---@field building_id integer References: building
 ---@field countdown integer
 df.activity_event_individual_skill_drillst = {}
 
 ---@class activity_event_sparringst: activity_event
 ---@field participants activity_event_participants
----@field building_id building
+---@field building_id integer References: building
 ---@field groups activity_event_sparringst_groups[]
 ---@field countdown integer
 df.activity_event_sparringst = {}
 
 ---@class activity_event_sparringst_groups: df.class
----@field units integer[]
+---@field units integer[] References: unit
 ---@field countdown integer
----@field building_id building
+---@field building_id integer References: building
 df.activity_event_sparringst.T_groups = {}
 
 ---@class activity_event_ranged_practicest: activity_event
 ---@field participants activity_event_participants
----@field building_id building
+---@field building_id integer References: building
 df.activity_event_ranged_practicest = {}
 
 ---@class activity_event_harassmentst: activity_event
@@ -1044,8 +1044,8 @@ df.conversation_menu = {}
 ---@field unk_8 integer[]
 ---@field unk_b4 activity_event_conversationst_unk_b4
 ---@field turns activity_event_conversationst_turns[]
----@field floor_holder unit -1 = no one's turn
----@field floor_holder_hfid historical_figure -1 = no one's turn
+---@field floor_holder integer References: unit<br>-1 = no one's turn
+---@field floor_holder_hfid integer References: historical_figure<br>-1 = no one's turn
 ---@field pause integer ticks since the last turn
 ---@field flags2 activity_event_conversationst_flags2
 ---@field unk2 activity_event_conversationst_unk2
@@ -1055,8 +1055,8 @@ df.conversation_menu = {}
 df.activity_event_conversationst = {}
 
 ---@class activity_event_conversationst_participants: df.class
----@field unit_id unit
----@field histfig_id historical_figure
+---@field unit_id integer References: unit
+---@field histfig_id integer References: historical_figure
 df.activity_event_conversationst.T_participants = {}
 
 ---@class activity_event_conversationst_unk_6: df.class
@@ -1080,8 +1080,8 @@ df.activity_event_conversationst.T_unk_6 = {}
 df.activity_event_conversationst.T_unk_b4 = {}
 
 ---@class activity_event_conversationst_turns: df.class
----@field speaker unit
----@field speaker_hfid historical_figure
+---@field speaker integer References: unit
+---@field speaker_hfid integer References: historical_figure
 ---@field type talk_choice_type
 ---@field unk_1 integer[] uninitialized
 ---@field unk_2 integer[]
@@ -1151,15 +1151,15 @@ df.activity_event_conflictst = {}
 
 ---@class activity_event_conflictst_sides: df.class
 ---@field id integer
----@field histfig_ids integer[]
----@field unit_ids integer[]
+---@field histfig_ids integer[] References: historical_figure
+---@field unit_ids integer[] References: unit
 ---@field enemies activity_event_conflictst.T_sides_enemies[] relationships to other sides in this conflict
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.activity_event_conflictst.T_sides = {}
 
----@class activity_event_conflictst.T_sides_enemies: df.class
 ---relationships to other sides in this conflict
+---@class activity_event_conflictst.T_sides_enemies: df.class
 ---@field id integer
 ---@field conflict_level conflict_level
 df.activity_event_conflictst.T_sides.T_enemies = {}
@@ -1182,26 +1182,26 @@ df.activity_event_reunionst = {}
 
 ---@class activity_event_prayerst: activity_event
 ---@field participants activity_event_participants
----@field histfig_id historical_figure deity
+---@field histfig_id integer References: historical_figure<br>deity
 ---@field topic sphere_type -1 when praying
----@field site_id world_site
----@field location_id abstract_building
----@field building_id building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
+---@field building_id integer References: building
 ---@field timer integer
 df.activity_event_prayerst = {}
 
 ---@class activity_event_socializest: activity_event
 ---@field participants activity_event_participants
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 ---@field building_id integer
 ---@field unk_1 integer
 df.activity_event_socializest = {}
 
 ---@class activity_event_worshipst: activity_event
 ---@field participants activity_event_participants
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 ---@field building_id integer
 ---@field unk_1 integer
 df.activity_event_worshipst = {}
@@ -1275,11 +1275,11 @@ df.performance_participant_type = {}
 ---@class activity_event_performancest: activity_event
 ---@field participants activity_event_participants
 ---@field type performance_event_type
----@field event history_event used for story
----@field written_content_id written_content
----@field poetic_form poetic_form
----@field music_form musical_form
----@field dance_form dance_form
+---@field event integer References: history_event<br>used for story
+---@field written_content_id integer References: written_content
+---@field poetic_form integer References: poetic_form
+---@field music_form integer References: musical_form
+---@field dance_form integer References: dance_form
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1311,8 +1311,8 @@ df.activity_event_performancest = {}
 ---@class activity_event_performancest_participant_actions: df.class
 ---@field type performance_participant_type
 ---@field sub_type integer depends on type. if music: voice index in musical form
----@field unit_id unit
----@field histfig_id historical_figure
+---@field unit_id integer References: unit
+---@field histfig_id integer References: historical_figure
 ---@field unk_act_1 integer
 ---@field unk_act_2 integer
 ---@field unk_act_3 coord
@@ -1344,15 +1344,15 @@ function df.performance_play_orderst:read_file(file, loadversion) end
 
 ---@class activity_event_researchst: activity_event
 ---@field participants activity_event_participants
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 ---@field building_id integer
 df.activity_event_researchst = {}
 
 ---@class activity_event_ponder_topicst: activity_event
 ---@field participants activity_event_participants
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 ---@field building_id integer
 ---@field unk_1 integer
 ---@field knowledge knowledge_scholar_category_flag
@@ -1361,29 +1361,29 @@ df.activity_event_ponder_topicst = {}
 
 ---@class activity_event_discuss_topicst: activity_event
 ---@field participants activity_event_participants
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 ---@field building_id integer
 ---@field unk_1 integer
 ---@field knowledge knowledge_scholar_category_flag
 ---@field timer integer
 ---@field unk_2 integer
----@field unk_3 historical_figure
+---@field unk_3 integer References: historical_figure
 df.activity_event_discuss_topicst = {}
 
 ---@class activity_event_readst: activity_event
 ---@field participants activity_event_participants
 ---@field building_id integer
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 ---@field state integer 0 if not in progress, 1 if reading
 ---@field timer integer
 df.activity_event_readst = {}
 
 ---@class activity_event_fill_service_orderst: activity_event
----@field histfig_id historical_figure
----@field unit_id unit
----@field occupation_id occupation
+---@field histfig_id integer References: historical_figure
+---@field unit_id integer References: unit
+---@field occupation_id integer References: occupation
 ---@field unk_1 integer
 df.activity_event_fill_service_orderst = {}
 
@@ -1427,8 +1427,8 @@ df.activity_event_writest.T_mode = {}
 ---@field WriteAboutKnowledge boolean
 
 ---@class activity_event_copy_written_contentst: activity_event
----@field unit_id unit
----@field histfig_id historical_figure
+---@field unit_id integer References: unit
+---@field histfig_id integer References: historical_figure
 ---@field occupation_id integer
 ---@field building_id integer
 ---@field site_id integer
@@ -1566,7 +1566,7 @@ df.activity_event_encounterst.T_unk_2 = {}
 ---@class activity_event_store_objectst: activity_event
 ---@field unk_1 integer
 ---@field unk_2 coord
----@field building_id building
+---@field building_id integer References: building
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.activity_event_store_objectst = {}

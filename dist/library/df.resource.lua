@@ -199,14 +199,14 @@ function df.resource_allotment_specifier:write_file(file) end
 function df.resource_allotment_specifier:read_file(file, loadversion) end
 
 ---@class resource_allotment_specifier_cropst: resource_allotment_specifier
----@field mat_type plant_raw index to world.raws.plant.all
+---@field mat_type integer References: plant_raw<br>index to world.raws.plant.all
 ---@field unk_4 integer
 ---@field unk_v40_01 integer
 ---@field unk_5 integer[]
 df.resource_allotment_specifier_cropst = {}
 
 ---@class resource_allotment_specifier_stonest: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -214,14 +214,14 @@ df.resource_allotment_specifier_cropst = {}
 df.resource_allotment_specifier_stonest = {}
 
 ---@class resource_allotment_specifier_metalst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 ---@field unk_5 integer[]
 df.resource_allotment_specifier_metalst = {}
 
 ---@class resource_allotment_specifier_woodst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -232,88 +232,88 @@ df.resource_allotment_specifier_metalst = {}
 df.resource_allotment_specifier_woodst = {}
 
 ---@class resource_allotment_specifier_armor_bodyst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_armor_bodyst = {}
 
 ---@class resource_allotment_specifier_armor_pantsst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_armor_pantsst = {}
 
 ---@class resource_allotment_specifier_armor_glovesst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_armor_glovesst = {}
 
 ---@class resource_allotment_specifier_armor_bootsst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_armor_bootsst = {}
 
 ---@class resource_allotment_specifier_armor_helmst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_armor_helmst = {}
 
 ---@class resource_allotment_specifier_clothing_bodyst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_clothing_bodyst = {}
 
 ---@class resource_allotment_specifier_clothing_pantsst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_clothing_pantsst = {}
 
 ---@class resource_allotment_specifier_clothing_glovesst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_clothing_glovesst = {}
 
 ---@class resource_allotment_specifier_clothing_bootsst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_clothing_bootsst = {}
 
 ---@class resource_allotment_specifier_clothing_helmst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_clothing_helmst = {}
 
 ---@class resource_allotment_specifier_weapon_meleest: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_weapon_meleest = {}
 
 ---@class resource_allotment_specifier_weapon_rangedst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_weapon_rangedst = {}
 
 ---@class resource_allotment_specifier_ammost: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_ammost = {}
 
 ---@class resource_allotment_specifier_anvilst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_anvilst = {}
 
 ---@class resource_allotment_specifier_gemsst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_gemsst = {}
 
 ---@class resource_allotment_specifier_threadst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 df.resource_allotment_specifier_threadst = {}
 
 ---@class resource_allotment_specifier_clothst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -323,7 +323,7 @@ df.resource_allotment_specifier_threadst = {}
 df.resource_allotment_specifier_clothst = {}
 
 ---@class resource_allotment_specifier_leatherst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -338,123 +338,123 @@ df.resource_allotment_specifier_clothst = {}
 df.resource_allotment_specifier_leatherst = {}
 
 ---@class resource_allotment_specifier_quiverst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_quiverst = {}
 
 ---@class resource_allotment_specifier_backpackst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_backpackst = {}
 
 ---@class resource_allotment_specifier_flaskst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_flaskst = {}
 
 ---@class resource_allotment_specifier_bagst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_bagst = {}
 
 ---@class resource_allotment_specifier_tablest: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_tablest = {}
 
 ---@class resource_allotment_specifier_cabinetst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_cabinetst = {}
 
 ---@class resource_allotment_specifier_chairst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_chairst = {}
 
 ---@class resource_allotment_specifier_boxst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_boxst = {}
 
 ---@class resource_allotment_specifier_bedst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_bedst = {}
 
 ---@class resource_allotment_specifier_craftsst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_craftsst = {}
 
 ---@class resource_allotment_specifier_meatst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_meatst = {}
 
 ---@class resource_allotment_specifier_bonest: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 df.resource_allotment_specifier_bonest = {}
 
 ---@class resource_allotment_specifier_hornst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 df.resource_allotment_specifier_hornst = {}
 
 ---@class resource_allotment_specifier_shellst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 df.resource_allotment_specifier_shellst = {}
 
 ---@class resource_allotment_specifier_tallowst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_tallowst = {}
 
 ---@class resource_allotment_specifier_toothst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 df.resource_allotment_specifier_toothst = {}
 
 ---@class resource_allotment_specifier_pearlst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_pearlst = {}
 
 ---@class resource_allotment_specifier_soapst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_soapst = {}
 
 ---@class resource_allotment_specifier_extractst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
----@field mat_type2 material
+---@field mat_type2 integer References: material
 ---@field mat_index2 integer
 ---@field unk_5 integer uninitialized
 df.resource_allotment_specifier_extractst = {}
 
 ---@class resource_allotment_specifier_cheesest: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.resource_allotment_specifier_cheesest = {}
 
 ---@class resource_allotment_specifier_skinst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field mat_type2 material
+---@field mat_type2 integer References: material
 ---@field mat_index2 integer
 ---@field unk_4 integer
 df.resource_allotment_specifier_skinst = {}
 
 ---@class resource_allotment_specifier_powderst: resource_allotment_specifier
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4 integer
 df.resource_allotment_specifier_powderst = {}

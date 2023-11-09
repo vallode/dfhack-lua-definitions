@@ -11,7 +11,7 @@ df.machine_type = {}
 ---@field standard boolean
 
 ---@class machine_info: df.class
----@field machine_id machine
+---@field machine_id integer References: machine
 ---@field flags machine_info_flags
 df.machine_info = {}
 
@@ -77,7 +77,7 @@ df.machine_tile_set = {}
 df.machine = {}
 
 ---@class machine_components: df.class
----@field building_id building
+---@field building_id integer References: building
 ---@field connections integer[] indices into the same component vector
 df.machine.T_components = {}
 

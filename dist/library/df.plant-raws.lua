@@ -370,7 +370,7 @@ df.plant_raw_flags = {}
 ---@field seed_plural string
 ---@field leaves_singular string unused
 ---@field leaves_plural string unused
----@field source_hfid historical_figure
+---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
 ---@field unk2 integer
@@ -444,7 +444,7 @@ df.plant_raw.T_tiles = {}
 df.plant_raw.T_colors = {}
 
 ---@class plant_raw_material_defs: df.class
----@field type material[]
+---@field type integer[]
 ---@field idx integer[]
 ---@field str string[][]
 df.plant_raw.T_material_defs = {}
@@ -500,7 +500,7 @@ df.plant_material_def = {}
 ---@field str_growth_item string[]
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field prints plant_growth_print[]
 ---@field unk_v50_1 integer

@@ -213,7 +213,7 @@ df.item_magicness = {}
 df.temperaturest = {}
 
 ---@class spatter_common: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field mat_state matter_state
 ---@field temperature temperaturest
@@ -395,8 +395,8 @@ df.slab_engraving_type = {}
 ---@field [27] boolean
 ---@field TavernSign boolean
 
----@class item: df.instance
 ---In item_foodst, requires MEAT or FISH ingredient.
+---@class item: df.instance
 ---@field pos coord
 ---@field flags item_flags
 ---@field flags2 item_flags2
@@ -404,7 +404,7 @@ df.slab_engraving_type = {}
 ---@field id integer
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
----@field world_data_id world_object_data
+---@field world_data_id integer References: world_object_data
 ---@field world_data_subid integer
 ---@field stockpile_countdown integer -1 per 50 frames; then check if needs moving
 ---@field stockpile_delay integer used to reset countdown; randomly varies
@@ -649,8 +649,8 @@ function df.item:getImageRef(id, subid) end
 ---@param site_id integer
 function df.item:getImageCivSite(civ_id, site_id) end
 
----@param civ_id historical_entity
----@param site_id world_site
+---@param civ_id integer
+---@param site_id integer
 function df.item:setImageCivSite(civ_id, site_id) end
 
 ---@param level integer
@@ -713,7 +713,7 @@ function df.item:getVolume() end
 ---@param unit unit
 ---@param mat_type integer
 ---@param mat_index integer
----@param shape descriptor_shape
+---@param shape integer
 ---@param forced_quality integer
 ---@param entity historical_entity
 ---@param site world_site
@@ -1249,14 +1249,14 @@ function df.item:getAbsorption() end
 ---@return boolean
 function df.item:isGemMaterial() end
 
----@param shape descriptor_shape
+---@param shape integer
 function df.item:setGemShape(shape) end
 
 ---@return boolean
 function df.item:hasGemShape() end
 
----@param unk_0 descriptor_shape
----@return descriptor_shape
+---@param unk_0 integer
+---@return integer
 function df.item:getGemShape(unk_0) end
 
 ---@return boolean
@@ -1264,7 +1264,7 @@ function df.item:hasWriting() end
 
 ---@class item_kill_info: df.class
 ---@field targets historical_kills
----@field slayers integer[]
+---@field slayers integer[] References: historical_figure
 ---@field slayer_kill_counts integer[]
 df.item_kill_info = {}
 
@@ -1287,13 +1287,13 @@ df.item_history_info = {}
 df.item_actual = {}
 
 ---@class item_crafted: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field maker_race creature_raw
+---@field maker_race integer References: creature_raw
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
----@field maker historical_figure
----@field masterpiece_event history_event
+---@field maker integer References: historical_figure
+---@field masterpiece_event integer References: history_event
 df.item_crafted = {}
 
 ---@class item_constructed: item_crafted
@@ -1480,13 +1480,13 @@ df.corpse_material_type = {}
 ---@field Yarn boolean
 
 ---@class item_body_component: item_actual
----@field race creature_raw
----@field hist_figure_id historical_figure
----@field unit_id unit
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field hist_figure_id integer References: historical_figure
+---@field unit_id integer References: unit
+---@field caste integer References: caste_raw
 ---@field sex pronoun_type
----@field normal_race creature_raw unit.enemy.normal_race
----@field normal_caste caste_raw unit.enemy.normal_caste
+---@field normal_race integer References: creature_raw<br>unit.enemy.normal_race
+---@field normal_caste integer References: caste_raw<br>unit.enemy.normal_caste
 ---@field rot_timer integer
 ---@field unk_8c integer if zero, item is a generic instance of its race and caste; do not process unit id
 ---@field body item_body_component_body
@@ -1502,9 +1502,9 @@ df.corpse_material_type = {}
 ---@field appearance item_body_component_appearance
 ---@field blood_count integer
 ---@field stored_fat integer
----@field hist_figure_id2 historical_figure
----@field undead_unit_id unit
----@field unit_id2 unit
+---@field hist_figure_id2 integer References: historical_figure
+---@field undead_unit_id integer References: unit
+---@field unit_id2 integer References: unit
 ---@field corpse_flags item_body_component_corpse_flags
 ---@field material_amount integer[]
 ---@field bone1 item_body_component_bone1
@@ -1602,12 +1602,12 @@ df.item_body_component.T_corpse_flags = {}
 ---@field yarn boolean
 
 ---@class item_body_component_bone1: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_body_component.T_bone1 = {}
 
 ---@class item_body_component_bone2: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_body_component.T_bone2 = {}
 
@@ -1624,8 +1624,8 @@ df.item_corpsest = {}
 df.item_corpsepiecest = {}
 
 ---@class item_critter: item_actual
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field milk_timer integer
 ---@field airdrown_timer integer
 ---@field name language_name
@@ -1654,81 +1654,81 @@ df.item_matstate = {}
 df.item_liquipowder = {}
 
 ---@class item_liquid: item_liquipowder
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_liquid = {}
 
 ---@class item_powder: item_liquipowder
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_powder = {}
 
 ---@class item_barst: item_actual
 ---@field subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field dimension integer
 df.item_barst = {}
 
 ---@class item_smallgemst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field shape descriptor_shape
+---@field shape integer References: descriptor_shape
 df.item_smallgemst = {}
 
 ---@class item_blocksst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_blocksst = {}
 
 ---@class item_roughst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_roughst = {}
 
 ---@class item_boulderst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_boulderst = {}
 
 ---@class item_woodst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_woodst = {}
 
 ---@class item_branchst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_branchst = {}
 
 ---@class item_rockst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field sharpness integer
 ---@field unk_84 integer
 df.item_rockst = {}
 
 ---@class item_seedsst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field grow_counter integer
 ---@field planting_skill integer
 df.item_seedsst = {}
 
 ---@class item_skin_tannedst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_80 integer
 df.item_skin_tannedst = {}
 
 ---@class item_meatst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field rot_timer integer
 df.item_meatst = {}
 
 ---@class item_plantst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field rot_timer integer
 df.item_plantst = {}
@@ -1736,19 +1736,19 @@ df.item_plantst = {}
 ---@class item_plant_growthst: item_actual
 ---@field subtype integer
 ---@field growth_print integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field rot_timer integer
 df.item_plant_growthst = {}
 
 ---@class item_cheesest: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field rot_timer integer
 df.item_cheesest = {}
 
 ---@class item_globst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field rot_timer integer
 ---@field mat_state item_matstate
@@ -1756,26 +1756,26 @@ df.item_cheesest = {}
 df.item_globst = {}
 
 ---@class item_remainsst: item_actual
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field rot_timer integer
 df.item_remainsst = {}
 
 ---@class item_fishst: item_actual
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field rot_timer integer
 df.item_fishst = {}
 
 ---@class item_fish_rawst: item_actual
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field rot_timer integer
 df.item_fish_rawst = {}
 
 ---@class item_foodst: item_crafted
 ---@field subtype itemdef_foodst
----@field entity historical_entity
+---@field entity integer References: historical_entity
 ---@field recipe_id integer
 ---@field ingredients item_foodst_ingredients[]
 ---@field rot_timer integer
@@ -1785,9 +1785,9 @@ df.item_foodst = {}
 ---@field unk_1 integer
 ---@field item_type item_type
 ---@field unk_4 integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field maker historical_figure
+---@field maker integer References: historical_figure
 ---@field quality item_quality
 ---@field unk_14 integer
 ---@field unk_18 integer
@@ -1797,7 +1797,7 @@ df.item_foodst.T_ingredients = {}
 df.item_verminst = {}
 
 ---@class item_petst: item_critter
----@field owner_id unit
+---@field owner_id integer References: unit
 ---@field pet_flags item_petst_pet_flags
 df.item_petst = {}
 
@@ -1821,12 +1821,12 @@ df.item_powder_miscst = {}
 df.item_liquid_miscst = {}
 
 ---@class item_threadst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field dye_mat_type material
+---@field dye_mat_type integer References: material
 ---@field dye_mat_index integer
----@field dyer historical_figure
----@field dye_masterpiece_event history_event
+---@field dyer integer References: historical_figure
+---@field dye_masterpiece_event integer References: history_event
 ---@field dye_quality integer
 ---@field unk_92 integer
 ---@field unk_94 integer
@@ -1835,21 +1835,21 @@ df.item_liquid_miscst = {}
 df.item_threadst = {}
 
 ---@class item_eggst: item_actual
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field rot_timer integer
 ---@field egg_materials material_vec_ref
 ---@field egg_flags item_eggst_egg_flags
 ---@field incubation_counter integer increments when fertile in unforbidden nestbox, hatch at >= 100800 (3 months)
----@field hatchling_civ_id historical_entity hatchlings will have this civ_id
----@field hatchling_population_id entity_population hatchlings will have this population_id
+---@field hatchling_civ_id integer References: historical_entity<br>hatchlings will have this civ_id
+---@field hatchling_population_id integer References: entity_population<br>hatchlings will have this population_id
 ---@field hatchling_unit_unk_c0 integer hatchlings will have this unit.unk_c0 value
 ---@field unk_2 integer
 ---@field mothers_genes unit_genes object owned by egg item
----@field mothers_caste caste_raw
+---@field mothers_caste integer References: caste_raw
 ---@field unk_3 integer
 ---@field fathers_genes unit_genes object owned by egg item
----@field fathers_caste caste_raw -1 if no father genes
+---@field fathers_caste integer References: caste_raw<br>-1 if no father genes
 ---@field unk_4 integer
 ---@field hatchling_flags1 unit_flags1 used primarily for bit_flag:tame
 ---@field hatchling_flags2 unit_flags2 used primarily for bit_flag:roaming_wilderness_population_source
@@ -1857,7 +1857,7 @@ df.item_threadst = {}
 ---@field unk_v42_1 integer
 ---@field hatchling_training_level animal_training_level
 ---@field hatchling_animal_population world_population_ref
----@field hatchling_mother_id unit
+---@field hatchling_mother_id integer References: unit
 ---@field size integer
 df.item_eggst = {}
 
@@ -2041,13 +2041,13 @@ df.item_trapcompst = {}
 ---@field subtype itemdef_toolst
 ---@field sharpness integer
 ---@field stockpile item_stockpile_ref
----@field vehicle_id vehicle
+---@field vehicle_id integer References: vehicle
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.item_toolst = {}
 
 ---@class item_stockpile_ref: df.class
----@field id building
+---@field id integer References: building
 ---@field x integer
 ---@field y integer
 df.item_stockpile_ref = {}
@@ -2061,7 +2061,7 @@ df.item_barrelst = {}
 df.item_binst = {}
 
 ---@class item_gemst: item_constructed
----@field shape descriptor_shape
+---@field shape integer References: descriptor_shape
 df.item_gemst = {}
 
 ---@class item_statuest: item_constructed
@@ -2078,7 +2078,7 @@ df.item_figurinest = {}
 
 ---@class item_slabst: item_constructed
 ---@field description string
----@field topic historical_figure or interaction id for secrets?
+---@field topic integer References: historical_figure<br>or interaction id for secrets?
 ---@field engraving_type slab_engraving_type
 df.item_slabst = {}
 
@@ -2088,12 +2088,12 @@ df.item_slabst = {}
 df.item_orthopedic_castst = {}
 
 ---@class item_coinst: item_constructed
----@field coin_batch coin_batch
+---@field coin_batch integer References: coin_batch
 df.item_coinst = {}
 
 ---@class item_totemst: item_constructed
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field body_part_idx integer
 df.item_totemst = {}
 
@@ -2106,7 +2106,7 @@ df.item_clothst = {}
 df.item_bookst = {}
 
 ---@class item_ballistaarrowheadst: item_actual
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field sharpness integer
 df.item_ballistaarrowheadst = {}

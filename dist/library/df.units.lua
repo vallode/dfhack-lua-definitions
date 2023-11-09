@@ -268,7 +268,7 @@ df.unit_flags2 = {}
 ---@field roaming_wilderness_population_source_not_a_map_feature boolean
 
 ---@class _unit_flags3: df.bitfield
----(IS_EQUIPMENT) Scuttle creature: causes creature to be killed, leaving a behind corpse and generating negative thoughts like a real kill.
+---(IS_EQUIPMENT)<br> Scuttle creature: causes creature to be killed, leaving a behind<br> corpse and generating negative thoughts like a real kill.<br>
 ---@field body_part_relsize_computed 0
 ---@field [0] "body_part_relsize_computed"
 ---@field size_modifier_computed 1
@@ -1601,15 +1601,15 @@ df.pronoun_type = {}
 ---@type { [string|integer]: pronoun_type_attr }
 df.pronoun_type.attrs = {}
 
+---<br> E.g. for a dead miner, holds the place where he<br> was likely hanging around when he got the command<br> to mine in an aquifer.<br>
 ---@class unit: df.instance
----E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
 ---@field name language_name
 ---@field custom_profession string
 ---@field profession profession
 ---@field profession2 profession
----@field race creature_raw
+---@field race integer References: creature_raw
 ---@field pos coord
----@field idle_area coord E.g. for a dead miner, holds the place where he was likely hanging around when he got the command to mine in an aquifer.
+---@field idle_area coord <br> E.g. for a dead miner, holds the place where he<br> was likely hanging around when he got the command<br> to mine in an aquifer.<br>
 ---@field idle_area_threshold integer
 ---@field idle_area_type unit_station_type
 ---@field follow_distance integer
@@ -1619,25 +1619,25 @@ df.pronoun_type.attrs = {}
 ---@field flags3 unit_flags3
 ---@field flags4 unit_flags4
 ---@field meeting unit_meeting
----@field caste caste_raw
+---@field caste integer References: caste_raw
 ---@field sex pronoun_type
 ---@field id integer
 ---@field unk_100 integer
 ---@field training_level animal_training_level
----@field schedule_id schedule_info
----@field civ_id historical_entity
----@field population_id entity_population
+---@field schedule_id integer References: schedule_info
+---@field civ_id integer References: historical_entity
+---@field population_id integer References: entity_population
 ---@field unk_c0 integer
----@field cultural_identity cultural_identity
----@field invasion_id invasion_info
+---@field cultural_identity integer References: cultural_identity
+---@field invasion_id integer References: invasion_info
 ---@field patrol_route coord_path used by necromancers for corpse locations, siegers etc
 ---@field patrol_index integer from 23a
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
 ---@field military unit_military
----@field social_activities integer[]
----@field conversations integer[]
----@field activities integer[]
+---@field social_activities integer[] References: activity_entry
+---@field conversations integer[] References: activity_entry
+---@field activities integer[] References: activity_entry
 ---@field unk_1e8 integer[]
 ---@field animal unit_animal
 ---@field opponent unit_opponent
@@ -1645,8 +1645,8 @@ df.pronoun_type.attrs = {}
 ---@field unk_18e integer
 ---@field pregnancy_timer integer
 ---@field pregnancy_genes unit_genes genes from mate
----@field pregnancy_caste caste_raw caste of mate
----@field pregnancy_spouse historical_figure
+---@field pregnancy_caste integer References: caste_raw<br>caste of mate
+---@field pregnancy_spouse integer References: historical_figure
 ---@field mood_copy mood_type copied from mood type upon entering strange mood
 ---@field ghost_info unit_ghost_info
 ---@field unk_9 integer
@@ -1664,11 +1664,11 @@ df.pronoun_type.attrs = {}
 ---@field mount_type integer 0 = riding, 1 = being carried, 2/3 = wagon horses, 4 = wagon merchant
 ---@field last_hit history_hit_item
 ---@field inventory unit_inventory_item[]
----@field owned_items integer[]
----@field traded_items integer[] items brought to trade depot
+---@field owned_items integer[] References: item
+---@field traded_items integer[] References: item<br>items brought to trade depot
 ---@field owned_buildings building[]
----@field corpse_parts integer[] entries remain even when items are destroyed
----@field riding_item_id item
+---@field corpse_parts integer[] References: item<br>entries remain even when items are destroyed
+---@field riding_item_id integer References: item
 ---@field job unit_job
 ---@field body unit_body
 ---@field appearance unit_appearance
@@ -1678,8 +1678,8 @@ df.pronoun_type.attrs = {}
 ---@field curse unit_curse
 ---@field counters2 unit_counters2
 ---@field status unit_status
----@field hist_figure_id historical_figure
----@field hist_figure_id2 historical_figure used for ghost in AttackedByDead thought
+---@field hist_figure_id integer References: historical_figure
+---@field hist_figure_id2 integer References: historical_figure<br>used for ghost in AttackedByDead thought
 ---@field status2 unit_status2
 ---@field unknown7 unit_unknown7
 ---@field syndromes unit_syndromes
@@ -1693,8 +1693,8 @@ df.pronoun_type.attrs = {}
 ---@field ligaments_heal integer
 ---@field weight integer
 ---@field weight_fraction integer 1e-6
----@field burrows integer[]
----@field inactive_burrows integer[]
+---@field burrows integer[] References: burrow
+---@field inactive_burrows integer[] References: burrow
 ---@field vision_cone integer[][]
 ---@field occupations occupation[]
 ---@field adjective string from physical descriptions for use in adv
@@ -1714,7 +1714,7 @@ df.unit.T_path = {}
 
 ---@class unit_meeting: df.class
 ---@field state unit.T_meeting_state
----@field target_entity historical_entity
+---@field target_entity integer References: historical_entity
 ---@field target_role entity_position_responsibility
 ---@field pad_1 integer
 df.unit.T_meeting = {}
@@ -1741,17 +1741,17 @@ df.unit.T_meeting.T_state = {}
 ---@field LeaveMap boolean
 
 ---@class unit_military: df.class
----@field squad_id squad
+---@field squad_id integer References: squad
 ---@field squad_position integer
 ---@field patrol_cooldown integer
 ---@field patrol_timer integer
 ---@field cur_uniform integer
----@field unk_items integer[]
+---@field unk_items integer[] References: item
 ---@field uniforms integer[][]
 ---@field pickup_flags unit.T_military_pickup_flags
----@field uniform_pickup integer[]
----@field uniform_drop integer[]
----@field individual_drills integer[]
+---@field uniform_pickup integer[] References: item
+---@field uniform_drop integer[] References: item
+---@field individual_drills integer[] References: activity_entry
 df.unit.T_military = {}
 
 ---@class _unit.T_military_pickup_flags: df.bitfield
@@ -1770,7 +1770,7 @@ df.unit.T_military.T_pickup_flags = {}
 df.unit.T_animal = {}
 
 ---@class unit_opponent: df.class
----@field unit_id unit
+---@field unit_id integer References: unit
 ---@field unit_pos coord
 ---@field unk_c integer
 df.unit.T_opponent = {}
@@ -1815,8 +1815,8 @@ df.unit.T_body = {}
 ---@field bp_modifiers integer[]
 ---@field size_modifier integer product of all H/B/LENGTH body modifiers, in %
 ---@field tissue_style integer[]
----@field tissue_style_civ_id integer[]
----@field tissue_style_id integer[]
+---@field tissue_style_civ_id integer[] References: historical_entity
+---@field tissue_style_id integer[] References: entity_tissue_style
 ---@field tissue_style_type integer[]
 ---@field tissue_length integer[] description uses bp_modifiers[style_list_idx[index]]
 ---@field genes unit_genes
@@ -1828,7 +1828,7 @@ df.unit.T_appearance = {}
 ---@field job_counter integer
 ---@field swap_counter integer dec per job_counter reroll, can_swap if 0
 ---@field death_cause death_type
----@field death_id incident
+---@field death_id integer References: incident
 ---@field winded integer
 ---@field stunned integer
 ---@field unconscious integer
@@ -1893,7 +1893,7 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field attr_change curse_attr_change
 ---@field luck_mul_percent integer
 ---@field unk_98 integer
----@field interaction_id integer[]
+---@field interaction_id integer[] References: creature_interaction_effect
 ---@field interaction_time integer[]
 ---@field interaction_delay integer[]
 ---@field time_on_site integer
@@ -1920,7 +1920,7 @@ df.unit.T_counters2 = {}
 ---@field eat_history unit.T_status_eat_history
 ---@field demand_timeout integer
 ---@field mandate_timeout integer
----@field attacker_ids integer[]
+---@field attacker_ids integer[] References: unit
 ---@field attacker_cntdn integer[]
 ---@field face_direction integer for wagons
 ---@field artifact_name language_name
@@ -1929,7 +1929,7 @@ df.unit.T_counters2 = {}
 ---@field demands unit_demand[]
 ---@field labors boolean[]
 ---@field wrestle_items unit_item_wrestle[]
----@field observed_traps integer[]
+---@field observed_traps integer[] References: building
 ---@field complaints unit_complaint[]
 ---@field parleys unit_parley[]
 ---@field requests unit_request[]
@@ -1986,7 +1986,7 @@ df.unit.T_status.T_unk_1 = {}
 ---@field add_path_flags pathfinding_flags pathing flags to OR, set to None after move
 ---@field liquid_type tile_designation
 ---@field liquid_depth integer
----@field histeventcol_id history_event_collection linked to an active invasion or kidnapping
+---@field histeventcol_id integer References: history_event_collection<br>linked to an active invasion or kidnapping
 df.unit.T_status2 = {}
 
 ---@class unit_unknown7: df.class
@@ -1996,7 +1996,7 @@ df.unit.T_unknown7 = {}
 
 ---@class unit_syndromes: df.class
 ---@field active unit_syndrome[]
----@field reinfection_type integer[]
+---@field reinfection_type integer[] References: syndrome
 ---@field reinfection_count integer[]
 df.unit.T_syndromes = {}
 
@@ -2009,27 +2009,27 @@ df.unit.T_reports = {}
 ---@class unit_enemy: df.class
 ---@field sound_cooldown integer[]
 ---@field undead unit.T_enemy_undead
----@field were_race creature_raw
----@field were_caste caste_raw
----@field normal_race creature_raw
----@field normal_caste caste_raw
+---@field were_race integer References: creature_raw
+---@field were_caste integer References: caste_raw
+---@field normal_race integer References: creature_raw
+---@field normal_caste integer References: caste_raw
 ---@field interaction integer is set when a RETRACT_INTO_BP interaction is active
 ---@field appearances unit_appearance[]
 ---@field witness_reports witness_report[]
 ---@field unk_a5c entity_event[]
 ---@field gait_index integer[]
----@field unk_unit_id_1 integer[] number of non -1 entries control linked contents in following 4 vectors, rotating
+---@field unk_unit_id_1 integer[] References: unit<br>number of non -1 entries control linked contents in following 4 vectors, rotating
 ---@field unk_v40_1b integer[]
 ---@field unk_v40_1c integer[] unused elements probably uninitialized
 ---@field unk_v40_1d integer[] unused elements probably uninitialized
 ---@field unk_v40_1e integer[] unused elements probably uninitialized
----@field unk_unit_id_2 integer[] Seen own side, enemy side, not involved (witnesses?). Unused fields not cleared
+---@field unk_unit_id_2 integer[] References: unit<br>Seen own side, enemy side, not involved (witnesses?). Unused fields not cleared
 ---@field unk_unit_id_2_count integer
 ---@field unk_448 unit.T_enemy_unk_448
 ---@field unk_44c unit.T_enemy_unk_44c
 ---@field unk_450 integer
 ---@field unk_454 integer
----@field army_controller_id army_controller
+---@field army_controller_id integer References: army_controller
 ---@field unk_v40_sub3 unit.T_enemy_unk_v40_sub3
 ---@field combat_side_id integer
 ---@field histfig_vector_idx integer
@@ -2125,13 +2125,13 @@ df.unit.T_enemy.T_unk_v40_sub3.T_unk_6 = {}
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field rumour_type history_event_reason for the "heard ... was the place for ..." text
----@field rumour_location_id abstract_building
+---@field rumour_location_id integer References: abstract_building
 df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info = {}
 
 ---@class unit.T_enemy.T_unk_v40_sub3.T_visitor_info_visit_reasons: df.class
 ---@field reason unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_reason
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 ---@field remaining integer set when praying; counts down to 0
 ---@field year integer
 ---@field year_tick integer
@@ -2252,8 +2252,8 @@ df.witness_report_flags = {}
 ---@field accuses boolean
 
 ---@class witness_report: df.class
----@field death_id incident
----@field crime_id crime
+---@field death_id integer References: incident
+---@field crime_id integer References: crime
 ---@field type witness_report_type
 ---@field year integer
 ---@field year_tick integer
@@ -2264,8 +2264,8 @@ df.witness_report_flags = {}
 ---@field unk_24 integer
 ---@field unk_28 integer
 ---@field unk_2c integer
----@field unk_30 historical_figure
----@field unk_34 identity
+---@field unk_30 integer References: historical_figure
+---@field unk_34 integer References: identity
 ---@field pos coord
 df.witness_report = {}
 
@@ -2325,9 +2325,9 @@ df.ghost_goal = {}
 df.unit_ghost_info = {}
 
 ---@class unit_ghost_info_target: df.class
----@field unit unit
----@field item item
----@field building building
+---@field unit integer References: unit
+---@field item integer References: item
+---@field building integer References: building
 df.unit_ghost_info.T_target = {}
 
 ---@class _unit_ghost_info_flags: df.bitfield
@@ -2416,7 +2416,7 @@ df.unit_inventory_item.T_mode = {}
 df.unit_attribute = {}
 
 ---@class unit_syndrome: df.class
----@field type syndrome
+---@field type integer References: syndrome
 ---@field year integer
 ---@field year_time integer
 ---@field ticks integer
@@ -2438,8 +2438,8 @@ df.unit_syndrome = {}
 ---@field target_delay integer[]
 ---@field target_ticks integer[]
 ---@field flags unit_syndrome.T_symptoms_flags
----@field random_transformation_race creature_raw With syndromes that transform the unit into a random creature, the target race ID is stored here.
----@field random_transformation_caste caste_raw With syndromes that transform the unit into a random creature, the target caste ID is stored here.
+---@field random_transformation_race integer References: creature_raw<br>With syndromes that transform the unit into a random creature, the target race ID is stored here.
+---@field random_transformation_caste integer References: caste_raw<br>With syndromes that transform the unit into a random creature, the target caste ID is stored here.
 df.unit_syndrome.T_symptoms = {}
 
 ---@class _unit_syndrome.T_symptoms_flags: df.bitfield
@@ -2675,10 +2675,10 @@ df.wound_damage_flags2 = {}
 ---@field id integer
 ---@field parts unit_wound_parts[]
 ---@field age integer
----@field attacker_unit_id unit
----@field attacker_hist_figure_id historical_figure
+---@field attacker_unit_id integer References: unit
+---@field attacker_hist_figure_id integer References: historical_figure
 ---@field flags unit_wound_flags
----@field syndrome_id syndrome
+---@field syndrome_id integer References: syndrome
 ---@field pain integer
 ---@field nausea integer
 ---@field dizziness integer
@@ -2776,10 +2776,10 @@ df.curse_attr_change = {}
 ---@field unk_v42_1 integer
 ---@field luck_mul_percent integer
 ---@field unk_v42_2 integer
----@field interaction_id integer[]
+---@field interaction_id integer[] References: creature_interaction_effect
 ---@field timing wound_curse_info_timing
----@field were_race creature_raw
----@field were_caste caste_raw
+---@field were_race integer References: creature_raw
+---@field were_caste integer References: caste_raw
 ---@field body_appearance integer[]
 ---@field bp_appearance integer[]
 df.wound_curse_info = {}
@@ -3082,20 +3082,20 @@ df.misc_trait_type.attrs = {}
 df.unit_misc_trait = {}
 
 ---@class unit_item_wrestle: df.class
----@field unit unit
+---@field unit integer References: unit
 ---@field self_bp integer
 ---@field other_bp integer
 ---@field unk_c integer
 ---@field unk_10 integer
----@field item1 item
----@field item2 item
+---@field item1 integer References: item
+---@field item2 integer References: item
 ---@field unk_1c integer
 ---@field unk_1e integer 1 grabs, -1 grabbed
 ---@field unk_20 integer
 df.unit_item_wrestle = {}
 
 ---@class unit_item_use: df.class
----@field id item
+---@field id integer References: item
 ---@field time_in_use integer
 ---@field has_grown_attached integer
 ---@field affection_level integer min 50 for attached, 1000 for name
@@ -3196,7 +3196,7 @@ df.unit_bp_health_flags = {}
 ---@field needs_cast boolean
 
 ---@class unit_health_info: df.class
----@field unit_id unit
+---@field unit_id integer References: unit
 ---@field flags unit_health_flags
 ---@field body_part_flags unit_bp_health_flags[]
 ---@field unk_18_cntdn integer
@@ -3213,12 +3213,12 @@ df.unit_health_info = {}
 ---@field info unit_health_info.T_op_history_info
 ---@field year integer
 ---@field year_time integer
----@field doctor_id unit
+---@field doctor_id integer References: unit
 df.unit_health_info.T_op_history = {}
 
 ---@class unit_health_info.T_op_history_info: df.class
 ---@field crutch unit_health_info.T_op_history.T_info_crutch
----@field bed_id building
+---@field bed_id integer References: building
 ---@field bandage unit_health_info.T_op_history.T_info_bandage
 ---@field surgery unit_health_info.T_op_history.T_info_surgery
 df.unit_health_info.T_op_history.T_info = {}
@@ -3226,16 +3226,16 @@ df.unit_health_info.T_op_history.T_info = {}
 ---@class unit_health_info.T_op_history.T_info_crutch: df.class
 ---@field item_type integer
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field item_id item
+---@field item_id integer References: item
 df.unit_health_info.T_op_history.T_info.T_crutch = {}
 
 ---@class unit_health_info.T_op_history.T_info_bandage: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field body_part_id integer
----@field item_id item
+---@field item_id integer References: item
 df.unit_health_info.T_op_history.T_info.T_bandage = {}
 
 ---@class unit_health_info.T_op_history.T_info_surgery: df.class
@@ -3272,9 +3272,9 @@ df.orientation_flags = {}
 ---@class unit_soul: df.class
 ---@field id integer
 ---@field name language_name
----@field race creature_raw
+---@field race integer References: creature_raw
 ---@field sex pronoun_type
----@field caste caste_raw
+---@field caste integer References: caste_raw
 ---@field orientation_flags orientation_flags
 ---@field unk2 integer
 ---@field unk3 integer
@@ -3344,8 +3344,8 @@ df.unit_emotion_memory = {}
 ---@field next_dream_id integer
 ---@field unk_v40_6 unit_personality_unk_v40_6[]
 ---@field traits integer[]
----@field civ_id historical_entity
----@field cultural_identity cultural_identity
+---@field civ_id integer References: historical_entity
+---@field cultural_identity integer References: cultural_identity
 ---@field mannerism unit_personality_mannerism[]
 ---@field habit integer[]
 ---@field stress integer
@@ -3684,9 +3684,9 @@ df.unit_action_data_move.T_flags = {}
 ---@field charge boolean
 
 ---@class unit_action_data_attack: df.class
----@field target_unit_id unit
+---@field target_unit_id integer References: unit
 ---@field unk_4 unit_action_data_attack_unk_4
----@field attack_item_id item
+---@field attack_item_id integer References: item
 ---@field target_body_part_id integer
 ---@field attack_body_part_id integer
 ---@field attack_id integer refers to weapon_attack or caste_attack
@@ -3845,8 +3845,8 @@ df.unit_action_data_job = {}
 
 ---@class unit_action_data_talk: df.class
 ---@field unk_0 integer
----@field activity_id activity_entry
----@field activity_event_idx activity_event
+---@field activity_id integer References: activity_entry
+---@field activity_event_idx integer References: activity_event
 ---@field event entity_event
 ---@field unk_34 integer
 ---@field timer integer
@@ -3864,15 +3864,15 @@ df.unit_action_data_talk = {}
 df.unit_action_data_unsteady = {}
 
 ---@class unit_action_data_parry: df.class
----@field unit_id unit
----@field target_action unit_action
----@field parry_item_id item
+---@field unit_id integer References: unit
+---@field target_action integer References: unit_action
+---@field parry_item_id integer References: item
 df.unit_action_data_parry = {}
 
 ---@class unit_action_data_block: df.class
----@field unit_id unit
----@field target_action unit_action
----@field block_item_id item
+---@field unit_id integer References: unit
+---@field target_action integer References: unit_action
+---@field block_item_id integer References: item
 df.unit_action_data_block = {}
 
 ---@class unit_action_data_dodge: df.class
@@ -3917,7 +3917,7 @@ df.unit_action_data_job2 = {}
 df.unit_action_data_push_object = {}
 
 ---@class unit_action_data_suck_blood: df.class
----@field unit_id unit
+---@field unit_id integer References: unit
 ---@field timer integer
 df.unit_action_data_suck_blood = {}
 
@@ -3969,7 +3969,7 @@ df.unit_skill = {}
 ---@class unit_preference: df.class
 ---@field type unit_preference_type
 ---@field item_subtype integer
----@field mattype material
+---@field mattype integer References: material
 ---@field matindex integer
 ---@field mat_state matter_state
 ---@field active boolean
@@ -4035,9 +4035,9 @@ df.unit_preference.T_type = {}
 df.unit_complaint = {}
 
 ---@class unit_parley: df.class
----@field invasion invasion_info
----@field speaker unit
----@field artifact artifact_record
+---@field invasion integer References: invasion_info
+---@field speaker integer References: unit
+---@field artifact integer References: artifact_record
 ---@field flags unit_parley_flags
 df.unit_parley = {}
 
@@ -4070,7 +4070,7 @@ df.unit_request.T_type = {}
 ---@field DoGuildJobs boolean
 
 ---@class unit_coin_debt: df.class
----@field recipient unit
+---@field recipient integer References: unit
 ---@field amount integer
 df.unit_coin_debt = {}
 
@@ -4079,8 +4079,8 @@ df.unit_coin_debt = {}
 ---@field units item[][]
 df.unit_chunk = {}
 
----@class unit_appearance: df.class
 ---physical_formst
+---@class unit_appearance: df.class
 ---@field unk_1 integer
 ---@field caste_index integer also refers to $global.world.raws.creatures.list_caste[$]
 ---@field unk_3 integer
@@ -4125,7 +4125,7 @@ df.work_detail_mode = {}
 ---@class work_detail: df.class
 ---@field name string
 ---@field work_detail_flags work_detail_work_detail_flags
----@field assigned_units integer[] toady: unid
+---@field assigned_units integer[] References: unit<br>toady: unid
 ---@field allowed_labors boolean[] toady: profession
 ---@field icon work_detail_icon
 df.work_detail = {}

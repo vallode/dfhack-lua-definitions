@@ -214,14 +214,14 @@ df.ui_advmode_menu = {}
 ---@field conv_title string
 ---@field state conversation_state
 ---@field talk_choices integer[]
----@field unk_30 unit
----@field unk_34 historical_figure
+---@field unk_30 integer References: unit
+---@field unk_34 integer References: historical_figure
 ---@field unk_38 integer
----@field unk_3c unit
----@field unk_40 historical_figure
+---@field unk_3c integer References: unit
+---@field unk_40 integer References: historical_figure
 ---@field unk_44 integer
----@field unk_48 unit
----@field unk_4c historical_figure
+---@field unk_48 integer References: unit
+---@field unk_4c integer References: historical_figure
 ---@field unk_50 integer
 ---@field unk_54 nemesis_record[]
 ---@field unk_64 historical_entity[]
@@ -261,7 +261,7 @@ df.conversation.T_state = {}
 
 ---@class conversation_speech: df.class
 ---@field text string[] wordwrap
----@field speaker unit
+---@field speaker integer References: unit
 ---@field unk_14 integer
 ---@field unk_18 integer
 ---@field fg integer
@@ -1257,10 +1257,10 @@ df.talk_choice.T_unk = {}
 ---@field unk_20 integer
 ---@field unk_21 integer
 ---@field unk_23 integer
----@field unk_24 integer[]
+---@field unk_24 integer[] References: world_site
 ---@field unk_25 integer[]
 ---@field unk_26 integer[]
----@field player_army_id army
+---@field player_army_id integer References: army
 ---@field gait_index integer Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
 ---@field gait_unk integer Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
 ---@field tracks_x integer[] X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
@@ -1277,11 +1277,11 @@ df.talk_choice.T_unk = {}
 ---@field unk_40 integer[]
 ---@field unk_41 integer[]
 ---@field unk_42 integer[]
----@field odor_race creature_raw race ID of strongest odor creature
----@field odor_caste caste_raw caste ID of strongest odor creature
+---@field odor_race integer References: creature_raw<br>race ID of strongest odor creature
+---@field odor_caste integer References: caste_raw<br>caste ID of strongest odor creature
 ---@field odor_death integer Overrides creature odor with odor of Death
----@field travel_odor_race creature_raw race ID of strongest odor creature in fast travel mode
----@field travel_odor_caste caste_raw caste ID of strongest odor creature in fast travel mode
+---@field travel_odor_race integer References: creature_raw<br>race ID of strongest odor creature in fast travel mode
+---@field travel_odor_caste integer References: caste_raw<br>caste ID of strongest odor creature in fast travel mode
 ---@field unk_46 integer
 ---@field multiattack integer Set when the player is preparing to carry out a multi-attack; resetting this to 0 makes the multi-attack window disappear.
 ---@field unk_3170 adventurest_unk_3170
@@ -1304,7 +1304,7 @@ df.talk_choice.T_unk = {}
 ---@field travel_start_x integer
 ---@field travel_start_y integer
 ---@field travel_start_z integer
----@field player_id nemesis_record
+---@field player_id integer References: nemesis_record
 ---@field track_viewed_x integer Set when viewing a spoor; local x coordinate of the track in question.
 ---@field track_viewed_y integer Set when viewing a spoor; local y coordinate of the track in question.
 ---@field track_viewed_unk_1 integer Set when viewing a spoor.
@@ -1600,8 +1600,8 @@ df.adventurest.T_conversation = {}
 df.adventurest.T_conversation.T_choices = {}
 
 ---@class adventurest.T_conversation_targets: df.class
----@field unit_id unit
----@field histfig_id historical_figure
+---@field unit_id integer References: unit
+---@field histfig_id integer References: historical_figure
 ---@field type adventurest.T_conversation.T_targets_type
 df.adventurest.T_conversation.T_targets = {}
 
@@ -1647,13 +1647,13 @@ df.adventurest.T_rest_mode = {}
 ---@field unit unit[]
 ---@field unit_visible boolean[]
 ---@field unit_position coord_path
----@field all_histfigs integer[] includes dead
+---@field all_histfigs integer[] References: historical_figure<br>includes dead
 df.adventurest.T_companions = {}
 
 ---@class adventurest_interactions: df.class
----@field party_core_members integer[] Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
----@field party_pets integer[] Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
----@field party_extra_members integer[] Contains IDs of non-pet historical figures who joined the player party later on.
+---@field party_core_members integer[] References: historical_figure<br>Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
+---@field party_pets integer[] References: historical_figure<br>Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
+---@field party_extra_members integer[] References: historical_figure<br>Contains IDs of non-pet historical figures who joined the player party later on.
 ---@field unk_86 integer[]
 ---@field unk_1 integer[]
 ---@field unk_1e4 integer
@@ -1708,13 +1708,13 @@ df.adventurest.T_unk_v40_5 = {}
 ---@field unk_s9 integer[]
 df.adventurest.T_unk_v42_1 = {}
 
----@class adventurest_assume_identity: df.class
 ---Manages the Assume Identity UI when the AssumeIdentity menu is open
+---@class adventurest_assume_identity: df.class
 ---@field mode assume_identity_mode
 ---@field name language_name
----@field worship_object historical_figure
+---@field worship_object integer References: historical_figure
 ---@field profession profession
----@field origin historical_entity
+---@field origin integer References: historical_entity
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
 ---@field filter string
@@ -1739,8 +1739,8 @@ df.text_info_element_longst = {}
 ---@field val string
 df.text_info_element_stringst = {}
 
+---<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
 ---@class adventure_optionst: df.class
----for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
 df.adventure_optionst = {}
 
 ---@param unk_0 string
@@ -1750,7 +1750,7 @@ function df.adventure_optionst:getDescription(unk_0) end
 ---@return item
 function df.adventure_optionst:getIngestedItem(unk_0) end
 
----for "pick up vermin": the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type the second argument is set to true if an item was allocated, false otherwise the third argument is set to true if the second argument is false the first and third arguments are not changed in all other cases returns an item_verminst pointer for all other types (as of 0.47.04): does not modify arguments 1 and 2 argument 3 is set to true if a fire was started returns nullptr
+---<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
 ---@param unk_0 integer
 ---@param unk_1 boolean
 ---@param unk_2 boolean
@@ -1778,8 +1778,8 @@ function df.adventure_optionst:getTargetPosZ() end
 
 function df.adventure_optionst:deleteSpatter() end
 
----@param unk_0 unit
----@return unit
+---@param unk_0 integer
+---@return integer
 function df.adventure_optionst:getSuckBloodUnitID(unk_0) end
 
 ---@return boolean
@@ -1852,7 +1852,7 @@ df.adventure_environment_pickup_vermin_eventst = {}
 df.adventure_environment_pickup_chop_treest = {}
 
 ---@class adventure_environment_unit_suck_bloodst: adventure_environment_optionst
----@field unit_id unit
+---@field unit_id integer References: unit
 df.adventure_environment_unit_suck_bloodst = {}
 
 ---@class adventure_movement_optionst: df.class
@@ -1867,7 +1867,7 @@ df.adventure_movement_release_hold_itemst = {}
 df.adventure_movement_release_hold_tilest = {}
 
 ---@class adventure_movement_attack_creaturest: adventure_movement_optionst
----@field targets integer[]
+---@field targets integer[] References: unit
 df.adventure_movement_attack_creaturest = {}
 
 ---@class adventure_movement_hold_tilest: adventure_movement_optionst
@@ -1884,15 +1884,15 @@ df.adventure_movement_movest = {}
 df.adventure_movement_climbst = {}
 
 ---@class adventure_movement_hold_itemst: adventure_movement_optionst
----@field item_id item
+---@field item_id integer References: item
 df.adventure_movement_hold_itemst = {}
 
 ---@class adventure_movement_building_interactst: adventure_movement_optionst
----@field building_id building
+---@field building_id integer References: building
 df.adventure_movement_building_interactst = {}
 
 ---@class adventure_movement_item_interactst: adventure_movement_optionst
----@field item_id item
+---@field item_id integer References: item
 df.adventure_movement_item_interactst = {}
 
 ---@class adventure_movement_item_interact_guidest: adventure_movement_item_interactst

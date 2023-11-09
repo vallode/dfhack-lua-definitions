@@ -427,8 +427,8 @@ df.itemdef_flags = {}
 ---@field id string
 ---@field subtype integer
 ---@field base_flags itemdef_flags[]
----@field source_hfid historical_figure
----@field source_enid historical_entity
+---@field source_hfid integer References: historical_figure
+---@field source_enid integer References: historical_entity
 ---@field raw_strings string[]
 df.itemdef = {}
 
@@ -1396,7 +1396,7 @@ df.tool_uses = {}
 ---@field shoot_maxvel integer
 ---@field container_capacity integer
 ---@field shape_category_str string[]
----@field shape_category integer[]
+---@field shape_category integer[] References: descriptor_shape
 ---@field description string
 ---@field default_improvements itemdef_toolst_default_improvements[]
 df.itemdef_toolst = {}

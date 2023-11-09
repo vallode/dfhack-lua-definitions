@@ -384,11 +384,11 @@ df.building_drawbuffer = {}
 ---@field centery integer
 ---@field z integer
 ---@field flags building_flags
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field room building_extents
 ---@field age integer
----@field race creature_raw
+---@field race integer References: creature_raw
 ---@field id integer
 ---@field jobs job[]
 ---@field specific_refs specific_ref[]
@@ -397,22 +397,22 @@ df.building_drawbuffer = {}
 ---@field job_claim_suppress building_job_claim_suppress[] after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
 ---@field activities building_activities[]
----@field world_data_id world_object_data
+---@field world_data_id integer References: world_object_data
 ---@field world_data_subid integer
 ---@field unk_v40_2 integer
----@field site_id world_site
----@field location_id abstract_building
+---@field site_id integer References: world_site
+---@field location_id integer References: abstract_building
 df.building = {}
 
----@class building_job_claim_suppress: df.class
 ---after Remv Cre, prevents unit from taking jobs at building
+---@class building_job_claim_suppress: df.class
 ---@field unit unit
 ---@field timer integer
 df.building.T_job_claim_suppress = {}
 
 ---@class building_activities: df.class
----@field activity_id activity_entry
----@field event_id activity_event
+---@field activity_id integer References: activity_entry
+---@field event_id integer References: activity_event
 df.building.T_activities = {}
 
 ---@return integer
@@ -713,7 +713,7 @@ df.stockpile_links = {}
 ---@field max_bins integer
 ---@field max_wheelbarrows integer
 ---@field container_type item_type[]
----@field container_item_id integer[]
+---@field container_item_id integer[] References: item
 ---@field container_x integer[]
 ---@field container_y integer[]
 ---@field links stockpile_links
@@ -1172,8 +1172,8 @@ df.civzone_type = {}
 ---@field Tomb boolean
 
 ---@class building_civzonest: building
----@field assigned_units integer[]
----@field assigned_items integer[]
+---@field assigned_units integer[] References: unit
+---@field assigned_items integer[] References: item
 ---@field type civzone_type only saved as int16
 ---@field is_active integer 0 is paused, 8 is active
 ---@field zone_num integer
@@ -1270,11 +1270,11 @@ df.building_actual.T_contained_items = {}
 function df.building_actual:isDestroyedByItemRemoval() end
 
 ---@class building_design: df.class
----@field builder1 historical_figure
+---@field builder1 integer References: historical_figure
 ---@field unk5 integer
 ---@field build_skill integer
 ---@field build_timer1 integer +1 per 10 frames while building
----@field builder2 historical_figure
+---@field builder2 integer References: historical_figure
 ---@field build_timer2 integer
 ---@field quality1 item_quality
 ---@field flags building_design_flags
@@ -1347,7 +1347,7 @@ df.furnace_type.attrs = {}
 ---@field unk_108 integer
 ---@field type furnace_type
 ---@field profile workshop_profile
----@field custom_type building_def
+---@field custom_type integer References: building_def
 df.building_furnacest = {}
 
 ---@class _workshop_type: df.enum
@@ -1462,7 +1462,7 @@ df.workshop_type = {}
 df.workshop_type.attrs = {}
 
 ---@class workshop_profile: df.class
----@field permitted_workers integer[]
+---@field permitted_workers integer[] References: unit
 ---@field min_level integer
 ---@field max_level integer
 ---@field links stockpile_links
@@ -1476,7 +1476,7 @@ df.workshop_profile = {}
 ---@field type workshop_type
 ---@field profile workshop_profile
 ---@field machine machine_info
----@field custom_type building_def
+---@field custom_type integer References: building_def
 df.building_workshopst = {}
 
 ---@class building_animaltrapst: building_actual
@@ -1489,7 +1489,7 @@ df.building_archerytargetst = {}
 
 ---@class building_armorstandst: building_actual
 ---@field unk_c0 integer
----@field specific_squad squad
+---@field specific_squad integer References: squad
 ---@field specific_position integer
 df.building_armorstandst = {}
 
@@ -1504,12 +1504,12 @@ df.building_bars_verticalst = {}
 df.building_bars_floorst = {}
 
 ---@class building_users: df.class
----@field unit integer[]
+---@field unit integer[] References: unit
 ---@field mode integer[]
 df.building_users = {}
 
 ---@class building_bedst: building_actual
----@field specific_squad squad
+---@field specific_squad integer References: squad
 ---@field specific_position integer
 ---@field users building_users
 df.building_bedst = {}
@@ -1519,7 +1519,7 @@ df.building_bookcasest = {}
 
 ---@class building_boxst: building_actual
 ---@field unk_1 integer
----@field specific_squad squad
+---@field specific_squad integer References: squad
 ---@field specific_position integer
 df.building_boxst = {}
 
@@ -1557,13 +1557,13 @@ df.building_bridgest.T_direction = {}
 
 ---@class building_cabinetst: building_actual
 ---@field unk_1 integer
----@field specific_squad squad
+---@field specific_squad integer References: squad
 ---@field specific_position integer
 df.building_cabinetst = {}
 
 ---@class building_cagest: building_actual
----@field assigned_units integer[]
----@field assigned_items integer[]
+---@field assigned_units integer[] References: unit
+---@field assigned_items integer[] References: item
 ---@field cage_flags building_cagest_cage_flags
 ---@field fill_timer integer
 df.building_cagest = {}
@@ -1762,7 +1762,7 @@ df.construction_type = {}
 df.building_constructionst = {}
 
 ---@class building_display_furniturest: building_actual
----@field displayed_items integer[]
+---@field displayed_items integer[] References: item
 df.building_display_furniturest = {}
 
 ---@class building_doorst: building_actual
@@ -1771,7 +1771,7 @@ df.building_display_furniturest = {}
 df.building_doorst = {}
 
 ---@class building_farmplotst: building_actual
----@field plant_id plant_raw[]
+---@field plant_id integer[]
 ---@field material_amount integer
 ---@field farm_flags building_farmplotst_farm_flags
 ---@field last_season season
@@ -1842,7 +1842,7 @@ df.building_instrumentst = {}
 df.building_nestst = {}
 
 ---@class building_nest_boxst: building_actual
----@field claimed_by unit
+---@field claimed_by integer References: unit
 ---@field claim_timeout integer counts up if the nest box is claimed but empty. when it hits 8400 ticks, the nest box is unclaimed.
 df.building_nest_boxst = {}
 
@@ -2092,7 +2092,7 @@ df.pressure_plate_info.T_flags = {}
 ---@field fill_timer integer
 ---@field stop_flags building_trapst_stop_flags
 ---@field linked_mechanisms item[]
----@field observed_by_civs integer[]
+---@field observed_by_civs integer[] References: historical_entity
 ---@field profile workshop_profile
 ---@field plate_info pressure_plate_info
 ---@field friction integer
@@ -2128,13 +2128,13 @@ df.building_wagonst = {}
 df.building_weaponst = {}
 
 ---@class building_squad_use: df.class
----@field squad_id squad
+---@field squad_id integer References: squad
 ---@field mode squad_use_flags
 df.building_squad_use = {}
 
 ---@class building_weaponrackst: building_actual
 ---@field rack_flags integer
----@field specific_squad squad
+---@field specific_squad integer References: squad
 df.building_weaponrackst = {}
 
 ---@class building_wellst: building_actual
@@ -2169,7 +2169,7 @@ df.building_window_glassst = {}
 df.building_window_gemst = {}
 
 ---@class _dfhack_room_quality_level: df.enum
----Not in DF Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum Throne Room | Great Bedroom | Great Dining Room | Mausoleum Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb Decent Office | Decent Quarters | Decent Dining Room | Tomb Office | Quarters | Dining Room | Burial Chamber Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber Meager Office | Meager Quarters | Meager Dining Room | Grave
+---<br> Not in DF<br><br> Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum<br> Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum<br> Throne Room | Great Bedroom | Great Dining Room | Mausoleum<br> Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb<br> Decent Office | Decent Quarters | Decent Dining Room | Tomb<br> Office | Quarters | Dining Room | Burial Chamber<br> Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber<br> Meager Office | Meager Quarters | Meager Dining Room | Grave<br>
 ---@field Meager 0
 ---@field [0] "Meager"
 ---@field Modest 1

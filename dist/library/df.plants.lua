@@ -16,14 +16,14 @@ df.plant_flags = {}
 
 ---@class plant: df.instance
 ---@field flags plant_flags
----@field material plant_raw
+---@field material integer References: plant_raw
 ---@field pos coord
 ---@field grow_counter integer
 ---@field damage_flags plant_damage_flags
 ---@field hitpoints integer
 ---@field update_order integer
----@field site_id world_site
----@field srb_id site_realization_building
+---@field site_id integer References: world_site
+---@field srb_id integer References: site_realization_building
 ---@field contaminants spatter_common[]
 ---@field tree_info plant_tree_info
 df.plant = {}

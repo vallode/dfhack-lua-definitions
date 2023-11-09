@@ -63,7 +63,7 @@ df.job_material_category = {}
 ---@field strand boolean
 
 ---@class _dfhack_material_category: df.bitfield
----An extended version of job_material_category, for use in some plugins, like workflow.
+---<br> An extended version of job_material_category,<br> for use in some plugins, like workflow.<br>
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1
@@ -153,7 +153,7 @@ df.dfhack_material_category = {}
 ---@field gem boolean
 
 ---@class _job_flags: df.bitfield
----toady: RETURNING When actually carrying non-last item to the workshop. If last, 'working' is used instead.
+---<br> toady: RETURNING<br> When actually carrying non-last item to the workshop.<br> If last, 'working' is used instead.<br>
 ---@field repeat 0
 ---@field [0] "repeat"
 ---@field suspend 1
@@ -257,7 +257,7 @@ df.job_subtype_surgery = {}
 ---@field completion_timer integer toady: duration; -1 every time unit.counters.job_counter is below 0
 ---@field maxdur integer
 ---@field flags job_flags
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field spell integer almost certainly no longer used
 ---@field item_type item_type for Bait Trap jobs
@@ -276,7 +276,7 @@ df.job_subtype_surgery = {}
 ---@field cur_path_index integer
 ---@field spec_loc coord toady: spec_x/spec_y/spec_z
 ---@field art_spec job_art_specification
----@field order_id manager_order
+---@field order_id integer References: manager_order
 df.job = {}
 
 ---@class job_item_ref: df.class
@@ -689,7 +689,7 @@ df.job_item_flags3 = {}
 ---@class job_item: df.class
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field flags1 job_item_flags1
 ---@field quantity integer
@@ -698,13 +698,13 @@ df.job_item_flags3 = {}
 ---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore inorganic_raw
+---@field metal_ore integer References: inorganic_raw
 ---@field reaction_class string
 ---@field has_material_reaction_product string
 ---@field min_dimension integer pure guess by context
 ---@field reagent_index integer
 ---@field contains integer[] used with custom reactions
----@field reaction_id reaction
+---@field reaction_id integer References: reaction
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 integer
 ---@field unk_v43_2 integer
@@ -715,7 +715,7 @@ df.job_item = {}
 ---@class job_item_filter: df.class
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field flags1 job_item_flags1
 ---@field item_vector item[]
@@ -730,12 +730,12 @@ df.job_item = {}
 ---@field use_flags5 boolean
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field metal_ore inorganic_raw
+---@field metal_ore integer References: inorganic_raw
 ---@field use_metal_ore boolean
 ---@field use_reaction_class boolean
 ---@field use_reaction_product boolean
 ---@field min_dimension integer
----@field reaction_id reaction
+---@field reaction_id integer References: reaction
 ---@field contains integer[]
 ---@field use_contains boolean
 ---@field has_tool_use tool_uses
@@ -747,7 +747,7 @@ df.job_item = {}
 ---@field building building
 ---@field unk_74 integer
 ---@field unk_v4305_1 integer
----@field burrows integer[]
+---@field burrows integer[] References: burrow
 ---@field use_burrows boolean
 ---@field take_from building[]
 df.job_item_filter = {}
@@ -802,10 +802,10 @@ df.job_art_specification.T_type = {}
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field reaction_name string
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field item_category stockpile_group_set
----@field hist_figure_id historical_figure
+---@field hist_figure_id integer References: historical_figure
 ---@field material_category job_material_category
 ---@field art_spec job_art_specification
 ---@field amount_left integer
@@ -814,7 +814,7 @@ df.job_art_specification.T_type = {}
 ---@field frequency manager_order_frequency
 ---@field finished_year integer
 ---@field finished_year_tick integer
----@field workshop_id building
+---@field workshop_id integer References: building
 ---@field max_workshops integer 0 is unlimited
 ---@field item_conditions manager_order_condition_item[]
 ---@field order_conditions manager_order_condition_order[]
@@ -851,7 +851,7 @@ df.manager_order.T_frequency = {}
 ---@field compare_val integer
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field flags1 job_item_flags1
 ---@field flags2 job_item_flags2
@@ -860,10 +860,10 @@ df.manager_order.T_frequency = {}
 ---@field flags5 integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
----@field inorganic_bearing inorganic_raw
+---@field inorganic_bearing integer References: inorganic_raw
 ---@field min_dimension integer
 ---@field contains integer[]
----@field reaction_id reaction
+---@field reaction_id integer References: reaction
 ---@field has_tool_use tool_uses
 df.manager_order_condition_item = {}
 
@@ -897,7 +897,7 @@ df.manager_order_condition_item.T_compare_type = {}
 ---@field Not boolean
 
 ---@class manager_order_condition_order: df.class
----@field order_id manager_order
+---@field order_id integer References: manager_order
 ---@field condition manager_order_condition_order_condition
 ---@field unk_1 integer
 df.manager_order_condition_order = {}
@@ -915,16 +915,16 @@ df.manager_order_condition_order.T_condition = {}
 ---@field [1] boolean
 ---@field Completed boolean
 
----@class manager_order_template: df.class
 ---jminfost
+---@class manager_order_template: df.class
 ---@field job_type job_type
 ---@field reaction_name string
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field item_category stockpile_group_set specflag
----@field hist_figure_id historical_figure
+---@field hist_figure_id integer References: historical_figure
 ---@field material_category job_material_category
 ---@field match_value integer
 ---@field name string
@@ -937,7 +937,7 @@ df.manager_order_template = {}
 ---@field mode mandate_mode
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field amount_total integer
 ---@field amount_remaining integer
@@ -972,8 +972,8 @@ df.mandate.T_mode = {}
 df.mandate.T_punishment = {}
 
 ---@class training_assignment: df.instance
----@field animal_id unit
----@field trainer_id unit
+---@field animal_id integer References: unit
+---@field trainer_id integer References: unit
 ---@field flags training_assignment_flags
 df.training_assignment = {}
 
@@ -1003,7 +1003,7 @@ df.training_assignment.T_flags = {}
 ---@field place unit_demand_place
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field timeout_counter integer counts once per 10 frames
 ---@field timeout_limit integer once counter passes limit, mandate ends

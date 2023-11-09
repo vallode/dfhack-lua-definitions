@@ -68,8 +68,8 @@ df.vermin_category = {}
 ---@field Underworld boolean
 
 ---@class vermin: df.instance
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field pos coord
 ---@field visible boolean 1 = visible vermin
 ---@field countdown integer

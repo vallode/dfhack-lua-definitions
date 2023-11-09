@@ -22,8 +22,8 @@ df.interaction_flags = {}
 ---@field sources interaction_source[] I_SOURCE
 ---@field targets interaction_target[] I_TARGET
 ---@field effects interaction_effect[] I_EFFECT
----@field source_hfid historical_figure
----@field source_enid historical_entity
+---@field source_hfid integer References: historical_figure
+---@field source_enid integer References: historical_entity
 df.interaction = {}
 
 ---@class _interaction_effect_type: df.enum
@@ -119,7 +119,7 @@ df.interaction_effect_location_hint = {}
 ---@field intermittent integer IE_INTERMITTENT, 0 = weekly
 ---@field locations interaction_effect_location_hint[] IE_LOCATION
 ---@field flags interaction_effect_flags
----@field interaction_id interaction
+---@field interaction_id integer References: interaction
 ---@field arena_name string IE_ARENA_NAME
 df.interaction_effect = {}
 
@@ -686,7 +686,7 @@ df.breath_attack_type = {}
 
 ---@class interaction_target_materialst: interaction_target
 ---@field material_str string[]
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field parent_interaction_index integer
 ---@field breath_attack_type breath_attack_type
@@ -707,9 +707,9 @@ df.interaction_target_locationst = {}
 
 ---@class interaction_instance: df.instance
 ---@field id integer
----@field interaction_id interaction
+---@field interaction_id integer References: interaction
 ---@field unk_1 integer
 ---@field region_index integer
----@field affected_units integer[] IDs of units affected by the regional interaction
+---@field affected_units integer[] References: unit<br>IDs of units affected by the regional interaction
 df.interaction_instance = {}
 

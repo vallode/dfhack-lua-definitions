@@ -63,19 +63,19 @@ df.improvement_type = {}
 ---@field IMAGE_SET boolean
 
 ---@class dye_info: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field dyer historical_figure
+---@field dyer integer References: historical_figure
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 integer
 df.dye_info = {}
 
 ---@class itemimprovement: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field maker historical_figure
----@field masterpiece_event history_event
+---@field maker integer References: historical_figure
+---@field masterpiece_event integer References: history_event
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 integer
@@ -112,7 +112,7 @@ function df.itemimprovement:isDecoration() end
 ---@return integer
 function df.itemimprovement:getDyeValue(caravan) end
 
----@param shape descriptor_shape
+---@param shape integer
 function df.itemimprovement:setShape(shape) end
 
 ---@class itemimprovement_art_imagest: itemimprovement
@@ -121,7 +121,7 @@ df.itemimprovement_art_imagest = {}
 
 ---@class itemimprovement_coveredst: itemimprovement
 ---@field cover_flags itemimprovement_coveredst_cover_flags
----@field shape descriptor_shape
+---@field shape integer References: descriptor_shape
 df.itemimprovement_coveredst = {}
 
 ---@class _itemimprovement_coveredst_cover_flags: df.bitfield
@@ -137,7 +137,7 @@ df.itemimprovement_coveredst.T_cover_flags = {}
 df.itemimprovement_rings_hangingst = {}
 
 ---@class itemimprovement_bandsst: itemimprovement
----@field shape descriptor_shape
+---@field shape integer References: descriptor_shape
 df.itemimprovement_bandsst = {}
 
 ---@class itemimprovement_spikesst: itemimprovement
@@ -174,14 +174,14 @@ df.itemimprovement_clothst = {}
 df.itemimprovement_sewn_imagest = {}
 
 ---@class itemimprovement_sewn_imagest_cloth: df.class
----@field unit_id historical_figure
+---@field unit_id integer References: historical_figure
 ---@field quality integer
 ---@field unk_1 integer
 df.itemimprovement_sewn_imagest.T_cloth = {}
 
 ---@class itemimprovement_pagesst: itemimprovement
 ---@field count integer
----@field contents integer[]
+---@field contents integer[] References: written_content
 df.itemimprovement_pagesst = {}
 
 ---@class itemimprovement_illustrationst: itemimprovement
@@ -194,11 +194,11 @@ df.itemimprovement_illustrationst = {}
 df.itemimprovement_instrument_piecest = {}
 
 ---@class itemimprovement_writingst: itemimprovement
----@field contents integer[]
+---@field contents integer[] References: written_content
 df.itemimprovement_writingst = {}
 
 ---@class itemimprovement_image_setst: itemimprovement
----@field image_set_id image_set
+---@field image_set_id integer References: image_set
 df.itemimprovement_image_setst = {}
 
 ---@class _written_content_type: df.enum
@@ -397,10 +397,10 @@ df.written_content_style = {}
 ---@field unk1 integer
 ---@field unk2 integer
 ---@field type written_content_type
----@field poetic_form poetic_form
+---@field poetic_form integer References: poetic_form
 ---@field styles written_content_style[]
 ---@field style_strength integer[] 0 = maximum, 1 = significant, 2 = partial
----@field author historical_figure
+---@field author integer References: historical_figure
 ---@field author_roll integer
 df.written_content = {}
 
@@ -450,14 +450,14 @@ df.engraving_flags = {}
 ---@field southeast boolean
 
 ---@class engraving: df.instance
----@field artist historical_figure
----@field masterpiece_event history_event
+---@field artist integer References: historical_figure
+---@field masterpiece_event integer References: history_event
 ---@field skill_rating skill_rating at the moment of creation
 ---@field pos coord
 ---@field flags engraving_flags
 ---@field tile integer
----@field art_id art_image_chunk
----@field art_subid art_image
+---@field art_id integer References: art_image_chunk
+---@field art_subid integer References: art_image
 ---@field quality item_quality
 ---@field unk1 integer
 ---@field unk2 integer

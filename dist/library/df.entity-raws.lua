@@ -606,7 +606,7 @@ df.entity_name_type = {}
 ---@field code string
 ---@field index integer into instace-vector
 ---@field raws string[]
----@field creature_ids integer[]
+---@field creature_ids integer[] References: creature_raw
 ---@field creatures string[]
 ---@field equipment entity_raw_equipment
 ---@field currency_value integer[]
@@ -645,9 +645,9 @@ df.entity_name_type = {}
 ---@field banditry integer
 ---@field gem_shapes_str string[]
 ---@field stone_shapes_str string[]
----@field gem_shapes integer[]
----@field stone_shapes integer[]
----@field source_hfid historical_figure
+---@field gem_shapes integer[] References: descriptor_shape
+---@field stone_shapes integer[] References: descriptor_shape
+---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
 ---@field currency_str1 string[]
 ---@field currency_str2 string[]
@@ -655,20 +655,20 @@ df.entity_name_type = {}
 df.entity_raw = {}
 
 ---@class entity_raw_equipment: df.class
----@field digger_id integer[]
----@field weapon_id integer[]
----@field armor_id integer[]
----@field ammo_id integer[]
----@field helm_id integer[]
----@field gloves_id integer[]
----@field shoes_id integer[]
----@field pants_id integer[]
----@field shield_id integer[]
----@field trapcomp_id integer[]
----@field toy_id integer[]
----@field instrument_id integer[]
----@field tool_id integer[]
----@field siegeammo_id integer[]
+---@field digger_id integer[] References: itemdef_weaponst
+---@field weapon_id integer[] References: itemdef_weaponst
+---@field armor_id integer[] References: itemdef_armorst
+---@field ammo_id integer[] References: itemdef_ammost
+---@field helm_id integer[] References: itemdef_helmst
+---@field gloves_id integer[] References: itemdef_glovesst
+---@field shoes_id integer[] References: itemdef_shoesst
+---@field pants_id integer[] References: itemdef_pantsst
+---@field shield_id integer[] References: itemdef_shieldst
+---@field trapcomp_id integer[] References: itemdef_trapcompst
+---@field toy_id integer[] References: itemdef_toyst
+---@field instrument_id integer[] References: itemdef_instrumentst
+---@field tool_id integer[] References: itemdef_toolst
+---@field siegeammo_id integer[] References: itemdef_siegeammost
 ---@field armor_rarity integer[]
 ---@field helm_rarity integer[]
 ---@field gloves_rarity integer[]
@@ -763,9 +763,9 @@ df.entity_raw.T_tissue_styles = {}
 
 ---@class entity_raw_workshops: df.class
 ---@field permitted_building_str string[]
----@field permitted_building_id integer[]
+---@field permitted_building_id integer[] References: building_def
 ---@field permitted_reaction_str string[]
----@field permitted_reaction_id integer[]
+---@field permitted_reaction_id integer[] References: reaction
 df.entity_raw.T_workshops = {}
 
 ---@class entity_animal_raw: df.class
@@ -1116,10 +1116,10 @@ df.entity_position_responsibility = {}
 ---@field id integer
 ---@field flags entity_position_raw_flags[]
 ---@field allowed_creature_str string[][]
----@field allowed_creature integer[]
+---@field allowed_creature integer[] References: creature_raw
 ---@field allowed_class string[]
 ---@field rejected_creature_str string[][]
----@field rejected_creature integer[]
+---@field rejected_creature integer[] References: creature_raw
 ---@field rejected_class string[]
 ---@field name string[]
 ---@field name_female string[]

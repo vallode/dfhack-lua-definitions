@@ -1544,7 +1544,7 @@ df.body_part_layer_raw = {}
 df.body_part_raw = {}
 
 ---@class color_modifier_raw: df.class
----@field pattern_index integer[]
+---@field pattern_index integer[] References: descriptor_pattern
 ---@field pattern_frequency integer[]
 ---@field body_part_id integer[]
 ---@field tissue_layer_id integer[]
@@ -1759,7 +1759,7 @@ df.creature_interaction_target_flags = {}
 ---@field target_verb_2nd string
 ---@field target_verb_3rd string
 ---@field interaction_type string
----@field type_id interaction
+---@field type_id integer References: interaction
 ---@field usage_hint interaction_source_usage_hint[]
 ---@field location_hint interaction_effect_location_hint[]
 ---@field flags creature_interaction_flags
@@ -1859,8 +1859,8 @@ df.caste_body_info.T_flags = {}
 ---@field [0] boolean
 ---@field unk0 boolean
 
----@class caste_raw: df.class
 ---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
+---@class caste_raw: df.class
 ---@field caste_id string
 ---@field caste_name string[]
 ---@field vermin_bite_txt string
@@ -1948,7 +1948,7 @@ df.caste_raw = {}
 ---@field buildingdestroyer integer
 ---@field itemcorpse_itemtype item_type no longer used? Changes when the same save is reloaded
 ---@field itemcorpse_itemsubtype integer
----@field itemcorpse_materialtype material no longer used? Changes when the same save is reloaded
+---@field itemcorpse_materialtype integer References: material<br>no longer used? Changes when the same save is reloaded
 ---@field itemcorpse_materialindex integer
 ---@field itemcorpse_quality integer
 ---@field remains_color integer[]
@@ -1973,7 +1973,7 @@ df.caste_raw = {}
 ---@field unk4 integer
 ---@field pop_ratio integer
 ---@field adult_size integer
----@field bone_mat material
+---@field bone_mat integer References: material
 ---@field bone_matidx integer
 ---@field fish_mat_index integer
 ---@field egg_mat_index integer
@@ -2065,7 +2065,7 @@ df.caste_raw.T_caste_profession_name = {}
 df.caste_raw.T_extracts = {}
 
 ---@class caste_raw_secretion: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field mat_state matter_state
 ---@field mat_type_str string
@@ -2082,8 +2082,8 @@ df.caste_raw.T_secretion = {}
 ---@field gobble_vermin_class string[]
 ---@field gobble_vermin_creature_1 string[]
 ---@field gobble_vermin_creature_2 string[]
----@field infect_all integer[] for spatter applied to all bp
----@field infect_local integer[] for spatter applied to one bp
+---@field infect_all integer[] References: syndrome<br>for spatter applied to all bp
+---@field infect_local integer[] References: syndrome<br>for spatter applied to one bp
 ---@field unk23f integer[]
 ---@field unk23g integer[]
 ---@field unk24_flags boolean[]
@@ -2099,7 +2099,7 @@ df.caste_raw.T_secretion = {}
 ---@field unk_2f30 integer[]
 ---@field unk_2f40 integer[]
 ---@field unk_2f50 integer[]
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.caste_raw.T_unknown2 = {}
 
@@ -2254,7 +2254,7 @@ df.tissue_style_raw = {}
 ---@field modifier_class integer[]
 ---@field modifier_num_patterns integer[] for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product creature_raw_hive_product
----@field source_hfid historical_figure
+---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
 ---@field next_modifier_id integer
 ---@field raws string[]
@@ -2573,7 +2573,7 @@ df.tissue_flags = {}
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field relative_thickness integer
 ---@field healing_rate integer
@@ -2593,7 +2593,7 @@ df.tissue_template = {}
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field relative_thickness integer
 ---@field healing_rate integer

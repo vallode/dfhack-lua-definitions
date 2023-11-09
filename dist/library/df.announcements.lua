@@ -1461,7 +1461,7 @@ df.announcements = {}
 ---@field time integer
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 integer
----@field speaker_id unit unit speaking the conversation
+---@field speaker_id integer References: unit<br>unit speaking the conversation
 df.report = {}
 
 ---@class _report_flags: df.bitfield
@@ -1504,8 +1504,8 @@ df.report_zoom_type = {}
 ---@field bright boolean
 df.popup_message = {}
 
----@class report_init: df.class
 ---allocated on the stack, included in df-structures to assist with disassembly
+---@class report_init: df.class
 ---@field type announcement_type
 ---@field color integer
 ---@field bright boolean
@@ -1518,7 +1518,7 @@ df.popup_message = {}
 ---@field unit2 unit
 ---@field unk_v40_1 integer same as unknown field in report
 ---@field unk_v40_2 integer same as unknown field in report
----@field speaker_id unit
+---@field speaker_id integer References: unit
 ---@field flags report_init_flags
 df.report_init = {}
 

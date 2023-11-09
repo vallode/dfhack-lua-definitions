@@ -33,7 +33,7 @@ df.pattern_type = {}
 ---@class descriptor_color: df.instance
 ---@field id string
 ---@field word_unk string[]
----@field words integer[]
+---@field words integer[] References: language_word
 ---@field name string
 ---@field color curses_color
 ---@field bold integer
@@ -46,7 +46,7 @@ df.descriptor_color = {}
 ---@class descriptor_shape: df.instance
 ---@field id string
 ---@field words_str string[] temporary storage before resolving to language_word
----@field words integer[]
+---@field words integer[] References: language_word
 ---@field name string
 ---@field name_plural string
 ---@field adj string[]
@@ -81,7 +81,7 @@ df.descriptor_shape.T_gems_use = {}
 
 ---@class descriptor_pattern: df.instance
 ---@field id string
----@field colors integer[]
+---@field colors integer[] References: descriptor_color
 ---@field pattern pattern_type
 ---@field cp_color string[]
 df.descriptor_pattern = {}

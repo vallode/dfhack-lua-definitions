@@ -462,23 +462,23 @@ df.tile_liquid_flow = {}
 df.tile_bitmask = {}
 
 ---@class block_burrow: df.class
----@field id burrow
+---@field id integer References: burrow
 ---@field tile_bitmask tile_bitmask
 ---@field link block_burrow_link
 df.block_burrow = {}
 
----@class map_block: df.class
 ---flood; 256*cost for straight, 362*cost for diagonal
+---@class map_block: df.class
 ---@field flags block_flags
 ---@field block_events block_square_event[]
 ---@field block_burrows block_burrow_link
 ---@field local_feature integer index into world_data.region_map
----@field global_feature world_underground_region
+---@field global_feature integer References: world_underground_region
 ---@field unk2 integer
 ---@field layer_depth integer uninitialized
 ---@field dsgn_check_cooldown integer
 ---@field default_liquid tile_designation
----@field items item[]
+---@field items integer[]
 ---@field flows flow_info[]
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
@@ -642,7 +642,7 @@ function df.block_square_event:isEmpty() end
 function df.block_square_event:checkTemperature(x, y, temperature) end
 
 ---@class block_square_event_mineralst: block_square_event
----@field inorganic_mat inorganic_raw
+---@field inorganic_mat integer References: inorganic_raw
 ---@field tile_bitmask tile_bitmask
 ---@field flags block_square_event_mineralst_flags
 df.block_square_event_mineralst = {}
@@ -678,12 +678,12 @@ df.block_square_event_mineralst.T_flags = {}
 df.block_square_event_frozen_liquidst = {}
 
 ---@class block_square_event_world_constructionst: block_square_event
----@field construction_id world_construction
+---@field construction_id integer References: world_construction
 ---@field tile_bitmask tile_bitmask
 df.block_square_event_world_constructionst = {}
 
 ---@class block_square_event_material_spatterst: block_square_event
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field mat_state matter_state
 ---@field amount integer[][]
@@ -692,7 +692,7 @@ df.block_square_event_world_constructionst = {}
 df.block_square_event_material_spatterst = {}
 
 ---@class block_square_event_grassst: block_square_event
----@field plant_index plant_raw
+---@field plant_index integer References: plant_raw
 ---@field amount integer[][]
 df.block_square_event_grassst = {}
 
@@ -700,8 +700,8 @@ df.block_square_event_grassst = {}
 ---@field flags integer[][]
 ---@field unk_2 integer[][]
 ---@field unk_3 integer[][]
----@field race creature_raw[][]
----@field caste caste_raw[][]
+---@field race integer[][]
+---@field caste integer[][]
 ---@field age integer[][] in half-seconds
 ---@field year integer
 ---@field year_tick integer
@@ -710,7 +710,7 @@ df.block_square_event_spoorst = {}
 ---@class block_square_event_item_spatterst: block_square_event
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mattype material
+---@field mattype integer References: material
 ---@field matindex integer
 ---@field unk1 integer
 ---@field amount integer[][]
@@ -963,30 +963,30 @@ df.feature_init_magma_poolst = {}
 df.feature_init_volcanost = {}
 
 ---@class feature_init_deep_special_tubest: feature_init
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field feature feature_deep_special_tubest
 df.feature_init_deep_special_tubest = {}
 
 ---@class feature_init_deep_surface_portalst: feature_init
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field feature feature_deep_surface_portalst
 df.feature_init_deep_surface_portalst = {}
 
 ---@class feature_init_subterranean_from_layerst: feature_init
----@field layer world_underground_region
+---@field layer integer References: world_underground_region
 ---@field feature feature_subterranean_from_layerst
 df.feature_init_subterranean_from_layerst = {}
 
 ---@class feature_init_magma_core_from_layerst: feature_init
----@field layer world_underground_region
+---@field layer integer References: world_underground_region
 ---@field feature feature_magma_core_from_layerst
 df.feature_init_magma_core_from_layerst = {}
 
 ---@class feature_init_underworld_from_layerst: feature_init
----@field layer world_underground_region
----@field mat_type material
+---@field layer integer References: world_underground_region
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field feature feature_underworld_from_layerst
 df.feature_init_underworld_from_layerst = {}
@@ -1049,7 +1049,7 @@ df.world_construction_type = {}
 
 ---@class world_construction_square: df.class
 ---@field region_pos coord2d
----@field construction_id world_construction
+---@field construction_id integer References: world_construction
 ---@field embark_x integer[]
 ---@field embark_y integer[]
 ---@field embark_unk integer[]
@@ -1069,7 +1069,7 @@ function df.world_construction_square:read_file(file, loadversion) end
 ---@class world_construction_square_roadst: world_construction_square
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.world_construction_square_roadst = {}
 
@@ -1077,17 +1077,17 @@ df.world_construction_square_roadst = {}
 df.world_construction_square_tunnelst = {}
 
 ---@class world_construction_square_bridgest: world_construction_square
----@field road_id world_construction guess
+---@field road_id integer References: world_construction<br>guess
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.world_construction_square_bridgest = {}
 
 ---@class world_construction_square_wallst: world_construction_square
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.world_construction_square_wallst = {}
 
@@ -1353,7 +1353,7 @@ df.construction_flags = {}
 ---@field pos coord
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field flags construction_flags
 ---@field original_tile tiletype
@@ -1422,14 +1422,14 @@ df.flow_type = {}
 
 ---@class flow_info: df.class
 ---@field type flow_type
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field density integer
 ---@field pos coord
 ---@field dest coord
 ---@field expanding boolean
 ---@field reuse boolean
----@field guide_id flow_guide
+---@field guide_id integer References: flow_guide
 df.flow_info = {}
 
 ---@class flow_reuse_pool: df.class
@@ -1486,7 +1486,7 @@ df.flow_guide_trailing_flowst = {}
 ---@class flow_guide_item_cloudst: flow_guide
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mattype material
+---@field mattype integer References: material
 ---@field matindex integer
 ---@field unk_18 integer
 ---@field unk_1c integer

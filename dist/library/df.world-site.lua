@@ -134,16 +134,16 @@ df.abstract_building_flags = {}
 ---@field [7] boolean
 ---@field Unk7 boolean
 
----@class abstract_building_entombed: df.class
 ---used within Tomb and Dungeon
+---@class abstract_building_entombed: df.class
 ---@field populations abstract_building_entombed_populations[]
----@field histfigs integer[]
+---@field histfigs integer[] References: historical_figure
 df.abstract_building_entombed = {}
 
 ---@class abstract_building_entombed_populations: df.class
 ---@field count integer
----@field race creature_raw
----@field population entity_population
+---@field race integer References: creature_raw
+---@field population integer References: entity_population
 ---@field unk_4 integer
 ---@field unk_5 integer min year?
 ---@field unk_6 integer max year? seems to always be slightly before the construction of the building for tombs
@@ -151,8 +151,8 @@ df.abstract_building_entombed = {}
 ---@field unk_8 integer seen values 0, 6
 df.abstract_building_entombed.T_populations = {}
 
----@class abstract_building_contents: df.class
 ---used within Temple, Library, and Inn/Tavern
+---@class abstract_building_contents: df.class
 ---@field need_more abstract_building_contents_need_more
 ---@field profession profession
 ---@field desired_goblets integer
@@ -180,7 +180,7 @@ df.abstract_building_entombed.T_populations = {}
 ---@field count_soap integer
 ---@field unk_v47_2 integer
 ---@field unk_v47_3 integer
----@field building_ids integer[]
+---@field building_ids integer[] References: building
 df.abstract_building_contents = {}
 
 ---@class _abstract_building_contents_need_more: df.bitfield
@@ -238,28 +238,28 @@ df.abstract_building_contents.T_need_more = {}
 ---@field flags abstract_building_flags[]
 ---@field unk1 abstract_building_unk1 in temples; hfig is the god
 ---@field unk2 integer[]
----@field parent_building_id abstract_building Tombs use this to hold which catacomb they are part of.
----@field child_building_ids integer[] Used by catacombs to hold their tombs
----@field site_owner_id historical_entity entity that constructed the building
+---@field parent_building_id integer References: abstract_building<br>Tombs use this to hold which catacomb they are part of.
+---@field child_building_ids integer[] References: abstract_building<br>Used by catacombs to hold their tombs
+---@field site_owner_id integer References: historical_entity<br>entity that constructed the building
 ---@field scribeinfo location_scribe_jobs
 ---@field reputation_reports site_reputation_info
 ---@field unk_v42_3 integer[]
----@field site_id world_site not initialized/saved/loaded, assumed member of base class
+---@field site_id integer References: world_site<br>not initialized/saved/loaded, assumed member of base class
 ---@field pos coord2d
 ---@field occupations occupation[]
 df.abstract_building = {}
 
 ---@class abstract_building_inhabitants: df.class
 ---@field unk_1 integer
----@field histfig_id historical_figure
+---@field histfig_id integer References: historical_figure
 df.abstract_building.T_inhabitants = {}
 
----@class abstract_building_unk1: df.class
 ---in temples; hfig is the god
----@field hfig integer[]
+---@class abstract_building_unk1: df.class
+---@field hfig integer[] References: historical_figure
 ---@field unk_1 integer
 ---@field architectural_elements architectural_element[] used by temples
----@field mat_type material just a guess
+---@field mat_type integer References: material<br>just a guess
 ---@field mat_index integer
 df.abstract_building.T_unk1 = {}
 
@@ -327,8 +327,8 @@ df.temple_deity_type = {}
 ---@field Religion boolean
 
 ---@class temple_deity_data: df.class
----@field Deity historical_figure
----@field Religion historical_entity
+---@field Deity integer References: historical_figure
+---@field Religion integer References: historical_entity
 df.temple_deity_data = {}
 
 ---@class abstract_building_templest: abstract_building
@@ -401,7 +401,7 @@ df.abstract_building_inn_tavernst.T_room_info = {}
 
 ---@class abstract_building_libraryst: abstract_building
 ---@field name language_name
----@field copied_artifacts integer[]
+---@field copied_artifacts integer[] References: artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -602,16 +602,16 @@ df.lair_type = {}
 ---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
 ---@field pad_1 integer
 ---@field property_index integer index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
----@field unk_hfid historical_figure Always same as owner_hfid when set, but not always set when that field is.
----@field owner_entity_id historical_entity Mutually exclusive with owner_hfid. All seen were merchant companies.
----@field owner_hfid historical_figure
----@field unk_owner_entity_id historical_entity Seen only in subset of owner_entity_id case, and always same value
+---@field unk_hfid integer References: historical_figure<br>Always same as owner_hfid when set, but not always set when that field is.
+---@field owner_entity_id integer References: historical_entity<br>Mutually exclusive with owner_hfid. All seen were merchant companies.
+---@field owner_hfid integer References: historical_figure
+---@field unk_owner_entity_id integer References: historical_entity<br>Seen only in subset of owner_entity_id case, and always same value
 df.property_ownership = {}
 
 ---@class world_site: df.instance
 ---@field name language_name
----@field civ_id historical_entity
----@field cur_owner_id historical_entity
+---@field civ_id integer References: historical_entity
+---@field cur_owner_id integer References: historical_entity
 ---@field type world_site_type
 ---@field pos coord2d
 ---@field id integer
@@ -654,7 +654,7 @@ df.property_ownership = {}
 ---@field realization world_site_realization
 ---@field subtype_info world_site_subtype_info
 ---@field unk_21c world_site_unk_21c[]
----@field deaths integer[] killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
+---@field deaths integer[] References: historical_figure<br>killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
 ---@field is_mountain_halls integer
 ---@field is_fortress integer
 ---@field unk_v47_2 integer only MountainHalls, but only subset of them
@@ -701,7 +701,7 @@ df.property_ownership = {}
 df.world_site = {}
 
 ---@class world_site_unk_1: df.class
----@field nemesis integer[]
+---@field nemesis integer[] References: nemesis_record
 ---@field artifacts artifact_record[]
 ---@field animals world_population[]
 ---@field inhabitants world_site_inhabitant[]
@@ -719,7 +719,7 @@ df.world_site = {}
 df.world_site.T_unk_1 = {}
 
 ---@class world_site.T_unk_1_units: df.class
----@field unit_id unit
+---@field unit_id integer References: unit
 ---@field pos_x integer
 ---@field pos_y integer
 ---@field pos_z integer
@@ -735,8 +735,8 @@ df.world_site.T_unk_1.T_units = {}
 ---@field unk_6 integer[]
 df.world_site.T_unk_118 = {}
 
----@class world_site_unk_13c: df.class
 ---MountainHall, Town, DarkFortress, but not all
+---@class world_site_unk_13c: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
 ---@field unk_8 integer
@@ -746,8 +746,8 @@ df.world_site.T_unk_118 = {}
 ---@field unk_30 integer
 df.world_site.T_unk_13c = {}
 
----@class world_site_unk_v40_2: df.class
 ---forest retreat
+---@class world_site_unk_v40_2: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
 ---@field unk_8 integer
@@ -757,8 +757,8 @@ df.world_site.T_unk_13c = {}
 ---@field unk_30 integer
 df.world_site.T_unk_v40_2 = {}
 
----@class world_site_unk_v47_1: df.class
 ---Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
+---@class world_site_unk_v47_1: df.class
 df.world_site.T_unk_v47_1 = {}
 
 ---@class world_site_subtype_info: df.class
@@ -769,17 +769,17 @@ df.world_site.T_unk_v47_1 = {}
 ---@field unk_14 integer
 ---@field unk_18 integer
 ---@field unk_1c integer
----@field creator historical_figure all vaults, no others seen
+---@field creator integer References: historical_figure<br>all vaults, no others seen
 ---@field unk_vault integer all vaults, no others seen, always 100
 ---@field tower_seed integer all towers, no others. Seed is a guess based on the very large numbers
 ---@field unk_monastery integer all monasteries, no others. Only seen '1'
----@field founding_entity historical_entity all monasteries, no others
+---@field founding_entity integer References: historical_entity<br>all monasteries, no others
 df.world_site.T_subtype_info = {}
 
 ---@class world_site_unk_21c: df.class
 ---@field unk_0 integer
 ---@field race integer
----@field entity_id historical_entity failed to see any connections between these entities and the sites. Might be something else
+---@field entity_id integer References: historical_entity<br>failed to see any connections between these entities and the sites. Might be something else
 ---@field unk_c integer
 ---@field unk_10 integer might be start year
 ---@field unk_14 integer might be end year
@@ -789,7 +789,7 @@ df.world_site.T_unk_21c = {}
 
 ---@class world_site_unk_v40_4a: df.class
 ---@field unk_0 integer
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 ---@field year integer
 ---@field year_tick integer
 ---@field unk_10 integer
@@ -809,12 +809,12 @@ df.world_site.T_unk_v40_4b = {}
 ---@field unk_5 integer
 df.world_site.T_unk_v40_4c = {}
 
----@class world_site_unk_v40_4d: df.class
 ---only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
+---@class world_site_unk_v40_4d: df.class
 ---@field id integer
 ---@field unk_1 world_site.T_unk_v40_4d_unk_1[]
 ---@field unk_2 integer[]
----@field entity_id historical_entity single attacking site civ is only one seen
+---@field entity_id integer References: historical_entity<br>single attacking site civ is only one seen
 df.world_site.T_unk_v40_4d = {}
 
 ---@class world_site.T_unk_v40_4d_unk_1: df.class
@@ -850,8 +850,8 @@ df.world_site.T_unk_v43_2 = {}
 
 ---@class cultural_identity: df.instance
 ---@field id integer
----@field site_id world_site
----@field civ_id historical_entity
+---@field site_id integer References: world_site
+---@field civ_id integer References: historical_entity
 ---@field group_log cultural_identity_group_log[] the circumstances of groups joining or leaving this culture
 ---@field ethic ethic_response[]
 ---@field values integer[]
@@ -866,9 +866,9 @@ df.world_site.T_unk_v43_2 = {}
 ---@field unk_f8 integer
 df.cultural_identity = {}
 
----@class cultural_identity_group_log: df.class
 ---the circumstances of groups joining or leaving this culture
----@field group_id historical_entity
+---@class cultural_identity_group_log: df.class
+---@field group_id integer References: historical_entity
 ---@field start_year integer when the group joined the culture, or -1 if it founded the culture
 ---@field start_tick integer
 ---@field end_year integer when the group left the culture, or -1 if it has not left
@@ -915,14 +915,14 @@ df.cultural_identity.T_unk_2 = {}
 
 ---@class world_site_inhabitant: df.class
 ---@field count integer
----@field race creature_raw
----@field population_id entity_population
----@field entity_id historical_entity can be Religion, Civilization, and SiteGovernment as well as Outcast
+---@field race integer References: creature_raw
+---@field population_id integer References: entity_population
+---@field entity_id integer References: historical_entity<br>can be Religion, Civilization, and SiteGovernment as well as Outcast
 ---@field unk_10 integer
----@field cultural_identity_id cultural_identity
----@field interaction_id interaction
+---@field cultural_identity_id integer References: cultural_identity
+---@field interaction_id integer References: interaction
 ---@field interaction_effect_idx integer index into the above interaction, usually refers to an ANIMATE effect
----@field related_entity_id historical_entity Founder if outcast_id=-1, else Outcast and equal to outcast_id
+---@field related_entity_id integer References: historical_entity<br>Founder if outcast_id=-1, else Outcast and equal to outcast_id
 ---@field unk_24 integer 0 and 1 seen
 ---@field unk_28 integer
 df.world_site_inhabitant = {}
@@ -948,7 +948,7 @@ df.world_site_inhabitant = {}
 ---@field unk_1 integer
 ---@field army_controller_pos_x integer
 ---@field army_controller_pos_y integer
----@field unk_193bc nemesis_record[]
+---@field unk_193bc integer[]
 ---@field num_unk_193bc integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1230,7 +1230,7 @@ df.site_realization_building = {}
 ---@class site_realization_building_unk_4c: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
----@field owner historical_entity
+---@field owner integer References: historical_entity
 ---@field unk_c integer
 ---@field unk_10 integer
 ---@field unk_14 integer
@@ -1250,10 +1250,10 @@ function df.site_realization_building_infost:write_file(file) end
 function df.site_realization_building_infost:read_file(file, loadversion) end
 
 ---@class site_building_item: df.class
----@field race creature_raw
+---@field race integer References: creature_raw
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.site_building_item = {}
 
@@ -1640,8 +1640,8 @@ df.creation_zone_pwg_alteration_location_deathst.T_unk_1.T_unk_1a = {}
 df.creation_zone_pwg_alteration_campst = {}
 
 ---@class creation_zone_pwg_alteration_srb_ruinedst: creation_zone_pwg_alterationst
----@field site_id world_site
----@field building_id site_realization_building
+---@field site_id integer References: world_site
+---@field building_id integer References: site_realization_building
 df.creation_zone_pwg_alteration_srb_ruinedst = {}
 
 ---@class creation_zone_pwg_alteration_srp_ruinedst: creation_zone_pwg_alterationst

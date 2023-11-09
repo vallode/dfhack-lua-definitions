@@ -3,7 +3,7 @@
 
 ---@class invasion_info: df.instance
 ---@field id integer
----@field civ_id historical_entity
+---@field civ_id integer References: historical_entity
 ---@field active_size1 integer 0 unless active
 ---@field active_size2 integer
 ---@field size integer
@@ -52,8 +52,8 @@ df.invasion_info.T_flags = {}
 ---@field unk_3 entity_population_unk4_unk_3[]
 df.entity_population_unk4 = {}
 
----@class entity_population_unk4_unk_1: df.class
 ---all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@class entity_population_unk4_unk_1: df.class
 ---@field idx integer
 ---@field unk1 integer
 ---@field unk2 integer
@@ -72,15 +72,15 @@ df.entity_population_unk4.T_unk_3 = {}
 
 ---@class entity_population: df.instance
 ---@field name language_name
----@field races creature_raw[] all the 3 vectors are always the same length, and thus coupled
+---@field races integer[] all the 3 vectors are always the same length, and thus coupled
 ---@field counts integer[]
 ---@field unk3 integer[] Set only for cave civs. When set, >= counts. Pre first embark all those are equal
 ---@field unk4 entity_population_unk4[]
 ---@field unk5 integer
----@field layer_id world_underground_region
+---@field layer_id integer References: world_underground_region
 ---@field id integer
 ---@field flags integer ?; layer_id == -1
----@field civ_id historical_entity
+---@field civ_id integer References: historical_entity
 df.entity_population = {}
 
 ---@class _nemesis_flags: df.enum
@@ -134,13 +134,13 @@ df.nemesis_flags = {}
 
 ---@class nemesis_record: df.instance
 ---@field id integer sequential index in the array
----@field unit_id unit
----@field save_file_id unit_chunk unit-*.dat
+---@field unit_id integer References: unit
+---@field save_file_id integer References: unit_chunk<br>unit-*.dat
 ---@field member_idx integer index in the file
 ---@field figure historical_figure
 ---@field unit unit
----@field group_leader_id nemesis_record
----@field companions nemesis_record[]
+---@field group_leader_id integer References: nemesis_record
+---@field companions integer[]
 ---@field unk10 integer
 ---@field unk11 integer
 ---@field unk12 integer
@@ -158,20 +158,20 @@ df.nemesis_record = {}
 ---@field abs_tile_y integer
 ---@field abs_tile_z integer
 ---@field unk_1 integer
----@field site world_site
----@field structure_local abstract_building
+---@field site integer References: world_site
+---@field structure_local integer References: abstract_building
 ---@field unk_2 integer
----@field subregion world_region
----@field feature_layer world_underground_region
----@field owner_hf historical_figure namer/creator does not seem to require a claim to be shown
----@field remote_claims integer[] all afar, heirloom from afar seen
----@field entity_claims integer[]
----@field direct_claims integer[]
----@field storage_site world_site
----@field storage_structure_local abstract_building
----@field loss_region world_region
+---@field subregion integer References: world_region
+---@field feature_layer integer References: world_underground_region
+---@field owner_hf integer References: historical_figure<br>namer/creator does not seem to require a claim to be shown
+---@field remote_claims integer[] References: historical_figure<br>all afar, heirloom from afar seen
+---@field entity_claims integer[] References: historical_entity
+---@field direct_claims integer[] References: historical_figure
+---@field storage_site integer References: world_site
+---@field storage_structure_local integer References: abstract_building
+---@field loss_region integer References: world_region
 ---@field unk_3 integer
----@field holder_hf historical_figure doesn't seem to require a claim
+---@field holder_hf integer References: historical_figure<br>doesn't seem to require a claim
 ---@field year integer seems to be current year or -1
 ---@field unk_4 integer
 ---@field unk_5 integer Small set of non zero fairly small numbers seen?
@@ -179,10 +179,10 @@ df.artifact_record = {}
 
 ---@class artifact_rumor_locationst: df.class
 ---@field art artifact_record
----@field stid world_site
+---@field stid integer References: world_site
 ---@field abid integer abstract building id at site
----@field hfid historical_figure
----@field srid world_region
+---@field hfid integer References: historical_figure
+---@field srid integer References: world_region
 ---@field flid integer feature layer id in region
 ---@field latest_year integer
 ---@field latest_season_count integer

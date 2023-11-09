@@ -951,7 +951,7 @@ df.stockpile_list.attrs = {}
 ---@field id integer
 ---@field name string
 ---@field stops hauling_stop[]
----@field vehicle_ids vehicle[]
+---@field vehicle_ids integer[]
 ---@field vehicle_stops integer[]
 df.hauling_route = {}
 
@@ -963,7 +963,7 @@ df.hauling_route = {}
 ---@field conditions stop_depart_condition[]
 ---@field stockpiles route_stockpile_link[]
 ---@field time_waiting integer
----@field cart_id item
+---@field cart_id integer References: item
 df.hauling_stop = {}
 
 ---@class stop_depart_condition: df.class
@@ -1027,7 +1027,7 @@ df.stop_depart_condition.T_flags = {}
 ---@field desired boolean
 
 ---@class route_stockpile_link: df.class
----@field building_id building
+---@field building_id integer References: building
 ---@field mode route_stockpile_link_mode
 df.route_stockpile_link = {}
 
@@ -1046,7 +1046,7 @@ df.route_stockpile_link.T_mode = {}
 
 ---@class vehicle: df.instance
 ---@field id integer
----@field item_id item
+---@field item_id integer References: item
 ---@field offset_x integer -50000..50000
 ---@field offset_y integer
 ---@field offset_z integer
@@ -1057,7 +1057,7 @@ df.route_stockpile_link.T_mode = {}
 ---@field unk_24 integer
 ---@field unk_28 integer
 ---@field unk_2c integer
----@field route_id hauling_route
+---@field route_id integer References: hauling_route
 ---@field pos coord
 ---@field time_stopped integer frames, up to 1000
 df.vehicle = {}

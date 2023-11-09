@@ -308,8 +308,8 @@ df.MacroScreenSave = {}
 ---@field unk world_dat_summary_unk
 df.world_dat_summary = {}
 
----@class world_dat_summary_last_id: df.class
 ---when loading, DF sets *_next_id to these fields plus 1
+---@class world_dat_summary_last_id: df.class
 ---@field unit integer
 ---@field soul integer
 ---@field ite integer
@@ -605,10 +605,10 @@ df.embark_finder_option = {}
 ---@field [21] boolean
 ---@field Sand boolean
 
----@class embark_location: df.class
 ---starter_infost?
+---@class embark_location: df.class
 ---@field region_pos coord2d
----@field reclaim_site world_site
+---@field reclaim_site integer References: world_site
 ---@field reclaim_idx integer
 ---@field embark_pos_min coord2d
 ---@field embark_pos_max coord2d
@@ -773,9 +773,9 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field Suitable boolean
 
 ---@class mission: df.class
----@field army_controller army_controller
----@field entity historical_entity
----@field target_site world_site
+---@field army_controller integer References: army_controller
+---@field entity integer References: historical_entity
+---@field target_site integer References: world_site
 ---@field unk_2 integer
 ---@field target_x integer
 ---@field target_y integer
@@ -790,8 +790,8 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field year integer
 ---@field year_tick integer
 ---@field unk_12 integer
----@field army_controller2 army_controller
----@field histfig historical_figure
+---@field army_controller2 integer References: army_controller
+---@field histfig integer References: historical_figure
 ---@field unk_14 integer
 ---@field unk_16 integer
 ---@field unk_17 integer
@@ -801,8 +801,8 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field unk_21 integer
 ---@field unk_15 integer
 ---@field unk_22 integer
----@field squads integer[]
----@field messengers integer[]
+---@field squads integer[] References: squad
+---@field messengers integer[] References: occupation
 ---@field unk_23 integer
 ---@field unk_24 integer
 ---@field details mission_details
@@ -931,17 +931,17 @@ df.mission.T_details.T_raid.T_raid_flags = {}
 ---@field DemandSurrender boolean
 
 ---@class mission.T_details_recovery: df.class
----@field artifact artifact_record
+---@field artifact integer References: artifact_record
 ---@field unk_2 integer
 df.mission.T_details.T_recovery = {}
 
 ---@class mission.T_details_rescue: df.class
----@field histfig historical_figure
+---@field histfig integer References: historical_figure
 ---@field unk_2 integer
 df.mission.T_details.T_rescue = {}
 
 ---@class mission.T_details_request: df.class
----@field workers integer[]
+---@field workers integer[] References: historical_figure
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1357,14 +1357,14 @@ df.legend_pagest.T_mode = {}
 ---@field init_cur_era_num integer
 ---@field init_cur_era_denom integer
 ---@field init_sub_stage integer
----@field histfigs integer[]
----@field sites integer[]
----@field artifacts integer[]
+---@field histfigs integer[] References: historical_figure
+---@field sites integer[] References: world_site
+---@field artifacts integer[] References: artifact_record
 ---@field codices integer[]
 ---@field regions integer[]
 ---@field layers integer[]
----@field entities integer[]
----@field structure_sites integer[]
+---@field entities integer[] References: historical_entity
+---@field structure_sites integer[] References: world_site
 ---@field structures_indices integer[]
 ---@field entity_population integer[]
 ---@field main_choice integer[]
@@ -2199,8 +2199,8 @@ df.adventurer_attribute_level = {}
 
 ---@class startup_charactersheet_petst: df.class
 ---@field name language_name
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field type integer
 df.startup_charactersheet_petst = {}
 
@@ -2221,29 +2221,29 @@ df.adv_background_option_type = {}
 ---@field [2] boolean
 ---@field REGULAR_UNIT boolean
 
----@class setup_character_info: df.class
 ---startup_charactersheetst
+---@class setup_character_info: df.class
 ---@field name language_name
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field skilllevel skill_rating[]
----@field quick_entity_id historical_entity
+---@field quick_entity_id integer References: historical_entity
 ---@field entity_population_id integer
 ---@field breed_id integer
----@field cultural_identity_id cultural_identity
----@field nemesis_index nemesis_record
+---@field cultural_identity_id integer References: cultural_identity
+---@field nemesis_index integer References: nemesis_record
 ---@field start_mil_type integer
 ---@field start_civ_type integer
 ---@field skill_picks_left integer
 ---@field phys_att_range_val adventurer_attribute_level[]
 ---@field ment_att_range_val adventurer_attribute_level[]
 ---@field difficulty setup_character_info_difficulty
----@field start_site_id world_site
+---@field start_site_id integer References: world_site
 ---@field background_start_squad_epp_id integer
 ---@field background_unit profession
 ---@field background_skill_bonus integer[]
----@field worship_hfid historical_figure
----@field worship_enid historical_entity
+---@field worship_hfid integer References: historical_figure
+---@field worship_enid integer References: historical_entity
 ---@field worship_strength integer
 ---@field pform unit_appearance
 ---@field birth_year integer
@@ -2379,8 +2379,8 @@ df.setup_character_info.T_sub_mode = {}
 
 ---@class embark_item_choice: df.class
 ---@field list item_type[][]
----@field race integer[]
----@field caste integer[]
+---@field race integer[] References: creature_raw
+---@field caste integer[] References: caste_raw
 ---@field profession profession[]
 df.embark_item_choice = {}
 
@@ -2397,8 +2397,8 @@ df.embark_item_choice = {}
 ---@field mat_type integer[]
 ---@field mat_index integer[]
 ---@field item_count integer[]
----@field pet_race integer[]
----@field pet_caste integer[]
+---@field pet_race integer[] References: creature_raw
+---@field pet_caste integer[] References: caste_raw
 ---@field pet_profession profession[]
 ---@field pet_count integer[]
 df.embark_profile = {}
@@ -2489,7 +2489,7 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@field points_remaining integer
 ---@field add_item_type item_type
 ---@field add_item_subtype integer
----@field add_mattype material
+---@field add_mattype integer References: material
 ---@field add_matindex integer
 ---@field adding_item integer
 df.viewscreen_setupdwarfgamest = {}
@@ -2735,12 +2735,12 @@ df.world_view_mode_type = {}
 ---@field artifact_fac_holder historical_figure
 df.viewscreen_worldst = {}
 
----@class viewscreen_worldst_rumor_rpd: df.class
 ---region_print_datast
+---@class viewscreen_worldst_rumor_rpd: df.class
 df.viewscreen_worldst.T_rumor_rpd = {}
 
----@class viewscreen_worldst_rumor_rpd_indicator_data: df.class
 ---rpd_indicator_datast
+---@class viewscreen_worldst_rumor_rpd_indicator_data: df.class
 df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 
 ---@class viewscreen_new_arenast: viewscreen

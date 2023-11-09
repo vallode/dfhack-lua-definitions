@@ -4,21 +4,21 @@
 ---@class entity_occasion_info: df.class
 ---@field occasions entity_occasion[]
 ---@field next_occasion_id integer
----@field events integer[]
+---@field events integer[] References: history_event
 ---@field count integer number of elements used in array above
 df.entity_occasion_info = {}
 
----@class entity_occasion: df.class
 ---some festivals are annual, some single time. unk_1=0 plus unk_3=0 seems to match with single time, which doesn't make much sense. Only frequency seen is yearly
+---@class entity_occasion: df.class
 ---@field id integer
 ---@field unk_1 integer 0 and 1 seen
----@field site world_site
+---@field site integer References: world_site
 ---@field unk_2 integer only -1 seen, but based on other cases, might be an abstract building
 ---@field name language_name
 ---@field start_year_tick integer
 ---@field end_year_tick integer
 ---@field unk_3 integer 0-2 seen
----@field event history_event
+---@field event integer References: history_event
 ---@field unk_4 integer only seen with unk_3=2, but is usually not set
 ---@field schedule entity_occasion_schedule[]
 ---@field unk_5 integer only value seen
@@ -225,7 +225,7 @@ df.entity_occasion_schedule_feature = {}
 ---@field discovered_magma_features integer
 ---@field discovered_feature_layers integer back in 40d, this counted HFS
 ---@field migrant_wave_idx integer when >= 2, no migrants
----@field found_minerals integer[] Added after 'you have struck' announcement
+---@field found_minerals integer[] References: inorganic_raw<br>Added after 'you have struck' announcement
 ---@field found_misc entity_activity_statistics_found_misc
 df.entity_activity_statistics = {}
 
@@ -268,17 +268,17 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field trade_state caravan_state_trade_state
 ---@field depot_notified integer has it warned you that you need a depot
 ---@field time_remaining integer
----@field entity historical_entity
+---@field entity integer References: historical_entity
 ---@field activity_stats entity_activity_statistics
 ---@field flags caravan_state_flags
 ---@field import_value integer
 ---@field export_value_total integer
 ---@field export_value_personal integer excluding foreign-produced items
 ---@field offer_value integer
----@field animals integer[]
+---@field animals integer[] References: unit
 ---@field sell_prices entity_sell_prices
 ---@field buy_prices entity_buy_prices
----@field goods integer[]
+---@field goods integer[] References: item
 ---@field mood integer reflects satisfaction with last trading session
 ---@field unk_2 integer
 df.caravan_state = {}
@@ -357,7 +357,7 @@ df.entity_buy_prices = {}
 ---@class entity_buy_requests: df.class
 ---@field item_type item_type[] guess
 ---@field item_subtype integer[] guess
----@field mat_types material[]
+---@field mat_types integer[]
 ---@field mat_indices integer[]
 ---@field mat_cats job_material_category[]
 ---@field priority integer[]
@@ -634,10 +634,10 @@ df.entity_sell_prices = {}
 df.entity_sell_requests = {}
 
 ---@class entity_recipe: df.class
----@field subtype itemdef_foodst
+---@field subtype integer References: itemdef_foodst
 ---@field item_types item_type[]
 ---@field item_subtypes integer[]
----@field mat_types material[]
+---@field mat_types integer[]
 ---@field mat_indices integer[]
 df.entity_recipe = {}
 
@@ -701,9 +701,9 @@ df.historical_entity_type = {}
 ---@field required_kills integer
 ---@field required_battles integer
 ---@field required_years_of_membership integer
----@field honored integer[]
----@field required_position integer[]
----@field required_former_position integer[]
+---@field honored integer[] References: historical_figure
+---@field required_position integer[] References: entity_position
+---@field required_former_position integer[] References: entity_position
 df.honors_type = {}
 
 ---@class _honors_type_flags: df.bitfield
@@ -729,18 +729,18 @@ df.honors_type.T_required_skill_type = {}
 ---@field ranged_weapon boolean
 
 ---@class artifact_claim: df.class
----@field artifact_id artifact_record
+---@field artifact_id integer References: artifact_record
 ---@field claim_type artifact_claim_type
 ---@field symbol_claim_id integer different small numbers, but all claimed by the greedy necro diplomat, but not complete number range present
 ---@field claim_year integer Written contents often seem to lack info of being claimed
 ---@field claim_year_tick integer usually init
 ---@field unk_1 integer
 ---@field artifact artifact_record
----@field site world_site
+---@field site integer References: world_site
 ---@field structure_local integer
----@field holder_hf historical_figure might be owner_hf. all cases encountered have had both field the same when claimed by entity
----@field subregion world_region
----@field feature_layer_id world_underground_region
+---@field holder_hf integer References: historical_figure<br>might be owner_hf. all cases encountered have had both field the same when claimed by entity
+---@field subregion integer References: world_region
+---@field feature_layer_id integer References: world_underground_region
 ---@field unk_year integer seems to be current year or -1. Matches up with corresponding field of artifact_record
 ---@field unk_2 integer only other value seen was 0
 ---@field unk_3 integer uninitialized
@@ -749,12 +749,12 @@ df.honors_type.T_required_skill_type = {}
 ---@field unk_6 historical_entity
 df.artifact_claim = {}
 
----@class entity_unk_v47_1: df.class
 ---The 3 first vectors are of the same length and somehow connected
----@field unk_v47_1 historical_figure seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled
+---@class entity_unk_v47_1: df.class
+---@field unk_v47_1 integer References: historical_figure<br>seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled
 ---@field unk_v47_2 integer some enum?
 ---@field unk_v47_3 integer[] some enum?
----@field agreement integer[]
+---@field agreement integer[] References: agreement
 ---@field unk_v47_5 integer[] boolean?
 ---@field unk_v47_6 integer[]
 ---@field unk_v47_7 integer[]
@@ -770,23 +770,23 @@ df.entity_unk_v47_1 = {}
 ---@field save_file_id integer changes once has 100 entries
 ---@field next_member_idx integer
 ---@field name language_name
----@field race creature_raw
+---@field race integer References: creature_raw
 ---@field flags historical_entity_flags
 ---@field guild_professions historical_entity_guild_professions[] Only seen 1, and only for guilds
 ---@field entity_links entity_entity_link[]
 ---@field site_links entity_site_link[]
----@field histfig_ids integer[]
----@field populations integer[] 1st entry copies to unit.population_id for Adventurer?
----@field nemesis_ids integer[]
+---@field histfig_ids integer[] References: historical_figure
+---@field populations integer[] References: entity_population<br>1st entry copies to unit.population_id for Adventurer?
+---@field nemesis_ids integer[] References: nemesis_record
 ---@field resources historical_entity_resources
 ---@field uniforms entity_uniform[]
 ---@field next_uniform_id integer
 ---@field relations historical_entity_relations
 ---@field positions historical_entity_positions
 ---@field tissue_styles historical_entity_tissue_styles
----@field squads integer[]
+---@field squads integer[] References: squad
 ---@field global_event_knowledge_year integer
----@field local_known_events integer[] since the above year
+---@field local_known_events integer[] References: history_event<br>since the above year
 ---@field production_zone_id integer not sure what this refers to
 ---@field conquered_site_group_flags historical_entity_conquered_site_group_flags actually lives inside a class
 ---@field worldgen_can_make_guildhall integer[]
@@ -797,9 +797,9 @@ df.entity_unk_v47_1 = {}
 ---@field unk_v40_1c integer
 ---@field unk_v40_1d integer
 ---@field unk_v40_1e integer
----@field performed_poetic_forms integer[]
----@field performed_musical_forms integer[]
----@field performed_dance_forms integer[]
+---@field performed_poetic_forms integer[] References: poetic_form
+---@field performed_musical_forms integer[] References: musical_form
+---@field performed_dance_forms integer[] References: dance_form
 ---@field performed_scale_id integer[]
 ---@field performed_rhythm_id integer[]
 ---@field well_known_wcid integer[]
@@ -812,7 +812,7 @@ df.entity_unk_v47_1 = {}
 ---@field total_battles integer attacks + defenses. Only seen on military units
 ---@field unk_v47_1 historical_entity_unk_v47_1
 ---@field divination_sets integer[] Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
----@field founding_site_government historical_entity All cases examined refered to site government of site of founding. Perf troop and merc lack site info but seems reasonable.
+---@field founding_site_government integer References: historical_entity<br>All cases examined refered to site government of site of founding. Perf troop and merc lack site info but seems reasonable.
 ---@field meeting_events meeting_event[]
 ---@field activity_stats entity_activity_statistics
 ---@field last_report_season integer in 0.23, last communicate season
@@ -833,7 +833,7 @@ df.entity_unk_v47_1 = {}
 ---@field derived_resources historical_entity_derived_resources
 ---@field assignments_by_type entity_position_assignment[][]
 ---@field claims historical_entity_claims
----@field children integer[] includes self
+---@field children integer[] References: historical_entity<br>includes self
 ---@field metal_proficiency integer best IMPACT_FRACTURE/10000 + MAX_EDGE/1000 for weapon mats plus best IMPACT_FRACTURE/10000 for armor mats
 ---@field weapon_proficiencies job_skill[]
 ---@field resource_allotment resource_allotment_data Only for SiteGovernment, but not all
@@ -995,45 +995,45 @@ df.historical_entity.T_flags = {}
 ---@field [26] boolean
 ---@field unk26 boolean
 
----@class historical_entity_guild_professions: df.class
 ---Only seen 1, and only for guilds
+---@class historical_entity_guild_professions: df.class
 ---@field id integer Guess, but all are 0, and it matches the standard pattern
 ---@field profession profession
 df.historical_entity.T_guild_professions = {}
 
 ---@class historical_entity_resources: df.class
----@field digger_type integer[]
----@field weapon_type integer[]
----@field training_weapon_type integer[]
----@field armor_type integer[]
----@field ammo_type integer[]
----@field helm_type integer[]
----@field gloves_type integer[]
----@field shoes_type integer[]
----@field pants_type integer[]
----@field shield_type integer[]
----@field trapcomp_type integer[]
----@field toy_type integer[]
----@field instrument_type integer[]
----@field siegeammo_type integer[]
----@field tool_type integer[]
+---@field digger_type integer[] References: itemdef_weaponst
+---@field weapon_type integer[] References: itemdef_weaponst
+---@field training_weapon_type integer[] References: itemdef_weaponst
+---@field armor_type integer[] References: itemdef_armorst
+---@field ammo_type integer[] References: itemdef_ammost
+---@field helm_type integer[] References: itemdef_helmst
+---@field gloves_type integer[] References: itemdef_glovesst
+---@field shoes_type integer[] References: itemdef_shoesst
+---@field pants_type integer[] References: itemdef_pantsst
+---@field shield_type integer[] References: itemdef_shieldst
+---@field trapcomp_type integer[] References: itemdef_trapcompst
+---@field toy_type integer[] References: itemdef_toyst
+---@field instrument_type integer[] References: itemdef_instrumentst
+---@field siegeammo_type integer[] References: itemdef_siegeammost
+---@field tool_type integer[] References: itemdef_toolst
 ---@field unk_1 integer[]
 ---@field metal historical_entity.T_resources_metal
 ---@field organic historical_entity.T_resources_organic
----@field metals integer[] bars
----@field stones integer[] boulders and blocks
----@field gems integer[] small and large cut
+---@field metals integer[] References: inorganic_raw<br>bars
+---@field stones integer[] References: inorganic_raw<br>boulders and blocks
+---@field gems integer[] References: inorganic_raw<br>small and large cut
 ---@field refuse historical_entity.T_resources_refuse
 ---@field misc_mat historical_entity.T_resources_misc_mat
----@field fish_races integer[]
----@field fish_castes integer[]
----@field egg_races integer[]
----@field egg_castes integer[]
+---@field fish_races integer[] References: creature_raw
+---@field fish_castes integer[] References: caste_raw
+---@field egg_races integer[] References: creature_raw
+---@field egg_castes integer[] References: caste_raw
 ---@field plants material_vec_ref
----@field tree_fruit_plants integer[]
----@field tree_fruit_growths integer[]
----@field shrub_fruit_plants integer[]
----@field shrub_fruit_growths integer[]
+---@field tree_fruit_plants integer[] References: plant_raw
+---@field tree_fruit_growths integer[] References: plant_growth
+---@field shrub_fruit_plants integer[] References: plant_raw
+---@field shrub_fruit_growths integer[] References: plant_growth
 ---@field seeds material_vec_ref
 ---@field wood_products historical_entity.T_resources_wood_products lye, charcoal, potash, pearlash, and coke
 ---@field animals historical_entity.T_resources_animals
@@ -1054,8 +1054,8 @@ df.historical_entity.T_guild_professions = {}
 ---@field foreground_color_curses curses_color[]
 ---@field foreground_color_curses_bright boolean[]
 ---@field background_color_curses curses_color[]
----@field foreground_color integer[] foreground color used for the entity symbol in legends mode and the historical maps.
----@field background_color integer[] background color used for the entity symbol in legends mode and the historical maps.
+---@field foreground_color integer[] References: descriptor_color<br>foreground color used for the entity symbol in legends mode and the historical maps.
+---@field background_color integer[] References: descriptor_color<br>background color used for the entity symbol in legends mode and the historical maps.
 df.historical_entity.T_resources = {}
 
 ---@class historical_entity.T_resources_metal: df.class
@@ -1106,35 +1106,35 @@ df.historical_entity.T_resources.T_refuse = {}
 ---@field meat material_vec_ref
 df.historical_entity.T_resources.T_misc_mat = {}
 
----@class historical_entity.T_resources_wood_products: df.class
 ---lye, charcoal, potash, pearlash, and coke
+---@class historical_entity.T_resources_wood_products: df.class
 ---@field item_type item_type[]
 ---@field item_subtype integer[]
 ---@field material material_vec_ref
 df.historical_entity.T_resources.T_wood_products = {}
 
 ---@class historical_entity.T_resources_animals: df.class
----@field pet_races integer[]
----@field wagon_races integer[]
----@field pack_animal_races integer[]
----@field wagon_puller_races integer[]
----@field mount_races integer[]
----@field minion_races integer[]
----@field exotic_pet_races integer[]
----@field pet_castes integer[]
----@field wagon_castes integer[]
----@field pack_animal_castes integer[]
----@field wagon_puller_castes integer[]
----@field mount_castes integer[]
----@field minion_castes integer[]
----@field exotic_pet_castes integer[]
+---@field pet_races integer[] References: creature_raw
+---@field wagon_races integer[] References: creature_raw
+---@field pack_animal_races integer[] References: creature_raw
+---@field wagon_puller_races integer[] References: creature_raw
+---@field mount_races integer[] References: creature_raw
+---@field minion_races integer[] References: creature_raw
+---@field exotic_pet_races integer[] References: creature_raw
+---@field pet_castes integer[] References: caste_raw
+---@field wagon_castes integer[] References: caste_raw
+---@field pack_animal_castes integer[] References: caste_raw
+---@field wagon_puller_castes integer[] References: caste_raw
+---@field mount_castes integer[] References: caste_raw
+---@field minion_castes integer[] References: caste_raw
+---@field exotic_pet_castes integer[] References: caste_raw
 df.historical_entity.T_resources.T_animals = {}
 
 ---@class historical_entity_relations: df.class
----@field known_sites integer[] only civs and site government. Fresh player site government has empty vector
----@field deities integer[]
+---@field known_sites integer[] References: world_site<br>only civs and site government. Fresh player site government has empty vector
+---@field deities integer[] References: historical_figure
 ---@field worship integer[] Same length as deities(?). Some kind of relationship strength?
----@field belief_systems integer[] In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
+---@field belief_systems integer[] References: belief_system<br>In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
 ---@field constructions historical_entity.T_relations_constructions[] only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
 ---@field diplomacy historical_entity.T_relations_diplomacy[]
 ---@field unk33 integer Non zero seen only on site governments (not all) and one nomadic group. Small values
@@ -1142,25 +1142,25 @@ df.historical_entity.T_resources.T_animals = {}
 ---@field unk34b integer[]
 ---@field unk34c integer[]
 ---@field position integer[] position index (not id)
----@field official integer[] holder of office of corresponding position index
+---@field official integer[] References: historical_figure<br>holder of office of corresponding position index
 df.historical_entity.T_relations = {}
 
----@class historical_entity.T_relations_constructions: df.class
 ---only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@class historical_entity.T_relations_constructions: df.class
 ---@field path coord2d_path set only for the first source/destination/construction entry in pairs
----@field source_site world_site
----@field destination_site world_site
----@field construction integer[] set only for the first (source) entry in pairs
+---@field source_site integer References: world_site
+---@field destination_site integer References: world_site
+---@field construction integer[] References: construction<br>set only for the first (source) entry in pairs
 ---@field unk_1 integer 0 and 1 seen, paired with same value in the next field
 ---@field unk_2 integer 0 and 1 seen
 df.historical_entity.T_relations.T_constructions = {}
 
 ---@class historical_entity.T_relations_diplomacy: df.class
----@field group_id historical_entity
+---@field group_id integer References: historical_entity
 ---@field relation integer only 1 and 5 are 'hostile' (from viewscreen_unitlistst::render). Seems to be range 0-5, 2 not seen. 0:neutral/currently not at war, 3:parent->child, 4:child->parent, 1/5 both 'WAR' pre embark
----@field war_event_collection history_event_collection always and only with relation = 1/5
----@field historic_events integer[]
----@field historic_events_collection integer[] seen with war_event_collection set
+---@field war_event_collection integer References: history_event_collection<br>always and only with relation = 1/5
+---@field historic_events integer[] References: history_event
+---@field historic_events_collection integer[] References: history_event_collection<br>seen with war_event_collection set
 ---@field unk_1 integer 0, 1, 4 seen. Non zero seen with relation 0/1
 ---@field tribute_season season
 df.historical_entity.T_relations.T_diplomacy = {}
@@ -1205,7 +1205,7 @@ df.historical_entity.T_training_knowledge = {}
 
 ---@class historical_entity_unk_v47_1: df.class
 ---@field unk_v47_1 entity_unk_v47_1[]
----@field foiled_plot_agreements integer[] Mostly a guess. The foiled plot agreement out of 2 appeared here
+---@field foiled_plot_agreements integer[] References: agreement<br>Mostly a guess. The foiled plot agreement out of 2 appeared here
 ---@field unk_v47_3 integer[]
 ---@field unk_v47_4 integer 0 and 1 seen, but definitely int32
 df.historical_entity.T_unk_v47_1 = {}
@@ -1213,36 +1213,36 @@ df.historical_entity.T_unk_v47_1 = {}
 ---@class historical_entity_derived_resources: df.class
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
----@field armor_leather integer[]
----@field armor_chain integer[]
----@field armor_plate integer[]
----@field armor_under integer[]
----@field armor_over integer[]
----@field armor_cover integer[]
----@field pants_leather integer[]
----@field pants_chain integer[]
----@field pants_plate integer[]
----@field pants_under integer[]
----@field pants_over integer[]
----@field pants_cover integer[]
----@field helm_leather integer[]
----@field helm_chain integer[]
----@field helm_plate integer[]
----@field helm_under integer[]
----@field helm_over integer[]
----@field helm_cover integer[]
----@field shoes_leather integer[]
----@field shoes_chain integer[]
----@field shoes_plate integer[]
----@field shoes_under integer[]
----@field shoes_over integer[]
----@field shoes_cover integer[]
----@field gloves_leather integer[]
----@field gloves_chain integer[]
----@field gloves_plate integer[]
----@field gloves_under integer[]
----@field gloves_over integer[]
----@field gloves_cover integer[]
+---@field armor_leather integer[] References: itemdef_armorst
+---@field armor_chain integer[] References: itemdef_armorst
+---@field armor_plate integer[] References: itemdef_armorst
+---@field armor_under integer[] References: itemdef_armorst
+---@field armor_over integer[] References: itemdef_armorst
+---@field armor_cover integer[] References: itemdef_armorst
+---@field pants_leather integer[] References: itemdef_pantsst
+---@field pants_chain integer[] References: itemdef_pantsst
+---@field pants_plate integer[] References: itemdef_pantsst
+---@field pants_under integer[] References: itemdef_pantsst
+---@field pants_over integer[] References: itemdef_pantsst
+---@field pants_cover integer[] References: itemdef_pantsst
+---@field helm_leather integer[] References: itemdef_helmst
+---@field helm_chain integer[] References: itemdef_helmst
+---@field helm_plate integer[] References: itemdef_helmst
+---@field helm_under integer[] References: itemdef_helmst
+---@field helm_over integer[] References: itemdef_helmst
+---@field helm_cover integer[] References: itemdef_helmst
+---@field shoes_leather integer[] References: itemdef_shoesst
+---@field shoes_chain integer[] References: itemdef_shoesst
+---@field shoes_plate integer[] References: itemdef_shoesst
+---@field shoes_under integer[] References: itemdef_shoesst
+---@field shoes_over integer[] References: itemdef_shoesst
+---@field shoes_cover integer[] References: itemdef_shoesst
+---@field gloves_leather integer[] References: itemdef_glovesst
+---@field gloves_chain integer[] References: itemdef_glovesst
+---@field gloves_plate integer[] References: itemdef_glovesst
+---@field gloves_under integer[] References: itemdef_glovesst
+---@field gloves_over integer[] References: itemdef_glovesst
+---@field gloves_cover integer[] References: itemdef_glovesst
 df.historical_entity.T_derived_resources = {}
 
 ---@class historical_entity_claims: df.class
@@ -1438,9 +1438,9 @@ df.entity_position_flags = {}
 ---@field code string
 ---@field id integer
 ---@field flags entity_position_flags[]
----@field allowed_creature integer[]
+---@field allowed_creature integer[] References: creature_raw
 ---@field allowed_class string[]
----@field rejected_creature integer[]
+---@field rejected_creature integer[] References: creature_raw
 ---@field rejected_class string[]
 ---@field name string[]
 ---@field name_female string[]
@@ -1452,7 +1452,7 @@ df.entity_position_flags = {}
 ---@field land_name string
 ---@field squad_size integer
 ---@field commander_id integer[]
----@field commander_civ integer[]
+---@field commander_civ integer[] References: historical_entity
 ---@field commander_types integer[]
 ---@field land_holder integer
 ---@field requires_population integer
@@ -1461,7 +1461,7 @@ df.entity_position_flags = {}
 ---@field replaced_by integer
 ---@field number integer
 ---@field appointed_by integer[]
----@field appointed_by_civ integer[]
+---@field appointed_by_civ integer[] References: historical_entity
 ---@field succession_by_position integer[]
 ---@field responsibilities boolean[]
 ---@field unk_v50_358 string
@@ -1481,12 +1481,12 @@ df.entity_position = {}
 
 ---@class entity_position_assignment: df.class
 ---@field id integer
----@field histfig historical_figure
----@field histfig2 historical_figure
+---@field histfig integer References: historical_figure
+---@field histfig2 integer References: historical_figure
 ---@field position_id integer position within relevant entity
 ---@field position_vector_idx integer
 ---@field flags boolean[]
----@field squad_id squad
+---@field squad_id integer References: squad
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1635,14 +1635,14 @@ df.entity_material_category = {}
 ---@class entity_uniform_item: df.class
 ---@field random_dye integer
 ---@field armorlevel integer
----@field item_color descriptor_color
+---@field item_color integer References: descriptor_color
 ---@field art_image_id integer
 ---@field art_image_subid integer
----@field image_thread_color descriptor_color
+---@field image_thread_color integer References: descriptor_color
 ---@field image_material_class entity_material_category
 ---@field maker_race integer
 ---@field indiv_choice uniform_indiv_choice
----@field mattype material
+---@field mattype integer References: material
 ---@field matindex integer
 ---@field material_class entity_material_category
 df.entity_uniform_item = {}
@@ -1846,102 +1846,102 @@ df.entity_event = {}
 df.entity_event.T_data = {}
 
 ---@class entity_event.T_data_invasion: df.class
----@field entity_id historical_entity
----@field site_id world_site
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
 ---@field unk_1 integer can't find match. not defender hf/nemesis, for instance
----@field attack_leader_hf historical_figure
+---@field attack_leader_hf integer References: historical_figure
 df.entity_event.T_data.T_invasion = {}
 
 ---@class entity_event.T_data_abduction: df.class
----@field histfig_id historical_figure abductee
----@field site_id world_site
----@field abductor_id historical_figure
----@field event history_event
+---@field histfig_id integer References: historical_figure<br>abductee
+---@field site_id integer References: world_site
+---@field abductor_id integer References: historical_figure
+---@field event integer References: history_event
 df.entity_event.T_data.T_abduction = {}
 
 ---@class entity_event.T_data_incident: df.class
 ---@field unk_1 integer
----@field incident_id incident
+---@field incident_id integer References: incident
 df.entity_event.T_data.T_incident = {}
 
 ---@class entity_event.T_data_occupation: df.class
----@field site_id world_site
----@field entity_id historical_entity
+---@field site_id integer References: world_site
+---@field entity_id integer References: historical_entity
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_occupation = {}
 
 ---@class entity_event.T_data_beast: df.class
----@field histfig_id historical_figure
----@field site_id world_site
----@field region_id world_region
+---@field histfig_id integer References: historical_figure
+---@field site_id integer References: world_site
+---@field region_id integer References: world_region
 df.entity_event.T_data.T_beast = {}
 
 ---@class entity_event.T_data_group: df.class
----@field entity_id historical_entity
----@field site_id world_site
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
 df.entity_event.T_data.T_group = {}
 
 ---@class entity_event.T_data_harass: df.class
----@field entity_id historical_entity
----@field site_id world_site
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
 ---@field unk_1 integer
 df.entity_event.T_data.T_harass = {}
 
 ---@class entity_event.T_data_flee: df.class
----@field refugee_entity_id historical_entity
----@field from_site_id world_site
----@field army_entity_id historical_entity
----@field army_leader_hf_id historical_figure
+---@field refugee_entity_id integer References: historical_entity
+---@field from_site_id integer References: world_site
+---@field army_entity_id integer References: historical_entity
+---@field army_leader_hf_id integer References: historical_figure
 df.entity_event.T_data.T_flee = {}
 
 ---@class entity_event.T_data_abandon: df.class
----@field entity_id historical_entity
----@field site_id world_site
----@field parent_entity_id historical_entity
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
+---@field parent_entity_id integer References: historical_entity
 df.entity_event.T_data.T_abandon = {}
 
 ---@class entity_event.T_data_reclaimed: df.class
----@field behalf_entity_id historical_entity
----@field site_id world_site
----@field reclaimer_entity_id historical_entity
----@field leader_hf historical_figure
+---@field behalf_entity_id integer References: historical_entity
+---@field site_id integer References: world_site
+---@field reclaimer_entity_id integer References: historical_entity
+---@field leader_hf integer References: historical_figure
 df.entity_event.T_data.T_reclaimed = {}
 
 ---@class entity_event.T_data_founded: df.class
----@field entity_id historical_entity
----@field site_id world_site
----@field parent_entity_id historical_entity
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
+---@field parent_entity_id integer References: historical_entity
 ---@field unk_1 integer
 df.entity_event.T_data.T_founded = {}
 
 ---@class entity_event.T_data_reclaiming: df.class
----@field entity_id historical_entity
----@field site_id world_site
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
 ---@field unk_1 integer
----@field first_settler_hf historical_figure strangely enough not expedition leader (settler #2), nor listed as member of site government
+---@field first_settler_hf integer References: historical_figure<br>strangely enough not expedition leader (settler #2), nor listed as member of site government
 df.entity_event.T_data.T_reclaiming = {}
 
 ---@class entity_event.T_data_founding: df.class
----@field entity_id historical_entity
----@field region_id world_region
+---@field entity_id integer References: historical_entity
+---@field region_id integer References: world_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_founding = {}
 
 ---@class entity_event.T_data_leave: df.class
----@field entity_id historical_entity
----@field site_id world_site
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
 df.entity_event.T_data.T_leave = {}
 
 ---@class entity_event.T_data_insurrection: df.class
----@field site_id world_site
----@field entity_id historical_entity
+---@field site_id integer References: world_site
+---@field entity_id integer References: historical_entity
 df.entity_event.T_data.T_insurrection = {}
 
 ---@class entity_event.T_data_insurrection_end: df.class
----@field site_id world_site
----@field entity_id historical_entity
+---@field site_id integer References: world_site
+---@field entity_id integer References: historical_entity
 ---@field result entity_event.T_data.T_insurrection_end_result
 df.entity_event.T_data.T_insurrection_end = {}
 
@@ -1963,125 +1963,125 @@ df.entity_event.T_data.T_insurrection_end.T_result = {}
 ---@field Crushing boolean
 
 ---@class entity_event.T_data_succession: df.class
----@field histfig_id historical_figure
----@field former_histfig_id historical_figure
----@field entity_id historical_entity
+---@field histfig_id integer References: historical_figure
+---@field former_histfig_id integer References: historical_figure
+---@field entity_id integer References: historical_entity
 ---@field position_assignment_id integer
 df.entity_event.T_data.T_succession = {}
 
 ---@class entity_event.T_data_claim: df.class
----@field entity_id historical_entity
----@field site_id world_site
----@field histfig_id historical_figure
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site
+---@field histfig_id integer References: historical_figure
 df.entity_event.T_data.T_claim = {}
 
 ---@class entity_event.T_data_accept_tribute_offer: df.class
----@field entity1_id historical_entity
----@field histfig1_id historical_figure
----@field entity2_id historical_entity
----@field histfig2_id historical_figure
+---@field entity1_id integer References: historical_entity
+---@field histfig1_id integer References: historical_figure
+---@field entity2_id integer References: historical_entity
+---@field histfig2_id integer References: historical_figure
 df.entity_event.T_data.T_accept_tribute_offer = {}
 
 ---@class entity_event.T_data_refuse_tribute_offer: df.class
----@field entity1_id historical_entity
----@field histfig1_id historical_figure
----@field entity2_id historical_entity
----@field histfig2_id historical_figure
+---@field entity1_id integer References: historical_entity
+---@field histfig1_id integer References: historical_figure
+---@field entity2_id integer References: historical_entity
+---@field histfig2_id integer References: historical_figure
 df.entity_event.T_data.T_refuse_tribute_offer = {}
 
 ---@class entity_event.T_data_accept_tribute_demand: df.class
----@field entity1_id historical_entity
----@field histfig1_id historical_figure
----@field entity2_id historical_entity
----@field histfig2_id historical_figure
+---@field entity1_id integer References: historical_entity
+---@field histfig1_id integer References: historical_figure
+---@field entity2_id integer References: historical_entity
+---@field histfig2_id integer References: historical_figure
 df.entity_event.T_data.T_accept_tribute_demand = {}
 
 ---@class entity_event.T_data_refuse_tribute_demand: df.class
----@field entity1_id historical_entity
----@field histfig1_id historical_figure
----@field entity2_id historical_entity
----@field histfig2_id historical_figure
+---@field entity1_id integer References: historical_entity
+---@field histfig1_id integer References: historical_figure
+---@field entity2_id integer References: historical_entity
+---@field histfig2_id integer References: historical_figure
 df.entity_event.T_data.T_refuse_tribute_demand = {}
 
 ---@class entity_event.T_data_accept_peace_offer: df.class
----@field entity1_id historical_entity
----@field histfig1_id historical_figure
----@field entity2_id historical_entity
----@field histfig2_id historical_figure
+---@field entity1_id integer References: historical_entity
+---@field histfig1_id integer References: historical_figure
+---@field entity2_id integer References: historical_entity
+---@field histfig2_id integer References: historical_figure
 df.entity_event.T_data.T_accept_peace_offer = {}
 
 ---@class entity_event.T_data_refuse_peace_offer: df.class
----@field entity1_id historical_entity
----@field histfig1_id historical_figure
----@field entity2_id historical_entity
----@field histfig2_id historical_figure
+---@field entity1_id integer References: historical_entity
+---@field histfig1_id integer References: historical_figure
+---@field entity2_id integer References: historical_entity
+---@field histfig2_id integer References: historical_figure
 df.entity_event.T_data.T_refuse_peace_offer = {}
 
 ---@class entity_event.T_data_cease_tribute_offer: df.class
----@field entity1_id historical_entity
----@field histfig1_id historical_figure
----@field entity2_id historical_entity
----@field histfig2_id historical_figure
+---@field entity1_id integer References: historical_entity
+---@field histfig1_id integer References: historical_figure
+---@field entity2_id integer References: historical_entity
+---@field histfig2_id integer References: historical_figure
 df.entity_event.T_data.T_cease_tribute_offer = {}
 
 ---@class entity_event.T_data_artifact_in_site: df.class
----@field artifact_id artifact_record
----@field site_id world_site
----@field structure_id abstract_building
+---@field artifact_id integer References: artifact_record
+---@field site_id integer References: world_site
+---@field structure_id integer References: abstract_building
 ---@field unk_1 integer looks uninitialized
 df.entity_event.T_data.T_artifact_in_site = {}
 
 ---@class entity_event.T_data_artifact_in_subregion: df.class
----@field artifact_id artifact_record
----@field subregion_id world_region
+---@field artifact_id integer References: artifact_record
+---@field subregion_id integer References: world_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_in_subregion = {}
 
 ---@class entity_event.T_data_artifact_in_feature_layer: df.class
----@field artifact_id artifact_record
----@field feature_layer_id world_underground_region
+---@field artifact_id integer References: artifact_record
+---@field feature_layer_id integer References: world_underground_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_in_feature_layer = {}
 
 ---@class entity_event.T_data_artifact_in_inventory: df.class
----@field artifact_id artifact_record
----@field hist_figure_id historical_figure
+---@field artifact_id integer References: artifact_record
+---@field hist_figure_id integer References: historical_figure
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_in_inventory = {}
 
 ---@class entity_event.T_data_artifact_not_in_site: df.class
----@field artifact_id artifact_record
----@field site_id world_site
----@field structure_id abstract_building
+---@field artifact_id integer References: artifact_record
+---@field site_id integer References: world_site
+---@field structure_id integer References: abstract_building
 ---@field unk_1 integer
 df.entity_event.T_data.T_artifact_not_in_site = {}
 
 ---@class entity_event.T_data_artifact_not_in_subregion: df.class
----@field artifact_id artifact_record
----@field subregion_id world_region
+---@field artifact_id integer References: artifact_record
+---@field subregion_id integer References: world_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_not_in_subregion = {}
 
 ---@class entity_event.T_data_artifact_not_in_feature_layer: df.class
----@field artifact_id artifact_record
----@field feature_layer_id world_underground_region
+---@field artifact_id integer References: artifact_record
+---@field feature_layer_id integer References: world_underground_region
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_not_in_feature_layer = {}
 
 ---@class entity_event.T_data_artifact_not_in_inventory: df.class
----@field artifact_id artifact_record
----@field hist_figure_id historical_figure
+---@field artifact_id integer References: artifact_record
+---@field hist_figure_id integer References: historical_figure
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.entity_event.T_data.T_artifact_not_in_inventory = {}
 
 ---@class entity_event.T_data_artifact_destroyed: df.class
----@field artifact_id artifact_record
+---@field artifact_id integer References: artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -2113,8 +2113,8 @@ df.agreement.T_flags = {}
 
 ---@class agreement_party: df.class
 ---@field id integer
----@field histfig_ids integer[]
----@field entity_ids integer[]
+---@field histfig_ids integer[] References: historical_figure
+---@field entity_ids integer[] References: historical_entity
 ---@field unk_1 agreement_party_unk_1[]
 df.agreement_party = {}
 
@@ -2248,44 +2248,44 @@ df.agreement_details.T_data = {}
 
 ---@class agreement_details_data_join_party: df.class
 ---@field reason history_event_reason
----@field member agreement_party
----@field party agreement_party
----@field site world_site
----@field entity historical_entity
----@field figure historical_figure this is a value_type when reason == sphere_alignment
+---@field member integer References: agreement_party
+---@field party integer References: agreement_party
+---@field site integer References: world_site
+---@field entity integer References: historical_entity
+---@field figure integer References: historical_figure<br>this is a value_type when reason == sphere_alignment
 ---@field unk_v50_1 integer
 ---@field unk_v50_2 integer
 df.agreement_details_data_join_party = {}
 
 ---@class agreement_details_data_demonic_binding: df.class
 ---@field reason history_event_reason
----@field demon agreement_party
----@field summoner agreement_party
----@field site world_site
----@field artifact artifact_record
+---@field demon integer References: agreement_party
+---@field summoner integer References: agreement_party
+---@field site integer References: world_site
+---@field artifact integer References: artifact_record
 ---@field sphere sphere_type
 df.agreement_details_data_demonic_binding = {}
 
 ---@class agreement_details_data_residency: df.class
 ---@field reason history_event_reason
----@field applicant agreement_party
----@field government agreement_party
----@field site world_site
+---@field applicant integer References: agreement_party
+---@field government integer References: agreement_party
+---@field site integer References: world_site
 ---@field unk_v50_1 integer
 ---@field unk_v50_2 integer
 df.agreement_details_data_residency = {}
 
 ---@class agreement_details_data_citizenship: df.class
----@field applicant agreement_party
----@field government agreement_party
----@field site world_site
+---@field applicant integer References: agreement_party
+---@field government integer References: agreement_party
+---@field site integer References: world_site
 ---@field unk_v50_1 integer
 ---@field unk_v50_2 integer
 df.agreement_details_data_citizenship = {}
 
 ---@class agreement_details_data_parley: df.class
 ---@field unk_1 integer
----@field party_id agreement_party
+---@field party_id integer References: agreement_party
 ---@field unk_v50_1 integer
 ---@field unk_v50_2 integer
 ---@field unk_v50_3 integer
@@ -2297,7 +2297,7 @@ df.agreement_details_data_parley = {}
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index
----@field target_id historical_entity
+---@field target_id integer References: historical_entity
 ---@field position_id integer position index in the entity's Own entity_position vector
 df.agreement_details_data_position_corruption = {}
 
@@ -2305,7 +2305,7 @@ df.agreement_details_data_position_corruption = {}
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index
----@field artifact_id artifact_record
+---@field artifact_id integer References: artifact_record
 df.agreement_details_data_plot_steal_artifact = {}
 
 ---@class agreement_details_data_promise_position: df.class
@@ -2314,20 +2314,20 @@ df.agreement_details_data_plot_steal_artifact = {}
 ---@field promisee_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index. May be swapped with beneficiary
 ---@field intermediary_indices integer[] agreement.parties index
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 df.agreement_details_data_promise_position = {}
 
 ---@class agreement_details_data_plot_assassination: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index
----@field target_id historical_figure
+---@field target_id integer References: historical_figure
 df.agreement_details_data_plot_assassination = {}
 
 ---@class agreement_details_data_plot_abduct: df.class
 ---@field actor_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index
----@field target_id historical_figure
+---@field target_id integer References: historical_figure
 ---@field unk_v50_1 integer
 df.agreement_details_data_plot_abduct = {}
 
@@ -2335,7 +2335,7 @@ df.agreement_details_data_plot_abduct = {}
 ---@field plotter_index integer agreement.parties index
 ---@field actor_index integer agreement.parties index
 ---@field intermediary_index integer agreement.parties index. A guess, as no intermediary cases have been seen
----@field victim_id historical_figure
+---@field victim_id integer References: historical_figure
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.agreement_details_data_plot_sabotage = {}
@@ -2346,9 +2346,9 @@ df.agreement_details_data_plot_sabotage = {}
 df.agreement_details_data_plot_conviction = {}
 
 ---@class agreement_details_data_location: df.class
----@field applicant agreement_party
----@field government agreement_party
----@field site world_site
+---@field applicant integer References: agreement_party
+---@field government integer References: agreement_party
+---@field site integer References: world_site
 ---@field type abstract_building_type
 ---@field deity_type temple_deity_type
 ---@field deity_data temple_deity_data
@@ -2367,15 +2367,15 @@ df.agreement_details_data_plot_infiltration_coup = {}
 ---@class agreement_details_data_plot_frame_treason: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
----@field victim_id historical_figure
----@field fool_id historical_figure
----@field unk_1 historical_figure only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though
+---@field victim_id integer References: historical_figure
+---@field fool_id integer References: historical_figure
+---@field unk_1 integer References: historical_figure<br>only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though
 df.agreement_details_data_plot_frame_treason = {}
 
 ---@class agreement_details_data_plot_induce_war: df.class
 ---@field actor_index integer agreement.parties index
 ---@field influencer_index integer agreement.parties index
----@field attacker historical_entity
----@field defender historical_entity
+---@field attacker integer References: historical_entity
+---@field defender integer References: historical_entity
 df.agreement_details_data_plot_induce_war = {}
 

@@ -1,8 +1,8 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.ui-menus
 
+---<br> When creating a building, one record per required item type.<br> E.g. Soap Maker's workshop requires a bucket and a building material.<br>
 ---@class ui_build_item_req: df.class
----When creating a building, one record per required item type. E.g. Soap Maker's workshop requires a bucket and a building material.
 ---@field filter job_item_filter
 ---@field candidates item[]
 ---@field candidate_selected boolean[]
@@ -26,8 +26,8 @@ df.build_req_choice_type = {}
 ---@field [1] boolean
 ---@field Specific boolean
 
----@class build_req_choicest: df.class
 ---One choice in the build item selector.
+---@class build_req_choicest: df.class
 ---@field distance integer
 df.build_req_choicest = {}
 
@@ -50,7 +50,7 @@ function df.build_req_choicest:getNumCandidates() end
 ---@class build_req_choice_genst: build_req_choicest
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field candidates integer[]
 ---@field used_count integer
@@ -67,7 +67,7 @@ df.build_req_choice_specst = {}
 ---@field choices build_req_choicest[]
 ---@field building_type building_type if -1, in Build menu; otherwise select item
 ---@field building_subtype integer
----@field custom_type building_def
+---@field custom_type integer References: building_def
 ---@field stage integer 0 no materials, 1 place, 2 select item
 ---@field req_index integer
 ---@field sel_index integer
@@ -77,8 +77,8 @@ df.build_req_choice_specst = {}
 ---@field tiles integer[][]
 ---@field cur_walk_tag integer
 ---@field plate_info pressure_plate_info
----@field min_weight_races integer[]
----@field max_weight_races integer[]
+---@field min_weight_races integer[] References: creature_raw
+---@field max_weight_races integer[] References: creature_raw
 ---@field friction integer
 ---@field use_dump integer
 ---@field dump_x_shift integer
@@ -230,7 +230,7 @@ df.interface_button_buildingst = {}
 df.interface_button_building_category_selectorst = {}
 
 ---@class interface_button_building_material_selectorst: interface_button_buildingst
----@field material material
+---@field material integer References: material
 ---@field matgloss integer
 ---@field job_item_flag job_material_category
 ---@field prepare_interface integer
@@ -241,7 +241,7 @@ df.interface_button_building_material_selectorst = {}
 ---@field mstring string
 ---@field itemtype item_type
 ---@field subtype integer
----@field material material
+---@field material integer References: material
 ---@field matgloss integer
 ---@field specflag stockpile_group_set
 ---@field spec_id integer refers to various things, such as histfigs OR races
@@ -2155,7 +2155,7 @@ df.main_interface.T_designation = {}
 ---@field filtered_button interface_button[]
 ---@field selected integer
 ---@field category interface_category_building
----@field material material
+---@field material integer References: material
 ---@field matgloss integer
 ---@field job_item_flag job_material_category
 ---@field current_custom_category_token string
@@ -3408,8 +3408,8 @@ df.main_interface.T_hotkey = {}
 ---@field saver main_interface.T_options_saver saverst
 df.main_interface.T_options = {}
 
----@class main_interface.T_options_saver: df.class
 ---saverst
+---@class main_interface.T_options_saver: df.class
 df.main_interface.T_options.T_saver = {}
 
 ---@class main_interface_help: df.class
@@ -3852,21 +3852,21 @@ df.ui_look_list.T_items.T_type = {}
 df.ui_look_list.T_items.T_data = {}
 
 ---@class ui_look_list.T_items.T_data_item: df.class
----@field item_id item
+---@field item_id integer References: item
 df.ui_look_list.T_items.T_data.T_item = {}
 
 ---@class ui_look_list.T_items.T_data_unit: df.class
----@field unit_id unit
+---@field unit_id integer References: unit
 df.ui_look_list.T_items.T_data.T_unit = {}
 
 ---@class ui_look_list.T_items.T_data_building: df.class
----@field bld_id building
+---@field bld_id integer References: building
 df.ui_look_list.T_items.T_data.T_building = {}
 
 ---@class ui_look_list.T_items.T_data_vermin: df.class
 ---@field race integer
 ---@field caste integer
----@field item_id item
+---@field item_id integer References: item
 ---@field flag integer
 ---@field number integer
 df.ui_look_list.T_items.T_data.T_vermin = {}
@@ -3882,14 +3882,14 @@ df.ui_look_list.T_items.T_data.T_flow = {}
 ---@class ui_look_list.T_items.T_data_spatter: df.class
 ---@field i_type item_type
 ---@field i_subtype integer
----@field mat material
+---@field mat integer References: material
 ---@field matg integer
 ---@field matstate matter_state
 ---@field extend integer
 df.ui_look_list.T_items.T_data.T_spatter = {}
 
 ---@class ui_look_list.T_items.T_data_building_item_adv: df.class
----@field item_id item
+---@field item_id integer References: item
 df.ui_look_list.T_items.T_data.T_building_item_adv = {}
 
 ---@class ui_look_list.T_items.T_data_liquid_water: df.class

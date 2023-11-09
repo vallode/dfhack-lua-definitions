@@ -10,7 +10,7 @@
 ---@field block_x integer[]
 ---@field block_y integer[]
 ---@field block_z integer[]
----@field units integer[]
+---@field units integer[] References: unit
 ---@field limit_workshops integer
 ---@field solid_texpos integer
 ---@field blended_texpos integer
@@ -286,14 +286,14 @@ df.ui_sidebar_mode = {}
 ---@field ZonesLocationInfo boolean
 
 ---@class punishment: df.class
----@field criminal unit
----@field officer unit
+---@field criminal integer References: unit
+---@field officer integer References: unit
 ---@field beating integer
 ---@field hammer_strikes integer
 ---@field prison_counter integer
 ---@field unk_10 integer 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
----@field chain building
----@field victims integer[]
+---@field chain integer References: building
+---@field victims integer[] References: unit
 df.punishment = {}
 
 ---@class _kitchen_exc_type: df.enum
@@ -583,7 +583,7 @@ df.equipment_update = {}
 ---@field flags labor_infost_flags
 ---@field work_details work_detail[]
 ---@field chores boolean[]
----@field chores_exempted_children unit[] toady: no_chore_child_unid
+---@field chores_exempted_children integer[] toady: no_chore_child_unid
 df.labor_infost = {}
 
 ---@class _labor_infost_flags: df.bitfield
@@ -597,7 +597,7 @@ df.labor_infost.T_flags = {}
 
 ---@class plotinfost: df.class
 ---@field game_state integer 2 running, 1 lost to siege, 0 lost
----@field lost_to_siege_civ historical_entity
+---@field lost_to_siege_civ integer References: historical_entity
 ---@field tax_collection plotinfost_tax_collection
 ---@field nobles plotinfost_nobles
 ---@field caravans caravan_state[]
@@ -621,10 +621,10 @@ df.labor_infost.T_flags = {}
 ---@field adamantine_mandate_number integer
 ---@field fortress_age integer ?; +1 per 10; used in first 2 migrant waves etc
 ---@field tasks entity_activity_statistics
----@field meeting_requests integer[] guild complaints and diplomats
+---@field meeting_requests integer[] References: unit<br>guild complaints and diplomats
 ---@field activities activity_info[]
 ---@field dip_meeting_info meeting_diplomat_info[]
----@field aid_requesters integer[]
+---@field aid_requesters integer[] References: unit
 ---@field game_over boolean
 ---@field invasions plotinfost_invasions
 ---@field punishments punishment[]
@@ -635,12 +635,12 @@ df.labor_infost.T_flags = {}
 ---@field economic_stone boolean[]
 ---@field unk23c8_flags plotinfost_unk23c8_flags
 ---@field mood_cooldown integer
----@field civ_id historical_entity
----@field site_id world_site
----@field group_id historical_entity i.e. specifically the fortress dwarves
----@field race_id creature_raw
----@field unk_races integer[]
----@field farm_crops integer[]
+---@field civ_id integer References: historical_entity
+---@field site_id integer References: world_site
+---@field group_id integer References: historical_entity<br>i.e. specifically the fortress dwarves
+---@field race_id integer References: creature_raw
+---@field unk_races integer[] References: creature_raw
+---@field farm_crops integer[] References: plant_raw
 ---@field farm_seasons season[]
 ---@field economy_prices plotinfost_economy_prices
 ---@field stockpile plotinfost_stockpile
@@ -653,7 +653,7 @@ df.labor_infost.T_flags = {}
 ---@field feature_y integer[]
 ---@field feature_id_local integer[]
 ---@field feature_id_global integer[]
----@field event_collections integer[]
+---@field event_collections integer[] References: history_event_collection
 ---@field stone_mat_types integer[]
 ---@field stone_mat_indexes integer[]
 ---@field waypoints plotinfost_waypoints
@@ -666,7 +666,7 @@ df.labor_infost.T_flags = {}
 ---@field unk_6 integer[] observed allocating 4 bytes
 ---@field unk_7 integer[]
 ---@field theft_intrigues plotinfost_theft_intrigues[] related to job_type unk_fake_no_activity
----@field infiltrator_histfigs integer[]
+---@field infiltrator_histfigs integer[] References: historical_figure
 ---@field infiltrator_years integer[]
 ---@field infiltrator_year_ticks integer[]
 ---@field tutorial_hide help_context_type[]
@@ -675,16 +675,16 @@ df.labor_infost.T_flags = {}
 ---@field food_warn_year_tick integer
 ---@field main plotinfost_main
 ---@field squads plotinfost_squads
----@field follow_unit unit
----@field follow_item item
----@field selected_farm_crops integer[] valid for the currently queried farm plot
+---@field follow_unit integer References: unit
+---@field follow_item integer References: item
+---@field selected_farm_crops integer[] References: plant_raw<br>valid for the currently queried farm plot
 ---@field available_seeds boolean[]
 df.plotinfost = {}
 
 ---@class plotinfost_tax_collection: df.class
 ---@field state integer
 ---@field check_timer integer
----@field rooms integer[]
+---@field rooms integer[] References: building
 ---@field reach_room_timer integer
 ---@field tc_protect_timer integer
 ---@field guard1_reach_tc_timer integer
@@ -742,7 +742,7 @@ df.plotinfost.T_invasions = {}
 ---@class plotinfost_kitchen: df.class
 ---@field item_types item_type[]
 ---@field item_subtypes integer[]
----@field mat_types material[]
+---@field mat_types integer[]
 ---@field mat_indices integer[]
 ---@field exc_types kitchen_exc_type[]
 df.plotinfost.T_kitchen = {}
@@ -894,7 +894,7 @@ df.plotinfost.T_waypoints.T_routes = {}
 ---@field list burrow[]
 ---@field next_id integer
 ---@field sel_index integer
----@field sel_id burrow
+---@field sel_id integer References: burrow
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
 ---@field list_units unit[]
@@ -922,7 +922,7 @@ df.plotinfost.T_alerts = {}
 ---@class plotinfost.T_alerts_list: df.class
 ---@field id integer
 ---@field name string
----@field burrows integer[]
+---@field burrows integer[] References: burrow
 df.plotinfost.T_alerts.T_list = {}
 
 ---@class plotinfost.T_alerts_routines: df.class
@@ -936,11 +936,11 @@ df.plotinfost.T_alerts.T_routines = {}
 ---@field items_unassigned integer[][]
 ---@field items_assigned integer[][]
 ---@field update equipment_update
----@field work_weapons item[] i.e. woodcutter axes, and miner picks
----@field work_units unit[]
+---@field work_weapons integer[] i.e. woodcutter axes, and miner picks
+---@field work_units integer[]
 ---@field hunter_ammunition squad_ammo_spec[]
----@field ammo_items item[]
----@field ammo_units unit[]
+---@field ammo_items integer[]
+---@field ammo_units integer[]
 ---@field training_assignments training_assignment[] sorted by animal_id
 df.plotinfost.T_equipment = {}
 
@@ -955,16 +955,16 @@ df.plotinfost.T_equipment = {}
 ---@field cursor_stop integer
 df.plotinfost.T_hauling = {}
 
----@class plotinfost_theft_intrigues: df.class
 ---related to job_type unk_fake_no_activity
----@field target_item item
----@field mastermind_hf historical_figure always same as corruptor_hf?
+---@class plotinfost_theft_intrigues: df.class
+---@field target_item integer References: item
+---@field mastermind_hf integer References: historical_figure<br>always same as corruptor_hf?
 ---@field mastermind_plot_id integer refers to historical_figure_info::T_relationships::T_intrigues::T_plots::id
----@field corruptor_hf historical_figure
----@field corruptor unit
----@field corruptee_hf historical_figure
----@field corruptee unit
----@field theft_agreement agreement
+---@field corruptor_hf integer References: historical_figure
+---@field corruptor integer References: unit
+---@field corruptee_hf integer References: historical_figure
+---@field corruptee integer References: unit
+---@field theft_agreement integer References: agreement
 ---@field unk_9 integer
 ---@field item_known_pos coord
 ---@field unk_11 integer[]
@@ -1007,10 +1007,10 @@ df.plotinfost.T_theft_intrigues = {}
 ---@field in_rename_hotkey boolean
 df.plotinfost.T_main = {}
 
----@class plotinfost.T_main_dead_citizens: df.class
 ---?
----@field unit_id unit
----@field histfig_id historical_figure
+---@class plotinfost.T_main_dead_citizens: df.class
+---@field unit_id integer References: unit
+---@field histfig_id integer References: historical_figure
 ---@field death_year integer
 ---@field death_time integer
 ---@field timer integer +1 per 10
@@ -1027,7 +1027,7 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field list squad[] valid only when ui is displayed
 ---@field unk6e08 integer[]
 ---@field sel_squads boolean[]
----@field indiv_selected historical_figure[]
+---@field indiv_selected integer[]
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad integer
 ---@field unk_70 integer
@@ -1094,7 +1094,7 @@ df.timed_event_type = {}
 ---@field season_ticks integer 1 tick = 10 frames
 ---@field entity historical_entity
 ---@field unk_1 integer
----@field layer_id world_underground_region
+---@field layer_id integer References: world_underground_region
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.timed_event = {}

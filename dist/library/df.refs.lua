@@ -362,22 +362,22 @@ function df.general_ref:getDescription2(str) end
 function df.general_ref:getDescription3(str) end
 
 ---@class general_ref_artifact: general_ref
----@field artifact_id artifact_record
+---@field artifact_id integer References: artifact_record
 df.general_ref_artifact = {}
 
 ---@class general_ref_nemesis: general_ref
----@field nemesis_id nemesis_record
+---@field nemesis_id integer References: nemesis_record
 df.general_ref_nemesis = {}
 
 ---@class general_ref_item: general_ref
----@field item_id item
+---@field item_id integer References: item
 ---@field cached_index integer lookup optimization, tries before binary search
 df.general_ref_item = {}
 
 ---@class general_ref_item_type: general_ref
 ---@field type item_type
 ---@field subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.general_ref_item_type = {}
 
@@ -387,30 +387,30 @@ df.general_ref_coinbatch = {}
 
 ---@class general_ref_mapsquare: general_ref
 ---@field tiletype tiletype
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 df.general_ref_mapsquare = {}
 
 ---@class general_ref_entity_art_image: general_ref
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 ---@field index integer lookup in entity.resources.art_image_*
 df.general_ref_entity_art_image = {}
 
 ---@class general_ref_projectile: general_ref
----@field projectile_id projectile
+---@field projectile_id integer References: projectile
 df.general_ref_projectile = {}
 
 ---@class general_ref_unit: general_ref
----@field unit_id unit
+---@field unit_id integer References: unit
 ---@field cached_index integer lookup optimization, tries before binary search
 df.general_ref_unit = {}
 
 ---@class general_ref_building: general_ref
----@field building_id building
+---@field building_id integer References: building
 df.general_ref_building = {}
 
 ---@class general_ref_entity: general_ref
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 df.general_ref_entity = {}
 
 ---@class general_ref_locationst: general_ref
@@ -420,19 +420,19 @@ df.general_ref_entity = {}
 df.general_ref_locationst = {}
 
 ---@class general_ref_interactionst: general_ref
----@field interaction_id interaction
----@field source_id interaction_source
+---@field interaction_id integer References: interaction
+---@field source_id integer References: interaction_source
 ---@field unk_08 integer
 ---@field unk_0c integer
 df.general_ref_interactionst = {}
 
 ---@class general_ref_abstract_buildingst: general_ref
----@field site_id world_site
----@field building_id abstract_building
+---@field site_id integer References: world_site
+---@field building_id integer References: abstract_building
 df.general_ref_abstract_buildingst = {}
 
 ---@class general_ref_historical_eventst: general_ref
----@field event_id history_event
+---@field event_id integer References: history_event
 df.general_ref_historical_eventst = {}
 
 ---@class general_ref_spherest: general_ref
@@ -440,31 +440,31 @@ df.general_ref_historical_eventst = {}
 df.general_ref_spherest = {}
 
 ---@class general_ref_sitest: general_ref
----@field site_id world_site
+---@field site_id integer References: world_site
 df.general_ref_sitest = {}
 
 ---@class general_ref_subregionst: general_ref
----@field region_id world_region
+---@field region_id integer References: world_region
 df.general_ref_subregionst = {}
 
 ---@class general_ref_feature_layerst: general_ref
----@field underground_region_id world_underground_region
+---@field underground_region_id integer References: world_underground_region
 df.general_ref_feature_layerst = {}
 
 ---@class general_ref_historical_figurest: general_ref
----@field hist_figure_id historical_figure
+---@field hist_figure_id integer References: historical_figure
 df.general_ref_historical_figurest = {}
 
 ---@class general_ref_entity_popst: general_ref
 ---@field unk_1 integer
----@field race creature_raw
+---@field race integer References: creature_raw
 ---@field unk_2 integer
 ---@field flags undead_flags
 df.general_ref_entity_popst = {}
 
 ---@class general_ref_creaturest: general_ref
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field flags undead_flags
@@ -475,7 +475,7 @@ df.general_ref_creaturest = {}
 df.general_ref_knowledge_scholar_flagst = {}
 
 ---@class general_ref_activity_eventst: general_ref
----@field activity_id activity_entry
+---@field activity_id integer References: activity_entry
 ---@field event_id integer
 df.general_ref_activity_eventst = {}
 
@@ -489,19 +489,19 @@ df.general_ref_value_levelst = {}
 df.general_ref_languagest = {}
 
 ---@class general_ref_written_contentst: general_ref
----@field written_content_id written_content
+---@field written_content_id integer References: written_content
 df.general_ref_written_contentst = {}
 
 ---@class general_ref_poetic_formst: general_ref
----@field poetic_form_id poetic_form
+---@field poetic_form_id integer References: poetic_form
 df.general_ref_poetic_formst = {}
 
 ---@class general_ref_musical_formst: general_ref
----@field musical_form_id musical_form
+---@field musical_form_id integer References: musical_form
 df.general_ref_musical_formst = {}
 
 ---@class general_ref_dance_formst: general_ref
----@field dance_form_id dance_form
+---@field dance_form_id integer References: dance_form
 df.general_ref_dance_formst = {}
 
 ---@class general_ref_is_artifactst: general_ref_artifact
@@ -859,7 +859,7 @@ df.histfig_entity_link_type = {}
 ---@field FORMER_OCCUPATION boolean
 
 ---@class histfig_entity_link: df.class
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 ---@field entity_vector_idx integer
 ---@field link_strength integer
 df.histfig_entity_link = {}
@@ -1006,9 +1006,9 @@ df.histfig_site_link_type = {}
 ---@field PRISON_SITE_BUILDING_PROFILE boolean
 
 ---@class histfig_site_link: df.class
----@field site world_site
+---@field site integer References: world_site
 ---@field sub_id integer from XML
----@field entity historical_entity
+---@field entity integer References: historical_entity
 df.histfig_site_link = {}
 
 ---@return histfig_site_link_type
@@ -1126,7 +1126,7 @@ df.histfig_hf_link_type = {}
 ---@field DECEASED_SPOUSE boolean
 
 ---@class histfig_hf_link: df.class
----@field target_hf historical_figure
+---@field target_hf integer References: historical_figure
 ---@field link_strength integer
 df.histfig_hf_link = {}
 
@@ -1213,7 +1213,7 @@ df.entity_entity_link_type = {}
 
 ---@class entity_entity_link: df.class
 ---@field type entity_entity_link_type
----@field target historical_entity
+---@field target integer References: historical_entity
 ---@field strength integer
 df.entity_entity_link = {}
 
@@ -1321,8 +1321,8 @@ df.entity_site_link_flags = {}
 ---@field holy_city boolean
 
 ---@class entity_site_link: df.class
----@field target world_site
----@field entity_id historical_entity
+---@field target integer References: world_site
+---@field entity_id integer References: historical_entity
 ---@field entity_cache_index integer not saved
 ---@field position_profile_id integer index into entity.positions.assignments of Civilization (?)
 ---@field type entity_site_link_type called location in df source
@@ -1340,8 +1340,8 @@ df.entity_site_link_flags = {}
 ---@field last_checked_army_year_tick integer paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
 df.entity_site_link = {}
 
----@class entity_site_link_ab_profile: df.class
 ---When a single element the first value makes sense as an abstract building related to the entity, but longer lists do not, including numbers larger than the number of abstract buildings
+---@class entity_site_link_ab_profile: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer 1, 2, 5 seen
 df.entity_site_link.T_ab_profile = {}

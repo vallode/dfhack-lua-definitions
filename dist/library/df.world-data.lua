@@ -59,7 +59,7 @@ df.embark_note = {}
 ---@field region_x integer
 ---@field region_y integer
 ---@field feature_idx integer
----@field cave_id world_underground_region
+---@field cave_id integer References: world_underground_region
 ---@field unk_28 integer
 ---@field population_idx integer
 ---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
@@ -103,7 +103,7 @@ df.local_population.T_flags = {}
 ---@field count_min integer
 ---@field count_max integer
 ---@field unk_c integer
----@field owner historical_entity
+---@field owner integer References: historical_entity
 ---@field unk_10 integer
 ---@field unk_14 integer
 ---@field unk_18 integer
@@ -181,11 +181,11 @@ df.world_region_type = {}
 ---@field population world_population[]
 ---@field biome_tile_counts integer[]
 ---@field tree_biomes biome_type[]
----@field tree_tiles_1 plant_raw[]
----@field tree_tiles_2 plant_raw[]
----@field tree_tiles_good plant_raw[]
----@field tree_tiles_evil plant_raw[]
----@field tree_tiles_savage plant_raw[]
+---@field tree_tiles_1 integer[]
+---@field tree_tiles_2 integer[]
+---@field tree_tiles_good integer[]
+---@field tree_tiles_evil integer[]
+---@field tree_tiles_savage integer[]
 ---@field dead_percentage integer % vegetation dead on embark. The number increases during world gen history, with the new ones always at 100%
 ---@field unk_1e5 boolean Probably optionally set only on good and evil regions during world gen. Number set increases during world gen history and can affect neutral.
 ---@field unk_1e6 boolean Probably optionally set only on neutral regions
@@ -194,7 +194,7 @@ df.world_region_type = {}
 ---@field evil boolean
 ---@field good boolean
 ---@field lake_surface integer
----@field forces integer[] historical figure IDs of force deities associated with the region. Number set increases during civ placement
+---@field forces integer[] References: historical_figure<br>historical figure IDs of force deities associated with the region. Number set increases during civ placement
 ---@field unk_v47_2 integer Number set increases during civ placement
 ---@field mid_x integer
 ---@field mid_y integer
@@ -241,8 +241,8 @@ df.world_underground_region.T_type = {}
 ---@field [2] boolean
 ---@field Underworld boolean
 
+---<br> Additional river information:<br> The flow element affects the width of the river and seems to follow the<br> formula width = (flow / 40000 * 46) + 1, with a minimum width of 4 and<br> a maximum width of 47. DF uses specific names for rivers with certain flows:<br> - Stream: less than 5000<br> - Minor River 5000 - 9999<br> - River 10000 - 19999<br> - Major River: greather than 20000<br> Brooks tend to have a flow of 0, but DF has divided the controlling information<br> between this structure, the region map entry (below), and the feature map.<br> Thus, the region map flag 'is_brook' controls whether a water course actually<br> is a (potentially broad) brook or an open water course. Likewise, the 'has_river'<br> flag is needed for DF to properly understand a water course should be present.<br> The exit tile holds the information on which mid level tile the river should<br> exit the region. Presumably the path controls which edge to apply this to.<br> Note that the river up/down/left/right flags of the region map entry should<br> align with the sides rivers enter/exit.<br> The feature map has to have a river entry for the corresponding world tile<br> for a river to be implemented properly. All this is done by DF, but needs<br> to be known if hacking.<br> The world region details (below) data on rivers are generated as the regions<br> are generated.<br> The elevation element affects the level of the river. If the river elevation<br> is lower than the surrounding area DF tends to generate a valley around the<br> river to allow it to reach the correct elevation.<br>
 ---@class world_river: df.class
----Additional river information: The flow element affects the width of the river and seems to follow the formula width = (flow / 40000 * 46) + 1, with a minimum width of 4 and a maximum width of 47. DF uses specific names for rivers with certain flows: - Stream: less than 5000 - Minor River 5000 - 9999 - River 10000 - 19999 - Major River: greather than 20000 Brooks tend to have a flow of 0, but DF has divided the controlling information between this structure, the region map entry (below), and the feature map. Thus, the region map flag 'is_brook' controls whether a water course actually is a (potentially broad) brook or an open water course. Likewise, the 'has_river' flag is needed for DF to properly understand a water course should be present. The exit tile holds the information on which mid level tile the river should exit the region. Presumably the path controls which edge to apply this to. Note that the river up/down/left/right flags of the region map entry should align with the sides rivers enter/exit. The feature map has to have a river entry for the corresponding world tile for a river to be implemented properly. All this is done by DF, but needs to be known if hacking. The world region details (below) data on rivers are generated as the regions are generated. The elevation element affects the level of the river. If the river elevation is lower than the surrounding area DF tends to generate a valley around the river to allow it to reach the correct elevation.
 ---@field name language_name
 ---@field path coord2d_path
 ---@field flow integer[]
@@ -301,8 +301,8 @@ df.geo_layer_type.attrs = {}
 
 ---@class world_geo_layer: df.class
 ---@field type geo_layer_type
----@field mat_index inorganic_raw
----@field vein_mat integer[]
+---@field mat_index integer References: inorganic_raw
+---@field vein_mat integer[] References: inorganic_raw
 ---@field vein_nested_in integer[] Index of the other vein this one is nested in, or -1
 ---@field vein_type inclusion_type[]
 ---@field vein_unk_38 integer[] density??
@@ -318,7 +318,7 @@ df.world_geo_biome = {}
 
 ---@class world_region_feature: df.class
 ---@field feature_idx integer
----@field layer world_underground_region
+---@field layer integer References: world_underground_region
 ---@field region_tile_idx integer
 ---@field min_z integer
 ---@field max_z integer
@@ -330,12 +330,12 @@ df.world_geo_biome = {}
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 df.world_region_feature = {}
 
+---biome field reference:<br> 789<br> 456<br> 123<br> as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@class world_region_details: df.class
----biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
----@field biome integer[][] biome field reference: 789 456 123 as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
+---@field biome integer[][] biome field reference:<br> 789<br> 456<br> 123<br> as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@field elevation integer[][]
 ---@field seed integer[][] looks random
----@field edges world_region_details_edges In order to determine how biomes cross embark tile edges, the rectangle framing an embark tile is split into 4 corners, and 4 straight edge segments, using ranges measured in tiles: +-/----/+ | / / * | / / +-/-/---+ After this, each corner and edge segment is assigned the biome of one of the adjoining 4 or 2 embark tiles, based on the values in these arrays. It may be necessary to access adjacent details objects to collect the full outline: c11 x11 | c21 y11 *** | y21 ------------- c12 x12 | c22 There are also certain rules forcing ocean/lake biomes to lose edges to mountains, and both of them to anything else, no matter what the original array value is. The actual biomes for tiles in the frame are semi-randomly interpolated from this edge spec. For some reason DF provides for all edges of all mid level tiles in a world tile, but not for the corners on the south and east edges: for these you have to go to the next world tile. This has some effect on the corners on the south and east edges of the world where there are no adjacent tiles to get the data from. There the rules are static: the biomes of corners are taken from the easternmost and southernmost of the two touching corners. The rules for corner determination when the biome_corner field has specified a biome that's specified to yield as per the above seems to be to first take the NW corner (0), then the NE (1) one, and then the SW (2) one. If the selected corner doesn't exist (because it's outside of the world) the same fallback corner selection is used, with the exception of a northern row selection of NW (0), where the home corner (3) is selected.
+---@field edges world_region_details_edges <br> In order to determine how biomes cross embark tile edges,<br> the rectangle framing an embark tile is split into 4 corners,<br> and 4 straight edge segments, using ranges measured in tiles:<br><br> +-/----/+<br> | /<br> / * |<br> / /<br> +-/-/---+<br><br> After this, each corner and edge segment is assigned the biome<br> of one of the adjoining 4 or 2 embark tiles, based on the values<br> in these arrays. It may be necessary to access adjacent details<br> objects to collect the full outline:<br><br> c11 x11 | c21<br> y11 *** | y21<br> -------------<br> c12 x12 | c22<br><br> There are also certain rules forcing ocean/lake biomes to lose<br> edges to mountains, and both of them to anything else, no matter<br> what the original array value is. The actual biomes for tiles in<br> the frame are semi-randomly interpolated from this edge spec.<br><br> For some reason DF provides for all edges of all mid level tiles<br> in a world tile, but not for the corners on the south and east<br> edges: for these you have to go to the next world tile.<br> This has some effect on the corners on the south and east edges of<br> the world where there are no adjacent tiles to get the data from.<br> There the rules are static: the biomes of corners are taken from<br> the easternmost and southernmost of the two touching corners.<br><br> The rules for corner determination when the biome_corner field has<br> specified a biome that's specified to yield as per the above seems<br> to be to first take the NW corner (0), then the NE (1) one, and<br> then the SW (2) one. If the selected corner doesn't exist (because<br> it's outside of the world) the same fallback corner selection is<br> used, with the exception of a northern row selection of NW (0),<br> where the home corner (3) is selected.<br>
 ---@field pos coord2d
 ---@field unk12e8 integer
 ---@field unk_1 integer
@@ -346,17 +346,17 @@ df.world_region_feature = {}
 ---@field rivers_horizontal world_region_details_rivers_horizontal
 ---@field other_features integer[][]
 ---@field features world_region_feature[][][]
----@field lava_stone inorganic_raw
+---@field lava_stone integer References: inorganic_raw
 ---@field unk_12 integer[] Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
 ---@field elevation2 integer[][]
 ---@field undef13 integer[]
 df.world_region_details = {}
 
+---<br> In order to determine how biomes cross embark tile edges,<br> the rectangle framing an embark tile is split into 4 corners,<br> and 4 straight edge segments, using ranges measured in tiles:<br><br> +-/----/+<br> | /<br> / * |<br> / /<br> +-/-/---+<br><br> After this, each corner and edge segment is assigned the biome<br> of one of the adjoining 4 or 2 embark tiles, based on the values<br> in these arrays. It may be necessary to access adjacent details<br> objects to collect the full outline:<br><br> c11 x11 | c21<br> y11 *** | y21<br> -------------<br> c12 x12 | c22<br><br> There are also certain rules forcing ocean/lake biomes to lose<br> edges to mountains, and both of them to anything else, no matter<br> what the original array value is. The actual biomes for tiles in<br> the frame are semi-randomly interpolated from this edge spec.<br><br> For some reason DF provides for all edges of all mid level tiles<br> in a world tile, but not for the corners on the south and east<br> edges: for these you have to go to the next world tile.<br> This has some effect on the corners on the south and east edges of<br> the world where there are no adjacent tiles to get the data from.<br> There the rules are static: the biomes of corners are taken from<br> the easternmost and southernmost of the two touching corners.<br><br> The rules for corner determination when the biome_corner field has<br> specified a biome that's specified to yield as per the above seems<br> to be to first take the NW corner (0), then the NE (1) one, and<br> then the SW (2) one. If the selected corner doesn't exist (because<br> it's outside of the world) the same fallback corner selection is<br> used, with the exception of a northern row selection of NW (0),<br> where the home corner (3) is selected.<br>
 ---@class world_region_details_edges: df.class
----In order to determine how biomes cross embark tile edges, the rectangle framing an embark tile is split into 4 corners, and 4 straight edge segments, using ranges measured in tiles: +-/----/+ | / / * | / / +-/-/---+ After this, each corner and edge segment is assigned the biome of one of the adjoining 4 or 2 embark tiles, based on the values in these arrays. It may be necessary to access adjacent details objects to collect the full outline: c11 x11 | c21 y11 *** | y21 ------------- c12 x12 | c22 There are also certain rules forcing ocean/lake biomes to lose edges to mountains, and both of them to anything else, no matter what the original array value is. The actual biomes for tiles in the frame are semi-randomly interpolated from this edge spec. For some reason DF provides for all edges of all mid level tiles in a world tile, but not for the corners on the south and east edges: for these you have to go to the next world tile. This has some effect on the corners on the south and east edges of the world where there are no adjacent tiles to get the data from. There the rules are static: the biomes of corners are taken from the easternmost and southernmost of the two touching corners. The rules for corner determination when the biome_corner field has specified a biome that's specified to yield as per the above seems to be to first take the NW corner (0), then the NE (1) one, and then the SW (2) one. If the selected corner doesn't exist (because it's outside of the world) the same fallback corner selection is used, with the exception of a northern row selection of NW (0), where the home corner (3) is selected.
 ---@field split_x coord2d[][] splits for horizontal edges, x=min y=max
 ---@field split_y coord2d[][] splits for vertical edges, x=min y=max
----@field biome_corner integer[][] All 4 corners touching get the same reference (which determines the biome), i.e. SE corner of the tile to the NW, SW corner of the tile to the N, NE corner of the tile to the W, and the NW corner of the current tile, as directed by the biome_corner value.
+---@field biome_corner integer[][] <br> All 4 corners touching get the same reference (which determines the biome),<br> i.e. SE corner of the tile to the NW, SW corner of the tile to the<br> N, NE corner of the tile to the W, and the NW corner of the current<br> tile, as directed by the biome_corner value.<br>
 ---@field biome_x integer[][] 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
 ---@field biome_y integer[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 df.world_region_details.T_edges = {}
@@ -583,9 +583,9 @@ df.fog_type = {}
 ---@field unk_3e coord
 ---@field unk_44 coord
 ---@field unk_4a coord
----@field region_id world_region
----@field landmass_id world_landmass
----@field geo_index world_geo_biome
+---@field region_id integer References: world_region
+---@field landmass_id integer References: world_landmass
+---@field geo_index integer References: world_geo_biome
 df.region_map_entry = {}
 
 ---@class _region_map_entry_clouds: df.bitfield
@@ -667,7 +667,7 @@ df.entity_claim_mask = {}
 ---@field unk_c integer
 ---@field unk_10 integer
 ---@field members moving_party_members[]
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 ---@field flags boolean[]
 ---@field unk_30 integer[]
 ---@field unk_40 integer[]
@@ -675,12 +675,12 @@ df.entity_claim_mask = {}
 ---@field unk_72 integer
 ---@field unk_74 integer
 ---@field unk_7c integer
----@field region_id world_region
+---@field region_id integer References: world_region
 ---@field beast_id integer for FB
 df.moving_party = {}
 
 ---@class moving_party_members: df.class
----@field nemesis_id nemesis_record
+---@field nemesis_id integer References: nemesis_record
 ---@field hunger integer
 ---@field thirst integer
 ---@field sleepiness integer
@@ -717,8 +717,8 @@ df.world_object_data = {}
 ---@field global_x integer in tiles it seems
 ---@field global_y integer
 ---@field global_z integer
----@field container item
----@field building building
+---@field container integer References: item
+---@field building integer References: building
 ---@field unk_18 integer
 df.world_object_data.T_offloaded_items = {}
 
@@ -737,8 +737,8 @@ df.world_object_data.T_offloaded_buildings = {}
 ---@field unk_c integer
 df.world_object_data.T_unk_94 = {}
 
----@class world_object_data_picked_growths: df.class
 ---also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
+---@class world_object_data_picked_growths: df.class
 ---@field x integer[] 0 - 47, within the MLT
 ---@field y integer[] 0 - 47, within the MLT
 ---@field z integer[] z coordinate using the elevation coordinate system
@@ -747,8 +747,8 @@ df.world_object_data.T_unk_94 = {}
 ---@field year integer[] presumably to know whether it's the current year's harvest or the previous one's
 df.world_object_data.T_picked_growths = {}
 
----@class world_object_data_unk_v43: df.class
 ---probably used by Adventurer mode
+---@class world_object_data_unk_v43: df.class
 ---@field x integer[] probably MLT relative x coordinate
 ---@field y integer[] probably MLT relative y coordinate
 ---@field z integer[] probably z coordinate using the elevation coordinate system
@@ -771,8 +771,8 @@ df.mountain_peak_flags = {}
 ---@field height integer
 df.world_mountain_peak = {}
 
+---<br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
 ---@class world_data: df.class
----Additional feature_map information: The feature_map is a two dimensional structure dividing the world into 16 * 16 world tile "feature shells" (and remember that there's a single tile wide shell at the end of each dimension, so a pocket world has a shell dimension of 2 * 2). These shells are loaded and unloaded dynamically, which means trying to access a shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark cursor is) is invalid and can lead to DF crashing. The "features.feature_init" 16 * 16 structure contains the features of each of the corresponding world tiles within the shell. However, DF only loads the feature vectors for the world tiles in focus, although they seem to remain loaded until the shell is unloaded. Until loaded the vectors have a size of 0. Manipulation of the features is usually preserved as feature vectors are unloaded/reloaded, so spires can be elongated and rivers added, but some details, such as river fauna, seem to be generated on loading. Added features may not necessarily be reloaded at the vector index they were created at.
 ---@field name language_name name of the world
 ---@field unk1 integer[]
 ---@field next_site_id integer
@@ -850,8 +850,8 @@ df.world_mountain_peak = {}
 ---@field unk_17 integer
 ---@field unk_18 integer
 ---@field active_site world_site[]
----@field feature_map integer Additional feature_map information: The feature_map is a two dimensional structure dividing the world into 16 * 16 world tile "feature shells" (and remember that there's a single tile wide shell at the end of each dimension, so a pocket world has a shell dimension of 2 * 2). These shells are loaded and unloaded dynamically, which means trying to access a shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark cursor is) is invalid and can lead to DF crashing. The "features.feature_init" 16 * 16 structure contains the features of each of the corresponding world tiles within the shell. However, DF only loads the feature vectors for the world tiles in focus, although they seem to remain loaded until the shell is unloaded. Until loaded the vectors have a size of 0. Manipulation of the features is usually preserved as feature vectors are unloaded/reloaded, so spires can be elongated and rivers added, but some details, such as river fauna, seem to be generated on loading. Added features may not necessarily be reloaded at the vector index they were created at.
----@field old_sites integer[]
+---@field feature_map integer <br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
+---@field old_sites integer[] References: world_site
 ---@field old_site_x integer[]
 ---@field old_site_y integer[]
 ---@field land_rgns coord2d_path
@@ -914,7 +914,7 @@ df.world_data.T_unk_274 = {}
 
 ---@class world_data.T_unk_274_unk_10: df.class
 ---@field unk_0 integer
----@field race creature_raw
+---@field race integer References: creature_raw
 ---@field unk_8 integer
 df.world_data.T_unk_274.T_unk_10 = {}
 
@@ -957,17 +957,17 @@ df.breed.T_unk_28 = {}
 ---@class battlefield: df.instance
 ---@field id integer
 ---@field sapient_deaths battlefield_sapient_deaths[] Seems to be by squad. Trolls/Blizzard Men not counted
----@field hfs_killed integer[] some victims are not listed, for some reason, and culled HFs can be present
+---@field hfs_killed integer[] References: historical_figure<br>some victims are not listed, for some reason, and culled HFs can be present
 ---@field x1 integer
 ---@field y1 integer
 ---@field x2 integer
 ---@field y2 integer
 ---@field unk_34 integer wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
----@field event_collections integer[]
+---@field event_collections integer[] References: history_event_collection
 df.battlefield = {}
 
----@class battlefield_sapient_deaths: df.class
 ---Seems to be by squad. Trolls/Blizzard Men not counted
+---@class battlefield_sapient_deaths: df.class
 ---@field deaths integer May not sum up, at least not for defenders
 ---@field race integer
 ---@field squad integer A guess (Don't know how to find squads). Animal people seem to have -1
@@ -999,11 +999,11 @@ df.region_weather_type = {}
 ---@field [3] boolean
 ---@field FallingMaterial boolean
 
----@class region_weather: df.instance
 ---only evil weather, not the regular kind
+---@class region_weather: df.instance
 ---@field id integer
 ---@field type region_weather_type Creeping Gas/Vapor/Dust='cloud' below, FallingMaterial='rain'
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field announcement boolean Guess based on seeing it appear for an entry when hitting the embark, resulting in an announcement
 ---@field region_x integer world tile, used with evil rain. Probably uninitialized with cloud
@@ -1014,6 +1014,6 @@ df.region_weather_type = {}
 ---@field cloud_x_movement integer -1/0/1, indicating the movement per 10 ticks in X direction. Uninitialized for rain
 ---@field cloud_y_movement integer -1/0/1, indicating the movement per 10 ticks in Y direction. Uninitialized for rain
 ---@field remaining_duration integer ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
----@field region_id world_region Set for clouds, -1 for rain
+---@field region_id integer References: world_region<br>Set for clouds, -1 for rain
 df.region_weather = {}
 

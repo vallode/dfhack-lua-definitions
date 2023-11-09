@@ -435,7 +435,7 @@ df.creature_interaction_effect_target = {}
 ---@field peak integer
 ---@field end integer
 ---@field dwf_stretch integer
----@field syn_id syndrome
+---@field syn_id integer References: syndrome
 ---@field id integer
 ---@field syn_index integer index in syndrome
 ---@field moon_phase_min integer
@@ -606,8 +606,8 @@ df.creature_interaction_effect_bp_appearance_modifierst = {}
 ---@field chance integer %
 ---@field race_str string
 ---@field caste_str string
----@field race integer[]
----@field caste integer[]
+---@field race integer[] References: creature_raw
+---@field caste integer[] References: caste_raw
 ---@field required_creature_flags integer[] contains indexes of flags in creature_raw_flags
 ---@field forbidden_creature_flags integer[] contains indexes of flags in creature_raw_flags
 ---@field required_caste_flags integer[] contains indexes of flags in caste_raw_flags
@@ -660,7 +660,7 @@ df.creature_interaction_effect_speed_changest = {}
 
 ---@class creature_interaction_effect_body_mat_interactionst: creature_interaction_effect
 ---@field interaction_name string
----@field interaction_id interaction
+---@field interaction_id integer References: interaction
 ---@field unk_8c integer
 ---@field unk_90 integer
 ---@field unk_94 string
@@ -670,7 +670,7 @@ df.creature_interaction_effect_body_mat_interactionst = {}
 ---@field unk_6c string
 ---@field unk_88 string
 ---@field unk_a4 string
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field fraction_mul integer
 ---@field fraction_div integer

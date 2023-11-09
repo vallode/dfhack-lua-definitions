@@ -203,41 +203,41 @@ df.conflict_level = {}
 ---@field NoQuarter boolean
 
 ---@class incident_hfid: df.class
----@field hfid historical_figure
----@field unk_hfid historical_figure same as hfid seen
----@field unk_hfid2 historical_figure same as hfid seen
----@field unk_3 integer[]
+---@field hfid integer References: historical_figure
+---@field unk_hfid integer References: historical_figure<br>same as hfid seen
+---@field unk_hfid2 integer References: historical_figure<br>same as hfid seen
+---@field unk_3 integer[] References: identity
 df.incident_hfid = {}
 
 ---@class incident: df.instance
 ---@field id integer
 ---@field type incident_type
----@field witnesses integer[]
+---@field witnesses integer[] References: unit
 ---@field unk_year integer
 ---@field unk_year_tick integer
----@field victim unit
+---@field victim integer References: unit
 ---@field victim_hf incident_hfid
----@field victim_race creature_raw
----@field victim_caste caste_raw
----@field entity2 historical_entity Seen with Crime
+---@field victim_race integer References: creature_raw
+---@field victim_caste integer References: caste_raw
+---@field entity2 integer References: historical_entity<br>Seen with Crime
 ---@field unk_v40_1c integer
----@field criminal unit
+---@field criminal integer References: unit
 ---@field criminal_hf incident_hfid
----@field criminal_race creature_raw
----@field criminal_caste caste_raw
----@field entity1 historical_entity
+---@field criminal_race integer References: creature_raw
+---@field criminal_caste integer References: caste_raw
+---@field entity1 integer References: historical_entity
 ---@field unk_v40_2c incident_hfid
----@field crime_id crime
----@field site world_site
+---@field crime_id integer References: crime
+---@field site integer References: world_site
 ---@field unk_v40_3a integer 41 seen on witnessed thief, 37 on interrogation target. Only one of each, though.
 ---@field unk_v40_3b integer
----@field entity historical_entity
+---@field entity integer References: historical_entity
 ---@field event_year integer
 ---@field event_time integer
 ---@field flags incident_flags
 ---@field death_cause death_type
 ---@field conflict_level conflict_level
----@field activity_id activity_entry
+---@field activity_id integer References: activity_entry
 ---@field world_x integer Location appears to be in in-game tiles world wide
 ---@field world_y integer
 ---@field world_z integer
@@ -326,9 +326,9 @@ df.incident.T_data = {}
 ---@field reference_id integer history_event id/poetic_form id/musical_form id/dance_form_id or -1
 ---@field written_content_id integer -1 if not used
 ---@field abstract_location integer location at which the performance was held
----@field poetic_form_id poetic_form More than one form can be used in a performance, e.g. dance to music
----@field musical_form_id musical_form
----@field dance_form_id dance_form
+---@field poetic_form_id integer References: poetic_form<br>More than one form can be used in a performance, e.g. dance to music
+---@field musical_form_id integer References: musical_form
+---@field dance_form_id integer References: dance_form
 df.incident_data_performance = {}
 
 ---@class incident_data_performance_participants: df.class
@@ -340,10 +340,10 @@ df.incident_data_performance.T_participants = {}
 
 ---@class incident_data_artifact: df.class
 ---@field state incident_data_artifact_state
----@field artifact_id artifact_record
+---@field artifact_id integer References: artifact_record
 ---@field unk_3 incident_hfid
 ---@field unk_4 incident_hfid
----@field site_id world_site
+---@field site_id integer References: world_site
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
@@ -382,7 +382,7 @@ df.incident_data_artifact.T_state = {}
 
 ---@class incident_data_writing: df.class
 ---@field state incident_data_writing_state
----@field content_id written_content
+---@field content_id integer References: written_content
 ---@field unk_1 incident_hfid
 ---@field unk_2 incident_hfid
 ---@field unk_3 integer
@@ -414,32 +414,32 @@ df.incident_data_identity = {}
 ---@field id integer
 ---@field mode crime_mode
 ---@field punishment crime_punishment
----@field criminal unit
----@field criminal_hf historical_figure
----@field criminal_hf_2 historical_figure Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss
----@field criminal_hf_3 historical_figure
+---@field criminal integer References: unit
+---@field criminal_hf integer References: historical_figure
+---@field criminal_hf_2 integer References: historical_figure<br>Usually all 3 same value, but Espionage gave different HF for 2/3, probably boss
+---@field criminal_hf_3 integer References: historical_figure
 ---@field convict_data crime_convict_data
----@field convicted_hf historical_figure
----@field convicted_hf_2 historical_figure the two additional copies probably refers to some other roles
----@field convicted_hf_3 historical_figure -1 seen in case of convicted but not yet punished. Tossed in prison has -1, so it might be 'punishment finished'
+---@field convicted_hf integer References: historical_figure
+---@field convicted_hf_2 integer References: historical_figure<br>the two additional copies probably refers to some other roles
+---@field convicted_hf_3 integer References: historical_figure<br>-1 seen in case of convicted but not yet punished. Tossed in prison has -1, so it might be 'punishment finished'
 ---@field victim_data crime_victim_data
----@field victim_hf historical_figure
----@field victim_hf_2 historical_figure the two additional copies probably refers to some other roles, but all 3 are identical in cases seen
----@field victim_hf_3 historical_figure
+---@field victim_hf integer References: historical_figure
+---@field victim_hf_2 integer References: historical_figure<br>the two additional copies probably refers to some other roles, but all 3 are identical in cases seen
+---@field victim_hf_3 integer References: historical_figure
 ---@field unk_v47_vector_3 integer[] this vector hasn't been seen, but is guessed at based on the pattern above
 ---@field flags crime_flags
----@field incident_id incident
+---@field incident_id integer References: incident
 ---@field event_year integer
 ---@field event_time integer
 ---@field discovered_year integer
 ---@field discovered_time integer
----@field site world_site
----@field entity historical_entity
----@field item_id item seen with crime of theft
+---@field site integer References: world_site
+---@field entity integer References: historical_entity
+---@field item_id integer References: item<br>seen with crime of theft
 ---@field reports crime_reports[]
 ---@field counterintelligence crime_counterintelligence[]
 ---@field witnesses crime_witness[]
----@field agreement_id agreement
+---@field agreement_id integer References: agreement
 df.crime = {}
 
 ---@class _crime_mode: df.enum
@@ -531,12 +531,12 @@ df.crime.T_punishment = {}
 
 ---@class crime_convict_data: df.class
 ---@field unk_v47_vector_1 integer[] don't know what the number refers to
----@field convicted unit
+---@field convicted integer References: unit
 df.crime.T_convict_data = {}
 
 ---@class crime_victim_data: df.class
 ---@field unk_v47_vector_2 integer[]
----@field victim unit
+---@field victim integer References: unit
 df.crime.T_victim_data = {}
 
 ---@class _crime_flags: df.bitfield
@@ -557,29 +557,29 @@ df.crime.T_flags = {}
 ---@field needs_trial boolean
 
 ---@class crime_reports: df.class
----@field death_id incident -1...
----@field accused_id historical_figure hfid of accused
----@field accused_id_2 historical_figure copy of accused_id?
+---@field death_id integer References: incident<br>-1...
+---@field accused_id integer References: historical_figure<br>hfid of accused
+---@field accused_id_2 integer References: historical_figure<br>copy of accused_id?
 ---@field unk_vec integer[]
 df.crime.T_reports = {}
 
 ---@class crime_counterintelligence: df.class
 ---@field unk_1 integer suspect entity, as counterintelligence shows organization unknown for examined cases. Also -1 when there is no organization
----@field identified_hf historical_figure
----@field identified_hf_2 historical_figure same as the one above or -1 only ones seen.
+---@field identified_hf integer References: historical_figure
+---@field identified_hf_2 integer References: historical_figure<br>same as the one above or -1 only ones seen.
 ---@field unk_vec integer[]
 df.crime.T_counterintelligence = {}
 
 ---@class crime_witness: df.class
----@field incident_id incident
----@field crime_id crime
+---@field incident_id integer References: incident
+---@field crime_id integer References: crime
 ---@field witness_claim crime_witness_witness_claim
 ---@field year integer
 ---@field tick integer
----@field witness_id unit
+---@field witness_id integer References: unit
 ---@field witness_data incident_hfid
----@field accused_id unit
----@field accused_identity_id identity
+---@field accused_id integer References: unit
+---@field accused_identity_id integer References: identity
 ---@field accused_data incident_hfid
 ---@field reported_year integer
 ---@field reported_tick integer
@@ -628,7 +628,7 @@ df.crime_witness.T_witness_claim = {}
 ---@field travel_year integer[]
 ---@field travel_year_tick integer[]
 ---@field travel_count integer
----@field event_id integer[]
+---@field event_id integer[] References: history_event
 ---@field event_year integer[]
 ---@field event_year_tick integer[]
 ---@field events_count integer
@@ -656,18 +656,18 @@ df.mission_report = {}
 ---@field year_tick integer
 ---@field item_types item_type[]
 ---@field item_subtypes integer[]
----@field mat_types integer[]
+---@field mat_types integer[] References: material
 ---@field mat_indices integer[]
 ---@field item_counts integer[]
----@field creature_races integer[]
----@field creature_castes integer[]
+---@field creature_races integer[] References: creature_raw
+---@field creature_castes integer[] References: caste_raw
 ---@field creature_counts integer[]
 df.spoils_report = {}
 
 ---@class interrogation_report: df.class
 ---@field title string
----@field officer_hf historical_figure
----@field subject_hf historical_figure
+---@field officer_hf integer References: historical_figure
+---@field subject_hf integer References: historical_figure
 ---@field officer_name string
 ---@field unk_3 integer
 ---@field year integer
@@ -678,16 +678,16 @@ df.spoils_report = {}
 ---@field unk_25 integer
 ---@field unk_26 integer
 ---@field unk_27 integer[]
----@field subject_identity_id identity
+---@field subject_identity_id integer References: identity
 ---@field unk_29 integer[]
 ---@field unk_30 integer[]
----@field unk_31 integer[] seen hfs_formed_intrigue_relationship
+---@field unk_31 integer[] References: history_event<br>seen hfs_formed_intrigue_relationship
 ---@field details string[]
 df.interrogation_report = {}
 
 ---@class interrogation_report_unk: df.class
----@field officer_hf2 historical_figure appears identical to officer_hf
----@field subject_hf2 historical_figure appears identical to subject_hf
+---@field officer_hf2 integer References: historical_figure<br>appears identical to officer_hf
+---@field subject_hf2 integer References: historical_figure<br>appears identical to subject_hf
 ---@field unk_8 integer
 ---@field unk_9 integer
 ---@field unk_10 integer
@@ -715,7 +715,7 @@ df.interrogation_report.T_unk.T_flags = {}
 ---@field unk_0 boolean
 
 ---@class divine_treasure: df.class
----@field histfig_id historical_figure
+---@field histfig_id integer References: historical_figure
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer
@@ -740,17 +740,17 @@ df.encased_horror = {}
 
 ---@class cursed_tomb: df.class
 ---@field triggered boolean
----@field coffin_skeletons integer[]
----@field disturbance interaction
----@field treasures integer[]
----@field site_id world_site
----@field structure_id abstract_building
+---@field coffin_skeletons integer[] References: item
+---@field disturbance integer References: interaction
+---@field treasures integer[] References: item
+---@field site_id integer References: world_site
+---@field structure_id integer References: abstract_building
 ---@field trigger_regions cursed_tomb_trigger_regions[] normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
 df.cursed_tomb = {}
 
----@class cursed_tomb_trigger_regions: df.class
 ---normally just one, 3x3 around the coffin
+---@class cursed_tomb_trigger_regions: df.class
 ---@field x_min integer
 ---@field y_min integer
 ---@field z_min integer
@@ -774,12 +774,12 @@ df.ocean_wave_maker = {}
 ---@field z integer
 df.coord_rect = {}
 
----@class embark_feature: df.class
 ---layers plus river seen
+---@class embark_feature: df.class
 ---@field world_tile coord2d
 ---@field mid_level_tile coord2d the MLT the feature resides in
 ---@field local_feature_idx integer
----@field global_feature_idx world_underground_region
+---@field global_feature_idx integer References: world_underground_region
 ---@field unk10 integer
 ---@field layer layer_type
 ---@field local coord2d the top left corner of the MLT, in embark relative coordinates
@@ -935,7 +935,7 @@ df.combat_report_event_type = {}
 ---@class glowing_barrier: df.class
 ---@field triggered boolean set when the glowing barrier vanishes, preventing later HFS events
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
----@field buildings integer[] when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
+---@field buildings integer[] References: building<br>when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
 ---@field pos coord coordinates of a GlowingBarrier or GlowingFloor tiletype
 df.glowing_barrier = {}
 
@@ -955,11 +955,11 @@ df.campfire = {}
 ---@field x integer[]
 ---@field y integer[]
 ---@field z integer
----@field race creature_raw
----@field caste caste_raw
+---@field race integer References: creature_raw
+---@field caste integer References: caste_raw
 ---@field pos_min coord2d
 ---@field pos_max coord2d
----@field ambushers integer[]
+---@field ambushers integer[] References: unit
 df.web_cluster = {}
 
 ---@class fire: df.class
@@ -982,22 +982,22 @@ df.ocean_wave = {}
 
 ---@class coin_batch: df.instance
 ---@field year integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
----@field entity historical_entity
----@field ruler historical_figure
+---@field entity integer References: historical_entity
+---@field ruler integer References: historical_figure
 ---@field image_front coin_batch_image_front
 ---@field image_back coin_batch_image_back
 df.coin_batch = {}
 
 ---@class coin_batch_image_front: df.class
----@field id art_image_chunk
----@field subid art_image
+---@field id integer References: art_image_chunk
+---@field subid integer References: art_image
 df.coin_batch.T_image_front = {}
 
 ---@class coin_batch_image_back: df.class
----@field id art_image_chunk
----@field subid art_image
+---@field id integer References: art_image_chunk
+---@field subid integer References: art_image
 df.coin_batch.T_image_back = {}
 
 ---@class job_handler: df.class
@@ -1006,8 +1006,8 @@ df.coin_batch.T_image_back = {}
 ---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
 df.job_handler = {}
 
----@class job_handler_postings: df.class
 ---entries never removed
+---@class job_handler_postings: df.class
 ---@field idx integer equal to position in vector
 ---@field job job bad if dead flag is set
 ---@field flags job_handler.T_postings_flags
@@ -1023,8 +1023,8 @@ df.job_handler.T_postings.T_flags = {}
 ---@field [0] boolean
 ---@field dead boolean
 
----@class job_handler_job_application_heap: df.class
 ---this appears to be a priority queue of some sort
+---@class job_handler_job_application_heap: df.class
 ---@field node unit[]
 ---@field size integer
 df.job_handler.T_job_application_heap = {}
@@ -1073,7 +1073,7 @@ df.mental_picture.T_unk = {}
 ---@class belief_system: df.instance
 ---@field id integer
 ---@field mental_pictures belief_system_mental_pictures[]
----@field deities integer[] historical figure ID of gods the belief system is concerned with
+---@field deities integer[] References: historical_figure<br>historical figure ID of gods the belief system is concerned with
 ---@field worship_levels integer[] worship level for each god referenced in the deities field
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -1178,9 +1178,9 @@ df.divination_set_roll.T_effect_type = {}
 
 ---@class divination_set: df.instance
 ---@field id integer currently matches index into vector
----@field deity_id historical_figure
----@field owner_id historical_entity religion owning the set
----@field image_set_ids integer[]
+---@field deity_id integer References: historical_figure
+---@field owner_id integer References: historical_entity<br>religion owning the set
+---@field image_set_ids integer[] References: image_set
 ---@field rolls divination_set_roll[]
 df.divination_set = {}
 
@@ -1198,8 +1198,8 @@ df.image_set = {}
 ---@field unk_4 integer
 df.image_set.T_unk_vec1 = {}
 
----@class world: df.class
 ---A heap of current boundary tiles.
+---@class world: df.class
 ---@field glowing_barriers glowing_barrier[]
 ---@field deep_vein_hollows deep_vein_hollow[]
 ---@field divine_treasures divine_treasure[]
@@ -1290,7 +1290,7 @@ df.image_set.T_unk_vec1 = {}
 ---@field raws world_raws
 ---@field area_grasses world_area_grasses grasses in world tiles around embark. Populated at embark
 ---@field flow_engine world_flow_engine
----@field busy_buildings integer[] buildings with nonempty getUsers
+---@field busy_buildings integer[] References: building<br>buildings with nonempty getUsers
 ---@field cavein_flags world_cavein_flags[]
 ---@field original_save_version save_version DF version on which the world was first created
 ---@field worldgen world_worldgen
@@ -1433,8 +1433,8 @@ df.world.T_stockpile.T_simple3 = {}
 ---@field empty plant[]
 df.world.T_plants = {}
 
----@class world_enemy_status_cache: df.class
 ---?
+---@class world_enemy_status_cache: df.class
 ---@field slot_used boolean[]
 ---@field rel_map integer[][]
 ---@field next_slot integer
@@ -1770,16 +1770,16 @@ df.world.T_worldgen_status.T_state = {}
 ---@field [11] boolean
 ---@field Done boolean
 
----@class world_area_grasses: df.class
 ---grasses in world tiles around embark. Populated at embark
+---@class world_area_grasses: df.class
 ---@field world_tiles coord2d_path 7*7 world tile area centered around embark, stunted at edges
 ---@field layer_grasses world.T_area_grasses_layer_grasses[] one per layer per world tile
 df.world.T_area_grasses = {}
 
----@class world.T_area_grasses_layer_grasses: df.class
 ---one per layer per world tile
+---@class world.T_area_grasses_layer_grasses: df.class
 ---@field ref world_population_ref
----@field grasses plant_raw[]
+---@field grasses integer[]
 df.world.T_area_grasses.T_layer_grasses = {}
 
 ---@class world_flow_engine: df.class
@@ -1804,8 +1804,8 @@ df.world.T_flow_engine = {}
 ---@field worldgen_parms worldgen_parms
 df.world.T_worldgen = {}
 
----@class world_daily_events: df.class
 ---for each calendar day, a list of major life events (by nemesis id)
+---@class world_daily_events: df.class
 ---@field deaths integer[][]
 ---@field pregnancies integer[][]
 ---@field births integer[][]
@@ -1840,23 +1840,23 @@ df.world.T_unk_131ec0 = {}
 df.world.T_languages = {}
 
 ---@class world_unk_131ef0: df.class
----@field hfid historical_figure confusing. usually the creator, but sometimes completely unrelated or culled
+---@field hfid integer References: historical_figure<br>confusing. usually the creator, but sometimes completely unrelated or culled
 ---@field claims world.T_unk_131ef0_claims[]
----@field unk_hfid historical_figure hfid or completely unrelated hf seen?
+---@field unk_hfid integer References: historical_figure<br>hfid or completely unrelated hf seen?
 ---@field unk_1 integer only seen 0
 ---@field unk_2 integer only seen 0
 df.world.T_unk_131ef0 = {}
 
 ---@class world.T_unk_131ef0_claims: df.class
----@field artifact artifact_record
+---@field artifact integer References: artifact_record
 ---@field unk_1 integer only seen 1, and only family heirloom...
 ---@field year integer matches up with creation or a claim...
 ---@field year_tick integer
 ---@field unk_2 integer only seen -1
 df.world.T_unk_131ef0.T_claims = {}
 
----@class world_pathfinder: df.class
 ---A heap of current boundary tiles.
+---@class world_pathfinder: df.class
 ---@field boundary_heap integer[] A heap of current boundary tiles.
 ---@field heap_count integer
 ---@field pos1 coord
@@ -1873,8 +1873,8 @@ df.world.T_unk_131ef0.T_claims = {}
 ---@field unk_1 boolean
 df.world.T_pathfinder = {}
 
----@class world_cur_savegame: df.class
 ---not actually a compound
+---@class world_cur_savegame: df.class
 ---@field save_dir string
 ---@field world_header world.T_cur_savegame_world_header
 ---@field civ_history_complete boolean
@@ -2182,7 +2182,7 @@ df.world.T_object_loader = {}
 ---@field feature_x integer[]
 ---@field feature_y integer[]
 ---@field feature_local_idx integer[] same as map_block.local_feature
----@field feature_global_idx integer[]
+---@field feature_global_idx integer[] References: world_underground_region
 ---@field newpop_feature feature_init[]
 ---@field newpop_ax integer[]
 ---@field newpop_ay integer[]
@@ -2203,8 +2203,8 @@ df.world.T_features = {}
 ---@class world_arena: df.class
 ---@field templates world.T_arena_templates[]
 ---@field cur_template_idx integer
----@field race integer[]
----@field caste integer[]
+---@field race integer[] References: creature_raw
+---@field caste integer[] References: caste_raw
 ---@field type integer
 ---@field item_types embark_item_choice
 ---@field skills job_skill[]
@@ -2253,8 +2253,8 @@ df.world.T_arena.T_flag = {}
 ---@field morale_enable boolean
 
 ---@class world_dungeon: df.class
----@field creature_race integer[]
----@field creature_caste integer[]
+---@field creature_race integer[] References: creature_raw
+---@field creature_caste integer[] References: caste_raw
 ---@field last_selected_creature_index integer
 ---@field etl embark_item_choice
 ---@field skill_type job_skill[]

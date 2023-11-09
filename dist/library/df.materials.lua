@@ -605,7 +605,7 @@ df.material_common.T_strength = {}
 df.material_common.T_reaction_product = {}
 
 ---@class material_common_hardens_with_water: df.class
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field str string[]
 df.material_common.T_hardens_with_water = {}
@@ -636,7 +636,7 @@ df.material_common.T_hardens_with_water = {}
 df.material = {}
 
 ---@class material_vec_ref: df.class
----@field mat_type material[]
+---@field mat_type integer[]
 ---@field mat_index integer[]
 df.material_vec_ref = {}
 
@@ -854,11 +854,11 @@ df.inclusion_type = {}
 ---@field id string
 ---@field str string[]
 ---@field flags inorganic_flags[]
----@field source_hfid historical_figure
+---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
 ---@field metal_ore inorganic_raw_metal_ore
 ---@field thread_metal inorganic_raw_thread_metal
----@field economic_uses integer[]
+---@field economic_uses integer[] References: reaction
 ---@field environment_spec inorganic_raw_environment_spec
 ---@field environment inorganic_raw_environment
 ---@field times_used_land integer
@@ -868,19 +868,19 @@ df.inorganic_raw = {}
 
 ---@class inorganic_raw_metal_ore: df.class
 ---@field str string[] only during parsing
----@field mat_index inorganic_raw[]
+---@field mat_index integer[]
 ---@field probability integer[]
 df.inorganic_raw.T_metal_ore = {}
 
 ---@class inorganic_raw_thread_metal: df.class
 ---@field str string[] only during parsing
----@field mat_index inorganic_raw[]
+---@field mat_index integer[]
 ---@field probability integer[]
 df.inorganic_raw.T_thread_metal = {}
 
 ---@class inorganic_raw_environment_spec: df.class
 ---@field str string[] only during parsing
----@field mat_index inorganic_raw[]
+---@field mat_index integer[]
 ---@field inclusion_type inclusion_type[]
 ---@field probability integer[]
 df.inorganic_raw.T_environment_spec = {}

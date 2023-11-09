@@ -22,15 +22,15 @@ df.uniform_indiv_choice = {}
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field material_class entity_material_category
----@field mattype material
+---@field mattype integer References: material
 ---@field matindex integer
 df.item_filter_spec = {}
 
 ---@class squad_uniform_spec: df.class
----@field item item
+---@field item integer References: item
 ---@field item_filter item_filter_spec
 ---@field color integer
----@field assigned item[]
+---@field assigned integer[]
 ---@field indiv_choice uniform_indiv_choice
 df.squad_uniform_spec = {}
 
@@ -38,7 +38,7 @@ df.squad_uniform_spec = {}
 ---@field item_filter item_filter_spec
 ---@field amount integer
 ---@field flags squad_ammo_spec_flags
----@field assigned item[]
+---@field assigned integer[]
 df.squad_ammo_spec = {}
 
 ---@class _squad_ammo_spec_flags: df.bitfield
@@ -164,19 +164,19 @@ df.squad_event_type = {}
 ---@field Unk2 boolean
 
 ---@class squad_position: df.class
----@field occupant historical_figure
+---@field occupant integer References: historical_figure
 ---@field orders squad_order[]
 ---@field preferences integer[][]
 ---@field uniform squad_uniform_spec[][]
 ---@field unk_c4 string
 ---@field flags uniform_flags
----@field assigned_items item[]
----@field quiver item
----@field backpack item
----@field flask item
+---@field assigned_items integer[]
+---@field quiver integer References: item
+---@field backpack integer References: item
+---@field flask integer References: item
 ---@field unk_1 integer
----@field activities integer[]
----@field events integer[]
+---@field activities integer[] References: activity_entry
+---@field events integer[] References: activity_event
 ---@field unk_2 integer
 df.squad_position = {}
 
@@ -206,14 +206,14 @@ df.squad_schedule_entry.T_order_assignments = {}
 ---@field schedule squad_schedule[]
 ---@field cur_routine_idx integer
 ---@field rooms squad_rooms[]
----@field rack_combat integer[]
----@field rack_training integer[]
+---@field rack_combat integer[] References: building
+---@field rack_training integer[] References: building
 ---@field uniform_priority integer
----@field activity activity_entry
+---@field activity integer References: activity_entry
 ---@field ammo squad_ammo
 ---@field carry_food integer
 ---@field carry_water integer
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 ---@field leader_position integer
 ---@field leader_assignment integer
 ---@field unk_1 integer
@@ -232,16 +232,16 @@ df.squad = {}
 df.squad.T_schedule = {}
 
 ---@class squad_rooms: df.class
----@field building_id building
+---@field building_id integer References: building
 ---@field mode squad_use_flags
 df.squad.T_rooms = {}
 
 ---@class squad_ammo: df.class
 ---@field ammunition squad_ammo_spec[]
----@field train_weapon_free item[]
----@field train_weapon_inuse item[]
----@field ammo_items item[]
----@field ammo_units unit[]
+---@field train_weapon_free integer[]
+---@field train_weapon_inuse integer[]
+---@field ammo_items integer[]
+---@field ammo_units integer[]
 ---@field update equipment_update
 df.squad.T_ammo = {}
 
@@ -465,13 +465,13 @@ function df.squad_order:isEqual(other) end
 df.squad_order_movest = {}
 
 ---@class squad_order_kill_listst: squad_order
----@field units unit[]
----@field histfigs historical_figure[]
+---@field units integer[]
+---@field histfigs integer[]
 ---@field title string
 df.squad_order_kill_listst = {}
 
 ---@class squad_order_defend_burrowsst: squad_order
----@field burrows integer[]
+---@field burrows integer[] References: burrow
 df.squad_order_defend_burrowsst = {}
 
 ---@class squad_order_patrol_routest: squad_order
@@ -488,12 +488,12 @@ df.squad_order_trainst = {}
 df.squad_order_drive_entity_off_sitest = {}
 
 ---@class squad_order_cause_trouble_for_entityst: squad_order
----@field entity_id historical_entity
+---@field entity_id integer References: historical_entity
 ---@field override_name string
 df.squad_order_cause_trouble_for_entityst = {}
 
 ---@class squad_order_kill_hfst: squad_order
----@field histfig_id historical_figure
+---@field histfig_id integer References: historical_figure
 ---@field title string
 df.squad_order_kill_hfst = {}
 
@@ -504,7 +504,7 @@ df.squad_order_kill_hfst = {}
 df.squad_order_drive_armies_from_sitest = {}
 
 ---@class squad_order_retrieve_artifactst: squad_order
----@field artifact_id artifact_record
+---@field artifact_id integer References: artifact_record
 ---@field unk_2 coord
 df.squad_order_retrieve_artifactst = {}
 
@@ -520,8 +520,8 @@ df.squad_order_rescue_hfst = {}
 
 ---@class army_controller: df.instance
 ---@field id integer all army.controllers seen and reached via InvasionOrder controllers' armies have been of type = Invasion and absent from the 'all' vector
----@field entity_id historical_entity
----@field site_id world_site Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'
+---@field entity_id integer References: historical_entity
+---@field site_id integer References: world_site<br>Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'
 ---@field unk_1 integer
 ---@field pos_x integer Look like the unit is map_block, i.e. 3 * 16 * world tile. Position of target, which is the starting point for defeated invasions
 ---@field pos_y integer
@@ -530,13 +530,13 @@ df.squad_order_rescue_hfst = {}
 ---@field unk_20 integer[]
 ---@field year integer
 ---@field year_tick integer
----@field unk_34 army_controller id of other army controller (Invasion) from same entity seen here
----@field unk_38 army_controller copy of the id seen here, as well as a t7 for a t5 controller
----@field master_hf historical_figure InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector
----@field general_hf historical_figure InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master
+---@field unk_34 integer References: army_controller<br>id of other army controller (Invasion) from same entity seen here
+---@field unk_38 integer References: army_controller<br>copy of the id seen here, as well as a t7 for a t5 controller
+---@field master_hf integer References: historical_figure<br>InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector
+---@field general_hf integer References: historical_figure<br>InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master
 ---@field unk_44_1 integer
 ---@field unk_44_2 integer
----@field visitor_nemesis_id nemesis_record Set for VillainousVisit
+---@field visitor_nemesis_id integer References: nemesis_record<br>Set for VillainousVisit
 ---@field unk_44_4 integer 3, 6 seen for Villain
 ---@field unk_44_5 integer[]
 ---@field unk_50 integer
@@ -697,7 +697,7 @@ df.army_controller_sub1 = {}
 df.army_controller_invasion_order = {}
 
 ---@class army_controller_invasion_order_unk_4a: df.class
----@field army_id army no longer available when an attack has started
+---@field army_id integer References: army<br>no longer available when an attack has started
 ---@field pos_x_a integer In map_blocks, i.e. in 3 * 16 * world tiles
 ---@field pos_y_a integer
 ---@field pos_x_b integer One is probably start and one is probably end of some movement
@@ -780,7 +780,7 @@ df.army_controller_sub7.T_unk_3 = {}
 df.army_controller_sub11 = {}
 
 ---@class army_controller_sub11_unk_3: df.class
----@field army_id army
+---@field army_id integer References: army
 ---@field pos_x_a integer map_block coordinates
 ---@field pos_y_a integer
 ---@field pos_x_b integer
@@ -871,7 +871,7 @@ df.army_controller_sub15.T_unk_3 = {}
 df.army_controller_sub16 = {}
 
 ---@class army_controller_quest: df.class
----@field artifact_id artifact_record
+---@field artifact_id integer References: artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -913,8 +913,8 @@ df.army_controller_sub22 = {}
 df.army_controller_sub23 = {}
 
 ---@class army_controller_villainous_visit: df.class
----@field site_id world_site
----@field entity_id historical_entity
+---@field site_id integer References: world_site
+---@field entity_id integer References: historical_entity
 ---@field abstract_building integer -1 before arrival
 ---@field purpose history_event_reason none before arrival
 df.army_controller_villainous_visit = {}
@@ -940,7 +940,7 @@ df.army_flags = {}
 ---@field unk_3c integer
 ---@field unk_1 integer
 ---@field unk_2 integer 16 only value seen
----@field controller_id army_controller
+---@field controller_id integer References: army_controller
 ---@field controller army_controller
 ---@field flags army_flags[]
 ---@field block_path_x integer[] path in map_block coordinates. Seems to be the near term
@@ -957,7 +957,7 @@ df.army_flags = {}
 ---@field creature_class string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_4407_1 item[]
 df.army = {}

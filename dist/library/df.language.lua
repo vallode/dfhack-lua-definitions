@@ -690,7 +690,7 @@ df.language_translation = {}
 ---@class language_symbol: df.instance
 ---@field name string
 ---@field unknown integer[] empty
----@field words language_word[]
+---@field words integer[]
 ---@field flags integer
 ---@field str string[]
 df.language_symbol = {}
@@ -698,16 +698,16 @@ df.language_symbol = {}
 ---@class language_name: df.class
 ---@field first_name string
 ---@field nickname string
----@field words language_word[]
+---@field words integer[]
 ---@field parts_of_speech part_of_speech[]
----@field language language_translation
+---@field language integer References: language_translation
 ---@field type language_name_type
 ---@field has_name boolean
 df.language_name = {}
 
----@class language_word_table: df.class
 ---word_selectorst
----@field words language_word[][]
+---@class language_word_table: df.class
+---@field words integer[][]
 ---@field parts part_of_speech[][]
 df.language_word_table = {}
 

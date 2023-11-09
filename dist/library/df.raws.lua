@@ -10,15 +10,15 @@
 ---@field action_strings string[]
 df.creature_handler = {}
 
----@param creature_index creature_raw
----@param caste_index caste_raw
+---@param creature_index integer
+---@param caste_index integer
 ---@param alt boolean
 ---@param soldier boolean
 ---@return integer
 function df.creature_handler:getTile(creature_index, caste_index, alt, soldier) end
 
----@param creature_index creature_raw
----@param caste_index caste_raw
+---@param creature_index integer
+---@param caste_index integer
 ---@return integer
 function df.creature_handler:getGlowTile(creature_index, caste_index) end
 
@@ -51,11 +51,11 @@ df.world_raws = {}
 ---@class world_raws_plants: df.class
 ---@field all plant_raw[]
 ---@field bushes plant_raw[]
----@field bushes_idx plant_raw[]
+---@field bushes_idx integer[]
 ---@field trees plant_raw[]
----@field trees_idx plant_raw[]
+---@field trees_idx integer[]
 ---@field grasses plant_raw[]
----@field grasses_idx plant_raw[]
+---@field grasses_idx integer[]
 df.world_raws.T_plants = {}
 
 ---@class world_raws_bodyglosses: df.class
@@ -123,16 +123,16 @@ df.world_raws.T_unk_v50_2 = {}
 df.world_raws.T_unk_v50_3 = {}
 
 ---@class world_raws_syndromes: df.class
----@field mat_types material[]
+---@field mat_types integer[]
 ---@field mat_indexes integer[]
----@field interactions interaction[]
+---@field interactions integer[]
 ---@field all syndrome[]
 df.world_raws.T_syndromes = {}
 
 ---@class world_raws_effects: df.class
----@field mat_types material[]
+---@field mat_types integer[]
 ---@field mat_indexes integer[]
----@field interactions interaction[]
+---@field interactions integer[]
 ---@field all creature_interaction_effect[]
 df.world_raws.T_effects = {}
 

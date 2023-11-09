@@ -28,8 +28,8 @@ df.reaction_flags = {}
 ---@field max_multiplier integer
 ---@field building reaction_building
 ---@field index integer
----@field source_hfid historical_figure
----@field source_enid historical_entity
+---@field source_hfid integer References: historical_figure
+---@field source_enid integer References: historical_entity
 ---@field raw_strings string[]
 ---@field category string
 ---@field descriptions reaction_description[]
@@ -83,18 +83,18 @@ function df.reaction_reagent:getType() end
 function df.reaction_reagent:resolveTokens(reactionID) end
 
 ---@param unk_0 item
----@param index reaction
+---@param index integer
 ---@return boolean
 function df.reaction_reagent:matchesRoot(unk_0, index) end
 
 ---@param unk_0 item
 ---@param unk_1 reaction or maybe reaction code string ref
----@param index reaction
+---@param index integer
 ---@return boolean
 function df.reaction_reagent:matchesChild(unk_0, unk_1, index) end
 
 ---@param unk_0 string
----@param index reaction
+---@param index integer
 function df.reaction_reagent:getDescription(unk_0, index) end
 
 ---@return boolean
@@ -120,7 +120,7 @@ df.reaction_reagent_flags = {}
 ---@class reaction_reagent_itemst: reaction_reagent
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field reaction_class string
 ---@field has_material_reaction_product string
@@ -129,7 +129,7 @@ df.reaction_reagent_flags = {}
 ---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore inorganic_raw
+---@field metal_ore integer References: inorganic_raw
 ---@field min_dimension integer
 ---@field contains integer[]
 ---@field has_tool_use tool_uses
@@ -212,7 +212,7 @@ df.reaction_product_item_flags = {}
 ---@class reaction_product_itemst: reaction_product
 ---@field item_type item_type
 ---@field item_subtype integer
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field probability integer
 ---@field count integer
@@ -249,7 +249,7 @@ df.reaction_product_improvement_flags = {}
 ---@field target_reagent string
 ---@field improvement_type improvement_type
 ---@field improvement_specific_type itemimprovement_specific_type
----@field mat_type material
+---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field probability integer
 ---@field flags reaction_product_improvement_flags[]
