@@ -121,16 +121,14 @@ class StructType < XmlNode
 
     annotation << render_functions
 
-    unless inline_types.empty?
-      inline_types.each do |child|
-        annotation << if %w[enum bitfield].include?(child.name)
-                        EnumType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-                      elsif child.name == 'vmethod'
-                        FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
-                      else
-                        StructType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-                      end
-      end
+    inline_types.each do |child|
+      annotation << if %w[enum bitfield].include?(child.name)
+                      EnumType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
+                    elsif child.name == 'vmethod'
+                      FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
+                    else
+                      StructType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
+                    end
     end
 
     annotation
