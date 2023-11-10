@@ -6,6 +6,10 @@
     "settings": {
         "Lua.diagnostics.disable": [
             "lowercase-global"
-        ]
+        ],
+        "Lua.runtime.special": {
+            "reqscript": "require",
+            "qerror": "error"
+        }
     }
 }
