@@ -797,9 +797,11 @@ function dfhack.maps.isValidTilePos(coords) end
 ---@return boolean
 function dfhack.maps.isTileVisible(coords) end
 
----@param coords coord
+---@param coords coord|integer
+---@param y? integer
+---@param z? integer
 ---@return map_block
-function dfhack.maps.getTileBlock(coords) end
+function dfhack.maps.getTileBlock(coords, y, z) end
 
 ---@param coords coord
 ---@return map_block
