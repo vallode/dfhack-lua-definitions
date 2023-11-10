@@ -61,8 +61,8 @@
 ---@class df.bitfield: df.iter
 ---@field _kind "bitfield-type"
 
----@class df.container<T>: { [T]: integer }, df.base
----@field _enum unknown TODO
+-- TODO: Redo this as inline glue.
+---@class df.container: df.base
 ---@field resize fun(new_size: integer)
 ---@field insert fun(self: any, index: "#ref"|"#"|integer, item: any)
 ---@field erase fun(self: any, index: integer)
