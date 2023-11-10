@@ -506,7 +506,7 @@ function dfhack.units.getPhysicalAttrValue(unit, attr_type) end
 function dfhack.units.getMentalAttrValue(unit, attr_type) end
 
 ---@param unit unit
----@param type integer References: misc_trait_type
+---@param type _misc_trait_type References: misc_trait_type
 ---@param create? boolean
 ---@return unit_misc_trait
 function dfhack.units.getMiscTrait(unit, type, create) end
