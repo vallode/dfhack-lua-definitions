@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.advmode
 
----@class _ui_advmode_menu: df.enum
+---@class _ui_advmode_menu: integer, string, df.enum
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Look 1
@@ -242,7 +242,7 @@ df.conversation = {}
 ---@return conversation|nil
 function df.conversation.find(key) end
 
----@class _conversation_state: df.enum
+---@class _conversation_state: integer, string, df.enum
 ---@field started 0
 ---@field [0] "started"
 ---@field active 1
@@ -277,7 +277,7 @@ df.conversation.T_speech = {}
 ---@return conversation_speech|nil
 function df.conversation.T_speech.find(key) end
 
----@class _talk_choice_type: df.enum
+---@class _talk_choice_type: integer, string, df.enum
 ---@field Greet 0
 ---@field [0] "Greet"
 ---@field Nevermind 1
@@ -1182,7 +1182,7 @@ df.talk_choice_type = {}
 ---@field [224] boolean
 ---@field DemandIdentity boolean
 
----@class _assume_identity_mode: df.enum
+---@class _assume_identity_mode: integer, string, df.enum
 ---@field SelectIdentity 0
 ---@field [0] "SelectIdentity"
 ---@field CreateIdentity 1
@@ -1377,7 +1377,7 @@ df.adventurest = {}
 ---@return adventurest|nil
 function df.adventurest.find(key) end
 
----@class _adventurest_travel_right_map: df.enum
+---@class _adventurest_travel_right_map: integer, string, df.enum
 ---@field MapNone 0
 ---@field [0] "MapNone"
 ---@field MapSite 1
@@ -1394,7 +1394,7 @@ df.adventurest.T_travel_right_map = {}
 ---@field [2] boolean
 ---@field MapWorld boolean
 
----@class _adventurest_show_menu: df.enum
+---@class _adventurest_show_menu: integer, string, df.enum
 ---bottom menu in travel mode
 ---@field TwoBlankRows -1
 ---@field [0] "TwoBlankRows"
@@ -1526,7 +1526,7 @@ df.adventurest.T_unk_3124 = {}
 ---@return adventurest_unk_3124|nil
 function df.adventurest.T_unk_3124.find(key) end
 
----@class _adventurest_charge_forbidden: df.enum
+---@class _adventurest_charge_forbidden: integer, string, df.enum
 ---When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
 ---@field None -1
 ---@field [0] "None"
@@ -1649,7 +1649,7 @@ df.adventurest.T_conversation.T_targets = {}
 ---@return adventurest.T_conversation_targets|nil
 function df.adventurest.T_conversation.T_targets.find(key) end
 
----@class _adventurest.T_conversation.T_targets_type: df.enum
+---@class _adventurest.T_conversation.T_targets_type: integer, string, df.enum
 ---@field Talk 0
 ---@field [0] "Talk"
 ---@field unk_1 1
@@ -1674,7 +1674,7 @@ df.adventurest.T_conversation.T_targets.T_type = {}
 ---@field [4] boolean
 ---@field Perform boolean
 
----@class _adventurest_rest_mode: df.enum
+---@class _adventurest_rest_mode: integer, string, df.enum
 ---@field Wait 0
 ---@field [0] "Wait"
 ---@field Sleep 1

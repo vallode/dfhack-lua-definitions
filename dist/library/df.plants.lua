@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.plants
 
----@class _plant_flags: df.bitfield
+---@class _plant_flags: integer, string, df.bitfield
 ---@field watery 0
 ---@field [0] "watery"
 ---@field is_shrub 1
@@ -32,7 +32,7 @@ df.plant = {}
 ---@return plant|nil
 function df.plant.find(key) end
 
----@class _plant_damage_flags: df.bitfield
+---@class _plant_damage_flags: integer, string, df.bitfield
 ---@field is_burning 0
 ---@field [0] "is_burning"
 ---@field is_drowning 1
@@ -49,7 +49,7 @@ df.plant.T_damage_flags = {}
 ---@field [2] boolean
 ---@field is_dead boolean
 
----@class _plant_tree_tile: df.bitfield
+---@class _plant_tree_tile: integer, string, df.bitfield
 ---@field trunk 0
 ---@field [0] "trunk"
 ---@field connection_east 1
@@ -86,7 +86,7 @@ df.plant_tree_tile = {}
 ---@field [7] boolean
 ---@field blocked boolean
 
----@class _plant_root_tile: df.bitfield
+---@class _plant_root_tile: integer, string, df.bitfield
 ---@field trunk 0
 ---@field [0] "trunk"
 ---@field connection_east 1

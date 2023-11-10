@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.itemimprovements
 
----@class _improvement_type: df.enum
+---@class _improvement_type: integer, string, df.enum
 ---@field ART_IMAGE 0
 ---@field [0] "ART_IMAGE"
 ---@field COVERED 1
@@ -140,7 +140,7 @@ df.itemimprovement_coveredst = {}
 ---@return itemimprovement_coveredst|nil
 function df.itemimprovement_coveredst.find(key) end
 
----@class _itemimprovement_coveredst_cover_flags: df.bitfield
+---@class _itemimprovement_coveredst_cover_flags: integer, string, df.bitfield
 ---@field glazed 0
 ---@field [0] "glazed"
 df.itemimprovement_coveredst.T_cover_flags = {}
@@ -171,7 +171,7 @@ df.itemimprovement_spikesst = {}
 ---@return itemimprovement_spikesst|nil
 function df.itemimprovement_spikesst.find(key) end
 
----@class _itemimprovement_specific_type: df.enum
+---@class _itemimprovement_specific_type: integer, string, df.enum
 ---@field HANDLE 0
 ---@field [0] "HANDLE"
 ---@field ROLLERS 1
@@ -269,7 +269,7 @@ df.itemimprovement_image_setst = {}
 ---@return itemimprovement_image_setst|nil
 function df.itemimprovement_image_setst.find(key) end
 
----@class _written_content_type: df.enum
+---@class _written_content_type: integer, string, df.enum
 ---@field Manual 0
 ---@field [0] "Manual"
 ---@field Guide 1
@@ -378,7 +378,7 @@ df.written_content_type = {}
 ---@field [25] boolean
 ---@field Atlas boolean
 
----@class _written_content_style: df.enum
+---@class _written_content_style: integer, string, df.enum
 ---@field Meandering 0
 ---@field [0] "Meandering"
 ---@field Cheerful 1
@@ -476,7 +476,7 @@ df.written_content = {}
 ---@return written_content|nil
 function df.written_content.find(key) end
 
----@class _engraving_flags: df.bitfield
+---@class _engraving_flags: integer, string, df.bitfield
 ---@field floor 0
 ---@field [0] "floor"
 ---@field west 1

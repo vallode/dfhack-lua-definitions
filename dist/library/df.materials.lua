@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.materials
 
----@class _craft_material_class: df.enum
+---@class _craft_material_class: integer, string, df.enum
 ---not in DF
 ---@field None -1
 ---@field [0] "None"
@@ -66,7 +66,7 @@ df.craft_material_class = {}
 ---@type { [string|integer]: craft_material_class_attr }
 df.craft_material_class.attrs = {}
 
----@class _builtin_mats: df.enum
+---@class _builtin_mats: integer, string, df.enum
 ---@field INORGANIC 0
 ---@field [0] "INORGANIC"
 ---@field AMBER 1
@@ -147,7 +147,7 @@ df.builtin_mats = {}
 ---@field [18] boolean
 ---@field GRIME boolean
 
----@class _material_flags: df.enum
+---@class _material_flags: integer, string, df.enum
 ---@field BONE 0
 ---@field [0] "BONE"
 ---@field MEAT 1
@@ -490,7 +490,7 @@ df.material_flags = {}
 ---@type { [string|integer]: material_flags_attr }
 df.material_flags.attrs = {}
 
----@class _matter_state: df.enum
+---@class _matter_state: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Solid 1
@@ -523,7 +523,7 @@ df.matter_state = {}
 ---@field [6] boolean
 ---@field Pressed boolean
 
----@class _strain_type: df.enum
+---@class _strain_type: integer, string, df.enum
 ---@field BENDING 0
 ---@field [0] "BENDING"
 ---@field SHEAR 1
@@ -687,7 +687,7 @@ df.material_template = {}
 ---@return material_template|nil
 function df.material_template.find(key) end
 
----@class _inorganic_flags: df.enum
+---@class _inorganic_flags: integer, string, df.enum
 ---@field LAVA 0
 ---@field [0] "LAVA"
 ---@field GENERATED 1
@@ -820,7 +820,7 @@ df.inorganic_flags = {}
 ---@field [31] boolean
 ---@field unk_31 boolean
 
----@class _environment_type: df.enum
+---@class _environment_type: integer, string, df.enum
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SOIL_OCEAN 1
@@ -857,7 +857,7 @@ df.environment_type = {}
 ---@field [7] boolean
 ---@field ALLUVIAL boolean
 
----@class _inclusion_type: df.enum
+---@class _inclusion_type: integer, string, df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field VEIN 1
@@ -943,7 +943,7 @@ df.inorganic_raw.T_environment = {}
 ---@return inorganic_raw_environment|nil
 function df.inorganic_raw.T_environment.find(key) end
 
----@class _organic_mat_category: df.enum
+---@class _organic_mat_category: integer, string, df.enum
 ---@field Meat 0
 ---@field [0] "Meat"
 ---@field Fish 1

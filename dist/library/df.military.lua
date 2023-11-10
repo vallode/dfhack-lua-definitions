@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.military
 
----@class _uniform_indiv_choice: df.bitfield
+---@class _uniform_indiv_choice: integer, string, df.bitfield
 ---@field any 0
 ---@field [0] "any"
 ---@field melee 1
@@ -53,7 +53,7 @@ df.squad_ammo_spec = {}
 ---@return squad_ammo_spec|nil
 function df.squad_ammo_spec.find(key) end
 
----@class _squad_ammo_spec_flags: df.bitfield
+---@class _squad_ammo_spec_flags: integer, string, df.bitfield
 ---@field use_combat 0
 ---@field [0] "use_combat"
 ---@field use_training 1
@@ -66,7 +66,7 @@ df.squad_ammo_spec.T_flags = {}
 ---@field [1] boolean
 ---@field use_training boolean
 
----@class _squad_use_flags: df.bitfield
+---@class _squad_use_flags: integer, string, df.bitfield
 ---@field sleep 0
 ---@field [0] "sleep"
 ---@field train 1
@@ -87,7 +87,7 @@ df.squad_use_flags = {}
 ---@field [3] boolean
 ---@field squad_eq boolean
 
----@class _uniform_category: df.enum
+---@class _uniform_category: integer, string, df.enum
 ---@field body 0
 ---@field [0] "body"
 ---@field head 1
@@ -120,7 +120,7 @@ df.uniform_category = {}
 ---@field [6] boolean
 ---@field weapon boolean
 
----@class _uniform_flags: df.bitfield
+---@class _uniform_flags: integer, string, df.bitfield
 ---@field replace_clothing 0
 ---@field [0] "replace_clothing"
 ---@field exact_matches 1
@@ -133,7 +133,7 @@ df.uniform_flags = {}
 ---@field [1] boolean
 ---@field exact_matches boolean
 
----@class _barrack_preference_category: df.enum
+---@class _barrack_preference_category: integer, string, df.enum
 ---@field Bed 0
 ---@field [0] "Bed"
 ---@field Armorstand 1
@@ -154,7 +154,7 @@ df.barrack_preference_category = {}
 ---@field [3] boolean
 ---@field Cabinet boolean
 
----@class _squad_event_type: df.enum
+---@class _squad_event_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Unk0 1
@@ -289,7 +289,7 @@ df.squad.T_ammo = {}
 ---@return squad_ammo|nil
 function df.squad.T_ammo.find(key) end
 
----@class _squad_order_type: df.enum
+---@class _squad_order_type: integer, string, df.enum
 ---@field MOVE 0
 ---@field [0] "MOVE"
 ---@field KILL_LIST 1
@@ -342,7 +342,7 @@ df.squad_order_type = {}
 ---@field [11] boolean
 ---@field RESCUE_HF boolean
 
----@class _squad_order_cannot_reason: df.enum
+---@class _squad_order_cannot_reason: integer, string, df.enum
 ---@field not_following_order 0
 ---@field [0] "not_following_order"
 ---@field activity_cancelled 1
@@ -675,7 +675,7 @@ df.army_controller.T_data = {}
 ---@return army_controller_data|nil
 function df.army_controller.T_data.find(key) end
 
----@class _army_controller_type: df.enum
+---@class _army_controller_type: integer, string, df.enum
 ---@field t0 0
 ---@field [0] "t0"
 ---@field t1 1
@@ -830,7 +830,7 @@ df.army_controller_invasion = {}
 ---@return army_controller_invasion|nil
 function df.army_controller_invasion.find(key) end
 
----@class _army_controller_invasion_unk_2: df.bitfield
+---@class _army_controller_invasion_unk_2: integer, string, df.bitfield
 ---@field not_sleeping 0
 ---@field [0] "not_sleeping"
 ---@field unk_2 1
@@ -1131,7 +1131,7 @@ df.army_controller_villainous_visit = {}
 ---@return army_controller_villainous_visit|nil
 function df.army_controller_villainous_visit.find(key) end
 
----@class _army_flags: df.enum
+---@class _army_flags: integer, string, df.enum
 ---@field player 0
 ---@field [0] "player"
 df.army_flags = {}

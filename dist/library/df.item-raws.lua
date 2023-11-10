@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.item-raws
 
----@class _item_type: df.enum
+---@class _item_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BAR 1
@@ -405,7 +405,7 @@ df.weapon_attack = {}
 ---@return weapon_attack|nil
 function df.weapon_attack.find(key) end
 
----@class _weapon_attack_flags: df.bitfield
+---@class _weapon_attack_flags: integer, string, df.bitfield
 ---@field independent_multiattack 0
 ---@field [0] "independent_multiattack"
 ---@field bad_multiattack 1
@@ -418,7 +418,7 @@ df.weapon_attack.T_flags = {}
 ---@field [1] boolean
 ---@field bad_multiattack boolean
 
----@class _itemdef_flags: df.enum
+---@class _itemdef_flags: integer, string, df.enum
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 df.itemdef_flags = {}
@@ -453,7 +453,7 @@ function df.itemdef:categorize() end
 ---calculate stuff like base value
 function df.itemdef:finalize() end
 
----@class _ammo_flags: df.enum
+---@class _ammo_flags: integer, string, df.enum
 ---@field HAS_EDGE_ATTACK 0
 ---@field [0] "HAS_EDGE_ATTACK"
 df.ammo_flags = {}
@@ -477,7 +477,7 @@ df.itemdef_ammost = {}
 ---@return itemdef_ammost|nil
 function df.itemdef_ammost.find(key) end
 
----@class _armor_general_flags: df.enum
+---@class _armor_general_flags: integer, string, df.enum
 ---@field SOFT 0
 ---@field [0] "SOFT"
 ---@field HARD 1
@@ -538,7 +538,7 @@ df.armor_properties = {}
 ---@return armor_properties|nil
 function df.armor_properties.find(key) end
 
----@class _armor_flags: df.enum
+---@class _armor_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.armor_flags = {}
@@ -575,7 +575,7 @@ df.itemdef_foodst = {}
 ---@return itemdef_foodst|nil
 function df.itemdef_foodst.find(key) end
 
----@class _gloves_flags: df.enum
+---@class _gloves_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.gloves_flags = {}
@@ -600,7 +600,7 @@ df.itemdef_glovesst = {}
 ---@return itemdef_glovesst|nil
 function df.itemdef_glovesst.find(key) end
 
----@class _helm_flags: df.enum
+---@class _helm_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.helm_flags = {}
@@ -624,7 +624,7 @@ df.itemdef_helmst = {}
 ---@return itemdef_helmst|nil
 function df.itemdef_helmst.find(key) end
 
----@class _instrument_flags: df.enum
+---@class _instrument_flags: integer, string, df.enum
 ---@field INDEFINITE_PITCH 0
 ---@field [0] "INDEFINITE_PITCH"
 ---@field PLACED_AS_BUILDING 1
@@ -701,7 +701,7 @@ df.itemdef_instrumentst = {}
 ---@return itemdef_instrumentst|nil
 function df.itemdef_instrumentst.find(key) end
 
----@class _sound_production_type: df.enum
+---@class _sound_production_type: integer, string, df.enum
 ---@field PLUCKED_BY_BP 0
 ---@field [0] "PLUCKED_BY_BP"
 ---@field PLUCKED 1
@@ -790,7 +790,7 @@ df.sound_production_type = {}
 ---@field [20] boolean
 ---@field AIR_AGAINST_FIPPLE boolean
 
----@class _pitch_choice_type: df.enum
+---@class _pitch_choice_type: integer, string, df.enum
 ---@field MEMBRANE_POSITION 0
 ---@field [0] "MEMBRANE_POSITION"
 ---@field SUBPART_CHOICE 1
@@ -843,7 +843,7 @@ df.pitch_choice_type = {}
 ---@field [11] boolean
 ---@field FOOT_PEDALS boolean
 
----@class _tuning_type: df.enum
+---@class _tuning_type: integer, string, df.enum
 ---@field PEGS 0
 ---@field [0] "PEGS"
 ---@field ADJUSTABLE_BRIDGES 1
@@ -868,7 +868,7 @@ df.tuning_type = {}
 ---@field [4] boolean
 ---@field LEVERS boolean
 
----@class _timbre_type: df.enum
+---@class _timbre_type: integer, string, df.enum
 ---@field CLEAR 0
 ---@field [0] "CLEAR"
 ---@field NOISY 1
@@ -1138,7 +1138,7 @@ df.instrument_piece = {}
 ---@return instrument_piece|nil
 function df.instrument_piece.find(key) end
 
----@class _instrument_piece_flags: df.bitfield
+---@class _instrument_piece_flags: integer, string, df.bitfield
 ---@field always_singular 0
 ---@field [0] "always_singular"
 ---@field always_plural 1
@@ -1161,7 +1161,7 @@ df.instrument_register = {}
 ---@return instrument_register|nil
 function df.instrument_register.find(key) end
 
----@class _pants_flags: df.enum
+---@class _pants_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.pants_flags = {}
@@ -1203,7 +1203,7 @@ df.itemdef_shieldst = {}
 ---@return itemdef_shieldst|nil
 function df.itemdef_shieldst.find(key) end
 
----@class _shoes_flags: df.enum
+---@class _shoes_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.shoes_flags = {}
@@ -1238,7 +1238,7 @@ df.itemdef_siegeammost = {}
 ---@return itemdef_siegeammost|nil
 function df.itemdef_siegeammost.find(key) end
 
----@class _tool_flags: df.enum
+---@class _tool_flags: integer, string, df.enum
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 ---@field METAL_MAT 1
@@ -1323,7 +1323,7 @@ df.tool_flags = {}
 ---@field [19] boolean
 ---@field SHEET_MAT boolean
 
----@class _tool_uses: df.enum
+---@class _tool_uses: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LIQUID_COOKING 1
@@ -1476,7 +1476,7 @@ df.itemdef_toolst.T_default_improvements = {}
 ---@return itemdef_toolst_default_improvements|nil
 function df.itemdef_toolst.T_default_improvements.find(key) end
 
----@class _toy_flags: df.enum
+---@class _toy_flags: integer, string, df.enum
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 df.toy_flags = {}
@@ -1495,7 +1495,7 @@ df.itemdef_toyst = {}
 ---@return itemdef_toyst|nil
 function df.itemdef_toyst.find(key) end
 
----@class _trapcomp_flags: df.enum
+---@class _trapcomp_flags: integer, string, df.enum
 ---@field IS_SCREW 0
 ---@field [0] "IS_SCREW"
 ---@field IS_SPIKE 1
@@ -1536,7 +1536,7 @@ df.itemdef_trapcompst = {}
 ---@return itemdef_trapcompst|nil
 function df.itemdef_trapcompst.find(key) end
 
----@class _weapon_flags: df.enum
+---@class _weapon_flags: integer, string, df.enum
 ---@field CAN_STONE 0
 ---@field [0] "CAN_STONE"
 ---@field HAS_EDGE_ATTACK 1

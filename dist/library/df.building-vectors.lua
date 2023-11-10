@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.building-vectors
 
----@class _buildings_other_id: df.enum
+---@class _buildings_other_id: integer, string, df.enum
 ---@field ANY -1
 ---@field [0] "ANY"
 ---@field IN_PLAY 1

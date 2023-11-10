@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.reaction-raws
 
----@class _reaction_flags: df.enum
+---@class _reaction_flags: integer, string, df.enum
 ---@field FUEL 0
 ---@field [0] "FUEL"
 ---@field AUTOMATIC 1
@@ -77,7 +77,7 @@ df.reaction_description = {}
 ---@return reaction_description|nil
 function df.reaction_description.find(key) end
 
----@class _reaction_reagent_type: df.enum
+---@class _reaction_reagent_type: integer, string, df.enum
 ---@field item 0
 ---@field [0] "item"
 df.reaction_reagent_type = {}
@@ -120,7 +120,7 @@ function df.reaction_reagent:getDescription(unk_0, index) end
 ---@return boolean
 function df.reaction_reagent:isLyeBearing() end
 
----@class _reaction_reagent_flags: df.bitfield
+---@class _reaction_reagent_flags: integer, string, df.bitfield
 ---@field PRESERVE_REAGENT 0
 ---@field [0] "PRESERVE_REAGENT"
 ---@field IN_CONTAINER 1
@@ -163,7 +163,7 @@ df.reaction_reagent_itemst = {}
 ---@return reaction_reagent_itemst|nil
 function df.reaction_reagent_itemst.find(key) end
 
----@class _reaction_product_type: df.enum
+---@class _reaction_product_type: integer, string, df.enum
 ---@field item 0
 ---@field [0] "item"
 ---@field improvement 1
@@ -208,7 +208,7 @@ function df.reaction_product:produce(maker, out_products, out_items, in_reag, in
 ---@param desc string
 function df.reaction_product:getDescription(desc) end
 
----@class _reaction_product_item_flags: df.enum
+---@class _reaction_product_item_flags: integer, string, df.enum
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1
@@ -264,7 +264,7 @@ df.reaction_product_itemst.T_get_material = {}
 ---@return reaction_product_itemst_get_material|nil
 function df.reaction_product_itemst.T_get_material.find(key) end
 
----@class _reaction_product_improvement_flags: df.enum
+---@class _reaction_product_improvement_flags: integer, string, df.enum
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1

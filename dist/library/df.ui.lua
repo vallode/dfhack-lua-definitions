@@ -39,7 +39,7 @@ df.ui_hotkey = {}
 ---@return ui_hotkey|nil
 function df.ui_hotkey.find(key) end
 
----@class _ui_hotkey_cmd: df.enum
+---@class _ui_hotkey_cmd: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Zoom 1
@@ -60,7 +60,7 @@ df.ui_hotkey.T_cmd = {}
 ---@field [3] boolean
 ---@field FollowItem boolean
 
----@class _ui_sidebar_mode: df.enum
+---@class _ui_sidebar_mode: integer, string, df.enum
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Squads 1
@@ -308,7 +308,7 @@ df.punishment = {}
 ---@return punishment|nil
 function df.punishment.find(key) end
 
----@class _kitchen_exc_type: df.enum
+---@class _kitchen_exc_type: integer, string, df.enum
 ---@field Cook 1
 ---@field [0] "Cook"
 ---@field Brew 1
@@ -321,7 +321,7 @@ df.kitchen_exc_type = {}
 ---@field [1] boolean
 ---@field Brew boolean
 
----@class _save_substage: df.enum
+---@class _save_substage: integer, string, df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -534,7 +534,7 @@ df.save_substage = {}
 ---@field [51] boolean
 ---@field Finishing boolean
 
----@class _equipment_update: df.bitfield
+---@class _equipment_update: integer, string, df.bitfield
 ---@field weapon 0
 ---@field [0] "weapon"
 ---@field armor 1
@@ -602,7 +602,7 @@ df.labor_infost = {}
 ---@return labor_infost|nil
 function df.labor_infost.find(key) end
 
----@class _labor_infost_flags: df.bitfield
+---@class _labor_infost_flags: integer, string, df.bitfield
 ---@field children_do_chores 0
 ---@field [0] "children_do_chores"
 df.labor_infost.T_flags = {}
@@ -737,7 +737,7 @@ df.plotinfost.T_nobles = {}
 ---@return plotinfost_nobles|nil
 function df.plotinfost.T_nobles.find(key) end
 
----@class _plotinfost.T_nobles_bookkeeper_settings: df.enum
+---@class _plotinfost.T_nobles_bookkeeper_settings: integer, string, df.enum
 ---@field nearest_10 0
 ---@field [0] "nearest_10"
 ---@field nearest_100 1
@@ -783,7 +783,7 @@ df.plotinfost.T_kitchen = {}
 ---@return plotinfost_kitchen|nil
 function df.plotinfost.T_kitchen.find(key) end
 
----@class _plotinfost_unk23c8_flags: df.bitfield
+---@class _plotinfost_unk23c8_flags: integer, string, df.bitfield
 ---@field first_year 0
 ---@field [0] "first_year"
 ---@field recheck_aid_requests 1
@@ -1166,7 +1166,7 @@ df.plotinfost.T_squads = {}
 ---@return plotinfost_squads|nil
 function df.plotinfost.T_squads.find(key) end
 
----@class _timed_event_type: df.enum
+---@class _timed_event_type: integer, string, df.enum
 ---@field Caravan 0
 ---@field [0] "Caravan"
 ---@field Migrants 1

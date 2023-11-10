@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.interaction
 
----@class _interaction_flags: df.enum
+---@class _interaction_flags: integer, string, df.enum
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 ---@field EXPERIMENT_ONLY 1
@@ -30,7 +30,7 @@ df.interaction = {}
 ---@return interaction|nil
 function df.interaction.find(key) end
 
----@class _interaction_effect_type: df.enum
+---@class _interaction_effect_type: integer, string, df.enum
 ---@field ANIMATE 0
 ---@field [0] "ANIMATE"
 ---@field ADD_SYNDROME 1
@@ -87,7 +87,7 @@ df.interaction_effect_type = {}
 ---@field [12] boolean
 ---@field CHANGE_ITEM_QUALITY boolean
 
----@class _interaction_effect_location_hint: df.enum
+---@class _interaction_effect_location_hint: integer, string, df.enum
 ---@field IN_WATER 0
 ---@field [0] "IN_WATER"
 ---@field IN_MAGMA 1
@@ -131,7 +131,7 @@ df.interaction_effect = {}
 ---@return interaction_effect|nil
 function df.interaction_effect.find(key) end
 
----@class _interaction_effect_flags: df.bitfield
+---@class _interaction_effect_flags: integer, string, df.bitfield
 ---@field IMMEDIATE 0
 ---@field [0] "IMMEDIATE"
 df.interaction_effect.T_flags = {}
@@ -312,7 +312,7 @@ df.interaction_effect_summon_unitst = {}
 ---@return interaction_effect_summon_unitst|nil
 function df.interaction_effect_summon_unitst.find(key) end
 
----@class _interaction_source_type: df.enum
+---@class _interaction_source_type: integer, string, df.enum
 ---@field REGION 0
 ---@field [0] "REGION"
 ---@field SECRET 1
@@ -394,7 +394,7 @@ df.interaction_source_regionst = {}
 ---@return interaction_source_regionst|nil
 function df.interaction_source_regionst.find(key) end
 
----@class _interaction_source_regionst_region_flags: df.bitfield
+---@class _interaction_source_regionst_region_flags: integer, string, df.bitfield
 ---@field NORMAL_ALLOWED 0
 ---@field [0] "NORMAL_ALLOWED"
 ---@field EVIL_ALLOWED 1
@@ -441,7 +441,7 @@ df.interaction_source_secretst = {}
 ---@return interaction_source_secretst|nil
 function df.interaction_source_secretst.find(key) end
 
----@class _interaction_source_secretst_learn_flags: df.bitfield
+---@class _interaction_source_secretst_learn_flags: integer, string, df.bitfield
 ---@field SUPERNATURAL_LEARNING_POSSIBLE 0
 ---@field [0] "SUPERNATURAL_LEARNING_POSSIBLE"
 ---@field MUNDANE_RESEARCH_POSSIBLE 1
@@ -470,7 +470,7 @@ df.interaction_source_disturbancest = {}
 ---@return interaction_source_disturbancest|nil
 function df.interaction_source_disturbancest.find(key) end
 
----@class _interaction_source_usage_hint: df.enum
+---@class _interaction_source_usage_hint: integer, string, df.enum
 ---@field MAJOR_CURSE 0
 ---@field [0] "MAJOR_CURSE"
 ---@field GREETING 1
@@ -575,7 +575,7 @@ df.interaction_source_experimentst = {}
 ---@return interaction_source_experimentst|nil
 function df.interaction_source_experimentst.find(key) end
 
----@class _interaction_target_type: df.enum
+---@class _interaction_target_type: integer, string, df.enum
 ---@field CORPSE 0
 ---@field [0] "CORPSE"
 ---@field CREATURE 1
@@ -596,7 +596,7 @@ df.interaction_target_type = {}
 ---@field [3] boolean
 ---@field LOCATION boolean
 
----@class _interaction_target_location_type: df.enum
+---@class _interaction_target_location_type: integer, string, df.enum
 ---@field CONTEXT_NONE -1
 ---@field [0] "CONTEXT_NONE"
 ---@field CONTEXT_REGION 1
@@ -682,7 +682,7 @@ df.interaction_target_info = {}
 ---@return interaction_target_info|nil
 function df.interaction_target_info.find(key) end
 
----@class _interaction_target_info_restrictions: df.bitfield
+---@class _interaction_target_info_restrictions: integer, string, df.bitfield
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
 ---@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED"
 df.interaction_target_info.T_restrictions = {}
@@ -707,7 +707,7 @@ df.interaction_target_creaturest = {}
 ---@return interaction_target_creaturest|nil
 function df.interaction_target_creaturest.find(key) end
 
----@class _breath_attack_type: df.enum
+---@class _breath_attack_type: integer, string, df.enum
 ---@field TRAILING_DUST_FLOW 0
 ---@field [0] "TRAILING_DUST_FLOW"
 ---@field TRAILING_VAPOR_FLOW 1
@@ -813,7 +813,7 @@ df.interaction_target_materialst = {}
 ---@return interaction_target_materialst|nil
 function df.interaction_target_materialst.find(key) end
 
----@class _interaction_target_materialst_restrictions: df.bitfield
+---@class _interaction_target_materialst_restrictions: integer, string, df.bitfield
 ---@field CONTEXT_MATERIAL 0
 ---@field [0] "CONTEXT_MATERIAL"
 df.interaction_target_materialst.T_restrictions = {}

@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.buildings
 
----@class _building_type: df.enum
+---@class _building_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Chair 1
@@ -237,7 +237,7 @@ df.building_type = {}
 ---@type { [string|integer]: building_type_attr }
 df.building_type.attrs = {}
 
----@class _building_flags: df.bitfield
+---@class _building_flags: integer, string, df.bitfield
 ---@field exists 0
 ---@field [0] "exists"
 ---@field site_blocked 1
@@ -270,7 +270,7 @@ df.building_flags = {}
 ---@field [6] boolean
 ---@field from_worldgen boolean
 
----@class _door_flags: df.bitfield
+---@class _door_flags: integer, string, df.bitfield
 ---@field forbidden 0
 ---@field [0] "forbidden"
 ---@field internal 1
@@ -303,7 +303,7 @@ df.door_flags = {}
 ---@field [6] boolean
 ---@field pet_passable boolean
 
----@class _gate_flags: df.bitfield
+---@class _gate_flags: integer, string, df.bitfield
 ---@field closed 0
 ---@field [0] "closed"
 ---@field closing 1
@@ -328,7 +328,7 @@ df.gate_flags = {}
 ---@field [4] boolean
 ---@field has_support boolean
 
----@class _building_extents_type: df.enum
+---@class _building_extents_type: integer, string, df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Stockpile 1
@@ -773,7 +773,7 @@ df.hospital_supplies = {}
 ---@return hospital_supplies|nil
 function df.hospital_supplies.find(key) end
 
----@class _hospital_supplies_supplies_needed: df.bitfield
+---@class _hospital_supplies_supplies_needed: integer, string, df.bitfield
 ---@field splints 0
 ---@field [0] "splints"
 ---@field thread 1
@@ -806,7 +806,7 @@ df.hospital_supplies.T_supplies_needed = {}
 ---@field [6] boolean
 ---@field soap boolean
 
----@class _civzone_type: df.enum
+---@class _civzone_type: integer, string, df.enum
 ---@field Home 0
 ---@field [0] "Home"
 ---@field Depot 1
@@ -1242,7 +1242,7 @@ df.building_civzonest.T_zone_settings.T_whole = {}
 ---@return building_civzonest.T_zone_settings_whole|nil
 function df.building_civzonest.T_zone_settings.T_whole.find(key) end
 
----@class _building_civzonest.T_zone_settings_gather: df.bitfield
+---@class _building_civzonest.T_zone_settings_gather: integer, string, df.bitfield
 ---@field pick_trees 0
 ---@field [0] "pick_trees"
 ---@field pick_shrubs 1
@@ -1267,7 +1267,7 @@ df.building_civzonest.T_zone_settings.T_pen = {}
 ---@return building_civzonest.T_zone_settings_pen|nil
 function df.building_civzonest.T_zone_settings.T_pen.find(key) end
 
----@class _building_civzonest.T_zone_settings_tomb: df.bitfield
+---@class _building_civzonest.T_zone_settings_tomb: integer, string, df.bitfield
 ---@field no_pets 0
 ---@field [0] "no_pets"
 ---@field no_citizens 1
@@ -1289,7 +1289,7 @@ df.building_civzonest.T_zone_settings.T_archery = {}
 ---@return building_civzonest.T_zone_settings_archery|nil
 function df.building_civzonest.T_zone_settings.T_archery.find(key) end
 
----@class _building_civzonest.T_zone_settings_pit_pond: df.enum
+---@class _building_civzonest.T_zone_settings_pit_pond: integer, string, df.enum
 ---@field top_of_pit 2
 ---@field [0] "top_of_pit"
 ---@field top_of_pond 3
@@ -1350,7 +1350,7 @@ df.building_design = {}
 ---@return building_design|nil
 function df.building_design.find(key) end
 
----@class _building_design_flags: df.bitfield
+---@class _building_design_flags: integer, string, df.bitfield
 ---@field rough 0
 ---@field [0] "rough"
 ---@field built 1
@@ -1367,7 +1367,7 @@ df.building_design.T_flags = {}
 ---@field [2] boolean
 ---@field designed boolean
 
----@class _furnace_type: df.enum
+---@class _furnace_type: integer, string, df.enum
 ---@field WoodFurnace 0
 ---@field [0] "WoodFurnace"
 ---@field Smelter 1
@@ -1422,7 +1422,7 @@ df.building_furnacest = {}
 ---@return building_furnacest|nil
 function df.building_furnacest.find(key) end
 
----@class _workshop_type: df.enum
+---@class _workshop_type: integer, string, df.enum
 ---@field Carpenters 0
 ---@field [0] "Carpenters"
 ---@field Farmers 1
@@ -1650,7 +1650,7 @@ df.building_bridgest = {}
 ---@return building_bridgest|nil
 function df.building_bridgest.find(key) end
 
----@class _building_bridgest_direction: df.enum
+---@class _building_bridgest_direction: integer, string, df.enum
 ---@field Retracting -1
 ---@field [0] "Retracting"
 ---@field Left 1
@@ -1696,7 +1696,7 @@ df.building_cagest = {}
 ---@return building_cagest|nil
 function df.building_cagest.find(key) end
 
----@class _building_cagest_cage_flags: df.bitfield
+---@class _building_cagest_cage_flags: integer, string, df.bitfield
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_cagest.T_cage_flags = {}
@@ -1715,7 +1715,7 @@ df.building_chainst = {}
 ---@return building_chainst|nil
 function df.building_chainst.find(key) end
 
----@class _building_chainst_chain_flags: df.bitfield
+---@class _building_chainst_chain_flags: integer, string, df.bitfield
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_chainst.T_chain_flags = {}
@@ -1740,7 +1740,7 @@ df.building_coffinst = {}
 ---@return building_coffinst|nil
 function df.building_coffinst.find(key) end
 
----@class _construction_type: df.enum
+---@class _construction_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Fortification 1
@@ -1936,7 +1936,7 @@ df.building_farmplotst = {}
 ---@return building_farmplotst|nil
 function df.building_farmplotst.find(key) end
 
----@class _building_farmplotst_farm_flags: df.bitfield
+---@class _building_farmplotst_farm_flags: integer, string, df.bitfield
 ---@field seasonal_fertilize 0
 ---@field [0] "seasonal_fertilize"
 df.building_farmplotst.T_farm_flags = {}
@@ -1981,7 +1981,7 @@ df.building_hatchst = {}
 ---@return building_hatchst|nil
 function df.building_hatchst.find(key) end
 
----@class _hive_flags: df.bitfield
+---@class _hive_flags: integer, string, df.bitfield
 ---@field do_install 0
 ---@field [0] "do_install"
 ---@field do_gather 1
@@ -2065,7 +2065,7 @@ df.building_road_pavedst = {}
 ---@return building_road_pavedst|nil
 function df.building_road_pavedst.find(key) end
 
----@class _shop_type: df.enum
+---@class _shop_type: integer, string, df.enum
 ---@field GeneralStore 0
 ---@field [0] "GeneralStore"
 ---@field CraftsMarket 1
@@ -2097,7 +2097,7 @@ df.building_shopst = {}
 ---@return building_shopst|nil
 function df.building_shopst.find(key) end
 
----@class _building_shopst_shop_flags: df.bitfield
+---@class _building_shopst_shop_flags: integer, string, df.bitfield
 ---@field for_sale 0
 ---@field [0] "for_sale"
 df.building_shopst.T_shop_flags = {}
@@ -2106,7 +2106,7 @@ df.building_shopst.T_shop_flags = {}
 ---@field [0] boolean
 ---@field for_sale boolean
 
----@class _siegeengine_type: df.enum
+---@class _siegeengine_type: integer, string, df.enum
 ---@field Catapult 0
 ---@field [0] "Catapult"
 ---@field Ballista 1
@@ -2131,7 +2131,7 @@ df.building_siegeenginest = {}
 ---@return building_siegeenginest|nil
 function df.building_siegeenginest.find(key) end
 
----@class _building_siegeenginest_facing: df.enum
+---@class _building_siegeenginest_facing: integer, string, df.enum
 ---@field Left 0
 ---@field [0] "Left"
 ---@field Up 1
@@ -2152,7 +2152,7 @@ df.building_siegeenginest.T_facing = {}
 ---@field [3] boolean
 ---@field Down boolean
 
----@class _building_siegeenginest_action: df.enum
+---@class _building_siegeenginest_action: integer, string, df.enum
 ---@field NotInUse 0
 ---@field [0] "NotInUse"
 ---@field PrepareToFire 1
@@ -2193,7 +2193,7 @@ df.building_supportst = {}
 ---@return building_supportst|nil
 function df.building_supportst.find(key) end
 
----@class _building_supportst_support_flags: df.bitfield
+---@class _building_supportst_support_flags: integer, string, df.bitfield
 ---@field triggered 0
 ---@field [0] "triggered"
 df.building_supportst.T_support_flags = {}
@@ -2211,7 +2211,7 @@ df.building_tablest = {}
 ---@return building_tablest|nil
 function df.building_tablest.find(key) end
 
----@class _building_tablest_table_flags: df.bitfield
+---@class _building_tablest_table_flags: integer, string, df.bitfield
 ---@field meeting_hall 0
 ---@field [0] "meeting_hall"
 df.building_tablest.T_table_flags = {}
@@ -2238,7 +2238,7 @@ df.building_tradedepotst = {}
 ---@return building_tradedepotst|nil
 function df.building_tradedepotst.find(key) end
 
----@class _building_tradedepotst_trade_flags: df.bitfield
+---@class _building_tradedepotst_trade_flags: integer, string, df.bitfield
 ---@field trader_requested 0
 ---@field [0] "trader_requested"
 ---@field anyone_can_trade 1
@@ -2251,7 +2251,7 @@ df.building_tradedepotst.T_trade_flags = {}
 ---@field [1] boolean
 ---@field anyone_can_trade boolean
 
----@class _trap_type: df.enum
+---@class _trap_type: integer, string, df.enum
 ---@field Lever 0
 ---@field [0] "Lever"
 ---@field PressurePlate 1
@@ -2296,7 +2296,7 @@ df.pressure_plate_info = {}
 ---@return pressure_plate_info|nil
 function df.pressure_plate_info.find(key) end
 
----@class _pressure_plate_info_flags: df.bitfield
+---@class _pressure_plate_info_flags: integer, string, df.bitfield
 ---@field units 0
 ---@field [0] "units"
 ---@field water 1
@@ -2346,7 +2346,7 @@ df.building_trapst = {}
 ---@return building_trapst|nil
 function df.building_trapst.find(key) end
 
----@class _building_trapst_stop_flags: df.bitfield
+---@class _building_trapst_stop_flags: integer, string, df.bitfield
 ---@field disabled 0
 ---@field [0] "disabled"
 ---@field disabling 1
@@ -2409,7 +2409,7 @@ df.building_wellst = {}
 ---@return building_wellst|nil
 function df.building_wellst.find(key) end
 
----@class _building_wellst_well_flags: df.bitfield
+---@class _building_wellst_well_flags: integer, string, df.bitfield
 ---@field lowering 0
 ---@field [0] "lowering"
 ---@field just_raised 1
@@ -2444,7 +2444,7 @@ df.building_window_gemst = {}
 ---@return building_window_gemst|nil
 function df.building_window_gemst.find(key) end
 
----@class _dfhack_room_quality_level: df.enum
+---@class _dfhack_room_quality_level: integer, string, df.enum
 ---<br> Not in DF<br><br> Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum<br> Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum<br> Throne Room | Great Bedroom | Great Dining Room | Mausoleum<br> Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb<br> Decent Office | Decent Quarters | Decent Dining Room | Tomb<br> Office | Quarters | Dining Room | Burial Chamber<br> Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber<br> Meager Office | Meager Quarters | Meager Dining Room | Grave<br>
 ---@field Meager 0
 ---@field [0] "Meager"

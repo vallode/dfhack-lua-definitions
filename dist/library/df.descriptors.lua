@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.descriptors
 
----@class _pattern_type: df.enum
+---@class _pattern_type: integer, string, df.enum
 ---@field MONOTONE 0
 ---@field [0] "MONOTONE"
 ---@field STRIPES 1
@@ -70,7 +70,7 @@ df.descriptor_shape = {}
 ---@return descriptor_shape|nil
 function df.descriptor_shape.find(key) end
 
----@class _descriptor_shape_gems_use: df.bitfield
+---@class _descriptor_shape_gems_use: integer, string, df.bitfield
 ---@field noun 0
 ---@field [0] "noun"
 ---@field adj 1

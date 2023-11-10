@@ -17,7 +17,7 @@ df.world_site_unk130.T_unk_4 = {}
 ---@return world_site_unk130_unk_4|nil
 function df.world_site_unk130.T_unk_4.find(key) end
 
----@class _world_population_type: df.enum
+---@class _world_population_type: integer, string, df.enum
 ---@field Animal 0
 ---@field [0] "Animal"
 ---@field Vermin 1
@@ -100,7 +100,7 @@ df.local_population = {}
 ---@return local_population|nil
 function df.local_population.find(key) end
 
----@class _local_population_flags: df.bitfield
+---@class _local_population_flags: integer, string, df.bitfield
 ---@field discovered 0
 ---@field [0] "discovered"
 ---@field extinct 1
@@ -154,7 +154,7 @@ df.world_landmass = {}
 ---@return world_landmass|nil
 function df.world_landmass.find(key) end
 
----@class _world_region_type: df.enum
+---@class _world_region_type: integer, string, df.enum
 ---@field Swamp 0
 ---@field [0] "Swamp"
 ---@field Desert 1
@@ -263,7 +263,7 @@ df.world_underground_region = {}
 ---@return world_underground_region|nil
 function df.world_underground_region.find(key) end
 
----@class _world_underground_region_type: df.enum
+---@class _world_underground_region_type: integer, string, df.enum
 ---@field Cavern 0
 ---@field [0] "Cavern"
 ---@field MagmaSea 1
@@ -295,7 +295,7 @@ df.world_river = {}
 ---@return world_river|nil
 function df.world_river.find(key) end
 
----@class _geo_layer_type: df.enum
+---@class _geo_layer_type: integer, string, df.enum
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SEDIMENTARY 1
@@ -460,7 +460,7 @@ df.world_region_details.T_features = {}
 ---@return world_region_details_features|nil
 function df.world_region_details.T_features.find(key) end
 
----@class _region_map_entry_flags: df.enum
+---@class _region_map_entry_flags: integer, string, df.enum
 ---@field has_river 0
 ---@field [0] "has_river"
 ---@field tile_variant 1
@@ -561,7 +561,7 @@ df.region_map_entry_flags = {}
 ---@field [23] boolean
 ---@field unk_23 boolean
 
----@class _front_type: df.enum
+---@class _front_type: integer, string, df.enum
 ---@field front_none 0
 ---@field [0] "front_none"
 ---@field front_warm 1
@@ -582,7 +582,7 @@ df.front_type = {}
 ---@field [3] boolean
 ---@field front_occluded boolean
 
----@class _cumulus_type: df.enum
+---@class _cumulus_type: integer, string, df.enum
 ---@field cumulus_none 0
 ---@field [0] "cumulus_none"
 ---@field cumulus_medium 1
@@ -603,7 +603,7 @@ df.cumulus_type = {}
 ---@field [3] boolean
 ---@field cumulus_nimbus boolean
 
----@class _stratus_type: df.enum
+---@class _stratus_type: integer, string, df.enum
 ---@field stratus_none 0
 ---@field [0] "stratus_none"
 ---@field stratus_alto 1
@@ -624,7 +624,7 @@ df.stratus_type = {}
 ---@field [3] boolean
 ---@field stratus_nimbus boolean
 
----@class _fog_type: df.enum
+---@class _fog_type: integer, string, df.enum
 ---@field fog_none 0
 ---@field [0] "fog_none"
 ---@field fog_mist 1
@@ -677,7 +677,7 @@ df.region_map_entry = {}
 ---@return region_map_entry|nil
 function df.region_map_entry.find(key) end
 
----@class _region_map_entry_clouds: df.bitfield
+---@class _region_map_entry_clouds: integer, string, df.bitfield
 ---@field front 0
 ---@field [0] "front"
 ---@field cumulus 1
@@ -706,7 +706,7 @@ df.region_map_entry.T_clouds = {}
 ---@field [5] boolean
 ---@field countdown boolean
 
----@class _region_map_entry_wind: df.bitfield
+---@class _region_map_entry_wind: integer, string, df.bitfield
 ---blows toward direction in morning
 ---@field north_1 0
 ---@field [0] "north_1"
@@ -880,7 +880,7 @@ df.world_object_data.T_unk_v43 = {}
 ---@return world_object_data_unk_v43|nil
 function df.world_object_data.T_unk_v43.find(key) end
 
----@class _mountain_peak_flags: df.enum
+---@class _mountain_peak_flags: integer, string, df.enum
 ---@field is_volcano 0
 ---@field [0] "is_volcano"
 df.mountain_peak_flags = {}
@@ -997,7 +997,7 @@ df.world_data = {}
 ---@return world_data|nil
 function df.world_data.find(key) end
 
----@class _world_data_flip_latitude: df.enum
+---@class _world_data_flip_latitude: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field North 1
@@ -1155,7 +1155,7 @@ df.battlefield.T_sapient_deaths = {}
 ---@return battlefield_sapient_deaths|nil
 function df.battlefield.T_sapient_deaths.find(key) end
 
----@class _region_weather_type: df.enum
+---@class _region_weather_type: integer, string, df.enum
 ---@field CreepingGas 0
 ---@field [0] "CreepingGas"
 ---@field CreepingVapor 1

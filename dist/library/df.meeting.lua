@@ -32,7 +32,7 @@ df.dipscript_popup = {}
 ---@return dipscript_popup|nil
 function df.dipscript_popup.find(key) end
 
----@class _dipscript_popup_flags: df.bitfield
+---@class _dipscript_popup_flags: integer, string, df.bitfield
 ---@field close_screen 0
 ---@field [0] "close_screen"
 ---@field new_screen 1
@@ -296,7 +296,7 @@ df.meeting_diplomat_info = {}
 ---@return meeting_diplomat_info|nil
 function df.meeting_diplomat_info.find(key) end
 
----@class _meeting_diplomat_info_flags: df.bitfield
+---@class _meeting_diplomat_info_flags: integer, string, df.bitfield
 ---@field dynamic_load 0
 ---@field [0] "dynamic_load"
 ---@field failure 1
@@ -313,7 +313,7 @@ df.meeting_diplomat_info.T_flags = {}
 ---@field [2] boolean
 ---@field success boolean
 
----@class _meeting_topic: df.enum
+---@class _meeting_topic: integer, string, df.enum
 ---@field DiscussCurrent 0
 ---@field [0] "DiscussCurrent"
 ---@field RequestPeace 1
@@ -358,7 +358,7 @@ df.meeting_topic = {}
 ---@field [9] boolean
 ---@field TributeAgreement boolean
 
----@class _meeting_event_type: df.enum
+---@class _meeting_event_type: integer, string, df.enum
 ---@field AcceptAgreement 0
 ---@field [0] "AcceptAgreement"
 ---@field RejectAgreement 1
@@ -420,7 +420,7 @@ df.activity_info = {}
 ---@return activity_info|nil
 function df.activity_info.find(key) end
 
----@class _activity_info_flags: df.bitfield
+---@class _activity_info_flags: integer, string, df.bitfield
 ---@field next_step 0
 ---@field [0] "next_step"
 ---@field checked_building 1
@@ -455,7 +455,7 @@ df.room_rent_info = {}
 ---@return room_rent_info|nil
 function df.room_rent_info.find(key) end
 
----@class _room_rent_info_flags: df.bitfield
+---@class _room_rent_info_flags: integer, string, df.bitfield
 ---@field eviction_underway 0
 ---@field [0] "eviction_underway"
 ---@field move_underway 1
@@ -468,7 +468,7 @@ df.room_rent_info.T_flags = {}
 ---@field [1] boolean
 ---@field move_underway boolean
 
----@class _activity_entry_type: df.enum
+---@class _activity_entry_type: integer, string, df.enum
 ---@field TrainingSession 0
 ---@field [0] "TrainingSession"
 ---@field IndividualSkillDrill 1
@@ -537,7 +537,7 @@ df.activity_entry = {}
 ---@return activity_entry|nil
 function df.activity_entry.find(key) end
 
----@class _activity_event_type: df.enum
+---@class _activity_event_type: integer, string, df.enum
 ---@field TrainingSession 0
 ---@field [0] "TrainingSession"
 ---@field CombatTraining 1
@@ -680,7 +680,7 @@ df.activity_event = {}
 ---@return activity_event|nil
 function df.activity_event.find(key) end
 
----@class _activity_event_flags: df.bitfield
+---@class _activity_event_flags: integer, string, df.bitfield
 ---@field dismissed 0
 ---@field [0] "dismissed"
 ---@field squad 1
@@ -903,7 +903,7 @@ df.activity_event_harassmentst.T_unk_2 = {}
 ---@return activity_event_harassmentst_unk_2|nil
 function df.activity_event_harassmentst.T_unk_2.find(key) end
 
----@class _conversation_menu: df.enum
+---@class _conversation_menu: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field RespondGreeting 1
@@ -1284,7 +1284,7 @@ df.activity_event_conversationst.T_turns = {}
 ---@return activity_event_conversationst_turns|nil
 function df.activity_event_conversationst.T_turns.find(key) end
 
----@class _activity_event_conversationst_flags2: df.bitfield
+---@class _activity_event_conversationst_flags2: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field shouting 1
@@ -1430,7 +1430,7 @@ df.activity_event_worshipst = {}
 ---@return activity_event_worshipst|nil
 function df.activity_event_worshipst.find(key) end
 
----@class _performance_event_type: df.enum
+---@class _performance_event_type: integer, string, df.enum
 ---@field STORY 0
 ---@field [0] "STORY"
 ---@field POETRY 1
@@ -1467,7 +1467,7 @@ df.performance_event_type = {}
 ---@field [7] boolean
 ---@field SERMON_INVEIGH_AGAINST_VALUE boolean
 
----@class _performance_participant_type: df.enum
+---@class _performance_participant_type: integer, string, df.enum
 ---@field TELL_STORY 0
 ---@field [0] "TELL_STORY"
 ---@field RECITE_POETRY 1
@@ -1664,7 +1664,7 @@ df.activity_event_writest = {}
 ---@return activity_event_writest|nil
 function df.activity_event_writest.find(key) end
 
----@class _activity_event_writest_unk_1: df.bitfield
+---@class _activity_event_writest_unk_1: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -1681,7 +1681,7 @@ df.activity_event_writest.T_unk_1 = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@class _activity_event_writest_mode: df.enum
+---@class _activity_event_writest_mode: integer, string, df.enum
 ---@field WriteAboutKnowledge 0
 ---@field [0] "WriteAboutKnowledge"
 df.activity_event_writest.T_mode = {}
@@ -1706,7 +1706,7 @@ df.activity_event_copy_written_contentst = {}
 ---@return activity_event_copy_written_contentst|nil
 function df.activity_event_copy_written_contentst.find(key) end
 
----@class _activity_event_copy_written_contentst_flagsmaybe: df.bitfield
+---@class _activity_event_copy_written_contentst_flagsmaybe: integer, string, df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
 ---@field unk_1 1

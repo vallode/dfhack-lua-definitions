@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.plant-raws
 
----@class _plant_raw_flags: df.enum
+---@class _plant_raw_flags: integer, string, df.enum
 ---@field SPRING 0
 ---@field [0] "SPRING"
 ---@field SUMMER 1
@@ -472,7 +472,7 @@ df.plant_raw.T_stockpile_growth_flags = {}
 ---@return plant_raw_stockpile_growth_flags|nil
 function df.plant_raw.T_stockpile_growth_flags.find(key) end
 
----@class _plant_material_def: df.enum
+---@class _plant_material_def: integer, string, df.enum
 ---@field basic_mat 0
 ---@field [0] "basic_mat"
 ---@field tree 1
@@ -541,7 +541,7 @@ df.plant_growth = {}
 ---@return plant_growth|nil
 function df.plant_growth.find(key) end
 
----@class _plant_growth_locations: df.bitfield
+---@class _plant_growth_locations: integer, string, df.bitfield
 ---@field twigs 0
 ---@field [0] "twigs"
 ---@field light_branches 1
@@ -574,7 +574,7 @@ df.plant_growth.T_locations = {}
 ---@field [6] boolean
 ---@field sapling boolean
 
----@class _plant_growth_behavior: df.bitfield
+---@class _plant_growth_behavior: integer, string, df.bitfield
 ---@field drops_off 0
 ---@field [0] "drops_off"
 ---@field no_cloud 1

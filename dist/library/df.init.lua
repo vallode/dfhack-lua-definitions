@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.init
 
----@class _init_display_flags: df.enum
+---@class _init_display_flags: integer, string, df.enum
 ---@field USE_GRAPHICS 0
 ---@field [0] "USE_GRAPHICS"
 ---@field SOFTWARE 1
@@ -26,7 +26,7 @@ df.init_display_flags = {}
 ---@field [4] boolean
 ---@field INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH boolean
 
----@class _init_display_filter_mode: df.enum
+---@class _init_display_filter_mode: integer, string, df.enum
 ---@field AUTO 0
 ---@field [0] "AUTO"
 ---@field NEAREST 1
@@ -68,7 +68,7 @@ df.init_display = {}
 ---@return init_display|nil
 function df.init_display.find(key) end
 
----@class _init_display_windowed: df.enum
+---@class _init_display_windowed: integer, string, df.enum
 ---@field True 0
 ---@field [0] "True"
 ---@field False 1
@@ -89,7 +89,7 @@ df.init_display.T_windowed = {}
 ---@field [3] boolean
 ---@field Exclusive boolean
 
----@class _init_media_flags: df.enum
+---@class _init_media_flags: integer, string, df.enum
 ---@field SOUND_OFF 0
 ---@field [0] "SOUND_OFF"
 ---@field UNUSED_01_02 1
@@ -119,7 +119,7 @@ df.init_media = {}
 ---@return init_media|nil
 function df.init_media.find(key) end
 
----@class _init_input_flags: df.enum
+---@class _init_input_flags: integer, string, df.enum
 ---@field MOUSE_OFF 0
 ---@field [0] "MOUSE_OFF"
 ---@field MOUSE_PICTURE 1
@@ -178,7 +178,7 @@ df.init_font = {}
 ---@return init_font|nil
 function df.init_font.find(key) end
 
----@class _init_window_flags: df.enum
+---@class _init_window_flags: integer, string, df.enum
 ---@field VSYNC_ON 0
 ---@field [0] "VSYNC_ON"
 ---@field VSYNC_OFF 1

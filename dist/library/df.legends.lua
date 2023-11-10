@@ -21,7 +21,7 @@ df.invasion_info = {}
 ---@return invasion_info|nil
 function df.invasion_info.find(key) end
 
----@class _invasion_info_flags: df.bitfield
+---@class _invasion_info_flags: integer, string, df.bitfield
 ---@field active 0
 ---@field [0] "active"
 ---@field siege 1
@@ -107,7 +107,7 @@ df.entity_population = {}
 ---@return entity_population|nil
 function df.entity_population.find(key) end
 
----@class _nemesis_flags: df.enum
+---@class _nemesis_flags: integer, string, df.enum
 ---@field ACTIVE_ADVENTURER 0
 ---@field [0] "ACTIVE_ADVENTURER"
 ---@field RETIRED_ADVENTURER 1

@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.refs
 
----@class _general_ref_type: df.enum
+---@class _general_ref_type: integer, string, df.enum
 ---@field ARTIFACT 0
 ---@field [0] "ARTIFACT"
 ---@field IS_ARTIFACT 1
@@ -685,7 +685,7 @@ df.general_ref_unit_itemownerst = {}
 ---@return general_ref_unit_itemownerst|nil
 function df.general_ref_unit_itemownerst.find(key) end
 
----@class _general_ref_unit_itemownerst_flags: df.bitfield
+---@class _general_ref_unit_itemownerst_flags: integer, string, df.bitfield
 ---@field litter 0
 ---@field [0] "litter"
 df.general_ref_unit_itemownerst.T_flags = {}
@@ -919,7 +919,7 @@ df.general_ref_entity_itemownerst = {}
 ---@return general_ref_entity_itemownerst|nil
 function df.general_ref_entity_itemownerst.find(key) end
 
----@class _specific_ref_type: df.enum
+---@class _specific_ref_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field unk_1 1
@@ -1081,7 +1081,7 @@ df.specific_ref.T_data.T_wrestle = {}
 ---@return specific_ref.T_data_wrestle|nil
 function df.specific_ref.T_data.T_wrestle.find(key) end
 
----@class _histfig_entity_link_type: df.enum
+---@class _histfig_entity_link_type: integer, string, df.enum
 ---@field MEMBER 0
 ---@field [0] "MEMBER"
 ---@field FORMER_MEMBER 1
@@ -1328,7 +1328,7 @@ df.histfig_entity_link_former_occupationst = {}
 ---@return histfig_entity_link_former_occupationst|nil
 function df.histfig_entity_link_former_occupationst.find(key) end
 
----@class _histfig_site_link_type: df.enum
+---@class _histfig_site_link_type: integer, string, df.enum
 ---@field OCCUPATION 0
 ---@field [0] "OCCUPATION"
 ---@field SEAT_OF_POWER 1
@@ -1468,7 +1468,7 @@ df.histfig_site_link_prison_site_building_profilest = {}
 ---@return histfig_site_link_prison_site_building_profilest|nil
 function df.histfig_site_link_prison_site_building_profilest.find(key) end
 
----@class _histfig_hf_link_type: df.enum
+---@class _histfig_hf_link_type: integer, string, df.enum
 ---@field MOTHER 0
 ---@field [0] "MOTHER"
 ---@field FATHER 1
@@ -1674,7 +1674,7 @@ df.histfig_hf_link_deceased_spousest = {}
 ---@return histfig_hf_link_deceased_spousest|nil
 function df.histfig_hf_link_deceased_spousest.find(key) end
 
----@class _entity_entity_link_type: df.enum
+---@class _entity_entity_link_type: integer, string, df.enum
 ---@field PARENT 0
 ---@field [0] "PARENT"
 ---@field CHILD 1
@@ -1701,7 +1701,7 @@ df.entity_entity_link = {}
 ---@return entity_entity_link|nil
 function df.entity_entity_link.find(key) end
 
----@class _entity_site_link_type: df.enum
+---@class _entity_site_link_type: integer, string, df.enum
 ---Enum names updated per Putnam
 ---@field None -1
 ---@field [0] "None"
@@ -1731,7 +1731,7 @@ df.entity_site_link_type = {}
 ---@field [5] boolean
 ---@field Local_Activity boolean
 
----@class _entity_site_link_flags: df.bitfield
+---@class _entity_site_link_flags: integer, string, df.bitfield
 ---@field residence 0
 ---@field [0] "residence"
 ---@field capital 1
@@ -1838,7 +1838,7 @@ df.entity_site_link.T_ab_profile = {}
 ---@return entity_site_link_ab_profile|nil
 function df.entity_site_link.T_ab_profile.find(key) end
 
----@class _undead_flags: df.bitfield
+---@class _undead_flags: integer, string, df.bitfield
 ---@field zombie 0
 ---@field [0] "zombie"
 ---@field ghostly 1

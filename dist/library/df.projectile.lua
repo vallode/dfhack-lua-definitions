@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.projectile
 
----@class _projectile_type: df.enum
+---@class _projectile_type: integer, string, df.enum
 ---@field Item 0
 ---@field [0] "Item"
 ---@field Unit 1
@@ -18,7 +18,7 @@ df.projectile_type = {}
 ---@field [2] boolean
 ---@field Magic boolean
 
----@class _projectile_flags: df.bitfield
+---@class _projectile_flags: integer, string, df.bitfield
 ---@field no_impact_destroy 0
 ---@field [0] "no_impact_destroy"
 ---@field has_hit_ground 1

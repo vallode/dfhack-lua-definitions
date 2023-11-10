@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.art
 
----@class _art_image_element_type: df.enum
+---@class _art_image_element_type: integer, string, df.enum
 ---@field CREATURE 0
 ---@field [0] "CREATURE"
 ---@field PLANT 1
@@ -118,7 +118,7 @@ df.art_image_element_itemst = {}
 ---@return art_image_element_itemst|nil
 function df.art_image_element_itemst.find(key) end
 
----@class _art_image_property_type: df.enum
+---@class _art_image_property_type: integer, string, df.enum
 ---@field transitive_verb 0
 ---@field [0] "transitive_verb"
 ---@field intransitive_verb 1
@@ -158,7 +158,7 @@ function df.art_image_property:clone(unk_0) end
 ---@param useName boolean
 function df.art_image_property:getName(unk_0, unk_1, useName) end
 
----@class _art_image_property_verb: df.enum
+---@class _art_image_property_verb: integer, string, df.enum
 ---@field Withering 0
 ---@field [0] "Withering"
 ---@field SurroundedBy 1
@@ -374,7 +374,7 @@ df.art_image_property_intransitive_verbst = {}
 ---@return art_image_property_intransitive_verbst|nil
 function df.art_image_property_intransitive_verbst.find(key) end
 
----@class _art_facet_type: df.enum
+---@class _art_facet_type: integer, string, df.enum
 ---@field OWN_RACE 0
 ---@field [0] "OWN_RACE"
 ---@field FANCIFUL 1
@@ -437,7 +437,7 @@ df.art_image_ref = {}
 ---@return art_image_ref|nil
 function df.art_image_ref.find(key) end
 
----@class _poetic_form_action: df.enum
+---@class _poetic_form_action: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Describe 1
@@ -538,7 +538,7 @@ df.poetic_form_action = {}
 ---@field [23] boolean
 ---@field Beseech boolean
 
----@class _poetic_form_pattern: df.enum
+---@class _poetic_form_pattern: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field AA 1
@@ -595,7 +595,7 @@ df.poetic_form_pattern = {}
 ---@field [12] boolean
 ---@field BBB boolean
 
----@class _poetic_form_caesura_position: df.enum
+---@class _poetic_form_caesura_position: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Initial 1
@@ -616,7 +616,7 @@ df.poetic_form_caesura_position = {}
 ---@field [3] boolean
 ---@field Terminal boolean
 
----@class _poetic_form_mood: df.enum
+---@class _poetic_form_mood: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Narrative 1
@@ -653,7 +653,7 @@ df.poetic_form_mood = {}
 ---@field [7] boolean
 ---@field Solemn boolean
 
----@class _poetic_form_subject: df.enum
+---@class _poetic_form_subject: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Past 1
@@ -771,7 +771,7 @@ df.poetic_form_subject_target.T_Concept = {}
 ---@return poetic_form_subject_target_Concept|nil
 function df.poetic_form_subject_target.T_Concept.find(key) end
 
----@class _poetic_form_feature: df.bitfield
+---@class _poetic_form_feature: integer, string, df.bitfield
 ---@field InternalRhyme 0
 ---@field [0] "InternalRhyme"
 ---@field EndRhymesDontMatch 1
@@ -864,7 +864,7 @@ df.poetic_form_feature = {}
 ---@field [21] boolean
 ---@field Juxtaposision boolean
 
----@class _poetic_form_additional_feature: df.enum
+---@class _poetic_form_additional_feature: integer, string, df.enum
 ---@field SharesUnderlyingMeaning 0
 ---@field [0] "SharesUnderlyingMeaning"
 ---@field ContrastsUnderlyingMeaning 1
@@ -930,7 +930,7 @@ df.poetic_form = {}
 ---@return poetic_form|nil
 function df.poetic_form.find(key) end
 
----@class _poetic_form_flags: df.bitfield
+---@class _poetic_form_flags: integer, string, df.bitfield
 ---@field tone_patterns 0
 ---@field [0] "tone_patterns"
 ---@field produces_individual_poems 1
@@ -981,7 +981,7 @@ df.poetic_form_part = {}
 ---@return poetic_form_part|nil
 function df.poetic_form_part.find(key) end
 
----@class _poetic_form_part_flags: df.bitfield
+---@class _poetic_form_part_flags: integer, string, df.bitfield
 ---@field size_in_lines 0
 ---@field [0] "size_in_lines"
 df.poetic_form_part.T_flags = {}
@@ -1000,7 +1000,7 @@ df.poetic_form_perspective = {}
 ---@return poetic_form_perspective|nil
 function df.poetic_form_perspective.find(key) end
 
----@class _poetic_form_perspective_type: df.enum
+---@class _poetic_form_perspective_type: integer, string, df.enum
 ---@field Author 0
 ---@field [0] "Author"
 ---@field Soldier 1
@@ -1037,7 +1037,7 @@ df.poetic_form_perspective.T_type = {}
 ---@field [7] boolean
 ---@field Animal boolean
 
----@class _musical_form_purpose: df.enum
+---@class _musical_form_purpose: integer, string, df.enum
 ---@field Entertainment 0
 ---@field [0] "Entertainment"
 ---@field Commemoration 1
@@ -1058,7 +1058,7 @@ df.musical_form_purpose = {}
 ---@field [3] boolean
 ---@field Military boolean
 
----@class _musical_form_style: df.enum
+---@class _musical_form_style: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field FreeTempo 1
@@ -1359,7 +1359,7 @@ df.musical_form_style = {}
 ---@field [73] boolean
 ---@field BeTriumphant boolean
 
----@class _musical_form_pitch_style: df.enum
+---@class _musical_form_pitch_style: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field SinglePitchesOnly 1
@@ -1388,7 +1388,7 @@ df.musical_form_pitch_style = {}
 ---@field [5] boolean
 ---@field ChordLayers boolean
 
----@class _musical_form_feature: df.bitfield
+---@class _musical_form_feature: integer, string, df.bitfield
 ---@field GlideFromNoteToNote 0
 ---@field [0] "GlideFromNoteToNote"
 ---@field UseGraceNotes 1
@@ -1457,7 +1457,7 @@ df.musical_form_feature = {}
 ---@field [15] boolean
 ---@field FreelyAdjustBeats boolean
 
----@class _musical_form_passage_component_type: df.enum
+---@class _musical_form_passage_component_type: integer, string, df.enum
 ---@field Melody 0
 ---@field [0] "Melody"
 ---@field Counterpoint 1
@@ -1482,7 +1482,7 @@ df.musical_form_passage_component_type = {}
 ---@field [4] boolean
 ---@field Unspecified boolean
 
----@class _musical_form_passage_type: df.enum
+---@class _musical_form_passage_type: integer, string, df.enum
 ---@field Unrelated 0
 ---@field [0] "Unrelated"
 ---@field Introduction 1
@@ -1535,7 +1535,7 @@ df.musical_form_passage_type = {}
 ---@field [11] boolean
 ---@field Variation boolean
 
----@class _musical_form_passage_length_type: df.enum
+---@class _musical_form_passage_length_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Short 1
@@ -1560,7 +1560,7 @@ df.musical_form_passage_length_type = {}
 ---@field [4] boolean
 ---@field Varied boolean
 
----@class _musical_form_melody_style: df.enum
+---@class _musical_form_melody_style: integer, string, df.enum
 ---@field Rising 0
 ---@field [0] "Rising"
 ---@field Falling 1
@@ -1581,7 +1581,7 @@ df.musical_form_melody_style = {}
 ---@field [3] boolean
 ---@field FallingRising boolean
 
----@class _musical_form_melody_frequency: df.enum
+---@class _musical_form_melody_frequency: integer, string, df.enum
 ---@field Always 0
 ---@field [0] "Always"
 ---@field Often 1
@@ -1607,7 +1607,7 @@ df.musical_form_interval = {}
 ---@return musical_form_interval|nil
 function df.musical_form_interval.find(key) end
 
----@class _musical_form_interval_flags: df.bitfield
+---@class _musical_form_interval_flags: integer, string, df.bitfield
 ---@field rising 0
 ---@field [0] "rising"
 ---@field flattened 1
@@ -1681,7 +1681,7 @@ df.musical_form_instruments = {}
 ---@return musical_form_instruments|nil
 function df.musical_form_instruments.find(key) end
 
----@class _musical_form_instruments_substitutions: df.bitfield
+---@class _musical_form_instruments_substitutions: integer, string, df.bitfield
 ---@field singer 0
 ---@field [0] "singer"
 ---@field speaker 1
@@ -1741,7 +1741,7 @@ df.musical_form = {}
 ---@return musical_form|nil
 function df.musical_form.find(key) end
 
----@class _musical_form_flags: df.bitfield
+---@class _musical_form_flags: integer, string, df.bitfield
 ---@field produces_individual_songs 0
 ---@field [0] "produces_individual_songs"
 ---@field repeats_as_necessary 1
@@ -1754,7 +1754,7 @@ df.musical_form.T_flags = {}
 ---@field [1] boolean
 ---@field repeats_as_necessary boolean
 
----@class _dance_form_context: df.enum
+---@class _dance_form_context: integer, string, df.enum
 ---@field Sacred 0
 ---@field [0] "Sacred"
 ---@field Celebration 1
@@ -1783,7 +1783,7 @@ df.dance_form_context = {}
 ---@field [5] boolean
 ---@field War boolean
 
----@class _dance_form_group_size: df.enum
+---@class _dance_form_group_size: integer, string, df.enum
 ---@field Solo 0
 ---@field [0] "Solo"
 ---@field Partner 1
@@ -1800,7 +1800,7 @@ df.dance_form_group_size = {}
 ---@field [2] boolean
 ---@field Group boolean
 
----@class _dance_form_configuration: df.enum
+---@class _dance_form_configuration: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SingleLine 1
@@ -1829,7 +1829,7 @@ df.dance_form_configuration = {}
 ---@field [5] boolean
 ---@field LooselyMingled boolean
 
----@class _dance_form_movement_path: df.enum
+---@class _dance_form_movement_path: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field TurnClockwise 1
@@ -1854,7 +1854,7 @@ df.dance_form_movement_path = {}
 ---@field [4] boolean
 ---@field IntricatePath boolean
 
----@class _dance_form_partner_distance: df.enum
+---@class _dance_form_partner_distance: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Closely 1
@@ -1875,7 +1875,7 @@ df.dance_form_partner_distance = {}
 ---@field [3] boolean
 ---@field RareContact boolean
 
----@class _dance_form_partner_intent: df.enum
+---@class _dance_form_partner_intent: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field PushingTogether 1
@@ -1908,7 +1908,7 @@ df.dance_form_partner_intent = {}
 ---@field [6] boolean
 ---@field SpokenCues boolean
 
----@class _dance_form_partner_cue_frequency: df.enum
+---@class _dance_form_partner_cue_frequency: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Constantly 1
@@ -1925,7 +1925,7 @@ df.dance_form_partner_cue_frequency = {}
 ---@field [2] boolean
 ---@field Briefly boolean
 
----@class _dance_form_partner_change_type: df.enum
+---@class _dance_form_partner_change_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LeadAdvanceAlongMainLineOfMotion 1
@@ -1950,7 +1950,7 @@ df.dance_form_partner_change_type = {}
 ---@field [4] boolean
 ---@field LeadTurningOutCounterClockwise boolean
 
----@class _dance_form_move_type: df.enum
+---@class _dance_form_move_type: integer, string, df.enum
 ---@field SquareStep 0
 ---@field [0] "SquareStep"
 ---@field CircularStep 1
@@ -2091,7 +2091,7 @@ df.dance_form_move_type = {}
 ---@field [33] boolean
 ---@field MovementAlongLineOfDance boolean
 
----@class _dance_form_move_modifier: df.enum
+---@class _dance_form_move_modifier: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Graceful 1
@@ -2284,7 +2284,7 @@ df.dance_form_move_modifier = {}
 ---@field [46] boolean
 ---@field Sinuous boolean
 
----@class _dance_form_move_location: df.bitfield
+---@class _dance_form_move_location: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -2347,7 +2347,7 @@ df.dance_form_section = {}
 ---@return dance_form_section|nil
 function df.dance_form_section.find(key) end
 
----@class _dance_form_move_group_type: df.enum
+---@class _dance_form_move_group_type: integer, string, df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field BasicMovement 1
@@ -2420,7 +2420,7 @@ df.dance_form = {}
 ---@return dance_form|nil
 function df.dance_form.find(key) end
 
----@class _scale_type: df.enum
+---@class _scale_type: integer, string, df.enum
 ---@field Octave 0
 ---@field [0] "Octave"
 ---@field Variable 1
@@ -2477,7 +2477,7 @@ df.scale = {}
 ---@return scale|nil
 function df.scale.find(key) end
 
----@class _scale_flags: df.bitfield
+---@class _scale_flags: integer, string, df.bitfield
 ---@field tonic_note_fixed_at_performance 0
 ---@field [0] "tonic_note_fixed_at_performance"
 df.scale.T_flags = {}
@@ -2510,7 +2510,7 @@ df.rhythm = {}
 ---@return rhythm|nil
 function df.rhythm.find(key) end
 
----@class _beat_type: df.enum
+---@class _beat_type: integer, string, df.enum
 ---@field Silent 0
 ---@field [0] "Silent"
 ---@field AccentedBeat 1
@@ -2595,7 +2595,7 @@ df.sub_rhythm = {}
 ---@return sub_rhythm|nil
 function df.sub_rhythm.find(key) end
 
----@class _occupation_type: df.enum
+---@class _occupation_type: integer, string, df.enum
 ---@field TAVERN_KEEPER 0
 ---@field [0] "TAVERN_KEEPER"
 ---@field PERFORMER 1

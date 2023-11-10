@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.entity-raws
 
----@class _entity_raw_flags: df.enum
+---@class _entity_raw_flags: integer, string, df.enum
 ---@field CIV_CONTROLLABLE 0
 ---@field [0] "CIV_CONTROLLABLE"
 ---@field INDIV_CONTROLLABLE 1
@@ -302,7 +302,7 @@ df.entity_raw_flags = {}
 ---@field [73] boolean
 ---@field NO_ARTIFACT_CLAIMS boolean
 
----@class _site_type: df.enum
+---@class _site_type: integer, string, df.enum
 ---@field PLAYER_FORTRESS 0
 ---@field [0] "PLAYER_FORTRESS"
 ---@field DARK_FORTRESS 1
@@ -351,7 +351,7 @@ df.site_type = {}
 ---@field [10] boolean
 ---@field MONUMENT boolean
 
----@class _ethic_type: df.enum
+---@class _ethic_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field KILL_ENTITY_MEMBER 1
@@ -448,7 +448,7 @@ df.ethic_type = {}
 ---@field [22] boolean
 ---@field MAKE_TROPHY_ANIMAL boolean
 
----@class _ethic_response: df.enum
+---@class _ethic_response: integer, string, df.enum
 ---@field NOT_APPLICABLE 0
 ---@field [0] "NOT_APPLICABLE"
 ---@field ACCEPTABLE 1
@@ -521,7 +521,7 @@ df.ethic_response = {}
 ---@field [16] boolean
 ---@field REQUIRED boolean
 
----@class _entity_name_type: df.enum
+---@class _entity_name_type: integer, string, df.enum
 ---@field OTHER 0
 ---@field [0] "OTHER"
 ---@field CIV 1
@@ -723,7 +723,7 @@ df.entity_raw.T_progress_trigger = {}
 ---@return entity_raw_progress_trigger|nil
 function df.entity_raw.T_progress_trigger.find(key) end
 
----@class _entity_raw_scholar: df.bitfield
+---@class _entity_raw_scholar: integer, string, df.bitfield
 ---@field PHILOSOPHER 0
 ---@field [0] "PHILOSOPHER"
 ---@field MATHEMATICIAN 1
@@ -808,7 +808,7 @@ df.entity_animal_raw = {}
 ---@return entity_animal_raw|nil
 function df.entity_animal_raw.find(key) end
 
----@class _entity_animal_raw_flags: df.bitfield
+---@class _entity_animal_raw_flags: integer, string, df.bitfield
 ---@field ALWAYS_PRESENT 0
 ---@field [0] "ALWAYS_PRESENT"
 ---@field NEVER_MOUNT 1
@@ -857,7 +857,7 @@ df.entity_animal_raw.T_flags = {}
 ---@field [10] boolean
 ---@field ALWAYS_PACK_ANIMAL boolean
 
----@class _entity_position_raw_flags: df.enum
+---@class _entity_position_raw_flags: integer, string, df.enum
 ---@field SITE 0
 ---@field [0] "SITE"
 ---@field ELECTED 1
@@ -962,7 +962,7 @@ df.entity_position_raw_flags = {}
 ---@field [24] boolean
 ---@field REQUIRES_MARKET boolean
 
----@class _entity_position_responsibility: df.enum
+---@class _entity_position_responsibility: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field LAW_MAKING 1

@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.unit-thoughts
 
----@class _emotion_type: df.enum
+---@class _emotion_type: integer, string, df.enum
 ---@field ANYTHING -1
 ---@field [0] "ANYTHING"
 ---@field ACCEPTANCE 1
@@ -693,7 +693,7 @@ df.emotion_type = {}
 ---@type { [string|integer]: emotion_type_attr }
 df.emotion_type.attrs = {}
 
----@class _unit_thought_type: df.enum
+---@class _unit_thought_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Conflict 1

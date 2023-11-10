@@ -37,7 +37,7 @@ df.musicsoundst = {}
 ---@return musicsoundst|nil
 function df.musicsoundst.find(key) end
 
----@class _musicsoundst_linux_sound_system: df.enum
+---@class _musicsoundst_linux_sound_system: integer, string, df.enum
 ---@field ALSA 0
 ---@field [0] "ALSA"
 ---@field OSS 1
@@ -63,7 +63,7 @@ df.fmod_sound = {}
 ---@return fmod_sound|nil
 function df.fmod_sound.find(key) end
 
----@class _curses_color: df.enum
+---@class _curses_color: integer, string, df.enum
 ---@field Black 0
 ---@field [0] "Black"
 ---@field Blue 1
@@ -100,7 +100,7 @@ df.curses_color = {}
 ---@field [7] boolean
 ---@field White boolean
 
----@class _cmv_attribute: df.bitfield
+---@class _cmv_attribute: integer, string, df.bitfield
 ---@field fg 0
 ---@field [0] "fg"
 ---@field bg 1
@@ -767,7 +767,7 @@ df.renderer_2d = {}
 ---@return renderer_2d|nil
 function df.renderer_2d.find(key) end
 
----@class _zoom_commands: df.enum
+---@class _zoom_commands: integer, string, df.enum
 ---@field zoom_in 0
 ---@field [0] "zoom_in"
 ---@field zoom_out 1
@@ -842,7 +842,7 @@ df.enabler = {}
 ---@return enabler|nil
 function df.enabler.find(key) end
 
----@class _enabler_fullscreen_state: df.bitfield
+---@class _enabler_fullscreen_state: integer, string, df.bitfield
 ---@field fullscreen 0
 ---@field [0] "fullscreen"
 ---@field exclusive 1
@@ -885,7 +885,7 @@ df.enabler.T_async_zoom = {}
 ---@return enabler_async_zoom|nil
 function df.enabler.T_async_zoom.find(key) end
 
----@class _enabler_flag: df.bitfield
+---@class _enabler_flag: integer, string, df.bitfield
 ---@field render 0
 ---@field [0] "render"
 ---@field maxfps 1
@@ -913,7 +913,7 @@ function df.enabler.T_textures.find(key) end
 ---@return string
 function df.enabler:GetKeyDisplay(unk_0) end
 
----@class _justification: df.enum
+---@class _justification: integer, string, df.enum
 ---from libgraphics
 ---@field justify_left 0
 ---@field [0] "justify_left"

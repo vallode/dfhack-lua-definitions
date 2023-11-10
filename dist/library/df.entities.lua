@@ -32,7 +32,7 @@ df.entity_occasion = {}
 ---@return entity_occasion|nil
 function df.entity_occasion.find(key) end
 
----@class _occasion_schedule_type: df.enum
+---@class _occasion_schedule_type: integer, string, df.enum
 ---@field DANCE_PERFORMANCE 0
 ---@field [0] "DANCE_PERFORMANCE"
 ---@field MUSICAL_PERFORMANCE 1
@@ -113,7 +113,7 @@ df.entity_occasion_schedule = {}
 ---@return entity_occasion_schedule|nil
 function df.entity_occasion_schedule.find(key) end
 
----@class _occasion_schedule_feature: df.enum
+---@class _occasion_schedule_feature: integer, string, df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -281,7 +281,7 @@ df.entity_activity_statistics.T_wealth = {}
 ---@return entity_activity_statistics_wealth|nil
 function df.entity_activity_statistics.T_wealth.find(key) end
 
----@class _entity_activity_statistics_found_misc: df.bitfield
+---@class _entity_activity_statistics_found_misc: integer, string, df.bitfield
 ---@field deep_special 0
 ---@field [0] "deep_special"
 df.entity_activity_statistics.T_found_misc = {}
@@ -315,7 +315,7 @@ df.caravan_state = {}
 ---@return caravan_state|nil
 function df.caravan_state.find(key) end
 
----@class _caravan_state_trade_state: df.enum
+---@class _caravan_state_trade_state: integer, string, df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Approaching 1
@@ -340,7 +340,7 @@ df.caravan_state.T_trade_state = {}
 ---@field [4] boolean
 ---@field Stuck boolean
 
----@class _caravan_state_flags: df.bitfield
+---@class _caravan_state_flags: integer, string, df.bitfield
 ---@field check_cleanup 0
 ---@field [0] "check_cleanup"
 ---@field casualty 1
@@ -403,7 +403,7 @@ df.entity_buy_requests = {}
 ---@return entity_buy_requests|nil
 function df.entity_buy_requests.find(key) end
 
----@class _entity_sell_category: df.enum
+---@class _entity_sell_category: integer, string, df.enum
 ---@field Leather 0
 ---@field [0] "Leather"
 ---@field ClothPlant 1
@@ -693,7 +693,7 @@ df.entity_recipe = {}
 ---@return entity_recipe|nil
 function df.entity_recipe.find(key) end
 
----@class _historical_entity_type: df.enum
+---@class _historical_entity_type: integer, string, df.enum
 ---@field Civilization 0
 ---@field [0] "Civilization"
 ---@field SiteGovernment 1
@@ -762,7 +762,7 @@ df.honors_type = {}
 ---@return honors_type|nil
 function df.honors_type.find(key) end
 
----@class _honors_type_flags: df.bitfield
+---@class _honors_type_flags: integer, string, df.bitfield
 ---@field granted_to_all_new_members 0
 ---@field [0] "granted_to_all_new_members"
 df.honors_type.T_flags = {}
@@ -771,7 +771,7 @@ df.honors_type.T_flags = {}
 ---@field [0] boolean
 ---@field granted_to_all_new_members boolean
 
----@class _honors_type_required_skill_type: df.bitfield
+---@class _honors_type_required_skill_type: integer, string, df.bitfield
 ---@field melee_weapon 0
 ---@field [0] "melee_weapon"
 ---@field ranged_weapon 1
@@ -950,7 +950,7 @@ df.historical_entity = {}
 ---@return historical_entity|nil
 function df.historical_entity.find(key) end
 
----@class _historical_entity_flags: df.bitfield
+---@class _historical_entity_flags: integer, string, df.bitfield
 ---@field neighbor 0
 ---@field [0] "neighbor"
 ---@field player_civ 1
@@ -1304,7 +1304,7 @@ df.historical_entity.T_tissue_styles = {}
 ---@return historical_entity_tissue_styles|nil
 function df.historical_entity.T_tissue_styles.find(key) end
 
----@class _historical_entity_conquered_site_group_flags: df.bitfield
+---@class _historical_entity_conquered_site_group_flags: integer, string, df.bitfield
 ---actually lives inside a class
 ---@field harsh 0
 ---@field [0] "harsh"
@@ -1420,7 +1420,7 @@ df.entity_tissue_style = {}
 ---@return entity_tissue_style|nil
 function df.entity_tissue_style.find(key) end
 
----@class _training_knowledge_level: df.enum
+---@class _training_knowledge_level: integer, string, df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field FewFacts 1
@@ -1449,7 +1449,7 @@ df.training_knowledge_level = {}
 ---@field [5] boolean
 ---@field Domesticated boolean
 
----@class _entity_position_flags: df.enum
+---@class _entity_position_flags: integer, string, df.enum
 ---@field IS_LAW_MAKER 0
 ---@field [0] "IS_LAW_MAKER"
 ---@field ELECTED 1
@@ -1651,7 +1651,7 @@ df.entity_position_assignment = {}
 ---@return entity_position_assignment|nil
 function df.entity_position_assignment.find(key) end
 
----@class _entity_material_category: df.enum
+---@class _entity_material_category: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Clothing 1
@@ -1835,7 +1835,7 @@ df.entity_uniform.T_uniform_item_subtypes = {}
 ---@return entity_uniform_uniform_item_subtypes|nil
 function df.entity_uniform.T_uniform_item_subtypes.find(key) end
 
----@class _entity_event_type: df.enum
+---@class _entity_event_type: integer, string, df.enum
 ---@field invasion 0
 ---@field [0] "invasion"
 ---@field abduction 1
@@ -2195,7 +2195,7 @@ df.entity_event.T_data.T_insurrection_end = {}
 ---@return entity_event.T_data_insurrection_end|nil
 function df.entity_event.T_data.T_insurrection_end.find(key) end
 
----@class _entity_event.T_data.T_insurrection_end_result: df.enum
+---@class _entity_event.T_data.T_insurrection_end_result: integer, string, df.enum
 ---@field Overthrow 0
 ---@field [0] "Overthrow"
 ---@field Failure 1
@@ -2424,7 +2424,7 @@ df.agreement = {}
 ---@return agreement|nil
 function df.agreement.find(key) end
 
----@class _agreement_flags: df.bitfield
+---@class _agreement_flags: integer, string, df.bitfield
 ---@field petition_not_accepted 0
 ---@field [0] "petition_not_accepted"
 ---@field convicted_accepted 1
@@ -2459,7 +2459,7 @@ df.agreement_party.T_unk_1 = {}
 ---@return agreement_party_unk_1|nil
 function df.agreement_party.T_unk_1.find(key) end
 
----@class _crime_type: df.enum
+---@class _crime_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Bribery 1
@@ -2484,7 +2484,7 @@ df.crime_type = {}
 ---@field [4] boolean
 ---@field Embezzlement boolean
 
----@class _agreement_details_type: df.enum
+---@class _agreement_details_type: integer, string, df.enum
 ---@field JoinParty 0
 ---@field [0] "JoinParty"
 ---@field DemonicBinding 1

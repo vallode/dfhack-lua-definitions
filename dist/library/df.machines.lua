@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.machines
 
----@class _machine_type: df.enum
+---@class _machine_type: integer, string, df.enum
 ---@field standard 0
 ---@field [0] "standard"
 df.machine_type = {}
@@ -19,7 +19,7 @@ df.machine_info = {}
 ---@return machine_info|nil
 function df.machine_info.find(key) end
 
----@class _machine_info_flags: df.bitfield
+---@class _machine_info_flags: integer, string, df.bitfield
 ---@field frozen 0
 ---@field [0] "frozen"
 df.machine_info.T_flags = {}
@@ -37,7 +37,7 @@ df.power_info = {}
 ---@return power_info|nil
 function df.power_info.find(key) end
 
----@class _machine_conn_modes: df.bitfield
+---@class _machine_conn_modes: integer, string, df.bitfield
 ---@field up 0
 ---@field [0] "up"
 ---@field down 1
@@ -101,7 +101,7 @@ df.machine.T_components = {}
 ---@return machine_components|nil
 function df.machine.T_components.find(key) end
 
----@class _machine_flags: df.bitfield
+---@class _machine_flags: integer, string, df.bitfield
 ---@field active 0
 ---@field [0] "active"
 ---@field frozen 1
@@ -166,7 +166,7 @@ df.building_gear_assemblyst = {}
 ---@return building_gear_assemblyst|nil
 function df.building_gear_assemblyst.find(key) end
 
----@class _building_gear_assemblyst_gear_flags: df.bitfield
+---@class _building_gear_assemblyst_gear_flags: integer, string, df.bitfield
 ---@field disengaged 0
 ---@field [0] "disengaged"
 df.building_gear_assemblyst.T_gear_flags = {}
@@ -199,7 +199,7 @@ df.building_water_wheelst = {}
 ---@return building_water_wheelst|nil
 function df.building_water_wheelst.find(key) end
 
----@class _screw_pump_direction: df.enum
+---@class _screw_pump_direction: integer, string, df.enum
 ---@field FromNorth 0
 ---@field [0] "FromNorth"
 ---@field FromEast 1

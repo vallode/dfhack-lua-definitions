@@ -188,7 +188,7 @@ df.global.selection_rect = {}
 function df.global.selection_rect.find(key) end
 
 
----@class _weather_type: df.enum
+---@class _weather_type: integer, string, df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Rain 1
@@ -205,7 +205,7 @@ df.weather_type = {}
 ---@field [2] boolean
 ---@field Snow boolean
 
----@class _next_global_id: df.enum
+---@class _next_global_id: integer, string, df.enum
 ---<br> The storage order of "next ID" fields in the save file.<br> Followed by game type. The enum item name is the part between<br> next_ and _global_id in the Dwarf Fortress global variable table.<br>
 ---@field unit 0
 ---@field [0] "unit"
@@ -385,7 +385,7 @@ df.global_table_entry = {}
 ---@return global_table_entry|nil
 function df.global_table_entry.find(key) end
 
----@class _game_mode: df.enum
+---@class _game_mode: integer, string, df.enum
 ---@field DWARF 0
 ---@field [0] "DWARF"
 ---@field ADVENTURE 1
@@ -406,7 +406,7 @@ df.game_mode = {}
 ---@field [3] boolean
 ---@field NONE boolean
 
----@class _game_type: df.enum
+---@class _game_type: integer, string, df.enum
 ---@field DWARF_MAIN 0
 ---@field [0] "DWARF_MAIN"
 ---@field ADVENTURE_MAIN 1
@@ -459,7 +459,7 @@ df.game_type = {}
 ---@field [11] boolean
 ---@field NONE boolean
 
----@class _lever_target_type: df.enum
+---@class _lever_target_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field BarsVertical 66

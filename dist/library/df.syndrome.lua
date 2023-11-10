@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.syndrome
 
----@class _creature_interaction_effect_type: df.enum
+---@class _creature_interaction_effect_type: integer, string, df.enum
 ---@field PAIN 0
 ---@field [0] "PAIN"
 ---@field SWELLING 1
@@ -202,7 +202,7 @@ df.creature_interaction_effect_type = {}
 ---@field [48] boolean
 ---@field REDUCE_FEVER boolean
 
----@class _creature_interaction_effect_flags: df.bitfield
+---@class _creature_interaction_effect_flags: integer, string, df.bitfield
 ---@field SIZE_DELAYS 0
 ---@field [0] "SIZE_DELAYS"
 ---@field SIZE_DILUTES 1
@@ -247,7 +247,7 @@ df.creature_interaction_effect_flags = {}
 ---@field [9] boolean
 ---@field ABRUPT_END boolean
 
----@class _cie_add_tag_mask1: df.bitfield
+---@class _cie_add_tag_mask1: integer, string, df.bitfield
 ---@field EXTRAVISION 0
 ---@field [0] "EXTRAVISION"
 ---@field OPPOSED_TO_LIFE 1
@@ -380,7 +380,7 @@ df.cie_add_tag_mask1 = {}
 ---@field [31] boolean
 ---@field unk_31 boolean
 
----@class _cie_add_tag_mask2: df.bitfield
+---@class _cie_add_tag_mask2: integer, string, df.bitfield
 ---@field NO_AGING 0
 ---@field [0] "NO_AGING"
 ---@field MORTAL 1
@@ -405,7 +405,7 @@ df.cie_add_tag_mask2 = {}
 ---@field [4] boolean
 ---@field FIT_FOR_RESURRECTION boolean
 
----@class _creature_interaction_effect_target_mode: df.enum
+---@class _creature_interaction_effect_target_mode: integer, string, df.enum
 ---@field BY_TYPE 0
 ---@field [0] "BY_TYPE"
 ---@field BY_TOKEN 1
@@ -1001,7 +1001,7 @@ df.creature_interaction_effect_cure_infectionst = {}
 ---@return creature_interaction_effect_cure_infectionst|nil
 function df.creature_interaction_effect_cure_infectionst.find(key) end
 
----@class _syndrome_flags: df.bitfield
+---@class _syndrome_flags: integer, string, df.bitfield
 ---@field SYN_INJECTED 0
 ---@field [0] "SYN_INJECTED"
 ---@field SYN_CONTACT 1

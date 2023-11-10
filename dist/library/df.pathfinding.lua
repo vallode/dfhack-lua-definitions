@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.pathfinding
 
----@class _unit_path_goal: df.enum
+---@class _unit_path_goal: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field ComeToJobBuilding 1
@@ -866,7 +866,7 @@ df.unit_path_goal = {}
 ---@field [214] boolean
 ---@field SeekHeistHandoff boolean
 
----@class _unit_station_type: df.enum
+---@class _unit_station_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Nonsense 1
@@ -1043,7 +1043,7 @@ df.unit_station_type = {}
 ---@field [42] boolean
 ---@field WaitOrder boolean
 
----@class _pathfinding_flags: df.bitfield
+---@class _pathfinding_flags: integer, string, df.bitfield
 ---@field Desperate 0
 ---@field [0] "Desperate"
 ---@field Reckless 1

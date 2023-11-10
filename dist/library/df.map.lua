@@ -39,7 +39,7 @@ df.coord_path = {}
 ---@return coord_path|nil
 function df.coord_path.find(key) end
 
----@class _tile_traffic: df.enum
+---@class _tile_traffic: integer, string, df.enum
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Low 1
@@ -60,7 +60,7 @@ df.tile_traffic = {}
 ---@field [3] boolean
 ---@field Restricted boolean
 
----@class _tile_dig_designation: df.enum
+---@class _tile_dig_designation: integer, string, df.enum
 ---@field No 0
 ---@field [0] "No"
 ---@field Default 1
@@ -93,7 +93,7 @@ df.tile_dig_designation = {}
 ---@field [6] boolean
 ---@field UpStair boolean
 
----@class _tile_liquid: df.enum
+---@class _tile_liquid: integer, string, df.enum
 ---@field Water 0
 ---@field [0] "Water"
 ---@field Magma 1
@@ -106,7 +106,7 @@ df.tile_liquid = {}
 ---@field [1] boolean
 ---@field Magma boolean
 
----@class _tile_designation: df.bitfield
+---@class _tile_designation: integer, string, df.bitfield
 ---@field flow_size 0
 ---@field [0] "flow_size"
 ---@field pile 1
@@ -191,7 +191,7 @@ df.tile_designation = {}
 ---@field [19] boolean
 ---@field water_salt boolean
 
----@class _tile_building_occ: df.enum
+---@class _tile_building_occ: integer, string, df.enum
 ---@field None 0
 ---@field [0] "None"
 ---@field Planned 1
@@ -228,7 +228,7 @@ df.tile_building_occ = {}
 ---@field [7] boolean
 ---@field Dynamic boolean
 
----@class _tile_occupancy: df.bitfield
+---@class _tile_occupancy: integer, string, df.bitfield
 ---@field building 0
 ---@field [0] "building"
 ---@field unit 1
@@ -321,7 +321,7 @@ df.tile_occupancy = {}
 ---@field [21] boolean
 ---@field heavy_aquifer boolean
 
----@class _block_flags: df.bitfield
+---@class _block_flags: integer, string, df.bitfield
 ---@field designated 0
 ---@field [0] "designated"
 ---@field update_temperature 1
@@ -366,7 +366,7 @@ df.block_flags = {}
 ---@field [9] boolean
 ---@field subterranean_water boolean
 
----@class _z_level_flags: df.bitfield
+---@class _z_level_flags: integer, string, df.bitfield
 ---@field update 0
 ---@field [0] "update"
 ---@field can_stop 1
@@ -383,7 +383,7 @@ df.z_level_flags = {}
 ---@field [2] boolean
 ---@field update_twice boolean
 
----@class _tile_liquid_flow_dir: df.enum
+---@class _tile_liquid_flow_dir: integer, string, df.enum
 ---@field none 0
 ---@field [0] "none"
 ---@field south 1
@@ -452,7 +452,7 @@ df.tile_liquid_flow_dir = {}
 ---@field [15] boolean
 ---@field inv_f boolean
 
----@class _tile_liquid_flow: df.bitfield
+---@class _tile_liquid_flow: integer, string, df.bitfield
 ---@field temp_flow_timer 0
 ---@field [0] "temp_flow_timer"
 ---@field unk_1 1
@@ -618,7 +618,7 @@ df.cave_column = {}
 ---@return cave_column|nil
 function df.cave_column.find(key) end
 
----@class _cave_column_unk_4: df.bitfield
+---@class _cave_column_unk_4: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -653,7 +653,7 @@ df.cave_column_rectangle = {}
 ---@return cave_column_rectangle|nil
 function df.cave_column_rectangle.find(key) end
 
----@class _cave_column_rectangle_unk_7: df.bitfield
+---@class _cave_column_rectangle_unk_7: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -715,7 +715,7 @@ df.map_block_column.T_cave_columns = {}
 ---@return map_block_column_cave_columns|nil
 function df.map_block_column.T_cave_columns.find(key) end
 
----@class _block_square_event_type: df.enum
+---@class _block_square_event_type: integer, string, df.enum
 ---@field mineral 0
 ---@field [0] "mineral"
 ---@field frozen_liquid 1
@@ -787,7 +787,7 @@ df.block_square_event_mineralst = {}
 ---@return block_square_event_mineralst|nil
 function df.block_square_event_mineralst.find(key) end
 
----@class _block_square_event_mineralst_flags: df.bitfield
+---@class _block_square_event_mineralst_flags: integer, string, df.bitfield
 ---@field discovered 0
 ---@field [0] "discovered"
 ---@field cluster 1
@@ -933,7 +933,7 @@ df.block_square_event_designation_priorityst = {}
 ---@return block_square_event_designation_priorityst|nil
 function df.block_square_event_designation_priorityst.find(key) end
 
----@class _feature_type: df.enum
+---@class _feature_type: integer, string, df.enum
 ---@field outdoor_river 0
 ---@field [0] "outdoor_river"
 ---@field cave 1
@@ -1078,7 +1078,7 @@ df.feature_underworld_from_layerst = {}
 ---@return feature_underworld_from_layerst|nil
 function df.feature_underworld_from_layerst.find(key) end
 
----@class _feature_init_flags: df.enum
+---@class _feature_init_flags: integer, string, df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -1099,7 +1099,7 @@ df.feature_init_flags = {}
 ---@field [3] boolean
 ---@field Discovered boolean
 
----@class _layer_type: df.enum
+---@class _layer_type: integer, string, df.enum
 ---@field Surface -1
 ---@field [0] "Surface"
 ---@field Cavern1 1
@@ -1289,7 +1289,7 @@ df.feature_init_underworld_from_layerst = {}
 ---@return feature_init_underworld_from_layerst|nil
 function df.feature_init_underworld_from_layerst.find(key) end
 
----@class _feature_alteration_type: df.enum
+---@class _feature_alteration_type: integer, string, df.enum
 ---@field new_pop_max 0
 ---@field [0] "new_pop_max"
 ---@field new_lava_fill_z 1
@@ -1336,7 +1336,7 @@ df.feature_alteration_new_lava_fill_zst = {}
 ---@return feature_alteration_new_lava_fill_zst|nil
 function df.feature_alteration_new_lava_fill_zst.find(key) end
 
----@class _world_construction_type: df.enum
+---@class _world_construction_type: integer, string, df.enum
 ---@field ROAD 0
 ---@field [0] "ROAD"
 ---@field TUNNEL 1
@@ -1477,7 +1477,7 @@ df.world_construction_wallst = {}
 ---@return world_construction_wallst|nil
 function df.world_construction_wallst.find(key) end
 
----@class _biome_type: df.enum
+---@class _biome_type: integer, string, df.enum
 ---@field MOUNTAIN 0
 ---@field [0] "MOUNTAIN"
 ---@field GLACIER 1
@@ -1686,7 +1686,7 @@ df.biome_type = {}
 ---@field [50] boolean
 ---@field SUBTERRANEAN_LAVA boolean
 
----@class _construction_flags: df.bitfield
+---@class _construction_flags: integer, string, df.bitfield
 ---@field no_build_item 0
 ---@field [0] "no_build_item"
 ---@field top_of_wall 1
@@ -1713,7 +1713,7 @@ df.construction = {}
 ---@return construction|nil
 function df.construction.find(key) end
 
----@class _flow_type: df.enum
+---@class _flow_type: integer, string, df.enum
 ---@field Miasma 0
 ---@field [0] "Miasma"
 ---@field Steam 1
@@ -1799,7 +1799,7 @@ df.flow_reuse_pool = {}
 ---@return flow_reuse_pool|nil
 function df.flow_reuse_pool.find(key) end
 
----@class _flow_reuse_pool_flags: df.bitfield
+---@class _flow_reuse_pool_flags: integer, string, df.bitfield
 ---@field active 0
 ---@field [0] "active"
 df.flow_reuse_pool.T_flags = {}
@@ -1808,7 +1808,7 @@ df.flow_reuse_pool.T_flags = {}
 ---@field [0] boolean
 ---@field active boolean
 
----@class _flow_guide_type: df.enum
+---@class _flow_guide_type: integer, string, df.enum
 ---@field TrailingFlow 0
 ---@field [0] "TrailingFlow"
 ---@field ItemCloud 1
@@ -1882,7 +1882,7 @@ df.effect_info = {}
 ---@return effect_info|nil
 function df.effect_info.find(key) end
 
----@class _region_block_event_type: df.enum
+---@class _region_block_event_type: integer, string, df.enum
 ---@field SphereField 0
 ---@field [0] "SphereField"
 df.region_block_event_type = {}

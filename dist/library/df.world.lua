@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.world
 
----@class _worldgen_region_type: df.enum
+---@class _worldgen_region_type: integer, string, df.enum
 ---@field SWAMP 0
 ---@field [0] "SWAMP"
 ---@field DESERT 1
@@ -46,7 +46,7 @@ df.worldgen_region_type = {}
 ---@field [9] boolean
 ---@field HILLS boolean
 
----@class _worldgen_range_type: df.enum
+---@class _worldgen_range_type: integer, string, df.enum
 ---@field ELEVATION 0
 ---@field [0] "ELEVATION"
 ---@field RAINFALL 1
@@ -147,7 +147,7 @@ df.worldgen_range_type = {}
 ---@field [23] boolean
 ---@field unk_23 boolean
 
----@class _units_other_id: df.enum
+---@class _units_other_id: integer, string, df.enum
 ---@field ANY_RIDER 0
 ---@field [0] "ANY_RIDER"
 ---@field ANY_BABY2 1
@@ -176,7 +176,7 @@ df.unit_context_block = {}
 ---@return unit_context_block|nil
 function df.unit_context_block.find(key) end
 
----@class _conflict_level: df.enum
+---@class _conflict_level: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Encounter 1
@@ -265,7 +265,7 @@ df.incident = {}
 ---@return incident|nil
 function df.incident.find(key) end
 
----@class _incident_type: df.enum
+---@class _incident_type: integer, string, df.enum
 ---@field Death 0
 ---@field [0] "Death"
 ---@field Crime 1
@@ -314,7 +314,7 @@ df.incident.T_type = {}
 ---@field [10] boolean
 ---@field RefusedID boolean
 
----@class _incident_flags: df.bitfield
+---@class _incident_flags: integer, string, df.bitfield
 ---@field announced_missing 0
 ---@field [0] "announced_missing"
 ---@field discovered 1
@@ -386,7 +386,7 @@ df.incident_data_artifact = {}
 ---@return incident_data_artifact|nil
 function df.incident_data_artifact.find(key) end
 
----@class _incident_data_artifact_state: df.enum
+---@class _incident_data_artifact_state: integer, string, df.enum
 ---@field Held 0
 ---@field [0] "Held"
 ---@field Dropped 1
@@ -432,7 +432,7 @@ df.incident_data_writing = {}
 ---@return incident_data_writing|nil
 function df.incident_data_writing.find(key) end
 
----@class _incident_data_writing_state: df.enum
+---@class _incident_data_writing_state: integer, string, df.enum
 ---@field Dropped 0
 ---@field [0] "Dropped"
 ---@field Given 1
@@ -489,7 +489,7 @@ df.crime = {}
 ---@return crime|nil
 function df.crime.find(key) end
 
----@class _crime_mode: df.enum
+---@class _crime_mode: integer, string, df.enum
 ---@field ProductionOrderViolation 0
 ---@field [0] "ProductionOrderViolation"
 ---@field ExportViolation 1
@@ -598,7 +598,7 @@ df.crime.T_victim_data = {}
 ---@return crime_victim_data|nil
 function df.crime.T_victim_data.find(key) end
 
----@class _crime_flags: df.bitfield
+---@class _crime_flags: integer, string, df.bitfield
 ---@field sentenced 0
 ---@field [0] "sentenced"
 ---@field discovered 1
@@ -656,7 +656,7 @@ df.crime_witness = {}
 ---@return crime_witness|nil
 function df.crime_witness.find(key) end
 
----@class _crime_witness_witness_claim: df.enum
+---@class _crime_witness_witness_claim: integer, string, df.enum
 ---@field SawDisorderlyConduct 0
 ---@field [0] "SawDisorderlyConduct"
 ---@field FoundTheBody 1
@@ -796,7 +796,7 @@ df.interrogation_report.T_unk = {}
 ---@return interrogation_report_unk|nil
 function df.interrogation_report.T_unk.find(key) end
 
----@class _interrogation_report.T_unk_flags: df.bitfield
+---@class _interrogation_report.T_unk_flags: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 df.interrogation_report.T_unk.T_flags = {}
@@ -906,7 +906,7 @@ df.embark_feature = {}
 ---@return embark_feature|nil
 function df.embark_feature.find(key) end
 
----@class _combat_report_event_type: df.enum
+---@class _combat_report_event_type: integer, string, df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field Deflected 1
@@ -1177,7 +1177,7 @@ df.job_handler.T_postings = {}
 ---@return job_handler_postings|nil
 function df.job_handler.T_postings.find(key) end
 
----@class _job_handler.T_postings_flags: df.bitfield
+---@class _job_handler.T_postings_flags: integer, string, df.bitfield
 ---@field dead 0
 ---@field [0] "dead"
 df.job_handler.T_postings.T_flags = {}
@@ -1346,7 +1346,7 @@ df.divination_set_roll = {}
 ---@return divination_set_roll|nil
 function df.divination_set_roll.find(key) end
 
----@class _divination_set_roll_effect_type: df.enum
+---@class _divination_set_roll_effect_type: integer, string, df.enum
 ---@field MediumBlessing 0
 ---@field [0] "MediumBlessing"
 ---@field MinorBlessing 1
@@ -1771,7 +1771,7 @@ df.world.T_status = {}
 ---@return world_status|nil
 function df.world.T_status.find(key) end
 
----@class _world.T_status_flags: df.bitfield
+---@class _world.T_status_flags: integer, string, df.bitfield
 ---@field combat 0
 ---@field [0] "combat"
 ---@field hunting 1
@@ -2112,7 +2112,7 @@ df.world.T_worldgen_status = {}
 ---@return world_worldgen_status|nil
 function df.world.T_worldgen_status.find(key) end
 
----@class _world.T_worldgen_status_state: df.enum
+---@class _world.T_worldgen_status_state: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Initializing 1
@@ -2337,7 +2337,7 @@ df.world.T_cur_savegame.T_world_header = {}
 ---@return world.T_cur_savegame_world_header|nil
 function df.world.T_cur_savegame.T_world_header.find(key) end
 
----@class _world.T_cur_savegame.T_world_header_load_stage: df.enum
+---@class _world.T_cur_savegame.T_world_header_load_stage: integer, string, df.enum
 ---@field LoadingObjectFiles 0
 ---@field [0] "LoadingObjectFiles"
 ---@field SortingMaterialTemplates 1
@@ -2526,7 +2526,7 @@ df.world.T_rod_loader = {}
 ---@return world_rod_loader|nil
 function df.world.T_rod_loader.find(key) end
 
----@class _world.T_rod_loader_state: df.enum
+---@class _world.T_rod_loader_state: integer, string, df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field Languages 1
@@ -2710,7 +2710,7 @@ df.world.T_arena.T_equipment = {}
 ---@return world.T_arena_equipment|nil
 function df.world.T_arena.T_equipment.find(key) end
 
----@class _world.T_arena_flag: df.bitfield
+---@class _world.T_arena_flag: integer, string, df.bitfield
 ---@field morale_enable 0
 ---@field [0] "morale_enable"
 df.world.T_arena.T_flag = {}
@@ -2793,7 +2793,7 @@ df.world.T_active_tutorial = {}
 ---@return world_active_tutorial|nil
 function df.world.T_active_tutorial.find(key) end
 
----@class _world_cavein_flags: df.enum
+---@class _world_cavein_flags: integer, string, df.enum
 ---@field process_columns 0
 ---@field [0] "process_columns"
 df.world_cavein_flags = {}

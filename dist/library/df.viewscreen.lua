@@ -17,7 +17,7 @@ df.file_compressorst = {}
 ---@return file_compressorst|nil
 function df.file_compressorst.find(key) end
 
----@class _interface_breakdown_types: df.enum
+---@class _interface_breakdown_types: integer, string, df.enum
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field QUIT 1
@@ -38,7 +38,7 @@ df.interface_breakdown_types = {}
 ---@field [3] boolean
 ---@field TOFIRST boolean
 
----@class _interface_push_types: df.enum
+---@class _interface_push_types: integer, string, df.enum
 ---@field AS_PARENT 0
 ---@field [0] "AS_PARENT"
 ---@field AS_CHILD 1
@@ -165,7 +165,7 @@ df.widget = {}
 ---@return widget|nil
 function df.widget.find(key) end
 
----@class _widget_visibility_flags: df.bitfield
+---@class _widget_visibility_flags: integer, string, df.bitfield
 ---@field WIDGET_VISIBILITY_ACTIVE 0
 ---@field [0] "WIDGET_VISIBILITY_ACTIVE"
 ---@field WIDGET_VISIBILITY_ACTUALLY_VISIBLE 1
@@ -178,7 +178,7 @@ df.widget.T_visibility_flags = {}
 ---@field [1] boolean
 ---@field WIDGET_VISIBILITY_ACTUALLY_VISIBLE boolean
 
----@class _widget_tooltip_type: df.enum
+---@class _widget_tooltip_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field REPLACE_MINIMAP 1
@@ -333,7 +333,7 @@ df.widget_tabs = {}
 ---@return widget_tabs|nil
 function df.widget_tabs.find(key) end
 
----@class _widget_tabs_tab_type: df.enum
+---@class _widget_tabs_tab_type: integer, string, df.enum
 ---@field DEFAULT 0
 ---@field [0] "DEFAULT"
 ---@field SHORT 1
@@ -471,7 +471,7 @@ df.viewscreen_adopt_regionst = {}
 ---@return viewscreen_adopt_regionst|nil
 function df.viewscreen_adopt_regionst.find(key) end
 
----@class _viewscreen_adopt_regionst_cur_step: df.enum
+---@class _viewscreen_adopt_regionst_cur_step: integer, string, df.enum
 ---@field OpeningFile 0
 ---@field [0] "OpeningFile"
 ---@field ProcessingRawData 1
@@ -620,7 +620,7 @@ df.viewscreen_adopt_regionst.T_cur_step = {}
 ---@field [35] boolean
 ---@field Failed boolean
 
----@class _embark_finder_option: df.enum
+---@class _embark_finder_option: integer, string, df.enum
 ---@field DimensionX 0
 ---@field [0] "DimensionX"
 ---@field DimensionY 1
@@ -822,7 +822,7 @@ df.viewscreen_choose_start_sitest = {}
 ---@return viewscreen_choose_start_sitest|nil
 function df.viewscreen_choose_start_sitest.find(key) end
 
----@class _viewscreen_choose_start_sitest_page: df.enum
+---@class _viewscreen_choose_start_sitest_page: integer, string, df.enum
 ---@field Biome 0
 ---@field [0] "Biome"
 ---@field Neighbors 1
@@ -863,7 +863,7 @@ df.viewscreen_choose_start_sitest.T_page = {}
 ---@field [8] boolean
 ---@field Notes boolean
 
----@class _viewscreen_choose_start_sitest_find_results: df.enum
+---@class _viewscreen_choose_start_sitest_find_results: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Searching 1
@@ -980,7 +980,7 @@ df.mission.T_details.T_raid = {}
 ---@return mission.T_details_raid|nil
 function df.mission.T_details.T_raid.find(key) end
 
----@class _mission.T_details.T_raid_raid_type: df.enum
+---@class _mission.T_details.T_raid_raid_type: integer, string, df.enum
 ---@field Raze 0
 ---@field [0] "Raze"
 ---@field TakeOver 1
@@ -1013,7 +1013,7 @@ df.mission.T_details.T_raid.T_raid_type = {}
 ---@field [6] boolean
 ---@field Pillage boolean
 
----@class _mission.T_details.T_raid_raid_flags: df.bitfield
+---@class _mission.T_details.T_raid_raid_flags: integer, string, df.bitfield
 ---@field Unknown1 0
 ---@field [0] "Unknown1"
 ---@field OneTimeTribute 1
@@ -1088,7 +1088,7 @@ df.mission.T_details.T_request = {}
 ---@return mission.T_details_request|nil
 function df.mission.T_details.T_request.find(key) end
 
----@class _mission_type: df.enum
+---@class _mission_type: integer, string, df.enum
 ---@field Raid 2
 ---@field [0] "Raid"
 ---@field RecoverArtifact 17
@@ -1143,7 +1143,7 @@ df.viewscreen_export_regionst = {}
 ---@return viewscreen_export_regionst|nil
 function df.viewscreen_export_regionst.find(key) end
 
----@class _viewscreen_export_regionst_state: df.enum
+---@class _viewscreen_export_regionst_state: integer, string, df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field PreliminaryCleaning 1
@@ -1325,7 +1325,7 @@ df.viewscreen_game_cleanerst = {}
 ---@return viewscreen_game_cleanerst|nil
 function df.viewscreen_game_cleanerst.find(key) end
 
----@class _viewscreen_game_cleanerst_state: df.enum
+---@class _viewscreen_game_cleanerst_state: integer, string, df.enum
 ---@field CleaningGameObjects 0
 ---@field [0] "CleaningGameObjects"
 ---@field CleaningStrandedObjects 1
@@ -1477,7 +1477,7 @@ df.legend_pagest = {}
 ---@return legend_pagest|nil
 function df.legend_pagest.find(key) end
 
----@class _legend_pagest_mode: df.enum
+---@class _legend_pagest_mode: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MAIN 1
@@ -1778,7 +1778,7 @@ df.viewscreen_loadgamest = {}
 ---@return viewscreen_loadgamest|nil
 function df.viewscreen_loadgamest.find(key) end
 
----@class _viewscreen_loadgamest_cur_step: df.enum
+---@class _viewscreen_loadgamest_cur_step: integer, string, df.enum
 ---After the on-screen text shown while loading.
 ---@field OpeningFile 0
 ---@field [0] "OpeningFile"
@@ -2230,7 +2230,7 @@ df.viewscreen_savegamest = {}
 ---@return viewscreen_savegamest|nil
 function df.viewscreen_savegamest.find(key) end
 
----@class _viewscreen_savegamest_cur_step: df.enum
+---@class _viewscreen_savegamest_cur_step: integer, string, df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -2443,7 +2443,7 @@ df.viewscreen_savegamest.T_cur_step = {}
 ---@field [51] boolean
 ---@field Finishing boolean
 
----@class _adventurer_attribute_level: df.enum
+---@class _adventurer_attribute_level: integer, string, df.enum
 ---@field VeryLow 0
 ---@field [0] "VeryLow"
 ---@field Low 1
@@ -2487,7 +2487,7 @@ df.startup_charactersheet_petst = {}
 ---@return startup_charactersheet_petst|nil
 function df.startup_charactersheet_petst.find(key) end
 
----@class _adv_background_option_type: df.enum
+---@class _adv_background_option_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SQUAD_EPPID 1
@@ -2590,7 +2590,7 @@ df.setup_character_info = {}
 ---@return setup_character_info|nil
 function df.setup_character_info.find(key) end
 
----@class _setup_character_info_difficulty: df.enum
+---@class _setup_character_info_difficulty: integer, string, df.enum
 ---@field Peasant 0
 ---@field [0] "Peasant"
 ---@field Hero 1
@@ -2607,7 +2607,7 @@ df.setup_character_info.T_difficulty = {}
 ---@field [2] boolean
 ---@field Demigod boolean
 
----@class _setup_character_info_sub_mode: df.enum
+---@class _setup_character_info_sub_mode: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field RACE 1
@@ -2887,7 +2887,7 @@ df.viewscreen_titlest.T_menu_line_id = {}
 ---@return viewscreen_titlest_menu_line_id|nil
 function df.viewscreen_titlest.T_menu_line_id.find(key) end
 
----@class _viewscreen_titlest.T_menu_line_id_menu_line_id: df.enum
+---@class _viewscreen_titlest.T_menu_line_id_menu_line_id: integer, string, df.enum
 ---@field Continue 0
 ---@field [0] "Continue"
 ---@field Start 1
@@ -2933,7 +2933,7 @@ df.viewscreen_update_regionst = {}
 ---@return viewscreen_update_regionst|nil
 function df.viewscreen_update_regionst.find(key) end
 
----@class _world_view_mode_type: df.enum
+---@class _world_view_mode_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field NORMAL 1

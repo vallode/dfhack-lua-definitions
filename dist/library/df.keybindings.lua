@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.keybindings
 
----@class _interface_key: df.enum
+---@class _interface_key: integer, string, df.enum
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field SELECT 1

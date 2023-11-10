@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.version
 
----@class _cmv_version: df.enum
+---@class _cmv_version: integer, string, df.enum
 ---@field CMV_0 10000
 ---@field [0] "CMV_0"
 ---@field CMV_1 10001
@@ -14,7 +14,7 @@ df.cmv_version = {}
 ---@field [1] boolean
 ---@field CMV_1 boolean
 
----@class _save_version: df.enum
+---@class _save_version: integer, string, df.enum
 ---@field v0_21_93_19a 1107
 ---@field [0] "v0_21_93_19a"
 ---@field v0_21_93_19c 1108

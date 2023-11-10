@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.language
 
----@class _language_word_flags: df.bitfield
+---@class _language_word_flags: integer, string, df.bitfield
 ---@field front_compound_noun_sing 0
 ---@field [0] "front_compound_noun_sing"
 ---@field front_compound_noun_plur 1
@@ -70,7 +70,7 @@ df.language_word_flags = {}
 ---@field [15] boolean
 ---@field standard_verb boolean
 
----@class _part_of_speech: df.enum
+---@class _part_of_speech: integer, string, df.enum
 ---@field Noun 0
 ---@field [0] "Noun"
 ---@field NounPlural 1
@@ -111,7 +111,7 @@ df.part_of_speech = {}
 ---@field [8] boolean
 ---@field VerbGerund boolean
 
----@class _language_word_table_index: df.enum
+---@class _language_word_table_index: integer, string, df.enum
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1
@@ -140,7 +140,7 @@ df.language_word_table_index = {}
 ---@field [5] boolean
 ---@field OfX boolean
 
----@class _sphere_type: df.enum
+---@class _sphere_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field AGRICULTURE 1
@@ -745,7 +745,7 @@ df.language_word_table.T_parts = {}
 ---@return language_word_table_parts|nil
 function df.language_word_table.T_parts.find(key) end
 
----@class _language_name_category: df.enum
+---@class _language_name_category: integer, string, df.enum
 ---@field Unit 0
 ---@field [0] "Unit"
 ---@field Artifact 1
@@ -1022,7 +1022,7 @@ df.language_name_category = {}
 ---@field [67] boolean
 ---@field Hospital boolean
 
----@class _language_name_type: df.enum
+---@class _language_name_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field Figure 1
@@ -1251,7 +1251,7 @@ df.language_name_type = {}
 ---@field [55] boolean
 ---@field Hospital boolean
 
----@class _language_name_component: df.enum
+---@class _language_name_component: integer, string, df.enum
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1

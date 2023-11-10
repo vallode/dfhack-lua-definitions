@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.vermin
 
----@class _vermin_flags: df.bitfield
+---@class _vermin_flags: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field is_colony 1
@@ -26,7 +26,7 @@ df.vermin_flags = {}
 ---@field [4] boolean
 ---@field unk_4 boolean
 
----@class _vermin_category: df.enum
+---@class _vermin_category: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Eater 1

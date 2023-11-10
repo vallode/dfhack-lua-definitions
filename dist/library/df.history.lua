@@ -33,7 +33,7 @@ df.history_hit_item = {}
 ---@return history_hit_item|nil
 function df.history_hit_item.find(key) end
 
----@class _reputation_type: df.enum
+---@class _reputation_type: integer, string, df.enum
 ---@field Hero 0
 ---@field [0] "Hero"
 ---@field AnimalPartner 1
@@ -162,7 +162,7 @@ df.reputation_type = {}
 ---@field [30] boolean
 ---@field Preacher boolean
 
----@class _whereabouts_type: df.enum
+---@class _whereabouts_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field wanderer 1
@@ -195,7 +195,7 @@ df.whereabouts_type = {}
 ---@field [6] boolean
 ---@field visitor boolean
 
----@class _season: df.enum
+---@class _season: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Spring 1
@@ -220,7 +220,7 @@ df.season = {}
 ---@field [4] boolean
 ---@field Winter boolean
 
----@class _death_condition_type: df.enum
+---@class _death_condition_type: integer, string, df.enum
 ---@field no_statement 0
 ---@field [0] "no_statement"
 ---@field site_battle 1
@@ -253,7 +253,7 @@ df.death_condition_type = {}
 ---@field [6] boolean
 ---@field site boolean
 
----@class _plot_role_type: df.enum
+---@class _plot_role_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Possible_Threat 1
@@ -350,7 +350,7 @@ df.plot_role_type = {}
 ---@field [22] boolean
 ---@field Possibly_Unknown_Director boolean
 
----@class _plot_strategy_type: df.enum
+---@class _plot_strategy_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Corrupt_And_Pacify 1
@@ -518,7 +518,7 @@ df.historical_figure_info.T_whereabouts = {}
 ---@return historical_figure_info_whereabouts|nil
 function df.historical_figure_info.T_whereabouts.find(key) end
 
----@class _historical_figure_info.T_whereabouts_flags: df.bitfield
+---@class _historical_figure_info.T_whereabouts_flags: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -543,7 +543,7 @@ df.historical_figure_info.T_wounds = {}
 ---@return historical_figure_info_wounds|nil
 function df.historical_figure_info.T_wounds.find(key) end
 
----@class _historical_figure_info.T_wounds_unk_flags: df.bitfield
+---@class _historical_figure_info.T_wounds_unk_flags: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 df.historical_figure_info.T_wounds.T_unk_flags = {}
@@ -618,7 +618,7 @@ df.historical_figure_info.T_known_info.T_knowledge = {}
 ---@return historical_figure_info.T_known_info_knowledge|nil
 function df.historical_figure_info.T_known_info.T_knowledge.find(key) end
 
----@class _historical_figure_info.T_known_info.T_knowledge_knowledge_goal: df.bitfield
+---@class _historical_figure_info.T_known_info.T_knowledge_knowledge_goal: integer, string, df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
 df.historical_figure_info.T_known_info.T_knowledge.T_knowledge_goal = {}
@@ -658,7 +658,7 @@ df.historical_figure_info.T_curse = {}
 ---@return historical_figure_info_curse|nil
 function df.historical_figure_info.T_curse.find(key) end
 
----@class _historical_figure_info.T_curse_unk_38: df.bitfield
+---@class _historical_figure_info.T_curse_unk_38: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -675,7 +675,7 @@ df.historical_figure_info.T_curse.T_unk_38 = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@class _historical_figure_info.T_curse_unk_3c: df.bitfield
+---@class _historical_figure_info.T_curse_unk_3c: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -730,7 +730,7 @@ df.historical_figure_info.T_books = {}
 ---@return historical_figure_info_books|nil
 function df.historical_figure_info.T_books.find(key) end
 
----@class _historical_figure_info.T_books_flags: df.bitfield
+---@class _historical_figure_info.T_books_flags: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field unk_1 1
@@ -899,7 +899,7 @@ df.historical_figure_relationships.T_hf_visual = {}
 ---@return historical_figure_relationships_hf_visual|nil
 function df.historical_figure_relationships.T_hf_visual.find(key) end
 
----@class _historical_figure_relationships.T_hf_visual_flags: df.bitfield
+---@class _historical_figure_relationships.T_hf_visual_flags: integer, string, df.bitfield
 ---@field information_source 0
 ---@field [0] "information_source"
 ---@field unk_1 1
@@ -1016,7 +1016,7 @@ df.historical_figure_relationships.T_intrigues.T_plots = {}
 ---@return historical_figure_relationships.T_intrigues_plots|nil
 function df.historical_figure_relationships.T_intrigues.T_plots.find(key) end
 
----@class _historical_figure_relationships.T_intrigues.T_plots_plot_type: df.enum
+---@class _historical_figure_relationships.T_intrigues.T_plots_plot_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Grow_Funding_Network 1
@@ -1162,7 +1162,7 @@ df.historical_figure_relationships.T_intrigues.T_unk12 = {}
 ---@return historical_figure_relationships.T_intrigues_unk12|nil
 function df.historical_figure_relationships.T_intrigues.T_unk12.find(key) end
 
----@class _historical_figure_relationships.T_intrigues.T_unk12_type: df.enum
+---@class _historical_figure_relationships.T_intrigues.T_unk12_type: integer, string, df.enum
 ---@field type_0 0
 ---@field [0] "type_0"
 ---@field type_1 1
@@ -1239,7 +1239,7 @@ df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2.T_unk_1 =
 ---@return historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2_unk_1|nil
 function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2.T_unk_1.find(key) end
 
----@class _histfig_flags: df.enum
+---@class _histfig_flags: integer, string, df.enum
 ---@field reveal_artwork 0
 ---@field [0] "reveal_artwork"
 ---@field equipment_created 1
@@ -1308,7 +1308,7 @@ df.histfig_flags = {}
 ---@field [15] boolean
 ---@field never_cull boolean
 
----@class _histfig_relationship_type: df.enum
+---@class _histfig_relationship_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Mother 1
@@ -1605,7 +1605,7 @@ df.histfig_relationship_type = {}
 ---@field [72] boolean
 ---@field HalfSibling boolean
 
----@class _vague_relationship_type: df.enum
+---@class _vague_relationship_type: integer, string, df.enum
 ---not a great name given that lovers, ex lovers, and lieutenants appear here, but histfig and unit are both used...
 ---@field none -1
 ---@field [0] "none"
@@ -1810,7 +1810,7 @@ df.historical_figure.T_unk_v47_2 = {}
 ---@return historical_figure_unk_v47_2|nil
 function df.historical_figure.T_unk_v47_2.find(key) end
 
----@class _identity_type: df.enum
+---@class _identity_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field HidingCurse 1
@@ -1902,7 +1902,7 @@ df.identity_unk_95 = {}
 ---@return identity_unk_95|nil
 function df.identity_unk_95.find(key) end
 
----@class _mental_picture_property_type: df.enum
+---@class _mental_picture_property_type: integer, string, df.enum
 ---@field DATE 0
 ---@field [0] "DATE"
 ---@field ACTION 1
@@ -2047,7 +2047,7 @@ df.mental_picture_property_timest = {}
 ---@return mental_picture_property_timest|nil
 function df.mental_picture_property_timest.find(key) end
 
----@class _mental_picture_element_type: df.enum
+---@class _mental_picture_element_type: integer, string, df.enum
 ---@field HF 0
 ---@field [0] "HF"
 ---@field SITE 1
@@ -2106,7 +2106,7 @@ df.mental_picture_element_regionst = {}
 ---@return mental_picture_element_regionst|nil
 function df.mental_picture_element_regionst.find(key) end
 
----@class _history_event_type: df.enum
+---@class _history_event_type: integer, string, df.enum
 ---@field WAR_ATTACKED_SITE 0
 ---@field [0] "WAR_ATTACKED_SITE"
 ---@field WAR_DESTROYED_SITE 1
@@ -2643,7 +2643,7 @@ df.history_event_type = {}
 ---@field [132] boolean
 ---@field HF_INTERROGATED boolean
 
----@class _history_event_reason: df.enum
+---@class _history_event_reason: integer, string, df.enum
 ---Some of these require at least one parameter of varying type. The text is what DF provides without parameter
 ---@field none -1
 ---@field [0] "none"
@@ -3137,7 +3137,7 @@ df.history_event_context = {}
 ---@return history_event_context|nil
 function df.history_event_context.find(key) end
 
----@class _history_event_context_flags: df.bitfield
+---@class _history_event_context_flags: integer, string, df.bitfield
 ---@field is_interrogation_report 0
 ---@field [0] "is_interrogation_report"
 df.history_event_context.T_flags = {}
@@ -3157,7 +3157,7 @@ df.history_event_context.T_interrogation = {}
 ---@return history_event_context_interrogation|nil
 function df.history_event_context.T_interrogation.find(key) end
 
----@class _architectural_element: df.enum
+---@class _architectural_element: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field paved_outdoor_area 1
@@ -3214,7 +3214,7 @@ df.architectural_element = {}
 ---@field [12] boolean
 ---@field detailed_surfaces boolean
 
----@class _history_event_flags: df.enum
+---@class _history_event_flags: integer, string, df.enum
 ---@field hidden 0
 ---@field [0] "hidden"
 ---@field unk_1 1
@@ -3231,7 +3231,7 @@ df.history_event_flags = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@class _merc_role_type: df.bitfield
+---@class _merc_role_type: integer, string, df.bitfield
 ---regular if bit not set
 ---@field attacker_scout 0
 ---@field [0] "attacker_scout"
@@ -3421,7 +3421,7 @@ df.history_event_created_sitest = {}
 ---@return history_event_created_sitest|nil
 function df.history_event_created_sitest.find(key) end
 
----@class _death_type: df.enum
+---@class _death_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field OLD_AGE 1
@@ -3806,7 +3806,7 @@ df.history_event_merchantst = {}
 ---@return history_event_merchantst|nil
 function df.history_event_merchantst.find(key) end
 
----@class _history_event_merchant_flags: df.enum
+---@class _history_event_merchant_flags: integer, string, df.enum
 ---@field vanished 0
 ---@field [0] "vanished"
 ---@field hardship 1
@@ -3875,7 +3875,7 @@ df.history_event_artifact_createdst = {}
 ---@return history_event_artifact_createdst|nil
 function df.history_event_artifact_createdst.find(key) end
 
----@class _history_event_artifact_createdst_flags2: df.bitfield
+---@class _history_event_artifact_createdst_flags2: integer, string, df.bitfield
 ---@field name_only 0
 ---@field [0] "name_only"
 df.history_event_artifact_createdst.T_flags2 = {}
@@ -3947,7 +3947,7 @@ df.history_event_reclaim_sitest = {}
 ---@return history_event_reclaim_sitest|nil
 function df.history_event_reclaim_sitest.find(key) end
 
----@class _history_event_reclaim_sitest_flags2: df.bitfield
+---@class _history_event_reclaim_sitest_flags2: integer, string, df.bitfield
 ---@field unretire 0
 ---@field [0] "unretire"
 df.history_event_reclaim_sitest.T_flags2 = {}
@@ -3978,7 +3978,7 @@ df.history_event_site_diedst = {}
 ---@return history_event_site_diedst|nil
 function df.history_event_site_diedst.find(key) end
 
----@class _history_event_site_diedst_flags2: df.bitfield
+---@class _history_event_site_diedst_flags2: integer, string, df.bitfield
 ---@field abandoned 0
 ---@field [0] "abandoned"
 df.history_event_site_diedst.T_flags2 = {}
@@ -3998,7 +3998,7 @@ df.history_event_site_retiredst = {}
 ---@return history_event_site_retiredst|nil
 function df.history_event_site_retiredst.find(key) end
 
----@class _history_event_site_retiredst_flags2: df.bitfield
+---@class _history_event_site_retiredst_flags2: integer, string, df.bitfield
 ---@field first_time 0
 ---@field [0] "first_time"
 df.history_event_site_retiredst.T_flags2 = {}
@@ -4018,7 +4018,7 @@ df.history_event_entity_createdst = {}
 ---@return history_event_entity_createdst|nil
 function df.history_event_entity_createdst.find(key) end
 
----@class _entity_action_type: df.enum
+---@class _entity_action_type: integer, string, df.enum
 ---@field entity_primary_criminals 0
 ---@field [0] "entity_primary_criminals"
 ---@field entity_relocate 1
@@ -4217,7 +4217,7 @@ df.history_event_masterpiece_created_engravingst = {}
 ---@return history_event_masterpiece_created_engravingst|nil
 function df.history_event_masterpiece_created_engravingst.find(key) end
 
----@class _masterpiece_loss_type: df.enum
+---@class _masterpiece_loss_type: integer, string, df.enum
 ---@field MELT 0
 ---@field [0] "MELT"
 ---@field MAGMA 1
@@ -4339,7 +4339,7 @@ df.history_event_war_site_tribute_forcedst = {}
 ---@return history_event_war_site_tribute_forcedst|nil
 function df.history_event_war_site_tribute_forcedst.find(key) end
 
----@class _history_event_war_site_tribute_forcedst_tribute_flags: df.bitfield
+---@class _history_event_war_site_tribute_forcedst_tribute_flags: integer, string, df.bitfield
 ---@field bled_dry 0
 ---@field [0] "bled_dry"
 df.history_event_war_site_tribute_forcedst.T_tribute_flags = {}
@@ -4388,7 +4388,7 @@ df.history_event_body_abusedst = {}
 ---@return history_event_body_abusedst|nil
 function df.history_event_body_abusedst.find(key) end
 
----@class _history_event_body_abusedst_abuse_type: df.enum
+---@class _history_event_body_abusedst_abuse_type: integer, string, df.enum
 ---@field Impaled 0
 ---@field [0] "Impaled"
 ---@field Piled 1
@@ -4448,7 +4448,7 @@ df.history_event_body_abusedst.T_abuse_data.T_Piled = {}
 ---@return history_event_body_abusedst.T_abuse_data_Piled|nil
 function df.history_event_body_abusedst.T_abuse_data.T_Piled.find(key) end
 
----@class _history_event_body_abusedst.T_abuse_data.T_Piled_pile_type: df.enum
+---@class _history_event_body_abusedst.T_abuse_data.T_Piled_pile_type: integer, string, df.enum
 ---@field GrislyMound 0
 ---@field [0] "GrislyMound"
 ---@field GrotesquePillar 1
@@ -4506,7 +4506,7 @@ df.history_event_hist_figure_abductedst = {}
 ---@return history_event_hist_figure_abductedst|nil
 function df.history_event_hist_figure_abductedst.find(key) end
 
----@class _theft_method_type: df.enum
+---@class _theft_method_type: integer, string, df.enum
 ---@field Theft 0
 ---@field [0] "Theft"
 ---@field Confiscated 1
@@ -4593,7 +4593,7 @@ df.history_event_hist_figure_woundedst = {}
 ---@return history_event_hist_figure_woundedst|nil
 function df.history_event_hist_figure_woundedst.find(key) end
 
----@class _history_event_hist_figure_woundedst_injury_type: df.enum
+---@class _history_event_hist_figure_woundedst_injury_type: integer, string, df.enum
 ---@field Smash 0
 ---@field [0] "Smash"
 ---@field Slash 1
@@ -4618,7 +4618,7 @@ df.history_event_hist_figure_woundedst.T_injury_type = {}
 ---@field [4] boolean
 ---@field Burn boolean
 
----@class _history_event_hist_figure_woundedst_flags2: df.bitfield
+---@class _history_event_hist_figure_woundedst_flags2: integer, string, df.bitfield
 ---@field torture 0
 ---@field [0] "torture"
 df.history_event_hist_figure_woundedst.T_flags2 = {}
@@ -4627,7 +4627,7 @@ df.history_event_hist_figure_woundedst.T_flags2 = {}
 ---@field [0] boolean
 ---@field torture boolean
 
----@class _history_event_simple_battle_subtype: df.enum
+---@class _history_event_simple_battle_subtype: integer, string, df.enum
 ---@field SCUFFLE 0
 ---@field [0] "SCUFFLE"
 ---@field ATTACK 1
@@ -4680,7 +4680,7 @@ df.history_event_simple_battle_subtype = {}
 ---@field [11] boolean
 ---@field GOT_INTO_A_BRAWL boolean
 
----@class _artifact_claim_type: df.enum
+---@class _artifact_claim_type: integer, string, df.enum
 ---@field Symbol 0
 ---@field [0] "Symbol"
 ---@field Heirloom 1
@@ -4764,7 +4764,7 @@ df.history_event_hist_figure_travelst = {}
 ---@return history_event_hist_figure_travelst|nil
 function df.history_event_hist_figure_travelst.find(key) end
 
----@class _history_event_hist_figure_travelst_reason: df.enum
+---@class _history_event_hist_figure_travelst_reason: integer, string, df.enum
 ---@field Journey 0
 ---@field [0] "Journey"
 ---@field Return 1
@@ -4804,7 +4804,7 @@ df.history_event_assume_identityst = {}
 ---@return history_event_assume_identityst|nil
 function df.history_event_assume_identityst.find(key) end
 
----@class _position_creation_reason_type: df.enum
+---@class _position_creation_reason_type: integer, string, df.enum
 ---@field force_of_argument 0
 ---@field [0] "force_of_argument"
 ---@field threat_of_violence 1
@@ -4870,7 +4870,7 @@ df.history_event_hist_figure_revivedst = {}
 ---@return history_event_hist_figure_revivedst|nil
 function df.history_event_hist_figure_revivedst.find(key) end
 
----@class _history_event_hist_figure_revivedst_flags2: df.bitfield
+---@class _history_event_hist_figure_revivedst_flags2: integer, string, df.bitfield
 ---@field again 0
 ---@field [0] "again"
 df.history_event_hist_figure_revivedst.T_flags2 = {}
@@ -4891,7 +4891,7 @@ df.history_event_hf_learns_secretst = {}
 ---@return history_event_hf_learns_secretst|nil
 function df.history_event_hf_learns_secretst.find(key) end
 
----@class _histfig_body_state: df.enum
+---@class _histfig_body_state: integer, string, df.enum
 ---@field Active 0
 ---@field [0] "Active"
 ---@field BuriedAtSite 1
@@ -4949,7 +4949,7 @@ df.history_event_hf_act_on_buildingst = {}
 ---@return history_event_hf_act_on_buildingst|nil
 function df.history_event_hf_act_on_buildingst.find(key) end
 
----@class _history_event_hf_act_on_buildingst_action: df.enum
+---@class _history_event_hf_act_on_buildingst_action: integer, string, df.enum
 ---@field Profane 0
 ---@field [0] "Profane"
 ---@field Disturb 1
@@ -5005,7 +5005,7 @@ df.history_event_entity_lawst = {}
 ---@return history_event_entity_lawst|nil
 function df.history_event_entity_lawst.find(key) end
 
----@class _history_event_entity_lawst_add_flags: df.bitfield
+---@class _history_event_entity_lawst_add_flags: integer, string, df.bitfield
 ---@field harsh 0
 ---@field [0] "harsh"
 df.history_event_entity_lawst.T_add_flags = {}
@@ -5014,7 +5014,7 @@ df.history_event_entity_lawst.T_add_flags = {}
 ---@field [0] boolean
 ---@field harsh boolean
 
----@class _history_event_entity_lawst_remove_flags: df.bitfield
+---@class _history_event_entity_lawst_remove_flags: integer, string, df.bitfield
 ---@field harsh 0
 ---@field [0] "harsh"
 df.history_event_entity_lawst.T_remove_flags = {}
@@ -5057,7 +5057,7 @@ df.history_event_agreement_formedst = {}
 ---@return history_event_agreement_formedst|nil
 function df.history_event_agreement_formedst.find(key) end
 
----@class _site_dispute_type: df.enum
+---@class _site_dispute_type: integer, string, df.enum
 ---@field Territory 0
 ---@field [0] "Territory"
 ---@field WaterRights 1
@@ -5118,7 +5118,7 @@ df.history_event_insurrection_startedst = {}
 ---@return history_event_insurrection_startedst|nil
 function df.history_event_insurrection_startedst.find(key) end
 
----@class _insurrection_outcome: df.enum
+---@class _insurrection_outcome: integer, string, df.enum
 ---@field LeadershipOverthrown 0
 ---@field [0] "LeadershipOverthrown"
 ---@field PopulationGone 1
@@ -5382,7 +5382,7 @@ df.history_event_hf_act_on_artifactst = {}
 ---@return history_event_hf_act_on_artifactst|nil
 function df.history_event_hf_act_on_artifactst.find(key) end
 
----@class _history_event_hf_act_on_artifactst_action: df.enum
+---@class _history_event_hf_act_on_artifactst_action: integer, string, df.enum
 ---@field View 0
 ---@field [0] "View"
 ---@field AskAbout 1
@@ -5439,7 +5439,7 @@ df.history_event_artifact_copiedst = {}
 ---@return history_event_artifact_copiedst|nil
 function df.history_event_artifact_copiedst.find(key) end
 
----@class _history_event_artifact_copiedst_flags2: df.bitfield
+---@class _history_event_artifact_copiedst_flags2: integer, string, df.bitfield
 ---@field from_original 0
 ---@field [0] "from_original"
 df.history_event_artifact_copiedst.T_flags2 = {}
@@ -5493,7 +5493,7 @@ df.history_event_hf_freedst = {}
 ---@return history_event_hf_freedst|nil
 function df.history_event_hf_freedst.find(key) end
 
----@class _simple_action_type: df.enum
+---@class _simple_action_type: integer, string, df.enum
 ---@field carouse 0
 ---@field [0] "carouse"
 ---@field purchase_well_crafted_equipment 1
@@ -5557,7 +5557,7 @@ df.history_event_entity_fled_sitest = {}
 ---@return history_event_entity_fled_sitest|nil
 function df.history_event_entity_fled_sitest.find(key) end
 
----@class _tactical_situation: df.enum
+---@class _tactical_situation: integer, string, df.enum
 ---@field attacker_strongly_favored 0
 ---@field [0] "attacker_strongly_favored"
 ---@field attacker_favored 1
@@ -5607,7 +5607,7 @@ df.history_event_tactical_situationst = {}
 ---@return history_event_tactical_situationst|nil
 function df.history_event_tactical_situationst.find(key) end
 
----@class _history_event_tactical_situationst_tactics_flags: df.bitfield
+---@class _history_event_tactical_situationst_tactics_flags: integer, string, df.bitfield
 ---@field start 0
 ---@field [0] "start"
 df.history_event_tactical_situationst.T_tactics_flags = {}
@@ -5724,7 +5724,7 @@ df.history_event_modified_buildingst = {}
 ---@return history_event_modified_buildingst|nil
 function df.history_event_modified_buildingst.find(key) end
 
----@class _history_event_modified_buildingst_modification: df.bitfield
+---@class _history_event_modified_buildingst_modification: integer, string, df.bitfield
 ---@field dungeon 0
 ---@field [0] "dungeon"
 ---@field fortifications 1
@@ -5911,7 +5911,7 @@ df.history_event_hf_convictedst = {}
 ---@return history_event_hf_convictedst|nil
 function df.history_event_hf_convictedst.find(key) end
 
----@class _history_event_hf_convictedst_punishment_flags: df.bitfield
+---@class _history_event_hf_convictedst_punishment_flags: integer, string, df.bitfield
 ---@field beaten 0
 ---@field [0] "beaten"
 ---@field exiled 1
@@ -5932,7 +5932,7 @@ df.history_event_hf_convictedst.T_punishment_flags = {}
 ---@field [3] boolean
 ---@field no_prison_available boolean
 
----@class _history_event_hf_convictedst_plot_flags: df.bitfield
+---@class _history_event_hf_convictedst_plot_flags: integer, string, df.bitfield
 ---@field wrongful 0
 ---@field [0] "wrongful"
 ---@field plot_surveillance 1
@@ -5990,7 +5990,7 @@ df.history_event_hf_interrogatedst = {}
 ---@return history_event_hf_interrogatedst|nil
 function df.history_event_hf_interrogatedst.find(key) end
 
----@class _history_event_hf_interrogatedst_interrogation_flags: df.bitfield
+---@class _history_event_hf_interrogatedst_interrogation_flags: integer, string, df.bitfield
 ---@field recognized 0
 ---@field [0] "recognized"
 ---@field refused_to_reveal 1
@@ -6003,7 +6003,7 @@ df.history_event_hf_interrogatedst.T_interrogation_flags = {}
 ---@field [1] boolean
 ---@field refused_to_reveal boolean
 
----@class _history_event_collection_type: df.enum
+---@class _history_event_collection_type: integer, string, df.enum
 ---@field WAR 0
 ---@field [0] "WAR"
 ---@field BATTLE 1
@@ -6415,7 +6415,7 @@ df.history_event_collection_entity_overthrownst = {}
 ---@return history_event_collection_entity_overthrownst|nil
 function df.history_event_collection_entity_overthrownst.find(key) end
 
----@class _era_type: df.enum
+---@class _era_type: integer, string, df.enum
 ---@field ThreePowers 0
 ---@field [0] "ThreePowers"
 ---@field TwoPowers 1
@@ -6638,7 +6638,7 @@ df.intrigue_corruption = {}
 ---@return intrigue_corruption|nil
 function df.intrigue_corruption.find(key) end
 
----@class _intrigue_corruption_manipulation_type: df.enum
+---@class _intrigue_corruption_manipulation_type: integer, string, df.enum
 ---@field Threat 0
 ---@field [0] "Threat"
 ---@field Flattery 1
@@ -6675,7 +6675,7 @@ df.intrigue_corruption.T_manipulation_type = {}
 ---@field [7] boolean
 ---@field Immortality boolean
 
----@class _intrigue_corruption_manipulated_emotion: df.enum
+---@class _intrigue_corruption_manipulated_emotion: integer, string, df.enum
 ---@field Trust 0
 ---@field [0] "Trust"
 ---@field Loyalty 1
@@ -6700,7 +6700,7 @@ df.intrigue_corruption.T_manipulated_emotion = {}
 ---@field [4] boolean
 ---@field Respect boolean
 
----@class _intrigue_corruption_flags: df.bitfield
+---@class _intrigue_corruption_flags: integer, string, df.bitfield
 ---@field succeeded 0
 ---@field [0] "succeeded"
 ---@field misread_target 1

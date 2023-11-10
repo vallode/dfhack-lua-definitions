@@ -52,7 +52,7 @@ df.location_scribe_jobs = {}
 ---@return location_scribe_jobs|nil
 function df.location_scribe_jobs.find(key) end
 
----@class _abstract_building_type: df.enum
+---@class _abstract_building_type: integer, string, df.enum
 ---@field MEAD_HALL 0
 ---@field [0] "MEAD_HALL"
 ---@field KEEP 1
@@ -113,7 +113,7 @@ df.abstract_building_type = {}
 ---@field [13] boolean
 ---@field HOSPITAL boolean
 
----@class _abstract_building_flags: df.enum
+---@class _abstract_building_flags: integer, string, df.enum
 ---@field Unk0 0
 ---@field [0] "Unk0"
 ---@field Unk1 1
@@ -211,7 +211,7 @@ df.abstract_building_contents = {}
 ---@return abstract_building_contents|nil
 function df.abstract_building_contents.find(key) end
 
----@class _abstract_building_contents_need_more: df.bitfield
+---@class _abstract_building_contents_need_more: integer, string, df.bitfield
 ---@field goblets 0
 ---@field [0] "goblets"
 ---@field instruments 1
@@ -357,7 +357,7 @@ df.abstract_building_keepst = {}
 ---@return abstract_building_keepst|nil
 function df.abstract_building_keepst.find(key) end
 
----@class _temple_deity_type: df.enum
+---@class _temple_deity_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Deity 1
@@ -434,7 +434,7 @@ df.abstract_building_dungeonst = {}
 ---@return abstract_building_dungeonst|nil
 function df.abstract_building_dungeonst.find(key) end
 
----@class _abstract_building_dungeonst_dungeon_type: df.enum
+---@class _abstract_building_dungeonst_dungeon_type: integer, string, df.enum
 ---@field DUNGEON 0
 ---@field [0] "DUNGEON"
 ---@field SEWERS 1
@@ -532,7 +532,7 @@ df.abstract_building_hospitalst = {}
 ---@return abstract_building_hospitalst|nil
 function df.abstract_building_hospitalst.find(key) end
 
----@class _world_site_type: df.enum
+---@class _world_site_type: integer, string, df.enum
 ---@field PlayerFortress 0
 ---@field [0] "PlayerFortress"
 ---@field DarkFortress 1
@@ -581,7 +581,7 @@ df.world_site_type = {}
 ---@field [10] boolean
 ---@field Monument boolean
 
----@class _world_site_flags: df.enum
+---@class _world_site_flags: integer, string, df.enum
 ---@field Undiscovered 0
 ---@field [0] "Undiscovered"
 ---@field unk_1 1
@@ -630,7 +630,7 @@ df.world_site_flags = {}
 ---@field [10] boolean
 ---@field unk_10 boolean
 
----@class _fortress_type: df.enum
+---@class _fortress_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CASTLE 1
@@ -655,7 +655,7 @@ df.fortress_type = {}
 ---@field [4] boolean
 ---@field FORT boolean
 
----@class _monument_type: df.enum
+---@class _monument_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field TOMB 1
@@ -672,7 +672,7 @@ df.monument_type = {}
 ---@field [2] boolean
 ---@field VAULT boolean
 
----@class _lair_type: df.enum
+---@class _lair_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field SIMPLE_MOUND 1
@@ -1058,7 +1058,7 @@ df.cultural_identity.T_group_log = {}
 ---@return cultural_identity_group_log|nil
 function df.cultural_identity.T_group_log.find(key) end
 
----@class _cultural_identity.T_group_log_join_type: df.enum
+---@class _cultural_identity.T_group_log_join_type: integer, string, df.enum
 ---@field Peaceful 0
 ---@field [0] "Peaceful"
 ---@field CompleteTakeOver 1
@@ -1212,7 +1212,7 @@ df.world_site_realization.T_areas = {}
 ---@return world_site_realization_areas|nil
 function df.world_site_realization.T_areas.find(key) end
 
----@class _world_site_realization.T_areas_type: df.enum
+---@class _world_site_realization.T_areas_type: integer, string, df.enum
 ---@field Crops1 0
 ---@field [0] "Crops1"
 ---@field Crops2 1
@@ -1295,7 +1295,7 @@ df.site_realization_crossroads = {}
 ---@return site_realization_crossroads|nil
 function df.site_realization_crossroads.find(key) end
 
----@class _site_realization_building_type: df.enum
+---@class _site_realization_building_type: integer, string, df.enum
 ---@field cottage_plot 0
 ---@field [0] "cottage_plot"
 ---@field castle_wall 1
@@ -1494,7 +1494,7 @@ df.site_building_item = {}
 ---@return site_building_item|nil
 function df.site_building_item.find(key) end
 
----@class _tower_shape: df.bitfield
+---@class _tower_shape: integer, string, df.bitfield
 ---@field round 0
 ---@field [0] "round"
 ---@field hollow 1
@@ -1561,7 +1561,7 @@ df.site_realization_building_info_castle_courtyardst = {}
 ---@return site_realization_building_info_castle_courtyardst|nil
 function df.site_realization_building_info_castle_courtyardst.find(key) end
 
----@class _site_shop_type: df.enum
+---@class _site_shop_type: integer, string, df.enum
 ---@field GeneralImports 0
 ---@field [0] "GeneralImports"
 ---@field FoodImports 1
@@ -1670,7 +1670,7 @@ df.site_shop_type = {}
 ---@field [25] boolean
 ---@field Tavern boolean
 
----@class _town_labor_type: df.enum
+---@class _town_labor_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field CLOTH 1
@@ -1765,7 +1765,7 @@ df.site_realization_building_info_trenchesst = {}
 ---@return site_realization_building_info_trenchesst|nil
 function df.site_realization_building_info_trenchesst.find(key) end
 
----@class _tree_house_type: df.enum
+---@class _tree_house_type: integer, string, df.enum
 ---@field TreeHouse 0
 ---@field [0] "TreeHouse"
 ---@field HomeTree 1
@@ -1804,7 +1804,7 @@ df.site_realization_building_info_tree_housest = {}
 ---@return site_realization_building_info_tree_housest|nil
 function df.site_realization_building_info_tree_housest.find(key) end
 
----@class _hillock_house_type: df.enum
+---@class _hillock_house_type: integer, string, df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
 ---@field CivicMound 1
@@ -1842,7 +1842,7 @@ df.site_realization_building_info_shrinest = {}
 ---@return site_realization_building_info_shrinest|nil
 function df.site_realization_building_info_shrinest.find(key) end
 
----@class _creation_zone_pwg_alteration_type: df.enum
+---@class _creation_zone_pwg_alteration_type: integer, string, df.enum
 ---@field location_death 0
 ---@field [0] "location_death"
 ---@field camp 1

@@ -246,6 +246,7 @@ class FunctionType < Field
   end
 end
 
+# Either a <enum-type> or <bitfield-type>.
 class EnumType < XmlNode
   attr_reader :name, :type
 
@@ -253,53 +254,49 @@ class EnumType < XmlNode
     super
 
     @name = node.attributes['type-name'] || node.attributes['name']
-    @attrs = @node.css('enum-attr')
-    # @type = "integer"
+    @class_name = "#{"#{@parent_type}_" if @parent_type}#{@name}"
+
+    @items = @node.xpath('./enum-item|flag-bit').map.with_index { |child, index| EnumItem.new(child, index) }
+    @item_attributes = @node.xpath('./enum-attr').map { |attribute_node| Field.new(attribute_node) }
+
+    @inherits = @node.name.include?('enum') ? 'df.enum' : 'df.bitfield'
+  end
+
+  def render_attributes
+    annotation = "---@class #{@name}_attr\n"
+    unless @item_attributes.empty?
+      annotation << @item_attributes.map do |field|
+        "---@field #{field.name} #{field.type.sub('any', 'string')}#{'[]' if field.node['is-list']}\n"
+      end.join
+    end
+
+    # TODO: Change to use enum type as index once the discussion on github
+    # is answered.
+    # https://github.com/LuaLS/lua-language-server/discussions/2402
+    annotation << "\n---@type { [string|integer]: #{@name}_attr }\n"
+    annotation << "df.#{@name}.attrs = {}\n\n"
+  end
+
+  def render_bidrectional_class
+    annotation = "---@class #{@class_name}\n"
+    annotation << @items.map(&:render_field).join
+    annotation << "\n"
   end
 
   def render
-    inherit_type = @node.name.include?('enum') ? 'df.enum' : 'df.bitfield'
-
-    annotation = "---@class _#{@parent_type + '_' if @parent_type}#{@name}: #{inherit_type}\n"
+    annotation = "---@class _#{@class_name}: integer, string, #{@inherits}\n"
     annotation << "---#{@comment}\n" if @comment
-    # All <enum-type> elements are globally accessible.
+    annotation << @items.map(&:render).join
+    annotation << "df.#{"#{@parent_type}.T_" if @parent_type}#{@name} = {}\n\n"
 
-    @node.css('enum-item, flag-bit').each_with_index do |child, index|
-      item = EnumItem.new(child, index)
-      annotation << item.render
-    end
+    annotation << render_bidrectional_class
 
-    annotation << "df.#{@parent_type + '.T_' if @parent_type}#{@name} = {}\n\n"
-
-    annotation << "---@class #{@parent_type + '_' if @parent_type}#{@name}\n"
-
-    @node.css('enum-item, flag-bit').each_with_index do |child, index|
-      annotation << EnumItem.new(child, index).render_field
-    end
-
-    annotation << "\n"
-
-    unless @attrs.empty?
-      annotation << "---@class #{@name}_attr\n"
-
-      @attrs.each do |attribute, _index|
-        field = Field.new(attribute)
-        # TODO: What?
-        annotation << "---@field #{field.name} #{field.type.sub('any',
-                                                                'string')}#{'[]' if attribute['is-list']}\n"
-      end
-
-      # TODO: Change to use enum type as index once the discussion on github
-      # is answered.
-      # https://github.com/LuaLS/lua-language-server/discussions/2402
-      annotation << "\n---@type { [string|integer]: #{@name}_attr }\n"
-      annotation << "df.#{@name}.attrs = {}\n\n"
-    end
-
+    annotation << render_attributes unless @item_attributes.empty?
     annotation
   end
 end
 
+# Either an enum item or a flag bit.
 class EnumItem < XmlNode
   attr_reader :value
 
@@ -309,11 +306,11 @@ class EnumItem < XmlNode
     # Unknowns use index value.
     @name = node['name'] || "unk_#{index}"
     @index = index
-    @value = node['value']
+    @value = node['value'] || index
   end
 
   def render
-    annotation = "---@field #{@name} #{@value || @index}\n"
+    annotation = "---@field #{@name} #{@value}\n"
     annotation << "---@field [#{@index}] \"#{@name}\"\n"
   end
 

@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.jobs
 
----@class _job_material_category: df.bitfield
+---@class _job_material_category: integer, string, df.bitfield
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1
@@ -62,7 +62,7 @@ df.job_material_category = {}
 ---@field [13] boolean
 ---@field strand boolean
 
----@class _dfhack_material_category: df.bitfield
+---@class _dfhack_material_category: integer, string, df.bitfield
 ---<br> An extended version of job_material_category,<br> for use in some plugins, like workflow.<br>
 ---@field plant 0
 ---@field [0] "plant"
@@ -152,7 +152,7 @@ df.dfhack_material_category = {}
 ---@field [20] boolean
 ---@field gem boolean
 
----@class _job_flags: df.bitfield
+---@class _job_flags: integer, string, df.bitfield
 ---<br> toady: RETURNING<br> When actually carrying non-last item to the workshop.<br> If last, 'working' is used instead.<br>
 ---@field repeat 0
 ---@field [0] "repeat"
@@ -222,7 +222,7 @@ df.job_flags = {}
 ---@field [15] boolean
 ---@field do_now boolean
 
----@class _job_subtype_surgery: df.enum
+---@class _job_subtype_surgery: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field Surgery 1
@@ -294,7 +294,7 @@ df.job_item_ref = {}
 ---@return job_item_ref|nil
 function df.job_item_ref.find(key) end
 
----@class _job_item_ref_role: df.enum
+---@class _job_item_ref_role: integer, string, df.enum
 ---@field Other 0
 ---@field [0] "Other"
 ---@field Reagent 1
@@ -335,7 +335,7 @@ df.job_item_ref.T_role = {}
 ---@field [8] boolean
 ---@field PushHaulVehicle boolean
 
----@class _job_item_flags1: df.bitfield
+---@class _job_item_flags1: integer, string, df.bitfield
 ---@field improvable 0
 ---@field [0] "improvable"
 ---@field butcherable 1
@@ -468,7 +468,7 @@ df.job_item_flags1 = {}
 ---@field [31] boolean
 ---@field lye_bearing boolean
 
----@class _job_item_flags2: df.bitfield
+---@class _job_item_flags2: integer, string, df.bitfield
 ---@field dye 0
 ---@field [0] "dye"
 ---@field dyeable 1
@@ -601,7 +601,7 @@ df.job_item_flags2 = {}
 ---@field [31] boolean
 ---@field yarn boolean
 
----@class _job_item_flags3: df.bitfield
+---@class _job_item_flags3: integer, string, df.bitfield
 ---@field unimproved 0
 ---@field [0] "unimproved"
 ---@field any_raw_material 1
@@ -768,7 +768,7 @@ df.job_item_filter = {}
 ---@return job_item_filter|nil
 function df.job_item_filter.find(key) end
 
----@class _manager_order_status: df.bitfield
+---@class _manager_order_status: integer, string, df.bitfield
 ---@field validated 0
 ---@field [0] "validated"
 ---@field active 1
@@ -791,7 +791,7 @@ df.job_art_specification = {}
 ---@return job_art_specification|nil
 function df.job_art_specification.find(key) end
 
----@class _job_art_specification_type: df.enum
+---@class _job_art_specification_type: integer, string, df.enum
 ---@field None -1
 ---@field [0] "None"
 ---@field HistoricalFigure 1
@@ -845,7 +845,7 @@ df.manager_order = {}
 ---@return manager_order|nil
 function df.manager_order.find(key) end
 
----@class _manager_order_frequency: df.enum
+---@class _manager_order_frequency: integer, string, df.enum
 ---@field OneTime 0
 ---@field [0] "OneTime"
 ---@field Daily 1
@@ -895,7 +895,7 @@ df.manager_order_condition_item = {}
 ---@return manager_order_condition_item|nil
 function df.manager_order_condition_item.find(key) end
 
----@class _manager_order_condition_item_compare_type: df.enum
+---@class _manager_order_condition_item_compare_type: integer, string, df.enum
 ---@field AtLeast 0
 ---@field [0] "AtLeast"
 ---@field AtMost 1
@@ -934,7 +934,7 @@ df.manager_order_condition_order = {}
 ---@return manager_order_condition_order|nil
 function df.manager_order_condition_order.find(key) end
 
----@class _manager_order_condition_order_condition: df.enum
+---@class _manager_order_condition_order_condition: integer, string, df.enum
 ---@field Activated 0
 ---@field [0] "Activated"
 ---@field Completed 1
@@ -988,7 +988,7 @@ df.mandate = {}
 ---@return mandate|nil
 function df.mandate.find(key) end
 
----@class _mandate_mode: df.enum
+---@class _mandate_mode: integer, string, df.enum
 ---@field Export 0
 ---@field [0] "Export"
 ---@field Make 1
@@ -1025,7 +1025,7 @@ df.training_assignment = {}
 ---@return training_assignment|nil
 function df.training_assignment.find(key) end
 
----@class _training_assignment_flags: df.bitfield
+---@class _training_assignment_flags: integer, string, df.bitfield
 ---@field any_trainer 0
 ---@field [0] "any_trainer"
 ---@field any_unassigned_trainer 1
@@ -1061,7 +1061,7 @@ df.unit_demand = {}
 ---@return unit_demand|nil
 function df.unit_demand.find(key) end
 
----@class _unit_demand_place: df.enum
+---@class _unit_demand_place: integer, string, df.enum
 ---@field Office 0
 ---@field [0] "Office"
 ---@field Bedroom 1
@@ -1082,7 +1082,7 @@ df.unit_demand.T_place = {}
 ---@field [3] boolean
 ---@field Tomb boolean
 
----@class _job_cancel_reason: df.enum
+---@class _job_cancel_reason: integer, string, df.enum
 ---@field CANNOT_REACH_SITE 0
 ---@field [0] "CANNOT_REACH_SITE"
 ---@field INTERRUPTED 1

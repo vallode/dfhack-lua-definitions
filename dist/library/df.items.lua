@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.items
 
----@class _item_flags: df.bitfield
+---@class _item_flags: integer, string, df.bitfield
 ---@field on_ground 0
 ---@field [0] "on_ground"
 ---@field in_job 1
@@ -134,7 +134,7 @@ df.item_flags = {}
 ---@field [31] boolean
 ---@field from_worldgen boolean
 
----@class _item_flags2: df.bitfield
+---@class _item_flags2: integer, string, df.bitfield
 ---@field has_rider 0
 ---@field [0] "has_rider"
 ---@field unk1 1
@@ -159,7 +159,7 @@ df.item_flags2 = {}
 ---@field [4] boolean
 ---@field unk_4 boolean
 
----@class _item_magicness_type: df.enum
+---@class _item_magicness_type: integer, string, df.enum
 ---@field Sparkle 0
 ---@field [0] "Sparkle"
 ---@field AirWarped 1
@@ -234,7 +234,7 @@ df.spatter_common = {}
 ---@return spatter_common|nil
 function df.spatter_common.find(key) end
 
----@class _spatter_common_base_flags: df.bitfield
+---@class _spatter_common_base_flags: integer, string, df.bitfield
 ---@field evaporates 0
 ---@field [0] "evaporates"
 df.spatter_common.T_base_flags = {}
@@ -252,7 +252,7 @@ df.spatter = {}
 ---@return spatter|nil
 function df.spatter.find(key) end
 
----@class _spatter_flags: df.bitfield
+---@class _spatter_flags: integer, string, df.bitfield
 ---@field water_soluble 0
 ---@field [0] "water_soluble"
 df.spatter.T_flags = {}
@@ -261,7 +261,7 @@ df.spatter.T_flags = {}
 ---@field [0] boolean
 ---@field water_soluble boolean
 
----@class _item_quality: df.enum
+---@class _item_quality: integer, string, df.enum
 ---@field Ordinary 0
 ---@field [0] "Ordinary"
 ---@field WellCrafted 1
@@ -294,7 +294,7 @@ df.item_quality = {}
 ---@field [6] boolean
 ---@field Artifact boolean
 
----@class _slab_engraving_type: df.enum
+---@class _slab_engraving_type: integer, string, df.enum
 ---@field Slab -1
 ---@field [0] "Slab"
 ---@field Memorial 1
@@ -1340,7 +1340,7 @@ df.item_constructed = {}
 ---@return item_constructed|nil
 function df.item_constructed.find(key) end
 
----@class _body_part_status: df.bitfield
+---@class _body_part_status: integer, string, df.bitfield
 ---@field on_fire 0
 ---@field [0] "on_fire"
 ---@field missing 1
@@ -1433,7 +1433,7 @@ df.body_part_status = {}
 ---@field [21] boolean
 ---@field gelded boolean
 
----@class _body_layer_status: df.bitfield
+---@class _body_layer_status: integer, string, df.bitfield
 ---@field gone 0
 ---@field [0] "gone"
 ---@field leaking 1
@@ -1474,7 +1474,7 @@ df.body_size_info = {}
 ---@return body_size_info|nil
 function df.body_size_info.find(key) end
 
----@class _corpse_material_type: df.enum
+---@class _corpse_material_type: integer, string, df.enum
 ---@field Plant 0
 ---@field [0] "Plant"
 ---@field Silk 1
@@ -1592,7 +1592,7 @@ df.item_body_component.T_appearance = {}
 ---@return item_body_component_appearance|nil
 function df.item_body_component.T_appearance.find(key) end
 
----@class _item_body_component_corpse_flags: df.bitfield
+---@class _item_body_component_corpse_flags: integer, string, df.bitfield
 ---@field unbutchered 0
 ---@field [0] "unbutchered"
 ---@field plant 1
@@ -1711,7 +1711,7 @@ df.item_critter = {}
 ---@return item_critter|nil
 function df.item_critter.find(key) end
 
----@class _item_matstate: df.bitfield
+---@class _item_matstate: integer, string, df.bitfield
 ---@field no_auto_clean 0
 ---@field [0] "no_auto_clean"
 ---@field pressed 1
@@ -1981,7 +1981,7 @@ df.item_petst = {}
 ---@return item_petst|nil
 function df.item_petst.find(key) end
 
----@class _item_petst_pet_flags: df.bitfield
+---@class _item_petst_pet_flags: integer, string, df.bitfield
 ---@field available_for_adoption 0
 ---@field [0] "available_for_adoption"
 df.item_petst.T_pet_flags = {}
@@ -2061,7 +2061,7 @@ df.item_eggst = {}
 ---@return item_eggst|nil
 function df.item_eggst.find(key) end
 
----@class _item_eggst_egg_flags: df.bitfield
+---@class _item_eggst_egg_flags: integer, string, df.bitfield
 ---@field fertile 0
 ---@field [0] "fertile"
 df.item_eggst.T_egg_flags = {}

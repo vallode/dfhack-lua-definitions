@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.skills
 
----@class _profession: df.enum
+---@class _profession: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MINER 1
@@ -561,7 +561,7 @@ df.profession = {}
 ---@type { [string|integer]: profession_attr }
 df.profession.attrs = {}
 
----@class _unit_labor_category: df.enum
+---@class _unit_labor_category: integer, string, df.enum
 ---@field Other -13
 ---@field [0] "Other"
 ---@field Hauling 1
@@ -618,7 +618,7 @@ df.unit_labor_category = {}
 ---@field [12] boolean
 ---@field None boolean
 
----@class _unit_labor: df.enum
+---@class _unit_labor: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MINE 1
@@ -1010,7 +1010,7 @@ df.unit_labor = {}
 ---@type { [string|integer]: unit_labor_attr }
 df.unit_labor.attrs = {}
 
----@class _job_skill_class: df.enum
+---@class _job_skill_class: integer, string, df.enum
 ---not in DF
 ---@field Normal 0
 ---@field [0] "Normal"
@@ -1056,7 +1056,7 @@ df.job_skill_class = {}
 ---@field [9] boolean
 ---@field MilitaryMisc boolean
 
----@class _job_skill: df.enum
+---@class _job_skill: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
 ---@field MINING 1

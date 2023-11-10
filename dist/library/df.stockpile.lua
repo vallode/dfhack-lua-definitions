@@ -1,7 +1,7 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.stockpile
 
----@class _hauler_type: df.enum
+---@class _hauler_type: integer, string, df.enum
 ---@field Any 0
 ---@field [0] "Any"
 ---@field Stone 1
@@ -46,7 +46,7 @@ df.hauler_type = {}
 ---@field [9] boolean
 ---@field Animal boolean
 
----@class _furniture_type: df.enum
+---@class _furniture_type: integer, string, df.enum
 ---@field FLOODGATE 0
 ---@field [0] "FLOODGATE"
 ---@field HATCH_COVER 1
@@ -187,7 +187,7 @@ df.furniture_type = {}
 ---@field [33] boolean
 ---@field SAND_BAG boolean
 
----@class _stockpile_category: df.enum
+---@class _stockpile_category: integer, string, df.enum
 ---@field Remove -1
 ---@field [0] "Remove"
 ---@field Animals 1
@@ -272,7 +272,7 @@ df.stockpile_category = {}
 ---@field [19] boolean
 ---@field Custom boolean
 
----@class _stockpile_group_set: df.bitfield
+---@class _stockpile_group_set: integer, string, df.bitfield
 ---@field animals 0
 ---@field [0] "animals"
 ---@field food 1
@@ -592,7 +592,7 @@ df.stockpile_settings.T_sheet = {}
 ---@return stockpile_settings_sheet|nil
 function df.stockpile_settings.T_sheet.find(key) end
 
----@class _stockpile_list: df.enum
+---@class _stockpile_list: integer, string, df.enum
 ---@field Animals 0
 ---@field [0] "Animals"
 ---@field Food 1
@@ -1063,7 +1063,7 @@ df.stop_depart_condition = {}
 ---@return stop_depart_condition|nil
 function df.stop_depart_condition.find(key) end
 
----@class _stop_depart_condition_direction: df.enum
+---@class _stop_depart_condition_direction: integer, string, df.enum
 ---@field North 0
 ---@field [0] "North"
 ---@field South 1
@@ -1084,7 +1084,7 @@ df.stop_depart_condition.T_direction = {}
 ---@field [3] boolean
 ---@field West boolean
 
----@class _stop_depart_condition_mode: df.enum
+---@class _stop_depart_condition_mode: integer, string, df.enum
 ---@field Push 0
 ---@field [0] "Push"
 ---@field Ride 1
@@ -1101,7 +1101,7 @@ df.stop_depart_condition.T_mode = {}
 ---@field [2] boolean
 ---@field Guide boolean
 
----@class _stop_depart_condition_flags: df.bitfield
+---@class _stop_depart_condition_flags: integer, string, df.bitfield
 ---@field at_most 0
 ---@field [0] "at_most"
 ---@field desired 1
@@ -1123,7 +1123,7 @@ df.route_stockpile_link = {}
 ---@return route_stockpile_link|nil
 function df.route_stockpile_link.find(key) end
 
----@class _route_stockpile_link_mode: df.bitfield
+---@class _route_stockpile_link_mode: integer, string, df.bitfield
 ---@field take 0
 ---@field [0] "take"
 ---@field give 1
