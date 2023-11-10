@@ -9,6 +9,7 @@
         ],
         "Lua.runtime.special": {
             "reqscript": "require",
+            "dfhack.error": "error",
             "qerror": "error",
             "base_env": "_G"
         }
