@@ -28,13 +28,13 @@ Dir.glob(ARGV[0]).each do |xml|
 
     # <code-helper> tags have no use (yet)
     definitions.xpath('//code-helper').remove
-
-    lua_annotations = {}
+    definitions.xpath('//text').remove
 
     # Write globals separately as they only exist in df.global.xml
     global_nodes = definitions.xpath('//global-object')
     output.write(GlobalObject.new(global_nodes).render) unless global_nodes.empty?
 
+    lua_annotations = {}
     definitions.each_with_index do |node, index|
       print "Writing definition ##{index}\r"
 
