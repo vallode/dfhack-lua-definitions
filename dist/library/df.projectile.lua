@@ -108,6 +108,10 @@ df.projectile_flags = {}
 ---@field accel_z integer
 df.projectile = {}
 
+---@param key integer
+---@return projectile|nil
+function df.projectile.find(key) end
+
 ---@return projectile_type
 function df.projectile:getType() end
 
@@ -132,12 +136,24 @@ function df.projectile:isObjectLost() end
 ---@field item item
 df.proj_itemst = {}
 
+---@param key integer
+---@return proj_itemst|nil
+function df.proj_itemst.find(key) end
+
 ---@class proj_unitst: projectile
 ---@field unit unit ?
 df.proj_unitst = {}
+
+---@param key integer
+---@return proj_unitst|nil
+function df.proj_unitst.find(key) end
 
 ---@class proj_magicst: projectile
 ---@field type integer
 ---@field damage integer
 df.proj_magicst = {}
+
+---@param key integer
+---@return proj_magicst|nil
+function df.proj_magicst.find(key) end
 

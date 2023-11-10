@@ -606,10 +606,10 @@ df.entity_name_type = {}
 ---@field code string
 ---@field index integer into instace-vector
 ---@field raws string[]
----@field creature_ids integer[] References: creature_raw
+---@field creature_ids df.container<integer> References: creature_raw
 ---@field creatures string[]
 ---@field equipment entity_raw_equipment
----@field currency_value integer[]
+---@field currency_value df.container<integer>
 ---@field flags entity_raw_flags[]
 ---@field translation string
 ---@field symbols entity_raw_symbols
@@ -634,7 +634,7 @@ df.entity_name_type = {}
 ---@field max_site_pop_number integer
 ---@field max_pop_number integer
 ---@field max_starting_civ_number integer
----@field religion integer[]
+---@field religion df.container<integer>
 ---@field religion_sphere sphere_type[]
 ---@field jobs entity_raw_jobs
 ---@field positions entity_position_raw[]
@@ -645,8 +645,8 @@ df.entity_name_type = {}
 ---@field banditry integer
 ---@field gem_shapes_str string[]
 ---@field stone_shapes_str string[]
----@field gem_shapes integer[] References: descriptor_shape
----@field stone_shapes integer[] References: descriptor_shape
+---@field gem_shapes df.container<integer> References: descriptor_shape
+---@field stone_shapes df.container<integer> References: descriptor_shape
 ---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
 ---@field currency_str1 string[]
@@ -654,26 +654,30 @@ df.entity_name_type = {}
 ---@field animal entity_animal_raw[]
 df.entity_raw = {}
 
+---@param key integer
+---@return entity_raw|nil
+function df.entity_raw.find(key) end
+
 ---@class entity_raw_equipment: df.class
----@field digger_id integer[] References: itemdef_weaponst
----@field weapon_id integer[] References: itemdef_weaponst
----@field armor_id integer[] References: itemdef_armorst
----@field ammo_id integer[] References: itemdef_ammost
----@field helm_id integer[] References: itemdef_helmst
----@field gloves_id integer[] References: itemdef_glovesst
----@field shoes_id integer[] References: itemdef_shoesst
----@field pants_id integer[] References: itemdef_pantsst
----@field shield_id integer[] References: itemdef_shieldst
----@field trapcomp_id integer[] References: itemdef_trapcompst
----@field toy_id integer[] References: itemdef_toyst
----@field instrument_id integer[] References: itemdef_instrumentst
----@field tool_id integer[] References: itemdef_toolst
----@field siegeammo_id integer[] References: itemdef_siegeammost
----@field armor_rarity integer[]
----@field helm_rarity integer[]
----@field gloves_rarity integer[]
----@field shoes_rarity integer[]
----@field pants_rarity integer[]
+---@field digger_id df.container<integer> References: itemdef_weaponst
+---@field weapon_id df.container<integer> References: itemdef_weaponst
+---@field armor_id df.container<integer> References: itemdef_armorst
+---@field ammo_id df.container<integer> References: itemdef_ammost
+---@field helm_id df.container<integer> References: itemdef_helmst
+---@field gloves_id df.container<integer> References: itemdef_glovesst
+---@field shoes_id df.container<integer> References: itemdef_shoesst
+---@field pants_id df.container<integer> References: itemdef_pantsst
+---@field shield_id df.container<integer> References: itemdef_shieldst
+---@field trapcomp_id df.container<integer> References: itemdef_trapcompst
+---@field toy_id df.container<integer> References: itemdef_toyst
+---@field instrument_id df.container<integer> References: itemdef_instrumentst
+---@field tool_id df.container<integer> References: itemdef_toolst
+---@field siegeammo_id df.container<integer> References: itemdef_siegeammost
+---@field armor_rarity df.container<integer>
+---@field helm_rarity df.container<integer>
+---@field gloves_rarity df.container<integer>
+---@field shoes_rarity df.container<integer>
+---@field pants_rarity df.container<integer>
 ---@field digger_str string[]
 ---@field weapon_str string[]
 ---@field armor_str string[]
@@ -690,6 +694,10 @@ df.entity_raw = {}
 ---@field tool_str string[]
 df.entity_raw.T_equipment = {}
 
+---@param key integer
+---@return entity_raw_equipment|nil
+function df.entity_raw.T_equipment.find(key) end
+
 ---@class entity_raw_symbols: df.class
 ---@field symbols1 language_word_table[]
 ---@field symbols2 language_word_table[]
@@ -697,6 +705,10 @@ df.entity_raw.T_equipment = {}
 ---@field subselect_symbol string[][]
 ---@field cull_symbol string[][]
 df.entity_raw.T_symbols = {}
+
+---@param key integer
+---@return entity_raw_symbols|nil
+function df.entity_raw.T_symbols.find(key) end
 
 ---@class entity_raw_progress_trigger: df.class
 ---@field population integer
@@ -706,6 +718,10 @@ df.entity_raw.T_symbols = {}
 ---@field prod_siege integer
 ---@field trade_siege integer
 df.entity_raw.T_progress_trigger = {}
+
+---@param key integer
+---@return entity_raw_progress_trigger|nil
+function df.entity_raw.T_progress_trigger.find(key) end
 
 ---@class _entity_raw_scholar: df.bitfield
 ---@field PHILOSOPHER 0
@@ -754,19 +770,31 @@ df.entity_raw.T_scholar = {}
 ---@field world_construction boolean[]
 df.entity_raw.T_jobs = {}
 
+---@param key integer
+---@return entity_raw_jobs|nil
+function df.entity_raw.T_jobs.find(key) end
+
 ---@class entity_raw_tissue_styles: df.class
 ---@field name string
----@field preferred_shapings integer[]
+---@field preferred_shapings df.container<integer>
 ---@field maintain_length_min integer
 ---@field maintain_length_max integer
 df.entity_raw.T_tissue_styles = {}
 
+---@param key integer
+---@return entity_raw_tissue_styles|nil
+function df.entity_raw.T_tissue_styles.find(key) end
+
 ---@class entity_raw_workshops: df.class
 ---@field permitted_building_str string[]
----@field permitted_building_id integer[] References: building_def
+---@field permitted_building_id df.container<integer> References: building_def
 ---@field permitted_reaction_str string[]
----@field permitted_reaction_id integer[] References: reaction
+---@field permitted_reaction_id df.container<integer> References: reaction
 df.entity_raw.T_workshops = {}
+
+---@param key integer
+---@return entity_raw_workshops|nil
+function df.entity_raw.T_workshops.find(key) end
 
 ---@class entity_animal_raw: df.class
 ---@field token string
@@ -775,6 +803,10 @@ df.entity_raw.T_workshops = {}
 ---@field forbidden_class string[]
 ---@field flags entity_animal_raw_flags
 df.entity_animal_raw = {}
+
+---@param key integer
+---@return entity_animal_raw|nil
+function df.entity_animal_raw.find(key) end
 
 ---@class _entity_animal_raw_flags: df.bitfield
 ---@field ALWAYS_PRESENT 0
@@ -1116,10 +1148,10 @@ df.entity_position_responsibility = {}
 ---@field id integer
 ---@field flags entity_position_raw_flags[]
 ---@field allowed_creature_str string[][]
----@field allowed_creature integer[] References: creature_raw
+---@field allowed_creature df.container<integer> References: creature_raw
 ---@field allowed_class string[]
 ---@field rejected_creature_str string[][]
----@field rejected_creature integer[] References: creature_raw
+---@field rejected_creature df.container<integer> References: creature_raw
 ---@field rejected_class string[]
 ---@field name string[]
 ---@field name_female string[]
@@ -1131,8 +1163,8 @@ df.entity_position_responsibility = {}
 ---@field land_name string
 ---@field squad_size integer
 ---@field commander_str string[]
----@field commander_id integer[]
----@field commander_types integer[]
+---@field commander_id df.container<integer>
+---@field commander_types df.container<integer>
 ---@field land_holder integer
 ---@field number integer
 ---@field requires_population integer
@@ -1141,9 +1173,9 @@ df.entity_position_responsibility = {}
 ---@field replaced_by_str string
 ---@field replaced_by integer
 ---@field appointed_by_str string[]
----@field appointed_by integer[]
+---@field appointed_by df.container<integer>
 ---@field succession_by_position_str string[]
----@field succession_by_position integer[]
+---@field succession_by_position df.container<integer>
 ---@field responsibilities boolean[]
 ---@field color integer[]
 ---@field required_boxes integer
@@ -1157,4 +1189,8 @@ df.entity_position_responsibility = {}
 ---@field mandate_max integer
 ---@field demand_max integer
 df.entity_position_raw = {}
+
+---@param key integer
+---@return entity_position_raw|nil
+function df.entity_position_raw.find(key) end
 

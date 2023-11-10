@@ -3,8 +3,19 @@
 
 ---@class world_site_unk130: df.class
 ---@field index integer
----@field unk_4 integer[][]
+---@field unk_4 world_site_unk130_unk_4[]
 df.world_site_unk130 = {}
+
+---@param key integer
+---@return world_site_unk130|nil
+function df.world_site_unk130.find(key) end
+
+---@class world_site_unk130_unk_4: df.class
+df.world_site_unk130.T_unk_4 = {}
+
+---@param key integer
+---@return world_site_unk130_unk_4|nil
+function df.world_site_unk130.T_unk_4.find(key) end
 
 ---@class _world_population_type: df.enum
 ---@field Animal 0
@@ -55,6 +66,10 @@ df.world_population_type = {}
 ---@field bottom integer
 df.embark_note = {}
 
+---@param key integer
+---@return embark_note|nil
+function df.embark_note.find(key) end
+
 ---@class world_population_ref: df.class
 ---@field region_x integer
 ---@field region_y integer
@@ -64,6 +79,10 @@ df.embark_note = {}
 ---@field population_idx integer
 ---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
 df.world_population_ref = {}
+
+---@param key integer
+---@return world_population_ref|nil
+function df.world_population_ref.find(key) end
 
 ---@class local_population: df.class
 ---@field type world_population_type
@@ -76,6 +95,10 @@ df.world_population_ref = {}
 ---@field wp_unk_1c integer only set on subset of animals (including vermin). None seen on fresh embark
 ---@field unk_v47_1 integer set on same animals as wp_unk_1c and only seen 0
 df.local_population = {}
+
+---@param key integer
+---@return local_population|nil
+function df.local_population.find(key) end
 
 ---@class _local_population_flags: df.bitfield
 ---@field discovered 0
@@ -111,6 +134,10 @@ df.local_population.T_flags = {}
 ---@field unk_20 integer
 df.world_population = {}
 
+---@param key integer
+---@return world_population|nil
+function df.world_population.find(key) end
+
 ---@class world_landmass: df.instance
 ---@field name language_name
 ---@field index integer
@@ -119,9 +146,13 @@ df.world_population = {}
 ---@field max_x integer
 ---@field min_y integer
 ---@field max_y integer
----@field unk_74 integer[]
----@field unk_84 integer[]
+---@field unk_74 df.container<integer>
+---@field unk_84 df.container<integer>
 df.world_landmass = {}
+
+---@param key integer
+---@return world_landmass|nil
+function df.world_landmass.find(key) end
 
 ---@class _world_region_type: df.enum
 ---@field Swamp 0
@@ -194,7 +225,7 @@ df.world_region_type = {}
 ---@field evil boolean
 ---@field good boolean
 ---@field lake_surface integer
----@field forces integer[] References: historical_figure<br>historical figure IDs of force deities associated with the region. Number set increases during civ placement
+---@field forces df.container<integer> References: historical_figure<br>historical figure IDs of force deities associated with the region. Number set increases during civ placement
 ---@field unk_v47_2 integer Number set increases during civ placement
 ---@field mid_x integer
 ---@field mid_y integer
@@ -203,6 +234,10 @@ df.world_region_type = {}
 ---@field min_y integer
 ---@field max_y integer
 df.world_region = {}
+
+---@param key integer
+---@return world_region|nil
+function df.world_region.find(key) end
 
 ---@class world_underground_region: df.instance
 ---@field type world_underground_region_type
@@ -218,11 +253,15 @@ df.world_region = {}
 ---@field passage_density_min integer
 ---@field passage_density_max integer
 ---@field region_coords coord2d_path
----@field region_min_z integer[]
----@field region_max_z integer[]
----@field unk_c8 integer[]
+---@field region_min_z df.container<integer>
+---@field region_max_z df.container<integer>
+---@field unk_c8 df.container<integer>
 ---@field feature_init feature_init
 df.world_underground_region = {}
+
+---@param key integer
+---@return world_underground_region|nil
+function df.world_underground_region.find(key) end
 
 ---@class _world_underground_region_type: df.enum
 ---@field Cavern 0
@@ -245,12 +284,16 @@ df.world_underground_region.T_type = {}
 ---@class world_river: df.class
 ---@field name language_name
 ---@field path coord2d_path
----@field flow integer[]
----@field exit_tile integer[]
----@field elevation integer[]
+---@field flow df.container<integer>
+---@field exit_tile df.container<integer>
+---@field elevation df.container<integer>
 ---@field end_pos coord2d
 ---@field flags boolean[]
 df.world_river = {}
+
+---@param key integer
+---@return world_river|nil
+function df.world_river.find(key) end
 
 ---@class _geo_layer_type: df.enum
 ---@field SOIL 0
@@ -302,19 +345,27 @@ df.geo_layer_type.attrs = {}
 ---@class world_geo_layer: df.class
 ---@field type geo_layer_type
 ---@field mat_index integer References: inorganic_raw
----@field vein_mat integer[] References: inorganic_raw
+---@field vein_mat df.container<integer> References: inorganic_raw
 ---@field vein_nested_in integer[] Index of the other vein this one is nested in, or -1
 ---@field vein_type inclusion_type[]
----@field vein_unk_38 integer[] density??
+---@field vein_unk_38 df.container<integer> density??
 ---@field top_height integer negative
 ---@field bottom_height integer
 df.world_geo_layer = {}
+
+---@param key integer
+---@return world_geo_layer|nil
+function df.world_geo_layer.find(key) end
 
 ---@class world_geo_biome: df.instance
 ---@field unk1 integer
 ---@field index integer
 ---@field layers world_geo_layer[]
 df.world_geo_biome = {}
+
+---@param key integer
+---@return world_geo_biome|nil
+function df.world_geo_biome.find(key) end
 
 ---@class world_region_feature: df.class
 ---@field feature_idx integer
@@ -330,6 +381,10 @@ df.world_geo_biome = {}
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 df.world_region_feature = {}
 
+---@param key integer
+---@return world_region_feature|nil
+function df.world_region_feature.find(key) end
+
 ---biome field reference:<br> 789<br> 456<br> 123<br> as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@class world_region_details: df.class
 ---@field biome integer[][] biome field reference:<br> 789<br> 456<br> 123<br> as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
@@ -344,13 +399,17 @@ df.world_region_feature = {}
 ---@field unk_4 integer
 ---@field rivers_vertical world_region_details_rivers_vertical
 ---@field rivers_horizontal world_region_details_rivers_horizontal
----@field other_features integer[][]
----@field features world_region_feature[][][]
+---@field other_features world_region_details_other_features[]
+---@field features world_region_details_features[]
 ---@field lava_stone integer References: inorganic_raw
 ---@field unk_12 integer[] Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
 ---@field elevation2 integer[][]
 ---@field undef13 integer[]
 df.world_region_details = {}
+
+---@param key integer
+---@return world_region_details|nil
+function df.world_region_details.find(key) end
 
 ---<br> In order to determine how biomes cross embark tile edges,<br> the rectangle framing an embark tile is split into 4 corners,<br> and 4 straight edge segments, using ranges measured in tiles:<br><br> +-/----/+<br> | /<br> / * |<br> / /<br> +-/-/---+<br><br> After this, each corner and edge segment is assigned the biome<br> of one of the adjoining 4 or 2 embark tiles, based on the values<br> in these arrays. It may be necessary to access adjacent details<br> objects to collect the full outline:<br><br> c11 x11 | c21<br> y11 *** | y21<br> -------------<br> c12 x12 | c22<br><br> There are also certain rules forcing ocean/lake biomes to lose<br> edges to mountains, and both of them to anything else, no matter<br> what the original array value is. The actual biomes for tiles in<br> the frame are semi-randomly interpolated from this edge spec.<br><br> For some reason DF provides for all edges of all mid level tiles<br> in a world tile, but not for the corners on the south and east<br> edges: for these you have to go to the next world tile.<br> This has some effect on the corners on the south and east edges of<br> the world where there are no adjacent tiles to get the data from.<br> There the rules are static: the biomes of corners are taken from<br> the easternmost and southernmost of the two touching corners.<br><br> The rules for corner determination when the biome_corner field has<br> specified a biome that's specified to yield as per the above seems<br> to be to first take the NW corner (0), then the NE (1) one, and<br> then the SW (2) one. If the selected corner doesn't exist (because<br> it's outside of the world) the same fallback corner selection is<br> used, with the exception of a northern row selection of NW (0),<br> where the home corner (3) is selected.<br>
 ---@class world_region_details_edges: df.class
@@ -361,6 +420,10 @@ df.world_region_details = {}
 ---@field biome_y integer[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 df.world_region_details.T_edges = {}
 
+---@param key integer
+---@return world_region_details_edges|nil
+function df.world_region_details.T_edges.find(key) end
+
 ---@class world_region_details_rivers_vertical: df.class
 ---@field x_min integer[][]
 ---@field x_max integer[][]
@@ -368,12 +431,34 @@ df.world_region_details.T_edges = {}
 ---@field elevation integer[][]
 df.world_region_details.T_rivers_vertical = {}
 
+---@param key integer
+---@return world_region_details_rivers_vertical|nil
+function df.world_region_details.T_rivers_vertical.find(key) end
+
 ---@class world_region_details_rivers_horizontal: df.class
 ---@field y_min integer[][]
 ---@field y_max integer[][]
 ---@field active integer[][]
 ---@field elevation integer[][]
 df.world_region_details.T_rivers_horizontal = {}
+
+---@param key integer
+---@return world_region_details_rivers_horizontal|nil
+function df.world_region_details.T_rivers_horizontal.find(key) end
+
+---@class world_region_details_other_features: df.class
+df.world_region_details.T_other_features = {}
+
+---@param key integer
+---@return world_region_details_other_features|nil
+function df.world_region_details.T_other_features.find(key) end
+
+---@class world_region_details_features: df.class
+df.world_region_details.T_features = {}
+
+---@param key integer
+---@return world_region_details_features|nil
+function df.world_region_details.T_features.find(key) end
 
 ---@class _region_map_entry_flags: df.enum
 ---@field has_river 0
@@ -588,6 +673,10 @@ df.fog_type = {}
 ---@field geo_index integer References: world_geo_biome
 df.region_map_entry = {}
 
+---@param key integer
+---@return region_map_entry|nil
+function df.region_map_entry.find(key) end
+
 ---@class _region_map_entry_clouds: df.bitfield
 ---@field front 0
 ---@field [0] "front"
@@ -656,10 +745,14 @@ df.region_map_entry.T_wind = {}
 ---@field west_2 boolean
 
 ---@class entity_claim_mask: df.class
----@field map integer[]
+---@field map _unk_
 ---@field width integer
 ---@field height integer
 df.entity_claim_mask = {}
+
+---@param key integer
+---@return entity_claim_mask|nil
+function df.entity_claim_mask.find(key) end
 
 ---@class moving_party: df.class
 ---@field pos coord2d global block x/y
@@ -669,8 +762,8 @@ df.entity_claim_mask = {}
 ---@field members moving_party_members[]
 ---@field entity_id integer References: historical_entity
 ---@field flags boolean[]
----@field unk_30 integer[]
----@field unk_40 integer[]
+---@field unk_30 df.container<integer>
+---@field unk_40 df.container<integer>
 ---@field unk_70 integer
 ---@field unk_72 integer
 ---@field unk_74 integer
@@ -678,6 +771,10 @@ df.entity_claim_mask = {}
 ---@field region_id integer References: world_region
 ---@field beast_id integer for FB
 df.moving_party = {}
+
+---@param key integer
+---@return moving_party|nil
+function df.moving_party.find(key) end
 
 ---@class moving_party_members: df.class
 ---@field nemesis_id integer References: nemesis_record
@@ -692,16 +789,20 @@ df.moving_party = {}
 ---@field unk_24 integer
 df.moving_party.T_members = {}
 
+---@param key integer
+---@return moving_party_members|nil
+function df.moving_party.T_members.find(key) end
+
 ---@class world_object_data: df.instance
 ---@field id integer World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
----@field altered_items integer[] world_data_subid
+---@field altered_items df.container<integer> world_data_subid
 ---@field offloaded_items world_object_data_offloaded_items[]
----@field unk_24 integer[]
----@field unk_34 integer[]
----@field unk_44 integer[]
----@field unk_54 integer[]
----@field unk_64 integer[]
----@field altered_buildings integer[] world_data_subid
+---@field unk_24 df.container<integer>
+---@field unk_34 df.container<integer>
+---@field unk_44 df.container<integer>
+---@field unk_54 df.container<integer>
+---@field unk_64 df.container<integer>
+---@field altered_buildings df.container<integer> world_data_subid
 ---@field offloaded_buildings world_object_data_offloaded_buildings[]
 ---@field unk_94 world_object_data_unk_94[]
 ---@field creation_zone_alterations creation_zone_pwg_alterationst[]
@@ -711,6 +812,10 @@ df.moving_party.T_members = {}
 ---@field picked_growths world_object_data_picked_growths also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
 ---@field unk_v43 world_object_data_unk_v43 probably used by Adventurer mode
 df.world_object_data = {}
+
+---@param key integer
+---@return world_object_data|nil
+function df.world_object_data.find(key) end
 
 ---@class world_object_data_offloaded_items: df.class
 ---@field item item
@@ -722,6 +827,10 @@ df.world_object_data = {}
 ---@field unk_18 integer
 df.world_object_data.T_offloaded_items = {}
 
+---@param key integer
+---@return world_object_data_offloaded_items|nil
+function df.world_object_data.T_offloaded_items.find(key) end
+
 ---@class world_object_data_offloaded_buildings: df.class
 ---@field building building
 ---@field global_x integer in tiles it seems
@@ -730,6 +839,10 @@ df.world_object_data.T_offloaded_items = {}
 ---@field unk_10 integer
 df.world_object_data.T_offloaded_buildings = {}
 
+---@param key integer
+---@return world_object_data_offloaded_buildings|nil
+function df.world_object_data.T_offloaded_buildings.find(key) end
+
 ---@class world_object_data_unk_94: df.class
 ---@field global_x integer in in-game tiles it seems
 ---@field global_y integer
@@ -737,23 +850,35 @@ df.world_object_data.T_offloaded_buildings = {}
 ---@field unk_c integer
 df.world_object_data.T_unk_94 = {}
 
+---@param key integer
+---@return world_object_data_unk_94|nil
+function df.world_object_data.T_unk_94.find(key) end
+
 ---also includes 'automatically picked' i.e. fallen fruit that becomes item_spatter. Doesn not seem to be used by Adventurer mode
 ---@class world_object_data_picked_growths: df.class
----@field x integer[] 0 - 47, within the MLT
----@field y integer[] 0 - 47, within the MLT
----@field z integer[] z coordinate using the elevation coordinate system
----@field subtype integer[] subtype of the growth picked within the raws of the implicit plant
----@field density integer[] copy of the density field of the growth raws
----@field year integer[] presumably to know whether it's the current year's harvest or the previous one's
+---@field x df.container<integer> 0 - 47, within the MLT
+---@field y df.container<integer> 0 - 47, within the MLT
+---@field z df.container<integer> z coordinate using the elevation coordinate system
+---@field subtype df.container<integer> subtype of the growth picked within the raws of the implicit plant
+---@field density df.container<integer> copy of the density field of the growth raws
+---@field year df.container<integer> presumably to know whether it's the current year's harvest or the previous one's
 df.world_object_data.T_picked_growths = {}
+
+---@param key integer
+---@return world_object_data_picked_growths|nil
+function df.world_object_data.T_picked_growths.find(key) end
 
 ---probably used by Adventurer mode
 ---@class world_object_data_unk_v43: df.class
----@field x integer[] probably MLT relative x coordinate
----@field y integer[] probably MLT relative y coordinate
----@field z integer[] probably z coordinate using the elevation coordinate system
----@field unk_4 integer[] 233/234 seen
+---@field x df.container<integer> probably MLT relative x coordinate
+---@field y df.container<integer> probably MLT relative y coordinate
+---@field z df.container<integer> probably z coordinate using the elevation coordinate system
+---@field unk_4 df.container<integer> 233/234 seen
 df.world_object_data.T_unk_v43 = {}
+
+---@param key integer
+---@return world_object_data_unk_v43|nil
+function df.world_object_data.T_unk_v43.find(key) end
 
 ---@class _mountain_peak_flags: df.enum
 ---@field is_volcano 0
@@ -770,6 +895,10 @@ df.mountain_peak_flags = {}
 ---@field flags mountain_peak_flags[]
 ---@field height integer
 df.world_mountain_peak = {}
+
+---@param key integer
+---@return world_mountain_peak|nil
+function df.world_mountain_peak.find(key) end
 
 ---<br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
 ---@class world_data: df.class
@@ -825,11 +954,11 @@ df.world_mountain_peak = {}
 ---@field unk_1c8 integer
 ---@field embark_notes embark_note[]
 ---@field unk_1dc army[]
----@field unk_1e0 integer[]
----@field unk_1e4 integer[]
----@field unk_1e8 integer[]
----@field unk_1ec integer[]
----@field unk_1f0 integer[]
+---@field unk_1e0 df.container<integer>
+---@field unk_1e4 df.container<integer>
+---@field unk_1e8 df.container<integer>
+---@field unk_1ec df.container<integer>
+---@field unk_1f0 df.container<integer>
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -850,10 +979,10 @@ df.world_mountain_peak = {}
 ---@field unk_17 integer
 ---@field unk_18 integer
 ---@field active_site world_site[]
----@field feature_map integer <br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
----@field old_sites integer[] References: world_site
----@field old_site_x integer[]
----@field old_site_y integer[]
+---@field feature_map _unk_ <br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
+---@field old_sites df.container<integer> References: world_site
+---@field old_site_x df.container<integer>
+---@field old_site_y df.container<integer>
 ---@field land_rgns coord2d_path
 ---@field unk_260 integer
 ---@field unk_264 integer
@@ -863,6 +992,10 @@ df.world_mountain_peak = {}
 ---@field unk_274 world_data_unk_274[]
 ---@field unk_482f8 world_data_unk_482f8
 df.world_data = {}
+
+---@param key integer
+---@return world_data|nil
+function df.world_data.find(key) end
 
 ---@class _world_data_flip_latitude: df.enum
 ---@field None -1
@@ -894,6 +1027,10 @@ df.world_data.T_flip_latitude = {}
 ---@field unk_4 integer align(width,4)*height
 df.world_data.T_unk_b4 = {}
 
+---@param key integer
+---@return world_data_unk_b4|nil
+function df.world_data.T_unk_b4.find(key) end
+
 ---@class world_data_constructions: df.class
 ---@field width integer
 ---@field height integer
@@ -901,6 +1038,10 @@ df.world_data.T_unk_b4 = {}
 ---@field list world_construction[]
 ---@field next_id integer
 df.world_data.T_constructions = {}
+
+---@param key integer
+---@return world_data_constructions|nil
+function df.world_data.T_constructions.find(key) end
 
 ---@class world_data_unk_274: df.class
 ---@field members historical_figure[]
@@ -912,11 +1053,19 @@ df.world_data.T_constructions = {}
 ---@field unk_30 integer
 df.world_data.T_unk_274 = {}
 
+---@param key integer
+---@return world_data_unk_274|nil
+function df.world_data.T_unk_274.find(key) end
+
 ---@class world_data.T_unk_274_unk_10: df.class
 ---@field unk_0 integer
 ---@field race integer References: creature_raw
 ---@field unk_8 integer
 df.world_data.T_unk_274.T_unk_10 = {}
+
+---@param key integer
+---@return world_data.T_unk_274_unk_10|nil
+function df.world_data.T_unk_274.T_unk_10.find(key) end
 
 ---@class world_data_unk_482f8: df.class
 ---@field unk_1 integer[]
@@ -929,6 +1078,10 @@ df.world_data.T_unk_274.T_unk_10 = {}
 ---@field unk_8 integer
 df.world_data.T_unk_482f8 = {}
 
+---@param key integer
+---@return world_data_unk_482f8|nil
+function df.world_data.T_unk_482f8.find(key) end
+
 ---@class breed: df.instance
 ---@field id integer
 ---@field unk_4 integer
@@ -937,11 +1090,19 @@ df.world_data.T_unk_482f8 = {}
 ---@field unk_28 breed_unk_28[]
 df.breed = {}
 
+---@param key integer
+---@return breed|nil
+function df.breed.find(key) end
+
 ---@class breed_unk_8: df.class
 ---@field id integer
 ---@field unk_4 integer
 ---@field unk_8 integer
 df.breed.T_unk_8 = {}
+
+---@param key integer
+---@return breed_unk_8|nil
+function df.breed.T_unk_8.find(key) end
 
 ---@class breed_unk_18: df.class
 ---@field id integer
@@ -949,22 +1110,34 @@ df.breed.T_unk_8 = {}
 ---@field unk_8 integer
 df.breed.T_unk_18 = {}
 
+---@param key integer
+---@return breed_unk_18|nil
+function df.breed.T_unk_18.find(key) end
+
 ---@class breed_unk_28: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
 df.breed.T_unk_28 = {}
 
+---@param key integer
+---@return breed_unk_28|nil
+function df.breed.T_unk_28.find(key) end
+
 ---@class battlefield: df.instance
 ---@field id integer
 ---@field sapient_deaths battlefield_sapient_deaths[] Seems to be by squad. Trolls/Blizzard Men not counted
----@field hfs_killed integer[] References: historical_figure<br>some victims are not listed, for some reason, and culled HFs can be present
+---@field hfs_killed df.container<integer> References: historical_figure<br>some victims are not listed, for some reason, and culled HFs can be present
 ---@field x1 integer
 ---@field y1 integer
 ---@field x2 integer
 ---@field y2 integer
 ---@field unk_34 integer wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
----@field event_collections integer[] References: history_event_collection
+---@field event_collections df.container<integer> References: history_event_collection
 df.battlefield = {}
+
+---@param key integer
+---@return battlefield|nil
+function df.battlefield.find(key) end
 
 ---Seems to be by squad. Trolls/Blizzard Men not counted
 ---@class battlefield_sapient_deaths: df.class
@@ -977,6 +1150,10 @@ df.battlefield = {}
 ---@field unk_18 integer 0, 1, 4, 5, 7 seen
 ---@field unk_1c integer 2-5 seen. 4-5 probably attacker, 2-3 probably defender
 df.battlefield.T_sapient_deaths = {}
+
+---@param key integer
+---@return battlefield_sapient_deaths|nil
+function df.battlefield.T_sapient_deaths.find(key) end
 
 ---@class _region_weather_type: df.enum
 ---@field CreepingGas 0
@@ -1016,4 +1193,8 @@ df.region_weather_type = {}
 ---@field remaining_duration integer ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
 ---@field region_id integer References: world_region<br>Set for clouds, -1 for rain
 df.region_weather = {}
+
+---@param key integer
+---@return region_weather|nil
+function df.region_weather.find(key) end
 

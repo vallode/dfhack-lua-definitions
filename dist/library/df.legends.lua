@@ -17,6 +17,10 @@
 ---@field unk_5 integer
 df.invasion_info = {}
 
+---@param key integer
+---@return invasion_info|nil
+function df.invasion_info.find(key) end
+
 ---@class _invasion_info_flags: df.bitfield
 ---@field active 0
 ---@field [0] "active"
@@ -52,6 +56,10 @@ df.invasion_info.T_flags = {}
 ---@field unk_3 entity_population_unk4_unk_3[]
 df.entity_population_unk4 = {}
 
+---@param key integer
+---@return entity_population_unk4|nil
+function df.entity_population_unk4.find(key) end
+
 ---all 3 vectors share a single index series, with the third being interleaved with at least the second one
 ---@class entity_population_unk4_unk_1: df.class
 ---@field idx integer
@@ -59,22 +67,34 @@ df.entity_population_unk4 = {}
 ---@field unk2 integer
 df.entity_population_unk4.T_unk_1 = {}
 
+---@param key integer
+---@return entity_population_unk4_unk_1|nil
+function df.entity_population_unk4.T_unk_1.find(key) end
+
 ---@class entity_population_unk4_unk_2: df.class
 ---@field idx integer
 ---@field unk1 integer
 ---@field unk2 integer
 df.entity_population_unk4.T_unk_2 = {}
 
+---@param key integer
+---@return entity_population_unk4_unk_2|nil
+function df.entity_population_unk4.T_unk_2.find(key) end
+
 ---@class entity_population_unk4_unk_3: df.class
 ---@field idx integer
 ---@field unk1 integer
 df.entity_population_unk4.T_unk_3 = {}
 
+---@param key integer
+---@return entity_population_unk4_unk_3|nil
+function df.entity_population_unk4.T_unk_3.find(key) end
+
 ---@class entity_population: df.instance
 ---@field name language_name
 ---@field races integer[] all the 3 vectors are always the same length, and thus coupled
----@field counts integer[]
----@field unk3 integer[] Set only for cave civs. When set, >= counts. Pre first embark all those are equal
+---@field counts df.container<integer>
+---@field unk3 df.container<integer> Set only for cave civs. When set, >= counts. Pre first embark all those are equal
 ---@field unk4 entity_population_unk4[]
 ---@field unk5 integer
 ---@field layer_id integer References: world_underground_region
@@ -82,6 +102,10 @@ df.entity_population_unk4.T_unk_3 = {}
 ---@field flags integer ?; layer_id == -1
 ---@field civ_id integer References: historical_entity
 df.entity_population = {}
+
+---@param key integer
+---@return entity_population|nil
+function df.entity_population.find(key) end
 
 ---@class _nemesis_flags: df.enum
 ---@field ACTIVE_ADVENTURER 0
@@ -149,6 +173,10 @@ df.nemesis_flags = {}
 ---@field flags nemesis_flags[]
 df.nemesis_record = {}
 
+---@param key integer
+---@return nemesis_record|nil
+function df.nemesis_record.find(key) end
+
 ---@class artifact_record: df.instance
 ---@field id integer
 ---@field name language_name
@@ -164,9 +192,9 @@ df.nemesis_record = {}
 ---@field subregion integer References: world_region
 ---@field feature_layer integer References: world_underground_region
 ---@field owner_hf integer References: historical_figure<br>namer/creator does not seem to require a claim to be shown
----@field remote_claims integer[] References: historical_figure<br>all afar, heirloom from afar seen
----@field entity_claims integer[] References: historical_entity
----@field direct_claims integer[] References: historical_figure
+---@field remote_claims df.container<integer> References: historical_figure<br>all afar, heirloom from afar seen
+---@field entity_claims df.container<integer> References: historical_entity
+---@field direct_claims df.container<integer> References: historical_figure
 ---@field storage_site integer References: world_site
 ---@field storage_structure_local integer References: abstract_building
 ---@field loss_region integer References: world_region
@@ -176,6 +204,10 @@ df.nemesis_record = {}
 ---@field unk_4 integer
 ---@field unk_5 integer Small set of non zero fairly small numbers seen?
 df.artifact_record = {}
+
+---@param key integer
+---@return artifact_record|nil
+function df.artifact_record.find(key) end
 
 ---@class artifact_rumor_locationst: df.class
 ---@field art artifact_record
@@ -189,4 +221,8 @@ df.artifact_record = {}
 ---@field flag integer
 ---@field latest_wi integer witness_incidentst
 df.artifact_rumor_locationst = {}
+
+---@param key integer
+---@return artifact_rumor_locationst|nil
+function df.artifact_rumor_locationst.find(key) end
 

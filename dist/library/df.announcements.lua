@@ -1444,6 +1444,10 @@ df.announcement_flags = {}
 ---@field unused integer needed to fix alignment on 64-bit platforms
 df.announcements = {}
 
+---@param key integer
+---@return announcements|nil
+function df.announcements.find(key) end
+
 ---@class report: df.instance
 ---@field type announcement_type valid only if coordinates are
 ---@field text string
@@ -1463,6 +1467,10 @@ df.announcements = {}
 ---@field unk_v40_2 integer
 ---@field speaker_id integer References: unit<br>unit speaking the conversation
 df.report = {}
+
+---@param key integer
+---@return report|nil
+function df.report.find(key) end
 
 ---@class _report_flags: df.bitfield
 ---@field continuation 0
@@ -1504,6 +1512,10 @@ df.report_zoom_type = {}
 ---@field bright boolean
 df.popup_message = {}
 
+---@param key integer
+---@return popup_message|nil
+function df.popup_message.find(key) end
+
 ---allocated on the stack, included in df-structures to assist with disassembly
 ---@class report_init: df.class
 ---@field type announcement_type
@@ -1521,6 +1533,10 @@ df.popup_message = {}
 ---@field speaker_id integer References: unit
 ---@field flags report_init_flags
 df.report_init = {}
+
+---@param key integer
+---@return report_init|nil
+function df.report_init.find(key) end
 
 ---@class _report_init_flags: df.bitfield
 ---@field hostile_combat 0

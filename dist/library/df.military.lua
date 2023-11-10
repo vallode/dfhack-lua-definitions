@@ -26,6 +26,10 @@ df.uniform_indiv_choice = {}
 ---@field matindex integer
 df.item_filter_spec = {}
 
+---@param key integer
+---@return item_filter_spec|nil
+function df.item_filter_spec.find(key) end
+
 ---@class squad_uniform_spec: df.class
 ---@field item integer References: item
 ---@field item_filter item_filter_spec
@@ -34,12 +38,20 @@ df.item_filter_spec = {}
 ---@field indiv_choice uniform_indiv_choice
 df.squad_uniform_spec = {}
 
+---@param key integer
+---@return squad_uniform_spec|nil
+function df.squad_uniform_spec.find(key) end
+
 ---@class squad_ammo_spec: df.class
 ---@field item_filter item_filter_spec
 ---@field amount integer
 ---@field flags squad_ammo_spec_flags
 ---@field assigned integer[]
 df.squad_ammo_spec = {}
+
+---@param key integer
+---@return squad_ammo_spec|nil
+function df.squad_ammo_spec.find(key) end
 
 ---@class _squad_ammo_spec_flags: df.bitfield
 ---@field use_combat 0
@@ -166,7 +178,7 @@ df.squad_event_type = {}
 ---@class squad_position: df.class
 ---@field occupant integer References: historical_figure
 ---@field orders squad_order[]
----@field preferences integer[][]
+---@field preferences df.container<integer>[]
 ---@field uniform squad_uniform_spec[][]
 ---@field unk_c4 string
 ---@field flags uniform_flags
@@ -180,11 +192,19 @@ df.squad_event_type = {}
 ---@field unk_2 integer
 df.squad_position = {}
 
+---@param key integer
+---@return squad_position|nil
+function df.squad_position.find(key) end
+
 ---@class squad_schedule_order: df.class
 ---@field order squad_order
 ---@field min_count integer
 ---@field positions boolean[]
 df.squad_schedule_order = {}
+
+---@param key integer
+---@return squad_schedule_order|nil
+function df.squad_schedule_order.find(key) end
 
 ---@class squad_schedule_entry: df.class
 ---@field name string
@@ -194,8 +214,16 @@ df.squad_schedule_order = {}
 ---@field order_assignments squad_schedule_entry_order_assignments[]
 df.squad_schedule_entry = {}
 
+---@param key integer
+---@return squad_schedule_entry|nil
+function df.squad_schedule_entry.find(key) end
+
 ---@class squad_schedule_entry_order_assignments: df.class
 df.squad_schedule_entry.T_order_assignments = {}
+
+---@param key integer
+---@return squad_schedule_entry_order_assignments|nil
+function df.squad_schedule_entry.T_order_assignments.find(key) end
 
 ---@class squad: df.instance
 ---@field id integer
@@ -206,8 +234,8 @@ df.squad_schedule_entry.T_order_assignments = {}
 ---@field schedule squad_schedule[]
 ---@field cur_routine_idx integer
 ---@field rooms squad_rooms[]
----@field rack_combat integer[] References: building
----@field rack_training integer[] References: building
+---@field rack_combat df.container<integer> References: building
+---@field rack_training df.container<integer> References: building
 ---@field uniform_priority integer
 ---@field activity integer References: activity_entry
 ---@field ammo squad_ammo
@@ -228,13 +256,25 @@ df.squad_schedule_entry.T_order_assignments = {}
 ---@field background_b integer
 df.squad = {}
 
+---@param key integer
+---@return squad|nil
+function df.squad.find(key) end
+
 ---@class squad_schedule: df.class
 df.squad.T_schedule = {}
+
+---@param key integer
+---@return squad_schedule|nil
+function df.squad.T_schedule.find(key) end
 
 ---@class squad_rooms: df.class
 ---@field building_id integer References: building
 ---@field mode squad_use_flags
 df.squad.T_rooms = {}
+
+---@param key integer
+---@return squad_rooms|nil
+function df.squad.T_rooms.find(key) end
 
 ---@class squad_ammo: df.class
 ---@field ammunition squad_ammo_spec[]
@@ -244,6 +284,10 @@ df.squad.T_rooms = {}
 ---@field ammo_units integer[]
 ---@field update equipment_update
 df.squad.T_ammo = {}
+
+---@param key integer
+---@return squad_ammo|nil
+function df.squad.T_ammo.find(key) end
 
 ---@class _squad_order_type: df.enum
 ---@field MOVE 0
@@ -396,6 +440,10 @@ df.squad_order_cannot_reason = {}
 ---@field unk_1 integer
 df.squad_order = {}
 
+---@param key integer
+---@return squad_order|nil
+function df.squad_order.find(key) end
+
 ---@param unk_0 squad_order
 ---@return squad_order
 function df.squad_order:clone(unk_0) end
@@ -435,8 +483,8 @@ function df.squad_order:decUniformLock(soldier) end
 ---@return boolean
 function df.squad_order:isFulfilled() end
 
----@param unk_0 integer[]
----@return integer[]
+---@param unk_0 df.container<integer>
+---@return df.container<integer>
 function df.squad_order:getTargetUnits(unk_0) end
 
 ---@param soldier unit
@@ -464,22 +512,42 @@ function df.squad_order:isEqual(other) end
 ---@field point_id integer
 df.squad_order_movest = {}
 
+---@param key integer
+---@return squad_order_movest|nil
+function df.squad_order_movest.find(key) end
+
 ---@class squad_order_kill_listst: squad_order
 ---@field units integer[]
 ---@field histfigs integer[]
 ---@field title string
 df.squad_order_kill_listst = {}
 
+---@param key integer
+---@return squad_order_kill_listst|nil
+function df.squad_order_kill_listst.find(key) end
+
 ---@class squad_order_defend_burrowsst: squad_order
----@field burrows integer[] References: burrow
+---@field burrows df.container<integer> References: burrow
 df.squad_order_defend_burrowsst = {}
+
+---@param key integer
+---@return squad_order_defend_burrowsst|nil
+function df.squad_order_defend_burrowsst.find(key) end
 
 ---@class squad_order_patrol_routest: squad_order
 ---@field route_id integer
 df.squad_order_patrol_routest = {}
 
+---@param key integer
+---@return squad_order_patrol_routest|nil
+function df.squad_order_patrol_routest.find(key) end
+
 ---@class squad_order_trainst: squad_order
 df.squad_order_trainst = {}
+
+---@param key integer
+---@return squad_order_trainst|nil
+function df.squad_order_trainst.find(key) end
 
 ---@class squad_order_drive_entity_off_sitest: squad_order
 ---@field unk_2 integer
@@ -487,15 +555,27 @@ df.squad_order_trainst = {}
 ---@field unk_4 string
 df.squad_order_drive_entity_off_sitest = {}
 
+---@param key integer
+---@return squad_order_drive_entity_off_sitest|nil
+function df.squad_order_drive_entity_off_sitest.find(key) end
+
 ---@class squad_order_cause_trouble_for_entityst: squad_order
 ---@field entity_id integer References: historical_entity
 ---@field override_name string
 df.squad_order_cause_trouble_for_entityst = {}
 
+---@param key integer
+---@return squad_order_cause_trouble_for_entityst|nil
+function df.squad_order_cause_trouble_for_entityst.find(key) end
+
 ---@class squad_order_kill_hfst: squad_order
 ---@field histfig_id integer References: historical_figure
 ---@field title string
 df.squad_order_kill_hfst = {}
+
+---@param key integer
+---@return squad_order_kill_hfst|nil
+function df.squad_order_kill_hfst.find(key) end
 
 ---@class squad_order_drive_armies_from_sitest: squad_order
 ---@field unk_2 integer
@@ -503,20 +583,36 @@ df.squad_order_kill_hfst = {}
 ---@field unk_4 string
 df.squad_order_drive_armies_from_sitest = {}
 
+---@param key integer
+---@return squad_order_drive_armies_from_sitest|nil
+function df.squad_order_drive_armies_from_sitest.find(key) end
+
 ---@class squad_order_retrieve_artifactst: squad_order
 ---@field artifact_id integer References: artifact_record
 ---@field unk_2 coord
 df.squad_order_retrieve_artifactst = {}
+
+---@param key integer
+---@return squad_order_retrieve_artifactst|nil
+function df.squad_order_retrieve_artifactst.find(key) end
 
 ---@class squad_order_raid_sitest: squad_order
 ---@field unk_2 integer
 ---@field unk_3 coord
 df.squad_order_raid_sitest = {}
 
+---@param key integer
+---@return squad_order_raid_sitest|nil
+function df.squad_order_raid_sitest.find(key) end
+
 ---@class squad_order_rescue_hfst: squad_order
 ---@field unk_2 integer
 ---@field unk_3 coord
 df.squad_order_rescue_hfst = {}
+
+---@param key integer
+---@return squad_order_rescue_hfst|nil
+function df.squad_order_rescue_hfst.find(key) end
 
 ---@class army_controller: df.instance
 ---@field id integer all army.controllers seen and reached via InvasionOrder controllers' armies have been of type = Invasion and absent from the 'all' vector
@@ -527,7 +623,7 @@ df.squad_order_rescue_hfst = {}
 ---@field pos_y integer
 ---@field unk_18 integer Seen one case of 1990 for VillainVisiting
 ---@field unk_1c integer same value for the same visitor
----@field unk_20 integer[]
+---@field unk_20 df.container<integer>
 ---@field year integer
 ---@field year_tick integer
 ---@field unk_34 integer References: army_controller<br>id of other army controller (Invasion) from same entity seen here
@@ -538,15 +634,19 @@ df.squad_order_rescue_hfst = {}
 ---@field unk_44_2 integer
 ---@field visitor_nemesis_id integer References: nemesis_record<br>Set for VillainousVisit
 ---@field unk_44_4 integer 3, 6 seen for Villain
----@field unk_44_5 integer[]
+---@field unk_44_5 df.container<integer>
 ---@field unk_50 integer
----@field unk_54 integer[]
----@field unk_44_11v integer[]
----@field unk_v50_b0 integer[]
+---@field unk_54 df.container<integer>
+---@field unk_44_11v df.container<integer>
+---@field unk_v50_b0 df.container<integer>
 ---@field mission_report mission_report
 ---@field data army_controller_data
 ---@field type army_controller_type
 df.army_controller = {}
+
+---@param key integer
+---@return army_controller|nil
+function df.army_controller.find(key) end
 
 ---@class army_controller_data: df.class
 ---@field t1 army_controller_sub1
@@ -570,6 +670,10 @@ df.army_controller = {}
 ---@field t23 army_controller_sub23
 ---@field VillainousVisit army_controller_villainous_visit
 df.army_controller.T_data = {}
+
+---@param key integer
+---@return army_controller_data|nil
+function df.army_controller.T_data.find(key) end
 
 ---@class _army_controller_type: df.enum
 ---@field t0 0
@@ -682,19 +786,27 @@ df.army_controller.T_type = {}
 ---@field unk_3 integer
 df.army_controller_sub1 = {}
 
+---@param key integer
+---@return army_controller_sub1|nil
+function df.army_controller_sub1.find(key) end
+
 ---@class army_controller_invasion_order: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_4a army_controller_invasion_order_unk_4a[]
----@field unk_5 integer[]
----@field unk_6 integer[]
+---@field unk_5 df.container<integer>
+---@field unk_6 df.container<integer>
 ---@field unk_7 integer
 ---@field unk_8 integer
 ---@field unk_9 integer
----@field unk_10 integer[]
+---@field unk_10 df.container<integer>
 df.army_controller_invasion_order = {}
+
+---@param key integer
+---@return army_controller_invasion_order|nil
+function df.army_controller_invasion_order.find(key) end
 
 ---@class army_controller_invasion_order_unk_4a: df.class
 ---@field army_id integer References: army<br>no longer available when an attack has started
@@ -705,10 +817,18 @@ df.army_controller_invasion_order = {}
 ---@field invasion_count integer size of the army, including leaders
 df.army_controller_invasion_order.T_unk_4a = {}
 
+---@param key integer
+---@return army_controller_invasion_order_unk_4a|nil
+function df.army_controller_invasion_order.T_unk_4a.find(key) end
+
 ---@class army_controller_invasion: df.class
 ---@field unk_1 integer
 ---@field unk_2 army_controller_invasion_unk_2
 df.army_controller_invasion = {}
+
+---@param key integer
+---@return army_controller_invasion|nil
+function df.army_controller_invasion.find(key) end
 
 ---@class _army_controller_invasion_unk_2: df.bitfield
 ---@field not_sleeping 0
@@ -739,6 +859,10 @@ df.army_controller_invasion.T_unk_2 = {}
 ---@field year_tick integer
 df.army_controller_sub5 = {}
 
+---@param key integer
+---@return army_controller_sub5|nil
+function df.army_controller_sub5.find(key) end
+
 ---@class army_controller_sub6: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -750,6 +874,10 @@ df.army_controller_sub5 = {}
 ---@field unk_8 integer
 ---@field unk_9 integer
 df.army_controller_sub6 = {}
+
+---@param key integer
+---@return army_controller_sub6|nil
+function df.army_controller_sub6.find(key) end
 
 ---@class army_controller_sub7: df.class
 ---@field unk_1 integer
@@ -764,6 +892,10 @@ df.army_controller_sub6 = {}
 ---@field unk_8 integer
 df.army_controller_sub7 = {}
 
+---@param key integer
+---@return army_controller_sub7|nil
+function df.army_controller_sub7.find(key) end
+
 ---@class army_controller_sub7_unk_3: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -773,11 +905,19 @@ df.army_controller_sub7 = {}
 ---@field unk_6 integer
 df.army_controller_sub7.T_unk_3 = {}
 
+---@param key integer
+---@return army_controller_sub7_unk_3|nil
+function df.army_controller_sub7.T_unk_3.find(key) end
+
 ---@class army_controller_sub11: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 army_controller_sub11_unk_3[]
 df.army_controller_sub11 = {}
+
+---@param key integer
+---@return army_controller_sub11|nil
+function df.army_controller_sub11.find(key) end
 
 ---@class army_controller_sub11_unk_3: df.class
 ---@field army_id integer References: army
@@ -787,6 +927,10 @@ df.army_controller_sub11 = {}
 ---@field pos_y_b integer
 ---@field invasion_count integer very much a guess from one sample, but it matched the army size
 df.army_controller_sub11.T_unk_3 = {}
+
+---@param key integer
+---@return army_controller_sub11_unk_3|nil
+function df.army_controller_sub11.T_unk_3.find(key) end
 
 ---@class army_controller_visit: df.class
 ---@field unk_1 integer
@@ -799,6 +943,10 @@ df.army_controller_sub11.T_unk_3 = {}
 ---@field purpose history_event_reason
 df.army_controller_visit = {}
 
+---@param key integer
+---@return army_controller_visit|nil
+function df.army_controller_visit.find(key) end
+
 ---@class army_controller_visit_unk_4: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -808,12 +956,20 @@ df.army_controller_visit = {}
 ---@field unk_6 integer
 df.army_controller_visit.T_unk_4 = {}
 
+---@param key integer
+---@return army_controller_visit_unk_4|nil
+function df.army_controller_visit.T_unk_4.find(key) end
+
 ---@class army_controller_sub13: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 army_controller_sub13_unk_4[]
 df.army_controller_sub13 = {}
+
+---@param key integer
+---@return army_controller_sub13|nil
+function df.army_controller_sub13.find(key) end
 
 ---@class army_controller_sub13_unk_4: df.class
 ---@field unk_1 integer
@@ -824,6 +980,10 @@ df.army_controller_sub13 = {}
 ---@field unk_6 integer
 df.army_controller_sub13.T_unk_4 = {}
 
+---@param key integer
+---@return army_controller_sub13_unk_4|nil
+function df.army_controller_sub13.T_unk_4.find(key) end
+
 ---@class army_controller_sub14: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -831,6 +991,10 @@ df.army_controller_sub13.T_unk_4 = {}
 ---@field unk_4 army_controller_sub14_unk_4[]
 ---@field unk_5 integer
 df.army_controller_sub14 = {}
+
+---@param key integer
+---@return army_controller_sub14|nil
+function df.army_controller_sub14.find(key) end
 
 ---@class army_controller_sub14_unk_4: df.class
 ---@field unk_1 integer
@@ -840,6 +1004,10 @@ df.army_controller_sub14 = {}
 ---@field unk_5 integer
 ---@field unk_6 integer
 df.army_controller_sub14.T_unk_4 = {}
+
+---@param key integer
+---@return army_controller_sub14_unk_4|nil
+function df.army_controller_sub14.T_unk_4.find(key) end
 
 ---@class army_controller_sub15: df.class
 ---@field unk_1 integer
@@ -857,6 +1025,10 @@ df.army_controller_sub14.T_unk_4 = {}
 ---@field unk_13 integer
 df.army_controller_sub15 = {}
 
+---@param key integer
+---@return army_controller_sub15|nil
+function df.army_controller_sub15.find(key) end
+
 ---@class army_controller_sub15_unk_3: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -866,9 +1038,17 @@ df.army_controller_sub15 = {}
 ---@field unk_6 integer
 df.army_controller_sub15.T_unk_3 = {}
 
+---@param key integer
+---@return army_controller_sub15_unk_3|nil
+function df.army_controller_sub15.T_unk_3.find(key) end
+
 ---@class army_controller_sub16: df.class
 ---@field unk_1 integer
 df.army_controller_sub16 = {}
+
+---@param key integer
+---@return army_controller_sub16|nil
+function df.army_controller_sub16.find(key) end
 
 ---@class army_controller_quest: df.class
 ---@field artifact_id integer References: artifact_record
@@ -877,17 +1057,29 @@ df.army_controller_sub16 = {}
 ---@field unk_3 integer
 df.army_controller_quest = {}
 
+---@param key integer
+---@return army_controller_quest|nil
+function df.army_controller_quest.find(key) end
+
 ---@class army_controller_sub18: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.army_controller_sub18 = {}
 
+---@param key integer
+---@return army_controller_sub18|nil
+function df.army_controller_sub18.find(key) end
+
 ---@class army_controller_sub19: df.class
----@field unk_1 integer[]
+---@field unk_1 df.container<integer>
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.army_controller_sub19 = {}
+
+---@param key integer
+---@return army_controller_sub19|nil
+function df.army_controller_sub19.find(key) end
 
 ---@class army_controller_sub20: df.class
 ---@field unk_1 integer
@@ -895,15 +1087,27 @@ df.army_controller_sub19 = {}
 ---@field unk_3 integer
 df.army_controller_sub20 = {}
 
+---@param key integer
+---@return army_controller_sub20|nil
+function df.army_controller_sub20.find(key) end
+
 ---@class army_controller_sub21: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.army_controller_sub21 = {}
 
+---@param key integer
+---@return army_controller_sub21|nil
+function df.army_controller_sub21.find(key) end
+
 ---@class army_controller_sub22: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.army_controller_sub22 = {}
+
+---@param key integer
+---@return army_controller_sub22|nil
+function df.army_controller_sub22.find(key) end
 
 ---@class army_controller_sub23: df.class
 ---@field unk_1 integer
@@ -912,12 +1116,20 @@ df.army_controller_sub22 = {}
 ---@field unk_4 integer
 df.army_controller_sub23 = {}
 
+---@param key integer
+---@return army_controller_sub23|nil
+function df.army_controller_sub23.find(key) end
+
 ---@class army_controller_villainous_visit: df.class
 ---@field site_id integer References: world_site
 ---@field entity_id integer References: historical_entity
 ---@field abstract_building integer -1 before arrival
 ---@field purpose history_event_reason none before arrival
 df.army_controller_villainous_visit = {}
+
+---@param key integer
+---@return army_controller_villainous_visit|nil
+function df.army_controller_villainous_visit.find(key) end
 
 ---@class _army_flags: df.enum
 ---@field player 0
@@ -943,10 +1155,10 @@ df.army_flags = {}
 ---@field controller_id integer References: army_controller
 ---@field controller army_controller
 ---@field flags army_flags[]
----@field block_path_x integer[] path in map_block coordinates. Seems to be the near term
----@field block_path_y integer[]
----@field path_x integer[] path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
----@field path_y integer[]
+---@field block_path_x df.container<integer> path in map_block coordinates. Seems to be the near term
+---@field block_path_y df.container<integer>
+---@field path_x df.container<integer> path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
+---@field path_y df.container<integer>
 ---@field unk_90 integer
 ---@field unk_94 integer Number counting down. In examined save starts at 80 for id 38 counting down to 0 at 113, obviously with missing numbers somewhere
 ---@field unk_98 integer
@@ -961,6 +1173,10 @@ df.army_flags = {}
 ---@field mat_index integer
 ---@field unk_4407_1 item[]
 df.army = {}
+
+---@param key integer
+---@return army|nil
+function df.army.find(key) end
 
 ---@class army_members: df.class
 ---@field nemesis_id integer
@@ -983,4 +1199,8 @@ df.army = {}
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.army.T_members = {}
+
+---@param key integer
+---@return army_members|nil
+function df.army.T_members.find(key) end
 

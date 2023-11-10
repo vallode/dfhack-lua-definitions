@@ -163,10 +163,18 @@ df.units_other_id = {}
 ---@class units_other: df.class
 df.units_other = {}
 
+---@param key integer
+---@return units_other|nil
+function df.units_other.find(key) end
+
 ---@class unit_context_block: df.class
 ---@field context_unit unit[]
 ---@field num integer
 df.unit_context_block = {}
+
+---@param key integer
+---@return unit_context_block|nil
+function df.unit_context_block.find(key) end
 
 ---@class _conflict_level: df.enum
 ---@field None -1
@@ -209,13 +217,17 @@ df.conflict_level = {}
 ---@field hfid integer References: historical_figure
 ---@field unk_hfid integer References: historical_figure<br>same as hfid seen
 ---@field unk_hfid2 integer References: historical_figure<br>same as hfid seen
----@field unk_3 integer[] References: identity
+---@field unk_3 df.container<integer> References: identity
 df.incident_hfid = {}
+
+---@param key integer
+---@return incident_hfid|nil
+function df.incident_hfid.find(key) end
 
 ---@class incident: df.instance
 ---@field id integer
 ---@field type incident_type
----@field witnesses integer[] References: unit
+---@field witnesses df.container<integer> References: unit
 ---@field unk_year integer
 ---@field unk_year_tick integer
 ---@field victim integer References: unit
@@ -248,6 +260,10 @@ df.incident_hfid = {}
 ---@field unk_10c integer
 ---@field data incident_data
 df.incident = {}
+
+---@param key integer
+---@return incident|nil
+function df.incident.find(key) end
 
 ---@class _incident_type: df.enum
 ---@field Death 0
@@ -323,6 +339,10 @@ df.incident.T_flags = {}
 ---@field RefusedID incident_data_identity
 df.incident.T_data = {}
 
+---@param key integer
+---@return incident_data|nil
+function df.incident.T_data.find(key) end
+
 ---@class incident_data_performance: df.class
 ---@field performance_event performance_event_type
 ---@field participants incident_data_performance_participants[]
@@ -334,12 +354,20 @@ df.incident.T_data = {}
 ---@field dance_form_id integer References: dance_form
 df.incident_data_performance = {}
 
+---@param key integer
+---@return incident_data_performance|nil
+function df.incident_data_performance.find(key) end
+
 ---@class incident_data_performance_participants: df.class
 ---@field performance_event performance_event_type can e.g. be music for a dance musician
 ---@field role_index integer index into the instruments vector for music, with corresponding roles for other forms, possibly a dance_form_sub1 entry for dances
 ---@field unk_1 incident_hfid
 ---@field unk_2 integer
 df.incident_data_performance.T_participants = {}
+
+---@param key integer
+---@return incident_data_performance_participants|nil
+function df.incident_data_performance.T_participants.find(key) end
 
 ---@class incident_data_artifact: df.class
 ---@field state incident_data_artifact_state
@@ -350,9 +378,13 @@ df.incident_data_performance.T_participants = {}
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
----@field unk_8 integer[]
+---@field unk_8 df.container<integer>
 ---@field unk_9 integer
 df.incident_data_artifact = {}
+
+---@param key integer
+---@return incident_data_artifact|nil
+function df.incident_data_artifact.find(key) end
 
 ---@class _incident_data_artifact_state: df.enum
 ---@field Held 0
@@ -392,9 +424,13 @@ df.incident_data_artifact.T_state = {}
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
----@field unk_7 integer[]
+---@field unk_7 df.container<integer>
 ---@field unk_8 integer
 df.incident_data_writing = {}
+
+---@param key integer
+---@return incident_data_writing|nil
+function df.incident_data_writing.find(key) end
 
 ---@class _incident_data_writing_state: df.enum
 ---@field Dropped 0
@@ -413,6 +449,10 @@ df.incident_data_writing.T_state = {}
 ---@field unk_1 incident_hfid[]
 df.incident_data_identity = {}
 
+---@param key integer
+---@return incident_data_identity|nil
+function df.incident_data_identity.find(key) end
+
 ---@class crime: df.instance
 ---@field id integer
 ---@field mode crime_mode
@@ -429,7 +469,7 @@ df.incident_data_identity = {}
 ---@field victim_hf integer References: historical_figure
 ---@field victim_hf_2 integer References: historical_figure<br>the two additional copies probably refers to some other roles, but all 3 are identical in cases seen
 ---@field victim_hf_3 integer References: historical_figure
----@field unk_v47_vector_3 integer[] this vector hasn't been seen, but is guessed at based on the pattern above
+---@field unk_v47_vector_3 df.container<integer> this vector hasn't been seen, but is guessed at based on the pattern above
 ---@field flags crime_flags
 ---@field incident_id integer References: incident
 ---@field event_year integer
@@ -444,6 +484,10 @@ df.incident_data_identity = {}
 ---@field witnesses crime_witness[]
 ---@field agreement_id integer References: agreement
 df.crime = {}
+
+---@param key integer
+---@return crime|nil
+function df.crime.find(key) end
 
 ---@class _crime_mode: df.enum
 ---@field ProductionOrderViolation 0
@@ -532,15 +576,27 @@ df.crime.T_mode = {}
 ---@field give_beating integer
 df.crime.T_punishment = {}
 
+---@param key integer
+---@return crime_punishment|nil
+function df.crime.T_punishment.find(key) end
+
 ---@class crime_convict_data: df.class
----@field unk_v47_vector_1 integer[] don't know what the number refers to
+---@field unk_v47_vector_1 df.container<integer> don't know what the number refers to
 ---@field convicted integer References: unit
 df.crime.T_convict_data = {}
 
+---@param key integer
+---@return crime_convict_data|nil
+function df.crime.T_convict_data.find(key) end
+
 ---@class crime_victim_data: df.class
----@field unk_v47_vector_2 integer[]
+---@field unk_v47_vector_2 df.container<integer>
 ---@field victim integer References: unit
 df.crime.T_victim_data = {}
+
+---@param key integer
+---@return crime_victim_data|nil
+function df.crime.T_victim_data.find(key) end
 
 ---@class _crime_flags: df.bitfield
 ---@field sentenced 0
@@ -563,15 +619,23 @@ df.crime.T_flags = {}
 ---@field death_id integer References: incident<br>-1...
 ---@field accused_id integer References: historical_figure<br>hfid of accused
 ---@field accused_id_2 integer References: historical_figure<br>copy of accused_id?
----@field unk_vec integer[]
+---@field unk_vec df.container<integer>
 df.crime.T_reports = {}
+
+---@param key integer
+---@return crime_reports|nil
+function df.crime.T_reports.find(key) end
 
 ---@class crime_counterintelligence: df.class
 ---@field unk_1 integer suspect entity, as counterintelligence shows organization unknown for examined cases. Also -1 when there is no organization
 ---@field identified_hf integer References: historical_figure
 ---@field identified_hf_2 integer References: historical_figure<br>same as the one above or -1 only ones seen.
----@field unk_vec integer[]
+---@field unk_vec df.container<integer>
 df.crime.T_counterintelligence = {}
+
+---@param key integer
+---@return crime_counterintelligence|nil
+function df.crime.T_counterintelligence.find(key) end
 
 ---@class crime_witness: df.class
 ---@field incident_id integer References: incident
@@ -587,6 +651,10 @@ df.crime.T_counterintelligence = {}
 ---@field reported_year integer
 ---@field reported_tick integer
 df.crime_witness = {}
+
+---@param key integer
+---@return crime_witness|nil
+function df.crime_witness.find(key) end
 
 ---@class _crime_witness_witness_claim: df.enum
 ---@field SawDisorderlyConduct 0
@@ -637,6 +705,10 @@ df.crime_witness.T_witness_claim = {}
 ---@field events_count integer
 df.mission_campaign_report = {}
 
+---@param key integer
+---@return mission_campaign_report|nil
+function df.mission_campaign_report.find(key) end
+
 ---@class mission_report: df.class
 ---@field campaigns mission_campaign_report[]
 ---@field current_campaign integer
@@ -647,10 +719,14 @@ df.mission_campaign_report = {}
 ---@field unk_7 integer
 ---@field year integer
 ---@field year_tick integer
----@field unk_10 integer[]
+---@field unk_10 df.container<integer>
 ---@field unk_11 integer
 ---@field unk_12 integer
 df.mission_report = {}
+
+---@param key integer
+---@return mission_report|nil
+function df.mission_report.find(key) end
 
 ---@class spoils_report: df.class
 ---@field title string
@@ -659,13 +735,17 @@ df.mission_report = {}
 ---@field year_tick integer
 ---@field item_types item_type[]
 ---@field item_subtypes integer[]
----@field mat_types integer[] References: material
----@field mat_indices integer[]
----@field item_counts integer[]
----@field creature_races integer[] References: creature_raw
----@field creature_castes integer[] References: caste_raw
----@field creature_counts integer[]
+---@field mat_types df.container<integer> References: material
+---@field mat_indices df.container<integer>
+---@field item_counts df.container<integer>
+---@field creature_races df.container<integer> References: creature_raw
+---@field creature_castes df.container<integer> References: caste_raw
+---@field creature_counts df.container<integer>
 df.spoils_report = {}
+
+---@param key integer
+---@return spoils_report|nil
+function df.spoils_report.find(key) end
 
 ---@class interrogation_report: df.class
 ---@field title string
@@ -680,13 +760,17 @@ df.spoils_report = {}
 ---@field unk_24 integer
 ---@field unk_25 integer
 ---@field unk_26 integer
----@field unk_27 integer[]
+---@field unk_27 df.container<integer>
 ---@field subject_identity_id integer References: identity
----@field unk_29 integer[]
----@field unk_30 integer[]
----@field unk_31 integer[] References: history_event<br>seen hfs_formed_intrigue_relationship
+---@field unk_29 df.container<integer>
+---@field unk_30 df.container<integer>
+---@field unk_31 df.container<integer> References: history_event<br>seen hfs_formed_intrigue_relationship
 ---@field details string[]
 df.interrogation_report = {}
+
+---@param key integer
+---@return interrogation_report|nil
+function df.interrogation_report.find(key) end
 
 ---@class interrogation_report_unk: df.class
 ---@field officer_hf2 integer References: historical_figure<br>appears identical to officer_hf
@@ -708,6 +792,10 @@ df.interrogation_report = {}
 ---@field flags interrogation_report.T_unk_flags
 df.interrogation_report.T_unk = {}
 
+---@param key integer
+---@return interrogation_report_unk|nil
+function df.interrogation_report.T_unk.find(key) end
+
 ---@class _interrogation_report.T_unk_flags: df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
@@ -728,6 +816,10 @@ df.interrogation_report.T_unk.T_flags = {}
 ---@field pos coord announcement zoom location
 df.divine_treasure = {}
 
+---@param key integer
+---@return divine_treasure|nil
+function df.divine_treasure.find(key) end
+
 ---@class encased_horror: df.class
 ---@field state integer
 ---@field race integer
@@ -741,16 +833,24 @@ df.divine_treasure = {}
 ---@field pos coord announcement zoom location
 df.encased_horror = {}
 
+---@param key integer
+---@return encased_horror|nil
+function df.encased_horror.find(key) end
+
 ---@class cursed_tomb: df.class
 ---@field triggered boolean
----@field coffin_skeletons integer[] References: item
+---@field coffin_skeletons df.container<integer> References: item
 ---@field disturbance integer References: interaction
----@field treasures integer[] References: item
+---@field treasures df.container<integer> References: item
 ---@field site_id integer References: world_site
 ---@field structure_id integer References: abstract_building
 ---@field trigger_regions cursed_tomb_trigger_regions[] normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
 df.cursed_tomb = {}
+
+---@param key integer
+---@return cursed_tomb|nil
+function df.cursed_tomb.find(key) end
 
 ---normally just one, 3x3 around the coffin
 ---@class cursed_tomb_trigger_regions: df.class
@@ -762,12 +862,20 @@ df.cursed_tomb = {}
 ---@field z_max integer
 df.cursed_tomb.T_trigger_regions = {}
 
+---@param key integer
+---@return cursed_tomb_trigger_regions|nil
+function df.cursed_tomb.T_trigger_regions.find(key) end
+
 ---@class ocean_wave_maker: df.class
 ---@field pos coord
 ---@field interval integer
 ---@field coastline coord2d_path
 ---@field wave_origin coord2d_path
 df.ocean_wave_maker = {}
+
+---@param key integer
+---@return ocean_wave_maker|nil
+function df.ocean_wave_maker.find(key) end
 
 ---@class coord_rect: df.class
 ---@field x1 integer
@@ -776,6 +884,10 @@ df.ocean_wave_maker = {}
 ---@field y2 integer
 ---@field z integer
 df.coord_rect = {}
+
+---@param key integer
+---@return coord_rect|nil
+function df.coord_rect.find(key) end
 
 ---layers plus river seen
 ---@class embark_feature: df.class
@@ -789,6 +901,10 @@ df.coord_rect = {}
 ---@field z_min integer
 ---@field z_max integer
 df.embark_feature = {}
+
+---@param key integer
+---@return embark_feature|nil
+function df.embark_feature.find(key) end
 
 ---@class _combat_report_event_type: df.enum
 ---@field unk_0 0
@@ -938,9 +1054,13 @@ df.combat_report_event_type = {}
 ---@class glowing_barrier: df.class
 ---@field triggered boolean set when the glowing barrier vanishes, preventing later HFS events
 ---@field age integer divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
----@field buildings integer[] References: building<br>when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
+---@field buildings df.container<integer> References: building<br>when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already
 ---@field pos coord coordinates of a GlowingBarrier or GlowingFloor tiletype
 df.glowing_barrier = {}
+
+---@param key integer
+---@return glowing_barrier|nil
+function df.glowing_barrier.find(key) end
 
 ---@class deep_vein_hollow: df.class
 ---@field triggered boolean set when the underworld spire is breached, preventing subsequent HFS events
@@ -949,21 +1069,33 @@ df.glowing_barrier = {}
 ---@field pos coord announcement zoom location
 df.deep_vein_hollow = {}
 
+---@param key integer
+---@return deep_vein_hollow|nil
+function df.deep_vein_hollow.find(key) end
+
 ---@class campfire: df.class
 ---@field pos coord
 ---@field timer integer
 df.campfire = {}
 
+---@param key integer
+---@return campfire|nil
+function df.campfire.find(key) end
+
 ---@class web_cluster: df.class
----@field x integer[]
----@field y integer[]
+---@field x df.container<integer>
+---@field y df.container<integer>
 ---@field z integer
 ---@field race integer References: creature_raw
 ---@field caste integer References: caste_raw
 ---@field pos_min coord2d
 ---@field pos_max coord2d
----@field ambushers integer[] References: unit
+---@field ambushers df.container<integer> References: unit
 df.web_cluster = {}
+
+---@param key integer
+---@return web_cluster|nil
+function df.web_cluster.find(key) end
 
 ---@class fire: df.class
 ---@field pos coord
@@ -974,6 +1106,10 @@ df.web_cluster = {}
 ---@field outer_temp_max integer
 df.fire = {}
 
+---@param key integer
+---@return fire|nil
+function df.fire.find(key) end
+
 ---@class ocean_wave: df.class
 ---@field dest coord2d
 ---@field cur coord2d
@@ -982,6 +1118,10 @@ df.fire = {}
 ---@field move_timer integer
 ---@field unk_timer integer starts at 120 and randomly decrements
 df.ocean_wave = {}
+
+---@param key integer
+---@return ocean_wave|nil
+function df.ocean_wave.find(key) end
 
 ---@class coin_batch: df.instance
 ---@field year integer
@@ -993,21 +1133,37 @@ df.ocean_wave = {}
 ---@field image_back coin_batch_image_back
 df.coin_batch = {}
 
+---@param key integer
+---@return coin_batch|nil
+function df.coin_batch.find(key) end
+
 ---@class coin_batch_image_front: df.class
 ---@field id integer References: art_image_chunk
 ---@field subid integer References: art_image
 df.coin_batch.T_image_front = {}
+
+---@param key integer
+---@return coin_batch_image_front|nil
+function df.coin_batch.T_image_front.find(key) end
 
 ---@class coin_batch_image_back: df.class
 ---@field id integer References: art_image_chunk
 ---@field subid integer References: art_image
 df.coin_batch.T_image_back = {}
 
+---@param key integer
+---@return coin_batch_image_back|nil
+function df.coin_batch.T_image_back.find(key) end
+
 ---@class job_handler: df.class
 ---@field list job_list_link
 ---@field postings job_handler_postings[] entries never removed
 ---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
 df.job_handler = {}
+
+---@param key integer
+---@return job_handler|nil
+function df.job_handler.find(key) end
 
 ---entries never removed
 ---@class job_handler_postings: df.class
@@ -1016,6 +1172,10 @@ df.job_handler = {}
 ---@field flags job_handler.T_postings_flags
 ---@field unk_1 integer not saved
 df.job_handler.T_postings = {}
+
+---@param key integer
+---@return job_handler_postings|nil
+function df.job_handler.T_postings.find(key) end
 
 ---@class _job_handler.T_postings_flags: df.bitfield
 ---@field dead 0
@@ -1032,6 +1192,10 @@ df.job_handler.T_postings.T_flags = {}
 ---@field size integer
 df.job_handler.T_job_application_heap = {}
 
+---@param key integer
+---@return job_handler_job_application_heap|nil
+function df.job_handler.T_job_application_heap.find(key) end
+
 ---@param unk_0 job
 function df.job_handler:cancel_job(unk_0) end
 
@@ -1042,6 +1206,10 @@ function df.job_handler:cancel_job(unk_0) end
 ---@field check_bridge_collapse boolean
 ---@field check_machine_collapse boolean ?
 df.building_handler = {}
+
+---@param key integer
+---@return building_handler|nil
+function df.building_handler.find(key) end
 
 ---ToadyOnes name
 ---@param hookups machine_tile_set
@@ -1060,11 +1228,19 @@ function df.building_handler:get_machine_hookup_list(hookups, type, subtype, x1,
 ---@field bad machine[]
 df.machine_handler = {}
 
+---@param key integer
+---@return machine_handler|nil
+function df.machine_handler.find(key) end
+
 ---@class mental_picture: df.class
 ---@field unk mental_picture_unk
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.mental_picture = {}
+
+---@param key integer
+---@return mental_picture|nil
+function df.mental_picture.find(key) end
 
 ---@class mental_picture_unk: df.class
 ---@field elements mental_picture_elementst[]
@@ -1073,11 +1249,15 @@ df.mental_picture = {}
 ---@field unk_2 integer
 df.mental_picture.T_unk = {}
 
+---@param key integer
+---@return mental_picture_unk|nil
+function df.mental_picture.T_unk.find(key) end
+
 ---@class belief_system: df.instance
 ---@field id integer
 ---@field mental_pictures belief_system_mental_pictures[]
----@field deities integer[] References: historical_figure<br>historical figure ID of gods the belief system is concerned with
----@field worship_levels integer[] worship level for each god referenced in the deities field
+---@field deities df.container<integer> References: historical_figure<br>historical figure ID of gods the belief system is concerned with
+---@field worship_levels df.container<integer> worship level for each god referenced in the deities field
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -1144,15 +1324,27 @@ df.mental_picture.T_unk = {}
 ---@field unk_64 integer
 df.belief_system = {}
 
+---@param key integer
+---@return belief_system|nil
+function df.belief_system.find(key) end
+
 ---@class belief_system_mental_pictures: df.class
 ---@field unk_1 mental_picture[]
 df.belief_system.T_mental_pictures = {}
 
+---@param key integer
+---@return belief_system_mental_pictures|nil
+function df.belief_system.T_mental_pictures.find(key) end
+
 ---@class divination_set_roll: df.class
----@field result integer[] When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
+---@field result df.container<integer> When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
 ---@field effect_type divination_set_roll_effect_type
 ---@field effect integer When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
 df.divination_set_roll = {}
+
+---@param key integer
+---@return divination_set_roll|nil
+function df.divination_set_roll.find(key) end
 
 ---@class _divination_set_roll_effect_type: df.enum
 ---@field MediumBlessing 0
@@ -1183,16 +1375,24 @@ df.divination_set_roll.T_effect_type = {}
 ---@field id integer currently matches index into vector
 ---@field deity_id integer References: historical_figure
 ---@field owner_id integer References: historical_entity<br>religion owning the set
----@field image_set_ids integer[] References: image_set
+---@field image_set_ids df.container<integer> References: image_set
 ---@field rolls divination_set_roll[]
 df.divination_set = {}
+
+---@param key integer
+---@return divination_set|nil
+function df.divination_set.find(key) end
 
 ---@class image_set: df.instance
 ---@field id integer
 ---@field unk_2 integer
 ---@field unk_vec1 image_set_unk_vec1[]
----@field unk_vec2 integer[]
+---@field unk_vec2 df.container<integer>
 df.image_set = {}
+
+---@param key integer
+---@return image_set|nil
+function df.image_set.find(key) end
 
 ---@class image_set_unk_vec1: df.class
 ---@field unk_1 integer
@@ -1200,6 +1400,10 @@ df.image_set = {}
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.image_set.T_unk_vec1 = {}
+
+---@param key integer
+---@return image_set_unk_vec1|nil
+function df.image_set.T_unk_vec1.find(key) end
 
 ---A heap of current boundary tiles.
 ---@class world: df.class
@@ -1293,7 +1497,7 @@ df.image_set.T_unk_vec1 = {}
 ---@field raws world_raws
 ---@field area_grasses world_area_grasses grasses in world tiles around embark. Populated at embark
 ---@field flow_engine world_flow_engine
----@field busy_buildings integer[] References: building<br>buildings with nonempty getUsers
+---@field busy_buildings df.container<integer> References: building<br>buildings with nonempty getUsers
 ---@field cavein_flags world_cavein_flags[]
 ---@field original_save_version save_version DF version on which the world was first created
 ---@field worldgen world_worldgen
@@ -1325,20 +1529,36 @@ df.image_set.T_unk_vec1 = {}
 ---@field active_tutorial world_active_tutorial
 df.world = {}
 
+---@param key integer
+---@return world|nil
+function df.world.find(key) end
+
 ---@class world_vermin: df.class
 ---@field all vermin[]
 ---@field colonies vermin[]
 df.world.T_vermin = {}
+
+---@param key integer
+---@return world_vermin|nil
+function df.world.T_vermin.find(key) end
 
 ---@class world_entities: df.class
 ---@field all historical_entity[]
 ---@field bad historical_entity[]
 df.world.T_entities = {}
 
+---@param key integer
+---@return world_entities|nil
+function df.world.T_entities.find(key) end
+
 ---@class world_worldgen_coord_buf: df.class
 ---@field slots coord2d[]
 ---@field next_slot integer
 df.world.T_worldgen_coord_buf = {}
+
+---@param key integer
+---@return world_worldgen_coord_buf|nil
+function df.world.T_worldgen_coord_buf.find(key) end
 
 ---@class world_units: df.class
 ---@field all unit[]
@@ -1348,6 +1568,10 @@ df.world.T_worldgen_coord_buf = {}
 ---@field unit_context_block unit_context_block[]
 df.world.T_units = {}
 
+---@param key integer
+---@return world_units|nil
+function df.world.T_units.find(key) end
+
 ---@class world_nemesis: df.class
 ---@field all nemesis_record[]
 ---@field other nemesis_record[][]
@@ -1355,40 +1579,60 @@ df.world.T_units = {}
 ---@field unk4 boolean
 df.world.T_nemesis = {}
 
+---@param key integer
+---@return world_nemesis|nil
+function df.world.T_nemesis.find(key) end
+
 ---@class world_items: df.class
 ---@field all item[]
 ---@field other items_other
 ---@field bad item[]
----@field bad_tag integer[]
+---@field bad_tag df.container<integer>
 df.world.T_items = {}
+
+---@param key integer
+---@return world_items|nil
+function df.world.T_items.find(key) end
 
 ---@class world_artifacts: df.class
 ---@field all artifact_record[]
 ---@field bad artifact_record[]
 df.world.T_artifacts = {}
 
+---@param key integer
+---@return world_artifacts|nil
+function df.world.T_artifacts.find(key) end
+
 ---@class world_flow_guides: df.class
 ---@field all flow_guide[]
 ---@field bad flow_guide[]
 df.world.T_flow_guides = {}
 
+---@param key integer
+---@return world_flow_guides|nil
+function df.world.T_flow_guides.find(key) end
+
 ---@class world_stockpile: df.class
 ---@field num_jobs integer[]
 ---@field num_haulers integer[]
 ---@field simple1 world.T_stockpile_simple1
----@field seeds integer[]
----@field plants integer[]
----@field cheese integer[]
----@field meat_fish integer[]
----@field eggs integer[]
----@field leaves integer[]
----@field plant_powder integer[]
+---@field seeds df.container<integer>
+---@field plants df.container<integer>
+---@field cheese df.container<integer>
+---@field meat_fish df.container<integer>
+---@field eggs df.container<integer>
+---@field leaves df.container<integer>
+---@field plant_powder df.container<integer>
 ---@field simple2 world.T_stockpile_simple2
----@field liquid_plant integer[]
----@field liquid_animal integer[]
----@field liquid_builtin integer[]
+---@field liquid_plant df.container<integer>
+---@field liquid_animal df.container<integer>
+---@field liquid_builtin df.container<integer>
 ---@field simple3 world.T_stockpile_simple3
 df.world.T_stockpile = {}
+
+---@param key integer
+---@return world_stockpile|nil
+function df.world.T_stockpile.find(key) end
 
 ---@class world.T_stockpile_simple1: df.class
 ---@field unk_1 integer
@@ -1396,6 +1640,10 @@ df.world.T_stockpile = {}
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.world.T_stockpile.T_simple1 = {}
+
+---@param key integer
+---@return world.T_stockpile_simple1|nil
+function df.world.T_stockpile.T_simple1.find(key) end
 
 ---@class world.T_stockpile_simple2: df.class
 ---@field seeds integer
@@ -1407,6 +1655,10 @@ df.world.T_stockpile.T_simple1 = {}
 ---@field powder integer
 ---@field eggs integer
 df.world.T_stockpile.T_simple2 = {}
+
+---@param key integer
+---@return world.T_stockpile_simple2|nil
+function df.world.T_stockpile.T_simple2.find(key) end
 
 ---@class world.T_stockpile_simple3: df.class
 ---@field glob_fat integer
@@ -1427,6 +1679,10 @@ df.world.T_stockpile.T_simple2 = {}
 ---@field unk_3 integer
 df.world.T_stockpile.T_simple3 = {}
 
+---@param key integer
+---@return world.T_stockpile_simple3|nil
+function df.world.T_stockpile.T_simple3.find(key) end
+
 ---@class world_plants: df.class
 ---@field all plant[]
 ---@field shrub_dry plant[]
@@ -1436,6 +1692,10 @@ df.world.T_stockpile.T_simple3 = {}
 ---@field empty plant[]
 df.world.T_plants = {}
 
+---@param key integer
+---@return world_plants|nil
+function df.world.T_plants.find(key) end
+
 ---?
 ---@class world_enemy_status_cache: df.class
 ---@field slot_used boolean[]
@@ -1443,28 +1703,52 @@ df.world.T_plants = {}
 ---@field next_slot integer
 df.world.T_enemy_status_cache = {}
 
+---@param key integer
+---@return world_enemy_status_cache|nil
+function df.world.T_enemy_status_cache.find(key) end
+
 ---@class world_schedules: df.class
 ---@field all schedule_info[]
 ---@field bad schedule_info[]
 df.world.T_schedules = {}
+
+---@param key integer
+---@return world_schedules|nil
+function df.world.T_schedules.find(key) end
 
 ---@class world_squads: df.class
 ---@field all squad[]
 ---@field bad squad[]
 df.world.T_squads = {}
 
+---@param key integer
+---@return world_squads|nil
+function df.world.T_squads.find(key) end
+
 ---@class world_formations: df.class
 ---@field all world.T_formations_all[]
 ---@field bad integer[]
 df.world.T_formations = {}
 
+---@param key integer
+---@return world_formations|nil
+function df.world.T_formations.find(key) end
+
 ---@class world.T_formations_all: df.class
 df.world.T_formations.T_all = {}
+
+---@param key integer
+---@return world.T_formations_all|nil
+function df.world.T_formations.T_all.find(key) end
 
 ---@class world_activities: df.class
 ---@field all activity_entry[]
 ---@field bad activity_entry[]
 df.world.T_activities = {}
+
+---@param key integer
+---@return world_activities|nil
+function df.world.T_activities.find(key) end
 
 ---@class world_status: df.class
 ---@field reports report[]
@@ -1477,11 +1761,15 @@ df.world.T_activities = {}
 ---@field mission_reports mission_report[]
 ---@field spoils_reports spoils_report[]
 ---@field interrogation_reports interrogation_report[]
----@field unk_v50_2 integer[]
----@field unk_v50_3 integer[]
+---@field unk_v50_2 df.container<integer>
+---@field unk_v50_3 df.container<integer>
 ---@field display_timer integer
 ---@field slots world.T_status_slots
 df.world.T_status = {}
+
+---@param key integer
+---@return world_status|nil
+function df.world.T_status.find(key) end
 
 ---@class _world.T_status_flags: df.bitfield
 ---@field combat 0
@@ -1508,30 +1796,54 @@ df.world.T_status.T_flags = {}
 ---@field slots_used integer
 df.world.T_status.T_slots = {}
 
+---@param key integer
+---@return world.T_status_slots|nil
+function df.world.T_status.T_slots.find(key) end
+
 ---@class world_interaction_instances: df.class
 ---@field all interaction_instance[]
 ---@field bad interaction_instance[]
 df.world.T_interaction_instances = {}
+
+---@param key integer
+---@return world_interaction_instances|nil
+function df.world.T_interaction_instances.find(key) end
 
 ---@class world_written_contents: df.class
 ---@field all written_content[]
 ---@field bad written_content[]
 df.world.T_written_contents = {}
 
+---@param key integer
+---@return world_written_contents|nil
+function df.world.T_written_contents.find(key) end
+
 ---@class world_identities: df.class
 ---@field all identity[]
 ---@field bad identity[]
 df.world.T_identities = {}
+
+---@param key integer
+---@return world_identities|nil
+function df.world.T_identities.find(key) end
 
 ---@class world_incidents: df.class
 ---@field all incident[]
 ---@field bad incident[]
 df.world.T_incidents = {}
 
+---@param key integer
+---@return world_incidents|nil
+function df.world.T_incidents.find(key) end
+
 ---@class world_crimes: df.class
 ---@field all crime[]
 ---@field bad crime[]
 df.world.T_crimes = {}
+
+---@param key integer
+---@return world_crimes|nil
+function df.world.T_crimes.find(key) end
 
 ---@class world_vehicles: df.class
 ---@field all vehicle[]
@@ -1539,75 +1851,135 @@ df.world.T_crimes = {}
 ---@field bad vehicle[]
 df.world.T_vehicles = {}
 
+---@param key integer
+---@return world_vehicles|nil
+function df.world.T_vehicles.find(key) end
+
 ---@class world_armies: df.class
 ---@field all army[]
 ---@field bad army[]
 df.world.T_armies = {}
+
+---@param key integer
+---@return world_armies|nil
+function df.world.T_armies.find(key) end
 
 ---@class world_army_controllers: df.class
 ---@field all army_controller[]
 ---@field bad army_controller[]
 df.world.T_army_controllers = {}
 
+---@param key integer
+---@return world_army_controllers|nil
+function df.world.T_army_controllers.find(key) end
+
 ---@class world_army_tracking_info: df.class
----@field all integer[]
----@field bad integer[]
+---@field all df.container<integer>
+---@field bad df.container<integer>
 df.world.T_army_tracking_info = {}
+
+---@param key integer
+---@return world_army_tracking_info|nil
+function df.world.T_army_tracking_info.find(key) end
 
 ---@class world_cultural_identities: df.class
 ---@field all cultural_identity[]
 ---@field bad cultural_identity[]
 df.world.T_cultural_identities = {}
 
+---@param key integer
+---@return world_cultural_identities|nil
+function df.world.T_cultural_identities.find(key) end
+
 ---@class world_agreements: df.class
 ---@field all agreement[]
 ---@field bad agreement[]
 df.world.T_agreements = {}
+
+---@param key integer
+---@return world_agreements|nil
+function df.world.T_agreements.find(key) end
 
 ---@class world_poetic_forms: df.class
 ---@field all poetic_form[]
 ---@field bad poetic_form[]
 df.world.T_poetic_forms = {}
 
+---@param key integer
+---@return world_poetic_forms|nil
+function df.world.T_poetic_forms.find(key) end
+
 ---@class world_musical_forms: df.class
 ---@field all musical_form[]
 ---@field bad musical_form[]
 df.world.T_musical_forms = {}
+
+---@param key integer
+---@return world_musical_forms|nil
+function df.world.T_musical_forms.find(key) end
 
 ---@class world_dance_forms: df.class
 ---@field all dance_form[]
 ---@field bad dance_form[]
 df.world.T_dance_forms = {}
 
+---@param key integer
+---@return world_dance_forms|nil
+function df.world.T_dance_forms.find(key) end
+
 ---@class world_scales: df.class
 ---@field all scale[]
 ---@field bad scale[]
 df.world.T_scales = {}
+
+---@param key integer
+---@return world_scales|nil
+function df.world.T_scales.find(key) end
 
 ---@class world_rhythms: df.class
 ---@field all rhythm[]
 ---@field bad rhythm[]
 df.world.T_rhythms = {}
 
+---@param key integer
+---@return world_rhythms|nil
+function df.world.T_rhythms.find(key) end
+
 ---@class world_occupations: df.class
 ---@field all occupation[]
 ---@field bad occupation[]
 df.world.T_occupations = {}
+
+---@param key integer
+---@return world_occupations|nil
+function df.world.T_occupations.find(key) end
 
 ---@class world_belief_systems: df.class
 ---@field all belief_system[]
 ---@field bad belief_system[]
 df.world.T_belief_systems = {}
 
+---@param key integer
+---@return world_belief_systems|nil
+function df.world.T_belief_systems.find(key) end
+
 ---@class world_image_sets: df.class
 ---@field all image_set[]
 ---@field bad image_set[]
 df.world.T_image_sets = {}
 
+---@param key integer
+---@return world_image_sets|nil
+function df.world.T_image_sets.find(key) end
+
 ---@class world_divination_sets: df.class
 ---@field all divination_set[]
 ---@field bad divination_set[]
 df.world.T_divination_sets = {}
+
+---@param key integer
+---@return world_divination_sets|nil
+function df.world.T_divination_sets.find(key) end
 
 ---@class world_map: df.class
 ---@field map_blocks map_block[]
@@ -1626,10 +1998,18 @@ df.world.T_divination_sets = {}
 ---@field distance_lookup integer[][]
 df.world.T_map = {}
 
+---@param key integer
+---@return world_map|nil
+function df.world.T_map.find(key) end
+
 ---@class world_profession_skills: df.class
----@field primary job_skill[][]
----@field secondary job_skill[][]
+---@field primary df.container<job_skill>[]
+---@field secondary df.container<job_skill>[]
 df.world.T_profession_skills = {}
+
+---@param key integer
+---@return world_profession_skills|nil
+function df.world.T_profession_skills.find(key) end
 
 ---@class world_math: df.class
 ---@field approx integer[] 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
@@ -1637,14 +2017,22 @@ df.world.T_profession_skills = {}
 ---@field hypot number[][] square root of the sum of the squares of the indices
 df.world.T_math = {}
 
+---@param key integer
+---@return world_math|nil
+function df.world.T_math.find(key) end
+
 ---@class world_map_extras: df.class
 ---@field rotation integer
 ---@field z_level_flags z_level_flags
 ---@field unk_v40_3a block_square_event_spoorst[]
----@field unk_v40_3b integer[]
----@field unk_v40_3c integer[]
----@field unk_v40_3d integer[]
+---@field unk_v40_3b df.container<integer>
+---@field unk_v40_3c df.container<integer>
+---@field unk_v40_3d df.container<integer>
 df.world.T_map_extras = {}
+
+---@param key integer
+---@return world_map_extras|nil
+function df.world.T_map_extras.find(key) end
 
 ---@class world_worldgen_status: df.class
 ---@field state world.T_worldgen_status_state
@@ -1670,8 +2058,8 @@ df.world.T_map_extras = {}
 ---@field sites world_site[]
 ---@field cursor_x integer
 ---@field cursor_y integer
----@field unk_13 integer[]
----@field unk_14 integer[]
+---@field unk_13 df.container<integer>
+---@field unk_14 df.container<integer>
 ---@field rivers_total integer
 ---@field rivers_cur integer
 ---@field unk_15 integer
@@ -1696,29 +2084,33 @@ df.world.T_map_extras = {}
 ---@field unk_19 integer
 ---@field unk_20 integer
 ---@field entity_raws entity_raw[]
----@field unk_21 integer[]
+---@field unk_21 df.container<integer>
 ---@field civ_count integer
 ---@field civs_left_to_place integer
 ---@field regions1 world_region[][]
 ---@field regions2 world_region[][]
 ---@field regions3 world_region[][]
----@field unk_22 integer[]
----@field unk_23 integer[]
----@field unk_24 integer[]
----@field unk_25 integer[]
----@field unk_26 integer[]
----@field unk_27 integer[]
+---@field unk_22 df.container<integer>
+---@field unk_23 df.container<integer>
+---@field unk_24 df.container<integer>
+---@field unk_25 df.container<integer>
+---@field unk_26 df.container<integer>
+---@field unk_27 df.container<integer>
 ---@field unk_28 integer
 ---@field unk_29 integer
----@field unk_10d298 integer[]
----@field unk_10d2a4 integer[]
+---@field unk_10d298 df.container<integer>
+---@field unk_10d2a4 df.container<integer>
 ---@field libraries abstract_building[]
 ---@field unk_30 integer
 ---@field temples abstract_building[]
 ---@field some_artifacts artifact_record[]
----@field unk_31 integer[]
----@field unk_32 integer[]
+---@field unk_31 df.container<integer>
+---@field unk_32 df.container<integer>
 df.world.T_worldgen_status = {}
+
+---@param key integer
+---@return world_worldgen_status|nil
+function df.world.T_worldgen_status.find(key) end
 
 ---@class _world.T_worldgen_status_state: df.enum
 ---@field None -1
@@ -1779,11 +2171,19 @@ df.world.T_worldgen_status.T_state = {}
 ---@field layer_grasses world.T_area_grasses_layer_grasses[] one per layer per world tile
 df.world.T_area_grasses = {}
 
+---@param key integer
+---@return world_area_grasses|nil
+function df.world.T_area_grasses.find(key) end
+
 ---one per layer per world tile
 ---@class world.T_area_grasses_layer_grasses: df.class
 ---@field ref world_population_ref
 ---@field grasses integer[]
 df.world.T_area_grasses.T_layer_grasses = {}
+
+---@param key integer
+---@return world.T_area_grasses_layer_grasses|nil
+function df.world.T_area_grasses.T_layer_grasses.find(key) end
 
 ---@class world_flow_engine: df.class
 ---@field rnd_16 integer
@@ -1792,11 +2192,15 @@ df.world.T_area_grasses.T_layer_grasses = {}
 ---@field rnd_x integer[]
 ---@field rnd_y integer[]
 ---@field block_idx integer
----@field unk7a integer[]
----@field unk7b integer[]
----@field unk7c integer[]
----@field unk7_cntdn integer[]
+---@field unk7a df.container<integer>
+---@field unk7b df.container<integer>
+---@field unk7c df.container<integer>
+---@field unk7_cntdn df.container<integer>
 df.world.T_flow_engine = {}
+
+---@param key integer
+---@return world_flow_engine|nil
+function df.world.T_flow_engine.find(key) end
 
 ---@class world_worldgen: df.class
 ---@field version string
@@ -1807,15 +2211,23 @@ df.world.T_flow_engine = {}
 ---@field worldgen_parms worldgen_parms
 df.world.T_worldgen = {}
 
+---@param key integer
+---@return world_worldgen|nil
+function df.world.T_worldgen.find(key) end
+
 ---for each calendar day, a list of major life events (by nemesis id)
 ---@class world_daily_events: df.class
----@field deaths integer[][]
----@field pregnancies integer[][]
----@field births integer[][]
----@field grown_up integer[][]
----@field marriage_1 integer[][]
----@field marriage_2 integer[][]
+---@field deaths df.container<integer>[]
+---@field pregnancies df.container<integer>[]
+---@field births df.container<integer>[]
+---@field grown_up df.container<integer>[]
+---@field marriage_1 df.container<integer>[]
+---@field marriage_2 df.container<integer>[]
 df.world.T_daily_events = {}
+
+---@param key integer
+---@return world_daily_events|nil
+function df.world.T_daily_events.find(key) end
 
 ---@class world_unk_131ec0: df.class
 ---@field unk_1 integer
@@ -1836,11 +2248,19 @@ df.world.T_daily_events = {}
 ---@field unk_16 integer
 df.world.T_unk_131ec0 = {}
 
+---@param key integer
+---@return world_unk_131ec0|nil
+function df.world.T_unk_131ec0.find(key) end
+
 ---@class world_languages: df.class
 ---@field name string
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.world.T_languages = {}
+
+---@param key integer
+---@return world_languages|nil
+function df.world.T_languages.find(key) end
 
 ---@class world_unk_131ef0: df.class
 ---@field hfid integer References: historical_figure<br>confusing. usually the creator, but sometimes completely unrelated or culled
@@ -1850,6 +2270,10 @@ df.world.T_languages = {}
 ---@field unk_2 integer only seen 0
 df.world.T_unk_131ef0 = {}
 
+---@param key integer
+---@return world_unk_131ef0|nil
+function df.world.T_unk_131ef0.find(key) end
+
 ---@class world.T_unk_131ef0_claims: df.class
 ---@field artifact integer References: artifact_record
 ---@field unk_1 integer only seen 1, and only family heirloom...
@@ -1857,6 +2281,10 @@ df.world.T_unk_131ef0 = {}
 ---@field year_tick integer
 ---@field unk_2 integer only seen -1
 df.world.T_unk_131ef0.T_claims = {}
+
+---@param key integer
+---@return world.T_unk_131ef0_claims|nil
+function df.world.T_unk_131ef0.T_claims.find(key) end
 
 ---A heap of current boundary tiles.
 ---@class world_pathfinder: df.class
@@ -1876,6 +2304,10 @@ df.world.T_unk_131ef0.T_claims = {}
 ---@field unk_1 boolean
 df.world.T_pathfinder = {}
 
+---@param key integer
+---@return world_pathfinder|nil
+function df.world.T_pathfinder.find(key) end
+
 ---not actually a compound
 ---@class world_cur_savegame: df.class
 ---@field save_dir string
@@ -1883,6 +2315,10 @@ df.world.T_pathfinder = {}
 ---@field civ_history_complete boolean
 ---@field must_end_civ_history boolean
 df.world.T_cur_savegame = {}
+
+---@param key integer
+---@return world_cur_savegame|nil
+function df.world.T_cur_savegame.find(key) end
 
 ---@class world.T_cur_savegame_world_header: df.class
 ---@field id1 integer
@@ -1896,6 +2332,10 @@ df.world.T_cur_savegame = {}
 ---@field forts_played integer
 ---@field advs_played integer
 df.world.T_cur_savegame.T_world_header = {}
+
+---@param key integer
+---@return world.T_cur_savegame_world_header|nil
+function df.world.T_cur_savegame.T_world_header.find(key) end
 
 ---@class _world.T_cur_savegame.T_world_header_load_stage: df.enum
 ---@field LoadingObjectFiles 0
@@ -2082,6 +2522,10 @@ df.world.T_cur_savegame.T_world_header.T_load_stage = {}
 ---@field flag integer
 df.world.T_rod_loader = {}
 
+---@param key integer
+---@return world_rod_loader|nil
+function df.world.T_rod_loader.find(key) end
+
 ---@class _world.T_rod_loader_state: df.enum
 ---@field Initializing 0
 ---@field [0] "Initializing"
@@ -2166,58 +2610,66 @@ df.world.T_rod_loader.T_state = {}
 ---@class world_object_loader: df.class
 ---@field load_object_stage integer
 ---@field load_object_stage_count integer
----@field object_files string[]
+---@field object_files df.container<string>
 ---@field object_file_index integer
 ---@field current_load_order_index integer
 ---@field current_load_order_graphics_index integer
 ---@field object_load_order_id string[]
----@field object_load_order_numeric_version integer[]
----@field object_load_order_earliest_compat_numeric_version integer[]
+---@field object_load_order_numeric_version df.container<integer>
+---@field object_load_order_earliest_compat_numeric_version df.container<integer>
 ---@field object_load_order_src_dir string[]
 ---@field src_dir string
 ---@field object_load_order_name string[]
 ---@field object_load_order_displayed_version string[]
 df.world.T_object_loader = {}
 
+---@param key integer
+---@return world_object_loader|nil
+function df.world.T_object_loader.find(key) end
+
 ---@class world_features: df.class
 ---@field wg_market_site world_site[]
 ---@field map_features feature_init[]
----@field feature_x integer[]
----@field feature_y integer[]
----@field feature_local_idx integer[] same as map_block.local_feature
----@field feature_global_idx integer[] References: world_underground_region
+---@field feature_x df.container<integer>
+---@field feature_y df.container<integer>
+---@field feature_local_idx df.container<integer> same as map_block.local_feature
+---@field feature_global_idx df.container<integer> References: world_underground_region
 ---@field newpop_feature feature_init[]
----@field newpop_ax integer[]
----@field newpop_ay integer[]
----@field newpop_dx integer[]
----@field newpop_dy integer[]
----@field newpop_feature_ind integer[]
----@field newpop_feature_layer integer[]
----@field newpop_feature_layer_sq integer[]
----@field newpop_layer_depth integer[]
----@field newpop_sx integer[]
----@field newpop_sy integer[]
----@field newpop_min_z integer[]
----@field newpop_mid_z integer[]
----@field newpop_max_z integer[]
+---@field newpop_ax df.container<integer>
+---@field newpop_ay df.container<integer>
+---@field newpop_dx df.container<integer>
+---@field newpop_dy df.container<integer>
+---@field newpop_feature_ind df.container<integer>
+---@field newpop_feature_layer df.container<integer>
+---@field newpop_feature_layer_sq df.container<integer>
+---@field newpop_layer_depth df.container<integer>
+---@field newpop_sx df.container<integer>
+---@field newpop_sy df.container<integer>
+---@field newpop_min_z df.container<integer>
+---@field newpop_mid_z df.container<integer>
+---@field newpop_max_z df.container<integer>
 ---@field newpop_from_saved_pop boolean[]
 df.world.T_features = {}
+
+---@param key integer
+---@return world_features|nil
+function df.world.T_features.find(key) end
 
 ---@class world_arena: df.class
 ---@field templates world.T_arena_templates[]
 ---@field cur_template_idx integer
----@field race integer[] References: creature_raw
----@field caste integer[] References: caste_raw
+---@field race df.container<integer> References: creature_raw
+---@field caste df.container<integer> References: caste_raw
 ---@field type integer
 ---@field item_types embark_item_choice
 ---@field skills job_skill[]
----@field skill_levels integer[]
+---@field skill_levels df.container<integer>
 ---@field equipment world.T_arena_equipment
 ---@field side integer
 ---@field interaction integer
 ---@field tame boolean
 ---@field interactions interaction_effect[]
----@field creature_cnt integer[]
+---@field creature_cnt df.container<integer>
 ---@field selecting_mount_un unit
 ---@field conflict_level conflict_level
 ---@field flag world.T_arena_flag
@@ -2234,17 +2686,29 @@ df.world.T_features = {}
 ---@field arena_tree_entering_age boolean
 df.world.T_arena = {}
 
+---@param key integer
+---@return world_arena|nil
+function df.world.T_arena.find(key) end
+
 ---@class world.T_arena_templates: df.class
 df.world.T_arena.T_templates = {}
 
+---@param key integer
+---@return world.T_arena_templates|nil
+function df.world.T_arena.T_templates.find(key) end
+
 ---@class world.T_arena_equipment: df.class
 ---@field skills job_skill[]
----@field skill_levels integer[]
+---@field skill_levels df.container<integer>
 ---@field item_types item_type[]
 ---@field item_subtypes integer[]
 ---@field item_materials material_vec_ref
----@field item_counts integer[]
+---@field item_counts df.container<integer>
 df.world.T_arena.T_equipment = {}
+
+---@param key integer
+---@return world.T_arena_equipment|nil
+function df.world.T_arena.T_equipment.find(key) end
 
 ---@class _world.T_arena_flag: df.bitfield
 ---@field morale_enable 0
@@ -2256,18 +2720,22 @@ df.world.T_arena.T_flag = {}
 ---@field morale_enable boolean
 
 ---@class world_dungeon: df.class
----@field creature_race integer[] References: creature_raw
----@field creature_caste integer[] References: caste_raw
+---@field creature_race df.container<integer> References: creature_raw
+---@field creature_caste df.container<integer> References: caste_raw
 ---@field last_selected_creature_index integer
 ---@field etl embark_item_choice
 ---@field skill_type job_skill[]
----@field skill_value integer[]
+---@field skill_value df.container<integer>
 ---@field item_types item_type[]
 ---@field item_subtypes integer[]
 ---@field item_materials material_vec_ref
----@field item_amount integer[]
----@field race_count integer[]
+---@field item_amount df.container<integer>
+---@field race_count df.container<integer>
 df.world.T_dungeon = {}
+
+---@param key integer
+---@return world_dungeon|nil
+function df.world.T_dungeon.find(key) end
 
 ---@class world_attack_chance_info: df.class
 ---@field modifier world.T_attack_chance_info_modifier[]
@@ -2278,6 +2746,10 @@ df.world.T_dungeon = {}
 ---@field current_target_number integer
 df.world.T_attack_chance_info = {}
 
+---@param key integer
+---@return world_attack_chance_info|nil
+function df.world.T_attack_chance_info.find(key) end
+
 ---@class world.T_attack_chance_info_modifier: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -2287,11 +2759,19 @@ df.world.T_attack_chance_info = {}
 ---@field unk_6 integer
 df.world.T_attack_chance_info.T_modifier = {}
 
+---@param key integer
+---@return world.T_attack_chance_info_modifier|nil
+function df.world.T_attack_chance_info.T_modifier.find(key) end
+
 ---@class world.T_attack_chance_info_attack: df.class
 ---@field unk_1 item
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.world.T_attack_chance_info.T_attack = {}
+
+---@param key integer
+---@return world.T_attack_chance_info_attack|nil
+function df.world.T_attack_chance_info.T_attack.find(key) end
 
 ---@class world.T_attack_chance_info_target: df.class
 ---@field unk_1 integer
@@ -2300,10 +2780,18 @@ df.world.T_attack_chance_info.T_attack = {}
 ---@field unk_4 integer
 df.world.T_attack_chance_info.T_target = {}
 
+---@param key integer
+---@return world.T_attack_chance_info_target|nil
+function df.world.T_attack_chance_info.T_target.find(key) end
+
 ---@class world_active_tutorial: df.class
 ---@field index integer
 ---@field active_step integer
 df.world.T_active_tutorial = {}
+
+---@param key integer
+---@return world_active_tutorial|nil
+function df.world.T_active_tutorial.find(key) end
 
 ---@class _world_cavein_flags: df.enum
 ---@field process_columns 0

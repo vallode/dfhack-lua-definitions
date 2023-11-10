@@ -33,7 +33,7 @@ df.pattern_type = {}
 ---@class descriptor_color: df.instance
 ---@field id string
 ---@field word_unk string[]
----@field words integer[] References: language_word
+---@field words df.container<integer> References: language_word
 ---@field name string
 ---@field color curses_color
 ---@field bold integer
@@ -43,10 +43,14 @@ df.pattern_type = {}
 ---@field unk_v50_1 integer[]
 df.descriptor_color = {}
 
+---@param key integer
+---@return descriptor_color|nil
+function df.descriptor_color.find(key) end
+
 ---@class descriptor_shape: df.instance
 ---@field id string
 ---@field words_str string[] temporary storage before resolving to language_word
----@field words integer[] References: language_word
+---@field words df.container<integer> References: language_word
 ---@field name string
 ---@field name_plural string
 ---@field adj string[]
@@ -55,12 +59,16 @@ df.descriptor_color = {}
 ---@field faces integer
 ---@field tile integer
 ---@field unk_v50_1 integer
----@field unk_v50_2 integer[]
----@field unk_v50_3 integer[]
+---@field unk_v50_2 df.container<integer>
+---@field unk_v50_3 df.container<integer>
 ---@field unk_v50_4 integer
 ---@field unk_v50_5 integer
 ---@field unk_v50_6 integer
 df.descriptor_shape = {}
+
+---@param key integer
+---@return descriptor_shape|nil
+function df.descriptor_shape.find(key) end
 
 ---@class _descriptor_shape_gems_use: df.bitfield
 ---@field noun 0
@@ -81,8 +89,12 @@ df.descriptor_shape.T_gems_use = {}
 
 ---@class descriptor_pattern: df.instance
 ---@field id string
----@field colors integer[] References: descriptor_color
+---@field colors df.container<integer> References: descriptor_color
 ---@field pattern pattern_type
 ---@field cp_color string[]
 df.descriptor_pattern = {}
+
+---@param key integer
+---@return descriptor_pattern|nil
+function df.descriptor_pattern.find(key) end
 

@@ -26,6 +26,10 @@ df.interaction_flags = {}
 ---@field source_enid integer References: historical_entity
 df.interaction = {}
 
+---@param key integer
+---@return interaction|nil
+function df.interaction.find(key) end
+
 ---@class _interaction_effect_type: df.enum
 ---@field ANIMATE 0
 ---@field [0] "ANIMATE"
@@ -115,13 +119,17 @@ df.interaction_effect_location_hint = {}
 ---@class interaction_effect: df.class
 ---@field index integer index of the effect within the parent interaction.effects
 ---@field targets string[]
----@field targets_index integer[] for each target used in this effect, list the index of that target within the parent interaction.targets
+---@field targets_index df.container<integer> for each target used in this effect, list the index of that target within the parent interaction.targets
 ---@field intermittent integer IE_INTERMITTENT, 0 = weekly
----@field locations interaction_effect_location_hint[] IE_LOCATION
+---@field locations df.container<interaction_effect_location_hint> IE_LOCATION
 ---@field flags interaction_effect_flags
 ---@field interaction_id integer References: interaction
 ---@field arena_name string IE_ARENA_NAME
 df.interaction_effect = {}
+
+---@param key integer
+---@return interaction_effect|nil
+function df.interaction_effect.find(key) end
 
 ---@class _interaction_effect_flags: df.bitfield
 ---@field IMMEDIATE 0
@@ -171,15 +179,27 @@ function df.interaction_effect:hasSyndrome(unk_0) end
 ---@field syndrome syndrome[]
 df.interaction_effect_animatest = {}
 
+---@param key integer
+---@return interaction_effect_animatest|nil
+function df.interaction_effect_animatest.find(key) end
+
 ---@class interaction_effect_add_syndromest: interaction_effect
 ---@field unk_1 integer
 ---@field syndrome syndrome[]
 df.interaction_effect_add_syndromest = {}
 
+---@param key integer
+---@return interaction_effect_add_syndromest|nil
+function df.interaction_effect_add_syndromest.find(key) end
+
 ---@class interaction_effect_resurrectst: interaction_effect
 ---@field unk_1 integer
 ---@field syndrome syndrome[]
 df.interaction_effect_resurrectst = {}
+
+---@param key integer
+---@return interaction_effect_resurrectst|nil
+function df.interaction_effect_resurrectst.find(key) end
 
 ---@class interaction_effect_cleanst: interaction_effect
 ---@field grime_level integer IE_GRIME_LEVEL
@@ -187,32 +207,60 @@ df.interaction_effect_resurrectst = {}
 ---@field unk_1 integer
 df.interaction_effect_cleanst = {}
 
+---@param key integer
+---@return interaction_effect_cleanst|nil
+function df.interaction_effect_cleanst.find(key) end
+
 ---@class interaction_effect_contactst: interaction_effect
 ---@field unk_1 integer
 df.interaction_effect_contactst = {}
+
+---@param key integer
+---@return interaction_effect_contactst|nil
+function df.interaction_effect_contactst.find(key) end
 
 ---@class interaction_effect_material_emissionst: interaction_effect
 ---@field unk_1 integer
 df.interaction_effect_material_emissionst = {}
 
+---@param key integer
+---@return interaction_effect_material_emissionst|nil
+function df.interaction_effect_material_emissionst.find(key) end
+
 ---@class interaction_effect_hidest: interaction_effect
 ---@field unk_1 integer
 df.interaction_effect_hidest = {}
+
+---@param key integer
+---@return interaction_effect_hidest|nil
+function df.interaction_effect_hidest.find(key) end
 
 ---@class interaction_effect_change_item_qualityst: interaction_effect
 ---@field quality_added integer IE_CHANGE_QUALITY
 ---@field quality_set integer IE_SET_QUALITY
 df.interaction_effect_change_item_qualityst = {}
 
+---@param key integer
+---@return interaction_effect_change_item_qualityst|nil
+function df.interaction_effect_change_item_qualityst.find(key) end
+
 ---@class interaction_effect_change_weatherst: interaction_effect
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.interaction_effect_change_weatherst = {}
 
+---@param key integer
+---@return interaction_effect_change_weatherst|nil
+function df.interaction_effect_change_weatherst.find(key) end
+
 ---@class interaction_effect_raise_ghostst: interaction_effect
 ---@field unk_1 integer
 ---@field syndrome syndrome[] assumed based on vmethod reference
 df.interaction_effect_raise_ghostst = {}
+
+---@param key integer
+---@return interaction_effect_raise_ghostst|nil
+function df.interaction_effect_raise_ghostst.find(key) end
 
 ---@class interaction_effect_create_itemst: interaction_effect
 ---@field item_type item_type IE_ITEM
@@ -231,26 +279,38 @@ df.interaction_effect_raise_ghostst = {}
 ---@field unk_5 string
 df.interaction_effect_create_itemst = {}
 
+---@param key integer
+---@return interaction_effect_create_itemst|nil
+function df.interaction_effect_create_itemst.find(key) end
+
 ---@class interaction_effect_propel_unitst: interaction_effect
 ---@field unk_1 integer
 ---@field propel_force integer IE_PROPEL_FORCE
 df.interaction_effect_propel_unitst = {}
 
+---@param key integer
+---@return interaction_effect_propel_unitst|nil
+function df.interaction_effect_propel_unitst.find(key) end
+
 ---@class interaction_effect_summon_unitst: interaction_effect
 ---@field make_pet integer IE_MAKE_PET_IF_POSSIBLE
 ---@field race_str string CREATURE
 ---@field caste_str string CREATURE
----@field unk_1 integer[] seen 4 bytes allocated
----@field unk_2 integer[] seen 2 bytes allocate
----@field required_creature_flags integer[] contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
----@field forbidden_creature_flags integer[] contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
----@field required_caste_flags integer[] contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
----@field forbidden_caste_flags integer[] contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
+---@field unk_1 df.container<integer> seen 4 bytes allocated
+---@field unk_2 df.container<integer> seen 2 bytes allocate
+---@field required_creature_flags df.container<integer> contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
+---@field forbidden_creature_flags df.container<integer> contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
+---@field required_caste_flags df.container<integer> contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
+---@field forbidden_caste_flags df.container<integer> contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field time_range_min integer IE_TIME_RANGE
 ---@field time_range_max integer IE_TIME_RANGE
 df.interaction_effect_summon_unitst = {}
+
+---@param key integer
+---@return interaction_effect_summon_unitst|nil
+function df.interaction_effect_summon_unitst.find(key) end
 
 ---@class _interaction_source_type: df.enum
 ---@field REGION 0
@@ -304,6 +364,10 @@ df.interaction_source_type = {}
 ---@field trigger_string string IS_TRIGGER_STRING
 df.interaction_source = {}
 
+---@param key integer
+---@return interaction_source|nil
+function df.interaction_source.find(key) end
+
 ---@return interaction_source_type
 function df.interaction_source:getType() end
 
@@ -325,6 +389,10 @@ function df.interaction_source:parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 ---@field region_flags interaction_source_regionst_region_flags
 ---@field regions integer[]
 df.interaction_source_regionst = {}
+
+---@param key integer
+---@return interaction_source_regionst|nil
+function df.interaction_source_regionst.find(key) end
 
 ---@class _interaction_source_regionst_region_flags: df.bitfield
 ---@field NORMAL_ALLOWED 0
@@ -362,12 +430,16 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@class interaction_source_secretst: interaction_source
 ---@field learn_flags interaction_source_secretst_learn_flags
 ---@field spheres sphere_type[]
----@field goals goal_type[]
+---@field goals df.container<goal_type>
 ---@field book_title_filename string
 ---@field book_name_filename string
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.interaction_source_secretst = {}
+
+---@param key integer
+---@return interaction_source_secretst|nil
+function df.interaction_source_secretst.find(key) end
 
 ---@class _interaction_source_secretst_learn_flags: df.bitfield
 ---@field SUPERNATURAL_LEARNING_POSSIBLE 0
@@ -393,6 +465,10 @@ df.interaction_source_secretst.T_learn_flags = {}
 ---@class interaction_source_disturbancest: interaction_source
 ---@field unk_1 integer
 df.interaction_source_disturbancest = {}
+
+---@param key integer
+---@return interaction_source_disturbancest|nil
+function df.interaction_source_disturbancest.find(key) end
 
 ---@class _interaction_source_usage_hint: df.enum
 ---@field MAJOR_CURSE 0
@@ -453,27 +529,51 @@ df.interaction_source_usage_hint = {}
 
 ---@class interaction_source_deityst: interaction_source
 ---@field unk_1 integer
----@field usage_hint interaction_source_usage_hint[] IS_USAGE_HINT
+---@field usage_hint df.container<interaction_source_usage_hint> IS_USAGE_HINT
 df.interaction_source_deityst = {}
+
+---@param key integer
+---@return interaction_source_deityst|nil
+function df.interaction_source_deityst.find(key) end
 
 ---@class interaction_source_attackst: interaction_source
 ---@field unk_1 integer
 df.interaction_source_attackst = {}
 
+---@param key integer
+---@return interaction_source_attackst|nil
+function df.interaction_source_attackst.find(key) end
+
 ---@class interaction_source_ingestionst: interaction_source
 ---@field unk_1 integer
 df.interaction_source_ingestionst = {}
+
+---@param key integer
+---@return interaction_source_ingestionst|nil
+function df.interaction_source_ingestionst.find(key) end
 
 ---@class interaction_source_creature_actionst: interaction_source
 ---@field unk_1 integer
 df.interaction_source_creature_actionst = {}
 
+---@param key integer
+---@return interaction_source_creature_actionst|nil
+function df.interaction_source_creature_actionst.find(key) end
+
 ---@class interaction_source_underground_specialst: interaction_source
 df.interaction_source_underground_specialst = {}
+
+---@param key integer
+---@return interaction_source_underground_specialst|nil
+function df.interaction_source_underground_specialst.find(key) end
 
 ---@class interaction_source_experimentst: interaction_source
 ---@field unk_1 integer
 df.interaction_source_experimentst = {}
+
+---@param key integer
+---@return interaction_source_experimentst|nil
+function df.interaction_source_experimentst.find(key) end
 
 ---@class _interaction_target_type: df.enum
 ---@field CORPSE 0
@@ -542,6 +642,10 @@ df.interaction_target_location_type = {}
 ---@field reference_distance integer IT_LOCATION:RANDOM_NEARBY_LOCATION
 df.interaction_target = {}
 
+---@param key integer
+---@return interaction_target|nil
+function df.interaction_target.find(key) end
+
 ---@return interaction_target_type
 function df.interaction_target:getType() end
 
@@ -561,10 +665,10 @@ function df.interaction_target:parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 
 ---@class interaction_target_info: df.class
 ---@field affected_creature_str string[][]
----@field affected_creature integer[] IT_AFFECTED_CREATURE
+---@field affected_creature df.container<integer> IT_AFFECTED_CREATURE
 ---@field affected_class string[] IT_AFFECTED_CLASS
 ---@field immune_creature_str string[][]
----@field immune_creature integer[] IT_IMMUNE_CREATURE
+---@field immune_creature df.container<integer> IT_IMMUNE_CREATURE
 ---@field immune_class string[] IT_IMMUNE_CLASS
 ---@field forbidden_syndrome_class string[]
 ---@field requires_1 integer IT_REQUIRES
@@ -573,6 +677,10 @@ function df.interaction_target:parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 ---@field forbidden_2 integer IT_FORBIDDEN
 ---@field restrictions interaction_target_info_restrictions
 df.interaction_target_info = {}
+
+---@param key integer
+---@return interaction_target_info|nil
+function df.interaction_target_info.find(key) end
 
 ---@class _interaction_target_info_restrictions: df.bitfield
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
@@ -587,9 +695,17 @@ df.interaction_target_info.T_restrictions = {}
 ---@field target_info interaction_target_info
 df.interaction_target_corpsest = {}
 
+---@param key integer
+---@return interaction_target_corpsest|nil
+function df.interaction_target_corpsest.find(key) end
+
 ---@class interaction_target_creaturest: interaction_target
 ---@field target_info interaction_target_info
 df.interaction_target_creaturest = {}
+
+---@param key integer
+---@return interaction_target_creaturest|nil
+function df.interaction_target_creaturest.find(key) end
 
 ---@class _breath_attack_type: df.enum
 ---@field TRAILING_DUST_FLOW 0
@@ -693,6 +809,10 @@ df.breath_attack_type = {}
 ---@field restrictions interaction_target_materialst_restrictions
 df.interaction_target_materialst = {}
 
+---@param key integer
+---@return interaction_target_materialst|nil
+function df.interaction_target_materialst.find(key) end
+
 ---@class _interaction_target_materialst_restrictions: df.bitfield
 ---@field CONTEXT_MATERIAL 0
 ---@field [0] "CONTEXT_MATERIAL"
@@ -705,11 +825,19 @@ df.interaction_target_materialst.T_restrictions = {}
 ---@class interaction_target_locationst: interaction_target
 df.interaction_target_locationst = {}
 
+---@param key integer
+---@return interaction_target_locationst|nil
+function df.interaction_target_locationst.find(key) end
+
 ---@class interaction_instance: df.instance
 ---@field id integer
 ---@field interaction_id integer References: interaction
 ---@field unk_1 integer
 ---@field region_index integer
----@field affected_units integer[] References: unit<br>IDs of units affected by the regional interaction
+---@field affected_units df.container<integer> References: unit<br>IDs of units affected by the regional interaction
 df.interaction_instance = {}
+
+---@param key integer
+---@return interaction_instance|nil
+function df.interaction_instance.find(key) end
 

@@ -251,6 +251,10 @@ df.d_init_autosave = {}
 ---@field unk_5010_734 integer
 df.d_init = {}
 
+---@param key integer
+---@return d_init|nil
+function df.d_init.find(key) end
+
 ---@class d_init_wound_color: df.class
 ---@field none integer[]
 ---@field minor integer[]
@@ -260,6 +264,10 @@ df.d_init = {}
 ---@field missing integer[]
 df.d_init.T_wound_color = {}
 
+---@param key integer
+---@return d_init_wound_color|nil
+function df.d_init.T_wound_color.find(key) end
+
 ---@class d_init_store_dist: df.class
 ---@field item_decrease integer
 ---@field seed_combine integer
@@ -267,4 +275,8 @@ df.d_init.T_wound_color = {}
 ---@field barrel_combine integer
 ---@field bin_combine integer
 df.d_init.T_store_dist = {}
+
+---@param key integer
+---@return d_init_store_dist|nil
+function df.d_init.T_store_dist.find(key) end
 

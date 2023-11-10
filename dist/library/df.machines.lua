@@ -15,6 +15,10 @@ df.machine_type = {}
 ---@field flags machine_info_flags
 df.machine_info = {}
 
+---@param key integer
+---@return machine_info|nil
+function df.machine_info.find(key) end
+
 ---@class _machine_info_flags: df.bitfield
 ---@field frozen 0
 ---@field [0] "frozen"
@@ -28,6 +32,10 @@ df.machine_info.T_flags = {}
 ---@field produced integer
 ---@field consumed integer
 df.power_info = {}
+
+---@param key integer
+---@return power_info|nil
+function df.power_info.find(key) end
 
 ---@class _machine_conn_modes: df.bitfield
 ---@field up 0
@@ -63,6 +71,10 @@ df.machine_conn_modes = {}
 ---@field can_connect machine_conn_modes[]
 df.machine_tile_set = {}
 
+---@param key integer
+---@return machine_tile_set|nil
+function df.machine_tile_set.find(key) end
+
 ---@class machine: df.instance
 ---@field x integer
 ---@field y integer
@@ -76,10 +88,18 @@ df.machine_tile_set = {}
 ---@field flags machine_flags
 df.machine = {}
 
+---@param key integer
+---@return machine|nil
+function df.machine.find(key) end
+
 ---@class machine_components: df.class
 ---@field building_id integer References: building
----@field connections integer[] indices into the same component vector
+---@field connections df.container<integer> indices into the same component vector
 df.machine.T_components = {}
+
+---@param key integer
+---@return machine_components|nil
+function df.machine.T_components.find(key) end
 
 ---@class _machine_flags: df.bitfield
 ---@field active 0
@@ -116,19 +136,35 @@ function df.machine:read_file(file, loadversion) end
 ---@class machine_standardst: machine
 df.machine_standardst = {}
 
+---@param key integer
+---@return machine_standardst|nil
+function df.machine_standardst.find(key) end
+
 ---@class building_axle_horizontalst: building_actual
 ---@field machine machine_info
 ---@field is_vertical boolean
 df.building_axle_horizontalst = {}
 
+---@param key integer
+---@return building_axle_horizontalst|nil
+function df.building_axle_horizontalst.find(key) end
+
 ---@class building_axle_verticalst: building_actual
 ---@field machine machine_info
 df.building_axle_verticalst = {}
+
+---@param key integer
+---@return building_axle_verticalst|nil
+function df.building_axle_verticalst.find(key) end
 
 ---@class building_gear_assemblyst: building_actual
 ---@field machine machine_info
 ---@field gear_flags building_gear_assemblyst_gear_flags
 df.building_gear_assemblyst = {}
+
+---@param key integer
+---@return building_gear_assemblyst|nil
+function df.building_gear_assemblyst.find(key) end
 
 ---@class _building_gear_assemblyst_gear_flags: df.bitfield
 ---@field disengaged 0
@@ -149,11 +185,19 @@ df.building_gear_assemblyst.T_gear_flags = {}
 ---@field orient_timer integer
 df.building_windmillst = {}
 
+---@param key integer
+---@return building_windmillst|nil
+function df.building_windmillst.find(key) end
+
 ---@class building_water_wheelst: building_actual
 ---@field machine machine_info
 ---@field is_vertical boolean
 ---@field gives_power boolean
 df.building_water_wheelst = {}
+
+---@param key integer
+---@return building_water_wheelst|nil
+function df.building_water_wheelst.find(key) end
 
 ---@class _screw_pump_direction: df.enum
 ---@field FromNorth 0
@@ -183,9 +227,17 @@ df.screw_pump_direction = {}
 ---@field pump_manually boolean
 df.building_screw_pumpst = {}
 
+---@param key integer
+---@return building_screw_pumpst|nil
+function df.building_screw_pumpst.find(key) end
+
 ---@class building_rollersst: building_actual
 ---@field machine machine_info
 ---@field direction screw_pump_direction
 ---@field speed integer
 df.building_rollersst = {}
+
+---@param key integer
+---@return building_rollersst|nil
+function df.building_rollersst.find(key) end
 

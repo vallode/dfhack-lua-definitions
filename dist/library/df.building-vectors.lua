@@ -861,3 +861,7 @@ df.buildings_other_id.attrs = {}
 ---@field OFFERING_PLACE building_offering_placest[]
 df.buildings_other = {}
 
+---@param key integer
+---@return buildings_other|nil
+function df.buildings_other.find(key) end
+

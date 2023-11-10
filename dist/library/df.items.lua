@@ -207,10 +207,18 @@ df.item_magicness_type = {}
 ---@field flags integer 1=does not show up in item description or alter item value
 df.item_magicness = {}
 
+---@param key integer
+---@return item_magicness|nil
+function df.item_magicness.find(key) end
+
 ---@class temperaturest: df.class
 ---@field whole integer
 ---@field fraction integer
 df.temperaturest = {}
+
+---@param key integer
+---@return temperaturest|nil
+function df.temperaturest.find(key) end
 
 ---@class spatter_common: df.class
 ---@field mat_type integer References: material
@@ -221,6 +229,10 @@ df.temperaturest = {}
 ---@field base_flags spatter_common_base_flags
 ---@field pad_1 integer needed for proper alignment of spatter on gcc
 df.spatter_common = {}
+
+---@param key integer
+---@return spatter_common|nil
+function df.spatter_common.find(key) end
 
 ---@class _spatter_common_base_flags: df.bitfield
 ---@field evaporates 0
@@ -235,6 +247,10 @@ df.spatter_common.T_base_flags = {}
 ---@field body_part_id integer
 ---@field flags spatter_flags
 df.spatter = {}
+
+---@param key integer
+---@return spatter|nil
+function df.spatter.find(key) end
 
 ---@class _spatter_flags: df.bitfield
 ---@field water_soluble 0
@@ -421,6 +437,10 @@ df.slab_engraving_type = {}
 ---@field weight integer if flags.weight_computed
 ---@field weight_fraction integer 1e-6
 df.item = {}
+
+---@param key integer
+---@return item|nil
+function df.item.find(key) end
 
 ---@return item_type
 function df.item:getType() end
@@ -919,8 +939,8 @@ function df.item:write_file(file) end
 ---@param loadversion save_version
 function df.item:read_file(file, loadversion) end
 
----@param unk_0 integer[]
----@return integer[]
+---@param unk_0 df.container<integer>
+---@return df.container<integer>
 function df.item:getWeaponAttacks(unk_0) end
 
 ---@return boolean
@@ -962,36 +982,36 @@ function df.item:isAutoClean() end
 ---@param x integer
 ---@param y integer
 ---@param z integer
----@param local_ boolean
+---@param local boolean
 ---@param contained boolean
 ---@return boolean
-function df.item:setTemperatureFromMapTile(x, y, z, local_, contained) end
+function df.item:setTemperatureFromMapTile(x, y, z, local, contained) end
 
----@param local_ boolean
+---@param local boolean
 ---@param contained boolean
 ---@return boolean
-function df.item:setTemperatureFromMap(local_, contained) end
+function df.item:setTemperatureFromMap(local, contained) end
 
 ---@param temp integer
----@param local_ boolean
+---@param local boolean
 ---@param contained boolean
 ---@return boolean
-function df.item:setTemperature(temp, local_, contained) end
+function df.item:setTemperature(temp, local, contained) end
 
----@param local_ boolean
+---@param local boolean
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier integer
 ---@return boolean
-function df.item:updateTempFromMap(local_, contained, adjust, multiplier) end
+function df.item:updateTempFromMap(local, contained, adjust, multiplier) end
 
 ---@param temp integer
----@param local_ boolean
+---@param local boolean
 ---@param contained boolean
 ---@param adjust boolean
 ---@param multiplier integer
 ---@return boolean
-function df.item:updateTemperature(temp, local_, contained, adjust, multiplier) end
+function df.item:updateTemperature(temp, local, contained, adjust, multiplier) end
 
 ---@return boolean
 function df.item:updateFromWeather() end
@@ -1217,8 +1237,8 @@ function df.item:copyImprovementsFrom(unk_0) end
 ---@return integer
 function df.item:getThreadDyeValue(caravan) end
 
----@param colors integer[]
----@param shapes integer[]
+---@param colors df.container<integer>
+---@param shapes df.container<integer>
 function df.item:getColorAndShape(colors, shapes) end
 
 ---@return boolean
@@ -1264,15 +1284,23 @@ function df.item:hasWriting() end
 
 ---@class item_kill_info: df.class
 ---@field targets historical_kills
----@field slayers integer[] References: historical_figure
----@field slayer_kill_counts integer[]
+---@field slayers df.container<integer> References: historical_figure
+---@field slayer_kill_counts df.container<integer>
 df.item_kill_info = {}
+
+---@param key integer
+---@return item_kill_info|nil
+function df.item_kill_info.find(key) end
 
 ---@class item_history_info: df.class
 ---@field kills item_kill_info
 ---@field attack_counter integer increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter integer increments by 1 each time the item is used in an attempt to block or parry
 df.item_history_info = {}
+
+---@param key integer
+---@return item_history_info|nil
+function df.item_history_info.find(key) end
 
 ---@class item_actual: item
 ---@field stack_size integer
@@ -1286,6 +1314,10 @@ df.item_history_info = {}
 ---@field temp_updated_frame integer
 df.item_actual = {}
 
+---@param key integer
+---@return item_actual|nil
+function df.item_actual.find(key) end
+
 ---@class item_crafted: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
@@ -1296,9 +1328,17 @@ df.item_actual = {}
 ---@field masterpiece_event integer References: history_event
 df.item_crafted = {}
 
+---@param key integer
+---@return item_crafted|nil
+function df.item_crafted.find(key) end
+
 ---@class item_constructed: item_crafted
 ---@field improvements itemimprovement[]
 df.item_constructed = {}
+
+---@param key integer
+---@return item_constructed|nil
+function df.item_constructed.find(key) end
 
 ---@class _body_part_status: df.bitfield
 ---@field on_fire 0
@@ -1407,15 +1447,19 @@ df.body_layer_status = {}
 ---@field leaking boolean
 
 ---@class body_component_info: df.class
----@field body_part_status body_part_status[]
----@field numbered_masks integer[] 1 bit per instance of a numbered body part
----@field nonsolid_remaining integer[] 0-100%
----@field layer_status body_layer_status[]
----@field layer_wound_area integer[]
----@field layer_cut_fraction integer[] 0-10000
----@field layer_dent_fraction integer[] 0-10000
----@field layer_effect_fraction integer[] 0-1000000000
+---@field body_part_status df.container<body_part_status>
+---@field numbered_masks df.container<integer> 1 bit per instance of a numbered body part
+---@field nonsolid_remaining df.container<integer> 0-100%
+---@field layer_status df.container<body_layer_status>
+---@field layer_wound_area df.container<integer>
+---@field layer_cut_fraction df.container<integer> 0-10000
+---@field layer_dent_fraction df.container<integer> 0-10000
+---@field layer_effect_fraction df.container<integer> 0-1000000000
 df.body_component_info = {}
+
+---@param key integer
+---@return body_component_info|nil
+function df.body_component_info.find(key) end
 
 ---@class body_size_info: df.class
 ---@field size_cur integer
@@ -1425,6 +1469,10 @@ df.body_component_info = {}
 ---@field length_cur integer (size_cur*10000)^0.333
 ---@field length_base integer (size_base*10000)^0.333
 df.body_size_info = {}
+
+---@param key integer
+---@return body_size_info|nil
+function df.body_size_info.find(key) end
 
 ---@class _corpse_material_type: df.enum
 ---@field Plant 0
@@ -1511,6 +1559,10 @@ df.corpse_material_type = {}
 ---@field bone2 item_body_component_bone2
 df.item_body_component = {}
 
+---@param key integer
+---@return item_body_component|nil
+function df.item_body_component.find(key) end
+
 ---@class item_body_component_body: df.class
 ---@field wounds unit_wound[]
 ---@field unk_100 integer[] unit.body.unk_39c
@@ -1519,18 +1571,26 @@ df.item_body_component = {}
 ---@field physical_attr_value integer[]
 ---@field physical_attr_soft_demotion integer[]
 ---@field size_info body_size_info
----@field body_part_relsize integer[] =unit.enemy.body_part_relsize
----@field body_modifiers integer[]
----@field bp_modifiers integer[]
+---@field body_part_relsize df.container<integer> =unit.enemy.body_part_relsize
+---@field body_modifiers df.container<integer>
+---@field bp_modifiers df.container<integer>
 df.item_body_component.T_body = {}
 
+---@param key integer
+---@return item_body_component_body|nil
+function df.item_body_component.T_body.find(key) end
+
 ---@class item_body_component_appearance: df.class
----@field colors integer[]
----@field tissue_style integer[]
----@field tissue_style_civ_id integer[]
----@field tissue_style_id integer[]
----@field tissue_style_type integer[]
+---@field colors df.container<integer>
+---@field tissue_style df.container<integer>
+---@field tissue_style_civ_id df.container<integer>
+---@field tissue_style_id df.container<integer>
+---@field tissue_style_type df.container<integer>
 df.item_body_component.T_appearance = {}
+
+---@param key integer
+---@return item_body_component_appearance|nil
+function df.item_body_component.T_appearance.find(key) end
 
 ---@class _item_body_component_corpse_flags: df.bitfield
 ---@field unbutchered 0
@@ -1606,10 +1666,18 @@ df.item_body_component.T_corpse_flags = {}
 ---@field mat_index integer
 df.item_body_component.T_bone1 = {}
 
+---@param key integer
+---@return item_body_component_bone1|nil
+function df.item_body_component.T_bone1.find(key) end
+
 ---@class item_body_component_bone2: df.class
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_body_component.T_bone2 = {}
+
+---@param key integer
+---@return item_body_component_bone2|nil
+function df.item_body_component.T_bone2.find(key) end
 
 ---@class item_corpsest: item_body_component
 ---@field unused_380 integer
@@ -1620,8 +1688,16 @@ df.item_body_component.T_bone2 = {}
 ---@field unused_3a0 integer
 df.item_corpsest = {}
 
+---@param key integer
+---@return item_corpsest|nil
+function df.item_corpsest.find(key) end
+
 ---@class item_corpsepiecest: item_body_component
 df.item_corpsepiecest = {}
+
+---@param key integer
+---@return item_corpsepiecest|nil
+function df.item_corpsepiecest.find(key) end
 
 ---@class item_critter: item_actual
 ---@field race integer References: creature_raw
@@ -1630,6 +1706,10 @@ df.item_corpsepiecest = {}
 ---@field airdrown_timer integer
 ---@field name language_name
 df.item_critter = {}
+
+---@param key integer
+---@return item_critter|nil
+function df.item_critter.find(key) end
 
 ---@class _item_matstate: df.bitfield
 ---@field no_auto_clean 0
@@ -1653,15 +1733,27 @@ df.item_matstate = {}
 ---@field dimension integer
 df.item_liquipowder = {}
 
+---@param key integer
+---@return item_liquipowder|nil
+function df.item_liquipowder.find(key) end
+
 ---@class item_liquid: item_liquipowder
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_liquid = {}
 
+---@param key integer
+---@return item_liquid|nil
+function df.item_liquid.find(key) end
+
 ---@class item_powder: item_liquipowder
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_powder = {}
+
+---@param key integer
+---@return item_powder|nil
+function df.item_powder.find(key) end
 
 ---@class item_barst: item_actual
 ---@field subtype integer
@@ -1670,36 +1762,64 @@ df.item_powder = {}
 ---@field dimension integer
 df.item_barst = {}
 
+---@param key integer
+---@return item_barst|nil
+function df.item_barst.find(key) end
+
 ---@class item_smallgemst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field shape integer References: descriptor_shape
 df.item_smallgemst = {}
 
+---@param key integer
+---@return item_smallgemst|nil
+function df.item_smallgemst.find(key) end
+
 ---@class item_blocksst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_blocksst = {}
+
+---@param key integer
+---@return item_blocksst|nil
+function df.item_blocksst.find(key) end
 
 ---@class item_roughst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_roughst = {}
 
+---@param key integer
+---@return item_roughst|nil
+function df.item_roughst.find(key) end
+
 ---@class item_boulderst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_boulderst = {}
+
+---@param key integer
+---@return item_boulderst|nil
+function df.item_boulderst.find(key) end
 
 ---@class item_woodst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_woodst = {}
 
+---@param key integer
+---@return item_woodst|nil
+function df.item_woodst.find(key) end
+
 ---@class item_branchst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.item_branchst = {}
+
+---@param key integer
+---@return item_branchst|nil
+function df.item_branchst.find(key) end
 
 ---@class item_rockst: item_actual
 ---@field mat_type integer References: material
@@ -1708,6 +1828,10 @@ df.item_branchst = {}
 ---@field unk_84 integer
 df.item_rockst = {}
 
+---@param key integer
+---@return item_rockst|nil
+function df.item_rockst.find(key) end
+
 ---@class item_seedsst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
@@ -1715,11 +1839,19 @@ df.item_rockst = {}
 ---@field planting_skill integer
 df.item_seedsst = {}
 
+---@param key integer
+---@return item_seedsst|nil
+function df.item_seedsst.find(key) end
+
 ---@class item_skin_tannedst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field unk_80 integer
 df.item_skin_tannedst = {}
+
+---@param key integer
+---@return item_skin_tannedst|nil
+function df.item_skin_tannedst.find(key) end
 
 ---@class item_meatst: item_actual
 ---@field mat_type integer References: material
@@ -1727,11 +1859,19 @@ df.item_skin_tannedst = {}
 ---@field rot_timer integer
 df.item_meatst = {}
 
+---@param key integer
+---@return item_meatst|nil
+function df.item_meatst.find(key) end
+
 ---@class item_plantst: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field rot_timer integer
 df.item_plantst = {}
+
+---@param key integer
+---@return item_plantst|nil
+function df.item_plantst.find(key) end
 
 ---@class item_plant_growthst: item_actual
 ---@field subtype integer
@@ -1741,11 +1881,19 @@ df.item_plantst = {}
 ---@field rot_timer integer
 df.item_plant_growthst = {}
 
+---@param key integer
+---@return item_plant_growthst|nil
+function df.item_plant_growthst.find(key) end
+
 ---@class item_cheesest: item_actual
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field rot_timer integer
 df.item_cheesest = {}
+
+---@param key integer
+---@return item_cheesest|nil
+function df.item_cheesest.find(key) end
 
 ---@class item_globst: item_actual
 ---@field mat_type integer References: material
@@ -1755,11 +1903,19 @@ df.item_cheesest = {}
 ---@field dimension integer
 df.item_globst = {}
 
+---@param key integer
+---@return item_globst|nil
+function df.item_globst.find(key) end
+
 ---@class item_remainsst: item_actual
 ---@field race integer References: creature_raw
 ---@field caste integer References: caste_raw
 ---@field rot_timer integer
 df.item_remainsst = {}
+
+---@param key integer
+---@return item_remainsst|nil
+function df.item_remainsst.find(key) end
 
 ---@class item_fishst: item_actual
 ---@field race integer References: creature_raw
@@ -1767,11 +1923,19 @@ df.item_remainsst = {}
 ---@field rot_timer integer
 df.item_fishst = {}
 
+---@param key integer
+---@return item_fishst|nil
+function df.item_fishst.find(key) end
+
 ---@class item_fish_rawst: item_actual
 ---@field race integer References: creature_raw
 ---@field caste integer References: caste_raw
 ---@field rot_timer integer
 df.item_fish_rawst = {}
+
+---@param key integer
+---@return item_fish_rawst|nil
+function df.item_fish_rawst.find(key) end
 
 ---@class item_foodst: item_crafted
 ---@field subtype itemdef_foodst
@@ -1780,6 +1944,10 @@ df.item_fish_rawst = {}
 ---@field ingredients item_foodst_ingredients[]
 ---@field rot_timer integer
 df.item_foodst = {}
+
+---@param key integer
+---@return item_foodst|nil
+function df.item_foodst.find(key) end
 
 ---@class item_foodst_ingredients: df.class
 ---@field unk_1 integer
@@ -1793,13 +1961,25 @@ df.item_foodst = {}
 ---@field unk_18 integer
 df.item_foodst.T_ingredients = {}
 
+---@param key integer
+---@return item_foodst_ingredients|nil
+function df.item_foodst.T_ingredients.find(key) end
+
 ---@class item_verminst: item_critter
 df.item_verminst = {}
+
+---@param key integer
+---@return item_verminst|nil
+function df.item_verminst.find(key) end
 
 ---@class item_petst: item_critter
 ---@field owner_id integer References: unit
 ---@field pet_flags item_petst_pet_flags
 df.item_petst = {}
+
+---@param key integer
+---@return item_petst|nil
+function df.item_petst.find(key) end
 
 ---@class _item_petst_pet_flags: df.bitfield
 ---@field available_for_adoption 0
@@ -1813,12 +1993,24 @@ df.item_petst.T_pet_flags = {}
 ---@class item_drinkst: item_liquid
 df.item_drinkst = {}
 
+---@param key integer
+---@return item_drinkst|nil
+function df.item_drinkst.find(key) end
+
 ---@class item_powder_miscst: item_powder
 df.item_powder_miscst = {}
+
+---@param key integer
+---@return item_powder_miscst|nil
+function df.item_powder_miscst.find(key) end
 
 ---@class item_liquid_miscst: item_liquid
 ---@field unk_88 integer
 df.item_liquid_miscst = {}
+
+---@param key integer
+---@return item_liquid_miscst|nil
+function df.item_liquid_miscst.find(key) end
 
 ---@class item_threadst: item_actual
 ---@field mat_type integer References: material
@@ -1833,6 +2025,10 @@ df.item_liquid_miscst = {}
 ---@field unk_98 integer
 ---@field dimension integer
 df.item_threadst = {}
+
+---@param key integer
+---@return item_threadst|nil
+function df.item_threadst.find(key) end
 
 ---@class item_eggst: item_actual
 ---@field race integer References: creature_raw
@@ -1861,6 +2057,10 @@ df.item_threadst = {}
 ---@field size integer
 df.item_eggst = {}
 
+---@param key integer
+---@return item_eggst|nil
+function df.item_eggst.find(key) end
+
 ---@class _item_eggst_egg_flags: df.bitfield
 ---@field fertile 0
 ---@field [0] "fertile"
@@ -1873,169 +2073,369 @@ df.item_eggst.T_egg_flags = {}
 ---@class item_doorst: item_constructed
 df.item_doorst = {}
 
+---@param key integer
+---@return item_doorst|nil
+function df.item_doorst.find(key) end
+
 ---@class item_floodgatest: item_constructed
 df.item_floodgatest = {}
+
+---@param key integer
+---@return item_floodgatest|nil
+function df.item_floodgatest.find(key) end
 
 ---@class item_bedst: item_constructed
 df.item_bedst = {}
 
+---@param key integer
+---@return item_bedst|nil
+function df.item_bedst.find(key) end
+
 ---@class item_chairst: item_constructed
 df.item_chairst = {}
+
+---@param key integer
+---@return item_chairst|nil
+function df.item_chairst.find(key) end
 
 ---@class item_chainst: item_constructed
 df.item_chainst = {}
 
+---@param key integer
+---@return item_chainst|nil
+function df.item_chainst.find(key) end
+
 ---@class item_flaskst: item_constructed
 df.item_flaskst = {}
+
+---@param key integer
+---@return item_flaskst|nil
+function df.item_flaskst.find(key) end
 
 ---@class item_gobletst: item_constructed
 df.item_gobletst = {}
 
+---@param key integer
+---@return item_gobletst|nil
+function df.item_gobletst.find(key) end
+
 ---@class item_windowst: item_constructed
 df.item_windowst = {}
+
+---@param key integer
+---@return item_windowst|nil
+function df.item_windowst.find(key) end
 
 ---@class item_cagest: item_constructed
 df.item_cagest = {}
 
+---@param key integer
+---@return item_cagest|nil
+function df.item_cagest.find(key) end
+
 ---@class item_bucketst: item_constructed
 df.item_bucketst = {}
+
+---@param key integer
+---@return item_bucketst|nil
+function df.item_bucketst.find(key) end
 
 ---@class item_animaltrapst: item_constructed
 df.item_animaltrapst = {}
 
+---@param key integer
+---@return item_animaltrapst|nil
+function df.item_animaltrapst.find(key) end
+
 ---@class item_tablest: item_constructed
 df.item_tablest = {}
+
+---@param key integer
+---@return item_tablest|nil
+function df.item_tablest.find(key) end
 
 ---@class item_coffinst: item_constructed
 df.item_coffinst = {}
 
+---@param key integer
+---@return item_coffinst|nil
+function df.item_coffinst.find(key) end
+
 ---@class item_bagst: item_constructed
 df.item_bagst = {}
+
+---@param key integer
+---@return item_bagst|nil
+function df.item_bagst.find(key) end
 
 ---@class item_boxst: item_constructed
 df.item_boxst = {}
 
+---@param key integer
+---@return item_boxst|nil
+function df.item_boxst.find(key) end
+
 ---@class item_armorstandst: item_constructed
 df.item_armorstandst = {}
+
+---@param key integer
+---@return item_armorstandst|nil
+function df.item_armorstandst.find(key) end
 
 ---@class item_weaponrackst: item_constructed
 df.item_weaponrackst = {}
 
+---@param key integer
+---@return item_weaponrackst|nil
+function df.item_weaponrackst.find(key) end
+
 ---@class item_cabinetst: item_constructed
 df.item_cabinetst = {}
+
+---@param key integer
+---@return item_cabinetst|nil
+function df.item_cabinetst.find(key) end
 
 ---@class item_amuletst: item_constructed
 df.item_amuletst = {}
 
+---@param key integer
+---@return item_amuletst|nil
+function df.item_amuletst.find(key) end
+
 ---@class item_scepterst: item_constructed
 df.item_scepterst = {}
+
+---@param key integer
+---@return item_scepterst|nil
+function df.item_scepterst.find(key) end
 
 ---@class item_crownst: item_constructed
 df.item_crownst = {}
 
+---@param key integer
+---@return item_crownst|nil
+function df.item_crownst.find(key) end
+
 ---@class item_ringst: item_constructed
 df.item_ringst = {}
+
+---@param key integer
+---@return item_ringst|nil
+function df.item_ringst.find(key) end
 
 ---@class item_earringst: item_constructed
 df.item_earringst = {}
 
+---@param key integer
+---@return item_earringst|nil
+function df.item_earringst.find(key) end
+
 ---@class item_braceletst: item_constructed
 df.item_braceletst = {}
+
+---@param key integer
+---@return item_braceletst|nil
+function df.item_braceletst.find(key) end
 
 ---@class item_anvilst: item_constructed
 df.item_anvilst = {}
 
+---@param key integer
+---@return item_anvilst|nil
+function df.item_anvilst.find(key) end
+
 ---@class item_backpackst: item_constructed
 df.item_backpackst = {}
+
+---@param key integer
+---@return item_backpackst|nil
+function df.item_backpackst.find(key) end
 
 ---@class item_quiverst: item_constructed
 df.item_quiverst = {}
 
+---@param key integer
+---@return item_quiverst|nil
+function df.item_quiverst.find(key) end
+
 ---@class item_catapultpartsst: item_constructed
 df.item_catapultpartsst = {}
+
+---@param key integer
+---@return item_catapultpartsst|nil
+function df.item_catapultpartsst.find(key) end
 
 ---@class item_ballistapartsst: item_constructed
 df.item_ballistapartsst = {}
 
+---@param key integer
+---@return item_ballistapartsst|nil
+function df.item_ballistapartsst.find(key) end
+
 ---@class item_trappartsst: item_constructed
 df.item_trappartsst = {}
+
+---@param key integer
+---@return item_trappartsst|nil
+function df.item_trappartsst.find(key) end
 
 ---@class item_pipe_sectionst: item_constructed
 df.item_pipe_sectionst = {}
 
+---@param key integer
+---@return item_pipe_sectionst|nil
+function df.item_pipe_sectionst.find(key) end
+
 ---@class item_hatch_coverst: item_constructed
 df.item_hatch_coverst = {}
+
+---@param key integer
+---@return item_hatch_coverst|nil
+function df.item_hatch_coverst.find(key) end
 
 ---@class item_gratest: item_constructed
 df.item_gratest = {}
 
+---@param key integer
+---@return item_gratest|nil
+function df.item_gratest.find(key) end
+
 ---@class item_quernst: item_constructed
 df.item_quernst = {}
+
+---@param key integer
+---@return item_quernst|nil
+function df.item_quernst.find(key) end
 
 ---@class item_millstonest: item_constructed
 df.item_millstonest = {}
 
+---@param key integer
+---@return item_millstonest|nil
+function df.item_millstonest.find(key) end
+
 ---@class item_splintst: item_constructed
 df.item_splintst = {}
+
+---@param key integer
+---@return item_splintst|nil
+function df.item_splintst.find(key) end
 
 ---@class item_crutchst: item_constructed
 df.item_crutchst = {}
 
+---@param key integer
+---@return item_crutchst|nil
+function df.item_crutchst.find(key) end
+
 ---@class item_traction_benchst: item_constructed
 df.item_traction_benchst = {}
+
+---@param key integer
+---@return item_traction_benchst|nil
+function df.item_traction_benchst.find(key) end
 
 ---@class item_instrumentst: item_constructed
 ---@field subtype itemdef_instrumentst
 df.item_instrumentst = {}
 
+---@param key integer
+---@return item_instrumentst|nil
+function df.item_instrumentst.find(key) end
+
 ---@class item_toyst: item_constructed
 ---@field subtype itemdef_toyst
 df.item_toyst = {}
+
+---@param key integer
+---@return item_toyst|nil
+function df.item_toyst.find(key) end
 
 ---@class item_armorst: item_constructed
 ---@field subtype itemdef_armorst
 df.item_armorst = {}
 
+---@param key integer
+---@return item_armorst|nil
+function df.item_armorst.find(key) end
+
 ---@class item_shoesst: item_constructed
 ---@field subtype itemdef_shoesst
 df.item_shoesst = {}
+
+---@param key integer
+---@return item_shoesst|nil
+function df.item_shoesst.find(key) end
 
 ---@class item_shieldst: item_constructed
 ---@field subtype itemdef_shieldst
 df.item_shieldst = {}
 
+---@param key integer
+---@return item_shieldst|nil
+function df.item_shieldst.find(key) end
+
 ---@class item_helmst: item_constructed
 ---@field subtype itemdef_helmst
 df.item_helmst = {}
+
+---@param key integer
+---@return item_helmst|nil
+function df.item_helmst.find(key) end
 
 ---@class item_glovesst: item_constructed
 ---@field subtype itemdef_glovesst
 ---@field handedness boolean[] 1 right, 2 left
 df.item_glovesst = {}
 
+---@param key integer
+---@return item_glovesst|nil
+function df.item_glovesst.find(key) end
+
 ---@class item_pantsst: item_constructed
 ---@field subtype itemdef_pantsst
 df.item_pantsst = {}
+
+---@param key integer
+---@return item_pantsst|nil
+function df.item_pantsst.find(key) end
 
 ---@class item_siegeammost: item_constructed
 ---@field subtype itemdef_siegeammost
 ---@field sharpness integer
 df.item_siegeammost = {}
 
+---@param key integer
+---@return item_siegeammost|nil
+function df.item_siegeammost.find(key) end
+
 ---@class item_weaponst: item_constructed
 ---@field subtype itemdef_weaponst
 ---@field sharpness integer
 df.item_weaponst = {}
+
+---@param key integer
+---@return item_weaponst|nil
+function df.item_weaponst.find(key) end
 
 ---@class item_ammost: item_constructed
 ---@field subtype itemdef_ammost
 ---@field sharpness integer
 df.item_ammost = {}
 
+---@param key integer
+---@return item_ammost|nil
+function df.item_ammost.find(key) end
+
 ---@class item_trapcompst: item_constructed
 ---@field subtype itemdef_trapcompst
 ---@field sharpness integer
 df.item_trapcompst = {}
+
+---@param key integer
+---@return item_trapcompst|nil
+function df.item_trapcompst.find(key) end
 
 ---@class item_toolst: item_constructed
 ---@field subtype itemdef_toolst
@@ -2046,23 +2446,43 @@ df.item_trapcompst = {}
 ---@field unk_3 integer
 df.item_toolst = {}
 
+---@param key integer
+---@return item_toolst|nil
+function df.item_toolst.find(key) end
+
 ---@class item_stockpile_ref: df.class
 ---@field id integer References: building
 ---@field x integer
 ---@field y integer
 df.item_stockpile_ref = {}
 
+---@param key integer
+---@return item_stockpile_ref|nil
+function df.item_stockpile_ref.find(key) end
+
 ---@class item_barrelst: item_constructed
 ---@field stockpile item_stockpile_ref
 df.item_barrelst = {}
+
+---@param key integer
+---@return item_barrelst|nil
+function df.item_barrelst.find(key) end
 
 ---@class item_binst: item_constructed
 ---@field stockpile item_stockpile_ref
 df.item_binst = {}
 
+---@param key integer
+---@return item_binst|nil
+function df.item_binst.find(key) end
+
 ---@class item_gemst: item_constructed
 ---@field shape integer References: descriptor_shape
 df.item_gemst = {}
+
+---@param key integer
+---@return item_gemst|nil
+function df.item_gemst.find(key) end
 
 ---@class item_statuest: item_constructed
 ---@field image art_image_ref
@@ -2071,10 +2491,18 @@ df.item_gemst = {}
 ---@field unk_114 integer
 df.item_statuest = {}
 
+---@param key integer
+---@return item_statuest|nil
+function df.item_statuest.find(key) end
+
 ---@class item_figurinest: item_constructed
 ---@field image art_image_ref
 ---@field description string
 df.item_figurinest = {}
+
+---@param key integer
+---@return item_figurinest|nil
+function df.item_figurinest.find(key) end
 
 ---@class item_slabst: item_constructed
 ---@field description string
@@ -2082,14 +2510,26 @@ df.item_figurinest = {}
 ---@field engraving_type slab_engraving_type
 df.item_slabst = {}
 
+---@param key integer
+---@return item_slabst|nil
+function df.item_slabst.find(key) end
+
 ---@class item_orthopedic_castst: item_constructed
 ---@field body_part string
 ---@field material string
 df.item_orthopedic_castst = {}
 
+---@param key integer
+---@return item_orthopedic_castst|nil
+function df.item_orthopedic_castst.find(key) end
+
 ---@class item_coinst: item_constructed
 ---@field coin_batch integer References: coin_batch
 df.item_coinst = {}
+
+---@param key integer
+---@return item_coinst|nil
+function df.item_coinst.find(key) end
 
 ---@class item_totemst: item_constructed
 ---@field race integer References: creature_raw
@@ -2097,13 +2537,25 @@ df.item_coinst = {}
 ---@field body_part_idx integer
 df.item_totemst = {}
 
+---@param key integer
+---@return item_totemst|nil
+function df.item_totemst.find(key) end
+
 ---@class item_clothst: item_constructed
 ---@field dimension integer
 df.item_clothst = {}
 
+---@param key integer
+---@return item_clothst|nil
+function df.item_clothst.find(key) end
+
 ---@class item_bookst: item_constructed
 ---@field title string
 df.item_bookst = {}
+
+---@param key integer
+---@return item_bookst|nil
+function df.item_bookst.find(key) end
 
 ---@class item_ballistaarrowheadst: item_actual
 ---@field mat_type integer References: material
@@ -2111,8 +2563,16 @@ df.item_bookst = {}
 ---@field sharpness integer
 df.item_ballistaarrowheadst = {}
 
+---@param key integer
+---@return item_ballistaarrowheadst|nil
+function df.item_ballistaarrowheadst.find(key) end
+
 ---@class item_sheetst: item_constructed
 ---@field dimension integer
 ---@field unk_2 integer
 df.item_sheetst = {}
+
+---@param key integer
+---@return item_sheetst|nil
+function df.item_sheetst.find(key) end
 

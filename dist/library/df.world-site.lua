@@ -11,6 +11,10 @@
 ---@field unk_2 integer
 df.scribejob = {}
 
+---@param key integer
+---@return scribejob|nil
+function df.scribejob.find(key) end
+
 ---@class site_reputation_report: df.class
 ---@field site_id integer
 ---@field location_id integer
@@ -21,9 +25,17 @@ df.scribejob = {}
 ---@field unk_3 integer[]
 df.site_reputation_report = {}
 
+---@param key integer
+---@return site_reputation_report|nil
+function df.site_reputation_report.find(key) end
+
 ---@class site_reputation_info: df.class
 ---@field reports site_reputation_report[]
 df.site_reputation_info = {}
+
+---@param key integer
+---@return site_reputation_info|nil
+function df.site_reputation_info.find(key) end
 
 ---@class location_scribe_jobs: df.class
 ---@field scribejobs scribejob[]
@@ -35,6 +47,10 @@ df.site_reputation_info = {}
 ---@field unk_4 integer
 ---@field unk_5 integer
 df.location_scribe_jobs = {}
+
+---@param key integer
+---@return location_scribe_jobs|nil
+function df.location_scribe_jobs.find(key) end
 
 ---@class _abstract_building_type: df.enum
 ---@field MEAD_HALL 0
@@ -137,8 +153,12 @@ df.abstract_building_flags = {}
 ---used within Tomb and Dungeon
 ---@class abstract_building_entombed: df.class
 ---@field populations abstract_building_entombed_populations[]
----@field histfigs integer[] References: historical_figure
+---@field histfigs df.container<integer> References: historical_figure
 df.abstract_building_entombed = {}
+
+---@param key integer
+---@return abstract_building_entombed|nil
+function df.abstract_building_entombed.find(key) end
 
 ---@class abstract_building_entombed_populations: df.class
 ---@field count integer
@@ -150,6 +170,10 @@ df.abstract_building_entombed = {}
 ---@field unk_7 integer seen equal to count
 ---@field unk_8 integer seen values 0, 6
 df.abstract_building_entombed.T_populations = {}
+
+---@param key integer
+---@return abstract_building_entombed_populations|nil
+function df.abstract_building_entombed.T_populations.find(key) end
 
 ---used within Temple, Library, and Inn/Tavern
 ---@class abstract_building_contents: df.class
@@ -180,8 +204,12 @@ df.abstract_building_entombed.T_populations = {}
 ---@field count_soap integer
 ---@field unk_v47_2 integer
 ---@field unk_v47_3 integer
----@field building_ids integer[] References: building
+---@field building_ids df.container<integer> References: building
 df.abstract_building_contents = {}
+
+---@param key integer
+---@return abstract_building_contents|nil
+function df.abstract_building_contents.find(key) end
 
 ---@class _abstract_building_contents_need_more: df.bitfield
 ---@field goblets 0
@@ -237,9 +265,9 @@ df.abstract_building_contents.T_need_more = {}
 ---@field inhabitants abstract_building_inhabitants[]
 ---@field flags abstract_building_flags[]
 ---@field unk1 abstract_building_unk1 in temples; hfig is the god
----@field unk2 integer[]
+---@field unk2 df.container<integer>
 ---@field parent_building_id integer References: abstract_building<br>Tombs use this to hold which catacomb they are part of.
----@field child_building_ids integer[] References: abstract_building<br>Used by catacombs to hold their tombs
+---@field child_building_ids df.container<integer> References: abstract_building<br>Used by catacombs to hold their tombs
 ---@field site_owner_id integer References: historical_entity<br>entity that constructed the building
 ---@field scribeinfo location_scribe_jobs
 ---@field reputation_reports site_reputation_info
@@ -249,19 +277,31 @@ df.abstract_building_contents.T_need_more = {}
 ---@field occupations occupation[]
 df.abstract_building = {}
 
+---@param key integer
+---@return abstract_building|nil
+function df.abstract_building.find(key) end
+
 ---@class abstract_building_inhabitants: df.class
 ---@field unk_1 integer
 ---@field histfig_id integer References: historical_figure
 df.abstract_building.T_inhabitants = {}
 
+---@param key integer
+---@return abstract_building_inhabitants|nil
+function df.abstract_building.T_inhabitants.find(key) end
+
 ---in temples; hfig is the god
 ---@class abstract_building_unk1: df.class
----@field hfig integer[] References: historical_figure
+---@field hfig df.container<integer> References: historical_figure
 ---@field unk_1 integer
----@field architectural_elements architectural_element[] used by temples
+---@field architectural_elements df.container<architectural_element> used by temples
 ---@field mat_type integer References: material<br>just a guess
 ---@field mat_index integer
 df.abstract_building.T_unk1 = {}
+
+---@param key integer
+---@return abstract_building_unk1|nil
+function df.abstract_building.T_unk1.find(key) end
 
 ---@return abstract_building_type
 function df.abstract_building:getType() end
@@ -305,9 +345,17 @@ function df.abstract_building:generate_xml(unk_0, indent) end
 ---@field item2 site_building_item
 df.abstract_building_mead_hallst = {}
 
+---@param key integer
+---@return abstract_building_mead_hallst|nil
+function df.abstract_building_mead_hallst.find(key) end
+
 ---@class abstract_building_keepst: abstract_building
 ---@field name language_name
 df.abstract_building_keepst = {}
+
+---@param key integer
+---@return abstract_building_keepst|nil
+function df.abstract_building_keepst.find(key) end
 
 ---@class _temple_deity_type: df.enum
 ---@field None -1
@@ -331,6 +379,10 @@ df.temple_deity_type = {}
 ---@field Religion integer References: historical_entity
 df.temple_deity_data = {}
 
+---@param key integer
+---@return temple_deity_data|nil
+function df.temple_deity_data.find(key) end
+
 ---@class abstract_building_templest: abstract_building
 ---@field deity_type temple_deity_type
 ---@field deity_data temple_deity_data
@@ -338,19 +390,35 @@ df.temple_deity_data = {}
 ---@field contents abstract_building_contents
 df.abstract_building_templest = {}
 
+---@param key integer
+---@return abstract_building_templest|nil
+function df.abstract_building_templest.find(key) end
+
 ---@class abstract_building_dark_towerst: abstract_building
 ---@field name language_name
 df.abstract_building_dark_towerst = {}
 
+---@param key integer
+---@return abstract_building_dark_towerst|nil
+function df.abstract_building_dark_towerst.find(key) end
+
 ---@class abstract_building_marketst: abstract_building
 ---@field name language_name
 df.abstract_building_marketst = {}
+
+---@param key integer
+---@return abstract_building_marketst|nil
+function df.abstract_building_marketst.find(key) end
 
 ---@class abstract_building_tombst: abstract_building
 ---@field name language_name
 ---@field entombed abstract_building_entombed
 ---@field precedence integer
 df.abstract_building_tombst = {}
+
+---@param key integer
+---@return abstract_building_tombst|nil
+function df.abstract_building_tombst.find(key) end
 
 ---@class abstract_building_dungeonst: abstract_building
 ---@field name language_name
@@ -361,6 +429,10 @@ df.abstract_building_tombst = {}
 ---@field unk_3 integer not saved
 ---@field unk_4 integer not saved
 df.abstract_building_dungeonst = {}
+
+---@param key integer
+---@return abstract_building_dungeonst|nil
+function df.abstract_building_dungeonst.find(key) end
 
 ---@class _abstract_building_dungeonst_dungeon_type: df.enum
 ---@field DUNGEON 0
@@ -384,12 +456,20 @@ df.abstract_building_dungeonst.T_dungeon_type = {}
 ---@field unk_bc integer
 df.abstract_building_underworld_spirest = {}
 
+---@param key integer
+---@return abstract_building_underworld_spirest|nil
+function df.abstract_building_underworld_spirest.find(key) end
+
 ---@class abstract_building_inn_tavernst: abstract_building
 ---@field name language_name
 ---@field contents abstract_building_contents
 ---@field room_info abstract_building_inn_tavernst_room_info[]
 ---@field next_room_info_id integer
 df.abstract_building_inn_tavernst = {}
+
+---@param key integer
+---@return abstract_building_inn_tavernst|nil
+function df.abstract_building_inn_tavernst.find(key) end
 
 ---@class abstract_building_inn_tavernst_room_info: df.class
 ---@field id integer
@@ -399,9 +479,13 @@ df.abstract_building_inn_tavernst = {}
 ---@field world_z integer
 df.abstract_building_inn_tavernst.T_room_info = {}
 
+---@param key integer
+---@return abstract_building_inn_tavernst_room_info|nil
+function df.abstract_building_inn_tavernst.T_room_info.find(key) end
+
 ---@class abstract_building_libraryst: abstract_building
 ---@field name language_name
----@field copied_artifacts integer[] References: artifact_record
+---@field copied_artifacts df.container<integer> References: artifact_record
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
@@ -409,24 +493,44 @@ df.abstract_building_inn_tavernst.T_room_info = {}
 ---@field contents abstract_building_contents
 df.abstract_building_libraryst = {}
 
+---@param key integer
+---@return abstract_building_libraryst|nil
+function df.abstract_building_libraryst.find(key) end
+
 ---@class abstract_building_counting_housest: abstract_building
 ---@field name language_name
 df.abstract_building_counting_housest = {}
+
+---@param key integer
+---@return abstract_building_counting_housest|nil
+function df.abstract_building_counting_housest.find(key) end
 
 ---@class abstract_building_guildhallst: abstract_building
 ---@field name language_name
 ---@field contents abstract_building_contents
 df.abstract_building_guildhallst = {}
 
+---@param key integer
+---@return abstract_building_guildhallst|nil
+function df.abstract_building_guildhallst.find(key) end
+
 ---@class abstract_building_towerst: abstract_building
 ---@field name language_name
 ---@field unk_1 integer
 df.abstract_building_towerst = {}
 
+---@param key integer
+---@return abstract_building_towerst|nil
+function df.abstract_building_towerst.find(key) end
+
 ---@class abstract_building_hospitalst: abstract_building
 ---@field name language_name
 ---@field contents abstract_building_contents
 df.abstract_building_hospitalst = {}
+
+---@param key integer
+---@return abstract_building_hospitalst|nil
+function df.abstract_building_hospitalst.find(key) end
 
 ---@class _world_site_type: df.enum
 ---@field PlayerFortress 0
@@ -608,6 +712,10 @@ df.lair_type = {}
 ---@field unk_owner_entity_id integer References: historical_entity<br>Seen only in subset of owner_entity_id case, and always same value
 df.property_ownership = {}
 
+---@param key integer
+---@return property_ownership|nil
+function df.property_ownership.find(key) end
+
 ---@class world_site: df.instance
 ---@field name language_name
 ---@field civ_id integer References: historical_entity
@@ -654,7 +762,7 @@ df.property_ownership = {}
 ---@field realization world_site_realization
 ---@field subtype_info world_site_subtype_info
 ---@field unk_21c world_site_unk_21c[]
----@field deaths integer[] References: historical_figure<br>killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
+---@field deaths df.container<integer> References: historical_figure<br>killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
 ---@field is_mountain_halls integer
 ---@field is_fortress integer
 ---@field unk_v47_2 integer only MountainHalls, but only subset of them
@@ -666,16 +774,16 @@ df.property_ownership = {}
 ---@field unk_v43_2 world_site_unk_v43_2[]
 ---@field unk_v43_3 integer constant 0?
 ---@field unk_v40_5 integer constant -1?
----@field unk_188 integer[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
+---@field unk_188 _unk_[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 integer
 ---@field unk_3b0 world_site_unk130
----@field unk_18c integer[]
----@field unk_19c integer[]
+---@field unk_18c df.container<integer>
+---@field unk_19c df.container<integer>
 ---@field entity_links entity_site_link[]
 ---@field cultural_identities cultural_identity[]
 ---@field unk_v42_1 occupation[]
 ---@field unk_v43_4 integer uninitialized
----@field unk_3 integer[]
+---@field unk_3 df.container<integer>
 ---@field unk_4 historical_figure
 ---@field unk_5 historical_figure
 ---@field unk_6 historical_figure
@@ -697,16 +805,20 @@ df.property_ownership = {}
 ---@field unk_22 integer
 ---@field unk_23 integer
 ---@field unk_24 integer
----@field unk_25 integer[]
+---@field unk_25 df.container<integer>
 df.world_site = {}
 
+---@param key integer
+---@return world_site|nil
+function df.world_site.find(key) end
+
 ---@class world_site_unk_1: df.class
----@field nemesis integer[] References: nemesis_record
+---@field nemesis df.container<integer> References: nemesis_record
 ---@field artifacts artifact_record[]
 ---@field animals world_population[]
 ---@field inhabitants world_site_inhabitant[]
 ---@field units world_site.T_unk_1_units[]
----@field unk_d4 integer[]
+---@field unk_d4 df.container<integer>
 ---@field unk_v40_1a historical_figure[]
 ---@field pad_1 integer
 ---@field unk_v40_1b nemesis_record[]
@@ -718,6 +830,10 @@ df.world_site = {}
 ---@field unk_v40_1h nemesis_record[]
 df.world_site.T_unk_1 = {}
 
+---@param key integer
+---@return world_site_unk_1|nil
+function df.world_site.T_unk_1.find(key) end
+
 ---@class world_site.T_unk_1_units: df.class
 ---@field unit_id integer References: unit
 ---@field pos_x integer
@@ -726,14 +842,22 @@ df.world_site.T_unk_1 = {}
 ---@field unk_10 integer
 df.world_site.T_unk_1.T_units = {}
 
+---@param key integer
+---@return world_site.T_unk_1_units|nil
+function df.world_site.T_unk_1.T_units.find(key) end
+
 ---@class world_site_unk_118: df.class
----@field unk_1 integer[]
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
----@field unk_5 integer[]
----@field unk_6 integer[]
+---@field unk_1 df.container<integer>
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
+---@field unk_5 df.container<integer>
+---@field unk_6 df.container<integer>
 df.world_site.T_unk_118 = {}
+
+---@param key integer
+---@return world_site_unk_118|nil
+function df.world_site.T_unk_118.find(key) end
 
 ---MountainHall, Town, DarkFortress, but not all
 ---@class world_site_unk_13c: df.class
@@ -741,10 +865,14 @@ df.world_site.T_unk_118 = {}
 ---@field unk_4 integer
 ---@field unk_8 integer
 ---@field unk_c integer
----@field unk_10 integer[]
----@field unk_20 integer[]
+---@field unk_10 df.container<integer>
+---@field unk_20 df.container<integer>
 ---@field unk_30 integer
 df.world_site.T_unk_13c = {}
+
+---@param key integer
+---@return world_site_unk_13c|nil
+function df.world_site.T_unk_13c.find(key) end
 
 ---forest retreat
 ---@class world_site_unk_v40_2: df.class
@@ -752,20 +880,28 @@ df.world_site.T_unk_13c = {}
 ---@field unk_4 integer
 ---@field unk_8 integer
 ---@field unk_c integer
----@field unk_10 integer[]
----@field unk_20 integer[]
+---@field unk_10 df.container<integer>
+---@field unk_20 df.container<integer>
 ---@field unk_30 integer
 df.world_site.T_unk_v40_2 = {}
+
+---@param key integer
+---@return world_site_unk_v40_2|nil
+function df.world_site.T_unk_v40_2.find(key) end
 
 ---Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
 ---@class world_site_unk_v47_1: df.class
 df.world_site.T_unk_v47_1 = {}
 
+---@param key integer
+---@return world_site_unk_v47_1|nil
+function df.world_site.T_unk_v47_1.find(key) end
+
 ---@class world_site_subtype_info: df.class
 ---@field fortress_type fortress_type Only when site.type=Fortress
 ---@field monument_type monument_type Only when site.type=Monument
 ---@field lair_type lair_type Only when site.type=LairShrine
----@field unk_night_creature_lair integer[] only on SIMPLE_MOUND and SIMPLE_BURROW, all mounds but not all burrows, all had night creatures. All instances seen had single element with value 0
+---@field unk_night_creature_lair df.container<integer> only on SIMPLE_MOUND and SIMPLE_BURROW, all mounds but not all burrows, all had night creatures. All instances seen had single element with value 0
 ---@field unk_14 integer
 ---@field unk_18 integer
 ---@field unk_1c integer
@@ -775,6 +911,10 @@ df.world_site.T_unk_v47_1 = {}
 ---@field unk_monastery integer all monasteries, no others. Only seen '1'
 ---@field founding_entity integer References: historical_entity<br>all monasteries, no others
 df.world_site.T_subtype_info = {}
+
+---@param key integer
+---@return world_site_subtype_info|nil
+function df.world_site.T_subtype_info.find(key) end
 
 ---@class world_site_unk_21c: df.class
 ---@field unk_0 integer
@@ -787,6 +927,10 @@ df.world_site.T_subtype_info = {}
 ---@field unk_1c integer
 df.world_site.T_unk_21c = {}
 
+---@param key integer
+---@return world_site_unk_21c|nil
+function df.world_site.T_unk_21c.find(key) end
+
 ---@class world_site_unk_v40_4a: df.class
 ---@field unk_0 integer
 ---@field entity_id integer References: historical_entity
@@ -796,26 +940,42 @@ df.world_site.T_unk_21c = {}
 ---@field unk_14 integer
 df.world_site.T_unk_v40_4a = {}
 
+---@param key integer
+---@return world_site_unk_v40_4a|nil
+function df.world_site.T_unk_v40_4a.find(key) end
+
 ---@class world_site_unk_v40_4b: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.world_site.T_unk_v40_4b = {}
 
+---@param key integer
+---@return world_site_unk_v40_4b|nil
+function df.world_site.T_unk_v40_4b.find(key) end
+
 ---@class world_site_unk_v40_4c: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 integer[]
+---@field unk_3 df.container<integer>
 ---@field unk_4 integer
 ---@field unk_5 integer
 df.world_site.T_unk_v40_4c = {}
+
+---@param key integer
+---@return world_site_unk_v40_4c|nil
+function df.world_site.T_unk_v40_4c.find(key) end
 
 ---only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@class world_site_unk_v40_4d: df.class
 ---@field id integer
 ---@field unk_1 world_site.T_unk_v40_4d_unk_1[]
----@field unk_2 integer[]
+---@field unk_2 df.container<integer>
 ---@field entity_id integer References: historical_entity<br>single attacking site civ is only one seen
 df.world_site.T_unk_v40_4d = {}
+
+---@param key integer
+---@return world_site_unk_v40_4d|nil
+function df.world_site.T_unk_v40_4d.find(key) end
 
 ---@class world_site.T_unk_v40_4d_unk_1: df.class
 ---@field unk_1 integer
@@ -827,6 +987,10 @@ df.world_site.T_unk_v40_4d = {}
 ---@field unk_7 integer
 ---@field unk_8 integer
 df.world_site.T_unk_v40_4d.T_unk_1 = {}
+
+---@param key integer
+---@return world_site.T_unk_v40_4d_unk_1|nil
+function df.world_site.T_unk_v40_4d.T_unk_1.find(key) end
 
 ---@class world_site_unk_v43_2: df.class
 ---@field unk_1 integer
@@ -848,6 +1012,10 @@ df.world_site.T_unk_v40_4d.T_unk_1 = {}
 ---@field unk_17 integer[][]
 df.world_site.T_unk_v43_2 = {}
 
+---@param key integer
+---@return world_site_unk_v43_2|nil
+function df.world_site.T_unk_v43_2.find(key) end
+
 ---@class cultural_identity: df.instance
 ---@field id integer
 ---@field site_id integer References: world_site
@@ -857,7 +1025,7 @@ df.world_site.T_unk_v43_2 = {}
 ---@field values integer[]
 ---@field events entity_event[]
 ---@field unk_d8 integer
----@field unk_dc integer[]
+---@field unk_dc df.container<integer>
 ---@field unk_ec integer
 ---@field unk_f0 integer
 ---@field unk_f4 integer 0 or 800000
@@ -865,6 +1033,10 @@ df.world_site.T_unk_v43_2 = {}
 ---@field unk_2 cultural_identity_unk_2[]
 ---@field unk_f8 integer
 df.cultural_identity = {}
+
+---@param key integer
+---@return cultural_identity|nil
+function df.cultural_identity.find(key) end
 
 ---the circumstances of groups joining or leaving this culture
 ---@class cultural_identity_group_log: df.class
@@ -877,10 +1049,14 @@ df.cultural_identity = {}
 ---@field unk_18 integer copy of start_tick
 ---@field join_type cultural_identity.T_group_log_join_type
 ---@field unk_20 integer
----@field unk_24 integer[]
----@field unk_34 integer[] same length as unk_24; elements always sum to 10000
+---@field unk_24 df.container<integer>
+---@field unk_34 df.container<integer> same length as unk_24; elements always sum to 10000
 ---@field unk_44 integer
 df.cultural_identity.T_group_log = {}
+
+---@param key integer
+---@return cultural_identity_group_log|nil
+function df.cultural_identity.T_group_log.find(key) end
 
 ---@class _cultural_identity.T_group_log_join_type: df.enum
 ---@field Peaceful 0
@@ -905,6 +1081,10 @@ df.cultural_identity.T_group_log.T_join_type = {}
 ---@field unk_3 integer
 df.cultural_identity.T_unk_1 = {}
 
+---@param key integer
+---@return cultural_identity_unk_1|nil
+function df.cultural_identity.T_unk_1.find(key) end
+
 ---@class cultural_identity_unk_2: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -912,6 +1092,10 @@ df.cultural_identity.T_unk_1 = {}
 ---@field unk_4 integer
 ---@field unk_5 integer
 df.cultural_identity.T_unk_2 = {}
+
+---@param key integer
+---@return cultural_identity_unk_2|nil
+function df.cultural_identity.T_unk_2.find(key) end
 
 ---@class world_site_inhabitant: df.class
 ---@field count integer
@@ -927,6 +1111,10 @@ df.cultural_identity.T_unk_2 = {}
 ---@field unk_28 integer
 df.world_site_inhabitant = {}
 
+---@param key integer
+---@return world_site_inhabitant|nil
+function df.world_site_inhabitant.find(key) end
+
 ---@class world_site_realization: df.class
 ---@field buildings site_realization_building[]
 ---@field num_buildings integer
@@ -936,9 +1124,9 @@ df.world_site_inhabitant = {}
 ---@field mini_tiles integer[][]
 ---@field mini_colors integer[][]
 ---@field road_map site_realization_crossroads[][]
----@field river_map integer[][][]
----@field unk_55e8 integer[][]
----@field building_map integer[][]
+---@field river_map world_site_realization_river_map[]
+---@field unk_55e8 world_site_realization_unk_55e8[]
+---@field building_map world_site_realization_building_map[]
 ---@field flags_map integer[][]
 ---@field zoom_tiles integer[][]
 ---@field zoom_colors integer[][]
@@ -980,8 +1168,33 @@ df.world_site_inhabitant = {}
 ---@field num_building_type21 integer
 ---@field unk_23 integer[]
 ---@field unk_24 integer
----@field unk_wsr_vector integer[]
+---@field unk_wsr_vector df.container<integer>
 df.world_site_realization = {}
+
+---@param key integer
+---@return world_site_realization|nil
+function df.world_site_realization.find(key) end
+
+---@class world_site_realization_river_map: df.class
+df.world_site_realization.T_river_map = {}
+
+---@param key integer
+---@return world_site_realization_river_map|nil
+function df.world_site_realization.T_river_map.find(key) end
+
+---@class world_site_realization_unk_55e8: df.class
+df.world_site_realization.T_unk_55e8 = {}
+
+---@param key integer
+---@return world_site_realization_unk_55e8|nil
+function df.world_site_realization.T_unk_55e8.find(key) end
+
+---@class world_site_realization_building_map: df.class
+df.world_site_realization.T_building_map = {}
+
+---@param key integer
+---@return world_site_realization_building_map|nil
+function df.world_site_realization.T_building_map.find(key) end
 
 ---@class world_site_realization_areas: df.class
 ---@field type world_site_realization.T_areas_type
@@ -994,6 +1207,10 @@ df.world_site_realization = {}
 ---@field unk_1c integer
 ---@field unk_20 integer
 df.world_site_realization.T_areas = {}
+
+---@param key integer
+---@return world_site_realization_areas|nil
+function df.world_site_realization.T_areas.find(key) end
 
 ---@class _world_site_realization.T_areas_type: df.enum
 ---@field Crops1 0
@@ -1073,6 +1290,10 @@ df.world_site_realization.T_areas.T_type = {}
 ---@field unk_370 integer[]
 ---@field unk_3d0 integer[]
 df.site_realization_crossroads = {}
+
+---@param key integer
+---@return site_realization_crossroads|nil
+function df.site_realization_crossroads.find(key) end
 
 ---@class _site_realization_building_type: df.enum
 ---@field cottage_plot 0
@@ -1223,9 +1444,13 @@ df.site_realization_building_type = {}
 ---@field building_info site_realization_building_infost
 ---@field unk_4c site_realization_building_unk_4c[]
 ---@field unk_5c integer bit 0x01 == abandoned
----@field unk_60 integer[]
+---@field unk_60 df.container<integer>
 ---@field unk_v40_1 integer
 df.site_realization_building = {}
+
+---@param key integer
+---@return site_realization_building|nil
+function df.site_realization_building.find(key) end
 
 ---@class site_realization_building_unk_4c: df.class
 ---@field unk_0 integer
@@ -1236,8 +1461,16 @@ df.site_realization_building = {}
 ---@field unk_14 integer
 df.site_realization_building.T_unk_4c = {}
 
+---@param key integer
+---@return site_realization_building_unk_4c|nil
+function df.site_realization_building.T_unk_4c.find(key) end
+
 ---@class site_realization_building_infost: df.class
 df.site_realization_building_infost = {}
+
+---@param key integer
+---@return site_realization_building_infost|nil
+function df.site_realization_building_infost.find(key) end
 
 ---@return site_realization_building_type
 function df.site_realization_building_infost:getType() end
@@ -1256,6 +1489,10 @@ function df.site_realization_building_infost:read_file(file, loadversion) end
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.site_building_item = {}
+
+---@param key integer
+---@return site_building_item|nil
+function df.site_building_item.find(key) end
 
 ---@class _tower_shape: df.bitfield
 ---@field round 0
@@ -1295,6 +1532,10 @@ df.tower_shape = {}
 ---@field door_item site_building_item
 df.site_realization_building_info_castle_wallst = {}
 
+---@param key integer
+---@return site_realization_building_info_castle_wallst|nil
+function df.site_realization_building_info_castle_wallst.find(key) end
+
 ---@class site_realization_building_info_castle_towerst: site_realization_building_infost
 ---@field roof_z integer
 ---@field base_z integer can be below ground, but not above ground
@@ -1309,8 +1550,16 @@ df.site_realization_building_info_castle_wallst = {}
 ---@field unk_44 integer
 df.site_realization_building_info_castle_towerst = {}
 
+---@param key integer
+---@return site_realization_building_info_castle_towerst|nil
+function df.site_realization_building_info_castle_towerst.find(key) end
+
 ---@class site_realization_building_info_castle_courtyardst: site_realization_building_infost
 df.site_realization_building_info_castle_courtyardst = {}
+
+---@param key integer
+---@return site_realization_building_info_castle_courtyardst|nil
+function df.site_realization_building_info_castle_courtyardst.find(key) end
 
 ---@class _site_shop_type: df.enum
 ---@field GeneralImports 0
@@ -1495,14 +1744,26 @@ df.town_labor_type = {}
 ---@field name language_name
 df.site_realization_building_info_shop_housest = {}
 
+---@param key integer
+---@return site_realization_building_info_shop_housest|nil
+function df.site_realization_building_info_shop_housest.find(key) end
+
 ---@class site_realization_building_info_market_squarest: site_realization_building_infost
 ---@field type site_shop_type
 df.site_realization_building_info_market_squarest = {}
+
+---@param key integer
+---@return site_realization_building_info_market_squarest|nil
+function df.site_realization_building_info_market_squarest.find(key) end
 
 ---@class site_realization_building_info_trenchesst: site_realization_building_infost
 ---@field unk_4 integer
 ---@field spokes integer[] N, S, E, W
 df.site_realization_building_info_trenchesst = {}
+
+---@param key integer
+---@return site_realization_building_info_trenchesst|nil
+function df.site_realization_building_info_trenchesst.find(key) end
 
 ---@class _tree_house_type: df.enum
 ---@field TreeHouse 0
@@ -1539,6 +1800,10 @@ df.tree_house_type = {}
 ---@field name language_name
 df.site_realization_building_info_tree_housest = {}
 
+---@param key integer
+---@return site_realization_building_info_tree_housest|nil
+function df.site_realization_building_info_tree_housest.find(key) end
+
 ---@class _hillock_house_type: df.enum
 ---@field unk_0 0
 ---@field [0] "unk_0"
@@ -1564,10 +1829,18 @@ df.hillock_house_type = {}
 ---@field type hillock_house_type
 df.site_realization_building_info_hillock_housest = {}
 
+---@param key integer
+---@return site_realization_building_info_hillock_housest|nil
+function df.site_realization_building_info_hillock_housest.find(key) end
+
 ---@class site_realization_building_info_shrinest: site_realization_building_infost
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.site_realization_building_info_shrinest = {}
+
+---@param key integer
+---@return site_realization_building_info_shrinest|nil
+function df.site_realization_building_info_shrinest.find(key) end
 
 ---@class _creation_zone_pwg_alteration_type: df.enum
 ---@field location_death 0
@@ -1594,6 +1867,10 @@ df.creation_zone_pwg_alteration_type = {}
 ---@field unk_0 integer
 df.creation_zone_pwg_alterationst = {}
 
+---@param key integer
+---@return creation_zone_pwg_alterationst|nil
+function df.creation_zone_pwg_alterationst.find(key) end
+
 ---@return creation_zone_pwg_alteration_type
 function df.creation_zone_pwg_alterationst:getType() end
 
@@ -1609,10 +1886,18 @@ function df.creation_zone_pwg_alterationst:read_file(file, loadversion) end
 ---@field unk_2 integer
 df.creation_zone_pwg_alteration_location_deathst = {}
 
+---@param key integer
+---@return creation_zone_pwg_alteration_location_deathst|nil
+function df.creation_zone_pwg_alteration_location_deathst.find(key) end
+
 ---@class creation_zone_pwg_alteration_location_deathst_unk_1: df.class
 ---@field unk_1a creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a[]
----@field unk_2a integer[]
+---@field unk_2a df.container<integer>
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
+
+---@param key integer
+---@return creation_zone_pwg_alteration_location_deathst_unk_1|nil
+function df.creation_zone_pwg_alteration_location_deathst.T_unk_1.find(key) end
 
 ---@class creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a: df.class
 ---@field unk_1 integer
@@ -1624,6 +1909,10 @@ df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 ---@field unk_7 integer
 ---@field unk_8 integer
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1.T_unk_1a = {}
+
+---@param key integer
+---@return creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a|nil
+function df.creation_zone_pwg_alteration_location_deathst.T_unk_1.T_unk_1a.find(key) end
 
 ---@class creation_zone_pwg_alteration_campst: creation_zone_pwg_alterationst
 ---@field unk_1 integer
@@ -1639,13 +1928,25 @@ df.creation_zone_pwg_alteration_location_deathst.T_unk_1.T_unk_1a = {}
 ---@field unk_7 integer
 df.creation_zone_pwg_alteration_campst = {}
 
+---@param key integer
+---@return creation_zone_pwg_alteration_campst|nil
+function df.creation_zone_pwg_alteration_campst.find(key) end
+
 ---@class creation_zone_pwg_alteration_srb_ruinedst: creation_zone_pwg_alterationst
 ---@field site_id integer References: world_site
 ---@field building_id integer References: site_realization_building
 df.creation_zone_pwg_alteration_srb_ruinedst = {}
 
+---@param key integer
+---@return creation_zone_pwg_alteration_srb_ruinedst|nil
+function df.creation_zone_pwg_alteration_srb_ruinedst.find(key) end
+
 ---@class creation_zone_pwg_alteration_srp_ruinedst: creation_zone_pwg_alterationst
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.creation_zone_pwg_alteration_srp_ruinedst = {}
+
+---@param key integer
+---@return creation_zone_pwg_alteration_srp_ruinedst|nil
+function df.creation_zone_pwg_alteration_srp_ruinedst.find(key) end
 

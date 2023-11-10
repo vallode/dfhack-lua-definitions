@@ -678,6 +678,10 @@ df.sphere_type = {}
 ---@field str string[]
 df.language_word = {}
 
+---@param key integer
+---@return language_word|nil
+function df.language_word.find(key) end
+
 ---@class language_translation: df.instance
 ---@field name string
 ---@field unknown1 string[] looks like english words
@@ -687,13 +691,21 @@ df.language_word = {}
 ---@field str string[]
 df.language_translation = {}
 
+---@param key integer
+---@return language_translation|nil
+function df.language_translation.find(key) end
+
 ---@class language_symbol: df.instance
 ---@field name string
----@field unknown integer[] empty
+---@field unknown df.container<integer> empty
 ---@field words integer[]
 ---@field flags integer
 ---@field str string[]
 df.language_symbol = {}
+
+---@param key integer
+---@return language_symbol|nil
+function df.language_symbol.find(key) end
 
 ---@class language_name: df.class
 ---@field first_name string
@@ -705,11 +717,33 @@ df.language_symbol = {}
 ---@field has_name boolean
 df.language_name = {}
 
+---@param key integer
+---@return language_name|nil
+function df.language_name.find(key) end
+
 ---word_selectorst
 ---@class language_word_table: df.class
----@field words integer[][]
----@field parts part_of_speech[][]
+---@field words language_word_table_words[]
+---@field parts language_word_table_parts[]
 df.language_word_table = {}
+
+---@param key integer
+---@return language_word_table|nil
+function df.language_word_table.find(key) end
+
+---@class language_word_table_words: df.class
+df.language_word_table.T_words = {}
+
+---@param key integer
+---@return language_word_table_words|nil
+function df.language_word_table.T_words.find(key) end
+
+---@class language_word_table_parts: df.class
+df.language_word_table.T_parts = {}
+
+---@param key integer
+---@return language_word_table_parts|nil
+function df.language_word_table.T_parts.find(key) end
 
 ---@class _language_name_category: df.enum
 ---@field Unit 0

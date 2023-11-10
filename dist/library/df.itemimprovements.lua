@@ -71,6 +71,10 @@ df.improvement_type = {}
 ---@field unk_1 integer
 df.dye_info = {}
 
+---@param key integer
+---@return dye_info|nil
+function df.dye_info.find(key) end
+
 ---@class itemimprovement: df.class
 ---@field mat_type integer References: material
 ---@field mat_index integer
@@ -81,13 +85,17 @@ df.dye_info = {}
 ---@field unk_1 integer
 df.itemimprovement = {}
 
+---@param key integer
+---@return itemimprovement|nil
+function df.itemimprovement.find(key) end
+
 ---@param unk_0 item
 ---@param unk_1 art_image
 ---@return art_image
 function df.itemimprovement:getImage(unk_0, unk_1) end
 
----@param colors integer[]
----@param shapes integer[]
+---@param colors df.container<integer>
+---@param shapes df.container<integer>
 ---@param unk_2 integer
 function df.itemimprovement:getColorAndShape(colors, shapes, unk_2) end
 
@@ -119,10 +127,18 @@ function df.itemimprovement:setShape(shape) end
 ---@field image art_image_ref
 df.itemimprovement_art_imagest = {}
 
+---@param key integer
+---@return itemimprovement_art_imagest|nil
+function df.itemimprovement_art_imagest.find(key) end
+
 ---@class itemimprovement_coveredst: itemimprovement
 ---@field cover_flags itemimprovement_coveredst_cover_flags
 ---@field shape integer References: descriptor_shape
 df.itemimprovement_coveredst = {}
+
+---@param key integer
+---@return itemimprovement_coveredst|nil
+function df.itemimprovement_coveredst.find(key) end
 
 ---@class _itemimprovement_coveredst_cover_flags: df.bitfield
 ---@field glazed 0
@@ -136,12 +152,24 @@ df.itemimprovement_coveredst.T_cover_flags = {}
 ---@class itemimprovement_rings_hangingst: itemimprovement
 df.itemimprovement_rings_hangingst = {}
 
+---@param key integer
+---@return itemimprovement_rings_hangingst|nil
+function df.itemimprovement_rings_hangingst.find(key) end
+
 ---@class itemimprovement_bandsst: itemimprovement
 ---@field shape integer References: descriptor_shape
 df.itemimprovement_bandsst = {}
 
+---@param key integer
+---@return itemimprovement_bandsst|nil
+function df.itemimprovement_bandsst.find(key) end
+
 ---@class itemimprovement_spikesst: itemimprovement
 df.itemimprovement_spikesst = {}
+
+---@param key integer
+---@return itemimprovement_spikesst|nil
+function df.itemimprovement_spikesst.find(key) end
 
 ---@class _itemimprovement_specific_type: df.enum
 ---@field HANDLE 0
@@ -160,12 +188,24 @@ df.itemimprovement_specific_type = {}
 ---@field type itemimprovement_specific_type
 df.itemimprovement_itemspecificst = {}
 
+---@param key integer
+---@return itemimprovement_itemspecificst|nil
+function df.itemimprovement_itemspecificst.find(key) end
+
 ---@class itemimprovement_threadst: itemimprovement
 ---@field dye dye_info
 df.itemimprovement_threadst = {}
 
+---@param key integer
+---@return itemimprovement_threadst|nil
+function df.itemimprovement_threadst.find(key) end
+
 ---@class itemimprovement_clothst: itemimprovement
 df.itemimprovement_clothst = {}
+
+---@param key integer
+---@return itemimprovement_clothst|nil
+function df.itemimprovement_clothst.find(key) end
 
 ---@class itemimprovement_sewn_imagest: itemimprovement
 ---@field image art_image_ref
@@ -173,33 +213,61 @@ df.itemimprovement_clothst = {}
 ---@field dye dye_info
 df.itemimprovement_sewn_imagest = {}
 
+---@param key integer
+---@return itemimprovement_sewn_imagest|nil
+function df.itemimprovement_sewn_imagest.find(key) end
+
 ---@class itemimprovement_sewn_imagest_cloth: df.class
 ---@field unit_id integer References: historical_figure
 ---@field quality integer
 ---@field unk_1 integer
 df.itemimprovement_sewn_imagest.T_cloth = {}
 
+---@param key integer
+---@return itemimprovement_sewn_imagest_cloth|nil
+function df.itemimprovement_sewn_imagest.T_cloth.find(key) end
+
 ---@class itemimprovement_pagesst: itemimprovement
 ---@field count integer
----@field contents integer[] References: written_content
+---@field contents df.container<integer> References: written_content
 df.itemimprovement_pagesst = {}
+
+---@param key integer
+---@return itemimprovement_pagesst|nil
+function df.itemimprovement_pagesst.find(key) end
 
 ---@class itemimprovement_illustrationst: itemimprovement
 ---@field image art_image_ref
 ---@field unk_2 integer
 df.itemimprovement_illustrationst = {}
 
+---@param key integer
+---@return itemimprovement_illustrationst|nil
+function df.itemimprovement_illustrationst.find(key) end
+
 ---@class itemimprovement_instrument_piecest: itemimprovement
 ---@field type string instrument_piece.type
 df.itemimprovement_instrument_piecest = {}
 
+---@param key integer
+---@return itemimprovement_instrument_piecest|nil
+function df.itemimprovement_instrument_piecest.find(key) end
+
 ---@class itemimprovement_writingst: itemimprovement
----@field contents integer[] References: written_content
+---@field contents df.container<integer> References: written_content
 df.itemimprovement_writingst = {}
+
+---@param key integer
+---@return itemimprovement_writingst|nil
+function df.itemimprovement_writingst.find(key) end
 
 ---@class itemimprovement_image_setst: itemimprovement
 ---@field image_set_id integer References: image_set
 df.itemimprovement_image_setst = {}
+
+---@param key integer
+---@return itemimprovement_image_setst|nil
+function df.itemimprovement_image_setst.find(key) end
 
 ---@class _written_content_type: df.enum
 ---@field Manual 0
@@ -393,16 +461,20 @@ df.written_content_style = {}
 ---@field page_start integer
 ---@field page_end integer
 ---@field refs general_ref[] interactions learned
----@field ref_aux integer[] if nonzero, corresponding ref is ignored
+---@field ref_aux df.container<integer> if nonzero, corresponding ref is ignored
 ---@field unk1 integer
 ---@field unk2 integer
 ---@field type written_content_type
 ---@field poetic_form integer References: poetic_form
----@field styles written_content_style[]
----@field style_strength integer[] 0 = maximum, 1 = significant, 2 = partial
+---@field styles df.container<written_content_style>
+---@field style_strength df.container<integer> 0 = maximum, 1 = significant, 2 = partial
 ---@field author integer References: historical_figure
 ---@field author_roll integer
 df.written_content = {}
+
+---@param key integer
+---@return written_content|nil
+function df.written_content.find(key) end
 
 ---@class _engraving_flags: df.bitfield
 ---@field floor 0
@@ -462,4 +534,8 @@ df.engraving_flags = {}
 ---@field unk1 integer
 ---@field unk2 integer
 df.engraving = {}
+
+---@param key integer
+---@return engraving|nil
+function df.engraving.find(key) end
 

@@ -401,6 +401,10 @@ df.item_type.attrs = {}
 ---@field flags weapon_attack_flags
 df.weapon_attack = {}
 
+---@param key integer
+---@return weapon_attack|nil
+function df.weapon_attack.find(key) end
+
 ---@class _weapon_attack_flags: df.bitfield
 ---@field independent_multiattack 0
 ---@field [0] "independent_multiattack"
@@ -431,6 +435,10 @@ df.itemdef_flags = {}
 ---@field source_enid integer References: historical_entity
 ---@field raw_strings string[]
 df.itemdef = {}
+
+---@param key integer
+---@return itemdef|nil
+function df.itemdef.find(key) end
 
 ---@param unk_0 integer
 ---@param unk_1 integer
@@ -464,6 +472,10 @@ df.ammo_flags = {}
 ---@field value integer
 ---@field attacks weapon_attack[]
 df.itemdef_ammost = {}
+
+---@param key integer
+---@return itemdef_ammost|nil
+function df.itemdef_ammost.find(key) end
 
 ---@class _armor_general_flags: df.enum
 ---@field SOFT 0
@@ -522,6 +534,10 @@ df.armor_general_flags = {}
 ---@field coverage integer
 df.armor_properties = {}
 
+---@param key integer
+---@return armor_properties|nil
+function df.armor_properties.find(key) end
+
 ---@class _armor_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
@@ -546,10 +562,18 @@ df.armor_flags = {}
 ---@field flags armor_flags[]
 df.itemdef_armorst = {}
 
+---@param key integer
+---@return itemdef_armorst|nil
+function df.itemdef_armorst.find(key) end
+
 ---@class itemdef_foodst: df.instance
 ---@field name string
 ---@field level integer
 df.itemdef_foodst = {}
+
+---@param key integer
+---@return itemdef_foodst|nil
+function df.itemdef_foodst.find(key) end
 
 ---@class _gloves_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
@@ -572,6 +596,10 @@ df.gloves_flags = {}
 ---@field props armor_properties
 df.itemdef_glovesst = {}
 
+---@param key integer
+---@return itemdef_glovesst|nil
+function df.itemdef_glovesst.find(key) end
+
 ---@class _helm_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
@@ -591,6 +619,10 @@ df.helm_flags = {}
 ---@field material_size integer
 ---@field props armor_properties
 df.itemdef_helmst = {}
+
+---@param key integer
+---@return itemdef_helmst|nil
+function df.itemdef_helmst.find(key) end
 
 ---@class _instrument_flags: df.enum
 ---@field INDEFINITE_PITCH 0
@@ -647,23 +679,27 @@ df.instrument_flags = {}
 ---@field pitch_range_max integer
 ---@field volume_mb_min integer
 ---@field volume_mb_max integer
----@field sound_production sound_production_type[]
+---@field sound_production df.container<sound_production_type>
 ---@field sound_production_parm1 string[]
 ---@field sound_production_parm2 string[]
----@field unk_100 integer[]
----@field unk_110 integer[]
----@field pitch_choice pitch_choice_type[]
+---@field unk_100 df.container<integer>
+---@field unk_110 df.container<integer>
+---@field pitch_choice df.container<pitch_choice_type>
 ---@field pitch_choice_parm1 string[]
 ---@field pitch_choice_parm2 string[]
----@field unk_150 integer[]
----@field unk_160 integer[]
----@field tuning tuning_type[]
+---@field unk_150 df.container<integer>
+---@field unk_160 df.container<integer>
+---@field tuning df.container<tuning_type>
 ---@field tuning_parm string[]
----@field unk_190 integer[]
+---@field unk_190 df.container<integer>
 ---@field registers instrument_register[]
----@field timbre timbre_type[]
+---@field timbre df.container<timbre_type>
 ---@field description string
 df.itemdef_instrumentst = {}
+
+---@param key integer
+---@return itemdef_instrumentst|nil
+function df.itemdef_instrumentst.find(key) end
 
 ---@class _sound_production_type: df.enum
 ---@field PLUCKED_BY_BP 0
@@ -1098,6 +1134,10 @@ df.timbre_type = {}
 ---@field flags instrument_piece_flags
 df.instrument_piece = {}
 
+---@param key integer
+---@return instrument_piece|nil
+function df.instrument_piece.find(key) end
+
 ---@class _instrument_piece_flags: df.bitfield
 ---@field always_singular 0
 ---@field [0] "always_singular"
@@ -1114,8 +1154,12 @@ df.instrument_piece.T_flags = {}
 ---@class instrument_register: df.class
 ---@field pitch_range_min integer
 ---@field pitch_range_max integer
----@field timbres timbre_type[]
+---@field timbres df.container<timbre_type>
 df.instrument_register = {}
+
+---@param key integer
+---@return instrument_register|nil
+function df.instrument_register.find(key) end
 
 ---@class _pants_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
@@ -1140,6 +1184,10 @@ df.pants_flags = {}
 ---@field props armor_properties
 df.itemdef_pantsst = {}
 
+---@param key integer
+---@return itemdef_pantsst|nil
+function df.itemdef_pantsst.find(key) end
+
 ---@class itemdef_shieldst: df.instance
 ---@field name string
 ---@field name_plural string
@@ -1150,6 +1198,10 @@ df.itemdef_pantsst = {}
 ---@field upstep integer
 ---@field material_size integer
 df.itemdef_shieldst = {}
+
+---@param key integer
+---@return itemdef_shieldst|nil
+function df.itemdef_shieldst.find(key) end
 
 ---@class _shoes_flags: df.enum
 ---@field METAL_ARMOR_LEVELS 0
@@ -1172,11 +1224,19 @@ df.shoes_flags = {}
 ---@field props armor_properties
 df.itemdef_shoesst = {}
 
+---@param key integer
+---@return itemdef_shoesst|nil
+function df.itemdef_shoesst.find(key) end
+
 ---@class itemdef_siegeammost: df.instance
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
 df.itemdef_siegeammost = {}
+
+---@param key integer
+---@return itemdef_siegeammost|nil
+function df.itemdef_siegeammost.find(key) end
 
 ---@class _tool_flags: df.enum
 ---@field HARD_MAT 0
@@ -1396,10 +1456,14 @@ df.tool_uses = {}
 ---@field shoot_maxvel integer
 ---@field container_capacity integer
 ---@field shape_category_str string[]
----@field shape_category integer[] References: descriptor_shape
+---@field shape_category df.container<integer> References: descriptor_shape
 ---@field description string
 ---@field default_improvements itemdef_toolst_default_improvements[]
 df.itemdef_toolst = {}
+
+---@param key integer
+---@return itemdef_toolst|nil
+function df.itemdef_toolst.find(key) end
 
 ---@class itemdef_toolst_default_improvements: df.class
 ---@field type improvement_type
@@ -1407,6 +1471,10 @@ df.itemdef_toolst = {}
 ---@field instrument_part string
 ---@field restriction tool_flags
 df.itemdef_toolst.T_default_improvements = {}
+
+---@param key integer
+---@return itemdef_toolst_default_improvements|nil
+function df.itemdef_toolst.T_default_improvements.find(key) end
 
 ---@class _toy_flags: df.enum
 ---@field HARD_MAT 0
@@ -1422,6 +1490,10 @@ df.toy_flags = {}
 ---@field name_plural string
 ---@field flags toy_flags[]
 df.itemdef_toyst = {}
+
+---@param key integer
+---@return itemdef_toyst|nil
+function df.itemdef_toyst.find(key) end
 
 ---@class _trapcomp_flags: df.enum
 ---@field IS_SCREW 0
@@ -1460,6 +1532,10 @@ df.trapcomp_flags = {}
 ---@field attacks weapon_attack[]
 df.itemdef_trapcompst = {}
 
+---@param key integer
+---@return itemdef_trapcompst|nil
+function df.itemdef_trapcompst.find(key) end
+
 ---@class _weapon_flags: df.enum
 ---@field CAN_STONE 0
 ---@field [0] "CAN_STONE"
@@ -1494,4 +1570,8 @@ df.weapon_flags = {}
 ---@field shoot_force integer
 ---@field shoot_maxvel integer
 df.itemdef_weaponst = {}
+
+---@param key integer
+---@return itemdef_weaponst|nil
+function df.itemdef_weaponst.find(key) end
 

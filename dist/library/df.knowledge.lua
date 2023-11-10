@@ -1324,6 +1324,10 @@ df.knowledge_scholar_flags_13 = {}
 ---@field flag_data knowledge_scholar_category_flag_flag_data
 df.knowledge_scholar_category_flag = {}
 
+---@param key integer
+---@return knowledge_scholar_category_flag|nil
+function df.knowledge_scholar_category_flag.find(key) end
+
 ---@class _knowledge_scholar_category_flag_flag_type: df.enum
 ---determines which bitflags to use
 ---@field flags_0 0
@@ -1403,6 +1407,10 @@ df.knowledge_scholar_category_flag.T_flag_type = {}
 ---@field flags_13 knowledge_scholar_flags_13
 ---@field whole integer
 df.knowledge_scholar_category_flag.T_flag_data = {}
+
+---@param key integer
+---@return knowledge_scholar_category_flag_flag_data|nil
+function df.knowledge_scholar_category_flag.T_flag_data.find(key) end
 
 ---@class _dfhack_knowledge_scholar_flag: df.enum
 ---not in DF

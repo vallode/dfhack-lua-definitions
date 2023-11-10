@@ -61,6 +61,12 @@
 ---@class df.bitfield: df.iter
 ---@field _kind "bitfield-type"
 
+---@class df.container<T>: { [T]: integer }, df.base
+---@field _enum unknown TODO
+---@field resize fun(new_size: integer)
+---@field insert fun(self: any, index: "#ref"|"#"|integer, item: any)
+---@field erase fun(self: any, index: integer)
+
 ---@param object table
 ---@return integer
 function df.sizeof(object) end

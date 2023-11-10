@@ -578,6 +578,10 @@ df.strain_type = {}
 ---@field reaction_class string[]
 df.material_common = {}
 
+---@param key integer
+---@return material_common|nil
+function df.material_common.find(key) end
+
 ---@class material_common_heat: df.class
 ---@field spec_heat integer
 ---@field heatdam_point integer
@@ -588,6 +592,10 @@ df.material_common = {}
 ---@field mat_fixed_temp integer
 df.material_common.T_heat = {}
 
+---@param key integer
+---@return material_common_heat|nil
+function df.material_common.T_heat.find(key) end
+
 ---@class material_common_strength: df.class
 ---@field absorption integer
 ---@field yield integer[]
@@ -596,19 +604,31 @@ df.material_common.T_heat = {}
 ---@field max_edge integer
 df.material_common.T_strength = {}
 
+---@param key integer
+---@return material_common_strength|nil
+function df.material_common.T_strength.find(key) end
+
 ---@class material_common_reaction_product: df.class
 ---@field id string[]
----@field item_type integer[]
----@field item_subtype integer[]
+---@field item_type df.container<integer>
+---@field item_subtype df.container<integer>
 ---@field material material_vec_ref
 ---@field str string[][]
 df.material_common.T_reaction_product = {}
+
+---@param key integer
+---@return material_common_reaction_product|nil
+function df.material_common.T_reaction_product.find(key) end
 
 ---@class material_common_hardens_with_water: df.class
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field str string[]
 df.material_common.T_hardens_with_water = {}
+
+---@param key integer
+---@return material_common_hardens_with_water|nil
+function df.material_common.T_hardens_with_water.find(key) end
 
 ---@class material: material_common
 ---@field tile integer
@@ -620,7 +640,7 @@ df.material_common.T_hardens_with_water = {}
 ---@field temp_diet_info integer
 ---@field syndrome syndrome[]
 ---@field soap_level integer
----@field unk_41c integer[]
+---@field unk_41c df.container<integer>
 ---@field prefix string
 ---@field food_mat_index integer[]
 ---@field powder_dye_str string temporary
@@ -635,10 +655,18 @@ df.material_common.T_hardens_with_water = {}
 ---@field cheese_texpos2 integer
 df.material = {}
 
+---@param key integer
+---@return material|nil
+function df.material.find(key) end
+
 ---@class material_vec_ref: df.class
 ---@field mat_type integer[]
----@field mat_index integer[]
+---@field mat_index df.container<integer>
 df.material_vec_ref = {}
+
+---@param key integer
+---@return material_vec_ref|nil
+function df.material_vec_ref.find(key) end
 
 ---@class material_template: material_common
 ---@field tile integer
@@ -650,10 +678,14 @@ df.material_vec_ref = {}
 ---@field temp_diet_info integer
 ---@field syndrome syndrome[]
 ---@field soap_level integer
----@field unk_41c integer[]
+---@field unk_41c df.container<integer>
 ---@field powder_dye_str string temporary
 ---@field state_color_str string[]
 df.material_template = {}
+
+---@param key integer
+---@return material_template|nil
+function df.material_template.find(key) end
 
 ---@class _inorganic_flags: df.enum
 ---@field LAVA 0
@@ -858,7 +890,7 @@ df.inclusion_type = {}
 ---@field unk_v4201_1 integer
 ---@field metal_ore inorganic_raw_metal_ore
 ---@field thread_metal inorganic_raw_thread_metal
----@field economic_uses integer[] References: reaction
+---@field economic_uses df.container<integer> References: reaction
 ---@field environment_spec inorganic_raw_environment_spec
 ---@field environment inorganic_raw_environment
 ---@field times_used_land integer
@@ -866,30 +898,50 @@ df.inclusion_type = {}
 ---@field material material
 df.inorganic_raw = {}
 
+---@param key integer
+---@return inorganic_raw|nil
+function df.inorganic_raw.find(key) end
+
 ---@class inorganic_raw_metal_ore: df.class
 ---@field str string[] only during parsing
 ---@field mat_index integer[]
----@field probability integer[]
+---@field probability df.container<integer>
 df.inorganic_raw.T_metal_ore = {}
+
+---@param key integer
+---@return inorganic_raw_metal_ore|nil
+function df.inorganic_raw.T_metal_ore.find(key) end
 
 ---@class inorganic_raw_thread_metal: df.class
 ---@field str string[] only during parsing
 ---@field mat_index integer[]
----@field probability integer[]
+---@field probability df.container<integer>
 df.inorganic_raw.T_thread_metal = {}
+
+---@param key integer
+---@return inorganic_raw_thread_metal|nil
+function df.inorganic_raw.T_thread_metal.find(key) end
 
 ---@class inorganic_raw_environment_spec: df.class
 ---@field str string[] only during parsing
 ---@field mat_index integer[]
 ---@field inclusion_type inclusion_type[]
----@field probability integer[]
+---@field probability df.container<integer>
 df.inorganic_raw.T_environment_spec = {}
+
+---@param key integer
+---@return inorganic_raw_environment_spec|nil
+function df.inorganic_raw.T_environment_spec.find(key) end
 
 ---@class inorganic_raw_environment: df.class
 ---@field location environment_type[]
 ---@field type inclusion_type[]
----@field probability integer[]
+---@field probability df.container<integer>
 df.inorganic_raw.T_environment = {}
+
+---@param key integer
+---@return inorganic_raw_environment|nil
+function df.inorganic_raw.T_environment.find(key) end
 
 ---@class _organic_mat_category: df.enum
 ---@field Meat 0
@@ -1053,9 +1105,13 @@ df.organic_mat_category = {}
 ---@field Parchment boolean
 
 ---@class special_mat_table: df.class
----@field organic_types integer[][]
----@field organic_indexes integer[][]
----@field organic_unknown integer[][] everything 0
+---@field organic_types df.container<integer>[]
+---@field organic_indexes df.container<integer>[]
+---@field organic_unknown df.container<integer>[] everything 0
 ---@field builtin material[]
 df.special_mat_table = {}
+
+---@param key integer
+---@return special_mat_table|nil
+function df.special_mat_table.find(key) end
 

@@ -6,10 +6,18 @@
 ---@field quad_part integer
 df.large_integer = {}
 
+---@param key integer
+---@return large_integer|nil
+function df.large_integer.find(key) end
+
 ---@class large_integer_u: df.class
 ---@field low_part number
 ---@field high_part number
 df.large_integer.T_u = {}
+
+---@param key integer
+---@return large_integer_u|nil
+function df.large_integer.T_u.find(key) end
 
 ---@class musicsoundst: df.class
 ---@field soft_channel_number integer
@@ -24,6 +32,10 @@ df.large_integer.T_u = {}
 ---@field samp fmod_sound[] sound effects
 ---@field linux_sound_system musicsoundst_linux_sound_system
 df.musicsoundst = {}
+
+---@param key integer
+---@return musicsoundst|nil
+function df.musicsoundst.find(key) end
 
 ---@class _musicsoundst_linux_sound_system: df.enum
 ---@field ALSA 0
@@ -46,6 +58,10 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@field sound integer
 ---@field channel integer
 df.fmod_sound = {}
+
+---@param key integer
+---@return fmod_sound|nil
+function df.fmod_sound.find(key) end
 
 ---@class _curses_color: df.enum
 ---@field Black 0
@@ -163,6 +179,10 @@ df.cmv_attribute = {}
 ---@field shadow_tree_species_plus_one integer
 df.graphic_viewportst = {}
 
+---@param key integer
+---@return graphic_viewportst|nil
+function df.graphic_viewportst.find(key) end
+
 ---@class graphic_map_portst: df.class
 ---@field flag integer
 ---@field dim_x integer
@@ -228,6 +248,10 @@ df.graphic_viewportst = {}
 ---@field edge_biome_se integer
 df.graphic_map_portst = {}
 
+---@param key integer
+---@return graphic_map_portst|nil
+function df.graphic_map_portst.find(key) end
+
 ---@class cached_texturest: df.class
 ---@field w integer
 ---@field h integer
@@ -235,11 +259,19 @@ df.graphic_map_portst = {}
 ---@field tex_n integer
 df.cached_texturest = {}
 
+---@param key integer
+---@return cached_texturest|nil
+function df.cached_texturest.find(key) end
+
 ---@class texblitst: df.class
 ---@field x integer
 ---@field y integer
 ---@field tex integer
 df.texblitst = {}
+
+---@param key integer
+---@return texblitst|nil
+function df.texblitst.find(key) end
 
 ---@class graphic: df.class
 ---@field viewport graphic_viewportst[]
@@ -297,7 +329,7 @@ df.texblitst = {}
 ---@field clipx number[]
 ---@field clipy number[]
 ---@field tex cached_texturest[]
----@field texblits texblitst[]
+---@field texblits df.container<texblitst>
 ---@field rect_id number
 ---@field print_time large_integer[]
 ---@field print_index number
@@ -311,17 +343,25 @@ df.texblitst = {}
 ---@field tileset graphic_tileset
 df.graphic = {}
 
+---@param key integer
+---@return graphic|nil
+function df.graphic.find(key) end
+
 ---@class graphic_tileset: df.class
 ---@field black_background_texpos number[]
 ---@field texture_indices1 integer[]
----@field texpos_custom_symbol integer[]
+---@field texpos_custom_symbol df.container<integer>
 ---@field texture_indices2 integer[]
 ---@field graphical_interface interface_setst
 ---@field classic_interface interface_setst
 ---@field texture_indices3 integer[]
----@field texpos_boulder integer[]
+---@field texpos_boulder df.container<integer>
 ---@field texture_indices4 integer[]
 df.graphic.T_tileset = {}
+
+---@param key integer
+---@return graphic_tileset|nil
+function df.graphic.T_tileset.find(key) end
 
 ---@class interface_setst: df.class
 ---@field texpos_calendar_month integer[][]
@@ -414,8 +454,8 @@ df.graphic.T_tileset = {}
 ---@field texpos_short_subsubtab integer[][]
 ---@field texpos_short_subsubtab_selected integer[][]
 ---@field texpos_interface_background integer
----@field texpos_button_main integer[][][]
----@field texpos_button_small integer[][][]
+---@field texpos_button_main interface_setst_texpos_button_main[]
+---@field texpos_button_small interface_setst_texpos_button_small[]
 ---@field texpos_button_horizontal_option_left_ornament integer[][]
 ---@field texpos_button_horizontal_option_active integer[][]
 ---@field texpos_button_horizontal_option_inactive integer[][]
@@ -477,12 +517,12 @@ df.graphic.T_tileset = {}
 ---@field texpos_building_jobs_active integer[][]
 ---@field texpos_building_jobs_quota integer[][]
 ---@field texpos_building_jobs_remove_worker integer[][]
----@field texpos_button_assign_trade integer[][][]
----@field texpos_button_building_info integer[][][]
----@field texpos_button_building_sheet integer[][][]
----@field texpos_button_unit_sheet integer[][][]
----@field texpos_button_large_unit_sheet integer[][][]
----@field texpos_button_pets_livestock integer[][][]
+---@field texpos_button_assign_trade interface_setst_texpos_button_assign_trade[]
+---@field texpos_button_building_info interface_setst_texpos_button_building_info[]
+---@field texpos_button_building_sheet interface_setst_texpos_button_building_sheet[]
+---@field texpos_button_unit_sheet interface_setst_texpos_button_unit_sheet[]
+---@field texpos_button_large_unit_sheet interface_setst_texpos_button_large_unit_sheet[]
+---@field texpos_button_pets_livestock interface_setst_texpos_button_pets_livestock[]
 ---@field texpos_liquid_numbers_on integer[][]
 ---@field texpos_liquid_numbers_off integer[][]
 ---@field texpos_ramp_arrows_on integer[][]
@@ -518,6 +558,66 @@ df.graphic.T_tileset = {}
 ---@field texpos_bottom_button_border_e integer
 df.interface_setst = {}
 
+---@param key integer
+---@return interface_setst|nil
+function df.interface_setst.find(key) end
+
+---@class interface_setst_texpos_button_main: df.class
+df.interface_setst.T_texpos_button_main = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_main|nil
+function df.interface_setst.T_texpos_button_main.find(key) end
+
+---@class interface_setst_texpos_button_small: df.class
+df.interface_setst.T_texpos_button_small = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_small|nil
+function df.interface_setst.T_texpos_button_small.find(key) end
+
+---@class interface_setst_texpos_button_assign_trade: df.class
+df.interface_setst.T_texpos_button_assign_trade = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_assign_trade|nil
+function df.interface_setst.T_texpos_button_assign_trade.find(key) end
+
+---@class interface_setst_texpos_button_building_info: df.class
+df.interface_setst.T_texpos_button_building_info = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_building_info|nil
+function df.interface_setst.T_texpos_button_building_info.find(key) end
+
+---@class interface_setst_texpos_button_building_sheet: df.class
+df.interface_setst.T_texpos_button_building_sheet = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_building_sheet|nil
+function df.interface_setst.T_texpos_button_building_sheet.find(key) end
+
+---@class interface_setst_texpos_button_unit_sheet: df.class
+df.interface_setst.T_texpos_button_unit_sheet = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_unit_sheet|nil
+function df.interface_setst.T_texpos_button_unit_sheet.find(key) end
+
+---@class interface_setst_texpos_button_large_unit_sheet: df.class
+df.interface_setst.T_texpos_button_large_unit_sheet = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_large_unit_sheet|nil
+function df.interface_setst.T_texpos_button_large_unit_sheet.find(key) end
+
+---@class interface_setst_texpos_button_pets_livestock: df.class
+df.interface_setst.T_texpos_button_pets_livestock = {}
+
+---@param key integer
+---@return interface_setst_texpos_button_pets_livestock|nil
+function df.interface_setst.T_texpos_button_pets_livestock.find(key) end
+
 ---@class renderer: df.class
 ---@field screen integer
 ---@field screentexpos number
@@ -551,6 +651,10 @@ df.interface_setst = {}
 ---@field directtexcopy_old integer
 ---@field screentexpos_refresh_buffer integer
 df.renderer = {}
+
+---@param key integer
+---@return renderer|nil
+function df.renderer.find(key) end
 
 ---@param x integer
 ---@param y integer
@@ -639,13 +743,17 @@ function df.renderer:uses_opengl() end
 ---@field cur_h integer
 ---@field use_viewport_zoom boolean
 ---@field viewport_zoom_factor integer
----@field textures_to_destroy integer[] svector<texture_fullid>
+---@field textures_to_destroy df.container<integer> svector<texture_fullid>
 ---@field ttfs_to_render integer std::list<pair<SDL_Surface*, SDL_Rect>>
 ---@field zoom_steps integer
 ---@field forced_steps integer
 ---@field natural_w integer
 ---@field natural_h integer
 df.renderer_2d_base = {}
+
+---@param key integer
+---@return renderer_2d_base|nil
+function df.renderer_2d_base.find(key) end
 
 ---@param w integer
 ---@param h integer
@@ -654,6 +762,10 @@ function df.renderer_2d_base:init_video(w, h) end
 
 ---@class renderer_2d: renderer_2d_base
 df.renderer_2d = {}
+
+---@param key integer
+---@return renderer_2d|nil
+function df.renderer_2d.find(key) end
 
 ---@class _zoom_commands: df.enum
 ---@field zoom_in 0
@@ -726,6 +838,10 @@ df.zoom_commands = {}
 ---@field last_text_input integer[]
 df.enabler = {}
 
+---@param key integer
+---@return enabler|nil
+function df.enabler.find(key) end
+
 ---@class _enabler_fullscreen_state: df.bitfield
 ---@field fullscreen 0
 ---@field [0] "fullscreen"
@@ -742,20 +858,32 @@ df.enabler.T_fullscreen_state = {}
 ---@class enabler_async_tobox: df.class
 ---@field mtx lightuserdata
 ---@field cv lightuserdata
----@field vals integer
+---@field vals _cmd
 df.enabler.T_async_tobox = {}
+
+---@param key integer
+---@return enabler_async_tobox|nil
+function df.enabler.T_async_tobox.find(key) end
 
 ---@class enabler_async_frombox: df.class
 ---@field mtx lightuserdata
 ---@field cv lightuserdata
----@field vals integer
+---@field vals _msg
 df.enabler.T_async_frombox = {}
+
+---@param key integer
+---@return enabler_async_frombox|nil
+function df.enabler.T_async_frombox.find(key) end
 
 ---@class enabler_async_zoom: df.class
 ---@field mtx lightuserdata
 ---@field cv lightuserdata
 ---@field vals zoom_commands
 df.enabler.T_async_zoom = {}
+
+---@param key integer
+---@return enabler_async_zoom|nil
+function df.enabler.T_async_zoom.find(key) end
 
 ---@class _enabler_flag: df.bitfield
 ---@field render 0
@@ -771,11 +899,15 @@ df.enabler.T_flag = {}
 ---@field maxfps boolean
 
 ---@class enabler_textures: df.class
----@field raws integer[]
----@field free_spaces integer[]
+---@field raws df.container<integer>
+---@field free_spaces df.container<integer>
 ---@field init_texture_size integer
 ---@field uploaded boolean
 df.enabler.T_textures = {}
+
+---@param key integer
+---@return enabler_textures|nil
+function df.enabler.T_textures.find(key) end
 
 ---@param unk_0 interface_key
 ---@return string
@@ -815,12 +947,16 @@ df.justification = {}
 ---@field tile_dim_y integer
 ---@field page_dim_x integer
 ---@field page_dim_y integer
----@field texpos number[]
----@field datapos number[]
----@field texpos_gs number[]
----@field datapos_gs number[]
+---@field texpos df.container<number>
+---@field datapos df.container<number>
+---@field texpos_gs df.container<number>
+---@field datapos_gs df.container<number>
 ---@field loaded boolean
 df.tile_pagest = {}
+
+---@param key integer
+---@return tile_pagest|nil
+function df.tile_pagest.find(key) end
 
 ---@class palette_pagest: df.class
 ---@field token string
@@ -828,11 +964,19 @@ df.tile_pagest = {}
 ---@field filename string
 ---@field default_row integer
 ---@field color_token string[]
----@field color_row integer[]
+---@field color_row df.container<integer>
 df.palette_pagest = {}
+
+---@param key integer
+---@return palette_pagest|nil
+function df.palette_pagest.find(key) end
 
 ---@class texture_handlerst: df.class
 ---@field page tile_pagest[]
 ---@field palette palette_pagest[]
 df.texture_handlerst = {}
+
+---@param key integer
+---@return texture_handlerst|nil
+function df.texture_handlerst.find(key) end
 

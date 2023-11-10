@@ -23,16 +23,33 @@ class XmlNode
     @has_children = !node.children.empty?
     # @parent = parent
     @parent_type = parent_type
+    @type_name = type_name
 
-    # Parsed attributes
-    @comment = XmlNode.get_comment(node)
+    @is_array = array?
+
+    @comment = comment
+    @root_type = root_type
   end
 
-  def self.get_comment(node)
+  def array?
+    %w[stl-vector static-array stl-bit-vector df-flagarray].include?(@node.name)
+  end
+
+  def type_name
+    @node['type-name'] || @node['index-enum'] || @node['pointer-type']
+  end
+
+  def root_type
+    child_type = Field.new(@children.first).type if !@children.empty? && @node.name != 'vmethod'
+
+    XmlNode.parse_type(child_type) || XmlNode.parse_type(@type_name) || XmlNode.parse_type(@node.name, 'any')
+  end
+
+  def comment
     if (comment = node.at_css('comment'))
       comment.text.gsub(/\n/, '<br>').strip.gsub(/\s+/, ' ')
     else
-      node['comment']
+      @node['comment']
     end
   end
 
@@ -41,21 +58,20 @@ class XmlNode
   end
 end
 
+# Represents any nested field.
 class Field < XmlNode
-  attr_reader :name, :is_inline, :type
+  attr_reader :name, :is_inline
 
-  def initialize(node, parent_type = nil)
-    super
+  def initialize(node, parent_type: nil, index: nil)
+    super(node, parent_type)
 
-    @name = node['name']
+    @name = node['name'] || "unk_#{index}"
 
     @is_inline = inline?
-    @is_array = array?
-    @type = @is_inline ? "#{parent_type}_#{@name}#{'[]' if @is_array}" : Field.get_type(node)
-  end
+    @is_container = container?
 
-  def array?
-    %w[stl-vector static-array stl-bit-vector df-flagarray].include?(node.name)
+    @type = type
+    @parsed_comment = parsed_comment
   end
 
   def inline?
@@ -64,14 +80,19 @@ class Field < XmlNode
     case @node.name
     when 'global-object', 'pointer'
       @children.length > 1
-    when 'stl-vector'
+    when 'stl-vector', 'static-array'
       true unless @children.first.children.empty?
     when 'enum', 'bitfield', 'compound'
       true
     end
   end
 
-  def comment
+  # TODO: Formalize.
+  def container?
+    @node.name == 'stl-vector' && @children.empty? && !@node['pointer-type']
+  end
+
+  def parsed_comment
     comment = []
 
     comment.push("References: #{@node['ref-target']}") if @node['ref-target']
@@ -79,29 +100,22 @@ class Field < XmlNode
     comment.join('<br>').prepend(' ') unless comment.empty?
   end
 
+  def type
+    return "#{@parent_type}_#{@name}#{'[]' if @is_array}" if @is_inline
+    return "df.container<#{@root_type}>" if @is_container
+    return "#{@root_type}[]" if @is_array
+
+    @root_type
+  end
+
   def render
-    "---@field #{@name} #{@type}#{comment}\n"
-  end
-
-  def self.extract_type_name(node)
-    node['type-name'] || node['index-enum'] || node['pointer-type']
-  end
-
-  def self.get_type(node)
-    type_name = Field.extract_type_name(node)
-    children = node.xpath('*[not(self::comment)]')
-
-    child_type = Field.get_type(children.first) if !children.empty? && node.name != 'vmethod'
-    type = XmlNode.parse_type(child_type) || XmlNode.parse_type(type_name) || XmlNode.parse_type(node.name, 'any')
-
-    type += '[]' if %w[stl-vector static-array stl-bit-vector df-flagarray].include?(node.name)
-    type
+    "---@field #{@name} #{@type}#{@parsed_comment}\n"
   end
 end
 
 class FunctionType < Field
   def initialize(node, parent_type = nil)
-    super
+    super(node, parent_type: parent_type)
 
     @return_type = return_type
   end
@@ -125,7 +139,10 @@ class FunctionType < Field
   def return_type
     return_type = XmlNode.parse_type(@node['ret-type'], @node['ret-type'])
 
-    return_type = Field.get_type(@node.at_css('ret-type')) if @node.at_css('ret-type')
+    if @node.at_css('ret-type')
+      return_field = Field.new(@node.at_css('ret-type'))
+      return_type = return_field.type
+    end
 
     return_type
   end
@@ -136,13 +153,9 @@ class FunctionType < Field
     return nil unless @has_children
 
     @children.each_with_index do |child, index|
-      name = child['name'] || "unk_#{index}"
-      type = Field.get_type(child)
-      comment = child['comment']
-
-      name += '_' if RESERVED_KEYWORDS.include?(name)
-
-      parameters.push([name, type, comment])
+      child_field = Field.new(child, index: index)
+      name = '_' if RESERVED_KEYWORDS.include?(child_field.name)
+      parameters.push([child_field.name || name, child_field.type, child_field.comment])
     end
 
     parameters
@@ -186,9 +199,10 @@ class EnumType < XmlNode
       annotation << "---@class #{@name}_attr\n"
 
       @attrs.each do |attribute, _index|
-        attribute_type = Field.get_type(attribute)
-        annotation << "---@field #{attribute['name']} #{attribute_type.sub('any',
-                                                                           'string')}#{'[]' if attribute['is-list']}\n"
+        field = Field.new(attribute)
+        # TODO: What?
+        annotation << "---@field #{field.name} #{field.type.sub('any',
+                                                                'string')}#{'[]' if attribute['is-list']}\n"
       end
 
       # TODO: Change to use enum type as index once the discussion on github
@@ -235,7 +249,7 @@ class GlobalObject
 
     inline_fields = []
     @fields.each do |field|
-      field_node = Field.new(field, 'global')
+      field_node = Field.new(field, parent_type: 'global')
 
       inline_fields.push(field) if field_node.is_inline
 
@@ -294,7 +308,7 @@ class StructType < XmlNode
 
       next if !(child['name']) or child.name == 'code-helper'
 
-      field = Field.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}")
+      field = Field.new(child, parent_type: "#{@parent_type + @type_separator if @parent_type}#{@name}")
 
       inline_types.push(child) if field.is_inline
 
@@ -302,6 +316,8 @@ class StructType < XmlNode
     end
 
     annotation << "df.#{@parent_type + @type_separator if @parent_type}#{@name} = {}\n\n"
+
+    annotation << render_functions
 
     unless inline_types.empty?
       inline_types.each do |child|
@@ -316,5 +332,11 @@ class StructType < XmlNode
     end
 
     annotation
+  end
+
+  def render_functions
+    annotation = "---@param key integer\n"
+    annotation << "---@return #{@type}|nil\n"
+    annotation << "function df.#{@parent_type + @type_separator if @parent_type}#{@name}.find(key) end\n\n"
   end
 end

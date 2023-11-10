@@ -428,6 +428,10 @@ df.creature_interaction_effect_target_mode = {}
 ---@field tissue string[]
 df.creature_interaction_effect_target = {}
 
+---@param key integer
+---@return creature_interaction_effect_target|nil
+function df.creature_interaction_effect_target.find(key) end
+
 ---@class creature_interaction_effect: df.instance
 ---@field flags creature_interaction_effect_flags
 ---@field prob integer
@@ -443,12 +447,20 @@ df.creature_interaction_effect_target = {}
 ---@field counter_trigger creature_interaction_effect_counter_trigger
 df.creature_interaction_effect = {}
 
+---@param key integer
+---@return creature_interaction_effect|nil
+function df.creature_interaction_effect.find(key) end
+
 ---@class creature_interaction_effect_counter_trigger: df.class
 ---@field counter misc_trait_type[]
----@field minval integer[] ?
----@field maxval integer[] ?
----@field required integer[]
+---@field minval df.container<integer> ?
+---@field maxval df.container<integer> ?
+---@field required df.container<integer>
 df.creature_interaction_effect.T_counter_trigger = {}
+
+---@param key integer
+---@return creature_interaction_effect_counter_trigger|nil
+function df.creature_interaction_effect.T_counter_trigger.find(key) end
 
 ---@return creature_interaction_effect_type
 function df.creature_interaction_effect:getType() end
@@ -511,78 +523,146 @@ function df.creature_interaction_effect:addCounterTrigger(unk_0, unk_1, unk_2, u
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_painst = {}
 
+---@param key integer
+---@return creature_interaction_effect_painst|nil
+function df.creature_interaction_effect_painst.find(key) end
+
 ---@class creature_interaction_effect_swellingst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_swellingst = {}
+
+---@param key integer
+---@return creature_interaction_effect_swellingst|nil
+function df.creature_interaction_effect_swellingst.find(key) end
 
 ---@class creature_interaction_effect_oozingst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_oozingst = {}
 
+---@param key integer
+---@return creature_interaction_effect_oozingst|nil
+function df.creature_interaction_effect_oozingst.find(key) end
+
 ---@class creature_interaction_effect_bruisingst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_bruisingst = {}
+
+---@param key integer
+---@return creature_interaction_effect_bruisingst|nil
+function df.creature_interaction_effect_bruisingst.find(key) end
 
 ---@class creature_interaction_effect_blistersst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_blistersst = {}
 
+---@param key integer
+---@return creature_interaction_effect_blistersst|nil
+function df.creature_interaction_effect_blistersst.find(key) end
+
 ---@class creature_interaction_effect_numbnessst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_numbnessst = {}
+
+---@param key integer
+---@return creature_interaction_effect_numbnessst|nil
+function df.creature_interaction_effect_numbnessst.find(key) end
 
 ---@class creature_interaction_effect_paralysisst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_paralysisst = {}
 
+---@param key integer
+---@return creature_interaction_effect_paralysisst|nil
+function df.creature_interaction_effect_paralysisst.find(key) end
+
 ---@class creature_interaction_effect_feverst: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_feverst = {}
+
+---@param key integer
+---@return creature_interaction_effect_feverst|nil
+function df.creature_interaction_effect_feverst.find(key) end
 
 ---@class creature_interaction_effect_bleedingst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_bleedingst = {}
 
+---@param key integer
+---@return creature_interaction_effect_bleedingst|nil
+function df.creature_interaction_effect_bleedingst.find(key) end
+
 ---@class creature_interaction_effect_cough_bloodst: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_cough_bloodst = {}
+
+---@param key integer
+---@return creature_interaction_effect_cough_bloodst|nil
+function df.creature_interaction_effect_cough_bloodst.find(key) end
 
 ---@class creature_interaction_effect_vomit_bloodst: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_vomit_bloodst = {}
 
+---@param key integer
+---@return creature_interaction_effect_vomit_bloodst|nil
+function df.creature_interaction_effect_vomit_bloodst.find(key) end
+
 ---@class creature_interaction_effect_nauseast: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_nauseast = {}
 
+---@param key integer
+---@return creature_interaction_effect_nauseast|nil
+function df.creature_interaction_effect_nauseast.find(key) end
+
 ---@class creature_interaction_effect_unconsciousnessst: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_unconsciousnessst = {}
+
+---@param key integer
+---@return creature_interaction_effect_unconsciousnessst|nil
+function df.creature_interaction_effect_unconsciousnessst.find(key) end
 
 ---@class creature_interaction_effect_necrosisst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_necrosisst = {}
 
+---@param key integer
+---@return creature_interaction_effect_necrosisst|nil
+function df.creature_interaction_effect_necrosisst.find(key) end
+
 ---@class creature_interaction_effect_impair_functionst: creature_interaction_effect
 ---@field sev integer
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_impair_functionst = {}
 
+---@param key integer
+---@return creature_interaction_effect_impair_functionst|nil
+function df.creature_interaction_effect_impair_functionst.find(key) end
+
 ---@class creature_interaction_effect_drowsinessst: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_drowsinessst = {}
 
+---@param key integer
+---@return creature_interaction_effect_drowsinessst|nil
+function df.creature_interaction_effect_drowsinessst.find(key) end
+
 ---@class creature_interaction_effect_dizzinessst: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_dizzinessst = {}
+
+---@param key integer
+---@return creature_interaction_effect_dizzinessst|nil
+function df.creature_interaction_effect_dizzinessst.find(key) end
 
 ---@class creature_interaction_effect_display_namest: creature_interaction_effect
 ---@field name string
@@ -591,10 +671,18 @@ df.creature_interaction_effect_dizzinessst = {}
 ---@field unk_1 integer
 df.creature_interaction_effect_display_namest = {}
 
+---@param key integer
+---@return creature_interaction_effect_display_namest|nil
+function df.creature_interaction_effect_display_namest.find(key) end
+
 ---@class creature_interaction_effect_body_appearance_modifierst: creature_interaction_effect
 ---@field unk_60 integer
 ---@field unk_64 integer
 df.creature_interaction_effect_body_appearance_modifierst = {}
+
+---@param key integer
+---@return creature_interaction_effect_body_appearance_modifierst|nil
+function df.creature_interaction_effect_body_appearance_modifierst.find(key) end
 
 ---@class creature_interaction_effect_bp_appearance_modifierst: creature_interaction_effect
 ---@field unk_6c integer
@@ -602,29 +690,45 @@ df.creature_interaction_effect_body_appearance_modifierst = {}
 ---@field target creature_interaction_effect_target
 df.creature_interaction_effect_bp_appearance_modifierst = {}
 
+---@param key integer
+---@return creature_interaction_effect_bp_appearance_modifierst|nil
+function df.creature_interaction_effect_bp_appearance_modifierst.find(key) end
+
 ---@class creature_interaction_effect_body_transformationst: creature_interaction_effect
 ---@field chance integer %
 ---@field race_str string
 ---@field caste_str string
----@field race integer[] References: creature_raw
----@field caste integer[] References: caste_raw
----@field required_creature_flags integer[] contains indexes of flags in creature_raw_flags
----@field forbidden_creature_flags integer[] contains indexes of flags in creature_raw_flags
----@field required_caste_flags integer[] contains indexes of flags in caste_raw_flags
----@field forbidden_caste_flags integer[] contains indexes of flags in caste_raw_flags
+---@field race df.container<integer> References: creature_raw
+---@field caste df.container<integer> References: caste_raw
+---@field required_creature_flags df.container<integer> contains indexes of flags in creature_raw_flags
+---@field forbidden_creature_flags df.container<integer> contains indexes of flags in creature_raw_flags
+---@field required_caste_flags df.container<integer> contains indexes of flags in caste_raw_flags
+---@field forbidden_caste_flags df.container<integer> contains indexes of flags in caste_raw_flags
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.creature_interaction_effect_body_transformationst = {}
+
+---@param key integer
+---@return creature_interaction_effect_body_transformationst|nil
+function df.creature_interaction_effect_body_transformationst.find(key) end
 
 ---@class creature_interaction_effect_skill_roll_adjustst: creature_interaction_effect
 ---@field multiplier integer % change for skill
 ---@field chance integer % probability per roll
 df.creature_interaction_effect_skill_roll_adjustst = {}
 
+---@param key integer
+---@return creature_interaction_effect_skill_roll_adjustst|nil
+function df.creature_interaction_effect_skill_roll_adjustst.find(key) end
+
 ---@class creature_interaction_effect_display_symbolst: creature_interaction_effect
 ---@field tile integer
 ---@field color integer
 df.creature_interaction_effect_display_symbolst = {}
+
+---@param key integer
+---@return creature_interaction_effect_display_symbolst|nil
+function df.creature_interaction_effect_display_symbolst.find(key) end
 
 ---@class creature_interaction_effect_flash_symbolst: creature_interaction_effect
 ---@field sym_color integer[]
@@ -633,30 +737,54 @@ df.creature_interaction_effect_display_symbolst = {}
 ---@field unk_78 integer
 df.creature_interaction_effect_flash_symbolst = {}
 
+---@param key integer
+---@return creature_interaction_effect_flash_symbolst|nil
+function df.creature_interaction_effect_flash_symbolst.find(key) end
+
 ---@class creature_interaction_effect_phys_att_changest: creature_interaction_effect
 ---@field phys_att_perc integer[]
 ---@field phys_att_add integer[]
 df.creature_interaction_effect_phys_att_changest = {}
+
+---@param key integer
+---@return creature_interaction_effect_phys_att_changest|nil
+function df.creature_interaction_effect_phys_att_changest.find(key) end
 
 ---@class creature_interaction_effect_ment_att_changest: creature_interaction_effect
 ---@field ment_att_perc integer[]
 ---@field ment_att_add integer[]
 df.creature_interaction_effect_ment_att_changest = {}
 
+---@param key integer
+---@return creature_interaction_effect_ment_att_changest|nil
+function df.creature_interaction_effect_ment_att_changest.find(key) end
+
 ---@class creature_interaction_effect_add_simple_flagst: creature_interaction_effect
 ---@field tags1 cie_add_tag_mask1
 ---@field tags2 cie_add_tag_mask2
 df.creature_interaction_effect_add_simple_flagst = {}
+
+---@param key integer
+---@return creature_interaction_effect_add_simple_flagst|nil
+function df.creature_interaction_effect_add_simple_flagst.find(key) end
 
 ---@class creature_interaction_effect_remove_simple_flagst: creature_interaction_effect
 ---@field tags1 cie_add_tag_mask1
 ---@field tags2 cie_add_tag_mask2
 df.creature_interaction_effect_remove_simple_flagst = {}
 
+---@param key integer
+---@return creature_interaction_effect_remove_simple_flagst|nil
+function df.creature_interaction_effect_remove_simple_flagst.find(key) end
+
 ---@class creature_interaction_effect_speed_changest: creature_interaction_effect
 ---@field bonus_add integer
 ---@field bonus_perc integer
 df.creature_interaction_effect_speed_changest = {}
+
+---@param key integer
+---@return creature_interaction_effect_speed_changest|nil
+function df.creature_interaction_effect_speed_changest.find(key) end
 
 ---@class creature_interaction_effect_body_mat_interactionst: creature_interaction_effect
 ---@field interaction_name string
@@ -665,6 +793,10 @@ df.creature_interaction_effect_speed_changest = {}
 ---@field unk_90 integer
 ---@field unk_94 string
 df.creature_interaction_effect_body_mat_interactionst = {}
+
+---@param key integer
+---@return creature_interaction_effect_body_mat_interactionst|nil
+function df.creature_interaction_effect_body_mat_interactionst.find(key) end
 
 ---@class creature_interaction_effect_material_force_adjustst: creature_interaction_effect
 ---@field unk_6c string
@@ -676,9 +808,17 @@ df.creature_interaction_effect_body_mat_interactionst = {}
 ---@field fraction_div integer
 df.creature_interaction_effect_material_force_adjustst = {}
 
+---@param key integer
+---@return creature_interaction_effect_material_force_adjustst|nil
+function df.creature_interaction_effect_material_force_adjustst.find(key) end
+
 ---@class creature_interaction_effect_can_do_interactionst: creature_interaction_effect
 ---@field interaction creature_interaction
 df.creature_interaction_effect_can_do_interactionst = {}
+
+---@param key integer
+---@return creature_interaction_effect_can_do_interactionst|nil
+function df.creature_interaction_effect_can_do_interactionst.find(key) end
 
 ---@class creature_interaction_effect_sense_creature_classst: creature_interaction_effect
 ---@field class_name string
@@ -688,106 +828,178 @@ df.creature_interaction_effect_can_do_interactionst = {}
 ---@field foreground_brightness integer
 df.creature_interaction_effect_sense_creature_classst = {}
 
+---@param key integer
+---@return creature_interaction_effect_sense_creature_classst|nil
+function df.creature_interaction_effect_sense_creature_classst.find(key) end
+
 ---@class creature_interaction_effect_feel_emotionst: creature_interaction_effect
 ---@field emotion emotion_type
 ---@field sev integer
 df.creature_interaction_effect_feel_emotionst = {}
 
+---@param key integer
+---@return creature_interaction_effect_feel_emotionst|nil
+function df.creature_interaction_effect_feel_emotionst.find(key) end
+
 ---@class creature_interaction_effect_change_personalityst: creature_interaction_effect
 ---@field facets integer[]
 df.creature_interaction_effect_change_personalityst = {}
+
+---@param key integer
+---@return creature_interaction_effect_change_personalityst|nil
+function df.creature_interaction_effect_change_personalityst.find(key) end
 
 ---@class creature_interaction_effect_erratic_behaviorst: creature_interaction_effect
 ---@field sev integer
 df.creature_interaction_effect_erratic_behaviorst = {}
 
+---@param key integer
+---@return creature_interaction_effect_erratic_behaviorst|nil
+function df.creature_interaction_effect_erratic_behaviorst.find(key) end
+
 ---@class creature_interaction_effect_close_open_woundsst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_close_open_woundsst = {}
+
+---@param key integer
+---@return creature_interaction_effect_close_open_woundsst|nil
+function df.creature_interaction_effect_close_open_woundsst.find(key) end
 
 ---@class creature_interaction_effect_cure_infectionsst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_cure_infectionsst = {}
+
+---@param key integer
+---@return creature_interaction_effect_cure_infectionsst|nil
+function df.creature_interaction_effect_cure_infectionsst.find(key) end
 
 ---@class creature_interaction_effect_heal_nervesst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_heal_nervesst = {}
+
+---@param key integer
+---@return creature_interaction_effect_heal_nervesst|nil
+function df.creature_interaction_effect_heal_nervesst.find(key) end
 
 ---@class creature_interaction_effect_heal_tissuesst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_heal_tissuesst = {}
+
+---@param key integer
+---@return creature_interaction_effect_heal_tissuesst|nil
+function df.creature_interaction_effect_heal_tissuesst.find(key) end
 
 ---@class creature_interaction_effect_reduce_dizzinessst: creature_interaction_effect
 ---@field unk_1 integer
 df.creature_interaction_effect_reduce_dizzinessst = {}
 
+---@param key integer
+---@return creature_interaction_effect_reduce_dizzinessst|nil
+function df.creature_interaction_effect_reduce_dizzinessst.find(key) end
+
 ---@class creature_interaction_effect_reduce_feverst: creature_interaction_effect
 ---@field unk_1 integer
 df.creature_interaction_effect_reduce_feverst = {}
+
+---@param key integer
+---@return creature_interaction_effect_reduce_feverst|nil
+function df.creature_interaction_effect_reduce_feverst.find(key) end
 
 ---@class creature_interaction_effect_reduce_nauseast: creature_interaction_effect
 ---@field unk_1 integer
 df.creature_interaction_effect_reduce_nauseast = {}
 
+---@param key integer
+---@return creature_interaction_effect_reduce_nauseast|nil
+function df.creature_interaction_effect_reduce_nauseast.find(key) end
+
 ---@class creature_interaction_effect_reduce_painst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_reduce_painst = {}
+
+---@param key integer
+---@return creature_interaction_effect_reduce_painst|nil
+function df.creature_interaction_effect_reduce_painst.find(key) end
 
 ---@class creature_interaction_effect_reduce_paralysisst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_reduce_paralysisst = {}
+
+---@param key integer
+---@return creature_interaction_effect_reduce_paralysisst|nil
+function df.creature_interaction_effect_reduce_paralysisst.find(key) end
 
 ---@class creature_interaction_effect_reduce_swellingst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_reduce_swellingst = {}
+
+---@param key integer
+---@return creature_interaction_effect_reduce_swellingst|nil
+function df.creature_interaction_effect_reduce_swellingst.find(key) end
 
 ---@class creature_interaction_effect_regrow_partsst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_regrow_partsst = {}
 
+---@param key integer
+---@return creature_interaction_effect_regrow_partsst|nil
+function df.creature_interaction_effect_regrow_partsst.find(key) end
+
 ---@class creature_interaction_effect_special_attack_interactionst: creature_interaction_effect
----@field unk_1 integer[]
+---@field unk_1 df.container<integer>
 ---@field unk_2 string[]
 ---@field unk_3 string
 df.creature_interaction_effect_special_attack_interactionst = {}
 
+---@param key integer
+---@return creature_interaction_effect_special_attack_interactionst|nil
+function df.creature_interaction_effect_special_attack_interactionst.find(key) end
+
 ---@class creature_interaction_effect_stop_bleedingst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_stop_bleedingst = {}
+
+---@param key integer
+---@return creature_interaction_effect_stop_bleedingst|nil
+function df.creature_interaction_effect_stop_bleedingst.find(key) end
 
 ---@class creature_interaction_effect_cure_infectionst: creature_interaction_effect
 ---@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_2 df.container<integer>
+---@field unk_3 df.container<integer>
+---@field unk_4 df.container<integer>
 df.creature_interaction_effect_cure_infectionst = {}
+
+---@param key integer
+---@return creature_interaction_effect_cure_infectionst|nil
+function df.creature_interaction_effect_cure_infectionst.find(key) end
 
 ---@class _syndrome_flags: df.bitfield
 ---@field SYN_INJECTED 0
@@ -833,4 +1045,8 @@ df.syndrome_flags = {}
 ---@field syn_concentration_added integer[]
 ---@field id integer
 df.syndrome = {}
+
+---@param key integer
+---@return syndrome|nil
+function df.syndrome.find(key) end
 

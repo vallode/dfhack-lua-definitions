@@ -30,6 +30,10 @@ df.art_image_element_type = {}
 ---@field count integer
 df.art_image_element = {}
 
+---@param key integer
+---@return art_image_element|nil
+function df.art_image_element.find(key) end
+
 ---@param file file_compressorst
 function df.art_image_element:write_file(file) end
 
@@ -62,8 +66,8 @@ function df.art_image_element:getName2(name, unk_1) end
 
 function df.art_image_element:markDiscovered() end
 
----@param colors integer[]
----@param shapes integer[]
+---@param colors df.container<integer>
+---@param shapes df.container<integer>
 function df.art_image_element:getColorAndShape(colors, shapes) end
 
 ---@class art_image_element_creaturest: art_image_element
@@ -72,18 +76,34 @@ function df.art_image_element:getColorAndShape(colors, shapes) end
 ---@field histfig integer References: historical_figure
 df.art_image_element_creaturest = {}
 
+---@param key integer
+---@return art_image_element_creaturest|nil
+function df.art_image_element_creaturest.find(key) end
+
 ---@class art_image_element_plantst: art_image_element
 ---@field plant_id integer References: plant_raw
 df.art_image_element_plantst = {}
+
+---@param key integer
+---@return art_image_element_plantst|nil
+function df.art_image_element_plantst.find(key) end
 
 ---@class art_image_element_treest: art_image_element
 ---@field plant_id integer References: plant_raw
 df.art_image_element_treest = {}
 
+---@param key integer
+---@return art_image_element_treest|nil
+function df.art_image_element_treest.find(key) end
+
 ---@class art_image_element_shapest: art_image_element
 ---@field shape_id integer References: descriptor_shape
 ---@field shape_adj integer
 df.art_image_element_shapest = {}
+
+---@param key integer
+---@return art_image_element_shapest|nil
+function df.art_image_element_shapest.find(key) end
 
 ---@class art_image_element_itemst: art_image_element
 ---@field item_type item_type
@@ -93,6 +113,10 @@ df.art_image_element_shapest = {}
 ---@field flags item_flags
 ---@field item_id integer References: item
 df.art_image_element_itemst = {}
+
+---@param key integer
+---@return art_image_element_itemst|nil
+function df.art_image_element_itemst.find(key) end
 
 ---@class _art_image_property_type: df.enum
 ---@field transitive_verb 0
@@ -110,6 +134,10 @@ df.art_image_property_type = {}
 ---@class art_image_property: df.class
 ---@field flags boolean[]
 df.art_image_property = {}
+
+---@param key integer
+---@return art_image_property|nil
+function df.art_image_property.find(key) end
 
 ---@param file file_compressorst
 function df.art_image_property:write_file(file) end
@@ -333,10 +361,18 @@ df.art_image_property_verb = {}
 ---@field verb art_image_property_verb
 df.art_image_property_transitive_verbst = {}
 
+---@param key integer
+---@return art_image_property_transitive_verbst|nil
+function df.art_image_property_transitive_verbst.find(key) end
+
 ---@class art_image_property_intransitive_verbst: art_image_property
 ---@field subject integer
 ---@field verb art_image_property_verb
 df.art_image_property_intransitive_verbst = {}
+
+---@param key integer
+---@return art_image_property_intransitive_verbst|nil
+function df.art_image_property_intransitive_verbst.find(key) end
 
 ---@class _art_facet_type: df.enum
 ---@field OWN_RACE 0
@@ -377,10 +413,18 @@ df.art_facet_type = {}
 ---@field subid integer References: art_image
 df.art_image = {}
 
+---@param key integer
+---@return art_image|nil
+function df.art_image.find(key) end
+
 ---@class art_image_chunk: df.instance
 ---@field id integer art_image_*.dat
 ---@field images art_image[]
 df.art_image_chunk = {}
+
+---@param key integer
+---@return art_image_chunk|nil
+function df.art_image_chunk.find(key) end
 
 ---@class art_image_ref: df.class
 ---@field id integer References: art_image_chunk
@@ -388,6 +432,10 @@ df.art_image_chunk = {}
 ---@field civ_id integer References: historical_entity
 ---@field site_id integer References: world_site
 df.art_image_ref = {}
+
+---@param key integer
+---@return art_image_ref|nil
+function df.art_image_ref.find(key) end
 
 ---@class _poetic_form_action: df.enum
 ---@field None -1
@@ -703,13 +751,25 @@ df.poetic_form_subject = {}
 ---@field Concept poetic_form_subject_target_Concept
 df.poetic_form_subject_target = {}
 
+---@param key integer
+---@return poetic_form_subject_target|nil
+function df.poetic_form_subject_target.find(key) end
+
 ---@class poetic_form_subject_target_Histfig: df.class
 ---@field subject_histfig integer References: historical_figure
 df.poetic_form_subject_target.T_Histfig = {}
 
+---@param key integer
+---@return poetic_form_subject_target_Histfig|nil
+function df.poetic_form_subject_target.T_Histfig.find(key) end
+
 ---@class poetic_form_subject_target_Concept: df.class
 ---@field subject_topic sphere_type
 df.poetic_form_subject_target.T_Concept = {}
+
+---@param key integer
+---@return poetic_form_subject_target_Concept|nil
+function df.poetic_form_subject_target.T_Concept.find(key) end
 
 ---@class _poetic_form_feature: df.bitfield
 ---@field InternalRhyme 0
@@ -866,6 +926,10 @@ df.poetic_form_additional_feature = {}
 ---@field perspectives poetic_form_perspective[]
 df.poetic_form = {}
 
+---@param key integer
+---@return poetic_form|nil
+function df.poetic_form.find(key) end
+
 ---@class _poetic_form_flags: df.bitfield
 ---@field tone_patterns 0
 ---@field [0] "tone_patterns"
@@ -888,19 +952,19 @@ df.poetic_form.T_flags = {}
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field line_endings integer[]
----@field line_feet integer[]
+---@field line_endings df.container<integer>
+---@field line_feet df.container<integer>
 ---@field line_patterns poetic_form_pattern[]
 ---@field line_caesura_positions poetic_form_caesura_position[]
 ---@field line_features poetic_form_feature[]
 ---@field additional_features poetic_form_additional_feature[]
----@field additional_targets integer[]
----@field additional_lines integer[]
+---@field additional_targets df.container<integer>
+---@field additional_lines df.container<integer>
 ---@field line_mood poetic_form_mood[]
 ---@field line_subject poetic_form_subject[]
----@field line_subject_target poetic_form_subject_target[]
+---@field line_subject_target df.container<poetic_form_subject_target>
 ---@field line_action poetic_form_action[]
----@field unk_5 integer[]
+---@field unk_5 df.container<integer>
 ---@field some_lines_syllables integer
 ---@field some_lines_pattern integer
 ---@field each_line_caesura_position poetic_form_caesura_position
@@ -912,6 +976,10 @@ df.poetic_form.T_flags = {}
 ---@field unk_8 integer
 ---@field unk_9 integer
 df.poetic_form_part = {}
+
+---@param key integer
+---@return poetic_form_part|nil
+function df.poetic_form_part.find(key) end
 
 ---@class _poetic_form_part_flags: df.bitfield
 ---@field size_in_lines 0
@@ -927,6 +995,10 @@ df.poetic_form_part.T_flags = {}
 ---@field histfig integer References: historical_figure
 ---@field unk_1 integer
 df.poetic_form_perspective = {}
+
+---@param key integer
+---@return poetic_form_perspective|nil
+function df.poetic_form_perspective.find(key) end
 
 ---@class _poetic_form_perspective_type: df.enum
 ---@field Author 0
@@ -1531,6 +1603,10 @@ df.musical_form_melody_frequency = {}
 ---@field flags musical_form_interval_flags
 df.musical_form_interval = {}
 
+---@param key integer
+---@return musical_form_interval|nil
+function df.musical_form_interval.find(key) end
+
 ---@class _musical_form_interval_flags: df.bitfield
 ---@field rising 0
 ---@field [0] "rising"
@@ -1555,6 +1631,10 @@ df.musical_form_interval.T_flags = {}
 ---@field features musical_form_feature
 df.musical_form_melodies = {}
 
+---@param key integer
+---@return musical_form_melodies|nil
+function df.musical_form_melodies.find(key) end
+
 ---@class musical_form_passage: df.class
 ---@field type musical_form_passage_type
 ---@field passage_reference integer used when doing Exposition, Recapitualation, Synthesis, and Variation
@@ -1568,11 +1648,11 @@ df.musical_form_melodies = {}
 ---@field rhythm_id integer References: rhythm
 ---@field sub_rhythm integer Guess, based on the pattern above
 ---@field rhythm_pattern integer references the patterns element of rhythm
----@field instruments integer[] indices into the instruments vector
+---@field instruments df.container<integer> indices into the instruments vector
 ---@field components musical_form_passage_component_type[]
 ---@field passage_lengths musical_form_passage_length_type[]
----@field lowest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
----@field highest_register_range integer[] 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
+---@field lowest_register_range df.container<integer> 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
+---@field highest_register_range df.container<integer> 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
 ---@field tempo_style musical_form_style
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
@@ -1583,6 +1663,10 @@ df.musical_form_melodies = {}
 ---@field unk_23 integer 0-78 seen
 df.musical_form_passage = {}
 
+---@param key integer
+---@return musical_form_passage|nil
+function df.musical_form_passage.find(key) end
+
 ---@class musical_form_instruments: df.class
 ---@field instrument_subtype integer References: itemdef_instrumentst<br>-1 = vocal
 ---@field substitutions musical_form_instruments_substitutions
@@ -1592,6 +1676,10 @@ df.musical_form_passage = {}
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
 df.musical_form_instruments = {}
+
+---@param key integer
+---@return musical_form_instruments|nil
+function df.musical_form_instruments.find(key) end
 
 ---@class _musical_form_instruments_substitutions: df.bitfield
 ---@field singer 0
@@ -1619,6 +1707,10 @@ df.musical_form_instruments.T_substitutions = {}
 ---@field unk_6 integer
 df.musical_form_sub4 = {}
 
+---@param key integer
+---@return musical_form_sub4|nil
+function df.musical_form_sub4.find(key) end
+
 ---@class musical_form: df.instance
 ---@field id integer
 ---@field name language_name
@@ -1644,6 +1736,10 @@ df.musical_form_sub4 = {}
 ---@field devotion_target integer References: historical_figure
 ---@field flags musical_form_flags
 df.musical_form = {}
+
+---@param key integer
+---@return musical_form|nil
+function df.musical_form.find(key) end
 
 ---@class _musical_form_flags: df.bitfield
 ---@field produces_individual_songs 0
@@ -2242,10 +2338,14 @@ df.dance_form_move_location = {}
 ---@field unk_14 integer
 ---@field type dance_form_move_type[]
 ---@field modifier dance_form_move_modifier[]
----@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field parameter df.container<integer> Depends on type (turns are in signed angles, steps are in number of steps, etc.)
 ---@field location dance_form_move_location[]
 ---@field id integer
 df.dance_form_section = {}
+
+---@param key integer
+---@return dance_form_section|nil
+function df.dance_form_section.find(key) end
 
 ---@class _dance_form_move_group_type: df.enum
 ---@field unk_0 0
@@ -2276,10 +2376,14 @@ df.dance_form_move_group_type = {}
 ---@field name string
 ---@field type dance_form_move_type[]
 ---@field modifier dance_form_move_modifier[]
----@field parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field parameter df.container<integer> Depends on type (turns are in signed angles, steps are in number of steps, etc.)
 ---@field location dance_form_move_location[]
 ---@field group_type dance_form_move_group_type
 df.dance_form_move = {}
+
+---@param key integer
+---@return dance_form_move|nil
+function df.dance_form_move.find(key) end
 
 ---@class dance_form: df.instance
 ---@field id integer
@@ -2306,11 +2410,15 @@ df.dance_form_move = {}
 ---@field race integer References: creature_raw<br>Creature whose movements are imitated
 ---@field move_type dance_form_move_type[]
 ---@field move_modifier dance_form_move_modifier[]
----@field move_parameter integer[] Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field move_parameter df.container<integer> Depends on type (turns are in signed angles, steps are in number of steps, etc.)
 ---@field move_location dance_form_move_location[]
 ---@field sections dance_form_section[]
 ---@field moves dance_form_move[]
 df.dance_form = {}
+
+---@param key integer
+---@return dance_form|nil
+function df.dance_form.find(key) end
 
 ---@class _scale_type: df.enum
 ---@field Octave 0
@@ -2336,6 +2444,10 @@ df.scale_type = {}
 ---@field unk_3 integer 0 and 1 seen
 df.chord = {}
 
+---@param key integer
+---@return chord|nil
+function df.chord.find(key) end
+
 ---Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
 ---@class named_scale: df.class
 ---@field unk_1 integer 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
@@ -2345,6 +2457,10 @@ df.chord = {}
 ---@field first_chord integer this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
 ---@field second_chord integer
 df.named_scale = {}
+
+---@param key integer
+---@return named_scale|nil
+function df.named_scale.find(key) end
 
 ---@class scale: df.instance
 ---@field id integer
@@ -2356,6 +2472,10 @@ df.named_scale = {}
 ---@field scales named_scale[] Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
 ---@field notes scale_notes Curiously, the named notes do not have to match the number of defined notes
 df.scale = {}
+
+---@param key integer
+---@return scale|nil
+function df.scale.find(key) end
 
 ---@class _scale_flags: df.bitfield
 ---@field tonic_note_fixed_at_performance 0
@@ -2375,12 +2495,20 @@ df.scale.T_flags = {}
 ---@field length integer number of elements of the arrays above used
 df.scale.T_notes = {}
 
+---@param key integer
+---@return scale_notes|nil
+function df.scale.T_notes.find(key) end
+
 ---@class rhythm: df.instance
 ---@field id integer
 ---@field patterns rhythm_pattern[]
 ---@field sub_rhythms sub_rhythm[]
 ---@field unk_2 integer
 df.rhythm = {}
+
+---@param key integer
+---@return rhythm|nil
+function df.rhythm.find(key) end
 
 ---@class _beat_type: df.enum
 ---@field Silent 0
@@ -2443,17 +2571,29 @@ df.beat_type = {}
 ---@field length integer
 df.rhythm_pattern = {}
 
+---@param key integer
+---@return rhythm_pattern|nil
+function df.rhythm_pattern.find(key) end
+
 ---@class rhythm_pattern_bars: df.class
 ---@field beat beat_type Length as per length field
 ---@field length integer
 df.rhythm_pattern.T_bars = {}
 
+---@param key integer
+---@return rhythm_pattern_bars|nil
+function df.rhythm_pattern.T_bars.find(key) end
+
 ---@class sub_rhythm: df.class
 ---@field name string
----@field patterns integer[] indices into patterns
----@field unk_2 integer[] Same length as patterns, but with unknown purpose
+---@field patterns df.container<integer> indices into patterns
+---@field unk_2 df.container<integer> Same length as patterns, but with unknown purpose
 ---@field unk_3 integer
 df.sub_rhythm = {}
+
+---@param key integer
+---@return sub_rhythm|nil
+function df.sub_rhythm.find(key) end
 
 ---@class _occupation_type: df.enum
 ---@field TAVERN_KEEPER 0
@@ -2519,6 +2659,10 @@ df.occupation_type = {}
 ---@field unk_5 abstract_building When these haven't crashed the data has been nonsensical. Has seen duplicate of unk_4 pointer value
 df.occupation = {}
 
+---@param key integer
+---@return occupation|nil
+function df.occupation.find(key) end
+
 ---@class occupation_sub1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -2540,4 +2684,8 @@ df.occupation = {}
 ---@field unk_18 integer
 ---@field unk_19 integer
 df.occupation_sub1 = {}
+
+---@param key integer
+---@return occupation_sub1|nil
+function df.occupation_sub1.find(key) end
 

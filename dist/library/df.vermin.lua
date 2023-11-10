@@ -81,3 +81,7 @@ df.vermin_category = {}
 ---@field id integer assigned during Save
 df.vermin = {}
 
+---@param key integer
+---@return vermin|nil
+function df.vermin.find(key) end
+
