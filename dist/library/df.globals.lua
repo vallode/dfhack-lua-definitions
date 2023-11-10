@@ -83,8 +83,8 @@
 ---@field cur_season_tick integer
 ---@field current_weather _unk_[]
 ---@field pause_state boolean
----@field process_dig boolean
----@field process_jobs boolean
+---@field process_dig boolean Requests dig designations to be processed next frame.
+---@field process_jobs boolean Requests building jobs to be processed next frame.
 ---@field ui_building_in_assign boolean
 ---@field ui_building_in_resize boolean
 ---@field ui_building_resize_radius integer
@@ -98,18 +98,18 @@
 ---@field window_x integer
 ---@field window_y integer
 ---@field window_z integer
----@field debug_nopause boolean
----@field debug_nomoods boolean
----@field debug_combat boolean
----@field debug_wildlife boolean
----@field debug_nodrink boolean
----@field debug_noeat boolean
----@field debug_nosleep boolean
----@field debug_showambush boolean
----@field debug_fastmining boolean
----@field debug_noberserk boolean
----@field debug_turbospeed boolean
----@field save_on_exit boolean
+---@field debug_nopause boolean Prevents the game from being paused
+---@field debug_nomoods boolean Same as ARTIFACTS:NO
+---@field debug_combat boolean Functionality unknown, combat-related
+---@field debug_wildlife boolean Functionality unknown, wildlife-related
+---@field debug_nodrink boolean Disables thirst on everything
+---@field debug_noeat boolean Disables hunger on everything
+---@field debug_nosleep boolean Disables drowsiness on everything
+---@field debug_showambush boolean Makes hidden ambushers visible on-screen and in the units list (but not to your citizens)
+---@field debug_fastmining boolean All dwarves mine as fast as a Legendary Miner
+---@field debug_noberserk boolean Insanity can only result in Crazed or Melancholy, never Berserk
+---@field debug_turbospeed boolean All units move and work at maximum speed
+---@field save_on_exit boolean Ending the game saves its state back to world.dat or world.sav
 ---@field standing_orders_gather_minerals integer
 ---@field standing_orders_gather_wood integer
 ---@field standing_orders_gather_food integer

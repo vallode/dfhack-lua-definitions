@@ -22,6 +22,8 @@ class XmlNode
     @has_children = !@children.empty?
 
     @parent_type = parent_type
+
+    @child_type = child_type
     @type_name = type_name
 
     @is_array = array?
@@ -34,13 +36,18 @@ class XmlNode
     %w[stl-vector static-array stl-bit-vector df-flagarray].include?(@node.name)
   end
 
+  def child_type
+    return if @children.empty? || @node.name == 'vmethod'
+
+    XmlNode.parse_type(Field.new(@children.first).type)
+  end
+
   def type_name
-    @node['type-name'] || @node['index-enum'] || @node['pointer-type']
+    XmlNode.parse_type(@node['type-name'] || @node['index-enum'] || @node['pointer-type'])
   end
 
   def root_type
-    child_type = Field.new(@children.first).type if !@children.empty? && @node.name != 'vmethod'
-    XmlNode.parse_type(child_type) || XmlNode.parse_type(@type_name) || XmlNode.parse_type(@node.name, 'any')
+    @child_type || @type_name || XmlNode.parse_type(@node.name, 'any')
   end
 
   def comment
@@ -64,7 +71,6 @@ class StructType < XmlNode
     super(node, parent_type)
 
     @name = node['type-name'] || node['name']
-
     @child_nodes = child_nodes
 
     @parent_type = parent_type
@@ -74,7 +80,7 @@ class StructType < XmlNode
   end
 
   def child_nodes
-    pointer_children = @node.at_xpath('./pointer|./compound')
+    pointer_children = @node.at_xpath('./pointer|compound')
 
     if pointer_children && @parent_type && @node.name == 'stl-vector'
       pointer_children.children
@@ -99,7 +105,7 @@ class StructType < XmlNode
       if child.name == 'virtual-methods'
         child.css('> vmethod').each do |method|
           # Methods without names "technically" exist but calling them is
-          # impossible. They are placeholders for unknown slots.
+          # impossible.
           next unless method.attributes['name']
 
           inline_types.push(method)
@@ -135,7 +141,7 @@ class StructType < XmlNode
   end
 end
 
-# Represents any nested field.
+# Represents any nested field, always a child of a StructType.
 class Field < XmlNode
   attr_reader :name, :is_inline
 
@@ -316,27 +322,19 @@ class EnumItem < XmlNode
   end
 end
 
+# Global `df.global` object as described in `df.global.xml`
 class GlobalObject
-  def initialize(fields)
-    @fields = fields
+  def initialize(nodes)
+    @fields = nodes.map { |node| Field.new(node, parent_type: 'global') }
   end
 
   def render
     annotation = "---@class (exact) df.global: df.compound\n"
-
-    inline_fields = []
-    @fields.each do |field|
-      field_node = Field.new(field, parent_type: 'global')
-
-      inline_fields.push(field) if field_node.is_inline
-
-      annotation << "---@field #{field_node.name} #{field_node.type}\n"
-    end
-
+    annotation << @fields.map(&:render).join
     annotation << "df.global = {}\n\n"
 
-    inline_fields.each do |node|
-      annotation << StructType.new(node, 'global', '.').render
+    @fields.filter(&:is_inline).each do |field|
+      annotation << StructType.new(field.node, 'global', '.').render
     end
 
     annotation << "\n"
