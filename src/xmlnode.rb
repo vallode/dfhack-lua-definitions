@@ -145,10 +145,10 @@ end
 class Field < XmlNode
   attr_reader :name, :is_inline
 
-  def initialize(node, parent_type: nil, index: nil)
+  def initialize(node, parent_type: nil)
     super(node, parent_type)
 
-    @name = node['name'] || "unk_#{index}"
+    @name = node['name']
 
     @is_inline = inline?
     @is_container = container?
@@ -236,7 +236,8 @@ class FunctionType < Field
     return nil unless @has_children
 
     @children.each_with_index do |child, index|
-      child_field = Field.new(child, index: index)
+      child['name'] = child['name'] || "unk_#{index}"
+      child_field = Field.new(child)
       name = '_' if RESERVED_KEYWORDS.include?(child_field.name)
       parameters.push([child_field.name || name, child_field.type, child_field.comment])
     end

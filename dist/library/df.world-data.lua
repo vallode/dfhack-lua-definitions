@@ -745,7 +745,7 @@ df.region_map_entry.T_wind = {}
 ---@field west_2 boolean
 
 ---@class entity_claim_mask: df.class
----@field map _unk_
+---@field map _
 ---@field width integer
 ---@field height integer
 df.entity_claim_mask = {}
@@ -979,7 +979,7 @@ function df.world_mountain_peak.find(key) end
 ---@field unk_17 integer
 ---@field unk_18 integer
 ---@field active_site world_site[]
----@field feature_map _unk_ <br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
+---@field feature_map _ <br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
 ---@field old_sites df.container<integer> References: world_site
 ---@field old_site_x df.container<integer>
 ---@field old_site_y df.container<integer>

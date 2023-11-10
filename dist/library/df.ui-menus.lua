@@ -3830,8 +3830,8 @@ function df.gamest.T_command_line.find(key) end
 ---@field mod_upload_header mod_headerst[]
 ---@field mod_upload_completed boolean
 ---@field uploading_mod_index integer
----@field CreateItemResult _unk_
----@field SubmitItemUpdateResult _unk_
+---@field CreateItemResult _
+---@field SubmitItemUpdateResult _
 df.gamest.T_mod_manager = {}
 
 ---@param key integer

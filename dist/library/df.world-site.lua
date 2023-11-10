@@ -774,7 +774,7 @@ function df.property_ownership.find(key) end
 ---@field unk_v43_2 world_site_unk_v43_2[]
 ---@field unk_v43_3 integer constant 0?
 ---@field unk_v40_5 integer constant -1?
----@field unk_188 _unk_[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
+---@field unk_188 _[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 integer
 ---@field unk_3b0 world_site_unk130
 ---@field unk_18c df.container<integer>

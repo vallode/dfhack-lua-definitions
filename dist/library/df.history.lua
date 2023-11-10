@@ -569,7 +569,7 @@ df.historical_figure_info.T_wounds.T_unk_flags = {}
 ---@field known_dance_forms df.container<integer> References: dance_form
 ---@field knowledge historical_figure_info.T_known_info_knowledge
 ---@field belief_systems df.container<integer> found in prophets; contains the ID of the belief system developed by that particular prophet
----@field known_locations _unk_[]
+---@field known_locations _[]
 ---@field unk_3 df.container<integer>
 df.historical_figure_info.T_known_info = {}
 
