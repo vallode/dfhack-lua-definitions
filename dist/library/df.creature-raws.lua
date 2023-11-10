@@ -2294,18 +2294,18 @@ df.tissue_style_type = {}
 ---@field CLEAN_SHAVEN boolean
 
 ---@class creature_raw_graphics: df.class
----@field creature_texture_texpos creature_raw_graphics_creature_texture_texpos[]
+---@field creature_texture_texpos integer[][][][]
 ---@field creature_texture_add_color boolean[]
 ---@field creature_texture_unk integer[][]
----@field entity_link_texpos creature_raw_graphics_entity_link_texpos[]
+---@field entity_link_texpos integer[][][][][]
 ---@field entity_link_add_color boolean[][]
----@field entity_link_unk creature_raw_graphics_entity_link_unk[]
----@field site_link_texpos creature_raw_graphics_site_link_texpos[]
+---@field entity_link_unk integer[][][]
+---@field site_link_texpos integer[][][][][]
 ---@field site_link_add_color boolean[][]
----@field site_link_unk creature_raw_graphics_site_link_unk[]
----@field profession_texpos creature_raw_graphics_profession_texpos[]
+---@field site_link_unk integer[][][]
+---@field profession_texpos integer[][][][][]
 ---@field profession_add_color boolean[][]
----@field profession_unk creature_raw_graphics_profession_unk[]
+---@field profession_unk integer[][][]
 ---@field ptr_unk integer[][]
 ---@field vec_unk df.container<integer>[]
 ---@field profession_vec_unk df.container<integer>[]
@@ -2314,55 +2314,6 @@ df.creature_raw_graphics = {}
 ---@param key integer
 ---@return creature_raw_graphics|nil
 function df.creature_raw_graphics.find(key) end
-
----@class creature_raw_graphics_creature_texture_texpos: df.class
-df.creature_raw_graphics.T_creature_texture_texpos = {}
-
----@param key integer
----@return creature_raw_graphics_creature_texture_texpos|nil
-function df.creature_raw_graphics.T_creature_texture_texpos.find(key) end
-
----@class creature_raw_graphics_entity_link_texpos: df.class
-df.creature_raw_graphics.T_entity_link_texpos = {}
-
----@param key integer
----@return creature_raw_graphics_entity_link_texpos|nil
-function df.creature_raw_graphics.T_entity_link_texpos.find(key) end
-
----@class creature_raw_graphics_entity_link_unk: df.class
-df.creature_raw_graphics.T_entity_link_unk = {}
-
----@param key integer
----@return creature_raw_graphics_entity_link_unk|nil
-function df.creature_raw_graphics.T_entity_link_unk.find(key) end
-
----@class creature_raw_graphics_site_link_texpos: df.class
-df.creature_raw_graphics.T_site_link_texpos = {}
-
----@param key integer
----@return creature_raw_graphics_site_link_texpos|nil
-function df.creature_raw_graphics.T_site_link_texpos.find(key) end
-
----@class creature_raw_graphics_site_link_unk: df.class
-df.creature_raw_graphics.T_site_link_unk = {}
-
----@param key integer
----@return creature_raw_graphics_site_link_unk|nil
-function df.creature_raw_graphics.T_site_link_unk.find(key) end
-
----@class creature_raw_graphics_profession_texpos: df.class
-df.creature_raw_graphics.T_profession_texpos = {}
-
----@param key integer
----@return creature_raw_graphics_profession_texpos|nil
-function df.creature_raw_graphics.T_profession_texpos.find(key) end
-
----@class creature_raw_graphics_profession_unk: df.class
-df.creature_raw_graphics.T_profession_unk = {}
-
----@param key integer
----@return creature_raw_graphics_profession_unk|nil
-function df.creature_raw_graphics.T_profession_unk.find(key) end
 
 ---@class tissue_style_raw: df.class
 ---@field token string

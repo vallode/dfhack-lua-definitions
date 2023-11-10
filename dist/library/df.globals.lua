@@ -81,7 +81,7 @@
 ---@field cur_year_tick_advmode integer
 ---@field cur_season season
 ---@field cur_season_tick integer
----@field current_weather _[]
+---@field current_weather weather_type[][]
 ---@field pause_state boolean
 ---@field process_dig boolean Requests dig designations to be processed next frame.
 ---@field process_jobs boolean Requests building jobs to be processed next frame.

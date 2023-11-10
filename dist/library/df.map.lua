@@ -507,105 +507,24 @@ function df.block_burrow.find(key) end
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
 ---@field region_pos coord2d
----@field tiletype map_block_tiletype[]
----@field designation map_block_designation[]
----@field occupancy map_block_occupancy[]
+---@field tiletype tiletype[][]
+---@field designation tile_designation[][]
+---@field occupancy tile_occupancy[][]
 ---@field fog_of_war integer[][] for adventure mode
----@field path_cost map_block_path_cost[] flood; 256*cost for straight, 362*cost for diagonal
----@field path_tag map_block_path_tag[] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
----@field walkable map_block_walkable[] 0 = non-walkable; same nonzero at A and B = walkable from A to B
----@field map_edge_distance map_block_map_edge_distance[] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
----@field temperature_1 map_block_temperature_1[]
----@field temperature_2 map_block_temperature_2[]
----@field unk13 map_block_unk13[]
----@field liquid_flow map_block_liquid_flow[]
+---@field path_cost integer[][] flood; 256*cost for straight, 362*cost for diagonal
+---@field path_tag integer[][] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
+---@field walkable integer[][] 0 = non-walkable; same nonzero at A and B = walkable from A to B
+---@field map_edge_distance integer[][] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@field temperature_1 integer[][]
+---@field temperature_2 integer[][]
+---@field unk13 integer[][]
+---@field liquid_flow tile_liquid_flow[][]
 ---@field region_offset integer[]
 df.map_block = {}
 
 ---@param key integer
 ---@return map_block|nil
 function df.map_block.find(key) end
-
----@class map_block_tiletype: df.class
-df.map_block.T_tiletype = {}
-
----@param key integer
----@return map_block_tiletype|nil
-function df.map_block.T_tiletype.find(key) end
-
----@class map_block_designation: df.class
-df.map_block.T_designation = {}
-
----@param key integer
----@return map_block_designation|nil
-function df.map_block.T_designation.find(key) end
-
----@class map_block_occupancy: df.class
-df.map_block.T_occupancy = {}
-
----@param key integer
----@return map_block_occupancy|nil
-function df.map_block.T_occupancy.find(key) end
-
----flood; 256*cost for straight, 362*cost for diagonal
----@class map_block_path_cost: df.class
-df.map_block.T_path_cost = {}
-
----@param key integer
----@return map_block_path_cost|nil
-function df.map_block.T_path_cost.find(key) end
-
----flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
----@class map_block_path_tag: df.class
-df.map_block.T_path_tag = {}
-
----@param key integer
----@return map_block_path_tag|nil
-function df.map_block.T_path_tag.find(key) end
-
----0 = non-walkable; same nonzero at A and B = walkable from A to B
----@class map_block_walkable: df.class
-df.map_block.T_walkable = {}
-
----@param key integer
----@return map_block_walkable|nil
-function df.map_block.T_walkable.find(key) end
-
----1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
----@class map_block_map_edge_distance: df.class
-df.map_block.T_map_edge_distance = {}
-
----@param key integer
----@return map_block_map_edge_distance|nil
-function df.map_block.T_map_edge_distance.find(key) end
-
----@class map_block_temperature_1: df.class
-df.map_block.T_temperature_1 = {}
-
----@param key integer
----@return map_block_temperature_1|nil
-function df.map_block.T_temperature_1.find(key) end
-
----@class map_block_temperature_2: df.class
-df.map_block.T_temperature_2 = {}
-
----@param key integer
----@return map_block_temperature_2|nil
-function df.map_block.T_temperature_2.find(key) end
-
----@class map_block_unk13: df.class
-df.map_block.T_unk13 = {}
-
----@param key integer
----@return map_block_unk13|nil
-function df.map_block.T_unk13.find(key) end
-
----@class map_block_liquid_flow: df.class
-df.map_block.T_liquid_flow = {}
-
----@param key integer
----@return map_block_liquid_flow|nil
-function df.map_block.T_liquid_flow.find(key) end
 
 ---@class cave_column: df.class
 ---@field unk_z1 integer
@@ -683,7 +602,7 @@ function df.cave_column_rectangle:read_file(file, loadversion) end
 ---@field ground_level integer for coloring unallocated blocks
 ---@field unmined_glyphs map_block_column_unmined_glyphs[]
 ---@field z_base integer
----@field cave_columns map_block_column_cave_columns[]
+---@field cave_columns cave_column_link[][]
 ---@field column_rectangles cave_column_rectangle[]
 ---@field z_shift integer seems to be 0 originally, but updated when map is shifted
 ---@field flags boolean[] 0 process cave columns for caveins
@@ -707,13 +626,6 @@ df.map_block_column.T_unmined_glyphs = {}
 ---@param key integer
 ---@return map_block_column_unmined_glyphs|nil
 function df.map_block_column.T_unmined_glyphs.find(key) end
-
----@class map_block_column_cave_columns: df.class
-df.map_block_column.T_cave_columns = {}
-
----@param key integer
----@return map_block_column_cave_columns|nil
-function df.map_block_column.T_cave_columns.find(key) end
 
 ---@class _block_square_event_type: integer, string, df.enum
 ---@field mineral 0
@@ -813,27 +725,13 @@ df.block_square_event_mineralst.T_flags = {}
 ---@field cluster_one boolean
 
 ---@class block_square_event_frozen_liquidst: block_square_event
----@field tiles block_square_event_frozen_liquidst_tiles[]
----@field liquid_type block_square_event_frozen_liquidst_liquid_type[]
+---@field tiles tiletype[][]
+---@field liquid_type tile_liquid[][]
 df.block_square_event_frozen_liquidst = {}
 
 ---@param key integer
 ---@return block_square_event_frozen_liquidst|nil
 function df.block_square_event_frozen_liquidst.find(key) end
-
----@class block_square_event_frozen_liquidst_tiles: df.class
-df.block_square_event_frozen_liquidst.T_tiles = {}
-
----@param key integer
----@return block_square_event_frozen_liquidst_tiles|nil
-function df.block_square_event_frozen_liquidst.T_tiles.find(key) end
-
----@class block_square_event_frozen_liquidst_liquid_type: df.class
-df.block_square_event_frozen_liquidst.T_liquid_type = {}
-
----@param key integer
----@return block_square_event_frozen_liquidst_liquid_type|nil
-function df.block_square_event_frozen_liquidst.T_liquid_type.find(key) end
 
 ---@class block_square_event_world_constructionst: block_square_event
 ---@field construction_id integer References: world_construction
@@ -867,11 +765,11 @@ df.block_square_event_grassst = {}
 function df.block_square_event_grassst.find(key) end
 
 ---@class block_square_event_spoorst: block_square_event
----@field flags block_square_event_spoorst_flags[]
----@field unk_2 block_square_event_spoorst_unk_2[]
+---@field flags _[][]
+---@field unk_2 _[][]
 ---@field unk_3 integer[][]
----@field race block_square_event_spoorst_race[]
----@field caste block_square_event_spoorst_caste[]
+---@field race integer[][]
+---@field caste integer[][]
 ---@field age integer[][] in half-seconds
 ---@field year integer
 ---@field year_tick integer
@@ -880,34 +778,6 @@ df.block_square_event_spoorst = {}
 ---@param key integer
 ---@return block_square_event_spoorst|nil
 function df.block_square_event_spoorst.find(key) end
-
----@class block_square_event_spoorst_flags: df.class
-df.block_square_event_spoorst.T_flags = {}
-
----@param key integer
----@return block_square_event_spoorst_flags|nil
-function df.block_square_event_spoorst.T_flags.find(key) end
-
----@class block_square_event_spoorst_unk_2: df.class
-df.block_square_event_spoorst.T_unk_2 = {}
-
----@param key integer
----@return block_square_event_spoorst_unk_2|nil
-function df.block_square_event_spoorst.T_unk_2.find(key) end
-
----@class block_square_event_spoorst_race: df.class
-df.block_square_event_spoorst.T_race = {}
-
----@param key integer
----@return block_square_event_spoorst_race|nil
-function df.block_square_event_spoorst.T_race.find(key) end
-
----@class block_square_event_spoorst_caste: df.class
-df.block_square_event_spoorst.T_caste = {}
-
----@param key integer
----@return block_square_event_spoorst_caste|nil
-function df.block_square_event_spoorst.T_caste.find(key) end
 
 ---@class block_square_event_item_spatterst: block_square_event
 ---@field item_type item_type

@@ -3783,9 +3783,9 @@ function df.main_interface.T_arena_tree.find(key) end
 ---@field start_tick_count integer
 ---@field autosave_cycle integer
 ---@field want_to_quit_to_title boolean
----@field flash_11_by_3 gamest_flash_11_by_3[]
----@field flash_7_by_3 gamest_flash_7_by_3[]
----@field flash_4_by_3 gamest_flash_4_by_3[]
+---@field flash_11_by_3 integer[][][]
+---@field flash_7_by_3 integer[][][]
+---@field flash_4_by_3 integer[][][]
 ---@field external_flag integer
 df.gamest = {}
 
@@ -3837,27 +3837,6 @@ df.gamest.T_mod_manager = {}
 ---@param key integer
 ---@return gamest_mod_manager|nil
 function df.gamest.T_mod_manager.find(key) end
-
----@class gamest_flash_11_by_3: df.class
-df.gamest.T_flash_11_by_3 = {}
-
----@param key integer
----@return gamest_flash_11_by_3|nil
-function df.gamest.T_flash_11_by_3.find(key) end
-
----@class gamest_flash_7_by_3: df.class
-df.gamest.T_flash_7_by_3 = {}
-
----@param key integer
----@return gamest_flash_7_by_3|nil
-function df.gamest.T_flash_7_by_3.find(key) end
-
----@class gamest_flash_4_by_3: df.class
-df.gamest.T_flash_4_by_3 = {}
-
----@param key integer
----@return gamest_flash_4_by_3|nil
-function df.gamest.T_flash_4_by_3.find(key) end
 
 ---@class main_interface_settings: df.class
 ---@field open boolean

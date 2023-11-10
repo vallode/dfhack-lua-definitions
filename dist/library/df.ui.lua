@@ -660,7 +660,7 @@ df.labor_infost.T_flags = {}
 ---@field farm_seasons season[]
 ---@field economy_prices plotinfost_economy_prices
 ---@field stockpile plotinfost_stockpile
----@field unk2a8c plotinfost_unk2a8c[]
+---@field unk2a8c integer[][]
 ---@field unk_mapedge_x df.container<integer>
 ---@field unk_mapedge_y df.container<integer>
 ---@field unk_mapedge_z df.container<integer>
@@ -896,13 +896,6 @@ df.plotinfost.T_stockpile = {}
 ---@param key integer
 ---@return plotinfost_stockpile|nil
 function df.plotinfost.T_stockpile.find(key) end
-
----@class plotinfost_unk2a8c: df.class
-df.plotinfost.T_unk2a8c = {}
-
----@param key integer
----@return plotinfost_unk2a8c|nil
-function df.plotinfost.T_unk2a8c.find(key) end
 
 ---@class plotinfost_map_edge: df.class
 ---@field layer_x df.container<integer>[]

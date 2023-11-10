@@ -454,8 +454,8 @@ function df.graphic.T_tileset.find(key) end
 ---@field texpos_short_subsubtab integer[][]
 ---@field texpos_short_subsubtab_selected integer[][]
 ---@field texpos_interface_background integer
----@field texpos_button_main interface_setst_texpos_button_main[]
----@field texpos_button_small interface_setst_texpos_button_small[]
+---@field texpos_button_main integer[][][]
+---@field texpos_button_small integer[][][]
 ---@field texpos_button_horizontal_option_left_ornament integer[][]
 ---@field texpos_button_horizontal_option_active integer[][]
 ---@field texpos_button_horizontal_option_inactive integer[][]
@@ -517,12 +517,12 @@ function df.graphic.T_tileset.find(key) end
 ---@field texpos_building_jobs_active integer[][]
 ---@field texpos_building_jobs_quota integer[][]
 ---@field texpos_building_jobs_remove_worker integer[][]
----@field texpos_button_assign_trade interface_setst_texpos_button_assign_trade[]
----@field texpos_button_building_info interface_setst_texpos_button_building_info[]
----@field texpos_button_building_sheet interface_setst_texpos_button_building_sheet[]
----@field texpos_button_unit_sheet interface_setst_texpos_button_unit_sheet[]
----@field texpos_button_large_unit_sheet interface_setst_texpos_button_large_unit_sheet[]
----@field texpos_button_pets_livestock interface_setst_texpos_button_pets_livestock[]
+---@field texpos_button_assign_trade integer[][][]
+---@field texpos_button_building_info integer[][][]
+---@field texpos_button_building_sheet integer[][][]
+---@field texpos_button_unit_sheet integer[][][]
+---@field texpos_button_large_unit_sheet integer[][][]
+---@field texpos_button_pets_livestock integer[][][]
 ---@field texpos_liquid_numbers_on integer[][]
 ---@field texpos_liquid_numbers_off integer[][]
 ---@field texpos_ramp_arrows_on integer[][]
@@ -561,62 +561,6 @@ df.interface_setst = {}
 ---@param key integer
 ---@return interface_setst|nil
 function df.interface_setst.find(key) end
-
----@class interface_setst_texpos_button_main: df.class
-df.interface_setst.T_texpos_button_main = {}
-
----@param key integer
----@return interface_setst_texpos_button_main|nil
-function df.interface_setst.T_texpos_button_main.find(key) end
-
----@class interface_setst_texpos_button_small: df.class
-df.interface_setst.T_texpos_button_small = {}
-
----@param key integer
----@return interface_setst_texpos_button_small|nil
-function df.interface_setst.T_texpos_button_small.find(key) end
-
----@class interface_setst_texpos_button_assign_trade: df.class
-df.interface_setst.T_texpos_button_assign_trade = {}
-
----@param key integer
----@return interface_setst_texpos_button_assign_trade|nil
-function df.interface_setst.T_texpos_button_assign_trade.find(key) end
-
----@class interface_setst_texpos_button_building_info: df.class
-df.interface_setst.T_texpos_button_building_info = {}
-
----@param key integer
----@return interface_setst_texpos_button_building_info|nil
-function df.interface_setst.T_texpos_button_building_info.find(key) end
-
----@class interface_setst_texpos_button_building_sheet: df.class
-df.interface_setst.T_texpos_button_building_sheet = {}
-
----@param key integer
----@return interface_setst_texpos_button_building_sheet|nil
-function df.interface_setst.T_texpos_button_building_sheet.find(key) end
-
----@class interface_setst_texpos_button_unit_sheet: df.class
-df.interface_setst.T_texpos_button_unit_sheet = {}
-
----@param key integer
----@return interface_setst_texpos_button_unit_sheet|nil
-function df.interface_setst.T_texpos_button_unit_sheet.find(key) end
-
----@class interface_setst_texpos_button_large_unit_sheet: df.class
-df.interface_setst.T_texpos_button_large_unit_sheet = {}
-
----@param key integer
----@return interface_setst_texpos_button_large_unit_sheet|nil
-function df.interface_setst.T_texpos_button_large_unit_sheet.find(key) end
-
----@class interface_setst_texpos_button_pets_livestock: df.class
-df.interface_setst.T_texpos_button_pets_livestock = {}
-
----@param key integer
----@return interface_setst_texpos_button_pets_livestock|nil
-function df.interface_setst.T_texpos_button_pets_livestock.find(key) end
 
 ---@class renderer: df.class
 ---@field screen integer

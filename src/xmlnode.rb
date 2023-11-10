@@ -163,7 +163,7 @@ class Field < XmlNode
     case @node.name
     when 'global-object', 'pointer'
       @children.length > 1
-    when 'stl-vector', 'static-array'
+    when 'stl-vector'
       true unless @children.first.children.empty?
     when 'enum', 'bitfield', 'compound'
       true

@@ -1124,9 +1124,9 @@ function df.world_site_inhabitant.find(key) end
 ---@field mini_tiles integer[][]
 ---@field mini_colors integer[][]
 ---@field road_map site_realization_crossroads[][]
----@field river_map world_site_realization_river_map[]
----@field unk_55e8 world_site_realization_unk_55e8[]
----@field building_map world_site_realization_building_map[]
+---@field river_map _[][]
+---@field unk_55e8 integer[][]
+---@field building_map integer[][]
 ---@field flags_map integer[][]
 ---@field zoom_tiles integer[][]
 ---@field zoom_colors integer[][]
@@ -1174,27 +1174,6 @@ df.world_site_realization = {}
 ---@param key integer
 ---@return world_site_realization|nil
 function df.world_site_realization.find(key) end
-
----@class world_site_realization_river_map: df.class
-df.world_site_realization.T_river_map = {}
-
----@param key integer
----@return world_site_realization_river_map|nil
-function df.world_site_realization.T_river_map.find(key) end
-
----@class world_site_realization_unk_55e8: df.class
-df.world_site_realization.T_unk_55e8 = {}
-
----@param key integer
----@return world_site_realization_unk_55e8|nil
-function df.world_site_realization.T_unk_55e8.find(key) end
-
----@class world_site_realization_building_map: df.class
-df.world_site_realization.T_building_map = {}
-
----@param key integer
----@return world_site_realization_building_map|nil
-function df.world_site_realization.T_building_map.find(key) end
 
 ---@class world_site_realization_areas: df.class
 ---@field type world_site_realization.T_areas_type

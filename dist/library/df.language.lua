@@ -723,27 +723,13 @@ function df.language_name.find(key) end
 
 ---word_selectorst
 ---@class language_word_table: df.class
----@field words language_word_table_words[]
----@field parts language_word_table_parts[]
+---@field words integer[][]
+---@field parts part_of_speech[][]
 df.language_word_table = {}
 
 ---@param key integer
 ---@return language_word_table|nil
 function df.language_word_table.find(key) end
-
----@class language_word_table_words: df.class
-df.language_word_table.T_words = {}
-
----@param key integer
----@return language_word_table_words|nil
-function df.language_word_table.T_words.find(key) end
-
----@class language_word_table_parts: df.class
-df.language_word_table.T_parts = {}
-
----@param key integer
----@return language_word_table_parts|nil
-function df.language_word_table.T_parts.find(key) end
 
 ---@class _language_name_category: integer, string, df.enum
 ---@field Unit 0

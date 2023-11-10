@@ -1810,8 +1810,8 @@ function df.entity_uniform_item.find(key) end
 ---@class entity_uniform: df.class
 ---@field id integer
 ---@field unk_4 integer
----@field uniform_item_types entity_uniform_uniform_item_types[]
----@field uniform_item_subtypes entity_uniform_uniform_item_subtypes[]
+---@field uniform_item_types item_type[][]
+---@field uniform_item_subtypes integer[][]
 ---@field uniform_item_info entity_uniform_item[][]
 ---@field name string
 ---@field flags uniform_flags
@@ -1820,20 +1820,6 @@ df.entity_uniform = {}
 ---@param key integer
 ---@return entity_uniform|nil
 function df.entity_uniform.find(key) end
-
----@class entity_uniform_uniform_item_types: df.class
-df.entity_uniform.T_uniform_item_types = {}
-
----@param key integer
----@return entity_uniform_uniform_item_types|nil
-function df.entity_uniform.T_uniform_item_types.find(key) end
-
----@class entity_uniform_uniform_item_subtypes: df.class
-df.entity_uniform.T_uniform_item_subtypes = {}
-
----@param key integer
----@return entity_uniform_uniform_item_subtypes|nil
-function df.entity_uniform.T_uniform_item_subtypes.find(key) end
 
 ---@class _entity_event_type: integer, string, df.enum
 ---@field invasion 0

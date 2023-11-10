@@ -2107,19 +2107,12 @@ function df.worldgen_parms.find(key) end
 ---@class worldgen_parms_ps: df.class
 ---@field width integer
 ---@field height integer
----@field data worldgen_parms_ps_data[]
+---@field data integer[]
 df.worldgen_parms_ps = {}
 
 ---@param key integer
 ---@return worldgen_parms_ps|nil
 function df.worldgen_parms_ps.find(key) end
-
----@class worldgen_parms_ps_data: df.class
-df.worldgen_parms_ps.T_data = {}
-
----@param key integer
----@return worldgen_parms_ps_data|nil
-function df.worldgen_parms_ps.T_data.find(key) end
 
 ---@class viewscreen_new_regionst: viewscreen
 ---@field worldgen_presets worldgen_parms[]
@@ -2665,7 +2658,7 @@ df.setup_character_info.T_sub_mode = {}
 ---@field FINAL_CONFIRMATION boolean
 
 ---@class embark_item_choice: df.class
----@field list embark_item_choice_list[]
+---@field list _[][]
 ---@field race df.container<integer> References: creature_raw
 ---@field caste df.container<integer> References: caste_raw
 ---@field profession profession[]
@@ -2674,13 +2667,6 @@ df.embark_item_choice = {}
 ---@param key integer
 ---@return embark_item_choice|nil
 function df.embark_item_choice.find(key) end
-
----@class embark_item_choice_list: df.class
-df.embark_item_choice.T_list = {}
-
----@param key integer
----@return embark_item_choice_list|nil
-function df.embark_item_choice.T_list.find(key) end
 
 ---@class embark_profile: df.class
 ---@field name string

@@ -8,11 +8,11 @@
 ---@field building_type building_type
 ---@field building_subtype integer
 ---@field name_color integer[]
----@field tile building_def_tile[]
----@field tile_color building_def_tile_color[]
+---@field tile integer[][][]
+---@field tile_color integer[][][][]
 ---@field tile_block integer[][]
----@field graphics_normal building_def_graphics_normal[]
----@field graphics_overlay building_def_graphics_overlay[]
+---@field graphics_normal integer[][][]
+---@field graphics_overlay integer[][][]
 ---@field build_key number
 ---@field needs_magma boolean
 ---@field build_items building_def_item[]
@@ -28,34 +28,6 @@ df.building_def = {}
 ---@param key integer
 ---@return building_def|nil
 function df.building_def.find(key) end
-
----@class building_def_tile: df.class
-df.building_def.T_tile = {}
-
----@param key integer
----@return building_def_tile|nil
-function df.building_def.T_tile.find(key) end
-
----@class building_def_tile_color: df.class
-df.building_def.T_tile_color = {}
-
----@param key integer
----@return building_def_tile_color|nil
-function df.building_def.T_tile_color.find(key) end
-
----@class building_def_graphics_normal: df.class
-df.building_def.T_graphics_normal = {}
-
----@param key integer
----@return building_def_graphics_normal|nil
-function df.building_def.T_graphics_normal.find(key) end
-
----@class building_def_graphics_overlay: df.class
-df.building_def.T_graphics_overlay = {}
-
----@param key integer
----@return building_def_graphics_overlay|nil
-function df.building_def.T_graphics_overlay.find(key) end
 
 ---@param unk_0 integer
 ---@param unk_1 integer

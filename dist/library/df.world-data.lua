@@ -3,19 +3,12 @@
 
 ---@class world_site_unk130: df.class
 ---@field index integer
----@field unk_4 world_site_unk130_unk_4[]
+---@field unk_4 _[][]
 df.world_site_unk130 = {}
 
 ---@param key integer
 ---@return world_site_unk130|nil
 function df.world_site_unk130.find(key) end
-
----@class world_site_unk130_unk_4: df.class
-df.world_site_unk130.T_unk_4 = {}
-
----@param key integer
----@return world_site_unk130_unk_4|nil
-function df.world_site_unk130.T_unk_4.find(key) end
 
 ---@class _world_population_type: integer, string, df.enum
 ---@field Animal 0
@@ -399,8 +392,8 @@ function df.world_region_feature.find(key) end
 ---@field unk_4 integer
 ---@field rivers_vertical world_region_details_rivers_vertical
 ---@field rivers_horizontal world_region_details_rivers_horizontal
----@field other_features world_region_details_other_features[]
----@field features world_region_details_features[]
+---@field other_features _flags[][]
+---@field features world_region_feature[][][]
 ---@field lava_stone integer References: inorganic_raw
 ---@field unk_12 integer[] Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
 ---@field elevation2 integer[][]
@@ -445,20 +438,6 @@ df.world_region_details.T_rivers_horizontal = {}
 ---@param key integer
 ---@return world_region_details_rivers_horizontal|nil
 function df.world_region_details.T_rivers_horizontal.find(key) end
-
----@class world_region_details_other_features: df.class
-df.world_region_details.T_other_features = {}
-
----@param key integer
----@return world_region_details_other_features|nil
-function df.world_region_details.T_other_features.find(key) end
-
----@class world_region_details_features: df.class
-df.world_region_details.T_features = {}
-
----@param key integer
----@return world_region_details_features|nil
-function df.world_region_details.T_features.find(key) end
 
 ---@class _region_map_entry_flags: integer, string, df.enum
 ---@field has_river 0
