@@ -9,7 +9,8 @@
         ],
         "Lua.runtime.special": {
             "reqscript": "require",
-            "qerror": "error"
+            "qerror": "error",
+            "base_env": "_G"
         }
     }
 }
