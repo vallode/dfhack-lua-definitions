@@ -12,16 +12,15 @@ TYPE_MAP = {
   'lightuserdata' => %w[stl-mutex stl-condition-variable stl-deque stl-fstream stl-unordered-map]
 }.freeze
 
-# Represents a generic XML element.
+# Generic XML element.
 class XmlNode
   attr_reader :node
 
   def initialize(node, parent_type = nil)
-    # Nokogiri attributes
     @node = node
     @children = node.xpath('*[not(self::comment)]')
-    @has_children = !node.children.empty?
-    # @parent = parent
+    @has_children = !@children.empty?
+
     @parent_type = parent_type
     @type_name = type_name
 
@@ -41,7 +40,6 @@ class XmlNode
 
   def root_type
     child_type = Field.new(@children.first).type if !@children.empty? && @node.name != 'vmethod'
-
     XmlNode.parse_type(child_type) || XmlNode.parse_type(@type_name) || XmlNode.parse_type(@node.name, 'any')
   end
 
@@ -55,6 +53,87 @@ class XmlNode
 
   def self.parse_type(string, default = nil)
     TYPE_MAP.filter { |_, value| value.include?(string) }.keys[0] || default || string
+  end
+end
+
+# Usually either a <struct-type> or a <class-type> element.
+class StructType < XmlNode
+  attr_reader :name
+
+  def initialize(node, parent_type = nil, type_separator = '.T_')
+    super(node, parent_type)
+
+    @name = node['type-name'] || node['name']
+
+    @child_nodes = child_nodes
+
+    @parent_type = parent_type
+    @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.class'
+    @type = parent_type ? "#{parent_type}_#{@name}" : @name
+    @type_separator = type_separator
+  end
+
+  def child_nodes
+    pointer_children = @node.at_xpath('./pointer|./compound')
+
+    if pointer_children && @parent_type && @node.name == 'stl-vector'
+      pointer_children.children
+    else
+      @node.children
+    end
+  end
+
+  def render_functions
+    annotation = "---@param key integer\n"
+    annotation << "---@return #{@type}|nil\n"
+    annotation << "function df.#{@parent_type + @type_separator if @parent_type}#{@name}.find(key) end\n\n"
+  end
+
+  def render
+    annotation = ''
+    annotation << "---#{@comment}\n" if @comment
+    annotation << "---@class #{@type}#{': ' + @inherits if @inherits}\n"
+
+    inline_types = []
+    @child_nodes.each do |child|
+      if child.name == 'virtual-methods'
+        child.css('> vmethod').each do |method|
+          # Methods without names "technically" exist but calling them is
+          # impossible. They are placeholders for unknown slots.
+          next unless method.attributes['name']
+
+          inline_types.push(method)
+        end
+
+        next
+      end
+
+      next if !(child['name']) or child.name == 'code-helper'
+
+      field = Field.new(child, parent_type: "#{@parent_type + @type_separator if @parent_type}#{@name}")
+
+      inline_types.push(child) if field.is_inline
+
+      annotation << field.render
+    end
+
+    annotation << "df.#{@parent_type + @type_separator if @parent_type}#{@name} = {}\n\n"
+
+    annotation << render_functions
+
+    unless inline_types.empty?
+      inline_types.each do |child|
+        annotation << if %w[enum bitfield].include?(child.name)
+                        EnumType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
+                      elsif child.name == 'vmethod'
+                        FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
+                      else
+                        StructType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
+                      end
+      end
+    end
+
+    annotation
   end
 end
 
@@ -263,80 +342,5 @@ class GlobalObject
     end
 
     annotation << "\n"
-  end
-end
-
-class StructType < XmlNode
-  attr_reader :name
-
-  def initialize(node, parent_type = nil, type_separator = '.T_')
-    super(node, parent_type)
-
-    @name = node['type-name'] || node['name']
-    @parent_type = parent_type
-    @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.class'
-    @type = parent_type ? "#{parent_type}_#{@name}" : @name
-    @type_separator = type_separator
-  end
-
-  def render
-    annotation = ''
-    annotation << "---#{@comment}\n" if @comment
-    annotation << "---@class #{@type}#{': ' + @inherits if @inherits}\n"
-    has_pointer_child = @node.at_xpath('./pointer|./compound')
-
-    children = if has_pointer_child and @parent_type and @node.name == 'stl-vector'
-                 @node.at_xpath('./pointer|./compound').children
-               # elsif has_pointer_child and @parent_type and @node.name == 'virtual-methods'
-               else
-                 @node.children
-               end
-
-    inline_types = []
-    children.each do |child|
-      if child.name == 'virtual-methods'
-        child.css('> vmethod').each do |method|
-          # Methods without names "technically" exist but calling them is
-          # impossible. They are placeholders for unknown slots.
-          next unless method.attributes['name']
-
-          inline_types.push(method)
-        end
-
-        next
-      end
-
-      next if !(child['name']) or child.name == 'code-helper'
-
-      field = Field.new(child, parent_type: "#{@parent_type + @type_separator if @parent_type}#{@name}")
-
-      inline_types.push(child) if field.is_inline
-
-      annotation << field.render
-    end
-
-    annotation << "df.#{@parent_type + @type_separator if @parent_type}#{@name} = {}\n\n"
-
-    annotation << render_functions
-
-    unless inline_types.empty?
-      inline_types.each do |child|
-        annotation << if %w[enum bitfield].include?(child.name)
-                        EnumType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-                      elsif child.name == 'vmethod'
-                        FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
-                      else
-                        StructType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-                      end
-      end
-    end
-
-    annotation
-  end
-
-  def render_functions
-    annotation = "---@param key integer\n"
-    annotation << "---@return #{@type}|nil\n"
-    annotation << "function df.#{@parent_type + @type_separator if @parent_type}#{@name}.find(key) end\n\n"
   end
 end
