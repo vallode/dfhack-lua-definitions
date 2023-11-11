@@ -287,26 +287,79 @@ df.general_ref_type = {}
 ---@field UNIT_INTERROGATEE boolean
 
 ---@class general_ref: df.class
----@field write_file any
----@field read_file any
----@field getType any
----@field getItem any
----@field getUnit any
----@field getProjectile any
----@field getBuilding any
----@field getEntity any
----@field getArtifact any
----@field getNemesis any
----@field getEvent any
----@field setID any
----@field getID any
----@field setLocation any
----@field getLocation any
----@field clone any
----@field getDescription any
----@field getDescription2 any
----@field getDescription3 any for scholar flags
 df.general_ref = {}
+
+---@param file file_compressorst
+function df.general_ref.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.general_ref.read_file(file, loadversion) end
+
+---@return general_ref_type
+function df.general_ref.getType() end
+
+---@param unk_0 item
+---@return item
+function df.general_ref.getItem(unk_0) end
+
+---@param unk_0 unit
+---@return unit
+function df.general_ref.getUnit(unk_0) end
+
+---@param unk_0 projectile
+---@return projectile
+function df.general_ref.getProjectile(unk_0) end
+
+---@param unk_0 building
+---@return building
+function df.general_ref.getBuilding(unk_0) end
+
+---@param unk_0 historical_entity
+---@return historical_entity
+function df.general_ref.getEntity(unk_0) end
+
+---@param unk_0 artifact_record
+---@return artifact_record
+function df.general_ref.getArtifact(unk_0) end
+
+---@param unk_0 nemesis_record
+---@return nemesis_record
+function df.general_ref.getNemesis(unk_0) end
+
+---@param unk_0 activity_event
+---@return activity_event
+function df.general_ref.getEvent(unk_0) end
+
+---@param unk_0 integer
+function df.general_ref.setID(unk_0) end
+
+---@return integer
+function df.general_ref.getID() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+function df.general_ref.setLocation(x, y, z) end
+
+---@param out_x integer
+---@param out_y integer
+---@param out_z integer
+function df.general_ref.getLocation(out_x, out_y, out_z) end
+
+---@param unk_0 general_ref
+---@return general_ref
+function df.general_ref.clone(unk_0) end
+
+---@param str string
+function df.general_ref.getDescription(str) end
+
+---@param str string
+function df.general_ref.getDescription2(str) end
+
+---for scholar flags
+---@param str string
+function df.general_ref.getDescription3(str) end
 
 ---@class general_ref_artifact: general_ref
 ---@field artifact_id integer References: artifact_record
@@ -802,6 +855,32 @@ df.histfig_entity_link_type = {}
 ---@field link_strength integer
 df.histfig_entity_link = {}
 
+---@return histfig_entity_link_type
+function df.histfig_entity_link.getType() end
+
+---@param file file_compressorst
+function df.histfig_entity_link.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.histfig_entity_link.read_file(file, loadversion) end
+
+---@return integer
+function df.histfig_entity_link.getPosition() end
+
+---@return integer
+function df.histfig_entity_link.getOccupation() end
+
+---@return integer
+function df.histfig_entity_link.getPositionStartYear() end
+
+---@return integer
+function df.histfig_entity_link.getPositionEndYear() end
+
+---@param unk_0 lightuserdata
+---@param indent integer
+function df.histfig_entity_link.generate_xml(unk_0, indent) end
+
 ---@class histfig_entity_link_memberst: histfig_entity_link
 df.histfig_entity_link_memberst = {}
 
@@ -923,6 +1002,20 @@ df.histfig_site_link_type = {}
 ---@field entity integer References: historical_entity
 df.histfig_site_link = {}
 
+---@return histfig_site_link_type
+function df.histfig_site_link.getType() end
+
+---@param file file_compressorst
+function df.histfig_site_link.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.histfig_site_link.read_file(file, loadversion) end
+
+---@param unk_0 lightuserdata
+---@param indent integer
+function df.histfig_site_link.generate_xml(unk_0, indent) end
+
 ---@class histfig_site_link_occupationst: histfig_site_link
 ---@field unk_1 integer
 df.histfig_site_link_occupationst = {}
@@ -1027,6 +1120,20 @@ df.histfig_hf_link_type = {}
 ---@field target_hf integer References: historical_figure
 ---@field link_strength integer
 df.histfig_hf_link = {}
+
+---@return histfig_hf_link_type
+function df.histfig_hf_link.getType() end
+
+---@param file file_compressorst
+function df.histfig_hf_link.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.histfig_hf_link.read_file(file, loadversion) end
+
+---@param unk_0 lightuserdata
+---@param indent integer
+function df.histfig_hf_link.generate_xml(unk_0, indent) end
 
 ---@class histfig_hf_link_motherst: histfig_hf_link
 df.histfig_hf_link_motherst = {}

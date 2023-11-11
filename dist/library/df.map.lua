@@ -524,6 +524,13 @@ df.map_block.T_map_edge_distance = {}
 ---@field unk_4 cave_column_unk_4
 df.cave_column = {}
 
+---@param file file_compressorst
+function df.cave_column.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.cave_column.read_file(file, loadversion) end
+
 ---@class _cave_column_unk_4: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
@@ -547,6 +554,13 @@ df.cave_column.T_unk_4 = {}
 ---@field unk_6 coord_path
 ---@field unk_7 cave_column_rectangle_unk_7
 df.cave_column_rectangle = {}
+
+---@param file file_compressorst
+function df.cave_column_rectangle.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.cave_column_rectangle.read_file(file, loadversion) end
 
 ---@class _cave_column_rectangle_unk_7: integer, string, df.bitfield
 ---@field unk_0 0
@@ -626,12 +640,25 @@ df.block_square_event_type = {}
 ---@field designation_priority boolean
 
 ---@class block_square_event: df.class
----@field getType any
----@field write_file any
----@field read_file any
----@field isEmpty any
----@field checkTemperature any
 df.block_square_event = {}
+
+---@return block_square_event_type
+function df.block_square_event.getType() end
+
+---@param file file_compressorst
+function df.block_square_event.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.block_square_event.read_file(file, loadversion) end
+
+---@return boolean
+function df.block_square_event.isEmpty() end
+
+---@param x integer
+---@param y integer
+---@param temperature integer
+function df.block_square_event.checkTemperature(x, y, temperature) end
 
 ---@class block_square_event_mineralst: block_square_event
 ---@field inorganic_mat integer References: inorganic_raw
@@ -779,6 +806,21 @@ df.feature_type = {}
 ---@field max_map_z df.container
 df.feature = {}
 
+---@return feature_type
+function df.feature.getType() end
+
+---@param file file_compressorst
+function df.feature.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.feature.read_file(file, loadversion) end
+
+---@param x integer
+---@param y integer
+---@param z integer
+function df.feature.shiftCoords(x, y, z) end
+
 ---@class feature_outdoor_riverst: feature
 df.feature_outdoor_riverst = {}
 
@@ -872,6 +914,63 @@ df.layer_type = {}
 ---@field end_depth layer_type
 df.feature_init = {}
 
+---@return feature_type
+function df.feature_init.getType() end
+
+---@param file file_compressorst
+---@param include_feature boolean
+function df.feature_init.write_file(file, include_feature) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+---@param include_feature boolean
+function df.feature_init.read_file(file, loadversion, include_feature) end
+
+---@param unk_0 feature
+---@return feature
+function df.feature_init.createFeature(unk_0) end
+
+---destroyFeature(), then createFeature()
+---@param unk_0 feature
+---@return feature
+function df.feature_init.recreateFeature(unk_0) end
+
+function df.feature_init.destroyFeature() end
+
+---@param unk_0 feature
+---@return feature
+function df.feature_init.getFeature(unk_0) end
+
+---@param mat_type integer
+---@param mat_index integer
+function df.feature_init.getMaterial(mat_type, mat_index) end
+
+---@param foreground integer
+---@param background integer
+---@param bright integer
+function df.feature_init.getColor(foreground, background, bright) end
+
+---@param name string
+function df.feature_init.getName(name) end
+
+---@return boolean
+function df.feature_init.isWater() end
+
+---@return boolean
+function df.feature_init.isSubterranean() end
+
+---@return boolean
+function df.feature_init.isMagma() end
+
+---@return boolean
+function df.feature_init.isChasm() end
+
+---@return boolean
+function df.feature_init.isLayer() end
+
+---@return integer
+function df.feature_init.getLayer() end
+
 ---@class feature_init_outdoor_riverst: feature_init
 ---@field feature feature_outdoor_riverst
 df.feature_init_outdoor_riverst = {}
@@ -935,10 +1034,17 @@ df.feature_alteration_type = {}
 ---@field new_lava_fill_z boolean
 
 ---@class feature_alteration: df.class
----@field getType any
----@field write_file any
----@field read_file any
 df.feature_alteration = {}
+
+---@return feature_alteration_type
+function df.feature_alteration.getType() end
+
+---@param file file_compressorst
+function df.feature_alteration.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.feature_alteration.read_file(file, loadversion) end
 
 ---@class feature_alteration_new_pop_maxst: feature_alteration
 ---@field unk_1 integer
@@ -979,6 +1085,16 @@ df.world_construction_type = {}
 ---@field embark_z df.container
 df.world_construction_square = {}
 
+---@return world_construction_type
+function df.world_construction_square.getType() end
+
+---@param file file_compressorst
+function df.world_construction_square.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.world_construction_square.read_file(file, loadversion) end
+
 ---@class world_construction_square_roadst: world_construction_square
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -1009,6 +1125,20 @@ df.world_construction_square_wallst = {}
 ---@field square_obj world_construction_square[]
 ---@field square_pos coord2d_path
 df.world_construction = {}
+
+---@return world_construction_type
+function df.world_construction.getType() end
+
+---@param unk_0 language_name
+---@return language_name
+function df.world_construction.getName(unk_0) end
+
+---@param file file_compressorst
+function df.world_construction.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.world_construction.read_file(file, loadversion) end
 
 ---@class world_construction_roadst: world_construction
 ---@field name language_name
@@ -1363,6 +1493,21 @@ df.flow_guide_type = {}
 ---@field unk_8 integer
 df.flow_guide = {}
 
+---@return flow_guide_type
+function df.flow_guide.getType() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+function df.flow_guide.shiftCoords(x, y, z) end
+
+---@param file file_compressorst
+function df.flow_guide.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.flow_guide.read_file(file, loadversion) end
+
 ---@class flow_guide_trailing_flowst: flow_guide
 ---@field unk_1 coord[]
 df.flow_guide_trailing_flowst = {}
@@ -1398,10 +1543,17 @@ df.region_block_event_type = {}
 ---@field SphereField boolean
 
 ---@class region_block_eventst: df.class
----@field getType any
----@field write_file any
----@field read_file any
 df.region_block_eventst = {}
+
+---@return region_block_event_type
+function df.region_block_eventst.getType() end
+
+---@param file file_compressorst
+function df.region_block_eventst.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.region_block_eventst.read_file(file, loadversion) end
 
 ---@class region_block_event_sphere_fieldst: region_block_eventst
 ---@field unk_1 integer[]

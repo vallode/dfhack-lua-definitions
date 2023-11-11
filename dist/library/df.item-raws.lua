@@ -432,6 +432,19 @@ df.itemdef_flags = {}
 ---@field raw_strings string[]
 df.itemdef = {}
 
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param unk_4 integer
+function df.itemdef.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
+
+---add to world.raws.itemdefs.whatever
+function df.itemdef.categorize() end
+
+---calculate stuff like base value
+function df.itemdef.finalize() end
+
 ---@class _ammo_flags: integer, string, df.enum
 ---@field HAS_EDGE_ATTACK 0
 ---@field [0] "HAS_EDGE_ATTACK"

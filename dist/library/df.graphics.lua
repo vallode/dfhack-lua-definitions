@@ -552,6 +552,76 @@ df.interface_setst = {}
 ---@field screentexpos_refresh_buffer integer
 df.renderer = {}
 
+---@param x integer
+---@param y integer
+function df.renderer.update_tile(x, y) end
+
+---@param x integer
+---@param y integer
+function df.renderer.update_anchor_tile(x, y) end
+
+---@param x integer
+---@param y integer
+function df.renderer.update_top_tile(x, y) end
+
+---@param x integer
+---@param y integer
+function df.renderer.update_top_anchor_tile(x, y) end
+
+---@param vp graphic_viewportst
+---@param x integer
+---@param y integer
+function df.renderer.update_viewport_tile(vp, x, y) end
+
+---@param vp graphic_map_portst
+---@param x integer
+---@param y integer
+function df.renderer.update_map_port_tile(vp, x, y) end
+
+function df.renderer.update_all() end
+
+function df.renderer.do_blank_screen_fill() end
+
+---@param vp graphic_viewportst
+function df.renderer.update_full_viewport(vp) end
+
+---@param vp graphic_map_portst
+function df.renderer.update_full_map_port(vp) end
+
+function df.renderer.clean_tile_cache() end
+
+function df.renderer.render() end
+
+function df.renderer.set_fullscreen() end
+
+---@param unk_0 zoom_commands
+function df.renderer.zoom(unk_0) end
+
+---@param w integer
+---@param h integer
+function df.renderer.resize(w, h) end
+
+---@param w integer
+---@param h integer
+function df.renderer.grid_resize(w, h) end
+
+---@param nfactor integer
+function df.renderer.set_viewport_zoom_factor(nfactor) end
+
+---@param px integer
+---@param py integer
+---@param x integer
+---@param y integer
+---@return boolean
+function df.renderer.get_precise_mouse_coords(px, py, x, y) end
+
+---@param cur_tx integer
+---@param cur_ty integer
+function df.renderer.get_current_interface_tile_dims(cur_tx, cur_ty) end
+
+---@return boolean
+function df.renderer.uses_opengl() end
+
 ---@class renderer_2d_base: renderer
 ---@field window integer SDL_Window*
 ---@field sdl_renderer integer SDL_Renderer*
@@ -576,6 +646,11 @@ df.renderer = {}
 ---@field natural_w integer
 ---@field natural_h integer
 df.renderer_2d_base = {}
+
+---@param w integer
+---@param h integer
+---@return boolean
+function df.renderer_2d_base.init_video(w, h) end
 
 ---@class renderer_2d: renderer_2d_base
 df.renderer_2d = {}
@@ -650,6 +725,10 @@ df.zoom_commands = {}
 ---@field mouse_focus boolean
 ---@field last_text_input integer[]
 df.enabler = {}
+
+---@param unk_0 interface_key
+---@return string
+function df.enabler.GetKeyDisplay(unk_0) end
 
 ---@class _enabler_fullscreen_state: integer, string, df.bitfield
 ---@field fullscreen 0

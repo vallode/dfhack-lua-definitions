@@ -1018,6 +1018,9 @@ df.coin_batch.T_image_back = {}
 ---@field job_application_heap job_handler_job_application_heap this appears to be a priority queue of some sort
 df.job_handler = {}
 
+---@param unk_0 job
+function df.job_handler.cancel_job(unk_0) end
+
 ---entries never removed
 ---@class job_handler_postings: df.class
 ---@field idx integer equal to position in vector
@@ -1055,6 +1058,18 @@ df.job_handler.T_job_application_heap.T_node = {}
 ---@field check_bridge_collapse boolean
 ---@field check_machine_collapse boolean ?
 df.building_handler = {}
+
+---ToadyOnes name
+---@param hookups machine_tile_set
+---@param type integer
+---@param subtype integer
+---@param x1 integer
+---@param y1 integer
+---@param x2 integer
+---@param y2 integer
+---@param z integer
+---@param is_vertical integer
+function df.building_handler.get_machine_hookup_list(hookups, type, subtype, x1, y1, x2, y2, z, is_vertical) end
 
 ---@class machine_handler: df.class
 ---@field all machine[]

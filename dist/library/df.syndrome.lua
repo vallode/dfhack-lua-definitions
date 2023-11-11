@@ -443,6 +443,62 @@ df.creature_interaction_effect_target = {}
 ---@field counter_trigger creature_interaction_effect_counter_trigger
 df.creature_interaction_effect = {}
 
+---@return creature_interaction_effect_type
+function df.creature_interaction_effect.getType() end
+
+---@param unk_0 creature_interaction_effect
+---@return creature_interaction_effect
+function df.creature_interaction_effect.clone(unk_0) end
+
+---@param unk_0 unit
+---@param unk_1 unit_syndrome
+---@param unk_2 syndrome
+---@param intensity integer
+---@param bp_index integer
+---@param bp_layer integer
+---@param unk_6 unit_wound
+function df.creature_interaction_effect.doAction(unk_0, unk_1, unk_2, intensity, bp_index, bp_layer, unk_6) end
+
+---@return boolean
+function df.creature_interaction_effect.isUntargeted() end
+
+---@param unk_0 creature_interaction_effect_target_mode[]
+---@return creature_interaction_effect_target_mode[]
+function df.creature_interaction_effect.getTargetModes(unk_0) end
+
+---@param unk_0 string[]
+---@return string[]
+function df.creature_interaction_effect.getTargetKeys(unk_0) end
+
+---@param unk_0 string[]
+---@return string[]
+function df.creature_interaction_effect.getTargetTissues(unk_0) end
+
+---@param unk_0 integer
+---@return boolean
+function df.creature_interaction_effect.checkAddFlag1(unk_0) end
+
+---@param unk_0 integer
+function df.creature_interaction_effect.setBodyMatInteractionName(unk_0) end
+
+---@param type integer
+function df.creature_interaction_effect.parseSynAcquireType(type) end
+
+---@param race integer
+---@param caste integer
+function df.creature_interaction_effect.setBodyTransform(race, caste) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+function df.creature_interaction_effect.addPeriodic(unk_0, unk_1, unk_2) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+function df.creature_interaction_effect.addCounterTrigger(unk_0, unk_1, unk_2, unk_3) end
+
 ---@class creature_interaction_effect_counter_trigger: df.class
 ---@field counter misc_trait_type[]
 ---@field minval df.container ?

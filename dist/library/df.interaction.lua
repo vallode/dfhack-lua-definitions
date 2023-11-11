@@ -123,6 +123,40 @@ df.interaction_effect_location_hint = {}
 ---@field arena_name string IE_ARENA_NAME
 df.interaction_effect = {}
 
+---@return interaction_effect_type
+function df.interaction_effect.getType() end
+
+---@param file file_compressorst
+function df.interaction_effect.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.interaction_effect.read_file(file, loadversion) end
+
+---@param target unit
+---@param unk_1 integer has pointer-vector at offset 0x10
+---@param unk_2 boolean only used by animate
+function df.interaction_effect.activateOnUnit(target, unk_1, unk_2) end
+
+---@param target item
+function df.interaction_effect.activateOnItem(target) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param unk_4 integer
+function df.interaction_effect.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
+
+---@param unk_0 integer
+function df.interaction_effect.finalize(unk_0) end
+
+function df.interaction_effect.applySyndromes() end
+
+---@param unk_0 syndrome
+---@return boolean
+function df.interaction_effect.hasSyndrome(unk_0) end
+
 ---@class _interaction_effect_flags: integer, string, df.bitfield
 ---@field IMMEDIATE 0
 ---@field [0] "IMMEDIATE"
@@ -269,6 +303,23 @@ df.interaction_source_type = {}
 ---@field trigger_string_third string IS_TRIGGER_STRING_THIRD
 ---@field trigger_string string IS_TRIGGER_STRING
 df.interaction_source = {}
+
+---@return interaction_source_type
+function df.interaction_source.getType() end
+
+---@param file file_compressorst
+function df.interaction_source.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.interaction_source.read_file(file, loadversion) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param unk_4 integer
+function df.interaction_source.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 
 ---@class interaction_source_regionst: interaction_source
 ---@field region_flags interaction_source_regionst_region_flags
@@ -490,6 +541,23 @@ df.interaction_target_location_type = {}
 ---@field reference_name string IT_LOCATION:RANDOM_NEARBY_LOCATION
 ---@field reference_distance integer IT_LOCATION:RANDOM_NEARBY_LOCATION
 df.interaction_target = {}
+
+---@return interaction_target_type
+function df.interaction_target.getType() end
+
+---@param file file_compressorst
+function df.interaction_target.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.interaction_target.read_file(file, loadversion) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param unk_4 integer
+function df.interaction_target.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 
 ---@class interaction_target_info: df.class
 ---@field affected_creature_str string[][]

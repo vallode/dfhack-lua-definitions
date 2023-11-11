@@ -10,6 +10,18 @@
 ---@field action_strings string[]
 df.creature_handler = {}
 
+---@param creature_index integer
+---@param caste_index integer
+---@param alt boolean
+---@param soldier boolean
+---@return integer
+function df.creature_handler.getTile(creature_index, caste_index, alt, soldier) end
+
+---@param creature_index integer
+---@param caste_index integer
+---@return integer
+function df.creature_handler.getGlowTile(creature_index, caste_index) end
+
 ---@class world_raws: df.class
 ---@field material_templates material_template[]
 ---@field inorganics inorganic_raw[]

@@ -76,6 +76,30 @@ df.reaction_reagent_type = {}
 ---@field flags reaction_reagent_flags
 df.reaction_reagent = {}
 
+---@return reaction_reagent_type
+function df.reaction_reagent.getType() end
+
+---@param reactionID integer
+function df.reaction_reagent.resolveTokens(reactionID) end
+
+---@param unk_0 item
+---@param index integer
+---@return boolean
+function df.reaction_reagent.matchesRoot(unk_0, index) end
+
+---@param unk_0 item
+---@param unk_1 reaction or maybe reaction code string ref
+---@param index integer
+---@return boolean
+function df.reaction_reagent.matchesChild(unk_0, unk_1, index) end
+
+---@param unk_0 string
+---@param index integer
+function df.reaction_reagent.getDescription(unk_0, index) end
+
+---@return boolean
+function df.reaction_reagent.isLyeBearing() end
+
 ---@class _reaction_reagent_flags: integer, string, df.bitfield
 ---@field PRESERVE_REAGENT 0
 ---@field [0] "PRESERVE_REAGENT"
@@ -132,6 +156,29 @@ df.reaction_product_type = {}
 ---@field product_token string
 ---@field product_to_container string
 df.reaction_product = {}
+
+---@return reaction_product_type
+function df.reaction_product.getType() end
+
+---@param reactionID integer
+function df.reaction_product.resolveTokens(reactionID) end
+
+---@param maker unit
+---@param out_products reaction_product[]
+---@param out_items item[]
+---@param in_reag reaction_reagent[]
+---@param in_items item[]
+---@param quantity integer
+---@param skill job_skill
+---@param job_quality integer gets +10 for matching preferences, uses cutoffs 23/30/35/45/55 for Well/Fine/Superior/Exceptional/Masterwork
+---@param entity historical_entity
+---@param site world_site
+---@param unk4 df.container only used when making improvements
+function df.reaction_product.produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
+
+---used in Adventurer mode reactions?
+---@param desc string
+function df.reaction_product.getDescription(desc) end
 
 ---@class _reaction_product_item_flags: integer, string, df.enum
 ---@field GET_MATERIAL_SAME 0

@@ -37,6 +37,18 @@ df.dipscript_popup.T_flags = {}
 ---@field next_step_idx integer
 df.script_stepst = {}
 
+---@param idx integer
+---@return boolean
+function df.script_stepst.setNextStep(idx) end
+
+---@param context meeting_context
+---@return integer
+function df.script_stepst.execute(context) end
+
+---@param context meeting_context
+---@return integer
+function df.script_stepst.skip(context) end
+
 ---@class script_step_setvarst: script_stepst
 ---@field dest_type string
 ---@field dest_name string
@@ -100,6 +112,10 @@ df.script_step_eventst = {}
 ---@field name string
 df.script_varst = {}
 
+---@param unk_0 active_script_varst
+---@return active_script_varst
+function df.script_varst.instantiate(unk_0) end
+
 ---@class script_var_unitst: script_varst
 df.script_var_unitst = {}
 
@@ -109,6 +125,29 @@ df.script_var_longst = {}
 ---@class active_script_varst: df.class
 ---@field name string
 df.active_script_varst = {}
+
+function df.active_script_varst.setColor() end
+
+---@param output string
+---@param format string
+function df.active_script_varst.formatString(output, format) end
+
+---@param int_value integer
+---@param ref_value specific_ref
+function df.active_script_varst.getValue(int_value, ref_value) end
+
+---@param var meeting_variable
+function df.active_script_varst.setValue(var) end
+
+---@param ref_value specific_ref
+function df.active_script_varst.removeUnit(ref_value) end
+
+---@param file file_compressorst
+function df.active_script_varst.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.active_script_varst.read_file(file, loadversion) end
 
 ---@class active_script_var_unitst: active_script_varst
 ---@field unit unit
@@ -516,6 +555,84 @@ df.activity_event_participants = {}
 ---@field unk_v42_1 activity_event_unk_v42_1[]
 ---@field unk_v42_2 activity_event_unk_v42_2[]
 df.activity_event = {}
+
+---@return activity_event_type
+function df.activity_event.getType() end
+
+---@param file file_compressorst
+function df.activity_event.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.activity_event.read_file(file, loadversion) end
+
+---returns true if hist_figure_ids empty or if various subclass fields are uninitialized
+---@return boolean
+function df.activity_event.isEmpty() end
+
+---@param unk_0 activity_event_participants
+---@return activity_event_participants
+function df.activity_event.getParticipantInfo(unk_0) end
+
+---@param children_too boolean
+function df.activity_event.dismiss(children_too) end
+
+---@param dx integer
+---@param dy integer
+---@param dz integer
+function df.activity_event.move(dx, dy, dz) end
+
+---@param histfig integer
+---@param unit integer
+---@param unk_2 boolean
+function df.activity_event.removeParticipant(histfig, unit, unk_2) end
+
+---@param unk_0 process_unit_aux
+---@param unit unit
+function df.activity_event.process(unk_0, unit) end
+
+---@param unit unit
+---@return integer
+function df.activity_event.checkDrillInvalid(unit) end
+
+---@param unk_0 integer
+---@return boolean
+function df.activity_event.decUniformLock(unk_0) end
+
+---@param unk_0 squad_event_type
+---@return squad_event_type
+function df.activity_event.getSquadEventType(unk_0) end
+
+---@param skill job_skill
+function df.activity_event.setDemoSkill(skill) end
+
+---@param wait_countdown integer
+---@param train_rounds integer
+---@param train_countdown integer
+function df.activity_event.setSkillDemoTimers(wait_countdown, train_rounds, train_countdown) end
+
+---@param amount integer
+function df.activity_event.adjustOrganizeCounter(amount) end
+
+---or perhaps somebody else - only works for combat_training and skill_demonstration
+---@param hist_figure_id integer
+---@param unit_id integer
+function df.activity_event.getOrganizer(hist_figure_id, unit_id) end
+
+---returns pointer to building_id
+---@param unk_0 integer
+---@return integer
+function df.activity_event.getBuilding(unk_0) end
+
+---@return boolean
+function df.activity_event.isSparring() end
+
+---@return integer
+function df.activity_event.getUniformType() end
+
+---@param unit_id integer
+---@param str string
+function df.activity_event.getName(unit_id, str) end
 
 ---@class _activity_event_flags: integer, string, df.bitfield
 ---@field dismissed 0
@@ -1219,6 +1336,13 @@ df.activity_event_performancest.T_participant_actions = {}
 ---@field unk_4 performance_play_orderst_unk_4[]
 ---@field unk_5 integer
 df.performance_play_orderst = {}
+
+---@param file file_compressorst
+function df.performance_play_orderst.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.performance_play_orderst.read_file(file, loadversion) end
 
 ---@class performance_play_orderst_unk_4: df.class
 ---@field unk_1 integer[]

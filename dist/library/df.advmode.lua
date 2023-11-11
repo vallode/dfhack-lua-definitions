@@ -1763,9 +1763,13 @@ df.adventurest.T_unk_v42_1 = {}
 df.adventurest.T_assume_identity = {}
 
 ---@class text_info_elementst: df.class
----@field getString any
----@field getLong any
 df.text_info_elementst = {}
+
+---@param val string
+function df.text_info_elementst.getString(val) end
+
+---@return integer
+function df.text_info_elementst.getLong() end
 
 ---@class text_info_element_longst: text_info_elementst
 ---@field val integer
@@ -1777,22 +1781,61 @@ df.text_info_element_stringst = {}
 
 ---<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
 ---@class adventure_optionst: df.class
----@field getDescription any
----@field getIngestedItem any
----@field performAction any <br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
----@field getPlayerPosX any
----@field getPlayerPosY any
----@field getPlayerPosZ any
----@field getTargetPosX any
----@field getTargetPosY any
----@field getTargetPosZ any
----@field deleteSpatter any
----@field getSuckBloodUnitID any
----@field isIngestFromContainer any
----@field getBuildingContainer any
----@field getItemContainer any
----@field getUnitContainer any
 df.adventure_optionst = {}
+
+---@param unk_0 string
+function df.adventure_optionst.getDescription(unk_0) end
+
+---@param unk_0 item
+---@return item
+function df.adventure_optionst.getIngestedItem(unk_0) end
+
+---<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
+---@param unk_0 integer
+---@param unk_1 boolean
+---@param unk_2 boolean
+---@param unk_3 item
+---@return item
+function df.adventure_optionst.performAction(unk_0, unk_1, unk_2, unk_3) end
+
+---@return integer
+function df.adventure_optionst.getPlayerPosX() end
+
+---@return integer
+function df.adventure_optionst.getPlayerPosY() end
+
+---@return integer
+function df.adventure_optionst.getPlayerPosZ() end
+
+---@return integer
+function df.adventure_optionst.getTargetPosX() end
+
+---@return integer
+function df.adventure_optionst.getTargetPosY() end
+
+---@return integer
+function df.adventure_optionst.getTargetPosZ() end
+
+function df.adventure_optionst.deleteSpatter() end
+
+---@param unk_0 integer
+---@return integer
+function df.adventure_optionst.getSuckBloodUnitID(unk_0) end
+
+---@return boolean
+function df.adventure_optionst.isIngestFromContainer() end
+
+---@param unk_0 building
+---@return building
+function df.adventure_optionst.getBuildingContainer(unk_0) end
+
+---@param unk_0 item
+---@return item
+function df.adventure_optionst.getItemContainer(unk_0) end
+
+---@param unk_0 unit
+---@return unit
+function df.adventure_optionst.getUnitContainer(unk_0) end
 
 ---@class adventure_option_eat_unit_contaminantst: adventure_optionst
 ---@field unit unit
@@ -1902,9 +1945,12 @@ df.adventure_movement_item_interact_ridest = {}
 df.adventure_movement_item_interact_pushst = {}
 
 ---@class adventure_item_interact_choicest: df.class
----@field getDescription any
----@field performAction any
 df.adventure_item_interact_choicest = {}
+
+---@param unk_0 string
+function df.adventure_item_interact_choicest.getDescription(unk_0) end
+
+function df.adventure_item_interact_choicest.performAction() end
 
 ---@class adventure_item_interact_pull_outst: adventure_item_interact_choicest
 df.adventure_item_interact_pull_outst = {}

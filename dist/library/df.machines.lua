@@ -76,6 +76,21 @@ df.machine_tile_set = {}
 ---@field flags machine_flags
 df.machine = {}
 
+---@return machine_type
+function df.machine.getType() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+function df.machine.moveMachine(x, y, z) end
+
+---@param file file_compressorst
+function df.machine.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.machine.read_file(file, loadversion) end
+
 ---@class machine_components: df.class
 ---@field building_id integer References: building
 ---@field connections df.container indices into the same component vector

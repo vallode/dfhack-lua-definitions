@@ -422,6 +422,846 @@ df.slab_engraving_type = {}
 ---@field weight_fraction integer 1e-6
 df.item = {}
 
+---@return item_type
+function df.item.getType() end
+
+---@return integer
+function df.item.getSubtype() end
+
+---@return integer
+function df.item.getMaterial() end
+
+---@return integer
+function df.item.getMaterialIndex() end
+
+---@param unk_0 integer
+function df.item.setSubtype(unk_0) end
+
+---@param unk_0 integer
+function df.item.setMaterial(unk_0) end
+
+---@param unk_0 integer
+function df.item.setMaterialIndex(unk_0) end
+
+---returns an actual material type, never a race
+---@return integer
+function df.item.getActualMaterial() end
+
+---returns an actual material index, never a caste
+---@return integer
+function df.item.getActualMaterialIndex() end
+
+---only if the object is made of a "specific creature mat"
+---@return integer
+function df.item.getRace() end
+
+---only if the object is made of a "specific creature mat"
+---@return integer
+function df.item.getCaste() end
+
+---only if the object is made of a plant material
+---@return integer
+function df.item.getPlantID() end
+
+---@return integer
+function df.item.getGrowthPrint() end
+
+---@param print integer
+function df.item.setGrowthPrint(print) end
+
+---@return integer
+function df.item.getDimension() end
+
+---@return integer
+function df.item.getTotalDimension() end
+
+---@param amount integer
+function df.item.setDimension(amount) end
+
+---@param amount integer
+---@return boolean
+function df.item.subtractDimension(amount) end
+
+---@return boolean
+function df.item.isFoodStorage() end
+
+---@return boolean
+function df.item.isTrackCart() end
+
+---@return boolean
+function df.item.isWheelbarrow() end
+
+---@return integer
+function df.item.getVehicleID() end
+
+---@return boolean
+function df.item.isAmmo() end
+
+---@param unk_0 item_stockpile_ref
+---@return item_stockpile_ref
+function df.item.getStockpile(unk_0) end
+
+---@return boolean
+function df.item.containsPlaster() end
+
+---@return boolean
+function df.item.isPlaster() end
+
+---@param unk_0 integer
+---@return boolean
+function df.item.getColorOverride(unk_0) end
+
+---@param unk_0 item_history_info
+---@return item_history_info
+function df.item.getHistoryInfo(unk_0) end
+
+---@param use tool_uses
+---@return boolean
+function df.item.hasToolUse(use) end
+
+---@return boolean
+function df.item.hasInvertedTile() end
+
+function df.item.becomePaste() end
+
+function df.item.becomePressed() end
+
+function df.item.calculateWeight() end
+
+---@return boolean
+function df.item.isSharpStone() end
+
+---@return boolean
+function df.item.isCrystalGlassable() end
+
+---@param matIndex integer
+---@return boolean
+function df.item.isMetalOre(matIndex) end
+
+function df.item.clearLastTempUpdateTS() end
+
+---@param string_ptr string
+function df.item.listNotableKills(string_ptr) end
+
+---@return integer
+function df.item.getSpecHeat() end
+
+---@return integer
+function df.item.getIgnitePoint() end
+
+---@return integer
+function df.item.getHeatdamPoint() end
+
+---@return integer
+function df.item.getColddamPoint() end
+
+---@return integer
+function df.item.getBoilingPoint() end
+
+---@return integer
+function df.item.getMeltingPoint() end
+
+---@return integer
+function df.item.getFixedTemp() end
+
+---@return integer
+function df.item.getSolidDensity() end
+
+---@return boolean
+function df.item.materialRots() end
+
+---@return integer
+function df.item.getTemperature() end
+
+---@param target integer
+---@param unk integer
+---@return boolean
+function df.item.adjustTemperature(target, unk) end
+
+function df.item.extinguish() end
+
+---@return integer
+function df.item.getGloveHandedness() end
+
+---@param unk_0 integer
+function df.item.setGloveHandedness(unk_0) end
+
+---@return boolean
+function df.item.isSpike() end
+
+---@return boolean
+function df.item.isScrew() end
+
+---@return boolean
+function df.item.isBuildMat() end
+
+---@param unk_0 integer 1 fire, 2 magma
+---@return boolean
+function df.item.isTemperatureSafe(unk_0) end
+
+---@param entity_id integer
+function df.item.setRandSubtype(entity_id) end
+
+---weapon racks have capacity 5
+---@return integer
+function df.item.getWeaponSize() end
+
+---@return integer
+function df.item.getWear() end
+
+---@param unk_0 integer
+function df.item.setWear(unk_0) end
+
+---@return integer
+function df.item.getMaker() end
+
+---@param unit_id integer
+function df.item.setMaker(unit_id) end
+
+---@param prace integer
+---@param pcaste integer
+---@param phfig historical_figure
+---@param punit unit
+function df.item.getCorpseInfo(prace, pcaste, phfig, punit) end
+
+---@param unk_0 caste_body_info
+---@return caste_body_info
+function df.item.getBodyInfo(unk_0) end
+
+---@param unk_0 boolean[]
+---@return boolean[]
+function df.item.getGloveFlags(unk_0) end
+
+---a statue/figurine of "string goes here"
+---@param unk_0 string
+---@return string
+function df.item.getItemShapeDesc(unk_0) end
+
+---@param unk_0 item_filter_spec
+---@return boolean
+function df.item.isMatchingAmmoItem(unk_0) end
+
+---@param id integer
+---@param subid integer
+function df.item.getImageRef(id, subid) end
+
+---@param civ_id integer
+---@param site_id integer
+function df.item.getImageCivSite(civ_id, site_id) end
+
+---@param civ_id integer
+---@param site_id integer
+function df.item.setImageCivSite(civ_id, site_id) end
+
+---@param level integer
+function df.item.setSeedsPlantSkillLevel(level) end
+
+---size_info.size_cur
+---@return integer
+function df.item.getCorpseSize() end
+
+---@param amount integer
+---@return boolean
+function df.item.ageItem(amount) end
+
+---@return integer
+function df.item.getCritterAirdrownTimer() end
+
+---@param unk_0 integer
+function df.item.setCritterAirdrownTimer(unk_0) end
+
+function df.item.incrementCritterAirdrownTimer() end
+
+---@return integer
+function df.item.getRotTimer() end
+
+---@param val integer
+function df.item.setRotTimer(val) end
+
+function df.item.incrementRotTimer() end
+
+---@return boolean
+function df.item.isBogeymanCorpse() end
+
+---return true if item satisfies flag
+---@param mat_flag material_flags
+---@return boolean
+function df.item.testMaterialFlag(mat_flag) end
+
+---@param unk_0 string
+---@param unk_1 string
+---@return string
+function df.item.getAmmoType(unk_0, unk_1) end
+
+---@return boolean
+function df.item.isLiquidPowder() end
+
+---@return boolean
+function df.item.isLiquid() end
+
+---vermin, pet, or critter
+---@return boolean
+function df.item.isLiveAnimal() end
+
+---for putting in containers, building clutter
+---@return integer
+function df.item.getVolume() end
+
+---@param unk_0 itemimprovement
+---@param imp_type improvement_type
+---@param job job
+---@param unit unit
+---@param mat_type integer
+---@param mat_index integer
+---@param shape integer
+---@param forced_quality integer
+---@param entity historical_entity
+---@param site world_site
+---@param unk integer used to compute quality if !job||!unit
+---@param unshaped boolean glazed
+---@param unk_12 boolean
+---@param unk_13 integer
+---@return itemimprovement
+function df.item.addImprovementFromJob(unk_0, imp_type, job, unit, mat_type, mat_index, shape, forced_quality, entity, site, unk, unshaped, unk_12, unk_13) end
+
+---@return boolean
+function df.item.isWeapon() end
+
+---@return boolean
+function df.item.isArmorNotClothing() end
+
+---@return boolean
+function df.item.isMillable() end
+
+---@return boolean
+function df.item.isProcessableThread() end
+
+---@return boolean
+function df.item.isProcessableVial() end
+
+---@return boolean
+function df.item.isProcessableBarrel() end
+
+---@return boolean
+function df.item.isEdiblePlant() end
+
+---@param hunger integer
+---@return boolean
+function df.item.isEdibleRaw(hunger) end
+
+---In item_foodst, requires MEAT or FISH ingredient.
+---@param hunger integer
+---@return boolean
+function df.item.isEdibleCarnivore(hunger) end
+
+---In item_foodst, requires CORPSEPIECE, MEAT or FISH ingredient.
+---@param hunger integer
+---@return boolean
+function df.item.isEdibleBonecarn(hunger) end
+
+---@param x integer
+---@param y integer
+---@param z integer
+---@return boolean
+function df.item.moveToGround(x, y, z) end
+
+---Add item to world.items.other.*
+---@param in_play boolean
+function df.item.categorize(in_play) end
+
+---Remove item from world.items.other.*
+function df.item.uncategorize() end
+
+---@param empty boolean
+---@return boolean
+function df.item.isFurniture(empty) end
+
+---@return boolean
+function df.item.isPressed() end
+
+---stored in Animal stockpiles
+---@return boolean
+function df.item.isAnimal() end
+
+---@param maker unit
+---@param job_skill job_skill
+---@return item_quality
+function df.item.assignQuality(maker, job_skill) end
+
+---@param maker unit
+---@param job_skill job_skill
+---@param skill_roll integer preferences add 10 to this, need 55 to roll masterworks
+---@return item_quality
+function df.item.assignQuality2(maker, job_skill, skill_roll) end
+
+---@param maker unit
+---@param unk_1 integer
+---@param unk_2 integer
+function df.item.notifyCreatedMasterwork(maker, unk_1, unk_2) end
+
+function df.item.notifyLostMasterwork() end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+function df.item.addMagic(unk_0, unk_1, unk_2) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+function df.item.magic_unk1(unk_0, unk_1) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+function df.item.magic_unk2(unk_0, unk_1) end
+
+---@param unk_0 integer
+function df.item.magic_unk3(unk_0) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+function df.item.magic_unk4(unk_0, unk_1, unk_2) end
+
+---@param unk_0 integer
+function df.item.setDisplayColor(unk_0) end
+
+---@return boolean
+function df.item.isDamagedByHeat() end
+
+---@param unk_0 integer
+---@return boolean
+function df.item.needTwoHandedWield(unk_0) end
+
+---@param unk_0 item
+---@param stack_size integer
+---@param preserve_containment boolean
+---@return item
+function df.item.splitStack(unk_0, stack_size, preserve_containment) end
+
+---@return boolean
+function df.item.isTameableVermin() end
+
+---@return boolean
+function df.item.isDye() end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@return boolean
+function df.item.isMilkable(unk_0, unk_1) end
+
+---@return boolean
+function df.item.isSandBearing() end
+
+---@return boolean
+function df.item.isLyeBearing() end
+
+---@return boolean
+function df.item.isAnimalProduct() end
+
+---@param item_type integer
+---@param material_category integer
+function df.item.getStorageInfo(item_type, material_category) end
+
+---@param delta integer
+---@param simple boolean
+---@param lose_masterwork boolean
+---@return boolean
+function df.item.addWear(delta, simple, lose_masterwork) end
+
+---@param delta integer
+---@return boolean
+function df.item.incWearTimer(delta) end
+
+---@param simple boolean
+---@param lose_masterwork boolean
+---@return boolean
+function df.item.checkWearDestroy(simple, lose_masterwork) end
+
+---@param mat_type integer
+---@param mat_index integer
+---@param mat_state matter_state
+---@param temp integer
+---@param size integer
+---@param body_part_id integer
+---@param flags integer
+function df.item.addContaminant(mat_type, mat_index, mat_state, temp, size, body_part_id, flags) end
+
+---@param index integer
+---@param amount integer
+function df.item.removeContaminantByIdx(index, amount) end
+
+---@param mat_type integer
+---@param mat_index integer
+---@param amount integer
+function df.item.removeContaminant(mat_type, mat_index, amount) end
+
+---@param unk_0 unit
+---@param body_part_id integer
+function df.item.tradeUnitContaminants(unk_0, body_part_id) end
+
+---calls item.tIC2(this)
+---@param unk_0 item
+function df.item.tradeItemContaminants(unk_0) end
+
+---@param unk_0 item_actual
+function df.item.tradeItemContaminants2(unk_0) end
+
+---@param unk_0 unit
+---@param unk_1 unit_wound
+---@param shift integer
+---@param body_part_id integer
+function df.item.contaminateWound(unk_0, unk_1, shift, body_part_id) end
+
+---@param file file_compressorst
+function df.item.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.item.read_file(file, loadversion) end
+
+---@param unk_0 df.container
+---@return df.container
+function df.item.getWeaponAttacks(unk_0) end
+
+---@return boolean
+function df.item.isNotHeld() end
+
+---if false, you throw the entire stack at once
+---@return boolean
+function df.item.isSplittable() end
+
+---@param unk_0 historical_entity add default thread improvement to items made of cloth
+function df.item.addDefaultThreadImprovement(unk_0) end
+
+---@param unk_0 item
+---@param unk_1 historical_entity add a specific thread improvement to items made of cloth
+function df.item.addThreadImprovement(unk_0, unk_1) end
+
+function df.item.propagateUnitRefs() end
+
+---@return boolean
+function df.item.isSand() end
+
+---@return integer
+function df.item.getStackSize() end
+
+---@param amount integer
+function df.item.addStackSize(amount) end
+
+---@param amount integer
+function df.item.setStackSize(amount) end
+
+---@param unk_0 string
+---@return boolean
+function df.item.isAmmoClass(unk_0) end
+
+---delete on_ground every season when in ANY_AUTO_CLEAN; default true
+---@return boolean
+function df.item.isAutoClean() end
+
+---@param x integer
+---@param y integer
+---@param z integer
+---@param local boolean
+---@param contained boolean
+---@return boolean
+function df.item.setTemperatureFromMapTile(x, y, z, local, contained) end
+
+---@param local boolean
+---@param contained boolean
+---@return boolean
+function df.item.setTemperatureFromMap(local, contained) end
+
+---@param temp integer
+---@param local boolean
+---@param contained boolean
+---@return boolean
+function df.item.setTemperature(temp, local, contained) end
+
+---@param local boolean
+---@param contained boolean
+---@param adjust boolean
+---@param multiplier integer
+---@return boolean
+function df.item.updateTempFromMap(local, contained, adjust, multiplier) end
+
+---@param temp integer
+---@param local boolean
+---@param contained boolean
+---@param adjust boolean
+---@param multiplier integer
+---@return boolean
+function df.item.updateTemperature(temp, local, contained, adjust, multiplier) end
+
+---@return boolean
+function df.item.updateFromWeather() end
+
+---@return boolean
+function df.item.updateContaminants() end
+
+---@return boolean
+function df.item.checkTemperatureDamage() end
+
+---@return boolean
+function df.item.checkHeatColdDamage() end
+
+---@return boolean
+function df.item.checkMeltBoil() end
+
+---@return integer
+function df.item.getMeleeSkill() end
+
+---@return integer
+function df.item.getRangedSkill() end
+
+---@param quality integer
+function df.item.setQuality(quality) end
+
+---@return integer
+function df.item.getQuality() end
+
+---@return integer
+function df.item.getOverallQuality() end
+
+---@return integer
+function df.item.getImprovementQuality() end
+
+---@return integer
+function df.item.getProjectileSize() end
+
+---@param unk_0 job
+---@param mat_type integer
+---@param mat_index integer
+---@return boolean
+function df.item.isImprovable(unk_0, mat_type, mat_index) end
+
+---@param item_quality integer
+---@param unk1 integer when 0, set item_rockst sharpness to 0
+function df.item.setSharpness(item_quality, unk1) end
+
+---@return integer
+function df.item.getSharpness() end
+
+---@return boolean
+function df.item.isTotemable() end
+
+---@return boolean
+function df.item.isDyeable() end
+
+---@return boolean
+function df.item.isNotDyed() end
+
+---@return boolean
+function df.item.isDyed() end
+
+---@return boolean
+function df.item.canSewImage() end
+
+---@return boolean
+function df.item.canHaveImageSewnOnto() end
+
+---@return boolean
+function df.item.isProcessableVialAtStill() end
+
+---@param item_type item_type
+---@param item_subtype integer
+---@param mat_type integer
+---@param mat_index integer
+---@return boolean
+function df.item.isSimilarToItem(item_type, item_subtype, mat_type, mat_index) end
+
+---@return integer
+function df.item.getBlockChance() end
+
+---@return integer
+function df.item.getParryChance() end
+
+---@return integer
+function df.item.getMakerRace() end
+
+---@param unk_0 integer
+function df.item.setMakerRace(unk_0) end
+
+---adds 1 if it has [METAL_ARMOR_LEVELS] and it's made of an inorganic mat
+---@return integer
+function df.item.getEffectiveArmorLevel() end
+
+---@return boolean
+function df.item.isConstructed() end
+
+---@return boolean
+function df.item.isItemOrganicCloth() end
+
+---@return boolean
+function df.item.isMadeOfOrganicCloth() end
+
+---also stops fire; used for rain
+---@param mat_type integer
+---@param mat_index integer
+---@param mat_state matter_state
+---@param temperature integer
+function df.item.coverWithContaminant(mat_type, mat_index, mat_state, temperature) end
+
+---@param imp_type improvement_type
+---@return boolean
+function df.item.hasSpecificImprovements(imp_type) end
+
+---@return boolean
+function df.item.hasImprovements() end
+
+---@return boolean
+function df.item.isImproved() end
+
+---@param unk_0 item_magicness[]
+---@return item_magicness[]
+function df.item.getMagic(unk_0) end
+
+---@param unk_0 string
+---@param plurality integer 0 = prickle berries [2], 1 = prickle berry, 2 = prickle berries
+function df.item.getItemDescription(unk_0, plurality) end
+
+---"a " or "the "
+---@param unk_0 string
+---@param mode integer
+function df.item.getItemDescriptionPrefix(unk_0, mode) end
+
+---usually just "item"
+---@param unk_0 string
+function df.item.getItemBasicName(unk_0) end
+
+---@param caravan caravan_state
+---@return integer
+function df.item.getImprovementsValue(caravan) end
+
+---@return boolean
+function df.item.isExtractBearingFish() end
+
+---@return boolean
+function df.item.isExtractBearingVermin() end
+
+---for armor, clothing, weapons, and tools, returns material size from the corresponding itemdef
+---@return integer
+function df.item.getMaterialSizeForMelting() end
+
+---@return integer
+function df.item.getBaseWeight() end
+
+---@return integer
+function df.item.getWeightShiftBits() end
+
+---@return boolean
+function df.item.isCollected() end
+
+---@return boolean
+function df.item.isEdibleVermin() end
+
+---@return integer
+function df.item.drawSelf() end
+
+---@return boolean
+function df.item.isRangedWeapon() end
+
+---@return boolean
+function df.item.isClothing() end
+
+---@return boolean
+function df.item.isWet() end
+
+---that is, value of coins
+---@param appraiser historical_entity
+---@return integer
+function df.item.getCurrencyValue(appraiser) end
+
+---@return boolean
+function df.item.isAssignedToStockpile() end
+
+---@param unk_0 integer
+---@return boolean
+function df.item.isAssignedToThisStockpile(unk_0) end
+
+---also removes links from the pile
+function df.item.detachStockpileAssignment() end
+
+---just wipes the fields
+function df.item.removeStockpileAssignment() end
+
+---@param unk_0 item_stockpile_ref
+---@return item_stockpile_ref
+function df.item.getStockpile2(unk_0) end
+
+---this updates the quality of a thread improvement already added to the item (or adjusts the quality of a thread item) based on the skill of the dyer
+---@param mat_type integer
+---@param mat_index integer
+---@param u unit
+---@param j job
+function df.item.randomizeThreadImprovement(mat_type, mat_index, u, j) end
+
+---@param unk_0 integer
+---@param unk_1 integer
+---@param unk_2 integer
+---@param unk_3 integer
+---@param material integer
+---@param matgloss integer
+---@param unk_6 integer
+---@param unk_7 integer
+---@param unk_8 integer
+---@param unk_9 integer
+---@param unk_10 integer
+---@param unk_11 integer
+function df.item.addImprovement(unk_0, unk_1, unk_2, unk_3, material, matgloss, unk_6, unk_7, unk_8, unk_9, unk_10, unk_11) end
+
+---@param unk_0 item
+function df.item.copyImprovementsFrom(unk_0) end
+
+---@param caravan caravan_state
+---@return integer
+function df.item.getThreadDyeValue(caravan) end
+
+---@param colors df.container
+---@param shapes df.container
+function df.item.getColorAndShape(colors, shapes) end
+
+---@return boolean
+function df.item.isCritter() end
+
+---for armor user skill encumberance
+---@return boolean
+function df.item.isArmor() end
+
+---@param unk_0 squad_uniform_spec
+---@param exact_match boolean
+---@param best_any job_skill
+---@param best_melee job_skill
+---@param best_ranged job_skill
+---@return integer
+function df.item.calcUniformScore(unk_0, exact_match, best_any, best_melee, best_ranged) end
+
+---@return integer
+function df.item.calcBaseUniformScore() end
+
+---@param unk_0 slab_engraving_type
+---@return slab_engraving_type
+function df.item.getSlabEngravingType(unk_0) end
+
+---@return integer
+function df.item.getAbsorption() end
+
+---@return boolean
+function df.item.isGemMaterial() end
+
+---@param shape integer
+function df.item.setGemShape(shape) end
+
+---@return boolean
+function df.item.hasGemShape() end
+
+---@param unk_0 integer
+---@return integer
+function df.item.getGemShape(unk_0) end
+
+---@return boolean
+function df.item.hasWriting() end
+
 ---@class item_kill_info: df.class
 ---@field targets historical_kills
 ---@field slayers df.container References: historical_figure

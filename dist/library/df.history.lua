@@ -1772,6 +1772,16 @@ df.mental_picture_property_type = {}
 ---@field unk_0 integer
 df.mental_picture_propertyst = {}
 
+---@return mental_picture_property_type
+function df.mental_picture_propertyst.getType() end
+
+---@param file file_compressorst
+function df.mental_picture_propertyst.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.mental_picture_propertyst.read_file(file, loadversion) end
+
 ---@class mental_picture_property_datest: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -1842,6 +1852,16 @@ df.mental_picture_element_type = {}
 ---@class mental_picture_elementst: df.class
 ---@field unk_1 integer
 df.mental_picture_elementst = {}
+
+---@return mental_picture_element_type
+function df.mental_picture_elementst.getType() end
+
+---@param file file_compressorst
+function df.mental_picture_elementst.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.mental_picture_elementst.read_file(file, loadversion) end
 
 ---@class mental_picture_element_hfst: mental_picture_elementst
 ---@field unk_1 integer
@@ -2977,6 +2997,131 @@ df.merc_role_type = {}
 ---@field flags history_event_flags[]
 ---@field id integer
 df.history_event = {}
+
+---@return history_event_type
+function df.history_event.getType() end
+
+---@param entity1 integer
+---@param entity2 integer
+---@return integer
+function df.history_event.getWarStatus(entity1, entity2) end
+
+---@param entity1 integer
+---@param entity2 integer
+---@return integer
+function df.history_event.getAngerModifier(entity1, entity2) end
+
+---@param entity1 integer
+---@param entity2 integer
+---@return integer
+function df.history_event.getHappinessModifier(entity1, entity2) end
+
+---@param entity1 integer
+---@param entity2 integer
+---@param site integer
+---@return boolean
+function df.history_event.madeFirstContact(entity1, entity2, site) end
+
+---@param killer integer
+---@param unk_1 integer
+---@return integer
+function df.history_event.getKilledHistfigID(killer, unk_1) end
+
+---@param victim integer
+---@return boolean
+function df.history_event.wasHistfigKilled(victim) end
+
+---@param histfig integer
+---@return boolean
+function df.history_event.wasHistfigRevived(histfig) end
+
+---@param vec df.container
+function df.history_event.getRelatedHistfigIDs(vec) end
+
+---@param vec df.container
+function df.history_event.getRelatedSiteIDs(vec) end
+
+---@param vec1 df.container
+---@param vec2 df.container
+function df.history_event.getRelatedSiteStructureIDs(vec1, vec2) end
+
+---@param vec df.container
+function df.history_event.getRelatedArtifactIDs(vec) end
+
+---@param vec df.container
+function df.history_event.getRelatedRegionIDs(vec) end
+
+---@param vec df.container
+function df.history_event.getRelatedLayerIDs(vec) end
+
+---@param vec df.container
+function df.history_event.getRelatedEntityIDs(vec) end
+
+---@param histfig integer
+---@return boolean
+function df.history_event.isRelatedToHistfigID(histfig) end
+
+---@param site integer
+---@return boolean
+function df.history_event.isRelatedToSiteID(site) end
+
+---@param site integer
+---@param structure integer
+---@return boolean
+function df.history_event.isRelatedToSiteStructure(site, structure) end
+
+---@param artifact integer
+---@return boolean
+function df.history_event.isRelatedToArtifactID(artifact) end
+
+---@param region integer
+---@return boolean
+function df.history_event.isRelatedToRegionID(region) end
+
+---@param region integer
+---@return boolean
+function df.history_event.isRelatedToLayerID(region) end
+
+---broken; always returns false
+---@param agreement integer
+---@return boolean
+function df.history_event.isRelatedToAgreementID(agreement) end
+
+---@param entity integer
+---@return boolean
+function df.history_event.isRelatedToEntityID(entity) end
+
+---@param str string
+---@param context history_event_context
+function df.history_event.getSentence(str, context) end
+
+---@param str string
+---@param context history_event_context
+function df.history_event.getPhrase(str, context) end
+
+---@param image art_image
+function df.history_event.populateArtImage(image) end
+
+---@param histfig integer
+---@return boolean
+function df.history_event.isChangedHistfigID(histfig) end
+
+---inserts event into world_history.events_death if relevant
+function df.history_event.categorize() end
+
+---removes event from world_history.events_death if relevant
+function df.history_event.uncategorize() end
+
+---@param unk_0 lightuserdata
+---@param indent integer
+function df.history_event.generate_xml(unk_0, indent) end
+
+---@param file file_compressorst
+function df.history_event.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.history_event.read_file(file, loadversion) end
 
 ---@class history_event_war_attacked_sitest: history_event
 ---@field attacker_civ integer References: historical_entity
@@ -5120,6 +5265,41 @@ df.history_event_collection_type = {}
 ---@field flags boolean[]
 ---@field id integer
 df.history_event_collection = {}
+
+---@return history_event_collection_type
+function df.history_event_collection.getType() end
+
+---@param unk_0 lightuserdata
+---@param indent integer
+function df.history_event_collection.generate_xml(unk_0, indent) end
+
+---@param file file_compressorst
+function df.history_event_collection.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.history_event_collection.read_file(file, loadversion) end
+
+function df.history_event_collection.categorize() end
+
+function df.history_event_collection.uncategorize() end
+
+---@param string string
+function df.history_event_collection.getName(string) end
+
+---@param x integer
+---@param y integer
+function df.history_event_collection.getRegionCoords(x, y) end
+
+---@return integer
+function df.history_event_collection.getParent() end
+
+---@param defender_civ integer
+---@param attacker_civ integer
+---@return integer
+function df.history_event_collection.isBetweenEntities(defender_civ, attacker_civ) end
+
+function df.history_event_collection.updateEndTime() end
 
 ---@class history_event_collection_warst: history_event_collection
 ---@field name language_name

@@ -96,7 +96,7 @@ class StructType < XmlNode
       node = node.children.first
     end
 
-    node.children.reject { |child| !child['name'] || child.name == 'virtual-methods' }.map do |child|
+    node.children.reject { |child| !child['name'] || %w[virtual-methods vmethod].include?(child.name) }.map do |child|
       Field.new(child, parent_type: "#{@parent_type + @type_separator if @parent_type}#{@name}")
     end
   end
@@ -117,9 +117,6 @@ class StructType < XmlNode
       if %w[enum bitfield].include?(child.node.name)
         EnumType.new(child.node,
                      "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-      elsif child.node.name == 'vmethod'
-        FunctionType.new(child.node,
-                         "#{@parent_type + '.' if @parent_type}#{@name}").render
       else
         StructType.new(child.node,
                        "#{@parent_type + @type_separator if @parent_type}#{@name}").render
@@ -136,6 +133,24 @@ end
 class ClassType < StructType
   def initialize(node, parent_type = nil, type_separator = '.T_')
     super(node, parent_type, type_separator)
+
+    @methods = methods
+  end
+
+  def methods
+    node.xpath('./virtual-methods').children.select { |method| method['name'] }.map do |method|
+      FunctionType.new(method, "#{@parent_type + '.' if @parent_type}#{@name}")
+    end
+  end
+
+  def render_methods
+    @methods.map(&:render).join
+  end
+
+  def render
+    annotation = render_self
+    annotation << render_methods if @methods.length
+    annotation << render_inline
   end
 end
 
@@ -224,7 +239,8 @@ class FunctionType < Field
     end
 
     annotation << "---@return #{@return_type}\n" if @return_type
-    annotation << "function df.#{@parent_type + ':' if @parent_type}#{@name}(#{inline_params}) end\n\n"
+    # annotation << '---@nodiscard' if @return_type
+    annotation << "function df.#{@parent_type + '.' if @parent_type}#{@name}(#{inline_params}) end\n\n"
   end
 
   def return_type

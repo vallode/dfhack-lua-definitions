@@ -1706,6 +1706,15 @@ df.pronoun_type.attrs = {}
 ---@field mtx lightuserdata
 df.unit = {}
 
+---@return integer
+function df.unit.getCreatureTile() end
+
+---@return integer
+function df.unit.getCorpseTile() end
+
+---@return integer
+function df.unit.getGlowTile() end
+
 ---@class unit_path: df.class
 ---@field dest coord
 ---@field goal unit_path_goal

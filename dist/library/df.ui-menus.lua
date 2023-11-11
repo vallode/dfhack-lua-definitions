@@ -31,6 +31,22 @@ df.build_req_choice_type = {}
 ---@field distance integer
 df.build_req_choicest = {}
 
+---@return build_req_choice_type
+function df.build_req_choicest.getType() end
+
+---@param str string
+function df.build_req_choicest.getName(str) end
+
+---@param item_id integer
+---@return boolean
+function df.build_req_choicest.isCandidate(item_id) end
+
+---@return integer
+function df.build_req_choicest.getUsedCount() end
+
+---@return integer
+function df.build_req_choicest.getNumCandidates() end
+
 ---@class build_req_choice_genst: build_req_choicest
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -162,6 +178,47 @@ df.interface_category_construction = {}
 ---@field flag integer
 ---@field filter_str string
 df.interface_button = {}
+
+---ghost, buried, memorialized
+---@param y integer
+---@param limx_min integer
+---@param limx_max integer
+function df.interface_button.print_info(y, limx_min, limx_max) end
+
+---@param str string
+function df.interface_button.text(str) end
+
+function df.interface_button.press() end
+
+---@param selected boolean
+function df.interface_button.set_button_color(selected) end
+
+function df.interface_button.set_leave_button() end
+
+---@return integer
+function df.interface_button.tile() end
+
+function df.interface_button.set_tile_color() end
+
+---@param box string[]
+function df.interface_button.prepare_tool_tip(box) end
+
+---@return boolean
+function df.interface_button.pressable() end
+
+---@return boolean
+function df.interface_button.has_view() end
+
+---@return boolean
+function df.interface_button.is_alphabetized() end
+
+---@param unk_0 string
+---@return string
+function df.interface_button.get_objection_string(unk_0) end
+
+---@param unk_0 string
+---@return string
+function df.interface_button.get_info_string(unk_0) end
 
 ---@class interface_button_buildingst: interface_button
 ---@field bd building

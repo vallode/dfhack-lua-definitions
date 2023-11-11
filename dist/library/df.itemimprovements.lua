@@ -81,6 +81,40 @@ df.dye_info = {}
 ---@field unk_1 integer
 df.itemimprovement = {}
 
+---@param unk_0 item
+---@param unk_1 art_image
+---@return art_image
+function df.itemimprovement.getImage(unk_0, unk_1) end
+
+---@param colors df.container
+---@param shapes df.container
+---@param unk_2 integer
+function df.itemimprovement.getColorAndShape(colors, shapes, unk_2) end
+
+---@param unk_0 itemimprovement
+---@return itemimprovement
+function df.itemimprovement.clone(unk_0) end
+
+---@param file file_compressorst
+function df.itemimprovement.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.itemimprovement.read_file(file, loadversion) end
+
+---@return improvement_type
+function df.itemimprovement.getType() end
+
+---@return boolean
+function df.itemimprovement.isDecoration() end
+
+---@param caravan caravan_state
+---@return integer
+function df.itemimprovement.getDyeValue(caravan) end
+
+---@param shape integer
+function df.itemimprovement.setShape(shape) end
+
 ---@class itemimprovement_art_imagest: itemimprovement
 ---@field image art_image_ref
 df.itemimprovement_art_imagest = {}

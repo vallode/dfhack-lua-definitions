@@ -188,6 +188,16 @@ df.resource_allotment_specifier_type = {}
 ---@field unk_3 integer
 df.resource_allotment_specifier = {}
 
+---@return resource_allotment_specifier_type
+function df.resource_allotment_specifier.getType() end
+
+---@param file file_compressorst
+function df.resource_allotment_specifier.write_file(file) end
+
+---@param file file_compressorst
+---@param loadversion save_version
+function df.resource_allotment_specifier.read_file(file, loadversion) end
+
 ---@class resource_allotment_specifier_cropst: resource_allotment_specifier
 ---@field mat_type integer References: plant_raw<br>index to world.raws.plant.all
 ---@field unk_4 integer
