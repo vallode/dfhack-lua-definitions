@@ -457,6 +457,7 @@ df.item_actual = {}
 df.item_crafted = {}
 
 ---@class item_constructed: item_crafted
+---@field improvements itemimprovement[]
 df.item_constructed = {}
 
 ---@class _body_part_status: integer, string, df.bitfield
@@ -980,6 +981,7 @@ df.item_drinkst = {}
 df.item_powder_miscst = {}
 
 ---@class item_liquid_miscst: item_liquid
+---@field unk_88 integer
 df.item_liquid_miscst = {}
 
 ---@class item_threadst: item_actual
@@ -1147,21 +1149,27 @@ df.item_crutchst = {}
 df.item_traction_benchst = {}
 
 ---@class item_instrumentst: item_constructed
+---@field subtype itemdef_instrumentst
 df.item_instrumentst = {}
 
 ---@class item_toyst: item_constructed
+---@field subtype itemdef_toyst
 df.item_toyst = {}
 
 ---@class item_armorst: item_constructed
+---@field subtype itemdef_armorst
 df.item_armorst = {}
 
 ---@class item_shoesst: item_constructed
+---@field subtype itemdef_shoesst
 df.item_shoesst = {}
 
 ---@class item_shieldst: item_constructed
+---@field subtype itemdef_shieldst
 df.item_shieldst = {}
 
 ---@class item_helmst: item_constructed
+---@field subtype itemdef_helmst
 df.item_helmst = {}
 
 ---@class item_glovesst: item_constructed
@@ -1170,6 +1178,7 @@ df.item_helmst = {}
 df.item_glovesst = {}
 
 ---@class item_pantsst: item_constructed
+---@field subtype itemdef_pantsst
 df.item_pantsst = {}
 
 ---@class item_siegeammost: item_constructed
@@ -1208,12 +1217,15 @@ df.item_toolst = {}
 df.item_stockpile_ref = {}
 
 ---@class item_barrelst: item_constructed
+---@field stockpile item_stockpile_ref
 df.item_barrelst = {}
 
 ---@class item_binst: item_constructed
+---@field stockpile item_stockpile_ref
 df.item_binst = {}
 
 ---@class item_gemst: item_constructed
+---@field shape integer References: descriptor_shape
 df.item_gemst = {}
 
 ---@class item_statuest: item_constructed
@@ -1240,6 +1252,7 @@ df.item_slabst = {}
 df.item_orthopedic_castst = {}
 
 ---@class item_coinst: item_constructed
+---@field coin_batch integer References: coin_batch
 df.item_coinst = {}
 
 ---@class item_totemst: item_constructed
@@ -1249,9 +1262,11 @@ df.item_coinst = {}
 df.item_totemst = {}
 
 ---@class item_clothst: item_constructed
+---@field dimension integer
 df.item_clothst = {}
 
 ---@class item_bookst: item_constructed
+---@field title string
 df.item_bookst = {}
 
 ---@class item_ballistaarrowheadst: item_actual

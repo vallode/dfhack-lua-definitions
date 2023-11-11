@@ -410,6 +410,7 @@ df.stockpile_settings.T_furniture = {}
 
 
 ---@class stockpile_settings_corpses: df.class
+---@field corpses df.container
 df.stockpile_settings.T_corpses = {}
 
 
@@ -429,10 +430,12 @@ df.stockpile_settings.T_refuse = {}
 
 
 ---@class stockpile_settings_stone: df.class
+---@field mats df.container
 df.stockpile_settings.T_stone = {}
 
 
 ---@class stockpile_settings_ore: df.class
+---@field mats df.container unused
 df.stockpile_settings.T_ore = {}
 
 
@@ -446,6 +449,7 @@ df.stockpile_settings.T_ammo = {}
 
 
 ---@class stockpile_settings_coins: df.class
+---@field mats df.container
 df.stockpile_settings.T_coins = {}
 
 
@@ -475,6 +479,7 @@ df.stockpile_settings.T_finished_goods = {}
 
 
 ---@class stockpile_settings_leather: df.class
+---@field mats df.container
 df.stockpile_settings.T_leather = {}
 
 
@@ -491,6 +496,7 @@ df.stockpile_settings.T_cloth = {}
 
 
 ---@class stockpile_settings_wood: df.class
+---@field mats df.container
 df.stockpile_settings.T_wood = {}
 
 

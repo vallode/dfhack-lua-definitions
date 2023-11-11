@@ -164,12 +164,15 @@ df.widget.T_tooltip_type = {}
 df.widget_text = {}
 
 ---@class widget_text_multiline: widget_text
+---@field strs df.container
 df.widget_text_multiline = {}
 
 ---@class widget_nineslice: widget
+---@field selected_texpos integer
 df.widget_nineslice = {}
 
 ---@class widget_custom_render: widget
+---@field callback function
 df.widget_custom_render = {}
 
 ---@class widget_menu: widget
@@ -193,6 +196,7 @@ df.widget_menu = {}
 df.widget_textbox = {}
 
 ---@class widget_button: widget
+---@field callback function arguments are button*
 df.widget_button = {}
 
 ---@class widget_container: widget
@@ -204,9 +208,11 @@ df.widget_container = {}
 df.widget_stack = {}
 
 ---@class widget_rows_container: widget_container
+---@field padding integer
 df.widget_rows_container = {}
 
 ---@class widget_columns_container: widget_container
+---@field padding integer
 df.widget_columns_container = {}
 
 ---@class widget_tabs: widget_container
@@ -256,6 +262,7 @@ df.widget_params_container = {}
 df.MacroScreenLoad = {}
 
 ---@class MacroScreenSave: viewscreen
+---@field id widget_textbox
 df.MacroScreenSave = {}
 
 ---@class world_dat_summary: df.class
@@ -1151,6 +1158,7 @@ df.viewscreen_initial_prepst = {}
 df.world_gen_param_basest = {}
 
 ---@class world_gen_param_seedst: world_gen_param_basest
+---@field val_ptr string
 df.world_gen_param_seedst = {}
 
 ---@class world_gen_param_valuest: world_gen_param_basest
@@ -2390,6 +2398,7 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 df.viewscreen_setupdwarfgamest = {}
 
 ---@class viewscreen_choose_game_typest: viewscreen
+---@field gametypes df.container
 df.viewscreen_choose_game_typest = {}
 
 ---@class viewscreen_titlest: viewscreen

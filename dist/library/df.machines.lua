@@ -108,6 +108,7 @@ df.machine_standardst = {}
 df.building_axle_horizontalst = {}
 
 ---@class building_axle_verticalst: building_actual
+---@field machine machine_info
 df.building_axle_verticalst = {}
 
 ---@class building_gear_assemblyst: building_actual

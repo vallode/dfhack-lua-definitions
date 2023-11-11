@@ -68,9 +68,11 @@ df.script_step_conditionalst.T_condition = {}
 df.script_step_textviewerst = {}
 
 ---@class script_step_diphistoryst: script_stepst
+---@field event string
 df.script_step_diphistoryst = {}
 
 ---@class script_step_discussst: script_stepst
+---@field event string
 df.script_step_discussst = {}
 
 ---@class script_step_topicdiscussionst: script_stepst
@@ -88,6 +90,7 @@ df.script_step_constructtopiclistst = {}
 df.script_step_dipeventst = {}
 
 ---@class script_step_invasionst: script_step_eventst
+---@field parm string
 df.script_step_invasionst = {}
 
 ---@class script_step_eventst: script_stepst
@@ -108,9 +111,11 @@ df.script_var_longst = {}
 df.active_script_varst = {}
 
 ---@class active_script_var_unitst: active_script_varst
+---@field unit unit
 df.active_script_var_unitst = {}
 
 ---@class active_script_var_longst: active_script_varst
+---@field value integer
 df.active_script_var_longst = {}
 
 ---@class meeting_variable: df.class
@@ -541,6 +546,7 @@ df.activity_event.T_unk_v42_1 = {}
 df.activity_event.T_unk_v42_2 = {}
 
 ---@class activity_event_training_sessionst: activity_event
+---@field participants activity_event_participants
 df.activity_event_training_sessionst = {}
 
 ---@class activity_event_combat_trainingst: activity_event

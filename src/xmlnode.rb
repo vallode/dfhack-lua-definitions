@@ -75,7 +75,7 @@ class StructType < XmlNode
 
     @name = node['type-name'] || node['name']
     @parent_type = parent_type
-    @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.class'
+    @inherits = inherits
     @type = parent_type ? "#{parent_type}_#{@name}" : @name
     @type_separator = type_separator
 
@@ -83,10 +83,15 @@ class StructType < XmlNode
     @child_nodes = children
   end
 
+  def inherits
+    classes = [node['inherits-from'], node['instance-vector'] ? 'df.instance' : nil].compact.join(', ')
+    classes.empty? ? 'df.class' : classes
+  end
+
   def children
     node = @node
 
-    while node.children.length == 1
+    while node.children.length == 1 && !node.children.first.children.empty?
       @nested += 1
       node = node.children.first
     end

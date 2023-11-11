@@ -486,6 +486,7 @@ df.creature_interaction_effect_numbnessst = {}
 df.creature_interaction_effect_paralysisst = {}
 
 ---@class creature_interaction_effect_feverst: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_feverst = {}
 
 ---@class creature_interaction_effect_bleedingst: creature_interaction_effect
@@ -494,15 +495,19 @@ df.creature_interaction_effect_feverst = {}
 df.creature_interaction_effect_bleedingst = {}
 
 ---@class creature_interaction_effect_cough_bloodst: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_cough_bloodst = {}
 
 ---@class creature_interaction_effect_vomit_bloodst: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_vomit_bloodst = {}
 
 ---@class creature_interaction_effect_nauseast: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_nauseast = {}
 
 ---@class creature_interaction_effect_unconsciousnessst: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_unconsciousnessst = {}
 
 ---@class creature_interaction_effect_necrosisst: creature_interaction_effect
@@ -516,9 +521,11 @@ df.creature_interaction_effect_necrosisst = {}
 df.creature_interaction_effect_impair_functionst = {}
 
 ---@class creature_interaction_effect_drowsinessst: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_drowsinessst = {}
 
 ---@class creature_interaction_effect_dizzinessst: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_dizzinessst = {}
 
 ---@class creature_interaction_effect_display_namest: creature_interaction_effect
@@ -614,6 +621,7 @@ df.creature_interaction_effect_body_mat_interactionst = {}
 df.creature_interaction_effect_material_force_adjustst = {}
 
 ---@class creature_interaction_effect_can_do_interactionst: creature_interaction_effect
+---@field interaction creature_interaction
 df.creature_interaction_effect_can_do_interactionst = {}
 
 ---@class creature_interaction_effect_sense_creature_classst: creature_interaction_effect
@@ -630,9 +638,11 @@ df.creature_interaction_effect_sense_creature_classst = {}
 df.creature_interaction_effect_feel_emotionst = {}
 
 ---@class creature_interaction_effect_change_personalityst: creature_interaction_effect
+---@field facets integer[]
 df.creature_interaction_effect_change_personalityst = {}
 
 ---@class creature_interaction_effect_erratic_behaviorst: creature_interaction_effect
+---@field sev integer
 df.creature_interaction_effect_erratic_behaviorst = {}
 
 ---@class creature_interaction_effect_close_open_woundsst: creature_interaction_effect
@@ -664,12 +674,15 @@ df.creature_interaction_effect_heal_nervesst = {}
 df.creature_interaction_effect_heal_tissuesst = {}
 
 ---@class creature_interaction_effect_reduce_dizzinessst: creature_interaction_effect
+---@field unk_1 integer
 df.creature_interaction_effect_reduce_dizzinessst = {}
 
 ---@class creature_interaction_effect_reduce_feverst: creature_interaction_effect
+---@field unk_1 integer
 df.creature_interaction_effect_reduce_feverst = {}
 
 ---@class creature_interaction_effect_reduce_nauseast: creature_interaction_effect
+---@field unk_1 integer
 df.creature_interaction_effect_reduce_nauseast = {}
 
 ---@class creature_interaction_effect_reduce_painst: creature_interaction_effect

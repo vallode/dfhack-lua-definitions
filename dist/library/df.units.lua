@@ -3890,6 +3890,7 @@ df.unit_action_data_job = {}
 df.unit_action_data_talk = {}
 
 ---@class unit_action_data_unsteady: df.class
+---@field timer integer
 df.unit_action_data_unsteady = {}
 
 ---@class unit_action_data_parry: df.class
@@ -3920,12 +3921,15 @@ df.unit_action_data_dodge = {}
 df.unit_action_data_recover = {}
 
 ---@class unit_action_data_stand_up: df.class
+---@field timer integer
 df.unit_action_data_stand_up = {}
 
 ---@class unit_action_data_lie_down: df.class
+---@field timer integer
 df.unit_action_data_lie_down = {}
 
 ---@class unit_action_data_job2: df.class
+---@field timer integer
 df.unit_action_data_job2 = {}
 
 ---@class unit_action_data_push_object: df.class
@@ -3960,6 +3964,7 @@ df.unit_action_data_suck_blood = {}
 df.unit_action_data_hold_item = {}
 
 ---@class unit_action_data_release_item: df.class
+---@field unk_0 integer
 df.unit_action_data_release_item = {}
 
 ---@class unit_action_data_unk_sub_20: df.class
@@ -3973,9 +3978,11 @@ df.unit_action_data_unk_sub_20 = {}
 df.unit_action_data_unk_sub_21 = {}
 
 ---@class unit_action_data_unk_sub_22: df.class
+---@field unk_0 integer
 df.unit_action_data_unk_sub_22 = {}
 
 ---@class unit_action_data_unk_sub_23: df.class
+---@field unk_0 integer
 df.unit_action_data_unk_sub_23 = {}
 
 ---@class unit_skill: df.class

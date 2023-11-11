@@ -441,7 +441,7 @@ df.ammo_flags = {}
 ---@field [0] boolean
 ---@field HAS_EDGE_ATTACK boolean
 
----@class itemdef_ammost: df.instance
+---@class itemdef_ammost: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field adjective string
@@ -518,7 +518,7 @@ df.armor_flags = {}
 ---@field [0] boolean
 ---@field METAL_ARMOR_LEVELS boolean
 
----@class itemdef_armorst: df.instance
+---@class itemdef_armorst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field name_preplural string
@@ -533,7 +533,7 @@ df.armor_flags = {}
 ---@field flags armor_flags[]
 df.itemdef_armorst = {}
 
----@class itemdef_foodst: df.instance
+---@class itemdef_foodst: itemdef, df.instance
 ---@field name string
 ---@field level integer
 df.itemdef_foodst = {}
@@ -547,7 +547,7 @@ df.gloves_flags = {}
 ---@field [0] boolean
 ---@field METAL_ARMOR_LEVELS boolean
 
----@class itemdef_glovesst: df.instance
+---@class itemdef_glovesst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field adjective string
@@ -568,7 +568,7 @@ df.helm_flags = {}
 ---@field [0] boolean
 ---@field METAL_ARMOR_LEVELS boolean
 
----@class itemdef_helmst: df.instance
+---@class itemdef_helmst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field adjective string
@@ -620,7 +620,7 @@ df.instrument_flags = {}
 ---@field [8] boolean
 ---@field BONE_MAT boolean
 
----@class itemdef_instrumentst: df.instance
+---@class itemdef_instrumentst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field flags instrument_flags[]
@@ -1113,7 +1113,7 @@ df.pants_flags = {}
 ---@field [0] boolean
 ---@field METAL_ARMOR_LEVELS boolean
 
----@class itemdef_pantsst: df.instance
+---@class itemdef_pantsst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field name_preplural string
@@ -1127,7 +1127,7 @@ df.pants_flags = {}
 ---@field props armor_properties
 df.itemdef_pantsst = {}
 
----@class itemdef_shieldst: df.instance
+---@class itemdef_shieldst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field adjective string
@@ -1147,7 +1147,7 @@ df.shoes_flags = {}
 ---@field [0] boolean
 ---@field METAL_ARMOR_LEVELS boolean
 
----@class itemdef_shoesst: df.instance
+---@class itemdef_shoesst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field adjective string
@@ -1159,7 +1159,7 @@ df.shoes_flags = {}
 ---@field props armor_properties
 df.itemdef_shoesst = {}
 
----@class itemdef_siegeammost: df.instance
+---@class itemdef_siegeammost: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
@@ -1363,7 +1363,7 @@ df.tool_uses = {}
 ---@field [26] boolean
 ---@field GAMES_OF_CHANCE boolean
 
----@class itemdef_toolst: df.instance
+---@class itemdef_toolst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field flags tool_flags[]
@@ -1404,7 +1404,7 @@ df.toy_flags = {}
 ---@field [0] boolean
 ---@field HARD_MAT boolean
 
----@class itemdef_toyst: df.instance
+---@class itemdef_toyst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field flags toy_flags[]
@@ -1435,7 +1435,7 @@ df.trapcomp_flags = {}
 ---@field [4] boolean
 ---@field HAS_EDGE_ATTACK boolean
 
----@class itemdef_trapcompst: df.instance
+---@class itemdef_trapcompst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field adjective string
@@ -1464,7 +1464,7 @@ df.weapon_flags = {}
 ---@field [2] boolean
 ---@field TRAINING boolean
 
----@class itemdef_weaponst: df.instance
+---@class itemdef_weaponst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field adjective string

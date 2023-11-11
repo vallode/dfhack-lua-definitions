@@ -154,12 +154,15 @@ df.interaction_effect_resurrectst = {}
 df.interaction_effect_cleanst = {}
 
 ---@class interaction_effect_contactst: interaction_effect
+---@field unk_1 integer
 df.interaction_effect_contactst = {}
 
 ---@class interaction_effect_material_emissionst: interaction_effect
+---@field unk_1 integer
 df.interaction_effect_material_emissionst = {}
 
 ---@class interaction_effect_hidest: interaction_effect
+---@field unk_1 integer
 df.interaction_effect_hidest = {}
 
 ---@class interaction_effect_change_item_qualityst: interaction_effect
@@ -337,6 +340,7 @@ df.interaction_source_secretst.T_learn_flags = {}
 ---@field MUNDANE_TEACHING_POSSIBLE boolean
 
 ---@class interaction_source_disturbancest: interaction_source
+---@field unk_1 integer
 df.interaction_source_disturbancest = {}
 
 ---@class _interaction_source_usage_hint: integer, string, df.enum
@@ -402,18 +406,22 @@ df.interaction_source_usage_hint = {}
 df.interaction_source_deityst = {}
 
 ---@class interaction_source_attackst: interaction_source
+---@field unk_1 integer
 df.interaction_source_attackst = {}
 
 ---@class interaction_source_ingestionst: interaction_source
+---@field unk_1 integer
 df.interaction_source_ingestionst = {}
 
 ---@class interaction_source_creature_actionst: interaction_source
+---@field unk_1 integer
 df.interaction_source_creature_actionst = {}
 
 ---@class interaction_source_underground_specialst: interaction_source
 df.interaction_source_underground_specialst = {}
 
 ---@class interaction_source_experimentst: interaction_source
+---@field unk_1 integer
 df.interaction_source_experimentst = {}
 
 ---@class _interaction_target_type: integer, string, df.enum
@@ -508,9 +516,11 @@ df.interaction_target_info.T_restrictions = {}
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean
 
 ---@class interaction_target_corpsest: interaction_target
+---@field target_info interaction_target_info
 df.interaction_target_corpsest = {}
 
 ---@class interaction_target_creaturest: interaction_target
+---@field target_info interaction_target_info
 df.interaction_target_creaturest = {}
 
 ---@class _breath_attack_type: integer, string, df.enum

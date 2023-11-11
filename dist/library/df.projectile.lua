@@ -109,9 +109,11 @@ df.projectile_flags = {}
 df.projectile = {}
 
 ---@class proj_itemst: projectile
+---@field item item
 df.proj_itemst = {}
 
 ---@class proj_unitst: projectile
+---@field unit unit ?
 df.proj_unitst = {}
 
 ---@class proj_magicst: projectile

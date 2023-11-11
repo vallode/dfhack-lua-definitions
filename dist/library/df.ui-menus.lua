@@ -164,6 +164,7 @@ df.interface_category_construction = {}
 df.interface_button = {}
 
 ---@class interface_button_buildingst: interface_button
+---@field bd building
 df.interface_button_buildingst = {}
 
 ---@class interface_button_building_category_selectorst: interface_button_buildingst
@@ -195,6 +196,7 @@ df.interface_button_building_material_selectorst = {}
 df.interface_button_building_new_jobst = {}
 
 ---@class interface_button_building_custom_category_selectorst: interface_button_buildingst
+---@field custom_category_token string
 df.interface_button_building_custom_category_selectorst = {}
 
 ---@class _construction_category_type: integer, string, df.enum
@@ -3850,14 +3852,17 @@ df.ui_look_list.T_type = {}
 df.ui_look_list.T_data = {}
 
 ---@class ui_look_list.T_data_item: df.class
+---@field item_id integer References: item
 df.ui_look_list.T_data.T_item = {}
 
 
 ---@class ui_look_list.T_data_unit: df.class
+---@field unit_id integer References: unit
 df.ui_look_list.T_data.T_unit = {}
 
 
 ---@class ui_look_list.T_data_building: df.class
+---@field bld_id integer References: building
 df.ui_look_list.T_data.T_building = {}
 
 
@@ -3890,6 +3895,7 @@ df.ui_look_list.T_data.T_spatter = {}
 
 
 ---@class ui_look_list.T_data_building_item_adv: df.class
+---@field item_id integer References: item
 df.ui_look_list.T_data.T_building_item_adv = {}
 
 

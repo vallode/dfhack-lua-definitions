@@ -82,6 +82,7 @@ df.dye_info = {}
 df.itemimprovement = {}
 
 ---@class itemimprovement_art_imagest: itemimprovement
+---@field image art_image_ref
 df.itemimprovement_art_imagest = {}
 
 ---@class itemimprovement_coveredst: itemimprovement
@@ -102,6 +103,7 @@ df.itemimprovement_coveredst.T_cover_flags = {}
 df.itemimprovement_rings_hangingst = {}
 
 ---@class itemimprovement_bandsst: itemimprovement
+---@field shape integer References: descriptor_shape
 df.itemimprovement_bandsst = {}
 
 ---@class itemimprovement_spikesst: itemimprovement
@@ -121,9 +123,11 @@ df.itemimprovement_specific_type = {}
 ---@field ROLLERS boolean
 
 ---@class itemimprovement_itemspecificst: itemimprovement
+---@field type itemimprovement_specific_type
 df.itemimprovement_itemspecificst = {}
 
 ---@class itemimprovement_threadst: itemimprovement
+---@field dye dye_info
 df.itemimprovement_threadst = {}
 
 ---@class itemimprovement_clothst: itemimprovement
@@ -152,12 +156,15 @@ df.itemimprovement_pagesst = {}
 df.itemimprovement_illustrationst = {}
 
 ---@class itemimprovement_instrument_piecest: itemimprovement
+---@field type string instrument_piece.type
 df.itemimprovement_instrument_piecest = {}
 
 ---@class itemimprovement_writingst: itemimprovement
+---@field contents df.container References: written_content
 df.itemimprovement_writingst = {}
 
 ---@class itemimprovement_image_setst: itemimprovement
+---@field image_set_id integer References: image_set
 df.itemimprovement_image_setst = {}
 
 ---@class _written_content_type: integer, string, df.enum

@@ -37,9 +37,11 @@ df.art_image_element = {}
 df.art_image_element_creaturest = {}
 
 ---@class art_image_element_plantst: art_image_element
+---@field plant_id integer References: plant_raw
 df.art_image_element_plantst = {}
 
 ---@class art_image_element_treest: art_image_element
+---@field plant_id integer References: plant_raw
 df.art_image_element_treest = {}
 
 ---@class art_image_element_shapest: art_image_element
@@ -647,10 +649,12 @@ df.poetic_form_subject = {}
 df.poetic_form_subject_target = {}
 
 ---@class poetic_form_subject_target_Histfig: df.class
+---@field subject_histfig integer References: historical_figure
 df.poetic_form_subject_target.T_Histfig = {}
 
 
 ---@class poetic_form_subject_target_Concept: df.class
+---@field subject_topic sphere_type
 df.poetic_form_subject_target.T_Concept = {}
 
 ---@class _poetic_form_feature: integer, string, df.bitfield

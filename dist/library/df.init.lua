@@ -180,6 +180,7 @@ df.init_window_flags = {}
 ---@field TEXTURE_LINEAR boolean
 
 ---@class init_window: df.class
+---@field flag init_window_flags[]
 df.init_window = {}
 
 ---@class init: df.class

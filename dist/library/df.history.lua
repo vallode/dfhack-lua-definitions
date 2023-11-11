@@ -1844,12 +1844,15 @@ df.mental_picture_element_type = {}
 df.mental_picture_elementst = {}
 
 ---@class mental_picture_element_hfst: mental_picture_elementst
+---@field unk_1 integer
 df.mental_picture_element_hfst = {}
 
 ---@class mental_picture_element_sitest: mental_picture_elementst
+---@field unk_1 integer
 df.mental_picture_element_sitest = {}
 
 ---@class mental_picture_element_regionst: mental_picture_elementst
+---@field unk_1 integer
 df.mental_picture_element_regionst = {}
 
 ---@class _history_event_type: integer, string, df.enum
@@ -3816,6 +3819,7 @@ df.history_event_body_abusedst.T_abuse_data.T_Piled = {}
 
 
 ---@class history_event_body_abusedst.T_abuse_data_Flayed: df.class
+---@field structure integer References: abstract_building
 df.history_event_body_abusedst.T_abuse_data.T_Flayed = {}
 
 

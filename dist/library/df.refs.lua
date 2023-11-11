@@ -309,9 +309,11 @@ df.general_ref_type = {}
 df.general_ref = {}
 
 ---@class general_ref_artifact: general_ref
+---@field artifact_id integer References: artifact_record
 df.general_ref_artifact = {}
 
 ---@class general_ref_nemesis: general_ref
+---@field nemesis_id integer References: nemesis_record
 df.general_ref_nemesis = {}
 
 ---@class general_ref_item: general_ref
@@ -327,6 +329,7 @@ df.general_ref_item = {}
 df.general_ref_item_type = {}
 
 ---@class general_ref_coinbatch: general_ref
+---@field batch integer
 df.general_ref_coinbatch = {}
 
 ---@class general_ref_mapsquare: general_ref
@@ -341,6 +344,7 @@ df.general_ref_mapsquare = {}
 df.general_ref_entity_art_image = {}
 
 ---@class general_ref_projectile: general_ref
+---@field projectile_id integer References: projectile
 df.general_ref_projectile = {}
 
 ---@class general_ref_unit: general_ref
@@ -349,9 +353,11 @@ df.general_ref_projectile = {}
 df.general_ref_unit = {}
 
 ---@class general_ref_building: general_ref
+---@field building_id integer References: building
 df.general_ref_building = {}
 
 ---@class general_ref_entity: general_ref
+---@field entity_id integer References: historical_entity
 df.general_ref_entity = {}
 
 ---@class general_ref_locationst: general_ref
@@ -373,21 +379,27 @@ df.general_ref_interactionst = {}
 df.general_ref_abstract_buildingst = {}
 
 ---@class general_ref_historical_eventst: general_ref
+---@field event_id integer References: history_event
 df.general_ref_historical_eventst = {}
 
 ---@class general_ref_spherest: general_ref
+---@field sphere_type sphere_type
 df.general_ref_spherest = {}
 
 ---@class general_ref_sitest: general_ref
+---@field site_id integer References: world_site
 df.general_ref_sitest = {}
 
 ---@class general_ref_subregionst: general_ref
+---@field region_id integer References: world_region
 df.general_ref_subregionst = {}
 
 ---@class general_ref_feature_layerst: general_ref
+---@field underground_region_id integer References: world_underground_region
 df.general_ref_feature_layerst = {}
 
 ---@class general_ref_historical_figurest: general_ref
+---@field hist_figure_id integer References: historical_figure
 df.general_ref_historical_figurest = {}
 
 ---@class general_ref_entity_popst: general_ref
@@ -406,6 +418,7 @@ df.general_ref_entity_popst = {}
 df.general_ref_creaturest = {}
 
 ---@class general_ref_knowledge_scholar_flagst: general_ref
+---@field knowledge knowledge_scholar_category_flag
 df.general_ref_knowledge_scholar_flagst = {}
 
 ---@class general_ref_activity_eventst: general_ref
@@ -419,18 +432,23 @@ df.general_ref_activity_eventst = {}
 df.general_ref_value_levelst = {}
 
 ---@class general_ref_languagest: general_ref
+---@field unk_1 integer
 df.general_ref_languagest = {}
 
 ---@class general_ref_written_contentst: general_ref
+---@field written_content_id integer References: written_content
 df.general_ref_written_contentst = {}
 
 ---@class general_ref_poetic_formst: general_ref
+---@field poetic_form_id integer References: poetic_form
 df.general_ref_poetic_formst = {}
 
 ---@class general_ref_musical_formst: general_ref
+---@field musical_form_id integer References: musical_form
 df.general_ref_musical_formst = {}
 
 ---@class general_ref_dance_formst: general_ref
+---@field dance_form_id integer References: dance_form
 df.general_ref_dance_formst = {}
 
 ---@class general_ref_is_artifactst: general_ref_artifact
@@ -455,6 +473,7 @@ df.general_ref_unit_milkeest = {}
 df.general_ref_unit_traineest = {}
 
 ---@class general_ref_unit_itemownerst: general_ref_unit
+---@field litter integer apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 df.general_ref_unit_itemownerst = {}
 
 ---@class general_ref_unit_tradebringerst: general_ref_unit
@@ -527,6 +546,7 @@ df.general_ref_building_cagedst = {}
 df.general_ref_building_holderst = {}
 
 ---@class general_ref_building_well_tag: general_ref_building
+---@field direction integer
 df.general_ref_building_well_tag = {}
 
 ---@class general_ref_building_use_target_1st: general_ref_building
@@ -904,6 +924,7 @@ df.histfig_site_link_type = {}
 df.histfig_site_link = {}
 
 ---@class histfig_site_link_occupationst: histfig_site_link
+---@field unk_1 integer
 df.histfig_site_link_occupationst = {}
 
 ---@class histfig_site_link_seat_of_powerst: histfig_site_link

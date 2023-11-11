@@ -789,9 +789,11 @@ df.feature_cavest = {}
 df.feature_pitst = {}
 
 ---@class feature_magma_poolst: feature
+---@field magma_fill_z integer
 df.feature_magma_poolst = {}
 
 ---@class feature_volcanost: feature
+---@field magma_fill_z integer
 df.feature_volcanost = {}
 
 ---@class feature_deep_special_tubest: feature
@@ -871,18 +873,23 @@ df.layer_type = {}
 df.feature_init = {}
 
 ---@class feature_init_outdoor_riverst: feature_init
+---@field feature feature_outdoor_riverst
 df.feature_init_outdoor_riverst = {}
 
 ---@class feature_init_cavest: feature_init
+---@field feature feature_cavest
 df.feature_init_cavest = {}
 
 ---@class feature_init_pitst: feature_init
+---@field feature feature_pitst
 df.feature_init_pitst = {}
 
 ---@class feature_init_magma_poolst: feature_init
+---@field feature feature_magma_poolst
 df.feature_init_magma_poolst = {}
 
 ---@class feature_init_volcanost: feature_init
+---@field feature feature_volcanost
 df.feature_init_volcanost = {}
 
 ---@class feature_init_deep_special_tubest: feature_init
@@ -939,6 +946,7 @@ df.feature_alteration = {}
 df.feature_alteration_new_pop_maxst = {}
 
 ---@class feature_alteration_new_lava_fill_zst: feature_alteration
+---@field magma_fill_z integer
 df.feature_alteration_new_lava_fill_zst = {}
 
 ---@class _world_construction_type: integer, string, df.enum
@@ -1003,15 +1011,19 @@ df.world_construction_square_wallst = {}
 df.world_construction = {}
 
 ---@class world_construction_roadst: world_construction
+---@field name language_name
 df.world_construction_roadst = {}
 
 ---@class world_construction_tunnelst: world_construction
+---@field name language_name
 df.world_construction_tunnelst = {}
 
 ---@class world_construction_bridgest: world_construction
+---@field name language_name
 df.world_construction_bridgest = {}
 
 ---@class world_construction_wallst: world_construction
+---@field name language_name
 df.world_construction_wallst = {}
 
 ---@class _biome_type: integer, string, df.enum
@@ -1352,6 +1364,7 @@ df.flow_guide_type = {}
 df.flow_guide = {}
 
 ---@class flow_guide_trailing_flowst: flow_guide
+---@field unk_1 coord[]
 df.flow_guide_trailing_flowst = {}
 
 ---@class flow_guide_item_cloudst: flow_guide
@@ -1391,5 +1404,6 @@ df.region_block_event_type = {}
 df.region_block_eventst = {}
 
 ---@class region_block_event_sphere_fieldst: region_block_eventst
+---@field unk_1 integer[]
 df.region_block_event_sphere_fieldst = {}
 

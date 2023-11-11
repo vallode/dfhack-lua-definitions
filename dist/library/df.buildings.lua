@@ -934,6 +934,7 @@ df.building_civzonest.T_zone_settings.T_gather = {}
 
 
 ---@class building_civzonest.T_zone_settings_pen: df.class
+---@field unk integer
 df.building_civzonest.T_zone_settings.T_pen = {}
 
 
@@ -1476,9 +1477,11 @@ df.construction_type = {}
 ---@field TrackRampNSEW boolean
 
 ---@class building_constructionst: building_actual
+---@field type construction_type
 df.building_constructionst = {}
 
 ---@class building_display_furniturest: building_actual
+---@field displayed_items df.container References: item
 df.building_display_furniturest = {}
 
 ---@class building_doorst: building_actual
@@ -1551,6 +1554,7 @@ df.hive_flags = {}
 df.building_hivest = {}
 
 ---@class building_instrumentst: building_actual
+---@field unk_1 integer
 df.building_instrumentst = {}
 
 ---@class building_nestst: building_actual
@@ -1568,6 +1572,7 @@ df.building_offering_placest = {}
 df.building_roadst = {}
 
 ---@class building_road_dirtst: building_roadst
+---@field material_amount integer
 df.building_road_dirtst = {}
 
 ---@class building_road_pavedst: building_roadst
@@ -1673,12 +1678,15 @@ df.building_siegeenginest.T_action = {}
 ---@field FireAtWill boolean
 
 ---@class building_slabst: building_actual
+---@field unk_1 integer
 df.building_slabst = {}
 
 ---@class building_statuest: building_actual
+---@field unk_1 integer
 df.building_statuest = {}
 
 ---@class building_supportst: building_actual
+---@field triggered integer
 df.building_supportst = {}
 
 ---@class building_tablest: building_actual
@@ -1862,6 +1870,7 @@ df.building_wellst.T_well_flags = {}
 ---@field just_raised boolean
 
 ---@class building_windowst: building_actual
+---@field unk_1 integer
 df.building_windowst = {}
 
 ---@class building_window_glassst: building_windowst

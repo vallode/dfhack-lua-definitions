@@ -406,9 +406,11 @@ df.squad_order_movest = {}
 df.squad_order_kill_listst = {}
 
 ---@class squad_order_defend_burrowsst: squad_order
+---@field burrows df.container References: burrow
 df.squad_order_defend_burrowsst = {}
 
 ---@class squad_order_patrol_routest: squad_order
+---@field route_id integer
 df.squad_order_patrol_routest = {}
 
 ---@class squad_order_trainst: squad_order
@@ -801,6 +803,7 @@ df.army_controller_sub15 = {}
 df.army_controller_sub15.T_unk_3 = {}
 
 ---@class army_controller_sub16: df.class
+---@field unk_1 integer
 df.army_controller_sub16 = {}
 
 ---@class army_controller_quest: df.class

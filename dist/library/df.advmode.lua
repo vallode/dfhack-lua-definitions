@@ -1768,9 +1768,11 @@ df.adventurest.T_assume_identity = {}
 df.text_info_elementst = {}
 
 ---@class text_info_element_longst: text_info_elementst
+---@field val integer
 df.text_info_element_longst = {}
 
 ---@class text_info_element_stringst: text_info_elementst
+---@field val string
 df.text_info_element_stringst = {}
 
 ---<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
@@ -1814,6 +1816,7 @@ df.adventure_option_view_contaminantst = {}
 df.adventure_environment_optionst = {}
 
 ---@class adventure_environment_place_in_it_containerst: adventure_environment_optionst
+---@field container item
 df.adventure_environment_place_in_it_containerst = {}
 
 ---@class adventure_environment_ingest_from_containerst: adventure_environment_optionst
@@ -1822,6 +1825,7 @@ df.adventure_environment_place_in_it_containerst = {}
 df.adventure_environment_ingest_from_containerst = {}
 
 ---@class adventure_environment_pickup_ignite_vegst: adventure_environment_optionst
+---@field unk_1 integer
 df.adventure_environment_pickup_ignite_vegst = {}
 
 ---@class adventure_environment_ingest_materialst: adventure_environment_optionst
@@ -1834,15 +1838,18 @@ df.adventure_environment_ingest_materialst = {}
 df.adventure_environment_pickup_make_campfirest = {}
 
 ---@class adventure_environment_place_in_bld_containerst: adventure_environment_optionst
+---@field building building
 df.adventure_environment_place_in_bld_containerst = {}
 
 ---@class adventure_environment_pickup_vermin_eventst: adventure_environment_optionst
+---@field vermin_idx integer
 df.adventure_environment_pickup_vermin_eventst = {}
 
 ---@class adventure_environment_pickup_chop_treest: adventure_environment_optionst
 df.adventure_environment_pickup_chop_treest = {}
 
 ---@class adventure_environment_unit_suck_bloodst: adventure_environment_optionst
+---@field unit_id integer References: unit
 df.adventure_environment_unit_suck_bloodst = {}
 
 ---@class adventure_movement_optionst: df.class
@@ -1857,9 +1864,11 @@ df.adventure_movement_release_hold_itemst = {}
 df.adventure_movement_release_hold_tilest = {}
 
 ---@class adventure_movement_attack_creaturest: adventure_movement_optionst
+---@field targets df.container References: unit
 df.adventure_movement_attack_creaturest = {}
 
 ---@class adventure_movement_hold_tilest: adventure_movement_optionst
+---@field grab coord
 df.adventure_movement_hold_tilest = {}
 
 ---@class adventure_movement_movest: adventure_movement_optionst
@@ -1868,15 +1877,19 @@ df.adventure_movement_hold_tilest = {}
 df.adventure_movement_movest = {}
 
 ---@class adventure_movement_climbst: adventure_movement_optionst
+---@field grab coord
 df.adventure_movement_climbst = {}
 
 ---@class adventure_movement_hold_itemst: adventure_movement_optionst
+---@field item_id integer References: item
 df.adventure_movement_hold_itemst = {}
 
 ---@class adventure_movement_building_interactst: adventure_movement_optionst
+---@field building_id integer References: building
 df.adventure_movement_building_interactst = {}
 
 ---@class adventure_movement_item_interactst: adventure_movement_optionst
+---@field item_id integer References: item
 df.adventure_movement_item_interactst = {}
 
 ---@class adventure_movement_item_interact_guidest: adventure_movement_item_interactst
@@ -1925,5 +1938,6 @@ df.adventure_item_interact_fill_with_materialst = {}
 df.adventure_item_interact_strugglest = {}
 
 ---@class adventure_item_interact_give_namest: adventure_item_interact_choicest
+---@field item item
 df.adventure_item_interact_give_namest = {}
 

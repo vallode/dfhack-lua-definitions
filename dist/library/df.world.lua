@@ -412,6 +412,7 @@ df.incident_data_writing.T_state = {}
 ---@field Given boolean
 
 ---@class incident_data_identity: df.class
+---@field unk_1 incident_hfid[]
 df.incident_data_identity = {}
 
 ---@class crime: df.instance
