@@ -608,7 +608,7 @@ function dfhack.units.getStressCutoffs() end
 dfhack.items = {}
 
 ---@param item item
----@return coord
+---@return coord|nil
 function dfhack.items.getPosition(item) end
 
 ---@param item item
