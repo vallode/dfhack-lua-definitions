@@ -39,6 +39,10 @@ df.reaction_flags = {}
 ---@field exp_gain integer
 df.reaction = {}
 
+---@param key integer
+---@return reaction|nil
+function df.reaction.find(key) end
+
 ---@class reaction_building: df.class
 ---@field str string[][]
 ---@field type building_type[]

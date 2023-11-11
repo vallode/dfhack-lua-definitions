@@ -1126,6 +1126,10 @@ df.world_construction_square_wallst = {}
 ---@field square_pos coord2d_path
 df.world_construction = {}
 
+---@param key integer
+---@return world_construction|nil
+function df.world_construction.find(key) end
+
 ---@return world_construction_type
 function df.world_construction.getType() end
 
@@ -1388,6 +1392,10 @@ df.construction_flags = {}
 ---@field original_tile tiletype
 df.construction = {}
 
+---@param key integer
+---@return construction|nil
+function df.construction.find(key) end
+
 ---@class _flow_type: integer, string, df.enum
 ---@field Miasma 0
 ---@field [0] "Miasma"
@@ -1492,6 +1500,10 @@ df.flow_guide_type = {}
 ---@field id integer
 ---@field unk_8 integer
 df.flow_guide = {}
+
+---@param key integer
+---@return flow_guide|nil
+function df.flow_guide.find(key) end
 
 ---@return flow_guide_type
 function df.flow_guide.getType() end

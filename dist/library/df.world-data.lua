@@ -130,6 +130,10 @@ df.world_population = {}
 ---@field unk_84 df.container
 df.world_landmass = {}
 
+---@param key integer
+---@return world_landmass|nil
+function df.world_landmass.find(key) end
+
 ---@class _world_region_type: integer, string, df.enum
 ---@field Swamp 0
 ---@field [0] "Swamp"
@@ -211,6 +215,10 @@ df.world_region_type = {}
 ---@field max_y integer
 df.world_region = {}
 
+---@param key integer
+---@return world_region|nil
+function df.world_region.find(key) end
+
 ---@class world_underground_region: df.instance
 ---@field type world_underground_region_type
 ---@field name language_name
@@ -230,6 +238,10 @@ df.world_region = {}
 ---@field unk_c8 df.container
 ---@field feature_init feature_init
 df.world_underground_region = {}
+
+---@param key integer
+---@return world_underground_region|nil
+function df.world_underground_region.find(key) end
 
 ---@class _world_underground_region_type: integer, string, df.enum
 ---@field Cavern 0
@@ -322,6 +334,10 @@ df.world_geo_layer = {}
 ---@field index integer
 ---@field layers world_geo_layer[]
 df.world_geo_biome = {}
+
+---@param key integer
+---@return world_geo_biome|nil
+function df.world_geo_biome.find(key) end
 
 ---@class world_region_feature: df.class
 ---@field feature_idx integer
@@ -738,6 +754,10 @@ df.moving_party.T_members = {}
 ---@field unk_v43 world_object_data_unk_v43 probably used by Adventurer mode
 df.world_object_data = {}
 
+---@param key integer
+---@return world_object_data|nil
+function df.world_object_data.find(key) end
+
 ---@class world_object_data_offloaded_items: df.class
 ---@field item item
 ---@field global_x integer in tiles it seems
@@ -800,6 +820,10 @@ df.mountain_peak_flags = {}
 ---@field flags mountain_peak_flags[]
 ---@field height integer
 df.world_mountain_peak = {}
+
+---@param key integer
+---@return world_mountain_peak|nil
+function df.world_mountain_peak.find(key) end
 
 ---<br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
 ---@class world_data: df.class
@@ -971,6 +995,10 @@ df.world_data.T_unk_482f8 = {}
 ---@field unk_28 breed_unk_28[]
 df.breed = {}
 
+---@param key integer
+---@return breed|nil
+function df.breed.find(key) end
+
 ---@class breed_unk_8: df.class
 ---@field id integer
 ---@field unk_4 integer
@@ -1001,6 +1029,10 @@ df.breed.T_unk_28 = {}
 ---@field unk_34 integer wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
 ---@field event_collections df.container References: history_event_collection
 df.battlefield = {}
+
+---@param key integer
+---@return battlefield|nil
+function df.battlefield.find(key) end
 
 ---Seems to be by squad. Trolls/Blizzard Men not counted
 ---@class battlefield_sapient_deaths: df.class
@@ -1052,4 +1084,8 @@ df.region_weather_type = {}
 ---@field remaining_duration integer ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
 ---@field region_id integer References: world_region<br>Set for clouds, -1 for rain
 df.region_weather = {}
+
+---@param key integer
+---@return region_weather|nil
+function df.region_weather.find(key) end
 

@@ -413,6 +413,10 @@ df.plant_raw_flags = {}
 ---@field stockpile_growth_flags plant_raw_stockpile_growth_flags[]
 df.plant_raw = {}
 
+---@param key integer
+---@return plant_raw|nil
+function df.plant_raw.find(key) end
+
 ---@class plant_raw_tiles: df.class
 ---@field picked_tile integer
 ---@field dead_picked_tile integer

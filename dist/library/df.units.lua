@@ -1706,6 +1706,10 @@ df.pronoun_type.attrs = {}
 ---@field mtx lightuserdata
 df.unit = {}
 
+---@param key integer
+---@return unit|nil
+function df.unit.find(key) end
+
 ---@return integer
 function df.unit.getCreatureTile() end
 
@@ -4117,6 +4121,10 @@ df.unit_coin_debt = {}
 ---@field id integer unit_*.dat
 ---@field units unit_chunk_units
 df.unit_chunk = {}
+
+---@param key integer
+---@return unit_chunk|nil
+function df.unit_chunk.find(key) end
 
 ---@class unit_chunk_units: df.class
 ---@field items item[]

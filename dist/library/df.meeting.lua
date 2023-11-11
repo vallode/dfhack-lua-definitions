@@ -421,6 +421,10 @@ df.activity_entry_type = {}
 ---@field army_controller integer References: army_controller
 df.activity_entry = {}
 
+---@param key integer
+---@return activity_entry|nil
+function df.activity_entry.find(key) end
+
 ---@class _activity_event_type: integer, string, df.enum
 ---@field TrainingSession 0
 ---@field [0] "TrainingSession"
@@ -1585,6 +1589,10 @@ df.activity_event_store_objectst = {}
 ---@field unk_1 integer
 ---@field slots schedule_slot[]
 df.schedule_info = {}
+
+---@param key integer
+---@return schedule_info|nil
+function df.schedule_info.find(key) end
 
 ---@class schedule_slot: df.class
 ---@field type integer 0:Eat, 1:Sleep, 2-4:???

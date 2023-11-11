@@ -404,6 +404,10 @@ df.written_content_style = {}
 ---@field author_roll integer
 df.written_content = {}
 
+---@param key integer
+---@return written_content|nil
+function df.written_content.find(key) end
+
 ---@class _engraving_flags: integer, string, df.bitfield
 ---@field floor 0
 ---@field [0] "floor"
@@ -462,4 +466,8 @@ df.engraving_flags = {}
 ---@field unk1 integer
 ---@field unk2 integer
 df.engraving = {}
+
+---@param key integer
+---@return engraving|nil
+function df.engraving.find(key) end
 

@@ -228,6 +228,10 @@ df.squad_schedule_entry.T_order_assignments = {}
 ---@field background_b integer
 df.squad = {}
 
+---@param key integer
+---@return squad|nil
+function df.squad.find(key) end
+
 ---@class squad_rooms: df.class
 ---@field building_id integer References: building
 ---@field mode squad_use_flags
@@ -545,6 +549,10 @@ df.squad_order_rescue_hfst = {}
 ---@field data army_controller_data
 ---@field type army_controller_type
 df.army_controller = {}
+
+---@param key integer
+---@return army_controller|nil
+function df.army_controller.find(key) end
 
 ---@class army_controller_data: df.class
 ---@field t1 army_controller_sub1
@@ -960,6 +968,10 @@ df.army_flags = {}
 ---@field mat_index integer
 ---@field unk_4407_1 item[]
 df.army = {}
+
+---@param key integer
+---@return army|nil
+function df.army.find(key) end
 
 ---@class army_members: df.class
 ---@field nemesis_id integer

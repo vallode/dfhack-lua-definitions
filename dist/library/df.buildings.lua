@@ -404,6 +404,10 @@ df.building_drawbuffer = {}
 ---@field location_id integer References: abstract_building
 df.building = {}
 
+---@param key integer
+---@return building|nil
+function df.building.find(key) end
+
 ---@return integer
 function df.building.getCustomType() end
 

@@ -443,6 +443,10 @@ df.creature_interaction_effect_target = {}
 ---@field counter_trigger creature_interaction_effect_counter_trigger
 df.creature_interaction_effect = {}
 
+---@param key integer
+---@return creature_interaction_effect|nil
+function df.creature_interaction_effect.find(key) end
+
 ---@return creature_interaction_effect_type
 function df.creature_interaction_effect.getType() end
 
@@ -833,4 +837,8 @@ df.syndrome_flags = {}
 ---@field syn_concentration_added integer[]
 ---@field id integer
 df.syndrome = {}
+
+---@param key integer
+---@return syndrome|nil
+function df.syndrome.find(key) end
 

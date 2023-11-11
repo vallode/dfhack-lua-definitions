@@ -26,6 +26,10 @@ df.interaction_flags = {}
 ---@field source_enid integer References: historical_entity
 df.interaction = {}
 
+---@param key integer
+---@return interaction|nil
+function df.interaction.find(key) end
+
 ---@class _interaction_effect_type: integer, string, df.enum
 ---@field ANIMATE 0
 ---@field [0] "ANIMATE"
@@ -712,4 +716,8 @@ df.interaction_target_locationst = {}
 ---@field region_index integer
 ---@field affected_units df.container References: unit<br>IDs of units affected by the regional interaction
 df.interaction_instance = {}
+
+---@param key integer
+---@return interaction_instance|nil
+function df.interaction_instance.find(key) end
 

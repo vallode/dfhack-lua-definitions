@@ -17,6 +17,10 @@
 ---@field unk_5 integer
 df.invasion_info = {}
 
+---@param key integer
+---@return invasion_info|nil
+function df.invasion_info.find(key) end
+
 ---@class _invasion_info_flags: integer, string, df.bitfield
 ---@field active 0
 ---@field [0] "active"
@@ -85,6 +89,10 @@ df.entity_population_unk4.T_unk_3 = {}
 ---@field civ_id integer References: historical_entity
 df.entity_population = {}
 
+---@param key integer
+---@return entity_population|nil
+function df.entity_population.find(key) end
+
 ---@class _nemesis_flags: integer, string, df.enum
 ---@field ACTIVE_ADVENTURER 0
 ---@field [0] "ACTIVE_ADVENTURER"
@@ -151,6 +159,10 @@ df.nemesis_flags = {}
 ---@field flags nemesis_flags[]
 df.nemesis_record = {}
 
+---@param key integer
+---@return nemesis_record|nil
+function df.nemesis_record.find(key) end
+
 ---@class artifact_record: df.instance
 ---@field id integer
 ---@field name language_name
@@ -178,6 +190,10 @@ df.nemesis_record = {}
 ---@field unk_4 integer
 ---@field unk_5 integer Small set of non zero fairly small numbers seen?
 df.artifact_record = {}
+
+---@param key integer
+---@return artifact_record|nil
+function df.artifact_record.find(key) end
 
 ---@class artifact_rumor_locationst: df.class
 ---@field art artifact_record

@@ -101,6 +101,12 @@ class StructType < XmlNode
     end
   end
 
+  def render_glue
+    annotation = "---@param key integer\n"
+    annotation << "---@return #{@type}|nil\n"
+    annotation << "function df.#{@parent_type + @type_separator if @parent_type}#{@name}.find(key) end\n\n"
+  end
+
   def render_self
     annotation = ''
     annotation << "---#{@comment}\n" if @comment
@@ -109,6 +115,8 @@ class StructType < XmlNode
     annotation << @child_nodes.map(&:render).join
 
     annotation << "df.#{@parent_type + @type_separator if @parent_type}#{@name} = {}\n\n"
+    annotation << render_glue if @node['instance-vector']
+    annotation
   end
 
   def render_inline

@@ -972,6 +972,10 @@ df.stockpile_list.attrs = {}
 ---@field vehicle_stops integer[]
 df.hauling_route = {}
 
+---@param key integer
+---@return hauling_route|nil
+function df.hauling_route.find(key) end
+
 ---@class hauling_stop: df.class
 ---@field id integer
 ---@field name string
@@ -1080,4 +1084,8 @@ df.route_stockpile_link.T_mode = {}
 ---@field pos coord
 ---@field time_stopped integer frames, up to 1000
 df.vehicle = {}
+
+---@param key integer
+---@return vehicle|nil
+function df.vehicle.find(key) end
 

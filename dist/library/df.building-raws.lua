@@ -25,6 +25,10 @@
 ---@field build_stages integer
 df.building_def = {}
 
+---@param key integer
+---@return building_def|nil
+function df.building_def.find(key) end
+
 ---@param unk_0 integer
 ---@param unk_1 integer
 ---@param unk_2 integer

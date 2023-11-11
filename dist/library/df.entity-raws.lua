@@ -654,6 +654,10 @@ df.entity_name_type = {}
 ---@field animal entity_animal_raw[]
 df.entity_raw = {}
 
+---@param key integer
+---@return entity_raw|nil
+function df.entity_raw.find(key) end
+
 ---@class entity_raw_equipment: df.class
 ---@field digger_id df.container References: itemdef_weaponst
 ---@field weapon_id df.container References: itemdef_weaponst

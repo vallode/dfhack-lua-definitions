@@ -1614,6 +1614,10 @@ df.vague_relationship_type = {}
 ---@field unk_5 integer
 df.historical_figure = {}
 
+---@param key integer
+---@return historical_figure|nil
+function df.historical_figure.find(key) end
+
 ---Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@class historical_figure_vague_relationships: df.class
 ---@field hfid integer[] References: historical_figure
@@ -1704,6 +1708,10 @@ df.identity_type.attrs = {}
 ---@field unk_4 identity_unk_94[]
 ---@field unk_5 identity_unk_95[]
 df.identity = {}
+
+---@param key integer
+---@return identity|nil
+function df.identity.find(key) end
 
 ---@class identity_unk_94: df.class
 ---@field unk_0 integer
@@ -2997,6 +3005,10 @@ df.merc_role_type = {}
 ---@field flags history_event_flags[]
 ---@field id integer
 df.history_event = {}
+
+---@param key integer
+---@return history_event|nil
+function df.history_event.find(key) end
 
 ---@return history_event_type
 function df.history_event.getType() end
@@ -5266,6 +5278,10 @@ df.history_event_collection_type = {}
 ---@field id integer
 df.history_event_collection = {}
 
+---@param key integer
+---@return history_event_collection|nil
+function df.history_event_collection.find(key) end
+
 ---@return history_event_collection_type
 function df.history_event_collection.getType() end
 
@@ -5669,6 +5685,10 @@ df.world_history.T_event_collections = {}
 ---@field reason history_event_reason_info
 ---@field circumstance history_event_circumstance_info
 df.intrigue = {}
+
+---@param key integer
+---@return intrigue|nil
+function df.intrigue.find(key) end
 
 ---@class intrigue_corruption: df.class
 ---@field crime crime_type

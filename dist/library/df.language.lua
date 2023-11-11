@@ -678,6 +678,10 @@ df.sphere_type = {}
 ---@field str string[]
 df.language_word = {}
 
+---@param key integer
+---@return language_word|nil
+function df.language_word.find(key) end
+
 ---@class language_translation: df.instance
 ---@field name string
 ---@field unknown1 string[] looks like english words
@@ -687,6 +691,10 @@ df.language_word = {}
 ---@field str string[]
 df.language_translation = {}
 
+---@param key integer
+---@return language_translation|nil
+function df.language_translation.find(key) end
+
 ---@class language_symbol: df.instance
 ---@field name string
 ---@field unknown df.container empty
@@ -694,6 +702,10 @@ df.language_translation = {}
 ---@field flags integer
 ---@field str string[]
 df.language_symbol = {}
+
+---@param key integer
+---@return language_symbol|nil
+function df.language_symbol.find(key) end
 
 ---@class language_name: df.class
 ---@field first_name string

@@ -869,6 +869,10 @@ df.inclusion_type = {}
 ---@field material material
 df.inorganic_raw = {}
 
+---@param key integer
+---@return inorganic_raw|nil
+function df.inorganic_raw.find(key) end
+
 ---@class inorganic_raw_metal_ore: df.class
 ---@field str string[] only during parsing
 ---@field mat_index integer[]

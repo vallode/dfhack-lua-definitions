@@ -885,6 +885,10 @@ df.entity_unk_v47_1 = {}
 ---@field unk_11 integer
 df.historical_entity = {}
 
+---@param key integer
+---@return historical_entity|nil
+function df.historical_entity.find(key) end
+
 ---@class _historical_entity_flags: integer, string, df.bitfield
 ---@field neighbor 0
 ---@field [0] "neighbor"
@@ -2148,6 +2152,10 @@ df.entity_event.T_data.T_artifact_destroyed = {}
 ---@field unk_2 integer
 ---@field flags agreement_flags
 df.agreement = {}
+
+---@param key integer
+---@return agreement|nil
+function df.agreement.find(key) end
 
 ---@class _agreement_flags: integer, string, df.bitfield
 ---@field petition_not_accepted 0

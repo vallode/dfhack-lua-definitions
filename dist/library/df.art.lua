@@ -382,6 +382,10 @@ df.art_image = {}
 ---@field images art_image[]
 df.art_image_chunk = {}
 
+---@param key integer
+---@return art_image_chunk|nil
+function df.art_image_chunk.find(key) end
+
 ---@class art_image_ref: df.class
 ---@field id integer References: art_image_chunk
 ---@field subid integer References: art_image
@@ -866,6 +870,10 @@ df.poetic_form_additional_feature = {}
 ---@field features poetic_form_feature
 ---@field perspectives poetic_form_perspective[]
 df.poetic_form = {}
+
+---@param key integer
+---@return poetic_form|nil
+function df.poetic_form.find(key) end
 
 ---@class _poetic_form_flags: integer, string, df.bitfield
 ---@field tone_patterns 0
@@ -1650,6 +1658,10 @@ df.musical_form_sub4 = {}
 ---@field flags musical_form_flags
 df.musical_form = {}
 
+---@param key integer
+---@return musical_form|nil
+function df.musical_form.find(key) end
+
 ---@class _musical_form_flags: integer, string, df.bitfield
 ---@field produces_individual_songs 0
 ---@field [0] "produces_individual_songs"
@@ -2317,6 +2329,10 @@ df.dance_form_move = {}
 ---@field moves dance_form_move[]
 df.dance_form = {}
 
+---@param key integer
+---@return dance_form|nil
+function df.dance_form.find(key) end
+
 ---@class _scale_type: integer, string, df.enum
 ---@field Octave 0
 ---@field [0] "Octave"
@@ -2362,6 +2378,10 @@ df.named_scale = {}
 ---@field notes scale_notes Curiously, the named notes do not have to match the number of defined notes
 df.scale = {}
 
+---@param key integer
+---@return scale|nil
+function df.scale.find(key) end
+
 ---@class _scale_flags: integer, string, df.bitfield
 ---@field tonic_note_fixed_at_performance 0
 ---@field [0] "tonic_note_fixed_at_performance"
@@ -2387,6 +2407,10 @@ df.scale.T_notes = {}
 ---@field sub_rhythms sub_rhythm[]
 ---@field unk_2 integer
 df.rhythm = {}
+
+---@param key integer
+---@return rhythm|nil
+function df.rhythm.find(key) end
 
 ---@class _beat_type: integer, string, df.enum
 ---@field Silent 0
@@ -2524,6 +2548,10 @@ df.occupation_type = {}
 ---@field unk_4 world_site When these haven't crashed the data has been nonsensical
 ---@field unk_5 abstract_building When these haven't crashed the data has been nonsensical. Has seen duplicate of unk_4 pointer value
 df.occupation = {}
+
+---@param key integer
+---@return occupation|nil
+function df.occupation.find(key) end
 
 ---@class occupation_sub1: df.class
 ---@field unk_1 integer

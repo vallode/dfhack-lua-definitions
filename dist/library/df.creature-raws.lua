@@ -2283,6 +2283,10 @@ df.tissue_style_raw = {}
 ---@field statute_texpos integer[]
 df.creature_raw = {}
 
+---@param key integer
+---@return creature_raw|nil
+function df.creature_raw.find(key) end
+
 ---@class creature_raw_profession_name: df.class
 ---@field singular string[]
 ---@field plural string[]
@@ -2320,6 +2324,10 @@ df.creature_variation_convert_tag = {}
 ---@field cv_remove_unk_v40_1 df.container
 ---@field cv_remove_unk_v40_2 string[]
 df.creature_variation = {}
+
+---@param key integer
+---@return creature_variation|nil
+function df.creature_variation.find(key) end
 
 ---@class _body_part_template_flags: integer, string, df.enum
 ---@field HEAD 0
@@ -2497,6 +2505,10 @@ df.body_part_template = {}
 ---@field parts body_part_template[]
 df.body_template = {}
 
+---@param key integer
+---@return body_template|nil
+function df.body_template.find(key) end
+
 ---@class _tissue_flags: integer, string, df.enum
 ---@field THICKENS_ON_STRENGTH 0
 ---@field [0] "THICKENS_ON_STRENGTH"
@@ -2610,6 +2622,10 @@ df.tissue_flags = {}
 ---@field tissue_shape_str string
 df.tissue_template = {}
 
+---@param key integer
+---@return tissue_template|nil
+function df.tissue_template.find(key) end
+
 ---@class tissue: df.class
 ---@field id string
 ---@field flags tissue_flags[]
@@ -2665,4 +2681,8 @@ df.tissue = {}
 ---@field bp_relation_criteria_2 string[]
 ---@field bp_relation_extent df.container
 df.body_detail_plan = {}
+
+---@param key integer
+---@return body_detail_plan|nil
+function df.body_detail_plan.find(key) end
 

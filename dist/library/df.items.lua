@@ -422,6 +422,10 @@ df.slab_engraving_type = {}
 ---@field weight_fraction integer 1e-6
 df.item = {}
 
+---@param key integer
+---@return item|nil
+function df.item.find(key) end
+
 ---@return item_type
 function df.item.getType() end
 

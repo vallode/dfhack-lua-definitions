@@ -465,6 +465,10 @@ df.ammo_flags = {}
 ---@field attacks weapon_attack[]
 df.itemdef_ammost = {}
 
+---@param key integer
+---@return itemdef_ammost|nil
+function df.itemdef_ammost.find(key) end
+
 ---@class _armor_general_flags: integer, string, df.enum
 ---@field SOFT 0
 ---@field [0] "SOFT"
@@ -546,10 +550,18 @@ df.armor_flags = {}
 ---@field flags armor_flags[]
 df.itemdef_armorst = {}
 
+---@param key integer
+---@return itemdef_armorst|nil
+function df.itemdef_armorst.find(key) end
+
 ---@class itemdef_foodst: itemdef, df.instance
 ---@field name string
 ---@field level integer
 df.itemdef_foodst = {}
+
+---@param key integer
+---@return itemdef_foodst|nil
+function df.itemdef_foodst.find(key) end
 
 ---@class _gloves_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
@@ -572,6 +584,10 @@ df.gloves_flags = {}
 ---@field props armor_properties
 df.itemdef_glovesst = {}
 
+---@param key integer
+---@return itemdef_glovesst|nil
+function df.itemdef_glovesst.find(key) end
+
 ---@class _helm_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
@@ -591,6 +607,10 @@ df.helm_flags = {}
 ---@field material_size integer
 ---@field props armor_properties
 df.itemdef_helmst = {}
+
+---@param key integer
+---@return itemdef_helmst|nil
+function df.itemdef_helmst.find(key) end
 
 ---@class _instrument_flags: integer, string, df.enum
 ---@field INDEFINITE_PITCH 0
@@ -664,6 +684,10 @@ df.instrument_flags = {}
 ---@field timbre df.container
 ---@field description string
 df.itemdef_instrumentst = {}
+
+---@param key integer
+---@return itemdef_instrumentst|nil
+function df.itemdef_instrumentst.find(key) end
 
 ---@class _sound_production_type: integer, string, df.enum
 ---@field PLUCKED_BY_BP 0
@@ -1140,6 +1164,10 @@ df.pants_flags = {}
 ---@field props armor_properties
 df.itemdef_pantsst = {}
 
+---@param key integer
+---@return itemdef_pantsst|nil
+function df.itemdef_pantsst.find(key) end
+
 ---@class itemdef_shieldst: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
@@ -1150,6 +1178,10 @@ df.itemdef_pantsst = {}
 ---@field upstep integer
 ---@field material_size integer
 df.itemdef_shieldst = {}
+
+---@param key integer
+---@return itemdef_shieldst|nil
+function df.itemdef_shieldst.find(key) end
 
 ---@class _shoes_flags: integer, string, df.enum
 ---@field METAL_ARMOR_LEVELS 0
@@ -1172,11 +1204,19 @@ df.shoes_flags = {}
 ---@field props armor_properties
 df.itemdef_shoesst = {}
 
+---@param key integer
+---@return itemdef_shoesst|nil
+function df.itemdef_shoesst.find(key) end
+
 ---@class itemdef_siegeammost: itemdef, df.instance
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
 df.itemdef_siegeammost = {}
+
+---@param key integer
+---@return itemdef_siegeammost|nil
+function df.itemdef_siegeammost.find(key) end
 
 ---@class _tool_flags: integer, string, df.enum
 ---@field HARD_MAT 0
@@ -1401,6 +1441,10 @@ df.tool_uses = {}
 ---@field default_improvements itemdef_toolst_default_improvements[]
 df.itemdef_toolst = {}
 
+---@param key integer
+---@return itemdef_toolst|nil
+function df.itemdef_toolst.find(key) end
+
 ---@class itemdef_toolst_default_improvements: df.class
 ---@field type improvement_type
 ---@field specific_type itemimprovement_specific_type
@@ -1422,6 +1466,10 @@ df.toy_flags = {}
 ---@field name_plural string
 ---@field flags toy_flags[]
 df.itemdef_toyst = {}
+
+---@param key integer
+---@return itemdef_toyst|nil
+function df.itemdef_toyst.find(key) end
 
 ---@class _trapcomp_flags: integer, string, df.enum
 ---@field IS_SCREW 0
@@ -1460,6 +1508,10 @@ df.trapcomp_flags = {}
 ---@field attacks weapon_attack[]
 df.itemdef_trapcompst = {}
 
+---@param key integer
+---@return itemdef_trapcompst|nil
+function df.itemdef_trapcompst.find(key) end
+
 ---@class _weapon_flags: integer, string, df.enum
 ---@field CAN_STONE 0
 ---@field [0] "CAN_STONE"
@@ -1494,4 +1546,8 @@ df.weapon_flags = {}
 ---@field shoot_force integer
 ---@field shoot_maxvel integer
 df.itemdef_weaponst = {}
+
+---@param key integer
+---@return itemdef_weaponst|nil
+function df.itemdef_weaponst.find(key) end
 

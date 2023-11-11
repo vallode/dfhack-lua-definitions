@@ -978,6 +978,10 @@ df.mandate.T_punishment = {}
 ---@field flags training_assignment_flags
 df.training_assignment = {}
 
+---@param key integer
+---@return training_assignment|nil
+function df.training_assignment.find(key) end
+
 ---@class _training_assignment_flags: integer, string, df.bitfield
 ---@field any_trainer 0
 ---@field [0] "any_trainer"

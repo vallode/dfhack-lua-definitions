@@ -469,6 +469,10 @@ df.resource_allotment_specifier_powderst = {}
 ---@field unk_654 resource_allotment_data_unk_654[]
 df.resource_allotment_data = {}
 
+---@param key integer
+---@return resource_allotment_data|nil
+function df.resource_allotment_data.find(key) end
+
 ---@class resource_allotment_data_unk_654: df.class
 ---@field unk_0 integer
 ---@field unk_4 df.container

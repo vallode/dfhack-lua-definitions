@@ -76,6 +76,10 @@ df.machine_tile_set = {}
 ---@field flags machine_flags
 df.machine = {}
 
+---@param key integer
+---@return machine|nil
+function df.machine.find(key) end
+
 ---@return machine_type
 function df.machine.getType() end
 

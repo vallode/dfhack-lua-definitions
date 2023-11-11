@@ -1464,6 +1464,10 @@ df.announcements = {}
 ---@field speaker_id integer References: unit<br>unit speaking the conversation
 df.report = {}
 
+---@param key integer
+---@return report|nil
+function df.report.find(key) end
+
 ---@class _report_flags: integer, string, df.bitfield
 ---@field continuation 0
 ---@field [0] "continuation"

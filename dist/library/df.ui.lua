@@ -23,6 +23,10 @@
 ---@field texture_bb integer
 df.burrow = {}
 
+---@param key integer
+---@return burrow|nil
+function df.burrow.find(key) end
+
 ---@class ui_hotkey: df.class
 ---@field name string
 ---@field cmd ui_hotkey_cmd

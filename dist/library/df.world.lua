@@ -249,6 +249,10 @@ df.incident_hfid = {}
 ---@field data incident_data
 df.incident = {}
 
+---@param key integer
+---@return incident|nil
+function df.incident.find(key) end
+
 ---@class _incident_type: integer, string, df.enum
 ---@field Death 0
 ---@field [0] "Death"
@@ -446,6 +450,10 @@ df.incident_data_identity = {}
 ---@field witnesses crime_witness[]
 ---@field agreement_id integer References: agreement
 df.crime = {}
+
+---@param key integer
+---@return crime|nil
+function df.crime.find(key) end
 
 ---@class _crime_mode: integer, string, df.enum
 ---@field ProductionOrderViolation 0
@@ -1001,6 +1009,10 @@ df.ocean_wave = {}
 ---@field image_back coin_batch_image_back
 df.coin_batch = {}
 
+---@param key integer
+---@return coin_batch|nil
+function df.coin_batch.find(key) end
+
 ---@class coin_batch_image_front: df.class
 ---@field id integer References: art_image_chunk
 ---@field subid integer References: art_image
@@ -1160,6 +1172,10 @@ df.mental_picture.T_unk = {}
 ---@field unk_64 integer
 df.belief_system = {}
 
+---@param key integer
+---@return belief_system|nil
+function df.belief_system.find(key) end
+
 ---@class divination_set_roll: df.class
 ---@field result df.container When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
 ---@field effect_type divination_set_roll_effect_type
@@ -1199,12 +1215,20 @@ df.divination_set_roll.T_effect_type = {}
 ---@field rolls divination_set_roll[]
 df.divination_set = {}
 
+---@param key integer
+---@return divination_set|nil
+function df.divination_set.find(key) end
+
 ---@class image_set: df.instance
 ---@field id integer
 ---@field unk_2 integer
 ---@field unk_vec1 image_set_unk_vec1[]
 ---@field unk_vec2 df.container
 df.image_set = {}
+
+---@param key integer
+---@return image_set|nil
+function df.image_set.find(key) end
 
 ---@class image_set_unk_vec1: df.class
 ---@field unk_1 integer

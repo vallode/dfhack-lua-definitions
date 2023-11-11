@@ -69,7 +69,6 @@ function dfbase:_displace(index, step) end
 
 ---@class df.instance: df.class
 ---@field get_vector fun(): any[] The same as doing `df.global.<instance>.all`
----@field find fun(key: integer): any Binary search by specified `key` of all instances of the structure.
 
 ---@class df.iter: df.base
 ---@field _first_item integer
