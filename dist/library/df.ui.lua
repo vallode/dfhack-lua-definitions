@@ -7,10 +7,10 @@
 ---@field tile integer
 ---@field fg_color integer
 ---@field bg_color integer
----@field block_x df.container<integer>
----@field block_y df.container<integer>
----@field block_z df.container<integer>
----@field units df.container<integer> References: unit
+---@field block_x df.container
+---@field block_y df.container
+---@field block_z df.container
+---@field units df.container References: unit
 ---@field limit_workshops integer
 ---@field solid_texpos integer
 ---@field blended_texpos integer
@@ -23,10 +23,6 @@
 ---@field texture_bb integer
 df.burrow = {}
 
----@param key integer
----@return burrow|nil
-function df.burrow.find(key) end
-
 ---@class ui_hotkey: df.class
 ---@field name string
 ---@field cmd ui_hotkey_cmd
@@ -34,10 +30,6 @@ function df.burrow.find(key) end
 ---@field y integer
 ---@field z integer
 df.ui_hotkey = {}
-
----@param key integer
----@return ui_hotkey|nil
-function df.ui_hotkey.find(key) end
 
 ---@class _ui_hotkey_cmd: integer, string, df.enum
 ---@field None -1
@@ -301,12 +293,8 @@ df.ui_sidebar_mode = {}
 ---@field prison_counter integer
 ---@field unk_10 integer 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
 ---@field chain integer References: building
----@field victims df.container<integer> References: unit
+---@field victims df.container References: unit
 df.punishment = {}
-
----@param key integer
----@return punishment|nil
-function df.punishment.find(key) end
 
 ---@class _kitchen_exc_type: integer, string, df.enum
 ---@field Cook 1
@@ -595,12 +583,8 @@ df.equipment_update = {}
 ---@field flags labor_infost_flags
 ---@field work_details work_detail[]
 ---@field chores boolean[]
----@field chores_exempted_children integer[] toady: no_chore_child_unid
+---@field chores_exempted_children labor_infost_chores_exempted_children toady: no_chore_child_unid
 df.labor_infost = {}
-
----@param key integer
----@return labor_infost|nil
-function df.labor_infost.find(key) end
 
 ---@class _labor_infost_flags: integer, string, df.bitfield
 ---@field children_do_chores 0
@@ -610,6 +594,11 @@ df.labor_infost.T_flags = {}
 ---@class labor_infost_flags
 ---@field [0] boolean
 ---@field children_do_chores boolean
+
+
+---toady: no_chore_child_unid
+---@class labor_infost_chores_exempted_children: df.class
+df.labor_infost.T_chores_exempted_children = {}
 
 ---@class plotinfost: df.class
 ---@field game_state integer 2 running, 1 lost to siege, 0 lost
@@ -631,16 +620,16 @@ df.labor_infost.T_flags = {}
 ---@field unk_4 integer
 ---@field manager_timer integer
 ---@field units_killed integer[]
----@field currency_value df.container<integer>
+---@field currency_value df.container
 ---@field trees_removed integer
 ---@field outdoor_irritation integer
 ---@field adamantine_mandate_number integer
 ---@field fortress_age integer ?; +1 per 10; used in first 2 migrant waves etc
 ---@field tasks entity_activity_statistics
----@field meeting_requests df.container<integer> References: unit<br>guild complaints and diplomats
+---@field meeting_requests df.container References: unit<br>guild complaints and diplomats
 ---@field activities activity_info[]
 ---@field dip_meeting_info meeting_diplomat_info[]
----@field aid_requesters df.container<integer> References: unit
+---@field aid_requesters df.container References: unit
 ---@field game_over boolean
 ---@field invasions plotinfost_invasions
 ---@field punishments punishment[]
@@ -648,63 +637,59 @@ df.labor_infost.T_flags = {}
 ---@field dipscript_texts dipscript_text[]
 ---@field dipscript_popups dipscript_popup[] cause viewscreen_meetingst to pop up
 ---@field kitchen plotinfost_kitchen
----@field economic_stone df.container<boolean>
+---@field economic_stone df.container
 ---@field unk23c8_flags plotinfost_unk23c8_flags
 ---@field mood_cooldown integer
 ---@field civ_id integer References: historical_entity
 ---@field site_id integer References: world_site
 ---@field group_id integer References: historical_entity<br>i.e. specifically the fortress dwarves
 ---@field race_id integer References: creature_raw
----@field unk_races df.container<integer> References: creature_raw
----@field farm_crops df.container<integer> References: plant_raw
+---@field unk_races df.container References: creature_raw
+---@field farm_crops df.container References: plant_raw
 ---@field farm_seasons season[]
 ---@field economy_prices plotinfost_economy_prices
 ---@field stockpile plotinfost_stockpile
----@field unk2a8c integer[][]
----@field unk_mapedge_x df.container<integer>
----@field unk_mapedge_y df.container<integer>
----@field unk_mapedge_z df.container<integer>
+---@field unk2a8c plotinfost_unk2a8c[]
+---@field unk_mapedge_x df.container
+---@field unk_mapedge_y df.container
+---@field unk_mapedge_z df.container
 ---@field map_edge plotinfost_map_edge
----@field feature_x df.container<integer>
----@field feature_y df.container<integer>
----@field feature_id_local df.container<integer>
----@field feature_id_global df.container<integer>
----@field event_collections df.container<integer> References: history_event_collection
----@field stone_mat_types df.container<integer>
----@field stone_mat_indexes df.container<integer>
+---@field feature_x df.container
+---@field feature_y df.container
+---@field feature_id_local df.container
+---@field feature_id_global df.container
+---@field event_collections df.container References: history_event_collection
+---@field stone_mat_types df.container
+---@field stone_mat_indexes df.container
 ---@field waypoints plotinfost_waypoints
 ---@field burrows plotinfost_burrows
 ---@field alerts plotinfost_alerts
 ---@field equipment plotinfost_equipment
 ---@field hauling plotinfost_hauling
 ---@field labor_info labor_infost
----@field petitions df.container<integer> related to agreements
----@field unk_6 df.container<integer> observed allocating 4 bytes
----@field unk_7 df.container<integer>
+---@field petitions df.container related to agreements
+---@field unk_6 df.container observed allocating 4 bytes
+---@field unk_7 df.container
 ---@field theft_intrigues plotinfost_theft_intrigues[] related to job_type unk_fake_no_activity
----@field infiltrator_histfigs df.container<integer> References: historical_figure
----@field infiltrator_years df.container<integer>
----@field infiltrator_year_ticks df.container<integer>
----@field tutorial_hide df.container<help_context_type>
----@field tutorial_seen df.container<help_context_type>
+---@field infiltrator_histfigs df.container References: historical_figure
+---@field infiltrator_years df.container
+---@field infiltrator_year_ticks df.container
+---@field tutorial_hide df.container
+---@field tutorial_seen df.container
 ---@field food_warn_year integer
 ---@field food_warn_year_tick integer
 ---@field main plotinfost_main
 ---@field squads plotinfost_squads
 ---@field follow_unit integer References: unit
 ---@field follow_item integer References: item
----@field selected_farm_crops df.container<integer> References: plant_raw<br>valid for the currently queried farm plot
+---@field selected_farm_crops df.container References: plant_raw<br>valid for the currently queried farm plot
 ---@field available_seeds boolean[]
 df.plotinfost = {}
-
----@param key integer
----@return plotinfost|nil
-function df.plotinfost.find(key) end
 
 ---@class plotinfost_tax_collection: df.class
 ---@field state integer
 ---@field check_timer integer
----@field rooms df.container<integer> References: building
+---@field rooms df.container References: building
 ---@field reach_room_timer integer
 ---@field tc_protect_timer integer
 ---@field guard1_reach_tc_timer integer
@@ -721,9 +706,6 @@ function df.plotinfost.find(key) end
 ---@field guard_lack_complained integer
 df.plotinfost.T_tax_collection = {}
 
----@param key integer
----@return plotinfost_tax_collection|nil
-function df.plotinfost.T_tax_collection.find(key) end
 
 ---@class plotinfost_nobles: df.class
 ---@field unk_1 integer
@@ -732,10 +714,6 @@ function df.plotinfost.T_tax_collection.find(key) end
 ---@field bookkeeper_precision integer
 ---@field bookkeeper_settings plotinfost.T_nobles_bookkeeper_settings
 df.plotinfost.T_nobles = {}
-
----@param key integer
----@return plotinfost_nobles|nil
-function df.plotinfost.T_nobles.find(key) end
 
 ---@class _plotinfost.T_nobles_bookkeeper_settings: integer, string, df.enum
 ---@field nearest_10 0
@@ -762,26 +740,21 @@ df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 ---@field [4] boolean
 ---@field all_accurate boolean
 
+
 ---@class plotinfost_invasions: df.class
 ---@field list invasion_info[]
 ---@field next_id integer
 df.plotinfost.T_invasions = {}
 
----@param key integer
----@return plotinfost_invasions|nil
-function df.plotinfost.T_invasions.find(key) end
 
 ---@class plotinfost_kitchen: df.class
 ---@field item_types item_type[]
 ---@field item_subtypes integer[]
 ---@field mat_types integer[]
----@field mat_indices df.container<integer>
+---@field mat_indices df.container
 ---@field exc_types kitchen_exc_type[]
 df.plotinfost.T_kitchen = {}
 
----@param key integer
----@return plotinfost_kitchen|nil
-function df.plotinfost.T_kitchen.find(key) end
 
 ---@class _plotinfost_unk23c8_flags: integer, string, df.bitfield
 ---@field first_year 0
@@ -800,53 +773,47 @@ df.plotinfost.T_unk23c8_flags = {}
 ---@field [2] boolean
 ---@field force_elections boolean
 
+
 ---@class plotinfost_economy_prices: df.class
 ---@field price_adjustment plotinfost.T_economy_prices_price_adjustment
 ---@field price_setter plotinfost.T_economy_prices_price_setter
 df.plotinfost.T_economy_prices = {}
 
----@param key integer
----@return plotinfost_economy_prices|nil
-function df.plotinfost.T_economy_prices.find(key) end
-
 ---@class plotinfost.T_economy_prices_price_adjustment: df.class
----@field general_items df.container<integer>
----@field weapons df.container<integer>
----@field armor df.container<integer>
----@field handwear df.container<integer>
----@field footwear df.container<integer>
----@field headwear df.container<integer>
----@field legwear df.container<integer>
----@field prepared_food df.container<integer>
----@field wood df.container<integer>
----@field thread_cloth df.container<integer>
----@field paper df.container<integer>
----@field parchment df.container<integer>
----@field bone df.container<integer>
----@field tooth df.container<integer>
----@field horn df.container<integer>
----@field pearl df.container<integer>
----@field shell df.container<integer>
----@field leather df.container<integer>
----@field silk df.container<integer>
----@field yarn df.container<integer>
----@field inorganic df.container<integer>
----@field meat df.container<integer>
----@field fish df.container<integer>
----@field plants df.container<integer>
----@field drinks df.container<integer>
----@field extract_animal df.container<integer>
----@field extract_plant df.container<integer>
----@field mill_animal df.container<integer>
----@field mill_plant df.container<integer>
----@field cheese_animal df.container<integer>
----@field cheese_plant df.container<integer>
----@field pets df.container<integer>
+---@field general_items df.container
+---@field weapons df.container
+---@field armor df.container
+---@field handwear df.container
+---@field footwear df.container
+---@field headwear df.container
+---@field legwear df.container
+---@field prepared_food df.container
+---@field wood df.container
+---@field thread_cloth df.container
+---@field paper df.container
+---@field parchment df.container
+---@field bone df.container
+---@field tooth df.container
+---@field horn df.container
+---@field pearl df.container
+---@field shell df.container
+---@field leather df.container
+---@field silk df.container
+---@field yarn df.container
+---@field inorganic df.container
+---@field meat df.container
+---@field fish df.container
+---@field plants df.container
+---@field drinks df.container
+---@field extract_animal df.container
+---@field extract_plant df.container
+---@field mill_animal df.container
+---@field mill_plant df.container
+---@field cheese_animal df.container
+---@field cheese_plant df.container
+---@field pets df.container
 df.plotinfost.T_economy_prices.T_price_adjustment = {}
 
----@param key integer
----@return plotinfost.T_economy_prices_price_adjustment|nil
-function df.plotinfost.T_economy_prices.T_price_adjustment.find(key) end
 
 ---@class plotinfost.T_economy_prices_price_setter: df.class
 ---@field general_items item_type[]
@@ -883,9 +850,6 @@ function df.plotinfost.T_economy_prices.T_price_adjustment.find(key) end
 ---@field pets unit[]
 df.plotinfost.T_economy_prices.T_price_setter = {}
 
----@param key integer
----@return plotinfost.T_economy_prices_price_setter|nil
-function df.plotinfost.T_economy_prices.T_price_setter.find(key) end
 
 ---@class plotinfost_stockpile: df.class
 ---@field reserved_bins integer
@@ -893,22 +857,22 @@ function df.plotinfost.T_economy_prices.T_price_setter.find(key) end
 ---@field custom_settings stockpile_settings
 df.plotinfost.T_stockpile = {}
 
----@param key integer
----@return plotinfost_stockpile|nil
-function df.plotinfost.T_stockpile.find(key) end
+
+---@class plotinfost_unk2a8c: df.class
+---@field unk1 integer
+---@field unk2 integer
+df.plotinfost.T_unk2a8c = {}
+
 
 ---@class plotinfost_map_edge: df.class
----@field layer_x df.container<integer>[]
----@field surface_x df.container<integer>
----@field layer_y df.container<integer>[]
----@field surface_y df.container<integer>
----@field layer_z df.container<integer>[]
----@field surface_z df.container<integer>
+---@field layer_x df.container[]
+---@field surface_x df.container
+---@field layer_y df.container[]
+---@field surface_y df.container
+---@field layer_z df.container[]
+---@field surface_z df.container
 df.plotinfost.T_map_edge = {}
 
----@param key integer
----@return plotinfost_map_edge|nil
-function df.plotinfost.T_map_edge.find(key) end
 
 ---@class plotinfost_waypoints: df.class
 ---@field points plotinfost.T_waypoints_points[]
@@ -927,12 +891,8 @@ function df.plotinfost.T_map_edge.find(key) end
 ---@field sel_route_idx integer
 ---@field sel_route_waypt_idx integer
 ---@field in_edit_waypts_mode boolean
----@field unk_42_06 df.container<integer>
+---@field unk_42_06 df.container
 df.plotinfost.T_waypoints = {}
-
----@param key integer
----@return plotinfost_waypoints|nil
-function df.plotinfost.T_waypoints.find(key) end
 
 ---@class plotinfost.T_waypoints_points: df.class
 ---@field id integer
@@ -944,9 +904,6 @@ function df.plotinfost.T_waypoints.find(key) end
 ---@field pos coord
 df.plotinfost.T_waypoints.T_points = {}
 
----@param key integer
----@return plotinfost.T_waypoints_points|nil
-function df.plotinfost.T_waypoints.T_points.find(key) end
 
 ---@class plotinfost.T_waypoints_routes: df.class
 ---@field id integer
@@ -954,9 +911,6 @@ function df.plotinfost.T_waypoints.T_points.find(key) end
 ---@field points integer[]
 df.plotinfost.T_waypoints.T_routes = {}
 
----@param key integer
----@return plotinfost.T_waypoints_routes|nil
-function df.plotinfost.T_waypoints.T_routes.find(key) end
 
 ---@class plotinfost_burrows: df.class
 ---@field list burrow[]
@@ -979,46 +933,30 @@ function df.plotinfost.T_waypoints.T_routes.find(key) end
 ---@field sym_bg_color integer
 df.plotinfost.T_burrows = {}
 
----@param key integer
----@return plotinfost_burrows|nil
-function df.plotinfost.T_burrows.find(key) end
 
 ---@class plotinfost_alerts: df.class
 ---@field list plotinfost.T_alerts_list[]
 ---@field next_id integer
----@field routines plotinfost.T_alerts_routines[]
+---@field routines plotinfost.T_alerts_routines
 ---@field next_routine_id integer
 ---@field civ_alert_idx integer
 df.plotinfost.T_alerts = {}
 
----@param key integer
----@return plotinfost_alerts|nil
-function df.plotinfost.T_alerts.find(key) end
-
 ---@class plotinfost.T_alerts_list: df.class
 ---@field id integer
 ---@field name string
----@field burrows df.container<integer> References: burrow
+---@field burrows df.container References: burrow
 df.plotinfost.T_alerts.T_list = {}
 
----@param key integer
----@return plotinfost.T_alerts_list|nil
-function df.plotinfost.T_alerts.T_list.find(key) end
 
 ---@class plotinfost.T_alerts_routines: df.class
----@field id integer
----@field unk_1 integer
----@field name string
 df.plotinfost.T_alerts.T_routines = {}
 
----@param key integer
----@return plotinfost.T_alerts_routines|nil
-function df.plotinfost.T_alerts.T_routines.find(key) end
 
 ---@class plotinfost_equipment: df.class
----@field items_unmanifested df.container<integer>[]
----@field items_unassigned df.container<integer>[]
----@field items_assigned df.container<integer>[]
+---@field items_unmanifested df.container[]
+---@field items_unassigned df.container[]
+---@field items_assigned df.container[]
 ---@field update equipment_update
 ---@field work_weapons integer[] i.e. woodcutter axes, and miner picks
 ---@field work_units integer[]
@@ -1028,9 +966,6 @@ function df.plotinfost.T_alerts.T_routines.find(key) end
 ---@field training_assignments training_assignment[] sorted by animal_id
 df.plotinfost.T_equipment = {}
 
----@param key integer
----@return plotinfost_equipment|nil
-function df.plotinfost.T_equipment.find(key) end
 
 ---@class plotinfost_hauling: df.class
 ---@field routes hauling_route[]
@@ -1043,9 +978,6 @@ function df.plotinfost.T_equipment.find(key) end
 ---@field cursor_stop integer
 df.plotinfost.T_hauling = {}
 
----@param key integer
----@return plotinfost_hauling|nil
-function df.plotinfost.T_hauling.find(key) end
 
 ---related to job_type unk_fake_no_activity
 ---@class plotinfost_theft_intrigues: df.class
@@ -1074,9 +1006,6 @@ function df.plotinfost.T_hauling.find(key) end
 ---@field unk_23 integer
 df.plotinfost.T_theft_intrigues = {}
 
----@param key integer
----@return plotinfost_theft_intrigues|nil
-function df.plotinfost.T_theft_intrigues.find(key) end
 
 ---@class plotinfost_main: df.class
 ---@field hotkeys ui_hotkey[]
@@ -1103,10 +1032,6 @@ function df.plotinfost.T_theft_intrigues.find(key) end
 ---@field in_rename_hotkey boolean
 df.plotinfost.T_main = {}
 
----@param key integer
----@return plotinfost_main|nil
-function df.plotinfost.T_main.find(key) end
-
 ---?
 ---@class plotinfost.T_main_dead_citizens: df.class
 ---@field unit_id integer References: unit
@@ -1117,9 +1042,6 @@ function df.plotinfost.T_main.find(key) end
 ---@field ghost_type ghost_type
 df.plotinfost.T_main.T_dead_citizens = {}
 
----@param key integer
----@return plotinfost.T_main_dead_citizens|nil
-function df.plotinfost.T_main.T_dead_citizens.find(key) end
 
 ---@class plotinfost.T_main_save_progress: df.class
 ---@field substage save_substage
@@ -1127,13 +1049,10 @@ function df.plotinfost.T_main.T_dead_citizens.find(key) end
 ---@field info nemesis_offload
 df.plotinfost.T_main.T_save_progress = {}
 
----@param key integer
----@return plotinfost.T_main_save_progress|nil
-function df.plotinfost.T_main.T_save_progress.find(key) end
 
 ---@class plotinfost_squads: df.class
 ---@field list squad[] valid only when ui is displayed
----@field unk6e08 df.container<integer>
+---@field unk6e08 df.container
 ---@field sel_squads boolean[]
 ---@field indiv_selected integer[]
 ---@field in_select_indiv boolean
@@ -1154,10 +1073,6 @@ function df.plotinfost.T_main.T_save_progress.find(key) end
 ---@field in_kill_rect boolean
 ---@field rect_start coord
 df.plotinfost.T_squads = {}
-
----@param key integer
----@return plotinfost_squads|nil
-function df.plotinfost.T_squads.find(key) end
 
 ---@class _timed_event_type: integer, string, df.enum
 ---@field Caravan 0
@@ -1211,10 +1126,6 @@ df.timed_event_type = {}
 ---@field unk_4 integer
 df.timed_event = {}
 
----@param key integer
----@return timed_event|nil
-function df.timed_event.find(key) end
-
 ---@class map_viewport: df.class
 ---@field adv_mode boolean
 ---@field unk1 boolean
@@ -1229,10 +1140,6 @@ function df.timed_event.find(key) end
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
 df.map_viewport = {}
-
----@param key integer
----@return map_viewport|nil
-function df.map_viewport.find(key) end
 
 ---@class map_renderer: df.class
 ---@field entity integer[][]
@@ -1256,13 +1163,14 @@ function df.map_viewport.find(key) end
 ---@field unk_1 integer
 ---@field unk_2 integer[]
 ---@field unk_3 integer[]
----@field unk_4 integer[]
+---@field unk_4 map_renderer_unk_4
 ---@field unk_5 integer[]
 ---@field unk_6 integer
 ---@field unk_7 integer
 df.map_renderer = {}
 
----@param key integer
----@return map_renderer|nil
-function df.map_renderer.find(key) end
+---@class map_renderer_unk_4: df.class
+---@field x integer
+---@field y integer
+df.map_renderer.T_unk_4 = {}
 

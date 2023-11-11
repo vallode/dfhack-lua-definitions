@@ -1199,7 +1199,3 @@ df.job_item_vector_id.attrs = {}
 ---@field GLOVES item_glovesst[]
 df.items_other = {}
 
----@param key integer
----@return items_other|nil
-function df.items_other.find(key) end
-

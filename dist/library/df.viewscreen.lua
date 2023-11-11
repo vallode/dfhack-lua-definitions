@@ -13,10 +13,6 @@
 ---@field out_buffer_amount_written integer
 df.file_compressorst = {}
 
----@param key integer
----@return file_compressorst|nil
-function df.file_compressorst.find(key) end
-
 ---@class _interface_breakdown_types: integer, string, df.enum
 ---@field NONE 0
 ---@field [0] "NONE"
@@ -60,28 +56,14 @@ df.interface_push_types = {}
 ---@field AT_FRONT boolean
 
 ---@class abstract_interfacest: df.class
+---@field get_rect any
+---@field feed any
+---@field logic any
+---@field render any
+---@field arrange any
+---@field remove_child any
+---@field clear any
 df.abstract_interfacest = {}
-
----@param key integer
----@return abstract_interfacest|nil
-function df.abstract_interfacest.find(key) end
-
----@return extentst
-function df.abstract_interfacest:get_rect() end
-
----@param events interface_key
-function df.abstract_interfacest:feed(events) end
-
-function df.abstract_interfacest:logic() end
-
-function df.abstract_interfacest:render() end
-
-function df.abstract_interfacest:arrange() end
-
----@param w integer
-function df.abstract_interfacest:remove_child(w) end
-
-function df.abstract_interfacest:clear() end
 
 ---@class viewscreen: abstract_interfacest
 ---@field child viewscreen
@@ -91,16 +73,6 @@ function df.abstract_interfacest:clear() end
 ---@field widgets widget_container
 df.viewscreen = {}
 
----@param key integer
----@return viewscreen|nil
-function df.viewscreen.find(key) end
-
----@param w integer
----@param h integer
-function df.viewscreen:resize(w, h) end
-
-function df.viewscreen:set_port_flags() end
-
 ---@class interfacest: df.class
 ---@field original_fps integer
 ---@field view viewscreen
@@ -108,10 +80,6 @@ function df.viewscreen:set_port_flags() end
 ---@field shutdown_interface_tickcount integer
 ---@field shutdown_interface_for_ms integer
 df.interfacest = {}
-
----@param key integer
----@return interfacest|nil
-function df.interfacest.find(key) end
 
 ---@class scrollbarst: df.class
 ---@field sel integer
@@ -124,20 +92,12 @@ function df.interfacest.find(key) end
 ---@field scroller_ey integer
 df.scrollbarst = {}
 
----@param key integer
----@return scrollbarst|nil
-function df.scrollbarst.find(key) end
-
 ---@class extentst: df.class
 ---@field x integer
 ---@field y integer
 ---@field w integer
 ---@field h integer
 df.extentst = {}
-
----@param key integer
----@return extentst|nil
-function df.extentst.find(key) end
 
 ---@class widget: df.class
 ---@field parent integer
@@ -161,10 +121,6 @@ function df.extentst.find(key) end
 ---@field search_string string
 df.widget = {}
 
----@param key integer
----@return widget|nil
-function df.widget.find(key) end
-
 ---@class _widget_visibility_flags: integer, string, df.bitfield
 ---@field WIDGET_VISIBILITY_ACTIVE 0
 ---@field [0] "WIDGET_VISIBILITY_ACTIVE"
@@ -177,6 +133,7 @@ df.widget.T_visibility_flags = {}
 ---@field WIDGET_VISIBILITY_ACTIVE boolean
 ---@field [1] boolean
 ---@field WIDGET_VISIBILITY_ACTUALLY_VISIBLE boolean
+
 
 ---@class _widget_tooltip_type: integer, string, df.enum
 ---@field NONE -1
@@ -199,26 +156,6 @@ df.widget.T_tooltip_type = {}
 ---@field [3] boolean
 ---@field BELOW boolean
 
----@return extentst
-function df.widget:get_rect() end
-
----@param events interface_key
-function df.widget:feed(events) end
-
-function df.widget:logic() end
-
-function df.widget:render() end
-
-function df.widget:arrange() end
-
----@param w integer
-function df.widget:remove_child(w) end
-
-function df.widget:clear() end
-
----@return boolean
-function df.widget:is_container() end
-
 ---@class widget_text: widget
 ---@field str string
 ---@field fg integer
@@ -226,33 +163,14 @@ function df.widget:is_container() end
 ---@field bright boolean
 df.widget_text = {}
 
----@param key integer
----@return widget_text|nil
-function df.widget_text.find(key) end
-
 ---@class widget_text_multiline: widget_text
----@field strs df.container<string>
 df.widget_text_multiline = {}
 
----@param key integer
----@return widget_text_multiline|nil
-function df.widget_text_multiline.find(key) end
-
 ---@class widget_nineslice: widget
----@field selected_texpos integer
 df.widget_nineslice = {}
 
----@param key integer
----@return widget_nineslice|nil
-function df.widget_nineslice.find(key) end
-
 ---@class widget_custom_render: widget
----@field callback function
 df.widget_custom_render = {}
-
----@param key integer
----@return widget_custom_render|nil
-function df.widget_custom_render.find(key) end
 
 ---@class widget_menu: widget
 ---@field lines any
@@ -261,10 +179,6 @@ function df.widget_custom_render.find(key) end
 ---@field bleached boolean
 ---@field colors any
 df.widget_menu = {}
-
----@param key integer
----@return widget_menu|nil
-function df.widget_menu.find(key) end
 
 ---@class widget_textbox: widget
 ---@field str string
@@ -278,60 +192,29 @@ function df.widget_menu.find(key) end
 ---@field maxlen integer
 df.widget_textbox = {}
 
----@param key integer
----@return widget_textbox|nil
-function df.widget_textbox.find(key) end
-
 ---@class widget_button: widget
----@field callback function arguments are button*
 df.widget_button = {}
-
----@param key integer
----@return widget_button|nil
-function df.widget_button.find(key) end
 
 ---@class widget_container: widget
 ---@field children_by_name any std::map<std::string,std::shared_ptr<widget>>
 ---@field children widget[]
 df.widget_container = {}
 
----@param key integer
----@return widget_container|nil
-function df.widget_container.find(key) end
-
 ---@class widget_stack: widget_container
 df.widget_stack = {}
 
----@param key integer
----@return widget_stack|nil
-function df.widget_stack.find(key) end
-
 ---@class widget_rows_container: widget_container
----@field padding integer
 df.widget_rows_container = {}
 
----@param key integer
----@return widget_rows_container|nil
-function df.widget_rows_container.find(key) end
-
 ---@class widget_columns_container: widget_container
----@field padding integer
 df.widget_columns_container = {}
-
----@param key integer
----@return widget_columns_container|nil
-function df.widget_columns_container.find(key) end
 
 ---@class widget_tabs: widget_container
 ---@field cur_idx integer
 ---@field tab_labels string[]
----@field rows df.container<integer> actually std::pair of size_t, size_t
+---@field rows df.container actually std::pair of size_t, size_t
 ---@field tab_type widget_tabs_tab_type
 df.widget_tabs = {}
-
----@param key integer
----@return widget_tabs|nil
-function df.widget_tabs.find(key) end
 
 ---@class _widget_tabs_tab_type: integer, string, df.enum
 ---@field DEFAULT 0
@@ -361,18 +244,10 @@ df.widget_tabs.T_tab_type = {}
 ---@field scrollbar scrollbarst
 df.widget_scroll_rows = {}
 
----@param key integer
----@return widget_scroll_rows|nil
-function df.widget_scroll_rows.find(key) end
-
 ---@class widget_params_container: widget_container
 ---@field text widget_text
 ---@field param world_gen_param_valuest
 df.widget_params_container = {}
-
----@param key integer
----@return widget_params_container|nil
-function df.widget_params_container.find(key) end
 
 ---@class MacroScreenLoad: viewscreen
 ---@field menu widget_menu
@@ -380,17 +255,8 @@ function df.widget_params_container.find(key) end
 ---@field height integer
 df.MacroScreenLoad = {}
 
----@param key integer
----@return MacroScreenLoad|nil
-function df.MacroScreenLoad.find(key) end
-
 ---@class MacroScreenSave: viewscreen
----@field id widget_textbox
 df.MacroScreenSave = {}
-
----@param key integer
----@return MacroScreenSave|nil
-function df.MacroScreenSave.find(key) end
 
 ---@class world_dat_summary: df.class
 ---@field name language_name
@@ -399,10 +265,6 @@ function df.MacroScreenSave.find(key) end
 ---@field last_id world_dat_summary_last_id when loading, DF sets *_next_id to these fields plus 1
 ---@field unk world_dat_summary_unk
 df.world_dat_summary = {}
-
----@param key integer
----@return world_dat_summary|nil
-function df.world_dat_summary.find(key) end
 
 ---when loading, DF sets *_next_id to these fields plus 1
 ---@class world_dat_summary_last_id: df.class
@@ -445,18 +307,11 @@ function df.world_dat_summary.find(key) end
 ---@field divination_set integer
 df.world_dat_summary.T_last_id = {}
 
----@param key integer
----@return world_dat_summary_last_id|nil
-function df.world_dat_summary.T_last_id.find(key) end
 
 ---@class world_dat_summary_unk: df.class
 ---@field unk_3 string
 ---@field timeline string
 df.world_dat_summary.T_unk = {}
-
----@param key integer
----@return world_dat_summary_unk|nil
-function df.world_dat_summary.T_unk.find(key) end
 
 ---@class viewscreen_adopt_regionst: viewscreen
 ---@field compressor file_compressorst
@@ -466,10 +321,6 @@ function df.world_dat_summary.T_unk.find(key) end
 ---@field glosses matgloss_list
 ---@field progress integer 0..35
 df.viewscreen_adopt_regionst = {}
-
----@param key integer
----@return viewscreen_adopt_regionst|nil
-function df.viewscreen_adopt_regionst.find(key) end
 
 ---@class _viewscreen_adopt_regionst_cur_step: integer, string, df.enum
 ---@field OpeningFile 0
@@ -722,10 +573,6 @@ df.embark_finder_option = {}
 ---@field embark_pos_max coord2d
 df.embark_location = {}
 
----@param key integer
----@return embark_location|nil
-function df.embark_location.find(key) end
-
 ---@class viewscreen_choose_start_sitest: viewscreen
 ---@field page viewscreen_choose_start_sitest_page
 ---@field location embark_location
@@ -746,8 +593,8 @@ function df.embark_location.find(key) end
 ---@field neighbor_hover_mm_ey integer
 ---@field def_candidate historical_entity[]
 ---@field def_candidate_nearst world_site[]
----@field def_candidate_mindist df.container<integer>
----@field def_candidate_state df.container<integer>
+---@field def_candidate_mindist df.container
+---@field def_candidate_state df.container
 ---@field zoomed_in boolean
 ---@field zoom_cent_x integer
 ---@field zoom_cent_y integer
@@ -781,9 +628,9 @@ function df.embark_location.find(key) end
 ---@field selected_reclaim integer
 ---@field selected_civ integer
 ---@field start_civ historical_entity[]
----@field start_civ_nem_num df.container<integer>
----@field start_civ_entpop_num df.container<integer>
----@field start_civ_site_num df.container<integer>
+---@field start_civ_nem_num df.container
+---@field start_civ_entpop_num df.container
+---@field start_civ_site_num df.container
 ---@field reclaim_detail_box string[]
 ---@field reclaim_detail_he history_event
 ---@field reclaim_detail_she history_event
@@ -796,10 +643,10 @@ function df.embark_location.find(key) end
 ---@field find_select integer
 ---@field find_param integer[]
 ---@field find_missed_param boolean[]
----@field find_missed_metal_ore df.container<integer>
----@field find_param_list df.container<integer>
----@field find_metal_ore df.container<integer>
----@field skip_metal_ore df.container<integer>
+---@field find_missed_metal_ore df.container
+---@field find_param_list df.container
+---@field find_metal_ore df.container
+---@field skip_metal_ore df.container
 ---@field find_results viewscreen_choose_start_sitest_find_results
 ---@field find_ax integer
 ---@field find_ay integer
@@ -807,7 +654,7 @@ function df.embark_location.find(key) end
 ---@field find_mm_ex integer
 ---@field find_mm_sy integer
 ---@field find_mm_ey integer
----@field note_index df.container<integer>
+---@field note_index df.container
 ---@field text_box string[]
 ---@field notes_entering_text boolean
 ---@field notes_list_select integer
@@ -817,10 +664,6 @@ function df.embark_location.find(key) end
 ---@field notes_sym_select_3 integer
 ---@field notes_selected_note integer
 df.viewscreen_choose_start_sitest = {}
-
----@param key integer
----@return viewscreen_choose_start_sitest|nil
-function df.viewscreen_choose_start_sitest.find(key) end
 
 ---@class _viewscreen_choose_start_sitest_page: integer, string, df.enum
 ---@field Biome 0
@@ -862,6 +705,7 @@ df.viewscreen_choose_start_sitest.T_page = {}
 ---@field Find boolean
 ---@field [8] boolean
 ---@field Notes boolean
+
 
 ---@class _viewscreen_choose_start_sitest_find_results: integer, string, df.enum
 ---@field None -1
@@ -917,8 +761,8 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field unk_21 integer
 ---@field unk_15 integer
 ---@field unk_22 integer
----@field squads df.container<integer> References: squad
----@field messengers df.container<integer> References: occupation
+---@field squads df.container References: squad
+---@field messengers df.container References: occupation
 ---@field unk_23 integer
 ---@field unk_24 integer
 ---@field details mission_details
@@ -926,20 +770,12 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field unk_25 integer
 df.mission = {}
 
----@param key integer
----@return mission|nil
-function df.mission.find(key) end
-
 ---@class mission_details: df.class
 ---@field raid mission.T_details_raid
 ---@field recovery mission.T_details_recovery
 ---@field rescue mission.T_details_rescue
 ---@field request mission.T_details_request
 df.mission.T_details = {}
-
----@param key integer
----@return mission_details|nil
-function df.mission.T_details.find(key) end
 
 ---@class mission.T_details_raid: df.class
 ---@field raid_type mission.T_details.T_raid_raid_type
@@ -976,10 +812,6 @@ function df.mission.T_details.find(key) end
 ---@field unk_31 integer
 df.mission.T_details.T_raid = {}
 
----@param key integer
----@return mission.T_details_raid|nil
-function df.mission.T_details.T_raid.find(key) end
-
 ---@class _mission.T_details.T_raid_raid_type: integer, string, df.enum
 ---@field Raze 0
 ---@field [0] "Raze"
@@ -1012,6 +844,7 @@ df.mission.T_details.T_raid.T_raid_type = {}
 ---@field Explore boolean
 ---@field [6] boolean
 ---@field Pillage boolean
+
 
 ---@class _mission.T_details.T_raid_raid_flags: integer, string, df.bitfield
 ---@field Unknown1 0
@@ -1058,35 +891,27 @@ df.mission.T_details.T_raid.T_raid_flags = {}
 ---@field [9] boolean
 ---@field DemandSurrender boolean
 
+
 ---@class mission.T_details_recovery: df.class
 ---@field artifact integer References: artifact_record
 ---@field unk_2 integer
 df.mission.T_details.T_recovery = {}
 
----@param key integer
----@return mission.T_details_recovery|nil
-function df.mission.T_details.T_recovery.find(key) end
 
 ---@class mission.T_details_rescue: df.class
 ---@field histfig integer References: historical_figure
 ---@field unk_2 integer
 df.mission.T_details.T_rescue = {}
 
----@param key integer
----@return mission.T_details_rescue|nil
-function df.mission.T_details.T_rescue.find(key) end
 
 ---@class mission.T_details_request: df.class
----@field workers df.container<integer> References: historical_figure
+---@field workers df.container References: historical_figure
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.mission.T_details.T_request = {}
 
----@param key integer
----@return mission.T_details_request|nil
-function df.mission.T_details.T_request.find(key) end
 
 ---@class _mission_type: integer, string, df.enum
 ---@field Raid 2
@@ -1112,9 +937,9 @@ df.mission.T_type = {}
 ---@class viewscreen_dwarfmodest: viewscreen
 ---@field shown_site_name integer
 ---@field jeweler_mat_count integer
----@field jeweler_cutgem df.container<integer>
----@field jeweler_encrust df.container<integer>
----@field unit_labors_sidemenu unit_labor[]
+---@field jeweler_cutgem df.container
+---@field jeweler_encrust df.container
+---@field unit_labors_sidemenu viewscreen_dwarfmodest_unit_labors_sidemenu
 ---@field unit_labors_sidemenu_uplevel unit_labor[]
 ---@field unit_labors_sidemenu_uplevel_idx integer
 ---@field sideSubmenu integer
@@ -1125,9 +950,8 @@ df.mission.T_type = {}
 ---@field number_assigned_war integer
 df.viewscreen_dwarfmodest = {}
 
----@param key integer
----@return viewscreen_dwarfmodest|nil
-function df.viewscreen_dwarfmodest.find(key) end
+---@class viewscreen_dwarfmodest_unit_labors_sidemenu: df.class
+df.viewscreen_dwarfmodest.T_unit_labors_sidemenu = {}
 
 ---@class viewscreen_export_regionst: viewscreen
 ---@field play_now boolean
@@ -1138,10 +962,6 @@ function df.viewscreen_dwarfmodest.find(key) end
 ---@field folder_name string
 ---@field timeline_name string
 df.viewscreen_export_regionst = {}
-
----@param key integer
----@return viewscreen_export_regionst|nil
-function df.viewscreen_export_regionst.find(key) end
 
 ---@class _viewscreen_export_regionst_state: integer, string, df.enum
 ---@field Initializing 0
@@ -1304,43 +1124,21 @@ df.viewscreen_export_regionst.T_state = {}
 ---@field [38] boolean
 ---@field SynchronizingFolders boolean
 
+
 ---@class viewscreen_export_regionst_units_progress: df.class
----@field save_file_id df.container<integer>
----@field save_file_member_idx df.container<integer>
+---@field save_file_id df.container
+---@field save_file_member_idx df.container
 ---@field units unit[]
 ---@field current_chunk unit_chunk
 ---@field current_save_file_id integer
 ---@field offloaded_units integer
 df.viewscreen_export_regionst.T_units_progress = {}
 
----@param key integer
----@return viewscreen_export_regionst_units_progress|nil
-function df.viewscreen_export_regionst.T_units_progress.find(key) end
-
 ---@class viewscreen_game_cleanerst: viewscreen
----@field state viewscreen_game_cleanerst_state
+---@field CleaningGameObjects integer
+---@field CleaningStrandedObjects integer
+---@field CleaningPlayObjects integer
 df.viewscreen_game_cleanerst = {}
-
----@param key integer
----@return viewscreen_game_cleanerst|nil
-function df.viewscreen_game_cleanerst.find(key) end
-
----@class _viewscreen_game_cleanerst_state: integer, string, df.enum
----@field CleaningGameObjects 0
----@field [0] "CleaningGameObjects"
----@field CleaningStrandedObjects 1
----@field [1] "CleaningStrandedObjects"
----@field CleaningPlayObjects 2
----@field [2] "CleaningPlayObjects"
-df.viewscreen_game_cleanerst.T_state = {}
-
----@class viewscreen_game_cleanerst_state
----@field [0] boolean
----@field CleaningGameObjects boolean
----@field [1] boolean
----@field CleaningStrandedObjects boolean
----@field [2] boolean
----@field CleaningPlayObjects boolean
 
 ---@class viewscreen_initial_prepst: viewscreen
 ---@field render_count integer
@@ -1348,60 +1146,12 @@ df.viewscreen_game_cleanerst.T_state = {}
 ---@field unk_90 any
 df.viewscreen_initial_prepst = {}
 
----@param key integer
----@return viewscreen_initial_prepst|nil
-function df.viewscreen_initial_prepst.find(key) end
-
 ---@class world_gen_param_basest: df.class
 ---@field text string
 df.world_gen_param_basest = {}
 
----@param key integer
----@return world_gen_param_basest|nil
-function df.world_gen_param_basest.find(key) end
-
----@param num string
-function df.world_gen_param_basest:get_text(num) end
-
----@return boolean
-function df.world_gen_param_basest:has_string_entry() end
-
----@return boolean
-function df.world_gen_param_basest:nullifiable() end
-
----@return boolean
-function df.world_gen_param_basest:togglealble() end
-
----@return boolean
-function df.world_gen_param_basest:has_max_min() end
-
----@return boolean
-function df.world_gen_param_basest:has_increase_decrease() end
-
----@return integer
-function df.world_gen_param_basest:get_min() end
-
----@return integer
-function df.world_gen_param_basest:get_max() end
-
----@param value_str string
-function df.world_gen_param_basest:set_value(value_str) end
-
-function df.world_gen_param_basest:nullify() end
-
-function df.world_gen_param_basest:toggle() end
-
-function df.world_gen_param_basest:decrease() end
-
-function df.world_gen_param_basest:increase() end
-
 ---@class world_gen_param_seedst: world_gen_param_basest
----@field val_ptr string
 df.world_gen_param_seedst = {}
-
----@param key integer
----@return world_gen_param_seedst|nil
-function df.world_gen_param_seedst.find(key) end
 
 ---@class world_gen_param_valuest: world_gen_param_basest
 ---@field null_text string
@@ -1409,55 +1159,35 @@ function df.world_gen_param_seedst.find(key) end
 ---@field value_text string[]
 df.world_gen_param_valuest = {}
 
----@param key integer
----@return world_gen_param_valuest|nil
-function df.world_gen_param_valuest.find(key) end
-
 ---@class world_gen_param_charst: world_gen_param_valuest
 ---@field val_ptr integer
 ---@field min integer
 ---@field max integer
 ---@field null_value integer
----@field value_val df.container<integer>
+---@field value_val df.container
 ---@field can_toggle boolean
 df.world_gen_param_charst = {}
-
----@param key integer
----@return world_gen_param_charst|nil
-function df.world_gen_param_charst.find(key) end
 
 ---@class world_gen_param_memberst: world_gen_param_valuest
 ---@field val_ptr integer
 ---@field min integer
 ---@field max integer
 ---@field null_value integer
----@field value_val df.container<integer>
+---@field value_val df.container
 ---@field does_have_min_max boolean
 df.world_gen_param_memberst = {}
-
----@param key integer
----@return world_gen_param_memberst|nil
-function df.world_gen_param_memberst.find(key) end
 
 ---@class world_gen_param_flagst: world_gen_param_valuest
 ---@field val_ptr integer
 ---@field bit integer
----@field value_val df.container<integer>
+---@field value_val df.container
 df.world_gen_param_flagst = {}
-
----@param key integer
----@return world_gen_param_flagst|nil
-function df.world_gen_param_flagst.find(key) end
 
 ---@class world_gen_param_flagarrayst: world_gen_param_valuest
 ---@field val_ptr boolean[]
 ---@field flag integer
----@field value_val df.container<integer>
+---@field value_val df.container
 df.world_gen_param_flagarrayst = {}
-
----@param key integer
----@return world_gen_param_flagarrayst|nil
-function df.world_gen_param_flagarrayst.find(key) end
 
 ---@class legend_pagest: df.class
 ---@field header string
@@ -1466,16 +1196,12 @@ function df.world_gen_param_flagarrayst.find(key) end
 ---@field text_box markup_text_boxst
 ---@field scroll_position_list integer
 ---@field scrolling_list boolean
----@field lptr df.container<integer>
+---@field lptr df.container
 ---@field scroll_position_text integer
 ---@field scrolling_text boolean
 ---@field filter_str string
 ---@field entering_filter boolean
 df.legend_pagest = {}
-
----@param key integer
----@return legend_pagest|nil
-function df.legend_pagest.find(key) end
 
 ---@class _legend_pagest_mode: integer, string, df.enum
 ---@field NONE -1
@@ -1549,21 +1275,21 @@ df.legend_pagest.T_mode = {}
 ---@field init_cur_era_num integer
 ---@field init_cur_era_denom integer
 ---@field init_sub_stage integer
----@field histfigs df.container<integer> References: historical_figure
----@field sites df.container<integer> References: world_site
----@field artifacts df.container<integer> References: artifact_record
----@field codices df.container<integer>
----@field regions df.container<integer>
----@field layers df.container<integer>
----@field entities df.container<integer> References: historical_entity
----@field structure_sites df.container<integer> References: world_site
----@field structures_indices df.container<integer>
----@field entity_population df.container<integer>
----@field main_choice df.container<integer>
----@field era_choice_index df.container<integer>
----@field era_choice_num df.container<integer>
----@field era_choice_denom df.container<integer>
----@field hec_id df.container<integer>
+---@field histfigs df.container References: historical_figure
+---@field sites df.container References: world_site
+---@field artifacts df.container References: artifact_record
+---@field codices df.container
+---@field regions df.container
+---@field layers df.container
+---@field entities df.container References: historical_entity
+---@field structure_sites df.container References: world_site
+---@field structures_indices df.container
+---@field entity_population df.container
+---@field main_choice df.container
+---@field era_choice_index df.container
+---@field era_choice_num df.container
+---@field era_choice_denom df.container
+---@field hec_id df.container
 ---@field showing_all_era_collections integer
 ---@field region_snapshot viewscreen_legendsst_region_snapshot[]
 ---@field region_view_x integer
@@ -1571,15 +1297,15 @@ df.legend_pagest.T_mode = {}
 ---@field region_view_mode integer
 ---@field civ_site_view integer
 ---@field region_view_snapshot_index integer
----@field histfigs_filtered df.container<integer> index into histfigs
----@field sites_filtered df.container<integer> index into sites
----@field artifacts_filtered df.container<integer> index into artifacts
----@field codices_filtered df.container<integer> index into codices
----@field regions_filtered df.container<integer> index into regions
----@field layers_filtered df.container<integer> index into layers
----@field entity_populations_filtered df.container<integer>
----@field entities_filtered df.container<integer> index into entities
----@field structures_filtered df.container<integer> index into structures
+---@field histfigs_filtered df.container index into histfigs
+---@field sites_filtered df.container index into sites
+---@field artifacts_filtered df.container index into artifacts
+---@field codices_filtered df.container index into codices
+---@field regions_filtered df.container index into regions
+---@field layers_filtered df.container index into layers
+---@field entity_populations_filtered df.container
+---@field entities_filtered df.container index into entities
+---@field structures_filtered df.container index into structures
 ---@field total_codices integer
 ---@field total_artifacts integer
 ---@field page legend_pagest[]
@@ -1589,10 +1315,6 @@ df.legend_pagest.T_mode = {}
 ---@field unk_348 integer
 df.viewscreen_legendsst = {}
 
----@param key integer
----@return viewscreen_legendsst|nil
-function df.viewscreen_legendsst.find(key) end
-
 ---@class viewscreen_legendsst_region_snapshot: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -1600,12 +1322,8 @@ function df.viewscreen_legendsst.find(key) end
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
----@field unk_7 df.container<integer>
+---@field unk_7 df.container
 df.viewscreen_legendsst.T_region_snapshot = {}
-
----@param key integer
----@return viewscreen_legendsst_region_snapshot|nil
-function df.viewscreen_legendsst.T_region_snapshot.find(key) end
 
 ---@class viewscreen_legendsst.T_region_snapshot_unk_3: df.class
 ---@field unk_1 integer
@@ -1614,10 +1332,6 @@ function df.viewscreen_legendsst.T_region_snapshot.find(key) end
 ---@field unk_4 integer
 ---@field unk_5 integer
 df.viewscreen_legendsst.T_region_snapshot.T_unk_3 = {}
-
----@param key integer
----@return viewscreen_legendsst.T_region_snapshot_unk_3|nil
-function df.viewscreen_legendsst.T_region_snapshot.T_unk_3.find(key) end
 
 ---@class loadgame_save_info: df.class
 ---@field next_ids integer[]
@@ -1628,20 +1342,16 @@ function df.viewscreen_legendsst.T_region_snapshot.T_unk_3.find(key) end
 ---@field folder_name string
 df.loadgame_save_info = {}
 
----@param key integer
----@return loadgame_save_info|nil
-function df.loadgame_save_info.find(key) end
-
 ---@class matgloss_list: df.class
 ---@field unk_0 matgloss_list_unk_0[]
----@field generated_inorganics matgloss_list_generated_inorganics[]
----@field generated_plants matgloss_list_generated_plants[]
----@field generated_items matgloss_list_generated_items[]
----@field generated_creatures matgloss_list_generated_creatures[]
----@field generated_entities matgloss_list_generated_entities[]
----@field generated_reactions matgloss_list_generated_reactions[]
----@field generated_interactions matgloss_list_generated_interactions[]
----@field generated_languages matgloss_list_generated_languages[]
+---@field generated_inorganics string[][]
+---@field generated_plants string[][]
+---@field generated_items string[][]
+---@field generated_creatures string[][]
+---@field generated_entities string[][]
+---@field generated_reactions string[][]
+---@field generated_interactions string[][]
+---@field generated_languages string[][]
 ---@field inorganics string[]
 ---@field plants string[]
 ---@field bodies string[]
@@ -1666,16 +1376,12 @@ function df.loadgame_save_info.find(key) end
 ---@field musics string[]
 ---@field sounds string[]
 ---@field mod_ids string[]
----@field mod_versions df.container<integer>
----@field mod_compatible_versions df.container<integer>
+---@field mod_versions df.container
+---@field mod_compatible_versions df.container
 ---@field mod_folder_paths string[]
 ---@field mod_names string[]
 ---@field mod_display_versions string[]
 df.matgloss_list = {}
-
----@param key integer
----@return matgloss_list|nil
-function df.matgloss_list.find(key) end
 
 ---@class matgloss_list_unk_0: df.class
 ---@field unk_1 integer
@@ -1696,74 +1402,6 @@ function df.matgloss_list.find(key) end
 ---@field unk_16 integer
 df.matgloss_list.T_unk_0 = {}
 
----@param key integer
----@return matgloss_list_unk_0|nil
-function df.matgloss_list.T_unk_0.find(key) end
-
----@class matgloss_list_generated_inorganics: df.class
----@field raws string[]
-df.matgloss_list.T_generated_inorganics = {}
-
----@param key integer
----@return matgloss_list_generated_inorganics|nil
-function df.matgloss_list.T_generated_inorganics.find(key) end
-
----@class matgloss_list_generated_plants: df.class
----@field raws string[]
-df.matgloss_list.T_generated_plants = {}
-
----@param key integer
----@return matgloss_list_generated_plants|nil
-function df.matgloss_list.T_generated_plants.find(key) end
-
----@class matgloss_list_generated_items: df.class
----@field raws string[]
-df.matgloss_list.T_generated_items = {}
-
----@param key integer
----@return matgloss_list_generated_items|nil
-function df.matgloss_list.T_generated_items.find(key) end
-
----@class matgloss_list_generated_creatures: df.class
----@field raws string[]
-df.matgloss_list.T_generated_creatures = {}
-
----@param key integer
----@return matgloss_list_generated_creatures|nil
-function df.matgloss_list.T_generated_creatures.find(key) end
-
----@class matgloss_list_generated_entities: df.class
----@field raws string[]
-df.matgloss_list.T_generated_entities = {}
-
----@param key integer
----@return matgloss_list_generated_entities|nil
-function df.matgloss_list.T_generated_entities.find(key) end
-
----@class matgloss_list_generated_reactions: df.class
----@field raws string[]
-df.matgloss_list.T_generated_reactions = {}
-
----@param key integer
----@return matgloss_list_generated_reactions|nil
-function df.matgloss_list.T_generated_reactions.find(key) end
-
----@class matgloss_list_generated_interactions: df.class
----@field raws string[]
-df.matgloss_list.T_generated_interactions = {}
-
----@param key integer
----@return matgloss_list_generated_interactions|nil
-function df.matgloss_list.T_generated_interactions.find(key) end
-
----@class matgloss_list_generated_languages: df.class
----@field raws string[]
-df.matgloss_list.T_generated_languages = {}
-
----@param key integer
----@return matgloss_list_generated_languages|nil
-function df.matgloss_list.T_generated_languages.find(key) end
-
 ---@class viewscreen_loadgamest: viewscreen
 ---@field cur_step viewscreen_loadgamest_cur_step After the on-screen text shown while loading.
 ---@field progress integer
@@ -1773,10 +1411,6 @@ function df.matgloss_list.T_generated_languages.find(key) end
 ---@field save_version integer
 ---@field cur_save loadgame_save_info
 df.viewscreen_loadgamest = {}
-
----@param key integer
----@return viewscreen_loadgamest|nil
-function df.viewscreen_loadgamest.find(key) end
 
 ---@class _viewscreen_loadgamest_cur_step: integer, string, df.enum
 ---After the on-screen text shown while loading.
@@ -2100,19 +1734,11 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field unk_1 boolean
 df.worldgen_parms = {}
 
----@param key integer
----@return worldgen_parms|nil
-function df.worldgen_parms.find(key) end
-
 ---@class worldgen_parms_ps: df.class
 ---@field width integer
 ---@field height integer
 ---@field data integer[]
 df.worldgen_parms_ps = {}
-
----@param key integer
----@return worldgen_parms_ps|nil
-function df.worldgen_parms_ps.find(key) end
 
 ---@class viewscreen_new_regionst: viewscreen
 ---@field worldgen_presets worldgen_parms[]
@@ -2168,22 +1794,22 @@ function df.worldgen_parms_ps.find(key) end
 ---@field scroll_position_selected_mods integer
 ---@field scrolling_selected_mods boolean
 ---@field base_available_id string[]
----@field base_available_numeric_version df.container<integer>
----@field base_available_earliest_compat_numeric_version df.container<integer>
+---@field base_available_numeric_version df.container
+---@field base_available_earliest_compat_numeric_version df.container
 ---@field base_available_src_dir string[]
 ---@field base_available_name string[]
 ---@field base_available_displayed_version string[]
 ---@field base_available_mod_header mod_headerst[]
 ---@field object_load_order_id string[]
----@field object_load_order_numeric_version df.container<integer>
----@field object_load_order_earliest_compat_numeric_version df.container<integer>
+---@field object_load_order_numeric_version df.container
+---@field object_load_order_earliest_compat_numeric_version df.container
 ---@field object_load_order_src_dir string[]
 ---@field object_load_order_name string[]
 ---@field object_load_order_displayed_version string[]
 ---@field object_load_order_mod_header mod_headerst[]
 ---@field available_id string[]
----@field available_numeric_version df.container<integer>
----@field available_earliest_compat_numeric_version df.container<integer>
+---@field available_numeric_version df.container
+---@field available_earliest_compat_numeric_version df.container
 ---@field available_src_dir string[]
 ---@field available_name string[]
 ---@field available_displayed_version string[]
@@ -2194,22 +1820,14 @@ function df.worldgen_parms_ps.find(key) end
 ---@field last_hover_width integer
 df.viewscreen_new_regionst = {}
 
----@param key integer
----@return viewscreen_new_regionst|nil
-function df.viewscreen_new_regionst.find(key) end
-
 ---@class nemesis_offload: df.class
----@field nemesis_save_file_id df.container<integer>
----@field nemesis_member_idx df.container<integer>
+---@field nemesis_save_file_id df.container
+---@field nemesis_member_idx df.container
 ---@field units unit[]
 ---@field cur_unit_chunk unit_chunk
 ---@field cur_unit_chunk_num integer
 ---@field units_offloaded integer
 df.nemesis_offload = {}
-
----@param key integer
----@return nemesis_offload|nil
-function df.nemesis_offload.find(key) end
 
 ---@class viewscreen_savegamest: viewscreen
 ---@field unk_1 string
@@ -2218,10 +1836,6 @@ function df.nemesis_offload.find(key) end
 ---@field offload nemesis_offload
 ---@field compressor file_compressorst
 df.viewscreen_savegamest = {}
-
----@param key integer
----@return viewscreen_savegamest|nil
-function df.viewscreen_savegamest.find(key) end
 
 ---@class _viewscreen_savegamest_cur_step: integer, string, df.enum
 ---@field Initializing 0
@@ -2476,10 +2090,6 @@ df.adventurer_attribute_level = {}
 ---@field type integer
 df.startup_charactersheet_petst = {}
 
----@param key integer
----@return startup_charactersheet_petst|nil
-function df.startup_charactersheet_petst.find(key) end
-
 ---@class _adv_background_option_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
@@ -2542,12 +2152,12 @@ df.adv_background_option_type = {}
 ---@field background_text string[]
 ---@field goodsite world_site[]
 ---@field active_column integer
----@field background_option df.container<adv_background_option_type>
+---@field background_option df.container
 ---@field background_option_squad_epp_id integer[]
----@field background_option_unit df.container<integer> type should be profession?
----@field religious_practice_option df.container<integer>
----@field religious_practice_id df.container<integer>
----@field pos_caste df.container<integer>
+---@field background_option_unit df.container type should be profession?
+---@field religious_practice_option df.container
+---@field religious_practice_id df.container
+---@field pos_caste df.container
 ---@field st_selector integer
 ---@field bo_selector integer
 ---@field rp_selector integer
@@ -2579,10 +2189,6 @@ df.adv_background_option_type = {}
 ---@field pet startup_charactersheet_petst[]
 df.setup_character_info = {}
 
----@param key integer
----@return setup_character_info|nil
-function df.setup_character_info.find(key) end
-
 ---@class _setup_character_info_difficulty: integer, string, df.enum
 ---@field Peasant 0
 ---@field [0] "Peasant"
@@ -2599,6 +2205,7 @@ df.setup_character_info.T_difficulty = {}
 ---@field Hero boolean
 ---@field [2] boolean
 ---@field Demigod boolean
+
 
 ---@class _setup_character_info_sub_mode: integer, string, df.enum
 ---@field NONE -1
@@ -2658,51 +2265,47 @@ df.setup_character_info.T_sub_mode = {}
 ---@field FINAL_CONFIRMATION boolean
 
 ---@class embark_item_choice: df.class
----@field list _[][]
----@field race df.container<integer> References: creature_raw
----@field caste df.container<integer> References: caste_raw
+---@field list embark_item_choice_list[][]
+---@field race df.container References: creature_raw
+---@field caste df.container References: caste_raw
 ---@field profession profession[]
 df.embark_item_choice = {}
 
----@param key integer
----@return embark_item_choice|nil
-function df.embark_item_choice.find(key) end
+---@class embark_item_choice_list: df.class
+---@field item_type item_type
+---@field item_subtype integer
+---@field mattype integer References: material
+---@field matindex integer
+---@field unk_c integer 1 if new, -1 if added
+df.embark_item_choice.T_list = {}
 
 ---@class embark_profile: df.class
 ---@field name string
----@field skill_type df.container<integer>
----@field skill_dwarf_idx df.container<integer>
----@field skill_level df.container<integer>
----@field reclaim_dwarf_idx df.container<integer>
----@field reclaim_prof1 df.container<profession>
----@field reclaim_prof2 df.container<profession>
----@field item_type df.container<integer>
----@field item_subtype df.container<integer>
----@field mat_type df.container<integer>
----@field mat_index df.container<integer>
----@field item_count df.container<integer>
----@field pet_race df.container<integer> References: creature_raw
----@field pet_caste df.container<integer> References: caste_raw
----@field pet_profession df.container<profession>
----@field pet_count df.container<integer>
+---@field skill_type df.container
+---@field skill_dwarf_idx df.container
+---@field skill_level df.container
+---@field reclaim_dwarf_idx df.container
+---@field reclaim_prof1 df.container
+---@field reclaim_prof2 df.container
+---@field item_type df.container
+---@field item_subtype df.container
+---@field mat_type df.container
+---@field mat_index df.container
+---@field item_count df.container
+---@field pet_race df.container References: creature_raw
+---@field pet_caste df.container References: caste_raw
+---@field pet_profession df.container
+---@field pet_count df.container
 df.embark_profile = {}
 
----@param key integer
----@return embark_profile|nil
-function df.embark_profile.find(key) end
-
 ---@class embark_symbol: df.class
----@field unk_v43_1 df.container<integer>
----@field unk_v43_2 df.container<integer>
+---@field unk_v43_1 df.container
+---@field unk_v43_2 df.container
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 language_name
 ---@field unk_v43_sub9 embark_symbol_unk_v43_sub9
 ---@field unk_v43_10 integer[] uninitialized?
 df.embark_symbol = {}
-
----@param key integer
----@return embark_symbol|nil
-function df.embark_symbol.find(key) end
 
 ---@class embark_symbol_unk_v43_sub9: df.class
 ---@field unk_s1 integer
@@ -2714,15 +2317,11 @@ function df.embark_symbol.find(key) end
 ---@field unk_s7 integer
 df.embark_symbol.T_unk_v43_sub9 = {}
 
----@param key integer
----@return embark_symbol_unk_v43_sub9|nil
-function df.embark_symbol.T_unk_v43_sub9.find(key) end
-
 ---@class viewscreen_setupdwarfgamest: viewscreen
 ---@field title string
 ---@field dwarf_info setup_character_info[]
----@field embark_skills df.container<job_skill>[]
----@field reclaim_professions df.container<profession>
+---@field embark_skills df.container[]
+---@field reclaim_professions df.container
 ---@field preparing_map_timer integer
 ---@field preparing_map_timer_quick_start boolean
 ---@field difficulty difficultyst
@@ -2749,7 +2348,7 @@ function df.embark_symbol.T_unk_v43_sub9.find(key) end
 ---@field scrolling_pet_list boolean
 ---@field chosen_pet_selected integer
 ---@field scrolling_chosen_pet_list boolean
----@field embark_profile_type df.container<integer>
+---@field embark_profile_type df.container
 ---@field embark_profile embark_profile[]
 ---@field scroll_position_initial_selection integer
 ---@field scrolling_initial_selection boolean
@@ -2772,9 +2371,9 @@ function df.embark_symbol.T_unk_v43_sub9.find(key) end
 ---@field scrolling_category_item boolean
 ---@field item_filter string
 ---@field entering_item_filter boolean
----@field availpetrace_num df.container<integer>
----@field chosen_pet_index df.container<integer>
----@field chosen_pet_num df.container<integer>
+---@field availpetrace_num df.container
+---@field chosen_pet_index df.container
+---@field chosen_pet_num df.container
 ---@field fort_name language_name
 ---@field group_name language_name
 ---@field update_header boolean
@@ -2790,17 +2389,8 @@ function df.embark_symbol.T_unk_v43_sub9.find(key) end
 ---@field adding_item integer
 df.viewscreen_setupdwarfgamest = {}
 
----@param key integer
----@return viewscreen_setupdwarfgamest|nil
-function df.viewscreen_setupdwarfgamest.find(key) end
-
 ---@class viewscreen_choose_game_typest: viewscreen
----@field gametypes df.container<integer>
 df.viewscreen_choose_game_typest = {}
-
----@param key integer
----@return viewscreen_choose_game_typest|nil
-function df.viewscreen_choose_game_typest.find(key) end
 
 ---@class viewscreen_titlest: viewscreen
 ---@field str_histories string
@@ -2810,7 +2400,7 @@ function df.viewscreen_choose_game_typest.find(key) end
 ---@field selected_r integer
 ---@field game_start_proceed integer
 ---@field menu_line_id viewscreen_titlest_menu_line_id[]
----@field gametype df.container<integer>
+---@field gametype df.container
 ---@field gametype_str string[]
 ---@field region_choice world_dat_summary[]
 ---@field scroll_position_region_choice integer
@@ -2856,68 +2446,26 @@ function df.viewscreen_choose_game_typest.find(key) end
 ---@field deleting_savegame_header integer
 ---@field deleting_region_header integer
 ---@field credit_line string[]
----@field credit_line_type df.container<integer>
+---@field credit_line_type df.container
 ---@field scroll_position_about integer
 ---@field scrolling_about boolean
 df.viewscreen_titlest = {}
 
----@param key integer
----@return viewscreen_titlest|nil
-function df.viewscreen_titlest.find(key) end
-
 ---@class viewscreen_titlest_menu_line_id: df.class
----@field menu_line_id viewscreen_titlest.T_menu_line_id_menu_line_id
+---@field Continue integer
+---@field Start integer
+---@field NewWorld integer
+---@field TestingArena integer nonfunctional in 50.04
+---@field Mods integer nonfunctional in 50.04
+---@field Settings integer
+---@field AboutDF integer
+---@field Quit integer
 df.viewscreen_titlest.T_menu_line_id = {}
-
----@param key integer
----@return viewscreen_titlest_menu_line_id|nil
-function df.viewscreen_titlest.T_menu_line_id.find(key) end
-
----@class _viewscreen_titlest.T_menu_line_id_menu_line_id: integer, string, df.enum
----@field Continue 0
----@field [0] "Continue"
----@field Start 1
----@field [1] "Start"
----@field NewWorld 2
----@field [2] "NewWorld"
----@field TestingArena 3
----@field [3] "TestingArena"
----@field Mods 4
----@field [4] "Mods"
----@field Settings 5
----@field [5] "Settings"
----@field AboutDF 6
----@field [6] "AboutDF"
----@field Quit 7
----@field [7] "Quit"
-df.viewscreen_titlest.T_menu_line_id.T_menu_line_id = {}
-
----@class viewscreen_titlest.T_menu_line_id_menu_line_id
----@field [0] boolean
----@field Continue boolean
----@field [1] boolean
----@field Start boolean
----@field [2] boolean
----@field NewWorld boolean
----@field [3] boolean
----@field TestingArena boolean
----@field [4] boolean
----@field Mods boolean
----@field [5] boolean
----@field Settings boolean
----@field [6] boolean
----@field AboutDF boolean
----@field [7] boolean
----@field Quit boolean
 
 ---@class viewscreen_update_regionst: viewscreen
 ---@field year integer
 ---@field year_tick integer
 df.viewscreen_update_regionst = {}
-
----@param key integer
----@return viewscreen_update_regionst|nil
-function df.viewscreen_update_regionst.find(key) end
 
 ---@class _world_view_mode_type: integer, string, df.enum
 ---@field NONE -1
@@ -2981,9 +2529,9 @@ df.world_view_mode_type = {}
 ---@field civlist historical_entity[]
 ---@field last_hover_ent historical_entity
 ---@field relnem nemesis_record[]
----@field relnem_precedence df.container<integer>
----@field relag df.container<integer> civ_agreementst
----@field relag_pending df.container<integer>
+---@field relnem_precedence df.container
+---@field relag df.container civ_agreementst
+---@field relag_pending df.container
 ---@field scroll_position_civlist integer
 ---@field scrolling_civlist boolean
 ---@field army_controller army_controller[]
@@ -2992,10 +2540,10 @@ df.world_view_mode_type = {}
 ---@field scrolling_ac boolean
 ---@field scroll_position_ac integer
 ---@field squad squad[]
----@field squad_flag df.container<integer>
+---@field squad_flag df.container
 ---@field messenger_epp entity_position_assignment[]
 ---@field messenger_ent historical_entity[]
----@field messenger_flag df.container<integer>
+---@field messenger_flag df.container
 ---@field scroll_position_squad integer
 ---@field scrolling_squad boolean
 ---@field scroll_position_messenger integer
@@ -3003,7 +2551,7 @@ df.world_view_mode_type = {}
 ---@field request_nem nemesis_record[]
 ---@field scroll_position_request_nem integer
 ---@field scrolling_request_nem boolean
----@field rumor_master df.container<integer>
+---@field rumor_master df.container
 ---@field rumor_rpd viewscreen_worldst_rumor_rpd region_print_datast
 ---@field rumor_rpd_indicator_data viewscreen_worldst_rumor_rpd_indicator_data rpd_indicator_datast
 ---@field last_hover_rumor_x integer
@@ -3012,8 +2560,8 @@ df.world_view_mode_type = {}
 ---@field rumor_text string[]
 ---@field scroll_position_rumor integer
 ---@field scrolling_rumor boolean
----@field mission_report_index df.container<integer>
----@field tribute_report_index df.container<integer>
+---@field mission_report_index df.container
+---@field tribute_report_index df.container
 ---@field croll_position_report integer
 ---@field scrolling_report boolean
 ---@field active_mission_report integer mission_reportst
@@ -3024,7 +2572,7 @@ df.world_view_mode_type = {}
 ---@field mission_heid_data_index integer
 ---@field mission_heid_data_heid_index integer
 ---@field mission_text_box string[]
----@field mission_text_box_color df.container<integer>
+---@field mission_text_box_color df.container
 ---@field mission_timer_year integer
 ---@field mission_timer_season_count integer
 ---@field mission_timer_season_count_inc integer
@@ -3051,25 +2599,14 @@ df.world_view_mode_type = {}
 ---@field artifact_fac_holder historical_figure
 df.viewscreen_worldst = {}
 
----@param key integer
----@return viewscreen_worldst|nil
-function df.viewscreen_worldst.find(key) end
-
 ---region_print_datast
 ---@class viewscreen_worldst_rumor_rpd: df.class
 df.viewscreen_worldst.T_rumor_rpd = {}
 
----@param key integer
----@return viewscreen_worldst_rumor_rpd|nil
-function df.viewscreen_worldst.T_rumor_rpd.find(key) end
 
 ---rpd_indicator_datast
 ---@class viewscreen_worldst_rumor_rpd_indicator_data: df.class
 df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
-
----@param key integer
----@return viewscreen_worldst_rumor_rpd_indicator_data|nil
-function df.viewscreen_worldst.T_rumor_rpd_indicator_data.find(key) end
 
 ---@class viewscreen_new_arenast: viewscreen
 ---@field unk_88 integer
@@ -3083,33 +2620,29 @@ function df.viewscreen_worldst.T_rumor_rpd_indicator_data.find(key) end
 ---@field unk_a8 integer
 ---@field unk_ac integer
 ---@field unk_b0 string[]
----@field unk_c8 df.container<integer>
----@field unk_e0 df.container<integer>
+---@field unk_c8 df.container
+---@field unk_e0 df.container
 ---@field unk_f8 string[]
 ---@field unk_110 string[]
 ---@field unk_128 string[]
 ---@field unk_mods mod_headerst[]
 ---@field unk_158 string[]
----@field unk_170 df.container<integer>
----@field unk_188 df.container<integer>
+---@field unk_170 df.container
+---@field unk_188 df.container
 ---@field unk_1a0 string[]
 ---@field unk_1b8 string[]
 ---@field unk_1d0 string[]
 ---@field unk_mods2 mod_headerst[]
 ---@field unk_200 string[]
----@field unk_218 df.container<integer>
----@field unk_230 df.container<integer>
+---@field unk_218 df.container
+---@field unk_230 df.container
 ---@field unk_248 string[]
 ---@field unk_260 string[]
----@field unk_278 df.container<integer>
----@field unk_290 df.container<integer>
+---@field unk_278 df.container
+---@field unk_290 df.container
 ---@field unk_2a8 string[]
 ---@field unk_2c0 string
 ---@field unk_2e0 integer
 ---@field unk_2e4 integer
 df.viewscreen_new_arenast = {}
-
----@param key integer
----@return viewscreen_new_arenast|nil
-function df.viewscreen_new_arenast.find(key) end
 

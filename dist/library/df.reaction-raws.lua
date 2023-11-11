@@ -39,21 +39,13 @@ df.reaction_flags = {}
 ---@field exp_gain integer
 df.reaction = {}
 
----@param key integer
----@return reaction|nil
-function df.reaction.find(key) end
-
 ---@class reaction_building: df.class
 ---@field str string[][]
 ---@field type building_type[]
----@field subtype df.container<integer>
----@field custom df.container<integer>
----@field hotkey df.container<integer>
+---@field subtype df.container
+---@field custom df.container
+---@field hotkey df.container
 df.reaction.T_building = {}
-
----@param key integer
----@return reaction_building|nil
-function df.reaction.T_building.find(key) end
 
 ---@class reaction_category: df.class
 ---@field id string
@@ -63,19 +55,11 @@ function df.reaction.T_building.find(key) end
 ---@field description string
 df.reaction_category = {}
 
----@param key integer
----@return reaction_category|nil
-function df.reaction_category.find(key) end
-
 ---@class reaction_description: df.class
 ---@field unk_1 string
 ---@field item_type item_type
 ---@field unk_2 string
 df.reaction_description = {}
-
----@param key integer
----@return reaction_description|nil
-function df.reaction_description.find(key) end
 
 ---@class _reaction_reagent_type: integer, string, df.enum
 ---@field item 0
@@ -91,34 +75,6 @@ df.reaction_reagent_type = {}
 ---@field quantity integer
 ---@field flags reaction_reagent_flags
 df.reaction_reagent = {}
-
----@param key integer
----@return reaction_reagent|nil
-function df.reaction_reagent.find(key) end
-
----@return reaction_reagent_type
-function df.reaction_reagent:getType() end
-
----@param reactionID integer
-function df.reaction_reagent:resolveTokens(reactionID) end
-
----@param unk_0 item
----@param index integer
----@return boolean
-function df.reaction_reagent:matchesRoot(unk_0, index) end
-
----@param unk_0 item
----@param unk_1 reaction or maybe reaction code string ref
----@param index integer
----@return boolean
-function df.reaction_reagent:matchesChild(unk_0, unk_1, index) end
-
----@param unk_0 string
----@param index integer
-function df.reaction_reagent:getDescription(unk_0, index) end
-
----@return boolean
-function df.reaction_reagent:isLyeBearing() end
 
 ---@class _reaction_reagent_flags: integer, string, df.bitfield
 ---@field PRESERVE_REAGENT 0
@@ -151,17 +107,13 @@ df.reaction_reagent_flags = {}
 ---@field flags5 integer
 ---@field metal_ore integer References: inorganic_raw
 ---@field min_dimension integer
----@field contains df.container<integer>
+---@field contains df.container
 ---@field has_tool_use tool_uses
 ---@field item_str string[]
 ---@field material_str string[]
 ---@field metal_ore_str string
 ---@field contains_str string[]
 df.reaction_reagent_itemst = {}
-
----@param key integer
----@return reaction_reagent_itemst|nil
-function df.reaction_reagent_itemst.find(key) end
 
 ---@class _reaction_product_type: integer, string, df.enum
 ---@field item 0
@@ -180,33 +132,6 @@ df.reaction_product_type = {}
 ---@field product_token string
 ---@field product_to_container string
 df.reaction_product = {}
-
----@param key integer
----@return reaction_product|nil
-function df.reaction_product.find(key) end
-
----@return reaction_product_type
-function df.reaction_product:getType() end
-
----@param reactionID integer
-function df.reaction_product:resolveTokens(reactionID) end
-
----@param maker unit
----@param out_products reaction_product[]
----@param out_items item[]
----@param in_reag reaction_reagent[]
----@param in_items item[]
----@param quantity integer
----@param skill job_skill
----@param job_quality integer gets +10 for matching preferences, uses cutoffs 23/30/35/45/55 for Well/Fine/Superior/Exceptional/Masterwork
----@param entity historical_entity
----@param site world_site
----@param unk4 df.container<integer> only used when making improvements
-function df.reaction_product:produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
-
----used in Adventurer mode reactions?
----@param desc string
-function df.reaction_product:getDescription(desc) end
 
 ---@class _reaction_product_item_flags: integer, string, df.enum
 ---@field GET_MATERIAL_SAME 0
@@ -251,18 +176,10 @@ df.reaction_product_item_flags = {}
 ---@field material_str string[]
 df.reaction_product_itemst = {}
 
----@param key integer
----@return reaction_product_itemst|nil
-function df.reaction_product_itemst.find(key) end
-
 ---@class reaction_product_itemst_get_material: df.class
 ---@field reagent_code string
 ---@field product_code string
 df.reaction_product_itemst.T_get_material = {}
-
----@param key integer
----@return reaction_product_itemst_get_material|nil
-function df.reaction_product_itemst.T_get_material.find(key) end
 
 ---@class _reaction_product_improvement_flags: integer, string, df.enum
 ---@field GET_MATERIAL_SAME 0
@@ -294,16 +211,8 @@ df.reaction_product_improvement_flags = {}
 ---@field unk_v4201_2 string
 df.reaction_product_item_improvementst = {}
 
----@param key integer
----@return reaction_product_item_improvementst|nil
-function df.reaction_product_item_improvementst.find(key) end
-
 ---@class reaction_product_item_improvementst_get_material: df.class
 ---@field reagent_code string
 ---@field product_code string
 df.reaction_product_item_improvementst.T_get_material = {}
-
----@param key integer
----@return reaction_product_item_improvementst_get_material|nil
-function df.reaction_product_item_improvementst.T_get_material.find(key) end
 

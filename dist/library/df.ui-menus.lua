@@ -5,17 +5,13 @@
 ---@class ui_build_item_req: df.class
 ---@field filter job_item_filter
 ---@field candidates item[]
----@field candidate_selected df.container<boolean>
----@field unk_a0 df.container<integer>
----@field candidate_enabled df.container<boolean>
+---@field candidate_selected df.container
+---@field unk_a0 df.container
+---@field candidate_enabled df.container
 ---@field count_required integer
 ---@field count_max integer if 0, fixed at required
 ---@field count_provided integer
 df.ui_build_item_req = {}
-
----@param key integer
----@return ui_build_item_req|nil
-function df.ui_build_item_req.find(key) end
 
 ---@class _build_req_choice_type: integer, string, df.enum
 ---@field General 0
@@ -35,26 +31,6 @@ df.build_req_choice_type = {}
 ---@field distance integer
 df.build_req_choicest = {}
 
----@param key integer
----@return build_req_choicest|nil
-function df.build_req_choicest.find(key) end
-
----@return build_req_choice_type
-function df.build_req_choicest:getType() end
-
----@param str string
-function df.build_req_choicest:getName(str) end
-
----@param item_id integer
----@return boolean
-function df.build_req_choicest:isCandidate(item_id) end
-
----@return integer
-function df.build_req_choicest:getUsedCount() end
-
----@return integer
-function df.build_req_choicest:getNumCandidates() end
-
 ---@class build_req_choice_genst: build_req_choicest
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -65,18 +41,10 @@ function df.build_req_choicest:getNumCandidates() end
 ---@field unk_1 boolean
 df.build_req_choice_genst = {}
 
----@param key integer
----@return build_req_choice_genst|nil
-function df.build_req_choice_genst.find(key) end
-
 ---@class build_req_choice_specst: build_req_choicest
 ---@field candidate item
 ---@field candidate_id integer
 df.build_req_choice_specst = {}
-
----@param key integer
----@return build_req_choice_specst|nil
-function df.build_req_choice_specst.find(key) end
 
 ---@class buildreq: df.class
 ---@field requirements ui_build_item_req[]
@@ -93,8 +61,8 @@ function df.build_req_choice_specst.find(key) end
 ---@field tiles integer[][]
 ---@field cur_walk_tag integer
 ---@field plate_info pressure_plate_info
----@field min_weight_races df.container<integer> References: creature_raw
----@field max_weight_races df.container<integer> References: creature_raw
+---@field min_weight_races df.container References: creature_raw
+---@field max_weight_races df.container References: creature_raw
 ---@field friction integer
 ---@field use_dump integer
 ---@field dump_x_shift integer
@@ -105,10 +73,6 @@ function df.build_req_choice_specst.find(key) end
 ---@field selection_pos coord
 ---@field selection_area integer
 df.buildreq = {}
-
----@param key integer
----@return buildreq|nil
-function df.buildreq.find(key) end
 
 ---@class _interface_category_building: integer, string, df.enum
 ---@field NONE -1
@@ -199,67 +163,13 @@ df.interface_category_construction = {}
 ---@field filter_str string
 df.interface_button = {}
 
----@param key integer
----@return interface_button|nil
-function df.interface_button.find(key) end
-
----ghost, buried, memorialized
----@param y integer
----@param limx_min integer
----@param limx_max integer
-function df.interface_button:print_info(y, limx_min, limx_max) end
-
----@param str string
-function df.interface_button:text(str) end
-
-function df.interface_button:press() end
-
----@param selected boolean
-function df.interface_button:set_button_color(selected) end
-
-function df.interface_button:set_leave_button() end
-
----@return integer
-function df.interface_button:tile() end
-
-function df.interface_button:set_tile_color() end
-
----@param box string[]
-function df.interface_button:prepare_tool_tip(box) end
-
----@return boolean
-function df.interface_button:pressable() end
-
----@return boolean
-function df.interface_button:has_view() end
-
----@return boolean
-function df.interface_button:is_alphabetized() end
-
----@param unk_0 string
----@return string
-function df.interface_button:get_objection_string(unk_0) end
-
----@param unk_0 string
----@return string
-function df.interface_button:get_info_string(unk_0) end
-
 ---@class interface_button_buildingst: interface_button
----@field bd building
 df.interface_button_buildingst = {}
-
----@param key integer
----@return interface_button_buildingst|nil
-function df.interface_button_buildingst.find(key) end
 
 ---@class interface_button_building_category_selectorst: interface_button_buildingst
 ---@field category interface_category_building
 ---@field prepare_interface integer
 df.interface_button_building_category_selectorst = {}
-
----@param key integer
----@return interface_button_building_category_selectorst|nil
-function df.interface_button_building_category_selectorst.find(key) end
 
 ---@class interface_button_building_material_selectorst: interface_button_buildingst
 ---@field material integer References: material
@@ -267,10 +177,6 @@ function df.interface_button_building_category_selectorst.find(key) end
 ---@field job_item_flag job_material_category
 ---@field prepare_interface integer
 df.interface_button_building_material_selectorst = {}
-
----@param key integer
----@return interface_button_building_material_selectorst|nil
-function df.interface_button_building_material_selectorst.find(key) end
 
 ---@class interface_button_building_new_jobst: interface_button_buildingst
 ---@field jobtype job_type
@@ -288,17 +194,8 @@ function df.interface_button_building_material_selectorst.find(key) end
 ---@field info string
 df.interface_button_building_new_jobst = {}
 
----@param key integer
----@return interface_button_building_new_jobst|nil
-function df.interface_button_building_new_jobst.find(key) end
-
 ---@class interface_button_building_custom_category_selectorst: interface_button_buildingst
----@field custom_category_token string
 df.interface_button_building_custom_category_selectorst = {}
-
----@param key integer
----@return interface_button_building_custom_category_selectorst|nil
-function df.interface_button_building_custom_category_selectorst.find(key) end
 
 ---@class _construction_category_type: integer, string, df.enum
 ---@field NONE -1
@@ -369,10 +266,6 @@ df.construction_category_type = {}
 ---@field hotkey interface_key
 df.bb_buttonst = {}
 
----@param key integer
----@return bb_buttonst|nil
-function df.bb_buttonst.find(key) end
-
 ---@class _construction_interface_page_status_type: integer, string, df.enum
 ---@field NONE -1
 ---@field [0] "NONE"
@@ -409,10 +302,6 @@ df.construction_interface_page_status_type = {}
 ---@field scrolling boolean
 ---@field scroll_position integer
 df.construction_interface_pagest = {}
-
----@param key integer
----@return construction_interface_pagest|nil
-function df.construction_interface_pagest.find(key) end
 
 ---@class _room_flow_shape_type: integer, string, df.enum
 ---@field NONE -1
@@ -2116,18 +2005,18 @@ df.main_designation_type = {}
 ---@field settings main_interface_settings
 ---@field arena_unit main_interface_arena_unit
 ---@field arena_tree main_interface_arena_tree
----@field viewunit_list df.container<integer>
+---@field viewunit_list df.container
 ---@field exporting_local integer
 ---@field mouse_zone integer
----@field skill_ind df.container<integer>
----@field pract_type df.container<integer>
----@field pract_ind df.container<integer>
+---@field skill_ind df.container
+---@field pract_type df.container
+---@field pract_ind df.container
 ---@field skill_combat boolean
 ---@field skill_labor boolean
 ---@field skill_misc boolean
 ---@field barracks_selected_squad_ind integer
 ---@field barracks_squad squad[]
----@field barracks_squad_flag df.container<integer>
+---@field barracks_squad_flag df.container
 ---@field entering_building_name boolean
 ---@field assigning_position boolean
 ---@field ap_squad squad
@@ -2135,7 +2024,7 @@ df.main_designation_type = {}
 ---@field assigning_position_squad boolean
 ---@field ap_squad_list squad[]
 ---@field ap_squad_sel integer
----@field pref_occupation df.container<integer> occupationst
+---@field pref_occupation df.container occupationst
 ---@field selected_pref_occupation integer
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
@@ -2158,12 +2047,12 @@ df.main_designation_type = {}
 ---@field last_displayed_hover_id3 integer
 ---@field hover_announcement_alert popup_message
 ---@field hover_announcement_alert_text string[]
----@field hover_announcement_alert_color df.container<integer>
----@field hover_announcement_alert_bright df.container<integer>
+---@field hover_announcement_alert_color df.container
+---@field hover_announcement_alert_bright df.container
 ---@field hover_announcement_alert_width integer
 ---@field hover_announcement_alert_button_text string[]
----@field hover_announcement_alert_button_color df.container<integer>
----@field hover_announcement_alert_button_bright df.container<integer>
+---@field hover_announcement_alert_button_color df.container
+---@field hover_announcement_alert_button_bright df.container
 ---@field hover_announcement_alert_button_width integer
 ---@field last_hover_click_update integer
 ---@field last_hover_m coord
@@ -2180,10 +2069,6 @@ df.main_designation_type = {}
 ---@field keyboard_last_track_s coord
 ---@field keyboard_last_track_g coord
 df.main_interface = {}
-
----@param key integer
----@return main_interface|nil
-function df.main_interface.find(key) end
 
 ---@class main_interface_designation: df.class
 ---@field marker_only boolean
@@ -2205,9 +2090,6 @@ function df.main_interface.find(key) end
 ---@field sliding_traffic_restricted boolean
 df.main_interface.T_designation = {}
 
----@param key integer
----@return main_interface_designation|nil
-function df.main_interface.T_designation.find(key) end
 
 ---@class main_interface_building: df.class
 ---@field button interface_button[]
@@ -2222,9 +2104,6 @@ function df.main_interface.T_designation.find(key) end
 ---@field current_tool_tip string[]
 df.main_interface.T_building = {}
 
----@param key integer
----@return main_interface_building|nil
-function df.main_interface.T_building.find(key) end
 
 ---@class main_interface_construction: df.class
 ---@field button interface_button[]
@@ -2244,9 +2123,6 @@ function df.main_interface.T_building.find(key) end
 ---@field scroll_position_item integer
 df.main_interface.T_construction = {}
 
----@param key integer
----@return main_interface_construction|nil
-function df.main_interface.T_construction.find(key) end
 
 ---@class main_interface_civzone: df.class
 ---@field remove boolean
@@ -2265,9 +2141,6 @@ function df.main_interface.T_construction.find(key) end
 ---@field repainting integer
 df.main_interface.T_civzone = {}
 
----@param key integer
----@return main_interface_civzone|nil
-function df.main_interface.T_civzone.find(key) end
 
 ---@class main_interface_burrow: df.class
 ---@field painting_burrow burrow
@@ -2279,14 +2152,11 @@ function df.main_interface.T_civzone.find(key) end
 ---@field entering_name_index integer
 df.main_interface.T_burrow = {}
 
----@param key integer
----@return main_interface_burrow|nil
-function df.main_interface.T_burrow.find(key) end
 
 ---@class main_interface_view: df.class
 ---@field inv unit_inventory_item[]
 ---@field contam spatter[]
----@field guest_text df.container<integer>
+---@field guest_text df.container
 ---@field uniform_selection boolean
 ---@field selected_uniform integer
 ---@field selected_squad integer
@@ -2294,7 +2164,7 @@ function df.main_interface.T_burrow.find(key) end
 ---@field squad_list_ep entity_position[]
 ---@field squad_list_epp entity_position_assignment[]
 ---@field squad_list_has_subord_pos boolean[]
----@field squad_list_add_index df.container<integer>
+---@field squad_list_add_index df.container
 ---@field create_ep entity_position
 ---@field create_epp entity_position_assignment
 ---@field create_sub_ep entity_position
@@ -2310,9 +2180,6 @@ function df.main_interface.T_burrow.find(key) end
 ---@field expel_cannot_expel_reason cannot_expel_reason_type
 df.main_interface.T_view = {}
 
----@param key integer
----@return main_interface_view|nil
-function df.main_interface.T_view.find(key) end
 
 ---@class main_interface_hospital: df.class
 ---@field cur_scroll integer
@@ -2322,26 +2189,20 @@ function df.main_interface.T_view.find(key) end
 ---@field box_count integer
 df.main_interface.T_hospital = {}
 
----@param key integer
----@return main_interface_hospital|nil
-function df.main_interface.T_hospital.find(key) end
 
 ---@class main_interface_location_list: df.class
 ---@field valid_ab abstract_building[]
 ---@field selected_ab integer
----@field valid_religious_practice df.container<temple_deity_type>
----@field valid_religious_practice_id df.container<temple_deity_data>
+---@field valid_religious_practice df.container
+---@field valid_religious_practice_id df.container
 ---@field selected_religious_practice integer
 ---@field choosing_location_type boolean
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
----@field valid_craft_guild_type df.container<profession>
+---@field valid_craft_guild_type df.container
 ---@field selected_craft_guild integer
 df.main_interface.T_location_list = {}
 
----@param key integer
----@return main_interface_location_list|nil
-function df.main_interface.T_location_list.find(key) end
 
 ---@class main_interface_job_details: df.class
 ---@field open boolean
@@ -2350,51 +2211,45 @@ function df.main_interface.T_location_list.find(key) end
 ---@field wq manager_order
 ---@field current_option job_details_option_type
 ---@field current_option_index integer
----@field option df.container<job_details_option_type>
----@field option_index df.container<integer>
+---@field option df.container
+---@field option_index df.container
 ---@field scroll_position_option integer
 ---@field scrolling_option boolean
 ---@field search coord
 ---@field bld building
----@field material df.container<integer>
----@field matgloss df.container<integer>
----@field material_count df.container<integer>
----@field material_master df.container<integer>
----@field matgloss_master df.container<integer>
----@field material_count_master df.container<integer>
+---@field material df.container
+---@field matgloss df.container
+---@field material_count df.container
+---@field material_master df.container
+---@field matgloss_master df.container
+---@field material_count_master df.container
 ---@field scroll_position_material integer
 ---@field scrolling_material boolean
 ---@field material_filter string
 ---@field material_doing_filter boolean
----@field clothing_size_race_index df.container<integer> race id
----@field clothing_size_race_index_master df.container<integer> race id
+---@field clothing_size_race_index df.container race id
+---@field clothing_size_race_index_master df.container race id
 ---@field scroll_position_race integer
 ---@field scrolling_race boolean
 ---@field clothing_size_race_filter string
 ---@field clothing_size_race_doing_filter boolean
----@field improvement_type df.container<improvement_type>
+---@field improvement_type df.container
 ---@field scroll_position_improvement integer
 ---@field scrolling_improvement boolean
 df.main_interface.T_job_details = {}
 
----@param key integer
----@return main_interface_job_details|nil
-function df.main_interface.T_job_details.find(key) end
 
 ---@class main_interface_buildjob: df.class
 ---@field display_furniture_bld building_display_furniturest
 ---@field display_furniture_selected_item integer
 df.main_interface.T_buildjob = {}
 
----@param key integer
----@return main_interface_buildjob|nil
-function df.main_interface.T_buildjob.find(key) end
 
 ---@class main_interface_assign_trade: df.class
 ---@field open boolean
 ---@field trade_depot_bld building_tradedepotst
----@field type_list df.container<integer>
----@field filtered_type_list df.container<integer>
+---@field type_list df.container
+---@field filtered_type_list df.container
 ---@field current_type item_type
 ---@field scroll_position_type integer
 ---@field scroll_position_item integer
@@ -2402,39 +2257,33 @@ function df.main_interface.T_buildjob.find(key) end
 ---@field scrolling_item boolean
 ---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount df.container<integer>
----@field badamount df.container<integer>
----@field unk_a8 main_interface.T_assign_trade_unk_a8[]
----@field unk_c0 df.container<integer>
----@field unk_d8 df.container<integer>
----@field unk_f0 df.container<integer>
----@field unk_108 df.container<integer>
----@field unk_120 df.container<integer>
+---@field storeamount df.container
+---@field badamount df.container
+---@field unk_a8 main_interface.T_assign_trade_unk_a8[][]
+---@field unk_c0 df.container
+---@field unk_d8 df.container
+---@field unk_f0 df.container
+---@field unk_108 df.container
+---@field unk_120 df.container
 ---@field unk_138 boolean[]
 ---@field i_height integer
----@field current_type_tgi df.container<integer>
----@field current_type_a_subtype df.container<integer>
----@field current_type_a_subcat1 df.container<integer>
----@field current_type_a_subcat2 df.container<integer>
----@field current_type_a_amount df.container<integer>
+---@field current_type_tgi df.container
+---@field current_type_a_subtype df.container
+---@field current_type_a_subcat1 df.container
+---@field current_type_a_subcat2 df.container
+---@field current_type_a_amount df.container
 ---@field current_type_a_expanded boolean[]
 ---@field current_type_a_on boolean[]
----@field current_type_a_flag df.container<integer>
+---@field current_type_a_flag df.container
 ---@field sort_by_distance boolean
 ---@field pending_on_top boolean
 ---@field exclude_prohib boolean
 df.main_interface.T_assign_trade = {}
 
----@param key integer
----@return main_interface_assign_trade|nil
-function df.main_interface.T_assign_trade.find(key) end
-
 ---@class main_interface.T_assign_trade_unk_a8: df.class
+---@field item item
 df.main_interface.T_assign_trade.T_unk_a8 = {}
 
----@param key integer
----@return main_interface.T_assign_trade_unk_a8|nil
-function df.main_interface.T_assign_trade.T_unk_a8.find(key) end
 
 ---@class main_interface_trade: df.class
 ---@field open boolean
@@ -2455,17 +2304,17 @@ function df.main_interface.T_assign_trade.T_unk_a8.find(key) end
 ---@field merchant_trader unit
 ---@field fortress_trader unit
 ---@field good item[][]
----@field goodflag df.container<integer>[]
----@field good_amount df.container<integer>[]
+---@field goodflag df.container[]
+---@field good_amount df.container[]
 ---@field i_height integer[]
----@field master_type_a_type df.container<integer>[]
----@field master_type_a_subtype df.container<integer>[]
+---@field master_type_a_type df.container[]
+---@field master_type_a_subtype df.container[]
 ---@field master_type_a_expanded boolean[][]
----@field current_type_a_type df.container<integer>[]
----@field current_type_a_subtype df.container<integer>[]
+---@field current_type_a_type df.container[]
+---@field current_type_a_subtype df.container[]
 ---@field current_type_a_expanded boolean[][]
 ---@field current_type_a_on boolean[][]
----@field current_type_a_flag df.container<integer>[]
+---@field current_type_a_flag df.container[]
 ---@field scroll_position_item integer[]
 ---@field scrolling_item boolean[]
 ---@field item_filter string[]
@@ -2484,9 +2333,6 @@ function df.main_interface.T_assign_trade.T_unk_a8.find(key) end
 ---@field scrolling_big_announce boolean
 df.main_interface.T_trade = {}
 
----@param key integer
----@return main_interface_trade|nil
-function df.main_interface.T_trade.find(key) end
 
 ---@class main_interface_diplomacy: df.class
 ---@field open boolean
@@ -2501,15 +2347,15 @@ function df.main_interface.T_trade.find(key) end
 ---@field taking_requests boolean
 ---@field land_holder_parent_civ historical_entity
 ---@field land_holder_child_civ historical_entity
----@field land_holder_pos_id df.container<integer>
----@field land_holder_assigned_hfid df.container<integer>
----@field land_holder_avail_hfid df.container<integer>
+---@field land_holder_pos_id df.container
+---@field land_holder_assigned_hfid df.container
+---@field land_holder_avail_hfid df.container
 ---@field scroll_position_land_holder_pos integer
 ---@field scrolling_land_holder_pos boolean
 ---@field scroll_position_land_holder_hf integer
 ---@field scrolling_land_holder_hf boolean
 ---@field land_holder_selected_pos integer
----@field taking_requests_tablist df.container<integer>
+---@field taking_requests_tablist df.container
 ---@field scroll_position_taking_requests_tab integer
 ---@field scrolling_taking_requests_tab boolean
 ---@field scroll_position_taking_requests_tab_item integer
@@ -2522,27 +2368,21 @@ function df.main_interface.T_trade.find(key) end
 ---@field environment meeting_context
 df.main_interface.T_diplomacy = {}
 
----@param key integer
----@return main_interface_diplomacy|nil
-function df.main_interface.T_diplomacy.find(key) end
 
 ---@class main_interface_petitions: df.class
 ---@field open boolean
 ---@field have_responsible_person boolean
----@field agreement_id df.container<integer>
+---@field agreement_id df.container
 ---@field selected_agreement_id integer
 ---@field scroll_position integer
 ---@field scrolling boolean
 df.main_interface.T_petitions = {}
 
----@param key integer
----@return main_interface_petitions|nil
-function df.main_interface.T_petitions.find(key) end
 
 ---@class main_interface_stocks: df.class
 ---@field open boolean
----@field type_list df.container<integer>
----@field filtered_type_list df.container<integer>
+---@field type_list df.container
+---@field filtered_type_list df.container
 ---@field current_type item_type
 ---@field scroll_position_type integer
 ---@field scroll_position_item integer
@@ -2550,29 +2390,26 @@ function df.main_interface.T_petitions.find(key) end
 ---@field scrolling_item boolean
 ---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount df.container<integer>
----@field badamount df.container<integer>
+---@field storeamount df.container
+---@field badamount df.container
 ---@field i_height integer
 ---@field current_type_i_list item[]
----@field current_type_a_subtype df.container<integer>
----@field current_type_a_subcat1 df.container<integer>
----@field current_type_a_subcat2 df.container<integer>
----@field current_type_a_amount df.container<integer>
+---@field current_type_a_subtype df.container
+---@field current_type_a_subcat1 df.container
+---@field current_type_a_subcat2 df.container
+---@field current_type_a_amount df.container
 ---@field current_type_a_expanded boolean[]
 ---@field current_type_a_on boolean[]
----@field current_type_a_flag df.container<integer>
+---@field current_type_a_flag df.container
 df.main_interface.T_stocks = {}
 
----@param key integer
----@return main_interface_stocks|nil
-function df.main_interface.T_stocks.find(key) end
 
 ---@class main_interface_assign_display_item: df.class
 ---@field open boolean
 ---@field display_bld building_display_furniturest
----@field new_display_itid df.container<integer>
----@field type_list df.container<integer>
----@field filtered_type_list df.container<integer>
+---@field new_display_itid df.container
+---@field type_list df.container
+---@field filtered_type_list df.container
 ---@field current_type item_type
 ---@field scroll_position_type integer
 ---@field scroll_position_item integer
@@ -2580,21 +2417,18 @@ function df.main_interface.T_stocks.find(key) end
 ---@field scrolling_item boolean
 ---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount df.container<integer>
----@field badamount df.container<integer>
+---@field storeamount df.container
+---@field badamount df.container
 ---@field i_height integer
 ---@field current_type_i_list item[]
----@field current_type_a_subtype df.container<integer>
----@field current_type_a_subcat1 df.container<integer>
----@field current_type_a_subcat2 df.container<integer>
----@field current_type_a_amount df.container<integer>
+---@field current_type_a_subtype df.container
+---@field current_type_a_subcat1 df.container
+---@field current_type_a_subcat2 df.container
+---@field current_type_a_amount df.container
 ---@field current_type_a_expanded boolean[]
 ---@field current_type_a_on boolean[]
 df.main_interface.T_assign_display_item = {}
 
----@param key integer
----@return main_interface_assign_display_item|nil
-function df.main_interface.T_assign_display_item.find(key) end
 
 ---@class main_interface_name_creator: df.class
 ---@field open boolean
@@ -2605,8 +2439,8 @@ function df.main_interface.T_assign_display_item.find(key) end
 ---@field cur_name_place integer
 ---@field cur_word_place integer
 ---@field word_sel language_word_table
----@field word_index df.container<integer>
----@field word_index_asp df.container<integer>
+---@field word_index df.container
+---@field word_index_asp df.container
 ---@field scroll_position_word integer
 ---@field scrolling_word boolean
 ---@field entering_first_name boolean
@@ -2616,9 +2450,6 @@ function df.main_interface.T_assign_display_item.find(key) end
 ---@field named_unit unit
 df.main_interface.T_name_creator = {}
 
----@param key integer
----@return main_interface_name_creator|nil
-function df.main_interface.T_name_creator.find(key) end
 
 ---@class main_interface_image_creator: df.class
 ---@field open boolean
@@ -2631,34 +2462,34 @@ function df.main_interface.T_name_creator.find(key) end
 ---@field filter string
 ---@field entering_number boolean
 ---@field number_str string
----@field st_master df.container<integer> site ptr, native name, translated name
----@field ent_master df.container<integer> entity ptr, native name, translated name
----@field plant_master df.container<integer> plant id, name
----@field tree_master df.container<integer> plant id, name
----@field shape_master df.container<integer> shape id, shape adj, name
----@field item_master df.container<integer> item type, item subtype, name
----@field artifact_master df.container<integer> artifact ptr, native name, translated name
----@field hf_master df.container<integer> histfig ptr, native name, translated name
----@field property_master df.container<integer> art property type, bool transitive, name
+---@field st_master df.container site ptr, native name, translated name
+---@field ent_master df.container entity ptr, native name, translated name
+---@field plant_master df.container plant id, name
+---@field tree_master df.container plant id, name
+---@field shape_master df.container shape id, shape adj, name
+---@field item_master df.container item type, item subtype, name
+---@field artifact_master df.container artifact ptr, native name, translated name
+---@field hf_master df.container histfig ptr, native name, translated name
+---@field property_master df.container art property type, bool transitive, name
 ---@field hf historical_figure[]
 ---@field st world_site[]
 ---@field ent historical_entity[]
 ---@field hist_event history_event[]
 ---@field art_image art_image[]
 ---@field new_image art_image
----@field new_image_race df.container<integer>
----@field new_image_caste df.container<integer>
+---@field new_image_race df.container
+---@field new_image_caste df.container
 ---@field new_image_hf historical_figure[]
----@field new_image_plant df.container<integer>
----@field new_image_tree df.container<integer>
----@field new_image_shape df.container<integer>
----@field new_image_shape_adj df.container<integer>
----@field new_image_item df.container<integer>
----@field new_image_item_subtype df.container<integer>
+---@field new_image_plant df.container
+---@field new_image_tree df.container
+---@field new_image_shape df.container
+---@field new_image_shape_adj df.container
+---@field new_image_item df.container
+---@field new_image_item_subtype df.container
 ---@field new_image_artifact artifact_record[]
----@field new_image_property df.container<integer>
+---@field new_image_property df.container
 ---@field new_image_property_transitive boolean[]
----@field new_image_property_actor_target df.container<integer>
+---@field new_image_property_actor_target df.container
 ---@field new_image_active_property integer
 ---@field new_image_active_property_transitive boolean
 ---@field new_image_active_property_actor_ind integer
@@ -2676,10 +2507,6 @@ function df.main_interface.T_name_creator.find(key) end
 ---@field ics main_interface.T_image_creator_ics
 df.main_interface.T_image_creator = {}
 
----@param key integer
----@return main_interface_image_creator|nil
-function df.main_interface.T_image_creator.find(key) end
-
 ---@class main_interface.T_image_creator_ics: df.class
 ---@field jb job
 ---@field wq manager_order
@@ -2692,17 +2519,14 @@ function df.main_interface.T_image_creator.find(key) end
 ---@field flag integer
 df.main_interface.T_image_creator.T_ics = {}
 
----@param key integer
----@return main_interface.T_image_creator_ics|nil
-function df.main_interface.T_image_creator.T_ics.find(key) end
 
 ---@class main_interface_unit_selector: df.class
 ---@field open boolean
 ---@field context unit_selector_context_type
----@field unid df.container<integer>
----@field itemid df.container<integer>
----@field selected df.container<integer>
----@field already df.container<integer>
+---@field unid df.container
+---@field itemid df.container
+---@field selected df.container
+---@field already df.container
 ---@field bld_id integer
 ---@field skill_used integer[]
 ---@field skill_num integer
@@ -2717,9 +2541,6 @@ function df.main_interface.T_image_creator.T_ics.find(key) end
 ---@field scrolling boolean
 df.main_interface.T_unit_selector = {}
 
----@param key integer
----@return main_interface_unit_selector|nil
-function df.main_interface.T_unit_selector.find(key) end
 
 ---@class main_interface_announcement_alert: df.class
 ---@field open boolean
@@ -2728,7 +2549,7 @@ function df.main_interface.T_unit_selector.find(key) end
 ---@field zoom_line_is_start boolean[]
 ---@field zoom_line_ann report[]
 ---@field zoom_line_unit unit[]
----@field zoom_line_unit_uac df.container<integer>
+---@field zoom_line_unit_uac df.container
 ---@field alert_text string[]
 ---@field alert_width integer
 ---@field alert_list_size integer
@@ -2745,9 +2566,6 @@ function df.main_interface.T_unit_selector.find(key) end
 ---@field scrolling_uac boolean
 df.main_interface.T_announcement_alert = {}
 
----@param key integer
----@return main_interface_announcement_alert|nil
-function df.main_interface.T_announcement_alert.find(key) end
 
 ---@class main_interface_custom_symbol: df.class
 ---@field open boolean
@@ -2763,9 +2581,6 @@ function df.main_interface.T_announcement_alert.find(key) end
 ---@field swatch_b integer[][]
 df.main_interface.T_custom_symbol = {}
 
----@param key integer
----@return main_interface_custom_symbol|nil
-function df.main_interface.T_custom_symbol.find(key) end
 
 ---@class main_interface_patrol_routes: df.class
 ---@field open boolean
@@ -2781,17 +2596,14 @@ function df.main_interface.T_custom_symbol.find(key) end
 ---@field changed_points_on_edit boolean
 df.main_interface.T_patrol_routes = {}
 
----@param key integer
----@return main_interface_patrol_routes|nil
-function df.main_interface.T_patrol_routes.find(key) end
 
 ---@class main_interface_squad_equipment: df.class
 ---@field open boolean
 ---@field context squad_equipment_context_type
 ---@field scroll_position integer
 ---@field scrolling boolean
----@field squad_id df.container<integer>
----@field squad_pos df.container<integer>
+---@field squad_id df.container
+---@field squad_pos df.container
 ---@field last_tick_update number
 ---@field customizing_equipment boolean
 ---@field customizing_squad_id integer
@@ -2802,38 +2614,35 @@ function df.main_interface.T_patrol_routes.find(key) end
 ---@field scrolling_cs boolean
 ---@field scroll_position_cssub integer
 ---@field scrolling_cssub boolean
----@field cs_cat df.container<integer> EntityUniformItemCategory
----@field cs_it_spec_item_id df.container<integer>
----@field cs_it_type df.container<integer>
----@field cs_it_subtype df.container<integer>
----@field cs_civ_mat df.container<integer> EntityMaterial
----@field cs_spec_mat df.container<integer>
----@field cs_spec_matg df.container<integer>
----@field cs_color_pattern_index df.container<integer> ColoredPattern
----@field cs_icp_flag df.container<integer>
----@field cs_assigned_item_number df.container<integer>
----@field cs_assigned_item_id df.container<integer>
+---@field cs_cat df.container EntityUniformItemCategory
+---@field cs_it_spec_item_id df.container
+---@field cs_it_type df.container
+---@field cs_it_subtype df.container
+---@field cs_civ_mat df.container EntityMaterial
+---@field cs_spec_mat df.container
+---@field cs_spec_matg df.container
+---@field cs_color_pattern_index df.container ColoredPattern
+---@field cs_icp_flag df.container
+---@field cs_assigned_item_number df.container
+---@field cs_assigned_item_id df.container
 ---@field cs_uniform_flag integer
 ---@field cs_adding_new_entry_category integer EntityUniformItemCategory
----@field cs_add_list_type df.container<integer>
----@field cs_add_list_subtype df.container<integer>
----@field cs_add_list_flag df.container<integer>
+---@field cs_add_list_type df.container
+---@field cs_add_list_subtype df.container
+---@field cs_add_list_flag df.container
 ---@field cs_add_list_is_foreign boolean[]
 ---@field cs_setting_material boolean
 ---@field cs_setting_list_ind integer
----@field cs_setting_material_ent df.container<integer> EntityMaterial
----@field cs_setting_material_mat df.container<integer>
----@field cs_setting_material_matg df.container<integer>
+---@field cs_setting_material_ent df.container EntityMaterial
+---@field cs_setting_material_mat df.container
+---@field cs_setting_material_matg df.container
 ---@field cs_setting_color_pattern boolean
----@field cs_setting_color_pattern_index df.container<integer> ColoredPattern
+---@field cs_setting_color_pattern_index df.container ColoredPattern
 ---@field cs_setting_color_pattern_is_dye boolean[]
 ---@field cs_adding_specific_item boolean
----@field cs_add_spec_id df.container<integer>
+---@field cs_add_spec_id df.container
 df.main_interface.T_squad_equipment = {}
 
----@param key integer
----@return main_interface_squad_equipment|nil
-function df.main_interface.T_squad_equipment.find(key) end
 
 ---@class main_interface_squad_schedule: df.class
 ---@field open boolean
@@ -2843,7 +2652,7 @@ function df.main_interface.T_squad_equipment.find(key) end
 ---@field scroll_position_month integer
 ---@field scrolling_month boolean
 ---@field routine_page integer
----@field squad_id df.container<integer>
+---@field squad_id df.container
 ---@field viewing_months_squad_id integer
 ---@field last_tick_update number
 ---@field editing_routines boolean
@@ -2858,35 +2667,26 @@ function df.main_interface.T_squad_equipment.find(key) end
 ---@field copying_squad_month integer
 df.main_interface.T_squad_schedule = {}
 
----@param key integer
----@return main_interface_squad_schedule|nil
-function df.main_interface.T_squad_schedule.find(key) end
 
 ---@class main_interface_squad_selector: df.class
 ---@field open boolean
 ---@field context squad_selector_context_type
----@field squad_id df.container<integer>
+---@field squad_id df.container
 ---@field bld_id integer
 ---@field scroll_position integer
 ---@field scrolling integer
 df.main_interface.T_squad_selector = {}
 
----@param key integer
----@return main_interface_squad_selector|nil
-function df.main_interface.T_squad_selector.find(key) end
 
 ---@class main_interface_burrow_selector: df.class
 ---@field open boolean
 ---@field context burrow_selector_context_type
----@field burrow_id df.container<integer>
+---@field burrow_id df.container
 ---@field selected boolean[]
 ---@field scroll_position integer
 ---@field scrolling integer
 df.main_interface.T_burrow_selector = {}
 
----@param key integer
----@return main_interface_burrow_selector|nil
-function df.main_interface.T_burrow_selector.find(key) end
 
 ---@class main_interface_location_selector: df.class
 ---@field open boolean
@@ -2896,19 +2696,16 @@ function df.main_interface.T_burrow_selector.find(key) end
 ---@field scrolling_location boolean
 ---@field current_hover_index integer
 ---@field choosing_temple_religious_practice boolean
----@field valid_religious_practice df.container<integer>
+---@field valid_religious_practice df.container
 ---@field scroll_position_deity integer
 ---@field scrolling_deity boolean
 ---@field choosing_craft_guild boolean
----@field valid_religious_practice_id df.container<integer>
----@field valid_craft_guild_type df.container<profession>
+---@field valid_religious_practice_id df.container
+---@field valid_craft_guild_type df.container
 ---@field scroll_position_guild integer
 ---@field scrolling_guild boolean
 df.main_interface.T_location_selector = {}
 
----@param key integer
----@return main_interface_location_selector|nil
-function df.main_interface.T_location_selector.find(key) end
 
 ---@class main_interface_location_details: df.class
 ---@field open boolean
@@ -2917,7 +2714,7 @@ function df.main_interface.T_location_selector.find(key) end
 ---@field open_area_dx integer
 ---@field open_area_dy integer
 ---@field wc_count integer
----@field loc_occupation df.container<integer> occupationst
+---@field loc_occupation df.container occupationst
 ---@field loc_ent historical_entity[]
 ---@field loc_position entity_position[]
 ---@field loc_epp entity_position_assignment[]
@@ -2927,9 +2724,6 @@ function df.main_interface.T_location_selector.find(key) end
 ---@field entering_desired_number integer
 df.main_interface.T_location_details = {}
 
----@param key integer
----@return main_interface_location_details|nil
-function df.main_interface.T_location_details.find(key) end
 
 ---@class main_interface_hauling_stop_conditions: df.class
 ---@field open boolean
@@ -2940,9 +2734,6 @@ function df.main_interface.T_location_details.find(key) end
 ---@field scrolling boolean
 df.main_interface.T_hauling_stop_conditions = {}
 
----@param key integer
----@return main_interface_hauling_stop_conditions|nil
-function df.main_interface.T_hauling_stop_conditions.find(key) end
 
 ---@class main_interface_assign_vehicle: df.class
 ---@field open boolean
@@ -2953,9 +2744,6 @@ function df.main_interface.T_hauling_stop_conditions.find(key) end
 ---@field scrolling boolean
 df.main_interface.T_assign_vehicle = {}
 
----@param key integer
----@return main_interface_assign_vehicle|nil
-function df.main_interface.T_assign_vehicle.find(key) end
 
 ---@class main_interface_stockpile: df.class
 ---@field doing_rectangle boolean
@@ -2965,9 +2753,6 @@ function df.main_interface.T_assign_vehicle.find(key) end
 ---@field cur_bld building_stockpilest
 df.main_interface.T_stockpile = {}
 
----@param key integer
----@return main_interface_stockpile|nil
-function df.main_interface.T_stockpile.find(key) end
 
 ---@class main_interface_stockpile_link: df.class
 ---@field open boolean
@@ -2981,9 +2766,6 @@ function df.main_interface.T_stockpile.find(key) end
 ---@field adding_new_link_type integer
 df.main_interface.T_stockpile_link = {}
 
----@param key integer
----@return main_interface_stockpile_link|nil
-function df.main_interface.T_stockpile_link.find(key) end
 
 ---@class main_interface_stockpile_tools: df.class
 ---@field open boolean
@@ -2995,9 +2777,6 @@ function df.main_interface.T_stockpile_link.find(key) end
 ---@field number_str string
 df.main_interface.T_stockpile_tools = {}
 
----@param key integer
----@return main_interface_stockpile_tools|nil
-function df.main_interface.T_stockpile_tools.find(key) end
 
 ---@class main_interface_custom_stockpile: df.class
 ---@field open boolean
@@ -3014,19 +2793,15 @@ function df.main_interface.T_stockpile_tools.find(key) end
 ---@field cur_main_mode stockpile_list
 ---@field cur_main_mode_flag integer
 ---@field cur_sub_mode stockpile_list
----@field main_mode df.container<stockpile_list>
----@field main_mode_flag df.container<integer>
----@field sub_mode df.container<stockpile_list>
----@field sub_mode_ptr_type df.container<stock_pile_pointer_type>
+---@field main_mode df.container
+---@field main_mode_flag df.container
+---@field sub_mode df.container
+---@field sub_mode_ptr_type df.container
 ---@field sub_mode_ptr integer[]
 ---@field spec_item main_interface.T_custom_stockpile_spec_item[]
 ---@field cur_spec_item_sz integer
 ---@field counted_cur_spec_item_sz integer
 df.main_interface.T_custom_stockpile = {}
-
----@param key integer
----@return main_interface_custom_stockpile|nil
-function df.main_interface.T_custom_stockpile.find(key) end
 
 ---@class main_interface.T_custom_stockpile_spec_item: df.class
 ---@field name string
@@ -3040,25 +2815,22 @@ function df.main_interface.T_custom_stockpile.find(key) end
 ---@field isc2 integer
 df.main_interface.T_custom_stockpile.T_spec_item = {}
 
----@param key integer
----@return main_interface.T_custom_stockpile_spec_item|nil
-function df.main_interface.T_custom_stockpile.T_spec_item.find(key) end
 
 ---@class main_interface_view_sheets: df.class
 ---@field open boolean
 ---@field context view_sheets_context_type
 ---@field active_sheet view_sheet_type
 ---@field active_id integer
----@field viewing_unid df.container<integer>
----@field viewing_itid df.container<integer>
+---@field viewing_unid df.container
+---@field viewing_itid df.container
 ---@field viewing_bldid integer
 ---@field viewing_x integer
 ---@field viewing_y integer
 ---@field viewing_z integer
 ---@field scroll_position integer
 ---@field scrolling boolean
----@field tab df.container<view_sheet_type>
----@field tab_id df.container<integer>
+---@field tab df.container
+---@field tab_id df.container
 ---@field active_sub_tab integer
 ---@field trait view_sheet_trait_type[]
 ---@field trait_id integer[]
@@ -3087,20 +2859,20 @@ function df.main_interface.T_custom_stockpile.T_spec_item.find(key) end
 ---@field unmet_need_se integer[]
 ---@field unmet_need_num integer
 ---@field raw_thought_str string[]
----@field thought_box df.container<integer> color_text_boxst
+---@field thought_box df.container color_text_boxst
 ---@field thought_box_width integer
 ---@field scroll_position_inventory integer
 ---@field scrolling_inventory boolean
 ---@field scroll_position_relations integer
 ---@field scrolling_relations boolean
 ---@field rel_name string[]
----@field relation df.container<integer>
----@field relation_f df.container<integer>
----@field rel_unid df.container<integer>
+---@field relation df.container
+---@field relation_f df.container
+---@field rel_unid df.container
 ---@field rel_hf historical_figure[]
----@field rel_rphv df.container<integer> relationship_profile_hf_visualst
----@field rel_rphh df.container<integer> relationship_profile_hf_historicalst
----@field rel_value df.container<integer>
+---@field rel_rphv df.container relationship_profile_hf_visualst
+---@field rel_rphh df.container relationship_profile_hf_historicalst
+---@field rel_value df.container
 ---@field unit_overview_customizing boolean
 ---@field unit_overview_entering_nickname boolean
 ---@field unit_overview_entering_profession_nickname boolean
@@ -3108,69 +2880,69 @@ function df.main_interface.T_custom_stockpile.T_spec_item.find(key) end
 ---@field unit_overview_expelling boolean
 ---@field unit_overview_expel_cannot_expel_reason cannot_expel_reason_type
 ---@field unit_overview_expel_selected_dest_stid integer
----@field unit_overview_expel_dest_stid df.container<integer>
----@field unit_overview_expel_total_unid df.container<integer>
+---@field unit_overview_expel_dest_stid df.container
+---@field unit_overview_expel_total_unid df.container
 ---@field scroll_position_unit_overview_expel integer
 ---@field scrolling_unit_overview_expel boolean
 ---@field guest_text string[]
 ---@field scroll_position_groups integer
 ---@field scrolling_groups boolean
----@field unit_group_enid df.container<integer>
----@field unit_group_hfel df.container<integer>
----@field unit_group_epid df.container<integer>
----@field unit_group_eppid df.container<integer>
+---@field unit_group_enid df.container
+---@field unit_group_hfel df.container
+---@field unit_group_epid df.container
+---@field unit_group_eppid df.container
 ---@field unit_group_ep_is_spouse boolean[]
----@field unit_group_rep df.container<integer>
----@field unit_group_rep_level df.container<integer>
+---@field unit_group_rep df.container
+---@field unit_group_rep_level df.container
 ---@field scroll_position_thoughts integer
 ---@field scrolling_thoughts boolean
 ---@field thoughts_active_tab integer
 ---@field thoughts_raw_memory_str string[]
----@field thoughts_memory_box df.container<integer> color_text_boxst
+---@field thoughts_memory_box df.container color_text_boxst
 ---@field thoughts_memory_box_width integer
 ---@field scroll_position_personality integer
 ---@field scrolling_personality boolean
 ---@field personality_active_tab integer
 ---@field personality_raw_str string[]
----@field personality_box df.container<integer> color_text_boxst
+---@field personality_box df.container color_text_boxst
 ---@field personality_width integer
 ---@field unit_labor_active_tab integer
 ---@field scroll_position_unit_labor integer
 ---@field scrolling_unit_labor boolean
----@field unit_workshop_id df.container<integer>
----@field unit_labor_assigned_animal_unid df.container<integer>
----@field unit_labor_assignable_animal_unid df.container<integer>
+---@field unit_workshop_id df.container
+---@field unit_labor_assigned_animal_unid df.container
+---@field unit_labor_assignable_animal_unid df.container
 ---@field scroll_position_unit_skill integer
 ---@field scrolling_unit_skill boolean
 ---@field scroll_position_skill_description integer
 ---@field scrolling_skill_description boolean
 ---@field unit_skill_active_tab integer
----@field unit_skill df.container<job_skill>
----@field unit_skill_val df.container<integer>
----@field unit_skill_val_w_rust df.container<integer>
----@field unit_knowledge_type df.container<view_sheet_unit_knowledge_type>
----@field unit_knowledge_id df.container<integer>
----@field unit_knowledge_bits df.container<integer>
+---@field unit_skill df.container
+---@field unit_skill_val df.container
+---@field unit_skill_val_w_rust df.container
+---@field unit_knowledge_type df.container
+---@field unit_knowledge_id df.container
+---@field unit_knowledge_bits df.container
 ---@field skill_description_raw_str string[]
----@field skill_description_box df.container<integer> color_text_boxst
+---@field skill_description_box df.container color_text_boxst
 ---@field skill_description_width integer
 ---@field scroll_position_unit_room integer
 ---@field scrolling_unit_room integer
----@field unit_room_civzone_id df.container<integer>
----@field unit_room_curval df.container<integer>
+---@field unit_room_civzone_id df.container
+---@field unit_room_curval df.container
 ---@field unit_military_active_tab integer
 ---@field scroll_position_unit_military_assigned integer
 ---@field scrolling_unit_military_assigned boolean
 ---@field scroll_position_unit_military_kills integer
 ---@field scrolling_unit_military_kills boolean
 ---@field kill_description_raw_str string[]
----@field kill_description_box df.container<integer> color_text_boxst
+---@field kill_description_box df.container color_text_boxst
 ---@field kill_description_width integer
 ---@field unit_health_active_tab integer
 ---@field scroll_position_unit_health integer
 ---@field scrolling_unit_health boolean
 ---@field unit_health_raw_str string[]
----@field unit_health_box df.container<integer> color_text_boxst
+---@field unit_health_box df.container color_text_boxst
 ---@field unit_health_width integer
 ---@field raw_current_thought string
 ---@field current_thought string[]
@@ -3195,7 +2967,7 @@ function df.main_interface.T_custom_stockpile.T_spec_item.find(key) end
 ---@field scrolling_linked_buildings boolean
 ---@field building_entering_nickname boolean
 ---@field building_entering_str string
----@field work_order_id df.container<integer>
+---@field work_order_id df.container
 ---@field scroll_position_work_orders integer
 ---@field scrolling_work_orders boolean
 ---@field gen_work_order_num_str string
@@ -3212,12 +2984,9 @@ function df.main_interface.T_custom_stockpile.T_spec_item.find(key) end
 ---@field scroll_position_item_contents integer
 ---@field scrolling_item_contents boolean
 ---@field item_use string[]
----@field item_use_reaction_index df.container<integer>
+---@field item_use_reaction_index df.container
 df.main_interface.T_view_sheets = {}
 
----@param key integer
----@return main_interface_view_sheets|nil
-function df.main_interface.T_view_sheets.find(key) end
 
 ---@class main_interface_info: df.class
 ---@field open boolean
@@ -3231,10 +3000,6 @@ function df.main_interface.T_view_sheets.find(key) end
 ---@field artifacts main_interface.T_info_artifacts
 ---@field justice main_interface.T_info_justice
 df.main_interface.T_info = {}
-
----@param key integer
----@return main_interface_info|nil
-function df.main_interface.T_info.find(key) end
 
 ---@class main_interface.T_info_creatures: df.class
 ---@field current_mode unit_list_mode_type
@@ -3252,11 +3017,11 @@ function df.main_interface.T_info.find(key) end
 ---@field adding_trainer boolean
 ---@field trainer_animal_target unit
 ---@field trainer unit[]
----@field trainer_option df.container<integer>
+---@field trainer_option df.container
 ---@field scrolling_trainer boolean
 ---@field scroll_position_trainer integer
 ---@field showing_overall_training boolean
----@field atk_index df.container<integer>
+---@field atk_index df.container
 ---@field scrolling_overall_training boolean
 ---@field scroll_position_overall_training integer
 ---@field assign_work_animal boolean
@@ -3270,9 +3035,6 @@ function df.main_interface.T_info.find(key) end
 ---@field scroll_position_activity_details integer
 df.main_interface.T_info.T_creatures = {}
 
----@param key integer
----@return main_interface.T_info_creatures|nil
-function df.main_interface.T_info.T_creatures.find(key) end
 
 ---@class main_interface.T_info_jobs: df.class
 ---@field cri_job cri_unitst[]
@@ -3280,9 +3042,6 @@ function df.main_interface.T_info.T_creatures.find(key) end
 ---@field scroll_position_cri_job integer
 df.main_interface.T_info.T_jobs = {}
 
----@param key integer
----@return main_interface.T_info_jobs|nil
-function df.main_interface.T_info.T_jobs.find(key) end
 
 ---@class main_interface.T_info_buildings: df.class
 ---@field mode buildings_mode_type
@@ -3291,9 +3050,6 @@ function df.main_interface.T_info.T_jobs.find(key) end
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_buildings = {}
 
----@param key integer
----@return main_interface.T_info_buildings|nil
-function df.main_interface.T_info.T_buildings.find(key) end
 
 ---@class main_interface.T_info_labor: df.class
 ---@field mode labor_mode_type
@@ -3302,10 +3058,6 @@ function df.main_interface.T_info.T_buildings.find(key) end
 ---@field kitchen main_interface.T_info.T_labor_kitchen
 ---@field stone_use main_interface.T_info.T_labor_stone_use
 df.main_interface.T_info.T_labor = {}
-
----@param key integer
----@return main_interface.T_info_labor|nil
-function df.main_interface.T_info.T_labor.find(key) end
 
 ---@class main_interface.T_info.T_labor_work_details: df.class
 ---@field selected_work_detail_index integer
@@ -3316,61 +3068,49 @@ function df.main_interface.T_info.T_labor.find(key) end
 ---@field scrolling_assignable_unit boolean
 ---@field entering_custom_detail_name boolean
 ---@field editing_work_detail work_detail
----@field labor_list df.container<integer>
+---@field labor_list df.container
 ---@field scroll_position_labor_list integer
 ---@field scrolling_labor_list boolean
 ---@field skill_used integer[]
 ---@field skill_num integer
 df.main_interface.T_info.T_labor.T_work_details = {}
 
----@param key integer
----@return main_interface.T_info.T_labor_work_details|nil
-function df.main_interface.T_info.T_labor.T_work_details.find(key) end
 
 ---@class main_interface.T_info.T_labor_standing_orders: df.class
 ---@field current_category standing_orders_category_type
 ---@field unit unit[]
----@field labor_list df.container<integer>
+---@field labor_list df.container
 ---@field scroll_position_labor_list integer
 ---@field scrolling_labor_list boolean
 ---@field scroll_position_units integer
 ---@field scrolling_units boolean
 df.main_interface.T_info.T_labor.T_standing_orders = {}
 
----@param key integer
----@return main_interface.T_info.T_labor_standing_orders|nil
-function df.main_interface.T_info.T_labor.T_standing_orders.find(key) end
 
 ---@class main_interface.T_info.T_labor_kitchen: df.class
 ---@field current_category kitchen_pref_category_type
----@field known_type df.container<integer>[]
----@field known_subtype df.container<integer>[]
----@field known_mat df.container<integer>[]
----@field known_matg df.container<integer>[]
----@field known_num df.container<integer>[]
----@field known_rest df.container<integer>[]
----@field known_canrest df.container<integer>[]
+---@field known_type df.container[]
+---@field known_subtype df.container[]
+---@field known_mat df.container[]
+---@field known_matg df.container[]
+---@field known_num df.container[]
+---@field known_rest df.container[]
+---@field known_canrest df.container[]
 ---@field known_name string[][]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_labor.T_kitchen = {}
 
----@param key integer
----@return main_interface.T_info.T_labor_kitchen|nil
-function df.main_interface.T_info.T_labor.T_kitchen.find(key) end
 
 ---@class main_interface.T_info.T_labor_stone_use: df.class
 ---@field current_category stone_use_category_type
----@field stone_mg_index df.container<integer>[]
+---@field stone_mg_index df.container[]
 ---@field stone_restriction_p integer[][]
 ---@field stone_item_use_str string[]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_labor.T_stone_use = {}
 
----@param key integer
----@return main_interface.T_info.T_labor_stone_use|nil
-function df.main_interface.T_info.T_labor.T_stone_use.find(key) end
 
 ---@class main_interface.T_info_work_orders: df.class
 ---@field scroll_position_work_orders integer
@@ -3384,10 +3124,6 @@ function df.main_interface.T_info.T_labor.T_stone_use.find(key) end
 ---@field b_entering_wq manager_order
 df.main_interface.T_info.T_work_orders = {}
 
----@param key integer
----@return main_interface.T_info_work_orders|nil
-function df.main_interface.T_info.T_work_orders.find(key) end
-
 ---@class main_interface.T_info.T_work_orders_conditions: df.class
 ---@field open boolean
 ---@field wq manager_order
@@ -3395,7 +3131,7 @@ function df.main_interface.T_info.T_work_orders.find(key) end
 ---@field order_condition_satisfied boolean[]
 ---@field scroll_position_conditions integer
 ---@field scrolling_conditions boolean
----@field suggested_item_condition df.container<integer> workquota_item_conditionst
+---@field suggested_item_condition df.container workquota_item_conditionst
 ---@field scroll_position_suggested integer
 ---@field scrolling_suggested boolean
 ---@field filter string
@@ -3404,12 +3140,12 @@ function df.main_interface.T_info.T_work_orders.find(key) end
 ---@field change_wqc integer workquota_item_conditions
 ---@field scroll_position_change integer
 ---@field scrolling_change integer
----@field item_type_master df.container<integer>
----@field item_subtype_master df.container<integer>
+---@field item_type_master df.container
+---@field item_subtype_master df.container
 ---@field item_type_on boolean[]
----@field item_material_master df.container<integer>
----@field item_matgloss_master df.container<integer>
----@field item_matstate_master df.container<integer>
+---@field item_material_master df.container
+---@field item_matgloss_master df.container
+---@field item_matstate_master df.container
 ---@field item_material_on boolean[]
 ---@field item_trait_master wqc_item_traitst[]
 ---@field selecting_order_condition boolean
@@ -3421,15 +3157,12 @@ function df.main_interface.T_info.T_work_orders.find(key) end
 ---@field entering_logic_wqc integer workquota_item_conditionst
 df.main_interface.T_info.T_work_orders.T_conditions = {}
 
----@param key integer
----@return main_interface.T_info.T_work_orders_conditions|nil
-function df.main_interface.T_info.T_work_orders.T_conditions.find(key) end
 
 ---@class main_interface.T_info_administrators: df.class
 ---@field noblelist main_interface.T_info.T_administrators_noblelist[]
 ---@field spec_prof entity_position_assignment[]
----@field spec_hfid df.container<integer>
----@field spec_enid df.container<integer>
+---@field spec_hfid df.container
+---@field spec_enid df.container
 ---@field scroll_position_noblelist integer
 ---@field scrolling_noblelist boolean
 ---@field desc_hover_text string[]
@@ -3444,17 +3177,13 @@ function df.main_interface.T_info.T_work_orders.T_conditions.find(key) end
 ---@field assigning_symbol boolean
 ---@field symbol_noblelist_ind integer
 ---@field cand_symbol item[]
----@field cand_symbol_new_ind df.container<integer>
----@field cand_symbol_is_symbol_of_ind df.container<integer>
----@field cand_symbol_value df.container<integer>
+---@field cand_symbol_new_ind df.container
+---@field cand_symbol_is_symbol_of_ind df.container
+---@field cand_symbol_value df.container
 ---@field scroll_position_symbol integer
 ---@field scrolling_symbol boolean
 ---@field handling_symbol_closure_ind integer
 df.main_interface.T_info.T_administrators = {}
-
----@param key integer
----@return main_interface.T_info_administrators|nil
-function df.main_interface.T_info.T_administrators.find(key) end
 
 ---@class main_interface.T_info.T_administrators_noblelist: df.class
 ---@field un unit
@@ -3466,18 +3195,12 @@ function df.main_interface.T_info.T_administrators.find(key) end
 ---@field value integer
 df.main_interface.T_info.T_administrators.T_noblelist = {}
 
----@param key integer
----@return main_interface.T_info.T_administrators_noblelist|nil
-function df.main_interface.T_info.T_administrators.T_noblelist.find(key) end
 
 ---@class main_interface.T_info.T_administrators_candidate: df.class
 ---@field un unit
 ---@field value integer
 df.main_interface.T_info.T_administrators.T_candidate = {}
 
----@param key integer
----@return main_interface.T_info.T_administrators_candidate|nil
-function df.main_interface.T_info.T_administrators.T_candidate.find(key) end
 
 ---@class main_interface.T_info_artifacts: df.class
 ---@field mode artifacts_mode_type
@@ -3486,9 +3209,6 @@ function df.main_interface.T_info.T_administrators.T_candidate.find(key) end
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_artifacts = {}
 
----@param key integer
----@return main_interface.T_info_artifacts|nil
-function df.main_interface.T_info.T_artifacts.find(key) end
 
 ---@class main_interface.T_info_justice: df.class
 ---@field current_mode justice_interface_mode_type
@@ -3537,12 +3257,12 @@ function df.main_interface.T_info.T_artifacts.find(key) end
 ---@field scrolling_conviction boolean
 ---@field interrogating boolean
 ---@field interrogation_list unit[]
----@field interrogation_list_flag df.container<integer>
+---@field interrogation_list_flag df.container
 ---@field scroll_position_interrogation integer
 ---@field scrolling_interrogation boolean
 ---@field interrogation_report_box string[]
 ---@field interrogation_report_box_width integer
----@field interrogation_report df.container<integer> interrogation_reportst
+---@field interrogation_report df.container interrogation_reportst
 ---@field viewing_interrogation_report integer interrogation_reportst
 ---@field scroll_position_interrogation_list integer
 ---@field scrolling_interrogation_list boolean
@@ -3566,23 +3286,20 @@ function df.main_interface.T_info.T_artifacts.find(key) end
 ---@field plot_entry plot_entryst[]
 df.main_interface.T_info.T_justice = {}
 
----@param key integer
----@return main_interface.T_info_justice|nil
-function df.main_interface.T_info.T_justice.find(key) end
 
 ---@class main_interface_squads: df.class
 ---@field open boolean
 ---@field scroll_position integer
 ---@field scrolling boolean
----@field squad_id df.container<integer>
+---@field squad_id df.container
 ---@field squad_selected boolean[]
 ---@field viewing_squad_index integer
----@field squad_hfid_selected df.container<integer>
+---@field squad_hfid_selected df.container
 ---@field entering_squad_nickname boolean
 ---@field squad_nickname_str string
 ---@field giving_move_order boolean
 ---@field giving_kill_order boolean
----@field kill_unid df.container<integer>
+---@field kill_unid df.container
 ---@field kill_doing_rectangle boolean
 ---@field giving_patrol_order boolean
 ---@field giving_burrow_order boolean
@@ -3590,7 +3307,7 @@ function df.main_interface.T_info.T_justice.find(key) end
 ---@field editing_squad_schedule_routine_index integer
 ---@field editing_squad_schedule_month integer
 ---@field editing_squad_schedule_whole_squad_selected boolean
----@field editing_squad_schedule_pos_selected df.container<integer>
+---@field editing_squad_schedule_pos_selected df.container
 ---@field editing_squad_schedule_min_follow integer
 ---@field scroll_position_orderp integer
 ---@field scrolling_orderp boolean
@@ -3598,9 +3315,6 @@ function df.main_interface.T_info.T_justice.find(key) end
 ---@field entering_cell_nickname boolean
 df.main_interface.T_squads = {}
 
----@param key integer
----@return main_interface_squads|nil
-function df.main_interface.T_squads.find(key) end
 
 ---@class main_interface_create_squad: df.class
 ---@field open boolean
@@ -3618,18 +3332,12 @@ function df.main_interface.T_squads.find(key) end
 ---@field new_squad_new_epp_from_ep entity_position
 df.main_interface.T_create_squad = {}
 
----@param key integer
----@return main_interface_create_squad|nil
-function df.main_interface.T_create_squad.find(key) end
 
 ---@class main_interface_squad_supplies: df.class
 ---@field open boolean
 ---@field squad_id integer
 df.main_interface.T_squad_supplies = {}
 
----@param key integer
----@return main_interface_squad_supplies|nil
-function df.main_interface.T_squad_supplies.find(key) end
 
 ---@class main_interface_assign_uniform: df.class
 ---@field open boolean
@@ -3639,9 +3347,6 @@ function df.main_interface.T_squad_supplies.find(key) end
 ---@field cand_uniform entity_uniform[]
 df.main_interface.T_assign_uniform = {}
 
----@param key integer
----@return main_interface_assign_uniform|nil
-function df.main_interface.T_assign_uniform.find(key) end
 
 ---@class main_interface_create_work_order: df.class
 ---@field open boolean
@@ -3657,9 +3362,6 @@ function df.main_interface.T_assign_uniform.find(key) end
 ---@field entering_job_filter boolean
 df.main_interface.T_create_work_order = {}
 
----@param key integer
----@return main_interface_create_work_order|nil
-function df.main_interface.T_create_work_order.find(key) end
 
 ---@class main_interface_hotkey: df.class
 ---@field open boolean
@@ -3669,9 +3371,6 @@ function df.main_interface.T_create_work_order.find(key) end
 ---@field entering_name boolean
 df.main_interface.T_hotkey = {}
 
----@param key integer
----@return main_interface_hotkey|nil
-function df.main_interface.T_hotkey.find(key) end
 
 ---@class main_interface_options: df.class
 ---@field open boolean
@@ -3681,8 +3380,8 @@ function df.main_interface.T_hotkey.find(key) end
 ---@field fort_retirement_confirm boolean
 ---@field fort_abandon_confirm boolean
 ---@field fort_quit_without_saving_confirm boolean
----@field option df.container<main_menu_option_type>
----@field option_index df.container<integer>
+---@field option df.container
+---@field option_index df.container
 ---@field entering_manual_folder boolean
 ---@field entering_manual_str string
 ---@field confirm_manual_overwrite boolean
@@ -3694,27 +3393,20 @@ function df.main_interface.T_hotkey.find(key) end
 ---@field ended_game boolean
 ---@field doing_help boolean
 ---@field doing_help_box markup_text_boxst
----@field guide_context df.container<integer>
+---@field guide_context df.container
 ---@field scroll_position_guide integer
 ---@field scrolling_guide boolean
----@field popup_context df.container<integer>
+---@field popup_context df.container
 ---@field scroll_position_popup integer
 ---@field scrolling_popup boolean
 ---@field filecomp file_compressorst
 ---@field saver main_interface.T_options_saver saverst
 df.main_interface.T_options = {}
 
----@param key integer
----@return main_interface_options|nil
-function df.main_interface.T_options.find(key) end
-
 ---saverst
 ---@class main_interface.T_options_saver: df.class
 df.main_interface.T_options.T_saver = {}
 
----@param key integer
----@return main_interface.T_options_saver|nil
-function df.main_interface.T_options.T_saver.find(key) end
 
 ---@class main_interface_help: df.class
 ---@field open boolean
@@ -3726,9 +3418,6 @@ function df.main_interface.T_options.T_saver.find(key) end
 ---@field floor_dug integer
 df.main_interface.T_help = {}
 
----@param key integer
----@return main_interface_help|nil
-function df.main_interface.T_help.find(key) end
 
 ---@class main_interface_arena_unit: df.class
 ---@field open boolean
@@ -3740,23 +3429,20 @@ function df.main_interface.T_help.find(key) end
 ---@field tame boolean
 ---@field editing_filter boolean
 ---@field filter string
----@field races_filtered df.container<integer>
----@field castes_filtered df.container<integer>
----@field races_all df.container<integer>
----@field castes_all df.container<integer>
+---@field races_filtered df.container
+---@field castes_filtered df.container
+---@field races_all df.container
+---@field castes_all df.container
 ---@field skills job_skill[]
----@field skill_levels df.container<integer>
----@field equipment_item_type df.container<integer>
----@field equipment_item_subtype df.container<integer>
----@field equipment_mat_type df.container<integer>
----@field equipment_mat_index df.container<integer>
----@field equipment_quantity df.container<integer>
+---@field skill_levels df.container
+---@field equipment_item_type df.container
+---@field equipment_item_subtype df.container
+---@field equipment_mat_type df.container
+---@field equipment_mat_index df.container
+---@field equipment_quantity df.container
 ---@field interactions interaction_effect[]
 df.main_interface.T_arena_unit = {}
 
----@param key integer
----@return main_interface_arena_unit|nil
-function df.main_interface.T_arena_unit.find(key) end
 
 ---@class main_interface_arena_tree: df.class
 ---@field open boolean
@@ -3765,13 +3451,9 @@ function df.main_interface.T_arena_unit.find(key) end
 ---@field age_str string string representation of age field
 ---@field editing_filter boolean
 ---@field filter string
----@field tree_types_filtered df.container<integer>
----@field tree_types_all df.container<integer>
+---@field tree_types_filtered df.container
+---@field tree_types_all df.container
 df.main_interface.T_arena_tree = {}
-
----@param key integer
----@return main_interface_arena_tree|nil
-function df.main_interface.T_arena_tree.find(key) end
 
 ---@class gamest: df.class
 ---@field main_interface main_interface
@@ -3789,10 +3471,6 @@ function df.main_interface.T_arena_tree.find(key) end
 ---@field external_flag integer
 df.gamest = {}
 
----@param key integer
----@return gamest|nil
-function df.gamest.find(key) end
-
 ---@class gamest_minimap: df.class
 ---@field minimap integer[][]
 ---@field update integer
@@ -3805,9 +3483,6 @@ function df.gamest.find(key) end
 ---@field texpos integer
 df.gamest.T_minimap = {}
 
----@param key integer
----@return gamest_minimap|nil
-function df.gamest.T_minimap.find(key) end
 
 ---@class gamest_command_line: df.class
 ---@field original string
@@ -3819,9 +3494,6 @@ function df.gamest.T_minimap.find(key) end
 ---@field use_param integer
 df.gamest.T_command_line = {}
 
----@param key integer
----@return gamest_command_line|nil
-function df.gamest.T_command_line.find(key) end
 
 ---@class gamest_mod_manager: df.class
 ---@field mod_header mod_headerst[]
@@ -3834,14 +3506,10 @@ function df.gamest.T_command_line.find(key) end
 ---@field SubmitItemUpdateResult _
 df.gamest.T_mod_manager = {}
 
----@param key integer
----@return gamest_mod_manager|nil
-function df.gamest.T_mod_manager.find(key) end
-
 ---@class main_interface_settings: df.class
 ---@field open boolean
 ---@field context settings_context_type
----@field tab df.container<settings_tab_type>
+---@field tab df.container
 ---@field current_mode settings_tab_type
 ---@field container_widget widget_container
 ---@field scroll_position_params integer
@@ -3851,19 +3519,19 @@ function df.gamest.T_mod_manager.find(key) end
 ---@field value_str string
 ---@field member world_gen_param_basest[]
 ---@field fullscreen_resolution_open boolean
----@field permitted_fullscreen_w df.container<integer>
----@field permitted_fullscreen_h df.container<integer>
+---@field permitted_fullscreen_w df.container
+---@field permitted_fullscreen_h df.container
 ---@field scroll_position_permitted_fullscreen integer
 ---@field scrolling_permitted_fullscreen boolean
----@field keybinding_category df.container<integer>
+---@field keybinding_category df.container
 ---@field keybinding_selected_category integer
 ---@field keybinding_scroll_position_cat integer
 ---@field keybinding_scrolling_cat boolean
 ---@field keybinding_name string[][]
----@field keybinding_key df.container<interface_key>[]
----@field keybinding_binding df.container<integer>[]
+---@field keybinding_key df.container[]
+---@field keybinding_binding df.container[]
 ---@field keybinding_binding_name string[][]
----@field keybinding_flag df.container<integer>[]
+---@field keybinding_flag df.container[]
 ---@field keybinding_scroll_position_key integer
 ---@field keybinding_scrolling_key boolean
 ---@field keybinding_registering_index integer
@@ -3873,17 +3541,9 @@ function df.gamest.T_mod_manager.find(key) end
 ---@field doing_custom_settings boolean
 df.main_interface_settings = {}
 
----@param key integer
----@return main_interface_settings|nil
-function df.main_interface_settings.find(key) end
-
 ---@class hash_rngst: df.class
 ---@field splitmix64_state integer
 df.hash_rngst = {}
-
----@param key integer
----@return hash_rngst|nil
-function df.hash_rngst.find(key) end
 
 ---@class difficultyst: df.class
 ---@field difficulty_enemies integer 0=off, 1=normal, 2=hard, 3=custom
@@ -3928,10 +3588,6 @@ function df.hash_rngst.find(key) end
 ---@field demand_period integer
 df.difficultyst = {}
 
----@param key integer
----@return difficultyst|nil
-function df.difficultyst.find(key) end
-
 ---@class _difficultyst_flags: integer, string, df.bitfield
 ---@field sieges 0
 ---@field [0] "sieges"
@@ -3962,10 +3618,6 @@ df.difficultyst.T_flags = {}
 ---@field unk_v50_6 integer
 df.markup_text_boxst = {}
 
----@param key integer
----@return markup_text_boxst|nil
-function df.markup_text_boxst.find(key) end
-
 ---@class markup_text_boxst_unk1: df.class
 ---@field unk_00 string
 ---@field red integer
@@ -3977,19 +3629,12 @@ function df.markup_text_boxst.find(key) end
 ---@field unk_30 boolean[]
 df.markup_text_boxst.T_unk1 = {}
 
----@param key integer
----@return markup_text_boxst_unk1|nil
-function df.markup_text_boxst.T_unk1.find(key) end
 
 ---@class markup_text_boxst_unk_v50_2: df.class
 ---@field unk_0 integer
 ---@field unk_4 integer
 ---@field unk_8 integer
 df.markup_text_boxst.T_unk_v50_2 = {}
-
----@param key integer
----@return markup_text_boxst_unk_v50_2|nil
-function df.markup_text_boxst.T_unk_v50_2.find(key) end
 
 ---@class wqc_item_traitst: df.class
 ---@field flg integer
@@ -4004,10 +3649,6 @@ function df.markup_text_boxst.T_unk_v50_2.find(key) end
 ---@field on boolean
 df.wqc_item_traitst = {}
 
----@param key integer
----@return wqc_item_traitst|nil
-function df.wqc_item_traitst.find(key) end
-
 ---@class cwo_buildingst: df.class
 ---@field type integer
 ---@field subtype integer
@@ -4015,10 +3656,6 @@ function df.wqc_item_traitst.find(key) end
 ---@field jminfo manager_order_template[]
 ---@field name string
 df.cwo_buildingst = {}
-
----@param key integer
----@return cwo_buildingst|nil
-function df.cwo_buildingst.find(key) end
 
 ---@class cri_unitst: df.class
 ---@field un unit
@@ -4033,10 +3670,6 @@ function df.cwo_buildingst.find(key) end
 ---@field owner_un unit
 df.cri_unitst = {}
 
----@param key integer
----@return cri_unitst|nil
-function df.cri_unitst.find(key) end
-
 ---@class actor_entryst: df.class
 ---@field hf historical_figure
 ---@field iden integer identityst
@@ -4048,16 +3681,12 @@ function df.cri_unitst.find(key) end
 ---@field visual_hfid integer
 ---@field historical_hfid integer
 ---@field identity_id integer
----@field alias_identity_id df.container<integer>
+---@field alias_identity_id df.container
 ---@field principle_org integer organization_entryst
----@field associated_org df.container<integer> organization_entryst
+---@field associated_org df.container organization_entryst
 ---@field associated_plot plot_entryst[]
 ---@field flag integer
 df.actor_entryst = {}
-
----@param key integer
----@return actor_entryst|nil
-function df.actor_entryst.find(key) end
 
 ---@class organization_entry_nodest: df.class
 ---@field actor_entry actor_entryst
@@ -4074,10 +3703,6 @@ function df.actor_entryst.find(key) end
 ---@field status string
 df.organization_entry_nodest = {}
 
----@param key integer
----@return organization_entry_nodest|nil
-function df.organization_entry_nodest.find(key) end
-
 ---@class organization_entryst: df.class
 ---@field node organization_entry_nodest[]
 ---@field list_name string
@@ -4088,10 +3713,6 @@ function df.organization_entry_nodest.find(key) end
 ---@field flag integer
 df.organization_entryst = {}
 
----@param key integer
----@return organization_entryst|nil
-function df.organization_entryst.find(key) end
-
 ---@class plot_entryst: df.class
 ---@field list_name string
 ---@field simple_list_name string
@@ -4100,10 +3721,6 @@ function df.organization_entryst.find(key) end
 ---@field master_hfid integer
 ---@field organization_name string
 df.plot_entryst = {}
-
----@param key integer
----@return plot_entryst|nil
-function df.plot_entryst.find(key) end
 
 ---@class mod_headerst: df.class
 ---@field zip_filename string
@@ -4117,7 +3734,7 @@ function df.plot_entryst.find(key) end
 ---@field name string
 ---@field description string
 ---@field dependencies string[]
----@field dependency_type df.container<integer> 0 exact, 1 before, 2 after
+---@field dependency_type df.container 0 exact, 1 before, 2 after
 ---@field conflicts string[]
 ---@field flags mod_headerst_flags
 ---@field src_dir string
@@ -4133,10 +3750,6 @@ function df.plot_entryst.find(key) end
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
 df.mod_headerst = {}
-
----@param key integer
----@return mod_headerst|nil
-function df.mod_headerst.find(key) end
 
 ---@class _mod_headerst_flags: integer, string, df.bitfield
 ---@field currently_installed 0
@@ -4156,28 +3769,16 @@ df.mod_headerst.T_flags = {}
 ---@field vanilla boolean
 
 ---@class ui_look_list: df.class
----@field items ui_look_list_items[]
-df.ui_look_list = {}
-
----@param key integer
----@return ui_look_list|nil
-function df.ui_look_list.find(key) end
-
----@class ui_look_list_items: df.class
----@field type ui_look_list.T_items_type
----@field data ui_look_list.T_items_data
+---@field type ui_look_list_type
+---@field data ui_look_list_data
 ---@field pos coord
 ---@field display_str string
 ---@field cf integer
 ---@field cb integer
 ---@field cbr integer
-df.ui_look_list.T_items = {}
+df.ui_look_list = {}
 
----@param key integer
----@return ui_look_list_items|nil
-function df.ui_look_list.T_items.find(key) end
-
----@class _ui_look_list.T_items_type: integer, string, df.enum
+---@class _ui_look_list_type: integer, string, df.enum
 ---@field Item 0
 ---@field [0] "Item"
 ---@field Floor 1
@@ -4204,9 +3805,9 @@ function df.ui_look_list.T_items.find(key) end
 ---@field [11] "Magma"
 ---@field Spoor 12
 ---@field [12] "Spoor"
-df.ui_look_list.T_items.T_type = {}
+df.ui_look_list.T_type = {}
 
----@class ui_look_list.T_items_type
+---@class ui_look_list_type
 ---@field [0] boolean
 ---@field Item boolean
 ---@field [1] boolean
@@ -4234,160 +3835,91 @@ df.ui_look_list.T_items.T_type = {}
 ---@field [12] boolean
 ---@field Spoor boolean
 
----@class ui_look_list.T_items_data: df.class
----@field item ui_look_list.T_items.T_data_item
----@field unit ui_look_list.T_items.T_data_unit
----@field building ui_look_list.T_items.T_data_building
----@field vermin ui_look_list.T_items.T_data_vermin
----@field flow ui_look_list.T_items.T_data_flow
----@field spatter ui_look_list.T_items.T_data_spatter
----@field building_item_adv ui_look_list.T_items.T_data_building_item_adv
----@field liquid_water ui_look_list.T_items.T_data_liquid_water
----@field liquid_magma ui_look_list.T_items.T_data_liquid_magma
----@field spoor ui_look_list.T_items.T_data_spoor
-df.ui_look_list.T_items.T_data = {}
 
----@param key integer
----@return ui_look_list.T_items_data|nil
-function df.ui_look_list.T_items.T_data.find(key) end
+---@class ui_look_list_data: df.class
+---@field item ui_look_list.T_data_item
+---@field unit ui_look_list.T_data_unit
+---@field building ui_look_list.T_data_building
+---@field vermin ui_look_list.T_data_vermin
+---@field flow ui_look_list.T_data_flow
+---@field spatter ui_look_list.T_data_spatter
+---@field building_item_adv ui_look_list.T_data_building_item_adv
+---@field liquid_water ui_look_list.T_data_liquid_water
+---@field liquid_magma ui_look_list.T_data_liquid_magma
+---@field spoor ui_look_list.T_data_spoor
+df.ui_look_list.T_data = {}
 
----@class ui_look_list.T_items.T_data_item: df.class
----@field item_id integer References: item
-df.ui_look_list.T_items.T_data.T_item = {}
+---@class ui_look_list.T_data_item: df.class
+df.ui_look_list.T_data.T_item = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_item|nil
-function df.ui_look_list.T_items.T_data.T_item.find(key) end
 
----@class ui_look_list.T_items.T_data_unit: df.class
----@field unit_id integer References: unit
-df.ui_look_list.T_items.T_data.T_unit = {}
+---@class ui_look_list.T_data_unit: df.class
+df.ui_look_list.T_data.T_unit = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_unit|nil
-function df.ui_look_list.T_items.T_data.T_unit.find(key) end
 
----@class ui_look_list.T_items.T_data_building: df.class
----@field bld_id integer References: building
-df.ui_look_list.T_items.T_data.T_building = {}
+---@class ui_look_list.T_data_building: df.class
+df.ui_look_list.T_data.T_building = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_building|nil
-function df.ui_look_list.T_items.T_data.T_building.find(key) end
 
----@class ui_look_list.T_items.T_data_vermin: df.class
+---@class ui_look_list.T_data_vermin: df.class
 ---@field race integer
 ---@field caste integer
 ---@field item_id integer References: item
 ---@field flag integer
 ---@field number integer
-df.ui_look_list.T_items.T_data.T_vermin = {}
+df.ui_look_list.T_data.T_vermin = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_vermin|nil
-function df.ui_look_list.T_items.T_data.T_vermin.find(key) end
 
----@class ui_look_list.T_items.T_data_flow: df.class
+---@class ui_look_list.T_data_flow: df.class
 ---@field type integer
 ---@field subtype integer
 ---@field sstype integer
 ---@field guide_id integer
 ---@field flag integer
-df.ui_look_list.T_items.T_data.T_flow = {}
+df.ui_look_list.T_data.T_flow = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_flow|nil
-function df.ui_look_list.T_items.T_data.T_flow.find(key) end
 
----@class ui_look_list.T_items.T_data_spatter: df.class
+---@class ui_look_list.T_data_spatter: df.class
 ---@field i_type item_type
 ---@field i_subtype integer
 ---@field mat integer References: material
 ---@field matg integer
 ---@field matstate matter_state
 ---@field extend integer
-df.ui_look_list.T_items.T_data.T_spatter = {}
+df.ui_look_list.T_data.T_spatter = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_spatter|nil
-function df.ui_look_list.T_items.T_data.T_spatter.find(key) end
 
----@class ui_look_list.T_items.T_data_building_item_adv: df.class
----@field item_id integer References: item
-df.ui_look_list.T_items.T_data.T_building_item_adv = {}
+---@class ui_look_list.T_data_building_item_adv: df.class
+df.ui_look_list.T_data.T_building_item_adv = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_building_item_adv|nil
-function df.ui_look_list.T_items.T_data.T_building_item_adv.find(key) end
 
----@class ui_look_list.T_items.T_data_liquid_water: df.class
+---@class ui_look_list.T_data_liquid_water: df.class
 ---@field flag integer
 ---@field amount integer
-df.ui_look_list.T_items.T_data.T_liquid_water = {}
+df.ui_look_list.T_data.T_liquid_water = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_liquid_water|nil
-function df.ui_look_list.T_items.T_data.T_liquid_water.find(key) end
 
----@class ui_look_list.T_items.T_data_liquid_magma: df.class
+---@class ui_look_list.T_data_liquid_magma: df.class
 ---@field flag integer
 ---@field amount integer
-df.ui_look_list.T_items.T_data.T_liquid_magma = {}
+df.ui_look_list.T_data.T_liquid_magma = {}
 
----@param key integer
----@return ui_look_list.T_items.T_data_liquid_magma|nil
-function df.ui_look_list.T_items.T_data.T_liquid_magma.find(key) end
 
----@class ui_look_list.T_items.T_data_spoor: df.class
+---@class ui_look_list.T_data_spoor: df.class
 ---@field flag integer
 ---@field type integer
 ---@field id1 integer
 ---@field id2 integer
 ---@field id3 integer
-df.ui_look_list.T_items.T_data.T_spoor = {}
-
----@param key integer
----@return ui_look_list.T_items.T_data_spoor|nil
-function df.ui_look_list.T_items.T_data.T_spoor.find(key) end
+df.ui_look_list.T_data.T_spoor = {}
 
 ---@class ui_unit_view_mode: df.class
----@field value ui_unit_view_mode_value
+---@field General integer
+---@field Inventory integer
+---@field Preferences integer
+---@field Wounds integer
+---@field PrefLabor integer
+---@field PrefDogs integer
+---@field PrefOccupation integer
 df.ui_unit_view_mode = {}
-
----@param key integer
----@return ui_unit_view_mode|nil
-function df.ui_unit_view_mode.find(key) end
-
----@class _ui_unit_view_mode_value: integer, string, df.enum
----@field General 0
----@field [0] "General"
----@field Inventory 1
----@field [1] "Inventory"
----@field Preferences 2
----@field [2] "Preferences"
----@field Wounds 3
----@field [3] "Wounds"
----@field PrefLabor 4
----@field [4] "PrefLabor"
----@field PrefDogs 5
----@field [5] "PrefDogs"
----@field PrefOccupation 6
----@field [6] "PrefOccupation"
-df.ui_unit_view_mode.T_value = {}
-
----@class ui_unit_view_mode_value
----@field [0] boolean
----@field General boolean
----@field [1] boolean
----@field Inventory boolean
----@field [2] boolean
----@field Preferences boolean
----@field [3] boolean
----@field Wounds boolean
----@field [4] boolean
----@field PrefLabor boolean
----@field [5] boolean
----@field PrefDogs boolean
----@field [6] boolean
----@field PrefOccupation boolean
 

@@ -42,8 +42,10 @@ Dir.glob(ARGV[0]).each do |xml|
       case node.name
       when 'enum-type', 'bitfield-type'
         output.write(EnumType.new(node).render)
-      when 'struct-type', 'class-type', 'df-other-vectors-type'
+      when 'struct-type', 'df-other-vectors-type'
         output.write(StructType.new(node).render)
+      when 'class-type'
+        output.write(ClassType.new(node).render)
       end
     end
   end

@@ -25,21 +25,6 @@
 ---@field build_stages integer
 df.building_def = {}
 
----@param key integer
----@return building_def|nil
-function df.building_def.find(key) end
-
----@param unk_0 integer
----@param unk_1 integer
----@param unk_2 integer
----@param unk_3 integer
-function df.building_def:parseRaws(unk_0, unk_1, unk_2, unk_3) end
-
----add to world.raws.buildings.whatever
-function df.building_def:categorize() end
-
-function df.building_def:finalize() end
-
 ---@class building_def_item: df.class
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -61,21 +46,9 @@ function df.building_def:finalize() end
 ---@field metal_ore_str string
 df.building_def_item = {}
 
----@param key integer
----@return building_def_item|nil
-function df.building_def_item.find(key) end
-
 ---@class building_def_workshopst: building_def
 df.building_def_workshopst = {}
 
----@param key integer
----@return building_def_workshopst|nil
-function df.building_def_workshopst.find(key) end
-
 ---@class building_def_furnacest: building_def
 df.building_def_furnacest = {}
-
----@param key integer
----@return building_def_furnacest|nil
-function df.building_def_furnacest.find(key) end
 

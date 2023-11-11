@@ -361,10 +361,6 @@ df.building_extents_type = {}
 ---@field height integer
 df.building_extents = {}
 
----@param key integer
----@return building_extents|nil
-function df.building_extents.find(key) end
-
 ---@class building_drawbuffer: df.class
 ---@field texpos1 integer[][]
 ---@field texpos2 integer[][]
@@ -378,10 +374,6 @@ function df.building_extents.find(key) end
 ---@field y1 integer
 ---@field y2 integer
 df.building_drawbuffer = {}
-
----@param key integer
----@return building_drawbuffer|nil
-function df.building_drawbuffer.find(key) end
 
 ---@class building: df.instance
 ---@field x1 integer top left
@@ -412,313 +404,17 @@ function df.building_drawbuffer.find(key) end
 ---@field location_id integer References: abstract_building
 df.building = {}
 
----@param key integer
----@return building|nil
-function df.building.find(key) end
-
 ---after Remv Cre, prevents unit from taking jobs at building
 ---@class building_job_claim_suppress: df.class
 ---@field unit unit
 ---@field timer integer
 df.building.T_job_claim_suppress = {}
 
----@param key integer
----@return building_job_claim_suppress|nil
-function df.building.T_job_claim_suppress.find(key) end
 
 ---@class building_activities: df.class
 ---@field activity_id integer References: activity_entry
 ---@field event_id integer References: activity_event
 df.building.T_activities = {}
-
----@param key integer
----@return building_activities|nil
-function df.building.T_activities.find(key) end
-
----@return integer
-function df.building:getCustomType() end
-
----@param type integer
-function df.building:setCustomType(type) end
-
----@param supplies hospital_supplies
-function df.building:countHospitalSupplies(supplies) end
-
----@param unk_0 stockpile_links
----@return stockpile_links
-function df.building:getStockpileLinks(unk_0) end
-
----?
-function df.building:detachWorldData() end
-
----used by the give to building ui of stockpile
----@return boolean
-function df.building:canLinkToStockpile() end
-
----@param unk_0 building_users
----@return building_users
-function df.building:getUsers(unk_0) end
-
----@param delta_x integer
----@param delta_y integer
----@param delta_z integer
-function df.building:moveBuilding(delta_x, delta_y, delta_z) end
-
----@param abs_x integer
----@param abs_y integer
-function df.building:initOccupancy(abs_x, abs_y) end
-
----@param unk_0 job_type
----@param unk_1 integer
-function df.building:setFillTimer(unk_0, unk_1) end
-
----@return boolean
-function df.building:isOnFire() end
-
----from magma OR machine power
----@return boolean
-function df.building:isUnpowered() end
-
----@return boolean
-function df.building:canCollapse() end
-
----@return integer
-function df.building:getPassableOccupancy() end
-
----@return integer
-function df.building:getImpassableOccupancy() end
-
----@return boolean
-function df.building:isPowerSource() end
-
-function df.building:updateFromWeather() end
-
-function df.building:updateTemperature() end
-
-function df.building:updateItems() end
-
----@param temp integer
----@param unk_1 boolean
----@param unk_2 boolean
-function df.building:updateTempFromTile(temp, unk_1, unk_2) end
-
----@return boolean
-function df.building:isNormalFurniture() end
-
----@return boolean
-function df.building:isFarmPlot() end
-
----@param unk_0 workshop_profile
----@return workshop_profile
-function df.building:getWorkshopProfile(unk_0) end
-
----@param unk_0 machine_info
----@return machine_info
-function df.building:getMachineInfo(unk_0) end
-
----@param power_info power_info
-function df.building:getPowerInfo(power_info) end
-
----@param unk_0 machine_tile_set
----@return boolean
-function df.building:canConnectToMachine(unk_0) end
-
----@return building_type
-function df.building:getType() end
-
----@return integer
-function df.building:getSubtype() end
-
----@param subtype integer
-function df.building:setSubtype(subtype) end
-
----@return boolean
-function df.building:isActual() end
-
----@return boolean
-function df.building:isCoffin2() end
-
-function df.building:updateAction() end
-
----@return boolean
-function df.building:isStatueOrRestraint() end
-
----@param unk_0 integer
-function df.building:setMaterialAmount(unk_0) end
-
----@param stage integer
-function df.building:setBuildStage(stage) end
-
----@return integer
-function df.building:getBuildStage() end
-
----@return integer
-function df.building:getMaxBuildStage() end
-
----bridge: material*10 rough, material*30 smooth
----@return integer
-function df.building:getArchitectureValue() end
-
----@return boolean
-function df.building:isSettingOccupancy() end
-
----@return boolean
-function df.building:isActual2() end
-
----@return boolean
-function df.building:isExtentShaped() end
-
----@param abs_x integer
----@param abs_y integer
-function df.building:updateOccupancy(abs_x, abs_y) end
-
----@param unk_0 unit
----@return integer
-function df.building:getPersonalValue(unk_0) end
-
----@return boolean
-function df.building:canBeRoom() end
-
----bridge: material*10
----@return integer
-function df.building:getConstructionValue() end
-
----same as querying and pressing X
-function df.building:queueDestroy() end
-
----@param rel_x integer
----@param rel_y integer
----@return boolean
-function df.building:isImpassableTile(rel_x, rel_y) end
-
----@param subtract_pending_jobs boolean
----@return integer
-function df.building:getFreeCapacity(subtract_pending_jobs) end
-
----@param unk_0 item
----@param subtract_pending_jobs boolean
----@return boolean
-function df.building:canStoreItem(unk_0, subtract_pending_jobs) end
-
----@param name string
-function df.building:getName(name) end
-
-function df.building:getNameColor() end
-
-function df.building:initFarmSeasons() end
-
----1..10
----@return integer
-function df.building:getClutterLevel() end
-
----@return boolean
-function df.building:needsDesign() end
-
----@param unk_0 job_type
----@return boolean
-function df.building:canUseForMood(unk_0) end
-
----@return boolean
-function df.building:canBeRoomSubset() end
-
----@return boolean
-function df.building:isCoffin() end
-
----@return boolean
-function df.building:canUseSpouseRoom() end
-
----false if already, or cannot be
----@return boolean
-function df.building:canMakeRoom() end
-
----building is assigned to a unit (if a zone) or is in a zone that is assigned to a unit
----@return boolean
-function df.building:isAssigned() end
-
----@return boolean
-function df.building:isJusticeRestraint() end
-
----@param unk_0 unit
-function df.building:detachRestrainedUnit(unk_0) end
-
----@param file file_compressorst
-function df.building:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.building:read_file(file, loadversion) end
-
----the true set looks like things where the unit should stand aside
----@return boolean
-function df.building:isImpassableAtCreation() end
-
----Add to world.buildings.other.*
----@param in_play boolean
-function df.building:categorize(in_play) end
-
----Remove from world.buildings.other.*
-function df.building:uncategorize() end
-
----@return integer
-function df.building:getBaseValue() end
-
----@param new_state integer 0 = active/open, 1 = inactive/closed
-function df.building:setTriggerState(new_state) end
-
----@return boolean
-function df.building:needsMagma() end
-
----@param noscatter boolean
----@param lost boolean
-function df.building:removeUses(noscatter, lost) end
-
----@param noscatter boolean
----@param lost boolean
-function df.building:deconstructItems(noscatter, lost) end
-
-function df.building:cleanupMap() end
-
----checks contained_items[0] for FIREIMMUNE
----@param fire_type integer
----@return boolean
-function df.building:isFireSafe(fire_type) end
-
-function df.building:fillSidebarMenu() end
-
----@return boolean
-function df.building:isForbidden() end
-
----@return boolean
-function df.building:isHidden() end
-
----not hidden, or hide/unhide UI mode
----@return boolean
-function df.building:isVisibleInUI() end
-
----checks coordinates, calls isVisibleInUI and checks window_xy
----@param viewport map_viewport
----@return boolean
-function df.building:isVisibleInViewport(viewport) end
-
----@param buffer building_drawbuffer
-function df.building:getDrawExtents(buffer) end
-
----@param unk_item integer
----@param buffer building_drawbuffer
----@param z_offset integer building_wellst only
-function df.building:drawBuilding(unk_item, buffer, z_offset) end
-
----@return integer
-function df.building:getSpecificSquad() end
-
----@return integer
-function df.building:getSpecificPosition() end
-
----@param unk_0 integer
----@param unk_1 integer
-function df.building:setSpecificSquadPos(unk_0, unk_1) end
-
-function df.building:clearSpecificSquad() end
 
 ---@class stockpile_links: df.class
 ---@field give_to_pile building[]
@@ -727,28 +423,20 @@ function df.building:clearSpecificSquad() end
 ---@field take_from_workshop building[]
 df.stockpile_links = {}
 
----@param key integer
----@return stockpile_links|nil
-function df.stockpile_links.find(key) end
-
 ---@class building_stockpilest: building
 ---@field settings stockpile_settings
 ---@field max_barrels integer
 ---@field max_bins integer
 ---@field max_wheelbarrows integer
 ---@field container_type item_type[]
----@field container_item_id df.container<integer> References: item
----@field container_x df.container<integer>
----@field container_y df.container<integer>
+---@field container_item_id df.container References: item
+---@field container_x df.container
+---@field container_y df.container
 ---@field links stockpile_links
 ---@field use_links_only integer
 ---@field stockpile_number integer
 ---@field linked_stops hauling_stop[]
 df.building_stockpilest = {}
-
----@param key integer
----@return building_stockpilest|nil
-function df.building_stockpilest.find(key) end
 
 ---@class hospital_supplies: df.class
 ---@field supplies_needed hospital_supplies_supplies_needed
@@ -768,10 +456,6 @@ function df.building_stockpilest.find(key) end
 ---@field cur_soap integer
 ---@field supply_recheck_timer integer
 df.hospital_supplies = {}
-
----@param key integer
----@return hospital_supplies|nil
-function df.hospital_supplies.find(key) end
 
 ---@class _hospital_supplies_supplies_needed: integer, string, df.bitfield
 ---@field splints 0
@@ -1204,8 +888,8 @@ df.civzone_type = {}
 ---@field Tomb boolean
 
 ---@class building_civzonest: building
----@field assigned_units df.container<integer> References: unit
----@field assigned_items df.container<integer> References: item
+---@field assigned_units df.container References: unit
+---@field assigned_items df.container References: item
 ---@field type civzone_type only saved as int16
 ---@field is_active integer 0 is paused, 8 is active
 ---@field zone_num integer
@@ -1216,10 +900,6 @@ df.civzone_type = {}
 ---@field squad_room_info building_civzonest_squad_room_info[]
 df.building_civzonest = {}
 
----@param key integer
----@return building_civzonest|nil
-function df.building_civzonest.find(key) end
-
 ---@class building_civzonest_zone_settings: df.class
 ---@field whole building_civzonest.T_zone_settings_whole
 ---@field gather building_civzonest.T_zone_settings_gather
@@ -1229,18 +909,11 @@ function df.building_civzonest.find(key) end
 ---@field pit_pond building_civzonest.T_zone_settings_pit_pond
 df.building_civzonest.T_zone_settings = {}
 
----@param key integer
----@return building_civzonest_zone_settings|nil
-function df.building_civzonest.T_zone_settings.find(key) end
-
 ---@class building_civzonest.T_zone_settings_whole: df.class
 ---@field i1 integer
 ---@field i2 integer
 df.building_civzonest.T_zone_settings.T_whole = {}
 
----@param key integer
----@return building_civzonest.T_zone_settings_whole|nil
-function df.building_civzonest.T_zone_settings.T_whole.find(key) end
 
 ---@class _building_civzonest.T_zone_settings_gather: integer, string, df.bitfield
 ---@field pick_trees 0
@@ -1259,13 +932,10 @@ df.building_civzonest.T_zone_settings.T_gather = {}
 ---@field [2] boolean
 ---@field gather_fallen boolean
 
+
 ---@class building_civzonest.T_zone_settings_pen: df.class
----@field unk integer
 df.building_civzonest.T_zone_settings.T_pen = {}
 
----@param key integer
----@return building_civzonest.T_zone_settings_pen|nil
-function df.building_civzonest.T_zone_settings.T_pen.find(key) end
 
 ---@class _building_civzonest.T_zone_settings_tomb: integer, string, df.bitfield
 ---@field no_pets 0
@@ -1280,14 +950,12 @@ df.building_civzonest.T_zone_settings.T_tomb = {}
 ---@field [1] boolean
 ---@field no_citizens boolean
 
+
 ---@class building_civzonest.T_zone_settings_archery: df.class
 ---@field dir_x integer
 ---@field dir_y integer
 df.building_civzonest.T_zone_settings.T_archery = {}
 
----@param key integer
----@return building_civzonest.T_zone_settings_archery|nil
-function df.building_civzonest.T_zone_settings.T_archery.find(key) end
 
 ---@class _building_civzonest.T_zone_settings_pit_pond: integer, string, df.enum
 ---@field top_of_pit 2
@@ -1302,14 +970,11 @@ df.building_civzonest.T_zone_settings.T_pit_pond = {}
 ---@field [1] boolean
 ---@field top_of_pond boolean
 
+
 ---@class building_civzonest_squad_room_info: df.class
 ---@field squad_id integer
 ---@field mode squad_use_flags
 df.building_civzonest.T_squad_room_info = {}
-
----@param key integer
----@return building_civzonest_squad_room_info|nil
-function df.building_civzonest.T_squad_room_info.find(key) end
 
 ---@class building_actual: building
 ---@field construction_stage integer 0 not started, then 1 or 3 max depending on type
@@ -1317,21 +982,10 @@ function df.building_civzonest.T_squad_room_info.find(key) end
 ---@field design building_design
 df.building_actual = {}
 
----@param key integer
----@return building_actual|nil
-function df.building_actual.find(key) end
-
 ---@class building_actual_contained_items: df.class
 ---@field item item
 ---@field use_mode integer
 df.building_actual.T_contained_items = {}
-
----@param key integer
----@return building_actual_contained_items|nil
-function df.building_actual.T_contained_items.find(key) end
-
----@return boolean
-function df.building_actual:isDestroyedByItemRemoval() end
 
 ---@class building_design: df.class
 ---@field builder1 integer References: historical_figure
@@ -1345,10 +999,6 @@ function df.building_actual:isDestroyedByItemRemoval() end
 ---@field hitpoints integer
 ---@field max_hitpoints integer
 df.building_design = {}
-
----@param key integer
----@return building_design|nil
-function df.building_design.find(key) end
 
 ---@class _building_design_flags: integer, string, df.bitfield
 ---@field rough 0
@@ -1411,16 +1061,12 @@ df.furnace_type = {}
 df.furnace_type.attrs = {}
 
 ---@class building_furnacest: building_actual
----@field melt_remainder df.container<integer>
+---@field melt_remainder df.container
 ---@field unk_108 integer
 ---@field type furnace_type
 ---@field profile workshop_profile
 ---@field custom_type integer References: building_def
 df.building_furnacest = {}
-
----@param key integer
----@return building_furnacest|nil
-function df.building_furnacest.find(key) end
 
 ---@class _workshop_type: integer, string, df.enum
 ---@field Carpenters 0
@@ -1534,7 +1180,7 @@ df.workshop_type = {}
 df.workshop_type.attrs = {}
 
 ---@class workshop_profile: df.class
----@field permitted_workers df.container<integer> References: unit
+---@field permitted_workers df.container References: unit
 ---@field min_level integer
 ---@field max_level integer
 ---@field links stockpile_links
@@ -1544,10 +1190,6 @@ df.workshop_type.attrs = {}
 ---@field blocked_labors boolean[]
 df.workshop_profile = {}
 
----@param key integer
----@return workshop_profile|nil
-function df.workshop_profile.find(key) end
-
 ---@class building_workshopst: building_actual
 ---@field type workshop_type
 ---@field profile workshop_profile
@@ -1555,25 +1197,13 @@ function df.workshop_profile.find(key) end
 ---@field custom_type integer References: building_def
 df.building_workshopst = {}
 
----@param key integer
----@return building_workshopst|nil
-function df.building_workshopst.find(key) end
-
 ---@class building_animaltrapst: building_actual
 ---@field bait_type integer
 ---@field fill_timer integer
 df.building_animaltrapst = {}
 
----@param key integer
----@return building_animaltrapst|nil
-function df.building_animaltrapst.find(key) end
-
 ---@class building_archerytargetst: building_actual
 df.building_archerytargetst = {}
-
----@param key integer
----@return building_archerytargetst|nil
-function df.building_archerytargetst.find(key) end
 
 ---@class building_armorstandst: building_actual
 ---@field unk_c0 integer
@@ -1581,36 +1211,20 @@ function df.building_archerytargetst.find(key) end
 ---@field specific_position integer
 df.building_armorstandst = {}
 
----@param key integer
----@return building_armorstandst|nil
-function df.building_armorstandst.find(key) end
-
 ---@class building_bars_verticalst: building_actual
 ---@field gate_flags gate_flags
 ---@field timer integer
 df.building_bars_verticalst = {}
-
----@param key integer
----@return building_bars_verticalst|nil
-function df.building_bars_verticalst.find(key) end
 
 ---@class building_bars_floorst: building_actual
 ---@field gate_flags gate_flags
 ---@field timer integer
 df.building_bars_floorst = {}
 
----@param key integer
----@return building_bars_floorst|nil
-function df.building_bars_floorst.find(key) end
-
 ---@class building_users: df.class
----@field unit df.container<integer> References: unit
----@field mode df.container<integer>
+---@field unit df.container References: unit
+---@field mode df.container
 df.building_users = {}
-
----@param key integer
----@return building_users|nil
-function df.building_users.find(key) end
 
 ---@class building_bedst: building_actual
 ---@field specific_squad integer References: squad
@@ -1618,16 +1232,8 @@ function df.building_users.find(key) end
 ---@field users building_users
 df.building_bedst = {}
 
----@param key integer
----@return building_bedst|nil
-function df.building_bedst.find(key) end
-
 ---@class building_bookcasest: building_actual
 df.building_bookcasest = {}
-
----@param key integer
----@return building_bookcasest|nil
-function df.building_bookcasest.find(key) end
 
 ---@class building_boxst: building_actual
 ---@field unk_1 integer
@@ -1635,20 +1241,12 @@ function df.building_bookcasest.find(key) end
 ---@field specific_position integer
 df.building_boxst = {}
 
----@param key integer
----@return building_boxst|nil
-function df.building_boxst.find(key) end
-
 ---@class building_bridgest: building_actual
 ---@field gate_flags gate_flags
 ---@field timer integer
 ---@field direction building_bridgest_direction
 ---@field material_amount integer
 df.building_bridgest = {}
-
----@param key integer
----@return building_bridgest|nil
-function df.building_bridgest.find(key) end
 
 ---@class _building_bridgest_direction: integer, string, df.enum
 ---@field Retracting -1
@@ -1681,20 +1279,12 @@ df.building_bridgest.T_direction = {}
 ---@field specific_position integer
 df.building_cabinetst = {}
 
----@param key integer
----@return building_cabinetst|nil
-function df.building_cabinetst.find(key) end
-
 ---@class building_cagest: building_actual
----@field assigned_units df.container<integer> References: unit
----@field assigned_items df.container<integer> References: item
+---@field assigned_units df.container References: unit
+---@field assigned_items df.container References: item
 ---@field cage_flags building_cagest_cage_flags
 ---@field fill_timer integer
 df.building_cagest = {}
-
----@param key integer
----@return building_cagest|nil
-function df.building_cagest.find(key) end
 
 ---@class _building_cagest_cage_flags: integer, string, df.bitfield
 ---@field triggered 0
@@ -1711,10 +1301,6 @@ df.building_cagest.T_cage_flags = {}
 ---@field chain_flags building_chainst_chain_flags
 df.building_chainst = {}
 
----@param key integer
----@return building_chainst|nil
-function df.building_chainst.find(key) end
-
 ---@class _building_chainst_chain_flags: integer, string, df.bitfield
 ---@field triggered 0
 ---@field [0] "triggered"
@@ -1729,16 +1315,8 @@ df.building_chainst.T_chain_flags = {}
 ---@field users building_users
 df.building_chairst = {}
 
----@param key integer
----@return building_chairst|nil
-function df.building_chairst.find(key) end
-
 ---@class building_coffinst: building_actual
 df.building_coffinst = {}
-
----@param key integer
----@return building_coffinst|nil
-function df.building_coffinst.find(key) end
 
 ---@class _construction_type: integer, string, df.enum
 ---@field NONE -1
@@ -1898,29 +1476,15 @@ df.construction_type = {}
 ---@field TrackRampNSEW boolean
 
 ---@class building_constructionst: building_actual
----@field type construction_type
 df.building_constructionst = {}
 
----@param key integer
----@return building_constructionst|nil
-function df.building_constructionst.find(key) end
-
 ---@class building_display_furniturest: building_actual
----@field displayed_items df.container<integer> References: item
 df.building_display_furniturest = {}
-
----@param key integer
----@return building_display_furniturest|nil
-function df.building_display_furniturest.find(key) end
 
 ---@class building_doorst: building_actual
 ---@field door_flags door_flags
 ---@field close_timer integer
 df.building_doorst = {}
-
----@param key integer
----@return building_doorst|nil
-function df.building_doorst.find(key) end
 
 ---@class building_farmplotst: building_actual
 ---@field plant_id integer[]
@@ -1931,10 +1495,6 @@ function df.building_doorst.find(key) end
 ---@field max_fertilization integer
 ---@field terrain_purge_timer integer
 df.building_farmplotst = {}
-
----@param key integer
----@return building_farmplotst|nil
-function df.building_farmplotst.find(key) end
 
 ---@class _building_farmplotst_farm_flags: integer, string, df.bitfield
 ---@field seasonal_fertilize 0
@@ -1950,36 +1510,20 @@ df.building_farmplotst.T_farm_flags = {}
 ---@field timer integer
 df.building_floodgatest = {}
 
----@param key integer
----@return building_floodgatest|nil
-function df.building_floodgatest.find(key) end
-
 ---@class building_grate_floorst: building_actual
 ---@field gate_flags gate_flags
 ---@field timer integer
 df.building_grate_floorst = {}
-
----@param key integer
----@return building_grate_floorst|nil
-function df.building_grate_floorst.find(key) end
 
 ---@class building_grate_wallst: building_actual
 ---@field gate_flags gate_flags
 ---@field timer integer
 df.building_grate_wallst = {}
 
----@param key integer
----@return building_grate_wallst|nil
-function df.building_grate_wallst.find(key) end
-
 ---@class building_hatchst: building_actual
 ---@field door_flags door_flags
 ---@field close_timer integer
 df.building_hatchst = {}
-
----@param key integer
----@return building_hatchst|nil
-function df.building_hatchst.find(key) end
 
 ---@class _hive_flags: integer, string, df.bitfield
 ---@field do_install 0
@@ -2006,64 +1550,30 @@ df.hive_flags = {}
 ---@field gather_timer integer down from 1200
 df.building_hivest = {}
 
----@param key integer
----@return building_hivest|nil
-function df.building_hivest.find(key) end
-
 ---@class building_instrumentst: building_actual
----@field unk_1 integer
 df.building_instrumentst = {}
-
----@param key integer
----@return building_instrumentst|nil
-function df.building_instrumentst.find(key) end
 
 ---@class building_nestst: building_actual
 df.building_nestst = {}
-
----@param key integer
----@return building_nestst|nil
-function df.building_nestst.find(key) end
 
 ---@class building_nest_boxst: building_actual
 ---@field claimed_by integer References: unit
 ---@field claim_timeout integer counts up if the nest box is claimed but empty. when it hits 8400 ticks, the nest box is unclaimed.
 df.building_nest_boxst = {}
 
----@param key integer
----@return building_nest_boxst|nil
-function df.building_nest_boxst.find(key) end
-
 ---@class building_offering_placest: building_actual
 df.building_offering_placest = {}
-
----@param key integer
----@return building_offering_placest|nil
-function df.building_offering_placest.find(key) end
 
 ---@class building_roadst: building_actual
 df.building_roadst = {}
 
----@param key integer
----@return building_roadst|nil
-function df.building_roadst.find(key) end
-
 ---@class building_road_dirtst: building_roadst
----@field material_amount integer
 df.building_road_dirtst = {}
-
----@param key integer
----@return building_road_dirtst|nil
-function df.building_road_dirtst.find(key) end
 
 ---@class building_road_pavedst: building_roadst
 ---@field material_amount integer
 ---@field terrain_purge_timer integer
 df.building_road_pavedst = {}
-
----@param key integer
----@return building_road_pavedst|nil
-function df.building_road_pavedst.find(key) end
 
 ---@class _shop_type: integer, string, df.enum
 ---@field GeneralStore 0
@@ -2092,10 +1602,6 @@ df.shop_type = {}
 ---@field shop_flags building_shopst_shop_flags
 ---@field type shop_type
 df.building_shopst = {}
-
----@param key integer
----@return building_shopst|nil
-function df.building_shopst.find(key) end
 
 ---@class _building_shopst_shop_flags: integer, string, df.bitfield
 ---@field for_sale 0
@@ -2127,10 +1633,6 @@ df.siegeengine_type = {}
 ---@field fill_timer integer
 df.building_siegeenginest = {}
 
----@param key integer
----@return building_siegeenginest|nil
-function df.building_siegeenginest.find(key) end
-
 ---@class _building_siegeenginest_facing: integer, string, df.enum
 ---@field Left 0
 ---@field [0] "Left"
@@ -2152,6 +1654,7 @@ df.building_siegeenginest.T_facing = {}
 ---@field [3] boolean
 ---@field Down boolean
 
+
 ---@class _building_siegeenginest_action: integer, string, df.enum
 ---@field NotInUse 0
 ---@field [0] "NotInUse"
@@ -2170,46 +1673,18 @@ df.building_siegeenginest.T_action = {}
 ---@field FireAtWill boolean
 
 ---@class building_slabst: building_actual
----@field unk_1 integer
 df.building_slabst = {}
 
----@param key integer
----@return building_slabst|nil
-function df.building_slabst.find(key) end
-
 ---@class building_statuest: building_actual
----@field unk_1 integer
 df.building_statuest = {}
 
----@param key integer
----@return building_statuest|nil
-function df.building_statuest.find(key) end
-
 ---@class building_supportst: building_actual
----@field support_flags building_supportst_support_flags
 df.building_supportst = {}
-
----@param key integer
----@return building_supportst|nil
-function df.building_supportst.find(key) end
-
----@class _building_supportst_support_flags: integer, string, df.bitfield
----@field triggered 0
----@field [0] "triggered"
-df.building_supportst.T_support_flags = {}
-
----@class building_supportst_support_flags
----@field [0] boolean
----@field triggered boolean
 
 ---@class building_tablest: building_actual
 ---@field table_flags building_tablest_table_flags
 ---@field users building_users
 df.building_tablest = {}
-
----@param key integer
----@return building_tablest|nil
-function df.building_tablest.find(key) end
 
 ---@class _building_tablest_table_flags: integer, string, df.bitfield
 ---@field meeting_hall 0
@@ -2225,18 +1700,10 @@ df.building_tablest.T_table_flags = {}
 ---@field users building_users
 df.building_traction_benchst = {}
 
----@param key integer
----@return building_traction_benchst|nil
-function df.building_traction_benchst.find(key) end
-
 ---@class building_tradedepotst: building_actual
 ---@field trade_flags building_tradedepotst_trade_flags
 ---@field accessible integer
 df.building_tradedepotst = {}
-
----@param key integer
----@return building_tradedepotst|nil
-function df.building_tradedepotst.find(key) end
 
 ---@class _building_tradedepotst_trade_flags: integer, string, df.bitfield
 ---@field trader_requested 0
@@ -2292,10 +1759,6 @@ df.trap_type = {}
 ---@field flags pressure_plate_info_flags
 df.pressure_plate_info = {}
 
----@param key integer
----@return pressure_plate_info|nil
-function df.pressure_plate_info.find(key) end
-
 ---@class _pressure_plate_info_flags: integer, string, df.bitfield
 ---@field units 0
 ---@field [0] "units"
@@ -2332,7 +1795,7 @@ df.pressure_plate_info.T_flags = {}
 ---@field fill_timer integer
 ---@field stop_flags building_trapst_stop_flags
 ---@field linked_mechanisms item[]
----@field observed_by_civs df.container<integer> References: historical_entity
+---@field observed_by_civs df.container References: historical_entity
 ---@field profile workshop_profile
 ---@field plate_info pressure_plate_info
 ---@field friction integer
@@ -2341,10 +1804,6 @@ df.pressure_plate_info.T_flags = {}
 ---@field dump_y_shift integer
 ---@field stop_trigger_timer integer
 df.building_trapst = {}
-
----@param key integer
----@return building_trapst|nil
-function df.building_trapst.find(key) end
 
 ---@class _building_trapst_stop_flags: integer, string, df.bitfield
 ---@field disabled 0
@@ -2366,36 +1825,20 @@ df.building_trapst.T_stop_flags = {}
 ---@class building_wagonst: building_actual
 df.building_wagonst = {}
 
----@param key integer
----@return building_wagonst|nil
-function df.building_wagonst.find(key) end
-
 ---@class building_weaponst: building_actual
 ---@field gate_flags gate_flags
 ---@field timer integer
 df.building_weaponst = {}
-
----@param key integer
----@return building_weaponst|nil
-function df.building_weaponst.find(key) end
 
 ---@class building_squad_use: df.class
 ---@field squad_id integer References: squad
 ---@field mode squad_use_flags
 df.building_squad_use = {}
 
----@param key integer
----@return building_squad_use|nil
-function df.building_squad_use.find(key) end
-
 ---@class building_weaponrackst: building_actual
 ---@field rack_flags integer
 ---@field specific_squad integer References: squad
 df.building_weaponrackst = {}
-
----@param key integer
----@return building_weaponrackst|nil
-function df.building_weaponrackst.find(key) end
 
 ---@class building_wellst: building_actual
 ---@field well_flags building_wellst_well_flags
@@ -2404,10 +1847,6 @@ function df.building_weaponrackst.find(key) end
 ---@field bucket_timer integer 0-9; counts up when raising, down when lowering
 ---@field check_water_timer integer
 df.building_wellst = {}
-
----@param key integer
----@return building_wellst|nil
-function df.building_wellst.find(key) end
 
 ---@class _building_wellst_well_flags: integer, string, df.bitfield
 ---@field lowering 0
@@ -2423,26 +1862,13 @@ df.building_wellst.T_well_flags = {}
 ---@field just_raised boolean
 
 ---@class building_windowst: building_actual
----@field unk_1 integer
 df.building_windowst = {}
-
----@param key integer
----@return building_windowst|nil
-function df.building_windowst.find(key) end
 
 ---@class building_window_glassst: building_windowst
 df.building_window_glassst = {}
 
----@param key integer
----@return building_window_glassst|nil
-function df.building_window_glassst.find(key) end
-
 ---@class building_window_gemst: building_windowst
 df.building_window_gemst = {}
-
----@param key integer
----@return building_window_gemst|nil
-function df.building_window_gemst.find(key) end
 
 ---@class _dfhack_room_quality_level: integer, string, df.enum
 ---<br> Not in DF<br><br> Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum<br> Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum<br> Throne Room | Great Bedroom | Great Dining Room | Mausoleum<br> Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb<br> Decent Office | Decent Quarters | Decent Dining Room | Tomb<br> Office | Quarters | Dining Room | Burial Chamber<br> Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber<br> Meager Office | Meager Quarters | Meager Dining Room | Grave<br>

@@ -6,18 +6,10 @@
 ---@field y integer
 df.coord2d = {}
 
----@param key integer
----@return coord2d|nil
-function df.coord2d.find(key) end
-
 ---@class coord2d_path: df.class
----@field x df.container<integer>
----@field y df.container<integer>
+---@field x df.container
+---@field y df.container
 df.coord2d_path = {}
-
----@param key integer
----@return coord2d_path|nil
-function df.coord2d_path.find(key) end
 
 ---@class coord: df.class
 ---@field x integer
@@ -25,19 +17,11 @@ function df.coord2d_path.find(key) end
 ---@field z integer
 df.coord = {}
 
----@param key integer
----@return coord|nil
-function df.coord.find(key) end
-
 ---@class coord_path: df.class
----@field x df.container<integer>
----@field y df.container<integer>
----@field z df.container<integer>
+---@field x df.container
+---@field y df.container
+---@field z df.container
 df.coord_path = {}
-
----@param key integer
----@return coord_path|nil
-function df.coord_path.find(key) end
 
 ---@class _tile_traffic: integer, string, df.enum
 ---@field Normal 0
@@ -477,19 +461,11 @@ df.tile_liquid_flow = {}
 ---@field bits integer[]
 df.tile_bitmask = {}
 
----@param key integer
----@return tile_bitmask|nil
-function df.tile_bitmask.find(key) end
-
 ---@class block_burrow: df.class
 ---@field id integer References: burrow
 ---@field tile_bitmask tile_bitmask
 ---@field link block_burrow_link
 df.block_burrow = {}
-
----@param key integer
----@return block_burrow|nil
-function df.block_burrow.find(key) end
 
 ---flood; 256*cost for straight, 362*cost for diagonal
 ---@class map_block: df.class
@@ -511,10 +487,10 @@ function df.block_burrow.find(key) end
 ---@field designation tile_designation[][]
 ---@field occupancy tile_occupancy[][]
 ---@field fog_of_war integer[][] for adventure mode
----@field path_cost integer[][] flood; 256*cost for straight, 362*cost for diagonal
----@field path_tag integer[][] flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
----@field walkable integer[][] 0 = non-walkable; same nonzero at A and B = walkable from A to B
----@field map_edge_distance integer[][] 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@field path_cost map_block_path_cost flood; 256*cost for straight, 362*cost for diagonal
+---@field path_tag map_block_path_tag flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
+---@field walkable map_block_walkable 0 = non-walkable; same nonzero at A and B = walkable from A to B
+---@field map_edge_distance map_block_map_edge_distance 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
 ---@field temperature_1 integer[][]
 ---@field temperature_2 integer[][]
 ---@field unk13 integer[][]
@@ -522,9 +498,24 @@ function df.block_burrow.find(key) end
 ---@field region_offset integer[]
 df.map_block = {}
 
----@param key integer
----@return map_block|nil
-function df.map_block.find(key) end
+---flood; 256*cost for straight, 362*cost for diagonal
+---@class map_block_path_cost: df.class
+df.map_block.T_path_cost = {}
+
+
+---flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
+---@class map_block_path_tag: df.class
+df.map_block.T_path_tag = {}
+
+
+---0 = non-walkable; same nonzero at A and B = walkable from A to B
+---@class map_block_walkable: df.class
+df.map_block.T_walkable = {}
+
+
+---1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@class map_block_map_edge_distance: df.class
+df.map_block.T_map_edge_distance = {}
 
 ---@class cave_column: df.class
 ---@field unk_z1 integer
@@ -532,10 +523,6 @@ function df.map_block.find(key) end
 ---@field unk_3 integer
 ---@field unk_4 cave_column_unk_4
 df.cave_column = {}
-
----@param key integer
----@return cave_column|nil
-function df.cave_column.find(key) end
 
 ---@class _cave_column_unk_4: integer, string, df.bitfield
 ---@field unk_0 0
@@ -550,13 +537,6 @@ df.cave_column.T_unk_4 = {}
 ---@field [1] boolean
 ---@field unk_1 boolean
 
----@param file file_compressorst
-function df.cave_column:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.cave_column:read_file(file, loadversion) end
-
 ---@class cave_column_rectangle: df.class
 ---@field unk_1 integer
 ---@field unk_x1 integer
@@ -567,10 +547,6 @@ function df.cave_column:read_file(file, loadversion) end
 ---@field unk_6 coord_path
 ---@field unk_7 cave_column_rectangle_unk_7
 df.cave_column_rectangle = {}
-
----@param key integer
----@return cave_column_rectangle|nil
-function df.cave_column_rectangle.find(key) end
 
 ---@class _cave_column_rectangle_unk_7: integer, string, df.bitfield
 ---@field unk_0 0
@@ -589,13 +565,6 @@ df.cave_column_rectangle.T_unk_7 = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
----@param file file_compressorst
-function df.cave_column_rectangle:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.cave_column_rectangle:read_file(file, loadversion) end
-
 ---@class map_block_column: df.class
 ---@field sink_level integer water at or above this level sinks into aquifer tiles
 ---@field beach_level integer water at this level disappears if above more water
@@ -613,19 +582,11 @@ function df.cave_column_rectangle:read_file(file, loadversion) end
 ---@field plants plant[] Only populated for the top left column in each mid level tile
 df.map_block_column = {}
 
----@param key integer
----@return map_block_column|nil
-function df.map_block_column.find(key) end
-
 ---@class map_block_column_unmined_glyphs: df.class
 ---@field x integer[]
 ---@field y integer[]
 ---@field tile integer[]
 df.map_block_column.T_unmined_glyphs = {}
-
----@param key integer
----@return map_block_column_unmined_glyphs|nil
-function df.map_block_column.T_unmined_glyphs.find(key) end
 
 ---@class _block_square_event_type: integer, string, df.enum
 ---@field mineral 0
@@ -665,39 +626,18 @@ df.block_square_event_type = {}
 ---@field designation_priority boolean
 
 ---@class block_square_event: df.class
+---@field getType any
+---@field write_file any
+---@field read_file any
+---@field isEmpty any
+---@field checkTemperature any
 df.block_square_event = {}
-
----@param key integer
----@return block_square_event|nil
-function df.block_square_event.find(key) end
-
----@return block_square_event_type
-function df.block_square_event:getType() end
-
----@param file file_compressorst
-function df.block_square_event:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.block_square_event:read_file(file, loadversion) end
-
----@return boolean
-function df.block_square_event:isEmpty() end
-
----@param x integer
----@param y integer
----@param temperature integer
-function df.block_square_event:checkTemperature(x, y, temperature) end
 
 ---@class block_square_event_mineralst: block_square_event
 ---@field inorganic_mat integer References: inorganic_raw
 ---@field tile_bitmask tile_bitmask
 ---@field flags block_square_event_mineralst_flags
 df.block_square_event_mineralst = {}
-
----@param key integer
----@return block_square_event_mineralst|nil
-function df.block_square_event_mineralst.find(key) end
 
 ---@class _block_square_event_mineralst_flags: integer, string, df.bitfield
 ---@field discovered 0
@@ -729,18 +669,10 @@ df.block_square_event_mineralst.T_flags = {}
 ---@field liquid_type tile_liquid[][]
 df.block_square_event_frozen_liquidst = {}
 
----@param key integer
----@return block_square_event_frozen_liquidst|nil
-function df.block_square_event_frozen_liquidst.find(key) end
-
 ---@class block_square_event_world_constructionst: block_square_event
 ---@field construction_id integer References: world_construction
 ---@field tile_bitmask tile_bitmask
 df.block_square_event_world_constructionst = {}
-
----@param key integer
----@return block_square_event_world_constructionst|nil
-function df.block_square_event_world_constructionst.find(key) end
 
 ---@class block_square_event_material_spatterst: block_square_event
 ---@field mat_type integer References: material
@@ -751,22 +683,14 @@ function df.block_square_event_world_constructionst.find(key) end
 ---@field max_temperature integer
 df.block_square_event_material_spatterst = {}
 
----@param key integer
----@return block_square_event_material_spatterst|nil
-function df.block_square_event_material_spatterst.find(key) end
-
 ---@class block_square_event_grassst: block_square_event
 ---@field plant_index integer References: plant_raw
 ---@field amount integer[][]
 df.block_square_event_grassst = {}
 
----@param key integer
----@return block_square_event_grassst|nil
-function df.block_square_event_grassst.find(key) end
-
 ---@class block_square_event_spoorst: block_square_event
----@field flags _[][]
----@field unk_2 _[][]
+---@field flags block_square_event_spoorst_flags[][]
+---@field unk_2 block_square_event_spoorst_unk_2[][]
 ---@field unk_3 integer[][]
 ---@field race integer[][]
 ---@field caste integer[][]
@@ -775,9 +699,16 @@ function df.block_square_event_grassst.find(key) end
 ---@field year_tick integer
 df.block_square_event_spoorst = {}
 
----@param key integer
----@return block_square_event_spoorst|nil
-function df.block_square_event_spoorst.find(key) end
+---@class block_square_event_spoorst_flags: df.class
+df.block_square_event_spoorst.T_flags = {}
+
+
+---@class block_square_event_spoorst_unk_2: df.class
+---@field unk_2_a integer
+---@field unk_2_b integer
+---@field unk_2_c integer
+---@field unk_2_d integer
+df.block_square_event_spoorst.T_unk_2 = {}
 
 ---@class block_square_event_item_spatterst: block_square_event
 ---@field item_type item_type
@@ -791,17 +722,8 @@ function df.block_square_event_spoorst.find(key) end
 ---@field temp2 integer
 df.block_square_event_item_spatterst = {}
 
----@param key integer
----@return block_square_event_item_spatterst|nil
-function df.block_square_event_item_spatterst.find(key) end
-
 ---@class block_square_event_designation_priorityst: block_square_event
----@field priority integer[][]
 df.block_square_event_designation_priorityst = {}
-
----@param key integer
----@return block_square_event_designation_priorityst|nil
-function df.block_square_event_designation_priorityst.find(key) end
 
 ---@class _feature_type: integer, string, df.enum
 ---@field outdoor_river 0
@@ -853,100 +775,39 @@ df.feature_type = {}
 ---@field irritation_level integer divide by 10k for attack chance, max 100k
 ---@field irritation_attacks integer maxes at 10?
 ---@field embark_pos coord2d_path
----@field min_map_z df.container<integer>
----@field max_map_z df.container<integer>
+---@field min_map_z df.container
+---@field max_map_z df.container
 df.feature = {}
-
----@param key integer
----@return feature|nil
-function df.feature.find(key) end
-
----@return feature_type
-function df.feature:getType() end
-
----@param file file_compressorst
-function df.feature:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.feature:read_file(file, loadversion) end
-
----@param x integer
----@param y integer
----@param z integer
-function df.feature:shiftCoords(x, y, z) end
 
 ---@class feature_outdoor_riverst: feature
 df.feature_outdoor_riverst = {}
 
----@param key integer
----@return feature_outdoor_riverst|nil
-function df.feature_outdoor_riverst.find(key) end
-
 ---@class feature_cavest: feature
 df.feature_cavest = {}
-
----@param key integer
----@return feature_cavest|nil
-function df.feature_cavest.find(key) end
 
 ---@class feature_pitst: feature
 df.feature_pitst = {}
 
----@param key integer
----@return feature_pitst|nil
-function df.feature_pitst.find(key) end
-
 ---@class feature_magma_poolst: feature
----@field magma_fill_z integer
 df.feature_magma_poolst = {}
 
----@param key integer
----@return feature_magma_poolst|nil
-function df.feature_magma_poolst.find(key) end
-
 ---@class feature_volcanost: feature
----@field magma_fill_z integer
 df.feature_volcanost = {}
-
----@param key integer
----@return feature_volcanost|nil
-function df.feature_volcanost.find(key) end
 
 ---@class feature_deep_special_tubest: feature
 df.feature_deep_special_tubest = {}
 
----@param key integer
----@return feature_deep_special_tubest|nil
-function df.feature_deep_special_tubest.find(key) end
-
 ---@class feature_deep_surface_portalst: feature
 df.feature_deep_surface_portalst = {}
-
----@param key integer
----@return feature_deep_surface_portalst|nil
-function df.feature_deep_surface_portalst.find(key) end
 
 ---@class feature_subterranean_from_layerst: feature
 df.feature_subterranean_from_layerst = {}
 
----@param key integer
----@return feature_subterranean_from_layerst|nil
-function df.feature_subterranean_from_layerst.find(key) end
-
 ---@class feature_magma_core_from_layerst: feature
 df.feature_magma_core_from_layerst = {}
 
----@param key integer
----@return feature_magma_core_from_layerst|nil
-function df.feature_magma_core_from_layerst.find(key) end
-
 ---@class feature_underworld_from_layerst: feature
 df.feature_underworld_from_layerst = {}
-
----@param key integer
----@return feature_underworld_from_layerst|nil
-function df.feature_underworld_from_layerst.find(key) end
 
 ---@class _feature_init_flags: integer, string, df.enum
 ---@field unk_0 0
@@ -1009,106 +870,20 @@ df.layer_type = {}
 ---@field end_depth layer_type
 df.feature_init = {}
 
----@param key integer
----@return feature_init|nil
-function df.feature_init.find(key) end
-
----@return feature_type
-function df.feature_init:getType() end
-
----@param file file_compressorst
----@param include_feature boolean
-function df.feature_init:write_file(file, include_feature) end
-
----@param file file_compressorst
----@param loadversion save_version
----@param include_feature boolean
-function df.feature_init:read_file(file, loadversion, include_feature) end
-
----@param unk_0 feature
----@return feature
-function df.feature_init:createFeature(unk_0) end
-
----destroyFeature(), then createFeature()
----@param unk_0 feature
----@return feature
-function df.feature_init:recreateFeature(unk_0) end
-
-function df.feature_init:destroyFeature() end
-
----@param unk_0 feature
----@return feature
-function df.feature_init:getFeature(unk_0) end
-
----@param mat_type integer
----@param mat_index integer
-function df.feature_init:getMaterial(mat_type, mat_index) end
-
----@param foreground integer
----@param background integer
----@param bright integer
-function df.feature_init:getColor(foreground, background, bright) end
-
----@param name string
-function df.feature_init:getName(name) end
-
----@return boolean
-function df.feature_init:isWater() end
-
----@return boolean
-function df.feature_init:isSubterranean() end
-
----@return boolean
-function df.feature_init:isMagma() end
-
----@return boolean
-function df.feature_init:isChasm() end
-
----@return boolean
-function df.feature_init:isLayer() end
-
----@return integer
-function df.feature_init:getLayer() end
-
 ---@class feature_init_outdoor_riverst: feature_init
----@field feature feature_outdoor_riverst
 df.feature_init_outdoor_riverst = {}
 
----@param key integer
----@return feature_init_outdoor_riverst|nil
-function df.feature_init_outdoor_riverst.find(key) end
-
 ---@class feature_init_cavest: feature_init
----@field feature feature_cavest
 df.feature_init_cavest = {}
 
----@param key integer
----@return feature_init_cavest|nil
-function df.feature_init_cavest.find(key) end
-
 ---@class feature_init_pitst: feature_init
----@field feature feature_pitst
 df.feature_init_pitst = {}
 
----@param key integer
----@return feature_init_pitst|nil
-function df.feature_init_pitst.find(key) end
-
 ---@class feature_init_magma_poolst: feature_init
----@field feature feature_magma_poolst
 df.feature_init_magma_poolst = {}
 
----@param key integer
----@return feature_init_magma_poolst|nil
-function df.feature_init_magma_poolst.find(key) end
-
 ---@class feature_init_volcanost: feature_init
----@field feature feature_volcanost
 df.feature_init_volcanost = {}
-
----@param key integer
----@return feature_init_volcanost|nil
-function df.feature_init_volcanost.find(key) end
 
 ---@class feature_init_deep_special_tubest: feature_init
 ---@field mat_type integer References: material
@@ -1116,37 +891,21 @@ function df.feature_init_volcanost.find(key) end
 ---@field feature feature_deep_special_tubest
 df.feature_init_deep_special_tubest = {}
 
----@param key integer
----@return feature_init_deep_special_tubest|nil
-function df.feature_init_deep_special_tubest.find(key) end
-
 ---@class feature_init_deep_surface_portalst: feature_init
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field feature feature_deep_surface_portalst
 df.feature_init_deep_surface_portalst = {}
 
----@param key integer
----@return feature_init_deep_surface_portalst|nil
-function df.feature_init_deep_surface_portalst.find(key) end
-
 ---@class feature_init_subterranean_from_layerst: feature_init
 ---@field layer integer References: world_underground_region
 ---@field feature feature_subterranean_from_layerst
 df.feature_init_subterranean_from_layerst = {}
 
----@param key integer
----@return feature_init_subterranean_from_layerst|nil
-function df.feature_init_subterranean_from_layerst.find(key) end
-
 ---@class feature_init_magma_core_from_layerst: feature_init
 ---@field layer integer References: world_underground_region
 ---@field feature feature_magma_core_from_layerst
 df.feature_init_magma_core_from_layerst = {}
-
----@param key integer
----@return feature_init_magma_core_from_layerst|nil
-function df.feature_init_magma_core_from_layerst.find(key) end
 
 ---@class feature_init_underworld_from_layerst: feature_init
 ---@field layer integer References: world_underground_region
@@ -1154,10 +913,6 @@ function df.feature_init_magma_core_from_layerst.find(key) end
 ---@field mat_index integer
 ---@field feature feature_underworld_from_layerst
 df.feature_init_underworld_from_layerst = {}
-
----@param key integer
----@return feature_init_underworld_from_layerst|nil
-function df.feature_init_underworld_from_layerst.find(key) end
 
 ---@class _feature_alteration_type: integer, string, df.enum
 ---@field new_pop_max 0
@@ -1173,38 +928,18 @@ df.feature_alteration_type = {}
 ---@field new_lava_fill_z boolean
 
 ---@class feature_alteration: df.class
+---@field getType any
+---@field write_file any
+---@field read_file any
 df.feature_alteration = {}
-
----@param key integer
----@return feature_alteration|nil
-function df.feature_alteration.find(key) end
-
----@return feature_alteration_type
-function df.feature_alteration:getType() end
-
----@param file file_compressorst
-function df.feature_alteration:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.feature_alteration:read_file(file, loadversion) end
 
 ---@class feature_alteration_new_pop_maxst: feature_alteration
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.feature_alteration_new_pop_maxst = {}
 
----@param key integer
----@return feature_alteration_new_pop_maxst|nil
-function df.feature_alteration_new_pop_maxst.find(key) end
-
 ---@class feature_alteration_new_lava_fill_zst: feature_alteration
----@field magma_fill_z integer
 df.feature_alteration_new_lava_fill_zst = {}
-
----@param key integer
----@return feature_alteration_new_lava_fill_zst|nil
-function df.feature_alteration_new_lava_fill_zst.find(key) end
 
 ---@class _world_construction_type: integer, string, df.enum
 ---@field ROAD 0
@@ -1230,25 +965,11 @@ df.world_construction_type = {}
 ---@class world_construction_square: df.class
 ---@field region_pos coord2d
 ---@field construction_id integer References: world_construction
----@field embark_x df.container<integer>
----@field embark_y df.container<integer>
----@field embark_unk df.container<integer>
----@field embark_z df.container<integer>
+---@field embark_x df.container
+---@field embark_y df.container
+---@field embark_unk df.container
+---@field embark_z df.container
 df.world_construction_square = {}
-
----@param key integer
----@return world_construction_square|nil
-function df.world_construction_square.find(key) end
-
----@return world_construction_type
-function df.world_construction_square:getType() end
-
----@param file file_compressorst
-function df.world_construction_square:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.world_construction_square:read_file(file, loadversion) end
 
 ---@class world_construction_square_roadst: world_construction_square
 ---@field item_type item_type
@@ -1257,16 +978,8 @@ function df.world_construction_square:read_file(file, loadversion) end
 ---@field mat_index integer
 df.world_construction_square_roadst = {}
 
----@param key integer
----@return world_construction_square_roadst|nil
-function df.world_construction_square_roadst.find(key) end
-
 ---@class world_construction_square_tunnelst: world_construction_square
 df.world_construction_square_tunnelst = {}
-
----@param key integer
----@return world_construction_square_tunnelst|nil
-function df.world_construction_square_tunnelst.find(key) end
 
 ---@class world_construction_square_bridgest: world_construction_square
 ---@field road_id integer References: world_construction<br>guess
@@ -1276,10 +989,6 @@ function df.world_construction_square_tunnelst.find(key) end
 ---@field mat_index integer
 df.world_construction_square_bridgest = {}
 
----@param key integer
----@return world_construction_square_bridgest|nil
-function df.world_construction_square_bridgest.find(key) end
-
 ---@class world_construction_square_wallst: world_construction_square
 ---@field item_type item_type
 ---@field item_subtype integer
@@ -1287,65 +996,23 @@ function df.world_construction_square_bridgest.find(key) end
 ---@field mat_index integer
 df.world_construction_square_wallst = {}
 
----@param key integer
----@return world_construction_square_wallst|nil
-function df.world_construction_square_wallst.find(key) end
-
 ---@class world_construction: df.instance
 ---@field id integer
 ---@field square_obj world_construction_square[]
 ---@field square_pos coord2d_path
 df.world_construction = {}
 
----@param key integer
----@return world_construction|nil
-function df.world_construction.find(key) end
-
----@return world_construction_type
-function df.world_construction:getType() end
-
----@param unk_0 language_name
----@return language_name
-function df.world_construction:getName(unk_0) end
-
----@param file file_compressorst
-function df.world_construction:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.world_construction:read_file(file, loadversion) end
-
 ---@class world_construction_roadst: world_construction
----@field name language_name
 df.world_construction_roadst = {}
 
----@param key integer
----@return world_construction_roadst|nil
-function df.world_construction_roadst.find(key) end
-
 ---@class world_construction_tunnelst: world_construction
----@field name language_name
 df.world_construction_tunnelst = {}
 
----@param key integer
----@return world_construction_tunnelst|nil
-function df.world_construction_tunnelst.find(key) end
-
 ---@class world_construction_bridgest: world_construction
----@field name language_name
 df.world_construction_bridgest = {}
 
----@param key integer
----@return world_construction_bridgest|nil
-function df.world_construction_bridgest.find(key) end
-
 ---@class world_construction_wallst: world_construction
----@field name language_name
 df.world_construction_wallst = {}
-
----@param key integer
----@return world_construction_wallst|nil
-function df.world_construction_wallst.find(key) end
 
 ---@class _biome_type: integer, string, df.enum
 ---@field MOUNTAIN 0
@@ -1579,10 +1246,6 @@ df.construction_flags = {}
 ---@field original_tile tiletype
 df.construction = {}
 
----@param key integer
----@return construction|nil
-function df.construction.find(key) end
-
 ---@class _flow_type: integer, string, df.enum
 ---@field Miasma 0
 ---@field [0] "Miasma"
@@ -1656,18 +1319,10 @@ df.flow_type = {}
 ---@field guide_id integer References: flow_guide
 df.flow_info = {}
 
----@param key integer
----@return flow_info|nil
-function df.flow_info.find(key) end
-
 ---@class flow_reuse_pool: df.class
 ---@field reuse_idx integer
 ---@field flags flow_reuse_pool_flags
 df.flow_reuse_pool = {}
-
----@param key integer
----@return flow_reuse_pool|nil
-function df.flow_reuse_pool.find(key) end
 
 ---@class _flow_reuse_pool_flags: integer, string, df.bitfield
 ---@field active 0
@@ -1696,32 +1351,8 @@ df.flow_guide_type = {}
 ---@field unk_8 integer
 df.flow_guide = {}
 
----@param key integer
----@return flow_guide|nil
-function df.flow_guide.find(key) end
-
----@return flow_guide_type
-function df.flow_guide:getType() end
-
----@param x integer
----@param y integer
----@param z integer
-function df.flow_guide:shiftCoords(x, y, z) end
-
----@param file file_compressorst
-function df.flow_guide:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.flow_guide:read_file(file, loadversion) end
-
 ---@class flow_guide_trailing_flowst: flow_guide
----@field unk_1 coord[]
 df.flow_guide_trailing_flowst = {}
-
----@param key integer
----@return flow_guide_trailing_flowst|nil
-function df.flow_guide_trailing_flowst.find(key) end
 
 ---@class flow_guide_item_cloudst: flow_guide
 ---@field item_type item_type
@@ -1732,10 +1363,6 @@ function df.flow_guide_trailing_flowst.find(key) end
 ---@field unk_1c integer
 ---@field unk_1 coord[]
 df.flow_guide_item_cloudst = {}
-
----@param key integer
----@return flow_guide_item_cloudst|nil
-function df.flow_guide_item_cloudst.find(key) end
 
 ---@class effect_info: df.class
 ---@field id integer assigned during Save
@@ -1748,10 +1375,6 @@ function df.flow_guide_item_cloudst.find(key) end
 ---@field timer integer
 df.effect_info = {}
 
----@param key integer
----@return effect_info|nil
-function df.effect_info.find(key) end
-
 ---@class _region_block_event_type: integer, string, df.enum
 ---@field SphereField 0
 ---@field [0] "SphereField"
@@ -1762,27 +1385,11 @@ df.region_block_event_type = {}
 ---@field SphereField boolean
 
 ---@class region_block_eventst: df.class
+---@field getType any
+---@field write_file any
+---@field read_file any
 df.region_block_eventst = {}
 
----@param key integer
----@return region_block_eventst|nil
-function df.region_block_eventst.find(key) end
-
----@return region_block_event_type
-function df.region_block_eventst:getType() end
-
----@param file file_compressorst
-function df.region_block_eventst:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.region_block_eventst:read_file(file, loadversion) end
-
 ---@class region_block_event_sphere_fieldst: region_block_eventst
----@field unk_1 integer[]
 df.region_block_event_sphere_fieldst = {}
-
----@param key integer
----@return region_block_event_sphere_fieldst|nil
-function df.region_block_event_sphere_fieldst.find(key) end
 

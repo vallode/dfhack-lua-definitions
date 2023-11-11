@@ -213,7 +213,7 @@ df.ui_advmode_menu = {}
 ---@class conversation: df.class
 ---@field conv_title string
 ---@field state conversation_state
----@field talk_choices df.container<integer>
+---@field talk_choices df.container
 ---@field unk_30 integer References: unit
 ---@field unk_34 integer References: historical_figure
 ---@field unk_38 integer
@@ -229,18 +229,14 @@ df.ui_advmode_menu = {}
 ---@field unk_78 integer
 ---@field unk_7c integer
 ---@field unk_80 integer
----@field unk_84 df.container<integer>
----@field unk_94 df.container<integer>
----@field unk_a4 df.container<integer>
+---@field unk_84 df.container
+---@field unk_94 df.container
+---@field unk_a4 df.container
 ---@field location building civzone
 ---@field unk_b8 integer
 ---@field unk_bc integer
 ---@field speech conversation_speech[]
 df.conversation = {}
-
----@param key integer
----@return conversation|nil
-function df.conversation.find(key) end
 
 ---@class _conversation_state: integer, string, df.enum
 ---@field started 0
@@ -263,6 +259,7 @@ df.conversation.T_state = {}
 ---@field [3] boolean
 ---@field quit boolean
 
+
 ---@class conversation_speech: df.class
 ---@field text string[] wordwrap
 ---@field speaker integer References: unit
@@ -272,10 +269,6 @@ df.conversation.T_state = {}
 ---@field bg integer
 ---@field bright integer
 df.conversation.T_speech = {}
-
----@param key integer
----@return conversation_speech|nil
-function df.conversation.T_speech.find(key) end
 
 ---@class _talk_choice_type: integer, string, df.enum
 ---@field Greet 0
@@ -1216,19 +1209,11 @@ df.assume_identity_mode = {}
 ---@field unk_4 integer
 df.talk_choice = {}
 
----@param key integer
----@return talk_choice|nil
-function df.talk_choice.find(key) end
-
 ---@class talk_choice_unk: df.class
 ---@field event entity_event
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.talk_choice.T_unk = {}
-
----@param key integer
----@return talk_choice_unk|nil
-function df.talk_choice.T_unk.find(key) end
 
 ---@class adventurest: df.class
 ---@field menu ui_advmode_menu
@@ -1265,17 +1250,17 @@ function df.talk_choice.T_unk.find(key) end
 ---@field bogeymen_killed integer Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
 ---@field bogeymen_ambush_delay integer Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
 ---@field unk_18 integer
----@field searched_x df.container<integer>
----@field searched_y df.container<integer>
----@field searched_z df.container<integer>
----@field searched_timeout df.container<integer>
+---@field searched_x df.container
+---@field searched_y df.container
+---@field searched_z df.container
+---@field searched_timeout df.container
 ---@field unk_19 integer
 ---@field unk_20 integer
 ---@field unk_21 integer
 ---@field unk_23 integer
----@field unk_24 df.container<integer> References: world_site
----@field unk_25 df.container<integer>
----@field unk_26 df.container<integer>
+---@field unk_24 df.container References: world_site
+---@field unk_25 df.container
+---@field unk_26 df.container
 ---@field player_army_id integer References: army
 ---@field gait_index integer Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
 ---@field gait_unk integer Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
@@ -1288,7 +1273,7 @@ function df.talk_choice.T_unk.find(key) end
 ---@field unk_x integer[]
 ---@field unk_y integer[]
 ---@field unk_z integer[]
----@field unk_v40_1 integer[]
+---@field unk_v40_1 adventurest_unk_v40_1
 ---@field unk_39 integer[]
 ---@field unk_40 integer[]
 ---@field unk_41 integer[]
@@ -1313,7 +1298,7 @@ function df.talk_choice.T_unk.find(key) end
 ---@field unk_56 integer
 ---@field unk_57 integer
 ---@field unk_58 integer
----@field unk_59 df.container<integer>
+---@field unk_59 df.container
 ---@field unk_60 integer
 ---@field unk_61 integer
 ---@field long_action_duration integer Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
@@ -1326,13 +1311,13 @@ function df.talk_choice.T_unk.find(key) end
 ---@field track_viewed_unk_1 integer Set when viewing a spoor.
 ---@field track_viewed_unk_2 integer Set when viewing a spoor.
 ---@field conversation adventurest_conversation
----@field unk_70 df.container<integer>
+---@field unk_70 df.container
 ---@field unk_71 integer
----@field unk_72 df.container<integer>
+---@field unk_72 df.container
 ---@field interacts adventure_item_interact_choicest[]
 ---@field commands adventure_optionst[]
 ---@field movements adventure_movement_optionst[]
----@field unk_75 df.container<integer>
+---@field unk_75 df.container
 ---@field sleep_hours integer
 ---@field sleep_until_dawn boolean
 ---@field unk_78 integer
@@ -1373,10 +1358,6 @@ function df.talk_choice.T_unk.find(key) end
 ---@field unk_96 integer
 df.adventurest = {}
 
----@param key integer
----@return adventurest|nil
-function df.adventurest.find(key) end
-
 ---@class _adventurest_travel_right_map: integer, string, df.enum
 ---@field MapNone 0
 ---@field [0] "MapNone"
@@ -1393,6 +1374,7 @@ df.adventurest.T_travel_right_map = {}
 ---@field MapSite boolean
 ---@field [2] boolean
 ---@field MapWorld boolean
+
 
 ---@class _adventurest_show_menu: integer, string, df.enum
 ---bottom menu in travel mode
@@ -1420,15 +1402,21 @@ df.adventurest.T_show_menu = {}
 ---@field [4] boolean
 ---@field OneRow boolean
 
+
+---@class adventurest_unk_v40_1: df.class
+---@field unk_s1 integer
+---@field unk_s2 integer
+---@field unk_s3 integer
+---@field unk_s4 integer
+---@field unk_s5 integer
+df.adventurest.T_unk_v40_1 = {}
+
+
 ---@class adventurest_unk_3170: df.class
 ---@field unk_1 adventurest.T_unk_3170_unk_1[]
----@field unk_2 df.container<integer>[]
+---@field unk_2 adventurest.T_unk_3170_unk_2
 ---@field unk_3 integer
 df.adventurest.T_unk_3170 = {}
-
----@param key integer
----@return adventurest_unk_3170|nil
-function df.adventurest.T_unk_3170.find(key) end
 
 ---@class adventurest.T_unk_3170_unk_1: df.class
 ---@field unk_0 entity_event
@@ -1449,9 +1437,12 @@ function df.adventurest.T_unk_3170.find(key) end
 ---@field unk_60 integer
 df.adventurest.T_unk_3170.T_unk_1 = {}
 
----@param key integer
----@return adventurest.T_unk_3170_unk_1|nil
-function df.adventurest.T_unk_3170.T_unk_1.find(key) end
+
+---@class adventurest.T_unk_3170_unk_2: df.class
+---@field unk_1 df.container
+---@field unk_2 df.container
+df.adventurest.T_unk_3170.T_unk_2 = {}
+
 
 ---@class adventurest_unk_3124: df.class
 ---@field unk_1 integer
@@ -1473,7 +1464,7 @@ function df.adventurest.T_unk_3170.T_unk_1.find(key) end
 ---@field unk_17 integer
 ---@field unk_18 integer
 ---@field unk_19 integer
----@field unk_20 df.container<integer>
+---@field unk_20 df.container
 ---@field unk_21 integer
 ---@field unk_22 integer[]
 ---@field unk_23 integer
@@ -1482,49 +1473,46 @@ function df.adventurest.T_unk_3170.T_unk_1.find(key) end
 ---@field unk_26 integer
 ---@field unk_27 integer
 ---@field unk_28 integer
----@field unk_29 df.container<integer>
+---@field unk_29 df.container
 ---@field unk_30 integer
----@field unk_31 df.container<integer>
+---@field unk_31 df.container
 ---@field unk_32 integer
----@field unk_33 df.container<integer>
----@field unk_33b df.container<integer>
+---@field unk_33 df.container
+---@field unk_33b df.container
 ---@field unk_34 integer
 ---@field unk_35 integer
 ---@field unk_36 integer
 ---@field unk_36a integer
----@field unk_36b df.container<integer>
+---@field unk_36b df.container
 ---@field unk_36c integer
----@field unk_37 df.container<integer>
----@field unk_38 df.container<integer>
----@field unk_39 df.container<integer>
----@field unk_40 df.container<integer>
----@field unk_41 df.container<integer>
----@field unk_42 df.container<integer>
----@field unk_43 df.container<integer>
----@field unk_44 df.container<integer>
+---@field unk_37 df.container
+---@field unk_38 df.container
+---@field unk_39 df.container
+---@field unk_40 df.container
+---@field unk_41 df.container
+---@field unk_42 df.container
+---@field unk_43 df.container
+---@field unk_44 df.container
 ---@field unk_45 integer
 ---@field unk_46 string
 ---@field unk_47 integer
 ---@field unk_48 integer
 ---@field unk_49 integer
----@field unk_50 df.container<integer>
+---@field unk_50 df.container
 ---@field unk_51 boolean[]
 ---@field unk_52 boolean[]
 ---@field unk_53 integer
----@field unk_54 df.container<integer>
----@field unk_55 df.container<integer>
----@field unk_56 df.container<integer>
----@field unk_57 df.container<integer>
----@field unk_58 df.container<integer>
----@field unk_59 df.container<integer>
----@field unk_60 df.container<integer>
----@field unk_61 df.container<integer>
----@field unk_62 df.container<integer>
+---@field unk_54 df.container
+---@field unk_55 df.container
+---@field unk_56 df.container
+---@field unk_57 df.container
+---@field unk_58 df.container
+---@field unk_59 df.container
+---@field unk_60 df.container
+---@field unk_61 df.container
+---@field unk_62 df.container
 df.adventurest.T_unk_3124 = {}
 
----@param key integer
----@return adventurest_unk_3124|nil
-function df.adventurest.T_unk_3124.find(key) end
 
 ---@class _adventurest_charge_forbidden: integer, string, df.enum
 ---When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
@@ -1608,24 +1596,21 @@ df.adventurest.T_charge_forbidden = {}
 ---@field [18] boolean
 ---@field TargetTooFarAway boolean
 
+
 ---@class adventurest_conversation: df.class
 ---@field activity activity_entry[]
 ---@field activity_event activity_event[]
 ---@field cursor_activity integer
 ---@field cursor_choice integer
 ---@field current_page integer
----@field page_top_choices df.container<integer>
----@field page_bottom_choices df.container<integer>
+---@field page_top_choices df.container
+---@field page_bottom_choices df.container
 ---@field choices adventurest.T_conversation_choices[]
 ---@field filter string
 ---@field unk_1 integer
 ---@field targets adventurest.T_conversation_targets[]
 ---@field cursor_target integer
 df.adventurest.T_conversation = {}
-
----@param key integer
----@return adventurest_conversation|nil
-function df.adventurest.T_conversation.find(key) end
 
 ---@class adventurest.T_conversation_choices: df.class
 ---@field choice talk_choice
@@ -1635,19 +1620,12 @@ function df.adventurest.T_conversation.find(key) end
 ---@field ranking integer
 df.adventurest.T_conversation.T_choices = {}
 
----@param key integer
----@return adventurest.T_conversation_choices|nil
-function df.adventurest.T_conversation.T_choices.find(key) end
 
 ---@class adventurest.T_conversation_targets: df.class
 ---@field unit_id integer References: unit
 ---@field histfig_id integer References: historical_figure
 ---@field type adventurest.T_conversation.T_targets_type
 df.adventurest.T_conversation.T_targets = {}
-
----@param key integer
----@return adventurest.T_conversation_targets|nil
-function df.adventurest.T_conversation.T_targets.find(key) end
 
 ---@class _adventurest.T_conversation.T_targets_type: integer, string, df.enum
 ---@field Talk 0
@@ -1674,6 +1652,7 @@ df.adventurest.T_conversation.T_targets.T_type = {}
 ---@field [4] boolean
 ---@field Perform boolean
 
+
 ---@class _adventurest_rest_mode: integer, string, df.enum
 ---@field Wait 0
 ---@field [0] "Wait"
@@ -1687,23 +1666,21 @@ df.adventurest.T_rest_mode = {}
 ---@field [1] boolean
 ---@field Sleep boolean
 
+
 ---@class adventurest_companions: df.class
 ---@field unit unit[]
 ---@field unit_visible boolean[]
 ---@field unit_position coord_path
----@field all_histfigs df.container<integer> References: historical_figure<br>includes dead
+---@field all_histfigs df.container References: historical_figure<br>includes dead
 df.adventurest.T_companions = {}
 
----@param key integer
----@return adventurest_companions|nil
-function df.adventurest.T_companions.find(key) end
 
 ---@class adventurest_interactions: df.class
----@field party_core_members df.container<integer> References: historical_figure<br>Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
----@field party_pets df.container<integer> References: historical_figure<br>Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
----@field party_extra_members df.container<integer> References: historical_figure<br>Contains IDs of non-pet historical figures who joined the player party later on.
----@field unk_86 df.container<integer>
----@field unk_1 df.container<integer>
+---@field party_core_members df.container References: historical_figure<br>Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
+---@field party_pets df.container References: historical_figure<br>Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
+---@field party_extra_members df.container References: historical_figure<br>Contains IDs of non-pet historical figures who joined the player party later on.
+---@field unk_86 df.container
+---@field unk_1 df.container
 ---@field unk_1e4 integer
 ---@field unk_1e8 integer
 ---@field selected_ability integer natural ability
@@ -1715,70 +1692,61 @@ function df.adventurest.T_companions.find(key) end
 ---@field unk_200 integer
 df.adventurest.T_interactions = {}
 
----@param key integer
----@return adventurest_interactions|nil
-function df.adventurest.T_interactions.find(key) end
 
 ---@class adventurest_unk_v40_2: df.class
----@field unk_s1 df.container<integer>
----@field unk_s2 df.container<integer>
----@field unk_s3 df.container<integer>
----@field unk_s4 df.container<integer>
+---@field unk_s1 df.container
+---@field unk_s2 df.container
+---@field unk_s3 df.container
+---@field unk_s4 df.container
 ---@field unk_s5 integer
----@field unk_s6 df.container<integer>
----@field unk_s7 df.container<integer>
+---@field unk_s6 df.container
+---@field unk_s7 df.container
 df.adventurest.T_unk_v40_2 = {}
 
----@param key integer
----@return adventurest_unk_v40_2|nil
-function df.adventurest.T_unk_v40_2.find(key) end
 
 ---@class adventurest_unk_v40_3: df.class
 ---@field unk_s1 integer
----@field unk_s2 df.container<integer>
+---@field unk_s2 df.container
 df.adventurest.T_unk_v40_3 = {}
 
----@param key integer
----@return adventurest_unk_v40_3|nil
-function df.adventurest.T_unk_v40_3.find(key) end
 
 ---@class adventurest_unk_v40_4: df.class
----@field unk_v40_4a integer[]
+---@field unk_v40_4a adventurest.T_unk_v40_4_unk_v40_4a
 ---@field unk_v40_4b integer
 df.adventurest.T_unk_v40_4 = {}
 
----@param key integer
----@return adventurest_unk_v40_4|nil
-function df.adventurest.T_unk_v40_4.find(key) end
+---@class adventurest.T_unk_v40_4_unk_v40_4a: df.class
+---@field unk_s1 integer
+---@field unk_s2 coord
+---@field unk_s5 coord
+---@field unk_s8 integer
+---@field unk_s9 integer
+---@field unk_s10 integer
+df.adventurest.T_unk_v40_4.T_unk_v40_4a = {}
+
 
 ---@class adventurest_unk_v40_5: df.class
----@field unk_s1 df.container<integer>
----@field unk_s2 df.container<integer>
----@field unk_s3 df.container<integer>
+---@field unk_s1 df.container
+---@field unk_s2 df.container
+---@field unk_s3 df.container
 ---@field unk_s4 integer
----@field unk_s5 df.container<integer>
----@field unk_s6 df.container<integer>
+---@field unk_s5 df.container
+---@field unk_s6 df.container
 df.adventurest.T_unk_v40_5 = {}
 
----@param key integer
----@return adventurest_unk_v40_5|nil
-function df.adventurest.T_unk_v40_5.find(key) end
 
 ---@class adventurest_unk_v42_1: df.class
 ---@field unk_s1 integer
----@field unk_s2 df.container<integer>
----@field unk_s3 df.container<integer>
+---@field unk_s2 df.container
+---@field unk_s3 df.container
 ---@field unk_s4 string
 ---@field unk_s5 integer
 ---@field unk_s6 integer
 ---@field unk_s7 integer
 ---@field unk_s8 integer
----@field unk_s9 df.container<integer>
+---@field unk_s9 df.container
 df.adventurest.T_unk_v42_1 = {}
 
----@param key integer
----@return adventurest_unk_v42_1|nil
-function df.adventurest.T_unk_v42_1.find(key) end
 
 ---Manages the Assume Identity UI when the AssumeIdentity menu is open
 ---@class adventurest_assume_identity: df.class
@@ -1787,116 +1755,47 @@ function df.adventurest.T_unk_v42_1.find(key) end
 ---@field worship_object integer References: historical_figure
 ---@field profession profession
 ---@field origin integer References: historical_entity
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
 ---@field filter string
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.adventurest.T_assume_identity = {}
 
----@param key integer
----@return adventurest_assume_identity|nil
-function df.adventurest.T_assume_identity.find(key) end
-
 ---@class text_info_elementst: df.class
+---@field getString any
+---@field getLong any
 df.text_info_elementst = {}
 
----@param key integer
----@return text_info_elementst|nil
-function df.text_info_elementst.find(key) end
-
----@param val string
-function df.text_info_elementst:getString(val) end
-
----@return integer
-function df.text_info_elementst:getLong() end
-
 ---@class text_info_element_longst: text_info_elementst
----@field val integer
 df.text_info_element_longst = {}
 
----@param key integer
----@return text_info_element_longst|nil
-function df.text_info_element_longst.find(key) end
-
 ---@class text_info_element_stringst: text_info_elementst
----@field val string
 df.text_info_element_stringst = {}
-
----@param key integer
----@return text_info_element_stringst|nil
-function df.text_info_element_stringst.find(key) end
 
 ---<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
 ---@class adventure_optionst: df.class
+---@field getDescription any
+---@field getIngestedItem any
+---@field performAction any <br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
+---@field getPlayerPosX any
+---@field getPlayerPosY any
+---@field getPlayerPosZ any
+---@field getTargetPosX any
+---@field getTargetPosY any
+---@field getTargetPosZ any
+---@field deleteSpatter any
+---@field getSuckBloodUnitID any
+---@field isIngestFromContainer any
+---@field getBuildingContainer any
+---@field getItemContainer any
+---@field getUnitContainer any
 df.adventure_optionst = {}
-
----@param key integer
----@return adventure_optionst|nil
-function df.adventure_optionst.find(key) end
-
----@param unk_0 string
-function df.adventure_optionst:getDescription(unk_0) end
-
----@param unk_0 item
----@return item
-function df.adventure_optionst:getIngestedItem(unk_0) end
-
----<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
----@param unk_0 integer
----@param unk_1 boolean
----@param unk_2 boolean
----@param unk_3 item
----@return item
-function df.adventure_optionst:performAction(unk_0, unk_1, unk_2, unk_3) end
-
----@return integer
-function df.adventure_optionst:getPlayerPosX() end
-
----@return integer
-function df.adventure_optionst:getPlayerPosY() end
-
----@return integer
-function df.adventure_optionst:getPlayerPosZ() end
-
----@return integer
-function df.adventure_optionst:getTargetPosX() end
-
----@return integer
-function df.adventure_optionst:getTargetPosY() end
-
----@return integer
-function df.adventure_optionst:getTargetPosZ() end
-
-function df.adventure_optionst:deleteSpatter() end
-
----@param unk_0 integer
----@return integer
-function df.adventure_optionst:getSuckBloodUnitID(unk_0) end
-
----@return boolean
-function df.adventure_optionst:isIngestFromContainer() end
-
----@param unk_0 building
----@return building
-function df.adventure_optionst:getBuildingContainer(unk_0) end
-
----@param unk_0 item
----@return item
-function df.adventure_optionst:getItemContainer(unk_0) end
-
----@param unk_0 unit
----@return unit
-function df.adventure_optionst:getUnitContainer(unk_0) end
 
 ---@class adventure_option_eat_unit_contaminantst: adventure_optionst
 ---@field unit unit
 ---@field spatter spatter
 df.adventure_option_eat_unit_contaminantst = {}
-
----@param key integer
----@return adventure_option_eat_unit_contaminantst|nil
-function df.adventure_option_eat_unit_contaminantst.find(key) end
 
 ---@class adventure_option_eat_item_contaminantst: adventure_optionst
 ---@field unit unit
@@ -1904,52 +1803,26 @@ function df.adventure_option_eat_unit_contaminantst.find(key) end
 ---@field spatter spatter
 df.adventure_option_eat_item_contaminantst = {}
 
----@param key integer
----@return adventure_option_eat_item_contaminantst|nil
-function df.adventure_option_eat_item_contaminantst.find(key) end
-
 ---@class adventure_option_view_contaminantst: adventure_optionst
 ---@field unit unit
 ---@field spatter spatter
 df.adventure_option_view_contaminantst = {}
-
----@param key integer
----@return adventure_option_view_contaminantst|nil
-function df.adventure_option_view_contaminantst.find(key) end
 
 ---@class adventure_environment_optionst: adventure_optionst
 ---@field target_pos coord
 ---@field player_pos coord
 df.adventure_environment_optionst = {}
 
----@param key integer
----@return adventure_environment_optionst|nil
-function df.adventure_environment_optionst.find(key) end
-
 ---@class adventure_environment_place_in_it_containerst: adventure_environment_optionst
----@field container item
 df.adventure_environment_place_in_it_containerst = {}
-
----@param key integer
----@return adventure_environment_place_in_it_containerst|nil
-function df.adventure_environment_place_in_it_containerst.find(key) end
 
 ---@class adventure_environment_ingest_from_containerst: adventure_environment_optionst
 ---@field container item
 ---@field food item
 df.adventure_environment_ingest_from_containerst = {}
 
----@param key integer
----@return adventure_environment_ingest_from_containerst|nil
-function df.adventure_environment_ingest_from_containerst.find(key) end
-
 ---@class adventure_environment_pickup_ignite_vegst: adventure_environment_optionst
----@field unk_1 integer
 df.adventure_environment_pickup_ignite_vegst = {}
-
----@param key integer
----@return adventure_environment_pickup_ignite_vegst|nil
-function df.adventure_environment_pickup_ignite_vegst.find(key) end
 
 ---@class adventure_environment_ingest_materialst: adventure_environment_optionst
 ---@field mat_type integer
@@ -1957,177 +1830,77 @@ function df.adventure_environment_pickup_ignite_vegst.find(key) end
 ---@field mat_state matter_state
 df.adventure_environment_ingest_materialst = {}
 
----@param key integer
----@return adventure_environment_ingest_materialst|nil
-function df.adventure_environment_ingest_materialst.find(key) end
-
 ---@class adventure_environment_pickup_make_campfirest: adventure_environment_optionst
 df.adventure_environment_pickup_make_campfirest = {}
 
----@param key integer
----@return adventure_environment_pickup_make_campfirest|nil
-function df.adventure_environment_pickup_make_campfirest.find(key) end
-
 ---@class adventure_environment_place_in_bld_containerst: adventure_environment_optionst
----@field building building
 df.adventure_environment_place_in_bld_containerst = {}
 
----@param key integer
----@return adventure_environment_place_in_bld_containerst|nil
-function df.adventure_environment_place_in_bld_containerst.find(key) end
-
 ---@class adventure_environment_pickup_vermin_eventst: adventure_environment_optionst
----@field vermin_idx integer
 df.adventure_environment_pickup_vermin_eventst = {}
-
----@param key integer
----@return adventure_environment_pickup_vermin_eventst|nil
-function df.adventure_environment_pickup_vermin_eventst.find(key) end
 
 ---@class adventure_environment_pickup_chop_treest: adventure_environment_optionst
 df.adventure_environment_pickup_chop_treest = {}
 
----@param key integer
----@return adventure_environment_pickup_chop_treest|nil
-function df.adventure_environment_pickup_chop_treest.find(key) end
-
 ---@class adventure_environment_unit_suck_bloodst: adventure_environment_optionst
----@field unit_id integer References: unit
 df.adventure_environment_unit_suck_bloodst = {}
-
----@param key integer
----@return adventure_environment_unit_suck_bloodst|nil
-function df.adventure_environment_unit_suck_bloodst.find(key) end
 
 ---@class adventure_movement_optionst: df.class
 ---@field dest coord
 ---@field source coord
 df.adventure_movement_optionst = {}
 
----@param key integer
----@return adventure_movement_optionst|nil
-function df.adventure_movement_optionst.find(key) end
-
 ---@class adventure_movement_release_hold_itemst: adventure_movement_optionst
 df.adventure_movement_release_hold_itemst = {}
-
----@param key integer
----@return adventure_movement_release_hold_itemst|nil
-function df.adventure_movement_release_hold_itemst.find(key) end
 
 ---@class adventure_movement_release_hold_tilest: adventure_movement_optionst
 df.adventure_movement_release_hold_tilest = {}
 
----@param key integer
----@return adventure_movement_release_hold_tilest|nil
-function df.adventure_movement_release_hold_tilest.find(key) end
-
 ---@class adventure_movement_attack_creaturest: adventure_movement_optionst
----@field targets df.container<integer> References: unit
 df.adventure_movement_attack_creaturest = {}
 
----@param key integer
----@return adventure_movement_attack_creaturest|nil
-function df.adventure_movement_attack_creaturest.find(key) end
-
 ---@class adventure_movement_hold_tilest: adventure_movement_optionst
----@field grab coord
 df.adventure_movement_hold_tilest = {}
-
----@param key integer
----@return adventure_movement_hold_tilest|nil
-function df.adventure_movement_hold_tilest.find(key) end
 
 ---@class adventure_movement_movest: adventure_movement_optionst
 ---@field unit_path_flags integer
 ---@field unk_bitfield integer
 df.adventure_movement_movest = {}
 
----@param key integer
----@return adventure_movement_movest|nil
-function df.adventure_movement_movest.find(key) end
-
 ---@class adventure_movement_climbst: adventure_movement_optionst
----@field grab coord
 df.adventure_movement_climbst = {}
 
----@param key integer
----@return adventure_movement_climbst|nil
-function df.adventure_movement_climbst.find(key) end
-
 ---@class adventure_movement_hold_itemst: adventure_movement_optionst
----@field item_id integer References: item
 df.adventure_movement_hold_itemst = {}
 
----@param key integer
----@return adventure_movement_hold_itemst|nil
-function df.adventure_movement_hold_itemst.find(key) end
-
 ---@class adventure_movement_building_interactst: adventure_movement_optionst
----@field building_id integer References: building
 df.adventure_movement_building_interactst = {}
 
----@param key integer
----@return adventure_movement_building_interactst|nil
-function df.adventure_movement_building_interactst.find(key) end
-
 ---@class adventure_movement_item_interactst: adventure_movement_optionst
----@field item_id integer References: item
 df.adventure_movement_item_interactst = {}
-
----@param key integer
----@return adventure_movement_item_interactst|nil
-function df.adventure_movement_item_interactst.find(key) end
 
 ---@class adventure_movement_item_interact_guidest: adventure_movement_item_interactst
 df.adventure_movement_item_interact_guidest = {}
 
----@param key integer
----@return adventure_movement_item_interact_guidest|nil
-function df.adventure_movement_item_interact_guidest.find(key) end
-
 ---@class adventure_movement_item_interact_ridest: adventure_movement_item_interactst
 df.adventure_movement_item_interact_ridest = {}
-
----@param key integer
----@return adventure_movement_item_interact_ridest|nil
-function df.adventure_movement_item_interact_ridest.find(key) end
 
 ---@class adventure_movement_item_interact_pushst: adventure_movement_item_interactst
 df.adventure_movement_item_interact_pushst = {}
 
----@param key integer
----@return adventure_movement_item_interact_pushst|nil
-function df.adventure_movement_item_interact_pushst.find(key) end
-
 ---@class adventure_item_interact_choicest: df.class
+---@field getDescription any
+---@field performAction any
 df.adventure_item_interact_choicest = {}
-
----@param key integer
----@return adventure_item_interact_choicest|nil
-function df.adventure_item_interact_choicest.find(key) end
-
----@param unk_0 string
-function df.adventure_item_interact_choicest:getDescription(unk_0) end
-
-function df.adventure_item_interact_choicest:performAction() end
 
 ---@class adventure_item_interact_pull_outst: adventure_item_interact_choicest
 df.adventure_item_interact_pull_outst = {}
-
----@param key integer
----@return adventure_item_interact_pull_outst|nil
-function df.adventure_item_interact_pull_outst.find(key) end
 
 ---@class adventure_item_interact_heat_from_tilest: adventure_item_interact_choicest
 ---@field item item
 ---@field unk_1 coord
 ---@field unk_2 coord
 df.adventure_item_interact_heat_from_tilest = {}
-
----@param key integer
----@return adventure_item_interact_heat_from_tilest|nil
-function df.adventure_item_interact_heat_from_tilest.find(key) end
 
 ---@class adventure_item_interact_fill_from_containerst: adventure_item_interact_choicest
 ---@field unk_1 item
@@ -2136,16 +1909,8 @@ function df.adventure_item_interact_heat_from_tilest.find(key) end
 ---@field unk_4 coord
 df.adventure_item_interact_fill_from_containerst = {}
 
----@param key integer
----@return adventure_item_interact_fill_from_containerst|nil
-function df.adventure_item_interact_fill_from_containerst.find(key) end
-
 ---@class adventure_item_interact_readst: adventure_item_interact_choicest
 df.adventure_item_interact_readst = {}
-
----@param key integer
----@return adventure_item_interact_readst|nil
-function df.adventure_item_interact_readst.find(key) end
 
 ---@class adventure_item_interact_fill_with_materialst: adventure_item_interact_choicest
 ---@field unk_1 item
@@ -2156,22 +1921,9 @@ function df.adventure_item_interact_readst.find(key) end
 ---@field unk_6 integer
 df.adventure_item_interact_fill_with_materialst = {}
 
----@param key integer
----@return adventure_item_interact_fill_with_materialst|nil
-function df.adventure_item_interact_fill_with_materialst.find(key) end
-
 ---@class adventure_item_interact_strugglest: adventure_item_interact_choicest
 df.adventure_item_interact_strugglest = {}
 
----@param key integer
----@return adventure_item_interact_strugglest|nil
-function df.adventure_item_interact_strugglest.find(key) end
-
 ---@class adventure_item_interact_give_namest: adventure_item_interact_choicest
----@field item item
 df.adventure_item_interact_give_namest = {}
-
----@param key integer
----@return adventure_item_interact_give_namest|nil
-function df.adventure_item_interact_give_namest.find(key) end
 

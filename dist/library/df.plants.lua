@@ -28,10 +28,6 @@ df.plant_flags = {}
 ---@field tree_info plant_tree_info
 df.plant = {}
 
----@param key integer
----@return plant|nil
-function df.plant.find(key) end
-
 ---@class _plant_damage_flags: integer, string, df.bitfield
 ---@field is_burning 0
 ---@field [0] "is_burning"
@@ -136,8 +132,4 @@ df.plant_root_tile = {}
 ---@field roots_depth integer
 ---@field unk6 integer
 df.plant_tree_info = {}
-
----@param key integer
----@return plant_tree_info|nil
-function df.plant_tree_info.find(key) end
 

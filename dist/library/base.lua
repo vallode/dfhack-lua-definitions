@@ -63,9 +63,9 @@
 
 -- TODO: Redo this as inline glue.
 ---@class df.container: df.base
----@field resize fun(new_size: integer)
----@field insert fun(self: any, index: "#ref"|"#"|integer, item: any)
----@field erase fun(self: any, index: integer)
+---@field resize fun(self: self, new_size: integer)
+---@field insert fun(self: self, index: "#ref"|"#"|integer, item: any)
+---@field erase fun(self: self, index: integer)
 
 ---@param object table
 ---@return integer

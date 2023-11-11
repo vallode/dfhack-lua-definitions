@@ -1635,10 +1635,10 @@ df.pronoun_type.attrs = {}
 ---@field specific_refs specific_ref[]
 ---@field general_refs general_ref[]
 ---@field military unit_military
----@field social_activities df.container<integer> References: activity_entry
----@field conversations df.container<integer> References: activity_entry
----@field activities df.container<integer> References: activity_entry
----@field unk_1e8 df.container<integer>
+---@field social_activities df.container References: activity_entry
+---@field conversations df.container References: activity_entry
+---@field activities df.container References: activity_entry
+---@field unk_1e8 df.container
 ---@field animal unit_animal
 ---@field opponent unit_opponent
 ---@field mood mood_type
@@ -1664,10 +1664,10 @@ df.pronoun_type.attrs = {}
 ---@field mount_type integer 0 = riding, 1 = being carried, 2/3 = wagon horses, 4 = wagon merchant
 ---@field last_hit history_hit_item
 ---@field inventory unit_inventory_item[]
----@field owned_items df.container<integer> References: item
----@field traded_items df.container<integer> References: item<br>items brought to trade depot
+---@field owned_items df.container References: item
+---@field traded_items df.container References: item<br>items brought to trade depot
 ---@field owned_buildings building[]
----@field corpse_parts df.container<integer> References: item<br>entries remain even when items are destroyed
+---@field corpse_parts df.container References: item<br>entries remain even when items are destroyed
 ---@field riding_item_id integer References: item
 ---@field job unit_job
 ---@field body unit_body
@@ -1687,14 +1687,14 @@ df.pronoun_type.attrs = {}
 ---@field health unit_health_info
 ---@field used_items unit_item_use[] Contains worn clothes, armor, weapons, arrows fired by archers
 ---@field enemy unit_enemy
----@field healing_rate df.container<integer>
+---@field healing_rate df.container
 ---@field effective_rate integer
 ---@field tendons_heal integer
 ---@field ligaments_heal integer
 ---@field weight integer
 ---@field weight_fraction integer 1e-6
----@field burrows df.container<integer> References: burrow
----@field inactive_burrows df.container<integer> References: burrow
+---@field burrows df.container References: burrow
+---@field inactive_burrows df.container References: burrow
 ---@field vision_cone integer[][]
 ---@field occupations occupation[]
 ---@field adjective string from physical descriptions for use in adv
@@ -1706,19 +1706,12 @@ df.pronoun_type.attrs = {}
 ---@field mtx lightuserdata
 df.unit = {}
 
----@param key integer
----@return unit|nil
-function df.unit.find(key) end
-
 ---@class unit_path: df.class
 ---@field dest coord
 ---@field goal unit_path_goal
 ---@field path coord_path
 df.unit.T_path = {}
 
----@param key integer
----@return unit_path|nil
-function df.unit.T_path.find(key) end
 
 ---@class unit_meeting: df.class
 ---@field state unit.T_meeting_state
@@ -1726,10 +1719,6 @@ function df.unit.T_path.find(key) end
 ---@field target_role entity_position_responsibility
 ---@field pad_1 integer
 df.unit.T_meeting = {}
-
----@param key integer
----@return unit_meeting|nil
-function df.unit.T_meeting.find(key) end
 
 ---@class _unit.T_meeting_state: integer, string, df.enum
 ---@field SelectNoble 0
@@ -1752,23 +1741,20 @@ df.unit.T_meeting.T_state = {}
 ---@field [3] boolean
 ---@field LeaveMap boolean
 
+
 ---@class unit_military: df.class
 ---@field squad_id integer References: squad
 ---@field squad_position integer
 ---@field patrol_cooldown integer
 ---@field patrol_timer integer
 ---@field cur_uniform integer
----@field unk_items df.container<integer> References: item
----@field uniforms df.container<integer>[]
+---@field unk_items df.container References: item
+---@field uniforms df.container[]
 ---@field pickup_flags unit.T_military_pickup_flags
----@field uniform_pickup df.container<integer> References: item
----@field uniform_drop df.container<integer> References: item
----@field individual_drills df.container<integer> References: activity_entry
+---@field uniform_pickup df.container References: item
+---@field uniform_drop df.container References: item
+---@field individual_drills df.container References: activity_entry
 df.unit.T_military = {}
-
----@param key integer
----@return unit_military|nil
-function df.unit.T_military.find(key) end
 
 ---@class _unit.T_military_pickup_flags: integer, string, df.bitfield
 ---@field update 0
@@ -1779,15 +1765,13 @@ df.unit.T_military.T_pickup_flags = {}
 ---@field [0] boolean
 ---@field update boolean
 
+
 ---@class unit_animal: df.class
 ---@field population world_population_ref
 ---@field leave_countdown integer once 0, it heads for the edge and leaves
 ---@field vanish_countdown integer once 0, it vanishes in a puff of smoke
 df.unit.T_animal = {}
 
----@param key integer
----@return unit_animal|nil
-function df.unit.T_animal.find(key) end
 
 ---@class unit_opponent: df.class
 ---@field unit_id integer References: unit
@@ -1795,9 +1779,6 @@ function df.unit.T_animal.find(key) end
 ---@field unk_c integer
 df.unit.T_opponent = {}
 
----@param key integer
----@return unit_opponent|nil
-function df.unit.T_opponent.find(key) end
 
 ---@class unit_job: df.class
 ---@field account integer
@@ -1819,9 +1800,6 @@ function df.unit.T_opponent.find(key) end
 ---@field unk_39c integer
 df.unit.T_job = {}
 
----@param key integer
----@return unit_job|nil
-function df.unit.T_job.find(key) end
 
 ---@class unit_body: df.class
 ---@field components body_component_info
@@ -1838,26 +1816,20 @@ function df.unit.T_job.find(key) end
 ---@field spatters spatter[]
 df.unit.T_body = {}
 
----@param key integer
----@return unit_body|nil
-function df.unit.T_body.find(key) end
 
 ---@class unit_appearance: df.class
----@field body_modifiers df.container<integer>
----@field bp_modifiers df.container<integer>
+---@field body_modifiers df.container
+---@field bp_modifiers df.container
 ---@field size_modifier integer product of all H/B/LENGTH body modifiers, in %
----@field tissue_style df.container<integer>
----@field tissue_style_civ_id df.container<integer> References: historical_entity
----@field tissue_style_id df.container<integer> References: entity_tissue_style
----@field tissue_style_type df.container<integer>
----@field tissue_length df.container<integer> description uses bp_modifiers[style_list_idx[index]]
+---@field tissue_style df.container
+---@field tissue_style_civ_id df.container References: historical_entity
+---@field tissue_style_id df.container References: entity_tissue_style
+---@field tissue_style_type df.container
+---@field tissue_length df.container description uses bp_modifiers[style_list_idx[index]]
 ---@field genes unit_genes
----@field colors df.container<integer>
+---@field colors df.container
 df.unit.T_appearance = {}
 
----@param key integer
----@return unit_appearance|nil
-function df.unit.T_appearance.find(key) end
 
 ---@class unit_counters: df.class
 ---@field think_counter integer
@@ -1878,10 +1850,6 @@ function df.unit.T_appearance.find(key) end
 ---@field nausea integer
 ---@field dizziness integer
 df.unit.T_counters = {}
-
----@param key integer
----@return unit_counters|nil
-function df.unit.T_counters.find(key) end
 
 ---@class _unit.T_counters_soldier_mood: integer, string, df.enum
 ---@field None -1
@@ -1912,6 +1880,7 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field [5] boolean
 ---@field Oblivious boolean
 
+
 ---@class unit_curse: df.class
 ---@field unk_0 integer moved from end of counters in 0.43.05
 ---@field add_tags1 cie_add_tag_mask1
@@ -1926,24 +1895,21 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field sym_and_color2 integer
 ---@field flash_period integer
 ---@field flash_time2 integer
----@field body_appearance df.container<integer>
----@field bp_appearance df.container<integer> guess!
+---@field body_appearance df.container
+---@field bp_appearance df.container guess!
 ---@field speed_add integer
 ---@field speed_mul_percent integer
 ---@field attr_change curse_attr_change
 ---@field luck_mul_percent integer
 ---@field unk_98 integer
----@field interaction_id df.container<integer> References: creature_interaction_effect
----@field interaction_time df.container<integer>
----@field interaction_delay df.container<integer>
+---@field interaction_id df.container References: creature_interaction_effect
+---@field interaction_time df.container
+---@field interaction_delay df.container
 ---@field time_on_site integer
----@field own_interaction df.container<integer>
----@field own_interaction_delay df.container<integer>
+---@field own_interaction df.container
+---@field own_interaction_delay df.container
 df.unit.T_curse = {}
 
----@param key integer
----@return unit_curse|nil
-function df.unit.T_curse.find(key) end
 
 ---@class unit_counters2: df.class
 ---@field paralysis integer
@@ -1959,17 +1925,14 @@ function df.unit.T_curse.find(key) end
 ---@field stored_fat integer hunger leads to death only when 0
 df.unit.T_counters2 = {}
 
----@param key integer
----@return unit_counters2|nil
-function df.unit.T_counters2.find(key) end
 
 ---@class unit_status: df.class
 ---@field misc_traits unit_misc_trait[]
 ---@field eat_history unit.T_status_eat_history
 ---@field demand_timeout integer
 ---@field mandate_timeout integer
----@field attacker_ids df.container<integer> References: unit
----@field attacker_cntdn df.container<integer>
+---@field attacker_ids df.container References: unit
+---@field attacker_cntdn df.container
 ---@field face_direction integer for wagons
 ---@field artifact_name language_name
 ---@field souls unit_soul[]
@@ -1977,7 +1940,7 @@ function df.unit.T_counters2.find(key) end
 ---@field demands unit_demand[]
 ---@field labors boolean[]
 ---@field wrestle_items unit_item_wrestle[]
----@field observed_traps df.container<integer> References: building
+---@field observed_traps df.container References: building
 ---@field complaints unit_complaint[]
 ---@field parleys unit_parley[]
 ---@field requests unit_request[]
@@ -1992,42 +1955,28 @@ function df.unit.T_counters2.find(key) end
 ---@field recent_jobs coord_path
 df.unit.T_status = {}
 
----@param key integer
----@return unit_status|nil
-function df.unit.T_status.find(key) end
-
 ---@class unit.T_status_eat_history: df.class
 ---@field food unit.T_status.T_eat_history_food
 ---@field drink unit.T_status.T_eat_history_drink
 df.unit.T_status.T_eat_history = {}
 
----@param key integer
----@return unit.T_status_eat_history|nil
-function df.unit.T_status.T_eat_history.find(key) end
-
 ---@class unit.T_status.T_eat_history_food: df.class
 ---@field item_type item_type[]
----@field item_subtype df.container<integer>
+---@field item_subtype df.container
 ---@field material material_vec_ref
----@field year df.container<integer>
----@field year_time df.container<integer>
+---@field year df.container
+---@field year_time df.container
 df.unit.T_status.T_eat_history.T_food = {}
 
----@param key integer
----@return unit.T_status.T_eat_history_food|nil
-function df.unit.T_status.T_eat_history.T_food.find(key) end
 
 ---@class unit.T_status.T_eat_history_drink: df.class
 ---@field item_type item_type[]
----@field item_subtype df.container<integer>
+---@field item_subtype df.container
 ---@field material material_vec_ref
----@field year df.container<integer>
----@field year_time df.container<integer>
+---@field year df.container
+---@field year_time df.container
 df.unit.T_status.T_eat_history.T_drink = {}
 
----@param key integer
----@return unit.T_status.T_eat_history_drink|nil
-function df.unit.T_status.T_eat_history.T_drink.find(key) end
 
 ---@class unit.T_status_unk_1: df.class
 ---@field unk_1 integer
@@ -2039,9 +1988,6 @@ function df.unit.T_status.T_eat_history.T_drink.find(key) end
 ---@field unk_7 integer
 df.unit.T_status.T_unk_1 = {}
 
----@param key integer
----@return unit.T_status_unk_1|nil
-function df.unit.T_status.T_unk_1.find(key) end
 
 ---@class unit_status2: df.class
 ---@field limbs_stand_max integer
@@ -2057,41 +2003,29 @@ function df.unit.T_status.T_unk_1.find(key) end
 ---@field histeventcol_id integer References: history_event_collection<br>linked to an active invasion or kidnapping
 df.unit.T_status2 = {}
 
----@param key integer
----@return unit_status2|nil
-function df.unit.T_status2.find(key) end
 
 ---@class unit_unknown7: df.class
----@field unk_7c4 df.container<integer>
----@field unk_c df.container<integer>
+---@field unk_7c4 df.container
+---@field unk_c df.container
 df.unit.T_unknown7 = {}
 
----@param key integer
----@return unit_unknown7|nil
-function df.unit.T_unknown7.find(key) end
 
 ---@class unit_syndromes: df.class
 ---@field active unit_syndrome[]
----@field reinfection_type df.container<integer> References: syndrome
----@field reinfection_count df.container<integer>
+---@field reinfection_type df.container References: syndrome
+---@field reinfection_count df.container
 df.unit.T_syndromes = {}
 
----@param key integer
----@return unit_syndromes|nil
-function df.unit.T_syndromes.find(key) end
 
 ---@class unit_reports: df.class
----@field log df.container<integer>[]
+---@field log df.container[]
 ---@field last_year integer[]
 ---@field last_year_tick integer[]
 df.unit.T_reports = {}
 
----@param key integer
----@return unit_reports|nil
-function df.unit.T_reports.find(key) end
 
 ---@class unit_enemy: df.class
----@field sound_cooldown df.container<integer>
+---@field sound_cooldown df.container
 ---@field undead unit.T_enemy_undead
 ---@field were_race integer References: creature_raw
 ---@field were_caste integer References: caste_raw
@@ -2120,20 +2054,16 @@ function df.unit.T_reports.find(key) end
 ---@field caste_flags caste_raw_flags[]
 ---@field enemy_status_slot integer
 ---@field unk_874_cntr integer
----@field body_part_878 df.container<integer>
----@field body_part_888 df.container<integer>
----@field body_part_relsize df.container<integer> with modifiers
----@field body_part_8a8 df.container<integer>
----@field body_part_base_ins df.container<integer>
----@field body_part_clothing_ins df.container<integer>
----@field body_part_8d8 df.container<integer>
----@field unk_8e8 df.container<integer>
----@field unk_8f8 df.container<integer>
+---@field body_part_878 df.container
+---@field body_part_888 df.container
+---@field body_part_relsize df.container with modifiers
+---@field body_part_8a8 df.container
+---@field body_part_base_ins df.container
+---@field body_part_clothing_ins df.container
+---@field body_part_8d8 df.container
+---@field unk_8e8 df.container
+---@field unk_8f8 df.container
 df.unit.T_enemy = {}
-
----@param key integer
----@return unit_enemy|nil
-function df.unit.T_enemy.find(key) end
 
 ---@class unit.T_enemy_undead: df.class
 ---@field unk_1 integer
@@ -2148,9 +2078,6 @@ function df.unit.T_enemy.find(key) end
 ---@field unk_v43_2 integer
 df.unit.T_enemy.T_undead = {}
 
----@param key integer
----@return unit.T_enemy_undead|nil
-function df.unit.T_enemy.T_undead.find(key) end
 
 ---@class unit.T_enemy_unk_448: df.class
 ---@field unk_1 integer
@@ -2158,10 +2085,6 @@ function df.unit.T_enemy.T_undead.find(key) end
 ---@field unk_3 integer
 ---@field unk unit.T_enemy.T_unk_448_unk
 df.unit.T_enemy.T_unk_448 = {}
-
----@param key integer
----@return unit.T_enemy_unk_448|nil
-function df.unit.T_enemy.T_unk_448.find(key) end
 
 ---@class unit.T_enemy.T_unk_448_unk: df.class
 ---@field unk_1 integer
@@ -2176,9 +2099,6 @@ function df.unit.T_enemy.T_unk_448.find(key) end
 ---@field unk_10 integer not saved
 df.unit.T_enemy.T_unk_448.T_unk = {}
 
----@param key integer
----@return unit.T_enemy.T_unk_448_unk|nil
-function df.unit.T_enemy.T_unk_448.T_unk.find(key) end
 
 ---@class unit.T_enemy_unk_44c: df.class
 ---@field unk_1 integer
@@ -2195,43 +2115,30 @@ function df.unit.T_enemy.T_unk_448.T_unk.find(key) end
 ---@field unk_12 integer
 df.unit.T_enemy.T_unk_44c = {}
 
----@param key integer
----@return unit.T_enemy_unk_44c|nil
-function df.unit.T_enemy.T_unk_44c.find(key) end
 
 ---@class unit.T_enemy_unk_v40_sub3: df.class
 ---@field controller army_controller
 ---@field unk_2 unit.T_enemy.T_unk_v40_sub3_unk_2
----@field unk_3 df.container<integer>
----@field unk_4 df.container<integer>
----@field unk_5 df.container<integer>
+---@field unk_3 df.container
+---@field unk_4 df.container
+---@field unk_5 df.container
 ---@field unk_6 unit.T_enemy.T_unk_v40_sub3_unk_6
 ---@field visitor_info unit.T_enemy.T_unk_v40_sub3_visitor_info
 df.unit.T_enemy.T_unk_v40_sub3 = {}
 
----@param key integer
----@return unit.T_enemy_unk_v40_sub3|nil
-function df.unit.T_enemy.T_unk_v40_sub3.find(key) end
-
 ---@class unit.T_enemy.T_unk_v40_sub3_unk_2: df.class
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
----@field unk_3 df.container<integer>
----@field unk_4 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
+---@field unk_3 df.container
+---@field unk_4 df.container
 df.unit.T_enemy.T_unk_v40_sub3.T_unk_2 = {}
 
----@param key integer
----@return unit.T_enemy.T_unk_v40_sub3_unk_2|nil
-function df.unit.T_enemy.T_unk_v40_sub3.T_unk_2.find(key) end
 
 ---@class unit.T_enemy.T_unk_v40_sub3_unk_6: df.class
----@field unk_0 df.container<integer>
----@field unk_10 df.container<integer>
+---@field unk_0 df.container
+---@field unk_10 df.container
 df.unit.T_enemy.T_unk_v40_sub3.T_unk_6 = {}
 
----@param key integer
----@return unit.T_enemy.T_unk_v40_sub3_unk_6|nil
-function df.unit.T_enemy.T_unk_v40_sub3.T_unk_6.find(key) end
 
 ---@class unit.T_enemy.T_unk_v40_sub3_visitor_info: df.class
 ---@field visit_reasons unit.T_enemy.T_unk_v40_sub3.T_visitor_info_visit_reasons[]
@@ -2244,10 +2151,6 @@ function df.unit.T_enemy.T_unk_v40_sub3.T_unk_6.find(key) end
 ---@field rumour_location_id integer References: abstract_building
 df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info = {}
 
----@param key integer
----@return unit.T_enemy.T_unk_v40_sub3_visitor_info|nil
-function df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.find(key) end
-
 ---@class unit.T_enemy.T_unk_v40_sub3.T_visitor_info_visit_reasons: df.class
 ---@field reason unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_reason
 ---@field site_id integer References: world_site
@@ -2259,10 +2162,6 @@ function df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.find(key) end
 ---@field unk_sub1_8 integer
 ---@field unk_sub1_9 integer
 df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons = {}
-
----@param key integer
----@return unit.T_enemy.T_unk_v40_sub3.T_visitor_info_visit_reasons|nil
-function df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons.find(key) end
 
 ---@class _unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_reason: integer, string, df.enum
 ---@field PRAY 0
@@ -2313,6 +2212,7 @@ df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons.T_reason = {}
 ---@field [10] boolean
 ---@field ASKING_QUESTIONS boolean
 
+
 ---@class _unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_flags: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
@@ -2321,6 +2221,7 @@ df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons.T_flags = {}
 ---@class unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_visit_reasons_flags
 ---@field [0] boolean
 ---@field unk_0 boolean
+
 
 ---@class _unit.T_enemy.T_unk_v40_sub3.T_visitor_info_flags: integer, string, df.bitfield
 ---Affects the text shown in the unit summary
@@ -2339,15 +2240,6 @@ df.unit.T_enemy.T_unk_v40_sub3.T_visitor_info.T_flags = {}
 ---@field unk_1 boolean
 ---@field [2] boolean
 ---@field ready_to_leave boolean
-
----@return integer
-function df.unit:getCreatureTile() end
-
----@return integer
-function df.unit:getCorpseTile() end
-
----@return integer
-function df.unit:getGlowTile() end
 
 ---@class _witness_report_type: integer, string, df.enum
 ---@field None -1
@@ -2392,10 +2284,6 @@ df.witness_report_flags = {}
 ---@field unk_34 integer References: identity
 ---@field pos coord
 df.witness_report = {}
-
----@param key integer
----@return witness_report|nil
-function df.witness_report.find(key) end
 
 ---@class _ghost_goal: integer, string, df.enum
 ---@field None -1
@@ -2452,19 +2340,12 @@ df.ghost_goal = {}
 ---@field death_z integer
 df.unit_ghost_info = {}
 
----@param key integer
----@return unit_ghost_info|nil
-function df.unit_ghost_info.find(key) end
-
 ---@class unit_ghost_info_target: df.class
 ---@field unit integer References: unit
 ---@field item integer References: item
 ---@field building integer References: building
 df.unit_ghost_info.T_target = {}
 
----@param key integer
----@return unit_ghost_info_target|nil
-function df.unit_ghost_info.T_target.find(key) end
 
 ---@class _unit_ghost_info_flags: integer, string, df.bitfield
 ---@field announced 0
@@ -2484,10 +2365,6 @@ df.unit_ghost_info.T_flags = {}
 ---@field colors integer
 df.unit_genes = {}
 
----@param key integer
----@return unit_genes|nil
-function df.unit_genes.find(key) end
-
 ---@class unit_inventory_item: df.class
 ---@field item item
 ---@field mode unit_inventory_item_mode
@@ -2495,10 +2372,6 @@ function df.unit_genes.find(key) end
 ---@field pet_seed integer RNG seed for Pet mode
 ---@field wound_id integer -1 unless suture
 df.unit_inventory_item = {}
-
----@param key integer
----@return unit_inventory_item|nil
-function df.unit_inventory_item.find(key) end
 
 ---@class _unit_inventory_item_mode: integer, string, df.enum
 ---@field Hauled 0
@@ -2559,44 +2432,32 @@ df.unit_inventory_item.T_mode = {}
 ---@field demotion_counter integer counts to PHYS_ATT_RATES demotion; then value--; soft_demotion++
 df.unit_attribute = {}
 
----@param key integer
----@return unit_attribute|nil
-function df.unit_attribute.find(key) end
-
 ---@class unit_syndrome: df.class
 ---@field type integer References: syndrome
 ---@field year integer
 ---@field year_time integer
 ---@field ticks integer
----@field wounds df.container<integer> refers to unit_wound by id
+---@field wounds df.container refers to unit_wound by id
 ---@field wound_id integer
 ---@field symptoms unit_syndrome_symptoms[]
 ---@field reinfection_count integer set from unit.reinfection_count[i]++
 ---@field flags unit_syndrome_flags
----@field unk4 df.container<integer>
+---@field unk4 df.container
 df.unit_syndrome = {}
-
----@param key integer
----@return unit_syndrome|nil
-function df.unit_syndrome.find(key) end
 
 ---@class unit_syndrome_symptoms: df.class
 ---@field quantity integer from spatter size
 ---@field delay integer for SIZE_DELAYS
 ---@field ticks integer
----@field target_bp df.container<integer>
----@field target_layer df.container<integer>
----@field target_quantity df.container<integer>
----@field target_delay df.container<integer>
----@field target_ticks df.container<integer>
+---@field target_bp df.container
+---@field target_layer df.container
+---@field target_quantity df.container
+---@field target_delay df.container
+---@field target_ticks df.container
 ---@field flags unit_syndrome.T_symptoms_flags
 ---@field random_transformation_race integer References: creature_raw<br>With syndromes that transform the unit into a random creature, the target race ID is stored here.
 ---@field random_transformation_caste integer References: caste_raw<br>With syndromes that transform the unit into a random creature, the target caste ID is stored here.
 df.unit_syndrome.T_symptoms = {}
-
----@param key integer
----@return unit_syndrome_symptoms|nil
-function df.unit_syndrome.T_symptoms.find(key) end
 
 ---@class _unit_syndrome.T_symptoms_flags: integer, string, df.bitfield
 ---@field disabled 0
@@ -2610,6 +2471,7 @@ df.unit_syndrome.T_symptoms.T_flags = {}
 ---@field disabled boolean
 ---@field [1] boolean
 ---@field active boolean
+
 
 ---@class _unit_syndrome_flags: integer, string, df.bitfield
 ---@field is_sick 0
@@ -2846,10 +2708,6 @@ df.wound_damage_flags2 = {}
 ---@field unk_v42_2 integer
 df.unit_wound = {}
 
----@param key integer
----@return unit_wound|nil
-function df.unit_wound.find(key) end
-
 ---@class unit_wound_parts: df.class
 ---@field global_layer_idx integer
 ---@field body_part_id integer
@@ -2857,8 +2715,8 @@ function df.unit_wound.find(key) end
 ---@field contact_area integer
 ---@field surface_perc integer
 ---@field strain integer
----@field effect_perc1 df.container<integer>
----@field effect_perc2 df.container<integer>
+---@field effect_perc1 df.container
+---@field effect_perc2 df.container
 ---@field effect_type wound_effect_type[]
 ---@field edged_curve_perc integer
 ---@field flags1 wound_damage_flags1
@@ -2880,9 +2738,6 @@ function df.unit_wound.find(key) end
 ---@field partially_butchered integer
 df.unit_wound.T_parts = {}
 
----@param key integer
----@return unit_wound_parts|nil
-function df.unit_wound.T_parts.find(key) end
 
 ---@class _unit_wound_flags: integer, string, df.bitfield
 ---@field severed_part 0
@@ -2920,10 +2775,6 @@ df.unit_wound.T_flags = {}
 ---@field ment_att_add integer[]
 df.curse_attr_change = {}
 
----@param key integer
----@return curse_attr_change|nil
-function df.curse_attr_change.find(key) end
-
 ---@class wound_curse_info: df.class
 ---@field unk_v40_1 integer
 ---@field add_tags1 cie_add_tag_mask1
@@ -2944,26 +2795,18 @@ function df.curse_attr_change.find(key) end
 ---@field unk_v42_1 integer
 ---@field luck_mul_percent integer
 ---@field unk_v42_2 integer
----@field interaction_id df.container<integer> References: creature_interaction_effect
+---@field interaction_id df.container References: creature_interaction_effect
 ---@field timing wound_curse_info_timing
 ---@field were_race integer References: creature_raw
 ---@field were_caste integer References: caste_raw
----@field body_appearance df.container<integer>
----@field bp_appearance df.container<integer>
+---@field body_appearance df.container
+---@field bp_appearance df.container
 df.wound_curse_info = {}
 
----@param key integer
----@return wound_curse_info|nil
-function df.wound_curse_info.find(key) end
-
 ---@class wound_curse_info_timing: df.class
----@field interaction_time df.container<integer>
+---@field interaction_time df.container
 ---@field time_counter integer
 df.wound_curse_info.T_timing = {}
-
----@param key integer
----@return wound_curse_info_timing|nil
-function df.wound_curse_info.T_timing.find(key) end
 
 ---@class _misc_trait_type: integer, string, df.enum
 ---@field RequestWaterCooldown 0
@@ -3257,10 +3100,6 @@ df.misc_trait_type.attrs = {}
 ---@field value integer
 df.unit_misc_trait = {}
 
----@param key integer
----@return unit_misc_trait|nil
-function df.unit_misc_trait.find(key) end
-
 ---@class unit_item_wrestle: df.class
 ---@field unit integer References: unit
 ---@field self_bp integer
@@ -3274,20 +3113,12 @@ function df.unit_misc_trait.find(key) end
 ---@field unk_20 integer
 df.unit_item_wrestle = {}
 
----@param key integer
----@return unit_item_wrestle|nil
-function df.unit_item_wrestle.find(key) end
-
 ---@class unit_item_use: df.class
 ---@field id integer References: item
 ---@field time_in_use integer
 ---@field has_grown_attached integer
 ---@field affection_level integer min 50 for attached, 1000 for name
 df.unit_item_use = {}
-
----@param key integer
----@return unit_item_use|nil
-function df.unit_item_use.find(key) end
 
 ---@class _unit_health_flags: integer, string, df.bitfield
 ---@field rq_diagnosis 0
@@ -3386,19 +3217,15 @@ df.unit_bp_health_flags = {}
 ---@class unit_health_info: df.class
 ---@field unit_id integer References: unit
 ---@field flags unit_health_flags
----@field body_part_flags df.container<unit_bp_health_flags>
+---@field body_part_flags df.container
 ---@field unk_18_cntdn integer
 ---@field immobilize_cntdn integer
 ---@field dressing_cntdn integer
 ---@field suture_cntdn integer
 ---@field crutch_cntdn integer
 ---@field op_history unit_health_info_op_history[]
----@field unk_34 df.container<integer>
+---@field unk_34 df.container
 df.unit_health_info = {}
-
----@param key integer
----@return unit_health_info|nil
-function df.unit_health_info.find(key) end
 
 ---@class unit_health_info_op_history: df.class
 ---@field job_type job_type
@@ -3408,20 +3235,12 @@ function df.unit_health_info.find(key) end
 ---@field doctor_id integer References: unit
 df.unit_health_info.T_op_history = {}
 
----@param key integer
----@return unit_health_info_op_history|nil
-function df.unit_health_info.T_op_history.find(key) end
-
 ---@class unit_health_info.T_op_history_info: df.class
 ---@field crutch unit_health_info.T_op_history.T_info_crutch
 ---@field bed_id integer References: building
 ---@field bandage unit_health_info.T_op_history.T_info_bandage
 ---@field surgery unit_health_info.T_op_history.T_info_surgery
 df.unit_health_info.T_op_history.T_info = {}
-
----@param key integer
----@return unit_health_info.T_op_history_info|nil
-function df.unit_health_info.T_op_history.T_info.find(key) end
 
 ---@class unit_health_info.T_op_history.T_info_crutch: df.class
 ---@field item_type integer
@@ -3431,9 +3250,6 @@ function df.unit_health_info.T_op_history.T_info.find(key) end
 ---@field item_id integer References: item
 df.unit_health_info.T_op_history.T_info.T_crutch = {}
 
----@param key integer
----@return unit_health_info.T_op_history.T_info_crutch|nil
-function df.unit_health_info.T_op_history.T_info.T_crutch.find(key) end
 
 ---@class unit_health_info.T_op_history.T_info_bandage: df.class
 ---@field mat_type integer References: material
@@ -3442,19 +3258,12 @@ function df.unit_health_info.T_op_history.T_info.T_crutch.find(key) end
 ---@field item_id integer References: item
 df.unit_health_info.T_op_history.T_info.T_bandage = {}
 
----@param key integer
----@return unit_health_info.T_op_history.T_info_bandage|nil
-function df.unit_health_info.T_op_history.T_info.T_bandage.find(key) end
 
 ---@class unit_health_info.T_op_history.T_info_surgery: df.class
 ---@field subtype job_subtype_surgery
 ---@field body_part_id integer
 ---@field amputated_part_id integer
 df.unit_health_info.T_op_history.T_info.T_surgery = {}
-
----@param key integer
----@return unit_health_info.T_op_history.T_info_surgery|nil
-function df.unit_health_info.T_op_history.T_info.T_surgery.find(key) end
 
 ---@class _orientation_flags: integer, string, df.bitfield
 ---@field indeterminate 0
@@ -3503,10 +3312,6 @@ df.orientation_flags = {}
 ---@field performance_skills unit_soul_performance_skills
 df.unit_soul = {}
 
----@param key integer
----@return unit_soul|nil
-function df.unit_soul.find(key) end
-
 ---@class unit_soul_performance_skills: df.class
 ---@field musical_instruments unit_instrument_skill[]
 ---@field poetic_forms unit_poetic_skill[]
@@ -3514,19 +3319,11 @@ function df.unit_soul.find(key) end
 ---@field dance_forms unit_dance_skill[]
 df.unit_soul.T_performance_skills = {}
 
----@param key integer
----@return unit_soul_performance_skills|nil
-function df.unit_soul.T_performance_skills.find(key) end
-
 ---@class unit_instrument_skill: df.class
 ---@field id integer
 ---@field rating skill_rating
 ---@field experience integer
 df.unit_instrument_skill = {}
-
----@param key integer
----@return unit_instrument_skill|nil
-function df.unit_instrument_skill.find(key) end
 
 ---@class unit_poetic_skill: df.class
 ---@field id integer
@@ -3534,29 +3331,17 @@ function df.unit_instrument_skill.find(key) end
 ---@field experience integer
 df.unit_poetic_skill = {}
 
----@param key integer
----@return unit_poetic_skill|nil
-function df.unit_poetic_skill.find(key) end
-
 ---@class unit_musical_skill: df.class
 ---@field id integer
 ---@field rating skill_rating
 ---@field experience integer
 df.unit_musical_skill = {}
 
----@param key integer
----@return unit_musical_skill|nil
-function df.unit_musical_skill.find(key) end
-
 ---@class unit_dance_skill: df.class
 ---@field id integer
 ---@field rating skill_rating
 ---@field experience integer
 df.unit_dance_skill = {}
-
----@param key integer
----@return unit_dance_skill|nil
-function df.unit_dance_skill.find(key) end
 
 ---@class unit_emotion_memory: df.class
 ---@field type emotion_type
@@ -3572,10 +3357,6 @@ function df.unit_dance_skill.find(key) end
 ---@field unk_v50_2 integer
 df.unit_emotion_memory = {}
 
----@param key integer
----@return unit_emotion_memory|nil
-function df.unit_emotion_memory.find(key) end
-
 ---@class unit_personality: df.class
 ---@field values unit_personality_values[]
 ---@field ethics unit_personality_ethics[]
@@ -3587,7 +3368,7 @@ function df.unit_emotion_memory.find(key) end
 ---@field civ_id integer References: historical_entity
 ---@field cultural_identity integer References: cultural_identity
 ---@field mannerism unit_personality_mannerism[]
----@field habit df.container<integer>
+---@field habit df.container
 ---@field stress integer
 ---@field time_without_distress integer range 0-806400, higher values cause stress to decrease quicker
 ---@field time_without_eustress integer range 0-806400, higher values cause stress to increase quicker
@@ -3609,27 +3390,17 @@ function df.unit_emotion_memory.find(key) end
 ---@field undistracted_focus integer usually number of needs multiplied by 4
 df.unit_personality = {}
 
----@param key integer
----@return unit_personality|nil
-function df.unit_personality.find(key) end
-
 ---@class unit_personality_values: df.class
 ---@field type value_type
 ---@field strength integer
 df.unit_personality.T_values = {}
 
----@param key integer
----@return unit_personality_values|nil
-function df.unit_personality.T_values.find(key) end
 
 ---@class unit_personality_ethics: df.class
 ---@field ethic ethic_type
 ---@field reponse ethic_response
 df.unit_personality.T_ethics = {}
 
----@param key integer
----@return unit_personality_ethics|nil
-function df.unit_personality.T_ethics.find(key) end
 
 ---@class unit_personality_emotions: df.class
 ---@field type emotion_type
@@ -3643,10 +3414,6 @@ function df.unit_personality.T_ethics.find(key) end
 ---@field year integer
 ---@field year_tick integer
 df.unit_personality.T_emotions = {}
-
----@param key integer
----@return unit_personality_emotions|nil
-function df.unit_personality.T_emotions.find(key) end
 
 ---@class _unit_personality.T_emotions_flags: integer, string, df.bitfield
 ---@field unk0 0
@@ -3681,17 +3448,14 @@ df.unit_personality.T_emotions.T_flags = {}
 ---@field [6] boolean
 ---@field remembered_reflected_on boolean
 
+
 ---@class unit_personality_dreams: df.class
 ---@field local_id integer next_dream_id related
 ---@field type goal_type
 ---@field id integer
----@field parent_id df.container<integer>
+---@field parent_id df.container
 ---@field flags unit_personality.T_dreams_flags
 df.unit_personality.T_dreams = {}
-
----@param key integer
----@return unit_personality_dreams|nil
-function df.unit_personality.T_dreams.find(key) end
 
 ---@class _unit_personality.T_dreams_flags: integer, string, df.bitfield
 ---@field accomplished 0
@@ -3702,6 +3466,7 @@ df.unit_personality.T_dreams.T_flags = {}
 ---@field [0] boolean
 ---@field accomplished boolean
 
+
 ---@class unit_personality_unk_v40_6: df.class
 ---@field unk1 integer
 ---@field unk2 integer
@@ -3711,18 +3476,12 @@ df.unit_personality.T_dreams.T_flags = {}
 ---@field unk6 integer
 df.unit_personality.T_unk_v40_6 = {}
 
----@param key integer
----@return unit_personality_unk_v40_6|nil
-function df.unit_personality.T_unk_v40_6.find(key) end
 
 ---@class unit_personality_mannerism: df.class
 ---@field type integer
 ---@field situation integer
 df.unit_personality.T_mannerism = {}
 
----@param key integer
----@return unit_personality_mannerism|nil
-function df.unit_personality.T_mannerism.find(key) end
 
 ---@class unit_personality_needs: df.class
 ---@field id need_type
@@ -3731,9 +3490,6 @@ function df.unit_personality.T_mannerism.find(key) end
 ---@field need_level integer how fast focus_level decreases when it below 0
 df.unit_personality.T_needs = {}
 
----@param key integer
----@return unit_personality_needs|nil
-function df.unit_personality.T_needs.find(key) end
 
 ---@class _unit_personality_flags: integer, string, df.bitfield
 ---@field distraction_calculated 0
@@ -3748,15 +3504,12 @@ df.unit_personality.T_flags = {}
 ---@field [1] boolean
 ---@field has_unmet_needs boolean
 
+
 ---@class unit_personality_memories: df.class
 ---@field shortterm unit_emotion_memory[]
 ---@field longterm unit_emotion_memory[]
 ---@field core_memories unit_personality.T_memories_core_memories[]
 df.unit_personality.T_memories = {}
-
----@param key integer
----@return unit_personality_memories|nil
-function df.unit_personality.T_memories.find(key) end
 
 ---@class unit_personality.T_memories_core_memories: df.class
 ---@field memory unit_emotion_memory
@@ -3767,10 +3520,6 @@ function df.unit_personality.T_memories.find(key) end
 ---@field value_old integer
 ---@field value_new integer
 df.unit_personality.T_memories.T_core_memories = {}
-
----@param key integer
----@return unit_personality.T_memories_core_memories|nil
-function df.unit_personality.T_memories.T_core_memories.find(key) end
 
 ---@class _unit_action_type_group: integer, string, df.enum
 ---for the action timer API, not in DF
@@ -3916,10 +3665,6 @@ df.unit_action_type.attrs = {}
 ---@field data unit_action_data
 df.unit_action = {}
 
----@param key integer
----@return unit_action|nil
-function df.unit_action.find(key) end
-
 ---@class unit_action_data: df.class
 ---@field raw_data integer[]
 ---@field move unit_action_data_move
@@ -3948,10 +3693,6 @@ function df.unit_action.find(key) end
 ---@field unk23 unit_action_data_unk_sub_23
 df.unit_action.T_data = {}
 
----@param key integer
----@return unit_action_data|nil
-function df.unit_action.T_data.find(key) end
-
 ---@class unit_action_data_move: df.class
 ---@field x integer
 ---@field y integer
@@ -3961,10 +3702,6 @@ function df.unit_action.T_data.find(key) end
 ---@field fatigue integer
 ---@field flags unit_action_data_move_flags
 df.unit_action_data_move = {}
-
----@param key integer
----@return unit_action_data_move|nil
-function df.unit_action_data_move.find(key) end
 
 ---@class _unit_action_data_move_flags: integer, string, df.bitfield
 ---@field charge 0
@@ -3992,10 +3729,6 @@ df.unit_action_data_move.T_flags = {}
 ---@field timer2 integer recover
 df.unit_action_data_attack = {}
 
----@param key integer
----@return unit_action_data_attack|nil
-function df.unit_action_data_attack.find(key) end
-
 ---@class unit_action_data_attack_unk_4: df.class
 ---@field wrestle_type unit_action_data_attack.T_unk_4_wrestle_type
 ---@field unk_4 integer
@@ -4005,10 +3738,6 @@ function df.unit_action_data_attack.find(key) end
 ---@field unk_10 integer
 ---@field unk_14 integer
 df.unit_action_data_attack.T_unk_4 = {}
-
----@param key integer
----@return unit_action_data_attack_unk_4|nil
-function df.unit_action_data_attack.T_unk_4.find(key) end
 
 ---@class _unit_action_data_attack.T_unk_4_wrestle_type: integer, string, df.enum
 ---@field Wrestle 0
@@ -4022,6 +3751,7 @@ df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
 ---@field Wrestle boolean
 ---@field [1] boolean
 ---@field Grab boolean
+
 
 ---@class _unit_action_data_attack_flags: integer, string, df.bitfield
 ---@field unk_0 0
@@ -4101,10 +3831,6 @@ df.unit_action_data_attack.T_flags = {}
 ---@field z2 integer
 df.unit_action_data_jump = {}
 
----@param key integer
----@return unit_action_data_jump|nil
-function df.unit_action_data_jump.find(key) end
-
 ---@class unit_action_data_hold_terrain: df.class
 ---@field x1 integer
 ---@field y1 integer
@@ -4119,19 +3845,11 @@ function df.unit_action_data_jump.find(key) end
 ---@field fatigue integer
 df.unit_action_data_hold_terrain = {}
 
----@param key integer
----@return unit_action_data_hold_terrain|nil
-function df.unit_action_data_hold_terrain.find(key) end
-
 ---@class unit_action_data_release_terrain: df.class
 ---@field x integer
 ---@field y integer
 ---@field z integer
 df.unit_action_data_release_terrain = {}
-
----@param key integer
----@return unit_action_data_release_terrain|nil
-function df.unit_action_data_release_terrain.find(key) end
 
 ---@class unit_action_data_climb: df.class
 ---@field x1 integer
@@ -4148,20 +3866,12 @@ function df.unit_action_data_release_terrain.find(key) end
 ---@field fatigue integer
 df.unit_action_data_climb = {}
 
----@param key integer
----@return unit_action_data_climb|nil
-function df.unit_action_data_climb.find(key) end
-
 ---@class unit_action_data_job: df.class
 ---@field x integer
 ---@field y integer
 ---@field z integer
 ---@field timer integer
 df.unit_action_data_job = {}
-
----@param key integer
----@return unit_action_data_job|nil
-function df.unit_action_data_job.find(key) end
 
 ---@class unit_action_data_talk: df.class
 ---@field unk_0 integer
@@ -4179,17 +3889,8 @@ function df.unit_action_data_job.find(key) end
 ---@field unk_54 integer
 df.unit_action_data_talk = {}
 
----@param key integer
----@return unit_action_data_talk|nil
-function df.unit_action_data_talk.find(key) end
-
 ---@class unit_action_data_unsteady: df.class
----@field timer integer
 df.unit_action_data_unsteady = {}
-
----@param key integer
----@return unit_action_data_unsteady|nil
-function df.unit_action_data_unsteady.find(key) end
 
 ---@class unit_action_data_parry: df.class
 ---@field unit_id integer References: unit
@@ -4197,19 +3898,11 @@ function df.unit_action_data_unsteady.find(key) end
 ---@field parry_item_id integer References: item
 df.unit_action_data_parry = {}
 
----@param key integer
----@return unit_action_data_parry|nil
-function df.unit_action_data_parry.find(key) end
-
 ---@class unit_action_data_block: df.class
 ---@field unit_id integer References: unit
 ---@field target_action integer References: unit_action
 ---@field block_item_id integer References: item
 df.unit_action_data_block = {}
-
----@param key integer
----@return unit_action_data_block|nil
-function df.unit_action_data_block.find(key) end
 
 ---@class unit_action_data_dodge: df.class
 ---@field x1 integer
@@ -4221,42 +3914,19 @@ function df.unit_action_data_block.find(key) end
 ---@field z2 integer
 df.unit_action_data_dodge = {}
 
----@param key integer
----@return unit_action_data_dodge|nil
-function df.unit_action_data_dodge.find(key) end
-
 ---@class unit_action_data_recover: df.class
 ---@field timer integer
 ---@field unk_4 integer
 df.unit_action_data_recover = {}
 
----@param key integer
----@return unit_action_data_recover|nil
-function df.unit_action_data_recover.find(key) end
-
 ---@class unit_action_data_stand_up: df.class
----@field timer integer
 df.unit_action_data_stand_up = {}
 
----@param key integer
----@return unit_action_data_stand_up|nil
-function df.unit_action_data_stand_up.find(key) end
-
 ---@class unit_action_data_lie_down: df.class
----@field timer integer
 df.unit_action_data_lie_down = {}
 
----@param key integer
----@return unit_action_data_lie_down|nil
-function df.unit_action_data_lie_down.find(key) end
-
 ---@class unit_action_data_job2: df.class
----@field timer integer
 df.unit_action_data_job2 = {}
-
----@param key integer
----@return unit_action_data_job2|nil
-function df.unit_action_data_job2.find(key) end
 
 ---@class unit_action_data_push_object: df.class
 ---@field x1 integer
@@ -4272,18 +3942,10 @@ function df.unit_action_data_job2.find(key) end
 ---@field unk_18 integer
 df.unit_action_data_push_object = {}
 
----@param key integer
----@return unit_action_data_push_object|nil
-function df.unit_action_data_push_object.find(key) end
-
 ---@class unit_action_data_suck_blood: df.class
 ---@field unit_id integer References: unit
 ---@field timer integer
 df.unit_action_data_suck_blood = {}
-
----@param key integer
----@return unit_action_data_suck_blood|nil
-function df.unit_action_data_suck_blood.find(key) end
 
 ---@class unit_action_data_hold_item: df.class
 ---@field x1 integer
@@ -4297,51 +3959,24 @@ function df.unit_action_data_suck_blood.find(key) end
 ---@field unk_14 integer
 df.unit_action_data_hold_item = {}
 
----@param key integer
----@return unit_action_data_hold_item|nil
-function df.unit_action_data_hold_item.find(key) end
-
 ---@class unit_action_data_release_item: df.class
----@field unk_0 integer
 df.unit_action_data_release_item = {}
-
----@param key integer
----@return unit_action_data_release_item|nil
-function df.unit_action_data_release_item.find(key) end
 
 ---@class unit_action_data_unk_sub_20: df.class
 ---@field unk_0 integer[]
 ---@field unk_1 integer[]
 df.unit_action_data_unk_sub_20 = {}
 
----@param key integer
----@return unit_action_data_unk_sub_20|nil
-function df.unit_action_data_unk_sub_20.find(key) end
-
 ---@class unit_action_data_unk_sub_21: df.class
 ---@field unk_0 integer[]
 ---@field unk_1 integer[]
 df.unit_action_data_unk_sub_21 = {}
 
----@param key integer
----@return unit_action_data_unk_sub_21|nil
-function df.unit_action_data_unk_sub_21.find(key) end
-
 ---@class unit_action_data_unk_sub_22: df.class
----@field unk_0 integer
 df.unit_action_data_unk_sub_22 = {}
 
----@param key integer
----@return unit_action_data_unk_sub_22|nil
-function df.unit_action_data_unk_sub_22.find(key) end
-
 ---@class unit_action_data_unk_sub_23: df.class
----@field unk_0 integer
 df.unit_action_data_unk_sub_23 = {}
-
----@param key integer
----@return unit_action_data_unk_sub_23|nil
-function df.unit_action_data_unk_sub_23.find(key) end
 
 ---@class unit_skill: df.class
 ---@field id job_skill
@@ -4354,10 +3989,6 @@ function df.unit_action_data_unk_sub_23.find(key) end
 ---@field natural_skill_lvl integer This is the NATURAL_SKILL level for the caste in the raws. This skill cannot rust below this level.
 df.unit_skill = {}
 
----@param key integer
----@return unit_skill|nil
-function df.unit_skill.find(key) end
-
 ---@class unit_preference: df.class
 ---@field type unit_preference_type
 ---@field item_subtype integer
@@ -4367,10 +3998,6 @@ function df.unit_skill.find(key) end
 ---@field active boolean
 ---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
 df.unit_preference = {}
-
----@param key integer
----@return unit_preference|nil
-function df.unit_preference.find(key) end
 
 ---@class _unit_preference_type: integer, string, df.enum
 ---@field LikeMaterial 0
@@ -4430,20 +4057,12 @@ df.unit_preference.T_type = {}
 ---@field age integer
 df.unit_complaint = {}
 
----@param key integer
----@return unit_complaint|nil
-function df.unit_complaint.find(key) end
-
 ---@class unit_parley: df.class
 ---@field invasion integer References: invasion_info
 ---@field speaker integer References: unit
 ---@field artifact integer References: artifact_record
 ---@field flags unit_parley_flags
 df.unit_parley = {}
-
----@param key integer
----@return unit_parley|nil
-function df.unit_parley.find(key) end
 
 ---@class _unit_parley_flags: integer, string, df.bitfield
 ---@field did_topic_meeting 0
@@ -4464,10 +4083,6 @@ df.unit_parley.T_flags = {}
 ---@field count integer
 df.unit_request = {}
 
----@param key integer
----@return unit_request|nil
-function df.unit_request.find(key) end
-
 ---@class _unit_request_type: integer, string, df.enum
 ---@field DoGuildJobs 0
 ---@field [0] "DoGuildJobs"
@@ -4482,18 +4097,15 @@ df.unit_request.T_type = {}
 ---@field amount integer
 df.unit_coin_debt = {}
 
----@param key integer
----@return unit_coin_debt|nil
-function df.unit_coin_debt.find(key) end
-
 ---@class unit_chunk: df.instance
 ---@field id integer unit_*.dat
----@field units item[][]
+---@field units unit_chunk_units
 df.unit_chunk = {}
 
----@param key integer
----@return unit_chunk|nil
-function df.unit_chunk.find(key) end
+---@class unit_chunk_units: df.class
+---@field items item[]
+---@field unit unit
+df.unit_chunk.T_units = {}
 
 ---physical_formst
 ---@class unit_appearance: df.class
@@ -4502,24 +4114,20 @@ function df.unit_chunk.find(key) end
 ---@field unk_3 integer
 ---@field physical_attributes unit_attribute[]
 ---@field unk_5 integer
----@field body_modifiers df.container<integer>
----@field bp_modifiers df.container<integer>
+---@field body_modifiers df.container
+---@field bp_modifiers df.container
 ---@field unk_8 integer
----@field tissue_style df.container<integer>
----@field tissue_style_civ_id df.container<integer>
----@field tissue_style_id df.container<integer>
----@field tissue_style_type df.container<integer>
----@field tissue_length df.container<integer>
+---@field tissue_style df.container
+---@field tissue_style_civ_id df.container
+---@field tissue_style_id df.container
+---@field tissue_style_type df.container
+---@field tissue_length df.container
 ---@field appearance_genes integer
 ---@field color_genes integer
----@field color_modifiers df.container<integer>
+---@field color_modifiers df.container
 ---@field unk_18 integer
 ---@field unk_19 integer
 df.unit_appearance = {}
-
----@param key integer
----@return unit_appearance|nil
-function df.unit_appearance.find(key) end
 
 ---@class _work_detail_mode: integer, string, df.enum
 ---@field Default 0
@@ -4545,14 +4153,10 @@ df.work_detail_mode = {}
 ---@class work_detail: df.class
 ---@field name string
 ---@field work_detail_flags work_detail_work_detail_flags
----@field assigned_units df.container<integer> References: unit<br>toady: unid
+---@field assigned_units df.container References: unit<br>toady: unid
 ---@field allowed_labors boolean[] toady: profession
 ---@field icon work_detail_icon
 df.work_detail = {}
-
----@param key integer
----@return work_detail|nil
-function df.work_detail.find(key) end
 
 ---@class _work_detail_work_detail_flags: integer, string, df.bitfield
 ---@field no_modify 0
@@ -4570,6 +4174,7 @@ df.work_detail.T_work_detail_flags = {}
 ---@field cannot_be_everybody boolean
 ---@field [2] boolean
 ---@field mode boolean
+
 
 ---@class _work_detail_icon: integer, string, df.enum
 ---@field ICON_NONE -1
@@ -4655,12 +4260,8 @@ df.work_detail.T_icon = {}
 ---@class process_unit_aux: df.class
 ---@field unit unit
 ---@field flags process_unit_aux_flags
----@field unitlist unit[]
+---@field unitlist process_unit_aux_unitlist
 df.process_unit_aux = {}
-
----@param key integer
----@return process_unit_aux|nil
-function df.process_unit_aux.find(key) end
 
 ---@class _process_unit_aux_flags: integer, string, df.bitfield
 ---@field unk0 0
@@ -4678,4 +4279,8 @@ df.process_unit_aux.T_flags = {}
 ---@field unk_1 boolean
 ---@field [2] boolean
 ---@field unk2 boolean
+
+
+---@class process_unit_aux_unitlist: df.class
+df.process_unit_aux.T_unitlist = {}
 

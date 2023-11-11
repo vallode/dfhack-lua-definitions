@@ -8,18 +8,10 @@
 ---@field code string DWARF_LIAISON etc
 df.dipscript_info = {}
 
----@param key integer
----@return dipscript_info|nil
-function df.dipscript_info.find(key) end
-
 ---@class dipscript_text: df.class
 ---@field name string dwarf_liaison_bye, etc.
 ---@field contents string[]
 df.dipscript_text = {}
-
----@param key integer
----@return dipscript_text|nil
-function df.dipscript_text.find(key) end
 
 ---@class dipscript_popup: df.class
 ---@field meeting_holder_actor integer References: unit
@@ -27,10 +19,6 @@ function df.dipscript_text.find(key) end
 ---@field activity activity_info
 ---@field flags dipscript_popup_flags
 df.dipscript_popup = {}
-
----@param key integer
----@return dipscript_popup|nil
-function df.dipscript_popup.find(key) end
 
 ---@class _dipscript_popup_flags: integer, string, df.bitfield
 ---@field close_screen 0
@@ -49,22 +37,6 @@ df.dipscript_popup.T_flags = {}
 ---@field next_step_idx integer
 df.script_stepst = {}
 
----@param key integer
----@return script_stepst|nil
-function df.script_stepst.find(key) end
-
----@param idx integer
----@return boolean
-function df.script_stepst:setNextStep(idx) end
-
----@param context meeting_context
----@return integer
-function df.script_stepst:execute(context) end
-
----@param context meeting_context
----@return integer
-function df.script_stepst:skip(context) end
-
 ---@class script_step_setvarst: script_stepst
 ---@field dest_type string
 ---@field dest_name string
@@ -72,27 +44,15 @@ function df.script_stepst:skip(context) end
 ---@field src_name string
 df.script_step_setvarst = {}
 
----@param key integer
----@return script_step_setvarst|nil
-function df.script_step_setvarst.find(key) end
-
 ---@class script_step_simpleactionst: script_stepst
 ---@field type string
 ---@field subtype string
 df.script_step_simpleactionst = {}
 
----@param key integer
----@return script_step_simpleactionst|nil
-function df.script_step_simpleactionst.find(key) end
-
 ---@class script_step_conditionalst: script_stepst
 ---@field condition script_step_conditionalst_condition
 ---@field conditional_next_step_idx integer
 df.script_step_conditionalst = {}
-
----@param key integer
----@return script_step_conditionalst|nil
-function df.script_step_conditionalst.find(key) end
 
 ---@class script_step_conditionalst_condition: df.class
 ---@field var1_type string
@@ -102,48 +62,22 @@ function df.script_step_conditionalst.find(key) end
 ---@field var2_name string
 df.script_step_conditionalst.T_condition = {}
 
----@param key integer
----@return script_step_conditionalst_condition|nil
-function df.script_step_conditionalst.T_condition.find(key) end
-
 ---@class script_step_textviewerst: script_stepst
 ---@field filename string
 ---@field outvar_name string
 df.script_step_textviewerst = {}
 
----@param key integer
----@return script_step_textviewerst|nil
-function df.script_step_textviewerst.find(key) end
-
 ---@class script_step_diphistoryst: script_stepst
----@field event string
 df.script_step_diphistoryst = {}
 
----@param key integer
----@return script_step_diphistoryst|nil
-function df.script_step_diphistoryst.find(key) end
-
 ---@class script_step_discussst: script_stepst
----@field event string
 df.script_step_discussst = {}
-
----@param key integer
----@return script_step_discussst|nil
-function df.script_step_discussst.find(key) end
 
 ---@class script_step_topicdiscussionst: script_stepst
 df.script_step_topicdiscussionst = {}
 
----@param key integer
----@return script_step_topicdiscussionst|nil
-function df.script_step_topicdiscussionst.find(key) end
-
 ---@class script_step_constructtopiclistst: script_stepst
 df.script_step_constructtopiclistst = {}
-
----@param key integer
----@return script_step_constructtopiclistst|nil
-function df.script_step_constructtopiclistst.find(key) end
 
 ---@class script_step_dipeventst: script_step_eventst
 ---@field parm1 string
@@ -153,107 +87,37 @@ function df.script_step_constructtopiclistst.find(key) end
 ---@field parm5 string
 df.script_step_dipeventst = {}
 
----@param key integer
----@return script_step_dipeventst|nil
-function df.script_step_dipeventst.find(key) end
-
 ---@class script_step_invasionst: script_step_eventst
----@field parm string
 df.script_step_invasionst = {}
-
----@param key integer
----@return script_step_invasionst|nil
-function df.script_step_invasionst.find(key) end
 
 ---@class script_step_eventst: script_stepst
 df.script_step_eventst = {}
-
----@param key integer
----@return script_step_eventst|nil
-function df.script_step_eventst.find(key) end
 
 ---@class script_varst: df.class
 ---@field name string
 df.script_varst = {}
 
----@param key integer
----@return script_varst|nil
-function df.script_varst.find(key) end
-
----@param unk_0 active_script_varst
----@return active_script_varst
-function df.script_varst:instantiate(unk_0) end
-
 ---@class script_var_unitst: script_varst
 df.script_var_unitst = {}
 
----@param key integer
----@return script_var_unitst|nil
-function df.script_var_unitst.find(key) end
-
 ---@class script_var_longst: script_varst
 df.script_var_longst = {}
-
----@param key integer
----@return script_var_longst|nil
-function df.script_var_longst.find(key) end
 
 ---@class active_script_varst: df.class
 ---@field name string
 df.active_script_varst = {}
 
----@param key integer
----@return active_script_varst|nil
-function df.active_script_varst.find(key) end
-
-function df.active_script_varst:setColor() end
-
----@param output string
----@param format string
-function df.active_script_varst:formatString(output, format) end
-
----@param int_value integer
----@param ref_value specific_ref
-function df.active_script_varst:getValue(int_value, ref_value) end
-
----@param var meeting_variable
-function df.active_script_varst:setValue(var) end
-
----@param ref_value specific_ref
-function df.active_script_varst:removeUnit(ref_value) end
-
----@param file file_compressorst
-function df.active_script_varst:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.active_script_varst:read_file(file, loadversion) end
-
 ---@class active_script_var_unitst: active_script_varst
----@field unit unit
 df.active_script_var_unitst = {}
 
----@param key integer
----@return active_script_var_unitst|nil
-function df.active_script_var_unitst.find(key) end
-
 ---@class active_script_var_longst: active_script_varst
----@field value integer
 df.active_script_var_longst = {}
-
----@param key integer
----@return active_script_var_longst|nil
-function df.active_script_var_longst.find(key) end
 
 ---@class meeting_variable: df.class
 ---@field value integer
 ---@field ref specific_ref
 ---@field active_var active_script_varst
 df.meeting_variable = {}
-
----@param key integer
----@return meeting_variable|nil
-function df.meeting_variable.find(key) end
 
 ---@class meeting_context: df.class
 ---@field meeting meeting_diplomat_info
@@ -262,17 +126,13 @@ function df.meeting_variable.find(key) end
 ---@field unk_3 integer
 df.meeting_context = {}
 
----@param key integer
----@return meeting_context|nil
-function df.meeting_context.find(key) end
-
 ---@class meeting_diplomat_info: df.class
 ---@field civ_id integer References: historical_entity
 ---@field unk1 integer maybe is_first_contact
 ---@field diplomat_id integer References: historical_figure
 ---@field associate_id integer References: historical_figure
 ---@field topic_list meeting_topic[]
----@field topic_parms df.container<integer>
+---@field topic_parms df.container
 ---@field sell_requests entity_sell_requests
 ---@field buy_requests entity_buy_requests
 ---@field dipscript dipscript_info
@@ -282,19 +142,15 @@ function df.meeting_context.find(key) end
 ---@field unk_6c string
 ---@field flags meeting_diplomat_info_flags
 ---@field events meeting_event[]
----@field agreement_entity df.container<integer> References: historical_entity
----@field agreement_topic df.container<meeting_topic>
----@field agreement_year df.container<integer>
----@field agreement_tick df.container<integer>
----@field agreement_outcome df.container<integer>
----@field contact_entity df.container<integer> References: historical_entity
----@field contact_year df.container<integer>
----@field contact_tick df.container<integer>
+---@field agreement_entity df.container References: historical_entity
+---@field agreement_topic df.container
+---@field agreement_year df.container
+---@field agreement_tick df.container
+---@field agreement_outcome df.container
+---@field contact_entity df.container References: historical_entity
+---@field contact_year df.container
+---@field contact_tick df.container
 df.meeting_diplomat_info = {}
-
----@param key integer
----@return meeting_diplomat_info|nil
-function df.meeting_diplomat_info.find(key) end
 
 ---@class _meeting_diplomat_info_flags: integer, string, df.bitfield
 ---@field dynamic_load 0
@@ -391,8 +247,8 @@ df.meeting_event_type = {}
 ---@field type meeting_event_type
 ---@field topic meeting_topic
 ---@field topic_parm integer
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
 ---@field quota_total integer
 ---@field quota_remaining integer
 ---@field year integer
@@ -400,10 +256,6 @@ df.meeting_event_type = {}
 ---@field sell_prices entity_sell_prices
 ---@field buy_prices entity_buy_prices
 df.meeting_event = {}
-
----@param key integer
----@return meeting_event|nil
-function df.meeting_event.find(key) end
 
 ---@class activity_info: df.class
 ---@field id integer assigned during Save
@@ -415,10 +267,6 @@ function df.meeting_event.find(key) end
 ---@field delay integer 0
 ---@field tree_quota integer -1
 df.activity_info = {}
-
----@param key integer
----@return activity_info|nil
-function df.activity_info.find(key) end
 
 ---@class _activity_info_flags: integer, string, df.bitfield
 ---@field next_step 0
@@ -450,10 +298,6 @@ df.activity_info.T_flags = {}
 ---@field rent_value integer
 ---@field flags room_rent_info_flags
 df.room_rent_info = {}
-
----@param key integer
----@return room_rent_info|nil
-function df.room_rent_info.find(key) end
 
 ---@class _room_rent_info_flags: integer, string, df.bitfield
 ---@field eviction_underway 0
@@ -532,10 +376,6 @@ df.activity_entry_type = {}
 ---@field next_event_id integer
 ---@field army_controller integer References: army_controller
 df.activity_entry = {}
-
----@param key integer
----@return activity_entry|nil
-function df.activity_entry.find(key) end
 
 ---@class _activity_event_type: integer, string, df.enum
 ---@field TrainingSession 0
@@ -663,10 +503,6 @@ df.activity_event_type = {}
 ---@field event_id integer
 df.activity_event_participants = {}
 
----@param key integer
----@return activity_event_participants|nil
-function df.activity_event_participants.find(key) end
-
 ---@class activity_event: df.class
 ---@field event_id integer mostly, but not always, the index in activity.events
 ---@field activity_id integer References: activity_entry
@@ -675,10 +511,6 @@ function df.activity_event_participants.find(key) end
 ---@field unk_v42_1 activity_event_unk_v42_1[]
 ---@field unk_v42_2 activity_event_unk_v42_2[]
 df.activity_event = {}
-
----@param key integer
----@return activity_event|nil
-function df.activity_event.find(key) end
 
 ---@class _activity_event_flags: integer, string, df.bitfield
 ---@field dismissed 0
@@ -693,15 +525,13 @@ df.activity_event.T_flags = {}
 ---@field [1] boolean
 ---@field squad boolean
 
+
 ---@class activity_event_unk_v42_1: df.class
 ---@field unk_1 integer
 ---@field item_id integer References: item<br>is artifact id for some activities ie. copy written
 ---@field unk_2 integer
 df.activity_event.T_unk_v42_1 = {}
 
----@param key integer
----@return activity_event_unk_v42_1|nil
-function df.activity_event.T_unk_v42_1.find(key) end
 
 ---@class activity_event_unk_v42_2: df.class
 ---@field unk_1 integer
@@ -710,95 +540,8 @@ function df.activity_event.T_unk_v42_1.find(key) end
 ---@field unk_3 integer
 df.activity_event.T_unk_v42_2 = {}
 
----@param key integer
----@return activity_event_unk_v42_2|nil
-function df.activity_event.T_unk_v42_2.find(key) end
-
----@return activity_event_type
-function df.activity_event:getType() end
-
----@param file file_compressorst
-function df.activity_event:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.activity_event:read_file(file, loadversion) end
-
----returns true if hist_figure_ids empty or if various subclass fields are uninitialized
----@return boolean
-function df.activity_event:isEmpty() end
-
----@param unk_0 activity_event_participants
----@return activity_event_participants
-function df.activity_event:getParticipantInfo(unk_0) end
-
----@param children_too boolean
-function df.activity_event:dismiss(children_too) end
-
----@param dx integer
----@param dy integer
----@param dz integer
-function df.activity_event:move(dx, dy, dz) end
-
----@param histfig integer
----@param unit integer
----@param unk_2 boolean
-function df.activity_event:removeParticipant(histfig, unit, unk_2) end
-
----@param unk_0 process_unit_aux
----@param unit unit
-function df.activity_event:process(unk_0, unit) end
-
----@param unit unit
----@return integer
-function df.activity_event:checkDrillInvalid(unit) end
-
----@param unk_0 integer
----@return boolean
-function df.activity_event:decUniformLock(unk_0) end
-
----@param unk_0 squad_event_type
----@return squad_event_type
-function df.activity_event:getSquadEventType(unk_0) end
-
----@param skill job_skill
-function df.activity_event:setDemoSkill(skill) end
-
----@param wait_countdown integer
----@param train_rounds integer
----@param train_countdown integer
-function df.activity_event:setSkillDemoTimers(wait_countdown, train_rounds, train_countdown) end
-
----@param amount integer
-function df.activity_event:adjustOrganizeCounter(amount) end
-
----or perhaps somebody else - only works for combat_training and skill_demonstration
----@param hist_figure_id integer
----@param unit_id integer
-function df.activity_event:getOrganizer(hist_figure_id, unit_id) end
-
----returns pointer to building_id
----@param unk_0 integer
----@return integer
-function df.activity_event:getBuilding(unk_0) end
-
----@return boolean
-function df.activity_event:isSparring() end
-
----@return integer
-function df.activity_event:getUniformType() end
-
----@param unit_id integer
----@param str string
-function df.activity_event:getName(unit_id, str) end
-
 ---@class activity_event_training_sessionst: activity_event
----@field participants activity_event_participants
 df.activity_event_training_sessionst = {}
-
----@param key integer
----@return activity_event_training_sessionst|nil
-function df.activity_event_training_sessionst.find(key) end
 
 ---@class activity_event_combat_trainingst: activity_event
 ---@field participants activity_event_participants
@@ -807,10 +550,6 @@ function df.activity_event_training_sessionst.find(key) end
 ---@field unit_id integer References: unit
 ---@field organize_counter integer gt 0 => organizing, lt 0 => done
 df.activity_event_combat_trainingst = {}
-
----@param key integer
----@return activity_event_combat_trainingst|nil
-function df.activity_event_combat_trainingst.find(key) end
 
 ---@class activity_event_skill_demonstrationst: activity_event
 ---@field participants activity_event_participants
@@ -824,19 +563,11 @@ function df.activity_event_combat_trainingst.find(key) end
 ---@field train_countdown integer
 df.activity_event_skill_demonstrationst = {}
 
----@param key integer
----@return activity_event_skill_demonstrationst|nil
-function df.activity_event_skill_demonstrationst.find(key) end
-
 ---@class activity_event_individual_skill_drillst: activity_event
 ---@field participants activity_event_participants
 ---@field building_id integer References: building
 ---@field countdown integer
 df.activity_event_individual_skill_drillst = {}
-
----@param key integer
----@return activity_event_individual_skill_drillst|nil
-function df.activity_event_individual_skill_drillst.find(key) end
 
 ---@class activity_event_sparringst: activity_event
 ---@field participants activity_event_participants
@@ -845,31 +576,19 @@ function df.activity_event_individual_skill_drillst.find(key) end
 ---@field countdown integer
 df.activity_event_sparringst = {}
 
----@param key integer
----@return activity_event_sparringst|nil
-function df.activity_event_sparringst.find(key) end
-
 ---@class activity_event_sparringst_groups: df.class
----@field units df.container<integer> References: unit
+---@field units df.container References: unit
 ---@field countdown integer
 ---@field building_id integer References: building
 df.activity_event_sparringst.T_groups = {}
-
----@param key integer
----@return activity_event_sparringst_groups|nil
-function df.activity_event_sparringst.T_groups.find(key) end
 
 ---@class activity_event_ranged_practicest: activity_event
 ---@field participants activity_event_participants
 ---@field building_id integer References: building
 df.activity_event_ranged_practicest = {}
 
----@param key integer
----@return activity_event_ranged_practicest|nil
-function df.activity_event_ranged_practicest.find(key) end
-
 ---@class activity_event_harassmentst: activity_event
----@field unk_1 df.container<integer>
+---@field unk_1 df.container
 ---@field unk_2 activity_event_harassmentst_unk_2[]
 ---@field unk_3 integer
 ---@field unk_4 integer
@@ -878,10 +597,6 @@ function df.activity_event_ranged_practicest.find(key) end
 ---@field unk_7 integer
 ---@field unk_8 integer
 df.activity_event_harassmentst = {}
-
----@param key integer
----@return activity_event_harassmentst|nil
-function df.activity_event_harassmentst.find(key) end
 
 ---@class activity_event_harassmentst_unk_2: df.class
 ---@field unk_1 integer is an hfid
@@ -894,14 +609,10 @@ function df.activity_event_harassmentst.find(key) end
 ---@field unk_8 integer
 ---@field unk_9 integer
 ---@field unk_10 integer
----@field unk_11 df.container<integer>
+---@field unk_11 df.container
 ---@field unk_12 integer
 ---@field unk_13 integer
 df.activity_event_harassmentst.T_unk_2 = {}
-
----@param key integer
----@return activity_event_harassmentst_unk_2|nil
-function df.activity_event_harassmentst.T_unk_2.find(key) end
 
 ---@class _conversation_menu: integer, string, df.enum
 ---@field None -1
@@ -1205,11 +916,11 @@ df.conversation_menu = {}
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_v42_3 integer
----@field unk_v42_4 df.container<integer>
----@field unk_5 df.container<integer>
+---@field unk_v42_4 df.container
+---@field unk_5 df.container
 ---@field unk_6 activity_event_conversationst_unk_6[]
----@field unk_7 df.container<integer>
----@field unk_8 df.container<integer>
+---@field unk_7 df.container
+---@field unk_8 df.container
 ---@field unk_b4 activity_event_conversationst_unk_b4
 ---@field turns activity_event_conversationst_turns[]
 ---@field floor_holder integer References: unit<br>-1 = no one's turn
@@ -1222,18 +933,11 @@ df.conversation_menu = {}
 ---@field unk4 integer[] uninitialized
 df.activity_event_conversationst = {}
 
----@param key integer
----@return activity_event_conversationst|nil
-function df.activity_event_conversationst.find(key) end
-
 ---@class activity_event_conversationst_participants: df.class
 ---@field unit_id integer References: unit
 ---@field histfig_id integer References: historical_figure
 df.activity_event_conversationst.T_participants = {}
 
----@param key integer
----@return activity_event_conversationst_participants|nil
-function df.activity_event_conversationst.T_participants.find(key) end
 
 ---@class activity_event_conversationst_unk_6: df.class
 ---@field unk_1 integer
@@ -1247,21 +951,15 @@ function df.activity_event_conversationst.T_participants.find(key) end
 ---@field unk_9 integer
 df.activity_event_conversationst.T_unk_6 = {}
 
----@param key integer
----@return activity_event_conversationst_unk_6|nil
-function df.activity_event_conversationst.T_unk_6.find(key) end
 
 ---@class activity_event_conversationst_unk_b4: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 df.container<integer>
+---@field unk_4 df.container
 ---@field unk_5 integer
 df.activity_event_conversationst.T_unk_b4 = {}
 
----@param key integer
----@return activity_event_conversationst_unk_b4|nil
-function df.activity_event_conversationst.T_unk_b4.find(key) end
 
 ---@class activity_event_conversationst_turns: df.class
 ---@field speaker integer References: unit
@@ -1280,9 +978,6 @@ function df.activity_event_conversationst.T_unk_b4.find(key) end
 ---@field unk_34014_1 integer uninit
 df.activity_event_conversationst.T_turns = {}
 
----@param key integer
----@return activity_event_conversationst_turns|nil
-function df.activity_event_conversationst.T_turns.find(key) end
 
 ---@class _activity_event_conversationst_flags2: integer, string, df.bitfield
 ---@field unk_0 0
@@ -1297,24 +992,25 @@ df.activity_event_conversationst.T_flags2 = {}
 ---@field [1] boolean
 ---@field shouting boolean
 
+
 ---@class activity_event_conversationst_unk2: df.class
 ---@field unk_1 incident[]
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 df.container<integer>
----@field unk_5 df.container<integer>
----@field unk_6 df.container<integer>
----@field unk_7 df.container<integer>
----@field unk_8 df.container<integer>
----@field unk_9 df.container<integer>
----@field unk_10 df.container<integer>
----@field unk_11 df.container<integer>
----@field unk_12 df.container<integer>
----@field unk_13 df.container<integer>
----@field unk_14 df.container<integer>
----@field unk_15 df.container<integer>
----@field unk_16 df.container<integer>
----@field unk_17 df.container<integer>
+---@field unk_4 df.container
+---@field unk_5 df.container
+---@field unk_6 df.container
+---@field unk_7 df.container
+---@field unk_8 df.container
+---@field unk_9 df.container
+---@field unk_10 df.container
+---@field unk_11 df.container
+---@field unk_12 df.container
+---@field unk_13 df.container
+---@field unk_14 df.container
+---@field unk_15 df.container
+---@field unk_16 df.container
+---@field unk_17 df.container
 ---@field unk_18 integer
 ---@field unk_19 integer
 ---@field unk_20 integer
@@ -1329,10 +1025,6 @@ df.activity_event_conversationst.T_flags2 = {}
 ---@field unk_29 integer
 df.activity_event_conversationst.T_unk2 = {}
 
----@param key integer
----@return activity_event_conversationst_unk2|nil
-function df.activity_event_conversationst.T_unk2.find(key) end
-
 ---@class activity_event_conflictst: activity_event
 ---@field sides activity_event_conflictst_sides[]
 ---@field unk_1 integer
@@ -1341,22 +1033,14 @@ function df.activity_event_conversationst.T_unk2.find(key) end
 ---@field unk_v42_3 integer
 df.activity_event_conflictst = {}
 
----@param key integer
----@return activity_event_conflictst|nil
-function df.activity_event_conflictst.find(key) end
-
 ---@class activity_event_conflictst_sides: df.class
 ---@field id integer
----@field histfig_ids df.container<integer> References: historical_figure
----@field unit_ids df.container<integer> References: unit
+---@field histfig_ids df.container References: historical_figure
+---@field unit_ids df.container References: unit
 ---@field enemies activity_event_conflictst.T_sides_enemies[] relationships to other sides in this conflict
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.activity_event_conflictst.T_sides = {}
-
----@param key integer
----@return activity_event_conflictst_sides|nil
-function df.activity_event_conflictst.T_sides.find(key) end
 
 ---relationships to other sides in this conflict
 ---@class activity_event_conflictst.T_sides_enemies: df.class
@@ -1364,33 +1048,21 @@ function df.activity_event_conflictst.T_sides.find(key) end
 ---@field conflict_level conflict_level
 df.activity_event_conflictst.T_sides.T_enemies = {}
 
----@param key integer
----@return activity_event_conflictst.T_sides_enemies|nil
-function df.activity_event_conflictst.T_sides.T_enemies.find(key) end
-
 ---@class activity_event_guardst: activity_event
----@field unk_1 df.container<integer>
+---@field unk_1 df.container
 ---@field unk_2 coord
 ---@field unk_3 integer
 df.activity_event_guardst = {}
 
----@param key integer
----@return activity_event_guardst|nil
-function df.activity_event_guardst.find(key) end
-
 ---@class activity_event_reunionst: activity_event
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
 df.activity_event_reunionst = {}
-
----@param key integer
----@return activity_event_reunionst|nil
-function df.activity_event_reunionst.find(key) end
 
 ---@class activity_event_prayerst: activity_event
 ---@field participants activity_event_participants
@@ -1402,10 +1074,6 @@ function df.activity_event_reunionst.find(key) end
 ---@field timer integer
 df.activity_event_prayerst = {}
 
----@param key integer
----@return activity_event_prayerst|nil
-function df.activity_event_prayerst.find(key) end
-
 ---@class activity_event_socializest: activity_event
 ---@field participants activity_event_participants
 ---@field site_id integer References: world_site
@@ -1414,10 +1082,6 @@ function df.activity_event_prayerst.find(key) end
 ---@field unk_1 integer
 df.activity_event_socializest = {}
 
----@param key integer
----@return activity_event_socializest|nil
-function df.activity_event_socializest.find(key) end
-
 ---@class activity_event_worshipst: activity_event
 ---@field participants activity_event_participants
 ---@field site_id integer References: world_site
@@ -1425,10 +1089,6 @@ function df.activity_event_socializest.find(key) end
 ---@field building_id integer
 ---@field unk_1 integer
 df.activity_event_worshipst = {}
-
----@param key integer
----@return activity_event_worshipst|nil
-function df.activity_event_worshipst.find(key) end
 
 ---@class _performance_event_type: integer, string, df.enum
 ---@field STORY 0
@@ -1532,10 +1192,6 @@ df.performance_participant_type = {}
 ---@field unk_18 integer
 df.activity_event_performancest = {}
 
----@param key integer
----@return activity_event_performancest|nil
-function df.activity_event_performancest.find(key) end
-
 ---@class activity_event_performancest_participant_actions: df.class
 ---@field type performance_participant_type
 ---@field sub_type integer depends on type. if music: voice index in musical form
@@ -1550,10 +1206,6 @@ function df.activity_event_performancest.find(key) end
 ---@field unk_act_9 integer
 df.activity_event_performancest.T_participant_actions = {}
 
----@param key integer
----@return activity_event_performancest_participant_actions|nil
-function df.activity_event_performancest.T_participant_actions.find(key) end
-
 ---@class performance_play_orderst: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
@@ -1562,25 +1214,10 @@ function df.activity_event_performancest.T_participant_actions.find(key) end
 ---@field unk_5 integer
 df.performance_play_orderst = {}
 
----@param key integer
----@return performance_play_orderst|nil
-function df.performance_play_orderst.find(key) end
-
 ---@class performance_play_orderst_unk_4: df.class
 ---@field unk_1 integer[]
 ---@field unk_2 integer[]
 df.performance_play_orderst.T_unk_4 = {}
-
----@param key integer
----@return performance_play_orderst_unk_4|nil
-function df.performance_play_orderst.T_unk_4.find(key) end
-
----@param file file_compressorst
-function df.performance_play_orderst:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.performance_play_orderst:read_file(file, loadversion) end
 
 ---@class activity_event_researchst: activity_event
 ---@field participants activity_event_participants
@@ -1588,10 +1225,6 @@ function df.performance_play_orderst:read_file(file, loadversion) end
 ---@field location_id integer References: abstract_building
 ---@field building_id integer
 df.activity_event_researchst = {}
-
----@param key integer
----@return activity_event_researchst|nil
-function df.activity_event_researchst.find(key) end
 
 ---@class activity_event_ponder_topicst: activity_event
 ---@field participants activity_event_participants
@@ -1602,10 +1235,6 @@ function df.activity_event_researchst.find(key) end
 ---@field knowledge knowledge_scholar_category_flag
 ---@field timer integer
 df.activity_event_ponder_topicst = {}
-
----@param key integer
----@return activity_event_ponder_topicst|nil
-function df.activity_event_ponder_topicst.find(key) end
 
 ---@class activity_event_discuss_topicst: activity_event
 ---@field participants activity_event_participants
@@ -1619,10 +1248,6 @@ function df.activity_event_ponder_topicst.find(key) end
 ---@field unk_3 integer References: historical_figure
 df.activity_event_discuss_topicst = {}
 
----@param key integer
----@return activity_event_discuss_topicst|nil
-function df.activity_event_discuss_topicst.find(key) end
-
 ---@class activity_event_readst: activity_event
 ---@field participants activity_event_participants
 ---@field building_id integer
@@ -1632,20 +1257,12 @@ function df.activity_event_discuss_topicst.find(key) end
 ---@field timer integer
 df.activity_event_readst = {}
 
----@param key integer
----@return activity_event_readst|nil
-function df.activity_event_readst.find(key) end
-
 ---@class activity_event_fill_service_orderst: activity_event
 ---@field histfig_id integer References: historical_figure
 ---@field unit_id integer References: unit
 ---@field occupation_id integer References: occupation
 ---@field unk_1 integer
 df.activity_event_fill_service_orderst = {}
-
----@param key integer
----@return activity_event_fill_service_orderst|nil
-function df.activity_event_fill_service_orderst.find(key) end
 
 ---@class activity_event_writest: activity_event
 ---@field participants activity_event_participants
@@ -1659,10 +1276,6 @@ function df.activity_event_fill_service_orderst.find(key) end
 ---@field mode activity_event_writest_mode
 ---@field knowledge knowledge_scholar_category_flag
 df.activity_event_writest = {}
-
----@param key integer
----@return activity_event_writest|nil
-function df.activity_event_writest.find(key) end
 
 ---@class _activity_event_writest_unk_1: integer, string, df.bitfield
 ---@field unk_0 0
@@ -1680,6 +1293,7 @@ df.activity_event_writest.T_unk_1 = {}
 ---@field unk_1 boolean
 ---@field [2] boolean
 ---@field unk_2 boolean
+
 
 ---@class _activity_event_writest_mode: integer, string, df.enum
 ---@field WriteAboutKnowledge 0
@@ -1701,10 +1315,6 @@ df.activity_event_writest.T_mode = {}
 ---@field unk_1 integer
 ---@field timer integer
 df.activity_event_copy_written_contentst = {}
-
----@param key integer
----@return activity_event_copy_written_contentst|nil
-function df.activity_event_copy_written_contentst.find(key) end
 
 ---@class _activity_event_copy_written_contentst_flagsmaybe: integer, string, df.bitfield
 ---@field unk0 0
@@ -1764,20 +1374,12 @@ df.activity_event_copy_written_contentst.T_flagsmaybe = {}
 ---@field unk_9 integer
 df.activity_event_teach_topicst = {}
 
----@param key integer
----@return activity_event_teach_topicst|nil
-function df.activity_event_teach_topicst.find(key) end
-
 ---@class activity_event_playst: activity_event
 ---@field participants activity_event_participants
 ---@field unk_1 integer
 ---@field unk_2 integer[]
 ---@field unk_3 coord
 df.activity_event_playst = {}
-
----@param key integer
----@return activity_event_playst|nil
-function df.activity_event_playst.find(key) end
 
 ---@class activity_event_make_believest: activity_event
 ---@field participants activity_event_participants
@@ -1788,10 +1390,6 @@ function df.activity_event_playst.find(key) end
 ---@field unk_5 coord
 df.activity_event_make_believest = {}
 
----@param key integer
----@return activity_event_make_believest|nil
-function df.activity_event_make_believest.find(key) end
-
 ---@class activity_event_play_with_toyst: activity_event
 ---@field participants activity_event_participants
 ---@field unk_1 integer
@@ -1799,37 +1397,25 @@ function df.activity_event_make_believest.find(key) end
 ---@field unk_3 integer
 ---@field unk activity_event_play_with_toyst_unk
 ---@field unk_4 integer
----@field unk_5 df.container<integer>
+---@field unk_5 df.container
 df.activity_event_play_with_toyst = {}
-
----@param key integer
----@return activity_event_play_with_toyst|nil
-function df.activity_event_play_with_toyst.find(key) end
 
 ---@class activity_event_play_with_toyst_unk: df.class
 ---@field unk_1 integer[]
 ---@field unk_2 coord
 df.activity_event_play_with_toyst.T_unk = {}
 
----@param key integer
----@return activity_event_play_with_toyst_unk|nil
-function df.activity_event_play_with_toyst.T_unk.find(key) end
-
 ---@class activity_event_encounterst: activity_event
 ---@field unk_1 activity_event_encounterst_unk_1[]
 ---@field unk_2 activity_event_encounterst_unk_2[]
----@field unk_3 df.container<integer>
----@field unk_4 df.container<integer>
+---@field unk_3 df.container
+---@field unk_4 df.container
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field unk_7 integer
 ---@field unk_8 integer
 ---@field unk_9 integer
 df.activity_event_encounterst = {}
-
----@param key integer
----@return activity_event_encounterst|nil
-function df.activity_event_encounterst.find(key) end
 
 ---@class activity_event_encounterst_unk_1: df.class
 ---@field unk_1 integer
@@ -1844,9 +1430,6 @@ function df.activity_event_encounterst.find(key) end
 ---@field unk_10 integer
 df.activity_event_encounterst.T_unk_1 = {}
 
----@param key integer
----@return activity_event_encounterst_unk_1|nil
-function df.activity_event_encounterst.T_unk_1.find(key) end
 
 ---@class activity_event_encounterst_unk_2: df.class
 ---@field unk_1 integer
@@ -1859,10 +1442,6 @@ function df.activity_event_encounterst.T_unk_1.find(key) end
 ---@field unk_8 integer
 df.activity_event_encounterst.T_unk_2 = {}
 
----@param key integer
----@return activity_event_encounterst_unk_2|nil
-function df.activity_event_encounterst.T_unk_2.find(key) end
-
 ---@class activity_event_store_objectst: activity_event
 ---@field unk_1 integer
 ---@field unk_2 coord
@@ -1871,19 +1450,11 @@ function df.activity_event_encounterst.T_unk_2.find(key) end
 ---@field unk_4 integer
 df.activity_event_store_objectst = {}
 
----@param key integer
----@return activity_event_store_objectst|nil
-function df.activity_event_store_objectst.find(key) end
-
 ---@class schedule_info: df.instance
 ---@field id integer
 ---@field unk_1 integer
 ---@field slots schedule_slot[]
 df.schedule_info = {}
-
----@param key integer
----@return schedule_info|nil
-function df.schedule_info.find(key) end
 
 ---@class schedule_slot: df.class
 ---@field type integer 0:Eat, 1:Sleep, 2-4:???
@@ -1892,8 +1463,4 @@ function df.schedule_info.find(key) end
 ---@field unk_1 integer
 ---@field processed integer
 df.schedule_slot = {}
-
----@param key integer
----@return schedule_slot|nil
-function df.schedule_slot.find(key) end
 

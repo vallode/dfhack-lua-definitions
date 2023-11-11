@@ -64,10 +64,6 @@ df.init_display_filter_mode = {}
 ---@field filter_mode init_display_filter_mode
 df.init_display = {}
 
----@param key integer
----@return init_display|nil
-function df.init_display.find(key) end
-
 ---@class _init_display_windowed: integer, string, df.enum
 ---@field True 0
 ---@field [0] "True"
@@ -115,10 +111,6 @@ df.init_media_flags = {}
 ---@field time_between_songs integer
 df.init_media = {}
 
----@param key integer
----@return init_media|nil
-function df.init_media.find(key) end
-
 ---@class _init_input_flags: integer, string, df.enum
 ---@field MOUSE_OFF 0
 ---@field [0] "MOUSE_OFF"
@@ -142,10 +134,6 @@ df.init_input_flags = {}
 ---@field repeat_accel_start integer
 ---@field repeat_accel_limit integer
 df.init_input = {}
-
----@param key integer
----@return init_input|nil
-function df.init_input.find(key) end
 
 ---@class init_font: df.class
 ---@field basic_font_texpos number[]
@@ -174,10 +162,6 @@ function df.init_input.find(key) end
 ---@field large_font_dispy number
 df.init_font = {}
 
----@param key integer
----@return init_font|nil
-function df.init_font.find(key) end
-
 ---@class _init_window_flags: integer, string, df.enum
 ---@field VSYNC_ON 0
 ---@field [0] "VSYNC_ON"
@@ -196,12 +180,7 @@ df.init_window_flags = {}
 ---@field TEXTURE_LINEAR boolean
 
 ---@class init_window: df.class
----@field flag init_window_flags[]
 df.init_window = {}
-
----@param key integer
----@return init_window|nil
-function df.init_window.find(key) end
 
 ---@class init: df.class
 ---@field display init_display
@@ -327,8 +306,4 @@ function df.init_window.find(key) end
 ---@field classic_texpos_tab_unselected integer[][]
 ---@field classic_texpos_tab_selected integer[][]
 df.init = {}
-
----@param key integer
----@return init|nil
-function df.init.find(key) end
 

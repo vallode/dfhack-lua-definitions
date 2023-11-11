@@ -1505,7 +1505,7 @@ df.appearance_modifier_growth_interval = {}
 ---@field pain_receptors integer
 ---@field unk6 integer
 ---@field unk7 integer
----@field bp_modifiers df.container<integer>
+---@field bp_modifiers df.container
 ---@field layer_id integer across all body parts
 ---@field parent_idx integer
 ---@field parent_layer_id integer
@@ -1514,10 +1514,6 @@ df.appearance_modifier_growth_interval = {}
 ---@field nonsolid_id integer
 ---@field styleable_id integer
 df.body_part_layer_raw = {}
-
----@param key integer
----@return body_part_layer_raw|nil
-function df.body_part_layer_raw.find(key) end
 
 ---@class body_part_raw: df.class
 ---@field token string
@@ -1534,9 +1530,9 @@ function df.body_part_layer_raw.find(key) end
 ---@field unk7b integer
 ---@field name_singular string[]
 ---@field name_plural string[]
----@field bp_relation_part_id df.container<integer>
----@field bp_relation_code df.container<integer>
----@field bp_relation_coverage df.container<integer>
+---@field bp_relation_part_id df.container
+---@field bp_relation_code df.container
+---@field bp_relation_coverage df.container
 ---@field min_temp integer
 ---@field max_temp integer
 ---@field temp_factor integer
@@ -1547,15 +1543,11 @@ function df.body_part_layer_raw.find(key) end
 ---@field clothing_item_id integer
 df.body_part_raw = {}
 
----@param key integer
----@return body_part_raw|nil
-function df.body_part_raw.find(key) end
-
 ---@class color_modifier_raw: df.class
----@field pattern_index df.container<integer> References: descriptor_pattern
----@field pattern_frequency df.container<integer>
----@field body_part_id df.container<integer>
----@field tissue_layer_id df.container<integer>
+---@field pattern_index df.container References: descriptor_pattern
+---@field pattern_frequency df.container
+---@field body_part_id df.container
+---@field tissue_layer_id df.container
 ---@field unk5 integer
 ---@field start_date integer
 ---@field end_date integer
@@ -1568,10 +1560,6 @@ function df.body_part_raw.find(key) end
 ---@field unk_78 string[]
 ---@field unk_88 string[]
 df.color_modifier_raw = {}
-
----@param key integer
----@return color_modifier_raw|nil
-function df.color_modifier_raw.find(key) end
 
 ---@class body_appearance_modifier: df.class
 ---@field type appearance_modifier_type
@@ -1590,10 +1578,6 @@ function df.color_modifier_raw.find(key) end
 ---@field id integer
 ---@field id2 integer same as id
 df.body_appearance_modifier = {}
-
----@param key integer
----@return body_appearance_modifier|nil
-function df.body_appearance_modifier.find(key) end
 
 ---@class bp_appearance_modifier: df.class
 ---@field type appearance_modifier_type
@@ -1615,10 +1599,6 @@ function df.body_appearance_modifier.find(key) end
 ---@field id integer
 df.bp_appearance_modifier = {}
 
----@param key integer
----@return bp_appearance_modifier|nil
-function df.bp_appearance_modifier.find(key) end
-
 ---@class caste_clothing_item: df.class
 ---@field body_part_id integer
 ---@field unk_4 integer
@@ -1629,39 +1609,31 @@ function df.bp_appearance_modifier.find(key) end
 ---@field unk_38 integer[]
 df.caste_clothing_item = {}
 
----@param key integer
----@return caste_clothing_item|nil
-function df.caste_clothing_item.find(key) end
-
 ---@class caste_attack: df.class
 ---@field name string
 ---@field verb_3rd string
 ---@field verb_2nd string
 ---@field flags caste_attack_flags
----@field specialattack_type df.container<integer> 0 = inject extract, 1 = suck blood, 2 = perform interaction
----@field specialattack_mat_type df.container<integer> extract injected
----@field specialattack_mat_index df.container<integer>
----@field specialattack_mat_state df.container<matter_state>
+---@field specialattack_type df.container 0 = inject extract, 1 = suck blood, 2 = perform interaction
+---@field specialattack_mat_type df.container extract injected
+---@field specialattack_mat_index df.container
+---@field specialattack_mat_state df.container
 ---@field specialattack_temp_mat string[][] parsed during second pass
----@field specialattack_min df.container<integer> amount of extract injected or blood sucked
----@field specialattack_max df.container<integer>
+---@field specialattack_min df.container amount of extract injected or blood sucked
+---@field specialattack_max df.container
 ---@field contact_perc integer
 ---@field penetration_perc integer
 ---@field unk_v40_1 integer
 ---@field unk_v40_2 integer
----@field body_part_idx df.container<integer>
----@field tissue_layer_idx df.container<integer>
+---@field body_part_idx df.container
+---@field tissue_layer_idx df.container
 ---@field skill job_skill
 ---@field velocity_modifier integer
 ---@field specialattack_interaction_tmp_name string[] parsed during second pass
----@field specialattack_interaction_id df.container<integer>
+---@field specialattack_interaction_id df.container
 ---@field unk_v40_3 integer
 ---@field unk_v40_4 integer
 df.caste_attack = {}
-
----@param key integer
----@return caste_attack|nil
-function df.caste_attack.find(key) end
 
 ---@class _caste_attack_flags: integer, string, df.bitfield
 ---@field with 0
@@ -1728,10 +1700,6 @@ df.gait_type = {}
 ---@field stealth_slows integer
 df.gait_info = {}
 
----@param key integer
----@return gait_info|nil
-function df.gait_info.find(key) end
-
 ---@class _gait_info_flags: integer, string, df.bitfield
 ---@field layers_slow 0
 ---@field [0] "layers_slow"
@@ -1792,23 +1760,19 @@ df.creature_interaction_target_flags = {}
 ---@field target_verb_3rd string
 ---@field interaction_type string
 ---@field type_id integer References: interaction
----@field usage_hint df.container<interaction_source_usage_hint>
----@field location_hint df.container<interaction_effect_location_hint>
+---@field usage_hint df.container
+---@field location_hint df.container
 ---@field flags creature_interaction_flags
 ---@field unk_3 string[]
----@field target_flags df.container<creature_interaction_target_flags>
----@field target_ranges df.container<integer>
+---@field target_flags df.container
+---@field target_ranges df.container
 ---@field unk_4 string[]
----@field max_target_numbers df.container<integer>
----@field verbal_speeches df.container<integer>
----@field unk_5 df.container<integer>
+---@field max_target_numbers df.container
+---@field verbal_speeches df.container
+---@field unk_5 df.container
 ---@field adv_name string
 ---@field wait_period integer
 df.creature_interaction = {}
-
----@param key integer
----@return creature_interaction|nil
-function df.creature_interaction.find(key) end
 
 ---@class _creature_interaction_flags: integer, string, df.bitfield
 ---@field CAN_BE_MUTUAL 0
@@ -1835,9 +1799,9 @@ df.creature_interaction.T_flags = {}
 ---@field total_relsize integer unless INTERNAL or EMBEDDED
 ---@field layer_part integer[]
 ---@field layer_idx integer[]
----@field numbered_masks df.container<integer> 1 bit per instance of a numbered body part
----@field layer_nonsolid integer[]
----@field nonsolid_layers integer[]
+---@field numbered_masks df.container 1 bit per instance of a numbered body part
+---@field layer_nonsolid caste_body_info_layer_nonsolid
+---@field nonsolid_layers caste_body_info_nonsolid_layers
 ---@field flags caste_body_info_flags
 ---@field gait_info gait_info[][]
 ---@field materials material_vec_ref
@@ -1848,18 +1812,10 @@ df.creature_interaction.T_flags = {}
 ---@field unk_v40_2 integer[]
 df.caste_body_info = {}
 
----@param key integer
----@return caste_body_info|nil
-function df.caste_body_info.find(key) end
-
 ---@class caste_body_info_interactions: df.class
 ---@field type caste_body_info.T_interactions_type
 ---@field interaction creature_interaction
 df.caste_body_info.T_interactions = {}
-
----@param key integer
----@return caste_body_info_interactions|nil
-function df.caste_body_info.T_interactions.find(key) end
 
 ---@class _caste_body_info.T_interactions_type: integer, string, df.enum
 ---@field RETRACT_INTO_BP 0
@@ -1878,6 +1834,7 @@ df.caste_body_info.T_interactions.T_type = {}
 ---@field [2] boolean
 ---@field ROOT_AROUND boolean
 
+
 ---@class caste_body_info_extra_butcher_objects: df.class
 ---@field unk_1 integer
 ---@field unk_2 string
@@ -1894,9 +1851,14 @@ df.caste_body_info.T_interactions.T_type = {}
 ---@field unk_13 integer
 df.caste_body_info.T_extra_butcher_objects = {}
 
----@param key integer
----@return caste_body_info_extra_butcher_objects|nil
-function df.caste_body_info.T_extra_butcher_objects.find(key) end
+
+---@class caste_body_info_layer_nonsolid: df.class
+df.caste_body_info.T_layer_nonsolid = {}
+
+
+---@class caste_body_info_nonsolid_layers: df.class
+df.caste_body_info.T_nonsolid_layers = {}
+
 
 ---@class _caste_body_info_flags: integer, string, df.bitfield
 ---@field unk0 0
@@ -1934,62 +1896,58 @@ df.caste_body_info.T_flags = {}
 ---@field flags caste_raw_flags[]
 ---@field index integer global across creatures
 ---@field body_info caste_body_info
----@field caste_speech_1 df.container<integer>
----@field caste_speech_2 df.container<integer>
+---@field caste_speech_1 df.container
+---@field caste_speech_2 df.container
 ---@field skill_rates integer[][]
 ---@field attributes caste_raw_attributes
 ---@field sex pronoun_type
 ---@field orientation_male integer[]
 ---@field orientation_female integer[]
----@field body_size_1 df.container<integer> age in ticks
----@field body_size_2 df.container<integer> size at the age at the same index in body_size_1
+---@field body_size_1 df.container age in ticks
+---@field body_size_2 df.container size at the age at the same index in body_size_1
 ---@field body_appearance_modifiers body_appearance_modifier[]
 ---@field bp_appearance caste_raw_bp_appearance
 ---@field color_modifiers color_modifier_raw[]
 ---@field tissue_styles tissue_style_raw[]
 ---@field shearable_tissue_layer caste_raw_shearable_tissue_layer[]
----@field unk16a df.container<integer>[]
----@field unk16b df.container<integer>[]
+---@field unk16a df.container[]
+---@field unk16b df.container[]
 ---@field appearance_gene_count integer
 ---@field color_gene_count integer
 ---@field natural_skill_id job_skill[]
----@field natural_skill_exp df.container<integer>
----@field natural_skill_lvl df.container<skill_rating>
+---@field natural_skill_exp df.container
+---@field natural_skill_lvl df.container
 ---@field caste_profession_name caste_raw_caste_profession_name
 ---@field extracts caste_raw_extracts
 ---@field secretion caste_raw_secretion[]
 ---@field creature_class string[]
 ---@field unknown2 caste_raw_unknown2
 ---@field habit_num integer[]
----@field habit_1 df.container<integer>
----@field habit_2 df.container<integer>
----@field lair_1 df.container<integer>
----@field lair_2 df.container<integer>
----@field lair_characteristic_1 df.container<integer>
----@field lair_characteristic_2 df.container<integer>
+---@field habit_1 df.container
+---@field habit_2 df.container
+---@field lair_1 df.container
+---@field lair_2 df.container
+---@field lair_characteristic_1 df.container
+---@field lair_characteristic_2 df.container
 ---@field lair_hunter_speech caste_raw_lair_hunter_speech
 ---@field unk29 caste_raw_unk29
----@field specific_food df.container<integer>[]
+---@field specific_food df.container[]
 ---@field sound caste_raw_sound[]
----@field sound_alert df.container<integer>
----@field sound_peaceful_intermittent df.container<integer>
+---@field sound_alert df.container
+---@field sound_peaceful_intermittent df.container
 ---@field unk_1 caste_raw_unk_1[]
 ---@field smell_trigger integer
 ---@field odor_level integer
 ---@field odor_string string
 ---@field low_light_vision integer
 ---@field sense_creature_class_1 string[]
----@field sense_creature_class_2 df.container<integer>
----@field sense_creature_class_3 df.container<integer>
----@field sense_creature_class_4 df.container<integer>
----@field sense_creature_class_5 df.container<integer>
+---@field sense_creature_class_2 df.container
+---@field sense_creature_class_3 df.container
+---@field sense_creature_class_4 df.container
+---@field sense_creature_class_5 df.container
 ---@field caste_graphics creature_raw_graphics
 ---@field unk_v50_4300 integer
 df.caste_raw = {}
-
----@param key integer
----@return caste_raw|nil
-function df.caste_raw.find(key) end
 
 ---@class caste_raw_misc: df.class
 ---@field litter_size_min integer
@@ -2037,9 +1995,6 @@ function df.caste_raw.find(key) end
 ---@field unk6 integer[] different from same save with 0.44.12
 df.caste_raw.T_misc = {}
 
----@param key integer
----@return caste_raw_misc|nil
-function df.caste_raw.T_misc.find(key) end
 
 ---@class caste_raw_personality: df.class
 ---@field a integer[]
@@ -2047,9 +2002,6 @@ function df.caste_raw.T_misc.find(key) end
 ---@field c integer[]
 df.caste_raw.T_personality = {}
 
----@param key integer
----@return caste_raw_personality|nil
-function df.caste_raw.T_personality.find(key) end
 
 ---@class caste_raw_attributes: df.class
 ---@field phys_att_range integer[][]
@@ -2060,49 +2012,37 @@ function df.caste_raw.T_personality.find(key) end
 ---@field ment_att_cap_perc integer[]
 df.caste_raw.T_attributes = {}
 
----@param key integer
----@return caste_raw_attributes|nil
-function df.caste_raw.T_attributes.find(key) end
 
 ---@class caste_raw_bp_appearance: df.class
 ---@field modifiers bp_appearance_modifier[]
----@field modifier_idx df.container<integer>
----@field part_idx df.container<integer>
----@field layer_idx df.container<integer>
----@field style_part_idx df.container<integer>
----@field style_layer_idx df.container<integer>
----@field style_list_idx df.container<integer>
+---@field modifier_idx df.container
+---@field part_idx df.container
+---@field layer_idx df.container
+---@field style_part_idx df.container
+---@field style_layer_idx df.container
+---@field style_list_idx df.container
 df.caste_raw.T_bp_appearance = {}
 
----@param key integer
----@return caste_raw_bp_appearance|nil
-function df.caste_raw.T_bp_appearance.find(key) end
 
 ---@class caste_raw_shearable_tissue_layer: df.class
 ---@field unk_0 integer
 ---@field unk_1 integer
 ---@field length integer
----@field part_idx df.container<integer>
----@field layer_idx df.container<integer>
----@field bp_modifiers_idx df.container<integer>
+---@field part_idx df.container
+---@field layer_idx df.container
+---@field bp_modifiers_idx df.container
 df.caste_raw.T_shearable_tissue_layer = {}
 
----@param key integer
----@return caste_raw_shearable_tissue_layer|nil
-function df.caste_raw.T_shearable_tissue_layer.find(key) end
 
 ---@class caste_raw_caste_profession_name: df.class
 ---@field singular string[]
 ---@field plural string[]
 df.caste_raw.T_caste_profession_name = {}
 
----@param key integer
----@return caste_raw_caste_profession_name|nil
-function df.caste_raw.T_caste_profession_name.find(key) end
 
 ---@class caste_raw_extracts: df.class
----@field extract_mat df.container<integer>
----@field extract_matidx df.container<integer>
+---@field extract_mat df.container
+---@field extract_matidx df.container
 ---@field extract_str string[][]
 ---@field milkable_mat integer
 ---@field milkable_matidx integer
@@ -2130,19 +2070,16 @@ function df.caste_raw.T_caste_profession_name.find(key) end
 ---@field pus_mat integer
 ---@field pus_matidx integer
 ---@field pus_str string[]
----@field egg_material_mattype df.container<integer>
----@field egg_material_matindex df.container<integer>
+---@field egg_material_mattype df.container
+---@field egg_material_matindex df.container
 ---@field egg_material_str string[][]
 ---@field lays_unusual_eggs_itemtype item_type[]
----@field lays_unusual_eggs_itemsubtype df.container<integer>
----@field lays_unusual_eggs_mattype df.container<integer>
----@field lays_unusual_eggs_matindex df.container<integer>
+---@field lays_unusual_eggs_itemsubtype df.container
+---@field lays_unusual_eggs_mattype df.container
+---@field lays_unusual_eggs_matindex df.container
 ---@field lays_unusual_eggs_str string[][]
 df.caste_raw.T_extracts = {}
 
----@param key integer
----@return caste_raw_extracts|nil
-function df.caste_raw.T_extracts.find(key) end
 
 ---@class caste_raw_secretion: df.class
 ---@field mat_type integer References: material
@@ -2151,25 +2088,22 @@ function df.caste_raw.T_extracts.find(key) end
 ---@field mat_type_str string
 ---@field mat_index_str string
 ---@field unk_44 string
----@field body_part_id df.container<integer>
----@field layer_id df.container<integer>
+---@field body_part_id df.container
+---@field layer_id df.container
 ---@field cause integer 2 EXERTION, 1 EXTREME_EMOTION, 0 always?
 df.caste_raw.T_secretion = {}
 
----@param key integer
----@return caste_raw_secretion|nil
-function df.caste_raw.T_secretion.find(key) end
 
 ---@class caste_raw_unknown2: df.class
 ---@field syndrome_dilution_identifier string[] SYNDROME_DILUTION_FACTOR
----@field syndrome_dilution_factor df.container<integer> SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_factor df.container SYNDROME_DILUTION_FACTOR
 ---@field gobble_vermin_class string[]
 ---@field gobble_vermin_creature_1 string[]
 ---@field gobble_vermin_creature_2 string[]
----@field infect_all df.container<integer> References: syndrome<br>for spatter applied to all bp
----@field infect_local df.container<integer> References: syndrome<br>for spatter applied to one bp
----@field unk23f df.container<integer>
----@field unk23g df.container<integer>
+---@field infect_all df.container References: syndrome<br>for spatter applied to all bp
+---@field infect_local df.container References: syndrome<br>for spatter applied to one bp
+---@field unk23f df.container
+---@field unk23g df.container
 ---@field unk24_flags boolean[]
 ---@field unk25_flags boolean[]
 ---@field armor_sizes integer[][] index by UBSTEP
@@ -2179,35 +2113,26 @@ function df.caste_raw.T_secretion.find(key) end
 ---@field shoes_sizes integer[] index by UPSTEP
 ---@field gloves_sizes integer[] index by UPSTEP
 ---@field materials material_vec_ref
----@field unk_2f20 df.container<integer>
----@field unk_2f30 df.container<integer>
----@field unk_2f40 df.container<integer>
----@field unk_2f50 df.container<integer>
+---@field unk_2f20 df.container
+---@field unk_2f30 df.container
+---@field unk_2f40 df.container
+---@field unk_2f50 df.container
 ---@field mat_type integer References: material
 ---@field mat_index integer
 df.caste_raw.T_unknown2 = {}
 
----@param key integer
----@return caste_raw_unknown2|nil
-function df.caste_raw.T_unknown2.find(key) end
 
 ---@class caste_raw_lair_hunter_speech: df.class
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
 df.caste_raw.T_lair_hunter_speech = {}
 
----@param key integer
----@return caste_raw_lair_hunter_speech|nil
-function df.caste_raw.T_lair_hunter_speech.find(key) end
 
 ---@class caste_raw_unk29: df.class
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
 df.caste_raw.T_unk29 = {}
 
----@param key integer
----@return caste_raw_unk29|nil
-function df.caste_raw.T_unk29.find(key) end
 
 ---@class caste_raw_sound: df.class
 ---@field unk_1 integer
@@ -2217,9 +2142,6 @@ function df.caste_raw.T_unk29.find(key) end
 ---@field caption string[]
 df.caste_raw.T_sound = {}
 
----@param key integer
----@return caste_raw_sound|nil
-function df.caste_raw.T_sound.find(key) end
 
 ---@class caste_raw_unk_1: df.class
 ---@field unk_1 string
@@ -2230,10 +2152,6 @@ function df.caste_raw.T_sound.find(key) end
 ---@field unk_6 integer
 ---@field unk_7 integer
 df.caste_raw.T_unk_1 = {}
-
----@param key integer
----@return caste_raw_unk_1|nil
-function df.caste_raw.T_unk_1.find(key) end
 
 ---@class _creature_graphics_role: integer, string, df.enum
 ---@field DEFAULT 0
@@ -2307,28 +2225,20 @@ df.tissue_style_type = {}
 ---@field profession_add_color boolean[][]
 ---@field profession_unk integer[][][]
 ---@field ptr_unk integer[][]
----@field vec_unk df.container<integer>[]
----@field profession_vec_unk df.container<integer>[]
+---@field vec_unk df.container[]
+---@field profession_vec_unk df.container[]
 df.creature_raw_graphics = {}
-
----@param key integer
----@return creature_raw_graphics|nil
-function df.creature_raw_graphics.find(key) end
 
 ---@class tissue_style_raw: df.class
 ---@field token string
----@field part_idx df.container<integer>
----@field layer_idx df.container<integer>
----@field styles df.container<tissue_style_type>
----@field list_idx df.container<integer>
+---@field part_idx df.container
+---@field layer_idx df.container
+---@field styles df.container
+---@field list_idx df.container
 ---@field id integer
 ---@field noun string
 ---@field word_type part_of_speech 0 singular, 1 plural
 df.tissue_style_raw = {}
-
----@param key integer
----@return tissue_style_raw|nil
-function df.tissue_style_raw.find(key) end
 
 ---@class creature_raw: df.instance
 ---@field creature_id string
@@ -2351,20 +2261,20 @@ function df.tissue_style_raw.find(key) end
 ---@field glowcolor integer[]
 ---@field adultsize integer
 ---@field prefstring string[]
----@field sphere df.container<integer>
+---@field sphere df.container
 ---@field caste caste_raw[]
----@field pop_ratio df.container<integer>
+---@field pop_ratio df.container
 ---@field flags creature_raw_flags[]
 ---@field graphics creature_raw_graphics
----@field speech1 df.container<integer>
----@field speech2 df.container<integer>
+---@field speech1 df.container
+---@field speech2 df.container
 ---@field material material[]
 ---@field tissue tissue[]
 ---@field profession_name creature_raw_profession_name
 ---@field underground_layer_min integer
 ---@field underground_layer_max integer
 ---@field modifier_class integer[]
----@field modifier_num_patterns df.container<integer> for color modifiers, == number of items in their pattern_* vectors
+---@field modifier_num_patterns df.container for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product creature_raw_hive_product
 ---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
@@ -2373,24 +2283,17 @@ function df.tissue_style_raw.find(key) end
 ---@field statute_texpos integer[]
 df.creature_raw = {}
 
----@param key integer
----@return creature_raw|nil
-function df.creature_raw.find(key) end
-
 ---@class creature_raw_profession_name: df.class
 ---@field singular string[]
 ---@field plural string[]
 df.creature_raw.T_profession_name = {}
 
----@param key integer
----@return creature_raw_profession_name|nil
-function df.creature_raw.T_profession_name.find(key) end
 
 ---@class creature_raw_hive_product: df.class
----@field number df.container<integer>
----@field time df.container<integer>
+---@field number df.container
+---@field time df.container
 ---@field item_type item_type[]
----@field item_subtype df.container<integer>
+---@field item_subtype df.container
 ---@field material material_vec_ref
 ---@field tmpstr1 string[]
 ---@field tmpstr2 string[]
@@ -2398,10 +2301,6 @@ function df.creature_raw.T_profession_name.find(key) end
 ---@field tmpstr4 string[]
 ---@field tmpstr5 string[]
 df.creature_raw.T_hive_product = {}
-
----@param key integer
----@return creature_raw_hive_product|nil
-function df.creature_raw.T_hive_product.find(key) end
 
 ---@class creature_variation_convert_tag: df.class
 ---@field cvct_master string
@@ -2411,24 +2310,16 @@ function df.creature_raw.T_hive_product.find(key) end
 ---@field unk_v40_2 string
 df.creature_variation_convert_tag = {}
 
----@param key integer
----@return creature_variation_convert_tag|nil
-function df.creature_variation_convert_tag.find(key) end
-
 ---@class creature_variation: df.instance
 ---@field id string
 ---@field cv_convert_tag creature_variation_convert_tag[]
 ---@field cv_new_tag string[]
----@field cv_new_unk_v40_1 df.container<integer>
+---@field cv_new_unk_v40_1 df.container
 ---@field cv_new_unk_v40_2 string[]
 ---@field cv_remove_tag string[]
----@field cv_remove_unk_v40_1 df.container<integer>
+---@field cv_remove_unk_v40_1 df.container
 ---@field cv_remove_unk_v40_2 string[]
 df.creature_variation = {}
-
----@param key integer
----@return creature_variation|nil
-function df.creature_variation.find(key) end
 
 ---@class _body_part_template_flags: integer, string, df.enum
 ---@field HEAD 0
@@ -2601,18 +2492,10 @@ df.body_part_template_contype = {}
 ---@field name_plural string[]
 df.body_part_template = {}
 
----@param key integer
----@return body_part_template|nil
-function df.body_part_template.find(key) end
-
 ---@class body_template: df.instance
 ---@field id string
 ---@field parts body_part_template[]
 df.body_template = {}
-
----@param key integer
----@return body_template|nil
-function df.body_template.find(key) end
 
 ---@class _tissue_flags: integer, string, df.enum
 ---@field THICKENS_ON_STRENGTH 0
@@ -2727,10 +2610,6 @@ df.tissue_flags = {}
 ---@field tissue_shape_str string
 df.tissue_template = {}
 
----@param key integer
----@return tissue_template|nil
-function df.tissue_template.find(key) end
-
 ---@class tissue: df.class
 ---@field id string
 ---@field flags tissue_flags[]
@@ -2758,40 +2637,32 @@ function df.tissue_template.find(key) end
 ---@field tissue_shape_str string
 df.tissue = {}
 
----@param key integer
----@return tissue|nil
-function df.tissue.find(key) end
-
 ---@class body_detail_plan: df.instance
 ---@field id string
 ---@field add_material_name string[]
 ---@field add_material_template string[]
 ---@field add_tissue_name string[]
 ---@field add_tissue_template string[]
----@field unk5c df.container<integer>
+---@field unk5c df.container
 ---@field unk6c string[]
 ---@field unk7c string[]
----@field bp_layers_selection df.container<integer>
----@field bp_layers_criteria df.container<integer>
----@field bp_layers_tissue df.container<integer>
+---@field bp_layers_selection df.container
+---@field bp_layers_criteria df.container
+---@field bp_layers_tissue df.container
 ---@field bp_layers_thickness string[]
----@field bp_layers_position df.container<integer>
----@field bp_layers_over_under df.container<integer>
----@field bp_relsize_selection df.container<integer>
+---@field bp_layers_position df.container
+---@field bp_layers_over_under df.container
+---@field bp_relsize_selection df.container
 ---@field bp_relsize_criteria string[]
----@field bp_relsize_value df.container<integer>
----@field bp_position_selection df.container<integer>
+---@field bp_relsize_value df.container
+---@field bp_position_selection df.container
 ---@field bp_position_criteria string[]
----@field bp_position_value df.container<integer>
----@field bp_relation_selection_1 df.container<integer>
+---@field bp_position_value df.container
+---@field bp_relation_selection_1 df.container
 ---@field bp_relation_criteria_1 string[]
----@field bp_relation_value_1 df.container<integer>
----@field bp_relation_selection_2 df.container<integer>
+---@field bp_relation_value_1 df.container
+---@field bp_relation_selection_2 df.container
 ---@field bp_relation_criteria_2 string[]
----@field bp_relation_extent df.container<integer>
+---@field bp_relation_extent df.container
 df.body_detail_plan = {}
-
----@param key integer
----@return body_detail_plan|nil
-function df.body_detail_plan.find(key) end
 

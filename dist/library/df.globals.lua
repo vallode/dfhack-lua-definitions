@@ -11,8 +11,8 @@
 ---@field created_item_type item_type[]
 ---@field created_item_subtype integer[]
 ---@field created_item_mattype integer[]
----@field created_item_matindex df.container<integer>
----@field created_item_count df.container<integer>
+---@field created_item_matindex df.container
+---@field created_item_count df.container
 ---@field map_renderer map_renderer
 ---@field d_init d_init
 ---@field flows flow_info[]
@@ -25,8 +25,8 @@
 ---@field plotinfo plotinfost
 ---@field adventure adventurest
 ---@field buildreq buildreq
----@field ui_building_assign_type df.container<integer>
----@field ui_building_assign_is_marked df.container<boolean>
+---@field ui_building_assign_type df.container
+---@field ui_building_assign_is_marked df.container
 ---@field ui_building_assign_units unit[]
 ---@field ui_building_assign_items item[]
 ---@field ui_look_list ui_look_list
@@ -170,10 +170,6 @@ df.global = {}
 ---@field z integer
 df.global.cursor = {}
 
----@param key integer
----@return global_cursor|nil
-function df.global.cursor.find(key) end
-
 ---@class global_selection_rect: df.class
 ---@field start_x integer
 ---@field start_y integer
@@ -182,10 +178,6 @@ function df.global.cursor.find(key) end
 ---@field end_y integer
 ---@field end_z integer
 df.global.selection_rect = {}
-
----@param key integer
----@return global_selection_rect|nil
-function df.global.selection_rect.find(key) end
 
 
 ---@class _weather_type: integer, string, df.enum
@@ -380,10 +372,6 @@ df.next_global_id = {}
 ---@field address integer
 ---@field size integer
 df.global_table_entry = {}
-
----@param key integer
----@return global_table_entry|nil
-function df.global_table_entry.find(key) end
 
 ---@class _game_mode: integer, string, df.enum
 ---@field DWARF 0

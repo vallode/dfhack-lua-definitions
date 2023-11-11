@@ -2,19 +2,15 @@
 ---@meta df.history
 
 ---@class historical_kills: df.class
----@field events df.container<integer> References: history_event
----@field killed_race df.container<integer> References: creature_raw
----@field killed_caste df.container<integer> References: caste_raw
----@field killed_underground_region df.container<integer> References: world_underground_region
----@field killed_region df.container<integer> References: world_region
----@field killed_site df.container<integer> References: world_site
+---@field events df.container References: history_event
+---@field killed_race df.container References: creature_raw
+---@field killed_caste df.container References: caste_raw
+---@field killed_underground_region df.container References: world_underground_region
+---@field killed_region df.container References: world_region
+---@field killed_site df.container References: world_site
 ---@field killed_undead undead_flags[]
----@field killed_count df.container<integer>
+---@field killed_count df.container
 df.historical_kills = {}
-
----@param key integer
----@return historical_kills|nil
-function df.historical_kills.find(key) end
 
 ---@class history_hit_item: df.class
 ---@field item integer References: item
@@ -28,10 +24,6 @@ function df.historical_kills.find(key) end
 ---@field shooter_mattype integer References: material
 ---@field shooter_matindex integer
 df.history_hit_item = {}
-
----@param key integer
----@return history_hit_item|nil
-function df.history_hit_item.find(key) end
 
 ---@class _reputation_type: integer, string, df.enum
 ---@field Hero 0
@@ -402,14 +394,10 @@ df.plot_strategy_type = {}
 ---@field agreement_has_messenger boolean
 df.plot_agreement = {}
 
----@param key integer
----@return plot_agreement|nil
-function df.plot_agreement.find(key) end
-
 ---@class historical_figure_info: df.class
 ---@field spheres historical_figure_info_spheres
 ---@field skills historical_figure_info_skills
----@field pets df.container<integer>
+---@field pets df.container
 ---@field personality historical_figure_info_personality
 ---@field masterpieces historical_figure_info_masterpieces
 ---@field whereabouts historical_figure_info_whereabouts
@@ -422,33 +410,22 @@ function df.plot_agreement.find(key) end
 ---@field relationships historical_figure_relationships
 df.historical_figure_info = {}
 
----@param key integer
----@return historical_figure_info|nil
-function df.historical_figure_info.find(key) end
-
 ---@class historical_figure_info_spheres: df.class
 ---@field spheres sphere_type[]
----@field unk_1 df.container<integer>
+---@field unk_1 df.container
 df.historical_figure_info.T_spheres = {}
 
----@param key integer
----@return historical_figure_info_spheres|nil
-function df.historical_figure_info.T_spheres.find(key) end
 
 ---@class historical_figure_info_skills: df.class
 ---@field skills job_skill[]
----@field points df.container<integer>
+---@field points df.container
 ---@field professions_held profession[]
----@field profession_years df.container<integer> Number of years on each profession above. Need not be consecutive, so non registered periods can happen
+---@field profession_years df.container Number of years on each profession above. Need not be consecutive, so non registered periods can happen
 ---@field profession profession
 ---@field unk_1 integer
 ---@field account_balance integer Abstract tracker of this individual's wealth
 ---@field employment_held historical_figure_info.T_skills_employment_held
 df.historical_figure_info.T_skills = {}
-
----@param key integer
----@return historical_figure_info_skills|nil
-function df.historical_figure_info.T_skills.find(key) end
 
 ---@class historical_figure_info.T_skills_employment_held: df.class
 ---@field employment historical_figure_info.T_skills.T_employment_held_employment[]
@@ -456,45 +433,32 @@ function df.historical_figure_info.T_skills.find(key) end
 ---@field resignment_year_tick integer
 df.historical_figure_info.T_skills.T_employment_held = {}
 
----@param key integer
----@return historical_figure_info.T_skills_employment_held|nil
-function df.historical_figure_info.T_skills.T_employment_held.find(key) end
-
 ---@class historical_figure_info.T_skills.T_employment_held_employment: df.class
 ---@field employer integer References: historical_entity
----@field held_honors df.container<integer> References: honors_type
+---@field held_honors df.container References: honors_type
 ---@field battle_count integer
 ---@field kill_count integer
 ---@field employment_year integer
 ---@field employment_year_tick integer
 df.historical_figure_info.T_skills.T_employment_held.T_employment = {}
 
----@param key integer
----@return historical_figure_info.T_skills.T_employment_held_employment|nil
-function df.historical_figure_info.T_skills.T_employment_held.T_employment.find(key) end
 
 ---@class historical_figure_info_personality: df.class
 ---@field personality unit_personality
 ---@field unk_1 integer
 df.historical_figure_info.T_personality = {}
 
----@param key integer
----@return historical_figure_info_personality|nil
-function df.historical_figure_info.T_personality.find(key) end
 
 ---@class historical_figure_info_masterpieces: df.class
----@field events df.container<integer> References: history_event
----@field events2 df.container<integer> References: history_event<br>ones that were stolen or destroyed?
----@field unk_v43_1 df.container<integer>
----@field unk_v43_2 df.container<integer>
+---@field events df.container References: history_event
+---@field events2 df.container References: history_event<br>ones that were stolen or destroyed?
+---@field unk_v43_1 df.container
+---@field unk_v43_2 df.container
 ---@field unk_v50_1 integer[]
 ---@field unk_v50_2 integer amount used in unk_v50_1
 ---@field unk_v50_3 integer
 df.historical_figure_info.T_masterpieces = {}
 
----@param key integer
----@return historical_figure_info_masterpieces|nil
-function df.historical_figure_info.T_masterpieces.find(key) end
 
 ---@class historical_figure_info_whereabouts: df.class
 ---@field whereabouts_type whereabouts_type
@@ -514,10 +478,6 @@ function df.historical_figure_info.T_masterpieces.find(key) end
 ---@field year_tick integer
 df.historical_figure_info.T_whereabouts = {}
 
----@param key integer
----@return historical_figure_info_whereabouts|nil
-function df.historical_figure_info.T_whereabouts.find(key) end
-
 ---@class _historical_figure_info.T_whereabouts_flags: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
@@ -531,17 +491,14 @@ df.historical_figure_info.T_whereabouts.T_flags = {}
 ---@field [1] boolean
 ---@field unk_1 boolean
 
+
 ---@class historical_figure_info_wounds: df.class
----@field events df.container<integer> References: history_event
+---@field events df.container References: history_event
 ---@field status boolean[]
 ---@field childbirth_year integer
 ---@field childbirth_tick integer
 ---@field unk_flags historical_figure_info.T_wounds_unk_flags
 df.historical_figure_info.T_wounds = {}
-
----@param key integer
----@return historical_figure_info_wounds|nil
-function df.historical_figure_info.T_wounds.find(key) end
 
 ---@class _historical_figure_info.T_wounds_unk_flags: integer, string, df.bitfield
 ---@field unk_0 0
@@ -552,43 +509,37 @@ df.historical_figure_info.T_wounds.T_unk_flags = {}
 ---@field [0] boolean
 ---@field unk_0 boolean
 
+
 ---@class historical_figure_info_known_info: df.class
 ---@field known_secrets interaction[] Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
 ---@field unk_10 integer All are gods with the DEATH sphere having created slabs, but the value isn't the id of the slab
----@field known_written_contents df.container<integer> References: written_content<br>ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
----@field known_identities df.container<integer> References: identity<br>identity ID of identities known to the historical figure, such as demon true names
+---@field known_written_contents df.container References: written_content<br>ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms
+---@field known_identities df.container References: identity<br>identity ID of identities known to the historical figure, such as demon true names
 ---@field known_witness_reports witness_report[]
 ---@field known_events entity_event[]
----@field unk_4 df.container<integer>
----@field unk_5 df.container<integer>
----@field unk_6 df.container<integer> same length as next vector. Some are definitely entities (e.g. player fortress or attacker site government), but others make no such sense
----@field unk_7 df.container<integer> 5, 7, 8 seen. 7/8 only seen on humanoid experiments
+---@field unk_4 df.container
+---@field unk_5 df.container
+---@field unk_6 df.container same length as next vector. Some are definitely entities (e.g. player fortress or attacker site government), but others make no such sense
+---@field unk_7 df.container 5, 7, 8 seen. 7/8 only seen on humanoid experiments
 ---@field unk_8 historical_figure_info.T_known_info_unk_8[]
----@field known_poetic_forms df.container<integer> References: poetic_form
----@field known_musical_forms df.container<integer> References: musical_form
----@field known_dance_forms df.container<integer> References: dance_form
+---@field known_poetic_forms df.container References: poetic_form
+---@field known_musical_forms df.container References: musical_form
+---@field known_dance_forms df.container References: dance_form
 ---@field knowledge historical_figure_info.T_known_info_knowledge
----@field belief_systems df.container<integer> found in prophets; contains the ID of the belief system developed by that particular prophet
+---@field belief_systems df.container found in prophets; contains the ID of the belief system developed by that particular prophet
 ---@field known_locations _[]
----@field unk_3 df.container<integer>
+---@field unk_3 df.container
 df.historical_figure_info.T_known_info = {}
-
----@param key integer
----@return historical_figure_info_known_info|nil
-function df.historical_figure_info.T_known_info.find(key) end
 
 ---@class historical_figure_info.T_known_info_unk_8: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
----@field unk_3 df.container<integer>
----@field unk_4 df.container<integer>
----@field unk_5 df.container<integer>
+---@field unk_3 df.container
+---@field unk_4 df.container
+---@field unk_5 df.container
 ---@field unk_6 integer
 df.historical_figure_info.T_known_info.T_unk_8 = {}
 
----@param key integer
----@return historical_figure_info.T_known_info_unk_8|nil
-function df.historical_figure_info.T_known_info.T_unk_8.find(key) end
 
 ---@class historical_figure_info.T_known_info_knowledge: df.class
 ---@field philosophy knowledge_scholar_flags_0
@@ -614,10 +565,6 @@ function df.historical_figure_info.T_known_info.T_unk_8.find(key) end
 ---@field times_pondered integer one per ponder no matter what. turns into research_points somewhere around 40-60.
 df.historical_figure_info.T_known_info.T_knowledge = {}
 
----@param key integer
----@return historical_figure_info.T_known_info_knowledge|nil
-function df.historical_figure_info.T_known_info.T_knowledge.find(key) end
-
 ---@class _historical_figure_info.T_known_info.T_knowledge_knowledge_goal: integer, string, df.bitfield
 ---@field unk0 0
 ---@field [0] "unk0"
@@ -626,6 +573,7 @@ df.historical_figure_info.T_known_info.T_knowledge.T_knowledge_goal = {}
 ---@class historical_figure_info.T_known_info.T_knowledge_knowledge_goal
 ---@field [0] boolean
 ---@field unk0 boolean
+
 
 ---@class historical_figure_info_curse: df.class
 ---@field active_interactions interaction[]
@@ -641,9 +589,9 @@ df.historical_figure_info.T_known_info.T_knowledge.T_knowledge_goal = {}
 ---@field name_adjective string
 ---@field race integer References: creature_raw
 ---@field caste integer References: caste_raw
----@field body_transformation_effects df.container<integer> References: creature_interaction_effect
----@field unk_b0 df.container<integer>
----@field body_mat_interaction_effects df.container<integer> References: creature_interaction_effect
+---@field body_transformation_effects df.container References: creature_interaction_effect
+---@field unk_b0 df.container
+---@field body_mat_interaction_effects df.container References: creature_interaction_effect
 ---@field original_histfig_id integer References: historical_figure<br>ID of the historical figure who was reanimated to produce undead historical figure
 ---@field original_race integer References: creature_raw<br>race of the historical figure who was reanimated to produce undead historical figure
 ---@field original_caste integer References: caste_raw<br>caste of the historical figure who was reanimated to produce undead historical figure
@@ -653,10 +601,6 @@ df.historical_figure_info.T_known_info.T_knowledge.T_knowledge_goal = {}
 ---@field divination historical_figure_info.T_curse_divination
 ---@field experiments historical_figure_info.T_curse_experiments
 df.historical_figure_info.T_curse = {}
-
----@param key integer
----@return historical_figure_info_curse|nil
-function df.historical_figure_info.T_curse.find(key) end
 
 ---@class _historical_figure_info.T_curse_unk_38: integer, string, df.bitfield
 ---@field unk_0 0
@@ -675,6 +619,7 @@ df.historical_figure_info.T_curse.T_unk_38 = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
+
 ---@class _historical_figure_info.T_curse_unk_3c: integer, string, df.bitfield
 ---@field unk_0 0
 ---@field [0] "unk_0"
@@ -692,27 +637,22 @@ df.historical_figure_info.T_curse.T_unk_3c = {}
 ---@field [2] boolean
 ---@field unk_2 boolean
 
+
 ---@class historical_figure_info.T_curse_divination: df.class
----@field deities df.container<integer> References: historical_figure<br>When a divination die is rolled, the historical figure ID of the associated god is inserted here.
----@field divination_sets df.container<integer> References: divination_set<br>When a divination die is rolled, the ID of the associated divination_set is inserted here.
----@field roll_results df.container<integer> When a divination die is rolled, the numerical roll result is inserted here.
----@field year_rolled df.container<integer> When a divination die is rolled, the cur_year value at the time of rolling is inserted here.
----@field year_tick_rolled df.container<integer> When a divination die is rolled, the cur_year_tick at the time of rolling is inserted here.
+---@field deities df.container References: historical_figure<br>When a divination die is rolled, the historical figure ID of the associated god is inserted here.
+---@field divination_sets df.container References: divination_set<br>When a divination die is rolled, the ID of the associated divination_set is inserted here.
+---@field roll_results df.container When a divination die is rolled, the numerical roll result is inserted here.
+---@field year_rolled df.container When a divination die is rolled, the cur_year value at the time of rolling is inserted here.
+---@field year_tick_rolled df.container When a divination die is rolled, the cur_year_tick at the time of rolling is inserted here.
 ---@field fate_sealed integer This is set to 1 when a divination die is rolled excessively in a given timespan, preventing all future divination die rolls from having an effect. Attempts at further divination will produce the following message instead: Your fate is sealed.
 df.historical_figure_info.T_curse.T_divination = {}
 
----@param key integer
----@return historical_figure_info.T_curse_divination|nil
-function df.historical_figure_info.T_curse.T_divination.find(key) end
 
 ---@class historical_figure_info.T_curse_experiments: df.class
----@field unk_1 df.container<integer>
----@field races df.container<integer> contains IDs of races created by the historical figure through experimentation
+---@field unk_1 df.container
+---@field races df.container contains IDs of races created by the historical figure through experimentation
 df.historical_figure_info.T_curse.T_experiments = {}
 
----@param key integer
----@return historical_figure_info.T_curse_experiments|nil
-function df.historical_figure_info.T_curse.T_experiments.find(key) end
 
 ---seems to be misnamed. Artifacts seen have been of all kinds
 ---@class historical_figure_info_books: df.class
@@ -725,10 +665,6 @@ function df.historical_figure_info.T_curse.T_experiments.find(key) end
 ---@field unk_5 integer not saved
 ---@field unk_6 historical_figure_info.T_books_unk_6
 df.historical_figure_info.T_books = {}
-
----@param key integer
----@return historical_figure_info_books|nil
-function df.historical_figure_info.T_books.find(key) end
 
 ---@class _historical_figure_info.T_books_flags: integer, string, df.bitfield
 ---@field unk_0 0
@@ -751,36 +687,26 @@ df.historical_figure_info.T_books.T_flags = {}
 ---@field [3] boolean
 ---@field unk_3 boolean
 
+
 ---@class historical_figure_info.T_books_unk_6: df.class
 ---@field unk_1 historical_figure_info.T_books.T_unk_6_unk_1[]
 ---@field unk_2 integer
 df.historical_figure_info.T_books.T_unk_6 = {}
-
----@param key integer
----@return historical_figure_info.T_books_unk_6|nil
-function df.historical_figure_info.T_books.T_unk_6.find(key) end
 
 ---@class historical_figure_info.T_books.T_unk_6_unk_1: df.class
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.historical_figure_info.T_books.T_unk_6.T_unk_1 = {}
 
----@param key integer
----@return historical_figure_info.T_books.T_unk_6_unk_1|nil
-function df.historical_figure_info.T_books.T_unk_6.T_unk_1.find(key) end
 
 ---@class historical_figure_info_reputation: df.class
 ---@field wanted historical_figure_info.T_reputation_wanted[]
----@field unk_1 historical_figure_info.T_reputation_unk_1[]
+---@field unk_1 historical_figure_info.T_reputation_unk_1
 ---@field cur_identity integer References: identity
----@field all_identities df.container<integer> References: identity
+---@field all_identities df.container References: identity
 ---@field next_identity_idx integer
 ---@field unk_2c historical_figure_info.T_reputation_unk_2c
 df.historical_figure_info.T_reputation = {}
-
----@param key integer
----@return historical_figure_info_reputation|nil
-function df.historical_figure_info.T_reputation.find(key) end
 
 ---@class historical_figure_info.T_reputation_wanted: df.class
 ---@field unk historical_figure_info.T_reputation.T_wanted_unk
@@ -789,35 +715,19 @@ function df.historical_figure_info.T_reputation.find(key) end
 ---@field unk_3 integer
 df.historical_figure_info.T_reputation.T_wanted = {}
 
----@param key integer
----@return historical_figure_info.T_reputation_wanted|nil
-function df.historical_figure_info.T_reputation.T_wanted.find(key) end
-
 ---@class historical_figure_info.T_reputation.T_wanted_unk: df.class
 ---@field entity_id integer References: historical_entity
 ---@field types reputation_type[]
----@field levels df.container<integer> 1 to 100: rumored to legendary
+---@field levels df.container 1 to 100: rumored to legendary
 ---@field discovered_year integer
 ---@field discovered_time integer
 ---@field unsolved_murders integer
 df.historical_figure_info.T_reputation.T_wanted.T_unk = {}
 
----@param key integer
----@return historical_figure_info.T_reputation.T_wanted_unk|nil
-function df.historical_figure_info.T_reputation.T_wanted.T_unk.find(key) end
 
 ---@class historical_figure_info.T_reputation_unk_1: df.class
----@field entity_id integer References: historical_entity
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
----@field discovered_year integer
----@field discovered_time integer
----@field unsolved_murders integer
 df.historical_figure_info.T_reputation.T_unk_1 = {}
 
----@param key integer
----@return historical_figure_info.T_reputation_unk_1|nil
-function df.historical_figure_info.T_reputation.T_unk_1.find(key) end
 
 ---@class historical_figure_info.T_reputation_unk_2c: df.class
 ---@field unk_1 integer
@@ -832,12 +742,8 @@ function df.historical_figure_info.T_reputation.T_unk_1.find(key) end
 ---@field unk_10 integer
 ---@field unk_11 integer
 ---@field unk_12 historical_figure_info.T_reputation.T_unk_2c_unk_12[]
----@field unk_13 df.container<integer>
+---@field unk_13 df.container
 df.historical_figure_info.T_reputation.T_unk_2c = {}
-
----@param key integer
----@return historical_figure_info.T_reputation_unk_2c|nil
-function df.historical_figure_info.T_reputation.T_unk_2c.find(key) end
 
 ---@class historical_figure_info.T_reputation.T_unk_2c_unk_12: df.class
 ---@field unk_1 integer
@@ -848,31 +754,23 @@ function df.historical_figure_info.T_reputation.T_unk_2c.find(key) end
 ---@field unk_6 integer
 df.historical_figure_info.T_reputation.T_unk_2c.T_unk_12 = {}
 
----@param key integer
----@return historical_figure_info.T_reputation.T_unk_2c_unk_12|nil
-function df.historical_figure_info.T_reputation.T_unk_2c.T_unk_12.find(key) end
-
 ---<br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
 ---@class historical_figure_relationships: df.class
 ---@field hf_visual historical_figure_relationships_hf_visual[]
 ---@field hf_historical historical_figure_relationships_hf_historical[]
 ---@field unk_1 historical_figure_relationships_unk_1[]
----@field identities df.container<integer> References: cultural_identity
+---@field identities df.container References: cultural_identity
 ---@field artifact_claims historical_figure_relationships_artifact_claims[]
 ---@field unk_2 integer
 ---@field intrigues historical_figure_relationships_intrigues <br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
 df.historical_figure_relationships = {}
 
----@param key integer
----@return historical_figure_relationships|nil
-function df.historical_figure_relationships.find(key) end
-
 ---@class historical_figure_relationships_hf_visual: df.class
 ---@field histfig_id integer References: historical_figure
 ---@field flags historical_figure_relationships.T_hf_visual_flags
----@field unk_2v df.container<integer> References: identity<br>Involves adventurer knowing name?
+---@field unk_2v df.container References: identity<br>Involves adventurer knowing name?
 ---@field attitude reputation_type[]
----@field counter df.container<integer> One element for each 'attitude' element. Guess 0 - 100
+---@field counter df.container One element for each 'attitude' element. Guess 0 - 100
 ---@field rank integer seems to be fixed. Might not be used anymore
 ---@field loyalty integer 0 - 100. Loyalty, Respect, Fear, and Trust values do not seem to affect the relationship screen description, only Love and Familiarity
 ---@field respect integer -100 - 100
@@ -895,10 +793,6 @@ function df.historical_figure_relationships.find(key) end
 ---@field first_year_tick integer
 df.historical_figure_relationships.T_hf_visual = {}
 
----@param key integer
----@return historical_figure_relationships_hf_visual|nil
-function df.historical_figure_relationships.T_hf_visual.find(key) end
-
 ---@class _historical_figure_relationships.T_hf_visual_flags: integer, string, df.bitfield
 ---@field information_source 0
 ---@field [0] "information_source"
@@ -916,11 +810,12 @@ df.historical_figure_relationships.T_hf_visual.T_flags = {}
 ---@field [2] boolean
 ---@field believes_false_identity boolean
 
+
 ---@class historical_figure_relationships_hf_historical: df.class
 ---@field histfig_id integer References: historical_figure
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
----@field unk_3 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
+---@field unk_3 df.container
 ---@field loyalty integer 0 - 100
 ---@field respect integer -100 - 100
 ---@field fear integer -100 - 100
@@ -928,14 +823,11 @@ df.historical_figure_relationships.T_hf_visual.T_flags = {}
 ---@field trust integer -100 - 100
 df.historical_figure_relationships.T_hf_historical = {}
 
----@param key integer
----@return historical_figure_relationships_hf_historical|nil
-function df.historical_figure_relationships.T_hf_historical.find(key) end
 
 ---@class historical_figure_relationships_unk_1: df.class
 ---@field unk_1 integer
----@field unk_2 df.container<integer>
----@field unk_3 df.container<integer>
+---@field unk_2 df.container
+---@field unk_3 df.container
 ---@field loyalty integer 0 - 100
 ---@field respect integer -100 - 100
 ---@field fear integer -100 - 100
@@ -943,9 +835,6 @@ function df.historical_figure_relationships.T_hf_historical.find(key) end
 ---@field trust integer -100 - 100
 df.historical_figure_relationships.T_unk_1 = {}
 
----@param key integer
----@return historical_figure_relationships_unk_1|nil
-function df.historical_figure_relationships.T_unk_1.find(key) end
 
 ---@class historical_figure_relationships_artifact_claims: df.class
 ---@field artifact_id integer References: artifact_record
@@ -955,34 +844,32 @@ function df.historical_figure_relationships.T_unk_1.find(key) end
 ---@field unk_2 integer
 df.historical_figure_relationships.T_artifact_claims = {}
 
----@param key integer
----@return historical_figure_relationships_artifact_claims|nil
-function df.historical_figure_relationships.T_artifact_claims.find(key) end
 
 ---<br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
 ---@class historical_figure_relationships_intrigues: df.class
----@field potential_corrupt_skill job_skill[] <br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
+---@field potential_corrupt_skill historical_figure_relationships.T_intrigues_potential_corrupt_skill <br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
 ---@field potential_corrupt_target historical_figure_relationships.T_intrigues_potential_corrupt_target[]
 ---@field potential_corrupt_circumstance unit_thought_type[]
----@field potential_corrupt_unk4 df.container<integer> only -1 seen
+---@field potential_corrupt_unk4 df.container only -1 seen
 ---@field plots historical_figure_relationships.T_intrigues_plots[]
 ---@field next_plot_id integer
 ---@field revealed_agreements agreement[]
 ---@field agreemeents agreement[]
 ---@field intrigue historical_figure_relationships.T_intrigues_intrigue[]
 ---@field next_intrigue_id integer
----@field unk11 df.container<integer> 4 bytes allocated observed, which cant' host a pointer
+---@field unk11 df.container 4 bytes allocated observed, which cant' host a pointer
 ---@field unk12 historical_figure_relationships.T_intrigues_unk12[]
 ---@field unk13 integer
----@field unk14 integer[]
+---@field unk14 historical_figure_relationships.T_intrigues_unk14
 ---@field unk15 integer
 ---@field unk16 integer
 ---@field unk17 integer
 df.historical_figure_relationships.T_intrigues = {}
 
----@param key integer
----@return historical_figure_relationships_intrigues|nil
-function df.historical_figure_relationships.T_intrigues.find(key) end
+---<br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
+---@class historical_figure_relationships.T_intrigues_potential_corrupt_skill: df.class
+df.historical_figure_relationships.T_intrigues.T_potential_corrupt_skill = {}
+
 
 ---@class historical_figure_relationships.T_intrigues_potential_corrupt_target: df.class
 ---@field LYING integer
@@ -990,9 +877,6 @@ function df.historical_figure_relationships.T_intrigues.find(key) end
 ---@field CONVERSATION value_type
 df.historical_figure_relationships.T_intrigues.T_potential_corrupt_target = {}
 
----@param key integer
----@return historical_figure_relationships.T_intrigues_potential_corrupt_target|nil
-function df.historical_figure_relationships.T_intrigues.T_potential_corrupt_target.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues_plots: df.class
 ---@field id integer starts as index in parent vector
@@ -1011,10 +895,6 @@ function df.historical_figure_relationships.T_intrigues.T_potential_corrupt_targ
 ---@field plotter_nemesis_id integer References: nemesis_record
 ---@field unk5_15 integer 0-5 seen
 df.historical_figure_relationships.T_intrigues.T_plots = {}
-
----@param key integer
----@return historical_figure_relationships.T_intrigues_plots|nil
-function df.historical_figure_relationships.T_intrigues.T_plots.find(key) end
 
 ---@class _historical_figure_relationships.T_intrigues.T_plots_plot_type: integer, string, df.enum
 ---@field None -1
@@ -1089,6 +969,7 @@ df.historical_figure_relationships.T_intrigues.T_plots.T_plot_type = {}
 ---@field [16] boolean
 ---@field Infiltrate_Society boolean
 
+
 ---@class historical_figure_relationships.T_intrigues.T_plots_plot_data: df.class
 ---@field None integer seems uninitialized
 ---@field Grow_Funding_Network integer seems uninitialized
@@ -1105,22 +986,15 @@ df.historical_figure_relationships.T_intrigues.T_plots.T_plot_type = {}
 ---@field Corrupt_Actors_Government integer pointer not seen
 ---@field Counterintelligence integer pointer not seen
 ---@field Become_Immortal integer pointer not seen
----@field Undead_World_Conquest df.container<integer>
+---@field Undead_World_Conquest df.container
 ---@field Infiltrate_Society historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Infiltrate_Society
 df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data = {}
-
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_plots_plot_data|nil
-function df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Sabotage_Actor: df.class
 ---@field unk_1 integer not seen anything else
 ---@field unk_2 integer not seen anything else
 df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_Sabotage_Actor = {}
 
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Sabotage_Actor|nil
-function df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_Sabotage_Actor.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Infiltrate_Society: df.class
 ---@field action integer 8:prepare coup, 9:steal treasures and prepare coup. Bitmap?
@@ -1128,9 +1002,6 @@ function df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_Sa
 ---@field unk5_t15_3 integer not seen anything else
 df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_Infiltrate_Society = {}
 
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_plots.T_plot_data_Infiltrate_Society|nil
-function df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_Infiltrate_Society.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues_intrigue: df.class
 ---@field id integer index into the parent vector (at least initially)
@@ -1144,12 +1015,9 @@ function df.historical_figure_relationships.T_intrigues.T_plots.T_plot_data.T_In
 ---@field strategy plot_strategy_type
 ---@field unk9_10 integer References: historical_entity<br>site government seen. Target? Member of/possible threat?
 ---@field unk9_11 integer 1 seen
----@field unk9_12 df.container<integer>
+---@field unk9_12 df.container
 df.historical_figure_relationships.T_intrigues.T_intrigue = {}
 
----@param key integer
----@return historical_figure_relationships.T_intrigues_intrigue|nil
-function df.historical_figure_relationships.T_intrigues.T_intrigue.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues_unk12: df.class
 ---@field unk_1 integer
@@ -1157,10 +1025,6 @@ function df.historical_figure_relationships.T_intrigues.T_intrigue.find(key) end
 ---@field unk_2 integer
 ---@field data historical_figure_relationships.T_intrigues.T_unk12_data
 df.historical_figure_relationships.T_intrigues.T_unk12 = {}
-
----@param key integer
----@return historical_figure_relationships.T_intrigues_unk12|nil
-function df.historical_figure_relationships.T_intrigues.T_unk12.find(key) end
 
 ---@class _historical_figure_relationships.T_intrigues.T_unk12_type: integer, string, df.enum
 ---@field type_0 0
@@ -1179,15 +1043,12 @@ df.historical_figure_relationships.T_intrigues.T_unk12.T_type = {}
 ---@field [2] boolean
 ---@field type_2 boolean
 
+
 ---@class historical_figure_relationships.T_intrigues.T_unk12_data: df.class
 ---@field type_0 historical_figure_relationships.T_intrigues.T_unk12.T_data_type_0
 ---@field type_1 historical_figure_relationships.T_intrigues.T_unk12.T_data_type_1
 ---@field type_2 historical_figure_relationships.T_intrigues.T_unk12.T_data_type_2
 df.historical_figure_relationships.T_intrigues.T_unk12.T_data = {}
-
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_unk12_data|nil
-function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues.T_unk12.T_data_type_0: df.class
 ---@field unk_1 integer
@@ -1196,9 +1057,6 @@ function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.find(key)
 ---@field unk_4 integer
 df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_0 = {}
 
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_unk12.T_data_type_0|nil
-function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_0.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues.T_unk12.T_data_type_1: df.class
 ---@field unk_1 integer
@@ -1206,9 +1064,6 @@ function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_0.
 ---@field unk_3 integer
 df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_1 = {}
 
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_unk12.T_data_type_1|nil
-function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_1.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues.T_unk12.T_data_type_2: df.class
 ---@field unk_1 historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2_unk_1
@@ -1216,10 +1071,6 @@ function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_1.
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2 = {}
-
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_unk12.T_data_type_2|nil
-function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2.find(key) end
 
 ---@class historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2_unk_1: df.class
 ---@field unk_0 integer
@@ -1235,9 +1086,9 @@ function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2.
 ---@field unk_6 integer
 df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2.T_unk_1 = {}
 
----@param key integer
----@return historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2_unk_1|nil
-function df.historical_figure_relationships.T_intrigues.T_unk12.T_data.T_type_2.T_unk_1.find(key) end
+
+---@class historical_figure_relationships.T_intrigues_unk14: df.class
+df.historical_figure_relationships.T_intrigues.T_unk14 = {}
 
 ---@class _histfig_flags: integer, string, df.enum
 ---@field reveal_artwork 0
@@ -1763,10 +1614,6 @@ df.vague_relationship_type = {}
 ---@field unk_5 integer
 df.historical_figure = {}
 
----@param key integer
----@return historical_figure|nil
-function df.historical_figure.find(key) end
-
 ---Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
 ---@class historical_figure_vague_relationships: df.class
 ---@field hfid integer[] References: historical_figure
@@ -1774,18 +1621,12 @@ function df.historical_figure.find(key) end
 ---@field count integer number of hf/relationship pairs above
 df.historical_figure.T_vague_relationships = {}
 
----@param key integer
----@return historical_figure_vague_relationships|nil
-function df.historical_figure.T_vague_relationships.find(key) end
 
 ---@class historical_figure_unk_fc: df.class
 ---@field unk_0 integer
 ---@field unk_8 integer
 df.historical_figure.T_unk_fc = {}
 
----@param key integer
----@return historical_figure_unk_fc|nil
-function df.historical_figure.T_unk_fc.find(key) end
 
 ---@class historical_figure_unk_v47_2: df.class
 ---@field unk_1 historical_figure
@@ -1805,10 +1646,6 @@ function df.historical_figure.T_unk_fc.find(key) end
 ---@field unk_15 historical_figure
 ---@field unk_16 historical_figure
 df.historical_figure.T_unk_v47_2 = {}
-
----@param key integer
----@return historical_figure_unk_v47_2|nil
-function df.historical_figure.T_unk_v47_2.find(key) end
 
 ---@class _identity_type: integer, string, df.enum
 ---@field None -1
@@ -1868,14 +1705,10 @@ df.identity_type.attrs = {}
 ---@field unk_5 identity_unk_95[]
 df.identity = {}
 
----@param key integer
----@return identity|nil
-function df.identity.find(key) end
-
 ---@class identity_unk_94: df.class
 ---@field unk_0 integer
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
@@ -1885,22 +1718,14 @@ function df.identity.find(key) end
 ---@field unk_9 integer uninitialized
 df.identity_unk_94 = {}
 
----@param key integer
----@return identity_unk_94|nil
-function df.identity_unk_94.find(key) end
-
 ---@class identity_unk_95: df.class
 ---@field unk_0 integer
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
+---@field unk_1 df.container
+---@field unk_2 df.container
 ---@field unk_3 integer
 ---@field unk_4 integer
 ---@field unk_5 integer
 df.identity_unk_95 = {}
-
----@param key integer
----@return identity_unk_95|nil
-function df.identity_unk_95.find(key) end
 
 ---@class _mental_picture_property_type: integer, string, df.enum
 ---@field DATE 0
@@ -1947,28 +1772,10 @@ df.mental_picture_property_type = {}
 ---@field unk_0 integer
 df.mental_picture_propertyst = {}
 
----@param key integer
----@return mental_picture_propertyst|nil
-function df.mental_picture_propertyst.find(key) end
-
----@return mental_picture_property_type
-function df.mental_picture_propertyst:getType() end
-
----@param file file_compressorst
-function df.mental_picture_propertyst:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.mental_picture_propertyst:read_file(file, loadversion) end
-
 ---@class mental_picture_property_datest: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.mental_picture_property_datest = {}
-
----@param key integer
----@return mental_picture_property_datest|nil
-function df.mental_picture_property_datest.find(key) end
 
 ---@class mental_picture_property_actionst: mental_picture_propertyst
 ---@field unk_1 integer
@@ -1977,55 +1784,31 @@ function df.mental_picture_property_datest.find(key) end
 ---@field unk_4 integer
 df.mental_picture_property_actionst = {}
 
----@param key integer
----@return mental_picture_property_actionst|nil
-function df.mental_picture_property_actionst.find(key) end
-
 ---@class mental_picture_property_toolst: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.mental_picture_property_toolst = {}
 
----@param key integer
----@return mental_picture_property_toolst|nil
-function df.mental_picture_property_toolst.find(key) end
-
 ---@class mental_picture_property_emotionst: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.mental_picture_property_emotionst = {}
-
----@param key integer
----@return mental_picture_property_emotionst|nil
-function df.mental_picture_property_emotionst.find(key) end
 
 ---@class mental_picture_property_color_patternst: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.mental_picture_property_color_patternst = {}
 
----@param key integer
----@return mental_picture_property_color_patternst|nil
-function df.mental_picture_property_color_patternst.find(key) end
-
 ---@class mental_picture_property_shapest: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.mental_picture_property_shapest = {}
 
----@param key integer
----@return mental_picture_property_shapest|nil
-function df.mental_picture_property_shapest.find(key) end
-
 ---@class mental_picture_property_adjectivest: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.mental_picture_property_adjectivest = {}
-
----@param key integer
----@return mental_picture_property_adjectivest|nil
-function df.mental_picture_property_adjectivest.find(key) end
 
 ---@class mental_picture_property_positionst: mental_picture_propertyst
 ---@field unk_1 integer
@@ -2033,19 +1816,11 @@ function df.mental_picture_property_adjectivest.find(key) end
 ---@field unk_3 integer
 df.mental_picture_property_positionst = {}
 
----@param key integer
----@return mental_picture_property_positionst|nil
-function df.mental_picture_property_positionst.find(key) end
-
 ---@class mental_picture_property_timest: mental_picture_propertyst
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer
 df.mental_picture_property_timest = {}
-
----@param key integer
----@return mental_picture_property_timest|nil
-function df.mental_picture_property_timest.find(key) end
 
 ---@class _mental_picture_element_type: integer, string, df.enum
 ---@field HF 0
@@ -2068,43 +1843,14 @@ df.mental_picture_element_type = {}
 ---@field unk_1 integer
 df.mental_picture_elementst = {}
 
----@param key integer
----@return mental_picture_elementst|nil
-function df.mental_picture_elementst.find(key) end
-
----@return mental_picture_element_type
-function df.mental_picture_elementst:getType() end
-
----@param file file_compressorst
-function df.mental_picture_elementst:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.mental_picture_elementst:read_file(file, loadversion) end
-
 ---@class mental_picture_element_hfst: mental_picture_elementst
----@field unk_1 integer
 df.mental_picture_element_hfst = {}
 
----@param key integer
----@return mental_picture_element_hfst|nil
-function df.mental_picture_element_hfst.find(key) end
-
 ---@class mental_picture_element_sitest: mental_picture_elementst
----@field unk_1 integer
 df.mental_picture_element_sitest = {}
 
----@param key integer
----@return mental_picture_element_sitest|nil
-function df.mental_picture_element_sitest.find(key) end
-
 ---@class mental_picture_element_regionst: mental_picture_elementst
----@field unk_1 integer
 df.mental_picture_element_regionst = {}
-
----@param key integer
----@return mental_picture_element_regionst|nil
-function df.mental_picture_element_regionst.find(key) end
 
 ---@class _history_event_type: integer, string, df.enum
 ---@field WAR_ATTACKED_SITE 0
@@ -3040,10 +2786,6 @@ df.history_event_reason.attrs = {}
 ---@field data history_event_reason_info_data
 df.history_event_reason_info = {}
 
----@param key integer
----@return history_event_reason_info|nil
-function df.history_event_reason_info.find(key) end
-
 ---@class history_event_reason_info_data: df.class
 ---@field glorify_hf integer References: historical_figure
 ---@field sanctify_hf integer References: historical_figure
@@ -3051,18 +2793,10 @@ function df.history_event_reason_info.find(key) end
 ---@field artifact_is_symbol_of_entity_position integer References: historical_entity
 df.history_event_reason_info.T_data = {}
 
----@param key integer
----@return history_event_reason_info_data|nil
-function df.history_event_reason_info.T_data.find(key) end
-
 ---@class history_event_circumstance_info: df.class
 ---@field type unit_thought_type
 ---@field data history_event_circumstance_info_data
 df.history_event_circumstance_info = {}
-
----@param key integer
----@return history_event_circumstance_info|nil
-function df.history_event_circumstance_info.find(key) end
 
 ---@class history_event_circumstance_info_data: df.class
 ---@field Death integer References: historical_figure
@@ -3073,10 +2807,6 @@ function df.history_event_circumstance_info.find(key) end
 ---@field HistEventCollection integer References: history_event_collection
 ---@field AfterAbducting integer References: historical_figure
 df.history_event_circumstance_info.T_data = {}
-
----@param key integer
----@return history_event_circumstance_info_data|nil
-function df.history_event_circumstance_info.T_data.find(key) end
 
 ---@class history_event_context: df.class
 ---@field flags history_event_context_flags
@@ -3133,10 +2863,6 @@ function df.history_event_circumstance_info.T_data.find(key) end
 ---@field divination_set_id integer References: divination_set
 df.history_event_context = {}
 
----@param key integer
----@return history_event_context|nil
-function df.history_event_context.find(key) end
-
 ---@class _history_event_context_flags: integer, string, df.bitfield
 ---@field is_interrogation_report 0
 ---@field [0] "is_interrogation_report"
@@ -3146,16 +2872,13 @@ df.history_event_context.T_flags = {}
 ---@field [0] boolean
 ---@field is_interrogation_report boolean
 
+
 ---@class history_event_context_interrogation: df.class
 ---@field unk_00 integer
 ---@field unk_04 integer
 ---@field interrogator_id integer References: historical_figure
 ---@field subject_id integer References: historical_figure
 df.history_event_context.T_interrogation = {}
-
----@param key integer
----@return history_event_context_interrogation|nil
-function df.history_event_context.T_interrogation.find(key) end
 
 ---@class _architectural_element: integer, string, df.enum
 ---@field NONE -1
@@ -3252,135 +2975,6 @@ df.merc_role_type = {}
 ---@field id integer
 df.history_event = {}
 
----@param key integer
----@return history_event|nil
-function df.history_event.find(key) end
-
----@return history_event_type
-function df.history_event:getType() end
-
----@param entity1 integer
----@param entity2 integer
----@return integer
-function df.history_event:getWarStatus(entity1, entity2) end
-
----@param entity1 integer
----@param entity2 integer
----@return integer
-function df.history_event:getAngerModifier(entity1, entity2) end
-
----@param entity1 integer
----@param entity2 integer
----@return integer
-function df.history_event:getHappinessModifier(entity1, entity2) end
-
----@param entity1 integer
----@param entity2 integer
----@param site integer
----@return boolean
-function df.history_event:madeFirstContact(entity1, entity2, site) end
-
----@param killer integer
----@param unk_1 integer
----@return integer
-function df.history_event:getKilledHistfigID(killer, unk_1) end
-
----@param victim integer
----@return boolean
-function df.history_event:wasHistfigKilled(victim) end
-
----@param histfig integer
----@return boolean
-function df.history_event:wasHistfigRevived(histfig) end
-
----@param vec df.container<integer>
-function df.history_event:getRelatedHistfigIDs(vec) end
-
----@param vec df.container<integer>
-function df.history_event:getRelatedSiteIDs(vec) end
-
----@param vec1 df.container<integer>
----@param vec2 df.container<integer>
-function df.history_event:getRelatedSiteStructureIDs(vec1, vec2) end
-
----@param vec df.container<integer>
-function df.history_event:getRelatedArtifactIDs(vec) end
-
----@param vec df.container<integer>
-function df.history_event:getRelatedRegionIDs(vec) end
-
----@param vec df.container<integer>
-function df.history_event:getRelatedLayerIDs(vec) end
-
----@param vec df.container<integer>
-function df.history_event:getRelatedEntityIDs(vec) end
-
----@param histfig integer
----@return boolean
-function df.history_event:isRelatedToHistfigID(histfig) end
-
----@param site integer
----@return boolean
-function df.history_event:isRelatedToSiteID(site) end
-
----@param site integer
----@param structure integer
----@return boolean
-function df.history_event:isRelatedToSiteStructure(site, structure) end
-
----@param artifact integer
----@return boolean
-function df.history_event:isRelatedToArtifactID(artifact) end
-
----@param region integer
----@return boolean
-function df.history_event:isRelatedToRegionID(region) end
-
----@param region integer
----@return boolean
-function df.history_event:isRelatedToLayerID(region) end
-
----broken; always returns false
----@param agreement integer
----@return boolean
-function df.history_event:isRelatedToAgreementID(agreement) end
-
----@param entity integer
----@return boolean
-function df.history_event:isRelatedToEntityID(entity) end
-
----@param str string
----@param context history_event_context
-function df.history_event:getSentence(str, context) end
-
----@param str string
----@param context history_event_context
-function df.history_event:getPhrase(str, context) end
-
----@param image art_image
-function df.history_event:populateArtImage(image) end
-
----@param histfig integer
----@return boolean
-function df.history_event:isChangedHistfigID(histfig) end
-
----inserts event into world_history.events_death if relevant
-function df.history_event:categorize() end
-
----removes event from world_history.events_death if relevant
-function df.history_event:uncategorize() end
-
----@param unk_0 lightuserdata
----@param indent integer
-function df.history_event:generate_xml(unk_0, indent) end
-
----@param file file_compressorst
-function df.history_event:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.history_event:read_file(file, loadversion) end
-
 ---@class history_event_war_attacked_sitest: history_event
 ---@field attacker_civ integer References: historical_entity
 ---@field defender_civ integer References: historical_entity
@@ -3393,10 +2987,6 @@ function df.history_event:read_file(file, loadversion) end
 ---@field merc_roles merc_role_type
 df.history_event_war_attacked_sitest = {}
 
----@param key integer
----@return history_event_war_attacked_sitest|nil
-function df.history_event_war_attacked_sitest.find(key) end
-
 ---@class history_event_war_destroyed_sitest: history_event
 ---@field attacker_civ integer References: historical_entity
 ---@field defender_civ integer References: historical_entity
@@ -3405,10 +2995,6 @@ function df.history_event_war_attacked_sitest.find(key) end
 ---@field unk_1 integer
 df.history_event_war_destroyed_sitest = {}
 
----@param key integer
----@return history_event_war_destroyed_sitest|nil
-function df.history_event_war_destroyed_sitest.find(key) end
-
 ---@class history_event_created_sitest: history_event
 ---@field civ integer References: historical_entity
 ---@field site_civ integer References: historical_entity
@@ -3416,10 +3002,6 @@ function df.history_event_war_destroyed_sitest.find(key) end
 ---@field site integer References: world_site
 ---@field builder_hf integer References: historical_figure
 df.history_event_created_sitest = {}
-
----@param key integer
----@return history_event_created_sitest|nil
-function df.history_event_created_sitest.find(key) end
 
 ---@class _death_type: integer, string, df.enum
 ---@field NONE -1
@@ -3662,10 +3244,6 @@ df.death_type = {}
 ---@field death_cause death_type
 df.history_event_hist_figure_diedst = {}
 
----@param key integer
----@return history_event_hist_figure_diedst|nil
-function df.history_event_hist_figure_diedst.find(key) end
-
 ---@class history_event_add_hf_entity_linkst: history_event
 ---@field civ integer References: historical_entity
 ---@field histfig integer References: historical_figure
@@ -3675,10 +3253,6 @@ function df.history_event_hist_figure_diedst.find(key) end
 ---@field promise_to_hfid integer References: historical_figure
 df.history_event_add_hf_entity_linkst = {}
 
----@param key integer
----@return history_event_add_hf_entity_linkst|nil
-function df.history_event_add_hf_entity_linkst.find(key) end
-
 ---@class history_event_remove_hf_entity_linkst: history_event
 ---@field civ integer References: historical_entity
 ---@field histfig integer References: historical_figure
@@ -3686,19 +3260,11 @@ function df.history_event_add_hf_entity_linkst.find(key) end
 ---@field position_id integer index into entity.positions.own
 df.history_event_remove_hf_entity_linkst = {}
 
----@param key integer
----@return history_event_remove_hf_entity_linkst|nil
-function df.history_event_remove_hf_entity_linkst.find(key) end
-
 ---@class history_event_entity_expels_hfst: history_event
 ---@field civ integer References: historical_entity
 ---@field expelled integer References: historical_figure
 ---@field site integer References: world_site
 df.history_event_entity_expels_hfst = {}
-
----@param key integer
----@return history_event_entity_expels_hfst|nil
-function df.history_event_entity_expels_hfst.find(key) end
 
 ---@class history_event_first_contactst: history_event
 ---@field contactor integer References: historical_entity
@@ -3706,19 +3272,11 @@ function df.history_event_entity_expels_hfst.find(key) end
 ---@field site integer References: world_site
 df.history_event_first_contactst = {}
 
----@param key integer
----@return history_event_first_contactst|nil
-function df.history_event_first_contactst.find(key) end
-
 ---@class history_event_first_contact_failedst: history_event
 ---@field contactor integer References: historical_entity
 ---@field rejector integer References: historical_entity
 ---@field site integer References: world_site
 df.history_event_first_contact_failedst = {}
-
----@param key integer
----@return history_event_first_contact_failedst|nil
-function df.history_event_first_contact_failedst.find(key) end
 
 ---@class history_event_topicagreement_concludedst: history_event
 ---@field source integer References: historical_entity
@@ -3728,20 +3286,12 @@ function df.history_event_first_contact_failedst.find(key) end
 ---@field result integer range from -3 to +2
 df.history_event_topicagreement_concludedst = {}
 
----@param key integer
----@return history_event_topicagreement_concludedst|nil
-function df.history_event_topicagreement_concludedst.find(key) end
-
 ---@class history_event_topicagreement_rejectedst: history_event
 ---@field topic meeting_topic
 ---@field source integer References: historical_entity
 ---@field destination integer References: historical_entity
 ---@field site integer References: world_site
 df.history_event_topicagreement_rejectedst = {}
-
----@param key integer
----@return history_event_topicagreement_rejectedst|nil
-function df.history_event_topicagreement_rejectedst.find(key) end
 
 ---@class history_event_topicagreement_madest: history_event
 ---@field topic meeting_topic
@@ -3750,20 +3300,12 @@ function df.history_event_topicagreement_rejectedst.find(key) end
 ---@field site integer References: world_site
 df.history_event_topicagreement_madest = {}
 
----@param key integer
----@return history_event_topicagreement_madest|nil
-function df.history_event_topicagreement_madest.find(key) end
-
 ---@class history_event_war_peace_acceptedst: history_event
 ---@field topic meeting_topic
 ---@field source integer References: historical_entity
 ---@field destination integer References: historical_entity
 ---@field site integer References: world_site
 df.history_event_war_peace_acceptedst = {}
-
----@param key integer
----@return history_event_war_peace_acceptedst|nil
-function df.history_event_war_peace_acceptedst.find(key) end
 
 ---@class history_event_war_peace_rejectedst: history_event
 ---@field topic meeting_topic
@@ -3772,28 +3314,16 @@ function df.history_event_war_peace_acceptedst.find(key) end
 ---@field site integer References: world_site
 df.history_event_war_peace_rejectedst = {}
 
----@param key integer
----@return history_event_war_peace_rejectedst|nil
-function df.history_event_war_peace_rejectedst.find(key) end
-
 ---@class history_event_diplomat_lostst: history_event
 ---@field entity integer References: historical_entity
 ---@field involved integer References: historical_entity
 ---@field site integer References: world_site
 df.history_event_diplomat_lostst = {}
 
----@param key integer
----@return history_event_diplomat_lostst|nil
-function df.history_event_diplomat_lostst.find(key) end
-
 ---@class history_event_agreements_voidedst: history_event
 ---@field source integer References: historical_entity
 ---@field destination integer References: historical_entity
 df.history_event_agreements_voidedst = {}
-
----@param key integer
----@return history_event_agreements_voidedst|nil
-function df.history_event_agreements_voidedst.find(key) end
 
 ---@class history_event_merchantst: history_event
 ---@field source integer References: historical_entity
@@ -3801,10 +3331,6 @@ function df.history_event_agreements_voidedst.find(key) end
 ---@field site integer References: world_site
 ---@field flags2 history_event_merchant_flags[]
 df.history_event_merchantst = {}
-
----@param key integer
----@return history_event_merchantst|nil
-function df.history_event_merchantst.find(key) end
 
 ---@class _history_event_merchant_flags: integer, string, df.enum
 ---@field vanished 0
@@ -3842,10 +3368,6 @@ df.history_event_merchant_flags = {}
 ---@field site integer References: world_site
 df.history_event_artifact_hiddenst = {}
 
----@param key integer
----@return history_event_artifact_hiddenst|nil
-function df.history_event_artifact_hiddenst.find(key) end
-
 ---@class history_event_artifact_possessedst: history_event
 ---@field artifact integer References: artifact_record
 ---@field unit integer References: unit
@@ -3857,10 +3379,6 @@ function df.history_event_artifact_hiddenst.find(key) end
 ---@field reason history_event_reason_info
 df.history_event_artifact_possessedst = {}
 
----@param key integer
----@return history_event_artifact_possessedst|nil
-function df.history_event_artifact_possessedst.find(key) end
-
 ---@class history_event_artifact_createdst: history_event
 ---@field artifact_id integer References: artifact_record
 ---@field creator_unit_id integer References: unit<br>the unit who created the artifact
@@ -3870,10 +3388,6 @@ function df.history_event_artifact_possessedst.find(key) end
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 df.history_event_artifact_createdst = {}
-
----@param key integer
----@return history_event_artifact_createdst|nil
-function df.history_event_artifact_createdst.find(key) end
 
 ---@class _history_event_artifact_createdst_flags2: integer, string, df.bitfield
 ---@field name_only 0
@@ -3892,10 +3406,6 @@ df.history_event_artifact_createdst.T_flags2 = {}
 ---@field unk_1 integer probably feature_layer_id, based on other events, but haven't seen non -1
 df.history_event_artifact_lostst = {}
 
----@param key integer
----@return history_event_artifact_lostst|nil
-function df.history_event_artifact_lostst.find(key) end
-
 ---@class history_event_artifact_foundst: history_event
 ---@field artifact integer References: artifact_record
 ---@field unit integer References: unit
@@ -3905,10 +3415,6 @@ function df.history_event_artifact_lostst.find(key) end
 ---@field unk_1 integer probably subregion_id, based on other events, but haven't seen non -1
 ---@field unk_2 integer probably feature_layer_id, based on other events, but haven't seen non -1
 df.history_event_artifact_foundst = {}
-
----@param key integer
----@return history_event_artifact_foundst|nil
-function df.history_event_artifact_foundst.find(key) end
 
 ---@class history_event_artifact_recoveredst: history_event
 ---@field artifact integer References: artifact_record
@@ -3920,10 +3426,6 @@ function df.history_event_artifact_foundst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_artifact_recoveredst = {}
 
----@param key integer
----@return history_event_artifact_recoveredst|nil
-function df.history_event_artifact_recoveredst.find(key) end
-
 ---@class history_event_artifact_droppedst: history_event
 ---@field artifact integer References: artifact_record
 ---@field unit integer References: unit
@@ -3932,20 +3434,12 @@ function df.history_event_artifact_recoveredst.find(key) end
 ---@field flags2 boolean[]
 df.history_event_artifact_droppedst = {}
 
----@param key integer
----@return history_event_artifact_droppedst|nil
-function df.history_event_artifact_droppedst.find(key) end
-
 ---@class history_event_reclaim_sitest: history_event
 ---@field civ integer References: historical_entity
 ---@field site_civ integer References: historical_entity
 ---@field site integer References: world_site
 ---@field flags2 history_event_reclaim_sitest_flags2
 df.history_event_reclaim_sitest = {}
-
----@param key integer
----@return history_event_reclaim_sitest|nil
-function df.history_event_reclaim_sitest.find(key) end
 
 ---@class _history_event_reclaim_sitest_flags2: integer, string, df.bitfield
 ---@field unretire 0
@@ -3963,20 +3457,12 @@ df.history_event_reclaim_sitest.T_flags2 = {}
 ---@field site integer References: world_site
 df.history_event_hf_destroyed_sitest = {}
 
----@param key integer
----@return history_event_hf_destroyed_sitest|nil
-function df.history_event_hf_destroyed_sitest.find(key) end
-
 ---@class history_event_site_diedst: history_event
 ---@field civ integer References: historical_entity
 ---@field site_civ integer References: historical_entity
 ---@field site integer References: world_site
 ---@field flags2 history_event_site_diedst_flags2
 df.history_event_site_diedst = {}
-
----@param key integer
----@return history_event_site_diedst|nil
-function df.history_event_site_diedst.find(key) end
 
 ---@class _history_event_site_diedst_flags2: integer, string, df.bitfield
 ---@field abandoned 0
@@ -3994,10 +3480,6 @@ df.history_event_site_diedst.T_flags2 = {}
 ---@field flags2 history_event_site_retiredst_flags2
 df.history_event_site_retiredst = {}
 
----@param key integer
----@return history_event_site_retiredst|nil
-function df.history_event_site_retiredst.find(key) end
-
 ---@class _history_event_site_retiredst_flags2: integer, string, df.bitfield
 ---@field first_time 0
 ---@field [0] "first_time"
@@ -4013,10 +3495,6 @@ df.history_event_site_retiredst.T_flags2 = {}
 ---@field structure integer References: abstract_building
 ---@field creator_hfid integer References: historical_figure
 df.history_event_entity_createdst = {}
-
----@param key integer
----@return history_event_entity_createdst|nil
-function df.history_event_entity_createdst.find(key) end
 
 ---@class _entity_action_type: integer, string, df.enum
 ---@field entity_primary_criminals 0
@@ -4038,10 +3516,6 @@ df.entity_action_type = {}
 ---@field action entity_action_type
 df.history_event_entity_actionst = {}
 
----@param key integer
----@return history_event_entity_actionst|nil
-function df.history_event_entity_actionst.find(key) end
-
 ---@class history_event_entity_incorporatedst: history_event
 ---@field migrant_entity integer References: historical_entity
 ---@field join_entity integer References: historical_entity
@@ -4049,10 +3523,6 @@ function df.history_event_entity_actionst.find(key) end
 ---@field site integer References: world_site
 ---@field partial boolean
 df.history_event_entity_incorporatedst = {}
-
----@param key integer
----@return history_event_entity_incorporatedst|nil
-function df.history_event_entity_incorporatedst.find(key) end
 
 ---@class history_event_created_buildingst: history_event
 ---@field civ integer References: historical_entity
@@ -4063,10 +3533,6 @@ function df.history_event_entity_incorporatedst.find(key) end
 ---@field rebuild boolean
 df.history_event_created_buildingst = {}
 
----@param key integer
----@return history_event_created_buildingst|nil
-function df.history_event_created_buildingst.find(key) end
-
 ---@class history_event_replaced_buildingst: history_event
 ---@field civ integer References: historical_entity
 ---@field site_civ integer References: historical_entity
@@ -4074,10 +3540,6 @@ function df.history_event_created_buildingst.find(key) end
 ---@field old_structure integer References: abstract_building
 ---@field new_structure integer References: abstract_building
 df.history_event_replaced_buildingst = {}
-
----@param key integer
----@return history_event_replaced_buildingst|nil
-function df.history_event_replaced_buildingst.find(key) end
 
 ---@class history_event_add_hf_site_linkst: history_event
 ---@field site integer References: world_site
@@ -4087,10 +3549,6 @@ function df.history_event_replaced_buildingst.find(key) end
 ---@field type histfig_site_link_type
 df.history_event_add_hf_site_linkst = {}
 
----@param key integer
----@return history_event_add_hf_site_linkst|nil
-function df.history_event_add_hf_site_linkst.find(key) end
-
 ---@class history_event_remove_hf_site_linkst: history_event
 ---@field site integer References: world_site
 ---@field structure integer References: abstract_building
@@ -4099,19 +3557,11 @@ function df.history_event_add_hf_site_linkst.find(key) end
 ---@field type histfig_site_link_type
 df.history_event_remove_hf_site_linkst = {}
 
----@param key integer
----@return history_event_remove_hf_site_linkst|nil
-function df.history_event_remove_hf_site_linkst.find(key) end
-
 ---@class history_event_add_hf_hf_linkst: history_event
 ---@field hf integer References: historical_figure
 ---@field hf_target integer References: historical_figure
 ---@field type histfig_hf_link_type
 df.history_event_add_hf_hf_linkst = {}
-
----@param key integer
----@return history_event_add_hf_hf_linkst|nil
-function df.history_event_add_hf_hf_linkst.find(key) end
 
 ---@class history_event_remove_hf_hf_linkst: history_event
 ---@field hf integer References: historical_figure
@@ -4119,19 +3569,11 @@ function df.history_event_add_hf_hf_linkst.find(key) end
 ---@field type histfig_hf_link_type
 df.history_event_remove_hf_hf_linkst = {}
 
----@param key integer
----@return history_event_remove_hf_hf_linkst|nil
-function df.history_event_remove_hf_hf_linkst.find(key) end
-
 ---@class history_event_entity_razed_buildingst: history_event
 ---@field civ integer References: historical_entity
 ---@field site integer References: world_site
 ---@field structure integer References: abstract_building
 df.history_event_entity_razed_buildingst = {}
-
----@param key integer
----@return history_event_entity_razed_buildingst|nil
-function df.history_event_entity_razed_buildingst.find(key) end
 
 ---@class history_event_masterpiece_createdst: history_event
 ---@field maker integer References: historical_figure
@@ -4140,20 +3582,12 @@ function df.history_event_entity_razed_buildingst.find(key) end
 ---@field skill_at_time skill_rating
 df.history_event_masterpiece_createdst = {}
 
----@param key integer
----@return history_event_masterpiece_createdst|nil
-function df.history_event_masterpiece_createdst.find(key) end
-
 ---@class history_event_masterpiece_created_arch_constructst: history_event_masterpiece_createdst
 ---@field building_type integer
 ---@field building_subtype integer
 ---@field building_custom integer
 ---@field unk_2 integer
 df.history_event_masterpiece_created_arch_constructst = {}
-
----@param key integer
----@return history_event_masterpiece_created_arch_constructst|nil
-function df.history_event_masterpiece_created_arch_constructst.find(key) end
 
 ---@class history_event_masterpiece_created_itemst: history_event_masterpiece_createdst
 ---@field item_type item_type
@@ -4162,10 +3596,6 @@ function df.history_event_masterpiece_created_arch_constructst.find(key) end
 ---@field mat_index integer
 ---@field item_id integer References: item
 df.history_event_masterpiece_created_itemst = {}
-
----@param key integer
----@return history_event_masterpiece_created_itemst|nil
-function df.history_event_masterpiece_created_itemst.find(key) end
 
 ---@class history_event_masterpiece_created_dye_itemst: history_event_masterpiece_createdst
 ---@field item_type item_type
@@ -4176,10 +3606,6 @@ function df.history_event_masterpiece_created_itemst.find(key) end
 ---@field dye_mat_type integer References: material
 ---@field dye_mat_index integer
 df.history_event_masterpiece_created_dye_itemst = {}
-
----@param key integer
----@return history_event_masterpiece_created_dye_itemst|nil
-function df.history_event_masterpiece_created_dye_itemst.find(key) end
 
 ---@class history_event_masterpiece_created_item_improvementst: history_event_masterpiece_createdst
 ---@field item_type item_type
@@ -4195,27 +3621,15 @@ function df.history_event_masterpiece_created_dye_itemst.find(key) end
 ---@field art_subid integer References: art_image
 df.history_event_masterpiece_created_item_improvementst = {}
 
----@param key integer
----@return history_event_masterpiece_created_item_improvementst|nil
-function df.history_event_masterpiece_created_item_improvementst.find(key) end
-
 ---@class history_event_masterpiece_created_foodst: history_event_masterpiece_createdst
 ---@field item_subtype integer
 ---@field item_id integer References: item
 df.history_event_masterpiece_created_foodst = {}
 
----@param key integer
----@return history_event_masterpiece_created_foodst|nil
-function df.history_event_masterpiece_created_foodst.find(key) end
-
 ---@class history_event_masterpiece_created_engravingst: history_event_masterpiece_createdst
 ---@field art_id integer References: art_image_chunk
 ---@field art_subid integer References: art_image
 df.history_event_masterpiece_created_engravingst = {}
-
----@param key integer
----@return history_event_masterpiece_created_engravingst|nil
-function df.history_event_masterpiece_created_engravingst.find(key) end
 
 ---@class _masterpiece_loss_type: integer, string, df.enum
 ---@field MELT 0
@@ -4253,10 +3667,6 @@ df.masterpiece_loss_type = {}
 ---@field method masterpiece_loss_type
 df.history_event_masterpiece_lostst = {}
 
----@param key integer
----@return history_event_masterpiece_lostst|nil
-function df.history_event_masterpiece_lostst.find(key) end
-
 ---@class history_event_change_hf_statest: history_event
 ---@field hfid integer References: historical_figure
 ---@field state whereabouts_type
@@ -4267,10 +3677,6 @@ function df.history_event_masterpiece_lostst.find(key) end
 ---@field region_pos coord2d
 df.history_event_change_hf_statest = {}
 
----@param key integer
----@return history_event_change_hf_statest|nil
-function df.history_event_change_hf_statest.find(key) end
-
 ---@class history_event_change_hf_jobst: history_event
 ---@field hfid integer References: historical_figure
 ---@field new_job profession
@@ -4279,10 +3685,6 @@ function df.history_event_change_hf_statest.find(key) end
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 df.history_event_change_hf_jobst = {}
-
----@param key integer
----@return history_event_change_hf_jobst|nil
-function df.history_event_change_hf_jobst.find(key) end
 
 ---@class history_event_war_field_battlest: history_event
 ---@field attacker_civ integer References: historical_entity
@@ -4297,10 +3699,6 @@ function df.history_event_change_hf_jobst.find(key) end
 ---@field merc_roles merc_role_type
 df.history_event_war_field_battlest = {}
 
----@param key integer
----@return history_event_war_field_battlest|nil
-function df.history_event_war_field_battlest.find(key) end
-
 ---@class history_event_war_plundered_sitest: history_event
 ---@field attacker_civ integer References: historical_entity
 ---@field defender_civ integer References: historical_entity
@@ -4309,22 +3707,14 @@ function df.history_event_war_field_battlest.find(key) end
 ---@field unk_1 integer 2=detected
 df.history_event_war_plundered_sitest = {}
 
----@param key integer
----@return history_event_war_plundered_sitest|nil
-function df.history_event_war_plundered_sitest.find(key) end
-
 ---@class history_event_war_site_new_leaderst: history_event
 ---@field attacker_civ integer References: historical_entity
 ---@field new_site_civ integer References: historical_entity
 ---@field defender_civ integer References: historical_entity
 ---@field site_civ integer References: historical_entity
 ---@field site integer References: world_site
----@field new_leaders df.container<integer> References: historical_figure
+---@field new_leaders df.container References: historical_figure
 df.history_event_war_site_new_leaderst = {}
-
----@param key integer
----@return history_event_war_site_new_leaderst|nil
-function df.history_event_war_site_new_leaderst.find(key) end
 
 ---@class history_event_war_site_tribute_forcedst: history_event
 ---@field attacker_civ integer References: historical_entity
@@ -4334,10 +3724,6 @@ function df.history_event_war_site_new_leaderst.find(key) end
 ---@field season season
 ---@field tribute_flags history_event_war_site_tribute_forcedst_tribute_flags
 df.history_event_war_site_tribute_forcedst = {}
-
----@param key integer
----@return history_event_war_site_tribute_forcedst|nil
-function df.history_event_war_site_tribute_forcedst.find(key) end
 
 ---@class _history_event_war_site_tribute_forcedst_tribute_flags: integer, string, df.bitfield
 ---@field bled_dry 0
@@ -4356,10 +3742,6 @@ df.history_event_war_site_tribute_forcedst.T_tribute_flags = {}
 ---@field site integer References: world_site
 df.history_event_war_site_taken_overst = {}
 
----@param key integer
----@return history_event_war_site_taken_overst|nil
-function df.history_event_war_site_taken_overst.find(key) end
-
 ---@class history_event_site_surrenderedst: history_event
 ---@field attacker_civ integer References: historical_entity
 ---@field defender_civ integer References: historical_entity
@@ -4367,12 +3749,8 @@ function df.history_event_war_site_taken_overst.find(key) end
 ---@field site integer References: world_site
 df.history_event_site_surrenderedst = {}
 
----@param key integer
----@return history_event_site_surrenderedst|nil
-function df.history_event_site_surrenderedst.find(key) end
-
 ---@class history_event_body_abusedst: history_event
----@field bodies df.container<integer> References: historical_figure
+---@field bodies df.container References: historical_figure
 ---@field victim_entity integer References: historical_entity
 ---@field civ integer References: historical_entity
 ---@field histfig integer References: historical_figure
@@ -4383,10 +3761,6 @@ function df.history_event_site_surrenderedst.find(key) end
 ---@field abuse_type history_event_body_abusedst_abuse_type
 ---@field abuse_data history_event_body_abusedst_abuse_data
 df.history_event_body_abusedst = {}
-
----@param key integer
----@return history_event_body_abusedst|nil
-function df.history_event_body_abusedst.find(key) end
 
 ---@class _history_event_body_abusedst_abuse_type: integer, string, df.enum
 ---@field Impaled 0
@@ -4417,6 +3791,7 @@ df.history_event_body_abusedst.T_abuse_type = {}
 ---@field [5] boolean
 ---@field Animated boolean
 
+
 ---@class history_event_body_abusedst_abuse_data: df.class
 ---@field Impaled history_event_body_abusedst.T_abuse_data_Impaled
 ---@field Piled history_event_body_abusedst.T_abuse_data_Piled
@@ -4425,10 +3800,6 @@ df.history_event_body_abusedst.T_abuse_type = {}
 ---@field Animated history_event_body_abusedst.T_abuse_data_Animated
 df.history_event_body_abusedst.T_abuse_data = {}
 
----@param key integer
----@return history_event_body_abusedst_abuse_data|nil
-function df.history_event_body_abusedst.T_abuse_data.find(key) end
-
 ---@class history_event_body_abusedst.T_abuse_data_Impaled: df.class
 ---@field item_type item_type always WEAPON?
 ---@field item_subtype integer
@@ -4436,42 +3807,17 @@ function df.history_event_body_abusedst.T_abuse_data.find(key) end
 ---@field mat_index integer
 df.history_event_body_abusedst.T_abuse_data.T_Impaled = {}
 
----@param key integer
----@return history_event_body_abusedst.T_abuse_data_Impaled|nil
-function df.history_event_body_abusedst.T_abuse_data.T_Impaled.find(key) end
 
 ---@class history_event_body_abusedst.T_abuse_data_Piled: df.class
----@field pile_type history_event_body_abusedst.T_abuse_data.T_Piled_pile_type
+---@field GrislyMound integer
+---@field GrotesquePillar integer
+---@field GruesomeSculpture integer
 df.history_event_body_abusedst.T_abuse_data.T_Piled = {}
 
----@param key integer
----@return history_event_body_abusedst.T_abuse_data_Piled|nil
-function df.history_event_body_abusedst.T_abuse_data.T_Piled.find(key) end
-
----@class _history_event_body_abusedst.T_abuse_data.T_Piled_pile_type: integer, string, df.enum
----@field GrislyMound 0
----@field [0] "GrislyMound"
----@field GrotesquePillar 1
----@field [1] "GrotesquePillar"
----@field GruesomeSculpture 2
----@field [2] "GruesomeSculpture"
-df.history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type = {}
-
----@class history_event_body_abusedst.T_abuse_data.T_Piled_pile_type
----@field [0] boolean
----@field GrislyMound boolean
----@field [1] boolean
----@field GrotesquePillar boolean
----@field [2] boolean
----@field GruesomeSculpture boolean
 
 ---@class history_event_body_abusedst.T_abuse_data_Flayed: df.class
----@field structure integer References: abstract_building
 df.history_event_body_abusedst.T_abuse_data.T_Flayed = {}
 
----@param key integer
----@return history_event_body_abusedst.T_abuse_data_Flayed|nil
-function df.history_event_body_abusedst.T_abuse_data.T_Flayed.find(key) end
 
 ---@class history_event_body_abusedst.T_abuse_data_Hung: df.class
 ---@field tree integer References: plant_raw
@@ -4479,9 +3825,6 @@ function df.history_event_body_abusedst.T_abuse_data.T_Flayed.find(key) end
 ---@field mat_index integer rope
 df.history_event_body_abusedst.T_abuse_data.T_Hung = {}
 
----@param key integer
----@return history_event_body_abusedst.T_abuse_data_Hung|nil
-function df.history_event_body_abusedst.T_abuse_data.T_Hung.find(key) end
 
 ---@class history_event_body_abusedst.T_abuse_data_Animated: df.class
 ---@field interaction integer References: interaction
@@ -4490,10 +3833,6 @@ function df.history_event_body_abusedst.T_abuse_data.T_Hung.find(key) end
 ---@field unk_3 integer
 df.history_event_body_abusedst.T_abuse_data.T_Animated = {}
 
----@param key integer
----@return history_event_body_abusedst.T_abuse_data_Animated|nil
-function df.history_event_body_abusedst.T_abuse_data.T_Animated.find(key) end
-
 ---@class history_event_hist_figure_abductedst: history_event
 ---@field target integer References: historical_figure
 ---@field snatcher integer References: historical_figure
@@ -4501,10 +3840,6 @@ function df.history_event_body_abusedst.T_abuse_data.T_Animated.find(key) end
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 df.history_event_hist_figure_abductedst = {}
-
----@param key integer
----@return history_event_hist_figure_abductedst|nil
-function df.history_event_hist_figure_abductedst.find(key) end
 
 ---@class _theft_method_type: integer, string, df.enum
 ---@field Theft 0
@@ -4546,19 +3881,11 @@ df.theft_method_type = {}
 ---@field theft_method theft_method_type
 df.history_event_item_stolenst = {}
 
----@param key integer
----@return history_event_item_stolenst|nil
-function df.history_event_item_stolenst.find(key) end
-
 ---@class history_event_hf_razed_buildingst: history_event
 ---@field histfig integer References: historical_figure
 ---@field site integer References: world_site
 ---@field structure integer References: abstract_building
 df.history_event_hf_razed_buildingst = {}
-
----@param key integer
----@return history_event_hf_razed_buildingst|nil
-function df.history_event_hf_razed_buildingst.find(key) end
 
 ---@class history_event_creature_devouredst: history_event
 ---@field victim integer References: historical_figure
@@ -4570,10 +3897,6 @@ function df.history_event_hf_razed_buildingst.find(key) end
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 df.history_event_creature_devouredst = {}
-
----@param key integer
----@return history_event_creature_devouredst|nil
-function df.history_event_creature_devouredst.find(key) end
 
 ---@class history_event_hist_figure_woundedst: history_event
 ---@field woundee integer References: historical_figure
@@ -4588,10 +3911,6 @@ function df.history_event_creature_devouredst.find(key) end
 ---@field part_lost boolean
 ---@field flags2 history_event_hist_figure_woundedst_flags2
 df.history_event_hist_figure_woundedst = {}
-
----@param key integer
----@return history_event_hist_figure_woundedst|nil
-function df.history_event_hist_figure_woundedst.find(key) end
 
 ---@class _history_event_hist_figure_woundedst_injury_type: integer, string, df.enum
 ---@field Smash 0
@@ -4617,6 +3936,7 @@ df.history_event_hist_figure_woundedst.T_injury_type = {}
 ---@field Rip boolean
 ---@field [4] boolean
 ---@field Burn boolean
+
 
 ---@class _history_event_hist_figure_woundedst_flags2: integer, string, df.bitfield
 ---@field torture 0
@@ -4702,17 +4022,13 @@ df.artifact_claim_type = {}
 ---@field HolyRelic boolean
 
 ---@class history_event_hist_figure_simple_battle_eventst: history_event
----@field group1 df.container<integer> References: historical_figure
----@field group2 df.container<integer> References: historical_figure
+---@field group1 df.container References: historical_figure
+---@field group2 df.container References: historical_figure
 ---@field site integer References: world_site
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 ---@field subtype history_event_simple_battle_subtype
 df.history_event_hist_figure_simple_battle_eventst = {}
-
----@param key integer
----@return history_event_hist_figure_simple_battle_eventst|nil
-function df.history_event_hist_figure_simple_battle_eventst.find(key) end
 
 ---@class history_event_created_world_constructionst: history_event
 ---@field civ integer References: historical_entity
@@ -4723,46 +4039,30 @@ function df.history_event_hist_figure_simple_battle_eventst.find(key) end
 ---@field site2 integer References: world_site
 df.history_event_created_world_constructionst = {}
 
----@param key integer
----@return history_event_created_world_constructionst|nil
-function df.history_event_created_world_constructionst.find(key) end
-
 ---@class history_event_hist_figure_reunionst: history_event
----@field missing df.container<integer> References: historical_figure
----@field reunited_with df.container<integer> References: historical_figure
+---@field missing df.container References: historical_figure
+---@field reunited_with df.container References: historical_figure
 ---@field assistant integer References: historical_figure
 ---@field site integer References: world_site
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 df.history_event_hist_figure_reunionst = {}
 
----@param key integer
----@return history_event_hist_figure_reunionst|nil
-function df.history_event_hist_figure_reunionst.find(key) end
-
 ---@class history_event_hist_figure_reach_summitst: history_event
----@field group df.container<integer> References: historical_figure
+---@field group df.container References: historical_figure
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 ---@field region_pos coord2d
 df.history_event_hist_figure_reach_summitst = {}
 
----@param key integer
----@return history_event_hist_figure_reach_summitst|nil
-function df.history_event_hist_figure_reach_summitst.find(key) end
-
 ---@class history_event_hist_figure_travelst: history_event
----@field group df.container<integer> References: historical_figure
+---@field group df.container References: historical_figure
 ---@field site integer References: world_site
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 ---@field reason history_event_hist_figure_travelst_reason
 ---@field region_pos coord2d
 df.history_event_hist_figure_travelst = {}
-
----@param key integer
----@return history_event_hist_figure_travelst|nil
-function df.history_event_hist_figure_travelst.find(key) end
 
 ---@class _history_event_hist_figure_travelst_reason: integer, string, df.enum
 ---@field Journey 0
@@ -4782,27 +4082,19 @@ df.history_event_hist_figure_travelst.T_reason = {}
 ---@field Escape boolean
 
 ---@class history_event_hist_figure_new_petst: history_event
----@field group df.container<integer> References: historical_figure
----@field pets df.container<integer> References: creature_raw
+---@field group df.container References: historical_figure
+---@field pets df.container References: creature_raw
 ---@field site integer References: world_site
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 ---@field region_pos coord2d
 df.history_event_hist_figure_new_petst = {}
 
----@param key integer
----@return history_event_hist_figure_new_petst|nil
-function df.history_event_hist_figure_new_petst.find(key) end
-
 ---@class history_event_assume_identityst: history_event
 ---@field trickster integer References: historical_figure
 ---@field identity integer References: identity
 ---@field target integer References: historical_entity
 df.history_event_assume_identityst = {}
-
----@param key integer
----@return history_event_assume_identityst|nil
-function df.history_event_assume_identityst.find(key) end
 
 ---@class _position_creation_reason_type: integer, string, df.enum
 ---@field force_of_argument 0
@@ -4837,10 +4129,6 @@ df.position_creation_reason_type = {}
 ---@field reason position_creation_reason_type
 df.history_event_create_entity_positionst = {}
 
----@param key integer
----@return history_event_create_entity_positionst|nil
-function df.history_event_create_entity_positionst.find(key) end
-
 ---@class history_event_change_creature_typest: history_event
 ---@field changee integer References: historical_figure
 ---@field changer integer References: historical_figure
@@ -4849,10 +4137,6 @@ function df.history_event_create_entity_positionst.find(key) end
 ---@field new_race integer References: creature_raw
 ---@field new_caste integer References: caste_raw
 df.history_event_change_creature_typest = {}
-
----@param key integer
----@return history_event_change_creature_typest|nil
-function df.history_event_change_creature_typest.find(key) end
 
 ---@class history_event_hist_figure_revivedst: history_event
 ---@field histfig integer References: historical_figure
@@ -4865,10 +4149,6 @@ function df.history_event_change_creature_typest.find(key) end
 ---@field interaction integer References: interaction
 ---@field unk_1 integer
 df.history_event_hist_figure_revivedst = {}
-
----@param key integer
----@return history_event_hist_figure_revivedst|nil
-function df.history_event_hist_figure_revivedst.find(key) end
 
 ---@class _history_event_hist_figure_revivedst_flags2: integer, string, df.bitfield
 ---@field again 0
@@ -4886,10 +4166,6 @@ df.history_event_hist_figure_revivedst.T_flags2 = {}
 ---@field interaction integer References: interaction
 ---@field unk_1 integer
 df.history_event_hf_learns_secretst = {}
-
----@param key integer
----@return history_event_hf_learns_secretst|nil
-function df.history_event_hf_learns_secretst.find(key) end
 
 ---@class _histfig_body_state: integer, string, df.enum
 ---@field Active 0
@@ -4934,20 +4210,12 @@ df.histfig_body_state = {}
 ---@field region_pos coord2d
 df.history_event_change_hf_body_statest = {}
 
----@param key integer
----@return history_event_change_hf_body_statest|nil
-function df.history_event_change_hf_body_statest.find(key) end
-
 ---@class history_event_hf_act_on_buildingst: history_event
 ---@field action history_event_hf_act_on_buildingst_action
 ---@field histfig integer References: historical_figure
 ---@field site integer References: world_site
 ---@field structure integer References: abstract_building
 df.history_event_hf_act_on_buildingst = {}
-
----@param key integer
----@return history_event_hf_act_on_buildingst|nil
-function df.history_event_hf_act_on_buildingst.find(key) end
 
 ---@class _history_event_hf_act_on_buildingst_action: integer, string, df.enum
 ---@field Profane 0
@@ -4976,23 +4244,15 @@ df.history_event_hf_act_on_buildingst.T_action = {}
 ---@field layer integer References: world_underground_region
 df.history_event_hf_does_interactionst = {}
 
----@param key integer
----@return history_event_hf_does_interactionst|nil
-function df.history_event_hf_does_interactionst.find(key) end
-
 ---@class history_event_hf_confrontedst: history_event
 ---@field target integer References: historical_figure
 ---@field accuser integer References: historical_figure
----@field reasons df.container<integer> 0 = ageless, 1 = murder
+---@field reasons df.container 0 = ageless, 1 = murder
 ---@field site integer References: world_site
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
 ---@field region_pos coord2d
 df.history_event_hf_confrontedst = {}
-
----@param key integer
----@return history_event_hf_confrontedst|nil
-function df.history_event_hf_confrontedst.find(key) end
 
 ---@class history_event_entity_lawst: history_event
 ---@field entity integer References: historical_entity
@@ -5000,10 +4260,6 @@ function df.history_event_hf_confrontedst.find(key) end
 ---@field add_flags history_event_entity_lawst_add_flags
 ---@field remove_flags history_event_entity_lawst_remove_flags
 df.history_event_entity_lawst = {}
-
----@param key integer
----@return history_event_entity_lawst|nil
-function df.history_event_entity_lawst.find(key) end
 
 ---@class _history_event_entity_lawst_add_flags: integer, string, df.bitfield
 ---@field harsh 0
@@ -5013,6 +4269,7 @@ df.history_event_entity_lawst.T_add_flags = {}
 ---@class history_event_entity_lawst_add_flags
 ---@field [0] boolean
 ---@field harsh boolean
+
 
 ---@class _history_event_entity_lawst_remove_flags: integer, string, df.bitfield
 ---@field harsh 0
@@ -5032,10 +4289,6 @@ df.history_event_entity_lawst.T_remove_flags = {}
 ---@field value value_type
 df.history_event_hf_gains_secret_goalst = {}
 
----@param key integer
----@return history_event_hf_gains_secret_goalst|nil
-function df.history_event_hf_gains_secret_goalst.find(key) end
-
 ---@class history_event_artifact_storedst: history_event
 ---@field artifact integer References: artifact_record
 ---@field unit integer References: unit
@@ -5044,18 +4297,10 @@ function df.history_event_hf_gains_secret_goalst.find(key) end
 ---@field building integer Guess. the values seen are low numbers. Legends doesn't provide any additional info
 df.history_event_artifact_storedst = {}
 
----@param key integer
----@return history_event_artifact_storedst|nil
-function df.history_event_artifact_storedst.find(key) end
-
 ---@class history_event_agreement_formedst: history_event
 ---@field agreement_id integer References: agreement
 ---@field delegated boolean
 df.history_event_agreement_formedst = {}
-
----@param key integer
----@return history_event_agreement_formedst|nil
-function df.history_event_agreement_formedst.find(key) end
 
 ---@class _site_dispute_type: integer, string, df.enum
 ---@field Territory 0
@@ -5094,10 +4339,6 @@ df.site_dispute_type = {}
 ---@field site_2 integer References: world_site
 df.history_event_site_disputest = {}
 
----@param key integer
----@return history_event_site_disputest|nil
-function df.history_event_site_disputest.find(key) end
-
 ---@class history_event_agreement_concludedst: history_event
 ---@field agreement_id integer References: agreement
 ---@field subject_id integer
@@ -5105,18 +4346,10 @@ function df.history_event_site_disputest.find(key) end
 ---@field concluder_hf integer References: historical_figure
 df.history_event_agreement_concludedst = {}
 
----@param key integer
----@return history_event_agreement_concludedst|nil
-function df.history_event_agreement_concludedst.find(key) end
-
 ---@class history_event_insurrection_startedst: history_event
 ---@field target_civ integer References: historical_entity
 ---@field site integer References: world_site
 df.history_event_insurrection_startedst = {}
-
----@param key integer
----@return history_event_insurrection_startedst|nil
-function df.history_event_insurrection_startedst.find(key) end
 
 ---@class _insurrection_outcome: integer, string, df.enum
 ---@field LeadershipOverthrown 0
@@ -5141,20 +4374,12 @@ df.insurrection_outcome = {}
 ---@field outcome insurrection_outcome
 df.history_event_insurrection_endedst = {}
 
----@param key integer
----@return history_event_insurrection_endedst|nil
-function df.history_event_insurrection_endedst.find(key) end
-
 ---@class history_event_hf_attacked_sitest: history_event
 ---@field attacker_hf integer References: historical_figure
 ---@field defender_civ integer References: historical_entity
 ---@field site_civ integer References: historical_entity
 ---@field site integer References: world_site
 df.history_event_hf_attacked_sitest = {}
-
----@param key integer
----@return history_event_hf_attacked_sitest|nil
-function df.history_event_hf_attacked_sitest.find(key) end
 
 ---@class history_event_performancest: history_event
 ---@field entity integer References: historical_entity
@@ -5165,10 +4390,6 @@ function df.history_event_hf_attacked_sitest.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_performancest = {}
 
----@param key integer
----@return history_event_performancest|nil
-function df.history_event_performancest.find(key) end
-
 ---@class history_event_competitionst: history_event
 ---@field entity integer References: historical_entity
 ---@field occasion integer
@@ -5176,13 +4397,9 @@ function df.history_event_performancest.find(key) end
 ---@field site integer References: world_site
 ---@field region integer References: world_region
 ---@field layer integer References: world_underground_region
----@field competitor_hf df.container<integer> References: historical_figure
----@field winner_hf df.container<integer> References: historical_figure
+---@field competitor_hf df.container References: historical_figure
+---@field winner_hf df.container References: historical_figure
 df.history_event_competitionst = {}
-
----@param key integer
----@return history_event_competitionst|nil
-function df.history_event_competitionst.find(key) end
 
 ---@class history_event_processionst: history_event
 ---@field entity integer References: historical_entity
@@ -5193,10 +4410,6 @@ function df.history_event_competitionst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_processionst = {}
 
----@param key integer
----@return history_event_processionst|nil
-function df.history_event_processionst.find(key) end
-
 ---@class history_event_ceremonyst: history_event
 ---@field entity integer References: historical_entity
 ---@field occasion integer
@@ -5206,31 +4419,19 @@ function df.history_event_processionst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_ceremonyst = {}
 
----@param key integer
----@return history_event_ceremonyst|nil
-function df.history_event_ceremonyst.find(key) end
-
 ---@class history_event_knowledge_discoveredst: history_event
 ---@field hf integer References: historical_figure
 ---@field knowledge knowledge_scholar_category_flag
 ---@field first integer
 df.history_event_knowledge_discoveredst = {}
 
----@param key integer
----@return history_event_knowledge_discoveredst|nil
-function df.history_event_knowledge_discoveredst.find(key) end
-
 ---@class history_event_artifact_transformedst: history_event
 ---@field new_artifact integer References: artifact_record
----@field old_artifact df.container<integer> References: artifact_record
+---@field old_artifact df.container References: artifact_record
 ---@field unit integer References: unit
 ---@field histfig integer References: historical_figure
 ---@field site integer References: world_site
 df.history_event_artifact_transformedst = {}
-
----@param key integer
----@return history_event_artifact_transformedst|nil
-function df.history_event_artifact_transformedst.find(key) end
 
 ---@class history_event_artifact_destroyedst: history_event
 ---@field artifact integer References: artifact_record
@@ -5238,10 +4439,6 @@ function df.history_event_artifact_transformedst.find(key) end
 ---@field destroyer_hf integer References: historical_figure
 ---@field destroyer_civ integer References: historical_entity
 df.history_event_artifact_destroyedst = {}
-
----@param key integer
----@return history_event_artifact_destroyedst|nil
-function df.history_event_artifact_destroyedst.find(key) end
 
 ---@class history_event_hf_relationship_deniedst: history_event
 ---@field seeker_hf integer References: historical_figure
@@ -5254,10 +4451,6 @@ function df.history_event_artifact_destroyedst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_hf_relationship_deniedst = {}
 
----@param key integer
----@return history_event_hf_relationship_deniedst|nil
-function df.history_event_hf_relationship_deniedst.find(key) end
-
 ---@class history_event_regionpop_incorporated_into_entityst: history_event
 ---@field pop_race integer References: creature_raw
 ---@field number_moved integer
@@ -5266,10 +4459,6 @@ function df.history_event_hf_relationship_deniedst.find(key) end
 ---@field join_entity integer References: historical_entity
 ---@field site integer References: world_site
 df.history_event_regionpop_incorporated_into_entityst = {}
-
----@param key integer
----@return history_event_regionpop_incorporated_into_entityst|nil
-function df.history_event_regionpop_incorporated_into_entityst.find(key) end
 
 ---@class history_event_poetic_form_createdst: history_event
 ---@field histfig integer References: historical_figure
@@ -5281,10 +4470,6 @@ function df.history_event_regionpop_incorporated_into_entityst.find(key) end
 ---@field reason history_event_reason_info
 df.history_event_poetic_form_createdst = {}
 
----@param key integer
----@return history_event_poetic_form_createdst|nil
-function df.history_event_poetic_form_createdst.find(key) end
-
 ---@class history_event_musical_form_createdst: history_event
 ---@field histfig integer References: historical_figure
 ---@field form integer References: musical_form
@@ -5294,10 +4479,6 @@ function df.history_event_poetic_form_createdst.find(key) end
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 df.history_event_musical_form_createdst = {}
-
----@param key integer
----@return history_event_musical_form_createdst|nil
-function df.history_event_musical_form_createdst.find(key) end
 
 ---@class history_event_dance_form_createdst: history_event
 ---@field histfig integer References: historical_figure
@@ -5309,10 +4490,6 @@ function df.history_event_musical_form_createdst.find(key) end
 ---@field reason history_event_reason_info
 df.history_event_dance_form_createdst = {}
 
----@param key integer
----@return history_event_dance_form_createdst|nil
-function df.history_event_dance_form_createdst.find(key) end
-
 ---@class history_event_written_content_composedst: history_event
 ---@field histfig integer References: historical_figure
 ---@field content integer References: written_content
@@ -5322,10 +4499,6 @@ function df.history_event_dance_form_createdst.find(key) end
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 df.history_event_written_content_composedst = {}
-
----@param key integer
----@return history_event_written_content_composedst|nil
-function df.history_event_written_content_composedst.find(key) end
 
 ---@class history_event_change_hf_moodst: history_event
 ---@field histfig integer References: historical_figure
@@ -5337,10 +4510,6 @@ function df.history_event_written_content_composedst.find(key) end
 ---@field region_pos coord2d
 df.history_event_change_hf_moodst = {}
 
----@param key integer
----@return history_event_change_hf_moodst|nil
-function df.history_event_change_hf_moodst.find(key) end
-
 ---@class history_event_artifact_claim_formedst: history_event
 ---@field artifact integer References: artifact_record
 ---@field histfig integer References: historical_figure
@@ -5350,10 +4519,6 @@ function df.history_event_change_hf_moodst.find(key) end
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 df.history_event_artifact_claim_formedst = {}
-
----@param key integer
----@return history_event_artifact_claim_formedst|nil
-function df.history_event_artifact_claim_formedst.find(key) end
 
 ---@class history_event_artifact_givenst: history_event
 ---@field artifact integer References: artifact_record
@@ -5366,10 +4531,6 @@ function df.history_event_artifact_claim_formedst.find(key) end
 ---@field inherited boolean
 df.history_event_artifact_givenst = {}
 
----@param key integer
----@return history_event_artifact_givenst|nil
-function df.history_event_artifact_givenst.find(key) end
-
 ---@class history_event_hf_act_on_artifactst: history_event
 ---@field action history_event_hf_act_on_artifactst_action
 ---@field artifact integer References: artifact_record
@@ -5377,10 +4538,6 @@ function df.history_event_artifact_givenst.find(key) end
 ---@field site integer References: world_site
 ---@field structure integer References: abstract_building
 df.history_event_hf_act_on_artifactst = {}
-
----@param key integer
----@return history_event_hf_act_on_artifactst|nil
-function df.history_event_hf_act_on_artifactst.find(key) end
 
 ---@class _history_event_hf_act_on_artifactst_action: integer, string, df.enum
 ---@field View 0
@@ -5404,10 +4561,6 @@ df.history_event_hf_act_on_artifactst.T_action = {}
 ---@field layer integer References: world_underground_region
 df.history_event_hf_recruited_unit_type_for_entityst = {}
 
----@param key integer
----@return history_event_hf_recruited_unit_type_for_entityst|nil
-function df.history_event_hf_recruited_unit_type_for_entityst.find(key) end
-
 ---@class history_event_hfs_formed_reputation_relationshipst: history_event
 ---@field histfig1 integer References: historical_figure
 ---@field identity1 integer References: identity
@@ -5420,10 +4573,6 @@ function df.history_event_hf_recruited_unit_type_for_entityst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_hfs_formed_reputation_relationshipst = {}
 
----@param key integer
----@return history_event_hfs_formed_reputation_relationshipst|nil
-function df.history_event_hfs_formed_reputation_relationshipst.find(key) end
-
 ---@class history_event_artifact_copiedst: history_event
 ---@field artifact integer References: artifact_record
 ---@field entity_dest integer References: historical_entity
@@ -5434,10 +4583,6 @@ function df.history_event_hfs_formed_reputation_relationshipst.find(key) end
 ---@field structure_src integer References: abstract_building
 ---@field flags2 history_event_artifact_copiedst_flags2
 df.history_event_artifact_copiedst = {}
-
----@param key integer
----@return history_event_artifact_copiedst|nil
-function df.history_event_artifact_copiedst.find(key) end
 
 ---@class _history_event_artifact_copiedst_flags2: integer, string, df.bitfield
 ---@field from_original 0
@@ -5455,10 +4600,6 @@ df.history_event_artifact_copiedst.T_flags2 = {}
 ---@field site integer References: world_site
 df.history_event_sneak_into_sitest = {}
 
----@param key integer
----@return history_event_sneak_into_sitest|nil
-function df.history_event_sneak_into_sitest.find(key) end
-
 ---@class history_event_spotted_leaving_sitest: history_event
 ---@field spotter_hf integer References: historical_figure
 ---@field leaver_civ integer References: historical_entity
@@ -5466,19 +4607,11 @@ function df.history_event_sneak_into_sitest.find(key) end
 ---@field site integer References: world_site
 df.history_event_spotted_leaving_sitest = {}
 
----@param key integer
----@return history_event_spotted_leaving_sitest|nil
-function df.history_event_spotted_leaving_sitest.find(key) end
-
 ---@class history_event_entity_searched_sitest: history_event
 ---@field searcher_civ integer References: historical_entity
 ---@field site integer References: world_site
 ---@field result integer 0 = found nothing
 df.history_event_entity_searched_sitest = {}
-
----@param key integer
----@return history_event_entity_searched_sitest|nil
-function df.history_event_entity_searched_sitest.find(key) end
 
 ---@class history_event_hf_freedst: history_event
 ---@field freeing_civ integer References: historical_entity
@@ -5486,12 +4619,8 @@ function df.history_event_entity_searched_sitest.find(key) end
 ---@field holding_civ integer References: historical_entity
 ---@field site_civ integer References: historical_entity
 ---@field site integer References: world_site
----@field rescued_hfs df.container<integer> References: historical_figure
+---@field rescued_hfs df.container References: historical_figure
 df.history_event_hf_freedst = {}
-
----@param key integer
----@return history_event_hf_freedst|nil
-function df.history_event_hf_freedst.find(key) end
 
 ---@class _simple_action_type: integer, string, df.enum
 ---@field carouse 0
@@ -5527,7 +4656,7 @@ df.simple_action_type = {}
 ---@field performe_horrible_experiments boolean
 
 ---@class history_event_hist_figure_simple_actionst: history_event
----@field group_hfs df.container<integer> References: historical_figure
+---@field group_hfs df.container References: historical_figure
 ---@field type simple_action_type
 ---@field site integer References: world_site
 ---@field structure integer References: abstract_building
@@ -5535,27 +4664,15 @@ df.simple_action_type = {}
 ---@field layer integer References: world_underground_region
 df.history_event_hist_figure_simple_actionst = {}
 
----@param key integer
----@return history_event_hist_figure_simple_actionst|nil
-function df.history_event_hist_figure_simple_actionst.find(key) end
-
 ---@class history_event_entity_rampaged_in_sitest: history_event
 ---@field rampage_civ_id integer References: historical_entity
 ---@field site_id integer References: world_site
 df.history_event_entity_rampaged_in_sitest = {}
 
----@param key integer
----@return history_event_entity_rampaged_in_sitest|nil
-function df.history_event_entity_rampaged_in_sitest.find(key) end
-
 ---@class history_event_entity_fled_sitest: history_event
 ---@field fled_civ_id integer References: historical_entity
 ---@field site_id integer References: world_site
 df.history_event_entity_fled_sitest = {}
-
----@param key integer
----@return history_event_entity_fled_sitest|nil
-function df.history_event_entity_fled_sitest.find(key) end
 
 ---@class _tactical_situation: integer, string, df.enum
 ---@field attacker_strongly_favored 0
@@ -5603,10 +4720,6 @@ df.tactical_situation = {}
 ---@field tactics_flags history_event_tactical_situationst_tactics_flags
 df.history_event_tactical_situationst = {}
 
----@param key integer
----@return history_event_tactical_situationst|nil
-function df.history_event_tactical_situationst.find(key) end
-
 ---@class _history_event_tactical_situationst_tactics_flags: integer, string, df.bitfield
 ---@field start 0
 ---@field [0] "start"
@@ -5619,7 +4732,7 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@class history_event_squad_vs_squadst: history_event
 ---@field a_leader_hfid integer References: historical_figure
 ---@field a_leadership_roll integer
----@field a_hfid df.container<integer> References: historical_figure
+---@field a_hfid df.container References: historical_figure
 ---@field a_squad_id integer
 ---@field a_race integer References: creature_raw
 ---@field a_interaction integer
@@ -5628,7 +4741,7 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@field a_slain integer
 ---@field d_leader_hfid integer References: historical_figure
 ---@field d_leadership_roll integer
----@field d_hfid df.container<integer> References: historical_figure
+---@field d_hfid df.container References: historical_figure
 ---@field d_squad_id integer
 ---@field d_race integer References: creature_raw
 ---@field d_interaction integer
@@ -5641,10 +4754,6 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@field feature_layer integer References: world_underground_region
 df.history_event_squad_vs_squadst = {}
 
----@param key integer
----@return history_event_squad_vs_squadst|nil
-function df.history_event_squad_vs_squadst.find(key) end
-
 ---@class history_event_tradest: history_event
 ---@field hf integer References: historical_figure
 ---@field entity integer References: historical_entity<br>the guild to which the figure belongs?
@@ -5656,19 +4765,11 @@ function df.history_event_squad_vs_squadst.find(key) end
 ---@field account_shift integer
 df.history_event_tradest = {}
 
----@param key integer
----@return history_event_tradest|nil
-function df.history_event_tradest.find(key) end
-
 ---@class history_event_add_entity_site_profile_flagst: history_event
 ---@field entity integer References: historical_entity
 ---@field site integer References: world_site
 ---@field added_flags entity_site_link_flags
 df.history_event_add_entity_site_profile_flagst = {}
-
----@param key integer
----@return history_event_add_entity_site_profile_flagst|nil
-function df.history_event_add_entity_site_profile_flagst.find(key) end
 
 ---@class history_event_gamblest: history_event
 ---@field hf integer References: historical_figure
@@ -5678,19 +4779,11 @@ function df.history_event_add_entity_site_profile_flagst.find(key) end
 ---@field account_after integer
 df.history_event_gamblest = {}
 
----@param key integer
----@return history_event_gamblest|nil
-function df.history_event_gamblest.find(key) end
-
 ---@class history_event_add_hf_entity_honorst: history_event
 ---@field entity_id integer References: historical_entity
 ---@field hfid integer References: historical_figure
 ---@field honor_id integer index into historical_entity.honors
 df.history_event_add_hf_entity_honorst = {}
-
----@param key integer
----@return history_event_add_hf_entity_honorst|nil
-function df.history_event_add_hf_entity_honorst.find(key) end
 
 ---@class history_event_entity_dissolvedst: history_event
 ---@field entity integer References: historical_entity
@@ -5698,19 +4791,11 @@ function df.history_event_add_hf_entity_honorst.find(key) end
 ---@field reason history_event_reason_info
 df.history_event_entity_dissolvedst = {}
 
----@param key integer
----@return history_event_entity_dissolvedst|nil
-function df.history_event_entity_dissolvedst.find(key) end
-
 ---@class history_event_entity_equipment_purchasest: history_event
 ---@field entity integer References: historical_entity
 ---@field quality item_quality
----@field hfs df.container<integer> References: historical_figure
+---@field hfs df.container References: historical_figure
 df.history_event_entity_equipment_purchasest = {}
-
----@param key integer
----@return history_event_entity_equipment_purchasest|nil
-function df.history_event_entity_equipment_purchasest.find(key) end
 
 ---@class history_event_modified_buildingst: history_event
 ---@field site integer References: world_site
@@ -5719,10 +4804,6 @@ function df.history_event_entity_equipment_purchasest.find(key) end
 ---@field unk_1 integer
 ---@field modification history_event_modified_buildingst_modification
 df.history_event_modified_buildingst = {}
-
----@param key integer
----@return history_event_modified_buildingst|nil
-function df.history_event_modified_buildingst.find(key) end
 
 ---@class _history_event_modified_buildingst_modification: integer, string, df.bitfield
 ---@field dungeon 0
@@ -5755,10 +4836,6 @@ df.history_event_modified_buildingst.T_modification = {}
 ---@field unk_1 integer
 df.history_event_building_profile_acquiredst = {}
 
----@param key integer
----@return history_event_building_profile_acquiredst|nil
-function df.history_event_building_profile_acquiredst.find(key) end
-
 ---@class history_event_hf_preachst: history_event
 ---@field speaker_hf integer References: historical_figure
 ---@field site integer References: world_site
@@ -5767,27 +4844,19 @@ function df.history_event_building_profile_acquiredst.find(key) end
 ---@field entity2 integer References: historical_entity
 df.history_event_hf_preachst = {}
 
----@param key integer
----@return history_event_hf_preachst|nil
-function df.history_event_hf_preachst.find(key) end
-
 ---@class history_event_entity_persecutedst: history_event
 ---@field persecuting_hf integer References: historical_figure
 ---@field persecuting_entity integer References: historical_entity
 ---@field target_entity integer References: historical_entity
 ---@field site integer References: world_site
----@field property_confiscated_from_hfs df.container<integer> References: historical_figure
----@field destroyed_structures df.container<integer>
+---@field property_confiscated_from_hfs df.container References: historical_figure
+---@field destroyed_structures df.container
 ---@field shrines_destroyed integer
----@field expelled_hfs df.container<integer> References: historical_figure
----@field expelled_populations df.container<integer>
----@field expelled_races df.container<integer>
----@field expelled_counts df.container<integer>
+---@field expelled_hfs df.container References: historical_figure
+---@field expelled_populations df.container
+---@field expelled_races df.container
+---@field expelled_counts df.container
 df.history_event_entity_persecutedst = {}
-
----@param key integer
----@return history_event_entity_persecutedst|nil
-function df.history_event_entity_persecutedst.find(key) end
 
 ---@class history_event_entity_breach_feature_layerst: history_event
 ---@field site integer References: world_site
@@ -5796,18 +4865,10 @@ function df.history_event_entity_persecutedst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_entity_breach_feature_layerst = {}
 
----@param key integer
----@return history_event_entity_breach_feature_layerst|nil
-function df.history_event_entity_breach_feature_layerst.find(key) end
-
 ---@class history_event_entity_alliance_formedst: history_event
 ---@field entity integer References: historical_entity
----@field joining_entities df.container<integer> References: historical_entity
+---@field joining_entities df.container References: historical_entity
 df.history_event_entity_alliance_formedst = {}
-
----@param key integer
----@return history_event_entity_alliance_formedst|nil
-function df.history_event_entity_alliance_formedst.find(key) end
 
 ---@class history_event_hf_ransomedst: history_event
 ---@field ransomed_hf integer References: historical_figure
@@ -5817,20 +4878,12 @@ function df.history_event_entity_alliance_formedst.find(key) end
 ---@field moved_to_site integer References: world_site
 df.history_event_hf_ransomedst = {}
 
----@param key integer
----@return history_event_hf_ransomedst|nil
-function df.history_event_hf_ransomedst.find(key) end
-
 ---@class history_event_hf_enslavedst: history_event
 ---@field enslaved_hf integer References: historical_figure
 ---@field seller_hf integer References: historical_figure
 ---@field payer_entity integer References: historical_entity
 ---@field moved_to_site integer References: world_site
 df.history_event_hf_enslavedst = {}
-
----@param key integer
----@return history_event_hf_enslavedst|nil
-function df.history_event_hf_enslavedst.find(key) end
 
 ---@class history_event_sabotagest: history_event
 ---@field saboteur_hf integer References: historical_figure
@@ -5839,23 +4892,15 @@ function df.history_event_hf_enslavedst.find(key) end
 ---@field site integer References: world_site
 df.history_event_sabotagest = {}
 
----@param key integer
----@return history_event_sabotagest|nil
-function df.history_event_sabotagest.find(key) end
-
 ---@class history_event_entity_overthrownst: history_event
 ---@field overthrown_hf integer References: historical_figure
 ---@field position_taker_hf integer References: historical_figure
 ---@field instigator_hf integer References: historical_figure
 ---@field entity integer References: historical_entity
 ---@field position_profile_id integer
----@field conspirator_hfs df.container<integer> References: historical_figure
+---@field conspirator_hfs df.container References: historical_figure
 ---@field site integer References: world_site
 df.history_event_entity_overthrownst = {}
-
----@param key integer
----@return history_event_entity_overthrownst|nil
-function df.history_event_entity_overthrownst.find(key) end
 
 ---@class history_event_hfs_formed_intrigue_relationshipst: history_event
 ---@field corruptor_hf integer References: historical_figure
@@ -5869,10 +4914,6 @@ function df.history_event_entity_overthrownst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_hfs_formed_intrigue_relationshipst = {}
 
----@param key integer
----@return history_event_hfs_formed_intrigue_relationshipst|nil
-function df.history_event_hfs_formed_intrigue_relationshipst.find(key) end
-
 ---@class history_event_failed_intrigue_corruptionst: history_event
 ---@field corruptor_hf integer References: historical_figure
 ---@field corruptor_identity integer
@@ -5883,16 +4924,12 @@ function df.history_event_hfs_formed_intrigue_relationshipst.find(key) end
 ---@field layer integer References: world_underground_region
 df.history_event_failed_intrigue_corruptionst = {}
 
----@param key integer
----@return history_event_failed_intrigue_corruptionst|nil
-function df.history_event_failed_intrigue_corruptionst.find(key) end
-
 ---@class history_event_hf_convictedst: history_event
 ---@field convicted_hf integer References: historical_figure
 ---@field convicter_entity integer References: historical_entity
 ---@field recognized_by_entity integer References: historical_entity
 ---@field recognized_by_hf integer References: historical_figure
----@field implicated_hfs df.container<integer> References: historical_figure
+---@field implicated_hfs df.container References: historical_figure
 ---@field corrupt_hf integer References: historical_figure
 ---@field behest_of_hf integer References: historical_figure
 ---@field fooled_hf integer References: historical_figure
@@ -5906,10 +4943,6 @@ function df.history_event_failed_intrigue_corruptionst.find(key) end
 ---@field punishment_flags history_event_hf_convictedst_punishment_flags
 ---@field plot_flags history_event_hf_convictedst_plot_flags
 df.history_event_hf_convictedst = {}
-
----@param key integer
----@return history_event_hf_convictedst|nil
-function df.history_event_hf_convictedst.find(key) end
 
 ---@class _history_event_hf_convictedst_punishment_flags: integer, string, df.bitfield
 ---@field beaten 0
@@ -5931,6 +4964,7 @@ df.history_event_hf_convictedst.T_punishment_flags = {}
 ---@field death_sentence boolean
 ---@field [3] boolean
 ---@field no_prison_available boolean
+
 
 ---@class _history_event_hf_convictedst_plot_flags: integer, string, df.bitfield
 ---@field wrongful 0
@@ -5974,21 +5008,13 @@ df.history_event_hf_convictedst.T_plot_flags = {}
 ---@field crime integer references crime::T_mode
 df.history_event_failed_frame_attemptst = {}
 
----@param key integer
----@return history_event_failed_frame_attemptst|nil
-function df.history_event_failed_frame_attemptst.find(key) end
-
 ---@class history_event_hf_interrogatedst: history_event
 ---@field target_hf integer References: historical_figure
 ---@field arresting_entity integer References: historical_entity
 ---@field interrogator_hf integer References: historical_figure
----@field implicated_hfs df.container<integer> References: historical_figure
+---@field implicated_hfs df.container References: historical_figure
 ---@field interrogation_flags history_event_hf_interrogatedst_interrogation_flags
 df.history_event_hf_interrogatedst = {}
-
----@param key integer
----@return history_event_hf_interrogatedst|nil
-function df.history_event_hf_interrogatedst.find(key) end
 
 ---@class _history_event_hf_interrogatedst_interrogation_flags: integer, string, df.bitfield
 ---@field recognized 0
@@ -6081,8 +5107,8 @@ df.history_event_collection_type = {}
 ---@field ENTITY_OVERTHROWN boolean
 
 ---@class history_event_collection: df.instance
----@field events df.container<integer> References: history_event
----@field collections df.container<integer> References: history_event_collection
+---@field events df.container References: history_event
+---@field collections df.container References: history_event_collection
 ---@field start_year integer
 ---@field end_year integer
 ---@field start_seconds integer
@@ -6091,78 +5117,31 @@ df.history_event_collection_type = {}
 ---@field id integer
 df.history_event_collection = {}
 
----@param key integer
----@return history_event_collection|nil
-function df.history_event_collection.find(key) end
-
----@return history_event_collection_type
-function df.history_event_collection:getType() end
-
----@param unk_0 lightuserdata
----@param indent integer
-function df.history_event_collection:generate_xml(unk_0, indent) end
-
----@param file file_compressorst
-function df.history_event_collection:write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.history_event_collection:read_file(file, loadversion) end
-
-function df.history_event_collection:categorize() end
-
-function df.history_event_collection:uncategorize() end
-
----@param string string
-function df.history_event_collection:getName(string) end
-
----@param x integer
----@param y integer
-function df.history_event_collection:getRegionCoords(x, y) end
-
----@return integer
-function df.history_event_collection:getParent() end
-
----@param defender_civ integer
----@param attacker_civ integer
----@return integer
-function df.history_event_collection:isBetweenEntities(defender_civ, attacker_civ) end
-
-function df.history_event_collection:updateEndTime() end
-
 ---@class history_event_collection_warst: history_event_collection
 ---@field name language_name
----@field attacker_civ df.container<integer> References: historical_entity
----@field defender_civ df.container<integer> References: historical_entity
----@field unk_1 df.container<integer> References: historical_entity<br>when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations
+---@field attacker_civ df.container References: historical_entity
+---@field defender_civ df.container References: historical_entity
+---@field unk_1 df.container References: historical_entity<br>when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations
 ---@field unk history_event_collection_warst_unk
 df.history_event_collection_warst = {}
 
----@param key integer
----@return history_event_collection_warst|nil
-function df.history_event_collection_warst.find(key) end
-
 ---@class history_event_collection_warst_unk: df.class
----@field unk_1 df.container<integer> These 5 vectors are the same length,0 or 1. Only 0 seen
----@field attacker_entity_leader df.container<integer> References: historical_figure
----@field unk_2 df.container<integer> 25, 25, 46 seen. All on the first few (oldest) collections.
----@field unk_3 df.container<integer> only -1 seen
----@field unk_4 df.container<integer> -5,-6, -14 -15 seen
+---@field unk_1 df.container These 5 vectors are the same length,0 or 1. Only 0 seen
+---@field attacker_entity_leader df.container References: historical_figure
+---@field unk_2 df.container 25, 25, 46 seen. All on the first few (oldest) collections.
+---@field unk_3 df.container only -1 seen
+---@field unk_4 df.container -5,-6, -14 -15 seen
 ---@field unk_5 integer same as previous vector single element or zero. Sum?
----@field ethics_unk1 df.container<integer> these three vectors are of the same length
----@field disputed_ethics df.container<ethic_type>
----@field ethics_unk3 df.container<integer> not seen other value
----@field dispute_severities df.container<integer>
+---@field ethics_unk1 df.container these three vectors are of the same length
+---@field disputed_ethics df.container
+---@field ethics_unk3 df.container not seen other value
+---@field dispute_severities df.container
 ---@field accumulated_ethics_severity integer
----@field event_unk df.container<integer> values 5 and 10 seen. These three vectors are the same length
----@field negative_events df.container<integer> References: history_event<br>Site dispute, war attack site, created site, and culled seen
----@field event_severities df.container<integer> Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
+---@field event_unk df.container values 5 and 10 seen. These three vectors are the same length
+---@field negative_events df.container References: history_event<br>Site dispute, war attack site, created site, and culled seen
+---@field event_severities df.container Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
 ---@field accumulated_event_severity integer sum of previous vector values
 df.history_event_collection_warst.T_unk = {}
-
----@param key integer
----@return history_event_collection_warst_unk|nil
-function df.history_event_collection_warst.T_unk.find(key) end
 
 ---@class history_event_collection_battlest: history_event_collection
 ---@field name language_name
@@ -6171,36 +5150,32 @@ function df.history_event_collection_warst.T_unk.find(key) end
 ---@field layer integer References: world_underground_region
 ---@field site integer References: world_site
 ---@field region_pos coord2d
----@field attacker_civ df.container<integer> References: historical_entity
----@field defender_civ df.container<integer> References: historical_entity
----@field attacker_hf df.container<integer> References: historical_figure
----@field attacker_role df.container<integer> Tentatively 0: regular, 1/2 merc
----@field defender_hf df.container<integer> References: historical_figure
----@field defender_role df.container<integer> same as for attacker role, i.e. 0-2, with 1/2 being mercs
----@field noncombat_hf df.container<integer> References: historical_figure<br>saw being beheaded, but that's only one checked
+---@field attacker_civ df.container References: historical_entity
+---@field defender_civ df.container References: historical_entity
+---@field attacker_hf df.container References: historical_figure
+---@field attacker_role df.container Tentatively 0: regular, 1/2 merc
+---@field defender_hf df.container References: historical_figure
+---@field defender_role df.container same as for attacker role, i.e. 0-2, with 1/2 being mercs
+---@field noncombat_hf df.container References: historical_figure<br>saw being beheaded, but that's only one checked
 ---@field merc_roles merc_role_type
 ---@field attacker_mercs integer References: historical_entity
 ---@field defender_mercs integer References: historical_entity
----@field attacker_merc_hfs df.container<integer> References: historical_figure
----@field defender_merc_hfs df.container<integer> References: historical_figure
----@field attacker_squad_entity_pop df.container<integer> References: entity_population
----@field attacker_squad_counts df.container<integer>
----@field attacker_squad_deaths df.container<integer>
----@field attacker_squad_races df.container<integer> References: creature_raw
----@field attacker_squad_sites df.container<integer> References: world_site
----@field unk_3 df.container<integer> probably a boolean, as only 0/1 seen
----@field defender_squad_entity_pops df.container<integer> References: entity_population
----@field defender_squad_counts df.container<integer>
----@field defender_squad_deaths df.container<integer>
----@field defender_squad_races df.container<integer> References: creature_raw
----@field defender_squad_sites df.container<integer> References: world_site
----@field unk_4 df.container<integer> probably a boolean, as only 0/1 seen
+---@field attacker_merc_hfs df.container References: historical_figure
+---@field defender_merc_hfs df.container References: historical_figure
+---@field attacker_squad_entity_pop df.container References: entity_population
+---@field attacker_squad_counts df.container
+---@field attacker_squad_deaths df.container
+---@field attacker_squad_races df.container References: creature_raw
+---@field attacker_squad_sites df.container References: world_site
+---@field unk_3 df.container probably a boolean, as only 0/1 seen
+---@field defender_squad_entity_pops df.container References: entity_population
+---@field defender_squad_counts df.container
+---@field defender_squad_deaths df.container
+---@field defender_squad_races df.container References: creature_raw
+---@field defender_squad_sites df.container References: world_site
+---@field unk_4 df.container probably a boolean, as only 0/1 seen
 ---@field outcome integer 0 = attacker won, 1 = defender won
 df.history_event_collection_battlest = {}
-
----@param key integer
----@return history_event_collection_battlest|nil
-function df.history_event_collection_battlest.find(key) end
 
 ---@class history_event_collection_duelst: history_event_collection
 ---@field parent_collection integer References: history_event_collection
@@ -6214,22 +5189,14 @@ function df.history_event_collection_battlest.find(key) end
 ---@field unk_1 integer probably boolean. Only 0/1 seen. Looks like winner, with all '1' examined showing defeat of defender, from unscathed to death, and '0' showing no result at all or death of attacker
 df.history_event_collection_duelst = {}
 
----@param key integer
----@return history_event_collection_duelst|nil
-function df.history_event_collection_duelst.find(key) end
-
 ---@class history_event_collection_site_conqueredst: history_event_collection
 ---@field parent_collection integer References: history_event_collection
 ---@field site integer References: world_site
----@field attacker_civ df.container<integer> References: historical_entity
----@field defender_civ df.container<integer> References: historical_entity
+---@field attacker_civ df.container References: historical_entity
+---@field defender_civ df.container References: historical_entity
 ---@field unk_1 integer uninitialized
 ---@field ordinal integer
 df.history_event_collection_site_conqueredst = {}
-
----@param key integer
----@return history_event_collection_site_conqueredst|nil
-function df.history_event_collection_site_conqueredst.find(key) end
 
 ---@class history_event_collection_abductionst: history_event_collection
 ---@field parent_collection integer References: history_event_collection
@@ -6239,15 +5206,11 @@ function df.history_event_collection_site_conqueredst.find(key) end
 ---@field region_pos coord2d
 ---@field attacker_civ integer References: historical_entity
 ---@field defender_civ integer References: historical_entity
----@field snatcher_hf df.container<integer> References: historical_figure
----@field victim_hf df.container<integer> References: historical_figure
----@field unk_1 df.container<integer>
+---@field snatcher_hf df.container References: historical_figure
+---@field victim_hf df.container References: historical_figure
+---@field unk_1 df.container
 ---@field ordinal integer
 df.history_event_collection_abductionst = {}
-
----@param key integer
----@return history_event_collection_abductionst|nil
-function df.history_event_collection_abductionst.find(key) end
 
 ---@class history_event_collection_theftst: history_event_collection
 ---@field parent_collection integer References: history_event_collection
@@ -6257,25 +5220,21 @@ function df.history_event_collection_abductionst.find(key) end
 ---@field region_pos coord2d
 ---@field thief_civ integer References: historical_entity
 ---@field victim_civ integer References: historical_entity
----@field thief_hf df.container<integer> References: historical_figure
+---@field thief_hf df.container References: historical_figure
 ---@field stolen_item_types item_type[]
 ---@field stolen_item_subtypes integer[]
 ---@field stolen_mat_types integer[]
----@field stolen_mat_indices df.container<integer>
----@field stolen_item_ids df.container<integer> References: item
----@field unk_1 df.container<integer>
----@field unk_2 df.container<integer>
----@field unk_3 df.container<integer>
----@field unk_4 df.container<integer>
----@field unk_5 df.container<integer>
----@field unk_6 df.container<integer>
----@field unk_7 df.container<integer>
+---@field stolen_mat_indices df.container
+---@field stolen_item_ids df.container References: item
+---@field unk_1 df.container
+---@field unk_2 df.container
+---@field unk_3 df.container
+---@field unk_4 df.container
+---@field unk_5 df.container
+---@field unk_6 df.container
+---@field unk_7 df.container
 ---@field ordinal integer
 df.history_event_collection_theftst = {}
-
----@param key integer
----@return history_event_collection_theftst|nil
-function df.history_event_collection_theftst.find(key) end
 
 ---@class history_event_collection_beast_attackst: history_event_collection
 ---@field parent_collection integer References: history_event_collection
@@ -6284,22 +5243,14 @@ function df.history_event_collection_theftst.find(key) end
 ---@field site integer References: world_site
 ---@field region_pos coord2d
 ---@field defender_civ integer References: historical_entity
----@field attacker_hf df.container<integer> References: historical_figure
+---@field attacker_hf df.container References: historical_figure
 ---@field ordinal integer
 df.history_event_collection_beast_attackst = {}
 
----@param key integer
----@return history_event_collection_beast_attackst|nil
-function df.history_event_collection_beast_attackst.find(key) end
-
 ---@class history_event_collection_journeyst: history_event_collection
----@field traveler_hf df.container<integer> References: historical_figure
+---@field traveler_hf df.container References: historical_figure
 ---@field ordinal integer
 df.history_event_collection_journeyst = {}
-
----@param key integer
----@return history_event_collection_journeyst|nil
-function df.history_event_collection_journeyst.find(key) end
 
 ---@class history_event_collection_insurrectionst: history_event_collection
 ---@field site integer References: world_site
@@ -6307,19 +5258,11 @@ function df.history_event_collection_journeyst.find(key) end
 ---@field ordinal integer
 df.history_event_collection_insurrectionst = {}
 
----@param key integer
----@return history_event_collection_insurrectionst|nil
-function df.history_event_collection_insurrectionst.find(key) end
-
 ---@class history_event_collection_occasionst: history_event_collection
 ---@field civ integer References: historical_entity
 ---@field occasion integer
 ---@field ordinal integer
 df.history_event_collection_occasionst = {}
-
----@param key integer
----@return history_event_collection_occasionst|nil
-function df.history_event_collection_occasionst.find(key) end
 
 ---@class history_event_collection_performancest: history_event_collection
 ---@field parent_collection integer References: history_event_collection<br>all seen were occasions
@@ -6329,10 +5272,6 @@ function df.history_event_collection_occasionst.find(key) end
 ---@field ordinal integer
 df.history_event_collection_performancest = {}
 
----@param key integer
----@return history_event_collection_performancest|nil
-function df.history_event_collection_performancest.find(key) end
-
 ---@class history_event_collection_competitionst: history_event_collection
 ---@field parent_collection integer References: history_event_collection<br>all seen were occasions
 ---@field civ integer References: historical_entity
@@ -6340,10 +5279,6 @@ function df.history_event_collection_performancest.find(key) end
 ---@field unk_2 integer 0-9 seen
 ---@field ordinal integer
 df.history_event_collection_competitionst = {}
-
----@param key integer
----@return history_event_collection_competitionst|nil
-function df.history_event_collection_competitionst.find(key) end
 
 ---@class history_event_collection_processionst: history_event_collection
 ---@field parent_collection integer References: history_event_collection<br>all seen were occasions
@@ -6353,10 +5288,6 @@ function df.history_event_collection_competitionst.find(key) end
 ---@field ordinal integer
 df.history_event_collection_processionst = {}
 
----@param key integer
----@return history_event_collection_processionst|nil
-function df.history_event_collection_processionst.find(key) end
-
 ---@class history_event_collection_ceremonyst: history_event_collection
 ---@field parent_collection integer References: history_event_collection<br>all seen were occasions
 ---@field civ integer References: historical_entity
@@ -6365,19 +5296,11 @@ function df.history_event_collection_processionst.find(key) end
 ---@field ordinal integer
 df.history_event_collection_ceremonyst = {}
 
----@param key integer
----@return history_event_collection_ceremonyst|nil
-function df.history_event_collection_ceremonyst.find(key) end
-
 ---@class history_event_collection_purgest: history_event_collection
 ---@field site integer References: world_site
 ---@field adjective string
 ---@field ordinal integer
 df.history_event_collection_purgest = {}
-
----@param key integer
----@return history_event_collection_purgest|nil
-function df.history_event_collection_purgest.find(key) end
 
 ---@class history_event_collection_raidst: history_event_collection
 ---@field parent_collection integer References: history_event_collection
@@ -6387,13 +5310,9 @@ function df.history_event_collection_purgest.find(key) end
 ---@field region_pos coord2d
 ---@field attacker_civ integer References: historical_entity
 ---@field defender_civ integer References: historical_entity
----@field thieves df.container<integer> References: historical_figure<br>all of the ones examined were mentioned stealing things during the same raid on the site
+---@field thieves df.container References: historical_figure<br>all of the ones examined were mentioned stealing things during the same raid on the site
 ---@field ordinal integer
 df.history_event_collection_raidst = {}
-
----@param key integer
----@return history_event_collection_raidst|nil
-function df.history_event_collection_raidst.find(key) end
 
 ---@class history_event_collection_persecutionst: history_event_collection
 ---@field site integer References: world_site
@@ -6401,19 +5320,11 @@ function df.history_event_collection_raidst.find(key) end
 ---@field ordinal integer
 df.history_event_collection_persecutionst = {}
 
----@param key integer
----@return history_event_collection_persecutionst|nil
-function df.history_event_collection_persecutionst.find(key) end
-
 ---@class history_event_collection_entity_overthrownst: history_event_collection
 ---@field site integer References: world_site
 ---@field entity integer References: historical_entity
 ---@field ordinal integer
 df.history_event_collection_entity_overthrownst = {}
-
----@param key integer
----@return history_event_collection_entity_overthrownst|nil
-function df.history_event_collection_entity_overthrownst.find(key) end
 
 ---@class _era_type: integer, string, df.enum
 ---@field ThreePowers 0
@@ -6478,10 +5389,6 @@ df.era_type = {}
 ---@field details history_era_details
 df.history_era = {}
 
----@param key integer
----@return history_era|nil
-function df.history_era.find(key) end
-
 ---@class history_era_title: df.class
 ---@field type era_type
 ---@field histfig_1 integer References: historical_figure
@@ -6491,9 +5398,6 @@ function df.history_era.find(key) end
 ---@field percent integer either percentage of single race or percentage of mundane
 df.history_era.T_title = {}
 
----@param key integer
----@return history_era_title|nil
-function df.history_era.T_title.find(key) end
 
 ---@class history_era_details: df.class
 ---@field living_powers integer
@@ -6502,14 +5406,10 @@ function df.history_era.T_title.find(key) end
 ---@field power_hf1 integer References: historical_figure
 ---@field power_hf2 integer References: historical_figure
 ---@field power_hf3 integer References: historical_figure
----@field civilized_races df.container<integer>
+---@field civilized_races df.container
 ---@field civilized_total integer
 ---@field civilized_mundane integer
 df.history_era.T_details = {}
-
----@param key integer
----@return history_era_details|nil
-function df.history_era.T_details.find(key) end
 
 ---@class relationship_event: df.class
 ---@field event integer[] not included in the main list
@@ -6521,10 +5421,6 @@ function df.history_era.T_details.find(key) end
 ---@field start_year integer first year of the events contained in the element
 df.relationship_event = {}
 
----@param key integer
----@return relationship_event|nil
-function df.relationship_event.find(key) end
-
 ---@class relationship_event_supplement: df.class
 ---@field event integer can be found in the relationship_events
 ---@field occasion_type integer only 245/246 seen. 245:scholarly lecture, 246: performance
@@ -6532,10 +5428,6 @@ function df.relationship_event.find(key) end
 ---@field unk_1 integer only 81 seen
 ---@field profession profession
 df.relationship_event_supplement = {}
-
----@param key integer
----@return relationship_event_supplement|nil
-function df.relationship_event_supplement.find(key) end
 
 ---@class world_history: df.class
 ---@field events history_event[]
@@ -6545,13 +5437,13 @@ function df.relationship_event_supplement.find(key) end
 ---@field figures historical_figure[]
 ---@field event_collections world_history_event_collections
 ---@field eras history_era[]
----@field discovered_art_image_id df.container<integer> References: art_image_chunk
----@field discovered_art_image_subid df.container<integer> References: art_image
+---@field discovered_art_image_id df.container References: art_image_chunk
+---@field discovered_art_image_subid df.container References: art_image
 ---@field total_unk integer
 ---@field total_powers integer also includes megabeasts
 ---@field total_megabeasts integer
 ---@field total_semimegabeasts integer
----@field unk_14 df.container<integer>
+---@field unk_14 df.container
 ---@field unk_v42_1 integer[]
 ---@field intrigues intrigue[]
 ---@field live_megabeasts historical_figure[]
@@ -6570,10 +5462,10 @@ function df.relationship_event_supplement.find(key) end
 ---@field unk_histfig_12 historical_figure[]
 ---@field unk_histfig_13 historical_figure[]
 ---@field unk_3 historical_figure[]
----@field unk_4 df.container<integer>
+---@field unk_4 df.container
 ---@field unk_5 historical_figure[]
----@field unk_6 df.container<integer>
----@field unk_7 df.container<integer>
+---@field unk_6 df.container
+---@field unk_7 df.container
 ---@field unk_8 integer
 ---@field active_event_collections history_event_collection[]
 ---@field unk_10 integer
@@ -6582,18 +5474,10 @@ function df.relationship_event_supplement.find(key) end
 ---@field active_mission mission_report
 df.world_history = {}
 
----@param key integer
----@return world_history|nil
-function df.world_history.find(key) end
-
 ---@class world_history_event_collections: df.class
 ---@field all history_event_collection[]
 ---@field other history_event_collection[][]
 df.world_history.T_event_collections = {}
-
----@param key integer
----@return world_history_event_collections|nil
-function df.world_history.T_event_collections.find(key) end
 
 ---@class intrigue: df.instance
 ---@field event_id integer References: history_event<br>NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship
@@ -6601,10 +5485,6 @@ function df.world_history.T_event_collections.find(key) end
 ---@field reason history_event_reason_info
 ---@field circumstance history_event_circumstance_info
 df.intrigue = {}
-
----@param key integer
----@return intrigue|nil
-function df.intrigue.find(key) end
 
 ---@class intrigue_corruption: df.class
 ---@field crime crime_type
@@ -6633,10 +5513,6 @@ function df.intrigue.find(key) end
 ---@field corruptor_ally_roll integer
 ---@field target_ally_roll integer
 df.intrigue_corruption = {}
-
----@param key integer
----@return intrigue_corruption|nil
-function df.intrigue_corruption.find(key) end
 
 ---@class _intrigue_corruption_manipulation_type: integer, string, df.enum
 ---@field Threat 0
@@ -6675,6 +5551,7 @@ df.intrigue_corruption.T_manipulation_type = {}
 ---@field [7] boolean
 ---@field Immortality boolean
 
+
 ---@class _intrigue_corruption_manipulated_emotion: integer, string, df.enum
 ---@field Trust 0
 ---@field [0] "Trust"
@@ -6699,6 +5576,7 @@ df.intrigue_corruption.T_manipulated_emotion = {}
 ---@field Fear boolean
 ---@field [4] boolean
 ---@field Respect boolean
+
 
 ---@class _intrigue_corruption_flags: integer, string, df.bitfield
 ---@field succeeded 0

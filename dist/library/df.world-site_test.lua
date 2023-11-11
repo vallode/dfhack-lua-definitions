@@ -1,5 +1,5 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.world-site
+---@meta df.world-site_test
 
 ---@class world_site_realization: df.class
 ---@field river_map world_site_realization_river_map[][]

@@ -369,228 +369,163 @@ df.stockpile_group_set = {}
 ---@field allow_inorganic boolean
 df.stockpile_settings = {}
 
----@param key integer
----@return stockpile_settings|nil
-function df.stockpile_settings.find(key) end
-
 ---@class stockpile_settings_animals: df.class
 ---@field empty_cages boolean
 ---@field empty_traps boolean
----@field enabled df.container<boolean>
+---@field enabled df.container
 df.stockpile_settings.T_animals = {}
 
----@param key integer
----@return stockpile_settings_animals|nil
-function df.stockpile_settings.T_animals.find(key) end
 
 ---@class stockpile_settings_food: df.class
----@field meat df.container<boolean>
----@field fish df.container<boolean>
----@field unprepared_fish df.container<boolean>
----@field egg df.container<boolean>
----@field plants df.container<boolean>
----@field drink_plant df.container<boolean>
----@field drink_animal df.container<boolean>
----@field cheese_plant df.container<boolean>
----@field cheese_animal df.container<boolean>
----@field seeds df.container<boolean>
----@field leaves df.container<boolean>
----@field powder_plant df.container<boolean>
----@field powder_creature df.container<boolean>
----@field glob df.container<boolean>
----@field glob_paste df.container<boolean>
----@field glob_pressed df.container<boolean>
----@field liquid_plant df.container<boolean>
----@field liquid_animal df.container<boolean>
----@field liquid_misc df.container<boolean>
+---@field meat df.container
+---@field fish df.container
+---@field unprepared_fish df.container
+---@field egg df.container
+---@field plants df.container
+---@field drink_plant df.container
+---@field drink_animal df.container
+---@field cheese_plant df.container
+---@field cheese_animal df.container
+---@field seeds df.container
+---@field leaves df.container
+---@field powder_plant df.container
+---@field powder_creature df.container
+---@field glob df.container
+---@field glob_paste df.container
+---@field glob_pressed df.container
+---@field liquid_plant df.container
+---@field liquid_animal df.container
+---@field liquid_misc df.container
 ---@field prepared_meals boolean
 df.stockpile_settings.T_food = {}
 
----@param key integer
----@return stockpile_settings_food|nil
-function df.stockpile_settings.T_food.find(key) end
 
 ---@class stockpile_settings_furniture: df.class
----@field type df.container<boolean>
----@field other_mats df.container<boolean>
----@field mats df.container<boolean>
+---@field type df.container
+---@field other_mats df.container
+---@field mats df.container
 ---@field quality_core boolean[]
 ---@field quality_total boolean[]
 df.stockpile_settings.T_furniture = {}
 
----@param key integer
----@return stockpile_settings_furniture|nil
-function df.stockpile_settings.T_furniture.find(key) end
 
 ---@class stockpile_settings_corpses: df.class
----@field corpses df.container<boolean>
 df.stockpile_settings.T_corpses = {}
 
----@param key integer
----@return stockpile_settings_corpses|nil
-function df.stockpile_settings.T_corpses.find(key) end
 
 ---@class stockpile_settings_refuse: df.class
----@field type df.container<boolean>
----@field corpses df.container<boolean>
----@field body_parts df.container<boolean>
----@field skulls df.container<boolean>
----@field bones df.container<boolean>
----@field hair df.container<boolean>
----@field shells df.container<boolean>
----@field teeth df.container<boolean>
----@field horns df.container<boolean>
+---@field type df.container
+---@field corpses df.container
+---@field body_parts df.container
+---@field skulls df.container
+---@field bones df.container
+---@field hair df.container
+---@field shells df.container
+---@field teeth df.container
+---@field horns df.container
 ---@field fresh_raw_hide boolean
 ---@field rotten_raw_hide boolean
 df.stockpile_settings.T_refuse = {}
 
----@param key integer
----@return stockpile_settings_refuse|nil
-function df.stockpile_settings.T_refuse.find(key) end
 
 ---@class stockpile_settings_stone: df.class
----@field mats df.container<boolean>
 df.stockpile_settings.T_stone = {}
 
----@param key integer
----@return stockpile_settings_stone|nil
-function df.stockpile_settings.T_stone.find(key) end
 
 ---@class stockpile_settings_ore: df.class
----@field mats df.container<boolean> unused
 df.stockpile_settings.T_ore = {}
 
----@param key integer
----@return stockpile_settings_ore|nil
-function df.stockpile_settings.T_ore.find(key) end
 
 ---@class stockpile_settings_ammo: df.class
----@field type df.container<boolean>
----@field other_mats df.container<boolean>
----@field mats df.container<boolean>
+---@field type df.container
+---@field other_mats df.container
+---@field mats df.container
 ---@field quality_core boolean[]
 ---@field quality_total boolean[]
 df.stockpile_settings.T_ammo = {}
 
----@param key integer
----@return stockpile_settings_ammo|nil
-function df.stockpile_settings.T_ammo.find(key) end
 
 ---@class stockpile_settings_coins: df.class
----@field mats df.container<boolean>
 df.stockpile_settings.T_coins = {}
 
----@param key integer
----@return stockpile_settings_coins|nil
-function df.stockpile_settings.T_coins.find(key) end
 
 ---@class stockpile_settings_bars_blocks: df.class
----@field bars_other_mats df.container<boolean>
----@field blocks_other_mats df.container<boolean>
----@field bars_mats df.container<boolean>
----@field blocks_mats df.container<boolean>
+---@field bars_other_mats df.container
+---@field blocks_other_mats df.container
+---@field bars_mats df.container
+---@field blocks_mats df.container
 df.stockpile_settings.T_bars_blocks = {}
 
----@param key integer
----@return stockpile_settings_bars_blocks|nil
-function df.stockpile_settings.T_bars_blocks.find(key) end
 
 ---@class stockpile_settings_gems: df.class
----@field rough_other_mats df.container<boolean>
----@field cut_other_mats df.container<boolean>
----@field rough_mats df.container<boolean>
----@field cut_mats df.container<boolean>
+---@field rough_other_mats df.container
+---@field cut_other_mats df.container
+---@field rough_mats df.container
+---@field cut_mats df.container
 df.stockpile_settings.T_gems = {}
 
----@param key integer
----@return stockpile_settings_gems|nil
-function df.stockpile_settings.T_gems.find(key) end
 
 ---@class stockpile_settings_finished_goods: df.class
----@field type df.container<boolean>
----@field other_mats df.container<boolean>
----@field mats df.container<boolean>
+---@field type df.container
+---@field other_mats df.container
+---@field mats df.container
 ---@field quality_core boolean[]
 ---@field quality_total boolean[]
 df.stockpile_settings.T_finished_goods = {}
 
----@param key integer
----@return stockpile_settings_finished_goods|nil
-function df.stockpile_settings.T_finished_goods.find(key) end
 
 ---@class stockpile_settings_leather: df.class
----@field mats df.container<boolean>
 df.stockpile_settings.T_leather = {}
 
----@param key integer
----@return stockpile_settings_leather|nil
-function df.stockpile_settings.T_leather.find(key) end
 
 ---@class stockpile_settings_cloth: df.class
----@field thread_silk df.container<boolean>
----@field thread_plant df.container<boolean>
----@field thread_yarn df.container<boolean>
----@field thread_metal df.container<boolean>
----@field cloth_silk df.container<boolean>
----@field cloth_plant df.container<boolean>
----@field cloth_yarn df.container<boolean>
----@field cloth_metal df.container<boolean>
+---@field thread_silk df.container
+---@field thread_plant df.container
+---@field thread_yarn df.container
+---@field thread_metal df.container
+---@field cloth_silk df.container
+---@field cloth_plant df.container
+---@field cloth_yarn df.container
+---@field cloth_metal df.container
 df.stockpile_settings.T_cloth = {}
 
----@param key integer
----@return stockpile_settings_cloth|nil
-function df.stockpile_settings.T_cloth.find(key) end
 
 ---@class stockpile_settings_wood: df.class
----@field mats df.container<boolean>
 df.stockpile_settings.T_wood = {}
 
----@param key integer
----@return stockpile_settings_wood|nil
-function df.stockpile_settings.T_wood.find(key) end
 
 ---@class stockpile_settings_weapons: df.class
----@field weapon_type df.container<boolean>
----@field trapcomp_type df.container<boolean>
----@field other_mats df.container<boolean>
----@field mats df.container<boolean>
+---@field weapon_type df.container
+---@field trapcomp_type df.container
+---@field other_mats df.container
+---@field mats df.container
 ---@field quality_core boolean[]
 ---@field quality_total boolean[]
 ---@field usable boolean
 ---@field unusable boolean
 df.stockpile_settings.T_weapons = {}
 
----@param key integer
----@return stockpile_settings_weapons|nil
-function df.stockpile_settings.T_weapons.find(key) end
 
 ---@class stockpile_settings_armor: df.class
----@field body df.container<boolean>
----@field head df.container<boolean>
----@field feet df.container<boolean>
----@field hands df.container<boolean>
----@field legs df.container<boolean>
----@field shield df.container<boolean>
----@field other_mats df.container<boolean>
----@field mats df.container<boolean>
+---@field body df.container
+---@field head df.container
+---@field feet df.container
+---@field hands df.container
+---@field legs df.container
+---@field shield df.container
+---@field other_mats df.container
+---@field mats df.container
 ---@field quality_core boolean[]
 ---@field quality_total boolean[]
 ---@field usable boolean
 ---@field unusable boolean
 df.stockpile_settings.T_armor = {}
 
----@param key integer
----@return stockpile_settings_armor|nil
-function df.stockpile_settings.T_armor.find(key) end
 
 ---@class stockpile_settings_sheet: df.class
----@field paper df.container<boolean>
----@field parchment df.container<boolean>
+---@field paper df.container
+---@field parchment df.container
 df.stockpile_settings.T_sheet = {}
-
----@param key integer
----@return stockpile_settings_sheet|nil
-function df.stockpile_settings.T_sheet.find(key) end
 
 ---@class _stockpile_list: integer, string, df.enum
 ---@field Animals 0
@@ -1031,10 +966,6 @@ df.stockpile_list.attrs = {}
 ---@field vehicle_stops integer[]
 df.hauling_route = {}
 
----@param key integer
----@return hauling_route|nil
-function df.hauling_route.find(key) end
-
 ---@class hauling_stop: df.class
 ---@field id integer
 ---@field name string
@@ -1046,10 +977,6 @@ function df.hauling_route.find(key) end
 ---@field cart_id integer References: item
 df.hauling_stop = {}
 
----@param key integer
----@return hauling_stop|nil
-function df.hauling_stop.find(key) end
-
 ---@class stop_depart_condition: df.class
 ---@field timeout integer
 ---@field direction stop_depart_condition_direction
@@ -1058,10 +985,6 @@ function df.hauling_stop.find(key) end
 ---@field flags stop_depart_condition_flags
 ---@field guide_path coord_path initialized on first run, and saved
 df.stop_depart_condition = {}
-
----@param key integer
----@return stop_depart_condition|nil
-function df.stop_depart_condition.find(key) end
 
 ---@class _stop_depart_condition_direction: integer, string, df.enum
 ---@field North 0
@@ -1084,6 +1007,7 @@ df.stop_depart_condition.T_direction = {}
 ---@field [3] boolean
 ---@field West boolean
 
+
 ---@class _stop_depart_condition_mode: integer, string, df.enum
 ---@field Push 0
 ---@field [0] "Push"
@@ -1100,6 +1024,7 @@ df.stop_depart_condition.T_mode = {}
 ---@field Ride boolean
 ---@field [2] boolean
 ---@field Guide boolean
+
 
 ---@class _stop_depart_condition_flags: integer, string, df.bitfield
 ---@field at_most 0
@@ -1118,10 +1043,6 @@ df.stop_depart_condition.T_flags = {}
 ---@field building_id integer References: building
 ---@field mode route_stockpile_link_mode
 df.route_stockpile_link = {}
-
----@param key integer
----@return route_stockpile_link|nil
-function df.route_stockpile_link.find(key) end
 
 ---@class _route_stockpile_link_mode: integer, string, df.bitfield
 ---@field take 0
@@ -1153,8 +1074,4 @@ df.route_stockpile_link.T_mode = {}
 ---@field pos coord
 ---@field time_stopped integer frames, up to 1000
 df.vehicle = {}
-
----@param key integer
----@return vehicle|nil
-function df.vehicle.find(key) end
 

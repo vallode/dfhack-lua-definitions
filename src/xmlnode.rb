@@ -19,7 +19,7 @@ class XmlNode
   def initialize(node, parent_type = nil)
     @node = node
     @children = node.xpath('*[not(self::comment)]')
-    @has_children = !@children.empty?
+    @has_children = @children.length
 
     @parent_type = parent_type
 
@@ -61,6 +61,9 @@ class XmlNode
   def self.parse_type(string, default = nil)
     TYPE_MAP.filter { |_, value| value.include?(string) }.keys[0] || default || string
   end
+
+  def to_field; end
+  def to_annotation; end
 end
 
 # Usually either a <struct-type> or a <class-type> element.
@@ -71,73 +74,63 @@ class StructType < XmlNode
     super(node, parent_type)
 
     @name = node['type-name'] || node['name']
-    @child_nodes = child_nodes
-
     @parent_type = parent_type
     @inherits = node['instance-vector'] ? 'df.instance' : node['inherits-from'] || 'df.class'
     @type = parent_type ? "#{parent_type}_#{@name}" : @name
     @type_separator = type_separator
+
+    @nested = 0
+    @child_nodes = children
   end
 
-  def child_nodes
-    pointer_children = @node.at_xpath('./pointer|compound')
+  def children
+    node = @node
 
-    if pointer_children && @parent_type && @node.name == 'stl-vector'
-      pointer_children.children
-    else
-      @node.children
+    while node.children.length == 1
+      @nested += 1
+      node = node.children.first
+    end
+
+    node.children.reject { |child| !child['name'] || child.name == 'virtual-methods' }.map do |child|
+      Field.new(child, parent_type: "#{@parent_type + @type_separator if @parent_type}#{@name}")
     end
   end
 
-  def render_functions
-    annotation = "---@param key integer\n"
-    annotation << "---@return #{@type}|nil\n"
-    annotation << "function df.#{@parent_type + @type_separator if @parent_type}#{@name}.find(key) end\n\n"
+  def render_self
+    annotation = ''
+    annotation << "---#{@comment}\n" if @comment
+    annotation << "---@class #{@type}#{": #{@inherits}" if @inherits}\n"
+
+    annotation << @child_nodes.map(&:render).join
+
+    annotation << "df.#{@parent_type + @type_separator if @parent_type}#{@name} = {}\n\n"
+  end
+
+  def render_inline
+    annotation = ''
+    annotation << @child_nodes.filter(&:is_inline).map do |child|
+      if %w[enum bitfield].include?(child.node.name)
+        EnumType.new(child.node,
+                     "#{@parent_type + @type_separator if @parent_type}#{@name}").render
+      elsif child.node.name == 'vmethod'
+        FunctionType.new(child.node,
+                         "#{@parent_type + '.' if @parent_type}#{@name}").render
+      else
+        StructType.new(child.node,
+                       "#{@parent_type + @type_separator if @parent_type}#{@name}").render
+      end
+    end.join("\n")
   end
 
   def render
-    annotation = ''
-    annotation << "---#{@comment}\n" if @comment
-    annotation << "---@class #{@type}#{': ' + @inherits if @inherits}\n"
+    annotation = render_self
+    annotation << render_inline
+  end
+end
 
-    inline_types = []
-    @child_nodes.each do |child|
-      if child.name == 'virtual-methods'
-        child.css('> vmethod').each do |method|
-          # Methods without names "technically" exist but calling them is
-          # impossible.
-          next unless method.attributes['name']
-
-          inline_types.push(method)
-        end
-
-        next
-      end
-
-      next if !(child['name']) or child.name == 'code-helper'
-
-      field = Field.new(child, parent_type: "#{@parent_type + @type_separator if @parent_type}#{@name}")
-
-      inline_types.push(child) if field.is_inline
-
-      annotation << field.render
-    end
-
-    annotation << "df.#{@parent_type + @type_separator if @parent_type}#{@name} = {}\n\n"
-
-    annotation << render_functions
-
-    inline_types.each do |child|
-      annotation << if %w[enum bitfield].include?(child.name)
-                      EnumType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-                    elsif child.name == 'vmethod'
-                      FunctionType.new(child, "#{@parent_type + '.' if @parent_type}#{@name}").render
-                    else
-                      StructType.new(child, "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-                    end
-    end
-
-    annotation
+class ClassType < StructType
+  def initialize(node, parent_type = nil, type_separator = '.T_')
+    super(node, parent_type, type_separator)
   end
 end
 
@@ -145,10 +138,11 @@ end
 class Field < XmlNode
   attr_reader :name, :is_inline
 
-  def initialize(node, parent_type: nil)
+  def initialize(node, parent_type: nil, nested: 0)
     super(node, parent_type)
 
     @name = node['name']
+    @nested = nested
 
     @is_inline = inline?
     @is_container = container?
@@ -158,13 +152,22 @@ class Field < XmlNode
   end
 
   def inline?
+    return true if @node.name == 'global-object' && @children.length > 1
     return false if @children.empty?
 
+    if %w[stl-vector static-array].include?(@node.name)
+      node = @node
+      while node.children.length == 1
+        @nested += 1
+        node = node.children.first
+      end
+
+      return node.children.length >= 1
+    end
+
     case @node.name
-    when 'global-object', 'pointer'
+    when 'pointer'
       @children.length > 1
-    when 'stl-vector'
-      true unless @children.first.children.empty?
     when 'enum', 'bitfield', 'compound'
       true
     end
@@ -184,8 +187,8 @@ class Field < XmlNode
   end
 
   def type
-    return "#{@parent_type}_#{@name}#{'[]' if @is_array}" if @is_inline
-    return "df.container<#{@root_type}>" if @is_container
+    return "#{@parent_type}_#{@name}#{'[]' * @nested if @is_array}" if @is_inline
+    return 'df.container' if @is_container
     return "#{@root_type}[]" if @is_array
 
     @root_type

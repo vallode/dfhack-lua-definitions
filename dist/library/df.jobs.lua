@@ -279,20 +279,12 @@ df.job_subtype_surgery = {}
 ---@field order_id integer References: manager_order
 df.job = {}
 
----@param key integer
----@return job|nil
-function df.job.find(key) end
-
 ---@class job_item_ref: df.class
 ---@field item item
 ---@field role job_item_ref_role
 ---@field is_fetching integer 0 immediately once taken to be brought
 ---@field job_item_idx integer
 df.job_item_ref = {}
-
----@param key integer
----@return job_item_ref|nil
-function df.job_item_ref.find(key) end
 
 ---@class _job_item_ref_role: integer, string, df.enum
 ---@field Other 0
@@ -711,7 +703,7 @@ df.job_item_flags3 = {}
 ---@field has_material_reaction_product string
 ---@field min_dimension integer pure guess by context
 ---@field reagent_index integer
----@field contains df.container<integer> used with custom reactions
+---@field contains df.container used with custom reactions
 ---@field reaction_id integer References: reaction
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 integer
@@ -719,10 +711,6 @@ df.job_item_flags3 = {}
 ---@field unk_v43_3 integer
 ---@field unk_v43_4 integer
 df.job_item = {}
-
----@param key integer
----@return job_item|nil
-function df.job_item.find(key) end
 
 ---@class job_item_filter: df.class
 ---@field item_type item_type
@@ -748,7 +736,7 @@ function df.job_item.find(key) end
 ---@field use_reaction_product boolean
 ---@field min_dimension integer
 ---@field reaction_id integer References: reaction
----@field contains df.container<integer>
+---@field contains df.container
 ---@field use_contains boolean
 ---@field has_tool_use tool_uses
 ---@field has_melee_skill job_skill
@@ -759,14 +747,10 @@ function df.job_item.find(key) end
 ---@field building building
 ---@field unk_74 integer
 ---@field unk_v4305_1 integer
----@field burrows df.container<integer> References: burrow
+---@field burrows df.container References: burrow
 ---@field use_burrows boolean
 ---@field take_from building[]
 df.job_item_filter = {}
-
----@param key integer
----@return job_item_filter|nil
-function df.job_item_filter.find(key) end
 
 ---@class _manager_order_status: integer, string, df.bitfield
 ---@field validated 0
@@ -786,10 +770,6 @@ df.manager_order_status = {}
 ---@field id integer
 ---@field subid integer
 df.job_art_specification = {}
-
----@param key integer
----@return job_art_specification|nil
-function df.job_art_specification.find(key) end
 
 ---@class _job_art_specification_type: integer, string, df.enum
 ---@field None -1
@@ -841,10 +821,6 @@ df.job_art_specification.T_type = {}
 ---@field items job_item[]
 df.manager_order = {}
 
----@param key integer
----@return manager_order|nil
-function df.manager_order.find(key) end
-
 ---@class _manager_order_frequency: integer, string, df.enum
 ---@field OneTime 0
 ---@field [0] "OneTime"
@@ -886,14 +862,10 @@ df.manager_order.T_frequency = {}
 ---@field has_material_reaction_product string
 ---@field inorganic_bearing integer References: inorganic_raw
 ---@field min_dimension integer
----@field contains df.container<integer>
+---@field contains df.container
 ---@field reaction_id integer References: reaction
 ---@field has_tool_use tool_uses
 df.manager_order_condition_item = {}
-
----@param key integer
----@return manager_order_condition_item|nil
-function df.manager_order_condition_item.find(key) end
 
 ---@class _manager_order_condition_item_compare_type: integer, string, df.enum
 ---@field AtLeast 0
@@ -930,10 +902,6 @@ df.manager_order_condition_item.T_compare_type = {}
 ---@field unk_1 integer
 df.manager_order_condition_order = {}
 
----@param key integer
----@return manager_order_condition_order|nil
-function df.manager_order_condition_order.find(key) end
-
 ---@class _manager_order_condition_order_condition: integer, string, df.enum
 ---@field Activated 0
 ---@field [0] "Activated"
@@ -964,10 +932,6 @@ df.manager_order_condition_order.T_condition = {}
 ---@field on boolean
 df.manager_order_template = {}
 
----@param key integer
----@return manager_order_template|nil
-function df.manager_order_template.find(key) end
-
 ---@class mandate: df.class
 ---@field unit unit
 ---@field mode mandate_mode
@@ -983,10 +947,6 @@ function df.manager_order_template.find(key) end
 ---@field punish_multiple integer
 ---@field unk4 integer
 df.mandate = {}
-
----@param key integer
----@return mandate|nil
-function df.mandate.find(key) end
 
 ---@class _mandate_mode: integer, string, df.enum
 ---@field Export 0
@@ -1005,25 +965,18 @@ df.mandate.T_mode = {}
 ---@field [2] boolean
 ---@field Guild boolean
 
+
 ---@class mandate_punishment: df.class
 ---@field hammerstrikes integer
 ---@field prison_time integer
 ---@field give_beating integer
 df.mandate.T_punishment = {}
 
----@param key integer
----@return mandate_punishment|nil
-function df.mandate.T_punishment.find(key) end
-
 ---@class training_assignment: df.instance
 ---@field animal_id integer References: unit
 ---@field trainer_id integer References: unit
 ---@field flags training_assignment_flags
 df.training_assignment = {}
-
----@param key integer
----@return training_assignment|nil
-function df.training_assignment.find(key) end
 
 ---@class _training_assignment_flags: integer, string, df.bitfield
 ---@field any_trainer 0
@@ -1056,10 +1009,6 @@ df.training_assignment.T_flags = {}
 ---@field timeout_counter integer counts once per 10 frames
 ---@field timeout_limit integer once counter passes limit, mandate ends
 df.unit_demand = {}
-
----@param key integer
----@return unit_demand|nil
-function df.unit_demand.find(key) end
 
 ---@class _unit_demand_place: integer, string, df.enum
 ---@field Office 0
@@ -1629,8 +1578,4 @@ df.job_cancel_reason = {}
 
 ---@class job_cancel: df.class
 df.job_cancel = {}
-
----@param key integer
----@return job_cancel|nil
-function df.job_cancel.find(key) end
 

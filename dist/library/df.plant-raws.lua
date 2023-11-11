@@ -409,13 +409,9 @@ df.plant_raw_flags = {}
 ---@field cap_radius integer
 ---@field root_density integer
 ---@field root_radius integer
----@field stockpile_growths df.container<integer> indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
+---@field stockpile_growths df.container indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
 ---@field stockpile_growth_flags plant_raw_stockpile_growth_flags[]
 df.plant_raw = {}
-
----@param key integer
----@return plant_raw|nil
-function df.plant_raw.find(key) end
 
 ---@class plant_raw_tiles: df.class
 ---@field picked_tile integer
@@ -432,9 +428,6 @@ function df.plant_raw.find(key) end
 ---@field unk_v50_1 integer[]
 df.plant_raw.T_tiles = {}
 
----@param key integer
----@return plant_raw_tiles|nil
-function df.plant_raw.T_tiles.find(key) end
 
 ---@class plant_raw_colors: df.class
 ---@field picked_color integer[]
@@ -451,9 +444,6 @@ function df.plant_raw.T_tiles.find(key) end
 ---@field grass_colors_2 integer[]
 df.plant_raw.T_colors = {}
 
----@param key integer
----@return plant_raw_colors|nil
-function df.plant_raw.T_colors.find(key) end
 
 ---@class plant_raw_material_defs: df.class
 ---@field type integer[]
@@ -461,16 +451,11 @@ function df.plant_raw.T_colors.find(key) end
 ---@field str string[][]
 df.plant_raw.T_material_defs = {}
 
----@param key integer
----@return plant_raw_material_defs|nil
-function df.plant_raw.T_material_defs.find(key) end
 
 ---@class plant_raw_stockpile_growth_flags: df.class
+---@field EDIBLE_RAW integer
+---@field EDIBLE_COOKED integer
 df.plant_raw.T_stockpile_growth_flags = {}
-
----@param key integer
----@return plant_raw_stockpile_growth_flags|nil
-function df.plant_raw.T_stockpile_growth_flags.find(key) end
 
 ---@class _plant_material_def: integer, string, df.enum
 ---@field basic_mat 0
@@ -537,10 +522,6 @@ df.plant_material_def = {}
 ---@field trunk_height_perc_2 integer
 df.plant_growth = {}
 
----@param key integer
----@return plant_growth|nil
-function df.plant_growth.find(key) end
-
 ---@class _plant_growth_locations: integer, string, df.bitfield
 ---@field twigs 0
 ---@field [0] "twigs"
@@ -574,6 +555,7 @@ df.plant_growth.T_locations = {}
 ---@field [6] boolean
 ---@field sapling boolean
 
+
 ---@class _plant_growth_behavior: integer, string, df.bitfield
 ---@field drops_off 0
 ---@field [0] "drops_off"
@@ -599,8 +581,4 @@ df.plant_growth.T_behavior = {}
 ---@field timing_start integer
 ---@field timing_end integer
 df.plant_growth_print = {}
-
----@param key integer
----@return plant_growth_print|nil
-function df.plant_growth_print.find(key) end
 
