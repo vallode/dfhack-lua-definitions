@@ -37,14 +37,34 @@
 -- https://github.com/LuaLS/lua-language-server/issues/1861
 ---@class df.base
 ---@field _kind df.kind
----@field _identity lightuserdata
+---@field _identity userdata
+local dfbase
+
+---@param self self
+---@return integer, integer
+function dfbase:sizeof() end
+
+---@param self self
+---@return self
+function dfbase:new() end
+
+---@param self self
+---@return boolean
+function dfbase:delete() end
+
+---@param self self
+---@param object self|table
+function dfbase:assign(object) end
+
+---@param index integer
+---@param step? integer
+---@return self
+function dfbase:_displace(index, step) end
 
 ---@class df.compound: df.base
 ---@field _fields df.compound.field[]
 
 ---@class df.class: df.compound
----@field sizeof fun(self: any): integer
----@field new fun(self: any): table
 ---@field is_instance fun(self: any, object: table): boolean|nil
 
 ---@class df.instance: df.class
