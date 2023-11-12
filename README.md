@@ -37,3 +37,14 @@ You can either clone this repository locally or download [the latest release](ht
   }
   ```
 
+## Credits
+
+As with all things, development of this library would not be possible without help.
+
+- ab9rf
+- DFHack community
+- Lethosor
+- mahahuha/shevernitskiy
+- myk002
+- Thyrus
+- Ramrusher
