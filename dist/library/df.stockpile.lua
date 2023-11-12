@@ -966,7 +966,7 @@ df.stockpile_list.attrs = {}
 
 ---@class hauling_route: df.instance
 ---@field id integer
----@field name string
+---@field name df.string
 ---@field stops hauling_stop[]
 ---@field vehicle_ids integer[]
 ---@field vehicle_stops integer[]
@@ -978,7 +978,7 @@ function df.hauling_route.find(key) end
 
 ---@class hauling_stop: df.class
 ---@field id integer
----@field name string
+---@field name df.string
 ---@field pos coord
 ---@field settings stockpile_settings
 ---@field conditions stop_depart_condition[]

@@ -54,7 +54,7 @@ df.world_population_type = {}
 ---@field tile integer
 ---@field fg_color integer
 ---@field bg_color integer
----@field name string
+---@field name df.string
 ---@field pos coord2d
 ---@field left integer
 ---@field right integer

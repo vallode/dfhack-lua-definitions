@@ -5,12 +5,12 @@
 ---@field id integer assigned during Save
 ---@field script_steps script_stepst[]
 ---@field script_vars script_varst[]
----@field code string DWARF_LIAISON etc
+---@field code df.string DWARF_LIAISON etc
 df.dipscript_info = {}
 
 ---@class dipscript_text: df.class
----@field name string dwarf_liaison_bye, etc.
----@field contents string[]
+---@field name df.string dwarf_liaison_bye, etc.
+---@field contents df.string[]
 df.dipscript_text = {}
 
 ---@class dipscript_popup: df.class
@@ -50,15 +50,15 @@ function df.script_stepst.execute(context) end
 function df.script_stepst.skip(context) end
 
 ---@class script_step_setvarst: script_stepst
----@field dest_type string
----@field dest_name string
----@field src_type string
----@field src_name string
+---@field dest_type df.string
+---@field dest_name df.string
+---@field src_type df.string
+---@field src_name df.string
 df.script_step_setvarst = {}
 
 ---@class script_step_simpleactionst: script_stepst
----@field type string
----@field subtype string
+---@field type df.string
+---@field subtype df.string
 df.script_step_simpleactionst = {}
 
 ---@class script_step_conditionalst: script_stepst
@@ -67,24 +67,24 @@ df.script_step_simpleactionst = {}
 df.script_step_conditionalst = {}
 
 ---@class script_step_conditionalst_condition: df.class
----@field var1_type string
----@field var1_name string
----@field comparison string
----@field var2_type string
----@field var2_name string
+---@field var1_type df.string
+---@field var1_name df.string
+---@field comparison df.string
+---@field var2_type df.string
+---@field var2_name df.string
 df.script_step_conditionalst.T_condition = {}
 
 ---@class script_step_textviewerst: script_stepst
----@field filename string
----@field outvar_name string
+---@field filename df.string
+---@field outvar_name df.string
 df.script_step_textviewerst = {}
 
 ---@class script_step_diphistoryst: script_stepst
----@field event string
+---@field event df.string
 df.script_step_diphistoryst = {}
 
 ---@class script_step_discussst: script_stepst
----@field event string
+---@field event df.string
 df.script_step_discussst = {}
 
 ---@class script_step_topicdiscussionst: script_stepst
@@ -94,22 +94,22 @@ df.script_step_topicdiscussionst = {}
 df.script_step_constructtopiclistst = {}
 
 ---@class script_step_dipeventst: script_step_eventst
----@field parm1 string
----@field parm2 string
----@field parm3 string
----@field parm4 string
----@field parm5 string
+---@field parm1 df.string
+---@field parm2 df.string
+---@field parm3 df.string
+---@field parm4 df.string
+---@field parm5 df.string
 df.script_step_dipeventst = {}
 
 ---@class script_step_invasionst: script_step_eventst
----@field parm string
+---@field parm df.string
 df.script_step_invasionst = {}
 
 ---@class script_step_eventst: script_stepst
 df.script_step_eventst = {}
 
 ---@class script_varst: df.class
----@field name string
+---@field name df.string
 df.script_varst = {}
 
 ---@param unk_0 active_script_varst
@@ -123,13 +123,13 @@ df.script_var_unitst = {}
 df.script_var_longst = {}
 
 ---@class active_script_varst: df.class
----@field name string
+---@field name df.string
 df.active_script_varst = {}
 
 function df.active_script_varst.setColor() end
 
 ---@param output string
----@param format string
+---@param format df.string
 function df.active_script_varst.formatString(output, format) end
 
 ---@param int_value integer
@@ -182,8 +182,8 @@ df.meeting_context = {}
 ---@field dipscript dipscript_info
 ---@field cur_step integer
 ---@field active_script_vars active_script_varst[]
----@field unk_50 string
----@field unk_6c string
+---@field unk_50 df.string
+---@field unk_6c df.string
 ---@field flags meeting_diplomat_info_flags
 ---@field events meeting_event[]
 ---@field agreement_entity df.container References: historical_entity
@@ -635,7 +635,7 @@ function df.activity_event.isSparring() end
 function df.activity_event.getUniformType() end
 
 ---@param unit_id integer
----@param str string
+---@param str df.string
 function df.activity_event.getName(unit_id, str) end
 
 ---@class _activity_event_flags: integer, string, df.bitfield

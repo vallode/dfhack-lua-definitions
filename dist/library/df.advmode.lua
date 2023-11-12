@@ -211,7 +211,7 @@ df.ui_advmode_menu = {}
 ---@field PartyTacticalSettings boolean
 
 ---@class conversation: df.class
----@field conv_title string
+---@field conv_title df.string
 ---@field state conversation_state
 ---@field talk_choices df.container
 ---@field unk_30 integer References: unit
@@ -261,7 +261,7 @@ df.conversation.T_state = {}
 
 
 ---@class conversation_speech: df.class
----@field text string[] wordwrap
+---@field text df.string[] wordwrap
 ---@field speaker integer References: unit
 ---@field unk_14 integer
 ---@field unk_18 integer
@@ -1224,7 +1224,7 @@ df.talk_choice.T_unk = {}
 ---@field travel_clouds boolean
 ---@field travel_right_map adventurest_travel_right_map
 ---@field show_menu adventurest_show_menu bottom menu in travel mode
----@field message string you must move from surrounding obstacles
+---@field message df.string you must move from surrounding obstacles
 ---@field message_color integer
 ---@field message_brightness integer
 ---@field travel_not_moved boolean
@@ -1330,7 +1330,7 @@ df.talk_choice.T_unk = {}
 ---@field companions adventurest_companions
 ---@field unk_1 integer
 ---@field interactions adventurest_interactions
----@field unk_87 string
+---@field unk_87 df.string
 ---@field unk_220 integer
 ---@field unk_224 integer
 ---@field unk_v40_2 adventurest_unk_v40_2
@@ -1351,7 +1351,7 @@ df.talk_choice.T_unk = {}
 ---@field move_carefully integer Is set when the player prepares to move carefully (via the Alt + movement key combo)
 ---@field careful_direction_x integer x-axis direction for the last attempted careful player unit movement: -1 = west, 0 = none, 1 = east
 ---@field careful_direction_y integer y-axis direction for the last attempted careful player unit movement: -1 = north, 0 = none, 1 = south
----@field interrupt_performance_warning string the message displayed when the player attempts to move while their unit is performing
+---@field interrupt_performance_warning df.string the message displayed when the player attempts to move while their unit is performing
 ---@field unk_2 integer
 ---@field unk_2a integer
 ---@field name_item language_name used when naming items
@@ -1494,7 +1494,7 @@ df.adventurest.T_unk_3170.T_unk_2 = {}
 ---@field unk_43 df.container
 ---@field unk_44 df.container
 ---@field unk_45 integer
----@field unk_46 string
+---@field unk_46 df.string
 ---@field unk_47 integer
 ---@field unk_48 integer
 ---@field unk_49 integer
@@ -1606,7 +1606,7 @@ df.adventurest.T_charge_forbidden = {}
 ---@field page_top_choices df.container
 ---@field page_bottom_choices df.container
 ---@field choices adventurest.T_conversation_choices[]
----@field filter string
+---@field filter df.string
 ---@field unk_1 integer
 ---@field targets adventurest.T_conversation_targets[]
 ---@field cursor_target integer
@@ -1614,8 +1614,8 @@ df.adventurest.T_conversation = {}
 
 ---@class adventurest.T_conversation_choices: df.class
 ---@field choice talk_choice
----@field keywords string[]
----@field title string[]
+---@field keywords df.string[]
+---@field title df.string[]
 ---@field orig_index integer
 ---@field ranking integer
 df.adventurest.T_conversation.T_choices = {}
@@ -1739,7 +1739,7 @@ df.adventurest.T_unk_v40_5 = {}
 ---@field unk_s1 integer
 ---@field unk_s2 df.container
 ---@field unk_s3 df.container
----@field unk_s4 string
+---@field unk_s4 df.string
 ---@field unk_s5 integer
 ---@field unk_s6 integer
 ---@field unk_s7 integer
@@ -1757,7 +1757,7 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field origin integer References: historical_entity
 ---@field unk_1 df.container
 ---@field unk_2 df.container
----@field filter string
+---@field filter df.string
 ---@field unk_3 integer
 ---@field unk_4 integer
 df.adventurest.T_assume_identity = {}
@@ -1765,7 +1765,7 @@ df.adventurest.T_assume_identity = {}
 ---@class text_info_elementst: df.class
 df.text_info_elementst = {}
 
----@param val string
+---@param val df.string
 function df.text_info_elementst.getString(val) end
 
 ---@return integer
@@ -1776,14 +1776,14 @@ function df.text_info_elementst.getLong() end
 df.text_info_element_longst = {}
 
 ---@class text_info_element_stringst: text_info_elementst
----@field val string
+---@field val df.string
 df.text_info_element_stringst = {}
 
 ---<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
 ---@class adventure_optionst: df.class
 df.adventure_optionst = {}
 
----@param unk_0 string
+---@param unk_0 df.string
 function df.adventure_optionst.getDescription(unk_0) end
 
 ---@param unk_0 item
@@ -1947,7 +1947,7 @@ df.adventure_movement_item_interact_pushst = {}
 ---@class adventure_item_interact_choicest: df.class
 df.adventure_item_interact_choicest = {}
 
----@param unk_0 string
+---@param unk_0 df.string
 function df.adventure_item_interact_choicest.getDescription(unk_0) end
 
 function df.adventure_item_interact_choicest.performAction() end

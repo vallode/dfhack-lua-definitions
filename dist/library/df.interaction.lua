@@ -15,9 +15,9 @@ df.interaction_flags = {}
 ---@field EXPERIMENT_ONLY boolean
 
 ---@class interaction: df.instance
----@field name string
+---@field name df.string
 ---@field id integer
----@field str string[] interaction raws
+---@field str df.string[] interaction raws
 ---@field flags interaction_flags[]
 ---@field sources interaction_source[] I_SOURCE
 ---@field targets interaction_target[] I_TARGET
@@ -118,13 +118,13 @@ df.interaction_effect_location_hint = {}
 
 ---@class interaction_effect: df.class
 ---@field index integer index of the effect within the parent interaction.effects
----@field targets string[]
+---@field targets df.string[]
 ---@field targets_index df.container for each target used in this effect, list the index of that target within the parent interaction.targets
 ---@field intermittent integer IE_INTERMITTENT, 0 = weekly
 ---@field locations df.container IE_LOCATION
 ---@field flags interaction_effect_flags
 ---@field interaction_id integer References: interaction
----@field arena_name string IE_ARENA_NAME
+---@field arena_name df.string IE_ARENA_NAME
 df.interaction_effect = {}
 
 ---@return interaction_effect_type
@@ -228,11 +228,11 @@ df.interaction_effect_raise_ghostst = {}
 ---@field quality_min integer IE_ITEM_QUALITY
 ---@field quality_max integer IE_ITEM_QUALITY
 ---@field create_artifact integer IE_ITEM_QUALITY:ARTIFACT
----@field unk_1 string these five are probably item1:item2:mat1:mat2:mat3
----@field unk_2 string
----@field unk_3 string
----@field unk_4 string
----@field unk_5 string
+---@field unk_1 df.string these five are probably item1:item2:mat1:mat2:mat3
+---@field unk_2 df.string
+---@field unk_3 df.string
+---@field unk_4 df.string
+---@field unk_5 df.string
 df.interaction_effect_create_itemst = {}
 
 ---@class interaction_effect_propel_unitst: interaction_effect
@@ -242,8 +242,8 @@ df.interaction_effect_propel_unitst = {}
 
 ---@class interaction_effect_summon_unitst: interaction_effect
 ---@field make_pet integer IE_MAKE_PET_IF_POSSIBLE
----@field race_str string CREATURE
----@field caste_str string CREATURE
+---@field race_str df.string CREATURE
+---@field caste_str df.string CREATURE
 ---@field unk_1 df.container seen 4 bytes allocated
 ---@field unk_2 df.container seen 2 bytes allocate
 ---@field required_creature_flags df.container contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
@@ -300,12 +300,12 @@ df.interaction_source_type = {}
 ---@class interaction_source: df.class
 ---@field id integer
 ---@field frequency integer IS_FREQUENCY
----@field name string IS_NAME
----@field hist_string_1 string IS_HIST_STRING_1
----@field hist_string_2 string IS_HIST_STRING_2
----@field trigger_string_second string IS_TRIGGER_STRING_SECOND
----@field trigger_string_third string IS_TRIGGER_STRING_THIRD
----@field trigger_string string IS_TRIGGER_STRING
+---@field name df.string IS_NAME
+---@field hist_string_1 df.string IS_HIST_STRING_1
+---@field hist_string_2 df.string IS_HIST_STRING_2
+---@field trigger_string_second df.string IS_TRIGGER_STRING_SECOND
+---@field trigger_string_third df.string IS_TRIGGER_STRING_THIRD
+---@field trigger_string df.string IS_TRIGGER_STRING
 df.interaction_source = {}
 
 ---@return interaction_source_type
@@ -367,8 +367,8 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field learn_flags interaction_source_secretst_learn_flags
 ---@field spheres sphere_type[]
 ---@field goals df.container
----@field book_title_filename string
----@field book_name_filename string
+---@field book_title_filename df.string
+---@field book_name_filename df.string
 ---@field unk_1 integer
 ---@field unk_2 integer
 df.interaction_source_secretst = {}
@@ -539,10 +539,10 @@ df.interaction_target_location_type = {}
 
 ---@class interaction_target: df.class
 ---@field index integer
----@field name string
----@field manual_input string IT_MANUAL_INPUT
+---@field name df.string
+---@field manual_input df.string IT_MANUAL_INPUT
 ---@field location interaction_target_location_type IT_LOCATION
----@field reference_name string IT_LOCATION:RANDOM_NEARBY_LOCATION
+---@field reference_name df.string IT_LOCATION:RANDOM_NEARBY_LOCATION
 ---@field reference_distance integer IT_LOCATION:RANDOM_NEARBY_LOCATION
 df.interaction_target = {}
 
@@ -564,13 +564,13 @@ function df.interaction_target.read_file(file, loadversion) end
 function df.interaction_target.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
 
 ---@class interaction_target_info: df.class
----@field affected_creature_str string[][]
+---@field affected_creature_str df.string[][]
 ---@field affected_creature df.container IT_AFFECTED_CREATURE
----@field affected_class string[] IT_AFFECTED_CLASS
----@field immune_creature_str string[][]
+---@field affected_class df.string[] IT_AFFECTED_CLASS
+---@field immune_creature_str df.string[][]
 ---@field immune_creature df.container IT_IMMUNE_CREATURE
----@field immune_class string[] IT_IMMUNE_CLASS
----@field forbidden_syndrome_class string[]
+---@field immune_class df.string[] IT_IMMUNE_CLASS
+---@field forbidden_syndrome_class df.string[]
 ---@field requires_1 integer IT_REQUIRES
 ---@field requires_2 integer IT_REQUIRES
 ---@field forbidden_1 integer IT_FORBIDDEN
@@ -689,7 +689,7 @@ df.breath_attack_type = {}
 ---@field OTHER boolean
 
 ---@class interaction_target_materialst: interaction_target
----@field material_str string[]
+---@field material_str df.string[]
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field parent_interaction_index integer

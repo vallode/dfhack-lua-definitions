@@ -34,7 +34,7 @@ df.build_req_choicest = {}
 ---@return build_req_choice_type
 function df.build_req_choicest.getType() end
 
----@param str string
+---@param str df.string
 function df.build_req_choicest.getName(str) end
 
 ---@param item_id integer
@@ -72,8 +72,8 @@ df.build_req_choice_specst = {}
 ---@field req_index integer
 ---@field sel_index integer
 ---@field is_grouped integer
----@field errors string[]
----@field unk4 string[]
+---@field errors df.string[]
+---@field unk4 df.string[]
 ---@field tiles integer[][]
 ---@field cur_walk_tag integer
 ---@field plate_info pressure_plate_info
@@ -176,7 +176,7 @@ df.interface_category_construction = {}
 ---@field hotkey interface_key
 ---@field leave_button boolean
 ---@field flag integer
----@field filter_str string
+---@field filter_str df.string
 df.interface_button = {}
 
 ---ghost, buried, memorialized
@@ -185,7 +185,7 @@ df.interface_button = {}
 ---@param limx_max integer
 function df.interface_button.print_info(y, limx_min, limx_max) end
 
----@param str string
+---@param str df.string
 function df.interface_button.text(str) end
 
 function df.interface_button.press() end
@@ -200,7 +200,7 @@ function df.interface_button.tile() end
 
 function df.interface_button.set_tile_color() end
 
----@param box string[]
+---@param box df.string[]
 function df.interface_button.prepare_tool_tip(box) end
 
 ---@return boolean
@@ -212,12 +212,12 @@ function df.interface_button.has_view() end
 ---@return boolean
 function df.interface_button.is_alphabetized() end
 
----@param unk_0 string
----@return string
+---@param unk_0 df.string
+---@return df.string
 function df.interface_button.get_objection_string(unk_0) end
 
----@param unk_0 string
----@return string
+---@param unk_0 df.string
+---@return df.string
 function df.interface_button.get_info_string(unk_0) end
 
 ---@class interface_button_buildingst: interface_button
@@ -238,7 +238,7 @@ df.interface_button_building_material_selectorst = {}
 
 ---@class interface_button_building_new_jobst: interface_button_buildingst
 ---@field jobtype job_type
----@field mstring string
+---@field mstring df.string
 ---@field itemtype item_type
 ---@field subtype integer
 ---@field material integer References: material
@@ -248,12 +248,12 @@ df.interface_button_building_material_selectorst = {}
 ---@field job_item_flag job_material_category
 ---@field add_building_location boolean
 ---@field show_help_instead boolean
----@field objection string
----@field info string
+---@field objection df.string
+---@field info df.string
 df.interface_button_building_new_jobst = {}
 
 ---@class interface_button_building_custom_category_selectorst: interface_button_buildingst
----@field custom_category_token string
+---@field custom_category_token df.string
 df.interface_button_building_custom_category_selectorst = {}
 
 ---@class _construction_category_type: integer, string, df.enum
@@ -321,7 +321,7 @@ df.construction_category_type = {}
 ---@field number integer
 ---@field grid_height integer
 ---@field texpos integer
----@field str string
+---@field str df.string
 ---@field hotkey interface_key
 df.bb_buttonst = {}
 
@@ -2099,17 +2099,17 @@ df.main_designation_type = {}
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x integer
 ---@field current_hover_bot_y integer
----@field hover_instruction string[][]
+---@field hover_instruction df.string[][]
 ---@field last_displayed_hover_inst integer
 ---@field last_displayed_hover_id1 integer
 ---@field last_displayed_hover_id2 integer
 ---@field last_displayed_hover_id3 integer
 ---@field hover_announcement_alert popup_message
----@field hover_announcement_alert_text string[]
+---@field hover_announcement_alert_text df.string[]
 ---@field hover_announcement_alert_color df.container
 ---@field hover_announcement_alert_bright df.container
 ---@field hover_announcement_alert_width integer
----@field hover_announcement_alert_button_text string[]
+---@field hover_announcement_alert_button_text df.string[]
 ---@field hover_announcement_alert_button_color df.container
 ---@field hover_announcement_alert_button_bright df.container
 ---@field hover_announcement_alert_button_width integer
@@ -2139,10 +2139,10 @@ df.main_interface = {}
 ---@field entering_traffic_normal_str boolean
 ---@field entering_traffic_low_str boolean
 ---@field entering_traffic_restricted_str boolean
----@field traffic_high_str string
----@field traffic_normal_str string
----@field traffic_low_str string
----@field traffic_restricted_str string
+---@field traffic_high_str df.string
+---@field traffic_normal_str df.string
+---@field traffic_low_str df.string
+---@field traffic_restricted_str df.string
 ---@field sliding_traffic_high boolean
 ---@field sliding_traffic_normal boolean
 ---@field sliding_traffic_low boolean
@@ -2159,8 +2159,8 @@ df.main_interface.T_designation = {}
 ---@field material integer References: material
 ---@field matgloss integer
 ---@field job_item_flag job_material_category
----@field current_custom_category_token string
----@field current_tool_tip string[]
+---@field current_custom_category_token df.string
+---@field current_tool_tip df.string[]
 df.main_interface.T_building = {}
 
 
@@ -2176,7 +2176,7 @@ df.main_interface.T_building = {}
 ---@field bb_placement_type integer
 ---@field bb_placement_subtype integer
 ---@field bb_placement_custom_building_id integer
----@field item_filter string
+---@field item_filter df.string
 ---@field entering_item_filter boolean
 ---@field scrolling_item boolean
 ---@field scroll_position_item integer
@@ -2284,13 +2284,13 @@ df.main_interface.T_location_list = {}
 ---@field material_count_master df.container
 ---@field scroll_position_material integer
 ---@field scrolling_material boolean
----@field material_filter string
+---@field material_filter df.string
 ---@field material_doing_filter boolean
 ---@field clothing_size_race_index df.container race id
 ---@field clothing_size_race_index_master df.container race id
 ---@field scroll_position_race integer
 ---@field scrolling_race boolean
----@field clothing_size_race_filter string
+---@field clothing_size_race_filter df.string
 ---@field clothing_size_race_doing_filter boolean
 ---@field improvement_type df.container
 ---@field scroll_position_improvement integer
@@ -2314,7 +2314,7 @@ df.main_interface.T_buildjob = {}
 ---@field scroll_position_item integer
 ---@field scrolling_type boolean
 ---@field scrolling_item boolean
----@field item_filter string
+---@field item_filter df.string
 ---@field entering_item_filter boolean
 ---@field storeamount df.container
 ---@field badamount df.container
@@ -2350,10 +2350,10 @@ df.main_interface.T_assign_trade.T_unk_a8 = {}
 ---@field merlist caravan_state[]
 ---@field scroll_position_merlist integer
 ---@field scrolling_merlist boolean
----@field title string
----@field talker string
----@field fortname string
----@field place string
+---@field title df.string
+---@field talker df.string
+---@field fortname df.string
+---@field place df.string
 ---@field st world_site
 ---@field bld building_tradedepotst
 ---@field mer caravan_state
@@ -2376,7 +2376,7 @@ df.main_interface.T_assign_trade.T_unk_a8 = {}
 ---@field current_type_a_flag df.container[]
 ---@field scroll_position_item integer[]
 ---@field scrolling_item boolean[]
----@field item_filter string[]
+---@field item_filter df.string[]
 ---@field entering_item_filter boolean[]
 ---@field talkline integer trade reply
 ---@field buildlists integer
@@ -2386,8 +2386,8 @@ df.main_interface.T_assign_trade.T_unk_a8 = {}
 ---@field scroll_position_counter_offer integer
 ---@field scrolling_counter_offer boolean
 ---@field entering_amount integer
----@field amount_str string
----@field big_announce string[]
+---@field amount_str df.string
+---@field big_announce df.string[]
 ---@field scroll_position_big_announce integer
 ---@field scrolling_big_announce boolean
 df.main_interface.T_trade = {}
@@ -2447,7 +2447,7 @@ df.main_interface.T_petitions = {}
 ---@field scroll_position_item integer
 ---@field scrolling_type boolean
 ---@field scrolling_item boolean
----@field item_filter string
+---@field item_filter df.string
 ---@field entering_item_filter boolean
 ---@field storeamount df.container
 ---@field badamount df.container
@@ -2474,7 +2474,7 @@ df.main_interface.T_stocks = {}
 ---@field scroll_position_item integer
 ---@field scrolling_type boolean
 ---@field scrolling_item boolean
----@field item_filter string
+---@field item_filter df.string
 ---@field entering_item_filter boolean
 ---@field storeamount df.container
 ---@field badamount df.container
@@ -2504,7 +2504,7 @@ df.main_interface.T_assign_display_item = {}
 ---@field scrolling_word boolean
 ---@field entering_first_name boolean
 ---@field entering_cull_str boolean
----@field cull_str string
+---@field cull_str df.string
 ---@field adv_naming_pet_actev activity_event_conversationst
 ---@field named_unit unit
 df.main_interface.T_name_creator = {}
@@ -2513,14 +2513,14 @@ df.main_interface.T_name_creator = {}
 ---@class main_interface_image_creator: df.class
 ---@field open boolean
 ---@field context image_creator_context_type
----@field header string
+---@field header df.string
 ---@field current_option image_creator_option_type
 ---@field scrolling_list boolean
 ---@field scroll_position_list integer
 ---@field doing_filter boolean
----@field filter string
+---@field filter df.string
 ---@field entering_number boolean
----@field number_str string
+---@field number_str df.string
 ---@field st_master df.container site ptr, native name, translated name
 ---@field ent_master df.container entity ptr, native name, translated name
 ---@field plant_master df.container plant id, name
@@ -2553,11 +2553,11 @@ df.main_interface.T_name_creator = {}
 ---@field new_image_active_property_transitive boolean
 ---@field new_image_active_property_actor_ind integer
 ---@field new_image_active_property_target_ind integer
----@field art_box string[]
+---@field art_box df.string[]
 ---@field scrolling_art_box boolean
 ---@field scroll_position_art_box integer
 ---@field last_art_box_width integer
----@field selected_box string[]
+---@field selected_box df.string[]
 ---@field last_selected_box_width integer
 ---@field last_selected_index integer
 ---@field back_out_warn boolean
@@ -2609,7 +2609,7 @@ df.main_interface.T_unit_selector = {}
 ---@field zoom_line_ann report[]
 ---@field zoom_line_unit unit[]
 ---@field zoom_line_unit_uac df.container
----@field alert_text string[]
+---@field alert_text df.string[]
 ---@field alert_width integer
 ---@field alert_list_size integer
 ---@field scroll_position_alert integer
@@ -2618,7 +2618,7 @@ df.main_interface.T_unit_selector = {}
 ---@field viewing_unit_uac integer
 ---@field uac_zoom_line_is_start boolean[]
 ---@field uac_zoom_line_ann report[]
----@field uac_text string[]
+---@field uac_text df.string[]
 ---@field uac_width integer
 ---@field uac_list_size integer
 ---@field scroll_position_uac integer
@@ -2647,7 +2647,7 @@ df.main_interface.T_custom_symbol = {}
 ---@field scroll_position integer
 ---@field scrolling boolean
 ---@field adding_new_route boolean
----@field new_route_name string
+---@field new_route_name df.string
 ---@field entering_new_route_name boolean
 ---@field new_point coord_path
 ---@field route_line coord_path[] patrol_route_linest
@@ -2667,7 +2667,7 @@ df.main_interface.T_patrol_routes = {}
 ---@field customizing_equipment boolean
 ---@field customizing_squad_id integer
 ---@field customizing_squad_pos integer
----@field customizing_squad_uniform_nickname string
+---@field customizing_squad_uniform_nickname df.string
 ---@field customizing_squad_entering_uniform_nickname boolean
 ---@field scroll_position_cs integer
 ---@field scrolling_cs boolean
@@ -2717,7 +2717,7 @@ df.main_interface.T_squad_equipment = {}
 ---@field editing_routines boolean
 ---@field scroll_position_edit_routine integer
 ---@field scrolling_edit_routine boolean
----@field routine_name_str string
+---@field routine_name_str df.string
 ---@field entering_routine_name boolean
 ---@field entering_routine_name_id integer
 ---@field deleting_routine_id integer
@@ -2779,7 +2779,7 @@ df.main_interface.T_location_selector = {}
 ---@field loc_epp entity_position_assignment[]
 ---@field scroll_position_occupation integer
 ---@field scrolling_occupation boolean
----@field desired_number_str string
+---@field desired_number_str df.string
 ---@field entering_desired_number integer
 df.main_interface.T_location_details = {}
 
@@ -2833,7 +2833,7 @@ df.main_interface.T_stockpile_link = {}
 ---@field entering_barrels boolean
 ---@field entering_bins boolean
 ---@field entering_wheelbarrows boolean
----@field number_str string
+---@field number_str df.string
 df.main_interface.T_stockpile_tools = {}
 
 
@@ -2845,7 +2845,7 @@ df.main_interface.T_stockpile_tools = {}
 ---@field scrolling_main boolean
 ---@field scrolling_sub boolean
 ---@field scrolling_spec boolean
----@field spec_filter string
+---@field spec_filter df.string
 ---@field entering_spec_filter boolean
 ---@field abd building_stockpilest
 ---@field sp stockpile_settings
@@ -2863,8 +2863,8 @@ df.main_interface.T_stockpile_tools = {}
 df.main_interface.T_custom_stockpile = {}
 
 ---@class main_interface.T_custom_stockpile_spec_item: df.class
----@field name string
----@field simple_name string
+---@field name df.string
+---@field simple_name df.string
 ---@field set_pointer integer
 ---@field on boolean
 ---@field race integer
@@ -2917,14 +2917,14 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field unmet_need_spec_id integer[]
 ---@field unmet_need_se integer[]
 ---@field unmet_need_num integer
----@field raw_thought_str string[]
+---@field raw_thought_str df.string[]
 ---@field thought_box df.container color_text_boxst
 ---@field thought_box_width integer
 ---@field scroll_position_inventory integer
 ---@field scrolling_inventory boolean
 ---@field scroll_position_relations integer
 ---@field scrolling_relations boolean
----@field rel_name string[]
+---@field rel_name df.string[]
 ---@field relation df.container
 ---@field relation_f df.container
 ---@field rel_unid df.container
@@ -2935,7 +2935,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field unit_overview_customizing boolean
 ---@field unit_overview_entering_nickname boolean
 ---@field unit_overview_entering_profession_nickname boolean
----@field unit_overview_entering_str string
+---@field unit_overview_entering_str df.string
 ---@field unit_overview_expelling boolean
 ---@field unit_overview_expel_cannot_expel_reason cannot_expel_reason_type
 ---@field unit_overview_expel_selected_dest_stid integer
@@ -2943,7 +2943,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field unit_overview_expel_total_unid df.container
 ---@field scroll_position_unit_overview_expel integer
 ---@field scrolling_unit_overview_expel boolean
----@field guest_text string[]
+---@field guest_text df.string[]
 ---@field scroll_position_groups integer
 ---@field scrolling_groups boolean
 ---@field unit_group_enid df.container
@@ -2956,13 +2956,13 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field scroll_position_thoughts integer
 ---@field scrolling_thoughts boolean
 ---@field thoughts_active_tab integer
----@field thoughts_raw_memory_str string[]
+---@field thoughts_raw_memory_str df.string[]
 ---@field thoughts_memory_box df.container color_text_boxst
 ---@field thoughts_memory_box_width integer
 ---@field scroll_position_personality integer
 ---@field scrolling_personality boolean
 ---@field personality_active_tab integer
----@field personality_raw_str string[]
+---@field personality_raw_str df.string[]
 ---@field personality_box df.container color_text_boxst
 ---@field personality_width integer
 ---@field unit_labor_active_tab integer
@@ -2982,7 +2982,7 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field unit_knowledge_type df.container
 ---@field unit_knowledge_id df.container
 ---@field unit_knowledge_bits df.container
----@field skill_description_raw_str string[]
+---@field skill_description_raw_str df.string[]
 ---@field skill_description_box df.container color_text_boxst
 ---@field skill_description_width integer
 ---@field scroll_position_unit_room integer
@@ -2994,23 +2994,23 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field scrolling_unit_military_assigned boolean
 ---@field scroll_position_unit_military_kills integer
 ---@field scrolling_unit_military_kills boolean
----@field kill_description_raw_str string[]
+---@field kill_description_raw_str df.string[]
 ---@field kill_description_box df.container color_text_boxst
 ---@field kill_description_width integer
 ---@field unit_health_active_tab integer
 ---@field scroll_position_unit_health integer
 ---@field scrolling_unit_health boolean
----@field unit_health_raw_str string[]
+---@field unit_health_raw_str df.string[]
 ---@field unit_health_box df.container color_text_boxst
 ---@field unit_health_width integer
----@field raw_current_thought string
----@field current_thought string[]
+---@field raw_current_thought df.string
+---@field current_thought df.string[]
 ---@field current_thought_width integer
 ---@field scroll_position_item integer
 ---@field scrolling_item boolean
 ---@field scroll_position_building_job integer
 ---@field scrolling_building_job boolean
----@field building_job_filter_str string
+---@field building_job_filter_str df.string
 ---@field entering_building_job_filter boolean
 ---@field scroll_position_cage_occupants integer
 ---@field scrolling_cage_occupants boolean
@@ -3025,24 +3025,24 @@ df.main_interface.T_custom_stockpile.T_spec_item = {}
 ---@field scroll_position_linked_buildings integer
 ---@field scrolling_linked_buildings boolean
 ---@field building_entering_nickname boolean
----@field building_entering_str string
+---@field building_entering_str df.string
 ---@field work_order_id df.container
 ---@field scroll_position_work_orders integer
 ---@field scrolling_work_orders boolean
----@field gen_work_order_num_str string
+---@field gen_work_order_num_str df.string
 ---@field entering_gen_work_order_num boolean
 ---@field entering_wq_number boolean
----@field wq_number_str string
+---@field wq_number_str df.string
 ---@field entering_wq_id integer
----@field engraving_title string
----@field raw_description string
----@field description string[]
+---@field engraving_title df.string
+---@field raw_description df.string
+---@field description df.string[]
 ---@field description_width integer
 ---@field scroll_position_description integer
 ---@field scrolling_description boolean
 ---@field scroll_position_item_contents integer
 ---@field scrolling_item_contents boolean
----@field item_use string[]
+---@field item_use df.string[]
 ---@field item_use_reaction_index df.container
 df.main_interface.T_view_sheets = {}
 
@@ -3155,7 +3155,7 @@ df.main_interface.T_info.T_labor.T_standing_orders = {}
 ---@field known_num df.container[]
 ---@field known_rest df.container[]
 ---@field known_canrest df.container[]
----@field known_name string[][]
+---@field known_name df.string[][]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_labor.T_kitchen = {}
@@ -3165,7 +3165,7 @@ df.main_interface.T_info.T_labor.T_kitchen = {}
 ---@field current_category stone_use_category_type
 ---@field stone_mg_index df.container[]
 ---@field stone_restriction_p integer[][]
----@field stone_item_use_str string[]
+---@field stone_item_use_str df.string[]
 ---@field scroll_position integer[]
 ---@field scrolling boolean[]
 df.main_interface.T_info.T_labor.T_stone_use = {}
@@ -3176,10 +3176,10 @@ df.main_interface.T_info.T_labor.T_stone_use = {}
 ---@field scrolling_work_orders boolean
 ---@field conditions main_interface.T_info.T_work_orders_conditions
 ---@field entering_number boolean
----@field number_str string
+---@field number_str df.string
 ---@field entering_wq manager_order
 ---@field b_entering_number boolean
----@field b_number_str string
+---@field b_number_str df.string
 ---@field b_entering_wq manager_order
 df.main_interface.T_info.T_work_orders = {}
 
@@ -3193,8 +3193,8 @@ df.main_interface.T_info.T_work_orders = {}
 ---@field suggested_item_condition df.container workquota_item_conditionst
 ---@field scroll_position_suggested integer
 ---@field scrolling_suggested boolean
----@field filter string
----@field compare_master string[]
+---@field filter df.string
+---@field compare_master df.string[]
 ---@field change_type integer
 ---@field change_wqc integer workquota_item_conditions
 ---@field scroll_position_change integer
@@ -3212,7 +3212,7 @@ df.main_interface.T_info.T_work_orders = {}
 ---@field scroll_position_condition_wq integer
 ---@field scrolling_condition_wq boolean
 ---@field entering_logic_number boolean
----@field logic_number_str string
+---@field logic_number_str df.string
 ---@field entering_logic_wqc integer workquota_item_conditionst
 df.main_interface.T_info.T_work_orders.T_conditions = {}
 
@@ -3224,7 +3224,7 @@ df.main_interface.T_info.T_work_orders.T_conditions = {}
 ---@field spec_enid df.container
 ---@field scroll_position_noblelist integer
 ---@field scrolling_noblelist boolean
----@field desc_hover_text string[]
+---@field desc_hover_text df.string[]
 ---@field last_hover_width integer
 ---@field last_hover_entity_id integer
 ---@field last_hover_ep_id integer
@@ -3319,7 +3319,7 @@ df.main_interface.T_info.T_artifacts = {}
 ---@field interrogation_list_flag df.container
 ---@field scroll_position_interrogation integer
 ---@field scrolling_interrogation boolean
----@field interrogation_report_box string[]
+---@field interrogation_report_box df.string[]
 ---@field interrogation_report_box_width integer
 ---@field interrogation_report df.container interrogation_reportst
 ---@field viewing_interrogation_report integer interrogation_reportst
@@ -3332,7 +3332,7 @@ df.main_interface.T_info.T_artifacts = {}
 ---@field base_plot_entry plot_entryst[]
 ---@field counterintelligence_mode counterintelligence_mode_type
 ---@field counterintelligence_selected integer
----@field counterintelligence_filter_str string
+---@field counterintelligence_filter_str df.string
 ---@field entering_counterintelligence_filter boolean
 ---@field selected_counterintelligence_oen integer organization_entry_nodest
 ---@field scroll_position_counterintelligence integer
@@ -3355,7 +3355,7 @@ df.main_interface.T_info.T_justice = {}
 ---@field viewing_squad_index integer
 ---@field squad_hfid_selected df.container
 ---@field entering_squad_nickname boolean
----@field squad_nickname_str string
+---@field squad_nickname_str df.string
 ---@field giving_move_order boolean
 ---@field giving_kill_order boolean
 ---@field kill_unid df.container
@@ -3370,7 +3370,7 @@ df.main_interface.T_info.T_justice = {}
 ---@field editing_squad_schedule_min_follow integer
 ---@field scroll_position_orderp integer
 ---@field scrolling_orderp boolean
----@field cell_nickname_str string
+---@field cell_nickname_str df.string
 ---@field entering_cell_nickname boolean
 df.main_interface.T_squads = {}
 
@@ -3417,7 +3417,7 @@ df.main_interface.T_assign_uniform = {}
 ---@field selected_building_index integer
 ---@field scroll_position_job integer
 ---@field scrolling_job boolean
----@field job_filter string
+---@field job_filter df.string
 ---@field entering_job_filter boolean
 df.main_interface.T_create_work_order = {}
 
@@ -3434,21 +3434,21 @@ df.main_interface.T_hotkey = {}
 ---@class main_interface_options: df.class
 ---@field open boolean
 ---@field context options_context_type
----@field header string
----@field text string[]
+---@field header df.string
+---@field text df.string[]
 ---@field fort_retirement_confirm boolean
 ---@field fort_abandon_confirm boolean
 ---@field fort_quit_without_saving_confirm boolean
 ---@field option df.container
 ---@field option_index df.container
 ---@field entering_manual_folder boolean
----@field entering_manual_str string
+---@field entering_manual_str df.string
 ---@field confirm_manual_overwrite boolean
 ---@field entering_timeline boolean
----@field entering_timeline_str string
+---@field entering_timeline_str df.string
 ---@field do_manual_save boolean
 ---@field manual_save_timer integer
----@field overwrite_save_folder string[]
+---@field overwrite_save_folder df.string[]
 ---@field ended_game boolean
 ---@field doing_help boolean
 ---@field doing_help_box markup_text_boxst
@@ -3472,7 +3472,7 @@ df.main_interface.T_options.T_saver = {}
 ---@field flag integer
 ---@field context_flag integer
 ---@field context help_context_type
----@field header string
+---@field header df.string
 ---@field text markup_text_boxst[] tutorials
 ---@field floor_dug integer
 df.main_interface.T_help = {}
@@ -3487,7 +3487,7 @@ df.main_interface.T_help = {}
 ---@field interaction integer
 ---@field tame boolean
 ---@field editing_filter boolean
----@field filter string
+---@field filter df.string
 ---@field races_filtered df.container
 ---@field castes_filtered df.container
 ---@field races_all df.container
@@ -3507,9 +3507,9 @@ df.main_interface.T_arena_unit = {}
 ---@field open boolean
 ---@field age integer in years
 ---@field editing_age boolean
----@field age_str string string representation of age field
+---@field age_str df.string string representation of age field
 ---@field editing_filter boolean
----@field filter string
+---@field filter df.string
 ---@field tree_types_filtered df.container
 ---@field tree_types_all df.container
 df.main_interface.T_arena_tree = {}
@@ -3544,12 +3544,12 @@ df.gamest.T_minimap = {}
 
 
 ---@class gamest_command_line: df.class
----@field original string
----@field arg_vect string[]
+---@field original df.string
+---@field arg_vect df.string[]
 ---@field gen_id number
 ---@field world_seed number
 ---@field use_seed boolean
----@field world_param string
+---@field world_param df.string
 ---@field use_param integer
 df.gamest.T_command_line = {}
 
@@ -3575,7 +3575,7 @@ df.gamest.T_mod_manager = {}
 ---@field scrolling_params boolean
 ---@field entering_value_str boolean
 ---@field entering_value_index integer
----@field value_str string
+---@field value_str df.string
 ---@field member world_gen_param_basest[]
 ---@field fullscreen_resolution_open boolean
 ---@field permitted_fullscreen_w df.container
@@ -3586,16 +3586,16 @@ df.gamest.T_mod_manager = {}
 ---@field keybinding_selected_category integer
 ---@field keybinding_scroll_position_cat integer
 ---@field keybinding_scrolling_cat boolean
----@field keybinding_name string[][]
+---@field keybinding_name df.string[][]
 ---@field keybinding_key df.container[]
 ---@field keybinding_binding df.container[]
----@field keybinding_binding_name string[][]
+---@field keybinding_binding_name df.string[][]
 ---@field keybinding_flag df.container[]
 ---@field keybinding_scroll_position_key integer
 ---@field keybinding_scrolling_key boolean
 ---@field keybinding_registering_index integer
 ---@field keybinding_registering_adding_new boolean
----@field macro_list string[]
+---@field macro_list df.string[]
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
 df.main_interface_settings = {}
@@ -3678,7 +3678,7 @@ df.difficultyst.T_flags = {}
 df.markup_text_boxst = {}
 
 ---@class markup_text_boxst_unk1: df.class
----@field unk_00 string
+---@field unk_00 df.string
 ---@field red integer
 ---@field green integer
 ---@field blue integer
@@ -3698,13 +3698,13 @@ df.markup_text_boxst.T_unk_v50_2 = {}
 ---@class wqc_item_traitst: df.class
 ---@field flg integer
 ---@field flgn integer
----@field reaction_class string
----@field reaction_product_class string
+---@field reaction_class df.string
+---@field reaction_product_class df.string
 ---@field metal_ore integer
 ---@field contains_reaction_index integer
 ---@field contains_reagent_index integer
 ---@field tool_use integer
----@field display_string string
+---@field display_string df.string
 ---@field on boolean
 df.wqc_item_traitst = {}
 
@@ -3713,7 +3713,7 @@ df.wqc_item_traitst = {}
 ---@field subtype integer
 ---@field custom_id integer
 ---@field jminfo manager_order_template[]
----@field name string
+---@field name df.string
 df.cwo_buildingst = {}
 
 ---@class cri_unitst: df.class
@@ -3724,8 +3724,8 @@ df.cwo_buildingst = {}
 ---@field profession_list_order2 integer
 ---@field stress integer
 ---@field flag integer
----@field sort_name string
----@field job_sort_name string
+---@field sort_name df.string
+---@field job_sort_name df.string
 ---@field owner_un unit
 df.cri_unitst = {}
 
@@ -3733,10 +3733,10 @@ df.cri_unitst = {}
 ---@field hf historical_figure
 ---@field iden integer identityst
 ---@field name_ptr language_name
----@field list_name string
----@field simple_list_name string
----@field p_list_name string
----@field main_text_box string[]
+---@field list_name df.string
+---@field simple_list_name df.string
+---@field p_list_name df.string
+---@field main_text_box df.string[]
 ---@field visual_hfid integer
 ---@field historical_hfid integer
 ---@field identity_id integer
@@ -3754,58 +3754,58 @@ df.actor_entryst = {}
 ---@field tier integer
 ---@field x integer
 ---@field descendant_sum integer
----@field label string
+---@field label df.string
 ---@field fcol integer
 ---@field bcol integer
 ---@field br integer
----@field name string
----@field status string
+---@field name df.string
+---@field status df.string
 df.organization_entry_nodest = {}
 
 ---@class organization_entryst: df.class
 ---@field node organization_entry_nodest[]
----@field list_name string
----@field simple_list_name string
----@field p_list_name string
----@field main_text_box string[]
+---@field list_name df.string
+---@field simple_list_name df.string
+---@field p_list_name df.string
+---@field main_text_box df.string[]
 ---@field principle_actor_entry actor_entryst
 ---@field flag integer
 df.organization_entryst = {}
 
 ---@class plot_entryst: df.class
----@field list_name string
----@field simple_list_name string
----@field p_list_name string
+---@field list_name df.string
+---@field simple_list_name df.string
+---@field p_list_name df.string
 ---@field agreement integer agreementst
 ---@field master_hfid integer
----@field organization_name string
+---@field organization_name df.string
 df.plot_entryst = {}
 
 ---@class mod_headerst: df.class
----@field zip_filename string
----@field unzipped_folder string
----@field id string
+---@field zip_filename df.string
+---@field unzipped_folder df.string
+---@field id df.string
 ---@field numeric_version integer
----@field displayed_version string
+---@field displayed_version df.string
 ---@field earliest_compatible_numeric_version integer
----@field earliest_compatible_displayed_version string
----@field author string
----@field name string
----@field description string
----@field dependencies string[]
+---@field earliest_compatible_displayed_version df.string
+---@field author df.string
+---@field name df.string
+---@field description df.string
+---@field dependencies df.string[]
 ---@field dependency_type df.container 0 exact, 1 before, 2 after
----@field conflicts string[]
+---@field conflicts df.string[]
 ---@field flags mod_headerst_flags
----@field src_dir string
+---@field src_dir df.string
 ---@field steam_file_id integer
----@field steam_title string
----@field steam_description string
----@field steam_tag string[]
----@field steam_key_tag string[]
----@field steam_value_tag string[]
----@field steam_metadata string
----@field steam_changelog string
----@field steamapi_1 string
+---@field steam_title df.string
+---@field steam_description df.string
+---@field steam_tag df.string[]
+---@field steam_key_tag df.string[]
+---@field steam_value_tag df.string[]
+---@field steam_metadata df.string
+---@field steam_changelog df.string
+---@field steamapi_1 df.string
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
 df.mod_headerst = {}
@@ -3831,7 +3831,7 @@ df.mod_headerst.T_flags = {}
 ---@field type ui_look_list_type
 ---@field data ui_look_list_data
 ---@field pos coord
----@field display_str string
+---@field display_str df.string
 ---@field cf integer
 ---@field cb integer
 ---@field cbr integer

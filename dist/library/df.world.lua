@@ -659,7 +659,7 @@ df.mission_campaign_report = {}
 ---@field origin_x integer
 ---@field origin_y integer
 ---@field unk_5 integer
----@field title string
+---@field title df.string
 ---@field unk_7 integer
 ---@field year integer
 ---@field year_tick integer
@@ -669,7 +669,7 @@ df.mission_campaign_report = {}
 df.mission_report = {}
 
 ---@class spoils_report: df.class
----@field title string
+---@field title df.string
 ---@field unk_1 integer
 ---@field year integer
 ---@field year_tick integer
@@ -684,10 +684,10 @@ df.mission_report = {}
 df.spoils_report = {}
 
 ---@class interrogation_report: df.class
----@field title string
+---@field title df.string
 ---@field officer_hf integer References: historical_figure
 ---@field subject_hf integer References: historical_figure
----@field officer_name string
+---@field officer_name df.string
 ---@field unk_3 integer
 ---@field year integer
 ---@field tick integer
@@ -701,7 +701,7 @@ df.spoils_report = {}
 ---@field unk_29 df.container
 ---@field unk_30 df.container
 ---@field unk_31 df.container References: history_event<br>seen hfs_formed_intrigue_relationship
----@field details string[]
+---@field details df.string[]
 df.interrogation_report = {}
 
 ---@class interrogation_report_unk: df.class
@@ -1572,10 +1572,10 @@ df.world.T_status.T_slots = {}
 ---@field unk2b integer
 ---@field unk2c integer
 ---@field unk2d integer
----@field target_bp_name string
----@field verb string
----@field with_item_name string
----@field unk3d string
+---@field target_bp_name df.string
+---@field verb df.string
+---@field with_item_name df.string
+---@field unk3d df.string
 ---@field flags world.T_status.T_slots.T_slotdata_flags
 df.world.T_status.T_slots.T_slotdata = {}
 
@@ -1806,11 +1806,11 @@ df.world.T_map_extras = {}
 ---@field rivers_total integer
 ---@field rivers_cur integer
 ---@field unk_15 integer
----@field last_param_set string
----@field last_seed string
----@field last_name_seed string
----@field last_history_seed string
----@field last_creature_seed string
+---@field last_param_set df.string
+---@field last_seed df.string
+---@field last_name_seed df.string
+---@field last_history_seed df.string
+---@field last_creature_seed df.string
 ---@field place_caves boolean
 ---@field place_good_evil boolean
 ---@field place_megabeasts boolean
@@ -1933,7 +1933,7 @@ df.world.T_flow_engine = {}
 
 
 ---@class world_worldgen: df.class
----@field version string
+---@field version df.string
 ---@field next_unit_chunk_id integer
 ---@field next_unit_chunk_offset integer
 ---@field next_art_image_chunk_id integer
@@ -2024,7 +2024,7 @@ df.world.T_pathfinder.T_boundary_heap = {}
 
 ---not actually a compound
 ---@class world_cur_savegame: df.class
----@field save_dir string
+---@field save_dir df.string
 ---@field world_header world.T_cur_savegame_world_header
 ---@field civ_history_complete boolean
 ---@field must_end_civ_history boolean
@@ -2033,9 +2033,9 @@ df.world.T_cur_savegame = {}
 ---@class world.T_cur_savegame_world_header: df.class
 ---@field id1 integer
 ---@field id2 integer
----@field world_name string
----@field timeline_name string
----@field manual_name string
+---@field world_name df.string
+---@field timeline_name df.string
+---@field manual_name df.string
 ---@field load_stage world.T_cur_savegame.T_world_header_load_stage
 ---@field year integer
 ---@field season_count integer
@@ -2318,13 +2318,13 @@ df.world.T_rod_loader.T_state = {}
 ---@field object_file_index integer
 ---@field current_load_order_index integer
 ---@field current_load_order_graphics_index integer
----@field object_load_order_id string[]
+---@field object_load_order_id df.string[]
 ---@field object_load_order_numeric_version df.container
 ---@field object_load_order_earliest_compat_numeric_version df.container
----@field object_load_order_src_dir string[]
----@field src_dir string
----@field object_load_order_name string[]
----@field object_load_order_displayed_version string[]
+---@field object_load_order_src_dir df.string[]
+---@field src_dir df.string
+---@field object_load_order_name df.string[]
+---@field object_load_order_displayed_version df.string[]
 df.world.T_object_loader = {}
 
 
@@ -2378,8 +2378,8 @@ df.world.T_features = {}
 ---@field tree_types plant_raw[]
 ---@field tree_cursor integer
 ---@field tree_age integer
----@field tree_filter string
----@field tree_age_str string
+---@field tree_filter df.string
+---@field tree_age_str df.string
 ---@field arena_tree_entering_filter boolean
 ---@field arena_tree_entering_age boolean
 df.world.T_arena = {}

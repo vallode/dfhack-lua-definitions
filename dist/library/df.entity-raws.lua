@@ -603,15 +603,15 @@ df.entity_name_type = {}
 ---@field HOSPITAL boolean
 
 ---@class entity_raw: df.instance
----@field code string
+---@field code df.string
 ---@field index integer into instace-vector
----@field raws string[]
+---@field raws df.string[]
 ---@field creature_ids df.container References: creature_raw
----@field creatures string[]
+---@field creatures df.string[]
 ---@field equipment entity_raw_equipment
 ---@field currency_value df.container
 ---@field flags entity_raw_flags[]
----@field translation string
+---@field translation df.string
 ---@field symbols entity_raw_symbols
 ---@field sphere_alignment integer[]
 ---@field art_facet_modifier integer[]
@@ -643,14 +643,14 @@ df.entity_name_type = {}
 ---@field tissue_styles entity_raw_tissue_styles[]
 ---@field workshops entity_raw_workshops
 ---@field banditry integer
----@field gem_shapes_str string[]
----@field stone_shapes_str string[]
+---@field gem_shapes_str df.string[]
+---@field stone_shapes_str df.string[]
 ---@field gem_shapes df.container References: descriptor_shape
 ---@field stone_shapes df.container References: descriptor_shape
 ---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
----@field currency_str1 string[]
----@field currency_str2 string[]
+---@field currency_str1 df.string[]
+---@field currency_str2 df.string[]
 ---@field animal entity_animal_raw[]
 df.entity_raw = {}
 
@@ -678,29 +678,29 @@ function df.entity_raw.find(key) end
 ---@field gloves_rarity df.container
 ---@field shoes_rarity df.container
 ---@field pants_rarity df.container
----@field digger_str string[]
----@field weapon_str string[]
----@field armor_str string[]
----@field ammo_str string[]
----@field helm_str string[]
----@field gloves_str string[]
----@field shoes_str string[]
----@field pants_str string[]
----@field shield_str string[]
----@field trapcomp_str string[]
----@field toy_str string[]
----@field instrument_str string[]
----@field siegeammo_str string[]
----@field tool_str string[]
+---@field digger_str df.string[]
+---@field weapon_str df.string[]
+---@field armor_str df.string[]
+---@field ammo_str df.string[]
+---@field helm_str df.string[]
+---@field gloves_str df.string[]
+---@field shoes_str df.string[]
+---@field pants_str df.string[]
+---@field shield_str df.string[]
+---@field trapcomp_str df.string[]
+---@field toy_str df.string[]
+---@field instrument_str df.string[]
+---@field siegeammo_str df.string[]
+---@field tool_str df.string[]
 df.entity_raw.T_equipment = {}
 
 
 ---@class entity_raw_symbols: df.class
 ---@field symbols1 language_word_table[]
 ---@field symbols2 language_word_table[]
----@field select_symbol string[][]
----@field subselect_symbol string[][]
----@field cull_symbol string[][]
+---@field select_symbol df.string[][]
+---@field subselect_symbol df.string[][]
+---@field cull_symbol df.string[][]
 df.entity_raw.T_symbols = {}
 
 
@@ -764,7 +764,7 @@ df.entity_raw.T_jobs = {}
 
 
 ---@class entity_raw_tissue_styles: df.class
----@field name string
+---@field name df.string
 ---@field preferred_shapings df.container
 ---@field maintain_length_min integer
 ---@field maintain_length_max integer
@@ -772,17 +772,17 @@ df.entity_raw.T_tissue_styles = {}
 
 
 ---@class entity_raw_workshops: df.class
----@field permitted_building_str string[]
+---@field permitted_building_str df.string[]
 ---@field permitted_building_id df.container References: building_def
----@field permitted_reaction_str string[]
+---@field permitted_reaction_str df.string[]
 ---@field permitted_reaction_id df.container References: reaction
 df.entity_raw.T_workshops = {}
 
 ---@class entity_animal_raw: df.class
----@field token string
----@field caste_token string[]
----@field animal_class string[]
----@field forbidden_class string[]
+---@field token df.string
+---@field caste_token df.string[]
+---@field animal_class df.string[]
+---@field forbidden_class df.string[]
 ---@field flags entity_animal_raw_flags
 df.entity_animal_raw = {}
 
@@ -1122,25 +1122,25 @@ df.entity_position_responsibility = {}
 ---@field DELIVER_MESSAGES boolean
 
 ---@class entity_position_raw: df.class
----@field code string
+---@field code df.string
 ---@field id integer
 ---@field flags entity_position_raw_flags[]
----@field allowed_creature_str string[][]
+---@field allowed_creature_str df.string[][]
 ---@field allowed_creature df.container References: creature_raw
----@field allowed_class string[]
----@field rejected_creature_str string[][]
+---@field allowed_class df.string[]
+---@field rejected_creature_str df.string[][]
 ---@field rejected_creature df.container References: creature_raw
----@field rejected_class string[]
----@field name string[]
----@field name_female string[]
----@field name_male string[]
----@field spouse string[]
----@field spouse_female string[]
----@field spouse_male string[]
----@field squad string[]
----@field land_name string
+---@field rejected_class df.string[]
+---@field name df.string[]
+---@field name_female df.string[]
+---@field name_male df.string[]
+---@field spouse df.string[]
+---@field spouse_female df.string[]
+---@field spouse_male df.string[]
+---@field squad df.string[]
+---@field land_name df.string
 ---@field squad_size integer
----@field commander_str string[]
+---@field commander_str df.string[]
 ---@field commander_id df.container
 ---@field commander_types df.container
 ---@field land_holder integer
@@ -1148,11 +1148,11 @@ df.entity_position_responsibility = {}
 ---@field requires_population integer
 ---@field execution_skill job_skill
 ---@field precedence integer
----@field replaced_by_str string
+---@field replaced_by_str df.string
 ---@field replaced_by integer
----@field appointed_by_str string[]
+---@field appointed_by_str df.string[]
 ---@field appointed_by df.container
----@field succession_by_position_str string[]
+---@field succession_by_position_str df.string[]
 ---@field succession_by_position df.container
 ---@field responsibilities boolean[]
 ---@field color integer[]

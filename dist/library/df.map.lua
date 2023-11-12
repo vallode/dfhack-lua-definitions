@@ -950,7 +950,7 @@ function df.feature_init.getMaterial(mat_type, mat_index) end
 ---@param bright integer
 function df.feature_init.getColor(foreground, background, bright) end
 
----@param name string
+---@param name df.string
 function df.feature_init.getName(name) end
 
 ---@return boolean

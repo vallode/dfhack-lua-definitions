@@ -424,8 +424,8 @@ df.creature_interaction_effect_target_mode = {}
 
 ---@class creature_interaction_effect_target: df.class
 ---@field mode creature_interaction_effect_target_mode[]
----@field key string[]
----@field tissue string[]
+---@field key df.string[]
+---@field tissue df.string[]
 df.creature_interaction_effect_target = {}
 
 ---@class creature_interaction_effect: df.instance
@@ -470,12 +470,12 @@ function df.creature_interaction_effect.isUntargeted() end
 ---@return creature_interaction_effect_target_mode[]
 function df.creature_interaction_effect.getTargetModes(unk_0) end
 
----@param unk_0 string[]
----@return string[]
+---@param unk_0 df.string[]
+---@return df.string[]
 function df.creature_interaction_effect.getTargetKeys(unk_0) end
 
----@param unk_0 string[]
----@return string[]
+---@param unk_0 df.string[]
+---@return df.string[]
 function df.creature_interaction_effect.getTargetTissues(unk_0) end
 
 ---@param unk_0 integer
@@ -589,9 +589,9 @@ df.creature_interaction_effect_drowsinessst = {}
 df.creature_interaction_effect_dizzinessst = {}
 
 ---@class creature_interaction_effect_display_namest: creature_interaction_effect
----@field name string
----@field name_plural string
----@field name_adj string
+---@field name df.string
+---@field name_plural df.string
+---@field name_adj df.string
 ---@field unk_1 integer
 df.creature_interaction_effect_display_namest = {}
 
@@ -608,8 +608,8 @@ df.creature_interaction_effect_bp_appearance_modifierst = {}
 
 ---@class creature_interaction_effect_body_transformationst: creature_interaction_effect
 ---@field chance integer %
----@field race_str string
----@field caste_str string
+---@field race_str df.string
+---@field caste_str df.string
 ---@field race df.container References: creature_raw
 ---@field caste df.container References: caste_raw
 ---@field required_creature_flags df.container contains indexes of flags in creature_raw_flags
@@ -663,17 +663,17 @@ df.creature_interaction_effect_remove_simple_flagst = {}
 df.creature_interaction_effect_speed_changest = {}
 
 ---@class creature_interaction_effect_body_mat_interactionst: creature_interaction_effect
----@field interaction_name string
+---@field interaction_name df.string
 ---@field interaction_id integer References: interaction
 ---@field unk_8c integer
 ---@field unk_90 integer
----@field unk_94 string
+---@field unk_94 df.string
 df.creature_interaction_effect_body_mat_interactionst = {}
 
 ---@class creature_interaction_effect_material_force_adjustst: creature_interaction_effect
----@field unk_6c string
----@field unk_88 string
----@field unk_a4 string
+---@field unk_6c df.string
+---@field unk_88 df.string
+---@field unk_a4 df.string
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field fraction_mul integer
@@ -685,7 +685,7 @@ df.creature_interaction_effect_material_force_adjustst = {}
 df.creature_interaction_effect_can_do_interactionst = {}
 
 ---@class creature_interaction_effect_sense_creature_classst: creature_interaction_effect
----@field class_name string
+---@field class_name df.string
 ---@field tile integer
 ---@field color_foreground integer
 ---@field color_background integer
@@ -775,8 +775,8 @@ df.creature_interaction_effect_regrow_partsst = {}
 
 ---@class creature_interaction_effect_special_attack_interactionst: creature_interaction_effect
 ---@field unk_1 df.container
----@field unk_2 string[]
----@field unk_3 string
+---@field unk_2 df.string[]
+---@field unk_3 df.string
 df.creature_interaction_effect_special_attack_interactionst = {}
 
 ---@class creature_interaction_effect_stop_bleedingst: creature_interaction_effect
@@ -823,16 +823,16 @@ df.syndrome_flags = {}
 ---@field SYN_NO_HOSPITAL boolean
 
 ---@class syndrome: df.instance
----@field syn_name string
+---@field syn_name df.string
 ---@field ce creature_interaction_effect[]
----@field syn_affected_class string[]
----@field syn_affected_creature string[]
----@field syn_affected_caste string[]
----@field syn_immune_class string[]
----@field syn_immune_creature string[]
----@field syn_immune_caste string[]
----@field syn_class string[]
----@field syn_identifier string
+---@field syn_affected_class df.string[]
+---@field syn_affected_creature df.string[]
+---@field syn_affected_caste df.string[]
+---@field syn_immune_class df.string[]
+---@field syn_immune_creature df.string[]
+---@field syn_immune_caste df.string[]
+---@field syn_class df.string[]
+---@field syn_identifier df.string
 ---@field flags syndrome_flags
 ---@field syn_concentration_added integer[]
 ---@field id integer

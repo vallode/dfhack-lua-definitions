@@ -86,6 +86,9 @@ function dfbase:_displace(index, step) end
 ---@field insert fun(self: self, index: "#ref"|"#"|integer, item: any)
 ---@field erase fun(self: self, index: integer)
 
+---@class df.string: string
+---@field value string
+
 ---@param object table
 ---@return integer
 function df.sizeof(object) end

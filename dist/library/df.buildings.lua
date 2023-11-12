@@ -395,7 +395,7 @@ df.building_drawbuffer = {}
 ---@field general_refs general_ref[]
 ---@field relations building_civzonest[] zone(s) this building is in
 ---@field job_claim_suppress building_job_claim_suppress[] after Remv Cre, prevents unit from taking jobs at building
----@field name string
+---@field name df.string
 ---@field activities building_activities[]
 ---@field world_data_id integer References: world_object_data
 ---@field world_data_subid integer
@@ -573,7 +573,7 @@ function df.building.getFreeCapacity(subtract_pending_jobs) end
 ---@return boolean
 function df.building.canStoreItem(unk_0, subtract_pending_jobs) end
 
----@param name string
+---@param name df.string
 function df.building.getName(name) end
 
 function df.building.getNameColor() end

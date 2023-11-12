@@ -2,9 +2,9 @@
 ---@meta df.building-raws
 
 ---@class building_def: df.instance
----@field code string
+---@field code df.string
 ---@field id integer
----@field name string
+---@field name df.string
 ---@field building_type building_type
 ---@field building_subtype integer
 ---@field name_color integer[]
@@ -21,7 +21,7 @@
 ---@field workloc_x integer
 ---@field workloc_y integer
 ---@field build_labors unit_labor[]
----@field labor_description string
+---@field labor_description df.string
 ---@field build_stages integer
 df.building_def = {}
 
@@ -45,8 +45,8 @@ function df.building_def.finalize() end
 ---@field item_subtype integer
 ---@field mat_type integer References: material
 ---@field mat_index integer
----@field reaction_class string
----@field has_material_reaction_product string
+---@field reaction_class df.string
+---@field has_material_reaction_product df.string
 ---@field flags1 job_item_flags1
 ---@field flags2 job_item_flags2
 ---@field flags3 job_item_flags3
@@ -56,9 +56,9 @@ function df.building_def.finalize() end
 ---@field min_dimension integer
 ---@field quantity integer
 ---@field has_tool_use tool_uses
----@field item_str string[]
----@field material_str string[]
----@field metal_ore_str string
+---@field item_str df.string[]
+---@field material_str df.string[]
+---@field metal_ore_str df.string
 df.building_def_item = {}
 
 ---@class building_def_workshopst: building_def

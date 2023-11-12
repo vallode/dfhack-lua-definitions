@@ -3,7 +3,7 @@
 
 ---@class burrow: df.instance
 ---@field id integer
----@field name string
+---@field name df.string
 ---@field tile integer
 ---@field fg_color integer
 ---@field bg_color integer
@@ -28,7 +28,7 @@ df.burrow = {}
 function df.burrow.find(key) end
 
 ---@class ui_hotkey: df.class
----@field name string
+---@field name df.string
 ---@field cmd ui_hotkey_cmd
 ---@field x integer
 ---@field y integer
@@ -889,7 +889,7 @@ df.plotinfost.T_map_edge = {}
 ---@field sym_tile integer
 ---@field sym_fg_color integer
 ---@field sym_bg_color integer
----@field unk5c04 string[]
+---@field unk5c04 df.string[]
 ---@field next_point_id integer
 ---@field next_route_id integer
 ---@field sel_route_idx integer
@@ -903,15 +903,15 @@ df.plotinfost.T_waypoints = {}
 ---@field tile integer
 ---@field fg_color integer
 ---@field bg_color integer
----@field name string
----@field comment string
+---@field name df.string
+---@field comment df.string
 ---@field pos coord
 df.plotinfost.T_waypoints.T_points = {}
 
 
 ---@class plotinfost.T_waypoints_routes: df.class
 ---@field id integer
----@field name string
+---@field name df.string
 ---@field points integer[]
 df.plotinfost.T_waypoints.T_routes = {}
 
@@ -948,7 +948,7 @@ df.plotinfost.T_alerts = {}
 
 ---@class plotinfost.T_alerts_list: df.class
 ---@field id integer
----@field name string
+---@field name df.string
 ---@field burrows df.container References: burrow
 df.plotinfost.T_alerts.T_list = {}
 

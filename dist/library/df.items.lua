@@ -544,7 +544,7 @@ function df.item.isMetalOre(matIndex) end
 
 function df.item.clearLastTempUpdateTS() end
 
----@param string_ptr string
+---@param string_ptr df.string
 function df.item.listNotableKills(string_ptr) end
 
 ---@return integer
@@ -637,8 +637,8 @@ function df.item.getBodyInfo(unk_0) end
 function df.item.getGloveFlags(unk_0) end
 
 ---a statue/figurine of "string goes here"
----@param unk_0 string
----@return string
+---@param unk_0 df.string
+---@return df.string
 function df.item.getItemShapeDesc(unk_0) end
 
 ---@param unk_0 item_filter_spec
@@ -692,9 +692,9 @@ function df.item.isBogeymanCorpse() end
 ---@return boolean
 function df.item.testMaterialFlag(mat_flag) end
 
----@param unk_0 string
----@param unk_1 string
----@return string
+---@param unk_0 df.string
+---@param unk_1 df.string
+---@return df.string
 function df.item.getAmmoType(unk_0, unk_1) end
 
 ---@return boolean
@@ -955,7 +955,7 @@ function df.item.addStackSize(amount) end
 ---@param amount integer
 function df.item.setStackSize(amount) end
 
----@param unk_0 string
+---@param unk_0 df.string
 ---@return boolean
 function df.item.isAmmoClass(unk_0) end
 
@@ -1120,17 +1120,17 @@ function df.item.isImproved() end
 ---@return item_magicness[]
 function df.item.getMagic(unk_0) end
 
----@param unk_0 string
+---@param unk_0 df.string
 ---@param plurality integer 0 = prickle berries [2], 1 = prickle berry, 2 = prickle berries
 function df.item.getItemDescription(unk_0, plurality) end
 
 ---"a " or "the "
----@param unk_0 string
+---@param unk_0 df.string
 ---@param mode integer
 function df.item.getItemDescriptionPrefix(unk_0, mode) end
 
 ---usually just "item"
----@param unk_0 string
+---@param unk_0 df.string
 function df.item.getItemBasicName(unk_0) end
 
 ---@param caravan caravan_state
@@ -2074,25 +2074,25 @@ df.item_gemst = {}
 
 ---@class item_statuest: item_constructed
 ---@field image art_image_ref
----@field description string
+---@field description df.string
 ---@field unk_110 integer
 ---@field unk_114 integer
 df.item_statuest = {}
 
 ---@class item_figurinest: item_constructed
 ---@field image art_image_ref
----@field description string
+---@field description df.string
 df.item_figurinest = {}
 
 ---@class item_slabst: item_constructed
----@field description string
+---@field description df.string
 ---@field topic integer References: historical_figure<br>or interaction id for secrets?
 ---@field engraving_type slab_engraving_type
 df.item_slabst = {}
 
 ---@class item_orthopedic_castst: item_constructed
----@field body_part string
----@field material string
+---@field body_part df.string
+---@field material df.string
 df.item_orthopedic_castst = {}
 
 ---@class item_coinst: item_constructed
@@ -2110,7 +2110,7 @@ df.item_totemst = {}
 df.item_clothst = {}
 
 ---@class item_bookst: item_constructed
----@field title string
+---@field title df.string
 df.item_bookst = {}
 
 ---@class item_ballistaarrowheadst: item_actual

@@ -584,9 +584,9 @@ df.historical_figure_info.T_known_info.T_knowledge.T_knowledge_goal = {}
 ---@field unk_38 historical_figure_info.T_curse_unk_38
 ---@field unk_3c historical_figure_info.T_curse_unk_3c
 ---@field unk_40 integer
----@field name string
----@field name_plural string
----@field name_adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field name_adjective df.string
 ---@field race integer References: creature_raw
 ---@field caste integer References: caste_raw
 ---@field body_transformation_effects df.container References: creature_interaction_effect
@@ -596,7 +596,7 @@ df.historical_figure_info.T_known_info.T_knowledge.T_knowledge_goal = {}
 ---@field original_race integer References: creature_raw<br>race of the historical figure who was reanimated to produce undead historical figure
 ---@field original_caste integer References: caste_raw<br>caste of the historical figure who was reanimated to produce undead historical figure
 ---@field root_body_part_id integer ID of the root body part in the corpse or corpse piece which was reanimated to produce undead historical figure
----@field undead_name string display name of reanimated creatures in legends mode
+---@field undead_name df.string display name of reanimated creatures in legends mode
 ---@field unk_fc integer
 ---@field divination historical_figure_info.T_curse_divination
 ---@field experiments historical_figure_info.T_curse_experiments
@@ -3103,11 +3103,11 @@ function df.history_event.isRelatedToAgreementID(agreement) end
 ---@return boolean
 function df.history_event.isRelatedToEntityID(entity) end
 
----@param str string
+---@param str df.string
 ---@param context history_event_context
 function df.history_event.getSentence(str, context) end
 
----@param str string
+---@param str df.string
 ---@param context history_event_context
 function df.history_event.getPhrase(str, context) end
 
@@ -5300,7 +5300,7 @@ function df.history_event_collection.categorize() end
 
 function df.history_event_collection.uncategorize() end
 
----@param string string
+---@param string df.string
 function df.history_event_collection.getName(string) end
 
 ---@param x integer
@@ -5498,7 +5498,7 @@ df.history_event_collection_ceremonyst = {}
 
 ---@class history_event_collection_purgest: history_event_collection
 ---@field site integer References: world_site
----@field adjective string
+---@field adjective df.string
 ---@field ordinal integer
 df.history_event_collection_purgest = {}
 
@@ -5594,7 +5594,7 @@ df.history_era = {}
 ---@field histfig_1 integer References: historical_figure
 ---@field histfig_2 integer References: historical_figure
 ---@field ordinal integer
----@field name string
+---@field name df.string
 ---@field percent integer either percentage of single race or percentage of mundane
 df.history_era.T_title = {}
 

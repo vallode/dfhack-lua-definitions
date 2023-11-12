@@ -6,7 +6,8 @@ TYPE_MAP = {
   'integer' => %w[int8_t uint8_t int16_t uint16_t int32_t uint32_t int64_t uint64_t size_t enum-item flag-bit pointer
                   padding stl-vector],
   'number' => %w[s-float d-float long ulong],
-  'string' => %w[ptr-string stl-string static-string],
+  'string' => %w[ptr-string static-string],
+  'df.string' => %w[stl-string],
   'boolean' => %w[bool stl-bit-vector df-flagarray],
   'function' => %w[stl-function],
   'lightuserdata' => %w[stl-mutex stl-condition-variable stl-deque stl-fstream stl-unordered-map]

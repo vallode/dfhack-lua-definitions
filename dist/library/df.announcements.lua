@@ -1446,7 +1446,7 @@ df.announcements = {}
 
 ---@class report: df.instance
 ---@field type announcement_type valid only if coordinates are
----@field text string
+---@field text df.string
 ---@field color integer
 ---@field bright boolean
 ---@field duration integer remaining graphical frames to display this report in announcement bar
@@ -1503,7 +1503,7 @@ df.report_zoom_type = {}
 ---@field Unit boolean
 
 ---@class popup_message: df.class
----@field text string
+---@field text df.string
 ---@field color integer
 ---@field bright boolean
 df.popup_message = {}

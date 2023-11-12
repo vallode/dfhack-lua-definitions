@@ -168,7 +168,7 @@ df.squad_event_type = {}
 ---@field orders squad_order[]
 ---@field preferences df.container[]
 ---@field uniform squad_uniform_spec[][]
----@field unk_c4 string
+---@field unk_c4 df.string
 ---@field flags uniform_flags
 ---@field assigned_items integer[]
 ---@field quiver integer References: item
@@ -187,7 +187,7 @@ df.squad_position = {}
 df.squad_schedule_order = {}
 
 ---@class squad_schedule_entry: df.class
----@field name string
+---@field name df.string
 ---@field sleep_mode integer 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode integer 0 uniformed, 1 civ clothes
 ---@field orders squad_schedule_order[]
@@ -200,7 +200,7 @@ df.squad_schedule_entry.T_order_assignments = {}
 ---@class squad: df.instance
 ---@field id integer
 ---@field name language_name
----@field alias string if not empty, used instead of name
+---@field alias df.string if not empty, used instead of name
 ---@field positions squad_position[]
 ---@field orders squad_order[]
 ---@field schedule squad_schedule_entry[][]
@@ -445,7 +445,7 @@ function df.squad_order.getTargetUnits(unk_0) end
 ---@return integer
 function df.squad_order.getUniformType(soldier) end
 
----@param unk_0 string
+---@param unk_0 df.string
 function df.squad_order.getDescription(unk_0) end
 
 ---always false
@@ -469,7 +469,7 @@ df.squad_order_movest = {}
 ---@class squad_order_kill_listst: squad_order
 ---@field units integer[]
 ---@field histfigs integer[]
----@field title string
+---@field title df.string
 df.squad_order_kill_listst = {}
 
 ---@class squad_order_defend_burrowsst: squad_order
@@ -486,23 +486,23 @@ df.squad_order_trainst = {}
 ---@class squad_order_drive_entity_off_sitest: squad_order
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 string
+---@field unk_4 df.string
 df.squad_order_drive_entity_off_sitest = {}
 
 ---@class squad_order_cause_trouble_for_entityst: squad_order
 ---@field entity_id integer References: historical_entity
----@field override_name string
+---@field override_name df.string
 df.squad_order_cause_trouble_for_entityst = {}
 
 ---@class squad_order_kill_hfst: squad_order
 ---@field histfig_id integer References: historical_figure
----@field title string
+---@field title df.string
 df.squad_order_kill_hfst = {}
 
 ---@class squad_order_drive_armies_from_sitest: squad_order
 ---@field unk_2 integer
 ---@field unk_3 integer
----@field unk_4 string
+---@field unk_4 df.string
 df.squad_order_drive_armies_from_sitest = {}
 
 ---@class squad_order_retrieve_artifactst: squad_order
@@ -960,8 +960,8 @@ df.army_flags = {}
 ---@field min_smell_trigger integer
 ---@field max_odor_level integer 1000 if undead are present
 ---@field max_low_light_vision integer
----@field sense_creature_classes string[]
----@field creature_class string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
+---@field sense_creature_classes df.string[]
+---@field creature_class df.string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer References: material
@@ -989,7 +989,7 @@ function df.army.find(key) end
 ---@field unk_2c integer
 ---@field unk_30 integer
 ---@field unk_34 integer
----@field unk_38 string[]
+---@field unk_38 df.string[]
 ---@field unk_v42_1 integer
 ---@field unk_2 integer
 ---@field unk_3 integer

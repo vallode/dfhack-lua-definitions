@@ -695,7 +695,7 @@ df.historical_entity_type = {}
 ---@class honors_type: df.class
 ---@field id integer
 ---@field flags honors_type_flags
----@field name string
+---@field name df.string
 ---@field precedence_awarded integer
 ---@field required_skill job_skill
 ---@field required_skill_type honors_type_required_skill_type
@@ -1286,7 +1286,7 @@ df.historical_entity.T_unk28 = {}
 df.historical_entity.T_unk29 = {}
 
 ---@class entity_tissue_style: df.class
----@field name string
+---@field name df.string
 ---@field preferred_shapings df.container
 ---@field unk_1 df.container maybe probability?
 ---@field maintain_length_min integer
@@ -1457,21 +1457,21 @@ df.entity_position_flags = {}
 ---@field unk_1f boolean
 
 ---@class entity_position: df.class
----@field code string
+---@field code df.string
 ---@field id integer
 ---@field flags entity_position_flags[]
 ---@field allowed_creature df.container References: creature_raw
----@field allowed_class string[]
+---@field allowed_class df.string[]
 ---@field rejected_creature df.container References: creature_raw
----@field rejected_class string[]
----@field name string[]
----@field name_female string[]
----@field name_male string[]
----@field spouse string[]
----@field spouse_female string[]
----@field spouse_male string[]
----@field squad string[]
----@field land_name string
+---@field rejected_class df.string[]
+---@field name df.string[]
+---@field name_female df.string[]
+---@field name_male df.string[]
+---@field spouse df.string[]
+---@field spouse_female df.string[]
+---@field spouse_male df.string[]
+---@field squad df.string[]
+---@field land_name df.string
 ---@field squad_size integer
 ---@field commander_id df.container
 ---@field commander_civ df.container References: historical_entity
@@ -1486,7 +1486,7 @@ df.entity_position_flags = {}
 ---@field appointed_by_civ df.container References: historical_entity
 ---@field succession_by_position df.container
 ---@field responsibilities boolean[]
----@field unk_v50_358 string
+---@field unk_v50_358 df.string
 ---@field color integer[]
 ---@field required_boxes integer
 ---@field required_cabinets integer
@@ -1675,7 +1675,7 @@ df.entity_uniform_item = {}
 ---@field uniform_item_types item_type[][]
 ---@field uniform_item_subtypes integer[][]
 ---@field uniform_item_info entity_uniform_item[][]
----@field name string
+---@field name df.string
 ---@field flags uniform_flags
 df.entity_uniform = {}
 

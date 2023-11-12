@@ -31,10 +31,10 @@ df.pattern_type = {}
 ---@field MOTTLED boolean
 
 ---@class descriptor_color: df.instance
----@field id string
----@field word_unk string[]
+---@field id df.string
+---@field word_unk df.string[]
 ---@field words df.container References: language_word
----@field name string
+---@field name df.string
 ---@field color curses_color
 ---@field bold integer
 ---@field red number
@@ -48,14 +48,14 @@ df.descriptor_color = {}
 function df.descriptor_color.find(key) end
 
 ---@class descriptor_shape: df.instance
----@field id string
----@field words_str string[] temporary storage before resolving to language_word
+---@field id df.string
+---@field words_str df.string[] temporary storage before resolving to language_word
 ---@field words df.container References: language_word
----@field name string
----@field name_plural string
----@field adj string[]
+---@field name df.string
+---@field name_plural df.string
+---@field adj df.string[]
 ---@field gems_use descriptor_shape_gems_use
----@field category string[]
+---@field category df.string[]
 ---@field faces integer
 ---@field tile integer
 ---@field unk_v50_1 integer
@@ -88,10 +88,10 @@ df.descriptor_shape.T_gems_use = {}
 ---@field adj_noun boolean
 
 ---@class descriptor_pattern: df.instance
----@field id string
+---@field id df.string
 ---@field colors df.container References: descriptor_color
 ---@field pattern pattern_type
----@field cp_color string[]
+---@field cp_color df.string[]
 df.descriptor_pattern = {}
 
 ---@param key integer

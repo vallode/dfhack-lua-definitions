@@ -51,12 +51,12 @@ function df.art_image_element.clone(unk_0) end
 ---@param unk_1 integer
 function df.art_image_element.getSymbol(sym, unk_1) end
 
----@param name string
+---@param name df.string
 ---@param useThe boolean
 ---@param useName boolean
 function df.art_image_element.getName1(name, useThe, useName) end
 
----@param name string
+---@param name df.string
 ---@param unk_1 boolean
 function df.art_image_element.getName2(name, unk_1) end
 
@@ -125,7 +125,7 @@ function df.art_image_property.getType() end
 ---@return art_image_element
 function df.art_image_property.clone(unk_0) end
 
----@param unk_0 string
+---@param unk_0 df.string
 ---@param unk_1 art_image
 ---@param useName boolean
 function df.art_image_property.getName(unk_0, unk_1, useName) end
@@ -2290,7 +2290,7 @@ df.dance_form_move_group_type = {}
 ---@field DanceMove boolean
 
 ---@class dance_form_move: df.class
----@field name string
+---@field name df.string
 ---@field type dance_form_move_type[]
 ---@field modifier dance_form_move_modifier[]
 ---@field parameter df.container Depends on type (turns are in signed angles, steps are in number of steps, etc.)
@@ -2351,7 +2351,7 @@ df.scale_type = {}
 ---@field PerfectFourth boolean
 
 ---@class chord: df.class
----@field name string
+---@field name df.string
 ---@field notes integer[] chord_size entries used. Refers to the notes indices
 ---@field chord_size integer
 ---@field unk_3 integer 0 and 1 seen
@@ -2360,7 +2360,7 @@ df.chord = {}
 ---Seems odd with a 'scale' consisting of two chords, but that's what the exported XML calls it.
 ---@class named_scale: df.class
 ---@field unk_1 integer 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
----@field name string
+---@field name df.string
 ---@field degrees integer[] indices into the (not necessarily named) notes of the scale
 ---@field degrees_used integer elements used in array above
 ---@field first_chord integer this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
@@ -2395,8 +2395,8 @@ df.scale.T_flags = {}
 ---Curiously, the named notes do not have to match the number of defined notes
 ---@class scale_notes: df.class
 ---@field unk_1 integer Frequently looks like garbage for all values of type. Suspect it's actually a filler
----@field name string[]
----@field abreviation string[]
+---@field name df.string[]
+---@field abreviation df.string[]
 ---@field number integer[]
 ---@field length integer number of elements of the arrays above used
 df.scale.T_notes = {}
@@ -2466,10 +2466,10 @@ df.beat_type = {}
 ---@field AccentedSyncopated boolean
 
 ---@class rhythm_pattern: df.class
----@field name string
+---@field name df.string
 ---@field bars rhythm_pattern_bars[]
----@field beat_name string length as per length field
----@field beat_abbreviation string length as per length field
+---@field beat_name df.string length as per length field
+---@field beat_abbreviation df.string length as per length field
 ---@field length integer
 df.rhythm_pattern = {}
 
@@ -2479,7 +2479,7 @@ df.rhythm_pattern = {}
 df.rhythm_pattern.T_bars = {}
 
 ---@class sub_rhythm: df.class
----@field name string
+---@field name df.string
 ---@field patterns df.container indices into patterns
 ---@field unk_2 df.container Same length as patterns, but with unknown purpose
 ---@field unk_3 integer

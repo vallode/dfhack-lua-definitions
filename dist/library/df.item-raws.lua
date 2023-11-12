@@ -393,9 +393,9 @@ df.item_type.attrs = {}
 ---@field contact integer
 ---@field penetration integer
 ---@field velocity_mult integer
----@field verb_2nd string
----@field verb_3rd string
----@field noun string
+---@field verb_2nd df.string
+---@field verb_3rd df.string
+---@field noun df.string
 ---@field prepare integer
 ---@field recover integer
 ---@field flags weapon_attack_flags
@@ -424,12 +424,12 @@ df.itemdef_flags = {}
 ---@field GENERATED boolean
 
 ---@class itemdef: df.class
----@field id string
+---@field id df.string
 ---@field subtype integer
 ---@field base_flags itemdef_flags[]
 ---@field source_hfid integer References: historical_figure
 ---@field source_enid integer References: historical_entity
----@field raw_strings string[]
+---@field raw_strings df.string[]
 df.itemdef = {}
 
 ---@param unk_0 integer
@@ -455,10 +455,10 @@ df.ammo_flags = {}
 ---@field HAS_EDGE_ATTACK boolean
 
 ---@class itemdef_ammost: itemdef, df.instance
----@field name string
----@field name_plural string
----@field adjective string
----@field ammo_class string
+---@field name df.string
+---@field name_plural df.string
+---@field adjective df.string
+---@field ammo_class df.string
 ---@field flags ammo_flags[]
 ---@field size integer divided by 10
 ---@field value integer
@@ -536,11 +536,11 @@ df.armor_flags = {}
 ---@field METAL_ARMOR_LEVELS boolean
 
 ---@class itemdef_armorst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field name_preplural string
----@field material_placeholder string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field name_preplural df.string
+---@field material_placeholder df.string
+---@field adjective df.string
 ---@field value integer
 ---@field armorlevel integer
 ---@field ubstep integer
@@ -555,7 +555,7 @@ df.itemdef_armorst = {}
 function df.itemdef_armorst.find(key) end
 
 ---@class itemdef_foodst: itemdef, df.instance
----@field name string
+---@field name df.string
 ---@field level integer
 df.itemdef_foodst = {}
 
@@ -573,9 +573,9 @@ df.gloves_flags = {}
 ---@field METAL_ARMOR_LEVELS boolean
 
 ---@class itemdef_glovesst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field adjective df.string
 ---@field value integer
 ---@field armorlevel integer
 ---@field upstep integer
@@ -598,9 +598,9 @@ df.helm_flags = {}
 ---@field METAL_ARMOR_LEVELS boolean
 
 ---@class itemdef_helmst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field adjective df.string
 ---@field value integer
 ---@field armorlevel integer
 ---@field flags helm_flags[]
@@ -654,35 +654,35 @@ df.instrument_flags = {}
 ---@field BONE_MAT boolean
 
 ---@class itemdef_instrumentst: itemdef, df.instance
----@field name string
----@field name_plural string
+---@field name df.string
+---@field name_plural df.string
 ---@field flags instrument_flags[]
 ---@field music_skill job_skill
 ---@field size integer
 ---@field value integer
 ---@field material_size integer
 ---@field pieces instrument_piece[]
----@field dominant_instrument_piece string
+---@field dominant_instrument_piece df.string
 ---@field pitch_range_min integer
 ---@field pitch_range_max integer
 ---@field volume_mb_min integer
 ---@field volume_mb_max integer
 ---@field sound_production df.container
----@field sound_production_parm1 string[]
----@field sound_production_parm2 string[]
+---@field sound_production_parm1 df.string[]
+---@field sound_production_parm2 df.string[]
 ---@field unk_100 df.container
 ---@field unk_110 df.container
 ---@field pitch_choice df.container
----@field pitch_choice_parm1 string[]
----@field pitch_choice_parm2 string[]
+---@field pitch_choice_parm1 df.string[]
+---@field pitch_choice_parm2 df.string[]
 ---@field unk_150 df.container
 ---@field unk_160 df.container
 ---@field tuning df.container
----@field tuning_parm string[]
+---@field tuning_parm df.string[]
 ---@field unk_190 df.container
 ---@field registers instrument_register[]
 ---@field timbre df.container
----@field description string
+---@field description df.string
 df.itemdef_instrumentst = {}
 
 ---@param key integer
@@ -1114,11 +1114,11 @@ df.timbre_type = {}
 ---@field SPARKLING boolean
 
 ---@class instrument_piece: df.class
----@field type string
----@field id string
+---@field type df.string
+---@field id df.string
 ---@field index integer
----@field name string
----@field name_plural string
+---@field name df.string
+---@field name_plural df.string
 ---@field flags instrument_piece_flags
 df.instrument_piece = {}
 
@@ -1151,11 +1151,11 @@ df.pants_flags = {}
 ---@field METAL_ARMOR_LEVELS boolean
 
 ---@class itemdef_pantsst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field name_preplural string
----@field material_placeholder string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field name_preplural df.string
+---@field material_placeholder df.string
+---@field adjective df.string
 ---@field value integer
 ---@field armorlevel integer
 ---@field flags pants_flags[]
@@ -1169,9 +1169,9 @@ df.itemdef_pantsst = {}
 function df.itemdef_pantsst.find(key) end
 
 ---@class itemdef_shieldst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field adjective df.string
 ---@field value integer
 ---@field blockchance integer
 ---@field armorlevel integer
@@ -1193,9 +1193,9 @@ df.shoes_flags = {}
 ---@field METAL_ARMOR_LEVELS boolean
 
 ---@class itemdef_shoesst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field adjective df.string
 ---@field value integer
 ---@field armorlevel integer
 ---@field upstep integer
@@ -1209,9 +1209,9 @@ df.itemdef_shoesst = {}
 function df.itemdef_shoesst.find(key) end
 
 ---@class itemdef_siegeammost: itemdef, df.instance
----@field name string
----@field name_plural string
----@field ammo_class string
+---@field name df.string
+---@field name_plural df.string
+---@field ammo_class df.string
 df.itemdef_siegeammost = {}
 
 ---@param key integer
@@ -1417,17 +1417,17 @@ df.tool_uses = {}
 ---@field GAMES_OF_CHANCE boolean
 
 ---@class itemdef_toolst: itemdef, df.instance
----@field name string
----@field name_plural string
+---@field name df.string
+---@field name_plural df.string
 ---@field flags tool_flags[]
 ---@field value integer
 ---@field tile integer
 ---@field tool_use tool_uses[]
----@field adjective string
+---@field adjective df.string
 ---@field size integer
 ---@field skill_melee job_skill
 ---@field skill_ranged job_skill
----@field ranged_ammo string
+---@field ranged_ammo df.string
 ---@field two_handed integer
 ---@field minimum_size integer
 ---@field material_size integer
@@ -1435,9 +1435,9 @@ df.tool_uses = {}
 ---@field shoot_force integer
 ---@field shoot_maxvel integer
 ---@field container_capacity integer
----@field shape_category_str string[]
+---@field shape_category_str df.string[]
 ---@field shape_category df.container References: descriptor_shape
----@field description string
+---@field description df.string
 ---@field default_improvements itemdef_toolst_default_improvements[]
 df.itemdef_toolst = {}
 
@@ -1448,7 +1448,7 @@ function df.itemdef_toolst.find(key) end
 ---@class itemdef_toolst_default_improvements: df.class
 ---@field type improvement_type
 ---@field specific_type itemimprovement_specific_type
----@field instrument_part string
+---@field instrument_part df.string
 ---@field restriction tool_flags
 df.itemdef_toolst.T_default_improvements = {}
 
@@ -1462,8 +1462,8 @@ df.toy_flags = {}
 ---@field HARD_MAT boolean
 
 ---@class itemdef_toyst: itemdef, df.instance
----@field name string
----@field name_plural string
+---@field name df.string
+---@field name_plural df.string
 ---@field flags toy_flags[]
 df.itemdef_toyst = {}
 
@@ -1497,9 +1497,9 @@ df.trapcomp_flags = {}
 ---@field HAS_EDGE_ATTACK boolean
 
 ---@class itemdef_trapcompst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field adjective df.string
 ---@field size integer
 ---@field value integer
 ---@field hits integer
@@ -1530,14 +1530,14 @@ df.weapon_flags = {}
 ---@field TRAINING boolean
 
 ---@class itemdef_weaponst: itemdef, df.instance
----@field name string
----@field name_plural string
----@field adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field adjective df.string
 ---@field size integer
 ---@field value integer
 ---@field skill_melee job_skill
 ---@field skill_ranged job_skill
----@field ranged_ammo string
+---@field ranged_ammo df.string
 ---@field two_handed integer
 ---@field minimum_size integer
 ---@field material_size integer

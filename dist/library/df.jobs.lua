@@ -264,7 +264,7 @@ df.job_subtype_surgery = {}
 ---@field item_subtype integer when StoreInStockpile this is a unit_labor
 ---@field item_category stockpile_group_set type and name are inappropriate
 ---@field material_category job_material_category
----@field reaction_name string
+---@field reaction_name df.string
 ---@field expire_timer integer toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
 ---@field recheck_cntdn integer toady: auxilary_counter; for process_jobs
 ---@field aux_id integer
@@ -699,8 +699,8 @@ df.job_item_flags3 = {}
 ---@field flags4 integer
 ---@field flags5 integer
 ---@field metal_ore integer References: inorganic_raw
----@field reaction_class string
----@field has_material_reaction_product string
+---@field reaction_class df.string
+---@field has_material_reaction_product df.string
 ---@field min_dimension integer pure guess by context
 ---@field reagent_index integer
 ---@field contains df.container used with custom reactions
@@ -728,8 +728,8 @@ df.job_item = {}
 ---@field use_flags4 boolean
 ---@field flags5 integer
 ---@field use_flags5 boolean
----@field reaction_class string
----@field has_material_reaction_product string
+---@field reaction_class df.string
+---@field has_material_reaction_product df.string
 ---@field metal_ore integer References: inorganic_raw
 ---@field use_metal_ore boolean
 ---@field use_reaction_class boolean
@@ -801,7 +801,7 @@ df.job_art_specification.T_type = {}
 ---@field job_type job_type
 ---@field item_type item_type
 ---@field item_subtype integer
----@field reaction_name string
+---@field reaction_name df.string
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field item_category stockpile_group_set
@@ -858,8 +858,8 @@ df.manager_order.T_frequency = {}
 ---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field reaction_class string
----@field has_material_reaction_product string
+---@field reaction_class df.string
+---@field has_material_reaction_product df.string
 ---@field inorganic_bearing integer References: inorganic_raw
 ---@field min_dimension integer
 ---@field contains df.container
@@ -918,7 +918,7 @@ df.manager_order_condition_order.T_condition = {}
 ---jminfost
 ---@class manager_order_template: df.class
 ---@field job_type job_type
----@field reaction_name string
+---@field reaction_name df.string
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer References: material
@@ -927,8 +927,8 @@ df.manager_order_condition_order.T_condition = {}
 ---@field hist_figure_id integer References: historical_figure
 ---@field material_category job_material_category
 ---@field match_value integer
----@field name string
----@field compare_str string
+---@field name df.string
+---@field compare_str df.string
 ---@field on boolean
 df.manager_order_template = {}
 

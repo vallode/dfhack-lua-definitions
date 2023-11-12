@@ -19,8 +19,8 @@ df.reaction_flags = {}
 ---@field ADVENTURE_MODE_ENABLED boolean
 
 ---@class reaction: df.instance
----@field code string
----@field name string
+---@field code df.string
+---@field name df.string
 ---@field flags reaction_flags[]
 ---@field reagents reaction_reagent[]
 ---@field products reaction_product[]
@@ -30,8 +30,8 @@ df.reaction_flags = {}
 ---@field index integer
 ---@field source_hfid integer References: historical_figure
 ---@field source_enid integer References: historical_entity
----@field raw_strings string[]
----@field category string
+---@field raw_strings df.string[]
+---@field category df.string
 ---@field descriptions reaction_description[]
 ---@field quality_adj1 integer
 ---@field quality_adj2 integer
@@ -44,7 +44,7 @@ df.reaction = {}
 function df.reaction.find(key) end
 
 ---@class reaction_building: df.class
----@field str string[][]
+---@field str df.string[][]
 ---@field type building_type[]
 ---@field subtype df.container
 ---@field custom df.container
@@ -52,17 +52,17 @@ function df.reaction.find(key) end
 df.reaction.T_building = {}
 
 ---@class reaction_category: df.class
----@field id string
----@field parent string
----@field name string
+---@field id df.string
+---@field parent df.string
+---@field name df.string
 ---@field key integer
----@field description string
+---@field description df.string
 df.reaction_category = {}
 
 ---@class reaction_description: df.class
----@field unk_1 string
+---@field unk_1 df.string
 ---@field item_type item_type
----@field unk_2 string
+---@field unk_2 df.string
 df.reaction_description = {}
 
 ---@class _reaction_reagent_type: integer, string, df.enum
@@ -75,7 +75,7 @@ df.reaction_reagent_type = {}
 ---@field item boolean
 
 ---@class reaction_reagent: df.class
----@field code string
+---@field code df.string
 ---@field quantity integer
 ---@field flags reaction_reagent_flags
 df.reaction_reagent = {}
@@ -97,7 +97,7 @@ function df.reaction_reagent.matchesRoot(unk_0, index) end
 ---@return boolean
 function df.reaction_reagent.matchesChild(unk_0, unk_1, index) end
 
----@param unk_0 string
+---@param unk_0 df.string
 ---@param index integer
 function df.reaction_reagent.getDescription(unk_0, index) end
 
@@ -126,8 +126,8 @@ df.reaction_reagent_flags = {}
 ---@field item_subtype integer
 ---@field mat_type integer References: material
 ---@field mat_index integer
----@field reaction_class string
----@field has_material_reaction_product string
+---@field reaction_class df.string
+---@field has_material_reaction_product df.string
 ---@field flags1 job_item_flags1
 ---@field flags2 job_item_flags2
 ---@field flags3 job_item_flags3
@@ -137,10 +137,10 @@ df.reaction_reagent_flags = {}
 ---@field min_dimension integer
 ---@field contains df.container
 ---@field has_tool_use tool_uses
----@field item_str string[]
----@field material_str string[]
----@field metal_ore_str string
----@field contains_str string[]
+---@field item_str df.string[]
+---@field material_str df.string[]
+---@field metal_ore_str df.string
+---@field contains_str df.string[]
 df.reaction_reagent_itemst = {}
 
 ---@class _reaction_product_type: integer, string, df.enum
@@ -157,8 +157,8 @@ df.reaction_product_type = {}
 ---@field improvement boolean
 
 ---@class reaction_product: df.class
----@field product_token string
----@field product_to_container string
+---@field product_token df.string
+---@field product_to_container df.string
 df.reaction_product = {}
 
 ---@return reaction_product_type
@@ -181,7 +181,7 @@ function df.reaction_product.resolveTokens(reactionID) end
 function df.reaction_product.produce(maker, out_products, out_items, in_reag, in_items, quantity, skill, job_quality, entity, site, unk4) end
 
 ---used in Adventurer mode reactions?
----@param desc string
+---@param desc df.string
 function df.reaction_product.getDescription(desc) end
 
 ---@class _reaction_product_item_flags: integer, string, df.enum
@@ -223,13 +223,13 @@ df.reaction_product_item_flags = {}
 ---@field product_dimension integer
 ---@field flags reaction_product_item_flags[]
 ---@field get_material reaction_product_itemst_get_material
----@field item_str string[]
----@field material_str string[]
+---@field item_str df.string[]
+---@field material_str df.string[]
 df.reaction_product_itemst = {}
 
 ---@class reaction_product_itemst_get_material: df.class
----@field reagent_code string
----@field product_code string
+---@field reagent_code df.string
+---@field product_code df.string
 df.reaction_product_itemst.T_get_material = {}
 
 ---@class _reaction_product_improvement_flags: integer, string, df.enum
@@ -250,7 +250,7 @@ df.reaction_product_improvement_flags = {}
 ---@field GLAZED boolean
 
 ---@class reaction_product_item_improvementst: reaction_product
----@field target_reagent string
+---@field target_reagent df.string
 ---@field improvement_type improvement_type
 ---@field improvement_specific_type itemimprovement_specific_type
 ---@field mat_type integer References: material
@@ -258,12 +258,12 @@ df.reaction_product_improvement_flags = {}
 ---@field probability integer
 ---@field flags reaction_product_improvement_flags[]
 ---@field get_material reaction_product_item_improvementst_get_material
----@field material_str string[]
----@field unk_v4201_2 string
+---@field material_str df.string[]
+---@field unk_v4201_2 df.string
 df.reaction_product_item_improvementst = {}
 
 ---@class reaction_product_item_improvementst_get_material: df.class
----@field reagent_code string
----@field product_code string
+---@field reagent_code df.string
+---@field product_code df.string
 df.reaction_product_item_improvementst.T_get_material = {}
 

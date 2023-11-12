@@ -119,7 +119,7 @@ df.extentst = {}
 ---@field parent integer
 ---@field rect extentst
 ---@field custom_feed function
----@field name string
+---@field name df.string
 ---@field visibility_flags widget_visibility_flags
 ---@field offset_bottom integer
 ---@field offset_left integer
@@ -131,10 +131,10 @@ df.extentst = {}
 ---@field anchor_right number
 ---@field min_w integer
 ---@field min_h integer
----@field tooltip string
+---@field tooltip df.string
 ---@field tooltip_type widget_tooltip_type
 ---@field displaying_tooltip boolean
----@field search_string string
+---@field search_string df.string
 df.widget = {}
 
 ---@return extentst
@@ -193,7 +193,7 @@ df.widget.T_tooltip_type = {}
 ---@field BELOW boolean
 
 ---@class widget_text: widget
----@field str string
+---@field str df.string
 ---@field fg integer
 ---@field bg integer
 ---@field bright boolean
@@ -220,7 +220,7 @@ df.widget_custom_render = {}
 df.widget_menu = {}
 
 ---@class widget_textbox: widget
----@field str string
+---@field str df.string
 ---@field toggle widget_button
 ---@field flags integer
 ---@field callback function arguments are textbox*
@@ -253,7 +253,7 @@ df.widget_columns_container = {}
 
 ---@class widget_tabs: widget_container
 ---@field cur_idx integer
----@field tab_labels string[]
+---@field tab_labels df.string[]
 ---@field rows df.container actually std::pair of size_t, size_t
 ---@field tab_type widget_tabs_tab_type
 df.widget_tabs = {}
@@ -303,7 +303,7 @@ df.MacroScreenSave = {}
 
 ---@class world_dat_summary: df.class
 ---@field name language_name
----@field unk_1 string
+---@field unk_1 df.string
 ---@field unk_2 integer[] same as the one at the top of world_data
 ---@field last_id world_dat_summary_last_id when loading, DF sets *_next_id to these fields plus 1
 ---@field unk world_dat_summary_unk
@@ -352,8 +352,8 @@ df.world_dat_summary.T_last_id = {}
 
 
 ---@class world_dat_summary_unk: df.class
----@field unk_3 string
----@field timeline string
+---@field unk_3 df.string
+---@field timeline df.string
 df.world_dat_summary.T_unk = {}
 
 ---@class viewscreen_adopt_regionst: viewscreen
@@ -674,7 +674,7 @@ df.embark_location = {}
 ---@field start_civ_nem_num df.container
 ---@field start_civ_entpop_num df.container
 ---@field start_civ_site_num df.container
----@field reclaim_detail_box string[]
+---@field reclaim_detail_box df.string[]
 ---@field reclaim_detail_he history_event
 ---@field reclaim_detail_she history_event
 ---@field reclaim_detail_box_last_processing_dimx integer
@@ -698,7 +698,7 @@ df.embark_location = {}
 ---@field find_mm_sy integer
 ---@field find_mm_ey integer
 ---@field note_index df.container
----@field text_box string[]
+---@field text_box df.string[]
 ---@field notes_entering_text boolean
 ---@field notes_list_select integer
 ---@field notes_cur_sym integer
@@ -1002,8 +1002,8 @@ df.viewscreen_dwarfmodest.T_unit_labors_sidemenu = {}
 ---@field progress integer 0..40
 ---@field units_progress viewscreen_export_regionst_units_progress
 ---@field compressor file_compressorst
----@field folder_name string
----@field timeline_name string
+---@field folder_name df.string
+---@field timeline_name df.string
 df.viewscreen_export_regionst = {}
 
 ---@class _viewscreen_export_regionst_state: integer, string, df.enum
@@ -1190,10 +1190,10 @@ df.viewscreen_game_cleanerst = {}
 df.viewscreen_initial_prepst = {}
 
 ---@class world_gen_param_basest: df.class
----@field text string
+---@field text df.string
 df.world_gen_param_basest = {}
 
----@param num string
+---@param num df.string
 function df.world_gen_param_basest.get_text(num) end
 
 ---@return boolean
@@ -1217,7 +1217,7 @@ function df.world_gen_param_basest.get_min() end
 ---@return integer
 function df.world_gen_param_basest.get_max() end
 
----@param value_str string
+---@param value_str df.string
 function df.world_gen_param_basest.set_value(value_str) end
 
 function df.world_gen_param_basest.nullify() end
@@ -1229,13 +1229,13 @@ function df.world_gen_param_basest.decrease() end
 function df.world_gen_param_basest.increase() end
 
 ---@class world_gen_param_seedst: world_gen_param_basest
----@field val_ptr string
+---@field val_ptr df.string
 df.world_gen_param_seedst = {}
 
 ---@class world_gen_param_valuest: world_gen_param_basest
----@field null_text string
+---@field null_text df.string
 ---@field can_be_nullified boolean
----@field value_text string[]
+---@field value_text df.string[]
 df.world_gen_param_valuest = {}
 
 ---@class world_gen_param_charst: world_gen_param_valuest
@@ -1269,7 +1269,7 @@ df.world_gen_param_flagst = {}
 df.world_gen_param_flagarrayst = {}
 
 ---@class legend_pagest: df.class
----@field header string
+---@field header df.string
 ---@field mode legend_pagest_mode
 ---@field index integer
 ---@field text_box markup_text_boxst
@@ -1278,7 +1278,7 @@ df.world_gen_param_flagarrayst = {}
 ---@field lptr df.container
 ---@field scroll_position_text integer
 ---@field scrolling_text boolean
----@field filter_str string
+---@field filter_str df.string
 ---@field entering_filter boolean
 df.legend_pagest = {}
 
@@ -1415,51 +1415,51 @@ df.viewscreen_legendsst.T_region_snapshot.T_unk_3 = {}
 ---@class loadgame_save_info: df.class
 ---@field next_ids integer[]
 ---@field game_type game_type only 0 (fort) 1 (adv) 3(reclaim) are valid
----@field fort_name string
----@field world_name string
+---@field fort_name df.string
+---@field world_name df.string
 ---@field year integer
----@field folder_name string
+---@field folder_name df.string
 df.loadgame_save_info = {}
 
 ---@class matgloss_list: df.class
 ---@field unk_0 matgloss_list_unk_0[]
----@field generated_inorganics string[][]
----@field generated_plants string[][]
----@field generated_items string[][]
----@field generated_creatures string[][]
----@field generated_entities string[][]
----@field generated_reactions string[][]
----@field generated_interactions string[][]
----@field generated_languages string[][]
----@field inorganics string[]
----@field plants string[]
----@field bodies string[]
----@field bodyglosses string[]
----@field creatures string[]
----@field items string[]
----@field buildings string[]
----@field entities string[]
----@field words string[]
----@field symbols string[]
----@field translations string[]
----@field colors string[]
----@field shapes string[]
----@field patterns string[]
----@field reactions string[]
----@field material_templates string[]
----@field tissue_templates string[]
----@field body_detail_plans string[]
----@field creature_variations string[]
----@field interactions string[]
----@field text_sets string[]
----@field musics string[]
----@field sounds string[]
----@field mod_ids string[]
+---@field generated_inorganics df.string[][]
+---@field generated_plants df.string[][]
+---@field generated_items df.string[][]
+---@field generated_creatures df.string[][]
+---@field generated_entities df.string[][]
+---@field generated_reactions df.string[][]
+---@field generated_interactions df.string[][]
+---@field generated_languages df.string[][]
+---@field inorganics df.string[]
+---@field plants df.string[]
+---@field bodies df.string[]
+---@field bodyglosses df.string[]
+---@field creatures df.string[]
+---@field items df.string[]
+---@field buildings df.string[]
+---@field entities df.string[]
+---@field words df.string[]
+---@field symbols df.string[]
+---@field translations df.string[]
+---@field colors df.string[]
+---@field shapes df.string[]
+---@field patterns df.string[]
+---@field reactions df.string[]
+---@field material_templates df.string[]
+---@field tissue_templates df.string[]
+---@field body_detail_plans df.string[]
+---@field creature_variations df.string[]
+---@field interactions df.string[]
+---@field text_sets df.string[]
+---@field musics df.string[]
+---@field sounds df.string[]
+---@field mod_ids df.string[]
 ---@field mod_versions df.container
 ---@field mod_compatible_versions df.container
----@field mod_folder_paths string[]
----@field mod_names string[]
----@field mod_display_versions string[]
+---@field mod_folder_paths df.string[]
+---@field mod_names df.string[]
+---@field mod_display_versions df.string[]
 df.matgloss_list = {}
 
 ---@class matgloss_list_unk_0: df.class
@@ -1702,14 +1702,14 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field Finishing boolean
 
 ---@class worldgen_parms: df.class
----@field title string
----@field seed string
----@field history_seed string
----@field name_seed string
----@field creature_seed string
+---@field title df.string
+---@field seed df.string
+---@field history_seed df.string
+---@field name_seed df.string
+---@field creature_seed df.string
 ---@field dim_x integer
 ---@field dim_y integer
----@field custom_name string
+---@field custom_name df.string
 ---@field has_seed boolean
 ---@field has_history_seed boolean
 ---@field has_name_seed boolean
@@ -1829,7 +1829,7 @@ df.worldgen_parms_ps = {}
 ---@field scrolling_params boolean
 ---@field entering_param_name boolean
 ---@field sel_param integer
----@field enter_seed string
+---@field enter_seed df.string
 ---@field editing_seed boolean
 ---@field editing_name boolean
 ---@field editing_title boolean
@@ -1842,7 +1842,7 @@ df.worldgen_parms_ps = {}
 ---@field params_need_save integer
 ---@field entering_value_str boolean
 ---@field entering_value_index integer
----@field value_str string
+---@field value_str df.string
 ---@field member world_gen_param_basest[]
 ---@field last_saved_tc number
 ---@field last_loaded_tc number
@@ -1858,7 +1858,7 @@ df.worldgen_parms_ps = {}
 ---@field abort_world_gen_dialogue integer
 ---@field reject_dialogue integer
 ---@field reject_dialogue_type integer
----@field text_box string[]
+---@field text_box df.string[]
 ---@field mouse_scrolling_map boolean
 ---@field mouse_anchor_mx integer
 ---@field mouse_anchor_my integer
@@ -1872,29 +1872,29 @@ df.worldgen_parms_ps = {}
 ---@field scrolling_available_mods boolean
 ---@field scroll_position_selected_mods integer
 ---@field scrolling_selected_mods boolean
----@field base_available_id string[]
+---@field base_available_id df.string[]
 ---@field base_available_numeric_version df.container
 ---@field base_available_earliest_compat_numeric_version df.container
----@field base_available_src_dir string[]
----@field base_available_name string[]
----@field base_available_displayed_version string[]
+---@field base_available_src_dir df.string[]
+---@field base_available_name df.string[]
+---@field base_available_displayed_version df.string[]
 ---@field base_available_mod_header mod_headerst[]
----@field object_load_order_id string[]
+---@field object_load_order_id df.string[]
 ---@field object_load_order_numeric_version df.container
 ---@field object_load_order_earliest_compat_numeric_version df.container
----@field object_load_order_src_dir string[]
----@field object_load_order_name string[]
----@field object_load_order_displayed_version string[]
+---@field object_load_order_src_dir df.string[]
+---@field object_load_order_name df.string[]
+---@field object_load_order_displayed_version df.string[]
 ---@field object_load_order_mod_header mod_headerst[]
----@field available_id string[]
+---@field available_id df.string[]
 ---@field available_numeric_version df.container
 ---@field available_earliest_compat_numeric_version df.container
----@field available_src_dir string[]
----@field available_name string[]
----@field available_displayed_version string[]
+---@field available_src_dir df.string[]
+---@field available_name df.string[]
+---@field available_displayed_version df.string[]
 ---@field available_mod_header mod_headerst[]
----@field hover_mod_description string[]
----@field last_hover_mod_id string
+---@field hover_mod_description df.string[]
+---@field last_hover_mod_id df.string
 ---@field last_hover_mod_version integer
 ---@field last_hover_width integer
 df.viewscreen_new_regionst = {}
@@ -1909,7 +1909,7 @@ df.viewscreen_new_regionst = {}
 df.nemesis_offload = {}
 
 ---@class viewscreen_savegamest: viewscreen
----@field unk_1 string
+---@field unk_1 df.string
 ---@field cur_step viewscreen_savegamest_cur_step
 ---@field progress integer
 ---@field offload nemesis_offload
@@ -2227,8 +2227,8 @@ df.adv_background_option_type = {}
 ---@field selected_sk integer
 ---@field ip integer
 ---@field entering_name boolean
----@field old_name string
----@field background_text string[]
+---@field old_name df.string
+---@field background_text df.string[]
 ---@field goodsite world_site[]
 ---@field active_column integer
 ---@field background_option df.container
@@ -2240,14 +2240,14 @@ df.adv_background_option_type = {}
 ---@field st_selector integer
 ---@field bo_selector integer
 ---@field rp_selector integer
----@field background_desc string[]
----@field appearance_text string[]
+---@field background_desc df.string[]
+---@field appearance_text df.string[]
 ---@field appearance_offscreen_randomized boolean
 ---@field appearance_was_fully_randomized boolean
 ---@field pers_scroll_y integer
----@field personal_values_text string[]
----@field personality_text string[]
----@field civ_values_text string[]
+---@field personal_values_text df.string[]
+---@field personality_text df.string[]
+---@field civ_values_text df.string[]
 ---@field doing_specific_personality boolean
 ---@field selected_specific_pers_item integer
 ---@field min_pers integer[]
@@ -2261,7 +2261,7 @@ df.adv_background_option_type = {}
 ---@field istype integer
 ---@field imat integer
 ---@field imatg integer
----@field item_desc string[]
+---@field item_desc df.string[]
 ---@field selected_pet_l integer
 ---@field selected_pet_r integer
 ---@field pet_side integer
@@ -2359,7 +2359,7 @@ df.embark_item_choice = {}
 df.embark_item_choice.T_list = {}
 
 ---@class embark_profile: df.class
----@field name string
+---@field name df.string
 ---@field skill_type df.container
 ---@field skill_dwarf_idx df.container
 ---@field skill_level df.container
@@ -2409,7 +2409,7 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@field scrolling_params boolean
 ---@field entering_value_str boolean
 ---@field entering_value_index integer
----@field value_str string
+---@field value_str df.string
 ---@field member world_gen_param_basest[]
 ---@field mode integer
 ---@field selected_u integer
@@ -2431,12 +2431,12 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@field embark_profile embark_profile[]
 ---@field scroll_position_initial_selection integer
 ---@field scrolling_initial_selection boolean
----@field objection string[]
+---@field objection df.string[]
 ---@field viewing_objections integer
 ---@field scroll_position_objections integer
 ---@field scrolling_objections boolean
 ---@field saving_profile integer
----@field profile_name string
+---@field profile_name df.string
 ---@field saving_profile_warning integer
 ---@field etl embark_item_choice
 ---@field s_item item_actual[][]
@@ -2448,7 +2448,7 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@field scrolling_item boolean
 ---@field scrolling_category boolean
 ---@field scrolling_category_item boolean
----@field item_filter string
+---@field item_filter df.string
 ---@field entering_item_filter boolean
 ---@field availpetrace_num df.container
 ---@field chosen_pet_index df.container
@@ -2481,7 +2481,7 @@ df.viewscreen_choose_game_typest = {}
 ---@field game_start_proceed integer
 ---@field menu_line_id viewscreen_titlest_menu_line_id[]
 ---@field gametype df.container
----@field gametype_str string[]
+---@field gametype_str df.string[]
 ---@field region_choice world_dat_summary[]
 ---@field scroll_position_region_choice integer
 ---@field scrolling_region_choice boolean
@@ -2492,12 +2492,12 @@ df.viewscreen_choose_game_typest = {}
 ---@field savegame_header_game loadgame_save_info[]
 ---@field scroll_position_game_choice integer
 ---@field scrolling_game_choice boolean
----@field arena_choice string[]
----@field dungeon_choice string[]
----@field tutorial_choice string[]
----@field str_copyright string
----@field str_version string
----@field src_dir string
+---@field arena_choice df.string[]
+---@field dungeon_choice df.string[]
+---@field tutorial_choice df.string[]
+---@field str_copyright df.string
+---@field str_version df.string
+---@field src_dir df.string
 ---@field stage_count integer
 ---@field game_start_arena boolean
 ---@field load_arena_stage integer
@@ -2509,15 +2509,15 @@ df.viewscreen_choose_game_typest = {}
 ---@field mod mod_headerst[]
 ---@field scroll_position_mods integer
 ---@field scrolling_mods boolean
----@field hover_mod_description string[]
----@field last_hover_mod_id string
+---@field hover_mod_description df.string[]
+---@field last_hover_mod_id df.string
 ---@field last_hover_mod_version integer
 ---@field last_hover_width integer
 ---@field uploading_mods boolean
 ---@field scroll_position_upload_mods integer
 ---@field scrolling_upload_mods boolean
----@field hover_upload_mod_description string[]
----@field last_hover_upload_mod_id string
+---@field hover_upload_mod_description df.string[]
+---@field last_hover_upload_mod_id df.string
 ---@field last_hover_upload_mod_version integer
 ---@field last_hover_upload_width integer
 ---@field deleting_region boolean
@@ -2525,7 +2525,7 @@ df.viewscreen_choose_game_typest = {}
 ---@field deleting_savegame_world boolean
 ---@field deleting_savegame_header integer
 ---@field deleting_region_header integer
----@field credit_line string[]
+---@field credit_line df.string[]
 ---@field credit_line_type df.container
 ---@field scroll_position_about integer
 ---@field scrolling_about boolean
@@ -2637,7 +2637,7 @@ df.world_view_mode_type = {}
 ---@field last_hover_rumor_x integer
 ---@field last_hover_rumor_y integer
 ---@field focused_on_last_hover_rumor boolean
----@field rumor_text string[]
+---@field rumor_text df.string[]
 ---@field scroll_position_rumor integer
 ---@field scrolling_rumor boolean
 ---@field mission_report_index df.container
@@ -2651,7 +2651,7 @@ df.world_view_mode_type = {}
 ---@field mission_path_data_path_index integer
 ---@field mission_heid_data_index integer
 ---@field mission_heid_data_heid_index integer
----@field mission_text_box string[]
+---@field mission_text_box df.string[]
 ---@field mission_text_box_color df.container
 ---@field mission_timer_year integer
 ---@field mission_timer_season_count integer
@@ -2673,7 +2673,7 @@ df.world_view_mode_type = {}
 ---@field scroll_position_artifacts integer
 ---@field scrolling_artifacts boolean
 ---@field last_hover_artifact artifact_record
----@field artifact_description string[]
+---@field artifact_description df.string[]
 ---@field artifact_eac integer entity_artifact_claimst
 ---@field artifact_rpa_holder historical_figure
 ---@field artifact_fac_holder historical_figure
@@ -2699,29 +2699,29 @@ df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 ---@field unk_a4 integer
 ---@field unk_a8 integer
 ---@field unk_ac integer
----@field unk_b0 string[]
+---@field unk_b0 df.string[]
 ---@field unk_c8 df.container
 ---@field unk_e0 df.container
----@field unk_f8 string[]
----@field unk_110 string[]
----@field unk_128 string[]
+---@field unk_f8 df.string[]
+---@field unk_110 df.string[]
+---@field unk_128 df.string[]
 ---@field unk_mods mod_headerst[]
----@field unk_158 string[]
+---@field unk_158 df.string[]
 ---@field unk_170 df.container
 ---@field unk_188 df.container
----@field unk_1a0 string[]
----@field unk_1b8 string[]
----@field unk_1d0 string[]
+---@field unk_1a0 df.string[]
+---@field unk_1b8 df.string[]
+---@field unk_1d0 df.string[]
 ---@field unk_mods2 mod_headerst[]
----@field unk_200 string[]
+---@field unk_200 df.string[]
 ---@field unk_218 df.container
 ---@field unk_230 df.container
----@field unk_248 string[]
----@field unk_260 string[]
+---@field unk_248 df.string[]
+---@field unk_260 df.string[]
 ---@field unk_278 df.container
 ---@field unk_290 df.container
----@field unk_2a8 string[]
----@field unk_2c0 string
+---@field unk_2a8 df.string[]
+---@field unk_2c0 df.string
 ---@field unk_2e0 integer
 ---@field unk_2e4 integer
 df.viewscreen_new_arenast = {}

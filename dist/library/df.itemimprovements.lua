@@ -190,7 +190,7 @@ df.itemimprovement_pagesst = {}
 df.itemimprovement_illustrationst = {}
 
 ---@class itemimprovement_instrument_piecest: itemimprovement
----@field type string instrument_piece.type
+---@field type df.string instrument_piece.type
 df.itemimprovement_instrument_piecest = {}
 
 ---@class itemimprovement_writingst: itemimprovement
@@ -389,7 +389,7 @@ df.written_content_style = {}
 
 ---@class written_content: df.instance
 ---@field id integer
----@field title string
+---@field title df.string
 ---@field page_start integer
 ---@field page_end integer
 ---@field refs general_ref[] interactions learned

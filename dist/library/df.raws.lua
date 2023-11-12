@@ -7,7 +7,7 @@
 ---@field num_caste integer seems equal to length of vectors below
 ---@field list_creature df.container Together with list_caste, a list of all caste indexes in order.
 ---@field list_caste df.container
----@field action_strings string[]
+---@field action_strings df.string[]
 df.creature_handler = {}
 
 ---@param creature_index integer
@@ -60,11 +60,11 @@ df.world_raws.T_plants = {}
 
 
 ---@class world_raws_bodyglosses: df.class
----@field id string
----@field old_singular string
----@field new_singular string
----@field old_plural string
----@field new_plural string
+---@field id df.string
+---@field old_singular df.string
+---@field new_singular df.string
+---@field old_plural df.string
+---@field new_plural df.string
 df.world_raws.T_bodyglosses = {}
 
 

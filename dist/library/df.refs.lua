@@ -351,14 +351,14 @@ function df.general_ref.getLocation(out_x, out_y, out_z) end
 ---@return general_ref
 function df.general_ref.clone(unk_0) end
 
----@param str string
+---@param str df.string
 function df.general_ref.getDescription(str) end
 
----@param str string
+---@param str df.string
 function df.general_ref.getDescription2(str) end
 
 ---for scholar flags
----@param str string
+---@param str df.string
 function df.general_ref.getDescription3(str) end
 
 ---@class general_ref_artifact: general_ref

@@ -553,29 +553,29 @@ df.strain_type = {}
 ---@field COMPRESSIVE boolean
 
 ---@class material_common: df.class
----@field id string
----@field gem_name1 string
----@field gem_name2 string
----@field stone_name string
+---@field id df.string
+---@field gem_name1 df.string
+---@field gem_name2 df.string
+---@field stone_name df.string
 ---@field heat material_common_heat
 ---@field solid_density integer
 ---@field liquid_density integer
 ---@field molar_mass integer
 ---@field state_color integer[]
----@field state_name string[]
----@field state_adj string[]
+---@field state_name df.string[]
+---@field state_adj df.string[]
 ---@field strength material_common_strength
 ---@field material_value integer
 ---@field flags material_flags[]
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype integer
----@field meat_name string[]
+---@field meat_name df.string[]
 ---@field meat_organ integer used for texture selection
----@field block_name string[]
+---@field block_name df.string[]
 ---@field reaction_product material_common_reaction_product
 ---@field hardens_with_water material_common_hardens_with_water
----@field reaction_class string[]
+---@field reaction_class df.string[]
 df.material_common = {}
 
 ---@class material_common_heat: df.class
@@ -599,18 +599,18 @@ df.material_common.T_strength = {}
 
 
 ---@class material_common_reaction_product: df.class
----@field id string[]
+---@field id df.string[]
 ---@field item_type df.container
 ---@field item_subtype df.container
 ---@field material material_vec_ref
----@field str string[][]
+---@field str df.string[][]
 df.material_common.T_reaction_product = {}
 
 
 ---@class material_common_hardens_with_water: df.class
 ---@field mat_type integer References: material
 ---@field mat_index integer
----@field str string[]
+---@field str df.string[]
 df.material_common.T_hardens_with_water = {}
 
 ---@class material: material_common
@@ -624,10 +624,10 @@ df.material_common.T_hardens_with_water = {}
 ---@field syndrome syndrome[]
 ---@field soap_level integer
 ---@field unk_41c df.container
----@field prefix string
+---@field prefix df.string
 ---@field food_mat_index integer[]
----@field powder_dye_str string temporary
----@field state_color_str string[]
+---@field powder_dye_str df.string temporary
+---@field state_color_str df.string[]
 ---@field wood_texpos integer
 ---@field boulder_texpos1 integer
 ---@field boulder_texpos2 integer
@@ -654,8 +654,8 @@ df.material_vec_ref = {}
 ---@field syndrome syndrome[]
 ---@field soap_level integer
 ---@field unk_41c df.container
----@field powder_dye_str string temporary
----@field state_color_str string[]
+---@field powder_dye_str df.string temporary
+---@field state_color_str df.string[]
 df.material_template = {}
 
 ---@class _inorganic_flags: integer, string, df.enum
@@ -854,8 +854,8 @@ df.inclusion_type = {}
 ---@field CLUSTER_ONE boolean
 
 ---@class inorganic_raw: df.instance
----@field id string
----@field str string[]
+---@field id df.string
+---@field str df.string[]
 ---@field flags inorganic_flags[]
 ---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
@@ -874,21 +874,21 @@ df.inorganic_raw = {}
 function df.inorganic_raw.find(key) end
 
 ---@class inorganic_raw_metal_ore: df.class
----@field str string[] only during parsing
+---@field str df.string[] only during parsing
 ---@field mat_index integer[]
 ---@field probability df.container
 df.inorganic_raw.T_metal_ore = {}
 
 
 ---@class inorganic_raw_thread_metal: df.class
----@field str string[] only during parsing
+---@field str df.string[] only during parsing
 ---@field mat_index integer[]
 ---@field probability df.container
 df.inorganic_raw.T_thread_metal = {}
 
 
 ---@class inorganic_raw_environment_spec: df.class
----@field str string[] only during parsing
+---@field str df.string[] only during parsing
 ---@field mat_index integer[]
 ---@field inclusion_type inclusion_type[]
 ---@field probability df.container

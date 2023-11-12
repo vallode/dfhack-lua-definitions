@@ -1604,7 +1604,7 @@ df.pronoun_type.attrs = {}
 ---<br> E.g. for a dead miner, holds the place where he<br> was likely hanging around when he got the command<br> to mine in an aquifer.<br>
 ---@class unit: df.instance
 ---@field name language_name
----@field custom_profession string
+---@field custom_profession df.string
 ---@field profession profession
 ---@field profession2 profession
 ---@field race integer References: creature_raw
@@ -1697,7 +1697,7 @@ df.pronoun_type.attrs = {}
 ---@field inactive_burrows df.container References: burrow
 ---@field vision_cone integer[][]
 ---@field occupations occupation[]
----@field adjective string from physical descriptions for use in adv
+---@field adjective df.string from physical descriptions for use in adv
 ---@field texpos integer[][]
 ---@field sheet_icon_texpos integer
 ---@field texpos_currently_in_use boolean[][]
@@ -1901,9 +1901,9 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field add_tags2 cie_add_tag_mask2
 ---@field rem_tags2 cie_add_tag_mask2
 ---@field name_visible boolean
----@field name string
----@field name_plural string
----@field name_adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field name_adjective df.string
 ---@field sym_and_color1 integer
 ---@field sym_and_color2 integer
 ---@field flash_period integer
@@ -2086,7 +2086,7 @@ df.unit.T_enemy = {}
 ---@field unk_5 integer
 ---@field unk_6 integer
 ---@field root_body_part_id integer ID of the root body part in the corpse or corpse piece from which the reanimated unit was produced
----@field undead_name string display name of reanimated creatures
+---@field undead_name df.string display name of reanimated creatures
 ---@field unk_v43_1 integer
 ---@field unk_v43_2 integer
 df.unit.T_enemy.T_undead = {}
@@ -2795,9 +2795,9 @@ df.curse_attr_change = {}
 ---@field add_tags2 cie_add_tag_mask2
 ---@field rem_tags2 cie_add_tag_mask2
 ---@field name_visible boolean
----@field name string
----@field name_plural string
----@field name_adjective string
+---@field name df.string
+---@field name_plural df.string
+---@field name_adjective df.string
 ---@field sym_and_color1 integer
 ---@field sym_and_color2 integer
 ---@field flash_period integer
@@ -4175,7 +4175,7 @@ df.work_detail_mode = {}
 ---@field OnlySelectedDoesThis boolean
 
 ---@class work_detail: df.class
----@field name string
+---@field name df.string
 ---@field work_detail_flags work_detail_work_detail_flags
 ---@field assigned_units df.container References: unit<br>toady: unid
 ---@field allowed_labors boolean[] toady: profession

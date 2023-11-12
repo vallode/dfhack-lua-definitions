@@ -1496,7 +1496,7 @@ df.appearance_modifier_growth_interval = {}
 ---@field YEARLY boolean
 
 ---@class body_part_layer_raw: df.class
----@field layer_name string
+---@field layer_name df.string
 ---@field tissue_id integer
 ---@field flags body_part_layer_flags[]
 ---@field part_fraction integer total 1000
@@ -1516,8 +1516,8 @@ df.appearance_modifier_growth_interval = {}
 df.body_part_layer_raw = {}
 
 ---@class body_part_raw: df.class
----@field token string
----@field category string
+---@field token df.string
+---@field category df.string
 ---@field con_part_id integer
 ---@field flags body_part_raw_flags[]
 ---@field layers body_part_layer_raw[]
@@ -1528,8 +1528,8 @@ df.body_part_layer_raw = {}
 ---@field relsize integer
 ---@field number integer
 ---@field unk7b integer
----@field name_singular string[]
----@field name_plural string[]
+---@field name_singular df.string[]
+---@field name_plural df.string[]
 ---@field bp_relation_part_id df.container
 ---@field bp_relation_code df.container
 ---@field bp_relation_coverage df.container
@@ -1552,13 +1552,13 @@ df.body_part_raw = {}
 ---@field start_date integer
 ---@field end_date integer
 ---@field unk6 integer
----@field part string
+---@field part df.string
 ---@field unk_6c integer
 ---@field unk_6e integer
 ---@field unk_70 integer
 ---@field id integer
----@field unk_78 string[]
----@field unk_88 string[]
+---@field unk_78 df.string[]
+---@field unk_88 df.string[]
 df.color_modifier_raw = {}
 
 ---@class body_appearance_modifier: df.class
@@ -1572,7 +1572,7 @@ df.color_modifier_raw = {}
 ---@field growth_start integer in days
 ---@field growth_end integer
 ---@field importance integer
----@field noun string
+---@field noun df.string
 ---@field unk_1 integer
 ---@field unk_2 integer
 ---@field id integer
@@ -1590,7 +1590,7 @@ df.body_appearance_modifier = {}
 ---@field growth_start integer in days
 ---@field growth_end integer
 ---@field importance integer
----@field noun string
+---@field noun df.string
 ---@field single_plural integer
 ---@field unk1 integer
 ---@field id1 integer
@@ -1610,15 +1610,15 @@ df.bp_appearance_modifier = {}
 df.caste_clothing_item = {}
 
 ---@class caste_attack: df.class
----@field name string
----@field verb_3rd string
----@field verb_2nd string
+---@field name df.string
+---@field verb_3rd df.string
+---@field verb_2nd df.string
 ---@field flags caste_attack_flags
 ---@field specialattack_type df.container 0 = inject extract, 1 = suck blood, 2 = perform interaction
 ---@field specialattack_mat_type df.container extract injected
 ---@field specialattack_mat_index df.container
 ---@field specialattack_mat_state df.container
----@field specialattack_temp_mat string[][] parsed during second pass
+---@field specialattack_temp_mat df.string[][] parsed during second pass
 ---@field specialattack_min df.container amount of extract injected or blood sucked
 ---@field specialattack_max df.container
 ---@field contact_perc integer
@@ -1629,7 +1629,7 @@ df.caste_clothing_item = {}
 ---@field tissue_layer_idx df.container
 ---@field skill job_skill
 ---@field velocity_modifier integer
----@field specialattack_interaction_tmp_name string[] parsed during second pass
+---@field specialattack_interaction_tmp_name df.string[] parsed during second pass
 ---@field specialattack_interaction_id df.container
 ---@field unk_v40_3 integer
 ---@field unk_v40_4 integer
@@ -1743,34 +1743,34 @@ df.creature_interaction_target_flags = {}
 ---@field SELF_ONLY boolean
 
 ---@class creature_interaction: df.class
----@field bp_required_type string[]
----@field bp_required_name string[]
----@field unk_1 string
----@field unk_2 string
----@field material_str0 string
----@field material_str1 string
----@field material_str2 string
+---@field bp_required_type df.string[]
+---@field bp_required_name df.string[]
+---@field unk_1 df.string
+---@field unk_2 df.string
+---@field material_str0 df.string
+---@field material_str1 df.string
+---@field material_str2 df.string
 ---@field material_breath breath_attack_type
----@field verb_2nd string
----@field verb_3rd string
----@field verb_mutual string
----@field verb_reverse_2nd string for RETRACT_INTO_BP, e.g. "unroll"
----@field verb_reverse_3rd string
----@field target_verb_2nd string
----@field target_verb_3rd string
----@field interaction_type string
+---@field verb_2nd df.string
+---@field verb_3rd df.string
+---@field verb_mutual df.string
+---@field verb_reverse_2nd df.string for RETRACT_INTO_BP, e.g. "unroll"
+---@field verb_reverse_3rd df.string
+---@field target_verb_2nd df.string
+---@field target_verb_3rd df.string
+---@field interaction_type df.string
 ---@field type_id integer References: interaction
 ---@field usage_hint df.container
 ---@field location_hint df.container
 ---@field flags creature_interaction_flags
----@field unk_3 string[]
+---@field unk_3 df.string[]
 ---@field target_flags df.container
 ---@field target_ranges df.container
----@field unk_4 string[]
+---@field unk_4 df.string[]
 ---@field max_target_numbers df.container
 ---@field verbal_speeches df.container
 ---@field unk_5 df.container
----@field adv_name string
+---@field adv_name df.string
 ---@field wait_period integer
 df.creature_interaction = {}
 
@@ -1837,13 +1837,13 @@ df.caste_body_info.T_interactions.T_type = {}
 
 ---@class caste_body_info_extra_butcher_objects: df.class
 ---@field unk_1 integer
----@field unk_2 string
+---@field unk_2 df.string
 ---@field unk_3 integer
----@field unk_4 string
----@field unk_5 string
----@field unk_6 string
----@field unk_7 string
----@field unk_8 string
+---@field unk_4 df.string
+---@field unk_5 df.string
+---@field unk_6 df.string
+---@field unk_7 df.string
+---@field unk_8 df.string
 ---@field unk_9 integer
 ---@field unk_10 integer
 ---@field unk_11 integer
@@ -1871,16 +1871,16 @@ df.caste_body_info.T_flags = {}
 
 ---fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
 ---@class caste_raw: df.class
----@field caste_id string
----@field caste_name string[]
----@field vermin_bite_txt string
----@field gnawer_txt string
----@field baby_name string[]
----@field child_name string[]
----@field itemcorpse_str string[]
----@field remains string[]
----@field description string
----@field mannerisms string[] fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
+---@field caste_id df.string
+---@field caste_name df.string[]
+---@field vermin_bite_txt df.string
+---@field gnawer_txt df.string
+---@field baby_name df.string[]
+---@field child_name df.string[]
+---@field itemcorpse_str df.string[]
+---@field remains df.string[]
+---@field description df.string
+---@field mannerisms df.string[] fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
 ---@field caste_tile integer
 ---@field caste_soldier_tile integer
 ---@field caste_alttile integer
@@ -1920,7 +1920,7 @@ df.caste_body_info.T_flags = {}
 ---@field caste_profession_name caste_raw_caste_profession_name
 ---@field extracts caste_raw_extracts
 ---@field secretion caste_raw_secretion[]
----@field creature_class string[]
+---@field creature_class df.string[]
 ---@field unknown2 caste_raw_unknown2
 ---@field habit_num integer[]
 ---@field habit_1 df.container
@@ -1938,9 +1938,9 @@ df.caste_body_info.T_flags = {}
 ---@field unk_1 caste_raw_unk_1[]
 ---@field smell_trigger integer
 ---@field odor_level integer
----@field odor_string string
+---@field odor_string df.string
 ---@field low_light_vision integer
----@field sense_creature_class_1 string[]
+---@field sense_creature_class_1 df.string[]
 ---@field sense_creature_class_2 df.container
 ---@field sense_creature_class_3 df.container
 ---@field sense_creature_class_4 df.container
@@ -2035,49 +2035,49 @@ df.caste_raw.T_shearable_tissue_layer = {}
 
 
 ---@class caste_raw_caste_profession_name: df.class
----@field singular string[]
----@field plural string[]
+---@field singular df.string[]
+---@field plural df.string[]
 df.caste_raw.T_caste_profession_name = {}
 
 
 ---@class caste_raw_extracts: df.class
 ---@field extract_mat df.container
 ---@field extract_matidx df.container
----@field extract_str string[][]
+---@field extract_str df.string[][]
 ---@field milkable_mat integer
 ---@field milkable_matidx integer
----@field milkable_str string[]
+---@field milkable_str df.string[]
 ---@field webber_mat integer
 ---@field webber_matidx integer
----@field webber_str string[]
+---@field webber_str df.string[]
 ---@field vermin_bite_mat integer
 ---@field vermin_bite_matidx integer
 ---@field vermin_bite_chance integer
----@field vermin_bite_str string[]
+---@field vermin_bite_str df.string[]
 ---@field tendons_mat integer
 ---@field tendons_matidx integer
----@field tendons_str string[]
+---@field tendons_str df.string[]
 ---@field tendons_heal integer
 ---@field ligaments_mat integer
 ---@field ligaments_matidx integer
----@field ligaments_str string[]
+---@field ligaments_str df.string[]
 ---@field ligaments_heal integer
 ---@field blood_state integer
 ---@field blood_mat integer
 ---@field blood_matidx integer
----@field blood_str string[]
+---@field blood_str df.string[]
 ---@field pus_state integer
 ---@field pus_mat integer
 ---@field pus_matidx integer
----@field pus_str string[]
+---@field pus_str df.string[]
 ---@field egg_material_mattype df.container
 ---@field egg_material_matindex df.container
----@field egg_material_str string[][]
+---@field egg_material_str df.string[][]
 ---@field lays_unusual_eggs_itemtype item_type[]
 ---@field lays_unusual_eggs_itemsubtype df.container
 ---@field lays_unusual_eggs_mattype df.container
 ---@field lays_unusual_eggs_matindex df.container
----@field lays_unusual_eggs_str string[][]
+---@field lays_unusual_eggs_str df.string[][]
 df.caste_raw.T_extracts = {}
 
 
@@ -2085,9 +2085,9 @@ df.caste_raw.T_extracts = {}
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field mat_state matter_state
----@field mat_type_str string
----@field mat_index_str string
----@field unk_44 string
+---@field mat_type_str df.string
+---@field mat_index_str df.string
+---@field unk_44 df.string
 ---@field body_part_id df.container
 ---@field layer_id df.container
 ---@field cause integer 2 EXERTION, 1 EXTREME_EMOTION, 0 always?
@@ -2095,11 +2095,11 @@ df.caste_raw.T_secretion = {}
 
 
 ---@class caste_raw_unknown2: df.class
----@field syndrome_dilution_identifier string[] SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_identifier df.string[] SYNDROME_DILUTION_FACTOR
 ---@field syndrome_dilution_factor df.container SYNDROME_DILUTION_FACTOR
----@field gobble_vermin_class string[]
----@field gobble_vermin_creature_1 string[]
----@field gobble_vermin_creature_2 string[]
+---@field gobble_vermin_class df.string[]
+---@field gobble_vermin_creature_1 df.string[]
+---@field gobble_vermin_creature_2 df.string[]
 ---@field infect_all df.container References: syndrome<br>for spatter applied to all bp
 ---@field infect_local df.container References: syndrome<br>for spatter applied to one bp
 ---@field unk23f df.container
@@ -2139,14 +2139,14 @@ df.caste_raw.T_unk29 = {}
 ---@field unk_2 integer
 ---@field unk_3 integer
 ---@field unk_4 integer
----@field caption string[]
+---@field caption df.string[]
 df.caste_raw.T_sound = {}
 
 
 ---@class caste_raw_unk_1: df.class
----@field unk_1 string
----@field unk_2 string
----@field unk_3 string
+---@field unk_1 df.string
+---@field unk_2 df.string
+---@field unk_3 df.string
 ---@field unk_4 integer
 ---@field unk_5 integer
 ---@field unk_6 integer
@@ -2230,22 +2230,22 @@ df.tissue_style_type = {}
 df.creature_raw_graphics = {}
 
 ---@class tissue_style_raw: df.class
----@field token string
+---@field token df.string
 ---@field part_idx df.container
 ---@field layer_idx df.container
 ---@field styles df.container
 ---@field list_idx df.container
 ---@field id integer
----@field noun string
+---@field noun df.string
 ---@field word_type part_of_speech 0 singular, 1 plural
 df.tissue_style_raw = {}
 
 ---@class creature_raw: df.instance
----@field creature_id string
----@field name string[]
----@field general_baby_name string[]
----@field general_child_name string[]
----@field unk_v43_1 string
+---@field creature_id df.string
+---@field name df.string[]
+---@field general_baby_name df.string[]
+---@field general_child_name df.string[]
+---@field unk_v43_1 df.string
 ---@field creature_tile integer
 ---@field creature_soldier_tile integer
 ---@field alttile integer
@@ -2260,7 +2260,7 @@ df.tissue_style_raw = {}
 ---@field color integer[]
 ---@field glowcolor integer[]
 ---@field adultsize integer
----@field prefstring string[]
+---@field prefstring df.string[]
 ---@field sphere df.container
 ---@field caste caste_raw[]
 ---@field pop_ratio df.container
@@ -2279,7 +2279,7 @@ df.tissue_style_raw = {}
 ---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
 ---@field next_modifier_id integer
----@field raws string[]
+---@field raws df.string[]
 ---@field statute_texpos integer[]
 df.creature_raw = {}
 
@@ -2288,8 +2288,8 @@ df.creature_raw = {}
 function df.creature_raw.find(key) end
 
 ---@class creature_raw_profession_name: df.class
----@field singular string[]
----@field plural string[]
+---@field singular df.string[]
+---@field plural df.string[]
 df.creature_raw.T_profession_name = {}
 
 
@@ -2299,30 +2299,30 @@ df.creature_raw.T_profession_name = {}
 ---@field item_type item_type[]
 ---@field item_subtype df.container
 ---@field material material_vec_ref
----@field tmpstr1 string[]
----@field tmpstr2 string[]
----@field tmpstr3 string[]
----@field tmpstr4 string[]
----@field tmpstr5 string[]
+---@field tmpstr1 df.string[]
+---@field tmpstr2 df.string[]
+---@field tmpstr3 df.string[]
+---@field tmpstr4 df.string[]
+---@field tmpstr5 df.string[]
 df.creature_raw.T_hive_product = {}
 
 ---@class creature_variation_convert_tag: df.class
----@field cvct_master string
----@field cvct_target string
----@field cvct_replacement string
+---@field cvct_master df.string
+---@field cvct_target df.string
+---@field cvct_replacement df.string
 ---@field unk_v40_1 integer
----@field unk_v40_2 string
+---@field unk_v40_2 df.string
 df.creature_variation_convert_tag = {}
 
 ---@class creature_variation: df.instance
----@field id string
+---@field id df.string
 ---@field cv_convert_tag creature_variation_convert_tag[]
----@field cv_new_tag string[]
+---@field cv_new_tag df.string[]
 ---@field cv_new_unk_v40_1 df.container
----@field cv_new_unk_v40_2 string[]
----@field cv_remove_tag string[]
+---@field cv_new_unk_v40_2 df.string[]
+---@field cv_remove_tag df.string[]
 ---@field cv_remove_unk_v40_1 df.container
----@field cv_remove_unk_v40_2 string[]
+---@field cv_remove_unk_v40_2 df.string[]
 df.creature_variation = {}
 
 ---@param key integer
@@ -2488,20 +2488,20 @@ df.body_part_template_contype = {}
 ---@field STANCE boolean
 
 ---@class body_part_template: df.class
----@field id string
----@field con string
----@field category string
----@field con_cat string
+---@field id df.string
+---@field con df.string
+---@field category df.string
+---@field con_cat df.string
 ---@field contype body_part_template_contype
 ---@field flags body_part_template_flags[]
 ---@field default_relsize integer
 ---@field number integer
----@field name_singular string[] first comes from BP, rest come from INDIVIDUAL_NAME
----@field name_plural string[]
+---@field name_singular df.string[] first comes from BP, rest come from INDIVIDUAL_NAME
+---@field name_plural df.string[]
 df.body_part_template = {}
 
 ---@class body_template: df.instance
----@field id string
+---@field id df.string
 ---@field parts body_part_template[]
 df.body_template = {}
 
@@ -2603,11 +2603,11 @@ df.tissue_flags = {}
 ---@field SPLINTABLE boolean
 
 ---@class tissue_template: df.instance
----@field id string
+---@field id df.string
 ---@field flags tissue_flags[]
----@field tissue_name_singular string
----@field tissue_name_plural string
----@field tissue_material_str string[]
+---@field tissue_name_singular df.string
+---@field tissue_name_plural df.string
+---@field tissue_material_str df.string[]
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field relative_thickness integer
@@ -2617,9 +2617,9 @@ df.tissue_flags = {}
 ---@field tissue_shape integer
 ---@field unk1 integer
 ---@field insulation integer
----@field subordinate_to_tissue string
+---@field subordinate_to_tissue df.string
 ---@field tissue_mat_state matter_state
----@field tissue_shape_str string
+---@field tissue_shape_str df.string
 df.tissue_template = {}
 
 ---@param key integer
@@ -2627,11 +2627,11 @@ df.tissue_template = {}
 function df.tissue_template.find(key) end
 
 ---@class tissue: df.class
----@field id string
+---@field id df.string
 ---@field flags tissue_flags[]
----@field tissue_name_singular string
----@field tissue_name_plural string
----@field tissue_material_str string[]
+---@field tissue_name_singular df.string
+---@field tissue_name_plural df.string
+---@field tissue_material_str df.string[]
 ---@field mat_type integer References: material
 ---@field mat_index integer
 ---@field relative_thickness integer
@@ -2641,7 +2641,7 @@ function df.tissue_template.find(key) end
 ---@field tissue_shape integer
 ---@field unk1 integer
 ---@field insulation integer
----@field subordinate_to_tissue string
+---@field subordinate_to_tissue df.string
 ---@field parent_tissue integer
 ---@field tissue_mat_state matter_state
 ---@field heatdam_point integer
@@ -2650,35 +2650,35 @@ function df.tissue_template.find(key) end
 ---@field melting_point integer
 ---@field boiling_point integer
 ---@field spec_heat integer
----@field tissue_shape_str string
+---@field tissue_shape_str df.string
 df.tissue = {}
 
 ---@class body_detail_plan: df.instance
----@field id string
----@field add_material_name string[]
----@field add_material_template string[]
----@field add_tissue_name string[]
----@field add_tissue_template string[]
+---@field id df.string
+---@field add_material_name df.string[]
+---@field add_material_template df.string[]
+---@field add_tissue_name df.string[]
+---@field add_tissue_template df.string[]
 ---@field unk5c df.container
----@field unk6c string[]
----@field unk7c string[]
+---@field unk6c df.string[]
+---@field unk7c df.string[]
 ---@field bp_layers_selection df.container
 ---@field bp_layers_criteria df.container
 ---@field bp_layers_tissue df.container
----@field bp_layers_thickness string[]
+---@field bp_layers_thickness df.string[]
 ---@field bp_layers_position df.container
 ---@field bp_layers_over_under df.container
 ---@field bp_relsize_selection df.container
----@field bp_relsize_criteria string[]
+---@field bp_relsize_criteria df.string[]
 ---@field bp_relsize_value df.container
 ---@field bp_position_selection df.container
----@field bp_position_criteria string[]
+---@field bp_position_criteria df.string[]
 ---@field bp_position_value df.container
 ---@field bp_relation_selection_1 df.container
----@field bp_relation_criteria_1 string[]
+---@field bp_relation_criteria_1 df.string[]
 ---@field bp_relation_value_1 df.container
 ---@field bp_relation_selection_2 df.container
----@field bp_relation_criteria_2 string[]
+---@field bp_relation_criteria_2 df.string[]
 ---@field bp_relation_extent df.container
 df.body_detail_plan = {}
 

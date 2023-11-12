@@ -359,17 +359,17 @@ df.plant_raw_flags = {}
 ---@field TWIGS_BELOW_TRUNK boolean
 
 ---@class plant_raw: df.instance
----@field id string
+---@field id df.string
 ---@field index integer
----@field raws string[]
+---@field raws df.string[]
 ---@field flags plant_raw_flags[]
----@field name string
----@field name_plural string
----@field adj string
----@field seed_singular string
----@field seed_plural string
----@field leaves_singular string unused
----@field leaves_plural string unused
+---@field name df.string
+---@field name_plural df.string
+---@field adj df.string
+---@field seed_singular df.string
+---@field seed_plural df.string
+---@field leaves_singular df.string unused
+---@field leaves_plural df.string unused
 ---@field source_hfid integer References: historical_figure
 ---@field unk_v4201_1 integer
 ---@field unk1 integer
@@ -384,18 +384,18 @@ df.plant_raw_flags = {}
 ---@field sapling_drown_level integer
 ---@field frequency integer
 ---@field clustersize integer
----@field prefstring string[]
+---@field prefstring df.string[]
 ---@field material material[]
 ---@field material_defs plant_raw_material_defs
 ---@field underground_depth_min integer
 ---@field underground_depth_max integer
 ---@field growths plant_growth[]
----@field root_name string
----@field trunk_name string
----@field heavy_branch_name string
----@field light_branch_name string
----@field twig_name string
----@field cap_name string
+---@field root_name df.string
+---@field trunk_name df.string
+---@field heavy_branch_name df.string
+---@field light_branch_name df.string
+---@field twig_name df.string
+---@field cap_name df.string
 ---@field trunk_period integer
 ---@field heavy_branch_density integer
 ---@field light_branch_density integer
@@ -452,7 +452,7 @@ df.plant_raw.T_colors = {}
 ---@class plant_raw_material_defs: df.class
 ---@field type integer[]
 ---@field idx integer[]
----@field str string[][]
+---@field str df.string[][]
 df.plant_raw.T_material_defs = {}
 
 
@@ -503,10 +503,10 @@ df.plant_material_def = {}
 ---@field extract_still_vial boolean
 
 ---@class plant_growth: df.class
----@field id string
----@field name string
----@field name_plural string
----@field str_growth_item string[]
+---@field id df.string
+---@field name df.string
+---@field name_plural df.string
+---@field str_growth_item df.string[]
 ---@field item_type item_type
 ---@field item_subtype integer
 ---@field mat_type integer References: material

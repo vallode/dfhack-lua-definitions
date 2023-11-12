@@ -706,7 +706,7 @@ df.zoom_commands = {}
 ---@field async_fromcomplete integer
 ---@field renderer_threadid number
 ---@field must_do_render_things_before_display boolean
----@field command_line string
+---@field command_line df.string
 ---@field flag enabler_flag
 ---@field mouse_lbut integer
 ---@field mouse_rbut integer
@@ -727,7 +727,7 @@ df.zoom_commands = {}
 df.enabler = {}
 
 ---@param unk_0 interface_key
----@return string
+---@return df.string
 function df.enabler.GetKeyDisplay(unk_0) end
 
 ---@class _enabler_fullscreen_state: integer, string, df.bitfield
@@ -813,9 +813,9 @@ df.justification = {}
 ---@field not_truetype boolean
 
 ---@class tile_pagest: df.class
----@field token string
----@field graphics_dir string
----@field filename string
+---@field token df.string
+---@field graphics_dir df.string
+---@field filename df.string
 ---@field tile_dim_x integer
 ---@field tile_dim_y integer
 ---@field page_dim_x integer
@@ -828,11 +828,11 @@ df.justification = {}
 df.tile_pagest = {}
 
 ---@class palette_pagest: df.class
----@field token string
----@field graphics_dir string
----@field filename string
+---@field token df.string
+---@field graphics_dir df.string
+---@field filename df.string
 ---@field default_row integer
----@field color_token string[]
+---@field color_token df.string[]
 ---@field color_row df.container
 df.palette_pagest = {}
 

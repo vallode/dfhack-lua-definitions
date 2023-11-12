@@ -670,12 +670,12 @@ df.sphere_type = {}
 ---@field YOUTH boolean
 
 ---@class language_word: df.instance
----@field word string
----@field forms string[]
+---@field word df.string
+---@field forms df.string[]
 ---@field adj_dist integer
 ---@field pad_1 integer looks like garbage
 ---@field flags language_word_flags
----@field str string[]
+---@field str df.string[]
 df.language_word = {}
 
 ---@param key integer
@@ -683,12 +683,12 @@ df.language_word = {}
 function df.language_word.find(key) end
 
 ---@class language_translation: df.instance
----@field name string
----@field unknown1 string[] looks like english words
----@field unknown2 string[] looks like translated words
----@field words string[]
+---@field name df.string
+---@field unknown1 df.string[] looks like english words
+---@field unknown2 df.string[] looks like translated words
+---@field words df.string[]
 ---@field flags integer 1 = generated
----@field str string[]
+---@field str df.string[]
 df.language_translation = {}
 
 ---@param key integer
@@ -696,11 +696,11 @@ df.language_translation = {}
 function df.language_translation.find(key) end
 
 ---@class language_symbol: df.instance
----@field name string
+---@field name df.string
 ---@field unknown df.container empty
 ---@field words integer[]
 ---@field flags integer
----@field str string[]
+---@field str df.string[]
 df.language_symbol = {}
 
 ---@param key integer
@@ -708,8 +708,8 @@ df.language_symbol = {}
 function df.language_symbol.find(key) end
 
 ---@class language_name: df.class
----@field first_name string
----@field nickname string
+---@field first_name df.string
+---@field nickname df.string
 ---@field words integer[]
 ---@field parts_of_speech part_of_speech[]
 ---@field language integer References: language_translation
