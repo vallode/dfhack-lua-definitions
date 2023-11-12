@@ -561,11 +561,12 @@ function dfhack.units.getNoblePositions(unit) end
 ---@return string
 function dfhack.units.getProfessionName(unit, ignore_noble, plural) end
 
----@param race race
----@param caste caste
+---@param race integer References: creature_raw
+---@param caste integer References: caste_raw
 ---@param prof_id profession
 ---@param plural boolean
 ---@return string
+---@nodiscard
 function dfhack.units.getCasteProfessionName(race, caste, prof_id, plural) end
 
 ---@param unit unit
@@ -573,10 +574,11 @@ function dfhack.units.getCasteProfessionName(race, caste, prof_id, plural) end
 ---@return integer
 function dfhack.units.getProfessionColor(unit, ignore_noble) end
 
----@param race race
----@param caste caste
+---@param race integer References: creature_raw
+---@param caste integer References: caste_raw
 ---@param prof_id profession
 ---@return integer
+---@nodiscard
 function dfhack.units.getCasteProfessionColor(race, caste, prof_id) end
 
 ---@param unit unit
