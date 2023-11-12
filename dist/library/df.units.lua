@@ -1609,7 +1609,7 @@ df.pronoun_type.attrs = {}
 ---@field profession2 profession
 ---@field race integer References: creature_raw
 ---@field pos coord
----@field idle_area coord <br> E.g. for a dead miner, holds the place where he<br> was likely hanging around when he got the command<br> to mine in an aquifer.<br>
+---@field idle_area coord
 ---@field idle_area_threshold integer
 ---@field idle_area_type unit_station_type
 ---@field follow_distance integer

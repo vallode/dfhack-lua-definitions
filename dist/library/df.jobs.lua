@@ -63,7 +63,6 @@ df.job_material_category = {}
 ---@field strand boolean
 
 ---@class _dfhack_material_category: integer, string, df.bitfield
----<br> An extended version of job_material_category,<br> for use in some plugins, like workflow.<br>
 ---@field plant 0
 ---@field [0] "plant"
 ---@field wood 1

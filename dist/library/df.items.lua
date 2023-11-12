@@ -395,7 +395,6 @@ df.slab_engraving_type = {}
 ---@field [27] boolean
 ---@field TavernSign boolean
 
----In item_foodst, requires MEAT or FISH ingredient.
 ---@class item: df.instance
 ---@field pos coord
 ---@field flags item_flags
@@ -753,12 +752,10 @@ function df.item.isEdiblePlant() end
 ---@return boolean
 function df.item.isEdibleRaw(hunger) end
 
----In item_foodst, requires MEAT or FISH ingredient.
 ---@param hunger integer
 ---@return boolean
 function df.item.isEdibleCarnivore(hunger) end
 
----In item_foodst, requires CORPSEPIECE, MEAT or FISH ingredient.
 ---@param hunger integer
 ---@return boolean
 function df.item.isEdibleBonecarn(hunger) end

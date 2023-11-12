@@ -1,7 +1,6 @@
 ---THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
 ---@meta df.ui-menus
 
----<br> When creating a building, one record per required item type.<br> E.g. Soap Maker's workshop requires a bucket and a building material.<br>
 ---@class ui_build_item_req: df.class
 ---@field filter job_item_filter
 ---@field candidates item[]
@@ -26,7 +25,6 @@ df.build_req_choice_type = {}
 ---@field [1] boolean
 ---@field Specific boolean
 
----One choice in the build item selector.
 ---@class build_req_choicest: df.class
 ---@field distance integer
 df.build_req_choicest = {}

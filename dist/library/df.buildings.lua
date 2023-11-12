@@ -2172,7 +2172,6 @@ df.building_window_glassst = {}
 df.building_window_gemst = {}
 
 ---@class _dfhack_room_quality_level: integer, string, df.enum
----<br> Not in DF<br><br> Royal Throne Room | Royal Bedroom | Royal Dining Room | Royal Mausoleum<br> Opulent Throne Room | Grand Bedroom | Grand Dining Room | Grand Mausoleum<br> Throne Room | Great Bedroom | Great Dining Room | Mausoleum<br> Splendid Office | Fine Quarters | Fine Dining Room | Fine Tomb<br> Decent Office | Decent Quarters | Decent Dining Room | Tomb<br> Office | Quarters | Dining Room | Burial Chamber<br> Modest Office | Modest Quarters | Modest Dining Room | Servant's Burial Chamber<br> Meager Office | Meager Quarters | Meager Dining Room | Grave<br>
 ---@field Meager 0
 ---@field [0] "Meager"
 ---@field Modest 1

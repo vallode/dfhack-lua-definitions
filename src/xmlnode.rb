@@ -52,7 +52,7 @@ class XmlNode
   end
 
   def comment
-    if (comment = node.at_css('comment'))
+    if (comment = node.children.at_xpath('./comment'))
       comment.text.gsub(/\n/, '<br>').strip.gsub(/\s+/, ' ')
     else
       @node['comment']

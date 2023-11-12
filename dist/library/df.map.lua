@@ -487,10 +487,10 @@ df.block_burrow = {}
 ---@field designation tile_designation[][]
 ---@field occupancy tile_occupancy[][]
 ---@field fog_of_war integer[][] for adventure mode
----@field path_cost map_block_path_cost flood; 256*cost for straight, 362*cost for diagonal
----@field path_tag map_block_path_tag flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
----@field walkable map_block_walkable 0 = non-walkable; same nonzero at A and B = walkable from A to B
----@field map_edge_distance map_block_map_edge_distance 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@field path_cost map_block_path_cost
+---@field path_tag map_block_path_tag
+---@field walkable map_block_walkable
+---@field map_edge_distance map_block_map_edge_distance
 ---@field temperature_1 integer[][]
 ---@field temperature_2 integer[][]
 ---@field unk13 integer[][]
@@ -498,22 +498,18 @@ df.block_burrow = {}
 ---@field region_offset integer[]
 df.map_block = {}
 
----flood; 256*cost for straight, 362*cost for diagonal
 ---@class map_block_path_cost: df.class
 df.map_block.T_path_cost = {}
 
 
----flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
 ---@class map_block_path_tag: df.class
 df.map_block.T_path_tag = {}
 
 
----0 = non-walkable; same nonzero at A and B = walkable from A to B
 ---@class map_block_walkable: df.class
 df.map_block.T_walkable = {}
 
 
----1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
 ---@class map_block_map_edge_distance: df.class
 df.map_block.T_map_edge_distance = {}
 

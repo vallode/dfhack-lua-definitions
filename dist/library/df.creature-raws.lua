@@ -1880,7 +1880,7 @@ df.caste_body_info.T_flags = {}
 ---@field itemcorpse_str df.string[]
 ---@field remains df.string[]
 ---@field description df.string
----@field mannerisms df.string[] fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
+---@field mannerisms df.string[]
 ---@field caste_tile integer
 ---@field caste_soldier_tile integer
 ---@field caste_alttile integer

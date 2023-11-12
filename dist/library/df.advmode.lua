@@ -1779,7 +1779,6 @@ df.text_info_element_longst = {}
 ---@field val df.string
 df.text_info_element_stringst = {}
 
----<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
 ---@class adventure_optionst: df.class
 df.adventure_optionst = {}
 
@@ -1790,7 +1789,6 @@ function df.adventure_optionst.getDescription(unk_0) end
 ---@return item
 function df.adventure_optionst.getIngestedItem(unk_0) end
 
----<br> for "pick up vermin":<br><br> the first argument is set to the vermin index if an item was allocated and this was the last vermin of its type<br> the second argument is set to true if an item was allocated, false otherwise<br> the third argument is set to true if the second argument is false<br> the first and third arguments are not changed in all other cases<br> returns an item_verminst pointer<br><br> for all other types (as of 0.47.04):<br><br> does not modify arguments 1 and 2<br> argument 3 is set to true if a fire was started<br> returns nullptr<br>
 ---@param unk_0 integer
 ---@param unk_1 boolean
 ---@param unk_2 boolean

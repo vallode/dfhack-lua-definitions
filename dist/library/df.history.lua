@@ -754,7 +754,6 @@ df.historical_figure_info.T_reputation.T_unk_2c = {}
 ---@field unk_6 integer
 df.historical_figure_info.T_reputation.T_unk_2c.T_unk_12 = {}
 
----<br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
 ---@class historical_figure_relationships: df.class
 ---@field hf_visual historical_figure_relationships_hf_visual[]
 ---@field hf_historical historical_figure_relationships_hf_historical[]
@@ -847,7 +846,7 @@ df.historical_figure_relationships.T_artifact_claims = {}
 
 ---<br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
 ---@class historical_figure_relationships_intrigues: df.class
----@field potential_corrupt_skill historical_figure_relationships.T_intrigues_potential_corrupt_skill <br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
+---@field potential_corrupt_skill historical_figure_relationships.T_intrigues_potential_corrupt_skill
 ---@field potential_corrupt_target historical_figure_relationships.T_intrigues_potential_corrupt_target[]
 ---@field potential_corrupt_circumstance unit_thought_type[]
 ---@field potential_corrupt_unk4 df.container only -1 seen
@@ -866,7 +865,6 @@ df.historical_figure_relationships.T_artifact_claims = {}
 ---@field unk17 integer
 df.historical_figure_relationships.T_intrigues = {}
 
----<br> only CONVERSATION, INTIMIDATION, and LYING seen;<br> could easily be an entirely different type<br>
 ---@class historical_figure_relationships.T_intrigues_potential_corrupt_skill: df.class
 df.historical_figure_relationships.T_intrigues.T_potential_corrupt_skill = {}
 

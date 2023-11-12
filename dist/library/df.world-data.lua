@@ -260,7 +260,6 @@ df.world_underground_region.T_type = {}
 ---@field [2] boolean
 ---@field Underworld boolean
 
----<br> Additional river information:<br> The flow element affects the width of the river and seems to follow the<br> formula width = (flow / 40000 * 46) + 1, with a minimum width of 4 and<br> a maximum width of 47. DF uses specific names for rivers with certain flows:<br> - Stream: less than 5000<br> - Minor River 5000 - 9999<br> - River 10000 - 19999<br> - Major River: greather than 20000<br> Brooks tend to have a flow of 0, but DF has divided the controlling information<br> between this structure, the region map entry (below), and the feature map.<br> Thus, the region map flag 'is_brook' controls whether a water course actually<br> is a (potentially broad) brook or an open water course. Likewise, the 'has_river'<br> flag is needed for DF to properly understand a water course should be present.<br> The exit tile holds the information on which mid level tile the river should<br> exit the region. Presumably the path controls which edge to apply this to.<br> Note that the river up/down/left/right flags of the region map entry should<br> align with the sides rivers enter/exit.<br> The feature map has to have a river entry for the corresponding world tile<br> for a river to be implemented properly. All this is done by DF, but needs<br> to be known if hacking.<br> The world region details (below) data on rivers are generated as the regions<br> are generated.<br> The elevation element affects the level of the river. If the river elevation<br> is lower than the surrounding area DF tends to generate a valley around the<br> river to allow it to reach the correct elevation.<br>
 ---@class world_river: df.class
 ---@field name language_name
 ---@field path coord2d_path
@@ -355,10 +354,10 @@ df.world_region_feature = {}
 
 ---biome field reference:<br> 789<br> 456<br> 123<br> as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@class world_region_details: df.class
----@field biome world_region_details_biome biome field reference:<br> 789<br> 456<br> 123<br> as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
+---@field biome world_region_details_biome
 ---@field elevation integer[][]
 ---@field seed integer[][] looks random
----@field edges world_region_details_edges <br> In order to determine how biomes cross embark tile edges,<br> the rectangle framing an embark tile is split into 4 corners,<br> and 4 straight edge segments, using ranges measured in tiles:<br><br> +-/----/+<br> | /<br> / * |<br> / /<br> +-/-/---+<br><br> After this, each corner and edge segment is assigned the biome<br> of one of the adjoining 4 or 2 embark tiles, based on the values<br> in these arrays. It may be necessary to access adjacent details<br> objects to collect the full outline:<br><br> c11 x11 | c21<br> y11 *** | y21<br> -------------<br> c12 x12 | c22<br><br> There are also certain rules forcing ocean/lake biomes to lose<br> edges to mountains, and both of them to anything else, no matter<br> what the original array value is. The actual biomes for tiles in<br> the frame are semi-randomly interpolated from this edge spec.<br><br> For some reason DF provides for all edges of all mid level tiles<br> in a world tile, but not for the corners on the south and east<br> edges: for these you have to go to the next world tile.<br> This has some effect on the corners on the south and east edges of<br> the world where there are no adjacent tiles to get the data from.<br> There the rules are static: the biomes of corners are taken from<br> the easternmost and southernmost of the two touching corners.<br><br> The rules for corner determination when the biome_corner field has<br> specified a biome that's specified to yield as per the above seems<br> to be to first take the NW corner (0), then the NE (1) one, and<br> then the SW (2) one. If the selected corner doesn't exist (because<br> it's outside of the world) the same fallback corner selection is<br> used, with the exception of a northern row selection of NW (0),<br> where the home corner (3) is selected.<br>
+---@field edges world_region_details_edges <br> All 4 corners touching get the same reference (which determines the biome),<br> i.e. SE corner of the tile to the NW, SW corner of the tile to the<br> N, NE corner of the tile to the W, and the NW corner of the current<br> tile, as directed by the biome_corner value.<br>
 ---@field pos coord2d
 ---@field unk12e8 integer
 ---@field unk_1 integer
@@ -375,21 +374,20 @@ df.world_region_feature = {}
 ---@field undef13 integer[]
 df.world_region_details = {}
 
----biome field reference:<br> 789<br> 456<br> 123<br> as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
 ---@class world_region_details_biome: df.class
 df.world_region_details.T_biome = {}
 
 
----<br> In order to determine how biomes cross embark tile edges,<br> the rectangle framing an embark tile is split into 4 corners,<br> and 4 straight edge segments, using ranges measured in tiles:<br><br> +-/----/+<br> | /<br> / * |<br> / /<br> +-/-/---+<br><br> After this, each corner and edge segment is assigned the biome<br> of one of the adjoining 4 or 2 embark tiles, based on the values<br> in these arrays. It may be necessary to access adjacent details<br> objects to collect the full outline:<br><br> c11 x11 | c21<br> y11 *** | y21<br> -------------<br> c12 x12 | c22<br><br> There are also certain rules forcing ocean/lake biomes to lose<br> edges to mountains, and both of them to anything else, no matter<br> what the original array value is. The actual biomes for tiles in<br> the frame are semi-randomly interpolated from this edge spec.<br><br> For some reason DF provides for all edges of all mid level tiles<br> in a world tile, but not for the corners on the south and east<br> edges: for these you have to go to the next world tile.<br> This has some effect on the corners on the south and east edges of<br> the world where there are no adjacent tiles to get the data from.<br> There the rules are static: the biomes of corners are taken from<br> the easternmost and southernmost of the two touching corners.<br><br> The rules for corner determination when the biome_corner field has<br> specified a biome that's specified to yield as per the above seems<br> to be to first take the NW corner (0), then the NE (1) one, and<br> then the SW (2) one. If the selected corner doesn't exist (because<br> it's outside of the world) the same fallback corner selection is<br> used, with the exception of a northern row selection of NW (0),<br> where the home corner (3) is selected.<br>
+---<br> All 4 corners touching get the same reference (which determines the biome),<br> i.e. SE corner of the tile to the NW, SW corner of the tile to the<br> N, NE corner of the tile to the W, and the NW corner of the current<br> tile, as directed by the biome_corner value.<br>
 ---@class world_region_details_edges: df.class
 ---@field split_x coord2d[][] splits for horizontal edges, x=min y=max
 ---@field split_y coord2d[][] splits for vertical edges, x=min y=max
----@field biome_corner world_region_details.T_edges_biome_corner <br> All 4 corners touching get the same reference (which determines the biome),<br> i.e. SE corner of the tile to the NW, SW corner of the tile to the<br> N, NE corner of the tile to the W, and the NW corner of the current<br> tile, as directed by the biome_corner value.<br>
+---@field biome_corner world_region_details.T_edges_biome_corner 0=Reference is NW, 1=Reference is N, 2=Reference is W, 3=Reference is current tile
 ---@field biome_x integer[][] 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
 ---@field biome_y integer[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 df.world_region_details.T_edges = {}
 
----<br> All 4 corners touching get the same reference (which determines the biome),<br> i.e. SE corner of the tile to the NW, SW corner of the tile to the<br> N, NE corner of the tile to the W, and the NW corner of the current<br> tile, as directed by the biome_corner value.<br>
+---0=Reference is NW, 1=Reference is N, 2=Reference is W, 3=Reference is current tile
 ---@class world_region_details.T_edges_biome_corner: df.class
 df.world_region_details.T_edges.T_biome_corner = {}
 
@@ -904,7 +902,7 @@ function df.world_mountain_peak.find(key) end
 ---@field unk_17 integer
 ---@field unk_18 integer
 ---@field active_site world_site[]
----@field feature_map _ <br> Additional feature_map information:<br> The feature_map is a two dimensional structure dividing the world into 16 * 16<br> world tile "feature shells" (and remember that there's a single tile wide shell<br> at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br> These shells are loaded and unloaded dynamically, which means trying to access a<br> shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br> cursor is) is invalid and can lead to DF crashing.<br> The "features.feature_init" 16 * 16 structure contains the features of each of<br> the corresponding world tiles within the shell. However, DF only loads the<br> feature vectors for the world tiles in focus, although they seem to remain<br> loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br> Manipulation of the features is usually preserved as feature vectors are<br> unloaded/reloaded, so spires can be elongated and rivers added, but some<br> details, such as river fauna, seem to be generated on loading. Added features<br> may not necessarily be reloaded at the vector index they were created at.<br>
+---@field feature_map _
 ---@field old_sites df.container References: world_site
 ---@field old_site_x df.container
 ---@field old_site_y df.container

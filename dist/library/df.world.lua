@@ -1237,7 +1237,6 @@ function df.image_set.find(key) end
 ---@field unk_4 integer
 df.image_set.T_unk_vec1 = {}
 
----A heap of current boundary tiles.
 ---@class world: df.class
 ---@field glowing_barriers glowing_barrier[]
 ---@field deep_vein_hollows deep_vein_hollow[]
@@ -1996,7 +1995,7 @@ df.world.T_unk_131ef0.T_claims = {}
 
 ---A heap of current boundary tiles.
 ---@class world_pathfinder: df.class
----@field boundary_heap world.T_pathfinder_boundary_heap A heap of current boundary tiles.
+---@field boundary_heap world.T_pathfinder_boundary_heap
 ---@field heap_count integer
 ---@field pos1 coord
 ---@field pos2 coord
@@ -2012,7 +2011,6 @@ df.world.T_unk_131ef0.T_claims = {}
 ---@field unk_1 boolean
 df.world.T_pathfinder = {}
 
----A heap of current boundary tiles.
 ---@class world.T_pathfinder_boundary_heap: df.class
 ---@field total_cost integer
 ---@field local_cost integer

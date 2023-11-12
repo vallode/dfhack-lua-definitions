@@ -198,7 +198,6 @@ df.weather_type = {}
 ---@field Snow boolean
 
 ---@class _next_global_id: integer, string, df.enum
----<br> The storage order of "next ID" fields in the save file.<br> Followed by game type. The enum item name is the part between<br> next_ and _global_id in the Dwarf Fortress global variable table.<br>
 ---@field unit 0
 ---@field [0] "unit"
 ---@field soul 1
