@@ -524,35 +524,61 @@ df.squad_order_rescue_hfst = {}
 ---@field id integer all army.controllers seen and reached via InvasionOrder controllers' armies have been of type = Invasion and absent from the 'all' vector
 ---@field entity_id integer References: historical_entity
 ---@field site_id integer References: world_site<br>Invasion/Order: site to invade. Visit/Quest/VillainousVisit: site to 'visit'
----@field unk_1 integer
+---@field subregion_id integer References: world_region
 ---@field pos_x integer Look like the unit is map_block, i.e. 3 * 16 * world tile. Position of target, which is the starting point for defeated invasions
 ---@field pos_y integer
----@field unk_18 integer Seen one case of 1990 for VillainVisiting
----@field unk_1c integer same value for the same visitor
----@field unk_20 df.container
+---@field percentage_pop integer
+---@field number_pop integer
+---@field activity_id df.container
 ---@field year integer
 ---@field year_tick integer
----@field unk_34 integer References: army_controller<br>id of other army controller (Invasion) from same entity seen here
----@field unk_38 integer References: army_controller<br>copy of the id seen here, as well as a t7 for a t5 controller
+---@field parent_id integer References: army_controller<br>id of other army controller (Invasion) from same entity seen here
+---@field master_id integer References: army_controller<br>copy of the id seen here, as well as a t7 for a t5 controller
 ---@field master_hf integer References: historical_figure<br>InvasionOrder: Civ/sitegov master. Invasion: leader of the attack, can be in army nemesis vector
----@field general_hf integer References: historical_figure<br>InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master
----@field unk_44_1 integer
----@field unk_44_2 integer
----@field visitor_nemesis_id integer References: nemesis_record<br>Set for VillainousVisit
----@field unk_44_4 integer 3, 6 seen for Villain
----@field unk_44_5 df.container
----@field unk_50 integer
----@field unk_54 df.container
----@field unk_44_11v df.container
----@field unk_v50_b0 df.container
+---@field commander_hf integer References: historical_figure<br>InvasionOrder:leader of the attack. Invasion: subordinate squad leader(?) in army nemesis vector. Can be same as master
+---@field origin_task_holder_nemesis_id integer References: nemesis_record
+---@field origin_task_id integer
+---@field origin_plot_holder_nemesis_id integer References: nemesis_record
+---@field origin_plot_id integer
+---@field ignore_track_entity_id df.container
+---@field flag army_controller_flag
+---@field assigned_squads df.container References: squad
+---@field assigned_epp_entity_id df.container References: historical_entity
+---@field assigned_epp_epp_id df.container References: entity_position_assignment
 ---@field mission_report mission_report
 ---@field data army_controller_data
----@field type army_controller_type
+---@field goal army_controller_goal
 df.army_controller = {}
 
 ---@param key integer
 ---@return army_controller|nil
 function df.army_controller.find(key) end
+
+---@class _army_controller_flag: integer, string, df.bitfield
+---@field do_not_clear_army_dependencies 0
+---@field [0] "do_not_clear_army_dependencies"
+---@field delete_me 1
+---@field [1] "delete_me"
+---@field site_realized_over_goal 2
+---@field [2] "site_realized_over_goal"
+---@field civ_rep 3
+---@field [3] "civ_rep"
+---@field done_for_dwarf_mode 4
+---@field [4] "done_for_dwarf_mode"
+df.army_controller.T_flag = {}
+
+---@class army_controller_flag
+---@field [0] boolean
+---@field do_not_clear_army_dependencies boolean
+---@field [1] boolean
+---@field delete_me boolean
+---@field [2] boolean
+---@field site_realized_over_goal boolean
+---@field [3] boolean
+---@field civ_rep boolean
+---@field [4] boolean
+---@field done_for_dwarf_mode boolean
+
 
 ---@class army_controller_data: df.class
 ---@field t1 army_controller_sub1
@@ -578,110 +604,114 @@ function df.army_controller.find(key) end
 df.army_controller.T_data = {}
 
 
----@class _army_controller_type: integer, string, df.enum
----@field t0 0
----@field [0] "t0"
----@field t1 1
----@field [1] "t1"
----@field InvasionOrder 2
----@field [2] "InvasionOrder"
----@field t3 3
----@field [3] "t3"
----@field Invasion 4
----@field [4] "Invasion"
----@field t5 5
----@field [5] "t5"
----@field t6 6
----@field [6] "t6"
----@field t7 7
----@field [7] "t7"
----@field t8 8
----@field [8] "t8"
----@field t9 9
----@field [9] "t9"
----@field t10 10
----@field [10] "t10"
----@field t11 11
----@field [11] "t11"
----@field Visit 12
----@field [12] "Visit"
----@field t13 13
----@field [13] "t13"
----@field t14 14
----@field [14] "t14"
----@field t15 15
----@field [15] "t15"
----@field t16 16
----@field [16] "t16"
----@field Quest 17
----@field [17] "Quest"
----@field t18 18
----@field [18] "t18"
----@field t19 19
----@field [19] "t19"
----@field t20 20
----@field [20] "t20"
----@field t21 21
----@field [21] "t21"
----@field t22 22
----@field [22] "t22"
----@field t23 23
----@field [23] "t23"
----@field VillainousVisit 24
----@field [24] "VillainousVisit"
-df.army_controller.T_type = {}
+---@class _army_controller_goal: integer, string, df.enum
+---@field NONE -1
+---@field [0] "NONE"
+---@field HOLD_TERRITORY 1
+---@field [1] "HOLD_TERRITORY"
+---@field HARASS 2
+---@field [2] "HARASS"
+---@field SITE_INVASION 3
+---@field [3] "SITE_INVASION"
+---@field RAMPAGE 4
+---@field [4] "RAMPAGE"
+---@field CAMP 5
+---@field [5] "CAMP"
+---@field GUARD 6
+---@field [6] "GUARD"
+---@field HUNTING 7
+---@field [7] "HUNTING"
+---@field PATROL 8
+---@field [8] "PATROL"
+---@field PACIFY_SITE 9
+---@field [9] "PACIFY_SITE"
+---@field PACIFY_CONNECTED_HAMLET 10
+---@field [10] "PACIFY_CONNECTED_HAMLET"
+---@field WAIT 11
+---@field [11] "WAIT"
+---@field ESCAPE 12
+---@field [12] "ESCAPE"
+---@field MOVE_TO_SITE 13
+---@field [13] "MOVE_TO_SITE"
+---@field RECLAIM_SITE 14
+---@field [14] "RECLAIM_SITE"
+---@field CREATE_NEW_SITE 15
+---@field [15] "CREATE_NEW_SITE"
+---@field POSSE 16
+---@field [16] "POSSE"
+---@field SITE_WORK 17
+---@field [17] "SITE_WORK"
+---@field RECOVER_ARTIFACT 18
+---@field [18] "RECOVER_ARTIFACT"
+---@field RESCUE_HF 19
+---@field [19] "RESCUE_HF"
+---@field MAKE_REQUEST 20
+---@field [20] "MAKE_REQUEST"
+---@field PERFORM_TASK 21
+---@field [21] "PERFORM_TASK"
+---@field ASSASSINATE_HF 22
+---@field [22] "ASSASSINATE_HF"
+---@field ABDUCT_HF 23
+---@field [23] "ABDUCT_HF"
+---@field SABOTAGE_ENTITY 24
+---@field [24] "SABOTAGE_ENTITY"
+---@field INFILTRATE_SOCIETY 25
+---@field [25] "INFILTRATE_SOCIETY"
+df.army_controller.T_goal = {}
 
----@class army_controller_type
+---@class army_controller_goal
 ---@field [0] boolean
----@field t0 boolean
+---@field NONE boolean
 ---@field [1] boolean
----@field t1 boolean
+---@field HOLD_TERRITORY boolean
 ---@field [2] boolean
----@field InvasionOrder boolean
+---@field HARASS boolean
 ---@field [3] boolean
----@field t3 boolean
+---@field SITE_INVASION boolean
 ---@field [4] boolean
----@field Invasion boolean
+---@field RAMPAGE boolean
 ---@field [5] boolean
----@field t5 boolean
+---@field CAMP boolean
 ---@field [6] boolean
----@field t6 boolean
+---@field GUARD boolean
 ---@field [7] boolean
----@field t7 boolean
+---@field HUNTING boolean
 ---@field [8] boolean
----@field t8 boolean
+---@field PATROL boolean
 ---@field [9] boolean
----@field t9 boolean
+---@field PACIFY_SITE boolean
 ---@field [10] boolean
----@field t10 boolean
+---@field PACIFY_CONNECTED_HAMLET boolean
 ---@field [11] boolean
----@field t11 boolean
+---@field WAIT boolean
 ---@field [12] boolean
----@field Visit boolean
+---@field ESCAPE boolean
 ---@field [13] boolean
----@field t13 boolean
+---@field MOVE_TO_SITE boolean
 ---@field [14] boolean
----@field t14 boolean
+---@field RECLAIM_SITE boolean
 ---@field [15] boolean
----@field t15 boolean
+---@field CREATE_NEW_SITE boolean
 ---@field [16] boolean
----@field t16 boolean
+---@field POSSE boolean
 ---@field [17] boolean
----@field Quest boolean
+---@field SITE_WORK boolean
 ---@field [18] boolean
----@field t18 boolean
+---@field RECOVER_ARTIFACT boolean
 ---@field [19] boolean
----@field t19 boolean
+---@field RESCUE_HF boolean
 ---@field [20] boolean
----@field t20 boolean
+---@field MAKE_REQUEST boolean
 ---@field [21] boolean
----@field t21 boolean
+---@field PERFORM_TASK boolean
 ---@field [22] boolean
----@field t22 boolean
+---@field ASSASSINATE_HF boolean
 ---@field [23] boolean
----@field t23 boolean
+---@field ABDUCT_HF boolean
 ---@field [24] boolean
----@field VillainousVisit boolean
+---@field SABOTAGE_ENTITY boolean
+---@field [25] boolean
+---@field INFILTRATE_SOCIETY boolean
 
 ---@class army_controller_sub1: df.class
 ---@field unk_1 integer
