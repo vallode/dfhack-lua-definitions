@@ -37,19 +37,3 @@ You can either clone this repository locally or download [the latest release](ht
   }
   ```
 
-## Status
-
-Lots of manual work can be done on the non-df-structures definitions
-(like `common.lua`) in order to boost coverage of the core dfhack lua library.
-
-- [ ] `<struct-type>` `is-union` parsing
-- [ ] Head start on parsing the c++ modules
-
-## Development
-
-You need ruby, a copy of [df-structures](//github.com/DFHack/df-structures),
-and some patience.
-
-- Add `---@meta` file information corresponding to the DFHack library.
-- Improve and re-run `generate.rb` as needed.
-- `ruby generate.rb "<df-structures-repo>/df.*.xml"`
