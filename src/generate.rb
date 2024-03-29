@@ -15,16 +15,18 @@ require 'nokogiri'
 
 require_relative 'parser'
 
+DEBUG = ENV.fetch('DEBUG', false)
+
 HANDLERS = {
-  'enum-type' => DFHackLuaDefinitions::EnumType,
+  # 'enum-type' => DFHackLuaDefinitions::EnumType,
   # 'bitfield-type' => XmlNode::BitfieldType,
-  'class-type' => DFHackLuaDefinitions::StructType,
-  'struct-type' => DFHackLuaDefinitions::StructType,
-  'compound' => DFHackLuaDefinitions::StructType
+  # 'class-type' => DFHackLuaDefinitions::StructType,
+  'struct-type' => DFHackLuaDefinitions::StructType
+  # 'compound' => DFHackLuaDefinitions::StructType
 }.freeze
 
 Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
-  print "Parsing: #{xml}\n"
+  print "Parsing: #{xml}\n" if DEBUG
   filename = File.basename(xml, '.xml')
 
   document = Nokogiri::XML(File.open(xml))
@@ -39,8 +41,14 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
 
   # Squash top level comment elements into parent attributes.
   document.xpath('//comment').each do |comment|
-    comment.parent['comment'] = comment.text.strip.gsub(/\n\s+/, '<br>')
+    parent = comment.parent
+    parent['comment'] = comment.text.strip.gsub(/\n\s+/, '<br>')
     comment.remove
+
+    ##
+    # Node elements exclude Text nodes, if node only has text children remove
+    # them for better parsing.
+    parent.children.remove if parent.elements.empty?
   end
 
   ##
@@ -54,7 +62,7 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
   # Preprocess structs and classes
   # Handle all types
 
-  if ENV['DEBUG']
+  if DEBUG
     File.open(".debug/#{filename}.debug.xml", 'w') do |output|
       output.write(document)
     end
@@ -84,10 +92,12 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
       output.write("df.global = {}\n\n")
     end
 
-    document.xpath('//ld:global-type').each do |node|
-      next unless HANDLERS[node['ld:meta']]
+    document.traverse do |node|
+      # next unless HANDLERS[node['ld:meta']]
 
-      output.write(HANDLERS[node['ld:meta']].new(node).render)
+      # output.write(HANDLERS[node['ld:meta']].new(node).render)
+      type = DFHackLuaDefinitions::Type.new(node)
+      output.write(type.render) if type.render?
     end
   end
 end
