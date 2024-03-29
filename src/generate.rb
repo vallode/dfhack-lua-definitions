@@ -84,7 +84,7 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
       output.write("df.global = {}\n\n")
     end
 
-    document.xpath('//ld:global-type') do |node|
+    document.xpath('//ld:global-type').each do |node|
       next unless HANDLERS[node['ld:meta']]
 
       output.write(HANDLERS[node['ld:meta']].new(node).render)
