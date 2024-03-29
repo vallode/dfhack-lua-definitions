@@ -1,8 +1,9 @@
-# dfhack-lua-definitions
+# DFHack Lua API definitions
 
 Type definitions for DFHack's Lua API.
 
-> **Note**
+> [!NOTE]
+>
 > These definitions are work-in-progress, they can lie to you. You can find
 > up to date documentation on the [DFHack website](https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html).
 > That being said, please raise any problems here or on discord.
@@ -48,3 +49,4 @@ As with all things, development of this library would not be possible without he
 - myk002
 - Thyrus
 - Ramrusher
+- Lua language server contributors

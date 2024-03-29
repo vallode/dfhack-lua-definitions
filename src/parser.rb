@@ -1,6 +1,9 @@
 # frozen_string_literal: false
 
-RESERVED_KEYWORDS = %w[local].freeze
+# Keywords reserved by Lua that should not exist as identifiers.
+# Only used to check rendered function arguments.
+RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then
+                       true until while].freeze
 
 TYPE_MAP = {
   'integer' => %w[int8_t uint8_t int16_t uint16_t int32_t uint32_t int64_t uint64_t size_t enum-item flag-bit pointer
@@ -13,8 +16,98 @@ TYPE_MAP = {
   'lightuserdata' => %w[stl-mutex stl-condition-variable stl-deque stl-fstream stl-unordered-map]
 }.freeze
 
+module DFHackLuaDefinitions
+  class Type
+    def initialize(node)
+      @node = node
+      @name = node['type-name'] || node['name']
+      @comment = node['comment']
+    end
+
+    def render
+      annotation = "---@class #{@name}\n"
+      annotation << "---#{@comment}\n" if @comment
+      annotation << "df.#{@name} = {}\n\n"
+    end
+  end
+
+  class EnumType < Type
+    def render
+      annotation = "---@class #{@name}: df.enum\n"
+
+      index = 0
+      @node.xpath('enum-item').each do |field|
+        annotation << EnumItem.new(field, index).render
+
+        index += 1
+        index -= field['value'].to_i.abs if field['value']
+      end
+
+      annotation << "---#{@comment}\n" if @comment
+      annotation << "df.#{@name} = {}\n\n"
+    end
+  end
+
+  class EnumItem
+    def initialize(field, index)
+      @field = field
+      @name = field['name']
+      @index = index
+      @value = field['value'] || index
+      @comment = field['comment']
+    end
+
+    def render
+      # TODO: Ask DFHack folks if this matters, should we be outputting nils.
+      return '' unless @name
+
+      annotation = "---@field #{@name} #{@value}"
+      annotation << " #{@comment}" if @comment
+      annotation << "\n"
+
+      annotation << "---@field [#{@value}] \"#{@name}\""
+      annotation << " #{@comment}" if @comment
+      annotation << "\n"
+    end
+  end
+
+  class BitfieldType < Type
+  end
+
+  class StructType < Type
+    def initialize(node)
+      super(node)
+    end
+
+    def render
+      annotation = "---@class #{@name}\n"
+
+      @node.xpath('ld:field').each do |field|
+        annotation << Field.new(field).render
+      end
+
+      annotation << "---#{@comment}\n" if @comment
+      annotation << "df.#{@name} = {}\n\n"
+    end
+  end
+
+  class Field
+    def initialize(field)
+      @field = field
+      @name = field['name']
+      @comment = field['comment']
+    end
+
+    def render
+      annotation = "---@field #{@name} any"
+      annotation << " #{@comment}" if @comment
+      annotation << "\n"
+    end
+  end
+end
+
 # Generic XML element.
-class XmlNode
+class OldXmlNode
   attr_reader :node
 
   def initialize(node, parent_type = nil)
@@ -40,15 +133,15 @@ class XmlNode
   def child_type
     return if @children.empty? || @node.name == 'vmethod'
 
-    XmlNode.parse_type(Field.new(@children.first).type)
+    OldXmlNode.parse_type(Field.new(@children.first).type)
   end
 
   def type_name
-    XmlNode.parse_type(@node['type-name'] || @node['index-enum'] || @node['pointer-type'])
+    OldXmlNode.parse_type(@node['type-name'] || @node['index-enum'] || @node['pointer-type'])
   end
 
   def root_type
-    @child_type || @type_name || XmlNode.parse_type(@node.name, 'any')
+    @child_type || @type_name || OldXmlNode.parse_type(@node.name, 'any')
   end
 
   def comment
@@ -68,7 +161,7 @@ class XmlNode
 end
 
 # Usually either a <struct-type> or a <class-type> element.
-class StructType < XmlNode
+class StructType < OldXmlNode
   attr_reader :name
 
   def initialize(node, parent_type = nil, type_separator = '.T_')
@@ -164,7 +257,7 @@ class ClassType < StructType
 end
 
 # Represents any nested field, always a child of a StructType.
-class Field < XmlNode
+class Field < OldXmlNode
   attr_reader :name, :is_inline
 
   def initialize(node, parent_type: nil, nested: 0)
@@ -230,7 +323,7 @@ end
 
 class FunctionType < Field
   def initialize(node, parent_type = nil)
-    super(node, parent_type: parent_type)
+    super(node, parent_type:)
 
     @return_type = return_type
   end
@@ -253,7 +346,7 @@ class FunctionType < Field
   end
 
   def return_type
-    return_type = XmlNode.parse_type(@node['ret-type'], @node['ret-type'])
+    return_type = OldXmlNode.parse_type(@node['ret-type'], @node['ret-type'])
 
     if @node.at_css('ret-type')
       return_field = Field.new(@node.at_css('ret-type'))
@@ -280,7 +373,7 @@ class FunctionType < Field
 end
 
 # Either a <enum-type> or <bitfield-type>.
-class EnumType < XmlNode
+class EnumType < OldXmlNode
   attr_reader :name, :type
 
   def initialize(node, parent_type = nil)
@@ -330,7 +423,7 @@ class EnumType < XmlNode
 end
 
 # Either an enum item or a flag bit.
-class EnumItem < XmlNode
+class EnumItem < OldXmlNode
   attr_reader :value
 
   def initialize(node, index)
