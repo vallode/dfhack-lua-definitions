@@ -51,6 +51,12 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
     parent.children.remove if parent.elements.empty?
   end
 
+  # Convert all native types to Lua types.
+  document.xpath('//*[@type-name]').each do |node|
+    type = node['type-name']
+    node['type-name'] = DFHackLuaDefinitions::TYPE_MAP[type] if DFHackLuaDefinitions::TYPE_MAP[type]
+  end
+
   ##
   # Thankfully `codegen.pl` does a lot of sanity checking for us, meaning we
   # can run under certain assumptions (like no duplicate globals existing)!
