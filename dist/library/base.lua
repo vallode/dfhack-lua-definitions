@@ -103,6 +103,11 @@ local DFGlobal
 ---@class _fields DFCompoundField[]
 local DFCompound
 
+---@class DFDescriptor
+---@field _first_item integer
+---@field _last_item integer
+local DFDescriptor
+
 -- NULL value
 ---@class NULL: lightuserdata
 NULL = nil
