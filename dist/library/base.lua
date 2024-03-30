@@ -1,25 +1,8 @@
 ---@meta _
 
----@alias DFKind
----| 'primitive'
----| 'struct'
----| 'container'
----| 'bitfield'
----| 'struct-type'
----| 'class-type'
----| 'enum-type'
----| 'bitfield-type'
----| 'global'
-
--- Base class for all DFHack references and types.
--- TODO: Better generics support once LuaLS gets better support:
--- https://github.com/LuaLS/lua-language-server/issues/1861
----@class DFBase
----@field _kind DFKind
-local DFBase
-
 -- Object references
----@class DFObject: DFBase
+---@class DFObject
+---@field _kind 'primitive'|'struct'|'container'|'bitfield'
 ---@field _type DFType
 local DFObject
 
@@ -46,7 +29,8 @@ function DFObject:assign(object) end
 function DFObject:_displace(index, step) end
 
 -- Named types
----@class DFType: DFBase
+---@class DFType
+---@field _kind 'struct-type'|'class-type'|'enum-type'|'bitfield-type'|'global'
 ---@field _identity lightuserdata
 local DFType
 
@@ -60,7 +44,7 @@ function DFType:sizeof() end
 function DFType:new() end
 
 ---@param self self
----@param object table
+---@param object any
 ---@return boolean
 function DFType:is_instance(object) end
 
@@ -77,7 +61,7 @@ function DFType:is_instance(object) end
 ---| 'CLASS_METHOD'
 
 -- Compound field
----@class DFCompoundField: DFBase
+---@class DFCompoundField
 ---@field name string
 ---@field offset integer
 ---@field count integer
@@ -93,20 +77,39 @@ function DFType:is_instance(object) end
 local DFCompoundField
 
 -- Global object
----@class DFGlobal: DFBase
+---@class DFGlobal
+---@field _kind 'global'
 ---@field _identity lightuserdata
 ---@field _fields DFCompoundField[]
 local DFGlobal
 
 -- Compound types
 ---@class DFCompound: DFType
----@class _fields DFCompoundField[]
+---@field _fields DFCompoundField[]
 local DFCompound
 
 ---@class DFDescriptor
 ---@field _first_item integer
 ---@field _last_item integer
 local DFDescriptor
+
+---@class DFVector
+local DFVector
+
+---@param self self
+---@param index integer
+---@return self
+function DFVector:_field(index) end
+
+---@param new_size integer
+function DFVector:resize(new_size) end
+
+---@param index integer|'#'
+---@param item self
+function DFVector:insert(index, item) end
+
+---@param index integer
+function DFVector:erase(index) end
 
 -- NULL value
 ---@class NULL: lightuserdata

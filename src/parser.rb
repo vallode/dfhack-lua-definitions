@@ -5,29 +5,81 @@
 RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then
                        true until while].freeze
 
-TYPE_MAP = {
-  'integer' => %w[int8_t uint8_t int16_t uint16_t int32_t uint32_t int64_t uint64_t size_t enum-item flag-bit pointer
-                  padding stl-vector],
-  'number' => %w[s-float d-float long ulong],
-  'string' => %w[ptr-string static-string],
-  'df.string' => %w[stl-string],
-  'boolean' => %w[bool stl-bit-vector df-flagarray],
-  'function' => %w[stl-function],
-  'lightuserdata' => %w[stl-mutex stl-condition-variable stl-deque stl-fstream stl-unordered-map]
-}.freeze
-
 module DFHackLuaDefinitions
+  TYPE_MAP = {
+    'int8_t' => 'integer',
+    'uint8_t' => 'integer',
+    'int16_t' => 'integer',
+    'uint16_t' => 'integer',
+    'int32_t' => 'integer',
+    'uint32_t' => 'integer',
+    'int64_t' => 'integer',
+    'uint64_t' => 'integer'
+    # 'size_t' => 'integer',
+    # 'enum-item' => 'integer',
+    # 'flag-bit' => 'integer',
+    # 'pointer' => 'integer',
+    # 'padding' => 'integer',
+    # 'stl-vector' => 'integer',
+    # 's-float' => 'number',
+    # 'd-float' => 'number',
+    # 'long' => 'number',
+    # 'ulong' => 'number',
+    # 'ptr-string' => 'string',
+    # 'static-string' => 'string',
+    # 'stl-string' => 'df.string',
+    # 'bool' => 'boolean',
+    # 'stl-bit-vector' => 'boolean',
+    # 'df-flagarray' => 'boolean',
+    # 'stl-function' => 'function',
+    # 'stl-mutex' => 'lightuserdata',
+    # 'stl-condition-variable' => 'lightuserdata',
+    # 'stl-deque' => 'lightuserdata',
+    # 'stl-fstream' => 'lightuserdata',
+    # 'stl-unordered-map' => 'lightuserdata'
+  }.freeze
+
+  # Abstract global type
   class Type
-    def initialize(node)
+    def initialize(node, path = [])
       @node = node
-      @name = node['type-name'] || node['name']
+      @children = node.children
+
+      @name = node['name'] || node['type-name']
       @comment = node['comment']
+      @path = path.dup
+
+      if node['ld:level'] == '0'
+        @path.append(@name)
+      else
+        @path.append("T_#{@name}")
+        @name = @path.join('.').gsub('.T_', '_')
+      end
+    end
+
+    def render?
+      !@node.children.empty? && @node.name != 'enum-item'
+    end
+
+    def to_field
+      "--@field TODO\n"
     end
 
     def render
-      annotation = "---@class #{@name}\n"
+      annotation = "---@class #{@name}: DFType\n"
+      # @children.each do |child|
+      #   child_type = Type.new(child, @path)
+      #   annotation << child_type.to_field
+      # end
       annotation << "---#{@comment}\n" if @comment
-      annotation << "df.#{@name} = {}\n\n"
+      annotation << "df.#{@path.join('.')} = {}\n\n"
+
+      @children.each do |child|
+        child_type = Type.new(child, @path)
+        annotation << child_type.render if child_type.render?
+      end
+
+      annotation
     end
   end
 
@@ -74,32 +126,91 @@ module DFHackLuaDefinitions
   class BitfieldType < Type
   end
 
+  # Both struct-type and class-type
   class StructType < Type
-    def initialize(node)
-      super(node)
+    def initialize(node, path = [])
+      super(node, path)
+
+      @inherits = []
+      @children = node.xpath('ld:field')
+
+      return unless node['inherits-from']
+
+      @inherits.append(node['inherits-from'])
+    end
+
+    def subtypes
+      @node.xpath('[@ld:meta=compound]')
+    end
+
+    def to_type
+      annotation = "---@class #{@name}: DFObject\n"
+      annotation << "---@field _kind 'struct'\n"
+      annotation << "---@field _type _#{@name}\n"
+      @children.each do |child|
+        child_type = Field.new(child, @path)
+        annotation << child_type.render
+      end
+      annotation << "---#{@comment}\n" if @comment
+      annotation << "local #{@path.join('.')}\n\n"
+    end
+
+    def instance_vector_functions
+      annotation = "---@param key integer\n"
+      annotation << "---@return #{@name}|nil\n"
+      annotation << "function df.#{@path.join('.')}.find(key) end\n\n"
+
+      annotation << "---@class #{@name}_vector: DFVector, { [integer]: #{@name} }\n"
+      annotation << "local #{@name}_vector\n\n"
+
+      annotation << "---@return #{@name}_vector\n"
+      annotation << "function df.#{@path.join('.')}.get_vector() end\n\n"
+    end
+
+    def to_accessor
+      annotation = "---@class _#{@name}: DFCompound\n"
+      annotation << "df.#{@path.join('.')} = {}\n\n"
+      annotation << instance_vector_functions if @node['instance-vector']
+
+      annotation
     end
 
     def render
-      annotation = "---@class #{@name}\n"
+      annotation = to_type
+      annotation << to_accessor
 
-      @node.xpath('ld:field').each do |field|
-        annotation << Field.new(field).render
+      @children.each do |child|
+        child_type = Field.new(child, @path)
+        annotation << child_type.render if child_type.render?
       end
 
-      annotation << "---#{@comment}\n" if @comment
-      annotation << "df.#{@name} = {}\n\n"
+      annotation
     end
   end
 
-  class Field
-    def initialize(field)
+  class Field < Type
+    def initialize(field, path = [])
+      super(field, path)
+
       @field = field
       @name = field['name']
-      @comment = field['comment']
+      @type = field['type-name']
+      @ref_target = field['ref-target']
+      @comment = comment
+    end
+
+    def type
+    end
+
+    def comment
+      comment = []
+      comment.append(@field['comment']) if @field['comment']
+      comment.append("References: `#{@ref_target}`") if @ref_target
+      comment.join(' ') unless comment.empty?
     end
 
     def render
-      annotation = "---@field #{@name} any"
+      annotation = "---@field #{@name} #{@type}"
       annotation << " #{@comment}" if @comment
       annotation << "\n"
     end
