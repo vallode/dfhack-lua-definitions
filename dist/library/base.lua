@@ -76,6 +76,11 @@ function DFType:is_instance(object) end
 ---@field original_name? string
 local DFCompoundField
 
+-- Pointer string
+---@class DFPtrString
+---@field value string
+local DFPtrString
+
 -- Global object
 ---@class DFGlobal
 ---@field _kind 'global'

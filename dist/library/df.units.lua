@@ -19,7 +19,7 @@ df.command = {}
 ---@field _kind 'struct'
 ---@field _type _unit
 ---@field name language_name
----@field custom_profession stl-string
+---@field custom_profession string
 ---@field profession profession
 ---@field profession2 profession
 ---@field race integer References: `creature_raw`
@@ -88,10 +88,10 @@ df.command = {}
 ---@field ligaments_heal integer
 ---@field weight integer
 ---@field weight_fraction integer 1e-6
----@field adjective stl-string from physical descriptions for use in adv
+---@field adjective string from physical descriptions for use in adv
 ---@field sheet_icon_texpos integer
 ---@field cached_glowtile_type integer
----@field pool_index size_t
+---@field pool_index integer
 ---@field mtx stl-mutex
 local unit
 
@@ -127,7 +127,6 @@ df.unit.T_path = {}
 ---@field state unit.T_meeting.T_state
 ---@field target_entity integer References: `historical_entity`
 ---@field target_role entity_position_responsibility
----@field pad_1 padding
 local meeting
 
 ---@class _unit.T_meeting: DFCompound
@@ -286,10 +285,10 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field rem_tags1 cie_add_tag_mask1
 ---@field add_tags2 cie_add_tag_mask2
 ---@field rem_tags2 cie_add_tag_mask2
----@field name_visible bool
----@field name stl-string
----@field name_plural stl-string
----@field name_adjective stl-string
+---@field name_visible boolean
+---@field name string
+---@field name_plural string
+---@field name_adjective string
 ---@field sym_and_color1 integer
 ---@field sym_and_color2 integer
 ---@field flash_period integer
@@ -632,10 +631,10 @@ df.curse_attr_change = {}
 ---@field rem_tags1 cie_add_tag_mask1
 ---@field add_tags2 cie_add_tag_mask2
 ---@field rem_tags2 cie_add_tag_mask2
----@field name_visible bool
----@field name stl-string
----@field name_plural stl-string
----@field name_adjective stl-string
+---@field name_visible boolean
+---@field name string
+---@field name_plural string
+---@field name_adjective string
 ---@field sym_and_color1 integer
 ---@field sym_and_color2 integer
 ---@field flash_period integer
@@ -1365,7 +1364,7 @@ df.unit_skill = {}
 ---@field mattype integer References: `material`
 ---@field matindex integer
 ---@field mat_state matter_state
----@field active bool
+---@field active boolean
 ---@field prefstring_seed integer feeds into a simple RNG to choose which prefstring to use
 local unit_preference
 
@@ -1489,7 +1488,7 @@ df.unit_appearance = {}
 ---@class work_detail: DFObject
 ---@field _kind 'struct'
 ---@field _type _work_detail
----@field name stl-string
+---@field name string
 ---@field work_detail_flags work_detail.T_work_detail_flags
 ---@field icon work_detail.T_icon
 local work_detail

@@ -38,6 +38,9 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
     Nokogiri::XSLT(File.read(stylesheet)).transform(memo)
   end
 
+  # No need to care about padding.
+  document.xpath('//*[@type-name="padding"]').remove
+
   # We (currently) have no use for code-helper blocks.
   document.xpath('//code-helper').remove
 
