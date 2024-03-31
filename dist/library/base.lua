@@ -49,16 +49,16 @@ function DFType:new() end
 function DFType:is_instance(object) end
 
 ---@alias DFStructMode
----| 'END'
----| 'PRIMITIVE'
----| 'STATIC_STRING'
----| 'POINTER'
----| 'STATIC_ARRAY'
----| 'SUBSTRUCT'
----| 'CONTAINER'
----| 'STL_VECTOR_PTR'
----| 'OBJ_METHOD'
----| 'CLASS_METHOD'
+---| 0 # END
+---| 1 # PRIMITIVE
+---| 2 # STATIC_STRING
+---| 3 # POINTER
+---| 4 # STATIC_ARRAY
+---| 5 # SUBSTRUCT
+---| 6 # CONTAINER
+---| 7 # STL_VECTOR_PTR
+---| 8 # OBJ_METHOD
+---| 9 # CLASS_METHOD
 
 -- Compound field
 ---@class DFCompoundField
@@ -80,12 +80,12 @@ local DFCompoundField
 ---@class DFGlobal
 ---@field _kind 'global'
 ---@field _identity lightuserdata
----@field _fields DFCompoundField[]
+---@field _fields table<string, DFCompoundField>
 local DFGlobal
 
 -- Compound types
 ---@class DFCompound: DFType
----@field _fields DFCompoundField[]
+---@field _fields table<string, DFCompoundField>
 local DFCompound
 
 ---@class DFDescriptor

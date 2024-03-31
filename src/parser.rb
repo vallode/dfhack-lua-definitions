@@ -1,11 +1,12 @@
 # frozen_string_literal: false
 
-# Keywords reserved by Lua that should not exist as identifiers.
-# Only used to check rendered function arguments.
-RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then
-                       true until while].freeze
-
 module DFHackLuaDefinitions
+  # Keywords reserved by Lua that should not exist as identifiers.
+  # Only used to check rendered function arguments.
+  RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then
+                         true until while].freeze
+
+  # TODO: Do as much of this conversion as possible in the initial document parsing.
   TYPE_MAP = {
     'int8_t' => 'integer',
     'uint8_t' => 'integer',
@@ -41,6 +42,8 @@ module DFHackLuaDefinitions
 
   # Abstract global type
   class Type
+    attr_reader :node
+
     def initialize(node, path = [])
       @node = node
       @children = node.children
@@ -53,16 +56,12 @@ module DFHackLuaDefinitions
         @path.append(@name)
       else
         @path.append("T_#{@name}")
-        @name = @path.join('.').gsub('.T_', '_')
+        # @name = @path.join('.').gsub('.T_', '_')
       end
     end
 
     def render?
       !@node.children.empty? && @node.name != 'enum-item'
-    end
-
-    def to_field
-      "--@field TODO\n"
     end
 
     def render
@@ -131,63 +130,78 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
-      @inherits = []
-      @children = node.xpath('ld:field')
-
-      return unless node['inherits-from']
-
-      @inherits.append(node['inherits-from'])
+      @class_name = @path.join('.')
+      @class = node['inherits-from']
+      @fields = fields
     end
 
-    def subtypes
-      @node.xpath('[@ld:meta=compound]')
+    def fields
+      @node.children.map do |child|
+        meta = child['ld:meta']
+        next unless HANDLERS[meta]
+
+        HANDLERS[meta].new(child, @path)
+      end.compact
     end
 
-    def to_type
-      annotation = "---@class #{@name}: DFObject\n"
-      annotation << "---@field _kind 'struct'\n"
-      annotation << "---@field _type _#{@name}\n"
-      @children.each do |child|
-        child_type = Field.new(child, @path)
-        annotation << child_type.render
+    def to_field
+      # No comment required here, it will be included with the actual object.
+      "---@field #{@name} #{@class_name}\n"
+    end
+
+    def to_object
+      annotation = ''
+      annotation << "-- #{@comment}\n" if @comment
+      annotation << "---@class #{@class_name}: DFObject"
+
+      if @class
+        annotation << ", #{@class}\n" if @class
+      else
+        annotation << "\n"
       end
-      annotation << "---#{@comment}\n" if @comment
-      annotation << "local #{@path.join('.')}\n\n"
+
+      annotation << "---@field _kind 'struct'\n"
+      annotation << "---@field _type _#{@class_name}\n"
+      @fields.each do |field|
+        annotation << field.to_field
+      end
+      annotation << "local #{@name}\n\n"
     end
 
     def instance_vector_functions
       annotation = "---@param key integer\n"
       annotation << "---@return #{@name}|nil\n"
-      annotation << "function df.#{@path.join('.')}.find(key) end\n\n"
+      annotation << "function df.#{@class_name}.find(key) end\n\n"
 
       annotation << "---@class #{@name}_vector: DFVector, { [integer]: #{@name} }\n"
       annotation << "local #{@name}_vector\n\n"
 
-      annotation << "---@return #{@name}_vector\n"
-      annotation << "function df.#{@path.join('.')}.get_vector() end\n\n"
+      annotation << "---@return #{@name}_vector # #{@node['instance-vector'].gsub('$global', 'df.global')}\n"
+      annotation << "function df.#{@class_name}.get_vector() end\n\n"
     end
 
-    def to_accessor
-      annotation = "---@class _#{@name}: DFCompound\n"
-      annotation << "df.#{@path.join('.')} = {}\n\n"
+    def to_type
+      annotation = "---@class _#{@class_name}: DFCompound\n"
+      annotation << "---@field _kind 'struct-type'\n"
+      annotation << "df.#{@class_name} = {}\n\n"
       annotation << instance_vector_functions if @node['instance-vector']
 
       annotation
     end
 
     def render
-      annotation = to_type
-      annotation << to_accessor
+      annotation = to_object
+      annotation << to_type
 
-      @children.each do |child|
-        child_type = Field.new(child, @path)
-        annotation << child_type.render if child_type.render?
+      @fields.each do |subtype|
+        annotation << subtype.render if subtype.render?
       end
 
       annotation
     end
   end
 
+  # Generic field, usually pointers to global types.
   class Field < Type
     def initialize(field, path = [])
       super(field, path)
@@ -200,6 +214,13 @@ module DFHackLuaDefinitions
     end
 
     def type
+      type['type-name']
+    end
+
+    def to_field
+      annotation = "---@field #{@name} #{@type}"
+      annotation << " #{@comment}" if @comment
+      annotation << "\n"
     end
 
     def comment
@@ -209,10 +230,8 @@ module DFHackLuaDefinitions
       comment.join(' ') unless comment.empty?
     end
 
-    def render
-      annotation = "---@field #{@name} #{@type}"
-      annotation << " #{@comment}" if @comment
-      annotation << "\n"
+    def render?
+      false
     end
   end
 end
