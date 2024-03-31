@@ -93,7 +93,7 @@ local DFGlobal
 ---@field _fields table<string, DFCompoundField>
 local DFCompound
 
----@class DFDescriptor
+---@class DFDescriptor: DFType
 ---@field _first_item integer
 ---@field _last_item integer
 local DFDescriptor

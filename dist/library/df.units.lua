@@ -1,6 +1,1010 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta _
 
+---@alias value_type
+---| -1 # NONE
+---| 0 # LAW
+---| 1 # LOYALTY
+---| 2 # FAMILY
+---| 3 # FRIENDSHIP
+---| 4 # POWER
+---| 5 # TRUTH
+---| 6 # CUNNING
+---| 7 # ELOQUENCE
+---| 8 # FAIRNESS
+---| 9 # DECORUM
+---| 10 # TRADITION
+---| 11 # ARTWORK
+---| 12 # COOPERATION
+---| 13 # INDEPENDENCE
+---| 14 # STOICISM
+---| 15 # INTROSPECTION
+---| 16 # SELF_CONTROL
+---| 17 # TRANQUILITY
+---| 18 # HARMONY
+---| 19 # MERRIMENT
+---| 20 # CRAFTSMANSHIP
+---| 21 # MARTIAL_PROWESS
+---| 22 # SKILL
+---| 23 # HARD_WORK
+---| 24 # SACRIFICE
+---| 25 # COMPETITION
+---| 26 # PERSEVERENCE
+---| 27 # LEISURE_TIME
+---| 28 # COMMERCE
+---| 29 # ROMANCE
+---| 30 # NATURE
+---| 31 # PEACE
+---| 32 # KNOWLEDGE
+
+---@class _value_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field LAW 0
+---@field [0] "LAW"
+---@field LOYALTY 1
+---@field [1] "LOYALTY"
+---@field FAMILY 2
+---@field [2] "FAMILY"
+---@field FRIENDSHIP 3
+---@field [3] "FRIENDSHIP"
+---@field POWER 4
+---@field [4] "POWER"
+---@field TRUTH 5
+---@field [5] "TRUTH"
+---@field CUNNING 6
+---@field [6] "CUNNING"
+---@field ELOQUENCE 7
+---@field [7] "ELOQUENCE"
+---@field FAIRNESS 8
+---@field [8] "FAIRNESS"
+---@field DECORUM 9
+---@field [9] "DECORUM"
+---@field TRADITION 10
+---@field [10] "TRADITION"
+---@field ARTWORK 11
+---@field [11] "ARTWORK"
+---@field COOPERATION 12
+---@field [12] "COOPERATION"
+---@field INDEPENDENCE 13
+---@field [13] "INDEPENDENCE"
+---@field STOICISM 14
+---@field [14] "STOICISM"
+---@field INTROSPECTION 15
+---@field [15] "INTROSPECTION"
+---@field SELF_CONTROL 16
+---@field [16] "SELF_CONTROL"
+---@field TRANQUILITY 17
+---@field [17] "TRANQUILITY"
+---@field HARMONY 18
+---@field [18] "HARMONY"
+---@field MERRIMENT 19
+---@field [19] "MERRIMENT"
+---@field CRAFTSMANSHIP 20
+---@field [20] "CRAFTSMANSHIP"
+---@field MARTIAL_PROWESS 21
+---@field [21] "MARTIAL_PROWESS"
+---@field SKILL 22
+---@field [22] "SKILL"
+---@field HARD_WORK 23
+---@field [23] "HARD_WORK"
+---@field SACRIFICE 24
+---@field [24] "SACRIFICE"
+---@field COMPETITION 25
+---@field [25] "COMPETITION"
+---@field PERSEVERENCE 26
+---@field [26] "PERSEVERENCE"
+---@field LEISURE_TIME 27
+---@field [27] "LEISURE_TIME"
+---@field COMMERCE 28
+---@field [28] "COMMERCE"
+---@field ROMANCE 29
+---@field [29] "ROMANCE"
+---@field NATURE 30
+---@field [30] "NATURE"
+---@field PEACE 31
+---@field [31] "PEACE"
+---@field KNOWLEDGE 32
+---@field [32] "KNOWLEDGE"
+df.value_type = {}
+
+---@alias goal_type
+---| 0 # STAY_ALIVE
+---| 1 # MAINTAIN_ENTITY_STATUS
+---| 2 # START_A_FAMILY
+---| 3 # RULE_THE_WORLD
+---| 4 # CREATE_A_GREAT_WORK_OF_ART
+---| 5 # CRAFT_A_MASTERWORK
+---| 6 # BRING_PEACE_TO_THE_WORLD
+---| 7 # BECOME_A_LEGENDARY_WARRIOR
+---| 8 # MASTER_A_SKILL
+---| 9 # FALL_IN_LOVE
+---| 10 # SEE_THE_GREAT_NATURAL_SITES
+---| 11 # IMMORTALITY
+---| 12 # MAKE_A_GREAT_DISCOVERY
+---| 13 # ATTAIN_RANK_IN_SOCIETY
+---| 14 # BATHE_WORLD_IN_CHAOS
+
+---@class _goal_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field STAY_ALIVE 0
+---@field [0] "STAY_ALIVE"
+---@field MAINTAIN_ENTITY_STATUS 1
+---@field [1] "MAINTAIN_ENTITY_STATUS"
+---@field START_A_FAMILY 2
+---@field [2] "START_A_FAMILY"
+---@field RULE_THE_WORLD 3
+---@field [3] "RULE_THE_WORLD"
+---@field CREATE_A_GREAT_WORK_OF_ART 4
+---@field [4] "CREATE_A_GREAT_WORK_OF_ART"
+---@field CRAFT_A_MASTERWORK 5
+---@field [5] "CRAFT_A_MASTERWORK"
+---@field BRING_PEACE_TO_THE_WORLD 6
+---@field [6] "BRING_PEACE_TO_THE_WORLD"
+---@field BECOME_A_LEGENDARY_WARRIOR 7
+---@field [7] "BECOME_A_LEGENDARY_WARRIOR"
+---@field MASTER_A_SKILL 8
+---@field [8] "MASTER_A_SKILL"
+---@field FALL_IN_LOVE 9
+---@field [9] "FALL_IN_LOVE"
+---@field SEE_THE_GREAT_NATURAL_SITES 10
+---@field [10] "SEE_THE_GREAT_NATURAL_SITES"
+---@field IMMORTALITY 11
+---@field [11] "IMMORTALITY"
+---@field MAKE_A_GREAT_DISCOVERY 12
+---@field [12] "MAKE_A_GREAT_DISCOVERY"
+---@field ATTAIN_RANK_IN_SOCIETY 13
+---@field [13] "ATTAIN_RANK_IN_SOCIETY"
+---@field BATHE_WORLD_IN_CHAOS 14
+---@field [14] "BATHE_WORLD_IN_CHAOS"
+df.goal_type = {}
+
+---@alias personality_facet_type
+---| -1 # NONE
+---| 0 # LOVE_PROPENSITY
+---| 1 # HATE_PROPENSITY
+---| 2 # ENVY_PROPENSITY
+---| 3 # CHEER_PROPENSITY
+---| 4 # DEPRESSION_PROPENSITY
+---| 5 # ANGER_PROPENSITY
+---| 6 # ANXIETY_PROPENSITY
+---| 7 # LUST_PROPENSITY
+---| 8 # STRESS_VULNERABILITY
+---| 9 # GREED
+---| 10 # IMMODERATION
+---| 11 # VIOLENT
+---| 12 # PERSEVERENCE
+---| 13 # WASTEFULNESS
+---| 14 # DISCORD
+---| 15 # FRIENDLINESS
+---| 16 # POLITENESS
+---| 17 # DISDAIN_ADVICE
+---| 18 # BRAVERY
+---| 19 # CONFIDENCE
+---| 20 # VANITY
+---| 21 # AMBITION
+---| 22 # GRATITUDE
+---| 23 # IMMODESTY
+---| 24 # HUMOR
+---| 25 # VENGEFUL
+---| 26 # PRIDE
+---| 27 # CRUELTY
+---| 28 # SINGLEMINDED
+---| 29 # HOPEFUL
+---| 30 # CURIOUS
+---| 31 # BASHFUL
+---| 32 # PRIVACY
+---| 33 # PERFECTIONIST
+---| 34 # CLOSEMINDED
+---| 35 # TOLERANT
+---| 36 # EMOTIONALLY_OBSESSIVE
+---| 37 # SWAYED_BY_EMOTIONS
+---| 38 # ALTRUISM
+---| 39 # DUTIFULNESS
+---| 40 # THOUGHTLESSNESS
+---| 41 # ORDERLINESS
+---| 42 # TRUST
+---| 43 # GREGARIOUSNESS
+---| 44 # ASSERTIVENESS
+---| 45 # ACTIVITY_LEVEL
+---| 46 # EXCITEMENT_SEEKING
+---| 47 # IMAGINATION
+---| 48 # ABSTRACT_INCLINED
+---| 49 # ART_INCLINED
+
+---@class _personality_facet_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field LOVE_PROPENSITY 0
+---@field [0] "LOVE_PROPENSITY"
+---@field HATE_PROPENSITY 1
+---@field [1] "HATE_PROPENSITY"
+---@field ENVY_PROPENSITY 2
+---@field [2] "ENVY_PROPENSITY"
+---@field CHEER_PROPENSITY 3
+---@field [3] "CHEER_PROPENSITY"
+---@field DEPRESSION_PROPENSITY 4
+---@field [4] "DEPRESSION_PROPENSITY"
+---@field ANGER_PROPENSITY 5
+---@field [5] "ANGER_PROPENSITY"
+---@field ANXIETY_PROPENSITY 6
+---@field [6] "ANXIETY_PROPENSITY"
+---@field LUST_PROPENSITY 7
+---@field [7] "LUST_PROPENSITY"
+---@field STRESS_VULNERABILITY 8
+---@field [8] "STRESS_VULNERABILITY"
+---@field GREED 9
+---@field [9] "GREED"
+---@field IMMODERATION 10
+---@field [10] "IMMODERATION"
+---@field VIOLENT 11
+---@field [11] "VIOLENT"
+---@field PERSEVERENCE 12
+---@field [12] "PERSEVERENCE"
+---@field WASTEFULNESS 13
+---@field [13] "WASTEFULNESS"
+---@field DISCORD 14
+---@field [14] "DISCORD"
+---@field FRIENDLINESS 15
+---@field [15] "FRIENDLINESS"
+---@field POLITENESS 16
+---@field [16] "POLITENESS"
+---@field DISDAIN_ADVICE 17
+---@field [17] "DISDAIN_ADVICE"
+---@field BRAVERY 18
+---@field [18] "BRAVERY"
+---@field CONFIDENCE 19
+---@field [19] "CONFIDENCE"
+---@field VANITY 20
+---@field [20] "VANITY"
+---@field AMBITION 21
+---@field [21] "AMBITION"
+---@field GRATITUDE 22
+---@field [22] "GRATITUDE"
+---@field IMMODESTY 23
+---@field [23] "IMMODESTY"
+---@field HUMOR 24
+---@field [24] "HUMOR"
+---@field VENGEFUL 25
+---@field [25] "VENGEFUL"
+---@field PRIDE 26
+---@field [26] "PRIDE"
+---@field CRUELTY 27
+---@field [27] "CRUELTY"
+---@field SINGLEMINDED 28
+---@field [28] "SINGLEMINDED"
+---@field HOPEFUL 29
+---@field [29] "HOPEFUL"
+---@field CURIOUS 30
+---@field [30] "CURIOUS"
+---@field BASHFUL 31
+---@field [31] "BASHFUL"
+---@field PRIVACY 32
+---@field [32] "PRIVACY"
+---@field PERFECTIONIST 33
+---@field [33] "PERFECTIONIST"
+---@field CLOSEMINDED 34
+---@field [34] "CLOSEMINDED"
+---@field TOLERANT 35
+---@field [35] "TOLERANT"
+---@field EMOTIONALLY_OBSESSIVE 36
+---@field [36] "EMOTIONALLY_OBSESSIVE"
+---@field SWAYED_BY_EMOTIONS 37
+---@field [37] "SWAYED_BY_EMOTIONS"
+---@field ALTRUISM 38
+---@field [38] "ALTRUISM"
+---@field DUTIFULNESS 39
+---@field [39] "DUTIFULNESS"
+---@field THOUGHTLESSNESS 40
+---@field [40] "THOUGHTLESSNESS"
+---@field ORDERLINESS 41
+---@field [41] "ORDERLINESS"
+---@field TRUST 42
+---@field [42] "TRUST"
+---@field GREGARIOUSNESS 43
+---@field [43] "GREGARIOUSNESS"
+---@field ASSERTIVENESS 44
+---@field [44] "ASSERTIVENESS"
+---@field ACTIVITY_LEVEL 45
+---@field [45] "ACTIVITY_LEVEL"
+---@field EXCITEMENT_SEEKING 46
+---@field [46] "EXCITEMENT_SEEKING"
+---@field IMAGINATION 47
+---@field [47] "IMAGINATION"
+---@field ABSTRACT_INCLINED 48
+---@field [48] "ABSTRACT_INCLINED"
+---@field ART_INCLINED 49
+---@field [49] "ART_INCLINED"
+df.personality_facet_type = {}
+
+---@alias physical_attribute_type
+---| 0 # STRENGTH
+---| 1 # AGILITY
+---| 2 # TOUGHNESS
+---| 3 # ENDURANCE
+---| 4 # RECUPERATION
+---| 5 # DISEASE_RESISTANCE
+
+---@class _physical_attribute_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field STRENGTH 0
+---@field [0] "STRENGTH"
+---@field AGILITY 1
+---@field [1] "AGILITY"
+---@field TOUGHNESS 2
+---@field [2] "TOUGHNESS"
+---@field ENDURANCE 3
+---@field [3] "ENDURANCE"
+---@field RECUPERATION 4
+---@field [4] "RECUPERATION"
+---@field DISEASE_RESISTANCE 5
+---@field [5] "DISEASE_RESISTANCE"
+df.physical_attribute_type = {}
+
+---@alias mental_attribute_type
+---| 0 # ANALYTICAL_ABILITY
+---| 1 # FOCUS
+---| 2 # WILLPOWER
+---| 3 # CREATIVITY
+---| 4 # INTUITION
+---| 5 # PATIENCE
+---| 6 # MEMORY
+---| 7 # LINGUISTIC_ABILITY
+---| 8 # SPATIAL_SENSE
+---| 9 # MUSICALITY
+---| 10 # KINESTHETIC_SENSE
+---| 11 # EMPATHY
+---| 12 # SOCIAL_AWARENESS
+
+---@class _mental_attribute_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field ANALYTICAL_ABILITY 0
+---@field [0] "ANALYTICAL_ABILITY"
+---@field FOCUS 1
+---@field [1] "FOCUS"
+---@field WILLPOWER 2
+---@field [2] "WILLPOWER"
+---@field CREATIVITY 3
+---@field [3] "CREATIVITY"
+---@field INTUITION 4
+---@field [4] "INTUITION"
+---@field PATIENCE 5
+---@field [5] "PATIENCE"
+---@field MEMORY 6
+---@field [6] "MEMORY"
+---@field LINGUISTIC_ABILITY 7
+---@field [7] "LINGUISTIC_ABILITY"
+---@field SPATIAL_SENSE 8
+---@field [8] "SPATIAL_SENSE"
+---@field MUSICALITY 9
+---@field [9] "MUSICALITY"
+---@field KINESTHETIC_SENSE 10
+---@field [10] "KINESTHETIC_SENSE"
+---@field EMPATHY 11
+---@field [11] "EMPATHY"
+---@field SOCIAL_AWARENESS 12
+---@field [12] "SOCIAL_AWARENESS"
+df.mental_attribute_type = {}
+
+---@alias mood_type
+---| -1 # None
+---| 0 # Fey
+---| 1 # Secretive
+---| 2 # Possessed
+---| 3 # Macabre
+---| 4 # Fell
+---| 5 # Melancholy
+---| 6 # Raving
+---| 7 # Berserk
+---| 8 # Baby
+---| 9 # Traumatized
+
+---@class _mood_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field None -1
+---@field [-1] "None"
+---@field Fey 0
+---@field [0] "Fey"
+---@field Secretive 1
+---@field [1] "Secretive"
+---@field Possessed 2
+---@field [2] "Possessed"
+---@field Macabre 3
+---@field [3] "Macabre"
+---@field Fell 4
+---@field [4] "Fell"
+---@field Melancholy 5
+---@field [5] "Melancholy"
+---@field Raving 6
+---@field [6] "Raving"
+---@field Berserk 7
+---@field [7] "Berserk"
+---@field Baby 8
+---@field [8] "Baby"
+---@field Traumatized 9
+---@field [9] "Traumatized"
+df.mood_type = {}
+
+---@alias ghost_type
+---| -1 # None
+---| 0 # MurderousGhost
+---| 1 # SadisticGhost
+---| 2 # SecretivePoltergeist
+---| 3 # EnergeticPoltergeist
+---| 4 # AngryGhost
+---| 5 # ViolentGhost
+---| 6 # MoaningSpirit
+---| 7 # HowlingSpirit
+---| 8 # TroublesomePoltergeist
+---| 9 # RestlessHaunt
+---| 10 # ForlornHaunt
+
+---@class _ghost_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field None -1
+---@field [-1] "None"
+---@field MurderousGhost 0
+---@field [0] "MurderousGhost"
+---@field SadisticGhost 1
+---@field [1] "SadisticGhost"
+---@field SecretivePoltergeist 2
+---@field [2] "SecretivePoltergeist"
+---@field EnergeticPoltergeist 3
+---@field [3] "EnergeticPoltergeist"
+---@field AngryGhost 4
+---@field [4] "AngryGhost"
+---@field ViolentGhost 5
+---@field [5] "ViolentGhost"
+---@field MoaningSpirit 6
+---@field [6] "MoaningSpirit"
+---@field HowlingSpirit 7
+---@field [7] "HowlingSpirit"
+---@field TroublesomePoltergeist 8
+---@field [8] "TroublesomePoltergeist"
+---@field RestlessHaunt 9
+---@field [9] "RestlessHaunt"
+---@field ForlornHaunt 10
+---@field [10] "ForlornHaunt"
+df.ghost_type = {}
+
+---@alias animal_training_level
+---| 0 # SemiWild
+---| 1 # Trained
+---| 2 # WellTrained
+---| 3 # SkilfullyTrained
+---| 4 # ExpertlyTrained
+---| 5 # ExceptionallyTrained
+---| 6 # MasterfullyTrained
+---| 7 # Domesticated
+---| 8 # Unk8
+---| 9 # WildUntamed
+
+---@class _animal_training_level: DFDescriptor
+---@field _kind 'enum-type'
+---@field SemiWild 0
+---@field [0] "SemiWild"
+---@field Trained 1
+---@field [1] "Trained"
+---@field WellTrained 2
+---@field [2] "WellTrained"
+---@field SkilfullyTrained 3
+---@field [3] "SkilfullyTrained"
+---@field ExpertlyTrained 4
+---@field [4] "ExpertlyTrained"
+---@field ExceptionallyTrained 5
+---@field [5] "ExceptionallyTrained"
+---@field MasterfullyTrained 6
+---@field [6] "MasterfullyTrained"
+---@field Domesticated 7
+---@field [7] "Domesticated"
+---@field Unk8 8
+---@field [8] "Unk8"
+---@field WildUntamed 9 Seems to be used as default when not flags1.tame
+---@field [9] "WildUntamed" Seems to be used as default when not flags1.tame
+df.animal_training_level = {}
+
+---@alias unit_report_type
+---| 0 # Combat
+---| 1 # Sparring
+---| 2 # Hunting
+
+-- (UnitAnnouncementCategory)
+---@class _unit_report_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field Combat 0
+---@field [0] "Combat"
+---@field Sparring 1
+---@field [1] "Sparring"
+---@field Hunting 2
+---@field [2] "Hunting"
+df.unit_report_type = {}
+
+---@alias skill_rating
+---| 0 # Dabbling
+---| 1 # Novice
+---| 2 # Adequate
+---| 3 # Competent
+---| 4 # Skilled
+---| 5 # Proficient
+---| 6 # Talented
+---| 7 # Adept
+---| 8 # Expert
+---| 9 # Professional
+---| 10 # Accomplished
+---| 11 # Great
+---| 12 # Master
+---| 13 # HighMaster
+---| 14 # GrandMaster
+---| 15 # Legendary
+---| 16 # Legendary1
+---| 17 # Legendary2
+---| 18 # Legendary3
+---| 19 # Legendary4
+---| 20 # Legendary5
+
+---@class _skill_rating: DFDescriptor
+---@field _kind 'enum-type'
+---@field Dabbling 0
+---@field [0] "Dabbling"
+---@field Novice 1
+---@field [1] "Novice"
+---@field Adequate 2
+---@field [2] "Adequate"
+---@field Competent 3
+---@field [3] "Competent"
+---@field Skilled 4
+---@field [4] "Skilled"
+---@field Proficient 5
+---@field [5] "Proficient"
+---@field Talented 6
+---@field [6] "Talented"
+---@field Adept 7
+---@field [7] "Adept"
+---@field Expert 8
+---@field [8] "Expert"
+---@field Professional 9
+---@field [9] "Professional"
+---@field Accomplished 10
+---@field [10] "Accomplished"
+---@field Great 11
+---@field [11] "Great"
+---@field Master 12
+---@field [12] "Master"
+---@field HighMaster 13
+---@field [13] "HighMaster"
+---@field GrandMaster 14
+---@field [14] "GrandMaster"
+---@field Legendary 15
+---@field [15] "Legendary"
+---@field Legendary1 16
+---@field [16] "Legendary1"
+---@field Legendary2 17
+---@field [17] "Legendary2"
+---@field Legendary3 18
+---@field [18] "Legendary3"
+---@field Legendary4 19
+---@field [19] "Legendary4"
+---@field Legendary5 20
+---@field [20] "Legendary5"
+df.skill_rating = {}
+
+---@alias unit_relationship_type
+---| -1 # None
+---| 0 # Pet
+---| 1 # Spouse
+---| 2 # Mother
+---| 3 # Father
+---| 4 # LastAttacker
+---| 5 # GroupLeader
+---| 6 # Draggee
+---| 7 # Dragger
+---| 8 # RiderMount
+---| 9 # Lover
+---| 10 # unk10
+---| 11 # Sibling
+---| 12 # Child
+---| 13 # Friend
+---| 14 # Grudge
+---| 15 # Worship
+---| 16 # AcquaintanceLong
+---| 17 # AcquaintancePassing
+---| 18 # Bonded
+---| 19 # Hero
+---| 20 # ConsidersViolent
+---| 21 # ConsidersPsychotic
+---| 22 # GoodForBusiness
+---| 23 # FriendlyTerms
+---| 24 # ConsidersKiller
+---| 25 # ConsidersMurderer
+---| 26 # Comrade
+---| 27 # MemberOfRespectedGroup
+---| 28 # MemberOfHatedGroup
+---| 29 # EnemyFighter
+---| 30 # FriendlyFighter
+---| 31 # ConsidersBully
+---| 32 # ConsidersBrigand
+---| 33 # LoyalSoldier
+---| 34 # ConsidersMonster
+---| 35 # ConsidersStoryteller
+---| 36 # ConsidersPoet
+---| 37 # ConsidersBard
+---| 38 # ConsidersDancer
+---| 39 # Master
+---| 40 # Apprentice
+---| 41 # Companion
+---| 42 # FormerMaster
+---| 43 # FormerApprentice
+---| 44 # ConsidersQuarreler
+---| 45 # ConsidersFlatterer
+---| 46 # Hunter
+---| 47 # ProtectorOfTheWeak
+
+-- Used in unit.relations
+---@class _unit_relationship_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field None -1 -- Can be checked through viewscreen_layer_unit_relationshipst
+---@field [-1] "None" -- Can be checked through viewscreen_layer_unit_relationshipst
+---@field Pet 0
+---@field [0] "Pet"
+---@field Spouse 1
+---@field [1] "Spouse"
+---@field Mother 2
+---@field [2] "Mother"
+---@field Father 3
+---@field [3] "Father"
+---@field LastAttacker 4
+---@field [4] "LastAttacker"
+---@field GroupLeader 5
+---@field [5] "GroupLeader"
+---@field Draggee 6
+---@field [6] "Draggee"
+---@field Dragger 7
+---@field [7] "Dragger"
+---@field RiderMount 8
+---@field [8] "RiderMount"
+---@field Lover 9
+---@field [9] "Lover"
+---@field unk10 10
+---@field [10] "unk10"
+---@field Sibling 11
+---@field [11] "Sibling"
+---@field Child 12
+---@field [12] "Child"
+---@field Friend 13
+---@field [13] "Friend"
+---@field Grudge 14
+---@field [14] "Grudge"
+---@field Worship 15
+---@field [15] "Worship"
+---@field AcquaintanceLong 16
+---@field [16] "AcquaintanceLong"
+---@field AcquaintancePassing 17
+---@field [17] "AcquaintancePassing"
+---@field Bonded 18
+---@field [18] "Bonded"
+---@field Hero 19
+---@field [19] "Hero"
+---@field ConsidersViolent 20
+---@field [20] "ConsidersViolent"
+---@field ConsidersPsychotic 21
+---@field [21] "ConsidersPsychotic"
+---@field GoodForBusiness 22
+---@field [22] "GoodForBusiness"
+---@field FriendlyTerms 23
+---@field [23] "FriendlyTerms"
+---@field ConsidersKiller 24
+---@field [24] "ConsidersKiller"
+---@field ConsidersMurderer 25
+---@field [25] "ConsidersMurderer"
+---@field Comrade 26
+---@field [26] "Comrade"
+---@field MemberOfRespectedGroup 27
+---@field [27] "MemberOfRespectedGroup"
+---@field MemberOfHatedGroup 28
+---@field [28] "MemberOfHatedGroup"
+---@field EnemyFighter 29
+---@field [29] "EnemyFighter"
+---@field FriendlyFighter 30
+---@field [30] "FriendlyFighter"
+---@field ConsidersBully 31
+---@field [31] "ConsidersBully"
+---@field ConsidersBrigand 32
+---@field [32] "ConsidersBrigand"
+---@field LoyalSoldier 33
+---@field [33] "LoyalSoldier"
+---@field ConsidersMonster 34
+---@field [34] "ConsidersMonster"
+---@field ConsidersStoryteller 35
+---@field [35] "ConsidersStoryteller"
+---@field ConsidersPoet 36
+---@field [36] "ConsidersPoet"
+---@field ConsidersBard 37
+---@field [37] "ConsidersBard"
+---@field ConsidersDancer 38
+---@field [38] "ConsidersDancer"
+---@field Master 39
+---@field [39] "Master"
+---@field Apprentice 40
+---@field [40] "Apprentice"
+---@field Companion 41
+---@field [41] "Companion"
+---@field FormerMaster 42
+---@field [42] "FormerMaster"
+---@field FormerApprentice 43
+---@field [43] "FormerApprentice"
+---@field ConsidersQuarreler 44
+---@field [44] "ConsidersQuarreler"
+---@field ConsidersFlatterer 45
+---@field [45] "ConsidersFlatterer"
+---@field Hunter 46
+---@field [46] "Hunter"
+---@field ProtectorOfTheWeak 47
+---@field [47] "ProtectorOfTheWeak"
+df.unit_relationship_type = {}
+
+---@alias need_type
+---| 0 # Socialize
+---| 1 # DrinkAlcohol
+---| 2 # PrayOrMeditate
+---| 3 # StayOccupied
+---| 4 # BeCreative
+---| 5 # Excitement
+---| 6 # LearnSomething
+---| 7 # BeWithFamily
+---| 8 # BeWithFriends
+---| 9 # HearEloquence
+---| 10 # UpholdTradition
+---| 11 # SelfExamination
+---| 12 # MakeMerry
+---| 13 # CraftObject
+---| 14 # MartialTraining
+---| 15 # PracticeSkill
+---| 16 # TakeItEasy
+---| 17 # MakeRomance
+---| 18 # SeeAnimal
+---| 19 # SeeGreatBeast
+---| 20 # AcquireObject
+---| 21 # EatGoodMeal
+---| 22 # Fight
+---| 23 # CauseTrouble
+---| 24 # Argue
+---| 25 # BeExtravagant
+---| 26 # Wander
+---| 27 # HelpSomebody
+---| 28 # ThinkAbstractly
+---| 29 # AdmireArt
+
+---@class _need_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field Socialize 0
+---@field [0] "Socialize"
+---@field DrinkAlcohol 1
+---@field [1] "DrinkAlcohol"
+---@field PrayOrMeditate 2
+---@field [2] "PrayOrMeditate"
+---@field StayOccupied 3
+---@field [3] "StayOccupied"
+---@field BeCreative 4
+---@field [4] "BeCreative"
+---@field Excitement 5
+---@field [5] "Excitement"
+---@field LearnSomething 6
+---@field [6] "LearnSomething"
+---@field BeWithFamily 7
+---@field [7] "BeWithFamily"
+---@field BeWithFriends 8
+---@field [8] "BeWithFriends"
+---@field HearEloquence 9
+---@field [9] "HearEloquence"
+---@field UpholdTradition 10
+---@field [10] "UpholdTradition"
+---@field SelfExamination 11
+---@field [11] "SelfExamination"
+---@field MakeMerry 12
+---@field [12] "MakeMerry"
+---@field CraftObject 13
+---@field [13] "CraftObject"
+---@field MartialTraining 14
+---@field [14] "MartialTraining"
+---@field PracticeSkill 15
+---@field [15] "PracticeSkill"
+---@field TakeItEasy 16
+---@field [16] "TakeItEasy"
+---@field MakeRomance 17
+---@field [17] "MakeRomance"
+---@field SeeAnimal 18
+---@field [18] "SeeAnimal"
+---@field SeeGreatBeast 19
+---@field [19] "SeeGreatBeast"
+---@field AcquireObject 20
+---@field [20] "AcquireObject"
+---@field EatGoodMeal 21
+---@field [21] "EatGoodMeal"
+---@field Fight 22
+---@field [22] "Fight"
+---@field CauseTrouble 23
+---@field [23] "CauseTrouble"
+---@field Argue 24
+---@field [24] "Argue"
+---@field BeExtravagant 25
+---@field [25] "BeExtravagant"
+---@field Wander 26
+---@field [26] "Wander"
+---@field HelpSomebody 27
+---@field [27] "HelpSomebody"
+---@field ThinkAbstractly 28
+---@field [28] "ThinkAbstractly"
+---@field AdmireArt 29
+---@field [29] "AdmireArt"
+df.need_type = {}
+
+---@alias pronoun_type
+---| -1 # it
+---| 0 # she
+---| 1 # he
+
+---@class _pronoun_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field it -1
+---@field [-1] "it"
+---@field she 0
+---@field [0] "she"
+---@field he 1
+---@field [1] "he"
+df.pronoun_type = {}
+
+---@alias mill_pref_type
+---| -1 # NONE
+---| 0 # GATE
+---| 1 # ANYWHERE
+---| 2 # BEDROOM
+---| 3 # HALL
+---| 4 # STATUE
+---| 5 # ZOO
+---| 6 # ZONE
+---| 7 # LOCATION_BLD
+---| 8 # UNDERGROUND
+---| 9 # MUSEUM
+
+-- bay12: MillPrefType; MillPref is typedefd to int32_t, but all field usages are int16_t
+---@class _mill_pref_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field GATE 0
+---@field [0] "GATE"
+---@field ANYWHERE 1
+---@field [1] "ANYWHERE"
+---@field BEDROOM 2
+---@field [2] "BEDROOM"
+---@field HALL 3
+---@field [3] "HALL"
+---@field STATUE 4
+---@field [4] "STATUE"
+---@field ZOO 5
+---@field [5] "ZOO"
+---@field ZONE 6
+---@field [6] "ZONE"
+---@field LOCATION_BLD 7
+---@field [7] "LOCATION_BLD"
+---@field UNDERGROUND 8
+---@field [8] "UNDERGROUND"
+---@field MUSEUM 9
+---@field [9] "MUSEUM"
+df.mill_pref_type = {}
+
+---@alias unit_uniform_mode_type
+---| -1 # NONE
+---| 0 # CLOTHING
+---| 1 # REGULAR
+---| 2 # TRAINING
+---| 3 # TRAINING_RANGED
+
+-- bay12: UnitUniformModeType
+---@class _unit_uniform_mode_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field CLOTHING 0
+---@field [0] "CLOTHING"
+---@field REGULAR 1
+---@field [1] "REGULAR"
+---@field TRAINING 2
+---@field [2] "TRAINING"
+---@field TRAINING_RANGED 3
+---@field [3] "TRAINING_RANGED"
+df.unit_uniform_mode_type = {}
+
+---@alias mood_stage_type
+---| 0 # INITIAL
+---| 1 # WORKING
+
+-- bay12: MoodStages
+---@class _mood_stage_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field INITIAL 0
+---@field [0] "INITIAL"
+---@field WORKING 1
+---@field [1] "WORKING"
+df.mood_stage_type = {}
+
+---@alias unit_owner_type
+---| -1 # NONE
+---| 0 # PET_MASTER
+---| 1 # DEAD_PET_MASTER
+---| 2 # HEALTHCARE
+---| 3 # DEAD_OWNER
+---| 4 # PACK_LEADER
+---| 5 # TRAINER
+---| 6 # EMPLOYER
+---| 7 # MERCHANT_HAULER
+---| 8 # PARENT
+---| 9 # COMMANDER
+
+-- bay12: UnitOwner
+---@class _unit_owner_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field PET_MASTER 0
+---@field [0] "PET_MASTER"
+---@field DEAD_PET_MASTER 1
+---@field [1] "DEAD_PET_MASTER"
+---@field HEALTHCARE 2
+---@field [2] "HEALTHCARE"
+---@field DEAD_OWNER 3
+---@field [3] "DEAD_OWNER"
+---@field PACK_LEADER 4
+---@field [4] "PACK_LEADER"
+---@field TRAINER 5
+---@field [5] "TRAINER"
+---@field EMPLOYER 6
+---@field [6] "EMPLOYER"
+---@field MERCHANT_HAULER 7
+---@field [7] "MERCHANT_HAULER"
+---@field PARENT 8
+---@field [8] "PARENT"
+---@field COMMANDER 9
+---@field [9] "COMMANDER"
+df.unit_owner_type = {}
+
+---@alias rider_positions_type
+---| 0 # STANDARD
+---| 1 # CARRIED
+---| 2 # WAGONPULL1
+---| 3 # WAGONPULL2
+---| 4 # WAGONLEADER
+
+-- bay12: RiderPositions
+---@class _rider_positions_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field STANDARD 0
+---@field [0] "STANDARD"
+---@field CARRIED 1
+---@field [1] "CARRIED"
+---@field WAGONPULL1 2
+---@field [2] "WAGONPULL1"
+---@field WAGONPULL2 3
+---@field [3] "WAGONPULL2"
+---@field WAGONLEADER 4
+---@field [4] "WAGONLEADER"
+df.rider_positions_type = {}
+
+---@alias command_type
+---| -1 # NONE
+---| 0 # MOVE_TO_TILE
+
+-- bay12: Command
+---@class _command_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field MOVE_TO_TILE 0
+---@field [0] "MOVE_TO_TILE"
+df.command_type = {}
+
 ---@class command: DFObject
 ---@field _kind 'struct'
 ---@field _type _command
@@ -133,13 +1137,22 @@ local meeting
 ---@field _kind 'struct-type'
 df.unit.T_meeting = {}
 
----@class unit.T_meeting.T_state: DFObject
----@field _kind 'struct'
----@field _type _unit.T_meeting.T_state
-local state
+---@alias unit.T_meeting.T_state
+---| 0 # SelectNoble
+---| 1 # FollowNoble
+---| 2 # DoMeeting
+---| 3 # LeaveMap
 
----@class _unit.T_meeting.T_state: DFCompound
----@field _kind 'struct-type'
+---@class _unit.T_meeting.T_state: DFDescriptor
+---@field _kind 'enum-type'
+---@field SelectNoble 0
+---@field [0] "SelectNoble"
+---@field FollowNoble 1
+---@field [1] "FollowNoble"
+---@field DoMeeting 2
+---@field [2] "DoMeeting"
+---@field LeaveMap 3
+---@field [3] "LeaveMap"
 df.unit.T_meeting.T_state = {}
 
 ---@class unit.T_military: DFObject
@@ -268,13 +1281,28 @@ local counters
 ---@field _kind 'struct-type'
 df.unit.T_counters = {}
 
----@class unit.T_counters.T_soldier_mood: DFObject
----@field _kind 'struct'
----@field _type _unit.T_counters.T_soldier_mood
-local soldier_mood
+---@alias unit.T_counters.T_soldier_mood
+---| -1 # None
+---| 0 # MartialTrance
+---| 1 # Enraged
+---| 2 # Tantrum
+---| 3 # Depressed
+---| 4 # Oblivious
 
----@class _unit.T_counters.T_soldier_mood: DFCompound
----@field _kind 'struct-type'
+---@class _unit.T_counters.T_soldier_mood: DFDescriptor
+---@field _kind 'enum-type'
+---@field None -1
+---@field [-1] "None"
+---@field MartialTrance 0
+---@field [0] "MartialTrance"
+---@field Enraged 1
+---@field [1] "Enraged"
+---@field Tantrum 2
+---@field [2] "Tantrum"
+---@field Depressed 3
+---@field [3] "Depressed"
+---@field Oblivious 4
+---@field [4] "Oblivious"
 df.unit.T_counters.T_soldier_mood = {}
 
 ---@class unit.T_curse: DFObject
@@ -457,6 +1485,39 @@ local witness_incidentst
 ---@field _kind 'struct-type'
 df.witness_incidentst = {}
 
+---@alias ghost_goal
+---| -1 # None
+---| 0 # ScareToDeath
+---| 1 # Stun
+---| 2 # Batter
+---| 3 # Possess
+---| 4 # MisplaceItem
+---| 5 # Haunt
+---| 6 # Torment
+---| 7 # ToppleBuilding
+
+---@class _ghost_goal: DFDescriptor
+---@field _kind 'enum-type'
+---@field None -1
+---@field [-1] "None"
+---@field ScareToDeath 0
+---@field [0] "ScareToDeath"
+---@field Stun 1
+---@field [1] "Stun"
+---@field Batter 2
+---@field [2] "Batter"
+---@field Possess 3
+---@field [3] "Possess"
+---@field MisplaceItem 4
+---@field [4] "MisplaceItem"
+---@field Haunt 5
+---@field [5] "Haunt"
+---@field Torment 6
+---@field [6] "Torment"
+---@field ToppleBuilding 7
+---@field [7] "ToppleBuilding"
+df.ghost_goal = {}
+
 ---@class unit_ghost_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_ghost_info
@@ -522,13 +1583,43 @@ local unit_inventory_item
 ---@field _kind 'struct-type'
 df.unit_inventory_item = {}
 
----@class unit_inventory_item.T_mode: DFObject
----@field _kind 'struct'
----@field _type _unit_inventory_item.T_mode
-local mode
+---@alias unit_inventory_item.T_mode
+---| 0 # Hauled
+---| 1 # Weapon
+---| 2 # Worn
+---| 3 # Piercing
+---| 4 # Flask
+---| 5 # WrappedAround
+---| 6 # StuckIn
+---| 7 # InMouth
+---| 8 # Pet
+---| 9 # SewnInto
+---| 10 # Strapped
 
----@class _unit_inventory_item.T_mode: DFCompound
----@field _kind 'struct-type'
+---@class _unit_inventory_item.T_mode: DFDescriptor
+---@field _kind 'enum-type'
+---@field Hauled 0
+---@field [0] "Hauled"
+---@field Weapon 1 also shield, crutch
+---@field [1] "Weapon" also shield, crutch
+---@field Worn 2 quiver
+---@field [2] "Worn" quiver
+---@field Piercing 3
+---@field [3] "Piercing"
+---@field Flask 4 attached to clothing
+---@field [4] "Flask" attached to clothing
+---@field WrappedAround 5 e.g. bandage
+---@field [5] "WrappedAround" e.g. bandage
+---@field StuckIn 6
+---@field [6] "StuckIn"
+---@field InMouth 7 string descr like Worn
+---@field [7] "InMouth" string descr like Worn
+---@field Pet 8 Left shoulder, right shoulder, or head, selected randomly using pet_seed
+---@field [8] "Pet" Left shoulder, right shoulder, or head, selected randomly using pet_seed
+---@field SewnInto 9
+---@field [9] "SewnInto"
+---@field Strapped 10
+---@field [10] "Strapped"
 df.unit_inventory_item.T_mode = {}
 
 ---@class unit_attribute: DFObject
@@ -575,6 +1666,42 @@ local flags
 ---@class _unit_syndrome.T_flags: DFCompound
 ---@field _kind 'struct-type'
 df.unit_syndrome.T_flags = {}
+
+---@alias wound_effect_type
+---| 0 # Bruise
+---| 1 # Burn
+---| 2 # Frostbite
+---| 3 # Burn2
+---| 4 # Melting
+---| 5 # Boiling
+---| 6 # Freezing
+---| 7 # Condensation
+---| 8 # Necrosis
+---| 9 # Blister
+
+---@class _wound_effect_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field Bruise 0
+---@field [0] "Bruise"
+---@field Burn 1
+---@field [1] "Burn"
+---@field Frostbite 2
+---@field [2] "Frostbite"
+---@field Burn2 3
+---@field [3] "Burn2"
+---@field Melting 4
+---@field [4] "Melting"
+---@field Boiling 5
+---@field [5] "Boiling"
+---@field Freezing 6
+---@field [6] "Freezing"
+---@field Condensation 7
+---@field [7] "Condensation"
+---@field Necrosis 8
+---@field [8] "Necrosis"
+---@field Blister 9
+---@field [9] "Blister"
+df.wound_effect_type = {}
 
 ---@class unit_wound: DFObject
 ---@field _kind 'struct'
@@ -662,6 +1789,165 @@ local timing
 ---@class _wound_curse_info.T_timing: DFCompound
 ---@field _kind 'struct-type'
 df.wound_curse_info.T_timing = {}
+
+---@alias misc_trait_type
+---| 0 # RequestWaterCooldown
+---| 1 # RequestFoodCooldown
+---| 2 # RequestRescueCooldown
+---| 3 # RequestHealthcareCooldown
+---| 4 # GetDrinkCooldown
+---| 5 # GetFoodCooldown
+---| 6 # CleanSelfCooldown
+---| 7 # Migrant
+---| 8 # RoomComplaint
+---| 9 # UnnamedResident
+---| 10 # RentBedroomCooldown
+---| 11 # ClaimTrinketCooldown
+---| 12 # ClaimClothingCooldown
+---| 13 # WantsDrink
+---| 14 # 
+---| 15 # PrepareToDie
+---| 16 # CaveAdapt
+---| 17 # 
+---| 18 # 
+---| 19 # 
+---| 20 # 
+---| 21 # FollowUnitCooldown
+---| 22 # 
+---| 23 # 
+---| 24 # 
+---| 25 # DangerousTerrainCooldown
+---| 26 # Beaching
+---| 27 # IdleAreaCooldown
+---| 28 # 
+---| 29 # DiagnosePatientCooldown
+---| 30 # DressWoundCooldown
+---| 31 # CleanPatientCooldown
+---| 32 # SurgeryCooldown
+---| 33 # SutureCooldown
+---| 34 # SetBoneCooldown
+---| 35 # PlaceInTractionCooldown
+---| 36 # ApplyCastCooldown
+---| 37 # ImmobilizeBreakCooldown
+---| 38 # BringCrutchCooldown
+---| 39 # 
+---| 40 # MilkCounter
+---| 41 # HadDrill
+---| 42 # CompletedDrill
+---| 43 # EggSpent
+---| 44 # GroundedAnimalAnger
+---| 45 # 
+---| 46 # TimeSinceSuckedBlood
+---| 47 # DrinkingBlood
+---| 48 # 
+---| 49 # 
+---| 50 # RevertWildTimer
+---| 51 # 
+---| 52 # NoPantsAnger
+---| 53 # NoShirtAnger
+---| 54 # NoShoesAnger
+---| 55 # 
+---| 56 # 
+---| 57 # 
+---| 58 # 
+---| 59 # 
+---| 60 # 
+---| 61 # 
+---| 62 # 
+---| 63 # 
+---| 64 # CitizenshipCooldown
+---| 65 # 
+---| 66 # 
+---| 67 # 
+---| 68 # 
+
+---@class _misc_trait_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field RequestWaterCooldown 0 -- 0 --
+---@field [0] "RequestWaterCooldown" -- 0 --
+---@field RequestFoodCooldown 1 for thirsty patients
+---@field [1] "RequestFoodCooldown" for thirsty patients
+---@field RequestRescueCooldown 2 for hungry patients
+---@field [2] "RequestRescueCooldown" for hungry patients
+---@field RequestHealthcareCooldown 3
+---@field [3] "RequestHealthcareCooldown"
+---@field GetDrinkCooldown 4 auto-decrement
+---@field [4] "GetDrinkCooldown" auto-decrement
+---@field GetFoodCooldown 5 auto-decrement
+---@field [5] "GetFoodCooldown" auto-decrement
+---@field CleanSelfCooldown 6 auto-decrement
+---@field [6] "CleanSelfCooldown" auto-decrement
+---@field Migrant 7 auto-decrement
+---@field [7] "Migrant" auto-decrement
+---@field RoomComplaint 8 auto-decrement
+---@field [8] "RoomComplaint" auto-decrement
+---@field UnnamedResident 9 upon reaching zero, resident creature gets named
+---@field [9] "UnnamedResident" upon reaching zero, resident creature gets named
+---@field RentBedroomCooldown 10 handled manually<br>-- 10 --
+---@field [10] "RentBedroomCooldown" handled manually<br>-- 10 --
+---@field ClaimTrinketCooldown 11 auto-decrement
+---@field [11] "ClaimTrinketCooldown" auto-decrement
+---@field ClaimClothingCooldown 12 auto-decrement
+---@field [12] "ClaimClothingCooldown" auto-decrement
+---@field WantsDrink 13 auto-increment to 403200
+---@field [13] "WantsDrink" auto-increment to 403200
+---@field PrepareToDie 15 auto-decrement
+---@field [15] "PrepareToDie" auto-decrement
+---@field CaveAdapt 16
+---@field [16] "CaveAdapt"
+---@field FollowUnitCooldown 21 0-20, 200 on failed path, auto-decrement
+---@field [21] "FollowUnitCooldown" 0-20, 200 on failed path, auto-decrement
+---@field DangerousTerrainCooldown 25 created at 200, blocks repath?, auto-decrement
+---@field [25] "DangerousTerrainCooldown" created at 200, blocks repath?, auto-decrement
+---@field Beaching 26 triggered by BEACH_FREQUENCY, auto-decrement
+---@field [26] "Beaching" triggered by BEACH_FREQUENCY, auto-decrement
+---@field IdleAreaCooldown 27 auto-decrement
+---@field [27] "IdleAreaCooldown" auto-decrement
+---@field DiagnosePatientCooldown 29 0-2000, auto-decrement
+---@field [29] "DiagnosePatientCooldown" 0-2000, auto-decrement
+---@field DressWoundCooldown 30 -- 30 --
+---@field [30] "DressWoundCooldown" -- 30 --
+---@field CleanPatientCooldown 31 auto-decrement
+---@field [31] "CleanPatientCooldown" auto-decrement
+---@field SurgeryCooldown 32 auto-decrement
+---@field [32] "SurgeryCooldown" auto-decrement
+---@field SutureCooldown 33 auto-decrement
+---@field [33] "SutureCooldown" auto-decrement
+---@field SetBoneCooldown 34 auto-decrement
+---@field [34] "SetBoneCooldown" auto-decrement
+---@field PlaceInTractionCooldown 35 auto-decrement
+---@field [35] "PlaceInTractionCooldown" auto-decrement
+---@field ApplyCastCooldown 36 auto-decrement
+---@field [36] "ApplyCastCooldown" auto-decrement
+---@field ImmobilizeBreakCooldown 37 auto-decrement
+---@field [37] "ImmobilizeBreakCooldown" auto-decrement
+---@field BringCrutchCooldown 38 auto-decrement
+---@field [38] "BringCrutchCooldown" auto-decrement
+---@field MilkCounter 40 -- 40 --
+---@field [40] "MilkCounter" -- 40 --
+---@field HadDrill 41 auto-decrement
+---@field [41] "HadDrill" auto-decrement
+---@field CompletedDrill 42 auto-decrement
+---@field [42] "CompletedDrill" auto-decrement
+---@field EggSpent 43 auto-decrement
+---@field [43] "EggSpent" auto-decrement
+---@field GroundedAnimalAnger 44 auto-decrement
+---@field [44] "GroundedAnimalAnger" auto-decrement
+---@field TimeSinceSuckedBlood 46
+---@field [46] "TimeSinceSuckedBlood"
+---@field DrinkingBlood 47 auto-decrement
+---@field [47] "DrinkingBlood" auto-decrement
+---@field RevertWildTimer 50 -- 50 --
+---@field [50] "RevertWildTimer" -- 50 --
+---@field NoPantsAnger 52 auto-decrement
+---@field [52] "NoPantsAnger" auto-decrement
+---@field NoShirtAnger 53 auto-decrement
+---@field [53] "NoShirtAnger" auto-decrement
+---@field NoShoesAnger 54 auto-decrement
+---@field [54] "NoShoesAnger" auto-decrement
+---@field CitizenshipCooldown 64 starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
+---@field [64] "CitizenshipCooldown" starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
+df.misc_trait_type = {}
 
 ---@class unit_misc_trait: DFObject
 ---@field _kind 'struct'
@@ -896,6 +2182,109 @@ local flags
 ---@field _kind 'struct-type'
 df.unit_personality.T_flags = {}
 
+---@alias unit_action_type_group
+---| 0 # All
+---| 1 # Movement
+---| 2 # MovementFeet
+---| 3 # Combat
+---| 4 # Work
+
+-- for the action timer API, not in DF
+---@class _unit_action_type_group: DFDescriptor
+---@field _kind 'enum-type'
+---@field All 0
+---@field [0] "All"
+---@field Movement 1
+---@field [1] "Movement"
+---@field MovementFeet 2
+---@field [2] "MovementFeet"
+---@field Combat 3
+---@field [3] "Combat"
+---@field Work 4
+---@field [4] "Work"
+df.unit_action_type_group = {}
+
+---@alias unit_action_type
+---| -1 # None
+---| 0 # Move
+---| 1 # Attack
+---| 2 # Jump
+---| 3 # HoldTerrain
+---| 4 # ReleaseTerrain
+---| 5 # Climb
+---| 6 # Job
+---| 7 # Talk
+---| 8 # Unsteady
+---| 9 # Parry
+---| 10 # Block
+---| 11 # Dodge
+---| 12 # Recover
+---| 13 # StandUp
+---| 14 # LieDown
+---| 15 # Job2
+---| 16 # PushObject
+---| 17 # SuckBlood
+---| 18 # HoldItem
+---| 19 # ReleaseItem
+---| 20 # Unk20
+---| 21 # Unk21
+---| 22 # Unk22
+---| 23 # Unk23
+
+---@class _unit_action_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field None -1
+---@field [-1] "None"
+---@field Move 0
+---@field [0] "Move"
+---@field Attack 1
+---@field [1] "Attack"
+---@field Jump 2
+---@field [2] "Jump"
+---@field HoldTerrain 3
+---@field [3] "HoldTerrain"
+---@field ReleaseTerrain 4
+---@field [4] "ReleaseTerrain"
+---@field Climb 5
+---@field [5] "Climb"
+---@field Job 6
+---@field [6] "Job"
+---@field Talk 7
+---@field [7] "Talk"
+---@field Unsteady 8
+---@field [8] "Unsteady"
+---@field Parry 9
+---@field [9] "Parry"
+---@field Block 10
+---@field [10] "Block"
+---@field Dodge 11
+---@field [11] "Dodge"
+---@field Recover 12
+---@field [12] "Recover"
+---@field StandUp 13
+---@field [13] "StandUp"
+---@field LieDown 14
+---@field [14] "LieDown"
+---@field Job2 15
+---@field [15] "Job2"
+---@field PushObject 16
+---@field [16] "PushObject"
+---@field SuckBlood 17
+---@field [17] "SuckBlood"
+---@field HoldItem 18
+---@field [18] "HoldItem"
+---@field ReleaseItem 19
+---@field [19] "ReleaseItem"
+---@field Unk20 20
+---@field [20] "Unk20"
+---@field Unk21 21
+---@field [21] "Unk21"
+---@field Unk22 22
+---@field [22] "Unk22"
+---@field Unk23 23
+---@field [23] "Unk23"
+df.unit_action_type = {}
+
 ---@class unit_action: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action
@@ -1006,13 +2395,16 @@ local unk_4
 ---@field _kind 'struct-type'
 df.unit_action_data_attack.T_unk_4 = {}
 
----@class unit_action_data_attack.T_unk_4.T_wrestle_type: DFObject
----@field _kind 'struct'
----@field _type _unit_action_data_attack.T_unk_4.T_wrestle_type
-local wrestle_type
+---@alias unit_action_data_attack.T_unk_4.T_wrestle_type
+---| 0 # Wrestle
+---| 1 # Grab
 
----@class _unit_action_data_attack.T_unk_4.T_wrestle_type: DFCompound
----@field _kind 'struct-type'
+---@class _unit_action_data_attack.T_unk_4.T_wrestle_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field Wrestle 0
+---@field [0] "Wrestle"
+---@field Grab 1
+---@field [1] "Grab"
 df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
 
 ---@class unit_action_data_attack.T_flags: DFObject
@@ -1372,13 +2764,46 @@ local unit_preference
 ---@field _kind 'struct-type'
 df.unit_preference = {}
 
----@class unit_preference.T_type: DFObject
----@field _kind 'struct'
----@field _type _unit_preference.T_type
-local type
+---@alias unit_preference.T_type
+---| 0 # LikeMaterial
+---| 1 # LikeCreature
+---| 2 # LikeFood
+---| 3 # HateCreature
+---| 4 # LikeItem
+---| 5 # LikePlant
+---| 6 # LikeTree
+---| 7 # LikeColor
+---| 8 # LikeShape
+---| 9 # LikePoeticForm
+---| 10 # LikeMusicalForm
+---| 11 # LikeDanceForm
 
----@class _unit_preference.T_type: DFCompound
----@field _kind 'struct-type'
+---@class _unit_preference.T_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field LikeMaterial 0
+---@field [0] "LikeMaterial"
+---@field LikeCreature 1
+---@field [1] "LikeCreature"
+---@field LikeFood 2
+---@field [2] "LikeFood"
+---@field HateCreature 3
+---@field [3] "HateCreature"
+---@field LikeItem 4
+---@field [4] "LikeItem"
+---@field LikePlant 5
+---@field [5] "LikePlant"
+---@field LikeTree 6
+---@field [6] "LikeTree"
+---@field LikeColor 7
+---@field [7] "LikeColor"
+---@field LikeShape 8
+---@field [8] "LikeShape"
+---@field LikePoeticForm 9
+---@field [9] "LikePoeticForm"
+---@field LikeMusicalForm 10
+---@field [10] "LikeMusicalForm"
+---@field LikeDanceForm 11
+---@field [11] "LikeDanceForm"
 df.unit_preference.T_type = {}
 
 ---@class unit_complaint: DFObject
@@ -1428,13 +2853,13 @@ local unit_request
 ---@field _kind 'struct-type'
 df.unit_request = {}
 
----@class unit_request.T_type: DFObject
----@field _kind 'struct'
----@field _type _unit_request.T_type
-local type
+---@alias unit_request.T_type
+---| 0 # DoGuildJobs
 
----@class _unit_request.T_type: DFCompound
----@field _kind 'struct-type'
+---@class _unit_request.T_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field DoGuildJobs 0
+---@field [0] "DoGuildJobs"
 df.unit_request.T_type = {}
 
 ---@class unit_coin_debt: DFObject
@@ -1485,6 +2910,24 @@ local unit_appearance
 ---@field _kind 'struct-type'
 df.unit_appearance = {}
 
+---@alias work_detail_mode
+---| 0 # Default
+---| 1 # EverybodyDoesThis
+---| 2 # NobodyDoesThis
+---| 3 # OnlySelectedDoesThis
+
+---@class _work_detail_mode: DFDescriptor
+---@field _kind 'enum-type'
+---@field Default 0
+---@field [0] "Default"
+---@field EverybodyDoesThis 1
+---@field [1] "EverybodyDoesThis"
+---@field NobodyDoesThis 2
+---@field [2] "NobodyDoesThis"
+---@field OnlySelectedDoesThis 3
+---@field [3] "OnlySelectedDoesThis"
+df.work_detail_mode = {}
+
 ---@class work_detail: DFObject
 ---@field _kind 'struct'
 ---@field _type _work_detail
@@ -1509,13 +2952,67 @@ local work_detail_flags
 ---@field _kind 'struct-type'
 df.work_detail.T_work_detail_flags = {}
 
----@class work_detail.T_icon: DFObject
----@field _kind 'struct'
----@field _type _work_detail.T_icon
-local icon
+---@alias work_detail.T_icon
+---| -1 # ICON_NONE
+---| 0 # ICON_MINERS
+---| 1 # ICON_WOODCUTTERS
+---| 2 # ICON_HUNTERS
+---| 3 # ICON_PLANTERS
+---| 4 # ICON_FISHERMEN
+---| 5 # ICON_STONECUTTERS
+---| 6 # ICON_ENGRAVERS
+---| 7 # ICON_PLANT_GATHERERS
+---| 8 # ICON_HAULERS
+---| 9 # ICON_ORDERLIES
+---| 10 # ICON_CUSTOM_1
+---| 11 # ICON_CUSTOM_2
+---| 12 # ICON_CUSTOM_3
+---| 13 # ICON_CUSTOM_4
+---| 14 # ICON_CUSTOM_5
+---| 15 # ICON_CUSTOM_6
+---| 16 # ICON_CUSTOM_7
+---| 17 # ICON_CUSTOM_8
 
----@class _work_detail.T_icon: DFCompound
----@field _kind 'struct-type'
+---@class _work_detail.T_icon: DFDescriptor
+---@field _kind 'enum-type'
+---@field ICON_NONE -1
+---@field [-1] "ICON_NONE"
+---@field ICON_MINERS 0
+---@field [0] "ICON_MINERS"
+---@field ICON_WOODCUTTERS 1
+---@field [1] "ICON_WOODCUTTERS"
+---@field ICON_HUNTERS 2
+---@field [2] "ICON_HUNTERS"
+---@field ICON_PLANTERS 3
+---@field [3] "ICON_PLANTERS"
+---@field ICON_FISHERMEN 4
+---@field [4] "ICON_FISHERMEN"
+---@field ICON_STONECUTTERS 5
+---@field [5] "ICON_STONECUTTERS"
+---@field ICON_ENGRAVERS 6
+---@field [6] "ICON_ENGRAVERS"
+---@field ICON_PLANT_GATHERERS 7
+---@field [7] "ICON_PLANT_GATHERERS"
+---@field ICON_HAULERS 8
+---@field [8] "ICON_HAULERS"
+---@field ICON_ORDERLIES 9
+---@field [9] "ICON_ORDERLIES"
+---@field ICON_CUSTOM_1 10
+---@field [10] "ICON_CUSTOM_1"
+---@field ICON_CUSTOM_2 11
+---@field [11] "ICON_CUSTOM_2"
+---@field ICON_CUSTOM_3 12
+---@field [12] "ICON_CUSTOM_3"
+---@field ICON_CUSTOM_4 13
+---@field [13] "ICON_CUSTOM_4"
+---@field ICON_CUSTOM_5 14
+---@field [14] "ICON_CUSTOM_5"
+---@field ICON_CUSTOM_6 15
+---@field [15] "ICON_CUSTOM_6"
+---@field ICON_CUSTOM_7 16
+---@field [16] "ICON_CUSTOM_7"
+---@field ICON_CUSTOM_8 17
+---@field [17] "ICON_CUSTOM_8"
 df.work_detail.T_icon = {}
 
 ---@class dungeon_contextst: DFObject

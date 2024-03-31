@@ -29,7 +29,7 @@ module DFHackLuaDefinitions
     'ptr-string' => 'DFPtrString',
     'static-string' => 'string',
     'stl-string' => 'string',
-    'bool' => 'boolean',
+    'bool' => 'boolean'
     # 'stl-bit-vector' => 'boolean',
     # 'df-flagarray' => 'boolean',
     # 'stl-function' => 'function',
@@ -60,6 +60,19 @@ module DFHackLuaDefinitions
       end
     end
 
+    def match_node(node, path)
+      meta = node['ld:meta']
+      return nil unless HANDLERS[meta]
+
+      if meta == 'compound'
+        return EnumType.new(node, path) if node['ld:subtype'] == 'enum'
+
+        StructType.new(node, path)
+      else
+        HANDLERS[meta].new(node, path)
+      end
+    end
+
     def render?
       !@node.children.empty? && @node.name != 'enum-item'
     end
@@ -83,32 +96,69 @@ module DFHackLuaDefinitions
   end
 
   class EnumType < Type
-    def render
-      annotation = "---@class #{@name}: df.enum\n"
+    def initialize(node, path = [])
+      super(node, path)
 
+      @class_name = @path.join('.')
+      @items = items
+    end
+
+    def items
       index = 0
-      @node.xpath('enum-item').each do |field|
-        annotation << EnumItem.new(field, index).render
-
+      @node.xpath('enum-item').map do |item|
+        enum = EnumItem.new(item, index)
         index += 1
-        index -= field['value'].to_i.abs if field['value']
+        index -= item['value'].to_i.abs if item['value']
+        enum
+      end
+    end
+
+    def render?
+      true
+    end
+
+    def to_field
+      "---@field #{@name} #{@class_name}\n"
+    end
+
+    # TODO: Types with index_enums have bi-directional keys.
+    # TODO: Aliases do not support comments for some reason.
+    def to_alias
+      annotation = "---@alias #{@class_name}\n"
+
+      @items.each do |item|
+        annotation << item.to_alias
       end
 
-      annotation << "---#{@comment}\n" if @comment
-      annotation << "df.#{@name} = {}\n\n"
+      annotation
+    end
+
+    def render
+      annotation = ''
+      annotation << to_alias
+      annotation << "\n"
+      annotation << "-- #{@comment}\n" if @comment
+      annotation << "---@class _#{@class_name}: DFDescriptor\n"
+      annotation << "---@field _kind 'enum-type'\n"
+      @items.each do |item|
+        annotation << item.to_field
+      end
+      annotation << "df.#{@class_name} = {}\n\n"
     end
   end
 
   class EnumItem
     def initialize(field, index)
-      @field = field
       @name = field['name']
-      @index = index
       @value = field['value'] || index
       @comment = field['comment']
     end
 
-    def render
+    def to_alias
+      "---| #{@value} # #{@name}\n"
+    end
+
+    def to_field
       # TODO: Ask DFHack folks if this matters, should we be outputting nils.
       return '' unless @name
 
@@ -137,10 +187,7 @@ module DFHackLuaDefinitions
 
     def fields
       @node.children.map do |child|
-        meta = child['ld:meta']
-        next unless HANDLERS[meta]
-
-        HANDLERS[meta].new(child, @path)
+        match_node(child, @path)
       end.compact
     end
 

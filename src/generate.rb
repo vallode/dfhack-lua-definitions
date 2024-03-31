@@ -19,12 +19,12 @@ DEBUG = ENV.fetch('DEBUG', false)
 SILENT = ENV.fetch('SILENT', false)
 
 HANDLERS = {
-  # 'enum-type' => DFHackLuaDefinitions::EnumType,
+  'enum-type' => DFHackLuaDefinitions::EnumType,
   # 'bitfield-type' => XmlNode::BitfieldType,
   'class-type' => DFHackLuaDefinitions::StructType,
   'struct-type' => DFHackLuaDefinitions::StructType,
   'compound' => DFHackLuaDefinitions::StructType,
-  'global' => DFHackLuaDefinitions::Field,
+  'global' => DFHackLuaDefinitions::Field
 }.freeze
 
 Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
@@ -38,7 +38,7 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
     Nokogiri::XSLT(File.read(stylesheet)).transform(memo)
   end
 
-  # No need to care about padding.
+  # Padding blocks are not available to Lua.
   document.xpath('//*[@type-name="padding"]').remove
 
   # We (currently) have no use for code-helper blocks.
@@ -71,9 +71,10 @@ Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
   end
 
   # Convert all native types to Lua types.
-  document.xpath('//*[@type-name]').each do |node|
-    type = node['type-name']
-    node['type-name'] = DFHackLuaDefinitions::TYPE_MAP[type] if DFHackLuaDefinitions::TYPE_MAP[type]
+  document.xpath('//@type-name').each do |type|
+    next unless DFHackLuaDefinitions::TYPE_MAP[type.value]
+
+    type.value = DFHackLuaDefinitions::TYPE_MAP[type.value]
   end
 
   # Parse the document again after changes to validate.
