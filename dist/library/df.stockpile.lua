@@ -13,8 +13,7 @@
 ---| 8 # Furniture
 ---| 9 # Animal
 
----@class _hauler_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _hauler_type: DFEnum
 ---@field Any 0
 ---@field [0] "Any"
 ---@field Stone 1
@@ -73,8 +72,7 @@ df.hauler_type = {}
 ---| 32 # OTHER_LARGE_TOOLS
 ---| 33 # SAND_BAG
 
----@class _furniture_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _furniture_type: DFEnum
 ---@field FLOODGATE 0 subset of item_type
 ---@field [0] "FLOODGATE" subset of item_type
 ---@field HATCH_COVER 1
@@ -167,8 +165,7 @@ df.furniture_type = {}
 ---| 17 # Sheets
 ---| 18 # Custom
 
----@class _stockpile_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _stockpile_category: DFEnum
 ---@field Remove -1
 ---@field [-1] "Remove"
 ---@field Animals 0
@@ -211,6 +208,121 @@ df.furniture_type = {}
 ---@field [18] "Custom"
 df.stockpile_category = {}
 
+---@alias _stockpile_group_set_keys
+---| 0 # animals
+---| 1 # food
+---| 2 # furniture
+---| 3 # corpses
+---| 4 # refuse
+---| 5 # stone
+---| 6 # ammo
+---| 7 # coins
+---| 8 # bars_blocks
+---| 9 # gems
+---| 10 # finished_goods
+---| 11 # leather
+---| 12 # cloth
+---| 13 # wood
+---| 14 # weapons
+---| 15 # armor
+---| 16 # sheet
+
+---@alias _stockpile_group_set_values
+---| "animals" # 0
+---| "food" # 1
+---| "furniture" # 2
+---| "corpses" # 3
+---| "refuse" # 4
+---| "stone" # 5
+---| "ammo" # 6
+---| "coins" # 7
+---| "bars_blocks" # 8
+---| "gems" # 9
+---| "finished_goods" # 10
+---| "leather" # 11
+---| "cloth" # 12
+---| "wood" # 13
+---| "weapons" # 14
+---| "armor" # 15
+---| "sheet" # 16
+
+---@class stockpile_group_set: DFObject, { [_stockpile_group_set_keys|_stockpile_group_set_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _stockpile_group_set
+local stockpile_group_set = {
+  animals = false,
+  [0] = false,
+  food = false,
+  [1] = false,
+  furniture = false,
+  [2] = false,
+  corpses = false,
+  [3] = false,
+  refuse = false,
+  [4] = false,
+  stone = false,
+  [5] = false,
+  ammo = false,
+  [6] = false,
+  coins = false,
+  [7] = false,
+  bars_blocks = false,
+  [8] = false,
+  gems = false,
+  [9] = false,
+  finished_goods = false,
+  [10] = false,
+  leather = false,
+  [11] = false,
+  cloth = false,
+  [12] = false,
+  wood = false,
+  [13] = false,
+  weapons = false,
+  [14] = false,
+  armor = false,
+  [15] = false,
+  sheet = false,
+  [16] = false,
+}
+
+---@class _stockpile_group_set: DFBitfield
+---@field animals 0
+---@field [0] "animals"
+---@field food 1
+---@field [1] "food"
+---@field furniture 2
+---@field [2] "furniture"
+---@field corpses 3
+---@field [3] "corpses"
+---@field refuse 4
+---@field [4] "refuse"
+---@field stone 5
+---@field [5] "stone"
+---@field ammo 6
+---@field [6] "ammo"
+---@field coins 7
+---@field [7] "coins"
+---@field bars_blocks 8
+---@field [8] "bars_blocks"
+---@field gems 9
+---@field [9] "gems"
+---@field finished_goods 10
+---@field [10] "finished_goods"
+---@field leather 11
+---@field [11] "leather"
+---@field cloth 12
+---@field [12] "cloth"
+---@field wood 13
+---@field [13] "wood"
+---@field weapons 14
+---@field [14] "weapons"
+---@field armor 15
+---@field [15] "armor"
+---@field sheet 16
+---@field [16] "sheet"
+df.stockpile_group_set = {}
+
 ---@class (exact) stockpile_settings: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings
@@ -246,7 +358,7 @@ df.stockpile_settings = {}
 ---@field _type _stockpile_settings.T_animals
 ---@field empty_cages boolean
 ---@field empty_traps boolean
-local animals
+local stockpile_settings_animals
 
 ---@class _stockpile_settings.T_animals: DFCompound
 ---@field _kind 'struct-type'
@@ -256,7 +368,7 @@ df.stockpile_settings.T_animals = {}
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_food
 ---@field prepared_meals boolean
-local food
+local stockpile_settings_food
 
 ---@class _stockpile_settings.T_food: DFCompound
 ---@field _kind 'struct-type'
@@ -265,7 +377,7 @@ df.stockpile_settings.T_food = {}
 ---@class (exact) stockpile_settings.T_furniture: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_furniture
-local furniture
+local stockpile_settings_furniture
 
 ---@class _stockpile_settings.T_furniture: DFCompound
 ---@field _kind 'struct-type'
@@ -274,7 +386,7 @@ df.stockpile_settings.T_furniture = {}
 ---@class (exact) stockpile_settings.T_corpses: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_corpses
-local corpses
+local stockpile_settings_corpses
 
 ---@class _stockpile_settings.T_corpses: DFCompound
 ---@field _kind 'struct-type'
@@ -285,7 +397,7 @@ df.stockpile_settings.T_corpses = {}
 ---@field _type _stockpile_settings.T_refuse
 ---@field fresh_raw_hide boolean
 ---@field rotten_raw_hide boolean
-local refuse
+local stockpile_settings_refuse
 
 ---@class _stockpile_settings.T_refuse: DFCompound
 ---@field _kind 'struct-type'
@@ -294,7 +406,7 @@ df.stockpile_settings.T_refuse = {}
 ---@class (exact) stockpile_settings.T_stone: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_stone
-local stone
+local stockpile_settings_stone
 
 ---@class _stockpile_settings.T_stone: DFCompound
 ---@field _kind 'struct-type'
@@ -303,7 +415,7 @@ df.stockpile_settings.T_stone = {}
 ---@class (exact) stockpile_settings.T_ore: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_ore
-local ore
+local stockpile_settings_ore
 
 ---@class _stockpile_settings.T_ore: DFCompound
 ---@field _kind 'struct-type'
@@ -312,7 +424,7 @@ df.stockpile_settings.T_ore = {}
 ---@class (exact) stockpile_settings.T_ammo: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_ammo
-local ammo
+local stockpile_settings_ammo
 
 ---@class _stockpile_settings.T_ammo: DFCompound
 ---@field _kind 'struct-type'
@@ -321,7 +433,7 @@ df.stockpile_settings.T_ammo = {}
 ---@class (exact) stockpile_settings.T_coins: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_coins
-local coins
+local stockpile_settings_coins
 
 ---@class _stockpile_settings.T_coins: DFCompound
 ---@field _kind 'struct-type'
@@ -330,7 +442,7 @@ df.stockpile_settings.T_coins = {}
 ---@class (exact) stockpile_settings.T_bars_blocks: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_bars_blocks
-local bars_blocks
+local stockpile_settings_bars_blocks
 
 ---@class _stockpile_settings.T_bars_blocks: DFCompound
 ---@field _kind 'struct-type'
@@ -339,7 +451,7 @@ df.stockpile_settings.T_bars_blocks = {}
 ---@class (exact) stockpile_settings.T_gems: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_gems
-local gems
+local stockpile_settings_gems
 
 ---@class _stockpile_settings.T_gems: DFCompound
 ---@field _kind 'struct-type'
@@ -348,7 +460,7 @@ df.stockpile_settings.T_gems = {}
 ---@class (exact) stockpile_settings.T_finished_goods: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_finished_goods
-local finished_goods
+local stockpile_settings_finished_goods
 
 ---@class _stockpile_settings.T_finished_goods: DFCompound
 ---@field _kind 'struct-type'
@@ -357,7 +469,7 @@ df.stockpile_settings.T_finished_goods = {}
 ---@class (exact) stockpile_settings.T_leather: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_leather
-local leather
+local stockpile_settings_leather
 
 ---@class _stockpile_settings.T_leather: DFCompound
 ---@field _kind 'struct-type'
@@ -366,7 +478,7 @@ df.stockpile_settings.T_leather = {}
 ---@class (exact) stockpile_settings.T_cloth: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_cloth
-local cloth
+local stockpile_settings_cloth
 
 ---@class _stockpile_settings.T_cloth: DFCompound
 ---@field _kind 'struct-type'
@@ -375,7 +487,7 @@ df.stockpile_settings.T_cloth = {}
 ---@class (exact) stockpile_settings.T_wood: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_wood
-local wood
+local stockpile_settings_wood
 
 ---@class _stockpile_settings.T_wood: DFCompound
 ---@field _kind 'struct-type'
@@ -386,7 +498,7 @@ df.stockpile_settings.T_wood = {}
 ---@field _type _stockpile_settings.T_weapons
 ---@field usable boolean
 ---@field unusable boolean
-local weapons
+local stockpile_settings_weapons
 
 ---@class _stockpile_settings.T_weapons: DFCompound
 ---@field _kind 'struct-type'
@@ -397,7 +509,7 @@ df.stockpile_settings.T_weapons = {}
 ---@field _type _stockpile_settings.T_armor
 ---@field usable boolean
 ---@field unusable boolean
-local armor
+local stockpile_settings_armor
 
 ---@class _stockpile_settings.T_armor: DFCompound
 ---@field _kind 'struct-type'
@@ -406,7 +518,7 @@ df.stockpile_settings.T_armor = {}
 ---@class (exact) stockpile_settings.T_sheet: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_sheet
-local sheet
+local stockpile_settings_sheet
 
 ---@class _stockpile_settings.T_sheet: DFCompound
 ---@field _kind 'struct-type'
@@ -519,8 +631,7 @@ df.stockpile_settings.T_sheet = {}
 ---| 103 # SheetParchment
 ---| 104 # AdditionalOptions
 
----@class _stockpile_list: DFDescriptor
----@field _kind 'enum-type'
+---@class _stockpile_list: DFEnum
 ---@field Animals 0
 ---@field [0] "Animals"
 ---@field Food 1
@@ -819,8 +930,7 @@ df.stop_depart_condition = {}
 ---| 2 # East
 ---| 3 # West
 
----@class _stop_depart_condition.T_direction: DFDescriptor
----@field _kind 'enum-type'
+---@class _stop_depart_condition.T_direction: DFEnum
 ---@field North 0
 ---@field [0] "North"
 ---@field South 1
@@ -836,8 +946,7 @@ df.stop_depart_condition.T_direction = {}
 ---| 1 # Ride
 ---| 2 # Guide
 
----@class _stop_depart_condition.T_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _stop_depart_condition.T_mode: DFEnum
 ---@field Push 0
 ---@field [0] "Push"
 ---@field Ride 1
@@ -846,15 +955,29 @@ df.stop_depart_condition.T_direction = {}
 ---@field [2] "Guide"
 df.stop_depart_condition.T_mode = {}
 
----@class (exact) stop_depart_condition.T_flags: DFObject
----@field _kind 'struct'
----@field _type _stop_depart_condition.T_flags
----@field at_most flag-bit
----@field desired flag-bit
-local flags
+---@alias _stop_depart_condition.T_flags_keys
+---| 0 # at_most
+---| 1 # desired
 
----@class _stop_depart_condition.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _stop_depart_condition.T_flags_values
+---| "at_most" # 0
+---| "desired" # 1
+
+---@class stop_depart_condition.T_flags: DFObject, { [_stop_depart_condition.T_flags_keys|_stop_depart_condition.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _stop_depart_condition.T_flags
+local stop_depart_condition_flags = {
+  at_most = false,
+  [0] = false,
+  desired = false,
+  [1] = false,
+}
+
+---@class _stop_depart_condition.T_flags: DFBitfield
+---@field at_most 0
+---@field [0] "at_most"
+---@field desired 1
+---@field [1] "desired"
 df.stop_depart_condition.T_flags = {}
 
 ---@class (exact) route_stockpile_link: DFObject
@@ -868,15 +991,29 @@ local route_stockpile_link
 ---@field _kind 'struct-type'
 df.route_stockpile_link = {}
 
----@class (exact) route_stockpile_link.T_mode: DFObject
----@field _kind 'struct'
----@field _type _route_stockpile_link.T_mode
----@field take flag-bit
----@field give flag-bit
-local mode
+---@alias _route_stockpile_link.T_mode_keys
+---| 0 # take
+---| 1 # give
 
----@class _route_stockpile_link.T_mode: DFCompound
----@field _kind 'struct-type'
+---@alias _route_stockpile_link.T_mode_values
+---| "take" # 0
+---| "give" # 1
+
+---@class route_stockpile_link.T_mode: DFObject, { [_route_stockpile_link.T_mode_keys|_route_stockpile_link.T_mode_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _route_stockpile_link.T_mode
+local route_stockpile_link_mode = {
+  take = false,
+  [0] = false,
+  give = false,
+  [1] = false,
+}
+
+---@class _route_stockpile_link.T_mode: DFBitfield
+---@field take 0
+---@field [0] "take"
+---@field give 1
+---@field [1] "give"
 df.route_stockpile_link.T_mode = {}
 
 ---@class (exact) vehicle: DFObject
@@ -913,13 +1050,22 @@ local vehicle_vector
 ---@return vehicle_vector # df.global.world.vehicles.all
 function df.vehicle.get_vector() end
 
----@class (exact) vehicle.T_flag: DFObject
----@field _kind 'struct'
----@field _type _vehicle.T_flag
----@field ON_TRACK flag-bit
-local flag
+---@alias _vehicle.T_flag_keys
+---| 0 # ON_TRACK
 
----@class _vehicle.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _vehicle.T_flag_values
+---| "ON_TRACK" # 0
+
+---@class vehicle.T_flag: DFObject, { [_vehicle.T_flag_keys|_vehicle.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _vehicle.T_flag
+local vehicle_flag = {
+  ON_TRACK = false,
+  [0] = false,
+}
+
+---@class _vehicle.T_flag: DFBitfield
+---@field ON_TRACK 0
+---@field [0] "ON_TRACK"
 df.vehicle.T_flag = {}
 

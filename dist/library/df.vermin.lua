@@ -1,6 +1,31 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta _
 
+---@alias _vermin_flags_keys
+---| 1 # is_colony
+---| 3 # is_roaming_colony
+
+---@alias _vermin_flags_values
+---| "is_colony" # 1
+---| "is_roaming_colony" # 3
+
+---@class vermin_flags: DFObject, { [_vermin_flags_keys|_vermin_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _vermin_flags
+local vermin_flags = {
+  is_colony = false, -- A vermin colony. For example an anthill or bee hive.
+  [1] = false, -- A vermin colony. For example an anthill or bee hive.
+  is_roaming_colony = false, -- colony building vermin away from colony
+  [3] = false, -- colony building vermin away from colony
+}
+
+---@class _vermin_flags: DFBitfield
+---@field is_colony 1 A vermin colony. For example an anthill or bee hive.
+---@field [1] "is_colony" A vermin colony. For example an anthill or bee hive.
+---@field is_roaming_colony 3 colony building vermin away from colony
+---@field [3] "is_roaming_colony" colony building vermin away from colony
+df.vermin_flags = {}
+
 ---@alias vermin_category
 ---| -1 # None
 ---| 0 # Eater
@@ -12,8 +37,7 @@
 ---| 6 # Dropped
 ---| 7 # Underworld
 
----@class _vermin_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _vermin_category: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Eater 0

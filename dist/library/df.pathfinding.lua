@@ -218,8 +218,7 @@
 ---| 212 # InterrogationOffice
 ---| 213 # SeekHeistHandoff
 
----@class _unit_path_goal: DFDescriptor
----@field _kind 'enum-type'
+---@class _unit_path_goal: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field ComeToJobBuilding 0
@@ -697,8 +696,7 @@ df.unit_path_goal = {}
 ---| 40 # ClaimSite
 ---| 41 # WaitOrder
 
----@class _unit_station_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _unit_station_type: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Nonsense 0
@@ -786,4 +784,167 @@ df.unit_path_goal = {}
 ---@field WaitOrder 41
 ---@field [41] "WaitOrder"
 df.unit_station_type = {}
+
+---@alias _pathfinding_flags_keys
+---| 0 # Desperate
+---| 1 # Reckless
+---| 2 # BuildingDestroyer1
+---| 3 # BuildingDestroyer2
+---| 4 # StuckInBuilding
+---| 5 # AllowUnrevealed
+---| 6 # Doors
+---| 7 # UnkDoor_7
+---| 8 # CanLearn
+---| 9 # SolidWall
+---| 10 # JumpCliff
+---| 11 # Air
+---| 12 # ShallowWater
+---| 13 # DeepWater
+---| 14 # Underwater
+---| 15 # ShallowMagma
+---| 16 # DeepMagma
+---| 17 # UnderMagma
+---| 18 # InWater
+---| 19 # InMagma
+---| 20 # WalkLand
+---| 21 # ImmobileLand
+---| 22 # ZeroWalkTag
+---| 23 # LevelMapless
+---| 24 # Ghostly
+
+---@alias _pathfinding_flags_values
+---| "Desperate" # 0
+---| "Reckless" # 1
+---| "BuildingDestroyer1" # 2
+---| "BuildingDestroyer2" # 3
+---| "StuckInBuilding" # 4
+---| "AllowUnrevealed" # 5
+---| "Doors" # 6
+---| "UnkDoor_7" # 7
+---| "CanLearn" # 8
+---| "SolidWall" # 9
+---| "JumpCliff" # 10
+---| "Air" # 11
+---| "ShallowWater" # 12
+---| "DeepWater" # 13
+---| "Underwater" # 14
+---| "ShallowMagma" # 15
+---| "DeepMagma" # 16
+---| "UnderMagma" # 17
+---| "InWater" # 18
+---| "InMagma" # 19
+---| "WalkLand" # 20
+---| "ImmobileLand" # 21
+---| "ZeroWalkTag" # 22
+---| "LevelMapless" # 23
+---| "Ghostly" # 24
+
+---@class pathfinding_flags: DFObject, { [_pathfinding_flags_keys|_pathfinding_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _pathfinding_flags
+local pathfinding_flags = {
+  Desperate = false, -- bay12: FORBIDDENTERRAIN
+  [0] = false, -- bay12: FORBIDDENTERRAIN
+  Reckless = false, -- bay12: BONKERS
+  [1] = false, -- bay12: BONKERS
+  BuildingDestroyer1 = false, -- bay12: WOODENDOOR_IGNORE
+  [2] = false, -- bay12: WOODENDOOR_IGNORE
+  BuildingDestroyer2 = false, -- bay12: DOOR_IGNORE
+  [3] = false, -- bay12: DOOR_IGNORE
+  StuckInBuilding = false, -- bay12: BUILDING_IGNORE
+  [4] = false, -- bay12: BUILDING_IGNORE
+  AllowUnrevealed = false, -- bay12: HIDDEN
+  [5] = false, -- bay12: HIDDEN
+  Doors = false, -- bay12: DOOR_STOP
+  [6] = false, -- bay12: DOOR_STOP
+  UnkDoor_7 = false, -- bay12: DOOR_STOP_TOTAL
+  [7] = false, -- bay12: DOOR_STOP_TOTAL
+  CanLearn = false, -- bay12: USE_TRAFFIC
+  [8] = false, -- bay12: USE_TRAFFIC
+  SolidWall = false,
+  [9] = false,
+  JumpCliff = false, -- bay12: LEAPER
+  [10] = false, -- bay12: LEAPER
+  Air = false, -- bay12: FLY
+  [11] = false, -- bay12: FLY
+  ShallowWater = false, -- bay12: WATER_TOUCH
+  [12] = false, -- bay12: WATER_TOUCH
+  DeepWater = false, -- bay12: WATER_SWIM
+  [13] = false, -- bay12: WATER_SWIM
+  Underwater = false, -- bay12: WATER_UNDER
+  [14] = false, -- bay12: WATER_UNDER
+  ShallowMagma = false, -- bay12: LAVA_TOUCH
+  [15] = false, -- bay12: LAVA_TOUCH
+  DeepMagma = false, -- bay12: LAVA_SWIM
+  [16] = false, -- bay12: LAVA_SWIM
+  UnderMagma = false, -- bay12: LAVA_UNDER
+  [17] = false, -- bay12: LAVA_UNDER
+  InWater = false, -- bay12: ENTERING_FROM_WATER
+  [18] = false, -- bay12: ENTERING_FROM_WATER
+  InMagma = false, -- bay12: ENTERING_FROM_LAVA
+  [19] = false, -- bay12: ENTERING_FROM_LAVA
+  WalkLand = false, -- bay12: BREATHE_AIR
+  [20] = false, -- bay12: BREATHE_AIR
+  ImmobileLand = false, -- bay12: ENTERING_FROM_AIR
+  [21] = false, -- bay12: ENTERING_FROM_AIR
+  ZeroWalkTag = false, -- bay12: ENTERING_FROM_LEVE_MAPLESS
+  [22] = false, -- bay12: ENTERING_FROM_LEVE_MAPLESS
+  LevelMapless = false,
+  [23] = false,
+  Ghostly = false,
+  [24] = false,
+}
+
+---@class _pathfinding_flags: DFBitfield
+---@field Desperate 0 bay12: FORBIDDENTERRAIN
+---@field [0] "Desperate" bay12: FORBIDDENTERRAIN
+---@field Reckless 1 bay12: BONKERS
+---@field [1] "Reckless" bay12: BONKERS
+---@field BuildingDestroyer1 2 bay12: WOODENDOOR_IGNORE
+---@field [2] "BuildingDestroyer1" bay12: WOODENDOOR_IGNORE
+---@field BuildingDestroyer2 3 bay12: DOOR_IGNORE
+---@field [3] "BuildingDestroyer2" bay12: DOOR_IGNORE
+---@field StuckInBuilding 4 bay12: BUILDING_IGNORE
+---@field [4] "StuckInBuilding" bay12: BUILDING_IGNORE
+---@field AllowUnrevealed 5 bay12: HIDDEN
+---@field [5] "AllowUnrevealed" bay12: HIDDEN
+---@field Doors 6 bay12: DOOR_STOP
+---@field [6] "Doors" bay12: DOOR_STOP
+---@field UnkDoor_7 7 bay12: DOOR_STOP_TOTAL
+---@field [7] "UnkDoor_7" bay12: DOOR_STOP_TOTAL
+---@field CanLearn 8 bay12: USE_TRAFFIC
+---@field [8] "CanLearn" bay12: USE_TRAFFIC
+---@field SolidWall 9
+---@field [9] "SolidWall"
+---@field JumpCliff 10 bay12: LEAPER
+---@field [10] "JumpCliff" bay12: LEAPER
+---@field Air 11 bay12: FLY
+---@field [11] "Air" bay12: FLY
+---@field ShallowWater 12 bay12: WATER_TOUCH
+---@field [12] "ShallowWater" bay12: WATER_TOUCH
+---@field DeepWater 13 bay12: WATER_SWIM
+---@field [13] "DeepWater" bay12: WATER_SWIM
+---@field Underwater 14 bay12: WATER_UNDER
+---@field [14] "Underwater" bay12: WATER_UNDER
+---@field ShallowMagma 15 bay12: LAVA_TOUCH
+---@field [15] "ShallowMagma" bay12: LAVA_TOUCH
+---@field DeepMagma 16 bay12: LAVA_SWIM
+---@field [16] "DeepMagma" bay12: LAVA_SWIM
+---@field UnderMagma 17 bay12: LAVA_UNDER
+---@field [17] "UnderMagma" bay12: LAVA_UNDER
+---@field InWater 18 bay12: ENTERING_FROM_WATER
+---@field [18] "InWater" bay12: ENTERING_FROM_WATER
+---@field InMagma 19 bay12: ENTERING_FROM_LAVA
+---@field [19] "InMagma" bay12: ENTERING_FROM_LAVA
+---@field WalkLand 20 bay12: BREATHE_AIR
+---@field [20] "WalkLand" bay12: BREATHE_AIR
+---@field ImmobileLand 21 bay12: ENTERING_FROM_AIR
+---@field [21] "ImmobileLand" bay12: ENTERING_FROM_AIR
+---@field ZeroWalkTag 22 bay12: ENTERING_FROM_LEVE_MAPLESS
+---@field [22] "ZeroWalkTag" bay12: ENTERING_FROM_LEVE_MAPLESS
+---@field LevelMapless 23
+---@field [23] "LevelMapless"
+---@field Ghostly 24
+---@field [24] "Ghostly"
+df.pathfinding_flags = {}
 

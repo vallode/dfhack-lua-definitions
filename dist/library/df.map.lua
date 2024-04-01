@@ -48,8 +48,7 @@ df.coord_path = {}
 ---| 2 # High
 ---| 3 # Restricted
 
----@class _tile_traffic: DFDescriptor
----@field _kind 'enum-type'
+---@class _tile_traffic: DFEnum
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Low 1
@@ -69,8 +68,7 @@ df.tile_traffic = {}
 ---| 5 # DownStair
 ---| 6 # UpStair
 
----@class _tile_dig_designation: DFDescriptor
----@field _kind 'enum-type'
+---@class _tile_dig_designation: DFEnum
 ---@field No 0 no designation
 ---@field [0] "No" no designation
 ---@field Default 1 dig walls, remove stairs and ramps, gather plants, fell trees
@@ -91,13 +89,145 @@ df.tile_dig_designation = {}
 ---| 0 # Water
 ---| 1 # Magma
 
----@class _tile_liquid: DFDescriptor
----@field _kind 'enum-type'
+---@class _tile_liquid: DFEnum
 ---@field Water 0
 ---@field [0] "Water"
 ---@field Magma 1
 ---@field [1] "Magma"
 df.tile_liquid = {}
+
+---@alias _tile_designation_keys
+---| 0 # flow_size
+---| 1 # pile
+---| 2 # dig
+---| 3 # smooth
+---| 4 # hidden
+---| 5 # geolayer_index
+---| 6 # light
+---| 7 # subterranean
+---| 8 # outside
+---| 9 # biome
+---| 10 # liquid_type
+---| 11 # water_table
+---| 12 # rained
+---| 13 # traffic
+---| 14 # flow_forbid
+---| 15 # liquid_static
+---| 16 # feature_local
+---| 17 # feature_global
+---| 18 # water_stagnant
+---| 19 # water_salt
+
+---@alias _tile_designation_values
+---| "flow_size" # 0
+---| "pile" # 1
+---| "dig" # 2
+---| "smooth" # 3
+---| "hidden" # 4
+---| "geolayer_index" # 5
+---| "light" # 6
+---| "subterranean" # 7
+---| "outside" # 8
+---| "biome" # 9
+---| "liquid_type" # 10
+---| "water_table" # 11
+---| "rained" # 12
+---| "traffic" # 13
+---| "flow_forbid" # 14
+---| "liquid_static" # 15
+---| "feature_local" # 16
+---| "feature_global" # 17
+---| "water_stagnant" # 18
+---| "water_salt" # 19
+
+---@class tile_designation: DFObject, { [_tile_designation_keys|_tile_designation_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _tile_designation
+local tile_designation = {
+  flow_size = false, -- liquid amount
+  [0] = false, -- liquid amount
+  pile = false, -- stockpile; Adventure: lit
+  [1] = false, -- stockpile; Adventure: lit
+  dig = false, -- Adventure: line_of_sight, furniture_memory, item_memory
+  [2] = false, -- Adventure: line_of_sight, furniture_memory, item_memory
+  smooth = false, -- Adventure: creature_memory, original_cave
+  [3] = false, -- Adventure: creature_memory, original_cave
+  hidden = false,
+  [4] = false,
+  geolayer_index = false,
+  [5] = false,
+  light = false,
+  [6] = false,
+  subterranean = false,
+  [7] = false,
+  outside = false,
+  [8] = false,
+  biome = false,
+  [9] = false,
+  liquid_type = false,
+  [10] = false,
+  water_table = false, -- aquifer
+  [11] = false, -- aquifer
+  rained = false,
+  [12] = false,
+  traffic = false,
+  [13] = false,
+  flow_forbid = false,
+  [14] = false,
+  liquid_static = false,
+  [15] = false,
+  feature_local = false,
+  [16] = false,
+  feature_global = false,
+  [17] = false,
+  water_stagnant = false,
+  [18] = false,
+  water_salt = false,
+  [19] = false,
+}
+
+---@class _tile_designation: DFBitfield
+---@field flow_size 0 liquid amount
+---@field [0] "flow_size" liquid amount
+---@field pile 1 stockpile; Adventure: lit
+---@field [1] "pile" stockpile; Adventure: lit
+---@field dig 2 Adventure: line_of_sight, furniture_memory, item_memory
+---@field [2] "dig" Adventure: line_of_sight, furniture_memory, item_memory
+---@field smooth 3 Adventure: creature_memory, original_cave
+---@field [3] "smooth" Adventure: creature_memory, original_cave
+---@field hidden 4
+---@field [4] "hidden"
+---@field geolayer_index 5
+---@field [5] "geolayer_index"
+---@field light 6
+---@field [6] "light"
+---@field subterranean 7
+---@field [7] "subterranean"
+---@field outside 8
+---@field [8] "outside"
+---@field biome 9
+---@field [9] "biome"
+---@field liquid_type 10
+---@field [10] "liquid_type"
+---@field water_table 11 aquifer
+---@field [11] "water_table" aquifer
+---@field rained 12
+---@field [12] "rained"
+---@field traffic 13
+---@field [13] "traffic"
+---@field flow_forbid 14
+---@field [14] "flow_forbid"
+---@field liquid_static 15
+---@field [15] "liquid_static"
+---@field feature_local 16
+---@field [16] "feature_local"
+---@field feature_global 17
+---@field [17] "feature_global"
+---@field water_stagnant 18
+---@field [18] "water_stagnant"
+---@field water_salt 19
+---@field [19] "water_salt"
+df.tile_designation = {}
 
 ---@alias tile_building_occ
 ---| 0 # None
@@ -109,8 +239,7 @@ df.tile_liquid = {}
 ---| 6 # Impassable
 ---| 7 # Dynamic
 
----@class _tile_building_occ: DFDescriptor
----@field _kind 'enum-type'
+---@class _tile_building_occ: DFEnum
 ---@field None 0 no building
 ---@field [0] "None" no building
 ---@field Planned 1 nothing built yet
@@ -128,6 +257,291 @@ df.tile_liquid = {}
 ---@field Dynamic 7 doors, grates, etc
 ---@field [7] "Dynamic" doors, grates, etc
 df.tile_building_occ = {}
+
+---@alias _tile_occupancy_keys
+---| 0 # building
+---| 1 # unit
+---| 2 # unit_grounded
+---| 3 # item
+---| 4 # edge_flow_in
+---| 5 # moss
+---| 6 # arrow_color
+---| 7 # arrow_variant
+---| 8 # unhide_trigger
+---| 9 # monster_lair
+---| 10 # no_grow
+---| 11 # forced_subterranean_constructions
+---| 12 # subterranean_light_column
+---| 13 # carve_track_north
+---| 14 # carve_track_south
+---| 15 # carve_track_east
+---| 16 # carve_track_west
+---| 17 # spoor
+---| 18 # eerie_light
+---| 19 # dig_marked
+---| 20 # dig_auto
+---| 21 # heavy_aquifer
+
+---@alias _tile_occupancy_values
+---| "building" # 0
+---| "unit" # 1
+---| "unit_grounded" # 2
+---| "item" # 3
+---| "edge_flow_in" # 4
+---| "moss" # 5
+---| "arrow_color" # 6
+---| "arrow_variant" # 7
+---| "unhide_trigger" # 8
+---| "monster_lair" # 9
+---| "no_grow" # 10
+---| "forced_subterranean_constructions" # 11
+---| "subterranean_light_column" # 12
+---| "carve_track_north" # 13
+---| "carve_track_south" # 14
+---| "carve_track_east" # 15
+---| "carve_track_west" # 16
+---| "spoor" # 17
+---| "eerie_light" # 18
+---| "dig_marked" # 19
+---| "dig_auto" # 20
+---| "heavy_aquifer" # 21
+
+---@class tile_occupancy: DFObject, { [_tile_occupancy_keys|_tile_occupancy_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _tile_occupancy
+local tile_occupancy = {
+  building = false,
+  [0] = false,
+  unit = false, -- standing
+  [1] = false, -- standing
+  unit_grounded = false, -- prone
+  [2] = false, -- prone
+  item = false,
+  [3] = false,
+  edge_flow_in = false, -- if set on an edge tile, water or magma will flow in
+  [4] = false, -- if set on an edge tile, water or magma will flow in
+  moss = false,
+  [5] = false,
+  arrow_color = false,
+  [6] = false,
+  arrow_variant = false,
+  [7] = false,
+  unhide_trigger = false, -- when noncitizen moves in, something happens and it is cleared
+  [8] = false, -- when noncitizen moves in, something happens and it is cleared
+  monster_lair = false, -- bay12: permanent_mess; A monster lair. Items placed wont be moved.
+  [9] = false, -- bay12: permanent_mess; A monster lair. Items placed wont be moved.
+  no_grow = false, -- seems to be set on terrain tiles where grass growth is impossible
+  [10] = false, -- seems to be set on terrain tiles where grass growth is impossible
+  forced_subterranean_constructions = false,
+  [11] = false,
+  subterranean_light_column = false,
+  [12] = false,
+  carve_track_north = false,
+  [13] = false,
+  carve_track_south = false,
+  [14] = false,
+  carve_track_east = false,
+  [15] = false,
+  carve_track_west = false,
+  [16] = false,
+  spoor = false,
+  [17] = false,
+  eerie_light = false,
+  [18] = false,
+  dig_marked = false,
+  [19] = false,
+  dig_auto = false,
+  [20] = false,
+  heavy_aquifer = false, -- Light/Heavy aquifer flag
+  [21] = false, -- Light/Heavy aquifer flag
+}
+
+---@class _tile_occupancy: DFBitfield
+---@field building 0
+---@field [0] "building"
+---@field unit 1 standing
+---@field [1] "unit" standing
+---@field unit_grounded 2 prone
+---@field [2] "unit_grounded" prone
+---@field item 3
+---@field [3] "item"
+---@field edge_flow_in 4 if set on an edge tile, water or magma will flow in
+---@field [4] "edge_flow_in" if set on an edge tile, water or magma will flow in
+---@field moss 5
+---@field [5] "moss"
+---@field arrow_color 6
+---@field [6] "arrow_color"
+---@field arrow_variant 7
+---@field [7] "arrow_variant"
+---@field unhide_trigger 8 when noncitizen moves in, something happens and it is cleared
+---@field [8] "unhide_trigger" when noncitizen moves in, something happens and it is cleared
+---@field monster_lair 9 bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field [9] "monster_lair" bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field no_grow 10 seems to be set on terrain tiles where grass growth is impossible
+---@field [10] "no_grow" seems to be set on terrain tiles where grass growth is impossible
+---@field forced_subterranean_constructions 11
+---@field [11] "forced_subterranean_constructions"
+---@field subterranean_light_column 12
+---@field [12] "subterranean_light_column"
+---@field carve_track_north 13
+---@field [13] "carve_track_north"
+---@field carve_track_south 14
+---@field [14] "carve_track_south"
+---@field carve_track_east 15
+---@field [15] "carve_track_east"
+---@field carve_track_west 16
+---@field [16] "carve_track_west"
+---@field spoor 17
+---@field [17] "spoor"
+---@field eerie_light 18
+---@field [18] "eerie_light"
+---@field dig_marked 19
+---@field [19] "dig_marked"
+---@field dig_auto 20
+---@field [20] "dig_auto"
+---@field heavy_aquifer 21 Light/Heavy aquifer flag
+---@field [21] "heavy_aquifer" Light/Heavy aquifer flag
+df.tile_occupancy = {}
+
+---@alias _block_flags_keys
+---| 0 # designated
+---| 1 # update_temperature
+---| 2 # update_liquid
+---| 3 # update_liquid_twice
+---| 4 # repath_on_freeze
+---| 5 # repath_on_melt
+---| 6 # has_aquifer
+---| 7 # check_aquifer
+---| 8 # may_have_item_spatter
+---| 9 # subterranean_water
+---| 10 # has_magma_close
+---| 11 # has_magma_far
+---| 12 # mas_magma_low
+---| 13 # has_river_high
+---| 14 # has_river_medium
+---| 15 # has_river_low
+
+---@alias _block_flags_values
+---| "designated" # 0
+---| "update_temperature" # 1
+---| "update_liquid" # 2
+---| "update_liquid_twice" # 3
+---| "repath_on_freeze" # 4
+---| "repath_on_melt" # 5
+---| "has_aquifer" # 6
+---| "check_aquifer" # 7
+---| "may_have_item_spatter" # 8
+---| "subterranean_water" # 9
+---| "has_magma_close" # 10
+---| "has_magma_far" # 11
+---| "mas_magma_low" # 12
+---| "has_river_high" # 13
+---| "has_river_medium" # 14
+---| "has_river_low" # 15
+
+---@class block_flags: DFObject, { [_block_flags_keys|_block_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _block_flags
+local block_flags = {
+  designated = false, -- for jobs etc
+  [0] = false, -- for jobs etc
+  update_temperature = false,
+  [1] = false,
+  update_liquid = false,
+  [2] = false,
+  update_liquid_twice = false, -- Protects UpdateLiquid from being cleared the first time.
+  [3] = false, -- Protects UpdateLiquid from being cleared the first time.
+  repath_on_freeze = false, -- reindex_pathfinding set and flag cleared if temperature below 10000
+  [4] = false, -- reindex_pathfinding set and flag cleared if temperature below 10000
+  repath_on_melt = false, -- reindex_pathfinding set and flag cleared if temperature above 10000
+  [5] = false, -- reindex_pathfinding set and flag cleared if temperature above 10000
+  has_aquifer = false, -- has at least one "water_table" designation flag
+  [6] = false, -- has at least one "water_table" designation flag
+  check_aquifer = false, -- has tiles that may get flooded by an adjacent aquifer
+  [7] = false, -- has tiles that may get flooded by an adjacent aquifer
+  may_have_item_spatter = false, -- Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
+  [8] = false, -- Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
+  subterranean_water = false, -- bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
+  [9] = false, -- bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
+  has_magma_close = false,
+  [10] = false,
+  has_magma_far = false,
+  [11] = false,
+  mas_magma_low = false,
+  [12] = false,
+  has_river_high = false,
+  [13] = false,
+  has_river_medium = false,
+  [14] = false,
+  has_river_low = false,
+  [15] = false,
+}
+
+---@class _block_flags: DFBitfield
+---@field designated 0 for jobs etc
+---@field [0] "designated" for jobs etc
+---@field update_temperature 1
+---@field [1] "update_temperature"
+---@field update_liquid 2
+---@field [2] "update_liquid"
+---@field update_liquid_twice 3 Protects UpdateLiquid from being cleared the first time.
+---@field [3] "update_liquid_twice" Protects UpdateLiquid from being cleared the first time.
+---@field repath_on_freeze 4 reindex_pathfinding set and flag cleared if temperature below 10000
+---@field [4] "repath_on_freeze" reindex_pathfinding set and flag cleared if temperature below 10000
+---@field repath_on_melt 5 reindex_pathfinding set and flag cleared if temperature above 10000
+---@field [5] "repath_on_melt" reindex_pathfinding set and flag cleared if temperature above 10000
+---@field has_aquifer 6 has at least one "water_table" designation flag
+---@field [6] "has_aquifer" has at least one "water_table" designation flag
+---@field check_aquifer 7 has tiles that may get flooded by an adjacent aquifer
+---@field [7] "check_aquifer" has tiles that may get flooded by an adjacent aquifer
+---@field may_have_item_spatter 8 Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
+---@field [8] "may_have_item_spatter" Seems to be surface or level above surface up to some limit (air biome?), with trees reaching higher than the limit. All have at least one tile of Outside. Cutting all trees in area did not seem to cause any change
+---@field subterranean_water 9 bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
+---@field [9] "subterranean_water" bay12: may_have_material_spatter; has tiles with designation flow_size > 0, liquid_type = true, and subterranean. At embark:not checked how player actions affect this flag
+---@field has_magma_close 10
+---@field [10] "has_magma_close"
+---@field has_magma_far 11
+---@field [11] "has_magma_far"
+---@field mas_magma_low 12
+---@field [12] "mas_magma_low"
+---@field has_river_high 13
+---@field [13] "has_river_high"
+---@field has_river_medium 14
+---@field [14] "has_river_medium"
+---@field has_river_low 15
+---@field [15] "has_river_low"
+df.block_flags = {}
+
+---@alias _z_level_flags_keys
+---| 0 # update
+---| 1 # can_stop
+---| 2 # update_twice
+
+---@alias _z_level_flags_values
+---| "update" # 0
+---| "can_stop" # 1
+---| "update_twice" # 2
+
+---@class z_level_flags: DFObject, { [_z_level_flags_keys|_z_level_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _z_level_flags
+local z_level_flags = {
+  update = false,
+  [0] = false,
+  can_stop = false,
+  [1] = false,
+  update_twice = false,
+  [2] = false,
+}
+
+---@class _z_level_flags: DFBitfield
+---@field update 0
+---@field [0] "update"
+---@field can_stop 1
+---@field [1] "can_stop"
+---@field update_twice 2
+---@field [2] "update_twice"
+df.z_level_flags = {}
 
 ---@alias tile_liquid_flow_dir
 ---| 0 # none
@@ -147,8 +561,7 @@ df.tile_building_occ = {}
 ---| 14 # inv_e
 ---| 15 # inv_f
 
----@class _tile_liquid_flow_dir: DFDescriptor
----@field _kind 'enum-type'
+---@class _tile_liquid_flow_dir: DFEnum
 ---@field none 0
 ---@field [0] "none"
 ---@field south 1
@@ -182,6 +595,43 @@ df.tile_building_occ = {}
 ---@field inv_f 15
 ---@field [15] "inv_f"
 df.tile_liquid_flow_dir = {}
+
+---@alias _tile_liquid_flow_keys
+---| 0 # temp_flow_timer
+---| 1 # temp_dir
+---| 2 # perm_flow_dir
+---| 3 # sink_dist
+
+---@alias _tile_liquid_flow_values
+---| "temp_flow_timer" # 0
+---| "temp_dir" # 1
+---| "perm_flow_dir" # 2
+---| "sink_dist" # 3
+
+---@class tile_liquid_flow: DFObject, { [_tile_liquid_flow_keys|_tile_liquid_flow_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _tile_liquid_flow
+local tile_liquid_flow = {
+  temp_flow_timer = false, -- set when water sloshes around, counts down to zero
+  [0] = false, -- set when water sloshes around, counts down to zero
+  temp_dir = false,
+  [1] = false,
+  perm_flow_dir = false,
+  [2] = false,
+  sink_dist = false, -- periodically set whenever perm_flow_dir is nonzero
+  [3] = false, -- periodically set whenever perm_flow_dir is nonzero
+}
+
+---@class _tile_liquid_flow: DFBitfield
+---@field temp_flow_timer 0 set when water sloshes around, counts down to zero
+---@field [0] "temp_flow_timer" set when water sloshes around, counts down to zero
+---@field temp_dir 1
+---@field [1] "temp_dir"
+---@field perm_flow_dir 2
+---@field [2] "perm_flow_dir"
+---@field sink_dist 3 periodically set whenever perm_flow_dir is nonzero
+---@field [3] "sink_dist" periodically set whenever perm_flow_dir is nonzero
+df.tile_liquid_flow = {}
 
 ---@class (exact) tile_bitmask: DFObject
 ---@field _kind 'struct'
@@ -253,15 +703,29 @@ local cave_column
 ---@field _kind 'class-type'
 df.cave_column = {}
 
----@class (exact) cave_column.T_flags: DFObject
----@field _kind 'struct'
----@field _type _cave_column.T_flags
----@field UNSTABLE flag-bit
----@field ULTRA_SUPPORTED flag-bit
-local flags
+---@alias _cave_column.T_flags_keys
+---| 0 # UNSTABLE
+---| 1 # ULTRA_SUPPORTED
 
----@class _cave_column.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _cave_column.T_flags_values
+---| "UNSTABLE" # 0
+---| "ULTRA_SUPPORTED" # 1
+
+---@class cave_column.T_flags: DFObject, { [_cave_column.T_flags_keys|_cave_column.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _cave_column.T_flags
+local cave_column_flags = {
+  UNSTABLE = false,
+  [0] = false,
+  ULTRA_SUPPORTED = false,
+  [1] = false,
+}
+
+---@class _cave_column.T_flags: DFBitfield
+---@field UNSTABLE 0
+---@field [0] "UNSTABLE"
+---@field ULTRA_SUPPORTED 1
+---@field [1] "ULTRA_SUPPORTED"
 df.cave_column.T_flags = {}
 
 ---@class (exact) cave_column_rectangle: DFObject
@@ -280,16 +744,35 @@ local cave_column_rectangle
 ---@field _kind 'class-type'
 df.cave_column_rectangle = {}
 
----@class (exact) cave_column_rectangle.T_flags: DFObject
----@field _kind 'struct'
----@field _type _cave_column_rectangle.T_flags
----@field SUPPORTED flag-bit
----@field UNSTABLE flag-bit
----@field ULTRA_SUPPORTED flag-bit
-local flags
+---@alias _cave_column_rectangle.T_flags_keys
+---| 0 # SUPPORTED
+---| 1 # UNSTABLE
+---| 2 # ULTRA_SUPPORTED
 
----@class _cave_column_rectangle.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _cave_column_rectangle.T_flags_values
+---| "SUPPORTED" # 0
+---| "UNSTABLE" # 1
+---| "ULTRA_SUPPORTED" # 2
+
+---@class cave_column_rectangle.T_flags: DFObject, { [_cave_column_rectangle.T_flags_keys|_cave_column_rectangle.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _cave_column_rectangle.T_flags
+local cave_column_rectangle_flags = {
+  SUPPORTED = false,
+  [0] = false,
+  UNSTABLE = false,
+  [1] = false,
+  ULTRA_SUPPORTED = false,
+  [2] = false,
+}
+
+---@class _cave_column_rectangle.T_flags: DFBitfield
+---@field SUPPORTED 0
+---@field [0] "SUPPORTED"
+---@field UNSTABLE 1
+---@field [1] "UNSTABLE"
+---@field ULTRA_SUPPORTED 2
+---@field [2] "ULTRA_SUPPORTED"
 df.cave_column_rectangle.T_flags = {}
 
 ---@class (exact) map_block_column: DFObject
@@ -319,8 +802,7 @@ df.map_block_column = {}
 ---| 6 # item_spatter
 ---| 7 # designation_priority
 
----@class _block_square_event_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _block_square_event_type: DFEnum
 ---@field mineral 0
 ---@field [0] "mineral"
 ---@field frozen_liquid 1
@@ -360,18 +842,47 @@ local block_square_event_mineralst
 ---@field _kind 'class-type'
 df.block_square_event_mineralst = {}
 
----@class (exact) block_square_event_mineralst.T_flags: DFObject
----@field _kind 'struct'
----@field _type _block_square_event_mineralst.T_flags
----@field discovered flag-bit
----@field cluster flag-bit
----@field vein flag-bit
----@field cluster_small flag-bit
----@field cluster_one flag-bit
-local flags
+---@alias _block_square_event_mineralst.T_flags_keys
+---| 0 # discovered
+---| 1 # cluster
+---| 2 # vein
+---| 3 # cluster_small
+---| 4 # cluster_one
 
----@class _block_square_event_mineralst.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _block_square_event_mineralst.T_flags_values
+---| "discovered" # 0
+---| "cluster" # 1
+---| "vein" # 2
+---| "cluster_small" # 3
+---| "cluster_one" # 4
+
+---@class block_square_event_mineralst.T_flags: DFObject, { [_block_square_event_mineralst.T_flags_keys|_block_square_event_mineralst.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _block_square_event_mineralst.T_flags
+local block_square_event_mineralst_flags = {
+  discovered = false,
+  [0] = false,
+  cluster = false,
+  [1] = false,
+  vein = false,
+  [2] = false,
+  cluster_small = false,
+  [3] = false,
+  cluster_one = false,
+  [4] = false,
+}
+
+---@class _block_square_event_mineralst.T_flags: DFBitfield
+---@field discovered 0
+---@field [0] "discovered"
+---@field cluster 1
+---@field [1] "cluster"
+---@field vein 2
+---@field [2] "vein"
+---@field cluster_small 3
+---@field [3] "cluster_small"
+---@field cluster_one 4
+---@field [4] "cluster_one"
 df.block_square_event_mineralst.T_flags = {}
 
 ---@class (exact) block_square_event_frozen_liquidst: DFObject, block_square_event
@@ -466,8 +977,7 @@ df.block_square_event_designation_priorityst = {}
 ---| 8 # magma_core_from_layer
 ---| 9 # underworld_from_layer
 
----@class _feature_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _feature_type: DFEnum
 ---@field outdoor_river 0
 ---@field [0] "outdoor_river"
 ---@field cave 1
@@ -602,8 +1112,7 @@ df.feature_underworld_from_layerst = {}
 ---| 4 # Announced
 ---| 5 # AnnouncedFully
 
----@class _feature_init_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _feature_init_flags: DFEnum
 ---@field AddSavage 0
 ---@field [0] "AddSavage"
 ---@field AddEvil 1
@@ -626,8 +1135,7 @@ df.feature_init_flags = {}
 ---| 3 # MagmaSea
 ---| 4 # Underworld
 
----@class _layer_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _layer_type: DFEnum
 ---@field Surface -1
 ---@field [-1] "Surface"
 ---@field Cavern1 0
@@ -760,8 +1268,7 @@ df.feature_init_underworld_from_layerst = {}
 ---| 0 # new_pop_max
 ---| 1 # new_lava_fill_z
 
----@class _feature_alteration_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _feature_alteration_type: DFEnum
 ---@field new_pop_max 0
 ---@field [0] "new_pop_max"
 ---@field new_lava_fill_z 1
@@ -804,8 +1311,7 @@ df.feature_alteration_new_lava_fill_zst = {}
 ---| 2 # BRIDGE
 ---| 3 # WALL
 
----@class _world_construction_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _world_construction_type: DFEnum
 ---@field ROAD 0
 ---@field [0] "ROAD"
 ---@field TUNNEL 1
@@ -990,8 +1496,7 @@ df.world_construction_wallst = {}
 ---| 49 # SUBTERRANEAN_CHASM
 ---| 50 # SUBTERRANEAN_LAVA
 
----@class _biome_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _biome_type: DFEnum
 ---@field MOUNTAIN 0
 ---@field [0] "MOUNTAIN"
 ---@field GLACIER 1
@@ -1096,6 +1601,31 @@ df.world_construction_wallst = {}
 ---@field [50] "SUBTERRANEAN_LAVA"
 df.biome_type = {}
 
+---@alias _construction_flags_keys
+---| 0 # no_build_item
+---| 1 # top_of_wall
+
+---@alias _construction_flags_values
+---| "no_build_item" # 0
+---| "top_of_wall" # 1
+
+---@class construction_flags: DFObject, { [_construction_flags_keys|_construction_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _construction_flags
+local construction_flags = {
+  no_build_item = false, -- build item is created from scratch upon removing construction, does not exist beforehand
+  [0] = false, -- build item is created from scratch upon removing construction, does not exist beforehand
+  top_of_wall = false, -- used on the floors above constructed walls so you cannot remove them
+  [1] = false, -- used on the floors above constructed walls so you cannot remove them
+}
+
+---@class _construction_flags: DFBitfield
+---@field no_build_item 0 build item is created from scratch upon removing construction, does not exist beforehand
+---@field [0] "no_build_item" build item is created from scratch upon removing construction, does not exist beforehand
+---@field top_of_wall 1 used on the floors above constructed walls so you cannot remove them
+---@field [1] "top_of_wall" used on the floors above constructed walls so you cannot remove them
+df.construction_flags = {}
+
 ---@class (exact) construction: DFObject
 ---@field _kind 'struct'
 ---@field _type _construction
@@ -1138,8 +1668,7 @@ function df.construction.get_vector() end
 ---| 12 # SeaFoam
 ---| 13 # ItemCloud
 
----@class _flow_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _flow_type: DFEnum
 ---@field Miasma 0
 ---@field [0] "Miasma"
 ---@field Steam 1 only if mat_type=1
@@ -1199,22 +1728,30 @@ local flow_reuse_pool
 ---@field _kind 'struct-type'
 df.flow_reuse_pool = {}
 
----@class (exact) flow_reuse_pool.T_flags: DFObject
----@field _kind 'struct'
----@field _type _flow_reuse_pool.T_flags
----@field active flag-bit
-local flags
+---@alias _flow_reuse_pool.T_flags_keys
+---| 0 # active
 
----@class _flow_reuse_pool.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _flow_reuse_pool.T_flags_values
+---| "active" # 0
+
+---@class flow_reuse_pool.T_flags: DFObject, { [_flow_reuse_pool.T_flags_keys|_flow_reuse_pool.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _flow_reuse_pool.T_flags
+local flow_reuse_pool_flags = {
+  active = false,
+  [0] = false,
+}
+
+---@class _flow_reuse_pool.T_flags: DFBitfield
+---@field active 0
+---@field [0] "active"
 df.flow_reuse_pool.T_flags = {}
 
 ---@alias flow_guide_type
 ---| 0 # TrailingFlow
 ---| 1 # ItemCloud
 
----@class _flow_guide_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _flow_guide_type: DFEnum
 ---@field TrailingFlow 0
 ---@field [0] "TrailingFlow"
 ---@field ItemCloud 1
@@ -1285,8 +1822,7 @@ df.effect_info = {}
 ---@alias region_block_event_type
 ---| 0 # SphereField
 
----@class _region_block_event_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _region_block_event_type: DFEnum
 ---@field SphereField 0
 ---@field [0] "SphereField"
 df.region_block_event_type = {}

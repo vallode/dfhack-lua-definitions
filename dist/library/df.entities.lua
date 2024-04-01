@@ -48,8 +48,7 @@ df.entity_occasion = {}
 ---| 13 # PROCESSION
 ---| 14 # CEREMONY
 
----@class _occasion_schedule_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _occasion_schedule_type: DFEnum
 ---@field DANCE_PERFORMANCE 0
 ---@field [0] "DANCE_PERFORMANCE"
 ---@field MUSICAL_PERFORMANCE 1
@@ -111,8 +110,7 @@ df.entity_occasion_schedule = {}
 ---| 17 # THE_GIVING_OF_ITEMS
 ---| 18 # THE_SACRIFICE_OF_ITEMS
 
----@class _occasion_schedule_feature: DFDescriptor
----@field _kind 'enum-type'
+---@class _occasion_schedule_feature: DFEnum
 ---@field STORYTELLING 2
 ---@field [2] "STORYTELLING"
 ---@field POETRY_RECITAL 3
@@ -174,10 +172,6 @@ df.entity_occasion_schedule_feature = {}
 ---@field total_deaths number
 ---@field total_insanities number
 ---@field total_executions number
----@field  number
----@field  number 0.50.01
----@field  number 0.50.01
----@field  number 0.50.01
 ---@field num_artifacts number 0.50.01
 ---@field unk_6 number in 0.23, total siegers
 ---@field discovered_water_features number
@@ -203,7 +197,7 @@ df.entity_activity_statistics = {}
 ---@field seeds number
 ---@field plant number
 ---@field drink number
-local food
+local entity_activity_statistics_food
 
 ---@class _entity_activity_statistics.T_food: DFCompound
 ---@field _kind 'struct-type'
@@ -223,20 +217,29 @@ df.entity_activity_statistics.T_food = {}
 ---@field imported number
 ---@field unk_1 number
 ---@field exported number
-local wealth
+local entity_activity_statistics_wealth
 
 ---@class _entity_activity_statistics.T_wealth: DFCompound
 ---@field _kind 'struct-type'
 df.entity_activity_statistics.T_wealth = {}
 
----@class (exact) entity_activity_statistics.T_found_misc: DFObject
----@field _kind 'struct'
----@field _type _entity_activity_statistics.T_found_misc
----@field deep_special flag-bit
-local found_misc
+---@alias _entity_activity_statistics.T_found_misc_keys
+---| 0 # deep_special
 
----@class _entity_activity_statistics.T_found_misc: DFCompound
----@field _kind 'struct-type'
+---@alias _entity_activity_statistics.T_found_misc_values
+---| "deep_special" # 0
+
+---@class entity_activity_statistics.T_found_misc: DFObject, { [_entity_activity_statistics.T_found_misc_keys|_entity_activity_statistics.T_found_misc_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _entity_activity_statistics.T_found_misc
+local entity_activity_statistics_found_misc = {
+  deep_special = false,
+  [0] = false,
+}
+
+---@class _entity_activity_statistics.T_found_misc: DFBitfield
+---@field deep_special 0
+---@field [0] "deep_special"
 df.entity_activity_statistics.T_found_misc = {}
 
 ---@class (exact) caravan_state: DFObject
@@ -270,8 +273,7 @@ df.caravan_state = {}
 ---| 4 # Stuck
 
 -- bay12: stage
----@class _caravan_state.T_trade_state: DFDescriptor
----@field _kind 'enum-type'
+---@class _caravan_state.T_trade_state: DFEnum
 ---@field None 0
 ---@field [0] "None"
 ---@field Approaching 1
@@ -284,23 +286,71 @@ df.caravan_state = {}
 ---@field [4] "Stuck"
 df.caravan_state.T_trade_state = {}
 
--- reportst
----@class (exact) caravan_state.T_flags: DFObject
----@field _kind 'struct'
----@field _type _caravan_state.T_flags
----@field check_cleanup flag-bit CHECKANDFINALIZE; set each time a merchant leaves the map or dies
----@field casualty flag-bit JUSTSPOILED
----@field hardship flag-bit WENTBADLY
----@field communicate flag-bit SOMEBODYLIVED; send data to mountainhomes
----@field seized flag-bit GOODSSEIZED
----@field offended flag-bit NOMORETRADE
----@field announce flag-bit UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
----@field greatly_offended flag-bit OFFENDED
----@field tribute flag-bit IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
-local flags
+---@alias _caravan_state.T_flags_keys
+---| 0 # check_cleanup
+---| 1 # casualty
+---| 2 # hardship
+---| 3 # communicate
+---| 4 # seized
+---| 5 # offended
+---| 6 # announce
+---| 7 # greatly_offended
+---| 8 # tribute
 
----@class _caravan_state.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _caravan_state.T_flags_values
+---| "check_cleanup" # 0
+---| "casualty" # 1
+---| "hardship" # 2
+---| "communicate" # 3
+---| "seized" # 4
+---| "offended" # 5
+---| "announce" # 6
+---| "greatly_offended" # 7
+---| "tribute" # 8
+
+---@class caravan_state.T_flags: DFObject, { [_caravan_state.T_flags_keys|_caravan_state.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _caravan_state.T_flags
+local caravan_state_flags = {
+  check_cleanup = false, -- CHECKANDFINALIZE; set each time a merchant leaves the map or dies
+  [0] = false, -- CHECKANDFINALIZE; set each time a merchant leaves the map or dies
+  casualty = false, -- JUSTSPOILED
+  [1] = false, -- JUSTSPOILED
+  hardship = false, -- WENTBADLY
+  [2] = false, -- WENTBADLY
+  communicate = false, -- SOMEBODYLIVED; send data to mountainhomes
+  [3] = false, -- SOMEBODYLIVED; send data to mountainhomes
+  seized = false, -- GOODSSEIZED
+  [4] = false, -- GOODSSEIZED
+  offended = false, -- NOMORETRADE
+  [5] = false, -- NOMORETRADE
+  announce = false, -- UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
+  [6] = false, -- UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
+  greatly_offended = false, -- OFFENDED
+  [7] = false, -- OFFENDED
+  tribute = false, -- IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
+  [8] = false, -- IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
+}
+
+---@class _caravan_state.T_flags: DFBitfield
+---@field check_cleanup 0 CHECKANDFINALIZE; set each time a merchant leaves the map or dies
+---@field [0] "check_cleanup" CHECKANDFINALIZE; set each time a merchant leaves the map or dies
+---@field casualty 1 JUSTSPOILED
+---@field [1] "casualty" JUSTSPOILED
+---@field hardship 2 WENTBADLY
+---@field [2] "hardship" WENTBADLY
+---@field communicate 3 SOMEBODYLIVED; send data to mountainhomes
+---@field [3] "communicate" SOMEBODYLIVED; send data to mountainhomes
+---@field seized 4 GOODSSEIZED
+---@field [4] "seized" GOODSSEIZED
+---@field offended 5 NOMORETRADE
+---@field [5] "offended" NOMORETRADE
+---@field announce 6 UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
+---@field [6] "announce" UNUSED_07 (used to be FIRST_MERCHANT) display merchantintro and merchantexit (???)
+---@field greatly_offended 7 OFFENDED
+---@field [7] "greatly_offended" OFFENDED
+---@field tribute 8 IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
+---@field [8] "tribute" IS_TRIBUTE_CARAVAN; caravan is delivering tribute (not merchant caravan)
 df.caravan_state.T_flags = {}
 
 ---@class (exact) entity_buy_prices: DFObject
@@ -387,8 +437,7 @@ df.entity_buy_requests = {}
 ---| 62 # Parchment
 ---| 63 # CupsMugsGoblets
 
----@class _entity_sell_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_sell_category: DFEnum
 ---@field Leather 0
 ---@field [0] "Leather"
 ---@field ClothPlant 1
@@ -560,8 +609,7 @@ df.entity_recipe = {}
 ---| 9 # MerchantCompany
 ---| 10 # Guild
 
----@class _historical_entity_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _historical_entity_type: DFEnum
 ---@field Civilization 0
 ---@field [0] "Civilization"
 ---@field SiteGovernment 1
@@ -605,25 +653,48 @@ local honors_type
 ---@field _kind 'struct-type'
 df.honors_type = {}
 
----@class (exact) honors_type.T_flags: DFObject
----@field _kind 'struct'
----@field _type _honors_type.T_flags
----@field granted_to_all_new_members flag-bit
-local flags
+---@alias _honors_type.T_flags_keys
+---| 0 # granted_to_all_new_members
 
----@class _honors_type.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _honors_type.T_flags_values
+---| "granted_to_all_new_members" # 0
+
+---@class honors_type.T_flags: DFObject, { [_honors_type.T_flags_keys|_honors_type.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _honors_type.T_flags
+local honors_type_flags = {
+  granted_to_all_new_members = false,
+  [0] = false,
+}
+
+---@class _honors_type.T_flags: DFBitfield
+---@field granted_to_all_new_members 0
+---@field [0] "granted_to_all_new_members"
 df.honors_type.T_flags = {}
 
----@class (exact) honors_type.T_required_skill_type: DFObject
----@field _kind 'struct'
----@field _type _honors_type.T_required_skill_type
----@field melee_weapon flag-bit
----@field ranged_weapon flag-bit
-local required_skill_type
+---@alias _honors_type.T_required_skill_type_keys
+---| 0 # melee_weapon
+---| 1 # ranged_weapon
 
----@class _honors_type.T_required_skill_type: DFCompound
----@field _kind 'struct-type'
+---@alias _honors_type.T_required_skill_type_values
+---| "melee_weapon" # 0
+---| "ranged_weapon" # 1
+
+---@class honors_type.T_required_skill_type: DFObject, { [_honors_type.T_required_skill_type_keys|_honors_type.T_required_skill_type_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _honors_type.T_required_skill_type
+local honors_type_required_skill_type = {
+  melee_weapon = false,
+  [0] = false,
+  ranged_weapon = false,
+  [1] = false,
+}
+
+---@class _honors_type.T_required_skill_type: DFBitfield
+---@field melee_weapon 0
+---@field [0] "melee_weapon"
+---@field ranged_weapon 1
+---@field [1] "ranged_weapon"
 df.honors_type.T_required_skill_type = {}
 
 ---@class (exact) artifact_claim: DFObject
@@ -785,40 +856,179 @@ local historical_entity_vector
 ---@return historical_entity_vector # df.global.world.entities.all
 function df.historical_entity.get_vector() end
 
----@class (exact) historical_entity.T_flags: DFObject
----@field _kind 'struct'
----@field _type _historical_entity.T_flags
----@field neighbor flag-bit Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
----@field player_civ flag-bit Changes as you change your civ on embark screen
----@field unk2 flag-bit
----@field unk3 flag-bit
----@field unreliable_lost_last_site flag-bit When set, no sites remain. Doesn't say much about remaining sites when not set
----@field worshipping flag-bit SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
----@field unk6 flag-bit
----@field unk7 flag-bit
----@field player_government flag-bit Appears when embarking (and having unpaused)
----@field unk9 flag-bit
----@field unspecific_race flag-bit Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
----@field unk11 flag-bit Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
----@field unk12 flag-bit Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
----@field unk13 flag-bit Set for a significant number of entities
----@field unk14 flag-bit Set for a significant number of entities
----@field unk15 flag-bit Set for a limited set of entities
----@field unk16 flag-bit Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
----@field unk17 flag-bit Set for a limited set of entities
----@field unk18 flag-bit Set for a limited set of entities
----@field unk19 flag-bit Set for a limited set of entities
----@field unk20 flag-bit Set for a limited set of entities
----@field unk21 flag-bit Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
----@field unk22 flag-bit All are religions, but not the full set
----@field unk23 flag-bit
----@field unk24 flag-bit Set for a significant number of entities
----@field military_unit_property flag-bit Probably some property only those have. All present in the selection, though
----@field unk26 flag-bit Set for a significant number of entities
-local flags
+---@alias _historical_entity.T_flags_keys
+---| 0 # neighbor
+---| 1 # player_civ
+---| 2 # unk2
+---| 3 # unk3
+---| 4 # unreliable_lost_last_site
+---| 5 # worshipping
+---| 6 # unk6
+---| 7 # unk7
+---| 8 # player_government
+---| 9 # unk9
+---| 10 # unspecific_race
+---| 11 # unk11
+---| 12 # unk12
+---| 13 # unk13
+---| 14 # unk14
+---| 15 # unk15
+---| 16 # unk16
+---| 17 # unk17
+---| 18 # unk18
+---| 19 # unk19
+---| 20 # unk20
+---| 21 # unk21
+---| 22 # unk22
+---| 23 # unk23
+---| 24 # unk24
+---| 25 # military_unit_property
+---| 26 # unk26
 
----@class _historical_entity.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _historical_entity.T_flags_values
+---| "neighbor" # 0
+---| "player_civ" # 1
+---| "unk2" # 2
+---| "unk3" # 3
+---| "unreliable_lost_last_site" # 4
+---| "worshipping" # 5
+---| "unk6" # 6
+---| "unk7" # 7
+---| "player_government" # 8
+---| "unk9" # 9
+---| "unspecific_race" # 10
+---| "unk11" # 11
+---| "unk12" # 12
+---| "unk13" # 13
+---| "unk14" # 14
+---| "unk15" # 15
+---| "unk16" # 16
+---| "unk17" # 17
+---| "unk18" # 18
+---| "unk19" # 19
+---| "unk20" # 20
+---| "unk21" # 21
+---| "unk22" # 22
+---| "unk23" # 23
+---| "unk24" # 24
+---| "military_unit_property" # 25
+---| "unk26" # 26
+
+---@class historical_entity.T_flags: DFObject, { [_historical_entity.T_flags_keys|_historical_entity.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _historical_entity.T_flags
+local historical_entity_flags = {
+  neighbor = false, -- Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
+  [0] = false, -- Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
+  player_civ = false, -- Changes as you change your civ on embark screen
+  [1] = false, -- Changes as you change your civ on embark screen
+  unk2 = false,
+  [2] = false,
+  unk3 = false,
+  [3] = false,
+  unreliable_lost_last_site = false, -- When set, no sites remain. Doesn't say much about remaining sites when not set
+  [4] = false, -- When set, no sites remain. Doesn't say much about remaining sites when not set
+  worshipping = false, -- SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
+  [5] = false, -- SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
+  unk6 = false,
+  [6] = false,
+  unk7 = false,
+  [7] = false,
+  player_government = false, -- Appears when embarking (and having unpaused)
+  [8] = false, -- Appears when embarking (and having unpaused)
+  unk9 = false,
+  [9] = false,
+  unspecific_race = false, -- Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
+  [10] = false, -- Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
+  unk11 = false, -- Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
+  [11] = false, -- Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
+  unk12 = false, -- Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
+  [12] = false, -- Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
+  unk13 = false, -- Set for a significant number of entities
+  [13] = false, -- Set for a significant number of entities
+  unk14 = false, -- Set for a significant number of entities
+  [14] = false, -- Set for a significant number of entities
+  unk15 = false, -- Set for a limited set of entities
+  [15] = false, -- Set for a limited set of entities
+  unk16 = false, -- Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
+  [16] = false, -- Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
+  unk17 = false, -- Set for a limited set of entities
+  [17] = false, -- Set for a limited set of entities
+  unk18 = false, -- Set for a limited set of entities
+  [18] = false, -- Set for a limited set of entities
+  unk19 = false, -- Set for a limited set of entities
+  [19] = false, -- Set for a limited set of entities
+  unk20 = false, -- Set for a limited set of entities
+  [20] = false, -- Set for a limited set of entities
+  unk21 = false, -- Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
+  [21] = false, -- Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
+  unk22 = false, -- All are religions, but not the full set
+  [22] = false, -- All are religions, but not the full set
+  unk23 = false,
+  [23] = false,
+  unk24 = false, -- Set for a significant number of entities
+  [24] = false, -- Set for a significant number of entities
+  military_unit_property = false, -- Probably some property only those have. All present in the selection, though
+  [25] = false, -- Probably some property only those have. All present in the selection, though
+  unk26 = false, -- Set for a significant number of entities
+  [26] = false, -- Set for a significant number of entities
+}
+
+---@class _historical_entity.T_flags: DFBitfield
+---@field neighbor 0 Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
+---@field [0] "neighbor" Changes as you move on embark screen. Includes kobolds, cave civs, and necros (which are SiteGovernments)
+---@field player_civ 1 Changes as you change your civ on embark screen
+---@field [1] "player_civ" Changes as you change your civ on embark screen
+---@field unk2 2
+---@field [2] "unk2"
+---@field unk3 3
+---@field [3] "unk3"
+---@field unreliable_lost_last_site 4 When set, no sites remain. Doesn't say much about remaining sites when not set
+---@field [4] "unreliable_lost_last_site" When set, no sites remain. Doesn't say much about remaining sites when not set
+---@field worshipping 5 SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
+---@field [5] "worshipping" SiteGovernment and Outcast has this flag set when there are no site links with the residence or invasion_push_out<br>flag set. Others (NomadicGroup, MilitaryUnit seen) have it set when the criteria of the first group are fullfilled<br>together with occupation_failed, criminal_gang, and reclaim being absent as well, provided they have at least one<br>site link (no site link = flag not set).<br>Civilizations can have the flag set when having lost all sites, but usually do not, so the flag seems useless<br>at that level (Some exterminated kobolds have it set, while most do not, for instance. Embark culled dwarven civs<br>may or may not have it set).
+---@field unk6 6
+---@field [6] "unk6"
+---@field unk7 7
+---@field [7] "unk7"
+---@field player_government 8 Appears when embarking (and having unpaused)
+---@field [8] "player_government" Appears when embarking (and having unpaused)
+---@field unk9 9
+---@field [9] "unk9"
+---@field unspecific_race 10 Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
+---@field [10] "unspecific_race" Can be set for SiteGovernment, always set for Guild and PerformanceTroupe. Never set for NomadicGroup even when race=-1
+---@field unk11 11 Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
+---@field [11] "unk11" Set for a significant number of entities. It might indicate that entity is dead, although kobold civs never seem to have this flag set, even when their cave has been conquered or destroyed
+---@field unk12 12 Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
+---@field [12] "unk12" Set for all but unnamed civs, kobold entities, vault governments, and cave civ building race Outcasts. Set when an entity creates a poetic form.
+---@field unk13 13 Set for a significant number of entities
+---@field [13] "unk13" Set for a significant number of entities
+---@field unk14 14 Set for a significant number of entities
+---@field [14] "unk14" Set for a significant number of entities
+---@field unk15 15 Set for a limited set of entities
+---@field [15] "unk15" Set for a limited set of entities
+---@field unk16 16 Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
+---@field [16] "unk16" Set for a limited set of entities. All seem to be dwarven, but definitely not complete set
+---@field unk17 17 Set for a limited set of entities
+---@field [17] "unk17" Set for a limited set of entities
+---@field unk18 18 Set for a limited set of entities
+---@field [18] "unk18" Set for a limited set of entities
+---@field unk19 19 Set for a limited set of entities
+---@field [19] "unk19" Set for a limited set of entities
+---@field unk20 20 Set for a limited set of entities
+---@field [20] "unk20" Set for a limited set of entities
+---@field unk21 21 Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
+---@field [21] "unk21" Required for entity to generate lord X, X commander, and X master position names (uses the religious name generator). removed if a poetic form is generated by a performance troupe.
+---@field unk22 22 All are religions, but not the full set
+---@field [22] "unk22" All are religions, but not the full set
+---@field unk23 23
+---@field [23] "unk23"
+---@field unk24 24 Set for a significant number of entities
+---@field [24] "unk24" Set for a significant number of entities
+---@field military_unit_property 25 Probably some property only those have. All present in the selection, though
+---@field [25] "military_unit_property" Probably some property only those have. All present in the selection, though
+---@field unk26 26 Set for a significant number of entities
+---@field [26] "unk26" Set for a significant number of entities
 df.historical_entity.T_flags = {}
 
 ---@class (exact) historical_entity.T_resources: DFObject
@@ -835,7 +1045,7 @@ df.historical_entity.T_flags = {}
 ---@field unk15a number in 0.23, minimum temperature
 ---@field unk15b number in 0.23, maximum temperature
 ---@field unk_2 number
-local resources
+local historical_entity_resources
 
 ---@class _historical_entity.T_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -851,7 +1061,7 @@ df.historical_entity.T_resources = {}
 ---@field ammo2 material_vec_ref maybe intended for siege ammo
 ---@field armor material_vec_ref also instruments, toys, and tools
 ---@field anvil material_vec_ref
-local metal
+local historical_entity_resources_metal
 
 ---@class _historical_entity.T_resources.T_metal: DFCompound
 ---@field _kind 'struct-type'
@@ -866,7 +1076,7 @@ df.historical_entity.T_resources.T_metal = {}
 ---@field silk material_vec_ref
 ---@field wool material_vec_ref
 ---@field wood material_vec_ref
-local organic
+local historical_entity_resources_organic
 
 ---@class _historical_entity.T_resources.T_organic: DFCompound
 ---@field _kind 'struct-type'
@@ -880,7 +1090,7 @@ df.historical_entity.T_resources.T_organic = {}
 ---@field pearl material_vec_ref
 ---@field ivory material_vec_ref
 ---@field horn material_vec_ref
-local refuse
+local historical_entity_resources_refuse
 
 ---@class _historical_entity.T_resources.T_refuse: DFCompound
 ---@field _kind 'struct-type'
@@ -907,7 +1117,7 @@ df.historical_entity.T_resources.T_refuse = {}
 ---@field powders material_vec_ref
 ---@field extracts material_vec_ref
 ---@field meat material_vec_ref
-local misc_mat
+local historical_entity_resources_misc_mat
 
 ---@class _historical_entity.T_resources.T_misc_mat: DFCompound
 ---@field _kind 'struct-type'
@@ -918,7 +1128,7 @@ df.historical_entity.T_resources.T_misc_mat = {}
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_wood_products
 ---@field material material_vec_ref
-local wood_products
+local historical_entity_resources_wood_products
 
 ---@class _historical_entity.T_resources.T_wood_products: DFCompound
 ---@field _kind 'struct-type'
@@ -927,7 +1137,7 @@ df.historical_entity.T_resources.T_wood_products = {}
 ---@class (exact) historical_entity.T_resources.T_animals: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_animals
-local animals
+local historical_entity_resources_animals
 
 ---@class _historical_entity.T_resources.T_animals: DFCompound
 ---@field _kind 'struct-type'
@@ -937,7 +1147,7 @@ df.historical_entity.T_resources.T_animals = {}
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_relations
 ---@field unk33 number Non zero seen only on site governments (not all) and one nomadic group. Small values
-local relations
+local historical_entity_relations
 
 ---@class _historical_entity.T_relations: DFCompound
 ---@field _kind 'struct-type'
@@ -948,7 +1158,7 @@ df.historical_entity.T_relations = {}
 ---@field _type _historical_entity.T_positions
 ---@field next_position_id number
 ---@field next_assignment_id number
-local positions
+local historical_entity_positions
 
 ---@class _historical_entity.T_positions: DFCompound
 ---@field _kind 'struct-type'
@@ -958,22 +1168,35 @@ df.historical_entity.T_positions = {}
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_tissue_styles
 ---@field next_style_id number
-local tissue_styles
+local historical_entity_tissue_styles
 
 ---@class _historical_entity.T_tissue_styles: DFCompound
 ---@field _kind 'struct-type'
 df.historical_entity.T_tissue_styles = {}
 
--- actually lives inside a class
----@class (exact) historical_entity.T_conquered_site_group_flags: DFObject
----@field _kind 'struct'
----@field _type _historical_entity.T_conquered_site_group_flags
----@field harsh flag-bit will TORTURE_FOR_INFORMATION
----@field hostile_occupation flag-bit
-local conquered_site_group_flags
+---@alias _historical_entity.T_conquered_site_group_flags_keys
+---| 0 # harsh
+---| 1 # hostile_occupation
 
----@class _historical_entity.T_conquered_site_group_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _historical_entity.T_conquered_site_group_flags_values
+---| "harsh" # 0
+---| "hostile_occupation" # 1
+
+---@class historical_entity.T_conquered_site_group_flags: DFObject, { [_historical_entity.T_conquered_site_group_flags_keys|_historical_entity.T_conquered_site_group_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _historical_entity.T_conquered_site_group_flags
+local historical_entity_conquered_site_group_flags = {
+  harsh = false, -- will TORTURE_FOR_INFORMATION
+  [0] = false, -- will TORTURE_FOR_INFORMATION
+  hostile_occupation = false,
+  [1] = false,
+}
+
+---@class _historical_entity.T_conquered_site_group_flags: DFBitfield
+---@field harsh 0 will TORTURE_FOR_INFORMATION
+---@field [0] "harsh" will TORTURE_FOR_INFORMATION
+---@field hostile_occupation 1
+---@field [1] "hostile_occupation"
 df.historical_entity.T_conquered_site_group_flags = {}
 
 ---@class (exact) historical_entity.T_derived_resources: DFObject
@@ -981,7 +1204,7 @@ df.historical_entity.T_conquered_site_group_flags = {}
 ---@field _type _historical_entity.T_derived_resources
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
-local derived_resources
+local historical_entity_derived_resources
 
 ---@class _historical_entity.T_derived_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -993,7 +1216,7 @@ df.historical_entity.T_derived_resources = {}
 ---@field areas coord2d_path in world_data.entity_claims1
 ---@field unk1 coord2d_path
 ---@field border coord2d_path
-local claims
+local historical_entity_claims
 
 ---@class _historical_entity.T_claims: DFCompound
 ---@field _kind 'struct-type'
@@ -1020,8 +1243,7 @@ df.entity_tissue_style = {}
 ---| 4 # Expert
 ---| 5 # Domesticated
 
----@class _training_knowledge_level: DFDescriptor
----@field _kind 'enum-type'
+---@class _training_knowledge_level: DFEnum
 ---@field None 0
 ---@field [0] "None"
 ---@field FewFacts 1
@@ -1071,8 +1293,7 @@ df.training_knowledge_level = {}
 ---| 31 # HAS_MET_MARKET_REQ
 
 -- bay12: EntityPositionFlag
----@class _entity_position_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_position_flags: DFEnum
 ---@field IS_LAW_MAKER 0 bay12: ATTACK_IS_TREASON
 ---@field [0] "IS_LAW_MAKER" bay12: ATTACK_IS_TREASON
 ---@field ELECTED 1
@@ -1235,8 +1456,7 @@ df.entity_position_assignment = {}
 ---| 30 # Furniture
 ---| 31 # MiscWood2
 
----@class _entity_material_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_material_category: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Clothing 0 cloth or leather
@@ -1375,8 +1595,7 @@ df.entity_uniform = {}
 ---| 32 # artifact_not_in_inventory
 ---| 33 # artifact_was_destroyed
 
----@class _entity_event_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_event_type: DFEnum
 ---@field invasion 0
 ---@field [0] "invasion"
 ---@field abduction 1
@@ -1500,7 +1719,7 @@ df.entity_event = {}
 ---@field artifact_not_in_feature_layer entity_event.T_data.T_artifact_not_in_feature_layer
 ---@field artifact_not_in_inventory entity_event.T_data.T_artifact_not_in_inventory
 ---@field artifact_destroyed entity_event.T_data.T_artifact_destroyed
-local data
+local entity_event_data
 
 ---@class _entity_event.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -1513,7 +1732,7 @@ df.entity_event.T_data = {}
 ---@field site_id number References: `world_site`
 ---@field unk_1 number can't find match. not defender hf/nemesis, for instance
 ---@field attack_leader_hf number References: `historical_figure`
-local invasion
+local entity_event_data_invasion
 
 ---@class _entity_event.T_data.T_invasion: DFCompound
 ---@field _kind 'struct-type'
@@ -1526,7 +1745,7 @@ df.entity_event.T_data.T_invasion = {}
 ---@field site_id number References: `world_site`
 ---@field abductor_id number References: `historical_figure`
 ---@field event number References: `history_event`
-local abduction
+local entity_event_data_abduction
 
 ---@class _entity_event.T_data.T_abduction: DFCompound
 ---@field _kind 'struct-type'
@@ -1537,7 +1756,7 @@ df.entity_event.T_data.T_abduction = {}
 ---@field _type _entity_event.T_data.T_incident
 ---@field unk_1 number
 ---@field incident_id number References: `incident`
-local incident
+local entity_event_data_incident
 
 ---@class _entity_event.T_data.T_incident: DFCompound
 ---@field _kind 'struct-type'
@@ -1550,7 +1769,7 @@ df.entity_event.T_data.T_incident = {}
 ---@field entity_id number References: `historical_entity`
 ---@field unk_1 number
 ---@field unk_2 number
-local occupation
+local entity_event_data_occupation
 
 ---@class _entity_event.T_data.T_occupation: DFCompound
 ---@field _kind 'struct-type'
@@ -1562,7 +1781,7 @@ df.entity_event.T_data.T_occupation = {}
 ---@field histfig_id number References: `historical_figure`
 ---@field site_id number References: `world_site`
 ---@field region_id number References: `world_region`
-local beast
+local entity_event_data_beast
 
 ---@class _entity_event.T_data.T_beast: DFCompound
 ---@field _kind 'struct-type'
@@ -1573,7 +1792,7 @@ df.entity_event.T_data.T_beast = {}
 ---@field _type _entity_event.T_data.T_group
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
-local group
+local entity_event_data_group
 
 ---@class _entity_event.T_data.T_group: DFCompound
 ---@field _kind 'struct-type'
@@ -1585,7 +1804,7 @@ df.entity_event.T_data.T_group = {}
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field unk_1 number
-local harass
+local entity_event_data_harass
 
 ---@class _entity_event.T_data.T_harass: DFCompound
 ---@field _kind 'struct-type'
@@ -1598,7 +1817,7 @@ df.entity_event.T_data.T_harass = {}
 ---@field from_site_id number References: `world_site`
 ---@field army_entity_id number References: `historical_entity`
 ---@field army_leader_hf_id number References: `historical_figure`
-local flee
+local entity_event_data_flee
 
 ---@class _entity_event.T_data.T_flee: DFCompound
 ---@field _kind 'struct-type'
@@ -1610,7 +1829,7 @@ df.entity_event.T_data.T_flee = {}
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field parent_entity_id number References: `historical_entity`
-local abandon
+local entity_event_data_abandon
 
 ---@class _entity_event.T_data.T_abandon: DFCompound
 ---@field _kind 'struct-type'
@@ -1623,7 +1842,7 @@ df.entity_event.T_data.T_abandon = {}
 ---@field site_id number References: `world_site`
 ---@field reclaimer_entity_id number References: `historical_entity`
 ---@field leader_hf number References: `historical_figure`
-local reclaimed
+local entity_event_data_reclaimed
 
 ---@class _entity_event.T_data.T_reclaimed: DFCompound
 ---@field _kind 'struct-type'
@@ -1636,7 +1855,7 @@ df.entity_event.T_data.T_reclaimed = {}
 ---@field site_id number References: `world_site`
 ---@field parent_entity_id number References: `historical_entity`
 ---@field unk_1 number
-local founded
+local entity_event_data_founded
 
 ---@class _entity_event.T_data.T_founded: DFCompound
 ---@field _kind 'struct-type'
@@ -1649,7 +1868,7 @@ df.entity_event.T_data.T_founded = {}
 ---@field site_id number References: `world_site`
 ---@field unk_1 number
 ---@field first_settler_hf number strangely enough not expedition leader (settler #2), nor listed as member of site government References: `historical_figure`
-local reclaiming
+local entity_event_data_reclaiming
 
 ---@class _entity_event.T_data.T_reclaiming: DFCompound
 ---@field _kind 'struct-type'
@@ -1662,7 +1881,7 @@ df.entity_event.T_data.T_reclaiming = {}
 ---@field region_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local founding
+local entity_event_data_founding
 
 ---@class _entity_event.T_data.T_founding: DFCompound
 ---@field _kind 'struct-type'
@@ -1673,7 +1892,7 @@ df.entity_event.T_data.T_founding = {}
 ---@field _type _entity_event.T_data.T_leave
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
-local leave
+local entity_event_data_leave
 
 ---@class _entity_event.T_data.T_leave: DFCompound
 ---@field _kind 'struct-type'
@@ -1684,7 +1903,7 @@ df.entity_event.T_data.T_leave = {}
 ---@field _type _entity_event.T_data.T_insurrection
 ---@field site_id number References: `world_site`
 ---@field entity_id number References: `historical_entity`
-local insurrection
+local entity_event_data_insurrection
 
 ---@class _entity_event.T_data.T_insurrection: DFCompound
 ---@field _kind 'struct-type'
@@ -1696,7 +1915,7 @@ df.entity_event.T_data.T_insurrection = {}
 ---@field site_id number References: `world_site`
 ---@field entity_id number References: `historical_entity`
 ---@field result entity_event.T_data.T_insurrection_end.T_result
-local insurrection_end
+local entity_event_data_insurrection_end
 
 ---@class _entity_event.T_data.T_insurrection_end: DFCompound
 ---@field _kind 'struct-type'
@@ -1707,8 +1926,7 @@ df.entity_event.T_data.T_insurrection_end = {}
 ---| 1 # Failure
 ---| 2 # Crushing
 
----@class _entity_event.T_data.T_insurrection_end.T_result: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_event.T_data.T_insurrection_end.T_result: DFEnum
 ---@field Overthrow 0
 ---@field [0] "Overthrow"
 ---@field Failure 1
@@ -1724,7 +1942,7 @@ df.entity_event.T_data.T_insurrection_end.T_result = {}
 ---@field former_histfig_id number References: `historical_figure`
 ---@field entity_id number References: `historical_entity`
 ---@field position_assignment_id number
-local succession
+local entity_event_data_succession
 
 ---@class _entity_event.T_data.T_succession: DFCompound
 ---@field _kind 'struct-type'
@@ -1736,7 +1954,7 @@ df.entity_event.T_data.T_succession = {}
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field histfig_id number References: `historical_figure`
-local claim
+local entity_event_data_claim
 
 ---@class _entity_event.T_data.T_claim: DFCompound
 ---@field _kind 'struct-type'
@@ -1749,7 +1967,7 @@ df.entity_event.T_data.T_claim = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local accept_tribute_offer
+local entity_event_data_accept_tribute_offer
 
 ---@class _entity_event.T_data.T_accept_tribute_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -1762,7 +1980,7 @@ df.entity_event.T_data.T_accept_tribute_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local refuse_tribute_offer
+local entity_event_data_refuse_tribute_offer
 
 ---@class _entity_event.T_data.T_refuse_tribute_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -1775,7 +1993,7 @@ df.entity_event.T_data.T_refuse_tribute_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local accept_tribute_demand
+local entity_event_data_accept_tribute_demand
 
 ---@class _entity_event.T_data.T_accept_tribute_demand: DFCompound
 ---@field _kind 'struct-type'
@@ -1788,7 +2006,7 @@ df.entity_event.T_data.T_accept_tribute_demand = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local refuse_tribute_demand
+local entity_event_data_refuse_tribute_demand
 
 ---@class _entity_event.T_data.T_refuse_tribute_demand: DFCompound
 ---@field _kind 'struct-type'
@@ -1801,7 +2019,7 @@ df.entity_event.T_data.T_refuse_tribute_demand = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local accept_peace_offer
+local entity_event_data_accept_peace_offer
 
 ---@class _entity_event.T_data.T_accept_peace_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -1814,7 +2032,7 @@ df.entity_event.T_data.T_accept_peace_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local refuse_peace_offer
+local entity_event_data_refuse_peace_offer
 
 ---@class _entity_event.T_data.T_refuse_peace_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -1827,7 +2045,7 @@ df.entity_event.T_data.T_refuse_peace_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local cease_tribute_offer
+local entity_event_data_cease_tribute_offer
 
 ---@class _entity_event.T_data.T_cease_tribute_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -1840,7 +2058,7 @@ df.entity_event.T_data.T_cease_tribute_offer = {}
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
 ---@field unk_1 number looks uninitialized
-local artifact_in_site
+local entity_event_data_artifact_in_site
 
 ---@class _entity_event.T_data.T_artifact_in_site: DFCompound
 ---@field _kind 'struct-type'
@@ -1853,7 +2071,7 @@ df.entity_event.T_data.T_artifact_in_site = {}
 ---@field subregion_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local artifact_in_subregion
+local entity_event_data_artifact_in_subregion
 
 ---@class _entity_event.T_data.T_artifact_in_subregion: DFCompound
 ---@field _kind 'struct-type'
@@ -1866,7 +2084,7 @@ df.entity_event.T_data.T_artifact_in_subregion = {}
 ---@field feature_layer_id number References: `world_underground_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local artifact_in_feature_layer
+local entity_event_data_artifact_in_feature_layer
 
 ---@class _entity_event.T_data.T_artifact_in_feature_layer: DFCompound
 ---@field _kind 'struct-type'
@@ -1879,7 +2097,7 @@ df.entity_event.T_data.T_artifact_in_feature_layer = {}
 ---@field hist_figure_id number References: `historical_figure`
 ---@field unk_1 number
 ---@field unk_2 number
-local artifact_in_inventory
+local entity_event_data_artifact_in_inventory
 
 ---@class _entity_event.T_data.T_artifact_in_inventory: DFCompound
 ---@field _kind 'struct-type'
@@ -1892,7 +2110,7 @@ df.entity_event.T_data.T_artifact_in_inventory = {}
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
 ---@field unk_1 number
-local artifact_not_in_site
+local entity_event_data_artifact_not_in_site
 
 ---@class _entity_event.T_data.T_artifact_not_in_site: DFCompound
 ---@field _kind 'struct-type'
@@ -1905,7 +2123,7 @@ df.entity_event.T_data.T_artifact_not_in_site = {}
 ---@field subregion_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local artifact_not_in_subregion
+local entity_event_data_artifact_not_in_subregion
 
 ---@class _entity_event.T_data.T_artifact_not_in_subregion: DFCompound
 ---@field _kind 'struct-type'
@@ -1918,7 +2136,7 @@ df.entity_event.T_data.T_artifact_not_in_subregion = {}
 ---@field feature_layer_id number References: `world_underground_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local artifact_not_in_feature_layer
+local entity_event_data_artifact_not_in_feature_layer
 
 ---@class _entity_event.T_data.T_artifact_not_in_feature_layer: DFCompound
 ---@field _kind 'struct-type'
@@ -1931,7 +2149,7 @@ df.entity_event.T_data.T_artifact_not_in_feature_layer = {}
 ---@field hist_figure_id number References: `historical_figure`
 ---@field unk_1 number
 ---@field unk_2 number
-local artifact_not_in_inventory
+local entity_event_data_artifact_not_in_inventory
 
 ---@class _entity_event.T_data.T_artifact_not_in_inventory: DFCompound
 ---@field _kind 'struct-type'
@@ -1944,7 +2162,7 @@ df.entity_event.T_data.T_artifact_not_in_inventory = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local artifact_destroyed
+local entity_event_data_artifact_destroyed
 
 ---@class _entity_event.T_data.T_artifact_destroyed: DFCompound
 ---@field _kind 'struct-type'
@@ -1975,15 +2193,29 @@ local agreement_vector
 ---@return agreement_vector # df.global.world.agreements.all
 function df.agreement.get_vector() end
 
----@class (exact) agreement.T_flags: DFObject
----@field _kind 'struct'
----@field _type _agreement.T_flags
----@field petition_not_accepted flag-bit this gets unset by accepting a petition
----@field convicted_accepted flag-bit convicted for PositionCorruption/accepted for Location
-local flags
+---@alias _agreement.T_flags_keys
+---| 0 # petition_not_accepted
+---| 1 # convicted_accepted
 
----@class _agreement.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _agreement.T_flags_values
+---| "petition_not_accepted" # 0
+---| "convicted_accepted" # 1
+
+---@class agreement.T_flags: DFObject, { [_agreement.T_flags_keys|_agreement.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _agreement.T_flags
+local agreement_flags = {
+  petition_not_accepted = false, -- this gets unset by accepting a petition
+  [0] = false, -- this gets unset by accepting a petition
+  convicted_accepted = false, -- convicted for PositionCorruption/accepted for Location
+  [1] = false, -- convicted for PositionCorruption/accepted for Location
+}
+
+---@class _agreement.T_flags: DFBitfield
+---@field petition_not_accepted 0 this gets unset by accepting a petition
+---@field [0] "petition_not_accepted" this gets unset by accepting a petition
+---@field convicted_accepted 1 convicted for PositionCorruption/accepted for Location
+---@field [1] "convicted_accepted" convicted for PositionCorruption/accepted for Location
 df.agreement.T_flags = {}
 
 ---@class (exact) agreement_party: DFObject
@@ -2010,8 +2242,7 @@ df.agreement_party = {}
 ---| 9 # CAUGHT_UNDER_SURVEILLANCE
 
 -- bay12: EvidenceType
----@class _crime_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _crime_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PLOTTER_BRIBERY_ATTEMPT 0
@@ -2054,8 +2285,7 @@ df.crime_type = {}
 ---| 14 # PlotFrameTreason
 ---| 15 # PlotInduceWar
 
----@class _agreement_details_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _agreement_details_type: DFEnum
 ---@field JoinParty 0
 ---@field [0] "JoinParty"
 ---@field DemonicBinding 1
@@ -2107,7 +2337,7 @@ df.agreement_details = {}
 ---@class (exact) agreement_details.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _agreement_details.T_data
-local data
+local agreement_details_data
 
 ---@class _agreement_details.T_data: DFCompound
 ---@field _kind 'struct-type'

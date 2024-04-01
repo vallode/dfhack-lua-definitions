@@ -96,8 +96,7 @@
 ---| 90 # SHEET
 ---| 91 # BRANCH
 
----@class _item_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _item_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BAR 0 Bars, such as metal, fuel, or soap.
@@ -412,22 +411,35 @@ local weapon_attack
 ---@field _kind 'struct-type'
 df.weapon_attack = {}
 
----@class (exact) weapon_attack.T_flags: DFObject
----@field _kind 'struct'
----@field _type _weapon_attack.T_flags
----@field independent_multiattack flag-bit
----@field bad_multiattack flag-bit
-local flags
+---@alias _weapon_attack.T_flags_keys
+---| 0 # independent_multiattack
+---| 1 # bad_multiattack
 
----@class _weapon_attack.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _weapon_attack.T_flags_values
+---| "independent_multiattack" # 0
+---| "bad_multiattack" # 1
+
+---@class weapon_attack.T_flags: DFObject, { [_weapon_attack.T_flags_keys|_weapon_attack.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _weapon_attack.T_flags
+local weapon_attack_flags = {
+  independent_multiattack = false,
+  [0] = false,
+  bad_multiattack = false,
+  [1] = false,
+}
+
+---@class _weapon_attack.T_flags: DFBitfield
+---@field independent_multiattack 0
+---@field [0] "independent_multiattack"
+---@field bad_multiattack 1
+---@field [1] "bad_multiattack"
 df.weapon_attack.T_flags = {}
 
 ---@alias itemdef_flags
 ---| 0 # GENERATED
 
----@class _itemdef_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _itemdef_flags: DFEnum
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 df.itemdef_flags = {}
@@ -439,8 +451,6 @@ df.itemdef_flags = {}
 ---@field subtype number
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
----@field  number
----@field  number
 local itemdef
 
 ---@class _itemdef: DFCompound
@@ -450,8 +460,7 @@ df.itemdef = {}
 ---@alias ammo_flags
 ---| 0 # HAS_EDGE_ATTACK
 
----@class _ammo_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _ammo_flags: DFEnum
 ---@field HAS_EDGE_ATTACK 0
 ---@field [0] "HAS_EDGE_ATTACK"
 df.ammo_flags = {}
@@ -494,8 +503,7 @@ function df.itemdef_ammost.get_vector() end
 ---| 9 # STRUCTURAL_ELASTICITY_CHAIN_METAL
 ---| 10 # STRUCTURAL_ELASTICITY_CHAIN_ALL
 
----@class _armor_general_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _armor_general_flags: DFEnum
 ---@field SOFT 0
 ---@field [0] "SOFT"
 ---@field HARD 1
@@ -536,8 +544,7 @@ df.armor_properties = {}
 ---@alias armor_flags
 ---| 0 # METAL_ARMOR_LEVELS
 
----@class _armor_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _armor_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.armor_flags = {}
@@ -556,8 +563,6 @@ df.armor_flags = {}
 ---@field lbstep number
 ---@field material_size number
 ---@field props armor_properties
----@field  number
----@field  number
 local itemdef_armorst
 
 ---@class _itemdef_armorst: DFCompound
@@ -579,8 +584,6 @@ function df.itemdef_armorst.get_vector() end
 ---@field _type _itemdef_foodst
 ---@field name string
 ---@field level number
----@field  number
----@field  number
 local itemdef_foodst
 
 ---@class _itemdef_foodst: DFCompound
@@ -600,8 +603,7 @@ function df.itemdef_foodst.get_vector() end
 ---@alias gloves_flags
 ---| 0 # METAL_ARMOR_LEVELS
 
----@class _gloves_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _gloves_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.gloves_flags = {}
@@ -617,8 +619,6 @@ df.gloves_flags = {}
 ---@field upstep number
 ---@field material_size number
 ---@field props armor_properties
----@field  number
----@field  number
 local itemdef_glovesst
 
 ---@class _itemdef_glovesst: DFCompound
@@ -638,8 +638,7 @@ function df.itemdef_glovesst.get_vector() end
 ---@alias helm_flags
 ---| 0 # METAL_ARMOR_LEVELS
 
----@class _helm_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _helm_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.helm_flags = {}
@@ -654,8 +653,6 @@ df.helm_flags = {}
 ---@field armorlevel number
 ---@field material_size number
 ---@field props armor_properties
----@field  number
----@field  number
 local itemdef_helmst
 
 ---@class _itemdef_helmst: DFCompound
@@ -683,8 +680,7 @@ function df.itemdef_helmst.get_vector() end
 ---| 7 # SHELL_MAT
 ---| 8 # BONE_MAT
 
----@class _instrument_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _instrument_flags: DFEnum
 ---@field INDEFINITE_PITCH 0
 ---@field [0] "INDEFINITE_PITCH"
 ---@field PLACED_AS_BUILDING 1
@@ -759,8 +755,7 @@ function df.itemdef_instrumentst.get_vector() end
 ---| 19 # AIR_OVER_FREE_REED
 ---| 20 # AIR_AGAINST_FIPPLE
 
----@class _sound_production_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _sound_production_type: DFEnum
 ---@field PLUCKED_BY_BP 0
 ---@field [0] "PLUCKED_BY_BP"
 ---@field PLUCKED 1
@@ -819,8 +814,7 @@ df.sound_production_type = {}
 ---| 10 # BP_IN_BELL
 ---| 11 # FOOT_PEDALS
 
----@class _pitch_choice_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _pitch_choice_type: DFEnum
 ---@field MEMBRANE_POSITION 0
 ---@field [0] "MEMBRANE_POSITION"
 ---@field SUBPART_CHOICE 1
@@ -854,8 +848,7 @@ df.pitch_choice_type = {}
 ---| 3 # TIGHTENING
 ---| 4 # LEVERS
 
----@class _tuning_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _tuning_type: DFEnum
 ---@field PEGS 0
 ---@field [0] "PEGS"
 ---@field ADJUSTABLE_BRIDGES 1
@@ -933,8 +926,7 @@ df.tuning_type = {}
 ---| 61 # RIPPLING
 ---| 62 # SPARKLING
 
----@class _timbre_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _timbre_type: DFEnum
 ---@field CLEAR 0
 ---@field [0] "CLEAR"
 ---@field NOISY 1
@@ -1078,15 +1070,29 @@ local instrument_piece
 ---@field _kind 'struct-type'
 df.instrument_piece = {}
 
----@class (exact) instrument_piece.T_flags: DFObject
----@field _kind 'struct'
----@field _type _instrument_piece.T_flags
----@field always_singular flag-bit
----@field always_plural flag-bit
-local flags
+---@alias _instrument_piece.T_flags_keys
+---| 0 # always_singular
+---| 1 # always_plural
 
----@class _instrument_piece.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _instrument_piece.T_flags_values
+---| "always_singular" # 0
+---| "always_plural" # 1
+
+---@class instrument_piece.T_flags: DFObject, { [_instrument_piece.T_flags_keys|_instrument_piece.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _instrument_piece.T_flags
+local instrument_piece_flags = {
+  always_singular = false,
+  [0] = false,
+  always_plural = false,
+  [1] = false,
+}
+
+---@class _instrument_piece.T_flags: DFBitfield
+---@field always_singular 0
+---@field [0] "always_singular"
+---@field always_plural 1
+---@field [1] "always_plural"
 df.instrument_piece.T_flags = {}
 
 ---@class (exact) instrument_register: DFObject
@@ -1103,8 +1109,7 @@ df.instrument_register = {}
 ---@alias pants_flags
 ---| 0 # METAL_ARMOR_LEVELS
 
----@class _pants_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _pants_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.pants_flags = {}
@@ -1122,8 +1127,6 @@ df.pants_flags = {}
 ---@field material_size number
 ---@field lbstep number
 ---@field props armor_properties
----@field  number
----@field  number
 local itemdef_pantsst
 
 ---@class _itemdef_pantsst: DFCompound
@@ -1151,8 +1154,6 @@ function df.itemdef_pantsst.get_vector() end
 ---@field armorlevel number
 ---@field upstep number
 ---@field material_size number
----@field  number
----@field  number
 local itemdef_shieldst
 
 ---@class _itemdef_shieldst: DFCompound
@@ -1172,8 +1173,7 @@ function df.itemdef_shieldst.get_vector() end
 ---@alias shoes_flags
 ---| 0 # METAL_ARMOR_LEVELS
 
----@class _shoes_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _shoes_flags: DFEnum
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.shoes_flags = {}
@@ -1189,8 +1189,6 @@ df.shoes_flags = {}
 ---@field upstep number
 ---@field material_size number
 ---@field props armor_properties
----@field  number
----@field  number
 local itemdef_shoesst
 
 ---@class _itemdef_shoesst: DFCompound
@@ -1251,8 +1249,7 @@ function df.itemdef_siegeammost.get_vector() end
 ---| 18 # INCOMPLETE_ITEM
 ---| 19 # SHEET_MAT
 
----@class _tool_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _tool_flags: DFEnum
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 ---@field METAL_MAT 1
@@ -1324,8 +1321,7 @@ df.tool_flags = {}
 ---| 24 # DIVINATION
 ---| 25 # GAMES_OF_CHANCE
 
----@class _tool_uses: DFDescriptor
----@field _kind 'enum-type'
+---@class _tool_uses: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LIQUID_COOKING 0
@@ -1420,8 +1416,7 @@ function df.itemdef_toolst.get_vector() end
 ---@alias toy_flags
 ---| 0 # HARD_MAT
 
----@class _toy_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _toy_flags: DFEnum
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 df.toy_flags = {}
@@ -1431,11 +1426,6 @@ df.toy_flags = {}
 ---@field _type _itemdef_toyst
 ---@field name string
 ---@field name_plural string
----@field  number
----@field  number
----@field  number
----@field  number
----@field  number
 local itemdef_toyst
 
 ---@class _itemdef_toyst: DFCompound
@@ -1459,8 +1449,7 @@ function df.itemdef_toyst.get_vector() end
 ---| 3 # METAL
 ---| 4 # HAS_EDGE_ATTACK
 
----@class _trapcomp_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _trapcomp_flags: DFEnum
 ---@field IS_SCREW 0
 ---@field [0] "IS_SCREW"
 ---@field IS_SPIKE 1
@@ -1504,8 +1493,7 @@ function df.itemdef_trapcompst.get_vector() end
 ---| 1 # HAS_EDGE_ATTACK
 ---| 2 # TRAINING
 
----@class _weapon_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _weapon_flags: DFEnum
 ---@field CAN_STONE 0
 ---@field [0] "CAN_STONE"
 ---@field HAS_EDGE_ATTACK 1

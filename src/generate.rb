@@ -20,7 +20,7 @@ SILENT = ENV.fetch('SILENT', false)
 
 HANDLERS = {
   'enum-type' => DFHackLuaDefinitions::EnumType,
-  # 'bitfield-type' => XmlNode::BitfieldType,
+  'bitfield-type' => DFHackLuaDefinitions::BitfieldType,
   'class-type' => DFHackLuaDefinitions::StructType,
   'struct-type' => DFHackLuaDefinitions::StructType,
   'compound' => DFHackLuaDefinitions::StructType,

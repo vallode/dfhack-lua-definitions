@@ -651,8 +651,7 @@
 ---| 654 # KEYBINDING_COMPLETE
 
 -- WARNING: THIS FILE IS AUTO-GENERATED - DO NOT EDIT
----@class _interface_key: DFDescriptor
----@field _kind 'enum-type'
+---@class _interface_key: DFEnum
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field SELECT 1

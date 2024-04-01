@@ -57,8 +57,7 @@ df.ui_hotkey = {}
 ---| 1 # FollowUnit
 ---| 2 # FollowItem
 
----@class _ui_hotkey.T_cmd: DFDescriptor
----@field _kind 'enum-type'
+---@class _ui_hotkey.T_cmd: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Zoom 0
@@ -128,8 +127,7 @@ df.ui_hotkey.T_cmd = {}
 ---| 55 # BuildingLocationInfo
 ---| 56 # ZonesLocationInfo
 
----@class _ui_sidebar_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _ui_sidebar_mode: DFEnum
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Squads 1
@@ -266,8 +264,7 @@ df.punishment = {}
 ---| 1 # Cook
 ---| 0 # Brew
 
----@class _kitchen_exc_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _kitchen_exc_type: DFEnum
 ---@field Cook 1
 ---@field [1] "Cook"
 ---@field Brew 0
@@ -329,8 +326,7 @@ df.kitchen_exc_type = {}
 ---| 51 # Finishing
 
 -- below was copied wholesale from df.viewscreen
----@class _save_substage: DFDescriptor
----@field _kind 'enum-type'
+---@class _save_substage: DFEnum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -437,6 +433,91 @@ df.kitchen_exc_type = {}
 ---@field [51] "Finishing"
 df.save_substage = {}
 
+---@alias _equipment_update_keys
+---| 0 # weapon
+---| 1 # armor
+---| 2 # shoes
+---| 3 # shield
+---| 4 # helm
+---| 5 # gloves
+---| 6 # ammo
+---| 7 # pants
+---| 8 # backpack
+---| 9 # quiver
+---| 10 # flask
+---| 12 # buildings
+
+---@alias _equipment_update_values
+---| "weapon" # 0
+---| "armor" # 1
+---| "shoes" # 2
+---| "shield" # 3
+---| "helm" # 4
+---| "gloves" # 5
+---| "ammo" # 6
+---| "pants" # 7
+---| "backpack" # 8
+---| "quiver" # 9
+---| "flask" # 10
+---| "buildings" # 12
+
+---@class equipment_update: DFObject, { [_equipment_update_keys|_equipment_update_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _equipment_update
+local equipment_update = {
+  weapon = false,
+  [0] = false,
+  armor = false,
+  [1] = false,
+  shoes = false,
+  [2] = false,
+  shield = false,
+  [3] = false,
+  helm = false,
+  [4] = false,
+  gloves = false,
+  [5] = false,
+  ammo = false,
+  [6] = false,
+  pants = false,
+  [7] = false,
+  backpack = false,
+  [8] = false,
+  quiver = false,
+  [9] = false,
+  flask = false,
+  [10] = false,
+  buildings = false,
+  [12] = false,
+}
+
+---@class _equipment_update: DFBitfield
+---@field weapon 0
+---@field [0] "weapon"
+---@field armor 1
+---@field [1] "armor"
+---@field shoes 2
+---@field [2] "shoes"
+---@field shield 3
+---@field [3] "shield"
+---@field helm 4
+---@field [4] "helm"
+---@field gloves 5
+---@field [5] "gloves"
+---@field ammo 6
+---@field [6] "ammo"
+---@field pants 7
+---@field [7] "pants"
+---@field backpack 8
+---@field [8] "backpack"
+---@field quiver 9
+---@field [9] "quiver"
+---@field flask 10
+---@field [10] "flask"
+---@field buildings 12
+---@field [12] "buildings"
+df.equipment_update = {}
+
 ---@class (exact) labor_infost: DFObject
 ---@field _kind 'struct'
 ---@field _type _labor_infost
@@ -447,14 +528,23 @@ local labor_infost
 ---@field _kind 'struct-type'
 df.labor_infost = {}
 
----@class (exact) labor_infost.T_flags: DFObject
----@field _kind 'struct'
----@field _type _labor_infost.T_flags
----@field children_do_chores flag-bit
-local flags
+---@alias _labor_infost.T_flags_keys
+---| 0 # children_do_chores
 
----@class _labor_infost.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _labor_infost.T_flags_values
+---| "children_do_chores" # 0
+
+---@class labor_infost.T_flags: DFObject, { [_labor_infost.T_flags_keys|_labor_infost.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _labor_infost.T_flags
+local labor_infost_flags = {
+  children_do_chores = false,
+  [0] = false,
+}
+
+---@class _labor_infost.T_flags: DFBitfield
+---@field children_do_chores 0
+---@field [0] "children_do_chores"
 df.labor_infost.T_flags = {}
 
 ---@class (exact) plotinfost: DFObject
@@ -525,7 +615,7 @@ df.plotinfost = {}
 ---@field quota number
 ---@field collector_pos coord
 ---@field guard_lack_complained number
-local tax_collection
+local plotinfost_tax_collection
 
 ---@class _plotinfost.T_tax_collection: DFCompound
 ---@field _kind 'struct-type'
@@ -539,7 +629,7 @@ df.plotinfost.T_tax_collection = {}
 ---@field bookkeeper_cooldown number 0-1008
 ---@field bookkeeper_precision number
 ---@field bookkeeper_settings plotinfost.T_nobles.T_bookkeeper_settings
-local nobles
+local plotinfost_nobles
 
 ---@class _plotinfost.T_nobles: DFCompound
 ---@field _kind 'struct-type'
@@ -552,8 +642,7 @@ df.plotinfost.T_nobles = {}
 ---| 3 # nearest_10000
 ---| 4 # all_accurate
 
----@class _plotinfost.T_nobles.T_bookkeeper_settings: DFDescriptor
----@field _kind 'enum-type'
+---@class _plotinfost.T_nobles.T_bookkeeper_settings: DFEnum
 ---@field nearest_10 0
 ---@field [0] "nearest_10"
 ---@field nearest_100 1
@@ -570,7 +659,7 @@ df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_invasions
 ---@field next_id number
-local invasions
+local plotinfost_invasions
 
 ---@class _plotinfost.T_invasions: DFCompound
 ---@field _kind 'struct-type'
@@ -579,27 +668,71 @@ df.plotinfost.T_invasions = {}
 ---@class (exact) plotinfost.T_kitchen: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_kitchen
-local kitchen
+local plotinfost_kitchen
 
 ---@class _plotinfost.T_kitchen: DFCompound
 ---@field _kind 'struct-type'
 df.plotinfost.T_kitchen = {}
 
----@class (exact) plotinfost.T_flags: DFObject
----@field _kind 'struct'
----@field _type _plotinfost.T_flags
----@field first_year flag-bit (FIRSTYEAR)
----@field recheck_aid_requests flag-bit (EVAL_REQUESTERCANCHECK)
----@field force_elections flag-bit (RUN_SPECIAL_ELECTIONS)
----@field need_to_do_tutorial flag-bit (NEED_TO_DO_TUTORIAL)
----@field minor_victory flag-bit (MINOR_VICTORY)
----@field major_victory flag-bit (MAJOR_VICTORY)
----@field did_first_caravan_announcement flag-bit (DID_FIRST_CARAVAN_ANNOUNCEMENT)
----@field did_first_cavern_announcement flag-bit (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
-local flags
+---@alias _plotinfost.T_flags_keys
+---| 0 # first_year
+---| 1 # recheck_aid_requests
+---| 2 # force_elections
+---| 3 # need_to_do_tutorial
+---| 4 # minor_victory
+---| 5 # major_victory
+---| 6 # did_first_caravan_announcement
+---| 7 # did_first_cavern_announcement
 
----@class _plotinfost.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _plotinfost.T_flags_values
+---| "first_year" # 0
+---| "recheck_aid_requests" # 1
+---| "force_elections" # 2
+---| "need_to_do_tutorial" # 3
+---| "minor_victory" # 4
+---| "major_victory" # 5
+---| "did_first_caravan_announcement" # 6
+---| "did_first_cavern_announcement" # 7
+
+---@class plotinfost.T_flags: DFObject, { [_plotinfost.T_flags_keys|_plotinfost.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _plotinfost.T_flags
+local plotinfost_flags = {
+  first_year = false, -- (FIRSTYEAR)
+  [0] = false, -- (FIRSTYEAR)
+  recheck_aid_requests = false, -- (EVAL_REQUESTERCANCHECK)
+  [1] = false, -- (EVAL_REQUESTERCANCHECK)
+  force_elections = false, -- (RUN_SPECIAL_ELECTIONS)
+  [2] = false, -- (RUN_SPECIAL_ELECTIONS)
+  need_to_do_tutorial = false, -- (NEED_TO_DO_TUTORIAL)
+  [3] = false, -- (NEED_TO_DO_TUTORIAL)
+  minor_victory = false, -- (MINOR_VICTORY)
+  [4] = false, -- (MINOR_VICTORY)
+  major_victory = false, -- (MAJOR_VICTORY)
+  [5] = false, -- (MAJOR_VICTORY)
+  did_first_caravan_announcement = false, -- (DID_FIRST_CARAVAN_ANNOUNCEMENT)
+  [6] = false, -- (DID_FIRST_CARAVAN_ANNOUNCEMENT)
+  did_first_cavern_announcement = false, -- (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
+  [7] = false, -- (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
+}
+
+---@class _plotinfost.T_flags: DFBitfield
+---@field first_year 0 (FIRSTYEAR)
+---@field [0] "first_year" (FIRSTYEAR)
+---@field recheck_aid_requests 1 (EVAL_REQUESTERCANCHECK)
+---@field [1] "recheck_aid_requests" (EVAL_REQUESTERCANCHECK)
+---@field force_elections 2 (RUN_SPECIAL_ELECTIONS)
+---@field [2] "force_elections" (RUN_SPECIAL_ELECTIONS)
+---@field need_to_do_tutorial 3 (NEED_TO_DO_TUTORIAL)
+---@field [3] "need_to_do_tutorial" (NEED_TO_DO_TUTORIAL)
+---@field minor_victory 4 (MINOR_VICTORY)
+---@field [4] "minor_victory" (MINOR_VICTORY)
+---@field major_victory 5 (MAJOR_VICTORY)
+---@field [5] "major_victory" (MAJOR_VICTORY)
+---@field did_first_caravan_announcement 6 (DID_FIRST_CARAVAN_ANNOUNCEMENT)
+---@field [6] "did_first_caravan_announcement" (DID_FIRST_CARAVAN_ANNOUNCEMENT)
+---@field did_first_cavern_announcement 7 (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
+---@field [7] "did_first_cavern_announcement" (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
 df.plotinfost.T_flags = {}
 
 ---@class (exact) plotinfost.T_economy_prices: DFObject
@@ -607,7 +740,7 @@ df.plotinfost.T_flags = {}
 ---@field _type _plotinfost.T_economy_prices
 ---@field price_adjustment plotinfost.T_economy_prices.T_price_adjustment
 ---@field price_setter plotinfost.T_economy_prices.T_price_setter
-local economy_prices
+local plotinfost_economy_prices
 
 ---@class _plotinfost.T_economy_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -616,7 +749,7 @@ df.plotinfost.T_economy_prices = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_adjustment
-local price_adjustment
+local plotinfost_economy_prices_price_adjustment
 
 ---@class _plotinfost.T_economy_prices.T_price_adjustment: DFCompound
 ---@field _kind 'struct-type'
@@ -625,7 +758,7 @@ df.plotinfost.T_economy_prices.T_price_adjustment = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_setter
-local price_setter
+local plotinfost_economy_prices_price_setter
 
 ---@class _plotinfost.T_economy_prices.T_price_setter: DFCompound
 ---@field _kind 'struct-type'
@@ -637,7 +770,7 @@ df.plotinfost.T_economy_prices.T_price_setter = {}
 ---@field reserved_bins number
 ---@field reserved_barrels number
 ---@field custom_settings stockpile_settings
-local stockpile
+local plotinfost_stockpile
 
 ---@class _plotinfost.T_stockpile: DFCompound
 ---@field _kind 'struct-type'
@@ -646,7 +779,7 @@ df.plotinfost.T_stockpile = {}
 ---@class (exact) plotinfost.T_map_edge: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_map_edge
-local map_edge
+local plotinfost_map_edge
 
 ---@class _plotinfost.T_map_edge: DFCompound
 ---@field _kind 'struct-type'
@@ -668,7 +801,7 @@ df.plotinfost.T_map_edge = {}
 ---@field sel_route_idx number
 ---@field sel_route_waypt_idx number
 ---@field in_edit_waypts_mode boolean
-local waypoints
+local plotinfost_waypoints
 
 ---@class _plotinfost.T_waypoints: DFCompound
 ---@field _kind 'struct-type'
@@ -692,7 +825,7 @@ df.plotinfost.T_waypoints = {}
 ---@field sym_tile number
 ---@field sym_fg_color number
 ---@field sym_bg_color number
-local burrows
+local plotinfost_burrows
 
 ---@class _plotinfost.T_burrows: DFCompound
 ---@field _kind 'struct-type'
@@ -704,7 +837,7 @@ df.plotinfost.T_burrows = {}
 ---@field next_id number
 ---@field next_routine_id number
 ---@field civ_alert_idx number
-local alerts
+local plotinfost_alerts
 
 ---@class _plotinfost.T_alerts: DFCompound
 ---@field _kind 'struct-type'
@@ -714,7 +847,7 @@ df.plotinfost.T_alerts = {}
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_equipment
 ---@field update equipment_update
-local equipment
+local plotinfost_equipment
 
 ---@class _plotinfost.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -731,7 +864,7 @@ df.plotinfost.T_equipment = {}
 ---@field entering_nickname boolean
 ---@field nickname_route_id number
 ---@field nickname_stop_id number
-local hauling
+local plotinfost_hauling
 
 ---@class _plotinfost.T_hauling: DFCompound
 ---@field _kind 'struct-type'
@@ -758,7 +891,7 @@ df.plotinfost.T_hauling = {}
 ---@field unk_44_12d number padding?
 ---@field selected_hotkey number
 ---@field in_rename_hotkey boolean
-local main
+local plotinfost_main
 
 ---@class _plotinfost.T_main: DFCompound
 ---@field _kind 'struct-type'
@@ -770,7 +903,7 @@ df.plotinfost.T_main = {}
 ---@field substage save_substage
 ---@field stage number
 ---@field info nemesis_offload
-local save_progress
+local plotinfost_main_save_progress
 
 ---@class _plotinfost.T_main.T_save_progress: DFCompound
 ---@field _kind 'struct-type'
@@ -792,7 +925,7 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field kill_list_scroll number
 ---@field in_kill_rect boolean
 ---@field rect_start coord
-local squads
+local plotinfost_squads
 
 ---@class _plotinfost.T_squads: DFCompound
 ---@field _kind 'struct-type'
@@ -810,8 +943,7 @@ df.plotinfost.T_squads = {}
 ---| 8 # NightCreature
 ---| 9 # TributeCaravan
 
----@class _timed_event_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _timed_event_type: DFEnum
 ---@field Caravan 0
 ---@field [0] "Caravan"
 ---@field Migrants 1
@@ -863,8 +995,6 @@ df.timed_event = {}
 ---@field window_x number
 ---@field window_y number
 ---@field window_z number
----@field  number
----@field  number
 local map_viewport
 
 ---@class _map_viewport: DFCompound

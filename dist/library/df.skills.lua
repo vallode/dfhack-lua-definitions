@@ -140,8 +140,7 @@
 ---| 134 # MESSENGER
 
 -- ----- PROFESSION -----
----@class _profession: DFDescriptor
----@field _kind 'enum-type'
+---@class _profession: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINER 0 -- 0
@@ -583,8 +582,7 @@ df.profession.attrs = {}
 ---| -1 # None
 
 -- ----- LABOR -----
----@class _unit_labor_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _unit_labor_category: DFEnum
 ---@field Other -13 used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field [-13] "Other" used in viewscreen_dwarfmodest::unit_labors_sidemenu
 ---@field Hauling -12
@@ -710,8 +708,7 @@ df.unit_labor_category = {}
 ---| 92 # ANON_LABOR_92
 ---| 93 # ANON_LABOR_93
 
----@class _unit_labor: DFDescriptor
----@field _kind 'enum-type'
+---@class _unit_labor: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINE 0 -- 0
@@ -1012,8 +1009,7 @@ df.unit_labor.attrs = {}
 ---| 9 # MilitaryMisc
 
 -- ----- SKILL -----
----@class _job_skill_class: DFDescriptor
----@field _kind 'enum-type'
+---@class _job_skill_class: DFEnum
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Medical 1
@@ -1188,8 +1184,7 @@ df.job_skill_class = {}
 ---| 147 # UNUSED_01
 ---| 148 # UNUSED_02
 
----@class _job_skill: DFDescriptor
----@field _kind 'enum-type'
+---@class _job_skill: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MINING 0 -- 0

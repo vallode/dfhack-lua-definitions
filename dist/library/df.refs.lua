@@ -74,8 +74,7 @@
 ---| 68 # BUILDING_DISPLAY_FURNITURE
 ---| 69 # UNIT_INTERROGATEE
 
----@class _general_ref_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _general_ref_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ARTIFACT 0
@@ -625,14 +624,23 @@ local general_ref_unit_itemownerst
 ---@field _kind 'class-type'
 df.general_ref_unit_itemownerst = {}
 
----@class (exact) general_ref_unit_itemownerst.T_flags: DFObject
----@field _kind 'struct'
----@field _type _general_ref_unit_itemownerst.T_flags
----@field litter flag-bit apparetly set after 1000 ticks, then confiscated in 1000 more ticks
-local flags
+---@alias _general_ref_unit_itemownerst.T_flags_keys
+---| 0 # litter
 
----@class _general_ref_unit_itemownerst.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _general_ref_unit_itemownerst.T_flags_values
+---| "litter" # 0
+
+---@class general_ref_unit_itemownerst.T_flags: DFObject, { [_general_ref_unit_itemownerst.T_flags_keys|_general_ref_unit_itemownerst.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _general_ref_unit_itemownerst.T_flags
+local general_ref_unit_itemownerst_flags = {
+  litter = false, -- apparetly set after 1000 ticks, then confiscated in 1000 more ticks
+  [0] = false, -- apparetly set after 1000 ticks, then confiscated in 1000 more ticks
+}
+
+---@class _general_ref_unit_itemownerst.T_flags: DFBitfield
+---@field litter 0 apparetly set after 1000 ticks, then confiscated in 1000 more ticks
+---@field [0] "litter" apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 df.general_ref_unit_itemownerst.T_flags = {}
 
 ---@class (exact) general_ref_unit_tradebringerst: DFObject, general_ref_unit
@@ -955,8 +963,7 @@ df.general_ref_entity_itemownerst = {}
 ---| 26 # ENTITY_POPULATION
 ---| 27 # BREED
 
----@class _specific_ref_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _specific_ref_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BUILDING 0
@@ -1054,7 +1061,7 @@ df.specific_ref = {}
 ---@field _kind 'struct'
 ---@field _type _specific_ref.T_data
 ---@field wrestle specific_ref.T_data.T_wrestle
-local data
+local specific_ref_data
 
 ---@class _specific_ref.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -1063,7 +1070,7 @@ df.specific_ref.T_data = {}
 ---@class (exact) specific_ref.T_data.T_wrestle: DFObject
 ---@field _kind 'struct'
 ---@field _type _specific_ref.T_data.T_wrestle
-local wrestle
+local specific_ref_data_wrestle
 
 ---@class _specific_ref.T_data.T_wrestle: DFCompound
 ---@field _kind 'struct-type'
@@ -1089,8 +1096,7 @@ df.specific_ref.T_data.T_wrestle = {}
 ---| 16 # FORMER_OCCUPATION
 ---| 17 # RESIDENT
 
----@class _histfig_entity_link_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _histfig_entity_link_type: DFEnum
 ---@field MEMBER 0
 ---@field [0] "MEMBER"
 ---@field FORMER_MEMBER 1
@@ -1325,8 +1331,7 @@ df.histfig_entity_link_former_occupationst = {}
 ---| 8 # PRISON_ABSTRACT_BUILDING
 ---| 9 # PRISON_SITE_BUILDING_PROFILE
 
----@class _histfig_site_link_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _histfig_site_link_type: DFEnum
 ---@field OCCUPATION 0
 ---@field [0] "OCCUPATION"
 ---@field SEAT_OF_POWER 1
@@ -1470,8 +1475,7 @@ df.histfig_site_link_prison_site_building_profilest = {}
 ---| 14 # FORMER_SPOUSE
 ---| 15 # DECEASED_SPOUSE
 
----@class _histfig_hf_link_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _histfig_hf_link_type: DFEnum
 ---@field MOTHER 0
 ---@field [0] "MOTHER"
 ---@field FATHER 1
@@ -1668,8 +1672,7 @@ df.histfig_hf_link_deceased_spousest = {}
 ---| 1 # CHILD
 ---| 2 # RELIGIOUS
 
----@class _entity_entity_link_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_entity_link_type: DFEnum
 ---@field PARENT 0
 ---@field [0] "PARENT"
 ---@field CHILD 1
@@ -1699,8 +1702,7 @@ df.entity_entity_link = {}
 ---| 4 # Local_Activity
 
 -- Enum names updated per Putnam
----@class _entity_site_link_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_site_link_type: DFEnum
 ---@field None -1 Mostly guesswork, hence the 'research notes' below. Interacts highly with status<br>Putnam has provided us with some source details, so enum names have been amended to match what she provided
 ---@field [-1] "None" Mostly guesswork, hence the 'research notes' below. Interacts highly with status<br>Putnam has provided us with some source details, so enum names have been amended to match what she provided
 ---@field All 0 Probably inactive/failed/NA. Seen with status = 0/2/8/16/128/144/8192. Entities Civilization/SiteGovernment/NomadicGroup/Outcast (not all value/entity permutations)
@@ -1714,6 +1716,121 @@ df.entity_entity_link = {}
 ---@field Local_Activity 4
 ---@field [4] "Local_Activity"
 df.entity_site_link_type = {}
+
+---@alias _entity_site_link_flags_keys
+---| 0 # residence
+---| 1 # capital
+---| 2 # fortress
+---| 3 # local_market
+---| 4 # trade_partner
+---| 5 # monument
+---| 6 # primary_criminal_gang
+---| 7 # criminal_gang
+---| 8 # invasion_marked
+---| 9 # land_for_holding
+---| 10 # central_holding_land
+---| 11 # land_holder_residence
+---| 12 # invasion_push_out
+---| 13 # reclaim
+---| 14 # occupation_failed
+---| 15 # base_of_operation
+---| 16 # holy_city
+
+---@alias _entity_site_link_flags_values
+---| "residence" # 0
+---| "capital" # 1
+---| "fortress" # 2
+---| "local_market" # 3
+---| "trade_partner" # 4
+---| "monument" # 5
+---| "primary_criminal_gang" # 6
+---| "criminal_gang" # 7
+---| "invasion_marked" # 8
+---| "land_for_holding" # 9
+---| "central_holding_land" # 10
+---| "land_holder_residence" # 11
+---| "invasion_push_out" # 12
+---| "reclaim" # 13
+---| "occupation_failed" # 14
+---| "base_of_operation" # 15
+---| "holy_city" # 16
+
+---@class entity_site_link_flags: DFObject, { [_entity_site_link_flags_keys|_entity_site_link_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _entity_site_link_flags
+local entity_site_link_flags = {
+  residence = false, -- site is residence
+  [0] = false, -- site is residence
+  capital = false, -- site is capital
+  [1] = false, -- site is capital
+  fortress = false, -- used at least by those castles which arent currently in
+  [2] = false, -- used at least by those castles which arent currently in
+  local_market = false, -- for villages to think about their market town
+  [3] = false, -- for villages to think about their market town
+  trade_partner = false, -- for markets to think about other markets
+  [4] = false, -- for markets to think about other markets
+  monument = false, -- for a civ to know its tomb sites
+  [5] = false, -- for a civ to know its tomb sites
+  primary_criminal_gang = false,
+  [6] = false,
+  criminal_gang = false,
+  [7] = false,
+  invasion_marked = false, -- marked for invasion
+  [8] = false, -- marked for invasion
+  land_for_holding = false, -- all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
+  [9] = false, -- all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
+  central_holding_land = false, -- only dwarf fortresses get this for now
+  [10] = false, -- only dwarf fortresses get this for now
+  land_holder_residence = false, -- the regular sites where a baron etc. actually lives
+  [11] = false, -- the regular sites where a baron etc. actually lives
+  invasion_push_out = false, -- pushed out by invasion
+  [12] = false, -- pushed out by invasion
+  reclaim = false, -- marked for reclaim
+  [13] = false, -- marked for reclaim
+  occupation_failed = false, -- failed to hold hostile occupation
+  [14] = false, -- failed to hold hostile occupation
+  base_of_operation = false, -- set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
+  [15] = false, -- set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
+  holy_city = false, -- for the holy city of a religion
+  [16] = false, -- for the holy city of a religion
+}
+
+---@class _entity_site_link_flags: DFBitfield
+---@field residence 0 site is residence
+---@field [0] "residence" site is residence
+---@field capital 1 site is capital
+---@field [1] "capital" site is capital
+---@field fortress 2 used at least by those castles which arent currently in
+---@field [2] "fortress" used at least by those castles which arent currently in
+---@field local_market 3 for villages to think about their market town
+---@field [3] "local_market" for villages to think about their market town
+---@field trade_partner 4 for markets to think about other markets
+---@field [4] "trade_partner" for markets to think about other markets
+---@field monument 5 for a civ to know its tomb sites
+---@field [5] "monument" for a civ to know its tomb sites
+---@field primary_criminal_gang 6
+---@field [6] "primary_criminal_gang"
+---@field criminal_gang 7
+---@field [7] "criminal_gang"
+---@field invasion_marked 8 marked for invasion
+---@field [8] "invasion_marked" marked for invasion
+---@field land_for_holding 9 all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
+---@field [9] "land_for_holding" all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
+---@field central_holding_land 10 only dwarf fortresses get this for now
+---@field [10] "central_holding_land" only dwarf fortresses get this for now
+---@field land_holder_residence 11 the regular sites where a baron etc. actually lives
+---@field [11] "land_holder_residence" the regular sites where a baron etc. actually lives
+---@field invasion_push_out 12 pushed out by invasion
+---@field [12] "invasion_push_out" pushed out by invasion
+---@field reclaim 13 marked for reclaim
+---@field [13] "reclaim" marked for reclaim
+---@field occupation_failed 14 failed to hold hostile occupation
+---@field [14] "occupation_failed" failed to hold hostile occupation
+---@field base_of_operation 15 set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
+---@field [15] "base_of_operation" set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
+---@field holy_city 16 for the holy city of a religion
+---@field [16] "holy_city" for the holy city of a religion
+df.entity_site_link_flags = {}
 
 ---@class (exact) entity_site_link: DFObject
 ---@field _kind 'struct'
@@ -1739,4 +1856,29 @@ local entity_site_link
 ---@class _entity_site_link: DFCompound
 ---@field _kind 'struct-type'
 df.entity_site_link = {}
+
+---@alias _undead_flags_keys
+---| 0 # zombie
+---| 1 # ghostly
+
+---@alias _undead_flags_values
+---| "zombie" # 0
+---| "ghostly" # 1
+
+---@class undead_flags: DFObject, { [_undead_flags_keys|_undead_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _undead_flags
+local undead_flags = {
+  zombie = false,
+  [0] = false,
+  ghostly = false,
+  [1] = false,
+}
+
+---@class _undead_flags: DFBitfield
+---@field zombie 0
+---@field [0] "zombie"
+---@field ghostly 1
+---@field [1] "ghostly"
+df.undead_flags = {}
 

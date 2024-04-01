@@ -1,6 +1,115 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta _
 
+---@alias _language_word_flags_keys
+---| 0 # front_compound_noun_sing
+---| 1 # front_compound_noun_plur
+---| 2 # front_compound_adj
+---| 3 # front_compound_prefix
+---| 4 # rear_compound_noun_sing
+---| 5 # rear_compound_noun_plur
+---| 6 # rear_compound_adj
+---| 7 # the_noun_sing
+---| 8 # the_noun_plur
+---| 9 # the_compound_noun_sing
+---| 10 # the_compound_noun_plur
+---| 11 # the_compound_adj
+---| 12 # the_compound_prefix
+---| 13 # of_noun_sing
+---| 14 # of_noun_plur
+---| 15 # standard_verb
+
+---@alias _language_word_flags_values
+---| "front_compound_noun_sing" # 0
+---| "front_compound_noun_plur" # 1
+---| "front_compound_adj" # 2
+---| "front_compound_prefix" # 3
+---| "rear_compound_noun_sing" # 4
+---| "rear_compound_noun_plur" # 5
+---| "rear_compound_adj" # 6
+---| "the_noun_sing" # 7
+---| "the_noun_plur" # 8
+---| "the_compound_noun_sing" # 9
+---| "the_compound_noun_plur" # 10
+---| "the_compound_adj" # 11
+---| "the_compound_prefix" # 12
+---| "of_noun_sing" # 13
+---| "of_noun_plur" # 14
+---| "standard_verb" # 15
+
+---@class language_word_flags: DFObject, { [_language_word_flags_keys|_language_word_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _language_word_flags
+local language_word_flags = {
+  front_compound_noun_sing = false,
+  [0] = false,
+  front_compound_noun_plur = false,
+  [1] = false,
+  front_compound_adj = false,
+  [2] = false,
+  front_compound_prefix = false,
+  [3] = false,
+  rear_compound_noun_sing = false,
+  [4] = false,
+  rear_compound_noun_plur = false,
+  [5] = false,
+  rear_compound_adj = false,
+  [6] = false,
+  the_noun_sing = false,
+  [7] = false,
+  the_noun_plur = false,
+  [8] = false,
+  the_compound_noun_sing = false,
+  [9] = false,
+  the_compound_noun_plur = false,
+  [10] = false,
+  the_compound_adj = false,
+  [11] = false,
+  the_compound_prefix = false,
+  [12] = false,
+  of_noun_sing = false,
+  [13] = false,
+  of_noun_plur = false,
+  [14] = false,
+  standard_verb = false,
+  [15] = false,
+}
+
+---@class _language_word_flags: DFBitfield
+---@field front_compound_noun_sing 0
+---@field [0] "front_compound_noun_sing"
+---@field front_compound_noun_plur 1
+---@field [1] "front_compound_noun_plur"
+---@field front_compound_adj 2
+---@field [2] "front_compound_adj"
+---@field front_compound_prefix 3
+---@field [3] "front_compound_prefix"
+---@field rear_compound_noun_sing 4
+---@field [4] "rear_compound_noun_sing"
+---@field rear_compound_noun_plur 5
+---@field [5] "rear_compound_noun_plur"
+---@field rear_compound_adj 6
+---@field [6] "rear_compound_adj"
+---@field the_noun_sing 7
+---@field [7] "the_noun_sing"
+---@field the_noun_plur 8
+---@field [8] "the_noun_plur"
+---@field the_compound_noun_sing 9
+---@field [9] "the_compound_noun_sing"
+---@field the_compound_noun_plur 10
+---@field [10] "the_compound_noun_plur"
+---@field the_compound_adj 11
+---@field [11] "the_compound_adj"
+---@field the_compound_prefix 12
+---@field [12] "the_compound_prefix"
+---@field of_noun_sing 13
+---@field [13] "of_noun_sing"
+---@field of_noun_plur 14
+---@field [14] "of_noun_plur"
+---@field standard_verb 15
+---@field [15] "standard_verb"
+df.language_word_flags = {}
+
 ---@alias part_of_speech
 ---| 0 # Noun
 ---| 1 # NounPlural
@@ -12,8 +121,7 @@
 ---| 7 # VerbPassive
 ---| 8 # VerbGerund
 
----@class _part_of_speech: DFDescriptor
----@field _kind 'enum-type'
+---@class _part_of_speech: DFEnum
 ---@field Noun 0
 ---@field [0] "Noun"
 ---@field NounPlural 1
@@ -42,8 +150,7 @@ df.part_of_speech = {}
 ---| 4 # TheX
 ---| 5 # OfX
 
----@class _language_word_table_index: DFDescriptor
----@field _kind 'enum-type'
+---@class _language_word_table_index: DFEnum
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1
@@ -191,8 +298,7 @@ df.language_word_table_index = {}
 ---| 128 # WRITING
 ---| 129 # YOUTH
 
----@class _sphere_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _sphere_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field AGRICULTURE 0
@@ -615,8 +721,7 @@ df.language_word_table = {}
 ---| 66 # NecromancerTower
 ---| 67 # Hospital
 
----@class _language_name_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _language_name_category: DFEnum
 ---@field Unit 0
 ---@field [0] "Unit"
 ---@field Artifact 1
@@ -813,8 +918,7 @@ df.language_name_category = {}
 ---| 53 # NecromancerTower
 ---| 54 # Hospital
 
----@class _language_name_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _language_name_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Figure 0 0
@@ -938,8 +1042,7 @@ df.language_name_type = {}
 ---| 5 # TheX
 ---| 6 # OfX
 
----@class _language_name_component: DFDescriptor
----@field _kind 'enum-type'
+---@class _language_name_component: DFEnum
 ---@field FrontCompound 0
 ---@field [0] "FrontCompound"
 ---@field RearCompound 1

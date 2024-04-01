@@ -54,8 +54,7 @@
 ---| 49 # BecomePartyMember
 ---| 50 # PartyTacticalSettings
 
----@class _ui_advmode_menu: DFDescriptor
----@field _kind 'enum-type'
+---@class _ui_advmode_menu: DFEnum
 ---@field Default 0 original name is 'AdventureViewModes'
 ---@field [0] "Default" original name is 'AdventureViewModes'
 ---@field Look 1 MAIN
@@ -192,8 +191,7 @@ df.conversation = {}
 ---| 2 # finished
 ---| 3 # quit
 
----@class _conversation.T_state: DFDescriptor
----@field _kind 'enum-type'
+---@class _conversation.T_state: DFEnum
 ---@field started 0
 ---@field [0] "started"
 ---@field active 1
@@ -426,8 +424,7 @@ df.conversation.T_state = {}
 ---| 223 # AcceptNotTrade
 ---| 224 # DemandIdentity
 
----@class _talk_choice_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _talk_choice_type: DFEnum
 ---@field Greet 0 0
 ---@field [0] "Greet" 0
 ---@field Nevermind 1
@@ -877,8 +874,7 @@ df.talk_choice_type = {}
 ---| 3 # SelectWorship
 ---| 4 # SelectOrigin
 
----@class _assume_identity_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _assume_identity_mode: DFEnum
 ---@field SelectIdentity 0
 ---@field [0] "SelectIdentity"
 ---@field CreateIdentity 1
@@ -910,7 +906,7 @@ df.talk_choice = {}
 ---@field _kind 'struct'
 ---@field _type _talk_choice.T_unk
 ---@field unk_2 number
-local unk
+local talk_choice_unk
 
 ---@class _talk_choice.T_unk: DFCompound
 ---@field _kind 'struct-type'
@@ -935,8 +931,7 @@ df.adventure_workingst = {}
 ---| 1 # BUILD_SITE
 
 -- bay12: AdventureWork
----@class _adventure_workingst.T_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventure_workingst.T_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CHOP_TREE 0
@@ -980,8 +975,7 @@ df.adventure_rumor_datast = {}
 ---| 5 # ZONE_ASSIGN
 ---| 6 # ZONE_LOCATION
 
----@class _adventure_construction_mode_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventure_construction_mode_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CONSTRUCTION 0
@@ -1118,8 +1112,7 @@ df.adventurest = {}
 ---| 2 # MapWorld
 
 -- bay12: traveL_map; is an int8_t
----@class _adventurest.T_travel_right_map: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventurest.T_travel_right_map: DFEnum
 ---@field MapNone 0
 ---@field [0] "MapNone"
 ---@field MapSite 1
@@ -1136,8 +1129,7 @@ df.adventurest.T_travel_right_map = {}
 ---| 3 # OneRow
 
 -- bay12: travel_instructions; is an int8_t; bottom menu in travel mode
----@class _adventurest.T_show_menu: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventurest.T_show_menu: DFEnum
 ---@field TwoBlankRows -1
 ---@field [-1] "TwoBlankRows"
 ---@field Hidden 0
@@ -1154,7 +1146,7 @@ df.adventurest.T_show_menu = {}
 ---@class (exact) adventurest.T_rumor_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_rumor_info
-local rumor_info
+local adventurest_rumor_info
 
 ---@class _adventurest.T_rumor_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1204,7 +1196,7 @@ df.adventurest.T_rumor_info = {}
 ---@field start_menu_total_hours number
 ---@field start_menu_you_hours number
 ---@field start_menu_you_max_hours number
-local construction
+local adventurest_construction
 
 ---@class _adventurest.T_construction: DFCompound
 ---@field _kind 'struct-type'
@@ -1232,8 +1224,7 @@ df.adventurest.T_construction = {}
 ---| 17 # TargetTooFarAway
 
 -- bay12: aim_attack_charge_restrict; type ChargeRestrict; When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
----@class _adventurest.T_charge_forbidden: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventurest.T_charge_forbidden: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field NoTarget 0
@@ -1284,7 +1275,7 @@ df.adventurest.T_charge_forbidden = {}
 ---@field filter string bay12: conv_string_filter
 ---@field conv_tact adventurest.T_conversation.T_conv_tact
 ---@field cursor_target number bay12: talk_sel
-local conversation
+local adventurest_conversation
 
 ---@class _adventurest.T_conversation: DFCompound
 ---@field _kind 'struct-type'
@@ -1295,8 +1286,7 @@ df.adventurest.T_conversation = {}
 ---| 0 # Persuade
 ---| 1 # Intimidate
 
----@class _adventurest.T_conversation.T_conv_tact: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventurest.T_conversation.T_conv_tact: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Persuade 0
@@ -1309,8 +1299,7 @@ df.adventurest.T_conversation.T_conv_tact = {}
 ---| 0 # Wait
 ---| 1 # Sleep
 
----@class _adventurest.T_rest_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventurest.T_rest_mode: DFEnum
 ---@field Wait 0
 ---@field [0] "Wait"
 ---@field Sleep 1
@@ -1321,7 +1310,7 @@ df.adventurest.T_rest_mode = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_companions
 ---@field unit_position coord_path
-local companions
+local adventurest_companions
 
 ---@class _adventurest.T_companions: DFCompound
 ---@field _kind 'struct-type'
@@ -1337,7 +1326,7 @@ df.adventurest.T_companions = {}
 ---@field max_target_number number
 ---@field target_range number
 ---@field target_flags creature_interaction_target_flags
-local interactions
+local adventurest_interactions
 
 ---@class _adventurest.T_interactions: DFCompound
 ---@field _kind 'struct-type'
@@ -1347,7 +1336,7 @@ df.adventurest.T_interactions = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_2
 ---@field unk_s5 number
-local unk_v40_2
+local adventurest_unk_v40_2
 
 ---@class _adventurest.T_unk_v40_2: DFCompound
 ---@field _kind 'struct-type'
@@ -1357,7 +1346,7 @@ df.adventurest.T_unk_v40_2 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_3
 ---@field unk_s1 number
-local unk_v40_3
+local adventurest_unk_v40_3
 
 ---@class _adventurest.T_unk_v40_3: DFCompound
 ---@field _kind 'struct-type'
@@ -1367,7 +1356,7 @@ df.adventurest.T_unk_v40_3 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_4
 ---@field unk_v40_4b number
-local unk_v40_4
+local adventurest_unk_v40_4
 
 ---@class _adventurest.T_unk_v40_4: DFCompound
 ---@field _kind 'struct-type'
@@ -1377,7 +1366,7 @@ df.adventurest.T_unk_v40_4 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_5
 ---@field unk_s4 number
-local unk_v40_5
+local adventurest_unk_v40_5
 
 ---@class _adventurest.T_unk_v40_5: DFCompound
 ---@field _kind 'struct-type'
@@ -1392,7 +1381,7 @@ df.adventurest.T_unk_v40_5 = {}
 ---@field unk_s6 number
 ---@field unk_s7 number
 ---@field unk_s8 number
-local unk_v42_1
+local adventurest_unk_v42_1
 
 ---@class _adventurest.T_unk_v42_1: DFCompound
 ---@field _kind 'struct-type'
@@ -1410,7 +1399,7 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field filter string
 ---@field unk_3 number
 ---@field unk_4 number
-local assume_identity
+local adventurest_assume_identity
 
 ---@class _adventurest.T_assume_identity: DFCompound
 ---@field _kind 'struct-type'

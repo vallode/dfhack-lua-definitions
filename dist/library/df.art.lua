@@ -8,8 +8,7 @@
 ---| 3 # SHAPE
 ---| 4 # ITEM
 
----@class _art_image_element_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _art_image_element_type: DFEnum
 ---@field CREATURE 0
 ---@field [0] "CREATURE"
 ---@field PLANT 1
@@ -94,8 +93,7 @@ df.art_image_element_itemst = {}
 ---| 0 # transitive_verb
 ---| 1 # intransitive_verb
 
----@class _art_image_property_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _art_image_property_type: DFEnum
 ---@field transitive_verb 0
 ---@field [0] "transitive_verb"
 ---@field intransitive_verb 1
@@ -161,8 +159,7 @@ df.art_image_property = {}
 ---| 46 # BeingMutilated
 ---| 47 # TriumphantPose
 
----@class _art_image_property_verb: DFDescriptor
----@field _kind 'enum-type'
+---@class _art_image_property_verb: DFEnum
 ---@field Withering 0
 ---@field [0] "Withering"
 ---@field SurroundedBy 1
@@ -290,8 +287,7 @@ df.art_image_property_intransitive_verbst = {}
 ---| 2 # GOOD
 ---| 3 # EVIL
 
----@class _art_facet_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _art_facet_type: DFEnum
 ---@field OWN_RACE 0
 ---@field [0] "OWN_RACE"
 ---@field FANCIFUL 1
@@ -382,8 +378,7 @@ df.art_image_ref = {}
 ---| 21 # OfferDifferentPerspective
 ---| 22 # Beseech
 
----@class _poetic_form_action: DFDescriptor
----@field _kind 'enum-type'
+---@class _poetic_form_action: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Describe 0
@@ -450,8 +445,7 @@ df.poetic_form_action = {}
 ---| 11 # BBB
 
 -- A - even, B - uneven for tone patterns, A - unstressed, B - stressed for accent patterns
----@class _poetic_form_pattern: DFDescriptor
----@field _kind 'enum-type'
+---@class _poetic_form_pattern: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field AA 0
@@ -486,8 +480,7 @@ df.poetic_form_pattern = {}
 ---| 1 # Medial
 ---| 2 # Terminal
 
----@class _poetic_form_caesura_position: DFDescriptor
----@field _kind 'enum-type'
+---@class _poetic_form_caesura_position: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Initial 0
@@ -508,8 +501,7 @@ df.poetic_form_caesura_position = {}
 ---| 5 # Light
 ---| 6 # Solemn
 
----@class _poetic_form_mood: DFDescriptor
----@field _kind 'enum-type'
+---@class _poetic_form_mood: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Narrative 0
@@ -552,8 +544,7 @@ df.poetic_form_mood = {}
 ---| 19 # Histfig
 ---| 20 # Concept
 
----@class _poetic_form_subject: DFDescriptor
----@field _kind 'enum-type'
+---@class _poetic_form_subject: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Past 0 "a chosen subject"
@@ -615,7 +606,7 @@ df.poetic_form_subject_target = {}
 ---@field _kind 'struct'
 ---@field _type _poetic_form_subject_target.T_Histfig
 ---@field subject_histfig number References: `historical_figure`
-local Histfig
+local poetic_form_subject_target_Histfig
 
 ---@class _poetic_form_subject_target.T_Histfig: DFCompound
 ---@field _kind 'struct-type'
@@ -625,11 +616,156 @@ df.poetic_form_subject_target.T_Histfig = {}
 ---@field _kind 'struct'
 ---@field _type _poetic_form_subject_target.T_Concept
 ---@field subject_topic sphere_type
-local Concept
+local poetic_form_subject_target_Concept
 
 ---@class _poetic_form_subject_target.T_Concept: DFCompound
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target.T_Concept = {}
+
+---@alias _poetic_form_feature_keys
+---| 0 # InternalRhyme
+---| 1 # EndRhymesDontMatch
+---| 2 # Alliteration
+---| 3 # Onomatopoeia
+---| 4 # Antanaclasis
+---| 5 # DifferentReadings
+---| 6 # ReadBackwards
+---| 7 # ReadOrthogonally
+---| 8 # Emerge
+---| 9 # Assonance
+---| 10 # Consonance
+---| 11 # Elision
+---| 12 # Epenthesis
+---| 13 # Synchysis
+---| 14 # Allegory
+---| 15 # Ambiguity
+---| 16 # Symbolism
+---| 17 # Metaphor
+---| 18 # Simile
+---| 19 # Metonymy
+---| 20 # VividImagery
+---| 21 # Juxtaposision
+
+---@alias _poetic_form_feature_values
+---| "InternalRhyme" # 0
+---| "EndRhymesDontMatch" # 1
+---| "Alliteration" # 2
+---| "Onomatopoeia" # 3
+---| "Antanaclasis" # 4
+---| "DifferentReadings" # 5
+---| "ReadBackwards" # 6
+---| "ReadOrthogonally" # 7
+---| "Emerge" # 8
+---| "Assonance" # 9
+---| "Consonance" # 10
+---| "Elision" # 11
+---| "Epenthesis" # 12
+---| "Synchysis" # 13
+---| "Allegory" # 14
+---| "Ambiguity" # 15
+---| "Symbolism" # 16
+---| "Metaphor" # 17
+---| "Simile" # 18
+---| "Metonymy" # 19
+---| "VividImagery" # 20
+---| "Juxtaposision" # 21
+
+---@class poetic_form_feature: DFObject, { [_poetic_form_feature_keys|_poetic_form_feature_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _poetic_form_feature
+local poetic_form_feature = {
+  InternalRhyme = false,
+  [0] = false,
+  EndRhymesDontMatch = false,
+  [1] = false,
+  Alliteration = false,
+  [2] = false,
+  Onomatopoeia = false,
+  [3] = false,
+  Antanaclasis = false,
+  [4] = false,
+  DifferentReadings = false,
+  [5] = false,
+  ReadBackwards = false, -- "different readings depending on word breaks"
+  [6] = false, -- "different readings depending on word breaks"
+  ReadOrthogonally = false, -- "can be read backwards as well as forwards"
+  [7] = false, -- "can be read backwards as well as forwards"
+  Emerge = false, -- "can be read orthogonally across the standard lines"
+  [8] = false, -- "can be read orthogonally across the standard lines"
+  Assonance = false, -- "emerge when reading along certain prescribed paths across the body of the poem"
+  [9] = false, -- "emerge when reading along certain prescribed paths across the body of the poem"
+  Consonance = false,
+  [10] = false,
+  Elision = false,
+  [11] = false,
+  Epenthesis = false,
+  [12] = false,
+  Synchysis = false,
+  [13] = false,
+  Allegory = false,
+  [14] = false,
+  Ambiguity = false,
+  [15] = false,
+  Symbolism = false,
+  [16] = false,
+  Metaphor = false,
+  [17] = false,
+  Simile = false,
+  [18] = false,
+  Metonymy = false,
+  [19] = false,
+  VividImagery = false,
+  [20] = false,
+  Juxtaposision = false,
+  [21] = false,
+}
+
+---@class _poetic_form_feature: DFBitfield
+---@field InternalRhyme 0
+---@field [0] "InternalRhyme"
+---@field EndRhymesDontMatch 1
+---@field [1] "EndRhymesDontMatch"
+---@field Alliteration 2
+---@field [2] "Alliteration"
+---@field Onomatopoeia 3
+---@field [3] "Onomatopoeia"
+---@field Antanaclasis 4
+---@field [4] "Antanaclasis"
+---@field DifferentReadings 5
+---@field [5] "DifferentReadings"
+---@field ReadBackwards 6 "different readings depending on word breaks"
+---@field [6] "ReadBackwards" "different readings depending on word breaks"
+---@field ReadOrthogonally 7 "can be read backwards as well as forwards"
+---@field [7] "ReadOrthogonally" "can be read backwards as well as forwards"
+---@field Emerge 8 "can be read orthogonally across the standard lines"
+---@field [8] "Emerge" "can be read orthogonally across the standard lines"
+---@field Assonance 9 "emerge when reading along certain prescribed paths across the body of the poem"
+---@field [9] "Assonance" "emerge when reading along certain prescribed paths across the body of the poem"
+---@field Consonance 10
+---@field [10] "Consonance"
+---@field Elision 11
+---@field [11] "Elision"
+---@field Epenthesis 12
+---@field [12] "Epenthesis"
+---@field Synchysis 13
+---@field [13] "Synchysis"
+---@field Allegory 14
+---@field [14] "Allegory"
+---@field Ambiguity 15
+---@field [15] "Ambiguity"
+---@field Symbolism 16
+---@field [16] "Symbolism"
+---@field Metaphor 17
+---@field [17] "Metaphor"
+---@field Simile 18
+---@field [18] "Simile"
+---@field Metonymy 19
+---@field [19] "Metonymy"
+---@field VividImagery 20
+---@field [20] "VividImagery"
+---@field Juxtaposision 21
+---@field [21] "Juxtaposision"
+df.poetic_form_feature = {}
 
 ---@alias poetic_form_additional_feature
 ---| 0 # SharesUnderlyingMeaning
@@ -642,8 +778,7 @@ df.poetic_form_subject_target.T_Concept = {}
 ---| 7 # PresentsDifferentView
 ---| 8 # MustExpandIdea
 
----@class _poetic_form_additional_feature: DFDescriptor
----@field _kind 'enum-type'
+---@class _poetic_form_additional_feature: DFEnum
 ---@field SharesUnderlyingMeaning 0
 ---@field [0] "SharesUnderlyingMeaning"
 ---@field ContrastsUnderlyingMeaning 1
@@ -698,15 +833,29 @@ local poetic_form_vector
 ---@return poetic_form_vector # df.global.world.poetic_forms.all
 function df.poetic_form.get_vector() end
 
----@class (exact) poetic_form.T_flags: DFObject
----@field _kind 'struct'
----@field _type _poetic_form.T_flags
----@field tone_patterns flag-bit
----@field produces_individual_poems flag-bit patterns will be tone patterns if set, otherwise accent patterns
-local flags
+---@alias _poetic_form.T_flags_keys
+---| 0 # tone_patterns
+---| 1 # produces_individual_poems
 
----@class _poetic_form.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _poetic_form.T_flags_values
+---| "tone_patterns" # 0
+---| "produces_individual_poems" # 1
+
+---@class poetic_form.T_flags: DFObject, { [_poetic_form.T_flags_keys|_poetic_form.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _poetic_form.T_flags
+local poetic_form_flags = {
+  tone_patterns = false,
+  [0] = false,
+  produces_individual_poems = false, -- patterns will be tone patterns if set, otherwise accent patterns
+  [1] = false, -- patterns will be tone patterns if set, otherwise accent patterns
+}
+
+---@class _poetic_form.T_flags: DFBitfield
+---@field tone_patterns 0
+---@field [0] "tone_patterns"
+---@field produces_individual_poems 1 patterns will be tone patterns if set, otherwise accent patterns
+---@field [1] "produces_individual_poems" patterns will be tone patterns if set, otherwise accent patterns
 df.poetic_form.T_flags = {}
 
 ---@class (exact) poetic_form_part: DFObject
@@ -735,14 +884,23 @@ local poetic_form_part
 ---@field _kind 'struct-type'
 df.poetic_form_part = {}
 
----@class (exact) poetic_form_part.T_flags: DFObject
----@field _kind 'struct'
----@field _type _poetic_form_part.T_flags
----@field size_in_lines flag-bit
-local flags
+---@alias _poetic_form_part.T_flags_keys
+---| 0 # size_in_lines
 
----@class _poetic_form_part.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _poetic_form_part.T_flags_values
+---| "size_in_lines" # 0
+
+---@class poetic_form_part.T_flags: DFObject, { [_poetic_form_part.T_flags_keys|_poetic_form_part.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _poetic_form_part.T_flags
+local poetic_form_part_flags = {
+  size_in_lines = false,
+  [0] = false,
+}
+
+---@class _poetic_form_part.T_flags: DFBitfield
+---@field size_in_lines 0
+---@field [0] "size_in_lines"
 df.poetic_form_part.T_flags = {}
 
 ---@class (exact) poetic_form_perspective: DFObject
@@ -768,8 +926,7 @@ df.poetic_form_perspective = {}
 ---| 7 # Animal
 
 -- "written from the perspective of ..."
----@class _poetic_form_perspective.T_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _poetic_form_perspective.T_type: DFEnum
 ---@field Author 0
 ---@field [0] "Author"
 ---@field Soldier 1
@@ -794,8 +951,7 @@ df.poetic_form_perspective.T_type = {}
 ---| 2 # Devotion
 ---| 3 # Military
 
----@class _musical_form_purpose: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_purpose: DFEnum
 ---@field Entertainment 0
 ---@field [0] "Entertainment"
 ---@field Commemoration 1
@@ -882,8 +1038,7 @@ df.musical_form_purpose = {}
 ---| 71 # FeelCalm
 ---| 72 # BeTriumphant
 
----@class _musical_form_style: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_style: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field FreeTempo 0 -- tempo styles
@@ -1042,8 +1197,7 @@ df.musical_form_style = {}
 ---| 3 # PitchClusters
 ---| 4 # ChordLayers
 
----@class _musical_form_pitch_style: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_pitch_style: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field SinglePitchesOnly 0
@@ -1058,6 +1212,115 @@ df.musical_form_style = {}
 ---@field [4] "ChordLayers"
 df.musical_form_pitch_style = {}
 
+---@alias _musical_form_feature_keys
+---| 0 # GlideFromNoteToNote
+---| 1 # UseGraceNotes
+---| 2 # UseMordents
+---| 3 # MakeTrills
+---| 4 # PlayRapidRuns
+---| 5 # LocallyImprovise
+---| 6 # SpreadSyllablesOverManyNotes
+---| 7 # MatchNotesAndSyllables
+---| 8 # Syncopate
+---| 9 # AddFills
+---| 10 # AlternateTensionAndRepose
+---| 11 # ModulateFrequently
+---| 12 # PlayArpeggios
+---| 13 # PlayStaccato
+---| 14 # PlayLegato
+---| 15 # FreelyAdjustBeats
+
+---@alias _musical_form_feature_values
+---| "GlideFromNoteToNote" # 0
+---| "UseGraceNotes" # 1
+---| "UseMordents" # 2
+---| "MakeTrills" # 3
+---| "PlayRapidRuns" # 4
+---| "LocallyImprovise" # 5
+---| "SpreadSyllablesOverManyNotes" # 6
+---| "MatchNotesAndSyllables" # 7
+---| "Syncopate" # 8
+---| "AddFills" # 9
+---| "AlternateTensionAndRepose" # 10
+---| "ModulateFrequently" # 11
+---| "PlayArpeggios" # 12
+---| "PlayStaccato" # 13
+---| "PlayLegato" # 14
+---| "FreelyAdjustBeats" # 15
+
+---@class musical_form_feature: DFObject, { [_musical_form_feature_keys|_musical_form_feature_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _musical_form_feature
+local musical_form_feature = {
+  GlideFromNoteToNote = false,
+  [0] = false,
+  UseGraceNotes = false,
+  [1] = false,
+  UseMordents = false,
+  [2] = false,
+  MakeTrills = false,
+  [3] = false,
+  PlayRapidRuns = false,
+  [4] = false,
+  LocallyImprovise = false,
+  [5] = false,
+  SpreadSyllablesOverManyNotes = false,
+  [6] = false,
+  MatchNotesAndSyllables = false,
+  [7] = false,
+  Syncopate = false,
+  [8] = false,
+  AddFills = false,
+  [9] = false,
+  AlternateTensionAndRepose = false,
+  [10] = false,
+  ModulateFrequently = false,
+  [11] = false,
+  PlayArpeggios = false,
+  [12] = false,
+  PlayStaccato = false,
+  [13] = false,
+  PlayLegato = false,
+  [14] = false,
+  FreelyAdjustBeats = false,
+  [15] = false,
+}
+
+---@class _musical_form_feature: DFBitfield
+---@field GlideFromNoteToNote 0
+---@field [0] "GlideFromNoteToNote"
+---@field UseGraceNotes 1
+---@field [1] "UseGraceNotes"
+---@field UseMordents 2
+---@field [2] "UseMordents"
+---@field MakeTrills 3
+---@field [3] "MakeTrills"
+---@field PlayRapidRuns 4
+---@field [4] "PlayRapidRuns"
+---@field LocallyImprovise 5
+---@field [5] "LocallyImprovise"
+---@field SpreadSyllablesOverManyNotes 6
+---@field [6] "SpreadSyllablesOverManyNotes"
+---@field MatchNotesAndSyllables 7
+---@field [7] "MatchNotesAndSyllables"
+---@field Syncopate 8
+---@field [8] "Syncopate"
+---@field AddFills 9
+---@field [9] "AddFills"
+---@field AlternateTensionAndRepose 10
+---@field [10] "AlternateTensionAndRepose"
+---@field ModulateFrequently 11
+---@field [11] "ModulateFrequently"
+---@field PlayArpeggios 12
+---@field [12] "PlayArpeggios"
+---@field PlayStaccato 13
+---@field [13] "PlayStaccato"
+---@field PlayLegato 14
+---@field [14] "PlayLegato"
+---@field FreelyAdjustBeats 15
+---@field [15] "FreelyAdjustBeats"
+df.musical_form_feature = {}
+
 ---@alias musical_form_passage_component_type
 ---| 0 # Melody
 ---| 1 # Counterpoint
@@ -1065,8 +1328,7 @@ df.musical_form_pitch_style = {}
 ---| 3 # Rhythm
 ---| 4 # Unspecified
 
----@class _musical_form_passage_component_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_passage_component_type: DFEnum
 ---@field Melody 0
 ---@field [0] "Melody"
 ---@field Counterpoint 1
@@ -1093,8 +1355,7 @@ df.musical_form_passage_component_type = {}
 ---| 10 # Theme
 ---| 11 # Variation
 
----@class _musical_form_passage_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_passage_type: DFEnum
 ---@field Unrelated 0
 ---@field [0] "Unrelated"
 ---@field Introduction 1
@@ -1128,8 +1389,7 @@ df.musical_form_passage_type = {}
 ---| 2 # Long
 ---| 3 # Varied
 
----@class _musical_form_passage_length_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_passage_length_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Short 0
@@ -1148,8 +1408,7 @@ df.musical_form_passage_length_type = {}
 ---| 2 # RisingFalling
 ---| 3 # FallingRising
 
----@class _musical_form_melody_style: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_melody_style: DFEnum
 ---@field Rising 0
 ---@field [0] "Rising"
 ---@field Falling 1
@@ -1165,8 +1424,7 @@ df.musical_form_melody_style = {}
 ---| 1 # Often
 ---| 2 # Sometimes
 
----@class _musical_form_melody_frequency: DFDescriptor
----@field _kind 'enum-type'
+---@class _musical_form_melody_frequency: DFEnum
 ---@field Always 0
 ---@field [0] "Always"
 ---@field Often 1
@@ -1186,16 +1444,35 @@ local musical_form_interval
 ---@field _kind 'struct-type'
 df.musical_form_interval = {}
 
----@class (exact) musical_form_interval.T_flags: DFObject
----@field _kind 'struct'
----@field _type _musical_form_interval.T_flags
----@field rising flag-bit otherwise falling
----@field flattened flag-bit
----@field sharpened flag-bit
-local flags
+---@alias _musical_form_interval.T_flags_keys
+---| 0 # rising
+---| 1 # flattened
+---| 2 # sharpened
 
----@class _musical_form_interval.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _musical_form_interval.T_flags_values
+---| "rising" # 0
+---| "flattened" # 1
+---| "sharpened" # 2
+
+---@class musical_form_interval.T_flags: DFObject, { [_musical_form_interval.T_flags_keys|_musical_form_interval.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _musical_form_interval.T_flags
+local musical_form_interval_flags = {
+  rising = false, -- otherwise falling
+  [0] = false, -- otherwise falling
+  flattened = false,
+  [1] = false,
+  sharpened = false,
+  [2] = false,
+}
+
+---@class _musical_form_interval.T_flags: DFBitfield
+---@field rising 0 otherwise falling
+---@field [0] "rising" otherwise falling
+---@field flattened 1
+---@field [1] "flattened"
+---@field sharpened 2
+---@field [2] "sharpened"
 df.musical_form_interval.T_flags = {}
 
 ---@class (exact) musical_form_melodies: DFObject
@@ -1254,16 +1531,35 @@ local musical_form_instruments
 ---@field _kind 'struct-type'
 df.musical_form_instruments = {}
 
----@class (exact) musical_form_instruments.T_substitutions: DFObject
----@field _kind 'struct'
----@field _type _musical_form_instruments.T_substitutions
----@field singer flag-bit
----@field speaker flag-bit
----@field chanter flag-bit
-local substitutions
+---@alias _musical_form_instruments.T_substitutions_keys
+---| 0 # singer
+---| 1 # speaker
+---| 2 # chanter
 
----@class _musical_form_instruments.T_substitutions: DFCompound
----@field _kind 'struct-type'
+---@alias _musical_form_instruments.T_substitutions_values
+---| "singer" # 0
+---| "speaker" # 1
+---| "chanter" # 2
+
+---@class musical_form_instruments.T_substitutions: DFObject, { [_musical_form_instruments.T_substitutions_keys|_musical_form_instruments.T_substitutions_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _musical_form_instruments.T_substitutions
+local musical_form_instruments_substitutions = {
+  singer = false,
+  [0] = false,
+  speaker = false,
+  [1] = false,
+  chanter = false,
+  [2] = false,
+}
+
+---@class _musical_form_instruments.T_substitutions: DFBitfield
+---@field singer 0
+---@field [0] "singer"
+---@field speaker 1
+---@field [1] "speaker"
+---@field chanter 2
+---@field [2] "chanter"
 df.musical_form_instruments.T_substitutions = {}
 
 ---@class (exact) musical_form_sub4: DFObject
@@ -1319,15 +1615,29 @@ local musical_form_vector
 ---@return musical_form_vector # df.global.world.musical_forms.all
 function df.musical_form.get_vector() end
 
----@class (exact) musical_form.T_flags: DFObject
----@field _kind 'struct'
----@field _type _musical_form.T_flags
----@field produces_individual_songs flag-bit
----@field repeats_as_necessary flag-bit 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
-local flags
+---@alias _musical_form.T_flags_keys
+---| 0 # produces_individual_songs
+---| 1 # repeats_as_necessary
 
----@class _musical_form.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _musical_form.T_flags_values
+---| "produces_individual_songs" # 0
+---| "repeats_as_necessary" # 1
+
+---@class musical_form.T_flags: DFObject, { [_musical_form.T_flags_keys|_musical_form.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _musical_form.T_flags
+local musical_form_flags = {
+  produces_individual_songs = false,
+  [0] = false,
+  repeats_as_necessary = false, -- 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
+  [1] = false, -- 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
+}
+
+---@class _musical_form.T_flags: DFBitfield
+---@field produces_individual_songs 0
+---@field [0] "produces_individual_songs"
+---@field repeats_as_necessary 1 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
+---@field [1] "repeats_as_necessary" 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
 df.musical_form.T_flags = {}
 
 ---@alias dance_form_context
@@ -1338,8 +1648,7 @@ df.musical_form.T_flags = {}
 ---| 4 # Performance
 ---| 5 # War
 
----@class _dance_form_context: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_context: DFEnum
 ---@field Sacred 0
 ---@field [0] "Sacred"
 ---@field Celebration 1
@@ -1359,8 +1668,7 @@ df.dance_form_context = {}
 ---| 1 # Partner
 ---| 2 # Group
 
----@class _dance_form_group_size: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_group_size: DFEnum
 ---@field Solo 0
 ---@field [0] "Solo"
 ---@field Partner 1
@@ -1377,8 +1685,7 @@ df.dance_form_group_size = {}
 ---| 3 # DoubleCircle
 ---| 4 # LooselyMingled
 
----@class _dance_form_configuration: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_configuration: DFEnum
 ---@field NONE -1 hard to have a configuration with a solo performer
 ---@field [-1] "NONE" hard to have a configuration with a solo performer
 ---@field SingleLine 0
@@ -1400,8 +1707,7 @@ df.dance_form_configuration = {}
 ---| 2 # ImprovisedPath
 ---| 3 # IntricatePath
 
----@class _dance_form_movement_path: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_movement_path: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field TurnClockwise 0
@@ -1420,8 +1726,7 @@ df.dance_form_movement_path = {}
 ---| 1 # OpenContact
 ---| 2 # RareContact
 
----@class _dance_form_partner_distance: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_partner_distance: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Closely 0
@@ -1441,8 +1746,7 @@ df.dance_form_partner_distance = {}
 ---| 4 # VisualCues
 ---| 5 # SpokenCues
 
----@class _dance_form_partner_intent: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_partner_intent: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field PushingTogether 0
@@ -1464,8 +1768,7 @@ df.dance_form_partner_intent = {}
 ---| 0 # Constantly
 ---| 1 # Briefly
 
----@class _dance_form_partner_cue_frequency: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_partner_cue_frequency: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Constantly 0
@@ -1481,8 +1784,7 @@ df.dance_form_partner_cue_frequency = {}
 ---| 2 # LeadTurningOutClockwise
 ---| 3 # LeadTurningOutCounterClockwise
 
----@class _dance_form_partner_change_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_partner_change_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LeadAdvanceAlongMainLineOfMotion 0
@@ -1531,8 +1833,7 @@ df.dance_form_partner_change_type = {}
 ---| 32 # Footwork
 ---| 33 # MovementAlongLineOfDance
 
----@class _dance_form_move_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_move_type: DFEnum
 ---@field SquareStep 0
 ---@field [0] "SquareStep"
 ---@field CircularStep 1
@@ -1652,8 +1953,7 @@ df.dance_form_move_type = {}
 ---| 44 # Sprightly
 ---| 45 # Sinuous
 
----@class _dance_form_move_modifier: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_move_modifier: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field Graceful 0 --  0
@@ -1750,6 +2050,55 @@ df.dance_form_move_type = {}
 ---@field [45] "Sinuous"
 df.dance_form_move_modifier = {}
 
+---@alias _dance_form_move_location_keys
+---| 2 # MirroredByGroupMembers
+---| 3 # InRetrogradeByGroupMembers
+---| 4 # InSuccessionByGroupMembers
+---| 5 # ShadowedByGroupMembers
+---| 6 # Lead
+---| 7 # Follower
+
+---@alias _dance_form_move_location_values
+---| "MirroredByGroupMembers" # 2
+---| "InRetrogradeByGroupMembers" # 3
+---| "InSuccessionByGroupMembers" # 4
+---| "ShadowedByGroupMembers" # 5
+---| "Lead" # 6
+---| "Follower" # 7
+
+---@class dance_form_move_location: DFObject, { [_dance_form_move_location_keys|_dance_form_move_location_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _dance_form_move_location
+local dance_form_move_location = {
+  MirroredByGroupMembers = false,
+  [2] = false,
+  InRetrogradeByGroupMembers = false,
+  [3] = false,
+  InSuccessionByGroupMembers = false,
+  [4] = false,
+  ShadowedByGroupMembers = false,
+  [5] = false,
+  Lead = false,
+  [6] = false,
+  Follower = false,
+  [7] = false,
+}
+
+---@class _dance_form_move_location: DFBitfield
+---@field MirroredByGroupMembers 2
+---@field [2] "MirroredByGroupMembers"
+---@field InRetrogradeByGroupMembers 3
+---@field [3] "InRetrogradeByGroupMembers"
+---@field InSuccessionByGroupMembers 4
+---@field [4] "InSuccessionByGroupMembers"
+---@field ShadowedByGroupMembers 5
+---@field [5] "ShadowedByGroupMembers"
+---@field Lead 6
+---@field [6] "Lead"
+---@field Follower 7
+---@field [7] "Follower"
+df.dance_form_move_location = {}
+
 ---@class (exact) dance_form_section: DFObject
 ---@field _kind 'struct'
 ---@field _type _dance_form_section
@@ -1778,8 +2127,7 @@ df.dance_form_section = {}
 ---| 2 # DancePosition
 ---| 4 # DanceMove
 
----@class _dance_form_move_group_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _dance_form_move_group_type: DFEnum
 ---@field BasicMovement 1
 ---@field [1] "BasicMovement"
 ---@field DancePosition 2
@@ -1844,8 +2192,7 @@ function df.dance_form.get_vector() end
 ---| 1 # Variable
 ---| 2 # PerfectFourth
 
----@class _scale_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _scale_type: DFEnum
 ---@field Octave 0 The octave is divided into X steps of even length
 ---@field [0] "Octave" The octave is divided into X steps of even length
 ---@field Variable 1 The octave is divided into notes at varying intervals, approximated by quartertones
@@ -1905,14 +2252,23 @@ local scale_vector
 ---@return scale_vector # df.global.world.scales.all
 function df.scale.get_vector() end
 
----@class (exact) scale.T_flags: DFObject
----@field _kind 'struct'
----@field _type _scale.T_flags
----@field tonic_note_fixed_at_performance flag-bit 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
-local flags
+---@alias _scale.T_flags_keys
+---| 0 # tonic_note_fixed_at_performance
 
----@class _scale.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _scale.T_flags_values
+---| "tonic_note_fixed_at_performance" # 0
+
+---@class scale.T_flags: DFObject, { [_scale.T_flags_keys|_scale.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _scale.T_flags
+local scale_flags = {
+  tonic_note_fixed_at_performance = false, -- 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
+  [0] = false, -- 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
+}
+
+---@class _scale.T_flags: DFBitfield
+---@field tonic_note_fixed_at_performance 0 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
+---@field [0] "tonic_note_fixed_at_performance" 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
 df.scale.T_flags = {}
 
 -- Curiously, the named notes do not have to match the number of defined notes
@@ -1921,7 +2277,7 @@ df.scale.T_flags = {}
 ---@field _type _scale.T_notes
 ---@field unk_1 number Frequently looks like garbage for all values of type. Suspect it's actually a filler
 ---@field length number number of elements of the arrays above used
-local notes
+local scale_notes
 
 ---@class _scale.T_notes: DFCompound
 ---@field _kind 'struct-type'
@@ -1962,8 +2318,7 @@ function df.rhythm.get_vector() end
 ---| 10 # BeatSyncopated
 ---| 11 # AccentedSyncopated
 
----@class _beat_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _beat_type: DFEnum
 ---@field Silent 0 -
 ---@field [0] "Silent" -
 ---@field AccentedBeat 1 X
@@ -2026,8 +2381,7 @@ df.sub_rhythm = {}
 ---| 10 # BONE_DOCTOR
 
 -- bay12: Occupation
----@class _occupation_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _occupation_type: DFEnum
 ---@field TAVERN_KEEPER 0
 ---@field [0] "TAVERN_KEEPER"
 ---@field PERFORMER 1
@@ -2086,8 +2440,7 @@ function df.occupation.get_vector() end
 ---| 2 # EXTEND_ROOM_RENTAL
 
 -- bay12: ServiceOrder
----@class _service_order_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _service_order_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DRINK 0
@@ -2126,13 +2479,22 @@ local service_orderst
 ---@field _kind 'struct-type'
 df.service_orderst = {}
 
----@class (exact) service_orderst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _service_orderst.T_flag
----@field completed flag-bit
-local flag
+---@alias _service_orderst.T_flag_keys
+---| 0 # completed
 
----@class _service_orderst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _service_orderst.T_flag_values
+---| "completed" # 0
+
+---@class service_orderst.T_flag: DFObject, { [_service_orderst.T_flag_keys|_service_orderst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _service_orderst.T_flag
+local service_orderst_flag = {
+  completed = false,
+  [0] = false,
+}
+
+---@class _service_orderst.T_flag: DFBitfield
+---@field completed 0
+---@field [0] "completed"
 df.service_orderst.T_flag = {}
 

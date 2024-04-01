@@ -193,8 +193,7 @@
 ---| 187 # INSTRUMENT_STATIONARY
 ---| 188 # OFFERING_PLACE
 
----@class _buildings_other_id: DFDescriptor
----@field _kind 'enum-type'
+---@class _buildings_other_id: DFEnum
 ---@field ANY -1
 ---@field [-1] "ANY"
 ---@field IN_PLAY 0 -- 0

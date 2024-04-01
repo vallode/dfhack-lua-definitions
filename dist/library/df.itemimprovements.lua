@@ -18,8 +18,7 @@
 ---| 12 # WRITING
 ---| 13 # IMAGE_SET
 
----@class _improvement_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _improvement_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ART_IMAGE 0
@@ -104,14 +103,23 @@ local itemimprovement_coveredst
 ---@field _kind 'class-type'
 df.itemimprovement_coveredst = {}
 
----@class (exact) itemimprovement_coveredst.T_cover_flags: DFObject
----@field _kind 'struct'
----@field _type _itemimprovement_coveredst.T_cover_flags
----@field glazed flag-bit
-local cover_flags
+---@alias _itemimprovement_coveredst.T_cover_flags_keys
+---| 0 # glazed
 
----@class _itemimprovement_coveredst.T_cover_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _itemimprovement_coveredst.T_cover_flags_values
+---| "glazed" # 0
+
+---@class itemimprovement_coveredst.T_cover_flags: DFObject, { [_itemimprovement_coveredst.T_cover_flags_keys|_itemimprovement_coveredst.T_cover_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _itemimprovement_coveredst.T_cover_flags
+local itemimprovement_coveredst_cover_flags = {
+  glazed = false,
+  [0] = false,
+}
+
+---@class _itemimprovement_coveredst.T_cover_flags: DFBitfield
+---@field glazed 0
+---@field [0] "glazed"
 df.itemimprovement_coveredst.T_cover_flags = {}
 
 ---@class (exact) itemimprovement_rings_hangingst: DFObject, itemimprovement
@@ -146,8 +154,7 @@ df.itemimprovement_spikesst = {}
 ---| 0 # HANDLE
 ---| 1 # ROLLERS
 
----@class _itemimprovement_specific_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _itemimprovement_specific_type: DFEnum
 ---@field HANDLE 0
 ---@field [0] "HANDLE"
 ---@field ROLLERS 1
@@ -201,7 +208,7 @@ df.itemimprovement_sewn_imagest = {}
 ---@field unit_id number References: `historical_figure`
 ---@field quality number
 ---@field unk_1 number
-local cloth
+local itemimprovement_sewn_imagest_cloth
 
 ---@class _itemimprovement_sewn_imagest.T_cloth: DFCompound
 ---@field _kind 'struct-type'
@@ -286,8 +293,7 @@ df.itemimprovement_image_setst = {}
 ---| 24 # StarCatalogue
 ---| 25 # Atlas
 
----@class _written_content_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _written_content_type: DFEnum
 ---@field NONE -1 bay12: WritingForm
 ---@field [-1] "NONE" bay12: WritingForm
 ---@field Manual 0
@@ -364,8 +370,7 @@ df.written_content_type = {}
 ---| 16 # Witty
 ---| 17 # Ranting
 
----@class _written_content_style: DFDescriptor
----@field _kind 'enum-type'
+---@class _written_content_style: DFEnum
 ---@field Meandering 0
 ---@field [0] "Meandering"
 ---@field Cheerful 1
@@ -432,6 +437,79 @@ local written_content_vector
 
 ---@return written_content_vector # df.global.world.written_contents.all
 function df.written_content.get_vector() end
+
+---@alias _engraving_flags_keys
+---| 0 # floor
+---| 1 # west
+---| 2 # east
+---| 3 # north
+---| 4 # south
+---| 5 # hidden
+---| 6 # northwest
+---| 7 # northeast
+---| 8 # southwest
+---| 9 # southeast
+
+---@alias _engraving_flags_values
+---| "floor" # 0
+---| "west" # 1
+---| "east" # 2
+---| "north" # 3
+---| "south" # 4
+---| "hidden" # 5
+---| "northwest" # 6
+---| "northeast" # 7
+---| "southwest" # 8
+---| "southeast" # 9
+
+---@class engraving_flags: DFObject, { [_engraving_flags_keys|_engraving_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _engraving_flags
+local engraving_flags = {
+  floor = false,
+  [0] = false,
+  west = false,
+  [1] = false,
+  east = false,
+  [2] = false,
+  north = false,
+  [3] = false,
+  south = false,
+  [4] = false,
+  hidden = false,
+  [5] = false,
+  northwest = false,
+  [6] = false,
+  northeast = false,
+  [7] = false,
+  southwest = false,
+  [8] = false,
+  southeast = false,
+  [9] = false,
+}
+
+---@class _engraving_flags: DFBitfield
+---@field floor 0
+---@field [0] "floor"
+---@field west 1
+---@field [1] "west"
+---@field east 2
+---@field [2] "east"
+---@field north 3
+---@field [3] "north"
+---@field south 4
+---@field [4] "south"
+---@field hidden 5
+---@field [5] "hidden"
+---@field northwest 6
+---@field [6] "northwest"
+---@field northeast 7
+---@field [7] "northeast"
+---@field southwest 8
+---@field [8] "southwest"
+---@field southeast 9
+---@field [9] "southeast"
+df.engraving_flags = {}
 
 ---@class (exact) engraving: DFObject
 ---@field _kind 'struct'

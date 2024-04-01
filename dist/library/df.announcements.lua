@@ -358,8 +358,7 @@
 ---| 352 # UNUSED_49
 ---| 353 # UNUSED_50
 
----@class _announcement_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _announcement_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field REACHED_PEAK 0
@@ -1477,8 +1476,7 @@ df.announcement_type.attrs = {}
 ---| 35 # SPARRING
 ---| 36 # HUNTING
 
----@class _announcement_alert_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _announcement_alert_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field GENERAL 0
@@ -1557,6 +1555,67 @@ df.announcement_type.attrs = {}
 ---@field [36] "HUNTING"
 df.announcement_alert_type = {}
 
+---@alias _announcement_flags_keys
+---| 0 # DO_MEGA
+---| 1 # PAUSE
+---| 2 # RECENTER
+---| 3 # A_DISPLAY
+---| 4 # D_DISPLAY
+---| 5 # UNIT_COMBAT_REPORT
+---| 6 # UNIT_COMBAT_REPORT_ALL_ACTIVE
+---| 7 # ALERT
+
+---@alias _announcement_flags_values
+---| "DO_MEGA" # 0
+---| "PAUSE" # 1
+---| "RECENTER" # 2
+---| "A_DISPLAY" # 3
+---| "D_DISPLAY" # 4
+---| "UNIT_COMBAT_REPORT" # 5
+---| "UNIT_COMBAT_REPORT_ALL_ACTIVE" # 6
+---| "ALERT" # 7
+
+---@class announcement_flags: DFObject, { [_announcement_flags_keys|_announcement_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _announcement_flags
+local announcement_flags = {
+  DO_MEGA = false, -- BOX
+  [0] = false, -- BOX
+  PAUSE = false, -- P
+  [1] = false, -- P
+  RECENTER = false, -- R
+  [2] = false, -- R
+  A_DISPLAY = false, -- A_D
+  [3] = false, -- A_D
+  D_DISPLAY = false, -- D_D
+  [4] = false, -- D_D
+  UNIT_COMBAT_REPORT = false, -- UCR
+  [5] = false, -- UCR
+  UNIT_COMBAT_REPORT_ALL_ACTIVE = false, -- UCR_A
+  [6] = false, -- UCR_A
+  ALERT = false, -- ALERT
+  [7] = false, -- ALERT
+}
+
+---@class _announcement_flags: DFBitfield
+---@field DO_MEGA 0 BOX
+---@field [0] "DO_MEGA" BOX
+---@field PAUSE 1 P
+---@field [1] "PAUSE" P
+---@field RECENTER 2 R
+---@field [2] "RECENTER" R
+---@field A_DISPLAY 3 A_D
+---@field [3] "A_DISPLAY" A_D
+---@field D_DISPLAY 4 D_D
+---@field [4] "D_DISPLAY" D_D
+---@field UNIT_COMBAT_REPORT 5 UCR
+---@field [5] "UNIT_COMBAT_REPORT" UCR
+---@field UNIT_COMBAT_REPORT_ALL_ACTIVE 6 UCR_A
+---@field [6] "UNIT_COMBAT_REPORT_ALL_ACTIVE" UCR_A
+---@field ALERT 7 ALERT
+---@field [7] "ALERT" ALERT
+df.announcement_flags = {}
+
 ---@class (exact) announcements: DFObject
 ---@field _kind 'struct'
 ---@field _type _announcements
@@ -1602,16 +1661,35 @@ local report_vector
 ---@return report_vector # df.global.world.status.reports
 function df.report.get_vector() end
 
----@class (exact) report.T_flags: DFObject
----@field _kind 'struct'
----@field _type _report.T_flags
----@field continuation flag-bit When split into multiple lines, set on all but the first
----@field unconscious flag-bit units.active[0]
----@field announcement flag-bit
-local flags
+---@alias _report.T_flags_keys
+---| 0 # continuation
+---| 1 # unconscious
+---| 2 # announcement
 
----@class _report.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _report.T_flags_values
+---| "continuation" # 0
+---| "unconscious" # 1
+---| "announcement" # 2
+
+---@class report.T_flags: DFObject, { [_report.T_flags_keys|_report.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _report.T_flags
+local report_flags = {
+  continuation = false, -- When split into multiple lines, set on all but the first
+  [0] = false, -- When split into multiple lines, set on all but the first
+  unconscious = false, -- units.active[0]
+  [1] = false, -- units.active[0]
+  announcement = false,
+  [2] = false,
+}
+
+---@class _report.T_flags: DFBitfield
+---@field continuation 0 When split into multiple lines, set on all but the first
+---@field [0] "continuation" When split into multiple lines, set on all but the first
+---@field unconscious 1 units.active[0]
+---@field [1] "unconscious" units.active[0]
+---@field announcement 2
+---@field [2] "announcement"
 df.report.T_flags = {}
 
 ---@alias report_zoom_type
@@ -1619,8 +1697,7 @@ df.report.T_flags = {}
 ---| 1 # Item
 ---| 2 # Unit
 
----@class _report_zoom_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _report_zoom_type: DFEnum
 ---@field Generic 0
 ---@field [0] "Generic"
 ---@field Item 1
@@ -1673,13 +1750,22 @@ local announcement_infost
 ---@field _kind 'struct-type'
 df.announcement_infost = {}
 
----@class (exact) announcement_infost.T_flags: DFObject
----@field _kind 'struct'
----@field _type _announcement_infost.T_flags
----@field SPARRING_EVENT flag-bit determined by unit_action_data_attack.flags.sparring_hit
-local flags
+---@alias _announcement_infost.T_flags_keys
+---| 0 # SPARRING_EVENT
 
----@class _announcement_infost.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _announcement_infost.T_flags_values
+---| "SPARRING_EVENT" # 0
+
+---@class announcement_infost.T_flags: DFObject, { [_announcement_infost.T_flags_keys|_announcement_infost.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _announcement_infost.T_flags
+local announcement_infost_flags = {
+  SPARRING_EVENT = false, -- determined by unit_action_data_attack.flags.sparring_hit
+  [0] = false, -- determined by unit_action_data_attack.flags.sparring_hit
+}
+
+---@class _announcement_infost.T_flags: DFBitfield
+---@field SPARRING_EVENT 0 determined by unit_action_data_attack.flags.sparring_hit
+---@field [0] "SPARRING_EVENT" determined by unit_action_data_attack.flags.sparring_hit
 df.announcement_infost.T_flags = {}
 

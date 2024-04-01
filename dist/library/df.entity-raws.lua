@@ -76,8 +76,7 @@
 ---| 72 # SET_SCHOLARS_ON_VALUES_AND_JOBS
 ---| 73 # NO_ARTIFACT_CLAIMS
 
----@class _entity_raw_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_raw_flags: DFEnum
 ---@field CIV_CONTROLLABLE 0
 ---@field [0] "CIV_CONTROLLABLE"
 ---@field INDIV_CONTROLLABLE 1
@@ -236,8 +235,7 @@ df.entity_raw_flags = {}
 ---| 8 # FORTRESS
 ---| 10 # MONUMENT
 
----@class _site_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _site_type: DFEnum
 ---@field PLAYER_FORTRESS 0
 ---@field [0] "PLAYER_FORTRESS"
 ---@field DARK_FORTRESS 1
@@ -281,8 +279,7 @@ df.site_type = {}
 ---| 20 # MAKE_TROPHY_SAPIENT
 ---| 21 # MAKE_TROPHY_ANIMAL
 
----@class _ethic_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _ethic_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field KILL_ENTITY_MEMBER 0
@@ -350,8 +347,7 @@ df.ethic_type = {}
 ---| 15 # UNTHINKABLE
 ---| 16 # REQUIRED
 
----@class _ethic_response: DFDescriptor
----@field _kind 'enum-type'
+---@class _ethic_response: DFEnum
 ---@field NOT_APPLICABLE 0
 ---@field [0] "NOT_APPLICABLE"
 ---@field ACCEPTABLE 1
@@ -409,8 +405,7 @@ df.ethic_response = {}
 ---| 17 # CRAFT_GUILD
 ---| 18 # HOSPITAL
 
----@class _entity_name_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_name_type: DFEnum
 ---@field OTHER 0
 ---@field [0] "OTHER"
 ---@field CIV 1
@@ -489,7 +484,7 @@ function df.entity_raw.get_vector() end
 ---@class (exact) entity_raw.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_equipment
-local equipment
+local entity_raw_equipment
 
 ---@class _entity_raw.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -498,7 +493,7 @@ df.entity_raw.T_equipment = {}
 ---@class (exact) entity_raw.T_symbols: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_symbols
-local symbols
+local entity_raw_symbols
 
 ---@class _entity_raw.T_symbols: DFCompound
 ---@field _kind 'struct-type'
@@ -513,34 +508,83 @@ df.entity_raw.T_symbols = {}
 ---@field pop_siege number
 ---@field prod_siege number
 ---@field trade_siege number
-local progress_trigger
+local entity_raw_progress_trigger
 
 ---@class _entity_raw.T_progress_trigger: DFCompound
 ---@field _kind 'struct-type'
 df.entity_raw.T_progress_trigger = {}
 
----@class (exact) entity_raw.T_scholar: DFObject
----@field _kind 'struct'
----@field _type _entity_raw.T_scholar
----@field PHILOSOPHER flag-bit
----@field MATHEMATICIAN flag-bit
----@field HISTORIAN flag-bit
----@field ASTRONOMER flag-bit
----@field NATURALIST flag-bit
----@field CHEMIST flag-bit
----@field GEOGRAPHER flag-bit
----@field DOCTOR flag-bit
----@field ENGINEER flag-bit
-local scholar
+---@alias _entity_raw.T_scholar_keys
+---| 0 # PHILOSOPHER
+---| 1 # MATHEMATICIAN
+---| 2 # HISTORIAN
+---| 3 # ASTRONOMER
+---| 4 # NATURALIST
+---| 5 # CHEMIST
+---| 6 # GEOGRAPHER
+---| 7 # DOCTOR
+---| 8 # ENGINEER
 
----@class _entity_raw.T_scholar: DFCompound
----@field _kind 'struct-type'
+---@alias _entity_raw.T_scholar_values
+---| "PHILOSOPHER" # 0
+---| "MATHEMATICIAN" # 1
+---| "HISTORIAN" # 2
+---| "ASTRONOMER" # 3
+---| "NATURALIST" # 4
+---| "CHEMIST" # 5
+---| "GEOGRAPHER" # 6
+---| "DOCTOR" # 7
+---| "ENGINEER" # 8
+
+---@class entity_raw.T_scholar: DFObject, { [_entity_raw.T_scholar_keys|_entity_raw.T_scholar_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _entity_raw.T_scholar
+local entity_raw_scholar = {
+  PHILOSOPHER = false,
+  [0] = false,
+  MATHEMATICIAN = false,
+  [1] = false,
+  HISTORIAN = false,
+  [2] = false,
+  ASTRONOMER = false,
+  [3] = false,
+  NATURALIST = false,
+  [4] = false,
+  CHEMIST = false,
+  [5] = false,
+  GEOGRAPHER = false,
+  [6] = false,
+  DOCTOR = false,
+  [7] = false,
+  ENGINEER = false,
+  [8] = false,
+}
+
+---@class _entity_raw.T_scholar: DFBitfield
+---@field PHILOSOPHER 0
+---@field [0] "PHILOSOPHER"
+---@field MATHEMATICIAN 1
+---@field [1] "MATHEMATICIAN"
+---@field HISTORIAN 2
+---@field [2] "HISTORIAN"
+---@field ASTRONOMER 3
+---@field [3] "ASTRONOMER"
+---@field NATURALIST 4
+---@field [4] "NATURALIST"
+---@field CHEMIST 5
+---@field [5] "CHEMIST"
+---@field GEOGRAPHER 6
+---@field [6] "GEOGRAPHER"
+---@field DOCTOR 7
+---@field [7] "DOCTOR"
+---@field ENGINEER 8
+---@field [8] "ENGINEER"
 df.entity_raw.T_scholar = {}
 
 ---@class (exact) entity_raw.T_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_jobs
-local jobs
+local entity_raw_jobs
 
 ---@class _entity_raw.T_jobs: DFCompound
 ---@field _kind 'struct-type'
@@ -549,7 +593,7 @@ df.entity_raw.T_jobs = {}
 ---@class (exact) entity_raw.T_workshops: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_workshops
-local workshops
+local entity_raw_workshops
 
 ---@class _entity_raw.T_workshops: DFCompound
 ---@field _kind 'struct-type'
@@ -566,24 +610,83 @@ local entity_animal_raw
 ---@field _kind 'struct-type'
 df.entity_animal_raw = {}
 
----@class (exact) entity_animal_raw.T_flags: DFObject
----@field _kind 'struct'
----@field _type _entity_animal_raw.T_flags
----@field ALWAYS_PRESENT flag-bit
----@field NEVER_MOUNT flag-bit
----@field ALWAYS_MOUNT flag-bit
----@field NEVER_WAGON_PULLER flag-bit
----@field ALWAYS_WAGON_PULLER flag-bit
----@field NEVER_SIEGE flag-bit
----@field ALWAYS_SIEGE flag-bit
----@field NEVER_PET flag-bit
----@field ALWAYS_PET flag-bit
----@field NEVER_PACK_ANIMAL flag-bit
----@field ALWAYS_PACK_ANIMAL flag-bit
-local flags
+---@alias _entity_animal_raw.T_flags_keys
+---| 0 # ALWAYS_PRESENT
+---| 1 # NEVER_MOUNT
+---| 2 # ALWAYS_MOUNT
+---| 3 # NEVER_WAGON_PULLER
+---| 4 # ALWAYS_WAGON_PULLER
+---| 5 # NEVER_SIEGE
+---| 6 # ALWAYS_SIEGE
+---| 7 # NEVER_PET
+---| 8 # ALWAYS_PET
+---| 9 # NEVER_PACK_ANIMAL
+---| 10 # ALWAYS_PACK_ANIMAL
 
----@class _entity_animal_raw.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _entity_animal_raw.T_flags_values
+---| "ALWAYS_PRESENT" # 0
+---| "NEVER_MOUNT" # 1
+---| "ALWAYS_MOUNT" # 2
+---| "NEVER_WAGON_PULLER" # 3
+---| "ALWAYS_WAGON_PULLER" # 4
+---| "NEVER_SIEGE" # 5
+---| "ALWAYS_SIEGE" # 6
+---| "NEVER_PET" # 7
+---| "ALWAYS_PET" # 8
+---| "NEVER_PACK_ANIMAL" # 9
+---| "ALWAYS_PACK_ANIMAL" # 10
+
+---@class entity_animal_raw.T_flags: DFObject, { [_entity_animal_raw.T_flags_keys|_entity_animal_raw.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _entity_animal_raw.T_flags
+local entity_animal_raw_flags = {
+  ALWAYS_PRESENT = false,
+  [0] = false,
+  NEVER_MOUNT = false,
+  [1] = false,
+  ALWAYS_MOUNT = false,
+  [2] = false,
+  NEVER_WAGON_PULLER = false,
+  [3] = false,
+  ALWAYS_WAGON_PULLER = false,
+  [4] = false,
+  NEVER_SIEGE = false,
+  [5] = false,
+  ALWAYS_SIEGE = false,
+  [6] = false,
+  NEVER_PET = false,
+  [7] = false,
+  ALWAYS_PET = false,
+  [8] = false,
+  NEVER_PACK_ANIMAL = false,
+  [9] = false,
+  ALWAYS_PACK_ANIMAL = false,
+  [10] = false,
+}
+
+---@class _entity_animal_raw.T_flags: DFBitfield
+---@field ALWAYS_PRESENT 0
+---@field [0] "ALWAYS_PRESENT"
+---@field NEVER_MOUNT 1
+---@field [1] "NEVER_MOUNT"
+---@field ALWAYS_MOUNT 2
+---@field [2] "ALWAYS_MOUNT"
+---@field NEVER_WAGON_PULLER 3
+---@field [3] "NEVER_WAGON_PULLER"
+---@field ALWAYS_WAGON_PULLER 4
+---@field [4] "ALWAYS_WAGON_PULLER"
+---@field NEVER_SIEGE 5
+---@field [5] "NEVER_SIEGE"
+---@field ALWAYS_SIEGE 6
+---@field [6] "ALWAYS_SIEGE"
+---@field NEVER_PET 7
+---@field [7] "NEVER_PET"
+---@field ALWAYS_PET 8
+---@field [8] "ALWAYS_PET"
+---@field NEVER_PACK_ANIMAL 9
+---@field [9] "NEVER_PACK_ANIMAL"
+---@field ALWAYS_PACK_ANIMAL 10
+---@field [10] "ALWAYS_PACK_ANIMAL"
 df.entity_animal_raw.T_flags = {}
 
 ---@alias entity_position_raw_flags
@@ -613,8 +716,7 @@ df.entity_animal_raw.T_flags = {}
 ---| 23 # SPECIAL_BURIAL
 ---| 24 # REQUIRES_MARKET
 
----@class _entity_position_raw_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_position_raw_flags: DFEnum
 ---@field SITE 0
 ---@field [0] "SITE"
 ---@field ELECTED 1
@@ -713,8 +815,7 @@ df.entity_position_raw_flags = {}
 ---| 41 # MAINTAIN_TUNNELS
 ---| 42 # DELIVER_MESSAGES
 
----@class _entity_position_responsibility: DFDescriptor
----@field _kind 'enum-type'
+---@class _entity_position_responsibility: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field LAW_MAKING 0
@@ -829,8 +930,6 @@ df.entity_position_responsibility = {}
 ---@field required_tomb number
 ---@field mandate_max number
 ---@field demand_max number
----@field  number
----@field  string
 local entity_position_raw
 
 ---@class _entity_position_raw: DFCompound

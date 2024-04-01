@@ -9,8 +9,7 @@ df.global = {}
 ---| 1 # Rain
 ---| 2 # Snow
 
----@class _weather_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _weather_type: DFEnum
 ---@field None 0
 ---@field [0] "None"
 ---@field Rain 1
@@ -63,8 +62,7 @@ df.weather_type = {}
 ---| 40 # divination_set
 
 -- The storage order of "next ID" fields in the save file.<br>Followed by game type. The enum item name is the part between<br>next_ and _global_id in the Dwarf Fortress global variable table.
----@class _next_global_id: DFDescriptor
----@field _kind 'enum-type'
+---@class _next_global_id: DFEnum
 ---@field unit 0
 ---@field [0] "unit"
 ---@field soul 1
@@ -165,8 +163,7 @@ df.global_table_entry = {}
 ---| 0 # DWARF
 ---| 1 # ADVENTURE
 
----@class _game_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _game_mode: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DWARF 0
@@ -189,8 +186,7 @@ df.game_mode = {}
 ---| 9 # ADVENTURE_WORLD_DEBUG
 
 -- bay12: GameType
----@class _game_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _game_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DWARF_MAIN 0
@@ -235,8 +231,7 @@ df.game_type = {}
 ---| 116 # TargetMechanism
 ---| 119 # GrateWall
 
----@class _lever_target_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _lever_target_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field BarsVertical 66

@@ -17,8 +17,7 @@
 ---| 11 # Cloth
 
 -- not in DF
----@class _craft_material_class: DFDescriptor
----@field _kind 'enum-type'
+---@class _craft_material_class: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Metal 0
@@ -92,8 +91,7 @@ df.craft_material_class.attrs = {}
 ---| 17 # UNKNOWN_SUBSTANCE
 ---| 18 # GRIME
 
----@class _builtin_mats: DFDescriptor
----@field _kind 'enum-type'
+---@class _builtin_mats: DFEnum
 ---@field INORGANIC 0
 ---@field [0] "INORGANIC"
 ---@field AMBER 1
@@ -218,8 +216,7 @@ df.builtin_mats = {}
 ---| 81 # CHITIN
 ---| 82 # ANTLER
 
----@class _material_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _material_flags: DFEnum
 ---@field BONE 0
 ---@field [0] "BONE"
 ---@field MEAT 1
@@ -420,8 +417,7 @@ df.material_flags.attrs = {}
 ---| 4 # Paste
 ---| 5 # Pressed
 
----@class _matter_state: DFDescriptor
----@field _kind 'enum-type'
+---@class _matter_state: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Solid 0
@@ -446,8 +442,7 @@ df.matter_state = {}
 ---| 4 # TENSILE
 ---| 5 # COMPRESSIVE
 
----@class _strain_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _strain_type: DFEnum
 ---@field BENDING 0
 ---@field [0] "BENDING"
 ---@field SHEAR 1
@@ -497,7 +492,7 @@ df.material_common = {}
 ---@field melting_point integer
 ---@field boiling_point integer
 ---@field mat_fixed_temp integer
-local heat
+local material_common_heat
 
 ---@class _material_common.T_heat: DFCompound
 ---@field _kind 'struct-type'
@@ -508,7 +503,7 @@ df.material_common.T_heat = {}
 ---@field _type _material_common.T_strength
 ---@field absorption number
 ---@field max_edge number
-local strength
+local material_common_strength
 
 ---@class _material_common.T_strength: DFCompound
 ---@field _kind 'struct-type'
@@ -518,7 +513,7 @@ df.material_common.T_strength = {}
 ---@field _kind 'struct'
 ---@field _type _material_common.T_reaction_product
 ---@field material material_vec_ref
-local reaction_product
+local material_common_reaction_product
 
 ---@class _material_common.T_reaction_product: DFCompound
 ---@field _kind 'struct-type'
@@ -529,7 +524,7 @@ df.material_common.T_reaction_product = {}
 ---@field _type _material_common.T_hardens_with_water
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local hardens_with_water
+local material_common_hardens_with_water
 
 ---@class _material_common.T_hardens_with_water: DFCompound
 ---@field _kind 'struct-type'
@@ -540,9 +535,6 @@ df.material_common.T_hardens_with_water = {}
 ---@field _type _material
 ---@field tile integer
 ---@field item_symbol integer
----@field  number
----@field  number
----@field  number
 ---@field powder_dye number 0.50.01
 ---@field temp_diet_info number // color token index
 ---@field soap_level number
@@ -556,7 +548,6 @@ df.material_common.T_hardens_with_water = {}
 ---@field bar_texpos number
 ---@field cheese_texpos1 number
 ---@field cheese_texpos2 number
----@field  number
 local material
 
 ---@class _material: DFCompound
@@ -610,8 +601,7 @@ df.material_template = {}
 ---| 19 # DIVINE
 ---| 25 # WAFERS
 
----@class _inorganic_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _inorganic_flags: DFEnum
 ---@field LAVA 0
 ---@field [0] "LAVA"
 ---@field GENERATED 1
@@ -666,8 +656,7 @@ df.inorganic_flags = {}
 ---| 6 # IGNEOUS_EXTRUSIVE
 ---| 7 # ALLUVIAL
 
----@class _environment_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _environment_type: DFEnum
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SOIL_OCEAN 1
@@ -692,8 +681,7 @@ df.environment_type = {}
 ---| 3 # CLUSTER_SMALL
 ---| 4 # CLUSTER_ONE
 
----@class _inclusion_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _inclusion_type: DFEnum
 ---@field VEIN 1
 ---@field [1] "VEIN"
 ---@field CLUSTER 2
@@ -736,7 +724,7 @@ function df.inorganic_raw.get_vector() end
 ---@class (exact) inorganic_raw.T_metal_ore: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_metal_ore
-local metal_ore
+local inorganic_raw_metal_ore
 
 ---@class _inorganic_raw.T_metal_ore: DFCompound
 ---@field _kind 'struct-type'
@@ -745,7 +733,7 @@ df.inorganic_raw.T_metal_ore = {}
 ---@class (exact) inorganic_raw.T_thread_metal: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_thread_metal
-local thread_metal
+local inorganic_raw_thread_metal
 
 ---@class _inorganic_raw.T_thread_metal: DFCompound
 ---@field _kind 'struct-type'
@@ -754,7 +742,7 @@ df.inorganic_raw.T_thread_metal = {}
 ---@class (exact) inorganic_raw.T_environment_spec: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment_spec
-local environment_spec
+local inorganic_raw_environment_spec
 
 ---@class _inorganic_raw.T_environment_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -763,7 +751,7 @@ df.inorganic_raw.T_environment_spec = {}
 ---@class (exact) inorganic_raw.T_environment: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment
-local environment
+local inorganic_raw_environment
 
 ---@class _inorganic_raw.T_environment: DFCompound
 ---@field _kind 'struct-type'
@@ -810,8 +798,7 @@ df.inorganic_raw.T_environment = {}
 ---| 37 # Paper
 ---| 38 # Parchment
 
----@class _organic_mat_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _organic_mat_category: DFEnum
 ---@field Meat 0
 ---@field [0] "Meat"
 ---@field Fish 1

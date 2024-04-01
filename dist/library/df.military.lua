@@ -1,6 +1,37 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta _
 
+---@alias _uniform_indiv_choice_keys
+---| 0 # any
+---| 1 # melee
+---| 2 # ranged
+
+---@alias _uniform_indiv_choice_values
+---| "any" # 0
+---| "melee" # 1
+---| "ranged" # 2
+
+---@class uniform_indiv_choice: DFObject, { [_uniform_indiv_choice_keys|_uniform_indiv_choice_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _uniform_indiv_choice
+local uniform_indiv_choice = {
+  any = false,
+  [0] = false,
+  melee = false,
+  [1] = false,
+  ranged = false,
+  [2] = false,
+}
+
+---@class _uniform_indiv_choice: DFBitfield
+---@field any 0
+---@field [0] "any"
+---@field melee 1
+---@field [1] "melee"
+---@field ranged 2
+---@field [2] "ranged"
+df.uniform_indiv_choice = {}
+
 ---@class (exact) item_filter_spec: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_filter_spec
@@ -40,16 +71,67 @@ local squad_ammo_spec
 ---@field _kind 'struct-type'
 df.squad_ammo_spec = {}
 
----@class (exact) squad_ammo_spec.T_flags: DFObject
----@field _kind 'struct'
----@field _type _squad_ammo_spec.T_flags
----@field use_combat flag-bit
----@field use_training flag-bit
-local flags
+---@alias _squad_ammo_spec.T_flags_keys
+---| 0 # use_combat
+---| 1 # use_training
 
----@class _squad_ammo_spec.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _squad_ammo_spec.T_flags_values
+---| "use_combat" # 0
+---| "use_training" # 1
+
+---@class squad_ammo_spec.T_flags: DFObject, { [_squad_ammo_spec.T_flags_keys|_squad_ammo_spec.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _squad_ammo_spec.T_flags
+local squad_ammo_spec_flags = {
+  use_combat = false,
+  [0] = false,
+  use_training = false,
+  [1] = false,
+}
+
+---@class _squad_ammo_spec.T_flags: DFBitfield
+---@field use_combat 0
+---@field [0] "use_combat"
+---@field use_training 1
+---@field [1] "use_training"
 df.squad_ammo_spec.T_flags = {}
+
+---@alias _squad_use_flags_keys
+---| 0 # sleep
+---| 1 # train
+---| 2 # indiv_eq
+---| 3 # squad_eq
+
+---@alias _squad_use_flags_values
+---| "sleep" # 0
+---| "train" # 1
+---| "indiv_eq" # 2
+---| "squad_eq" # 3
+
+---@class squad_use_flags: DFObject, { [_squad_use_flags_keys|_squad_use_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _squad_use_flags
+local squad_use_flags = {
+  sleep = false,
+  [0] = false,
+  train = false,
+  [1] = false,
+  indiv_eq = false,
+  [2] = false,
+  squad_eq = false,
+  [3] = false,
+}
+
+---@class _squad_use_flags: DFBitfield
+---@field sleep 0
+---@field [0] "sleep"
+---@field train 1
+---@field [1] "train"
+---@field indiv_eq 2
+---@field [2] "indiv_eq"
+---@field squad_eq 3
+---@field [3] "squad_eq"
+df.squad_use_flags = {}
 
 ---@alias uniform_category
 ---| 0 # body
@@ -60,8 +142,7 @@ df.squad_ammo_spec.T_flags = {}
 ---| 5 # shield
 ---| 6 # weapon
 
----@class _uniform_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _uniform_category: DFEnum
 ---@field body 0
 ---@field [0] "body"
 ---@field head 1
@@ -78,14 +159,38 @@ df.squad_ammo_spec.T_flags = {}
 ---@field [6] "weapon"
 df.uniform_category = {}
 
+---@alias _uniform_flags_keys
+---| 0 # replace_clothing
+---| 1 # exact_matches
+
+---@alias _uniform_flags_values
+---| "replace_clothing" # 0
+---| "exact_matches" # 1
+
+---@class uniform_flags: DFObject, { [_uniform_flags_keys|_uniform_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _uniform_flags
+local uniform_flags = {
+  replace_clothing = false,
+  [0] = false,
+  exact_matches = false,
+  [1] = false,
+}
+
+---@class _uniform_flags: DFBitfield
+---@field replace_clothing 0
+---@field [0] "replace_clothing"
+---@field exact_matches 1
+---@field [1] "exact_matches"
+df.uniform_flags = {}
+
 ---@alias barrack_preference_category
 ---| 0 # Bed
 ---| 1 # Armorstand
 ---| 2 # Box
 ---| 3 # Cabinet
 
----@class _barrack_preference_category: DFDescriptor
----@field _kind 'enum-type'
+---@class _barrack_preference_category: DFEnum
 ---@field Bed 0
 ---@field [0] "Bed"
 ---@field Armorstand 1
@@ -102,8 +207,7 @@ df.barrack_preference_category = {}
 ---| 1 # Unk1
 ---| 2 # Unk2
 
----@class _squad_event_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _squad_event_type: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Unk0 0
@@ -198,7 +302,7 @@ function df.squad.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _squad.T_ammo
 ---@field update equipment_update
-local ammo
+local squad_ammo
 
 ---@class _squad.T_ammo: DFCompound
 ---@field _kind 'struct-type'
@@ -218,8 +322,7 @@ df.squad.T_ammo = {}
 ---| 10 # RAID_SITE
 ---| 11 # RESCUE_HF
 
----@class _squad_order_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _squad_order_type: DFEnum
 ---@field MOVE 0
 ---@field [0] "MOVE"
 ---@field KILL_LIST 1
@@ -269,8 +372,7 @@ df.squad_order_type = {}
 ---| 19 # no_item
 ---| 20 # cannot_leave_site
 
----@class _squad_order_cannot_reason: DFDescriptor
----@field _kind 'enum-type'
+---@class _squad_order_cannot_reason: DFEnum
 ---@field not_following_order 0 text in viewscreen_unitlistst
 ---@field [0] "not_following_order" text in viewscreen_unitlistst
 ---@field activity_cancelled 1
@@ -469,8 +571,7 @@ df.squad_order_rescue_hfst = {}
 ---| 6 # PILLAGE
 
 -- bay12: InvasionIntent
----@class _invasion_intent_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _invasion_intent_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field OBLITERATION 0
@@ -499,8 +600,7 @@ df.invasion_intent_type = {}
 ---| 5 # SITE_TAKEN
 
 -- bay12: InvasionStage
----@class _invasion_stage_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _invasion_stage_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ORGANIZE 0
@@ -546,8 +646,7 @@ df.invasion_stage_type = {}
 ---| 24 # INFILTRATE_SOCIETY
 
 -- bay12: ArmyControllerGoalType
----@class _army_controller_goal_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _army_controller_goal_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field HOLD_TERRITORY 0
@@ -643,24 +742,53 @@ local army_controller_vector
 ---@return army_controller_vector # df.global.world.army_controllers.all
 function df.army_controller.get_vector() end
 
----@class (exact) army_controller.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller.T_flag
----@field do_not_clear_army_dependencies flag-bit
----@field delete_me flag-bit
----@field site_realized_over_goal flag-bit
----@field civ_rep flag-bit
----@field done_for_dwarf_mode flag-bit
-local flag
+---@alias _army_controller.T_flag_keys
+---| 0 # do_not_clear_army_dependencies
+---| 1 # delete_me
+---| 2 # site_realized_over_goal
+---| 3 # civ_rep
+---| 4 # done_for_dwarf_mode
 
----@class _army_controller.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller.T_flag_values
+---| "do_not_clear_army_dependencies" # 0
+---| "delete_me" # 1
+---| "site_realized_over_goal" # 2
+---| "civ_rep" # 3
+---| "done_for_dwarf_mode" # 4
+
+---@class army_controller.T_flag: DFObject, { [_army_controller.T_flag_keys|_army_controller.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller.T_flag
+local army_controller_flag = {
+  do_not_clear_army_dependencies = false,
+  [0] = false,
+  delete_me = false,
+  [1] = false,
+  site_realized_over_goal = false,
+  [2] = false,
+  civ_rep = false,
+  [3] = false,
+  done_for_dwarf_mode = false,
+  [4] = false,
+}
+
+---@class _army_controller.T_flag: DFBitfield
+---@field do_not_clear_army_dependencies 0
+---@field [0] "do_not_clear_army_dependencies"
+---@field delete_me 1
+---@field [1] "delete_me"
+---@field site_realized_over_goal 2
+---@field [2] "site_realized_over_goal"
+---@field civ_rep 3
+---@field [3] "civ_rep"
+---@field done_for_dwarf_mode 4
+---@field [4] "done_for_dwarf_mode"
 df.army_controller.T_flag = {}
 
 ---@class (exact) army_controller.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller.T_data
-local data
+local army_controller_data
 
 ---@class _army_controller.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -697,23 +825,77 @@ local army_controller_goal_site_invasionst
 ---@field _kind 'struct-type'
 df.army_controller_goal_site_invasionst = {}
 
----@class (exact) army_controller_goal_site_invasionst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_site_invasionst.T_flag
----@field RETURNING_HOME flag-bit
----@field DEMAND_TRIBUTE_ONE_TIME flag-bit
----@field DEMAND_TRIBUTE_ONGOING flag-bit
----@field FREE_OWN_CAPTIVES flag-bit
----@field FREE_OTHER_CAPTIVES flag-bit
----@field TAKE_ARTIFACTS flag-bit
----@field TAKE_ITEMS flag-bit
----@field STEAL_LIVESTOCK flag-bit
----@field ANNOUNCED_RAMPAGE flag-bit
----@field DEMAND_SURRENDER_AND_MAYBE_LEAVE flag-bit
-local flag
+---@alias _army_controller_goal_site_invasionst.T_flag_keys
+---| 0 # RETURNING_HOME
+---| 1 # DEMAND_TRIBUTE_ONE_TIME
+---| 2 # DEMAND_TRIBUTE_ONGOING
+---| 3 # FREE_OWN_CAPTIVES
+---| 4 # FREE_OTHER_CAPTIVES
+---| 5 # TAKE_ARTIFACTS
+---| 6 # TAKE_ITEMS
+---| 7 # STEAL_LIVESTOCK
+---| 8 # ANNOUNCED_RAMPAGE
+---| 9 # DEMAND_SURRENDER_AND_MAYBE_LEAVE
 
----@class _army_controller_goal_site_invasionst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_site_invasionst.T_flag_values
+---| "RETURNING_HOME" # 0
+---| "DEMAND_TRIBUTE_ONE_TIME" # 1
+---| "DEMAND_TRIBUTE_ONGOING" # 2
+---| "FREE_OWN_CAPTIVES" # 3
+---| "FREE_OTHER_CAPTIVES" # 4
+---| "TAKE_ARTIFACTS" # 5
+---| "TAKE_ITEMS" # 6
+---| "STEAL_LIVESTOCK" # 7
+---| "ANNOUNCED_RAMPAGE" # 8
+---| "DEMAND_SURRENDER_AND_MAYBE_LEAVE" # 9
+
+---@class army_controller_goal_site_invasionst.T_flag: DFObject, { [_army_controller_goal_site_invasionst.T_flag_keys|_army_controller_goal_site_invasionst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_site_invasionst.T_flag
+local army_controller_goal_site_invasionst_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+  DEMAND_TRIBUTE_ONE_TIME = false,
+  [1] = false,
+  DEMAND_TRIBUTE_ONGOING = false,
+  [2] = false,
+  FREE_OWN_CAPTIVES = false,
+  [3] = false,
+  FREE_OTHER_CAPTIVES = false,
+  [4] = false,
+  TAKE_ARTIFACTS = false,
+  [5] = false,
+  TAKE_ITEMS = false,
+  [6] = false,
+  STEAL_LIVESTOCK = false,
+  [7] = false,
+  ANNOUNCED_RAMPAGE = false,
+  [8] = false,
+  DEMAND_SURRENDER_AND_MAYBE_LEAVE = false,
+  [9] = false,
+}
+
+---@class _army_controller_goal_site_invasionst.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
+---@field DEMAND_TRIBUTE_ONE_TIME 1
+---@field [1] "DEMAND_TRIBUTE_ONE_TIME"
+---@field DEMAND_TRIBUTE_ONGOING 2
+---@field [2] "DEMAND_TRIBUTE_ONGOING"
+---@field FREE_OWN_CAPTIVES 3
+---@field [3] "FREE_OWN_CAPTIVES"
+---@field FREE_OTHER_CAPTIVES 4
+---@field [4] "FREE_OTHER_CAPTIVES"
+---@field TAKE_ARTIFACTS 5
+---@field [5] "TAKE_ARTIFACTS"
+---@field TAKE_ITEMS 6
+---@field [6] "TAKE_ITEMS"
+---@field STEAL_LIVESTOCK 7
+---@field [7] "STEAL_LIVESTOCK"
+---@field ANNOUNCED_RAMPAGE 8
+---@field [8] "ANNOUNCED_RAMPAGE"
+---@field DEMAND_SURRENDER_AND_MAYBE_LEAVE 9
+---@field [9] "DEMAND_SURRENDER_AND_MAYBE_LEAVE"
 df.army_controller_goal_site_invasionst.T_flag = {}
 
 ---@class (exact) army_controller_goal_campst: DFObject
@@ -727,17 +909,41 @@ local army_controller_goal_campst
 ---@field _kind 'struct-type'
 df.army_controller_goal_campst = {}
 
----@class (exact) army_controller_goal_campst.T_camp_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_campst.T_camp_flag
----@field ALARM_INTRUDER flag-bit set to 1 to make army wake up
----@field ONE_NIGHT_ONLY flag-bit seen set on gobbo/necro attack controller
----@field DONE flag-bit
----@field PUT_OUT_GUARDS flag-bit sen set on gobbo/necro attack controller
-local camp_flag
+---@alias _army_controller_goal_campst.T_camp_flag_keys
+---| 0 # ALARM_INTRUDER
+---| 1 # ONE_NIGHT_ONLY
+---| 2 # DONE
+---| 3 # PUT_OUT_GUARDS
 
----@class _army_controller_goal_campst.T_camp_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_campst.T_camp_flag_values
+---| "ALARM_INTRUDER" # 0
+---| "ONE_NIGHT_ONLY" # 1
+---| "DONE" # 2
+---| "PUT_OUT_GUARDS" # 3
+
+---@class army_controller_goal_campst.T_camp_flag: DFObject, { [_army_controller_goal_campst.T_camp_flag_keys|_army_controller_goal_campst.T_camp_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_campst.T_camp_flag
+local army_controller_goal_campst_camp_flag = {
+  ALARM_INTRUDER = false, -- set to 1 to make army wake up
+  [0] = false, -- set to 1 to make army wake up
+  ONE_NIGHT_ONLY = false, -- seen set on gobbo/necro attack controller
+  [1] = false, -- seen set on gobbo/necro attack controller
+  DONE = false,
+  [2] = false,
+  PUT_OUT_GUARDS = false, -- sen set on gobbo/necro attack controller
+  [3] = false, -- sen set on gobbo/necro attack controller
+}
+
+---@class _army_controller_goal_campst.T_camp_flag: DFBitfield
+---@field ALARM_INTRUDER 0 set to 1 to make army wake up
+---@field [0] "ALARM_INTRUDER" set to 1 to make army wake up
+---@field ONE_NIGHT_ONLY 1 seen set on gobbo/necro attack controller
+---@field [1] "ONE_NIGHT_ONLY" seen set on gobbo/necro attack controller
+---@field DONE 2
+---@field [2] "DONE"
+---@field PUT_OUT_GUARDS 3 sen set on gobbo/necro attack controller
+---@field [3] "PUT_OUT_GUARDS" sen set on gobbo/necro attack controller
 df.army_controller_goal_campst.T_camp_flag = {}
 
 ---@class (exact) army_controller_goal_guardst: DFObject
@@ -766,14 +972,23 @@ local army_controller_goal_harassst
 ---@field _kind 'struct-type'
 df.army_controller_goal_harassst = {}
 
----@class (exact) army_controller_goal_harassst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_harassst.T_flag
----@field RETURNING_HOME flag-bit
-local flag
+---@alias _army_controller_goal_harassst.T_flag_keys
+---| 0 # RETURNING_HOME
 
----@class _army_controller_goal_harassst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_harassst.T_flag_values
+---| "RETURNING_HOME" # 0
+
+---@class army_controller_goal_harassst.T_flag: DFObject, { [_army_controller_goal_harassst.T_flag_keys|_army_controller_goal_harassst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_harassst.T_flag
+local army_controller_goal_harassst_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_harassst.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
 df.army_controller_goal_harassst.T_flag = {}
 
 ---@class (exact) army_controller_goal_huntingst: DFObject
@@ -794,18 +1009,47 @@ local army_controller_goal_huntingst
 ---@field _kind 'struct-type'
 df.army_controller_goal_huntingst = {}
 
----@class (exact) army_controller_goal_huntingst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_huntingst.T_flag
----@field RETURNING_HOME flag-bit
----@field DAWN_PERMITTED flag-bit
----@field DAY_PERMITTED flag-bit
----@field DUSK_PERMITTED flag-bit
----@field NIGHT_PERMITTED flag-bit
-local flag
+---@alias _army_controller_goal_huntingst.T_flag_keys
+---| 0 # RETURNING_HOME
+---| 1 # DAWN_PERMITTED
+---| 2 # DAY_PERMITTED
+---| 3 # DUSK_PERMITTED
+---| 4 # NIGHT_PERMITTED
 
----@class _army_controller_goal_huntingst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_huntingst.T_flag_values
+---| "RETURNING_HOME" # 0
+---| "DAWN_PERMITTED" # 1
+---| "DAY_PERMITTED" # 2
+---| "DUSK_PERMITTED" # 3
+---| "NIGHT_PERMITTED" # 4
+
+---@class army_controller_goal_huntingst.T_flag: DFObject, { [_army_controller_goal_huntingst.T_flag_keys|_army_controller_goal_huntingst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_huntingst.T_flag
+local army_controller_goal_huntingst_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+  DAWN_PERMITTED = false,
+  [1] = false,
+  DAY_PERMITTED = false,
+  [2] = false,
+  DUSK_PERMITTED = false,
+  [3] = false,
+  NIGHT_PERMITTED = false,
+  [4] = false,
+}
+
+---@class _army_controller_goal_huntingst.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
+---@field DAWN_PERMITTED 1
+---@field [1] "DAWN_PERMITTED"
+---@field DAY_PERMITTED 2
+---@field [2] "DAY_PERMITTED"
+---@field DUSK_PERMITTED 3
+---@field [3] "DUSK_PERMITTED"
+---@field NIGHT_PERMITTED 4
+---@field [4] "NIGHT_PERMITTED"
 df.army_controller_goal_huntingst.T_flag = {}
 
 ---@class (exact) army_controller_goal_patrolst: DFObject
@@ -826,15 +1070,29 @@ local army_controller_goal_patrolst
 ---@field _kind 'struct-type'
 df.army_controller_goal_patrolst = {}
 
----@class (exact) army_controller_goal_patrolst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_patrolst.T_flag
----@field RETURNING_HOME flag-bit
----@field HARASS_ONLY flag-bit
-local flag
+---@alias _army_controller_goal_patrolst.T_flag_keys
+---| 0 # RETURNING_HOME
+---| 1 # HARASS_ONLY
 
----@class _army_controller_goal_patrolst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_patrolst.T_flag_values
+---| "RETURNING_HOME" # 0
+---| "HARASS_ONLY" # 1
+
+---@class army_controller_goal_patrolst.T_flag: DFObject, { [_army_controller_goal_patrolst.T_flag_keys|_army_controller_goal_patrolst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_patrolst.T_flag
+local army_controller_goal_patrolst_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+  HARASS_ONLY = false,
+  [1] = false,
+}
+
+---@class _army_controller_goal_patrolst.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
+---@field HARASS_ONLY 1
+---@field [1] "HARASS_ONLY"
 df.army_controller_goal_patrolst.T_flag = {}
 
 ---@class (exact) army_controller_goal_escapest: DFObject
@@ -864,15 +1122,29 @@ local army_controller_goal_move_to_sitest
 ---@field _kind 'struct-type'
 df.army_controller_goal_move_to_sitest = {}
 
----@class (exact) army_controller_goal_move_to_sitest.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_move_to_sitest.T_flag
----@field PERMANENT_MOVE flag-bit
----@field RETURNING_TO_CURRENT_HOME flag-bit
-local flag
+---@alias _army_controller_goal_move_to_sitest.T_flag_keys
+---| 0 # PERMANENT_MOVE
+---| 1 # RETURNING_TO_CURRENT_HOME
 
----@class _army_controller_goal_move_to_sitest.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_move_to_sitest.T_flag_values
+---| "PERMANENT_MOVE" # 0
+---| "RETURNING_TO_CURRENT_HOME" # 1
+
+---@class army_controller_goal_move_to_sitest.T_flag: DFObject, { [_army_controller_goal_move_to_sitest.T_flag_keys|_army_controller_goal_move_to_sitest.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_move_to_sitest.T_flag
+local army_controller_goal_move_to_sitest_flag = {
+  PERMANENT_MOVE = false,
+  [0] = false,
+  RETURNING_TO_CURRENT_HOME = false,
+  [1] = false,
+}
+
+---@class _army_controller_goal_move_to_sitest.T_flag: DFBitfield
+---@field PERMANENT_MOVE 0
+---@field [0] "PERMANENT_MOVE"
+---@field RETURNING_TO_CURRENT_HOME 1
+---@field [1] "RETURNING_TO_CURRENT_HOME"
 df.army_controller_goal_move_to_sitest.T_flag = {}
 
 ---@class (exact) army_controller_goal_reclaim_sitest: DFObject
@@ -887,14 +1159,23 @@ local army_controller_goal_reclaim_sitest
 ---@field _kind 'struct-type'
 df.army_controller_goal_reclaim_sitest = {}
 
----@class (exact) army_controller_goal_reclaim_sitest.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_reclaim_sitest.T_flag
----@field RETURNING_HOME flag-bit
-local flag
+---@alias _army_controller_goal_reclaim_sitest.T_flag_keys
+---| 0 # RETURNING_HOME
 
----@class _army_controller_goal_reclaim_sitest.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_reclaim_sitest.T_flag_values
+---| "RETURNING_HOME" # 0
+
+---@class army_controller_goal_reclaim_sitest.T_flag: DFObject, { [_army_controller_goal_reclaim_sitest.T_flag_keys|_army_controller_goal_reclaim_sitest.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_reclaim_sitest.T_flag
+local army_controller_goal_reclaim_sitest_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_reclaim_sitest.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
 df.army_controller_goal_reclaim_sitest.T_flag = {}
 
 ---@class (exact) army_controller_goal_create_new_sitest: DFObject
@@ -910,14 +1191,23 @@ local army_controller_goal_create_new_sitest
 ---@field _kind 'struct-type'
 df.army_controller_goal_create_new_sitest = {}
 
----@class (exact) army_controller_goal_create_new_sitest.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_create_new_sitest.T_flag
----@field RETURNING_HOME flag-bit
-local flag
+---@alias _army_controller_goal_create_new_sitest.T_flag_keys
+---| 0 # RETURNING_HOME
 
----@class _army_controller_goal_create_new_sitest.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_create_new_sitest.T_flag_values
+---| "RETURNING_HOME" # 0
+
+---@class army_controller_goal_create_new_sitest.T_flag: DFObject, { [_army_controller_goal_create_new_sitest.T_flag_keys|_army_controller_goal_create_new_sitest.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_create_new_sitest.T_flag
+local army_controller_goal_create_new_sitest_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_create_new_sitest.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
 df.army_controller_goal_create_new_sitest.T_flag = {}
 
 ---@class (exact) army_controller_goal_possest: DFObject
@@ -941,14 +1231,23 @@ local army_controller_goal_possest
 ---@field _kind 'struct-type'
 df.army_controller_goal_possest = {}
 
----@class (exact) army_controller_goal_possest.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_possest.T_flag
----@field RETURNING_HOME flag-bit
-local flag
+---@alias _army_controller_goal_possest.T_flag_keys
+---| 0 # RETURNING_HOME
 
----@class _army_controller_goal_possest.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_possest.T_flag_values
+---| "RETURNING_HOME" # 0
+
+---@class army_controller_goal_possest.T_flag: DFObject, { [_army_controller_goal_possest.T_flag_keys|_army_controller_goal_possest.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_possest.T_flag
+local army_controller_goal_possest_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_possest.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
 df.army_controller_goal_possest.T_flag = {}
 
 ---@class (exact) army_controller_goal_site_workst: DFObject
@@ -974,15 +1273,29 @@ local army_controller_goal_recover_artifactst
 ---@field _kind 'struct-type'
 df.army_controller_goal_recover_artifactst = {}
 
----@class (exact) army_controller_goal_recover_artifactst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_recover_artifactst.T_flag
----@field RETURNING flag-bit
----@field REMAIN_ANONYMOUS flag-bit
-local flag
+---@alias _army_controller_goal_recover_artifactst.T_flag_keys
+---| 0 # RETURNING
+---| 1 # REMAIN_ANONYMOUS
 
----@class _army_controller_goal_recover_artifactst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_recover_artifactst.T_flag_values
+---| "RETURNING" # 0
+---| "REMAIN_ANONYMOUS" # 1
+
+---@class army_controller_goal_recover_artifactst.T_flag: DFObject, { [_army_controller_goal_recover_artifactst.T_flag_keys|_army_controller_goal_recover_artifactst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_recover_artifactst.T_flag
+local army_controller_goal_recover_artifactst_flag = {
+  RETURNING = false,
+  [0] = false,
+  REMAIN_ANONYMOUS = false,
+  [1] = false,
+}
+
+---@class _army_controller_goal_recover_artifactst.T_flag: DFBitfield
+---@field RETURNING 0
+---@field [0] "RETURNING"
+---@field REMAIN_ANONYMOUS 1
+---@field [1] "REMAIN_ANONYMOUS"
 df.army_controller_goal_recover_artifactst.T_flag = {}
 
 ---@class (exact) army_controller_goal_rescue_hfst: DFObject
@@ -996,14 +1309,23 @@ local army_controller_goal_rescue_hfst
 ---@field _kind 'struct-type'
 df.army_controller_goal_rescue_hfst = {}
 
----@class (exact) army_controller_goal_rescue_hfst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_rescue_hfst.T_flag
----@field RETURNING flag-bit
-local flag
+---@alias _army_controller_goal_rescue_hfst.T_flag_keys
+---| 0 # RETURNING
 
----@class _army_controller_goal_rescue_hfst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_rescue_hfst.T_flag_values
+---| "RETURNING" # 0
+
+---@class army_controller_goal_rescue_hfst.T_flag: DFObject, { [_army_controller_goal_rescue_hfst.T_flag_keys|_army_controller_goal_rescue_hfst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_rescue_hfst.T_flag
+local army_controller_goal_rescue_hfst_flag = {
+  RETURNING = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_rescue_hfst.T_flag: DFBitfield
+---@field RETURNING 0
+---@field [0] "RETURNING"
 df.army_controller_goal_rescue_hfst.T_flag = {}
 
 ---@class (exact) army_controller_goal_make_requestst: DFObject
@@ -1018,14 +1340,23 @@ local army_controller_goal_make_requestst
 ---@field _kind 'struct-type'
 df.army_controller_goal_make_requestst = {}
 
----@class (exact) army_controller_goal_make_requestst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_make_requestst.T_flag
----@field RETURNING_HOME flag-bit
-local flag
+---@alias _army_controller_goal_make_requestst.T_flag_keys
+---| 0 # RETURNING_HOME
 
----@class _army_controller_goal_make_requestst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_make_requestst.T_flag_values
+---| "RETURNING_HOME" # 0
+
+---@class army_controller_goal_make_requestst.T_flag: DFObject, { [_army_controller_goal_make_requestst.T_flag_keys|_army_controller_goal_make_requestst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_make_requestst.T_flag
+local army_controller_goal_make_requestst_flag = {
+  RETURNING_HOME = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_make_requestst.T_flag: DFBitfield
+---@field RETURNING_HOME 0
+---@field [0] "RETURNING_HOME"
 df.army_controller_goal_make_requestst.T_flag = {}
 
 ---@class (exact) army_controller_goal_perform_taskst: DFObject
@@ -1040,14 +1371,23 @@ local army_controller_goal_perform_taskst
 ---@field _kind 'struct-type'
 df.army_controller_goal_perform_taskst = {}
 
----@class (exact) army_controller_goal_perform_taskst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_perform_taskst.T_flag
----@field RETURNING flag-bit
-local flag
+---@alias _army_controller_goal_perform_taskst.T_flag_keys
+---| 0 # RETURNING
 
----@class _army_controller_goal_perform_taskst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_perform_taskst.T_flag_values
+---| "RETURNING" # 0
+
+---@class army_controller_goal_perform_taskst.T_flag: DFObject, { [_army_controller_goal_perform_taskst.T_flag_keys|_army_controller_goal_perform_taskst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_perform_taskst.T_flag
+local army_controller_goal_perform_taskst_flag = {
+  RETURNING = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_perform_taskst.T_flag: DFBitfield
+---@field RETURNING 0
+---@field [0] "RETURNING"
 df.army_controller_goal_perform_taskst.T_flag = {}
 
 ---@class (exact) army_controller_goal_assassinate_hfst: DFObject
@@ -1061,14 +1401,23 @@ local army_controller_goal_assassinate_hfst
 ---@field _kind 'struct-type'
 df.army_controller_goal_assassinate_hfst = {}
 
----@class (exact) army_controller_goal_assassinate_hfst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_assassinate_hfst.T_flag
----@field RETURNING flag-bit
-local flag
+---@alias _army_controller_goal_assassinate_hfst.T_flag_keys
+---| 0 # RETURNING
 
----@class _army_controller_goal_assassinate_hfst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_assassinate_hfst.T_flag_values
+---| "RETURNING" # 0
+
+---@class army_controller_goal_assassinate_hfst.T_flag: DFObject, { [_army_controller_goal_assassinate_hfst.T_flag_keys|_army_controller_goal_assassinate_hfst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_assassinate_hfst.T_flag
+local army_controller_goal_assassinate_hfst_flag = {
+  RETURNING = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_assassinate_hfst.T_flag: DFBitfield
+---@field RETURNING 0
+---@field [0] "RETURNING"
 df.army_controller_goal_assassinate_hfst.T_flag = {}
 
 ---@class (exact) army_controller_goal_abduct_hfst: DFObject
@@ -1082,14 +1431,23 @@ local army_controller_goal_abduct_hfst
 ---@field _kind 'struct-type'
 df.army_controller_goal_abduct_hfst = {}
 
----@class (exact) army_controller_goal_abduct_hfst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_abduct_hfst.T_flag
----@field RETURNING flag-bit
-local flag
+---@alias _army_controller_goal_abduct_hfst.T_flag_keys
+---| 0 # RETURNING
 
----@class _army_controller_goal_abduct_hfst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_abduct_hfst.T_flag_values
+---| "RETURNING" # 0
+
+---@class army_controller_goal_abduct_hfst.T_flag: DFObject, { [_army_controller_goal_abduct_hfst.T_flag_keys|_army_controller_goal_abduct_hfst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_abduct_hfst.T_flag
+local army_controller_goal_abduct_hfst_flag = {
+  RETURNING = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_abduct_hfst.T_flag: DFBitfield
+---@field RETURNING 0
+---@field [0] "RETURNING"
 df.army_controller_goal_abduct_hfst.T_flag = {}
 
 ---@class (exact) army_controller_goal_sabotage_entityst: DFObject
@@ -1105,14 +1463,23 @@ local army_controller_goal_sabotage_entityst
 ---@field _kind 'struct-type'
 df.army_controller_goal_sabotage_entityst = {}
 
----@class (exact) army_controller_goal_sabotage_entityst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _army_controller_goal_sabotage_entityst.T_flag
----@field RETURNING flag-bit
-local flag
+---@alias _army_controller_goal_sabotage_entityst.T_flag_keys
+---| 0 # RETURNING
 
----@class _army_controller_goal_sabotage_entityst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _army_controller_goal_sabotage_entityst.T_flag_values
+---| "RETURNING" # 0
+
+---@class army_controller_goal_sabotage_entityst.T_flag: DFObject, { [_army_controller_goal_sabotage_entityst.T_flag_keys|_army_controller_goal_sabotage_entityst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _army_controller_goal_sabotage_entityst.T_flag
+local army_controller_goal_sabotage_entityst_flag = {
+  RETURNING = false,
+  [0] = false,
+}
+
+---@class _army_controller_goal_sabotage_entityst.T_flag: DFBitfield
+---@field RETURNING 0
+---@field [0] "RETURNING"
 df.army_controller_goal_sabotage_entityst.T_flag = {}
 
 ---@class (exact) army_controller_goal_infiltrate_societyst: DFObject
@@ -1131,8 +1498,7 @@ df.army_controller_goal_infiltrate_societyst = {}
 ---@alias army_flags
 ---| 0 # player
 
----@class _army_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _army_flags: DFEnum
 ---@field player 0
 ---@field [0] "player"
 df.army_flags = {}

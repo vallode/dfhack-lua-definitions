@@ -23,8 +23,7 @@ df.file_compressorst = {}
 ---| 2 # STOPSCREEN
 ---| 3 # TOFIRST
 
----@class _interface_breakdown_types: DFDescriptor
----@field _kind 'enum-type'
+---@class _interface_breakdown_types: DFEnum
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field QUIT 1
@@ -41,8 +40,7 @@ df.interface_breakdown_types = {}
 ---| 2 # AT_BACK
 ---| 3 # AT_FRONT
 
----@class _interface_push_types: DFDescriptor
----@field _kind 'enum-type'
+---@class _interface_push_types: DFEnum
 ---@field AS_PARENT 0
 ---@field [0] "AS_PARENT"
 ---@field AS_CHILD 1
@@ -143,16 +141,35 @@ local widget
 ---@field _kind 'class-type'
 df.widget = {}
 
----@class (exact) widget.T_visibility_flags: DFObject
----@field _kind 'struct'
----@field _type _widget.T_visibility_flags
----@field WIDGET_VISIBILITY_ACTIVE flag-bit
----@field WIDGET_VISIBILITY_VISIBLE flag-bit
----@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE flag-bit
-local visibility_flags
+---@alias _widget.T_visibility_flags_keys
+---| 0 # WIDGET_VISIBILITY_ACTIVE
+---| 1 # WIDGET_VISIBILITY_VISIBLE
+---| 2 # WIDGET_VISIBILITY_CAN_KEY_ACTIVATE
 
----@class _widget.T_visibility_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _widget.T_visibility_flags_values
+---| "WIDGET_VISIBILITY_ACTIVE" # 0
+---| "WIDGET_VISIBILITY_VISIBLE" # 1
+---| "WIDGET_VISIBILITY_CAN_KEY_ACTIVATE" # 2
+
+---@class widget.T_visibility_flags: DFObject, { [_widget.T_visibility_flags_keys|_widget.T_visibility_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _widget.T_visibility_flags
+local widget_visibility_flags = {
+  WIDGET_VISIBILITY_ACTIVE = false,
+  [0] = false,
+  WIDGET_VISIBILITY_VISIBLE = false,
+  [1] = false,
+  WIDGET_VISIBILITY_CAN_KEY_ACTIVATE = false,
+  [2] = false,
+}
+
+---@class _widget.T_visibility_flags: DFBitfield
+---@field WIDGET_VISIBILITY_ACTIVE 0
+---@field [0] "WIDGET_VISIBILITY_ACTIVE"
+---@field WIDGET_VISIBILITY_VISIBLE 1
+---@field [1] "WIDGET_VISIBILITY_VISIBLE"
+---@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE 2
+---@field [2] "WIDGET_VISIBILITY_CAN_KEY_ACTIVATE"
 df.widget.T_visibility_flags = {}
 
 ---@alias widget.T_tooltip_type
@@ -161,8 +178,7 @@ df.widget.T_visibility_flags = {}
 ---| 1 # ABOVE
 ---| 2 # BELOW
 
----@class _widget.T_tooltip_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _widget.T_tooltip_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field REPLACE_MINIMAP 0
@@ -222,6 +238,61 @@ local widget_text_multiline
 ---@class _widget_text_multiline: DFCompound
 ---@field _kind 'class-type'
 df.widget_text_multiline = {}
+
+---@alias _override_tile_type_keys
+---| 0 # OVERRIDE_CHAR
+---| 1 # OVERRIDE_TILE
+---| 2 # OVERRIDE_TOP_TILE
+---| 3 # OVERRIDE_LOWER_TILE
+---| 4 # OVERRIDE_TOP_LOWER_TILE
+---| 5 # OVERRIDE_ANCHORED_TILE
+---| 6 # OVERRIDE_TOP_ANCHORED_TILE
+
+---@alias _override_tile_type_values
+---| "OVERRIDE_CHAR" # 0
+---| "OVERRIDE_TILE" # 1
+---| "OVERRIDE_TOP_TILE" # 2
+---| "OVERRIDE_LOWER_TILE" # 3
+---| "OVERRIDE_TOP_LOWER_TILE" # 4
+---| "OVERRIDE_ANCHORED_TILE" # 5
+---| "OVERRIDE_TOP_ANCHORED_TILE" # 6
+
+---@class override_tile_type: DFObject, { [_override_tile_type_keys|_override_tile_type_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _override_tile_type
+local override_tile_type = {
+  OVERRIDE_CHAR = false,
+  [0] = false,
+  OVERRIDE_TILE = false,
+  [1] = false,
+  OVERRIDE_TOP_TILE = false,
+  [2] = false,
+  OVERRIDE_LOWER_TILE = false,
+  [3] = false,
+  OVERRIDE_TOP_LOWER_TILE = false,
+  [4] = false,
+  OVERRIDE_ANCHORED_TILE = false,
+  [5] = false,
+  OVERRIDE_TOP_ANCHORED_TILE = false,
+  [6] = false,
+}
+
+---@class _override_tile_type: DFBitfield
+---@field OVERRIDE_CHAR 0
+---@field [0] "OVERRIDE_CHAR"
+---@field OVERRIDE_TILE 1
+---@field [1] "OVERRIDE_TILE"
+---@field OVERRIDE_TOP_TILE 2
+---@field [2] "OVERRIDE_TOP_TILE"
+---@field OVERRIDE_LOWER_TILE 3
+---@field [3] "OVERRIDE_LOWER_TILE"
+---@field OVERRIDE_TOP_LOWER_TILE 4
+---@field [4] "OVERRIDE_TOP_LOWER_TILE"
+---@field OVERRIDE_ANCHORED_TILE 5
+---@field [5] "OVERRIDE_ANCHORED_TILE"
+---@field OVERRIDE_TOP_ANCHORED_TILE 6
+---@field [6] "OVERRIDE_TOP_ANCHORED_TILE"
+df.override_tile_type = {}
 
 ---@class (exact) widget_nineslice: DFObject, widget
 ---@field _kind 'struct'
@@ -292,8 +363,7 @@ df.widget_menu = {}
 ---| 2 # NONE
 
 -- bay12: TextboxType
----@class _textbox_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _textbox_type: DFEnum
 ---@field FILTER 0
 ---@field [0] "FILTER"
 ---@field NAME 1
@@ -473,8 +543,7 @@ df.widget_tabs = {}
 ---| 2 # SHORT_SUB
 ---| 3 # SHORT_SUBSUB
 
----@class _widget_tabs.T_tab_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _widget_tabs.T_tab_type: DFEnum
 ---@field DEFAULT 0
 ---@field [0] "DEFAULT"
 ---@field SHORT 1
@@ -612,8 +681,7 @@ df.widget_job_details_button = {}
 ---| 13 # CUSTOM_BUILD
 ---| 14 # FORCE_JOB_WIDTH
 
----@class _unit_list_options: DFDescriptor
----@field _kind 'enum-type'
+---@class _unit_list_options: DFEnum
 ---@field NONE 0
 ---@field [0] "NONE"
 ---@field PORTRAIT 1
@@ -645,6 +713,62 @@ df.widget_job_details_button = {}
 ---@field FORCE_JOB_WIDTH 14
 ---@field [14] "FORCE_JOB_WIDTH"
 df.unit_list_options = {}
+
+---@alias _unit_list_flag_keys
+---| 0 # show_gender
+---| 1 # custom_build
+---| 2 # force_job_width
+---| 3 # activate_on_cursor
+
+---@alias _unit_list_flag_values
+---| "show_gender" # 0
+---| "custom_build" # 1
+---| "force_job_width" # 2
+---| "activate_on_cursor" # 3
+
+---@class unit_list_flag: DFObject, { [_unit_list_flag_keys|_unit_list_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _unit_list_flag
+local unit_list_flag = {
+  show_gender = false,
+  [0] = false,
+  custom_build = false,
+  [1] = false,
+  force_job_width = false,
+  [2] = false,
+  activate_on_cursor = false,
+  [3] = false,
+}
+
+---@class _unit_list_flag: DFBitfield
+---@field show_gender 0
+---@field [0] "show_gender"
+---@field custom_build 1
+---@field [1] "custom_build"
+---@field force_job_width 2
+---@field [2] "force_job_width"
+---@field activate_on_cursor 3
+---@field [3] "activate_on_cursor"
+df.unit_list_flag = {}
+
+---@alias _unit_list_sort_flag_keys
+---| 0 # NEEDS_RESORTED
+
+---@alias _unit_list_sort_flag_values
+---| "NEEDS_RESORTED" # 0
+
+---@class unit_list_sort_flag: DFObject, { [_unit_list_sort_flag_keys|_unit_list_sort_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _unit_list_sort_flag
+local unit_list_sort_flag = {
+  NEEDS_RESORTED = false,
+  [0] = false,
+}
+
+---@class _unit_list_sort_flag: DFBitfield
+---@field NEEDS_RESORTED 0
+---@field [0] "NEEDS_RESORTED"
+df.unit_list_sort_flag = {}
 
 ---@class (exact) widget_unit_portrait: DFObject, widget
 ---@field _kind 'struct'
@@ -709,7 +833,6 @@ df.sort_entry = {}
 ---@class (exact) item_or_unit: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_or_unit
----@field  boolean
 local item_or_unit
 
 ---@class _item_or_unit: DFCompound
@@ -800,8 +923,7 @@ df.shared_world_headerst = {}
 ---| 2 # MANUAL
 ---| 3 # AUTO
 
----@class _shared_world_headerst.T_save_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _shared_world_headerst.T_save_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ACTIVE 0
@@ -869,7 +991,7 @@ df.region_headerst = {}
 ---@field belief_system number
 ---@field image_set number
 ---@field divination_set number
-local last_id
+local region_headerst_last_id
 
 ---@class _region_headerst.T_last_id: DFCompound
 ---@field _kind 'struct-type'
@@ -928,8 +1050,7 @@ df.viewscreen_adopt_regionst = {}
 ---| 34 # PreparingGame
 ---| 35 # Failed
 
----@class _viewscreen_adopt_regionst.T_cur_step: DFDescriptor
----@field _kind 'enum-type'
+---@class _viewscreen_adopt_regionst.T_cur_step: DFEnum
 ---@field OpeningFile 0
 ---@field [0] "OpeningFile"
 ---@field ProcessingRawData 1
@@ -1028,8 +1149,7 @@ df.viewscreen_adopt_regionst.T_cur_step = {}
 ---| 20 # Clay
 ---| 21 # Sand
 
----@class _embark_finder_option: DFDescriptor
----@field _kind 'enum-type'
+---@class _embark_finder_option: DFEnum
 ---@field DimensionX 0
 ---@field [0] "DimensionX"
 ---@field DimensionY 1
@@ -1175,8 +1295,7 @@ df.viewscreen_choose_start_sitest = {}
 ---| 7 # Find
 ---| 8 # Notes
 
----@class _viewscreen_choose_start_sitest.T_page: DFDescriptor
----@field _kind 'enum-type'
+---@class _viewscreen_choose_start_sitest.T_page: DFEnum
 ---@field Biome 0
 ---@field [0] "Biome"
 ---@field Neighbors 1
@@ -1197,23 +1316,77 @@ df.viewscreen_choose_start_sitest = {}
 ---@field [8] "Notes"
 df.viewscreen_choose_start_sitest.T_page = {}
 
----@class (exact) viewscreen_choose_start_sitest.T_warn_flags: DFObject
----@field _kind 'struct'
----@field _type _viewscreen_choose_start_sitest.T_warn_flags
----@field GENERIC flag-bit
----@field WATER_TABLE flag-bit
----@field HEAVY_WATER_TABLE flag-bit
----@field SALT_WATER flag-bit
----@field LARGE flag-bit
----@field SMALL flag-bit
----@field DEAD_CIV flag-bit
----@field SAVAGE flag-bit
----@field EVIL flag-bit
----@field UNDEAD flag-bit
-local warn_flags
+---@alias _viewscreen_choose_start_sitest.T_warn_flags_keys
+---| 0 # GENERIC
+---| 1 # WATER_TABLE
+---| 2 # HEAVY_WATER_TABLE
+---| 3 # SALT_WATER
+---| 4 # LARGE
+---| 5 # SMALL
+---| 6 # DEAD_CIV
+---| 7 # SAVAGE
+---| 8 # EVIL
+---| 9 # UNDEAD
 
----@class _viewscreen_choose_start_sitest.T_warn_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _viewscreen_choose_start_sitest.T_warn_flags_values
+---| "GENERIC" # 0
+---| "WATER_TABLE" # 1
+---| "HEAVY_WATER_TABLE" # 2
+---| "SALT_WATER" # 3
+---| "LARGE" # 4
+---| "SMALL" # 5
+---| "DEAD_CIV" # 6
+---| "SAVAGE" # 7
+---| "EVIL" # 8
+---| "UNDEAD" # 9
+
+---@class viewscreen_choose_start_sitest.T_warn_flags: DFObject, { [_viewscreen_choose_start_sitest.T_warn_flags_keys|_viewscreen_choose_start_sitest.T_warn_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _viewscreen_choose_start_sitest.T_warn_flags
+local viewscreen_choose_start_sitest_warn_flags = {
+  GENERIC = false,
+  [0] = false,
+  WATER_TABLE = false,
+  [1] = false,
+  HEAVY_WATER_TABLE = false,
+  [2] = false,
+  SALT_WATER = false,
+  [3] = false,
+  LARGE = false,
+  [4] = false,
+  SMALL = false,
+  [5] = false,
+  DEAD_CIV = false,
+  [6] = false,
+  SAVAGE = false,
+  [7] = false,
+  EVIL = false,
+  [8] = false,
+  UNDEAD = false,
+  [9] = false,
+}
+
+---@class _viewscreen_choose_start_sitest.T_warn_flags: DFBitfield
+---@field GENERIC 0
+---@field [0] "GENERIC"
+---@field WATER_TABLE 1
+---@field [1] "WATER_TABLE"
+---@field HEAVY_WATER_TABLE 2
+---@field [2] "HEAVY_WATER_TABLE"
+---@field SALT_WATER 3
+---@field [3] "SALT_WATER"
+---@field LARGE 4
+---@field [4] "LARGE"
+---@field SMALL 5
+---@field [5] "SMALL"
+---@field DEAD_CIV 6
+---@field [6] "DEAD_CIV"
+---@field SAVAGE 7
+---@field [7] "SAVAGE"
+---@field EVIL 8
+---@field [8] "EVIL"
+---@field UNDEAD 9
+---@field [9] "UNDEAD"
 df.viewscreen_choose_start_sitest.T_warn_flags = {}
 
 ---@alias viewscreen_choose_start_sitest.T_find_results
@@ -1222,8 +1395,7 @@ df.viewscreen_choose_start_sitest.T_warn_flags = {}
 ---| 1 # Partial
 ---| 2 # Suitable
 
----@class _viewscreen_choose_start_sitest.T_find_results: DFDescriptor
----@field _kind 'enum-type'
+---@class _viewscreen_choose_start_sitest.T_find_results: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field NoResult 0
@@ -1279,7 +1451,7 @@ df.mission = {}
 ---@class (exact) mission.T_details: DFObject
 ---@field _kind 'struct'
 ---@field _type _mission.T_details
-local details
+local mission_details
 
 ---@class _mission.T_details: DFCompound
 ---@field _kind 'struct-type'
@@ -1291,8 +1463,7 @@ df.mission.T_details = {}
 ---| 18 # RescuePerson
 ---| 19 # RequestWorkers
 
----@class _mission.T_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _mission.T_type: DFEnum
 ---@field Raid 2
 ---@field [2] "Raid"
 ---@field RecoverArtifact 17
@@ -1377,8 +1548,7 @@ df.viewscreen_export_regionst = {}
 ---| 37 # ClosingFile
 ---| 38 # SynchronizingFolders
 
----@class _viewscreen_export_regionst.T_state: DFDescriptor
----@field _kind 'enum-type'
+---@class _viewscreen_export_regionst.T_state: DFEnum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field PreliminaryCleaning 1
@@ -1464,7 +1634,7 @@ df.viewscreen_export_regionst.T_state = {}
 ---@field _type _viewscreen_export_regionst.T_units_progress
 ---@field current_save_file_id number
 ---@field offloaded_units number
-local units_progress
+local viewscreen_export_regionst_units_progress
 
 ---@class _viewscreen_export_regionst.T_units_progress: DFCompound
 ---@field _kind 'struct-type'
@@ -1485,8 +1655,7 @@ df.viewscreen_game_cleanerst = {}
 ---| 1 # CleaningStrandedObjects
 ---| 2 # CleaningPlayObjects
 
----@class _viewscreen_game_cleanerst.T_state: DFDescriptor
----@field _kind 'enum-type'
+---@class _viewscreen_game_cleanerst.T_state: DFEnum
 ---@field CleaningGameObjects 0
 ---@field [0] "CleaningGameObjects"
 ---@field CleaningStrandedObjects 1
@@ -1619,8 +1788,7 @@ df.legend_pagest = {}
 ---| 12 # FEATURE_LAYERS
 ---| 13 # POPULATIONS
 
----@class _legend_pagest.T_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _legend_pagest.T_mode: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MAIN 0
@@ -1839,8 +2007,7 @@ df.viewscreen_loadgamest = {}
 ---| 50 # Finishing
 
 -- After the on-screen text shown while loading.
----@class _viewscreen_loadgamest.T_cur_step: DFDescriptor
----@field _kind 'enum-type'
+---@class _viewscreen_loadgamest.T_cur_step: DFEnum
 ---@field OpeningFile 0
 ---@field [0] "OpeningFile"
 ---@field ProcessingRawData 1
@@ -2142,10 +2309,6 @@ df.nemesis_offload = {}
 ---@field progress number
 ---@field offload nemesis_offload
 ---@field compressor file_compressorst
----@field  string
----@field  string
----@field  string
----@field  number
 local viewscreen_savegamest
 
 ---@class _viewscreen_savegamest: DFCompound
@@ -2206,8 +2369,7 @@ df.viewscreen_savegamest = {}
 ---| 50 # ClosingFile
 ---| 51 # Finishing
 
----@class _viewscreen_savegamest.T_cur_step: DFDescriptor
----@field _kind 'enum-type'
+---@class _viewscreen_savegamest.T_cur_step: DFEnum
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -2323,8 +2485,7 @@ df.viewscreen_savegamest.T_cur_step = {}
 ---| 5 # High
 ---| 6 # Superior
 
----@class _adventurer_attribute_level: DFDescriptor
----@field _kind 'enum-type'
+---@class _adventurer_attribute_level: DFEnum
 ---@field VeryLow 0
 ---@field [0] "VeryLow"
 ---@field Low 1
@@ -2359,8 +2520,7 @@ df.startup_charactersheet_petst = {}
 ---| 0 # SQUAD_EPPID
 ---| 1 # REGULAR_UNIT
 
----@class _adv_background_option_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _adv_background_option_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SQUAD_EPPID 0
@@ -2437,8 +2597,7 @@ df.setup_character_info = {}
 ---| 1 # Hero
 ---| 2 # Demigod
 
----@class _setup_character_info.T_difficulty: DFDescriptor
----@field _kind 'enum-type'
+---@class _setup_character_info.T_difficulty: DFEnum
 ---@field Peasant 0
 ---@field [0] "Peasant"
 ---@field Hero 1
@@ -2462,8 +2621,7 @@ df.setup_character_info.T_difficulty = {}
 ---| 10 # SUB_MOUNTS_AND_PETS
 ---| 11 # FINAL_CONFIRMATION
 
----@class _setup_character_info.T_sub_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _setup_character_info.T_sub_mode: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field RACE 0
@@ -2532,7 +2690,7 @@ df.embark_symbol = {}
 ---@field unk_s4 number
 ---@field unk_s5 number
 ---@field unk_s6 number
-local unk_v43_sub9
+local embark_symbol_unk_v43_sub9
 
 ---@class _embark_symbol.T_unk_v43_sub9: DFCompound
 ---@field _kind 'struct-type'
@@ -2617,8 +2775,7 @@ df.viewscreen_choose_game_typest = {}
 ---| 1 # Folder
 
 -- bay12: SaveGameSort
----@class _save_game_sort_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _save_game_sort_type: DFEnum
 ---@field Name 0
 ---@field [0] "Name"
 ---@field Folder 1
@@ -2629,7 +2786,6 @@ df.save_game_sort_type = {}
 ---@field _kind 'struct'
 ---@field _type _viewscreen_titlest
 ---@field str_histories string
----@field  string
 ---@field clean_first boolean
 ---@field mode number
 ---@field selected number
@@ -2698,8 +2854,7 @@ df.viewscreen_update_regionst = {}
 ---| 6 # CITIZENS
 ---| 7 # ARTIFACTS
 
----@class _world_view_mode_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _world_view_mode_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field NORMAL 0
@@ -2784,17 +2939,7 @@ df.viewscreen_worldst = {}
 ---@class (exact) viewscreen_worldst.T_rumor_rpd: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd
----@field  number
----@field  number
----@field  number
----@field  number
----@field  number
----@field  number
----@field  number
----@field  number
----@field  number
----@field  number
-local rumor_rpd
+local viewscreen_worldst_rumor_rpd
 
 ---@class _viewscreen_worldst.T_rumor_rpd: DFCompound
 ---@field _kind 'struct-type'
@@ -2804,9 +2949,7 @@ df.viewscreen_worldst.T_rumor_rpd = {}
 ---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
----@field  number
----@field  number
-local rumor_rpd_indicator_data
+local viewscreen_worldst_rumor_rpd_indicator_data
 
 ---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompound
 ---@field _kind 'struct-type'

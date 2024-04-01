@@ -10,8 +10,7 @@
 ---| 4 # PUPIL_EYE
 ---| 5 # MOTTLED
 
----@class _pattern_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _pattern_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field MONOTONE 0
@@ -79,16 +78,35 @@ local descriptor_shape_vector
 ---@return descriptor_shape_vector # df.global.world.raws.descriptors.shapes
 function df.descriptor_shape.get_vector() end
 
----@class (exact) descriptor_shape.T_gems_use: DFObject
----@field _kind 'struct'
----@field _type _descriptor_shape.T_gems_use
----@field noun flag-bit
----@field adj flag-bit
----@field adj_noun flag-bit
-local gems_use
+---@alias _descriptor_shape.T_gems_use_keys
+---| 0 # noun
+---| 1 # adj
+---| 2 # adj_noun
 
----@class _descriptor_shape.T_gems_use: DFCompound
----@field _kind 'struct-type'
+---@alias _descriptor_shape.T_gems_use_values
+---| "noun" # 0
+---| "adj" # 1
+---| "adj_noun" # 2
+
+---@class descriptor_shape.T_gems_use: DFObject, { [_descriptor_shape.T_gems_use_keys|_descriptor_shape.T_gems_use_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _descriptor_shape.T_gems_use
+local descriptor_shape_gems_use = {
+  noun = false,
+  [0] = false,
+  adj = false,
+  [1] = false,
+  adj_noun = false,
+  [2] = false,
+}
+
+---@class _descriptor_shape.T_gems_use: DFBitfield
+---@field noun 0
+---@field [0] "noun"
+---@field adj 1
+---@field [1] "adj"
+---@field adj_noun 2
+---@field [2] "adj_noun"
 df.descriptor_shape.T_gems_use = {}
 
 ---@class (exact) descriptor_pattern: DFObject

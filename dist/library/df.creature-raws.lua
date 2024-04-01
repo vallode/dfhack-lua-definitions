@@ -123,8 +123,7 @@
 ---| 118 # HAS_ANY_NIGHT_CREATURE_EXPERIMENTER
 
 -- --  The comments indicate the creature raw tags whose presence/absence are<br>--  correlated with the flags. Tags with parameters, like those indicating<br>--  biomes, are currently not listed.<br>--  Flag names acquired from http://www.bay12forums.com/smf//index.php?topic=169696.msg8099138#msg8099138
----@class _creature_raw_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _creature_raw_flags: DFEnum
 ---@field EQUIPMENT 0 [EQUIPMENT_WAGON]
 ---@field [0] "EQUIPMENT" [EQUIPMENT_WAGON]
 ---@field EQUIPMENT_WAGON 1 [EQUIPMENT_WAGON]
@@ -546,8 +545,7 @@ df.creature_raw_flags = {}
 ---| 177 # NIGHT_CREATURE_EXPERIMENTER
 ---| 178 # SPREAD_EVIL_SPHERES_IF_RULER
 
----@class _caste_raw_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _caste_raw_flags: DFEnum
 ---@field CAN_BREATHE_WATER 0
 ---@field [0] "CAN_BREATHE_WATER"
 ---@field CANNOT_BREATHE_AIR 1
@@ -942,8 +940,7 @@ df.caste_raw_flags = {}
 ---| 33 # CONNECTOR
 ---| 38 # GELDABLE
 
----@class _body_part_raw_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _body_part_raw_flags: DFEnum
 ---@field HEAD 0
 ---@field [0] "HEAD"
 ---@field UPPERBODY 1
@@ -1036,8 +1033,7 @@ df.body_part_raw_flags = {}
 ---| 22 # DEEP_VOICE
 ---| 23 # RASPY_VOICE
 
----@class _appearance_modifier_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _appearance_modifier_type: DFEnum
 ---@field HEIGHT 0
 ---@field [0] "HEIGHT"
 ---@field BROADNESS 1
@@ -1091,8 +1087,7 @@ df.appearance_modifier_type = {}
 ---@alias body_part_layer_flags
 ---| 0 # CONNECTS
 
----@class _body_part_layer_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _body_part_layer_flags: DFEnum
 ---@field CONNECTS 0
 ---@field [0] "CONNECTS"
 df.body_part_layer_flags = {}
@@ -1103,8 +1098,7 @@ df.body_part_layer_flags = {}
 ---| 2 # MONTHLY
 ---| 3 # YEARLY
 
----@class _appearance_modifier_growth_interval: DFDescriptor
----@field _kind 'enum-type'
+---@class _appearance_modifier_growth_interval: DFEnum
 ---@field DAILY 0
 ---@field [0] "DAILY"
 ---@field WEEKLY 1
@@ -1260,19 +1254,41 @@ local caste_attack
 ---@field _kind 'struct-type'
 df.caste_attack = {}
 
----@class (exact) caste_attack.T_flags: DFObject
----@field _kind 'struct'
----@field _type _caste_attack.T_flags
----@field with flag-bit
----@field latch flag-bit
----@field main flag-bit
----@field edge flag-bit
----@field  flag-bit
----@field  flag-bit
-local flags
+---@alias _caste_attack.T_flags_keys
+---| 0 # with
+---| 1 # latch
+---| 2 # main
+---| 3 # edge
 
----@class _caste_attack.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _caste_attack.T_flags_values
+---| "with" # 0
+---| "latch" # 1
+---| "main" # 2
+---| "edge" # 3
+
+---@class caste_attack.T_flags: DFObject, { [_caste_attack.T_flags_keys|_caste_attack.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _caste_attack.T_flags
+local caste_attack_flags = {
+  with = false,
+  [0] = false,
+  latch = false,
+  [1] = false,
+  main = false,
+  [2] = false,
+  edge = false,
+  [3] = false,
+}
+
+---@class _caste_attack.T_flags: DFBitfield
+---@field with 0
+---@field [0] "with"
+---@field latch 1
+---@field [1] "latch"
+---@field main 2
+---@field [2] "main"
+---@field edge 3
+---@field [3] "edge"
 df.caste_attack.T_flags = {}
 
 ---@alias gait_type
@@ -1282,8 +1298,7 @@ df.caste_attack.T_flags = {}
 ---| 3 # CRAWL
 ---| 4 # CLIMB
 
----@class _gait_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _gait_type: DFEnum
 ---@field WALK 0
 ---@field [0] "WALK"
 ---@field FLY 1
@@ -1313,17 +1328,79 @@ local gait_info
 ---@field _kind 'struct-type'
 df.gait_info = {}
 
----@class (exact) gait_info.T_flags: DFObject
----@field _kind 'struct'
----@field _type _gait_info.T_flags
----@field layers_slow flag-bit
----@field strength flag-bit
----@field agility flag-bit
-local flags
+---@alias _gait_info.T_flags_keys
+---| 0 # layers_slow
+---| 1 # strength
+---| 2 # agility
 
----@class _gait_info.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _gait_info.T_flags_values
+---| "layers_slow" # 0
+---| "strength" # 1
+---| "agility" # 2
+
+---@class gait_info.T_flags: DFObject, { [_gait_info.T_flags_keys|_gait_info.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _gait_info.T_flags
+local gait_info_flags = {
+  layers_slow = false,
+  [0] = false,
+  strength = false,
+  [1] = false,
+  agility = false,
+  [2] = false,
+}
+
+---@class _gait_info.T_flags: DFBitfield
+---@field layers_slow 0
+---@field [0] "layers_slow"
+---@field strength 1
+---@field [1] "strength"
+---@field agility 2
+---@field [2] "agility"
 df.gait_info.T_flags = {}
+
+---@alias _creature_interaction_target_flags_keys
+---| 0 # LINE_OF_SIGHT
+---| 1 # TOUCHABLE
+---| 2 # DISTURBER_ONLY
+---| 3 # SELF_ALLOWED
+---| 4 # SELF_ONLY
+
+---@alias _creature_interaction_target_flags_values
+---| "LINE_OF_SIGHT" # 0
+---| "TOUCHABLE" # 1
+---| "DISTURBER_ONLY" # 2
+---| "SELF_ALLOWED" # 3
+---| "SELF_ONLY" # 4
+
+---@class creature_interaction_target_flags: DFObject, { [_creature_interaction_target_flags_keys|_creature_interaction_target_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _creature_interaction_target_flags
+local creature_interaction_target_flags = {
+  LINE_OF_SIGHT = false,
+  [0] = false,
+  TOUCHABLE = false,
+  [1] = false,
+  DISTURBER_ONLY = false,
+  [2] = false,
+  SELF_ALLOWED = false,
+  [3] = false,
+  SELF_ONLY = false,
+  [4] = false,
+}
+
+---@class _creature_interaction_target_flags: DFBitfield
+---@field LINE_OF_SIGHT 0
+---@field [0] "LINE_OF_SIGHT"
+---@field TOUCHABLE 1
+---@field [1] "TOUCHABLE"
+---@field DISTURBER_ONLY 2
+---@field [2] "DISTURBER_ONLY"
+---@field SELF_ALLOWED 3
+---@field [3] "SELF_ALLOWED"
+---@field SELF_ONLY 4
+---@field [4] "SELF_ONLY"
+df.creature_interaction_target_flags = {}
 
 ---@class (exact) creature_interaction: DFObject
 ---@field _kind 'struct'
@@ -1352,16 +1429,35 @@ local creature_interaction
 ---@field _kind 'struct-type'
 df.creature_interaction = {}
 
----@class (exact) creature_interaction.T_flags: DFObject
----@field _kind 'struct'
----@field _type _creature_interaction.T_flags
----@field CAN_BE_MUTUAL flag-bit
----@field VERBAL flag-bit
----@field FREE_ACTION flag-bit
-local flags
+---@alias _creature_interaction.T_flags_keys
+---| 0 # CAN_BE_MUTUAL
+---| 1 # VERBAL
+---| 2 # FREE_ACTION
 
----@class _creature_interaction.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _creature_interaction.T_flags_values
+---| "CAN_BE_MUTUAL" # 0
+---| "VERBAL" # 1
+---| "FREE_ACTION" # 2
+
+---@class creature_interaction.T_flags: DFObject, { [_creature_interaction.T_flags_keys|_creature_interaction.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _creature_interaction.T_flags
+local creature_interaction_flags = {
+  CAN_BE_MUTUAL = false,
+  [0] = false,
+  VERBAL = false,
+  [1] = false,
+  FREE_ACTION = false,
+  [2] = false,
+}
+
+---@class _creature_interaction.T_flags: DFBitfield
+---@field CAN_BE_MUTUAL 0
+---@field [0] "CAN_BE_MUTUAL"
+---@field VERBAL 1
+---@field [1] "VERBAL"
+---@field FREE_ACTION 2
+---@field [2] "FREE_ACTION"
 df.creature_interaction.T_flags = {}
 
 ---@class (exact) caste_body_info: DFObject
@@ -1380,14 +1476,23 @@ local caste_body_info
 ---@field _kind 'struct-type'
 df.caste_body_info = {}
 
----@class (exact) caste_body_info.T_flags: DFObject
----@field _kind 'struct'
----@field _type _caste_body_info.T_flags
----@field unk0 flag-bit
-local flags
+---@alias _caste_body_info.T_flags_keys
+---| 0 # unk0
 
----@class _caste_body_info.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _caste_body_info.T_flags_values
+---| "unk0" # 0
+
+---@class caste_body_info.T_flags: DFObject, { [_caste_body_info.T_flags_keys|_caste_body_info.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _caste_body_info.T_flags
+local caste_body_info_flags = {
+  unk0 = false,
+  [0] = false,
+}
+
+---@class _caste_body_info.T_flags: DFBitfield
+---@field unk0 0
+---@field [0] "unk0"
 df.caste_body_info.T_flags = {}
 
 ---@class (exact) caste_raw: DFObject
@@ -1472,7 +1577,7 @@ df.caste_raw = {}
 ---@field grazer number
 ---@field petvalue_divisor number
 ---@field prone_to_rage number
-local misc
+local caste_raw_misc
 
 ---@class _caste_raw.T_misc: DFCompound
 ---@field _kind 'struct-type'
@@ -1481,7 +1586,7 @@ df.caste_raw.T_misc = {}
 ---@class (exact) caste_raw.T_personality: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_personality
-local personality
+local caste_raw_personality
 
 ---@class _caste_raw.T_personality: DFCompound
 ---@field _kind 'struct-type'
@@ -1490,7 +1595,7 @@ df.caste_raw.T_personality = {}
 ---@class (exact) caste_raw.T_attributes: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_attributes
-local attributes
+local caste_raw_attributes
 
 ---@class _caste_raw.T_attributes: DFCompound
 ---@field _kind 'struct-type'
@@ -1499,7 +1604,7 @@ df.caste_raw.T_attributes = {}
 ---@class (exact) caste_raw.T_bp_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_bp_appearance
-local bp_appearance
+local caste_raw_bp_appearance
 
 ---@class _caste_raw.T_bp_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -1508,7 +1613,7 @@ df.caste_raw.T_bp_appearance = {}
 ---@class (exact) caste_raw.T_caste_profession_name: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_caste_profession_name
-local caste_profession_name
+local caste_raw_caste_profession_name
 
 ---@class _caste_raw.T_caste_profession_name: DFCompound
 ---@field _kind 'struct-type'
@@ -1536,7 +1641,7 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field pus_state number
 ---@field pus_mat number
 ---@field pus_matidx number
-local extracts
+local caste_raw_extracts
 
 ---@class _caste_raw.T_extracts: DFCompound
 ---@field _kind 'struct-type'
@@ -1549,7 +1654,7 @@ df.caste_raw.T_extracts = {}
 ---@field materials material_vec_ref
 ---@field mat_type number muscle: References: `material`
 ---@field mat_index number
-local unknown2
+local caste_raw_unknown2
 
 ---@class _caste_raw.T_unknown2: DFCompound
 ---@field _kind 'struct-type'
@@ -1558,7 +1663,7 @@ df.caste_raw.T_unknown2 = {}
 ---@class (exact) caste_raw.T_lair_hunter_speech: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_lair_hunter_speech
-local lair_hunter_speech
+local caste_raw_lair_hunter_speech
 
 ---@class _caste_raw.T_lair_hunter_speech: DFCompound
 ---@field _kind 'struct-type'
@@ -1567,7 +1672,7 @@ df.caste_raw.T_lair_hunter_speech = {}
 ---@class (exact) caste_raw.T_unk29: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_unk29
-local unk29
+local caste_raw_unk29
 
 ---@class _caste_raw.T_unk29: DFCompound
 ---@field _kind 'struct-type'
@@ -1582,8 +1687,7 @@ df.caste_raw.T_unk29 = {}
 ---| 5 # GHOST
 ---| 6 # CORPSE
 
----@class _creature_graphics_role: DFDescriptor
----@field _kind 'enum-type'
+---@class _creature_graphics_role: DFEnum
 ---@field DEFAULT 0
 ---@field [0] "DEFAULT"
 ---@field LAW_ENFORCE 1
@@ -1607,8 +1711,7 @@ df.creature_graphics_role = {}
 ---| 3 # PONY_TAILS
 ---| 4 # CLEAN_SHAVEN
 
----@class _tissue_style_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _tissue_style_type: DFEnum
 ---@field NEATLY_COMBED 0
 ---@field [0] "NEATLY_COMBED"
 ---@field BRAIDED 1
@@ -1683,7 +1786,7 @@ function df.creature_raw.get_vector() end
 ---@class (exact) creature_raw.T_profession_name: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_profession_name
-local profession_name
+local creature_raw_profession_name
 
 ---@class _creature_raw.T_profession_name: DFCompound
 ---@field _kind 'struct-type'
@@ -1693,7 +1796,7 @@ df.creature_raw.T_profession_name = {}
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_hive_product
 ---@field material material_vec_ref
-local hive_product
+local creature_raw_hive_product
 
 ---@class _creature_raw.T_hive_product: DFCompound
 ---@field _kind 'struct-type'
@@ -1768,8 +1871,7 @@ function df.creature_variation.get_vector() end
 ---| 31 # PREVENTS_PARENT_COLLAPSE
 ---| 32 # GELDABLE
 
----@class _body_part_template_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _body_part_template_flags: DFEnum
 ---@field HEAD 0
 ---@field [0] "HEAD"
 ---@field UPPERBODY 1
@@ -1846,8 +1948,7 @@ df.body_part_template_flags = {}
 ---| 3 # GRASP
 ---| 4 # STANCE
 
----@class _body_part_template_contype: DFDescriptor
----@field _kind 'enum-type'
+---@class _body_part_template_contype: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field UPPERBODY 0
@@ -1922,8 +2023,7 @@ function df.body_template.get_vector() end
 ---| 20 # SETTABLE
 ---| 21 # SPLINTABLE
 
----@class _tissue_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _tissue_flags: DFEnum
 ---@field THICKENS_ON_STRENGTH 0
 ---@field [0] "THICKENS_ON_STRENGTH"
 ---@field THICKENS_ON_ENERGY_STORAGE 1

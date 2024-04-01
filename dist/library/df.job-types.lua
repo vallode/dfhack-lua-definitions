@@ -20,8 +20,7 @@
 ---| 15 # Medicine
 
 -- not in DF
----@class _job_type_class: DFDescriptor
----@field _kind 'enum-type'
+---@class _job_type_class: DFEnum
 ---@field Misc 0
 ---@field [0] "Misc"
 ---@field Digging 1
@@ -301,8 +300,7 @@ df.job_type_class = {}
 ---| 240 # InterrogateSubject
 ---| 241 # unk_fake_no_activity
 
----@class _job_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _job_type: DFEnum
 ---@field NONE -1 unused
 ---@field [-1] "NONE" unused
 ---@field CarveFortification 0 -- 0

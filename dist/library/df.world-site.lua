@@ -73,8 +73,7 @@ df.location_scribe_jobs = {}
 ---| 12 # TOWER
 ---| 13 # HOSPITAL
 
----@class _abstract_building_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _abstract_building_type: DFEnum
 ---@field MEAD_HALL 0
 ---@field [0] "MEAD_HALL"
 ---@field KEEP 1
@@ -115,8 +114,7 @@ df.abstract_building_type = {}
 ---| 6 # MEMBERS_ONLY
 ---| 7 # UNUSED8
 
----@class _abstract_building_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _abstract_building_flags: DFEnum
 ---@field WG_RUINED 0
 ---@field [0] "WG_RUINED"
 ---@field DOES_NOT_EXIST 1
@@ -182,24 +180,77 @@ local abstract_building_contents
 ---@field _kind 'struct-type'
 df.abstract_building_contents = {}
 
----@class (exact) abstract_building_contents.T_need_more: DFObject
----@field _kind 'struct'
----@field _type _abstract_building_contents.T_need_more
----@field goblets flag-bit
----@field instruments flag-bit
----@field paper flag-bit
----@field  flag-bit
----@field splints flag-bit
----@field thread flag-bit
----@field cloth flag-bit
----@field crutches flag-bit
----@field powder flag-bit
----@field buckets flag-bit
----@field soap flag-bit
-local need_more
+---@alias _abstract_building_contents.T_need_more_keys
+---| 0 # goblets
+---| 1 # instruments
+---| 2 # paper
+---| 4 # splints
+---| 5 # thread
+---| 6 # cloth
+---| 7 # crutches
+---| 8 # powder
+---| 9 # buckets
+---| 10 # soap
 
----@class _abstract_building_contents.T_need_more: DFCompound
----@field _kind 'struct-type'
+---@alias _abstract_building_contents.T_need_more_values
+---| "goblets" # 0
+---| "instruments" # 1
+---| "paper" # 2
+---| "splints" # 4
+---| "thread" # 5
+---| "cloth" # 6
+---| "crutches" # 7
+---| "powder" # 8
+---| "buckets" # 9
+---| "soap" # 10
+
+---@class abstract_building_contents.T_need_more: DFObject, { [_abstract_building_contents.T_need_more_keys|_abstract_building_contents.T_need_more_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _abstract_building_contents.T_need_more
+local abstract_building_contents_need_more = {
+  goblets = false,
+  [0] = false,
+  instruments = false,
+  [1] = false,
+  paper = false,
+  [2] = false,
+  splints = false,
+  [4] = false,
+  thread = false,
+  [5] = false,
+  cloth = false,
+  [6] = false,
+  crutches = false,
+  [7] = false,
+  powder = false,
+  [8] = false,
+  buckets = false,
+  [9] = false,
+  soap = false,
+  [10] = false,
+}
+
+---@class _abstract_building_contents.T_need_more: DFBitfield
+---@field goblets 0
+---@field [0] "goblets"
+---@field instruments 1
+---@field [1] "instruments"
+---@field paper 2
+---@field [2] "paper"
+---@field splints 4
+---@field [4] "splints"
+---@field thread 5
+---@field [5] "thread"
+---@field cloth 6
+---@field [6] "cloth"
+---@field crutches 7
+---@field [7] "crutches"
+---@field powder 8
+---@field [8] "powder"
+---@field buckets 9
+---@field [9] "buckets"
+---@field soap 10
+---@field [10] "soap"
 df.abstract_building_contents.T_need_more = {}
 
 ---@class (exact) abstract_building: DFObject
@@ -243,8 +294,7 @@ df.abstract_building_keepst = {}
 ---| 0 # Deity
 ---| 1 # Religion
 
----@class _temple_deity_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _temple_deity_type: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Deity 0
@@ -330,8 +380,7 @@ df.abstract_building_dungeonst = {}
 ---| 1 # SEWERS
 ---| 2 # CATACOMBS
 
----@class _abstract_building_dungeonst.T_dungeon_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _abstract_building_dungeonst.T_dungeon_type: DFEnum
 ---@field DUNGEON 0
 ---@field [0] "DUNGEON"
 ---@field SEWERS 1
@@ -434,8 +483,7 @@ df.abstract_building_hospitalst = {}
 ---| 9 # Camp
 ---| 10 # Monument
 
----@class _world_site_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _world_site_type: DFEnum
 ---@field PlayerFortress 0
 ---@field [0] "PlayerFortress"
 ---@field DarkFortress 1
@@ -467,8 +515,7 @@ df.world_site_type = {}
 ---| 2 # MONASTERY
 ---| 3 # FORT
 
----@class _fortress_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _fortress_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CASTLE 0
@@ -486,8 +533,7 @@ df.fortress_type = {}
 ---| 0 # TOMB
 ---| 1 # VAULT
 
----@class _monument_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _monument_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field TOMB 0
@@ -504,8 +550,7 @@ df.monument_type = {}
 ---| 3 # SHRINE
 ---| 4 # WILDERNESS_LOCATION
 
----@class _lair_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _lair_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SIMPLE_MOUND 0 Night creatures
@@ -584,14 +629,23 @@ local site_cropst
 ---@field _kind 'struct-type'
 df.site_cropst = {}
 
----@class (exact) site_cropst.T_flag: DFObject
----@field _kind 'struct'
----@field _type _site_cropst.T_flag
----@field has_growths flag-bit
-local flag
+---@alias _site_cropst.T_flag_keys
+---| 0 # has_growths
 
----@class _site_cropst.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _site_cropst.T_flag_values
+---| "has_growths" # 0
+
+---@class site_cropst.T_flag: DFObject, { [_site_cropst.T_flag_keys|_site_cropst.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _site_cropst.T_flag
+local site_cropst_flag = {
+  has_growths = false,
+  [0] = false,
+}
+
+---@class _site_cropst.T_flag: DFBitfield
+---@field has_growths 0
+---@field [0] "has_growths"
 df.site_cropst.T_flag = {}
 
 ---@alias religious_practice_type
@@ -599,8 +653,7 @@ df.site_cropst.T_flag = {}
 ---| 0 # WORSHIP_HFID
 ---| 1 # RELIGION_ENID
 
----@class _religious_practice_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _religious_practice_type: DFEnum
 ---@field NONE -1 bay12: ReligiousPractice
 ---@field [-1] "NONE" bay12: ReligiousPractice
 ---@field WORSHIP_HFID 0
@@ -627,7 +680,7 @@ df.site_religious_structurest = {}
 ---@field practice_id number
 ---@field hfid number References: `historical_figure`
 ---@field enid number References: `historical_entity`
-local data
+local site_religious_structurest_data
 
 ---@class _site_religious_structurest.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -678,8 +731,7 @@ df.site_culture_infrastructurest = {}
 ---| 22 # UNUSED23
 ---| 23 # UNUSED24
 
----@class _site_flag_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _site_flag_type: DFEnum
 ---@field HIDDEN 0 SiteFlagType
 ---@field [0] "HIDDEN" SiteFlagType
 ---@field RUINED 1
@@ -742,8 +794,7 @@ df.site_flag_type = {}
 ---| 8 # SITE_RAMPAGE
 
 -- bay12: LocationDeath
----@class _location_death_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _location_death_type: DFEnum
 ---@field NATURAL 0
 ---@field [0] "NATURAL"
 ---@field STARVATION 1
@@ -819,8 +870,7 @@ df.site_map_infost = {}
 ---| 4 # GENERALIZED_DEATH
 
 -- bay12: SiteArchitectureChangeType
----@class _site_architecture_change_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _site_architecture_change_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field DOMINANT_ENTITY 0
@@ -873,7 +923,7 @@ df.wg_site_culture_identity_religious_practicest = {}
 ---@field practice_id number
 ---@field hfid number References: `historical_figure`
 ---@field enid number References: `historical_entity`
-local data
+local wg_site_culture_identity_religious_practicest_data
 
 ---@class _wg_site_culture_identity_religious_practicest.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -896,8 +946,7 @@ df.wg_site_culture_identityst = {}
 ---| 2 # ENTITY_1_INVEIGHS_AGAINST_ENTITY_2
 ---| 3 # ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2
 
----@class _cultural_interaction_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _cultural_interaction_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field ENTITY_1_PERSECUTES_ENTITY_2 0
@@ -1143,8 +1192,7 @@ df.site_realization_crossroads = {}
 ---| 30 # necromancer_tower
 ---| 31 # barrow
 
----@class _site_realization_building_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _site_realization_building_type: DFEnum
 ---@field cottage_plot 0
 ---@field [0] "cottage_plot"
 ---@field castle_wall 1
@@ -1254,6 +1302,49 @@ local site_building_item
 ---@field _kind 'struct-type'
 df.site_building_item = {}
 
+---@alias _tower_shape_keys
+---| 0 # round
+---| 1 # hollow
+---| 2 # keep
+---| 3 # goblin
+---| 4 # unk10
+
+---@alias _tower_shape_values
+---| "round" # 0
+---| "hollow" # 1
+---| "keep" # 2
+---| "goblin" # 3
+---| "unk10" # 4
+
+---@class tower_shape: DFObject, { [_tower_shape_keys|_tower_shape_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _tower_shape
+local tower_shape = {
+  round = false,
+  [0] = false,
+  hollow = false, -- no internal floors or fortifications
+  [1] = false, -- no internal floors or fortifications
+  keep = false, -- fill with rooms at the bottom
+  [2] = false, -- fill with rooms at the bottom
+  goblin = false, -- ignore set heights and generate automatically
+  [3] = false, -- ignore set heights and generate automatically
+  unk10 = false, -- set on goblin towers. doesnt seem to do anything
+  [4] = false, -- set on goblin towers. doesnt seem to do anything
+}
+
+---@class _tower_shape: DFBitfield
+---@field round 0
+---@field [0] "round"
+---@field hollow 1 no internal floors or fortifications
+---@field [1] "hollow" no internal floors or fortifications
+---@field keep 2 fill with rooms at the bottom
+---@field [2] "keep" fill with rooms at the bottom
+---@field goblin 3 ignore set heights and generate automatically
+---@field [3] "goblin" ignore set heights and generate automatically
+---@field unk10 4 set on goblin towers. doesnt seem to do anything
+---@field [4] "unk10" set on goblin towers. doesnt seem to do anything
+df.tower_shape = {}
+
 ---@class (exact) site_realization_building_info_castle_wallst: DFObject, site_realization_building_infost
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_info_castle_wallst
@@ -1330,8 +1421,7 @@ df.site_realization_building_info_castle_courtyardst = {}
 ---| 24 # ProcessedGoodsMarket
 ---| 25 # Tavern
 
----@class _site_shop_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _site_shop_type: DFEnum
 ---@field GeneralImports 0
 ---@field [0] "GeneralImports"
 ---@field FoodImports 1
@@ -1404,8 +1494,7 @@ df.site_shop_type = {}
 ---| 13 # FURNITURE_STONE
 ---| 14 # FURNITURE_METAL
 
----@class _town_labor_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _town_labor_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field CLOTH 0
@@ -1479,8 +1568,7 @@ df.site_realization_building_info_trenchesst = {}
 ---| 4 # Unknown1
 ---| 5 # Unknown2
 
----@class _tree_house_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _tree_house_type: DFEnum
 ---@field TreeHouse 0
 ---@field [0] "TreeHouse"
 ---@field HomeTree 1
@@ -1512,8 +1600,7 @@ df.site_realization_building_info_tree_housest = {}
 ---| 2 # CastleMound
 ---| 3 # DrinkingMound
 
----@class _hillock_house_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _hillock_house_type: DFEnum
 ---@field CivicMound 1
 ---@field [1] "CivicMound"
 ---@field CastleMound 2
@@ -1549,8 +1636,7 @@ df.site_realization_building_info_shrinest = {}
 ---| 2 # srb_ruined
 ---| 3 # srp_ruined
 
----@class _creation_zone_pwg_alteration_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _creation_zone_pwg_alteration_type: DFEnum
 ---@field location_death 0
 ---@field [0] "location_death"
 ---@field camp 1
@@ -1585,7 +1671,7 @@ df.creation_zone_pwg_alteration_location_deathst = {}
 ---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFObject
 ---@field _kind 'struct'
 ---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
-local unk_1
+local creation_zone_pwg_alteration_location_deathst_unk_1
 
 ---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompound
 ---@field _kind 'struct-type'

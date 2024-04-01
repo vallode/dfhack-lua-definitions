@@ -6,8 +6,7 @@
 ---| 1 # CENTRALIZE
 ---| 2 # REPLACE_ALL
 
----@class _d_init_nickname: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_nickname: DFEnum
 ---@field REPLACE_FIRST 0
 ---@field [0] "REPLACE_FIRST"
 ---@field CENTRALIZE 1
@@ -21,8 +20,7 @@ df.d_init_nickname = {}
 ---| 1 # IF_POINTS_REMAIN
 ---| 2 # NO
 
----@class _d_init_embark_confirm: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_embark_confirm: DFEnum
 ---@field ALWAYS 0
 ---@field [0] "ALWAYS"
 ---@field IF_POINTS_REMAIN 1
@@ -36,8 +34,7 @@ df.d_init_embark_confirm = {}
 ---| 1 # FINDER
 ---| 2 # ALWAYS
 
----@class _d_init_tunnel: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_tunnel: DFEnum
 ---@field NO 0
 ---@field [0] "NO"
 ---@field FINDER 1
@@ -53,8 +50,7 @@ df.d_init_tunnel = {}
 ---| 3 # SHOW_FLOW_AMOUNTS
 ---| 4 # SHOW_RAMP_ARROWS
 
----@class _d_init_flags1: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_flags1: DFEnum
 ---@field VARIED_GROUND_TILES 0
 ---@field [0] "VARIED_GROUND_TILES"
 ---@field ENGRAVINGS_START_OBSCURED 1
@@ -72,8 +68,7 @@ df.d_init_flags1 = {}
 ---| 1 # ADVENTURER_TRAPS
 ---| 2 # ADVENTURER_ALWAYS_CENTER
 
----@class _d_init_flags2: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_flags2: DFEnum
 ---@field MORE 0
 ---@field [0] "MORE"
 ---@field ADVENTURER_TRAPS 1
@@ -85,8 +80,7 @@ df.d_init_flags2 = {}
 ---@alias d_init_flags3
 ---| 0 # COFFIN_NO_PETS_DEFAULT
 
----@class _d_init_flags3: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_flags3: DFEnum
 ---@field COFFIN_NO_PETS_DEFAULT 0
 ---@field [0] "COFFIN_NO_PETS_DEFAULT"
 df.d_init_flags3 = {}
@@ -109,8 +103,7 @@ df.d_init_flags3 = {}
 ---| 19 # KEYBOARD_CURSOR
 ---| 20 # MULTITHREADING
 
----@class _d_init_flags4: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_flags4: DFEnum
 ---@field TEMPERATURE 0
 ---@field [0] "TEMPERATURE"
 ---@field WEATHER 1
@@ -151,8 +144,7 @@ df.d_init_flags4 = {}
 ---| 1 # YEARLY
 ---| 2 # SEMIANNUAL
 
----@class _d_init_autosave: DFDescriptor
----@field _kind 'enum-type'
+---@class _d_init_autosave: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SEASONAL 0
@@ -170,12 +162,8 @@ df.d_init_autosave = {}
 ---@field chasm_tile integer
 ---@field pillar_tile integer
 ---@field wound_color d_init.T_wound_color
----@field  number
 ---@field show_embark_tunnel d_init_tunnel probably IDLERS
 ---@field number_of_lower_elevations_shown number
----@field  number
----@field  number
----@field  number
 ---@field population_cap number
 ---@field strict_population_cap number
 ---@field baby_cap_absolute number
@@ -201,7 +189,7 @@ df.d_init = {}
 ---@class (exact) d_init.T_wound_color: DFObject
 ---@field _kind 'struct'
 ---@field _type _d_init.T_wound_color
-local wound_color
+local d_init_wound_color
 
 ---@class _d_init.T_wound_color: DFCompound
 ---@field _kind 'struct-type'
@@ -215,7 +203,7 @@ df.d_init.T_wound_color = {}
 ---@field bucket_combine number
 ---@field barrel_combine number
 ---@field bin_combine number
-local store_dist
+local d_init_store_dist
 
 ---@class _d_init.T_store_dist: DFCompound
 ---@field _kind 'struct-type'

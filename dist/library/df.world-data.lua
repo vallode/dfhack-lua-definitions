@@ -21,8 +21,7 @@ df.world_site_unk130 = {}
 ---| 6 # Grass
 ---| 7 # Bush
 
----@class _world_population_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _world_population_type: DFEnum
 ---@field Animal 0
 ---@field [0] "Animal"
 ---@field Vermin 1
@@ -95,17 +94,41 @@ local local_population
 ---@field _kind 'struct-type'
 df.local_population = {}
 
----@class (exact) local_population.T_flags: DFObject
----@field _kind 'struct'
----@field _type _local_population.T_flags
----@field discovered flag-bit
----@field extinct flag-bit guessed, based on 23a
----@field already_removed flag-bit no longer in world.populations
----@field unk3 flag-bit prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
-local flags
+---@alias _local_population.T_flags_keys
+---| 0 # discovered
+---| 1 # extinct
+---| 2 # already_removed
+---| 3 # unk3
 
----@class _local_population.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _local_population.T_flags_values
+---| "discovered" # 0
+---| "extinct" # 1
+---| "already_removed" # 2
+---| "unk3" # 3
+
+---@class local_population.T_flags: DFObject, { [_local_population.T_flags_keys|_local_population.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _local_population.T_flags
+local local_population_flags = {
+  discovered = false,
+  [0] = false,
+  extinct = false, -- guessed, based on 23a
+  [1] = false, -- guessed, based on 23a
+  already_removed = false, -- no longer in world.populations
+  [2] = false, -- no longer in world.populations
+  unk3 = false, -- prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
+  [3] = false, -- prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
+}
+
+---@class _local_population.T_flags: DFBitfield
+---@field discovered 0
+---@field [0] "discovered"
+---@field extinct 1 guessed, based on 23a
+---@field [1] "extinct" guessed, based on 23a
+---@field already_removed 2 no longer in world.populations
+---@field [2] "already_removed" no longer in world.populations
+---@field unk3 3 prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
+---@field [3] "unk3" prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
 df.local_population.T_flags = {}
 
 ---@class (exact) world_population: DFObject
@@ -167,8 +190,7 @@ function df.world_landmass.get_vector() end
 ---| 8 # Steppe
 ---| 9 # Hills
 
----@class _world_region_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _world_region_type: DFEnum
 ---@field Swamp 0
 ---@field [0] "Swamp"
 ---@field Desert 1
@@ -271,8 +293,7 @@ function df.world_underground_region.get_vector() end
 ---| 1 # MagmaSea
 ---| 2 # Underworld
 
----@class _world_underground_region.T_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _world_underground_region.T_type: DFEnum
 ---@field Cavern 0
 ---@field [0] "Cavern"
 ---@field MagmaSea 1
@@ -305,8 +326,7 @@ df.world_river = {}
 ---| 7 # SEDIMENTARY_OCEAN_SHALLOW
 ---| 8 # SEDIMENTARY_OCEAN_DEEP
 
----@class _geo_layer_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _geo_layer_type: DFEnum
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SEDIMENTARY 1
@@ -402,8 +422,6 @@ df.world_region_feature = {}
 ---@field rivers_vertical world_region_details.T_rivers_vertical
 ---@field rivers_horizontal world_region_details.T_rivers_horizontal
 ---@field lava_stone number References: `inorganic_raw`
----@field  number
----@field  number
 local world_region_details
 
 ---@class _world_region_details: DFCompound
@@ -414,7 +432,7 @@ df.world_region_details = {}
 ---@class (exact) world_region_details.T_edges: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_edges
-local edges
+local world_region_details_edges
 
 ---@class _world_region_details.T_edges: DFCompound
 ---@field _kind 'struct-type'
@@ -424,7 +442,7 @@ df.world_region_details.T_edges = {}
 ---@class (exact) world_region_details.T_rivers_vertical: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_vertical
-local rivers_vertical
+local world_region_details_rivers_vertical
 
 ---@class _world_region_details.T_rivers_vertical: DFCompound
 ---@field _kind 'struct-type'
@@ -433,7 +451,7 @@ df.world_region_details.T_rivers_vertical = {}
 ---@class (exact) world_region_details.T_rivers_horizontal: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_horizontal
-local rivers_horizontal
+local world_region_details_rivers_horizontal
 
 ---@class _world_region_details.T_rivers_horizontal: DFCompound
 ---@field _kind 'struct-type'
@@ -454,8 +472,7 @@ df.world_region_details.T_rivers_horizontal = {}
 ---| 15 # is_brook
 ---| 16 # has_road
 
----@class _region_map_entry_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _region_map_entry_flags: DFEnum
 ---@field has_river 0
 ---@field [0] "has_river"
 ---@field tile_variant 1
@@ -490,8 +507,7 @@ df.region_map_entry_flags = {}
 ---| 2 # front_cold
 ---| 3 # front_occluded
 
----@class _front_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _front_type: DFEnum
 ---@field front_none 0
 ---@field [0] "front_none"
 ---@field front_warm 1
@@ -508,8 +524,7 @@ df.front_type = {}
 ---| 2 # cumulus_multi
 ---| 3 # cumulus_nimbus
 
----@class _cumulus_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _cumulus_type: DFEnum
 ---@field cumulus_none 0
 ---@field [0] "cumulus_none"
 ---@field cumulus_medium 1
@@ -526,8 +541,7 @@ df.cumulus_type = {}
 ---| 2 # stratus_proper
 ---| 3 # stratus_nimbus
 
----@class _stratus_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _stratus_type: DFEnum
 ---@field stratus_none 0
 ---@field [0] "stratus_none"
 ---@field stratus_alto 1
@@ -544,8 +558,7 @@ df.stratus_type = {}
 ---| 2 # fog_normal
 ---| 3 # fog_thick
 
----@class _fog_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _fog_type: DFEnum
 ---@field fog_none 0
 ---@field [0] "fog_none"
 ---@field fog_mist 1
@@ -588,37 +601,114 @@ local region_map_entry
 ---@field _kind 'struct-type'
 df.region_map_entry = {}
 
----@class (exact) region_map_entry.T_clouds: DFObject
----@field _kind 'struct'
----@field _type _region_map_entry.T_clouds
----@field front flag-bit
----@field cumulus flag-bit
----@field cirrus flag-bit
----@field stratus flag-bit
----@field fog flag-bit
----@field countdown flag-bit A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
-local clouds
+---@alias _region_map_entry.T_clouds_keys
+---| 0 # front
+---| 1 # cumulus
+---| 2 # cirrus
+---| 3 # stratus
+---| 4 # fog
+---| 5 # countdown
 
----@class _region_map_entry.T_clouds: DFCompound
----@field _kind 'struct-type'
+---@alias _region_map_entry.T_clouds_values
+---| "front" # 0
+---| "cumulus" # 1
+---| "cirrus" # 2
+---| "stratus" # 3
+---| "fog" # 4
+---| "countdown" # 5
+
+---@class region_map_entry.T_clouds: DFObject, { [_region_map_entry.T_clouds_keys|_region_map_entry.T_clouds_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _region_map_entry.T_clouds
+local region_map_entry_clouds = {
+  front = false,
+  [0] = false,
+  cumulus = false,
+  [1] = false,
+  cirrus = false,
+  [2] = false,
+  stratus = false,
+  [3] = false,
+  fog = false,
+  [4] = false,
+  countdown = false, -- A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+  [5] = false, -- A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+}
+
+---@class _region_map_entry.T_clouds: DFBitfield
+---@field front 0
+---@field [0] "front"
+---@field cumulus 1
+---@field [1] "cumulus"
+---@field cirrus 2
+---@field [2] "cirrus"
+---@field stratus 3
+---@field [3] "stratus"
+---@field fog 4
+---@field [4] "fog"
+---@field countdown 5 A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+---@field [5] "countdown" A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 df.region_map_entry.T_clouds = {}
 
--- blows toward direction in morning
----@class (exact) region_map_entry.T_wind: DFObject
----@field _kind 'struct'
----@field _type _region_map_entry.T_wind
----@field north_1 flag-bit
----@field south_1 flag-bit
----@field east_1 flag-bit
----@field west_1 flag-bit
----@field north_2 flag-bit
----@field south_2 flag-bit
----@field east_2 flag-bit
----@field west_2 flag-bit
-local wind
+---@alias _region_map_entry.T_wind_keys
+---| 0 # north_1
+---| 1 # south_1
+---| 2 # east_1
+---| 3 # west_1
+---| 4 # north_2
+---| 5 # south_2
+---| 6 # east_2
+---| 7 # west_2
 
----@class _region_map_entry.T_wind: DFCompound
----@field _kind 'struct-type'
+---@alias _region_map_entry.T_wind_values
+---| "north_1" # 0
+---| "south_1" # 1
+---| "east_1" # 2
+---| "west_1" # 3
+---| "north_2" # 4
+---| "south_2" # 5
+---| "east_2" # 6
+---| "west_2" # 7
+
+---@class region_map_entry.T_wind: DFObject, { [_region_map_entry.T_wind_keys|_region_map_entry.T_wind_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _region_map_entry.T_wind
+local region_map_entry_wind = {
+  north_1 = false,
+  [0] = false,
+  south_1 = false,
+  [1] = false,
+  east_1 = false,
+  [2] = false,
+  west_1 = false,
+  [3] = false,
+  north_2 = false,
+  [4] = false,
+  south_2 = false,
+  [5] = false,
+  east_2 = false,
+  [6] = false,
+  west_2 = false,
+  [7] = false,
+}
+
+---@class _region_map_entry.T_wind: DFBitfield
+---@field north_1 0
+---@field [0] "north_1"
+---@field south_1 1
+---@field [1] "south_1"
+---@field east_1 2
+---@field [2] "east_1"
+---@field west_1 3
+---@field [3] "west_1"
+---@field north_2 4
+---@field [4] "north_2"
+---@field south_2 5
+---@field [5] "south_2"
+---@field east_2 6
+---@field [6] "east_2"
+---@field west_2 7
+---@field [7] "west_2"
 df.region_map_entry.T_wind = {}
 
 ---@class (exact) entity_claim_mask: DFObject
@@ -681,7 +771,7 @@ function df.world_object_data.get_vector() end
 ---@class (exact) world_object_data.T_picked_growths: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_picked_growths
-local picked_growths
+local world_object_data_picked_growths
 
 ---@class _world_object_data.T_picked_growths: DFCompound
 ---@field _kind 'struct-type'
@@ -691,7 +781,7 @@ df.world_object_data.T_picked_growths = {}
 ---@class (exact) world_object_data.T_unk_v43: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_unk_v43
-local unk_v43
+local world_object_data_unk_v43
 
 ---@class _world_object_data.T_unk_v43: DFCompound
 ---@field _kind 'struct-type'
@@ -700,8 +790,7 @@ df.world_object_data.T_unk_v43 = {}
 ---@alias mountain_peak_flags
 ---| 0 # is_volcano
 
----@class _mountain_peak_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _mountain_peak_flags: DFEnum
 ---@field is_volcano 0
 ---@field [0] "is_volcano"
 df.mountain_peak_flags = {}
@@ -784,8 +873,7 @@ df.world_data = {}
 ---| 1 # South
 ---| 2 # Both
 
----@class _world_data.T_flip_latitude: DFDescriptor
----@field _kind 'enum-type'
+---@class _world_data.T_flip_latitude: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field North 0
@@ -801,7 +889,7 @@ df.world_data.T_flip_latitude = {}
 ---@field _type _world_data.T_unk_b4
 ---@field world_width2 number
 ---@field world_height2 number
-local unk_b4
+local world_data_unk_b4
 
 ---@class _world_data.T_unk_b4: DFCompound
 ---@field _kind 'struct-type'
@@ -813,7 +901,7 @@ df.world_data.T_unk_b4 = {}
 ---@field width number
 ---@field height number
 ---@field next_id number
-local constructions
+local world_data_constructions
 
 ---@class _world_data.T_constructions: DFCompound
 ---@field _kind 'struct-type'
@@ -829,7 +917,7 @@ df.world_data.T_constructions = {}
 ---@field unk_6 number
 ---@field unk_7 number
 ---@field unk_8 number
-local unk_482f8
+local world_data_unk_482f8
 
 ---@class _world_data.T_unk_482f8: DFCompound
 ---@field _kind 'struct-type'
@@ -887,8 +975,7 @@ function df.battlefield.get_vector() end
 ---| 2 # CreepingDust
 ---| 3 # FallingMaterial
 
----@class _region_weather_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _region_weather_type: DFEnum
 ---@field CreepingGas 0
 ---@field [0] "CreepingGas"
 ---@field CreepingVapor 1 doesn't seem to be generated by DF, but appears if hacked

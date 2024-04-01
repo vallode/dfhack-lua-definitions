@@ -10,8 +10,7 @@
 ---| 4 # Stair
 
 -- Basic tile shape (not in DF)
----@class _tiletype_shape_basic: DFDescriptor
----@field _kind 'enum-type'
+---@class _tiletype_shape_basic: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Open 0
@@ -49,8 +48,7 @@ df.tiletype_shape_basic = {}
 ---| 18 # ENDLESS_PIT
 
 -- Tile shape (not in DF)
----@class _tiletype_shape: DFDescriptor
----@field _kind 'enum-type'
+---@class _tiletype_shape: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field EMPTY 0
@@ -160,8 +158,7 @@ df.tiletype_shape.attrs = {}
 ---| 25 # UNDERWORLD_GATE
 
 -- Tile material (not in DF)
----@class _tiletype_material: DFDescriptor
----@field _kind 'enum-type'
+---@class _tiletype_material: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field AIR 0
@@ -263,8 +260,7 @@ df.tiletype_material.attrs = {}
 ---| 3 # VAR_4
 
 -- Cosmetic tile variant (not in DF)
----@class _tiletype_variant: DFDescriptor
----@field _kind 'enum-type'
+---@class _tiletype_variant: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field VAR_1 0
@@ -293,8 +289,7 @@ df.tiletype_variant = {}
 ---| 11 # SMOOTH_DEAD
 
 -- Functional tile variant (not in DF)
----@class _tiletype_special: DFDescriptor
----@field _kind 'enum-type'
+---@class _tiletype_special: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field NORMAL 0
@@ -1045,8 +1040,7 @@ df.tiletype_special.attrs = {}
 ---| 695 # Unused695
 ---| 696 # Unused696
 
----@class _tiletype: DFDescriptor
----@field _kind 'enum-type'
+---@class _tiletype: DFEnum
 ---@field Void 0 -- 0x000
 ---@field [0] "Void" -- 0x000
 ---@field RampTop 1 MAPTILE_RAMPSPACE

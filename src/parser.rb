@@ -51,21 +51,26 @@ module DFHackLuaDefinitions
       @name = node['name'] || node['type-name']
       @comment = node['comment']
       @path = path.dup
+      @local_name = ''
 
       if node['ld:level'] == '0'
         @path.append(@name)
+        @local_name = @name
       else
         @path.append("T_#{@name}")
+        @local_name = @path.join('_').gsub('T_', '')
         # @name = @path.join('.').gsub('.T_', '_')
       end
     end
 
     def match_node(node, path)
       meta = node['ld:meta']
+      subtype = node['ld:subtype']
       return nil unless HANDLERS[meta]
 
       if meta == 'compound'
-        return EnumType.new(node, path) if node['ld:subtype'] == 'enum'
+        return BitfieldType.new(node, path) if subtype == 'bitfield'
+        return EnumType.new(node, path) if subtype == 'enum'
 
         StructType.new(node, path)
       else
@@ -162,8 +167,7 @@ module DFHackLuaDefinitions
       annotation << to_alias
       annotation << "\n"
       annotation << "-- #{@comment}\n" if @comment
-      annotation << "---@class _#{@class_name}: DFDescriptor\n"
-      annotation << "---@field _kind 'enum-type'\n"
+      annotation << "---@class _#{@class_name}: DFEnum\n"
 
       @items.each do |item|
         annotation << item.to_field
@@ -183,6 +187,10 @@ module DFHackLuaDefinitions
       @comment = field['comment']
     end
 
+    def render?
+      !!@name
+    end
+
     # TODO: Correct type coercion from enum-attr
     def to_attrs
       return '' if @attributes.empty?
@@ -196,10 +204,23 @@ module DFHackLuaDefinitions
       annotation << " }\n"
     end
 
+    def to_alias_string
+      "---| \"#{@name}\" # #{@value}\n"
+    end
+
     def to_alias
       return '' unless @name
 
       "---| #{@value} # #{@name}\n"
+    end
+
+    def to_field_bitfield
+      annotation = "  #{@name} = false,"
+      annotation << " -- #{@comment}" if @comment
+      annotation << "\n"
+      annotation << "  [#{@value}] = false,"
+      annotation << " -- #{@comment}" if @comment
+      annotation << "\n"
     end
 
     def to_field
@@ -217,6 +238,70 @@ module DFHackLuaDefinitions
   end
 
   class BitfieldType < Type
+    def initialize(node, path = [])
+      super(node, path)
+
+      @class_name = @path.join('.')
+      @items = items
+    end
+
+    def items
+      @node.xpath('ld:field').map.with_index do |item, index|
+        EnumItem.new(item, index)
+      end
+    end
+
+    def to_field
+      "---@field #{@name} #{@class_name}\n"
+    end
+
+    def to_type
+      annotation = ''
+      annotation << "---@alias _#{@class_name}_keys\n"
+      @items.each do |item|
+        annotation << item.to_alias if item.render?
+      end
+      annotation << "\n"
+
+      annotation << "---@alias _#{@class_name}_values\n"
+      @items.each do |item|
+        annotation << item.to_alias_string if item.render?
+      end
+      annotation << "\n"
+
+      annotation << "---@class #{@class_name}: DFObject, { [_#{@class_name}_keys|_#{@class_name}_values]: boolean }\n"
+      annotation << "---@field _kind 'bitfield'\n"
+      annotation << "---@field _enum _#{@class_name}\n"
+      annotation << "local #{@local_name} = {\n"
+      fields = []
+      @items.each do |item|
+        fields.append(item.to_field_bitfield) if item.render?
+      end
+      annotation << fields.join('')
+      annotation << "}\n\n"
+    end
+
+    def render
+      annotation = ''
+      annotation << to_type
+      annotation << "---@class _#{@class_name}: DFBitfield\n"
+      @items.each do |item|
+        annotation << item.to_field
+      end
+      annotation << "df.#{@class_name} = {}\n\n"
+    end
+  end
+
+  class BitfieldFlag
+    def initialize(field, index)
+      @name = field['name']
+      @attributes = field.xpath('item-attr')
+      @value = field['value'] || index
+      @comment = field['comment']
+    end
+
+    def to_field
+    end
   end
 
   # Both struct-type and class-type
@@ -262,7 +347,7 @@ module DFHackLuaDefinitions
       @fields.each do |field|
         annotation << field.to_field
       end
-      annotation << "local #{@name}\n\n"
+      annotation << "local #{@local_name}\n\n"
     end
 
     def instance_vector_functions
@@ -315,6 +400,9 @@ module DFHackLuaDefinitions
     end
 
     def to_field
+      # TODO: Ask DFHack if ignoring anon_ is wise.
+      return '' unless @name
+
       annotation = "---@field #{@name} #{@type}"
       annotation << " #{@comment}" if @comment
       annotation << "\n"

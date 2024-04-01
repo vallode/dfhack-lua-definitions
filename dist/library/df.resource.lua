@@ -47,8 +47,7 @@
 ---| 42 # POWDER
 ---| 43 # AMMO
 
----@class _resource_allotment_specifier_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _resource_allotment_specifier_type: DFEnum
 ---@field CROP 0
 ---@field [0] "CROP"
 ---@field STONE 1

@@ -6,8 +6,7 @@
 ---| 1 # AUTOMATIC
 ---| 2 # ADVENTURE_MODE_ENABLED
 
----@class _reaction_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _reaction_flags: DFEnum
 ---@field FUEL 0
 ---@field [0] "FUEL"
 ---@field AUTOMATIC 1
@@ -51,7 +50,7 @@ function df.reaction.get_vector() end
 ---@class (exact) reaction.T_building: DFObject
 ---@field _kind 'struct'
 ---@field _type _reaction.T_building
-local building
+local reaction_building
 
 ---@class _reaction.T_building: DFCompound
 ---@field _kind 'struct-type'
@@ -86,8 +85,7 @@ df.reaction_description = {}
 ---@alias reaction_reagent_type
 ---| 0 # item
 
----@class _reaction_reagent_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _reaction_reagent_type: DFEnum
 ---@field item 0
 ---@field [0] "item"
 df.reaction_reagent_type = {}
@@ -103,6 +101,37 @@ local reaction_reagent
 ---@class _reaction_reagent: DFCompound
 ---@field _kind 'class-type'
 df.reaction_reagent = {}
+
+---@alias _reaction_reagent_flags_keys
+---| 0 # PRESERVE_REAGENT
+---| 1 # IN_CONTAINER
+---| 2 # DOES_NOT_DETERMINE_PRODUCT_AMOUNT
+
+---@alias _reaction_reagent_flags_values
+---| "PRESERVE_REAGENT" # 0
+---| "IN_CONTAINER" # 1
+---| "DOES_NOT_DETERMINE_PRODUCT_AMOUNT" # 2
+
+---@class reaction_reagent_flags: DFObject, { [_reaction_reagent_flags_keys|_reaction_reagent_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _reaction_reagent_flags
+local reaction_reagent_flags = {
+  PRESERVE_REAGENT = false,
+  [0] = false,
+  IN_CONTAINER = false,
+  [1] = false,
+  DOES_NOT_DETERMINE_PRODUCT_AMOUNT = false,
+  [2] = false,
+}
+
+---@class _reaction_reagent_flags: DFBitfield
+---@field PRESERVE_REAGENT 0
+---@field [0] "PRESERVE_REAGENT"
+---@field IN_CONTAINER 1
+---@field [1] "IN_CONTAINER"
+---@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT 2
+---@field [2] "DOES_NOT_DETERMINE_PRODUCT_AMOUNT"
+df.reaction_reagent_flags = {}
 
 ---@class (exact) reaction_reagent_itemst: DFObject, reaction_reagent
 ---@field _kind 'struct'
@@ -132,8 +161,7 @@ df.reaction_reagent_itemst = {}
 ---| 0 # item
 ---| 1 # improvement
 
----@class _reaction_product_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _reaction_product_type: DFEnum
 ---@field item 0
 ---@field [0] "item"
 ---@field improvement 1
@@ -159,8 +187,7 @@ df.reaction_product = {}
 ---| 4 # PRESSED
 ---| 5 # CRAFTS
 
----@class _reaction_product_item_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _reaction_product_item_flags: DFEnum
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1
@@ -197,7 +224,7 @@ df.reaction_product_itemst = {}
 ---@field _type _reaction_product_itemst.T_get_material
 ---@field reagent_code string
 ---@field product_code string
-local get_material
+local reaction_product_itemst_get_material
 
 ---@class _reaction_product_itemst.T_get_material: DFCompound
 ---@field _kind 'struct-type'
@@ -208,8 +235,7 @@ df.reaction_product_itemst.T_get_material = {}
 ---| 1 # GET_MATERIAL_PRODUCT
 ---| 2 # GLAZED
 
----@class _reaction_product_improvement_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _reaction_product_improvement_flags: DFEnum
 ---@field GET_MATERIAL_SAME 0
 ---@field [0] "GET_MATERIAL_SAME"
 ---@field GET_MATERIAL_PRODUCT 1
@@ -240,7 +266,7 @@ df.reaction_product_item_improvementst = {}
 ---@field _type _reaction_product_item_improvementst.T_get_material
 ---@field reagent_code string
 ---@field product_code string
-local get_material
+local reaction_product_item_improvementst_get_material
 
 ---@class _reaction_product_item_improvementst.T_get_material: DFCompound
 ---@field _kind 'struct-type'

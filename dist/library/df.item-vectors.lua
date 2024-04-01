@@ -137,8 +137,7 @@
 ---| 131 # ANY_RECENTLY_DROPPED
 ---| 132 # ANY_MELT_DESIGNATED
 
----@class _items_other_id: DFDescriptor
----@field _kind 'enum-type'
+---@class _items_other_id: DFEnum
 ---@field ANY -1
 ---@field [-1] "ANY"
 ---@field IN_PLAY 0 -- 0
@@ -675,8 +674,7 @@ df.items_other_id.attrs = {}
 ---| 132 # SHEET
 ---| 133 # BRANCH
 
----@class _job_item_vector_id: DFDescriptor
----@field _kind 'enum-type'
+---@class _job_item_vector_id: DFEnum
 ---@field ANY 0
 ---@field [0] "ANY"
 ---@field IN_PLAY 1 -- 1

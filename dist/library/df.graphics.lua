@@ -19,7 +19,7 @@ df.large_integer = {}
 ---@field _type _large_integer.T_u
 ---@field low_part long
 ---@field high_part long
-local u
+local large_integer_u
 
 ---@class _large_integer.T_u: DFCompound
 ---@field _kind 'struct-type'
@@ -46,8 +46,7 @@ df.musicsoundst = {}
 ---| 1 # OSS
 ---| 2 # ESD
 
----@class _musicsoundst.T_linux_sound_system: DFDescriptor
----@field _kind 'enum-type'
+---@class _musicsoundst.T_linux_sound_system: DFEnum
 ---@field ALSA 0
 ---@field [0] "ALSA"
 ---@field OSS 1
@@ -75,8 +74,7 @@ df.fmod_sound = {}
 ---| 6 # Yellow
 ---| 7 # White
 
----@class _curses_color: DFDescriptor
----@field _kind 'enum-type'
+---@class _curses_color: DFEnum
 ---@field Black 0 Using the color names without "dark" or "light", favoring primaries.
 ---@field [0] "Black" Using the color names without "dark" or "light", favoring primaries.
 ---@field Blue 1
@@ -94,6 +92,37 @@ df.fmod_sound = {}
 ---@field White 7
 ---@field [7] "White"
 df.curses_color = {}
+
+---@alias _cmv_attribute_keys
+---| 0 # fg
+---| 1 # bg
+---| 2 # bright
+
+---@alias _cmv_attribute_values
+---| "fg" # 0
+---| "bg" # 1
+---| "bright" # 2
+
+---@class cmv_attribute: DFObject, { [_cmv_attribute_keys|_cmv_attribute_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _cmv_attribute
+local cmv_attribute = {
+  fg = false,
+  [0] = false,
+  bg = false,
+  [1] = false,
+  bright = false,
+  [2] = false,
+}
+
+---@class _cmv_attribute: DFBitfield
+---@field fg 0
+---@field [0] "fg"
+---@field bg 1
+---@field [1] "bg"
+---@field bright 2
+---@field [2] "bright"
+df.cmv_attribute = {}
 
 ---@class (exact) graphic_viewportst: DFObject
 ---@field _kind 'struct'
@@ -202,7 +231,7 @@ df.graphic = {}
 ---@field _type _graphic.T_tileset
 ---@field graphical_interface interface_setst
 ---@field classic_interface interface_setst
-local tileset
+local graphic_tileset
 
 ---@class _graphic.T_tileset: DFCompound
 ---@field _kind 'struct-type'
@@ -285,8 +314,7 @@ df.renderer_2d = {}
 ---| 3 # zoom_fullscreen
 ---| 4 # zoom_resetgrid
 
----@class _zoom_commands: DFDescriptor
----@field _kind 'enum-type'
+---@class _zoom_commands: DFEnum
 ---@field zoom_in 0
 ---@field [0] "zoom_in"
 ---@field zoom_out 1
@@ -345,15 +373,29 @@ local enabler
 ---@field _kind 'class-type'
 df.enabler = {}
 
----@class (exact) enabler.T_fullscreen_state: DFObject
----@field _kind 'struct'
----@field _type _enabler.T_fullscreen_state
----@field fullscreen flag-bit
----@field exclusive flag-bit
-local fullscreen_state
+---@alias _enabler.T_fullscreen_state_keys
+---| 0 # fullscreen
+---| 1 # exclusive
 
----@class _enabler.T_fullscreen_state: DFCompound
----@field _kind 'struct-type'
+---@alias _enabler.T_fullscreen_state_values
+---| "fullscreen" # 0
+---| "exclusive" # 1
+
+---@class enabler.T_fullscreen_state: DFObject, { [_enabler.T_fullscreen_state_keys|_enabler.T_fullscreen_state_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _enabler.T_fullscreen_state
+local enabler_fullscreen_state = {
+  fullscreen = false,
+  [0] = false,
+  exclusive = false,
+  [1] = false,
+}
+
+---@class _enabler.T_fullscreen_state: DFBitfield
+---@field fullscreen 0
+---@field [0] "fullscreen"
+---@field exclusive 1
+---@field [1] "exclusive"
 df.enabler.T_fullscreen_state = {}
 
 ---@class (exact) enabler.T_async_tobox: DFObject
@@ -361,7 +403,7 @@ df.enabler.T_fullscreen_state = {}
 ---@field _type _enabler.T_async_tobox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
-local async_tobox
+local enabler_async_tobox
 
 ---@class _enabler.T_async_tobox: DFCompound
 ---@field _kind 'struct-type'
@@ -372,7 +414,7 @@ df.enabler.T_async_tobox = {}
 ---@field _type _enabler.T_async_frombox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
-local async_frombox
+local enabler_async_frombox
 
 ---@class _enabler.T_async_frombox: DFCompound
 ---@field _kind 'struct-type'
@@ -383,21 +425,35 @@ df.enabler.T_async_frombox = {}
 ---@field _type _enabler.T_async_zoom
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
-local async_zoom
+local enabler_async_zoom
 
 ---@class _enabler.T_async_zoom: DFCompound
 ---@field _kind 'struct-type'
 df.enabler.T_async_zoom = {}
 
----@class (exact) enabler.T_flag: DFObject
----@field _kind 'struct'
----@field _type _enabler.T_flag
----@field render flag-bit
----@field maxfps flag-bit
-local flag
+---@alias _enabler.T_flag_keys
+---| 0 # render
+---| 1 # maxfps
 
----@class _enabler.T_flag: DFCompound
----@field _kind 'struct-type'
+---@alias _enabler.T_flag_values
+---| "render" # 0
+---| "maxfps" # 1
+
+---@class enabler.T_flag: DFObject, { [_enabler.T_flag_keys|_enabler.T_flag_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _enabler.T_flag
+local enabler_flag = {
+  render = false,
+  [0] = false,
+  maxfps = false,
+  [1] = false,
+}
+
+---@class _enabler.T_flag: DFBitfield
+---@field render 0
+---@field [0] "render"
+---@field maxfps 1
+---@field [1] "maxfps"
 df.enabler.T_flag = {}
 
 ---@class (exact) enabler.T_textures: DFObject
@@ -405,7 +461,7 @@ df.enabler.T_flag = {}
 ---@field _type _enabler.T_textures
 ---@field init_texture_size number
 ---@field uploaded boolean
-local textures
+local enabler_textures
 
 ---@class _enabler.T_textures: DFCompound
 ---@field _kind 'struct-type'
@@ -419,8 +475,7 @@ df.enabler.T_textures = {}
 ---| 4 # not_truetype
 
 -- from libgraphics
----@class _justification: DFDescriptor
----@field _kind 'enum-type'
+---@class _justification: DFEnum
 ---@field justify_left 0
 ---@field [0] "justify_left"
 ---@field justify_center 1

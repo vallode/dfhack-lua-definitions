@@ -6,8 +6,7 @@
 ---| 0 # SUPPORT_THIEVES
 ---| 1 # KILL_ALL_AT_SITE
 
----@class _mission_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _mission_type: DFEnum
 ---@field NONE -1
 ---@field [-1] "NONE"
 ---@field SUPPORT_THIEVES 0
@@ -48,20 +47,59 @@ local invasion_info_vector
 ---@return invasion_info_vector # df.global.plotinfo.invasions.list
 function df.invasion_info.get_vector() end
 
----@class (exact) invasion_info.T_flags: DFObject
----@field _kind 'struct'
----@field _type _invasion_info.T_flags
----@field active flag-bit
----@field siege flag-bit
----@field layer_source flag-bit
----@field undead_source flag-bit
----@field want_parley flag-bit
----@field parley flag-bit
----@field created_parley flag-bit
-local flags
+---@alias _invasion_info.T_flags_keys
+---| 0 # active
+---| 1 # siege
+---| 2 # layer_source
+---| 3 # undead_source
+---| 4 # want_parley
+---| 5 # parley
+---| 6 # created_parley
 
----@class _invasion_info.T_flags: DFCompound
----@field _kind 'struct-type'
+---@alias _invasion_info.T_flags_values
+---| "active" # 0
+---| "siege" # 1
+---| "layer_source" # 2
+---| "undead_source" # 3
+---| "want_parley" # 4
+---| "parley" # 5
+---| "created_parley" # 6
+
+---@class invasion_info.T_flags: DFObject, { [_invasion_info.T_flags_keys|_invasion_info.T_flags_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _invasion_info.T_flags
+local invasion_info_flags = {
+  active = false,
+  [0] = false,
+  siege = false,
+  [1] = false,
+  layer_source = false,
+  [2] = false,
+  undead_source = false,
+  [3] = false,
+  want_parley = false,
+  [4] = false,
+  parley = false,
+  [5] = false,
+  created_parley = false,
+  [6] = false,
+}
+
+---@class _invasion_info.T_flags: DFBitfield
+---@field active 0
+---@field [0] "active"
+---@field siege 1
+---@field [1] "siege"
+---@field layer_source 2
+---@field [2] "layer_source"
+---@field undead_source 3
+---@field [3] "undead_source"
+---@field want_parley 4
+---@field [4] "want_parley"
+---@field parley 5
+---@field [5] "parley"
+---@field created_parley 6
+---@field [6] "created_parley"
 df.invasion_info.T_flags = {}
 
 ---@class (exact) entity_population_unk4: DFObject
@@ -114,8 +152,7 @@ function df.entity_population.get_vector() end
 ---| 12 # CHECK_FOR_POSITION_CLAIM
 ---| 13 # POTENTIAL_PLOTTER_ACTOR
 
----@class _nemesis_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _nemesis_flags: DFEnum
 ---@field ACTIVE_ADVENTURER 0 used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.
 ---@field [0] "ACTIVE_ADVENTURER" used when loading save. Swapping the player character via tactical mode disables this flag on the old player character and sets it for the new one.
 ---@field RETIRED_ADVENTURER 1 allows resuming play

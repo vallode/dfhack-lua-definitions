@@ -84,8 +84,7 @@
 ---| 86 # TWIGS_ABOVE_TRUNK
 ---| 87 # TWIGS_BELOW_TRUNK
 
----@class _plant_raw_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _plant_raw_flags: DFEnum
 ---@field SPRING 0
 ---@field [0] "SPRING"
 ---@field SUMMER 1
@@ -324,7 +323,7 @@ function df.plant_raw.get_vector() end
 ---@field dead_tree_tile integer unused
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
-local tiles
+local plant_raw_tiles
 
 ---@class _plant_raw.T_tiles: DFCompound
 ---@field _kind 'struct-type'
@@ -333,7 +332,7 @@ df.plant_raw.T_tiles = {}
 ---@class (exact) plant_raw.T_colors: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_colors
-local colors
+local plant_raw_colors
 
 ---@class _plant_raw.T_colors: DFCompound
 ---@field _kind 'struct-type'
@@ -342,7 +341,7 @@ df.plant_raw.T_colors = {}
 ---@class (exact) plant_raw.T_material_defs: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_material_defs
-local material_defs
+local plant_raw_material_defs
 
 ---@class _plant_raw.T_material_defs: DFCompound
 ---@field _kind 'struct-type'
@@ -359,8 +358,7 @@ df.plant_raw.T_material_defs = {}
 ---| 7 # extract_barrel
 ---| 8 # extract_still_vial
 
----@class _plant_material_def: DFDescriptor
----@field _kind 'enum-type'
+---@class _plant_material_def: DFEnum
 ---@field basic_mat 0 TODO: is this the same as another existing enum?
 ---@field [0] "basic_mat" TODO: is this the same as another existing enum?
 ---@field tree 1
@@ -409,32 +407,90 @@ local plant_growth
 ---@field _kind 'struct-type'
 df.plant_growth = {}
 
----@class (exact) plant_growth.T_locations: DFObject
----@field _kind 'struct'
----@field _type _plant_growth.T_locations
----@field twigs flag-bit
----@field light_branches flag-bit
----@field heavy_branches flag-bit
----@field trunk flag-bit
----@field roots flag-bit
----@field cap flag-bit
----@field sapling flag-bit
-local locations
+---@alias _plant_growth.T_locations_keys
+---| 0 # twigs
+---| 1 # light_branches
+---| 2 # heavy_branches
+---| 3 # trunk
+---| 4 # roots
+---| 5 # cap
+---| 6 # sapling
 
----@class _plant_growth.T_locations: DFCompound
----@field _kind 'struct-type'
+---@alias _plant_growth.T_locations_values
+---| "twigs" # 0
+---| "light_branches" # 1
+---| "heavy_branches" # 2
+---| "trunk" # 3
+---| "roots" # 4
+---| "cap" # 5
+---| "sapling" # 6
+
+---@class plant_growth.T_locations: DFObject, { [_plant_growth.T_locations_keys|_plant_growth.T_locations_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _plant_growth.T_locations
+local plant_growth_locations = {
+  twigs = false,
+  [0] = false,
+  light_branches = false,
+  [1] = false,
+  heavy_branches = false,
+  [2] = false,
+  trunk = false,
+  [3] = false,
+  roots = false,
+  [4] = false,
+  cap = false,
+  [5] = false,
+  sapling = false,
+  [6] = false,
+}
+
+---@class _plant_growth.T_locations: DFBitfield
+---@field twigs 0
+---@field [0] "twigs"
+---@field light_branches 1
+---@field [1] "light_branches"
+---@field heavy_branches 2
+---@field [2] "heavy_branches"
+---@field trunk 3
+---@field [3] "trunk"
+---@field roots 4
+---@field [4] "roots"
+---@field cap 5
+---@field [5] "cap"
+---@field sapling 6
+---@field [6] "sapling"
 df.plant_growth.T_locations = {}
 
----@class (exact) plant_growth.T_behavior: DFObject
----@field _kind 'struct'
----@field _type _plant_growth.T_behavior
----@field drops_off flag-bit
----@field no_cloud flag-bit
----@field has_seed flag-bit
-local behavior
+---@alias _plant_growth.T_behavior_keys
+---| 0 # drops_off
+---| 1 # no_cloud
+---| 2 # has_seed
 
----@class _plant_growth.T_behavior: DFCompound
----@field _kind 'struct-type'
+---@alias _plant_growth.T_behavior_values
+---| "drops_off" # 0
+---| "no_cloud" # 1
+---| "has_seed" # 2
+
+---@class plant_growth.T_behavior: DFObject, { [_plant_growth.T_behavior_keys|_plant_growth.T_behavior_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _plant_growth.T_behavior
+local plant_growth_behavior = {
+  drops_off = false,
+  [0] = false,
+  no_cloud = false,
+  [1] = false,
+  has_seed = false,
+  [2] = false,
+}
+
+---@class _plant_growth.T_behavior: DFBitfield
+---@field drops_off 0
+---@field [0] "drops_off"
+---@field no_cloud 1
+---@field [1] "no_cloud"
+---@field has_seed 2
+---@field [2] "has_seed"
 df.plant_growth.T_behavior = {}
 
 ---@class (exact) plant_growth_print: DFObject

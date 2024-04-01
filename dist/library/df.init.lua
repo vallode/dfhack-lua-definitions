@@ -9,8 +9,7 @@
 ---| 4 # INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH
 
 -- -- init.h
----@class _init_display_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _init_display_flags: DFEnum
 ---@field USE_GRAPHICS 0
 ---@field [0] "USE_GRAPHICS"
 ---@field SOFTWARE 1
@@ -28,8 +27,7 @@ df.init_display_flags = {}
 ---| 1 # NEAREST
 ---| 2 # LANCZOS
 
----@class _init_display_filter_mode: DFDescriptor
----@field _kind 'enum-type'
+---@class _init_display_filter_mode: DFEnum
 ---@field AUTO 0
 ---@field [0] "AUTO"
 ---@field NEAREST 1
@@ -70,8 +68,7 @@ df.init_display = {}
 ---| 2 # Prompt
 ---| 3 # Exclusive
 
----@class _init_display.T_windowed: DFDescriptor
----@field _kind 'enum-type'
+---@class _init_display.T_windowed: DFEnum
 ---@field True 0
 ---@field [0] "True"
 ---@field False 1
@@ -87,8 +84,7 @@ df.init_display.T_windowed = {}
 ---| 1 # UNUSED_01_02
 ---| 2 # COMPRESS_SAVES
 
----@class _init_media_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _init_media_flags: DFEnum
 ---@field SOUND_OFF 0
 ---@field [0] "SOUND_OFF"
 ---@field UNUSED_01_02 1
@@ -115,8 +111,7 @@ df.init_media = {}
 ---| 0 # MOUSE_OFF
 ---| 1 # MOUSE_PICTURE
 
----@class _init_input_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _init_input_flags: DFEnum
 ---@field MOUSE_OFF 0
 ---@field [0] "MOUSE_OFF"
 ---@field MOUSE_PICTURE 1
@@ -165,8 +160,7 @@ df.init_font = {}
 ---| 1 # VSYNC_OFF
 ---| 2 # TEXTURE_LINEAR
 
----@class _init_window_flags: DFDescriptor
----@field _kind 'enum-type'
+---@class _init_window_flags: DFEnum
 ---@field VSYNC_ON 0
 ---@field [0] "VSYNC_ON"
 ---@field VSYNC_OFF 1

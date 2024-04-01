@@ -134,8 +134,7 @@
 ---| 168 # ADMIRATION
 
 -- bay12: Emotion
----@class _emotion_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _emotion_type: DFEnum
 ---@field ANYTHING -1
 ---@field [-1] "ANYTHING"
 ---@field ACCEPTANCE 0
@@ -822,8 +821,7 @@ df.emotion_type.attrs = {}
 ---| 278 # PerformedRiteUndedicatedTemple
 ---| 279 # PrayedDedicatedTemple
 
----@class _unit_thought_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _unit_thought_type: DFEnum
 ---@field None -1
 ---@field [-1] "None"
 ---@field Conflict 0

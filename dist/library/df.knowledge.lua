@@ -1,6 +1,2060 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta _
 
+---@alias _knowledge_scholar_flags_0_keys
+---| 0 # philosophy_logic_formal_reasoning
+---| 1 # philosophy_logic_deductive_reasoning
+---| 2 # philosophy_logic_syllogistic_logic
+---| 3 # philosophy_logic_hypothetical_syllogisms
+---| 4 # philosophy_logic_propositional_logic
+---| 5 # philosophy_logic_dialectic_reasoning
+---| 6 # philosophy_logic_analogical_inference
+---| 7 # philosophy_ethics_applied_medical
+---| 8 # philosophy_ethics_individual_value
+---| 9 # philosophy_ethics_state_consequentialism
+---| 10 # philosophy_epistemology_truth
+---| 11 # philosophy_epistemology_perception
+---| 12 # philosophy_epistemology_justification
+---| 13 # philosophy_epistemology_belief
+---| 14 # philosophy_metaphysics_existence
+---| 15 # philosophy_metaphysics_time
+---| 16 # philosophy_metaphysics_mind_body
+---| 17 # philosophy_metaphysics_objects_and_properties
+---| 18 # philosophy_metaphysics_wholes_and_parts
+---| 19 # philosophy_metaphysics_events
+---| 20 # philosophy_metaphysics_processes
+---| 21 # philosophy_metaphysics_causation
+---| 22 # philosophy_ethics_applied_military
+---| 23 # philosophy_ethics_applied_interpersonal_conduct
+---| 24 # philosophy_specialized_law
+---| 25 # philosophy_specialized_education
+---| 26 # philosophy_specialized_language_grammar
+---| 27 # philosophy_specialized_language_etymology
+---| 28 # philosophy_specialized_politics_diplomacy
+---| 29 # philosophy_specialized_politics_government_forms
+---| 30 # philosophy_specialized_politics_economic_policy
+---| 31 # philosophy_specialized_politics_social_welfare
+
+---@alias _knowledge_scholar_flags_0_values
+---| "philosophy_logic_formal_reasoning" # 0
+---| "philosophy_logic_deductive_reasoning" # 1
+---| "philosophy_logic_syllogistic_logic" # 2
+---| "philosophy_logic_hypothetical_syllogisms" # 3
+---| "philosophy_logic_propositional_logic" # 4
+---| "philosophy_logic_dialectic_reasoning" # 5
+---| "philosophy_logic_analogical_inference" # 6
+---| "philosophy_ethics_applied_medical" # 7
+---| "philosophy_ethics_individual_value" # 8
+---| "philosophy_ethics_state_consequentialism" # 9
+---| "philosophy_epistemology_truth" # 10
+---| "philosophy_epistemology_perception" # 11
+---| "philosophy_epistemology_justification" # 12
+---| "philosophy_epistemology_belief" # 13
+---| "philosophy_metaphysics_existence" # 14
+---| "philosophy_metaphysics_time" # 15
+---| "philosophy_metaphysics_mind_body" # 16
+---| "philosophy_metaphysics_objects_and_properties" # 17
+---| "philosophy_metaphysics_wholes_and_parts" # 18
+---| "philosophy_metaphysics_events" # 19
+---| "philosophy_metaphysics_processes" # 20
+---| "philosophy_metaphysics_causation" # 21
+---| "philosophy_ethics_applied_military" # 22
+---| "philosophy_ethics_applied_interpersonal_conduct" # 23
+---| "philosophy_specialized_law" # 24
+---| "philosophy_specialized_education" # 25
+---| "philosophy_specialized_language_grammar" # 26
+---| "philosophy_specialized_language_etymology" # 27
+---| "philosophy_specialized_politics_diplomacy" # 28
+---| "philosophy_specialized_politics_government_forms" # 29
+---| "philosophy_specialized_politics_economic_policy" # 30
+---| "philosophy_specialized_politics_social_welfare" # 31
+
+---@class knowledge_scholar_flags_0: DFObject, { [_knowledge_scholar_flags_0_keys|_knowledge_scholar_flags_0_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_0
+local knowledge_scholar_flags_0 = {
+  philosophy_logic_formal_reasoning = false,
+  [0] = false,
+  philosophy_logic_deductive_reasoning = false,
+  [1] = false,
+  philosophy_logic_syllogistic_logic = false,
+  [2] = false,
+  philosophy_logic_hypothetical_syllogisms = false,
+  [3] = false,
+  philosophy_logic_propositional_logic = false,
+  [4] = false,
+  philosophy_logic_dialectic_reasoning = false,
+  [5] = false,
+  philosophy_logic_analogical_inference = false,
+  [6] = false,
+  philosophy_ethics_applied_medical = false,
+  [7] = false,
+  philosophy_ethics_individual_value = false,
+  [8] = false,
+  philosophy_ethics_state_consequentialism = false,
+  [9] = false,
+  philosophy_epistemology_truth = false,
+  [10] = false,
+  philosophy_epistemology_perception = false,
+  [11] = false,
+  philosophy_epistemology_justification = false,
+  [12] = false,
+  philosophy_epistemology_belief = false,
+  [13] = false,
+  philosophy_metaphysics_existence = false,
+  [14] = false,
+  philosophy_metaphysics_time = false,
+  [15] = false,
+  philosophy_metaphysics_mind_body = false,
+  [16] = false,
+  philosophy_metaphysics_objects_and_properties = false,
+  [17] = false,
+  philosophy_metaphysics_wholes_and_parts = false,
+  [18] = false,
+  philosophy_metaphysics_events = false,
+  [19] = false,
+  philosophy_metaphysics_processes = false,
+  [20] = false,
+  philosophy_metaphysics_causation = false,
+  [21] = false,
+  philosophy_ethics_applied_military = false,
+  [22] = false,
+  philosophy_ethics_applied_interpersonal_conduct = false,
+  [23] = false,
+  philosophy_specialized_law = false,
+  [24] = false,
+  philosophy_specialized_education = false,
+  [25] = false,
+  philosophy_specialized_language_grammar = false,
+  [26] = false,
+  philosophy_specialized_language_etymology = false,
+  [27] = false,
+  philosophy_specialized_politics_diplomacy = false,
+  [28] = false,
+  philosophy_specialized_politics_government_forms = false,
+  [29] = false,
+  philosophy_specialized_politics_economic_policy = false,
+  [30] = false,
+  philosophy_specialized_politics_social_welfare = false,
+  [31] = false,
+}
+
+---@class _knowledge_scholar_flags_0: DFBitfield
+---@field philosophy_logic_formal_reasoning 0
+---@field [0] "philosophy_logic_formal_reasoning"
+---@field philosophy_logic_deductive_reasoning 1
+---@field [1] "philosophy_logic_deductive_reasoning"
+---@field philosophy_logic_syllogistic_logic 2
+---@field [2] "philosophy_logic_syllogistic_logic"
+---@field philosophy_logic_hypothetical_syllogisms 3
+---@field [3] "philosophy_logic_hypothetical_syllogisms"
+---@field philosophy_logic_propositional_logic 4
+---@field [4] "philosophy_logic_propositional_logic"
+---@field philosophy_logic_dialectic_reasoning 5
+---@field [5] "philosophy_logic_dialectic_reasoning"
+---@field philosophy_logic_analogical_inference 6
+---@field [6] "philosophy_logic_analogical_inference"
+---@field philosophy_ethics_applied_medical 7
+---@field [7] "philosophy_ethics_applied_medical"
+---@field philosophy_ethics_individual_value 8
+---@field [8] "philosophy_ethics_individual_value"
+---@field philosophy_ethics_state_consequentialism 9
+---@field [9] "philosophy_ethics_state_consequentialism"
+---@field philosophy_epistemology_truth 10
+---@field [10] "philosophy_epistemology_truth"
+---@field philosophy_epistemology_perception 11
+---@field [11] "philosophy_epistemology_perception"
+---@field philosophy_epistemology_justification 12
+---@field [12] "philosophy_epistemology_justification"
+---@field philosophy_epistemology_belief 13
+---@field [13] "philosophy_epistemology_belief"
+---@field philosophy_metaphysics_existence 14
+---@field [14] "philosophy_metaphysics_existence"
+---@field philosophy_metaphysics_time 15
+---@field [15] "philosophy_metaphysics_time"
+---@field philosophy_metaphysics_mind_body 16
+---@field [16] "philosophy_metaphysics_mind_body"
+---@field philosophy_metaphysics_objects_and_properties 17
+---@field [17] "philosophy_metaphysics_objects_and_properties"
+---@field philosophy_metaphysics_wholes_and_parts 18
+---@field [18] "philosophy_metaphysics_wholes_and_parts"
+---@field philosophy_metaphysics_events 19
+---@field [19] "philosophy_metaphysics_events"
+---@field philosophy_metaphysics_processes 20
+---@field [20] "philosophy_metaphysics_processes"
+---@field philosophy_metaphysics_causation 21
+---@field [21] "philosophy_metaphysics_causation"
+---@field philosophy_ethics_applied_military 22
+---@field [22] "philosophy_ethics_applied_military"
+---@field philosophy_ethics_applied_interpersonal_conduct 23
+---@field [23] "philosophy_ethics_applied_interpersonal_conduct"
+---@field philosophy_specialized_law 24
+---@field [24] "philosophy_specialized_law"
+---@field philosophy_specialized_education 25
+---@field [25] "philosophy_specialized_education"
+---@field philosophy_specialized_language_grammar 26
+---@field [26] "philosophy_specialized_language_grammar"
+---@field philosophy_specialized_language_etymology 27
+---@field [27] "philosophy_specialized_language_etymology"
+---@field philosophy_specialized_politics_diplomacy 28
+---@field [28] "philosophy_specialized_politics_diplomacy"
+---@field philosophy_specialized_politics_government_forms 29
+---@field [29] "philosophy_specialized_politics_government_forms"
+---@field philosophy_specialized_politics_economic_policy 30
+---@field [30] "philosophy_specialized_politics_economic_policy"
+---@field philosophy_specialized_politics_social_welfare 31
+---@field [31] "philosophy_specialized_politics_social_welfare"
+df.knowledge_scholar_flags_0 = {}
+
+---@alias _knowledge_scholar_flags_1_keys
+---| 0 # philosophy_logic_inductive_reasoning
+---| 1 # philosophy_logic_direct_inference
+---| 2 # philosophy_aesthetics_nature_of_beauty
+---| 3 # philosophy_aesthetics_value_of_art
+---| 4 # philosophy_specialized_language_dictionary
+
+---@alias _knowledge_scholar_flags_1_values
+---| "philosophy_logic_inductive_reasoning" # 0
+---| "philosophy_logic_direct_inference" # 1
+---| "philosophy_aesthetics_nature_of_beauty" # 2
+---| "philosophy_aesthetics_value_of_art" # 3
+---| "philosophy_specialized_language_dictionary" # 4
+
+---@class knowledge_scholar_flags_1: DFObject, { [_knowledge_scholar_flags_1_keys|_knowledge_scholar_flags_1_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_1
+local knowledge_scholar_flags_1 = {
+  philosophy_logic_inductive_reasoning = false,
+  [0] = false,
+  philosophy_logic_direct_inference = false,
+  [1] = false,
+  philosophy_aesthetics_nature_of_beauty = false,
+  [2] = false,
+  philosophy_aesthetics_value_of_art = false,
+  [3] = false,
+  philosophy_specialized_language_dictionary = false,
+  [4] = false,
+}
+
+---@class _knowledge_scholar_flags_1: DFBitfield
+---@field philosophy_logic_inductive_reasoning 0
+---@field [0] "philosophy_logic_inductive_reasoning"
+---@field philosophy_logic_direct_inference 1
+---@field [1] "philosophy_logic_direct_inference"
+---@field philosophy_aesthetics_nature_of_beauty 2
+---@field [2] "philosophy_aesthetics_nature_of_beauty"
+---@field philosophy_aesthetics_value_of_art 3
+---@field [3] "philosophy_aesthetics_value_of_art"
+---@field philosophy_specialized_language_dictionary 4
+---@field [4] "philosophy_specialized_language_dictionary"
+df.knowledge_scholar_flags_1 = {}
+
+---@alias _knowledge_scholar_flags_2_keys
+---| 0 # mathematics_method_proof_by_contradiction
+---| 1 # mathematics_notation_zero
+---| 2 # mathematics_notation_negative_numbers
+---| 3 # mathematics_notation_large_numbers
+---| 4 # mathematics_notation_positional
+---| 5 # mathematics_geometry_basic_objects
+---| 6 # mathematics_method_exhaustion
+---| 7 # mathematics_geometry_similar_and_congruent_triangles
+---| 8 # mathematics_geometry_geometric_mean_theorem
+---| 9 # mathematics_geometry_isosceles_base_angles_equal
+---| 10 # mathematics_geometry_inscribed_triangle_on_diameter_is_right
+---| 11 # mathematics_geometry_pythagorean_theorem
+---| 12 # mathematics_geometry_pythagorean_triples_small
+---| 13 # mathematics_geometry_pythagorean_triples_3_digit
+---| 14 # mathematics_geometry_pythagorean_triples_4_digit
+---| 15 # mathematics_geometry_existence_of_incommensurable_ratios
+---| 16 # mathematics_method_axiomatic_reasoning
+---| 17 # mathematics_numbers_unique_prime_factorization
+---| 18 # mathematics_numbers_algorithm_for_computing_gcd
+---| 19 # mathematics_geometry_volume_of_pyramid
+---| 20 # mathematics_geometry_volume_of_cone
+---| 21 # mathematics_geometry_volume_of_sphere
+---| 22 # mathematics_geometry_pi_to_4_digits
+---| 23 # mathematics_numbers_division_algorithm
+---| 24 # mathematics_geometry_table_of_chord_values
+---| 25 # mathematics_geometry_area_of_triangle_from_side_lengths
+---| 26 # mathematics_geometry_area_of_circle
+---| 27 # mathematics_geometry_pi_to_6_digits
+---| 28 # mathematics_geometry_definitions_and_basic_properties_of_conic_sections
+---| 29 # mathematics_numbers_chinese_remainder_algorithm
+---| 30 # mathematics_geometry_area_enclosed_by_line_and_parabola
+---| 31 # mathematics_numbers_sieve_algorithm_for_primes
+
+---@alias _knowledge_scholar_flags_2_values
+---| "mathematics_method_proof_by_contradiction" # 0
+---| "mathematics_notation_zero" # 1
+---| "mathematics_notation_negative_numbers" # 2
+---| "mathematics_notation_large_numbers" # 3
+---| "mathematics_notation_positional" # 4
+---| "mathematics_geometry_basic_objects" # 5
+---| "mathematics_method_exhaustion" # 6
+---| "mathematics_geometry_similar_and_congruent_triangles" # 7
+---| "mathematics_geometry_geometric_mean_theorem" # 8
+---| "mathematics_geometry_isosceles_base_angles_equal" # 9
+---| "mathematics_geometry_inscribed_triangle_on_diameter_is_right" # 10
+---| "mathematics_geometry_pythagorean_theorem" # 11
+---| "mathematics_geometry_pythagorean_triples_small" # 12
+---| "mathematics_geometry_pythagorean_triples_3_digit" # 13
+---| "mathematics_geometry_pythagorean_triples_4_digit" # 14
+---| "mathematics_geometry_existence_of_incommensurable_ratios" # 15
+---| "mathematics_method_axiomatic_reasoning" # 16
+---| "mathematics_numbers_unique_prime_factorization" # 17
+---| "mathematics_numbers_algorithm_for_computing_gcd" # 18
+---| "mathematics_geometry_volume_of_pyramid" # 19
+---| "mathematics_geometry_volume_of_cone" # 20
+---| "mathematics_geometry_volume_of_sphere" # 21
+---| "mathematics_geometry_pi_to_4_digits" # 22
+---| "mathematics_numbers_division_algorithm" # 23
+---| "mathematics_geometry_table_of_chord_values" # 24
+---| "mathematics_geometry_area_of_triangle_from_side_lengths" # 25
+---| "mathematics_geometry_area_of_circle" # 26
+---| "mathematics_geometry_pi_to_6_digits" # 27
+---| "mathematics_geometry_definitions_and_basic_properties_of_conic_sections" # 28
+---| "mathematics_numbers_chinese_remainder_algorithm" # 29
+---| "mathematics_geometry_area_enclosed_by_line_and_parabola" # 30
+---| "mathematics_numbers_sieve_algorithm_for_primes" # 31
+
+---@class knowledge_scholar_flags_2: DFObject, { [_knowledge_scholar_flags_2_keys|_knowledge_scholar_flags_2_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_2
+local knowledge_scholar_flags_2 = {
+  mathematics_method_proof_by_contradiction = false,
+  [0] = false,
+  mathematics_notation_zero = false,
+  [1] = false,
+  mathematics_notation_negative_numbers = false,
+  [2] = false,
+  mathematics_notation_large_numbers = false,
+  [3] = false,
+  mathematics_notation_positional = false,
+  [4] = false,
+  mathematics_geometry_basic_objects = false,
+  [5] = false,
+  mathematics_method_exhaustion = false,
+  [6] = false,
+  mathematics_geometry_similar_and_congruent_triangles = false,
+  [7] = false,
+  mathematics_geometry_geometric_mean_theorem = false,
+  [8] = false,
+  mathematics_geometry_isosceles_base_angles_equal = false,
+  [9] = false,
+  mathematics_geometry_inscribed_triangle_on_diameter_is_right = false,
+  [10] = false,
+  mathematics_geometry_pythagorean_theorem = false,
+  [11] = false,
+  mathematics_geometry_pythagorean_triples_small = false,
+  [12] = false,
+  mathematics_geometry_pythagorean_triples_3_digit = false,
+  [13] = false,
+  mathematics_geometry_pythagorean_triples_4_digit = false,
+  [14] = false,
+  mathematics_geometry_existence_of_incommensurable_ratios = false,
+  [15] = false,
+  mathematics_method_axiomatic_reasoning = false,
+  [16] = false,
+  mathematics_numbers_unique_prime_factorization = false,
+  [17] = false,
+  mathematics_numbers_algorithm_for_computing_gcd = false,
+  [18] = false,
+  mathematics_geometry_volume_of_pyramid = false,
+  [19] = false,
+  mathematics_geometry_volume_of_cone = false,
+  [20] = false,
+  mathematics_geometry_volume_of_sphere = false,
+  [21] = false,
+  mathematics_geometry_pi_to_4_digits = false,
+  [22] = false,
+  mathematics_numbers_division_algorithm = false,
+  [23] = false,
+  mathematics_geometry_table_of_chord_values = false,
+  [24] = false,
+  mathematics_geometry_area_of_triangle_from_side_lengths = false,
+  [25] = false,
+  mathematics_geometry_area_of_circle = false,
+  [26] = false,
+  mathematics_geometry_pi_to_6_digits = false,
+  [27] = false,
+  mathematics_geometry_definitions_and_basic_properties_of_conic_sections = false,
+  [28] = false,
+  mathematics_numbers_chinese_remainder_algorithm = false,
+  [29] = false,
+  mathematics_geometry_area_enclosed_by_line_and_parabola = false,
+  [30] = false,
+  mathematics_numbers_sieve_algorithm_for_primes = false,
+  [31] = false,
+}
+
+---@class _knowledge_scholar_flags_2: DFBitfield
+---@field mathematics_method_proof_by_contradiction 0
+---@field [0] "mathematics_method_proof_by_contradiction"
+---@field mathematics_notation_zero 1
+---@field [1] "mathematics_notation_zero"
+---@field mathematics_notation_negative_numbers 2
+---@field [2] "mathematics_notation_negative_numbers"
+---@field mathematics_notation_large_numbers 3
+---@field [3] "mathematics_notation_large_numbers"
+---@field mathematics_notation_positional 4
+---@field [4] "mathematics_notation_positional"
+---@field mathematics_geometry_basic_objects 5
+---@field [5] "mathematics_geometry_basic_objects"
+---@field mathematics_method_exhaustion 6
+---@field [6] "mathematics_method_exhaustion"
+---@field mathematics_geometry_similar_and_congruent_triangles 7
+---@field [7] "mathematics_geometry_similar_and_congruent_triangles"
+---@field mathematics_geometry_geometric_mean_theorem 8
+---@field [8] "mathematics_geometry_geometric_mean_theorem"
+---@field mathematics_geometry_isosceles_base_angles_equal 9
+---@field [9] "mathematics_geometry_isosceles_base_angles_equal"
+---@field mathematics_geometry_inscribed_triangle_on_diameter_is_right 10
+---@field [10] "mathematics_geometry_inscribed_triangle_on_diameter_is_right"
+---@field mathematics_geometry_pythagorean_theorem 11
+---@field [11] "mathematics_geometry_pythagorean_theorem"
+---@field mathematics_geometry_pythagorean_triples_small 12
+---@field [12] "mathematics_geometry_pythagorean_triples_small"
+---@field mathematics_geometry_pythagorean_triples_3_digit 13
+---@field [13] "mathematics_geometry_pythagorean_triples_3_digit"
+---@field mathematics_geometry_pythagorean_triples_4_digit 14
+---@field [14] "mathematics_geometry_pythagorean_triples_4_digit"
+---@field mathematics_geometry_existence_of_incommensurable_ratios 15
+---@field [15] "mathematics_geometry_existence_of_incommensurable_ratios"
+---@field mathematics_method_axiomatic_reasoning 16
+---@field [16] "mathematics_method_axiomatic_reasoning"
+---@field mathematics_numbers_unique_prime_factorization 17
+---@field [17] "mathematics_numbers_unique_prime_factorization"
+---@field mathematics_numbers_algorithm_for_computing_gcd 18
+---@field [18] "mathematics_numbers_algorithm_for_computing_gcd"
+---@field mathematics_geometry_volume_of_pyramid 19
+---@field [19] "mathematics_geometry_volume_of_pyramid"
+---@field mathematics_geometry_volume_of_cone 20
+---@field [20] "mathematics_geometry_volume_of_cone"
+---@field mathematics_geometry_volume_of_sphere 21
+---@field [21] "mathematics_geometry_volume_of_sphere"
+---@field mathematics_geometry_pi_to_4_digits 22
+---@field [22] "mathematics_geometry_pi_to_4_digits"
+---@field mathematics_numbers_division_algorithm 23
+---@field [23] "mathematics_numbers_division_algorithm"
+---@field mathematics_geometry_table_of_chord_values 24
+---@field [24] "mathematics_geometry_table_of_chord_values"
+---@field mathematics_geometry_area_of_triangle_from_side_lengths 25
+---@field [25] "mathematics_geometry_area_of_triangle_from_side_lengths"
+---@field mathematics_geometry_area_of_circle 26
+---@field [26] "mathematics_geometry_area_of_circle"
+---@field mathematics_geometry_pi_to_6_digits 27
+---@field [27] "mathematics_geometry_pi_to_6_digits"
+---@field mathematics_geometry_definitions_and_basic_properties_of_conic_sections 28
+---@field [28] "mathematics_geometry_definitions_and_basic_properties_of_conic_sections"
+---@field mathematics_numbers_chinese_remainder_algorithm 29
+---@field [29] "mathematics_numbers_chinese_remainder_algorithm"
+---@field mathematics_geometry_area_enclosed_by_line_and_parabola 30
+---@field [30] "mathematics_geometry_area_enclosed_by_line_and_parabola"
+---@field mathematics_numbers_sieve_algorithm_for_primes 31
+---@field [31] "mathematics_numbers_sieve_algorithm_for_primes"
+df.knowledge_scholar_flags_2 = {}
+
+---@alias _knowledge_scholar_flags_3_keys
+---| 0 # mathematics_numbers_root_2_to_5_digits
+---| 1 # mathematics_numbers_infinite_primes
+---| 2 # mathematics_numbers_root_2_irrational
+---| 3 # mathematics_geometry_surface_area_of_sphere
+---| 4 # mathematics_algebra_finite_summation_formulas
+---| 5 # mathematics_algebra_solving_linear_systems
+---| 6 # mathematics_algebra_balancing_and_completion
+---| 7 # mathematics_algebra_quadratic_by_completing_square
+---| 8 # mathematics_algebra_quadratic_formula
+---| 9 # mathematics_notation_syncopated_algebra
+---| 10 # mathematics_geometry_law_of_sines
+---| 11 # mathematics_geometry_angle_sum_difference_trig_identities
+---| 12 # mathematics_algebra_pascals_triangle
+---| 13 # mathematics_algebra_solving_higher_order_polynomials
+---| 14 # mathematics_notation_early_symbols_for_operations
+---| 15 # mathematics_algebra_divergence_of_harmonic_series
+---| 16 # mathematics_geometry_properties_of_chords
+
+---@alias _knowledge_scholar_flags_3_values
+---| "mathematics_numbers_root_2_to_5_digits" # 0
+---| "mathematics_numbers_infinite_primes" # 1
+---| "mathematics_numbers_root_2_irrational" # 2
+---| "mathematics_geometry_surface_area_of_sphere" # 3
+---| "mathematics_algebra_finite_summation_formulas" # 4
+---| "mathematics_algebra_solving_linear_systems" # 5
+---| "mathematics_algebra_balancing_and_completion" # 6
+---| "mathematics_algebra_quadratic_by_completing_square" # 7
+---| "mathematics_algebra_quadratic_formula" # 8
+---| "mathematics_notation_syncopated_algebra" # 9
+---| "mathematics_geometry_law_of_sines" # 10
+---| "mathematics_geometry_angle_sum_difference_trig_identities" # 11
+---| "mathematics_algebra_pascals_triangle" # 12
+---| "mathematics_algebra_solving_higher_order_polynomials" # 13
+---| "mathematics_notation_early_symbols_for_operations" # 14
+---| "mathematics_algebra_divergence_of_harmonic_series" # 15
+---| "mathematics_geometry_properties_of_chords" # 16
+
+---@class knowledge_scholar_flags_3: DFObject, { [_knowledge_scholar_flags_3_keys|_knowledge_scholar_flags_3_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_3
+local knowledge_scholar_flags_3 = {
+  mathematics_numbers_root_2_to_5_digits = false,
+  [0] = false,
+  mathematics_numbers_infinite_primes = false,
+  [1] = false,
+  mathematics_numbers_root_2_irrational = false,
+  [2] = false,
+  mathematics_geometry_surface_area_of_sphere = false,
+  [3] = false,
+  mathematics_algebra_finite_summation_formulas = false,
+  [4] = false,
+  mathematics_algebra_solving_linear_systems = false,
+  [5] = false,
+  mathematics_algebra_balancing_and_completion = false,
+  [6] = false,
+  mathematics_algebra_quadratic_by_completing_square = false,
+  [7] = false,
+  mathematics_algebra_quadratic_formula = false,
+  [8] = false,
+  mathematics_notation_syncopated_algebra = false,
+  [9] = false,
+  mathematics_geometry_law_of_sines = false,
+  [10] = false,
+  mathematics_geometry_angle_sum_difference_trig_identities = false,
+  [11] = false,
+  mathematics_algebra_pascals_triangle = false,
+  [12] = false,
+  mathematics_algebra_solving_higher_order_polynomials = false,
+  [13] = false,
+  mathematics_notation_early_symbols_for_operations = false,
+  [14] = false,
+  mathematics_algebra_divergence_of_harmonic_series = false,
+  [15] = false,
+  mathematics_geometry_properties_of_chords = false,
+  [16] = false,
+}
+
+---@class _knowledge_scholar_flags_3: DFBitfield
+---@field mathematics_numbers_root_2_to_5_digits 0
+---@field [0] "mathematics_numbers_root_2_to_5_digits"
+---@field mathematics_numbers_infinite_primes 1
+---@field [1] "mathematics_numbers_infinite_primes"
+---@field mathematics_numbers_root_2_irrational 2
+---@field [2] "mathematics_numbers_root_2_irrational"
+---@field mathematics_geometry_surface_area_of_sphere 3
+---@field [3] "mathematics_geometry_surface_area_of_sphere"
+---@field mathematics_algebra_finite_summation_formulas 4
+---@field [4] "mathematics_algebra_finite_summation_formulas"
+---@field mathematics_algebra_solving_linear_systems 5
+---@field [5] "mathematics_algebra_solving_linear_systems"
+---@field mathematics_algebra_balancing_and_completion 6
+---@field [6] "mathematics_algebra_balancing_and_completion"
+---@field mathematics_algebra_quadratic_by_completing_square 7
+---@field [7] "mathematics_algebra_quadratic_by_completing_square"
+---@field mathematics_algebra_quadratic_formula 8
+---@field [8] "mathematics_algebra_quadratic_formula"
+---@field mathematics_notation_syncopated_algebra 9
+---@field [9] "mathematics_notation_syncopated_algebra"
+---@field mathematics_geometry_law_of_sines 10
+---@field [10] "mathematics_geometry_law_of_sines"
+---@field mathematics_geometry_angle_sum_difference_trig_identities 11
+---@field [11] "mathematics_geometry_angle_sum_difference_trig_identities"
+---@field mathematics_algebra_pascals_triangle 12
+---@field [12] "mathematics_algebra_pascals_triangle"
+---@field mathematics_algebra_solving_higher_order_polynomials 13
+---@field [13] "mathematics_algebra_solving_higher_order_polynomials"
+---@field mathematics_notation_early_symbols_for_operations 14
+---@field [14] "mathematics_notation_early_symbols_for_operations"
+---@field mathematics_algebra_divergence_of_harmonic_series 15
+---@field [15] "mathematics_algebra_divergence_of_harmonic_series"
+---@field mathematics_geometry_properties_of_chords 16
+---@field [16] "mathematics_geometry_properties_of_chords"
+df.knowledge_scholar_flags_3 = {}
+
+---@alias _knowledge_scholar_flags_4_keys
+---| 0 # history_sourcing_basic_reliability
+---| 1 # history_sourcing_role_of_systemic_bias
+---| 2 # history_sourcing_role_of_state_bias_and_propaganda
+---| 3 # history_sourcing_personal_interviews
+---| 4 # history_theory_historical_causation
+---| 5 # history_theory_historical_cycles
+---| 6 # history_theory_social_cohesion
+---| 7 # history_theory_social_conflict
+---| 8 # history_form_biography
+---| 9 # history_form_comparative_biography
+---| 10 # history_form_biographical_dictionaries
+---| 11 # history_form_autobiographical_adventure
+---| 12 # history_form_genealogy
+---| 13 # history_form_encyclopedia
+---| 14 # history_form_cultural_history
+---| 15 # history_form_cultural_comparison
+---| 16 # history_sourcing_role_of_cultural_differences
+---| 17 # history_form_alternate_history
+---| 18 # history_sourcing_basic_archaeology
+---| 19 # history_form_treatise_on_tech_evolution
+
+---@alias _knowledge_scholar_flags_4_values
+---| "history_sourcing_basic_reliability" # 0
+---| "history_sourcing_role_of_systemic_bias" # 1
+---| "history_sourcing_role_of_state_bias_and_propaganda" # 2
+---| "history_sourcing_personal_interviews" # 3
+---| "history_theory_historical_causation" # 4
+---| "history_theory_historical_cycles" # 5
+---| "history_theory_social_cohesion" # 6
+---| "history_theory_social_conflict" # 7
+---| "history_form_biography" # 8
+---| "history_form_comparative_biography" # 9
+---| "history_form_biographical_dictionaries" # 10
+---| "history_form_autobiographical_adventure" # 11
+---| "history_form_genealogy" # 12
+---| "history_form_encyclopedia" # 13
+---| "history_form_cultural_history" # 14
+---| "history_form_cultural_comparison" # 15
+---| "history_sourcing_role_of_cultural_differences" # 16
+---| "history_form_alternate_history" # 17
+---| "history_sourcing_basic_archaeology" # 18
+---| "history_form_treatise_on_tech_evolution" # 19
+
+---@class knowledge_scholar_flags_4: DFObject, { [_knowledge_scholar_flags_4_keys|_knowledge_scholar_flags_4_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_4
+local knowledge_scholar_flags_4 = {
+  history_sourcing_basic_reliability = false,
+  [0] = false,
+  history_sourcing_role_of_systemic_bias = false,
+  [1] = false,
+  history_sourcing_role_of_state_bias_and_propaganda = false,
+  [2] = false,
+  history_sourcing_personal_interviews = false,
+  [3] = false,
+  history_theory_historical_causation = false,
+  [4] = false,
+  history_theory_historical_cycles = false,
+  [5] = false,
+  history_theory_social_cohesion = false,
+  [6] = false,
+  history_theory_social_conflict = false,
+  [7] = false,
+  history_form_biography = false,
+  [8] = false,
+  history_form_comparative_biography = false,
+  [9] = false,
+  history_form_biographical_dictionaries = false,
+  [10] = false,
+  history_form_autobiographical_adventure = false,
+  [11] = false,
+  history_form_genealogy = false,
+  [12] = false,
+  history_form_encyclopedia = false,
+  [13] = false,
+  history_form_cultural_history = false,
+  [14] = false,
+  history_form_cultural_comparison = false,
+  [15] = false,
+  history_sourcing_role_of_cultural_differences = false,
+  [16] = false,
+  history_form_alternate_history = false,
+  [17] = false,
+  history_sourcing_basic_archaeology = false,
+  [18] = false,
+  history_form_treatise_on_tech_evolution = false,
+  [19] = false,
+}
+
+---@class _knowledge_scholar_flags_4: DFBitfield
+---@field history_sourcing_basic_reliability 0
+---@field [0] "history_sourcing_basic_reliability"
+---@field history_sourcing_role_of_systemic_bias 1
+---@field [1] "history_sourcing_role_of_systemic_bias"
+---@field history_sourcing_role_of_state_bias_and_propaganda 2
+---@field [2] "history_sourcing_role_of_state_bias_and_propaganda"
+---@field history_sourcing_personal_interviews 3
+---@field [3] "history_sourcing_personal_interviews"
+---@field history_theory_historical_causation 4
+---@field [4] "history_theory_historical_causation"
+---@field history_theory_historical_cycles 5
+---@field [5] "history_theory_historical_cycles"
+---@field history_theory_social_cohesion 6
+---@field [6] "history_theory_social_cohesion"
+---@field history_theory_social_conflict 7
+---@field [7] "history_theory_social_conflict"
+---@field history_form_biography 8
+---@field [8] "history_form_biography"
+---@field history_form_comparative_biography 9
+---@field [9] "history_form_comparative_biography"
+---@field history_form_biographical_dictionaries 10
+---@field [10] "history_form_biographical_dictionaries"
+---@field history_form_autobiographical_adventure 11
+---@field [11] "history_form_autobiographical_adventure"
+---@field history_form_genealogy 12
+---@field [12] "history_form_genealogy"
+---@field history_form_encyclopedia 13
+---@field [13] "history_form_encyclopedia"
+---@field history_form_cultural_history 14
+---@field [14] "history_form_cultural_history"
+---@field history_form_cultural_comparison 15
+---@field [15] "history_form_cultural_comparison"
+---@field history_sourcing_role_of_cultural_differences 16
+---@field [16] "history_sourcing_role_of_cultural_differences"
+---@field history_form_alternate_history 17
+---@field [17] "history_form_alternate_history"
+---@field history_sourcing_basic_archaeology 18
+---@field [18] "history_sourcing_basic_archaeology"
+---@field history_form_treatise_on_tech_evolution 19
+---@field [19] "history_form_treatise_on_tech_evolution"
+df.knowledge_scholar_flags_4 = {}
+
+---@alias _knowledge_scholar_flags_5_keys
+---| 0 # astronomy_phases_of_the_moon
+---| 1 # astronomy_summer_winter_moon
+---| 2 # astronomy_path_of_the_moon
+---| 3 # astronomy_tides_and_the_moon
+---| 4 # astronomy_height_of_tides_vs_moon_and_sun
+---| 5 # astronomy_summer_winter_sun
+---| 6 # astronomy_relationship_between_lunar_solar_year
+---| 7 # astronomy_daylight_variation_with_solar_year
+---| 8 # astronomy_geocentric_model
+---| 9 # astronomy_heliocentric_model
+---| 10 # astronomy_dates_of_lunar_and_solar_eclipses
+---| 11 # astronomy_star_charts
+---| 12 # astronomy_star_catalogues_100
+---| 13 # astronomy_star_catalogues_1000
+---| 14 # astronomy_star_color_classification
+---| 15 # astronomy_star_magnitude_classification
+---| 16 # astronomy_shape_of_the_world
+---| 17 # astronomy_precession_of_equinoxes
+---| 18 # astronomy_method_empirical_observation
+---| 19 # astronomy_method_path_models
+
+---@alias _knowledge_scholar_flags_5_values
+---| "astronomy_phases_of_the_moon" # 0
+---| "astronomy_summer_winter_moon" # 1
+---| "astronomy_path_of_the_moon" # 2
+---| "astronomy_tides_and_the_moon" # 3
+---| "astronomy_height_of_tides_vs_moon_and_sun" # 4
+---| "astronomy_summer_winter_sun" # 5
+---| "astronomy_relationship_between_lunar_solar_year" # 6
+---| "astronomy_daylight_variation_with_solar_year" # 7
+---| "astronomy_geocentric_model" # 8
+---| "astronomy_heliocentric_model" # 9
+---| "astronomy_dates_of_lunar_and_solar_eclipses" # 10
+---| "astronomy_star_charts" # 11
+---| "astronomy_star_catalogues_100" # 12
+---| "astronomy_star_catalogues_1000" # 13
+---| "astronomy_star_color_classification" # 14
+---| "astronomy_star_magnitude_classification" # 15
+---| "astronomy_shape_of_the_world" # 16
+---| "astronomy_precession_of_equinoxes" # 17
+---| "astronomy_method_empirical_observation" # 18
+---| "astronomy_method_path_models" # 19
+
+---@class knowledge_scholar_flags_5: DFObject, { [_knowledge_scholar_flags_5_keys|_knowledge_scholar_flags_5_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_5
+local knowledge_scholar_flags_5 = {
+  astronomy_phases_of_the_moon = false,
+  [0] = false,
+  astronomy_summer_winter_moon = false,
+  [1] = false,
+  astronomy_path_of_the_moon = false,
+  [2] = false,
+  astronomy_tides_and_the_moon = false,
+  [3] = false,
+  astronomy_height_of_tides_vs_moon_and_sun = false,
+  [4] = false,
+  astronomy_summer_winter_sun = false,
+  [5] = false,
+  astronomy_relationship_between_lunar_solar_year = false,
+  [6] = false,
+  astronomy_daylight_variation_with_solar_year = false,
+  [7] = false,
+  astronomy_geocentric_model = false,
+  [8] = false,
+  astronomy_heliocentric_model = false,
+  [9] = false,
+  astronomy_dates_of_lunar_and_solar_eclipses = false,
+  [10] = false,
+  astronomy_star_charts = false,
+  [11] = false,
+  astronomy_star_catalogues_100 = false,
+  [12] = false,
+  astronomy_star_catalogues_1000 = false,
+  [13] = false,
+  astronomy_star_color_classification = false,
+  [14] = false,
+  astronomy_star_magnitude_classification = false,
+  [15] = false,
+  astronomy_shape_of_the_world = false,
+  [16] = false,
+  astronomy_precession_of_equinoxes = false,
+  [17] = false,
+  astronomy_method_empirical_observation = false,
+  [18] = false,
+  astronomy_method_path_models = false,
+  [19] = false,
+}
+
+---@class _knowledge_scholar_flags_5: DFBitfield
+---@field astronomy_phases_of_the_moon 0
+---@field [0] "astronomy_phases_of_the_moon"
+---@field astronomy_summer_winter_moon 1
+---@field [1] "astronomy_summer_winter_moon"
+---@field astronomy_path_of_the_moon 2
+---@field [2] "astronomy_path_of_the_moon"
+---@field astronomy_tides_and_the_moon 3
+---@field [3] "astronomy_tides_and_the_moon"
+---@field astronomy_height_of_tides_vs_moon_and_sun 4
+---@field [4] "astronomy_height_of_tides_vs_moon_and_sun"
+---@field astronomy_summer_winter_sun 5
+---@field [5] "astronomy_summer_winter_sun"
+---@field astronomy_relationship_between_lunar_solar_year 6
+---@field [6] "astronomy_relationship_between_lunar_solar_year"
+---@field astronomy_daylight_variation_with_solar_year 7
+---@field [7] "astronomy_daylight_variation_with_solar_year"
+---@field astronomy_geocentric_model 8
+---@field [8] "astronomy_geocentric_model"
+---@field astronomy_heliocentric_model 9
+---@field [9] "astronomy_heliocentric_model"
+---@field astronomy_dates_of_lunar_and_solar_eclipses 10
+---@field [10] "astronomy_dates_of_lunar_and_solar_eclipses"
+---@field astronomy_star_charts 11
+---@field [11] "astronomy_star_charts"
+---@field astronomy_star_catalogues_100 12
+---@field [12] "astronomy_star_catalogues_100"
+---@field astronomy_star_catalogues_1000 13
+---@field [13] "astronomy_star_catalogues_1000"
+---@field astronomy_star_color_classification 14
+---@field [14] "astronomy_star_color_classification"
+---@field astronomy_star_magnitude_classification 15
+---@field [15] "astronomy_star_magnitude_classification"
+---@field astronomy_shape_of_the_world 16
+---@field [16] "astronomy_shape_of_the_world"
+---@field astronomy_precession_of_equinoxes 17
+---@field [17] "astronomy_precession_of_equinoxes"
+---@field astronomy_method_empirical_observation 18
+---@field [18] "astronomy_method_empirical_observation"
+---@field astronomy_method_path_models 19
+---@field [19] "astronomy_method_path_models"
+df.knowledge_scholar_flags_5 = {}
+
+---@alias _knowledge_scholar_flags_6_keys
+---| 0 # naturalist_method_dissection
+---| 1 # naturalist_observation_anatomy
+---| 2 # naturalist_theory_comparative_anatomy
+---| 3 # naturalist_theory_classification_by_physical_features
+---| 4 # naturalist_observation_migration_patterns
+---| 5 # naturalist_observation_reproductive_behavior
+---| 6 # naturalist_observation_foraging_behavior_and_diet
+---| 7 # naturalist_theory_food_chain
+---| 8 # naturalist_observation_social_behavior
+---| 9 # naturalist_observation_diseases
+---| 10 # naturalist_theory_climactic_adaptation
+---| 11 # naturalist_observation_embriological_development
+---| 12 # naturalist_theory_struggle_for_existence
+
+---@alias _knowledge_scholar_flags_6_values
+---| "naturalist_method_dissection" # 0
+---| "naturalist_observation_anatomy" # 1
+---| "naturalist_theory_comparative_anatomy" # 2
+---| "naturalist_theory_classification_by_physical_features" # 3
+---| "naturalist_observation_migration_patterns" # 4
+---| "naturalist_observation_reproductive_behavior" # 5
+---| "naturalist_observation_foraging_behavior_and_diet" # 6
+---| "naturalist_theory_food_chain" # 7
+---| "naturalist_observation_social_behavior" # 8
+---| "naturalist_observation_diseases" # 9
+---| "naturalist_theory_climactic_adaptation" # 10
+---| "naturalist_observation_embriological_development" # 11
+---| "naturalist_theory_struggle_for_existence" # 12
+
+---@class knowledge_scholar_flags_6: DFObject, { [_knowledge_scholar_flags_6_keys|_knowledge_scholar_flags_6_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_6
+local knowledge_scholar_flags_6 = {
+  naturalist_method_dissection = false,
+  [0] = false,
+  naturalist_observation_anatomy = false,
+  [1] = false,
+  naturalist_theory_comparative_anatomy = false,
+  [2] = false,
+  naturalist_theory_classification_by_physical_features = false,
+  [3] = false,
+  naturalist_observation_migration_patterns = false,
+  [4] = false,
+  naturalist_observation_reproductive_behavior = false,
+  [5] = false,
+  naturalist_observation_foraging_behavior_and_diet = false,
+  [6] = false,
+  naturalist_theory_food_chain = false,
+  [7] = false,
+  naturalist_observation_social_behavior = false,
+  [8] = false,
+  naturalist_observation_diseases = false,
+  [9] = false,
+  naturalist_theory_climactic_adaptation = false,
+  [10] = false,
+  naturalist_observation_embriological_development = false,
+  [11] = false,
+  naturalist_theory_struggle_for_existence = false,
+  [12] = false,
+}
+
+---@class _knowledge_scholar_flags_6: DFBitfield
+---@field naturalist_method_dissection 0
+---@field [0] "naturalist_method_dissection"
+---@field naturalist_observation_anatomy 1
+---@field [1] "naturalist_observation_anatomy"
+---@field naturalist_theory_comparative_anatomy 2
+---@field [2] "naturalist_theory_comparative_anatomy"
+---@field naturalist_theory_classification_by_physical_features 3
+---@field [3] "naturalist_theory_classification_by_physical_features"
+---@field naturalist_observation_migration_patterns 4
+---@field [4] "naturalist_observation_migration_patterns"
+---@field naturalist_observation_reproductive_behavior 5
+---@field [5] "naturalist_observation_reproductive_behavior"
+---@field naturalist_observation_foraging_behavior_and_diet 6
+---@field [6] "naturalist_observation_foraging_behavior_and_diet"
+---@field naturalist_theory_food_chain 7
+---@field [7] "naturalist_theory_food_chain"
+---@field naturalist_observation_social_behavior 8
+---@field [8] "naturalist_observation_social_behavior"
+---@field naturalist_observation_diseases 9
+---@field [9] "naturalist_observation_diseases"
+---@field naturalist_theory_climactic_adaptation 10
+---@field [10] "naturalist_theory_climactic_adaptation"
+---@field naturalist_observation_embriological_development 11
+---@field [11] "naturalist_observation_embriological_development"
+---@field naturalist_theory_struggle_for_existence 12
+---@field [12] "naturalist_theory_struggle_for_existence"
+df.knowledge_scholar_flags_6 = {}
+
+---@alias _knowledge_scholar_flags_7_keys
+---| 0 # chemistry_classification_combustibles
+---| 1 # chemistry_classification_ores
+---| 2 # chemistry_metallurgy_alloys
+---| 3 # chemistry_classification_scratch_test
+---| 4 # chemistry_classification_elemental_theory
+---| 5 # chemistry_chemicals_adhesives
+---| 6 # chemistry_laboratory_blast_furnace
+---| 7 # chemistry_laboratory_alembic
+---| 8 # chemistry_laboratory_theory_of_liquid_liquid_extraction
+---| 9 # chemistry_laboratory_theory_of_distillation
+---| 10 # chemistry_laboratory_theory_of_evaporation
+---| 11 # chemistry_classification_alkali_and_acids
+---| 12 # chemistry_laboratory_systematic_experiments
+---| 13 # chemistry_laboratory_glass_flask
+---| 14 # chemistry_laboratory_glass_beaker
+---| 15 # chemistry_laboratory_glass_vial
+---| 16 # chemistry_laboratory_glass_funnel
+---| 17 # chemistry_laboratory_crucible
+---| 18 # chemistry_chemicals_nitric_acid
+---| 19 # chemistry_chemicals_sulfuric_acid
+---| 20 # chemistry_chemicals_aqua_regia
+---| 21 # chemistry_laboratory_glass_ampoule
+---| 22 # chemistry_laboratory_glass_retort
+---| 23 # chemistry_laboratory_lab_ovens
+
+---@alias _knowledge_scholar_flags_7_values
+---| "chemistry_classification_combustibles" # 0
+---| "chemistry_classification_ores" # 1
+---| "chemistry_metallurgy_alloys" # 2
+---| "chemistry_classification_scratch_test" # 3
+---| "chemistry_classification_elemental_theory" # 4
+---| "chemistry_chemicals_adhesives" # 5
+---| "chemistry_laboratory_blast_furnace" # 6
+---| "chemistry_laboratory_alembic" # 7
+---| "chemistry_laboratory_theory_of_liquid_liquid_extraction" # 8
+---| "chemistry_laboratory_theory_of_distillation" # 9
+---| "chemistry_laboratory_theory_of_evaporation" # 10
+---| "chemistry_classification_alkali_and_acids" # 11
+---| "chemistry_laboratory_systematic_experiments" # 12
+---| "chemistry_laboratory_glass_flask" # 13
+---| "chemistry_laboratory_glass_beaker" # 14
+---| "chemistry_laboratory_glass_vial" # 15
+---| "chemistry_laboratory_glass_funnel" # 16
+---| "chemistry_laboratory_crucible" # 17
+---| "chemistry_chemicals_nitric_acid" # 18
+---| "chemistry_chemicals_sulfuric_acid" # 19
+---| "chemistry_chemicals_aqua_regia" # 20
+---| "chemistry_laboratory_glass_ampoule" # 21
+---| "chemistry_laboratory_glass_retort" # 22
+---| "chemistry_laboratory_lab_ovens" # 23
+
+---@class knowledge_scholar_flags_7: DFObject, { [_knowledge_scholar_flags_7_keys|_knowledge_scholar_flags_7_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_7
+local knowledge_scholar_flags_7 = {
+  chemistry_classification_combustibles = false,
+  [0] = false,
+  chemistry_classification_ores = false,
+  [1] = false,
+  chemistry_metallurgy_alloys = false,
+  [2] = false,
+  chemistry_classification_scratch_test = false,
+  [3] = false,
+  chemistry_classification_elemental_theory = false,
+  [4] = false,
+  chemistry_chemicals_adhesives = false,
+  [5] = false,
+  chemistry_laboratory_blast_furnace = false,
+  [6] = false,
+  chemistry_laboratory_alembic = false,
+  [7] = false,
+  chemistry_laboratory_theory_of_liquid_liquid_extraction = false,
+  [8] = false,
+  chemistry_laboratory_theory_of_distillation = false,
+  [9] = false,
+  chemistry_laboratory_theory_of_evaporation = false,
+  [10] = false,
+  chemistry_classification_alkali_and_acids = false,
+  [11] = false,
+  chemistry_laboratory_systematic_experiments = false,
+  [12] = false,
+  chemistry_laboratory_glass_flask = false,
+  [13] = false,
+  chemistry_laboratory_glass_beaker = false,
+  [14] = false,
+  chemistry_laboratory_glass_vial = false,
+  [15] = false,
+  chemistry_laboratory_glass_funnel = false,
+  [16] = false,
+  chemistry_laboratory_crucible = false,
+  [17] = false,
+  chemistry_chemicals_nitric_acid = false,
+  [18] = false,
+  chemistry_chemicals_sulfuric_acid = false,
+  [19] = false,
+  chemistry_chemicals_aqua_regia = false,
+  [20] = false,
+  chemistry_laboratory_glass_ampoule = false,
+  [21] = false,
+  chemistry_laboratory_glass_retort = false,
+  [22] = false,
+  chemistry_laboratory_lab_ovens = false,
+  [23] = false,
+}
+
+---@class _knowledge_scholar_flags_7: DFBitfield
+---@field chemistry_classification_combustibles 0
+---@field [0] "chemistry_classification_combustibles"
+---@field chemistry_classification_ores 1
+---@field [1] "chemistry_classification_ores"
+---@field chemistry_metallurgy_alloys 2
+---@field [2] "chemistry_metallurgy_alloys"
+---@field chemistry_classification_scratch_test 3
+---@field [3] "chemistry_classification_scratch_test"
+---@field chemistry_classification_elemental_theory 4
+---@field [4] "chemistry_classification_elemental_theory"
+---@field chemistry_chemicals_adhesives 5
+---@field [5] "chemistry_chemicals_adhesives"
+---@field chemistry_laboratory_blast_furnace 6
+---@field [6] "chemistry_laboratory_blast_furnace"
+---@field chemistry_laboratory_alembic 7
+---@field [7] "chemistry_laboratory_alembic"
+---@field chemistry_laboratory_theory_of_liquid_liquid_extraction 8
+---@field [8] "chemistry_laboratory_theory_of_liquid_liquid_extraction"
+---@field chemistry_laboratory_theory_of_distillation 9
+---@field [9] "chemistry_laboratory_theory_of_distillation"
+---@field chemistry_laboratory_theory_of_evaporation 10
+---@field [10] "chemistry_laboratory_theory_of_evaporation"
+---@field chemistry_classification_alkali_and_acids 11
+---@field [11] "chemistry_classification_alkali_and_acids"
+---@field chemistry_laboratory_systematic_experiments 12
+---@field [12] "chemistry_laboratory_systematic_experiments"
+---@field chemistry_laboratory_glass_flask 13
+---@field [13] "chemistry_laboratory_glass_flask"
+---@field chemistry_laboratory_glass_beaker 14
+---@field [14] "chemistry_laboratory_glass_beaker"
+---@field chemistry_laboratory_glass_vial 15
+---@field [15] "chemistry_laboratory_glass_vial"
+---@field chemistry_laboratory_glass_funnel 16
+---@field [16] "chemistry_laboratory_glass_funnel"
+---@field chemistry_laboratory_crucible 17
+---@field [17] "chemistry_laboratory_crucible"
+---@field chemistry_chemicals_nitric_acid 18
+---@field [18] "chemistry_chemicals_nitric_acid"
+---@field chemistry_chemicals_sulfuric_acid 19
+---@field [19] "chemistry_chemicals_sulfuric_acid"
+---@field chemistry_chemicals_aqua_regia 20
+---@field [20] "chemistry_chemicals_aqua_regia"
+---@field chemistry_laboratory_glass_ampoule 21
+---@field [21] "chemistry_laboratory_glass_ampoule"
+---@field chemistry_laboratory_glass_retort 22
+---@field [22] "chemistry_laboratory_glass_retort"
+---@field chemistry_laboratory_lab_ovens 23
+---@field [23] "chemistry_laboratory_lab_ovens"
+df.knowledge_scholar_flags_7 = {}
+
+---@alias _knowledge_scholar_flags_8_keys
+---| 0 # geography_surveying_basic
+---| 1 # geography_surveying_staff
+---| 2 # geography_cartography_basic
+---| 3 # geography_surveying_triangulation
+---| 4 # geography_surveying_cartographical
+---| 5 # geography_surveying_land
+---| 6 # geography_surveying_military
+---| 7 # geography_surveying_engineering
+---| 8 # geography_cartography_geological
+---| 9 # geography_cartography_grid_system
+---| 10 # geography_cartography_distance_scale
+---| 11 # geography_cartography_height_measurements
+---| 12 # geography_method_economic_data_collection
+---| 13 # geography_cartography_economic
+---| 14 # geography_form_atlas
+---| 15 # geography_theory_delta_formation
+---| 16 # geography_theory_wind_patterns
+---| 17 # geography_theory_origin_of_rainfall_from_evap_condense
+---| 18 # geography_theory_water_cycle
+---| 19 # geography_theory_latitude_climate_zones
+---| 20 # geography_cartography_accurate_maps
+---| 21 # geography_cartography_map_projections
+
+---@alias _knowledge_scholar_flags_8_values
+---| "geography_surveying_basic" # 0
+---| "geography_surveying_staff" # 1
+---| "geography_cartography_basic" # 2
+---| "geography_surveying_triangulation" # 3
+---| "geography_surveying_cartographical" # 4
+---| "geography_surveying_land" # 5
+---| "geography_surveying_military" # 6
+---| "geography_surveying_engineering" # 7
+---| "geography_cartography_geological" # 8
+---| "geography_cartography_grid_system" # 9
+---| "geography_cartography_distance_scale" # 10
+---| "geography_cartography_height_measurements" # 11
+---| "geography_method_economic_data_collection" # 12
+---| "geography_cartography_economic" # 13
+---| "geography_form_atlas" # 14
+---| "geography_theory_delta_formation" # 15
+---| "geography_theory_wind_patterns" # 16
+---| "geography_theory_origin_of_rainfall_from_evap_condense" # 17
+---| "geography_theory_water_cycle" # 18
+---| "geography_theory_latitude_climate_zones" # 19
+---| "geography_cartography_accurate_maps" # 20
+---| "geography_cartography_map_projections" # 21
+
+---@class knowledge_scholar_flags_8: DFObject, { [_knowledge_scholar_flags_8_keys|_knowledge_scholar_flags_8_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_8
+local knowledge_scholar_flags_8 = {
+  geography_surveying_basic = false,
+  [0] = false,
+  geography_surveying_staff = false,
+  [1] = false,
+  geography_cartography_basic = false,
+  [2] = false,
+  geography_surveying_triangulation = false,
+  [3] = false,
+  geography_surveying_cartographical = false,
+  [4] = false,
+  geography_surveying_land = false,
+  [5] = false,
+  geography_surveying_military = false,
+  [6] = false,
+  geography_surveying_engineering = false,
+  [7] = false,
+  geography_cartography_geological = false,
+  [8] = false,
+  geography_cartography_grid_system = false,
+  [9] = false,
+  geography_cartography_distance_scale = false,
+  [10] = false,
+  geography_cartography_height_measurements = false,
+  [11] = false,
+  geography_method_economic_data_collection = false,
+  [12] = false,
+  geography_cartography_economic = false,
+  [13] = false,
+  geography_form_atlas = false,
+  [14] = false,
+  geography_theory_delta_formation = false,
+  [15] = false,
+  geography_theory_wind_patterns = false,
+  [16] = false,
+  geography_theory_origin_of_rainfall_from_evap_condense = false,
+  [17] = false,
+  geography_theory_water_cycle = false,
+  [18] = false,
+  geography_theory_latitude_climate_zones = false,
+  [19] = false,
+  geography_cartography_accurate_maps = false,
+  [20] = false,
+  geography_cartography_map_projections = false,
+  [21] = false,
+}
+
+---@class _knowledge_scholar_flags_8: DFBitfield
+---@field geography_surveying_basic 0
+---@field [0] "geography_surveying_basic"
+---@field geography_surveying_staff 1
+---@field [1] "geography_surveying_staff"
+---@field geography_cartography_basic 2
+---@field [2] "geography_cartography_basic"
+---@field geography_surveying_triangulation 3
+---@field [3] "geography_surveying_triangulation"
+---@field geography_surveying_cartographical 4
+---@field [4] "geography_surveying_cartographical"
+---@field geography_surveying_land 5
+---@field [5] "geography_surveying_land"
+---@field geography_surveying_military 6
+---@field [6] "geography_surveying_military"
+---@field geography_surveying_engineering 7
+---@field [7] "geography_surveying_engineering"
+---@field geography_cartography_geological 8
+---@field [8] "geography_cartography_geological"
+---@field geography_cartography_grid_system 9
+---@field [9] "geography_cartography_grid_system"
+---@field geography_cartography_distance_scale 10
+---@field [10] "geography_cartography_distance_scale"
+---@field geography_cartography_height_measurements 11
+---@field [11] "geography_cartography_height_measurements"
+---@field geography_method_economic_data_collection 12
+---@field [12] "geography_method_economic_data_collection"
+---@field geography_cartography_economic 13
+---@field [13] "geography_cartography_economic"
+---@field geography_form_atlas 14
+---@field [14] "geography_form_atlas"
+---@field geography_theory_delta_formation 15
+---@field [15] "geography_theory_delta_formation"
+---@field geography_theory_wind_patterns 16
+---@field [16] "geography_theory_wind_patterns"
+---@field geography_theory_origin_of_rainfall_from_evap_condense 17
+---@field [17] "geography_theory_origin_of_rainfall_from_evap_condense"
+---@field geography_theory_water_cycle 18
+---@field [18] "geography_theory_water_cycle"
+---@field geography_theory_latitude_climate_zones 19
+---@field [19] "geography_theory_latitude_climate_zones"
+---@field geography_cartography_accurate_maps 20
+---@field [20] "geography_cartography_accurate_maps"
+---@field geography_cartography_map_projections 21
+---@field [21] "geography_cartography_map_projections"
+df.knowledge_scholar_flags_8 = {}
+
+---@alias _knowledge_scholar_flags_9_keys
+---| 0 # medicine_theory_disease_and_fouled_water
+---| 1 # medicine_method_physical_examination
+---| 2 # medicine_method_autopsy
+---| 3 # medicine_theory_prognosis
+---| 4 # medicine_tool_herbal_remedies
+---| 5 # medicine_tool_animal_remedies
+---| 6 # medicine_tool_mineral_remedies
+---| 7 # medicine_tool_bandages
+---| 8 # medicine_theory_disease_classification
+---| 9 # medicine_theory_toxicology
+---| 10 # medicine_theory_acute_and_chronic_conditions
+---| 11 # medicine_theory_endemic_disease
+---| 12 # medicine_theory_epidemic_disease
+---| 13 # medicine_theory_exacerbation
+---| 14 # medicine_theory_paroxysm
+---| 15 # medicine_theory_relapse
+---| 16 # medicine_theory_convalescence
+---| 17 # medicine_method_treatment_of_traumatic_injuries
+---| 18 # medicine_method_fracture_treatment
+---| 19 # medicine_theory_fracture_classification
+---| 20 # medicine_tool_traction_bench
+---| 21 # medicine_method_fracture_immobilization
+---| 22 # medicine_tool_orthopedic_cast
+---| 23 # medicine_method_surgery_excision
+---| 24 # medicine_method_surgery_incision
+---| 25 # medicine_method_hernia_surgery
+---| 26 # medicine_method_tracheotomy_surgery
+---| 27 # medicine_method_lithotomy_surgery
+---| 28 # medicine_method_surgery_scraping
+---| 29 # medicine_method_surgery_draining
+---| 30 # medicine_method_surgery_probing
+---| 31 # medicine_method_surgery_suturing
+
+---@alias _knowledge_scholar_flags_9_values
+---| "medicine_theory_disease_and_fouled_water" # 0
+---| "medicine_method_physical_examination" # 1
+---| "medicine_method_autopsy" # 2
+---| "medicine_theory_prognosis" # 3
+---| "medicine_tool_herbal_remedies" # 4
+---| "medicine_tool_animal_remedies" # 5
+---| "medicine_tool_mineral_remedies" # 6
+---| "medicine_tool_bandages" # 7
+---| "medicine_theory_disease_classification" # 8
+---| "medicine_theory_toxicology" # 9
+---| "medicine_theory_acute_and_chronic_conditions" # 10
+---| "medicine_theory_endemic_disease" # 11
+---| "medicine_theory_epidemic_disease" # 12
+---| "medicine_theory_exacerbation" # 13
+---| "medicine_theory_paroxysm" # 14
+---| "medicine_theory_relapse" # 15
+---| "medicine_theory_convalescence" # 16
+---| "medicine_method_treatment_of_traumatic_injuries" # 17
+---| "medicine_method_fracture_treatment" # 18
+---| "medicine_theory_fracture_classification" # 19
+---| "medicine_tool_traction_bench" # 20
+---| "medicine_method_fracture_immobilization" # 21
+---| "medicine_tool_orthopedic_cast" # 22
+---| "medicine_method_surgery_excision" # 23
+---| "medicine_method_surgery_incision" # 24
+---| "medicine_method_hernia_surgery" # 25
+---| "medicine_method_tracheotomy_surgery" # 26
+---| "medicine_method_lithotomy_surgery" # 27
+---| "medicine_method_surgery_scraping" # 28
+---| "medicine_method_surgery_draining" # 29
+---| "medicine_method_surgery_probing" # 30
+---| "medicine_method_surgery_suturing" # 31
+
+---@class knowledge_scholar_flags_9: DFObject, { [_knowledge_scholar_flags_9_keys|_knowledge_scholar_flags_9_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_9
+local knowledge_scholar_flags_9 = {
+  medicine_theory_disease_and_fouled_water = false,
+  [0] = false,
+  medicine_method_physical_examination = false,
+  [1] = false,
+  medicine_method_autopsy = false,
+  [2] = false,
+  medicine_theory_prognosis = false,
+  [3] = false,
+  medicine_tool_herbal_remedies = false,
+  [4] = false,
+  medicine_tool_animal_remedies = false,
+  [5] = false,
+  medicine_tool_mineral_remedies = false,
+  [6] = false,
+  medicine_tool_bandages = false,
+  [7] = false,
+  medicine_theory_disease_classification = false,
+  [8] = false,
+  medicine_theory_toxicology = false,
+  [9] = false,
+  medicine_theory_acute_and_chronic_conditions = false,
+  [10] = false,
+  medicine_theory_endemic_disease = false,
+  [11] = false,
+  medicine_theory_epidemic_disease = false,
+  [12] = false,
+  medicine_theory_exacerbation = false,
+  [13] = false,
+  medicine_theory_paroxysm = false,
+  [14] = false,
+  medicine_theory_relapse = false,
+  [15] = false,
+  medicine_theory_convalescence = false,
+  [16] = false,
+  medicine_method_treatment_of_traumatic_injuries = false,
+  [17] = false,
+  medicine_method_fracture_treatment = false,
+  [18] = false,
+  medicine_theory_fracture_classification = false,
+  [19] = false,
+  medicine_tool_traction_bench = false,
+  [20] = false,
+  medicine_method_fracture_immobilization = false,
+  [21] = false,
+  medicine_tool_orthopedic_cast = false,
+  [22] = false,
+  medicine_method_surgery_excision = false,
+  [23] = false,
+  medicine_method_surgery_incision = false,
+  [24] = false,
+  medicine_method_hernia_surgery = false,
+  [25] = false,
+  medicine_method_tracheotomy_surgery = false,
+  [26] = false,
+  medicine_method_lithotomy_surgery = false,
+  [27] = false,
+  medicine_method_surgery_scraping = false,
+  [28] = false,
+  medicine_method_surgery_draining = false,
+  [29] = false,
+  medicine_method_surgery_probing = false,
+  [30] = false,
+  medicine_method_surgery_suturing = false,
+  [31] = false,
+}
+
+---@class _knowledge_scholar_flags_9: DFBitfield
+---@field medicine_theory_disease_and_fouled_water 0
+---@field [0] "medicine_theory_disease_and_fouled_water"
+---@field medicine_method_physical_examination 1
+---@field [1] "medicine_method_physical_examination"
+---@field medicine_method_autopsy 2
+---@field [2] "medicine_method_autopsy"
+---@field medicine_theory_prognosis 3
+---@field [3] "medicine_theory_prognosis"
+---@field medicine_tool_herbal_remedies 4
+---@field [4] "medicine_tool_herbal_remedies"
+---@field medicine_tool_animal_remedies 5
+---@field [5] "medicine_tool_animal_remedies"
+---@field medicine_tool_mineral_remedies 6
+---@field [6] "medicine_tool_mineral_remedies"
+---@field medicine_tool_bandages 7
+---@field [7] "medicine_tool_bandages"
+---@field medicine_theory_disease_classification 8
+---@field [8] "medicine_theory_disease_classification"
+---@field medicine_theory_toxicology 9
+---@field [9] "medicine_theory_toxicology"
+---@field medicine_theory_acute_and_chronic_conditions 10
+---@field [10] "medicine_theory_acute_and_chronic_conditions"
+---@field medicine_theory_endemic_disease 11
+---@field [11] "medicine_theory_endemic_disease"
+---@field medicine_theory_epidemic_disease 12
+---@field [12] "medicine_theory_epidemic_disease"
+---@field medicine_theory_exacerbation 13
+---@field [13] "medicine_theory_exacerbation"
+---@field medicine_theory_paroxysm 14
+---@field [14] "medicine_theory_paroxysm"
+---@field medicine_theory_relapse 15
+---@field [15] "medicine_theory_relapse"
+---@field medicine_theory_convalescence 16
+---@field [16] "medicine_theory_convalescence"
+---@field medicine_method_treatment_of_traumatic_injuries 17
+---@field [17] "medicine_method_treatment_of_traumatic_injuries"
+---@field medicine_method_fracture_treatment 18
+---@field [18] "medicine_method_fracture_treatment"
+---@field medicine_theory_fracture_classification 19
+---@field [19] "medicine_theory_fracture_classification"
+---@field medicine_tool_traction_bench 20
+---@field [20] "medicine_tool_traction_bench"
+---@field medicine_method_fracture_immobilization 21
+---@field [21] "medicine_method_fracture_immobilization"
+---@field medicine_tool_orthopedic_cast 22
+---@field [22] "medicine_tool_orthopedic_cast"
+---@field medicine_method_surgery_excision 23
+---@field [23] "medicine_method_surgery_excision"
+---@field medicine_method_surgery_incision 24
+---@field [24] "medicine_method_surgery_incision"
+---@field medicine_method_hernia_surgery 25
+---@field [25] "medicine_method_hernia_surgery"
+---@field medicine_method_tracheotomy_surgery 26
+---@field [26] "medicine_method_tracheotomy_surgery"
+---@field medicine_method_lithotomy_surgery 27
+---@field [27] "medicine_method_lithotomy_surgery"
+---@field medicine_method_surgery_scraping 28
+---@field [28] "medicine_method_surgery_scraping"
+---@field medicine_method_surgery_draining 29
+---@field [29] "medicine_method_surgery_draining"
+---@field medicine_method_surgery_probing 30
+---@field [30] "medicine_method_surgery_probing"
+---@field medicine_method_surgery_suturing 31
+---@field [31] "medicine_method_surgery_suturing"
+df.knowledge_scholar_flags_9 = {}
+
+---@alias _knowledge_scholar_flags_10_keys
+---| 0 # medicine_method_surgery_ligature
+---| 1 # medicine_theory_surgical_models
+---| 2 # medicine_tool_mud_bags_as_surgical_models
+---| 3 # medicine_tool_plants_as_surgical_models
+---| 4 # medicine_tool_animals_as_surgical_models
+---| 5 # medicine_theory_specialized_surgical_instruments
+---| 6 # medicine_tool_forceps
+---| 7 # medicine_tool_scalpel
+---| 8 # medicine_tool_surgical_scissors
+---| 9 # medicine_tool_surgical_needles
+---| 10 # medicine_method_cataract_surgery
+---| 11 # medicine_method_cauterization
+---| 12 # medicine_method_anesthesia
+---| 13 # medicine_theory_pulmonary_medicine
+---| 14 # medicine_theory_anatomical_studies
+---| 15 # medicine_theory_classification_of_bodily_fluids
+---| 16 # medicine_theory_eye_anatomy
+---| 17 # medicine_theory_motor_vs_sensory_nerves
+---| 18 # medicine_theory_nervous_system_function
+---| 19 # medicine_theory_reaction_time
+---| 20 # medicine_theory_blood_vessels
+---| 21 # medicine_theory_pulmonary_circulation
+---| 22 # medicine_theory_comparative_anatomy
+---| 23 # medicine_theory_the_voice
+---| 24 # medicine_theory_classification_of_muscles
+---| 25 # medicine_theory_classification_of_mental_illnesses
+---| 26 # medicine_theory_treatment_of_mental_illnesses
+---| 27 # medicine_tool_dedicated_hospitals
+---| 28 # medicine_method_professional_hospital_staff
+---| 29 # medicine_method_specialized_wards
+---| 30 # medicine_method_hospital_lab
+---| 31 # medicine_method_medical_school
+
+---@alias _knowledge_scholar_flags_10_values
+---| "medicine_method_surgery_ligature" # 0
+---| "medicine_theory_surgical_models" # 1
+---| "medicine_tool_mud_bags_as_surgical_models" # 2
+---| "medicine_tool_plants_as_surgical_models" # 3
+---| "medicine_tool_animals_as_surgical_models" # 4
+---| "medicine_theory_specialized_surgical_instruments" # 5
+---| "medicine_tool_forceps" # 6
+---| "medicine_tool_scalpel" # 7
+---| "medicine_tool_surgical_scissors" # 8
+---| "medicine_tool_surgical_needles" # 9
+---| "medicine_method_cataract_surgery" # 10
+---| "medicine_method_cauterization" # 11
+---| "medicine_method_anesthesia" # 12
+---| "medicine_theory_pulmonary_medicine" # 13
+---| "medicine_theory_anatomical_studies" # 14
+---| "medicine_theory_classification_of_bodily_fluids" # 15
+---| "medicine_theory_eye_anatomy" # 16
+---| "medicine_theory_motor_vs_sensory_nerves" # 17
+---| "medicine_theory_nervous_system_function" # 18
+---| "medicine_theory_reaction_time" # 19
+---| "medicine_theory_blood_vessels" # 20
+---| "medicine_theory_pulmonary_circulation" # 21
+---| "medicine_theory_comparative_anatomy" # 22
+---| "medicine_theory_the_voice" # 23
+---| "medicine_theory_classification_of_muscles" # 24
+---| "medicine_theory_classification_of_mental_illnesses" # 25
+---| "medicine_theory_treatment_of_mental_illnesses" # 26
+---| "medicine_tool_dedicated_hospitals" # 27
+---| "medicine_method_professional_hospital_staff" # 28
+---| "medicine_method_specialized_wards" # 29
+---| "medicine_method_hospital_lab" # 30
+---| "medicine_method_medical_school" # 31
+
+---@class knowledge_scholar_flags_10: DFObject, { [_knowledge_scholar_flags_10_keys|_knowledge_scholar_flags_10_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_10
+local knowledge_scholar_flags_10 = {
+  medicine_method_surgery_ligature = false,
+  [0] = false,
+  medicine_theory_surgical_models = false,
+  [1] = false,
+  medicine_tool_mud_bags_as_surgical_models = false,
+  [2] = false,
+  medicine_tool_plants_as_surgical_models = false,
+  [3] = false,
+  medicine_tool_animals_as_surgical_models = false,
+  [4] = false,
+  medicine_theory_specialized_surgical_instruments = false,
+  [5] = false,
+  medicine_tool_forceps = false,
+  [6] = false,
+  medicine_tool_scalpel = false,
+  [7] = false,
+  medicine_tool_surgical_scissors = false,
+  [8] = false,
+  medicine_tool_surgical_needles = false,
+  [9] = false,
+  medicine_method_cataract_surgery = false,
+  [10] = false,
+  medicine_method_cauterization = false,
+  [11] = false,
+  medicine_method_anesthesia = false,
+  [12] = false,
+  medicine_theory_pulmonary_medicine = false,
+  [13] = false,
+  medicine_theory_anatomical_studies = false,
+  [14] = false,
+  medicine_theory_classification_of_bodily_fluids = false,
+  [15] = false,
+  medicine_theory_eye_anatomy = false,
+  [16] = false,
+  medicine_theory_motor_vs_sensory_nerves = false,
+  [17] = false,
+  medicine_theory_nervous_system_function = false,
+  [18] = false,
+  medicine_theory_reaction_time = false,
+  [19] = false,
+  medicine_theory_blood_vessels = false,
+  [20] = false,
+  medicine_theory_pulmonary_circulation = false,
+  [21] = false,
+  medicine_theory_comparative_anatomy = false,
+  [22] = false,
+  medicine_theory_the_voice = false,
+  [23] = false,
+  medicine_theory_classification_of_muscles = false,
+  [24] = false,
+  medicine_theory_classification_of_mental_illnesses = false,
+  [25] = false,
+  medicine_theory_treatment_of_mental_illnesses = false,
+  [26] = false,
+  medicine_tool_dedicated_hospitals = false,
+  [27] = false,
+  medicine_method_professional_hospital_staff = false,
+  [28] = false,
+  medicine_method_specialized_wards = false,
+  [29] = false,
+  medicine_method_hospital_lab = false,
+  [30] = false,
+  medicine_method_medical_school = false,
+  [31] = false,
+}
+
+---@class _knowledge_scholar_flags_10: DFBitfield
+---@field medicine_method_surgery_ligature 0
+---@field [0] "medicine_method_surgery_ligature"
+---@field medicine_theory_surgical_models 1
+---@field [1] "medicine_theory_surgical_models"
+---@field medicine_tool_mud_bags_as_surgical_models 2
+---@field [2] "medicine_tool_mud_bags_as_surgical_models"
+---@field medicine_tool_plants_as_surgical_models 3
+---@field [3] "medicine_tool_plants_as_surgical_models"
+---@field medicine_tool_animals_as_surgical_models 4
+---@field [4] "medicine_tool_animals_as_surgical_models"
+---@field medicine_theory_specialized_surgical_instruments 5
+---@field [5] "medicine_theory_specialized_surgical_instruments"
+---@field medicine_tool_forceps 6
+---@field [6] "medicine_tool_forceps"
+---@field medicine_tool_scalpel 7
+---@field [7] "medicine_tool_scalpel"
+---@field medicine_tool_surgical_scissors 8
+---@field [8] "medicine_tool_surgical_scissors"
+---@field medicine_tool_surgical_needles 9
+---@field [9] "medicine_tool_surgical_needles"
+---@field medicine_method_cataract_surgery 10
+---@field [10] "medicine_method_cataract_surgery"
+---@field medicine_method_cauterization 11
+---@field [11] "medicine_method_cauterization"
+---@field medicine_method_anesthesia 12
+---@field [12] "medicine_method_anesthesia"
+---@field medicine_theory_pulmonary_medicine 13
+---@field [13] "medicine_theory_pulmonary_medicine"
+---@field medicine_theory_anatomical_studies 14
+---@field [14] "medicine_theory_anatomical_studies"
+---@field medicine_theory_classification_of_bodily_fluids 15
+---@field [15] "medicine_theory_classification_of_bodily_fluids"
+---@field medicine_theory_eye_anatomy 16
+---@field [16] "medicine_theory_eye_anatomy"
+---@field medicine_theory_motor_vs_sensory_nerves 17
+---@field [17] "medicine_theory_motor_vs_sensory_nerves"
+---@field medicine_theory_nervous_system_function 18
+---@field [18] "medicine_theory_nervous_system_function"
+---@field medicine_theory_reaction_time 19
+---@field [19] "medicine_theory_reaction_time"
+---@field medicine_theory_blood_vessels 20
+---@field [20] "medicine_theory_blood_vessels"
+---@field medicine_theory_pulmonary_circulation 21
+---@field [21] "medicine_theory_pulmonary_circulation"
+---@field medicine_theory_comparative_anatomy 22
+---@field [22] "medicine_theory_comparative_anatomy"
+---@field medicine_theory_the_voice 23
+---@field [23] "medicine_theory_the_voice"
+---@field medicine_theory_classification_of_muscles 24
+---@field [24] "medicine_theory_classification_of_muscles"
+---@field medicine_theory_classification_of_mental_illnesses 25
+---@field [25] "medicine_theory_classification_of_mental_illnesses"
+---@field medicine_theory_treatment_of_mental_illnesses 26
+---@field [26] "medicine_theory_treatment_of_mental_illnesses"
+---@field medicine_tool_dedicated_hospitals 27
+---@field [27] "medicine_tool_dedicated_hospitals"
+---@field medicine_method_professional_hospital_staff 28
+---@field [28] "medicine_method_professional_hospital_staff"
+---@field medicine_method_specialized_wards 29
+---@field [29] "medicine_method_specialized_wards"
+---@field medicine_method_hospital_lab 30
+---@field [30] "medicine_method_hospital_lab"
+---@field medicine_method_medical_school 31
+---@field [31] "medicine_method_medical_school"
+df.knowledge_scholar_flags_10 = {}
+
+---@alias _knowledge_scholar_flags_11_keys
+---| 0 # medicine_method_asylum_for_mentally_ill
+
+---@alias _knowledge_scholar_flags_11_values
+---| "medicine_method_asylum_for_mentally_ill" # 0
+
+---@class knowledge_scholar_flags_11: DFObject, { [_knowledge_scholar_flags_11_keys|_knowledge_scholar_flags_11_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_11
+local knowledge_scholar_flags_11 = {
+  medicine_method_asylum_for_mentally_ill = false,
+  [0] = false,
+}
+
+---@class _knowledge_scholar_flags_11: DFBitfield
+---@field medicine_method_asylum_for_mentally_ill 0
+---@field [0] "medicine_method_asylum_for_mentally_ill"
+df.knowledge_scholar_flags_11 = {}
+
+---@alias _knowledge_scholar_flags_12_keys
+---| 0 # engineering_horology_shadow_clock
+---| 1 # engineering_horology_water_clock
+---| 2 # engineering_horology_conical_water_clock
+---| 3 # engineering_horology_water_clock_reservoir
+---| 4 # engineering_horology_astrarium
+---| 5 # engineering_horology_hourglass
+---| 6 # engineering_horology_mechanical_clock
+---| 7 # engineering_machine_theory_of_pulley
+---| 8 # engineering_machine_pulley
+---| 9 # engineering_machine_theory_of_screw
+---| 10 # engineering_machine_screw
+---| 11 # engineering_machine_theory_of_wheel_and_axle
+---| 12 # engineering_machine_windlass
+---| 13 # engineering_machine_theory_of_wedge
+---| 14 # engineering_machine_theory_of_lever
+---| 15 # engineering_machine_lever
+---| 16 # engineering_machine_straight_beam_balance
+---| 17 # engineering_machine_theory_of_gears
+---| 18 # engineering_machine_warded_lock
+---| 19 # engineering_machine_tumbler_lock
+---| 20 # engineering_machine_padlock
+---| 21 # engineering_machine_camshaft
+---| 22 # engineering_machine_crankshaft
+---| 23 # engineering_machine_water_powered_sawmill
+---| 24 # engineering_machine_chariot_odometer
+---| 25 # engineering_machine_chain_drive
+---| 26 # engineering_machine_mechanical_compass
+---| 27 # engineering_machine_differential_gear
+---| 28 # engineering_machine_combination_lock
+---| 29 # engineering_machine_verge_escapement
+---| 30 # engineering_machine_balance_wheel
+---| 31 # engineering_fluid_theory_of_siphon
+
+---@alias _knowledge_scholar_flags_12_values
+---| "engineering_horology_shadow_clock" # 0
+---| "engineering_horology_water_clock" # 1
+---| "engineering_horology_conical_water_clock" # 2
+---| "engineering_horology_water_clock_reservoir" # 3
+---| "engineering_horology_astrarium" # 4
+---| "engineering_horology_hourglass" # 5
+---| "engineering_horology_mechanical_clock" # 6
+---| "engineering_machine_theory_of_pulley" # 7
+---| "engineering_machine_pulley" # 8
+---| "engineering_machine_theory_of_screw" # 9
+---| "engineering_machine_screw" # 10
+---| "engineering_machine_theory_of_wheel_and_axle" # 11
+---| "engineering_machine_windlass" # 12
+---| "engineering_machine_theory_of_wedge" # 13
+---| "engineering_machine_theory_of_lever" # 14
+---| "engineering_machine_lever" # 15
+---| "engineering_machine_straight_beam_balance" # 16
+---| "engineering_machine_theory_of_gears" # 17
+---| "engineering_machine_warded_lock" # 18
+---| "engineering_machine_tumbler_lock" # 19
+---| "engineering_machine_padlock" # 20
+---| "engineering_machine_camshaft" # 21
+---| "engineering_machine_crankshaft" # 22
+---| "engineering_machine_water_powered_sawmill" # 23
+---| "engineering_machine_chariot_odometer" # 24
+---| "engineering_machine_chain_drive" # 25
+---| "engineering_machine_mechanical_compass" # 26
+---| "engineering_machine_differential_gear" # 27
+---| "engineering_machine_combination_lock" # 28
+---| "engineering_machine_verge_escapement" # 29
+---| "engineering_machine_balance_wheel" # 30
+---| "engineering_fluid_theory_of_siphon" # 31
+
+---@class knowledge_scholar_flags_12: DFObject, { [_knowledge_scholar_flags_12_keys|_knowledge_scholar_flags_12_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_12
+local knowledge_scholar_flags_12 = {
+  engineering_horology_shadow_clock = false,
+  [0] = false,
+  engineering_horology_water_clock = false,
+  [1] = false,
+  engineering_horology_conical_water_clock = false,
+  [2] = false,
+  engineering_horology_water_clock_reservoir = false,
+  [3] = false,
+  engineering_horology_astrarium = false,
+  [4] = false,
+  engineering_horology_hourglass = false,
+  [5] = false,
+  engineering_horology_mechanical_clock = false,
+  [6] = false,
+  engineering_machine_theory_of_pulley = false,
+  [7] = false,
+  engineering_machine_pulley = false,
+  [8] = false,
+  engineering_machine_theory_of_screw = false,
+  [9] = false,
+  engineering_machine_screw = false,
+  [10] = false,
+  engineering_machine_theory_of_wheel_and_axle = false,
+  [11] = false,
+  engineering_machine_windlass = false,
+  [12] = false,
+  engineering_machine_theory_of_wedge = false,
+  [13] = false,
+  engineering_machine_theory_of_lever = false,
+  [14] = false,
+  engineering_machine_lever = false,
+  [15] = false,
+  engineering_machine_straight_beam_balance = false,
+  [16] = false,
+  engineering_machine_theory_of_gears = false,
+  [17] = false,
+  engineering_machine_warded_lock = false,
+  [18] = false,
+  engineering_machine_tumbler_lock = false,
+  [19] = false,
+  engineering_machine_padlock = false,
+  [20] = false,
+  engineering_machine_camshaft = false,
+  [21] = false,
+  engineering_machine_crankshaft = false,
+  [22] = false,
+  engineering_machine_water_powered_sawmill = false,
+  [23] = false,
+  engineering_machine_chariot_odometer = false,
+  [24] = false,
+  engineering_machine_chain_drive = false,
+  [25] = false,
+  engineering_machine_mechanical_compass = false,
+  [26] = false,
+  engineering_machine_differential_gear = false,
+  [27] = false,
+  engineering_machine_combination_lock = false,
+  [28] = false,
+  engineering_machine_verge_escapement = false,
+  [29] = false,
+  engineering_machine_balance_wheel = false,
+  [30] = false,
+  engineering_fluid_theory_of_siphon = false,
+  [31] = false,
+}
+
+---@class _knowledge_scholar_flags_12: DFBitfield
+---@field engineering_horology_shadow_clock 0
+---@field [0] "engineering_horology_shadow_clock"
+---@field engineering_horology_water_clock 1
+---@field [1] "engineering_horology_water_clock"
+---@field engineering_horology_conical_water_clock 2
+---@field [2] "engineering_horology_conical_water_clock"
+---@field engineering_horology_water_clock_reservoir 3
+---@field [3] "engineering_horology_water_clock_reservoir"
+---@field engineering_horology_astrarium 4
+---@field [4] "engineering_horology_astrarium"
+---@field engineering_horology_hourglass 5
+---@field [5] "engineering_horology_hourglass"
+---@field engineering_horology_mechanical_clock 6
+---@field [6] "engineering_horology_mechanical_clock"
+---@field engineering_machine_theory_of_pulley 7
+---@field [7] "engineering_machine_theory_of_pulley"
+---@field engineering_machine_pulley 8
+---@field [8] "engineering_machine_pulley"
+---@field engineering_machine_theory_of_screw 9
+---@field [9] "engineering_machine_theory_of_screw"
+---@field engineering_machine_screw 10
+---@field [10] "engineering_machine_screw"
+---@field engineering_machine_theory_of_wheel_and_axle 11
+---@field [11] "engineering_machine_theory_of_wheel_and_axle"
+---@field engineering_machine_windlass 12
+---@field [12] "engineering_machine_windlass"
+---@field engineering_machine_theory_of_wedge 13
+---@field [13] "engineering_machine_theory_of_wedge"
+---@field engineering_machine_theory_of_lever 14
+---@field [14] "engineering_machine_theory_of_lever"
+---@field engineering_machine_lever 15
+---@field [15] "engineering_machine_lever"
+---@field engineering_machine_straight_beam_balance 16
+---@field [16] "engineering_machine_straight_beam_balance"
+---@field engineering_machine_theory_of_gears 17
+---@field [17] "engineering_machine_theory_of_gears"
+---@field engineering_machine_warded_lock 18
+---@field [18] "engineering_machine_warded_lock"
+---@field engineering_machine_tumbler_lock 19
+---@field [19] "engineering_machine_tumbler_lock"
+---@field engineering_machine_padlock 20
+---@field [20] "engineering_machine_padlock"
+---@field engineering_machine_camshaft 21
+---@field [21] "engineering_machine_camshaft"
+---@field engineering_machine_crankshaft 22
+---@field [22] "engineering_machine_crankshaft"
+---@field engineering_machine_water_powered_sawmill 23
+---@field [23] "engineering_machine_water_powered_sawmill"
+---@field engineering_machine_chariot_odometer 24
+---@field [24] "engineering_machine_chariot_odometer"
+---@field engineering_machine_chain_drive 25
+---@field [25] "engineering_machine_chain_drive"
+---@field engineering_machine_mechanical_compass 26
+---@field [26] "engineering_machine_mechanical_compass"
+---@field engineering_machine_differential_gear 27
+---@field [27] "engineering_machine_differential_gear"
+---@field engineering_machine_combination_lock 28
+---@field [28] "engineering_machine_combination_lock"
+---@field engineering_machine_verge_escapement 29
+---@field [29] "engineering_machine_verge_escapement"
+---@field engineering_machine_balance_wheel 30
+---@field [30] "engineering_machine_balance_wheel"
+---@field engineering_fluid_theory_of_siphon 31
+---@field [31] "engineering_fluid_theory_of_siphon"
+df.knowledge_scholar_flags_12 = {}
+
+---@alias _knowledge_scholar_flags_13_keys
+---| 0 # engineering_fluid_valves
+---| 1 # engineering_fluid_force_pump
+---| 2 # engineering_optics_crystal_lens
+---| 3 # engineering_optics_water_filled_spheres
+---| 4 # engineering_optics_glass_lens
+---| 5 # engineering_optics_camera_obscura
+---| 6 # engineering_optics_parabolic_mirror
+---| 7 # engineering_optics_theory_of_color
+---| 8 # engineering_optics_theory_of_rainbows
+---| 9 # engineering_optics_law_of_refraction
+---| 10 # engineering_design_models_and_templates
+---| 11 # engineering_construction_wood_lamination
+---| 12 # engineering_astronomy_dioptra
+---| 13 # engineering_astronomy_astrolabe
+---| 14 # engineering_astronomy_armillary_sphere
+---| 15 # engineering_astronomy_spherical_astrolabe
+---| 16 # engineering_astronomy_mural_instrument
+---| 17 # engineering_astronomy_orrery
+---| 18 # engineering_machine_water_powered_trip_hammer
+---| 19 # engineering_machine_double_acting_piston_bellows
+---| 20 # engineering_fluid_archimedes_principle
+---| 21 # engineering_optics_atmospheric_refraction
+---| 22 # engineering_optics_cause_of_twilight
+---| 23 # engineering_optics_height_of_atmosphere
+---| 24 # engineering_machine_piston
+---| 25 # engineering_machine_crank
+---| 26 # engineering_machine_bellows
+---| 27 # engineering_machine_water_powered_piston_bellows
+---| 28 # engineering_machine_water_wheel
+---| 29 # engineering_machine_trip_hammer
+
+---@alias _knowledge_scholar_flags_13_values
+---| "engineering_fluid_valves" # 0
+---| "engineering_fluid_force_pump" # 1
+---| "engineering_optics_crystal_lens" # 2
+---| "engineering_optics_water_filled_spheres" # 3
+---| "engineering_optics_glass_lens" # 4
+---| "engineering_optics_camera_obscura" # 5
+---| "engineering_optics_parabolic_mirror" # 6
+---| "engineering_optics_theory_of_color" # 7
+---| "engineering_optics_theory_of_rainbows" # 8
+---| "engineering_optics_law_of_refraction" # 9
+---| "engineering_design_models_and_templates" # 10
+---| "engineering_construction_wood_lamination" # 11
+---| "engineering_astronomy_dioptra" # 12
+---| "engineering_astronomy_astrolabe" # 13
+---| "engineering_astronomy_armillary_sphere" # 14
+---| "engineering_astronomy_spherical_astrolabe" # 15
+---| "engineering_astronomy_mural_instrument" # 16
+---| "engineering_astronomy_orrery" # 17
+---| "engineering_machine_water_powered_trip_hammer" # 18
+---| "engineering_machine_double_acting_piston_bellows" # 19
+---| "engineering_fluid_archimedes_principle" # 20
+---| "engineering_optics_atmospheric_refraction" # 21
+---| "engineering_optics_cause_of_twilight" # 22
+---| "engineering_optics_height_of_atmosphere" # 23
+---| "engineering_machine_piston" # 24
+---| "engineering_machine_crank" # 25
+---| "engineering_machine_bellows" # 26
+---| "engineering_machine_water_powered_piston_bellows" # 27
+---| "engineering_machine_water_wheel" # 28
+---| "engineering_machine_trip_hammer" # 29
+
+---@class knowledge_scholar_flags_13: DFObject, { [_knowledge_scholar_flags_13_keys|_knowledge_scholar_flags_13_values]: boolean }
+---@field _kind 'bitfield'
+---@field _enum _knowledge_scholar_flags_13
+local knowledge_scholar_flags_13 = {
+  engineering_fluid_valves = false,
+  [0] = false,
+  engineering_fluid_force_pump = false,
+  [1] = false,
+  engineering_optics_crystal_lens = false,
+  [2] = false,
+  engineering_optics_water_filled_spheres = false,
+  [3] = false,
+  engineering_optics_glass_lens = false,
+  [4] = false,
+  engineering_optics_camera_obscura = false,
+  [5] = false,
+  engineering_optics_parabolic_mirror = false,
+  [6] = false,
+  engineering_optics_theory_of_color = false,
+  [7] = false,
+  engineering_optics_theory_of_rainbows = false,
+  [8] = false,
+  engineering_optics_law_of_refraction = false,
+  [9] = false,
+  engineering_design_models_and_templates = false,
+  [10] = false,
+  engineering_construction_wood_lamination = false,
+  [11] = false,
+  engineering_astronomy_dioptra = false,
+  [12] = false,
+  engineering_astronomy_astrolabe = false,
+  [13] = false,
+  engineering_astronomy_armillary_sphere = false,
+  [14] = false,
+  engineering_astronomy_spherical_astrolabe = false,
+  [15] = false,
+  engineering_astronomy_mural_instrument = false,
+  [16] = false,
+  engineering_astronomy_orrery = false,
+  [17] = false,
+  engineering_machine_water_powered_trip_hammer = false,
+  [18] = false,
+  engineering_machine_double_acting_piston_bellows = false,
+  [19] = false,
+  engineering_fluid_archimedes_principle = false,
+  [20] = false,
+  engineering_optics_atmospheric_refraction = false,
+  [21] = false,
+  engineering_optics_cause_of_twilight = false,
+  [22] = false,
+  engineering_optics_height_of_atmosphere = false,
+  [23] = false,
+  engineering_machine_piston = false,
+  [24] = false,
+  engineering_machine_crank = false,
+  [25] = false,
+  engineering_machine_bellows = false,
+  [26] = false,
+  engineering_machine_water_powered_piston_bellows = false,
+  [27] = false,
+  engineering_machine_water_wheel = false,
+  [28] = false,
+  engineering_machine_trip_hammer = false,
+  [29] = false,
+}
+
+---@class _knowledge_scholar_flags_13: DFBitfield
+---@field engineering_fluid_valves 0
+---@field [0] "engineering_fluid_valves"
+---@field engineering_fluid_force_pump 1
+---@field [1] "engineering_fluid_force_pump"
+---@field engineering_optics_crystal_lens 2
+---@field [2] "engineering_optics_crystal_lens"
+---@field engineering_optics_water_filled_spheres 3
+---@field [3] "engineering_optics_water_filled_spheres"
+---@field engineering_optics_glass_lens 4
+---@field [4] "engineering_optics_glass_lens"
+---@field engineering_optics_camera_obscura 5
+---@field [5] "engineering_optics_camera_obscura"
+---@field engineering_optics_parabolic_mirror 6
+---@field [6] "engineering_optics_parabolic_mirror"
+---@field engineering_optics_theory_of_color 7
+---@field [7] "engineering_optics_theory_of_color"
+---@field engineering_optics_theory_of_rainbows 8
+---@field [8] "engineering_optics_theory_of_rainbows"
+---@field engineering_optics_law_of_refraction 9
+---@field [9] "engineering_optics_law_of_refraction"
+---@field engineering_design_models_and_templates 10
+---@field [10] "engineering_design_models_and_templates"
+---@field engineering_construction_wood_lamination 11
+---@field [11] "engineering_construction_wood_lamination"
+---@field engineering_astronomy_dioptra 12
+---@field [12] "engineering_astronomy_dioptra"
+---@field engineering_astronomy_astrolabe 13
+---@field [13] "engineering_astronomy_astrolabe"
+---@field engineering_astronomy_armillary_sphere 14
+---@field [14] "engineering_astronomy_armillary_sphere"
+---@field engineering_astronomy_spherical_astrolabe 15
+---@field [15] "engineering_astronomy_spherical_astrolabe"
+---@field engineering_astronomy_mural_instrument 16
+---@field [16] "engineering_astronomy_mural_instrument"
+---@field engineering_astronomy_orrery 17
+---@field [17] "engineering_astronomy_orrery"
+---@field engineering_machine_water_powered_trip_hammer 18
+---@field [18] "engineering_machine_water_powered_trip_hammer"
+---@field engineering_machine_double_acting_piston_bellows 19
+---@field [19] "engineering_machine_double_acting_piston_bellows"
+---@field engineering_fluid_archimedes_principle 20
+---@field [20] "engineering_fluid_archimedes_principle"
+---@field engineering_optics_atmospheric_refraction 21
+---@field [21] "engineering_optics_atmospheric_refraction"
+---@field engineering_optics_cause_of_twilight 22
+---@field [22] "engineering_optics_cause_of_twilight"
+---@field engineering_optics_height_of_atmosphere 23
+---@field [23] "engineering_optics_height_of_atmosphere"
+---@field engineering_machine_piston 24
+---@field [24] "engineering_machine_piston"
+---@field engineering_machine_crank 25
+---@field [25] "engineering_machine_crank"
+---@field engineering_machine_bellows 26
+---@field [26] "engineering_machine_bellows"
+---@field engineering_machine_water_powered_piston_bellows 27
+---@field [27] "engineering_machine_water_powered_piston_bellows"
+---@field engineering_machine_water_wheel 28
+---@field [28] "engineering_machine_water_wheel"
+---@field engineering_machine_trip_hammer 29
+---@field [29] "engineering_machine_trip_hammer"
+df.knowledge_scholar_flags_13 = {}
+
 ---@class (exact) knowledge_scholar_category_flag: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_scholar_category_flag
@@ -29,8 +2083,7 @@ df.knowledge_scholar_category_flag = {}
 ---| 13 # flags_13
 
 -- determines which bitflags to use
----@class _knowledge_scholar_category_flag.T_flag_type: DFDescriptor
----@field _kind 'enum-type'
+---@class _knowledge_scholar_category_flag.T_flag_type: DFEnum
 ---@field flags_0 0
 ---@field [0] "flags_0"
 ---@field flags_1 1
@@ -79,7 +2132,7 @@ df.knowledge_scholar_category_flag.T_flag_type = {}
 ---@field flags_12 knowledge_scholar_flags_12
 ---@field flags_13 knowledge_scholar_flags_13
 ---@field whole integer
-local flag_data
+local knowledge_scholar_category_flag_flag_data
 
 ---@class _knowledge_scholar_category_flag.T_flag_data: DFCompound
 ---@field _kind 'struct-type'
@@ -400,8 +2453,7 @@ df.knowledge_scholar_category_flag.T_flag_data = {}
 ---| -2601 # engineering_machine_trip_hammer
 
 -- not in DF
----@class _dfhack_knowledge_scholar_flag: DFDescriptor
----@field _kind 'enum-type'
+---@class _dfhack_knowledge_scholar_flag: DFEnum
 ---@field philosophy_logic_formal_reasoning 0
 ---@field [0] "philosophy_logic_formal_reasoning"
 ---@field philosophy_logic_deductive_reasoning 1

@@ -5,8 +5,7 @@
 ---| 10000 # CMV_0
 ---| 10001 # CMV_1
 
----@class _cmv_version: DFDescriptor
----@field _kind 'enum-type'
+---@class _cmv_version: DFEnum
 ---@field CMV_0 10000
 ---@field [10000] "CMV_0"
 ---@field CMV_1 10001 adds support for sound
@@ -133,8 +132,7 @@ df.cmv_version = {}
 ---| 1715 # v0_47_04
 ---| 1716 # v0_47_05
 
----@class _save_version: DFDescriptor
----@field _kind 'enum-type'
+---@class _save_version: DFEnum
 ---@field v0_21_93_19a 1107
 ---@field [1107] "v0_21_93_19a"
 ---@field v0_21_93_19c 1108
