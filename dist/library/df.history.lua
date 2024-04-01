@@ -4,7 +4,6 @@
 ---@class (exact) historical_kills: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_kills
-local historical_kills
 
 ---@class _historical_kills: DFCompound
 ---@field _kind 'struct-type'
@@ -23,7 +22,6 @@ df.historical_kills = {}
 ---@field shooter_item_subtype number
 ---@field shooter_mattype number References: `material`
 ---@field shooter_matindex number
-local history_hit_item
 
 ---@class _history_hit_item: DFCompound
 ---@field _kind 'struct-type'
@@ -314,7 +312,6 @@ df.plot_strategy_type = {}
 ---@field plot_role plot_role_type
 ---@field agreement_id number References: `agreement`
 ---@field agreement_has_messenger boolean
-local plot_agreement
 
 ---@class _plot_agreement: DFCompound
 ---@field _kind 'struct-type'
@@ -338,7 +335,6 @@ df.plot_agreement = {}
 ---@field body_state_sub_id number -1/structure/?/-1       /?/structure/structure
 ---@field year number time of arrival at site/region_id, not time of death
 ---@field year_tick number
-local state_profilest
 
 ---@class _state_profilest: DFCompound
 ---@field _kind 'struct-type'
@@ -374,7 +370,6 @@ df.state_profilest.T_flags = {}
 ---@field _type _knowledge_profilest
 ---@field next_intervention_resistance_year number All are gods with the DEATH sphere having created slabs, but the value isn't the id of the slab
 ---@field opinion_info knowledge_profilest.T_opinion_info
-local knowledge_profilest
 
 ---@class _knowledge_profilest: DFCompound
 ---@field _kind 'struct-type'
@@ -384,7 +379,6 @@ df.knowledge_profilest = {}
 ---@class (exact) knowledge_profilest.T_opinion_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_profilest.T_opinion_info
-local knowledge_profilest_opinion_info
 
 ---@class _knowledge_profilest.T_opinion_info: DFCompound
 ---@field _kind 'struct-type'
@@ -393,7 +387,6 @@ df.knowledge_profilest.T_opinion_info = {}
 ---@class (exact) historical_figure_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_figure_info
-local historical_figure_info
 
 ---@class _historical_figure_info: DFCompound
 ---@field _kind 'struct-type'
@@ -403,7 +396,6 @@ df.historical_figure_info = {}
 ---@field _kind 'struct'
 ---@field _type _historical_figure_relationships
 ---@field unk_2 number
-local historical_figure_relationships
 
 ---@class _historical_figure_relationships: DFCompound
 ---@field _kind 'struct-type'
@@ -807,7 +799,6 @@ df.vague_relationship_type = {}
 ---@field unk_v4019_1 number
 ---@field unk_5 number
 ---@field pool_id integer -- protected --
-local historical_figure
 
 ---@class _historical_figure: DFCompound
 ---@field _kind 'struct-type'
@@ -818,7 +809,6 @@ df.historical_figure = {}
 function df.historical_figure.find(key) end
 
 ---@class historical_figure_vector: DFVector, { [integer]: historical_figure }
-local historical_figure_vector
 
 ---@return historical_figure_vector # df.global.world.history.figures
 function df.historical_figure.get_vector() end
@@ -886,7 +876,6 @@ df.identity_type.attrs = {}
 ---@field unk_v47_2 number
 ---@field profession profession
 ---@field entity_id number References: `historical_entity`
-local identity
 
 ---@class _identity: DFCompound
 ---@field _kind 'struct-type'
@@ -897,7 +886,6 @@ df.identity = {}
 function df.identity.find(key) end
 
 ---@class identity_vector: DFVector, { [integer]: identity }
-local identity_vector
 
 ---@return identity_vector # df.global.world.identities.all
 function df.identity.get_vector() end
@@ -913,7 +901,6 @@ function df.identity.get_vector() end
 ---@field unk_7 number
 ---@field unk_8 number
 ---@field unk_9 number uninitialized
-local identity_unk_94
 
 ---@class _identity_unk_94: DFCompound
 ---@field _kind 'struct-type'
@@ -926,7 +913,6 @@ df.identity_unk_94 = {}
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
-local identity_unk_95
 
 ---@class _identity_unk_95: DFCompound
 ---@field _kind 'struct-type'
@@ -968,7 +954,6 @@ df.mental_picture_property_type = {}
 ---@field _kind 'struct'
 ---@field _type _mental_picture_propertyst
 ---@field unk_0 number
-local mental_picture_propertyst
 
 ---@class _mental_picture_propertyst: DFCompound
 ---@field _kind 'class-type'
@@ -979,7 +964,6 @@ df.mental_picture_propertyst = {}
 ---@field _type _mental_picture_property_datest
 ---@field unk_1 number
 ---@field unk_2 number
-local mental_picture_property_datest
 
 ---@class _mental_picture_property_datest: DFCompound
 ---@field _kind 'class-type'
@@ -992,7 +976,6 @@ df.mental_picture_property_datest = {}
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 number
-local mental_picture_property_actionst
 
 ---@class _mental_picture_property_actionst: DFCompound
 ---@field _kind 'class-type'
@@ -1004,7 +987,6 @@ df.mental_picture_property_actionst = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local mental_picture_property_toolst
 
 ---@class _mental_picture_property_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -1015,7 +997,6 @@ df.mental_picture_property_toolst = {}
 ---@field _type _mental_picture_property_emotionst
 ---@field unk_1 number
 ---@field unk_2 number
-local mental_picture_property_emotionst
 
 ---@class _mental_picture_property_emotionst: DFCompound
 ---@field _kind 'class-type'
@@ -1026,7 +1007,6 @@ df.mental_picture_property_emotionst = {}
 ---@field _type _mental_picture_property_color_patternst
 ---@field unk_1 number
 ---@field unk_2 number
-local mental_picture_property_color_patternst
 
 ---@class _mental_picture_property_color_patternst: DFCompound
 ---@field _kind 'class-type'
@@ -1037,7 +1017,6 @@ df.mental_picture_property_color_patternst = {}
 ---@field _type _mental_picture_property_shapest
 ---@field unk_1 number
 ---@field unk_2 number
-local mental_picture_property_shapest
 
 ---@class _mental_picture_property_shapest: DFCompound
 ---@field _kind 'class-type'
@@ -1048,7 +1027,6 @@ df.mental_picture_property_shapest = {}
 ---@field _type _mental_picture_property_adjectivest
 ---@field unk_1 number
 ---@field unk_2 number
-local mental_picture_property_adjectivest
 
 ---@class _mental_picture_property_adjectivest: DFCompound
 ---@field _kind 'class-type'
@@ -1060,7 +1038,6 @@ df.mental_picture_property_adjectivest = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local mental_picture_property_positionst
 
 ---@class _mental_picture_property_positionst: DFCompound
 ---@field _kind 'class-type'
@@ -1072,7 +1049,6 @@ df.mental_picture_property_positionst = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local mental_picture_property_timest
 
 ---@class _mental_picture_property_timest: DFCompound
 ---@field _kind 'class-type'
@@ -1096,7 +1072,6 @@ df.mental_picture_element_type = {}
 ---@field _kind 'struct'
 ---@field _type _mental_picture_elementst
 ---@field unk_1 number
-local mental_picture_elementst
 
 ---@class _mental_picture_elementst: DFCompound
 ---@field _kind 'class-type'
@@ -1106,7 +1081,6 @@ df.mental_picture_elementst = {}
 ---@field _kind 'struct'
 ---@field _type _mental_picture_element_hfst
 ---@field unk_1 number
-local mental_picture_element_hfst
 
 ---@class _mental_picture_element_hfst: DFCompound
 ---@field _kind 'class-type'
@@ -1116,7 +1090,6 @@ df.mental_picture_element_hfst = {}
 ---@field _kind 'struct'
 ---@field _type _mental_picture_element_sitest
 ---@field unk_1 number
-local mental_picture_element_sitest
 
 ---@class _mental_picture_element_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -1126,7 +1099,6 @@ df.mental_picture_element_sitest = {}
 ---@field _kind 'struct'
 ---@field _type _mental_picture_element_regionst
 ---@field unk_1 number
-local mental_picture_element_regionst
 
 ---@class _mental_picture_element_regionst: DFCompound
 ---@field _kind 'class-type'
@@ -1937,7 +1909,6 @@ df.history_event_reason.attrs = {}
 ---@field _type _history_event_reason_info
 ---@field type history_event_reason
 ---@field data history_event_reason_info.T_data
-local history_event_reason_info
 
 ---@class _history_event_reason_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1950,7 +1921,6 @@ df.history_event_reason_info = {}
 ---@field sanctify_hf number References: `historical_figure`
 ---@field artifact_is_heirloom_of_family_hfid number References: `historical_figure`
 ---@field artifact_is_symbol_of_entity_position number References: `historical_entity`
-local history_event_reason_info_data
 
 ---@class _history_event_reason_info.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -1961,7 +1931,6 @@ df.history_event_reason_info.T_data = {}
 ---@field _type _history_event_circumstance_info
 ---@field type unit_thought_type
 ---@field data history_event_circumstance_info.T_data
-local history_event_circumstance_info
 
 ---@class _history_event_circumstance_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1977,7 +1946,6 @@ df.history_event_circumstance_info = {}
 ---@field Murdered number References: `historical_figure`
 ---@field HistEventCollection number References: `history_event_collection`
 ---@field AfterAbducting number References: `historical_figure`
-local history_event_circumstance_info_data
 
 ---@class _history_event_circumstance_info.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -2036,7 +2004,6 @@ df.history_event_circumstance_info.T_data = {}
 ---@field belief_system_id number References: `belief_system`
 ---@field image_set_id number References: `image_set`
 ---@field divination_set_id number References: `divination_set`
-local history_event_context
 
 ---@class _history_event_context: DFCompound
 ---@field _kind 'struct-type'
@@ -2150,7 +2117,6 @@ df.merc_role_type = {}
 ---@field year number
 ---@field seconds number
 ---@field id number
-local history_event
 
 ---@class _history_event: DFCompound
 ---@field _kind 'class-type'
@@ -2161,7 +2127,6 @@ df.history_event = {}
 function df.history_event.find(key) end
 
 ---@class history_event_vector: DFVector, { [integer]: history_event }
-local history_event_vector
 
 ---@return history_event_vector # df.global.world.history.events
 function df.history_event.get_vector() end
@@ -2178,7 +2143,6 @@ function df.history_event.get_vector() end
 ---@field attacker_merc_enid number References: `historical_entity`
 ---@field defender_merc_enid number References: `historical_entity`
 ---@field merc_roles merc_role_type
-local history_event_war_attacked_sitest
 
 ---@class _history_event_war_attacked_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -2192,7 +2156,6 @@ df.history_event_war_attacked_sitest = {}
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field unk_1 number
-local history_event_war_destroyed_sitest
 
 ---@class _history_event_war_destroyed_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -2206,7 +2169,6 @@ df.history_event_war_destroyed_sitest = {}
 ---@field resident_civ_id number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field builder_hf number References: `historical_figure`
-local history_event_created_sitest
 
 ---@class _history_event_created_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -2398,7 +2360,6 @@ df.death_type = {}
 ---@field subregion number References: `world_region`
 ---@field feature_layer number References: `world_underground_region`
 ---@field death_cause death_type
-local history_event_hist_figure_diedst
 
 ---@class _history_event_hist_figure_diedst: DFCompound
 ---@field _kind 'class-type'
@@ -2413,7 +2374,6 @@ df.history_event_hist_figure_diedst = {}
 ---@field position_id number index into entity.positions.own
 ---@field appointer_hfid number References: `historical_figure`
 ---@field promise_to_hfid number References: `historical_figure`
-local history_event_add_hf_entity_linkst
 
 ---@class _history_event_add_hf_entity_linkst: DFCompound
 ---@field _kind 'class-type'
@@ -2426,7 +2386,6 @@ df.history_event_add_hf_entity_linkst = {}
 ---@field histfig number References: `historical_figure`
 ---@field link_type histfig_entity_link_type
 ---@field position_id number index into entity.positions.own
-local history_event_remove_hf_entity_linkst
 
 ---@class _history_event_remove_hf_entity_linkst: DFCompound
 ---@field _kind 'class-type'
@@ -2438,7 +2397,6 @@ df.history_event_remove_hf_entity_linkst = {}
 ---@field civ number References: `historical_entity`
 ---@field expelled number References: `historical_figure`
 ---@field site number References: `world_site`
-local history_event_entity_expels_hfst
 
 ---@class _history_event_entity_expels_hfst: DFCompound
 ---@field _kind 'class-type'
@@ -2450,7 +2408,6 @@ df.history_event_entity_expels_hfst = {}
 ---@field contactor number References: `historical_entity`
 ---@field contacted number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_first_contactst
 
 ---@class _history_event_first_contactst: DFCompound
 ---@field _kind 'class-type'
@@ -2462,7 +2419,6 @@ df.history_event_first_contactst = {}
 ---@field contactor number References: `historical_entity`
 ---@field rejector number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_first_contact_failedst
 
 ---@class _history_event_first_contact_failedst: DFCompound
 ---@field _kind 'class-type'
@@ -2476,7 +2432,6 @@ df.history_event_first_contact_failedst = {}
 ---@field site number References: `world_site`
 ---@field topic meeting_topic
 ---@field result number range from -3 to +2
-local history_event_topicagreement_concludedst
 
 ---@class _history_event_topicagreement_concludedst: DFCompound
 ---@field _kind 'class-type'
@@ -2489,7 +2444,6 @@ df.history_event_topicagreement_concludedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_topicagreement_rejectedst
 
 ---@class _history_event_topicagreement_rejectedst: DFCompound
 ---@field _kind 'class-type'
@@ -2502,7 +2456,6 @@ df.history_event_topicagreement_rejectedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_topicagreement_madest
 
 ---@class _history_event_topicagreement_madest: DFCompound
 ---@field _kind 'class-type'
@@ -2515,7 +2468,6 @@ df.history_event_topicagreement_madest = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_war_peace_acceptedst
 
 ---@class _history_event_war_peace_acceptedst: DFCompound
 ---@field _kind 'class-type'
@@ -2528,7 +2480,6 @@ df.history_event_war_peace_acceptedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_war_peace_rejectedst
 
 ---@class _history_event_war_peace_rejectedst: DFCompound
 ---@field _kind 'class-type'
@@ -2540,7 +2491,6 @@ df.history_event_war_peace_rejectedst = {}
 ---@field entity number References: `historical_entity`
 ---@field involved number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_diplomat_lostst
 
 ---@class _history_event_diplomat_lostst: DFCompound
 ---@field _kind 'class-type'
@@ -2551,7 +2501,6 @@ df.history_event_diplomat_lostst = {}
 ---@field _type _history_event_agreements_voidedst
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
-local history_event_agreements_voidedst
 
 ---@class _history_event_agreements_voidedst: DFCompound
 ---@field _kind 'class-type'
@@ -2563,7 +2512,6 @@ df.history_event_agreements_voidedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_merchantst
 
 ---@class _history_event_merchantst: DFCompound
 ---@field _kind 'class-type'
@@ -2599,7 +2547,6 @@ df.history_event_merchant_flags = {}
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
-local history_event_artifact_hiddenst
 
 ---@class _history_event_artifact_hiddenst: DFCompound
 ---@field _kind 'class-type'
@@ -2616,7 +2563,6 @@ df.history_event_artifact_hiddenst = {}
 ---@field feature_layer_id number
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_artifact_possessedst
 
 ---@class _history_event_artifact_possessedst: DFCompound
 ---@field _kind 'class-type'
@@ -2632,7 +2578,6 @@ df.history_event_artifact_possessedst = {}
 ---@field flags2 history_event_artifact_createdst.T_flags2
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_artifact_createdst
 
 ---@class _history_event_artifact_createdst: DFCompound
 ---@field _kind 'class-type'
@@ -2665,7 +2610,6 @@ df.history_event_artifact_createdst.T_flags2 = {}
 ---@field site_property_id number
 ---@field subregion_id number References: `world_region`
 ---@field unk_1 number probably feature_layer_id, based on other events, but haven't seen non -1
-local history_event_artifact_lostst
 
 ---@class _history_event_artifact_lostst: DFCompound
 ---@field _kind 'class-type'
@@ -2681,7 +2625,6 @@ df.history_event_artifact_lostst = {}
 ---@field site_property_id number
 ---@field unk_1 number probably subregion_id, based on other events, but haven't seen non -1
 ---@field unk_2 number probably feature_layer_id, based on other events, but haven't seen non -1
-local history_event_artifact_foundst
 
 ---@class _history_event_artifact_foundst: DFCompound
 ---@field _kind 'class-type'
@@ -2697,7 +2640,6 @@ df.history_event_artifact_foundst = {}
 ---@field structure number References: `abstract_building`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_artifact_recoveredst
 
 ---@class _history_event_artifact_recoveredst: DFCompound
 ---@field _kind 'class-type'
@@ -2710,7 +2652,6 @@ df.history_event_artifact_recoveredst = {}
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
-local history_event_artifact_droppedst
 
 ---@class _history_event_artifact_droppedst: DFCompound
 ---@field _kind 'class-type'
@@ -2723,7 +2664,6 @@ df.history_event_artifact_droppedst = {}
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field flags2 history_event_reclaim_sitest.T_flags2
-local history_event_reclaim_sitest
 
 ---@class _history_event_reclaim_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -2755,7 +2695,6 @@ df.history_event_reclaim_sitest.T_flags2 = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_hf_destroyed_sitest
 
 ---@class _history_event_hf_destroyed_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -2768,7 +2707,6 @@ df.history_event_hf_destroyed_sitest = {}
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field flags2 history_event_site_diedst.T_flags2
-local history_event_site_diedst
 
 ---@class _history_event_site_diedst: DFCompound
 ---@field _kind 'class-type'
@@ -2800,7 +2738,6 @@ df.history_event_site_diedst.T_flags2 = {}
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field flags2 history_event_site_retiredst.T_flags2
-local history_event_site_retiredst
 
 ---@class _history_event_site_retiredst: DFCompound
 ---@field _kind 'class-type'
@@ -2832,7 +2769,6 @@ df.history_event_site_retiredst.T_flags2 = {}
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
 ---@field creator_hfid number References: `historical_figure`
-local history_event_entity_createdst
 
 ---@class _history_event_entity_createdst: DFCompound
 ---@field _kind 'class-type'
@@ -2856,7 +2792,6 @@ df.entity_action_type = {}
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
 ---@field action entity_action_type
-local history_event_entity_actionst
 
 ---@class _history_event_entity_actionst: DFCompound
 ---@field _kind 'class-type'
@@ -2870,7 +2805,6 @@ df.history_event_entity_actionst = {}
 ---@field leader_hfid number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field partial boolean
-local history_event_entity_incorporatedst
 
 ---@class _history_event_entity_incorporatedst: DFCompound
 ---@field _kind 'class-type'
@@ -2885,7 +2819,6 @@ df.history_event_entity_incorporatedst = {}
 ---@field structure number References: `abstract_building`
 ---@field builder_hf number References: `historical_figure`
 ---@field rebuild boolean
-local history_event_created_buildingst
 
 ---@class _history_event_created_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -2899,7 +2832,6 @@ df.history_event_created_buildingst = {}
 ---@field site number References: `world_site`
 ---@field old_structure number References: `abstract_building`
 ---@field new_structure number References: `abstract_building`
-local history_event_replaced_buildingst
 
 ---@class _history_event_replaced_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -2913,7 +2845,6 @@ df.history_event_replaced_buildingst = {}
 ---@field histfig number References: `historical_figure`
 ---@field civ number References: `historical_entity`
 ---@field type histfig_site_link_type
-local history_event_add_hf_site_linkst
 
 ---@class _history_event_add_hf_site_linkst: DFCompound
 ---@field _kind 'class-type'
@@ -2927,7 +2858,6 @@ df.history_event_add_hf_site_linkst = {}
 ---@field histfig number References: `historical_figure`
 ---@field civ number References: `historical_entity`
 ---@field type histfig_site_link_type
-local history_event_remove_hf_site_linkst
 
 ---@class _history_event_remove_hf_site_linkst: DFCompound
 ---@field _kind 'class-type'
@@ -2939,7 +2869,6 @@ df.history_event_remove_hf_site_linkst = {}
 ---@field hf number References: `historical_figure`
 ---@field hf_target number References: `historical_figure`
 ---@field type histfig_hf_link_type
-local history_event_add_hf_hf_linkst
 
 ---@class _history_event_add_hf_hf_linkst: DFCompound
 ---@field _kind 'class-type'
@@ -2951,7 +2880,6 @@ df.history_event_add_hf_hf_linkst = {}
 ---@field hf number References: `historical_figure`
 ---@field hf_target number References: `historical_figure`
 ---@field type histfig_hf_link_type
-local history_event_remove_hf_hf_linkst
 
 ---@class _history_event_remove_hf_hf_linkst: DFCompound
 ---@field _kind 'class-type'
@@ -2963,7 +2891,6 @@ df.history_event_remove_hf_hf_linkst = {}
 ---@field civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
-local history_event_entity_razed_buildingst
 
 ---@class _history_event_entity_razed_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -2976,7 +2903,6 @@ df.history_event_entity_razed_buildingst = {}
 ---@field maker_entity number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field skill_at_time skill_rating
-local history_event_masterpiece_createdst
 
 ---@class _history_event_masterpiece_createdst: DFCompound
 ---@field _kind 'class-type'
@@ -2989,7 +2915,6 @@ df.history_event_masterpiece_createdst = {}
 ---@field building_subtype number
 ---@field building_custom number
 ---@field unk_2 number
-local history_event_masterpiece_created_arch_constructst
 
 ---@class _history_event_masterpiece_created_arch_constructst: DFCompound
 ---@field _kind 'class-type'
@@ -3003,7 +2928,6 @@ df.history_event_masterpiece_created_arch_constructst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field item_id number References: `item`
-local history_event_masterpiece_created_itemst
 
 ---@class _history_event_masterpiece_created_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -3019,7 +2943,6 @@ df.history_event_masterpiece_created_itemst = {}
 ---@field unk_2 number
 ---@field dye_mat_type number References: `material`
 ---@field dye_mat_index number
-local history_event_masterpiece_created_dye_itemst
 
 ---@class _history_event_masterpiece_created_dye_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -3039,7 +2962,6 @@ df.history_event_masterpiece_created_dye_itemst = {}
 ---@field imp_mat_index number
 ---@field art_id number References: `art_image_chunk`
 ---@field art_subid number References: `art_image`
-local history_event_masterpiece_created_item_improvementst
 
 ---@class _history_event_masterpiece_created_item_improvementst: DFCompound
 ---@field _kind 'class-type'
@@ -3050,7 +2972,6 @@ df.history_event_masterpiece_created_item_improvementst = {}
 ---@field _type _history_event_masterpiece_created_foodst
 ---@field item_subtype number
 ---@field item_id number References: `item`
-local history_event_masterpiece_created_foodst
 
 ---@class _history_event_masterpiece_created_foodst: DFCompound
 ---@field _kind 'class-type'
@@ -3061,7 +2982,6 @@ df.history_event_masterpiece_created_foodst = {}
 ---@field _type _history_event_masterpiece_created_engravingst
 ---@field art_id number References: `art_image_chunk`
 ---@field art_subid number References: `art_image`
-local history_event_masterpiece_created_engravingst
 
 ---@class _history_event_masterpiece_created_engravingst: DFCompound
 ---@field _kind 'class-type'
@@ -3097,7 +3017,6 @@ df.masterpiece_loss_type = {}
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field method masterpiece_loss_type
-local history_event_masterpiece_lostst
 
 ---@class _history_event_masterpiece_lostst: DFCompound
 ---@field _kind 'class-type'
@@ -3113,7 +3032,6 @@ df.history_event_masterpiece_lostst = {}
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
-local history_event_change_hf_statest
 
 ---@class _history_event_change_hf_statest: DFCompound
 ---@field _kind 'class-type'
@@ -3128,7 +3046,6 @@ df.history_event_change_hf_statest = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_change_hf_jobst
 
 ---@class _history_event_change_hf_jobst: DFCompound
 ---@field _kind 'class-type'
@@ -3147,7 +3064,6 @@ df.history_event_change_hf_jobst = {}
 ---@field attacker_merc_enid number References: `historical_entity`
 ---@field defender_merc_enid number References: `historical_entity`
 ---@field merc_roles merc_role_type
-local history_event_war_field_battlest
 
 ---@class _history_event_war_field_battlest: DFCompound
 ---@field _kind 'class-type'
@@ -3161,7 +3077,6 @@ df.history_event_war_field_battlest = {}
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field unk_1 number 2=detected
-local history_event_war_plundered_sitest
 
 ---@class _history_event_war_plundered_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -3175,7 +3090,6 @@ df.history_event_war_plundered_sitest = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_war_site_new_leaderst
 
 ---@class _history_event_war_site_new_leaderst: DFCompound
 ---@field _kind 'class-type'
@@ -3190,7 +3104,6 @@ df.history_event_war_site_new_leaderst = {}
 ---@field site number References: `world_site`
 ---@field season season
 ---@field tribute_flags history_event_war_site_tribute_forcedst.T_tribute_flags
-local history_event_war_site_tribute_forcedst
 
 ---@class _history_event_war_site_tribute_forcedst: DFCompound
 ---@field _kind 'class-type'
@@ -3223,7 +3136,6 @@ df.history_event_war_site_tribute_forcedst.T_tribute_flags = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_war_site_taken_overst
 
 ---@class _history_event_war_site_taken_overst: DFCompound
 ---@field _kind 'class-type'
@@ -3236,7 +3148,6 @@ df.history_event_war_site_taken_overst = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_site_surrenderedst
 
 ---@class _history_event_site_surrenderedst: DFCompound
 ---@field _kind 'class-type'
@@ -3254,7 +3165,6 @@ df.history_event_site_surrenderedst = {}
 ---@field region_pos coord2d
 ---@field abuse_type history_event_body_abusedst.T_abuse_type
 ---@field abuse_data history_event_body_abusedst.T_abuse_data
-local history_event_body_abusedst
 
 ---@class _history_event_body_abusedst: DFCompound
 ---@field _kind 'class-type'
@@ -3291,7 +3201,6 @@ df.history_event_body_abusedst.T_abuse_type = {}
 ---@field Flayed history_event_body_abusedst.T_abuse_data.T_Flayed
 ---@field Hung history_event_body_abusedst.T_abuse_data.T_Hung
 ---@field Animated history_event_body_abusedst.T_abuse_data.T_Animated
-local history_event_body_abusedst_abuse_data
 
 ---@class _history_event_body_abusedst.T_abuse_data: DFCompound
 ---@field _kind 'struct-type'
@@ -3304,7 +3213,6 @@ df.history_event_body_abusedst.T_abuse_data = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local history_event_body_abusedst_abuse_data_Impaled
 
 ---@class _history_event_body_abusedst.T_abuse_data.T_Impaled: DFCompound
 ---@field _kind 'struct-type'
@@ -3314,7 +3222,6 @@ df.history_event_body_abusedst.T_abuse_data.T_Impaled = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_body_abusedst.T_abuse_data.T_Piled
 ---@field pile_type history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type
-local history_event_body_abusedst_abuse_data_Piled
 
 ---@class _history_event_body_abusedst.T_abuse_data.T_Piled: DFCompound
 ---@field _kind 'struct-type'
@@ -3338,7 +3245,6 @@ df.history_event_body_abusedst.T_abuse_data.T_Piled.T_pile_type = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_body_abusedst.T_abuse_data.T_Flayed
 ---@field structure number References: `abstract_building`
-local history_event_body_abusedst_abuse_data_Flayed
 
 ---@class _history_event_body_abusedst.T_abuse_data.T_Flayed: DFCompound
 ---@field _kind 'struct-type'
@@ -3350,7 +3256,6 @@ df.history_event_body_abusedst.T_abuse_data.T_Flayed = {}
 ---@field tree number References: `plant_raw`
 ---@field mat_type number rope References: `material`
 ---@field mat_index number rope
-local history_event_body_abusedst_abuse_data_Hung
 
 ---@class _history_event_body_abusedst.T_abuse_data.T_Hung: DFCompound
 ---@field _kind 'struct-type'
@@ -3363,7 +3268,6 @@ df.history_event_body_abusedst.T_abuse_data.T_Hung = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local history_event_body_abusedst_abuse_data_Animated
 
 ---@class _history_event_body_abusedst.T_abuse_data.T_Animated: DFCompound
 ---@field _kind 'struct-type'
@@ -3377,7 +3281,6 @@ df.history_event_body_abusedst.T_abuse_data.T_Animated = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hist_figure_abductedst
 
 ---@class _history_event_hist_figure_abductedst: DFCompound
 ---@field _kind 'class-type'
@@ -3419,7 +3322,6 @@ df.theft_method_type = {}
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 ---@field theft_method theft_method_type
-local history_event_item_stolenst
 
 ---@class _history_event_item_stolenst: DFCompound
 ---@field _kind 'class-type'
@@ -3431,7 +3333,6 @@ df.history_event_item_stolenst = {}
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
-local history_event_hf_razed_buildingst
 
 ---@class _history_event_hf_razed_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -3448,7 +3349,6 @@ df.history_event_hf_razed_buildingst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_creature_devouredst
 
 ---@class _history_event_creature_devouredst: DFCompound
 ---@field _kind 'class-type'
@@ -3468,7 +3368,6 @@ df.history_event_creature_devouredst = {}
 ---@field injury_type history_event_hist_figure_woundedst.T_injury_type
 ---@field part_lost boolean
 ---@field flags2 history_event_hist_figure_woundedst.T_flags2
-local history_event_hist_figure_woundedst
 
 ---@class _history_event_hist_figure_woundedst: DFCompound
 ---@field _kind 'class-type'
@@ -3578,7 +3477,6 @@ df.artifact_claim_type = {}
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field subtype history_event_simple_battle_subtype
-local history_event_hist_figure_simple_battle_eventst
 
 ---@class _history_event_hist_figure_simple_battle_eventst: DFCompound
 ---@field _kind 'class-type'
@@ -3593,7 +3491,6 @@ df.history_event_hist_figure_simple_battle_eventst = {}
 ---@field master_construction number
 ---@field site1 number References: `world_site`
 ---@field site2 number References: `world_site`
-local history_event_created_world_constructionst
 
 ---@class _history_event_created_world_constructionst: DFCompound
 ---@field _kind 'class-type'
@@ -3606,7 +3503,6 @@ df.history_event_created_world_constructionst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hist_figure_reunionst
 
 ---@class _history_event_hist_figure_reunionst: DFCompound
 ---@field _kind 'class-type'
@@ -3618,7 +3514,6 @@ df.history_event_hist_figure_reunionst = {}
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
-local history_event_hist_figure_reach_summitst
 
 ---@class _history_event_hist_figure_reach_summitst: DFCompound
 ---@field _kind 'class-type'
@@ -3632,7 +3527,6 @@ df.history_event_hist_figure_reach_summitst = {}
 ---@field layer number References: `world_underground_region`
 ---@field reason history_event_hist_figure_travelst.T_reason
 ---@field region_pos coord2d
-local history_event_hist_figure_travelst
 
 ---@class _history_event_hist_figure_travelst: DFCompound
 ---@field _kind 'class-type'
@@ -3659,7 +3553,6 @@ df.history_event_hist_figure_travelst.T_reason = {}
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
-local history_event_hist_figure_new_petst
 
 ---@class _history_event_hist_figure_new_petst: DFCompound
 ---@field _kind 'class-type'
@@ -3671,7 +3564,6 @@ df.history_event_hist_figure_new_petst = {}
 ---@field trickster number References: `historical_figure`
 ---@field identity number References: `identity`
 ---@field target number References: `historical_entity`
-local history_event_assume_identityst
 
 ---@class _history_event_assume_identityst: DFCompound
 ---@field _kind 'class-type'
@@ -3705,7 +3597,6 @@ df.position_creation_reason_type = {}
 ---@field site_civ number References: `historical_entity`
 ---@field position number
 ---@field reason position_creation_reason_type historical_entity.position
-local history_event_create_entity_positionst
 
 ---@class _history_event_create_entity_positionst: DFCompound
 ---@field _kind 'class-type'
@@ -3720,7 +3611,6 @@ df.history_event_create_entity_positionst = {}
 ---@field old_caste number References: `caste_raw`
 ---@field new_race number References: `creature_raw`
 ---@field new_caste number References: `caste_raw`
-local history_event_change_creature_typest
 
 ---@class _history_event_change_creature_typest: DFCompound
 ---@field _kind 'class-type'
@@ -3738,7 +3628,6 @@ df.history_event_change_creature_typest = {}
 ---@field actor_hfid number References: `historical_figure`
 ---@field interaction number References: `interaction`
 ---@field unk_1 number
-local history_event_hist_figure_revivedst
 
 ---@class _history_event_hist_figure_revivedst: DFCompound
 ---@field _kind 'class-type'
@@ -3771,7 +3660,6 @@ df.history_event_hist_figure_revivedst.T_flags2 = {}
 ---@field artifact number References: `artifact_record`
 ---@field interaction number References: `interaction`
 ---@field unk_1 number
-local history_event_hf_learns_secretst
 
 ---@class _history_event_hf_learns_secretst: DFCompound
 ---@field _kind 'class-type'
@@ -3813,7 +3701,6 @@ df.histfig_body_state = {}
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
-local history_event_change_hf_body_statest
 
 ---@class _history_event_change_hf_body_statest: DFCompound
 ---@field _kind 'class-type'
@@ -3826,7 +3713,6 @@ df.history_event_change_hf_body_statest = {}
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
-local history_event_hf_act_on_buildingst
 
 ---@class _history_event_hf_act_on_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -3856,7 +3742,6 @@ df.history_event_hf_act_on_buildingst.T_action = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hf_does_interactionst
 
 ---@class _history_event_hf_does_interactionst: DFCompound
 ---@field _kind 'class-type'
@@ -3871,7 +3756,6 @@ df.history_event_hf_does_interactionst = {}
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
-local history_event_hf_confrontedst
 
 ---@class _history_event_hf_confrontedst: DFCompound
 ---@field _kind 'class-type'
@@ -3884,7 +3768,6 @@ df.history_event_hf_confrontedst = {}
 ---@field histfig number References: `historical_figure`
 ---@field add_flags history_event_entity_lawst.T_add_flags
 ---@field remove_flags history_event_entity_lawst.T_remove_flags
-local history_event_entity_lawst
 
 ---@class _history_event_entity_lawst: DFCompound
 ---@field _kind 'class-type'
@@ -3937,7 +3820,6 @@ df.history_event_entity_lawst.T_remove_flags = {}
 ---@field target_hf number bay12: circumstance_id References: `historical_figure`
 ---@field reason history_event_reason
 ---@field value value_type bay12: reason_id
-local history_event_hf_gains_secret_goalst
 
 ---@class _history_event_hf_gains_secret_goalst: DFCompound
 ---@field _kind 'class-type'
@@ -3951,7 +3833,6 @@ df.history_event_hf_gains_secret_goalst = {}
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field building number Guess. the values seen are low numbers. Legends doesn't provide any additional info
-local history_event_artifact_storedst
 
 ---@class _history_event_artifact_storedst: DFCompound
 ---@field _kind 'class-type'
@@ -3962,7 +3843,6 @@ df.history_event_artifact_storedst = {}
 ---@field _type _history_event_agreement_formedst
 ---@field agreement_id number References: `agreement`
 ---@field delegated boolean
-local history_event_agreement_formedst
 
 ---@class _history_event_agreement_formedst: DFCompound
 ---@field _kind 'class-type'
@@ -3999,7 +3879,6 @@ df.site_dispute_type = {}
 ---@field entity_2 number References: `historical_entity`
 ---@field site_1 number References: `world_site`
 ---@field site_2 number References: `world_site`
-local history_event_site_disputest
 
 ---@class _history_event_site_disputest: DFCompound
 ---@field _kind 'class-type'
@@ -4012,7 +3891,6 @@ df.history_event_site_disputest = {}
 ---@field subject_id number
 ---@field reason history_event_reason
 ---@field concluder_hf number References: `historical_figure`
-local history_event_agreement_concludedst
 
 ---@class _history_event_agreement_concludedst: DFCompound
 ---@field _kind 'class-type'
@@ -4023,7 +3901,6 @@ df.history_event_agreement_concludedst = {}
 ---@field _type _history_event_insurrection_startedst
 ---@field target_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_insurrection_startedst
 
 ---@class _history_event_insurrection_startedst: DFCompound
 ---@field _kind 'class-type'
@@ -4049,7 +3926,6 @@ df.insurrection_outcome = {}
 ---@field target_civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field outcome insurrection_outcome
-local history_event_insurrection_endedst
 
 ---@class _history_event_insurrection_endedst: DFCompound
 ---@field _kind 'class-type'
@@ -4062,7 +3938,6 @@ df.history_event_insurrection_endedst = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_hf_attacked_sitest
 
 ---@class _history_event_hf_attacked_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -4077,7 +3952,6 @@ df.history_event_hf_attacked_sitest = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_performancest
 
 ---@class _history_event_performancest: DFCompound
 ---@field _kind 'class-type'
@@ -4092,7 +3966,6 @@ df.history_event_performancest = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_competitionst
 
 ---@class _history_event_competitionst: DFCompound
 ---@field _kind 'class-type'
@@ -4107,7 +3980,6 @@ df.history_event_competitionst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_processionst
 
 ---@class _history_event_processionst: DFCompound
 ---@field _kind 'class-type'
@@ -4122,7 +3994,6 @@ df.history_event_processionst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_ceremonyst
 
 ---@class _history_event_ceremonyst: DFCompound
 ---@field _kind 'class-type'
@@ -4134,7 +4005,6 @@ df.history_event_ceremonyst = {}
 ---@field hf number References: `historical_figure`
 ---@field knowledge knowledge_scholar_category_flag
 ---@field first number
-local history_event_knowledge_discoveredst
 
 ---@class _history_event_knowledge_discoveredst: DFCompound
 ---@field _kind 'class-type'
@@ -4147,7 +4017,6 @@ df.history_event_knowledge_discoveredst = {}
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
-local history_event_artifact_transformedst
 
 ---@class _history_event_artifact_transformedst: DFCompound
 ---@field _kind 'class-type'
@@ -4160,7 +4029,6 @@ df.history_event_artifact_transformedst = {}
 ---@field site number References: `world_site`
 ---@field destroyer_hf number References: `historical_figure`
 ---@field destroyer_civ number References: `historical_entity`
-local history_event_artifact_destroyedst
 
 ---@class _history_event_artifact_destroyedst: DFCompound
 ---@field _kind 'class-type'
@@ -4177,7 +4045,6 @@ df.history_event_artifact_destroyedst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hf_relationship_deniedst
 
 ---@class _history_event_hf_relationship_deniedst: DFCompound
 ---@field _kind 'class-type'
@@ -4192,7 +4059,6 @@ df.history_event_hf_relationship_deniedst = {}
 ---@field pop_layer number References: `world_underground_region`
 ---@field join_entity number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_regionpop_incorporated_into_entityst
 
 ---@class _history_event_regionpop_incorporated_into_entityst: DFCompound
 ---@field _kind 'class-type'
@@ -4208,7 +4074,6 @@ df.history_event_regionpop_incorporated_into_entityst = {}
 ---@field layer number References: `world_underground_region`
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_poetic_form_createdst
 
 ---@class _history_event_poetic_form_createdst: DFCompound
 ---@field _kind 'class-type'
@@ -4224,7 +4089,6 @@ df.history_event_poetic_form_createdst = {}
 ---@field layer number References: `world_underground_region`
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_musical_form_createdst
 
 ---@class _history_event_musical_form_createdst: DFCompound
 ---@field _kind 'class-type'
@@ -4240,7 +4104,6 @@ df.history_event_musical_form_createdst = {}
 ---@field layer number References: `world_underground_region`
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_dance_form_createdst
 
 ---@class _history_event_dance_form_createdst: DFCompound
 ---@field _kind 'class-type'
@@ -4256,7 +4119,6 @@ df.history_event_dance_form_createdst = {}
 ---@field layer number References: `world_underground_region`
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_written_content_composedst
 
 ---@class _history_event_written_content_composedst: DFCompound
 ---@field _kind 'class-type'
@@ -4272,7 +4134,6 @@ df.history_event_written_content_composedst = {}
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
-local history_event_change_hf_moodst
 
 ---@class _history_event_change_hf_moodst: DFCompound
 ---@field _kind 'class-type'
@@ -4288,7 +4149,6 @@ df.history_event_change_hf_moodst = {}
 ---@field claim_type artifact_claim_type
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_artifact_claim_formedst
 
 ---@class _history_event_artifact_claim_formedst: DFCompound
 ---@field _kind 'class-type'
@@ -4305,7 +4165,6 @@ df.history_event_artifact_claim_formedst = {}
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
 ---@field inherited boolean
-local history_event_artifact_givenst
 
 ---@class _history_event_artifact_givenst: DFCompound
 ---@field _kind 'class-type'
@@ -4319,7 +4178,6 @@ df.history_event_artifact_givenst = {}
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
-local history_event_hf_act_on_artifactst
 
 ---@class _history_event_hf_act_on_artifactst: DFCompound
 ---@field _kind 'class-type'
@@ -4345,7 +4203,6 @@ df.history_event_hf_act_on_artifactst.T_action = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hf_recruited_unit_type_for_entityst
 
 ---@class _history_event_hf_recruited_unit_type_for_entityst: DFCompound
 ---@field _kind 'class-type'
@@ -4363,7 +4220,6 @@ df.history_event_hf_recruited_unit_type_for_entityst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hfs_formed_reputation_relationshipst
 
 ---@class _history_event_hfs_formed_reputation_relationshipst: DFCompound
 ---@field _kind 'class-type'
@@ -4380,7 +4236,6 @@ df.history_event_hfs_formed_reputation_relationshipst = {}
 ---@field structure_dest number References: `abstract_building`
 ---@field structure_src number References: `abstract_building`
 ---@field flags2 history_event_artifact_copiedst.T_flags2
-local history_event_artifact_copiedst
 
 ---@class _history_event_artifact_copiedst: DFCompound
 ---@field _kind 'class-type'
@@ -4412,7 +4267,6 @@ df.history_event_artifact_copiedst.T_flags2 = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_sneak_into_sitest
 
 ---@class _history_event_sneak_into_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -4425,7 +4279,6 @@ df.history_event_sneak_into_sitest = {}
 ---@field leaver_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_spotted_leaving_sitest
 
 ---@class _history_event_spotted_leaving_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -4437,7 +4290,6 @@ df.history_event_spotted_leaving_sitest = {}
 ---@field searcher_civ number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field result number 0 = found nothing
-local history_event_entity_searched_sitest
 
 ---@class _history_event_entity_searched_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -4451,7 +4303,6 @@ df.history_event_entity_searched_sitest = {}
 ---@field holding_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_hf_freedst
 
 ---@class _history_event_hf_freedst: DFCompound
 ---@field _kind 'class-type'
@@ -4491,7 +4342,6 @@ df.simple_action_type = {}
 ---@field structure number References: `abstract_building`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hist_figure_simple_actionst
 
 ---@class _history_event_hist_figure_simple_actionst: DFCompound
 ---@field _kind 'class-type'
@@ -4502,7 +4352,6 @@ df.history_event_hist_figure_simple_actionst = {}
 ---@field _type _history_event_entity_rampaged_in_sitest
 ---@field rampage_civ_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
-local history_event_entity_rampaged_in_sitest
 
 ---@class _history_event_entity_rampaged_in_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -4513,7 +4362,6 @@ df.history_event_entity_rampaged_in_sitest = {}
 ---@field _type _history_event_entity_fled_sitest
 ---@field fled_civ_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
-local history_event_entity_fled_sitest
 
 ---@class _history_event_entity_fled_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -4558,7 +4406,6 @@ df.tactical_situation = {}
 ---@field subregion number References: `world_region`
 ---@field feature_layer number References: `world_underground_region`
 ---@field tactics_flags history_event_tactical_situationst.T_tactics_flags
-local history_event_tactical_situationst
 
 ---@class _history_event_tactical_situationst: DFCompound
 ---@field _kind 'class-type'
@@ -4606,7 +4453,6 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@field structure number References: `abstract_building`
 ---@field subregion number References: `world_region`
 ---@field feature_layer number References: `world_underground_region`
-local history_event_squad_vs_squadst
 
 ---@class _history_event_squad_vs_squadst: DFCompound
 ---@field _kind 'class-type'
@@ -4623,7 +4469,6 @@ df.history_event_squad_vs_squadst = {}
 ---@field allotment number
 ---@field allotment_index number
 ---@field account_shift number
-local history_event_tradest
 
 ---@class _history_event_tradest: DFCompound
 ---@field _kind 'class-type'
@@ -4635,7 +4480,6 @@ df.history_event_tradest = {}
 ---@field entity number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field added_flags entity_site_link_flags
-local history_event_add_entity_site_profile_flagst
 
 ---@class _history_event_add_entity_site_profile_flagst: DFCompound
 ---@field _kind 'class-type'
@@ -4649,7 +4493,6 @@ df.history_event_add_entity_site_profile_flagst = {}
 ---@field structure number
 ---@field account_before number
 ---@field account_after number
-local history_event_gamblest
 
 ---@class _history_event_gamblest: DFCompound
 ---@field _kind 'class-type'
@@ -4661,7 +4504,6 @@ df.history_event_gamblest = {}
 ---@field entity_id number References: `historical_entity`
 ---@field hfid number References: `historical_figure`
 ---@field honor_id number index into historical_entity.honors
-local history_event_add_hf_entity_honorst
 
 ---@class _history_event_add_hf_entity_honorst: DFCompound
 ---@field _kind 'class-type'
@@ -4673,7 +4515,6 @@ df.history_event_add_hf_entity_honorst = {}
 ---@field entity number References: `historical_entity`
 ---@field circumstance history_event_circumstance_info
 ---@field reason history_event_reason_info
-local history_event_entity_dissolvedst
 
 ---@class _history_event_entity_dissolvedst: DFCompound
 ---@field _kind 'class-type'
@@ -4684,7 +4525,6 @@ df.history_event_entity_dissolvedst = {}
 ---@field _type _history_event_entity_equipment_purchasest
 ---@field entity number References: `historical_entity`
 ---@field quality item_quality
-local history_event_entity_equipment_purchasest
 
 ---@class _history_event_entity_equipment_purchasest: DFCompound
 ---@field _kind 'class-type'
@@ -4698,7 +4538,6 @@ df.history_event_entity_equipment_purchasest = {}
 ---@field hf number References: `historical_figure`
 ---@field unk_1 number
 ---@field modification history_event_modified_buildingst.T_modification
-local history_event_modified_buildingst
 
 ---@class _history_event_modified_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -4751,7 +4590,6 @@ df.history_event_modified_buildingst.T_modification = {}
 ---@field acquisition_type number 0: purchased, 1: inherited, 2: rebuilt. Doesn't match. Seen purchased_unowned, inherited, and rebuilt_ruined together when value = 0
 ---@field previous_owner_hf number References: `historical_figure`
 ---@field unk_1 number
-local history_event_building_profile_acquiredst
 
 ---@class _history_event_building_profile_acquiredst: DFCompound
 ---@field _kind 'class-type'
@@ -4765,7 +4603,6 @@ df.history_event_building_profile_acquiredst = {}
 ---@field topic reputation_type
 ---@field entity1 number References: `historical_entity`
 ---@field entity2 number References: `historical_entity`
-local history_event_hf_preachst
 
 ---@class _history_event_hf_preachst: DFCompound
 ---@field _kind 'class-type'
@@ -4779,7 +4616,6 @@ df.history_event_hf_preachst = {}
 ---@field target_entity number References: `historical_entity`
 ---@field site number References: `world_site`
 ---@field shrines_destroyed number
-local history_event_entity_persecutedst
 
 ---@class _history_event_entity_persecutedst: DFCompound
 ---@field _kind 'class-type'
@@ -4792,7 +4628,6 @@ df.history_event_entity_persecutedst = {}
 ---@field site_entity number References: `historical_entity`
 ---@field civ_entity number References: `historical_entity`
 ---@field layer number References: `world_underground_region`
-local history_event_entity_breach_feature_layerst
 
 ---@class _history_event_entity_breach_feature_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -4802,7 +4637,6 @@ df.history_event_entity_breach_feature_layerst = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_entity_alliance_formedst
 ---@field entity number References: `historical_entity`
-local history_event_entity_alliance_formedst
 
 ---@class _history_event_entity_alliance_formedst: DFCompound
 ---@field _kind 'class-type'
@@ -4816,7 +4650,6 @@ df.history_event_entity_alliance_formedst = {}
 ---@field payer_hf number References: `historical_figure`
 ---@field payer_entity number References: `historical_entity`
 ---@field moved_to_site number References: `world_site`
-local history_event_hf_ransomedst
 
 ---@class _history_event_hf_ransomedst: DFCompound
 ---@field _kind 'class-type'
@@ -4829,7 +4662,6 @@ df.history_event_hf_ransomedst = {}
 ---@field seller_hf number References: `historical_figure`
 ---@field payer_entity number References: `historical_entity`
 ---@field moved_to_site number References: `world_site`
-local history_event_hf_enslavedst
 
 ---@class _history_event_hf_enslavedst: DFCompound
 ---@field _kind 'class-type'
@@ -4842,7 +4674,6 @@ df.history_event_hf_enslavedst = {}
 ---@field target_hf number References: `historical_figure`
 ---@field target_entity number References: `historical_entity`
 ---@field site number References: `world_site`
-local history_event_sabotagest
 
 ---@class _history_event_sabotagest: DFCompound
 ---@field _kind 'class-type'
@@ -4857,7 +4688,6 @@ df.history_event_sabotagest = {}
 ---@field entity number References: `historical_entity`
 ---@field position_profile_id number
 ---@field site number References: `world_site`
-local history_event_entity_overthrownst
 
 ---@class _history_event_entity_overthrownst: DFCompound
 ---@field _kind 'class-type'
@@ -4875,7 +4705,6 @@ df.history_event_entity_overthrownst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_hfs_formed_intrigue_relationshipst
 
 ---@class _history_event_hfs_formed_intrigue_relationshipst: DFCompound
 ---@field _kind 'class-type'
@@ -4891,7 +4720,6 @@ df.history_event_hfs_formed_intrigue_relationshipst = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
-local history_event_failed_intrigue_corruptionst
 
 ---@class _history_event_failed_intrigue_corruptionst: DFCompound
 ---@field _kind 'class-type'
@@ -4916,7 +4744,6 @@ df.history_event_failed_intrigue_corruptionst = {}
 ---@field prison_months number
 ---@field punishment_flags history_event_hf_convictedst.T_punishment_flags
 ---@field plot_flags history_event_hf_convictedst.T_plot_flags
-local history_event_hf_convictedst
 
 ---@class _history_event_hf_convictedst: DFCompound
 ---@field _kind 'class-type'
@@ -5023,7 +4850,6 @@ df.history_event_hf_convictedst.T_plot_flags = {}
 ---@field fooled_hf number References: `historical_figure`
 ---@field framer_hf number References: `historical_figure`
 ---@field crime number references crime::T_mode
-local history_event_failed_frame_attemptst
 
 ---@class _history_event_failed_frame_attemptst: DFCompound
 ---@field _kind 'class-type'
@@ -5036,7 +4862,6 @@ df.history_event_failed_frame_attemptst = {}
 ---@field arresting_entity number References: `historical_entity`
 ---@field interrogator_hf number References: `historical_figure`
 ---@field interrogation_flags history_event_hf_interrogatedst.T_interrogation_flags
-local history_event_hf_interrogatedst
 
 ---@class _history_event_hf_interrogatedst: DFCompound
 ---@field _kind 'class-type'
@@ -5134,7 +4959,6 @@ df.history_event_collection_type = {}
 ---@field start_seconds number
 ---@field end_seconds number
 ---@field id number
-local history_event_collection
 
 ---@class _history_event_collection: DFCompound
 ---@field _kind 'class-type'
@@ -5145,7 +4969,6 @@ df.history_event_collection = {}
 function df.history_event_collection.find(key) end
 
 ---@class history_event_collection_vector: DFVector, { [integer]: history_event_collection }
-local history_event_collection_vector
 
 ---@return history_event_collection_vector # df.global.world.history.event_collections.all
 function df.history_event_collection.get_vector() end
@@ -5155,7 +4978,6 @@ function df.history_event_collection.get_vector() end
 ---@field _type _history_event_collection_warst
 ---@field name language_name
 ---@field unk history_event_collection_warst.T_unk
-local history_event_collection_warst
 
 ---@class _history_event_collection_warst: DFCompound
 ---@field _kind 'class-type'
@@ -5167,7 +4989,6 @@ df.history_event_collection_warst = {}
 ---@field unk_5 number same as previous vector single element or zero. Sum?
 ---@field accumulated_ethics_severity number
 ---@field accumulated_event_severity number sum of previous vector values
-local history_event_collection_warst_unk
 
 ---@class _history_event_collection_warst.T_unk: DFCompound
 ---@field _kind 'struct-type'
@@ -5186,7 +5007,6 @@ df.history_event_collection_warst.T_unk = {}
 ---@field attacker_mercs number References: `historical_entity`
 ---@field defender_mercs number References: `historical_entity`
 ---@field outcome number 0 = attacker won, 1 = defender won
-local history_event_collection_battlest
 
 ---@class _history_event_collection_battlest: DFCompound
 ---@field _kind 'class-type'
@@ -5204,7 +5024,6 @@ df.history_event_collection_battlest = {}
 ---@field defender_hf number References: `historical_figure`
 ---@field ordinal number
 ---@field unk_1 number probably boolean. Only 0/1 seen. Looks like winner, with all '1' examined showing defeat of defender, from unscathed to death, and '0' showing no result at all or death of attacker
-local history_event_collection_duelst
 
 ---@class _history_event_collection_duelst: DFCompound
 ---@field _kind 'class-type'
@@ -5217,7 +5036,6 @@ df.history_event_collection_duelst = {}
 ---@field site number References: `world_site`
 ---@field unk_1 number uninitialized
 ---@field ordinal number
-local history_event_collection_site_conqueredst
 
 ---@class _history_event_collection_site_conqueredst: DFCompound
 ---@field _kind 'class-type'
@@ -5234,7 +5052,6 @@ df.history_event_collection_site_conqueredst = {}
 ---@field attacker_civ number References: `historical_entity`
 ---@field defender_civ number References: `historical_entity`
 ---@field ordinal number
-local history_event_collection_abductionst
 
 ---@class _history_event_collection_abductionst: DFCompound
 ---@field _kind 'class-type'
@@ -5251,7 +5068,6 @@ df.history_event_collection_abductionst = {}
 ---@field thief_civ number References: `historical_entity`
 ---@field victim_civ number References: `historical_entity`
 ---@field ordinal number
-local history_event_collection_theftst
 
 ---@class _history_event_collection_theftst: DFCompound
 ---@field _kind 'class-type'
@@ -5267,7 +5083,6 @@ df.history_event_collection_theftst = {}
 ---@field region_pos coord2d
 ---@field defender_civ number References: `historical_entity`
 ---@field ordinal number
-local history_event_collection_beast_attackst
 
 ---@class _history_event_collection_beast_attackst: DFCompound
 ---@field _kind 'class-type'
@@ -5277,7 +5092,6 @@ df.history_event_collection_beast_attackst = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_collection_journeyst
 ---@field ordinal number
-local history_event_collection_journeyst
 
 ---@class _history_event_collection_journeyst: DFCompound
 ---@field _kind 'class-type'
@@ -5289,7 +5103,6 @@ df.history_event_collection_journeyst = {}
 ---@field site number References: `world_site`
 ---@field target_civ number References: `historical_entity`
 ---@field ordinal number
-local history_event_collection_insurrectionst
 
 ---@class _history_event_collection_insurrectionst: DFCompound
 ---@field _kind 'class-type'
@@ -5301,7 +5114,6 @@ df.history_event_collection_insurrectionst = {}
 ---@field civ number References: `historical_entity`
 ---@field occasion number
 ---@field ordinal number
-local history_event_collection_occasionst
 
 ---@class _history_event_collection_occasionst: DFCompound
 ---@field _kind 'class-type'
@@ -5315,7 +5127,6 @@ df.history_event_collection_occasionst = {}
 ---@field unk_1 number 0-11 seen
 ---@field unk_2 number 0-9 seen
 ---@field ordinal number
-local history_event_collection_performancest
 
 ---@class _history_event_collection_performancest: DFCompound
 ---@field _kind 'class-type'
@@ -5329,7 +5140,6 @@ df.history_event_collection_performancest = {}
 ---@field unk_1 number 0-13 seen
 ---@field unk_2 number 0-9 seen
 ---@field ordinal number
-local history_event_collection_competitionst
 
 ---@class _history_event_collection_competitionst: DFCompound
 ---@field _kind 'class-type'
@@ -5343,7 +5153,6 @@ df.history_event_collection_competitionst = {}
 ---@field unk_1 number 0-14 seen
 ---@field unk_2 number 0-9 seen
 ---@field ordinal number
-local history_event_collection_processionst
 
 ---@class _history_event_collection_processionst: DFCompound
 ---@field _kind 'class-type'
@@ -5357,7 +5166,6 @@ df.history_event_collection_processionst = {}
 ---@field unk_1 number 0-14 seen
 ---@field unk_2 number 0-10 seen
 ---@field ordinal number
-local history_event_collection_ceremonyst
 
 ---@class _history_event_collection_ceremonyst: DFCompound
 ---@field _kind 'class-type'
@@ -5369,7 +5177,6 @@ df.history_event_collection_ceremonyst = {}
 ---@field site number References: `world_site`
 ---@field adjective string
 ---@field ordinal number
-local history_event_collection_purgest
 
 ---@class _history_event_collection_purgest: DFCompound
 ---@field _kind 'class-type'
@@ -5386,7 +5193,6 @@ df.history_event_collection_purgest = {}
 ---@field attacker_civ number References: `historical_entity`
 ---@field defender_civ number References: `historical_entity`
 ---@field ordinal number
-local history_event_collection_raidst
 
 ---@class _history_event_collection_raidst: DFCompound
 ---@field _kind 'class-type'
@@ -5398,7 +5204,6 @@ df.history_event_collection_raidst = {}
 ---@field site number References: `world_site`
 ---@field entity number References: `historical_entity`
 ---@field ordinal number
-local history_event_collection_persecutionst
 
 ---@class _history_event_collection_persecutionst: DFCompound
 ---@field _kind 'class-type'
@@ -5410,7 +5215,6 @@ df.history_event_collection_persecutionst = {}
 ---@field site number References: `world_site`
 ---@field entity number References: `historical_entity`
 ---@field ordinal number
-local history_event_collection_entity_overthrownst
 
 ---@class _history_event_collection_entity_overthrownst: DFCompound
 ---@field _kind 'class-type'
@@ -5466,7 +5270,6 @@ df.era_type = {}
 ---@field year number
 ---@field title history_era.T_title
 ---@field details history_era.T_details
-local history_era
 
 ---@class _history_era: DFCompound
 ---@field _kind 'struct-type'
@@ -5481,7 +5284,6 @@ df.history_era = {}
 ---@field ordinal number
 ---@field name string
 ---@field percent number either percentage of single race or percentage of mundane
-local history_era_title
 
 ---@class _history_era.T_title: DFCompound
 ---@field _kind 'struct-type'
@@ -5498,7 +5300,6 @@ df.history_era.T_title = {}
 ---@field power_hf3 number References: `historical_figure`
 ---@field civilized_total number
 ---@field civilized_mundane number
-local history_era_details
 
 ---@class _history_era.T_details: DFCompound
 ---@field _kind 'struct-type'
@@ -5509,7 +5310,6 @@ df.history_era.T_details = {}
 ---@field _type _relationship_event
 ---@field next_element number bay12: number; 1024 for all vectors except the last one
 ---@field start_year number first year of the events contained in the element
-local relationship_event
 
 ---@class _relationship_event: DFCompound
 ---@field _kind 'struct-type'
@@ -5523,7 +5323,6 @@ df.relationship_event = {}
 ---@field site number bay12: circumstance_id References: `world_site`
 ---@field reason history_event_reason only 81 seen
 ---@field profession profession bay12: reason_id
-local relationship_event_supplement
 
 ---@class _relationship_event_supplement: DFCompound
 ---@field _kind 'struct-type'
@@ -5555,7 +5354,6 @@ df.relationship_event_supplement = {}
 ---@field unk_10 number
 ---@field unk_11 number
 ---@field unk_12 number
-local world_history
 
 ---@class _world_history: DFCompound
 ---@field _kind 'struct-type'
@@ -5564,7 +5362,6 @@ df.world_history = {}
 ---@class (exact) world_history.T_event_collections: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_history.T_event_collections
-local world_history_event_collections
 
 ---@class _world_history.T_event_collections: DFCompound
 ---@field _kind 'struct-type'
@@ -5576,7 +5373,6 @@ df.world_history.T_event_collections = {}
 ---@field event_id number NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship References: `history_event`
 ---@field reason history_event_reason_info
 ---@field circumstance history_event_circumstance_info
-local intrigue
 
 ---@class _intrigue: DFCompound
 ---@field _kind 'struct-type'
@@ -5587,7 +5383,6 @@ df.intrigue = {}
 function df.intrigue.find(key) end
 
 ---@class intrigue_vector: DFVector, { [integer]: intrigue }
-local intrigue_vector
 
 ---@return intrigue_vector # df.global.world.history.intrigues
 function df.intrigue.get_vector() end
@@ -5620,7 +5415,6 @@ function df.intrigue.get_vector() end
 ---@field offered_relationship vague_relationship_type
 ---@field corruptor_ally_roll number
 ---@field target_ally_roll number
-local intrigue_corruption
 
 ---@class _intrigue_corruption: DFCompound
 ---@field _kind 'struct-type'

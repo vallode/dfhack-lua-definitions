@@ -1619,7 +1619,6 @@ df.announcement_flags = {}
 ---@class (exact) announcements: DFObject
 ---@field _kind 'struct'
 ---@field _type _announcements
-local announcements
 
 ---@class _announcements: DFCompound
 ---@field _kind 'struct-type'
@@ -1645,7 +1644,6 @@ df.announcements = {}
 ---@field activity_id number
 ---@field activity_event_id number
 ---@field speaker_id number unit speaking the conversation References: `unit`
-local report
 
 ---@class _report: DFCompound
 ---@field _kind 'struct-type'
@@ -1656,7 +1654,6 @@ df.report = {}
 function df.report.find(key) end
 
 ---@class report_vector: DFVector, { [integer]: report }
-local report_vector
 
 ---@return report_vector # df.global.world.status.reports
 function df.report.get_vector() end
@@ -1712,7 +1709,6 @@ df.report_zoom_type = {}
 ---@field text string
 ---@field color number
 ---@field bright boolean
-local popup_message
 
 ---@class _popup_message: DFCompound
 ---@field _kind 'struct-type'
@@ -1722,7 +1718,6 @@ df.popup_message = {}
 ---@field _kind 'struct'
 ---@field _type _announcement_alertst
 ---@field type announcement_alert_type
-local announcement_alertst
 
 ---@class _announcement_alertst: DFCompound
 ---@field _kind 'struct-type'
@@ -1744,7 +1739,6 @@ df.announcement_alertst = {}
 ---@field activity_event_id number same as field in report
 ---@field speaker_id number References: `unit`
 ---@field flags announcement_infost.T_flags
-local announcement_infost
 
 ---@class _announcement_infost: DFCompound
 ---@field _kind 'struct-type'

@@ -17,7 +17,6 @@
 ---@field workloc_y number
 ---@field labor_description string
 ---@field build_stages number
-local building_def
 
 ---@class _building_def: DFCompound
 ---@field _kind 'class-type'
@@ -28,7 +27,6 @@ df.building_def = {}
 function df.building_def.find(key) end
 
 ---@class building_def_vector: DFVector, { [integer]: building_def }
-local building_def_vector
 
 ---@return building_def_vector # df.global.world.raws.buildings.all
 function df.building_def.get_vector() end
@@ -52,7 +50,6 @@ function df.building_def.get_vector() end
 ---@field quantity number
 ---@field has_tool_use tool_uses
 ---@field metal_ore_str string
-local building_def_item
 
 ---@class _building_def_item: DFCompound
 ---@field _kind 'struct-type'
@@ -62,7 +59,6 @@ df.building_def_item = {}
 ---@field _kind 'struct'
 ---@field _type _building_def_workshopst
 ---@field list_icon_texpos number
-local building_def_workshopst
 
 ---@class _building_def_workshopst: DFCompound
 ---@field _kind 'class-type'
@@ -72,7 +68,6 @@ df.building_def_workshopst = {}
 ---@field _kind 'struct'
 ---@field _type _building_def_furnacest
 ---@field list_icon_texpos number
-local building_def_furnacest
 
 ---@class _building_def_furnacest: DFCompound
 ---@field _kind 'class-type'

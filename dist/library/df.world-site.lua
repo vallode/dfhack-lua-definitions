@@ -11,7 +11,6 @@
 ---@field unit_id number
 ---@field activity_entry_id number
 ---@field unk_2 number
-local scribejob
 
 ---@class _scribejob: DFCompound
 ---@field _kind 'struct-type'
@@ -26,7 +25,6 @@ df.scribejob = {}
 ---@field unk_2 number
 ---@field year number
 ---@field tickmaybe number
-local site_reputation_report
 
 ---@class _site_reputation_report: DFCompound
 ---@field _kind 'struct-type'
@@ -35,7 +33,6 @@ df.site_reputation_report = {}
 ---@class (exact) site_reputation_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_reputation_info
-local site_reputation_info
 
 ---@class _site_reputation_info: DFCompound
 ---@field _kind 'struct-type'
@@ -51,7 +48,6 @@ df.site_reputation_info = {}
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
-local location_scribe_jobs
 
 ---@class _location_scribe_jobs: DFCompound
 ---@field _kind 'struct-type'
@@ -137,7 +133,6 @@ df.abstract_building_flags = {}
 ---@class (exact) abstract_building_entombed: DFObject
 ---@field _kind 'struct'
 ---@field _type _abstract_building_entombed
-local abstract_building_entombed
 
 ---@class _abstract_building_entombed: DFCompound
 ---@field _kind 'struct-type'
@@ -174,7 +169,6 @@ df.abstract_building_entombed = {}
 ---@field count_soap number
 ---@field unk_v47_2 number
 ---@field unk_v47_3 number
-local abstract_building_contents
 
 ---@class _abstract_building_contents: DFCompound
 ---@field _kind 'struct-type'
@@ -261,7 +255,6 @@ df.abstract_building_contents.T_need_more = {}
 ---@field site_owner_id number entity that constructed the building References: `historical_entity`
 ---@field site_id number not initialized/saved/loaded, assumed member of base class References: `world_site`
 ---@field pos coord2d
-local abstract_building
 
 ---@class _abstract_building: DFCompound
 ---@field _kind 'class-type'
@@ -273,7 +266,6 @@ df.abstract_building = {}
 ---@field name language_name
 ---@field item1 site_building_item
 ---@field item2 site_building_item
-local abstract_building_mead_hallst
 
 ---@class _abstract_building_mead_hallst: DFCompound
 ---@field _kind 'class-type'
@@ -283,7 +275,6 @@ df.abstract_building_mead_hallst = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building_keepst
 ---@field name language_name
-local abstract_building_keepst
 
 ---@class _abstract_building_keepst: DFCompound
 ---@field _kind 'class-type'
@@ -308,7 +299,6 @@ df.temple_deity_type = {}
 ---@field _type _temple_deity_data
 ---@field Deity number References: `historical_figure`
 ---@field Religion number References: `historical_entity`
-local temple_deity_data
 
 ---@class _temple_deity_data: DFCompound
 ---@field _kind 'struct-type'
@@ -321,7 +311,6 @@ df.temple_deity_data = {}
 ---@field deity_data temple_deity_data
 ---@field name language_name
 ---@field contents abstract_building_contents
-local abstract_building_templest
 
 ---@class _abstract_building_templest: DFCompound
 ---@field _kind 'class-type'
@@ -331,7 +320,6 @@ df.abstract_building_templest = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building_dark_towerst
 ---@field name language_name
-local abstract_building_dark_towerst
 
 ---@class _abstract_building_dark_towerst: DFCompound
 ---@field _kind 'class-type'
@@ -341,7 +329,6 @@ df.abstract_building_dark_towerst = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building_marketst
 ---@field name language_name
-local abstract_building_marketst
 
 ---@class _abstract_building_marketst: DFCompound
 ---@field _kind 'class-type'
@@ -353,7 +340,6 @@ df.abstract_building_marketst = {}
 ---@field name language_name
 ---@field entombed abstract_building_entombed
 ---@field precedence number
-local abstract_building_tombst
 
 ---@class _abstract_building_tombst: DFCompound
 ---@field _kind 'class-type'
@@ -369,7 +355,6 @@ df.abstract_building_tombst = {}
 ---@field unk_2 number
 ---@field unk_3 number not saved
 ---@field unk_4 number not saved
-local abstract_building_dungeonst
 
 ---@class _abstract_building_dungeonst: DFCompound
 ---@field _kind 'class-type'
@@ -394,7 +379,6 @@ df.abstract_building_dungeonst.T_dungeon_type = {}
 ---@field _type _abstract_building_underworld_spirest
 ---@field name language_name
 ---@field unk_bc number
-local abstract_building_underworld_spirest
 
 ---@class _abstract_building_underworld_spirest: DFCompound
 ---@field _kind 'class-type'
@@ -406,7 +390,6 @@ df.abstract_building_underworld_spirest = {}
 ---@field name language_name
 ---@field contents abstract_building_contents
 ---@field next_room_info_id number
-local abstract_building_inn_tavernst
 
 ---@class _abstract_building_inn_tavernst: DFCompound
 ---@field _kind 'class-type'
@@ -421,7 +404,6 @@ df.abstract_building_inn_tavernst = {}
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field contents abstract_building_contents
-local abstract_building_libraryst
 
 ---@class _abstract_building_libraryst: DFCompound
 ---@field _kind 'class-type'
@@ -431,7 +413,6 @@ df.abstract_building_libraryst = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building_counting_housest
 ---@field name language_name
-local abstract_building_counting_housest
 
 ---@class _abstract_building_counting_housest: DFCompound
 ---@field _kind 'class-type'
@@ -442,7 +423,6 @@ df.abstract_building_counting_housest = {}
 ---@field _type _abstract_building_guildhallst
 ---@field name language_name
 ---@field contents abstract_building_contents
-local abstract_building_guildhallst
 
 ---@class _abstract_building_guildhallst: DFCompound
 ---@field _kind 'class-type'
@@ -453,7 +433,6 @@ df.abstract_building_guildhallst = {}
 ---@field _type _abstract_building_towerst
 ---@field name language_name
 ---@field unk_1 number
-local abstract_building_towerst
 
 ---@class _abstract_building_towerst: DFCompound
 ---@field _kind 'class-type'
@@ -464,7 +443,6 @@ df.abstract_building_towerst = {}
 ---@field _type _abstract_building_hospitalst
 ---@field name language_name
 ---@field contents abstract_building_contents
-local abstract_building_hospitalst
 
 ---@class _abstract_building_hospitalst: DFCompound
 ---@field _kind 'class-type'
@@ -575,7 +553,6 @@ df.lair_type = {}
 ---@field owner_entity_id number Mutually exclusive with owner_hfid. All seen were merchant companies. References: `historical_entity`
 ---@field owner_hfid number References: `historical_figure`
 ---@field unk_owner_entity_id number Seen only in subset of owner_entity_id case, and always same value References: `historical_entity`
-local property_ownership
 
 ---@class _property_ownership: DFCompound
 ---@field _kind 'struct-type'
@@ -590,7 +567,6 @@ df.property_ownership = {}
 ---@field pos_y number
 ---@field pos_z number
 ---@field container_it_id number
-local unit_placement_infost
 
 ---@class _unit_placement_infost: DFCompound
 ---@field _kind 'struct-type'
@@ -600,7 +576,6 @@ df.unit_placement_infost = {}
 ---@field _kind 'struct'
 ---@field _type _populacest
 ---@field births_wanted number
-local populacest
 
 ---@class _populacest: DFCompound
 ---@field _kind 'struct-type'
@@ -609,7 +584,6 @@ df.populacest = {}
 ---@class (exact) site_first_calc_special_itemsst: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_first_calc_special_itemsst
-local site_first_calc_special_itemsst
 
 ---@class _site_first_calc_special_itemsst: DFCompound
 ---@field _kind 'struct-type'
@@ -623,7 +597,6 @@ df.site_first_calc_special_itemsst = {}
 ---@field count number
 ---@field planting_week number
 ---@field flag site_cropst.T_flag
-local site_cropst
 
 ---@class _site_cropst: DFCompound
 ---@field _kind 'struct-type'
@@ -668,7 +641,6 @@ df.religious_practice_type = {}
 ---@field type religious_practice_type
 ---@field data site_religious_structurest.T_data
 ---@field points number
-local site_religious_structurest
 
 ---@class _site_religious_structurest: DFCompound
 ---@field _kind 'struct-type'
@@ -680,7 +652,6 @@ df.site_religious_structurest = {}
 ---@field practice_id number
 ---@field hfid number References: `historical_figure`
 ---@field enid number References: `historical_entity`
-local site_religious_structurest_data
 
 ---@class _site_religious_structurest.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -690,7 +661,6 @@ df.site_religious_structurest.T_data = {}
 ---@field _kind 'struct'
 ---@field _type _site_religious_structure_batchst
 ---@field rstructnum number
-local site_religious_structure_batchst
 
 ---@class _site_religious_structure_batchst: DFCompound
 ---@field _kind 'struct-type'
@@ -699,7 +669,6 @@ df.site_religious_structure_batchst = {}
 ---@class (exact) site_culture_infrastructurest: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_culture_infrastructurest
-local site_culture_infrastructurest
 
 ---@class _site_culture_infrastructurest: DFCompound
 ---@field _kind 'struct-type'
@@ -826,7 +795,6 @@ df.location_death_type = {}
 ---@field last_year_used number might be end year
 ---@field body_count number
 ---@field death_type location_death_type
-local location_death_batchst
 
 ---@class _location_death_batchst: DFCompound
 ---@field _kind 'struct-type'
@@ -835,7 +803,6 @@ df.location_death_batchst = {}
 ---@class (exact) location_deathst: DFObject
 ---@field _kind 'struct'
 ---@field _type _location_deathst
-local location_deathst
 
 ---@class _location_deathst: DFCompound
 ---@field _kind 'struct-type'
@@ -855,7 +822,6 @@ df.location_deathst = {}
 ---@field tower_seed number all towers, no others. Seed is a guess based on the very large numbers
 ---@field unk_monastery number all monasteries, no others. Only seen '1'
 ---@field founding_entity number all monasteries, no others References: `historical_entity`
-local site_map_infost
 
 ---@class _site_map_infost: DFCompound
 ---@field _kind 'struct-type'
@@ -899,7 +865,6 @@ df.site_architecture_change_type = {}
 ---@field year_tick number bay12: season_count
 ---@field flag number
 ---@field spec_flag number
-local site_architecture_changest
 
 ---@class _site_architecture_changest: DFCompound
 ---@field _kind 'struct-type'
@@ -911,7 +876,6 @@ df.site_architecture_changest = {}
 ---@field type religious_practice_type
 ---@field data wg_site_culture_identity_religious_practicest.T_data
 ---@field points number
-local wg_site_culture_identity_religious_practicest
 
 ---@class _wg_site_culture_identity_religious_practicest: DFCompound
 ---@field _kind 'struct-type'
@@ -923,7 +887,6 @@ df.wg_site_culture_identity_religious_practicest = {}
 ---@field practice_id number
 ---@field hfid number References: `historical_figure`
 ---@field enid number References: `historical_entity`
-local wg_site_culture_identity_religious_practicest_data
 
 ---@class _wg_site_culture_identity_religious_practicest.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -933,7 +896,6 @@ df.wg_site_culture_identity_religious_practicest.T_data = {}
 ---@field _kind 'struct'
 ---@field _type _wg_site_culture_identityst
 ---@field entity_id number
-local wg_site_culture_identityst
 
 ---@class _wg_site_culture_identityst: DFCompound
 ---@field _kind 'struct-type'
@@ -967,7 +929,6 @@ df.cultural_interaction_type = {}
 ---@field id2 number
 ---@field year number
 ---@field severity number
-local wg_site_culture_identity_interactionst
 
 ---@class _wg_site_culture_identity_interactionst: DFCompound
 ---@field _kind 'struct-type'
@@ -976,7 +937,6 @@ df.wg_site_culture_identity_interactionst = {}
 ---@class (exact) wg_site_culturest: DFObject
 ---@field _kind 'struct'
 ---@field _type _wg_site_culturest
-local wg_site_culturest
 
 ---@class _wg_site_culturest: DFCompound
 ---@field _kind 'struct-type'
@@ -1030,7 +990,6 @@ df.wg_site_culturest = {}
 ---@field unk_3a8 number
 ---@field unk_v43_4 number during worldgen only
 ---@field unk_24 number
-local world_site
 
 ---@class _world_site: DFCompound
 ---@field _kind 'struct-type'
@@ -1041,7 +1000,6 @@ df.world_site = {}
 function df.world_site.find(key) end
 
 ---@class world_site_vector: DFVector, { [integer]: world_site }
-local world_site_vector
 
 ---@return world_site_vector # df.global.world.world_data.sites
 function df.world_site.get_vector() end
@@ -1057,7 +1015,6 @@ function df.world_site.get_vector() end
 ---@field unk_f0 number
 ---@field unk_f4 number 0 or 800000
 ---@field unk_f8 number
-local cultural_identity
 
 ---@class _cultural_identity: DFCompound
 ---@field _kind 'struct-type'
@@ -1068,7 +1025,6 @@ df.cultural_identity = {}
 function df.cultural_identity.find(key) end
 
 ---@class cultural_identity_vector: DFVector, { [integer]: cultural_identity }
-local cultural_identity_vector
 
 ---@return cultural_identity_vector # df.global.world.cultural_identities.all
 function df.cultural_identity.get_vector() end
@@ -1087,7 +1043,6 @@ function df.cultural_identity.get_vector() end
 ---@field related_entity_id number Founder if outcast_id=-1, else Outcast and equal to outcast_id References: `historical_entity`
 ---@field unk_24 number 0 and 1 seen
 ---@field unk_28 number
-local world_site_inhabitant
 
 ---@class _world_site_inhabitant: DFCompound
 ---@field _kind 'struct-type'
@@ -1119,7 +1074,6 @@ df.world_site_inhabitant = {}
 ---@field num_building_type22 number
 ---@field num_building_type21 number
 ---@field unk_24 number
-local world_site_realization
 
 ---@class _world_site_realization: DFCompound
 ---@field _kind 'struct-type'
@@ -1153,7 +1107,6 @@ df.world_site_realization = {}
 ---@field unk_6 number
 ---@field unk_7 number
 ---@field unk_8 number
-local site_realization_crossroads
 
 ---@class _site_realization_crossroads: DFCompound
 ---@field _kind 'struct-type'
@@ -1273,7 +1226,6 @@ df.site_realization_building_type = {}
 ---@field unk_44 number
 ---@field unk_5c number bit 0x01 == abandoned
 ---@field unk_v40_1 number
-local site_realization_building
 
 ---@class _site_realization_building: DFCompound
 ---@field _kind 'struct-type'
@@ -1282,7 +1234,6 @@ df.site_realization_building = {}
 ---@class (exact) site_realization_building_infost: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_infost
-local site_realization_building_infost
 
 ---@class _site_realization_building_infost: DFCompound
 ---@field _kind 'class-type'
@@ -1296,7 +1247,6 @@ df.site_realization_building_infost = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local site_building_item
 
 ---@class _site_building_item: DFCompound
 ---@field _kind 'struct-type'
@@ -1358,7 +1308,6 @@ df.tower_shape = {}
 ---@field end_z number
 ---@field wall_item site_building_item
 ---@field door_item site_building_item
-local site_realization_building_info_castle_wallst
 
 ---@class _site_realization_building_info_castle_wallst: DFCompound
 ---@field _kind 'class-type'
@@ -1378,7 +1327,6 @@ df.site_realization_building_info_castle_wallst = {}
 ---@field shape tower_shape
 ---@field unk_40 number
 ---@field unk_44 number
-local site_realization_building_info_castle_towerst
 
 ---@class _site_realization_building_info_castle_towerst: DFCompound
 ---@field _kind 'class-type'
@@ -1387,7 +1335,6 @@ df.site_realization_building_info_castle_towerst = {}
 ---@class (exact) site_realization_building_info_castle_courtyardst: DFObject, site_realization_building_infost
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_info_castle_courtyardst
-local site_realization_building_info_castle_courtyardst
 
 ---@class _site_realization_building_info_castle_courtyardst: DFCompound
 ---@field _kind 'class-type'
@@ -1534,7 +1481,6 @@ df.town_labor_type = {}
 ---@field _type _site_realization_building_info_shop_housest
 ---@field type site_shop_type
 ---@field name language_name
-local site_realization_building_info_shop_housest
 
 ---@class _site_realization_building_info_shop_housest: DFCompound
 ---@field _kind 'class-type'
@@ -1544,7 +1490,6 @@ df.site_realization_building_info_shop_housest = {}
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_info_market_squarest
 ---@field type site_shop_type
-local site_realization_building_info_market_squarest
 
 ---@class _site_realization_building_info_market_squarest: DFCompound
 ---@field _kind 'class-type'
@@ -1554,7 +1499,6 @@ df.site_realization_building_info_market_squarest = {}
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_info_trenchesst
 ---@field unk_4 number
-local site_realization_building_info_trenchesst
 
 ---@class _site_realization_building_info_trenchesst: DFCompound
 ---@field _kind 'class-type'
@@ -1589,7 +1533,6 @@ df.tree_house_type = {}
 ---@field type tree_house_type
 ---@field unk_8 number
 ---@field name language_name
-local site_realization_building_info_tree_housest
 
 ---@class _site_realization_building_info_tree_housest: DFCompound
 ---@field _kind 'class-type'
@@ -1613,7 +1556,6 @@ df.hillock_house_type = {}
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_info_hillock_housest
 ---@field type hillock_house_type
-local site_realization_building_info_hillock_housest
 
 ---@class _site_realization_building_info_hillock_housest: DFCompound
 ---@field _kind 'class-type'
@@ -1624,7 +1566,6 @@ df.site_realization_building_info_hillock_housest = {}
 ---@field _type _site_realization_building_info_shrinest
 ---@field unk_1 number
 ---@field unk_2 number
-local site_realization_building_info_shrinest
 
 ---@class _site_realization_building_info_shrinest: DFCompound
 ---@field _kind 'class-type'
@@ -1651,7 +1592,6 @@ df.creation_zone_pwg_alteration_type = {}
 ---@field _kind 'struct'
 ---@field _type _creation_zone_pwg_alterationst
 ---@field unk_0 number
-local creation_zone_pwg_alterationst
 
 ---@class _creation_zone_pwg_alterationst: DFCompound
 ---@field _kind 'class-type'
@@ -1662,7 +1602,6 @@ df.creation_zone_pwg_alterationst = {}
 ---@field _type _creation_zone_pwg_alteration_location_deathst
 ---@field unk_1 creation_zone_pwg_alteration_location_deathst.T_unk_1
 ---@field unk_2 number
-local creation_zone_pwg_alteration_location_deathst
 
 ---@class _creation_zone_pwg_alteration_location_deathst: DFCompound
 ---@field _kind 'class-type'
@@ -1671,7 +1610,6 @@ df.creation_zone_pwg_alteration_location_deathst = {}
 ---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFObject
 ---@field _kind 'struct'
 ---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
-local creation_zone_pwg_alteration_location_deathst_unk_1
 
 ---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompound
 ---@field _kind 'struct-type'
@@ -1691,7 +1629,6 @@ df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 ---@field unk_5 number
 ---@field unk_6 number
 ---@field unk_7 number
-local creation_zone_pwg_alteration_campst
 
 ---@class _creation_zone_pwg_alteration_campst: DFCompound
 ---@field _kind 'class-type'
@@ -1702,7 +1639,6 @@ df.creation_zone_pwg_alteration_campst = {}
 ---@field _type _creation_zone_pwg_alteration_srb_ruinedst
 ---@field site_id number References: `world_site`
 ---@field building_id number References: `site_realization_building`
-local creation_zone_pwg_alteration_srb_ruinedst
 
 ---@class _creation_zone_pwg_alteration_srb_ruinedst: DFCompound
 ---@field _kind 'class-type'
@@ -1713,7 +1649,6 @@ df.creation_zone_pwg_alteration_srb_ruinedst = {}
 ---@field _type _creation_zone_pwg_alteration_srp_ruinedst
 ---@field unk_1 number
 ---@field unk_2 number
-local creation_zone_pwg_alteration_srp_ruinedst
 
 ---@class _creation_zone_pwg_alteration_srp_ruinedst: DFCompound
 ---@field _kind 'class-type'

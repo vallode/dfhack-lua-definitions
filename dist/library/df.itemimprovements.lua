@@ -60,7 +60,6 @@ df.improvement_type = {}
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 number
-local dye_info
 
 ---@class _dye_info: DFCompound
 ---@field _kind 'struct-type'
@@ -76,7 +75,6 @@ df.dye_info = {}
 ---@field quality item_quality
 ---@field skill_rating skill_rating at the moment of creation
 ---@field unk_1 number
-local itemimprovement
 
 ---@class _itemimprovement: DFCompound
 ---@field _kind 'class-type'
@@ -86,7 +84,6 @@ df.itemimprovement = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_art_imagest
 ---@field image art_image_ref
-local itemimprovement_art_imagest
 
 ---@class _itemimprovement_art_imagest: DFCompound
 ---@field _kind 'class-type'
@@ -97,7 +94,6 @@ df.itemimprovement_art_imagest = {}
 ---@field _type _itemimprovement_coveredst
 ---@field cover_flags itemimprovement_coveredst.T_cover_flags
 ---@field shape number References: `descriptor_shape`
-local itemimprovement_coveredst
 
 ---@class _itemimprovement_coveredst: DFCompound
 ---@field _kind 'class-type'
@@ -125,7 +121,6 @@ df.itemimprovement_coveredst.T_cover_flags = {}
 ---@class (exact) itemimprovement_rings_hangingst: DFObject, itemimprovement
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_rings_hangingst
-local itemimprovement_rings_hangingst
 
 ---@class _itemimprovement_rings_hangingst: DFCompound
 ---@field _kind 'class-type'
@@ -135,7 +130,6 @@ df.itemimprovement_rings_hangingst = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_bandsst
 ---@field shape number References: `descriptor_shape`
-local itemimprovement_bandsst
 
 ---@class _itemimprovement_bandsst: DFCompound
 ---@field _kind 'class-type'
@@ -144,7 +138,6 @@ df.itemimprovement_bandsst = {}
 ---@class (exact) itemimprovement_spikesst: DFObject, itemimprovement
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_spikesst
-local itemimprovement_spikesst
 
 ---@class _itemimprovement_spikesst: DFCompound
 ---@field _kind 'class-type'
@@ -165,7 +158,6 @@ df.itemimprovement_specific_type = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_itemspecificst
 ---@field type itemimprovement_specific_type
-local itemimprovement_itemspecificst
 
 ---@class _itemimprovement_itemspecificst: DFCompound
 ---@field _kind 'class-type'
@@ -175,7 +167,6 @@ df.itemimprovement_itemspecificst = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_threadst
 ---@field dye dye_info
-local itemimprovement_threadst
 
 ---@class _itemimprovement_threadst: DFCompound
 ---@field _kind 'class-type'
@@ -184,7 +175,6 @@ df.itemimprovement_threadst = {}
 ---@class (exact) itemimprovement_clothst: DFObject, itemimprovement
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_clothst
-local itemimprovement_clothst
 
 ---@class _itemimprovement_clothst: DFCompound
 ---@field _kind 'class-type'
@@ -196,7 +186,6 @@ df.itemimprovement_clothst = {}
 ---@field image art_image_ref
 ---@field cloth itemimprovement_sewn_imagest.T_cloth
 ---@field dye dye_info
-local itemimprovement_sewn_imagest
 
 ---@class _itemimprovement_sewn_imagest: DFCompound
 ---@field _kind 'class-type'
@@ -208,7 +197,6 @@ df.itemimprovement_sewn_imagest = {}
 ---@field unit_id number References: `historical_figure`
 ---@field quality number
 ---@field unk_1 number
-local itemimprovement_sewn_imagest_cloth
 
 ---@class _itemimprovement_sewn_imagest.T_cloth: DFCompound
 ---@field _kind 'struct-type'
@@ -218,7 +206,6 @@ df.itemimprovement_sewn_imagest.T_cloth = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_pagesst
 ---@field count number
-local itemimprovement_pagesst
 
 ---@class _itemimprovement_pagesst: DFCompound
 ---@field _kind 'class-type'
@@ -229,7 +216,6 @@ df.itemimprovement_pagesst = {}
 ---@field _type _itemimprovement_illustrationst
 ---@field image art_image_ref
 ---@field unk_2 number
-local itemimprovement_illustrationst
 
 ---@class _itemimprovement_illustrationst: DFCompound
 ---@field _kind 'class-type'
@@ -239,7 +225,6 @@ df.itemimprovement_illustrationst = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_instrument_piecest
 ---@field type string instrument_piece.type
-local itemimprovement_instrument_piecest
 
 ---@class _itemimprovement_instrument_piecest: DFCompound
 ---@field _kind 'class-type'
@@ -248,7 +233,6 @@ df.itemimprovement_instrument_piecest = {}
 ---@class (exact) itemimprovement_writingst: DFObject, itemimprovement
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_writingst
-local itemimprovement_writingst
 
 ---@class _itemimprovement_writingst: DFCompound
 ---@field _kind 'class-type'
@@ -258,7 +242,6 @@ df.itemimprovement_writingst = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_image_setst
 ---@field image_set_id number References: `image_set`
-local itemimprovement_image_setst
 
 ---@class _itemimprovement_image_setst: DFCompound
 ---@field _kind 'class-type'
@@ -422,7 +405,6 @@ df.written_content_style = {}
 ---@field poetic_form number References: `poetic_form`
 ---@field author number References: `historical_figure`
 ---@field author_roll number
-local written_content
 
 ---@class _written_content: DFCompound
 ---@field _kind 'struct-type'
@@ -433,7 +415,6 @@ df.written_content = {}
 function df.written_content.find(key) end
 
 ---@class written_content_vector: DFVector, { [integer]: written_content }
-local written_content_vector
 
 ---@return written_content_vector # df.global.world.written_contents.all
 function df.written_content.get_vector() end
@@ -525,7 +506,6 @@ df.engraving_flags = {}
 ---@field quality item_quality
 ---@field unk1 number
 ---@field unk2 number
-local engraving
 
 ---@class _engraving: DFCompound
 ---@field _kind 'struct-type'
@@ -536,7 +516,6 @@ df.engraving = {}
 function df.engraving.find(key) end
 
 ---@class engraving_vector: DFVector, { [integer]: engraving }
-local engraving_vector
 
 ---@return engraving_vector # df.global.world.engravings
 function df.engraving.get_vector() end

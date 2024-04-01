@@ -296,7 +296,6 @@ df.plant_raw_flags = {}
 ---@field cap_radius number
 ---@field root_density number
 ---@field root_radius number
-local plant_raw
 
 ---@class _plant_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -307,7 +306,6 @@ df.plant_raw = {}
 function df.plant_raw.find(key) end
 
 ---@class plant_raw_vector: DFVector, { [integer]: plant_raw }
-local plant_raw_vector
 
 ---@return plant_raw_vector # df.global.world.raws.plants.all
 function df.plant_raw.get_vector() end
@@ -323,7 +321,6 @@ function df.plant_raw.get_vector() end
 ---@field dead_tree_tile integer unused
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
-local plant_raw_tiles
 
 ---@class _plant_raw.T_tiles: DFCompound
 ---@field _kind 'struct-type'
@@ -332,7 +329,6 @@ df.plant_raw.T_tiles = {}
 ---@class (exact) plant_raw.T_colors: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_colors
-local plant_raw_colors
 
 ---@class _plant_raw.T_colors: DFCompound
 ---@field _kind 'struct-type'
@@ -341,7 +337,6 @@ df.plant_raw.T_colors = {}
 ---@class (exact) plant_raw.T_material_defs: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_material_defs
-local plant_raw_material_defs
 
 ---@class _plant_raw.T_material_defs: DFCompound
 ---@field _kind 'struct-type'
@@ -401,7 +396,6 @@ df.plant_material_def = {}
 ---@field behavior plant_growth.T_behavior
 ---@field trunk_height_perc_1 number
 ---@field trunk_height_perc_2 number
-local plant_growth
 
 ---@class _plant_growth: DFCompound
 ---@field _kind 'struct-type'
@@ -501,7 +495,6 @@ df.plant_growth.T_behavior = {}
 ---@field tile_item integer
 ---@field timing_start number
 ---@field timing_end number
-local plant_growth_print
 
 ---@class _plant_growth_print: DFCompound
 ---@field _kind 'struct-type'

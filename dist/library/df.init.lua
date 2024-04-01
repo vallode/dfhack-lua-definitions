@@ -56,7 +56,6 @@ df.init_display_filter_mode = {}
 ---@field interface_scaling_percentage number
 ---@field partial_print_count number
 ---@field filter_mode init_display_filter_mode
-local init_display
 
 ---@class _init_display: DFCompound
 ---@field _kind 'struct-type'
@@ -101,7 +100,6 @@ df.init_media_flags = {}
 ---@field volume_ambience number
 ---@field volume_sfx number
 ---@field time_between_songs number
-local init_media
 
 ---@class _init_media: DFCompound
 ---@field _kind 'struct-type'
@@ -128,7 +126,6 @@ df.init_input_flags = {}
 ---@field zoom_speed number
 ---@field repeat_accel_start number
 ---@field repeat_accel_limit number
-local init_input
 
 ---@class _init_input: DFCompound
 ---@field _kind 'struct-type'
@@ -149,7 +146,6 @@ df.init_input = {}
 ---@field small_font_dispy long
 ---@field large_font_dispx long
 ---@field large_font_dispy long
-local init_font
 
 ---@class _init_font: DFCompound
 ---@field _kind 'struct-type'
@@ -172,7 +168,6 @@ df.init_window_flags = {}
 ---@class (exact) init_window: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_window
-local init_window
 
 ---@class _init_window: DFCompound
 ---@field _kind 'struct-type'
@@ -228,7 +223,6 @@ df.init_window = {}
 ---@field classic_texpos_border_inside_swe number
 ---@field classic_texpos_border_inside_ns number
 ---@field classic_texpos_border_inside_we number
-local init
 
 ---@class _init: DFCompound
 ---@field _kind 'struct-type'

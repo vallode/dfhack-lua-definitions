@@ -485,7 +485,6 @@ df.creature_interaction_effect_target_mode = {}
 ---@class (exact) creature_interaction_effect_target: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_target
-local creature_interaction_effect_target
 
 ---@class _creature_interaction_effect_target: DFCompound
 ---@field _kind 'struct-type'
@@ -506,7 +505,6 @@ df.creature_interaction_effect_target = {}
 ---@field moon_phase_min number
 ---@field moon_phase_max number
 ---@field counter_trigger creature_interaction_effect.T_counter_trigger
-local creature_interaction_effect
 
 ---@class _creature_interaction_effect: DFCompound
 ---@field _kind 'class-type'
@@ -517,7 +515,6 @@ df.creature_interaction_effect = {}
 function df.creature_interaction_effect.find(key) end
 
 ---@class creature_interaction_effect_vector: DFVector, { [integer]: creature_interaction_effect }
-local creature_interaction_effect_vector
 
 ---@return creature_interaction_effect_vector # df.global.world.raws.effects.all
 function df.creature_interaction_effect.get_vector() end
@@ -525,7 +522,6 @@ function df.creature_interaction_effect.get_vector() end
 ---@class (exact) creature_interaction_effect.T_counter_trigger: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect.T_counter_trigger
-local creature_interaction_effect_counter_trigger
 
 ---@class _creature_interaction_effect.T_counter_trigger: DFCompound
 ---@field _kind 'struct-type'
@@ -536,7 +532,6 @@ df.creature_interaction_effect.T_counter_trigger = {}
 ---@field _type _creature_interaction_effect_painst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_painst
 
 ---@class _creature_interaction_effect_painst: DFCompound
 ---@field _kind 'class-type'
@@ -547,7 +542,6 @@ df.creature_interaction_effect_painst = {}
 ---@field _type _creature_interaction_effect_swellingst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_swellingst
 
 ---@class _creature_interaction_effect_swellingst: DFCompound
 ---@field _kind 'class-type'
@@ -558,7 +552,6 @@ df.creature_interaction_effect_swellingst = {}
 ---@field _type _creature_interaction_effect_oozingst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_oozingst
 
 ---@class _creature_interaction_effect_oozingst: DFCompound
 ---@field _kind 'class-type'
@@ -569,7 +562,6 @@ df.creature_interaction_effect_oozingst = {}
 ---@field _type _creature_interaction_effect_bruisingst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_bruisingst
 
 ---@class _creature_interaction_effect_bruisingst: DFCompound
 ---@field _kind 'class-type'
@@ -580,7 +572,6 @@ df.creature_interaction_effect_bruisingst = {}
 ---@field _type _creature_interaction_effect_blistersst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_blistersst
 
 ---@class _creature_interaction_effect_blistersst: DFCompound
 ---@field _kind 'class-type'
@@ -591,7 +582,6 @@ df.creature_interaction_effect_blistersst = {}
 ---@field _type _creature_interaction_effect_numbnessst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_numbnessst
 
 ---@class _creature_interaction_effect_numbnessst: DFCompound
 ---@field _kind 'class-type'
@@ -602,7 +592,6 @@ df.creature_interaction_effect_numbnessst = {}
 ---@field _type _creature_interaction_effect_paralysisst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_paralysisst
 
 ---@class _creature_interaction_effect_paralysisst: DFCompound
 ---@field _kind 'class-type'
@@ -612,7 +601,6 @@ df.creature_interaction_effect_paralysisst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_feverst
 ---@field sev number
-local creature_interaction_effect_feverst
 
 ---@class _creature_interaction_effect_feverst: DFCompound
 ---@field _kind 'class-type'
@@ -623,7 +611,6 @@ df.creature_interaction_effect_feverst = {}
 ---@field _type _creature_interaction_effect_bleedingst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_bleedingst
 
 ---@class _creature_interaction_effect_bleedingst: DFCompound
 ---@field _kind 'class-type'
@@ -633,7 +620,6 @@ df.creature_interaction_effect_bleedingst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_cough_bloodst
 ---@field sev number
-local creature_interaction_effect_cough_bloodst
 
 ---@class _creature_interaction_effect_cough_bloodst: DFCompound
 ---@field _kind 'class-type'
@@ -643,7 +629,6 @@ df.creature_interaction_effect_cough_bloodst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_vomit_bloodst
 ---@field sev number
-local creature_interaction_effect_vomit_bloodst
 
 ---@class _creature_interaction_effect_vomit_bloodst: DFCompound
 ---@field _kind 'class-type'
@@ -653,7 +638,6 @@ df.creature_interaction_effect_vomit_bloodst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_nauseast
 ---@field sev number
-local creature_interaction_effect_nauseast
 
 ---@class _creature_interaction_effect_nauseast: DFCompound
 ---@field _kind 'class-type'
@@ -663,7 +647,6 @@ df.creature_interaction_effect_nauseast = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_unconsciousnessst
 ---@field sev number
-local creature_interaction_effect_unconsciousnessst
 
 ---@class _creature_interaction_effect_unconsciousnessst: DFCompound
 ---@field _kind 'class-type'
@@ -674,7 +657,6 @@ df.creature_interaction_effect_unconsciousnessst = {}
 ---@field _type _creature_interaction_effect_necrosisst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_necrosisst
 
 ---@class _creature_interaction_effect_necrosisst: DFCompound
 ---@field _kind 'class-type'
@@ -685,7 +667,6 @@ df.creature_interaction_effect_necrosisst = {}
 ---@field _type _creature_interaction_effect_impair_functionst
 ---@field sev number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_impair_functionst
 
 ---@class _creature_interaction_effect_impair_functionst: DFCompound
 ---@field _kind 'class-type'
@@ -695,7 +676,6 @@ df.creature_interaction_effect_impair_functionst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_drowsinessst
 ---@field sev number
-local creature_interaction_effect_drowsinessst
 
 ---@class _creature_interaction_effect_drowsinessst: DFCompound
 ---@field _kind 'class-type'
@@ -705,7 +685,6 @@ df.creature_interaction_effect_drowsinessst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_dizzinessst
 ---@field sev number
-local creature_interaction_effect_dizzinessst
 
 ---@class _creature_interaction_effect_dizzinessst: DFCompound
 ---@field _kind 'class-type'
@@ -718,7 +697,6 @@ df.creature_interaction_effect_dizzinessst = {}
 ---@field name_plural string
 ---@field name_adj string
 ---@field unk_1 number
-local creature_interaction_effect_display_namest
 
 ---@class _creature_interaction_effect_display_namest: DFCompound
 ---@field _kind 'class-type'
@@ -729,7 +707,6 @@ df.creature_interaction_effect_display_namest = {}
 ---@field _type _creature_interaction_effect_body_appearance_modifierst
 ---@field unk_60 number
 ---@field unk_64 number
-local creature_interaction_effect_body_appearance_modifierst
 
 ---@class _creature_interaction_effect_body_appearance_modifierst: DFCompound
 ---@field _kind 'class-type'
@@ -741,7 +718,6 @@ df.creature_interaction_effect_body_appearance_modifierst = {}
 ---@field unk_6c number
 ---@field value number
 ---@field target creature_interaction_effect_target
-local creature_interaction_effect_bp_appearance_modifierst
 
 ---@class _creature_interaction_effect_bp_appearance_modifierst: DFCompound
 ---@field _kind 'class-type'
@@ -755,7 +731,6 @@ df.creature_interaction_effect_bp_appearance_modifierst = {}
 ---@field caste_str string
 ---@field unk_1 number
 ---@field unk_2 number
-local creature_interaction_effect_body_transformationst
 
 ---@class _creature_interaction_effect_body_transformationst: DFCompound
 ---@field _kind 'class-type'
@@ -766,7 +741,6 @@ df.creature_interaction_effect_body_transformationst = {}
 ---@field _type _creature_interaction_effect_skill_roll_adjustst
 ---@field multiplier number % change for skill
 ---@field chance number % probability per roll
-local creature_interaction_effect_skill_roll_adjustst
 
 ---@class _creature_interaction_effect_skill_roll_adjustst: DFCompound
 ---@field _kind 'class-type'
@@ -777,7 +751,6 @@ df.creature_interaction_effect_skill_roll_adjustst = {}
 ---@field _type _creature_interaction_effect_display_symbolst
 ---@field tile number
 ---@field color number
-local creature_interaction_effect_display_symbolst
 
 ---@class _creature_interaction_effect_display_symbolst: DFCompound
 ---@field _kind 'class-type'
@@ -789,7 +762,6 @@ df.creature_interaction_effect_display_symbolst = {}
 ---@field period number
 ---@field time number
 ---@field unk_78 number
-local creature_interaction_effect_flash_symbolst
 
 ---@class _creature_interaction_effect_flash_symbolst: DFCompound
 ---@field _kind 'class-type'
@@ -798,7 +770,6 @@ df.creature_interaction_effect_flash_symbolst = {}
 ---@class (exact) creature_interaction_effect_phys_att_changest: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_phys_att_changest
-local creature_interaction_effect_phys_att_changest
 
 ---@class _creature_interaction_effect_phys_att_changest: DFCompound
 ---@field _kind 'class-type'
@@ -807,7 +778,6 @@ df.creature_interaction_effect_phys_att_changest = {}
 ---@class (exact) creature_interaction_effect_ment_att_changest: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_ment_att_changest
-local creature_interaction_effect_ment_att_changest
 
 ---@class _creature_interaction_effect_ment_att_changest: DFCompound
 ---@field _kind 'class-type'
@@ -818,7 +788,6 @@ df.creature_interaction_effect_ment_att_changest = {}
 ---@field _type _creature_interaction_effect_add_simple_flagst
 ---@field tags1 cie_add_tag_mask1
 ---@field tags2 cie_add_tag_mask2
-local creature_interaction_effect_add_simple_flagst
 
 ---@class _creature_interaction_effect_add_simple_flagst: DFCompound
 ---@field _kind 'class-type'
@@ -829,7 +798,6 @@ df.creature_interaction_effect_add_simple_flagst = {}
 ---@field _type _creature_interaction_effect_remove_simple_flagst
 ---@field tags1 cie_add_tag_mask1
 ---@field tags2 cie_add_tag_mask2
-local creature_interaction_effect_remove_simple_flagst
 
 ---@class _creature_interaction_effect_remove_simple_flagst: DFCompound
 ---@field _kind 'class-type'
@@ -840,7 +808,6 @@ df.creature_interaction_effect_remove_simple_flagst = {}
 ---@field _type _creature_interaction_effect_speed_changest
 ---@field bonus_add number
 ---@field bonus_perc number
-local creature_interaction_effect_speed_changest
 
 ---@class _creature_interaction_effect_speed_changest: DFCompound
 ---@field _kind 'class-type'
@@ -854,7 +821,6 @@ df.creature_interaction_effect_speed_changest = {}
 ---@field unk_8c number
 ---@field unk_90 number
 ---@field unk_94 string
-local creature_interaction_effect_body_mat_interactionst
 
 ---@class _creature_interaction_effect_body_mat_interactionst: DFCompound
 ---@field _kind 'class-type'
@@ -870,7 +836,6 @@ df.creature_interaction_effect_body_mat_interactionst = {}
 ---@field mat_index number
 ---@field fraction_mul number
 ---@field fraction_div number
-local creature_interaction_effect_material_force_adjustst
 
 ---@class _creature_interaction_effect_material_force_adjustst: DFCompound
 ---@field _kind 'class-type'
@@ -880,7 +845,6 @@ df.creature_interaction_effect_material_force_adjustst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_can_do_interactionst
 ---@field interaction creature_interaction
-local creature_interaction_effect_can_do_interactionst
 
 ---@class _creature_interaction_effect_can_do_interactionst: DFCompound
 ---@field _kind 'class-type'
@@ -894,7 +858,6 @@ df.creature_interaction_effect_can_do_interactionst = {}
 ---@field color_foreground number
 ---@field color_background number
 ---@field foreground_brightness number
-local creature_interaction_effect_sense_creature_classst
 
 ---@class _creature_interaction_effect_sense_creature_classst: DFCompound
 ---@field _kind 'class-type'
@@ -905,7 +868,6 @@ df.creature_interaction_effect_sense_creature_classst = {}
 ---@field _type _creature_interaction_effect_feel_emotionst
 ---@field emotion emotion_type
 ---@field sev number
-local creature_interaction_effect_feel_emotionst
 
 ---@class _creature_interaction_effect_feel_emotionst: DFCompound
 ---@field _kind 'class-type'
@@ -914,7 +876,6 @@ df.creature_interaction_effect_feel_emotionst = {}
 ---@class (exact) creature_interaction_effect_change_personalityst: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_change_personalityst
-local creature_interaction_effect_change_personalityst
 
 ---@class _creature_interaction_effect_change_personalityst: DFCompound
 ---@field _kind 'class-type'
@@ -924,7 +885,6 @@ df.creature_interaction_effect_change_personalityst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_erratic_behaviorst
 ---@field sev number
-local creature_interaction_effect_erratic_behaviorst
 
 ---@class _creature_interaction_effect_erratic_behaviorst: DFCompound
 ---@field _kind 'class-type'
@@ -934,7 +894,6 @@ df.creature_interaction_effect_erratic_behaviorst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_close_open_woundsst
 ---@field unk_1 number
-local creature_interaction_effect_close_open_woundsst
 
 ---@class _creature_interaction_effect_close_open_woundsst: DFCompound
 ---@field _kind 'class-type'
@@ -944,7 +903,6 @@ df.creature_interaction_effect_close_open_woundsst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_cure_infectionsst
 ---@field unk_1 number
-local creature_interaction_effect_cure_infectionsst
 
 ---@class _creature_interaction_effect_cure_infectionsst: DFCompound
 ---@field _kind 'class-type'
@@ -954,7 +912,6 @@ df.creature_interaction_effect_cure_infectionsst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_heal_nervesst
 ---@field unk_1 number
-local creature_interaction_effect_heal_nervesst
 
 ---@class _creature_interaction_effect_heal_nervesst: DFCompound
 ---@field _kind 'class-type'
@@ -964,7 +921,6 @@ df.creature_interaction_effect_heal_nervesst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_heal_tissuesst
 ---@field unk_1 number
-local creature_interaction_effect_heal_tissuesst
 
 ---@class _creature_interaction_effect_heal_tissuesst: DFCompound
 ---@field _kind 'class-type'
@@ -974,7 +930,6 @@ df.creature_interaction_effect_heal_tissuesst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_dizzinessst
 ---@field unk_1 number
-local creature_interaction_effect_reduce_dizzinessst
 
 ---@class _creature_interaction_effect_reduce_dizzinessst: DFCompound
 ---@field _kind 'class-type'
@@ -984,7 +939,6 @@ df.creature_interaction_effect_reduce_dizzinessst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_feverst
 ---@field unk_1 number
-local creature_interaction_effect_reduce_feverst
 
 ---@class _creature_interaction_effect_reduce_feverst: DFCompound
 ---@field _kind 'class-type'
@@ -994,7 +948,6 @@ df.creature_interaction_effect_reduce_feverst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_nauseast
 ---@field unk_1 number
-local creature_interaction_effect_reduce_nauseast
 
 ---@class _creature_interaction_effect_reduce_nauseast: DFCompound
 ---@field _kind 'class-type'
@@ -1004,7 +957,6 @@ df.creature_interaction_effect_reduce_nauseast = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_painst
 ---@field unk_1 number
-local creature_interaction_effect_reduce_painst
 
 ---@class _creature_interaction_effect_reduce_painst: DFCompound
 ---@field _kind 'class-type'
@@ -1014,7 +966,6 @@ df.creature_interaction_effect_reduce_painst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_paralysisst
 ---@field unk_1 number
-local creature_interaction_effect_reduce_paralysisst
 
 ---@class _creature_interaction_effect_reduce_paralysisst: DFCompound
 ---@field _kind 'class-type'
@@ -1024,7 +975,6 @@ df.creature_interaction_effect_reduce_paralysisst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_swellingst
 ---@field unk_1 number
-local creature_interaction_effect_reduce_swellingst
 
 ---@class _creature_interaction_effect_reduce_swellingst: DFCompound
 ---@field _kind 'class-type'
@@ -1034,7 +984,6 @@ df.creature_interaction_effect_reduce_swellingst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_regrow_partsst
 ---@field unk_1 number
-local creature_interaction_effect_regrow_partsst
 
 ---@class _creature_interaction_effect_regrow_partsst: DFCompound
 ---@field _kind 'class-type'
@@ -1044,7 +993,6 @@ df.creature_interaction_effect_regrow_partsst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_special_attack_interactionst
 ---@field unk_3 string
-local creature_interaction_effect_special_attack_interactionst
 
 ---@class _creature_interaction_effect_special_attack_interactionst: DFCompound
 ---@field _kind 'class-type'
@@ -1054,7 +1002,6 @@ df.creature_interaction_effect_special_attack_interactionst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_stop_bleedingst
 ---@field unk_1 number
-local creature_interaction_effect_stop_bleedingst
 
 ---@class _creature_interaction_effect_stop_bleedingst: DFCompound
 ---@field _kind 'class-type'
@@ -1064,7 +1011,6 @@ df.creature_interaction_effect_stop_bleedingst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_cure_infectionst
 ---@field unk_1 number
-local creature_interaction_effect_cure_infectionst
 
 ---@class _creature_interaction_effect_cure_infectionst: DFCompound
 ---@field _kind 'class-type'
@@ -1120,7 +1066,6 @@ df.syndrome_flags = {}
 ---@field syn_identifier string
 ---@field flags syndrome_flags
 ---@field id number
-local syndrome
 
 ---@class _syndrome: DFCompound
 ---@field _kind 'struct-type'
@@ -1131,7 +1076,6 @@ df.syndrome = {}
 function df.syndrome.find(key) end
 
 ---@class syndrome_vector: DFVector, { [integer]: syndrome }
-local syndrome_vector
 
 ---@return syndrome_vector # df.global.world.raws.syndromes.all
 function df.syndrome.get_vector() end

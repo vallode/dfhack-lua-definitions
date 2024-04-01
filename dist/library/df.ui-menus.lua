@@ -9,7 +9,6 @@
 ---@field count_required number
 ---@field count_max number if 0, fixed at required
 ---@field count_provided number
-local ui_build_item_req
 
 ---@class _ui_build_item_req: DFCompound
 ---@field _kind 'struct-type'
@@ -31,7 +30,6 @@ df.build_req_choice_type = {}
 ---@field _kind 'struct'
 ---@field _type _build_req_choicest
 ---@field distance number
-local build_req_choicest
 
 ---@class _build_req_choicest: DFCompound
 ---@field _kind 'class-type'
@@ -46,7 +44,6 @@ df.build_req_choicest = {}
 ---@field mat_index number
 ---@field used_count number
 ---@field unk_1 boolean
-local build_req_choice_genst
 
 ---@class _build_req_choice_genst: DFCompound
 ---@field _kind 'class-type'
@@ -56,7 +53,6 @@ df.build_req_choice_genst = {}
 ---@field _kind 'struct'
 ---@field _type _build_req_choice_specst
 ---@field candidate_id number
-local build_req_choice_specst
 
 ---@class _build_req_choice_specst: DFCompound
 ---@field _kind 'class-type'
@@ -83,7 +79,6 @@ df.build_req_choice_specst = {}
 ---@field direction number
 ---@field selection_pos coord
 ---@field selection_area number
-local buildreq
 
 ---@class _buildreq: DFCompound
 ---@field _kind 'class-type'
@@ -161,7 +156,6 @@ df.interface_category_construction = {}
 ---@field leave_button boolean
 ---@field flag integer
 ---@field filter_str string
-local interface_button
 
 ---@class _interface_button: DFCompound
 ---@field _kind 'class-type'
@@ -170,7 +164,6 @@ df.interface_button = {}
 ---@class (exact) interface_button_buildingst: DFObject, interface_button
 ---@field _kind 'struct'
 ---@field _type _interface_button_buildingst
-local interface_button_buildingst
 
 ---@class _interface_button_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -181,7 +174,6 @@ df.interface_button_buildingst = {}
 ---@field _type _interface_button_building_category_selectorst
 ---@field category interface_category_building
 ---@field prepare_interface number
-local interface_button_building_category_selectorst
 
 ---@class _interface_button_building_category_selectorst: DFCompound
 ---@field _kind 'class-type'
@@ -194,7 +186,6 @@ df.interface_button_building_category_selectorst = {}
 ---@field matgloss number
 ---@field job_item_flag job_material_category
 ---@field prepare_interface number
-local interface_button_building_material_selectorst
 
 ---@class _interface_button_building_material_selectorst: DFCompound
 ---@field _kind 'class-type'
@@ -216,7 +207,6 @@ df.interface_button_building_material_selectorst = {}
 ---@field show_help_instead boolean
 ---@field objection string
 ---@field info string
-local interface_button_building_new_jobst
 
 ---@class _interface_button_building_new_jobst: DFCompound
 ---@field _kind 'class-type'
@@ -226,7 +216,6 @@ df.interface_button_building_new_jobst = {}
 ---@field _kind 'struct'
 ---@field _type _interface_button_building_custom_category_selectorst
 ---@field custom_category_token string
-local interface_button_building_custom_category_selectorst
 
 ---@class _interface_button_building_custom_category_selectorst: DFCompound
 ---@field _kind 'class-type'
@@ -288,7 +277,6 @@ df.construction_category_type = {}
 ---@field texpos number
 ---@field str string
 ---@field hotkey interface_key
-local bb_buttonst
 
 ---@class _bb_buttonst: DFCompound
 ---@field _kind 'struct-type'
@@ -325,7 +313,6 @@ df.construction_interface_page_status_type = {}
 ---@field column_width number
 ---@field scrolling boolean
 ---@field scroll_position number
-local construction_interface_pagest
 
 ---@class _construction_interface_pagest: DFCompound
 ---@field _kind 'struct-type'
@@ -1640,7 +1627,6 @@ df.main_designation_type = {}
 ---@field num_visible number
 ---@field scrolling boolean
 ---@field scrollbar scrollbarst
-local markup_text_box_widget
 
 ---@class _markup_text_box_widget: DFCompound
 ---@field _kind 'class-type'
@@ -1672,7 +1658,6 @@ df.burrow_unit_selector_filter_type = {}
 ---@field burrow_filter burrow_unit_selector_filter_type
 ---@field scroll_position number
 ---@field scrolling boolean
-local unit_selector_interfacest
 
 ---@class _unit_selector_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1683,7 +1668,6 @@ df.unit_selector_interfacest = {}
 ---@field _type _creature_interfacest
 ---@field current_mode unit_list_mode_type
 ---@field activity_details_text markup_text_boxst
-local creature_interfacest
 
 ---@class _creature_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1692,7 +1676,6 @@ df.creature_interfacest = {}
 ---@class (exact) labor_work_details_interfacest: DFObject, widget_container
 ---@field _kind 'struct'
 ---@field _type _labor_work_details_interfacest
-local labor_work_details_interfacest
 
 ---@class _labor_work_details_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1705,7 +1688,6 @@ df.labor_work_details_interfacest = {}
 ---@field subtype number
 ---@field mat number
 ---@field matg number
-local labor_kitchen_interface_food_key
 
 ---@class _labor_kitchen_interface_food_key: DFCompound
 ---@field _kind 'struct-type'
@@ -1717,7 +1699,6 @@ df.labor_kitchen_interface_food_key = {}
 ---@field num number
 ---@field canrest number
 ---@field name string
-local labor_kitchen_interface_food_value
 
 ---@class _labor_kitchen_interface_food_value: DFCompound
 ---@field _kind 'struct-type'
@@ -1728,7 +1709,6 @@ df.labor_kitchen_interface_food_value = {}
 ---@field _type _labor_kitchen_food_entry
 ---@field first labor_kitchen_interface_food_key
 ---@field second labor_kitchen_interface_food_value
-local labor_kitchen_food_entry
 
 ---@class _labor_kitchen_food_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -1737,7 +1717,6 @@ df.labor_kitchen_food_entry = {}
 ---@class (exact) labor_kitchen_interface_food_sort_entry: DFObject, sort_entry
 ---@field _kind 'struct'
 ---@field _type _labor_kitchen_interface_food_sort_entry
-local labor_kitchen_interface_food_sort_entry
 
 ---@class _labor_kitchen_interface_food_sort_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -1772,7 +1751,6 @@ df.labor_kitchen_interface_type_filter = {}
 ---@field filter_perm integer
 ---@field sort_flags number
 ---@field cursor_idx number
-local labor_kitchen_interfacest
 
 ---@class _labor_kitchen_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1785,7 +1763,6 @@ df.labor_kitchen_interfacest = {}
 ---@field scrolling_labor_list boolean
 ---@field scroll_position_units number
 ---@field scrolling_units boolean
-local labor_standing_orders_interfacest
 
 ---@class _labor_standing_orders_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1795,7 +1772,6 @@ df.labor_standing_orders_interfacest = {}
 ---@field _kind 'struct'
 ---@field _type _labor_stone_use_interfacest
 ---@field current_category stone_use_category_type
-local labor_stone_use_interfacest
 
 ---@class _labor_stone_use_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1804,7 +1780,6 @@ df.labor_stone_use_interfacest = {}
 ---@class (exact) labor_interfacest: DFObject, widget_container
 ---@field _kind 'struct'
 ---@field _type _labor_interfacest
-local labor_interfacest
 
 ---@class _labor_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1861,7 +1836,6 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field scroll_position_counterintelligence number
 ---@field scrolling_counterintelligence boolean
 ---@field do_init boolean
-local justice_interfacest
 
 ---@class _justice_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1880,7 +1854,6 @@ df.justice_interfacest = {}
 ---@field administrators info_interfacest.T_administrators
 ---@field artifacts info_interfacest.T_artifacts
 ---@field justice justice_interfacest
-local info_interfacest
 
 ---@class _info_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1891,7 +1864,6 @@ df.info_interfacest = {}
 ---@field _type _info_interfacest.T_jobs
 ---@field scrolling_cri_job boolean
 ---@field scroll_position_cri_job number
-local info_interfacest_jobs
 
 ---@class _info_interfacest.T_jobs: DFCompound
 ---@field _kind 'struct-type'
@@ -1901,7 +1873,6 @@ df.info_interfacest.T_jobs = {}
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_buildings
 ---@field mode buildings_mode_type
-local info_interfacest_buildings
 
 ---@class _info_interfacest.T_buildings: DFCompound
 ---@field _kind 'struct-type'
@@ -1917,7 +1888,6 @@ df.info_interfacest.T_buildings = {}
 ---@field number_str string
 ---@field b_entering_number boolean
 ---@field b_number_str string
-local info_interfacest_work_orders
 
 ---@class _info_interfacest.T_work_orders: DFCompound
 ---@field _kind 'struct-type'
@@ -1940,7 +1910,6 @@ df.info_interfacest.T_work_orders = {}
 ---@field scrolling_condition_wq boolean
 ---@field entering_logic_number boolean
 ---@field logic_number_str string
-local info_interfacest_work_orders_conditions
 
 ---@class _info_interfacest.T_work_orders.T_conditions: DFCompound
 ---@field _kind 'struct-type'
@@ -1963,7 +1932,6 @@ df.info_interfacest.T_work_orders.T_conditions = {}
 ---@field scroll_position_symbol number
 ---@field scrolling_symbol boolean
 ---@field handling_symbol_closure_ind number
-local info_interfacest_administrators
 
 ---@class _info_interfacest.T_administrators: DFCompound
 ---@field _kind 'struct-type'
@@ -1973,7 +1941,6 @@ df.info_interfacest.T_administrators = {}
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_artifacts
 ---@field mode artifacts_mode_type
-local info_interfacest_artifacts
 
 ---@class _info_interfacest.T_artifacts: DFCompound
 ---@field _kind 'struct-type'
@@ -1983,7 +1950,6 @@ df.info_interfacest.T_artifacts = {}
 ---@field _kind 'struct'
 ---@field _type _announcements_interfacest
 ---@field stack widget_stack
-local announcements_interfacest
 
 ---@class _announcements_interfacest: DFCompound
 ---@field _kind 'struct-type'
@@ -2085,7 +2051,6 @@ df.announcements_interfacest = {}
 ---@field last_track_g coord
 ---@field keyboard_last_track_s coord
 ---@field keyboard_last_track_g coord
-local main_interface
 
 ---@class _main_interface: DFCompound
 ---@field _kind 'struct-type'
@@ -2111,7 +2076,6 @@ df.main_interface = {}
 ---@field sliding_traffic_normal boolean
 ---@field sliding_traffic_low boolean
 ---@field sliding_traffic_restricted boolean
-local main_interface_designation
 
 ---@class _main_interface.T_designation: DFCompound
 ---@field _kind 'struct-type'
@@ -2126,7 +2090,6 @@ df.main_interface.T_designation = {}
 ---@field matgloss number
 ---@field job_item_flag job_material_category
 ---@field current_custom_category_token string
-local main_interface_building
 
 ---@class _main_interface.T_building: DFCompound
 ---@field _kind 'struct-type'
@@ -2147,7 +2110,6 @@ df.main_interface.T_building = {}
 ---@field entering_item_filter boolean
 ---@field scrolling_item boolean
 ---@field scroll_position_item number
-local main_interface_construction
 
 ---@class _main_interface.T_construction: DFCompound
 ---@field _kind 'struct-type'
@@ -2167,7 +2129,6 @@ df.main_interface.T_construction = {}
 ---@field furniture_rejected_in_use number
 ---@field furniture_rejected_not_enclosed number
 ---@field repainting number
-local main_interface_civzone
 
 ---@class _main_interface.T_civzone: DFCompound
 ---@field _kind 'struct-type'
@@ -2182,7 +2143,6 @@ df.main_interface.T_civzone = {}
 ---@field scrolling boolean
 ---@field entering_name boolean
 ---@field entering_name_index number
-local main_interface_burrow
 
 ---@class _main_interface.T_burrow: DFCompound
 ---@field _kind 'struct-type'
@@ -2201,7 +2161,6 @@ df.main_interface.T_burrow = {}
 ---@field expel_outskirt_list_selected number
 ---@field expel_selecting_destination number
 ---@field expel_cannot_expel_reason cannot_expel_reason_type
-local main_interface_view
 
 ---@class _main_interface.T_view: DFCompound
 ---@field _kind 'struct-type'
@@ -2215,7 +2174,6 @@ df.main_interface.T_view = {}
 ---@field table_count number
 ---@field traction_bench_count number
 ---@field box_count number
-local main_interface_hospital
 
 ---@class _main_interface.T_hospital: DFCompound
 ---@field _kind 'struct-type'
@@ -2230,7 +2188,6 @@ df.main_interface.T_hospital = {}
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
 ---@field selected_craft_guild number
-local main_interface_location_list
 
 ---@class _main_interface.T_location_list: DFCompound
 ---@field _kind 'struct-type'
@@ -2256,7 +2213,6 @@ df.main_interface.T_location_list = {}
 ---@field clothing_size_race_doing_filter boolean
 ---@field scroll_position_improvement number
 ---@field scrolling_improvement boolean
-local main_interface_job_details
 
 ---@class _main_interface.T_job_details: DFCompound
 ---@field _kind 'struct-type'
@@ -2266,7 +2222,6 @@ df.main_interface.T_job_details = {}
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_buildjob
 ---@field display_furniture_selected_item number
-local main_interface_buildjob
 
 ---@class _main_interface.T_buildjob: DFCompound
 ---@field _kind 'struct-type'
@@ -2287,7 +2242,6 @@ df.main_interface.T_buildjob = {}
 ---@field sort_by_distance boolean
 ---@field pending_on_top boolean
 ---@field exclude_prohib boolean
-local main_interface_assign_trade
 
 ---@class _main_interface.T_assign_trade: DFCompound
 ---@field _kind 'struct-type'
@@ -2316,7 +2270,6 @@ df.main_interface.T_assign_trade = {}
 ---@field amount_str string
 ---@field scroll_position_big_announce number
 ---@field scrolling_big_announce boolean
-local main_interface_trade
 
 ---@class _main_interface.T_trade: DFCompound
 ---@field _kind 'struct-type'
@@ -2345,7 +2298,6 @@ df.main_interface.T_trade = {}
 ---@field scroll_position_text number
 ---@field scrolling_text boolean
 ---@field environment script_environmentst
-local main_interface_diplomacy
 
 ---@class _main_interface.T_diplomacy: DFCompound
 ---@field _kind 'struct-type'
@@ -2359,7 +2311,6 @@ df.main_interface.T_diplomacy = {}
 ---@field selected_agreement_id number
 ---@field scroll_position number
 ---@field scrolling boolean
-local main_interface_petitions
 
 ---@class _main_interface.T_petitions: DFCompound
 ---@field _kind 'struct-type'
@@ -2377,7 +2328,6 @@ df.main_interface.T_petitions = {}
 ---@field item_filter string
 ---@field entering_item_filter boolean
 ---@field i_height number
-local main_interface_stocks
 
 ---@class _main_interface.T_stocks: DFCompound
 ---@field _kind 'struct-type'
@@ -2395,7 +2345,6 @@ df.main_interface.T_stocks = {}
 ---@field item_filter string
 ---@field entering_item_filter boolean
 ---@field i_height number
-local main_interface_assign_display_item
 
 ---@class _main_interface.T_assign_display_item: DFCompound
 ---@field _kind 'struct-type'
@@ -2415,7 +2364,6 @@ df.main_interface.T_assign_display_item = {}
 ---@field entering_first_name boolean
 ---@field entering_cull_str boolean
 ---@field cull_str string
-local main_interface_name_creator
 
 ---@class _main_interface.T_name_creator: DFCompound
 ---@field _kind 'struct-type'
@@ -2448,7 +2396,6 @@ df.main_interface.T_name_creator = {}
 ---@field image_back_out_warn boolean
 ---@field must_do_image_back_out_warn boolean
 ---@field ics main_interface.T_image_creator.T_ics
-local main_interface_image_creator
 
 ---@class _main_interface.T_image_creator: DFCompound
 ---@field _kind 'struct-type'
@@ -2458,7 +2405,6 @@ df.main_interface.T_image_creator = {}
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_image_creator.T_ics
 ---@field flag integer
-local main_interface_image_creator_ics
 
 ---@class _main_interface.T_image_creator.T_ics: DFCompound
 ---@field _kind 'struct-type'
@@ -2478,7 +2424,6 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field uac_list_size number
 ---@field scroll_position_uac number
 ---@field scrolling_uac boolean
-local main_interface_announcement_alert
 
 ---@class _main_interface.T_announcement_alert: DFCompound
 ---@field _kind 'struct-type'
@@ -2495,7 +2440,6 @@ df.main_interface.T_announcement_alert = {}
 ---@field scroll_position number
 ---@field scrolling boolean
 ---@field doing_background_color boolean
-local main_interface_custom_symbol
 
 ---@class _main_interface.T_custom_symbol: DFCompound
 ---@field _kind 'struct-type'
@@ -2514,7 +2458,6 @@ df.main_interface.T_custom_symbol = {}
 ---@field new_point coord_path
 ---@field add_is_edit_of_route_id number
 ---@field changed_points_on_edit boolean
-local main_interface_patrol_routes
 
 ---@class _main_interface.T_patrol_routes: DFCompound
 ---@field _kind 'struct-type'
@@ -2543,7 +2486,6 @@ df.main_interface.T_patrol_routes = {}
 ---@field cs_setting_list_ind number
 ---@field cs_setting_color_pattern boolean
 ---@field cs_adding_specific_item boolean
-local main_interface_squad_equipment
 
 ---@class _main_interface.T_squad_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -2571,7 +2513,6 @@ df.main_interface.T_squad_equipment = {}
 ---@field copying_routine_id number
 ---@field copying_squad_id number
 ---@field copying_squad_month number
-local main_interface_squad_schedule
 
 ---@class _main_interface.T_squad_schedule: DFCompound
 ---@field _kind 'struct-type'
@@ -2585,7 +2526,6 @@ df.main_interface.T_squad_schedule = {}
 ---@field bld_id number
 ---@field scroll_position number
 ---@field scrolling number
-local main_interface_squad_selector
 
 ---@class _main_interface.T_squad_selector: DFCompound
 ---@field _kind 'struct-type'
@@ -2598,7 +2538,6 @@ df.main_interface.T_squad_selector = {}
 ---@field context burrow_selector_context_type
 ---@field scroll_position number
 ---@field scrolling number
-local main_interface_burrow_selector
 
 ---@class _main_interface.T_burrow_selector: DFCompound
 ---@field _kind 'struct-type'
@@ -2618,7 +2557,6 @@ df.main_interface.T_burrow_selector = {}
 ---@field choosing_craft_guild boolean
 ---@field scroll_position_guild number
 ---@field scrolling_guild boolean
-local main_interface_location_selector
 
 ---@class _main_interface.T_location_selector: DFCompound
 ---@field _kind 'struct-type'
@@ -2635,7 +2573,6 @@ df.main_interface.T_location_selector = {}
 ---@field scroll_position_occupation number
 ---@field scrolling_occupation boolean
 ---@field desired_number_str string
-local main_interface_location_details
 
 ---@class _main_interface.T_location_details: DFCompound
 ---@field _kind 'struct-type'
@@ -2650,7 +2587,6 @@ df.main_interface.T_location_details = {}
 ---@field stop_id number
 ---@field scroll_position number
 ---@field scrolling boolean
-local main_interface_hauling_stop_conditions
 
 ---@class _main_interface.T_hauling_stop_conditions: DFCompound
 ---@field _kind 'struct-type'
@@ -2664,7 +2600,6 @@ df.main_interface.T_hauling_stop_conditions = {}
 ---@field route_id number
 ---@field scroll_position number
 ---@field scrolling boolean
-local main_interface_assign_vehicle
 
 ---@class _main_interface.T_assign_vehicle: DFCompound
 ---@field _kind 'struct-type'
@@ -2677,7 +2612,6 @@ df.main_interface.T_assign_vehicle = {}
 ---@field box_on_left boolean
 ---@field erasing boolean
 ---@field repainting boolean
-local main_interface_stockpile
 
 ---@class _main_interface.T_stockpile: DFCompound
 ---@field _kind 'struct-type'
@@ -2695,7 +2629,6 @@ df.main_interface.T_stockpile = {}
 ---@field scrolling_link_list boolean
 ---@field adding_new_link boolean
 ---@field adding_new_link_type number
-local main_interface_stockpile_link
 
 ---@class _main_interface.T_stockpile_link: DFCompound
 ---@field _kind 'struct-type'
@@ -2711,7 +2644,6 @@ df.main_interface.T_stockpile_link = {}
 ---@field entering_bins boolean
 ---@field entering_wheelbarrows boolean
 ---@field number_str string
-local main_interface_stockpile_tools
 
 ---@class _main_interface.T_stockpile_tools: DFCompound
 ---@field _kind 'struct-type'
@@ -2734,7 +2666,6 @@ df.main_interface.T_stockpile_tools = {}
 ---@field cur_sub_mode stockpile_list
 ---@field cur_spec_item_sz number
 ---@field counted_cur_spec_item_sz number
-local main_interface_custom_stockpile
 
 ---@class _main_interface.T_custom_stockpile: DFCompound
 ---@field _kind 'struct-type'
@@ -2841,7 +2772,6 @@ df.main_interface.T_custom_stockpile = {}
 ---@field scrolling_description boolean
 ---@field scroll_position_item_contents number
 ---@field scrolling_item_contents boolean
-local main_interface_view_sheets
 
 ---@class _main_interface.T_view_sheets: DFCompound
 ---@field _kind 'struct-type'
@@ -2870,7 +2800,6 @@ df.main_interface.T_view_sheets = {}
 ---@field scrolling_orderp boolean
 ---@field cell_nickname_str string
 ---@field entering_cell_nickname boolean
-local main_interface_squads
 
 ---@class _main_interface.T_squads: DFCompound
 ---@field _kind 'struct-type'
@@ -2882,7 +2811,6 @@ df.main_interface.T_squads = {}
 ---@field open boolean
 ---@field scroll_position number
 ---@field scrolling boolean
-local main_interface_create_squad
 
 ---@class _main_interface.T_create_squad: DFCompound
 ---@field _kind 'struct-type'
@@ -2893,7 +2821,6 @@ df.main_interface.T_create_squad = {}
 ---@field _type _main_interface.T_squad_supplies
 ---@field open boolean
 ---@field squad_id number
-local main_interface_squad_supplies
 
 ---@class _main_interface.T_squad_supplies: DFCompound
 ---@field _kind 'struct-type'
@@ -2906,7 +2833,6 @@ df.main_interface.T_squad_supplies = {}
 ---@field context assign_uniform_context_type
 ---@field scroll_position number
 ---@field scrolling boolean
-local main_interface_assign_uniform
 
 ---@class _main_interface.T_assign_uniform: DFCompound
 ---@field _kind 'struct-type'
@@ -2924,7 +2850,6 @@ df.main_interface.T_assign_uniform = {}
 ---@field scrolling_job boolean
 ---@field job_filter string
 ---@field entering_job_filter boolean
-local main_interface_create_work_order
 
 ---@class _main_interface.T_create_work_order: DFCompound
 ---@field _kind 'struct-type'
@@ -2938,7 +2863,6 @@ df.main_interface.T_create_work_order = {}
 ---@field scrolling boolean
 ---@field entering_index number
 ---@field entering_name boolean
-local main_interface_hotkey
 
 ---@class _main_interface.T_hotkey: DFCompound
 ---@field _kind 'struct-type'
@@ -2969,7 +2893,6 @@ df.main_interface.T_hotkey = {}
 ---@field scrolling_popup boolean
 ---@field filecomp file_compressorst
 ---@field saver main_interface.T_options.T_saver
-local main_interface_options
 
 ---@class _main_interface.T_options: DFCompound
 ---@field _kind 'struct-type'
@@ -2979,7 +2902,6 @@ df.main_interface.T_options = {}
 ---@class (exact) main_interface.T_options.T_saver: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_options.T_saver
-local main_interface_options_saver
 
 ---@class _main_interface.T_options.T_saver: DFCompound
 ---@field _kind 'struct-type'
@@ -2994,7 +2916,6 @@ df.main_interface.T_options.T_saver = {}
 ---@field context help_context_type
 ---@field header string
 ---@field floor_dug number
-local main_interface_help
 
 ---@class _main_interface.T_help: DFCompound
 ---@field _kind 'struct-type'
@@ -3012,7 +2933,6 @@ df.main_interface.T_help = {}
 ---@field tame boolean
 ---@field editing_filter boolean
 ---@field filter string
-local main_interface_arena_unit
 
 ---@class _main_interface.T_arena_unit: DFCompound
 ---@field _kind 'struct-type'
@@ -3027,7 +2947,6 @@ df.main_interface.T_arena_unit = {}
 ---@field age_str string string representation of age field
 ---@field editing_filter boolean
 ---@field filter string
-local main_interface_arena_tree
 
 ---@class _main_interface.T_arena_tree: DFCompound
 ---@field _kind 'struct-type'
@@ -3046,7 +2965,6 @@ df.main_interface.T_arena_tree = {}
 ---@field autosave_cycle number
 ---@field want_to_quit_to_title boolean
 ---@field external_flag number
-local gamest
 
 ---@class _gamest: DFCompound
 ---@field _kind 'struct-type'
@@ -3061,7 +2979,6 @@ df.gamest = {}
 ---@field use_seed boolean
 ---@field world_param string
 ---@field use_param number
-local gamest_command_line
 
 ---@class _gamest.T_command_line: DFCompound
 ---@field _kind 'struct-type'
@@ -3074,7 +2991,6 @@ df.gamest.T_command_line = {}
 ---@field mustmake number
 ---@field printed_z number
 ---@field texpos number
-local gamest_minimap
 
 ---@class _gamest.T_minimap: DFCompound
 ---@field _kind 'struct-type'
@@ -3086,7 +3002,6 @@ df.gamest.T_minimap = {}
 ---@field doing_mod_upload boolean
 ---@field mod_upload_completed boolean
 ---@field uploading_mod_index number
-local gamest_mod_manager
 
 ---@class _gamest.T_mod_manager: DFCompound
 ---@field _kind 'struct-type'
@@ -3116,7 +3031,6 @@ df.gamest.T_mod_manager = {}
 ---@field keybinding_registering_adding_new boolean
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
-local main_interface_settings
 
 ---@class _main_interface_settings: DFCompound
 ---@field _kind 'struct-type'
@@ -3126,7 +3040,6 @@ df.main_interface_settings = {}
 ---@field _kind 'struct'
 ---@field _type _hash_rngst
 ---@field splitmix64_state number
-local hash_rngst
 
 ---@class _hash_rngst: DFCompound
 ---@field _kind 'struct-type'
@@ -3164,7 +3077,6 @@ df.hash_rngst = {}
 ---@field grand_guild_unit_count number
 ---@field mandate_period number
 ---@field demand_period number
-local difficultyst
 
 ---@class _difficultyst: DFCompound
 ---@field _kind 'struct-type'
@@ -3218,7 +3130,6 @@ df.difficultyst.T_flags = {}
 ---@field px number offset from left of text box in characters
 ---@field py number offset from top of text box (positive is downwards)
 ---@field flags markup_text_wordst.T_flags
-local markup_text_wordst
 
 ---@class _markup_text_wordst: DFCompound
 ---@field _kind 'struct-type'
@@ -3306,7 +3217,6 @@ df.markup_text_link_type = {}
 ---@field type markup_text_link_type read and write serialization is in order as below
 ---@field id number
 ---@field subid number only used for type ABSTRACT_BUILDING and ART_IMAGE
-local markup_text_linkst
 
 ---@class _markup_text_linkst: DFCompound
 ---@field _kind 'struct-type'
@@ -3315,7 +3225,6 @@ df.markup_text_linkst = {}
 ---@class (exact) script_environmentst: DFObject
 ---@field _kind 'struct'
 ---@field _type _script_environmentst
-local script_environmentst
 
 ---@class _script_environmentst: DFCompound
 ---@field _kind 'struct-type'
@@ -3326,7 +3235,6 @@ df.script_environmentst = {}
 ---@field _type _markup_text_boxst
 ---@field current_width number
 ---@field max_y number
-local markup_text_boxst
 
 ---@class _markup_text_boxst: DFCompound
 ---@field _kind 'struct-type'
@@ -3345,7 +3253,6 @@ df.markup_text_boxst = {}
 ---@field tool_use number
 ---@field display_string string
 ---@field on boolean
-local wqc_item_traitst
 
 ---@class _wqc_item_traitst: DFCompound
 ---@field _kind 'struct-type'
@@ -3358,7 +3265,6 @@ df.wqc_item_traitst = {}
 ---@field subtype number
 ---@field custom_id number
 ---@field name string
-local cwo_buildingst
 
 ---@class _cwo_buildingst: DFCompound
 ---@field _kind 'struct-type'
@@ -3373,7 +3279,6 @@ df.cwo_buildingst = {}
 ---@field flag integer
 ---@field sort_name string
 ---@field job_sort_name string
-local cri_unitst
 
 ---@class _cri_unitst: DFCompound
 ---@field _kind 'struct-type'
@@ -3389,7 +3294,6 @@ df.cri_unitst = {}
 ---@field historical_hfid number
 ---@field identity_id number
 ---@field flag integer
-local actor_entryst
 
 ---@class _actor_entryst: DFCompound
 ---@field _kind 'struct-type'
@@ -3408,7 +3312,6 @@ df.actor_entryst = {}
 ---@field br number
 ---@field name string
 ---@field status string
-local organization_entry_nodest
 
 ---@class _organization_entry_nodest: DFCompound
 ---@field _kind 'struct-type'
@@ -3421,7 +3324,6 @@ df.organization_entry_nodest = {}
 ---@field simple_list_name string
 ---@field p_list_name string
 ---@field flag integer
-local organization_entryst
 
 ---@class _organization_entryst: DFCompound
 ---@field _kind 'struct-type'
@@ -3435,7 +3337,6 @@ df.organization_entryst = {}
 ---@field p_list_name string
 ---@field master_hfid number
 ---@field organization_name string
-local plot_entryst
 
 ---@class _plot_entryst: DFCompound
 ---@field _kind 'struct-type'
@@ -3464,7 +3365,6 @@ df.plot_entryst = {}
 ---@field steamapi_1 string -- Steam-specific
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
-local mod_headerst
 
 ---@class _mod_headerst: DFCompound
 ---@field _kind 'struct-type'
@@ -3504,7 +3404,6 @@ df.mod_headerst.T_flags = {}
 ---@class (exact) ui_look_list: DFObject
 ---@field _kind 'struct'
 ---@field _type _ui_look_list
-local ui_look_list
 
 ---@class _ui_look_list: DFCompound
 ---@field _kind 'struct-type'
@@ -3514,7 +3413,6 @@ df.ui_look_list = {}
 ---@field _kind 'struct'
 ---@field _type _ui_unit_view_mode
 ---@field value ui_unit_view_mode.T_value
-local ui_unit_view_mode
 
 ---@class _ui_unit_view_mode: DFCompound
 ---@field _kind 'struct-type'

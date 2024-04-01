@@ -179,7 +179,6 @@ df.ui_advmode_menu = {}
 ---@field unk_80 number
 ---@field unk_b8 number
 ---@field unk_bc number
-local conversation
 
 ---@class _conversation: DFCompound
 ---@field _kind 'struct-type'
@@ -896,7 +895,6 @@ df.assume_identity_mode = {}
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 number
-local talk_choice
 
 ---@class _talk_choice: DFCompound
 ---@field _kind 'struct-type'
@@ -906,7 +904,6 @@ df.talk_choice = {}
 ---@field _kind 'struct'
 ---@field _type _talk_choice.T_unk
 ---@field unk_2 number
-local talk_choice_unk
 
 ---@class _talk_choice.T_unk: DFCompound
 ---@field _kind 'struct-type'
@@ -919,7 +916,6 @@ df.talk_choice.T_unk = {}
 ---@field abs_x number
 ---@field abs_y number
 ---@field abs_z number
-local adventure_workingst
 
 ---@class _adventure_workingst: DFCompound
 ---@field _kind 'struct-type'
@@ -959,7 +955,6 @@ df.adventure_workingst.T_type = {}
 ---@field first_told_abs_tile_x number
 ---@field first_told_abs_tile_y number
 ---@field first_told_abs_tile_z number
-local adventure_rumor_datast
 
 ---@class _adventure_rumor_datast: DFCompound
 ---@field _kind 'struct-type'
@@ -1100,7 +1095,6 @@ df.adventure_construction_mode_type = {}
 ---@field unk_2a number
 ---@field name_item language_name used when naming items
 ---@field unk_96 number
-local adventurest
 
 ---@class _adventurest: DFCompound
 ---@field _kind 'struct-type'
@@ -1146,7 +1140,6 @@ df.adventurest.T_show_menu = {}
 ---@class (exact) adventurest.T_rumor_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_rumor_info
-local adventurest_rumor_info
 
 ---@class _adventurest.T_rumor_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1196,7 +1189,6 @@ df.adventurest.T_rumor_info = {}
 ---@field start_menu_total_hours number
 ---@field start_menu_you_hours number
 ---@field start_menu_you_max_hours number
-local adventurest_construction
 
 ---@class _adventurest.T_construction: DFCompound
 ---@field _kind 'struct-type'
@@ -1275,7 +1267,6 @@ df.adventurest.T_charge_forbidden = {}
 ---@field filter string bay12: conv_string_filter
 ---@field conv_tact adventurest.T_conversation.T_conv_tact
 ---@field cursor_target number bay12: talk_sel
-local adventurest_conversation
 
 ---@class _adventurest.T_conversation: DFCompound
 ---@field _kind 'struct-type'
@@ -1310,7 +1301,6 @@ df.adventurest.T_rest_mode = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_companions
 ---@field unit_position coord_path
-local adventurest_companions
 
 ---@class _adventurest.T_companions: DFCompound
 ---@field _kind 'struct-type'
@@ -1326,7 +1316,6 @@ df.adventurest.T_companions = {}
 ---@field max_target_number number
 ---@field target_range number
 ---@field target_flags creature_interaction_target_flags
-local adventurest_interactions
 
 ---@class _adventurest.T_interactions: DFCompound
 ---@field _kind 'struct-type'
@@ -1336,7 +1325,6 @@ df.adventurest.T_interactions = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_2
 ---@field unk_s5 number
-local adventurest_unk_v40_2
 
 ---@class _adventurest.T_unk_v40_2: DFCompound
 ---@field _kind 'struct-type'
@@ -1346,7 +1334,6 @@ df.adventurest.T_unk_v40_2 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_3
 ---@field unk_s1 number
-local adventurest_unk_v40_3
 
 ---@class _adventurest.T_unk_v40_3: DFCompound
 ---@field _kind 'struct-type'
@@ -1356,7 +1343,6 @@ df.adventurest.T_unk_v40_3 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_4
 ---@field unk_v40_4b number
-local adventurest_unk_v40_4
 
 ---@class _adventurest.T_unk_v40_4: DFCompound
 ---@field _kind 'struct-type'
@@ -1366,7 +1352,6 @@ df.adventurest.T_unk_v40_4 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_5
 ---@field unk_s4 number
-local adventurest_unk_v40_5
 
 ---@class _adventurest.T_unk_v40_5: DFCompound
 ---@field _kind 'struct-type'
@@ -1381,7 +1366,6 @@ df.adventurest.T_unk_v40_5 = {}
 ---@field unk_s6 number
 ---@field unk_s7 number
 ---@field unk_s8 number
-local adventurest_unk_v42_1
 
 ---@class _adventurest.T_unk_v42_1: DFCompound
 ---@field _kind 'struct-type'
@@ -1399,7 +1383,6 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field filter string
 ---@field unk_3 number
 ---@field unk_4 number
-local adventurest_assume_identity
 
 ---@class _adventurest.T_assume_identity: DFCompound
 ---@field _kind 'struct-type'
@@ -1408,7 +1391,6 @@ df.adventurest.T_assume_identity = {}
 ---@class (exact) text_info_elementst: DFObject
 ---@field _kind 'struct'
 ---@field _type _text_info_elementst
-local text_info_elementst
 
 ---@class _text_info_elementst: DFCompound
 ---@field _kind 'class-type'
@@ -1418,7 +1400,6 @@ df.text_info_elementst = {}
 ---@field _kind 'struct'
 ---@field _type _text_info_element_longst
 ---@field val number
-local text_info_element_longst
 
 ---@class _text_info_element_longst: DFCompound
 ---@field _kind 'class-type'
@@ -1428,7 +1409,6 @@ df.text_info_element_longst = {}
 ---@field _kind 'struct'
 ---@field _type _text_info_element_stringst
 ---@field val string
-local text_info_element_stringst
 
 ---@class _text_info_element_stringst: DFCompound
 ---@field _kind 'class-type'
@@ -1437,7 +1417,6 @@ df.text_info_element_stringst = {}
 ---@class (exact) adventure_optionst: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventure_optionst
-local adventure_optionst
 
 ---@class _adventure_optionst: DFCompound
 ---@field _kind 'class-type'
@@ -1446,7 +1425,6 @@ df.adventure_optionst = {}
 ---@class (exact) adventure_option_eat_unit_contaminantst: DFObject, adventure_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_option_eat_unit_contaminantst
-local adventure_option_eat_unit_contaminantst
 
 ---@class _adventure_option_eat_unit_contaminantst: DFCompound
 ---@field _kind 'class-type'
@@ -1455,7 +1433,6 @@ df.adventure_option_eat_unit_contaminantst = {}
 ---@class (exact) adventure_option_eat_item_contaminantst: DFObject, adventure_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_option_eat_item_contaminantst
-local adventure_option_eat_item_contaminantst
 
 ---@class _adventure_option_eat_item_contaminantst: DFCompound
 ---@field _kind 'class-type'
@@ -1464,7 +1441,6 @@ df.adventure_option_eat_item_contaminantst = {}
 ---@class (exact) adventure_option_view_contaminantst: DFObject, adventure_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_option_view_contaminantst
-local adventure_option_view_contaminantst
 
 ---@class _adventure_option_view_contaminantst: DFCompound
 ---@field _kind 'class-type'
@@ -1475,7 +1451,6 @@ df.adventure_option_view_contaminantst = {}
 ---@field _type _adventure_environment_optionst
 ---@field target_pos coord
 ---@field player_pos coord
-local adventure_environment_optionst
 
 ---@class _adventure_environment_optionst: DFCompound
 ---@field _kind 'class-type'
@@ -1484,7 +1459,6 @@ df.adventure_environment_optionst = {}
 ---@class (exact) adventure_environment_place_in_it_containerst: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_place_in_it_containerst
-local adventure_environment_place_in_it_containerst
 
 ---@class _adventure_environment_place_in_it_containerst: DFCompound
 ---@field _kind 'class-type'
@@ -1493,7 +1467,6 @@ df.adventure_environment_place_in_it_containerst = {}
 ---@class (exact) adventure_environment_ingest_from_containerst: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_ingest_from_containerst
-local adventure_environment_ingest_from_containerst
 
 ---@class _adventure_environment_ingest_from_containerst: DFCompound
 ---@field _kind 'class-type'
@@ -1503,7 +1476,6 @@ df.adventure_environment_ingest_from_containerst = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_pickup_ignite_vegst
 ---@field unk_1 number
-local adventure_environment_pickup_ignite_vegst
 
 ---@class _adventure_environment_pickup_ignite_vegst: DFCompound
 ---@field _kind 'class-type'
@@ -1515,7 +1487,6 @@ df.adventure_environment_pickup_ignite_vegst = {}
 ---@field mat_type number
 ---@field mat_index number
 ---@field mat_state matter_state
-local adventure_environment_ingest_materialst
 
 ---@class _adventure_environment_ingest_materialst: DFCompound
 ---@field _kind 'class-type'
@@ -1524,7 +1495,6 @@ df.adventure_environment_ingest_materialst = {}
 ---@class (exact) adventure_environment_pickup_make_campfirest: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_pickup_make_campfirest
-local adventure_environment_pickup_make_campfirest
 
 ---@class _adventure_environment_pickup_make_campfirest: DFCompound
 ---@field _kind 'class-type'
@@ -1533,7 +1503,6 @@ df.adventure_environment_pickup_make_campfirest = {}
 ---@class (exact) adventure_environment_place_in_bld_containerst: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_place_in_bld_containerst
-local adventure_environment_place_in_bld_containerst
 
 ---@class _adventure_environment_place_in_bld_containerst: DFCompound
 ---@field _kind 'class-type'
@@ -1543,7 +1512,6 @@ df.adventure_environment_place_in_bld_containerst = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_pickup_vermin_eventst
 ---@field vermin_idx number
-local adventure_environment_pickup_vermin_eventst
 
 ---@class _adventure_environment_pickup_vermin_eventst: DFCompound
 ---@field _kind 'class-type'
@@ -1552,7 +1520,6 @@ df.adventure_environment_pickup_vermin_eventst = {}
 ---@class (exact) adventure_environment_pickup_chop_treest: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_pickup_chop_treest
-local adventure_environment_pickup_chop_treest
 
 ---@class _adventure_environment_pickup_chop_treest: DFCompound
 ---@field _kind 'class-type'
@@ -1562,7 +1529,6 @@ df.adventure_environment_pickup_chop_treest = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_unit_suck_bloodst
 ---@field unit_id number References: `unit`
-local adventure_environment_unit_suck_bloodst
 
 ---@class _adventure_environment_unit_suck_bloodst: DFCompound
 ---@field _kind 'class-type'
@@ -1573,7 +1539,6 @@ df.adventure_environment_unit_suck_bloodst = {}
 ---@field _type _adventure_movement_optionst
 ---@field dest coord
 ---@field source coord
-local adventure_movement_optionst
 
 ---@class _adventure_movement_optionst: DFCompound
 ---@field _kind 'class-type'
@@ -1582,7 +1547,6 @@ df.adventure_movement_optionst = {}
 ---@class (exact) adventure_movement_release_hold_itemst: DFObject, adventure_movement_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_release_hold_itemst
-local adventure_movement_release_hold_itemst
 
 ---@class _adventure_movement_release_hold_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -1591,7 +1555,6 @@ df.adventure_movement_release_hold_itemst = {}
 ---@class (exact) adventure_movement_release_hold_tilest: DFObject, adventure_movement_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_release_hold_tilest
-local adventure_movement_release_hold_tilest
 
 ---@class _adventure_movement_release_hold_tilest: DFCompound
 ---@field _kind 'class-type'
@@ -1600,7 +1563,6 @@ df.adventure_movement_release_hold_tilest = {}
 ---@class (exact) adventure_movement_attack_creaturest: DFObject, adventure_movement_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_attack_creaturest
-local adventure_movement_attack_creaturest
 
 ---@class _adventure_movement_attack_creaturest: DFCompound
 ---@field _kind 'class-type'
@@ -1610,7 +1572,6 @@ df.adventure_movement_attack_creaturest = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_hold_tilest
 ---@field grab coord
-local adventure_movement_hold_tilest
 
 ---@class _adventure_movement_hold_tilest: DFCompound
 ---@field _kind 'class-type'
@@ -1621,7 +1582,6 @@ df.adventure_movement_hold_tilest = {}
 ---@field _type _adventure_movement_movest
 ---@field override_permit pathfinding_flags
 ---@field aim_attack_flag number
-local adventure_movement_movest
 
 ---@class _adventure_movement_movest: DFCompound
 ---@field _kind 'class-type'
@@ -1631,7 +1591,6 @@ df.adventure_movement_movest = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_climbst
 ---@field grab coord
-local adventure_movement_climbst
 
 ---@class _adventure_movement_climbst: DFCompound
 ---@field _kind 'class-type'
@@ -1641,7 +1600,6 @@ df.adventure_movement_climbst = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_hold_itemst
 ---@field item_id number References: `item`
-local adventure_movement_hold_itemst
 
 ---@class _adventure_movement_hold_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -1651,7 +1609,6 @@ df.adventure_movement_hold_itemst = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_building_interactst
 ---@field building_id number References: `building`
-local adventure_movement_building_interactst
 
 ---@class _adventure_movement_building_interactst: DFCompound
 ---@field _kind 'class-type'
@@ -1661,7 +1618,6 @@ df.adventure_movement_building_interactst = {}
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_item_interactst
 ---@field item_id number References: `item`
-local adventure_movement_item_interactst
 
 ---@class _adventure_movement_item_interactst: DFCompound
 ---@field _kind 'class-type'
@@ -1670,7 +1626,6 @@ df.adventure_movement_item_interactst = {}
 ---@class (exact) adventure_movement_item_interact_guidest: DFObject, adventure_movement_item_interactst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_item_interact_guidest
-local adventure_movement_item_interact_guidest
 
 ---@class _adventure_movement_item_interact_guidest: DFCompound
 ---@field _kind 'class-type'
@@ -1679,7 +1634,6 @@ df.adventure_movement_item_interact_guidest = {}
 ---@class (exact) adventure_movement_item_interact_ridest: DFObject, adventure_movement_item_interactst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_item_interact_ridest
-local adventure_movement_item_interact_ridest
 
 ---@class _adventure_movement_item_interact_ridest: DFCompound
 ---@field _kind 'class-type'
@@ -1688,7 +1642,6 @@ df.adventure_movement_item_interact_ridest = {}
 ---@class (exact) adventure_movement_item_interact_pushst: DFObject, adventure_movement_item_interactst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_item_interact_pushst
-local adventure_movement_item_interact_pushst
 
 ---@class _adventure_movement_item_interact_pushst: DFCompound
 ---@field _kind 'class-type'
@@ -1697,7 +1650,6 @@ df.adventure_movement_item_interact_pushst = {}
 ---@class (exact) adventure_item_interact_choicest: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_choicest
-local adventure_item_interact_choicest
 
 ---@class _adventure_item_interact_choicest: DFCompound
 ---@field _kind 'class-type'
@@ -1706,7 +1658,6 @@ df.adventure_item_interact_choicest = {}
 ---@class (exact) adventure_item_interact_pull_outst: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_pull_outst
-local adventure_item_interact_pull_outst
 
 ---@class _adventure_item_interact_pull_outst: DFCompound
 ---@field _kind 'class-type'
@@ -1717,7 +1668,6 @@ df.adventure_item_interact_pull_outst = {}
 ---@field _type _adventure_item_interact_heat_from_tilest
 ---@field unk_1 coord
 ---@field unk_2 coord
-local adventure_item_interact_heat_from_tilest
 
 ---@class _adventure_item_interact_heat_from_tilest: DFCompound
 ---@field _kind 'class-type'
@@ -1728,7 +1678,6 @@ df.adventure_item_interact_heat_from_tilest = {}
 ---@field _type _adventure_item_interact_fill_from_containerst
 ---@field unk_3 coord
 ---@field unk_4 coord
-local adventure_item_interact_fill_from_containerst
 
 ---@class _adventure_item_interact_fill_from_containerst: DFCompound
 ---@field _kind 'class-type'
@@ -1737,7 +1686,6 @@ df.adventure_item_interact_fill_from_containerst = {}
 ---@class (exact) adventure_item_interact_readst: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_readst
-local adventure_item_interact_readst
 
 ---@class _adventure_item_interact_readst: DFCompound
 ---@field _kind 'class-type'
@@ -1751,7 +1699,6 @@ df.adventure_item_interact_readst = {}
 ---@field unk_4 number
 ---@field unk_5 number
 ---@field unk_6 number
-local adventure_item_interact_fill_with_materialst
 
 ---@class _adventure_item_interact_fill_with_materialst: DFCompound
 ---@field _kind 'class-type'
@@ -1760,7 +1707,6 @@ df.adventure_item_interact_fill_with_materialst = {}
 ---@class (exact) adventure_item_interact_strugglest: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_strugglest
-local adventure_item_interact_strugglest
 
 ---@class _adventure_item_interact_strugglest: DFCompound
 ---@field _kind 'class-type'
@@ -1769,7 +1715,6 @@ df.adventure_item_interact_strugglest = {}
 ---@class (exact) adventure_item_interact_give_namest: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_give_namest
-local adventure_item_interact_give_namest
 
 ---@class _adventure_item_interact_give_namest: DFCompound
 ---@field _kind 'class-type'

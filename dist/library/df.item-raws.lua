@@ -405,7 +405,6 @@ df.item_type.attrs = {}
 ---@field prepare number
 ---@field recover number
 ---@field flags weapon_attack.T_flags
-local weapon_attack
 
 ---@class _weapon_attack: DFCompound
 ---@field _kind 'struct-type'
@@ -451,7 +450,6 @@ df.itemdef_flags = {}
 ---@field subtype number
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
-local itemdef
 
 ---@class _itemdef: DFCompound
 ---@field _kind 'class-type'
@@ -474,7 +472,6 @@ df.ammo_flags = {}
 ---@field ammo_class string
 ---@field size number divided by 10
 ---@field value number
-local itemdef_ammost
 
 ---@class _itemdef_ammost: DFCompound
 ---@field _kind 'class-type'
@@ -485,7 +482,6 @@ df.itemdef_ammost = {}
 function df.itemdef_ammost.find(key) end
 
 ---@class itemdef_ammost_vector: DFVector, { [integer]: itemdef_ammost }
-local itemdef_ammost_vector
 
 ---@return itemdef_ammost_vector # df.global.world.raws.itemdefs.ammo
 function df.itemdef_ammost.get_vector() end
@@ -535,7 +531,6 @@ df.armor_general_flags = {}
 ---@field layer_size number
 ---@field layer_permit number
 ---@field coverage number
-local armor_properties
 
 ---@class _armor_properties: DFCompound
 ---@field _kind 'struct-type'
@@ -563,7 +558,6 @@ df.armor_flags = {}
 ---@field lbstep number
 ---@field material_size number
 ---@field props armor_properties
-local itemdef_armorst
 
 ---@class _itemdef_armorst: DFCompound
 ---@field _kind 'class-type'
@@ -574,7 +568,6 @@ df.itemdef_armorst = {}
 function df.itemdef_armorst.find(key) end
 
 ---@class itemdef_armorst_vector: DFVector, { [integer]: itemdef_armorst }
-local itemdef_armorst_vector
 
 ---@return itemdef_armorst_vector # df.global.world.raws.itemdefs.armor
 function df.itemdef_armorst.get_vector() end
@@ -584,7 +577,6 @@ function df.itemdef_armorst.get_vector() end
 ---@field _type _itemdef_foodst
 ---@field name string
 ---@field level number
-local itemdef_foodst
 
 ---@class _itemdef_foodst: DFCompound
 ---@field _kind 'class-type'
@@ -595,7 +587,6 @@ df.itemdef_foodst = {}
 function df.itemdef_foodst.find(key) end
 
 ---@class itemdef_foodst_vector: DFVector, { [integer]: itemdef_foodst }
-local itemdef_foodst_vector
 
 ---@return itemdef_foodst_vector # df.global.world.raws.itemdefs.food
 function df.itemdef_foodst.get_vector() end
@@ -619,7 +610,6 @@ df.gloves_flags = {}
 ---@field upstep number
 ---@field material_size number
 ---@field props armor_properties
-local itemdef_glovesst
 
 ---@class _itemdef_glovesst: DFCompound
 ---@field _kind 'class-type'
@@ -630,7 +620,6 @@ df.itemdef_glovesst = {}
 function df.itemdef_glovesst.find(key) end
 
 ---@class itemdef_glovesst_vector: DFVector, { [integer]: itemdef_glovesst }
-local itemdef_glovesst_vector
 
 ---@return itemdef_glovesst_vector # df.global.world.raws.itemdefs.gloves
 function df.itemdef_glovesst.get_vector() end
@@ -653,7 +642,6 @@ df.helm_flags = {}
 ---@field armorlevel number
 ---@field material_size number
 ---@field props armor_properties
-local itemdef_helmst
 
 ---@class _itemdef_helmst: DFCompound
 ---@field _kind 'class-type'
@@ -664,7 +652,6 @@ df.itemdef_helmst = {}
 function df.itemdef_helmst.find(key) end
 
 ---@class itemdef_helmst_vector: DFVector, { [integer]: itemdef_helmst }
-local itemdef_helmst_vector
 
 ---@return itemdef_helmst_vector # df.global.world.raws.itemdefs.helms
 function df.itemdef_helmst.get_vector() end
@@ -716,7 +703,6 @@ df.instrument_flags = {}
 ---@field volume_mb_min number
 ---@field volume_mb_max number
 ---@field description string
-local itemdef_instrumentst
 
 ---@class _itemdef_instrumentst: DFCompound
 ---@field _kind 'class-type'
@@ -727,7 +713,6 @@ df.itemdef_instrumentst = {}
 function df.itemdef_instrumentst.find(key) end
 
 ---@class itemdef_instrumentst_vector: DFVector, { [integer]: itemdef_instrumentst }
-local itemdef_instrumentst_vector
 
 ---@return itemdef_instrumentst_vector # df.global.world.raws.itemdefs.instruments
 function df.itemdef_instrumentst.get_vector() end
@@ -1064,7 +1049,6 @@ df.timbre_type = {}
 ---@field name string
 ---@field name_plural string
 ---@field flags instrument_piece.T_flags
-local instrument_piece
 
 ---@class _instrument_piece: DFCompound
 ---@field _kind 'struct-type'
@@ -1100,7 +1084,6 @@ df.instrument_piece.T_flags = {}
 ---@field _type _instrument_register
 ---@field pitch_range_min number
 ---@field pitch_range_max number
-local instrument_register
 
 ---@class _instrument_register: DFCompound
 ---@field _kind 'struct-type'
@@ -1127,7 +1110,6 @@ df.pants_flags = {}
 ---@field material_size number
 ---@field lbstep number
 ---@field props armor_properties
-local itemdef_pantsst
 
 ---@class _itemdef_pantsst: DFCompound
 ---@field _kind 'class-type'
@@ -1138,7 +1120,6 @@ df.itemdef_pantsst = {}
 function df.itemdef_pantsst.find(key) end
 
 ---@class itemdef_pantsst_vector: DFVector, { [integer]: itemdef_pantsst }
-local itemdef_pantsst_vector
 
 ---@return itemdef_pantsst_vector # df.global.world.raws.itemdefs.pants
 function df.itemdef_pantsst.get_vector() end
@@ -1154,7 +1135,6 @@ function df.itemdef_pantsst.get_vector() end
 ---@field armorlevel number
 ---@field upstep number
 ---@field material_size number
-local itemdef_shieldst
 
 ---@class _itemdef_shieldst: DFCompound
 ---@field _kind 'class-type'
@@ -1165,7 +1145,6 @@ df.itemdef_shieldst = {}
 function df.itemdef_shieldst.find(key) end
 
 ---@class itemdef_shieldst_vector: DFVector, { [integer]: itemdef_shieldst }
-local itemdef_shieldst_vector
 
 ---@return itemdef_shieldst_vector # df.global.world.raws.itemdefs.shields
 function df.itemdef_shieldst.get_vector() end
@@ -1189,7 +1168,6 @@ df.shoes_flags = {}
 ---@field upstep number
 ---@field material_size number
 ---@field props armor_properties
-local itemdef_shoesst
 
 ---@class _itemdef_shoesst: DFCompound
 ---@field _kind 'class-type'
@@ -1200,7 +1178,6 @@ df.itemdef_shoesst = {}
 function df.itemdef_shoesst.find(key) end
 
 ---@class itemdef_shoesst_vector: DFVector, { [integer]: itemdef_shoesst }
-local itemdef_shoesst_vector
 
 ---@return itemdef_shoesst_vector # df.global.world.raws.itemdefs.shoes
 function df.itemdef_shoesst.get_vector() end
@@ -1211,7 +1188,6 @@ function df.itemdef_shoesst.get_vector() end
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
-local itemdef_siegeammost
 
 ---@class _itemdef_siegeammost: DFCompound
 ---@field _kind 'class-type'
@@ -1222,7 +1198,6 @@ df.itemdef_siegeammost = {}
 function df.itemdef_siegeammost.find(key) end
 
 ---@class itemdef_siegeammost_vector: DFVector, { [integer]: itemdef_siegeammost }
-local itemdef_siegeammost_vector
 
 ---@return itemdef_siegeammost_vector # df.global.world.raws.itemdefs.siege_ammo
 function df.itemdef_siegeammost.get_vector() end
@@ -1397,7 +1372,6 @@ df.tool_uses = {}
 ---@field shoot_maxvel number
 ---@field container_capacity number
 ---@field description string
-local itemdef_toolst
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -1408,7 +1382,6 @@ df.itemdef_toolst = {}
 function df.itemdef_toolst.find(key) end
 
 ---@class itemdef_toolst_vector: DFVector, { [integer]: itemdef_toolst }
-local itemdef_toolst_vector
 
 ---@return itemdef_toolst_vector # df.global.world.raws.itemdefs.tools
 function df.itemdef_toolst.get_vector() end
@@ -1426,7 +1399,6 @@ df.toy_flags = {}
 ---@field _type _itemdef_toyst
 ---@field name string
 ---@field name_plural string
-local itemdef_toyst
 
 ---@class _itemdef_toyst: DFCompound
 ---@field _kind 'class-type'
@@ -1437,7 +1409,6 @@ df.itemdef_toyst = {}
 function df.itemdef_toyst.find(key) end
 
 ---@class itemdef_toyst_vector: DFVector, { [integer]: itemdef_toyst }
-local itemdef_toyst_vector
 
 ---@return itemdef_toyst_vector # df.global.world.raws.itemdefs.toys
 function df.itemdef_toyst.get_vector() end
@@ -1472,7 +1443,6 @@ df.trapcomp_flags = {}
 ---@field value number
 ---@field hits number
 ---@field material_size number
-local itemdef_trapcompst
 
 ---@class _itemdef_trapcompst: DFCompound
 ---@field _kind 'class-type'
@@ -1483,7 +1453,6 @@ df.itemdef_trapcompst = {}
 function df.itemdef_trapcompst.find(key) end
 
 ---@class itemdef_trapcompst_vector: DFVector, { [integer]: itemdef_trapcompst }
-local itemdef_trapcompst_vector
 
 ---@return itemdef_trapcompst_vector # df.global.world.raws.itemdefs.trapcomps
 function df.itemdef_trapcompst.get_vector() end
@@ -1518,7 +1487,6 @@ df.weapon_flags = {}
 ---@field material_size number
 ---@field shoot_force number
 ---@field shoot_maxvel number
-local itemdef_weaponst
 
 ---@class _itemdef_weaponst: DFCompound
 ---@field _kind 'class-type'
@@ -1529,7 +1497,6 @@ df.itemdef_weaponst = {}
 function df.itemdef_weaponst.find(key) end
 
 ---@class itemdef_weaponst_vector: DFVector, { [integer]: itemdef_weaponst }
-local itemdef_weaponst_vector
 
 ---@return itemdef_weaponst_vector # df.global.world.raws.itemdefs.weapons
 function df.itemdef_weaponst.get_vector() end

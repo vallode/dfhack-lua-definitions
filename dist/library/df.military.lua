@@ -40,7 +40,6 @@ df.uniform_indiv_choice = {}
 ---@field material_class entity_material_category
 ---@field mattype number References: `material`
 ---@field matindex number
-local item_filter_spec
 
 ---@class _item_filter_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -53,7 +52,6 @@ df.item_filter_spec = {}
 ---@field item_filter item_filter_spec
 ---@field color number
 ---@field indiv_choice uniform_indiv_choice
-local squad_uniform_spec
 
 ---@class _squad_uniform_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -65,7 +63,6 @@ df.squad_uniform_spec = {}
 ---@field item_filter item_filter_spec
 ---@field amount number
 ---@field flags squad_ammo_spec.T_flags
-local squad_ammo_spec
 
 ---@class _squad_ammo_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -229,7 +226,6 @@ df.squad_event_type = {}
 ---@field flask number References: `item`
 ---@field unk_1 number
 ---@field unk_2 number
-local squad_position
 
 ---@class _squad_position: DFCompound
 ---@field _kind 'struct-type'
@@ -239,7 +235,6 @@ df.squad_position = {}
 ---@field _kind 'struct'
 ---@field _type _squad_schedule_order
 ---@field min_count number
-local squad_schedule_order
 
 ---@class _squad_schedule_order: DFCompound
 ---@field _kind 'struct-type'
@@ -251,7 +246,6 @@ df.squad_schedule_order = {}
 ---@field name string
 ---@field sleep_mode number 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode number 0 uniformed, 1 civ clothes
-local squad_schedule_entry
 
 ---@class _squad_schedule_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -282,7 +276,6 @@ df.squad_schedule_entry = {}
 ---@field background_r integer
 ---@field background_g integer
 ---@field background_b integer
-local squad
 
 ---@class _squad: DFCompound
 ---@field _kind 'struct-type'
@@ -293,7 +286,6 @@ df.squad = {}
 function df.squad.find(key) end
 
 ---@class squad_vector: DFVector, { [integer]: squad }
-local squad_vector
 
 ---@return squad_vector # df.global.world.squads.all
 function df.squad.get_vector() end
@@ -302,7 +294,6 @@ function df.squad.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _squad.T_ammo
 ---@field update equipment_update
-local squad_ammo
 
 ---@class _squad.T_ammo: DFCompound
 ---@field _kind 'struct-type'
@@ -426,7 +417,6 @@ df.squad_order_cannot_reason = {}
 ---@field year_tick number
 ---@field unk_v40_3 number
 ---@field unk_1 number
-local squad_order
 
 ---@class _squad_order: DFCompound
 ---@field _kind 'class-type'
@@ -437,7 +427,6 @@ df.squad_order = {}
 ---@field _type _squad_order_movest
 ---@field pos coord
 ---@field point_id number
-local squad_order_movest
 
 ---@class _squad_order_movest: DFCompound
 ---@field _kind 'class-type'
@@ -447,7 +436,6 @@ df.squad_order_movest = {}
 ---@field _kind 'struct'
 ---@field _type _squad_order_kill_listst
 ---@field title string
-local squad_order_kill_listst
 
 ---@class _squad_order_kill_listst: DFCompound
 ---@field _kind 'class-type'
@@ -456,7 +444,6 @@ df.squad_order_kill_listst = {}
 ---@class (exact) squad_order_defend_burrowsst: DFObject, squad_order
 ---@field _kind 'struct'
 ---@field _type _squad_order_defend_burrowsst
-local squad_order_defend_burrowsst
 
 ---@class _squad_order_defend_burrowsst: DFCompound
 ---@field _kind 'class-type'
@@ -466,7 +453,6 @@ df.squad_order_defend_burrowsst = {}
 ---@field _kind 'struct'
 ---@field _type _squad_order_patrol_routest
 ---@field route_id number
-local squad_order_patrol_routest
 
 ---@class _squad_order_patrol_routest: DFCompound
 ---@field _kind 'class-type'
@@ -475,7 +461,6 @@ df.squad_order_patrol_routest = {}
 ---@class (exact) squad_order_trainst: DFObject, squad_order
 ---@field _kind 'struct'
 ---@field _type _squad_order_trainst
-local squad_order_trainst
 
 ---@class _squad_order_trainst: DFCompound
 ---@field _kind 'class-type'
@@ -487,7 +472,6 @@ df.squad_order_trainst = {}
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 string
-local squad_order_drive_entity_off_sitest
 
 ---@class _squad_order_drive_entity_off_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -498,7 +482,6 @@ df.squad_order_drive_entity_off_sitest = {}
 ---@field _type _squad_order_cause_trouble_for_entityst
 ---@field entity_id number References: `historical_entity`
 ---@field override_name string
-local squad_order_cause_trouble_for_entityst
 
 ---@class _squad_order_cause_trouble_for_entityst: DFCompound
 ---@field _kind 'class-type'
@@ -509,7 +492,6 @@ df.squad_order_cause_trouble_for_entityst = {}
 ---@field _type _squad_order_kill_hfst
 ---@field histfig_id number References: `historical_figure`
 ---@field title string
-local squad_order_kill_hfst
 
 ---@class _squad_order_kill_hfst: DFCompound
 ---@field _kind 'class-type'
@@ -521,7 +503,6 @@ df.squad_order_kill_hfst = {}
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 string
-local squad_order_drive_armies_from_sitest
 
 ---@class _squad_order_drive_armies_from_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -532,7 +513,6 @@ df.squad_order_drive_armies_from_sitest = {}
 ---@field _type _squad_order_retrieve_artifactst
 ---@field artifact_id number References: `artifact_record`
 ---@field unk_2 coord
-local squad_order_retrieve_artifactst
 
 ---@class _squad_order_retrieve_artifactst: DFCompound
 ---@field _kind 'class-type'
@@ -543,7 +523,6 @@ df.squad_order_retrieve_artifactst = {}
 ---@field _type _squad_order_raid_sitest
 ---@field unk_2 number
 ---@field unk_3 coord
-local squad_order_raid_sitest
 
 ---@class _squad_order_raid_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -554,7 +533,6 @@ df.squad_order_raid_sitest = {}
 ---@field _type _squad_order_rescue_hfst
 ---@field unk_2 number
 ---@field unk_3 coord
-local squad_order_rescue_hfst
 
 ---@class _squad_order_rescue_hfst: DFCompound
 ---@field _kind 'class-type'
@@ -726,7 +704,6 @@ df.army_controller_goal_type = {}
 ---@field flag army_controller.T_flag
 ---@field data army_controller.T_data
 ---@field goal army_controller_goal_type
-local army_controller
 
 ---@class _army_controller: DFCompound
 ---@field _kind 'struct-type'
@@ -737,7 +714,6 @@ df.army_controller = {}
 function df.army_controller.find(key) end
 
 ---@class army_controller_vector: DFVector, { [integer]: army_controller }
-local army_controller_vector
 
 ---@return army_controller_vector # df.global.world.army_controllers.all
 function df.army_controller.get_vector() end
@@ -788,7 +764,6 @@ df.army_controller.T_flag = {}
 ---@class (exact) army_controller.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller.T_data
-local army_controller_data
 
 ---@class _army_controller.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -803,7 +778,6 @@ df.army_controller.T_data = {}
 ---@field abs_smm_ex number One is probably start and one is probably end of some movement
 ---@field abs_smm_ey number
 ---@field army_total_pop number size of the army, including leaders
-local army_camp_profilest
 
 ---@class _army_camp_profilest: DFCompound
 ---@field _kind 'struct-type'
@@ -819,7 +793,6 @@ df.army_camp_profilest = {}
 ---@field flag army_controller_goal_site_invasionst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
-local army_controller_goal_site_invasionst
 
 ---@class _army_controller_goal_site_invasionst: DFCompound
 ---@field _kind 'struct-type'
@@ -903,7 +876,6 @@ df.army_controller_goal_site_invasionst.T_flag = {}
 ---@field _type _army_controller_goal_campst
 ---@field camp_cz_alt_id number
 ---@field camp_flag army_controller_goal_campst.T_camp_flag
-local army_controller_goal_campst
 
 ---@class _army_controller_goal_campst: DFCompound
 ---@field _kind 'struct-type'
@@ -954,7 +926,6 @@ df.army_controller_goal_campst.T_camp_flag = {}
 ---@field smm_guard_range number
 ---@field year_arrived number
 ---@field season_count_arrived number
-local army_controller_goal_guardst
 
 ---@class _army_controller_goal_guardst: DFCompound
 ---@field _kind 'struct-type'
@@ -966,7 +937,6 @@ df.army_controller_goal_guardst = {}
 ---@field flag army_controller_goal_harassst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
-local army_controller_goal_harassst
 
 ---@class _army_controller_goal_harassst: DFCompound
 ---@field _kind 'struct-type'
@@ -1003,7 +973,6 @@ df.army_controller_goal_harassst.T_flag = {}
 ---@field latest_track_rel_sec number
 ---@field latest_track_abs_smm_x number
 ---@field latest_track_abs_smm_y number
-local army_controller_goal_huntingst
 
 ---@class _army_controller_goal_huntingst: DFCompound
 ---@field _kind 'struct-type'
@@ -1064,7 +1033,6 @@ df.army_controller_goal_huntingst.T_flag = {}
 ---@field latest_track_rel_sec number
 ---@field latest_track_abs_smm_x number
 ---@field latest_track_abs_smm_y number
-local army_controller_goal_patrolst
 
 ---@class _army_controller_goal_patrolst: DFCompound
 ---@field _kind 'struct-type'
@@ -1100,7 +1068,6 @@ df.army_controller_goal_patrolst.T_flag = {}
 ---@field _type _army_controller_goal_escapest
 ---@field arrive_year number
 ---@field arrive_season_count number
-local army_controller_goal_escapest
 
 ---@class _army_controller_goal_escapest: DFCompound
 ---@field _kind 'struct-type'
@@ -1116,7 +1083,6 @@ df.army_controller_goal_escapest = {}
 ---@field goal_epp_id number
 ---@field goal_ab_id number abstract building id; monster slayers have -1
 ---@field reason history_event_reason
-local army_controller_goal_move_to_sitest
 
 ---@class _army_controller_goal_move_to_sitest: DFCompound
 ---@field _kind 'struct-type'
@@ -1153,7 +1119,6 @@ df.army_controller_goal_move_to_sitest.T_flag = {}
 ---@field flag army_controller_goal_reclaim_sitest.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
-local army_controller_goal_reclaim_sitest
 
 ---@class _army_controller_goal_reclaim_sitest: DFCompound
 ---@field _kind 'struct-type'
@@ -1185,7 +1150,6 @@ df.army_controller_goal_reclaim_sitest.T_flag = {}
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
 ---@field desired_parent_stid number
-local army_controller_goal_create_new_sitest
 
 ---@class _army_controller_goal_create_new_sitest: DFCompound
 ---@field _kind 'struct-type'
@@ -1225,7 +1189,6 @@ df.army_controller_goal_create_new_sitest.T_flag = {}
 ---@field target_race number
 ---@field target_caste number
 ---@field target_hfid number
-local army_controller_goal_possest
 
 ---@class _army_controller_goal_possest: DFCompound
 ---@field _kind 'struct-type'
@@ -1254,7 +1217,6 @@ df.army_controller_goal_possest.T_flag = {}
 ---@field _kind 'struct'
 ---@field _type _army_controller_goal_site_workst
 ---@field work_count number
-local army_controller_goal_site_workst
 
 ---@class _army_controller_goal_site_workst: DFCompound
 ---@field _kind 'struct-type'
@@ -1267,7 +1229,6 @@ df.army_controller_goal_site_workst = {}
 ---@field return_site_id number
 ---@field return_to_hfid number
 ---@field flag army_controller_goal_recover_artifactst.T_flag
-local army_controller_goal_recover_artifactst
 
 ---@class _army_controller_goal_recover_artifactst: DFCompound
 ---@field _kind 'struct-type'
@@ -1303,7 +1264,6 @@ df.army_controller_goal_recover_artifactst.T_flag = {}
 ---@field _type _army_controller_goal_rescue_hfst
 ---@field hfid number
 ---@field flag army_controller_goal_rescue_hfst.T_flag
-local army_controller_goal_rescue_hfst
 
 ---@class _army_controller_goal_rescue_hfst: DFCompound
 ---@field _kind 'struct-type'
@@ -1334,7 +1294,6 @@ df.army_controller_goal_rescue_hfst.T_flag = {}
 ---@field flag army_controller_goal_make_requestst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
-local army_controller_goal_make_requestst
 
 ---@class _army_controller_goal_make_requestst: DFCompound
 ---@field _kind 'struct-type'
@@ -1365,7 +1324,6 @@ df.army_controller_goal_make_requestst.T_flag = {}
 ---@field task_id number
 ---@field task_holder_nem_id number
 ---@field flag army_controller_goal_perform_taskst.T_flag
-local army_controller_goal_perform_taskst
 
 ---@class _army_controller_goal_perform_taskst: DFCompound
 ---@field _kind 'struct-type'
@@ -1395,7 +1353,6 @@ df.army_controller_goal_perform_taskst.T_flag = {}
 ---@field _type _army_controller_goal_assassinate_hfst
 ---@field hfid number
 ---@field flag army_controller_goal_assassinate_hfst.T_flag
-local army_controller_goal_assassinate_hfst
 
 ---@class _army_controller_goal_assassinate_hfst: DFCompound
 ---@field _kind 'struct-type'
@@ -1425,7 +1382,6 @@ df.army_controller_goal_assassinate_hfst.T_flag = {}
 ---@field _type _army_controller_goal_abduct_hfst
 ---@field target_hfid number
 ---@field flag army_controller_goal_abduct_hfst.T_flag
-local army_controller_goal_abduct_hfst
 
 ---@class _army_controller_goal_abduct_hfst: DFCompound
 ---@field _kind 'struct-type'
@@ -1457,7 +1413,6 @@ df.army_controller_goal_abduct_hfst.T_flag = {}
 ---@field target_enid number
 ---@field target_stid number
 ---@field flag army_controller_goal_sabotage_entityst.T_flag
-local army_controller_goal_sabotage_entityst
 
 ---@class _army_controller_goal_sabotage_entityst: DFCompound
 ---@field _kind 'struct-type'
@@ -1489,7 +1444,6 @@ df.army_controller_goal_sabotage_entityst.T_flag = {}
 ---@field target_enid number References: `historical_entity`
 ---@field agoal_ab_id number abstract building ID, -1 before arrival
 ---@field reason history_event_reason none before arrival
-local army_controller_goal_infiltrate_societyst
 
 ---@class _army_controller_goal_infiltrate_societyst: DFCompound
 ---@field _kind 'struct-type'
@@ -1526,7 +1480,6 @@ df.army_flags = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local army
 
 ---@class _army: DFCompound
 ---@field _kind 'struct-type'
@@ -1537,7 +1490,6 @@ df.army = {}
 function df.army.find(key) end
 
 ---@class army_vector: DFVector, { [integer]: army }
-local army_vector
 
 ---@return army_vector # df.global.world.armies.all
 function df.army.get_vector() end

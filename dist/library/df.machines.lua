@@ -15,7 +15,6 @@ df.machine_type = {}
 ---@field _type _machine_info
 ---@field machine_id number References: `machine`
 ---@field flags machine_info.T_flags
-local machine_info
 
 ---@class _machine_info: DFCompound
 ---@field _kind 'struct-type'
@@ -45,7 +44,6 @@ df.machine_info.T_flags = {}
 ---@field _type _power_info
 ---@field produced number
 ---@field consumed number
-local power_info
 
 ---@class _power_info: DFCompound
 ---@field _kind 'struct-type'
@@ -104,7 +102,6 @@ df.machine_conn_modes = {}
 ---@field _kind 'struct'
 ---@field _type _machine_tile_set
 ---@field tiles coord_path
-local machine_tile_set
 
 ---@class _machine_tile_set: DFCompound
 ---@field _kind 'struct-type'
@@ -122,7 +119,6 @@ df.machine_tile_set = {}
 ---@field visual_phase number
 ---@field phase_timer number
 ---@field flags machine.T_flags
-local machine
 
 ---@class _machine: DFCompound
 ---@field _kind 'class-type'
@@ -133,7 +129,6 @@ df.machine = {}
 function df.machine.find(key) end
 
 ---@class machine_vector: DFVector, { [integer]: machine }
-local machine_vector
 
 ---@return machine_vector # df.global.world.machines.all
 function df.machine.get_vector() end
@@ -172,7 +167,6 @@ df.machine.T_flags = {}
 ---@class (exact) machine_standardst: DFObject, machine
 ---@field _kind 'struct'
 ---@field _type _machine_standardst
-local machine_standardst
 
 ---@class _machine_standardst: DFCompound
 ---@field _kind 'class-type'
@@ -184,7 +178,6 @@ df.machine_standardst = {}
 ---@field _type _building_axle_horizontalst
 ---@field machine machine_info
 ---@field is_vertical boolean
-local building_axle_horizontalst
 
 ---@class _building_axle_horizontalst: DFCompound
 ---@field _kind 'class-type'
@@ -194,7 +187,6 @@ df.building_axle_horizontalst = {}
 ---@field _kind 'struct'
 ---@field _type _building_axle_verticalst
 ---@field machine machine_info
-local building_axle_verticalst
 
 ---@class _building_axle_verticalst: DFCompound
 ---@field _kind 'class-type'
@@ -205,7 +197,6 @@ df.building_axle_verticalst = {}
 ---@field _type _building_gear_assemblyst
 ---@field machine machine_info
 ---@field gear_flags building_gear_assemblyst.T_gear_flags
-local building_gear_assemblyst
 
 ---@class _building_gear_assemblyst: DFCompound
 ---@field _kind 'class-type'
@@ -240,7 +231,6 @@ df.building_gear_assemblyst.T_gear_flags = {}
 ---@field visual_rotated boolean
 ---@field rotate_timer number
 ---@field orient_timer number
-local building_windmillst
 
 ---@class _building_windmillst: DFCompound
 ---@field _kind 'class-type'
@@ -252,7 +242,6 @@ df.building_windmillst = {}
 ---@field machine machine_info
 ---@field is_vertical boolean
 ---@field gives_power boolean
-local building_water_wheelst
 
 ---@class _building_water_wheelst: DFCompound
 ---@field _kind 'class-type'
@@ -282,7 +271,6 @@ df.screw_pump_direction = {}
 ---@field pump_energy integer decreases by 1 every frame. powering or manually pumping maintains near 100
 ---@field direction screw_pump_direction
 ---@field pump_manually boolean
-local building_screw_pumpst
 
 ---@class _building_screw_pumpst: DFCompound
 ---@field _kind 'class-type'
@@ -294,7 +282,6 @@ df.building_screw_pumpst = {}
 ---@field machine machine_info
 ---@field direction screw_pump_direction
 ---@field speed number
-local building_rollersst
 
 ---@class _building_rollersst: DFCompound
 ---@field _kind 'class-type'

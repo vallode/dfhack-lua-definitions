@@ -73,7 +73,6 @@ df.units_other_id = {}
 ---@class (exact) units_other: DFObject
 ---@field _kind 'struct'
 ---@field _type _units_other
-local units_other
 
 ---@class _units_other: DFCompound
 ---@field _kind 'struct-type'
@@ -83,7 +82,6 @@ df.units_other = {}
 ---@field _kind 'struct'
 ---@field _type _unit_context_block
 ---@field num number
-local unit_context_block
 
 ---@class _unit_context_block: DFCompound
 ---@field _kind 'struct-type'
@@ -125,7 +123,6 @@ df.conflict_level = {}
 ---@field hfid number bay12: true hf of incident References: `historical_figure`
 ---@field visual_hfid number bay12: basic visual id References: `historical_figure`
 ---@field historical_hfid number bay12: if any witness knew actual name References: `historical_figure`
-local incident_hfid
 
 ---@class _incident_hfid: DFCompound
 ---@field _kind 'struct-type'
@@ -167,7 +164,6 @@ df.incident_hfid = {}
 ---@field unk_80 number
 ---@field unk_10c number
 ---@field data incident.T_data
-local incident
 
 ---@class _incident: DFCompound
 ---@field _kind 'struct-type'
@@ -178,7 +174,6 @@ df.incident = {}
 function df.incident.find(key) end
 
 ---@class incident_vector: DFVector, { [integer]: incident }
-local incident_vector
 
 ---@return incident_vector # df.global.world.incidents.all
 function df.incident.get_vector() end
@@ -255,7 +250,6 @@ df.incident.T_flags = {}
 ---@class (exact) incident.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _incident.T_data
-local incident_data
 
 ---@class _incident.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -271,7 +265,6 @@ df.incident.T_data = {}
 ---@field poetic_form_id number More than one form can be used in a performance, e.g. dance to music References: `poetic_form`
 ---@field musical_form_id number References: `musical_form`
 ---@field dance_form_id number References: `dance_form`
-local incident_data_performance
 
 ---@class _incident_data_performance: DFCompound
 ---@field _kind 'struct-type'
@@ -290,7 +283,6 @@ df.incident_data_performance = {}
 ---@field unk_6 number
 ---@field unk_7 number
 ---@field unk_9 number
-local incident_data_artifact
 
 ---@class _incident_data_artifact: DFCompound
 ---@field _kind 'struct-type'
@@ -331,7 +323,6 @@ df.incident_data_artifact.T_state = {}
 ---@field unk_5 number
 ---@field unk_6 number
 ---@field unk_8 number
-local incident_data_writing
 
 ---@class _incident_data_writing: DFCompound
 ---@field _kind 'struct-type'
@@ -351,7 +342,6 @@ df.incident_data_writing.T_state = {}
 ---@class (exact) incident_data_identity: DFObject
 ---@field _kind 'struct'
 ---@field _type _incident_data_identity
-local incident_data_identity
 
 ---@class _incident_data_identity: DFCompound
 ---@field _kind 'struct-type'
@@ -385,7 +375,6 @@ df.incident_data_identity = {}
 ---@field entity number References: `historical_entity`
 ---@field item_id number seen with crime of theft References: `item`
 ---@field agreement_id number References: `agreement`
-local crime
 
 ---@class _crime: DFCompound
 ---@field _kind 'struct-type'
@@ -396,7 +385,6 @@ df.crime = {}
 function df.crime.find(key) end
 
 ---@class crime_vector: DFVector, { [integer]: crime }
-local crime_vector
 
 ---@return crime_vector # df.global.world.crimes.all
 function df.crime.get_vector() end
@@ -469,7 +457,6 @@ df.crime.T_mode = {}
 ---@field hammerstrikes number
 ---@field prison_time number
 ---@field give_beating number
-local crime_punishment
 
 ---@class _crime.T_punishment: DFCompound
 ---@field _kind 'struct-type'
@@ -479,7 +466,6 @@ df.crime.T_punishment = {}
 ---@field _kind 'struct'
 ---@field _type _crime.T_convict_data
 ---@field convicted number References: `unit`
-local crime_convict_data
 
 ---@class _crime.T_convict_data: DFCompound
 ---@field _kind 'struct-type'
@@ -489,7 +475,6 @@ df.crime.T_convict_data = {}
 ---@field _kind 'struct'
 ---@field _type _crime.T_victim_data
 ---@field victim number References: `unit`
-local crime_victim_data
 
 ---@class _crime.T_victim_data: DFCompound
 ---@field _kind 'struct-type'
@@ -569,7 +554,6 @@ df.witness_type = {}
 ---@field accused_ihf incident_hfid
 ---@field reported_year number
 ---@field reported_year_tick number
-local witness_reportst
 
 ---@class _witness_reportst: DFCompound
 ---@field _kind 'struct-type'
@@ -580,7 +564,6 @@ df.witness_reportst = {}
 ---@field _type _mission_campaign_report
 ---@field travel_count number
 ---@field events_count number
-local mission_campaign_report
 
 ---@class _mission_campaign_report: DFCompound
 ---@field _kind 'struct-type'
@@ -599,7 +582,6 @@ df.mission_campaign_report = {}
 ---@field year_tick number
 ---@field unk_11 number
 ---@field unk_12 number
-local mission_report
 
 ---@class _mission_report: DFCompound
 ---@field _kind 'struct-type'
@@ -612,7 +594,6 @@ df.mission_report = {}
 ---@field unk_1 number
 ---@field year number
 ---@field year_tick number
-local spoils_report
 
 ---@class _spoils_report: DFCompound
 ---@field _kind 'struct-type'
@@ -634,7 +615,6 @@ df.spoils_report = {}
 ---@field unk_25 number
 ---@field unk_26 number
 ---@field subject_identity_id number ? References: `identity`
-local interrogation_report
 
 ---@class _interrogation_report: DFCompound
 ---@field _kind 'struct-type'
@@ -660,7 +640,6 @@ df.interrogation_report = {}
 ---@field unk_20 number
 ---@field unk_21 number
 ---@field flags interrogation_report.T_unk.T_flags
-local interrogation_report_unk
 
 ---@class _interrogation_report.T_unk: DFCompound
 ---@field _kind 'struct-type'
@@ -690,7 +669,6 @@ df.interrogation_report.T_unk.T_flags = {}
 ---@field triggered boolean
 ---@field tiles coord_path
 ---@field pos coord announcement zoom location
-local divine_treasure
 
 ---@class _divine_treasure: DFCompound
 ---@field _kind 'struct-type'
@@ -709,7 +687,6 @@ df.divine_treasure = {}
 ---@field triggered boolean
 ---@field tiles coord_path
 ---@field pos coord announcement zoom location
-local encased_horror
 
 ---@class _encased_horror: DFCompound
 ---@field _kind 'struct-type'
@@ -723,7 +700,6 @@ df.encased_horror = {}
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
 ---@field coffin_pos coord
-local cursed_tomb
 
 ---@class _cursed_tomb: DFCompound
 ---@field _kind 'struct-type'
@@ -736,7 +712,6 @@ df.cursed_tomb = {}
 ---@field interval number
 ---@field coastline coord2d_path
 ---@field wave_origin coord2d_path
-local ocean_wave_maker
 
 ---@class _ocean_wave_maker: DFCompound
 ---@field _kind 'struct-type'
@@ -750,7 +725,6 @@ df.ocean_wave_maker = {}
 ---@field x2 number
 ---@field y2 number
 ---@field z number
-local coord_rect
 
 ---@class _coord_rect: DFCompound
 ---@field _kind 'struct-type'
@@ -769,7 +743,6 @@ df.coord_rect = {}
 ---@field local coord2d the top left corner of the MLT, in embark relative coordinates
 ---@field z_min number
 ---@field z_max number
-local embark_feature
 
 ---@class _embark_feature: DFCompound
 ---@field _kind 'struct-type'
@@ -861,7 +834,6 @@ df.combat_report_event_type = {}
 ---@field triggered boolean set when the glowing barrier vanishes, preventing later HFS events
 ---@field age number divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field pos coord coordinates of a GlowingBarrier or GlowingFloor tiletype
-local glowing_barrier
 
 ---@class _glowing_barrier: DFCompound
 ---@field _kind 'struct-type'
@@ -874,7 +846,6 @@ df.glowing_barrier = {}
 ---@field age number divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
 ---@field tiles coord_path tile coordinates correspond to open spaces within an underworld spire; revealing one of these tiles triggers the HFS demon wave
 ---@field pos coord announcement zoom location
-local deep_vein_hollow
 
 ---@class _deep_vein_hollow: DFCompound
 ---@field _kind 'struct-type'
@@ -885,7 +856,6 @@ df.deep_vein_hollow = {}
 ---@field _type _campfire
 ---@field pos coord
 ---@field timer number
-local campfire
 
 ---@class _campfire: DFCompound
 ---@field _kind 'struct-type'
@@ -899,7 +869,6 @@ df.campfire = {}
 ---@field caste number References: `caste_raw`
 ---@field pos_min coord2d
 ---@field pos_max coord2d
-local web_cluster
 
 ---@class _web_cluster: DFCompound
 ---@field _kind 'struct-type'
@@ -914,7 +883,6 @@ df.web_cluster = {}
 ---@field outer_temp_cur integer applied to neighboring tiles
 ---@field inner_temp_max integer
 ---@field outer_temp_max integer
-local fire
 
 ---@class _fire: DFCompound
 ---@field _kind 'struct-type'
@@ -929,7 +897,6 @@ df.fire = {}
 ---@field spawn_flows boolean set once the wave reaches the coast
 ---@field move_timer number
 ---@field unk_timer number starts at 120 and randomly decrements
-local ocean_wave
 
 ---@class _ocean_wave: DFCompound
 ---@field _kind 'struct-type'
@@ -945,7 +912,6 @@ df.ocean_wave = {}
 ---@field ruler number References: `historical_figure`
 ---@field image_front coin_batch.T_image_front
 ---@field image_back coin_batch.T_image_back
-local coin_batch
 
 ---@class _coin_batch: DFCompound
 ---@field _kind 'struct-type'
@@ -956,7 +922,6 @@ df.coin_batch = {}
 function df.coin_batch.find(key) end
 
 ---@class coin_batch_vector: DFVector, { [integer]: coin_batch }
-local coin_batch_vector
 
 ---@return coin_batch_vector # df.global.world.coin_batches
 function df.coin_batch.get_vector() end
@@ -966,7 +931,6 @@ function df.coin_batch.get_vector() end
 ---@field _type _coin_batch.T_image_front
 ---@field id number References: `art_image_chunk`
 ---@field subid number References: `art_image`
-local coin_batch_image_front
 
 ---@class _coin_batch.T_image_front: DFCompound
 ---@field _kind 'struct-type'
@@ -977,7 +941,6 @@ df.coin_batch.T_image_front = {}
 ---@field _type _coin_batch.T_image_back
 ---@field id number References: `art_image_chunk`
 ---@field subid number References: `art_image`
-local coin_batch_image_back
 
 ---@class _coin_batch.T_image_back: DFCompound
 ---@field _kind 'struct-type'
@@ -987,7 +950,6 @@ df.coin_batch.T_image_back = {}
 ---@field _kind 'struct'
 ---@field _type _job_handler
 ---@field job_application_heap job_handler.T_job_application_heap
-local job_handler
 
 ---@class _job_handler: DFCompound
 ---@field _kind 'class-type'
@@ -998,7 +960,6 @@ df.job_handler = {}
 ---@field _kind 'struct'
 ---@field _type _job_handler.T_job_application_heap
 ---@field size number
-local job_handler_job_application_heap
 
 ---@class _job_handler.T_job_application_heap: DFCompound
 ---@field _kind 'struct-type'
@@ -1010,7 +971,6 @@ df.job_handler.T_job_application_heap = {}
 ---@field other buildings_other not a compound in bay12
 ---@field check_bridge_collapse boolean bay12: evaluate_bridge_stability
 ---@field check_machine_collapse boolean bay12: evaluate_machine_stability
-local building_handler
 
 ---@class _building_handler: DFCompound
 ---@field _kind 'class-type'
@@ -1019,7 +979,6 @@ df.building_handler = {}
 ---@class (exact) machine_handler: DFObject
 ---@field _kind 'struct'
 ---@field _type _machine_handler
-local machine_handler
 
 ---@class _machine_handler: DFCompound
 ---@field _kind 'class-type'
@@ -1031,7 +990,6 @@ df.machine_handler = {}
 ---@field unk mental_picture.T_unk
 ---@field unk_1 number
 ---@field unk_2 number
-local mental_picture
 
 ---@class _mental_picture: DFCompound
 ---@field _kind 'struct-type'
@@ -1042,7 +1000,6 @@ df.mental_picture = {}
 ---@field _type _mental_picture.T_unk
 ---@field unk_1 number
 ---@field unk_2 number
-local mental_picture_unk
 
 ---@class _mental_picture.T_unk: DFCompound
 ---@field _kind 'struct-type'
@@ -1117,7 +1074,6 @@ df.mental_picture.T_unk = {}
 ---@field unk_62 number
 ---@field unk_63 number
 ---@field unk_64 number
-local belief_system
 
 ---@class _belief_system: DFCompound
 ---@field _kind 'struct-type'
@@ -1128,7 +1084,6 @@ df.belief_system = {}
 function df.belief_system.find(key) end
 
 ---@class belief_system_vector: DFVector, { [integer]: belief_system }
-local belief_system_vector
 
 ---@return belief_system_vector # df.global.world.belief_systems.all
 function df.belief_system.get_vector() end
@@ -1138,7 +1093,6 @@ function df.belief_system.get_vector() end
 ---@field _type _divination_set_roll
 ---@field effect_type divination_set_roll.T_effect_type
 ---@field effect number When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
-local divination_set_roll
 
 ---@class _divination_set_roll: DFCompound
 ---@field _kind 'struct-type'
@@ -1170,7 +1124,6 @@ df.divination_set_roll.T_effect_type = {}
 ---@field id number currently matches index into vector
 ---@field deity_id number References: `historical_figure`
 ---@field owner_id number religion owning the set References: `historical_entity`
-local divination_set
 
 ---@class _divination_set: DFCompound
 ---@field _kind 'struct-type'
@@ -1181,7 +1134,6 @@ df.divination_set = {}
 function df.divination_set.find(key) end
 
 ---@class divination_set_vector: DFVector, { [integer]: divination_set }
-local divination_set_vector
 
 ---@return divination_set_vector # df.global.world.divination_sets.all
 function df.divination_set.get_vector() end
@@ -1191,7 +1143,6 @@ function df.divination_set.get_vector() end
 ---@field _type _image_set
 ---@field id number
 ---@field unk_2 number
-local image_set
 
 ---@class _image_set: DFCompound
 ---@field _kind 'struct-type'
@@ -1202,7 +1153,6 @@ df.image_set = {}
 function df.image_set.find(key) end
 
 ---@class image_set_vector: DFVector, { [integer]: image_set }
-local image_set_vector
 
 ---@return image_set_vector # df.global.world.image_sets.all
 function df.image_set.get_vector() end
@@ -1210,7 +1160,6 @@ function df.image_set.get_vector() end
 ---@class (exact) random_object_infost: DFObject
 ---@field _kind 'struct'
 ---@field _type _random_object_infost
-local random_object_infost
 
 ---@class _random_object_infost: DFCompound
 ---@field _kind 'struct-type'
@@ -1297,7 +1246,6 @@ df.random_object_infost = {}
 ---@field dungeon world.T_dungeon
 ---@field attack_chance_info world.T_attack_chance_info
 ---@field active_tutorial world.T_active_tutorial
-local world
 
 ---@class _world: DFCompound
 ---@field _kind 'struct-type'
@@ -1306,7 +1254,6 @@ df.world = {}
 ---@class (exact) world.T_vermin: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_vermin
-local world_vermin
 
 ---@class _world.T_vermin: DFCompound
 ---@field _kind 'struct-type'
@@ -1316,7 +1263,6 @@ df.world.T_vermin = {}
 ---@class (exact) world.T_entities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_entities
-local world_entities
 
 ---@class _world.T_entities: DFCompound
 ---@field _kind 'struct-type'
@@ -1327,7 +1273,6 @@ df.world.T_entities = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_worldgen_coord_buf
 ---@field next_slot number
-local world_worldgen_coord_buf
 
 ---@class _world.T_worldgen_coord_buf: DFCompound
 ---@field _kind 'struct-type'
@@ -1338,7 +1283,6 @@ df.world.T_worldgen_coord_buf = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_units
 ---@field other units_other
-local world_units
 
 ---@class _world.T_units: DFCompound
 ---@field _kind 'struct-type'
@@ -1349,7 +1293,6 @@ df.world.T_units = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_nemesis
 ---@field unk4 boolean
-local world_nemesis
 
 ---@class _world.T_nemesis: DFCompound
 ---@field _kind 'struct-type'
@@ -1360,7 +1303,6 @@ df.world.T_nemesis = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_items
 ---@field other items_other
-local world_items
 
 ---@class _world.T_items: DFCompound
 ---@field _kind 'struct-type'
@@ -1370,7 +1312,6 @@ df.world.T_items = {}
 ---@class (exact) world.T_artifacts: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_artifacts
-local world_artifacts
 
 ---@class _world.T_artifacts: DFCompound
 ---@field _kind 'struct-type'
@@ -1380,7 +1321,6 @@ df.world.T_artifacts = {}
 ---@class (exact) world.T_flow_guides: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_flow_guides
-local world_flow_guides
 
 ---@class _world.T_flow_guides: DFCompound
 ---@field _kind 'struct-type'
@@ -1414,7 +1354,6 @@ df.world.T_flow_guides = {}
 ---@field bintype_leather number
 ---@field bintype_cloth number
 ---@field bintype_sheet number
-local world_stockpile
 
 ---@class _world.T_stockpile: DFCompound
 ---@field _kind 'struct-type'
@@ -1424,7 +1363,6 @@ df.world.T_stockpile = {}
 ---@class (exact) world.T_plants: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_plants
-local world_plants
 
 ---@class _world.T_plants: DFCompound
 ---@field _kind 'struct-type'
@@ -1435,7 +1373,6 @@ df.world.T_plants = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_enemy_status_cache
 ---@field next_slot number
-local world_enemy_status_cache
 
 ---@class _world.T_enemy_status_cache: DFCompound
 ---@field _kind 'struct-type'
@@ -1444,7 +1381,6 @@ df.world.T_enemy_status_cache = {}
 ---@class (exact) world.T_schedules: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_schedules
-local world_schedules
 
 ---@class _world.T_schedules: DFCompound
 ---@field _kind 'struct-type'
@@ -1453,7 +1389,6 @@ df.world.T_schedules = {}
 ---@class (exact) world.T_squads: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_squads
-local world_squads
 
 ---@class _world.T_squads: DFCompound
 ---@field _kind 'struct-type'
@@ -1462,7 +1397,6 @@ df.world.T_squads = {}
 ---@class (exact) world.T_formations: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_formations
-local world_formations
 
 ---@class _world.T_formations: DFCompound
 ---@field _kind 'struct-type'
@@ -1472,7 +1406,6 @@ df.world.T_formations = {}
 ---@class (exact) world.T_activities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_activities
-local world_activities
 
 ---@class _world.T_activities: DFCompound
 ---@field _kind 'struct-type'
@@ -1488,7 +1421,6 @@ df.world.T_activities = {}
 ---@field display_timer number bay12: announcetime
 ---@field slots world.T_status.T_slots
 ---@field announcement_mutex stl-mutex bay12: mtx
-local world_status
 
 ---@class _world.T_status: DFCompound
 ---@field _kind 'struct-type'
@@ -1530,7 +1462,6 @@ df.world.T_status.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_status.T_slots
 ---@field slots_used number
-local world_status_slots
 
 ---@class _world.T_status.T_slots: DFCompound
 ---@field _kind 'struct-type'
@@ -1539,7 +1470,6 @@ df.world.T_status.T_slots = {}
 ---@class (exact) world.T_interaction_instances: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_interaction_instances
-local world_interaction_instances
 
 ---@class _world.T_interaction_instances: DFCompound
 ---@field _kind 'struct-type'
@@ -1548,7 +1478,6 @@ df.world.T_interaction_instances = {}
 ---@class (exact) world.T_written_contents: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_written_contents
-local world_written_contents
 
 ---@class _world.T_written_contents: DFCompound
 ---@field _kind 'struct-type'
@@ -1557,7 +1486,6 @@ df.world.T_written_contents = {}
 ---@class (exact) world.T_identities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_identities
-local world_identities
 
 ---@class _world.T_identities: DFCompound
 ---@field _kind 'struct-type'
@@ -1566,7 +1494,6 @@ df.world.T_identities = {}
 ---@class (exact) world.T_incidents: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_incidents
-local world_incidents
 
 ---@class _world.T_incidents: DFCompound
 ---@field _kind 'struct-type'
@@ -1575,7 +1502,6 @@ df.world.T_incidents = {}
 ---@class (exact) world.T_crimes: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_crimes
-local world_crimes
 
 ---@class _world.T_crimes: DFCompound
 ---@field _kind 'struct-type'
@@ -1584,7 +1510,6 @@ df.world.T_crimes = {}
 ---@class (exact) world.T_vehicles: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_vehicles
-local world_vehicles
 
 ---@class _world.T_vehicles: DFCompound
 ---@field _kind 'struct-type'
@@ -1593,7 +1518,6 @@ df.world.T_vehicles = {}
 ---@class (exact) world.T_armies: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_armies
-local world_armies
 
 ---@class _world.T_armies: DFCompound
 ---@field _kind 'struct-type'
@@ -1602,7 +1526,6 @@ df.world.T_armies = {}
 ---@class (exact) world.T_army_controllers: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_army_controllers
-local world_army_controllers
 
 ---@class _world.T_army_controllers: DFCompound
 ---@field _kind 'struct-type'
@@ -1611,7 +1534,6 @@ df.world.T_army_controllers = {}
 ---@class (exact) world.T_army_tracking_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_army_tracking_info
-local world_army_tracking_info
 
 ---@class _world.T_army_tracking_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1620,7 +1542,6 @@ df.world.T_army_tracking_info = {}
 ---@class (exact) world.T_cultural_identities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_cultural_identities
-local world_cultural_identities
 
 ---@class _world.T_cultural_identities: DFCompound
 ---@field _kind 'struct-type'
@@ -1629,7 +1550,6 @@ df.world.T_cultural_identities = {}
 ---@class (exact) world.T_agreements: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_agreements
-local world_agreements
 
 ---@class _world.T_agreements: DFCompound
 ---@field _kind 'struct-type'
@@ -1638,7 +1558,6 @@ df.world.T_agreements = {}
 ---@class (exact) world.T_poetic_forms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_poetic_forms
-local world_poetic_forms
 
 ---@class _world.T_poetic_forms: DFCompound
 ---@field _kind 'struct-type'
@@ -1647,7 +1566,6 @@ df.world.T_poetic_forms = {}
 ---@class (exact) world.T_musical_forms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_musical_forms
-local world_musical_forms
 
 ---@class _world.T_musical_forms: DFCompound
 ---@field _kind 'struct-type'
@@ -1656,7 +1574,6 @@ df.world.T_musical_forms = {}
 ---@class (exact) world.T_dance_forms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_dance_forms
-local world_dance_forms
 
 ---@class _world.T_dance_forms: DFCompound
 ---@field _kind 'struct-type'
@@ -1665,7 +1582,6 @@ df.world.T_dance_forms = {}
 ---@class (exact) world.T_scales: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_scales
-local world_scales
 
 ---@class _world.T_scales: DFCompound
 ---@field _kind 'struct-type'
@@ -1674,7 +1590,6 @@ df.world.T_scales = {}
 ---@class (exact) world.T_rhythms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_rhythms
-local world_rhythms
 
 ---@class _world.T_rhythms: DFCompound
 ---@field _kind 'struct-type'
@@ -1683,7 +1598,6 @@ df.world.T_rhythms = {}
 ---@class (exact) world.T_occupations: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_occupations
-local world_occupations
 
 ---@class _world.T_occupations: DFCompound
 ---@field _kind 'struct-type'
@@ -1692,7 +1606,6 @@ df.world.T_occupations = {}
 ---@class (exact) world.T_belief_systems: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_belief_systems
-local world_belief_systems
 
 ---@class _world.T_belief_systems: DFCompound
 ---@field _kind 'struct-type'
@@ -1701,7 +1614,6 @@ df.world.T_belief_systems = {}
 ---@class (exact) world.T_image_sets: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_image_sets
-local world_image_sets
 
 ---@class _world.T_image_sets: DFCompound
 ---@field _kind 'struct-type'
@@ -1710,7 +1622,6 @@ df.world.T_image_sets = {}
 ---@class (exact) world.T_divination_sets: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_divination_sets
-local world_divination_sets
 
 ---@class _world.T_divination_sets: DFCompound
 ---@field _kind 'struct-type'
@@ -1728,7 +1639,6 @@ df.world.T_divination_sets = {}
 ---@field region_x number
 ---@field region_y number
 ---@field region_z number
-local world_map
 
 ---@class _world.T_map: DFCompound
 ---@field _kind 'struct-type'
@@ -1738,7 +1648,6 @@ df.world.T_map = {}
 ---@class (exact) world.T_profession_skills: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_profession_skills
-local world_profession_skills
 
 ---@class _world.T_profession_skills: DFCompound
 ---@field _kind 'struct-type'
@@ -1747,7 +1656,6 @@ df.world.T_profession_skills = {}
 ---@class (exact) world.T_math: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_math
-local world_math
 
 ---@class _world.T_math: DFCompound
 ---@field _kind 'struct-type'
@@ -1757,7 +1665,6 @@ df.world.T_math = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_map_extras
 ---@field rotation integer
-local world_map_extras
 
 ---@class _world.T_map_extras: DFCompound
 ---@field _kind 'struct-type'
@@ -1808,7 +1715,6 @@ df.world.T_map_extras = {}
 ---@field unk_28 number
 ---@field unk_29 number
 ---@field unk_30 number
-local world_worldgen_status
 
 ---@class _world.T_worldgen_status: DFCompound
 ---@field _kind 'struct-type'
@@ -1860,7 +1766,6 @@ df.world.T_worldgen_status.T_state = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_area_grasses
 ---@field world_tiles coord2d_path 7*7 world tile area centered around embark, stunted at edges
-local world_area_grasses
 
 ---@class _world.T_area_grasses: DFCompound
 ---@field _kind 'struct-type'
@@ -1873,7 +1778,6 @@ df.world.T_area_grasses = {}
 ---@field rnd_256 number
 ---@field rnd_pos number
 ---@field block_idx number
-local world_flow_engine
 
 ---@class _world.T_flow_engine: DFCompound
 ---@field _kind 'struct-type'
@@ -1888,7 +1792,6 @@ df.world.T_flow_engine = {}
 ---@field next_art_image_chunk_id number
 ---@field next_art_image_chunk_offset number
 ---@field worldgen_parms worldgen_parms ctor 87ae880
-local world_worldgen
 
 ---@class _world.T_worldgen: DFCompound
 ---@field _kind 'struct-type'
@@ -1898,7 +1801,6 @@ df.world.T_worldgen = {}
 ---@class (exact) world.T_daily_events: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_daily_events
-local world_daily_events
 
 ---@class _world.T_daily_events: DFCompound
 ---@field _kind 'struct-type'
@@ -1920,7 +1822,6 @@ df.world.T_daily_events = {}
 ---@field next_levelmap number
 ---@field cur_veg_move_stage number
 ---@field preparing_map boolean
-local world_pathfinder
 
 ---@class _world.T_pathfinder: DFCompound
 ---@field _kind 'struct-type'
@@ -1934,7 +1835,6 @@ df.world.T_pathfinder = {}
 ---@field world_header shared_world_headerst
 ---@field civ_history_complete boolean
 ---@field must_end_civ_history boolean
-local world_cur_savegame
 
 ---@class _world.T_cur_savegame: DFCompound
 ---@field _kind 'struct-type'
@@ -1950,7 +1850,6 @@ df.world.T_cur_savegame = {}
 ---@field notifying_about_failure boolean
 ---@field notifying_about_failure_mod_install_err number
 ---@field flag integer
-local world_rod_loader
 
 ---@class _world.T_rod_loader: DFCompound
 ---@field _kind 'struct-type'
@@ -2027,7 +1926,6 @@ df.world.T_rod_loader.T_state = {}
 ---@field current_load_order_index number
 ---@field current_load_order_graphics_index number
 ---@field src_dir string
-local world_object_loader
 
 ---@class _world.T_object_loader: DFCompound
 ---@field _kind 'struct-type'
@@ -2036,7 +1934,6 @@ df.world.T_object_loader = {}
 ---@class (exact) world.T_features: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_features
-local world_features
 
 ---@class _world.T_features: DFCompound
 ---@field _kind 'struct-type'
@@ -2064,7 +1961,6 @@ df.world.T_features = {}
 ---@field tree_age_str string
 ---@field arena_tree_entering_filter boolean
 ---@field arena_tree_entering_age boolean
-local world_arena
 
 ---@class _world.T_arena: DFCompound
 ---@field _kind 'struct-type'
@@ -2074,7 +1970,6 @@ df.world.T_arena = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_arena.T_equipment
 ---@field item_materials material_vec_ref
-local world_arena_equipment
 
 ---@class _world.T_arena.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -2105,7 +2000,6 @@ df.world.T_arena.T_flag = {}
 ---@field last_selected_creature_index number
 ---@field etl embark_item_choice
 ---@field item_materials material_vec_ref
-local world_dungeon
 
 ---@class _world.T_dungeon: DFCompound
 ---@field _kind 'struct-type'
@@ -2118,7 +2012,6 @@ df.world.T_dungeon = {}
 ---@field current_modifier_number number
 ---@field current_attack_number number
 ---@field current_target_number number
-local world_attack_chance_info
 
 ---@class _world.T_attack_chance_info: DFCompound
 ---@field _kind 'struct-type'
@@ -2129,7 +2022,6 @@ df.world.T_attack_chance_info = {}
 ---@field _type _world.T_active_tutorial
 ---@field index number
 ---@field active_step number
-local world_active_tutorial
 
 ---@class _world.T_active_tutorial: DFCompound
 ---@field _kind 'struct-type'

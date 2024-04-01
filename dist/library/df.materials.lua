@@ -476,7 +476,6 @@ df.strain_type = {}
 ---@field meat_organ number used for texture selection
 ---@field reaction_product material_common.T_reaction_product
 ---@field hardens_with_water material_common.T_hardens_with_water
-local material_common
 
 ---@class _material_common: DFCompound
 ---@field _kind 'struct-type'
@@ -492,7 +491,6 @@ df.material_common = {}
 ---@field melting_point integer
 ---@field boiling_point integer
 ---@field mat_fixed_temp integer
-local material_common_heat
 
 ---@class _material_common.T_heat: DFCompound
 ---@field _kind 'struct-type'
@@ -503,7 +501,6 @@ df.material_common.T_heat = {}
 ---@field _type _material_common.T_strength
 ---@field absorption number
 ---@field max_edge number
-local material_common_strength
 
 ---@class _material_common.T_strength: DFCompound
 ---@field _kind 'struct-type'
@@ -513,7 +510,6 @@ df.material_common.T_strength = {}
 ---@field _kind 'struct'
 ---@field _type _material_common.T_reaction_product
 ---@field material material_vec_ref
-local material_common_reaction_product
 
 ---@class _material_common.T_reaction_product: DFCompound
 ---@field _kind 'struct-type'
@@ -524,7 +520,6 @@ df.material_common.T_reaction_product = {}
 ---@field _type _material_common.T_hardens_with_water
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local material_common_hardens_with_water
 
 ---@class _material_common.T_hardens_with_water: DFCompound
 ---@field _kind 'struct-type'
@@ -548,7 +543,6 @@ df.material_common.T_hardens_with_water = {}
 ---@field bar_texpos number
 ---@field cheese_texpos1 number
 ---@field cheese_texpos2 number
-local material
 
 ---@class _material: DFCompound
 ---@field _kind 'struct-type'
@@ -557,7 +551,6 @@ df.material = {}
 ---@class (exact) material_vec_ref: DFObject
 ---@field _kind 'struct'
 ---@field _type _material_vec_ref
-local material_vec_ref
 
 ---@class _material_vec_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -572,7 +565,6 @@ df.material_vec_ref = {}
 ---@field temp_diet_info number // color token index
 ---@field soap_level number
 ---@field powder_dye_str string temporary
-local material_template
 
 ---@class _material_template: DFCompound
 ---@field _kind 'struct-type'
@@ -705,7 +697,6 @@ df.inclusion_type = {}
 ---@field times_used_land integer
 ---@field times_used_ocean integer
 ---@field material material
-local inorganic_raw
 
 ---@class _inorganic_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -716,7 +707,6 @@ df.inorganic_raw = {}
 function df.inorganic_raw.find(key) end
 
 ---@class inorganic_raw_vector: DFVector, { [integer]: inorganic_raw }
-local inorganic_raw_vector
 
 ---@return inorganic_raw_vector # df.global.world.raws.inorganics
 function df.inorganic_raw.get_vector() end
@@ -724,7 +714,6 @@ function df.inorganic_raw.get_vector() end
 ---@class (exact) inorganic_raw.T_metal_ore: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_metal_ore
-local inorganic_raw_metal_ore
 
 ---@class _inorganic_raw.T_metal_ore: DFCompound
 ---@field _kind 'struct-type'
@@ -733,7 +722,6 @@ df.inorganic_raw.T_metal_ore = {}
 ---@class (exact) inorganic_raw.T_thread_metal: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_thread_metal
-local inorganic_raw_thread_metal
 
 ---@class _inorganic_raw.T_thread_metal: DFCompound
 ---@field _kind 'struct-type'
@@ -742,7 +730,6 @@ df.inorganic_raw.T_thread_metal = {}
 ---@class (exact) inorganic_raw.T_environment_spec: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment_spec
-local inorganic_raw_environment_spec
 
 ---@class _inorganic_raw.T_environment_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -751,7 +738,6 @@ df.inorganic_raw.T_environment_spec = {}
 ---@class (exact) inorganic_raw.T_environment: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment
-local inorganic_raw_environment
 
 ---@class _inorganic_raw.T_environment: DFCompound
 ---@field _kind 'struct-type'
@@ -882,7 +868,6 @@ df.organic_mat_category = {}
 ---@class (exact) special_mat_table: DFObject
 ---@field _kind 'struct'
 ---@field _type _special_mat_table
-local special_mat_table
 
 ---@class _special_mat_table: DFCompound
 ---@field _kind 'struct-type'

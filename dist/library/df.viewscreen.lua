@@ -11,7 +11,6 @@
 ---@field in_buffer_position long
 ---@field out_buffersize long
 ---@field out_buffer_amount_written number
-local file_compressorst
 
 ---@class _file_compressorst: DFCompound
 ---@field _kind 'struct-type'
@@ -54,7 +53,6 @@ df.interface_push_types = {}
 ---@class (exact) abstract_interfacest: DFObject
 ---@field _kind 'struct'
 ---@field _type _abstract_interfacest
-local abstract_interfacest
 
 ---@class _abstract_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -66,7 +64,6 @@ df.abstract_interfacest = {}
 ---@field breakdown_level interface_breakdown_types
 ---@field option_key_pressed number
 ---@field widgets widget_container
-local viewscreen
 
 ---@class _viewscreen: DFCompound
 ---@field _kind 'class-type'
@@ -80,7 +77,6 @@ df.viewscreen = {}
 ---@field flag integer
 ---@field shutdown_interface_tickcount number
 ---@field shutdown_interface_for_ms number
-local interfacest
 
 ---@class _interfacest: DFCompound
 ---@field _kind 'struct-type'
@@ -97,7 +93,6 @@ df.interfacest = {}
 ---@field print_ey number
 ---@field scroller_sy number
 ---@field scroller_ey number
-local scrollbarst
 
 ---@class _scrollbarst: DFCompound
 ---@field _kind 'struct-type'
@@ -110,7 +105,6 @@ df.scrollbarst = {}
 ---@field y1 number
 ---@field x2 number
 ---@field y2 number
-local extentst
 
 ---@class _extentst: DFCompound
 ---@field _kind 'struct-type'
@@ -135,7 +129,6 @@ df.extentst = {}
 ---@field tooltip_type widget.T_tooltip_type
 ---@field displaying_tooltip boolean
 ---@field search_string string
-local widget
 
 ---@class _widget: DFCompound
 ---@field _kind 'class-type'
@@ -197,7 +190,6 @@ df.widget.T_tooltip_type = {}
 ---@field bg number
 ---@field bright boolean
 ---@field flag integer
-local widget_character
 
 ---@class _widget_character: DFCompound
 ---@field _kind 'class-type'
@@ -213,7 +205,6 @@ df.widget_character = {}
 ---@field just justification
 ---@field space number
 ---@field flag integer
-local widget_text
 
 ---@class _widget_text: DFCompound
 ---@field _kind 'class-type'
@@ -224,7 +215,6 @@ df.widget_text = {}
 ---@field _type _text_truncated
 ---@field original_str string
 ---@field truncate_mode_flags number
-local text_truncated
 
 ---@class _text_truncated: DFCompound
 ---@field _kind 'class-type'
@@ -233,7 +223,6 @@ df.text_truncated = {}
 ---@class (exact) widget_text_multiline: DFObject, widget_text
 ---@field _kind 'struct'
 ---@field _type _widget_text_multiline
-local widget_text_multiline
 
 ---@class _widget_text_multiline: DFCompound
 ---@field _kind 'class-type'
@@ -298,7 +287,6 @@ df.override_tile_type = {}
 ---@field _kind 'struct'
 ---@field _type _widget_nineslice
 ---@field flag override_tile_type
-local widget_nineslice
 
 ---@class _widget_nineslice: DFCompound
 ---@field _kind 'class-type'
@@ -307,7 +295,6 @@ df.widget_nineslice = {}
 ---@class (exact) widget_nineslice_horizontal: DFObject, widget_nineslice
 ---@field _kind 'struct'
 ---@field _type _widget_nineslice_horizontal
-local widget_nineslice_horizontal
 
 ---@class _widget_nineslice_horizontal: DFCompound
 ---@field _kind 'class-type'
@@ -320,7 +307,6 @@ df.widget_nineslice_horizontal = {}
 ---@field offset_x long
 ---@field offset_y long
 ---@field use_color boolean
-local widget_anchored_tile
 
 ---@class _widget_anchored_tile: DFCompound
 ---@field _kind 'class-type'
@@ -330,7 +316,6 @@ df.widget_anchored_tile = {}
 ---@field _kind 'struct'
 ---@field _type _widget_keybinding_display
 ---@field binding number
-local widget_keybinding_display
 
 ---@class _widget_keybinding_display: DFCompound
 ---@field _kind 'class-type'
@@ -339,7 +324,6 @@ df.widget_keybinding_display = {}
 ---@class (exact) widget_graphics_switcher: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_graphics_switcher
-local widget_graphics_switcher
 
 ---@class _widget_graphics_switcher: DFCompound
 ---@field _kind 'class-type'
@@ -351,7 +335,6 @@ df.widget_graphics_switcher = {}
 ---@field selection number
 ---@field last_displayheight number
 ---@field bleached boolean
-local widget_menu
 
 ---@class _widget_menu: DFCompound
 ---@field _kind 'class-type'
@@ -382,7 +365,6 @@ df.textbox_type = {}
 ---@field bright number
 ---@field maxlen number
 ---@field textbox_type textbox_type
-local widget_textbox
 
 ---@class _widget_textbox: DFCompound
 ---@field _kind 'class-type'
@@ -393,7 +375,6 @@ df.widget_textbox = {}
 ---@field _type _widget_dropdown
 ---@field cur_selected integer
 ---@field open boolean
-local widget_dropdown
 
 ---@class _widget_dropdown: DFCompound
 ---@field _kind 'class-type'
@@ -404,7 +385,6 @@ df.widget_dropdown = {}
 ---@field _type _widget_folder
 ---@field open widget
 ---@field last_visible boolean
-local widget_folder
 
 ---@class _widget_folder: DFCompound
 ---@field _kind 'class-type'
@@ -413,7 +393,6 @@ df.widget_folder = {}
 ---@class (exact) filter_entry: DFObject
 ---@field _kind 'struct'
 ---@field _type _filter_entry
-local filter_entry
 
 ---@class _filter_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -424,7 +403,6 @@ df.filter_entry = {}
 ---@field _type _widget_filter
 ---@field all_filter filter_entry
 ---@field filter_idx number
-local widget_filter
 
 ---@class _widget_filter: DFCompound
 ---@field _kind 'class-type'
@@ -433,7 +411,6 @@ df.widget_filter = {}
 ---@class (exact) indiv_filter: DFObject, widget_filter
 ---@field _kind 'struct'
 ---@field _type _indiv_filter
-local indiv_filter
 
 ---@class _indiv_filter: DFCompound
 ---@field _kind 'class-type'
@@ -442,7 +419,6 @@ df.indiv_filter = {}
 ---@class (exact) multifilter: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _multifilter
-local multifilter
 
 ---@class _multifilter: DFCompound
 ---@field _kind 'class-type'
@@ -452,7 +428,6 @@ df.multifilter = {}
 ---@field _kind 'struct'
 ---@field _type _widget_interface_main_button
 ---@field which_button number
-local widget_interface_main_button
 
 ---@class _widget_interface_main_button: DFCompound
 ---@field _kind 'class-type'
@@ -462,7 +437,6 @@ df.widget_interface_main_button = {}
 ---@field _kind 'struct'
 ---@field _type _widget_interface_small_button
 ---@field which_button number
-local widget_interface_small_button
 
 ---@class _widget_interface_small_button: DFCompound
 ---@field _kind 'class-type'
@@ -472,7 +446,6 @@ df.widget_interface_small_button = {}
 ---@field _kind 'struct'
 ---@field _type _widget_interface_pets_livestock_button
 ---@field which_button number
-local widget_interface_pets_livestock_button
 
 ---@class _widget_interface_pets_livestock_button: DFCompound
 ---@field _kind 'class-type'
@@ -481,7 +454,6 @@ df.widget_interface_pets_livestock_button = {}
 ---@class (exact) widget_better_button: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_better_button
-local widget_better_button
 
 ---@class _widget_better_button: DFCompound
 ---@field _kind 'class-type'
@@ -490,7 +462,6 @@ df.widget_better_button = {}
 ---@class (exact) widget_container: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_container
-local widget_container
 
 ---@class _widget_container: DFCompound
 ---@field _kind 'class-type'
@@ -500,7 +471,6 @@ df.widget_container = {}
 ---@field _kind 'struct'
 ---@field _type _widget_stack
 ---@field do_pop boolean
-local widget_stack
 
 ---@class _widget_stack: DFCompound
 ---@field _kind 'class-type'
@@ -510,7 +480,6 @@ df.widget_stack = {}
 ---@field _kind 'struct'
 ---@field _type _widget_rows_container
 ---@field padding number
-local widget_rows_container
 
 ---@class _widget_rows_container: DFCompound
 ---@field _kind 'class-type'
@@ -520,7 +489,6 @@ df.widget_rows_container = {}
 ---@field _kind 'struct'
 ---@field _type _widget_columns_container
 ---@field padding number
-local widget_columns_container
 
 ---@class _widget_columns_container: DFCompound
 ---@field _kind 'class-type'
@@ -531,7 +499,6 @@ df.widget_columns_container = {}
 ---@field _type _widget_tabs
 ---@field cur_idx integer
 ---@field tab_type widget_tabs.T_tab_type
-local widget_tabs
 
 ---@class _widget_tabs: DFCompound
 ---@field _kind 'class-type'
@@ -561,7 +528,6 @@ df.widget_tabs.T_tab_type = {}
 ---@field num_visible number
 ---@field scrolling boolean
 ---@field scrollbar scrollbarst
-local widget_scroll_rows
 
 ---@class _widget_scroll_rows: DFCompound
 ---@field _kind 'class-type'
@@ -572,7 +538,6 @@ df.widget_scroll_rows = {}
 ---@field _type _widget_radio_rows
 ---@field selected_idx number
 ---@field rows widget_scroll_rows
-local widget_radio_rows
 
 ---@class _widget_radio_rows: DFCompound
 ---@field _kind 'class-type'
@@ -584,7 +549,6 @@ df.widget_radio_rows = {}
 ---@field key_row number
 ---@field key_col number
 ---@field keyboard_controlled boolean
-local widget_table
 
 ---@class _widget_table: DFCompound
 ---@field _kind 'class-type'
@@ -593,7 +557,6 @@ df.widget_table = {}
 ---@class (exact) widget_params_container: DFObject, widget_container
 ---@field _kind 'struct'
 ---@field _type _widget_params_container
-local widget_params_container
 
 ---@class _widget_params_container: DFCompound
 ---@field _kind 'class-type'
@@ -607,7 +570,6 @@ df.widget_params_container = {}
 ---@field uac number
 ---@field pause_on_new boolean
 ---@field last_length integer
-local widget_report_popup
 
 ---@class _widget_report_popup: DFCompound
 ---@field _kind 'class-type'
@@ -619,7 +581,6 @@ df.widget_report_popup = {}
 ---@field x number
 ---@field y number
 ---@field z number
-local widget_recenter_button
 
 ---@class _widget_recenter_button: DFCompound
 ---@field _kind 'class-type'
@@ -628,7 +589,6 @@ df.widget_recenter_button = {}
 ---@class (exact) widget_sheet_button: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_sheet_button
-local widget_sheet_button
 
 ---@class _widget_sheet_button: DFCompound
 ---@field _kind 'class-type'
@@ -638,7 +598,6 @@ df.widget_sheet_button = {}
 ---@field _kind 'struct'
 ---@field _type _widget_unit_sheet_button
 ---@field unid number
-local widget_unit_sheet_button
 
 ---@class _widget_unit_sheet_button: DFCompound
 ---@field _kind 'class-type'
@@ -648,7 +607,6 @@ df.widget_unit_sheet_button = {}
 ---@field _kind 'struct'
 ---@field _type _widget_item_sheet_button
 ---@field itid number
-local widget_item_sheet_button
 
 ---@class _widget_item_sheet_button: DFCompound
 ---@field _kind 'class-type'
@@ -658,7 +616,6 @@ df.widget_item_sheet_button = {}
 ---@field _kind 'struct'
 ---@field _type _widget_job_details_button
 ---@field context number
-local widget_job_details_button
 
 ---@class _widget_job_details_button: DFCompound
 ---@field _kind 'class-type'
@@ -773,7 +730,6 @@ df.unit_list_sort_flag = {}
 ---@class (exact) widget_unit_portrait: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_unit_portrait
-local widget_unit_portrait
 
 ---@class _widget_unit_portrait: DFCompound
 ---@field _kind 'class-type'
@@ -784,7 +740,6 @@ df.widget_unit_portrait = {}
 ---@field _type _widget_creature_portrait
 ---@field race number
 ---@field ccaste number
-local widget_creature_portrait
 
 ---@class _widget_creature_portrait: DFCompound
 ---@field _kind 'class-type'
@@ -793,7 +748,6 @@ df.widget_creature_portrait = {}
 ---@class (exact) widget_item_portrait: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_item_portrait
-local widget_item_portrait
 
 ---@class _widget_item_portrait: DFCompound
 ---@field _kind 'class-type'
@@ -805,7 +759,6 @@ df.widget_item_portrait = {}
 ---@field show_gender boolean
 ---@field show_profession boolean
 ---@field one_line_only boolean
-local widget_unit_name
 
 ---@class _widget_unit_name: DFCompound
 ---@field _kind 'class-type'
@@ -814,7 +767,6 @@ df.widget_unit_name = {}
 ---@class (exact) widget_item_name: DFObject, widget
 ---@field _kind 'struct'
 ---@field _type _widget_item_name
-local widget_item_name
 
 ---@class _widget_item_name: DFCompound
 ---@field _kind 'class-type'
@@ -824,7 +776,6 @@ df.widget_item_name = {}
 ---@field _kind 'struct'
 ---@field _type _sort_entry
 ---@field ident string
-local sort_entry
 
 ---@class _sort_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -833,7 +784,6 @@ df.sort_entry = {}
 ---@class (exact) item_or_unit: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_or_unit
-local item_or_unit
 
 ---@class _item_or_unit: DFCompound
 ---@field _kind 'struct-type'
@@ -848,7 +798,6 @@ df.item_or_unit = {}
 ---@field skill_type unit_list_options
 ---@field mtx stl-mutex
 ---@field filter_str string
-local widget_unit_list
 
 ---@class _widget_unit_list: DFCompound
 ---@field _kind 'class-type'
@@ -859,7 +808,6 @@ df.widget_unit_list = {}
 ---@field _kind 'struct'
 ---@field _type _widget_sort_widget
 ---@field display_text boolean
-local widget_sort_widget
 
 ---@class _widget_sort_widget: DFCompound
 ---@field _kind 'class-type'
@@ -869,7 +817,6 @@ df.widget_sort_widget = {}
 ---@class (exact) widget_unit_sort_widget: DFObject, widget_sort_widget
 ---@field _kind 'struct'
 ---@field _type _widget_unit_sort_widget
-local widget_unit_sort_widget
 
 ---@class _widget_unit_sort_widget: DFCompound
 ---@field _kind 'class-type'
@@ -881,7 +828,6 @@ df.widget_unit_sort_widget = {}
 ---@field menu widget_menu
 ---@field width number
 ---@field height number
-local MacroScreenLoad
 
 ---@class _MacroScreenLoad: DFCompound
 ---@field _kind 'class-type'
@@ -891,7 +837,6 @@ df.MacroScreenLoad = {}
 ---@field _kind 'struct'
 ---@field _type _MacroScreenSave
 ---@field id widget_textbox
-local MacroScreenSave
 
 ---@class _MacroScreenSave: DFCompound
 ---@field _kind 'class-type'
@@ -910,7 +855,6 @@ df.MacroScreenSave = {}
 ---@field season_count number
 ---@field forts_played number
 ---@field advs_played number
-local shared_world_headerst
 
 ---@class _shared_world_headerst: DFCompound
 ---@field _kind 'struct-type'
@@ -944,7 +888,6 @@ df.shared_world_headerst.T_save_type = {}
 ---@field last_id region_headerst.T_last_id
 ---@field world_header shared_world_headerst
 ---@field filename_noext string
-local region_headerst
 
 ---@class _region_headerst: DFCompound
 ---@field _kind 'struct-type'
@@ -991,7 +934,6 @@ df.region_headerst = {}
 ---@field belief_system number
 ---@field image_set number
 ---@field divination_set number
-local region_headerst_last_id
 
 ---@class _region_headerst.T_last_id: DFCompound
 ---@field _kind 'struct-type'
@@ -1006,7 +948,6 @@ df.region_headerst.T_last_id = {}
 ---@field cur_save region_headerst
 ---@field rod region_object_datast
 ---@field progress number 0..35
-local viewscreen_adopt_regionst
 
 ---@class _viewscreen_adopt_regionst: DFCompound
 ---@field _kind 'class-type'
@@ -1205,7 +1146,6 @@ df.embark_finder_option = {}
 ---@field reclaim_idx number
 ---@field embark_pos_min coord2d
 ---@field embark_pos_max coord2d
-local embark_location
 
 ---@class _embark_location: DFCompound
 ---@field _kind 'struct-type'
@@ -1278,7 +1218,6 @@ df.embark_location = {}
 ---@field notes_sym_select_2 number
 ---@field notes_sym_select_3 number
 ---@field notes_selected_note number
-local viewscreen_choose_start_sitest
 
 ---@class _viewscreen_choose_start_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -1442,7 +1381,6 @@ df.viewscreen_choose_start_sitest.T_find_results = {}
 ---@field details mission.T_details
 ---@field type mission.T_type
 ---@field unk_25 number
-local mission
 
 ---@class _mission: DFCompound
 ---@field _kind 'struct-type'
@@ -1451,7 +1389,6 @@ df.mission = {}
 ---@class (exact) mission.T_details: DFObject
 ---@field _kind 'struct'
 ---@field _type _mission.T_details
-local mission_details
 
 ---@class _mission.T_details: DFCompound
 ---@field _kind 'struct-type'
@@ -1485,7 +1422,6 @@ df.mission.T_type = {}
 ---@field trained_animal_idx number
 ---@field number_assigned_hunt number
 ---@field number_assigned_war number for current unit
-local viewscreen_dwarfmodest
 
 ---@class _viewscreen_dwarfmodest: DFCompound
 ---@field _kind 'class-type'
@@ -1501,7 +1437,6 @@ df.viewscreen_dwarfmodest = {}
 ---@field compressor file_compressorst
 ---@field folder_name string
 ---@field timeline_name string
-local viewscreen_export_regionst
 
 ---@class _viewscreen_export_regionst: DFCompound
 ---@field _kind 'class-type'
@@ -1634,7 +1569,6 @@ df.viewscreen_export_regionst.T_state = {}
 ---@field _type _viewscreen_export_regionst.T_units_progress
 ---@field current_save_file_id number
 ---@field offloaded_units number
-local viewscreen_export_regionst_units_progress
 
 ---@class _viewscreen_export_regionst.T_units_progress: DFCompound
 ---@field _kind 'struct-type'
@@ -1644,7 +1578,6 @@ df.viewscreen_export_regionst.T_units_progress = {}
 ---@field _kind 'struct'
 ---@field _type _viewscreen_game_cleanerst
 ---@field state viewscreen_game_cleanerst.T_state
-local viewscreen_game_cleanerst
 
 ---@class _viewscreen_game_cleanerst: DFCompound
 ---@field _kind 'class-type'
@@ -1670,7 +1603,6 @@ df.viewscreen_game_cleanerst.T_state = {}
 ---@field render_count number
 ---@field logic_step number
 ---@field unk_90 stl-future
-local viewscreen_initial_prepst
 
 ---@class _viewscreen_initial_prepst: DFCompound
 ---@field _kind 'class-type'
@@ -1680,7 +1612,6 @@ df.viewscreen_initial_prepst = {}
 ---@field _kind 'struct'
 ---@field _type _world_gen_param_basest
 ---@field text string
-local world_gen_param_basest
 
 ---@class _world_gen_param_basest: DFCompound
 ---@field _kind 'class-type'
@@ -1689,7 +1620,6 @@ df.world_gen_param_basest = {}
 ---@class (exact) world_gen_param_seedst: DFObject, world_gen_param_basest
 ---@field _kind 'struct'
 ---@field _type _world_gen_param_seedst
-local world_gen_param_seedst
 
 ---@class _world_gen_param_seedst: DFCompound
 ---@field _kind 'class-type'
@@ -1700,7 +1630,6 @@ df.world_gen_param_seedst = {}
 ---@field _type _world_gen_param_valuest
 ---@field null_text string
 ---@field can_be_nullified boolean
-local world_gen_param_valuest
 
 ---@class _world_gen_param_valuest: DFCompound
 ---@field _kind 'class-type'
@@ -1713,7 +1642,6 @@ df.world_gen_param_valuest = {}
 ---@field max number
 ---@field null_value number
 ---@field can_toggle boolean
-local world_gen_param_charst
 
 ---@class _world_gen_param_charst: DFCompound
 ---@field _kind 'class-type'
@@ -1726,7 +1654,6 @@ df.world_gen_param_charst = {}
 ---@field max number
 ---@field null_value number
 ---@field does_have_min_max boolean
-local world_gen_param_memberst
 
 ---@class _world_gen_param_memberst: DFCompound
 ---@field _kind 'class-type'
@@ -1736,7 +1663,6 @@ df.world_gen_param_memberst = {}
 ---@field _kind 'struct'
 ---@field _type _world_gen_param_flagst
 ---@field bit integer
-local world_gen_param_flagst
 
 ---@class _world_gen_param_flagst: DFCompound
 ---@field _kind 'class-type'
@@ -1746,7 +1672,6 @@ df.world_gen_param_flagst = {}
 ---@field _kind 'struct'
 ---@field _type _world_gen_param_flagarrayst
 ---@field flag number
-local world_gen_param_flagarrayst
 
 ---@class _world_gen_param_flagarrayst: DFCompound
 ---@field _kind 'class-type'
@@ -1765,7 +1690,6 @@ df.world_gen_param_flagarrayst = {}
 ---@field scrolling_text boolean
 ---@field filter_str string
 ---@field entering_filter boolean
-local legend_pagest
 
 ---@class _legend_pagest: DFCompound
 ---@field _kind 'struct-type'
@@ -1842,7 +1766,6 @@ df.legend_pagest.T_mode = {}
 ---@field page_scroll number
 ---@field unk_338 stl-future
 ---@field unk_348 number
-local viewscreen_legendsst
 
 ---@class _viewscreen_legendsst: DFCompound
 ---@field _kind 'class-type'
@@ -1898,7 +1821,6 @@ df.viewscreen_legendsst = {}
 ---@field year number
 ---@field world_header shared_world_headerst
 ---@field filename_noext string
-local savegame_headerst
 
 ---@class _savegame_headerst: DFCompound
 ---@field _kind 'struct-type'
@@ -1923,7 +1845,6 @@ df.savegame_headerst = {}
 ---@field end_interaction_number number
 ---@field start_language_translation_number number
 ---@field end_language_translation_number number
-local random_object_batchst
 
 ---@class _random_object_batchst: DFCompound
 ---@field _kind 'struct-type'
@@ -1932,7 +1853,6 @@ df.random_object_batchst = {}
 ---@class (exact) region_object_datast: DFObject
 ---@field _kind 'struct'
 ---@field _type _region_object_datast
-local region_object_datast
 
 ---@class _region_object_datast: DFCompound
 ---@field _kind 'struct-type'
@@ -1947,7 +1867,6 @@ df.region_object_datast = {}
 ---@field rod region_object_datast
 ---@field save_version number
 ---@field cur_save savegame_headerst
-local viewscreen_loadgamest
 
 ---@class _viewscreen_loadgamest: DFCompound
 ---@field _kind 'class-type'
@@ -2212,7 +2131,6 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field show_embark_tunnel number
 ---@field pole number
 ---@field unk_1 boolean
-local worldgen_parms
 
 ---@class _worldgen_parms: DFCompound
 ---@field _kind 'struct-type'
@@ -2223,7 +2141,6 @@ df.worldgen_parms = {}
 ---@field _type _worldgen_parms_ps
 ---@field width number
 ---@field height number
-local worldgen_parms_ps
 
 ---@class _worldgen_parms_ps: DFCompound
 ---@field _kind 'struct-type'
@@ -2284,7 +2201,6 @@ df.worldgen_parms_ps = {}
 ---@field last_hover_mod_id string
 ---@field last_hover_mod_version number
 ---@field last_hover_width number
-local viewscreen_new_regionst
 
 ---@class _viewscreen_new_regionst: DFCompound
 ---@field _kind 'class-type'
@@ -2295,7 +2211,6 @@ df.viewscreen_new_regionst = {}
 ---@field _type _nemesis_offload
 ---@field cur_unit_chunk_num number
 ---@field units_offloaded number
-local nemesis_offload
 
 ---@class _nemesis_offload: DFCompound
 ---@field _kind 'struct-type'
@@ -2309,7 +2224,6 @@ df.nemesis_offload = {}
 ---@field progress number
 ---@field offload nemesis_offload
 ---@field compressor file_compressorst
-local viewscreen_savegamest
 
 ---@class _viewscreen_savegamest: DFCompound
 ---@field _kind 'class-type'
@@ -2509,7 +2423,6 @@ df.adventurer_attribute_level = {}
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field type number
-local startup_charactersheet_petst
 
 ---@class _startup_charactersheet_petst: DFCompound
 ---@field _kind 'struct-type'
@@ -2586,7 +2499,6 @@ df.adv_background_option_type = {}
 ---@field selected_pet_l number
 ---@field selected_pet_r number
 ---@field pet_side number
-local setup_character_info
 
 ---@class _setup_character_info: DFCompound
 ---@field _kind 'struct-type'
@@ -2653,7 +2565,6 @@ df.setup_character_info.T_sub_mode = {}
 ---@class (exact) embark_item_choice: DFObject
 ---@field _kind 'struct'
 ---@field _type _embark_item_choice
-local embark_item_choice
 
 ---@class _embark_item_choice: DFCompound
 ---@field _kind 'struct-type'
@@ -2663,7 +2574,6 @@ df.embark_item_choice = {}
 ---@field _kind 'struct'
 ---@field _type _embark_profile
 ---@field name string
-local embark_profile
 
 ---@class _embark_profile: DFCompound
 ---@field _kind 'struct-type'
@@ -2675,7 +2585,6 @@ df.embark_profile = {}
 ---@field unk_v43_3 number
 ---@field unk_v43_4 language_name
 ---@field unk_v43_sub9 embark_symbol.T_unk_v43_sub9
-local embark_symbol
 
 ---@class _embark_symbol: DFCompound
 ---@field _kind 'struct-type'
@@ -2690,7 +2599,6 @@ df.embark_symbol = {}
 ---@field unk_s4 number
 ---@field unk_s5 number
 ---@field unk_s6 number
-local embark_symbol_unk_v43_sub9
 
 ---@class _embark_symbol.T_unk_v43_sub9: DFCompound
 ---@field _kind 'struct-type'
@@ -2755,7 +2663,6 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@field add_mattype number References: `material`
 ---@field add_matindex number
 ---@field adding_item number
-local viewscreen_setupdwarfgamest
 
 ---@class _viewscreen_setupdwarfgamest: DFCompound
 ---@field _kind 'class-type'
@@ -2764,7 +2671,6 @@ df.viewscreen_setupdwarfgamest = {}
 ---@class (exact) viewscreen_choose_game_typest: DFObject, viewscreen
 ---@field _kind 'struct'
 ---@field _type _viewscreen_choose_game_typest
-local viewscreen_choose_game_typest
 
 ---@class _viewscreen_choose_game_typest: DFCompound
 ---@field _kind 'class-type'
@@ -2826,7 +2732,6 @@ df.save_game_sort_type = {}
 ---@field scrolling_about boolean
 ---@field cur_sort save_game_sort_type
 ---@field sort_ascending boolean
-local viewscreen_titlest
 
 ---@class _viewscreen_titlest: DFCompound
 ---@field _kind 'class-type'
@@ -2837,7 +2742,6 @@ df.viewscreen_titlest = {}
 ---@field _type _viewscreen_update_regionst
 ---@field year number
 ---@field year_tick number
-local viewscreen_update_regionst
 
 ---@class _viewscreen_update_regionst: DFCompound
 ---@field _kind 'class-type'
@@ -2929,7 +2833,6 @@ df.world_view_mode_type = {}
 ---@field scrolling_citizens boolean
 ---@field scroll_position_artifacts number
 ---@field scrolling_artifacts boolean
-local viewscreen_worldst
 
 ---@class _viewscreen_worldst: DFCompound
 ---@field _kind 'class-type'
@@ -2939,7 +2842,6 @@ df.viewscreen_worldst = {}
 ---@class (exact) viewscreen_worldst.T_rumor_rpd: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd
-local viewscreen_worldst_rumor_rpd
 
 ---@class _viewscreen_worldst.T_rumor_rpd: DFCompound
 ---@field _kind 'struct-type'
@@ -2949,7 +2851,6 @@ df.viewscreen_worldst.T_rumor_rpd = {}
 ---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
-local viewscreen_worldst_rumor_rpd_indicator_data
 
 ---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompound
 ---@field _kind 'struct-type'
@@ -2971,7 +2872,6 @@ df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
 ---@field unk_2c0 string
 ---@field unk_2e0 number
 ---@field unk_2e4 number
-local viewscreen_new_arenast
 
 ---@class _viewscreen_new_arenast: DFCompound
 ---@field _kind 'class-type'

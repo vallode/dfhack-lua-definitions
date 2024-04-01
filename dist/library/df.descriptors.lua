@@ -37,7 +37,6 @@ df.pattern_type = {}
 ---@field red number
 ---@field green number
 ---@field blue number
-local descriptor_color
 
 ---@class _descriptor_color: DFCompound
 ---@field _kind 'struct-type'
@@ -48,7 +47,6 @@ df.descriptor_color = {}
 function df.descriptor_color.find(key) end
 
 ---@class descriptor_color_vector: DFVector, { [integer]: descriptor_color }
-local descriptor_color_vector
 
 ---@return descriptor_color_vector # df.global.world.raws.descriptors.colors
 function df.descriptor_color.get_vector() end
@@ -62,7 +60,6 @@ function df.descriptor_color.get_vector() end
 ---@field gems_use descriptor_shape.T_gems_use
 ---@field faces number
 ---@field tile integer
-local descriptor_shape
 
 ---@class _descriptor_shape: DFCompound
 ---@field _kind 'struct-type'
@@ -73,7 +70,6 @@ df.descriptor_shape = {}
 function df.descriptor_shape.find(key) end
 
 ---@class descriptor_shape_vector: DFVector, { [integer]: descriptor_shape }
-local descriptor_shape_vector
 
 ---@return descriptor_shape_vector # df.global.world.raws.descriptors.shapes
 function df.descriptor_shape.get_vector() end
@@ -114,7 +110,6 @@ df.descriptor_shape.T_gems_use = {}
 ---@field _type _descriptor_pattern
 ---@field id string
 ---@field pattern pattern_type
-local descriptor_pattern
 
 ---@class _descriptor_pattern: DFCompound
 ---@field _kind 'struct-type'
@@ -125,7 +120,6 @@ df.descriptor_pattern = {}
 function df.descriptor_pattern.find(key) end
 
 ---@class descriptor_pattern_vector: DFVector, { [integer]: descriptor_pattern }
-local descriptor_pattern_vector
 
 ---@return descriptor_pattern_vector # df.global.world.raws.descriptors.patterns
 function df.descriptor_pattern.get_vector() end

@@ -6,7 +6,6 @@
 ---@field _type _entity_occasion_info
 ---@field next_occasion_id number
 ---@field count number number of elements used in array above
-local entity_occasion_info
 
 ---@class _entity_occasion_info: DFCompound
 ---@field _kind 'struct-type'
@@ -27,7 +26,6 @@ df.entity_occasion_info = {}
 ---@field event number References: `history_event`
 ---@field unk_4 number only seen with unk_3=2, but is usually not set
 ---@field unk_5 number only value seen
-local entity_occasion
 
 ---@class _entity_occasion: DFCompound
 ---@field _kind 'struct-type'
@@ -88,7 +86,6 @@ df.occasion_schedule_type = {}
 ---@field unk_3 number
 ---@field start_year_tick number
 ---@field end_year_tick number
-local entity_occasion_schedule
 
 ---@class _entity_occasion_schedule: DFCompound
 ---@field _kind 'struct-type'
@@ -149,7 +146,6 @@ df.occasion_schedule_feature = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local entity_occasion_schedule_feature
 
 ---@class _entity_occasion_schedule_feature: DFCompound
 ---@field _kind 'struct-type'
@@ -181,7 +177,6 @@ df.entity_occasion_schedule_feature = {}
 ---@field discovered_feature_layers number back in 40d, this counted HFS
 ---@field migrant_wave_idx number when >= 2, no migrants
 ---@field found_misc entity_activity_statistics.T_found_misc
-local entity_activity_statistics
 
 ---@class _entity_activity_statistics: DFCompound
 ---@field _kind 'struct-type'
@@ -197,7 +192,6 @@ df.entity_activity_statistics = {}
 ---@field seeds number
 ---@field plant number
 ---@field drink number
-local entity_activity_statistics_food
 
 ---@class _entity_activity_statistics.T_food: DFCompound
 ---@field _kind 'struct-type'
@@ -217,7 +211,6 @@ df.entity_activity_statistics.T_food = {}
 ---@field imported number
 ---@field unk_1 number
 ---@field exported number
-local entity_activity_statistics_wealth
 
 ---@class _entity_activity_statistics.T_wealth: DFCompound
 ---@field _kind 'struct-type'
@@ -259,7 +252,6 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field offer_value number bay12: offervalue_end
 ---@field mood number bay12: tolerance; reflects satisfaction with last trading session
 ---@field haggle_fail_count number
-local caravan_state
 
 ---@class _caravan_state: DFCompound
 ---@field _kind 'struct-type'
@@ -356,7 +348,6 @@ df.caravan_state.T_flags = {}
 ---@class (exact) entity_buy_prices: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_buy_prices
-local entity_buy_prices
 
 ---@class _entity_buy_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -365,7 +356,6 @@ df.entity_buy_prices = {}
 ---@class (exact) entity_buy_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_buy_requests
-local entity_buy_requests
 
 ---@class _entity_buy_requests: DFCompound
 ---@field _kind 'struct-type'
@@ -571,7 +561,6 @@ df.entity_sell_category = {}
 ---@class (exact) entity_sell_prices: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_sell_prices
-local entity_sell_prices
 
 ---@class _entity_sell_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -580,7 +569,6 @@ df.entity_sell_prices = {}
 ---@class (exact) entity_sell_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_sell_requests
-local entity_sell_requests
 
 ---@class _entity_sell_requests: DFCompound
 ---@field _kind 'struct-type'
@@ -590,7 +578,6 @@ df.entity_sell_requests = {}
 ---@field _kind 'struct'
 ---@field _type _entity_recipe
 ---@field subtype number References: `itemdef_foodst`
-local entity_recipe
 
 ---@class _entity_recipe: DFCompound
 ---@field _kind 'struct-type'
@@ -647,7 +634,6 @@ df.historical_entity_type = {}
 ---@field required_kills number
 ---@field required_battles number
 ---@field required_years_of_membership number
-local honors_type
 
 ---@class _honors_type: DFCompound
 ---@field _kind 'struct-type'
@@ -714,7 +700,6 @@ df.honors_type.T_required_skill_type = {}
 ---@field unk_year number seems to be current year or -1. Matches up with corresponding field of artifact_record
 ---@field unk_2 number only other value seen was 0
 ---@field unk_3 number uninitialized
-local artifact_claim
 
 ---@class _artifact_claim: DFCompound
 ---@field _kind 'struct-type'
@@ -727,7 +712,6 @@ df.artifact_claim = {}
 ---@field unk_v47_1 number seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled References: `historical_figure`
 ---@field unk_v47_2 number some enum?
 ---@field unk_v47_9 number
-local entity_unk_v47_1
 
 ---@class _entity_unk_v47_1: DFCompound
 ---@field _kind 'struct-type'
@@ -746,7 +730,6 @@ df.entity_unk_v47_1 = {}
 ---@field squad_id number
 ---@field squad_epp_id number
 ---@field wg_culture_reference_enid number
-local entity_pop_specifierst
 
 ---@class _entity_pop_specifierst: DFCompound
 ---@field _kind 'struct-type'
@@ -757,7 +740,6 @@ df.entity_pop_specifierst = {}
 ---@field _type _world_gen_entity_populationst
 ---@field num number
 ---@field pop_spec entity_pop_specifierst
-local world_gen_entity_populationst
 
 ---@class _world_gen_entity_populationst: DFCompound
 ---@field _kind 'struct-type'
@@ -767,7 +749,6 @@ df.world_gen_entity_populationst = {}
 ---@field _kind 'struct'
 ---@field _type _world_gen_wandering_groupst
 ---@field relocate_delay number
-local world_gen_wandering_groupst
 
 ---@class _world_gen_wandering_groupst: DFCompound
 ---@field _kind 'struct-type'
@@ -840,7 +821,6 @@ df.world_gen_wandering_groupst = {}
 ---@field account number
 ---@field total_outcast_strength number
 ---@field pool_id integer -- protected --
-local historical_entity
 
 ---@class _historical_entity: DFCompound
 ---@field _kind 'struct-type'
@@ -851,7 +831,6 @@ df.historical_entity = {}
 function df.historical_entity.find(key) end
 
 ---@class historical_entity_vector: DFVector, { [integer]: historical_entity }
-local historical_entity_vector
 
 ---@return historical_entity_vector # df.global.world.entities.all
 function df.historical_entity.get_vector() end
@@ -1045,7 +1024,6 @@ df.historical_entity.T_flags = {}
 ---@field unk15a number in 0.23, minimum temperature
 ---@field unk15b number in 0.23, maximum temperature
 ---@field unk_2 number
-local historical_entity_resources
 
 ---@class _historical_entity.T_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -1061,7 +1039,6 @@ df.historical_entity.T_resources = {}
 ---@field ammo2 material_vec_ref maybe intended for siege ammo
 ---@field armor material_vec_ref also instruments, toys, and tools
 ---@field anvil material_vec_ref
-local historical_entity_resources_metal
 
 ---@class _historical_entity.T_resources.T_metal: DFCompound
 ---@field _kind 'struct-type'
@@ -1076,7 +1053,6 @@ df.historical_entity.T_resources.T_metal = {}
 ---@field silk material_vec_ref
 ---@field wool material_vec_ref
 ---@field wood material_vec_ref
-local historical_entity_resources_organic
 
 ---@class _historical_entity.T_resources.T_organic: DFCompound
 ---@field _kind 'struct-type'
@@ -1090,7 +1066,6 @@ df.historical_entity.T_resources.T_organic = {}
 ---@field pearl material_vec_ref
 ---@field ivory material_vec_ref
 ---@field horn material_vec_ref
-local historical_entity_resources_refuse
 
 ---@class _historical_entity.T_resources.T_refuse: DFCompound
 ---@field _kind 'struct-type'
@@ -1117,7 +1092,6 @@ df.historical_entity.T_resources.T_refuse = {}
 ---@field powders material_vec_ref
 ---@field extracts material_vec_ref
 ---@field meat material_vec_ref
-local historical_entity_resources_misc_mat
 
 ---@class _historical_entity.T_resources.T_misc_mat: DFCompound
 ---@field _kind 'struct-type'
@@ -1128,7 +1102,6 @@ df.historical_entity.T_resources.T_misc_mat = {}
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_wood_products
 ---@field material material_vec_ref
-local historical_entity_resources_wood_products
 
 ---@class _historical_entity.T_resources.T_wood_products: DFCompound
 ---@field _kind 'struct-type'
@@ -1137,7 +1110,6 @@ df.historical_entity.T_resources.T_wood_products = {}
 ---@class (exact) historical_entity.T_resources.T_animals: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_animals
-local historical_entity_resources_animals
 
 ---@class _historical_entity.T_resources.T_animals: DFCompound
 ---@field _kind 'struct-type'
@@ -1147,7 +1119,6 @@ df.historical_entity.T_resources.T_animals = {}
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_relations
 ---@field unk33 number Non zero seen only on site governments (not all) and one nomadic group. Small values
-local historical_entity_relations
 
 ---@class _historical_entity.T_relations: DFCompound
 ---@field _kind 'struct-type'
@@ -1158,7 +1129,6 @@ df.historical_entity.T_relations = {}
 ---@field _type _historical_entity.T_positions
 ---@field next_position_id number
 ---@field next_assignment_id number
-local historical_entity_positions
 
 ---@class _historical_entity.T_positions: DFCompound
 ---@field _kind 'struct-type'
@@ -1168,7 +1138,6 @@ df.historical_entity.T_positions = {}
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_tissue_styles
 ---@field next_style_id number
-local historical_entity_tissue_styles
 
 ---@class _historical_entity.T_tissue_styles: DFCompound
 ---@field _kind 'struct-type'
@@ -1204,7 +1173,6 @@ df.historical_entity.T_conquered_site_group_flags = {}
 ---@field _type _historical_entity.T_derived_resources
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
-local historical_entity_derived_resources
 
 ---@class _historical_entity.T_derived_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -1216,7 +1184,6 @@ df.historical_entity.T_derived_resources = {}
 ---@field areas coord2d_path in world_data.entity_claims1
 ---@field unk1 coord2d_path
 ---@field border coord2d_path
-local historical_entity_claims
 
 ---@class _historical_entity.T_claims: DFCompound
 ---@field _kind 'struct-type'
@@ -1229,7 +1196,6 @@ df.historical_entity.T_claims = {}
 ---@field maintain_length_min number
 ---@field maintain_length_max number
 ---@field id number
-local entity_tissue_style
 
 ---@class _entity_tissue_style: DFCompound
 ---@field _kind 'struct-type'
@@ -1385,7 +1351,6 @@ df.entity_position_flags = {}
 ---@field mandate_max number
 ---@field demand_max number
 ---@field unk_2 number
-local entity_position
 
 ---@class _entity_position: DFCompound
 ---@field _kind 'struct-type'
@@ -1395,7 +1360,6 @@ df.entity_position = {}
 ---@field _kind 'struct'
 ---@field _type _entity_position_profile_claimst
 ---@field hfid number bay12: local_id is an alias
-local entity_position_profile_claimst
 
 ---@class _entity_position_profile_claimst: DFCompound
 ---@field _kind 'struct-type'
@@ -1415,7 +1379,6 @@ df.entity_position_profile_claimst = {}
 ---@field vassal_of_entity_id number
 ---@field vassal_of_position_profile_id number
 ---@field assigned_army_controller_id number unknown size, not initialized or saved
-local entity_position_assignment
 
 ---@class _entity_position_assignment: DFCompound
 ---@field _kind 'struct-type'
@@ -1540,7 +1503,6 @@ df.entity_material_category = {}
 ---@field mattype number References: `material`
 ---@field matindex number
 ---@field material_class entity_material_category
-local entity_uniform_item
 
 ---@class _entity_uniform_item: DFCompound
 ---@field _kind 'struct-type'
@@ -1553,7 +1515,6 @@ df.entity_uniform_item = {}
 ---@field unk_4 number
 ---@field name string
 ---@field flags uniform_flags
-local entity_uniform
 
 ---@class _entity_uniform: DFCompound
 ---@field _kind 'struct-type'
@@ -1676,7 +1637,6 @@ df.entity_event_type = {}
 ---@field year_tick number
 ---@field unk_1 number
 ---@field type entity_event_type
-local entity_event
 
 ---@class _entity_event: DFCompound
 ---@field _kind 'struct-type'
@@ -1719,7 +1679,6 @@ df.entity_event = {}
 ---@field artifact_not_in_feature_layer entity_event.T_data.T_artifact_not_in_feature_layer
 ---@field artifact_not_in_inventory entity_event.T_data.T_artifact_not_in_inventory
 ---@field artifact_destroyed entity_event.T_data.T_artifact_destroyed
-local entity_event_data
 
 ---@class _entity_event.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -1732,7 +1691,6 @@ df.entity_event.T_data = {}
 ---@field site_id number References: `world_site`
 ---@field unk_1 number can't find match. not defender hf/nemesis, for instance
 ---@field attack_leader_hf number References: `historical_figure`
-local entity_event_data_invasion
 
 ---@class _entity_event.T_data.T_invasion: DFCompound
 ---@field _kind 'struct-type'
@@ -1745,7 +1703,6 @@ df.entity_event.T_data.T_invasion = {}
 ---@field site_id number References: `world_site`
 ---@field abductor_id number References: `historical_figure`
 ---@field event number References: `history_event`
-local entity_event_data_abduction
 
 ---@class _entity_event.T_data.T_abduction: DFCompound
 ---@field _kind 'struct-type'
@@ -1756,7 +1713,6 @@ df.entity_event.T_data.T_abduction = {}
 ---@field _type _entity_event.T_data.T_incident
 ---@field unk_1 number
 ---@field incident_id number References: `incident`
-local entity_event_data_incident
 
 ---@class _entity_event.T_data.T_incident: DFCompound
 ---@field _kind 'struct-type'
@@ -1769,7 +1725,6 @@ df.entity_event.T_data.T_incident = {}
 ---@field entity_id number References: `historical_entity`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_occupation
 
 ---@class _entity_event.T_data.T_occupation: DFCompound
 ---@field _kind 'struct-type'
@@ -1781,7 +1736,6 @@ df.entity_event.T_data.T_occupation = {}
 ---@field histfig_id number References: `historical_figure`
 ---@field site_id number References: `world_site`
 ---@field region_id number References: `world_region`
-local entity_event_data_beast
 
 ---@class _entity_event.T_data.T_beast: DFCompound
 ---@field _kind 'struct-type'
@@ -1792,7 +1746,6 @@ df.entity_event.T_data.T_beast = {}
 ---@field _type _entity_event.T_data.T_group
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
-local entity_event_data_group
 
 ---@class _entity_event.T_data.T_group: DFCompound
 ---@field _kind 'struct-type'
@@ -1804,7 +1757,6 @@ df.entity_event.T_data.T_group = {}
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field unk_1 number
-local entity_event_data_harass
 
 ---@class _entity_event.T_data.T_harass: DFCompound
 ---@field _kind 'struct-type'
@@ -1817,7 +1769,6 @@ df.entity_event.T_data.T_harass = {}
 ---@field from_site_id number References: `world_site`
 ---@field army_entity_id number References: `historical_entity`
 ---@field army_leader_hf_id number References: `historical_figure`
-local entity_event_data_flee
 
 ---@class _entity_event.T_data.T_flee: DFCompound
 ---@field _kind 'struct-type'
@@ -1829,7 +1780,6 @@ df.entity_event.T_data.T_flee = {}
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field parent_entity_id number References: `historical_entity`
-local entity_event_data_abandon
 
 ---@class _entity_event.T_data.T_abandon: DFCompound
 ---@field _kind 'struct-type'
@@ -1842,7 +1792,6 @@ df.entity_event.T_data.T_abandon = {}
 ---@field site_id number References: `world_site`
 ---@field reclaimer_entity_id number References: `historical_entity`
 ---@field leader_hf number References: `historical_figure`
-local entity_event_data_reclaimed
 
 ---@class _entity_event.T_data.T_reclaimed: DFCompound
 ---@field _kind 'struct-type'
@@ -1855,7 +1804,6 @@ df.entity_event.T_data.T_reclaimed = {}
 ---@field site_id number References: `world_site`
 ---@field parent_entity_id number References: `historical_entity`
 ---@field unk_1 number
-local entity_event_data_founded
 
 ---@class _entity_event.T_data.T_founded: DFCompound
 ---@field _kind 'struct-type'
@@ -1868,7 +1816,6 @@ df.entity_event.T_data.T_founded = {}
 ---@field site_id number References: `world_site`
 ---@field unk_1 number
 ---@field first_settler_hf number strangely enough not expedition leader (settler #2), nor listed as member of site government References: `historical_figure`
-local entity_event_data_reclaiming
 
 ---@class _entity_event.T_data.T_reclaiming: DFCompound
 ---@field _kind 'struct-type'
@@ -1881,7 +1828,6 @@ df.entity_event.T_data.T_reclaiming = {}
 ---@field region_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_founding
 
 ---@class _entity_event.T_data.T_founding: DFCompound
 ---@field _kind 'struct-type'
@@ -1892,7 +1838,6 @@ df.entity_event.T_data.T_founding = {}
 ---@field _type _entity_event.T_data.T_leave
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
-local entity_event_data_leave
 
 ---@class _entity_event.T_data.T_leave: DFCompound
 ---@field _kind 'struct-type'
@@ -1903,7 +1848,6 @@ df.entity_event.T_data.T_leave = {}
 ---@field _type _entity_event.T_data.T_insurrection
 ---@field site_id number References: `world_site`
 ---@field entity_id number References: `historical_entity`
-local entity_event_data_insurrection
 
 ---@class _entity_event.T_data.T_insurrection: DFCompound
 ---@field _kind 'struct-type'
@@ -1915,7 +1859,6 @@ df.entity_event.T_data.T_insurrection = {}
 ---@field site_id number References: `world_site`
 ---@field entity_id number References: `historical_entity`
 ---@field result entity_event.T_data.T_insurrection_end.T_result
-local entity_event_data_insurrection_end
 
 ---@class _entity_event.T_data.T_insurrection_end: DFCompound
 ---@field _kind 'struct-type'
@@ -1942,7 +1885,6 @@ df.entity_event.T_data.T_insurrection_end.T_result = {}
 ---@field former_histfig_id number References: `historical_figure`
 ---@field entity_id number References: `historical_entity`
 ---@field position_assignment_id number
-local entity_event_data_succession
 
 ---@class _entity_event.T_data.T_succession: DFCompound
 ---@field _kind 'struct-type'
@@ -1954,7 +1896,6 @@ df.entity_event.T_data.T_succession = {}
 ---@field entity_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field histfig_id number References: `historical_figure`
-local entity_event_data_claim
 
 ---@class _entity_event.T_data.T_claim: DFCompound
 ---@field _kind 'struct-type'
@@ -1967,7 +1908,6 @@ df.entity_event.T_data.T_claim = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local entity_event_data_accept_tribute_offer
 
 ---@class _entity_event.T_data.T_accept_tribute_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -1980,7 +1920,6 @@ df.entity_event.T_data.T_accept_tribute_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local entity_event_data_refuse_tribute_offer
 
 ---@class _entity_event.T_data.T_refuse_tribute_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -1993,7 +1932,6 @@ df.entity_event.T_data.T_refuse_tribute_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local entity_event_data_accept_tribute_demand
 
 ---@class _entity_event.T_data.T_accept_tribute_demand: DFCompound
 ---@field _kind 'struct-type'
@@ -2006,7 +1944,6 @@ df.entity_event.T_data.T_accept_tribute_demand = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local entity_event_data_refuse_tribute_demand
 
 ---@class _entity_event.T_data.T_refuse_tribute_demand: DFCompound
 ---@field _kind 'struct-type'
@@ -2019,7 +1956,6 @@ df.entity_event.T_data.T_refuse_tribute_demand = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local entity_event_data_accept_peace_offer
 
 ---@class _entity_event.T_data.T_accept_peace_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -2032,7 +1968,6 @@ df.entity_event.T_data.T_accept_peace_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local entity_event_data_refuse_peace_offer
 
 ---@class _entity_event.T_data.T_refuse_peace_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -2045,7 +1980,6 @@ df.entity_event.T_data.T_refuse_peace_offer = {}
 ---@field histfig1_id number References: `historical_figure`
 ---@field entity2_id number References: `historical_entity`
 ---@field histfig2_id number References: `historical_figure`
-local entity_event_data_cease_tribute_offer
 
 ---@class _entity_event.T_data.T_cease_tribute_offer: DFCompound
 ---@field _kind 'struct-type'
@@ -2058,7 +1992,6 @@ df.entity_event.T_data.T_cease_tribute_offer = {}
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
 ---@field unk_1 number looks uninitialized
-local entity_event_data_artifact_in_site
 
 ---@class _entity_event.T_data.T_artifact_in_site: DFCompound
 ---@field _kind 'struct-type'
@@ -2071,7 +2004,6 @@ df.entity_event.T_data.T_artifact_in_site = {}
 ---@field subregion_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_artifact_in_subregion
 
 ---@class _entity_event.T_data.T_artifact_in_subregion: DFCompound
 ---@field _kind 'struct-type'
@@ -2084,7 +2016,6 @@ df.entity_event.T_data.T_artifact_in_subregion = {}
 ---@field feature_layer_id number References: `world_underground_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_artifact_in_feature_layer
 
 ---@class _entity_event.T_data.T_artifact_in_feature_layer: DFCompound
 ---@field _kind 'struct-type'
@@ -2097,7 +2028,6 @@ df.entity_event.T_data.T_artifact_in_feature_layer = {}
 ---@field hist_figure_id number References: `historical_figure`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_artifact_in_inventory
 
 ---@class _entity_event.T_data.T_artifact_in_inventory: DFCompound
 ---@field _kind 'struct-type'
@@ -2110,7 +2040,6 @@ df.entity_event.T_data.T_artifact_in_inventory = {}
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
 ---@field unk_1 number
-local entity_event_data_artifact_not_in_site
 
 ---@class _entity_event.T_data.T_artifact_not_in_site: DFCompound
 ---@field _kind 'struct-type'
@@ -2123,7 +2052,6 @@ df.entity_event.T_data.T_artifact_not_in_site = {}
 ---@field subregion_id number References: `world_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_artifact_not_in_subregion
 
 ---@class _entity_event.T_data.T_artifact_not_in_subregion: DFCompound
 ---@field _kind 'struct-type'
@@ -2136,7 +2064,6 @@ df.entity_event.T_data.T_artifact_not_in_subregion = {}
 ---@field feature_layer_id number References: `world_underground_region`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_artifact_not_in_feature_layer
 
 ---@class _entity_event.T_data.T_artifact_not_in_feature_layer: DFCompound
 ---@field _kind 'struct-type'
@@ -2149,7 +2076,6 @@ df.entity_event.T_data.T_artifact_not_in_feature_layer = {}
 ---@field hist_figure_id number References: `historical_figure`
 ---@field unk_1 number
 ---@field unk_2 number
-local entity_event_data_artifact_not_in_inventory
 
 ---@class _entity_event.T_data.T_artifact_not_in_inventory: DFCompound
 ---@field _kind 'struct-type'
@@ -2162,7 +2088,6 @@ df.entity_event.T_data.T_artifact_not_in_inventory = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local entity_event_data_artifact_destroyed
 
 ---@class _entity_event.T_data.T_artifact_destroyed: DFCompound
 ---@field _kind 'struct-type'
@@ -2177,7 +2102,6 @@ df.entity_event.T_data.T_artifact_destroyed = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field flags agreement.T_flags
-local agreement
 
 ---@class _agreement: DFCompound
 ---@field _kind 'struct-type'
@@ -2188,7 +2112,6 @@ df.agreement = {}
 function df.agreement.find(key) end
 
 ---@class agreement_vector: DFVector, { [integer]: agreement }
-local agreement_vector
 
 ---@return agreement_vector # df.global.world.agreements.all
 function df.agreement.get_vector() end
@@ -2222,7 +2145,6 @@ df.agreement.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _agreement_party
 ---@field id number
-local agreement_party
 
 ---@class _agreement_party: DFCompound
 ---@field _kind 'struct-type'
@@ -2328,7 +2250,6 @@ df.agreement_details_type = {}
 ---@field year_tick number
 ---@field data agreement_details.T_data
 ---@field type agreement_details_type
-local agreement_details
 
 ---@class _agreement_details: DFCompound
 ---@field _kind 'struct-type'
@@ -2337,7 +2258,6 @@ df.agreement_details = {}
 ---@class (exact) agreement_details.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _agreement_details.T_data
-local agreement_details_data
 
 ---@class _agreement_details.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -2354,7 +2274,6 @@ df.agreement_details.T_data = {}
 ---@field figure number this is a value_type when reason == sphere_alignment References: `historical_figure`
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
-local agreement_details_data_join_party
 
 ---@class _agreement_details_data_join_party: DFCompound
 ---@field _kind 'struct-type'
@@ -2369,7 +2288,6 @@ df.agreement_details_data_join_party = {}
 ---@field site number References: `world_site`
 ---@field artifact number References: `artifact_record`
 ---@field sphere sphere_type
-local agreement_details_data_demonic_binding
 
 ---@class _agreement_details_data_demonic_binding: DFCompound
 ---@field _kind 'struct-type'
@@ -2384,7 +2302,6 @@ df.agreement_details_data_demonic_binding = {}
 ---@field site number References: `world_site`
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
-local agreement_details_data_residency
 
 ---@class _agreement_details_data_residency: DFCompound
 ---@field _kind 'struct-type'
@@ -2398,7 +2315,6 @@ df.agreement_details_data_residency = {}
 ---@field site number References: `world_site`
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
-local agreement_details_data_citizenship
 
 ---@class _agreement_details_data_citizenship: DFCompound
 ---@field _kind 'struct-type'
@@ -2413,7 +2329,6 @@ df.agreement_details_data_citizenship = {}
 ---@field unk_v50_2 number
 ---@field unk_v50_3 number
 ---@field unk_v50_4 number
-local agreement_details_data_parley
 
 ---@class _agreement_details_data_parley: DFCompound
 ---@field _kind 'struct-type'
@@ -2428,7 +2343,6 @@ df.agreement_details_data_parley = {}
 ---@field intermediary_index number bay12: messenger_party_id; agreement.parties index
 ---@field target_id number bay12: related_enid References: `historical_entity`
 ---@field position_id number bay12: related_eppid; position index in the entity's Own entity_position vector
-local agreement_details_data_position_corruption
 
 ---@class _agreement_details_data_position_corruption: DFCompound
 ---@field _kind 'struct-type'
@@ -2441,7 +2355,6 @@ df.agreement_details_data_position_corruption = {}
 ---@field influencer_index number agreement.parties index
 ---@field intermediary_index number agreement.parties index
 ---@field artifact_id number References: `artifact_record`
-local agreement_details_data_plot_steal_artifact
 
 ---@class _agreement_details_data_plot_steal_artifact: DFCompound
 ---@field _kind 'struct-type'
@@ -2455,7 +2368,6 @@ df.agreement_details_data_plot_steal_artifact = {}
 ---@field promisee_index number agreement.parties index
 ---@field influencer_index number agreement.parties index. May be swapped with beneficiary
 ---@field entity_id number References: `historical_entity`
-local agreement_details_data_promise_position
 
 ---@class _agreement_details_data_promise_position: DFCompound
 ---@field _kind 'struct-type'
@@ -2468,7 +2380,6 @@ df.agreement_details_data_promise_position = {}
 ---@field influencer_index number agreement.parties index
 ---@field intermediary_index number agreement.parties index
 ---@field target_id number References: `historical_figure`
-local agreement_details_data_plot_assassination
 
 ---@class _agreement_details_data_plot_assassination: DFCompound
 ---@field _kind 'struct-type'
@@ -2481,7 +2392,6 @@ df.agreement_details_data_plot_assassination = {}
 ---@field intermediary_index number agreement.parties index
 ---@field target_id number References: `historical_figure`
 ---@field unk_v50_1 number
-local agreement_details_data_plot_abduct
 
 ---@class _agreement_details_data_plot_abduct: DFCompound
 ---@field _kind 'struct-type'
@@ -2496,7 +2406,6 @@ df.agreement_details_data_plot_abduct = {}
 ---@field victim_id number References: `historical_figure`
 ---@field unk_1 number
 ---@field unk_2 number
-local agreement_details_data_plot_sabotage
 
 ---@class _agreement_details_data_plot_sabotage: DFCompound
 ---@field _kind 'struct-type'
@@ -2506,7 +2415,6 @@ df.agreement_details_data_plot_sabotage = {}
 ---@field _kind 'struct'
 ---@field _type _agreement_details_data_plot_conviction
 ---@field crime crime_type
-local agreement_details_data_plot_conviction
 
 ---@class _agreement_details_data_plot_conviction: DFCompound
 ---@field _kind 'struct-type'
@@ -2524,7 +2432,6 @@ df.agreement_details_data_plot_conviction = {}
 ---@field profession profession
 ---@field tier number 1 = temple or guildhall, 2 = temple complex or grand guildhall; matches location_tier in abstract_building_contents
 ---@field unk_v50_1 number
-local agreement_details_data_location
 
 ---@class _agreement_details_data_location: DFCompound
 ---@field _kind 'struct-type'
@@ -2537,7 +2444,6 @@ df.agreement_details_data_location = {}
 ---@field influencer_index number agreement.parties index
 ---@field target number action=8: site id, 9: entity id
 ---@field action number 8 and 9 seen. Probably matches up with corresponding hist fig Infiltrate_Society action
-local agreement_details_data_plot_infiltration_coup
 
 ---@class _agreement_details_data_plot_infiltration_coup: DFCompound
 ---@field _kind 'struct-type'
@@ -2551,7 +2457,6 @@ df.agreement_details_data_plot_infiltration_coup = {}
 ---@field victim_id number References: `historical_figure`
 ---@field fool_id number References: `historical_figure`
 ---@field unk_1 number only same as fool_id seen, and so may be swapped. Guess it would be sentencer if different from fooled hf, though References: `historical_figure`
-local agreement_details_data_plot_frame_treason
 
 ---@class _agreement_details_data_plot_frame_treason: DFCompound
 ---@field _kind 'struct-type'
@@ -2564,7 +2469,6 @@ df.agreement_details_data_plot_frame_treason = {}
 ---@field influencer_index number agreement.parties index
 ---@field attacker number References: `historical_entity`
 ---@field defender number References: `historical_entity`
-local agreement_details_data_plot_induce_war
 
 ---@class _agreement_details_data_plot_induce_war: DFCompound
 ---@field _kind 'struct-type'

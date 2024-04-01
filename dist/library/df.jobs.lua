@@ -240,7 +240,6 @@ df.dfhack_material_category = {}
 ---@class (exact) job_list_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _job_list_link
-local job_list_link
 
 ---@class _job_list_link: DFCompound
 ---@field _kind 'struct-type'
@@ -405,7 +404,6 @@ df.job_subtype_surgery = {}
 ---@field spec_loc coord toady: spec_x/spec_y/spec_z
 ---@field art_spec job_art_specification
 ---@field order_id number References: `manager_order`
-local job
 
 ---@class _job: DFCompound
 ---@field _kind 'struct-type'
@@ -417,7 +415,6 @@ df.job = {}
 ---@field role job_item_ref.T_role
 ---@field is_fetching number 0 immediately once taken to be brought
 ---@field job_item_idx number
-local job_item_ref
 
 ---@class _job_item_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -1020,7 +1017,6 @@ df.job_item_flags3 = {}
 ---@field unk_v43_2 number
 ---@field unk_v43_3 number
 ---@field unk_v43_4 number
-local job_item
 
 ---@class _job_item: DFCompound
 ---@field _kind 'struct-type'
@@ -1058,7 +1054,6 @@ df.job_item = {}
 ---@field pos coord
 ---@field unk_v4305_1 number
 ---@field use_burrows boolean
-local job_item_filter
 
 ---@class _job_item_filter: DFCompound
 ---@field _kind 'struct-type'
@@ -1095,7 +1090,6 @@ df.manager_order_status = {}
 ---@field type job_art_specification.T_type
 ---@field id number
 ---@field subid number
-local job_art_specification
 
 ---@class _job_art_specification: DFCompound
 ---@field _kind 'struct-type'
@@ -1143,7 +1137,6 @@ df.job_art_specification.T_type = {}
 ---@field finished_year_tick number
 ---@field workshop_id number References: `building`
 ---@field max_workshops number 0 is unlimited
-local manager_order
 
 ---@class _manager_order: DFCompound
 ---@field _kind 'struct-type'
@@ -1189,7 +1182,6 @@ df.manager_order.T_frequency = {}
 ---@field min_dimension number
 ---@field reaction_id number References: `reaction`
 ---@field has_tool_use tool_uses
-local manager_order_condition_item
 
 ---@class _manager_order_condition_item: DFCompound
 ---@field _kind 'struct-type'
@@ -1224,7 +1216,6 @@ df.manager_order_condition_item.T_compare_type = {}
 ---@field order_id number References: `manager_order`
 ---@field condition manager_order_condition_order.T_condition
 ---@field unk_1 number
-local manager_order_condition_order
 
 ---@class _manager_order_condition_order: DFCompound
 ---@field _kind 'struct-type'
@@ -1258,7 +1249,6 @@ df.manager_order_condition_order.T_condition = {}
 ---@field name string
 ---@field compare_str string
 ---@field on boolean
-local manager_order_template
 
 ---@class _manager_order_template: DFCompound
 ---@field _kind 'struct-type'
@@ -1279,7 +1269,6 @@ df.manager_order_template = {}
 ---@field punishment mandate.T_punishment
 ---@field punish_multiple integer
 ---@field unk4 number
-local mandate
 
 ---@class _mandate: DFCompound
 ---@field _kind 'struct-type'
@@ -1305,7 +1294,6 @@ df.mandate.T_mode = {}
 ---@field hammerstrikes number
 ---@field prison_time number
 ---@field give_beating number
-local mandate_punishment
 
 ---@class _mandate.T_punishment: DFCompound
 ---@field _kind 'struct-type'
@@ -1317,7 +1305,6 @@ df.mandate.T_punishment = {}
 ---@field animal_id number References: `unit`
 ---@field trainer_id number References: `unit`
 ---@field flags training_assignment.T_flags
-local training_assignment
 
 ---@class _training_assignment: DFCompound
 ---@field _kind 'struct-type'
@@ -1328,7 +1315,6 @@ df.training_assignment = {}
 function df.training_assignment.find(key) end
 
 ---@class training_assignment_vector: DFVector, { [integer]: training_assignment }
-local training_assignment_vector
 
 ---@return training_assignment_vector # df.global.plotinfo.equipment.training_assignments
 function df.training_assignment.get_vector() end
@@ -1381,7 +1367,6 @@ df.training_assignment.T_flags = {}
 ---@field mat_index number
 ---@field timeout_counter number counts once per 10 frames
 ---@field timeout_limit number once counter passes limit, mandate ends
-local unit_demand
 
 ---@class _unit_demand: DFCompound
 ---@field _kind 'struct-type'
@@ -1835,7 +1820,6 @@ df.killjob_exception_type = {}
 ---@field reaction_index number
 ---@field tool_use tool_uses
 ---@field pos coord
-local killjob_exceptionst
 
 ---@class _killjob_exceptionst: DFCompound
 ---@field _kind 'struct-type'

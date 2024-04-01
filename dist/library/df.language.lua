@@ -569,7 +569,6 @@ df.sphere_type = {}
 ---@field word string
 ---@field adj_dist integer
 ---@field flags language_word_flags
-local language_word
 
 ---@class _language_word: DFCompound
 ---@field _kind 'struct-type'
@@ -580,7 +579,6 @@ df.language_word = {}
 function df.language_word.find(key) end
 
 ---@class language_word_vector: DFVector, { [integer]: language_word }
-local language_word_vector
 
 ---@return language_word_vector # df.global.world.raws.language.words
 function df.language_word.get_vector() end
@@ -590,7 +588,6 @@ function df.language_word.get_vector() end
 ---@field _type _language_translation
 ---@field name string
 ---@field flags number 1 = generated
-local language_translation
 
 ---@class _language_translation: DFCompound
 ---@field _kind 'struct-type'
@@ -601,7 +598,6 @@ df.language_translation = {}
 function df.language_translation.find(key) end
 
 ---@class language_translation_vector: DFVector, { [integer]: language_translation }
-local language_translation_vector
 
 ---@return language_translation_vector # df.global.world.raws.language.translations
 function df.language_translation.get_vector() end
@@ -611,7 +607,6 @@ function df.language_translation.get_vector() end
 ---@field _type _language_symbol
 ---@field name string
 ---@field flags number
-local language_symbol
 
 ---@class _language_symbol: DFCompound
 ---@field _kind 'struct-type'
@@ -622,7 +617,6 @@ df.language_symbol = {}
 function df.language_symbol.find(key) end
 
 ---@class language_symbol_vector: DFVector, { [integer]: language_symbol }
-local language_symbol_vector
 
 ---@return language_symbol_vector # df.global.world.raws.language.symbols
 function df.language_symbol.get_vector() end
@@ -635,7 +629,6 @@ function df.language_symbol.get_vector() end
 ---@field language number References: `language_translation`
 ---@field type language_name_type
 ---@field has_name boolean
-local language_name
 
 ---@class _language_name: DFCompound
 ---@field _kind 'struct-type'
@@ -645,7 +638,6 @@ df.language_name = {}
 ---@class (exact) language_word_table: DFObject
 ---@field _kind 'struct'
 ---@field _type _language_word_table
-local language_word_table
 
 ---@class _language_word_table: DFCompound
 ---@field _kind 'struct-type'

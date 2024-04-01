@@ -465,7 +465,6 @@ df.entity_name_type = {}
 ---@field banditry number
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
-local entity_raw
 
 ---@class _entity_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -476,7 +475,6 @@ df.entity_raw = {}
 function df.entity_raw.find(key) end
 
 ---@class entity_raw_vector: DFVector, { [integer]: entity_raw }
-local entity_raw_vector
 
 ---@return entity_raw_vector # df.global.world.raws.entities
 function df.entity_raw.get_vector() end
@@ -484,7 +482,6 @@ function df.entity_raw.get_vector() end
 ---@class (exact) entity_raw.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_equipment
-local entity_raw_equipment
 
 ---@class _entity_raw.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -493,7 +490,6 @@ df.entity_raw.T_equipment = {}
 ---@class (exact) entity_raw.T_symbols: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_symbols
-local entity_raw_symbols
 
 ---@class _entity_raw.T_symbols: DFCompound
 ---@field _kind 'struct-type'
@@ -508,7 +504,6 @@ df.entity_raw.T_symbols = {}
 ---@field pop_siege number
 ---@field prod_siege number
 ---@field trade_siege number
-local entity_raw_progress_trigger
 
 ---@class _entity_raw.T_progress_trigger: DFCompound
 ---@field _kind 'struct-type'
@@ -584,7 +579,6 @@ df.entity_raw.T_scholar = {}
 ---@class (exact) entity_raw.T_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_jobs
-local entity_raw_jobs
 
 ---@class _entity_raw.T_jobs: DFCompound
 ---@field _kind 'struct-type'
@@ -593,7 +587,6 @@ df.entity_raw.T_jobs = {}
 ---@class (exact) entity_raw.T_workshops: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_workshops
-local entity_raw_workshops
 
 ---@class _entity_raw.T_workshops: DFCompound
 ---@field _kind 'struct-type'
@@ -604,7 +597,6 @@ df.entity_raw.T_workshops = {}
 ---@field _type _entity_animal_raw
 ---@field token string
 ---@field flags entity_animal_raw.T_flags
-local entity_animal_raw
 
 ---@class _entity_animal_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -930,7 +922,6 @@ df.entity_position_responsibility = {}
 ---@field required_tomb number
 ---@field mandate_max number
 ---@field demand_max number
-local entity_position_raw
 
 ---@class _entity_position_raw: DFCompound
 ---@field _kind 'struct-type'

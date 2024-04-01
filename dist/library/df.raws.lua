@@ -5,7 +5,6 @@
 ---@field _kind 'struct'
 ---@field _type _creature_handler
 ---@field num_caste number seems equal to length of vectors below
-local creature_handler
 
 ---@class _creature_handler: DFCompound
 ---@field _kind 'class-type'
@@ -19,7 +18,6 @@ df.creature_handler = {}
 ---@field source_hfid number
 ---@field source_enid number
 ---@field sound number index of sound to be played
-local soundst
 
 ---@class _soundst: DFCompound
 ---@field _kind 'struct-type'
@@ -41,7 +39,6 @@ df.soundst = {}
 ---@field mat_table special_mat_table -- Material index
 ---@field syndromes world_raws.T_syndromes
 ---@field effects world_raws.T_effects
-local world_raws
 
 ---@class _world_raws: DFCompound
 ---@field _kind 'struct-type'
@@ -51,7 +48,6 @@ df.world_raws = {}
 ---@class (exact) world_raws.T_plants: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_plants
-local world_raws_plants
 
 ---@class _world_raws.T_plants: DFCompound
 ---@field _kind 'struct-type'
@@ -61,7 +57,6 @@ df.world_raws.T_plants = {}
 ---@class (exact) world_raws.T_itemdefs: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_itemdefs
-local world_raws_itemdefs
 
 ---@class _world_raws.T_itemdefs: DFCompound
 ---@field _kind 'struct-type'
@@ -71,7 +66,6 @@ df.world_raws.T_itemdefs = {}
 ---@class (exact) world_raws.T_language: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_language
-local world_raws_language
 
 ---@class _world_raws.T_language: DFCompound
 ---@field _kind 'struct-type'
@@ -81,7 +75,6 @@ df.world_raws.T_language = {}
 ---@class (exact) world_raws.T_descriptors: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_descriptors
-local world_raws_descriptors
 
 ---@class _world_raws.T_descriptors: DFCompound
 ---@field _kind 'struct-type'
@@ -91,7 +84,6 @@ df.world_raws.T_descriptors = {}
 ---@class (exact) world_raws.T_reactions: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_reactions
-local world_raws_reactions
 
 ---@class _world_raws.T_reactions: DFCompound
 ---@field _kind 'struct-type'
@@ -102,7 +94,6 @@ df.world_raws.T_reactions = {}
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_buildings
 ---@field next_id number
-local world_raws_buildings
 
 ---@class _world_raws.T_buildings: DFCompound
 ---@field _kind 'struct-type'
@@ -112,7 +103,6 @@ df.world_raws.T_buildings = {}
 ---@class (exact) world_raws.T_text_set: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_text_set
-local world_raws_text_set
 
 ---@class _world_raws.T_text_set: DFCompound
 ---@field _kind 'struct-type'
@@ -122,7 +112,6 @@ df.world_raws.T_text_set = {}
 ---@class (exact) world_raws.T_music: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_music
-local world_raws_music
 
 ---@class _world_raws.T_music: DFCompound
 ---@field _kind 'struct-type'
@@ -131,7 +120,6 @@ df.world_raws.T_music = {}
 ---@class (exact) world_raws.T_sound: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_sound
-local world_raws_sound
 
 ---@class _world_raws.T_sound: DFCompound
 ---@field _kind 'struct-type'
@@ -141,7 +129,6 @@ df.world_raws.T_sound = {}
 ---@class (exact) world_raws.T_syndromes: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_syndromes
-local world_raws_syndromes
 
 ---@class _world_raws.T_syndromes: DFCompound
 ---@field _kind 'struct-type'
@@ -150,7 +137,6 @@ df.world_raws.T_syndromes = {}
 ---@class (exact) world_raws.T_effects: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_effects
-local world_raws_effects
 
 ---@class _world_raws.T_effects: DFCompound
 ---@field _kind 'struct-type'

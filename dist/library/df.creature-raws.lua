@@ -1127,7 +1127,6 @@ df.appearance_modifier_growth_interval = {}
 ---@field leak_barrier_id number layer that stops TISSUE_LEAKS, but unused and broken
 ---@field nonsolid_id number
 ---@field styleable_id number
-local body_part_layer_raw
 
 ---@class _body_part_layer_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1154,7 +1153,6 @@ df.body_part_layer_raw = {}
 ---@field insulation_muscle number
 ---@field insulation_base number
 ---@field clothing_item_id number
-local body_part_raw
 
 ---@class _body_part_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1172,7 +1170,6 @@ df.body_part_raw = {}
 ---@field unk_6e number
 ---@field unk_70 number
 ---@field id number
-local color_modifier_raw
 
 ---@class _color_modifier_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1194,7 +1191,6 @@ df.color_modifier_raw = {}
 ---@field unk_2 number
 ---@field id number
 ---@field id2 number same as id
-local body_appearance_modifier
 
 ---@class _body_appearance_modifier: DFCompound
 ---@field _kind 'struct-type'
@@ -1216,7 +1212,6 @@ df.body_appearance_modifier = {}
 ---@field unk1 number
 ---@field id1 number
 ---@field id number
-local bp_appearance_modifier
 
 ---@class _bp_appearance_modifier: DFCompound
 ---@field _kind 'struct-type'
@@ -1227,7 +1222,6 @@ df.bp_appearance_modifier = {}
 ---@field _type _caste_clothing_item
 ---@field body_part_id number
 ---@field unk_4 number
-local caste_clothing_item
 
 ---@class _caste_clothing_item: DFCompound
 ---@field _kind 'struct-type'
@@ -1248,7 +1242,6 @@ df.caste_clothing_item = {}
 ---@field velocity_modifier number
 ---@field unk_v40_3 number
 ---@field unk_v40_4 number
-local caste_attack
 
 ---@class _caste_attack: DFCompound
 ---@field _kind 'struct-type'
@@ -1322,7 +1315,6 @@ df.gait_type = {}
 ---@field energy_use number
 ---@field flags gait_info.T_flags
 ---@field stealth_slows number
-local gait_info
 
 ---@class _gait_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1423,7 +1415,6 @@ df.creature_interaction_target_flags = {}
 ---@field flags creature_interaction.T_flags
 ---@field adv_name string
 ---@field wait_period number
-local creature_interaction
 
 ---@class _creature_interaction: DFCompound
 ---@field _kind 'struct-type'
@@ -1470,7 +1461,6 @@ df.creature_interaction.T_flags = {}
 ---@field fraction_base number
 ---@field fraction_fat number
 ---@field fraction_muscle number
-local caste_body_info
 
 ---@class _caste_body_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1529,7 +1519,6 @@ df.caste_body_info.T_flags = {}
 ---@field odor_level number
 ---@field odor_string string
 ---@field low_light_vision number
-local caste_raw
 
 ---@class _caste_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1577,7 +1566,6 @@ df.caste_raw = {}
 ---@field grazer number
 ---@field petvalue_divisor number
 ---@field prone_to_rage number
-local caste_raw_misc
 
 ---@class _caste_raw.T_misc: DFCompound
 ---@field _kind 'struct-type'
@@ -1586,7 +1574,6 @@ df.caste_raw.T_misc = {}
 ---@class (exact) caste_raw.T_personality: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_personality
-local caste_raw_personality
 
 ---@class _caste_raw.T_personality: DFCompound
 ---@field _kind 'struct-type'
@@ -1595,7 +1582,6 @@ df.caste_raw.T_personality = {}
 ---@class (exact) caste_raw.T_attributes: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_attributes
-local caste_raw_attributes
 
 ---@class _caste_raw.T_attributes: DFCompound
 ---@field _kind 'struct-type'
@@ -1604,7 +1590,6 @@ df.caste_raw.T_attributes = {}
 ---@class (exact) caste_raw.T_bp_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_bp_appearance
-local caste_raw_bp_appearance
 
 ---@class _caste_raw.T_bp_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -1613,7 +1598,6 @@ df.caste_raw.T_bp_appearance = {}
 ---@class (exact) caste_raw.T_caste_profession_name: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_caste_profession_name
-local caste_raw_caste_profession_name
 
 ---@class _caste_raw.T_caste_profession_name: DFCompound
 ---@field _kind 'struct-type'
@@ -1641,7 +1625,6 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field pus_state number
 ---@field pus_mat number
 ---@field pus_matidx number
-local caste_raw_extracts
 
 ---@class _caste_raw.T_extracts: DFCompound
 ---@field _kind 'struct-type'
@@ -1654,7 +1637,6 @@ df.caste_raw.T_extracts = {}
 ---@field materials material_vec_ref
 ---@field mat_type number muscle: References: `material`
 ---@field mat_index number
-local caste_raw_unknown2
 
 ---@class _caste_raw.T_unknown2: DFCompound
 ---@field _kind 'struct-type'
@@ -1663,7 +1645,6 @@ df.caste_raw.T_unknown2 = {}
 ---@class (exact) caste_raw.T_lair_hunter_speech: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_lair_hunter_speech
-local caste_raw_lair_hunter_speech
 
 ---@class _caste_raw.T_lair_hunter_speech: DFCompound
 ---@field _kind 'struct-type'
@@ -1672,7 +1653,6 @@ df.caste_raw.T_lair_hunter_speech = {}
 ---@class (exact) caste_raw.T_unk29: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_unk29
-local caste_raw_unk29
 
 ---@class _caste_raw.T_unk29: DFCompound
 ---@field _kind 'struct-type'
@@ -1727,7 +1707,6 @@ df.tissue_style_type = {}
 ---@class (exact) creature_raw_graphics: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw_graphics
-local creature_raw_graphics
 
 ---@class _creature_raw_graphics: DFCompound
 ---@field _kind 'struct-type'
@@ -1740,7 +1719,6 @@ df.creature_raw_graphics = {}
 ---@field id number
 ---@field noun string
 ---@field word_type part_of_speech 0 singular, 1 plural
-local tissue_style_raw
 
 ---@class _tissue_style_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1767,7 +1745,6 @@ df.tissue_style_raw = {}
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
 ---@field next_modifier_id number
-local creature_raw
 
 ---@class _creature_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1778,7 +1755,6 @@ df.creature_raw = {}
 function df.creature_raw.find(key) end
 
 ---@class creature_raw_vector: DFVector, { [integer]: creature_raw }
-local creature_raw_vector
 
 ---@return creature_raw_vector # df.global.world.raws.creatures.all
 function df.creature_raw.get_vector() end
@@ -1786,7 +1762,6 @@ function df.creature_raw.get_vector() end
 ---@class (exact) creature_raw.T_profession_name: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_profession_name
-local creature_raw_profession_name
 
 ---@class _creature_raw.T_profession_name: DFCompound
 ---@field _kind 'struct-type'
@@ -1796,7 +1771,6 @@ df.creature_raw.T_profession_name = {}
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_hive_product
 ---@field material material_vec_ref
-local creature_raw_hive_product
 
 ---@class _creature_raw.T_hive_product: DFCompound
 ---@field _kind 'struct-type'
@@ -1810,7 +1784,6 @@ df.creature_raw.T_hive_product = {}
 ---@field cvct_replacement string
 ---@field unk_v40_1 number
 ---@field unk_v40_2 string
-local creature_variation_convert_tag
 
 ---@class _creature_variation_convert_tag: DFCompound
 ---@field _kind 'struct-type'
@@ -1820,7 +1793,6 @@ df.creature_variation_convert_tag = {}
 ---@field _kind 'struct'
 ---@field _type _creature_variation
 ---@field id string
-local creature_variation
 
 ---@class _creature_variation: DFCompound
 ---@field _kind 'struct-type'
@@ -1831,7 +1803,6 @@ df.creature_variation = {}
 function df.creature_variation.find(key) end
 
 ---@class creature_variation_vector: DFVector, { [integer]: creature_variation }
-local creature_variation_vector
 
 ---@return creature_variation_vector # df.global.world.raws.creature_variations
 function df.creature_variation.get_vector() end
@@ -1973,7 +1944,6 @@ df.body_part_template_contype = {}
 ---@field contype body_part_template_contype
 ---@field default_relsize number
 ---@field number number
-local body_part_template
 
 ---@class _body_part_template: DFCompound
 ---@field _kind 'struct-type'
@@ -1983,7 +1953,6 @@ df.body_part_template = {}
 ---@field _kind 'struct'
 ---@field _type _body_template
 ---@field id string in bay12 this is a static array with one member
-local body_template
 
 ---@class _body_template: DFCompound
 ---@field _kind 'struct-type'
@@ -1994,7 +1963,6 @@ df.body_template = {}
 function df.body_template.find(key) end
 
 ---@class body_template_vector: DFVector, { [integer]: body_template }
-local body_template_vector
 
 ---@return body_template_vector # df.global.world.raws.body_templates
 function df.body_template.get_vector() end
@@ -2088,7 +2056,6 @@ df.tissue_flags = {}
 ---@field subordinate_to_tissue string
 ---@field tissue_mat_state matter_state
 ---@field tissue_shape_str string
-local tissue_template
 
 ---@class _tissue_template: DFCompound
 ---@field _kind 'struct-type'
@@ -2099,7 +2066,6 @@ df.tissue_template = {}
 function df.tissue_template.find(key) end
 
 ---@class tissue_template_vector: DFVector, { [integer]: tissue_template }
-local tissue_template_vector
 
 ---@return tissue_template_vector # df.global.world.raws.tissue_templates
 function df.tissue_template.get_vector() end
@@ -2129,7 +2095,6 @@ function df.tissue_template.get_vector() end
 ---@field boiling_point integer
 ---@field spec_heat integer
 ---@field tissue_shape_str string
-local tissue
 
 ---@class _tissue: DFCompound
 ---@field _kind 'struct-type'
@@ -2139,7 +2104,6 @@ df.tissue = {}
 ---@field _kind 'struct'
 ---@field _type _body_detail_plan
 ---@field id string
-local body_detail_plan
 
 ---@class _body_detail_plan: DFCompound
 ---@field _kind 'struct-type'
@@ -2150,7 +2114,6 @@ df.body_detail_plan = {}
 function df.body_detail_plan.find(key) end
 
 ---@class body_detail_plan_vector: DFVector, { [integer]: body_detail_plan }
-local body_detail_plan_vector
 
 ---@return body_detail_plan_vector # df.global.world.raws.body_detail_plans
 function df.body_detail_plan.get_vector() end

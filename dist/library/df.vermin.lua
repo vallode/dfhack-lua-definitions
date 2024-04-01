@@ -71,7 +71,6 @@ df.vermin_category = {}
 ---@field population world_population_ref
 ---@field category vermin_category
 ---@field id number assigned during Save
-local vermin
 
 ---@class _vermin: DFCompound
 ---@field _kind 'struct-type'
@@ -82,7 +81,6 @@ df.vermin = {}
 function df.vermin.find(key) end
 
 ---@class vermin_vector: DFVector, { [integer]: vermin }
-local vermin_vector
 
 ---@return vermin_vector # df.global.world.vermin.all
 function df.vermin.get_vector() end

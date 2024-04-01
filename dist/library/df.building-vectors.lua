@@ -769,7 +769,6 @@ df.buildings_other_id.attrs = {}
 ---@class (exact) buildings_other: DFObject
 ---@field _kind 'struct'
 ---@field _type _buildings_other
-local buildings_other
 
 ---@class _buildings_other: DFCompound
 ---@field _kind 'struct-type'

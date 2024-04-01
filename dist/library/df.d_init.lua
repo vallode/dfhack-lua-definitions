@@ -180,7 +180,6 @@ df.d_init_autosave = {}
 ---@field announcements announcements
 ---@field unk_5010_730 number
 ---@field unk_5010_734 number
-local d_init
 
 ---@class _d_init: DFCompound
 ---@field _kind 'struct-type'
@@ -189,7 +188,6 @@ df.d_init = {}
 ---@class (exact) d_init.T_wound_color: DFObject
 ---@field _kind 'struct'
 ---@field _type _d_init.T_wound_color
-local d_init_wound_color
 
 ---@class _d_init.T_wound_color: DFCompound
 ---@field _kind 'struct-type'
@@ -203,7 +201,6 @@ df.d_init.T_wound_color = {}
 ---@field bucket_combine number
 ---@field barrel_combine number
 ---@field bin_combine number
-local d_init_store_dist
 
 ---@class _d_init.T_store_dist: DFCompound
 ---@field _kind 'struct-type'

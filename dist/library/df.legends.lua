@@ -31,7 +31,6 @@ df.mission_type = {}
 ---@field refused_demand_start_year number
 ---@field refused_demand_start_season_count number
 ---@field origin_master_army_controller_id number References: `army_controller`
-local invasion_info
 
 ---@class _invasion_info: DFCompound
 ---@field _kind 'struct-type'
@@ -42,7 +41,6 @@ df.invasion_info = {}
 function df.invasion_info.find(key) end
 
 ---@class invasion_info_vector: DFVector, { [integer]: invasion_info }
-local invasion_info_vector
 
 ---@return invasion_info_vector # df.global.plotinfo.invasions.list
 function df.invasion_info.get_vector() end
@@ -105,7 +103,6 @@ df.invasion_info.T_flags = {}
 ---@class (exact) entity_population_unk4: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_population_unk4
-local entity_population_unk4
 
 ---@class _entity_population_unk4: DFCompound
 ---@field _kind 'struct-type'
@@ -120,7 +117,6 @@ df.entity_population_unk4 = {}
 ---@field id number
 ---@field flags number ?; layer_id == -1
 ---@field civ_id number References: `historical_entity`
-local entity_population
 
 ---@class _entity_population: DFCompound
 ---@field _kind 'struct-type'
@@ -131,7 +127,6 @@ df.entity_population = {}
 function df.entity_population.find(key) end
 
 ---@class entity_population_vector: DFVector, { [integer]: entity_population }
-local entity_population_vector
 
 ---@return entity_population_vector # df.global.world.entity_populations
 function df.entity_population.get_vector() end
@@ -196,7 +191,6 @@ df.nemesis_flags = {}
 ---@field ideal_item_container_id number
 ---@field next_plot_year number
 ---@field next_plot_season_count number
-local nemesis_record
 
 ---@class _nemesis_record: DFCompound
 ---@field _kind 'struct-type'
@@ -207,7 +201,6 @@ df.nemesis_record = {}
 function df.nemesis_record.find(key) end
 
 ---@class nemesis_record_vector: DFVector, { [integer]: nemesis_record }
-local nemesis_record_vector
 
 ---@return nemesis_record_vector # df.global.world.nemesis.all
 function df.nemesis_record.get_vector() end
@@ -235,7 +228,6 @@ function df.nemesis_record.get_vector() end
 ---@field year number seems to be current year or -1
 ---@field unk_4 number
 ---@field unk_5 number Small set of non zero fairly small numbers seen?
-local artifact_record
 
 ---@class _artifact_record: DFCompound
 ---@field _kind 'struct-type'
@@ -246,7 +238,6 @@ df.artifact_record = {}
 function df.artifact_record.find(key) end
 
 ---@class artifact_record_vector: DFVector, { [integer]: artifact_record }
-local artifact_record_vector
 
 ---@return artifact_record_vector # df.global.world.artifacts.all
 function df.artifact_record.get_vector() end
@@ -262,7 +253,6 @@ function df.artifact_record.get_vector() end
 ---@field latest_year number
 ---@field latest_season_count number
 ---@field flag integer
-local artifact_rumor_locationst
 
 ---@class _artifact_rumor_locationst: DFCompound
 ---@field _kind 'struct-type'

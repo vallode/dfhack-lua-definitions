@@ -144,7 +144,6 @@ df.resource_allotment_specifier_type = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
-local resource_allotment_specifier
 
 ---@class _resource_allotment_specifier: DFCompound
 ---@field _kind 'class-type'
@@ -156,7 +155,6 @@ df.resource_allotment_specifier = {}
 ---@field mat_type number index to world.raws.plant.all References: `plant_raw`
 ---@field unk_4 number
 ---@field unk_v40_01 number
-local resource_allotment_specifier_cropst
 
 ---@class _resource_allotment_specifier_cropst: DFCompound
 ---@field _kind 'class-type'
@@ -169,7 +167,6 @@ df.resource_allotment_specifier_cropst = {}
 ---@field mat_index number
 ---@field unk_4 number
 ---@field unk_5 number
-local resource_allotment_specifier_stonest
 
 ---@class _resource_allotment_specifier_stonest: DFCompound
 ---@field _kind 'class-type'
@@ -181,7 +178,6 @@ df.resource_allotment_specifier_stonest = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
-local resource_allotment_specifier_metalst
 
 ---@class _resource_allotment_specifier_metalst: DFCompound
 ---@field _kind 'class-type'
@@ -198,7 +194,6 @@ df.resource_allotment_specifier_metalst = {}
 ---@field unk_7 number
 ---@field unk_8 number
 ---@field unk_9 number
-local resource_allotment_specifier_woodst
 
 ---@class _resource_allotment_specifier_woodst: DFCompound
 ---@field _kind 'class-type'
@@ -209,7 +204,6 @@ df.resource_allotment_specifier_woodst = {}
 ---@field _type _resource_allotment_specifier_armor_bodyst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_armor_bodyst
 
 ---@class _resource_allotment_specifier_armor_bodyst: DFCompound
 ---@field _kind 'class-type'
@@ -220,7 +214,6 @@ df.resource_allotment_specifier_armor_bodyst = {}
 ---@field _type _resource_allotment_specifier_armor_pantsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_armor_pantsst
 
 ---@class _resource_allotment_specifier_armor_pantsst: DFCompound
 ---@field _kind 'class-type'
@@ -231,7 +224,6 @@ df.resource_allotment_specifier_armor_pantsst = {}
 ---@field _type _resource_allotment_specifier_armor_glovesst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_armor_glovesst
 
 ---@class _resource_allotment_specifier_armor_glovesst: DFCompound
 ---@field _kind 'class-type'
@@ -242,7 +234,6 @@ df.resource_allotment_specifier_armor_glovesst = {}
 ---@field _type _resource_allotment_specifier_armor_bootsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_armor_bootsst
 
 ---@class _resource_allotment_specifier_armor_bootsst: DFCompound
 ---@field _kind 'class-type'
@@ -253,7 +244,6 @@ df.resource_allotment_specifier_armor_bootsst = {}
 ---@field _type _resource_allotment_specifier_armor_helmst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_armor_helmst
 
 ---@class _resource_allotment_specifier_armor_helmst: DFCompound
 ---@field _kind 'class-type'
@@ -264,7 +254,6 @@ df.resource_allotment_specifier_armor_helmst = {}
 ---@field _type _resource_allotment_specifier_clothing_bodyst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_clothing_bodyst
 
 ---@class _resource_allotment_specifier_clothing_bodyst: DFCompound
 ---@field _kind 'class-type'
@@ -275,7 +264,6 @@ df.resource_allotment_specifier_clothing_bodyst = {}
 ---@field _type _resource_allotment_specifier_clothing_pantsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_clothing_pantsst
 
 ---@class _resource_allotment_specifier_clothing_pantsst: DFCompound
 ---@field _kind 'class-type'
@@ -286,7 +274,6 @@ df.resource_allotment_specifier_clothing_pantsst = {}
 ---@field _type _resource_allotment_specifier_clothing_glovesst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_clothing_glovesst
 
 ---@class _resource_allotment_specifier_clothing_glovesst: DFCompound
 ---@field _kind 'class-type'
@@ -297,7 +284,6 @@ df.resource_allotment_specifier_clothing_glovesst = {}
 ---@field _type _resource_allotment_specifier_clothing_bootsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_clothing_bootsst
 
 ---@class _resource_allotment_specifier_clothing_bootsst: DFCompound
 ---@field _kind 'class-type'
@@ -308,7 +294,6 @@ df.resource_allotment_specifier_clothing_bootsst = {}
 ---@field _type _resource_allotment_specifier_clothing_helmst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_clothing_helmst
 
 ---@class _resource_allotment_specifier_clothing_helmst: DFCompound
 ---@field _kind 'class-type'
@@ -319,7 +304,6 @@ df.resource_allotment_specifier_clothing_helmst = {}
 ---@field _type _resource_allotment_specifier_weapon_meleest
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_weapon_meleest
 
 ---@class _resource_allotment_specifier_weapon_meleest: DFCompound
 ---@field _kind 'class-type'
@@ -330,7 +314,6 @@ df.resource_allotment_specifier_weapon_meleest = {}
 ---@field _type _resource_allotment_specifier_weapon_rangedst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_weapon_rangedst
 
 ---@class _resource_allotment_specifier_weapon_rangedst: DFCompound
 ---@field _kind 'class-type'
@@ -341,7 +324,6 @@ df.resource_allotment_specifier_weapon_rangedst = {}
 ---@field _type _resource_allotment_specifier_ammost
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_ammost
 
 ---@class _resource_allotment_specifier_ammost: DFCompound
 ---@field _kind 'class-type'
@@ -352,7 +334,6 @@ df.resource_allotment_specifier_ammost = {}
 ---@field _type _resource_allotment_specifier_anvilst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_anvilst
 
 ---@class _resource_allotment_specifier_anvilst: DFCompound
 ---@field _kind 'class-type'
@@ -363,7 +344,6 @@ df.resource_allotment_specifier_anvilst = {}
 ---@field _type _resource_allotment_specifier_gemsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_gemsst
 
 ---@class _resource_allotment_specifier_gemsst: DFCompound
 ---@field _kind 'class-type'
@@ -375,7 +355,6 @@ df.resource_allotment_specifier_gemsst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
-local resource_allotment_specifier_threadst
 
 ---@class _resource_allotment_specifier_threadst: DFCompound
 ---@field _kind 'class-type'
@@ -391,7 +370,6 @@ df.resource_allotment_specifier_threadst = {}
 ---@field unk_6 number
 ---@field unk_7 number
 ---@field unk_8 number
-local resource_allotment_specifier_clothst
 
 ---@class _resource_allotment_specifier_clothst: DFCompound
 ---@field _kind 'class-type'
@@ -412,7 +390,6 @@ df.resource_allotment_specifier_clothst = {}
 ---@field unk_11 number
 ---@field unk_12 number
 ---@field unk_13 number
-local resource_allotment_specifier_leatherst
 
 ---@class _resource_allotment_specifier_leatherst: DFCompound
 ---@field _kind 'class-type'
@@ -423,7 +400,6 @@ df.resource_allotment_specifier_leatherst = {}
 ---@field _type _resource_allotment_specifier_quiverst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_quiverst
 
 ---@class _resource_allotment_specifier_quiverst: DFCompound
 ---@field _kind 'class-type'
@@ -434,7 +410,6 @@ df.resource_allotment_specifier_quiverst = {}
 ---@field _type _resource_allotment_specifier_backpackst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_backpackst
 
 ---@class _resource_allotment_specifier_backpackst: DFCompound
 ---@field _kind 'class-type'
@@ -445,7 +420,6 @@ df.resource_allotment_specifier_backpackst = {}
 ---@field _type _resource_allotment_specifier_flaskst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_flaskst
 
 ---@class _resource_allotment_specifier_flaskst: DFCompound
 ---@field _kind 'class-type'
@@ -456,7 +430,6 @@ df.resource_allotment_specifier_flaskst = {}
 ---@field _type _resource_allotment_specifier_bagst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_bagst
 
 ---@class _resource_allotment_specifier_bagst: DFCompound
 ---@field _kind 'class-type'
@@ -467,7 +440,6 @@ df.resource_allotment_specifier_bagst = {}
 ---@field _type _resource_allotment_specifier_tablest
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_tablest
 
 ---@class _resource_allotment_specifier_tablest: DFCompound
 ---@field _kind 'class-type'
@@ -478,7 +450,6 @@ df.resource_allotment_specifier_tablest = {}
 ---@field _type _resource_allotment_specifier_cabinetst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_cabinetst
 
 ---@class _resource_allotment_specifier_cabinetst: DFCompound
 ---@field _kind 'class-type'
@@ -489,7 +460,6 @@ df.resource_allotment_specifier_cabinetst = {}
 ---@field _type _resource_allotment_specifier_chairst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_chairst
 
 ---@class _resource_allotment_specifier_chairst: DFCompound
 ---@field _kind 'class-type'
@@ -500,7 +470,6 @@ df.resource_allotment_specifier_chairst = {}
 ---@field _type _resource_allotment_specifier_boxst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_boxst
 
 ---@class _resource_allotment_specifier_boxst: DFCompound
 ---@field _kind 'class-type'
@@ -511,7 +480,6 @@ df.resource_allotment_specifier_boxst = {}
 ---@field _type _resource_allotment_specifier_bedst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_bedst
 
 ---@class _resource_allotment_specifier_bedst: DFCompound
 ---@field _kind 'class-type'
@@ -522,7 +490,6 @@ df.resource_allotment_specifier_bedst = {}
 ---@field _type _resource_allotment_specifier_craftsst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_craftsst
 
 ---@class _resource_allotment_specifier_craftsst: DFCompound
 ---@field _kind 'class-type'
@@ -533,7 +500,6 @@ df.resource_allotment_specifier_craftsst = {}
 ---@field _type _resource_allotment_specifier_meatst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_meatst
 
 ---@class _resource_allotment_specifier_meatst: DFCompound
 ---@field _kind 'class-type'
@@ -545,7 +511,6 @@ df.resource_allotment_specifier_meatst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
-local resource_allotment_specifier_bonest
 
 ---@class _resource_allotment_specifier_bonest: DFCompound
 ---@field _kind 'class-type'
@@ -557,7 +522,6 @@ df.resource_allotment_specifier_bonest = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
-local resource_allotment_specifier_hornst
 
 ---@class _resource_allotment_specifier_hornst: DFCompound
 ---@field _kind 'class-type'
@@ -569,7 +533,6 @@ df.resource_allotment_specifier_hornst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
-local resource_allotment_specifier_shellst
 
 ---@class _resource_allotment_specifier_shellst: DFCompound
 ---@field _kind 'class-type'
@@ -580,7 +543,6 @@ df.resource_allotment_specifier_shellst = {}
 ---@field _type _resource_allotment_specifier_tallowst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_tallowst
 
 ---@class _resource_allotment_specifier_tallowst: DFCompound
 ---@field _kind 'class-type'
@@ -592,7 +554,6 @@ df.resource_allotment_specifier_tallowst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
-local resource_allotment_specifier_toothst
 
 ---@class _resource_allotment_specifier_toothst: DFCompound
 ---@field _kind 'class-type'
@@ -603,7 +564,6 @@ df.resource_allotment_specifier_toothst = {}
 ---@field _type _resource_allotment_specifier_pearlst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_pearlst
 
 ---@class _resource_allotment_specifier_pearlst: DFCompound
 ---@field _kind 'class-type'
@@ -614,7 +574,6 @@ df.resource_allotment_specifier_pearlst = {}
 ---@field _type _resource_allotment_specifier_soapst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_soapst
 
 ---@class _resource_allotment_specifier_soapst: DFCompound
 ---@field _kind 'class-type'
@@ -629,7 +588,6 @@ df.resource_allotment_specifier_soapst = {}
 ---@field mat_type2 number References: `material`
 ---@field mat_index2 number
 ---@field unk_5 number uninitialized
-local resource_allotment_specifier_extractst
 
 ---@class _resource_allotment_specifier_extractst: DFCompound
 ---@field _kind 'class-type'
@@ -640,7 +598,6 @@ df.resource_allotment_specifier_extractst = {}
 ---@field _type _resource_allotment_specifier_cheesest
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local resource_allotment_specifier_cheesest
 
 ---@class _resource_allotment_specifier_cheesest: DFCompound
 ---@field _kind 'class-type'
@@ -654,7 +611,6 @@ df.resource_allotment_specifier_cheesest = {}
 ---@field mat_type2 number References: `material`
 ---@field mat_index2 number
 ---@field unk_4 number
-local resource_allotment_specifier_skinst
 
 ---@class _resource_allotment_specifier_skinst: DFCompound
 ---@field _kind 'class-type'
@@ -666,7 +622,6 @@ df.resource_allotment_specifier_skinst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
-local resource_allotment_specifier_powderst
 
 ---@class _resource_allotment_specifier_powderst: DFCompound
 ---@field _kind 'class-type'
@@ -680,7 +635,6 @@ df.resource_allotment_specifier_powderst = {}
 ---@field unk2 number
 ---@field unk3 number
 ---@field unk_650 number
-local resource_allotment_data
 
 ---@class _resource_allotment_data: DFCompound
 ---@field _kind 'struct-type'
@@ -691,7 +645,6 @@ df.resource_allotment_data = {}
 function df.resource_allotment_data.find(key) end
 
 ---@class resource_allotment_data_vector: DFVector, { [integer]: resource_allotment_data }
-local resource_allotment_data_vector
 
 ---@return resource_allotment_data_vector # df.global.world.world_data.resource_allotments
 function df.resource_allotment_data.get_vector() end

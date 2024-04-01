@@ -6,7 +6,6 @@
 ---@field _type _coord2d
 ---@field x number
 ---@field y number
-local coord2d
 
 ---@class _coord2d: DFCompound
 ---@field _kind 'struct-type'
@@ -15,7 +14,6 @@ df.coord2d = {}
 ---@class (exact) coord2d_path: DFObject
 ---@field _kind 'struct'
 ---@field _type _coord2d_path
-local coord2d_path
 
 ---@class _coord2d_path: DFCompound
 ---@field _kind 'struct-type'
@@ -27,7 +25,6 @@ df.coord2d_path = {}
 ---@field x number
 ---@field y number
 ---@field z number
-local coord
 
 ---@class _coord: DFCompound
 ---@field _kind 'struct-type'
@@ -36,7 +33,6 @@ df.coord = {}
 ---@class (exact) coord_path: DFObject
 ---@field _kind 'struct'
 ---@field _type _coord_path
-local coord_path
 
 ---@class _coord_path: DFCompound
 ---@field _kind 'struct-type'
@@ -636,7 +632,6 @@ df.tile_liquid_flow = {}
 ---@class (exact) tile_bitmask: DFObject
 ---@field _kind 'struct'
 ---@field _type _tile_bitmask
-local tile_bitmask
 
 ---@class _tile_bitmask: DFCompound
 ---@field _kind 'struct-type'
@@ -647,7 +642,6 @@ df.tile_bitmask = {}
 ---@field _type _block_burrow
 ---@field id number References: `burrow`
 ---@field tile_bitmask tile_bitmask
-local block_burrow
 
 ---@class _block_burrow: DFCompound
 ---@field _kind 'struct-type'
@@ -656,7 +650,6 @@ df.block_burrow = {}
 ---@class (exact) block_burrow_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _block_burrow_link
-local block_burrow_link
 
 ---@class _block_burrow_link: DFCompound
 ---@field _kind 'struct-type'
@@ -675,7 +668,6 @@ df.block_burrow_link = {}
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
 ---@field region_pos coord2d
-local map_block
 
 ---@class _map_block: DFCompound
 ---@field _kind 'struct-type'
@@ -684,7 +676,6 @@ df.map_block = {}
 ---@class (exact) cave_column_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _cave_column_link
-local cave_column_link
 
 ---@class _cave_column_link: DFCompound
 ---@field _kind 'struct-type'
@@ -697,7 +688,6 @@ df.cave_column_link = {}
 ---@field top_z number
 ---@field rect_index number
 ---@field flags cave_column.T_flags
-local cave_column
 
 ---@class _cave_column: DFCompound
 ---@field _kind 'class-type'
@@ -738,7 +728,6 @@ df.cave_column.T_flags = {}
 ---@field max_y number
 ---@field base_z number
 ---@field flags cave_column_rectangle.T_flags
-local cave_column_rectangle
 
 ---@class _cave_column_rectangle: DFCompound
 ---@field _kind 'class-type'
@@ -786,7 +775,6 @@ df.cave_column_rectangle.T_flags = {}
 ---@field map_pos coord2d top left in tiles
 ---@field unk_c3c number uninitialized
 ---@field region_pos coord2d
-local map_block_column
 
 ---@class _map_block_column: DFCompound
 ---@field _kind 'struct-type'
@@ -824,7 +812,6 @@ df.block_square_event_type = {}
 ---@class (exact) block_square_event: DFObject
 ---@field _kind 'struct'
 ---@field _type _block_square_event
-local block_square_event
 
 ---@class _block_square_event: DFCompound
 ---@field _kind 'class-type'
@@ -836,7 +823,6 @@ df.block_square_event = {}
 ---@field inorganic_mat number References: `inorganic_raw`
 ---@field tile_bitmask tile_bitmask
 ---@field flags block_square_event_mineralst.T_flags
-local block_square_event_mineralst
 
 ---@class _block_square_event_mineralst: DFCompound
 ---@field _kind 'class-type'
@@ -888,7 +874,6 @@ df.block_square_event_mineralst.T_flags = {}
 ---@class (exact) block_square_event_frozen_liquidst: DFObject, block_square_event
 ---@field _kind 'struct'
 ---@field _type _block_square_event_frozen_liquidst
-local block_square_event_frozen_liquidst
 
 ---@class _block_square_event_frozen_liquidst: DFCompound
 ---@field _kind 'class-type'
@@ -899,7 +884,6 @@ df.block_square_event_frozen_liquidst = {}
 ---@field _type _block_square_event_world_constructionst
 ---@field construction_id number References: `world_construction`
 ---@field tile_bitmask tile_bitmask
-local block_square_event_world_constructionst
 
 ---@class _block_square_event_world_constructionst: DFCompound
 ---@field _kind 'class-type'
@@ -913,7 +897,6 @@ df.block_square_event_world_constructionst = {}
 ---@field mat_state matter_state
 ---@field min_temperature integer
 ---@field max_temperature integer
-local block_square_event_material_spatterst
 
 ---@class _block_square_event_material_spatterst: DFCompound
 ---@field _kind 'class-type'
@@ -923,7 +906,6 @@ df.block_square_event_material_spatterst = {}
 ---@field _kind 'struct'
 ---@field _type _block_square_event_grassst
 ---@field plant_index number References: `plant_raw`
-local block_square_event_grassst
 
 ---@class _block_square_event_grassst: DFCompound
 ---@field _kind 'class-type'
@@ -934,7 +916,6 @@ df.block_square_event_grassst = {}
 ---@field _type _block_square_event_spoorst
 ---@field year number
 ---@field year_tick number
-local block_square_event_spoorst
 
 ---@class _block_square_event_spoorst: DFCompound
 ---@field _kind 'class-type'
@@ -950,7 +931,6 @@ df.block_square_event_spoorst = {}
 ---@field unk1 number
 ---@field temp1 integer
 ---@field temp2 integer
-local block_square_event_item_spatterst
 
 ---@class _block_square_event_item_spatterst: DFCompound
 ---@field _kind 'class-type'
@@ -959,7 +939,6 @@ df.block_square_event_item_spatterst = {}
 ---@class (exact) block_square_event_designation_priorityst: DFObject, block_square_event
 ---@field _kind 'struct'
 ---@field _type _block_square_event_designation_priorityst
-local block_square_event_designation_priorityst
 
 ---@class _block_square_event_designation_priorityst: DFCompound
 ---@field _kind 'class-type'
@@ -1006,7 +985,6 @@ df.feature_type = {}
 ---@field irritation_level number divide by 10k for attack chance, max 100k
 ---@field irritation_attacks number maxes at 10?
 ---@field embark_pos coord2d_path
-local feature
 
 ---@class _feature: DFCompound
 ---@field _kind 'class-type'
@@ -1015,7 +993,6 @@ df.feature = {}
 ---@class (exact) feature_outdoor_riverst: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_outdoor_riverst
-local feature_outdoor_riverst
 
 ---@class _feature_outdoor_riverst: DFCompound
 ---@field _kind 'class-type'
@@ -1024,7 +1001,6 @@ df.feature_outdoor_riverst = {}
 ---@class (exact) feature_cavest: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_cavest
-local feature_cavest
 
 ---@class _feature_cavest: DFCompound
 ---@field _kind 'class-type'
@@ -1033,7 +1009,6 @@ df.feature_cavest = {}
 ---@class (exact) feature_pitst: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_pitst
-local feature_pitst
 
 ---@class _feature_pitst: DFCompound
 ---@field _kind 'class-type'
@@ -1043,7 +1018,6 @@ df.feature_pitst = {}
 ---@field _kind 'struct'
 ---@field _type _feature_magma_poolst
 ---@field magma_fill_z number
-local feature_magma_poolst
 
 ---@class _feature_magma_poolst: DFCompound
 ---@field _kind 'class-type'
@@ -1053,7 +1027,6 @@ df.feature_magma_poolst = {}
 ---@field _kind 'struct'
 ---@field _type _feature_volcanost
 ---@field magma_fill_z number
-local feature_volcanost
 
 ---@class _feature_volcanost: DFCompound
 ---@field _kind 'class-type'
@@ -1062,7 +1035,6 @@ df.feature_volcanost = {}
 ---@class (exact) feature_deep_special_tubest: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_deep_special_tubest
-local feature_deep_special_tubest
 
 ---@class _feature_deep_special_tubest: DFCompound
 ---@field _kind 'class-type'
@@ -1071,7 +1043,6 @@ df.feature_deep_special_tubest = {}
 ---@class (exact) feature_deep_surface_portalst: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_deep_surface_portalst
-local feature_deep_surface_portalst
 
 ---@class _feature_deep_surface_portalst: DFCompound
 ---@field _kind 'class-type'
@@ -1080,7 +1051,6 @@ df.feature_deep_surface_portalst = {}
 ---@class (exact) feature_subterranean_from_layerst: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_subterranean_from_layerst
-local feature_subterranean_from_layerst
 
 ---@class _feature_subterranean_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1089,7 +1059,6 @@ df.feature_subterranean_from_layerst = {}
 ---@class (exact) feature_magma_core_from_layerst: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_magma_core_from_layerst
-local feature_magma_core_from_layerst
 
 ---@class _feature_magma_core_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1098,7 +1067,6 @@ df.feature_magma_core_from_layerst = {}
 ---@class (exact) feature_underworld_from_layerst: DFObject, feature
 ---@field _kind 'struct'
 ---@field _type _feature_underworld_from_layerst
-local feature_underworld_from_layerst
 
 ---@class _feature_underworld_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1159,7 +1127,6 @@ df.layer_type = {}
 ---@field end_y number
 ---@field start_depth layer_type
 ---@field end_depth layer_type
-local feature_init
 
 ---@class _feature_init: DFCompound
 ---@field _kind 'class-type'
@@ -1168,7 +1135,6 @@ df.feature_init = {}
 ---@class (exact) feature_init_outdoor_riverst: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_outdoor_riverst
-local feature_init_outdoor_riverst
 
 ---@class _feature_init_outdoor_riverst: DFCompound
 ---@field _kind 'class-type'
@@ -1177,7 +1143,6 @@ df.feature_init_outdoor_riverst = {}
 ---@class (exact) feature_init_cavest: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_cavest
-local feature_init_cavest
 
 ---@class _feature_init_cavest: DFCompound
 ---@field _kind 'class-type'
@@ -1186,7 +1151,6 @@ df.feature_init_cavest = {}
 ---@class (exact) feature_init_pitst: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_pitst
-local feature_init_pitst
 
 ---@class _feature_init_pitst: DFCompound
 ---@field _kind 'class-type'
@@ -1195,7 +1159,6 @@ df.feature_init_pitst = {}
 ---@class (exact) feature_init_magma_poolst: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_magma_poolst
-local feature_init_magma_poolst
 
 ---@class _feature_init_magma_poolst: DFCompound
 ---@field _kind 'class-type'
@@ -1204,7 +1167,6 @@ df.feature_init_magma_poolst = {}
 ---@class (exact) feature_init_volcanost: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_volcanost
-local feature_init_volcanost
 
 ---@class _feature_init_volcanost: DFCompound
 ---@field _kind 'class-type'
@@ -1215,7 +1177,6 @@ df.feature_init_volcanost = {}
 ---@field _type _feature_init_deep_special_tubest
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local feature_init_deep_special_tubest
 
 ---@class _feature_init_deep_special_tubest: DFCompound
 ---@field _kind 'class-type'
@@ -1226,7 +1187,6 @@ df.feature_init_deep_special_tubest = {}
 ---@field _type _feature_init_deep_surface_portalst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local feature_init_deep_surface_portalst
 
 ---@class _feature_init_deep_surface_portalst: DFCompound
 ---@field _kind 'class-type'
@@ -1236,7 +1196,6 @@ df.feature_init_deep_surface_portalst = {}
 ---@field _kind 'struct'
 ---@field _type _feature_init_subterranean_from_layerst
 ---@field layer number References: `world_underground_region`
-local feature_init_subterranean_from_layerst
 
 ---@class _feature_init_subterranean_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1246,7 +1205,6 @@ df.feature_init_subterranean_from_layerst = {}
 ---@field _kind 'struct'
 ---@field _type _feature_init_magma_core_from_layerst
 ---@field layer number References: `world_underground_region`
-local feature_init_magma_core_from_layerst
 
 ---@class _feature_init_magma_core_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1258,7 +1216,6 @@ df.feature_init_magma_core_from_layerst = {}
 ---@field layer number References: `world_underground_region`
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local feature_init_underworld_from_layerst
 
 ---@class _feature_init_underworld_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1278,7 +1235,6 @@ df.feature_alteration_type = {}
 ---@class (exact) feature_alteration: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature_alteration
-local feature_alteration
 
 ---@class _feature_alteration: DFCompound
 ---@field _kind 'class-type'
@@ -1289,7 +1245,6 @@ df.feature_alteration = {}
 ---@field _type _feature_alteration_new_pop_maxst
 ---@field unk_1 number
 ---@field unk_2 number
-local feature_alteration_new_pop_maxst
 
 ---@class _feature_alteration_new_pop_maxst: DFCompound
 ---@field _kind 'class-type'
@@ -1299,7 +1254,6 @@ df.feature_alteration_new_pop_maxst = {}
 ---@field _kind 'struct'
 ---@field _type _feature_alteration_new_lava_fill_zst
 ---@field magma_fill_z number
-local feature_alteration_new_lava_fill_zst
 
 ---@class _feature_alteration_new_lava_fill_zst: DFCompound
 ---@field _kind 'class-type'
@@ -1327,7 +1281,6 @@ df.world_construction_type = {}
 ---@field _type _world_construction_square
 ---@field region_pos coord2d
 ---@field construction_id number References: `world_construction`
-local world_construction_square
 
 ---@class _world_construction_square: DFCompound
 ---@field _kind 'class-type'
@@ -1340,7 +1293,6 @@ df.world_construction_square = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local world_construction_square_roadst
 
 ---@class _world_construction_square_roadst: DFCompound
 ---@field _kind 'class-type'
@@ -1349,7 +1301,6 @@ df.world_construction_square_roadst = {}
 ---@class (exact) world_construction_square_tunnelst: DFObject, world_construction_square
 ---@field _kind 'struct'
 ---@field _type _world_construction_square_tunnelst
-local world_construction_square_tunnelst
 
 ---@class _world_construction_square_tunnelst: DFCompound
 ---@field _kind 'class-type'
@@ -1363,7 +1314,6 @@ df.world_construction_square_tunnelst = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local world_construction_square_bridgest
 
 ---@class _world_construction_square_bridgest: DFCompound
 ---@field _kind 'class-type'
@@ -1376,7 +1326,6 @@ df.world_construction_square_bridgest = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local world_construction_square_wallst
 
 ---@class _world_construction_square_wallst: DFCompound
 ---@field _kind 'class-type'
@@ -1387,7 +1336,6 @@ df.world_construction_square_wallst = {}
 ---@field _type _world_construction
 ---@field id number
 ---@field square_pos coord2d_path
-local world_construction
 
 ---@class _world_construction: DFCompound
 ---@field _kind 'class-type'
@@ -1398,7 +1346,6 @@ df.world_construction = {}
 function df.world_construction.find(key) end
 
 ---@class world_construction_vector: DFVector, { [integer]: world_construction }
-local world_construction_vector
 
 ---@return world_construction_vector # df.global.world.world_data.constructions.list
 function df.world_construction.get_vector() end
@@ -1407,7 +1354,6 @@ function df.world_construction.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _world_construction_roadst
 ---@field name language_name
-local world_construction_roadst
 
 ---@class _world_construction_roadst: DFCompound
 ---@field _kind 'class-type'
@@ -1417,7 +1363,6 @@ df.world_construction_roadst = {}
 ---@field _kind 'struct'
 ---@field _type _world_construction_tunnelst
 ---@field name language_name
-local world_construction_tunnelst
 
 ---@class _world_construction_tunnelst: DFCompound
 ---@field _kind 'class-type'
@@ -1427,7 +1372,6 @@ df.world_construction_tunnelst = {}
 ---@field _kind 'struct'
 ---@field _type _world_construction_bridgest
 ---@field name language_name
-local world_construction_bridgest
 
 ---@class _world_construction_bridgest: DFCompound
 ---@field _kind 'class-type'
@@ -1437,7 +1381,6 @@ df.world_construction_bridgest = {}
 ---@field _kind 'struct'
 ---@field _type _world_construction_wallst
 ---@field name language_name
-local world_construction_wallst
 
 ---@class _world_construction_wallst: DFCompound
 ---@field _kind 'class-type'
@@ -1636,7 +1579,6 @@ df.construction_flags = {}
 ---@field mat_index number
 ---@field flags construction_flags
 ---@field original_tile tiletype
-local construction
 
 ---@class _construction: DFCompound
 ---@field _kind 'struct-type'
@@ -1647,7 +1589,6 @@ df.construction = {}
 function df.construction.find(key) end
 
 ---@class construction_vector: DFVector, { [integer]: construction }
-local construction_vector
 
 ---@return construction_vector # df.global.world.constructions
 function df.construction.get_vector() end
@@ -1711,7 +1652,6 @@ df.flow_type = {}
 ---@field expanding boolean
 ---@field reuse boolean
 ---@field guide_id number References: `flow_guide`
-local flow_info
 
 ---@class _flow_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1722,7 +1662,6 @@ df.flow_info = {}
 ---@field _type _flow_reuse_pool
 ---@field reuse_idx number
 ---@field flags flow_reuse_pool.T_flags
-local flow_reuse_pool
 
 ---@class _flow_reuse_pool: DFCompound
 ---@field _kind 'struct-type'
@@ -1763,7 +1702,6 @@ df.flow_guide_type = {}
 ---@field _type _flow_guide
 ---@field id number
 ---@field unk_8 number
-local flow_guide
 
 ---@class _flow_guide: DFCompound
 ---@field _kind 'class-type'
@@ -1774,7 +1712,6 @@ df.flow_guide = {}
 function df.flow_guide.find(key) end
 
 ---@class flow_guide_vector: DFVector, { [integer]: flow_guide }
-local flow_guide_vector
 
 ---@return flow_guide_vector # df.global.world.flow_guides.all
 function df.flow_guide.get_vector() end
@@ -1782,7 +1719,6 @@ function df.flow_guide.get_vector() end
 ---@class (exact) flow_guide_trailing_flowst: DFObject, flow_guide
 ---@field _kind 'struct'
 ---@field _type _flow_guide_trailing_flowst
-local flow_guide_trailing_flowst
 
 ---@class _flow_guide_trailing_flowst: DFCompound
 ---@field _kind 'class-type'
@@ -1797,7 +1733,6 @@ df.flow_guide_trailing_flowst = {}
 ---@field matindex number
 ---@field unk_18 number
 ---@field unk_1c number
-local flow_guide_item_cloudst
 
 ---@class _flow_guide_item_cloudst: DFCompound
 ---@field _kind 'class-type'
@@ -1813,7 +1748,6 @@ df.flow_guide_item_cloudst = {}
 ---@field bright number
 ---@field pos coord
 ---@field timer number
-local effect_info
 
 ---@class _effect_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1830,7 +1764,6 @@ df.region_block_event_type = {}
 ---@class (exact) region_block_eventst: DFObject
 ---@field _kind 'struct'
 ---@field _type _region_block_eventst
-local region_block_eventst
 
 ---@class _region_block_eventst: DFCompound
 ---@field _kind 'class-type'
@@ -1839,7 +1772,6 @@ df.region_block_eventst = {}
 ---@class (exact) region_block_event_sphere_fieldst: DFObject, region_block_eventst
 ---@field _kind 'struct'
 ---@field _type _region_block_event_sphere_fieldst
-local region_block_event_sphere_fieldst
 
 ---@class _region_block_event_sphere_fieldst: DFCompound
 ---@field _kind 'class-type'

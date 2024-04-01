@@ -8,7 +8,6 @@
 ---@field high_part long
 ---@field u large_integer.T_u
 ---@field quad_part number
-local large_integer
 
 ---@class _large_integer: DFCompound
 ---@field _kind 'struct-type'
@@ -19,7 +18,6 @@ df.large_integer = {}
 ---@field _type _large_integer.T_u
 ---@field low_part long
 ---@field high_part long
-local large_integer_u
 
 ---@class _large_integer.T_u: DFCompound
 ---@field _kind 'struct-type'
@@ -35,7 +33,6 @@ df.large_integer.T_u = {}
 ---@field sound_playing number
 ---@field on boolean
 ---@field linux_sound_system musicsoundst.T_linux_sound_system
-local musicsoundst
 
 ---@class _musicsoundst: DFCompound
 ---@field _kind 'struct-type'
@@ -58,7 +55,6 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@class (exact) fmod_sound: DFObject
 ---@field _kind 'struct'
 ---@field _type _fmod_sound
-local fmod_sound
 
 ---@class _fmod_sound: DFCompound
 ---@field _kind 'struct-type'
@@ -132,7 +128,6 @@ df.cmv_attribute = {}
 ---@field dim_y number
 ---@field screen_x number
 ---@field screen_y number
-local graphic_viewportst
 
 ---@class _graphic_viewportst: DFCompound
 ---@field _kind 'struct-type'
@@ -150,7 +145,6 @@ df.graphic_viewportst = {}
 ---@field top_left_corner_y number
 ---@field pixel_perc_x number
 ---@field pixel_perc_y number
-local graphic_map_portst
 
 ---@class _graphic_map_portst: DFCompound
 ---@field _kind 'struct-type'
@@ -162,7 +156,6 @@ df.graphic_map_portst = {}
 ---@field w number
 ---@field h number
 ---@field tex_n number
-local cached_texturest
 
 ---@class _cached_texturest: DFCompound
 ---@field _kind 'struct-type'
@@ -174,7 +167,6 @@ df.cached_texturest = {}
 ---@field x number
 ---@field y number
 ---@field tex number
-local texblitst
 
 ---@class _texblitst: DFCompound
 ---@field _kind 'struct-type'
@@ -220,7 +212,6 @@ df.texblitst = {}
 ---@field dimx number
 ---@field dimy number
 ---@field tileset graphic.T_tileset
-local graphic
 
 ---@class _graphic: DFCompound
 ---@field _kind 'struct-type'
@@ -231,7 +222,6 @@ df.graphic = {}
 ---@field _type _graphic.T_tileset
 ---@field graphical_interface interface_setst
 ---@field classic_interface interface_setst
-local graphic_tileset
 
 ---@class _graphic.T_tileset: DFCompound
 ---@field _kind 'struct-type'
@@ -258,7 +248,6 @@ df.graphic.T_tileset = {}
 ---@field texpos_bottom_button_border_interior number
 ---@field texpos_bottom_button_border_ne number
 ---@field texpos_bottom_button_border_e number
-local interface_setst
 
 ---@class _interface_setst: DFCompound
 ---@field _kind 'struct-type'
@@ -267,7 +256,6 @@ df.interface_setst = {}
 ---@class (exact) renderer: DFObject
 ---@field _kind 'struct'
 ---@field _type _renderer
-local renderer
 
 ---@class _renderer: DFCompound
 ---@field _kind 'class-type'
@@ -292,7 +280,6 @@ df.renderer = {}
 ---@field forced_steps number
 ---@field natural_w number
 ---@field natural_h number
-local renderer_2d_base
 
 ---@class _renderer_2d_base: DFCompound
 ---@field _kind 'class-type'
@@ -301,7 +288,6 @@ df.renderer_2d_base = {}
 ---@class (exact) renderer_2d: DFObject, renderer_2d_base
 ---@field _kind 'struct'
 ---@field _type _renderer_2d
-local renderer_2d
 
 ---@class _renderer_2d: DFCompound
 ---@field _kind 'class-type'
@@ -367,7 +353,6 @@ df.zoom_commands = {}
 ---@field gputicks number note: this is a std::atomic_int
 ---@field clock integer note: this is a std::atomic_int
 ---@field mouse_focus boolean
-local enabler
 
 ---@class _enabler: DFCompound
 ---@field _kind 'class-type'
@@ -403,7 +388,6 @@ df.enabler.T_fullscreen_state = {}
 ---@field _type _enabler.T_async_tobox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
-local enabler_async_tobox
 
 ---@class _enabler.T_async_tobox: DFCompound
 ---@field _kind 'struct-type'
@@ -414,7 +398,6 @@ df.enabler.T_async_tobox = {}
 ---@field _type _enabler.T_async_frombox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
-local enabler_async_frombox
 
 ---@class _enabler.T_async_frombox: DFCompound
 ---@field _kind 'struct-type'
@@ -425,7 +408,6 @@ df.enabler.T_async_frombox = {}
 ---@field _type _enabler.T_async_zoom
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
-local enabler_async_zoom
 
 ---@class _enabler.T_async_zoom: DFCompound
 ---@field _kind 'struct-type'
@@ -461,7 +443,6 @@ df.enabler.T_flag = {}
 ---@field _type _enabler.T_textures
 ---@field init_texture_size number
 ---@field uploaded boolean
-local enabler_textures
 
 ---@class _enabler.T_textures: DFCompound
 ---@field _kind 'struct-type'
@@ -500,7 +481,6 @@ df.justification = {}
 ---@field page_dim_x number
 ---@field page_dim_y number
 ---@field loaded boolean
-local tile_pagest
 
 ---@class _tile_pagest: DFCompound
 ---@field _kind 'struct-type'
@@ -513,7 +493,6 @@ df.tile_pagest = {}
 ---@field graphics_dir string
 ---@field filename string
 ---@field default_row number
-local palette_pagest
 
 ---@class _palette_pagest: DFCompound
 ---@field _kind 'struct-type'
@@ -522,7 +501,6 @@ df.palette_pagest = {}
 ---@class (exact) texture_handlerst: DFObject
 ---@field _kind 'struct'
 ---@field _type _texture_handlerst
-local texture_handlerst
 
 ---@class _texture_handlerst: DFCompound
 ---@field _kind 'struct-type'

@@ -2060,7 +2060,6 @@ df.knowledge_scholar_flags_13 = {}
 ---@field _type _knowledge_scholar_category_flag
 ---@field flag_type knowledge_scholar_category_flag.T_flag_type
 ---@field flag_data knowledge_scholar_category_flag.T_flag_data
-local knowledge_scholar_category_flag
 
 ---@class _knowledge_scholar_category_flag: DFCompound
 ---@field _kind 'struct-type'
@@ -2132,7 +2131,6 @@ df.knowledge_scholar_category_flag.T_flag_type = {}
 ---@field flags_12 knowledge_scholar_flags_12
 ---@field flags_13 knowledge_scholar_flags_13
 ---@field whole integer
-local knowledge_scholar_category_flag_flag_data
 
 ---@class _knowledge_scholar_category_flag.T_flag_data: DFCompound
 ---@field _kind 'struct-type'

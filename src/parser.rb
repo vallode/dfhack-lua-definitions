@@ -347,7 +347,7 @@ module DFHackLuaDefinitions
       @fields.each do |field|
         annotation << field.to_field
       end
-      annotation << "local #{@local_name}\n\n"
+      annotation << "\n"
     end
 
     def instance_vector_functions
@@ -356,7 +356,7 @@ module DFHackLuaDefinitions
       annotation << "function df.#{@class_name}.find(key) end\n\n"
 
       annotation << "---@class #{@name}_vector: DFVector, { [integer]: #{@name} }\n"
-      annotation << "local #{@name}_vector\n\n"
+      annotation << "\n"
 
       annotation << "---@return #{@name}_vector # #{@node['instance-vector'].gsub('$global', 'df.global')}\n"
       annotation << "function df.#{@class_name}.get_vector() end\n\n"

@@ -18,7 +18,6 @@ df.projectile_type = {}
 ---@class (exact) proj_list_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _proj_list_link
-local proj_list_link
 
 ---@class _proj_list_link: DFCompound
 ---@field _kind 'struct-type'
@@ -164,7 +163,6 @@ df.projectile_flags = {}
 ---@field accel_x number
 ---@field accel_y number
 ---@field accel_z number
-local projectile
 
 ---@class _projectile: DFCompound
 ---@field _kind 'class-type'
@@ -173,7 +171,6 @@ df.projectile = {}
 ---@class (exact) proj_itemst: DFObject, projectile
 ---@field _kind 'struct'
 ---@field _type _proj_itemst
-local proj_itemst
 
 ---@class _proj_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -182,7 +179,6 @@ df.proj_itemst = {}
 ---@class (exact) proj_unitst: DFObject, projectile
 ---@field _kind 'struct'
 ---@field _type _proj_unitst
-local proj_unitst
 
 ---@class _proj_unitst: DFCompound
 ---@field _kind 'class-type'
@@ -193,7 +189,6 @@ df.proj_unitst = {}
 ---@field _type _proj_magicst
 ---@field type number
 ---@field damage number
-local proj_magicst
 
 ---@class _proj_magicst: DFCompound
 ---@field _kind 'class-type'

@@ -957,7 +957,6 @@ df.job_item_vector_id.attrs = {}
 ---@class (exact) items_other: DFObject
 ---@field _kind 'struct'
 ---@field _type _items_other
-local items_other
 
 ---@class _items_other: DFCompound
 ---@field _kind 'struct-type'

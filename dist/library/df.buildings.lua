@@ -415,7 +415,6 @@ df.building_extents_type = {}
 ---@field y number
 ---@field width number
 ---@field height number
-local building_extents
 
 ---@class _building_extents: DFCompound
 ---@field _kind 'struct-type'
@@ -428,7 +427,6 @@ df.building_extents = {}
 ---@field x2 number
 ---@field y1 number
 ---@field y2 number
-local building_drawbuffer
 
 ---@class _building_drawbuffer: DFCompound
 ---@field _kind 'struct-type'
@@ -457,7 +455,6 @@ df.building_drawbuffer = {}
 ---@field unk_v40_2 number
 ---@field site_id number References: `world_site`
 ---@field location_id number References: `abstract_building`
-local building
 
 ---@class _building: DFCompound
 ---@field _kind 'class-type'
@@ -468,7 +465,6 @@ df.building = {}
 function df.building.find(key) end
 
 ---@class building_vector: DFVector, { [integer]: building }
-local building_vector
 
 ---@return building_vector # df.global.world.buildings.all
 function df.building.get_vector() end
@@ -477,7 +473,6 @@ function df.building.get_vector() end
 ---@class (exact) stockpile_links: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_links
-local stockpile_links
 
 ---@class _stockpile_links: DFCompound
 ---@field _kind 'struct-type'
@@ -493,7 +488,6 @@ df.stockpile_links = {}
 ---@field links stockpile_links
 ---@field use_links_only number
 ---@field stockpile_number number
-local building_stockpilest
 
 ---@class _building_stockpilest: DFCompound
 ---@field _kind 'class-type'
@@ -519,7 +513,6 @@ df.building_stockpilest = {}
 ---@field cur_buckets number
 ---@field cur_soap number
 ---@field supply_recheck_timer number
-local hospital_supplies
 
 ---@class _hospital_supplies: DFCompound
 ---@field _kind 'struct-type'
@@ -851,7 +844,6 @@ df.civzone_type = {}
 ---@field zone_num number
 ---@field zone_settings building_civzonest.T_zone_settings
 ---@field assigned_unit_id number
-local building_civzonest
 
 ---@class _building_civzonest: DFCompound
 ---@field _kind 'class-type'
@@ -866,7 +858,6 @@ df.building_civzonest = {}
 ---@field tomb building_civzonest.T_zone_settings.T_tomb
 ---@field archery building_civzonest.T_zone_settings.T_archery
 ---@field pit_pond building_civzonest.T_zone_settings.T_pit_pond
-local building_civzonest_zone_settings
 
 ---@class _building_civzonest.T_zone_settings: DFCompound
 ---@field _kind 'struct-type'
@@ -877,7 +868,6 @@ df.building_civzonest.T_zone_settings = {}
 ---@field _type _building_civzonest.T_zone_settings.T_whole
 ---@field i1 number
 ---@field i2 number
-local building_civzonest_zone_settings_whole
 
 ---@class _building_civzonest.T_zone_settings.T_whole: DFCompound
 ---@field _kind 'struct-type'
@@ -918,7 +908,6 @@ df.building_civzonest.T_zone_settings.T_gather = {}
 ---@field _kind 'struct'
 ---@field _type _building_civzonest.T_zone_settings.T_pen
 ---@field unk number
-local building_civzonest_zone_settings_pen
 
 ---@class _building_civzonest.T_zone_settings.T_pen: DFCompound
 ---@field _kind 'struct-type'
@@ -954,7 +943,6 @@ df.building_civzonest.T_zone_settings.T_tomb = {}
 ---@field _type _building_civzonest.T_zone_settings.T_archery
 ---@field dir_x number
 ---@field dir_y number
-local building_civzonest_zone_settings_archery
 
 ---@class _building_civzonest.T_zone_settings.T_archery: DFCompound
 ---@field _kind 'struct-type'
@@ -990,7 +978,6 @@ df.building_item_role_type = {}
 ---@field _kind 'struct'
 ---@field _type _building_actual
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
-local building_actual
 
 ---@class _building_actual: DFCompound
 ---@field _kind 'class-type'
@@ -1009,7 +996,6 @@ df.building_actual = {}
 ---@field flags building_design.T_flags
 ---@field hitpoints number
 ---@field max_hitpoints number
-local building_design
 
 ---@class _building_design: DFCompound
 ---@field _kind 'struct-type'
@@ -1100,7 +1086,6 @@ df.furnace_type.attrs = {}
 ---@field type furnace_type
 ---@field profile workshop_profile
 ---@field custom_type number References: `building_def`
-local building_furnacest
 
 ---@class _building_furnacest: DFCompound
 ---@field _kind 'class-type'
@@ -1221,7 +1206,6 @@ df.workshop_type.attrs = {}
 ---@field links stockpile_links
 ---@field max_general_orders number
 ---@field block_general_orders boolean
-local workshop_profile
 
 ---@class _workshop_profile: DFCompound
 ---@field _kind 'struct-type'
@@ -1234,7 +1218,6 @@ df.workshop_profile = {}
 ---@field profile workshop_profile
 ---@field machine machine_info
 ---@field custom_type number References: `building_def`
-local building_workshopst
 
 ---@class _building_workshopst: DFCompound
 ---@field _kind 'class-type'
@@ -1246,7 +1229,6 @@ df.building_workshopst = {}
 ---@field _type _building_animaltrapst
 ---@field bait_type number
 ---@field fill_timer number
-local building_animaltrapst
 
 ---@class _building_animaltrapst: DFCompound
 ---@field _kind 'class-type'
@@ -1255,7 +1237,6 @@ df.building_animaltrapst = {}
 ---@class (exact) building_archerytargetst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_archerytargetst
-local building_archerytargetst
 
 ---@class _building_archerytargetst: DFCompound
 ---@field _kind 'class-type'
@@ -1267,7 +1248,6 @@ df.building_archerytargetst = {}
 ---@field unk_c0 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
-local building_armorstandst
 
 ---@class _building_armorstandst: DFCompound
 ---@field _kind 'class-type'
@@ -1278,7 +1258,6 @@ df.building_armorstandst = {}
 ---@field _type _building_bars_verticalst
 ---@field gate_flags gate_flags
 ---@field timer number
-local building_bars_verticalst
 
 ---@class _building_bars_verticalst: DFCompound
 ---@field _kind 'class-type'
@@ -1289,7 +1268,6 @@ df.building_bars_verticalst = {}
 ---@field _type _building_bars_floorst
 ---@field gate_flags gate_flags
 ---@field timer number
-local building_bars_floorst
 
 ---@class _building_bars_floorst: DFCompound
 ---@field _kind 'class-type'
@@ -1298,7 +1276,6 @@ df.building_bars_floorst = {}
 ---@class (exact) building_users: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_users
-local building_users
 
 ---@class _building_users: DFCompound
 ---@field _kind 'struct-type'
@@ -1310,7 +1287,6 @@ df.building_users = {}
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
 ---@field users building_users
-local building_bedst
 
 ---@class _building_bedst: DFCompound
 ---@field _kind 'class-type'
@@ -1319,7 +1295,6 @@ df.building_bedst = {}
 ---@class (exact) building_bookcasest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_bookcasest
-local building_bookcasest
 
 ---@class _building_bookcasest: DFCompound
 ---@field _kind 'class-type'
@@ -1331,7 +1306,6 @@ df.building_bookcasest = {}
 ---@field unk_1 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
-local building_boxst
 
 ---@class _building_boxst: DFCompound
 ---@field _kind 'class-type'
@@ -1344,7 +1318,6 @@ df.building_boxst = {}
 ---@field timer number
 ---@field direction building_bridgest.T_direction
 ---@field material_amount number
-local building_bridgest
 
 ---@class _building_bridgest: DFCompound
 ---@field _kind 'class-type'
@@ -1376,7 +1349,6 @@ df.building_bridgest.T_direction = {}
 ---@field unk_1 number
 ---@field specific_squad number References: `squad`
 ---@field specific_position number
-local building_cabinetst
 
 ---@class _building_cabinetst: DFCompound
 ---@field _kind 'class-type'
@@ -1387,7 +1359,6 @@ df.building_cabinetst = {}
 ---@field _type _building_cagest
 ---@field cage_flags building_cagest.T_cage_flags
 ---@field fill_timer number
-local building_cagest
 
 ---@class _building_cagest: DFCompound
 ---@field _kind 'class-type'
@@ -1416,7 +1387,6 @@ df.building_cagest.T_cage_flags = {}
 ---@field _kind 'struct'
 ---@field _type _building_chainst
 ---@field chain_flags building_chainst.T_chain_flags
-local building_chainst
 
 ---@class _building_chainst: DFCompound
 ---@field _kind 'class-type'
@@ -1446,7 +1416,6 @@ df.building_chainst.T_chain_flags = {}
 ---@field _type _building_chairst
 ---@field unk_1 number
 ---@field users building_users
-local building_chairst
 
 ---@class _building_chairst: DFCompound
 ---@field _kind 'class-type'
@@ -1455,7 +1424,6 @@ df.building_chairst = {}
 ---@class (exact) building_coffinst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_coffinst
-local building_coffinst
 
 ---@class _building_coffinst: DFCompound
 ---@field _kind 'class-type'
@@ -1584,7 +1552,6 @@ df.construction_type = {}
 ---@field _kind 'struct'
 ---@field _type _building_constructionst
 ---@field type construction_type
-local building_constructionst
 
 ---@class _building_constructionst: DFCompound
 ---@field _kind 'class-type'
@@ -1593,7 +1560,6 @@ df.building_constructionst = {}
 ---@class (exact) building_display_furniturest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_display_furniturest
-local building_display_furniturest
 
 ---@class _building_display_furniturest: DFCompound
 ---@field _kind 'class-type'
@@ -1604,7 +1570,6 @@ df.building_display_furniturest = {}
 ---@field _type _building_doorst
 ---@field door_flags door_flags
 ---@field close_timer number
-local building_doorst
 
 ---@class _building_doorst: DFCompound
 ---@field _kind 'class-type'
@@ -1619,7 +1584,6 @@ df.building_doorst = {}
 ---@field current_fertilization number
 ---@field max_fertilization number
 ---@field terrain_purge_timer number
-local building_farmplotst
 
 ---@class _building_farmplotst: DFCompound
 ---@field _kind 'class-type'
@@ -1649,7 +1613,6 @@ df.building_farmplotst.T_farm_flags = {}
 ---@field _type _building_floodgatest
 ---@field gate_flags gate_flags
 ---@field timer number
-local building_floodgatest
 
 ---@class _building_floodgatest: DFCompound
 ---@field _kind 'class-type'
@@ -1660,7 +1623,6 @@ df.building_floodgatest = {}
 ---@field _type _building_grate_floorst
 ---@field gate_flags gate_flags
 ---@field timer number
-local building_grate_floorst
 
 ---@class _building_grate_floorst: DFCompound
 ---@field _kind 'class-type'
@@ -1671,7 +1633,6 @@ df.building_grate_floorst = {}
 ---@field _type _building_grate_wallst
 ---@field gate_flags gate_flags
 ---@field timer number
-local building_grate_wallst
 
 ---@class _building_grate_wallst: DFCompound
 ---@field _kind 'class-type'
@@ -1682,7 +1643,6 @@ df.building_grate_wallst = {}
 ---@field _type _building_hatchst
 ---@field door_flags door_flags
 ---@field close_timer number
-local building_hatchst
 
 ---@class _building_hatchst: DFCompound
 ---@field _kind 'class-type'
@@ -1727,7 +1687,6 @@ df.hive_flags = {}
 ---@field activity_timer number up to 100800000; checks timer%hive_product.time[i]==0
 ---@field install_timer number down from 1200
 ---@field gather_timer number down from 1200
-local building_hivest
 
 ---@class _building_hivest: DFCompound
 ---@field _kind 'class-type'
@@ -1737,7 +1696,6 @@ df.building_hivest = {}
 ---@field _kind 'struct'
 ---@field _type _building_instrumentst
 ---@field unk_1 number
-local building_instrumentst
 
 ---@class _building_instrumentst: DFCompound
 ---@field _kind 'class-type'
@@ -1746,7 +1704,6 @@ df.building_instrumentst = {}
 ---@class (exact) building_nestst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_nestst
-local building_nestst
 
 ---@class _building_nestst: DFCompound
 ---@field _kind 'class-type'
@@ -1757,7 +1714,6 @@ df.building_nestst = {}
 ---@field _type _building_nest_boxst
 ---@field claimed_by number References: `unit`
 ---@field claim_timeout number counts up if the nest box is claimed but empty. when it hits 8400 ticks, the nest box is unclaimed.
-local building_nest_boxst
 
 ---@class _building_nest_boxst: DFCompound
 ---@field _kind 'class-type'
@@ -1766,7 +1722,6 @@ df.building_nest_boxst = {}
 ---@class (exact) building_offering_placest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_offering_placest
-local building_offering_placest
 
 ---@class _building_offering_placest: DFCompound
 ---@field _kind 'class-type'
@@ -1775,7 +1730,6 @@ df.building_offering_placest = {}
 ---@class (exact) building_roadst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_roadst
-local building_roadst
 
 ---@class _building_roadst: DFCompound
 ---@field _kind 'class-type'
@@ -1785,7 +1739,6 @@ df.building_roadst = {}
 ---@field _kind 'struct'
 ---@field _type _building_road_dirtst
 ---@field material_amount number
-local building_road_dirtst
 
 ---@class _building_road_dirtst: DFCompound
 ---@field _kind 'class-type'
@@ -1796,7 +1749,6 @@ df.building_road_dirtst = {}
 ---@field _type _building_road_pavedst
 ---@field material_amount number
 ---@field terrain_purge_timer number
-local building_road_pavedst
 
 ---@class _building_road_pavedst: DFCompound
 ---@field _kind 'class-type'
@@ -1825,7 +1777,6 @@ df.shop_type = {}
 ---@field timer number increments until reaching 200,000,000
 ---@field shop_flags building_shopst.T_shop_flags
 ---@field type shop_type
-local building_shopst
 
 ---@class _building_shopst: DFCompound
 ---@field _kind 'class-type'
@@ -1869,7 +1820,6 @@ df.siegeengine_type = {}
 ---@field action building_siegeenginest.T_action
 ---@field fire_timer number
 ---@field fill_timer number
-local building_siegeenginest
 
 ---@class _building_siegeenginest: DFCompound
 ---@field _kind 'class-type'
@@ -1910,7 +1860,6 @@ df.building_siegeenginest.T_action = {}
 ---@field _kind 'struct'
 ---@field _type _building_slabst
 ---@field unk_1 number
-local building_slabst
 
 ---@class _building_slabst: DFCompound
 ---@field _kind 'class-type'
@@ -1920,7 +1869,6 @@ df.building_slabst = {}
 ---@field _kind 'struct'
 ---@field _type _building_statuest
 ---@field unk_1 number
-local building_statuest
 
 ---@class _building_statuest: DFCompound
 ---@field _kind 'class-type'
@@ -1930,7 +1878,6 @@ df.building_statuest = {}
 ---@field _kind 'struct'
 ---@field _type _building_supportst
 ---@field support_flags building_supportst.T_support_flags
-local building_supportst
 
 ---@class _building_supportst: DFCompound
 ---@field _kind 'class-type'
@@ -1960,7 +1907,6 @@ df.building_supportst.T_support_flags = {}
 ---@field _type _building_tablest
 ---@field table_flags building_tablest.T_table_flags
 ---@field users building_users
-local building_tablest
 
 ---@class _building_tablest: DFCompound
 ---@field _kind 'class-type'
@@ -1990,7 +1936,6 @@ df.building_tablest.T_table_flags = {}
 ---@field _type _building_traction_benchst
 ---@field unk_1 number
 ---@field users building_users
-local building_traction_benchst
 
 ---@class _building_traction_benchst: DFCompound
 ---@field _kind 'class-type'
@@ -2001,7 +1946,6 @@ df.building_traction_benchst = {}
 ---@field _type _building_tradedepotst
 ---@field trade_flags building_tradedepotst.T_trade_flags
 ---@field accessible number
-local building_tradedepotst
 
 ---@class _building_tradedepotst: DFCompound
 ---@field _kind 'class-type'
@@ -2067,7 +2011,6 @@ df.trap_type = {}
 ---@field track_min number
 ---@field track_max number
 ---@field flags pressure_plate_info.T_flags
-local pressure_plate_info
 
 ---@class _pressure_plate_info: DFCompound
 ---@field _kind 'struct-type'
@@ -2137,7 +2080,6 @@ df.pressure_plate_info.T_flags = {}
 ---@field dump_x_shift number
 ---@field dump_y_shift number
 ---@field stop_trigger_timer number
-local building_trapst
 
 ---@class _building_trapst: DFCompound
 ---@field _kind 'class-type'
@@ -2177,7 +2119,6 @@ df.building_trapst.T_stop_flags = {}
 ---@class (exact) building_wagonst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_wagonst
-local building_wagonst
 
 ---@class _building_wagonst: DFCompound
 ---@field _kind 'class-type'
@@ -2188,7 +2129,6 @@ df.building_wagonst = {}
 ---@field _type _building_weaponst
 ---@field gate_flags gate_flags
 ---@field timer number
-local building_weaponst
 
 ---@class _building_weaponst: DFCompound
 ---@field _kind 'class-type'
@@ -2199,7 +2139,6 @@ df.building_weaponst = {}
 ---@field _type _building_squad_use
 ---@field squad_id number References: `squad`
 ---@field mode squad_use_flags
-local building_squad_use
 
 ---@class _building_squad_use: DFCompound
 ---@field _kind 'struct-type'
@@ -2210,7 +2149,6 @@ df.building_squad_use = {}
 ---@field _type _building_weaponrackst
 ---@field rack_flags number
 ---@field specific_squad number References: `squad`
-local building_weaponrackst
 
 ---@class _building_weaponrackst: DFCompound
 ---@field _kind 'class-type'
@@ -2224,7 +2162,6 @@ df.building_weaponrackst = {}
 ---@field bucket_z number
 ---@field bucket_timer number 0-9; counts up when raising, down when lowering
 ---@field check_water_timer number
-local building_wellst
 
 ---@class _building_wellst: DFCompound
 ---@field _kind 'class-type'
@@ -2259,7 +2196,6 @@ df.building_wellst.T_well_flags = {}
 ---@field _kind 'struct'
 ---@field _type _building_windowst
 ---@field unk_1 number
-local building_windowst
 
 ---@class _building_windowst: DFCompound
 ---@field _kind 'class-type'
@@ -2268,7 +2204,6 @@ df.building_windowst = {}
 ---@class (exact) building_window_glassst: DFObject, building_windowst
 ---@field _kind 'struct'
 ---@field _type _building_window_glassst
-local building_window_glassst
 
 ---@class _building_window_glassst: DFCompound
 ---@field _kind 'class-type'
@@ -2277,7 +2212,6 @@ df.building_window_glassst = {}
 ---@class (exact) building_window_gemst: DFObject, building_windowst
 ---@field _kind 'struct'
 ---@field _type _building_window_gemst
-local building_window_gemst
 
 ---@class _building_window_gemst: DFCompound
 ---@field _kind 'class-type'

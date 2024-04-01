@@ -25,7 +25,6 @@ df.art_image_element_type = {}
 ---@field _kind 'struct'
 ---@field _type _art_image_element
 ---@field count number
-local art_image_element
 
 ---@class _art_image_element: DFCompound
 ---@field _kind 'class-type'
@@ -37,7 +36,6 @@ df.art_image_element = {}
 ---@field race number References: `creature_raw`
 ---@field caste number
 ---@field histfig number References: `historical_figure`
-local art_image_element_creaturest
 
 ---@class _art_image_element_creaturest: DFCompound
 ---@field _kind 'class-type'
@@ -47,7 +45,6 @@ df.art_image_element_creaturest = {}
 ---@field _kind 'struct'
 ---@field _type _art_image_element_plantst
 ---@field plant_id number References: `plant_raw`
-local art_image_element_plantst
 
 ---@class _art_image_element_plantst: DFCompound
 ---@field _kind 'class-type'
@@ -57,7 +54,6 @@ df.art_image_element_plantst = {}
 ---@field _kind 'struct'
 ---@field _type _art_image_element_treest
 ---@field plant_id number References: `plant_raw`
-local art_image_element_treest
 
 ---@class _art_image_element_treest: DFCompound
 ---@field _kind 'class-type'
@@ -68,7 +64,6 @@ df.art_image_element_treest = {}
 ---@field _type _art_image_element_shapest
 ---@field shape_id number References: `descriptor_shape`
 ---@field shape_adj number
-local art_image_element_shapest
 
 ---@class _art_image_element_shapest: DFCompound
 ---@field _kind 'class-type'
@@ -83,7 +78,6 @@ df.art_image_element_shapest = {}
 ---@field mat_index number
 ---@field flags item_flags
 ---@field item_id number References: `item`
-local art_image_element_itemst
 
 ---@class _art_image_element_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -103,7 +97,6 @@ df.art_image_property_type = {}
 ---@class (exact) art_image_property: DFObject
 ---@field _kind 'struct'
 ---@field _type _art_image_property
-local art_image_property
 
 ---@class _art_image_property: DFCompound
 ---@field _kind 'class-type'
@@ -264,7 +257,6 @@ df.art_image_property_verb = {}
 ---@field subject number
 ---@field object number
 ---@field verb art_image_property_verb
-local art_image_property_transitive_verbst
 
 ---@class _art_image_property_transitive_verbst: DFCompound
 ---@field _kind 'class-type'
@@ -275,7 +267,6 @@ df.art_image_property_transitive_verbst = {}
 ---@field _type _art_image_property_intransitive_verbst
 ---@field subject number
 ---@field verb art_image_property_verb
-local art_image_property_intransitive_verbst
 
 ---@class _art_image_property_intransitive_verbst: DFCompound
 ---@field _kind 'class-type'
@@ -313,7 +304,6 @@ df.art_facet_type = {}
 ---@field unk_1 number
 ---@field id number References: `art_image_chunk`
 ---@field subid number References: `art_image`
-local art_image
 
 ---@class _art_image: DFCompound
 ---@field _kind 'struct-type'
@@ -323,7 +313,6 @@ df.art_image = {}
 ---@field _kind 'struct'
 ---@field _type _art_image_chunk
 ---@field id number art_image_*.dat
-local art_image_chunk
 
 ---@class _art_image_chunk: DFCompound
 ---@field _kind 'struct-type'
@@ -334,7 +323,6 @@ df.art_image_chunk = {}
 function df.art_image_chunk.find(key) end
 
 ---@class art_image_chunk_vector: DFVector, { [integer]: art_image_chunk }
-local art_image_chunk_vector
 
 ---@return art_image_chunk_vector # df.global.world.art_image_chunks
 function df.art_image_chunk.get_vector() end
@@ -346,7 +334,6 @@ function df.art_image_chunk.get_vector() end
 ---@field subid number References: `art_image`
 ---@field civ_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
-local art_image_ref
 
 ---@class _art_image_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -596,7 +583,6 @@ df.poetic_form_subject = {}
 ---@field _type _poetic_form_subject_target
 ---@field Histfig poetic_form_subject_target.T_Histfig
 ---@field Concept poetic_form_subject_target.T_Concept
-local poetic_form_subject_target
 
 ---@class _poetic_form_subject_target: DFCompound
 ---@field _kind 'struct-type'
@@ -606,7 +592,6 @@ df.poetic_form_subject_target = {}
 ---@field _kind 'struct'
 ---@field _type _poetic_form_subject_target.T_Histfig
 ---@field subject_histfig number References: `historical_figure`
-local poetic_form_subject_target_Histfig
 
 ---@class _poetic_form_subject_target.T_Histfig: DFCompound
 ---@field _kind 'struct-type'
@@ -616,7 +601,6 @@ df.poetic_form_subject_target.T_Histfig = {}
 ---@field _kind 'struct'
 ---@field _type _poetic_form_subject_target.T_Concept
 ---@field subject_topic sphere_type
-local poetic_form_subject_target_Concept
 
 ---@class _poetic_form_subject_target.T_Concept: DFCompound
 ---@field _kind 'struct-type'
@@ -817,7 +801,6 @@ df.poetic_form_additional_feature = {}
 ---@field action poetic_form_action
 ---@field preferred_perspective number if not -1, ALWAYS written from that perspective
 ---@field features poetic_form_feature "use of ... is characteristic of the form" or "must feature lines which ..."
-local poetic_form
 
 ---@class _poetic_form: DFCompound
 ---@field _kind 'struct-type'
@@ -828,7 +811,6 @@ df.poetic_form = {}
 function df.poetic_form.find(key) end
 
 ---@class poetic_form_vector: DFVector, { [integer]: poetic_form }
-local poetic_form_vector
 
 ---@return poetic_form_vector # df.global.world.poetic_forms.all
 function df.poetic_form.get_vector() end
@@ -878,7 +860,6 @@ df.poetic_form.T_flags = {}
 ---@field action poetic_form_action
 ---@field unk_8 number
 ---@field unk_9 number
-local poetic_form_part
 
 ---@class _poetic_form_part: DFCompound
 ---@field _kind 'struct-type'
@@ -909,7 +890,6 @@ df.poetic_form_part.T_flags = {}
 ---@field type poetic_form_perspective.T_type
 ---@field histfig number References: `historical_figure`
 ---@field unk_1 number
-local poetic_form_perspective
 
 ---@class _poetic_form_perspective: DFCompound
 ---@field _kind 'struct-type'
@@ -1438,7 +1418,6 @@ df.musical_form_melody_frequency = {}
 ---@field _type _musical_form_interval
 ---@field degree number
 ---@field flags musical_form_interval.T_flags
-local musical_form_interval
 
 ---@class _musical_form_interval: DFCompound
 ---@field _kind 'struct-type'
@@ -1481,7 +1460,6 @@ df.musical_form_interval.T_flags = {}
 ---@field style musical_form_melody_style
 ---@field frequency musical_form_melody_frequency
 ---@field features musical_form_feature
-local musical_form_melodies
 
 ---@class _musical_form_melodies: DFCompound
 ---@field _kind 'struct-type'
@@ -1509,7 +1487,6 @@ df.musical_form_melodies = {}
 ---@field pitch_style musical_form_pitch_style
 ---@field unk_22 number 0-40 seen
 ---@field unk_23 number 0-78 seen
-local musical_form_passage
 
 ---@class _musical_form_passage: DFCompound
 ---@field _kind 'struct-type'
@@ -1525,7 +1502,6 @@ df.musical_form_passage = {}
 ---@field maximum_permitted number tentative
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
-local musical_form_instruments
 
 ---@class _musical_form_instruments: DFCompound
 ---@field _kind 'struct-type'
@@ -1571,7 +1547,6 @@ df.musical_form_instruments.T_substitutions = {}
 ---@field unk_4 number
 ---@field unk_5 number
 ---@field unk_6 number
-local musical_form_sub4
 
 ---@class _musical_form_sub4: DFCompound
 ---@field _kind 'struct-type'
@@ -1599,7 +1574,6 @@ df.musical_form_sub4 = {}
 ---@field purpose musical_form_purpose
 ---@field devotion_target number References: `historical_figure`
 ---@field flags musical_form.T_flags
-local musical_form
 
 ---@class _musical_form: DFCompound
 ---@field _kind 'struct-type'
@@ -1610,7 +1584,6 @@ df.musical_form = {}
 function df.musical_form.find(key) end
 
 ---@class musical_form_vector: DFVector, { [integer]: musical_form }
-local musical_form_vector
 
 ---@return musical_form_vector # df.global.world.musical_forms.all
 function df.musical_form.get_vector() end
@@ -2116,7 +2089,6 @@ df.dance_form_move_location = {}
 ---@field unk_13 number
 ---@field unk_14 number
 ---@field id number
-local dance_form_section
 
 ---@class _dance_form_section: DFCompound
 ---@field _kind 'struct-type'
@@ -2141,7 +2113,6 @@ df.dance_form_move_group_type = {}
 ---@field _type _dance_form_move
 ---@field name string
 ---@field group_type dance_form_move_group_type
-local dance_form_move
 
 ---@class _dance_form_move: DFCompound
 ---@field _kind 'struct-type'
@@ -2171,7 +2142,6 @@ df.dance_form_move = {}
 ---@field unk_14 number
 ---@field hfid number Character whose story the dance acts out References: `historical_figure`
 ---@field race number Creature whose movements are imitated References: `creature_raw`
-local dance_form
 
 ---@class _dance_form: DFCompound
 ---@field _kind 'struct-type'
@@ -2182,7 +2152,6 @@ df.dance_form = {}
 function df.dance_form.find(key) end
 
 ---@class dance_form_vector: DFVector, { [integer]: dance_form }
-local dance_form_vector
 
 ---@return dance_form_vector # df.global.world.dance_forms.all
 function df.dance_form.get_vector() end
@@ -2207,7 +2176,6 @@ df.scale_type = {}
 ---@field name string
 ---@field chord_size number
 ---@field unk_3 number 0 and 1 seen
-local chord
 
 ---@class _chord: DFCompound
 ---@field _kind 'struct-type'
@@ -2222,7 +2190,6 @@ df.chord = {}
 ---@field degrees_used number elements used in array above
 ---@field first_chord number this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
 ---@field second_chord number
-local named_scale
 
 ---@class _named_scale: DFCompound
 ---@field _kind 'struct-type'
@@ -2236,7 +2203,6 @@ df.named_scale = {}
 ---@field type scale_type
 ---@field scale_length number Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
 ---@field notes scale.T_notes
-local scale
 
 ---@class _scale: DFCompound
 ---@field _kind 'struct-type'
@@ -2247,7 +2213,6 @@ df.scale = {}
 function df.scale.find(key) end
 
 ---@class scale_vector: DFVector, { [integer]: scale }
-local scale_vector
 
 ---@return scale_vector # df.global.world.scales.all
 function df.scale.get_vector() end
@@ -2277,7 +2242,6 @@ df.scale.T_flags = {}
 ---@field _type _scale.T_notes
 ---@field unk_1 number Frequently looks like garbage for all values of type. Suspect it's actually a filler
 ---@field length number number of elements of the arrays above used
-local scale_notes
 
 ---@class _scale.T_notes: DFCompound
 ---@field _kind 'struct-type'
@@ -2288,7 +2252,6 @@ df.scale.T_notes = {}
 ---@field _type _rhythm
 ---@field id number
 ---@field unk_2 number
-local rhythm
 
 ---@class _rhythm: DFCompound
 ---@field _kind 'struct-type'
@@ -2299,7 +2262,6 @@ df.rhythm = {}
 function df.rhythm.find(key) end
 
 ---@class rhythm_vector: DFVector, { [integer]: rhythm }
-local rhythm_vector
 
 ---@return rhythm_vector # df.global.world.rhythms.all
 function df.rhythm.get_vector() end
@@ -2350,7 +2312,6 @@ df.beat_type = {}
 ---@field _type _rhythm_pattern
 ---@field name string
 ---@field length number
-local rhythm_pattern
 
 ---@class _rhythm_pattern: DFCompound
 ---@field _kind 'struct-type'
@@ -2361,7 +2322,6 @@ df.rhythm_pattern = {}
 ---@field _type _sub_rhythm
 ---@field name string
 ---@field unk_3 number
-local sub_rhythm
 
 ---@class _sub_rhythm: DFCompound
 ---@field _kind 'struct-type'
@@ -2417,7 +2377,6 @@ df.occupation_type = {}
 ---@field site_id number References: `world_site`
 ---@field group_id number References: `historical_entity`
 ---@field next_service_order_id number
-local occupation
 
 ---@class _occupation: DFCompound
 ---@field _kind 'struct-type'
@@ -2428,7 +2387,6 @@ df.occupation = {}
 function df.occupation.find(key) end
 
 ---@class occupation_vector: DFVector, { [integer]: occupation }
-local occupation_vector
 
 ---@return occupation_vector # df.global.world.occupations.all
 function df.occupation.get_vector() end
@@ -2473,7 +2431,6 @@ df.service_order_type = {}
 ---@field activity_id number
 ---@field activity_event_id number
 ---@field flag service_orderst.T_flag
-local service_orderst
 
 ---@class _service_orderst: DFCompound
 ---@field _kind 'struct-type'

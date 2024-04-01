@@ -282,7 +282,6 @@ df.item_magicness_type = {}
 ---@field value number boosts item value by 50*this
 ---@field unk_1 number
 ---@field flags number 1=does not show up in item description or alter item value
-local item_magicness
 
 ---@class _item_magicness: DFCompound
 ---@field _kind 'struct-type'
@@ -293,7 +292,6 @@ df.item_magicness = {}
 ---@field _type _temperaturest
 ---@field whole integer seems like a convenient name
 ---@field fraction number
-local temperaturest
 
 ---@class _temperaturest: DFCompound
 ---@field _kind 'struct-type'
@@ -308,7 +306,6 @@ df.temperaturest = {}
 ---@field temperature temperaturest
 ---@field size number 1-24=spatter, 25-49=smear, 50-* = coating
 ---@field base_flags spatter_common.T_base_flags
-local spatter_common
 
 ---@class _spatter_common: DFCompound
 ---@field _kind 'struct-type'
@@ -338,7 +335,6 @@ df.spatter_common.T_base_flags = {}
 ---@field _type _spatter
 ---@field body_part_id number
 ---@field flags spatter.T_flags
-local spatter
 
 ---@class _spatter: DFCompound
 ---@field _kind 'struct-type'
@@ -562,7 +558,6 @@ df.trade_good_purpose = {}
 ---@field fixed_temp integer
 ---@field weight number if flags.weight_computed
 ---@field weight_fraction number 1e-6
-local item
 
 ---@class _item: DFCompound
 ---@field _kind 'class-type'
@@ -573,7 +568,6 @@ df.item = {}
 function df.item.find(key) end
 
 ---@class item_vector: DFVector, { [integer]: item }
-local item_vector
 
 ---@return item_vector # df.global.world.items.all
 function df.item.get_vector() end
@@ -583,7 +577,6 @@ function df.item.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _item_kill_info
 ---@field targets historical_kills
-local item_kill_info
 
 ---@class _item_kill_info: DFCompound
 ---@field _kind 'struct-type'
@@ -594,7 +587,6 @@ df.item_kill_info = {}
 ---@field _type _item_history_info
 ---@field attack_counter number increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter number naming weight 0.001
-local item_history_info
 
 ---@class _item_history_info: DFCompound
 ---@field _kind 'struct-type'
@@ -609,7 +601,6 @@ df.item_history_info = {}
 ---@field wear_timer number counts up to 806400
 ---@field unk_1 number
 ---@field temp_updated_frame number
-local item_actual
 
 ---@class _item_actual: DFCompound
 ---@field _kind 'class-type'
@@ -626,7 +617,6 @@ df.item_actual = {}
 ---@field skill_rating skill_rating at the moment of creation
 ---@field maker number References: `historical_figure`
 ---@field masterpiece_event number References: `history_event`
-local item_crafted
 
 ---@class _item_crafted: DFCompound
 ---@field _kind 'class-type'
@@ -636,7 +626,6 @@ df.item_crafted = {}
 ---@class (exact) item_constructed: DFObject, item_crafted
 ---@field _kind 'struct'
 ---@field _type _item_constructed
-local item_constructed
 
 ---@class _item_constructed: DFCompound
 ---@field _kind 'class-type'
@@ -815,7 +804,6 @@ df.body_layer_status = {}
 ---@class (exact) body_component_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _body_component_info
-local body_component_info
 
 ---@class _body_component_info: DFCompound
 ---@field _kind 'struct-type'
@@ -830,7 +818,6 @@ df.body_component_info = {}
 ---@field area_base number size_base^0.666
 ---@field length_cur number (size_cur*10000)^0.333
 ---@field length_base number (size_base*10000)^0.333
-local body_size_info
 
 ---@class _body_size_info: DFCompound
 ---@field _kind 'struct-type'
@@ -905,7 +892,6 @@ df.corpse_material_type = {}
 ---@field corpse_flags item_body_component.T_corpse_flags
 ---@field bone1 item_body_component.T_bone1
 ---@field bone2 item_body_component.T_bone2
-local item_body_component
 
 ---@class _item_body_component: DFCompound
 ---@field _kind 'class-type'
@@ -917,7 +903,6 @@ df.item_body_component = {}
 ---@field wound_next_id number
 ---@field components body_component_info
 ---@field size_info body_size_info
-local item_body_component_body
 
 ---@class _item_body_component.T_body: DFCompound
 ---@field _kind 'struct-type'
@@ -926,7 +911,6 @@ df.item_body_component.T_body = {}
 ---@class (exact) item_body_component.T_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_body_component.T_appearance
-local item_body_component_appearance
 
 ---@class _item_body_component.T_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -1040,7 +1024,6 @@ df.item_body_component.T_corpse_flags = {}
 ---@field _type _item_body_component.T_bone1
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_body_component_bone1
 
 ---@class _item_body_component.T_bone1: DFCompound
 ---@field _kind 'struct-type'
@@ -1051,7 +1034,6 @@ df.item_body_component.T_bone1 = {}
 ---@field _type _item_body_component.T_bone2
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_body_component_bone2
 
 ---@class _item_body_component.T_bone2: DFCompound
 ---@field _kind 'struct-type'
@@ -1063,7 +1045,6 @@ df.item_body_component.T_bone2 = {}
 ---@field unused_398 number
 ---@field unused_39c number
 ---@field unused_3a0 number
-local item_corpsest
 
 ---@class _item_corpsest: DFCompound
 ---@field _kind 'class-type'
@@ -1072,7 +1053,6 @@ df.item_corpsest = {}
 ---@class (exact) item_corpsepiecest: DFObject, item_body_component
 ---@field _kind 'struct'
 ---@field _type _item_corpsepiecest
-local item_corpsepiecest
 
 ---@class _item_corpsepiecest: DFCompound
 ---@field _kind 'class-type'
@@ -1087,7 +1067,6 @@ df.item_corpsepiecest = {}
 ---@field milk_timer number
 ---@field airdrown_timer number
 ---@field name language_name
-local item_critter
 
 ---@class _item_critter: DFCompound
 ---@field _kind 'class-type'
@@ -1129,7 +1108,6 @@ df.item_matstate = {}
 ---@field _type _item_liquipowder
 ---@field mat_state item_matstate
 ---@field dimension number
-local item_liquipowder
 
 ---@class _item_liquipowder: DFCompound
 ---@field _kind 'class-type'
@@ -1140,7 +1118,6 @@ df.item_liquipowder = {}
 ---@field _type _item_liquid
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_liquid
 
 ---@class _item_liquid: DFCompound
 ---@field _kind 'class-type'
@@ -1151,7 +1128,6 @@ df.item_liquid = {}
 ---@field _type _item_powder
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_powder
 
 ---@class _item_powder: DFCompound
 ---@field _kind 'class-type'
@@ -1165,7 +1141,6 @@ df.item_powder = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field dimension number
-local item_barst
 
 ---@class _item_barst: DFCompound
 ---@field _kind 'class-type'
@@ -1177,7 +1152,6 @@ df.item_barst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field shape number References: `descriptor_shape`
-local item_smallgemst
 
 ---@class _item_smallgemst: DFCompound
 ---@field _kind 'class-type'
@@ -1188,7 +1162,6 @@ df.item_smallgemst = {}
 ---@field _type _item_blocksst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_blocksst
 
 ---@class _item_blocksst: DFCompound
 ---@field _kind 'class-type'
@@ -1199,7 +1172,6 @@ df.item_blocksst = {}
 ---@field _type _item_roughst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_roughst
 
 ---@class _item_roughst: DFCompound
 ---@field _kind 'class-type'
@@ -1210,7 +1182,6 @@ df.item_roughst = {}
 ---@field _type _item_boulderst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_boulderst
 
 ---@class _item_boulderst: DFCompound
 ---@field _kind 'class-type'
@@ -1221,7 +1192,6 @@ df.item_boulderst = {}
 ---@field _type _item_woodst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_woodst
 
 ---@class _item_woodst: DFCompound
 ---@field _kind 'class-type'
@@ -1232,7 +1202,6 @@ df.item_woodst = {}
 ---@field _type _item_branchst
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local item_branchst
 
 ---@class _item_branchst: DFCompound
 ---@field _kind 'class-type'
@@ -1245,7 +1214,6 @@ df.item_branchst = {}
 ---@field mat_index number
 ---@field sharpness number
 ---@field unk_84 number
-local item_rockst
 
 ---@class _item_rockst: DFCompound
 ---@field _kind 'class-type'
@@ -1258,7 +1226,6 @@ df.item_rockst = {}
 ---@field mat_index number
 ---@field grow_counter number
 ---@field planting_skill number
-local item_seedsst
 
 ---@class _item_seedsst: DFCompound
 ---@field _kind 'class-type'
@@ -1270,7 +1237,6 @@ df.item_seedsst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_80 number
-local item_skin_tannedst
 
 ---@class _item_skin_tannedst: DFCompound
 ---@field _kind 'class-type'
@@ -1282,7 +1248,6 @@ df.item_skin_tannedst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
-local item_meatst
 
 ---@class _item_meatst: DFCompound
 ---@field _kind 'class-type'
@@ -1294,7 +1259,6 @@ df.item_meatst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
-local item_plantst
 
 ---@class _item_plantst: DFCompound
 ---@field _kind 'class-type'
@@ -1308,7 +1272,6 @@ df.item_plantst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
-local item_plant_growthst
 
 ---@class _item_plant_growthst: DFCompound
 ---@field _kind 'class-type'
@@ -1320,7 +1283,6 @@ df.item_plant_growthst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field rot_timer number
-local item_cheesest
 
 ---@class _item_cheesest: DFCompound
 ---@field _kind 'class-type'
@@ -1334,7 +1296,6 @@ df.item_cheesest = {}
 ---@field rot_timer number
 ---@field mat_state item_matstate
 ---@field dimension number
-local item_globst
 
 ---@class _item_globst: DFCompound
 ---@field _kind 'class-type'
@@ -1346,7 +1307,6 @@ df.item_globst = {}
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
-local item_remainsst
 
 ---@class _item_remainsst: DFCompound
 ---@field _kind 'class-type'
@@ -1358,7 +1318,6 @@ df.item_remainsst = {}
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
-local item_fishst
 
 ---@class _item_fishst: DFCompound
 ---@field _kind 'class-type'
@@ -1370,7 +1329,6 @@ df.item_fishst = {}
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field rot_timer number
-local item_fish_rawst
 
 ---@class _item_fish_rawst: DFCompound
 ---@field _kind 'class-type'
@@ -1382,7 +1340,6 @@ df.item_fish_rawst = {}
 ---@field entity number References: `historical_entity`
 ---@field recipe_id number
 ---@field rot_timer number
-local item_foodst
 
 ---@class _item_foodst: DFCompound
 ---@field _kind 'class-type'
@@ -1391,7 +1348,6 @@ df.item_foodst = {}
 ---@class (exact) item_verminst: DFObject, item_critter
 ---@field _kind 'struct'
 ---@field _type _item_verminst
-local item_verminst
 
 ---@class _item_verminst: DFCompound
 ---@field _kind 'class-type'
@@ -1402,7 +1358,6 @@ df.item_verminst = {}
 ---@field _type _item_petst
 ---@field owner_id number References: `unit`
 ---@field pet_flags item_petst.T_pet_flags
-local item_petst
 
 ---@class _item_petst: DFCompound
 ---@field _kind 'class-type'
@@ -1430,7 +1385,6 @@ df.item_petst.T_pet_flags = {}
 ---@class (exact) item_drinkst: DFObject, item_liquid
 ---@field _kind 'struct'
 ---@field _type _item_drinkst
-local item_drinkst
 
 ---@class _item_drinkst: DFCompound
 ---@field _kind 'class-type'
@@ -1439,7 +1393,6 @@ df.item_drinkst = {}
 ---@class (exact) item_powder_miscst: DFObject, item_powder
 ---@field _kind 'struct'
 ---@field _type _item_powder_miscst
-local item_powder_miscst
 
 ---@class _item_powder_miscst: DFCompound
 ---@field _kind 'class-type'
@@ -1449,7 +1402,6 @@ df.item_powder_miscst = {}
 ---@field _kind 'struct'
 ---@field _type _item_liquid_miscst
 ---@field unk_88 number
-local item_liquid_miscst
 
 ---@class _item_liquid_miscst: DFCompound
 ---@field _kind 'class-type'
@@ -1469,7 +1421,6 @@ df.item_liquid_miscst = {}
 ---@field unk_94 number
 ---@field unk_98 number
 ---@field dimension number
-local item_threadst
 
 ---@class _item_threadst: DFCompound
 ---@field _kind 'class-type'
@@ -1500,7 +1451,6 @@ df.item_threadst = {}
 ---@field hatchling_animal_population world_population_ref
 ---@field hatchling_mother_id number References: `unit`
 ---@field size number
-local item_eggst
 
 ---@class _item_eggst: DFCompound
 ---@field _kind 'class-type'
@@ -1529,7 +1479,6 @@ df.item_eggst.T_egg_flags = {}
 ---@class (exact) item_doorst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_doorst
-local item_doorst
 
 ---@class _item_doorst: DFCompound
 ---@field _kind 'class-type'
@@ -1538,7 +1487,6 @@ df.item_doorst = {}
 ---@class (exact) item_floodgatest: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_floodgatest
-local item_floodgatest
 
 ---@class _item_floodgatest: DFCompound
 ---@field _kind 'class-type'
@@ -1547,7 +1495,6 @@ df.item_floodgatest = {}
 ---@class (exact) item_bedst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_bedst
-local item_bedst
 
 ---@class _item_bedst: DFCompound
 ---@field _kind 'class-type'
@@ -1556,7 +1503,6 @@ df.item_bedst = {}
 ---@class (exact) item_chairst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_chairst
-local item_chairst
 
 ---@class _item_chairst: DFCompound
 ---@field _kind 'class-type'
@@ -1565,7 +1511,6 @@ df.item_chairst = {}
 ---@class (exact) item_chainst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_chainst
-local item_chainst
 
 ---@class _item_chainst: DFCompound
 ---@field _kind 'class-type'
@@ -1574,7 +1519,6 @@ df.item_chainst = {}
 ---@class (exact) item_flaskst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_flaskst
-local item_flaskst
 
 ---@class _item_flaskst: DFCompound
 ---@field _kind 'class-type'
@@ -1583,7 +1527,6 @@ df.item_flaskst = {}
 ---@class (exact) item_gobletst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_gobletst
-local item_gobletst
 
 ---@class _item_gobletst: DFCompound
 ---@field _kind 'class-type'
@@ -1592,7 +1535,6 @@ df.item_gobletst = {}
 ---@class (exact) item_windowst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_windowst
-local item_windowst
 
 ---@class _item_windowst: DFCompound
 ---@field _kind 'class-type'
@@ -1601,7 +1543,6 @@ df.item_windowst = {}
 ---@class (exact) item_cagest: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_cagest
-local item_cagest
 
 ---@class _item_cagest: DFCompound
 ---@field _kind 'class-type'
@@ -1610,7 +1551,6 @@ df.item_cagest = {}
 ---@class (exact) item_bucketst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_bucketst
-local item_bucketst
 
 ---@class _item_bucketst: DFCompound
 ---@field _kind 'class-type'
@@ -1619,7 +1559,6 @@ df.item_bucketst = {}
 ---@class (exact) item_animaltrapst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_animaltrapst
-local item_animaltrapst
 
 ---@class _item_animaltrapst: DFCompound
 ---@field _kind 'class-type'
@@ -1628,7 +1567,6 @@ df.item_animaltrapst = {}
 ---@class (exact) item_tablest: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_tablest
-local item_tablest
 
 ---@class _item_tablest: DFCompound
 ---@field _kind 'class-type'
@@ -1637,7 +1575,6 @@ df.item_tablest = {}
 ---@class (exact) item_coffinst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_coffinst
-local item_coffinst
 
 ---@class _item_coffinst: DFCompound
 ---@field _kind 'class-type'
@@ -1646,7 +1583,6 @@ df.item_coffinst = {}
 ---@class (exact) item_bagst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_bagst
-local item_bagst
 
 ---@class _item_bagst: DFCompound
 ---@field _kind 'class-type'
@@ -1655,7 +1591,6 @@ df.item_bagst = {}
 ---@class (exact) item_boxst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_boxst
-local item_boxst
 
 ---@class _item_boxst: DFCompound
 ---@field _kind 'class-type'
@@ -1664,7 +1599,6 @@ df.item_boxst = {}
 ---@class (exact) item_armorstandst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_armorstandst
-local item_armorstandst
 
 ---@class _item_armorstandst: DFCompound
 ---@field _kind 'class-type'
@@ -1673,7 +1607,6 @@ df.item_armorstandst = {}
 ---@class (exact) item_weaponrackst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_weaponrackst
-local item_weaponrackst
 
 ---@class _item_weaponrackst: DFCompound
 ---@field _kind 'class-type'
@@ -1682,7 +1615,6 @@ df.item_weaponrackst = {}
 ---@class (exact) item_cabinetst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_cabinetst
-local item_cabinetst
 
 ---@class _item_cabinetst: DFCompound
 ---@field _kind 'class-type'
@@ -1691,7 +1623,6 @@ df.item_cabinetst = {}
 ---@class (exact) item_amuletst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_amuletst
-local item_amuletst
 
 ---@class _item_amuletst: DFCompound
 ---@field _kind 'class-type'
@@ -1700,7 +1631,6 @@ df.item_amuletst = {}
 ---@class (exact) item_scepterst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_scepterst
-local item_scepterst
 
 ---@class _item_scepterst: DFCompound
 ---@field _kind 'class-type'
@@ -1709,7 +1639,6 @@ df.item_scepterst = {}
 ---@class (exact) item_crownst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_crownst
-local item_crownst
 
 ---@class _item_crownst: DFCompound
 ---@field _kind 'class-type'
@@ -1718,7 +1647,6 @@ df.item_crownst = {}
 ---@class (exact) item_ringst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_ringst
-local item_ringst
 
 ---@class _item_ringst: DFCompound
 ---@field _kind 'class-type'
@@ -1727,7 +1655,6 @@ df.item_ringst = {}
 ---@class (exact) item_earringst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_earringst
-local item_earringst
 
 ---@class _item_earringst: DFCompound
 ---@field _kind 'class-type'
@@ -1736,7 +1663,6 @@ df.item_earringst = {}
 ---@class (exact) item_braceletst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_braceletst
-local item_braceletst
 
 ---@class _item_braceletst: DFCompound
 ---@field _kind 'class-type'
@@ -1745,7 +1671,6 @@ df.item_braceletst = {}
 ---@class (exact) item_anvilst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_anvilst
-local item_anvilst
 
 ---@class _item_anvilst: DFCompound
 ---@field _kind 'class-type'
@@ -1754,7 +1679,6 @@ df.item_anvilst = {}
 ---@class (exact) item_backpackst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_backpackst
-local item_backpackst
 
 ---@class _item_backpackst: DFCompound
 ---@field _kind 'class-type'
@@ -1763,7 +1687,6 @@ df.item_backpackst = {}
 ---@class (exact) item_quiverst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_quiverst
-local item_quiverst
 
 ---@class _item_quiverst: DFCompound
 ---@field _kind 'class-type'
@@ -1772,7 +1695,6 @@ df.item_quiverst = {}
 ---@class (exact) item_catapultpartsst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_catapultpartsst
-local item_catapultpartsst
 
 ---@class _item_catapultpartsst: DFCompound
 ---@field _kind 'class-type'
@@ -1781,7 +1703,6 @@ df.item_catapultpartsst = {}
 ---@class (exact) item_ballistapartsst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_ballistapartsst
-local item_ballistapartsst
 
 ---@class _item_ballistapartsst: DFCompound
 ---@field _kind 'class-type'
@@ -1790,7 +1711,6 @@ df.item_ballistapartsst = {}
 ---@class (exact) item_trappartsst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_trappartsst
-local item_trappartsst
 
 ---@class _item_trappartsst: DFCompound
 ---@field _kind 'class-type'
@@ -1799,7 +1719,6 @@ df.item_trappartsst = {}
 ---@class (exact) item_pipe_sectionst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_pipe_sectionst
-local item_pipe_sectionst
 
 ---@class _item_pipe_sectionst: DFCompound
 ---@field _kind 'class-type'
@@ -1808,7 +1727,6 @@ df.item_pipe_sectionst = {}
 ---@class (exact) item_hatch_coverst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_hatch_coverst
-local item_hatch_coverst
 
 ---@class _item_hatch_coverst: DFCompound
 ---@field _kind 'class-type'
@@ -1817,7 +1735,6 @@ df.item_hatch_coverst = {}
 ---@class (exact) item_gratest: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_gratest
-local item_gratest
 
 ---@class _item_gratest: DFCompound
 ---@field _kind 'class-type'
@@ -1826,7 +1743,6 @@ df.item_gratest = {}
 ---@class (exact) item_quernst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_quernst
-local item_quernst
 
 ---@class _item_quernst: DFCompound
 ---@field _kind 'class-type'
@@ -1835,7 +1751,6 @@ df.item_quernst = {}
 ---@class (exact) item_millstonest: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_millstonest
-local item_millstonest
 
 ---@class _item_millstonest: DFCompound
 ---@field _kind 'class-type'
@@ -1844,7 +1759,6 @@ df.item_millstonest = {}
 ---@class (exact) item_splintst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_splintst
-local item_splintst
 
 ---@class _item_splintst: DFCompound
 ---@field _kind 'class-type'
@@ -1853,7 +1767,6 @@ df.item_splintst = {}
 ---@class (exact) item_crutchst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_crutchst
-local item_crutchst
 
 ---@class _item_crutchst: DFCompound
 ---@field _kind 'class-type'
@@ -1862,7 +1775,6 @@ df.item_crutchst = {}
 ---@class (exact) item_traction_benchst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_traction_benchst
-local item_traction_benchst
 
 ---@class _item_traction_benchst: DFCompound
 ---@field _kind 'class-type'
@@ -1871,7 +1783,6 @@ df.item_traction_benchst = {}
 ---@class (exact) item_instrumentst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_instrumentst
-local item_instrumentst
 
 ---@class _item_instrumentst: DFCompound
 ---@field _kind 'class-type'
@@ -1880,7 +1791,6 @@ df.item_instrumentst = {}
 ---@class (exact) item_toyst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_toyst
-local item_toyst
 
 ---@class _item_toyst: DFCompound
 ---@field _kind 'class-type'
@@ -1889,7 +1799,6 @@ df.item_toyst = {}
 ---@class (exact) item_armorst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_armorst
-local item_armorst
 
 ---@class _item_armorst: DFCompound
 ---@field _kind 'class-type'
@@ -1898,7 +1807,6 @@ df.item_armorst = {}
 ---@class (exact) item_shoesst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_shoesst
-local item_shoesst
 
 ---@class _item_shoesst: DFCompound
 ---@field _kind 'class-type'
@@ -1907,7 +1815,6 @@ df.item_shoesst = {}
 ---@class (exact) item_shieldst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_shieldst
-local item_shieldst
 
 ---@class _item_shieldst: DFCompound
 ---@field _kind 'class-type'
@@ -1916,7 +1823,6 @@ df.item_shieldst = {}
 ---@class (exact) item_helmst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_helmst
-local item_helmst
 
 ---@class _item_helmst: DFCompound
 ---@field _kind 'class-type'
@@ -1925,7 +1831,6 @@ df.item_helmst = {}
 ---@class (exact) item_glovesst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_glovesst
-local item_glovesst
 
 ---@class _item_glovesst: DFCompound
 ---@field _kind 'class-type'
@@ -1934,7 +1839,6 @@ df.item_glovesst = {}
 ---@class (exact) item_pantsst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_pantsst
-local item_pantsst
 
 ---@class _item_pantsst: DFCompound
 ---@field _kind 'class-type'
@@ -1944,7 +1848,6 @@ df.item_pantsst = {}
 ---@field _kind 'struct'
 ---@field _type _item_siegeammost
 ---@field sharpness number
-local item_siegeammost
 
 ---@class _item_siegeammost: DFCompound
 ---@field _kind 'class-type'
@@ -1954,7 +1857,6 @@ df.item_siegeammost = {}
 ---@field _kind 'struct'
 ---@field _type _item_weaponst
 ---@field sharpness number
-local item_weaponst
 
 ---@class _item_weaponst: DFCompound
 ---@field _kind 'class-type'
@@ -1964,7 +1866,6 @@ df.item_weaponst = {}
 ---@field _kind 'struct'
 ---@field _type _item_ammost
 ---@field sharpness number
-local item_ammost
 
 ---@class _item_ammost: DFCompound
 ---@field _kind 'class-type'
@@ -1974,7 +1875,6 @@ df.item_ammost = {}
 ---@field _kind 'struct'
 ---@field _type _item_trapcompst
 ---@field sharpness number
-local item_trapcompst
 
 ---@class _item_trapcompst: DFCompound
 ---@field _kind 'class-type'
@@ -1988,7 +1888,6 @@ df.item_trapcompst = {}
 ---@field vehicle_id number References: `vehicle`
 ---@field unk_2 number
 ---@field unk_3 number
-local item_toolst
 
 ---@class _item_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -2000,7 +1899,6 @@ df.item_toolst = {}
 ---@field id number References: `building`
 ---@field x number
 ---@field y number
-local item_stockpile_ref
 
 ---@class _item_stockpile_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -2010,7 +1908,6 @@ df.item_stockpile_ref = {}
 ---@field _kind 'struct'
 ---@field _type _item_barrelst
 ---@field stockpile item_stockpile_ref
-local item_barrelst
 
 ---@class _item_barrelst: DFCompound
 ---@field _kind 'class-type'
@@ -2020,7 +1917,6 @@ df.item_barrelst = {}
 ---@field _kind 'struct'
 ---@field _type _item_binst
 ---@field stockpile item_stockpile_ref
-local item_binst
 
 ---@class _item_binst: DFCompound
 ---@field _kind 'class-type'
@@ -2030,7 +1926,6 @@ df.item_binst = {}
 ---@field _kind 'struct'
 ---@field _type _item_gemst
 ---@field shape number References: `descriptor_shape`
-local item_gemst
 
 ---@class _item_gemst: DFCompound
 ---@field _kind 'class-type'
@@ -2043,7 +1938,6 @@ df.item_gemst = {}
 ---@field description string
 ---@field unk_110 number
 ---@field unk_114 number
-local item_statuest
 
 ---@class _item_statuest: DFCompound
 ---@field _kind 'class-type'
@@ -2054,7 +1948,6 @@ df.item_statuest = {}
 ---@field _type _item_figurinest
 ---@field image art_image_ref
 ---@field description string
-local item_figurinest
 
 ---@class _item_figurinest: DFCompound
 ---@field _kind 'class-type'
@@ -2066,7 +1959,6 @@ df.item_figurinest = {}
 ---@field description string
 ---@field topic number or interaction id for secrets? References: `historical_figure`
 ---@field engraving_type slab_engraving_type
-local item_slabst
 
 ---@class _item_slabst: DFCompound
 ---@field _kind 'class-type'
@@ -2077,7 +1969,6 @@ df.item_slabst = {}
 ---@field _type _item_orthopedic_castst
 ---@field body_part string
 ---@field material string
-local item_orthopedic_castst
 
 ---@class _item_orthopedic_castst: DFCompound
 ---@field _kind 'class-type'
@@ -2087,7 +1978,6 @@ df.item_orthopedic_castst = {}
 ---@field _kind 'struct'
 ---@field _type _item_coinst
 ---@field coin_batch number References: `coin_batch`
-local item_coinst
 
 ---@class _item_coinst: DFCompound
 ---@field _kind 'class-type'
@@ -2099,7 +1989,6 @@ df.item_coinst = {}
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field body_part_idx number
-local item_totemst
 
 ---@class _item_totemst: DFCompound
 ---@field _kind 'class-type'
@@ -2109,7 +1998,6 @@ df.item_totemst = {}
 ---@field _kind 'struct'
 ---@field _type _item_clothst
 ---@field dimension number
-local item_clothst
 
 ---@class _item_clothst: DFCompound
 ---@field _kind 'class-type'
@@ -2119,7 +2007,6 @@ df.item_clothst = {}
 ---@field _kind 'struct'
 ---@field _type _item_bookst
 ---@field title string
-local item_bookst
 
 ---@class _item_bookst: DFCompound
 ---@field _kind 'class-type'
@@ -2131,7 +2018,6 @@ df.item_bookst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field sharpness number
-local item_ballistaarrowheadst
 
 ---@class _item_ballistaarrowheadst: DFCompound
 ---@field _kind 'class-type'
@@ -2142,7 +2028,6 @@ df.item_ballistaarrowheadst = {}
 ---@field _type _item_sheetst
 ---@field dimension number
 ---@field unk_2 number
-local item_sheetst
 
 ---@class _item_sheetst: DFCompound
 ---@field _kind 'class-type'

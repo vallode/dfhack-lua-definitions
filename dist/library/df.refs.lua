@@ -222,7 +222,6 @@ df.general_ref_type = {}
 ---@class (exact) general_ref: DFObject
 ---@field _kind 'struct'
 ---@field _type _general_ref
-local general_ref
 
 ---@class _general_ref: DFCompound
 ---@field _kind 'class-type'
@@ -232,7 +231,6 @@ df.general_ref = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_artifact
 ---@field artifact_id number References: `artifact_record`
-local general_ref_artifact
 
 ---@class _general_ref_artifact: DFCompound
 ---@field _kind 'class-type'
@@ -242,7 +240,6 @@ df.general_ref_artifact = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_nemesis
 ---@field nemesis_id number References: `nemesis_record`
-local general_ref_nemesis
 
 ---@class _general_ref_nemesis: DFCompound
 ---@field _kind 'class-type'
@@ -253,7 +250,6 @@ df.general_ref_nemesis = {}
 ---@field _type _general_ref_item
 ---@field item_id number References: `item`
 ---@field cached_index number lookup optimization, tries before binary search
-local general_ref_item
 
 ---@class _general_ref_item: DFCompound
 ---@field _kind 'class-type'
@@ -266,7 +262,6 @@ df.general_ref_item = {}
 ---@field subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local general_ref_item_type
 
 ---@class _general_ref_item_type: DFCompound
 ---@field _kind 'class-type'
@@ -276,7 +271,6 @@ df.general_ref_item_type = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_coinbatch
 ---@field batch number
-local general_ref_coinbatch
 
 ---@class _general_ref_coinbatch: DFCompound
 ---@field _kind 'class-type'
@@ -288,7 +282,6 @@ df.general_ref_coinbatch = {}
 ---@field tiletype tiletype
 ---@field mat_type number References: `material`
 ---@field mat_index number
-local general_ref_mapsquare
 
 ---@class _general_ref_mapsquare: DFCompound
 ---@field _kind 'class-type'
@@ -299,7 +292,6 @@ df.general_ref_mapsquare = {}
 ---@field _type _general_ref_entity_art_image
 ---@field entity_id number References: `historical_entity`
 ---@field index number lookup in entity.resources.art_image_*
-local general_ref_entity_art_image
 
 ---@class _general_ref_entity_art_image: DFCompound
 ---@field _kind 'class-type'
@@ -309,7 +301,6 @@ df.general_ref_entity_art_image = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_projectile
 ---@field projectile_id number References: `projectile`
-local general_ref_projectile
 
 ---@class _general_ref_projectile: DFCompound
 ---@field _kind 'class-type'
@@ -320,7 +311,6 @@ df.general_ref_projectile = {}
 ---@field _type _general_ref_unit
 ---@field unit_id number References: `unit`
 ---@field cached_index number lookup optimization, tries before binary search
-local general_ref_unit
 
 ---@class _general_ref_unit: DFCompound
 ---@field _kind 'class-type'
@@ -330,7 +320,6 @@ df.general_ref_unit = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_building
 ---@field building_id number References: `building`
-local general_ref_building
 
 ---@class _general_ref_building: DFCompound
 ---@field _kind 'class-type'
@@ -340,7 +329,6 @@ df.general_ref_building = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_entity
 ---@field entity_id number References: `historical_entity`
-local general_ref_entity
 
 ---@class _general_ref_entity: DFCompound
 ---@field _kind 'class-type'
@@ -352,7 +340,6 @@ df.general_ref_entity = {}
 ---@field x number
 ---@field y number
 ---@field z number
-local general_ref_locationst
 
 ---@class _general_ref_locationst: DFCompound
 ---@field _kind 'class-type'
@@ -365,7 +352,6 @@ df.general_ref_locationst = {}
 ---@field source_id number References: `interaction_source`
 ---@field unk_08 number
 ---@field unk_0c number
-local general_ref_interactionst
 
 ---@class _general_ref_interactionst: DFCompound
 ---@field _kind 'class-type'
@@ -376,7 +362,6 @@ df.general_ref_interactionst = {}
 ---@field _type _general_ref_abstract_buildingst
 ---@field site_id number References: `world_site`
 ---@field building_id number References: `abstract_building`
-local general_ref_abstract_buildingst
 
 ---@class _general_ref_abstract_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -386,7 +371,6 @@ df.general_ref_abstract_buildingst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_historical_eventst
 ---@field event_id number References: `history_event`
-local general_ref_historical_eventst
 
 ---@class _general_ref_historical_eventst: DFCompound
 ---@field _kind 'class-type'
@@ -396,7 +380,6 @@ df.general_ref_historical_eventst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_spherest
 ---@field sphere_type sphere_type
-local general_ref_spherest
 
 ---@class _general_ref_spherest: DFCompound
 ---@field _kind 'class-type'
@@ -406,7 +389,6 @@ df.general_ref_spherest = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_sitest
 ---@field site_id number References: `world_site`
-local general_ref_sitest
 
 ---@class _general_ref_sitest: DFCompound
 ---@field _kind 'class-type'
@@ -416,7 +398,6 @@ df.general_ref_sitest = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_subregionst
 ---@field region_id number References: `world_region`
-local general_ref_subregionst
 
 ---@class _general_ref_subregionst: DFCompound
 ---@field _kind 'class-type'
@@ -426,7 +407,6 @@ df.general_ref_subregionst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_feature_layerst
 ---@field underground_region_id number References: `world_underground_region`
-local general_ref_feature_layerst
 
 ---@class _general_ref_feature_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -436,7 +416,6 @@ df.general_ref_feature_layerst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_historical_figurest
 ---@field hist_figure_id number References: `historical_figure`
-local general_ref_historical_figurest
 
 ---@class _general_ref_historical_figurest: DFCompound
 ---@field _kind 'class-type'
@@ -449,7 +428,6 @@ df.general_ref_historical_figurest = {}
 ---@field race number References: `creature_raw`
 ---@field unk_2 number
 ---@field flags undead_flags
-local general_ref_entity_popst
 
 ---@class _general_ref_entity_popst: DFCompound
 ---@field _kind 'class-type'
@@ -463,7 +441,6 @@ df.general_ref_entity_popst = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field flags undead_flags
-local general_ref_creaturest
 
 ---@class _general_ref_creaturest: DFCompound
 ---@field _kind 'class-type'
@@ -473,7 +450,6 @@ df.general_ref_creaturest = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_knowledge_scholar_flagst
 ---@field knowledge knowledge_scholar_category_flag
-local general_ref_knowledge_scholar_flagst
 
 ---@class _general_ref_knowledge_scholar_flagst: DFCompound
 ---@field _kind 'class-type'
@@ -484,7 +460,6 @@ df.general_ref_knowledge_scholar_flagst = {}
 ---@field _type _general_ref_activity_eventst
 ---@field activity_id number References: `activity_entry`
 ---@field event_id number
-local general_ref_activity_eventst
 
 ---@class _general_ref_activity_eventst: DFCompound
 ---@field _kind 'class-type'
@@ -495,7 +470,6 @@ df.general_ref_activity_eventst = {}
 ---@field _type _general_ref_value_levelst
 ---@field value value_type
 ---@field level number see http://dwarffortresswiki.org/index.php/DF2014:Personality_trait
-local general_ref_value_levelst
 
 ---@class _general_ref_value_levelst: DFCompound
 ---@field _kind 'class-type'
@@ -505,7 +479,6 @@ df.general_ref_value_levelst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_languagest
 ---@field unk_1 number
-local general_ref_languagest
 
 ---@class _general_ref_languagest: DFCompound
 ---@field _kind 'class-type'
@@ -515,7 +488,6 @@ df.general_ref_languagest = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_written_contentst
 ---@field written_content_id number References: `written_content`
-local general_ref_written_contentst
 
 ---@class _general_ref_written_contentst: DFCompound
 ---@field _kind 'class-type'
@@ -525,7 +497,6 @@ df.general_ref_written_contentst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_poetic_formst
 ---@field poetic_form_id number References: `poetic_form`
-local general_ref_poetic_formst
 
 ---@class _general_ref_poetic_formst: DFCompound
 ---@field _kind 'class-type'
@@ -535,7 +506,6 @@ df.general_ref_poetic_formst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_musical_formst
 ---@field musical_form_id number References: `musical_form`
-local general_ref_musical_formst
 
 ---@class _general_ref_musical_formst: DFCompound
 ---@field _kind 'class-type'
@@ -545,7 +515,6 @@ df.general_ref_musical_formst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_dance_formst
 ---@field dance_form_id number References: `dance_form`
-local general_ref_dance_formst
 
 ---@class _general_ref_dance_formst: DFCompound
 ---@field _kind 'class-type'
@@ -554,7 +523,6 @@ df.general_ref_dance_formst = {}
 ---@class (exact) general_ref_is_artifactst: DFObject, general_ref_artifact
 ---@field _kind 'struct'
 ---@field _type _general_ref_is_artifactst
-local general_ref_is_artifactst
 
 ---@class _general_ref_is_artifactst: DFCompound
 ---@field _kind 'class-type'
@@ -563,7 +531,6 @@ df.general_ref_is_artifactst = {}
 ---@class (exact) general_ref_is_nemesisst: DFObject, general_ref_nemesis
 ---@field _kind 'struct'
 ---@field _type _general_ref_is_nemesisst
-local general_ref_is_nemesisst
 
 ---@class _general_ref_is_nemesisst: DFCompound
 ---@field _kind 'class-type'
@@ -572,7 +539,6 @@ df.general_ref_is_nemesisst = {}
 ---@class (exact) general_ref_contains_unitst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_contains_unitst
-local general_ref_contains_unitst
 
 ---@class _general_ref_contains_unitst: DFCompound
 ---@field _kind 'class-type'
@@ -581,7 +547,6 @@ df.general_ref_contains_unitst = {}
 ---@class (exact) general_ref_contains_itemst: DFObject, general_ref_item
 ---@field _kind 'struct'
 ---@field _type _general_ref_contains_itemst
-local general_ref_contains_itemst
 
 ---@class _general_ref_contains_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -590,7 +555,6 @@ df.general_ref_contains_itemst = {}
 ---@class (exact) general_ref_contained_in_itemst: DFObject, general_ref_item
 ---@field _kind 'struct'
 ---@field _type _general_ref_contained_in_itemst
-local general_ref_contained_in_itemst
 
 ---@class _general_ref_contained_in_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -599,7 +563,6 @@ df.general_ref_contained_in_itemst = {}
 ---@class (exact) general_ref_unit_milkeest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_milkeest
-local general_ref_unit_milkeest
 
 ---@class _general_ref_unit_milkeest: DFCompound
 ---@field _kind 'class-type'
@@ -608,7 +571,6 @@ df.general_ref_unit_milkeest = {}
 ---@class (exact) general_ref_unit_traineest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_traineest
-local general_ref_unit_traineest
 
 ---@class _general_ref_unit_traineest: DFCompound
 ---@field _kind 'class-type'
@@ -618,7 +580,6 @@ df.general_ref_unit_traineest = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_itemownerst
 ---@field flags general_ref_unit_itemownerst.T_flags
-local general_ref_unit_itemownerst
 
 ---@class _general_ref_unit_itemownerst: DFCompound
 ---@field _kind 'class-type'
@@ -646,7 +607,6 @@ df.general_ref_unit_itemownerst.T_flags = {}
 ---@class (exact) general_ref_unit_tradebringerst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_tradebringerst
-local general_ref_unit_tradebringerst
 
 ---@class _general_ref_unit_tradebringerst: DFCompound
 ---@field _kind 'class-type'
@@ -655,7 +615,6 @@ df.general_ref_unit_tradebringerst = {}
 ---@class (exact) general_ref_unit_holderst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_holderst
-local general_ref_unit_holderst
 
 ---@class _general_ref_unit_holderst: DFCompound
 ---@field _kind 'class-type'
@@ -664,7 +623,6 @@ df.general_ref_unit_holderst = {}
 ---@class (exact) general_ref_unit_workerst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_workerst
-local general_ref_unit_workerst
 
 ---@class _general_ref_unit_workerst: DFCompound
 ---@field _kind 'class-type'
@@ -673,7 +631,6 @@ df.general_ref_unit_workerst = {}
 ---@class (exact) general_ref_unit_cageest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_cageest
-local general_ref_unit_cageest
 
 ---@class _general_ref_unit_cageest: DFCompound
 ---@field _kind 'class-type'
@@ -682,7 +639,6 @@ df.general_ref_unit_cageest = {}
 ---@class (exact) general_ref_unit_beateest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_beateest
-local general_ref_unit_beateest
 
 ---@class _general_ref_unit_beateest: DFCompound
 ---@field _kind 'class-type'
@@ -691,7 +647,6 @@ df.general_ref_unit_beateest = {}
 ---@class (exact) general_ref_unit_foodreceiverst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_foodreceiverst
-local general_ref_unit_foodreceiverst
 
 ---@class _general_ref_unit_foodreceiverst: DFCompound
 ---@field _kind 'class-type'
@@ -700,7 +655,6 @@ df.general_ref_unit_foodreceiverst = {}
 ---@class (exact) general_ref_unit_kidnapeest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_kidnapeest
-local general_ref_unit_kidnapeest
 
 ---@class _general_ref_unit_kidnapeest: DFCompound
 ---@field _kind 'class-type'
@@ -709,7 +663,6 @@ df.general_ref_unit_kidnapeest = {}
 ---@class (exact) general_ref_unit_patientst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_patientst
-local general_ref_unit_patientst
 
 ---@class _general_ref_unit_patientst: DFCompound
 ---@field _kind 'class-type'
@@ -718,7 +671,6 @@ df.general_ref_unit_patientst = {}
 ---@class (exact) general_ref_unit_infantst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_infantst
-local general_ref_unit_infantst
 
 ---@class _general_ref_unit_infantst: DFCompound
 ---@field _kind 'class-type'
@@ -727,7 +679,6 @@ df.general_ref_unit_infantst = {}
 ---@class (exact) general_ref_unit_slaughtereest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_slaughtereest
-local general_ref_unit_slaughtereest
 
 ---@class _general_ref_unit_slaughtereest: DFCompound
 ---@field _kind 'class-type'
@@ -736,7 +687,6 @@ df.general_ref_unit_slaughtereest = {}
 ---@class (exact) general_ref_unit_sheareest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_sheareest
-local general_ref_unit_sheareest
 
 ---@class _general_ref_unit_sheareest: DFCompound
 ---@field _kind 'class-type'
@@ -745,7 +695,6 @@ df.general_ref_unit_sheareest = {}
 ---@class (exact) general_ref_unit_suckeest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_suckeest
-local general_ref_unit_suckeest
 
 ---@class _general_ref_unit_suckeest: DFCompound
 ---@field _kind 'class-type'
@@ -754,7 +703,6 @@ df.general_ref_unit_suckeest = {}
 ---@class (exact) general_ref_unit_reporteest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_reporteest
-local general_ref_unit_reporteest
 
 ---@class _general_ref_unit_reporteest: DFCompound
 ---@field _kind 'class-type'
@@ -763,7 +711,6 @@ df.general_ref_unit_reporteest = {}
 ---@class (exact) general_ref_unit_riderst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_riderst
-local general_ref_unit_riderst
 
 ---@class _general_ref_unit_riderst: DFCompound
 ---@field _kind 'class-type'
@@ -772,7 +719,6 @@ df.general_ref_unit_riderst = {}
 ---@class (exact) general_ref_unit_climberst: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_climberst
-local general_ref_unit_climberst
 
 ---@class _general_ref_unit_climberst: DFCompound
 ---@field _kind 'class-type'
@@ -781,7 +727,6 @@ df.general_ref_unit_climberst = {}
 ---@class (exact) general_ref_unit_geldeest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_geldeest
-local general_ref_unit_geldeest
 
 ---@class _general_ref_unit_geldeest: DFCompound
 ---@field _kind 'class-type'
@@ -790,7 +735,6 @@ df.general_ref_unit_geldeest = {}
 ---@class (exact) general_ref_unit_interrogateest: DFObject, general_ref_unit
 ---@field _kind 'struct'
 ---@field _type _general_ref_unit_interrogateest
-local general_ref_unit_interrogateest
 
 ---@class _general_ref_unit_interrogateest: DFCompound
 ---@field _kind 'class-type'
@@ -799,7 +743,6 @@ df.general_ref_unit_interrogateest = {}
 ---@class (exact) general_ref_building_civzone_assignedst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_civzone_assignedst
-local general_ref_building_civzone_assignedst
 
 ---@class _general_ref_building_civzone_assignedst: DFCompound
 ---@field _kind 'class-type'
@@ -808,7 +751,6 @@ df.general_ref_building_civzone_assignedst = {}
 ---@class (exact) general_ref_building_triggerst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_triggerst
-local general_ref_building_triggerst
 
 ---@class _general_ref_building_triggerst: DFCompound
 ---@field _kind 'class-type'
@@ -817,7 +759,6 @@ df.general_ref_building_triggerst = {}
 ---@class (exact) general_ref_building_triggertargetst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_triggertargetst
-local general_ref_building_triggertargetst
 
 ---@class _general_ref_building_triggertargetst: DFCompound
 ---@field _kind 'class-type'
@@ -826,7 +767,6 @@ df.general_ref_building_triggertargetst = {}
 ---@class (exact) general_ref_building_chainst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_chainst
-local general_ref_building_chainst
 
 ---@class _general_ref_building_chainst: DFCompound
 ---@field _kind 'class-type'
@@ -835,7 +775,6 @@ df.general_ref_building_chainst = {}
 ---@class (exact) general_ref_building_cagedst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_cagedst
-local general_ref_building_cagedst
 
 ---@class _general_ref_building_cagedst: DFCompound
 ---@field _kind 'class-type'
@@ -844,7 +783,6 @@ df.general_ref_building_cagedst = {}
 ---@class (exact) general_ref_building_holderst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_holderst
-local general_ref_building_holderst
 
 ---@class _general_ref_building_holderst: DFCompound
 ---@field _kind 'class-type'
@@ -854,7 +792,6 @@ df.general_ref_building_holderst = {}
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_well_tag
 ---@field direction number
-local general_ref_building_well_tag
 
 ---@class _general_ref_building_well_tag: DFCompound
 ---@field _kind 'class-type'
@@ -863,7 +800,6 @@ df.general_ref_building_well_tag = {}
 ---@class (exact) general_ref_building_use_target_1st: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_use_target_1st
-local general_ref_building_use_target_1st
 
 ---@class _general_ref_building_use_target_1st: DFCompound
 ---@field _kind 'class-type'
@@ -872,7 +808,6 @@ df.general_ref_building_use_target_1st = {}
 ---@class (exact) general_ref_building_use_target_2st: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_use_target_2st
-local general_ref_building_use_target_2st
 
 ---@class _general_ref_building_use_target_2st: DFCompound
 ---@field _kind 'class-type'
@@ -881,7 +816,6 @@ df.general_ref_building_use_target_2st = {}
 ---@class (exact) general_ref_building_destinationst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_destinationst
-local general_ref_building_destinationst
 
 ---@class _general_ref_building_destinationst: DFCompound
 ---@field _kind 'class-type'
@@ -890,7 +824,6 @@ df.general_ref_building_destinationst = {}
 ---@class (exact) general_ref_building_nest_boxst: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_nest_boxst
-local general_ref_building_nest_boxst
 
 ---@class _general_ref_building_nest_boxst: DFCompound
 ---@field _kind 'class-type'
@@ -899,7 +832,6 @@ df.general_ref_building_nest_boxst = {}
 ---@class (exact) general_ref_building_display_furniturest: DFObject, general_ref_building
 ---@field _kind 'struct'
 ---@field _type _general_ref_building_display_furniturest
-local general_ref_building_display_furniturest
 
 ---@class _general_ref_building_display_furniturest: DFCompound
 ---@field _kind 'class-type'
@@ -908,7 +840,6 @@ df.general_ref_building_display_furniturest = {}
 ---@class (exact) general_ref_entity_stolenst: DFObject, general_ref_entity
 ---@field _kind 'struct'
 ---@field _type _general_ref_entity_stolenst
-local general_ref_entity_stolenst
 
 ---@class _general_ref_entity_stolenst: DFCompound
 ---@field _kind 'class-type'
@@ -917,7 +848,6 @@ df.general_ref_entity_stolenst = {}
 ---@class (exact) general_ref_entity_offeredst: DFObject, general_ref_entity
 ---@field _kind 'struct'
 ---@field _type _general_ref_entity_offeredst
-local general_ref_entity_offeredst
 
 ---@class _general_ref_entity_offeredst: DFCompound
 ---@field _kind 'class-type'
@@ -926,7 +856,6 @@ df.general_ref_entity_offeredst = {}
 ---@class (exact) general_ref_entity_itemownerst: DFObject, general_ref_entity
 ---@field _kind 'struct'
 ---@field _type _general_ref_entity_itemownerst
-local general_ref_entity_itemownerst
 
 ---@class _general_ref_entity_itemownerst: DFCompound
 ---@field _kind 'class-type'
@@ -1051,7 +980,6 @@ df.specific_ref_type.attrs = {}
 ---@field _type _specific_ref
 ---@field type specific_ref_type
 ---@field data specific_ref.T_data
-local specific_ref
 
 ---@class _specific_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -1061,7 +989,6 @@ df.specific_ref = {}
 ---@field _kind 'struct'
 ---@field _type _specific_ref.T_data
 ---@field wrestle specific_ref.T_data.T_wrestle
-local specific_ref_data
 
 ---@class _specific_ref.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -1070,7 +997,6 @@ df.specific_ref.T_data = {}
 ---@class (exact) specific_ref.T_data.T_wrestle: DFObject
 ---@field _kind 'struct'
 ---@field _type _specific_ref.T_data.T_wrestle
-local specific_ref_data_wrestle
 
 ---@class _specific_ref.T_data.T_wrestle: DFCompound
 ---@field _kind 'struct-type'
@@ -1141,7 +1067,6 @@ df.histfig_entity_link_type = {}
 ---@field entity_id number References: `historical_entity`
 ---@field entity_vector_idx number
 ---@field link_strength number
-local histfig_entity_link
 
 ---@class _histfig_entity_link: DFCompound
 ---@field _kind 'class-type'
@@ -1150,7 +1075,6 @@ df.histfig_entity_link = {}
 ---@class (exact) histfig_entity_link_memberst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_memberst
-local histfig_entity_link_memberst
 
 ---@class _histfig_entity_link_memberst: DFCompound
 ---@field _kind 'class-type'
@@ -1159,7 +1083,6 @@ df.histfig_entity_link_memberst = {}
 ---@class (exact) histfig_entity_link_former_memberst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_former_memberst
-local histfig_entity_link_former_memberst
 
 ---@class _histfig_entity_link_former_memberst: DFCompound
 ---@field _kind 'class-type'
@@ -1168,7 +1091,6 @@ df.histfig_entity_link_former_memberst = {}
 ---@class (exact) histfig_entity_link_mercenaryst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_mercenaryst
-local histfig_entity_link_mercenaryst
 
 ---@class _histfig_entity_link_mercenaryst: DFCompound
 ---@field _kind 'class-type'
@@ -1177,7 +1099,6 @@ df.histfig_entity_link_mercenaryst = {}
 ---@class (exact) histfig_entity_link_former_mercenaryst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_former_mercenaryst
-local histfig_entity_link_former_mercenaryst
 
 ---@class _histfig_entity_link_former_mercenaryst: DFCompound
 ---@field _kind 'class-type'
@@ -1186,7 +1107,6 @@ df.histfig_entity_link_former_mercenaryst = {}
 ---@class (exact) histfig_entity_link_slavest: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_slavest
-local histfig_entity_link_slavest
 
 ---@class _histfig_entity_link_slavest: DFCompound
 ---@field _kind 'class-type'
@@ -1195,7 +1115,6 @@ df.histfig_entity_link_slavest = {}
 ---@class (exact) histfig_entity_link_former_slavest: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_former_slavest
-local histfig_entity_link_former_slavest
 
 ---@class _histfig_entity_link_former_slavest: DFCompound
 ---@field _kind 'class-type'
@@ -1204,7 +1123,6 @@ df.histfig_entity_link_former_slavest = {}
 ---@class (exact) histfig_entity_link_prisonerst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_prisonerst
-local histfig_entity_link_prisonerst
 
 ---@class _histfig_entity_link_prisonerst: DFCompound
 ---@field _kind 'class-type'
@@ -1213,7 +1131,6 @@ df.histfig_entity_link_prisonerst = {}
 ---@class (exact) histfig_entity_link_former_prisonerst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_former_prisonerst
-local histfig_entity_link_former_prisonerst
 
 ---@class _histfig_entity_link_former_prisonerst: DFCompound
 ---@field _kind 'class-type'
@@ -1222,7 +1139,6 @@ df.histfig_entity_link_former_prisonerst = {}
 ---@class (exact) histfig_entity_link_enemyst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_enemyst
-local histfig_entity_link_enemyst
 
 ---@class _histfig_entity_link_enemyst: DFCompound
 ---@field _kind 'class-type'
@@ -1231,7 +1147,6 @@ df.histfig_entity_link_enemyst = {}
 ---@class (exact) histfig_entity_link_criminalst: DFObject, histfig_entity_link
 ---@field _kind 'struct'
 ---@field _type _histfig_entity_link_criminalst
-local histfig_entity_link_criminalst
 
 ---@class _histfig_entity_link_criminalst: DFCompound
 ---@field _kind 'class-type'
@@ -1243,7 +1158,6 @@ df.histfig_entity_link_criminalst = {}
 ---@field assignment_id number
 ---@field assignment_vector_idx number
 ---@field start_year number ?
-local histfig_entity_link_positionst
 
 ---@class _histfig_entity_link_positionst: DFCompound
 ---@field _kind 'class-type'
@@ -1255,7 +1169,6 @@ df.histfig_entity_link_positionst = {}
 ---@field assignment_id number
 ---@field start_year number
 ---@field end_year number
-local histfig_entity_link_former_positionst
 
 ---@class _histfig_entity_link_former_positionst: DFCompound
 ---@field _kind 'class-type'
@@ -1266,7 +1179,6 @@ df.histfig_entity_link_former_positionst = {}
 ---@field _type _histfig_entity_link_position_claimst
 ---@field assignment_id number
 ---@field start_year number
-local histfig_entity_link_position_claimst
 
 ---@class _histfig_entity_link_position_claimst: DFCompound
 ---@field _kind 'class-type'
@@ -1278,7 +1190,6 @@ df.histfig_entity_link_position_claimst = {}
 ---@field squad_id number
 ---@field squad_position number
 ---@field start_year number
-local histfig_entity_link_squadst
 
 ---@class _histfig_entity_link_squadst: DFCompound
 ---@field _kind 'class-type'
@@ -1290,7 +1201,6 @@ df.histfig_entity_link_squadst = {}
 ---@field squad_id number
 ---@field start_year number
 ---@field end_year number
-local histfig_entity_link_former_squadst
 
 ---@class _histfig_entity_link_former_squadst: DFCompound
 ---@field _kind 'class-type'
@@ -1301,7 +1211,6 @@ df.histfig_entity_link_former_squadst = {}
 ---@field _type _histfig_entity_link_occupationst
 ---@field occupation_id number
 ---@field start_year number
-local histfig_entity_link_occupationst
 
 ---@class _histfig_entity_link_occupationst: DFCompound
 ---@field _kind 'class-type'
@@ -1313,7 +1222,6 @@ df.histfig_entity_link_occupationst = {}
 ---@field occupation_id number
 ---@field start_year number
 ---@field end_year number
-local histfig_entity_link_former_occupationst
 
 ---@class _histfig_entity_link_former_occupationst: DFCompound
 ---@field _kind 'class-type'
@@ -1360,7 +1268,6 @@ df.histfig_site_link_type = {}
 ---@field site number References: `world_site`
 ---@field sub_id number from XML
 ---@field entity number References: `historical_entity`
-local histfig_site_link
 
 ---@class _histfig_site_link: DFCompound
 ---@field _kind 'class-type'
@@ -1370,7 +1277,6 @@ df.histfig_site_link = {}
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_occupationst
 ---@field unk_1 number
-local histfig_site_link_occupationst
 
 ---@class _histfig_site_link_occupationst: DFCompound
 ---@field _kind 'class-type'
@@ -1379,7 +1285,6 @@ df.histfig_site_link_occupationst = {}
 ---@class (exact) histfig_site_link_seat_of_powerst: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_seat_of_powerst
-local histfig_site_link_seat_of_powerst
 
 ---@class _histfig_site_link_seat_of_powerst: DFCompound
 ---@field _kind 'class-type'
@@ -1388,7 +1293,6 @@ df.histfig_site_link_seat_of_powerst = {}
 ---@class (exact) histfig_site_link_hangoutst: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_hangoutst
-local histfig_site_link_hangoutst
 
 ---@class _histfig_site_link_hangoutst: DFCompound
 ---@field _kind 'class-type'
@@ -1397,7 +1301,6 @@ df.histfig_site_link_hangoutst = {}
 ---@class (exact) histfig_site_link_home_site_abstract_buildingst: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_home_site_abstract_buildingst
-local histfig_site_link_home_site_abstract_buildingst
 
 ---@class _histfig_site_link_home_site_abstract_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -1406,7 +1309,6 @@ df.histfig_site_link_home_site_abstract_buildingst = {}
 ---@class (exact) histfig_site_link_home_site_realization_buildingst: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_home_site_realization_buildingst
-local histfig_site_link_home_site_realization_buildingst
 
 ---@class _histfig_site_link_home_site_realization_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -1415,7 +1317,6 @@ df.histfig_site_link_home_site_realization_buildingst = {}
 ---@class (exact) histfig_site_link_lairst: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_lairst
-local histfig_site_link_lairst
 
 ---@class _histfig_site_link_lairst: DFCompound
 ---@field _kind 'class-type'
@@ -1424,7 +1325,6 @@ df.histfig_site_link_lairst = {}
 ---@class (exact) histfig_site_link_home_site_realization_sulst: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_home_site_realization_sulst
-local histfig_site_link_home_site_realization_sulst
 
 ---@class _histfig_site_link_home_site_realization_sulst: DFCompound
 ---@field _kind 'class-type'
@@ -1433,7 +1333,6 @@ df.histfig_site_link_home_site_realization_sulst = {}
 ---@class (exact) histfig_site_link_home_site_saved_civzonest: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_home_site_saved_civzonest
-local histfig_site_link_home_site_saved_civzonest
 
 ---@class _histfig_site_link_home_site_saved_civzonest: DFCompound
 ---@field _kind 'class-type'
@@ -1442,7 +1341,6 @@ df.histfig_site_link_home_site_saved_civzonest = {}
 ---@class (exact) histfig_site_link_prison_abstract_buildingst: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_prison_abstract_buildingst
-local histfig_site_link_prison_abstract_buildingst
 
 ---@class _histfig_site_link_prison_abstract_buildingst: DFCompound
 ---@field _kind 'class-type'
@@ -1451,7 +1349,6 @@ df.histfig_site_link_prison_abstract_buildingst = {}
 ---@class (exact) histfig_site_link_prison_site_building_profilest: DFObject, histfig_site_link
 ---@field _kind 'struct'
 ---@field _type _histfig_site_link_prison_site_building_profilest
-local histfig_site_link_prison_site_building_profilest
 
 ---@class _histfig_site_link_prison_site_building_profilest: DFCompound
 ---@field _kind 'class-type'
@@ -1515,7 +1412,6 @@ df.histfig_hf_link_type = {}
 ---@field _type _histfig_hf_link
 ---@field target_hf number References: `historical_figure`
 ---@field link_strength number
-local histfig_hf_link
 
 ---@class _histfig_hf_link: DFCompound
 ---@field _kind 'class-type'
@@ -1524,7 +1420,6 @@ df.histfig_hf_link = {}
 ---@class (exact) histfig_hf_link_motherst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_motherst
-local histfig_hf_link_motherst
 
 ---@class _histfig_hf_link_motherst: DFCompound
 ---@field _kind 'class-type'
@@ -1533,7 +1428,6 @@ df.histfig_hf_link_motherst = {}
 ---@class (exact) histfig_hf_link_fatherst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_fatherst
-local histfig_hf_link_fatherst
 
 ---@class _histfig_hf_link_fatherst: DFCompound
 ---@field _kind 'class-type'
@@ -1542,7 +1436,6 @@ df.histfig_hf_link_fatherst = {}
 ---@class (exact) histfig_hf_link_spousest: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_spousest
-local histfig_hf_link_spousest
 
 ---@class _histfig_hf_link_spousest: DFCompound
 ---@field _kind 'class-type'
@@ -1551,7 +1444,6 @@ df.histfig_hf_link_spousest = {}
 ---@class (exact) histfig_hf_link_childst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_childst
-local histfig_hf_link_childst
 
 ---@class _histfig_hf_link_childst: DFCompound
 ---@field _kind 'class-type'
@@ -1560,7 +1452,6 @@ df.histfig_hf_link_childst = {}
 ---@class (exact) histfig_hf_link_deityst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_deityst
-local histfig_hf_link_deityst
 
 ---@class _histfig_hf_link_deityst: DFCompound
 ---@field _kind 'class-type'
@@ -1569,7 +1460,6 @@ df.histfig_hf_link_deityst = {}
 ---@class (exact) histfig_hf_link_loverst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_loverst
-local histfig_hf_link_loverst
 
 ---@class _histfig_hf_link_loverst: DFCompound
 ---@field _kind 'class-type'
@@ -1578,7 +1468,6 @@ df.histfig_hf_link_loverst = {}
 ---@class (exact) histfig_hf_link_prisonerst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_prisonerst
-local histfig_hf_link_prisonerst
 
 ---@class _histfig_hf_link_prisonerst: DFCompound
 ---@field _kind 'class-type'
@@ -1587,7 +1476,6 @@ df.histfig_hf_link_prisonerst = {}
 ---@class (exact) histfig_hf_link_imprisonerst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_imprisonerst
-local histfig_hf_link_imprisonerst
 
 ---@class _histfig_hf_link_imprisonerst: DFCompound
 ---@field _kind 'class-type'
@@ -1596,7 +1484,6 @@ df.histfig_hf_link_imprisonerst = {}
 ---@class (exact) histfig_hf_link_masterst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_masterst
-local histfig_hf_link_masterst
 
 ---@class _histfig_hf_link_masterst: DFCompound
 ---@field _kind 'class-type'
@@ -1605,7 +1492,6 @@ df.histfig_hf_link_masterst = {}
 ---@class (exact) histfig_hf_link_apprenticest: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_apprenticest
-local histfig_hf_link_apprenticest
 
 ---@class _histfig_hf_link_apprenticest: DFCompound
 ---@field _kind 'class-type'
@@ -1616,7 +1502,6 @@ df.histfig_hf_link_apprenticest = {}
 ---@field _type _histfig_hf_link_companionst
 ---@field unk_1 number
 ---@field unk_2 number
-local histfig_hf_link_companionst
 
 ---@class _histfig_hf_link_companionst: DFCompound
 ---@field _kind 'class-type'
@@ -1625,7 +1510,6 @@ df.histfig_hf_link_companionst = {}
 ---@class (exact) histfig_hf_link_former_apprenticest: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_former_apprenticest
-local histfig_hf_link_former_apprenticest
 
 ---@class _histfig_hf_link_former_apprenticest: DFCompound
 ---@field _kind 'class-type'
@@ -1634,7 +1518,6 @@ df.histfig_hf_link_former_apprenticest = {}
 ---@class (exact) histfig_hf_link_former_masterst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_former_masterst
-local histfig_hf_link_former_masterst
 
 ---@class _histfig_hf_link_former_masterst: DFCompound
 ---@field _kind 'class-type'
@@ -1643,7 +1526,6 @@ df.histfig_hf_link_former_masterst = {}
 ---@class (exact) histfig_hf_link_pet_ownerst: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_pet_ownerst
-local histfig_hf_link_pet_ownerst
 
 ---@class _histfig_hf_link_pet_ownerst: DFCompound
 ---@field _kind 'class-type'
@@ -1652,7 +1534,6 @@ df.histfig_hf_link_pet_ownerst = {}
 ---@class (exact) histfig_hf_link_former_spousest: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_former_spousest
-local histfig_hf_link_former_spousest
 
 ---@class _histfig_hf_link_former_spousest: DFCompound
 ---@field _kind 'class-type'
@@ -1661,7 +1542,6 @@ df.histfig_hf_link_former_spousest = {}
 ---@class (exact) histfig_hf_link_deceased_spousest: DFObject, histfig_hf_link
 ---@field _kind 'struct'
 ---@field _type _histfig_hf_link_deceased_spousest
-local histfig_hf_link_deceased_spousest
 
 ---@class _histfig_hf_link_deceased_spousest: DFCompound
 ---@field _kind 'class-type'
@@ -1687,7 +1567,6 @@ df.entity_entity_link_type = {}
 ---@field type entity_entity_link_type
 ---@field target number References: `historical_entity`
 ---@field strength number
-local entity_entity_link
 
 ---@class _entity_entity_link: DFCompound
 ---@field _kind 'struct-type'
@@ -1851,7 +1730,6 @@ df.entity_site_link_flags = {}
 ---@field target_site_y number target site world coordinate y
 ---@field last_checked_army_year number all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well
 ---@field last_checked_army_year_tick number paired with the previous field. Could be year/year_tick pair set to the start of play for all of these as all have the same number pair in the same save
-local entity_site_link
 
 ---@class _entity_site_link: DFCompound
 ---@field _kind 'struct-type'

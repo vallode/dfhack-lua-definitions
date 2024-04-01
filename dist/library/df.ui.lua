@@ -19,7 +19,6 @@
 ---@field texture_br integer
 ---@field texture_bg integer
 ---@field texture_bb integer
-local burrow
 
 ---@class _burrow: DFCompound
 ---@field _kind 'struct-type'
@@ -30,7 +29,6 @@ df.burrow = {}
 function df.burrow.find(key) end
 
 ---@class burrow_vector: DFVector, { [integer]: burrow }
-local burrow_vector
 
 ---@return burrow_vector # df.global.plotinfo.burrows.list
 function df.burrow.get_vector() end
@@ -45,7 +43,6 @@ function df.burrow.get_vector() end
 ---@field z number
 ---@field unit_id number References: `unit`
 ---@field item_id number References: `item`
-local ui_hotkey
 
 ---@class _ui_hotkey: DFCompound
 ---@field _kind 'struct-type'
@@ -254,7 +251,6 @@ df.ui_sidebar_mode = {}
 ---@field prison_counter number
 ---@field unk_10 number 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
 ---@field chain number References: `building`
-local punishment
 
 ---@class _punishment: DFCompound
 ---@field _kind 'struct-type'
@@ -522,7 +518,6 @@ df.equipment_update = {}
 ---@field _kind 'struct'
 ---@field _type _labor_infost
 ---@field flags labor_infost.T_flags
-local labor_infost
 
 ---@class _labor_infost: DFCompound
 ---@field _kind 'struct-type'
@@ -596,7 +591,6 @@ df.labor_infost.T_flags = {}
 ---@field squads plotinfost.T_squads
 ---@field follow_unit number References: `unit`
 ---@field follow_item number References: `item`
-local plotinfost
 
 ---@class _plotinfost: DFCompound
 ---@field _kind 'struct-type'
@@ -615,7 +609,6 @@ df.plotinfost = {}
 ---@field quota number
 ---@field collector_pos coord
 ---@field guard_lack_complained number
-local plotinfost_tax_collection
 
 ---@class _plotinfost.T_tax_collection: DFCompound
 ---@field _kind 'struct-type'
@@ -629,7 +622,6 @@ df.plotinfost.T_tax_collection = {}
 ---@field bookkeeper_cooldown number 0-1008
 ---@field bookkeeper_precision number
 ---@field bookkeeper_settings plotinfost.T_nobles.T_bookkeeper_settings
-local plotinfost_nobles
 
 ---@class _plotinfost.T_nobles: DFCompound
 ---@field _kind 'struct-type'
@@ -659,7 +651,6 @@ df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_invasions
 ---@field next_id number
-local plotinfost_invasions
 
 ---@class _plotinfost.T_invasions: DFCompound
 ---@field _kind 'struct-type'
@@ -668,7 +659,6 @@ df.plotinfost.T_invasions = {}
 ---@class (exact) plotinfost.T_kitchen: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_kitchen
-local plotinfost_kitchen
 
 ---@class _plotinfost.T_kitchen: DFCompound
 ---@field _kind 'struct-type'
@@ -740,7 +730,6 @@ df.plotinfost.T_flags = {}
 ---@field _type _plotinfost.T_economy_prices
 ---@field price_adjustment plotinfost.T_economy_prices.T_price_adjustment
 ---@field price_setter plotinfost.T_economy_prices.T_price_setter
-local plotinfost_economy_prices
 
 ---@class _plotinfost.T_economy_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -749,7 +738,6 @@ df.plotinfost.T_economy_prices = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_adjustment
-local plotinfost_economy_prices_price_adjustment
 
 ---@class _plotinfost.T_economy_prices.T_price_adjustment: DFCompound
 ---@field _kind 'struct-type'
@@ -758,7 +746,6 @@ df.plotinfost.T_economy_prices.T_price_adjustment = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_setter
-local plotinfost_economy_prices_price_setter
 
 ---@class _plotinfost.T_economy_prices.T_price_setter: DFCompound
 ---@field _kind 'struct-type'
@@ -770,7 +757,6 @@ df.plotinfost.T_economy_prices.T_price_setter = {}
 ---@field reserved_bins number
 ---@field reserved_barrels number
 ---@field custom_settings stockpile_settings
-local plotinfost_stockpile
 
 ---@class _plotinfost.T_stockpile: DFCompound
 ---@field _kind 'struct-type'
@@ -779,7 +765,6 @@ df.plotinfost.T_stockpile = {}
 ---@class (exact) plotinfost.T_map_edge: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_map_edge
-local plotinfost_map_edge
 
 ---@class _plotinfost.T_map_edge: DFCompound
 ---@field _kind 'struct-type'
@@ -801,7 +786,6 @@ df.plotinfost.T_map_edge = {}
 ---@field sel_route_idx number
 ---@field sel_route_waypt_idx number
 ---@field in_edit_waypts_mode boolean
-local plotinfost_waypoints
 
 ---@class _plotinfost.T_waypoints: DFCompound
 ---@field _kind 'struct-type'
@@ -825,7 +809,6 @@ df.plotinfost.T_waypoints = {}
 ---@field sym_tile number
 ---@field sym_fg_color number
 ---@field sym_bg_color number
-local plotinfost_burrows
 
 ---@class _plotinfost.T_burrows: DFCompound
 ---@field _kind 'struct-type'
@@ -837,7 +820,6 @@ df.plotinfost.T_burrows = {}
 ---@field next_id number
 ---@field next_routine_id number
 ---@field civ_alert_idx number
-local plotinfost_alerts
 
 ---@class _plotinfost.T_alerts: DFCompound
 ---@field _kind 'struct-type'
@@ -847,7 +829,6 @@ df.plotinfost.T_alerts = {}
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_equipment
 ---@field update equipment_update
-local plotinfost_equipment
 
 ---@class _plotinfost.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -864,7 +845,6 @@ df.plotinfost.T_equipment = {}
 ---@field entering_nickname boolean
 ---@field nickname_route_id number
 ---@field nickname_stop_id number
-local plotinfost_hauling
 
 ---@class _plotinfost.T_hauling: DFCompound
 ---@field _kind 'struct-type'
@@ -891,7 +871,6 @@ df.plotinfost.T_hauling = {}
 ---@field unk_44_12d number padding?
 ---@field selected_hotkey number
 ---@field in_rename_hotkey boolean
-local plotinfost_main
 
 ---@class _plotinfost.T_main: DFCompound
 ---@field _kind 'struct-type'
@@ -903,7 +882,6 @@ df.plotinfost.T_main = {}
 ---@field substage save_substage
 ---@field stage number
 ---@field info nemesis_offload
-local plotinfost_main_save_progress
 
 ---@class _plotinfost.T_main.T_save_progress: DFCompound
 ---@field _kind 'struct-type'
@@ -925,7 +903,6 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field kill_list_scroll number
 ---@field in_kill_rect boolean
 ---@field rect_start coord
-local plotinfost_squads
 
 ---@class _plotinfost.T_squads: DFCompound
 ---@field _kind 'struct-type'
@@ -976,7 +953,6 @@ df.timed_event_type = {}
 ---@field layer_id number References: `world_underground_region`
 ---@field feature_ax number
 ---@field feature_ay number
-local timed_event
 
 ---@class _timed_event: DFCompound
 ---@field _kind 'struct-type'
@@ -995,7 +971,6 @@ df.timed_event = {}
 ---@field window_x number
 ---@field window_y number
 ---@field window_z number
-local map_viewport
 
 ---@class _map_viewport: DFCompound
 ---@field _kind 'struct-type'
@@ -1017,7 +992,6 @@ df.map_viewport = {}
 ---@field unk_1 number
 ---@field unk_6 number
 ---@field unk_7 number
-local map_renderer
 
 ---@class _map_renderer: DFCompound
 ---@field _kind 'struct-type'

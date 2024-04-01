@@ -31,7 +31,6 @@ df.reaction_flags = {}
 ---@field quality_adj2 number
 ---@field unk_1 number
 ---@field exp_gain number
-local reaction
 
 ---@class _reaction: DFCompound
 ---@field _kind 'struct-type'
@@ -42,7 +41,6 @@ df.reaction = {}
 function df.reaction.find(key) end
 
 ---@class reaction_vector: DFVector, { [integer]: reaction }
-local reaction_vector
 
 ---@return reaction_vector # df.global.world.raws.reactions.reactions
 function df.reaction.get_vector() end
@@ -50,7 +48,6 @@ function df.reaction.get_vector() end
 ---@class (exact) reaction.T_building: DFObject
 ---@field _kind 'struct'
 ---@field _type _reaction.T_building
-local reaction_building
 
 ---@class _reaction.T_building: DFCompound
 ---@field _kind 'struct-type'
@@ -64,7 +61,6 @@ df.reaction.T_building = {}
 ---@field name string
 ---@field key number
 ---@field description string
-local reaction_category
 
 ---@class _reaction_category: DFCompound
 ---@field _kind 'struct-type'
@@ -76,7 +72,6 @@ df.reaction_category = {}
 ---@field unk_1 string
 ---@field item_type item_type
 ---@field unk_2 string
-local reaction_description
 
 ---@class _reaction_description: DFCompound
 ---@field _kind 'struct-type'
@@ -96,7 +91,6 @@ df.reaction_reagent_type = {}
 ---@field code string
 ---@field quantity number
 ---@field flags reaction_reagent_flags
-local reaction_reagent
 
 ---@class _reaction_reagent: DFCompound
 ---@field _kind 'class-type'
@@ -151,7 +145,6 @@ df.reaction_reagent_flags = {}
 ---@field min_dimension number
 ---@field has_tool_use tool_uses
 ---@field metal_ore_str string
-local reaction_reagent_itemst
 
 ---@class _reaction_reagent_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -173,7 +166,6 @@ df.reaction_product_type = {}
 ---@field _type _reaction_product
 ---@field product_token string
 ---@field product_to_container string
-local reaction_product
 
 ---@class _reaction_product: DFCompound
 ---@field _kind 'class-type'
@@ -213,7 +205,6 @@ df.reaction_product_item_flags = {}
 ---@field count number
 ---@field product_dimension number
 ---@field get_material reaction_product_itemst.T_get_material
-local reaction_product_itemst
 
 ---@class _reaction_product_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -224,7 +215,6 @@ df.reaction_product_itemst = {}
 ---@field _type _reaction_product_itemst.T_get_material
 ---@field reagent_code string
 ---@field product_code string
-local reaction_product_itemst_get_material
 
 ---@class _reaction_product_itemst.T_get_material: DFCompound
 ---@field _kind 'struct-type'
@@ -255,7 +245,6 @@ df.reaction_product_improvement_flags = {}
 ---@field probability number
 ---@field get_material reaction_product_item_improvementst.T_get_material
 ---@field unk_v4201_2 string
-local reaction_product_item_improvementst
 
 ---@class _reaction_product_item_improvementst: DFCompound
 ---@field _kind 'class-type'
@@ -266,7 +255,6 @@ df.reaction_product_item_improvementst = {}
 ---@field _type _reaction_product_item_improvementst.T_get_material
 ---@field reagent_code string
 ---@field product_code string
-local reaction_product_item_improvementst_get_material
 
 ---@class _reaction_product_item_improvementst.T_get_material: DFCompound
 ---@field _kind 'struct-type'

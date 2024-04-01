@@ -5,7 +5,6 @@
 ---@field _kind 'struct'
 ---@field _type _world_site_unk130
 ---@field index number
-local world_site_unk130
 
 ---@class _world_site_unk130: DFCompound
 ---@field _kind 'struct-type'
@@ -52,7 +51,6 @@ df.world_population_type = {}
 ---@field right number
 ---@field top number
 ---@field bottom number
-local embark_note
 
 ---@class _embark_note: DFCompound
 ---@field _kind 'struct-type'
@@ -68,7 +66,6 @@ df.embark_note = {}
 ---@field unk_28 number
 ---@field population_idx number
 ---@field depth layer_type Doesn't look correct. See -1, 0, 41, 172, 508, and 686 with critters visible in all caverns. Some dead, but the dorf on the surface isn't
-local world_population_ref
 
 ---@class _world_population_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -88,7 +85,6 @@ df.world_population_ref = {}
 ---@field wp_unk_18 number
 ---@field wp_unk_1c number only set on subset of animals (including vermin). None seen on fresh embark
 ---@field unk_v47_1 number set on same animals as wp_unk_1c and only seen 0
-local local_population
 
 ---@class _local_population: DFCompound
 ---@field _kind 'struct-type'
@@ -146,7 +142,6 @@ df.local_population.T_flags = {}
 ---@field unk_18 number
 ---@field unk_1c number
 ---@field unk_20 number
-local world_population
 
 ---@class _world_population: DFCompound
 ---@field _kind 'struct-type'
@@ -162,7 +157,6 @@ df.world_population = {}
 ---@field max_x number
 ---@field min_y number
 ---@field max_y number
-local world_landmass
 
 ---@class _world_landmass: DFCompound
 ---@field _kind 'struct-type'
@@ -173,7 +167,6 @@ df.world_landmass = {}
 function df.world_landmass.find(key) end
 
 ---@class world_landmass_vector: DFVector, { [integer]: world_landmass }
-local world_landmass_vector
 
 ---@return world_landmass_vector # df.global.world.world_data.landmasses
 function df.world_landmass.get_vector() end
@@ -240,7 +233,6 @@ df.world_region_type = {}
 ---@field max_x number
 ---@field min_y number
 ---@field max_y number
-local world_region
 
 ---@class _world_region: DFCompound
 ---@field _kind 'struct-type'
@@ -251,7 +243,6 @@ df.world_region = {}
 function df.world_region.find(key) end
 
 ---@class world_region_vector: DFVector, { [integer]: world_region }
-local world_region_vector
 
 ---@return world_region_vector # df.global.world.world_data.regions
 function df.world_region.get_vector() end
@@ -272,7 +263,6 @@ function df.world_region.get_vector() end
 ---@field passage_density_min number --  the similar world gen parameters.
 ---@field passage_density_max number --
 ---@field region_coords coord2d_path --
-local world_underground_region
 
 ---@class _world_underground_region: DFCompound
 ---@field _kind 'struct-type'
@@ -283,7 +273,6 @@ df.world_underground_region = {}
 function df.world_underground_region.find(key) end
 
 ---@class world_underground_region_vector: DFVector, { [integer]: world_underground_region }
-local world_underground_region_vector
 
 ---@return world_underground_region_vector # df.global.world.world_data.underground_regions
 function df.world_underground_region.get_vector() end
@@ -309,7 +298,6 @@ df.world_underground_region.T_type = {}
 ---@field name language_name
 ---@field path coord2d_path
 ---@field end_pos coord2d
-local world_river
 
 ---@class _world_river: DFCompound
 ---@field _kind 'struct-type'
@@ -365,7 +353,6 @@ df.geo_layer_type.attrs = {}
 ---@field mat_index number References: `inorganic_raw`
 ---@field top_height number negative
 ---@field bottom_height number
-local world_geo_layer
 
 ---@class _world_geo_layer: DFCompound
 ---@field _kind 'struct-type'
@@ -376,7 +363,6 @@ df.world_geo_layer = {}
 ---@field _type _world_geo_biome
 ---@field unk1 number
 ---@field index number
-local world_geo_biome
 
 ---@class _world_geo_biome: DFCompound
 ---@field _kind 'struct-type'
@@ -387,7 +373,6 @@ df.world_geo_biome = {}
 function df.world_geo_biome.find(key) end
 
 ---@class world_geo_biome_vector: DFVector, { [integer]: world_geo_biome }
-local world_geo_biome_vector
 
 ---@return world_geo_biome_vector # df.global.world.world_data.geo_biomes
 function df.world_geo_biome.get_vector() end
@@ -403,7 +388,6 @@ function df.world_geo_biome.get_vector() end
 ---@field unk_28 number
 ---@field seed integer looks random
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
-local world_region_feature
 
 ---@class _world_region_feature: DFCompound
 ---@field _kind 'struct-type'
@@ -422,7 +406,6 @@ df.world_region_feature = {}
 ---@field rivers_vertical world_region_details.T_rivers_vertical
 ---@field rivers_horizontal world_region_details.T_rivers_horizontal
 ---@field lava_stone number References: `inorganic_raw`
-local world_region_details
 
 ---@class _world_region_details: DFCompound
 ---@field _kind 'struct-type'
@@ -432,7 +415,6 @@ df.world_region_details = {}
 ---@class (exact) world_region_details.T_edges: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_edges
-local world_region_details_edges
 
 ---@class _world_region_details.T_edges: DFCompound
 ---@field _kind 'struct-type'
@@ -442,7 +424,6 @@ df.world_region_details.T_edges = {}
 ---@class (exact) world_region_details.T_rivers_vertical: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_vertical
-local world_region_details_rivers_vertical
 
 ---@class _world_region_details.T_rivers_vertical: DFCompound
 ---@field _kind 'struct-type'
@@ -451,7 +432,6 @@ df.world_region_details.T_rivers_vertical = {}
 ---@class (exact) world_region_details.T_rivers_horizontal: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_horizontal
-local world_region_details_rivers_horizontal
 
 ---@class _world_region_details.T_rivers_horizontal: DFCompound
 ---@field _kind 'struct-type'
@@ -595,7 +575,6 @@ df.fog_type = {}
 ---@field region_id number References: `world_region`
 ---@field landmass_id number References: `world_landmass`
 ---@field geo_index number References: `world_geo_biome`
-local region_map_entry
 
 ---@class _region_map_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -716,7 +695,6 @@ df.region_map_entry.T_wind = {}
 ---@field _type _entity_claim_mask
 ---@field width number
 ---@field height number
-local entity_claim_mask
 
 ---@class _entity_claim_mask: DFCompound
 ---@field _kind 'struct-type'
@@ -736,7 +714,6 @@ df.entity_claim_mask = {}
 ---@field unk_7c number
 ---@field region_id number References: `world_region`
 ---@field beast_id number for FB
-local moving_party
 
 ---@class _moving_party: DFCompound
 ---@field _kind 'struct-type'
@@ -751,7 +728,6 @@ df.moving_party = {}
 ---@field year_tick number
 ---@field picked_growths world_object_data.T_picked_growths
 ---@field unk_v43 world_object_data.T_unk_v43
-local world_object_data
 
 ---@class _world_object_data: DFCompound
 ---@field _kind 'struct-type'
@@ -762,7 +738,6 @@ df.world_object_data = {}
 function df.world_object_data.find(key) end
 
 ---@class world_object_data_vector: DFVector, { [integer]: world_object_data }
-local world_object_data_vector
 
 ---@return world_object_data_vector # df.global.world.world_data.object_data
 function df.world_object_data.get_vector() end
@@ -771,7 +746,6 @@ function df.world_object_data.get_vector() end
 ---@class (exact) world_object_data.T_picked_growths: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_picked_growths
-local world_object_data_picked_growths
 
 ---@class _world_object_data.T_picked_growths: DFCompound
 ---@field _kind 'struct-type'
@@ -781,7 +755,6 @@ df.world_object_data.T_picked_growths = {}
 ---@class (exact) world_object_data.T_unk_v43: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_unk_v43
-local world_object_data_unk_v43
 
 ---@class _world_object_data.T_unk_v43: DFCompound
 ---@field _kind 'struct-type'
@@ -801,7 +774,6 @@ df.mountain_peak_flags = {}
 ---@field name language_name
 ---@field pos coord2d
 ---@field height number
-local world_mountain_peak
 
 ---@class _world_mountain_peak: DFCompound
 ---@field _kind 'struct-type'
@@ -812,7 +784,6 @@ df.world_mountain_peak = {}
 function df.world_mountain_peak.find(key) end
 
 ---@class world_mountain_peak_vector: DFVector, { [integer]: world_mountain_peak }
-local world_mountain_peak_vector
 
 ---@return world_mountain_peak_vector # df.global.world.world_data.mountain_peaks
 function df.world_mountain_peak.get_vector() end
@@ -861,7 +832,6 @@ function df.world_mountain_peak.get_vector() end
 ---@field unk_26c number
 ---@field unk_270 number
 ---@field unk_482f8 world_data.T_unk_482f8
-local world_data
 
 ---@class _world_data: DFCompound
 ---@field _kind 'struct-type'
@@ -889,7 +859,6 @@ df.world_data.T_flip_latitude = {}
 ---@field _type _world_data.T_unk_b4
 ---@field world_width2 number
 ---@field world_height2 number
-local world_data_unk_b4
 
 ---@class _world_data.T_unk_b4: DFCompound
 ---@field _kind 'struct-type'
@@ -901,7 +870,6 @@ df.world_data.T_unk_b4 = {}
 ---@field width number
 ---@field height number
 ---@field next_id number
-local world_data_constructions
 
 ---@class _world_data.T_constructions: DFCompound
 ---@field _kind 'struct-type'
@@ -917,7 +885,6 @@ df.world_data.T_constructions = {}
 ---@field unk_6 number
 ---@field unk_7 number
 ---@field unk_8 number
-local world_data_unk_482f8
 
 ---@class _world_data.T_unk_482f8: DFCompound
 ---@field _kind 'struct-type'
@@ -928,7 +895,6 @@ df.world_data.T_unk_482f8 = {}
 ---@field _type _breed
 ---@field id number
 ---@field unk_4 number
-local breed
 
 ---@class _breed: DFCompound
 ---@field _kind 'struct-type'
@@ -939,7 +905,6 @@ df.breed = {}
 function df.breed.find(key) end
 
 ---@class breed_vector: DFVector, { [integer]: breed }
-local breed_vector
 
 ---@return breed_vector # df.global.world.world_data.breeds
 function df.breed.get_vector() end
@@ -953,7 +918,6 @@ function df.breed.get_vector() end
 ---@field x2 number
 ---@field y2 number
 ---@field unk_34 number wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
-local battlefield
 
 ---@class _battlefield: DFCompound
 ---@field _kind 'struct-type'
@@ -964,7 +928,6 @@ df.battlefield = {}
 function df.battlefield.find(key) end
 
 ---@class battlefield_vector: DFVector, { [integer]: battlefield }
-local battlefield_vector
 
 ---@return battlefield_vector # df.global.world.world_data.battlefields
 function df.battlefield.get_vector() end
@@ -1004,7 +967,6 @@ df.region_weather_type = {}
 ---@field cloud_y_movement number -1/0/1, indicating the movement per 10 ticks in Y direction. Uninitialized for rain
 ---@field remaining_duration number ticks down 1 every 10 ticks. Removed some time after reaching 0. Cloud duration seems to start with a fairly large, but somewhat random value
 ---@field region_id number Set for clouds, -1 for rain References: `world_region`
-local region_weather
 
 ---@class _region_weather: DFCompound
 ---@field _kind 'struct-type'
@@ -1015,7 +977,6 @@ df.region_weather = {}
 function df.region_weather.find(key) end
 
 ---@class region_weather_vector: DFVector, { [integer]: region_weather }
-local region_weather_vector
 
 ---@return region_weather_vector # df.global.world.world_data.region_weather
 function df.region_weather.get_vector() end

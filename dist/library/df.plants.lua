@@ -38,7 +38,6 @@ df.plant_flags = {}
 ---@field update_order number
 ---@field site_id number References: `world_site`
 ---@field srb_id number References: `site_realization_building`
-local plant
 
 ---@class _plant: DFCompound
 ---@field _kind 'struct-type'
@@ -49,7 +48,6 @@ df.plant = {}
 function df.plant.find(key) end
 
 ---@class plant_vector: DFVector, { [integer]: plant }
-local plant_vector
 
 ---@return plant_vector # df.global.world.plants.all
 function df.plant.get_vector() end
@@ -249,7 +247,6 @@ df.plant_root_tile = {}
 ---@field dim_y number
 ---@field roots_depth number
 ---@field local_trunk_height number
-local plant_tree_info
 
 ---@class _plant_tree_info: DFCompound
 ---@field _kind 'struct-type'
