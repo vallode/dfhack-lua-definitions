@@ -8,13 +8,13 @@ module DFHackLuaDefinitions
 
   # TODO: Do as much of this conversion as possible in the initial document parsing.
   TYPE_MAP = {
-    'int8_t' => 'integer',
+    'int8_t' => 'number',
     'uint8_t' => 'integer',
-    'int16_t' => 'integer',
+    'int16_t' => 'number',
     'uint16_t' => 'integer',
-    'int32_t' => 'integer',
+    'int32_t' => 'number',
     'uint32_t' => 'integer',
-    'int64_t' => 'integer',
+    'int64_t' => 'number',
     'uint64_t' => 'integer',
     'size_t' => 'integer',
     # 'enum-item' => 'integer',
@@ -26,7 +26,7 @@ module DFHackLuaDefinitions
     'd-float' => 'number',
     # 'long' => 'number',
     # 'ulong' => 'number',
-    'ptr-string' => 'DFPtrString',
+    'ptr-string' => 'DFPointer<string>',
     'static-string' => 'string',
     'stl-string' => 'string',
     'bool' => 'boolean'
@@ -216,7 +216,7 @@ module DFHackLuaDefinitions
     end
 
     def instance_vector_functions
-      annotation = "---@param key integer\n"
+      annotation = "---@param key number\n"
       annotation << "---@return #{@name}|nil\n"
       annotation << "function df.#{@class_name}.find(key) end\n\n"
 
