@@ -1,863 +1,778 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.building-vectors
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _buildings_other_id: integer, string, df.enum
+---@alias buildings_other_id
+---| -1 # ANY
+---| 0 # IN_PLAY
+---| 1 # STOCKPILE
+---| 2 # ANY_ZONE
+---| 3 # ACTIVITY_ZONE
+---| 4 # ZONE_HOME
+---| 5 # ZONE_DEPOT
+---| 6 # ZONE_STOCKPILE
+---| 7 # ZONE_NOBLE_QUARTERS
+---| 8 # ZONE_INVALID4
+---| 9 # ZONE_INVALID5
+---| 10 # ZONE_INVALID6
+---| 11 # ZONE_MEAD_HALL
+---| 12 # ZONE_THRONE_ROOM
+---| 13 # ZONE_INVALID9
+---| 14 # ZONE_TEMPLE
+---| 15 # ZONE_KITCHEN
+---| 16 # ZONE_CAPTIVE_ROOM
+---| 17 # ZONE_TOWER_TOP
+---| 18 # ZONE_COURTYARD
+---| 19 # ZONE_TREASURY
+---| 20 # ZONE_GUARD_POST
+---| 21 # ZONE_ENTRANCE
+---| 22 # ZONE_SECRET_LIBRARY
+---| 23 # ZONE_LIBRARY
+---| 24 # ZONE_PLOT
+---| 25 # ZONE_MARKET_STALL
+---| 26 # ZONE_INVALID22
+---| 27 # ZONE_CAMPGROUND
+---| 28 # ZONE_COMMAND_TENT
+---| 29 # ZONE_TENT
+---| 30 # ZONE_COMMAND_TENT_BLD
+---| 31 # ZONE_TENT_BLD
+---| 32 # ZONE_MECHANISM_ROOM
+---| 33 # ZONE_DUNGEON_CELL
+---| 34 # ZONE_ANIMAL_PIT
+---| 35 # ZONE_CLOTH_PIT
+---| 36 # ZONE_TANNING_PIT
+---| 37 # ZONE_CLOTH_CLOTHING_PIT
+---| 38 # ZONE_LEATHER_CLOTHING_PIT
+---| 39 # ZONE_BONE_CARVING_PIT
+---| 40 # ZONE_GEM_CUTTING_PIT
+---| 41 # ZONE_WEAPONSMITHING_PIT
+---| 42 # ZONE_BOWMAKING_PIT
+---| 43 # ZONE_BLACKSMITHING_PIT
+---| 44 # ZONE_ARMORSMITHING_PIT
+---| 45 # ZONE_METAL_CRAFTING_PIT
+---| 46 # ZONE_LEATHERWORKING_PIT
+---| 47 # ZONE_CARPENTRY_PIT
+---| 48 # ZONE_STONEWORKING_PIT
+---| 49 # ZONE_FORGING_PIT
+---| 50 # ZONE_FIGHTING_PIT
+---| 51 # ZONE_INVALID47
+---| 52 # ZONE_INVALID48
+---| 53 # ZONE_INVALID49
+---| 54 # ZONE_INVALID50
+---| 55 # ZONE_INVALID51
+---| 56 # ZONE_INVALID52
+---| 57 # ZONE_ANIMAL_WORKSHOP
+---| 58 # ZONE_CLOTH_WORKSHOP
+---| 59 # ZONE_TANNING_WORKSHOP
+---| 60 # ZONE_CLOTH_CLOTHING_WORKSHOP
+---| 61 # ZONE_LEATHER_CLOTHING_WORKSHOP
+---| 62 # ZONE_BONE_CARVING_WORKSHOP
+---| 63 # ZONE_GEM_CUTTING_WORKSHOP
+---| 64 # ZONE_WEAPONSMITHING_WORKSHOP
+---| 65 # ZONE_BOWMAKING_WORKSHOP
+---| 66 # ZONE_BLACKSMITHING_WORKSHOP
+---| 67 # ZONE_ARMORSMITHING_WORKSHOP
+---| 68 # ZONE_METAL_CRAFTING_WORKSHOP
+---| 69 # ZONE_LEATHERWORKING_SHOP
+---| 70 # ZONE_CARPENTRY_WORKSHOP
+---| 71 # ZONE_STONEWORKING_WORKSHOP
+---| 72 # ZONE_FORGING_WORKSHOP
+---| 73 # ZONE_COUNTING_HOUSE_OFFICES
+---| 74 # ZONE_COUNTING_HOUSE_STORAGE
+---| 75 # ZONE_GUILDHALL_OFFICES
+---| 76 # ZONE_GUILDHALL_STORAGE
+---| 77 # ZONE_TOWER_ENTRANCE
+---| 78 # ZONE_TOWER_FEASTHALL
+---| 79 # ZONE_TOWER_BEDROOM
+---| 80 # ZONE_TOWER_TREASURY
+---| 81 # ZONE_TOWER_DUNGEON
+---| 82 # ZONE_TOWER_ATTIC
+---| 83 # ZONE_DORMITORY
+---| 84 # ZONE_DINING_HALL
+---| 85 # ZONE_INVALID81
+---| 86 # ZONE_WATER_SOURCE
+---| 87 # ZONE_DUMP
+---| 88 # ZONE_SAND_COLLECTION
+---| 89 # ZONE_FISHING_AREA
+---| 90 # ZONE_POND
+---| 91 # ZONE_MEETING_HALL
+---| 92 # ZONE_PEN
+---| 93 # ZONE_CLAY_COLLECTION
+---| 94 # ZONE_ANIMAL_TRAINING
+---| 95 # ZONE_PLANT_GATHERING
+---| 96 # ZONE_BEDROOM
+---| 97 # ZONE_OFFICE
+---| 98 # ZONE_ARCHERY_RANGE
+---| 99 # ZONE_BARRACKS
+---| 100 # ZONE_DUNGEON
+---| 101 # ZONE_TOMB
+---| 102 # LOCATION_ASSIGNED
+---| 103 # ANY_ACTUAL
+---| 104 # ANY_MACHINE
+---| 105 # ANY_HOSPITAL_STORAGE
+---| 106 # ANY_STORAGE
+---| 107 # ANY_BARRACKS
+---| 108 # ANY_HOSPITAL
+---| 109 # BOX
+---| 110 # CABINET
+---| 111 # TRAP
+---| 112 # DOOR
+---| 113 # FLOODGATE
+---| 114 # HATCH
+---| 115 # GRATE_WALL
+---| 116 # GRATE_FLOOR
+---| 117 # BARS_VERTICAL
+---| 118 # BARS_FLOOR
+---| 119 # WINDOW_ANY
+---| 120 # WELL
+---| 121 # TABLE
+---| 122 # BRIDGE
+---| 123 # CHAIR
+---| 124 # TRADE_DEPOT
+---| 125 # NEST
+---| 126 # NEST_BOX
+---| 127 # BOOKCASE
+---| 128 # DISPLAY_CASE
+---| 129 # HIVE
+---| 130 # WAGON
+---| 131 # SHOP
+---| 132 # BED
+---| 133 # TRACTION_BENCH
+---| 134 # ANY_ROAD
+---| 135 # FARM_PLOT
+---| 136 # GEAR_ASSEMBLY
+---| 137 # ROLLERS
+---| 138 # AXLE_HORIZONTAL
+---| 139 # AXLE_VERTICAL
+---| 140 # SUPPORT
+---| 141 # ARCHERY_TARGET
+---| 142 # SCREW_PUMP
+---| 143 # WATER_WHEEL
+---| 144 # WINDMILL
+---| 145 # CHAIN
+---| 146 # CAGE
+---| 147 # STATUE
+---| 148 # SLAB
+---| 149 # COFFIN
+---| 150 # WEAPON_RACK
+---| 151 # ARMOR_STAND
+---| 152 # FURNACE_ANY
+---| 153 # FURNACE_WOOD
+---| 154 # FURNACE_SMELTER_ANY
+---| 155 # FURNACE_SMELTER_MAGMA
+---| 156 # FURNACE_KILN_ANY
+---| 157 # FURNACE_GLASS_ANY
+---| 158 # FURNACE_CUSTOM
+---| 159 # WORKSHOP_ANY
+---| 160 # WORKSHOP_BUTCHER
+---| 161 # WORKSHOP_MASON
+---| 162 # WORKSHOP_KENNEL
+---| 163 # WORKSHOP_FISHERY
+---| 164 # WORKSHOP_JEWELER
+---| 165 # WORKSHOP_LOOM
+---| 166 # WORKSHOP_TANNER
+---| 167 # WORKSHOP_DYER
+---| 168 # WORKSHOP_MILL_ANY
+---| 169 # WORKSHOP_QUERN
+---| 170 # WORKSHOP_TOOL
+---| 171 # WORKSHOP_MILLSTONE
+---| 172 # WORKSHOP_KITCHEN
+---| 173 # WORKSHOP_STILL
+---| 174 # WORKSHOP_FARMER
+---| 175 # WORKSHOP_ASHERY
+---| 176 # WORKSHOP_CARPENTER
+---| 177 # WORKSHOP_CRAFTSDWARF
+---| 178 # WORKSHOP_MECHANIC
+---| 179 # WORKSHOP_SIEGE
+---| 180 # WORKSHOP_CLOTHIER
+---| 181 # WORKSHOP_LEATHER
+---| 182 # WORKSHOP_BOWYER
+---| 183 # WORKSHOP_MAGMA_FORGE
+---| 184 # WORKSHOP_FORGE_ANY
+---| 185 # WORKSHOP_CUSTOM
+---| 186 # WEAPON_UPRIGHT
+---| 187 # INSTRUMENT_STATIONARY
+---| 188 # OFFERING_PLACE
+
+---@class _buildings_other_id: DFDescriptor
+---@field _kind 'enum-type'
 ---@field ANY -1
----@field [0] "ANY"
----@field IN_PLAY 1
----@field [1] "IN_PLAY"
----@field STOCKPILE 2
----@field [2] "STOCKPILE"
----@field ANY_ZONE 3
----@field [3] "ANY_ZONE"
----@field ACTIVITY_ZONE 4
----@field [4] "ACTIVITY_ZONE"
----@field ZONE_HOME 5
----@field [5] "ZONE_HOME"
----@field ZONE_DEPOT 6
----@field [6] "ZONE_DEPOT"
----@field ZONE_STOCKPILE 7
----@field [7] "ZONE_STOCKPILE"
----@field ZONE_NOBLE_QUARTERS 8
----@field [8] "ZONE_NOBLE_QUARTERS"
----@field ZONE_INVALID4 9
----@field [9] "ZONE_INVALID4"
----@field ZONE_INVALID5 10
----@field [10] "ZONE_INVALID5"
----@field ZONE_INVALID6 11
----@field [11] "ZONE_INVALID6"
----@field ZONE_MEAD_HALL 12
----@field [12] "ZONE_MEAD_HALL"
----@field ZONE_THRONE_ROOM 13
----@field [13] "ZONE_THRONE_ROOM"
----@field ZONE_INVALID9 14
----@field [14] "ZONE_INVALID9"
----@field ZONE_TEMPLE 15
----@field [15] "ZONE_TEMPLE"
----@field ZONE_KITCHEN 16
----@field [16] "ZONE_KITCHEN"
----@field ZONE_CAPTIVE_ROOM 17
----@field [17] "ZONE_CAPTIVE_ROOM"
----@field ZONE_TOWER_TOP 18
----@field [18] "ZONE_TOWER_TOP"
----@field ZONE_COURTYARD 19
----@field [19] "ZONE_COURTYARD"
----@field ZONE_TREASURY 20
----@field [20] "ZONE_TREASURY"
----@field ZONE_GUARD_POST 21
----@field [21] "ZONE_GUARD_POST"
----@field ZONE_ENTRANCE 22
----@field [22] "ZONE_ENTRANCE"
----@field ZONE_SECRET_LIBRARY 23
----@field [23] "ZONE_SECRET_LIBRARY"
----@field ZONE_LIBRARY 24
----@field [24] "ZONE_LIBRARY"
----@field ZONE_PLOT 25
----@field [25] "ZONE_PLOT"
----@field ZONE_MARKET_STALL 26
----@field [26] "ZONE_MARKET_STALL"
----@field ZONE_INVALID22 27
----@field [27] "ZONE_INVALID22"
----@field ZONE_CAMPGROUND 28
----@field [28] "ZONE_CAMPGROUND"
----@field ZONE_COMMAND_TENT 29
----@field [29] "ZONE_COMMAND_TENT"
----@field ZONE_TENT 30
----@field [30] "ZONE_TENT"
----@field ZONE_COMMAND_TENT_BLD 31
----@field [31] "ZONE_COMMAND_TENT_BLD"
----@field ZONE_TENT_BLD 32
----@field [32] "ZONE_TENT_BLD"
----@field ZONE_MECHANISM_ROOM 33
----@field [33] "ZONE_MECHANISM_ROOM"
----@field ZONE_DUNGEON_CELL 34
----@field [34] "ZONE_DUNGEON_CELL"
----@field ZONE_ANIMAL_PIT 35
----@field [35] "ZONE_ANIMAL_PIT"
----@field ZONE_CLOTH_PIT 36
----@field [36] "ZONE_CLOTH_PIT"
----@field ZONE_TANNING_PIT 37
----@field [37] "ZONE_TANNING_PIT"
----@field ZONE_CLOTH_CLOTHING_PIT 38
----@field [38] "ZONE_CLOTH_CLOTHING_PIT"
----@field ZONE_LEATHER_CLOTHING_PIT 39
----@field [39] "ZONE_LEATHER_CLOTHING_PIT"
----@field ZONE_BONE_CARVING_PIT 40
----@field [40] "ZONE_BONE_CARVING_PIT"
----@field ZONE_GEM_CUTTING_PIT 41
----@field [41] "ZONE_GEM_CUTTING_PIT"
----@field ZONE_WEAPONSMITHING_PIT 42
----@field [42] "ZONE_WEAPONSMITHING_PIT"
----@field ZONE_BOWMAKING_PIT 43
----@field [43] "ZONE_BOWMAKING_PIT"
----@field ZONE_BLACKSMITHING_PIT 44
----@field [44] "ZONE_BLACKSMITHING_PIT"
----@field ZONE_ARMORSMITHING_PIT 45
----@field [45] "ZONE_ARMORSMITHING_PIT"
----@field ZONE_METAL_CRAFTING_PIT 46
----@field [46] "ZONE_METAL_CRAFTING_PIT"
----@field ZONE_LEATHERWORKING_PIT 47
----@field [47] "ZONE_LEATHERWORKING_PIT"
----@field ZONE_CARPENTRY_PIT 48
----@field [48] "ZONE_CARPENTRY_PIT"
----@field ZONE_STONEWORKING_PIT 49
----@field [49] "ZONE_STONEWORKING_PIT"
----@field ZONE_FORGING_PIT 50
----@field [50] "ZONE_FORGING_PIT"
----@field ZONE_FIGHTING_PIT 51
----@field [51] "ZONE_FIGHTING_PIT"
----@field ZONE_INVALID47 52
----@field [52] "ZONE_INVALID47"
----@field ZONE_INVALID48 53
----@field [53] "ZONE_INVALID48"
----@field ZONE_INVALID49 54
----@field [54] "ZONE_INVALID49"
----@field ZONE_INVALID50 55
----@field [55] "ZONE_INVALID50"
----@field ZONE_INVALID51 56
----@field [56] "ZONE_INVALID51"
----@field ZONE_INVALID52 57
----@field [57] "ZONE_INVALID52"
----@field ZONE_ANIMAL_WORKSHOP 58
----@field [58] "ZONE_ANIMAL_WORKSHOP"
----@field ZONE_CLOTH_WORKSHOP 59
----@field [59] "ZONE_CLOTH_WORKSHOP"
----@field ZONE_TANNING_WORKSHOP 60
----@field [60] "ZONE_TANNING_WORKSHOP"
----@field ZONE_CLOTH_CLOTHING_WORKSHOP 61
----@field [61] "ZONE_CLOTH_CLOTHING_WORKSHOP"
----@field ZONE_LEATHER_CLOTHING_WORKSHOP 62
----@field [62] "ZONE_LEATHER_CLOTHING_WORKSHOP"
----@field ZONE_BONE_CARVING_WORKSHOP 63
----@field [63] "ZONE_BONE_CARVING_WORKSHOP"
----@field ZONE_GEM_CUTTING_WORKSHOP 64
----@field [64] "ZONE_GEM_CUTTING_WORKSHOP"
----@field ZONE_WEAPONSMITHING_WORKSHOP 65
----@field [65] "ZONE_WEAPONSMITHING_WORKSHOP"
----@field ZONE_BOWMAKING_WORKSHOP 66
----@field [66] "ZONE_BOWMAKING_WORKSHOP"
----@field ZONE_BLACKSMITHING_WORKSHOP 67
----@field [67] "ZONE_BLACKSMITHING_WORKSHOP"
----@field ZONE_ARMORSMITHING_WORKSHOP 68
----@field [68] "ZONE_ARMORSMITHING_WORKSHOP"
----@field ZONE_METAL_CRAFTING_WORKSHOP 69
----@field [69] "ZONE_METAL_CRAFTING_WORKSHOP"
----@field ZONE_LEATHERWORKING_SHOP 70
----@field [70] "ZONE_LEATHERWORKING_SHOP"
----@field ZONE_CARPENTRY_WORKSHOP 71
----@field [71] "ZONE_CARPENTRY_WORKSHOP"
----@field ZONE_STONEWORKING_WORKSHOP 72
----@field [72] "ZONE_STONEWORKING_WORKSHOP"
----@field ZONE_FORGING_WORKSHOP 73
----@field [73] "ZONE_FORGING_WORKSHOP"
----@field ZONE_COUNTING_HOUSE_OFFICES 74
----@field [74] "ZONE_COUNTING_HOUSE_OFFICES"
----@field ZONE_COUNTING_HOUSE_STORAGE 75
----@field [75] "ZONE_COUNTING_HOUSE_STORAGE"
----@field ZONE_GUILDHALL_OFFICES 76
----@field [76] "ZONE_GUILDHALL_OFFICES"
----@field ZONE_GUILDHALL_STORAGE 77
----@field [77] "ZONE_GUILDHALL_STORAGE"
----@field ZONE_TOWER_ENTRANCE 78
----@field [78] "ZONE_TOWER_ENTRANCE"
----@field ZONE_TOWER_FEASTHALL 79
----@field [79] "ZONE_TOWER_FEASTHALL"
----@field ZONE_TOWER_BEDROOM 80
----@field [80] "ZONE_TOWER_BEDROOM"
----@field ZONE_TOWER_TREASURY 81
----@field [81] "ZONE_TOWER_TREASURY"
----@field ZONE_TOWER_DUNGEON 82
----@field [82] "ZONE_TOWER_DUNGEON"
----@field ZONE_TOWER_ATTIC 83
----@field [83] "ZONE_TOWER_ATTIC"
----@field ZONE_DORMITORY 84
----@field [84] "ZONE_DORMITORY"
----@field ZONE_DINING_HALL 85
----@field [85] "ZONE_DINING_HALL"
----@field ZONE_INVALID81 86
----@field [86] "ZONE_INVALID81"
----@field ZONE_WATER_SOURCE 87
----@field [87] "ZONE_WATER_SOURCE"
----@field ZONE_DUMP 88
----@field [88] "ZONE_DUMP"
----@field ZONE_SAND_COLLECTION 89
----@field [89] "ZONE_SAND_COLLECTION"
----@field ZONE_FISHING_AREA 90
----@field [90] "ZONE_FISHING_AREA"
----@field ZONE_POND 91
----@field [91] "ZONE_POND"
----@field ZONE_MEETING_HALL 92
----@field [92] "ZONE_MEETING_HALL"
----@field ZONE_PEN 93
----@field [93] "ZONE_PEN"
----@field ZONE_CLAY_COLLECTION 94
----@field [94] "ZONE_CLAY_COLLECTION"
----@field ZONE_ANIMAL_TRAINING 95
----@field [95] "ZONE_ANIMAL_TRAINING"
----@field ZONE_PLANT_GATHERING 96
----@field [96] "ZONE_PLANT_GATHERING"
----@field ZONE_BEDROOM 97
----@field [97] "ZONE_BEDROOM"
----@field ZONE_OFFICE 98
----@field [98] "ZONE_OFFICE"
----@field ZONE_ARCHERY_RANGE 99
----@field [99] "ZONE_ARCHERY_RANGE"
----@field ZONE_BARRACKS 100
----@field [100] "ZONE_BARRACKS"
----@field ZONE_DUNGEON 101
----@field [101] "ZONE_DUNGEON"
----@field ZONE_TOMB 102
----@field [102] "ZONE_TOMB"
----@field LOCATION_ASSIGNED 103
----@field [103] "LOCATION_ASSIGNED"
----@field ANY_ACTUAL 104
----@field [104] "ANY_ACTUAL"
----@field ANY_MACHINE 105
----@field [105] "ANY_MACHINE"
----@field ANY_HOSPITAL_STORAGE 106
----@field [106] "ANY_HOSPITAL_STORAGE"
----@field ANY_STORAGE 107
----@field [107] "ANY_STORAGE"
----@field ANY_BARRACKS 108
----@field [108] "ANY_BARRACKS"
----@field ANY_HOSPITAL 109
----@field [109] "ANY_HOSPITAL"
----@field BOX 110
----@field [110] "BOX"
----@field CABINET 111
----@field [111] "CABINET"
----@field TRAP 112
----@field [112] "TRAP"
----@field DOOR 113
----@field [113] "DOOR"
----@field FLOODGATE 114
----@field [114] "FLOODGATE"
----@field HATCH 115
----@field [115] "HATCH"
----@field GRATE_WALL 116
----@field [116] "GRATE_WALL"
----@field GRATE_FLOOR 117
----@field [117] "GRATE_FLOOR"
----@field BARS_VERTICAL 118
----@field [118] "BARS_VERTICAL"
----@field BARS_FLOOR 119
----@field [119] "BARS_FLOOR"
----@field WINDOW_ANY 120
----@field [120] "WINDOW_ANY"
----@field WELL 121
----@field [121] "WELL"
----@field TABLE 122
----@field [122] "TABLE"
----@field BRIDGE 123
----@field [123] "BRIDGE"
----@field CHAIR 124
----@field [124] "CHAIR"
----@field TRADE_DEPOT 125
----@field [125] "TRADE_DEPOT"
----@field NEST 126
----@field [126] "NEST"
----@field NEST_BOX 127
----@field [127] "NEST_BOX"
----@field BOOKCASE 128
----@field [128] "BOOKCASE"
----@field DISPLAY_CASE 129
----@field [129] "DISPLAY_CASE"
----@field HIVE 130
----@field [130] "HIVE"
----@field WAGON 131
----@field [131] "WAGON"
----@field SHOP 132
----@field [132] "SHOP"
----@field BED 133
----@field [133] "BED"
----@field TRACTION_BENCH 134
----@field [134] "TRACTION_BENCH"
----@field ANY_ROAD 135
----@field [135] "ANY_ROAD"
----@field FARM_PLOT 136
----@field [136] "FARM_PLOT"
----@field GEAR_ASSEMBLY 137
----@field [137] "GEAR_ASSEMBLY"
----@field ROLLERS 138
----@field [138] "ROLLERS"
----@field AXLE_HORIZONTAL 139
----@field [139] "AXLE_HORIZONTAL"
----@field AXLE_VERTICAL 140
----@field [140] "AXLE_VERTICAL"
----@field SUPPORT 141
----@field [141] "SUPPORT"
----@field ARCHERY_TARGET 142
----@field [142] "ARCHERY_TARGET"
----@field SCREW_PUMP 143
----@field [143] "SCREW_PUMP"
----@field WATER_WHEEL 144
----@field [144] "WATER_WHEEL"
----@field WINDMILL 145
----@field [145] "WINDMILL"
----@field CHAIN 146
----@field [146] "CHAIN"
----@field CAGE 147
----@field [147] "CAGE"
----@field STATUE 148
----@field [148] "STATUE"
----@field SLAB 149
----@field [149] "SLAB"
----@field COFFIN 150
----@field [150] "COFFIN"
----@field WEAPON_RACK 151
----@field [151] "WEAPON_RACK"
----@field ARMOR_STAND 152
----@field [152] "ARMOR_STAND"
----@field FURNACE_ANY 153
----@field [153] "FURNACE_ANY"
----@field FURNACE_WOOD 154
----@field [154] "FURNACE_WOOD"
----@field FURNACE_SMELTER_ANY 155
----@field [155] "FURNACE_SMELTER_ANY"
----@field FURNACE_SMELTER_MAGMA 156
----@field [156] "FURNACE_SMELTER_MAGMA"
----@field FURNACE_KILN_ANY 157
----@field [157] "FURNACE_KILN_ANY"
----@field FURNACE_GLASS_ANY 158
----@field [158] "FURNACE_GLASS_ANY"
----@field FURNACE_CUSTOM 159
----@field [159] "FURNACE_CUSTOM"
----@field WORKSHOP_ANY 160
----@field [160] "WORKSHOP_ANY"
----@field WORKSHOP_BUTCHER 161
----@field [161] "WORKSHOP_BUTCHER"
----@field WORKSHOP_MASON 162
----@field [162] "WORKSHOP_MASON"
----@field WORKSHOP_KENNEL 163
----@field [163] "WORKSHOP_KENNEL"
----@field WORKSHOP_FISHERY 164
----@field [164] "WORKSHOP_FISHERY"
----@field WORKSHOP_JEWELER 165
----@field [165] "WORKSHOP_JEWELER"
----@field WORKSHOP_LOOM 166
----@field [166] "WORKSHOP_LOOM"
----@field WORKSHOP_TANNER 167
----@field [167] "WORKSHOP_TANNER"
----@field WORKSHOP_DYER 168
----@field [168] "WORKSHOP_DYER"
----@field WORKSHOP_MILL_ANY 169
----@field [169] "WORKSHOP_MILL_ANY"
----@field WORKSHOP_QUERN 170
----@field [170] "WORKSHOP_QUERN"
----@field WORKSHOP_TOOL 171
----@field [171] "WORKSHOP_TOOL"
----@field WORKSHOP_MILLSTONE 172
----@field [172] "WORKSHOP_MILLSTONE"
----@field WORKSHOP_KITCHEN 173
----@field [173] "WORKSHOP_KITCHEN"
----@field WORKSHOP_STILL 174
----@field [174] "WORKSHOP_STILL"
----@field WORKSHOP_FARMER 175
----@field [175] "WORKSHOP_FARMER"
----@field WORKSHOP_ASHERY 176
----@field [176] "WORKSHOP_ASHERY"
----@field WORKSHOP_CARPENTER 177
----@field [177] "WORKSHOP_CARPENTER"
----@field WORKSHOP_CRAFTSDWARF 178
----@field [178] "WORKSHOP_CRAFTSDWARF"
----@field WORKSHOP_MECHANIC 179
----@field [179] "WORKSHOP_MECHANIC"
----@field WORKSHOP_SIEGE 180
----@field [180] "WORKSHOP_SIEGE"
----@field WORKSHOP_CLOTHIER 181
----@field [181] "WORKSHOP_CLOTHIER"
----@field WORKSHOP_LEATHER 182
----@field [182] "WORKSHOP_LEATHER"
----@field WORKSHOP_BOWYER 183
----@field [183] "WORKSHOP_BOWYER"
----@field WORKSHOP_MAGMA_FORGE 184
----@field [184] "WORKSHOP_MAGMA_FORGE"
----@field WORKSHOP_FORGE_ANY 185
----@field [185] "WORKSHOP_FORGE_ANY"
----@field WORKSHOP_CUSTOM 186
----@field [186] "WORKSHOP_CUSTOM"
----@field WEAPON_UPRIGHT 187
----@field [187] "WEAPON_UPRIGHT"
----@field INSTRUMENT_STATIONARY 188
----@field [188] "INSTRUMENT_STATIONARY"
----@field OFFERING_PLACE 189
----@field [189] "OFFERING_PLACE"
+---@field [-1] "ANY"
+---@field IN_PLAY 0 -- 0
+---@field [0] "IN_PLAY" -- 0
+---@field STOCKPILE 1
+---@field [1] "STOCKPILE"
+---@field ANY_ZONE 2
+---@field [2] "ANY_ZONE"
+---@field ACTIVITY_ZONE 3
+---@field [3] "ACTIVITY_ZONE"
+---@field ZONE_HOME 4 -- 98 different civzone subtypes
+---@field [4] "ZONE_HOME" -- 98 different civzone subtypes
+---@field ZONE_DEPOT 5
+---@field [5] "ZONE_DEPOT"
+---@field ZONE_STOCKPILE 6
+---@field [6] "ZONE_STOCKPILE"
+---@field ZONE_NOBLE_QUARTERS 7
+---@field [7] "ZONE_NOBLE_QUARTERS"
+---@field ZONE_INVALID4 8
+---@field [8] "ZONE_INVALID4"
+---@field ZONE_INVALID5 9
+---@field [9] "ZONE_INVALID5"
+---@field ZONE_INVALID6 10
+---@field [10] "ZONE_INVALID6"
+---@field ZONE_MEAD_HALL 11
+---@field [11] "ZONE_MEAD_HALL"
+---@field ZONE_THRONE_ROOM 12
+---@field [12] "ZONE_THRONE_ROOM"
+---@field ZONE_INVALID9 13
+---@field [13] "ZONE_INVALID9"
+---@field ZONE_TEMPLE 14
+---@field [14] "ZONE_TEMPLE"
+---@field ZONE_KITCHEN 15
+---@field [15] "ZONE_KITCHEN"
+---@field ZONE_CAPTIVE_ROOM 16
+---@field [16] "ZONE_CAPTIVE_ROOM"
+---@field ZONE_TOWER_TOP 17
+---@field [17] "ZONE_TOWER_TOP"
+---@field ZONE_COURTYARD 18
+---@field [18] "ZONE_COURTYARD"
+---@field ZONE_TREASURY 19
+---@field [19] "ZONE_TREASURY"
+---@field ZONE_GUARD_POST 20
+---@field [20] "ZONE_GUARD_POST"
+---@field ZONE_ENTRANCE 21
+---@field [21] "ZONE_ENTRANCE"
+---@field ZONE_SECRET_LIBRARY 22
+---@field [22] "ZONE_SECRET_LIBRARY"
+---@field ZONE_LIBRARY 23
+---@field [23] "ZONE_LIBRARY"
+---@field ZONE_PLOT 24
+---@field [24] "ZONE_PLOT"
+---@field ZONE_MARKET_STALL 25
+---@field [25] "ZONE_MARKET_STALL"
+---@field ZONE_INVALID22 26
+---@field [26] "ZONE_INVALID22"
+---@field ZONE_CAMPGROUND 27
+---@field [27] "ZONE_CAMPGROUND"
+---@field ZONE_COMMAND_TENT 28
+---@field [28] "ZONE_COMMAND_TENT"
+---@field ZONE_TENT 29
+---@field [29] "ZONE_TENT"
+---@field ZONE_COMMAND_TENT_BLD 30
+---@field [30] "ZONE_COMMAND_TENT_BLD"
+---@field ZONE_TENT_BLD 31
+---@field [31] "ZONE_TENT_BLD"
+---@field ZONE_MECHANISM_ROOM 32
+---@field [32] "ZONE_MECHANISM_ROOM"
+---@field ZONE_DUNGEON_CELL 33
+---@field [33] "ZONE_DUNGEON_CELL"
+---@field ZONE_ANIMAL_PIT 34
+---@field [34] "ZONE_ANIMAL_PIT"
+---@field ZONE_CLOTH_PIT 35
+---@field [35] "ZONE_CLOTH_PIT"
+---@field ZONE_TANNING_PIT 36
+---@field [36] "ZONE_TANNING_PIT"
+---@field ZONE_CLOTH_CLOTHING_PIT 37
+---@field [37] "ZONE_CLOTH_CLOTHING_PIT"
+---@field ZONE_LEATHER_CLOTHING_PIT 38
+---@field [38] "ZONE_LEATHER_CLOTHING_PIT"
+---@field ZONE_BONE_CARVING_PIT 39
+---@field [39] "ZONE_BONE_CARVING_PIT"
+---@field ZONE_GEM_CUTTING_PIT 40
+---@field [40] "ZONE_GEM_CUTTING_PIT"
+---@field ZONE_WEAPONSMITHING_PIT 41
+---@field [41] "ZONE_WEAPONSMITHING_PIT"
+---@field ZONE_BOWMAKING_PIT 42
+---@field [42] "ZONE_BOWMAKING_PIT"
+---@field ZONE_BLACKSMITHING_PIT 43
+---@field [43] "ZONE_BLACKSMITHING_PIT"
+---@field ZONE_ARMORSMITHING_PIT 44
+---@field [44] "ZONE_ARMORSMITHING_PIT"
+---@field ZONE_METAL_CRAFTING_PIT 45
+---@field [45] "ZONE_METAL_CRAFTING_PIT"
+---@field ZONE_LEATHERWORKING_PIT 46
+---@field [46] "ZONE_LEATHERWORKING_PIT"
+---@field ZONE_CARPENTRY_PIT 47
+---@field [47] "ZONE_CARPENTRY_PIT"
+---@field ZONE_STONEWORKING_PIT 48
+---@field [48] "ZONE_STONEWORKING_PIT"
+---@field ZONE_FORGING_PIT 49
+---@field [49] "ZONE_FORGING_PIT"
+---@field ZONE_FIGHTING_PIT 50
+---@field [50] "ZONE_FIGHTING_PIT"
+---@field ZONE_INVALID47 51
+---@field [51] "ZONE_INVALID47"
+---@field ZONE_INVALID48 52
+---@field [52] "ZONE_INVALID48"
+---@field ZONE_INVALID49 53
+---@field [53] "ZONE_INVALID49"
+---@field ZONE_INVALID50 54
+---@field [54] "ZONE_INVALID50"
+---@field ZONE_INVALID51 55
+---@field [55] "ZONE_INVALID51"
+---@field ZONE_INVALID52 56
+---@field [56] "ZONE_INVALID52"
+---@field ZONE_ANIMAL_WORKSHOP 57
+---@field [57] "ZONE_ANIMAL_WORKSHOP"
+---@field ZONE_CLOTH_WORKSHOP 58
+---@field [58] "ZONE_CLOTH_WORKSHOP"
+---@field ZONE_TANNING_WORKSHOP 59
+---@field [59] "ZONE_TANNING_WORKSHOP"
+---@field ZONE_CLOTH_CLOTHING_WORKSHOP 60
+---@field [60] "ZONE_CLOTH_CLOTHING_WORKSHOP"
+---@field ZONE_LEATHER_CLOTHING_WORKSHOP 61
+---@field [61] "ZONE_LEATHER_CLOTHING_WORKSHOP"
+---@field ZONE_BONE_CARVING_WORKSHOP 62
+---@field [62] "ZONE_BONE_CARVING_WORKSHOP"
+---@field ZONE_GEM_CUTTING_WORKSHOP 63
+---@field [63] "ZONE_GEM_CUTTING_WORKSHOP"
+---@field ZONE_WEAPONSMITHING_WORKSHOP 64
+---@field [64] "ZONE_WEAPONSMITHING_WORKSHOP"
+---@field ZONE_BOWMAKING_WORKSHOP 65
+---@field [65] "ZONE_BOWMAKING_WORKSHOP"
+---@field ZONE_BLACKSMITHING_WORKSHOP 66
+---@field [66] "ZONE_BLACKSMITHING_WORKSHOP"
+---@field ZONE_ARMORSMITHING_WORKSHOP 67
+---@field [67] "ZONE_ARMORSMITHING_WORKSHOP"
+---@field ZONE_METAL_CRAFTING_WORKSHOP 68
+---@field [68] "ZONE_METAL_CRAFTING_WORKSHOP"
+---@field ZONE_LEATHERWORKING_SHOP 69
+---@field [69] "ZONE_LEATHERWORKING_SHOP"
+---@field ZONE_CARPENTRY_WORKSHOP 70
+---@field [70] "ZONE_CARPENTRY_WORKSHOP"
+---@field ZONE_STONEWORKING_WORKSHOP 71
+---@field [71] "ZONE_STONEWORKING_WORKSHOP"
+---@field ZONE_FORGING_WORKSHOP 72
+---@field [72] "ZONE_FORGING_WORKSHOP"
+---@field ZONE_COUNTING_HOUSE_OFFICES 73
+---@field [73] "ZONE_COUNTING_HOUSE_OFFICES"
+---@field ZONE_COUNTING_HOUSE_STORAGE 74
+---@field [74] "ZONE_COUNTING_HOUSE_STORAGE"
+---@field ZONE_GUILDHALL_OFFICES 75
+---@field [75] "ZONE_GUILDHALL_OFFICES"
+---@field ZONE_GUILDHALL_STORAGE 76
+---@field [76] "ZONE_GUILDHALL_STORAGE"
+---@field ZONE_TOWER_ENTRANCE 77
+---@field [77] "ZONE_TOWER_ENTRANCE"
+---@field ZONE_TOWER_FEASTHALL 78
+---@field [78] "ZONE_TOWER_FEASTHALL"
+---@field ZONE_TOWER_BEDROOM 79
+---@field [79] "ZONE_TOWER_BEDROOM"
+---@field ZONE_TOWER_TREASURY 80
+---@field [80] "ZONE_TOWER_TREASURY"
+---@field ZONE_TOWER_DUNGEON 81
+---@field [81] "ZONE_TOWER_DUNGEON"
+---@field ZONE_TOWER_ATTIC 82
+---@field [82] "ZONE_TOWER_ATTIC"
+---@field ZONE_DORMITORY 83
+---@field [83] "ZONE_DORMITORY"
+---@field ZONE_DINING_HALL 84
+---@field [84] "ZONE_DINING_HALL"
+---@field ZONE_INVALID81 85
+---@field [85] "ZONE_INVALID81"
+---@field ZONE_WATER_SOURCE 86
+---@field [86] "ZONE_WATER_SOURCE"
+---@field ZONE_DUMP 87
+---@field [87] "ZONE_DUMP"
+---@field ZONE_SAND_COLLECTION 88
+---@field [88] "ZONE_SAND_COLLECTION"
+---@field ZONE_FISHING_AREA 89
+---@field [89] "ZONE_FISHING_AREA"
+---@field ZONE_POND 90
+---@field [90] "ZONE_POND"
+---@field ZONE_MEETING_HALL 91
+---@field [91] "ZONE_MEETING_HALL"
+---@field ZONE_PEN 92
+---@field [92] "ZONE_PEN"
+---@field ZONE_CLAY_COLLECTION 93
+---@field [93] "ZONE_CLAY_COLLECTION"
+---@field ZONE_ANIMAL_TRAINING 94
+---@field [94] "ZONE_ANIMAL_TRAINING"
+---@field ZONE_PLANT_GATHERING 95
+---@field [95] "ZONE_PLANT_GATHERING"
+---@field ZONE_BEDROOM 96
+---@field [96] "ZONE_BEDROOM"
+---@field ZONE_OFFICE 97
+---@field [97] "ZONE_OFFICE"
+---@field ZONE_ARCHERY_RANGE 98
+---@field [98] "ZONE_ARCHERY_RANGE"
+---@field ZONE_BARRACKS 99
+---@field [99] "ZONE_BARRACKS"
+---@field ZONE_DUNGEON 100
+---@field [100] "ZONE_DUNGEON"
+---@field ZONE_TOMB 101
+---@field [101] "ZONE_TOMB"
+---@field LOCATION_ASSIGNED 102
+---@field [102] "LOCATION_ASSIGNED"
+---@field ANY_ACTUAL 103
+---@field [103] "ANY_ACTUAL"
+---@field ANY_MACHINE 104
+---@field [104] "ANY_MACHINE"
+---@field ANY_HOSPITAL_STORAGE 105
+---@field [105] "ANY_HOSPITAL_STORAGE"
+---@field ANY_STORAGE 106
+---@field [106] "ANY_STORAGE"
+---@field ANY_BARRACKS 107
+---@field [107] "ANY_BARRACKS"
+---@field ANY_HOSPITAL 108 -- 11
+---@field [108] "ANY_HOSPITAL" -- 11
+---@field BOX 109
+---@field [109] "BOX"
+---@field CABINET 110
+---@field [110] "CABINET"
+---@field TRAP 111
+---@field [111] "TRAP"
+---@field DOOR 112
+---@field [112] "DOOR"
+---@field FLOODGATE 113
+---@field [113] "FLOODGATE"
+---@field HATCH 114
+---@field [114] "HATCH"
+---@field GRATE_WALL 115
+---@field [115] "GRATE_WALL"
+---@field GRATE_FLOOR 116
+---@field [116] "GRATE_FLOOR"
+---@field BARS_VERTICAL 117
+---@field [117] "BARS_VERTICAL"
+---@field BARS_FLOOR 118 -- 21
+---@field [118] "BARS_FLOOR" -- 21
+---@field WINDOW_ANY 119
+---@field [119] "WINDOW_ANY"
+---@field WELL 120
+---@field [120] "WELL"
+---@field TABLE 121
+---@field [121] "TABLE"
+---@field BRIDGE 122
+---@field [122] "BRIDGE"
+---@field CHAIR 123
+---@field [123] "CHAIR"
+---@field TRADE_DEPOT 124
+---@field [124] "TRADE_DEPOT"
+---@field NEST 125
+---@field [125] "NEST"
+---@field NEST_BOX 126
+---@field [126] "NEST_BOX"
+---@field BOOKCASE 127
+---@field [127] "BOOKCASE"
+---@field DISPLAY_CASE 128
+---@field [128] "DISPLAY_CASE"
+---@field HIVE 129
+---@field [129] "HIVE"
+---@field WAGON 130 -- 33
+---@field [130] "WAGON" -- 33
+---@field SHOP 131
+---@field [131] "SHOP"
+---@field BED 132
+---@field [132] "BED"
+---@field TRACTION_BENCH 133
+---@field [133] "TRACTION_BENCH"
+---@field ANY_ROAD 134
+---@field [134] "ANY_ROAD"
+---@field FARM_PLOT 135
+---@field [135] "FARM_PLOT"
+---@field GEAR_ASSEMBLY 136
+---@field [136] "GEAR_ASSEMBLY"
+---@field ROLLERS 137
+---@field [137] "ROLLERS"
+---@field AXLE_HORIZONTAL 138
+---@field [138] "AXLE_HORIZONTAL"
+---@field AXLE_VERTICAL 139
+---@field [139] "AXLE_VERTICAL"
+---@field SUPPORT 140
+---@field [140] "SUPPORT"
+---@field ARCHERY_TARGET 141 -- 43
+---@field [141] "ARCHERY_TARGET" -- 43
+---@field SCREW_PUMP 142
+---@field [142] "SCREW_PUMP"
+---@field WATER_WHEEL 143
+---@field [143] "WATER_WHEEL"
+---@field WINDMILL 144
+---@field [144] "WINDMILL"
+---@field CHAIN 145
+---@field [145] "CHAIN"
+---@field CAGE 146
+---@field [146] "CAGE"
+---@field STATUE 147
+---@field [147] "STATUE"
+---@field SLAB 148
+---@field [148] "SLAB"
+---@field COFFIN 149
+---@field [149] "COFFIN"
+---@field WEAPON_RACK 150
+---@field [150] "WEAPON_RACK"
+---@field ARMOR_STAND 151 -- 53
+---@field [151] "ARMOR_STAND" -- 53
+---@field FURNACE_ANY 152
+---@field [152] "FURNACE_ANY"
+---@field FURNACE_WOOD 153
+---@field [153] "FURNACE_WOOD"
+---@field FURNACE_SMELTER_ANY 154
+---@field [154] "FURNACE_SMELTER_ANY"
+---@field FURNACE_SMELTER_MAGMA 155
+---@field [155] "FURNACE_SMELTER_MAGMA"
+---@field FURNACE_KILN_ANY 156
+---@field [156] "FURNACE_KILN_ANY"
+---@field FURNACE_GLASS_ANY 157
+---@field [157] "FURNACE_GLASS_ANY"
+---@field FURNACE_CUSTOM 158
+---@field [158] "FURNACE_CUSTOM"
+---@field WORKSHOP_ANY 159
+---@field [159] "WORKSHOP_ANY"
+---@field WORKSHOP_BUTCHER 160
+---@field [160] "WORKSHOP_BUTCHER"
+---@field WORKSHOP_MASON 161 -- 63
+---@field [161] "WORKSHOP_MASON" -- 63
+---@field WORKSHOP_KENNEL 162
+---@field [162] "WORKSHOP_KENNEL"
+---@field WORKSHOP_FISHERY 163
+---@field [163] "WORKSHOP_FISHERY"
+---@field WORKSHOP_JEWELER 164
+---@field [164] "WORKSHOP_JEWELER"
+---@field WORKSHOP_LOOM 165
+---@field [165] "WORKSHOP_LOOM"
+---@field WORKSHOP_TANNER 166
+---@field [166] "WORKSHOP_TANNER"
+---@field WORKSHOP_DYER 167
+---@field [167] "WORKSHOP_DYER"
+---@field WORKSHOP_MILL_ANY 168
+---@field [168] "WORKSHOP_MILL_ANY"
+---@field WORKSHOP_QUERN 169
+---@field [169] "WORKSHOP_QUERN"
+---@field WORKSHOP_TOOL 170
+---@field [170] "WORKSHOP_TOOL"
+---@field WORKSHOP_MILLSTONE 171 -- 73
+---@field [171] "WORKSHOP_MILLSTONE" -- 73
+---@field WORKSHOP_KITCHEN 172
+---@field [172] "WORKSHOP_KITCHEN"
+---@field WORKSHOP_STILL 173
+---@field [173] "WORKSHOP_STILL"
+---@field WORKSHOP_FARMER 174
+---@field [174] "WORKSHOP_FARMER"
+---@field WORKSHOP_ASHERY 175
+---@field [175] "WORKSHOP_ASHERY"
+---@field WORKSHOP_CARPENTER 176
+---@field [176] "WORKSHOP_CARPENTER"
+---@field WORKSHOP_CRAFTSDWARF 177
+---@field [177] "WORKSHOP_CRAFTSDWARF"
+---@field WORKSHOP_MECHANIC 178
+---@field [178] "WORKSHOP_MECHANIC"
+---@field WORKSHOP_SIEGE 179
+---@field [179] "WORKSHOP_SIEGE"
+---@field WORKSHOP_CLOTHIER 180
+---@field [180] "WORKSHOP_CLOTHIER"
+---@field WORKSHOP_LEATHER 181 -- 83
+---@field [181] "WORKSHOP_LEATHER" -- 83
+---@field WORKSHOP_BOWYER 182
+---@field [182] "WORKSHOP_BOWYER"
+---@field WORKSHOP_MAGMA_FORGE 183
+---@field [183] "WORKSHOP_MAGMA_FORGE"
+---@field WORKSHOP_FORGE_ANY 184
+---@field [184] "WORKSHOP_FORGE_ANY"
+---@field WORKSHOP_CUSTOM 185
+---@field [185] "WORKSHOP_CUSTOM"
+---@field WEAPON_UPRIGHT 186
+---@field [186] "WEAPON_UPRIGHT"
+---@field INSTRUMENT_STATIONARY 187
+---@field [187] "INSTRUMENT_STATIONARY"
+---@field OFFERING_PLACE 188
+---@field [188] "OFFERING_PLACE"
 df.buildings_other_id = {}
 
----@class buildings_other_id
----@field [0] boolean
----@field ANY boolean
----@field [1] boolean
----@field IN_PLAY boolean
----@field [2] boolean
----@field STOCKPILE boolean
----@field [3] boolean
----@field ANY_ZONE boolean
----@field [4] boolean
----@field ACTIVITY_ZONE boolean
----@field [5] boolean
----@field ZONE_HOME boolean
----@field [6] boolean
----@field ZONE_DEPOT boolean
----@field [7] boolean
----@field ZONE_STOCKPILE boolean
----@field [8] boolean
----@field ZONE_NOBLE_QUARTERS boolean
----@field [9] boolean
----@field ZONE_INVALID4 boolean
----@field [10] boolean
----@field ZONE_INVALID5 boolean
----@field [11] boolean
----@field ZONE_INVALID6 boolean
----@field [12] boolean
----@field ZONE_MEAD_HALL boolean
----@field [13] boolean
----@field ZONE_THRONE_ROOM boolean
----@field [14] boolean
----@field ZONE_INVALID9 boolean
----@field [15] boolean
----@field ZONE_TEMPLE boolean
----@field [16] boolean
----@field ZONE_KITCHEN boolean
----@field [17] boolean
----@field ZONE_CAPTIVE_ROOM boolean
----@field [18] boolean
----@field ZONE_TOWER_TOP boolean
----@field [19] boolean
----@field ZONE_COURTYARD boolean
----@field [20] boolean
----@field ZONE_TREASURY boolean
----@field [21] boolean
----@field ZONE_GUARD_POST boolean
----@field [22] boolean
----@field ZONE_ENTRANCE boolean
----@field [23] boolean
----@field ZONE_SECRET_LIBRARY boolean
----@field [24] boolean
----@field ZONE_LIBRARY boolean
----@field [25] boolean
----@field ZONE_PLOT boolean
----@field [26] boolean
----@field ZONE_MARKET_STALL boolean
----@field [27] boolean
----@field ZONE_INVALID22 boolean
----@field [28] boolean
----@field ZONE_CAMPGROUND boolean
----@field [29] boolean
----@field ZONE_COMMAND_TENT boolean
----@field [30] boolean
----@field ZONE_TENT boolean
----@field [31] boolean
----@field ZONE_COMMAND_TENT_BLD boolean
----@field [32] boolean
----@field ZONE_TENT_BLD boolean
----@field [33] boolean
----@field ZONE_MECHANISM_ROOM boolean
----@field [34] boolean
----@field ZONE_DUNGEON_CELL boolean
----@field [35] boolean
----@field ZONE_ANIMAL_PIT boolean
----@field [36] boolean
----@field ZONE_CLOTH_PIT boolean
----@field [37] boolean
----@field ZONE_TANNING_PIT boolean
----@field [38] boolean
----@field ZONE_CLOTH_CLOTHING_PIT boolean
----@field [39] boolean
----@field ZONE_LEATHER_CLOTHING_PIT boolean
----@field [40] boolean
----@field ZONE_BONE_CARVING_PIT boolean
----@field [41] boolean
----@field ZONE_GEM_CUTTING_PIT boolean
----@field [42] boolean
----@field ZONE_WEAPONSMITHING_PIT boolean
----@field [43] boolean
----@field ZONE_BOWMAKING_PIT boolean
----@field [44] boolean
----@field ZONE_BLACKSMITHING_PIT boolean
----@field [45] boolean
----@field ZONE_ARMORSMITHING_PIT boolean
----@field [46] boolean
----@field ZONE_METAL_CRAFTING_PIT boolean
----@field [47] boolean
----@field ZONE_LEATHERWORKING_PIT boolean
----@field [48] boolean
----@field ZONE_CARPENTRY_PIT boolean
----@field [49] boolean
----@field ZONE_STONEWORKING_PIT boolean
----@field [50] boolean
----@field ZONE_FORGING_PIT boolean
----@field [51] boolean
----@field ZONE_FIGHTING_PIT boolean
----@field [52] boolean
----@field ZONE_INVALID47 boolean
----@field [53] boolean
----@field ZONE_INVALID48 boolean
----@field [54] boolean
----@field ZONE_INVALID49 boolean
----@field [55] boolean
----@field ZONE_INVALID50 boolean
----@field [56] boolean
----@field ZONE_INVALID51 boolean
----@field [57] boolean
----@field ZONE_INVALID52 boolean
----@field [58] boolean
----@field ZONE_ANIMAL_WORKSHOP boolean
----@field [59] boolean
----@field ZONE_CLOTH_WORKSHOP boolean
----@field [60] boolean
----@field ZONE_TANNING_WORKSHOP boolean
----@field [61] boolean
----@field ZONE_CLOTH_CLOTHING_WORKSHOP boolean
----@field [62] boolean
----@field ZONE_LEATHER_CLOTHING_WORKSHOP boolean
----@field [63] boolean
----@field ZONE_BONE_CARVING_WORKSHOP boolean
----@field [64] boolean
----@field ZONE_GEM_CUTTING_WORKSHOP boolean
----@field [65] boolean
----@field ZONE_WEAPONSMITHING_WORKSHOP boolean
----@field [66] boolean
----@field ZONE_BOWMAKING_WORKSHOP boolean
----@field [67] boolean
----@field ZONE_BLACKSMITHING_WORKSHOP boolean
----@field [68] boolean
----@field ZONE_ARMORSMITHING_WORKSHOP boolean
----@field [69] boolean
----@field ZONE_METAL_CRAFTING_WORKSHOP boolean
----@field [70] boolean
----@field ZONE_LEATHERWORKING_SHOP boolean
----@field [71] boolean
----@field ZONE_CARPENTRY_WORKSHOP boolean
----@field [72] boolean
----@field ZONE_STONEWORKING_WORKSHOP boolean
----@field [73] boolean
----@field ZONE_FORGING_WORKSHOP boolean
----@field [74] boolean
----@field ZONE_COUNTING_HOUSE_OFFICES boolean
----@field [75] boolean
----@field ZONE_COUNTING_HOUSE_STORAGE boolean
----@field [76] boolean
----@field ZONE_GUILDHALL_OFFICES boolean
----@field [77] boolean
----@field ZONE_GUILDHALL_STORAGE boolean
----@field [78] boolean
----@field ZONE_TOWER_ENTRANCE boolean
----@field [79] boolean
----@field ZONE_TOWER_FEASTHALL boolean
----@field [80] boolean
----@field ZONE_TOWER_BEDROOM boolean
----@field [81] boolean
----@field ZONE_TOWER_TREASURY boolean
----@field [82] boolean
----@field ZONE_TOWER_DUNGEON boolean
----@field [83] boolean
----@field ZONE_TOWER_ATTIC boolean
----@field [84] boolean
----@field ZONE_DORMITORY boolean
----@field [85] boolean
----@field ZONE_DINING_HALL boolean
----@field [86] boolean
----@field ZONE_INVALID81 boolean
----@field [87] boolean
----@field ZONE_WATER_SOURCE boolean
----@field [88] boolean
----@field ZONE_DUMP boolean
----@field [89] boolean
----@field ZONE_SAND_COLLECTION boolean
----@field [90] boolean
----@field ZONE_FISHING_AREA boolean
----@field [91] boolean
----@field ZONE_POND boolean
----@field [92] boolean
----@field ZONE_MEETING_HALL boolean
----@field [93] boolean
----@field ZONE_PEN boolean
----@field [94] boolean
----@field ZONE_CLAY_COLLECTION boolean
----@field [95] boolean
----@field ZONE_ANIMAL_TRAINING boolean
----@field [96] boolean
----@field ZONE_PLANT_GATHERING boolean
----@field [97] boolean
----@field ZONE_BEDROOM boolean
----@field [98] boolean
----@field ZONE_OFFICE boolean
----@field [99] boolean
----@field ZONE_ARCHERY_RANGE boolean
----@field [100] boolean
----@field ZONE_BARRACKS boolean
----@field [101] boolean
----@field ZONE_DUNGEON boolean
----@field [102] boolean
----@field ZONE_TOMB boolean
----@field [103] boolean
----@field LOCATION_ASSIGNED boolean
----@field [104] boolean
----@field ANY_ACTUAL boolean
----@field [105] boolean
----@field ANY_MACHINE boolean
----@field [106] boolean
----@field ANY_HOSPITAL_STORAGE boolean
----@field [107] boolean
----@field ANY_STORAGE boolean
----@field [108] boolean
----@field ANY_BARRACKS boolean
----@field [109] boolean
----@field ANY_HOSPITAL boolean
----@field [110] boolean
----@field BOX boolean
----@field [111] boolean
----@field CABINET boolean
----@field [112] boolean
----@field TRAP boolean
----@field [113] boolean
----@field DOOR boolean
----@field [114] boolean
----@field FLOODGATE boolean
----@field [115] boolean
----@field HATCH boolean
----@field [116] boolean
----@field GRATE_WALL boolean
----@field [117] boolean
----@field GRATE_FLOOR boolean
----@field [118] boolean
----@field BARS_VERTICAL boolean
----@field [119] boolean
----@field BARS_FLOOR boolean
----@field [120] boolean
----@field WINDOW_ANY boolean
----@field [121] boolean
----@field WELL boolean
----@field [122] boolean
----@field TABLE boolean
----@field [123] boolean
----@field BRIDGE boolean
----@field [124] boolean
----@field CHAIR boolean
----@field [125] boolean
----@field TRADE_DEPOT boolean
----@field [126] boolean
----@field NEST boolean
----@field [127] boolean
----@field NEST_BOX boolean
----@field [128] boolean
----@field BOOKCASE boolean
----@field [129] boolean
----@field DISPLAY_CASE boolean
----@field [130] boolean
----@field HIVE boolean
----@field [131] boolean
----@field WAGON boolean
----@field [132] boolean
----@field SHOP boolean
----@field [133] boolean
----@field BED boolean
----@field [134] boolean
----@field TRACTION_BENCH boolean
----@field [135] boolean
----@field ANY_ROAD boolean
----@field [136] boolean
----@field FARM_PLOT boolean
----@field [137] boolean
----@field GEAR_ASSEMBLY boolean
----@field [138] boolean
----@field ROLLERS boolean
----@field [139] boolean
----@field AXLE_HORIZONTAL boolean
----@field [140] boolean
----@field AXLE_VERTICAL boolean
----@field [141] boolean
----@field SUPPORT boolean
----@field [142] boolean
----@field ARCHERY_TARGET boolean
----@field [143] boolean
----@field SCREW_PUMP boolean
----@field [144] boolean
----@field WATER_WHEEL boolean
----@field [145] boolean
----@field WINDMILL boolean
----@field [146] boolean
----@field CHAIN boolean
----@field [147] boolean
----@field CAGE boolean
----@field [148] boolean
----@field STATUE boolean
----@field [149] boolean
----@field SLAB boolean
----@field [150] boolean
----@field COFFIN boolean
----@field [151] boolean
----@field WEAPON_RACK boolean
----@field [152] boolean
----@field ARMOR_STAND boolean
----@field [153] boolean
----@field FURNACE_ANY boolean
----@field [154] boolean
----@field FURNACE_WOOD boolean
----@field [155] boolean
----@field FURNACE_SMELTER_ANY boolean
----@field [156] boolean
----@field FURNACE_SMELTER_MAGMA boolean
----@field [157] boolean
----@field FURNACE_KILN_ANY boolean
----@field [158] boolean
----@field FURNACE_GLASS_ANY boolean
----@field [159] boolean
----@field FURNACE_CUSTOM boolean
----@field [160] boolean
----@field WORKSHOP_ANY boolean
----@field [161] boolean
----@field WORKSHOP_BUTCHER boolean
----@field [162] boolean
----@field WORKSHOP_MASON boolean
----@field [163] boolean
----@field WORKSHOP_KENNEL boolean
----@field [164] boolean
----@field WORKSHOP_FISHERY boolean
----@field [165] boolean
----@field WORKSHOP_JEWELER boolean
----@field [166] boolean
----@field WORKSHOP_LOOM boolean
----@field [167] boolean
----@field WORKSHOP_TANNER boolean
----@field [168] boolean
----@field WORKSHOP_DYER boolean
----@field [169] boolean
----@field WORKSHOP_MILL_ANY boolean
----@field [170] boolean
----@field WORKSHOP_QUERN boolean
----@field [171] boolean
----@field WORKSHOP_TOOL boolean
----@field [172] boolean
----@field WORKSHOP_MILLSTONE boolean
----@field [173] boolean
----@field WORKSHOP_KITCHEN boolean
----@field [174] boolean
----@field WORKSHOP_STILL boolean
----@field [175] boolean
----@field WORKSHOP_FARMER boolean
----@field [176] boolean
----@field WORKSHOP_ASHERY boolean
----@field [177] boolean
----@field WORKSHOP_CARPENTER boolean
----@field [178] boolean
----@field WORKSHOP_CRAFTSDWARF boolean
----@field [179] boolean
----@field WORKSHOP_MECHANIC boolean
----@field [180] boolean
----@field WORKSHOP_SIEGE boolean
----@field [181] boolean
----@field WORKSHOP_CLOTHIER boolean
----@field [182] boolean
----@field WORKSHOP_LEATHER boolean
----@field [183] boolean
----@field WORKSHOP_BOWYER boolean
----@field [184] boolean
----@field WORKSHOP_MAGMA_FORGE boolean
----@field [185] boolean
----@field WORKSHOP_FORGE_ANY boolean
----@field [186] boolean
----@field WORKSHOP_CUSTOM boolean
----@field [187] boolean
----@field WEAPON_UPRIGHT boolean
----@field [188] boolean
----@field INSTRUMENT_STATIONARY boolean
----@field [189] boolean
----@field OFFERING_PLACE boolean
+---@class buildings_other_id_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.buildings_other_id._attr_entry_type = {}
 
----@class buildings_other_id_attr
----@field building building_type
----@field generic_building building_type[]
----@field workshop workshop_type[]
----@field furnace furnace_type[]
----@field civzone civzone_type[]
+---@class (exact) buildings_other_id_attr_entry_type_fields
+---@field building DFCompoundField
+---@field generic_building DFCompoundField
+---@field workshop DFCompoundField
+---@field furnace DFCompoundField
+---@field civzone DFCompoundField
+df.buildings_other_id._attr_entry_type._fields = {}
 
----@type { [string|integer]: buildings_other_id_attr }
+---@class buildings_other_id_attrs
+---@field STOCKPILE { building: "Stockpile" }
+---@field ANY_ZONE { building: "Civzone" }
+---@field ACTIVITY_ZONE { building: "Civzone" }
+---@field ZONE_HOME { building: "Civzone", civzone: "Home" }
+---@field ZONE_DEPOT { building: "Civzone", civzone: "Depot" }
+---@field ZONE_STOCKPILE { building: "Civzone", civzone: "Stockpile" }
+---@field ZONE_NOBLE_QUARTERS { building: "Civzone", civzone: "NobleQuarters" }
+---@field ZONE_MEAD_HALL { building: "Civzone", civzone: "MeadHall" }
+---@field ZONE_THRONE_ROOM { building: "Civzone", civzone: "ThroneRoom" }
+---@field ZONE_TEMPLE { building: "Civzone", civzone: "Temple" }
+---@field ZONE_KITCHEN { building: "Civzone", civzone: "Kitchen" }
+---@field ZONE_CAPTIVE_ROOM { building: "Civzone", civzone: "CaptiveRoom" }
+---@field ZONE_TOWER_TOP { building: "Civzone", civzone: "TowerTop" }
+---@field ZONE_COURTYARD { building: "Civzone", civzone: "Courtyard" }
+---@field ZONE_TREASURY { building: "Civzone", civzone: "Treasury" }
+---@field ZONE_GUARD_POST { building: "Civzone", civzone: "GuardPost" }
+---@field ZONE_ENTRANCE { building: "Civzone", civzone: "Entrance" }
+---@field ZONE_SECRET_LIBRARY { building: "Civzone", civzone: "SecretLibrary" }
+---@field ZONE_LIBRARY { building: "Civzone", civzone: "Library" }
+---@field ZONE_PLOT { building: "Civzone", civzone: "Plot" }
+---@field ZONE_MARKET_STALL { building: "Civzone", civzone: "MarketStall" }
+---@field ZONE_CAMPGROUND { building: "Civzone", civzone: "Campground" }
+---@field ZONE_COMMAND_TENT { building: "Civzone", civzone: "CommandTent" }
+---@field ZONE_TENT { building: "Civzone", civzone: "Tent" }
+---@field ZONE_COMMAND_TENT_BLD { building: "Civzone", civzone: "CommandTentBld" }
+---@field ZONE_TENT_BLD { building: "Civzone", civzone: "TentBld" }
+---@field ZONE_MECHANISM_ROOM { building: "Civzone", civzone: "MechanismRoom" }
+---@field ZONE_DUNGEON_CELL { building: "Civzone", civzone: "DungeonCell" }
+---@field ZONE_ANIMAL_PIT { building: "Civzone", civzone: "AnimalPit" }
+---@field ZONE_CLOTH_PIT { building: "Civzone", civzone: "ClothPit" }
+---@field ZONE_TANNING_PIT { building: "Civzone", civzone: "TanningPit" }
+---@field ZONE_CLOTH_CLOTHING_PIT { building: "Civzone", civzone: "ClothClothingPit" }
+---@field ZONE_LEATHER_CLOTHING_PIT { building: "Civzone", civzone: "LeatherClothingPit" }
+---@field ZONE_BONE_CARVING_PIT { building: "Civzone", civzone: "BoneCarvingPit" }
+---@field ZONE_GEM_CUTTING_PIT { building: "Civzone", civzone: "GemCuttingPit" }
+---@field ZONE_WEAPONSMITHING_PIT { building: "Civzone", civzone: "WeaponsmithingPit" }
+---@field ZONE_BOWMAKING_PIT { building: "Civzone", civzone: "BowmakingPit" }
+---@field ZONE_BLACKSMITHING_PIT { building: "Civzone", civzone: "BlacksmithingPit" }
+---@field ZONE_ARMORSMITHING_PIT { building: "Civzone", civzone: "ArmorsmithingPit" }
+---@field ZONE_METAL_CRAFTING_PIT { building: "Civzone", civzone: "MetalCraftingPit" }
+---@field ZONE_LEATHERWORKING_PIT { building: "Civzone", civzone: "LeatherworkingPit" }
+---@field ZONE_CARPENTRY_PIT { building: "Civzone", civzone: "CarpentryPit" }
+---@field ZONE_STONEWORKING_PIT { building: "Civzone", civzone: "StoneworkingPit" }
+---@field ZONE_FORGING_PIT { building: "Civzone", civzone: "ForgingPit" }
+---@field ZONE_FIGHTING_PIT { building: "Civzone", civzone: "FightingPit" }
+---@field ZONE_ANIMAL_WORKSHOP { building: "Civzone", civzone: "AnimalWorkshop" }
+---@field ZONE_CLOTH_WORKSHOP { building: "Civzone", civzone: "ClothWorkshop" }
+---@field ZONE_TANNING_WORKSHOP { building: "Civzone", civzone: "TanningWorkshop" }
+---@field ZONE_CLOTH_CLOTHING_WORKSHOP { building: "Civzone", civzone: "ClothClothingWorkshop" }
+---@field ZONE_LEATHER_CLOTHING_WORKSHOP { building: "Civzone", civzone: "LeatherClothingWorkshop" }
+---@field ZONE_BONE_CARVING_WORKSHOP { building: "Civzone", civzone: "BoneCarvingWorkshop" }
+---@field ZONE_GEM_CUTTING_WORKSHOP { building: "Civzone", civzone: "GemCuttingWorkshop" }
+---@field ZONE_WEAPONSMITHING_WORKSHOP { building: "Civzone", civzone: "WeaponsmithingWorkshop" }
+---@field ZONE_BOWMAKING_WORKSHOP { building: "Civzone", civzone: "BowmakingWorkshop" }
+---@field ZONE_BLACKSMITHING_WORKSHOP { building: "Civzone", civzone: "BlacksmithingWorkshop" }
+---@field ZONE_ARMORSMITHING_WORKSHOP { building: "Civzone", civzone: "ArmorsmithingWorkshop" }
+---@field ZONE_METAL_CRAFTING_WORKSHOP { building: "Civzone", civzone: "MetalCraftingWorkshop" }
+---@field ZONE_LEATHERWORKING_SHOP { building: "Civzone", civzone: "LeatherworkingShop" }
+---@field ZONE_CARPENTRY_WORKSHOP { building: "Civzone", civzone: "CarpentryWorkshop" }
+---@field ZONE_STONEWORKING_WORKSHOP { building: "Civzone", civzone: "StoneworkingWorkshop" }
+---@field ZONE_FORGING_WORKSHOP { building: "Civzone", civzone: "ForgingWorkshop" }
+---@field ZONE_COUNTING_HOUSE_OFFICES { building: "Civzone", civzone: "CountingHouseOffices" }
+---@field ZONE_COUNTING_HOUSE_STORAGE { building: "Civzone", civzone: "CountingHouseStorage" }
+---@field ZONE_GUILDHALL_OFFICES { building: "Civzone", civzone: "GuildhallOffices" }
+---@field ZONE_GUILDHALL_STORAGE { building: "Civzone", civzone: "GuildhallStorage" }
+---@field ZONE_TOWER_ENTRANCE { building: "Civzone", civzone: "TowerEntrance" }
+---@field ZONE_TOWER_FEASTHALL { building: "Civzone", civzone: "TowerFeasthall" }
+---@field ZONE_TOWER_BEDROOM { building: "Civzone", civzone: "TowerBedroom" }
+---@field ZONE_TOWER_TREASURY { building: "Civzone", civzone: "TowerTreasury" }
+---@field ZONE_TOWER_DUNGEON { building: "Civzone", civzone: "TowerDungeon" }
+---@field ZONE_TOWER_ATTIC { building: "Civzone", civzone: "TowerAttic" }
+---@field ZONE_DORMITORY { building: "Civzone", civzone: "Dormitory" }
+---@field ZONE_DINING_HALL { building: "Civzone", civzone: "DiningHall" }
+---@field ZONE_WATER_SOURCE { building: "Civzone", civzone: "WaterSource" }
+---@field ZONE_DUMP { building: "Civzone", civzone: "Dump" }
+---@field ZONE_SAND_COLLECTION { building: "Civzone", civzone: "SandCollection" }
+---@field ZONE_FISHING_AREA { building: "Civzone", civzone: "FishingArea" }
+---@field ZONE_POND { building: "Civzone", civzone: "Pond" }
+---@field ZONE_MEETING_HALL { building: "Civzone", civzone: "MeetingHall" }
+---@field ZONE_PEN { building: "Civzone", civzone: "Pen" }
+---@field ZONE_CLAY_COLLECTION { building: "Civzone", civzone: "ClayCollection" }
+---@field ZONE_ANIMAL_TRAINING { building: "Civzone", civzone: "AnimalTraining" }
+---@field ZONE_PLANT_GATHERING { building: "Civzone", civzone: "PlantGathering" }
+---@field ZONE_BEDROOM { building: "Civzone", civzone: "Bedroom" }
+---@field ZONE_OFFICE { building: "Civzone", civzone: "Office" }
+---@field ZONE_ARCHERY_RANGE { building: "Civzone", civzone: "ArcheryRange" }
+---@field ZONE_BARRACKS { building: "Civzone", civzone: "Barracks" }
+---@field ZONE_DUNGEON { building: "Civzone", civzone: "Dungeon" }
+---@field ZONE_TOMB { building: "Civzone", civzone: "Tomb" }
+---@field LOCATION_ASSIGNED { generic_building: "Bed", generic_building: "Civzone" }
+---@field ANY_MACHINE { generic_building: "ScrewPump", generic_building: "GearAssembly", generic_building: "AxleHorizontal", generic_building: "AxleVertical", generic_building: "WaterWheel", generic_building: "Windmill", generic_building: "Workshop", workshop: "Millstone" }
+---@field ANY_HOSPITAL_STORAGE { generic_building: "Box", generic_building: "Cabinet" }
+---@field ANY_STORAGE { generic_building: "Box", generic_building: "Cabinet", generic_building: "Weaponrack", generic_building: "Armorstand" }
+---@field ANY_BARRACKS { generic_building: "Bed", generic_building: "Box", generic_building: "Cabinet", generic_building: "Weaponrack", generic_building: "Armorstand" }
+---@field ANY_HOSPITAL { generic_building: "Bed", generic_building: "TractionBench" }
+---@field BOX { building: "Box" }
+---@field CABINET { building: "Cabinet" }
+---@field TRAP { building: "Trap" }
+---@field DOOR { building: "Door" }
+---@field FLOODGATE { building: "Floodgate" }
+---@field HATCH { building: "Hatch" }
+---@field GRATE_WALL { building: "GrateWall" }
+---@field GRATE_FLOOR { building: "GrateFloor" }
+---@field BARS_VERTICAL { building: "BarsVertical" }
+---@field BARS_FLOOR { building: "BarsFloor" }
+---@field WINDOW_ANY { generic_building: "WindowGlass", generic_building: "WindowGem" }
+---@field WELL { building: "Well" }
+---@field TABLE { building: "Table" }
+---@field BRIDGE { building: "Bridge" }
+---@field CHAIR { building: "Chair" }
+---@field TRADE_DEPOT { building: "TradeDepot" }
+---@field NEST { building: "Nest" }
+---@field NEST_BOX { building: "NestBox" }
+---@field BOOKCASE { building: "Bookcase" }
+---@field DISPLAY_CASE { building: "DisplayFurniture" }
+---@field HIVE { building: "Hive" }
+---@field WAGON { building: "Wagon" }
+---@field SHOP { building: "Shop" }
+---@field BED { building: "Bed" }
+---@field TRACTION_BENCH { building: "TractionBench" }
+---@field ANY_ROAD { generic_building: "RoadDirt", generic_building: "RoadPaved" }
+---@field FARM_PLOT { building: "FarmPlot" }
+---@field GEAR_ASSEMBLY { building: "GearAssembly" }
+---@field ROLLERS { building: "Rollers" }
+---@field AXLE_HORIZONTAL { building: "AxleHorizontal" }
+---@field AXLE_VERTICAL { building: "AxleVertical" }
+---@field SUPPORT { building: "Support" }
+---@field ARCHERY_TARGET { building: "ArcheryTarget" }
+---@field SCREW_PUMP { building: "ScrewPump" }
+---@field WATER_WHEEL { building: "WaterWheel" }
+---@field WINDMILL { building: "Windmill" }
+---@field CHAIN { building: "Chain" }
+---@field CAGE { building: "Cage" }
+---@field STATUE { building: "Statue" }
+---@field SLAB { building: "Slab" }
+---@field COFFIN { building: "Coffin" }
+---@field WEAPON_RACK { building: "Weaponrack" }
+---@field ARMOR_STAND { building: "Armorstand" }
+---@field FURNACE_ANY { building: "Furnace" }
+---@field FURNACE_WOOD { building: "Furnace", furnace: "WoodFurnace" }
+---@field FURNACE_SMELTER_ANY { building: "Furnace", furnace: "Smelter", furnace: "MagmaSmelter" }
+---@field FURNACE_SMELTER_MAGMA { building: "Furnace", furnace: "MagmaSmelter" }
+---@field FURNACE_KILN_ANY { building: "Furnace", furnace: "Kiln", furnace: "MagmaKiln" }
+---@field FURNACE_GLASS_ANY { building: "Furnace", furnace: "GlassFurnace", furnace: "MagmaGlassFurnace" }
+---@field FURNACE_CUSTOM { building: "Furnace", furnace: "Custom" }
+---@field WORKSHOP_ANY { building: "Workshop" }
+---@field WORKSHOP_BUTCHER { building: "Workshop", workshop: "Butchers" }
+---@field WORKSHOP_MASON { building: "Workshop", workshop: "Masons" }
+---@field WORKSHOP_KENNEL { building: "Workshop", workshop: "Kennels" }
+---@field WORKSHOP_FISHERY { building: "Workshop", workshop: "Fishery" }
+---@field WORKSHOP_JEWELER { building: "Workshop", workshop: "Jewelers" }
+---@field WORKSHOP_LOOM { building: "Workshop", workshop: "Loom" }
+---@field WORKSHOP_TANNER { building: "Workshop", workshop: "Tanners" }
+---@field WORKSHOP_DYER { building: "Workshop", workshop: "Dyers" }
+---@field WORKSHOP_MILL_ANY { building: "Workshop", workshop: "Quern", workshop: "Millstone" }
+---@field WORKSHOP_QUERN { building: "Workshop", workshop: "Quern" }
+---@field WORKSHOP_TOOL { building: "Workshop", workshop: "Tool" }
+---@field WORKSHOP_MILLSTONE { building: "Workshop", workshop: "Millstone" }
+---@field WORKSHOP_KITCHEN { building: "Workshop", workshop: "Kitchen" }
+---@field WORKSHOP_STILL { building: "Workshop", workshop: "Still" }
+---@field WORKSHOP_FARMER { building: "Workshop", workshop: "Farmers" }
+---@field WORKSHOP_ASHERY { building: "Workshop", workshop: "Ashery" }
+---@field WORKSHOP_CARPENTER { building: "Workshop", workshop: "Carpenters" }
+---@field WORKSHOP_CRAFTSDWARF { building: "Workshop", workshop: "Craftsdwarfs" }
+---@field WORKSHOP_MECHANIC { building: "Workshop", workshop: "Mechanics" }
+---@field WORKSHOP_SIEGE { building: "Workshop", workshop: "Siege" }
+---@field WORKSHOP_CLOTHIER { building: "Workshop", workshop: "Clothiers" }
+---@field WORKSHOP_LEATHER { building: "Workshop", workshop: "Leatherworks" }
+---@field WORKSHOP_BOWYER { building: "Workshop", workshop: "Bowyers" }
+---@field WORKSHOP_MAGMA_FORGE { building: "Workshop", workshop: "MagmaForge" }
+---@field WORKSHOP_FORGE_ANY { building: "Workshop", workshop: "MetalsmithsForge", workshop: "MagmaForge" }
+---@field WORKSHOP_CUSTOM { building: "Workshop", workshop: "Custom" }
+---@field WEAPON_UPRIGHT { building: "Weapon" }
+---@field INSTRUMENT_STATIONARY { building: "Instrument" }
+---@field OFFERING_PLACE { building: "OfferingPlace" }
 df.buildings_other_id.attrs = {}
 
----@class buildings_other: df.class
----@field STOCKPILE building_stockpilest[]
----@field ANY_ZONE building_civzonest[]
----@field ACTIVITY_ZONE building_civzonest[]
----@field ANY_ACTUAL building_actual[]
----@field BOX building_boxst[]
----@field CABINET building_cabinetst[]
----@field TRAP building_trapst[]
----@field DOOR building_doorst[]
----@field FLOODGATE building_floodgatest[]
----@field HATCH building_hatchst[]
----@field GRATE_WALL building_grate_wallst[]
----@field GRATE_FLOOR building_grate_floorst[]
----@field BARS_VERTICAL building_bars_verticalst[]
----@field BARS_FLOOR building_bars_floorst[]
----@field WELL building_wellst[]
----@field TABLE building_tablest[]
----@field BRIDGE building_bridgest[]
----@field CHAIR building_chairst[]
----@field TRADE_DEPOT building_tradedepotst[]
----@field NEST building_nestst[]
----@field NEST_BOX building_nest_boxst[]
----@field BOOKCASE building_bookcasest[]
----@field DISPLAY_CASE building_display_furniturest[]
----@field HIVE building_hivest[]
----@field WAGON building_wagonst[]
----@field SHOP building_shopst[]
----@field BED building_bedst[]
----@field TRACTION_BENCH building_traction_benchst[]
----@field FARM_PLOT building_farmplotst[]
----@field GEAR_ASSEMBLY building_gear_assemblyst[]
----@field ROLLERS building_rollersst[]
----@field AXLE_HORIZONTAL building_axle_horizontalst[]
----@field AXLE_VERTICAL building_axle_verticalst[]
----@field SUPPORT building_supportst[]
----@field ARCHERY_TARGET building_archerytargetst[]
----@field SCREW_PUMP building_screw_pumpst[]
----@field WATER_WHEEL building_water_wheelst[]
----@field WINDMILL building_windmillst[]
----@field CHAIN building_chainst[]
----@field CAGE building_cagest[]
----@field STATUE building_statuest[]
----@field SLAB building_slabst[]
----@field COFFIN building_coffinst[]
----@field WEAPON_RACK building_weaponrackst[]
----@field ARMOR_STAND building_armorstandst[]
----@field FURNACE_ANY building_furnacest[]
----@field FURNACE_WOOD building_furnacest[]
----@field FURNACE_SMELTER_ANY building_furnacest[]
----@field FURNACE_SMELTER_MAGMA building_furnacest[]
----@field FURNACE_KILN_ANY building_furnacest[]
----@field FURNACE_GLASS_ANY building_furnacest[]
----@field FURNACE_CUSTOM building_furnacest[]
----@field WORKSHOP_ANY building_workshopst[]
----@field WORKSHOP_BUTCHER building_workshopst[]
----@field WORKSHOP_MASON building_workshopst[]
----@field WORKSHOP_KENNEL building_workshopst[]
----@field WORKSHOP_FISHERY building_workshopst[]
----@field WORKSHOP_JEWELER building_workshopst[]
----@field WORKSHOP_LOOM building_workshopst[]
----@field WORKSHOP_TANNER building_workshopst[]
----@field WORKSHOP_DYER building_workshopst[]
----@field WORKSHOP_MILL_ANY building_workshopst[]
----@field WORKSHOP_QUERN building_workshopst[]
----@field WORKSHOP_TOOL building_workshopst[]
----@field WORKSHOP_MILLSTONE building_workshopst[]
----@field WORKSHOP_KITCHEN building_workshopst[]
----@field WORKSHOP_STILL building_workshopst[]
----@field WORKSHOP_FARMER building_workshopst[]
----@field WORKSHOP_ASHERY building_workshopst[]
----@field WORKSHOP_CARPENTER building_workshopst[]
----@field WORKSHOP_CRAFTSDWARF building_workshopst[]
----@field WORKSHOP_MECHANIC building_workshopst[]
----@field WORKSHOP_SIEGE building_workshopst[]
----@field WORKSHOP_CLOTHIER building_workshopst[]
----@field WORKSHOP_LEATHER building_workshopst[]
----@field WORKSHOP_BOWYER building_workshopst[]
----@field WORKSHOP_MAGMA_FORGE building_workshopst[]
----@field WORKSHOP_FORGE_ANY building_workshopst[]
----@field WORKSHOP_CUSTOM building_workshopst[]
----@field WEAPON_UPRIGHT building_weaponst[]
----@field INSTRUMENT_STATIONARY building_instrumentst[]
----@field OFFERING_PLACE building_offering_placest[]
+---@class (exact) buildings_other: DFObject
+---@field _kind 'struct'
+---@field _type _buildings_other
+local buildings_other
+
+---@class _buildings_other: DFCompound
+---@field _kind 'struct-type'
 df.buildings_other = {}
 

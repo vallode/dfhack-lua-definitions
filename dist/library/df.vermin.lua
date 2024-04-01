@@ -1,87 +1,65 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.vermin
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _vermin_flags: integer, string, df.bitfield
----@field unk_0 0
----@field [0] "unk_0"
----@field is_colony 1
----@field [1] "is_colony"
----@field unk_2 2
----@field [2] "unk_2"
----@field is_roaming_colony 3
----@field [3] "is_roaming_colony"
----@field unk_4 4
----@field [4] "unk_4"
-df.vermin_flags = {}
+---@alias vermin_category
+---| -1 # None
+---| 0 # Eater
+---| 1 # Grounder
+---| 2 # Rotter
+---| 3 # Swamper
+---| 4 # Searched
+---| 5 # Disturbed
+---| 6 # Dropped
+---| 7 # Underworld
 
----@class vermin_flags
----@field [0] boolean
----@field unk_0 boolean
----@field [1] boolean
----@field is_colony boolean
----@field [2] boolean
----@field unk_2 boolean
----@field [3] boolean
----@field is_roaming_colony boolean
----@field [4] boolean
----@field unk_4 boolean
-
----@class _vermin_category: integer, string, df.enum
+---@class _vermin_category: DFDescriptor
+---@field _kind 'enum-type'
 ---@field None -1
----@field [0] "None"
----@field Eater 1
----@field [1] "Eater"
----@field Grounder 2
----@field [2] "Grounder"
----@field Rotter 3
----@field [3] "Rotter"
----@field Swamper 4
----@field [4] "Swamper"
----@field Searched 5
----@field [5] "Searched"
----@field Disturbed 6
----@field [6] "Disturbed"
----@field Dropped 7
----@field [7] "Dropped"
----@field Underworld 8
----@field [8] "Underworld"
+---@field [-1] "None"
+---@field Eater 0
+---@field [0] "Eater"
+---@field Grounder 1
+---@field [1] "Grounder"
+---@field Rotter 2
+---@field [2] "Rotter"
+---@field Swamper 3
+---@field [3] "Swamper"
+---@field Searched 4
+---@field [4] "Searched"
+---@field Disturbed 5
+---@field [5] "Disturbed"
+---@field Dropped 6
+---@field [6] "Dropped"
+---@field Underworld 7 last used in 40d for vermin in eerie glowing pits
+---@field [7] "Underworld" last used in 40d for vermin in eerie glowing pits
 df.vermin_category = {}
 
----@class vermin_category
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field Eater boolean
----@field [2] boolean
----@field Grounder boolean
----@field [3] boolean
----@field Rotter boolean
----@field [4] boolean
----@field Swamper boolean
----@field [5] boolean
----@field Searched boolean
----@field [6] boolean
----@field Disturbed boolean
----@field [7] boolean
----@field Dropped boolean
----@field [8] boolean
----@field Underworld boolean
-
----@class vermin: df.instance
----@field race integer References: creature_raw
----@field caste integer References: caste_raw
+---@class (exact) vermin: DFObject
+---@field _kind 'struct'
+---@field _type _vermin
+---@field race number References: `creature_raw`
+---@field caste number References: `caste_raw`
 ---@field pos coord
 ---@field visible boolean 1 = visible vermin
----@field countdown integer
----@field item item
+---@field countdown number
 ---@field flags vermin_flags
----@field amount integer The total number of vermin in this object. Decimal constant 10000001 means infinity (probably).
+---@field amount number The total number of vermin in this object. Decimal constant 10000001 means infinity (probably).
 ---@field population world_population_ref
 ---@field category vermin_category
----@field id integer assigned during Save
+---@field id number assigned during Save
+local vermin
+
+---@class _vermin: DFCompound
+---@field _kind 'struct-type'
 df.vermin = {}
 
----@param key integer
+---@param key number
 ---@return vermin|nil
 function df.vermin.find(key) end
+
+---@class vermin_vector: DFVector, { [integer]: vermin }
+local vermin_vector
+
+---@return vermin_vector # df.global.world.vermin.all
+function df.vermin.get_vector() end
 

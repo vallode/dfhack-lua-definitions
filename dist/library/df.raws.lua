@@ -1,149 +1,158 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.raws
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class creature_handler: df.class
----@field alphabetic creature_raw[]
----@field all creature_raw[]
----@field num_caste integer seems equal to length of vectors below
----@field list_creature df.container Together with list_caste, a list of all caste indexes in order.
----@field list_caste df.container
----@field action_strings df.string[]
+---@class (exact) creature_handler: DFObject
+---@field _kind 'struct'
+---@field _type _creature_handler
+---@field num_caste number seems equal to length of vectors below
+local creature_handler
+
+---@class _creature_handler: DFCompound
+---@field _kind 'class-type'
 df.creature_handler = {}
 
----@param creature_index integer
----@param caste_index integer
----@param alt boolean
----@param soldier boolean
----@return integer
-function df.creature_handler.getTile(creature_index, caste_index, alt, soldier) end
+---@class (exact) soundst: DFObject
+---@field _kind 'struct'
+---@field _type _soundst
+---@field token string
+---@field index number
+---@field source_hfid number
+---@field source_enid number
+---@field sound number index of sound to be played
+local soundst
 
----@param creature_index integer
----@param caste_index integer
----@return integer
-function df.creature_handler.getGlowTile(creature_index, caste_index) end
+---@class _soundst: DFCompound
+---@field _kind 'struct-type'
+df.soundst = {}
 
----@class world_raws: df.class
----@field material_templates material_template[]
----@field inorganics inorganic_raw[]
----@field inorganics_subset inorganic_raw[] all inorganics with value less than 4
----@field plants world_raws_plants
----@field tissue_templates tissue_template[]
----@field body_detail_plans body_detail_plan[]
----@field body_templates body_template[]
----@field bodyglosses world_raws_bodyglosses[]
----@field creature_variations creature_variation[]
----@field creatures creature_handler
----@field itemdefs world_raws_itemdefs
----@field entities entity_raw[]
----@field language world_raws_language
----@field descriptors world_raws_descriptors
----@field reactions world_raws_reactions
----@field buildings world_raws_buildings
----@field interactions interaction[]
----@field unk_v50_1 world_raws_unk_v50_1
----@field unk_v50_2 world_raws_unk_v50_2
----@field unk_v50_3 world_raws_unk_v50_3
----@field mat_table special_mat_table
----@field syndromes world_raws_syndromes
----@field effects world_raws_effects
+---@class (exact) world_raws: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws
+---@field plants world_raws.T_plants
+---@field creatures creature_handler -- Creatures
+---@field itemdefs world_raws.T_itemdefs
+---@field language world_raws.T_language
+---@field descriptors world_raws.T_descriptors
+---@field reactions world_raws.T_reactions
+---@field buildings world_raws.T_buildings
+---@field text_set world_raws.T_text_set
+---@field music world_raws.T_music
+---@field sound world_raws.T_sound
+---@field mat_table special_mat_table -- Material index
+---@field syndromes world_raws.T_syndromes
+---@field effects world_raws.T_effects
+local world_raws
+
+---@class _world_raws: DFCompound
+---@field _kind 'struct-type'
 df.world_raws = {}
 
----@class world_raws_plants: df.class
----@field all plant_raw[]
----@field bushes plant_raw[]
----@field bushes_idx integer[]
----@field trees plant_raw[]
----@field trees_idx integer[]
----@field grasses plant_raw[]
----@field grasses_idx integer[]
+-- -- Plants
+---@class (exact) world_raws.T_plants: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_plants
+local plants
+
+---@class _world_raws.T_plants: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_plants = {}
 
+-- -- Item RAWs
+---@class (exact) world_raws.T_itemdefs: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_itemdefs
+local itemdefs
 
----@class world_raws_bodyglosses: df.class
----@field id df.string
----@field old_singular df.string
----@field new_singular df.string
----@field old_plural df.string
----@field new_plural df.string
-df.world_raws.T_bodyglosses = {}
-
-
----@class world_raws_itemdefs: df.class
----@field all itemdef[]
----@field weapons itemdef_weaponst[]
----@field trapcomps itemdef_trapcompst[]
----@field toys itemdef_toyst[]
----@field tools itemdef_toolst[]
----@field tools_by_type itemdef_toolst[][]
----@field instruments itemdef_instrumentst[]
----@field armor itemdef_armorst[]
----@field ammo itemdef_ammost[]
----@field siege_ammo itemdef_siegeammost[]
----@field gloves itemdef_glovesst[]
----@field shoes itemdef_shoesst[]
----@field shields itemdef_shieldst[]
----@field helms itemdef_helmst[]
----@field pants itemdef_pantsst[]
----@field food itemdef_foodst[]
+---@class _world_raws.T_itemdefs: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_itemdefs = {}
 
+-- -- Language RAWs
+---@class (exact) world_raws.T_language: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_language
+local language
 
----@class world_raws_language: df.class
----@field words language_word[]
----@field symbols language_symbol[]
----@field translations language_translation[]
----@field word_table language_word_table[][]
+---@class _world_raws.T_language: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_language = {}
 
+-- -- Descriptors
+---@class (exact) world_raws.T_descriptors: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_descriptors
+local descriptors
 
----@class world_raws_descriptors: df.class
----@field colors descriptor_color[]
----@field shapes descriptor_shape[]
----@field patterns descriptor_pattern[]
----@field unk_1 df.container
----@field unk_2 df.container
----@field unk_3 df.container
+---@class _world_raws.T_descriptors: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_descriptors = {}
 
+-- -- Reaction RAWs
+---@class (exact) world_raws.T_reactions: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_reactions
+local reactions
 
----@class world_raws_reactions: df.class
----@field reactions reaction[]
----@field reaction_categories reaction_category[]
+---@class _world_raws.T_reactions: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_reactions = {}
 
+-- -- Workshops
+---@class (exact) world_raws.T_buildings: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_buildings
+---@field next_id number
+local buildings
 
----@class world_raws_buildings: df.class
----@field all building_def[]
----@field workshops building_def_workshopst[]
----@field furnaces building_def_furnacest[]
----@field next_id integer
+---@class _world_raws.T_buildings: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_buildings = {}
 
+-- -- Text set
+---@class (exact) world_raws.T_text_set: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_text_set
+local text_set
 
----@class world_raws_unk_v50_1: df.class
-df.world_raws.T_unk_v50_1 = {}
+---@class _world_raws.T_text_set: DFCompound
+---@field _kind 'struct-type'
+df.world_raws.T_text_set = {}
 
+-- -- Audio
+---@class (exact) world_raws.T_music: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_music
+local music
 
----@class world_raws_unk_v50_2: df.class
-df.world_raws.T_unk_v50_2 = {}
+---@class _world_raws.T_music: DFCompound
+---@field _kind 'struct-type'
+df.world_raws.T_music = {}
 
+---@class (exact) world_raws.T_sound: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_sound
+local sound
 
----@class world_raws_unk_v50_3: df.class
-df.world_raws.T_unk_v50_3 = {}
+---@class _world_raws.T_sound: DFCompound
+---@field _kind 'struct-type'
+df.world_raws.T_sound = {}
 
+-- -- Interaction effects
+---@class (exact) world_raws.T_syndromes: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_syndromes
+local syndromes
 
----@class world_raws_syndromes: df.class
----@field mat_types integer[]
----@field mat_indexes df.container
----@field interactions integer[]
----@field all syndrome[]
+---@class _world_raws.T_syndromes: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_syndromes = {}
 
+---@class (exact) world_raws.T_effects: DFObject
+---@field _kind 'struct'
+---@field _type _world_raws.T_effects
+local effects
 
----@class world_raws_effects: df.class
----@field mat_types integer[]
----@field mat_indexes df.container
----@field interactions integer[]
----@field all creature_interaction_effect[]
+---@class _world_raws.T_effects: DFCompound
+---@field _kind 'struct-type'
 df.world_raws.T_effects = {}
 

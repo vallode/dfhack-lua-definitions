@@ -1,69 +1,80 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.building-raws
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class building_def: df.instance
----@field code df.string
----@field id integer
----@field name df.string
+---@class (exact) building_def: DFObject
+---@field _kind 'struct'
+---@field _type _building_def
+---@field code string
+---@field id number
+---@field name string
 ---@field building_type building_type
----@field building_subtype integer
----@field name_color integer[]
----@field tile integer[][][]
----@field tile_color integer[][][][]
----@field tile_block integer[][]
----@field graphics_normal integer[][][]
----@field graphics_overlay integer[][][]
----@field build_key number
+---@field building_subtype number
+---@field build_key long
 ---@field needs_magma boolean
----@field build_items building_def_item[]
----@field dim_x integer
----@field dim_y integer
----@field workloc_x integer
----@field workloc_y integer
----@field build_labors unit_labor[]
----@field labor_description df.string
----@field build_stages integer
+---@field dim_x number
+---@field dim_y number
+---@field workloc_x number
+---@field workloc_y number
+---@field labor_description string
+---@field build_stages number
+local building_def
+
+---@class _building_def: DFCompound
+---@field _kind 'class-type'
 df.building_def = {}
 
----@param key integer
+---@param key number
 ---@return building_def|nil
 function df.building_def.find(key) end
 
----@param unk_0 integer
----@param unk_1 integer
----@param unk_2 integer
----@param unk_3 integer
-function df.building_def.parseRaws(unk_0, unk_1, unk_2, unk_3) end
+---@class building_def_vector: DFVector, { [integer]: building_def }
+local building_def_vector
 
----add to world.raws.buildings.whatever
-function df.building_def.categorize() end
+---@return building_def_vector # df.global.world.raws.buildings.all
+function df.building_def.get_vector() end
 
-function df.building_def.finalize() end
-
----@class building_def_item: df.class
+---@class (exact) building_def_item: DFObject
+---@field _kind 'struct'
+---@field _type _building_def_item
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
----@field reaction_class df.string
----@field has_material_reaction_product df.string
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
+---@field reaction_class string
+---@field has_material_reaction_product string
 ---@field flags1 job_item_flags1
 ---@field flags2 job_item_flags2
 ---@field flags3 job_item_flags3
 ---@field flags4 integer
 ---@field flags5 integer
----@field metal_ore integer References: inorganic_raw
----@field min_dimension integer
----@field quantity integer
+---@field metal_ore number References: `inorganic_raw`
+---@field min_dimension number
+---@field quantity number
 ---@field has_tool_use tool_uses
----@field item_str df.string[]
----@field material_str df.string[]
----@field metal_ore_str df.string
+---@field metal_ore_str string
+local building_def_item
+
+---@class _building_def_item: DFCompound
+---@field _kind 'struct-type'
 df.building_def_item = {}
 
----@class building_def_workshopst: building_def
+---@class (exact) building_def_workshopst: DFObject, building_def
+---@field _kind 'struct'
+---@field _type _building_def_workshopst
+---@field list_icon_texpos number
+local building_def_workshopst
+
+---@class _building_def_workshopst: DFCompound
+---@field _kind 'class-type'
 df.building_def_workshopst = {}
 
----@class building_def_furnacest: building_def
+---@class (exact) building_def_furnacest: DFObject, building_def
+---@field _kind 'struct'
+---@field _type _building_def_furnacest
+---@field list_icon_texpos number
+local building_def_furnacest
+
+---@class _building_def_furnacest: DFCompound
+---@field _kind 'class-type'
 df.building_def_furnacest = {}
 

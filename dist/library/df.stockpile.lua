@@ -1,7 +1,20 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.stockpile
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _hauler_type: integer, string, df.enum
+---@alias hauler_type
+---| 0 # Any
+---| 1 # Stone
+---| 2 # Wood
+---| 3 # Item
+---| 4 # Bin
+---| 5 # Body
+---| 6 # Food
+---| 7 # Refuse
+---| 8 # Furniture
+---| 9 # Animal
+
+---@class _hauler_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Any 0
 ---@field [0] "Any"
 ---@field Stone 1
@@ -24,31 +37,46 @@
 ---@field [9] "Animal"
 df.hauler_type = {}
 
----@class hauler_type
----@field [0] boolean
----@field Any boolean
----@field [1] boolean
----@field Stone boolean
----@field [2] boolean
----@field Wood boolean
----@field [3] boolean
----@field Item boolean
----@field [4] boolean
----@field Bin boolean
----@field [5] boolean
----@field Body boolean
----@field [6] boolean
----@field Food boolean
----@field [7] boolean
----@field Refuse boolean
----@field [8] boolean
----@field Furniture boolean
----@field [9] boolean
----@field Animal boolean
+---@alias furniture_type
+---| 0 # FLOODGATE
+---| 1 # HATCH_COVER
+---| 2 # GRATE
+---| 3 # DOOR
+---| 4 # CATAPULTPARTS
+---| 5 # BALLISTAPARTS
+---| 6 # TRAPPARTS
+---| 7 # BED
+---| 8 # TRACTION_BENCH
+---| 9 # WINDOW
+---| 10 # CHAIR
+---| 11 # TABLE
+---| 12 # COFFIN
+---| 13 # STATUE
+---| 14 # SLAB
+---| 15 # QUERN
+---| 16 # MILLSTONE
+---| 17 # ARMORSTAND
+---| 18 # WEAPONRACK
+---| 19 # CABINET
+---| 20 # ANVIL
+---| 21 # BUCKET
+---| 22 # BIN
+---| 23 # BOX
+---| 24 # BAG
+---| 25 # SIEGEAMMO
+---| 26 # BARREL
+---| 27 # BALLISTAARROWHEAD
+---| 28 # PIPE_SECTION
+---| 29 # FOOD_STORAGE
+---| 30 # MINECART
+---| 31 # WHEELBARROW
+---| 32 # OTHER_LARGE_TOOLS
+---| 33 # SAND_BAG
 
----@class _furniture_type: integer, string, df.enum
----@field FLOODGATE 0
----@field [0] "FLOODGATE"
+---@class _furniture_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field FLOODGATE 0 subset of item_type
+---@field [0] "FLOODGATE" subset of item_type
 ---@field HATCH_COVER 1
 ---@field [1] "HATCH_COVER"
 ---@field GRATE 2
@@ -105,8 +133,8 @@ df.hauler_type = {}
 ---@field [27] "BALLISTAARROWHEAD"
 ---@field PIPE_SECTION 28
 ---@field [28] "PIPE_SECTION"
----@field FOOD_STORAGE 29
----@field [29] "FOOD_STORAGE"
+---@field FOOD_STORAGE 29 tool types
+---@field [29] "FOOD_STORAGE" tool types
 ---@field MINECART 30
 ---@field [30] "MINECART"
 ---@field WHEELBARROW 31
@@ -117,423 +145,382 @@ df.hauler_type = {}
 ---@field [33] "SAND_BAG"
 df.furniture_type = {}
 
----@class furniture_type
----@field [0] boolean
----@field FLOODGATE boolean
----@field [1] boolean
----@field HATCH_COVER boolean
----@field [2] boolean
----@field GRATE boolean
----@field [3] boolean
----@field DOOR boolean
----@field [4] boolean
----@field CATAPULTPARTS boolean
----@field [5] boolean
----@field BALLISTAPARTS boolean
----@field [6] boolean
----@field TRAPPARTS boolean
----@field [7] boolean
----@field BED boolean
----@field [8] boolean
----@field TRACTION_BENCH boolean
----@field [9] boolean
----@field WINDOW boolean
----@field [10] boolean
----@field CHAIR boolean
----@field [11] boolean
----@field TABLE boolean
----@field [12] boolean
----@field COFFIN boolean
----@field [13] boolean
----@field STATUE boolean
----@field [14] boolean
----@field SLAB boolean
----@field [15] boolean
----@field QUERN boolean
----@field [16] boolean
----@field MILLSTONE boolean
----@field [17] boolean
----@field ARMORSTAND boolean
----@field [18] boolean
----@field WEAPONRACK boolean
----@field [19] boolean
----@field CABINET boolean
----@field [20] boolean
----@field ANVIL boolean
----@field [21] boolean
----@field BUCKET boolean
----@field [22] boolean
----@field BIN boolean
----@field [23] boolean
----@field BOX boolean
----@field [24] boolean
----@field BAG boolean
----@field [25] boolean
----@field SIEGEAMMO boolean
----@field [26] boolean
----@field BARREL boolean
----@field [27] boolean
----@field BALLISTAARROWHEAD boolean
----@field [28] boolean
----@field PIPE_SECTION boolean
----@field [29] boolean
----@field FOOD_STORAGE boolean
----@field [30] boolean
----@field MINECART boolean
----@field [31] boolean
----@field WHEELBARROW boolean
----@field [32] boolean
----@field OTHER_LARGE_TOOLS boolean
----@field [33] boolean
----@field SAND_BAG boolean
+---@alias stockpile_category
+---| -1 # Remove
+---| 0 # Animals
+---| 1 # Food
+---| 2 # Furniture
+---| 3 # Corpses
+---| 4 # Refuse
+---| 5 # Stone
+---| 6 # Ore
+---| 7 # Ammo
+---| 8 # Coins
+---| 9 # Bars
+---| 10 # Gems
+---| 11 # Goods
+---| 12 # Leather
+---| 13 # Cloth
+---| 14 # Wood
+---| 15 # Weapons
+---| 16 # Armor
+---| 17 # Sheets
+---| 18 # Custom
 
----@class _stockpile_category: integer, string, df.enum
+---@class _stockpile_category: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Remove -1
----@field [0] "Remove"
----@field Animals 1
----@field [1] "Animals"
----@field Food 2
----@field [2] "Food"
----@field Furniture 3
----@field [3] "Furniture"
----@field Corpses 4
----@field [4] "Corpses"
----@field Refuse 5
----@field [5] "Refuse"
----@field Stone 6
----@field [6] "Stone"
----@field Ore 7
----@field [7] "Ore"
----@field Ammo 8
----@field [8] "Ammo"
----@field Coins 9
----@field [9] "Coins"
----@field Bars 10
----@field [10] "Bars"
----@field Gems 11
----@field [11] "Gems"
----@field Goods 12
----@field [12] "Goods"
----@field Leather 13
----@field [13] "Leather"
----@field Cloth 14
----@field [14] "Cloth"
----@field Wood 15
----@field [15] "Wood"
----@field Weapons 16
----@field [16] "Weapons"
----@field Armor 17
----@field [17] "Armor"
----@field Sheets 18
----@field [18] "Sheets"
----@field Custom 19
----@field [19] "Custom"
+---@field [-1] "Remove"
+---@field Animals 0
+---@field [0] "Animals"
+---@field Food 1
+---@field [1] "Food"
+---@field Furniture 2
+---@field [2] "Furniture"
+---@field Corpses 3
+---@field [3] "Corpses"
+---@field Refuse 4
+---@field [4] "Refuse"
+---@field Stone 5
+---@field [5] "Stone"
+---@field Ore 6
+---@field [6] "Ore"
+---@field Ammo 7
+---@field [7] "Ammo"
+---@field Coins 8
+---@field [8] "Coins"
+---@field Bars 9
+---@field [9] "Bars"
+---@field Gems 10
+---@field [10] "Gems"
+---@field Goods 11
+---@field [11] "Goods"
+---@field Leather 12
+---@field [12] "Leather"
+---@field Cloth 13
+---@field [13] "Cloth"
+---@field Wood 14
+---@field [14] "Wood"
+---@field Weapons 15
+---@field [15] "Weapons"
+---@field Armor 16
+---@field [16] "Armor"
+---@field Sheets 17
+---@field [17] "Sheets"
+---@field Custom 18
+---@field [18] "Custom"
 df.stockpile_category = {}
 
----@class stockpile_category
----@field [0] boolean
----@field Remove boolean
----@field [1] boolean
----@field Animals boolean
----@field [2] boolean
----@field Food boolean
----@field [3] boolean
----@field Furniture boolean
----@field [4] boolean
----@field Corpses boolean
----@field [5] boolean
----@field Refuse boolean
----@field [6] boolean
----@field Stone boolean
----@field [7] boolean
----@field Ore boolean
----@field [8] boolean
----@field Ammo boolean
----@field [9] boolean
----@field Coins boolean
----@field [10] boolean
----@field Bars boolean
----@field [11] boolean
----@field Gems boolean
----@field [12] boolean
----@field Goods boolean
----@field [13] boolean
----@field Leather boolean
----@field [14] boolean
----@field Cloth boolean
----@field [15] boolean
----@field Wood boolean
----@field [16] boolean
----@field Weapons boolean
----@field [17] boolean
----@field Armor boolean
----@field [18] boolean
----@field Sheets boolean
----@field [19] boolean
----@field Custom boolean
-
----@class _stockpile_group_set: integer, string, df.bitfield
----@field animals 0
----@field [0] "animals"
----@field food 1
----@field [1] "food"
----@field furniture 2
----@field [2] "furniture"
----@field corpses 3
----@field [3] "corpses"
----@field refuse 4
----@field [4] "refuse"
----@field stone 5
----@field [5] "stone"
----@field ammo 6
----@field [6] "ammo"
----@field coins 7
----@field [7] "coins"
----@field bars_blocks 8
----@field [8] "bars_blocks"
----@field gems 9
----@field [9] "gems"
----@field finished_goods 10
----@field [10] "finished_goods"
----@field leather 11
----@field [11] "leather"
----@field cloth 12
----@field [12] "cloth"
----@field wood 13
----@field [13] "wood"
----@field weapons 14
----@field [14] "weapons"
----@field armor 15
----@field [15] "armor"
----@field sheet 16
----@field [16] "sheet"
-df.stockpile_group_set = {}
-
----@class stockpile_group_set
----@field [0] boolean
----@field animals boolean
----@field [1] boolean
----@field food boolean
----@field [2] boolean
----@field furniture boolean
----@field [3] boolean
----@field corpses boolean
----@field [4] boolean
----@field refuse boolean
----@field [5] boolean
----@field stone boolean
----@field [6] boolean
----@field ammo boolean
----@field [7] boolean
----@field coins boolean
----@field [8] boolean
----@field bars_blocks boolean
----@field [9] boolean
----@field gems boolean
----@field [10] boolean
----@field finished_goods boolean
----@field [11] boolean
----@field leather boolean
----@field [12] boolean
----@field cloth boolean
----@field [13] boolean
----@field wood boolean
----@field [14] boolean
----@field weapons boolean
----@field [15] boolean
----@field armor boolean
----@field [16] boolean
----@field sheet boolean
-
----@class stockpile_settings: df.class
+---@class (exact) stockpile_settings: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings
 ---@field flags stockpile_group_set
----@field animals stockpile_settings_animals
----@field food stockpile_settings_food
----@field furniture stockpile_settings_furniture
----@field corpses stockpile_settings_corpses
----@field refuse stockpile_settings_refuse
----@field stone stockpile_settings_stone
----@field ore stockpile_settings_ore
----@field ammo stockpile_settings_ammo
----@field coins stockpile_settings_coins
----@field bars_blocks stockpile_settings_bars_blocks
----@field gems stockpile_settings_gems
----@field finished_goods stockpile_settings_finished_goods
----@field leather stockpile_settings_leather
----@field cloth stockpile_settings_cloth
----@field wood stockpile_settings_wood
----@field weapons stockpile_settings_weapons
----@field armor stockpile_settings_armor
----@field sheet stockpile_settings_sheet
+---@field animals stockpile_settings.T_animals
+---@field food stockpile_settings.T_food
+---@field furniture stockpile_settings.T_furniture
+---@field corpses stockpile_settings.T_corpses
+---@field refuse stockpile_settings.T_refuse
+---@field stone stockpile_settings.T_stone
+---@field ore stockpile_settings.T_ore
+---@field ammo stockpile_settings.T_ammo
+---@field coins stockpile_settings.T_coins
+---@field bars_blocks stockpile_settings.T_bars_blocks
+---@field gems stockpile_settings.T_gems
+---@field finished_goods stockpile_settings.T_finished_goods
+---@field leather stockpile_settings.T_leather
+---@field cloth stockpile_settings.T_cloth
+---@field wood stockpile_settings.T_wood
+---@field weapons stockpile_settings.T_weapons
+---@field armor stockpile_settings.T_armor
+---@field sheet stockpile_settings.T_sheet
 ---@field allow_organic boolean
 ---@field allow_inorganic boolean
+local stockpile_settings
+
+---@class _stockpile_settings: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings = {}
 
----@class stockpile_settings_animals: df.class
+---@class (exact) stockpile_settings.T_animals: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_animals
 ---@field empty_cages boolean
 ---@field empty_traps boolean
----@field enabled df.container
+local animals
+
+---@class _stockpile_settings.T_animals: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_animals = {}
 
-
----@class stockpile_settings_food: df.class
----@field meat df.container
----@field fish df.container
----@field unprepared_fish df.container
----@field egg df.container
----@field plants df.container
----@field drink_plant df.container
----@field drink_animal df.container
----@field cheese_plant df.container
----@field cheese_animal df.container
----@field seeds df.container
----@field leaves df.container
----@field powder_plant df.container
----@field powder_creature df.container
----@field glob df.container
----@field glob_paste df.container
----@field glob_pressed df.container
----@field liquid_plant df.container
----@field liquid_animal df.container
----@field liquid_misc df.container
+---@class (exact) stockpile_settings.T_food: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_food
 ---@field prepared_meals boolean
+local food
+
+---@class _stockpile_settings.T_food: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_food = {}
 
+---@class (exact) stockpile_settings.T_furniture: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_furniture
+local furniture
 
----@class stockpile_settings_furniture: df.class
----@field type df.container
----@field other_mats df.container
----@field mats df.container
----@field quality_core boolean[]
----@field quality_total boolean[]
+---@class _stockpile_settings.T_furniture: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_furniture = {}
 
+---@class (exact) stockpile_settings.T_corpses: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_corpses
+local corpses
 
----@class stockpile_settings_corpses: df.class
----@field corpses df.container
+---@class _stockpile_settings.T_corpses: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_corpses = {}
 
-
----@class stockpile_settings_refuse: df.class
----@field type df.container
----@field corpses df.container
----@field body_parts df.container
----@field skulls df.container
----@field bones df.container
----@field hair df.container
----@field shells df.container
----@field teeth df.container
----@field horns df.container
+---@class (exact) stockpile_settings.T_refuse: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_refuse
 ---@field fresh_raw_hide boolean
 ---@field rotten_raw_hide boolean
+local refuse
+
+---@class _stockpile_settings.T_refuse: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_refuse = {}
 
+---@class (exact) stockpile_settings.T_stone: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_stone
+local stone
 
----@class stockpile_settings_stone: df.class
----@field mats df.container
+---@class _stockpile_settings.T_stone: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_stone = {}
 
+---@class (exact) stockpile_settings.T_ore: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_ore
+local ore
 
----@class stockpile_settings_ore: df.class
----@field mats df.container unused
+---@class _stockpile_settings.T_ore: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_ore = {}
 
+---@class (exact) stockpile_settings.T_ammo: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_ammo
+local ammo
 
----@class stockpile_settings_ammo: df.class
----@field type df.container
----@field other_mats df.container
----@field mats df.container
----@field quality_core boolean[]
----@field quality_total boolean[]
+---@class _stockpile_settings.T_ammo: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_ammo = {}
 
+---@class (exact) stockpile_settings.T_coins: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_coins
+local coins
 
----@class stockpile_settings_coins: df.class
----@field mats df.container
+---@class _stockpile_settings.T_coins: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_coins = {}
 
+---@class (exact) stockpile_settings.T_bars_blocks: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_bars_blocks
+local bars_blocks
 
----@class stockpile_settings_bars_blocks: df.class
----@field bars_other_mats df.container
----@field blocks_other_mats df.container
----@field bars_mats df.container
----@field blocks_mats df.container
+---@class _stockpile_settings.T_bars_blocks: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_bars_blocks = {}
 
+---@class (exact) stockpile_settings.T_gems: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_gems
+local gems
 
----@class stockpile_settings_gems: df.class
----@field rough_other_mats df.container
----@field cut_other_mats df.container
----@field rough_mats df.container
----@field cut_mats df.container
+---@class _stockpile_settings.T_gems: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_gems = {}
 
+---@class (exact) stockpile_settings.T_finished_goods: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_finished_goods
+local finished_goods
 
----@class stockpile_settings_finished_goods: df.class
----@field type df.container
----@field other_mats df.container
----@field mats df.container
----@field quality_core boolean[]
----@field quality_total boolean[]
+---@class _stockpile_settings.T_finished_goods: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_finished_goods = {}
 
+---@class (exact) stockpile_settings.T_leather: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_leather
+local leather
 
----@class stockpile_settings_leather: df.class
----@field mats df.container
+---@class _stockpile_settings.T_leather: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_leather = {}
 
+---@class (exact) stockpile_settings.T_cloth: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_cloth
+local cloth
 
----@class stockpile_settings_cloth: df.class
----@field thread_silk df.container
----@field thread_plant df.container
----@field thread_yarn df.container
----@field thread_metal df.container
----@field cloth_silk df.container
----@field cloth_plant df.container
----@field cloth_yarn df.container
----@field cloth_metal df.container
+---@class _stockpile_settings.T_cloth: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_cloth = {}
 
+---@class (exact) stockpile_settings.T_wood: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_wood
+local wood
 
----@class stockpile_settings_wood: df.class
----@field mats df.container
+---@class _stockpile_settings.T_wood: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_wood = {}
 
-
----@class stockpile_settings_weapons: df.class
----@field weapon_type df.container
----@field trapcomp_type df.container
----@field other_mats df.container
----@field mats df.container
----@field quality_core boolean[]
----@field quality_total boolean[]
+---@class (exact) stockpile_settings.T_weapons: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_weapons
 ---@field usable boolean
 ---@field unusable boolean
+local weapons
+
+---@class _stockpile_settings.T_weapons: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_weapons = {}
 
-
----@class stockpile_settings_armor: df.class
----@field body df.container
----@field head df.container
----@field feet df.container
----@field hands df.container
----@field legs df.container
----@field shield df.container
----@field other_mats df.container
----@field mats df.container
----@field quality_core boolean[]
----@field quality_total boolean[]
+---@class (exact) stockpile_settings.T_armor: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_armor
 ---@field usable boolean
 ---@field unusable boolean
+local armor
+
+---@class _stockpile_settings.T_armor: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_armor = {}
 
+---@class (exact) stockpile_settings.T_sheet: DFObject
+---@field _kind 'struct'
+---@field _type _stockpile_settings.T_sheet
+local sheet
 
----@class stockpile_settings_sheet: df.class
----@field paper df.container
----@field parchment df.container
+---@class _stockpile_settings.T_sheet: DFCompound
+---@field _kind 'struct-type'
 df.stockpile_settings.T_sheet = {}
 
----@class _stockpile_list: integer, string, df.enum
+---@alias stockpile_list
+---| 0 # Animals
+---| 1 # Food
+---| 2 # FoodMeat
+---| 3 # FoodFish
+---| 4 # FoodUnpreparedFish
+---| 5 # FoodEgg
+---| 6 # FoodPlants
+---| 7 # FoodDrinkPlant
+---| 8 # FoodDrinkAnimal
+---| 9 # FoodCheesePlant
+---| 10 # FoodCheeseAnimal
+---| 11 # FoodSeeds
+---| 12 # FoodLeaves
+---| 13 # FoodMilledPlant
+---| 14 # FoodBoneMeal
+---| 15 # FoodFat
+---| 16 # FoodPaste
+---| 17 # FoodPressedMaterial
+---| 18 # FoodExtractPlant
+---| 19 # FoodExtractAnimal
+---| 20 # FoodMiscLiquid
+---| 21 # Furniture
+---| 22 # FurnitureType
+---| 23 # FurnitureStoneClay
+---| 24 # FurnitureMetal
+---| 25 # FurnitureOtherMaterials
+---| 26 # FurnitureCoreQuality
+---| 27 # FurnitureTotalQuality
+---| 28 # Corpses
+---| 29 # Refuse
+---| 30 # RefuseItems
+---| 31 # RefuseCorpses
+---| 32 # RefuseParts
+---| 33 # RefuseSkulls
+---| 34 # RefuseBones
+---| 35 # RefuseShells
+---| 36 # RefuseTeeth
+---| 37 # RefuseHorns
+---| 38 # RefuseHair
+---| 39 # Stone
+---| 40 # StoneOres
+---| 41 # StoneEconomic
+---| 42 # StoneOther
+---| 43 # StoneClay
+---| 44 # Ammo
+---| 45 # AmmoType
+---| 46 # AmmoMetal
+---| 47 # AmmoOther
+---| 48 # AmmoCoreQuality
+---| 49 # AmmoTotalQuality
+---| 50 # Coins
+---| 51 # BarsBlocks
+---| 52 # BarsMetal
+---| 53 # BarsOther
+---| 54 # BlocksStone
+---| 55 # BlocksMetal
+---| 56 # BlocksOther
+---| 57 # Gems
+---| 58 # RoughGem
+---| 59 # RoughGlass
+---| 60 # CutGem
+---| 61 # CutGlass
+---| 62 # CutStone
+---| 63 # Goods
+---| 64 # GoodsType
+---| 65 # GoodsStone
+---| 66 # GoodsMetal
+---| 67 # GoodsGem
+---| 68 # GoodsOther
+---| 69 # GoodsCoreQuality
+---| 70 # GoodsTotalQuality
+---| 71 # Leather
+---| 72 # Cloth
+---| 73 # ThreadSilk
+---| 74 # ThreadPlant
+---| 75 # ThreadYarn
+---| 76 # ThreadMetal
+---| 77 # ClothSilk
+---| 78 # ClothPlant
+---| 79 # ClothYarn
+---| 80 # ClothMetal
+---| 81 # Wood
+---| 82 # Weapons
+---| 83 # WeaponsType
+---| 84 # WeaponsTrapcomp
+---| 85 # WeaponsMetal
+---| 86 # WeaponsStone
+---| 87 # WeaponsOther
+---| 88 # WeaponsCoreQuality
+---| 89 # WeaponsTotalQuality
+---| 90 # Armor
+---| 91 # ArmorBody
+---| 92 # ArmorHead
+---| 93 # ArmorFeet
+---| 94 # ArmorHands
+---| 95 # ArmorLegs
+---| 96 # ArmorShield
+---| 97 # ArmorMetal
+---| 98 # ArmorOther
+---| 99 # ArmorCoreQuality
+---| 100 # ArmorTotalQuality
+---| 101 # Sheet
+---| 102 # SheetPaper
+---| 103 # SheetParchment
+---| 104 # AdditionalOptions
+
+---@class _stockpile_list: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Animals 0
 ---@field [0] "Animals"
 ---@field Food 1
@@ -746,257 +733,94 @@ df.stockpile_settings.T_sheet = {}
 ---@field [104] "AdditionalOptions"
 df.stockpile_list = {}
 
----@class stockpile_list
----@field [0] boolean
----@field Animals boolean
----@field [1] boolean
----@field Food boolean
----@field [2] boolean
----@field FoodMeat boolean
----@field [3] boolean
----@field FoodFish boolean
----@field [4] boolean
----@field FoodUnpreparedFish boolean
----@field [5] boolean
----@field FoodEgg boolean
----@field [6] boolean
----@field FoodPlants boolean
----@field [7] boolean
----@field FoodDrinkPlant boolean
----@field [8] boolean
----@field FoodDrinkAnimal boolean
----@field [9] boolean
----@field FoodCheesePlant boolean
----@field [10] boolean
----@field FoodCheeseAnimal boolean
----@field [11] boolean
----@field FoodSeeds boolean
----@field [12] boolean
----@field FoodLeaves boolean
----@field [13] boolean
----@field FoodMilledPlant boolean
----@field [14] boolean
----@field FoodBoneMeal boolean
----@field [15] boolean
----@field FoodFat boolean
----@field [16] boolean
----@field FoodPaste boolean
----@field [17] boolean
----@field FoodPressedMaterial boolean
----@field [18] boolean
----@field FoodExtractPlant boolean
----@field [19] boolean
----@field FoodExtractAnimal boolean
----@field [20] boolean
----@field FoodMiscLiquid boolean
----@field [21] boolean
----@field Furniture boolean
----@field [22] boolean
----@field FurnitureType boolean
----@field [23] boolean
----@field FurnitureStoneClay boolean
----@field [24] boolean
----@field FurnitureMetal boolean
----@field [25] boolean
----@field FurnitureOtherMaterials boolean
----@field [26] boolean
----@field FurnitureCoreQuality boolean
----@field [27] boolean
----@field FurnitureTotalQuality boolean
----@field [28] boolean
----@field Corpses boolean
----@field [29] boolean
----@field Refuse boolean
----@field [30] boolean
----@field RefuseItems boolean
----@field [31] boolean
----@field RefuseCorpses boolean
----@field [32] boolean
----@field RefuseParts boolean
----@field [33] boolean
----@field RefuseSkulls boolean
----@field [34] boolean
----@field RefuseBones boolean
----@field [35] boolean
----@field RefuseShells boolean
----@field [36] boolean
----@field RefuseTeeth boolean
----@field [37] boolean
----@field RefuseHorns boolean
----@field [38] boolean
----@field RefuseHair boolean
----@field [39] boolean
----@field Stone boolean
----@field [40] boolean
----@field StoneOres boolean
----@field [41] boolean
----@field StoneEconomic boolean
----@field [42] boolean
----@field StoneOther boolean
----@field [43] boolean
----@field StoneClay boolean
----@field [44] boolean
----@field Ammo boolean
----@field [45] boolean
----@field AmmoType boolean
----@field [46] boolean
----@field AmmoMetal boolean
----@field [47] boolean
----@field AmmoOther boolean
----@field [48] boolean
----@field AmmoCoreQuality boolean
----@field [49] boolean
----@field AmmoTotalQuality boolean
----@field [50] boolean
----@field Coins boolean
----@field [51] boolean
----@field BarsBlocks boolean
----@field [52] boolean
----@field BarsMetal boolean
----@field [53] boolean
----@field BarsOther boolean
----@field [54] boolean
----@field BlocksStone boolean
----@field [55] boolean
----@field BlocksMetal boolean
----@field [56] boolean
----@field BlocksOther boolean
----@field [57] boolean
----@field Gems boolean
----@field [58] boolean
----@field RoughGem boolean
----@field [59] boolean
----@field RoughGlass boolean
----@field [60] boolean
----@field CutGem boolean
----@field [61] boolean
----@field CutGlass boolean
----@field [62] boolean
----@field CutStone boolean
----@field [63] boolean
----@field Goods boolean
----@field [64] boolean
----@field GoodsType boolean
----@field [65] boolean
----@field GoodsStone boolean
----@field [66] boolean
----@field GoodsMetal boolean
----@field [67] boolean
----@field GoodsGem boolean
----@field [68] boolean
----@field GoodsOther boolean
----@field [69] boolean
----@field GoodsCoreQuality boolean
----@field [70] boolean
----@field GoodsTotalQuality boolean
----@field [71] boolean
----@field Leather boolean
----@field [72] boolean
----@field Cloth boolean
----@field [73] boolean
----@field ThreadSilk boolean
----@field [74] boolean
----@field ThreadPlant boolean
----@field [75] boolean
----@field ThreadYarn boolean
----@field [76] boolean
----@field ThreadMetal boolean
----@field [77] boolean
----@field ClothSilk boolean
----@field [78] boolean
----@field ClothPlant boolean
----@field [79] boolean
----@field ClothYarn boolean
----@field [80] boolean
----@field ClothMetal boolean
----@field [81] boolean
----@field Wood boolean
----@field [82] boolean
----@field Weapons boolean
----@field [83] boolean
----@field WeaponsType boolean
----@field [84] boolean
----@field WeaponsTrapcomp boolean
----@field [85] boolean
----@field WeaponsMetal boolean
----@field [86] boolean
----@field WeaponsStone boolean
----@field [87] boolean
----@field WeaponsOther boolean
----@field [88] boolean
----@field WeaponsCoreQuality boolean
----@field [89] boolean
----@field WeaponsTotalQuality boolean
----@field [90] boolean
----@field Armor boolean
----@field [91] boolean
----@field ArmorBody boolean
----@field [92] boolean
----@field ArmorHead boolean
----@field [93] boolean
----@field ArmorFeet boolean
----@field [94] boolean
----@field ArmorHands boolean
----@field [95] boolean
----@field ArmorLegs boolean
----@field [96] boolean
----@field ArmorShield boolean
----@field [97] boolean
----@field ArmorMetal boolean
----@field [98] boolean
----@field ArmorOther boolean
----@field [99] boolean
----@field ArmorCoreQuality boolean
----@field [100] boolean
----@field ArmorTotalQuality boolean
----@field [101] boolean
----@field Sheet boolean
----@field [102] boolean
----@field SheetPaper boolean
----@field [103] boolean
----@field SheetParchment boolean
----@field [104] boolean
----@field AdditionalOptions boolean
+---@class stockpile_list_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.stockpile_list._attr_entry_type = {}
 
----@class stockpile_list_attr
----@field is_category boolean
+---@class (exact) stockpile_list_attr_entry_type_fields
+---@field is_category DFCompoundField
+df.stockpile_list._attr_entry_type._fields = {}
 
----@type { [string|integer]: stockpile_list_attr }
+---@class stockpile_list_attrs
+---@field Animals { is_category: "true" }
+---@field Food { is_category: "true" }
+---@field Furniture { is_category: "true" }
+---@field Corpses { is_category: "true" }
+---@field Refuse { is_category: "true" }
+---@field Stone { is_category: "true" }
+---@field Ammo { is_category: "true" }
+---@field Coins { is_category: "true" }
+---@field BarsBlocks { is_category: "true" }
+---@field Gems { is_category: "true" }
+---@field Goods { is_category: "true" }
+---@field Leather { is_category: "true" }
+---@field Cloth { is_category: "true" }
+---@field Wood { is_category: "true" }
+---@field Weapons { is_category: "true" }
+---@field Armor { is_category: "true" }
+---@field Sheet { is_category: "true" }
+---@field AdditionalOptions { is_category: "true" }
 df.stockpile_list.attrs = {}
 
----@class hauling_route: df.instance
----@field id integer
----@field name df.string
----@field stops hauling_stop[]
----@field vehicle_ids integer[]
----@field vehicle_stops integer[]
+---@class (exact) hauling_route: DFObject
+---@field _kind 'struct'
+---@field _type _hauling_route
+---@field id number
+---@field name string
+local hauling_route
+
+---@class _hauling_route: DFCompound
+---@field _kind 'struct-type'
 df.hauling_route = {}
 
----@param key integer
+---@param key number
 ---@return hauling_route|nil
 function df.hauling_route.find(key) end
 
----@class hauling_stop: df.class
----@field id integer
----@field name df.string
+---@class hauling_route_vector: DFVector, { [integer]: hauling_route }
+local hauling_route_vector
+
+---@return hauling_route_vector # df.global.plotinfo.hauling.routes
+function df.hauling_route.get_vector() end
+
+---@class (exact) hauling_stop: DFObject
+---@field _kind 'struct'
+---@field _type _hauling_stop
+---@field id number
+---@field name string
 ---@field pos coord
 ---@field settings stockpile_settings
----@field conditions stop_depart_condition[]
----@field stockpiles route_stockpile_link[]
----@field time_waiting integer
----@field cart_id integer References: item
+---@field time_waiting number
+---@field cart_id number References: `item`
+local hauling_stop
+
+---@class _hauling_stop: DFCompound
+---@field _kind 'struct-type'
 df.hauling_stop = {}
 
----@class stop_depart_condition: df.class
----@field timeout integer
----@field direction stop_depart_condition_direction
----@field mode stop_depart_condition_mode
----@field load_percent integer broken display unless 0, 50 or 100
----@field flags stop_depart_condition_flags
+---@class (exact) stop_depart_condition: DFObject
+---@field _kind 'struct'
+---@field _type _stop_depart_condition
+---@field timeout number
+---@field direction stop_depart_condition.T_direction
+---@field mode stop_depart_condition.T_mode
+---@field load_percent number broken display unless 0, 50 or 100
+---@field flags stop_depart_condition.T_flags
 ---@field guide_path coord_path initialized on first run, and saved
+local stop_depart_condition
+
+---@class _stop_depart_condition: DFCompound
+---@field _kind 'struct-type'
 df.stop_depart_condition = {}
 
----@class _stop_depart_condition_direction: integer, string, df.enum
+---@alias stop_depart_condition.T_direction
+---| 0 # North
+---| 1 # South
+---| 2 # East
+---| 3 # West
+
+---@class _stop_depart_condition.T_direction: DFDescriptor
+---@field _kind 'enum-type'
 ---@field North 0
 ---@field [0] "North"
 ---@field South 1
@@ -1007,18 +831,13 @@ df.stop_depart_condition = {}
 ---@field [3] "West"
 df.stop_depart_condition.T_direction = {}
 
----@class stop_depart_condition_direction
----@field [0] boolean
----@field North boolean
----@field [1] boolean
----@field South boolean
----@field [2] boolean
----@field East boolean
----@field [3] boolean
----@field West boolean
+---@alias stop_depart_condition.T_mode
+---| 0 # Push
+---| 1 # Ride
+---| 2 # Guide
 
-
----@class _stop_depart_condition_mode: integer, string, df.enum
+---@class _stop_depart_condition.T_mode: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Push 0
 ---@field [0] "Push"
 ---@field Ride 1
@@ -1027,65 +846,80 @@ df.stop_depart_condition.T_direction = {}
 ---@field [2] "Guide"
 df.stop_depart_condition.T_mode = {}
 
----@class stop_depart_condition_mode
----@field [0] boolean
----@field Push boolean
----@field [1] boolean
----@field Ride boolean
----@field [2] boolean
----@field Guide boolean
+---@class (exact) stop_depart_condition.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _stop_depart_condition.T_flags
+---@field at_most flag-bit
+---@field desired flag-bit
+local flags
 
-
----@class _stop_depart_condition_flags: integer, string, df.bitfield
----@field at_most 0
----@field [0] "at_most"
----@field desired 1
----@field [1] "desired"
+---@class _stop_depart_condition.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.stop_depart_condition.T_flags = {}
 
----@class stop_depart_condition_flags
----@field [0] boolean
----@field at_most boolean
----@field [1] boolean
----@field desired boolean
+---@class (exact) route_stockpile_link: DFObject
+---@field _kind 'struct'
+---@field _type _route_stockpile_link
+---@field building_id number References: `building`
+---@field mode route_stockpile_link.T_mode
+local route_stockpile_link
 
----@class route_stockpile_link: df.class
----@field building_id integer References: building
----@field mode route_stockpile_link_mode
+---@class _route_stockpile_link: DFCompound
+---@field _kind 'struct-type'
 df.route_stockpile_link = {}
 
----@class _route_stockpile_link_mode: integer, string, df.bitfield
----@field take 0
----@field [0] "take"
----@field give 1
----@field [1] "give"
+---@class (exact) route_stockpile_link.T_mode: DFObject
+---@field _kind 'struct'
+---@field _type _route_stockpile_link.T_mode
+---@field take flag-bit
+---@field give flag-bit
+local mode
+
+---@class _route_stockpile_link.T_mode: DFCompound
+---@field _kind 'struct-type'
 df.route_stockpile_link.T_mode = {}
 
----@class route_stockpile_link_mode
----@field [0] boolean
----@field take boolean
----@field [1] boolean
----@field give boolean
+---@class (exact) vehicle: DFObject
+---@field _kind 'struct'
+---@field _type _vehicle
+---@field id number
+---@field item_id number References: `item`
+---@field offset_x number -- Position within tile
+---@field offset_y number
+---@field offset_z number
+---@field speed_x number
+---@field speed_y number
+---@field speed_z number
+---@field fine_x_gain_vel number
+---@field fine_y_gain_vel number
+---@field fine_z_gain_vel number
+---@field flag vehicle.T_flag
+---@field route_id number References: `hauling_route`
+---@field last_dump coord
+---@field time_stopped number bay12: zero_vel_count; frames, up to 1000
+local vehicle
 
----@class vehicle: df.instance
----@field id integer
----@field item_id integer References: item
----@field offset_x integer -50000..50000
----@field offset_y integer
----@field offset_z integer
----@field speed_x integer
----@field speed_y integer
----@field speed_z integer
----@field unk_20 integer
----@field unk_24 integer
----@field unk_28 integer
----@field unk_2c integer
----@field route_id integer References: hauling_route
----@field pos coord
----@field time_stopped integer frames, up to 1000
+---@class _vehicle: DFCompound
+---@field _kind 'struct-type'
 df.vehicle = {}
 
----@param key integer
+---@param key number
 ---@return vehicle|nil
 function df.vehicle.find(key) end
+
+---@class vehicle_vector: DFVector, { [integer]: vehicle }
+local vehicle_vector
+
+---@return vehicle_vector # df.global.world.vehicles.all
+function df.vehicle.get_vector() end
+
+---@class (exact) vehicle.T_flag: DFObject
+---@field _kind 'struct'
+---@field _type _vehicle.T_flag
+---@field ON_TRACK flag-bit
+local flag
+
+---@class _vehicle.T_flag: DFCompound
+---@field _kind 'struct-type'
+df.vehicle.T_flag = {}
 

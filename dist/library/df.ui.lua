@@ -1,68 +1,141 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.ui
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class burrow: df.instance
----@field id integer
----@field name df.string
+---@class (exact) burrow: DFObject
+---@field _kind 'struct'
+---@field _type _burrow
+---@field id number
+---@field name string
 ---@field tile integer
----@field fg_color integer
----@field bg_color integer
----@field block_x df.container
----@field block_y df.container
----@field block_z df.container
----@field units df.container References: unit
----@field limit_workshops integer
----@field solid_texpos integer
----@field blended_texpos integer
----@field symbol_index integer
+---@field fg_color number
+---@field bg_color number
+---@field limit_workshops number
+---@field solid_texpos number
+---@field blended_texpos number
+---@field symbol_index number
 ---@field texture_r integer
 ---@field texture_g integer
 ---@field texture_b integer
 ---@field texture_br integer
 ---@field texture_bg integer
 ---@field texture_bb integer
+local burrow
+
+---@class _burrow: DFCompound
+---@field _kind 'struct-type'
 df.burrow = {}
 
----@param key integer
+---@param key number
 ---@return burrow|nil
 function df.burrow.find(key) end
 
----@class ui_hotkey: df.class
----@field name df.string
----@field cmd ui_hotkey_cmd
----@field x integer
----@field y integer
----@field z integer
+---@class burrow_vector: DFVector, { [integer]: burrow }
+local burrow_vector
+
+---@return burrow_vector # df.global.plotinfo.burrows.list
+function df.burrow.get_vector() end
+
+---@class (exact) ui_hotkey: DFObject
+---@field _kind 'struct'
+---@field _type _ui_hotkey
+---@field name string
+---@field cmd ui_hotkey.T_cmd
+---@field x number
+---@field y number
+---@field z number
+---@field unit_id number References: `unit`
+---@field item_id number References: `item`
+local ui_hotkey
+
+---@class _ui_hotkey: DFCompound
+---@field _kind 'struct-type'
 df.ui_hotkey = {}
 
----@class _ui_hotkey_cmd: integer, string, df.enum
+---@alias ui_hotkey.T_cmd
+---| -1 # None
+---| 0 # Zoom
+---| 1 # FollowUnit
+---| 2 # FollowItem
+
+---@class _ui_hotkey.T_cmd: DFDescriptor
+---@field _kind 'enum-type'
 ---@field None -1
----@field [0] "None"
----@field Zoom 1
----@field [1] "Zoom"
----@field FollowUnit 2
----@field [2] "FollowUnit"
----@field FollowItem 3
----@field [3] "FollowItem"
+---@field [-1] "None"
+---@field Zoom 0
+---@field [0] "Zoom"
+---@field FollowUnit 1
+---@field [1] "FollowUnit"
+---@field FollowItem 2
+---@field [2] "FollowItem"
 df.ui_hotkey.T_cmd = {}
 
----@class ui_hotkey_cmd
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field Zoom boolean
----@field [2] boolean
----@field FollowUnit boolean
----@field [3] boolean
----@field FollowItem boolean
+---@alias ui_sidebar_mode
+---| 0 # Default
+---| 1 # Squads
+---| 2 # DesignateMine
+---| 3 # DesignateRemoveRamps
+---| 4 # DesignateUpStair
+---| 5 # DesignateDownStair
+---| 6 # DesignateUpDownStair
+---| 7 # DesignateUpRamp
+---| 8 # DesignateChannel
+---| 9 # DesignateGatherPlants
+---| 10 # DesignateRemoveDesignation
+---| 11 # DesignateSmooth
+---| 12 # DesignateCarveTrack
+---| 13 # DesignateEngrave
+---| 14 # DesignateCarveFortification
+---| 15 # Stockpiles
+---| 16 # Build
+---| 17 # QueryBuilding
+---| 18 # Orders
+---| 19 # OrdersForbid
+---| 20 # OrdersRefuse
+---| 21 # OrdersWorkshop
+---| 22 # OrdersZone
+---| 23 # BuildingItems
+---| 24 # ViewUnits
+---| 25 # LookAround
+---| 26 # DesignateItemsClaim
+---| 27 # DesignateItemsForbid
+---| 28 # DesignateItemsMelt
+---| 29 # DesignateItemsUnmelt
+---| 30 # DesignateItemsDump
+---| 31 # DesignateItemsUndump
+---| 32 # DesignateItemsHide
+---| 33 # DesignateItemsUnhide
+---| 34 # DesignateChopTrees
+---| 35 # DesignateToggleEngravings
+---| 36 # DesignateToggleMarker
+---| 37 # Hotkeys
+---| 38 # DesignateTrafficHigh
+---| 39 # DesignateTrafficNormal
+---| 40 # DesignateTrafficLow
+---| 41 # DesignateTrafficRestricted
+---| 42 # Zones
+---| 43 # ZonesPenInfo
+---| 44 # ZonesPitInfo
+---| 45 # ZonesHospitalInfo
+---| 46 # ZonesGatherInfo
+---| 47 # DesignateRemoveConstruction
+---| 48 # DepotAccess
+---| 49 # NotesPoints
+---| 50 # NotesRoutes
+---| 51 # Burrows
+---| 52 # Hauling
+---| 53 # ArenaWeather
+---| 54 # ArenaTrees
+---| 55 # BuildingLocationInfo
+---| 56 # ZonesLocationInfo
 
----@class _ui_sidebar_mode: integer, string, df.enum
+---@class _ui_sidebar_mode: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Default 0
 ---@field [0] "Default"
 ---@field Squads 1
 ---@field [1] "Squads"
----@field DesignateMine 2
----@field [2] "DesignateMine"
+---@field DesignateMine 2 -- 2
+---@field [2] "DesignateMine" -- 2
 ---@field DesignateRemoveRamps 3
 ---@field [3] "DesignateRemoveRamps"
 ---@field DesignateUpStair 4
@@ -87,14 +160,14 @@ df.ui_hotkey.T_cmd = {}
 ---@field [13] "DesignateEngrave"
 ---@field DesignateCarveFortification 14
 ---@field [14] "DesignateCarveFortification"
----@field Stockpiles 15
----@field [15] "Stockpiles"
+---@field Stockpiles 15 -- 15
+---@field [15] "Stockpiles" -- 15
 ---@field Build 16
 ---@field [16] "Build"
 ---@field QueryBuilding 17
 ---@field [17] "QueryBuilding"
----@field Orders 18
----@field [18] "Orders"
+---@field Orders 18 -- 18
+---@field [18] "Orders" -- 18
 ---@field OrdersForbid 19
 ---@field [19] "OrdersForbid"
 ---@field OrdersRefuse 20
@@ -103,14 +176,14 @@ df.ui_hotkey.T_cmd = {}
 ---@field [21] "OrdersWorkshop"
 ---@field OrdersZone 22
 ---@field [22] "OrdersZone"
----@field BuildingItems 23
----@field [23] "BuildingItems"
+---@field BuildingItems 23 -- 23
+---@field [23] "BuildingItems" -- 23
 ---@field ViewUnits 24
 ---@field [24] "ViewUnits"
 ---@field LookAround 25
 ---@field [25] "LookAround"
----@field DesignateItemsClaim 26
----@field [26] "DesignateItemsClaim"
+---@field DesignateItemsClaim 26 -- 26
+---@field [26] "DesignateItemsClaim" -- 26
 ---@field DesignateItemsForbid 27
 ---@field [27] "DesignateItemsForbid"
 ---@field DesignateItemsMelt 28
@@ -125,24 +198,24 @@ df.ui_hotkey.T_cmd = {}
 ---@field [32] "DesignateItemsHide"
 ---@field DesignateItemsUnhide 33
 ---@field [33] "DesignateItemsUnhide"
----@field DesignateChopTrees 34
----@field [34] "DesignateChopTrees"
+---@field DesignateChopTrees 34 -- 34
+---@field [34] "DesignateChopTrees" -- 34
 ---@field DesignateToggleEngravings 35
 ---@field [35] "DesignateToggleEngravings"
 ---@field DesignateToggleMarker 36
 ---@field [36] "DesignateToggleMarker"
----@field Hotkeys 37
----@field [37] "Hotkeys"
----@field DesignateTrafficHigh 38
----@field [38] "DesignateTrafficHigh"
+---@field Hotkeys 37 -- 37
+---@field [37] "Hotkeys" -- 37
+---@field DesignateTrafficHigh 38 -- 38
+---@field [38] "DesignateTrafficHigh" -- 38
 ---@field DesignateTrafficNormal 39
 ---@field [39] "DesignateTrafficNormal"
 ---@field DesignateTrafficLow 40
 ---@field [40] "DesignateTrafficLow"
 ---@field DesignateTrafficRestricted 41
 ---@field [41] "DesignateTrafficRestricted"
----@field Zones 42
----@field [42] "Zones"
+---@field Zones 42 -- 42
+---@field [42] "Zones" -- 42
 ---@field ZonesPenInfo 43
 ---@field [43] "ZonesPenInfo"
 ---@field ZonesPitInfo 44
@@ -151,8 +224,8 @@ df.ui_hotkey.T_cmd = {}
 ---@field [45] "ZonesHospitalInfo"
 ---@field ZonesGatherInfo 46
 ---@field [46] "ZonesGatherInfo"
----@field DesignateRemoveConstruction 47
----@field [47] "DesignateRemoveConstruction"
+---@field DesignateRemoveConstruction 47 -- 47
+---@field [47] "DesignateRemoveConstruction" -- 47
 ---@field DepotAccess 48
 ---@field [48] "DepotAccess"
 ---@field NotesPoints 49
@@ -163,157 +236,101 @@ df.ui_hotkey.T_cmd = {}
 ---@field [51] "Burrows"
 ---@field Hauling 52
 ---@field [52] "Hauling"
----@field ArenaWeather 53
----@field [53] "ArenaWeather"
+---@field ArenaWeather 53 -- 53
+---@field [53] "ArenaWeather" -- 53
 ---@field ArenaTrees 54
 ---@field [54] "ArenaTrees"
----@field BuildingLocationInfo 55
----@field [55] "BuildingLocationInfo"
+---@field BuildingLocationInfo 55 -- 55
+---@field [55] "BuildingLocationInfo" -- 55
 ---@field ZonesLocationInfo 56
 ---@field [56] "ZonesLocationInfo"
 df.ui_sidebar_mode = {}
 
----@class ui_sidebar_mode
----@field [0] boolean
----@field Default boolean
----@field [1] boolean
----@field Squads boolean
----@field [2] boolean
----@field DesignateMine boolean
----@field [3] boolean
----@field DesignateRemoveRamps boolean
----@field [4] boolean
----@field DesignateUpStair boolean
----@field [5] boolean
----@field DesignateDownStair boolean
----@field [6] boolean
----@field DesignateUpDownStair boolean
----@field [7] boolean
----@field DesignateUpRamp boolean
----@field [8] boolean
----@field DesignateChannel boolean
----@field [9] boolean
----@field DesignateGatherPlants boolean
----@field [10] boolean
----@field DesignateRemoveDesignation boolean
----@field [11] boolean
----@field DesignateSmooth boolean
----@field [12] boolean
----@field DesignateCarveTrack boolean
----@field [13] boolean
----@field DesignateEngrave boolean
----@field [14] boolean
----@field DesignateCarveFortification boolean
----@field [15] boolean
----@field Stockpiles boolean
----@field [16] boolean
----@field Build boolean
----@field [17] boolean
----@field QueryBuilding boolean
----@field [18] boolean
----@field Orders boolean
----@field [19] boolean
----@field OrdersForbid boolean
----@field [20] boolean
----@field OrdersRefuse boolean
----@field [21] boolean
----@field OrdersWorkshop boolean
----@field [22] boolean
----@field OrdersZone boolean
----@field [23] boolean
----@field BuildingItems boolean
----@field [24] boolean
----@field ViewUnits boolean
----@field [25] boolean
----@field LookAround boolean
----@field [26] boolean
----@field DesignateItemsClaim boolean
----@field [27] boolean
----@field DesignateItemsForbid boolean
----@field [28] boolean
----@field DesignateItemsMelt boolean
----@field [29] boolean
----@field DesignateItemsUnmelt boolean
----@field [30] boolean
----@field DesignateItemsDump boolean
----@field [31] boolean
----@field DesignateItemsUndump boolean
----@field [32] boolean
----@field DesignateItemsHide boolean
----@field [33] boolean
----@field DesignateItemsUnhide boolean
----@field [34] boolean
----@field DesignateChopTrees boolean
----@field [35] boolean
----@field DesignateToggleEngravings boolean
----@field [36] boolean
----@field DesignateToggleMarker boolean
----@field [37] boolean
----@field Hotkeys boolean
----@field [38] boolean
----@field DesignateTrafficHigh boolean
----@field [39] boolean
----@field DesignateTrafficNormal boolean
----@field [40] boolean
----@field DesignateTrafficLow boolean
----@field [41] boolean
----@field DesignateTrafficRestricted boolean
----@field [42] boolean
----@field Zones boolean
----@field [43] boolean
----@field ZonesPenInfo boolean
----@field [44] boolean
----@field ZonesPitInfo boolean
----@field [45] boolean
----@field ZonesHospitalInfo boolean
----@field [46] boolean
----@field ZonesGatherInfo boolean
----@field [47] boolean
----@field DesignateRemoveConstruction boolean
----@field [48] boolean
----@field DepotAccess boolean
----@field [49] boolean
----@field NotesPoints boolean
----@field [50] boolean
----@field NotesRoutes boolean
----@field [51] boolean
----@field Burrows boolean
----@field [52] boolean
----@field Hauling boolean
----@field [53] boolean
----@field ArenaWeather boolean
----@field [54] boolean
----@field ArenaTrees boolean
----@field [55] boolean
----@field BuildingLocationInfo boolean
----@field [56] boolean
----@field ZonesLocationInfo boolean
+---@class (exact) punishment: DFObject
+---@field _kind 'struct'
+---@field _type _punishment
+---@field criminal number References: `unit`
+---@field officer number References: `unit`
+---@field beating number
+---@field hammer_strikes number
+---@field prison_counter number
+---@field unk_10 number 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
+---@field chain number References: `building`
+local punishment
 
----@class punishment: df.class
----@field criminal integer References: unit
----@field officer integer References: unit
----@field beating integer
----@field hammer_strikes integer
----@field prison_counter integer
----@field unk_10 integer 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
----@field chain integer References: building
----@field victims df.container References: unit
+---@class _punishment: DFCompound
+---@field _kind 'struct-type'
 df.punishment = {}
 
----@class _kitchen_exc_type: integer, string, df.enum
+---@alias kitchen_exc_type
+---| 1 # Cook
+---| 0 # Brew
+
+---@class _kitchen_exc_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Cook 1
----@field [0] "Cook"
----@field Brew 1
----@field [1] "Brew"
+---@field [1] "Cook"
+---@field Brew 0
+---@field [0] "Brew"
 df.kitchen_exc_type = {}
 
----@class kitchen_exc_type
----@field [0] boolean
----@field Cook boolean
----@field [1] boolean
----@field Brew boolean
+---@alias save_substage
+---| 0 # Initializing
+---| 1 # CheckingDirectoryStructure
+---| 2 # PreliminaryCleaning
+---| 3 # OffloadingUnits
+---| 4 # OffloadingArt
+---| 5 # OpeningFile
+---| 6 # CharacterizingRawData
+---| 7 # AllocatingSpace
+---| 8 # SavingItems
+---| 9 # SavingUnits
+---| 10 # SavingJobs
+---| 11 # SavingSchedules
+---| 12 # SavingProjectiles
+---| 13 # SavingBuildings
+---| 14 # SavingMachines
+---| 15 # SavingFlowGuides
+---| 16 # SavingEffects
+---| 17 # SavingEntities
+---| 18 # SavingLocalAnimalPopulations
+---| 19 # SavingEvents
+---| 20 # SavingMandates
+---| 21 # SavingWorkQuotas
+---| 22 # SavingWorldEvents
+---| 23 # SavingCoinInformation
+---| 24 # SavingSquads
+---| 25 # SavingFormations
+---| 26 # SavingActivities
+---| 27 # SavingInteractions
+---| 28 # SavingWrittenContent
+---| 29 # SavingIdentities
+---| 30 # SavingIncidents
+---| 31 # SavingCrimes
+---| 32 # SavingVehicles
+---| 33 # SavingArmies
+---| 34 # SavingArmyControllers
+---| 35 # SavingTrackingInformation
+---| 36 # SavingCulturalIdentities
+---| 37 # SavingAgreement
+---| 38 # SavingArtForms
+---| 39 # SavingOccupations
+---| 40 # SavingBeliefSystems
+---| 41 # SavingImageSets
+---| 42 # SavingDivinationSets
+---| 43 # SavingAnnouncements
+---| 44 # SavingFortressInformation
+---| 45 # SavingWorldInformation
+---| 46 # SavingArtifacts
+---| 47 # SavingActiveHistoricalFigures
+---| 48 # SavingAdventureData
+---| 49 # SavingGeneralInformation
+---| 50 # ClosingFile
+---| 51 # Finishing
 
----@class _save_substage: integer, string, df.enum
+-- below was copied wholesale from df.viewscreen
+---@class _save_substage: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Initializing 0
 ---@field [0] "Initializing"
 ---@field CheckingDirectoryStructure 1
@@ -420,306 +437,123 @@ df.kitchen_exc_type = {}
 ---@field [51] "Finishing"
 df.save_substage = {}
 
----@class save_substage
----@field [0] boolean
----@field Initializing boolean
----@field [1] boolean
----@field CheckingDirectoryStructure boolean
----@field [2] boolean
----@field PreliminaryCleaning boolean
----@field [3] boolean
----@field OffloadingUnits boolean
----@field [4] boolean
----@field OffloadingArt boolean
----@field [5] boolean
----@field OpeningFile boolean
----@field [6] boolean
----@field CharacterizingRawData boolean
----@field [7] boolean
----@field AllocatingSpace boolean
----@field [8] boolean
----@field SavingItems boolean
----@field [9] boolean
----@field SavingUnits boolean
----@field [10] boolean
----@field SavingJobs boolean
----@field [11] boolean
----@field SavingSchedules boolean
----@field [12] boolean
----@field SavingProjectiles boolean
----@field [13] boolean
----@field SavingBuildings boolean
----@field [14] boolean
----@field SavingMachines boolean
----@field [15] boolean
----@field SavingFlowGuides boolean
----@field [16] boolean
----@field SavingEffects boolean
----@field [17] boolean
----@field SavingEntities boolean
----@field [18] boolean
----@field SavingLocalAnimalPopulations boolean
----@field [19] boolean
----@field SavingEvents boolean
----@field [20] boolean
----@field SavingMandates boolean
----@field [21] boolean
----@field SavingWorkQuotas boolean
----@field [22] boolean
----@field SavingWorldEvents boolean
----@field [23] boolean
----@field SavingCoinInformation boolean
----@field [24] boolean
----@field SavingSquads boolean
----@field [25] boolean
----@field SavingFormations boolean
----@field [26] boolean
----@field SavingActivities boolean
----@field [27] boolean
----@field SavingInteractions boolean
----@field [28] boolean
----@field SavingWrittenContent boolean
----@field [29] boolean
----@field SavingIdentities boolean
----@field [30] boolean
----@field SavingIncidents boolean
----@field [31] boolean
----@field SavingCrimes boolean
----@field [32] boolean
----@field SavingVehicles boolean
----@field [33] boolean
----@field SavingArmies boolean
----@field [34] boolean
----@field SavingArmyControllers boolean
----@field [35] boolean
----@field SavingTrackingInformation boolean
----@field [36] boolean
----@field SavingCulturalIdentities boolean
----@field [37] boolean
----@field SavingAgreement boolean
----@field [38] boolean
----@field SavingArtForms boolean
----@field [39] boolean
----@field SavingOccupations boolean
----@field [40] boolean
----@field SavingBeliefSystems boolean
----@field [41] boolean
----@field SavingImageSets boolean
----@field [42] boolean
----@field SavingDivinationSets boolean
----@field [43] boolean
----@field SavingAnnouncements boolean
----@field [44] boolean
----@field SavingFortressInformation boolean
----@field [45] boolean
----@field SavingWorldInformation boolean
----@field [46] boolean
----@field SavingArtifacts boolean
----@field [47] boolean
----@field SavingActiveHistoricalFigures boolean
----@field [48] boolean
----@field SavingAdventureData boolean
----@field [49] boolean
----@field SavingGeneralInformation boolean
----@field [50] boolean
----@field ClosingFile boolean
----@field [51] boolean
----@field Finishing boolean
+---@class (exact) labor_infost: DFObject
+---@field _kind 'struct'
+---@field _type _labor_infost
+---@field flags labor_infost.T_flags
+local labor_infost
 
----@class _equipment_update: integer, string, df.bitfield
----@field weapon 0
----@field [0] "weapon"
----@field armor 1
----@field [1] "armor"
----@field shoes 2
----@field [2] "shoes"
----@field shield 3
----@field [3] "shield"
----@field helm 4
----@field [4] "helm"
----@field gloves 5
----@field [5] "gloves"
----@field ammo 6
----@field [6] "ammo"
----@field pants 7
----@field [7] "pants"
----@field backpack 8
----@field [8] "backpack"
----@field quiver 9
----@field [9] "quiver"
----@field flask 10
----@field [10] "flask"
----@field unk_11 11
----@field [11] "unk_11"
----@field buildings 12
----@field [12] "buildings"
-df.equipment_update = {}
-
----@class equipment_update
----@field [0] boolean
----@field weapon boolean
----@field [1] boolean
----@field armor boolean
----@field [2] boolean
----@field shoes boolean
----@field [3] boolean
----@field shield boolean
----@field [4] boolean
----@field helm boolean
----@field [5] boolean
----@field gloves boolean
----@field [6] boolean
----@field ammo boolean
----@field [7] boolean
----@field pants boolean
----@field [8] boolean
----@field backpack boolean
----@field [9] boolean
----@field quiver boolean
----@field [10] boolean
----@field flask boolean
----@field [11] boolean
----@field unk_11 boolean
----@field [12] boolean
----@field buildings boolean
-
----@class labor_infost: df.class
----@field flags labor_infost_flags
----@field work_details work_detail[]
----@field chores boolean[]
----@field chores_exempted_children labor_infost_chores_exempted_children toady: no_chore_child_unid
+---@class _labor_infost: DFCompound
+---@field _kind 'struct-type'
 df.labor_infost = {}
 
----@class _labor_infost_flags: integer, string, df.bitfield
----@field children_do_chores 0
----@field [0] "children_do_chores"
+---@class (exact) labor_infost.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _labor_infost.T_flags
+---@field children_do_chores flag-bit
+local flags
+
+---@class _labor_infost.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.labor_infost.T_flags = {}
 
----@class labor_infost_flags
----@field [0] boolean
----@field children_do_chores boolean
-
-
----toady: no_chore_child_unid
----@class labor_infost_chores_exempted_children: df.class
-df.labor_infost.T_chores_exempted_children = {}
-
----@class plotinfost: df.class
----@field game_state integer 2 running, 1 lost to siege, 0 lost
----@field lost_to_siege_civ integer References: historical_entity
----@field tax_collection plotinfost_tax_collection
----@field nobles plotinfost_nobles
----@field caravans caravan_state[]
----@field unk_2 integer
----@field fortress_rank integer
----@field progress_population integer ?
----@field progress_trade integer ?
----@field progress_production integer ?
+---@class (exact) plotinfost: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost
+---@field game_state number ctor 86e33c0 x<br>dtor 8534190
+---@field lost_to_siege_civ number References: `historical_entity`
+---@field tax_collection plotinfost.T_tax_collection
+---@field nobles plotinfost.T_nobles
+---@field unk_2 number
+---@field fortress_rank number
+---@field progress_population number outpost/hamlet/village/town/city/metropolis
+---@field progress_trade number (unles that's what the above is)
+---@field progress_production number ?
 ---@field king_arrived boolean
 ---@field king_hasty boolean
 ---@field economy_active boolean
 ---@field ignore_labor_shortage boolean
 ---@field justice_active boolean
----@field unk_3 integer
----@field unk_4 integer
----@field manager_timer integer
----@field units_killed integer[]
----@field currency_value df.container
----@field trees_removed integer
----@field outdoor_irritation integer
----@field adamantine_mandate_number integer
----@field fortress_age integer ?; +1 per 10; used in first 2 migrant waves etc
+---@field hi_temp integer
+---@field lo_temp integer
+---@field manager_timer number bay12: quota_checktime
+---@field trees_removed number
+---@field outdoor_irritation number
+---@field adamantine_mandate_number number
+---@field fortress_age number ?; +1 per 10; used in first 2 migrant waves etc
 ---@field tasks entity_activity_statistics
----@field meeting_requests df.container References: unit<br>guild complaints and diplomats
----@field activities activity_info[]
----@field dip_meeting_info meeting_diplomat_info[]
----@field aid_requesters df.container References: unit
 ---@field game_over boolean
----@field invasions plotinfost_invasions
----@field punishments punishment[]
----@field dipscripts dipscript_info[]
----@field dipscript_texts dipscript_text[]
----@field dipscript_popups dipscript_popup[] cause viewscreen_meetingst to pop up
----@field kitchen plotinfost_kitchen
----@field economic_stone df.container
----@field unk23c8_flags plotinfost_unk23c8_flags
----@field mood_cooldown integer
----@field civ_id integer References: historical_entity
----@field site_id integer References: world_site
----@field group_id integer References: historical_entity<br>i.e. specifically the fortress dwarves
----@field race_id integer References: creature_raw
----@field unk_races df.container References: creature_raw
----@field farm_crops df.container References: plant_raw
----@field farm_seasons season[]
----@field economy_prices plotinfost_economy_prices
----@field stockpile plotinfost_stockpile
----@field unk2a8c plotinfost_unk2a8c[]
----@field unk_mapedge_x df.container
----@field unk_mapedge_y df.container
----@field unk_mapedge_z df.container
----@field map_edge plotinfost_map_edge
----@field feature_x df.container
----@field feature_y df.container
----@field feature_id_local df.container
----@field feature_id_global df.container
----@field event_collections df.container References: history_event_collection
----@field stone_mat_types df.container
----@field stone_mat_indexes df.container
----@field waypoints plotinfost_waypoints
----@field burrows plotinfost_burrows
----@field alerts plotinfost_alerts
----@field equipment plotinfost_equipment
----@field hauling plotinfost_hauling
+---@field invasions plotinfost.T_invasions
+---@field kitchen plotinfost.T_kitchen
+---@field flags plotinfost.T_flags
+---@field mood_cooldown number
+---@field civ_id number References: `historical_entity`
+---@field site_id number References: `world_site`
+---@field group_id number i.e. specifically the fortress dwarves References: `historical_entity`
+---@field race_id number References: `creature_raw`
+---@field economy_prices plotinfost.T_economy_prices
+---@field stockpile plotinfost.T_stockpile
+---@field map_edge plotinfost.T_map_edge
+---@field waypoints plotinfost.T_waypoints
+---@field burrows plotinfost.T_burrows
+---@field alerts plotinfost.T_alerts
+---@field equipment plotinfost.T_equipment
+---@field hauling plotinfost.T_hauling
 ---@field labor_info labor_infost
----@field petitions df.container related to agreements
----@field unk_6 df.container observed allocating 4 bytes
----@field unk_7 df.container
----@field theft_intrigues plotinfost_theft_intrigues[] related to job_type unk_fake_no_activity
----@field infiltrator_histfigs df.container References: historical_figure
----@field infiltrator_years df.container
----@field infiltrator_year_ticks df.container
----@field tutorial_hide df.container
----@field tutorial_seen df.container
----@field food_warn_year integer
----@field food_warn_year_tick integer
----@field main plotinfost_main
----@field squads plotinfost_squads
----@field follow_unit integer References: unit
----@field follow_item integer References: item
----@field selected_farm_crops df.container References: plant_raw<br>valid for the currently queried farm plot
----@field available_seeds boolean[]
+---@field food_warn_year number 0.50.01
+---@field food_warn_year_tick number
+---@field main plotinfost.T_main
+---@field squads plotinfost.T_squads
+---@field follow_unit number References: `unit`
+---@field follow_item number References: `item`
+local plotinfost
+
+---@class _plotinfost: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost = {}
 
----@class plotinfost_tax_collection: df.class
----@field state integer
----@field check_timer integer
----@field rooms df.container References: building
----@field reach_room_timer integer
----@field tc_protect_timer integer
----@field guard1_reach_tc_timer integer
----@field guard2_reach_tc_timer integer
----@field collected integer
----@field quota integer
+---@class (exact) plotinfost.T_tax_collection: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_tax_collection
+---@field state number bay12: plotinfo_taxinfost
+---@field check_timer number
+---@field reach_room_timer number
+---@field tc_protect_timer number
+---@field guard1_reach_tc_timer number
+---@field guard2_reach_tc_timer number
+---@field collected number
+---@field quota number
 ---@field collector_pos coord
----@field guard_pos_x integer[]
----@field guard_pos_y integer[]
----@field guard_pos_z integer[]
----@field collector unit
----@field guard1 unit
----@field guard2 unit
----@field guard_lack_complained integer
+---@field guard_lack_complained number
+local tax_collection
+
+---@class _plotinfost.T_tax_collection: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_tax_collection = {}
 
+---@class (exact) plotinfost.T_nobles: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_nobles
+---@field unk_1 number bay12: plotinfo_positionst
+---@field manager_cooldown number 0-1008
+---@field bookkeeper_cooldown number 0-1008
+---@field bookkeeper_precision number
+---@field bookkeeper_settings plotinfost.T_nobles.T_bookkeeper_settings
+local nobles
 
----@class plotinfost_nobles: df.class
----@field unk_1 integer
----@field manager_cooldown integer 0-1008
----@field bookkeeper_cooldown integer 0-1008
----@field bookkeeper_precision integer
----@field bookkeeper_settings plotinfost.T_nobles_bookkeeper_settings
+---@class _plotinfost.T_nobles: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_nobles = {}
 
----@class _plotinfost.T_nobles_bookkeeper_settings: integer, string, df.enum
+---@alias plotinfost.T_nobles.T_bookkeeper_settings
+---| 0 # nearest_10
+---| 1 # nearest_100
+---| 2 # nearest_1000
+---| 3 # nearest_10000
+---| 4 # all_accurate
+
+---@class _plotinfost.T_nobles.T_bookkeeper_settings: DFDescriptor
+---@field _kind 'enum-type'
 ---@field nearest_10 0
 ---@field [0] "nearest_10"
 ---@field nearest_100 1
@@ -732,353 +566,252 @@ df.plotinfost.T_nobles = {}
 ---@field [4] "all_accurate"
 df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 
----@class plotinfost.T_nobles_bookkeeper_settings
----@field [0] boolean
----@field nearest_10 boolean
----@field [1] boolean
----@field nearest_100 boolean
----@field [2] boolean
----@field nearest_1000 boolean
----@field [3] boolean
----@field nearest_10000 boolean
----@field [4] boolean
----@field all_accurate boolean
+---@class (exact) plotinfost.T_invasions: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_invasions
+---@field next_id number
+local invasions
 
-
----@class plotinfost_invasions: df.class
----@field list invasion_info[]
----@field next_id integer
+---@class _plotinfost.T_invasions: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_invasions = {}
 
+---@class (exact) plotinfost.T_kitchen: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_kitchen
+local kitchen
 
----@class plotinfost_kitchen: df.class
----@field item_types item_type[]
----@field item_subtypes integer[]
----@field mat_types integer[]
----@field mat_indices df.container
----@field exc_types kitchen_exc_type[]
+---@class _plotinfost.T_kitchen: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_kitchen = {}
 
+---@class (exact) plotinfost.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_flags
+---@field first_year flag-bit (FIRSTYEAR)
+---@field recheck_aid_requests flag-bit (EVAL_REQUESTERCANCHECK)
+---@field force_elections flag-bit (RUN_SPECIAL_ELECTIONS)
+---@field need_to_do_tutorial flag-bit (NEED_TO_DO_TUTORIAL)
+---@field minor_victory flag-bit (MINOR_VICTORY)
+---@field major_victory flag-bit (MAJOR_VICTORY)
+---@field did_first_caravan_announcement flag-bit (DID_FIRST_CARAVAN_ANNOUNCEMENT)
+---@field did_first_cavern_announcement flag-bit (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
+local flags
 
----@class _plotinfost_unk23c8_flags: integer, string, df.bitfield
----@field first_year 0
----@field [0] "first_year"
----@field recheck_aid_requests 1
----@field [1] "recheck_aid_requests"
----@field force_elections 2
----@field [2] "force_elections"
-df.plotinfost.T_unk23c8_flags = {}
+---@class _plotinfost.T_flags: DFCompound
+---@field _kind 'struct-type'
+df.plotinfost.T_flags = {}
 
----@class plotinfost_unk23c8_flags
----@field [0] boolean
----@field first_year boolean
----@field [1] boolean
----@field recheck_aid_requests boolean
----@field [2] boolean
----@field force_elections boolean
+---@class (exact) plotinfost.T_economy_prices: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_economy_prices
+---@field price_adjustment plotinfost.T_economy_prices.T_price_adjustment
+---@field price_setter plotinfost.T_economy_prices.T_price_setter
+local economy_prices
 
-
----@class plotinfost_economy_prices: df.class
----@field price_adjustment plotinfost.T_economy_prices_price_adjustment
----@field price_setter plotinfost.T_economy_prices_price_setter
+---@class _plotinfost.T_economy_prices: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices = {}
 
----@class plotinfost.T_economy_prices_price_adjustment: df.class
----@field general_items df.container
----@field weapons df.container
----@field armor df.container
----@field handwear df.container
----@field footwear df.container
----@field headwear df.container
----@field legwear df.container
----@field prepared_food df.container
----@field wood df.container
----@field thread_cloth df.container
----@field paper df.container
----@field parchment df.container
----@field bone df.container
----@field tooth df.container
----@field horn df.container
----@field pearl df.container
----@field shell df.container
----@field leather df.container
----@field silk df.container
----@field yarn df.container
----@field inorganic df.container
----@field meat df.container
----@field fish df.container
----@field plants df.container
----@field drinks df.container
----@field extract_animal df.container
----@field extract_plant df.container
----@field mill_animal df.container
----@field mill_plant df.container
----@field cheese_animal df.container
----@field cheese_plant df.container
----@field pets df.container
+---@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_economy_prices.T_price_adjustment
+local price_adjustment
+
+---@class _plotinfost.T_economy_prices.T_price_adjustment: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices.T_price_adjustment = {}
 
+---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_economy_prices.T_price_setter
+local price_setter
 
----@class plotinfost.T_economy_prices_price_setter: df.class
----@field general_items item_type[]
----@field weapons unit[]
----@field armor unit[]
----@field handwear unit[]
----@field footwear unit[]
----@field headwear unit[]
----@field legwear unit[]
----@field prepared_food unit[]
----@field wood unit[]
----@field thread_cloth unit[]
----@field paper unit[]
----@field parchment unit[]
----@field bone unit[]
----@field tooth unit[]
----@field horn unit[]
----@field pearl unit[]
----@field shell unit[]
----@field leather unit[]
----@field silk unit[]
----@field yarn unit[]
----@field inorganic unit[]
----@field meat unit[]
----@field fish unit[]
----@field plants unit[]
----@field drinks unit[]
----@field extract_animal unit[]
----@field extract_plant unit[]
----@field mill_animal unit[]
----@field mill_plant unit[]
----@field cheese_animal unit[]
----@field cheese_plant unit[]
----@field pets unit[]
+---@class _plotinfost.T_economy_prices.T_price_setter: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_economy_prices.T_price_setter = {}
 
-
----@class plotinfost_stockpile: df.class
----@field reserved_bins integer
----@field reserved_barrels integer
+---@class (exact) plotinfost.T_stockpile: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_stockpile
+---@field reserved_bins number
+---@field reserved_barrels number
 ---@field custom_settings stockpile_settings
+local stockpile
+
+---@class _plotinfost.T_stockpile: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_stockpile = {}
 
+---@class (exact) plotinfost.T_map_edge: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_map_edge
+local map_edge
 
----@class plotinfost_unk2a8c: df.class
----@field unk1 integer
----@field unk2 integer
-df.plotinfost.T_unk2a8c = {}
-
-
----@class plotinfost_map_edge: df.class
----@field layer_x df.container[]
----@field surface_x df.container
----@field layer_y df.container[]
----@field surface_y df.container
----@field layer_z df.container[]
----@field surface_z df.container
+---@class _plotinfost.T_map_edge: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_map_edge = {}
 
-
----@class plotinfost_waypoints: df.class
----@field points plotinfost.T_waypoints_points[]
----@field routes plotinfost.T_waypoints_routes[]
----@field sym_selector integer
----@field unk_1 integer
----@field cur_point_index integer
+---@class (exact) plotinfost.T_waypoints: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_waypoints
+---@field sym_selector number
+---@field unk_1 number
+---@field cur_point_index number
 ---@field in_edit_name_mode boolean
 ---@field in_edit_text_mode boolean
 ---@field sym_tile integer
----@field sym_fg_color integer
----@field sym_bg_color integer
----@field unk5c04 df.string[]
----@field next_point_id integer
----@field next_route_id integer
----@field sel_route_idx integer
----@field sel_route_waypt_idx integer
+---@field sym_fg_color number
+---@field sym_bg_color number
+---@field next_point_id number
+---@field next_route_id number
+---@field sel_route_idx number
+---@field sel_route_waypt_idx number
 ---@field in_edit_waypts_mode boolean
----@field unk_42_06 df.container
+local waypoints
+
+---@class _plotinfost.T_waypoints: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_waypoints = {}
 
----@class plotinfost.T_waypoints_points: df.class
----@field id integer
----@field tile integer
----@field fg_color integer
----@field bg_color integer
----@field name df.string
----@field comment df.string
----@field pos coord
-df.plotinfost.T_waypoints.T_points = {}
-
-
----@class plotinfost.T_waypoints_routes: df.class
----@field id integer
----@field name df.string
----@field points integer[]
-df.plotinfost.T_waypoints.T_routes = {}
-
-
----@class plotinfost_burrows: df.class
----@field list burrow[]
----@field next_id integer
----@field sel_index integer
----@field sel_id integer References: burrow
+---@class (exact) plotinfost.T_burrows: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_burrows
+---@field next_id number
+---@field sel_index number
+---@field sel_id number References: `burrow`
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
----@field list_units unit[]
----@field sel_units boolean[]
----@field unit_cursor_pos integer
+---@field unit_cursor_pos number
 ---@field in_define_mode boolean
 ---@field brush_erasing boolean
 ---@field rect_start coord
----@field brush_mode integer
+---@field brush_mode number
 ---@field in_edit_name_mode boolean
----@field sym_selector integer
----@field sym_tile integer
----@field sym_fg_color integer
----@field sym_bg_color integer
+---@field sym_selector number
+---@field sym_tile number
+---@field sym_fg_color number
+---@field sym_bg_color number
+local burrows
+
+---@class _plotinfost.T_burrows: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_burrows = {}
 
+---@class (exact) plotinfost.T_alerts: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_alerts
+---@field next_id number
+---@field next_routine_id number
+---@field civ_alert_idx number
+local alerts
 
----@class plotinfost_alerts: df.class
----@field list plotinfost.T_alerts_list[]
----@field next_id integer
----@field routines plotinfost.T_alerts_routines
----@field next_routine_id integer
----@field civ_alert_idx integer
+---@class _plotinfost.T_alerts: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_alerts = {}
 
----@class plotinfost.T_alerts_list: df.class
----@field id integer
----@field name df.string
----@field burrows df.container References: burrow
-df.plotinfost.T_alerts.T_list = {}
-
-
----@class plotinfost.T_alerts_routines: df.class
-df.plotinfost.T_alerts.T_routines = {}
-
-
----@class plotinfost_equipment: df.class
----@field items_unmanifested df.container[]
----@field items_unassigned df.container[]
----@field items_assigned df.container[]
+---@class (exact) plotinfost.T_equipment: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_equipment
 ---@field update equipment_update
----@field work_weapons integer[] i.e. woodcutter axes, and miner picks
----@field work_units integer[]
----@field hunter_ammunition squad_ammo_spec[]
----@field ammo_items integer[]
----@field ammo_units integer[]
----@field training_assignments training_assignment[] sorted by animal_id
+local equipment
+
+---@class _plotinfost.T_equipment: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_equipment = {}
 
-
----@class plotinfost_hauling: df.class
----@field routes hauling_route[]
----@field next_id integer
----@field view_routes hauling_route[]
----@field view_stops hauling_stop[]
----@field view_bad integer[]
----@field cursor_top integer
+---@class (exact) plotinfost.T_hauling: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_hauling
+---@field next_id number
+---@field scroll_position number
+---@field scrolling boolean
 ---@field in_stop boolean
----@field cursor_stop integer
+---@field adding_stop_route_id number
+---@field entering_nickname boolean
+---@field nickname_route_id number
+---@field nickname_stop_id number
+local hauling
+
+---@class _plotinfost.T_hauling: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_hauling = {}
 
-
----related to job_type unk_fake_no_activity
----@class plotinfost_theft_intrigues: df.class
----@field target_item integer References: item
----@field mastermind_hf integer References: historical_figure<br>always same as corruptor_hf?
----@field mastermind_plot_id integer refers to historical_figure_info::T_relationships::T_intrigues::T_plots::id
----@field corruptor_hf integer References: historical_figure
----@field corruptor integer References: unit
----@field corruptee_hf integer References: historical_figure
----@field corruptee integer References: unit
----@field theft_agreement integer References: agreement
----@field unk_9 integer
----@field item_known_pos coord
----@field unk_11 integer[]
----@field unk_12 integer[]
----@field unk_13 integer[]
----@field unk_14 integer[]
----@field unk_15 integer[]
----@field unk_16 integer[]
----@field unk_17 integer[]
----@field unk_18 integer[]
----@field unk_19 integer
----@field unk_20 integer
----@field unk_21 integer
----@field unk_22 integer
----@field unk_23 integer
-df.plotinfost.T_theft_intrigues = {}
-
-
----@class plotinfost_main: df.class
----@field hotkeys ui_hotkey[]
----@field traffic_cost_high integer
----@field traffic_cost_normal integer
----@field traffic_cost_low integer
----@field traffic_cost_restricted integer
----@field dead_citizens plotinfost.T_main_dead_citizens[] ?
+---@class (exact) plotinfost.T_main: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_main
+---@field traffic_cost_high number 0.50.01
+---@field traffic_cost_normal number
+---@field traffic_cost_low number
+---@field traffic_cost_restricted number
 ---@field custom_difficulty difficultyst
----@field fortress_entity historical_entity entity pointed to by group_id
----@field fortress_site world_site
 ---@field mode ui_sidebar_mode
----@field unk_v50_3 integer
----@field unk_v50_4 integer
+---@field unk_v50_3 number
+---@field unk_v50_4 number
 ---@field autosave_request boolean
----@field autosave_timer integer
+---@field autosave_timer number
 ---@field file file_compressorst
----@field save_progress plotinfost.T_main_save_progress
----@field unk_v50_7 integer
+---@field save_progress plotinfost.T_main.T_save_progress
+---@field unk_v50_7 number
 ---@field unk_44_12b nemesis_offload
 ---@field unk_44_12c boolean
----@field unk_44_12d integer padding?
----@field selected_hotkey integer
+---@field unk_44_12d number padding?
+---@field selected_hotkey number
 ---@field in_rename_hotkey boolean
+local main
+
+---@class _plotinfost.T_main: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_main = {}
 
----?
----@class plotinfost.T_main_dead_citizens: df.class
----@field unit_id integer References: unit
----@field histfig_id integer References: historical_figure
----@field death_year integer
----@field death_time integer
----@field timer integer +1 per 10
----@field ghost_type ghost_type
-df.plotinfost.T_main.T_dead_citizens = {}
-
-
----@class plotinfost.T_main_save_progress: df.class
+---@class (exact) plotinfost.T_main.T_save_progress: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_main.T_save_progress
 ---@field substage save_substage
----@field stage integer
+---@field stage number
 ---@field info nemesis_offload
+local save_progress
+
+---@class _plotinfost.T_main.T_save_progress: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_main.T_save_progress = {}
 
-
----@class plotinfost_squads: df.class
----@field list squad[] valid only when ui is displayed
----@field unk6e08 df.container
----@field sel_squads boolean[]
----@field indiv_selected integer[]
+---@class (exact) plotinfost.T_squads: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_squads
 ---@field in_select_indiv boolean
----@field sel_indiv_squad integer
----@field unk_70 integer
----@field squad_list_scroll integer
----@field squad_list_first_id integer
----@field nearest_squad squad
+---@field sel_indiv_squad number
+---@field unk_70 number
+---@field squad_list_scroll number
+---@field squad_list_first_id number
 ---@field in_move_order boolean
----@field point_list_scroll integer
+---@field point_list_scroll number
 ---@field in_kill_order boolean
----@field kill_rect_targets unit[]
----@field kill_rect_targets_scroll integer also used for the list of targets at cursor
+---@field kill_rect_targets_scroll number also used for the list of targets at cursor
 ---@field in_kill_list boolean
----@field kill_targets unit[]
----@field sel_kill_targets boolean[]
----@field kill_list_scroll integer
+---@field kill_list_scroll number
 ---@field in_kill_rect boolean
 ---@field rect_start coord
+local squads
+
+---@class _plotinfost.T_squads: DFCompound
+---@field _kind 'struct-type'
 df.plotinfost.T_squads = {}
 
----@class _timed_event_type: integer, string, df.enum
+---@alias timed_event_type
+---| 0 # Caravan
+---| 1 # Migrants
+---| 2 # Diplomat
+---| 3 # FeatureAttack
+---| 4 # Megabeast
+---| 5 # WildlifeCurious
+---| 6 # WildlifeMischievous
+---| 7 # WildlifeFlier
+---| 8 # NightCreature
+---| 9 # TributeCaravan
+
+---@class _timed_event_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Caravan 0
 ---@field [0] "Caravan"
 ---@field Migrants 1
@@ -1097,84 +830,66 @@ df.plotinfost.T_squads = {}
 ---@field [7] "WildlifeFlier"
 ---@field NightCreature 8
 ---@field [8] "NightCreature"
+---@field TributeCaravan 9
+---@field [9] "TributeCaravan"
 df.timed_event_type = {}
 
----@class timed_event_type
----@field [0] boolean
----@field Caravan boolean
----@field [1] boolean
----@field Migrants boolean
----@field [2] boolean
----@field Diplomat boolean
----@field [3] boolean
----@field FeatureAttack boolean
----@field [4] boolean
----@field Megabeast boolean
----@field [5] boolean
----@field WildlifeCurious boolean
----@field [6] boolean
----@field WildlifeMischievous boolean
----@field [7] boolean
----@field WildlifeFlier boolean
----@field [8] boolean
----@field NightCreature boolean
-
----@class timed_event: df.class
+---@class (exact) timed_event: DFObject
+---@field _kind 'struct'
+---@field _type _timed_event
 ---@field type timed_event_type
 ---@field season season
----@field season_ticks integer 1 tick = 10 frames
----@field entity historical_entity
----@field unk_1 integer
----@field layer_id integer References: world_underground_region
----@field unk_3 integer
----@field unk_4 integer
+---@field season_ticks number 1 tick = 10 frames
+---@field feature_ind number
+---@field layer_id number References: `world_underground_region`
+---@field feature_ax number
+---@field feature_ay number
+local timed_event
+
+---@class _timed_event: DFCompound
+---@field _kind 'struct-type'
 df.timed_event = {}
 
----@class map_viewport: df.class
+---@class (exact) map_viewport: DFObject
+---@field _kind 'struct'
+---@field _type _map_viewport
 ---@field adv_mode boolean
 ---@field unk1 boolean
 ---@field map_rotation integer
----@field min_x integer
----@field min_y integer
----@field max_x integer
----@field max_y integer
----@field window_x integer
----@field window_y integer
----@field window_z integer
----@field main_viewport graphic_viewportst
----@field lower_viewport graphic_viewportst[]
+---@field min_x number
+---@field min_y number
+---@field max_x number
+---@field max_y number
+---@field window_x number
+---@field window_y number
+---@field window_z number
+---@field  number
+---@field  number
+local map_viewport
+
+---@class _map_viewport: DFCompound
+---@field _kind 'struct-type'
 df.map_viewport = {}
 
----@class map_renderer: df.class
----@field entity integer[][]
----@field unk_v50_1 integer[][]
----@field cursor_units unit[]
----@field cursor_guts unit
+---@class (exact) map_renderer: DFObject
+---@field _kind 'struct'
+---@field _type _map_renderer
 ---@field multiple_guts boolean
----@field cursor_corpse item
----@field cursor_corpse_cnt integer
----@field cursor_corpsepiece item
----@field cursor_corpsepiece_cnt integer
----@field cursor_bones item
----@field cursor_bones_cnt integer
----@field cursor_other item
----@field cursor_other_cnt integer
----@field unk_10034 integer
----@field unk_10035 integer
----@field cur_tick_count integer GetTickCount
----@field tick_phase integer cur_year_tick%10080
----@field dim_colors integer
----@field unk_1 integer
----@field unk_2 integer[]
----@field unk_3 integer[]
----@field unk_4 map_renderer_unk_4
----@field unk_5 integer[]
----@field unk_6 integer
----@field unk_7 integer
-df.map_renderer = {}
+---@field cursor_corpse_cnt number
+---@field cursor_corpsepiece_cnt number
+---@field cursor_bones_cnt number
+---@field cursor_other_cnt number
+---@field unk_10034 number
+---@field unk_10035 number
+---@field cur_tick_count number GetTickCount
+---@field tick_phase number cur_year_tick%10080
+---@field dim_colors number
+---@field unk_1 number
+---@field unk_6 number
+---@field unk_7 number
+local map_renderer
 
----@class map_renderer_unk_4: df.class
----@field x integer
----@field y integer
-df.map_renderer.T_unk_4 = {}
+---@class _map_renderer: DFCompound
+---@field _kind 'struct-type'
+df.map_renderer = {}
 

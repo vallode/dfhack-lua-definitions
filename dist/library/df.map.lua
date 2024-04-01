@@ -1,29 +1,55 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.map
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class coord2d: df.class
----@field x integer
----@field y integer
+---@class (exact) coord2d: DFObject
+---@field _kind 'struct'
+---@field _type _coord2d
+---@field x number
+---@field y number
+local coord2d
+
+---@class _coord2d: DFCompound
+---@field _kind 'struct-type'
 df.coord2d = {}
 
----@class coord2d_path: df.class
----@field x df.container
----@field y df.container
+---@class (exact) coord2d_path: DFObject
+---@field _kind 'struct'
+---@field _type _coord2d_path
+local coord2d_path
+
+---@class _coord2d_path: DFCompound
+---@field _kind 'struct-type'
 df.coord2d_path = {}
 
----@class coord: df.class
----@field x integer
----@field y integer
----@field z integer
+---@class (exact) coord: DFObject
+---@field _kind 'struct'
+---@field _type _coord
+---@field x number
+---@field y number
+---@field z number
+local coord
+
+---@class _coord: DFCompound
+---@field _kind 'struct-type'
 df.coord = {}
 
----@class coord_path: df.class
----@field x df.container
----@field y df.container
----@field z df.container
+---@class (exact) coord_path: DFObject
+---@field _kind 'struct'
+---@field _type _coord_path
+local coord_path
+
+---@class _coord_path: DFCompound
+---@field _kind 'struct-type'
 df.coord_path = {}
 
----@class _tile_traffic: integer, string, df.enum
+---@alias tile_traffic
+---| 0 # Normal
+---| 1 # Low
+---| 2 # High
+---| 3 # Restricted
+
+---@class _tile_traffic: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Normal 0
 ---@field [0] "Normal"
 ---@field Low 1
@@ -34,21 +60,21 @@ df.coord_path = {}
 ---@field [3] "Restricted"
 df.tile_traffic = {}
 
----@class tile_traffic
----@field [0] boolean
----@field Normal boolean
----@field [1] boolean
----@field Low boolean
----@field [2] boolean
----@field High boolean
----@field [3] boolean
----@field Restricted boolean
+---@alias tile_dig_designation
+---| 0 # No
+---| 1 # Default
+---| 2 # UpDownStair
+---| 3 # Channel
+---| 4 # Ramp
+---| 5 # DownStair
+---| 6 # UpStair
 
----@class _tile_dig_designation: integer, string, df.enum
----@field No 0
----@field [0] "No"
----@field Default 1
----@field [1] "Default"
+---@class _tile_dig_designation: DFDescriptor
+---@field _kind 'enum-type'
+---@field No 0 no designation
+---@field [0] "No" no designation
+---@field Default 1 dig walls, remove stairs and ramps, gather plants, fell trees
+---@field [1] "Default" dig walls, remove stairs and ramps, gather plants, fell trees
 ---@field UpDownStair 2
 ---@field [2] "UpDownStair"
 ---@field Channel 3
@@ -61,313 +87,68 @@ df.tile_traffic = {}
 ---@field [6] "UpStair"
 df.tile_dig_designation = {}
 
----@class tile_dig_designation
----@field [0] boolean
----@field No boolean
----@field [1] boolean
----@field Default boolean
----@field [2] boolean
----@field UpDownStair boolean
----@field [3] boolean
----@field Channel boolean
----@field [4] boolean
----@field Ramp boolean
----@field [5] boolean
----@field DownStair boolean
----@field [6] boolean
----@field UpStair boolean
+---@alias tile_liquid
+---| 0 # Water
+---| 1 # Magma
 
----@class _tile_liquid: integer, string, df.enum
+---@class _tile_liquid: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Water 0
 ---@field [0] "Water"
 ---@field Magma 1
 ---@field [1] "Magma"
 df.tile_liquid = {}
 
----@class tile_liquid
----@field [0] boolean
----@field Water boolean
----@field [1] boolean
----@field Magma boolean
+---@alias tile_building_occ
+---| 0 # None
+---| 1 # Planned
+---| 2 # Passable
+---| 3 # Obstacle
+---| 4 # Well
+---| 5 # Floored
+---| 6 # Impassable
+---| 7 # Dynamic
 
----@class _tile_designation: integer, string, df.bitfield
----@field flow_size 0
----@field [0] "flow_size"
----@field pile 1
----@field [1] "pile"
----@field dig 2
----@field [2] "dig"
----@field smooth 3
----@field [3] "smooth"
----@field hidden 4
----@field [4] "hidden"
----@field geolayer_index 5
----@field [5] "geolayer_index"
----@field light 6
----@field [6] "light"
----@field subterranean 7
----@field [7] "subterranean"
----@field outside 8
----@field [8] "outside"
----@field biome 9
----@field [9] "biome"
----@field liquid_type 10
----@field [10] "liquid_type"
----@field water_table 11
----@field [11] "water_table"
----@field rained 12
----@field [12] "rained"
----@field traffic 13
----@field [13] "traffic"
----@field flow_forbid 14
----@field [14] "flow_forbid"
----@field liquid_static 15
----@field [15] "liquid_static"
----@field feature_local 16
----@field [16] "feature_local"
----@field feature_global 17
----@field [17] "feature_global"
----@field water_stagnant 18
----@field [18] "water_stagnant"
----@field water_salt 19
----@field [19] "water_salt"
-df.tile_designation = {}
-
----@class tile_designation
----@field [0] boolean
----@field flow_size boolean
----@field [1] boolean
----@field pile boolean
----@field [2] boolean
----@field dig boolean
----@field [3] boolean
----@field smooth boolean
----@field [4] boolean
----@field hidden boolean
----@field [5] boolean
----@field geolayer_index boolean
----@field [6] boolean
----@field light boolean
----@field [7] boolean
----@field subterranean boolean
----@field [8] boolean
----@field outside boolean
----@field [9] boolean
----@field biome boolean
----@field [10] boolean
----@field liquid_type boolean
----@field [11] boolean
----@field water_table boolean
----@field [12] boolean
----@field rained boolean
----@field [13] boolean
----@field traffic boolean
----@field [14] boolean
----@field flow_forbid boolean
----@field [15] boolean
----@field liquid_static boolean
----@field [16] boolean
----@field feature_local boolean
----@field [17] boolean
----@field feature_global boolean
----@field [18] boolean
----@field water_stagnant boolean
----@field [19] boolean
----@field water_salt boolean
-
----@class _tile_building_occ: integer, string, df.enum
----@field None 0
----@field [0] "None"
----@field Planned 1
----@field [1] "Planned"
+---@class _tile_building_occ: DFDescriptor
+---@field _kind 'enum-type'
+---@field None 0 no building
+---@field [0] "None" no building
+---@field Planned 1 nothing built yet
+---@field [1] "Planned" nothing built yet
 ---@field Passable 2
 ---@field [2] "Passable"
----@field Obstacle 3
----@field [3] "Obstacle"
+---@field Obstacle 3 workshop tile; ~fortification
+---@field [3] "Obstacle" workshop tile; ~fortification
 ---@field Well 4
 ---@field [4] "Well"
----@field Floored 5
----@field [5] "Floored"
+---@field Floored 5 depot; lowered bridge
+---@field [5] "Floored" depot; lowered bridge
 ---@field Impassable 6
 ---@field [6] "Impassable"
----@field Dynamic 7
----@field [7] "Dynamic"
+---@field Dynamic 7 doors, grates, etc
+---@field [7] "Dynamic" doors, grates, etc
 df.tile_building_occ = {}
 
----@class tile_building_occ
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field Planned boolean
----@field [2] boolean
----@field Passable boolean
----@field [3] boolean
----@field Obstacle boolean
----@field [4] boolean
----@field Well boolean
----@field [5] boolean
----@field Floored boolean
----@field [6] boolean
----@field Impassable boolean
----@field [7] boolean
----@field Dynamic boolean
+---@alias tile_liquid_flow_dir
+---| 0 # none
+---| 1 # south
+---| 2 # east
+---| 3 # northeast
+---| 4 # west
+---| 5 # northwest
+---| 6 # southeast
+---| 7 # southwest
+---| 8 # inv_8
+---| 9 # inv_9
+---| 10 # north
+---| 11 # inv_b
+---| 12 # inv_c
+---| 13 # inv_d
+---| 14 # inv_e
+---| 15 # inv_f
 
----@class _tile_occupancy: integer, string, df.bitfield
----@field building 0
----@field [0] "building"
----@field unit 1
----@field [1] "unit"
----@field unit_grounded 2
----@field [2] "unit_grounded"
----@field item 3
----@field [3] "item"
----@field edge_flow_in 4
----@field [4] "edge_flow_in"
----@field moss 5
----@field [5] "moss"
----@field arrow_color 6
----@field [6] "arrow_color"
----@field arrow_variant 7
----@field [7] "arrow_variant"
----@field unk13_noncitizen_unit 8
----@field [8] "unk13_noncitizen_unit"
----@field monster_lair 9
----@field [9] "monster_lair"
----@field no_grow 10
----@field [10] "no_grow"
----@field unk16 11
----@field [11] "unk16"
----@field unk17 12
----@field [12] "unk17"
----@field carve_track_north 13
----@field [13] "carve_track_north"
----@field carve_track_south 14
----@field [14] "carve_track_south"
----@field carve_track_east 15
----@field [15] "carve_track_east"
----@field carve_track_west 16
----@field [16] "carve_track_west"
----@field spoor 17
----@field [17] "spoor"
----@field unk23 18
----@field [18] "unk23"
----@field dig_marked 19
----@field [19] "dig_marked"
----@field dig_auto 20
----@field [20] "dig_auto"
----@field heavy_aquifer 21
----@field [21] "heavy_aquifer"
-df.tile_occupancy = {}
-
----@class tile_occupancy
----@field [0] boolean
----@field building boolean
----@field [1] boolean
----@field unit boolean
----@field [2] boolean
----@field unit_grounded boolean
----@field [3] boolean
----@field item boolean
----@field [4] boolean
----@field edge_flow_in boolean
----@field [5] boolean
----@field moss boolean
----@field [6] boolean
----@field arrow_color boolean
----@field [7] boolean
----@field arrow_variant boolean
----@field [8] boolean
----@field unk13_noncitizen_unit boolean
----@field [9] boolean
----@field monster_lair boolean
----@field [10] boolean
----@field no_grow boolean
----@field [11] boolean
----@field unk16 boolean
----@field [12] boolean
----@field unk17 boolean
----@field [13] boolean
----@field carve_track_north boolean
----@field [14] boolean
----@field carve_track_south boolean
----@field [15] boolean
----@field carve_track_east boolean
----@field [16] boolean
----@field carve_track_west boolean
----@field [17] boolean
----@field spoor boolean
----@field [18] boolean
----@field unk23 boolean
----@field [19] boolean
----@field dig_marked boolean
----@field [20] boolean
----@field dig_auto boolean
----@field [21] boolean
----@field heavy_aquifer boolean
-
----@class _block_flags: integer, string, df.bitfield
----@field designated 0
----@field [0] "designated"
----@field update_temperature 1
----@field [1] "update_temperature"
----@field update_liquid 2
----@field [2] "update_liquid"
----@field update_liquid_twice 3
----@field [3] "update_liquid_twice"
----@field repath_on_freeze 4
----@field [4] "repath_on_freeze"
----@field repath_on_melt 5
----@field [5] "repath_on_melt"
----@field has_aquifer 6
----@field [6] "has_aquifer"
----@field check_aquifer 7
----@field [7] "check_aquifer"
----@field unk_8 8
----@field [8] "unk_8"
----@field subterranean_water 9
----@field [9] "subterranean_water"
-df.block_flags = {}
-
----@class block_flags
----@field [0] boolean
----@field designated boolean
----@field [1] boolean
----@field update_temperature boolean
----@field [2] boolean
----@field update_liquid boolean
----@field [3] boolean
----@field update_liquid_twice boolean
----@field [4] boolean
----@field repath_on_freeze boolean
----@field [5] boolean
----@field repath_on_melt boolean
----@field [6] boolean
----@field has_aquifer boolean
----@field [7] boolean
----@field check_aquifer boolean
----@field [8] boolean
----@field unk_8 boolean
----@field [9] boolean
----@field subterranean_water boolean
-
----@class _z_level_flags: integer, string, df.bitfield
----@field update 0
----@field [0] "update"
----@field can_stop 1
----@field [1] "can_stop"
----@field update_twice 2
----@field [2] "update_twice"
-df.z_level_flags = {}
-
----@class z_level_flags
----@field [0] boolean
----@field update boolean
----@field [1] boolean
----@field can_stop boolean
----@field [2] boolean
----@field update_twice boolean
-
----@class _tile_liquid_flow_dir: integer, string, df.enum
+---@class _tile_liquid_flow_dir: DFDescriptor
+---@field _kind 'enum-type'
 ---@field none 0
 ---@field [0] "none"
 ---@field south 1
@@ -402,203 +183,144 @@ df.z_level_flags = {}
 ---@field [15] "inv_f"
 df.tile_liquid_flow_dir = {}
 
----@class tile_liquid_flow_dir
----@field [0] boolean
----@field none boolean
----@field [1] boolean
----@field south boolean
----@field [2] boolean
----@field east boolean
----@field [3] boolean
----@field northeast boolean
----@field [4] boolean
----@field west boolean
----@field [5] boolean
----@field northwest boolean
----@field [6] boolean
----@field southeast boolean
----@field [7] boolean
----@field southwest boolean
----@field [8] boolean
----@field inv_8 boolean
----@field [9] boolean
----@field inv_9 boolean
----@field [10] boolean
----@field north boolean
----@field [11] boolean
----@field inv_b boolean
----@field [12] boolean
----@field inv_c boolean
----@field [13] boolean
----@field inv_d boolean
----@field [14] boolean
----@field inv_e boolean
----@field [15] boolean
----@field inv_f boolean
+---@class (exact) tile_bitmask: DFObject
+---@field _kind 'struct'
+---@field _type _tile_bitmask
+local tile_bitmask
 
----@class _tile_liquid_flow: integer, string, df.bitfield
----@field temp_flow_timer 0
----@field [0] "temp_flow_timer"
----@field unk_1 1
----@field [1] "unk_1"
----@field perm_flow_dir 2
----@field [2] "perm_flow_dir"
----@field unk_2 3
----@field [3] "unk_2"
-df.tile_liquid_flow = {}
-
----@class tile_liquid_flow
----@field [0] boolean
----@field temp_flow_timer boolean
----@field [1] boolean
----@field unk_1 boolean
----@field [2] boolean
----@field perm_flow_dir boolean
----@field [3] boolean
----@field unk_2 boolean
-
----@class tile_bitmask: df.class
----@field bits integer[]
+---@class _tile_bitmask: DFCompound
+---@field _kind 'struct-type'
 df.tile_bitmask = {}
 
----@class block_burrow: df.class
----@field id integer References: burrow
+---@class (exact) block_burrow: DFObject
+---@field _kind 'struct'
+---@field _type _block_burrow
+---@field id number References: `burrow`
 ---@field tile_bitmask tile_bitmask
----@field link block_burrow_link
+local block_burrow
+
+---@class _block_burrow: DFCompound
+---@field _kind 'struct-type'
 df.block_burrow = {}
 
----flood; 256*cost for straight, 362*cost for diagonal
----@class map_block: df.class
+---@class (exact) block_burrow_link: DFObject
+---@field _kind 'struct'
+---@field _type _block_burrow_link
+local block_burrow_link
+
+---@class _block_burrow_link: DFCompound
+---@field _kind 'struct-type'
+df.block_burrow_link = {}
+
+---@class (exact) map_block: DFObject
+---@field _kind 'struct'
+---@field _type _map_block
 ---@field flags block_flags
----@field block_events block_square_event[]
----@field block_burrows block_burrow_link
----@field local_feature integer index into world_data.region_map
----@field global_feature integer References: world_underground_region
----@field unk2 integer
----@field layer_depth integer uninitialized
----@field dsgn_check_cooldown integer
+---@field local_feature number index into world_data.region_map
+---@field global_feature number References: `world_underground_region`
+---@field global_feature_sq number
+---@field layer_depth number This is compared to unit.animal.population.depth when a revealed<br>necromancer searches for a map edge tile to run away to:
+---@field dsgn_check_cooldown number
 ---@field default_liquid tile_designation
----@field items integer[]
----@field flows flow_info[]
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
 ---@field region_pos coord2d
----@field tiletype tiletype[][]
----@field designation tile_designation[][]
----@field occupancy tile_occupancy[][]
----@field fog_of_war integer[][] for adventure mode
----@field path_cost map_block_path_cost
----@field path_tag map_block_path_tag
----@field walkable map_block_walkable
----@field map_edge_distance map_block_map_edge_distance
----@field temperature_1 integer[][]
----@field temperature_2 integer[][]
----@field unk13 integer[][]
----@field liquid_flow tile_liquid_flow[][]
----@field region_offset integer[]
+local map_block
+
+---@class _map_block: DFCompound
+---@field _kind 'struct-type'
 df.map_block = {}
 
----@class map_block_path_cost: df.class
-df.map_block.T_path_cost = {}
+---@class (exact) cave_column_link: DFObject
+---@field _kind 'struct'
+---@field _type _cave_column_link
+local cave_column_link
 
+---@class _cave_column_link: DFCompound
+---@field _kind 'struct-type'
+df.cave_column_link = {}
 
----@class map_block_path_tag: df.class
-df.map_block.T_path_tag = {}
+---@class (exact) cave_column: DFObject
+---@field _kind 'struct'
+---@field _type _cave_column
+---@field base_z number
+---@field top_z number
+---@field rect_index number
+---@field flags cave_column.T_flags
+local cave_column
 
-
----@class map_block_walkable: df.class
-df.map_block.T_walkable = {}
-
-
----@class map_block_map_edge_distance: df.class
-df.map_block.T_map_edge_distance = {}
-
----@class cave_column: df.class
----@field unk_z1 integer
----@field unk_z2 integer
----@field unk_3 integer
----@field unk_4 cave_column_unk_4
+---@class _cave_column: DFCompound
+---@field _kind 'class-type'
 df.cave_column = {}
 
----@param file file_compressorst
-function df.cave_column.write_file(file) end
+---@class (exact) cave_column.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _cave_column.T_flags
+---@field UNSTABLE flag-bit
+---@field ULTRA_SUPPORTED flag-bit
+local flags
 
----@param file file_compressorst
----@param loadversion save_version
-function df.cave_column.read_file(file, loadversion) end
+---@class _cave_column.T_flags: DFCompound
+---@field _kind 'struct-type'
+df.cave_column.T_flags = {}
 
----@class _cave_column_unk_4: integer, string, df.bitfield
----@field unk_0 0
----@field [0] "unk_0"
----@field unk_1 1
----@field [1] "unk_1"
-df.cave_column.T_unk_4 = {}
+---@class (exact) cave_column_rectangle: DFObject
+---@field _kind 'struct'
+---@field _type _cave_column_rectangle
+---@field weight number
+---@field min_x number
+---@field min_y number
+---@field max_x number
+---@field max_y number
+---@field base_z number
+---@field flags cave_column_rectangle.T_flags
+local cave_column_rectangle
 
----@class cave_column_unk_4
----@field [0] boolean
----@field unk_0 boolean
----@field [1] boolean
----@field unk_1 boolean
-
----@class cave_column_rectangle: df.class
----@field unk_1 integer
----@field unk_x1 integer
----@field unk_y1 integer
----@field unk_x2 integer
----@field unk_y2 integer
----@field z_shift integer
----@field unk_6 coord_path
----@field unk_7 cave_column_rectangle_unk_7
+---@class _cave_column_rectangle: DFCompound
+---@field _kind 'class-type'
 df.cave_column_rectangle = {}
 
----@param file file_compressorst
-function df.cave_column_rectangle.write_file(file) end
+---@class (exact) cave_column_rectangle.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _cave_column_rectangle.T_flags
+---@field SUPPORTED flag-bit
+---@field UNSTABLE flag-bit
+---@field ULTRA_SUPPORTED flag-bit
+local flags
 
----@param file file_compressorst
----@param loadversion save_version
-function df.cave_column_rectangle.read_file(file, loadversion) end
+---@class _cave_column_rectangle.T_flags: DFCompound
+---@field _kind 'struct-type'
+df.cave_column_rectangle.T_flags = {}
 
----@class _cave_column_rectangle_unk_7: integer, string, df.bitfield
----@field unk_0 0
----@field [0] "unk_0"
----@field unk_1 1
----@field [1] "unk_1"
----@field unk_2 2
----@field [2] "unk_2"
-df.cave_column_rectangle.T_unk_7 = {}
-
----@class cave_column_rectangle_unk_7
----@field [0] boolean
----@field unk_0 boolean
----@field [1] boolean
----@field unk_1 boolean
----@field [2] boolean
----@field unk_2 boolean
-
----@class map_block_column: df.class
----@field sink_level integer water at or above this level sinks into aquifer tiles
----@field beach_level integer water at this level disappears if above more water
----@field ground_level integer for coloring unallocated blocks
----@field unmined_glyphs map_block_column_unmined_glyphs[]
----@field z_base integer
----@field cave_columns cave_column_link[][]
----@field column_rectangles cave_column_rectangle[]
----@field z_shift integer seems to be 0 originally, but updated when map is shifted
----@field flags boolean[] 0 process cave columns for caveins
----@field elevation integer[][]
+---@class (exact) map_block_column: DFObject
+---@field _kind 'struct'
+---@field _type _map_block_column
+---@field sink_level number water at or above this level sinks into aquifer tiles
+---@field beach_level number water at this level disappears if above more water
+---@field ground_level number for coloring unallocated blocks
+---@field z_base number
+---@field z_shift number seems to be 0 originally, but updated when map is shifted
 ---@field map_pos coord2d top left in tiles
----@field unk_c3c integer uninitialized
+---@field unk_c3c number uninitialized
 ---@field region_pos coord2d
----@field plants plant[] Only populated for the top left column in each mid level tile
+local map_block_column
+
+---@class _map_block_column: DFCompound
+---@field _kind 'struct-type'
 df.map_block_column = {}
 
----@class map_block_column_unmined_glyphs: df.class
----@field x integer[]
----@field y integer[]
----@field tile integer[]
-df.map_block_column.T_unmined_glyphs = {}
+---@alias block_square_event_type
+---| 0 # mineral
+---| 1 # frozen_liquid
+---| 2 # world_construction
+---| 3 # material_spatter
+---| 4 # grass
+---| 5 # spoor
+---| 6 # item_spatter
+---| 7 # designation_priority
 
----@class _block_square_event_type: integer, string, df.enum
+---@class _block_square_event_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field mineral 0
 ---@field [0] "mineral"
 ---@field frozen_liquid 1
@@ -617,138 +339,135 @@ df.map_block_column.T_unmined_glyphs = {}
 ---@field [7] "designation_priority"
 df.block_square_event_type = {}
 
----@class block_square_event_type
----@field [0] boolean
----@field mineral boolean
----@field [1] boolean
----@field frozen_liquid boolean
----@field [2] boolean
----@field world_construction boolean
----@field [3] boolean
----@field material_spatter boolean
----@field [4] boolean
----@field grass boolean
----@field [5] boolean
----@field spoor boolean
----@field [6] boolean
----@field item_spatter boolean
----@field [7] boolean
----@field designation_priority boolean
+---@class (exact) block_square_event: DFObject
+---@field _kind 'struct'
+---@field _type _block_square_event
+local block_square_event
 
----@class block_square_event: df.class
+---@class _block_square_event: DFCompound
+---@field _kind 'class-type'
 df.block_square_event = {}
 
----@return block_square_event_type
-function df.block_square_event.getType() end
-
----@param file file_compressorst
-function df.block_square_event.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.block_square_event.read_file(file, loadversion) end
-
----@return boolean
-function df.block_square_event.isEmpty() end
-
----@param x integer
----@param y integer
----@param temperature integer
-function df.block_square_event.checkTemperature(x, y, temperature) end
-
----@class block_square_event_mineralst: block_square_event
----@field inorganic_mat integer References: inorganic_raw
+---@class (exact) block_square_event_mineralst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_mineralst
+---@field inorganic_mat number References: `inorganic_raw`
 ---@field tile_bitmask tile_bitmask
----@field flags block_square_event_mineralst_flags
+---@field flags block_square_event_mineralst.T_flags
+local block_square_event_mineralst
+
+---@class _block_square_event_mineralst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_mineralst = {}
 
----@class _block_square_event_mineralst_flags: integer, string, df.bitfield
----@field discovered 0
----@field [0] "discovered"
----@field cluster 1
----@field [1] "cluster"
----@field vein 2
----@field [2] "vein"
----@field cluster_small 3
----@field [3] "cluster_small"
----@field cluster_one 4
----@field [4] "cluster_one"
+---@class (exact) block_square_event_mineralst.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _block_square_event_mineralst.T_flags
+---@field discovered flag-bit
+---@field cluster flag-bit
+---@field vein flag-bit
+---@field cluster_small flag-bit
+---@field cluster_one flag-bit
+local flags
+
+---@class _block_square_event_mineralst.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.block_square_event_mineralst.T_flags = {}
 
----@class block_square_event_mineralst_flags
----@field [0] boolean
----@field discovered boolean
----@field [1] boolean
----@field cluster boolean
----@field [2] boolean
----@field vein boolean
----@field [3] boolean
----@field cluster_small boolean
----@field [4] boolean
----@field cluster_one boolean
+---@class (exact) block_square_event_frozen_liquidst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_frozen_liquidst
+local block_square_event_frozen_liquidst
 
----@class block_square_event_frozen_liquidst: block_square_event
----@field tiles tiletype[][]
----@field liquid_type tile_liquid[][]
+---@class _block_square_event_frozen_liquidst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_frozen_liquidst = {}
 
----@class block_square_event_world_constructionst: block_square_event
----@field construction_id integer References: world_construction
+---@class (exact) block_square_event_world_constructionst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_world_constructionst
+---@field construction_id number References: `world_construction`
 ---@field tile_bitmask tile_bitmask
+local block_square_event_world_constructionst
+
+---@class _block_square_event_world_constructionst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_world_constructionst = {}
 
----@class block_square_event_material_spatterst: block_square_event
----@field mat_type integer References: material
----@field mat_index integer
+---@class (exact) block_square_event_material_spatterst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_material_spatterst
+---@field mat_type number References: `material`
+---@field mat_index number
 ---@field mat_state matter_state
----@field amount integer[][]
 ---@field min_temperature integer
 ---@field max_temperature integer
+local block_square_event_material_spatterst
+
+---@class _block_square_event_material_spatterst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_material_spatterst = {}
 
----@class block_square_event_grassst: block_square_event
----@field plant_index integer References: plant_raw
----@field amount integer[][]
+---@class (exact) block_square_event_grassst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_grassst
+---@field plant_index number References: `plant_raw`
+local block_square_event_grassst
+
+---@class _block_square_event_grassst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_grassst = {}
 
----@class block_square_event_spoorst: block_square_event
----@field flags block_square_event_spoorst_flags[][]
----@field unk_2 block_square_event_spoorst_unk_2[][]
----@field unk_3 integer[][]
----@field race integer[][]
----@field caste integer[][]
----@field age integer[][] in half-seconds
----@field year integer
----@field year_tick integer
+---@class (exact) block_square_event_spoorst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_spoorst
+---@field year number
+---@field year_tick number
+local block_square_event_spoorst
+
+---@class _block_square_event_spoorst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_spoorst = {}
 
----@class block_square_event_spoorst_flags: df.class
-df.block_square_event_spoorst.T_flags = {}
-
-
----@class block_square_event_spoorst_unk_2: df.class
----@field unk_2_a integer
----@field unk_2_b integer
----@field unk_2_c integer
----@field unk_2_d integer
-df.block_square_event_spoorst.T_unk_2 = {}
-
----@class block_square_event_item_spatterst: block_square_event
+---@class (exact) block_square_event_item_spatterst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_item_spatterst
 ---@field item_type item_type
----@field item_subtype integer
----@field mattype integer References: material
----@field matindex integer
----@field unk1 integer
----@field amount integer[][]
----@field unk2 integer[][]
+---@field item_subtype number
+---@field mattype number References: `material`
+---@field matindex number
+---@field unk1 number
 ---@field temp1 integer
 ---@field temp2 integer
+local block_square_event_item_spatterst
+
+---@class _block_square_event_item_spatterst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_item_spatterst = {}
 
----@class block_square_event_designation_priorityst: block_square_event
+---@class (exact) block_square_event_designation_priorityst: DFObject, block_square_event
+---@field _kind 'struct'
+---@field _type _block_square_event_designation_priorityst
+local block_square_event_designation_priorityst
+
+---@class _block_square_event_designation_priorityst: DFCompound
+---@field _kind 'class-type'
 df.block_square_event_designation_priorityst = {}
 
----@class _feature_type: integer, string, df.enum
+---@alias feature_type
+---| 0 # outdoor_river
+---| 1 # cave
+---| 2 # pit
+---| 3 # magma_pool
+---| 4 # volcano
+---| 5 # deep_special_tube
+---| 6 # deep_surface_portal
+---| 7 # subterranean_from_layer
+---| 8 # magma_core_from_layer
+---| 9 # underworld_from_layer
+
+---@class _feature_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field outdoor_river 0
 ---@field [0] "outdoor_river"
 ---@field cave 1
@@ -771,287 +490,322 @@ df.block_square_event_designation_priorityst = {}
 ---@field [9] "underworld_from_layer"
 df.feature_type = {}
 
----@class feature_type
----@field [0] boolean
----@field outdoor_river boolean
----@field [1] boolean
----@field cave boolean
----@field [2] boolean
----@field pit boolean
----@field [3] boolean
----@field magma_pool boolean
----@field [4] boolean
----@field volcano boolean
----@field [5] boolean
----@field deep_special_tube boolean
----@field [6] boolean
----@field deep_surface_portal boolean
----@field [7] boolean
----@field subterranean_from_layer boolean
----@field [8] boolean
----@field magma_core_from_layer boolean
----@field [9] boolean
----@field underworld_from_layer boolean
-
----@class feature: df.class
----@field population world_population[]
----@field irritation_level integer divide by 10k for attack chance, max 100k
----@field irritation_attacks integer maxes at 10?
+---@class (exact) feature: DFObject
+---@field _kind 'struct'
+---@field _type _feature
+---@field irritation_level number divide by 10k for attack chance, max 100k
+---@field irritation_attacks number maxes at 10?
 ---@field embark_pos coord2d_path
----@field min_map_z df.container
----@field max_map_z df.container
+local feature
+
+---@class _feature: DFCompound
+---@field _kind 'class-type'
 df.feature = {}
 
----@return feature_type
-function df.feature.getType() end
+---@class (exact) feature_outdoor_riverst: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_outdoor_riverst
+local feature_outdoor_riverst
 
----@param file file_compressorst
-function df.feature.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.feature.read_file(file, loadversion) end
-
----@param x integer
----@param y integer
----@param z integer
-function df.feature.shiftCoords(x, y, z) end
-
----@class feature_outdoor_riverst: feature
+---@class _feature_outdoor_riverst: DFCompound
+---@field _kind 'class-type'
 df.feature_outdoor_riverst = {}
 
----@class feature_cavest: feature
+---@class (exact) feature_cavest: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_cavest
+local feature_cavest
+
+---@class _feature_cavest: DFCompound
+---@field _kind 'class-type'
 df.feature_cavest = {}
 
----@class feature_pitst: feature
+---@class (exact) feature_pitst: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_pitst
+local feature_pitst
+
+---@class _feature_pitst: DFCompound
+---@field _kind 'class-type'
 df.feature_pitst = {}
 
----@class feature_magma_poolst: feature
----@field magma_fill_z integer
+---@class (exact) feature_magma_poolst: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_magma_poolst
+---@field magma_fill_z number
+local feature_magma_poolst
+
+---@class _feature_magma_poolst: DFCompound
+---@field _kind 'class-type'
 df.feature_magma_poolst = {}
 
----@class feature_volcanost: feature
----@field magma_fill_z integer
+---@class (exact) feature_volcanost: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_volcanost
+---@field magma_fill_z number
+local feature_volcanost
+
+---@class _feature_volcanost: DFCompound
+---@field _kind 'class-type'
 df.feature_volcanost = {}
 
----@class feature_deep_special_tubest: feature
+---@class (exact) feature_deep_special_tubest: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_deep_special_tubest
+local feature_deep_special_tubest
+
+---@class _feature_deep_special_tubest: DFCompound
+---@field _kind 'class-type'
 df.feature_deep_special_tubest = {}
 
----@class feature_deep_surface_portalst: feature
+---@class (exact) feature_deep_surface_portalst: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_deep_surface_portalst
+local feature_deep_surface_portalst
+
+---@class _feature_deep_surface_portalst: DFCompound
+---@field _kind 'class-type'
 df.feature_deep_surface_portalst = {}
 
----@class feature_subterranean_from_layerst: feature
+---@class (exact) feature_subterranean_from_layerst: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_subterranean_from_layerst
+local feature_subterranean_from_layerst
+
+---@class _feature_subterranean_from_layerst: DFCompound
+---@field _kind 'class-type'
 df.feature_subterranean_from_layerst = {}
 
----@class feature_magma_core_from_layerst: feature
+---@class (exact) feature_magma_core_from_layerst: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_magma_core_from_layerst
+local feature_magma_core_from_layerst
+
+---@class _feature_magma_core_from_layerst: DFCompound
+---@field _kind 'class-type'
 df.feature_magma_core_from_layerst = {}
 
----@class feature_underworld_from_layerst: feature
+---@class (exact) feature_underworld_from_layerst: DFObject, feature
+---@field _kind 'struct'
+---@field _type _feature_underworld_from_layerst
+local feature_underworld_from_layerst
+
+---@class _feature_underworld_from_layerst: DFCompound
+---@field _kind 'class-type'
 df.feature_underworld_from_layerst = {}
 
----@class _feature_init_flags: integer, string, df.enum
----@field unk_0 0
----@field [0] "unk_0"
----@field unk_1 1
----@field [1] "unk_1"
----@field unk_2 2
----@field [2] "unk_2"
+---@alias feature_init_flags
+---| 0 # AddSavage
+---| 1 # AddEvil
+---| 2 # AddGood
+---| 3 # Discovered
+---| 4 # Announced
+---| 5 # AnnouncedFully
+
+---@class _feature_init_flags: DFDescriptor
+---@field _kind 'enum-type'
+---@field AddSavage 0
+---@field [0] "AddSavage"
+---@field AddEvil 1
+---@field [1] "AddEvil"
+---@field AddGood 2
+---@field [2] "AddGood"
 ---@field Discovered 3
 ---@field [3] "Discovered"
+---@field Announced 4
+---@field [4] "Announced"
+---@field AnnouncedFully 5 for tube inside vs. outside
+---@field [5] "AnnouncedFully" for tube inside vs. outside
 df.feature_init_flags = {}
 
----@class feature_init_flags
----@field [0] boolean
----@field unk_0 boolean
----@field [1] boolean
----@field unk_1 boolean
----@field [2] boolean
----@field unk_2 boolean
----@field [3] boolean
----@field Discovered boolean
+---@alias layer_type
+---| -1 # Surface
+---| 0 # Cavern1
+---| 1 # Cavern2
+---| 2 # Cavern3
+---| 3 # MagmaSea
+---| 4 # Underworld
 
----@class _layer_type: integer, string, df.enum
+---@class _layer_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Surface -1
----@field [0] "Surface"
----@field Cavern1 1
----@field [1] "Cavern1"
----@field Cavern2 2
----@field [2] "Cavern2"
----@field Cavern3 3
----@field [3] "Cavern3"
----@field MagmaSea 4
----@field [4] "MagmaSea"
----@field Underworld 5
----@field [5] "Underworld"
+---@field [-1] "Surface"
+---@field Cavern1 0
+---@field [0] "Cavern1"
+---@field Cavern2 1
+---@field [1] "Cavern2"
+---@field Cavern3 2
+---@field [2] "Cavern3"
+---@field MagmaSea 3
+---@field [3] "MagmaSea"
+---@field Underworld 4
+---@field [4] "Underworld"
 df.layer_type = {}
 
----@class layer_type
----@field [0] boolean
----@field Surface boolean
----@field [1] boolean
----@field Cavern1 boolean
----@field [2] boolean
----@field Cavern2 boolean
----@field [3] boolean
----@field Cavern3 boolean
----@field [4] boolean
----@field MagmaSea boolean
----@field [5] boolean
----@field Underworld boolean
-
----@class feature_init: df.class
----@field flags feature_init_flags[]
----@field alterations feature_alteration[]
----@field start_x integer
----@field start_y integer
----@field end_x integer
----@field end_y integer
+---@class (exact) feature_init: DFObject
+---@field _kind 'struct'
+---@field _type _feature_init
+---@field start_x number
+---@field start_y number
+---@field end_x number
+---@field end_y number
 ---@field start_depth layer_type
 ---@field end_depth layer_type
+local feature_init
+
+---@class _feature_init: DFCompound
+---@field _kind 'class-type'
 df.feature_init = {}
 
----@return feature_type
-function df.feature_init.getType() end
+---@class (exact) feature_init_outdoor_riverst: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_outdoor_riverst
+local feature_init_outdoor_riverst
 
----@param file file_compressorst
----@param include_feature boolean
-function df.feature_init.write_file(file, include_feature) end
-
----@param file file_compressorst
----@param loadversion save_version
----@param include_feature boolean
-function df.feature_init.read_file(file, loadversion, include_feature) end
-
----@param unk_0 feature
----@return feature
-function df.feature_init.createFeature(unk_0) end
-
----destroyFeature(), then createFeature()
----@param unk_0 feature
----@return feature
-function df.feature_init.recreateFeature(unk_0) end
-
-function df.feature_init.destroyFeature() end
-
----@param unk_0 feature
----@return feature
-function df.feature_init.getFeature(unk_0) end
-
----@param mat_type integer
----@param mat_index integer
-function df.feature_init.getMaterial(mat_type, mat_index) end
-
----@param foreground integer
----@param background integer
----@param bright integer
-function df.feature_init.getColor(foreground, background, bright) end
-
----@param name df.string
-function df.feature_init.getName(name) end
-
----@return boolean
-function df.feature_init.isWater() end
-
----@return boolean
-function df.feature_init.isSubterranean() end
-
----@return boolean
-function df.feature_init.isMagma() end
-
----@return boolean
-function df.feature_init.isChasm() end
-
----@return boolean
-function df.feature_init.isLayer() end
-
----@return integer
-function df.feature_init.getLayer() end
-
----@class feature_init_outdoor_riverst: feature_init
----@field feature feature_outdoor_riverst
+---@class _feature_init_outdoor_riverst: DFCompound
+---@field _kind 'class-type'
 df.feature_init_outdoor_riverst = {}
 
----@class feature_init_cavest: feature_init
----@field feature feature_cavest
+---@class (exact) feature_init_cavest: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_cavest
+local feature_init_cavest
+
+---@class _feature_init_cavest: DFCompound
+---@field _kind 'class-type'
 df.feature_init_cavest = {}
 
----@class feature_init_pitst: feature_init
----@field feature feature_pitst
+---@class (exact) feature_init_pitst: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_pitst
+local feature_init_pitst
+
+---@class _feature_init_pitst: DFCompound
+---@field _kind 'class-type'
 df.feature_init_pitst = {}
 
----@class feature_init_magma_poolst: feature_init
----@field feature feature_magma_poolst
+---@class (exact) feature_init_magma_poolst: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_magma_poolst
+local feature_init_magma_poolst
+
+---@class _feature_init_magma_poolst: DFCompound
+---@field _kind 'class-type'
 df.feature_init_magma_poolst = {}
 
----@class feature_init_volcanost: feature_init
----@field feature feature_volcanost
+---@class (exact) feature_init_volcanost: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_volcanost
+local feature_init_volcanost
+
+---@class _feature_init_volcanost: DFCompound
+---@field _kind 'class-type'
 df.feature_init_volcanost = {}
 
----@class feature_init_deep_special_tubest: feature_init
----@field mat_type integer References: material
----@field mat_index integer
----@field feature feature_deep_special_tubest
+---@class (exact) feature_init_deep_special_tubest: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_deep_special_tubest
+---@field mat_type number References: `material`
+---@field mat_index number
+local feature_init_deep_special_tubest
+
+---@class _feature_init_deep_special_tubest: DFCompound
+---@field _kind 'class-type'
 df.feature_init_deep_special_tubest = {}
 
----@class feature_init_deep_surface_portalst: feature_init
----@field mat_type integer References: material
----@field mat_index integer
----@field feature feature_deep_surface_portalst
+---@class (exact) feature_init_deep_surface_portalst: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_deep_surface_portalst
+---@field mat_type number References: `material`
+---@field mat_index number
+local feature_init_deep_surface_portalst
+
+---@class _feature_init_deep_surface_portalst: DFCompound
+---@field _kind 'class-type'
 df.feature_init_deep_surface_portalst = {}
 
----@class feature_init_subterranean_from_layerst: feature_init
----@field layer integer References: world_underground_region
----@field feature feature_subterranean_from_layerst
+---@class (exact) feature_init_subterranean_from_layerst: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_subterranean_from_layerst
+---@field layer number References: `world_underground_region`
+local feature_init_subterranean_from_layerst
+
+---@class _feature_init_subterranean_from_layerst: DFCompound
+---@field _kind 'class-type'
 df.feature_init_subterranean_from_layerst = {}
 
----@class feature_init_magma_core_from_layerst: feature_init
----@field layer integer References: world_underground_region
----@field feature feature_magma_core_from_layerst
+---@class (exact) feature_init_magma_core_from_layerst: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_magma_core_from_layerst
+---@field layer number References: `world_underground_region`
+local feature_init_magma_core_from_layerst
+
+---@class _feature_init_magma_core_from_layerst: DFCompound
+---@field _kind 'class-type'
 df.feature_init_magma_core_from_layerst = {}
 
----@class feature_init_underworld_from_layerst: feature_init
----@field layer integer References: world_underground_region
----@field mat_type integer References: material
----@field mat_index integer
----@field feature feature_underworld_from_layerst
+---@class (exact) feature_init_underworld_from_layerst: DFObject, feature_init
+---@field _kind 'struct'
+---@field _type _feature_init_underworld_from_layerst
+---@field layer number References: `world_underground_region`
+---@field mat_type number References: `material`
+---@field mat_index number
+local feature_init_underworld_from_layerst
+
+---@class _feature_init_underworld_from_layerst: DFCompound
+---@field _kind 'class-type'
 df.feature_init_underworld_from_layerst = {}
 
----@class _feature_alteration_type: integer, string, df.enum
+---@alias feature_alteration_type
+---| 0 # new_pop_max
+---| 1 # new_lava_fill_z
+
+---@class _feature_alteration_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field new_pop_max 0
 ---@field [0] "new_pop_max"
 ---@field new_lava_fill_z 1
 ---@field [1] "new_lava_fill_z"
 df.feature_alteration_type = {}
 
----@class feature_alteration_type
----@field [0] boolean
----@field new_pop_max boolean
----@field [1] boolean
----@field new_lava_fill_z boolean
+---@class (exact) feature_alteration: DFObject
+---@field _kind 'struct'
+---@field _type _feature_alteration
+local feature_alteration
 
----@class feature_alteration: df.class
+---@class _feature_alteration: DFCompound
+---@field _kind 'class-type'
 df.feature_alteration = {}
 
----@return feature_alteration_type
-function df.feature_alteration.getType() end
+---@class (exact) feature_alteration_new_pop_maxst: DFObject, feature_alteration
+---@field _kind 'struct'
+---@field _type _feature_alteration_new_pop_maxst
+---@field unk_1 number
+---@field unk_2 number
+local feature_alteration_new_pop_maxst
 
----@param file file_compressorst
-function df.feature_alteration.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.feature_alteration.read_file(file, loadversion) end
-
----@class feature_alteration_new_pop_maxst: feature_alteration
----@field unk_1 integer
----@field unk_2 integer
+---@class _feature_alteration_new_pop_maxst: DFCompound
+---@field _kind 'class-type'
 df.feature_alteration_new_pop_maxst = {}
 
----@class feature_alteration_new_lava_fill_zst: feature_alteration
----@field magma_fill_z integer
+---@class (exact) feature_alteration_new_lava_fill_zst: DFObject, feature_alteration
+---@field _kind 'struct'
+---@field _type _feature_alteration_new_lava_fill_zst
+---@field magma_fill_z number
+local feature_alteration_new_lava_fill_zst
+
+---@class _feature_alteration_new_lava_fill_zst: DFCompound
+---@field _kind 'class-type'
 df.feature_alteration_new_lava_fill_zst = {}
 
----@class _world_construction_type: integer, string, df.enum
+---@alias world_construction_type
+---| 0 # ROAD
+---| 1 # TUNNEL
+---| 2 # BRIDGE
+---| 3 # WALL
+
+---@class _world_construction_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field ROAD 0
 ---@field [0] "ROAD"
 ---@field TUNNEL 1
@@ -1062,101 +816,182 @@ df.feature_alteration_new_lava_fill_zst = {}
 ---@field [3] "WALL"
 df.world_construction_type = {}
 
----@class world_construction_type
----@field [0] boolean
----@field ROAD boolean
----@field [1] boolean
----@field TUNNEL boolean
----@field [2] boolean
----@field BRIDGE boolean
----@field [3] boolean
----@field WALL boolean
-
----@class world_construction_square: df.class
+---@class (exact) world_construction_square: DFObject
+---@field _kind 'struct'
+---@field _type _world_construction_square
 ---@field region_pos coord2d
----@field construction_id integer References: world_construction
----@field embark_x df.container
----@field embark_y df.container
----@field embark_unk df.container
----@field embark_z df.container
+---@field construction_id number References: `world_construction`
+local world_construction_square
+
+---@class _world_construction_square: DFCompound
+---@field _kind 'class-type'
 df.world_construction_square = {}
 
----@return world_construction_type
-function df.world_construction_square.getType() end
-
----@param file file_compressorst
-function df.world_construction_square.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.world_construction_square.read_file(file, loadversion) end
-
----@class world_construction_square_roadst: world_construction_square
+---@class (exact) world_construction_square_roadst: DFObject, world_construction_square
+---@field _kind 'struct'
+---@field _type _world_construction_square_roadst
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
+local world_construction_square_roadst
+
+---@class _world_construction_square_roadst: DFCompound
+---@field _kind 'class-type'
 df.world_construction_square_roadst = {}
 
----@class world_construction_square_tunnelst: world_construction_square
+---@class (exact) world_construction_square_tunnelst: DFObject, world_construction_square
+---@field _kind 'struct'
+---@field _type _world_construction_square_tunnelst
+local world_construction_square_tunnelst
+
+---@class _world_construction_square_tunnelst: DFCompound
+---@field _kind 'class-type'
 df.world_construction_square_tunnelst = {}
 
----@class world_construction_square_bridgest: world_construction_square
----@field road_id integer References: world_construction<br>guess
+---@class (exact) world_construction_square_bridgest: DFObject, world_construction_square
+---@field _kind 'struct'
+---@field _type _world_construction_square_bridgest
+---@field road_id number guess References: `world_construction`
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
+local world_construction_square_bridgest
+
+---@class _world_construction_square_bridgest: DFCompound
+---@field _kind 'class-type'
 df.world_construction_square_bridgest = {}
 
----@class world_construction_square_wallst: world_construction_square
+---@class (exact) world_construction_square_wallst: DFObject, world_construction_square
+---@field _kind 'struct'
+---@field _type _world_construction_square_wallst
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
+local world_construction_square_wallst
+
+---@class _world_construction_square_wallst: DFCompound
+---@field _kind 'class-type'
 df.world_construction_square_wallst = {}
 
----@class world_construction: df.instance
----@field id integer
----@field square_obj world_construction_square[]
+---@class (exact) world_construction: DFObject
+---@field _kind 'struct'
+---@field _type _world_construction
+---@field id number
 ---@field square_pos coord2d_path
+local world_construction
+
+---@class _world_construction: DFCompound
+---@field _kind 'class-type'
 df.world_construction = {}
 
----@param key integer
+---@param key number
 ---@return world_construction|nil
 function df.world_construction.find(key) end
 
----@return world_construction_type
-function df.world_construction.getType() end
+---@class world_construction_vector: DFVector, { [integer]: world_construction }
+local world_construction_vector
 
----@param unk_0 language_name
----@return language_name
-function df.world_construction.getName(unk_0) end
+---@return world_construction_vector # df.global.world.world_data.constructions.list
+function df.world_construction.get_vector() end
 
----@param file file_compressorst
-function df.world_construction.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.world_construction.read_file(file, loadversion) end
-
----@class world_construction_roadst: world_construction
+---@class (exact) world_construction_roadst: DFObject, world_construction
+---@field _kind 'struct'
+---@field _type _world_construction_roadst
 ---@field name language_name
+local world_construction_roadst
+
+---@class _world_construction_roadst: DFCompound
+---@field _kind 'class-type'
 df.world_construction_roadst = {}
 
----@class world_construction_tunnelst: world_construction
+---@class (exact) world_construction_tunnelst: DFObject, world_construction
+---@field _kind 'struct'
+---@field _type _world_construction_tunnelst
 ---@field name language_name
+local world_construction_tunnelst
+
+---@class _world_construction_tunnelst: DFCompound
+---@field _kind 'class-type'
 df.world_construction_tunnelst = {}
 
----@class world_construction_bridgest: world_construction
+---@class (exact) world_construction_bridgest: DFObject, world_construction
+---@field _kind 'struct'
+---@field _type _world_construction_bridgest
 ---@field name language_name
+local world_construction_bridgest
+
+---@class _world_construction_bridgest: DFCompound
+---@field _kind 'class-type'
 df.world_construction_bridgest = {}
 
----@class world_construction_wallst: world_construction
+---@class (exact) world_construction_wallst: DFObject, world_construction
+---@field _kind 'struct'
+---@field _type _world_construction_wallst
 ---@field name language_name
+local world_construction_wallst
+
+---@class _world_construction_wallst: DFCompound
+---@field _kind 'class-type'
 df.world_construction_wallst = {}
 
----@class _biome_type: integer, string, df.enum
+---@alias biome_type
+---| 0 # MOUNTAIN
+---| 1 # GLACIER
+---| 2 # TUNDRA
+---| 3 # SWAMP_TEMPERATE_FRESHWATER
+---| 4 # SWAMP_TEMPERATE_SALTWATER
+---| 5 # MARSH_TEMPERATE_FRESHWATER
+---| 6 # MARSH_TEMPERATE_SALTWATER
+---| 7 # SWAMP_TROPICAL_FRESHWATER
+---| 8 # SWAMP_TROPICAL_SALTWATER
+---| 9 # SWAMP_MANGROVE
+---| 10 # MARSH_TROPICAL_FRESHWATER
+---| 11 # MARSH_TROPICAL_SALTWATER
+---| 12 # FOREST_TAIGA
+---| 13 # FOREST_TEMPERATE_CONIFER
+---| 14 # FOREST_TEMPERATE_BROADLEAF
+---| 15 # FOREST_TROPICAL_CONIFER
+---| 16 # FOREST_TROPICAL_DRY_BROADLEAF
+---| 17 # FOREST_TROPICAL_MOIST_BROADLEAF
+---| 18 # GRASSLAND_TEMPERATE
+---| 19 # SAVANNA_TEMPERATE
+---| 20 # SHRUBLAND_TEMPERATE
+---| 21 # GRASSLAND_TROPICAL
+---| 22 # SAVANNA_TROPICAL
+---| 23 # SHRUBLAND_TROPICAL
+---| 24 # DESERT_BADLAND
+---| 25 # DESERT_ROCK
+---| 26 # DESERT_SAND
+---| 27 # OCEAN_TROPICAL
+---| 28 # OCEAN_TEMPERATE
+---| 29 # OCEAN_ARCTIC
+---| 30 # POOL_TEMPERATE_FRESHWATER
+---| 31 # POOL_TEMPERATE_BRACKISHWATER
+---| 32 # POOL_TEMPERATE_SALTWATER
+---| 33 # POOL_TROPICAL_FRESHWATER
+---| 34 # POOL_TROPICAL_BRACKISHWATER
+---| 35 # POOL_TROPICAL_SALTWATER
+---| 36 # LAKE_TEMPERATE_FRESHWATER
+---| 37 # LAKE_TEMPERATE_BRACKISHWATER
+---| 38 # LAKE_TEMPERATE_SALTWATER
+---| 39 # LAKE_TROPICAL_FRESHWATER
+---| 40 # LAKE_TROPICAL_BRACKISHWATER
+---| 41 # LAKE_TROPICAL_SALTWATER
+---| 42 # RIVER_TEMPERATE_FRESHWATER
+---| 43 # RIVER_TEMPERATE_BRACKISHWATER
+---| 44 # RIVER_TEMPERATE_SALTWATER
+---| 45 # RIVER_TROPICAL_FRESHWATER
+---| 46 # RIVER_TROPICAL_BRACKISHWATER
+---| 47 # RIVER_TROPICAL_SALTWATER
+---| 48 # SUBTERRANEAN_WATER
+---| 49 # SUBTERRANEAN_CHASM
+---| 50 # SUBTERRANEAN_LAVA
+
+---@class _biome_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field MOUNTAIN 0
 ---@field [0] "MOUNTAIN"
 ---@field GLACIER 1
@@ -1261,142 +1096,54 @@ df.world_construction_wallst = {}
 ---@field [50] "SUBTERRANEAN_LAVA"
 df.biome_type = {}
 
----@class biome_type
----@field [0] boolean
----@field MOUNTAIN boolean
----@field [1] boolean
----@field GLACIER boolean
----@field [2] boolean
----@field TUNDRA boolean
----@field [3] boolean
----@field SWAMP_TEMPERATE_FRESHWATER boolean
----@field [4] boolean
----@field SWAMP_TEMPERATE_SALTWATER boolean
----@field [5] boolean
----@field MARSH_TEMPERATE_FRESHWATER boolean
----@field [6] boolean
----@field MARSH_TEMPERATE_SALTWATER boolean
----@field [7] boolean
----@field SWAMP_TROPICAL_FRESHWATER boolean
----@field [8] boolean
----@field SWAMP_TROPICAL_SALTWATER boolean
----@field [9] boolean
----@field SWAMP_MANGROVE boolean
----@field [10] boolean
----@field MARSH_TROPICAL_FRESHWATER boolean
----@field [11] boolean
----@field MARSH_TROPICAL_SALTWATER boolean
----@field [12] boolean
----@field FOREST_TAIGA boolean
----@field [13] boolean
----@field FOREST_TEMPERATE_CONIFER boolean
----@field [14] boolean
----@field FOREST_TEMPERATE_BROADLEAF boolean
----@field [15] boolean
----@field FOREST_TROPICAL_CONIFER boolean
----@field [16] boolean
----@field FOREST_TROPICAL_DRY_BROADLEAF boolean
----@field [17] boolean
----@field FOREST_TROPICAL_MOIST_BROADLEAF boolean
----@field [18] boolean
----@field GRASSLAND_TEMPERATE boolean
----@field [19] boolean
----@field SAVANNA_TEMPERATE boolean
----@field [20] boolean
----@field SHRUBLAND_TEMPERATE boolean
----@field [21] boolean
----@field GRASSLAND_TROPICAL boolean
----@field [22] boolean
----@field SAVANNA_TROPICAL boolean
----@field [23] boolean
----@field SHRUBLAND_TROPICAL boolean
----@field [24] boolean
----@field DESERT_BADLAND boolean
----@field [25] boolean
----@field DESERT_ROCK boolean
----@field [26] boolean
----@field DESERT_SAND boolean
----@field [27] boolean
----@field OCEAN_TROPICAL boolean
----@field [28] boolean
----@field OCEAN_TEMPERATE boolean
----@field [29] boolean
----@field OCEAN_ARCTIC boolean
----@field [30] boolean
----@field POOL_TEMPERATE_FRESHWATER boolean
----@field [31] boolean
----@field POOL_TEMPERATE_BRACKISHWATER boolean
----@field [32] boolean
----@field POOL_TEMPERATE_SALTWATER boolean
----@field [33] boolean
----@field POOL_TROPICAL_FRESHWATER boolean
----@field [34] boolean
----@field POOL_TROPICAL_BRACKISHWATER boolean
----@field [35] boolean
----@field POOL_TROPICAL_SALTWATER boolean
----@field [36] boolean
----@field LAKE_TEMPERATE_FRESHWATER boolean
----@field [37] boolean
----@field LAKE_TEMPERATE_BRACKISHWATER boolean
----@field [38] boolean
----@field LAKE_TEMPERATE_SALTWATER boolean
----@field [39] boolean
----@field LAKE_TROPICAL_FRESHWATER boolean
----@field [40] boolean
----@field LAKE_TROPICAL_BRACKISHWATER boolean
----@field [41] boolean
----@field LAKE_TROPICAL_SALTWATER boolean
----@field [42] boolean
----@field RIVER_TEMPERATE_FRESHWATER boolean
----@field [43] boolean
----@field RIVER_TEMPERATE_BRACKISHWATER boolean
----@field [44] boolean
----@field RIVER_TEMPERATE_SALTWATER boolean
----@field [45] boolean
----@field RIVER_TROPICAL_FRESHWATER boolean
----@field [46] boolean
----@field RIVER_TROPICAL_BRACKISHWATER boolean
----@field [47] boolean
----@field RIVER_TROPICAL_SALTWATER boolean
----@field [48] boolean
----@field SUBTERRANEAN_WATER boolean
----@field [49] boolean
----@field SUBTERRANEAN_CHASM boolean
----@field [50] boolean
----@field SUBTERRANEAN_LAVA boolean
-
----@class _construction_flags: integer, string, df.bitfield
----@field no_build_item 0
----@field [0] "no_build_item"
----@field top_of_wall 1
----@field [1] "top_of_wall"
-df.construction_flags = {}
-
----@class construction_flags
----@field [0] boolean
----@field no_build_item boolean
----@field [1] boolean
----@field top_of_wall boolean
-
----@class construction: df.instance
+---@class (exact) construction: DFObject
+---@field _kind 'struct'
+---@field _type _construction
 ---@field pos coord
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
 ---@field flags construction_flags
 ---@field original_tile tiletype
+local construction
+
+---@class _construction: DFCompound
+---@field _kind 'struct-type'
 df.construction = {}
 
----@param key integer
+---@param key number
 ---@return construction|nil
 function df.construction.find(key) end
 
----@class _flow_type: integer, string, df.enum
+---@class construction_vector: DFVector, { [integer]: construction }
+local construction_vector
+
+---@return construction_vector # df.global.world.constructions
+function df.construction.get_vector() end
+
+---@alias flow_type
+---| 0 # Miasma
+---| 1 # Steam
+---| 2 # Mist
+---| 3 # MaterialDust
+---| 4 # MagmaMist
+---| 5 # Smoke
+---| 6 # Dragonfire
+---| 7 # Fire
+---| 8 # Web
+---| 9 # MaterialGas
+---| 10 # MaterialVapor
+---| 11 # OceanWave
+---| 12 # SeaFoam
+---| 13 # ItemCloud
+
+---@class _flow_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Miasma 0
 ---@field [0] "Miasma"
----@field Steam 1
----@field [1] "Steam"
+---@field Steam 1 only if mat_type=1
+---@field [1] "Steam" only if mat_type=1
 ---@field Mist 2
 ---@field [2] "Mist"
 ---@field MaterialDust 3
@@ -1423,147 +1170,142 @@ function df.construction.find(key) end
 ---@field [13] "ItemCloud"
 df.flow_type = {}
 
----@class flow_type
----@field [0] boolean
----@field Miasma boolean
----@field [1] boolean
----@field Steam boolean
----@field [2] boolean
----@field Mist boolean
----@field [3] boolean
----@field MaterialDust boolean
----@field [4] boolean
----@field MagmaMist boolean
----@field [5] boolean
----@field Smoke boolean
----@field [6] boolean
----@field Dragonfire boolean
----@field [7] boolean
----@field Fire boolean
----@field [8] boolean
----@field Web boolean
----@field [9] boolean
----@field MaterialGas boolean
----@field [10] boolean
----@field MaterialVapor boolean
----@field [11] boolean
----@field OceanWave boolean
----@field [12] boolean
----@field SeaFoam boolean
----@field [13] boolean
----@field ItemCloud boolean
-
----@class flow_info: df.class
+---@class (exact) flow_info: DFObject
+---@field _kind 'struct'
+---@field _type _flow_info
 ---@field type flow_type
----@field mat_type integer References: material
----@field mat_index integer
----@field density integer
+---@field mat_type number References: `material`
+---@field mat_index number
+---@field density number
 ---@field pos coord
 ---@field dest coord
 ---@field expanding boolean
 ---@field reuse boolean
----@field guide_id integer References: flow_guide
+---@field guide_id number References: `flow_guide`
+local flow_info
+
+---@class _flow_info: DFCompound
+---@field _kind 'struct-type'
 df.flow_info = {}
 
----@class flow_reuse_pool: df.class
----@field reuse_idx integer
----@field flags flow_reuse_pool_flags
+---@class (exact) flow_reuse_pool: DFObject
+---@field _kind 'struct'
+---@field _type _flow_reuse_pool
+---@field reuse_idx number
+---@field flags flow_reuse_pool.T_flags
+local flow_reuse_pool
+
+---@class _flow_reuse_pool: DFCompound
+---@field _kind 'struct-type'
 df.flow_reuse_pool = {}
 
----@class _flow_reuse_pool_flags: integer, string, df.bitfield
----@field active 0
----@field [0] "active"
+---@class (exact) flow_reuse_pool.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _flow_reuse_pool.T_flags
+---@field active flag-bit
+local flags
+
+---@class _flow_reuse_pool.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.flow_reuse_pool.T_flags = {}
 
----@class flow_reuse_pool_flags
----@field [0] boolean
----@field active boolean
+---@alias flow_guide_type
+---| 0 # TrailingFlow
+---| 1 # ItemCloud
 
----@class _flow_guide_type: integer, string, df.enum
+---@class _flow_guide_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field TrailingFlow 0
 ---@field [0] "TrailingFlow"
 ---@field ItemCloud 1
 ---@field [1] "ItemCloud"
 df.flow_guide_type = {}
 
----@class flow_guide_type
----@field [0] boolean
----@field TrailingFlow boolean
----@field [1] boolean
----@field ItemCloud boolean
+---@class (exact) flow_guide: DFObject
+---@field _kind 'struct'
+---@field _type _flow_guide
+---@field id number
+---@field unk_8 number
+local flow_guide
 
----@class flow_guide: df.instance
----@field id integer
----@field unk_8 integer
+---@class _flow_guide: DFCompound
+---@field _kind 'class-type'
 df.flow_guide = {}
 
----@param key integer
+---@param key number
 ---@return flow_guide|nil
 function df.flow_guide.find(key) end
 
----@return flow_guide_type
-function df.flow_guide.getType() end
+---@class flow_guide_vector: DFVector, { [integer]: flow_guide }
+local flow_guide_vector
 
----@param x integer
----@param y integer
----@param z integer
-function df.flow_guide.shiftCoords(x, y, z) end
+---@return flow_guide_vector # df.global.world.flow_guides.all
+function df.flow_guide.get_vector() end
 
----@param file file_compressorst
-function df.flow_guide.write_file(file) end
+---@class (exact) flow_guide_trailing_flowst: DFObject, flow_guide
+---@field _kind 'struct'
+---@field _type _flow_guide_trailing_flowst
+local flow_guide_trailing_flowst
 
----@param file file_compressorst
----@param loadversion save_version
-function df.flow_guide.read_file(file, loadversion) end
-
----@class flow_guide_trailing_flowst: flow_guide
----@field unk_1 coord[]
+---@class _flow_guide_trailing_flowst: DFCompound
+---@field _kind 'class-type'
 df.flow_guide_trailing_flowst = {}
 
----@class flow_guide_item_cloudst: flow_guide
+---@class (exact) flow_guide_item_cloudst: DFObject, flow_guide
+---@field _kind 'struct'
+---@field _type _flow_guide_item_cloudst
 ---@field item_type item_type
----@field item_subtype integer
----@field mattype integer References: material
----@field matindex integer
----@field unk_18 integer
----@field unk_1c integer
----@field unk_1 coord[]
+---@field item_subtype number
+---@field mattype number References: `material`
+---@field matindex number
+---@field unk_18 number
+---@field unk_1c number
+local flow_guide_item_cloudst
+
+---@class _flow_guide_item_cloudst: DFCompound
+---@field _kind 'class-type'
 df.flow_guide_item_cloudst = {}
 
----@class effect_info: df.class
----@field id integer assigned during Save
----@field job job
----@field type integer 2 = falling into chasm
----@field foreground integer
----@field background integer
----@field bright integer
+---@class (exact) effect_info: DFObject
+---@field _kind 'struct'
+---@field _type _effect_info
+---@field id number assigned during Save
+---@field type number 2 = falling into chasm
+---@field foreground number
+---@field background number
+---@field bright number
 ---@field pos coord
----@field timer integer
+---@field timer number
+local effect_info
+
+---@class _effect_info: DFCompound
+---@field _kind 'struct-type'
 df.effect_info = {}
 
----@class _region_block_event_type: integer, string, df.enum
+---@alias region_block_event_type
+---| 0 # SphereField
+
+---@class _region_block_event_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field SphereField 0
 ---@field [0] "SphereField"
 df.region_block_event_type = {}
 
----@class region_block_event_type
----@field [0] boolean
----@field SphereField boolean
+---@class (exact) region_block_eventst: DFObject
+---@field _kind 'struct'
+---@field _type _region_block_eventst
+local region_block_eventst
 
----@class region_block_eventst: df.class
+---@class _region_block_eventst: DFCompound
+---@field _kind 'class-type'
 df.region_block_eventst = {}
 
----@return region_block_event_type
-function df.region_block_eventst.getType() end
+---@class (exact) region_block_event_sphere_fieldst: DFObject, region_block_eventst
+---@field _kind 'struct'
+---@field _type _region_block_event_sphere_fieldst
+local region_block_event_sphere_fieldst
 
----@param file file_compressorst
-function df.region_block_eventst.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.region_block_eventst.read_file(file, loadversion) end
-
----@class region_block_event_sphere_fieldst: region_block_eventst
----@field unk_1 integer[]
+---@class _region_block_event_sphere_fieldst: DFCompound
+---@field _kind 'class-type'
 df.region_block_event_sphere_fieldst = {}
 

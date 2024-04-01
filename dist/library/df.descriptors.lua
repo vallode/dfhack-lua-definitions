@@ -1,7 +1,19 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.descriptors
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _pattern_type: integer, string, df.enum
+---@alias pattern_type
+---| -1 # NONE
+---| 0 # MONOTONE
+---| 1 # STRIPES
+---| 2 # IRIS_EYE
+---| 3 # SPOTS
+---| 4 # PUPIL_EYE
+---| 5 # MOTTLED
+
+---@class _pattern_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
 ---@field MONOTONE 0
 ---@field [0] "MONOTONE"
 ---@field STRIPES 1
@@ -16,85 +28,87 @@
 ---@field [5] "MOTTLED"
 df.pattern_type = {}
 
----@class pattern_type
----@field [0] boolean
----@field MONOTONE boolean
----@field [1] boolean
----@field STRIPES boolean
----@field [2] boolean
----@field IRIS_EYE boolean
----@field [3] boolean
----@field SPOTS boolean
----@field [4] boolean
----@field PUPIL_EYE boolean
----@field [5] boolean
----@field MOTTLED boolean
-
----@class descriptor_color: df.instance
----@field id df.string
----@field word_unk df.string[]
----@field words df.container References: language_word
----@field name df.string
+---@class (exact) descriptor_color: DFObject
+---@field _kind 'struct'
+---@field _type _descriptor_color
+---@field id string
+---@field name string
 ---@field color curses_color
----@field bold integer
+---@field bold number
 ---@field red number
 ---@field green number
 ---@field blue number
----@field unk_v50_1 integer[]
+local descriptor_color
+
+---@class _descriptor_color: DFCompound
+---@field _kind 'struct-type'
 df.descriptor_color = {}
 
----@param key integer
+---@param key number
 ---@return descriptor_color|nil
 function df.descriptor_color.find(key) end
 
----@class descriptor_shape: df.instance
----@field id df.string
----@field words_str df.string[] temporary storage before resolving to language_word
----@field words df.container References: language_word
----@field name df.string
----@field name_plural df.string
----@field adj df.string[]
----@field gems_use descriptor_shape_gems_use
----@field category df.string[]
----@field faces integer
+---@class descriptor_color_vector: DFVector, { [integer]: descriptor_color }
+local descriptor_color_vector
+
+---@return descriptor_color_vector # df.global.world.raws.descriptors.colors
+function df.descriptor_color.get_vector() end
+
+---@class (exact) descriptor_shape: DFObject
+---@field _kind 'struct'
+---@field _type _descriptor_shape
+---@field id string
+---@field name string
+---@field name_plural string
+---@field gems_use descriptor_shape.T_gems_use
+---@field faces number
 ---@field tile integer
----@field unk_v50_1 integer
----@field unk_v50_2 df.container
----@field unk_v50_3 df.container
----@field unk_v50_4 integer
----@field unk_v50_5 integer
----@field unk_v50_6 integer
+local descriptor_shape
+
+---@class _descriptor_shape: DFCompound
+---@field _kind 'struct-type'
 df.descriptor_shape = {}
 
----@param key integer
+---@param key number
 ---@return descriptor_shape|nil
 function df.descriptor_shape.find(key) end
 
----@class _descriptor_shape_gems_use: integer, string, df.bitfield
----@field noun 0
----@field [0] "noun"
----@field adj 1
----@field [1] "adj"
----@field adj_noun 2
----@field [2] "adj_noun"
+---@class descriptor_shape_vector: DFVector, { [integer]: descriptor_shape }
+local descriptor_shape_vector
+
+---@return descriptor_shape_vector # df.global.world.raws.descriptors.shapes
+function df.descriptor_shape.get_vector() end
+
+---@class (exact) descriptor_shape.T_gems_use: DFObject
+---@field _kind 'struct'
+---@field _type _descriptor_shape.T_gems_use
+---@field noun flag-bit
+---@field adj flag-bit
+---@field adj_noun flag-bit
+local gems_use
+
+---@class _descriptor_shape.T_gems_use: DFCompound
+---@field _kind 'struct-type'
 df.descriptor_shape.T_gems_use = {}
 
----@class descriptor_shape_gems_use
----@field [0] boolean
----@field noun boolean
----@field [1] boolean
----@field adj boolean
----@field [2] boolean
----@field adj_noun boolean
-
----@class descriptor_pattern: df.instance
----@field id df.string
----@field colors df.container References: descriptor_color
+---@class (exact) descriptor_pattern: DFObject
+---@field _kind 'struct'
+---@field _type _descriptor_pattern
+---@field id string
 ---@field pattern pattern_type
----@field cp_color df.string[]
+local descriptor_pattern
+
+---@class _descriptor_pattern: DFCompound
+---@field _kind 'struct-type'
 df.descriptor_pattern = {}
 
----@param key integer
+---@param key number
 ---@return descriptor_pattern|nil
 function df.descriptor_pattern.find(key) end
+
+---@class descriptor_pattern_vector: DFVector, { [integer]: descriptor_pattern }
+local descriptor_pattern_vector
+
+---@return descriptor_pattern_vector # df.global.world.raws.descriptors.patterns
+function df.descriptor_pattern.get_vector() end
 

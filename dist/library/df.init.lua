@@ -1,7 +1,16 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.init
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _init_display_flags: integer, string, df.enum
+---@alias init_display_flags
+---| 0 # USE_GRAPHICS
+---| 1 # SOFTWARE
+---| 2 # TEXT
+---| 3 # NOT_RESIZABLE
+---| 4 # INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH
+
+-- -- init.h
+---@class _init_display_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field USE_GRAPHICS 0
 ---@field [0] "USE_GRAPHICS"
 ---@field SOFTWARE 1
@@ -14,19 +23,13 @@
 ---@field [4] "INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH"
 df.init_display_flags = {}
 
----@class init_display_flags
----@field [0] boolean
----@field USE_GRAPHICS boolean
----@field [1] boolean
----@field SOFTWARE boolean
----@field [2] boolean
----@field TEXT boolean
----@field [3] boolean
----@field NOT_RESIZABLE boolean
----@field [4] boolean
----@field INTERFACE_SCALING_TO_DESIRED_HEIGHT_WIDTH boolean
+---@alias init_display_filter_mode
+---| 0 # AUTO
+---| 1 # NEAREST
+---| 2 # LANCZOS
 
----@class _init_display_filter_mode: integer, string, df.enum
+---@class _init_display_filter_mode: DFDescriptor
+---@field _kind 'enum-type'
 ---@field AUTO 0
 ---@field [0] "AUTO"
 ---@field NEAREST 1
@@ -35,36 +38,40 @@ df.init_display_flags = {}
 ---@field [2] "LANCZOS"
 df.init_display_filter_mode = {}
 
----@class init_display_filter_mode
----@field [0] boolean
----@field AUTO boolean
----@field [1] boolean
----@field NEAREST boolean
----@field [2] boolean
----@field LANCZOS boolean
-
----@class init_display: df.class
----@field flag init_display_flags[]
----@field windowed init_display_windowed
----@field grid_x integer
----@field grid_y integer
----@field desired_fullscreen_width integer
----@field desired_fullscreen_height integer
----@field actual_fullscreen_width integer
----@field actual_fullscreen_height integer
----@field desired_windowed_width integer
----@field desired_windowed_height integer
----@field actual_windowed_width integer
----@field actual_windowed_height integer
----@field max_interface_percentage integer
----@field interface_scaling_desired_width integer
----@field interface_scaling_desired_height integer
----@field interface_scaling_percentage integer
----@field partial_print_count integer
+---@class (exact) init_display: DFObject
+---@field _kind 'struct'
+---@field _type _init_display
+---@field windowed init_display.T_windowed
+---@field grid_x number
+---@field grid_y number
+---@field desired_fullscreen_width number
+---@field desired_fullscreen_height number
+---@field actual_fullscreen_width number
+---@field actual_fullscreen_height number
+---@field desired_windowed_width number
+---@field desired_windowed_height number
+---@field actual_windowed_width number
+---@field actual_windowed_height number
+---@field max_interface_percentage number
+---@field interface_scaling_desired_width number
+---@field interface_scaling_desired_height number
+---@field interface_scaling_percentage number
+---@field partial_print_count number
 ---@field filter_mode init_display_filter_mode
+local init_display
+
+---@class _init_display: DFCompound
+---@field _kind 'struct-type'
 df.init_display = {}
 
----@class _init_display_windowed: integer, string, df.enum
+---@alias init_display.T_windowed
+---| 0 # True
+---| 1 # False
+---| 2 # Prompt
+---| 3 # Exclusive
+
+---@class _init_display.T_windowed: DFDescriptor
+---@field _kind 'enum-type'
 ---@field True 0
 ---@field [0] "True"
 ---@field False 1
@@ -75,17 +82,13 @@ df.init_display = {}
 ---@field [3] "Exclusive"
 df.init_display.T_windowed = {}
 
----@class init_display_windowed
----@field [0] boolean
----@field True boolean
----@field [1] boolean
----@field False boolean
----@field [2] boolean
----@field Prompt boolean
----@field [3] boolean
----@field Exclusive boolean
+---@alias init_media_flags
+---| 0 # SOUND_OFF
+---| 1 # UNUSED_01_02
+---| 2 # COMPRESS_SAVES
 
----@class _init_media_flags: integer, string, df.enum
+---@class _init_media_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field SOUND_OFF 0
 ---@field [0] "SOUND_OFF"
 ---@field UNUSED_01_02 1
@@ -94,75 +97,76 @@ df.init_display.T_windowed = {}
 ---@field [2] "COMPRESS_SAVES"
 df.init_media_flags = {}
 
----@class init_media_flags
----@field [0] boolean
----@field SOUND_OFF boolean
----@field [1] boolean
----@field UNUSED_01_02 boolean
----@field [2] boolean
----@field COMPRESS_SAVES boolean
+---@class (exact) init_media: DFObject
+---@field _kind 'struct'
+---@field _type _init_media
+---@field volume_master number
+---@field volume_music number
+---@field volume_ambience number
+---@field volume_sfx number
+---@field time_between_songs number
+local init_media
 
----@class init_media: df.class
----@field flag init_media_flags[]
----@field volume_master integer
----@field volume_music integer
----@field volume_ambience integer
----@field volume_sfx integer
----@field time_between_songs integer
+---@class _init_media: DFCompound
+---@field _kind 'struct-type'
 df.init_media = {}
 
----@class _init_input_flags: integer, string, df.enum
+---@alias init_input_flags
+---| 0 # MOUSE_OFF
+---| 1 # MOUSE_PICTURE
+
+---@class _init_input_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field MOUSE_OFF 0
 ---@field [0] "MOUSE_OFF"
 ---@field MOUSE_PICTURE 1
 ---@field [1] "MOUSE_PICTURE"
 df.init_input_flags = {}
 
----@class init_input_flags
----@field [0] boolean
----@field MOUSE_OFF boolean
----@field [1] boolean
----@field MOUSE_PICTURE boolean
+---@class (exact) init_input: DFObject
+---@field _kind 'struct'
+---@field _type _init_input
+---@field hold_time number
+---@field repeat_time number
+---@field macro_time number
+---@field pause_zoom_no_interface_ms number
+---@field zoom_speed number
+---@field repeat_accel_start number
+---@field repeat_accel_limit number
+local init_input
 
----@class init_input: df.class
----@field hold_time integer
----@field repeat_time integer
----@field macro_time integer
----@field pause_zoom_no_interface_ms integer
----@field flag init_input_flags[]
----@field zoom_speed integer
----@field repeat_accel_start integer
----@field repeat_accel_limit integer
+---@class _init_input: DFCompound
+---@field _kind 'struct-type'
 df.init_input = {}
 
----@class init_font: df.class
----@field basic_font_texpos number[]
----@field small_font_texpos number[]
----@field large_font_texpos number[]
----@field basic_font_datapos number[]
----@field small_font_datapos number[]
----@field large_font_datapos number[]
----@field basic_font_texpos_top number[]
----@field small_font_texpos_top number[]
----@field large_font_texpos_top number[]
----@field basic_font_texpos_bot number[]
----@field small_font_texpos_bot number[]
----@field large_font_texpos_bot number[]
+---@class (exact) init_font: DFObject
+---@field _kind 'struct'
+---@field _type _init_font
 ---@field basic_font_adjx number
 ---@field basic_font_adjy number
 ---@field small_font_adjx number
 ---@field small_font_adjy number
 ---@field large_font_adjx number
 ---@field large_font_adjy number
----@field basic_font_dispx number
----@field basic_font_dispy number
----@field small_font_dispx number
----@field small_font_dispy number
----@field large_font_dispx number
----@field large_font_dispy number
+---@field basic_font_dispx long
+---@field basic_font_dispy long
+---@field small_font_dispx long
+---@field small_font_dispy long
+---@field large_font_dispx long
+---@field large_font_dispy long
+local init_font
+
+---@class _init_font: DFCompound
+---@field _kind 'struct-type'
 df.init_font = {}
 
----@class _init_window_flags: integer, string, df.enum
+---@alias init_window_flags
+---| 0 # VSYNC_ON
+---| 1 # VSYNC_OFF
+---| 2 # TEXTURE_LINEAR
+
+---@class _init_window_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field VSYNC_ON 0
 ---@field [0] "VSYNC_ON"
 ---@field VSYNC_OFF 1
@@ -171,140 +175,68 @@ df.init_font = {}
 ---@field [2] "TEXTURE_LINEAR"
 df.init_window_flags = {}
 
----@class init_window_flags
----@field [0] boolean
----@field VSYNC_ON boolean
----@field [1] boolean
----@field VSYNC_OFF boolean
----@field [2] boolean
----@field TEXTURE_LINEAR boolean
+---@class (exact) init_window: DFObject
+---@field _kind 'struct'
+---@field _type _init_window
+local init_window
 
----@class init_window: df.class
----@field flag init_window_flags[]
+---@class _init_window: DFCompound
+---@field _kind 'struct-type'
 df.init_window = {}
 
----@class init: df.class
+---@class (exact) init: DFObject
+---@field _kind 'struct'
+---@field _type _init
 ---@field display init_display
 ---@field media init_media
 ---@field input init_input
 ---@field font init_font
 ---@field window init_window
----@field fps_cap integer
----@field gfps_cap integer
----@field load_bar_texpos number[]
----@field intro_button_texpos number[]
----@field texpos_neutral_intro_button integer[]
----@field texpos_confirm_intro_button integer[]
----@field texpos_cancel_intro_button integer[]
----@field texpos_selected_intro_button integer[]
----@field texpos_unselected_intro_button integer[]
----@field texpos_open_list_button integer[]
----@field texpos_increase_button integer[]
----@field texpos_decrease_button integer[]
----@field texpos_nullify_button integer[]
----@field texpos_left_arrow_button integer[]
----@field texpos_right_arrow_button integer[]
----@field texpos_up_arrow_button integer[]
----@field texpos_down_arrow_button integer[]
----@field border_texpos number[]
----@field texpos_border_nw integer
----@field texpos_border_n integer
----@field texpos_border_ne integer
----@field texpos_border_w integer
----@field texpos_border_interior integer
----@field texpos_border_e integer
----@field texpos_border_sw integer
----@field texpos_border_s integer
----@field texpos_border_se integer
----@field texpos_border_join_n integer
----@field texpos_border_join_s integer
----@field texpos_border_join_w integer
----@field texpos_border_join_e integer
----@field texpos_border_inside_nswe integer
----@field texpos_border_inside_nsw integer
----@field texpos_border_inside_nse integer
----@field texpos_border_inside_nwe integer
----@field texpos_border_inside_swe integer
----@field texpos_border_inside_ns integer
----@field texpos_border_inside_we integer
----@field scrollbar_texpos number[]
----@field texpos_scrollbar integer[][]
----@field texpos_scrollbar_up_hover integer[]
----@field texpos_scrollbar_up_pressed integer[]
----@field texpos_scrollbar_down_hover integer[]
----@field texpos_scrollbar_down_pressed integer[]
----@field texpos_scrollbar_small_scroller integer[][]
----@field texpos_scrollbar_small_scroller_hover integer[][]
----@field texpos_scrollbar_top_scroller integer[]
----@field texpos_scrollbar_top_scroller_hover integer[]
----@field texpos_scrollbar_bottom_scroller integer[]
----@field texpos_scrollbar_bottom_scroller_hover integer[]
----@field texpos_scrollbar_blank_scroller integer[]
----@field texpos_scrollbar_blank_scroller_hover integer[]
----@field texpos_scrollbar_center_scroller integer[]
----@field texpos_scrollbar_center_scroller_hover integer[]
----@field texpos_scrollbar_offcenter_scroller integer[][]
----@field texpos_scrollbar_offcenter_scroller_hover integer[][]
----@field filter_texpos number[]
----@field texpos_button_filter integer[][]
----@field texpos_button_filter_name integer[][]
----@field tabs_texpos number[]
----@field texpos_tab_unselected integer[][]
----@field texpos_tab_selected integer[][]
----@field classic_load_bar_texpos number[]
----@field classic_texpos_neutral_intro_button integer[]
----@field classic_texpos_confirm_intro_button integer[]
----@field classic_texpos_cancel_intro_button integer[]
----@field classic_texpos_selected_intro_button integer[]
----@field classic_texpos_unselected_intro_button integer[]
----@field classic_texpos_open_list_button integer[]
----@field classic_texpos_increase_button integer[]
----@field classic_texpos_decrease_button integer[]
----@field classic_texpos_nullify_button integer[]
----@field classic_texpos_left_arrow_button integer[]
----@field classic_texpos_right_arrow_button integer[]
----@field classic_texpos_up_arrow_button integer[]
----@field classic_texpos_down_arrow_button integer[]
----@field classic_texpos_border_nw integer
----@field classic_texpos_border_n integer
----@field classic_texpos_border_ne integer
----@field classic_texpos_border_w integer
----@field classic_texpos_border_interior integer
----@field classic_texpos_border_e integer
----@field classic_texpos_border_sw integer
----@field classic_texpos_border_s integer
----@field classic_texpos_border_se integer
----@field classic_texpos_border_join_n integer
----@field classic_texpos_border_join_s integer
----@field classic_texpos_border_join_w integer
----@field classic_texpos_border_join_e integer
----@field classic_texpos_border_inside_nswe integer
----@field classic_texpos_border_inside_nsw integer
----@field classic_texpos_border_inside_nse integer
----@field classic_texpos_border_inside_nwe integer
----@field classic_texpos_border_inside_swe integer
----@field classic_texpos_border_inside_ns integer
----@field classic_texpos_border_inside_we integer
----@field classic_texpos_scrollbar integer[][]
----@field classic_texpos_scrollbar_up_hover integer[]
----@field classic_texpos_scrollbar_up_pressed integer[]
----@field classic_texpos_scrollbar_down_hover integer[]
----@field classic_texpos_scrollbar_down_pressed integer[]
----@field classic_texpos_scrollbar_small_scroller integer[][]
----@field classic_texpos_scrollbar_small_scroller_hover integer[][]
----@field classic_texpos_scrollbar_top_scroller integer[]
----@field classic_texpos_scrollbar_top_scroller_hover integer[]
----@field classic_texpos_scrollbar_bottom_scroller integer[]
----@field classic_texpos_scrollbar_bottom_scroller_hover integer[]
----@field classic_texpos_scrollbar_blank_scroller integer[]
----@field classic_texpos_scrollbar_blank_scroller_hover integer[]
----@field classic_texpos_scrollbar_center_scroller integer[]
----@field classic_texpos_scrollbar_center_scroller_hover integer[]
----@field classic_texpos_scrollbar_offcenter_scroller integer[][]
----@field classic_texpos_scrollbar_offcenter_scroller_hover integer[][]
----@field classic_texpos_button_filter integer[][]
----@field classic_texpos_button_filter_name integer[][]
----@field classic_texpos_tab_unselected integer[][]
----@field classic_texpos_tab_selected integer[][]
+---@field fps_cap number
+---@field gfps_cap number
+---@field texpos_border_nw number
+---@field texpos_border_n number
+---@field texpos_border_ne number
+---@field texpos_border_w number
+---@field texpos_border_interior number
+---@field texpos_border_e number
+---@field texpos_border_sw number
+---@field texpos_border_s number
+---@field texpos_border_se number
+---@field texpos_border_join_n number
+---@field texpos_border_join_s number
+---@field texpos_border_join_w number
+---@field texpos_border_join_e number
+---@field texpos_border_inside_nswe number
+---@field texpos_border_inside_nsw number
+---@field texpos_border_inside_nse number
+---@field texpos_border_inside_nwe number
+---@field texpos_border_inside_swe number
+---@field texpos_border_inside_ns number
+---@field texpos_border_inside_we number
+---@field classic_texpos_border_nw number
+---@field classic_texpos_border_n number
+---@field classic_texpos_border_ne number
+---@field classic_texpos_border_w number
+---@field classic_texpos_border_interior number
+---@field classic_texpos_border_e number
+---@field classic_texpos_border_sw number
+---@field classic_texpos_border_s number
+---@field classic_texpos_border_se number
+---@field classic_texpos_border_join_n number
+---@field classic_texpos_border_join_s number
+---@field classic_texpos_border_join_w number
+---@field classic_texpos_border_join_e number
+---@field classic_texpos_border_inside_nswe number
+---@field classic_texpos_border_inside_nsw number
+---@field classic_texpos_border_inside_nse number
+---@field classic_texpos_border_inside_nwe number
+---@field classic_texpos_border_inside_swe number
+---@field classic_texpos_border_inside_ns number
+---@field classic_texpos_border_inside_we number
+local init
+
+---@class _init: DFCompound
+---@field _kind 'struct-type'
 df.init = {}
 

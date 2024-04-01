@@ -1,7 +1,91 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.plant-raws
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _plant_raw_flags: integer, string, df.enum
+---@alias plant_raw_flags
+---| 0 # SPRING
+---| 1 # SUMMER
+---| 2 # AUTUMN
+---| 3 # WINTER
+---| 5 # SEED
+---| 6 # TREE_HAS_MUSHROOM_CAP
+---| 7 # DRINK
+---| 8 # EXTRACT_BARREL
+---| 9 # EXTRACT_VIAL
+---| 10 # EXTRACT_STILL_VIAL
+---| 11 # GENERATED
+---| 12 # THREAD
+---| 13 # MILL
+---| 20 # WET
+---| 21 # DRY
+---| 22 # BIOME_MOUNTAIN
+---| 23 # BIOME_GLACIER
+---| 24 # BIOME_TUNDRA
+---| 25 # BIOME_SWAMP_TEMPERATE_FRESHWATER
+---| 26 # BIOME_SWAMP_TEMPERATE_SALTWATER
+---| 27 # BIOME_MARSH_TEMPERATE_FRESHWATER
+---| 28 # BIOME_MARSH_TEMPERATE_SALTWATER
+---| 29 # BIOME_SWAMP_TROPICAL_FRESHWATER
+---| 30 # BIOME_SWAMP_TROPICAL_SALTWATER
+---| 31 # BIOME_SWAMP_MANGROVE
+---| 32 # BIOME_MARSH_TROPICAL_FRESHWATER
+---| 33 # BIOME_MARSH_TROPICAL_SALTWATER
+---| 34 # BIOME_FOREST_TAIGA
+---| 35 # BIOME_FOREST_TEMPERATE_CONIFER
+---| 36 # BIOME_FOREST_TEMPERATE_BROADLEAF
+---| 37 # BIOME_FOREST_TROPICAL_CONIFER
+---| 38 # BIOME_FOREST_TROPICAL_DRY_BROADLEAF
+---| 39 # BIOME_FOREST_TROPICAL_MOIST_BROADLEAF
+---| 40 # BIOME_GRASSLAND_TEMPERATE
+---| 41 # BIOME_SAVANNA_TEMPERATE
+---| 42 # BIOME_SHRUBLAND_TEMPERATE
+---| 43 # BIOME_GRASSLAND_TROPICAL
+---| 44 # BIOME_SAVANNA_TROPICAL
+---| 45 # BIOME_SHRUBLAND_TROPICAL
+---| 46 # BIOME_DESERT_BADLAND
+---| 47 # BIOME_DESERT_ROCK
+---| 48 # BIOME_DESERT_SAND
+---| 49 # BIOME_OCEAN_TROPICAL
+---| 50 # BIOME_OCEAN_TEMPERATE
+---| 51 # BIOME_OCEAN_ARCTIC
+---| 52 # BIOME_POOL_TEMPERATE_FRESHWATER
+---| 53 # BIOME_SUBTERRANEAN_WATER
+---| 54 # BIOME_SUBTERRANEAN_CHASM
+---| 55 # BIOME_SUBTERRANEAN_LAVA
+---| 56 # GOOD
+---| 57 # EVIL
+---| 58 # SAVAGE
+---| 59 # BIOME_POOL_TEMPERATE_BRACKISHWATER
+---| 60 # BIOME_POOL_TEMPERATE_SALTWATER
+---| 61 # BIOME_POOL_TROPICAL_FRESHWATER
+---| 62 # BIOME_POOL_TROPICAL_BRACKISHWATER
+---| 63 # BIOME_POOL_TROPICAL_SALTWATER
+---| 64 # BIOME_LAKE_TEMPERATE_FRESHWATER
+---| 65 # BIOME_LAKE_TEMPERATE_BRACKISHWATER
+---| 66 # BIOME_LAKE_TEMPERATE_SALTWATER
+---| 67 # BIOME_LAKE_TROPICAL_FRESHWATER
+---| 68 # BIOME_LAKE_TROPICAL_BRACKISHWATER
+---| 69 # BIOME_LAKE_TROPICAL_SALTWATER
+---| 70 # BIOME_RIVER_TEMPERATE_FRESHWATER
+---| 71 # BIOME_RIVER_TEMPERATE_BRACKISHWATER
+---| 72 # BIOME_RIVER_TEMPERATE_SALTWATER
+---| 73 # BIOME_RIVER_TROPICAL_FRESHWATER
+---| 74 # BIOME_RIVER_TROPICAL_BRACKISHWATER
+---| 75 # BIOME_RIVER_TROPICAL_SALTWATER
+---| 76 # TWIGS_SIDE_BRANCHES
+---| 77 # SAPLING
+---| 78 # TREE
+---| 79 # GRASS
+---| 80 # TWIGS_ABOVE_BRANCHES
+---| 81 # TWIGS_BELOW_BRANCHES
+---| 82 # TWIGS_SIDE_HEAVY_BRANCHES
+---| 83 # TWIGS_ABOVE_HEAVY_BRANCHES
+---| 84 # TWIGS_BELOW_HEAVY_BRANCHES
+---| 85 # TWIGS_SIDE_TRUNK
+---| 86 # TWIGS_ABOVE_TRUNK
+---| 87 # TWIGS_BELOW_TRUNK
+
+---@class _plant_raw_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field SPRING 0
 ---@field [0] "SPRING"
 ---@field SUMMER 1
@@ -10,8 +94,6 @@
 ---@field [2] "AUTUMN"
 ---@field WINTER 3
 ---@field [3] "WINTER"
----@field unk_4 4
----@field [4] "unk_4"
 ---@field SEED 5
 ---@field [5] "SEED"
 ---@field TREE_HAS_MUSHROOM_CAP 6
@@ -30,18 +112,6 @@
 ---@field [12] "THREAD"
 ---@field MILL 13
 ---@field [13] "MILL"
----@field unk_14 14
----@field [14] "unk_14"
----@field unk_15 15
----@field [15] "unk_15"
----@field unk_16 16
----@field [16] "unk_16"
----@field unk_17 17
----@field [17] "unk_17"
----@field unk_18 18
----@field [18] "unk_18"
----@field unk_19 19
----@field [19] "unk_19"
 ---@field WET 20
 ---@field [20] "WET"
 ---@field DRY 21
@@ -180,244 +250,72 @@
 ---@field [87] "TWIGS_BELOW_TRUNK"
 df.plant_raw_flags = {}
 
----@class plant_raw_flags
----@field [0] boolean
----@field SPRING boolean
----@field [1] boolean
----@field SUMMER boolean
----@field [2] boolean
----@field AUTUMN boolean
----@field [3] boolean
----@field WINTER boolean
----@field [4] boolean
----@field unk_4 boolean
----@field [5] boolean
----@field SEED boolean
----@field [6] boolean
----@field TREE_HAS_MUSHROOM_CAP boolean
----@field [7] boolean
----@field DRINK boolean
----@field [8] boolean
----@field EXTRACT_BARREL boolean
----@field [9] boolean
----@field EXTRACT_VIAL boolean
----@field [10] boolean
----@field EXTRACT_STILL_VIAL boolean
----@field [11] boolean
----@field GENERATED boolean
----@field [12] boolean
----@field THREAD boolean
----@field [13] boolean
----@field MILL boolean
----@field [14] boolean
----@field unk_14 boolean
----@field [15] boolean
----@field unk_15 boolean
----@field [16] boolean
----@field unk_16 boolean
----@field [17] boolean
----@field unk_17 boolean
----@field [18] boolean
----@field unk_18 boolean
----@field [19] boolean
----@field unk_19 boolean
----@field [20] boolean
----@field WET boolean
----@field [21] boolean
----@field DRY boolean
----@field [22] boolean
----@field BIOME_MOUNTAIN boolean
----@field [23] boolean
----@field BIOME_GLACIER boolean
----@field [24] boolean
----@field BIOME_TUNDRA boolean
----@field [25] boolean
----@field BIOME_SWAMP_TEMPERATE_FRESHWATER boolean
----@field [26] boolean
----@field BIOME_SWAMP_TEMPERATE_SALTWATER boolean
----@field [27] boolean
----@field BIOME_MARSH_TEMPERATE_FRESHWATER boolean
----@field [28] boolean
----@field BIOME_MARSH_TEMPERATE_SALTWATER boolean
----@field [29] boolean
----@field BIOME_SWAMP_TROPICAL_FRESHWATER boolean
----@field [30] boolean
----@field BIOME_SWAMP_TROPICAL_SALTWATER boolean
----@field [31] boolean
----@field BIOME_SWAMP_MANGROVE boolean
----@field [32] boolean
----@field BIOME_MARSH_TROPICAL_FRESHWATER boolean
----@field [33] boolean
----@field BIOME_MARSH_TROPICAL_SALTWATER boolean
----@field [34] boolean
----@field BIOME_FOREST_TAIGA boolean
----@field [35] boolean
----@field BIOME_FOREST_TEMPERATE_CONIFER boolean
----@field [36] boolean
----@field BIOME_FOREST_TEMPERATE_BROADLEAF boolean
----@field [37] boolean
----@field BIOME_FOREST_TROPICAL_CONIFER boolean
----@field [38] boolean
----@field BIOME_FOREST_TROPICAL_DRY_BROADLEAF boolean
----@field [39] boolean
----@field BIOME_FOREST_TROPICAL_MOIST_BROADLEAF boolean
----@field [40] boolean
----@field BIOME_GRASSLAND_TEMPERATE boolean
----@field [41] boolean
----@field BIOME_SAVANNA_TEMPERATE boolean
----@field [42] boolean
----@field BIOME_SHRUBLAND_TEMPERATE boolean
----@field [43] boolean
----@field BIOME_GRASSLAND_TROPICAL boolean
----@field [44] boolean
----@field BIOME_SAVANNA_TROPICAL boolean
----@field [45] boolean
----@field BIOME_SHRUBLAND_TROPICAL boolean
----@field [46] boolean
----@field BIOME_DESERT_BADLAND boolean
----@field [47] boolean
----@field BIOME_DESERT_ROCK boolean
----@field [48] boolean
----@field BIOME_DESERT_SAND boolean
----@field [49] boolean
----@field BIOME_OCEAN_TROPICAL boolean
----@field [50] boolean
----@field BIOME_OCEAN_TEMPERATE boolean
----@field [51] boolean
----@field BIOME_OCEAN_ARCTIC boolean
----@field [52] boolean
----@field BIOME_POOL_TEMPERATE_FRESHWATER boolean
----@field [53] boolean
----@field BIOME_SUBTERRANEAN_WATER boolean
----@field [54] boolean
----@field BIOME_SUBTERRANEAN_CHASM boolean
----@field [55] boolean
----@field BIOME_SUBTERRANEAN_LAVA boolean
----@field [56] boolean
----@field GOOD boolean
----@field [57] boolean
----@field EVIL boolean
----@field [58] boolean
----@field SAVAGE boolean
----@field [59] boolean
----@field BIOME_POOL_TEMPERATE_BRACKISHWATER boolean
----@field [60] boolean
----@field BIOME_POOL_TEMPERATE_SALTWATER boolean
----@field [61] boolean
----@field BIOME_POOL_TROPICAL_FRESHWATER boolean
----@field [62] boolean
----@field BIOME_POOL_TROPICAL_BRACKISHWATER boolean
----@field [63] boolean
----@field BIOME_POOL_TROPICAL_SALTWATER boolean
----@field [64] boolean
----@field BIOME_LAKE_TEMPERATE_FRESHWATER boolean
----@field [65] boolean
----@field BIOME_LAKE_TEMPERATE_BRACKISHWATER boolean
----@field [66] boolean
----@field BIOME_LAKE_TEMPERATE_SALTWATER boolean
----@field [67] boolean
----@field BIOME_LAKE_TROPICAL_FRESHWATER boolean
----@field [68] boolean
----@field BIOME_LAKE_TROPICAL_BRACKISHWATER boolean
----@field [69] boolean
----@field BIOME_LAKE_TROPICAL_SALTWATER boolean
----@field [70] boolean
----@field BIOME_RIVER_TEMPERATE_FRESHWATER boolean
----@field [71] boolean
----@field BIOME_RIVER_TEMPERATE_BRACKISHWATER boolean
----@field [72] boolean
----@field BIOME_RIVER_TEMPERATE_SALTWATER boolean
----@field [73] boolean
----@field BIOME_RIVER_TROPICAL_FRESHWATER boolean
----@field [74] boolean
----@field BIOME_RIVER_TROPICAL_BRACKISHWATER boolean
----@field [75] boolean
----@field BIOME_RIVER_TROPICAL_SALTWATER boolean
----@field [76] boolean
----@field TWIGS_SIDE_BRANCHES boolean
----@field [77] boolean
----@field SAPLING boolean
----@field [78] boolean
----@field TREE boolean
----@field [79] boolean
----@field GRASS boolean
----@field [80] boolean
----@field TWIGS_ABOVE_BRANCHES boolean
----@field [81] boolean
----@field TWIGS_BELOW_BRANCHES boolean
----@field [82] boolean
----@field TWIGS_SIDE_HEAVY_BRANCHES boolean
----@field [83] boolean
----@field TWIGS_ABOVE_HEAVY_BRANCHES boolean
----@field [84] boolean
----@field TWIGS_BELOW_HEAVY_BRANCHES boolean
----@field [85] boolean
----@field TWIGS_SIDE_TRUNK boolean
----@field [86] boolean
----@field TWIGS_ABOVE_TRUNK boolean
----@field [87] boolean
----@field TWIGS_BELOW_TRUNK boolean
-
----@class plant_raw: df.instance
----@field id df.string
----@field index integer
----@field raws df.string[]
----@field flags plant_raw_flags[]
----@field name df.string
----@field name_plural df.string
----@field adj df.string
----@field seed_singular df.string
----@field seed_plural df.string
----@field leaves_singular df.string unused
----@field leaves_plural df.string unused
----@field source_hfid integer References: historical_figure
----@field unk_v4201_1 integer
+---@class (exact) plant_raw: DFObject
+---@field _kind 'struct'
+---@field _type _plant_raw
+---@field id string
+---@field index number
+---@field name string
+---@field name_plural string
+---@field adj string
+---@field seed_singular string
+---@field seed_plural string
+---@field leaves_singular string unused
+---@field leaves_plural string unused
+---@field source_hfid number References: `historical_figure`
+---@field unk_v4201_1 number
 ---@field unk1 integer
 ---@field unk2 integer
----@field tiles plant_raw_tiles
----@field growdur integer
----@field value integer
----@field colors plant_raw_colors
----@field alt_period integer[]
----@field shrub_drown_level integer
----@field tree_drown_level integer
----@field sapling_drown_level integer
----@field frequency integer
----@field clustersize integer
----@field prefstring df.string[]
----@field material material[]
----@field material_defs plant_raw_material_defs
----@field underground_depth_min integer
----@field underground_depth_max integer
----@field growths plant_growth[]
----@field root_name df.string
----@field trunk_name df.string
----@field heavy_branch_name df.string
----@field light_branch_name df.string
----@field twig_name df.string
----@field cap_name df.string
----@field trunk_period integer
----@field heavy_branch_density integer
----@field light_branch_density integer
----@field max_trunk_height integer
----@field heavy_branch_radius integer
----@field light_branch_radius integer
----@field trunk_branching integer
----@field max_trunk_diameter integer
----@field trunk_width_period integer
----@field cap_period integer
----@field cap_radius integer
----@field root_density integer
----@field root_radius integer
----@field stockpile_growths df.container indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
----@field stockpile_growth_flags plant_raw_stockpile_growth_flags[]
+---@field tiles plant_raw.T_tiles
+---@field growdur number
+---@field value number
+---@field colors plant_raw.T_colors
+---@field shrub_drown_level number
+---@field tree_drown_level number
+---@field sapling_drown_level number
+---@field frequency number
+---@field clustersize number
+---@field material_defs plant_raw.T_material_defs
+---@field underground_depth_min number
+---@field underground_depth_max number
+---@field root_name string
+---@field trunk_name string
+---@field heavy_branch_name string
+---@field light_branch_name string
+---@field twig_name string
+---@field cap_name string
+---@field trunk_period number
+---@field heavy_branch_density number
+---@field light_branch_density number
+---@field max_trunk_height number
+---@field heavy_branch_radius number
+---@field light_branch_radius number
+---@field trunk_branching number
+---@field max_trunk_diameter number
+---@field trunk_width_period number
+---@field cap_period number
+---@field cap_radius number
+---@field root_density number
+---@field root_radius number
+local plant_raw
+
+---@class _plant_raw: DFCompound
+---@field _kind 'struct-type'
 df.plant_raw = {}
 
----@param key integer
+---@param key number
 ---@return plant_raw|nil
 function df.plant_raw.find(key) end
 
----@class plant_raw_tiles: df.class
+---@class plant_raw_vector: DFVector, { [integer]: plant_raw }
+local plant_raw_vector
+
+---@return plant_raw_vector # df.global.world.raws.plants.all
+function df.plant_raw.get_vector() end
+
+---@class (exact) plant_raw.T_tiles: DFObject
+---@field _kind 'struct'
+---@field _type _plant_raw.T_tiles
 ---@field picked_tile integer
 ---@field dead_picked_tile integer
 ---@field shrub_tile integer
@@ -426,44 +324,45 @@ function df.plant_raw.find(key) end
 ---@field dead_tree_tile integer unused
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
----@field grass_tiles integer[]
----@field alt_grass_tiles integer[]
----@field tree_tiles integer[]
----@field unk_v50_1 integer[]
+local tiles
+
+---@class _plant_raw.T_tiles: DFCompound
+---@field _kind 'struct-type'
 df.plant_raw.T_tiles = {}
 
+---@class (exact) plant_raw.T_colors: DFObject
+---@field _kind 'struct'
+---@field _type _plant_raw.T_colors
+local colors
 
----@class plant_raw_colors: df.class
----@field picked_color integer[]
----@field dead_picked_color integer[]
----@field shrub_color integer[]
----@field dead_shrub_color integer[]
----@field seed_color integer[]
----@field tree_color integer[]
----@field dead_tree_color integer[]
----@field sapling_color integer[]
----@field dead_sapling_color integer[]
----@field grass_colors_0 integer[]
----@field grass_colors_1 integer[]
----@field grass_colors_2 integer[]
+---@class _plant_raw.T_colors: DFCompound
+---@field _kind 'struct-type'
 df.plant_raw.T_colors = {}
 
+---@class (exact) plant_raw.T_material_defs: DFObject
+---@field _kind 'struct'
+---@field _type _plant_raw.T_material_defs
+local material_defs
 
----@class plant_raw_material_defs: df.class
----@field type integer[]
----@field idx integer[]
----@field str df.string[][]
+---@class _plant_raw.T_material_defs: DFCompound
+---@field _kind 'struct-type'
 df.plant_raw.T_material_defs = {}
 
+---@alias plant_material_def
+---| 0 # basic_mat
+---| 1 # tree
+---| 2 # drink
+---| 3 # seed
+---| 4 # thread
+---| 5 # mill
+---| 6 # extract_vial
+---| 7 # extract_barrel
+---| 8 # extract_still_vial
 
----@class plant_raw_stockpile_growth_flags: df.class
----@field EDIBLE_RAW integer
----@field EDIBLE_COOKED integer
-df.plant_raw.T_stockpile_growth_flags = {}
-
----@class _plant_material_def: integer, string, df.enum
----@field basic_mat 0
----@field [0] "basic_mat"
+---@class _plant_material_def: DFDescriptor
+---@field _kind 'enum-type'
+---@field basic_mat 0 TODO: is this the same as another existing enum?
+---@field [0] "basic_mat" TODO: is this the same as another existing enum?
 ---@field tree 1
 ---@field [1] "tree"
 ---@field drink 2
@@ -482,107 +381,73 @@ df.plant_raw.T_stockpile_growth_flags = {}
 ---@field [8] "extract_still_vial"
 df.plant_material_def = {}
 
----@class plant_material_def
----@field [0] boolean
----@field basic_mat boolean
----@field [1] boolean
----@field tree boolean
----@field [2] boolean
----@field drink boolean
----@field [3] boolean
----@field seed boolean
----@field [4] boolean
----@field thread boolean
----@field [5] boolean
----@field mill boolean
----@field [6] boolean
----@field extract_vial boolean
----@field [7] boolean
----@field extract_barrel boolean
----@field [8] boolean
----@field extract_still_vial boolean
-
----@class plant_growth: df.class
----@field id df.string
----@field name df.string
----@field name_plural df.string
----@field str_growth_item df.string[]
+---@class (exact) plant_growth: DFObject
+---@field _kind 'struct'
+---@field _type _plant_growth
+---@field id string
+---@field name string
+---@field name_plural string
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
----@field prints plant_growth_print[]
----@field unk_v50_1 integer
----@field unk_v50_2 integer
----@field unk_v50_3 integer
----@field unk_v50_4 integer
----@field unk_v50_5 integer
----@field timing_1 integer
----@field timing_2 integer
----@field locations plant_growth_locations
----@field density integer
----@field behavior plant_growth_behavior
----@field trunk_height_perc_1 integer
----@field trunk_height_perc_2 integer
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
+---@field unk_v50_1 number
+---@field unk_v50_2 number
+---@field unk_v50_3 number
+---@field unk_v50_4 number
+---@field unk_v50_5 number
+---@field timing_1 number
+---@field timing_2 number
+---@field locations plant_growth.T_locations
+---@field density number
+---@field behavior plant_growth.T_behavior
+---@field trunk_height_perc_1 number
+---@field trunk_height_perc_2 number
+local plant_growth
+
+---@class _plant_growth: DFCompound
+---@field _kind 'struct-type'
 df.plant_growth = {}
 
----@class _plant_growth_locations: integer, string, df.bitfield
----@field twigs 0
----@field [0] "twigs"
----@field light_branches 1
----@field [1] "light_branches"
----@field heavy_branches 2
----@field [2] "heavy_branches"
----@field trunk 3
----@field [3] "trunk"
----@field roots 4
----@field [4] "roots"
----@field cap 5
----@field [5] "cap"
----@field sapling 6
----@field [6] "sapling"
+---@class (exact) plant_growth.T_locations: DFObject
+---@field _kind 'struct'
+---@field _type _plant_growth.T_locations
+---@field twigs flag-bit
+---@field light_branches flag-bit
+---@field heavy_branches flag-bit
+---@field trunk flag-bit
+---@field roots flag-bit
+---@field cap flag-bit
+---@field sapling flag-bit
+local locations
+
+---@class _plant_growth.T_locations: DFCompound
+---@field _kind 'struct-type'
 df.plant_growth.T_locations = {}
 
----@class plant_growth_locations
----@field [0] boolean
----@field twigs boolean
----@field [1] boolean
----@field light_branches boolean
----@field [2] boolean
----@field heavy_branches boolean
----@field [3] boolean
----@field trunk boolean
----@field [4] boolean
----@field roots boolean
----@field [5] boolean
----@field cap boolean
----@field [6] boolean
----@field sapling boolean
+---@class (exact) plant_growth.T_behavior: DFObject
+---@field _kind 'struct'
+---@field _type _plant_growth.T_behavior
+---@field drops_off flag-bit
+---@field no_cloud flag-bit
+---@field has_seed flag-bit
+local behavior
 
-
----@class _plant_growth_behavior: integer, string, df.bitfield
----@field drops_off 0
----@field [0] "drops_off"
----@field no_cloud 1
----@field [1] "no_cloud"
----@field has_seed 2
----@field [2] "has_seed"
+---@class _plant_growth.T_behavior: DFCompound
+---@field _kind 'struct-type'
 df.plant_growth.T_behavior = {}
 
----@class plant_growth_behavior
----@field [0] boolean
----@field drops_off boolean
----@field [1] boolean
----@field no_cloud boolean
----@field [2] boolean
----@field has_seed boolean
-
----@class plant_growth_print: df.class
----@field priority integer final token in list
+---@class (exact) plant_growth_print: DFObject
+---@field _kind 'struct'
+---@field _type _plant_growth_print
+---@field priority number final token in list
 ---@field tile_growth integer
 ---@field tile_item integer
----@field color integer[]
----@field timing_start integer
----@field timing_end integer
+---@field timing_start number
+---@field timing_end number
+local plant_growth_print
+
+---@class _plant_growth_print: DFCompound
+---@field _kind 'struct-type'
 df.plant_growth_print = {}
 

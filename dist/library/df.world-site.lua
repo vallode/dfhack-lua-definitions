@@ -1,42 +1,80 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.world-site
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class scribejob: df.class
----@field idmaybe integer
----@field unk_1 integer not locationid
----@field item_id integer
----@field written_content_id integer
----@field unit_id integer
----@field activity_entry_id integer
----@field unk_2 integer
+---@class (exact) scribejob: DFObject
+---@field _kind 'struct'
+---@field _type _scribejob
+---@field idmaybe number
+---@field unk_1 number not locationid
+---@field item_id number
+---@field written_content_id number
+---@field unit_id number
+---@field activity_entry_id number
+---@field unk_2 number
+local scribejob
+
+---@class _scribejob: DFCompound
+---@field _kind 'struct-type'
 df.scribejob = {}
 
----@class site_reputation_report: df.class
----@field site_id integer
----@field location_id integer
----@field unk_1 integer
----@field unk_2 integer
----@field year integer
----@field tickmaybe integer
----@field unk_3 integer[]
+---@class (exact) site_reputation_report: DFObject
+---@field _kind 'struct'
+---@field _type _site_reputation_report
+---@field site_id number
+---@field location_id number
+---@field unk_1 number
+---@field unk_2 number
+---@field year number
+---@field tickmaybe number
+local site_reputation_report
+
+---@class _site_reputation_report: DFCompound
+---@field _kind 'struct-type'
 df.site_reputation_report = {}
 
----@class site_reputation_info: df.class
----@field reports site_reputation_report[]
+---@class (exact) site_reputation_info: DFObject
+---@field _kind 'struct'
+---@field _type _site_reputation_info
+local site_reputation_info
+
+---@class _site_reputation_info: DFCompound
+---@field _kind 'struct-type'
 df.site_reputation_info = {}
 
----@class location_scribe_jobs: df.class
----@field scribejobs scribejob[]
----@field nextidmaybe integer
----@field year integer
+---@class (exact) location_scribe_jobs: DFObject
+---@field _kind 'struct'
+---@field _type _location_scribe_jobs
+---@field nextidmaybe number
+---@field year number
 ---@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_4 number
+---@field unk_5 number
+local location_scribe_jobs
+
+---@class _location_scribe_jobs: DFCompound
+---@field _kind 'struct-type'
 df.location_scribe_jobs = {}
 
----@class _abstract_building_type: integer, string, df.enum
+---@alias abstract_building_type
+---| 0 # MEAD_HALL
+---| 1 # KEEP
+---| 2 # TEMPLE
+---| 3 # DARK_TOWER
+---| 4 # MARKET
+---| 5 # TOMB
+---| 6 # DUNGEON
+---| 7 # UNDERWORLD_SPIRE
+---| 8 # INN_TAVERN
+---| 9 # LIBRARY
+---| 10 # COUNTING_HOUSE
+---| 11 # GUILDHALL
+---| 12 # TOWER
+---| 13 # HOSPITAL
+
+---@class _abstract_building_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field MEAD_HALL 0
 ---@field [0] "MEAD_HALL"
 ---@field KEEP 1
@@ -67,303 +105,233 @@ df.location_scribe_jobs = {}
 ---@field [13] "HOSPITAL"
 df.abstract_building_type = {}
 
----@class abstract_building_type
----@field [0] boolean
----@field MEAD_HALL boolean
----@field [1] boolean
----@field KEEP boolean
----@field [2] boolean
----@field TEMPLE boolean
----@field [3] boolean
----@field DARK_TOWER boolean
----@field [4] boolean
----@field MARKET boolean
----@field [5] boolean
----@field TOMB boolean
----@field [6] boolean
----@field DUNGEON boolean
----@field [7] boolean
----@field UNDERWORLD_SPIRE boolean
----@field [8] boolean
----@field INN_TAVERN boolean
----@field [9] boolean
----@field LIBRARY boolean
----@field [10] boolean
----@field COUNTING_HOUSE boolean
----@field [11] boolean
----@field GUILDHALL boolean
----@field [12] boolean
----@field TOWER boolean
----@field [13] boolean
----@field HOSPITAL boolean
+---@alias abstract_building_flags
+---| 0 # WG_RUINED
+---| 1 # DOES_NOT_EXIST
+---| 2 # DISCOVERED
+---| 3 # PWG_RUINED
+---| 4 # VISITORS_ALLOWED
+---| 5 # NON_CITIZENS_ALLOWED
+---| 6 # MEMBERS_ONLY
+---| 7 # UNUSED8
 
----@class _abstract_building_flags: integer, string, df.enum
----@field Unk0 0
----@field [0] "Unk0"
----@field Unk1 1
----@field [1] "Unk1"
----@field Unk2 2
----@field [2] "Unk2"
----@field Unk3 3
----@field [3] "Unk3"
----@field AllowVisitors 4
----@field [4] "AllowVisitors"
----@field AllowResidents 5
----@field [5] "AllowResidents"
----@field OnlyMembers 6
----@field [6] "OnlyMembers"
----@field Unk7 7
----@field [7] "Unk7"
+---@class _abstract_building_flags: DFDescriptor
+---@field _kind 'enum-type'
+---@field WG_RUINED 0
+---@field [0] "WG_RUINED"
+---@field DOES_NOT_EXIST 1
+---@field [1] "DOES_NOT_EXIST"
+---@field DISCOVERED 2 gets toggled when an adventurer has visited it.
+---@field [2] "DISCOVERED" gets toggled when an adventurer has visited it.
+---@field PWG_RUINED 3
+---@field [3] "PWG_RUINED"
+---@field VISITORS_ALLOWED 4
+---@field [4] "VISITORS_ALLOWED"
+---@field NON_CITIZENS_ALLOWED 5
+---@field [5] "NON_CITIZENS_ALLOWED"
+---@field MEMBERS_ONLY 6
+---@field [6] "MEMBERS_ONLY"
+---@field UNUSED8 7
+---@field [7] "UNUSED8"
 df.abstract_building_flags = {}
 
----@class abstract_building_flags
----@field [0] boolean
----@field Unk0 boolean
----@field [1] boolean
----@field Unk1 boolean
----@field [2] boolean
----@field Unk2 boolean
----@field [3] boolean
----@field Unk3 boolean
----@field [4] boolean
----@field AllowVisitors boolean
----@field [5] boolean
----@field AllowResidents boolean
----@field [6] boolean
----@field OnlyMembers boolean
----@field [7] boolean
----@field Unk7 boolean
+-- used within Tomb and Dungeon
+---@class (exact) abstract_building_entombed: DFObject
+---@field _kind 'struct'
+---@field _type _abstract_building_entombed
+local abstract_building_entombed
 
----used within Tomb and Dungeon
----@class abstract_building_entombed: df.class
----@field populations abstract_building_entombed_populations[]
----@field histfigs df.container References: historical_figure
+---@class _abstract_building_entombed: DFCompound
+---@field _kind 'struct-type'
 df.abstract_building_entombed = {}
 
----@class abstract_building_entombed_populations: df.class
----@field count integer
----@field race integer References: creature_raw
----@field population integer References: entity_population
----@field unk_4 integer
----@field unk_5 integer min year?
----@field unk_6 integer max year? seems to always be slightly before the construction of the building for tombs
----@field unk_7 integer seen equal to count
----@field unk_8 integer seen values 0, 6
-df.abstract_building_entombed.T_populations = {}
-
----used within Temple, Library, and Inn/Tavern
----@class abstract_building_contents: df.class
----@field need_more abstract_building_contents_need_more
+-- used within Temple, Library, and Inn/Tavern
+---@class (exact) abstract_building_contents: DFObject
+---@field _kind 'struct'
+---@field _type _abstract_building_contents
+---@field need_more abstract_building_contents.T_need_more
 ---@field profession profession
----@field desired_goblets integer
----@field desired_instruments integer
----@field desired_paper integer
----@field desired_splints integer
----@field desired_thread integer times 15000
----@field desired_cloth integer times 10000
----@field desired_crutches integer
----@field desired_powder integer times 150
----@field desired_buckets integer
----@field desired_soap integer times 150
----@field desired_copies integer
----@field location_tier integer
----@field location_value integer
----@field count_goblets integer
----@field count_instruments integer
----@field count_paper integer
----@field count_splints integer
----@field count_thread integer
----@field count_cloth integer
----@field count_crutches integer
----@field count_powder integer
----@field count_buckets integer
----@field count_soap integer
----@field unk_v47_2 integer
----@field unk_v47_3 integer
----@field building_ids df.container References: building
+---@field desired_goblets number
+---@field desired_instruments number
+---@field desired_paper number
+---@field desired_splints number
+---@field desired_thread number times 15000
+---@field desired_cloth number times 10000
+---@field desired_crutches number
+---@field desired_powder number times 150
+---@field desired_buckets number
+---@field desired_soap number times 150
+---@field desired_copies number
+---@field location_tier number the following is not saved:
+---@field location_value number
+---@field count_goblets number
+---@field count_instruments number
+---@field count_paper number
+---@field count_splints number
+---@field count_thread number
+---@field count_cloth number
+---@field count_crutches number
+---@field count_powder number
+---@field count_buckets number
+---@field count_soap number
+---@field unk_v47_2 number
+---@field unk_v47_3 number
+local abstract_building_contents
+
+---@class _abstract_building_contents: DFCompound
+---@field _kind 'struct-type'
 df.abstract_building_contents = {}
 
----@class _abstract_building_contents_need_more: integer, string, df.bitfield
----@field goblets 0
----@field [0] "goblets"
----@field instruments 1
----@field [1] "instruments"
----@field paper 2
----@field [2] "paper"
----@field unk_3 3
----@field [3] "unk_3"
----@field splints 4
----@field [4] "splints"
----@field thread 5
----@field [5] "thread"
----@field cloth 6
----@field [6] "cloth"
----@field crutches 7
----@field [7] "crutches"
----@field powder 8
----@field [8] "powder"
----@field buckets 9
----@field [9] "buckets"
----@field soap 10
----@field [10] "soap"
+---@class (exact) abstract_building_contents.T_need_more: DFObject
+---@field _kind 'struct'
+---@field _type _abstract_building_contents.T_need_more
+---@field goblets flag-bit
+---@field instruments flag-bit
+---@field paper flag-bit
+---@field  flag-bit
+---@field splints flag-bit
+---@field thread flag-bit
+---@field cloth flag-bit
+---@field crutches flag-bit
+---@field powder flag-bit
+---@field buckets flag-bit
+---@field soap flag-bit
+local need_more
+
+---@class _abstract_building_contents.T_need_more: DFCompound
+---@field _kind 'struct-type'
 df.abstract_building_contents.T_need_more = {}
 
----@class abstract_building_contents_need_more
----@field [0] boolean
----@field goblets boolean
----@field [1] boolean
----@field instruments boolean
----@field [2] boolean
----@field paper boolean
----@field [3] boolean
----@field unk_3 boolean
----@field [4] boolean
----@field splints boolean
----@field [5] boolean
----@field thread boolean
----@field [6] boolean
----@field cloth boolean
----@field [7] boolean
----@field crutches boolean
----@field [8] boolean
----@field powder boolean
----@field [9] boolean
----@field buckets boolean
----@field [10] boolean
----@field soap boolean
-
----@class abstract_building: df.class
----@field id integer
----@field inhabitants abstract_building_inhabitants[]
----@field flags abstract_building_flags[]
----@field unk1 abstract_building_unk1 in temples; hfig is the god
----@field unk2 df.container
----@field parent_building_id integer References: abstract_building<br>Tombs use this to hold which catacomb they are part of.
----@field child_building_ids df.container References: abstract_building<br>Used by catacombs to hold their tombs
----@field site_owner_id integer References: historical_entity<br>entity that constructed the building
----@field scribeinfo location_scribe_jobs
----@field reputation_reports site_reputation_info
----@field unk_v42_3 integer[]
----@field site_id integer References: world_site<br>not initialized/saved/loaded, assumed member of base class
+---@class (exact) abstract_building: DFObject
+---@field _kind 'struct'
+---@field _type _abstract_building
+---@field id number
+---@field parent_building_id number Tombs use this to hold which catacomb they are part of. References: `abstract_building`
+---@field site_owner_id number entity that constructed the building References: `historical_entity`
+---@field site_id number not initialized/saved/loaded, assumed member of base class References: `world_site`
 ---@field pos coord2d
----@field occupations occupation[]
+local abstract_building
+
+---@class _abstract_building: DFCompound
+---@field _kind 'class-type'
 df.abstract_building = {}
 
----@return abstract_building_type
-function df.abstract_building.getType() end
-
----on navigation minimap
----@param tile integer
----@param fg integer
----@param bg integer
----@param bright integer
-function df.abstract_building.getDisplayTile(tile, fg, bg, bright) end
-
----@param unk_0 language_name
----@return language_name
-function df.abstract_building.getName(unk_0) end
-
----@param unk_0 abstract_building_contents
----@return abstract_building_contents
-function df.abstract_building.getContents(unk_0) end
-
----@param file file_compressorst
-function df.abstract_building.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.abstract_building.read_file(file, loadversion) end
-
----@return integer
-function df.abstract_building.getReligionID() end
-
----@param unk_0 abstract_building_entombed
----@return abstract_building_entombed
-function df.abstract_building.getEntombed(unk_0) end
-
----@param unk_0 lightuserdata
----@param indent integer
-function df.abstract_building.generate_xml(unk_0, indent) end
-
----@class abstract_building_inhabitants: df.class
----@field unk_1 integer
----@field histfig_id integer References: historical_figure
-df.abstract_building.T_inhabitants = {}
-
-
----in temples; hfig is the god
----@class abstract_building_unk1: df.class
----@field hfig df.container References: historical_figure
----@field unk_1 integer
----@field architectural_elements df.container used by temples
----@field mat_type integer References: material<br>just a guess
----@field mat_index integer
-df.abstract_building.T_unk1 = {}
-
----@class abstract_building_mead_hallst: abstract_building
+---@class (exact) abstract_building_mead_hallst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_mead_hallst
 ---@field name language_name
 ---@field item1 site_building_item
 ---@field item2 site_building_item
+local abstract_building_mead_hallst
+
+---@class _abstract_building_mead_hallst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_mead_hallst = {}
 
----@class abstract_building_keepst: abstract_building
+---@class (exact) abstract_building_keepst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_keepst
 ---@field name language_name
+local abstract_building_keepst
+
+---@class _abstract_building_keepst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_keepst = {}
 
----@class _temple_deity_type: integer, string, df.enum
+---@alias temple_deity_type
+---| -1 # None
+---| 0 # Deity
+---| 1 # Religion
+
+---@class _temple_deity_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field None -1
----@field [0] "None"
----@field Deity 1
----@field [1] "Deity"
----@field Religion 2
----@field [2] "Religion"
+---@field [-1] "None"
+---@field Deity 0
+---@field [0] "Deity"
+---@field Religion 1
+---@field [1] "Religion"
 df.temple_deity_type = {}
 
----@class temple_deity_type
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field Deity boolean
----@field [2] boolean
----@field Religion boolean
+---@class (exact) temple_deity_data: DFObject
+---@field _kind 'struct'
+---@field _type _temple_deity_data
+---@field Deity number References: `historical_figure`
+---@field Religion number References: `historical_entity`
+local temple_deity_data
 
----@class temple_deity_data: df.class
----@field Deity integer References: historical_figure
----@field Religion integer References: historical_entity
+---@class _temple_deity_data: DFCompound
+---@field _kind 'struct-type'
 df.temple_deity_data = {}
 
----@class abstract_building_templest: abstract_building
+---@class (exact) abstract_building_templest: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_templest
 ---@field deity_type temple_deity_type
 ---@field deity_data temple_deity_data
 ---@field name language_name
 ---@field contents abstract_building_contents
+local abstract_building_templest
+
+---@class _abstract_building_templest: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_templest = {}
 
----@class abstract_building_dark_towerst: abstract_building
+---@class (exact) abstract_building_dark_towerst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_dark_towerst
 ---@field name language_name
+local abstract_building_dark_towerst
+
+---@class _abstract_building_dark_towerst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_dark_towerst = {}
 
----@class abstract_building_marketst: abstract_building
+---@class (exact) abstract_building_marketst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_marketst
 ---@field name language_name
+local abstract_building_marketst
+
+---@class _abstract_building_marketst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_marketst = {}
 
----@class abstract_building_tombst: abstract_building
+---@class (exact) abstract_building_tombst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_tombst
 ---@field name language_name
 ---@field entombed abstract_building_entombed
----@field precedence integer
+---@field precedence number
+local abstract_building_tombst
+
+---@class _abstract_building_tombst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_tombst = {}
 
----@class abstract_building_dungeonst: abstract_building
+---@class (exact) abstract_building_dungeonst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_dungeonst
 ---@field name language_name
----@field dungeon_type abstract_building_dungeonst_dungeon_type
----@field unk_1 integer
+---@field dungeon_type abstract_building_dungeonst.T_dungeon_type
+---@field unk_1 number
 ---@field entombed abstract_building_entombed
----@field unk_2 integer
----@field unk_3 integer not saved
----@field unk_4 integer not saved
+---@field unk_2 number
+---@field unk_3 number not saved
+---@field unk_4 number not saved
+local abstract_building_dungeonst
+
+---@class _abstract_building_dungeonst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_dungeonst = {}
 
----@class _abstract_building_dungeonst_dungeon_type: integer, string, df.enum
+---@alias abstract_building_dungeonst.T_dungeon_type
+---| 0 # DUNGEON
+---| 1 # SEWERS
+---| 2 # CATACOMBS
+
+---@class _abstract_building_dungeonst.T_dungeon_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field DUNGEON 0
 ---@field [0] "DUNGEON"
 ---@field SEWERS 1
@@ -372,64 +340,102 @@ df.abstract_building_dungeonst = {}
 ---@field [2] "CATACOMBS"
 df.abstract_building_dungeonst.T_dungeon_type = {}
 
----@class abstract_building_dungeonst_dungeon_type
----@field [0] boolean
----@field DUNGEON boolean
----@field [1] boolean
----@field SEWERS boolean
----@field [2] boolean
----@field CATACOMBS boolean
-
----@class abstract_building_underworld_spirest: abstract_building
+---@class (exact) abstract_building_underworld_spirest: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_underworld_spirest
 ---@field name language_name
----@field unk_bc integer
+---@field unk_bc number
+local abstract_building_underworld_spirest
+
+---@class _abstract_building_underworld_spirest: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_underworld_spirest = {}
 
----@class abstract_building_inn_tavernst: abstract_building
+---@class (exact) abstract_building_inn_tavernst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_inn_tavernst
 ---@field name language_name
 ---@field contents abstract_building_contents
----@field room_info abstract_building_inn_tavernst_room_info[]
----@field next_room_info_id integer
+---@field next_room_info_id number
+local abstract_building_inn_tavernst
+
+---@class _abstract_building_inn_tavernst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_inn_tavernst = {}
 
----@class abstract_building_inn_tavernst_room_info: df.class
----@field id integer
----@field unk_1 df.string
----@field world_x integer
----@field world_y integer
----@field world_z integer
-df.abstract_building_inn_tavernst.T_room_info = {}
-
----@class abstract_building_libraryst: abstract_building
+---@class (exact) abstract_building_libraryst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_libraryst
 ---@field name language_name
----@field copied_artifacts df.container References: artifact_record
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
+---@field unk_1 number
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_4 number
 ---@field contents abstract_building_contents
+local abstract_building_libraryst
+
+---@class _abstract_building_libraryst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_libraryst = {}
 
----@class abstract_building_counting_housest: abstract_building
+---@class (exact) abstract_building_counting_housest: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_counting_housest
 ---@field name language_name
+local abstract_building_counting_housest
+
+---@class _abstract_building_counting_housest: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_counting_housest = {}
 
----@class abstract_building_guildhallst: abstract_building
+---@class (exact) abstract_building_guildhallst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_guildhallst
 ---@field name language_name
 ---@field contents abstract_building_contents
+local abstract_building_guildhallst
+
+---@class _abstract_building_guildhallst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_guildhallst = {}
 
----@class abstract_building_towerst: abstract_building
+---@class (exact) abstract_building_towerst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_towerst
 ---@field name language_name
----@field unk_1 integer
+---@field unk_1 number
+local abstract_building_towerst
+
+---@class _abstract_building_towerst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_towerst = {}
 
----@class abstract_building_hospitalst: abstract_building
+---@class (exact) abstract_building_hospitalst: DFObject, abstract_building
+---@field _kind 'struct'
+---@field _type _abstract_building_hospitalst
 ---@field name language_name
 ---@field contents abstract_building_contents
+local abstract_building_hospitalst
+
+---@class _abstract_building_hospitalst: DFCompound
+---@field _kind 'class-type'
 df.abstract_building_hospitalst = {}
 
----@class _world_site_type: integer, string, df.enum
+---@alias world_site_type
+---| 0 # PlayerFortress
+---| 1 # DarkFortress
+---| 2 # Cave
+---| 3 # MountainHalls
+---| 4 # ForestRetreat
+---| 5 # Town
+---| 6 # ImportantLocation
+---| 7 # LairShrine
+---| 8 # Fortress
+---| 9 # Camp
+---| 10 # Monument
+
+---@class _world_site_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field PlayerFortress 0
 ---@field [0] "PlayerFortress"
 ---@field DarkFortress 1
@@ -454,761 +460,691 @@ df.abstract_building_hospitalst = {}
 ---@field [10] "Monument"
 df.world_site_type = {}
 
----@class world_site_type
----@field [0] boolean
----@field PlayerFortress boolean
----@field [1] boolean
----@field DarkFortress boolean
----@field [2] boolean
----@field Cave boolean
----@field [3] boolean
----@field MountainHalls boolean
----@field [4] boolean
----@field ForestRetreat boolean
----@field [5] boolean
----@field Town boolean
----@field [6] boolean
----@field ImportantLocation boolean
----@field [7] boolean
----@field LairShrine boolean
----@field [8] boolean
----@field Fortress boolean
----@field [9] boolean
----@field Camp boolean
----@field [10] boolean
----@field Monument boolean
+---@alias fortress_type
+---| -1 # NONE
+---| 0 # CASTLE
+---| 1 # TOWER
+---| 2 # MONASTERY
+---| 3 # FORT
 
----@class _world_site_flags: integer, string, df.enum
----@field Undiscovered 0
----@field [0] "Undiscovered"
----@field unk_1 1
----@field [1] "unk_1"
----@field unk_2 2
----@field [2] "unk_2"
----@field Town 3
----@field [3] "Town"
----@field unk_4 4
----@field [4] "unk_4"
----@field unk_5 5
----@field [5] "unk_5"
----@field unk_6 6
----@field [6] "unk_6"
----@field unk_7 7
----@field [7] "unk_7"
----@field unk_8 8
----@field [8] "unk_8"
----@field CaveCapital 9
----@field [9] "CaveCapital"
----@field unk_10 10
----@field [10] "unk_10"
-df.world_site_flags = {}
-
----@class world_site_flags
----@field [0] boolean
----@field Undiscovered boolean
----@field [1] boolean
----@field unk_1 boolean
----@field [2] boolean
----@field unk_2 boolean
----@field [3] boolean
----@field Town boolean
----@field [4] boolean
----@field unk_4 boolean
----@field [5] boolean
----@field unk_5 boolean
----@field [6] boolean
----@field unk_6 boolean
----@field [7] boolean
----@field unk_7 boolean
----@field [8] boolean
----@field unk_8 boolean
----@field [9] boolean
----@field CaveCapital boolean
----@field [10] boolean
----@field unk_10 boolean
-
----@class _fortress_type: integer, string, df.enum
+---@class _fortress_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field CASTLE 1
----@field [1] "CASTLE"
----@field TOWER 2
----@field [2] "TOWER"
----@field MONASTERY 3
----@field [3] "MONASTERY"
----@field FORT 4
----@field [4] "FORT"
+---@field [-1] "NONE"
+---@field CASTLE 0
+---@field [0] "CASTLE"
+---@field TOWER 1
+---@field [1] "TOWER"
+---@field MONASTERY 2
+---@field [2] "MONASTERY"
+---@field FORT 3
+---@field [3] "FORT"
 df.fortress_type = {}
 
----@class fortress_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field CASTLE boolean
----@field [2] boolean
----@field TOWER boolean
----@field [3] boolean
----@field MONASTERY boolean
----@field [4] boolean
----@field FORT boolean
+---@alias monument_type
+---| -1 # NONE
+---| 0 # TOMB
+---| 1 # VAULT
 
----@class _monument_type: integer, string, df.enum
+---@class _monument_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field TOMB 1
----@field [1] "TOMB"
----@field VAULT 2
----@field [2] "VAULT"
+---@field [-1] "NONE"
+---@field TOMB 0
+---@field [0] "TOMB"
+---@field VAULT 1
+---@field [1] "VAULT"
 df.monument_type = {}
 
----@class monument_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field TOMB boolean
----@field [2] boolean
----@field VAULT boolean
+---@alias lair_type
+---| -1 # NONE
+---| 0 # SIMPLE_MOUND
+---| 1 # SIMPLE_BURROW
+---| 2 # LABYRINTH
+---| 3 # SHRINE
+---| 4 # WILDERNESS_LOCATION
 
----@class _lair_type: integer, string, df.enum
+---@class _lair_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field SIMPLE_MOUND 1
----@field [1] "SIMPLE_MOUND"
----@field SIMPLE_BURROW 2
----@field [2] "SIMPLE_BURROW"
----@field LABYRINTH 3
----@field [3] "LABYRINTH"
----@field SHRINE 4
----@field [4] "SHRINE"
----@field WILDERNESS_LOCATION 5
----@field [5] "WILDERNESS_LOCATION"
+---@field [-1] "NONE"
+---@field SIMPLE_MOUND 0 Night creatures
+---@field [0] "SIMPLE_MOUND" Night creatures
+---@field SIMPLE_BURROW 1 animal, (semi)megabeast, night creature(!)
+---@field [1] "SIMPLE_BURROW" animal, (semi)megabeast, night creature(!)
+---@field LABYRINTH 2
+---@field [2] "LABYRINTH"
+---@field SHRINE 3
+---@field [3] "SHRINE"
+---@field WILDERNESS_LOCATION 4 In mountains, hosting Rocs in vanilla
+---@field [4] "WILDERNESS_LOCATION" In mountains, hosting Rocs in vanilla
 df.lair_type = {}
 
----@class lair_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field SIMPLE_MOUND boolean
----@field [2] boolean
----@field SIMPLE_BURROW boolean
----@field [3] boolean
----@field LABYRINTH boolean
----@field [4] boolean
----@field SHRINE boolean
----@field [5] boolean
----@field WILDERNESS_LOCATION boolean
-
----@class property_ownership: df.class
----@field index integer
+---@class (exact) property_ownership: DFObject
+---@field _kind 'struct'
+---@field _type _property_ownership
+---@field index number
 ---@field is_concrete_property boolean true if house [property_index = 4 only one seen], or index into buildings
----@field pad_1 integer
----@field property_index integer index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
----@field unk_hfid integer References: historical_figure<br>Always same as owner_hfid when set, but not always set when that field is.
----@field owner_entity_id integer References: historical_entity<br>Mutually exclusive with owner_hfid. All seen were merchant companies.
----@field owner_hfid integer References: historical_figure
----@field unk_owner_entity_id integer References: historical_entity<br>Seen only in subset of owner_entity_id case, and always same value
+---@field property_index number index into buildings when is_concrete_property is false. Only seen 4 = house with is_concrete_property = true
+---@field unk_hfid number Always same as owner_hfid when set, but not always set when that field is. References: `historical_figure`
+---@field owner_entity_id number Mutually exclusive with owner_hfid. All seen were merchant companies. References: `historical_entity`
+---@field owner_hfid number References: `historical_figure`
+---@field unk_owner_entity_id number Seen only in subset of owner_entity_id case, and always same value References: `historical_entity`
+local property_ownership
+
+---@class _property_ownership: DFCompound
+---@field _kind 'struct-type'
 df.property_ownership = {}
 
----@class world_site: df.instance
----@field name language_name
----@field civ_id integer References: historical_entity
----@field cur_owner_id integer References: historical_entity
----@field type world_site_type
----@field pos coord2d
----@field id integer
----@field unk_1 world_site_unk_1
----@field index integer
----@field rgn_min_x integer in embark tiles
----@field rgn_max_x integer
----@field rgn_min_y integer
----@field rgn_max_y integer
----@field rgn_min_z integer
----@field rgn_max_z integer
----@field global_min_x integer in embark tiles
----@field global_min_y integer
----@field global_max_x integer
----@field global_max_y integer
----@field seed1 integer random
----@field seed2 integer random
----@field resident_count integer count living in houses and shops
----@field unk_110 integer
----@field unk_114 integer
----@field unk_118 world_site_unk_118
----@field unk_11c integer Caves have non zero numbers. No others.
----@field unk_120 integer Subset of caves can have non zero.
----@field unk_124 integer Monument 0, LairShrine 5, Camp 20, others varying
----@field unk_128 integer  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
----@field unk_2 integer[] Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
----@field unk_13c world_site_unk_13c[] MountainHall, Town, DarkFortress, but not all
----@field unk_v40_2 world_site_unk_v40_2[] forest retreat
----@field unk_v47_1 world_site_unk_v47_1[][] Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
----@field flags world_site_flags[]
----@field buildings abstract_building[]
----@field next_building_id integer
----@field property_ownership property_ownership[]
----@field next_property_ownership_id integer
----@field created_tick integer
----@field created_year integer
----@field unk_170 integer constant 0
----@field unk_174 integer constant 0
----@field unk_178 coord
----@field realization world_site_realization
----@field subtype_info world_site_subtype_info
----@field unk_21c world_site_unk_21c[]
----@field deaths df.container References: historical_figure<br>killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled
----@field is_mountain_halls integer
----@field is_fortress integer
----@field unk_v47_2 integer only MountainHalls, but only subset of them
----@field unk_v40_4a world_site_unk_v40_4a[]
----@field unk_v40_4b world_site_unk_v40_4b[]
----@field unk_v40_4c world_site_unk_v40_4c[]
----@field unk_v40_4d world_site_unk_v40_4d[] only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
----@field unk_v40_4d_next_id integer only single non zero entry, matching vector above. Might guess 'since' is scrambled
----@field unk_v43_2 world_site_unk_v43_2[]
----@field unk_v43_3 integer constant 0?
----@field unk_v40_5 integer constant -1?
----@field unk_188 _[] Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
----@field unk_3a8 integer
----@field unk_3b0 world_site_unk130
----@field unk_18c df.container
----@field unk_19c df.container
----@field entity_links entity_site_link[]
----@field cultural_identities cultural_identity[]
----@field unk_v42_1 occupation[]
----@field unk_v43_4 integer uninitialized
----@field unk_3 df.container
----@field unk_4 historical_figure
----@field unk_5 historical_figure
----@field unk_6 historical_figure
----@field unk_7 historical_figure
----@field unk_8 historical_figure
----@field unk_9 integer
----@field unk_10 integer
----@field unk_11 integer
----@field unk_12 integer
----@field unk_13 integer
----@field unk_14 integer
----@field unk_15 integer
----@field unk_16 integer
----@field unk_17 integer
----@field unk_18 integer
----@field unk_19 integer
----@field unk_20 integer
----@field unk_21 integer
----@field unk_22 integer
----@field unk_23 integer
----@field unk_24 integer
----@field unk_25 df.container
-df.world_site = {}
+-- --  Cannot rule out the type having additional fields, although the 8 following bytes were all 0 in all cases in the save examined.
+---@class (exact) unit_placement_infost: DFObject
+---@field _kind 'struct'
+---@field _type _unit_placement_infost
+---@field unit_id number References: `unit`
+---@field pos_x number this is a union in bay12 but they're both the same type so why bother
+---@field pos_y number
+---@field pos_z number
+---@field container_it_id number
+local unit_placement_infost
 
----@param key integer
----@return world_site|nil
-function df.world_site.find(key) end
+---@class _unit_placement_infost: DFCompound
+---@field _kind 'struct-type'
+df.unit_placement_infost = {}
 
----@class world_site_unk_1: df.class
----@field nemesis df.container References: nemesis_record
----@field artifacts artifact_record[]
----@field animals world_population[]
----@field inhabitants world_site_inhabitant[]
----@field units world_site.T_unk_1_units[]
----@field unk_d4 df.container
----@field unk_v40_1a historical_figure[]
----@field pad_1 integer
----@field unk_v40_1b nemesis_record[]
----@field unk_v40_1c nemesis_record[]
----@field unk_v40_1d nemesis_record[]
----@field unk_v40_1e nemesis_record[]
----@field unk_v40_1f nemesis_record[]
----@field unk_v40_1g nemesis_record[]
----@field unk_v40_1h nemesis_record[]
-df.world_site.T_unk_1 = {}
+---@class (exact) populacest: DFObject
+---@field _kind 'struct'
+---@field _type _populacest
+---@field births_wanted number
+local populacest
 
----@class world_site.T_unk_1_units: df.class
----@field unit_id integer References: unit
----@field pos_x integer
----@field pos_y integer
----@field pos_z integer
----@field unk_10 integer
-df.world_site.T_unk_1.T_units = {}
+---@class _populacest: DFCompound
+---@field _kind 'struct-type'
+df.populacest = {}
 
+---@class (exact) site_first_calc_special_itemsst: DFObject
+---@field _kind 'struct'
+---@field _type _site_first_calc_special_itemsst
+local site_first_calc_special_itemsst
 
----@class world_site_unk_118: df.class
----@field unk_1 df.container
----@field unk_2 df.container
----@field unk_3 df.container
----@field unk_4 df.container
----@field unk_5 df.container
----@field unk_6 df.container
-df.world_site.T_unk_118 = {}
+---@class _site_first_calc_special_itemsst: DFCompound
+---@field _kind 'struct-type'
+df.site_first_calc_special_itemsst = {}
 
+---@class (exact) site_cropst: DFObject
+---@field _kind 'struct'
+---@field _type _site_cropst
+---@field production_zone_index number
+---@field allotment_index number
+---@field count number
+---@field planting_week number
+---@field flag site_cropst.T_flag
+local site_cropst
 
----MountainHall, Town, DarkFortress, but not all
----@class world_site_unk_13c: df.class
----@field unk_0 integer
----@field unk_4 integer
----@field unk_8 integer
----@field unk_c integer
----@field unk_10 df.container
----@field unk_20 df.container
----@field unk_30 integer
-df.world_site.T_unk_13c = {}
+---@class _site_cropst: DFCompound
+---@field _kind 'struct-type'
+df.site_cropst = {}
 
+---@class (exact) site_cropst.T_flag: DFObject
+---@field _kind 'struct'
+---@field _type _site_cropst.T_flag
+---@field has_growths flag-bit
+local flag
 
----forest retreat
----@class world_site_unk_v40_2: df.class
----@field unk_0 integer
----@field unk_4 integer
----@field unk_8 integer
----@field unk_c integer
----@field unk_10 df.container
----@field unk_20 df.container
----@field unk_30 integer
-df.world_site.T_unk_v40_2 = {}
+---@class _site_cropst.T_flag: DFCompound
+---@field _kind 'struct-type'
+df.site_cropst.T_flag = {}
 
+---@alias religious_practice_type
+---| -1 # NONE
+---| 0 # WORSHIP_HFID
+---| 1 # RELIGION_ENID
 
----Varying types of habitation can have this. It seems new elements are added to hold all required data as all are full except the last one
----@class world_site_unk_v47_1: df.class
----@field unk_1 world_site.T_unk_v47_1_unk_1[]
----@field count integer Number of entries in the array above
-df.world_site.T_unk_v47_1 = {}
+---@class _religious_practice_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1 bay12: ReligiousPractice
+---@field [-1] "NONE" bay12: ReligiousPractice
+---@field WORSHIP_HFID 0
+---@field [0] "WORSHIP_HFID"
+---@field RELIGION_ENID 1
+---@field [1] "RELIGION_ENID"
+df.religious_practice_type = {}
 
----@class world_site.T_unk_v47_1_unk_1: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
-df.world_site.T_unk_v47_1.T_unk_1 = {}
+---@class (exact) site_religious_structurest: DFObject
+---@field _kind 'struct'
+---@field _type _site_religious_structurest
+---@field type religious_practice_type
+---@field data site_religious_structurest.T_data
+---@field points number
+local site_religious_structurest
 
+---@class _site_religious_structurest: DFCompound
+---@field _kind 'struct-type'
+df.site_religious_structurest = {}
 
----@class world_site_subtype_info: df.class
+---@class (exact) site_religious_structurest.T_data: DFObject
+---@field _kind 'struct'
+---@field _type _site_religious_structurest.T_data
+---@field practice_id number
+---@field hfid number References: `historical_figure`
+---@field enid number References: `historical_entity`
+local data
+
+---@class _site_religious_structurest.T_data: DFCompound
+---@field _kind 'struct-type'
+df.site_religious_structurest.T_data = {}
+
+---@class (exact) site_religious_structure_batchst: DFObject
+---@field _kind 'struct'
+---@field _type _site_religious_structure_batchst
+---@field rstructnum number
+local site_religious_structure_batchst
+
+---@class _site_religious_structure_batchst: DFCompound
+---@field _kind 'struct-type'
+df.site_religious_structure_batchst = {}
+
+---@class (exact) site_culture_infrastructurest: DFObject
+---@field _kind 'struct'
+---@field _type _site_culture_infrastructurest
+local site_culture_infrastructurest
+
+---@class _site_culture_infrastructurest: DFCompound
+---@field _kind 'struct-type'
+df.site_culture_infrastructurest = {}
+
+---@alias site_flag_type
+---| 0 # HIDDEN
+---| 1 # RUINED
+---| 2 # IGNORED_BY_LEGENDS
+---| 3 # HAS_MARKET
+---| 4 # VISITED
+---| 5 # ACTIVE
+---| 6 # LOADED
+---| 7 # SUBORDINATE
+---| 8 # PASSED_FIRST_REALIZATION
+---| 9 # SETTLED
+---| 10 # COMPLETELY_SUPERCEDED
+---| 11 # UNUSED12
+---| 12 # UNUSED13
+---| 13 # UNUSED14
+---| 14 # UNUSED15
+---| 15 # UNUSED16
+---| 16 # UNUSED17
+---| 17 # UNUSED18
+---| 18 # UNUSED19
+---| 19 # UNUSED20
+---| 20 # UNUSED21
+---| 21 # UNUSED22
+---| 22 # UNUSED23
+---| 23 # UNUSED24
+
+---@class _site_flag_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field HIDDEN 0 SiteFlagType
+---@field [0] "HIDDEN" SiteFlagType
+---@field RUINED 1
+---@field [1] "RUINED"
+---@field IGNORED_BY_LEGENDS 2
+---@field [2] "IGNORED_BY_LEGENDS"
+---@field HAS_MARKET 3
+---@field [3] "HAS_MARKET"
+---@field VISITED 4
+---@field [4] "VISITED"
+---@field ACTIVE 5
+---@field [5] "ACTIVE"
+---@field LOADED 6
+---@field [6] "LOADED"
+---@field SUBORDINATE 7
+---@field [7] "SUBORDINATE"
+---@field PASSED_FIRST_REALIZATION 8
+---@field [8] "PASSED_FIRST_REALIZATION"
+---@field SETTLED 9
+---@field [9] "SETTLED"
+---@field COMPLETELY_SUPERCEDED 10
+---@field [10] "COMPLETELY_SUPERCEDED"
+---@field UNUSED12 11
+---@field [11] "UNUSED12"
+---@field UNUSED13 12
+---@field [12] "UNUSED13"
+---@field UNUSED14 13
+---@field [13] "UNUSED14"
+---@field UNUSED15 14
+---@field [14] "UNUSED15"
+---@field UNUSED16 15
+---@field [15] "UNUSED16"
+---@field UNUSED17 16
+---@field [16] "UNUSED17"
+---@field UNUSED18 17
+---@field [17] "UNUSED18"
+---@field UNUSED19 18
+---@field [18] "UNUSED19"
+---@field UNUSED20 19
+---@field [19] "UNUSED20"
+---@field UNUSED21 20
+---@field [20] "UNUSED21"
+---@field UNUSED22 21
+---@field [21] "UNUSED22"
+---@field UNUSED23 22
+---@field [22] "UNUSED23"
+---@field UNUSED24 23
+---@field [23] "UNUSED24"
+df.site_flag_type = {}
+
+---@alias location_death_type
+---| 0 # NATURAL
+---| 1 # STARVATION
+---| 2 # FAILED_DEFENDER
+---| 3 # SUCCESSFUL_DEFENDER
+---| 4 # FAILED_INVADER
+---| 5 # SUCCESSFUL_INVADER
+---| 6 # MURDER
+---| 7 # NATURAL_SCATTERED
+---| 8 # SITE_RAMPAGE
+
+-- bay12: LocationDeath
+---@class _location_death_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NATURAL 0
+---@field [0] "NATURAL"
+---@field STARVATION 1
+---@field [1] "STARVATION"
+---@field FAILED_DEFENDER 2
+---@field [2] "FAILED_DEFENDER"
+---@field SUCCESSFUL_DEFENDER 3
+---@field [3] "SUCCESSFUL_DEFENDER"
+---@field FAILED_INVADER 4
+---@field [4] "FAILED_INVADER"
+---@field SUCCESSFUL_INVADER 5
+---@field [5] "SUCCESSFUL_INVADER"
+---@field MURDER 6
+---@field [6] "MURDER"
+---@field NATURAL_SCATTERED 7
+---@field [7] "NATURAL_SCATTERED"
+---@field SITE_RAMPAGE 8
+---@field [8] "SITE_RAMPAGE"
+df.location_death_type = {}
+
+---@class (exact) location_death_batchst: DFObject
+---@field _kind 'struct'
+---@field _type _location_death_batchst
+---@field num number
+---@field race number
+---@field epid number failed to see any connections between these entities and the sites. Might be something else References: `historical_entity`
+---@field breed_id number
+---@field first_year_used number might be start year
+---@field last_year_used number might be end year
+---@field body_count number
+---@field death_type location_death_type
+local location_death_batchst
+
+---@class _location_death_batchst: DFCompound
+---@field _kind 'struct-type'
+df.location_death_batchst = {}
+
+---@class (exact) location_deathst: DFObject
+---@field _kind 'struct'
+---@field _type _location_deathst
+local location_deathst
+
+---@class _location_deathst: DFCompound
+---@field _kind 'struct-type'
+df.location_deathst = {}
+
+---@class (exact) site_map_infost: DFObject
+---@field _kind 'struct'
+---@field _type _site_map_infost
 ---@field fortress_type fortress_type Only when site.type=Fortress
 ---@field monument_type monument_type Only when site.type=Monument
 ---@field lair_type lair_type Only when site.type=LairShrine
----@field unk_night_creature_lair df.container only on SIMPLE_MOUND and SIMPLE_BURROW, all mounds but not all burrows, all had night creatures. All instances seen had single element with value 0
----@field unk_14 integer
----@field unk_18 integer
----@field unk_1c integer
----@field creator integer References: historical_figure<br>all vaults, no others seen
----@field unk_vault integer all vaults, no others seen, always 100
----@field tower_seed integer all towers, no others. Seed is a guess based on the very large numbers
----@field unk_monastery integer all monasteries, no others. Only seen '1'
----@field founding_entity integer References: historical_entity<br>all monasteries, no others
-df.world_site.T_subtype_info = {}
+---@field unk_14 number
+---@field unk_18 number
+---@field unk_1c number
+---@field creator number all vaults, no others seen References: `historical_figure`
+---@field unk_vault number all vaults, no others seen, always 100
+---@field tower_seed number all towers, no others. Seed is a guess based on the very large numbers
+---@field unk_monastery number all monasteries, no others. Only seen '1'
+---@field founding_entity number all monasteries, no others References: `historical_entity`
+local site_map_infost
 
+---@class _site_map_infost: DFCompound
+---@field _kind 'struct-type'
+df.site_map_infost = {}
 
----@class world_site_unk_21c: df.class
----@field unk_0 integer
----@field race integer
----@field entity_id integer References: historical_entity<br>failed to see any connections between these entities and the sites. Might be something else
----@field unk_c integer
----@field unk_10 integer might be start year
----@field unk_14 integer might be end year
----@field unk_18 integer
----@field unk_1c integer
-df.world_site.T_unk_21c = {}
+---@alias site_architecture_change_type
+---| -1 # NONE
+---| 0 # DOMINANT_ENTITY
+---| 1 # SRB_RUINED
+---| 2 # SRP_RUINED
+---| 3 # GENERALIZED_DAMAGE
+---| 4 # GENERALIZED_DEATH
 
+-- bay12: SiteArchitectureChangeType
+---@class _site_architecture_change_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field DOMINANT_ENTITY 0
+---@field [0] "DOMINANT_ENTITY"
+---@field SRB_RUINED 1
+---@field [1] "SRB_RUINED"
+---@field SRP_RUINED 2
+---@field [2] "SRP_RUINED"
+---@field GENERALIZED_DAMAGE 3
+---@field [3] "GENERALIZED_DAMAGE"
+---@field GENERALIZED_DEATH 4
+---@field [4] "GENERALIZED_DEATH"
+df.site_architecture_change_type = {}
 
----@class world_site_unk_v40_4a: df.class
----@field unk_0 integer
----@field entity_id integer References: historical_entity
----@field year integer
----@field year_tick integer
----@field unk_10 integer
----@field unk_14 integer
-df.world_site.T_unk_v40_4a = {}
+---@class (exact) site_architecture_changest: DFObject
+---@field _kind 'struct'
+---@field _type _site_architecture_changest
+---@field type site_architecture_change_type
+---@field NONE number
+---@field DOMINANT_ENTITY number References: `historical_entity`
+---@field SRB_RUINED number
+---@field SRP_RUINED number
+---@field GENERALIZED_DAMAGE number
+---@field GENERALIZED_DEATH_ID number
+---@field year number
+---@field year_tick number bay12: season_count
+---@field flag number
+---@field spec_flag number
+local site_architecture_changest
 
+---@class _site_architecture_changest: DFCompound
+---@field _kind 'struct-type'
+df.site_architecture_changest = {}
 
----@class world_site_unk_v40_4b: df.class
----@field unk_1 integer
----@field unk_2 integer
-df.world_site.T_unk_v40_4b = {}
+---@class (exact) wg_site_culture_identity_religious_practicest: DFObject
+---@field _kind 'struct'
+---@field _type _wg_site_culture_identity_religious_practicest
+---@field type religious_practice_type
+---@field data wg_site_culture_identity_religious_practicest.T_data
+---@field points number
+local wg_site_culture_identity_religious_practicest
 
+---@class _wg_site_culture_identity_religious_practicest: DFCompound
+---@field _kind 'struct-type'
+df.wg_site_culture_identity_religious_practicest = {}
 
----@class world_site_unk_v40_4c: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 df.container
----@field unk_4 integer
----@field unk_5 integer
-df.world_site.T_unk_v40_4c = {}
+---@class (exact) wg_site_culture_identity_religious_practicest.T_data: DFObject
+---@field _kind 'struct'
+---@field _type _wg_site_culture_identity_religious_practicest.T_data
+---@field practice_id number
+---@field hfid number References: `historical_figure`
+---@field enid number References: `historical_entity`
+local data
 
+---@class _wg_site_culture_identity_religious_practicest.T_data: DFCompound
+---@field _kind 'struct-type'
+df.wg_site_culture_identity_religious_practicest.T_data = {}
 
----only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
----@class world_site_unk_v40_4d: df.class
----@field id integer
----@field unk_1 world_site.T_unk_v40_4d_unk_1[]
----@field unk_2 df.container
----@field entity_id integer References: historical_entity<br>single attacking site civ is only one seen
-df.world_site.T_unk_v40_4d = {}
+---@class (exact) wg_site_culture_identityst: DFObject
+---@field _kind 'struct'
+---@field _type _wg_site_culture_identityst
+---@field entity_id number
+local wg_site_culture_identityst
 
----@class world_site.T_unk_v40_4d_unk_1: df.class
----@field unk_1 integer
----@field unk_2 integer might be race
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer might be year
----@field unk_6 integer might be year
----@field unk_7 integer
----@field unk_8 integer
-df.world_site.T_unk_v40_4d.T_unk_1 = {}
+---@class _wg_site_culture_identityst: DFCompound
+---@field _kind 'struct-type'
+df.wg_site_culture_identityst = {}
 
+---@alias cultural_interaction_type
+---| -1 # NONE
+---| 0 # ENTITY_1_PERSECUTES_ENTITY_2
+---| 1 # ENTITY_1_RIOTS_AGAINST_ENTITY_2
+---| 2 # ENTITY_1_INVEIGHS_AGAINST_ENTITY_2
+---| 3 # ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2
 
----@class world_site_unk_v43_2: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer[][]
----@field unk_5 integer[][]
----@field unk_6 integer[][]
----@field unk_7 integer[][]
----@field unk_8 integer[][]
----@field unk_9 integer[][]
----@field unk_10 integer[][]
----@field unk_11 integer[][]
----@field unk_12 integer[][]
----@field unk_13 integer[][]
----@field unk_14 integer[][]
----@field unk_15 integer[][]
----@field unk_16 integer[][]
----@field unk_17 integer[][]
-df.world_site.T_unk_v43_2 = {}
+---@class _cultural_interaction_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field ENTITY_1_PERSECUTES_ENTITY_2 0
+---@field [0] "ENTITY_1_PERSECUTES_ENTITY_2"
+---@field ENTITY_1_RIOTS_AGAINST_ENTITY_2 1
+---@field [1] "ENTITY_1_RIOTS_AGAINST_ENTITY_2"
+---@field ENTITY_1_INVEIGHS_AGAINST_ENTITY_2 2
+---@field [2] "ENTITY_1_INVEIGHS_AGAINST_ENTITY_2"
+---@field ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2 3
+---@field [3] "ENTITY_1_ENCOURAGES_TOLERANCE_OF_ENTITY_2"
+df.cultural_interaction_type = {}
 
----@class cultural_identity: df.instance
----@field id integer
----@field site_id integer References: world_site
----@field civ_id integer References: historical_entity
----@field group_log cultural_identity_group_log[] the circumstances of groups joining or leaving this culture
----@field ethic ethic_response[]
----@field values integer[]
----@field events entity_event[]
----@field unk_d8 integer
----@field unk_dc df.container
----@field unk_ec integer
----@field unk_f0 integer
----@field unk_f4 integer 0 or 800000
----@field unk_1 cultural_identity_unk_1[]
----@field unk_2 cultural_identity_unk_2[]
----@field unk_f8 integer
+---@class (exact) wg_site_culture_identity_interactionst: DFObject
+---@field _kind 'struct'
+---@field _type _wg_site_culture_identity_interactionst
+---@field type cultural_interaction_type
+---@field id1 number
+---@field id2 number
+---@field year number
+---@field severity number
+local wg_site_culture_identity_interactionst
+
+---@class _wg_site_culture_identity_interactionst: DFCompound
+---@field _kind 'struct-type'
+df.wg_site_culture_identity_interactionst = {}
+
+---@class (exact) wg_site_culturest: DFObject
+---@field _kind 'struct'
+---@field _type _wg_site_culturest
+local wg_site_culturest
+
+---@class _wg_site_culturest: DFCompound
+---@field _kind 'struct-type'
+df.wg_site_culturest = {}
+
+---@class (exact) world_site: DFObject
+---@field _kind 'struct'
+---@field _type _world_site
+---@field name language_name
+---@field civ_id number References: `historical_entity`
+---@field cur_owner_id number References: `historical_entity`
+---@field type world_site_type
+---@field pos coord2d
+---@field id number
+---@field populace populacest
+---@field resource_pile_id number
+---@field rgn_min_x number in embark tiles
+---@field rgn_max_x number
+---@field rgn_min_y number
+---@field rgn_max_y number
+---@field rgn_min_z number
+---@field rgn_max_z number
+---@field global_min_x number in embark tiles
+---@field global_min_y number
+---@field global_max_x number
+---@field global_max_y number
+---@field seed integer random
+---@field first_seed integer random
+---@field resident_count number count living in houses and shops
+---@field brood_creature number
+---@field brood_caste number
+---@field size number Caves have non zero numbers. No others.
+---@field added_size number Subset of caves can have non zero.
+---@field infrastructure_pop_level number Monument 0, LairShrine 5, Camp 20, others varying
+---@field base_infrastructure_pop_level number  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
+---@field culture_infrastructure site_culture_infrastructurest
+---@field next_building_id number
+---@field next_property_ownership_id number
+---@field created_tick number bay12: lastvisited not created
+---@field created_year number bay12: lastvisited not created
+---@field moss_counter number constant 0
+---@field weathering_counter number constant 0
+---@field recorded_entrance coord
+---@field location_death location_deathst
+---@field is_mountain_halls number bay12: min_depth
+---@field is_fortress number bay12: max_depth
+---@field mined_hours number only MountainHalls, but only subset of them
+---@field unk_v40_4d_next_id number only single non zero entry, matching vector above. Might guess 'since' is scrambled
+---@field unk_v43_3 number constant 0?
+---@field unk_v40_5 number constant -1?
+---@field unk_3a8 number
+---@field unk_v43_4 number during worldgen only
+---@field unk_24 number
+local world_site
+
+---@class _world_site: DFCompound
+---@field _kind 'struct-type'
+df.world_site = {}
+
+---@param key number
+---@return world_site|nil
+function df.world_site.find(key) end
+
+---@class world_site_vector: DFVector, { [integer]: world_site }
+local world_site_vector
+
+---@return world_site_vector # df.global.world.world_data.sites
+function df.world_site.get_vector() end
+
+---@class (exact) cultural_identity: DFObject
+---@field _kind 'struct'
+---@field _type _cultural_identity
+---@field id number
+---@field site_id number References: `world_site`
+---@field civ_id number References: `historical_entity`
+---@field unk_d8 number
+---@field unk_ec number
+---@field unk_f0 number
+---@field unk_f4 number 0 or 800000
+---@field unk_f8 number
+local cultural_identity
+
+---@class _cultural_identity: DFCompound
+---@field _kind 'struct-type'
 df.cultural_identity = {}
 
----@param key integer
+---@param key number
 ---@return cultural_identity|nil
 function df.cultural_identity.find(key) end
 
----the circumstances of groups joining or leaving this culture
----@class cultural_identity_group_log: df.class
----@field group_id integer References: historical_entity
----@field start_year integer when the group joined the culture, or -1 if it founded the culture
----@field start_tick integer
----@field end_year integer when the group left the culture, or -1 if it has not left
----@field end_tick integer
----@field unk_14 integer copy of start_year
----@field unk_18 integer copy of start_tick
----@field join_type cultural_identity.T_group_log_join_type
----@field unk_20 integer
----@field unk_24 df.container
----@field unk_34 df.container same length as unk_24; elements always sum to 10000
----@field unk_44 integer
-df.cultural_identity.T_group_log = {}
+---@class cultural_identity_vector: DFVector, { [integer]: cultural_identity }
+local cultural_identity_vector
 
----@class _cultural_identity.T_group_log_join_type: integer, string, df.enum
----@field Peaceful 0
----@field [0] "Peaceful"
----@field CompleteTakeOver 1
----@field [1] "CompleteTakeOver"
----@field TakeOver 2
----@field [2] "TakeOver"
-df.cultural_identity.T_group_log.T_join_type = {}
+---@return cultural_identity_vector # df.global.world.cultural_identities.all
+function df.cultural_identity.get_vector() end
 
----@class cultural_identity.T_group_log_join_type
----@field [0] boolean
----@field Peaceful boolean
----@field [1] boolean
----@field CompleteTakeOver boolean
----@field [2] boolean
----@field TakeOver boolean
+---@class (exact) world_site_inhabitant: DFObject
+---@field _kind 'struct'
+---@field _type _world_site_inhabitant
+---@field count number
+---@field race number References: `creature_raw`
+---@field population_id number References: `entity_population`
+---@field entity_id number can be Religion, Civilization, and SiteGovernment as well as Outcast References: `historical_entity`
+---@field unk_10 number
+---@field cultural_identity_id number References: `cultural_identity`
+---@field interaction_id number References: `interaction`
+---@field interaction_effect_idx number index into the above interaction, usually refers to an ANIMATE effect
+---@field related_entity_id number Founder if outcast_id=-1, else Outcast and equal to outcast_id References: `historical_entity`
+---@field unk_24 number 0 and 1 seen
+---@field unk_28 number
+local world_site_inhabitant
 
-
----@class cultural_identity_unk_1: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
-df.cultural_identity.T_unk_1 = {}
-
-
----@class cultural_identity_unk_2: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
-df.cultural_identity.T_unk_2 = {}
-
----@class world_site_inhabitant: df.class
----@field count integer
----@field race integer References: creature_raw
----@field population_id integer References: entity_population
----@field entity_id integer References: historical_entity<br>can be Religion, Civilization, and SiteGovernment as well as Outcast
----@field unk_10 integer
----@field cultural_identity_id integer References: cultural_identity
----@field interaction_id integer References: interaction
----@field interaction_effect_idx integer index into the above interaction, usually refers to an ANIMATE effect
----@field related_entity_id integer References: historical_entity<br>Founder if outcast_id=-1, else Outcast and equal to outcast_id
----@field unk_24 integer 0 and 1 seen
----@field unk_28 integer
+---@class _world_site_inhabitant: DFCompound
+---@field _kind 'struct-type'
 df.world_site_inhabitant = {}
 
----@class world_site_realization: df.class
----@field buildings site_realization_building[]
----@field num_buildings integer
----@field unk_14 integer
----@field num_areas integer
----@field mini_rivers integer[][]
----@field mini_tiles integer[][]
----@field mini_colors integer[][]
----@field road_map site_realization_crossroads[][]
----@field river_map world_site_realization_river_map[][]
----@field unk_55e8 world_site_realization_unk_55e8[]
----@field building_map world_site_realization_building_map[]
----@field flags_map integer[][]
----@field zoom_tiles integer[][]
----@field zoom_colors integer[][]
----@field zoom_movemask integer[][]
----@field area_map integer[][]
----@field areas world_site_realization_areas[]
----@field unk_1 integer
----@field army_controller_pos_x integer
----@field army_controller_pos_y integer
----@field unk_193bc world_site_realization_unk_193bc
----@field num_unk_193bc integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer[][]
----@field unk_5 integer
----@field unk_6 integer[]
----@field unk_7 integer
----@field unk_8 integer[]
----@field unk_9 integer
----@field unk_10 integer[]
----@field unk_11 integer
----@field unk_12 integer[]
----@field unk_13 integer
----@field unk_15 integer[]
----@field unk_16 integer
----@field unk_17 integer[]
----@field unk_18 integer
----@field unk_19 integer[]
----@field unk_20 integer
----@field unk_21 integer[]
----@field unk_22 integer
----@field building_well site_realization_building[]
----@field num_building_well integer
----@field building_temple site_realization_building[]
----@field num_building_temple integer
----@field building_type22 site_realization_building[]
----@field num_building_type22 integer
----@field building_type21 site_realization_building[]
----@field num_building_type21 integer
----@field unk_23 integer[]
----@field unk_24 integer
----@field unk_wsr_vector df.container
+---@class (exact) world_site_realization: DFObject
+---@field _kind 'struct'
+---@field _type _world_site_realization
+---@field num_buildings number
+---@field unk_14 number
+---@field num_areas number
+---@field unk_1 number
+---@field army_controller_pos_x number
+---@field army_controller_pos_y number
+---@field num_unk_193bc number
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_5 number
+---@field unk_7 number
+---@field unk_9 number
+---@field unk_11 number
+---@field unk_13 number
+---@field unk_16 number
+---@field unk_18 number
+---@field unk_20 number
+---@field unk_22 number
+---@field num_building_well number
+---@field num_building_temple number
+---@field num_building_type22 number
+---@field num_building_type21 number
+---@field unk_24 number
+local world_site_realization
+
+---@class _world_site_realization: DFCompound
+---@field _kind 'struct-type'
 df.world_site_realization = {}
 
----@class world_site_realization_river_map: df.class
----@field start integer[]
----@field end integer[]
----@field unk_180 integer
----@field unk_184 integer
----@field start_array_limits integer
----@field end_array_limits integer
----@field unk_190 integer
----@field unk_194 integer[]
----@field unk_1b8 integer
----@field unk_1b9 integer
----@field unk_1ba integer
----@field unk_1bb integer
----@field unk_1bc integer
----@field unk_1be integer
-df.world_site_realization.T_river_map = {}
+---@class (exact) site_realization_crossroads: DFObject
+---@field _kind 'struct'
+---@field _type _site_realization_crossroads
+---@field idx_x number
+---@field idx_y number
+---@field tile_width number
+---@field tile_height number
+---@field unk_310 number
+---@field unk_314 number
+---@field unk_318 number
+---@field unk_31c number
+---@field unk_320 number
+---@field unk_324 number
+---@field unk_328 number
+---@field unk_32c number
+---@field center_x_tile number
+---@field center_y_tile number
+---@field unk_348 number
+---@field unk_349 number
+---@field unk_34c number
+---@field unk_1 number
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_4 number
+---@field unk_5 number
+---@field unk_6 number
+---@field unk_7 number
+---@field unk_8 number
+local site_realization_crossroads
 
-
----@class world_site_realization_unk_55e8: df.class
----@field unk_55e8 integer
----@field unk_55ec integer
----@field unk_v40_1a integer
----@field unk_v40_1b integer
----@field unk_v40_1c integer
----@field unk_v40_1d integer
----@field unk_v40_2 world_site_realization.T_unk_55e8_unk_v40_2[]
----@field unk_1 df.container
----@field unk_55f0 integer
----@field unk_55f4 integer
----@field unk_55f8 integer
----@field unk_55fa integer
----@field unk_55fc integer
----@field unk_5600 integer
----@field unk_5604 integer
----@field unk_5608 integer
----@field unk_560c integer
----@field unk_5610 integer
----@field unk_5614 integer
----@field unk_5618 df.container
----@field unk_5628 integer
----@field unk_562c integer
----@field unk_5630 integer
----@field unk_5634 integer
----@field unk_v40_3a integer
----@field unk_v40_3b integer
----@field unk_v40_3c integer
----@field unk_v40_3d integer
-df.world_site_realization.T_unk_55e8 = {}
-
----@class world_site_realization.T_unk_55e8_unk_v40_2: df.class
----@field unk_0 integer
----@field unk_4 integer
----@field unk_8 integer
----@field unk_a integer
----@field unk_c integer
----@field unk_10 integer
----@field unk_14 integer
----@field unk_16 integer
----@field unk_18 integer
----@field unk_1c integer
-df.world_site_realization.T_unk_55e8.T_unk_v40_2 = {}
-
-
----@class world_site_realization_building_map: df.class
----@field unk0 integer
----@field buildings site_realization_building[]
----@field unk4 integer
----@field unk5 integer
----@field unk6 df.container
-df.world_site_realization.T_building_map = {}
-
-
----@class world_site_realization_areas: df.class
----@field type world_site_realization.T_areas_type
----@field index integer
----@field unk_8 integer
----@field min_x integer
----@field max_x integer
----@field min_y integer
----@field max_y integer
----@field unk_1c integer
----@field unk_20 integer
-df.world_site_realization.T_areas = {}
-
----@class _world_site_realization.T_areas_type: integer, string, df.enum
----@field Crops1 0
----@field [0] "Crops1"
----@field Crops2 1
----@field [1] "Crops2"
----@field Crops3 2
----@field [2] "Crops3"
----@field Meadow 3
----@field [3] "Meadow"
----@field Pasture 4
----@field [4] "Pasture"
----@field Orchard 5
----@field [5] "Orchard"
----@field Woodland 6
----@field [6] "Woodland"
----@field Waste 7
----@field [7] "Waste"
----@field Unknown1 8
----@field [8] "Unknown1"
-df.world_site_realization.T_areas.T_type = {}
-
----@class world_site_realization.T_areas_type
----@field [0] boolean
----@field Crops1 boolean
----@field [1] boolean
----@field Crops2 boolean
----@field [2] boolean
----@field Crops3 boolean
----@field [3] boolean
----@field Meadow boolean
----@field [4] boolean
----@field Pasture boolean
----@field [5] boolean
----@field Orchard boolean
----@field [6] boolean
----@field Woodland boolean
----@field [7] boolean
----@field Waste boolean
----@field [8] boolean
----@field Unknown1 boolean
-
-
----@class world_site_realization_unk_193bc: df.class
----@field nemesis_id integer References: nemesis_record
----@field unk_1 integer
----@field unk_8 world_site_realization.T_unk_193bc_unk_8
----@field unk_2 integer
----@field building_id integer References: site_realization_building
----@field pos coord
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer[]
----@field unk_9 integer[]
----@field unk_10 integer
----@field unk_11 integer
----@field unk_12 integer
----@field unk_13 integer
-df.world_site_realization.T_unk_193bc = {}
-
----@class world_site_realization.T_unk_193bc_unk_8: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer
----@field unk_8 integer
----@field unk_9 integer
-df.world_site_realization.T_unk_193bc.T_unk_8 = {}
-
----@class site_realization_crossroads: df.class
----@field road_min_y integer[]
----@field road_max_y integer[]
----@field road_min_x integer[]
----@field road_max_x integer[]
----@field idx_x integer
----@field idx_y integer
----@field tile_width integer
----@field tile_height integer
----@field unk_310 integer
----@field unk_314 integer
----@field unk_318 integer
----@field unk_31c integer
----@field unk_320 integer
----@field unk_324 integer
----@field unk_328 integer
----@field unk_32c integer
----@field center_x_tile integer
----@field center_y_tile integer
----@field up site_realization_crossroads
----@field down site_realization_crossroads
----@field right site_realization_crossroads
----@field left site_realization_crossroads
----@field unk_348 integer
----@field unk_349 integer
----@field unk_34c integer
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer
----@field unk_8 integer
----@field unk_370 integer[]
----@field unk_3d0 integer[]
+---@class _site_realization_crossroads: DFCompound
+---@field _kind 'struct-type'
 df.site_realization_crossroads = {}
 
----@class _site_realization_building_type: integer, string, df.enum
+---@alias site_realization_building_type
+---| 0 # cottage_plot
+---| 1 # castle_wall
+---| 2 # castle_tower
+---| 3 # castle_courtyard
+---| 4 # house
+---| 5 # temple
+---| 6 # tomb
+---| 7 # shop_house
+---| 8 # warehouse
+---| 9 # market_square
+---| 10 # pasture
+---| 11 # waste
+---| 12 # courtyard
+---| 13 # well
+---| 14 # vault
+---| 15 # great_tower
+---| 16 # trenches
+---| 17 # tree_house
+---| 18 # hillock_house
+---| 19 # mead_hall
+---| 20 # fortress_entrance
+---| 21 # library
+---| 22 # tavern
+---| 23 # counting_house
+---| 24 # guild_hall
+---| 25 # city_tower
+---| 26 # shrine
+---| 28 # dormitory
+---| 29 # dininghall
+---| 30 # necromancer_tower
+---| 31 # barrow
+
+---@class _site_realization_building_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field cottage_plot 0
 ---@field [0] "cottage_plot"
 ---@field castle_wall 1
@@ -1229,8 +1165,8 @@ df.site_realization_crossroads = {}
 ---@field [8] "warehouse"
 ---@field market_square 9
 ---@field [9] "market_square"
----@field pasture 10
----@field [10] "pasture"
+---@field pasture 10 10
+---@field [10] "pasture" 10
 ---@field waste 11
 ---@field [11] "waste"
 ---@field courtyard 12
@@ -1249,8 +1185,8 @@ df.site_realization_crossroads = {}
 ---@field [18] "hillock_house"
 ---@field mead_hall 19
 ---@field [19] "mead_hall"
----@field fortress_entrance 20
----@field [20] "fortress_entrance"
+---@field fortress_entrance 20 20
+---@field [20] "fortress_entrance" 20
 ---@field library 21
 ---@field [21] "library"
 ---@field tavern 22
@@ -1263,190 +1199,139 @@ df.site_realization_crossroads = {}
 ---@field [25] "city_tower"
 ---@field shrine 26
 ---@field [26] "shrine"
----@field unk_27 27
----@field [27] "unk_27"
 ---@field dormitory 28
 ---@field [28] "dormitory"
 ---@field dininghall 29
 ---@field [29] "dininghall"
----@field necromancer_tower 30
----@field [30] "necromancer_tower"
+---@field necromancer_tower 30 30
+---@field [30] "necromancer_tower" 30
 ---@field barrow 31
 ---@field [31] "barrow"
 df.site_realization_building_type = {}
 
----@class site_realization_building_type
----@field [0] boolean
----@field cottage_plot boolean
----@field [1] boolean
----@field castle_wall boolean
----@field [2] boolean
----@field castle_tower boolean
----@field [3] boolean
----@field castle_courtyard boolean
----@field [4] boolean
----@field house boolean
----@field [5] boolean
----@field temple boolean
----@field [6] boolean
----@field tomb boolean
----@field [7] boolean
----@field shop_house boolean
----@field [8] boolean
----@field warehouse boolean
----@field [9] boolean
----@field market_square boolean
----@field [10] boolean
----@field pasture boolean
----@field [11] boolean
----@field waste boolean
----@field [12] boolean
----@field courtyard boolean
----@field [13] boolean
----@field well boolean
----@field [14] boolean
----@field vault boolean
----@field [15] boolean
----@field great_tower boolean
----@field [16] boolean
----@field trenches boolean
----@field [17] boolean
----@field tree_house boolean
----@field [18] boolean
----@field hillock_house boolean
----@field [19] boolean
----@field mead_hall boolean
----@field [20] boolean
----@field fortress_entrance boolean
----@field [21] boolean
----@field library boolean
----@field [22] boolean
----@field tavern boolean
----@field [23] boolean
----@field counting_house boolean
----@field [24] boolean
----@field guild_hall boolean
----@field [25] boolean
----@field city_tower boolean
----@field [26] boolean
----@field shrine boolean
----@field [27] boolean
----@field unk_27 boolean
----@field [28] boolean
----@field dormitory boolean
----@field [29] boolean
----@field dininghall boolean
----@field [30] boolean
----@field necromancer_tower boolean
----@field [31] boolean
----@field barrow boolean
-
----@class site_realization_building: df.class
----@field id integer
+---@class (exact) site_realization_building: DFObject
+---@field _kind 'struct'
+---@field _type _site_realization_building
+---@field id number
 ---@field type site_realization_building_type
----@field min_x integer in tiles relative to site
----@field min_y integer
----@field max_x integer
----@field max_y integer
----@field unk_18 integer
----@field inhabitants world_site_inhabitant[]
----@field unk_2c integer
+---@field min_x number in tiles relative to site
+---@field min_y number
+---@field max_x number
+---@field max_y number
+---@field unk_18 number
+---@field unk_2c number
 ---@field item site_building_item
----@field abstract_building_id integer used for temple and mead hall
----@field unk_44 integer
----@field building_info site_realization_building_infost
----@field unk_4c site_realization_building_unk_4c[]
----@field unk_5c integer bit 0x01 == abandoned
----@field unk_60 df.container
----@field unk_v40_1 integer
+---@field abstract_building_id number used for temple and mead hall
+---@field unk_44 number
+---@field unk_5c number bit 0x01 == abandoned
+---@field unk_v40_1 number
+local site_realization_building
+
+---@class _site_realization_building: DFCompound
+---@field _kind 'struct-type'
 df.site_realization_building = {}
 
----@class site_realization_building_unk_4c: df.class
----@field unk_0 integer
----@field unk_4 integer
----@field owner integer References: historical_entity
----@field unk_c integer
----@field unk_10 integer
----@field unk_14 integer
-df.site_realization_building.T_unk_4c = {}
+---@class (exact) site_realization_building_infost: DFObject
+---@field _kind 'struct'
+---@field _type _site_realization_building_infost
+local site_realization_building_infost
 
----@class site_realization_building_infost: df.class
+---@class _site_realization_building_infost: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_infost = {}
 
----@return site_realization_building_type
-function df.site_realization_building_infost.getType() end
-
----@param file file_compressorst
-function df.site_realization_building_infost.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.site_realization_building_infost.read_file(file, loadversion) end
-
----@class site_building_item: df.class
----@field race integer References: creature_raw
+---@class (exact) site_building_item: DFObject
+---@field _kind 'struct'
+---@field _type _site_building_item
+---@field race number References: `creature_raw`
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
+local site_building_item
+
+---@class _site_building_item: DFCompound
+---@field _kind 'struct-type'
 df.site_building_item = {}
 
----@class _tower_shape: integer, string, df.bitfield
----@field round 0
----@field [0] "round"
----@field hollow 1
----@field [1] "hollow"
----@field keep 2
----@field [2] "keep"
----@field goblin 3
----@field [3] "goblin"
----@field unk10 4
----@field [4] "unk10"
-df.tower_shape = {}
-
----@class tower_shape
----@field [0] boolean
----@field round boolean
----@field [1] boolean
----@field hollow boolean
----@field [2] boolean
----@field keep boolean
----@field [3] boolean
----@field goblin boolean
----@field [4] boolean
----@field unk10 boolean
-
----@class site_realization_building_info_castle_wallst: site_realization_building_infost
----@field length integer
----@field door_pos integer
----@field start_x integer
----@field start_y integer
----@field start_z integer
----@field end_x integer
----@field end_y integer
----@field end_z integer
+---@class (exact) site_realization_building_info_castle_wallst: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_castle_wallst
+---@field length number
+---@field door_pos number
+---@field start_x number
+---@field start_y number
+---@field start_z number
+---@field end_x number
+---@field end_y number
+---@field end_z number
 ---@field wall_item site_building_item
 ---@field door_item site_building_item
+local site_realization_building_info_castle_wallst
+
+---@class _site_realization_building_info_castle_wallst: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_castle_wallst = {}
 
----@class site_realization_building_info_castle_towerst: site_realization_building_infost
----@field roof_z integer
----@field base_z integer can be below ground, but not above ground
----@field door_n_elevation integer
----@field door_s_elevation integer
----@field door_e_elevation integer
----@field door_w_elevation integer
+---@class (exact) site_realization_building_info_castle_towerst: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_castle_towerst
+---@field roof_z number
+---@field base_z number can be below ground, but not above ground
+---@field door_n_elevation number
+---@field door_s_elevation number
+---@field door_e_elevation number
+---@field door_w_elevation number
 ---@field door_item site_building_item
 ---@field wall_item site_building_item
 ---@field shape tower_shape
----@field unk_40 integer
----@field unk_44 integer
+---@field unk_40 number
+---@field unk_44 number
+local site_realization_building_info_castle_towerst
+
+---@class _site_realization_building_info_castle_towerst: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_castle_towerst = {}
 
----@class site_realization_building_info_castle_courtyardst: site_realization_building_infost
+---@class (exact) site_realization_building_info_castle_courtyardst: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_castle_courtyardst
+local site_realization_building_info_castle_courtyardst
+
+---@class _site_realization_building_info_castle_courtyardst: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_castle_courtyardst = {}
 
----@class _site_shop_type: integer, string, df.enum
+---@alias site_shop_type
+---| 0 # GeneralImports
+---| 1 # FoodImports
+---| 2 # ClothingImports
+---| 3 # Cloth
+---| 4 # Leather
+---| 5 # WovenClothing
+---| 6 # LeatherClothing
+---| 7 # BoneCarver
+---| 8 # GemCutter
+---| 9 # Weaponsmith
+---| 10 # Bowyer
+---| 11 # Blacksmith
+---| 12 # Armorsmith
+---| 13 # MetalCraft
+---| 14 # LeatherGoods
+---| 15 # Carpenter
+---| 16 # StoneFurniture
+---| 17 # MetalFurniture
+---| 18 # ImportedGoodsMarket
+---| 19 # ImportedFoodMarket
+---| 20 # ImportedClothingMarket
+---| 21 # MeatMarket
+---| 22 # FruitAndVegetableMarket
+---| 23 # CheeseMarket
+---| 24 # ProcessedGoodsMarket
+---| 25 # Tavern
+
+---@class _site_shop_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field GeneralImports 0
 ---@field [0] "GeneralImports"
 ---@field FoodImports 1
@@ -1483,8 +1368,8 @@ df.site_realization_building_info_castle_courtyardst = {}
 ---@field [16] "StoneFurniture"
 ---@field MetalFurniture 17
 ---@field [17] "MetalFurniture"
----@field ImportedGoodsMarket 18
----@field [18] "ImportedGoodsMarket"
+---@field ImportedGoodsMarket 18 these are only used with market_square
+---@field [18] "ImportedGoodsMarket" these are only used with market_square
 ---@field ImportedFoodMarket 19
 ---@field [19] "ImportedFoodMarket"
 ---@field ImportedClothingMarket 20
@@ -1501,152 +1386,101 @@ df.site_realization_building_info_castle_courtyardst = {}
 ---@field [25] "Tavern"
 df.site_shop_type = {}
 
----@class site_shop_type
----@field [0] boolean
----@field GeneralImports boolean
----@field [1] boolean
----@field FoodImports boolean
----@field [2] boolean
----@field ClothingImports boolean
----@field [3] boolean
----@field Cloth boolean
----@field [4] boolean
----@field Leather boolean
----@field [5] boolean
----@field WovenClothing boolean
----@field [6] boolean
----@field LeatherClothing boolean
----@field [7] boolean
----@field BoneCarver boolean
----@field [8] boolean
----@field GemCutter boolean
----@field [9] boolean
----@field Weaponsmith boolean
----@field [10] boolean
----@field Bowyer boolean
----@field [11] boolean
----@field Blacksmith boolean
----@field [12] boolean
----@field Armorsmith boolean
----@field [13] boolean
----@field MetalCraft boolean
----@field [14] boolean
----@field LeatherGoods boolean
----@field [15] boolean
----@field Carpenter boolean
----@field [16] boolean
----@field StoneFurniture boolean
----@field [17] boolean
----@field MetalFurniture boolean
----@field [18] boolean
----@field ImportedGoodsMarket boolean
----@field [19] boolean
----@field ImportedFoodMarket boolean
----@field [20] boolean
----@field ImportedClothingMarket boolean
----@field [21] boolean
----@field MeatMarket boolean
----@field [22] boolean
----@field FruitAndVegetableMarket boolean
----@field [23] boolean
----@field CheeseMarket boolean
----@field [24] boolean
----@field ProcessedGoodsMarket boolean
----@field [25] boolean
----@field Tavern boolean
+---@alias town_labor_type
+---| -1 # NONE
+---| 0 # CLOTH
+---| 1 # TANNING
+---| 2 # CLOTHING_CLOTH
+---| 3 # CLOTHING_LEATHER
+---| 4 # CRAFTS_BONE_CARVER
+---| 5 # GEM_CUTTER
+---| 6 # METAL_WEAPON_SMITH
+---| 7 # WOOD_WEAPON_SMITH
+---| 8 # BLACK_SMITH
+---| 9 # METAL_ARMOR_SMITH
+---| 10 # METAL_CRAFTER
+---| 11 # LEATHER_ACCESSORIES
+---| 12 # FURNITURE_WOOD
+---| 13 # FURNITURE_STONE
+---| 14 # FURNITURE_METAL
 
----@class _town_labor_type: integer, string, df.enum
+---@class _town_labor_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field CLOTH 1
----@field [1] "CLOTH"
----@field TANNING 2
----@field [2] "TANNING"
----@field CLOTHING_CLOTH 3
----@field [3] "CLOTHING_CLOTH"
----@field CLOTHING_LEATHER 4
----@field [4] "CLOTHING_LEATHER"
----@field CRAFTS_BONE_CARVER 5
----@field [5] "CRAFTS_BONE_CARVER"
----@field GEM_CUTTER 6
----@field [6] "GEM_CUTTER"
----@field METAL_WEAPON_SMITH 7
----@field [7] "METAL_WEAPON_SMITH"
----@field WOOD_WEAPON_SMITH 8
----@field [8] "WOOD_WEAPON_SMITH"
----@field BLACK_SMITH 9
----@field [9] "BLACK_SMITH"
----@field METAL_ARMOR_SMITH 10
----@field [10] "METAL_ARMOR_SMITH"
----@field METAL_CRAFTER 11
----@field [11] "METAL_CRAFTER"
----@field LEATHER_ACCESSORIES 12
----@field [12] "LEATHER_ACCESSORIES"
----@field FURNITURE_WOOD 13
----@field [13] "FURNITURE_WOOD"
----@field FURNITURE_STONE 14
----@field [14] "FURNITURE_STONE"
----@field FURNITURE_METAL 15
----@field [15] "FURNITURE_METAL"
+---@field [-1] "NONE"
+---@field CLOTH 0
+---@field [0] "CLOTH"
+---@field TANNING 1
+---@field [1] "TANNING"
+---@field CLOTHING_CLOTH 2
+---@field [2] "CLOTHING_CLOTH"
+---@field CLOTHING_LEATHER 3
+---@field [3] "CLOTHING_LEATHER"
+---@field CRAFTS_BONE_CARVER 4
+---@field [4] "CRAFTS_BONE_CARVER"
+---@field GEM_CUTTER 5
+---@field [5] "GEM_CUTTER"
+---@field METAL_WEAPON_SMITH 6
+---@field [6] "METAL_WEAPON_SMITH"
+---@field WOOD_WEAPON_SMITH 7
+---@field [7] "WOOD_WEAPON_SMITH"
+---@field BLACK_SMITH 8
+---@field [8] "BLACK_SMITH"
+---@field METAL_ARMOR_SMITH 9
+---@field [9] "METAL_ARMOR_SMITH"
+---@field METAL_CRAFTER 10
+---@field [10] "METAL_CRAFTER"
+---@field LEATHER_ACCESSORIES 11
+---@field [11] "LEATHER_ACCESSORIES"
+---@field FURNITURE_WOOD 12
+---@field [12] "FURNITURE_WOOD"
+---@field FURNITURE_STONE 13
+---@field [13] "FURNITURE_STONE"
+---@field FURNITURE_METAL 14
+---@field [14] "FURNITURE_METAL"
 df.town_labor_type = {}
 
----@class town_labor_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field CLOTH boolean
----@field [2] boolean
----@field TANNING boolean
----@field [3] boolean
----@field CLOTHING_CLOTH boolean
----@field [4] boolean
----@field CLOTHING_LEATHER boolean
----@field [5] boolean
----@field CRAFTS_BONE_CARVER boolean
----@field [6] boolean
----@field GEM_CUTTER boolean
----@field [7] boolean
----@field METAL_WEAPON_SMITH boolean
----@field [8] boolean
----@field WOOD_WEAPON_SMITH boolean
----@field [9] boolean
----@field BLACK_SMITH boolean
----@field [10] boolean
----@field METAL_ARMOR_SMITH boolean
----@field [11] boolean
----@field METAL_CRAFTER boolean
----@field [12] boolean
----@field LEATHER_ACCESSORIES boolean
----@field [13] boolean
----@field FURNITURE_WOOD boolean
----@field [14] boolean
----@field FURNITURE_STONE boolean
----@field [15] boolean
----@field FURNITURE_METAL boolean
-
----@class site_realization_building_info_shop_housest: site_realization_building_infost
+---@class (exact) site_realization_building_info_shop_housest: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_shop_housest
 ---@field type site_shop_type
 ---@field name language_name
+local site_realization_building_info_shop_housest
+
+---@class _site_realization_building_info_shop_housest: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_shop_housest = {}
 
----@class site_realization_building_info_market_squarest: site_realization_building_infost
+---@class (exact) site_realization_building_info_market_squarest: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_market_squarest
 ---@field type site_shop_type
+local site_realization_building_info_market_squarest
+
+---@class _site_realization_building_info_market_squarest: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_market_squarest = {}
 
----@class site_realization_building_info_trenchesst: site_realization_building_infost
----@field unk_4 integer
----@field spokes site_realization_building_info_trenchesst_spokes N, S, E, W
+---@class (exact) site_realization_building_info_trenchesst: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_trenchesst
+---@field unk_4 number
+local site_realization_building_info_trenchesst
+
+---@class _site_realization_building_info_trenchesst: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_trenchesst = {}
 
----N, S, E, W
----@class site_realization_building_info_trenchesst_spokes: df.class
----@field mound_min integer -30000 = nothing here
----@field trench_min integer
----@field trench_max integer
----@field mound_max integer
-df.site_realization_building_info_trenchesst.T_spokes = {}
+---@alias tree_house_type
+---| 0 # TreeHouse
+---| 1 # HomeTree
+---| 2 # ShapingTree
+---| 3 # MarketTree
+---| 4 # Unknown1
+---| 5 # Unknown2
 
----@class _tree_house_type: integer, string, df.enum
+---@class _tree_house_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field TreeHouse 0
 ---@field [0] "TreeHouse"
 ---@field HomeTree 1
@@ -1661,29 +1495,25 @@ df.site_realization_building_info_trenchesst.T_spokes = {}
 ---@field [5] "Unknown2"
 df.tree_house_type = {}
 
----@class tree_house_type
----@field [0] boolean
----@field TreeHouse boolean
----@field [1] boolean
----@field HomeTree boolean
----@field [2] boolean
----@field ShapingTree boolean
----@field [3] boolean
----@field MarketTree boolean
----@field [4] boolean
----@field Unknown1 boolean
----@field [5] boolean
----@field Unknown2 boolean
-
----@class site_realization_building_info_tree_housest: site_realization_building_infost
+---@class (exact) site_realization_building_info_tree_housest: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_tree_housest
 ---@field type tree_house_type
----@field unk_8 integer
+---@field unk_8 number
 ---@field name language_name
+local site_realization_building_info_tree_housest
+
+---@class _site_realization_building_info_tree_housest: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_tree_housest = {}
 
----@class _hillock_house_type: integer, string, df.enum
----@field unk_0 0
----@field [0] "unk_0"
+---@alias hillock_house_type
+---| 1 # CivicMound
+---| 2 # CastleMound
+---| 3 # DrinkingMound
+
+---@class _hillock_house_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field CivicMound 1
 ---@field [1] "CivicMound"
 ---@field CastleMound 2
@@ -1692,26 +1522,35 @@ df.site_realization_building_info_tree_housest = {}
 ---@field [3] "DrinkingMound"
 df.hillock_house_type = {}
 
----@class hillock_house_type
----@field [0] boolean
----@field unk_0 boolean
----@field [1] boolean
----@field CivicMound boolean
----@field [2] boolean
----@field CastleMound boolean
----@field [3] boolean
----@field DrinkingMound boolean
-
----@class site_realization_building_info_hillock_housest: site_realization_building_infost
+---@class (exact) site_realization_building_info_hillock_housest: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_hillock_housest
 ---@field type hillock_house_type
+local site_realization_building_info_hillock_housest
+
+---@class _site_realization_building_info_hillock_housest: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_hillock_housest = {}
 
----@class site_realization_building_info_shrinest: site_realization_building_infost
----@field unk_1 integer
----@field unk_2 integer
+---@class (exact) site_realization_building_info_shrinest: DFObject, site_realization_building_infost
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_shrinest
+---@field unk_1 number
+---@field unk_2 number
+local site_realization_building_info_shrinest
+
+---@class _site_realization_building_info_shrinest: DFCompound
+---@field _kind 'class-type'
 df.site_realization_building_info_shrinest = {}
 
----@class _creation_zone_pwg_alteration_type: integer, string, df.enum
+---@alias creation_zone_pwg_alteration_type
+---| 0 # location_death
+---| 1 # camp
+---| 2 # srb_ruined
+---| 3 # srp_ruined
+
+---@class _creation_zone_pwg_alteration_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field location_death 0
 ---@field [0] "location_death"
 ---@field camp 1
@@ -1722,72 +1561,75 @@ df.site_realization_building_info_shrinest = {}
 ---@field [3] "srp_ruined"
 df.creation_zone_pwg_alteration_type = {}
 
----@class creation_zone_pwg_alteration_type
----@field [0] boolean
----@field location_death boolean
----@field [1] boolean
----@field camp boolean
----@field [2] boolean
----@field srb_ruined boolean
----@field [3] boolean
----@field srp_ruined boolean
+---@class (exact) creation_zone_pwg_alterationst: DFObject
+---@field _kind 'struct'
+---@field _type _creation_zone_pwg_alterationst
+---@field unk_0 number
+local creation_zone_pwg_alterationst
 
----@class creation_zone_pwg_alterationst: df.class
----@field unk_0 integer
+---@class _creation_zone_pwg_alterationst: DFCompound
+---@field _kind 'class-type'
 df.creation_zone_pwg_alterationst = {}
 
----@return creation_zone_pwg_alteration_type
-function df.creation_zone_pwg_alterationst.getType() end
+---@class (exact) creation_zone_pwg_alteration_location_deathst: DFObject, creation_zone_pwg_alterationst
+---@field _kind 'struct'
+---@field _type _creation_zone_pwg_alteration_location_deathst
+---@field unk_1 creation_zone_pwg_alteration_location_deathst.T_unk_1
+---@field unk_2 number
+local creation_zone_pwg_alteration_location_deathst
 
----@param file file_compressorst
-function df.creation_zone_pwg_alterationst.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.creation_zone_pwg_alterationst.read_file(file, loadversion) end
-
----@class creation_zone_pwg_alteration_location_deathst: creation_zone_pwg_alterationst
----@field unk_1 creation_zone_pwg_alteration_location_deathst_unk_1
----@field unk_2 integer
+---@class _creation_zone_pwg_alteration_location_deathst: DFCompound
+---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_location_deathst = {}
 
----@class creation_zone_pwg_alteration_location_deathst_unk_1: df.class
----@field unk_1a creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a[]
----@field unk_2a df.container
+---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFObject
+---@field _kind 'struct'
+---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
+local unk_1
+
+---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompound
+---@field _kind 'struct-type'
 df.creation_zone_pwg_alteration_location_deathst.T_unk_1 = {}
 
----@class creation_zone_pwg_alteration_location_deathst.T_unk_1_unk_1a: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer
----@field unk_8 integer
-df.creation_zone_pwg_alteration_location_deathst.T_unk_1.T_unk_1a = {}
+---@class (exact) creation_zone_pwg_alteration_campst: DFObject, creation_zone_pwg_alterationst
+---@field _kind 'struct'
+---@field _type _creation_zone_pwg_alteration_campst
+---@field unk_1 number
+---@field x1 number
+---@field y1 number
+---@field x2 number
+---@field y2 number
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_4 number
+---@field unk_5 number
+---@field unk_6 number
+---@field unk_7 number
+local creation_zone_pwg_alteration_campst
 
----@class creation_zone_pwg_alteration_campst: creation_zone_pwg_alterationst
----@field unk_1 integer
----@field x1 integer
----@field y1 integer
----@field x2 integer
----@field y2 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer
+---@class _creation_zone_pwg_alteration_campst: DFCompound
+---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_campst = {}
 
----@class creation_zone_pwg_alteration_srb_ruinedst: creation_zone_pwg_alterationst
----@field site_id integer References: world_site
----@field building_id integer References: site_realization_building
+---@class (exact) creation_zone_pwg_alteration_srb_ruinedst: DFObject, creation_zone_pwg_alterationst
+---@field _kind 'struct'
+---@field _type _creation_zone_pwg_alteration_srb_ruinedst
+---@field site_id number References: `world_site`
+---@field building_id number References: `site_realization_building`
+local creation_zone_pwg_alteration_srb_ruinedst
+
+---@class _creation_zone_pwg_alteration_srb_ruinedst: DFCompound
+---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_srb_ruinedst = {}
 
----@class creation_zone_pwg_alteration_srp_ruinedst: creation_zone_pwg_alterationst
----@field unk_1 integer
----@field unk_2 integer
+---@class (exact) creation_zone_pwg_alteration_srp_ruinedst: DFObject, creation_zone_pwg_alterationst
+---@field _kind 'struct'
+---@field _type _creation_zone_pwg_alteration_srp_ruinedst
+---@field unk_1 number
+---@field unk_2 number
+local creation_zone_pwg_alteration_srp_ruinedst
+
+---@class _creation_zone_pwg_alteration_srp_ruinedst: DFCompound
+---@field _kind 'class-type'
 df.creation_zone_pwg_alteration_srp_ruinedst = {}
 

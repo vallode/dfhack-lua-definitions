@@ -1,1831 +1,1682 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.unit-thoughts
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _emotion_type: integer, string, df.enum
+---@alias emotion_type
+---| -1 # ANYTHING
+---| 0 # ACCEPTANCE
+---| 1 # ADORATION
+---| 2 # AFFECTION
+---| 3 # AGITATION
+---| 4 # AGGRAVATION
+---| 5 # AGONY
+---| 6 # ALARM
+---| 7 # ALIENATION
+---| 8 # AMAZEMENT
+---| 9 # AMBIVALENCE
+---| 10 # AMUSEMENT
+---| 11 # ANGER
+---| 12 # ANGST
+---| 13 # ANGUISH
+---| 14 # ANNOYANCE
+---| 16 # ANXIETY
+---| 17 # APATHY
+---| 19 # AROUSAL
+---| 20 # ASTONISHMENT
+---| 22 # AVERSION
+---| 23 # AWE
+---| 24 # BITTERNESS
+---| 25 # BLISS
+---| 26 # BOREDOM
+---| 27 # CARING
+---| 29 # CONFUSION
+---| 30 # CONTEMPT
+---| 31 # CONTENTMENT
+---| 34 # DEFEAT
+---| 35 # DEJECTION
+---| 36 # DELIGHT
+---| 39 # DESPAIR
+---| 40 # DISAPPOINTMENT
+---| 41 # DISGUST
+---| 42 # DISILLUSIONMENT
+---| 43 # DISLIKE
+---| 44 # DISMAY
+---| 45 # DISPLEASURE
+---| 46 # DISTRESS
+---| 47 # DOUBT
+---| 49 # EAGERNESS
+---| 51 # ELATION
+---| 52 # EMBARRASSMENT
+---| 53 # EMPATHY
+---| 54 # EMPTINESS
+---| 55 # ENJOYMENT
+---| 57 # ENTHUSIASM
+---| 59 # EUPHORIA
+---| 60 # EXASPERATION
+---| 61 # EXCITEMENT
+---| 62 # EXHILARATION
+---| 63 # EXPECTANCY
+---| 64 # FEAR
+---| 65 # FEROCITY
+---| 66 # FONDNESS
+---| 67 # FREEDOM
+---| 68 # FRIGHT
+---| 69 # FRUSTRATION
+---| 71 # GAIETY
+---| 73 # GLEE
+---| 74 # GLOOM
+---| 75 # GLUMNESS
+---| 76 # GRATITUDE
+---| 78 # GRIEF
+---| 79 # GRIM_SATISFACTION
+---| 80 # GROUCHINESS
+---| 81 # GRUMPINESS
+---| 82 # GUILT
+---| 83 # HAPPINESS
+---| 84 # HATRED
+---| 86 # HOPE
+---| 87 # HOPELESSNESS
+---| 88 # HORROR
+---| 90 # HUMILIATION
+---| 95 # INSULT
+---| 96 # INTEREST
+---| 97 # IRRITATION
+---| 98 # ISOLATION
+---| 100 # JOLLINESS
+---| 101 # JOVIALITY
+---| 102 # JOY
+---| 103 # JUBILATION
+---| 104 # LOATHING
+---| 105 # LONELINESS
+---| 107 # LOVE
+---| 109 # LUST
+---| 111 # MISERY
+---| 112 # MORTIFICATION
+---| 114 # NERVOUSNESS
+---| 115 # NOSTALGIA
+---| 116 # OPTIMISM
+---| 117 # OUTRAGE
+---| 118 # PANIC
+---| 119 # PATIENCE
+---| 120 # PASSION
+---| 121 # PESSIMISM
+---| 123 # PLEASURE
+---| 124 # PRIDE
+---| 125 # RAGE
+---| 126 # RAPTURE
+---| 127 # REJECTION
+---| 128 # RELIEF
+---| 129 # REGRET
+---| 130 # REMORSE
+---| 131 # REPENTANCE
+---| 132 # RESENTMENT
+---| 134 # RIGHTEOUS_INDIGNATION
+---| 135 # SADNESS
+---| 136 # SATISFACTION
+---| 138 # SELF_PITY
+---| 140 # SERVILE
+---| 141 # SHAKEN
+---| 142 # SHAME
+---| 143 # SHOCK
+---| 148 # SUSPICION
+---| 149 # SYMPATHY
+---| 150 # TENDERNESS
+---| 152 # TERROR
+---| 153 # THRILL
+---| 155 # TRIUMPH
+---| 156 # UNEASINESS
+---| 157 # UNHAPPINESS
+---| 158 # VENGEFULNESS
+---| 160 # WONDER
+---| 161 # WORRY
+---| 162 # WRATH
+---| 163 # ZEAL
+---| 167 # RESTLESS
+---| 168 # ADMIRATION
+
+-- bay12: Emotion
+---@class _emotion_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field ANYTHING -1
----@field [0] "ANYTHING"
----@field ACCEPTANCE 1
----@field [1] "ACCEPTANCE"
----@field ADORATION 2
----@field [2] "ADORATION"
----@field AFFECTION 3
----@field [3] "AFFECTION"
----@field AGITATION 4
----@field [4] "AGITATION"
----@field AGGRAVATION 5
----@field [5] "AGGRAVATION"
----@field AGONY 6
----@field [6] "AGONY"
----@field ALARM 7
----@field [7] "ALARM"
----@field ALIENATION 8
----@field [8] "ALIENATION"
----@field AMAZEMENT 9
----@field [9] "AMAZEMENT"
----@field AMBIVALENCE 10
----@field [10] "AMBIVALENCE"
----@field AMUSEMENT 11
----@field [11] "AMUSEMENT"
----@field ANGER 12
----@field [12] "ANGER"
----@field ANGST 13
----@field [13] "ANGST"
----@field ANGUISH 14
----@field [14] "ANGUISH"
----@field ANNOYANCE 15
----@field [15] "ANNOYANCE"
----@field unk_16 16
----@field [16] "unk_16"
----@field ANXIETY 17
----@field [17] "ANXIETY"
----@field APATHY 18
----@field [18] "APATHY"
----@field unk_19 19
----@field [19] "unk_19"
----@field AROUSAL 20
----@field [20] "AROUSAL"
----@field ASTONISHMENT 21
----@field [21] "ASTONISHMENT"
----@field unk_22 22
----@field [22] "unk_22"
----@field AVERSION 23
----@field [23] "AVERSION"
----@field AWE 24
----@field [24] "AWE"
----@field BITTERNESS 25
----@field [25] "BITTERNESS"
----@field BLISS 26
----@field [26] "BLISS"
----@field BOREDOM 27
----@field [27] "BOREDOM"
----@field CARING 28
----@field [28] "CARING"
----@field unk_29 29
----@field [29] "unk_29"
----@field CONFUSION 30
----@field [30] "CONFUSION"
----@field CONTEMPT 31
----@field [31] "CONTEMPT"
----@field CONTENTMENT 32
----@field [32] "CONTENTMENT"
----@field unk_33 33
----@field [33] "unk_33"
----@field unk_34 34
----@field [34] "unk_34"
----@field DEFEAT 35
----@field [35] "DEFEAT"
----@field DEJECTION 36
----@field [36] "DEJECTION"
----@field DELIGHT 37
----@field [37] "DELIGHT"
----@field unk_38 38
----@field [38] "unk_38"
----@field unk_39 39
----@field [39] "unk_39"
----@field DESPAIR 40
----@field [40] "DESPAIR"
----@field DISAPPOINTMENT 41
----@field [41] "DISAPPOINTMENT"
----@field DISGUST 42
----@field [42] "DISGUST"
----@field DISILLUSIONMENT 43
----@field [43] "DISILLUSIONMENT"
----@field DISLIKE 44
----@field [44] "DISLIKE"
----@field DISMAY 45
----@field [45] "DISMAY"
----@field DISPLEASURE 46
----@field [46] "DISPLEASURE"
----@field DISTRESS 47
----@field [47] "DISTRESS"
----@field DOUBT 48
----@field [48] "DOUBT"
----@field unk_49 49
----@field [49] "unk_49"
----@field EAGERNESS 50
----@field [50] "EAGERNESS"
----@field unk_51 51
----@field [51] "unk_51"
----@field ELATION 52
----@field [52] "ELATION"
----@field EMBARRASSMENT 53
----@field [53] "EMBARRASSMENT"
----@field EMPATHY 54
----@field [54] "EMPATHY"
----@field EMPTINESS 55
----@field [55] "EMPTINESS"
----@field ENJOYMENT 56
----@field [56] "ENJOYMENT"
----@field unk_57 57
----@field [57] "unk_57"
----@field ENTHUSIASM 58
----@field [58] "ENTHUSIASM"
----@field unk_59 59
----@field [59] "unk_59"
----@field EUPHORIA 60
----@field [60] "EUPHORIA"
----@field EXASPERATION 61
----@field [61] "EXASPERATION"
----@field EXCITEMENT 62
----@field [62] "EXCITEMENT"
----@field EXHILARATION 63
----@field [63] "EXHILARATION"
----@field EXPECTANCY 64
----@field [64] "EXPECTANCY"
----@field FEAR 65
----@field [65] "FEAR"
----@field FEROCITY 66
----@field [66] "FEROCITY"
----@field FONDNESS 67
----@field [67] "FONDNESS"
----@field FREEDOM 68
----@field [68] "FREEDOM"
----@field FRIGHT 69
----@field [69] "FRIGHT"
----@field FRUSTRATION 70
----@field [70] "FRUSTRATION"
----@field unk_71 71
----@field [71] "unk_71"
----@field GAIETY 72
----@field [72] "GAIETY"
----@field unk_73 73
----@field [73] "unk_73"
----@field GLEE 74
----@field [74] "GLEE"
----@field GLOOM 75
----@field [75] "GLOOM"
----@field GLUMNESS 76
----@field [76] "GLUMNESS"
----@field GRATITUDE 77
----@field [77] "GRATITUDE"
----@field unk_78 78
----@field [78] "unk_78"
----@field GRIEF 79
----@field [79] "GRIEF"
----@field GRIM_SATISFACTION 80
----@field [80] "GRIM_SATISFACTION"
----@field GROUCHINESS 81
----@field [81] "GROUCHINESS"
----@field GRUMPINESS 82
----@field [82] "GRUMPINESS"
----@field GUILT 83
----@field [83] "GUILT"
----@field HAPPINESS 84
----@field [84] "HAPPINESS"
----@field HATRED 85
----@field [85] "HATRED"
----@field unk_86 86
----@field [86] "unk_86"
----@field HOPE 87
----@field [87] "HOPE"
----@field HOPELESSNESS 88
----@field [88] "HOPELESSNESS"
----@field HORROR 89
----@field [89] "HORROR"
----@field unk_90 90
----@field [90] "unk_90"
----@field HUMILIATION 91
----@field [91] "HUMILIATION"
----@field unk_92 92
----@field [92] "unk_92"
----@field unk_93 93
----@field [93] "unk_93"
----@field unk_94 94
----@field [94] "unk_94"
----@field unk_95 95
----@field [95] "unk_95"
----@field INSULT 96
----@field [96] "INSULT"
----@field INTEREST 97
----@field [97] "INTEREST"
----@field IRRITATION 98
----@field [98] "IRRITATION"
----@field ISOLATION 99
----@field [99] "ISOLATION"
----@field unk_100 100
----@field [100] "unk_100"
----@field JOLLINESS 101
----@field [101] "JOLLINESS"
----@field JOVIALITY 102
----@field [102] "JOVIALITY"
----@field JOY 103
----@field [103] "JOY"
----@field JUBILATION 104
----@field [104] "JUBILATION"
----@field LOATHING 105
----@field [105] "LOATHING"
----@field LONELINESS 106
----@field [106] "LONELINESS"
----@field unk_107 107
----@field [107] "unk_107"
----@field LOVE 108
----@field [108] "LOVE"
----@field unk_109 109
----@field [109] "unk_109"
----@field LUST 110
----@field [110] "LUST"
----@field unk_111 111
----@field [111] "unk_111"
----@field MISERY 112
----@field [112] "MISERY"
----@field MORTIFICATION 113
----@field [113] "MORTIFICATION"
----@field unk_114 114
----@field [114] "unk_114"
----@field NERVOUSNESS 115
----@field [115] "NERVOUSNESS"
----@field NOSTALGIA 116
----@field [116] "NOSTALGIA"
----@field OPTIMISM 117
----@field [117] "OPTIMISM"
----@field OUTRAGE 118
----@field [118] "OUTRAGE"
----@field PANIC 119
----@field [119] "PANIC"
----@field PATIENCE 120
----@field [120] "PATIENCE"
----@field PASSION 121
----@field [121] "PASSION"
----@field PESSIMISM 122
----@field [122] "PESSIMISM"
----@field unk_123 123
----@field [123] "unk_123"
----@field PLEASURE 124
----@field [124] "PLEASURE"
----@field PRIDE 125
----@field [125] "PRIDE"
----@field RAGE 126
----@field [126] "RAGE"
----@field RAPTURE 127
----@field [127] "RAPTURE"
----@field REJECTION 128
----@field [128] "REJECTION"
----@field RELIEF 129
----@field [129] "RELIEF"
----@field REGRET 130
----@field [130] "REGRET"
----@field REMORSE 131
----@field [131] "REMORSE"
----@field REPENTANCE 132
----@field [132] "REPENTANCE"
----@field RESENTMENT 133
----@field [133] "RESENTMENT"
----@field unk_134 134
----@field [134] "unk_134"
----@field RIGHTEOUS_INDIGNATION 135
----@field [135] "RIGHTEOUS_INDIGNATION"
----@field SADNESS 136
----@field [136] "SADNESS"
----@field SATISFACTION 137
----@field [137] "SATISFACTION"
----@field unk_138 138
----@field [138] "unk_138"
----@field SELF_PITY 139
----@field [139] "SELF_PITY"
----@field unk_140 140
----@field [140] "unk_140"
----@field SERVILE 141
----@field [141] "SERVILE"
----@field SHAKEN 142
----@field [142] "SHAKEN"
----@field SHAME 143
----@field [143] "SHAME"
----@field SHOCK 144
----@field [144] "SHOCK"
----@field unk_145 145
----@field [145] "unk_145"
----@field unk_146 146
----@field [146] "unk_146"
----@field unk_147 147
----@field [147] "unk_147"
----@field unk_148 148
----@field [148] "unk_148"
----@field SUSPICION 149
----@field [149] "SUSPICION"
----@field SYMPATHY 150
----@field [150] "SYMPATHY"
----@field TENDERNESS 151
----@field [151] "TENDERNESS"
----@field unk_152 152
----@field [152] "unk_152"
----@field TERROR 153
----@field [153] "TERROR"
----@field THRILL 154
----@field [154] "THRILL"
----@field unk_155 155
----@field [155] "unk_155"
----@field TRIUMPH 156
----@field [156] "TRIUMPH"
----@field UNEASINESS 157
----@field [157] "UNEASINESS"
----@field UNHAPPINESS 158
----@field [158] "UNHAPPINESS"
----@field VENGEFULNESS 159
----@field [159] "VENGEFULNESS"
----@field unk_160 160
----@field [160] "unk_160"
----@field WONDER 161
----@field [161] "WONDER"
----@field WORRY 162
----@field [162] "WORRY"
----@field WRATH 163
----@field [163] "WRATH"
----@field ZEAL 164
----@field [164] "ZEAL"
----@field unk_165 165
----@field [165] "unk_165"
----@field unk_166 166
----@field [166] "unk_166"
----@field unk_167 167
----@field [167] "unk_167"
----@field RESTLESS 168
----@field [168] "RESTLESS"
----@field ADMIRATION 169
----@field [169] "ADMIRATION"
+---@field [-1] "ANYTHING"
+---@field ACCEPTANCE 0
+---@field [0] "ACCEPTANCE"
+---@field ADORATION 1
+---@field [1] "ADORATION"
+---@field AFFECTION 2
+---@field [2] "AFFECTION"
+---@field AGITATION 3
+---@field [3] "AGITATION"
+---@field AGGRAVATION 4
+---@field [4] "AGGRAVATION"
+---@field AGONY 5
+---@field [5] "AGONY"
+---@field ALARM 6
+---@field [6] "ALARM"
+---@field ALIENATION 7
+---@field [7] "ALIENATION"
+---@field AMAZEMENT 8
+---@field [8] "AMAZEMENT"
+---@field AMBIVALENCE 9
+---@field [9] "AMBIVALENCE"
+---@field AMUSEMENT 10 -- 10
+---@field [10] "AMUSEMENT" -- 10
+---@field ANGER 11
+---@field [11] "ANGER"
+---@field ANGST 12
+---@field [12] "ANGST"
+---@field ANGUISH 13
+---@field [13] "ANGUISH"
+---@field ANNOYANCE 14
+---@field [14] "ANNOYANCE"
+---@field ANXIETY 16
+---@field [16] "ANXIETY"
+---@field APATHY 17
+---@field [17] "APATHY"
+---@field AROUSAL 19
+---@field [19] "AROUSAL"
+---@field ASTONISHMENT 20 -- 20
+---@field [20] "ASTONISHMENT" -- 20
+---@field AVERSION 22
+---@field [22] "AVERSION"
+---@field AWE 23
+---@field [23] "AWE"
+---@field BITTERNESS 24
+---@field [24] "BITTERNESS"
+---@field BLISS 25
+---@field [25] "BLISS"
+---@field BOREDOM 26
+---@field [26] "BOREDOM"
+---@field CARING 27
+---@field [27] "CARING"
+---@field CONFUSION 29
+---@field [29] "CONFUSION"
+---@field CONTEMPT 30 -- 30
+---@field [30] "CONTEMPT" -- 30
+---@field CONTENTMENT 31
+---@field [31] "CONTENTMENT"
+---@field DEFEAT 34
+---@field [34] "DEFEAT"
+---@field DEJECTION 35
+---@field [35] "DEJECTION"
+---@field DELIGHT 36
+---@field [36] "DELIGHT"
+---@field DESPAIR 39
+---@field [39] "DESPAIR"
+---@field DISAPPOINTMENT 40 -- 40
+---@field [40] "DISAPPOINTMENT" -- 40
+---@field DISGUST 41
+---@field [41] "DISGUST"
+---@field DISILLUSIONMENT 42
+---@field [42] "DISILLUSIONMENT"
+---@field DISLIKE 43
+---@field [43] "DISLIKE"
+---@field DISMAY 44
+---@field [44] "DISMAY"
+---@field DISPLEASURE 45
+---@field [45] "DISPLEASURE"
+---@field DISTRESS 46
+---@field [46] "DISTRESS"
+---@field DOUBT 47
+---@field [47] "DOUBT"
+---@field EAGERNESS 49
+---@field [49] "EAGERNESS"
+---@field ELATION 51
+---@field [51] "ELATION"
+---@field EMBARRASSMENT 52
+---@field [52] "EMBARRASSMENT"
+---@field EMPATHY 53
+---@field [53] "EMPATHY"
+---@field EMPTINESS 54
+---@field [54] "EMPTINESS"
+---@field ENJOYMENT 55
+---@field [55] "ENJOYMENT"
+---@field ENTHUSIASM 57
+---@field [57] "ENTHUSIASM"
+---@field EUPHORIA 59
+---@field [59] "EUPHORIA"
+---@field EXASPERATION 60 -- 60
+---@field [60] "EXASPERATION" -- 60
+---@field EXCITEMENT 61
+---@field [61] "EXCITEMENT"
+---@field EXHILARATION 62
+---@field [62] "EXHILARATION"
+---@field EXPECTANCY 63
+---@field [63] "EXPECTANCY"
+---@field FEAR 64
+---@field [64] "FEAR"
+---@field FEROCITY 65
+---@field [65] "FEROCITY"
+---@field FONDNESS 66
+---@field [66] "FONDNESS"
+---@field FREEDOM 67
+---@field [67] "FREEDOM"
+---@field FRIGHT 68
+---@field [68] "FRIGHT"
+---@field FRUSTRATION 69
+---@field [69] "FRUSTRATION"
+---@field GAIETY 71
+---@field [71] "GAIETY"
+---@field GLEE 73
+---@field [73] "GLEE"
+---@field GLOOM 74
+---@field [74] "GLOOM"
+---@field GLUMNESS 75
+---@field [75] "GLUMNESS"
+---@field GRATITUDE 76
+---@field [76] "GRATITUDE"
+---@field GRIEF 78
+---@field [78] "GRIEF"
+---@field GRIM_SATISFACTION 79
+---@field [79] "GRIM_SATISFACTION"
+---@field GROUCHINESS 80 -- 80
+---@field [80] "GROUCHINESS" -- 80
+---@field GRUMPINESS 81
+---@field [81] "GRUMPINESS"
+---@field GUILT 82
+---@field [82] "GUILT"
+---@field HAPPINESS 83
+---@field [83] "HAPPINESS"
+---@field HATRED 84
+---@field [84] "HATRED"
+---@field HOPE 86
+---@field [86] "HOPE"
+---@field HOPELESSNESS 87
+---@field [87] "HOPELESSNESS"
+---@field HORROR 88
+---@field [88] "HORROR"
+---@field HUMILIATION 90 -- 90
+---@field [90] "HUMILIATION" -- 90
+---@field INSULT 95
+---@field [95] "INSULT"
+---@field INTEREST 96
+---@field [96] "INTEREST"
+---@field IRRITATION 97
+---@field [97] "IRRITATION"
+---@field ISOLATION 98
+---@field [98] "ISOLATION"
+---@field JOLLINESS 100 -- 100
+---@field [100] "JOLLINESS" -- 100
+---@field JOVIALITY 101
+---@field [101] "JOVIALITY"
+---@field JOY 102
+---@field [102] "JOY"
+---@field JUBILATION 103
+---@field [103] "JUBILATION"
+---@field LOATHING 104
+---@field [104] "LOATHING"
+---@field LONELINESS 105
+---@field [105] "LONELINESS"
+---@field LOVE 107
+---@field [107] "LOVE"
+---@field LUST 109
+---@field [109] "LUST"
+---@field MISERY 111
+---@field [111] "MISERY"
+---@field MORTIFICATION 112
+---@field [112] "MORTIFICATION"
+---@field NERVOUSNESS 114
+---@field [114] "NERVOUSNESS"
+---@field NOSTALGIA 115
+---@field [115] "NOSTALGIA"
+---@field OPTIMISM 116
+---@field [116] "OPTIMISM"
+---@field OUTRAGE 117
+---@field [117] "OUTRAGE"
+---@field PANIC 118
+---@field [118] "PANIC"
+---@field PATIENCE 119
+---@field [119] "PATIENCE"
+---@field PASSION 120 -- 120
+---@field [120] "PASSION" -- 120
+---@field PESSIMISM 121
+---@field [121] "PESSIMISM"
+---@field PLEASURE 123
+---@field [123] "PLEASURE"
+---@field PRIDE 124
+---@field [124] "PRIDE"
+---@field RAGE 125
+---@field [125] "RAGE"
+---@field RAPTURE 126
+---@field [126] "RAPTURE"
+---@field REJECTION 127
+---@field [127] "REJECTION"
+---@field RELIEF 128
+---@field [128] "RELIEF"
+---@field REGRET 129
+---@field [129] "REGRET"
+---@field REMORSE 130 -- 130
+---@field [130] "REMORSE" -- 130
+---@field REPENTANCE 131
+---@field [131] "REPENTANCE"
+---@field RESENTMENT 132
+---@field [132] "RESENTMENT"
+---@field RIGHTEOUS_INDIGNATION 134
+---@field [134] "RIGHTEOUS_INDIGNATION"
+---@field SADNESS 135
+---@field [135] "SADNESS"
+---@field SATISFACTION 136
+---@field [136] "SATISFACTION"
+---@field SELF_PITY 138
+---@field [138] "SELF_PITY"
+---@field SERVILE 140 -- 140
+---@field [140] "SERVILE" -- 140
+---@field SHAKEN 141
+---@field [141] "SHAKEN"
+---@field SHAME 142
+---@field [142] "SHAME"
+---@field SHOCK 143
+---@field [143] "SHOCK"
+---@field SUSPICION 148
+---@field [148] "SUSPICION"
+---@field SYMPATHY 149
+---@field [149] "SYMPATHY"
+---@field TENDERNESS 150 -- 150
+---@field [150] "TENDERNESS" -- 150
+---@field TERROR 152
+---@field [152] "TERROR"
+---@field THRILL 153
+---@field [153] "THRILL"
+---@field TRIUMPH 155
+---@field [155] "TRIUMPH"
+---@field UNEASINESS 156
+---@field [156] "UNEASINESS"
+---@field UNHAPPINESS 157
+---@field [157] "UNHAPPINESS"
+---@field VENGEFULNESS 158
+---@field [158] "VENGEFULNESS"
+---@field WONDER 160 -- 160
+---@field [160] "WONDER" -- 160
+---@field WORRY 161
+---@field [161] "WORRY"
+---@field WRATH 162
+---@field [162] "WRATH"
+---@field ZEAL 163
+---@field [163] "ZEAL"
+---@field RESTLESS 167
+---@field [167] "RESTLESS"
+---@field ADMIRATION 168
+---@field [168] "ADMIRATION"
 df.emotion_type = {}
 
----@class emotion_type
----@field [0] boolean
----@field ANYTHING boolean
----@field [1] boolean
----@field ACCEPTANCE boolean
----@field [2] boolean
----@field ADORATION boolean
----@field [3] boolean
----@field AFFECTION boolean
----@field [4] boolean
----@field AGITATION boolean
----@field [5] boolean
----@field AGGRAVATION boolean
----@field [6] boolean
----@field AGONY boolean
----@field [7] boolean
----@field ALARM boolean
----@field [8] boolean
----@field ALIENATION boolean
----@field [9] boolean
----@field AMAZEMENT boolean
----@field [10] boolean
----@field AMBIVALENCE boolean
----@field [11] boolean
----@field AMUSEMENT boolean
----@field [12] boolean
----@field ANGER boolean
----@field [13] boolean
----@field ANGST boolean
----@field [14] boolean
----@field ANGUISH boolean
----@field [15] boolean
----@field ANNOYANCE boolean
----@field [16] boolean
----@field unk_16 boolean
----@field [17] boolean
----@field ANXIETY boolean
----@field [18] boolean
----@field APATHY boolean
----@field [19] boolean
----@field unk_19 boolean
----@field [20] boolean
----@field AROUSAL boolean
----@field [21] boolean
----@field ASTONISHMENT boolean
----@field [22] boolean
----@field unk_22 boolean
----@field [23] boolean
----@field AVERSION boolean
----@field [24] boolean
----@field AWE boolean
----@field [25] boolean
----@field BITTERNESS boolean
----@field [26] boolean
----@field BLISS boolean
----@field [27] boolean
----@field BOREDOM boolean
----@field [28] boolean
----@field CARING boolean
----@field [29] boolean
----@field unk_29 boolean
----@field [30] boolean
----@field CONFUSION boolean
----@field [31] boolean
----@field CONTEMPT boolean
----@field [32] boolean
----@field CONTENTMENT boolean
----@field [33] boolean
----@field unk_33 boolean
----@field [34] boolean
----@field unk_34 boolean
----@field [35] boolean
----@field DEFEAT boolean
----@field [36] boolean
----@field DEJECTION boolean
----@field [37] boolean
----@field DELIGHT boolean
----@field [38] boolean
----@field unk_38 boolean
----@field [39] boolean
----@field unk_39 boolean
----@field [40] boolean
----@field DESPAIR boolean
----@field [41] boolean
----@field DISAPPOINTMENT boolean
----@field [42] boolean
----@field DISGUST boolean
----@field [43] boolean
----@field DISILLUSIONMENT boolean
----@field [44] boolean
----@field DISLIKE boolean
----@field [45] boolean
----@field DISMAY boolean
----@field [46] boolean
----@field DISPLEASURE boolean
----@field [47] boolean
----@field DISTRESS boolean
----@field [48] boolean
----@field DOUBT boolean
----@field [49] boolean
----@field unk_49 boolean
----@field [50] boolean
----@field EAGERNESS boolean
----@field [51] boolean
----@field unk_51 boolean
----@field [52] boolean
----@field ELATION boolean
----@field [53] boolean
----@field EMBARRASSMENT boolean
----@field [54] boolean
----@field EMPATHY boolean
----@field [55] boolean
----@field EMPTINESS boolean
----@field [56] boolean
----@field ENJOYMENT boolean
----@field [57] boolean
----@field unk_57 boolean
----@field [58] boolean
----@field ENTHUSIASM boolean
----@field [59] boolean
----@field unk_59 boolean
----@field [60] boolean
----@field EUPHORIA boolean
----@field [61] boolean
----@field EXASPERATION boolean
----@field [62] boolean
----@field EXCITEMENT boolean
----@field [63] boolean
----@field EXHILARATION boolean
----@field [64] boolean
----@field EXPECTANCY boolean
----@field [65] boolean
----@field FEAR boolean
----@field [66] boolean
----@field FEROCITY boolean
----@field [67] boolean
----@field FONDNESS boolean
----@field [68] boolean
----@field FREEDOM boolean
----@field [69] boolean
----@field FRIGHT boolean
----@field [70] boolean
----@field FRUSTRATION boolean
----@field [71] boolean
----@field unk_71 boolean
----@field [72] boolean
----@field GAIETY boolean
----@field [73] boolean
----@field unk_73 boolean
----@field [74] boolean
----@field GLEE boolean
----@field [75] boolean
----@field GLOOM boolean
----@field [76] boolean
----@field GLUMNESS boolean
----@field [77] boolean
----@field GRATITUDE boolean
----@field [78] boolean
----@field unk_78 boolean
----@field [79] boolean
----@field GRIEF boolean
----@field [80] boolean
----@field GRIM_SATISFACTION boolean
----@field [81] boolean
----@field GROUCHINESS boolean
----@field [82] boolean
----@field GRUMPINESS boolean
----@field [83] boolean
----@field GUILT boolean
----@field [84] boolean
----@field HAPPINESS boolean
----@field [85] boolean
----@field HATRED boolean
----@field [86] boolean
----@field unk_86 boolean
----@field [87] boolean
----@field HOPE boolean
----@field [88] boolean
----@field HOPELESSNESS boolean
----@field [89] boolean
----@field HORROR boolean
----@field [90] boolean
----@field unk_90 boolean
----@field [91] boolean
----@field HUMILIATION boolean
----@field [92] boolean
----@field unk_92 boolean
----@field [93] boolean
----@field unk_93 boolean
----@field [94] boolean
----@field unk_94 boolean
----@field [95] boolean
----@field unk_95 boolean
----@field [96] boolean
----@field INSULT boolean
----@field [97] boolean
----@field INTEREST boolean
----@field [98] boolean
----@field IRRITATION boolean
----@field [99] boolean
----@field ISOLATION boolean
----@field [100] boolean
----@field unk_100 boolean
----@field [101] boolean
----@field JOLLINESS boolean
----@field [102] boolean
----@field JOVIALITY boolean
----@field [103] boolean
----@field JOY boolean
----@field [104] boolean
----@field JUBILATION boolean
----@field [105] boolean
----@field LOATHING boolean
----@field [106] boolean
----@field LONELINESS boolean
----@field [107] boolean
----@field unk_107 boolean
----@field [108] boolean
----@field LOVE boolean
----@field [109] boolean
----@field unk_109 boolean
----@field [110] boolean
----@field LUST boolean
----@field [111] boolean
----@field unk_111 boolean
----@field [112] boolean
----@field MISERY boolean
----@field [113] boolean
----@field MORTIFICATION boolean
----@field [114] boolean
----@field unk_114 boolean
----@field [115] boolean
----@field NERVOUSNESS boolean
----@field [116] boolean
----@field NOSTALGIA boolean
----@field [117] boolean
----@field OPTIMISM boolean
----@field [118] boolean
----@field OUTRAGE boolean
----@field [119] boolean
----@field PANIC boolean
----@field [120] boolean
----@field PATIENCE boolean
----@field [121] boolean
----@field PASSION boolean
----@field [122] boolean
----@field PESSIMISM boolean
----@field [123] boolean
----@field unk_123 boolean
----@field [124] boolean
----@field PLEASURE boolean
----@field [125] boolean
----@field PRIDE boolean
----@field [126] boolean
----@field RAGE boolean
----@field [127] boolean
----@field RAPTURE boolean
----@field [128] boolean
----@field REJECTION boolean
----@field [129] boolean
----@field RELIEF boolean
----@field [130] boolean
----@field REGRET boolean
----@field [131] boolean
----@field REMORSE boolean
----@field [132] boolean
----@field REPENTANCE boolean
----@field [133] boolean
----@field RESENTMENT boolean
----@field [134] boolean
----@field unk_134 boolean
----@field [135] boolean
----@field RIGHTEOUS_INDIGNATION boolean
----@field [136] boolean
----@field SADNESS boolean
----@field [137] boolean
----@field SATISFACTION boolean
----@field [138] boolean
----@field unk_138 boolean
----@field [139] boolean
----@field SELF_PITY boolean
----@field [140] boolean
----@field unk_140 boolean
----@field [141] boolean
----@field SERVILE boolean
----@field [142] boolean
----@field SHAKEN boolean
----@field [143] boolean
----@field SHAME boolean
----@field [144] boolean
----@field SHOCK boolean
----@field [145] boolean
----@field unk_145 boolean
----@field [146] boolean
----@field unk_146 boolean
----@field [147] boolean
----@field unk_147 boolean
----@field [148] boolean
----@field unk_148 boolean
----@field [149] boolean
----@field SUSPICION boolean
----@field [150] boolean
----@field SYMPATHY boolean
----@field [151] boolean
----@field TENDERNESS boolean
----@field [152] boolean
----@field unk_152 boolean
----@field [153] boolean
----@field TERROR boolean
----@field [154] boolean
----@field THRILL boolean
----@field [155] boolean
----@field unk_155 boolean
----@field [156] boolean
----@field TRIUMPH boolean
----@field [157] boolean
----@field UNEASINESS boolean
----@field [158] boolean
----@field UNHAPPINESS boolean
----@field [159] boolean
----@field VENGEFULNESS boolean
----@field [160] boolean
----@field unk_160 boolean
----@field [161] boolean
----@field WONDER boolean
----@field [162] boolean
----@field WORRY boolean
----@field [163] boolean
----@field WRATH boolean
----@field [164] boolean
----@field ZEAL boolean
----@field [165] boolean
----@field unk_165 boolean
----@field [166] boolean
----@field unk_166 boolean
----@field [167] boolean
----@field unk_167 boolean
----@field [168] boolean
----@field RESTLESS boolean
----@field [169] boolean
----@field ADMIRATION boolean
+---@class emotion_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.emotion_type._attr_entry_type = {}
 
----@class emotion_type_attr
----@field color integer
----@field divider integer
+---@class (exact) emotion_type_attr_entry_type_fields
+---@field color DFCompoundField
+---@field divider DFCompoundField
+df.emotion_type._attr_entry_type._fields = {}
 
----@type { [string|integer]: emotion_type_attr }
+---@class emotion_type_attrs
+---@field ACCEPTANCE { color: "7", divider: "-8" }
+---@field ADORATION { color: "11", divider: "-1" }
+---@field AFFECTION { color: "11", divider: "-2" }
+---@field AGITATION { color: "6", divider: "4" }
+---@field AGGRAVATION { color: "6", divider: "4" }
+---@field AGONY { color: "14", divider: "1" }
+---@field ALARM { color: "12", divider: "4" }
+---@field ALIENATION { color: "6", divider: "8" }
+---@field AMAZEMENT { color: "9", divider: "0" }
+---@field AMBIVALENCE { color: "7", divider: "0" }
+---@field AMUSEMENT { color: "10", divider: "-4" }
+---@field ANGER { color: "12", divider: "2" }
+---@field ANGST { color: "14", divider: "1" }
+---@field ANGUISH { color: "14", divider: "1" }
+---@field ANNOYANCE { color: "6", divider: "8" }
+---@field ANXIETY { color: "6", divider: "4" }
+---@field APATHY { color: "7", divider: "0" }
+---@field AROUSAL { color: "11", divider: "-8" }
+---@field ASTONISHMENT { color: "9", divider: "0" }
+---@field AVERSION { color: "6", divider: "4" }
+---@field AWE { color: "9", divider: "0" }
+---@field BITTERNESS { color: "6", divider: "2" }
+---@field BLISS { color: "10", divider: "-1" }
+---@field BOREDOM { color: "6", divider: "8" }
+---@field CARING { color: "11", divider: "-2" }
+---@field CONFUSION { color: "6", divider: "8" }
+---@field CONTEMPT { color: "6", divider: "4" }
+---@field CONTENTMENT { color: "10", divider: "-8" }
+---@field DEFEAT { color: "14", divider: "2" }
+---@field DEJECTION { color: "6", divider: "4" }
+---@field DELIGHT { color: "10", divider: "-1" }
+---@field DESPAIR { color: "14", divider: "1" }
+---@field DISAPPOINTMENT { color: "6", divider: "8" }
+---@field DISGUST { color: "14", divider: "4" }
+---@field DISILLUSIONMENT { color: "6", divider: "8" }
+---@field DISLIKE { color: "6", divider: "8" }
+---@field DISMAY { color: "14", divider: "2" }
+---@field DISPLEASURE { color: "6", divider: "8" }
+---@field DISTRESS { color: "14", divider: "2" }
+---@field DOUBT { color: "6", divider: "8" }
+---@field EAGERNESS { color: "9", divider: "-4" }
+---@field ELATION { color: "10", divider: "-2" }
+---@field EMBARRASSMENT { color: "6", divider: "8" }
+---@field EMPATHY { color: "11", divider: "-2" }
+---@field EMPTINESS { color: "14", divider: "4" }
+---@field ENJOYMENT { color: "10", divider: "-8" }
+---@field ENTHUSIASM { color: "10", divider: "-8" }
+---@field EUPHORIA { color: "10", divider: "-1" }
+---@field EXASPERATION { color: "6", divider: "8" }
+---@field EXCITEMENT { color: "9", divider: "-2" }
+---@field EXHILARATION { color: "9", divider: "-2" }
+---@field EXPECTANCY { color: "10", divider: "-8" }
+---@field FEAR { color: "12", divider: "1" }
+---@field FEROCITY { color: "12", divider: "2" }
+---@field FONDNESS { color: "11", divider: "-8" }
+---@field FREEDOM { color: "10", divider: "-4" }
+---@field FRIGHT { color: "14", divider: "2" }
+---@field FRUSTRATION { color: "6", divider: "8" }
+---@field GAIETY { color: "10", divider: "-2" }
+---@field GLEE { color: "10", divider: "-2" }
+---@field GLOOM { color: "6", divider: "4" }
+---@field GLUMNESS { color: "6", divider: "8" }
+---@field GRATITUDE { color: "11", divider: "-4" }
+---@field GRIEF { color: "14", divider: "2" }
+---@field GRIM_SATISFACTION { color: "13", divider: "0" }
+---@field GROUCHINESS { color: "6", divider: "8" }
+---@field GRUMPINESS { color: "6", divider: "8" }
+---@field GUILT { color: "6", divider: "4" }
+---@field HAPPINESS { color: "10", divider: "-2" }
+---@field HATRED { color: "12", divider: "2" }
+---@field HOPE { color: "10", divider: "-2" }
+---@field HOPELESSNESS { color: "14", divider: "2" }
+---@field HORROR { color: "12", divider: "1" }
+---@field HUMILIATION { color: "14", divider: "4" }
+---@field INSULT { color: "6", divider: "4" }
+---@field INTEREST { color: "9", divider: "-8" }
+---@field IRRITATION { color: "6", divider: "8" }
+---@field ISOLATION { color: "6", divider: "4" }
+---@field JOLLINESS { color: "10", divider: "-4" }
+---@field JOVIALITY { color: "10", divider: "-2" }
+---@field JOY { color: "10", divider: "-1" }
+---@field JUBILATION { color: "10", divider: "-1" }
+---@field LOATHING { color: "12", divider: "2" }
+---@field LONELINESS { color: "6", divider: "4" }
+---@field LOVE { color: "11", divider: "-1" }
+---@field LUST { color: "11", divider: "-8" }
+---@field MISERY { color: "14", divider: "1" }
+---@field MORTIFICATION { color: "14", divider: "2" }
+---@field NERVOUSNESS { color: "6", divider: "8" }
+---@field NOSTALGIA { color: "9", divider: "-8" }
+---@field OPTIMISM { color: "10", divider: "-4" }
+---@field OUTRAGE { color: "12", divider: "2" }
+---@field PANIC { color: "14", divider: "1" }
+---@field PATIENCE { color: "7", divider: "-8" }
+---@field PASSION { color: "11", divider: "-2" }
+---@field PESSIMISM { color: "6", divider: "8" }
+---@field PLEASURE { color: "11", divider: "-4" }
+---@field PRIDE { color: "11", divider: "-4" }
+---@field RAGE { color: "12", divider: "1" }
+---@field RAPTURE { color: "11", divider: "-1" }
+---@field REJECTION { color: "6", divider: "4" }
+---@field RELIEF { color: "10", divider: "-2" }
+---@field REGRET { color: "6", divider: "8" }
+---@field REMORSE { color: "6", divider: "4" }
+---@field REPENTANCE { color: "9", divider: "-2" }
+---@field RESENTMENT { color: "6", divider: "8" }
+---@field RIGHTEOUS_INDIGNATION { color: "6", divider: "8" }
+---@field SADNESS { color: "14", divider: "4" }
+---@field SATISFACTION { color: "10", divider: "-8" }
+---@field SELF_PITY { color: "6", divider: "8" }
+---@field SERVILE { color: "9", divider: "0" }
+---@field SHAKEN { color: "14", divider: "1" }
+---@field SHAME { color: "14", divider: "4" }
+---@field SHOCK { color: "14", divider: "1" }
+---@field SUSPICION { color: "13", divider: "8" }
+---@field SYMPATHY { color: "11", divider: "-8" }
+---@field TENDERNESS { color: "11", divider: "-2" }
+---@field TERROR { color: "12", divider: "1" }
+---@field THRILL { color: "9", divider: "-2" }
+---@field TRIUMPH { color: "10", divider: "-2" }
+---@field UNEASINESS { color: "6", divider: "8" }
+---@field UNHAPPINESS { color: "6", divider: "4" }
+---@field VENGEFULNESS { color: "12", divider: "4" }
+---@field WONDER { color: "9", divider: "-8" }
+---@field WORRY { color: "6", divider: "8" }
+---@field WRATH { color: "12", divider: "1" }
+---@field ZEAL { color: "9", divider: "-4" }
+---@field RESTLESS { color: "6", divider: "8" }
+---@field ADMIRATION { color: "11", divider: "-8" }
 df.emotion_type.attrs = {}
 
----@class _unit_thought_type: integer, string, df.enum
+---@alias unit_thought_type
+---| -1 # None
+---| 0 # Conflict
+---| 1 # Trauma
+---| 2 # WitnessDeath
+---| 3 # UnexpectedDeath
+---| 4 # Death
+---| 5 # Kill
+---| 6 # LoveSeparated
+---| 7 # LoveReunited
+---| 8 # JoinConflict
+---| 9 # MakeMasterwork
+---| 10 # MadeArtifact
+---| 11 # MasterSkill
+---| 12 # NewRomance
+---| 13 # BecomeParent
+---| 14 # NearConflict
+---| 15 # CancelAgreement
+---| 16 # JoinTravel
+---| 17 # SiteControlled
+---| 18 # TributeCancel
+---| 19 # Incident
+---| 20 # HearRumor
+---| 21 # MilitaryRemoved
+---| 22 # StrangerWeapon
+---| 23 # StrangerSneaking
+---| 24 # SawDrinkBlood
+---| 25 # Complained
+---| 26 # ReceivedComplaint
+---| 27 # AdmireBuilding
+---| 28 # AdmireOwnBuilding
+---| 29 # AdmireArrangedBuilding
+---| 30 # AdmireOwnArrangedBuilding
+---| 31 # LostPet
+---| 32 # ThrownStuff
+---| 33 # JailReleased
+---| 34 # Miscarriage
+---| 35 # SpouseMiscarriage
+---| 36 # OldClothing
+---| 37 # TatteredClothing
+---| 38 # RottedClothing
+---| 39 # GhostNightmare
+---| 40 # GhostHaunt
+---| 41 # Spar
+---| 42 # UnableComplain
+---| 43 # LongPatrol
+---| 44 # SunNausea
+---| 45 # SunIrritated
+---| 46 # Drowsy
+---| 47 # VeryDrowsy
+---| 48 # Thirsty
+---| 49 # Dehydrated
+---| 50 # Hungry
+---| 51 # Starving
+---| 52 # MajorInjuries
+---| 53 # MinorInjuries
+---| 54 # SleepNoise
+---| 55 # Rest
+---| 56 # FreakishWeather
+---| 57 # Rain
+---| 58 # SnowStorm
+---| 59 # Miasma
+---| 60 # Smoke
+---| 61 # Waterfall
+---| 62 # Dust
+---| 63 # Demands
+---| 64 # ImproperPunishment
+---| 65 # PunishmentReduced
+---| 66 # Elected
+---| 67 # Reelected
+---| 68 # RequestApproved
+---| 69 # RequestIgnored
+---| 70 # NoPunishment
+---| 71 # PunishmentDelayed
+---| 72 # DelayedPunishment
+---| 73 # ScarceCageChain
+---| 74 # MandateIgnored
+---| 75 # MandateDeadlineMissed
+---| 76 # LackWork
+---| 77 # SmashedBuilding
+---| 78 # ToppledStuff
+---| 79 # NoblePromotion
+---| 80 # BecomeNoble
+---| 81 # Cavein
+---| 82 # MandateDeadlineMet
+---| 83 # Uncovered
+---| 84 # NoShirt
+---| 85 # NoShoes
+---| 86 # EatPet
+---| 87 # EatLikedCreature
+---| 88 # EatVermin
+---| 89 # FistFight
+---| 90 # GaveBeating
+---| 91 # GotBeaten
+---| 92 # GaveHammering
+---| 93 # GotHammered
+---| 94 # NoHammer
+---| 95 # SameFood
+---| 96 # AteRotten
+---| 97 # GoodMeal
+---| 98 # GoodDrink
+---| 99 # MoreChests
+---| 100 # MoreCabinets
+---| 101 # MoreWeaponRacks
+---| 102 # MoreArmorStands
+---| 103 # RoomPretension
+---| 104 # LackTables
+---| 105 # CrowdedTables
+---| 106 # DiningQuality
+---| 107 # NoDining
+---| 108 # LackChairs
+---| 109 # TrainingBond
+---| 110 # Rescued
+---| 111 # RescuedOther
+---| 112 # SatisfiedAtWork
+---| 113 # TaxedLostProperty
+---| 114 # Taxed
+---| 115 # LackProtection
+---| 116 # TaxRoomUnreachable
+---| 117 # TaxRoomMisinformed
+---| 118 # PleasedNoble
+---| 119 # TaxCollectionSmooth
+---| 120 # DisappointedNoble
+---| 121 # TaxCollectionRough
+---| 122 # MadeFriend
+---| 123 # FormedGrudge
+---| 124 # AnnoyedVermin
+---| 125 # NearVermin
+---| 126 # PesteredVermin
+---| 127 # AcquiredItem
+---| 128 # AdoptedPet
+---| 129 # Jailed
+---| 130 # Bath
+---| 131 # SoapyBath
+---| 132 # SparringAccident
+---| 133 # Attacked
+---| 134 # AttackedByDead
+---| 135 # SameBooze
+---| 136 # DrinkBlood
+---| 137 # DrinkSlime
+---| 138 # DrinkVomit
+---| 139 # DrinkGoo
+---| 140 # DrinkIchor
+---| 141 # DrinkPus
+---| 142 # NastyWater
+---| 143 # DrankSpoiled
+---| 144 # LackWell
+---| 145 # NearCaged
+---| 146 # NearCagedHated
+---| 147 # LackBedroom
+---| 148 # BedroomQuality
+---| 149 # SleptFloor
+---| 150 # SleptMud
+---| 151 # SleptGrass
+---| 152 # SleptRoughFloor
+---| 153 # SleptRocks
+---| 154 # SleptIce
+---| 155 # SleptDirt
+---| 156 # SleptDriftwood
+---| 157 # ArtDefacement
+---| 158 # Evicted
+---| 159 # GaveBirth
+---| 160 # SpouseGaveBirth
+---| 161 # ReceivedWater
+---| 162 # GaveWater
+---| 163 # ReceivedFood
+---| 164 # GaveFood
+---| 165 # Talked
+---| 166 # OfficeQuality
+---| 167 # MeetingInBedroom
+---| 168 # MeetingInDiningRoom
+---| 169 # NoRooms
+---| 170 # TombQuality
+---| 171 # TombLack
+---| 172 # TalkToNoble
+---| 173 # InteractPet
+---| 174 # ConvictionCorpse
+---| 175 # ConvictionAnimal
+---| 176 # ConvictionVictim
+---| 177 # ConvictionJusticeSelf
+---| 178 # ConvictionJusticeFamily
+---| 179 # Decay
+---| 180 # NeedsUnfulfilled
+---| 181 # Prayer
+---| 182 # DrinkWithoutCup
+---| 183 # ResearchBreakthrough
+---| 184 # ResearchStalled
+---| 185 # PonderTopic
+---| 186 # DiscussTopic
+---| 187 # Syndrome
+---| 188 # Perform
+---| 189 # WatchPerform
+---| 190 # RemoveTroupe
+---| 191 # LearnTopic
+---| 192 # LearnSkill
+---| 193 # LearnBook
+---| 194 # LearnInteraction
+---| 195 # LearnPoetry
+---| 196 # LearnMusic
+---| 197 # LearnDance
+---| 198 # TeachTopic
+---| 199 # TeachSkill
+---| 200 # ReadBook
+---| 201 # WriteBook
+---| 202 # BecomeResident
+---| 203 # BecomeCitizen
+---| 204 # DenyResident
+---| 205 # DenyCitizen
+---| 206 # LeaveTroupe
+---| 207 # MakeBelieve
+---| 208 # PlayToy
+---| 209 # DreamAbout
+---| 210 # Dream
+---| 211 # Nightmare
+---| 212 # Argument
+---| 213 # CombatDrills
+---| 214 # ArcheryPractice
+---| 215 # ImproveSkill
+---| 216 # WearItem
+---| 217 # RealizeValue
+---| 218 # OpinionStoryteller
+---| 219 # OpinionRecitation
+---| 220 # OpinionInstrumentSimulation
+---| 221 # OpinionInstrumentPlayer
+---| 222 # OpinionSinger
+---| 223 # OpinionChanter
+---| 224 # OpinionDancer
+---| 225 # OpinionStory
+---| 226 # OpinionPoetry
+---| 227 # OpinionMusic
+---| 228 # OpinionDance
+---| 229 # Defeated
+---| 230 # FavoritePossession
+---| 231 # PreserveBody
+---| 232 # Murdered
+---| 233 # HistEventCollection
+---| 234 # ViewOwnDisplay
+---| 235 # ViewDisplay
+---| 236 # AcquireArtifact
+---| 237 # DenySanctuary
+---| 238 # CaughtSneaking
+---| 239 # GaveArtifact
+---| 240 # SawDeadBody
+---| 241 # Expelled
+---| 242 # RelativeExpelled
+---| 243 # PromisedVampireImmortality
+---| 244 # PromisedNecroImmortality
+---| 245 # SiteLecture
+---| 246 # SitePerformance
+---| 247 # AcceptedBribe
+---| 248 # EmbezzledFunds
+---| 249 # CutOfCorruptFunds
+---| 250 # Abducted
+---| 251 # FromAfar
+---| 252 # AcceptedTemplePetition
+---| 253 # EstablishedTemple
+---| 254 # RejectedTemplePetition
+---| 255 # IgnoredTemplePetition
+---| 256 # AbandonedTemplePetition
+---| 257 # DeferredToSuperior
+---| 258 # AcceptedGuildhallPetition
+---| 259 # EstablishedGuildhallPetition
+---| 260 # RejectedGuildhallPetition
+---| 261 # IgnoredGuildhallPetition
+---| 262 # AbandonedGuildhallPetition
+---| 263 # InfiltrationMission
+---| 264 # BreakUp
+---| 265 # Divorce
+---| 266 # Unk266
+---| 267 # Unk267
+---| 268 # Unk268
+---| 269 # Unk269
+---| 270 # Unk270
+---| 271 # IntellectualDiscussion
+---| 272 # SharePersonalInsight
+---| 273 # ShareOthersPersonalInsight
+---| 274 # DiscussProblems
+---| 275 # DiscussOthersProblems
+---| 276 # PerformedRiteDedicatedTemple
+---| 277 # PerformedRiteImproperlyDedicatedTemple
+---| 278 # PerformedRiteUndedicatedTemple
+---| 279 # PrayedDedicatedTemple
+
+---@class _unit_thought_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field None -1
----@field [0] "None"
----@field Conflict 1
----@field [1] "Conflict"
----@field Trauma 2
----@field [2] "Trauma"
----@field WitnessDeath 3
----@field [3] "WitnessDeath"
----@field UnexpectedDeath 4
----@field [4] "UnexpectedDeath"
----@field Death 5
----@field [5] "Death"
----@field Kill 6
----@field [6] "Kill"
----@field LoveSeparated 7
----@field [7] "LoveSeparated"
----@field LoveReunited 8
----@field [8] "LoveReunited"
----@field JoinConflict 9
----@field [9] "JoinConflict"
----@field MakeMasterwork 10
----@field [10] "MakeMasterwork"
----@field MadeArtifact 11
----@field [11] "MadeArtifact"
----@field MasterSkill 12
----@field [12] "MasterSkill"
----@field NewRomance 13
----@field [13] "NewRomance"
----@field BecomeParent 14
----@field [14] "BecomeParent"
----@field NearConflict 15
----@field [15] "NearConflict"
----@field CancelAgreement 16
----@field [16] "CancelAgreement"
----@field JoinTravel 17
----@field [17] "JoinTravel"
----@field SiteControlled 18
----@field [18] "SiteControlled"
----@field TributeCancel 19
----@field [19] "TributeCancel"
----@field Incident 20
----@field [20] "Incident"
----@field HearRumor 21
----@field [21] "HearRumor"
----@field MilitaryRemoved 22
----@field [22] "MilitaryRemoved"
----@field StrangerWeapon 23
----@field [23] "StrangerWeapon"
----@field StrangerSneaking 24
----@field [24] "StrangerSneaking"
----@field SawDrinkBlood 25
----@field [25] "SawDrinkBlood"
----@field Complained 26
----@field [26] "Complained"
----@field ReceivedComplaint 27
----@field [27] "ReceivedComplaint"
----@field AdmireBuilding 28
----@field [28] "AdmireBuilding"
----@field AdmireOwnBuilding 29
----@field [29] "AdmireOwnBuilding"
----@field AdmireArrangedBuilding 30
----@field [30] "AdmireArrangedBuilding"
----@field AdmireOwnArrangedBuilding 31
----@field [31] "AdmireOwnArrangedBuilding"
----@field LostPet 32
----@field [32] "LostPet"
----@field ThrownStuff 33
----@field [33] "ThrownStuff"
----@field JailReleased 34
----@field [34] "JailReleased"
----@field Miscarriage 35
----@field [35] "Miscarriage"
----@field SpouseMiscarriage 36
----@field [36] "SpouseMiscarriage"
----@field OldClothing 37
----@field [37] "OldClothing"
----@field TatteredClothing 38
----@field [38] "TatteredClothing"
----@field RottedClothing 39
----@field [39] "RottedClothing"
----@field GhostNightmare 40
----@field [40] "GhostNightmare"
----@field GhostHaunt 41
----@field [41] "GhostHaunt"
----@field Spar 42
----@field [42] "Spar"
----@field UnableComplain 43
----@field [43] "UnableComplain"
----@field LongPatrol 44
----@field [44] "LongPatrol"
----@field SunNausea 45
----@field [45] "SunNausea"
----@field SunIrritated 46
----@field [46] "SunIrritated"
----@field Drowsy 47
----@field [47] "Drowsy"
----@field VeryDrowsy 48
----@field [48] "VeryDrowsy"
----@field Thirsty 49
----@field [49] "Thirsty"
----@field Dehydrated 50
----@field [50] "Dehydrated"
----@field Hungry 51
----@field [51] "Hungry"
----@field Starving 52
----@field [52] "Starving"
----@field MajorInjuries 53
----@field [53] "MajorInjuries"
----@field MinorInjuries 54
----@field [54] "MinorInjuries"
----@field SleepNoise 55
----@field [55] "SleepNoise"
----@field Rest 56
----@field [56] "Rest"
----@field FreakishWeather 57
----@field [57] "FreakishWeather"
----@field Rain 58
----@field [58] "Rain"
----@field SnowStorm 59
----@field [59] "SnowStorm"
----@field Miasma 60
----@field [60] "Miasma"
----@field Smoke 61
----@field [61] "Smoke"
----@field Waterfall 62
----@field [62] "Waterfall"
----@field Dust 63
----@field [63] "Dust"
----@field Demands 64
----@field [64] "Demands"
----@field ImproperPunishment 65
----@field [65] "ImproperPunishment"
----@field PunishmentReduced 66
----@field [66] "PunishmentReduced"
----@field Elected 67
----@field [67] "Elected"
----@field Reelected 68
----@field [68] "Reelected"
----@field RequestApproved 69
----@field [69] "RequestApproved"
----@field RequestIgnored 70
----@field [70] "RequestIgnored"
----@field NoPunishment 71
----@field [71] "NoPunishment"
----@field PunishmentDelayed 72
----@field [72] "PunishmentDelayed"
----@field DelayedPunishment 73
----@field [73] "DelayedPunishment"
----@field ScarceCageChain 74
----@field [74] "ScarceCageChain"
----@field MandateIgnored 75
----@field [75] "MandateIgnored"
----@field MandateDeadlineMissed 76
----@field [76] "MandateDeadlineMissed"
----@field LackWork 77
----@field [77] "LackWork"
----@field SmashedBuilding 78
----@field [78] "SmashedBuilding"
----@field ToppledStuff 79
----@field [79] "ToppledStuff"
----@field NoblePromotion 80
----@field [80] "NoblePromotion"
----@field BecomeNoble 81
----@field [81] "BecomeNoble"
----@field Cavein 82
----@field [82] "Cavein"
----@field MandateDeadlineMet 83
----@field [83] "MandateDeadlineMet"
----@field Uncovered 84
----@field [84] "Uncovered"
----@field NoShirt 85
----@field [85] "NoShirt"
----@field NoShoes 86
----@field [86] "NoShoes"
----@field EatPet 87
----@field [87] "EatPet"
----@field EatLikedCreature 88
----@field [88] "EatLikedCreature"
----@field EatVermin 89
----@field [89] "EatVermin"
----@field FistFight 90
----@field [90] "FistFight"
----@field GaveBeating 91
----@field [91] "GaveBeating"
----@field GotBeaten 92
----@field [92] "GotBeaten"
----@field GaveHammering 93
----@field [93] "GaveHammering"
----@field GotHammered 94
----@field [94] "GotHammered"
----@field NoHammer 95
----@field [95] "NoHammer"
----@field SameFood 96
----@field [96] "SameFood"
----@field AteRotten 97
----@field [97] "AteRotten"
----@field GoodMeal 98
----@field [98] "GoodMeal"
----@field GoodDrink 99
----@field [99] "GoodDrink"
----@field MoreChests 100
----@field [100] "MoreChests"
----@field MoreCabinets 101
----@field [101] "MoreCabinets"
----@field MoreWeaponRacks 102
----@field [102] "MoreWeaponRacks"
----@field MoreArmorStands 103
----@field [103] "MoreArmorStands"
----@field RoomPretension 104
----@field [104] "RoomPretension"
----@field LackTables 105
----@field [105] "LackTables"
----@field CrowdedTables 106
----@field [106] "CrowdedTables"
----@field DiningQuality 107
----@field [107] "DiningQuality"
----@field NoDining 108
----@field [108] "NoDining"
----@field LackChairs 109
----@field [109] "LackChairs"
----@field TrainingBond 110
----@field [110] "TrainingBond"
----@field Rescued 111
----@field [111] "Rescued"
----@field RescuedOther 112
----@field [112] "RescuedOther"
----@field SatisfiedAtWork 113
----@field [113] "SatisfiedAtWork"
----@field TaxedLostProperty 114
----@field [114] "TaxedLostProperty"
----@field Taxed 115
----@field [115] "Taxed"
----@field LackProtection 116
----@field [116] "LackProtection"
----@field TaxRoomUnreachable 117
----@field [117] "TaxRoomUnreachable"
----@field TaxRoomMisinformed 118
----@field [118] "TaxRoomMisinformed"
----@field PleasedNoble 119
----@field [119] "PleasedNoble"
----@field TaxCollectionSmooth 120
----@field [120] "TaxCollectionSmooth"
----@field DisappointedNoble 121
----@field [121] "DisappointedNoble"
----@field TaxCollectionRough 122
----@field [122] "TaxCollectionRough"
----@field MadeFriend 123
----@field [123] "MadeFriend"
----@field FormedGrudge 124
----@field [124] "FormedGrudge"
----@field AnnoyedVermin 125
----@field [125] "AnnoyedVermin"
----@field NearVermin 126
----@field [126] "NearVermin"
----@field PesteredVermin 127
----@field [127] "PesteredVermin"
----@field AcquiredItem 128
----@field [128] "AcquiredItem"
----@field AdoptedPet 129
----@field [129] "AdoptedPet"
----@field Jailed 130
----@field [130] "Jailed"
----@field Bath 131
----@field [131] "Bath"
----@field SoapyBath 132
----@field [132] "SoapyBath"
----@field SparringAccident 133
----@field [133] "SparringAccident"
----@field Attacked 134
----@field [134] "Attacked"
----@field AttackedByDead 135
----@field [135] "AttackedByDead"
----@field SameBooze 136
----@field [136] "SameBooze"
----@field DrinkBlood 137
----@field [137] "DrinkBlood"
----@field DrinkSlime 138
----@field [138] "DrinkSlime"
----@field DrinkVomit 139
----@field [139] "DrinkVomit"
----@field DrinkGoo 140
----@field [140] "DrinkGoo"
----@field DrinkIchor 141
----@field [141] "DrinkIchor"
----@field DrinkPus 142
----@field [142] "DrinkPus"
----@field NastyWater 143
----@field [143] "NastyWater"
----@field DrankSpoiled 144
----@field [144] "DrankSpoiled"
----@field LackWell 145
----@field [145] "LackWell"
----@field NearCaged 146
----@field [146] "NearCaged"
----@field NearCagedHated 147
----@field [147] "NearCagedHated"
----@field LackBedroom 148
----@field [148] "LackBedroom"
----@field BedroomQuality 149
----@field [149] "BedroomQuality"
----@field SleptFloor 150
----@field [150] "SleptFloor"
----@field SleptMud 151
----@field [151] "SleptMud"
----@field SleptGrass 152
----@field [152] "SleptGrass"
----@field SleptRoughFloor 153
----@field [153] "SleptRoughFloor"
----@field SleptRocks 154
----@field [154] "SleptRocks"
----@field SleptIce 155
----@field [155] "SleptIce"
----@field SleptDirt 156
----@field [156] "SleptDirt"
----@field SleptDriftwood 157
----@field [157] "SleptDriftwood"
----@field ArtDefacement 158
----@field [158] "ArtDefacement"
----@field Evicted 159
----@field [159] "Evicted"
----@field GaveBirth 160
----@field [160] "GaveBirth"
----@field SpouseGaveBirth 161
----@field [161] "SpouseGaveBirth"
----@field ReceivedWater 162
----@field [162] "ReceivedWater"
----@field GaveWater 163
----@field [163] "GaveWater"
----@field ReceivedFood 164
----@field [164] "ReceivedFood"
----@field GaveFood 165
----@field [165] "GaveFood"
----@field Talked 166
----@field [166] "Talked"
----@field OfficeQuality 167
----@field [167] "OfficeQuality"
----@field MeetingInBedroom 168
----@field [168] "MeetingInBedroom"
----@field MeetingInDiningRoom 169
----@field [169] "MeetingInDiningRoom"
----@field NoRooms 170
----@field [170] "NoRooms"
----@field TombQuality 171
----@field [171] "TombQuality"
----@field TombLack 172
----@field [172] "TombLack"
----@field TalkToNoble 173
----@field [173] "TalkToNoble"
----@field InteractPet 174
----@field [174] "InteractPet"
----@field ConvictionCorpse 175
----@field [175] "ConvictionCorpse"
----@field ConvictionAnimal 176
----@field [176] "ConvictionAnimal"
----@field ConvictionVictim 177
----@field [177] "ConvictionVictim"
----@field ConvictionJusticeSelf 178
----@field [178] "ConvictionJusticeSelf"
----@field ConvictionJusticeFamily 179
----@field [179] "ConvictionJusticeFamily"
----@field Decay 180
----@field [180] "Decay"
----@field NeedsUnfulfilled 181
----@field [181] "NeedsUnfulfilled"
----@field Prayer 182
----@field [182] "Prayer"
----@field DrinkWithoutCup 183
----@field [183] "DrinkWithoutCup"
----@field ResearchBreakthrough 184
----@field [184] "ResearchBreakthrough"
----@field ResearchStalled 185
----@field [185] "ResearchStalled"
----@field PonderTopic 186
----@field [186] "PonderTopic"
----@field DiscussTopic 187
----@field [187] "DiscussTopic"
----@field Syndrome 188
----@field [188] "Syndrome"
----@field Perform 189
----@field [189] "Perform"
----@field WatchPerform 190
----@field [190] "WatchPerform"
----@field RemoveTroupe 191
----@field [191] "RemoveTroupe"
----@field LearnTopic 192
----@field [192] "LearnTopic"
----@field LearnSkill 193
----@field [193] "LearnSkill"
----@field LearnBook 194
----@field [194] "LearnBook"
----@field LearnInteraction 195
----@field [195] "LearnInteraction"
----@field LearnPoetry 196
----@field [196] "LearnPoetry"
----@field LearnMusic 197
----@field [197] "LearnMusic"
----@field LearnDance 198
----@field [198] "LearnDance"
----@field TeachTopic 199
----@field [199] "TeachTopic"
----@field TeachSkill 200
----@field [200] "TeachSkill"
----@field ReadBook 201
----@field [201] "ReadBook"
----@field WriteBook 202
----@field [202] "WriteBook"
----@field BecomeResident 203
----@field [203] "BecomeResident"
----@field BecomeCitizen 204
----@field [204] "BecomeCitizen"
----@field DenyResident 205
----@field [205] "DenyResident"
----@field DenyCitizen 206
----@field [206] "DenyCitizen"
----@field LeaveTroupe 207
----@field [207] "LeaveTroupe"
----@field MakeBelieve 208
----@field [208] "MakeBelieve"
----@field PlayToy 209
----@field [209] "PlayToy"
----@field DreamAbout 210
----@field [210] "DreamAbout"
----@field Dream 211
----@field [211] "Dream"
----@field Nightmare 212
----@field [212] "Nightmare"
----@field Argument 213
----@field [213] "Argument"
----@field CombatDrills 214
----@field [214] "CombatDrills"
----@field ArcheryPractice 215
----@field [215] "ArcheryPractice"
----@field ImproveSkill 216
----@field [216] "ImproveSkill"
----@field WearItem 217
----@field [217] "WearItem"
----@field RealizeValue 218
----@field [218] "RealizeValue"
----@field OpinionStoryteller 219
----@field [219] "OpinionStoryteller"
----@field OpinionRecitation 220
----@field [220] "OpinionRecitation"
----@field OpinionInstrumentSimulation 221
----@field [221] "OpinionInstrumentSimulation"
----@field OpinionInstrumentPlayer 222
----@field [222] "OpinionInstrumentPlayer"
----@field OpinionSinger 223
----@field [223] "OpinionSinger"
----@field OpinionChanter 224
----@field [224] "OpinionChanter"
----@field OpinionDancer 225
----@field [225] "OpinionDancer"
----@field OpinionStory 226
----@field [226] "OpinionStory"
----@field OpinionPoetry 227
----@field [227] "OpinionPoetry"
----@field OpinionMusic 228
----@field [228] "OpinionMusic"
----@field OpinionDance 229
----@field [229] "OpinionDance"
----@field Defeated 230
----@field [230] "Defeated"
----@field FavoritePossession 231
----@field [231] "FavoritePossession"
----@field PreserveBody 232
----@field [232] "PreserveBody"
----@field Murdered 233
----@field [233] "Murdered"
----@field HistEventCollection 234
----@field [234] "HistEventCollection"
----@field ViewOwnDisplay 235
----@field [235] "ViewOwnDisplay"
----@field ViewDisplay 236
----@field [236] "ViewDisplay"
----@field AcquireArtifact 237
----@field [237] "AcquireArtifact"
----@field DenySanctuary 238
----@field [238] "DenySanctuary"
----@field CaughtSneaking 239
----@field [239] "CaughtSneaking"
----@field GaveArtifact 240
----@field [240] "GaveArtifact"
----@field SawDeadBody 241
----@field [241] "SawDeadBody"
----@field Expelled 242
----@field [242] "Expelled"
----@field RelativeExpelled 243
----@field [243] "RelativeExpelled"
----@field PromisedVampireImmortality 244
----@field [244] "PromisedVampireImmortality"
----@field PromisedNecroImmortality 245
----@field [245] "PromisedNecroImmortality"
----@field SiteLecture 246
----@field [246] "SiteLecture"
----@field SitePerformance 247
----@field [247] "SitePerformance"
----@field AcceptedBribe 248
----@field [248] "AcceptedBribe"
----@field EmbezzledFunds 249
----@field [249] "EmbezzledFunds"
----@field CutOfCorruptFunds 250
----@field [250] "CutOfCorruptFunds"
----@field Abducted 251
----@field [251] "Abducted"
----@field FromAfar 252
----@field [252] "FromAfar"
----@field AcceptedTemplePetition 253
----@field [253] "AcceptedTemplePetition"
----@field EstablishedTemple 254
----@field [254] "EstablishedTemple"
----@field RejectedTemplePetition 255
----@field [255] "RejectedTemplePetition"
----@field IgnoredTemplePetition 256
----@field [256] "IgnoredTemplePetition"
----@field AbandonedTemplePetition 257
----@field [257] "AbandonedTemplePetition"
----@field DeferredToSuperior 258
----@field [258] "DeferredToSuperior"
----@field AcceptedGuildhallPetition 259
----@field [259] "AcceptedGuildhallPetition"
----@field EstablishedGuildhallPetition 260
----@field [260] "EstablishedGuildhallPetition"
----@field RejectedGuildhallPetition 261
----@field [261] "RejectedGuildhallPetition"
----@field IgnoredGuildhallPetition 262
----@field [262] "IgnoredGuildhallPetition"
----@field AbandonedGuildhallPetition 263
----@field [263] "AbandonedGuildhallPetition"
----@field InfiltrationMission 264
----@field [264] "InfiltrationMission"
----@field BreakUp 265
----@field [265] "BreakUp"
----@field Divorce 266
----@field [266] "Divorce"
----@field Unk266 267
----@field [267] "Unk266"
----@field Unk267 268
----@field [268] "Unk267"
----@field Unk268 269
----@field [269] "Unk268"
----@field Unk269 270
----@field [270] "Unk269"
----@field Unk270 271
----@field [271] "Unk270"
----@field IntellectualDiscussion 272
----@field [272] "IntellectualDiscussion"
----@field SharePersonalInsight 273
----@field [273] "SharePersonalInsight"
----@field ShareOthersPersonalInsight 274
----@field [274] "ShareOthersPersonalInsight"
----@field DiscussProblems 275
----@field [275] "DiscussProblems"
----@field DiscussOthersProblems 276
----@field [276] "DiscussOthersProblems"
----@field PerformedRiteDedicatedTemple 277
----@field [277] "PerformedRiteDedicatedTemple"
----@field PerformedRiteImproperlyDedicatedTemple 278
----@field [278] "PerformedRiteImproperlyDedicatedTemple"
----@field PerformedRiteUndedicatedTemple 279
----@field [279] "PerformedRiteUndedicatedTemple"
----@field PrayedDedicatedTemple 280
----@field [280] "PrayedDedicatedTemple"
+---@field [-1] "None"
+---@field Conflict 0
+---@field [0] "Conflict"
+---@field Trauma 1
+---@field [1] "Trauma"
+---@field WitnessDeath 2
+---@field [2] "WitnessDeath"
+---@field UnexpectedDeath 3
+---@field [3] "UnexpectedDeath"
+---@field Death 4
+---@field [4] "Death"
+---@field Kill 5
+---@field [5] "Kill"
+---@field LoveSeparated 6
+---@field [6] "LoveSeparated"
+---@field LoveReunited 7
+---@field [7] "LoveReunited"
+---@field JoinConflict 8
+---@field [8] "JoinConflict"
+---@field MakeMasterwork 9
+---@field [9] "MakeMasterwork"
+---@field MadeArtifact 10
+---@field [10] "MadeArtifact"
+---@field MasterSkill 11
+---@field [11] "MasterSkill"
+---@field NewRomance 12
+---@field [12] "NewRomance"
+---@field BecomeParent 13
+---@field [13] "BecomeParent"
+---@field NearConflict 14
+---@field [14] "NearConflict"
+---@field CancelAgreement 15
+---@field [15] "CancelAgreement"
+---@field JoinTravel 16
+---@field [16] "JoinTravel"
+---@field SiteControlled 17
+---@field [17] "SiteControlled"
+---@field TributeCancel 18
+---@field [18] "TributeCancel"
+---@field Incident 19
+---@field [19] "Incident"
+---@field HearRumor 20
+---@field [20] "HearRumor"
+---@field MilitaryRemoved 21
+---@field [21] "MilitaryRemoved"
+---@field StrangerWeapon 22
+---@field [22] "StrangerWeapon"
+---@field StrangerSneaking 23
+---@field [23] "StrangerSneaking"
+---@field SawDrinkBlood 24
+---@field [24] "SawDrinkBlood"
+---@field Complained 25
+---@field [25] "Complained"
+---@field ReceivedComplaint 26
+---@field [26] "ReceivedComplaint"
+---@field AdmireBuilding 27
+---@field [27] "AdmireBuilding"
+---@field AdmireOwnBuilding 28
+---@field [28] "AdmireOwnBuilding"
+---@field AdmireArrangedBuilding 29
+---@field [29] "AdmireArrangedBuilding"
+---@field AdmireOwnArrangedBuilding 30
+---@field [30] "AdmireOwnArrangedBuilding"
+---@field LostPet 31
+---@field [31] "LostPet"
+---@field ThrownStuff 32
+---@field [32] "ThrownStuff"
+---@field JailReleased 33
+---@field [33] "JailReleased"
+---@field Miscarriage 34
+---@field [34] "Miscarriage"
+---@field SpouseMiscarriage 35
+---@field [35] "SpouseMiscarriage"
+---@field OldClothing 36
+---@field [36] "OldClothing"
+---@field TatteredClothing 37
+---@field [37] "TatteredClothing"
+---@field RottedClothing 38
+---@field [38] "RottedClothing"
+---@field GhostNightmare 39
+---@field [39] "GhostNightmare"
+---@field GhostHaunt 40
+---@field [40] "GhostHaunt"
+---@field Spar 41
+---@field [41] "Spar"
+---@field UnableComplain 42
+---@field [42] "UnableComplain"
+---@field LongPatrol 43
+---@field [43] "LongPatrol"
+---@field SunNausea 44
+---@field [44] "SunNausea"
+---@field SunIrritated 45
+---@field [45] "SunIrritated"
+---@field Drowsy 46
+---@field [46] "Drowsy"
+---@field VeryDrowsy 47
+---@field [47] "VeryDrowsy"
+---@field Thirsty 48
+---@field [48] "Thirsty"
+---@field Dehydrated 49
+---@field [49] "Dehydrated"
+---@field Hungry 50
+---@field [50] "Hungry"
+---@field Starving 51
+---@field [51] "Starving"
+---@field MajorInjuries 52
+---@field [52] "MajorInjuries"
+---@field MinorInjuries 53
+---@field [53] "MinorInjuries"
+---@field SleepNoise 54
+---@field [54] "SleepNoise"
+---@field Rest 55
+---@field [55] "Rest"
+---@field FreakishWeather 56
+---@field [56] "FreakishWeather"
+---@field Rain 57
+---@field [57] "Rain"
+---@field SnowStorm 58
+---@field [58] "SnowStorm"
+---@field Miasma 59
+---@field [59] "Miasma"
+---@field Smoke 60
+---@field [60] "Smoke"
+---@field Waterfall 61
+---@field [61] "Waterfall"
+---@field Dust 62
+---@field [62] "Dust"
+---@field Demands 63
+---@field [63] "Demands"
+---@field ImproperPunishment 64
+---@field [64] "ImproperPunishment"
+---@field PunishmentReduced 65
+---@field [65] "PunishmentReduced"
+---@field Elected 66
+---@field [66] "Elected"
+---@field Reelected 67
+---@field [67] "Reelected"
+---@field RequestApproved 68
+---@field [68] "RequestApproved"
+---@field RequestIgnored 69
+---@field [69] "RequestIgnored"
+---@field NoPunishment 70
+---@field [70] "NoPunishment"
+---@field PunishmentDelayed 71
+---@field [71] "PunishmentDelayed"
+---@field DelayedPunishment 72
+---@field [72] "DelayedPunishment"
+---@field ScarceCageChain 73
+---@field [73] "ScarceCageChain"
+---@field MandateIgnored 74
+---@field [74] "MandateIgnored"
+---@field MandateDeadlineMissed 75
+---@field [75] "MandateDeadlineMissed"
+---@field LackWork 76
+---@field [76] "LackWork"
+---@field SmashedBuilding 77
+---@field [77] "SmashedBuilding"
+---@field ToppledStuff 78
+---@field [78] "ToppledStuff"
+---@field NoblePromotion 79
+---@field [79] "NoblePromotion"
+---@field BecomeNoble 80
+---@field [80] "BecomeNoble"
+---@field Cavein 81
+---@field [81] "Cavein"
+---@field MandateDeadlineMet 82
+---@field [82] "MandateDeadlineMet"
+---@field Uncovered 83
+---@field [83] "Uncovered"
+---@field NoShirt 84
+---@field [84] "NoShirt"
+---@field NoShoes 85
+---@field [85] "NoShoes"
+---@field EatPet 86
+---@field [86] "EatPet"
+---@field EatLikedCreature 87
+---@field [87] "EatLikedCreature"
+---@field EatVermin 88
+---@field [88] "EatVermin"
+---@field FistFight 89
+---@field [89] "FistFight"
+---@field GaveBeating 90
+---@field [90] "GaveBeating"
+---@field GotBeaten 91
+---@field [91] "GotBeaten"
+---@field GaveHammering 92
+---@field [92] "GaveHammering"
+---@field GotHammered 93
+---@field [93] "GotHammered"
+---@field NoHammer 94
+---@field [94] "NoHammer"
+---@field SameFood 95
+---@field [95] "SameFood"
+---@field AteRotten 96
+---@field [96] "AteRotten"
+---@field GoodMeal 97
+---@field [97] "GoodMeal"
+---@field GoodDrink 98
+---@field [98] "GoodDrink"
+---@field MoreChests 99
+---@field [99] "MoreChests"
+---@field MoreCabinets 100
+---@field [100] "MoreCabinets"
+---@field MoreWeaponRacks 101
+---@field [101] "MoreWeaponRacks"
+---@field MoreArmorStands 102
+---@field [102] "MoreArmorStands"
+---@field RoomPretension 103
+---@field [103] "RoomPretension"
+---@field LackTables 104
+---@field [104] "LackTables"
+---@field CrowdedTables 105
+---@field [105] "CrowdedTables"
+---@field DiningQuality 106
+---@field [106] "DiningQuality"
+---@field NoDining 107
+---@field [107] "NoDining"
+---@field LackChairs 108
+---@field [108] "LackChairs"
+---@field TrainingBond 109
+---@field [109] "TrainingBond"
+---@field Rescued 110
+---@field [110] "Rescued"
+---@field RescuedOther 111
+---@field [111] "RescuedOther"
+---@field SatisfiedAtWork 112
+---@field [112] "SatisfiedAtWork"
+---@field TaxedLostProperty 113
+---@field [113] "TaxedLostProperty"
+---@field Taxed 114
+---@field [114] "Taxed"
+---@field LackProtection 115
+---@field [115] "LackProtection"
+---@field TaxRoomUnreachable 116
+---@field [116] "TaxRoomUnreachable"
+---@field TaxRoomMisinformed 117
+---@field [117] "TaxRoomMisinformed"
+---@field PleasedNoble 118
+---@field [118] "PleasedNoble"
+---@field TaxCollectionSmooth 119
+---@field [119] "TaxCollectionSmooth"
+---@field DisappointedNoble 120
+---@field [120] "DisappointedNoble"
+---@field TaxCollectionRough 121
+---@field [121] "TaxCollectionRough"
+---@field MadeFriend 122
+---@field [122] "MadeFriend"
+---@field FormedGrudge 123
+---@field [123] "FormedGrudge"
+---@field AnnoyedVermin 124
+---@field [124] "AnnoyedVermin"
+---@field NearVermin 125
+---@field [125] "NearVermin"
+---@field PesteredVermin 126
+---@field [126] "PesteredVermin"
+---@field AcquiredItem 127
+---@field [127] "AcquiredItem"
+---@field AdoptedPet 128
+---@field [128] "AdoptedPet"
+---@field Jailed 129
+---@field [129] "Jailed"
+---@field Bath 130
+---@field [130] "Bath"
+---@field SoapyBath 131
+---@field [131] "SoapyBath"
+---@field SparringAccident 132
+---@field [132] "SparringAccident"
+---@field Attacked 133
+---@field [133] "Attacked"
+---@field AttackedByDead 134
+---@field [134] "AttackedByDead"
+---@field SameBooze 135
+---@field [135] "SameBooze"
+---@field DrinkBlood 136
+---@field [136] "DrinkBlood"
+---@field DrinkSlime 137
+---@field [137] "DrinkSlime"
+---@field DrinkVomit 138
+---@field [138] "DrinkVomit"
+---@field DrinkGoo 139
+---@field [139] "DrinkGoo"
+---@field DrinkIchor 140
+---@field [140] "DrinkIchor"
+---@field DrinkPus 141
+---@field [141] "DrinkPus"
+---@field NastyWater 142
+---@field [142] "NastyWater"
+---@field DrankSpoiled 143
+---@field [143] "DrankSpoiled"
+---@field LackWell 144
+---@field [144] "LackWell"
+---@field NearCaged 145
+---@field [145] "NearCaged"
+---@field NearCagedHated 146
+---@field [146] "NearCagedHated"
+---@field LackBedroom 147
+---@field [147] "LackBedroom"
+---@field BedroomQuality 148
+---@field [148] "BedroomQuality"
+---@field SleptFloor 149
+---@field [149] "SleptFloor"
+---@field SleptMud 150
+---@field [150] "SleptMud"
+---@field SleptGrass 151
+---@field [151] "SleptGrass"
+---@field SleptRoughFloor 152
+---@field [152] "SleptRoughFloor"
+---@field SleptRocks 153
+---@field [153] "SleptRocks"
+---@field SleptIce 154
+---@field [154] "SleptIce"
+---@field SleptDirt 155
+---@field [155] "SleptDirt"
+---@field SleptDriftwood 156
+---@field [156] "SleptDriftwood"
+---@field ArtDefacement 157
+---@field [157] "ArtDefacement"
+---@field Evicted 158
+---@field [158] "Evicted"
+---@field GaveBirth 159
+---@field [159] "GaveBirth"
+---@field SpouseGaveBirth 160
+---@field [160] "SpouseGaveBirth"
+---@field ReceivedWater 161
+---@field [161] "ReceivedWater"
+---@field GaveWater 162
+---@field [162] "GaveWater"
+---@field ReceivedFood 163
+---@field [163] "ReceivedFood"
+---@field GaveFood 164
+---@field [164] "GaveFood"
+---@field Talked 165
+---@field [165] "Talked"
+---@field OfficeQuality 166
+---@field [166] "OfficeQuality"
+---@field MeetingInBedroom 167
+---@field [167] "MeetingInBedroom"
+---@field MeetingInDiningRoom 168
+---@field [168] "MeetingInDiningRoom"
+---@field NoRooms 169
+---@field [169] "NoRooms"
+---@field TombQuality 170
+---@field [170] "TombQuality"
+---@field TombLack 171
+---@field [171] "TombLack"
+---@field TalkToNoble 172
+---@field [172] "TalkToNoble"
+---@field InteractPet 173
+---@field [173] "InteractPet"
+---@field ConvictionCorpse 174
+---@field [174] "ConvictionCorpse"
+---@field ConvictionAnimal 175
+---@field [175] "ConvictionAnimal"
+---@field ConvictionVictim 176
+---@field [176] "ConvictionVictim"
+---@field ConvictionJusticeSelf 177
+---@field [177] "ConvictionJusticeSelf"
+---@field ConvictionJusticeFamily 178
+---@field [178] "ConvictionJusticeFamily"
+---@field Decay 179
+---@field [179] "Decay"
+---@field NeedsUnfulfilled 180
+---@field [180] "NeedsUnfulfilled"
+---@field Prayer 181
+---@field [181] "Prayer"
+---@field DrinkWithoutCup 182
+---@field [182] "DrinkWithoutCup"
+---@field ResearchBreakthrough 183
+---@field [183] "ResearchBreakthrough"
+---@field ResearchStalled 184
+---@field [184] "ResearchStalled"
+---@field PonderTopic 185
+---@field [185] "PonderTopic"
+---@field DiscussTopic 186
+---@field [186] "DiscussTopic"
+---@field Syndrome 187
+---@field [187] "Syndrome"
+---@field Perform 188
+---@field [188] "Perform"
+---@field WatchPerform 189
+---@field [189] "WatchPerform"
+---@field RemoveTroupe 190
+---@field [190] "RemoveTroupe"
+---@field LearnTopic 191
+---@field [191] "LearnTopic"
+---@field LearnSkill 192
+---@field [192] "LearnSkill"
+---@field LearnBook 193
+---@field [193] "LearnBook"
+---@field LearnInteraction 194
+---@field [194] "LearnInteraction"
+---@field LearnPoetry 195
+---@field [195] "LearnPoetry"
+---@field LearnMusic 196
+---@field [196] "LearnMusic"
+---@field LearnDance 197
+---@field [197] "LearnDance"
+---@field TeachTopic 198
+---@field [198] "TeachTopic"
+---@field TeachSkill 199
+---@field [199] "TeachSkill"
+---@field ReadBook 200
+---@field [200] "ReadBook"
+---@field WriteBook 201
+---@field [201] "WriteBook"
+---@field BecomeResident 202
+---@field [202] "BecomeResident"
+---@field BecomeCitizen 203
+---@field [203] "BecomeCitizen"
+---@field DenyResident 204
+---@field [204] "DenyResident"
+---@field DenyCitizen 205
+---@field [205] "DenyCitizen"
+---@field LeaveTroupe 206
+---@field [206] "LeaveTroupe"
+---@field MakeBelieve 207
+---@field [207] "MakeBelieve"
+---@field PlayToy 208
+---@field [208] "PlayToy"
+---@field DreamAbout 209
+---@field [209] "DreamAbout"
+---@field Dream 210
+---@field [210] "Dream"
+---@field Nightmare 211
+---@field [211] "Nightmare"
+---@field Argument 212
+---@field [212] "Argument"
+---@field CombatDrills 213
+---@field [213] "CombatDrills"
+---@field ArcheryPractice 214
+---@field [214] "ArcheryPractice"
+---@field ImproveSkill 215
+---@field [215] "ImproveSkill"
+---@field WearItem 216
+---@field [216] "WearItem"
+---@field RealizeValue 217
+---@field [217] "RealizeValue"
+---@field OpinionStoryteller 218
+---@field [218] "OpinionStoryteller"
+---@field OpinionRecitation 219
+---@field [219] "OpinionRecitation"
+---@field OpinionInstrumentSimulation 220
+---@field [220] "OpinionInstrumentSimulation"
+---@field OpinionInstrumentPlayer 221
+---@field [221] "OpinionInstrumentPlayer"
+---@field OpinionSinger 222
+---@field [222] "OpinionSinger"
+---@field OpinionChanter 223
+---@field [223] "OpinionChanter"
+---@field OpinionDancer 224
+---@field [224] "OpinionDancer"
+---@field OpinionStory 225
+---@field [225] "OpinionStory"
+---@field OpinionPoetry 226
+---@field [226] "OpinionPoetry"
+---@field OpinionMusic 227
+---@field [227] "OpinionMusic"
+---@field OpinionDance 228
+---@field [228] "OpinionDance"
+---@field Defeated 229
+---@field [229] "Defeated"
+---@field FavoritePossession 230
+---@field [230] "FavoritePossession"
+---@field PreserveBody 231
+---@field [231] "PreserveBody"
+---@field Murdered 232
+---@field [232] "Murdered"
+---@field HistEventCollection 233
+---@field [233] "HistEventCollection"
+---@field ViewOwnDisplay 234
+---@field [234] "ViewOwnDisplay"
+---@field ViewDisplay 235
+---@field [235] "ViewDisplay"
+---@field AcquireArtifact 236
+---@field [236] "AcquireArtifact"
+---@field DenySanctuary 237
+---@field [237] "DenySanctuary"
+---@field CaughtSneaking 238
+---@field [238] "CaughtSneaking"
+---@field GaveArtifact 239
+---@field [239] "GaveArtifact"
+---@field SawDeadBody 240 240
+---@field [240] "SawDeadBody" 240
+---@field Expelled 241
+---@field [241] "Expelled"
+---@field RelativeExpelled 242
+---@field [242] "RelativeExpelled"
+---@field PromisedVampireImmortality 243
+---@field [243] "PromisedVampireImmortality"
+---@field PromisedNecroImmortality 244
+---@field [244] "PromisedNecroImmortality"
+---@field SiteLecture 245
+---@field [245] "SiteLecture"
+---@field SitePerformance 246
+---@field [246] "SitePerformance"
+---@field AcceptedBribe 247
+---@field [247] "AcceptedBribe"
+---@field EmbezzledFunds 248
+---@field [248] "EmbezzledFunds"
+---@field CutOfCorruptFunds 249
+---@field [249] "CutOfCorruptFunds"
+---@field Abducted 250 250
+---@field [250] "Abducted" 250
+---@field FromAfar 251
+---@field [251] "FromAfar"
+---@field AcceptedTemplePetition 252
+---@field [252] "AcceptedTemplePetition"
+---@field EstablishedTemple 253
+---@field [253] "EstablishedTemple"
+---@field RejectedTemplePetition 254
+---@field [254] "RejectedTemplePetition"
+---@field IgnoredTemplePetition 255
+---@field [255] "IgnoredTemplePetition"
+---@field AbandonedTemplePetition 256
+---@field [256] "AbandonedTemplePetition"
+---@field DeferredToSuperior 257
+---@field [257] "DeferredToSuperior"
+---@field AcceptedGuildhallPetition 258
+---@field [258] "AcceptedGuildhallPetition"
+---@field EstablishedGuildhallPetition 259
+---@field [259] "EstablishedGuildhallPetition"
+---@field RejectedGuildhallPetition 260 260
+---@field [260] "RejectedGuildhallPetition" 260
+---@field IgnoredGuildhallPetition 261
+---@field [261] "IgnoredGuildhallPetition"
+---@field AbandonedGuildhallPetition 262
+---@field [262] "AbandonedGuildhallPetition"
+---@field InfiltrationMission 263
+---@field [263] "InfiltrationMission"
+---@field BreakUp 264
+---@field [264] "BreakUp"
+---@field Divorce 265
+---@field [265] "Divorce"
+---@field Unk266 266
+---@field [266] "Unk266"
+---@field Unk267 267
+---@field [267] "Unk267"
+---@field Unk268 268
+---@field [268] "Unk268"
+---@field Unk269 269
+---@field [269] "Unk269"
+---@field Unk270 270 270
+---@field [270] "Unk270" 270
+---@field IntellectualDiscussion 271
+---@field [271] "IntellectualDiscussion"
+---@field SharePersonalInsight 272
+---@field [272] "SharePersonalInsight"
+---@field ShareOthersPersonalInsight 273
+---@field [273] "ShareOthersPersonalInsight"
+---@field DiscussProblems 274
+---@field [274] "DiscussProblems"
+---@field DiscussOthersProblems 275
+---@field [275] "DiscussOthersProblems"
+---@field PerformedRiteDedicatedTemple 276
+---@field [276] "PerformedRiteDedicatedTemple"
+---@field PerformedRiteImproperlyDedicatedTemple 277
+---@field [277] "PerformedRiteImproperlyDedicatedTemple"
+---@field PerformedRiteUndedicatedTemple 278
+---@field [278] "PerformedRiteUndedicatedTemple"
+---@field PrayedDedicatedTemple 279
+---@field [279] "PrayedDedicatedTemple"
 df.unit_thought_type = {}
 
----@class unit_thought_type
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field Conflict boolean
----@field [2] boolean
----@field Trauma boolean
----@field [3] boolean
----@field WitnessDeath boolean
----@field [4] boolean
----@field UnexpectedDeath boolean
----@field [5] boolean
----@field Death boolean
----@field [6] boolean
----@field Kill boolean
----@field [7] boolean
----@field LoveSeparated boolean
----@field [8] boolean
----@field LoveReunited boolean
----@field [9] boolean
----@field JoinConflict boolean
----@field [10] boolean
----@field MakeMasterwork boolean
----@field [11] boolean
----@field MadeArtifact boolean
----@field [12] boolean
----@field MasterSkill boolean
----@field [13] boolean
----@field NewRomance boolean
----@field [14] boolean
----@field BecomeParent boolean
----@field [15] boolean
----@field NearConflict boolean
----@field [16] boolean
----@field CancelAgreement boolean
----@field [17] boolean
----@field JoinTravel boolean
----@field [18] boolean
----@field SiteControlled boolean
----@field [19] boolean
----@field TributeCancel boolean
----@field [20] boolean
----@field Incident boolean
----@field [21] boolean
----@field HearRumor boolean
----@field [22] boolean
----@field MilitaryRemoved boolean
----@field [23] boolean
----@field StrangerWeapon boolean
----@field [24] boolean
----@field StrangerSneaking boolean
----@field [25] boolean
----@field SawDrinkBlood boolean
----@field [26] boolean
----@field Complained boolean
----@field [27] boolean
----@field ReceivedComplaint boolean
----@field [28] boolean
----@field AdmireBuilding boolean
----@field [29] boolean
----@field AdmireOwnBuilding boolean
----@field [30] boolean
----@field AdmireArrangedBuilding boolean
----@field [31] boolean
----@field AdmireOwnArrangedBuilding boolean
----@field [32] boolean
----@field LostPet boolean
----@field [33] boolean
----@field ThrownStuff boolean
----@field [34] boolean
----@field JailReleased boolean
----@field [35] boolean
----@field Miscarriage boolean
----@field [36] boolean
----@field SpouseMiscarriage boolean
----@field [37] boolean
----@field OldClothing boolean
----@field [38] boolean
----@field TatteredClothing boolean
----@field [39] boolean
----@field RottedClothing boolean
----@field [40] boolean
----@field GhostNightmare boolean
----@field [41] boolean
----@field GhostHaunt boolean
----@field [42] boolean
----@field Spar boolean
----@field [43] boolean
----@field UnableComplain boolean
----@field [44] boolean
----@field LongPatrol boolean
----@field [45] boolean
----@field SunNausea boolean
----@field [46] boolean
----@field SunIrritated boolean
----@field [47] boolean
----@field Drowsy boolean
----@field [48] boolean
----@field VeryDrowsy boolean
----@field [49] boolean
----@field Thirsty boolean
----@field [50] boolean
----@field Dehydrated boolean
----@field [51] boolean
----@field Hungry boolean
----@field [52] boolean
----@field Starving boolean
----@field [53] boolean
----@field MajorInjuries boolean
----@field [54] boolean
----@field MinorInjuries boolean
----@field [55] boolean
----@field SleepNoise boolean
----@field [56] boolean
----@field Rest boolean
----@field [57] boolean
----@field FreakishWeather boolean
----@field [58] boolean
----@field Rain boolean
----@field [59] boolean
----@field SnowStorm boolean
----@field [60] boolean
----@field Miasma boolean
----@field [61] boolean
----@field Smoke boolean
----@field [62] boolean
----@field Waterfall boolean
----@field [63] boolean
----@field Dust boolean
----@field [64] boolean
----@field Demands boolean
----@field [65] boolean
----@field ImproperPunishment boolean
----@field [66] boolean
----@field PunishmentReduced boolean
----@field [67] boolean
----@field Elected boolean
----@field [68] boolean
----@field Reelected boolean
----@field [69] boolean
----@field RequestApproved boolean
----@field [70] boolean
----@field RequestIgnored boolean
----@field [71] boolean
----@field NoPunishment boolean
----@field [72] boolean
----@field PunishmentDelayed boolean
----@field [73] boolean
----@field DelayedPunishment boolean
----@field [74] boolean
----@field ScarceCageChain boolean
----@field [75] boolean
----@field MandateIgnored boolean
----@field [76] boolean
----@field MandateDeadlineMissed boolean
----@field [77] boolean
----@field LackWork boolean
----@field [78] boolean
----@field SmashedBuilding boolean
----@field [79] boolean
----@field ToppledStuff boolean
----@field [80] boolean
----@field NoblePromotion boolean
----@field [81] boolean
----@field BecomeNoble boolean
----@field [82] boolean
----@field Cavein boolean
----@field [83] boolean
----@field MandateDeadlineMet boolean
----@field [84] boolean
----@field Uncovered boolean
----@field [85] boolean
----@field NoShirt boolean
----@field [86] boolean
----@field NoShoes boolean
----@field [87] boolean
----@field EatPet boolean
----@field [88] boolean
----@field EatLikedCreature boolean
----@field [89] boolean
----@field EatVermin boolean
----@field [90] boolean
----@field FistFight boolean
----@field [91] boolean
----@field GaveBeating boolean
----@field [92] boolean
----@field GotBeaten boolean
----@field [93] boolean
----@field GaveHammering boolean
----@field [94] boolean
----@field GotHammered boolean
----@field [95] boolean
----@field NoHammer boolean
----@field [96] boolean
----@field SameFood boolean
----@field [97] boolean
----@field AteRotten boolean
----@field [98] boolean
----@field GoodMeal boolean
----@field [99] boolean
----@field GoodDrink boolean
----@field [100] boolean
----@field MoreChests boolean
----@field [101] boolean
----@field MoreCabinets boolean
----@field [102] boolean
----@field MoreWeaponRacks boolean
----@field [103] boolean
----@field MoreArmorStands boolean
----@field [104] boolean
----@field RoomPretension boolean
----@field [105] boolean
----@field LackTables boolean
----@field [106] boolean
----@field CrowdedTables boolean
----@field [107] boolean
----@field DiningQuality boolean
----@field [108] boolean
----@field NoDining boolean
----@field [109] boolean
----@field LackChairs boolean
----@field [110] boolean
----@field TrainingBond boolean
----@field [111] boolean
----@field Rescued boolean
----@field [112] boolean
----@field RescuedOther boolean
----@field [113] boolean
----@field SatisfiedAtWork boolean
----@field [114] boolean
----@field TaxedLostProperty boolean
----@field [115] boolean
----@field Taxed boolean
----@field [116] boolean
----@field LackProtection boolean
----@field [117] boolean
----@field TaxRoomUnreachable boolean
----@field [118] boolean
----@field TaxRoomMisinformed boolean
----@field [119] boolean
----@field PleasedNoble boolean
----@field [120] boolean
----@field TaxCollectionSmooth boolean
----@field [121] boolean
----@field DisappointedNoble boolean
----@field [122] boolean
----@field TaxCollectionRough boolean
----@field [123] boolean
----@field MadeFriend boolean
----@field [124] boolean
----@field FormedGrudge boolean
----@field [125] boolean
----@field AnnoyedVermin boolean
----@field [126] boolean
----@field NearVermin boolean
----@field [127] boolean
----@field PesteredVermin boolean
----@field [128] boolean
----@field AcquiredItem boolean
----@field [129] boolean
----@field AdoptedPet boolean
----@field [130] boolean
----@field Jailed boolean
----@field [131] boolean
----@field Bath boolean
----@field [132] boolean
----@field SoapyBath boolean
----@field [133] boolean
----@field SparringAccident boolean
----@field [134] boolean
----@field Attacked boolean
----@field [135] boolean
----@field AttackedByDead boolean
----@field [136] boolean
----@field SameBooze boolean
----@field [137] boolean
----@field DrinkBlood boolean
----@field [138] boolean
----@field DrinkSlime boolean
----@field [139] boolean
----@field DrinkVomit boolean
----@field [140] boolean
----@field DrinkGoo boolean
----@field [141] boolean
----@field DrinkIchor boolean
----@field [142] boolean
----@field DrinkPus boolean
----@field [143] boolean
----@field NastyWater boolean
----@field [144] boolean
----@field DrankSpoiled boolean
----@field [145] boolean
----@field LackWell boolean
----@field [146] boolean
----@field NearCaged boolean
----@field [147] boolean
----@field NearCagedHated boolean
----@field [148] boolean
----@field LackBedroom boolean
----@field [149] boolean
----@field BedroomQuality boolean
----@field [150] boolean
----@field SleptFloor boolean
----@field [151] boolean
----@field SleptMud boolean
----@field [152] boolean
----@field SleptGrass boolean
----@field [153] boolean
----@field SleptRoughFloor boolean
----@field [154] boolean
----@field SleptRocks boolean
----@field [155] boolean
----@field SleptIce boolean
----@field [156] boolean
----@field SleptDirt boolean
----@field [157] boolean
----@field SleptDriftwood boolean
----@field [158] boolean
----@field ArtDefacement boolean
----@field [159] boolean
----@field Evicted boolean
----@field [160] boolean
----@field GaveBirth boolean
----@field [161] boolean
----@field SpouseGaveBirth boolean
----@field [162] boolean
----@field ReceivedWater boolean
----@field [163] boolean
----@field GaveWater boolean
----@field [164] boolean
----@field ReceivedFood boolean
----@field [165] boolean
----@field GaveFood boolean
----@field [166] boolean
----@field Talked boolean
----@field [167] boolean
----@field OfficeQuality boolean
----@field [168] boolean
----@field MeetingInBedroom boolean
----@field [169] boolean
----@field MeetingInDiningRoom boolean
----@field [170] boolean
----@field NoRooms boolean
----@field [171] boolean
----@field TombQuality boolean
----@field [172] boolean
----@field TombLack boolean
----@field [173] boolean
----@field TalkToNoble boolean
----@field [174] boolean
----@field InteractPet boolean
----@field [175] boolean
----@field ConvictionCorpse boolean
----@field [176] boolean
----@field ConvictionAnimal boolean
----@field [177] boolean
----@field ConvictionVictim boolean
----@field [178] boolean
----@field ConvictionJusticeSelf boolean
----@field [179] boolean
----@field ConvictionJusticeFamily boolean
----@field [180] boolean
----@field Decay boolean
----@field [181] boolean
----@field NeedsUnfulfilled boolean
----@field [182] boolean
----@field Prayer boolean
----@field [183] boolean
----@field DrinkWithoutCup boolean
----@field [184] boolean
----@field ResearchBreakthrough boolean
----@field [185] boolean
----@field ResearchStalled boolean
----@field [186] boolean
----@field PonderTopic boolean
----@field [187] boolean
----@field DiscussTopic boolean
----@field [188] boolean
----@field Syndrome boolean
----@field [189] boolean
----@field Perform boolean
----@field [190] boolean
----@field WatchPerform boolean
----@field [191] boolean
----@field RemoveTroupe boolean
----@field [192] boolean
----@field LearnTopic boolean
----@field [193] boolean
----@field LearnSkill boolean
----@field [194] boolean
----@field LearnBook boolean
----@field [195] boolean
----@field LearnInteraction boolean
----@field [196] boolean
----@field LearnPoetry boolean
----@field [197] boolean
----@field LearnMusic boolean
----@field [198] boolean
----@field LearnDance boolean
----@field [199] boolean
----@field TeachTopic boolean
----@field [200] boolean
----@field TeachSkill boolean
----@field [201] boolean
----@field ReadBook boolean
----@field [202] boolean
----@field WriteBook boolean
----@field [203] boolean
----@field BecomeResident boolean
----@field [204] boolean
----@field BecomeCitizen boolean
----@field [205] boolean
----@field DenyResident boolean
----@field [206] boolean
----@field DenyCitizen boolean
----@field [207] boolean
----@field LeaveTroupe boolean
----@field [208] boolean
----@field MakeBelieve boolean
----@field [209] boolean
----@field PlayToy boolean
----@field [210] boolean
----@field DreamAbout boolean
----@field [211] boolean
----@field Dream boolean
----@field [212] boolean
----@field Nightmare boolean
----@field [213] boolean
----@field Argument boolean
----@field [214] boolean
----@field CombatDrills boolean
----@field [215] boolean
----@field ArcheryPractice boolean
----@field [216] boolean
----@field ImproveSkill boolean
----@field [217] boolean
----@field WearItem boolean
----@field [218] boolean
----@field RealizeValue boolean
----@field [219] boolean
----@field OpinionStoryteller boolean
----@field [220] boolean
----@field OpinionRecitation boolean
----@field [221] boolean
----@field OpinionInstrumentSimulation boolean
----@field [222] boolean
----@field OpinionInstrumentPlayer boolean
----@field [223] boolean
----@field OpinionSinger boolean
----@field [224] boolean
----@field OpinionChanter boolean
----@field [225] boolean
----@field OpinionDancer boolean
----@field [226] boolean
----@field OpinionStory boolean
----@field [227] boolean
----@field OpinionPoetry boolean
----@field [228] boolean
----@field OpinionMusic boolean
----@field [229] boolean
----@field OpinionDance boolean
----@field [230] boolean
----@field Defeated boolean
----@field [231] boolean
----@field FavoritePossession boolean
----@field [232] boolean
----@field PreserveBody boolean
----@field [233] boolean
----@field Murdered boolean
----@field [234] boolean
----@field HistEventCollection boolean
----@field [235] boolean
----@field ViewOwnDisplay boolean
----@field [236] boolean
----@field ViewDisplay boolean
----@field [237] boolean
----@field AcquireArtifact boolean
----@field [238] boolean
----@field DenySanctuary boolean
----@field [239] boolean
----@field CaughtSneaking boolean
----@field [240] boolean
----@field GaveArtifact boolean
----@field [241] boolean
----@field SawDeadBody boolean
----@field [242] boolean
----@field Expelled boolean
----@field [243] boolean
----@field RelativeExpelled boolean
----@field [244] boolean
----@field PromisedVampireImmortality boolean
----@field [245] boolean
----@field PromisedNecroImmortality boolean
----@field [246] boolean
----@field SiteLecture boolean
----@field [247] boolean
----@field SitePerformance boolean
----@field [248] boolean
----@field AcceptedBribe boolean
----@field [249] boolean
----@field EmbezzledFunds boolean
----@field [250] boolean
----@field CutOfCorruptFunds boolean
----@field [251] boolean
----@field Abducted boolean
----@field [252] boolean
----@field FromAfar boolean
----@field [253] boolean
----@field AcceptedTemplePetition boolean
----@field [254] boolean
----@field EstablishedTemple boolean
----@field [255] boolean
----@field RejectedTemplePetition boolean
----@field [256] boolean
----@field IgnoredTemplePetition boolean
----@field [257] boolean
----@field AbandonedTemplePetition boolean
----@field [258] boolean
----@field DeferredToSuperior boolean
----@field [259] boolean
----@field AcceptedGuildhallPetition boolean
----@field [260] boolean
----@field EstablishedGuildhallPetition boolean
----@field [261] boolean
----@field RejectedGuildhallPetition boolean
----@field [262] boolean
----@field IgnoredGuildhallPetition boolean
----@field [263] boolean
----@field AbandonedGuildhallPetition boolean
----@field [264] boolean
----@field InfiltrationMission boolean
----@field [265] boolean
----@field BreakUp boolean
----@field [266] boolean
----@field Divorce boolean
----@field [267] boolean
----@field Unk266 boolean
----@field [268] boolean
----@field Unk267 boolean
----@field [269] boolean
----@field Unk268 boolean
----@field [270] boolean
----@field Unk269 boolean
----@field [271] boolean
----@field Unk270 boolean
----@field [272] boolean
----@field IntellectualDiscussion boolean
----@field [273] boolean
----@field SharePersonalInsight boolean
----@field [274] boolean
----@field ShareOthersPersonalInsight boolean
----@field [275] boolean
----@field DiscussProblems boolean
----@field [276] boolean
----@field DiscussOthersProblems boolean
----@field [277] boolean
----@field PerformedRiteDedicatedTemple boolean
----@field [278] boolean
----@field PerformedRiteImproperlyDedicatedTemple boolean
----@field [279] boolean
----@field PerformedRiteUndedicatedTemple boolean
----@field [280] boolean
----@field PrayedDedicatedTemple boolean
+---@class unit_thought_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.unit_thought_type._attr_entry_type = {}
 
----@class unit_thought_type_attr
----@field caption string
----@field xml_caption string
+---@class (exact) unit_thought_type_attr_entry_type_fields
+---@field caption DFCompoundField original name is 'Circumstance'
+---@field xml_caption DFCompoundField
+df.unit_thought_type._attr_entry_type._fields = {}
 
----@type { [string|integer]: unit_thought_type_attr }
+---@class unit_thought_type_attrs
+---@field Conflict { caption: "while in conflict", xml_caption: "conflict" }
+---@field Trauma { caption: "after experiencing trauma", xml_caption: "death and injury" }
+---@field WitnessDeath { caption: "after seeing somebody die", xml_caption: "witnessed death in incident" }
+---@field UnexpectedDeath { caption: "at the unexpected death of [somebody]", xml_caption: "hf died unexpectedly" }
+---@field Death { caption: "at somebody's death", xml_caption: "hf is dead" }
+---@field Kill { caption: "while killing somebody", xml_caption: "slayer in incident" }
+---@field LoveSeparated { caption: "at being separated from a loved one", xml_caption: "separated from hf" }
+---@field LoveReunited { caption: "after being reunited with a loved one", xml_caption: "reunited with hf" }
+---@field JoinConflict { caption: "when joining an existing conflict", xml_caption: "jump into existing conflict" }
+---@field MakeMasterwork { caption: "after producing a masterwork", xml_caption: "produced masterwork" }
+---@field MadeArtifact { caption: "after creating an artifact", xml_caption: "produced artifact" }
+---@field MasterSkill { caption: "upon mastering [skill]", xml_caption: "mastered skill" }
+---@field NewRomance { caption: "as [he] was caught up in a new romance", xml_caption: "fell in love" }
+---@field BecomeParent { caption: "after becoming a parent", xml_caption: "became parent" }
+---@field NearConflict { caption: "being near to a conflict", xml_caption: "nearby conflict" }
+---@field CancelAgreement { caption: "after an agreement was cancelled", xml_caption: "agreement cancelled" }
+---@field JoinTravel { caption: "upon joining a traveling group", xml_caption: "being an agreement companion" }
+---@field SiteControlled { caption: "after a site was controlled", xml_caption: "entity controls site" }
+---@field TributeCancel { caption: "after a tribute cancellation", xml_caption: "entity cancels tribute" }
+---@field Incident { caption: "after an incident", xml_caption: "incident" }
+---@field HearRumor { caption: "after hearing a rumor", xml_caption: "rumor" }
+---@field MilitaryRemoved { caption: "after being removed from a military group", xml_caption: "kicked out of squad" }
+---@field StrangerWeapon { caption: "when a stranger advanced with a weapon", xml_caption: "stranger advancing with weapon" }
+---@field StrangerSneaking { caption: "after seeing a stranger sneaking around", xml_caption: "stranger sneaking around" }
+---@field SawDrinkBlood { caption: "after witnessing a night creature drinking blood", xml_caption: "witnessed blood drinking in incident" }
+---@field Complained { caption: "[multiple]", xml_caption: "made complaint" }
+---@field ReceivedComplaint { caption: "[multiple]", xml_caption: "listened to complaint" }
+---@field AdmireBuilding { caption: "near a [quality] [building]", xml_caption: "admire building" }
+---@field AdmireOwnBuilding { caption: "near [his] own [quality] [building]", xml_caption: "admire owned building" }
+---@field AdmireArrangedBuilding { caption: "near a [quality] tastefully arranged [building]", xml_caption: "admire arranged building" }
+---@field AdmireOwnArrangedBuilding { caption: "near [his] own [quality] tastefully arranged [building]", xml_caption: "admire owned arranged building" }
+---@field LostPet { caption: "after losing a pet", xml_caption: "pet lost" }
+---@field ThrownStuff { caption: "after throwing something", xml_caption: "threw hauled item in tantrum" }
+---@field JailReleased { caption: "after being released from confinement", xml_caption: "freed from prison" }
+---@field Miscarriage { caption: "after a miscarriage", xml_caption: "had miscarriage" }
+---@field SpouseMiscarriage { caption: "after [his] spouse's miscarriage", xml_caption: "spouse had miscarriage" }
+---@field OldClothing { caption: "to be wearing old clothing", xml_caption: "old clothing" }
+---@field TatteredClothing { caption: "to be wearing tattered clothing", xml_caption: "tattered clothing" }
+---@field RottedClothing { caption: "to have clothes rot off of [his] body", xml_caption: "clothing rots away" }
+---@field GhostNightmare { caption: "after being tormented in nightmares by a dead [somebody]", xml_caption: "haunted in dreams" }
+---@field GhostHaunt { caption: "after being haunted/tormented/possessed by a dead [somebody]", xml_caption: "haunted" }
+---@field Spar { caption: "after a sparring session", xml_caption: "good spar" }
+---@field UnableComplain { caption: "after being unable to [meet]", xml_caption: "complaint unregistered" }
+---@field LongPatrol { caption: "during long patrol duty", xml_caption: "long patrol" }
+---@field SunNausea { caption: "after being nauseated bu the sun", xml_caption: "sun nauseated" }
+---@field SunIrritated { caption: "at being out in the sunshine again", xml_caption: "sun irritated" }
+---@field Drowsy { caption: "when drowsy", xml_caption: "drowsy" }
+---@field VeryDrowsy { caption: "when utterly sleep-deprived", xml_caption: "very drowsy" }
+---@field Thirsty { caption: "when thirsty", xml_caption: "thirsty" }
+---@field Dehydrated { caption: "when dehydrated", xml_caption: "dehydrated" }
+---@field Hungry { caption: "when hungry", xml_caption: "hungry" }
+---@field Starving { caption: "when starving", xml_caption: "starving" }
+---@field MajorInjuries { caption: "after suffering a major injury", xml_caption: "suffered major injury" }
+---@field MinorInjuries { caption: "after suffering a minor injury", xml_caption: "suffered minor injury" }
+---@field SleepNoise { caption: "after [varying]", xml_caption: "rough sleep" }
+---@field Rest { caption: "after being able to rest and recuperate", xml_caption: "resting" }
+---@field FreakishWeather { caption: "when caught in freakish weather", xml_caption: "caught in freakish weather" }
+---@field Rain { caption: "when caught in the rain", xml_caption: "caught in rain" }
+---@field SnowStorm { caption: "when caught in a snow storm", xml_caption: "caught in snow" }
+---@field Miasma { caption: "after retching on a miasma", xml_caption: "caught in miasma" }
+---@field Smoke { caption: "after choking on smoke underground", xml_caption: "caught in smoke" }
+---@field Waterfall { caption: "being near to a waterfall", xml_caption: "waterfall mist" }
+---@field Dust { caption: "after choking on dust underground", xml_caption: "caught in dust" }
+---@field Demands { caption: "considering the state of demands", xml_caption: "considering demand" }
+---@field ImproperPunishment { caption: "that a criminal could not be properly punished", xml_caption: "punishment of victimizer reduced" }
+---@field PunishmentReduced { caption: "to have [his] punishment reduced", xml_caption: "personal punishment reduced" }
+---@field Elected { caption: "to be elected", xml_caption: "elected" }
+---@field Reelected { caption: "to be re-elected", xml_caption: "reelected" }
+---@field RequestApproved { caption: "having a request approved", xml_caption: "request approved" }
+---@field RequestIgnored { caption: "having a request ignored", xml_caption: "request ignored" }
+---@field NoPunishment { caption: "that nobody could be punished for a failure", xml_caption: "nobody to punish for failed mandate" }
+---@field PunishmentDelayed { caption: "to have [his] punishment delayed", xml_caption: "personal punishment delayed" }
+---@field DelayedPunishment { caption: "after the delayed punishment of a criminal", xml_caption: "punishment of victimizer delayed" }
+---@field ScarceCageChain { caption: "considering the scarcity of cages and chains", xml_caption: "insufficient justice buildings" }
+---@field MandateIgnored { caption: "having a mandate ignored", xml_caption: "mandate ignored" }
+---@field MandateDeadlineMissed { caption: "having a mandate deadline missed", xml_caption: "mandate only partially completed" }
+---@field LackWork { caption: "after the lack of work last season", xml_caption: "insufficient work" }
+---@field SmashedBuilding { caption: "after smashing up a building", xml_caption: "destroyed building" }
+---@field ToppledStuff { caption: "after toppling something over", xml_caption: "committed vandalism" }
+---@field NoblePromotion { caption: "after receiving a higher rank of nobility", xml_caption: "land holder rank increased" }
+---@field BecomeNoble { caption: "after entering the nobility", xml_caption: "established as land holder" }
+---@field Cavein { caption: "after being knocked out during a cave-in", xml_caption: "knocked out by cavein" }
+---@field MandateDeadlineMet { caption: "to have a mandate deadline met", xml_caption: "mandate was obeyed" }
+---@field Uncovered { caption: "to be uncovered", xml_caption: "naked" }
+---@field NoShirt { caption: "to have no shirt", xml_caption: "no shirt" }
+---@field NoShoes { caption: "to have no shoes", xml_caption: "no shoes" }
+---@field EatPet { caption: "after being forced to eat a treasured pet to survive", xml_caption: "ate own pet while starving" }
+---@field EatLikedCreature { caption: "after being forced to eat a beloved creature to survive", xml_caption: "ate favorite animal while starving" }
+---@field EatVermin { caption: "after being forced to eat vermin to survive", xml_caption: "ate vermin while starving" }
+---@field FistFight { caption: "after starting a fist fight", xml_caption: "beat somebody up" }
+---@field GaveBeating { caption: "after punishing somebody with a beating", xml_caption: "punished somebody with beating" }
+---@field GotBeaten { caption: "after being beaten", xml_caption: "punished by beating" }
+---@field GaveHammering { caption: "after beating somebody with a hammer", xml_caption: "punished somebody with tool" }
+---@field GotHammered { caption: "after being beaten with a hammer", xml_caption: "punished by tool" }
+---@field NoHammer { caption: "after being unable to find a hammer", xml_caption: "cannot get punishment tool" }
+---@field SameFood { caption: "eating the same old food", xml_caption: "tired of food" }
+---@field AteRotten { caption: "after eating rotten food", xml_caption: "eaten rotten food" }
+---@field GoodMeal { caption: "after eating [quality food]", xml_caption: "good food" }
+---@field GoodDrink { caption: "after having [quality drink]", xml_caption: "good drink" }
+---@field MoreChests { caption: "not having enough chests", xml_caption: "do not have enough chests" }
+---@field MoreCabinets { caption: "not having enough cabinets", xml_caption: "do not have enough cabinets" }
+---@field MoreWeaponRacks { caption: "not having enough weapon racks", xml_caption: "do not have enough weapon racks" }
+---@field MoreArmorStands { caption: "not having enough armor stands", xml_caption: "do not have enough armor stands" }
+---@field RoomPretension { caption: "by a lesser's pretentious [room] arrangements", xml_caption: "lesser has better room" }
+---@field LackTables { caption: "at the lack of dining tables", xml_caption: "eating without table" }
+---@field CrowdedTables { caption: "eating at a crowded table", xml_caption: "eating at crowded table" }
+---@field DiningQuality { caption: "dining in [a quality] dining room", xml_caption: "eating in dining room" }
+---@field NoDining { caption: "being without a proper dining room", xml_caption: "eating without dining room" }
+---@field LackChairs { caption: "at the lack of chairs", xml_caption: "eating without chair" }
+---@field TrainingBond { caption: "after forming a bond with an animal training partner", xml_caption: "new bonded relationship" }
+---@field Rescued { caption: "after being rescued", xml_caption: "was rescued" }
+---@field RescuedOther { caption: "after bringing somebody to rest in bed", xml_caption: "rescued somebody" }
+---@field SatisfiedAtWork { caption: "at work", xml_caption: "completed job" }
+---@field TaxedLostProperty { caption: "after losing property to the tax collector's escorts", xml_caption: "tax escort stole property" }
+---@field Taxed { caption: "after being taxed", xml_caption: "lost property to taxes" }
+---@field LackProtection { caption: "not having adequate protection", xml_caption: "have inadequate protection" }
+---@field TaxRoomUnreachable { caption: "after being unable to reach a room for tax collection", xml_caption: "taxable room inaccessible" }
+---@field TaxRoomMisinformed { caption: "after being misinformed about a room for tax collection", xml_caption: "misinformed about taxable room" }
+---@field PleasedNoble { caption: "having pleased a noble", xml_caption: "pleased nobility" }
+---@field TaxCollectionSmooth { caption: "that the tax collection went smoothly", xml_caption: "tax collector succeeded" }
+---@field DisappointedNoble { caption: "having disappointed a noble", xml_caption: "disappointed nobility" }
+---@field TaxCollectionRough { caption: "that the tax collection didn't go smoothly", xml_caption: "tax collector failed" }
+---@field MadeFriend { caption: "after making a friend", xml_caption: "new buddy" }
+---@field FormedGrudge { caption: "after forming a grudge", xml_caption: "new grudge" }
+---@field AnnoyedVermin { caption: "after being accosted by [vermin]", xml_caption: "near hated vermin" }
+---@field NearVermin { caption: "after being near [vermin]", xml_caption: "near favorite animal" }
+---@field PesteredVermin { caption: "after being pestered by [vermin]", xml_caption: "pestered by flying micro vermin" }
+---@field AcquiredItem { caption: "after a satisfying acquisition", xml_caption: "acquired item" }
+---@field AdoptedPet { caption: "after adopting a new pet", xml_caption: "acquired favorite animal as pet" }
+---@field Jailed { caption: "after being confined", xml_caption: "confined" }
+---@field Bath { caption: "after a bath", xml_caption: "cleaned self" }
+---@field SoapyBath { caption: "after a soapy bath", xml_caption: "cleaned self with soap" }
+---@field SparringAccident { caption: "after killing somebody by accident while sparring", xml_caption: "killed somebody in training accident" }
+---@field Attacked { caption: "after being attacked", xml_caption: "attacked" }
+---@field AttackedByDead { caption: "after being attacked by dead [HF relative]", xml_caption: "attacked by zombie possible relative" }
+---@field SameBooze { caption: "drinking the same old booze", xml_caption: "tired of drink" }
+---@field DrinkBlood { caption: "while forced to drink bloody water", xml_caption: "drinking blood" }
+---@field DrinkSlime { caption: "while forced to drink slime", xml_caption: "drinking slime" }
+---@field DrinkVomit { caption: "while forced to drink vomit", xml_caption: "drinking vomit" }
+---@field DrinkGoo { caption: "while forced to drink gooey water", xml_caption: "drinking goo" }
+---@field DrinkIchor { caption: "while forced to drink ichorous water", xml_caption: "drinking ichor" }
+---@field DrinkPus { caption: "while forced to drink purulent water", xml_caption: "drinking pus" }
+---@field NastyWater { caption: "drinking nasty water", xml_caption: "drinking nasty" }
+---@field DrankSpoiled { caption: "after drinking something spoiled", xml_caption: "drinking rotten" }
+---@field LackWell { caption: "after drinking water without a well", xml_caption: "drinking without well" }
+---@field NearCaged { caption: "after being near to a [animal] in a cage", xml_caption: "view favorite animal caged" }
+---@field NearCagedHated { caption: "after being near to a [animal] in a cage", xml_caption: "view hated vermin caged" }
+---@field LackBedroom { caption: "after sleeping without a proper room", xml_caption: "slept without proper room" }
+---@field BedroomQuality { caption: "after sleeing in a [quality] bedroom", xml_caption: "slept in room" }
+---@field SleptFloor { caption: "after sleeping on the floor", xml_caption: "slept on smooth floor" }
+---@field SleptMud { caption: "after sleeping in the mud", xml_caption: "slept in mud" }
+---@field SleptGrass { caption: "after sleeping in the grass", xml_caption: "slept on grass" }
+---@field SleptRoughFloor { caption: "after sleeping on a rough cave floor", xml_caption: "slept on rough stone" }
+---@field SleptRocks { caption: "after sleeping on rocks", xml_caption: "slept on rocks" }
+---@field SleptIce { caption: "after sleeping on ice", xml_caption: "slept on ice" }
+---@field SleptDirt { caption: "after sleeping in the dirt", xml_caption: "slept on dirt" }
+---@field SleptDriftwood { caption: "after sleeping on a pile of driftwood", xml_caption: "slept on driftwood" }
+---@field ArtDefacement { caption: "after suffering the travesty of art defacement", xml_caption: "artwork defaced" }
+---@field Evicted { caption: "after being evicted", xml_caption: "evicted" }
+---@field GaveBirth { caption: "after giving birth to [a baby]", xml_caption: "gave birth" }
+---@field SpouseGaveBirth { caption: "after becoming a parent of [a baby]", xml_caption: "gained relative" }
+---@field ReceivedWater { caption: "after receiving water", xml_caption: "received water" }
+---@field GaveWater { caption: "after giving somebody water", xml_caption: "gave water" }
+---@field ReceivedFood { caption: "after receiving food", xml_caption: "received food" }
+---@field GaveFood { caption: "after giving somebody food", xml_caption: "gave food" }
+---@field Talked { caption: "talking with a [relation]", xml_caption: "relation chat" }
+---@field OfficeQuality { caption: "conducted meeting in a [quality] room", xml_caption: "met in room" }
+---@field MeetingInBedroom { caption: "having to conduct an official meeting in a bedroom", xml_caption: "official meeting in bedroom" }
+---@field MeetingInDiningRoom { caption: "having to conduct an official meeting in a dining room", xml_caption: "official meeting in dining room" }
+---@field NoRooms { caption: "not having any rooms", xml_caption: "official meeting without room" }
+---@field TombQuality { caption: "having a [quality] tomb after gaining another year", xml_caption: "have tomb" }
+---@field TombLack { caption: "about not having a tomb after gaining another year", xml_caption: "have no tomb" }
+---@field TalkToNoble { caption: "after talking to a pillar of society", xml_caption: "interacted with community pillar" }
+---@field InteractPet { caption: "after interacting with a pet", xml_caption: "interacted with pet" }
+---@field ConvictionCorpse { caption: "after a long-dead corpse was convicted of a crime", xml_caption: "dead unit convicted" }
+---@field ConvictionAnimal { caption: "after an animal was convicted of a crime", xml_caption: "animal convicted" }
+---@field ConvictionVictim { caption: "after the bizarre conviction against all reason of the victim of a crime", xml_caption: "victim convicted" }
+---@field ConvictionJusticeSelf { caption: "upon receiving justice through a criminal's conviction", xml_caption: "perpetrator convicted" }
+---@field ConvictionJusticeFamily { caption: "when a family member received justice through a criminal's conviction", xml_caption: "perpetrator against family convicted" }
+---@field Decay { caption: "after being forced to endure the decay of a [relative]", xml_caption: "body of relation rotted" }
+---@field NeedsUnfulfilled { caption: "after [varying]", xml_caption: "unmet needs" }
+---@field Prayer { caption: "after communing with [deity]", xml_caption: "pray to hf" }
+---@field DrinkWithoutCup { caption: "after having a drink without using a goblet, cup or mug", xml_caption: "drinking without goblet" }
+---@field ResearchBreakthrough { caption: "after making a breakthrough concerning [research]", xml_caption: "research breakthrough" }
+---@field ResearchStalled { caption: "after being unable to advance the study of [research]", xml_caption: "stuck on research topic" }
+---@field PonderTopic { caption: "after pondering [research]", xml_caption: "ponder research topic" }
+---@field DiscussTopic { caption: "after discussing [research]", xml_caption: "discuss research topic" }
+---@field Syndrome { caption: "due to [syndrome]", xml_caption: "syndrome emotion" }
+---@field Perform { caption: "while performing", xml_caption: "performed in incident" }
+---@field WatchPerform { caption: "after watching a performance", xml_caption: "saw performance in incident" }
+---@field RemoveTroupe { caption: "after being removed from a performance troupe", xml_caption: "kicked out of troupe" }
+---@field LearnTopic { caption: "after learning about [topic]", xml_caption: "learned scholar flag" }
+---@field LearnSkill { caption: "after learning about [skill]", xml_caption: "learned skill" }
+---@field LearnBook { caption: "after learning [book]", xml_caption: "learned written content" }
+---@field LearnInteraction { caption: "after learning [interaction]", xml_caption: "learned interaction" }
+---@field LearnPoetry { caption: "after learning [poetic form]", xml_caption: "learned poetic form" }
+---@field LearnMusic { caption: "after learning [musical form]", xml_caption: "learned musical form" }
+---@field LearnDance { caption: "after learning [dance form]", xml_caption: "learned dance form" }
+---@field TeachTopic { caption: "after teaching [topic]", xml_caption: "taught scholar flag" }
+---@field TeachSkill { caption: "after teaching [skill]", xml_caption: "taught skill" }
+---@field ReadBook { caption: "after reading [book]", xml_caption: "read written content" }
+---@field WriteBook { caption: "after writing [book]", xml_caption: "wrote written content" }
+---@field BecomeResident { caption: "afer being granted residency", xml_caption: "residency petition accepted" }
+---@field BecomeCitizen { caption: "after being granted citizenship", xml_caption: "citizenship petition accepted" }
+---@field DenyResident { caption: "after being denied residency", xml_caption: "residency petition rejected" }
+---@field DenyCitizen { caption: "after being denied citizenship", xml_caption: "citizenship petition rejected" }
+---@field LeaveTroupe { caption: "after leaving a performance troupe", xml_caption: "left troupe" }
+---@field MakeBelieve { caption: "after playing make believe", xml_caption: "make believe" }
+---@field PlayToy { caption: "after playing with [a toy]", xml_caption: "play with toy" }
+---@field DreamAbout { xml_caption: "dream about hf" }
+---@field Dream { xml_caption: "dream" }
+---@field Nightmare { xml_caption: "nightmare" }
+---@field Argument { caption: "after getting into an argument", xml_caption: "argument" }
+---@field CombatDrills { caption: "after combat drills", xml_caption: "did individual melee drills" }
+---@field ArcheryPractice { caption: "after practicing at the archery target", xml_caption: "did ranged practice" }
+---@field ImproveSkill { caption: "upon improving [skill]", xml_caption: "improved skill" }
+---@field WearItem { caption: "after putting on a [quality] item", xml_caption: "put on quality worn item" }
+---@field RealizeValue { caption: "after realizing the [level] of [value]", xml_caption: "change personality value" }
+---@field OpinionStoryteller { xml_caption: "active performance storyteller" }
+---@field OpinionRecitation { xml_caption: "active performance poem reciter" }
+---@field OpinionInstrumentSimulation { xml_caption: "active performance simulated instrument" }
+---@field OpinionInstrumentPlayer { xml_caption: "active performance instrument" }
+---@field OpinionSinger { xml_caption: "active performance singer" }
+---@field OpinionChanter { xml_caption: "active performance chanter" }
+---@field OpinionDancer { xml_caption: "active performance dancer" }
+---@field OpinionStory { xml_caption: "active story event" }
+---@field OpinionPoetry { xml_caption: "active poetic form" }
+---@field OpinionMusic { xml_caption: "active musical form" }
+---@field OpinionDance { xml_caption: "active dance form" }
+---@field Defeated { xml_caption: "defeated hf" }
+---@field FavoritePossession { xml_caption: "item was favorite possession" }
+---@field PreserveBody { xml_caption: "by preserving part of body" }
+---@field Murdered { xml_caption: "murdered hf" }
+---@field HistEventCollection { xml_caption: "historical event collection" }
+---@field ViewOwnDisplay { xml_caption: "viewed item in own display" }
+---@field ViewDisplay { xml_caption: "viewed displayed item" }
+---@field AcquireArtifact { xml_caption: "acquired artifact" }
+---@field DenySanctuary { xml_caption: "turned child away from sanctuary" }
+---@field CaughtSneaking { xml_caption: "caught sneaking last stand" }
+---@field GaveArtifact { xml_caption: "claimed artifact given away" }
+---@field SawDeadBody { caption: "saw [somebody]'s dead body", xml_caption: "saw a dead body" }
+---@field Expelled { caption: "after being expelled", xml_caption: "expelled" }
+---@field RelativeExpelled { caption: "after [somebody] was expelled", xml_caption: "relative expelled" }
+---@field PromisedVampireImmortality { xml_caption: "preying on civilized for blood" }
+---@field PromisedNecroImmortality { xml_caption: "unnaturally ageless" }
+---@field SiteLecture { caption: "after watching a lecture in [site]", xml_caption: "scholarly lecture in site" }
+---@field SitePerformance { caption: "after watching a performance in [site]", xml_caption: "performance in site" }
+---@field AcceptedBribe { caption: "after accepting bribes in exchange for leniency", xml_caption: "accepting bribes for leniency" }
+---@field EmbezzledFunds { caption: "after embezzling funds", xml_caption: "embezzling funds from position" }
+---@field CutOfCorruptFunds { caption: "after receiving a cut of corruptly-obtained funds", xml_caption: "cut of corrupt funds" }
+---@field Abducted { caption: "after abducting [somebody]", xml_caption: "abducted hf" }
+---@field FromAfar { caption: "from afar", xml_caption: "from afar" }
+---@field AcceptedTemplePetition { caption: "after the acceptance of a petition for a temple for [entity]", xml_caption: "temple petition accepted" }
+---@field EstablishedTemple { caption: "after the establishment of a temple for [entity]", xml_caption: "entity temple recognition" }
+---@field RejectedTemplePetition { xml_caption: "guildhall petition accepted" }
+---@field IgnoredTemplePetition { xml_caption: "guildhall petition accepted" }
+---@field AbandonedTemplePetition { xml_caption: "guildhall petition accepted" }
+---@field DeferredToSuperior { xml_caption: "is entity subordinate" }
+---@field AcceptedGuildhallPetition { caption: "after the acceptance of a petition for a guildhall for [entity]", xml_caption: "guildhall petition accepted" }
+---@field EstablishedGuildhallPetition { caption: "after the establishment of a guildhall for [entity]", xml_caption: "entity temple recognition" }
+---@field RejectedGuildhallPetition { xml_caption: "" }
+---@field IgnoredGuildhallPetition { xml_caption: "" }
+---@field AbandonedGuildhallPetition { xml_caption: "" }
+---@field InfiltrationMission { caption: "during an infiltration mission", xml_caption: "during an infilitration mission" }
+---@field BreakUp { caption: "after a break up", xml_caption: "broke up with lover" }
+---@field Divorce { caption: "after getting divorced", xml_caption: "divorced" }
+---@field Unk266 { xml_caption: "active performance preacher" }
+---@field Unk267 { xml_caption: "active sermon worship hfid" }
+---@field Unk268 { xml_caption: "active sermon sphere" }
+---@field Unk269 { xml_caption: "active sermon promote value" }
+---@field Unk270 { xml_caption: "active sermon refuse value" }
+---@field IntellectualDiscussion { caption: "having an intellectual discussion with [somebody]", xml_caption: "relation abstract chat" }
+---@field SharePersonalInsight { caption: "sharing a personal insight with [somebody]", xml_caption: "relation gave personal chat" }
+---@field ShareOthersPersonalInsight { caption: "sharing [somebody]'s personal insight", xml_caption: "relation received personal chat" }
+---@field DiscussProblems { caption: "discussing their problems with [somebody]", xml_caption: "relation gave stress complaint chat" }
+---@field DiscussOthersProblems { caption: "discussing [somebody]'s problems", xml_caption: "relation received stress complaint chat" }
+---@field PerformedRiteDedicatedTemple { caption: "performing the rites of [entity] in a dedicated temple" }
+---@field PerformedRiteImproperlyDedicatedTemple { caption: "incompletely performing the rites of [entity] in an improperly dedicated temple" }
+---@field PerformedRiteUndedicatedTemple { caption: "incompletely performing the rites of [entity] in an undedicated temple" }
+---@field PrayedDedicatedTemple { caption: "communing with [histfig] in a dedicated temple" }
 df.unit_thought_type.attrs = {}
 

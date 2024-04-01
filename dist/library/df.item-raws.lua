@@ -1,475 +1,501 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.item-raws
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _item_type: integer, string, df.enum
+---@alias item_type
+---| -1 # NONE
+---| 0 # BAR
+---| 1 # SMALLGEM
+---| 2 # BLOCKS
+---| 3 # ROUGH
+---| 4 # BOULDER
+---| 5 # WOOD
+---| 6 # DOOR
+---| 7 # FLOODGATE
+---| 8 # BED
+---| 9 # CHAIR
+---| 10 # CHAIN
+---| 11 # FLASK
+---| 12 # GOBLET
+---| 13 # INSTRUMENT
+---| 14 # TOY
+---| 15 # WINDOW
+---| 16 # CAGE
+---| 17 # BARREL
+---| 18 # BUCKET
+---| 19 # ANIMALTRAP
+---| 20 # TABLE
+---| 21 # COFFIN
+---| 22 # STATUE
+---| 23 # CORPSE
+---| 24 # WEAPON
+---| 25 # ARMOR
+---| 26 # SHOES
+---| 27 # SHIELD
+---| 28 # HELM
+---| 29 # GLOVES
+---| 30 # BOX
+---| 31 # BAG
+---| 32 # BIN
+---| 33 # ARMORSTAND
+---| 34 # WEAPONRACK
+---| 35 # CABINET
+---| 36 # FIGURINE
+---| 37 # AMULET
+---| 38 # SCEPTER
+---| 39 # AMMO
+---| 40 # CROWN
+---| 41 # RING
+---| 42 # EARRING
+---| 43 # BRACELET
+---| 44 # GEM
+---| 45 # ANVIL
+---| 46 # CORPSEPIECE
+---| 47 # REMAINS
+---| 48 # MEAT
+---| 49 # FISH
+---| 50 # FISH_RAW
+---| 51 # VERMIN
+---| 52 # PET
+---| 53 # SEEDS
+---| 54 # PLANT
+---| 55 # SKIN_TANNED
+---| 56 # PLANT_GROWTH
+---| 57 # THREAD
+---| 58 # CLOTH
+---| 59 # TOTEM
+---| 60 # PANTS
+---| 61 # BACKPACK
+---| 62 # QUIVER
+---| 63 # CATAPULTPARTS
+---| 64 # BALLISTAPARTS
+---| 65 # SIEGEAMMO
+---| 66 # BALLISTAARROWHEAD
+---| 67 # TRAPPARTS
+---| 68 # TRAPCOMP
+---| 69 # DRINK
+---| 70 # POWDER_MISC
+---| 71 # CHEESE
+---| 72 # FOOD
+---| 73 # LIQUID_MISC
+---| 74 # COIN
+---| 75 # GLOB
+---| 76 # ROCK
+---| 77 # PIPE_SECTION
+---| 78 # HATCH_COVER
+---| 79 # GRATE
+---| 80 # QUERN
+---| 81 # MILLSTONE
+---| 82 # SPLINT
+---| 83 # CRUTCH
+---| 84 # TRACTION_BENCH
+---| 85 # ORTHOPEDIC_CAST
+---| 86 # TOOL
+---| 87 # SLAB
+---| 88 # EGG
+---| 89 # BOOK
+---| 90 # SHEET
+---| 91 # BRANCH
+
+---@class _item_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field BAR 1
----@field [1] "BAR"
----@field SMALLGEM 2
----@field [2] "SMALLGEM"
----@field BLOCKS 3
----@field [3] "BLOCKS"
----@field ROUGH 4
----@field [4] "ROUGH"
----@field BOULDER 5
----@field [5] "BOULDER"
----@field WOOD 6
----@field [6] "WOOD"
----@field DOOR 7
----@field [7] "DOOR"
----@field FLOODGATE 8
----@field [8] "FLOODGATE"
----@field BED 9
----@field [9] "BED"
----@field CHAIR 10
----@field [10] "CHAIR"
----@field CHAIN 11
----@field [11] "CHAIN"
----@field FLASK 12
----@field [12] "FLASK"
----@field GOBLET 13
----@field [13] "GOBLET"
----@field INSTRUMENT 14
----@field [14] "INSTRUMENT"
----@field TOY 15
----@field [15] "TOY"
----@field WINDOW 16
----@field [16] "WINDOW"
----@field CAGE 17
----@field [17] "CAGE"
----@field BARREL 18
----@field [18] "BARREL"
----@field BUCKET 19
----@field [19] "BUCKET"
----@field ANIMALTRAP 20
----@field [20] "ANIMALTRAP"
----@field TABLE 21
----@field [21] "TABLE"
----@field COFFIN 22
----@field [22] "COFFIN"
----@field STATUE 23
----@field [23] "STATUE"
----@field CORPSE 24
----@field [24] "CORPSE"
----@field WEAPON 25
----@field [25] "WEAPON"
----@field ARMOR 26
----@field [26] "ARMOR"
----@field SHOES 27
----@field [27] "SHOES"
----@field SHIELD 28
----@field [28] "SHIELD"
----@field HELM 29
----@field [29] "HELM"
----@field GLOVES 30
----@field [30] "GLOVES"
----@field BOX 31
----@field [31] "BOX"
----@field BAG 32
----@field [32] "BAG"
----@field BIN 33
----@field [33] "BIN"
----@field ARMORSTAND 34
----@field [34] "ARMORSTAND"
----@field WEAPONRACK 35
----@field [35] "WEAPONRACK"
----@field CABINET 36
----@field [36] "CABINET"
----@field FIGURINE 37
----@field [37] "FIGURINE"
----@field AMULET 38
----@field [38] "AMULET"
----@field SCEPTER 39
----@field [39] "SCEPTER"
----@field AMMO 40
----@field [40] "AMMO"
----@field CROWN 41
----@field [41] "CROWN"
----@field RING 42
----@field [42] "RING"
----@field EARRING 43
----@field [43] "EARRING"
----@field BRACELET 44
----@field [44] "BRACELET"
----@field GEM 45
----@field [45] "GEM"
----@field ANVIL 46
----@field [46] "ANVIL"
----@field CORPSEPIECE 47
----@field [47] "CORPSEPIECE"
----@field REMAINS 48
----@field [48] "REMAINS"
----@field MEAT 49
----@field [49] "MEAT"
----@field FISH 50
----@field [50] "FISH"
----@field FISH_RAW 51
----@field [51] "FISH_RAW"
----@field VERMIN 52
----@field [52] "VERMIN"
----@field PET 53
----@field [53] "PET"
----@field SEEDS 54
----@field [54] "SEEDS"
----@field PLANT 55
----@field [55] "PLANT"
----@field SKIN_TANNED 56
----@field [56] "SKIN_TANNED"
----@field PLANT_GROWTH 57
----@field [57] "PLANT_GROWTH"
----@field THREAD 58
----@field [58] "THREAD"
----@field CLOTH 59
----@field [59] "CLOTH"
----@field TOTEM 60
----@field [60] "TOTEM"
----@field PANTS 61
----@field [61] "PANTS"
----@field BACKPACK 62
----@field [62] "BACKPACK"
----@field QUIVER 63
----@field [63] "QUIVER"
----@field CATAPULTPARTS 64
----@field [64] "CATAPULTPARTS"
----@field BALLISTAPARTS 65
----@field [65] "BALLISTAPARTS"
----@field SIEGEAMMO 66
----@field [66] "SIEGEAMMO"
----@field BALLISTAARROWHEAD 67
----@field [67] "BALLISTAARROWHEAD"
----@field TRAPPARTS 68
----@field [68] "TRAPPARTS"
----@field TRAPCOMP 69
----@field [69] "TRAPCOMP"
----@field DRINK 70
----@field [70] "DRINK"
----@field POWDER_MISC 71
----@field [71] "POWDER_MISC"
----@field CHEESE 72
----@field [72] "CHEESE"
----@field FOOD 73
----@field [73] "FOOD"
----@field LIQUID_MISC 74
----@field [74] "LIQUID_MISC"
----@field COIN 75
----@field [75] "COIN"
----@field GLOB 76
----@field [76] "GLOB"
----@field ROCK 77
----@field [77] "ROCK"
----@field PIPE_SECTION 78
----@field [78] "PIPE_SECTION"
----@field HATCH_COVER 79
----@field [79] "HATCH_COVER"
----@field GRATE 80
----@field [80] "GRATE"
----@field QUERN 81
----@field [81] "QUERN"
----@field MILLSTONE 82
----@field [82] "MILLSTONE"
----@field SPLINT 83
----@field [83] "SPLINT"
----@field CRUTCH 84
----@field [84] "CRUTCH"
----@field TRACTION_BENCH 85
----@field [85] "TRACTION_BENCH"
----@field ORTHOPEDIC_CAST 86
----@field [86] "ORTHOPEDIC_CAST"
----@field TOOL 87
----@field [87] "TOOL"
----@field SLAB 88
----@field [88] "SLAB"
----@field EGG 89
----@field [89] "EGG"
----@field BOOK 90
----@field [90] "BOOK"
----@field SHEET 91
----@field [91] "SHEET"
----@field BRANCH 92
----@field [92] "BRANCH"
+---@field [-1] "NONE"
+---@field BAR 0 Bars, such as metal, fuel, or soap.
+---@field [0] "BAR" Bars, such as metal, fuel, or soap.
+---@field SMALLGEM 1 Cut gemstones usable in jewelers workshop
+---@field [1] "SMALLGEM" Cut gemstones usable in jewelers workshop
+---@field BLOCKS 2 Blocks of any kind.
+---@field [2] "BLOCKS" Blocks of any kind.
+---@field ROUGH 3 Rough gemstones.
+---@field [3] "ROUGH" Rough gemstones.
+---@field BOULDER 4 Raw mined stone.
+---@field [4] "BOULDER" Raw mined stone.
+---@field WOOD 5 Wooden logs.
+---@field [5] "WOOD" Wooden logs.
+---@field DOOR 6 Doors.
+---@field [6] "DOOR" Doors.
+---@field FLOODGATE 7 Floodgates.
+---@field [7] "FLOODGATE" Floodgates.
+---@field BED 8 Beds.
+---@field [8] "BED" Beds.
+---@field CHAIR 9 Chairs and thrones.
+---@field [9] "CHAIR" Chairs and thrones.
+---@field CHAIN 10 Restraints.
+---@field [10] "CHAIN" Restraints.
+---@field FLASK 11 Flasks.
+---@field [11] "FLASK" Flasks.
+---@field GOBLET 12 Goblets.
+---@field [12] "GOBLET" Goblets.
+---@field INSTRUMENT 13 Musical instruments.
+---@field [13] "INSTRUMENT" Musical instruments.
+---@field TOY 14 Toys.
+---@field [14] "TOY" Toys.
+---@field WINDOW 15 Glass windows.
+---@field [15] "WINDOW" Glass windows.
+---@field CAGE 16 Cages.
+---@field [16] "CAGE" Cages.
+---@field BARREL 17 Barrels.
+---@field [17] "BARREL" Barrels.
+---@field BUCKET 18 Buckets.
+---@field [18] "BUCKET" Buckets.
+---@field ANIMALTRAP 19 Animal traps.
+---@field [19] "ANIMALTRAP" Animal traps.
+---@field TABLE 20 Tables.
+---@field [20] "TABLE" Tables.
+---@field COFFIN 21 Coffins.
+---@field [21] "COFFIN" Coffins.
+---@field STATUE 22 Statues.
+---@field [22] "STATUE" Statues.
+---@field CORPSE 23 Corpses. Does not have a material.
+---@field [23] "CORPSE" Corpses. Does not have a material.
+---@field WEAPON 24 Weapons.
+---@field [24] "WEAPON" Weapons.
+---@field ARMOR 25 Armor and clothing worn on the upper body.
+---@field [25] "ARMOR" Armor and clothing worn on the upper body.
+---@field SHOES 26 Armor and clothing worn on the feet.
+---@field [26] "SHOES" Armor and clothing worn on the feet.
+---@field SHIELD 27 Shields and bucklers.
+---@field [27] "SHIELD" Shields and bucklers.
+---@field HELM 28 Armor and clothing worn on the head.
+---@field [28] "HELM" Armor and clothing worn on the head.
+---@field GLOVES 29 Armor and clothing worn on the hands.
+---@field [29] "GLOVES" Armor and clothing worn on the hands.
+---@field BOX 30 Chests (wood), coffers (stone), and boxes (glass).
+---@field [30] "BOX" Chests (wood), coffers (stone), and boxes (glass).
+---@field BAG 31 Bags (cloth or leather).
+---@field [31] "BAG" Bags (cloth or leather).
+---@field BIN 32 Bins.
+---@field [32] "BIN" Bins.
+---@field ARMORSTAND 33 Armor stands.
+---@field [33] "ARMORSTAND" Armor stands.
+---@field WEAPONRACK 34 Weapon racks.
+---@field [34] "WEAPONRACK" Weapon racks.
+---@field CABINET 35 Cabinets.
+---@field [35] "CABINET" Cabinets.
+---@field FIGURINE 36 Figurines.
+---@field [36] "FIGURINE" Figurines.
+---@field AMULET 37 Amulets.
+---@field [37] "AMULET" Amulets.
+---@field SCEPTER 38 Scepters.
+---@field [38] "SCEPTER" Scepters.
+---@field AMMO 39 Ammunition for hand-held weapons.
+---@field [39] "AMMO" Ammunition for hand-held weapons.
+---@field CROWN 40 Crowns.
+---@field [40] "CROWN" Crowns.
+---@field RING 41 Rings.
+---@field [41] "RING" Rings.
+---@field EARRING 42 Earrings.
+---@field [42] "EARRING" Earrings.
+---@field BRACELET 43 Bracelets.
+---@field [43] "BRACELET" Bracelets.
+---@field GEM 44 Large gems.
+---@field [44] "GEM" Large gems.
+---@field ANVIL 45 Anvils.
+---@field [45] "ANVIL" Anvils.
+---@field CORPSEPIECE 46 Body parts. Does not have a material.
+---@field [46] "CORPSEPIECE" Body parts. Does not have a material.
+---@field REMAINS 47 Dead vermin bodies. Material is CREATURE_ID:CASTE.
+---@field [47] "REMAINS" Dead vermin bodies. Material is CREATURE_ID:CASTE.
+---@field MEAT 48 Butchered meat.
+---@field [48] "MEAT" Butchered meat.
+---@field FISH 49 Prepared fish. Material is CREATURE_ID:CASTE.
+---@field [49] "FISH" Prepared fish. Material is CREATURE_ID:CASTE.
+---@field FISH_RAW 50 Unprepared fish. Material is CREATURE_ID:CASTE.
+---@field [50] "FISH_RAW" Unprepared fish. Material is CREATURE_ID:CASTE.
+---@field VERMIN 51 Live vermin. Material is CREATURE_ID:CASTE.
+---@field [51] "VERMIN" Live vermin. Material is CREATURE_ID:CASTE.
+---@field PET 52 Tame vermin. Material is CREATURE_ID:CASTE.
+---@field [52] "PET" Tame vermin. Material is CREATURE_ID:CASTE.
+---@field SEEDS 53 Seeds from plants.
+---@field [53] "SEEDS" Seeds from plants.
+---@field PLANT 54 Plants.
+---@field [54] "PLANT" Plants.
+---@field SKIN_TANNED 55 Tanned skins.
+---@field [55] "SKIN_TANNED" Tanned skins.
+---@field PLANT_GROWTH 56 Assorted plant growths, including leaves and berries
+---@field [56] "PLANT_GROWTH" Assorted plant growths, including leaves and berries
+---@field THREAD 57 Thread gathered from webs or made at the farmers workshop.
+---@field [57] "THREAD" Thread gathered from webs or made at the farmers workshop.
+---@field CLOTH 58 Cloth made at the loom.
+---@field [58] "CLOTH" Cloth made at the loom.
+---@field TOTEM 59 Skull totems.
+---@field [59] "TOTEM" Skull totems.
+---@field PANTS 60 Armor and clothing worn on the legs.
+---@field [60] "PANTS" Armor and clothing worn on the legs.
+---@field BACKPACK 61 Backpacks.
+---@field [61] "BACKPACK" Backpacks.
+---@field QUIVER 62 Quivers.
+---@field [62] "QUIVER" Quivers.
+---@field CATAPULTPARTS 63 Catapult parts.
+---@field [63] "CATAPULTPARTS" Catapult parts.
+---@field BALLISTAPARTS 64 Ballista parts.
+---@field [64] "BALLISTAPARTS" Ballista parts.
+---@field SIEGEAMMO 65 Siege engine ammunition.
+---@field [65] "SIEGEAMMO" Siege engine ammunition.
+---@field BALLISTAARROWHEAD 66 Ballista arrow heads.
+---@field [66] "BALLISTAARROWHEAD" Ballista arrow heads.
+---@field TRAPPARTS 67 Mechanisms.
+---@field [67] "TRAPPARTS" Mechanisms.
+---@field TRAPCOMP 68 Trap components.
+---@field [68] "TRAPCOMP" Trap components.
+---@field DRINK 69 Alcoholic drinks.
+---@field [69] "DRINK" Alcoholic drinks.
+---@field POWDER_MISC 70 Powders such as flour, gypsum plaster, dye, or sand.
+---@field [70] "POWDER_MISC" Powders such as flour, gypsum plaster, dye, or sand.
+---@field CHEESE 71 Pieces of cheese.
+---@field [71] "CHEESE" Pieces of cheese.
+---@field FOOD 72 Prepared meals. Subtypes come from item_food.txt
+---@field [72] "FOOD" Prepared meals. Subtypes come from item_food.txt
+---@field LIQUID_MISC 73 Liquids such as water, lye, and extracts.
+---@field [73] "LIQUID_MISC" Liquids such as water, lye, and extracts.
+---@field COIN 74 Coins.
+---@field [74] "COIN" Coins.
+---@field GLOB 75 Fat, tallow, pastes/pressed objects, and small bits of molten rock/metal.
+---@field [75] "GLOB" Fat, tallow, pastes/pressed objects, and small bits of molten rock/metal.
+---@field ROCK 76 Small rocks (usually sharpened and/or thrown in adventurer mode)
+---@field [76] "ROCK" Small rocks (usually sharpened and/or thrown in adventurer mode)
+---@field PIPE_SECTION 77 Pipe sections.
+---@field [77] "PIPE_SECTION" Pipe sections.
+---@field HATCH_COVER 78 Hatch covers.
+---@field [78] "HATCH_COVER" Hatch covers.
+---@field GRATE 79 Grates.
+---@field [79] "GRATE" Grates.
+---@field QUERN 80 Querns.
+---@field [80] "QUERN" Querns.
+---@field MILLSTONE 81 Millstones.
+---@field [81] "MILLSTONE" Millstones.
+---@field SPLINT 82 Splints.
+---@field [82] "SPLINT" Splints.
+---@field CRUTCH 83 Crutches.
+---@field [83] "CRUTCH" Crutches.
+---@field TRACTION_BENCH 84 Traction benches.
+---@field [84] "TRACTION_BENCH" Traction benches.
+---@field ORTHOPEDIC_CAST 85 Casts
+---@field [85] "ORTHOPEDIC_CAST" Casts
+---@field TOOL 86 Tools.
+---@field [86] "TOOL" Tools.
+---@field SLAB 87 Slabs.
+---@field [87] "SLAB" Slabs.
+---@field EGG 88 Eggs. Material is CREATURE_ID:CASTE.
+---@field [88] "EGG" Eggs. Material is CREATURE_ID:CASTE.
+---@field BOOK 89 Books.
+---@field [89] "BOOK" Books.
+---@field SHEET 90 Sheets of paper
+---@field [90] "SHEET" Sheets of paper
+---@field BRANCH 91 Tree branches
+---@field [91] "BRANCH" Tree branches
 df.item_type = {}
 
----@class item_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field BAR boolean
----@field [2] boolean
----@field SMALLGEM boolean
----@field [3] boolean
----@field BLOCKS boolean
----@field [4] boolean
----@field ROUGH boolean
----@field [5] boolean
----@field BOULDER boolean
----@field [6] boolean
----@field WOOD boolean
----@field [7] boolean
----@field DOOR boolean
----@field [8] boolean
----@field FLOODGATE boolean
----@field [9] boolean
----@field BED boolean
----@field [10] boolean
----@field CHAIR boolean
----@field [11] boolean
----@field CHAIN boolean
----@field [12] boolean
----@field FLASK boolean
----@field [13] boolean
----@field GOBLET boolean
----@field [14] boolean
----@field INSTRUMENT boolean
----@field [15] boolean
----@field TOY boolean
----@field [16] boolean
----@field WINDOW boolean
----@field [17] boolean
----@field CAGE boolean
----@field [18] boolean
----@field BARREL boolean
----@field [19] boolean
----@field BUCKET boolean
----@field [20] boolean
----@field ANIMALTRAP boolean
----@field [21] boolean
----@field TABLE boolean
----@field [22] boolean
----@field COFFIN boolean
----@field [23] boolean
----@field STATUE boolean
----@field [24] boolean
----@field CORPSE boolean
----@field [25] boolean
----@field WEAPON boolean
----@field [26] boolean
----@field ARMOR boolean
----@field [27] boolean
----@field SHOES boolean
----@field [28] boolean
----@field SHIELD boolean
----@field [29] boolean
----@field HELM boolean
----@field [30] boolean
----@field GLOVES boolean
----@field [31] boolean
----@field BOX boolean
----@field [32] boolean
----@field BAG boolean
----@field [33] boolean
----@field BIN boolean
----@field [34] boolean
----@field ARMORSTAND boolean
----@field [35] boolean
----@field WEAPONRACK boolean
----@field [36] boolean
----@field CABINET boolean
----@field [37] boolean
----@field FIGURINE boolean
----@field [38] boolean
----@field AMULET boolean
----@field [39] boolean
----@field SCEPTER boolean
----@field [40] boolean
----@field AMMO boolean
----@field [41] boolean
----@field CROWN boolean
----@field [42] boolean
----@field RING boolean
----@field [43] boolean
----@field EARRING boolean
----@field [44] boolean
----@field BRACELET boolean
----@field [45] boolean
----@field GEM boolean
----@field [46] boolean
----@field ANVIL boolean
----@field [47] boolean
----@field CORPSEPIECE boolean
----@field [48] boolean
----@field REMAINS boolean
----@field [49] boolean
----@field MEAT boolean
----@field [50] boolean
----@field FISH boolean
----@field [51] boolean
----@field FISH_RAW boolean
----@field [52] boolean
----@field VERMIN boolean
----@field [53] boolean
----@field PET boolean
----@field [54] boolean
----@field SEEDS boolean
----@field [55] boolean
----@field PLANT boolean
----@field [56] boolean
----@field SKIN_TANNED boolean
----@field [57] boolean
----@field PLANT_GROWTH boolean
----@field [58] boolean
----@field THREAD boolean
----@field [59] boolean
----@field CLOTH boolean
----@field [60] boolean
----@field TOTEM boolean
----@field [61] boolean
----@field PANTS boolean
----@field [62] boolean
----@field BACKPACK boolean
----@field [63] boolean
----@field QUIVER boolean
----@field [64] boolean
----@field CATAPULTPARTS boolean
----@field [65] boolean
----@field BALLISTAPARTS boolean
----@field [66] boolean
----@field SIEGEAMMO boolean
----@field [67] boolean
----@field BALLISTAARROWHEAD boolean
----@field [68] boolean
----@field TRAPPARTS boolean
----@field [69] boolean
----@field TRAPCOMP boolean
----@field [70] boolean
----@field DRINK boolean
----@field [71] boolean
----@field POWDER_MISC boolean
----@field [72] boolean
----@field CHEESE boolean
----@field [73] boolean
----@field FOOD boolean
----@field [74] boolean
----@field LIQUID_MISC boolean
----@field [75] boolean
----@field COIN boolean
----@field [76] boolean
----@field GLOB boolean
----@field [77] boolean
----@field ROCK boolean
----@field [78] boolean
----@field PIPE_SECTION boolean
----@field [79] boolean
----@field HATCH_COVER boolean
----@field [80] boolean
----@field GRATE boolean
----@field [81] boolean
----@field QUERN boolean
----@field [82] boolean
----@field MILLSTONE boolean
----@field [83] boolean
----@field SPLINT boolean
----@field [84] boolean
----@field CRUTCH boolean
----@field [85] boolean
----@field TRACTION_BENCH boolean
----@field [86] boolean
----@field ORTHOPEDIC_CAST boolean
----@field [87] boolean
----@field TOOL boolean
----@field [88] boolean
----@field SLAB boolean
----@field [89] boolean
----@field EGG boolean
----@field [90] boolean
----@field BOOK boolean
----@field [91] boolean
----@field SHEET boolean
----@field [92] boolean
----@field BRANCH boolean
+---@class item_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.item_type._attr_entry_type = {}
 
----@class item_type_attr
----@field caption string
----@field is_rawable boolean
----@field is_stackable boolean
----@field is_caste_mat boolean
----@field classname string
+---@class (exact) item_type_attr_entry_type_fields
+---@field caption DFCompoundField
+---@field is_rawable DFCompoundField
+---@field is_stackable DFCompoundField
+---@field is_caste_mat DFCompoundField instead of material, uses a creature/caste pair
+---@field classname DFCompoundField
+df.item_type._attr_entry_type._fields = {}
 
----@type { [string|integer]: item_type_attr }
+---@class item_type_attrs
+---@field BAR { caption: "bars", classname: "item_barst" }
+---@field SMALLGEM { caption: "cut gem", classname: "item_smallgemst" }
+---@field BLOCKS { caption: "blocks", classname: "item_blocksst" }
+---@field ROUGH { caption: "rough gem", classname: "item_roughst" }
+---@field BOULDER { caption: "boulder", classname: "item_boulderst" }
+---@field WOOD { caption: "logs", classname: "item_woodst" }
+---@field DOOR { caption: "door", classname: "item_doorst" }
+---@field FLOODGATE { caption: "floodgate", classname: "item_floodgatest" }
+---@field BED { caption: "bed", classname: "item_bedst" }
+---@field CHAIR { caption: "chair", classname: "item_chairst" }
+---@field CHAIN { caption: "chain", classname: "item_chainst" }
+---@field FLASK { caption: "flask", classname: "item_flaskst" }
+---@field GOBLET { caption: "goblet", classname: "item_gobletst" }
+---@field INSTRUMENT { caption: "instrument", is_rawable: "true", classname: "item_instrumentst" }
+---@field TOY { caption: "toy", is_rawable: "true", classname: "item_toyst" }
+---@field WINDOW { caption: "window", classname: "item_windowst" }
+---@field CAGE { caption: "cage", classname: "item_cagest" }
+---@field BARREL { caption: "barrel", classname: "item_barrelst" }
+---@field BUCKET { caption: "bucket", classname: "item_bucketst" }
+---@field ANIMALTRAP { caption: "animal trap", classname: "item_animaltrapst" }
+---@field TABLE { caption: "table", classname: "item_tablest" }
+---@field COFFIN { caption: "coffin", classname: "item_coffinst" }
+---@field STATUE { caption: "statue", classname: "item_statuest" }
+---@field CORPSE { caption: "corpse", classname: "item_corpsest" }
+---@field WEAPON { caption: "weapon", is_rawable: "true", classname: "item_weaponst" }
+---@field ARMOR { caption: "armor", is_rawable: "true", classname: "item_armorst" }
+---@field SHOES { caption: "footwear", is_rawable: "true", classname: "item_shoesst" }
+---@field SHIELD { caption: "shield", is_rawable: "true", classname: "item_shieldst" }
+---@field HELM { caption: "headwear", is_rawable: "true", classname: "item_helmst" }
+---@field GLOVES { caption: "handwear", is_rawable: "true", classname: "item_glovesst" }
+---@field BOX { caption: "box", classname: "item_boxst" }
+---@field BAG { caption: "bag", classname: "item_bagst" }
+---@field BIN { caption: "bin", classname: "item_binst" }
+---@field ARMORSTAND { caption: "armor stand", classname: "item_armorstandst" }
+---@field WEAPONRACK { caption: "weapon rack", classname: "item_weaponrackst" }
+---@field CABINET { caption: "cabinet", classname: "item_cabinetst" }
+---@field FIGURINE { caption: "figurine", classname: "item_figurinest" }
+---@field AMULET { caption: "amulet", classname: "item_amuletst" }
+---@field SCEPTER { caption: "scepter", classname: "item_scepterst" }
+---@field AMMO { caption: "ammo", is_rawable: "true", is_stackable: "true", classname: "item_ammost" }
+---@field CROWN { caption: "crown", classname: "item_crownst" }
+---@field RING { caption: "ring", classname: "item_ringst" }
+---@field EARRING { caption: "earring", classname: "item_earringst" }
+---@field BRACELET { caption: "bracelet", classname: "item_braceletst" }
+---@field GEM { caption: "large gem", classname: "item_gemst" }
+---@field ANVIL { caption: "anvil", classname: "item_anvilst" }
+---@field CORPSEPIECE { caption: "body part", classname: "item_corpsepiecest" }
+---@field REMAINS { caption: "remains", is_caste_mat: "true", is_stackable: "true", classname: "item_remainsst" }
+---@field MEAT { caption: "meat", is_stackable: "true", classname: "item_meatst" }
+---@field FISH { caption: "fish", is_caste_mat: "true", is_stackable: "true", classname: "item_fishst" }
+---@field FISH_RAW { caption: "raw fish", is_caste_mat: "true", is_stackable: "true", classname: "item_fish_rawst" }
+---@field VERMIN { caption: "vermin", is_caste_mat: "true", classname: "item_verminst" }
+---@field PET { caption: "tame vermin", is_caste_mat: "true", classname: "item_petst" }
+---@field SEEDS { caption: "seeds", classname: "item_seedsst" }
+---@field PLANT { caption: "plant", is_stackable: "true", classname: "item_plantst" }
+---@field SKIN_TANNED { caption: "leather", classname: "item_skin_tannedst" }
+---@field PLANT_GROWTH { caption: "plant growth", is_stackable: "true", classname: "item_plant_growthst" }
+---@field THREAD { caption: "thread", classname: "item_threadst" }
+---@field CLOTH { caption: "cloth", classname: "item_clothst" }
+---@field TOTEM { caption: "totem", classname: "item_totemst" }
+---@field PANTS { caption: "legwear", is_rawable: "true", classname: "item_pantsst" }
+---@field BACKPACK { caption: "backpack", classname: "item_backpackst" }
+---@field QUIVER { caption: "quiver", classname: "item_quiverst" }
+---@field CATAPULTPARTS { caption: "catapult part", classname: "item_catapultpartsst" }
+---@field BALLISTAPARTS { caption: "ballista part", classname: "item_ballistapartsst" }
+---@field SIEGEAMMO { caption: "siege ammo", is_rawable: "true", classname: "item_siegeammost" }
+---@field BALLISTAARROWHEAD { caption: "ballista arrow head", classname: "item_ballistaarrowheadst" }
+---@field TRAPPARTS { caption: "mechanism", classname: "item_trappartsst" }
+---@field TRAPCOMP { caption: "trap component", is_rawable: "true", classname: "item_trapcompst" }
+---@field DRINK { caption: "drink", is_stackable: "true", classname: "item_drinkst" }
+---@field POWDER_MISC { caption: "powder", is_stackable: "true", classname: "item_powder_miscst" }
+---@field CHEESE { caption: "cheese", is_stackable: "true", classname: "item_cheesest" }
+---@field FOOD { caption: "prepared meal", is_stackable: "true", classname: "item_foodst" }
+---@field LIQUID_MISC { caption: "liquid", is_stackable: "true", classname: "item_liquid_miscst" }
+---@field COIN { caption: "coin", is_stackable: "true", classname: "item_coinst" }
+---@field GLOB { caption: "glob", classname: "item_globst" }
+---@field ROCK { caption: "small rock", classname: "item_rockst" }
+---@field PIPE_SECTION { caption: "pipe section", classname: "item_pipe_sectionst" }
+---@field HATCH_COVER { caption: "hatch cover", classname: "item_hatch_coverst" }
+---@field GRATE { caption: "grate", classname: "item_gratest" }
+---@field QUERN { caption: "quern", classname: "item_quernst" }
+---@field MILLSTONE { caption: "millstone", classname: "item_millstonest" }
+---@field SPLINT { caption: "splint", classname: "item_splintst" }
+---@field CRUTCH { caption: "crutch", classname: "item_crutchst" }
+---@field TRACTION_BENCH { caption: "traction bench", classname: "item_traction_benchst" }
+---@field ORTHOPEDIC_CAST { caption: "orthopedic cast", classname: "item_orthopedic_castst" }
+---@field TOOL { caption: "tool", is_rawable: "true", classname: "item_toolst" }
+---@field SLAB { caption: "slab", classname: "item_slabst" }
+---@field EGG { caption: "egg", is_caste_mat: "true", is_stackable: "true", classname: "item_eggst" }
+---@field BOOK { caption: "book", classname: "item_bookst" }
+---@field SHEET { caption: "sheet", classname: "item_sheetst" }
+---@field BRANCH { caption: "branch", classname: "item_branchst" }
 df.item_type.attrs = {}
 
----@class weapon_attack: df.class
+---@class (exact) weapon_attack: DFObject
+---@field _kind 'struct'
+---@field _type _weapon_attack
 ---@field edged boolean
----@field contact integer
----@field penetration integer
----@field velocity_mult integer
----@field verb_2nd df.string
----@field verb_3rd df.string
----@field noun df.string
----@field prepare integer
----@field recover integer
----@field flags weapon_attack_flags
+---@field contact number
+---@field penetration number
+---@field velocity_mult number
+---@field verb_2nd string
+---@field verb_3rd string
+---@field noun string
+---@field prepare number
+---@field recover number
+---@field flags weapon_attack.T_flags
+local weapon_attack
+
+---@class _weapon_attack: DFCompound
+---@field _kind 'struct-type'
 df.weapon_attack = {}
 
----@class _weapon_attack_flags: integer, string, df.bitfield
----@field independent_multiattack 0
----@field [0] "independent_multiattack"
----@field bad_multiattack 1
----@field [1] "bad_multiattack"
+---@class (exact) weapon_attack.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _weapon_attack.T_flags
+---@field independent_multiattack flag-bit
+---@field bad_multiattack flag-bit
+local flags
+
+---@class _weapon_attack.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.weapon_attack.T_flags = {}
 
----@class weapon_attack_flags
----@field [0] boolean
----@field independent_multiattack boolean
----@field [1] boolean
----@field bad_multiattack boolean
+---@alias itemdef_flags
+---| 0 # GENERATED
 
----@class _itemdef_flags: integer, string, df.enum
+---@class _itemdef_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 df.itemdef_flags = {}
 
----@class itemdef_flags
----@field [0] boolean
----@field GENERATED boolean
+---@class (exact) itemdef: DFObject
+---@field _kind 'struct'
+---@field _type _itemdef
+---@field id string
+---@field subtype number
+---@field source_hfid number References: `historical_figure`
+---@field source_enid number References: `historical_entity`
+---@field  number
+---@field  number
+local itemdef
 
----@class itemdef: df.class
----@field id df.string
----@field subtype integer
----@field base_flags itemdef_flags[]
----@field source_hfid integer References: historical_figure
----@field source_enid integer References: historical_entity
----@field raw_strings df.string[]
+---@class _itemdef: DFCompound
+---@field _kind 'class-type'
 df.itemdef = {}
 
----@param unk_0 integer
----@param unk_1 integer
----@param unk_2 integer
----@param unk_3 integer
----@param unk_4 integer
-function df.itemdef.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
+---@alias ammo_flags
+---| 0 # HAS_EDGE_ATTACK
 
----add to world.raws.itemdefs.whatever
-function df.itemdef.categorize() end
-
----calculate stuff like base value
-function df.itemdef.finalize() end
-
----@class _ammo_flags: integer, string, df.enum
+---@class _ammo_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field HAS_EDGE_ATTACK 0
 ---@field [0] "HAS_EDGE_ATTACK"
 df.ammo_flags = {}
 
----@class ammo_flags
----@field [0] boolean
----@field HAS_EDGE_ATTACK boolean
+---@class (exact) itemdef_ammost: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_ammost
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field ammo_class string
+---@field size number divided by 10
+---@field value number
+local itemdef_ammost
 
----@class itemdef_ammost: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field adjective df.string
----@field ammo_class df.string
----@field flags ammo_flags[]
----@field size integer divided by 10
----@field value integer
----@field attacks weapon_attack[]
+---@class _itemdef_ammost: DFCompound
+---@field _kind 'class-type'
 df.itemdef_ammost = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_ammost|nil
 function df.itemdef_ammost.find(key) end
 
----@class _armor_general_flags: integer, string, df.enum
+---@class itemdef_ammost_vector: DFVector, { [integer]: itemdef_ammost }
+local itemdef_ammost_vector
+
+---@return itemdef_ammost_vector # df.global.world.raws.itemdefs.ammo
+function df.itemdef_ammost.get_vector() end
+
+---@alias armor_general_flags
+---| 0 # SOFT
+---| 1 # HARD
+---| 2 # METAL
+---| 3 # BARRED
+---| 4 # SCALED
+---| 5 # LEATHER
+---| 6 # SHAPED
+---| 7 # CHAIN_METAL_TEXT
+---| 8 # STRUCTURAL_ELASTICITY_WOVEN_THREAD
+---| 9 # STRUCTURAL_ELASTICITY_CHAIN_METAL
+---| 10 # STRUCTURAL_ELASTICITY_CHAIN_ALL
+
+---@class _armor_general_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field SOFT 0
 ---@field [0] "SOFT"
 ---@field HARD 1
@@ -494,125 +520,171 @@ function df.itemdef_ammost.find(key) end
 ---@field [10] "STRUCTURAL_ELASTICITY_CHAIN_ALL"
 df.armor_general_flags = {}
 
----@class armor_general_flags
----@field [0] boolean
----@field SOFT boolean
----@field [1] boolean
----@field HARD boolean
----@field [2] boolean
----@field METAL boolean
----@field [3] boolean
----@field BARRED boolean
----@field [4] boolean
----@field SCALED boolean
----@field [5] boolean
----@field LEATHER boolean
----@field [6] boolean
----@field SHAPED boolean
----@field [7] boolean
----@field CHAIN_METAL_TEXT boolean
----@field [8] boolean
----@field STRUCTURAL_ELASTICITY_WOVEN_THREAD boolean
----@field [9] boolean
----@field STRUCTURAL_ELASTICITY_CHAIN_METAL boolean
----@field [10] boolean
----@field STRUCTURAL_ELASTICITY_CHAIN_ALL boolean
+---@class (exact) armor_properties: DFObject
+---@field _kind 'struct'
+---@field _type _armor_properties
+---@field layer number
+---@field layer_size number
+---@field layer_permit number
+---@field coverage number
+local armor_properties
 
----@class armor_properties: df.class
----@field flags armor_general_flags[]
----@field layer integer
----@field layer_size integer
----@field layer_permit integer
----@field coverage integer
+---@class _armor_properties: DFCompound
+---@field _kind 'struct-type'
 df.armor_properties = {}
 
----@class _armor_flags: integer, string, df.enum
+---@alias armor_flags
+---| 0 # METAL_ARMOR_LEVELS
+
+---@class _armor_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.armor_flags = {}
 
----@class armor_flags
----@field [0] boolean
----@field METAL_ARMOR_LEVELS boolean
-
----@class itemdef_armorst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field name_preplural df.string
----@field material_placeholder df.string
----@field adjective df.string
----@field value integer
----@field armorlevel integer
----@field ubstep integer
----@field lbstep integer
----@field material_size integer
+---@class (exact) itemdef_armorst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_armorst
+---@field name string
+---@field name_plural string
+---@field name_preplural string
+---@field material_placeholder string
+---@field adjective string
+---@field value number
+---@field armorlevel number
+---@field ubstep number
+---@field lbstep number
+---@field material_size number
 ---@field props armor_properties
----@field flags armor_flags[]
+---@field  number
+---@field  number
+local itemdef_armorst
+
+---@class _itemdef_armorst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_armorst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_armorst|nil
 function df.itemdef_armorst.find(key) end
 
----@class itemdef_foodst: itemdef, df.instance
----@field name df.string
----@field level integer
+---@class itemdef_armorst_vector: DFVector, { [integer]: itemdef_armorst }
+local itemdef_armorst_vector
+
+---@return itemdef_armorst_vector # df.global.world.raws.itemdefs.armor
+function df.itemdef_armorst.get_vector() end
+
+---@class (exact) itemdef_foodst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_foodst
+---@field name string
+---@field level number
+---@field  number
+---@field  number
+local itemdef_foodst
+
+---@class _itemdef_foodst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_foodst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_foodst|nil
 function df.itemdef_foodst.find(key) end
 
----@class _gloves_flags: integer, string, df.enum
+---@class itemdef_foodst_vector: DFVector, { [integer]: itemdef_foodst }
+local itemdef_foodst_vector
+
+---@return itemdef_foodst_vector # df.global.world.raws.itemdefs.food
+function df.itemdef_foodst.get_vector() end
+
+---@alias gloves_flags
+---| 0 # METAL_ARMOR_LEVELS
+
+---@class _gloves_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.gloves_flags = {}
 
----@class gloves_flags
----@field [0] boolean
----@field METAL_ARMOR_LEVELS boolean
-
----@class itemdef_glovesst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field adjective df.string
----@field value integer
----@field armorlevel integer
----@field upstep integer
----@field flags gloves_flags[]
----@field material_size integer
+---@class (exact) itemdef_glovesst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_glovesst
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value number
+---@field armorlevel number
+---@field upstep number
+---@field material_size number
 ---@field props armor_properties
+---@field  number
+---@field  number
+local itemdef_glovesst
+
+---@class _itemdef_glovesst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_glovesst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_glovesst|nil
 function df.itemdef_glovesst.find(key) end
 
----@class _helm_flags: integer, string, df.enum
+---@class itemdef_glovesst_vector: DFVector, { [integer]: itemdef_glovesst }
+local itemdef_glovesst_vector
+
+---@return itemdef_glovesst_vector # df.global.world.raws.itemdefs.gloves
+function df.itemdef_glovesst.get_vector() end
+
+---@alias helm_flags
+---| 0 # METAL_ARMOR_LEVELS
+
+---@class _helm_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.helm_flags = {}
 
----@class helm_flags
----@field [0] boolean
----@field METAL_ARMOR_LEVELS boolean
-
----@class itemdef_helmst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field adjective df.string
----@field value integer
----@field armorlevel integer
----@field flags helm_flags[]
----@field material_size integer
+---@class (exact) itemdef_helmst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_helmst
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value number
+---@field armorlevel number
+---@field material_size number
 ---@field props armor_properties
+---@field  number
+---@field  number
+local itemdef_helmst
+
+---@class _itemdef_helmst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_helmst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_helmst|nil
 function df.itemdef_helmst.find(key) end
 
----@class _instrument_flags: integer, string, df.enum
+---@class itemdef_helmst_vector: DFVector, { [integer]: itemdef_helmst }
+local itemdef_helmst_vector
+
+---@return itemdef_helmst_vector # df.global.world.raws.itemdefs.helms
+function df.itemdef_helmst.get_vector() end
+
+---@alias instrument_flags
+---| 0 # INDEFINITE_PITCH
+---| 1 # PLACED_AS_BUILDING
+---| 2 # METAL_MAT
+---| 3 # STONE_MAT
+---| 4 # WOOD_MAT
+---| 5 # GLASS_MAT
+---| 6 # CERAMIC_MAT
+---| 7 # SHELL_MAT
+---| 8 # BONE_MAT
+
+---@class _instrument_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field INDEFINITE_PITCH 0
 ---@field [0] "INDEFINITE_PITCH"
 ---@field PLACED_AS_BUILDING 1
@@ -633,63 +705,62 @@ function df.itemdef_helmst.find(key) end
 ---@field [8] "BONE_MAT"
 df.instrument_flags = {}
 
----@class instrument_flags
----@field [0] boolean
----@field INDEFINITE_PITCH boolean
----@field [1] boolean
----@field PLACED_AS_BUILDING boolean
----@field [2] boolean
----@field METAL_MAT boolean
----@field [3] boolean
----@field STONE_MAT boolean
----@field [4] boolean
----@field WOOD_MAT boolean
----@field [5] boolean
----@field GLASS_MAT boolean
----@field [6] boolean
----@field CERAMIC_MAT boolean
----@field [7] boolean
----@field SHELL_MAT boolean
----@field [8] boolean
----@field BONE_MAT boolean
-
----@class itemdef_instrumentst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field flags instrument_flags[]
+---@class (exact) itemdef_instrumentst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_instrumentst
+---@field name string
+---@field name_plural string
 ---@field music_skill job_skill
----@field size integer
----@field value integer
----@field material_size integer
----@field pieces instrument_piece[]
----@field dominant_instrument_piece df.string
----@field pitch_range_min integer
----@field pitch_range_max integer
----@field volume_mb_min integer
----@field volume_mb_max integer
----@field sound_production df.container
----@field sound_production_parm1 df.string[]
----@field sound_production_parm2 df.string[]
----@field unk_100 df.container
----@field unk_110 df.container
----@field pitch_choice df.container
----@field pitch_choice_parm1 df.string[]
----@field pitch_choice_parm2 df.string[]
----@field unk_150 df.container
----@field unk_160 df.container
----@field tuning df.container
----@field tuning_parm df.string[]
----@field unk_190 df.container
----@field registers instrument_register[]
----@field timbre df.container
----@field description df.string
+---@field size number
+---@field value number
+---@field material_size number
+---@field dominant_instrument_piece string
+---@field pitch_range_min number
+---@field pitch_range_max number
+---@field volume_mb_min number
+---@field volume_mb_max number
+---@field description string
+local itemdef_instrumentst
+
+---@class _itemdef_instrumentst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_instrumentst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_instrumentst|nil
 function df.itemdef_instrumentst.find(key) end
 
----@class _sound_production_type: integer, string, df.enum
+---@class itemdef_instrumentst_vector: DFVector, { [integer]: itemdef_instrumentst }
+local itemdef_instrumentst_vector
+
+---@return itemdef_instrumentst_vector # df.global.world.raws.itemdefs.instruments
+function df.itemdef_instrumentst.get_vector() end
+
+---@alias sound_production_type
+---| 0 # PLUCKED_BY_BP
+---| 1 # PLUCKED
+---| 2 # BOWED
+---| 3 # STRUCK_BY_BP
+---| 4 # STRUCK
+---| 5 # VIBRATE_BP_AGAINST_OPENING
+---| 6 # BLOW_AGAINST_FIPPLE
+---| 7 # BLOW_OVER_OPENING_SIDE
+---| 8 # BLOW_OVER_OPENING_END
+---| 9 # BLOW_OVER_SINGLE_REED
+---| 10 # BLOW_OVER_DOUBLE_REED
+---| 11 # BLOW_OVER_FREE_REED
+---| 12 # STRUCK_TOGETHER
+---| 13 # SHAKEN
+---| 14 # SCRAPED
+---| 15 # FRICTION
+---| 16 # RESONATOR
+---| 17 # BAG_OVER_REED
+---| 18 # AIR_OVER_REED
+---| 19 # AIR_OVER_FREE_REED
+---| 20 # AIR_AGAINST_FIPPLE
+
+---@class _sound_production_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field PLUCKED_BY_BP 0
 ---@field [0] "PLUCKED_BY_BP"
 ---@field PLUCKED 1
@@ -734,51 +805,22 @@ function df.itemdef_instrumentst.find(key) end
 ---@field [20] "AIR_AGAINST_FIPPLE"
 df.sound_production_type = {}
 
----@class sound_production_type
----@field [0] boolean
----@field PLUCKED_BY_BP boolean
----@field [1] boolean
----@field PLUCKED boolean
----@field [2] boolean
----@field BOWED boolean
----@field [3] boolean
----@field STRUCK_BY_BP boolean
----@field [4] boolean
----@field STRUCK boolean
----@field [5] boolean
----@field VIBRATE_BP_AGAINST_OPENING boolean
----@field [6] boolean
----@field BLOW_AGAINST_FIPPLE boolean
----@field [7] boolean
----@field BLOW_OVER_OPENING_SIDE boolean
----@field [8] boolean
----@field BLOW_OVER_OPENING_END boolean
----@field [9] boolean
----@field BLOW_OVER_SINGLE_REED boolean
----@field [10] boolean
----@field BLOW_OVER_DOUBLE_REED boolean
----@field [11] boolean
----@field BLOW_OVER_FREE_REED boolean
----@field [12] boolean
----@field STRUCK_TOGETHER boolean
----@field [13] boolean
----@field SHAKEN boolean
----@field [14] boolean
----@field SCRAPED boolean
----@field [15] boolean
----@field FRICTION boolean
----@field [16] boolean
----@field RESONATOR boolean
----@field [17] boolean
----@field BAG_OVER_REED boolean
----@field [18] boolean
----@field AIR_OVER_REED boolean
----@field [19] boolean
----@field AIR_OVER_FREE_REED boolean
----@field [20] boolean
----@field AIR_AGAINST_FIPPLE boolean
+---@alias pitch_choice_type
+---| 0 # MEMBRANE_POSITION
+---| 1 # SUBPART_CHOICE
+---| 2 # KEYBOARD
+---| 3 # STOPPING_FRET
+---| 4 # STOPPING_AGAINST_BODY
+---| 5 # STOPPING_HOLE
+---| 6 # STOPPING_HOLE_KEY
+---| 7 # SLIDE
+---| 8 # HARMONIC_SERIES
+---| 9 # VALVE_ROUTES_AIR
+---| 10 # BP_IN_BELL
+---| 11 # FOOT_PEDALS
 
----@class _pitch_choice_type: integer, string, df.enum
+---@class _pitch_choice_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field MEMBRANE_POSITION 0
 ---@field [0] "MEMBRANE_POSITION"
 ---@field SUBPART_CHOICE 1
@@ -805,33 +847,15 @@ df.sound_production_type = {}
 ---@field [11] "FOOT_PEDALS"
 df.pitch_choice_type = {}
 
----@class pitch_choice_type
----@field [0] boolean
----@field MEMBRANE_POSITION boolean
----@field [1] boolean
----@field SUBPART_CHOICE boolean
----@field [2] boolean
----@field KEYBOARD boolean
----@field [3] boolean
----@field STOPPING_FRET boolean
----@field [4] boolean
----@field STOPPING_AGAINST_BODY boolean
----@field [5] boolean
----@field STOPPING_HOLE boolean
----@field [6] boolean
----@field STOPPING_HOLE_KEY boolean
----@field [7] boolean
----@field SLIDE boolean
----@field [8] boolean
----@field HARMONIC_SERIES boolean
----@field [9] boolean
----@field VALVE_ROUTES_AIR boolean
----@field [10] boolean
----@field BP_IN_BELL boolean
----@field [11] boolean
----@field FOOT_PEDALS boolean
+---@alias tuning_type
+---| 0 # PEGS
+---| 1 # ADJUSTABLE_BRIDGES
+---| 2 # CROOKS
+---| 3 # TIGHTENING
+---| 4 # LEVERS
 
----@class _tuning_type: integer, string, df.enum
+---@class _tuning_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field PEGS 0
 ---@field [0] "PEGS"
 ---@field ADJUSTABLE_BRIDGES 1
@@ -844,19 +868,73 @@ df.pitch_choice_type = {}
 ---@field [4] "LEVERS"
 df.tuning_type = {}
 
----@class tuning_type
----@field [0] boolean
----@field PEGS boolean
----@field [1] boolean
----@field ADJUSTABLE_BRIDGES boolean
----@field [2] boolean
----@field CROOKS boolean
----@field [3] boolean
----@field TIGHTENING boolean
----@field [4] boolean
----@field LEVERS boolean
+---@alias timbre_type
+---| 0 # CLEAR
+---| 1 # NOISY
+---| 2 # FULL
+---| 3 # THIN
+---| 4 # ROUND
+---| 5 # SHARP
+---| 6 # SMOOTH
+---| 7 # CHOPPY
+---| 8 # STEADY
+---| 9 # EVOLVING
+---| 10 # STRONG
+---| 11 # DELICATE
+---| 12 # BRIGHT
+---| 13 # GRACEFUL
+---| 14 # SPARSE
+---| 15 # BREATHY
+---| 16 # STRAINED
+---| 17 # BROAD
+---| 18 # LIGHT
+---| 19 # MELLOW
+---| 20 # WOBBLING
+---| 21 # FOCUSED
+---| 22 # EVEN
+---| 23 # FLUID
+---| 24 # VIBRATING
+---| 25 # QUAVERING
+---| 26 # EERIE
+---| 27 # FRAGILE
+---| 28 # BRITTLE
+---| 29 # PURE_
+---| 30 # PIERCING
+---| 31 # STRIDENT
+---| 32 # WAVERING
+---| 33 # HARSH
+---| 34 # REEDY
+---| 35 # NASAL
+---| 36 # BUZZY
+---| 37 # ROUGH
+---| 38 # WARM
+---| 39 # RUGGED
+---| 40 # HEAVY
+---| 41 # FLAT
+---| 42 # DARK
+---| 43 # CRISP
+---| 44 # SONOROUS
+---| 45 # WATERY
+---| 46 # GENTLE
+---| 47 # SLICING
+---| 48 # LIQUID
+---| 49 # RAUCOUS
+---| 50 # BREEZY
+---| 51 # RASPY
+---| 52 # WISPY
+---| 53 # SHRILL
+---| 54 # MUDDY
+---| 55 # RICH
+---| 56 # DULL
+---| 57 # FLOATING
+---| 58 # RINGING
+---| 59 # RESONANT
+---| 60 # SWEET
+---| 61 # RIPPLING
+---| 62 # SPARKLING
 
----@class _timbre_type: integer, string, df.enum
+---@class _timbre_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field CLEAR 0
 ---@field [0] "CLEAR"
 ---@field NOISY 1
@@ -985,240 +1063,196 @@ df.tuning_type = {}
 ---@field [62] "SPARKLING"
 df.timbre_type = {}
 
----@class timbre_type
----@field [0] boolean
----@field CLEAR boolean
----@field [1] boolean
----@field NOISY boolean
----@field [2] boolean
----@field FULL boolean
----@field [3] boolean
----@field THIN boolean
----@field [4] boolean
----@field ROUND boolean
----@field [5] boolean
----@field SHARP boolean
----@field [6] boolean
----@field SMOOTH boolean
----@field [7] boolean
----@field CHOPPY boolean
----@field [8] boolean
----@field STEADY boolean
----@field [9] boolean
----@field EVOLVING boolean
----@field [10] boolean
----@field STRONG boolean
----@field [11] boolean
----@field DELICATE boolean
----@field [12] boolean
----@field BRIGHT boolean
----@field [13] boolean
----@field GRACEFUL boolean
----@field [14] boolean
----@field SPARSE boolean
----@field [15] boolean
----@field BREATHY boolean
----@field [16] boolean
----@field STRAINED boolean
----@field [17] boolean
----@field BROAD boolean
----@field [18] boolean
----@field LIGHT boolean
----@field [19] boolean
----@field MELLOW boolean
----@field [20] boolean
----@field WOBBLING boolean
----@field [21] boolean
----@field FOCUSED boolean
----@field [22] boolean
----@field EVEN boolean
----@field [23] boolean
----@field FLUID boolean
----@field [24] boolean
----@field VIBRATING boolean
----@field [25] boolean
----@field QUAVERING boolean
----@field [26] boolean
----@field EERIE boolean
----@field [27] boolean
----@field FRAGILE boolean
----@field [28] boolean
----@field BRITTLE boolean
----@field [29] boolean
----@field PURE_ boolean
----@field [30] boolean
----@field PIERCING boolean
----@field [31] boolean
----@field STRIDENT boolean
----@field [32] boolean
----@field WAVERING boolean
----@field [33] boolean
----@field HARSH boolean
----@field [34] boolean
----@field REEDY boolean
----@field [35] boolean
----@field NASAL boolean
----@field [36] boolean
----@field BUZZY boolean
----@field [37] boolean
----@field ROUGH boolean
----@field [38] boolean
----@field WARM boolean
----@field [39] boolean
----@field RUGGED boolean
----@field [40] boolean
----@field HEAVY boolean
----@field [41] boolean
----@field FLAT boolean
----@field [42] boolean
----@field DARK boolean
----@field [43] boolean
----@field CRISP boolean
----@field [44] boolean
----@field SONOROUS boolean
----@field [45] boolean
----@field WATERY boolean
----@field [46] boolean
----@field GENTLE boolean
----@field [47] boolean
----@field SLICING boolean
----@field [48] boolean
----@field LIQUID boolean
----@field [49] boolean
----@field RAUCOUS boolean
----@field [50] boolean
----@field BREEZY boolean
----@field [51] boolean
----@field RASPY boolean
----@field [52] boolean
----@field WISPY boolean
----@field [53] boolean
----@field SHRILL boolean
----@field [54] boolean
----@field MUDDY boolean
----@field [55] boolean
----@field RICH boolean
----@field [56] boolean
----@field DULL boolean
----@field [57] boolean
----@field FLOATING boolean
----@field [58] boolean
----@field RINGING boolean
----@field [59] boolean
----@field RESONANT boolean
----@field [60] boolean
----@field SWEET boolean
----@field [61] boolean
----@field RIPPLING boolean
----@field [62] boolean
----@field SPARKLING boolean
+---@class (exact) instrument_piece: DFObject
+---@field _kind 'struct'
+---@field _type _instrument_piece
+---@field type string
+---@field id string
+---@field index number
+---@field name string
+---@field name_plural string
+---@field flags instrument_piece.T_flags
+local instrument_piece
 
----@class instrument_piece: df.class
----@field type df.string
----@field id df.string
----@field index integer
----@field name df.string
----@field name_plural df.string
----@field flags instrument_piece_flags
+---@class _instrument_piece: DFCompound
+---@field _kind 'struct-type'
 df.instrument_piece = {}
 
----@class _instrument_piece_flags: integer, string, df.bitfield
----@field always_singular 0
----@field [0] "always_singular"
----@field always_plural 1
----@field [1] "always_plural"
+---@class (exact) instrument_piece.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _instrument_piece.T_flags
+---@field always_singular flag-bit
+---@field always_plural flag-bit
+local flags
+
+---@class _instrument_piece.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.instrument_piece.T_flags = {}
 
----@class instrument_piece_flags
----@field [0] boolean
----@field always_singular boolean
----@field [1] boolean
----@field always_plural boolean
+---@class (exact) instrument_register: DFObject
+---@field _kind 'struct'
+---@field _type _instrument_register
+---@field pitch_range_min number
+---@field pitch_range_max number
+local instrument_register
 
----@class instrument_register: df.class
----@field pitch_range_min integer
----@field pitch_range_max integer
----@field timbres df.container
+---@class _instrument_register: DFCompound
+---@field _kind 'struct-type'
 df.instrument_register = {}
 
----@class _pants_flags: integer, string, df.enum
+---@alias pants_flags
+---| 0 # METAL_ARMOR_LEVELS
+
+---@class _pants_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.pants_flags = {}
 
----@class pants_flags
----@field [0] boolean
----@field METAL_ARMOR_LEVELS boolean
-
----@class itemdef_pantsst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field name_preplural df.string
----@field material_placeholder df.string
----@field adjective df.string
----@field value integer
----@field armorlevel integer
----@field flags pants_flags[]
----@field material_size integer
----@field lbstep integer
+---@class (exact) itemdef_pantsst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_pantsst
+---@field name string
+---@field name_plural string
+---@field name_preplural string
+---@field material_placeholder string
+---@field adjective string
+---@field value number
+---@field armorlevel number
+---@field material_size number
+---@field lbstep number
 ---@field props armor_properties
+---@field  number
+---@field  number
+local itemdef_pantsst
+
+---@class _itemdef_pantsst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_pantsst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_pantsst|nil
 function df.itemdef_pantsst.find(key) end
 
----@class itemdef_shieldst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field adjective df.string
----@field value integer
----@field blockchance integer
----@field armorlevel integer
----@field upstep integer
----@field material_size integer
+---@class itemdef_pantsst_vector: DFVector, { [integer]: itemdef_pantsst }
+local itemdef_pantsst_vector
+
+---@return itemdef_pantsst_vector # df.global.world.raws.itemdefs.pants
+function df.itemdef_pantsst.get_vector() end
+
+---@class (exact) itemdef_shieldst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_shieldst
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value number
+---@field blockchance number
+---@field armorlevel number
+---@field upstep number
+---@field material_size number
+---@field  number
+---@field  number
+local itemdef_shieldst
+
+---@class _itemdef_shieldst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_shieldst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_shieldst|nil
 function df.itemdef_shieldst.find(key) end
 
----@class _shoes_flags: integer, string, df.enum
+---@class itemdef_shieldst_vector: DFVector, { [integer]: itemdef_shieldst }
+local itemdef_shieldst_vector
+
+---@return itemdef_shieldst_vector # df.global.world.raws.itemdefs.shields
+function df.itemdef_shieldst.get_vector() end
+
+---@alias shoes_flags
+---| 0 # METAL_ARMOR_LEVELS
+
+---@class _shoes_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field METAL_ARMOR_LEVELS 0
 ---@field [0] "METAL_ARMOR_LEVELS"
 df.shoes_flags = {}
 
----@class shoes_flags
----@field [0] boolean
----@field METAL_ARMOR_LEVELS boolean
-
----@class itemdef_shoesst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field adjective df.string
----@field value integer
----@field armorlevel integer
----@field upstep integer
----@field flags shoes_flags[]
----@field material_size integer
+---@class (exact) itemdef_shoesst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_shoesst
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field value number
+---@field armorlevel number
+---@field upstep number
+---@field material_size number
 ---@field props armor_properties
+---@field  number
+---@field  number
+local itemdef_shoesst
+
+---@class _itemdef_shoesst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_shoesst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_shoesst|nil
 function df.itemdef_shoesst.find(key) end
 
----@class itemdef_siegeammost: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field ammo_class df.string
+---@class itemdef_shoesst_vector: DFVector, { [integer]: itemdef_shoesst }
+local itemdef_shoesst_vector
+
+---@return itemdef_shoesst_vector # df.global.world.raws.itemdefs.shoes
+function df.itemdef_shoesst.get_vector() end
+
+---@class (exact) itemdef_siegeammost: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_siegeammost
+---@field name string
+---@field name_plural string
+---@field ammo_class string
+local itemdef_siegeammost
+
+---@class _itemdef_siegeammost: DFCompound
+---@field _kind 'class-type'
 df.itemdef_siegeammost = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_siegeammost|nil
 function df.itemdef_siegeammost.find(key) end
 
----@class _tool_flags: integer, string, df.enum
+---@class itemdef_siegeammost_vector: DFVector, { [integer]: itemdef_siegeammost }
+local itemdef_siegeammost_vector
+
+---@return itemdef_siegeammost_vector # df.global.world.raws.itemdefs.siege_ammo
+function df.itemdef_siegeammost.get_vector() end
+
+---@alias tool_flags
+---| 0 # HARD_MAT
+---| 1 # METAL_MAT
+---| 2 # HAS_EDGE_ATTACK
+---| 3 # METAL_WEAPON_MAT
+---| 4 # UNIMPROVABLE
+---| 5 # SOFT_MAT
+---| 6 # WOOD_MAT
+---| 7 # INVERTED_TILE
+---| 8 # FURNITURE
+---| 9 # LEATHER_MAT
+---| 10 # SILK_MAT
+---| 11 # THREAD_PLANT_MAT
+---| 12 # GLASS_MAT
+---| 13 # CERAMIC_MAT
+---| 14 # STONE_MAT
+---| 15 # SHELL_MAT
+---| 16 # BONE_MAT
+---| 17 # NO_DEFAULT_JOB
+---| 18 # INCOMPLETE_ITEM
+---| 19 # SHEET_MAT
+
+---@class _tool_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 ---@field METAL_MAT 1
@@ -1261,217 +1295,172 @@ function df.itemdef_siegeammost.find(key) end
 ---@field [19] "SHEET_MAT"
 df.tool_flags = {}
 
----@class tool_flags
----@field [0] boolean
----@field HARD_MAT boolean
----@field [1] boolean
----@field METAL_MAT boolean
----@field [2] boolean
----@field HAS_EDGE_ATTACK boolean
----@field [3] boolean
----@field METAL_WEAPON_MAT boolean
----@field [4] boolean
----@field UNIMPROVABLE boolean
----@field [5] boolean
----@field SOFT_MAT boolean
----@field [6] boolean
----@field WOOD_MAT boolean
----@field [7] boolean
----@field INVERTED_TILE boolean
----@field [8] boolean
----@field FURNITURE boolean
----@field [9] boolean
----@field LEATHER_MAT boolean
----@field [10] boolean
----@field SILK_MAT boolean
----@field [11] boolean
----@field THREAD_PLANT_MAT boolean
----@field [12] boolean
----@field GLASS_MAT boolean
----@field [13] boolean
----@field CERAMIC_MAT boolean
----@field [14] boolean
----@field STONE_MAT boolean
----@field [15] boolean
----@field SHELL_MAT boolean
----@field [16] boolean
----@field BONE_MAT boolean
----@field [17] boolean
----@field NO_DEFAULT_JOB boolean
----@field [18] boolean
----@field INCOMPLETE_ITEM boolean
----@field [19] boolean
----@field SHEET_MAT boolean
+---@alias tool_uses
+---| -1 # NONE
+---| 0 # LIQUID_COOKING
+---| 1 # LIQUID_SCOOP
+---| 2 # GRIND_POWDER_RECEPTACLE
+---| 3 # GRIND_POWDER_GRINDER
+---| 4 # MEAT_CARVING
+---| 5 # MEAT_BONING
+---| 6 # MEAT_SLICING
+---| 7 # MEAT_CLEAVING
+---| 8 # HOLD_MEAT_FOR_CARVING
+---| 9 # MEAL_CONTAINER
+---| 10 # LIQUID_CONTAINER
+---| 11 # FOOD_STORAGE
+---| 12 # HIVE
+---| 13 # NEST_BOX
+---| 14 # SMALL_OBJECT_STORAGE
+---| 15 # TRACK_CART
+---| 16 # HEAVY_OBJECT_HAULING
+---| 17 # STAND_AND_WORK_ABOVE
+---| 18 # ROLL_UP_SHEET
+---| 19 # PROTECT_FOLDED_SHEETS
+---| 20 # CONTAIN_WRITING
+---| 21 # BOOKCASE
+---| 22 # DISPLAY_OBJECT
+---| 23 # PLACE_OFFERING
+---| 24 # DIVINATION
+---| 25 # GAMES_OF_CHANCE
 
----@class _tool_uses: integer, string, df.enum
+---@class _tool_uses: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field LIQUID_COOKING 1
----@field [1] "LIQUID_COOKING"
----@field LIQUID_SCOOP 2
----@field [2] "LIQUID_SCOOP"
----@field GRIND_POWDER_RECEPTACLE 3
----@field [3] "GRIND_POWDER_RECEPTACLE"
----@field GRIND_POWDER_GRINDER 4
----@field [4] "GRIND_POWDER_GRINDER"
----@field MEAT_CARVING 5
----@field [5] "MEAT_CARVING"
----@field MEAT_BONING 6
----@field [6] "MEAT_BONING"
----@field MEAT_SLICING 7
----@field [7] "MEAT_SLICING"
----@field MEAT_CLEAVING 8
----@field [8] "MEAT_CLEAVING"
----@field HOLD_MEAT_FOR_CARVING 9
----@field [9] "HOLD_MEAT_FOR_CARVING"
----@field MEAL_CONTAINER 10
----@field [10] "MEAL_CONTAINER"
----@field LIQUID_CONTAINER 11
----@field [11] "LIQUID_CONTAINER"
----@field FOOD_STORAGE 12
----@field [12] "FOOD_STORAGE"
----@field HIVE 13
----@field [13] "HIVE"
----@field NEST_BOX 14
----@field [14] "NEST_BOX"
----@field SMALL_OBJECT_STORAGE 15
----@field [15] "SMALL_OBJECT_STORAGE"
----@field TRACK_CART 16
----@field [16] "TRACK_CART"
----@field HEAVY_OBJECT_HAULING 17
----@field [17] "HEAVY_OBJECT_HAULING"
----@field STAND_AND_WORK_ABOVE 18
----@field [18] "STAND_AND_WORK_ABOVE"
----@field ROLL_UP_SHEET 19
----@field [19] "ROLL_UP_SHEET"
----@field PROTECT_FOLDED_SHEETS 20
----@field [20] "PROTECT_FOLDED_SHEETS"
----@field CONTAIN_WRITING 21
----@field [21] "CONTAIN_WRITING"
----@field BOOKCASE 22
----@field [22] "BOOKCASE"
----@field DISPLAY_OBJECT 23
----@field [23] "DISPLAY_OBJECT"
----@field PLACE_OFFERING 24
----@field [24] "PLACE_OFFERING"
----@field DIVINATION 25
----@field [25] "DIVINATION"
----@field GAMES_OF_CHANCE 26
----@field [26] "GAMES_OF_CHANCE"
+---@field [-1] "NONE"
+---@field LIQUID_COOKING 0
+---@field [0] "LIQUID_COOKING"
+---@field LIQUID_SCOOP 1
+---@field [1] "LIQUID_SCOOP"
+---@field GRIND_POWDER_RECEPTACLE 2
+---@field [2] "GRIND_POWDER_RECEPTACLE"
+---@field GRIND_POWDER_GRINDER 3
+---@field [3] "GRIND_POWDER_GRINDER"
+---@field MEAT_CARVING 4
+---@field [4] "MEAT_CARVING"
+---@field MEAT_BONING 5
+---@field [5] "MEAT_BONING"
+---@field MEAT_SLICING 6
+---@field [6] "MEAT_SLICING"
+---@field MEAT_CLEAVING 7
+---@field [7] "MEAT_CLEAVING"
+---@field HOLD_MEAT_FOR_CARVING 8
+---@field [8] "HOLD_MEAT_FOR_CARVING"
+---@field MEAL_CONTAINER 9
+---@field [9] "MEAL_CONTAINER"
+---@field LIQUID_CONTAINER 10
+---@field [10] "LIQUID_CONTAINER"
+---@field FOOD_STORAGE 11
+---@field [11] "FOOD_STORAGE"
+---@field HIVE 12
+---@field [12] "HIVE"
+---@field NEST_BOX 13
+---@field [13] "NEST_BOX"
+---@field SMALL_OBJECT_STORAGE 14
+---@field [14] "SMALL_OBJECT_STORAGE"
+---@field TRACK_CART 15
+---@field [15] "TRACK_CART"
+---@field HEAVY_OBJECT_HAULING 16
+---@field [16] "HEAVY_OBJECT_HAULING"
+---@field STAND_AND_WORK_ABOVE 17
+---@field [17] "STAND_AND_WORK_ABOVE"
+---@field ROLL_UP_SHEET 18
+---@field [18] "ROLL_UP_SHEET"
+---@field PROTECT_FOLDED_SHEETS 19
+---@field [19] "PROTECT_FOLDED_SHEETS"
+---@field CONTAIN_WRITING 20
+---@field [20] "CONTAIN_WRITING"
+---@field BOOKCASE 21
+---@field [21] "BOOKCASE"
+---@field DISPLAY_OBJECT 22
+---@field [22] "DISPLAY_OBJECT"
+---@field PLACE_OFFERING 23
+---@field [23] "PLACE_OFFERING"
+---@field DIVINATION 24
+---@field [24] "DIVINATION"
+---@field GAMES_OF_CHANCE 25
+---@field [25] "GAMES_OF_CHANCE"
 df.tool_uses = {}
 
----@class tool_uses
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field LIQUID_COOKING boolean
----@field [2] boolean
----@field LIQUID_SCOOP boolean
----@field [3] boolean
----@field GRIND_POWDER_RECEPTACLE boolean
----@field [4] boolean
----@field GRIND_POWDER_GRINDER boolean
----@field [5] boolean
----@field MEAT_CARVING boolean
----@field [6] boolean
----@field MEAT_BONING boolean
----@field [7] boolean
----@field MEAT_SLICING boolean
----@field [8] boolean
----@field MEAT_CLEAVING boolean
----@field [9] boolean
----@field HOLD_MEAT_FOR_CARVING boolean
----@field [10] boolean
----@field MEAL_CONTAINER boolean
----@field [11] boolean
----@field LIQUID_CONTAINER boolean
----@field [12] boolean
----@field FOOD_STORAGE boolean
----@field [13] boolean
----@field HIVE boolean
----@field [14] boolean
----@field NEST_BOX boolean
----@field [15] boolean
----@field SMALL_OBJECT_STORAGE boolean
----@field [16] boolean
----@field TRACK_CART boolean
----@field [17] boolean
----@field HEAVY_OBJECT_HAULING boolean
----@field [18] boolean
----@field STAND_AND_WORK_ABOVE boolean
----@field [19] boolean
----@field ROLL_UP_SHEET boolean
----@field [20] boolean
----@field PROTECT_FOLDED_SHEETS boolean
----@field [21] boolean
----@field CONTAIN_WRITING boolean
----@field [22] boolean
----@field BOOKCASE boolean
----@field [23] boolean
----@field DISPLAY_OBJECT boolean
----@field [24] boolean
----@field PLACE_OFFERING boolean
----@field [25] boolean
----@field DIVINATION boolean
----@field [26] boolean
----@field GAMES_OF_CHANCE boolean
-
----@class itemdef_toolst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field flags tool_flags[]
----@field value integer
+---@class (exact) itemdef_toolst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_toolst
+---@field name string
+---@field name_plural string
+---@field value number
 ---@field tile integer
----@field tool_use tool_uses[]
----@field adjective df.string
----@field size integer
+---@field adjective string
+---@field size number
 ---@field skill_melee job_skill
 ---@field skill_ranged job_skill
----@field ranged_ammo df.string
----@field two_handed integer
----@field minimum_size integer
----@field material_size integer
----@field attacks weapon_attack[]
----@field shoot_force integer
----@field shoot_maxvel integer
----@field container_capacity integer
----@field shape_category_str df.string[]
----@field shape_category df.container References: descriptor_shape
----@field description df.string
----@field default_improvements itemdef_toolst_default_improvements[]
+---@field ranged_ammo string
+---@field two_handed number
+---@field minimum_size number
+---@field material_size number
+---@field shoot_force number
+---@field shoot_maxvel number
+---@field container_capacity number
+---@field description string
+local itemdef_toolst
+
+---@class _itemdef_toolst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_toolst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_toolst|nil
 function df.itemdef_toolst.find(key) end
 
----@class itemdef_toolst_default_improvements: df.class
----@field type improvement_type
----@field specific_type itemimprovement_specific_type
----@field instrument_part df.string
----@field restriction tool_flags
-df.itemdef_toolst.T_default_improvements = {}
+---@class itemdef_toolst_vector: DFVector, { [integer]: itemdef_toolst }
+local itemdef_toolst_vector
 
----@class _toy_flags: integer, string, df.enum
+---@return itemdef_toolst_vector # df.global.world.raws.itemdefs.tools
+function df.itemdef_toolst.get_vector() end
+
+---@alias toy_flags
+---| 0 # HARD_MAT
+
+---@class _toy_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field HARD_MAT 0
 ---@field [0] "HARD_MAT"
 df.toy_flags = {}
 
----@class toy_flags
----@field [0] boolean
----@field HARD_MAT boolean
+---@class (exact) itemdef_toyst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_toyst
+---@field name string
+---@field name_plural string
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+local itemdef_toyst
 
----@class itemdef_toyst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field flags toy_flags[]
+---@class _itemdef_toyst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_toyst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_toyst|nil
 function df.itemdef_toyst.find(key) end
 
----@class _trapcomp_flags: integer, string, df.enum
+---@class itemdef_toyst_vector: DFVector, { [integer]: itemdef_toyst }
+local itemdef_toyst_vector
+
+---@return itemdef_toyst_vector # df.global.world.raws.itemdefs.toys
+function df.itemdef_toyst.get_vector() end
+
+---@alias trapcomp_flags
+---| 0 # IS_SCREW
+---| 1 # IS_SPIKE
+---| 2 # WOOD
+---| 3 # METAL
+---| 4 # HAS_EDGE_ATTACK
+
+---@class _trapcomp_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field IS_SCREW 0
 ---@field [0] "IS_SCREW"
 ---@field IS_SPIKE 1
@@ -1484,35 +1473,39 @@ function df.itemdef_toyst.find(key) end
 ---@field [4] "HAS_EDGE_ATTACK"
 df.trapcomp_flags = {}
 
----@class trapcomp_flags
----@field [0] boolean
----@field IS_SCREW boolean
----@field [1] boolean
----@field IS_SPIKE boolean
----@field [2] boolean
----@field WOOD boolean
----@field [3] boolean
----@field METAL boolean
----@field [4] boolean
----@field HAS_EDGE_ATTACK boolean
+---@class (exact) itemdef_trapcompst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_trapcompst
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field size number
+---@field value number
+---@field hits number
+---@field material_size number
+local itemdef_trapcompst
 
----@class itemdef_trapcompst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field adjective df.string
----@field size integer
----@field value integer
----@field hits integer
----@field material_size integer
----@field flags trapcomp_flags[]
----@field attacks weapon_attack[]
+---@class _itemdef_trapcompst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_trapcompst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_trapcompst|nil
 function df.itemdef_trapcompst.find(key) end
 
----@class _weapon_flags: integer, string, df.enum
+---@class itemdef_trapcompst_vector: DFVector, { [integer]: itemdef_trapcompst }
+local itemdef_trapcompst_vector
+
+---@return itemdef_trapcompst_vector # df.global.world.raws.itemdefs.trapcomps
+function df.itemdef_trapcompst.get_vector() end
+
+---@alias weapon_flags
+---| 0 # CAN_STONE
+---| 1 # HAS_EDGE_ATTACK
+---| 2 # TRAINING
+
+---@class _weapon_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field CAN_STONE 0
 ---@field [0] "CAN_STONE"
 ---@field HAS_EDGE_ATTACK 1
@@ -1521,33 +1514,35 @@ function df.itemdef_trapcompst.find(key) end
 ---@field [2] "TRAINING"
 df.weapon_flags = {}
 
----@class weapon_flags
----@field [0] boolean
----@field CAN_STONE boolean
----@field [1] boolean
----@field HAS_EDGE_ATTACK boolean
----@field [2] boolean
----@field TRAINING boolean
-
----@class itemdef_weaponst: itemdef, df.instance
----@field name df.string
----@field name_plural df.string
----@field adjective df.string
----@field size integer
----@field value integer
+---@class (exact) itemdef_weaponst: DFObject, itemdef
+---@field _kind 'struct'
+---@field _type _itemdef_weaponst
+---@field name string
+---@field name_plural string
+---@field adjective string
+---@field size number
+---@field value number
 ---@field skill_melee job_skill
 ---@field skill_ranged job_skill
----@field ranged_ammo df.string
----@field two_handed integer
----@field minimum_size integer
----@field material_size integer
----@field flags weapon_flags[]
----@field attacks weapon_attack[]
----@field shoot_force integer
----@field shoot_maxvel integer
+---@field ranged_ammo string
+---@field two_handed number
+---@field minimum_size number
+---@field material_size number
+---@field shoot_force number
+---@field shoot_maxvel number
+local itemdef_weaponst
+
+---@class _itemdef_weaponst: DFCompound
+---@field _kind 'class-type'
 df.itemdef_weaponst = {}
 
----@param key integer
+---@param key number
 ---@return itemdef_weaponst|nil
 function df.itemdef_weaponst.find(key) end
+
+---@class itemdef_weaponst_vector: DFVector, { [integer]: itemdef_weaponst }
+local itemdef_weaponst_vector
+
+---@return itemdef_weaponst_vector # df.global.world.raws.itemdefs.weapons
+function df.itemdef_weaponst.get_vector() end
 

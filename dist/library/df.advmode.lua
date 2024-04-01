@@ -1,19 +1,73 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.advmode
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _ui_advmode_menu: integer, string, df.enum
----@field Default 0
----@field [0] "Default"
----@field Look 1
----@field [1] "Look"
+---@alias ui_advmode_menu
+---| 0 # Default
+---| 1 # Look
+---| 2 # ConversationAddress
+---| 3 # ConversationSelect
+---| 4 # ConversationSpeak
+---| 5 # Inventory
+---| 6 # Drop
+---| 7 # ThrowItem
+---| 8 # Wear
+---| 9 # Remove
+---| 10 # Interact
+---| 11 # Put
+---| 12 # PutContainer
+---| 13 # Eat
+---| 14 # ThrowAim
+---| 15 # Fire
+---| 16 # Get
+---| 17 # GetAmount
+---| 18 # CombatPrefs
+---| 19 # Companions
+---| 20 # MovementPrefs
+---| 21 # SpeedPrefs
+---| 22 # InteractAction
+---| 23 # MoveCarefully
+---| 24 # Announcements
+---| 25 # UseBuilding
+---| 26 # Travel
+---| 27 # TravelSleep
+---| 28 # ViewFreshestTrack
+---| 29 # SleepConfirm
+---| 30 # SelectInteractionTarget
+---| 31 # InteractChoices
+---| 32 # InteractVehicle
+---| 33 # FallAction
+---| 34 # ViewTracks
+---| 35 # Jump
+---| 36 # AttackCreature
+---| 37 # AttackConfirm
+---| 38 # AttackType
+---| 39 # AttackBodypart
+---| 40 # AttackStrike
+---| 41 # DefendParry
+---| 42 # DefendBlock
+---| 43 # DodgeDirection
+---| 44 # PerformanceSelect
+---| 45 # InterruptPerformanceConfirm
+---| 46 # Build
+---| 47 # AssumeIdentity
+---| 48 # NameItem
+---| 49 # BecomePartyMember
+---| 50 # PartyTacticalSettings
+
+---@class _ui_advmode_menu: DFDescriptor
+---@field _kind 'enum-type'
+---@field Default 0 original name is 'AdventureViewModes'
+---@field [0] "Default" original name is 'AdventureViewModes'
+---@field Look 1 MAIN
+---@field [1] "Look" MAIN
 ---@field ConversationAddress 2
 ---@field [2] "ConversationAddress"
----@field ConversationSelect 3
----@field [3] "ConversationSelect"
----@field ConversationSpeak 4
----@field [4] "ConversationSpeak"
----@field Inventory 5
----@field [5] "Inventory"
+---@field ConversationSelect 3 CONVERSATION_START_NEW
+---@field [3] "ConversationSelect" CONVERSATION_START_NEW
+---@field ConversationSpeak 4 CONVERSATION_LIST
+---@field [4] "ConversationSpeak" CONVERSATION_LIST
+---@field Inventory 5 CONVERATION_TALK<br>5
+---@field [5] "Inventory" CONVERATION_TALK<br>5
 ---@field Drop 6
 ---@field [6] "Drop"
 ---@field ThrowItem 7
@@ -22,8 +76,8 @@
 ---@field [8] "Wear"
 ---@field Remove 9
 ---@field [9] "Remove"
----@field Interact 10
----@field [10] "Interact"
+---@field Interact 10 10
+---@field [10] "Interact" 10
 ---@field Put 11
 ---@field [11] "Put"
 ---@field PutContainer 12
@@ -32,213 +86,114 @@
 ---@field [13] "Eat"
 ---@field ThrowAim 14
 ---@field [14] "ThrowAim"
----@field Fire 15
----@field [15] "Fire"
+---@field Fire 15 15
+---@field [15] "Fire" 15
 ---@field Get 16
 ---@field [16] "Get"
----@field Unk17 17
----@field [17] "Unk17"
----@field CombatPrefs 18
----@field [18] "CombatPrefs"
+---@field GetAmount 17
+---@field [17] "GetAmount"
+---@field CombatPrefs 18 PICKUP_AMOUNT
+---@field [18] "CombatPrefs" PICKUP_AMOUNT
 ---@field Companions 19
 ---@field [19] "Companions"
----@field MovementPrefs 20
----@field [20] "MovementPrefs"
+---@field MovementPrefs 20 20
+---@field [20] "MovementPrefs" 20
 ---@field SpeedPrefs 21
 ---@field [21] "SpeedPrefs"
----@field InteractAction 22
----@field [22] "InteractAction"
+---@field InteractAction 22 SPEED_SNEAK
+---@field [22] "InteractAction" SPEED_SNEAK
 ---@field MoveCarefully 23
 ---@field [23] "MoveCarefully"
 ---@field Announcements 24
 ---@field [24] "Announcements"
----@field UseBuilding 25
----@field [25] "UseBuilding"
+---@field UseBuilding 25 25
+---@field [25] "UseBuilding" 25
 ---@field Travel 26
 ---@field [26] "Travel"
 ---@field TravelSleep 27
 ---@field [27] "TravelSleep"
----@field ViewFreshestTrack 28
----@field [28] "ViewFreshestTrack"
+---@field ViewFreshestTrack 28 A_FRESHEST_TRACK
+---@field [28] "ViewFreshestTrack" A_FRESHEST_TRACK
 ---@field SleepConfirm 29
 ---@field [29] "SleepConfirm"
----@field SelectInteractionTarget 30
----@field [30] "SelectInteractionTarget"
----@field InteractChoices 31
----@field [31] "InteractChoices"
----@field InteractVehicle 32
----@field [32] "InteractVehicle"
+---@field SelectInteractionTarget 30 30
+---@field [30] "SelectInteractionTarget" 30
+---@field InteractChoices 31 For example, after inputting A_BUILDING while standing on the same tile as a lever and a minecart
+---@field [31] "InteractChoices" For example, after inputting A_BUILDING while standing on the same tile as a lever and a minecart
+---@field InteractVehicle 32 Interacting with a minecart
+---@field [32] "InteractVehicle" Interacting with a minecart
 ---@field FallAction 33
 ---@field [33] "FallAction"
 ---@field ViewTracks 34
 ---@field [34] "ViewTracks"
----@field Jump 35
----@field [35] "Jump"
+---@field Jump 35 35
+---@field [35] "Jump" 35
 ---@field AttackCreature 36
 ---@field [36] "AttackCreature"
----@field AttackConfirm 37
----@field [37] "AttackConfirm"
----@field AttackType 38
----@field [38] "AttackType"
----@field AttackBodypart 39
----@field [39] "AttackBodypart"
----@field AttackStrike 40
----@field [40] "AttackStrike"
----@field Unk41 41
----@field [41] "Unk41"
----@field Unk42 42
----@field [42] "Unk42"
----@field DodgeDirection 43
----@field [43] "DodgeDirection"
----@field PerformanceSelect 44
----@field [44] "PerformanceSelect"
----@field InterruptPerformanceConfirm 45
----@field [45] "InterruptPerformanceConfirm"
----@field Build 46
----@field [46] "Build"
+---@field AttackConfirm 37 ATTACKCREATURE_UNIT_CHOICE
+---@field [37] "AttackConfirm" ATTACKCREATURE_UNIT_CHOICE
+---@field AttackType 38 ATTACKCREATURE_CONFIRM
+---@field [38] "AttackType" ATTACKCREATURE_CONFIRM
+---@field AttackBodypart 39 ATTACKCREATURE_MOVE_CHOICE
+---@field [39] "AttackBodypart" ATTACKCREATURE_MOVE_CHOICE
+---@field AttackStrike 40 ATTACKCREATURE_AIM_TARGET<br>40
+---@field [40] "AttackStrike" ATTACKCREATURE_AIM_TARGET<br>40
+---@field DefendParry 41 ATTACKCREATURE_AIM_ATTACK
+---@field [41] "DefendParry" ATTACKCREATURE_AIM_ATTACK
+---@field DefendBlock 42 ATTACKCREATURE_PARRY_CHOICE
+---@field [42] "DefendBlock" ATTACKCREATURE_PARRY_CHOICE
+---@field DodgeDirection 43 ATTACKCREATURE_BLOCK_CHOICE
+---@field [43] "DodgeDirection" ATTACKCREATURE_BLOCK_CHOICE
+---@field PerformanceSelect 44 ATTACKCREATURE_DODGE_CHOICE
+---@field [44] "PerformanceSelect" ATTACKCREATURE_DODGE_CHOICE
+---@field InterruptPerformanceConfirm 45 START_PERFORMANCE<br>45
+---@field [45] "InterruptPerformanceConfirm" START_PERFORMANCE<br>45
+---@field Build 46 MOVE_CONFIRM
+---@field [46] "Build" MOVE_CONFIRM
 ---@field AssumeIdentity 47
 ---@field [47] "AssumeIdentity"
 ---@field NameItem 48
 ---@field [48] "NameItem"
 ---@field BecomePartyMember 49
 ---@field [49] "BecomePartyMember"
----@field PartyTacticalSettings 50
----@field [50] "PartyTacticalSettings"
+---@field PartyTacticalSettings 50 50
+---@field [50] "PartyTacticalSettings" 50
 df.ui_advmode_menu = {}
 
----@class ui_advmode_menu
----@field [0] boolean
----@field Default boolean
----@field [1] boolean
----@field Look boolean
----@field [2] boolean
----@field ConversationAddress boolean
----@field [3] boolean
----@field ConversationSelect boolean
----@field [4] boolean
----@field ConversationSpeak boolean
----@field [5] boolean
----@field Inventory boolean
----@field [6] boolean
----@field Drop boolean
----@field [7] boolean
----@field ThrowItem boolean
----@field [8] boolean
----@field Wear boolean
----@field [9] boolean
----@field Remove boolean
----@field [10] boolean
----@field Interact boolean
----@field [11] boolean
----@field Put boolean
----@field [12] boolean
----@field PutContainer boolean
----@field [13] boolean
----@field Eat boolean
----@field [14] boolean
----@field ThrowAim boolean
----@field [15] boolean
----@field Fire boolean
----@field [16] boolean
----@field Get boolean
----@field [17] boolean
----@field Unk17 boolean
----@field [18] boolean
----@field CombatPrefs boolean
----@field [19] boolean
----@field Companions boolean
----@field [20] boolean
----@field MovementPrefs boolean
----@field [21] boolean
----@field SpeedPrefs boolean
----@field [22] boolean
----@field InteractAction boolean
----@field [23] boolean
----@field MoveCarefully boolean
----@field [24] boolean
----@field Announcements boolean
----@field [25] boolean
----@field UseBuilding boolean
----@field [26] boolean
----@field Travel boolean
----@field [27] boolean
----@field TravelSleep boolean
----@field [28] boolean
----@field ViewFreshestTrack boolean
----@field [29] boolean
----@field SleepConfirm boolean
----@field [30] boolean
----@field SelectInteractionTarget boolean
----@field [31] boolean
----@field InteractChoices boolean
----@field [32] boolean
----@field InteractVehicle boolean
----@field [33] boolean
----@field FallAction boolean
----@field [34] boolean
----@field ViewTracks boolean
----@field [35] boolean
----@field Jump boolean
----@field [36] boolean
----@field AttackCreature boolean
----@field [37] boolean
----@field AttackConfirm boolean
----@field [38] boolean
----@field AttackType boolean
----@field [39] boolean
----@field AttackBodypart boolean
----@field [40] boolean
----@field AttackStrike boolean
----@field [41] boolean
----@field Unk41 boolean
----@field [42] boolean
----@field Unk42 boolean
----@field [43] boolean
----@field DodgeDirection boolean
----@field [44] boolean
----@field PerformanceSelect boolean
----@field [45] boolean
----@field InterruptPerformanceConfirm boolean
----@field [46] boolean
----@field Build boolean
----@field [47] boolean
----@field AssumeIdentity boolean
----@field [48] boolean
----@field NameItem boolean
----@field [49] boolean
----@field BecomePartyMember boolean
----@field [50] boolean
----@field PartyTacticalSettings boolean
+---@class (exact) conversation: DFObject
+---@field _kind 'struct'
+---@field _type _conversation
+---@field conv_title string
+---@field state conversation.T_state
+---@field unk_30 number References: `unit`
+---@field unk_34 number References: `historical_figure`
+---@field unk_38 number
+---@field unk_3c number References: `unit`
+---@field unk_40 number References: `historical_figure`
+---@field unk_44 number
+---@field unk_48 number References: `unit`
+---@field unk_4c number References: `historical_figure`
+---@field unk_50 number
+---@field unk_74 number
+---@field unk_78 number
+---@field unk_7c number
+---@field unk_80 number
+---@field unk_b8 number
+---@field unk_bc number
+local conversation
 
----@class conversation: df.class
----@field conv_title df.string
----@field state conversation_state
----@field talk_choices df.container
----@field unk_30 integer References: unit
----@field unk_34 integer References: historical_figure
----@field unk_38 integer
----@field unk_3c integer References: unit
----@field unk_40 integer References: historical_figure
----@field unk_44 integer
----@field unk_48 integer References: unit
----@field unk_4c integer References: historical_figure
----@field unk_50 integer
----@field unk_54 nemesis_record[]
----@field unk_64 historical_entity[]
----@field unk_74 integer
----@field unk_78 integer
----@field unk_7c integer
----@field unk_80 integer
----@field unk_84 df.container
----@field unk_94 df.container
----@field unk_a4 df.container
----@field location building civzone
----@field unk_b8 integer
----@field unk_bc integer
----@field speech conversation_speech[]
+---@class _conversation: DFCompound
+---@field _kind 'struct-type'
 df.conversation = {}
 
----@class _conversation_state: integer, string, df.enum
+---@alias conversation.T_state
+---| 0 # started
+---| 1 # active
+---| 2 # finished
+---| 3 # quit
+
+---@class _conversation.T_state: DFDescriptor
+---@field _kind 'enum-type'
 ---@field started 0
 ---@field [0] "started"
 ---@field active 1
@@ -249,30 +204,232 @@ df.conversation = {}
 ---@field [3] "quit"
 df.conversation.T_state = {}
 
----@class conversation_state
----@field [0] boolean
----@field started boolean
----@field [1] boolean
----@field active boolean
----@field [2] boolean
----@field finished boolean
----@field [3] boolean
----@field quit boolean
+---@alias talk_choice_type
+---| 0 # Greet
+---| 1 # Nevermind
+---| 2 # Trade
+---| 3 # AskJoin
+---| 4 # AskSurroundings
+---| 5 # SayGoodbye
+---| 6 # AskStructure
+---| 7 # AskFamily
+---| 8 # AskProfession
+---| 9 # AskPermissionSleep
+---| 10 # AccuseNightCreature
+---| 11 # AskTroubles
+---| 12 # BringUpEvent
+---| 13 # SpreadRumor
+---| 14 # ReplyGreeting
+---| 15 # RefuseConversation
+---| 16 # ReplyImpersonate
+---| 17 # BringUpIncident
+---| 18 # TellNothingChanged
+---| 19 # Goodbye2
+---| 20 # ReturnTopic
+---| 21 # ChangeSubject
+---| 22 # AskTargetAction
+---| 23 # RequestSuggestAction
+---| 24 # AskJoinInsurrection
+---| 25 # AskJoinRescue
+---| 26 # StateOpinion
+---| 27 # RespondJoinInsurrection
+---| 29 # AllowPermissionSleep
+---| 30 # DenyPermissionSleep
+---| 32 # AskJoinAdventure
+---| 33 # AskGuideLocation
+---| 34 # RespondJoin
+---| 35 # RespondJoin2
+---| 36 # OfferCondolences
+---| 37 # StateNotAcquainted
+---| 38 # SuggestTravel
+---| 39 # SuggestTalk
+---| 40 # RequestSelfRescue
+---| 41 # AskWhatHappened
+---| 42 # AskBeRescued
+---| 43 # SayNotRemember
+---| 45 # SayNoFamily
+---| 46 # StateUnitLocation
+---| 47 # ReferToElder
+---| 48 # AskComeCloser
+---| 49 # DoBusiness
+---| 50 # AskComeStoreLater
+---| 51 # AskComeMarketLater
+---| 52 # TellTryShopkeeper
+---| 53 # DescribeSurroundings
+---| 54 # AskWaitUntilHome
+---| 55 # DescribeFamily
+---| 56 # StateAge
+---| 57 # DescribeProfession
+---| 58 # AnnounceNightCreature
+---| 59 # StateIncredulity
+---| 60 # BypassGreeting
+---| 61 # AskCeaseHostilities
+---| 62 # DemandYield
+---| 63 # HawkWares
+---| 64 # YieldTerror
+---| 65 # Yield
+---| 66 # ExpressOverwhelmingEmotion
+---| 67 # ExpressGreatEmotion
+---| 68 # ExpressEmotion
+---| 69 # ExpressMinorEmotion
+---| 70 # ExpressLackEmotion
+---| 71 # OutburstFleeConflict
+---| 72 # StateFleeConflict
+---| 73 # MentionJourney
+---| 74 # SummarizeTroubles
+---| 75 # AskAboutIncident
+---| 76 # AskDirectionsPerson
+---| 77 # AskDirectionsPlace
+---| 78 # AskWhereabouts
+---| 79 # RequestGuide
+---| 80 # RequestGuide2
+---| 81 # ProvideDirections
+---| 82 # ProvideWhereabouts
+---| 83 # TellTargetSelf
+---| 84 # TellTargetDead
+---| 85 # RecommendGuide
+---| 86 # ProfessIgnorance
+---| 87 # TellAboutPlace
+---| 88 # AskFavorMenu
+---| 89 # AskWait
+---| 90 # AskFollow
+---| 91 # ApologizeBusy
+---| 92 # ComplyOrder
+---| 93 # AgreeFollow
+---| 94 # ExchangeItems
+---| 95 # AskComeCloser2
+---| 96 # InitiateBarter
+---| 97 # AgreeCeaseHostile
+---| 98 # RefuseCeaseHostile
+---| 99 # RefuseCeaseHostile2
+---| 100 # RefuseYield
+---| 101 # RefuseYield2
+---| 102 # Brag
+---| 103 # DescribeRelation
+---| 104 # ClaimSite
+---| 105 # AnnounceLairHunt
+---| 106 # RequestDuty
+---| 107 # AskJoinService
+---| 108 # AcceptService
+---| 109 # TellRemainVigilant
+---| 110 # GiveServiceOrder
+---| 111 # WelcomeSelfHome
+---| 113 # AskTravelReason
+---| 114 # TellTravelReason
+---| 115 # AskLocalRuler
+---| 116 # ComplainAgreement
+---| 117 # CancelAgreement
+---| 118 # SummarizeConflict
+---| 119 # SummarizeViews
+---| 120 # AskClaimStrength
+---| 121 # AskArmyPosition
+---| 122 # AskOtherClaims
+---| 123 # AskDeserters
+---| 124 # AskSiteNeighbors
+---| 125 # DescribeSiteNeighbors
+---| 126 # RaiseAlarm
+---| 127 # DemandDropWeapon
+---| 128 # AgreeComplyDemand
+---| 129 # RefuseComplyDemand
+---| 130 # AskLocationObject
+---| 131 # DemandTribute
+---| 132 # AgreeGiveTribute
+---| 133 # RefuseGiveTribute
+---| 134 # OfferGiveTribute
+---| 135 # AgreeAcceptTribute
+---| 136 # RefuseAcceptTribute
+---| 137 # CancelTribute
+---| 138 # OfferPeace
+---| 139 # AgreePeace
+---| 140 # RefusePeace
+---| 141 # AskTradeDepotLater
+---| 142 # ExpressAstonishment
+---| 143 # CommentWeather
+---| 144 # CommentNature
+---| 145 # SummarizeTerritory
+---| 146 # SummarizePatrols
+---| 147 # SummarizeOpposition
+---| 148 # DescribeRefugees
+---| 149 # AccuseTroublemaker
+---| 150 # AskAdopt
+---| 151 # AgreeAdopt
+---| 152 # RefuseAdopt
+---| 153 # RevokeService
+---| 154 # InviteService
+---| 155 # AcceptInviteService
+---| 156 # RefuseShareInformation
+---| 157 # RefuseInviteService
+---| 158 # RefuseRequestService
+---| 159 # OfferService
+---| 160 # AcceptPositionService
+---| 161 # RefusePositionService
+---| 162 # InvokeNameBanish
+---| 163 # InvokeNameService
+---| 164 # GrovelMaster
+---| 165 # DemandItem
+---| 166 # GiveServiceReport
+---| 167 # OfferEncouragement
+---| 168 # PraiseTaskCompleter
+---| 169 # AskAboutPersonMenu
+---| 170 # AskAboutPerson
+---| 171 # TellAboutPerson
+---| 172 # AskFeelings
+---| 173 # TellThoughts
+---| 174 # AskServices
+---| 175 # TellServices
+---| 176 # OrderDrink
+---| 177 # RentRoom
+---| 178 # ExtendRoomRental
+---| 179 # ConfirmServiceOrder
+---| 180 # AskJoinEntertain
+---| 181 # RespondJoinEntertain
+---| 182 # AskJoinTroupe
+---| 184 # RefuseTroupeApplication
+---| 185 # InviteJoinTroupe
+---| 186 # AcceptTroupeInvitation
+---| 187 # RefuseTroupeInvitation
+---| 188 # KickOutOfTroupe
+---| 189 # CreateTroupe
+---| 190 # LeaveTroupe
+---| 191 # YellServiceOrder
+---| 192 # TellBePatientForService
+---| 193 # TellNoServices
+---| 194 # AskWaitUntilThere
+---| 195 # DenyWorkingHere
+---| 196 # ExpressEmotionMenu
+---| 197 # StateValueMenu
+---| 198 # StateValue
+---| 199 # SayNoOrderYet
+---| 200 # ProvideDirectionsBuilding
+---| 201 # Argue
+---| 202 # Flatter
+---| 203 # DismissArgument
+---| 204 # RespondPassively
+---| 205 # Acquiesce
+---| 206 # DerideFlattery
+---| 207 # ExpressOutrageAtDismissal
+---| 208 # PressArgument
+---| 209 # DropArgument
+---| 210 # AskWork
+---| 211 # AskWorkGroup
+---| 212 # GrantWork
+---| 213 # RefuseWork
+---| 214 # GrantWorkGroup
+---| 215 # RefuseWorkGroup
+---| 216 # GiveSquadOrder
+---| 217 # Artifact
+---| 218 # PraiseReturn
+---| 219 # ProvideLocation
+---| 220 # Prophesize
+---| 221 # TalkAboutAncestor
+---| 222 # SuggestTrade
+---| 223 # AcceptNotTrade
+---| 224 # DemandIdentity
 
-
----@class conversation_speech: df.class
----@field text df.string[] wordwrap
----@field speaker integer References: unit
----@field unk_14 integer
----@field unk_18 integer
----@field fg integer
----@field bg integer
----@field bright integer
-df.conversation.T_speech = {}
-
----@class _talk_choice_type: integer, string, df.enum
----@field Greet 0
----@field [0] "Greet"
+---@class _talk_choice_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field Greet 0 0
+---@field [0] "Greet" 0
 ---@field Nevermind 1
 ---@field [1] "Nevermind"
 ---@field Trade 2
@@ -291,8 +448,8 @@ df.conversation.T_speech = {}
 ---@field [8] "AskProfession"
 ---@field AskPermissionSleep 9
 ---@field [9] "AskPermissionSleep"
----@field AccuseNightCreature 10
----@field [10] "AccuseNightCreature"
+---@field AccuseNightCreature 10 10
+---@field [10] "AccuseNightCreature" 10
 ---@field AskTroubles 11
 ---@field [11] "AskTroubles"
 ---@field BringUpEvent 12
@@ -311,8 +468,8 @@ df.conversation.T_speech = {}
 ---@field [18] "TellNothingChanged"
 ---@field Goodbye2 19
 ---@field [19] "Goodbye2"
----@field ReturnTopic 20
----@field [20] "ReturnTopic"
+---@field ReturnTopic 20 20
+---@field [20] "ReturnTopic" 20
 ---@field ChangeSubject 21
 ---@field [21] "ChangeSubject"
 ---@field AskTargetAction 22
@@ -327,14 +484,10 @@ df.conversation.T_speech = {}
 ---@field [26] "StateOpinion"
 ---@field RespondJoinInsurrection 27
 ---@field [27] "RespondJoinInsurrection"
----@field unk_28 28
----@field [28] "unk_28"
 ---@field AllowPermissionSleep 29
 ---@field [29] "AllowPermissionSleep"
----@field DenyPermissionSleep 30
----@field [30] "DenyPermissionSleep"
----@field unk_31 31
----@field [31] "unk_31"
+---@field DenyPermissionSleep 30 30
+---@field [30] "DenyPermissionSleep" 30
 ---@field AskJoinAdventure 32
 ---@field [32] "AskJoinAdventure"
 ---@field AskGuideLocation 33
@@ -351,16 +504,14 @@ df.conversation.T_speech = {}
 ---@field [38] "SuggestTravel"
 ---@field SuggestTalk 39
 ---@field [39] "SuggestTalk"
----@field RequestSelfRescue 40
----@field [40] "RequestSelfRescue"
+---@field RequestSelfRescue 40 40
+---@field [40] "RequestSelfRescue" 40
 ---@field AskWhatHappened 41
 ---@field [41] "AskWhatHappened"
 ---@field AskBeRescued 42
 ---@field [42] "AskBeRescued"
 ---@field SayNotRemember 43
 ---@field [43] "SayNotRemember"
----@field unk_44 44
----@field [44] "unk_44"
 ---@field SayNoFamily 45
 ---@field [45] "SayNoFamily"
 ---@field StateUnitLocation 46
@@ -371,8 +522,8 @@ df.conversation.T_speech = {}
 ---@field [48] "AskComeCloser"
 ---@field DoBusiness 49
 ---@field [49] "DoBusiness"
----@field AskComeStoreLater 50
----@field [50] "AskComeStoreLater"
+---@field AskComeStoreLater 50 50
+---@field [50] "AskComeStoreLater" 50
 ---@field AskComeMarketLater 51
 ---@field [51] "AskComeMarketLater"
 ---@field TellTryShopkeeper 52
@@ -391,8 +542,8 @@ df.conversation.T_speech = {}
 ---@field [58] "AnnounceNightCreature"
 ---@field StateIncredulity 59
 ---@field [59] "StateIncredulity"
----@field BypassGreeting 60
----@field [60] "BypassGreeting"
+---@field BypassGreeting 60 60
+---@field [60] "BypassGreeting" 60
 ---@field AskCeaseHostilities 61
 ---@field [61] "AskCeaseHostilities"
 ---@field DemandYield 62
@@ -411,8 +562,8 @@ df.conversation.T_speech = {}
 ---@field [68] "ExpressEmotion"
 ---@field ExpressMinorEmotion 69
 ---@field [69] "ExpressMinorEmotion"
----@field ExpressLackEmotion 70
----@field [70] "ExpressLackEmotion"
+---@field ExpressLackEmotion 70 70
+---@field [70] "ExpressLackEmotion" 70
 ---@field OutburstFleeConflict 71
 ---@field [71] "OutburstFleeConflict"
 ---@field StateFleeConflict 72
@@ -431,8 +582,8 @@ df.conversation.T_speech = {}
 ---@field [78] "AskWhereabouts"
 ---@field RequestGuide 79
 ---@field [79] "RequestGuide"
----@field RequestGuide2 80
----@field [80] "RequestGuide2"
+---@field RequestGuide2 80 80
+---@field [80] "RequestGuide2" 80
 ---@field ProvideDirections 81
 ---@field [81] "ProvideDirections"
 ---@field ProvideWhereabouts 82
@@ -451,8 +602,8 @@ df.conversation.T_speech = {}
 ---@field [88] "AskFavorMenu"
 ---@field AskWait 89
 ---@field [89] "AskWait"
----@field AskFollow 90
----@field [90] "AskFollow"
+---@field AskFollow 90 90
+---@field [90] "AskFollow" 90
 ---@field ApologizeBusy 91
 ---@field [91] "ApologizeBusy"
 ---@field ComplyOrder 92
@@ -471,8 +622,8 @@ df.conversation.T_speech = {}
 ---@field [98] "RefuseCeaseHostile"
 ---@field RefuseCeaseHostile2 99
 ---@field [99] "RefuseCeaseHostile2"
----@field RefuseYield 100
----@field [100] "RefuseYield"
+---@field RefuseYield 100 100
+---@field [100] "RefuseYield" 100
 ---@field RefuseYield2 101
 ---@field [101] "RefuseYield2"
 ---@field Brag 102
@@ -491,12 +642,10 @@ df.conversation.T_speech = {}
 ---@field [108] "AcceptService"
 ---@field TellRemainVigilant 109
 ---@field [109] "TellRemainVigilant"
----@field GiveServiceOrder 110
----@field [110] "GiveServiceOrder"
+---@field GiveServiceOrder 110 110
+---@field [110] "GiveServiceOrder" 110
 ---@field WelcomeSelfHome 111
 ---@field [111] "WelcomeSelfHome"
----@field unk_112 112
----@field [112] "unk_112"
 ---@field AskTravelReason 113
 ---@field [113] "AskTravelReason"
 ---@field TellTravelReason 114
@@ -511,8 +660,8 @@ df.conversation.T_speech = {}
 ---@field [118] "SummarizeConflict"
 ---@field SummarizeViews 119
 ---@field [119] "SummarizeViews"
----@field AskClaimStrength 120
----@field [120] "AskClaimStrength"
+---@field AskClaimStrength 120 120
+---@field [120] "AskClaimStrength" 120
 ---@field AskArmyPosition 121
 ---@field [121] "AskArmyPosition"
 ---@field AskOtherClaims 122
@@ -531,8 +680,8 @@ df.conversation.T_speech = {}
 ---@field [128] "AgreeComplyDemand"
 ---@field RefuseComplyDemand 129
 ---@field [129] "RefuseComplyDemand"
----@field AskLocationObject 130
----@field [130] "AskLocationObject"
+---@field AskLocationObject 130 130
+---@field [130] "AskLocationObject" 130
 ---@field DemandTribute 131
 ---@field [131] "DemandTribute"
 ---@field AgreeGiveTribute 132
@@ -551,8 +700,8 @@ df.conversation.T_speech = {}
 ---@field [138] "OfferPeace"
 ---@field AgreePeace 139
 ---@field [139] "AgreePeace"
----@field RefusePeace 140
----@field [140] "RefusePeace"
+---@field RefusePeace 140 140
+---@field [140] "RefusePeace" 140
 ---@field AskTradeDepotLater 141
 ---@field [141] "AskTradeDepotLater"
 ---@field ExpressAstonishment 142
@@ -571,8 +720,8 @@ df.conversation.T_speech = {}
 ---@field [148] "DescribeRefugees"
 ---@field AccuseTroublemaker 149
 ---@field [149] "AccuseTroublemaker"
----@field AskAdopt 150
----@field [150] "AskAdopt"
+---@field AskAdopt 150 150
+---@field [150] "AskAdopt" 150
 ---@field AgreeAdopt 151
 ---@field [151] "AgreeAdopt"
 ---@field RefuseAdopt 152
@@ -591,8 +740,8 @@ df.conversation.T_speech = {}
 ---@field [158] "RefuseRequestService"
 ---@field OfferService 159
 ---@field [159] "OfferService"
----@field AcceptPositionService 160
----@field [160] "AcceptPositionService"
+---@field AcceptPositionService 160 160
+---@field [160] "AcceptPositionService" 160
 ---@field RefusePositionService 161
 ---@field [161] "RefusePositionService"
 ---@field InvokeNameBanish 162
@@ -611,8 +760,8 @@ df.conversation.T_speech = {}
 ---@field [168] "PraiseTaskCompleter"
 ---@field AskAboutPersonMenu 169
 ---@field [169] "AskAboutPersonMenu"
----@field AskAboutPerson 170
----@field [170] "AskAboutPerson"
+---@field AskAboutPerson 170 170
+---@field [170] "AskAboutPerson" 170
 ---@field TellAboutPerson 171
 ---@field [171] "TellAboutPerson"
 ---@field AskFeelings 172
@@ -631,14 +780,12 @@ df.conversation.T_speech = {}
 ---@field [178] "ExtendRoomRental"
 ---@field ConfirmServiceOrder 179
 ---@field [179] "ConfirmServiceOrder"
----@field AskJoinEntertain 180
----@field [180] "AskJoinEntertain"
+---@field AskJoinEntertain 180 180
+---@field [180] "AskJoinEntertain" 180
 ---@field RespondJoinEntertain 181
 ---@field [181] "RespondJoinEntertain"
 ---@field AskJoinTroupe 182
 ---@field [182] "AskJoinTroupe"
----@field unk_183 183
----@field [183] "unk_183"
 ---@field RefuseTroupeApplication 184
 ---@field [184] "RefuseTroupeApplication"
 ---@field InviteJoinTroupe 185
@@ -651,8 +798,8 @@ df.conversation.T_speech = {}
 ---@field [188] "KickOutOfTroupe"
 ---@field CreateTroupe 189
 ---@field [189] "CreateTroupe"
----@field LeaveTroupe 190
----@field [190] "LeaveTroupe"
+---@field LeaveTroupe 190 190
+---@field [190] "LeaveTroupe" 190
 ---@field YellServiceOrder 191
 ---@field [191] "YellServiceOrder"
 ---@field TellBePatientForService 192
@@ -671,8 +818,8 @@ df.conversation.T_speech = {}
 ---@field [198] "StateValue"
 ---@field SayNoOrderYet 199
 ---@field [199] "SayNoOrderYet"
----@field ProvideDirectionsBuilding 200
----@field [200] "ProvideDirectionsBuilding"
+---@field ProvideDirectionsBuilding 200 200
+---@field [200] "ProvideDirectionsBuilding" 200
 ---@field Argue 201
 ---@field [201] "Argue"
 ---@field Flatter 202
@@ -691,8 +838,8 @@ df.conversation.T_speech = {}
 ---@field [208] "PressArgument"
 ---@field DropArgument 209
 ---@field [209] "DropArgument"
----@field AskWork 210
----@field [210] "AskWork"
+---@field AskWork 210 210
+---@field [210] "AskWork" 210
 ---@field AskWorkGroup 211
 ---@field [211] "AskWorkGroup"
 ---@field GrantWork 212
@@ -711,8 +858,8 @@ df.conversation.T_speech = {}
 ---@field [218] "PraiseReturn"
 ---@field ProvideLocation 219
 ---@field [219] "ProvideLocation"
----@field Prophesize 220
----@field [220] "Prophesize"
+---@field Prophesize 220 220
+---@field [220] "Prophesize" 220
 ---@field TalkAboutAncestor 221
 ---@field [221] "TalkAboutAncestor"
 ---@field SuggestTrade 222
@@ -723,459 +870,15 @@ df.conversation.T_speech = {}
 ---@field [224] "DemandIdentity"
 df.talk_choice_type = {}
 
----@class talk_choice_type
----@field [0] boolean
----@field Greet boolean
----@field [1] boolean
----@field Nevermind boolean
----@field [2] boolean
----@field Trade boolean
----@field [3] boolean
----@field AskJoin boolean
----@field [4] boolean
----@field AskSurroundings boolean
----@field [5] boolean
----@field SayGoodbye boolean
----@field [6] boolean
----@field AskStructure boolean
----@field [7] boolean
----@field AskFamily boolean
----@field [8] boolean
----@field AskProfession boolean
----@field [9] boolean
----@field AskPermissionSleep boolean
----@field [10] boolean
----@field AccuseNightCreature boolean
----@field [11] boolean
----@field AskTroubles boolean
----@field [12] boolean
----@field BringUpEvent boolean
----@field [13] boolean
----@field SpreadRumor boolean
----@field [14] boolean
----@field ReplyGreeting boolean
----@field [15] boolean
----@field RefuseConversation boolean
----@field [16] boolean
----@field ReplyImpersonate boolean
----@field [17] boolean
----@field BringUpIncident boolean
----@field [18] boolean
----@field TellNothingChanged boolean
----@field [19] boolean
----@field Goodbye2 boolean
----@field [20] boolean
----@field ReturnTopic boolean
----@field [21] boolean
----@field ChangeSubject boolean
----@field [22] boolean
----@field AskTargetAction boolean
----@field [23] boolean
----@field RequestSuggestAction boolean
----@field [24] boolean
----@field AskJoinInsurrection boolean
----@field [25] boolean
----@field AskJoinRescue boolean
----@field [26] boolean
----@field StateOpinion boolean
----@field [27] boolean
----@field RespondJoinInsurrection boolean
----@field [28] boolean
----@field unk_28 boolean
----@field [29] boolean
----@field AllowPermissionSleep boolean
----@field [30] boolean
----@field DenyPermissionSleep boolean
----@field [31] boolean
----@field unk_31 boolean
----@field [32] boolean
----@field AskJoinAdventure boolean
----@field [33] boolean
----@field AskGuideLocation boolean
----@field [34] boolean
----@field RespondJoin boolean
----@field [35] boolean
----@field RespondJoin2 boolean
----@field [36] boolean
----@field OfferCondolences boolean
----@field [37] boolean
----@field StateNotAcquainted boolean
----@field [38] boolean
----@field SuggestTravel boolean
----@field [39] boolean
----@field SuggestTalk boolean
----@field [40] boolean
----@field RequestSelfRescue boolean
----@field [41] boolean
----@field AskWhatHappened boolean
----@field [42] boolean
----@field AskBeRescued boolean
----@field [43] boolean
----@field SayNotRemember boolean
----@field [44] boolean
----@field unk_44 boolean
----@field [45] boolean
----@field SayNoFamily boolean
----@field [46] boolean
----@field StateUnitLocation boolean
----@field [47] boolean
----@field ReferToElder boolean
----@field [48] boolean
----@field AskComeCloser boolean
----@field [49] boolean
----@field DoBusiness boolean
----@field [50] boolean
----@field AskComeStoreLater boolean
----@field [51] boolean
----@field AskComeMarketLater boolean
----@field [52] boolean
----@field TellTryShopkeeper boolean
----@field [53] boolean
----@field DescribeSurroundings boolean
----@field [54] boolean
----@field AskWaitUntilHome boolean
----@field [55] boolean
----@field DescribeFamily boolean
----@field [56] boolean
----@field StateAge boolean
----@field [57] boolean
----@field DescribeProfession boolean
----@field [58] boolean
----@field AnnounceNightCreature boolean
----@field [59] boolean
----@field StateIncredulity boolean
----@field [60] boolean
----@field BypassGreeting boolean
----@field [61] boolean
----@field AskCeaseHostilities boolean
----@field [62] boolean
----@field DemandYield boolean
----@field [63] boolean
----@field HawkWares boolean
----@field [64] boolean
----@field YieldTerror boolean
----@field [65] boolean
----@field Yield boolean
----@field [66] boolean
----@field ExpressOverwhelmingEmotion boolean
----@field [67] boolean
----@field ExpressGreatEmotion boolean
----@field [68] boolean
----@field ExpressEmotion boolean
----@field [69] boolean
----@field ExpressMinorEmotion boolean
----@field [70] boolean
----@field ExpressLackEmotion boolean
----@field [71] boolean
----@field OutburstFleeConflict boolean
----@field [72] boolean
----@field StateFleeConflict boolean
----@field [73] boolean
----@field MentionJourney boolean
----@field [74] boolean
----@field SummarizeTroubles boolean
----@field [75] boolean
----@field AskAboutIncident boolean
----@field [76] boolean
----@field AskDirectionsPerson boolean
----@field [77] boolean
----@field AskDirectionsPlace boolean
----@field [78] boolean
----@field AskWhereabouts boolean
----@field [79] boolean
----@field RequestGuide boolean
----@field [80] boolean
----@field RequestGuide2 boolean
----@field [81] boolean
----@field ProvideDirections boolean
----@field [82] boolean
----@field ProvideWhereabouts boolean
----@field [83] boolean
----@field TellTargetSelf boolean
----@field [84] boolean
----@field TellTargetDead boolean
----@field [85] boolean
----@field RecommendGuide boolean
----@field [86] boolean
----@field ProfessIgnorance boolean
----@field [87] boolean
----@field TellAboutPlace boolean
----@field [88] boolean
----@field AskFavorMenu boolean
----@field [89] boolean
----@field AskWait boolean
----@field [90] boolean
----@field AskFollow boolean
----@field [91] boolean
----@field ApologizeBusy boolean
----@field [92] boolean
----@field ComplyOrder boolean
----@field [93] boolean
----@field AgreeFollow boolean
----@field [94] boolean
----@field ExchangeItems boolean
----@field [95] boolean
----@field AskComeCloser2 boolean
----@field [96] boolean
----@field InitiateBarter boolean
----@field [97] boolean
----@field AgreeCeaseHostile boolean
----@field [98] boolean
----@field RefuseCeaseHostile boolean
----@field [99] boolean
----@field RefuseCeaseHostile2 boolean
----@field [100] boolean
----@field RefuseYield boolean
----@field [101] boolean
----@field RefuseYield2 boolean
----@field [102] boolean
----@field Brag boolean
----@field [103] boolean
----@field DescribeRelation boolean
----@field [104] boolean
----@field ClaimSite boolean
----@field [105] boolean
----@field AnnounceLairHunt boolean
----@field [106] boolean
----@field RequestDuty boolean
----@field [107] boolean
----@field AskJoinService boolean
----@field [108] boolean
----@field AcceptService boolean
----@field [109] boolean
----@field TellRemainVigilant boolean
----@field [110] boolean
----@field GiveServiceOrder boolean
----@field [111] boolean
----@field WelcomeSelfHome boolean
----@field [112] boolean
----@field unk_112 boolean
----@field [113] boolean
----@field AskTravelReason boolean
----@field [114] boolean
----@field TellTravelReason boolean
----@field [115] boolean
----@field AskLocalRuler boolean
----@field [116] boolean
----@field ComplainAgreement boolean
----@field [117] boolean
----@field CancelAgreement boolean
----@field [118] boolean
----@field SummarizeConflict boolean
----@field [119] boolean
----@field SummarizeViews boolean
----@field [120] boolean
----@field AskClaimStrength boolean
----@field [121] boolean
----@field AskArmyPosition boolean
----@field [122] boolean
----@field AskOtherClaims boolean
----@field [123] boolean
----@field AskDeserters boolean
----@field [124] boolean
----@field AskSiteNeighbors boolean
----@field [125] boolean
----@field DescribeSiteNeighbors boolean
----@field [126] boolean
----@field RaiseAlarm boolean
----@field [127] boolean
----@field DemandDropWeapon boolean
----@field [128] boolean
----@field AgreeComplyDemand boolean
----@field [129] boolean
----@field RefuseComplyDemand boolean
----@field [130] boolean
----@field AskLocationObject boolean
----@field [131] boolean
----@field DemandTribute boolean
----@field [132] boolean
----@field AgreeGiveTribute boolean
----@field [133] boolean
----@field RefuseGiveTribute boolean
----@field [134] boolean
----@field OfferGiveTribute boolean
----@field [135] boolean
----@field AgreeAcceptTribute boolean
----@field [136] boolean
----@field RefuseAcceptTribute boolean
----@field [137] boolean
----@field CancelTribute boolean
----@field [138] boolean
----@field OfferPeace boolean
----@field [139] boolean
----@field AgreePeace boolean
----@field [140] boolean
----@field RefusePeace boolean
----@field [141] boolean
----@field AskTradeDepotLater boolean
----@field [142] boolean
----@field ExpressAstonishment boolean
----@field [143] boolean
----@field CommentWeather boolean
----@field [144] boolean
----@field CommentNature boolean
----@field [145] boolean
----@field SummarizeTerritory boolean
----@field [146] boolean
----@field SummarizePatrols boolean
----@field [147] boolean
----@field SummarizeOpposition boolean
----@field [148] boolean
----@field DescribeRefugees boolean
----@field [149] boolean
----@field AccuseTroublemaker boolean
----@field [150] boolean
----@field AskAdopt boolean
----@field [151] boolean
----@field AgreeAdopt boolean
----@field [152] boolean
----@field RefuseAdopt boolean
----@field [153] boolean
----@field RevokeService boolean
----@field [154] boolean
----@field InviteService boolean
----@field [155] boolean
----@field AcceptInviteService boolean
----@field [156] boolean
----@field RefuseShareInformation boolean
----@field [157] boolean
----@field RefuseInviteService boolean
----@field [158] boolean
----@field RefuseRequestService boolean
----@field [159] boolean
----@field OfferService boolean
----@field [160] boolean
----@field AcceptPositionService boolean
----@field [161] boolean
----@field RefusePositionService boolean
----@field [162] boolean
----@field InvokeNameBanish boolean
----@field [163] boolean
----@field InvokeNameService boolean
----@field [164] boolean
----@field GrovelMaster boolean
----@field [165] boolean
----@field DemandItem boolean
----@field [166] boolean
----@field GiveServiceReport boolean
----@field [167] boolean
----@field OfferEncouragement boolean
----@field [168] boolean
----@field PraiseTaskCompleter boolean
----@field [169] boolean
----@field AskAboutPersonMenu boolean
----@field [170] boolean
----@field AskAboutPerson boolean
----@field [171] boolean
----@field TellAboutPerson boolean
----@field [172] boolean
----@field AskFeelings boolean
----@field [173] boolean
----@field TellThoughts boolean
----@field [174] boolean
----@field AskServices boolean
----@field [175] boolean
----@field TellServices boolean
----@field [176] boolean
----@field OrderDrink boolean
----@field [177] boolean
----@field RentRoom boolean
----@field [178] boolean
----@field ExtendRoomRental boolean
----@field [179] boolean
----@field ConfirmServiceOrder boolean
----@field [180] boolean
----@field AskJoinEntertain boolean
----@field [181] boolean
----@field RespondJoinEntertain boolean
----@field [182] boolean
----@field AskJoinTroupe boolean
----@field [183] boolean
----@field unk_183 boolean
----@field [184] boolean
----@field RefuseTroupeApplication boolean
----@field [185] boolean
----@field InviteJoinTroupe boolean
----@field [186] boolean
----@field AcceptTroupeInvitation boolean
----@field [187] boolean
----@field RefuseTroupeInvitation boolean
----@field [188] boolean
----@field KickOutOfTroupe boolean
----@field [189] boolean
----@field CreateTroupe boolean
----@field [190] boolean
----@field LeaveTroupe boolean
----@field [191] boolean
----@field YellServiceOrder boolean
----@field [192] boolean
----@field TellBePatientForService boolean
----@field [193] boolean
----@field TellNoServices boolean
----@field [194] boolean
----@field AskWaitUntilThere boolean
----@field [195] boolean
----@field DenyWorkingHere boolean
----@field [196] boolean
----@field ExpressEmotionMenu boolean
----@field [197] boolean
----@field StateValueMenu boolean
----@field [198] boolean
----@field StateValue boolean
----@field [199] boolean
----@field SayNoOrderYet boolean
----@field [200] boolean
----@field ProvideDirectionsBuilding boolean
----@field [201] boolean
----@field Argue boolean
----@field [202] boolean
----@field Flatter boolean
----@field [203] boolean
----@field DismissArgument boolean
----@field [204] boolean
----@field RespondPassively boolean
----@field [205] boolean
----@field Acquiesce boolean
----@field [206] boolean
----@field DerideFlattery boolean
----@field [207] boolean
----@field ExpressOutrageAtDismissal boolean
----@field [208] boolean
----@field PressArgument boolean
----@field [209] boolean
----@field DropArgument boolean
----@field [210] boolean
----@field AskWork boolean
----@field [211] boolean
----@field AskWorkGroup boolean
----@field [212] boolean
----@field GrantWork boolean
----@field [213] boolean
----@field RefuseWork boolean
----@field [214] boolean
----@field GrantWorkGroup boolean
----@field [215] boolean
----@field RefuseWorkGroup boolean
----@field [216] boolean
----@field GiveSquadOrder boolean
----@field [217] boolean
----@field Artifact boolean
----@field [218] boolean
----@field PraiseReturn boolean
----@field [219] boolean
----@field ProvideLocation boolean
----@field [220] boolean
----@field Prophesize boolean
----@field [221] boolean
----@field TalkAboutAncestor boolean
----@field [222] boolean
----@field SuggestTrade boolean
----@field [223] boolean
----@field AcceptNotTrade boolean
----@field [224] boolean
----@field DemandIdentity boolean
+---@alias assume_identity_mode
+---| 0 # SelectIdentity
+---| 1 # CreateIdentity
+---| 2 # SelectProfession
+---| 3 # SelectWorship
+---| 4 # SelectOrigin
 
----@class _assume_identity_mode: integer, string, df.enum
+---@class _assume_identity_mode: DFDescriptor
+---@field _kind 'enum-type'
 ---@field SelectIdentity 0
 ---@field [0] "SelectIdentity"
 ---@field CreateIdentity 1
@@ -1188,177 +891,235 @@ df.talk_choice_type = {}
 ---@field [4] "SelectOrigin"
 df.assume_identity_mode = {}
 
----@class assume_identity_mode
----@field [0] boolean
----@field SelectIdentity boolean
----@field [1] boolean
----@field CreateIdentity boolean
----@field [2] boolean
----@field SelectProfession boolean
----@field [3] boolean
----@field SelectWorship boolean
----@field [4] boolean
----@field SelectOrigin boolean
-
----@class talk_choice: df.class
+---@class (exact) talk_choice: DFObject
+---@field _kind 'struct'
+---@field _type _talk_choice
 ---@field type talk_choice_type
----@field unk talk_choice_unk
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
+---@field unk talk_choice.T_unk
+---@field unk_1 number
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_4 number
+local talk_choice
+
+---@class _talk_choice: DFCompound
+---@field _kind 'struct-type'
 df.talk_choice = {}
 
----@class talk_choice_unk: df.class
----@field event entity_event
----@field unk_1 integer
----@field unk_2 integer
+---@class (exact) talk_choice.T_unk: DFObject
+---@field _kind 'struct'
+---@field _type _talk_choice.T_unk
+---@field unk_2 number
+local unk
+
+---@class _talk_choice.T_unk: DFCompound
+---@field _kind 'struct-type'
 df.talk_choice.T_unk = {}
 
----@class adventurest: df.class
+---@class (exact) adventure_workingst: DFObject
+---@field _kind 'struct'
+---@field _type _adventure_workingst
+---@field type adventure_workingst.T_type
+---@field abs_x number
+---@field abs_y number
+---@field abs_z number
+local adventure_workingst
+
+---@class _adventure_workingst: DFCompound
+---@field _kind 'struct-type'
+df.adventure_workingst = {}
+
+---@alias adventure_workingst.T_type
+---| -1 # NONE
+---| 0 # CHOP_TREE
+---| 1 # BUILD_SITE
+
+-- bay12: AdventureWork
+---@class _adventure_workingst.T_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field CHOP_TREE 0
+---@field [0] "CHOP_TREE"
+---@field BUILD_SITE 1
+---@field [1] "BUILD_SITE"
+df.adventure_workingst.T_type = {}
+
+---@class (exact) adventure_rumor_datast: DFObject
+---@field _kind 'struct'
+---@field _type _adventure_rumor_datast
+---@field rumor entity_event
+---@field flag integer
+---@field last_told_visual_hfid number
+---@field last_told_year number
+---@field last_told_season_count number
+---@field last_told_click_per_click number
+---@field last_told_abs_tile_x number
+---@field last_told_abs_tile_y number
+---@field last_told_abs_tile_z number
+---@field first_told_visual_hfid number
+---@field first_told_year number
+---@field first_told_season_count number
+---@field first_told_click_per_click number
+---@field first_told_abs_tile_x number
+---@field first_told_abs_tile_y number
+---@field first_told_abs_tile_z number
+local adventure_rumor_datast
+
+---@class _adventure_rumor_datast: DFCompound
+---@field _kind 'struct-type'
+df.adventure_rumor_datast = {}
+
+---@alias adventure_construction_mode_type
+---| -1 # NONE
+---| 0 # CONSTRUCTION
+---| 1 # MATERIAL
+---| 2 # BUILDING
+---| 3 # ZONE_LIST
+---| 4 # ZONE_NEW_EDIT
+---| 5 # ZONE_ASSIGN
+---| 6 # ZONE_LOCATION
+
+---@class _adventure_construction_mode_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field CONSTRUCTION 0
+---@field [0] "CONSTRUCTION"
+---@field MATERIAL 1
+---@field [1] "MATERIAL"
+---@field BUILDING 2
+---@field [2] "BUILDING"
+---@field ZONE_LIST 3
+---@field [3] "ZONE_LIST"
+---@field ZONE_NEW_EDIT 4
+---@field [4] "ZONE_NEW_EDIT"
+---@field ZONE_ASSIGN 5
+---@field [5] "ZONE_ASSIGN"
+---@field ZONE_LOCATION 6
+---@field [6] "ZONE_LOCATION"
+df.adventure_construction_mode_type = {}
+
+---@class (exact) adventurest: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest
 ---@field menu ui_advmode_menu
----@field site_level_zoom integer when set, the travel map is zoomed in to show site details
----@field travel_origin_x integer
----@field travel_origin_y integer
----@field travel_origin_z integer
----@field travel_clouds boolean
----@field travel_right_map adventurest_travel_right_map
----@field show_menu adventurest_show_menu bottom menu in travel mode
----@field message df.string you must move from surrounding obstacles
----@field message_color integer
----@field message_brightness integer
----@field travel_not_moved boolean
----@field unk4b integer
----@field travel_move_countdown integer
----@field unk_4 integer Was set to 0 when felling a tree.
----@field fell_tree_x integer Set to the local x + df.global.world.map.region_x*48 coordinate of the target tree when the map is offloaded for a tree felling action.
----@field fell_tree_y integer Set to the local y + df.global.world.map.region_y*48 coordinate of the target tree when the map is offloaded for a tree felling action.
----@field fell_tree_z integer Set to the local z + df.global.world.map.region_z coordinate of the target tree when the map is offloaded for a tree felling action.
----@field unk_8 integer
----@field unk_9 integer
----@field unk_10 integer
----@field unk_11 integer
----@field unk_12 integer
----@field unk_13 integer
----@field offload_timer integer Set to 10 when actions which offload the map are undertaken, such as sleeping and making the first fast travel movement. Decreases by 1 each frame thereafter until it reaches 0. Forcing a constant value above 0 prevents progression of the action beyond the Offloading Map message.
----@field tick_counter integer goes up to XXX
----@field frame_counter integer goes up to 10000 (ticks?)
----@field unk_15 integer Appears to increment by 2 every 144 advmode ticks.
----@field sleeping boolean
----@field unk_16 integer
----@field bogeymen_ambush_size integer Setting this to a number greater than 0 causes a bogeyman ambush to begin, spawning the specified number of bogeymen around the adventurer. Normally initialized to 4-7 when the cackling starts.
----@field bogeymen_killed integer Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
----@field bogeymen_ambush_delay integer Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
----@field unk_18 integer
----@field searched_x df.container
----@field searched_y df.container
----@field searched_z df.container
----@field searched_timeout df.container
----@field unk_19 integer
----@field unk_20 integer
----@field unk_21 integer
----@field unk_23 integer
----@field unk_24 df.container References: world_site
----@field unk_25 df.container
----@field unk_26 df.container
----@field player_army_id integer References: army
----@field gait_index integer Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
----@field gait_unk integer Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
----@field tracks_x integer[] X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
----@field tracks_y integer[] Y coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_y*48 is added to the local y coordinate.
----@field tracks_z integer[] Z coordinates of spoors encountered by the player. The local z coordinate is corrected by adding df.global.world.map.region_z to it.
----@field tracks_next_idx integer Index of the next entry in tracks_x, tracks_y, tracks_z
----@field view_tracks_odors integer The value of view_tracks_odors determines the combination of local/travel mode track/odor screens currently displayed. Opening the local tracks screen increments this value by 1, opening travel mode tracks+odors increments by 2, opening local odors increments by 4. Closing the screens decrements respectively.
----@field tracks_visible integer The quantity of spoors currently visible to the player.
----@field unk_x integer[]
----@field unk_y integer[]
----@field unk_z integer[]
----@field unk_v40_1 adventurest_unk_v40_1
----@field unk_39 integer[]
----@field unk_40 integer[]
----@field unk_41 integer[]
----@field unk_42 integer[]
----@field odor_race integer References: creature_raw<br>race ID of strongest odor creature
----@field odor_caste integer References: caste_raw<br>caste ID of strongest odor creature
----@field odor_death integer Overrides creature odor with odor of Death
----@field travel_odor_race integer References: creature_raw<br>race ID of strongest odor creature in fast travel mode
----@field travel_odor_caste integer References: caste_raw<br>caste ID of strongest odor creature in fast travel mode
----@field unk_46 integer
----@field multiattack integer Set when the player is preparing to carry out a multi-attack; resetting this to 0 makes the multi-attack window disappear.
----@field unk_3170 adventurest_unk_3170
----@field unk_3124 adventurest_unk_3124
----@field unk_48 integer
----@field unk_49 integer
----@field unk_50 integer
----@field unk_51 integer
----@field wait_timer integer A_WAIT sets this to 10. It subsequently decreases by 1 every advmode tick, preventing the player from controlling their adventurer (by setting player_control_state) until it reaches 0.
----@field attack_style integer Set when the AttackStrike menu is opened. The various attack styles increment this as follows when enabled: Charge: +1, Multi-attack: +2, Quick: +4, Heavy: +8, Wild: +16, Precise: +32
----@field charge_forbidden adventurest_charge_forbidden When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
----@field unk_55 integer
----@field unk_56 integer
----@field unk_57 integer
----@field unk_58 integer
----@field unk_59 df.container
----@field unk_60 integer
----@field unk_61 integer
----@field long_action_duration integer Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
----@field travel_start_x integer
----@field travel_start_y integer
----@field travel_start_z integer
----@field player_id integer References: nemesis_record
----@field track_viewed_x integer Set when viewing a spoor; local x coordinate of the track in question.
----@field track_viewed_y integer Set when viewing a spoor; local y coordinate of the track in question.
----@field track_viewed_unk_1 integer Set when viewing a spoor.
----@field track_viewed_unk_2 integer Set when viewing a spoor.
----@field conversation adventurest_conversation
----@field unk_70 df.container
----@field unk_71 integer
----@field unk_72 df.container
----@field interacts adventure_item_interact_choicest[]
----@field commands adventure_optionst[]
----@field movements adventure_movement_optionst[]
----@field unk_75 df.container
----@field sleep_hours integer
+---@field site_level_zoom number bay12: viewmode; when set, the travel map is zoomed in to show site details
+---@field travel_origin_x number bay12: local_apparent_abs_smm_x
+---@field travel_origin_y number bay12: local_apparent_abs_smm_y
+---@field travel_origin_z number Coordinates of the player on the map when the travel screen is opened. Determine the displayed position whilst travel_not_moved is set
+---@field travel_clouds number
+---@field travel_right_map adventurest.T_travel_right_map
+---@field show_menu adventurest.T_show_menu
+---@field message string bay12: travel_exception; you must move from surrounding obstacles
+---@field message_color number bay12: travel_exception_color
+---@field message_brightness number bay12: travel_exception_bright
+---@field travel_not_moved boolean bay12: still_local
+---@field local_sleep_origination number
+---@field local_working adventure_workingst
+---@field local_composing_writing_form written_content_type
+---@field local_composing_writing_form_id number
+---@field local_write_target_itid number
+---@field local_write_writing_form written_content_type
+---@field local_write_wcid number
+---@field offload_timer number bay12: offloading_site; Set to 10 when actions which offload the map are undertaken, such as sleeping and making the first fast travel movement. Decreases by 1 each frame thereafter until it reaches 0. Forcing a constant value above 0 prevents progression of the action beyond the Offloading Map message.
+---@field tick_counter number bay12: click_per_click; goes up to XXX
+---@field frame_counter number bay12: transient_phase; goes up to 10000 (ticks?)
+---@field last_hour number Appears to increment by 2 every 144 advmode ticks.
+---@field sleeping number
+---@field sleep_interrupt number
+---@field bogeymen_ambush_size number bay12: bogeymen_number; Setting this to a number greater than 0 causes a bogeyman ambush to begin, spawning the specified number of bogeymen around the adventurer. Normally initialized to 4-7 when the cackling starts.
+---@field bogeymen_killed number bay12: bogeymen_killed_this_attack; Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
+---@field bogeymen_ambush_delay number bay12: bogeymen_season_timer; Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
+---@field fake_ambush_timer number
+---@field total_move number
+---@field start_skill_total number
+---@field need_start_skill_total number
+---@field player_army_id number bay12: your_army_id References: `army`
+---@field gait_index number bay12: speed_sel_y; Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
+---@field speed_sneak_options boolean Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
+---@field tracks_next_idx number bay12: latest_track_pos; Index of the next entry in tracks_x, tracks_y, tracks_z
+---@field view_tracks_odors number bay12: tracking_flag; The value of view_tracks_odors determines the combination of local/travel mode track/odor screens currently displayed. Opening the local tracks screen increments this value by 1, opening travel mode tracks+odors increments by 2, opening local odors increments by 4. Closing the screens decrements respectively.
+---@field tracks_visible number bay12: lit_latest_track_count; The quantity of spoors currently visible to the player.
+---@field odor_race number bay12: latest_smell_race; race ID of strongest odor creature References: `creature_raw`
+---@field odor_caste number bay12: latest_smell_caste; caste ID of strongest odor creature References: `caste_raw`
+---@field odor_death boolean bay12: latest_smell_death; Overrides creature odor with odor of Death
+---@field travel_odor_race number bay12: travel_smell_race; race ID of strongest odor creature in fast travel mode References: `creature_raw`
+---@field travel_odor_caste number bay12: travel_smell_caste; caste ID of strongest odor creature in fast travel mode References: `caste_raw`
+---@field travel_odor_death boolean
+---@field multiattack number bay12: flag; Set when the player is preparing to carry out a multi-attack; resetting this to 0 makes the multi-attack window disappear.
+---@field rumor_info adventurest.T_rumor_info
+---@field tactical_mode boolean
+---@field construction adventurest.T_construction
+---@field wait_timer number bay12: dungeon_waiting; A_WAIT sets this to 10. It subsequently decreases by 1 every advmode tick, preventing the player from controlling their adventurer (by setting player_control_state) until it reaches 0.
+---@field attack_style integer bay12: aim_attack_flag; Set when the AttackStrike menu is opened. The various attack styles increment this as follows when enabled: Charge: +1, Multi-attack: +2, Quick: +4, Heavy: +8, Wild: +16, Precise: +32
+---@field charge_forbidden adventurest.T_charge_forbidden
+---@field no_move_choices boolean
+---@field world_debug_pass_time number
+---@field world_debug_loaded_center_abs_smm_x number
+---@field world_debug_loaded_center_abs_smm_y number ?
+---@field world_debug_army_scroll number
+---@field world_debug_viewing_army_details boolean ?
+---@field long_action_duration number bay12: travel_goal_count; Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
+---@field travel_start_x number bay12: travel_goal_abs_smm_x
+---@field travel_start_y number bay12: travel_goal_abs_smm_y
+---@field travel_start_z number Coordinates of the player on the map right after their first fast travel move
+---@field player_id number bay12: your_nem_index References: `nemesis_record`
+---@field track_viewed_x number bay12: viewing_spoor_x; Set when viewing a spoor; local x coordinate of the track in question.
+---@field track_viewed_y number bay12: viewing_spoor_y; Set when viewing a spoor; local y coordinate of the track in question.
+---@field viewing_spoor_z number
+---@field conversation adventurest.T_conversation
+---@field unk_71 number
+---@field sleep_hours number
 ---@field sleep_until_dawn boolean
----@field unk_78 integer
----@field rest_mode adventurest_rest_mode
----@field unk_80 integer
----@field unk_81 integer
----@field player_control_state integer Set to 2 when adventurer is unconscious, etc to prevent player from controlling the unit
----@field item_projectiles_state integer Observed to be set to 1 when an item is thrown or fired, or a limb is sent flying after being severed off. Over a number of frames (dependent on the distance travelled by the projectile) this eventually changes to 2 and then finally back to 0 (a number of frames after the projectile has reached its final destination). Sometimes (seemingly when the distance travelled is long) it changes from 1 to 2 and back to 1 immediately midway into this process. The player_control_state is set to 2 until this is complete. Forcing a constant item_projectiles_state of 0 causes item projectiles to hang in the air.
----@field unk_84 integer
----@field companions adventurest_companions
----@field unk_1 integer
----@field interactions adventurest_interactions
----@field unk_87 df.string
----@field unk_220 integer
----@field unk_224 integer
----@field unk_v40_2 adventurest_unk_v40_2
----@field unk_v40_3 adventurest_unk_v40_3
----@field player_unit_projectile_unk integer Set when the player is travelling as a unit projectile after falling or jumping.
----@field player_unit_projectile_z integer Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
----@field unk_90 integer
----@field unk_v40_4 adventurest_unk_v40_4
----@field unk_v40_5 adventurest_unk_v40_5
----@field unk_v42_1 adventurest_unk_v42_1
----@field unk_91 integer
----@field unk_91a integer
----@field assume_identity adventurest_assume_identity Manages the Assume Identity UI when the AssumeIdentity menu is open
----@field move_direction_x integer x-axis direction for the last attempted player unit movement: -1 = west, 0 = none, 1 = east
----@field move_direction_y integer y-axis direction for the last attempted player unit movement: -1 = north, 0 = none, 1 = south
----@field move_direction_z integer z-axis direction for the last attempted player unit movement: -1 = down, 0 = none, 1 = up
----@field unk_95 integer
----@field move_carefully integer Is set when the player prepares to move carefully (via the Alt + movement key combo)
----@field careful_direction_x integer x-axis direction for the last attempted careful player unit movement: -1 = west, 0 = none, 1 = east
----@field careful_direction_y integer y-axis direction for the last attempted careful player unit movement: -1 = north, 0 = none, 1 = south
----@field interrupt_performance_warning df.string the message displayed when the player attempts to move while their unit is performing
----@field unk_2 integer
----@field unk_2a integer
+---@field unk_78 number
+---@field rest_mode adventurest.T_rest_mode
+---@field unk_80 number
+---@field unk_81 number
+---@field player_control_state number Set to 2 when adventurer is unconscious, etc to prevent player from controlling the unit
+---@field item_projectiles_state number Observed to be set to 1 when an item is thrown or fired, or a limb is sent flying after being severed off. Over a number of frames (dependent on the distance travelled by the projectile) this eventually changes to 2 and then finally back to 0 (a number of frames after the projectile has reached its final destination). Sometimes (seemingly when the distance travelled is long) it changes from 1 to 2 and back to 1 immediately midway into this process. The player_control_state is set to 2 until this is complete. Forcing a constant item_projectiles_state of 0 causes item projectiles to hang in the air.
+---@field unk_84 number
+---@field companions adventurest.T_companions
+---@field unk_1 number
+---@field interactions adventurest.T_interactions
+---@field unk_87 string
+---@field unk_220 number
+---@field unk_224 number
+---@field unk_v40_2 adventurest.T_unk_v40_2
+---@field unk_v40_3 adventurest.T_unk_v40_3
+---@field player_unit_projectile_z number Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
+---@field unk_90 number
+---@field unk_v40_4 adventurest.T_unk_v40_4
+---@field unk_v40_5 adventurest.T_unk_v40_5
+---@field unk_v42_1 adventurest.T_unk_v42_1
+---@field unk_91a number
+---@field assume_identity adventurest.T_assume_identity
+---@field move_direction_x number x-axis direction for the last attempted player unit movement: -1 = west, 0 = none, 1 = east
+---@field move_direction_y number y-axis direction for the last attempted player unit movement: -1 = north, 0 = none, 1 = south
+---@field move_direction_z number z-axis direction for the last attempted player unit movement: -1 = down, 0 = none, 1 = up
+---@field unk_95 number
+---@field move_carefully number Is set when the player prepares to move carefully (via the Alt + movement key combo)
+---@field careful_direction_x number x-axis direction for the last attempted careful player unit movement: -1 = west, 0 = none, 1 = east
+---@field careful_direction_y number y-axis direction for the last attempted careful player unit movement: -1 = north, 0 = none, 1 = south
+---@field interrupt_performance_warning string the message displayed when the player attempts to move while their unit is performing
+---@field unk_2 number
+---@field unk_2a number
 ---@field name_item language_name used when naming items
----@field unk_96 integer
+---@field unk_96 number
+local adventurest
+
+---@class _adventurest: DFCompound
+---@field _kind 'struct-type'
 df.adventurest = {}
 
----@class _adventurest_travel_right_map: integer, string, df.enum
+---@alias adventurest.T_travel_right_map
+---| 0 # MapNone
+---| 1 # MapSite
+---| 2 # MapWorld
+
+-- bay12: traveL_map; is an int8_t
+---@class _adventurest.T_travel_right_map: DFDescriptor
+---@field _kind 'enum-type'
 ---@field MapNone 0
 ---@field [0] "MapNone"
 ---@field MapSite 1
@@ -1367,621 +1128,661 @@ df.adventurest = {}
 ---@field [2] "MapWorld"
 df.adventurest.T_travel_right_map = {}
 
----@class adventurest_travel_right_map
----@field [0] boolean
----@field MapNone boolean
----@field [1] boolean
----@field MapSite boolean
----@field [2] boolean
----@field MapWorld boolean
+---@alias adventurest.T_show_menu
+---| -1 # TwoBlankRows
+---| 0 # Hidden
+---| 1 # TwoRowsWithKeybindingHints
+---| 2 # TwoRows
+---| 3 # OneRow
 
-
----@class _adventurest_show_menu: integer, string, df.enum
----bottom menu in travel mode
+-- bay12: travel_instructions; is an int8_t; bottom menu in travel mode
+---@class _adventurest.T_show_menu: DFDescriptor
+---@field _kind 'enum-type'
 ---@field TwoBlankRows -1
----@field [0] "TwoBlankRows"
----@field Hidden 1
----@field [1] "Hidden"
----@field TwoRowsWithKeybindingHints 2
----@field [2] "TwoRowsWithKeybindingHints"
----@field TwoRows 3
----@field [3] "TwoRows"
----@field OneRow 4
----@field [4] "OneRow"
+---@field [-1] "TwoBlankRows"
+---@field Hidden 0
+---@field [0] "Hidden"
+---@field TwoRowsWithKeybindingHints 1
+---@field [1] "TwoRowsWithKeybindingHints"
+---@field TwoRows 2
+---@field [2] "TwoRows"
+---@field OneRow 3
+---@field [3] "OneRow"
 df.adventurest.T_show_menu = {}
 
----@class adventurest_show_menu
----@field [0] boolean
----@field TwoBlankRows boolean
----@field [1] boolean
----@field Hidden boolean
----@field [2] boolean
----@field TwoRowsWithKeybindingHints boolean
----@field [3] boolean
----@field TwoRows boolean
----@field [4] boolean
----@field OneRow boolean
+-- bay12 type: adventure_rumor_infost
+---@class (exact) adventurest.T_rumor_info: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_rumor_info
+local rumor_info
 
+---@class _adventurest.T_rumor_info: DFCompound
+---@field _kind 'struct-type'
+df.adventurest.T_rumor_info = {}
 
----@class adventurest_unk_v40_1: df.class
----@field unk_s1 integer
----@field unk_s2 integer
----@field unk_s3 integer
----@field unk_s4 integer
----@field unk_s5 integer
-df.adventurest.T_unk_v40_1 = {}
+-- bay12 type: adventure_constructionst
+---@class (exact) adventurest.T_construction: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_construction
+---@field min_x number
+---@field max_x number
+---@field min_y number
+---@field max_y number
+---@field start_x number
+---@field start_y number
+---@field start_z number
+---@field building_type number
+---@field building_subtype number
+---@field building_subcat1 number
+---@field building_subcat2 number
+---@field building_jobitemflag integer
+---@field selected_build_phase number
+---@field mode adventure_construction_mode_type
+---@field material_modemode adventure_construction_mode_type
+---@field removing_planned boolean
+---@field removing_existing boolean
+---@field choosing_workshop boolean
+---@field selected_civzone number
+---@field doing_zone_flow boolean 144x144
+---@field removing_zone boolean
+---@field zone_sx number
+---@field zone_sy number
+---@field zone_sz number
+---@field selected_zone_assign number
+---@field selected_ab number
+---@field selected_religious_practice number
+---@field choosing_location_type boolean
+---@field choosing_temple_religious_practice boolean
+---@field choosing_craft_guild boolean
+---@field selected_craft_guild number
+---@field material_select number
+---@field material_filter string
+---@field material_doing_filter number
+---@field doing_start_menu boolean
+---@field start_menu_you_will_work boolean
+---@field start_menu_selected_worker number
+---@field start_menu_total_hours number
+---@field start_menu_you_hours number
+---@field start_menu_you_max_hours number
+local construction
 
+---@class _adventurest.T_construction: DFCompound
+---@field _kind 'struct-type'
+df.adventurest.T_construction = {}
 
----@class adventurest_unk_3170: df.class
----@field unk_1 adventurest.T_unk_3170_unk_1[]
----@field unk_2 adventurest.T_unk_3170_unk_2
----@field unk_3 integer
-df.adventurest.T_unk_3170 = {}
+---@alias adventurest.T_charge_forbidden
+---| -1 # None
+---| 0 # NoTarget
+---| 1 # SelfProne
+---| 2 # SelfMounted
+---| 3 # SelfChained
+---| 4 # SelfUncontrolledFlight
+---| 5 # SelfVehicle
+---| 6 # SelfProjectile
+---| 7 # SelfClimbing
+---| 8 # TargetProne
+---| 9 # TargetMounted
+---| 10 # TargetChained
+---| 11 # TargetUncontrolledFlight
+---| 12 # TargetVehicle
+---| 13 # TargetProjectile
+---| 14 # TargetClimbing
+---| 15 # TargetSharesLocation
+---| 16 # TargetLocationInaccessible
+---| 17 # TargetTooFarAway
 
----@class adventurest.T_unk_3170_unk_1: df.class
----@field unk_0 entity_event
----@field unk_28 integer
----@field unk_2c integer
----@field unk_30 integer
----@field unk_34 integer
----@field unk_38 integer
----@field unk_3c integer
----@field unk_40 integer
----@field unk_44 integer
----@field unk_48 integer
----@field unk_4c integer
----@field unk_50 integer
----@field unk_54 integer
----@field unk_58 integer
----@field unk_5c integer
----@field unk_60 integer
-df.adventurest.T_unk_3170.T_unk_1 = {}
-
-
----@class adventurest.T_unk_3170_unk_2: df.class
----@field unk_1 df.container
----@field unk_2 df.container
-df.adventurest.T_unk_3170.T_unk_2 = {}
-
-
----@class adventurest_unk_3124: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer
----@field unk_8 integer
----@field unk_9 integer
----@field unk_10 integer
----@field unk_11 integer
----@field unk_12 integer
----@field unk_13 integer
----@field unk_14 integer
----@field unk_15 integer
----@field unk_16 integer
----@field unk_17 integer
----@field unk_18 integer
----@field unk_19 integer
----@field unk_20 df.container
----@field unk_21 integer
----@field unk_22 integer[]
----@field unk_23 integer
----@field unk_24 integer
----@field unk_25 integer
----@field unk_26 integer
----@field unk_27 integer
----@field unk_28 integer
----@field unk_29 df.container
----@field unk_30 integer
----@field unk_31 df.container
----@field unk_32 integer
----@field unk_33 df.container
----@field unk_33b df.container
----@field unk_34 integer
----@field unk_35 integer
----@field unk_36 integer
----@field unk_36a integer
----@field unk_36b df.container
----@field unk_36c integer
----@field unk_37 df.container
----@field unk_38 df.container
----@field unk_39 df.container
----@field unk_40 df.container
----@field unk_41 df.container
----@field unk_42 df.container
----@field unk_43 df.container
----@field unk_44 df.container
----@field unk_45 integer
----@field unk_46 df.string
----@field unk_47 integer
----@field unk_48 integer
----@field unk_49 integer
----@field unk_50 df.container
----@field unk_51 boolean[]
----@field unk_52 boolean[]
----@field unk_53 integer
----@field unk_54 df.container
----@field unk_55 df.container
----@field unk_56 df.container
----@field unk_57 df.container
----@field unk_58 df.container
----@field unk_59 df.container
----@field unk_60 df.container
----@field unk_61 df.container
----@field unk_62 df.container
-df.adventurest.T_unk_3124 = {}
-
-
----@class _adventurest_charge_forbidden: integer, string, df.enum
----When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
+-- bay12: aim_attack_charge_restrict; type ChargeRestrict; When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
+---@class _adventurest.T_charge_forbidden: DFDescriptor
+---@field _kind 'enum-type'
 ---@field None -1
----@field [0] "None"
----@field NoTarget 1
----@field [1] "NoTarget"
----@field SelfProne 2
----@field [2] "SelfProne"
----@field SelfMounted 3
----@field [3] "SelfMounted"
----@field SelfChained 4
----@field [4] "SelfChained"
----@field SelfUncontrolledFlight 5
----@field [5] "SelfUncontrolledFlight"
----@field SelfVehicle 6
----@field [6] "SelfVehicle"
----@field SelfProjectile 7
----@field [7] "SelfProjectile"
----@field SelfClimbing 8
----@field [8] "SelfClimbing"
----@field TargetProne 9
----@field [9] "TargetProne"
----@field TargetMounted 10
----@field [10] "TargetMounted"
----@field TargetChained 11
----@field [11] "TargetChained"
----@field TargetUncontrolledFlight 12
----@field [12] "TargetUncontrolledFlight"
----@field TargetVehicle 13
----@field [13] "TargetVehicle"
----@field TargetProjectile 14
----@field [14] "TargetProjectile"
----@field TargetClimbing 15
----@field [15] "TargetClimbing"
----@field TargetSharesLocation 16
----@field [16] "TargetSharesLocation"
----@field TargetLocationInaccessible 17
----@field [17] "TargetLocationInaccessible"
----@field TargetTooFarAway 18
----@field [18] "TargetTooFarAway"
+---@field [-1] "None"
+---@field NoTarget 0
+---@field [0] "NoTarget"
+---@field SelfProne 1
+---@field [1] "SelfProne"
+---@field SelfMounted 2
+---@field [2] "SelfMounted"
+---@field SelfChained 3
+---@field [3] "SelfChained"
+---@field SelfUncontrolledFlight 4
+---@field [4] "SelfUncontrolledFlight"
+---@field SelfVehicle 5
+---@field [5] "SelfVehicle"
+---@field SelfProjectile 6
+---@field [6] "SelfProjectile"
+---@field SelfClimbing 7
+---@field [7] "SelfClimbing"
+---@field TargetProne 8
+---@field [8] "TargetProne"
+---@field TargetMounted 9
+---@field [9] "TargetMounted"
+---@field TargetChained 10
+---@field [10] "TargetChained"
+---@field TargetUncontrolledFlight 11
+---@field [11] "TargetUncontrolledFlight"
+---@field TargetVehicle 12
+---@field [12] "TargetVehicle"
+---@field TargetProjectile 13
+---@field [13] "TargetProjectile"
+---@field TargetClimbing 14
+---@field [14] "TargetClimbing"
+---@field TargetSharesLocation 15
+---@field [15] "TargetSharesLocation"
+---@field TargetLocationInaccessible 16
+---@field [16] "TargetLocationInaccessible"
+---@field TargetTooFarAway 17
+---@field [17] "TargetTooFarAway"
 df.adventurest.T_charge_forbidden = {}
 
----@class adventurest_charge_forbidden
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field NoTarget boolean
----@field [2] boolean
----@field SelfProne boolean
----@field [3] boolean
----@field SelfMounted boolean
----@field [4] boolean
----@field SelfChained boolean
----@field [5] boolean
----@field SelfUncontrolledFlight boolean
----@field [6] boolean
----@field SelfVehicle boolean
----@field [7] boolean
----@field SelfProjectile boolean
----@field [8] boolean
----@field SelfClimbing boolean
----@field [9] boolean
----@field TargetProne boolean
----@field [10] boolean
----@field TargetMounted boolean
----@field [11] boolean
----@field TargetChained boolean
----@field [12] boolean
----@field TargetUncontrolledFlight boolean
----@field [13] boolean
----@field TargetVehicle boolean
----@field [14] boolean
----@field TargetProjectile boolean
----@field [15] boolean
----@field TargetClimbing boolean
----@field [16] boolean
----@field TargetSharesLocation boolean
----@field [17] boolean
----@field TargetLocationInaccessible boolean
----@field [18] boolean
----@field TargetTooFarAway boolean
+-- not actually a compound
+---@class (exact) adventurest.T_conversation: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_conversation
+---@field cursor_activity number bay12: conv_sel
+---@field cursor_choice number bay12: choice_sel
+---@field current_page number bay12: conv_choice_page_index
+---@field filter string bay12: conv_string_filter
+---@field conv_tact adventurest.T_conversation.T_conv_tact
+---@field cursor_target number bay12: talk_sel
+local conversation
 
-
----@class adventurest_conversation: df.class
----@field activity activity_entry[]
----@field activity_event activity_event[]
----@field cursor_activity integer
----@field cursor_choice integer
----@field current_page integer
----@field page_top_choices df.container
----@field page_bottom_choices df.container
----@field choices adventurest.T_conversation_choices[]
----@field filter df.string
----@field unk_1 integer
----@field targets adventurest.T_conversation_targets[]
----@field cursor_target integer
+---@class _adventurest.T_conversation: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_conversation = {}
 
----@class adventurest.T_conversation_choices: df.class
----@field choice talk_choice
----@field keywords df.string[]
----@field title df.string[]
----@field orig_index integer
----@field ranking integer
-df.adventurest.T_conversation.T_choices = {}
+---@alias adventurest.T_conversation.T_conv_tact
+---| -1 # NONE
+---| 0 # Persuade
+---| 1 # Intimidate
 
+---@class _adventurest.T_conversation.T_conv_tact: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field Persuade 0
+---@field [0] "Persuade"
+---@field Intimidate 1
+---@field [1] "Intimidate"
+df.adventurest.T_conversation.T_conv_tact = {}
 
----@class adventurest.T_conversation_targets: df.class
----@field unit_id integer References: unit
----@field histfig_id integer References: historical_figure
----@field type adventurest.T_conversation.T_targets_type
-df.adventurest.T_conversation.T_targets = {}
+---@alias adventurest.T_rest_mode
+---| 0 # Wait
+---| 1 # Sleep
 
----@class _adventurest.T_conversation.T_targets_type: integer, string, df.enum
----@field Talk 0
----@field [0] "Talk"
----@field unk_1 1
----@field [1] "unk_1"
----@field unk_2 2
----@field [2] "unk_2"
----@field Shout 3
----@field [3] "Shout"
----@field Perform 4
----@field [4] "Perform"
-df.adventurest.T_conversation.T_targets.T_type = {}
-
----@class adventurest.T_conversation.T_targets_type
----@field [0] boolean
----@field Talk boolean
----@field [1] boolean
----@field unk_1 boolean
----@field [2] boolean
----@field unk_2 boolean
----@field [3] boolean
----@field Shout boolean
----@field [4] boolean
----@field Perform boolean
-
-
----@class _adventurest_rest_mode: integer, string, df.enum
+---@class _adventurest.T_rest_mode: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Wait 0
 ---@field [0] "Wait"
 ---@field Sleep 1
 ---@field [1] "Sleep"
 df.adventurest.T_rest_mode = {}
 
----@class adventurest_rest_mode
----@field [0] boolean
----@field Wait boolean
----@field [1] boolean
----@field Sleep boolean
-
-
----@class adventurest_companions: df.class
----@field unit unit[]
----@field unit_visible boolean[]
+---@class (exact) adventurest.T_companions: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_companions
 ---@field unit_position coord_path
----@field all_histfigs df.container References: historical_figure<br>includes dead
+local companions
+
+---@class _adventurest.T_companions: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_companions = {}
 
-
----@class adventurest_interactions: df.class
----@field party_core_members df.container References: historical_figure<br>Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
----@field party_pets df.container References: historical_figure<br>Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
----@field party_extra_members df.container References: historical_figure<br>Contains IDs of non-pet historical figures who joined the player party later on.
----@field unk_86 df.container
----@field unk_1 df.container
----@field unk_1e4 integer
----@field unk_1e8 integer
----@field selected_ability integer natural ability
----@field selected_power integer acquired power
----@field unk_1f0 integer
----@field max_target_number integer
----@field target_range integer
+---@class (exact) adventurest.T_interactions: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_interactions
+---@field unk_1e4 number
+---@field unk_1e8 number
+---@field selected_ability number natural ability
+---@field selected_power number acquired power
+---@field max_target_number number
+---@field target_range number
 ---@field target_flags creature_interaction_target_flags
----@field unk_200 integer
+local interactions
+
+---@class _adventurest.T_interactions: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_interactions = {}
 
+---@class (exact) adventurest.T_unk_v40_2: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_unk_v40_2
+---@field unk_s5 number
+local unk_v40_2
 
----@class adventurest_unk_v40_2: df.class
----@field unk_s1 df.container
----@field unk_s2 df.container
----@field unk_s3 df.container
----@field unk_s4 df.container
----@field unk_s5 integer
----@field unk_s6 df.container
----@field unk_s7 df.container
+---@class _adventurest.T_unk_v40_2: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_2 = {}
 
+---@class (exact) adventurest.T_unk_v40_3: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_unk_v40_3
+---@field unk_s1 number
+local unk_v40_3
 
----@class adventurest_unk_v40_3: df.class
----@field unk_s1 integer
----@field unk_s2 df.container
+---@class _adventurest.T_unk_v40_3: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_3 = {}
 
+---@class (exact) adventurest.T_unk_v40_4: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_unk_v40_4
+---@field unk_v40_4b number
+local unk_v40_4
 
----@class adventurest_unk_v40_4: df.class
----@field unk_v40_4a adventurest.T_unk_v40_4_unk_v40_4a
----@field unk_v40_4b integer
+---@class _adventurest.T_unk_v40_4: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_4 = {}
 
----@class adventurest.T_unk_v40_4_unk_v40_4a: df.class
----@field unk_s1 integer
----@field unk_s2 coord
----@field unk_s5 coord
----@field unk_s8 integer
----@field unk_s9 integer
----@field unk_s10 integer
-df.adventurest.T_unk_v40_4.T_unk_v40_4a = {}
+---@class (exact) adventurest.T_unk_v40_5: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_unk_v40_5
+---@field unk_s4 number
+local unk_v40_5
 
-
----@class adventurest_unk_v40_5: df.class
----@field unk_s1 df.container
----@field unk_s2 df.container
----@field unk_s3 df.container
----@field unk_s4 integer
----@field unk_s5 df.container
----@field unk_s6 df.container
+---@class _adventurest.T_unk_v40_5: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_5 = {}
 
+---@class (exact) adventurest.T_unk_v42_1: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_unk_v42_1
+---@field unk_s1 number
+---@field unk_s4 string
+---@field unk_s5 number
+---@field unk_s6 number
+---@field unk_s7 number
+---@field unk_s8 number
+local unk_v42_1
 
----@class adventurest_unk_v42_1: df.class
----@field unk_s1 integer
----@field unk_s2 df.container
----@field unk_s3 df.container
----@field unk_s4 df.string
----@field unk_s5 integer
----@field unk_s6 integer
----@field unk_s7 integer
----@field unk_s8 integer
----@field unk_s9 df.container
+---@class _adventurest.T_unk_v42_1: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_unk_v42_1 = {}
 
-
----Manages the Assume Identity UI when the AssumeIdentity menu is open
----@class adventurest_assume_identity: df.class
+-- Manages the Assume Identity UI when the AssumeIdentity menu is open
+---@class (exact) adventurest.T_assume_identity: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_assume_identity
 ---@field mode assume_identity_mode
 ---@field name language_name
----@field worship_object integer References: historical_figure
+---@field worship_object number References: `historical_figure`
 ---@field profession profession
----@field origin integer References: historical_entity
----@field unk_1 df.container
----@field unk_2 df.container
----@field filter df.string
----@field unk_3 integer
----@field unk_4 integer
+---@field origin number References: `historical_entity`
+---@field filter string
+---@field unk_3 number
+---@field unk_4 number
+local assume_identity
+
+---@class _adventurest.T_assume_identity: DFCompound
+---@field _kind 'struct-type'
 df.adventurest.T_assume_identity = {}
 
----@class text_info_elementst: df.class
+---@class (exact) text_info_elementst: DFObject
+---@field _kind 'struct'
+---@field _type _text_info_elementst
+local text_info_elementst
+
+---@class _text_info_elementst: DFCompound
+---@field _kind 'class-type'
 df.text_info_elementst = {}
 
----@param val df.string
-function df.text_info_elementst.getString(val) end
+---@class (exact) text_info_element_longst: DFObject, text_info_elementst
+---@field _kind 'struct'
+---@field _type _text_info_element_longst
+---@field val number
+local text_info_element_longst
 
----@return integer
-function df.text_info_elementst.getLong() end
-
----@class text_info_element_longst: text_info_elementst
----@field val integer
+---@class _text_info_element_longst: DFCompound
+---@field _kind 'class-type'
 df.text_info_element_longst = {}
 
----@class text_info_element_stringst: text_info_elementst
----@field val df.string
+---@class (exact) text_info_element_stringst: DFObject, text_info_elementst
+---@field _kind 'struct'
+---@field _type _text_info_element_stringst
+---@field val string
+local text_info_element_stringst
+
+---@class _text_info_element_stringst: DFCompound
+---@field _kind 'class-type'
 df.text_info_element_stringst = {}
 
----@class adventure_optionst: df.class
+---@class (exact) adventure_optionst: DFObject
+---@field _kind 'struct'
+---@field _type _adventure_optionst
+local adventure_optionst
+
+---@class _adventure_optionst: DFCompound
+---@field _kind 'class-type'
 df.adventure_optionst = {}
 
----@param unk_0 df.string
-function df.adventure_optionst.getDescription(unk_0) end
+---@class (exact) adventure_option_eat_unit_contaminantst: DFObject, adventure_optionst
+---@field _kind 'struct'
+---@field _type _adventure_option_eat_unit_contaminantst
+local adventure_option_eat_unit_contaminantst
 
----@param unk_0 item
----@return item
-function df.adventure_optionst.getIngestedItem(unk_0) end
-
----@param unk_0 integer
----@param unk_1 boolean
----@param unk_2 boolean
----@param unk_3 item
----@return item
-function df.adventure_optionst.performAction(unk_0, unk_1, unk_2, unk_3) end
-
----@return integer
-function df.adventure_optionst.getPlayerPosX() end
-
----@return integer
-function df.adventure_optionst.getPlayerPosY() end
-
----@return integer
-function df.adventure_optionst.getPlayerPosZ() end
-
----@return integer
-function df.adventure_optionst.getTargetPosX() end
-
----@return integer
-function df.adventure_optionst.getTargetPosY() end
-
----@return integer
-function df.adventure_optionst.getTargetPosZ() end
-
-function df.adventure_optionst.deleteSpatter() end
-
----@param unk_0 integer
----@return integer
-function df.adventure_optionst.getSuckBloodUnitID(unk_0) end
-
----@return boolean
-function df.adventure_optionst.isIngestFromContainer() end
-
----@param unk_0 building
----@return building
-function df.adventure_optionst.getBuildingContainer(unk_0) end
-
----@param unk_0 item
----@return item
-function df.adventure_optionst.getItemContainer(unk_0) end
-
----@param unk_0 unit
----@return unit
-function df.adventure_optionst.getUnitContainer(unk_0) end
-
----@class adventure_option_eat_unit_contaminantst: adventure_optionst
----@field unit unit
----@field spatter spatter
+---@class _adventure_option_eat_unit_contaminantst: DFCompound
+---@field _kind 'class-type'
 df.adventure_option_eat_unit_contaminantst = {}
 
----@class adventure_option_eat_item_contaminantst: adventure_optionst
----@field unit unit
----@field inv_item unit_inventory_item
----@field spatter spatter
+---@class (exact) adventure_option_eat_item_contaminantst: DFObject, adventure_optionst
+---@field _kind 'struct'
+---@field _type _adventure_option_eat_item_contaminantst
+local adventure_option_eat_item_contaminantst
+
+---@class _adventure_option_eat_item_contaminantst: DFCompound
+---@field _kind 'class-type'
 df.adventure_option_eat_item_contaminantst = {}
 
----@class adventure_option_view_contaminantst: adventure_optionst
----@field unit unit
----@field spatter spatter
+---@class (exact) adventure_option_view_contaminantst: DFObject, adventure_optionst
+---@field _kind 'struct'
+---@field _type _adventure_option_view_contaminantst
+local adventure_option_view_contaminantst
+
+---@class _adventure_option_view_contaminantst: DFCompound
+---@field _kind 'class-type'
 df.adventure_option_view_contaminantst = {}
 
----@class adventure_environment_optionst: adventure_optionst
+---@class (exact) adventure_environment_optionst: DFObject, adventure_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_optionst
 ---@field target_pos coord
 ---@field player_pos coord
+local adventure_environment_optionst
+
+---@class _adventure_environment_optionst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_optionst = {}
 
----@class adventure_environment_place_in_it_containerst: adventure_environment_optionst
----@field container item
+---@class (exact) adventure_environment_place_in_it_containerst: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_place_in_it_containerst
+local adventure_environment_place_in_it_containerst
+
+---@class _adventure_environment_place_in_it_containerst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_place_in_it_containerst = {}
 
----@class adventure_environment_ingest_from_containerst: adventure_environment_optionst
----@field container item
----@field food item
+---@class (exact) adventure_environment_ingest_from_containerst: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_ingest_from_containerst
+local adventure_environment_ingest_from_containerst
+
+---@class _adventure_environment_ingest_from_containerst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_ingest_from_containerst = {}
 
----@class adventure_environment_pickup_ignite_vegst: adventure_environment_optionst
----@field unk_1 integer
+---@class (exact) adventure_environment_pickup_ignite_vegst: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_pickup_ignite_vegst
+---@field unk_1 number
+local adventure_environment_pickup_ignite_vegst
+
+---@class _adventure_environment_pickup_ignite_vegst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_pickup_ignite_vegst = {}
 
----@class adventure_environment_ingest_materialst: adventure_environment_optionst
----@field mat_type integer
----@field mat_index integer
+---@class (exact) adventure_environment_ingest_materialst: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_ingest_materialst
+---@field mat_type number
+---@field mat_index number
 ---@field mat_state matter_state
+local adventure_environment_ingest_materialst
+
+---@class _adventure_environment_ingest_materialst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_ingest_materialst = {}
 
----@class adventure_environment_pickup_make_campfirest: adventure_environment_optionst
+---@class (exact) adventure_environment_pickup_make_campfirest: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_pickup_make_campfirest
+local adventure_environment_pickup_make_campfirest
+
+---@class _adventure_environment_pickup_make_campfirest: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_pickup_make_campfirest = {}
 
----@class adventure_environment_place_in_bld_containerst: adventure_environment_optionst
----@field building building
+---@class (exact) adventure_environment_place_in_bld_containerst: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_place_in_bld_containerst
+local adventure_environment_place_in_bld_containerst
+
+---@class _adventure_environment_place_in_bld_containerst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_place_in_bld_containerst = {}
 
----@class adventure_environment_pickup_vermin_eventst: adventure_environment_optionst
----@field vermin_idx integer
+---@class (exact) adventure_environment_pickup_vermin_eventst: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_pickup_vermin_eventst
+---@field vermin_idx number
+local adventure_environment_pickup_vermin_eventst
+
+---@class _adventure_environment_pickup_vermin_eventst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_pickup_vermin_eventst = {}
 
----@class adventure_environment_pickup_chop_treest: adventure_environment_optionst
+---@class (exact) adventure_environment_pickup_chop_treest: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_pickup_chop_treest
+local adventure_environment_pickup_chop_treest
+
+---@class _adventure_environment_pickup_chop_treest: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_pickup_chop_treest = {}
 
----@class adventure_environment_unit_suck_bloodst: adventure_environment_optionst
----@field unit_id integer References: unit
+---@class (exact) adventure_environment_unit_suck_bloodst: DFObject, adventure_environment_optionst
+---@field _kind 'struct'
+---@field _type _adventure_environment_unit_suck_bloodst
+---@field unit_id number References: `unit`
+local adventure_environment_unit_suck_bloodst
+
+---@class _adventure_environment_unit_suck_bloodst: DFCompound
+---@field _kind 'class-type'
 df.adventure_environment_unit_suck_bloodst = {}
 
----@class adventure_movement_optionst: df.class
+---@class (exact) adventure_movement_optionst: DFObject
+---@field _kind 'struct'
+---@field _type _adventure_movement_optionst
 ---@field dest coord
 ---@field source coord
+local adventure_movement_optionst
+
+---@class _adventure_movement_optionst: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_optionst = {}
 
----@class adventure_movement_release_hold_itemst: adventure_movement_optionst
+---@class (exact) adventure_movement_release_hold_itemst: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_release_hold_itemst
+local adventure_movement_release_hold_itemst
+
+---@class _adventure_movement_release_hold_itemst: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_release_hold_itemst = {}
 
----@class adventure_movement_release_hold_tilest: adventure_movement_optionst
+---@class (exact) adventure_movement_release_hold_tilest: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_release_hold_tilest
+local adventure_movement_release_hold_tilest
+
+---@class _adventure_movement_release_hold_tilest: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_release_hold_tilest = {}
 
----@class adventure_movement_attack_creaturest: adventure_movement_optionst
----@field targets df.container References: unit
+---@class (exact) adventure_movement_attack_creaturest: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_attack_creaturest
+local adventure_movement_attack_creaturest
+
+---@class _adventure_movement_attack_creaturest: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_attack_creaturest = {}
 
----@class adventure_movement_hold_tilest: adventure_movement_optionst
+---@class (exact) adventure_movement_hold_tilest: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_hold_tilest
 ---@field grab coord
+local adventure_movement_hold_tilest
+
+---@class _adventure_movement_hold_tilest: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_hold_tilest = {}
 
----@class adventure_movement_movest: adventure_movement_optionst
----@field unit_path_flags integer
----@field unk_bitfield integer
+---@class (exact) adventure_movement_movest: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_movest
+---@field override_permit pathfinding_flags
+---@field aim_attack_flag number
+local adventure_movement_movest
+
+---@class _adventure_movement_movest: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_movest = {}
 
----@class adventure_movement_climbst: adventure_movement_optionst
+---@class (exact) adventure_movement_climbst: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_climbst
 ---@field grab coord
+local adventure_movement_climbst
+
+---@class _adventure_movement_climbst: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_climbst = {}
 
----@class adventure_movement_hold_itemst: adventure_movement_optionst
----@field item_id integer References: item
+---@class (exact) adventure_movement_hold_itemst: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_hold_itemst
+---@field item_id number References: `item`
+local adventure_movement_hold_itemst
+
+---@class _adventure_movement_hold_itemst: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_hold_itemst = {}
 
----@class adventure_movement_building_interactst: adventure_movement_optionst
----@field building_id integer References: building
+---@class (exact) adventure_movement_building_interactst: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_building_interactst
+---@field building_id number References: `building`
+local adventure_movement_building_interactst
+
+---@class _adventure_movement_building_interactst: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_building_interactst = {}
 
----@class adventure_movement_item_interactst: adventure_movement_optionst
----@field item_id integer References: item
+---@class (exact) adventure_movement_item_interactst: DFObject, adventure_movement_optionst
+---@field _kind 'struct'
+---@field _type _adventure_movement_item_interactst
+---@field item_id number References: `item`
+local adventure_movement_item_interactst
+
+---@class _adventure_movement_item_interactst: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_item_interactst = {}
 
----@class adventure_movement_item_interact_guidest: adventure_movement_item_interactst
+---@class (exact) adventure_movement_item_interact_guidest: DFObject, adventure_movement_item_interactst
+---@field _kind 'struct'
+---@field _type _adventure_movement_item_interact_guidest
+local adventure_movement_item_interact_guidest
+
+---@class _adventure_movement_item_interact_guidest: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_item_interact_guidest = {}
 
----@class adventure_movement_item_interact_ridest: adventure_movement_item_interactst
+---@class (exact) adventure_movement_item_interact_ridest: DFObject, adventure_movement_item_interactst
+---@field _kind 'struct'
+---@field _type _adventure_movement_item_interact_ridest
+local adventure_movement_item_interact_ridest
+
+---@class _adventure_movement_item_interact_ridest: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_item_interact_ridest = {}
 
----@class adventure_movement_item_interact_pushst: adventure_movement_item_interactst
+---@class (exact) adventure_movement_item_interact_pushst: DFObject, adventure_movement_item_interactst
+---@field _kind 'struct'
+---@field _type _adventure_movement_item_interact_pushst
+local adventure_movement_item_interact_pushst
+
+---@class _adventure_movement_item_interact_pushst: DFCompound
+---@field _kind 'class-type'
 df.adventure_movement_item_interact_pushst = {}
 
----@class adventure_item_interact_choicest: df.class
+---@class (exact) adventure_item_interact_choicest: DFObject
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_choicest
+local adventure_item_interact_choicest
+
+---@class _adventure_item_interact_choicest: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_choicest = {}
 
----@param unk_0 df.string
-function df.adventure_item_interact_choicest.getDescription(unk_0) end
+---@class (exact) adventure_item_interact_pull_outst: DFObject, adventure_item_interact_choicest
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_pull_outst
+local adventure_item_interact_pull_outst
 
-function df.adventure_item_interact_choicest.performAction() end
-
----@class adventure_item_interact_pull_outst: adventure_item_interact_choicest
+---@class _adventure_item_interact_pull_outst: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_pull_outst = {}
 
----@class adventure_item_interact_heat_from_tilest: adventure_item_interact_choicest
----@field item item
+---@class (exact) adventure_item_interact_heat_from_tilest: DFObject, adventure_item_interact_choicest
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_heat_from_tilest
 ---@field unk_1 coord
 ---@field unk_2 coord
+local adventure_item_interact_heat_from_tilest
+
+---@class _adventure_item_interact_heat_from_tilest: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_heat_from_tilest = {}
 
----@class adventure_item_interact_fill_from_containerst: adventure_item_interact_choicest
----@field unk_1 item
----@field unk_2 item
+---@class (exact) adventure_item_interact_fill_from_containerst: DFObject, adventure_item_interact_choicest
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_fill_from_containerst
 ---@field unk_3 coord
 ---@field unk_4 coord
+local adventure_item_interact_fill_from_containerst
+
+---@class _adventure_item_interact_fill_from_containerst: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_fill_from_containerst = {}
 
----@class adventure_item_interact_readst: adventure_item_interact_choicest
+---@class (exact) adventure_item_interact_readst: DFObject, adventure_item_interact_choicest
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_readst
+local adventure_item_interact_readst
+
+---@class _adventure_item_interact_readst: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_readst = {}
 
----@class adventure_item_interact_fill_with_materialst: adventure_item_interact_choicest
----@field unk_1 item
+---@class (exact) adventure_item_interact_fill_with_materialst: DFObject, adventure_item_interact_choicest
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_fill_with_materialst
 ---@field unk_2 coord
 ---@field unk_3 coord
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
+---@field unk_4 number
+---@field unk_5 number
+---@field unk_6 number
+local adventure_item_interact_fill_with_materialst
+
+---@class _adventure_item_interact_fill_with_materialst: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_fill_with_materialst = {}
 
----@class adventure_item_interact_strugglest: adventure_item_interact_choicest
+---@class (exact) adventure_item_interact_strugglest: DFObject, adventure_item_interact_choicest
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_strugglest
+local adventure_item_interact_strugglest
+
+---@class _adventure_item_interact_strugglest: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_strugglest = {}
 
----@class adventure_item_interact_give_namest: adventure_item_interact_choicest
----@field item item
+---@class (exact) adventure_item_interact_give_namest: DFObject, adventure_item_interact_choicest
+---@field _kind 'struct'
+---@field _type _adventure_item_interact_give_namest
+local adventure_item_interact_give_namest
+
+---@class _adventure_item_interact_give_namest: DFCompound
+---@field _kind 'class-type'
 df.adventure_item_interact_give_namest = {}
 

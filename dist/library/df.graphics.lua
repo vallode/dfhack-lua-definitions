@@ -1,31 +1,53 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.graphics
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class large_integer: df.class
----@field u large_integer_u
----@field quad_part integer
+---@class (exact) large_integer: DFObject
+---@field _kind 'struct'
+---@field _type _large_integer
+---@field low_part long
+---@field high_part long
+---@field u large_integer.T_u
+---@field quad_part number
+local large_integer
+
+---@class _large_integer: DFCompound
+---@field _kind 'struct-type'
 df.large_integer = {}
 
----@class large_integer_u: df.class
----@field low_part number
----@field high_part number
+---@class (exact) large_integer.T_u: DFObject
+---@field _kind 'struct'
+---@field _type _large_integer.T_u
+---@field low_part long
+---@field high_part long
+local u
+
+---@class _large_integer.T_u: DFCompound
+---@field _kind 'struct-type'
 df.large_integer.T_u = {}
 
----@class musicsoundst: df.class
----@field soft_channel_number integer
----@field song integer
+---@class (exact) musicsoundst: DFObject
+---@field _kind 'struct'
+---@field _type _musicsoundst
+---@field soft_channel_number number
+---@field song number
 ---@field music_active boolean
 ---@field sound_priority boolean
----@field sound_playing integer
+---@field sound_playing number
 ---@field on boolean
----@field fmod_system integer
----@field fmod_master_channel_group integer
----@field mod fmod_sound[] songs
----@field samp fmod_sound[] sound effects
----@field linux_sound_system musicsoundst_linux_sound_system
+---@field linux_sound_system musicsoundst.T_linux_sound_system
+local musicsoundst
+
+---@class _musicsoundst: DFCompound
+---@field _kind 'struct-type'
 df.musicsoundst = {}
 
----@class _musicsoundst_linux_sound_system: integer, string, df.enum
+---@alias musicsoundst.T_linux_sound_system
+---| 0 # ALSA
+---| 1 # OSS
+---| 2 # ESD
+
+---@class _musicsoundst.T_linux_sound_system: DFDescriptor
+---@field _kind 'enum-type'
 ---@field ALSA 0
 ---@field [0] "ALSA"
 ---@field OSS 1
@@ -34,22 +56,29 @@ df.musicsoundst = {}
 ---@field [2] "ESD"
 df.musicsoundst.T_linux_sound_system = {}
 
----@class musicsoundst_linux_sound_system
----@field [0] boolean
----@field ALSA boolean
----@field [1] boolean
----@field OSS boolean
----@field [2] boolean
----@field ESD boolean
+---@class (exact) fmod_sound: DFObject
+---@field _kind 'struct'
+---@field _type _fmod_sound
+local fmod_sound
 
----@class fmod_sound: df.class
----@field sound integer
----@field channel integer
+---@class _fmod_sound: DFCompound
+---@field _kind 'struct-type'
 df.fmod_sound = {}
 
----@class _curses_color: integer, string, df.enum
----@field Black 0
----@field [0] "Black"
+---@alias curses_color
+---| 0 # Black
+---| 1 # Blue
+---| 2 # Green
+---| 3 # Cyan
+---| 4 # Red
+---| 5 # Magenta
+---| 6 # Yellow
+---| 7 # White
+
+---@class _curses_color: DFDescriptor
+---@field _kind 'enum-type'
+---@field Black 0 Using the color names without "dark" or "light", favoring primaries.
+---@field [0] "Black" Using the color names without "dark" or "light", favoring primaries.
 ---@field Blue 1
 ---@field [1] "Blue"
 ---@field Green 2
@@ -66,190 +95,68 @@ df.fmod_sound = {}
 ---@field [7] "White"
 df.curses_color = {}
 
----@class curses_color
----@field [0] boolean
----@field Black boolean
----@field [1] boolean
----@field Blue boolean
----@field [2] boolean
----@field Green boolean
----@field [3] boolean
----@field Cyan boolean
----@field [4] boolean
----@field Red boolean
----@field [5] boolean
----@field Magenta boolean
----@field [6] boolean
----@field Yellow boolean
----@field [7] boolean
----@field White boolean
-
----@class _cmv_attribute: integer, string, df.bitfield
----@field fg 0
----@field [0] "fg"
----@field bg 1
----@field [1] "bg"
----@field bright 2
----@field [2] "bright"
-df.cmv_attribute = {}
-
----@class cmv_attribute
----@field [0] boolean
----@field fg boolean
----@field [1] boolean
----@field bg boolean
----@field [2] boolean
----@field bright boolean
-
----@class graphic_viewportst: df.class
+---@class (exact) graphic_viewportst: DFObject
+---@field _kind 'struct'
+---@field _type _graphic_viewportst
 ---@field flag integer
----@field dim_x integer
----@field dim_y integer
----@field clipx integer[]
----@field clipy integer[]
----@field screen_x integer
----@field screen_y integer
----@field screentexpos_background integer floor
----@field screentexpos_floor_flag integer
----@field screentexpos_background_two integer boulder, plant, etc.
----@field screentexpos_liquid_flag integer
----@field screentexpos_spatter_flag integer
----@field screentexpos_spatter integer
----@field screentexpos_ramp_flag integer
----@field screentexpos_shadow_flag integer
----@field screentexpos_building_one integer floor
----@field screentexpos_item integer ground stuff
----@field screentexpos_vehicle integer
----@field screentexpos_vermin integer
----@field screentexpos_left_creature integer
----@field screentexpos integer creature, etc.
----@field screentexpos_right_creature integer
----@field screentexpos_building_two integer high furniture/interior signposting
----@field screentexpos_projectile integer
----@field screentexpos_high_flow integer
----@field screentexpos_top_shadow integer
----@field screentexpos_signpost integer stuff that sticks up from below
----@field screentexpos_upleft_creature integer
----@field screentexpos_up_creature integer
----@field screentexpos_upright_creature integer
----@field screentexpos_designation integer
----@field screentexpos_interface integer cursor, etc
----@field screentexpos_background_old integer
----@field screentexpos_floor_flag_old integer
----@field screentexpos_background_two_old integer
----@field screentexpos_liquid_flag_old integer
----@field screentexpos_spatter_flag_old integer
----@field screentexpos_spatter_old integer
----@field screentexpos_ramp_flag_old integer
----@field screentexpos_shadow_flag_old integer
----@field screentexpos_building_one_old integer
----@field screentexpos_item_old integer
----@field screentexpos_vehicle_old integer
----@field screentexpos_vermin_old integer
----@field screentexpos_left_creature_old integer
----@field screentexpos_old integer
----@field screentexpos_right_creature_old integer
----@field screentexpos_building_two_old integer
----@field screentexpos_projectile_old integer
----@field screentexpos_high_flow_old integer
----@field screentexpos_top_shadow_old integer
----@field screentexpos_signpost_old integer
----@field screentexpos_upleft_creature_old integer
----@field screentexpos_up_creature_old integer
----@field screentexpos_upright_creature_old integer
----@field screentexpos_designation_old integer
----@field screentexpos_interface_old integer
----@field core_tree_species_plus_one integer
----@field shadow_tree_species_plus_one integer
+---@field dim_x number
+---@field dim_y number
+---@field screen_x number
+---@field screen_y number
+local graphic_viewportst
+
+---@class _graphic_viewportst: DFCompound
+---@field _kind 'struct-type'
 df.graphic_viewportst = {}
 
----@class graphic_map_portst: df.class
+---@class (exact) graphic_map_portst: DFObject
+---@field _kind 'struct'
+---@field _type _graphic_map_portst
 ---@field flag integer
----@field dim_x integer
----@field dim_y integer
----@field clipx integer[]
----@field clipy integer[]
----@field screen_x integer
----@field screen_y integer
----@field top_left_corner_x integer
----@field top_left_corner_y integer
----@field pixel_perc_x integer
----@field pixel_perc_y integer
----@field screentexpos_base integer
----@field screentexpos_edge integer[]
----@field screentexpos_edge2 integer[]
----@field screentexpos_detail integer
----@field screentexpos_tunnel integer
----@field screentexpos_river integer
----@field screentexpos_road integer
----@field screentexpos_site integer
----@field screentexpos_interface integer
----@field screentexpos_detail_to_n integer
----@field screentexpos_detail_to_s integer
----@field screentexpos_detail_to_w integer
----@field screentexpos_detail_to_e integer
----@field screentexpos_detail_to_nw integer
----@field screentexpos_detail_to_ne integer
----@field screentexpos_detail_to_sw integer
----@field screentexpos_detail_to_se integer
----@field screentexpos_base_old integer
----@field screentexpos_edge_old integer[]
----@field screentexpos_edge2_old integer[]
----@field screentexpos_detail_old integer
----@field screentexpos_tunnel_old integer
----@field screentexpos_river_old integer
----@field screentexpos_road_old integer
----@field screentexpos_site_old integer
----@field screentexpos_interface_old integer
----@field screentexpos_detail_to_n_old integer
----@field screentexpos_detail_to_s_old integer
----@field screentexpos_detail_to_w_old integer
----@field screentexpos_detail_to_e_old integer
----@field screentexpos_detail_to_nw_old integer
----@field screentexpos_detail_to_ne_old integer
----@field screentexpos_detail_to_sw_old integer
----@field screentexpos_detail_to_se_old integer
----@field edge_biome_data integer
----@field edge_type_n integer
----@field edge_type_s integer
----@field edge_type_w integer
----@field edge_type_e integer
----@field edge_type_nw integer
----@field edge_type_ne integer
----@field edge_type_sw integer
----@field edge_type_se integer
----@field edge_biome_n integer
----@field edge_biome_s integer
----@field edge_biome_w integer
----@field edge_biome_e integer
----@field edge_biome_nw integer
----@field edge_biome_ne integer
----@field edge_biome_sw integer
----@field edge_biome_se integer
+---@field dim_x number
+---@field dim_y number
+---@field screen_x number
+---@field screen_y number
+---@field top_left_corner_x number
+---@field top_left_corner_y number
+---@field pixel_perc_x number
+---@field pixel_perc_y number
+local graphic_map_portst
+
+---@class _graphic_map_portst: DFCompound
+---@field _kind 'struct-type'
 df.graphic_map_portst = {}
 
----@class cached_texturest: df.class
----@field w integer
----@field h integer
----@field tex integer
----@field tex_n integer
+---@class (exact) cached_texturest: DFObject
+---@field _kind 'struct'
+---@field _type _cached_texturest
+---@field w number
+---@field h number
+---@field tex_n number
+local cached_texturest
+
+---@class _cached_texturest: DFCompound
+---@field _kind 'struct-type'
 df.cached_texturest = {}
 
----@class texblitst: df.class
----@field x integer
----@field y integer
----@field tex integer
+---@class (exact) texblitst: DFObject
+---@field _kind 'struct'
+---@field _type _texblitst
+---@field x number
+---@field y number
+---@field tex number
+local texblitst
+
+---@class _texblitst: DFCompound
+---@field _kind 'struct-type'
 df.texblitst = {}
 
----@class graphic: df.class
----@field viewport graphic_viewportst[]
----@field main_viewport graphic_viewportst
----@field lower_viewport graphic_viewportst[]
----@field map_port graphic_map_portst[]
----@field main_map_port graphic_map_portst
----@field viewport_zoom_factor integer
----@field screenx integer
----@field screeny integer
+---@class (exact) graphic: DFObject
+---@field _kind 'struct'
+---@field _type _graphic
+---@field viewport_zoom_factor number
+---@field screenx number
+---@field screeny number
 ---@field screenf curses_color
 ---@field screenb curses_color
 ---@field screenbright boolean
@@ -260,402 +167,126 @@ df.texblitst = {}
 ---@field screen_color_br integer
 ---@field screen_color_bg integer
 ---@field screen_color_bb integer
----@field ccolor number[][] The curses-RGB mapping used for non-curses display modes
----@field uccolor integer[][] The curses-RGB mapping used for non-curses display modes
----@field color integer[][]
----@field mouse_x integer tile offset
----@field mouse_y integer tile offset
----@field precise_mouse_x integer pixel offset
----@field precise_mouse_y integer pixel offset
----@field screen_pixel_x integer
----@field screen_pixel_y integer
----@field tile_pixel_x integer
----@field tile_pixel_y integer
----@field screen integer
----@field screen_limit integer pointer to last element of screen
----@field screentexpos number
----@field screentexpos_lower number
----@field screentexpos_anchored number
----@field screentexpos_anchored_x number
----@field screentexpos_anchored_y number
----@field screentexpos_flag integer
+---@field mouse_x number tile offset
+---@field mouse_y number tile offset
+---@field precise_mouse_x number pixel offset
+---@field precise_mouse_y number pixel offset
+---@field screen_pixel_x number
+---@field screen_pixel_y number
+---@field tile_pixel_x number
+---@field tile_pixel_y number
 ---@field top_in_use boolean //we assume top is not in use unless a flag is set, and reprint the screen when it goes away, to avoid cell by cell checks
----@field screen_top integer
----@field screen_top_limit integer
----@field screentexpos_top_lower number
----@field screentexpos_top_anchored number
----@field screentexpos_top number
----@field screentexpos_top_anchored_x number
----@field screentexpos_top_anchored_y number
----@field screentexpos_top_flag integer
 ---@field display_title boolean
 ---@field display_background boolean
----@field screentexpos_refresh_buffer integer
----@field refresh_buffer_val integer
+---@field refresh_buffer_val number
 ---@field main_thread_requesting_reshape boolean set to true by main thread, set to false by graphics thread
 ---@field main_thread_requesting_reshape_activate_map_port boolean set to true by main thread, set to false by graphics thread
----@field clipx number[]
----@field clipy number[]
----@field tex cached_texturest[]
----@field texblits df.container
----@field rect_id number
----@field print_time large_integer[]
----@field print_index number
----@field display_frames integer
----@field force_full_display_count integer
----@field do_clean_tile_cache integer true by main, false by graphics
----@field do_post_init_texture_clear integer true by main, false by graphics
----@field original_rect integer
----@field dimx integer
----@field dimy integer
----@field tileset graphic_tileset
+---@field rect_id long
+---@field print_index long
+---@field display_frames number
+---@field force_full_display_count number
+---@field do_clean_tile_cache number true by main, false by graphics
+---@field do_post_init_texture_clear number true by main, false by graphics
+---@field original_rect number
+---@field dimx number
+---@field dimy number
+---@field tileset graphic.T_tileset
+local graphic
+
+---@class _graphic: DFCompound
+---@field _kind 'struct-type'
 df.graphic = {}
 
----@class graphic_tileset: df.class
----@field black_background_texpos number[]
----@field texture_indices1 integer[]
----@field texpos_custom_symbol df.container
----@field texture_indices2 integer[]
+---@class (exact) graphic.T_tileset: DFObject
+---@field _kind 'struct'
+---@field _type _graphic.T_tileset
 ---@field graphical_interface interface_setst
 ---@field classic_interface interface_setst
----@field texture_indices3 integer[]
----@field texpos_boulder df.container
----@field texture_indices4 integer[]
+local tileset
+
+---@class _graphic.T_tileset: DFCompound
+---@field _kind 'struct-type'
 df.graphic.T_tileset = {}
 
----@class interface_setst: df.class
----@field texpos_calendar_month integer[][]
----@field texpos_calendar_day_past integer[]
----@field texpos_calendar_day_current integer[]
----@field texpos_calendar_day_future integer[]
----@field texpos_border_top_left integer[][]
----@field texpos_border_top_right integer[][]
----@field texpos_border_bottom_left integer[][]
----@field texpos_border_bottom_right integer[][]
----@field texpos_border_top_intersection integer[][]
----@field texpos_border_bottom_intersection integer[][]
----@field texpos_border_middle_intersection integer[]
----@field texpos_border_left_intersection integer[][]
----@field texpos_border_right_intersection integer[][]
----@field texpos_border_left integer[]
----@field texpos_border_right integer[]
----@field texpos_border_top integer[]
----@field texpos_border_bottom integer[]
----@field texpos_hover_rectangle integer[][]
----@field texpos_hover_rectangle_join_w_sw integer
----@field texpos_hover_rectangle_join_w_s integer
----@field texpos_hover_rectangle_join_e_s integer
----@field texpos_hover_rectangle_join_e_se integer
----@field texpos_hover_close integer[][]
----@field texpos_hover_tab integer[][]
----@field texpos_hover_tab_inactive integer[]
----@field texpos_hover_tab_inside_corner_top integer
----@field texpos_hover_tab_inside_corner_bottom integer
----@field texpos_button_rectangle integer[][]
----@field texpos_button_rectangle_selected integer[][]
----@field texpos_button_rectangle_light integer[][]
----@field texpos_button_rectangle_dark integer[][]
----@field texpos_button_rectangle_divider integer[]
----@field texpos_button_category_rectangle integer[][]
----@field texpos_button_category_rectangle_selected integer[][]
----@field texpos_button_category_rectangle_on integer[][]
----@field texpos_button_category_rectangle_on_selected integer[][]
----@field texpos_button_category_rectangle_off integer[][]
----@field texpos_button_category_rectangle_off_selected integer[][]
----@field texpos_button_filter integer[][]
----@field texpos_button_filter_no_mag_right integer[]
----@field texpos_button_filter_name integer[][]
----@field texpos_button_picture_box integer[][]
----@field texpos_button_picture_box_selected integer[][]
----@field texpos_button_picture_box_highlighted integer[][]
----@field texpos_button_picture_box_sel_highlighted integer[][]
----@field texpos_button_picture_box_light integer[][]
----@field texpos_button_picture_box_dark integer[][]
----@field texpos_unk_v50_06 integer[]
----@field texpos_button_add integer[][]
----@field texpos_button_add_hover integer[][]
----@field texpos_button_add_pressed integer[][]
----@field texpos_button_add_invalid integer[][]
----@field texpos_button_subtract integer[][]
----@field texpos_button_subtract_hover integer[][]
----@field texpos_button_subtract_pressed integer[][]
----@field texpos_button_subtract_invalid integer[][]
----@field texpos_button_expander_closed integer[][]
----@field texpos_button_expander_open integer[][]
----@field texpos_scrollbar integer[][]
----@field texpos_scrollbar_up_hover integer[]
----@field texpos_scrollbar_up_pressed integer[]
----@field texpos_scrollbar_down_hover integer[]
----@field texpos_scrollbar_down_pressed integer[]
----@field texpos_scrollbar_small_scroller integer[][]
----@field texpos_scrollbar_small_scroller_hover integer[][]
----@field texpos_scrollbar_top_scroller integer[]
----@field texpos_scrollbar_top_scroller_hover integer[]
----@field texpos_scrollbar_bottom_scroller integer[]
----@field texpos_scrollbar_bottom_scroller_hover integer[]
----@field texpos_scrollbar_blank_scroller integer[]
----@field texpos_scrollbar_blank_scroller_hover integer[]
----@field texpos_scrollbar_center_scroller integer[]
----@field texpos_scrollbar_center_scroller_hover integer[]
----@field texpos_scrollbar_offcenter_scroller integer[][]
----@field texpos_scrollbar_offcenter_scroller_hover integer[][]
----@field texpos_scrollbar_sky integer[]
----@field texpos_scrollbar_ground integer[]
----@field texpos_scrollbar_underground integer[]
----@field texpos_slider_background integer[][]
----@field texpos_slider integer[][]
----@field texpos_slider_hover integer[][]
----@field texpos_tab integer[][]
----@field texpos_tab_selected integer[][]
----@field texpos_short_tab integer[][]
----@field texpos_short_tab_selected integer[][]
----@field texpos_short_subtab integer[][]
----@field texpos_short_subtab_selected integer[][]
----@field texpos_short_subsubtab integer[][]
----@field texpos_short_subsubtab_selected integer[][]
----@field texpos_interface_background integer
----@field texpos_button_main integer[][][]
----@field texpos_button_small integer[][][]
----@field texpos_button_horizontal_option_left_ornament integer[][]
----@field texpos_button_horizontal_option_active integer[][]
----@field texpos_button_horizontal_option_inactive integer[][]
----@field texpos_button_horizontal_option_right_ornament integer[][]
----@field texpos_button_horizontal_option_remove integer[][]
----@field texpos_button_horizontal_option_confirm integer[][]
----@field texpos_interior_border_n_s_w_e integer
----@field texpos_interior_border_n_w_e integer
----@field texpos_interior_border_s_w_e integer
----@field texpos_interior_border_w_e integer
----@field texpos_interior_border_n_s integer
----@field texpos_sort_ascending_active integer[]
----@field texpos_sort_ascending_inactive integer[]
----@field texpos_sort_descending_active integer[]
----@field texpos_sort_descending_inactive integer[]
----@field texpos_sort_text_active integer[]
----@field texpos_sort_text_inactive integer[]
----@field texpos_siege_light integer[][]
----@field texpos_diplomacy_light integer[][]
----@field texpos_petitions_light integer[][]
----@field texpos_grid_cell_inactive integer[][]
----@field texpos_grid_cell_active integer[][]
----@field texpos_grid_cell_button integer[][]
----@field texpos_button_stocks_recenter integer[][]
----@field texpos_button_stocks_view_item integer[][]
----@field texpos_button_stocks_forbid integer[][]
----@field texpos_button_stocks_forbid_active integer[][]
----@field texpos_button_stocks_dump integer[][]
----@field texpos_button_stocks_dump_active integer[][]
----@field texpos_button_stocks_melt integer[][]
----@field texpos_button_stocks_melt_active integer[][]
----@field texpos_button_stocks_hide integer[][]
----@field texpos_button_stocks_hide_active integer[][]
----@field texpos_button_short_forbid integer[][]
----@field texpos_button_short_forbid_active integer[][]
----@field texpos_button_short_dump integer[][]
----@field texpos_button_short_dump_active integer[][]
----@field texpos_button_short_melt integer[][]
----@field texpos_button_short_melt_active integer[][]
----@field texpos_button_short_hide integer[][]
----@field texpos_button_short_hide_active integer[][]
----@field texpos_building_short_item_task integer[][]
----@field texpos_building_item_task integer[][]
----@field texpos_building_item_incorporated integer[][]
----@field texpos_building_item_trade integer[][]
----@field texpos_building_item_animal integer[][]
----@field texpos_building_item_bait integer[][]
----@field texpos_building_item_loaded integer[][]
----@field texpos_building_item_dead integer[][]
----@field texpos_building_item_other integer[][]
----@field texpos_building_jobs_repeat integer[][]
----@field texpos_building_jobs_repeat_active integer[][]
----@field texpos_building_jobs_do_now integer[][]
----@field texpos_building_jobs_do_now_active integer[][]
----@field texpos_building_jobs_suspended integer[][]
----@field texpos_building_jobs_suspended_active integer[][]
----@field texpos_building_jobs_priority_up integer[][]
----@field texpos_building_jobs_remove integer[][]
----@field texpos_building_jobs_active integer[][]
----@field texpos_building_jobs_quota integer[][]
----@field texpos_building_jobs_remove_worker integer[][]
----@field texpos_button_assign_trade integer[][][]
----@field texpos_button_building_info integer[][][]
----@field texpos_button_building_sheet integer[][][]
----@field texpos_button_unit_sheet integer[][][]
----@field texpos_button_large_unit_sheet integer[][][]
----@field texpos_button_pets_livestock integer[][][]
----@field texpos_liquid_numbers_on integer[][]
----@field texpos_liquid_numbers_off integer[][]
----@field texpos_ramp_arrows_on integer[][]
----@field texpos_ramp_arrows_off integer[][]
----@field texpos_zoom_in_on integer[][]
----@field texpos_zoom_in_off integer[][]
----@field texpos_zoom_out_on integer[][]
----@field texpos_zoom_out_off integer[][]
----@field texpos_legends_tab_page_left integer[][]
----@field texpos_legends_tab_page_right integer[][]
----@field texpos_legends_tab_close_inactive integer[]
----@field texpos_legends_tab_close_active integer[]
----@field texpos_help_border integer[][]
----@field texpos_help_corner integer[][]
----@field texpos_help_close integer[][]
----@field texpos_help_hide integer[][]
----@field texpos_help_reveal integer[][]
----@field texpos_embark_selected integer[][]
----@field texpos_embark_not_selected integer[][]
----@field texpos_embark_expand_y_active integer[][]
----@field texpos_embark_expand_y_inactive integer[][]
----@field texpos_embark_contract_y_active integer[][]
----@field texpos_embark_contract_y_inactive integer[][]
----@field texpos_embark_expand_x_active integer[]
----@field texpos_embark_expand_x_inactive integer[]
----@field texpos_embark_contract_x_active integer[]
----@field texpos_embark_contract_x_inactive integer[]
----@field texpos_bottom_button_border_nw integer
----@field texpos_bottom_button_border_w integer
----@field texpos_bottom_button_border_n integer
----@field texpos_bottom_button_border_interior integer
----@field texpos_bottom_button_border_ne integer
----@field texpos_bottom_button_border_e integer
+---@class (exact) interface_setst: DFObject
+---@field _kind 'struct'
+---@field _type _interface_setst
+---@field texpos_hover_rectangle_join_w_sw number
+---@field texpos_hover_rectangle_join_w_s number
+---@field texpos_hover_rectangle_join_e_s number
+---@field texpos_hover_rectangle_join_e_se number
+---@field texpos_hover_tab_inside_corner_top number
+---@field texpos_hover_tab_inside_corner_bottom number
+---@field texpos_interface_background number
+---@field texpos_interior_border_n_s_w_e number
+---@field texpos_interior_border_n_w_e number
+---@field texpos_interior_border_s_w_e number
+---@field texpos_interior_border_w_e number
+---@field texpos_interior_border_n_s number
+---@field texpos_bottom_button_border_nw number
+---@field texpos_bottom_button_border_w number
+---@field texpos_bottom_button_border_n number
+---@field texpos_bottom_button_border_interior number
+---@field texpos_bottom_button_border_ne number
+---@field texpos_bottom_button_border_e number
+local interface_setst
+
+---@class _interface_setst: DFCompound
+---@field _kind 'struct-type'
 df.interface_setst = {}
 
----@class renderer: df.class
----@field screen integer
----@field screentexpos number
----@field screentexpos_lower number
----@field screentexpos_anchored number
----@field screentexpos_anchored_x number
----@field screentexpos_anchored_y number
----@field screentexpos_flag integer
----@field screen_top integer
----@field screentexpos_top number
----@field screentexpos_top_lower number
----@field screentexpos_top_anchored number
----@field screentexpos_top_anchored_x number
----@field screentexpos_top_anchored_y number
----@field screentexpos_top_flag integer
----@field directtexcopy integer
----@field screen_old integer
----@field screentexpos_old number
----@field screentexpos_lower_old number
----@field screentexpos_anchored_old number
----@field screentexpos_anchored_x_old number
----@field screentexpos_anchored_y_old number
----@field screentexpos_flag_old integer
----@field screen_top_old integer
----@field screentexpos_top_old number
----@field screentexpos_top_lower_old number
----@field screentexpos_top_anchored_old number
----@field screentexpos_top_anchored_x_old number
----@field screentexpos_top_anchored_y_old number
----@field screentexpos_top_flag_old integer
----@field directtexcopy_old integer
----@field screentexpos_refresh_buffer integer
+---@class (exact) renderer: DFObject
+---@field _kind 'struct'
+---@field _type _renderer
+local renderer
+
+---@class _renderer: DFCompound
+---@field _kind 'class-type'
 df.renderer = {}
 
----@param x integer
----@param y integer
-function df.renderer.update_tile(x, y) end
-
----@param x integer
----@param y integer
-function df.renderer.update_anchor_tile(x, y) end
-
----@param x integer
----@param y integer
-function df.renderer.update_top_tile(x, y) end
-
----@param x integer
----@param y integer
-function df.renderer.update_top_anchor_tile(x, y) end
-
----@param vp graphic_viewportst
----@param x integer
----@param y integer
-function df.renderer.update_viewport_tile(vp, x, y) end
-
----@param vp graphic_map_portst
----@param x integer
----@param y integer
-function df.renderer.update_map_port_tile(vp, x, y) end
-
-function df.renderer.update_all() end
-
-function df.renderer.do_blank_screen_fill() end
-
----@param vp graphic_viewportst
-function df.renderer.update_full_viewport(vp) end
-
----@param vp graphic_map_portst
-function df.renderer.update_full_map_port(vp) end
-
-function df.renderer.clean_tile_cache() end
-
-function df.renderer.render() end
-
-function df.renderer.set_fullscreen() end
-
----@param unk_0 zoom_commands
-function df.renderer.zoom(unk_0) end
-
----@param w integer
----@param h integer
-function df.renderer.resize(w, h) end
-
----@param w integer
----@param h integer
-function df.renderer.grid_resize(w, h) end
-
----@param nfactor integer
-function df.renderer.set_viewport_zoom_factor(nfactor) end
-
----@param px integer
----@param py integer
----@param x integer
----@param y integer
----@return boolean
-function df.renderer.get_precise_mouse_coords(px, py, x, y) end
-
----@param cur_tx integer
----@param cur_ty integer
-function df.renderer.get_current_interface_tile_dims(cur_tx, cur_ty) end
-
----@return boolean
-function df.renderer.uses_opengl() end
-
----@class renderer_2d_base: renderer
----@field window integer SDL_Window*
----@field sdl_renderer integer SDL_Renderer*
----@field screen_tex integer SDL_Texture*
----@field tile_cache lightuserdata unordered_map<texture_fullid, SDL_Texture*\>
----@field dispx integer
----@field dispy integer
----@field dimx integer
----@field dimy integer
----@field dispx_z integer
----@field dispy_z integer
----@field origin_x integer
----@field origin_y integer
----@field cur_w integer
----@field cur_h integer
+---@class (exact) renderer_2d_base: DFObject, renderer
+---@field _kind 'struct'
+---@field _type _renderer_2d_base
+---@field dispx number
+---@field dispy number
+---@field dimx number
+---@field dimy number
+---@field dispx_z number
+---@field dispy_z number
+---@field origin_x number
+---@field origin_y number
+---@field cur_w number
+---@field cur_h number
 ---@field use_viewport_zoom boolean
----@field viewport_zoom_factor integer
----@field textures_to_destroy df.container svector<texture_fullid>
----@field ttfs_to_render integer std::list<pair<SDL_Surface*, SDL_Rect>>
----@field zoom_steps integer
----@field forced_steps integer
----@field natural_w integer
----@field natural_h integer
+---@field viewport_zoom_factor number
+---@field zoom_steps number
+---@field forced_steps number
+---@field natural_w number
+---@field natural_h number
+local renderer_2d_base
+
+---@class _renderer_2d_base: DFCompound
+---@field _kind 'class-type'
 df.renderer_2d_base = {}
 
----@param w integer
----@param h integer
----@return boolean
-function df.renderer_2d_base.init_video(w, h) end
+---@class (exact) renderer_2d: DFObject, renderer_2d_base
+---@field _kind 'struct'
+---@field _type _renderer_2d
+local renderer_2d
 
----@class renderer_2d: renderer_2d_base
+---@class _renderer_2d: DFCompound
+---@field _kind 'class-type'
 df.renderer_2d = {}
 
----@class _zoom_commands: integer, string, df.enum
+---@alias zoom_commands
+---| 0 # zoom_in
+---| 1 # zoom_out
+---| 2 # zoom_reset
+---| 3 # zoom_fullscreen
+---| 4 # zoom_resetgrid
+
+---@class _zoom_commands: DFDescriptor
+---@field _kind 'enum-type'
 ---@field zoom_in 0
 ---@field [0] "zoom_in"
 ---@field zoom_out 1
@@ -668,30 +299,16 @@ df.renderer_2d = {}
 ---@field [4] "zoom_resetgrid"
 df.zoom_commands = {}
 
----@class zoom_commands
----@field [0] boolean
----@field zoom_in boolean
----@field [1] boolean
----@field zoom_out boolean
----@field [2] boolean
----@field zoom_reset boolean
----@field [3] boolean
----@field zoom_fullscreen boolean
----@field [4] boolean
----@field zoom_resetgrid boolean
-
----@class enabler: df.class
----@field fullscreen_state enabler_fullscreen_state
----@field overridden_grid_sizes integer
----@field renderer renderer
----@field calculated_fps integer
----@field calculated_gfps integer
----@field frame_timings integer
----@field gframe_timings integer
----@field frame_sum integer
----@field gframe_sum integer
----@field frame_last integer
----@field gframe_last integer
+---@class (exact) enabler: DFObject
+---@field _kind 'struct'
+---@field _type _enabler
+---@field fullscreen_state enabler.T_fullscreen_state
+---@field calculated_fps number
+---@field calculated_gfps number
+---@field frame_sum number
+---@field gframe_sum number
+---@field frame_last number
+---@field gframe_last number
 ---@field fps number
 ---@field gfps number
 ---@field fps_per_gfps number
@@ -700,94 +317,110 @@ df.zoom_commands = {}
 ---@field outstanding_gframes number
 ---@field async_frames integer
 ---@field async_paused boolean
----@field async_tobox enabler_async_tobox
----@field async_frombox enabler_async_frombox
----@field async_zoom enabler_async_zoom
----@field async_fromcomplete integer
----@field renderer_threadid number
+---@field async_tobox enabler.T_async_tobox
+---@field async_frombox enabler.T_async_frombox
+---@field async_zoom enabler.T_async_zoom
+---@field renderer_threadid ulong
 ---@field must_do_render_things_before_display boolean
----@field command_line df.string
----@field flag enabler_flag
----@field mouse_lbut integer
----@field mouse_rbut integer
----@field mouse_lbut_down integer
----@field mouse_rbut_down integer
----@field mouse_lbut_lift integer
----@field mouse_rbut_lift integer
----@field mouse_mbut integer
----@field mouse_mbut_down integer
----@field mouse_mbut_lift integer
----@field tracking_on integer
----@field textures enabler_textures
----@field simticks integer
----@field gputicks integer
----@field clock integer An *approximation* of the current time for use in garbage collection thingies, updated every frame or so.
+---@field command_line string
+---@field flag enabler.T_flag
+---@field mouse_lbut number
+---@field mouse_rbut number
+---@field mouse_lbut_down number
+---@field mouse_rbut_down number
+---@field mouse_lbut_lift number
+---@field mouse_rbut_lift number
+---@field mouse_mbut number
+---@field mouse_mbut_down number
+---@field mouse_mbut_lift number
+---@field tracking_on number
+---@field textures enabler.T_textures
+---@field simticks number
+---@field gputicks number note: this is a std::atomic_int
+---@field clock integer note: this is a std::atomic_int
 ---@field mouse_focus boolean
----@field last_text_input integer[]
+local enabler
+
+---@class _enabler: DFCompound
+---@field _kind 'class-type'
 df.enabler = {}
 
----@param unk_0 interface_key
----@return df.string
-function df.enabler.GetKeyDisplay(unk_0) end
+---@class (exact) enabler.T_fullscreen_state: DFObject
+---@field _kind 'struct'
+---@field _type _enabler.T_fullscreen_state
+---@field fullscreen flag-bit
+---@field exclusive flag-bit
+local fullscreen_state
 
----@class _enabler_fullscreen_state: integer, string, df.bitfield
----@field fullscreen 0
----@field [0] "fullscreen"
----@field exclusive 1
----@field [1] "exclusive"
+---@class _enabler.T_fullscreen_state: DFCompound
+---@field _kind 'struct-type'
 df.enabler.T_fullscreen_state = {}
 
----@class enabler_fullscreen_state
----@field [0] boolean
----@field fullscreen boolean
----@field [1] boolean
----@field exclusive boolean
+---@class (exact) enabler.T_async_tobox: DFObject
+---@field _kind 'struct'
+---@field _type _enabler.T_async_tobox
+---@field mtx stl-mutex
+---@field cv stl-condition-variable
+local async_tobox
 
-
----@class enabler_async_tobox: df.class
----@field mtx lightuserdata
----@field cv lightuserdata
----@field vals _cmd
+---@class _enabler.T_async_tobox: DFCompound
+---@field _kind 'struct-type'
 df.enabler.T_async_tobox = {}
 
+---@class (exact) enabler.T_async_frombox: DFObject
+---@field _kind 'struct'
+---@field _type _enabler.T_async_frombox
+---@field mtx stl-mutex
+---@field cv stl-condition-variable
+local async_frombox
 
----@class enabler_async_frombox: df.class
----@field mtx lightuserdata
----@field cv lightuserdata
----@field vals _msg
+---@class _enabler.T_async_frombox: DFCompound
+---@field _kind 'struct-type'
 df.enabler.T_async_frombox = {}
 
+---@class (exact) enabler.T_async_zoom: DFObject
+---@field _kind 'struct'
+---@field _type _enabler.T_async_zoom
+---@field mtx stl-mutex
+---@field cv stl-condition-variable
+local async_zoom
 
----@class enabler_async_zoom: df.class
----@field mtx lightuserdata
----@field cv lightuserdata
----@field vals zoom_commands
+---@class _enabler.T_async_zoom: DFCompound
+---@field _kind 'struct-type'
 df.enabler.T_async_zoom = {}
 
+---@class (exact) enabler.T_flag: DFObject
+---@field _kind 'struct'
+---@field _type _enabler.T_flag
+---@field render flag-bit
+---@field maxfps flag-bit
+local flag
 
----@class _enabler_flag: integer, string, df.bitfield
----@field render 0
----@field [0] "render"
----@field maxfps 1
----@field [1] "maxfps"
+---@class _enabler.T_flag: DFCompound
+---@field _kind 'struct-type'
 df.enabler.T_flag = {}
 
----@class enabler_flag
----@field [0] boolean
----@field render boolean
----@field [1] boolean
----@field maxfps boolean
-
-
----@class enabler_textures: df.class
----@field raws df.container
----@field free_spaces df.container
----@field init_texture_size integer
+---@class (exact) enabler.T_textures: DFObject
+---@field _kind 'struct'
+---@field _type _enabler.T_textures
+---@field init_texture_size number
 ---@field uploaded boolean
+local textures
+
+---@class _enabler.T_textures: DFCompound
+---@field _kind 'struct-type'
 df.enabler.T_textures = {}
 
----@class _justification: integer, string, df.enum
----from libgraphics
+---@alias justification
+---| 0 # justify_left
+---| 1 # justify_center
+---| 2 # justify_right
+---| 3 # justify_cont
+---| 4 # not_truetype
+
+-- from libgraphics
+---@class _justification: DFDescriptor
+---@field _kind 'enum-type'
 ---@field justify_left 0
 ---@field [0] "justify_left"
 ---@field justify_center 1
@@ -800,44 +433,43 @@ df.enabler.T_textures = {}
 ---@field [4] "not_truetype"
 df.justification = {}
 
----@class justification
----@field [0] boolean
----@field justify_left boolean
----@field [1] boolean
----@field justify_center boolean
----@field [2] boolean
----@field justify_right boolean
----@field [3] boolean
----@field justify_cont boolean
----@field [4] boolean
----@field not_truetype boolean
-
----@class tile_pagest: df.class
----@field token df.string
----@field graphics_dir df.string
----@field filename df.string
----@field tile_dim_x integer
----@field tile_dim_y integer
----@field page_dim_x integer
----@field page_dim_y integer
----@field texpos df.container
----@field datapos df.container
----@field texpos_gs df.container
----@field datapos_gs df.container
+-- -- texture_handler.h
+---@class (exact) tile_pagest: DFObject
+---@field _kind 'struct'
+---@field _type _tile_pagest
+---@field token string
+---@field graphics_dir string
+---@field filename string
+---@field tile_dim_x number
+---@field tile_dim_y number
+---@field page_dim_x number
+---@field page_dim_y number
 ---@field loaded boolean
+local tile_pagest
+
+---@class _tile_pagest: DFCompound
+---@field _kind 'struct-type'
 df.tile_pagest = {}
 
----@class palette_pagest: df.class
----@field token df.string
----@field graphics_dir df.string
----@field filename df.string
----@field default_row integer
----@field color_token df.string[]
----@field color_row df.container
+---@class (exact) palette_pagest: DFObject
+---@field _kind 'struct'
+---@field _type _palette_pagest
+---@field token string
+---@field graphics_dir string
+---@field filename string
+---@field default_row number
+local palette_pagest
+
+---@class _palette_pagest: DFCompound
+---@field _kind 'struct-type'
 df.palette_pagest = {}
 
----@class texture_handlerst: df.class
----@field page tile_pagest[]
----@field palette palette_pagest[]
+---@class (exact) texture_handlerst: DFObject
+---@field _kind 'struct'
+---@field _type _texture_handlerst
+local texture_handlerst
+
+---@class _texture_handlerst: DFCompound
+---@field _kind 'struct-type'
 df.texture_handlerst = {}
 

@@ -1,7 +1,367 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.announcements
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _announcement_type: integer, string, df.enum
+---@alias announcement_type
+---| -1 # NONE
+---| 0 # REACHED_PEAK
+---| 1 # ERA_CHANGE
+---| 2 # FEATURE_DISCOVERY
+---| 3 # STRUCK_DEEP_METAL
+---| 4 # STRUCK_MINERAL
+---| 5 # STRUCK_ECONOMIC_MINERAL
+---| 6 # COMBAT_TWIST_WEAPON
+---| 7 # COMBAT_LET_ITEM_DROP
+---| 8 # COMBAT_START_CHARGE
+---| 9 # COMBAT_SURPRISE_CHARGE
+---| 10 # COMBAT_JUMP_DODGE_PROJ
+---| 11 # COMBAT_JUMP_DODGE_STRIKE
+---| 12 # COMBAT_DODGE
+---| 13 # COMBAT_COUNTERSTRIKE
+---| 14 # COMBAT_BLOCK
+---| 15 # COMBAT_PARRY
+---| 16 # COMBAT_CHARGE_COLLISION
+---| 17 # COMBAT_CHARGE_DEFENDER_TUMBLES
+---| 18 # COMBAT_CHARGE_DEFENDER_KNOCKED_OVER
+---| 19 # COMBAT_CHARGE_ATTACKER_TUMBLES
+---| 20 # COMBAT_CHARGE_ATTACKER_BOUNCE_BACK
+---| 21 # COMBAT_CHARGE_TANGLE_TOGETHER
+---| 22 # COMBAT_CHARGE_TANGLE_TUMBLE
+---| 23 # COMBAT_CHARGE_RUSH_BY
+---| 24 # COMBAT_CHARGE_MANAGE_STOP
+---| 25 # COMBAT_CHARGE_OBSTACLE_SLAM
+---| 26 # COMBAT_WRESTLE_LOCK
+---| 27 # COMBAT_WRESTLE_CHOKEHOLD
+---| 28 # COMBAT_WRESTLE_TAKEDOWN
+---| 29 # COMBAT_WRESTLE_THROW
+---| 30 # COMBAT_WRESTLE_RELEASE_LOCK
+---| 31 # COMBAT_WRESTLE_RELEASE_CHOKE
+---| 32 # COMBAT_WRESTLE_RELEASE_GRIP
+---| 33 # COMBAT_WRESTLE_STRUGGLE
+---| 34 # COMBAT_WRESTLE_RELEASE_LATCH
+---| 35 # COMBAT_WRESTLE_STRANGLE_KO
+---| 36 # COMBAT_WRESTLE_ADJUST_GRIP
+---| 37 # COMBAT_GRAB_TEAR
+---| 38 # COMBAT_STRIKE_DETAILS
+---| 39 # COMBAT_STRIKE_DETAILS_2
+---| 40 # COMBAT_EVENT_ENRAGED
+---| 41 # COMBAT_EVENT_STUCKIN
+---| 42 # COMBAT_EVENT_LATCH_BP
+---| 43 # COMBAT_EVENT_LATCH_GENERAL
+---| 44 # COMBAT_EVENT_PROPELLED_AWAY
+---| 45 # COMBAT_EVENT_KNOCKED_OUT
+---| 46 # COMBAT_EVENT_STUNNED
+---| 47 # COMBAT_EVENT_WINDED
+---| 48 # COMBAT_EVENT_NAUSEATED
+---| 49 # MIGRANT_ARRIVAL_NAMED
+---| 50 # MIGRANT_ARRIVAL
+---| 51 # DIG_CANCEL_WARM
+---| 52 # DIG_CANCEL_DAMP
+---| 53 # AMBUSH_DEFENDER
+---| 54 # AMBUSH_RESIDENT
+---| 55 # AMBUSH_THIEF
+---| 56 # AMBUSH_THIEF_SUPPORT_SKULKING
+---| 57 # AMBUSH_THIEF_SUPPORT_NATURE
+---| 58 # AMBUSH_THIEF_SUPPORT
+---| 59 # AMBUSH_MISCHIEVOUS
+---| 60 # AMBUSH_SNATCHER
+---| 61 # AMBUSH_SNATCHER_SUPPORT
+---| 62 # AMBUSH_AMBUSHER_NATURE
+---| 63 # AMBUSH_AMBUSHER
+---| 64 # AMBUSH_INJURED
+---| 65 # AMBUSH_OTHER
+---| 66 # AMBUSH_INCAPACITATED
+---| 67 # CARAVAN_ARRIVAL
+---| 68 # NOBLE_ARRIVAL
+---| 69 # D_MIGRANTS_ARRIVAL
+---| 70 # D_MIGRANT_ARRIVAL
+---| 71 # D_MIGRANT_ARRIVAL_DISCOURAGED
+---| 72 # D_NO_MIGRANT_ARRIVAL
+---| 73 # ANIMAL_TRAP_CATCH
+---| 74 # ANIMAL_TRAP_ROBBED
+---| 75 # MISCHIEF_LEVER
+---| 76 # MISCHIEF_PLATE
+---| 77 # MISCHIEF_CAGE
+---| 78 # MISCHIEF_CHAIN
+---| 79 # DIPLOMAT_ARRIVAL
+---| 80 # LIAISON_ARRIVAL
+---| 81 # TRADE_DIPLOMAT_ARRIVAL
+---| 82 # CAVE_COLLAPSE
+---| 83 # BIRTH_CITIZEN
+---| 84 # BIRTH_ANIMAL
+---| 85 # STRANGE_MOOD
+---| 86 # MADE_ARTIFACT
+---| 87 # NAMED_ARTIFACT
+---| 88 # ITEM_ATTACHMENT
+---| 89 # VERMIN_CAGE_ESCAPE
+---| 90 # TRIGGER_WEB
+---| 91 # MOOD_BUILDING_CLAIMED
+---| 92 # ARTIFACT_BEGUN
+---| 93 # MEGABEAST_ARRIVAL
+---| 94 # WEREBEAST_ARRIVAL
+---| 95 # BEAST_AMBUSH
+---| 96 # BERSERK_CITIZEN
+---| 97 # MAGMA_DEFACES_ENGRAVING
+---| 98 # ENGRAVING_MELTS
+---| 99 # MASTERPIECE_CONSTRUCTION
+---| 100 # MASTER_ARCHITECTURE_LOST
+---| 101 # MASTER_CONSTRUCTION_LOST
+---| 102 # ADV_AWAKEN
+---| 103 # ADV_SLEEP_INTERRUPTED
+---| 104 # CANCEL_JOB
+---| 105 # ADV_CREATURE_DEATH
+---| 106 # CITIZEN_DEATH
+---| 107 # PET_DEATH
+---| 108 # ENDGAME_EVENT_1
+---| 109 # ENDGAME_EVENT_1B
+---| 110 # ENDGAME_EVENT_2
+---| 111 # FALL_OVER
+---| 112 # CAUGHT_IN_FLAMES
+---| 113 # CAUGHT_IN_WEB
+---| 114 # UNIT_PROJECTILE_SLAM_BLOW_APART
+---| 115 # UNIT_PROJECTILE_SLAM
+---| 116 # UNIT_PROJECTILE_SLAM_INTO_UNIT
+---| 117 # VOMIT
+---| 118 # LOSE_HOLD_OF_ITEM
+---| 119 # REGAIN_CONSCIOUSNESS
+---| 120 # FREE_FROM_WEB
+---| 121 # PARALYZED
+---| 122 # OVERCOME_PARALYSIS
+---| 123 # NOT_STUNNED
+---| 124 # EXHAUSTION
+---| 125 # PAIN_KO
+---| 126 # BREAK_GRIP
+---| 127 # NO_BREAK_GRIP
+---| 128 # BLOCK_FIRE
+---| 129 # BREATHE_FIRE
+---| 130 # SHOOT_WEB
+---| 131 # PULL_OUT_DROP
+---| 132 # STAND_UP
+---| 133 # MARTIAL_TRANCE
+---| 134 # MAT_BREATH
+---| 135 # ADV_REACTION_PRODUCTS
+---| 136 # NIGHT_ATTACK_STARTS
+---| 137 # NIGHT_ATTACK_ENDS
+---| 138 # NIGHT_ATTACK_TRAVEL
+---| 139 # GHOST_ATTACK
+---| 140 # FLAME_HIT
+---| 141 # TRAVEL_SITE_DISCOVERY
+---| 142 # TRAVEL_SITE_BUMP
+---| 143 # ADVENTURE_INTRO
+---| 144 # CREATURE_SOUND
+---| 145 # CREATURE_STEALS_OBJECT
+---| 146 # FOUND_TRAP
+---| 147 # BODY_TRANSFORMATION
+---| 148 # INTERACTION_ACTOR
+---| 149 # INTERACTION_TARGET
+---| 150 # UNDEAD_ATTACK
+---| 151 # CITIZEN_MISSING
+---| 152 # PET_MISSING
+---| 153 # EMBRACE
+---| 154 # STRANGE_RAIN_SNOW
+---| 155 # STRANGE_CLOUD
+---| 156 # SIMPLE_ANIMAL_ACTION
+---| 157 # FLOUNDER_IN_LIQUID
+---| 158 # TRAINING_DOWN_TO_SEMI_WILD
+---| 159 # TRAINING_FULL_REVERSION
+---| 160 # ANIMAL_TRAINING_KNOWLEDGE
+---| 161 # SKIP_ON_LIQUID
+---| 162 # DODGE_FLYING_OBJECT
+---| 163 # REGULAR_CONVERSATION
+---| 164 # BANDIT_EMPTY_CONTAINER
+---| 165 # BANDIT_GRAB_ITEM
+---| 166 # COMBAT_EVENT_ATTACK_INTERRUPTED
+---| 167 # COMBAT_WRESTLE_CATCH_ATTACK
+---| 168 # FAIL_TO_GRAB_SURFACE
+---| 169 # LOSE_HOLD_OF_SURFACE
+---| 170 # TRAVEL_COMPLAINT
+---| 171 # LOSE_EMOTION
+---| 172 # REORGANIZE_POSSESSIONS
+---| 173 # PUSH_ITEM
+---| 174 # DRAW_ITEM
+---| 175 # STRAP_ITEM
+---| 176 # GAIN_SITE_CONTROL
+---| 177 # CONFLICT_CONVERSATION
+---| 178 # FORT_POSITION_SUCCESSION
+---| 179 # MECHANISM_SOUND
+---| 180 # BIRTH_WILD_ANIMAL
+---| 181 # STRESSED_CITIZEN
+---| 182 # CITIZEN_LOST_TO_STRESS
+---| 183 # CITIZEN_TANTRUM
+---| 184 # MOVED_OUT_OF_RANGE
+---| 185 # CANNOT_JUMP
+---| 186 # NO_TRACKS
+---| 187 # ALREADY_SEARCHED_AREA
+---| 188 # SEARCH_FOUND_SOMETHING
+---| 189 # SEARCH_FOUND_NOTHING
+---| 190 # NOTHING_TO_INTERACT
+---| 191 # NOTHING_TO_EXAMINE
+---| 192 # YOU_YIELDED
+---| 193 # YOU_UNYIELDED
+---| 194 # YOU_STRAP_ITEM
+---| 195 # YOU_DRAW_ITEM
+---| 196 # NO_GRASP_TO_DRAW_ITEM
+---| 197 # NO_ITEM_TO_STRAP
+---| 198 # NO_INV_TO_REMOVE
+---| 199 # NO_INV_TO_WEAR
+---| 200 # NO_INV_TO_EAT
+---| 201 # NO_INV_TO_CONTAIN
+---| 202 # NO_INV_TO_DROP
+---| 203 # NOTHING_TO_PICK_UP
+---| 204 # NO_INV_TO_THROW
+---| 205 # NO_INV_TO_FIRE
+---| 206 # CURRENT_SMELL
+---| 207 # CURRENT_WEATHER
+---| 208 # CURRENT_TEMPERATURE
+---| 209 # CURRENT_DATE
+---| 210 # NO_GRASP_FOR_PICKUP
+---| 211 # CANNOT_CHOP_TREE
+---| 212 # CANNOT_CLIMB
+---| 213 # CANNOT_STAND
+---| 214 # MUST_UNRETRACT_FIRST
+---| 215 # CANNOT_REST
+---| 216 # CANNOT_MAKE_CAMPFIRE
+---| 217 # MADE_CAMPFIRE
+---| 218 # CANNOT_SET_FIRE
+---| 219 # SET_FIRE
+---| 220 # DAWN_BREAKS
+---| 221 # NOON
+---| 222 # NIGHTFALL
+---| 223 # NO_INV_INTERACTION
+---| 224 # EMPTY_CONTAINER
+---| 225 # TAKE_OUT_OF_CONTAINER
+---| 226 # NO_CONTAINER_FOR_ITEM
+---| 227 # PUT_INTO_CONTAINER
+---| 228 # EAT_ITEM
+---| 229 # DRINK_ITEM
+---| 230 # CONSUME_FAILURE
+---| 231 # DROP_ITEM
+---| 232 # PICK_UP_ITEM
+---| 233 # YOU_BUILDING_INTERACTION
+---| 234 # YOU_ITEM_INTERACTION
+---| 235 # YOU_TEMPERATURE_EFFECTS
+---| 236 # PROFESSION_CHANGES
+---| 237 # RECRUIT_PROMOTED
+---| 238 # SOLDIER_BECOMES_MASTER
+---| 239 # RESOLVE_SHARED_ITEMS
+---| 240 # COUGH_BLOOD
+---| 241 # VOMIT_BLOOD
+---| 242 # MERCHANTS_UNLOADING
+---| 243 # MERCHANTS_NEED_DEPOT
+---| 244 # MERCHANT_WAGONS_BYPASSED
+---| 245 # MERCHANTS_LEAVING_SOON
+---| 246 # MERCHANTS_EMBARKED
+---| 247 # PET_LOSES_DEAD_OWNER
+---| 248 # PET_ADOPTS_OWNER
+---| 249 # VERMIN_BITE
+---| 250 # UNABLE_TO_COMPLETE_BUILDING
+---| 251 # JOBS_REMOVED_FROM_UNPOWERED_BUILDING
+---| 252 # CITIZEN_SNATCHED
+---| 253 # VERMIN_DISTURBED
+---| 254 # LAND_GAINS_STATUS
+---| 255 # LAND_ELEVATED_STATUS
+---| 256 # MASTERPIECE_CRAFTED
+---| 257 # ARTWORK_DEFACED
+---| 258 # POWER_LEARNED
+---| 259 # YOU_FEED_ON_SUCKEE
+---| 260 # ANIMAL_TRAINED
+---| 261 # DYED_MASTERPIECE
+---| 262 # COOKED_MASTERPIECE
+---| 263 # MANDATE_ENDS
+---| 264 # SLOWDOWN_ENDS
+---| 265 # FAREWELL_HELPER
+---| 266 # ELECTION_RESULTS
+---| 267 # SITE_PRESENT
+---| 268 # CONSTRUCTION_SUSPENDED
+---| 269 # LINKAGE_SUSPENDED
+---| 270 # QUOTA_FILLED
+---| 271 # JOB_OVERWRITTEN
+---| 272 # NOTHING_TO_CATCH_IN_WATER
+---| 273 # DEMAND_FORGOTTEN
+---| 274 # NEW_DEMAND
+---| 275 # NEW_MANDATE
+---| 276 # PRICES_ALTERED
+---| 277 # NAMED_RESIDENT_CREATURE
+---| 278 # SOMEBODY_GROWS_UP
+---| 279 # GUILD_REQUEST_TAKEN
+---| 280 # GUILD_WAGES_CHANGED
+---| 281 # NEW_WORK_MANDATE
+---| 282 # CITIZEN_BECOMES_SOLDIER
+---| 283 # CITIZEN_BECOMES_NONSOLDIER
+---| 284 # PARTY_ORGANIZED
+---| 285 # POSSESSED_TANTRUM
+---| 286 # BUILDING_TOPPLED_BY_GHOST
+---| 287 # MASTERFUL_IMPROVEMENT
+---| 288 # MASTERPIECE_ENGRAVING
+---| 289 # MARRIAGE
+---| 290 # NO_MARRIAGE_CELEBRATION
+---| 291 # CURIOUS_GUZZLER
+---| 292 # WEATHER_BECOMES_CLEAR
+---| 293 # WEATHER_BECOMES_SNOW
+---| 294 # WEATHER_BECOMES_RAIN
+---| 295 # SEASON_WET
+---| 296 # SEASON_DRY
+---| 297 # SEASON_SPRING
+---| 298 # SEASON_SUMMER
+---| 299 # SEASON_AUTUMN
+---| 300 # SEASON_WINTER
+---| 301 # GUEST_ARRIVAL
+---| 302 # CANNOT_SPEAK
+---| 303 # RESEARCH_BREAKTHROUGH
+---| 304 # SERVICE_ORDER_DELIVERY
+---| 305 # PERFORMANCE_START_FAILURE
+---| 306 # BEGIN_ACTIVITY
+---| 307 # MIDDLE_OF_ACTIVITY
+---| 308 # ACTIVITY_SECTION_CHANGE
+---| 309 # CONCLUDE_ACTIVITY
+---| 310 # LEARNED_WRITTEN_CONTENT
+---| 311 # LEARNED_ART_FORM
+---| 312 # PERFORMER_UPDATE
+---| 313 # BUILDING_DESTROYED_OR_TOPPLED
+---| 314 # DEITY_CURSE
+---| 315 # COMPOSITION_COMPLETE
+---| 316 # COMPOSITION_FAILED
+---| 317 # NEW_APPRENTICESHIP
+---| 318 # PETITION_IGNORED
+---| 319 # CHOP_TREE
+---| 320 # CANNOT_CONSTRUCT
+---| 321 # RUMOR_SPREAD
+---| 322 # AMBUSH_HERO
+---| 323 # SERVICE_ORDER_RUMOR_RECEIVED
+---| 324 # RETURNING_RUMOR_RECEIVED
+---| 325 # NEW_HOLDING
+---| 326 # NEW_MARKET_LINK
+---| 327 # EMERGENCY_TACTICAL_CONTROL
+---| 328 # AGREEMENT_SATISFIED
+---| 329 # AGREEMENT_WARNING
+---| 330 # AGREEMENT_ABANDONED
+---| 331 # NEW_GUILD
+---| 332 # CRIME_WITNESS_HANDOFF
+---| 333 # CRIME_WITNESS_STOLEN
+---| 334 # CRIME_WITNESS_ITEM_MOVED
+---| 335 # CRIME_WITNESS_ITEM_MISSING
+---| 336 # MOUNT
+---| 337 # CANNOT_MOUNT
+---| 338 # FAILED_MOUNT
+---| 339 # DISMOUNT
+---| 340 # FAILED_DISMOUNT
+---| 341 # DIPLOMAT_LEFT_UNHAPPY
+---| 342 # EMBARK_MESSAGE
+---| 343 # FIRST_CARAVAN_ARRIVAL
+---| 344 # MONARCH_ARRIVAL
+---| 345 # HASTY_MONARCH
+---| 346 # SATISFIED_MONARCH
+---| 347 # MOUNTAINHOME
+---| 348 # FOOD_WARNING
+---| 349 # UNUSED_46
+---| 350 # UNUSED_47
+---| 351 # UNUSED_48
+---| 352 # UNUSED_49
+---| 353 # UNUSED_50
+
+---@class _announcement_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
 ---@field REACHED_PEAK 0
 ---@field [0] "REACHED_PEAK"
 ---@field ERA_CHANGE 1
@@ -424,8 +784,8 @@
 ---@field [209] "CURRENT_DATE"
 ---@field NO_GRASP_FOR_PICKUP 210
 ---@field [210] "NO_GRASP_FOR_PICKUP"
----@field CANNOT_CHOP_TREE 211
----@field [211] "CANNOT_CHOP_TREE"
+---@field CANNOT_CHOP_TREE 211 formerly TRAVEL_ADVISORY
+---@field [211] "CANNOT_CHOP_TREE" formerly TRAVEL_ADVISORY
 ---@field CANNOT_CLIMB 212
 ---@field [212] "CANNOT_CLIMB"
 ---@field CANNOT_STAND 213
@@ -700,792 +1060,567 @@
 ---@field [347] "MOUNTAINHOME"
 ---@field FOOD_WARNING 348
 ---@field [348] "FOOD_WARNING"
+---@field UNUSED_46 349
+---@field [349] "UNUSED_46"
+---@field UNUSED_47 350
+---@field [350] "UNUSED_47"
+---@field UNUSED_48 351
+---@field [351] "UNUSED_48"
+---@field UNUSED_49 352
+---@field [352] "UNUSED_49"
+---@field UNUSED_50 353
+---@field [353] "UNUSED_50"
 df.announcement_type = {}
 
----@class announcement_type
----@field [0] boolean
----@field REACHED_PEAK boolean
----@field [1] boolean
----@field ERA_CHANGE boolean
----@field [2] boolean
----@field FEATURE_DISCOVERY boolean
----@field [3] boolean
----@field STRUCK_DEEP_METAL boolean
----@field [4] boolean
----@field STRUCK_MINERAL boolean
----@field [5] boolean
----@field STRUCK_ECONOMIC_MINERAL boolean
----@field [6] boolean
----@field COMBAT_TWIST_WEAPON boolean
----@field [7] boolean
----@field COMBAT_LET_ITEM_DROP boolean
----@field [8] boolean
----@field COMBAT_START_CHARGE boolean
----@field [9] boolean
----@field COMBAT_SURPRISE_CHARGE boolean
----@field [10] boolean
----@field COMBAT_JUMP_DODGE_PROJ boolean
----@field [11] boolean
----@field COMBAT_JUMP_DODGE_STRIKE boolean
----@field [12] boolean
----@field COMBAT_DODGE boolean
----@field [13] boolean
----@field COMBAT_COUNTERSTRIKE boolean
----@field [14] boolean
----@field COMBAT_BLOCK boolean
----@field [15] boolean
----@field COMBAT_PARRY boolean
----@field [16] boolean
----@field COMBAT_CHARGE_COLLISION boolean
----@field [17] boolean
----@field COMBAT_CHARGE_DEFENDER_TUMBLES boolean
----@field [18] boolean
----@field COMBAT_CHARGE_DEFENDER_KNOCKED_OVER boolean
----@field [19] boolean
----@field COMBAT_CHARGE_ATTACKER_TUMBLES boolean
----@field [20] boolean
----@field COMBAT_CHARGE_ATTACKER_BOUNCE_BACK boolean
----@field [21] boolean
----@field COMBAT_CHARGE_TANGLE_TOGETHER boolean
----@field [22] boolean
----@field COMBAT_CHARGE_TANGLE_TUMBLE boolean
----@field [23] boolean
----@field COMBAT_CHARGE_RUSH_BY boolean
----@field [24] boolean
----@field COMBAT_CHARGE_MANAGE_STOP boolean
----@field [25] boolean
----@field COMBAT_CHARGE_OBSTACLE_SLAM boolean
----@field [26] boolean
----@field COMBAT_WRESTLE_LOCK boolean
----@field [27] boolean
----@field COMBAT_WRESTLE_CHOKEHOLD boolean
----@field [28] boolean
----@field COMBAT_WRESTLE_TAKEDOWN boolean
----@field [29] boolean
----@field COMBAT_WRESTLE_THROW boolean
----@field [30] boolean
----@field COMBAT_WRESTLE_RELEASE_LOCK boolean
----@field [31] boolean
----@field COMBAT_WRESTLE_RELEASE_CHOKE boolean
----@field [32] boolean
----@field COMBAT_WRESTLE_RELEASE_GRIP boolean
----@field [33] boolean
----@field COMBAT_WRESTLE_STRUGGLE boolean
----@field [34] boolean
----@field COMBAT_WRESTLE_RELEASE_LATCH boolean
----@field [35] boolean
----@field COMBAT_WRESTLE_STRANGLE_KO boolean
----@field [36] boolean
----@field COMBAT_WRESTLE_ADJUST_GRIP boolean
----@field [37] boolean
----@field COMBAT_GRAB_TEAR boolean
----@field [38] boolean
----@field COMBAT_STRIKE_DETAILS boolean
----@field [39] boolean
----@field COMBAT_STRIKE_DETAILS_2 boolean
----@field [40] boolean
----@field COMBAT_EVENT_ENRAGED boolean
----@field [41] boolean
----@field COMBAT_EVENT_STUCKIN boolean
----@field [42] boolean
----@field COMBAT_EVENT_LATCH_BP boolean
----@field [43] boolean
----@field COMBAT_EVENT_LATCH_GENERAL boolean
----@field [44] boolean
----@field COMBAT_EVENT_PROPELLED_AWAY boolean
----@field [45] boolean
----@field COMBAT_EVENT_KNOCKED_OUT boolean
----@field [46] boolean
----@field COMBAT_EVENT_STUNNED boolean
----@field [47] boolean
----@field COMBAT_EVENT_WINDED boolean
----@field [48] boolean
----@field COMBAT_EVENT_NAUSEATED boolean
----@field [49] boolean
----@field MIGRANT_ARRIVAL_NAMED boolean
----@field [50] boolean
----@field MIGRANT_ARRIVAL boolean
----@field [51] boolean
----@field DIG_CANCEL_WARM boolean
----@field [52] boolean
----@field DIG_CANCEL_DAMP boolean
----@field [53] boolean
----@field AMBUSH_DEFENDER boolean
----@field [54] boolean
----@field AMBUSH_RESIDENT boolean
----@field [55] boolean
----@field AMBUSH_THIEF boolean
----@field [56] boolean
----@field AMBUSH_THIEF_SUPPORT_SKULKING boolean
----@field [57] boolean
----@field AMBUSH_THIEF_SUPPORT_NATURE boolean
----@field [58] boolean
----@field AMBUSH_THIEF_SUPPORT boolean
----@field [59] boolean
----@field AMBUSH_MISCHIEVOUS boolean
----@field [60] boolean
----@field AMBUSH_SNATCHER boolean
----@field [61] boolean
----@field AMBUSH_SNATCHER_SUPPORT boolean
----@field [62] boolean
----@field AMBUSH_AMBUSHER_NATURE boolean
----@field [63] boolean
----@field AMBUSH_AMBUSHER boolean
----@field [64] boolean
----@field AMBUSH_INJURED boolean
----@field [65] boolean
----@field AMBUSH_OTHER boolean
----@field [66] boolean
----@field AMBUSH_INCAPACITATED boolean
----@field [67] boolean
----@field CARAVAN_ARRIVAL boolean
----@field [68] boolean
----@field NOBLE_ARRIVAL boolean
----@field [69] boolean
----@field D_MIGRANTS_ARRIVAL boolean
----@field [70] boolean
----@field D_MIGRANT_ARRIVAL boolean
----@field [71] boolean
----@field D_MIGRANT_ARRIVAL_DISCOURAGED boolean
----@field [72] boolean
----@field D_NO_MIGRANT_ARRIVAL boolean
----@field [73] boolean
----@field ANIMAL_TRAP_CATCH boolean
----@field [74] boolean
----@field ANIMAL_TRAP_ROBBED boolean
----@field [75] boolean
----@field MISCHIEF_LEVER boolean
----@field [76] boolean
----@field MISCHIEF_PLATE boolean
----@field [77] boolean
----@field MISCHIEF_CAGE boolean
----@field [78] boolean
----@field MISCHIEF_CHAIN boolean
----@field [79] boolean
----@field DIPLOMAT_ARRIVAL boolean
----@field [80] boolean
----@field LIAISON_ARRIVAL boolean
----@field [81] boolean
----@field TRADE_DIPLOMAT_ARRIVAL boolean
----@field [82] boolean
----@field CAVE_COLLAPSE boolean
----@field [83] boolean
----@field BIRTH_CITIZEN boolean
----@field [84] boolean
----@field BIRTH_ANIMAL boolean
----@field [85] boolean
----@field STRANGE_MOOD boolean
----@field [86] boolean
----@field MADE_ARTIFACT boolean
----@field [87] boolean
----@field NAMED_ARTIFACT boolean
----@field [88] boolean
----@field ITEM_ATTACHMENT boolean
----@field [89] boolean
----@field VERMIN_CAGE_ESCAPE boolean
----@field [90] boolean
----@field TRIGGER_WEB boolean
----@field [91] boolean
----@field MOOD_BUILDING_CLAIMED boolean
----@field [92] boolean
----@field ARTIFACT_BEGUN boolean
----@field [93] boolean
----@field MEGABEAST_ARRIVAL boolean
----@field [94] boolean
----@field WEREBEAST_ARRIVAL boolean
----@field [95] boolean
----@field BEAST_AMBUSH boolean
----@field [96] boolean
----@field BERSERK_CITIZEN boolean
----@field [97] boolean
----@field MAGMA_DEFACES_ENGRAVING boolean
----@field [98] boolean
----@field ENGRAVING_MELTS boolean
----@field [99] boolean
----@field MASTERPIECE_CONSTRUCTION boolean
----@field [100] boolean
----@field MASTER_ARCHITECTURE_LOST boolean
----@field [101] boolean
----@field MASTER_CONSTRUCTION_LOST boolean
----@field [102] boolean
----@field ADV_AWAKEN boolean
----@field [103] boolean
----@field ADV_SLEEP_INTERRUPTED boolean
----@field [104] boolean
----@field CANCEL_JOB boolean
----@field [105] boolean
----@field ADV_CREATURE_DEATH boolean
----@field [106] boolean
----@field CITIZEN_DEATH boolean
----@field [107] boolean
----@field PET_DEATH boolean
----@field [108] boolean
----@field ENDGAME_EVENT_1 boolean
----@field [109] boolean
----@field ENDGAME_EVENT_1B boolean
----@field [110] boolean
----@field ENDGAME_EVENT_2 boolean
----@field [111] boolean
----@field FALL_OVER boolean
----@field [112] boolean
----@field CAUGHT_IN_FLAMES boolean
----@field [113] boolean
----@field CAUGHT_IN_WEB boolean
----@field [114] boolean
----@field UNIT_PROJECTILE_SLAM_BLOW_APART boolean
----@field [115] boolean
----@field UNIT_PROJECTILE_SLAM boolean
----@field [116] boolean
----@field UNIT_PROJECTILE_SLAM_INTO_UNIT boolean
----@field [117] boolean
----@field VOMIT boolean
----@field [118] boolean
----@field LOSE_HOLD_OF_ITEM boolean
----@field [119] boolean
----@field REGAIN_CONSCIOUSNESS boolean
----@field [120] boolean
----@field FREE_FROM_WEB boolean
----@field [121] boolean
----@field PARALYZED boolean
----@field [122] boolean
----@field OVERCOME_PARALYSIS boolean
----@field [123] boolean
----@field NOT_STUNNED boolean
----@field [124] boolean
----@field EXHAUSTION boolean
----@field [125] boolean
----@field PAIN_KO boolean
----@field [126] boolean
----@field BREAK_GRIP boolean
----@field [127] boolean
----@field NO_BREAK_GRIP boolean
----@field [128] boolean
----@field BLOCK_FIRE boolean
----@field [129] boolean
----@field BREATHE_FIRE boolean
----@field [130] boolean
----@field SHOOT_WEB boolean
----@field [131] boolean
----@field PULL_OUT_DROP boolean
----@field [132] boolean
----@field STAND_UP boolean
----@field [133] boolean
----@field MARTIAL_TRANCE boolean
----@field [134] boolean
----@field MAT_BREATH boolean
----@field [135] boolean
----@field ADV_REACTION_PRODUCTS boolean
----@field [136] boolean
----@field NIGHT_ATTACK_STARTS boolean
----@field [137] boolean
----@field NIGHT_ATTACK_ENDS boolean
----@field [138] boolean
----@field NIGHT_ATTACK_TRAVEL boolean
----@field [139] boolean
----@field GHOST_ATTACK boolean
----@field [140] boolean
----@field FLAME_HIT boolean
----@field [141] boolean
----@field TRAVEL_SITE_DISCOVERY boolean
----@field [142] boolean
----@field TRAVEL_SITE_BUMP boolean
----@field [143] boolean
----@field ADVENTURE_INTRO boolean
----@field [144] boolean
----@field CREATURE_SOUND boolean
----@field [145] boolean
----@field CREATURE_STEALS_OBJECT boolean
----@field [146] boolean
----@field FOUND_TRAP boolean
----@field [147] boolean
----@field BODY_TRANSFORMATION boolean
----@field [148] boolean
----@field INTERACTION_ACTOR boolean
----@field [149] boolean
----@field INTERACTION_TARGET boolean
----@field [150] boolean
----@field UNDEAD_ATTACK boolean
----@field [151] boolean
----@field CITIZEN_MISSING boolean
----@field [152] boolean
----@field PET_MISSING boolean
----@field [153] boolean
----@field EMBRACE boolean
----@field [154] boolean
----@field STRANGE_RAIN_SNOW boolean
----@field [155] boolean
----@field STRANGE_CLOUD boolean
----@field [156] boolean
----@field SIMPLE_ANIMAL_ACTION boolean
----@field [157] boolean
----@field FLOUNDER_IN_LIQUID boolean
----@field [158] boolean
----@field TRAINING_DOWN_TO_SEMI_WILD boolean
----@field [159] boolean
----@field TRAINING_FULL_REVERSION boolean
----@field [160] boolean
----@field ANIMAL_TRAINING_KNOWLEDGE boolean
----@field [161] boolean
----@field SKIP_ON_LIQUID boolean
----@field [162] boolean
----@field DODGE_FLYING_OBJECT boolean
----@field [163] boolean
----@field REGULAR_CONVERSATION boolean
----@field [164] boolean
----@field BANDIT_EMPTY_CONTAINER boolean
----@field [165] boolean
----@field BANDIT_GRAB_ITEM boolean
----@field [166] boolean
----@field COMBAT_EVENT_ATTACK_INTERRUPTED boolean
----@field [167] boolean
----@field COMBAT_WRESTLE_CATCH_ATTACK boolean
----@field [168] boolean
----@field FAIL_TO_GRAB_SURFACE boolean
----@field [169] boolean
----@field LOSE_HOLD_OF_SURFACE boolean
----@field [170] boolean
----@field TRAVEL_COMPLAINT boolean
----@field [171] boolean
----@field LOSE_EMOTION boolean
----@field [172] boolean
----@field REORGANIZE_POSSESSIONS boolean
----@field [173] boolean
----@field PUSH_ITEM boolean
----@field [174] boolean
----@field DRAW_ITEM boolean
----@field [175] boolean
----@field STRAP_ITEM boolean
----@field [176] boolean
----@field GAIN_SITE_CONTROL boolean
----@field [177] boolean
----@field CONFLICT_CONVERSATION boolean
----@field [178] boolean
----@field FORT_POSITION_SUCCESSION boolean
----@field [179] boolean
----@field MECHANISM_SOUND boolean
----@field [180] boolean
----@field BIRTH_WILD_ANIMAL boolean
----@field [181] boolean
----@field STRESSED_CITIZEN boolean
----@field [182] boolean
----@field CITIZEN_LOST_TO_STRESS boolean
----@field [183] boolean
----@field CITIZEN_TANTRUM boolean
----@field [184] boolean
----@field MOVED_OUT_OF_RANGE boolean
----@field [185] boolean
----@field CANNOT_JUMP boolean
----@field [186] boolean
----@field NO_TRACKS boolean
----@field [187] boolean
----@field ALREADY_SEARCHED_AREA boolean
----@field [188] boolean
----@field SEARCH_FOUND_SOMETHING boolean
----@field [189] boolean
----@field SEARCH_FOUND_NOTHING boolean
----@field [190] boolean
----@field NOTHING_TO_INTERACT boolean
----@field [191] boolean
----@field NOTHING_TO_EXAMINE boolean
----@field [192] boolean
----@field YOU_YIELDED boolean
----@field [193] boolean
----@field YOU_UNYIELDED boolean
----@field [194] boolean
----@field YOU_STRAP_ITEM boolean
----@field [195] boolean
----@field YOU_DRAW_ITEM boolean
----@field [196] boolean
----@field NO_GRASP_TO_DRAW_ITEM boolean
----@field [197] boolean
----@field NO_ITEM_TO_STRAP boolean
----@field [198] boolean
----@field NO_INV_TO_REMOVE boolean
----@field [199] boolean
----@field NO_INV_TO_WEAR boolean
----@field [200] boolean
----@field NO_INV_TO_EAT boolean
----@field [201] boolean
----@field NO_INV_TO_CONTAIN boolean
----@field [202] boolean
----@field NO_INV_TO_DROP boolean
----@field [203] boolean
----@field NOTHING_TO_PICK_UP boolean
----@field [204] boolean
----@field NO_INV_TO_THROW boolean
----@field [205] boolean
----@field NO_INV_TO_FIRE boolean
----@field [206] boolean
----@field CURRENT_SMELL boolean
----@field [207] boolean
----@field CURRENT_WEATHER boolean
----@field [208] boolean
----@field CURRENT_TEMPERATURE boolean
----@field [209] boolean
----@field CURRENT_DATE boolean
----@field [210] boolean
----@field NO_GRASP_FOR_PICKUP boolean
----@field [211] boolean
----@field CANNOT_CHOP_TREE boolean
----@field [212] boolean
----@field CANNOT_CLIMB boolean
----@field [213] boolean
----@field CANNOT_STAND boolean
----@field [214] boolean
----@field MUST_UNRETRACT_FIRST boolean
----@field [215] boolean
----@field CANNOT_REST boolean
----@field [216] boolean
----@field CANNOT_MAKE_CAMPFIRE boolean
----@field [217] boolean
----@field MADE_CAMPFIRE boolean
----@field [218] boolean
----@field CANNOT_SET_FIRE boolean
----@field [219] boolean
----@field SET_FIRE boolean
----@field [220] boolean
----@field DAWN_BREAKS boolean
----@field [221] boolean
----@field NOON boolean
----@field [222] boolean
----@field NIGHTFALL boolean
----@field [223] boolean
----@field NO_INV_INTERACTION boolean
----@field [224] boolean
----@field EMPTY_CONTAINER boolean
----@field [225] boolean
----@field TAKE_OUT_OF_CONTAINER boolean
----@field [226] boolean
----@field NO_CONTAINER_FOR_ITEM boolean
----@field [227] boolean
----@field PUT_INTO_CONTAINER boolean
----@field [228] boolean
----@field EAT_ITEM boolean
----@field [229] boolean
----@field DRINK_ITEM boolean
----@field [230] boolean
----@field CONSUME_FAILURE boolean
----@field [231] boolean
----@field DROP_ITEM boolean
----@field [232] boolean
----@field PICK_UP_ITEM boolean
----@field [233] boolean
----@field YOU_BUILDING_INTERACTION boolean
----@field [234] boolean
----@field YOU_ITEM_INTERACTION boolean
----@field [235] boolean
----@field YOU_TEMPERATURE_EFFECTS boolean
----@field [236] boolean
----@field PROFESSION_CHANGES boolean
----@field [237] boolean
----@field RECRUIT_PROMOTED boolean
----@field [238] boolean
----@field SOLDIER_BECOMES_MASTER boolean
----@field [239] boolean
----@field RESOLVE_SHARED_ITEMS boolean
----@field [240] boolean
----@field COUGH_BLOOD boolean
----@field [241] boolean
----@field VOMIT_BLOOD boolean
----@field [242] boolean
----@field MERCHANTS_UNLOADING boolean
----@field [243] boolean
----@field MERCHANTS_NEED_DEPOT boolean
----@field [244] boolean
----@field MERCHANT_WAGONS_BYPASSED boolean
----@field [245] boolean
----@field MERCHANTS_LEAVING_SOON boolean
----@field [246] boolean
----@field MERCHANTS_EMBARKED boolean
----@field [247] boolean
----@field PET_LOSES_DEAD_OWNER boolean
----@field [248] boolean
----@field PET_ADOPTS_OWNER boolean
----@field [249] boolean
----@field VERMIN_BITE boolean
----@field [250] boolean
----@field UNABLE_TO_COMPLETE_BUILDING boolean
----@field [251] boolean
----@field JOBS_REMOVED_FROM_UNPOWERED_BUILDING boolean
----@field [252] boolean
----@field CITIZEN_SNATCHED boolean
----@field [253] boolean
----@field VERMIN_DISTURBED boolean
----@field [254] boolean
----@field LAND_GAINS_STATUS boolean
----@field [255] boolean
----@field LAND_ELEVATED_STATUS boolean
----@field [256] boolean
----@field MASTERPIECE_CRAFTED boolean
----@field [257] boolean
----@field ARTWORK_DEFACED boolean
----@field [258] boolean
----@field POWER_LEARNED boolean
----@field [259] boolean
----@field YOU_FEED_ON_SUCKEE boolean
----@field [260] boolean
----@field ANIMAL_TRAINED boolean
----@field [261] boolean
----@field DYED_MASTERPIECE boolean
----@field [262] boolean
----@field COOKED_MASTERPIECE boolean
----@field [263] boolean
----@field MANDATE_ENDS boolean
----@field [264] boolean
----@field SLOWDOWN_ENDS boolean
----@field [265] boolean
----@field FAREWELL_HELPER boolean
----@field [266] boolean
----@field ELECTION_RESULTS boolean
----@field [267] boolean
----@field SITE_PRESENT boolean
----@field [268] boolean
----@field CONSTRUCTION_SUSPENDED boolean
----@field [269] boolean
----@field LINKAGE_SUSPENDED boolean
----@field [270] boolean
----@field QUOTA_FILLED boolean
----@field [271] boolean
----@field JOB_OVERWRITTEN boolean
----@field [272] boolean
----@field NOTHING_TO_CATCH_IN_WATER boolean
----@field [273] boolean
----@field DEMAND_FORGOTTEN boolean
----@field [274] boolean
----@field NEW_DEMAND boolean
----@field [275] boolean
----@field NEW_MANDATE boolean
----@field [276] boolean
----@field PRICES_ALTERED boolean
----@field [277] boolean
----@field NAMED_RESIDENT_CREATURE boolean
----@field [278] boolean
----@field SOMEBODY_GROWS_UP boolean
----@field [279] boolean
----@field GUILD_REQUEST_TAKEN boolean
----@field [280] boolean
----@field GUILD_WAGES_CHANGED boolean
----@field [281] boolean
----@field NEW_WORK_MANDATE boolean
----@field [282] boolean
----@field CITIZEN_BECOMES_SOLDIER boolean
----@field [283] boolean
----@field CITIZEN_BECOMES_NONSOLDIER boolean
----@field [284] boolean
----@field PARTY_ORGANIZED boolean
----@field [285] boolean
----@field POSSESSED_TANTRUM boolean
----@field [286] boolean
----@field BUILDING_TOPPLED_BY_GHOST boolean
----@field [287] boolean
----@field MASTERFUL_IMPROVEMENT boolean
----@field [288] boolean
----@field MASTERPIECE_ENGRAVING boolean
----@field [289] boolean
----@field MARRIAGE boolean
----@field [290] boolean
----@field NO_MARRIAGE_CELEBRATION boolean
----@field [291] boolean
----@field CURIOUS_GUZZLER boolean
----@field [292] boolean
----@field WEATHER_BECOMES_CLEAR boolean
----@field [293] boolean
----@field WEATHER_BECOMES_SNOW boolean
----@field [294] boolean
----@field WEATHER_BECOMES_RAIN boolean
----@field [295] boolean
----@field SEASON_WET boolean
----@field [296] boolean
----@field SEASON_DRY boolean
----@field [297] boolean
----@field SEASON_SPRING boolean
----@field [298] boolean
----@field SEASON_SUMMER boolean
----@field [299] boolean
----@field SEASON_AUTUMN boolean
----@field [300] boolean
----@field SEASON_WINTER boolean
----@field [301] boolean
----@field GUEST_ARRIVAL boolean
----@field [302] boolean
----@field CANNOT_SPEAK boolean
----@field [303] boolean
----@field RESEARCH_BREAKTHROUGH boolean
----@field [304] boolean
----@field SERVICE_ORDER_DELIVERY boolean
----@field [305] boolean
----@field PERFORMANCE_START_FAILURE boolean
----@field [306] boolean
----@field BEGIN_ACTIVITY boolean
----@field [307] boolean
----@field MIDDLE_OF_ACTIVITY boolean
----@field [308] boolean
----@field ACTIVITY_SECTION_CHANGE boolean
----@field [309] boolean
----@field CONCLUDE_ACTIVITY boolean
----@field [310] boolean
----@field LEARNED_WRITTEN_CONTENT boolean
----@field [311] boolean
----@field LEARNED_ART_FORM boolean
----@field [312] boolean
----@field PERFORMER_UPDATE boolean
----@field [313] boolean
----@field BUILDING_DESTROYED_OR_TOPPLED boolean
----@field [314] boolean
----@field DEITY_CURSE boolean
----@field [315] boolean
----@field COMPOSITION_COMPLETE boolean
----@field [316] boolean
----@field COMPOSITION_FAILED boolean
----@field [317] boolean
----@field NEW_APPRENTICESHIP boolean
----@field [318] boolean
----@field PETITION_IGNORED boolean
----@field [319] boolean
----@field CHOP_TREE boolean
----@field [320] boolean
----@field CANNOT_CONSTRUCT boolean
----@field [321] boolean
----@field RUMOR_SPREAD boolean
----@field [322] boolean
----@field AMBUSH_HERO boolean
----@field [323] boolean
----@field SERVICE_ORDER_RUMOR_RECEIVED boolean
----@field [324] boolean
----@field RETURNING_RUMOR_RECEIVED boolean
----@field [325] boolean
----@field NEW_HOLDING boolean
----@field [326] boolean
----@field NEW_MARKET_LINK boolean
----@field [327] boolean
----@field EMERGENCY_TACTICAL_CONTROL boolean
----@field [328] boolean
----@field AGREEMENT_SATISFIED boolean
----@field [329] boolean
----@field AGREEMENT_WARNING boolean
----@field [330] boolean
----@field AGREEMENT_ABANDONED boolean
----@field [331] boolean
----@field NEW_GUILD boolean
----@field [332] boolean
----@field CRIME_WITNESS_HANDOFF boolean
----@field [333] boolean
----@field CRIME_WITNESS_STOLEN boolean
----@field [334] boolean
----@field CRIME_WITNESS_ITEM_MOVED boolean
----@field [335] boolean
----@field CRIME_WITNESS_ITEM_MISSING boolean
----@field [336] boolean
----@field MOUNT boolean
----@field [337] boolean
----@field CANNOT_MOUNT boolean
----@field [338] boolean
----@field FAILED_MOUNT boolean
----@field [339] boolean
----@field DISMOUNT boolean
----@field [340] boolean
----@field FAILED_DISMOUNT boolean
----@field [341] boolean
----@field DIPLOMAT_LEFT_UNHAPPY boolean
----@field [342] boolean
----@field EMBARK_MESSAGE boolean
----@field [343] boolean
----@field FIRST_CARAVAN_ARRIVAL boolean
----@field [344] boolean
----@field MONARCH_ARRIVAL boolean
----@field [345] boolean
----@field HASTY_MONARCH boolean
----@field [346] boolean
----@field SATISFIED_MONARCH boolean
----@field [347] boolean
----@field MOUNTAINHOME boolean
----@field [348] boolean
----@field FOOD_WARNING boolean
+---@class announcement_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.announcement_type._attr_entry_type = {}
 
----@class _announcement_flags: integer, string, df.bitfield
----@field DO_MEGA 0
----@field [0] "DO_MEGA"
----@field PAUSE 1
----@field [1] "PAUSE"
----@field RECENTER 2
----@field [2] "RECENTER"
----@field A_DISPLAY 3
----@field [3] "A_DISPLAY"
----@field D_DISPLAY 4
----@field [4] "D_DISPLAY"
----@field UNIT_COMBAT_REPORT 5
----@field [5] "UNIT_COMBAT_REPORT"
----@field UNIT_COMBAT_REPORT_ALL_ACTIVE 6
----@field [6] "UNIT_COMBAT_REPORT_ALL_ACTIVE"
----@field ALERT 7
----@field [7] "ALERT"
-df.announcement_flags = {}
+---@class (exact) announcement_type_attr_entry_type_fields
+---@field alert_type DFCompoundField
+df.announcement_type._attr_entry_type._fields = {}
 
----@class announcement_flags
----@field [0] boolean
----@field DO_MEGA boolean
----@field [1] boolean
----@field PAUSE boolean
----@field [2] boolean
----@field RECENTER boolean
----@field [3] boolean
----@field A_DISPLAY boolean
----@field [4] boolean
----@field D_DISPLAY boolean
----@field [5] boolean
----@field UNIT_COMBAT_REPORT boolean
----@field [6] boolean
----@field UNIT_COMBAT_REPORT_ALL_ACTIVE boolean
----@field [7] boolean
----@field ALERT boolean
+---@class announcement_type_attrs
+---@field REACHED_PEAK { alert_type: "GENERAL" }
+---@field ERA_CHANGE { alert_type: "ERA_CHANGE" }
+---@field FEATURE_DISCOVERY { alert_type: "UNDERGROUND" }
+---@field STRUCK_DEEP_METAL { alert_type: "UNDERGROUND" }
+---@field STRUCK_MINERAL { alert_type: "UNDERGROUND" }
+---@field STRUCK_ECONOMIC_MINERAL { alert_type: "UNDERGROUND" }
+---@field COMBAT_TWIST_WEAPON { alert_type: "GENERAL" }
+---@field COMBAT_LET_ITEM_DROP { alert_type: "GENERAL" }
+---@field COMBAT_START_CHARGE { alert_type: "GENERAL" }
+---@field COMBAT_SURPRISE_CHARGE { alert_type: "GENERAL" }
+---@field COMBAT_JUMP_DODGE_PROJ { alert_type: "GENERAL" }
+---@field COMBAT_JUMP_DODGE_STRIKE { alert_type: "GENERAL" }
+---@field COMBAT_DODGE { alert_type: "GENERAL" }
+---@field COMBAT_COUNTERSTRIKE { alert_type: "GENERAL" }
+---@field COMBAT_BLOCK { alert_type: "GENERAL" }
+---@field COMBAT_PARRY { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_COLLISION { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_DEFENDER_TUMBLES { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_DEFENDER_KNOCKED_OVER { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_ATTACKER_TUMBLES { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_ATTACKER_BOUNCE_BACK { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_TANGLE_TOGETHER { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_TANGLE_TUMBLE { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_RUSH_BY { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_MANAGE_STOP { alert_type: "GENERAL" }
+---@field COMBAT_CHARGE_OBSTACLE_SLAM { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_LOCK { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_CHOKEHOLD { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_TAKEDOWN { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_THROW { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_RELEASE_LOCK { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_RELEASE_CHOKE { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_RELEASE_GRIP { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_STRUGGLE { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_RELEASE_LATCH { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_STRANGLE_KO { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_ADJUST_GRIP { alert_type: "GENERAL" }
+---@field COMBAT_GRAB_TEAR { alert_type: "GENERAL" }
+---@field COMBAT_STRIKE_DETAILS { alert_type: "GENERAL" }
+---@field COMBAT_STRIKE_DETAILS_2 { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_ENRAGED { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_STUCKIN { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_LATCH_BP { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_LATCH_GENERAL { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_PROPELLED_AWAY { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_KNOCKED_OUT { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_STUNNED { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_WINDED { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_NAUSEATED { alert_type: "GENERAL" }
+---@field MIGRANT_ARRIVAL_NAMED { alert_type: "MIGRANT" }
+---@field MIGRANT_ARRIVAL { alert_type: "MIGRANT" }
+---@field DIG_CANCEL_WARM { alert_type: "UNDERGROUND" }
+---@field DIG_CANCEL_DAMP { alert_type: "UNDERGROUND" }
+---@field AMBUSH_DEFENDER { alert_type: "MONSTER" }
+---@field AMBUSH_RESIDENT { alert_type: "MONSTER" }
+---@field AMBUSH_THIEF { alert_type: "CRIME" }
+---@field AMBUSH_THIEF_SUPPORT_SKULKING { alert_type: "AMBUSH" }
+---@field AMBUSH_THIEF_SUPPORT_NATURE { alert_type: "AMBUSH" }
+---@field AMBUSH_THIEF_SUPPORT { alert_type: "AMBUSH" }
+---@field AMBUSH_MISCHIEVOUS { alert_type: "AMBUSH" }
+---@field AMBUSH_SNATCHER { alert_type: "CRIME" }
+---@field AMBUSH_SNATCHER_SUPPORT { alert_type: "AMBUSH" }
+---@field AMBUSH_AMBUSHER_NATURE { alert_type: "AMBUSH" }
+---@field AMBUSH_AMBUSHER { alert_type: "AMBUSH" }
+---@field AMBUSH_INJURED { alert_type: "AMBUSH" }
+---@field AMBUSH_OTHER { alert_type: "AMBUSH" }
+---@field AMBUSH_INCAPACITATED { alert_type: "AMBUSH" }
+---@field CARAVAN_ARRIVAL { alert_type: "TRADE" }
+---@field NOBLE_ARRIVAL { alert_type: "NOBLE" }
+---@field D_MIGRANTS_ARRIVAL { alert_type: "MIGRANT" }
+---@field D_MIGRANT_ARRIVAL { alert_type: "MIGRANT" }
+---@field D_MIGRANT_ARRIVAL_DISCOURAGED { alert_type: "MIGRANT" }
+---@field D_NO_MIGRANT_ARRIVAL { alert_type: "MIGRANT" }
+---@field ANIMAL_TRAP_CATCH { alert_type: "ANIMAL" }
+---@field ANIMAL_TRAP_ROBBED { alert_type: "ANIMAL" }
+---@field MISCHIEF_LEVER { alert_type: "CRIME" }
+---@field MISCHIEF_PLATE { alert_type: "CRIME" }
+---@field MISCHIEF_CAGE { alert_type: "CRIME" }
+---@field MISCHIEF_CHAIN { alert_type: "CRIME" }
+---@field DIPLOMAT_ARRIVAL { alert_type: "NOBLE" }
+---@field LIAISON_ARRIVAL { alert_type: "NOBLE" }
+---@field TRADE_DIPLOMAT_ARRIVAL { alert_type: "NOBLE" }
+---@field CAVE_COLLAPSE { alert_type: "UNDERGROUND" }
+---@field BIRTH_CITIZEN { alert_type: "BIRTH" }
+---@field BIRTH_ANIMAL { alert_type: "BIRTH" }
+---@field STRANGE_MOOD { alert_type: "MOOD" }
+---@field MADE_ARTIFACT { alert_type: "MOOD" }
+---@field NAMED_ARTIFACT { alert_type: "MILITARY" }
+---@field ITEM_ATTACHMENT { alert_type: "MILITARY" }
+---@field VERMIN_CAGE_ESCAPE { alert_type: "ANIMAL" }
+---@field TRIGGER_WEB { alert_type: "MONSTER" }
+---@field MOOD_BUILDING_CLAIMED { alert_type: "MOOD" }
+---@field ARTIFACT_BEGUN { alert_type: "MOOD" }
+---@field MEGABEAST_ARRIVAL { alert_type: "MONSTER" }
+---@field WEREBEAST_ARRIVAL { alert_type: "MONSTER" }
+---@field BEAST_AMBUSH { alert_type: "MONSTER" }
+---@field BERSERK_CITIZEN { alert_type: "BERSERK" }
+---@field MAGMA_DEFACES_ENGRAVING { alert_type: "ART_DEFACEMENT" }
+---@field ENGRAVING_MELTS { alert_type: "ART_DEFACEMENT" }
+---@field MASTERPIECE_CONSTRUCTION { alert_type: "MASTERPIECE" }
+---@field MASTER_ARCHITECTURE_LOST { alert_type: "ART_DEFACEMENT" }
+---@field MASTER_CONSTRUCTION_LOST { alert_type: "ART_DEFACEMENT" }
+---@field ADV_AWAKEN { alert_type: "GENERAL" }
+---@field ADV_SLEEP_INTERRUPTED { alert_type: "GENERAL" }
+---@field CANCEL_JOB { alert_type: "JOB_FAILED" }
+---@field ADV_CREATURE_DEATH { alert_type: "GENERAL" }
+---@field CITIZEN_DEATH { alert_type: "DEATH" }
+---@field PET_DEATH { alert_type: "DEATH" }
+---@field ENDGAME_EVENT_1 { alert_type: "MONSTER" }
+---@field ENDGAME_EVENT_1B { alert_type: "MONSTER" }
+---@field ENDGAME_EVENT_2 { alert_type: "MONSTER" }
+---@field FALL_OVER { alert_type: "GENERAL" }
+---@field CAUGHT_IN_FLAMES { alert_type: "GENERAL" }
+---@field CAUGHT_IN_WEB { alert_type: "GENERAL" }
+---@field UNIT_PROJECTILE_SLAM_BLOW_APART { alert_type: "GENERAL" }
+---@field UNIT_PROJECTILE_SLAM { alert_type: "GENERAL" }
+---@field UNIT_PROJECTILE_SLAM_INTO_UNIT { alert_type: "GENERAL" }
+---@field VOMIT { alert_type: "GENERAL" }
+---@field LOSE_HOLD_OF_ITEM { alert_type: "GENERAL" }
+---@field REGAIN_CONSCIOUSNESS { alert_type: "GENERAL" }
+---@field FREE_FROM_WEB { alert_type: "GENERAL" }
+---@field PARALYZED { alert_type: "GENERAL" }
+---@field OVERCOME_PARALYSIS { alert_type: "GENERAL" }
+---@field NOT_STUNNED { alert_type: "GENERAL" }
+---@field EXHAUSTION { alert_type: "GENERAL" }
+---@field PAIN_KO { alert_type: "GENERAL" }
+---@field BREAK_GRIP { alert_type: "GENERAL" }
+---@field NO_BREAK_GRIP { alert_type: "GENERAL" }
+---@field BLOCK_FIRE { alert_type: "GENERAL" }
+---@field BREATHE_FIRE { alert_type: "GENERAL" }
+---@field SHOOT_WEB { alert_type: "GENERAL" }
+---@field PULL_OUT_DROP { alert_type: "GENERAL" }
+---@field STAND_UP { alert_type: "GENERAL" }
+---@field MARTIAL_TRANCE { alert_type: "MARTIAL_TRANCE" }
+---@field MAT_BREATH { alert_type: "GENERAL" }
+---@field ADV_REACTION_PRODUCTS { alert_type: "GENERAL" }
+---@field NIGHT_ATTACK_STARTS { alert_type: "GENERAL" }
+---@field NIGHT_ATTACK_ENDS { alert_type: "GENERAL" }
+---@field NIGHT_ATTACK_TRAVEL { alert_type: "GENERAL" }
+---@field GHOST_ATTACK { alert_type: "GHOST" }
+---@field FLAME_HIT { alert_type: "GENERAL" }
+---@field TRAVEL_SITE_DISCOVERY { alert_type: "GENERAL" }
+---@field TRAVEL_SITE_BUMP { alert_type: "GENERAL" }
+---@field ADVENTURE_INTRO { alert_type: "GENERAL" }
+---@field CREATURE_SOUND { alert_type: "GENERAL" }
+---@field CREATURE_STEALS_OBJECT { alert_type: "CRIME" }
+---@field FOUND_TRAP { alert_type: "GENERAL" }
+---@field BODY_TRANSFORMATION { alert_type: "MONSTER" }
+---@field INTERACTION_ACTOR { alert_type: "GENERAL" }
+---@field INTERACTION_TARGET { alert_type: "GENERAL" }
+---@field UNDEAD_ATTACK { alert_type: "UNDEAD_ATTACK" }
+---@field CITIZEN_MISSING { alert_type: "DEATH" }
+---@field PET_MISSING { alert_type: "DEATH" }
+---@field EMBRACE { alert_type: "GENERAL" }
+---@field STRANGE_RAIN_SNOW { alert_type: "WEATHER" }
+---@field STRANGE_CLOUD { alert_type: "WEATHER" }
+---@field SIMPLE_ANIMAL_ACTION { alert_type: "GENERAL" }
+---@field FLOUNDER_IN_LIQUID { alert_type: "GENERAL" }
+---@field TRAINING_DOWN_TO_SEMI_WILD { alert_type: "ANIMAL" }
+---@field TRAINING_FULL_REVERSION { alert_type: "ANIMAL" }
+---@field ANIMAL_TRAINING_KNOWLEDGE { alert_type: "ANIMAL" }
+---@field SKIP_ON_LIQUID { alert_type: "GENERAL" }
+---@field DODGE_FLYING_OBJECT { alert_type: "GENERAL" }
+---@field REGULAR_CONVERSATION { alert_type: "RUMOR" }
+---@field BANDIT_EMPTY_CONTAINER { alert_type: "GENERAL" }
+---@field BANDIT_GRAB_ITEM { alert_type: "GENERAL" }
+---@field COMBAT_EVENT_ATTACK_INTERRUPTED { alert_type: "GENERAL" }
+---@field COMBAT_WRESTLE_CATCH_ATTACK { alert_type: "GENERAL" }
+---@field FAIL_TO_GRAB_SURFACE { alert_type: "GENERAL" }
+---@field LOSE_HOLD_OF_SURFACE { alert_type: "GENERAL" }
+---@field TRAVEL_COMPLAINT { alert_type: "GENERAL" }
+---@field LOSE_EMOTION { alert_type: "LOSE_EMOTION" }
+---@field REORGANIZE_POSSESSIONS { alert_type: "GENERAL" }
+---@field PUSH_ITEM { alert_type: "GENERAL" }
+---@field DRAW_ITEM { alert_type: "GENERAL" }
+---@field STRAP_ITEM { alert_type: "GENERAL" }
+---@field GAIN_SITE_CONTROL { alert_type: "GENERAL" }
+---@field CONFLICT_CONVERSATION { alert_type: "GENERAL" }
+---@field FORT_POSITION_SUCCESSION { alert_type: "NOBLE" }
+---@field MECHANISM_SOUND { alert_type: "GENERAL" }
+---@field BIRTH_WILD_ANIMAL { alert_type: "BIRTH" }
+---@field STRESSED_CITIZEN { alert_type: "STRESS" }
+---@field CITIZEN_LOST_TO_STRESS { alert_type: "STRESS" }
+---@field CITIZEN_TANTRUM { alert_type: "STRESS" }
+---@field MOVED_OUT_OF_RANGE { alert_type: "GENERAL" }
+---@field CANNOT_JUMP { alert_type: "GENERAL" }
+---@field NO_TRACKS { alert_type: "GENERAL" }
+---@field ALREADY_SEARCHED_AREA { alert_type: "GENERAL" }
+---@field SEARCH_FOUND_SOMETHING { alert_type: "GENERAL" }
+---@field SEARCH_FOUND_NOTHING { alert_type: "GENERAL" }
+---@field NOTHING_TO_INTERACT { alert_type: "GENERAL" }
+---@field NOTHING_TO_EXAMINE { alert_type: "GENERAL" }
+---@field YOU_YIELDED { alert_type: "GENERAL" }
+---@field YOU_UNYIELDED { alert_type: "GENERAL" }
+---@field YOU_STRAP_ITEM { alert_type: "GENERAL" }
+---@field YOU_DRAW_ITEM { alert_type: "GENERAL" }
+---@field NO_GRASP_TO_DRAW_ITEM { alert_type: "GENERAL" }
+---@field NO_ITEM_TO_STRAP { alert_type: "GENERAL" }
+---@field NO_INV_TO_REMOVE { alert_type: "GENERAL" }
+---@field NO_INV_TO_WEAR { alert_type: "GENERAL" }
+---@field NO_INV_TO_EAT { alert_type: "GENERAL" }
+---@field NO_INV_TO_CONTAIN { alert_type: "GENERAL" }
+---@field NO_INV_TO_DROP { alert_type: "GENERAL" }
+---@field NOTHING_TO_PICK_UP { alert_type: "GENERAL" }
+---@field NO_INV_TO_THROW { alert_type: "GENERAL" }
+---@field NO_INV_TO_FIRE { alert_type: "GENERAL" }
+---@field CURRENT_SMELL { alert_type: "GENERAL" }
+---@field CURRENT_WEATHER { alert_type: "GENERAL" }
+---@field CURRENT_TEMPERATURE { alert_type: "GENERAL" }
+---@field CURRENT_DATE { alert_type: "GENERAL" }
+---@field NO_GRASP_FOR_PICKUP { alert_type: "GENERAL" }
+---@field CANNOT_CHOP_TREE { alert_type: "GENERAL" }
+---@field CANNOT_CLIMB { alert_type: "GENERAL" }
+---@field CANNOT_STAND { alert_type: "GENERAL" }
+---@field MUST_UNRETRACT_FIRST { alert_type: "GENERAL" }
+---@field CANNOT_REST { alert_type: "GENERAL" }
+---@field CANNOT_MAKE_CAMPFIRE { alert_type: "GENERAL" }
+---@field MADE_CAMPFIRE { alert_type: "GENERAL" }
+---@field CANNOT_SET_FIRE { alert_type: "GENERAL" }
+---@field SET_FIRE { alert_type: "GENERAL" }
+---@field DAWN_BREAKS { alert_type: "GENERAL" }
+---@field NOON { alert_type: "GENERAL" }
+---@field NIGHTFALL { alert_type: "GENERAL" }
+---@field NO_INV_INTERACTION { alert_type: "GENERAL" }
+---@field EMPTY_CONTAINER { alert_type: "GENERAL" }
+---@field TAKE_OUT_OF_CONTAINER { alert_type: "GENERAL" }
+---@field NO_CONTAINER_FOR_ITEM { alert_type: "GENERAL" }
+---@field PUT_INTO_CONTAINER { alert_type: "GENERAL" }
+---@field EAT_ITEM { alert_type: "GENERAL" }
+---@field DRINK_ITEM { alert_type: "GENERAL" }
+---@field CONSUME_FAILURE { alert_type: "GENERAL" }
+---@field DROP_ITEM { alert_type: "GENERAL" }
+---@field PICK_UP_ITEM { alert_type: "GENERAL" }
+---@field YOU_BUILDING_INTERACTION { alert_type: "GENERAL" }
+---@field YOU_ITEM_INTERACTION { alert_type: "GENERAL" }
+---@field YOU_TEMPERATURE_EFFECTS { alert_type: "GENERAL" }
+---@field PROFESSION_CHANGES { alert_type: "LABOR_CHANGE" }
+---@field RECRUIT_PROMOTED { alert_type: "MILITARY" }
+---@field SOLDIER_BECOMES_MASTER { alert_type: "MILITARY" }
+---@field RESOLVE_SHARED_ITEMS { alert_type: "GENERAL" }
+---@field COUGH_BLOOD { alert_type: "GENERAL" }
+---@field VOMIT_BLOOD { alert_type: "GENERAL" }
+---@field MERCHANTS_UNLOADING { alert_type: "TRADE" }
+---@field MERCHANTS_NEED_DEPOT { alert_type: "TRADE" }
+---@field MERCHANT_WAGONS_BYPASSED { alert_type: "TRADE" }
+---@field MERCHANTS_LEAVING_SOON { alert_type: "TRADE" }
+---@field MERCHANTS_EMBARKED { alert_type: "TRADE" }
+---@field PET_LOSES_DEAD_OWNER { alert_type: "ANIMAL" }
+---@field PET_ADOPTS_OWNER { alert_type: "ANIMAL" }
+---@field VERMIN_BITE { alert_type: "VERMIN" }
+---@field UNABLE_TO_COMPLETE_BUILDING { alert_type: "JOB_FAILED" }
+---@field JOBS_REMOVED_FROM_UNPOWERED_BUILDING { alert_type: "JOB_FAILED" }
+---@field CITIZEN_SNATCHED { alert_type: "CRIME" }
+---@field VERMIN_DISTURBED { alert_type: "VERMIN" }
+---@field LAND_GAINS_STATUS { alert_type: "NOBLE" }
+---@field LAND_ELEVATED_STATUS { alert_type: "NOBLE" }
+---@field MASTERPIECE_CRAFTED { alert_type: "MASTERPIECE" }
+---@field ARTWORK_DEFACED { alert_type: "ART_DEFACEMENT" }
+---@field POWER_LEARNED { alert_type: "GENERAL" }
+---@field YOU_FEED_ON_SUCKEE { alert_type: "GENERAL" }
+---@field ANIMAL_TRAINED { alert_type: "ANIMAL" }
+---@field DYED_MASTERPIECE { alert_type: "MASTERPIECE" }
+---@field COOKED_MASTERPIECE { alert_type: "MASTERPIECE" }
+---@field MANDATE_ENDS { alert_type: "NOBLE" }
+---@field SLOWDOWN_ENDS { alert_type: "AGREEMENT" }
+---@field FAREWELL_HELPER { alert_type: "GENERAL" }
+---@field ELECTION_RESULTS { alert_type: "NOBLE" }
+---@field SITE_PRESENT { alert_type: "UNDERGROUND" }
+---@field CONSTRUCTION_SUSPENDED { alert_type: "JOB_FAILED" }
+---@field LINKAGE_SUSPENDED { alert_type: "JOB_FAILED" }
+---@field QUOTA_FILLED { alert_type: "AGREEMENT" }
+---@field JOB_OVERWRITTEN { alert_type: "JOB_FAILED" }
+---@field NOTHING_TO_CATCH_IN_WATER { alert_type: "JOB_FAILED" }
+---@field DEMAND_FORGOTTEN { alert_type: "NOBLE" }
+---@field NEW_DEMAND { alert_type: "NOBLE" }
+---@field NEW_MANDATE { alert_type: "NOBLE" }
+---@field PRICES_ALTERED { alert_type: "NOBLE" }
+---@field NAMED_RESIDENT_CREATURE { alert_type: "MONSTER" }
+---@field SOMEBODY_GROWS_UP { alert_type: "BIRTH" }
+---@field GUILD_REQUEST_TAKEN { alert_type: "AGREEMENT" }
+---@field GUILD_WAGES_CHANGED { alert_type: "NOBLE" }
+---@field NEW_WORK_MANDATE { alert_type: "AGREEMENT" }
+---@field CITIZEN_BECOMES_SOLDIER { alert_type: "MILITARY" }
+---@field CITIZEN_BECOMES_NONSOLDIER { alert_type: "LABOR_CHANGE" }
+---@field PARTY_ORGANIZED { alert_type: "AGREEMENT" }
+---@field POSSESSED_TANTRUM { alert_type: "GHOST" }
+---@field BUILDING_TOPPLED_BY_GHOST { alert_type: "GHOST" }
+---@field MASTERFUL_IMPROVEMENT { alert_type: "MASTERPIECE" }
+---@field MASTERPIECE_ENGRAVING { alert_type: "MASTERPIECE" }
+---@field MARRIAGE { alert_type: "MARRIAGE" }
+---@field NO_MARRIAGE_CELEBRATION { alert_type: "MARRIAGE" }
+---@field CURIOUS_GUZZLER { alert_type: "CURIOUS_GUZZLER" }
+---@field WEATHER_BECOMES_CLEAR { alert_type: "WEATHER" }
+---@field WEATHER_BECOMES_SNOW { alert_type: "WEATHER" }
+---@field WEATHER_BECOMES_RAIN { alert_type: "WEATHER" }
+---@field SEASON_WET { alert_type: "WEATHER" }
+---@field SEASON_DRY { alert_type: "WEATHER" }
+---@field SEASON_SPRING { alert_type: "WEATHER" }
+---@field SEASON_SUMMER { alert_type: "WEATHER" }
+---@field SEASON_AUTUMN { alert_type: "WEATHER" }
+---@field SEASON_WINTER { alert_type: "WEATHER" }
+---@field GUEST_ARRIVAL { alert_type: "GUEST_ARRIVAL" }
+---@field CANNOT_SPEAK { alert_type: "GENERAL" }
+---@field RESEARCH_BREAKTHROUGH { alert_type: "RESEARCH_BREAKTHROUGH" }
+---@field SERVICE_ORDER_DELIVERY { alert_type: "GENERAL" }
+---@field PERFORMANCE_START_FAILURE { alert_type: "GENERAL" }
+---@field BEGIN_ACTIVITY { alert_type: "GENERAL" }
+---@field MIDDLE_OF_ACTIVITY { alert_type: "GENERAL" }
+---@field ACTIVITY_SECTION_CHANGE { alert_type: "GENERAL" }
+---@field CONCLUDE_ACTIVITY { alert_type: "GENERAL" }
+---@field LEARNED_WRITTEN_CONTENT { alert_type: "GENERAL" }
+---@field LEARNED_ART_FORM { alert_type: "GENERAL" }
+---@field PERFORMER_UPDATE { alert_type: "GENERAL" }
+---@field BUILDING_DESTROYED_OR_TOPPLED { alert_type: "ART_DEFACEMENT" }
+---@field DEITY_CURSE { alert_type: "DEITY_CURSE" }
+---@field COMPOSITION_COMPLETE { alert_type: "GENERAL" }
+---@field COMPOSITION_FAILED { alert_type: "GENERAL" }
+---@field NEW_APPRENTICESHIP { alert_type: "AGREEMENT" }
+---@field PETITION_IGNORED { alert_type: "AGREEMENT" }
+---@field CHOP_TREE { alert_type: "GENERAL" }
+---@field CANNOT_CONSTRUCT { alert_type: "GENERAL" }
+---@field RUMOR_SPREAD { alert_type: "RUMOR" }
+---@field AMBUSH_HERO { alert_type: "CRIME" }
+---@field SERVICE_ORDER_RUMOR_RECEIVED { alert_type: "RUMOR" }
+---@field RETURNING_RUMOR_RECEIVED { alert_type: "RUMOR" }
+---@field NEW_HOLDING { alert_type: "HOLDINGS" }
+---@field NEW_MARKET_LINK { alert_type: "HOLDINGS" }
+---@field EMERGENCY_TACTICAL_CONTROL { alert_type: "GENERAL" }
+---@field AGREEMENT_SATISFIED { alert_type: "AGREEMENT" }
+---@field AGREEMENT_WARNING { alert_type: "AGREEMENT" }
+---@field AGREEMENT_ABANDONED { alert_type: "AGREEMENT" }
+---@field NEW_GUILD { alert_type: "AGREEMENT" }
+---@field CRIME_WITNESS_HANDOFF { alert_type: "CRIME" }
+---@field CRIME_WITNESS_STOLEN { alert_type: "CRIME" }
+---@field CRIME_WITNESS_ITEM_MOVED { alert_type: "CRIME" }
+---@field CRIME_WITNESS_ITEM_MISSING { alert_type: "CRIME" }
+---@field MOUNT { alert_type: "GENERAL" }
+---@field CANNOT_MOUNT { alert_type: "GENERAL" }
+---@field FAILED_MOUNT { alert_type: "GENERAL" }
+---@field DISMOUNT { alert_type: "GENERAL" }
+---@field FAILED_DISMOUNT { alert_type: "GENERAL" }
+---@field DIPLOMAT_LEFT_UNHAPPY { alert_type: "GENERAL" }
+---@field EMBARK_MESSAGE { alert_type: "GENERAL" }
+---@field FIRST_CARAVAN_ARRIVAL { alert_type: "GENERAL" }
+---@field MONARCH_ARRIVAL { alert_type: "GENERAL" }
+---@field HASTY_MONARCH { alert_type: "GENERAL" }
+---@field SATISFIED_MONARCH { alert_type: "GENERAL" }
+---@field MOUNTAINHOME { alert_type: "GENERAL" }
+---@field FOOD_WARNING { alert_type: "DEATH" }
+---@field UNUSED_46 { alert_type: "GENERAL" }
+---@field UNUSED_47 { alert_type: "GENERAL" }
+---@field UNUSED_48 { alert_type: "GENERAL" }
+---@field UNUSED_49 { alert_type: "GENERAL" }
+---@field UNUSED_50 { alert_type: "GENERAL" }
+df.announcement_type.attrs = {}
 
----@class announcements: df.class
----@field flags announcement_flags[]
----@field unused integer needed to fix alignment on 64-bit platforms
+---@alias announcement_alert_type
+---| -1 # NONE
+---| 0 # GENERAL
+---| 1 # ERA_CHANGE
+---| 2 # UNDERGROUND
+---| 3 # MIGRANT
+---| 4 # MONSTER
+---| 5 # AMBUSH
+---| 6 # TRADE
+---| 7 # NOBLE
+---| 8 # ANIMAL
+---| 9 # BIRTH
+---| 10 # MOOD
+---| 11 # LABOR_CHANGE
+---| 12 # MILITARY
+---| 13 # MARRIAGE
+---| 14 # BERSERK
+---| 15 # MARTIAL_TRANCE
+---| 16 # LOSE_EMOTION
+---| 17 # STRESS
+---| 18 # ART_DEFACEMENT
+---| 19 # MASTERPIECE
+---| 20 # JOB_FAILED
+---| 21 # DEATH
+---| 22 # GHOST
+---| 23 # UNDEAD_ATTACK
+---| 24 # WEATHER
+---| 25 # VERMIN
+---| 26 # CURIOUS_GUZZLER
+---| 27 # RESEARCH_BREAKTHROUGH
+---| 28 # GUEST_ARRIVAL
+---| 29 # HOLDINGS
+---| 30 # RUMOR
+---| 31 # AGREEMENT
+---| 32 # CRIME
+---| 33 # DEITY_CURSE
+---| 34 # COMBAT
+---| 35 # SPARRING
+---| 36 # HUNTING
+
+---@class _announcement_alert_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field GENERAL 0
+---@field [0] "GENERAL"
+---@field ERA_CHANGE 1
+---@field [1] "ERA_CHANGE"
+---@field UNDERGROUND 2
+---@field [2] "UNDERGROUND"
+---@field MIGRANT 3
+---@field [3] "MIGRANT"
+---@field MONSTER 4
+---@field [4] "MONSTER"
+---@field AMBUSH 5
+---@field [5] "AMBUSH"
+---@field TRADE 6
+---@field [6] "TRADE"
+---@field NOBLE 7
+---@field [7] "NOBLE"
+---@field ANIMAL 8
+---@field [8] "ANIMAL"
+---@field BIRTH 9
+---@field [9] "BIRTH"
+---@field MOOD 10
+---@field [10] "MOOD"
+---@field LABOR_CHANGE 11
+---@field [11] "LABOR_CHANGE"
+---@field MILITARY 12
+---@field [12] "MILITARY"
+---@field MARRIAGE 13
+---@field [13] "MARRIAGE"
+---@field BERSERK 14
+---@field [14] "BERSERK"
+---@field MARTIAL_TRANCE 15
+---@field [15] "MARTIAL_TRANCE"
+---@field LOSE_EMOTION 16
+---@field [16] "LOSE_EMOTION"
+---@field STRESS 17
+---@field [17] "STRESS"
+---@field ART_DEFACEMENT 18
+---@field [18] "ART_DEFACEMENT"
+---@field MASTERPIECE 19
+---@field [19] "MASTERPIECE"
+---@field JOB_FAILED 20
+---@field [20] "JOB_FAILED"
+---@field DEATH 21
+---@field [21] "DEATH"
+---@field GHOST 22
+---@field [22] "GHOST"
+---@field UNDEAD_ATTACK 23
+---@field [23] "UNDEAD_ATTACK"
+---@field WEATHER 24
+---@field [24] "WEATHER"
+---@field VERMIN 25
+---@field [25] "VERMIN"
+---@field CURIOUS_GUZZLER 26
+---@field [26] "CURIOUS_GUZZLER"
+---@field RESEARCH_BREAKTHROUGH 27
+---@field [27] "RESEARCH_BREAKTHROUGH"
+---@field GUEST_ARRIVAL 28
+---@field [28] "GUEST_ARRIVAL"
+---@field HOLDINGS 29
+---@field [29] "HOLDINGS"
+---@field RUMOR 30
+---@field [30] "RUMOR"
+---@field AGREEMENT 31
+---@field [31] "AGREEMENT"
+---@field CRIME 32
+---@field [32] "CRIME"
+---@field DEITY_CURSE 33
+---@field [33] "DEITY_CURSE"
+---@field COMBAT 34
+---@field [34] "COMBAT"
+---@field SPARRING 35
+---@field [35] "SPARRING"
+---@field HUNTING 36
+---@field [36] "HUNTING"
+df.announcement_alert_type = {}
+
+---@class (exact) announcements: DFObject
+---@field _kind 'struct'
+---@field _type _announcements
+local announcements
+
+---@class _announcements: DFCompound
+---@field _kind 'struct-type'
 df.announcements = {}
 
----@class report: df.instance
+---@class (exact) report: DFObject
+---@field _kind 'struct'
+---@field _type _report
 ---@field type announcement_type valid only if coordinates are
----@field text df.string
----@field color integer
+---@field text string
+---@field color number
 ---@field bright boolean
----@field duration integer remaining graphical frames to display this report in announcement bar
----@field flags report_flags
----@field repeat_count integer 100 => displays: x101
+---@field duration number remaining graphical frames to display this report in announcement bar
+---@field flags report.T_flags
+---@field repeat_count number 100 => displays: x101
 ---@field zoom_type report_zoom_type
 ---@field pos coord
 ---@field zoom_type2 report_zoom_type
 ---@field pos2 coord
----@field id integer
----@field year integer
----@field time integer
----@field unk_v40_1 integer
----@field unk_v40_2 integer
----@field speaker_id integer References: unit<br>unit speaking the conversation
+---@field id number
+---@field year number
+---@field time number
+---@field activity_id number
+---@field activity_event_id number
+---@field speaker_id number unit speaking the conversation References: `unit`
+local report
+
+---@class _report: DFCompound
+---@field _kind 'struct-type'
 df.report = {}
 
----@param key integer
+---@param key number
 ---@return report|nil
 function df.report.find(key) end
 
----@class _report_flags: integer, string, df.bitfield
----@field continuation 0
----@field [0] "continuation"
----@field unconscious 1
----@field [1] "unconscious"
----@field announcement 2
----@field [2] "announcement"
+---@class report_vector: DFVector, { [integer]: report }
+local report_vector
+
+---@return report_vector # df.global.world.status.reports
+function df.report.get_vector() end
+
+---@class (exact) report.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _report.T_flags
+---@field continuation flag-bit When split into multiple lines, set on all but the first
+---@field unconscious flag-bit units.active[0]
+---@field announcement flag-bit
+local flags
+
+---@class _report.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.report.T_flags = {}
 
----@class report_flags
----@field [0] boolean
----@field continuation boolean
----@field [1] boolean
----@field unconscious boolean
----@field [2] boolean
----@field announcement boolean
+---@alias report_zoom_type
+---| 0 # Generic
+---| 1 # Item
+---| 2 # Unit
 
----@class _report_zoom_type: integer, string, df.enum
+---@class _report_zoom_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Generic 0
 ---@field [0] "Generic"
 ---@field Item 1
@@ -1494,44 +1629,57 @@ df.report.T_flags = {}
 ---@field [2] "Unit"
 df.report_zoom_type = {}
 
----@class report_zoom_type
----@field [0] boolean
----@field Generic boolean
----@field [1] boolean
----@field Item boolean
----@field [2] boolean
----@field Unit boolean
-
----@class popup_message: df.class
----@field text df.string
----@field color integer
+---@class (exact) popup_message: DFObject
+---@field _kind 'struct'
+---@field _type _popup_message
+---@field text string
+---@field color number
 ---@field bright boolean
+local popup_message
+
+---@class _popup_message: DFCompound
+---@field _kind 'struct-type'
 df.popup_message = {}
 
----allocated on the stack, included in df-structures to assist with disassembly
----@class report_init: df.class
+---@class (exact) announcement_alertst: DFObject
+---@field _kind 'struct'
+---@field _type _announcement_alertst
+---@field type announcement_alert_type
+local announcement_alertst
+
+---@class _announcement_alertst: DFCompound
+---@field _kind 'struct-type'
+df.announcement_alertst = {}
+
+-- allocated on the stack, included in df-structures to assist with disassembly
+---@class (exact) announcement_infost: DFObject
+---@field _kind 'struct'
+---@field _type _announcement_infost
 ---@field type announcement_type
----@field color integer
+---@field color number
 ---@field bright boolean
 ---@field pos coord
 ---@field zoom_type report_zoom_type
 ---@field pos2 coord
 ---@field zoom_type2 report_zoom_type
----@field display_timer integer graphical frames for announcement bar to linger on last line with no new announcement
----@field unit1 unit
----@field unit2 unit
----@field unk_v40_1 integer same as unknown field in report
----@field unk_v40_2 integer same as unknown field in report
----@field speaker_id integer References: unit
----@field flags report_init_flags
-df.report_init = {}
+---@field display_timer number graphical frames for announcement bar to linger on last line with no new announcement
+---@field activity_id number same as field in report
+---@field activity_event_id number same as field in report
+---@field speaker_id number References: `unit`
+---@field flags announcement_infost.T_flags
+local announcement_infost
 
----@class _report_init_flags: integer, string, df.bitfield
----@field hostile_combat 0
----@field [0] "hostile_combat"
-df.report_init.T_flags = {}
+---@class _announcement_infost: DFCompound
+---@field _kind 'struct-type'
+df.announcement_infost = {}
 
----@class report_init_flags
----@field [0] boolean
----@field hostile_combat boolean
+---@class (exact) announcement_infost.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _announcement_infost.T_flags
+---@field SPARRING_EVENT flag-bit determined by unit_action_data_attack.flags.sparring_hit
+local flags
+
+---@class _announcement_infost.T_flags: DFCompound
+---@field _kind 'struct-type'
+df.announcement_infost.T_flags = {}
 

@@ -1,2187 +1,2194 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.ui-menus
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class ui_build_item_req: df.class
+-- -- BUILDING COMPONENT ITEM SELECTION
+---@class (exact) ui_build_item_req: DFObject
+---@field _kind 'struct'
+---@field _type _ui_build_item_req
 ---@field filter job_item_filter
----@field candidates item[]
----@field candidate_selected df.container
----@field unk_a0 df.container
----@field candidate_enabled df.container
----@field count_required integer
----@field count_max integer if 0, fixed at required
----@field count_provided integer
+---@field count_required number
+---@field count_max number if 0, fixed at required
+---@field count_provided number
+local ui_build_item_req
+
+---@class _ui_build_item_req: DFCompound
+---@field _kind 'struct-type'
 df.ui_build_item_req = {}
 
----@class _build_req_choice_type: integer, string, df.enum
+---@alias build_req_choice_type
+---| 0 # General
+---| 1 # Specific
+
+---@class _build_req_choice_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field General 0
 ---@field [0] "General"
 ---@field Specific 1
 ---@field [1] "Specific"
 df.build_req_choice_type = {}
 
----@class build_req_choice_type
----@field [0] boolean
----@field General boolean
----@field [1] boolean
----@field Specific boolean
+-- One choice in the build item selector.
+---@class (exact) build_req_choicest: DFObject
+---@field _kind 'struct'
+---@field _type _build_req_choicest
+---@field distance number
+---@field  boolean
+---@field  string
+local build_req_choicest
 
----@class build_req_choicest: df.class
----@field distance integer
+---@class _build_req_choicest: DFCompound
+---@field _kind 'class-type'
 df.build_req_choicest = {}
 
----@return build_req_choice_type
-function df.build_req_choicest.getType() end
-
----@param str df.string
-function df.build_req_choicest.getName(str) end
-
----@param item_id integer
----@return boolean
-function df.build_req_choicest.isCandidate(item_id) end
-
----@return integer
-function df.build_req_choicest.getUsedCount() end
-
----@return integer
-function df.build_req_choicest.getNumCandidates() end
-
----@class build_req_choice_genst: build_req_choicest
+---@class (exact) build_req_choice_genst: DFObject, build_req_choicest
+---@field _kind 'struct'
+---@field _type _build_req_choice_genst
 ---@field item_type item_type
----@field item_subtype integer
----@field mat_type integer References: material
----@field mat_index integer
----@field candidates integer[]
----@field used_count integer
+---@field item_subtype number
+---@field mat_type number References: `material`
+---@field mat_index number
+---@field used_count number
 ---@field unk_1 boolean
+local build_req_choice_genst
+
+---@class _build_req_choice_genst: DFCompound
+---@field _kind 'class-type'
 df.build_req_choice_genst = {}
 
----@class build_req_choice_specst: build_req_choicest
----@field candidate item
----@field candidate_id integer
+---@class (exact) build_req_choice_specst: DFObject, build_req_choicest
+---@field _kind 'struct'
+---@field _type _build_req_choice_specst
+---@field candidate_id number
+local build_req_choice_specst
+
+---@class _build_req_choice_specst: DFCompound
+---@field _kind 'class-type'
 df.build_req_choice_specst = {}
 
----@class buildreq: df.class
----@field requirements ui_build_item_req[]
----@field choices build_req_choicest[]
+---@class (exact) buildreq: DFObject
+---@field _kind 'struct'
+---@field _type _buildreq
 ---@field building_type building_type if -1, in Build menu; otherwise select item
----@field building_subtype integer
----@field custom_type integer References: building_def
----@field stage integer 0 no materials, 1 place, 2 select item
----@field req_index integer
----@field sel_index integer
----@field is_grouped integer
----@field errors df.string[]
----@field unk4 df.string[]
----@field tiles integer[][]
----@field cur_walk_tag integer
+---@field building_subtype number
+---@field custom_type number References: `building_def`
+---@field stage number 0 no materials, 1 place, 2 select item
+---@field req_index number
+---@field sel_index number
+---@field is_grouped number
+---@field cur_walk_tag number
 ---@field plate_info pressure_plate_info
----@field min_weight_races df.container References: creature_raw
----@field max_weight_races df.container References: creature_raw
----@field friction integer
----@field use_dump integer
----@field dump_x_shift integer
----@field dump_y_shift integer
----@field speed integer
+---@field  number
+---@field  number
+---@field friction number
+---@field use_dump number
+---@field dump_x_shift number
+---@field dump_y_shift number
+---@field speed number
 ---@field pos coord
----@field direction integer
+---@field direction number
+---@field  number
 ---@field selection_pos coord
----@field selection_area integer
+---@field selection_area number
+---@field  number
+local buildreq
+
+---@class _buildreq: DFCompound
+---@field _kind 'class-type'
 df.buildreq = {}
 
----@class _interface_category_building: integer, string, df.enum
+---@alias interface_category_building
+---| -1 # NONE
+---| 0 # WEAPON
+---| 1 # ARMOR
+---| 2 # FURNITURE
+---| 3 # SIEGE
+---| 4 # TRAP
+---| 5 # OTHER
+---| 6 # METAL
+---| 7 # SELECT_MEMORIAL_UNIT
+
+-- -- MISC. SIDEBAR MENUS
+---@class _interface_category_building: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field WEAPON 1
----@field [1] "WEAPON"
----@field ARMOR 2
----@field [2] "ARMOR"
----@field FURNITURE 3
----@field [3] "FURNITURE"
----@field SIEGE 4
----@field [4] "SIEGE"
----@field TRAP 5
----@field [5] "TRAP"
----@field OTHER 6
----@field [6] "OTHER"
----@field METAL 7
----@field [7] "METAL"
----@field SELECT_MEMORIAL_UNIT 8
----@field [8] "SELECT_MEMORIAL_UNIT"
+---@field [-1] "NONE"
+---@field WEAPON 0
+---@field [0] "WEAPON"
+---@field ARMOR 1
+---@field [1] "ARMOR"
+---@field FURNITURE 2
+---@field [2] "FURNITURE"
+---@field SIEGE 3
+---@field [3] "SIEGE"
+---@field TRAP 4
+---@field [4] "TRAP"
+---@field OTHER 5
+---@field [5] "OTHER"
+---@field METAL 6
+---@field [6] "METAL"
+---@field SELECT_MEMORIAL_UNIT 7
+---@field [7] "SELECT_MEMORIAL_UNIT"
 df.interface_category_building = {}
 
----@class interface_category_building
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field WEAPON boolean
----@field [2] boolean
----@field ARMOR boolean
----@field [3] boolean
----@field FURNITURE boolean
----@field [4] boolean
----@field SIEGE boolean
----@field [5] boolean
----@field TRAP boolean
----@field [6] boolean
----@field OTHER boolean
----@field [7] boolean
----@field METAL boolean
----@field [8] boolean
----@field SELECT_MEMORIAL_UNIT boolean
+---@alias interface_category_construction
+---| -1 # NONE
+---| 0 # MAIN
+---| 1 # SIEGEENGINE
+---| 2 # TRAP
+---| 3 # WORKSHOP
+---| 4 # FURNACE
+---| 5 # CONSTRUCTION
+---| 6 # MACHINE
+---| 7 # TRACK
 
----@class _interface_category_construction: integer, string, df.enum
+---@class _interface_category_construction: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field MAIN 1
----@field [1] "MAIN"
----@field SIEGEENGINE 2
----@field [2] "SIEGEENGINE"
----@field TRAP 3
----@field [3] "TRAP"
----@field WORKSHOP 4
----@field [4] "WORKSHOP"
----@field FURNACE 5
----@field [5] "FURNACE"
----@field CONSTRUCTION 6
----@field [6] "CONSTRUCTION"
----@field MACHINE 7
----@field [7] "MACHINE"
----@field TRACK 8
----@field [8] "TRACK"
+---@field [-1] "NONE"
+---@field MAIN 0
+---@field [0] "MAIN"
+---@field SIEGEENGINE 1
+---@field [1] "SIEGEENGINE"
+---@field TRAP 2
+---@field [2] "TRAP"
+---@field WORKSHOP 3
+---@field [3] "WORKSHOP"
+---@field FURNACE 4
+---@field [4] "FURNACE"
+---@field CONSTRUCTION 5
+---@field [5] "CONSTRUCTION"
+---@field MACHINE 6
+---@field [6] "MACHINE"
+---@field TRACK 7
+---@field [7] "TRACK"
 df.interface_category_construction = {}
 
----@class interface_category_construction
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field MAIN boolean
----@field [2] boolean
----@field SIEGEENGINE boolean
----@field [3] boolean
----@field TRAP boolean
----@field [4] boolean
----@field WORKSHOP boolean
----@field [5] boolean
----@field FURNACE boolean
----@field [6] boolean
----@field CONSTRUCTION boolean
----@field [7] boolean
----@field MACHINE boolean
----@field [8] boolean
----@field TRACK boolean
-
----@class interface_button: df.class
+---@class (exact) interface_button: DFObject
+---@field _kind 'struct'
+---@field _type _interface_button
 ---@field hotkey interface_key
 ---@field leave_button boolean
 ---@field flag integer
----@field filter_str df.string
+---@field filter_str string
+local interface_button
+
+---@class _interface_button: DFCompound
+---@field _kind 'class-type'
 df.interface_button = {}
 
----ghost, buried, memorialized
----@param y integer
----@param limx_min integer
----@param limx_max integer
-function df.interface_button.print_info(y, limx_min, limx_max) end
+---@class (exact) interface_button_buildingst: DFObject, interface_button
+---@field _kind 'struct'
+---@field _type _interface_button_buildingst
+local interface_button_buildingst
 
----@param str df.string
-function df.interface_button.text(str) end
-
-function df.interface_button.press() end
-
----@param selected boolean
-function df.interface_button.set_button_color(selected) end
-
-function df.interface_button.set_leave_button() end
-
----@return integer
-function df.interface_button.tile() end
-
-function df.interface_button.set_tile_color() end
-
----@param box df.string[]
-function df.interface_button.prepare_tool_tip(box) end
-
----@return boolean
-function df.interface_button.pressable() end
-
----@return boolean
-function df.interface_button.has_view() end
-
----@return boolean
-function df.interface_button.is_alphabetized() end
-
----@param unk_0 df.string
----@return df.string
-function df.interface_button.get_objection_string(unk_0) end
-
----@param unk_0 df.string
----@return df.string
-function df.interface_button.get_info_string(unk_0) end
-
----@class interface_button_buildingst: interface_button
----@field bd building
+---@class _interface_button_buildingst: DFCompound
+---@field _kind 'class-type'
 df.interface_button_buildingst = {}
 
----@class interface_button_building_category_selectorst: interface_button_buildingst
+---@class (exact) interface_button_building_category_selectorst: DFObject, interface_button_buildingst
+---@field _kind 'struct'
+---@field _type _interface_button_building_category_selectorst
 ---@field category interface_category_building
----@field prepare_interface integer
+---@field prepare_interface number
+local interface_button_building_category_selectorst
+
+---@class _interface_button_building_category_selectorst: DFCompound
+---@field _kind 'class-type'
 df.interface_button_building_category_selectorst = {}
 
----@class interface_button_building_material_selectorst: interface_button_buildingst
----@field material integer References: material
----@field matgloss integer
+---@class (exact) interface_button_building_material_selectorst: DFObject, interface_button_buildingst
+---@field _kind 'struct'
+---@field _type _interface_button_building_material_selectorst
+---@field material number References: `material`
+---@field matgloss number
 ---@field job_item_flag job_material_category
----@field prepare_interface integer
+---@field prepare_interface number
+local interface_button_building_material_selectorst
+
+---@class _interface_button_building_material_selectorst: DFCompound
+---@field _kind 'class-type'
 df.interface_button_building_material_selectorst = {}
 
----@class interface_button_building_new_jobst: interface_button_buildingst
+---@class (exact) interface_button_building_new_jobst: DFObject, interface_button_buildingst
+---@field _kind 'struct'
+---@field _type _interface_button_building_new_jobst
 ---@field jobtype job_type
----@field mstring df.string
+---@field mstring string
 ---@field itemtype item_type
----@field subtype integer
----@field material integer References: material
----@field matgloss integer
+---@field subtype number
+---@field material number References: `material`
+---@field matgloss number
 ---@field specflag stockpile_group_set
----@field spec_id integer refers to various things, such as histfigs OR races
+---@field spec_id number refers to various things, such as histfigs OR races
 ---@field job_item_flag job_material_category
 ---@field add_building_location boolean
 ---@field show_help_instead boolean
----@field objection df.string
----@field info df.string
+---@field objection string
+---@field info string
+local interface_button_building_new_jobst
+
+---@class _interface_button_building_new_jobst: DFCompound
+---@field _kind 'class-type'
 df.interface_button_building_new_jobst = {}
 
----@class interface_button_building_custom_category_selectorst: interface_button_buildingst
----@field custom_category_token df.string
+---@class (exact) interface_button_building_custom_category_selectorst: DFObject, interface_button_buildingst
+---@field _kind 'struct'
+---@field _type _interface_button_building_custom_category_selectorst
+---@field custom_category_token string
+local interface_button_building_custom_category_selectorst
+
+---@class _interface_button_building_custom_category_selectorst: DFCompound
+---@field _kind 'class-type'
 df.interface_button_building_custom_category_selectorst = {}
 
----@class _construction_category_type: integer, string, df.enum
+---@alias construction_category_type
+---| -1 # NONE
+---| 0 # MAIN
+---| 1 # WORKSHOPS
+---| 2 # WORKSHOPS_FURNACES
+---| 3 # WORKSHOPS_CLOTHING
+---| 4 # WORKSHOPS_FARMING
+---| 5 # FURNITURE
+---| 6 # DOORS_HATCHES
+---| 7 # WALLS_FLOORS
+---| 8 # MACHINES_FLUIDS
+---| 9 # CAGES_RESTRAINTS
+---| 10 # TRAPS
+---| 11 # MILITARY
+
+---@class _construction_category_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field MAIN 1
----@field [1] "MAIN"
----@field WORKSHOPS 2
----@field [2] "WORKSHOPS"
----@field WORKSHOPS_FURNACES 3
----@field [3] "WORKSHOPS_FURNACES"
----@field WORKSHOPS_CLOTHING 4
----@field [4] "WORKSHOPS_CLOTHING"
----@field WORKSHOPS_FARMING 5
----@field [5] "WORKSHOPS_FARMING"
----@field FURNITURE 6
----@field [6] "FURNITURE"
----@field DOORS_HATCHES 7
----@field [7] "DOORS_HATCHES"
----@field WALLS_FLOORS 8
----@field [8] "WALLS_FLOORS"
----@field MACHINES_FLUIDS 9
----@field [9] "MACHINES_FLUIDS"
----@field CAGES_RESTRAINTS 10
----@field [10] "CAGES_RESTRAINTS"
----@field TRAPS 11
----@field [11] "TRAPS"
----@field MILITARY 12
----@field [12] "MILITARY"
+---@field [-1] "NONE"
+---@field MAIN 0
+---@field [0] "MAIN"
+---@field WORKSHOPS 1
+---@field [1] "WORKSHOPS"
+---@field WORKSHOPS_FURNACES 2
+---@field [2] "WORKSHOPS_FURNACES"
+---@field WORKSHOPS_CLOTHING 3
+---@field [3] "WORKSHOPS_CLOTHING"
+---@field WORKSHOPS_FARMING 4
+---@field [4] "WORKSHOPS_FARMING"
+---@field FURNITURE 5
+---@field [5] "FURNITURE"
+---@field DOORS_HATCHES 6
+---@field [6] "DOORS_HATCHES"
+---@field WALLS_FLOORS 7
+---@field [7] "WALLS_FLOORS"
+---@field MACHINES_FLUIDS 8
+---@field [8] "MACHINES_FLUIDS"
+---@field CAGES_RESTRAINTS 9
+---@field [9] "CAGES_RESTRAINTS"
+---@field TRAPS 10
+---@field [10] "TRAPS"
+---@field MILITARY 11
+---@field [11] "MILITARY"
 df.construction_category_type = {}
 
----@class construction_category_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field MAIN boolean
----@field [2] boolean
----@field WORKSHOPS boolean
----@field [3] boolean
----@field WORKSHOPS_FURNACES boolean
----@field [4] boolean
----@field WORKSHOPS_CLOTHING boolean
----@field [5] boolean
----@field WORKSHOPS_FARMING boolean
----@field [6] boolean
----@field FURNITURE boolean
----@field [7] boolean
----@field DOORS_HATCHES boolean
----@field [8] boolean
----@field WALLS_FLOORS boolean
----@field [9] boolean
----@field MACHINES_FLUIDS boolean
----@field [10] boolean
----@field CAGES_RESTRAINTS boolean
----@field [11] boolean
----@field TRAPS boolean
----@field [12] boolean
----@field MILITARY boolean
-
----@class bb_buttonst: df.class
+---@class (exact) bb_buttonst: DFObject
+---@field _kind 'struct'
+---@field _type _bb_buttonst
 ---@field category construction_category_type
----@field type integer
----@field subtype integer
----@field custom_building_id integer
----@field number integer
----@field grid_height integer
----@field texpos integer
----@field str df.string
+---@field type number
+---@field subtype number
+---@field custom_building_id number
+---@field number number
+---@field grid_height number
+---@field texpos number
+---@field str string
 ---@field hotkey interface_key
+local bb_buttonst
+
+---@class _bb_buttonst: DFCompound
+---@field _kind 'struct-type'
 df.bb_buttonst = {}
 
----@class _construction_interface_page_status_type: integer, string, df.enum
+---@alias construction_interface_page_status_type
+---| -1 # NONE
+---| 0 # FULL
+---| 1 # ICONS_ONLY
+---| 2 # OFF
+
+---@class _construction_interface_page_status_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field FULL 1
----@field [1] "FULL"
----@field ICONS_ONLY 2
----@field [2] "ICONS_ONLY"
----@field OFF 3
----@field [3] "OFF"
+---@field [-1] "NONE"
+---@field FULL 0
+---@field [0] "FULL"
+---@field ICONS_ONLY 1
+---@field [1] "ICONS_ONLY"
+---@field OFF 2
+---@field [2] "OFF"
 df.construction_interface_page_status_type = {}
 
----@class construction_interface_page_status_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field FULL boolean
----@field [2] boolean
----@field ICONS_ONLY boolean
----@field [3] boolean
----@field OFF boolean
-
----@class construction_interface_pagest: df.class
+---@class (exact) construction_interface_pagest: DFObject
+---@field _kind 'struct'
+---@field _type _construction_interface_pagest
 ---@field category construction_category_type
----@field bb_button bb_buttonst[]
----@field last_main_sx integer
----@field last_main_ex integer
----@field last_main_sy integer
----@field last_main_ey integer
+---@field last_main_sx number
+---@field last_main_ex number
+---@field last_main_sy number
+---@field last_main_ey number
 ---@field page_status construction_interface_page_status_type
----@field number_of_columns integer
----@field column_height integer
----@field column_width integer
----@field selected_button bb_buttonst
+---@field number_of_columns number
+---@field column_height number
+---@field column_width number
 ---@field scrolling boolean
----@field scroll_position integer
+---@field scroll_position number
+local construction_interface_pagest
+
+---@class _construction_interface_pagest: DFCompound
+---@field _kind 'struct-type'
 df.construction_interface_pagest = {}
 
----@class _room_flow_shape_type: integer, string, df.enum
+---@alias room_flow_shape_type
+---| -1 # NONE
+---| 0 # RECTANGLE
+---| 1 # WALL_FLOW
+---| 2 # FLOOR_FLOW
+
+---@class _room_flow_shape_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field RECTANGLE 1
----@field [1] "RECTANGLE"
----@field WALL_FLOW 2
----@field [2] "WALL_FLOW"
----@field FLOOR_FLOW 3
----@field [3] "FLOOR_FLOW"
+---@field [-1] "NONE"
+---@field RECTANGLE 0
+---@field [0] "RECTANGLE"
+---@field WALL_FLOW 1
+---@field [1] "WALL_FLOW"
+---@field FLOOR_FLOW 2
+---@field [2] "FLOOR_FLOW"
 df.room_flow_shape_type = {}
 
----@class room_flow_shape_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field RECTANGLE boolean
----@field [2] boolean
----@field WALL_FLOW boolean
----@field [3] boolean
----@field FLOOR_FLOW boolean
+---@alias cannot_expel_reason_type
+---| -1 # NONE
+---| 0 # HEREDITARY
+---| 1 # ELECTED
+---| 2 # MEET_WORKERS
+---| 3 # SPOUSE_NOT_PRESENT
+---| 4 # SPOUSE_HEREDITARY
+---| 5 # SPOUSE_ELECTED
+---| 6 # SPOUSE_MEET_WORKERS
+---| 7 # CHILD_NOT_PRESENT
+---| 8 # CHILD_HEREDITARY
+---| 9 # CHILD_ELECTED
+---| 10 # CHILD_MEET_WORKERS
 
----@class _cannot_expel_reason_type: integer, string, df.enum
+---@class _cannot_expel_reason_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field HEREDITARY 1
----@field [1] "HEREDITARY"
----@field ELECTED 2
----@field [2] "ELECTED"
----@field MEET_WORKERS 3
----@field [3] "MEET_WORKERS"
----@field SPOUSE_NOT_PRESENT 4
----@field [4] "SPOUSE_NOT_PRESENT"
----@field SPOUSE_HEREDITARY 5
----@field [5] "SPOUSE_HEREDITARY"
----@field SPOUSE_ELECTED 6
----@field [6] "SPOUSE_ELECTED"
----@field SPOUSE_MEET_WORKERS 7
----@field [7] "SPOUSE_MEET_WORKERS"
----@field CHILD_NOT_PRESENT 8
----@field [8] "CHILD_NOT_PRESENT"
----@field CHILD_HEREDITARY 9
----@field [9] "CHILD_HEREDITARY"
----@field CHILD_ELECTED 10
----@field [10] "CHILD_ELECTED"
----@field CHILD_MEET_WORKERS 11
----@field [11] "CHILD_MEET_WORKERS"
+---@field [-1] "NONE"
+---@field HEREDITARY 0
+---@field [0] "HEREDITARY"
+---@field ELECTED 1
+---@field [1] "ELECTED"
+---@field MEET_WORKERS 2
+---@field [2] "MEET_WORKERS"
+---@field SPOUSE_NOT_PRESENT 3
+---@field [3] "SPOUSE_NOT_PRESENT"
+---@field SPOUSE_HEREDITARY 4
+---@field [4] "SPOUSE_HEREDITARY"
+---@field SPOUSE_ELECTED 5
+---@field [5] "SPOUSE_ELECTED"
+---@field SPOUSE_MEET_WORKERS 6
+---@field [6] "SPOUSE_MEET_WORKERS"
+---@field CHILD_NOT_PRESENT 7
+---@field [7] "CHILD_NOT_PRESENT"
+---@field CHILD_HEREDITARY 8
+---@field [8] "CHILD_HEREDITARY"
+---@field CHILD_ELECTED 9
+---@field [9] "CHILD_ELECTED"
+---@field CHILD_MEET_WORKERS 10
+---@field [10] "CHILD_MEET_WORKERS"
 df.cannot_expel_reason_type = {}
 
----@class cannot_expel_reason_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field HEREDITARY boolean
----@field [2] boolean
----@field ELECTED boolean
----@field [3] boolean
----@field MEET_WORKERS boolean
----@field [4] boolean
----@field SPOUSE_NOT_PRESENT boolean
----@field [5] boolean
----@field SPOUSE_HEREDITARY boolean
----@field [6] boolean
----@field SPOUSE_ELECTED boolean
----@field [7] boolean
----@field SPOUSE_MEET_WORKERS boolean
----@field [8] boolean
----@field CHILD_NOT_PRESENT boolean
----@field [9] boolean
----@field CHILD_HEREDITARY boolean
----@field [10] boolean
----@field CHILD_ELECTED boolean
----@field [11] boolean
----@field CHILD_MEET_WORKERS boolean
+---@alias mine_mode_type
+---| -1 # NONE
+---| 0 # ALL
+---| 1 # AUTOMINE_NON_LAYER_MATERIAL
+---| 2 # MARK_ECONOMIC_ONLY
+---| 3 # MARK_GEMS_ONLY
 
----@class _mine_mode_type: integer, string, df.enum
+---@class _mine_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field ALL 1
----@field [1] "ALL"
----@field AUTOMINE_NON_LAYER_MATERIAL 2
----@field [2] "AUTOMINE_NON_LAYER_MATERIAL"
----@field MARK_ECONOMIC_ONLY 3
----@field [3] "MARK_ECONOMIC_ONLY"
----@field MARK_GEMS_ONLY 4
----@field [4] "MARK_GEMS_ONLY"
+---@field [-1] "NONE"
+---@field ALL 0
+---@field [0] "ALL"
+---@field AUTOMINE_NON_LAYER_MATERIAL 1
+---@field [1] "AUTOMINE_NON_LAYER_MATERIAL"
+---@field MARK_ECONOMIC_ONLY 2
+---@field [2] "MARK_ECONOMIC_ONLY"
+---@field MARK_GEMS_ONLY 3
+---@field [3] "MARK_GEMS_ONLY"
 df.mine_mode_type = {}
 
----@class mine_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ALL boolean
----@field [2] boolean
----@field AUTOMINE_NON_LAYER_MATERIAL boolean
----@field [3] boolean
----@field MARK_ECONOMIC_ONLY boolean
----@field [4] boolean
----@field MARK_GEMS_ONLY boolean
+---@alias job_details_option_type
+---| -1 # NONE
+---| 0 # MATERIAL
+---| 1 # IMAGE
+---| 2 # CLOTHING_SIZE
+---| 3 # IMPROVEMENT_TYPE
 
----@class _job_details_option_type: integer, string, df.enum
+---@class _job_details_option_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field MATERIAL 1
----@field [1] "MATERIAL"
----@field IMAGE 2
----@field [2] "IMAGE"
----@field CLOTHING_SIZE 3
----@field [3] "CLOTHING_SIZE"
----@field IMPROVEMENT_TYPE 4
----@field [4] "IMPROVEMENT_TYPE"
+---@field [-1] "NONE"
+---@field MATERIAL 0
+---@field [0] "MATERIAL"
+---@field IMAGE 1
+---@field [1] "IMAGE"
+---@field CLOTHING_SIZE 2
+---@field [2] "CLOTHING_SIZE"
+---@field IMPROVEMENT_TYPE 3
+---@field [3] "IMPROVEMENT_TYPE"
 df.job_details_option_type = {}
 
----@class job_details_option_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field MATERIAL boolean
----@field [2] boolean
----@field IMAGE boolean
----@field [3] boolean
----@field CLOTHING_SIZE boolean
----@field [4] boolean
----@field IMPROVEMENT_TYPE boolean
+---@alias job_details_context_type
+---| -1 # NONE
+---| 0 # BUILDING_TASK_LIST
+---| 1 # CREATURES_LIST_TASK
+---| 2 # TASK_LIST_TASK
+---| 3 # BUILDING_WORK_ORDER
+---| 4 # MANAGER_WORK_ORDER
 
----@class _job_details_context_type: integer, string, df.enum
+---@class _job_details_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field BUILDING_TASK_LIST 1
----@field [1] "BUILDING_TASK_LIST"
----@field CREATURES_LIST_TASK 2
----@field [2] "CREATURES_LIST_TASK"
----@field TASK_LIST_TASK 3
----@field [3] "TASK_LIST_TASK"
----@field BUILDING_WORK_ORDER 4
----@field [4] "BUILDING_WORK_ORDER"
----@field MANAGER_WORK_ORDER 5
----@field [5] "MANAGER_WORK_ORDER"
+---@field [-1] "NONE"
+---@field BUILDING_TASK_LIST 0
+---@field [0] "BUILDING_TASK_LIST"
+---@field CREATURES_LIST_TASK 1
+---@field [1] "CREATURES_LIST_TASK"
+---@field TASK_LIST_TASK 2
+---@field [2] "TASK_LIST_TASK"
+---@field BUILDING_WORK_ORDER 3
+---@field [3] "BUILDING_WORK_ORDER"
+---@field MANAGER_WORK_ORDER 4
+---@field [4] "MANAGER_WORK_ORDER"
 df.job_details_context_type = {}
 
----@class job_details_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field BUILDING_TASK_LIST boolean
----@field [2] boolean
----@field CREATURES_LIST_TASK boolean
----@field [3] boolean
----@field TASK_LIST_TASK boolean
----@field [4] boolean
----@field BUILDING_WORK_ORDER boolean
----@field [5] boolean
----@field MANAGER_WORK_ORDER boolean
+---@alias stock_pile_pointer_type
+---| -1 # NONE
+---| 0 # ANIMAL_EMPTY_CAGES
+---| 1 # ANIMAL_EMPTY_ANIMAL_TRAPS
+---| 2 # FOOD_PREPARED_FOOD
+---| 3 # REFUSE_ROTTEN_RAW_HIDE
+---| 4 # REFUSE_UNROTTEN_RAW_HIDE
+---| 5 # WEAPON_USABLE
+---| 6 # WEAPON_NON_USABLE
+---| 7 # ARMOR_USABLE
+---| 8 # ARMOR_NON_USABLE
 
----@class _stock_pile_pointer_type: integer, string, df.enum
+---@class _stock_pile_pointer_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field ANIMAL_EMPTY_CAGES 1
----@field [1] "ANIMAL_EMPTY_CAGES"
----@field ANIMAL_EMPTY_ANIMAL_TRAPS 2
----@field [2] "ANIMAL_EMPTY_ANIMAL_TRAPS"
----@field FOOD_PREPARED_FOOD 3
----@field [3] "FOOD_PREPARED_FOOD"
----@field REFUSE_ROTTEN_RAW_HIDE 4
----@field [4] "REFUSE_ROTTEN_RAW_HIDE"
----@field REFUSE_UNROTTEN_RAW_HIDE 5
----@field [5] "REFUSE_UNROTTEN_RAW_HIDE"
----@field WEAPON_USABLE 6
----@field [6] "WEAPON_USABLE"
----@field WEAPON_NON_USABLE 7
----@field [7] "WEAPON_NON_USABLE"
----@field ARMOR_USABLE 8
----@field [8] "ARMOR_USABLE"
----@field ARMOR_NON_USABLE 9
----@field [9] "ARMOR_NON_USABLE"
+---@field [-1] "NONE"
+---@field ANIMAL_EMPTY_CAGES 0
+---@field [0] "ANIMAL_EMPTY_CAGES"
+---@field ANIMAL_EMPTY_ANIMAL_TRAPS 1
+---@field [1] "ANIMAL_EMPTY_ANIMAL_TRAPS"
+---@field FOOD_PREPARED_FOOD 2
+---@field [2] "FOOD_PREPARED_FOOD"
+---@field REFUSE_ROTTEN_RAW_HIDE 3
+---@field [3] "REFUSE_ROTTEN_RAW_HIDE"
+---@field REFUSE_UNROTTEN_RAW_HIDE 4
+---@field [4] "REFUSE_UNROTTEN_RAW_HIDE"
+---@field WEAPON_USABLE 5
+---@field [5] "WEAPON_USABLE"
+---@field WEAPON_NON_USABLE 6
+---@field [6] "WEAPON_NON_USABLE"
+---@field ARMOR_USABLE 7
+---@field [7] "ARMOR_USABLE"
+---@field ARMOR_NON_USABLE 8
+---@field [8] "ARMOR_NON_USABLE"
 df.stock_pile_pointer_type = {}
 
----@class stock_pile_pointer_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ANIMAL_EMPTY_CAGES boolean
----@field [2] boolean
----@field ANIMAL_EMPTY_ANIMAL_TRAPS boolean
----@field [3] boolean
----@field FOOD_PREPARED_FOOD boolean
----@field [4] boolean
----@field REFUSE_ROTTEN_RAW_HIDE boolean
----@field [5] boolean
----@field REFUSE_UNROTTEN_RAW_HIDE boolean
----@field [6] boolean
----@field WEAPON_USABLE boolean
----@field [7] boolean
----@field WEAPON_NON_USABLE boolean
----@field [8] boolean
----@field ARMOR_USABLE boolean
----@field [9] boolean
----@field ARMOR_NON_USABLE boolean
+---@alias stockpile_tools_context_type
+---| -1 # NONE
+---| 0 # STOCKPILE
 
----@class _stockpile_tools_context_type: integer, string, df.enum
+---@class _stockpile_tools_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field STOCKPILE 1
----@field [1] "STOCKPILE"
+---@field [-1] "NONE"
+---@field STOCKPILE 0
+---@field [0] "STOCKPILE"
 df.stockpile_tools_context_type = {}
 
----@class stockpile_tools_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field STOCKPILE boolean
+---@alias stockpile_link_context_type
+---| -1 # NONE
+---| 0 # STOCKPILE
+---| 1 # WORKSHOP
+---| 2 # HAULING_STOP
 
----@class _stockpile_link_context_type: integer, string, df.enum
+---@class _stockpile_link_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field STOCKPILE 1
----@field [1] "STOCKPILE"
----@field WORKSHOP 2
----@field [2] "WORKSHOP"
----@field HAULING_STOP 3
----@field [3] "HAULING_STOP"
+---@field [-1] "NONE"
+---@field STOCKPILE 0
+---@field [0] "STOCKPILE"
+---@field WORKSHOP 1
+---@field [1] "WORKSHOP"
+---@field HAULING_STOP 2
+---@field [2] "HAULING_STOP"
 df.stockpile_link_context_type = {}
 
----@class stockpile_link_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field STOCKPILE boolean
----@field [2] boolean
----@field WORKSHOP boolean
----@field [3] boolean
----@field HAULING_STOP boolean
+---@alias hauling_stop_conditions_context_type
+---| -1 # NONE
+---| 0 # HAULING_MENU
 
----@class _hauling_stop_conditions_context_type: integer, string, df.enum
+---@class _hauling_stop_conditions_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field HAULING_MENU 1
----@field [1] "HAULING_MENU"
+---@field [-1] "NONE"
+---@field HAULING_MENU 0
+---@field [0] "HAULING_MENU"
 df.hauling_stop_conditions_context_type = {}
 
----@class hauling_stop_conditions_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field HAULING_MENU boolean
+---@alias assign_vehicle_context_type
+---| -1 # NONE
+---| 0 # HAULING_MENU
 
----@class _assign_vehicle_context_type: integer, string, df.enum
+---@class _assign_vehicle_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field HAULING_MENU 1
----@field [1] "HAULING_MENU"
+---@field [-1] "NONE"
+---@field HAULING_MENU 0
+---@field [0] "HAULING_MENU"
 df.assign_vehicle_context_type = {}
 
----@class assign_vehicle_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field HAULING_MENU boolean
+---@alias location_details_context_type
+---| -1 # NONE
+---| 0 # FROM_ZONE
+---| 1 # FROM_LOCATION_SELECTOR
 
----@class _location_details_context_type: integer, string, df.enum
+---@class _location_details_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field FROM_ZONE 1
----@field [1] "FROM_ZONE"
----@field FROM_LOCATION_SELECTOR 2
----@field [2] "FROM_LOCATION_SELECTOR"
+---@field [-1] "NONE"
+---@field FROM_ZONE 0
+---@field [0] "FROM_ZONE"
+---@field FROM_LOCATION_SELECTOR 1
+---@field [1] "FROM_LOCATION_SELECTOR"
 df.location_details_context_type = {}
 
----@class location_details_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field FROM_ZONE boolean
----@field [2] boolean
----@field FROM_LOCATION_SELECTOR boolean
+---@alias location_selector_context_type
+---| -1 # NONE
+---| 0 # ZONE_MEETING_AREA_ASSIGNMENT
 
----@class _location_selector_context_type: integer, string, df.enum
+---@class _location_selector_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field ZONE_MEETING_AREA_ASSIGNMENT 1
----@field [1] "ZONE_MEETING_AREA_ASSIGNMENT"
+---@field [-1] "NONE"
+---@field ZONE_MEETING_AREA_ASSIGNMENT 0
+---@field [0] "ZONE_MEETING_AREA_ASSIGNMENT"
 df.location_selector_context_type = {}
 
----@class location_selector_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ZONE_MEETING_AREA_ASSIGNMENT boolean
+---@alias custom_symbol_context_type
+---| -1 # NONE
+---| 0 # BURROW
+---| 1 # BURROW_PAINT
+---| 2 # WORK_DETAIL
+---| 3 # SQUAD_MENU
 
----@class _custom_symbol_context_type: integer, string, df.enum
+---@class _custom_symbol_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field BURROW 1
----@field [1] "BURROW"
----@field BURROW_PAINT 2
----@field [2] "BURROW_PAINT"
----@field WORK_DETAIL 3
----@field [3] "WORK_DETAIL"
----@field SQUAD_MENU 4
----@field [4] "SQUAD_MENU"
+---@field [-1] "NONE"
+---@field BURROW 0
+---@field [0] "BURROW"
+---@field BURROW_PAINT 1
+---@field [1] "BURROW_PAINT"
+---@field WORK_DETAIL 2
+---@field [2] "WORK_DETAIL"
+---@field SQUAD_MENU 3
+---@field [3] "SQUAD_MENU"
 df.custom_symbol_context_type = {}
 
----@class custom_symbol_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field BURROW boolean
----@field [2] boolean
----@field BURROW_PAINT boolean
----@field [3] boolean
----@field WORK_DETAIL boolean
----@field [4] boolean
----@field SQUAD_MENU boolean
+---@alias name_creator_context_type
+---| -1 # NONE
+---| 0 # EMBARK_FORT_NAME
+---| 1 # EMBARK_GROUP_NAME
+---| 2 # IMAGE_CREATOR_NAME
+---| 3 # LOCATION_NAME
+---| 4 # SQUAD_NAME
+---| 5 # INFO_NOBLES_ELEVATING_POSITION_SYMBOL
 
----@class _name_creator_context_type: integer, string, df.enum
+---@class _name_creator_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field EMBARK_FORT_NAME 1
----@field [1] "EMBARK_FORT_NAME"
----@field EMBARK_GROUP_NAME 2
----@field [2] "EMBARK_GROUP_NAME"
----@field IMAGE_CREATOR_NAME 3
----@field [3] "IMAGE_CREATOR_NAME"
----@field LOCATION_NAME 4
----@field [4] "LOCATION_NAME"
----@field SQUAD_NAME 5
----@field [5] "SQUAD_NAME"
----@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL 6
----@field [6] "INFO_NOBLES_ELEVATING_POSITION_SYMBOL"
+---@field [-1] "NONE"
+---@field EMBARK_FORT_NAME 0
+---@field [0] "EMBARK_FORT_NAME"
+---@field EMBARK_GROUP_NAME 1
+---@field [1] "EMBARK_GROUP_NAME"
+---@field IMAGE_CREATOR_NAME 2
+---@field [2] "IMAGE_CREATOR_NAME"
+---@field LOCATION_NAME 3
+---@field [3] "LOCATION_NAME"
+---@field SQUAD_NAME 4
+---@field [4] "SQUAD_NAME"
+---@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL 5
+---@field [5] "INFO_NOBLES_ELEVATING_POSITION_SYMBOL"
 df.name_creator_context_type = {}
 
----@class name_creator_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field EMBARK_FORT_NAME boolean
----@field [2] boolean
----@field EMBARK_GROUP_NAME boolean
----@field [3] boolean
----@field IMAGE_CREATOR_NAME boolean
----@field [4] boolean
----@field LOCATION_NAME boolean
----@field [5] boolean
----@field SQUAD_NAME boolean
----@field [6] boolean
----@field INFO_NOBLES_ELEVATING_POSITION_SYMBOL boolean
+---@alias image_creator_context_type
+---| -1 # NONE
+---| 0 # EMBARK_FORT_SYMBOL
+---| 1 # JOB_DETAILS_MAIN
+---| 2 # JOB_DETAILS_IMPROVEMENT
+---| 3 # DESIGNATION_ENGRAVING
 
----@class _image_creator_context_type: integer, string, df.enum
+---@class _image_creator_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field EMBARK_FORT_SYMBOL 1
----@field [1] "EMBARK_FORT_SYMBOL"
----@field JOB_DETAILS_MAIN 2
----@field [2] "JOB_DETAILS_MAIN"
----@field JOB_DETAILS_IMPROVEMENT 3
----@field [3] "JOB_DETAILS_IMPROVEMENT"
----@field DESIGNATION_ENGRAVING 4
----@field [4] "DESIGNATION_ENGRAVING"
+---@field [-1] "NONE"
+---@field EMBARK_FORT_SYMBOL 0
+---@field [0] "EMBARK_FORT_SYMBOL"
+---@field JOB_DETAILS_MAIN 1
+---@field [1] "JOB_DETAILS_MAIN"
+---@field JOB_DETAILS_IMPROVEMENT 2
+---@field [2] "JOB_DETAILS_IMPROVEMENT"
+---@field DESIGNATION_ENGRAVING 3
+---@field [3] "DESIGNATION_ENGRAVING"
 df.image_creator_context_type = {}
 
----@class image_creator_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field EMBARK_FORT_SYMBOL boolean
----@field [2] boolean
----@field JOB_DETAILS_MAIN boolean
----@field [3] boolean
----@field JOB_DETAILS_IMPROVEMENT boolean
----@field [4] boolean
----@field DESIGNATION_ENGRAVING boolean
+---@alias image_creator_option_type
+---| -1 # NONE
+---| 0 # ALLOW_ARTIST_TO_CHOOSE
+---| 1 # RELATED_TO_HFID
+---| 2 # RELATED_TO_STID
+---| 3 # RELATED_TO_ENID
+---| 4 # RELATED_TO_HEID
+---| 5 # EXISTING_IMAGE
+---| 6 # NEW_IMAGE
+---| 7 # NEW_IMAGE_ELEMENT_CREATURE
+---| 8 # NEW_IMAGE_ELEMENT_HF
+---| 9 # NEW_IMAGE_ELEMENT_PLANT
+---| 10 # NEW_IMAGE_ELEMENT_TREE
+---| 11 # NEW_IMAGE_ELEMENT_SHAPE
+---| 12 # NEW_IMAGE_ELEMENT_ITEM
+---| 13 # NEW_IMAGE_ELEMENT_ARTIFACT
+---| 14 # NEW_IMAGE_PROPERTY
+---| 15 # NEW_IMAGE_PROPERTY_ACTOR
+---| 16 # NEW_IMAGE_PROPERTY_TARGET
+---| 17 # NEW_IMAGE_DELETE_ELEMENTS
 
----@class _image_creator_option_type: integer, string, df.enum
+---@class _image_creator_option_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field ALLOW_ARTIST_TO_CHOOSE 1
----@field [1] "ALLOW_ARTIST_TO_CHOOSE"
----@field RELATED_TO_HFID 2
----@field [2] "RELATED_TO_HFID"
----@field RELATED_TO_STID 3
----@field [3] "RELATED_TO_STID"
----@field RELATED_TO_ENID 4
----@field [4] "RELATED_TO_ENID"
----@field RELATED_TO_HEID 5
----@field [5] "RELATED_TO_HEID"
----@field EXISTING_IMAGE 6
----@field [6] "EXISTING_IMAGE"
----@field NEW_IMAGE 7
----@field [7] "NEW_IMAGE"
----@field NEW_IMAGE_ELEMENT_CREATURE 8
----@field [8] "NEW_IMAGE_ELEMENT_CREATURE"
----@field NEW_IMAGE_ELEMENT_HF 9
----@field [9] "NEW_IMAGE_ELEMENT_HF"
----@field NEW_IMAGE_ELEMENT_PLANT 10
----@field [10] "NEW_IMAGE_ELEMENT_PLANT"
----@field NEW_IMAGE_ELEMENT_TREE 11
----@field [11] "NEW_IMAGE_ELEMENT_TREE"
----@field NEW_IMAGE_ELEMENT_SHAPE 12
----@field [12] "NEW_IMAGE_ELEMENT_SHAPE"
----@field NEW_IMAGE_ELEMENT_ITEM 13
----@field [13] "NEW_IMAGE_ELEMENT_ITEM"
----@field NEW_IMAGE_ELEMENT_ARTIFACT 14
----@field [14] "NEW_IMAGE_ELEMENT_ARTIFACT"
----@field NEW_IMAGE_PROPERTY 15
----@field [15] "NEW_IMAGE_PROPERTY"
----@field NEW_IMAGE_PROPERTY_ACTOR 16
----@field [16] "NEW_IMAGE_PROPERTY_ACTOR"
----@field NEW_IMAGE_PROPERTY_TARGET 17
----@field [17] "NEW_IMAGE_PROPERTY_TARGET"
----@field NEW_IMAGE_DELETE_ELEMENTS 18
----@field [18] "NEW_IMAGE_DELETE_ELEMENTS"
+---@field [-1] "NONE"
+---@field ALLOW_ARTIST_TO_CHOOSE 0
+---@field [0] "ALLOW_ARTIST_TO_CHOOSE"
+---@field RELATED_TO_HFID 1
+---@field [1] "RELATED_TO_HFID"
+---@field RELATED_TO_STID 2
+---@field [2] "RELATED_TO_STID"
+---@field RELATED_TO_ENID 3
+---@field [3] "RELATED_TO_ENID"
+---@field RELATED_TO_HEID 4
+---@field [4] "RELATED_TO_HEID"
+---@field EXISTING_IMAGE 5
+---@field [5] "EXISTING_IMAGE"
+---@field NEW_IMAGE 6
+---@field [6] "NEW_IMAGE"
+---@field NEW_IMAGE_ELEMENT_CREATURE 7
+---@field [7] "NEW_IMAGE_ELEMENT_CREATURE"
+---@field NEW_IMAGE_ELEMENT_HF 8
+---@field [8] "NEW_IMAGE_ELEMENT_HF"
+---@field NEW_IMAGE_ELEMENT_PLANT 9
+---@field [9] "NEW_IMAGE_ELEMENT_PLANT"
+---@field NEW_IMAGE_ELEMENT_TREE 10
+---@field [10] "NEW_IMAGE_ELEMENT_TREE"
+---@field NEW_IMAGE_ELEMENT_SHAPE 11
+---@field [11] "NEW_IMAGE_ELEMENT_SHAPE"
+---@field NEW_IMAGE_ELEMENT_ITEM 12
+---@field [12] "NEW_IMAGE_ELEMENT_ITEM"
+---@field NEW_IMAGE_ELEMENT_ARTIFACT 13
+---@field [13] "NEW_IMAGE_ELEMENT_ARTIFACT"
+---@field NEW_IMAGE_PROPERTY 14
+---@field [14] "NEW_IMAGE_PROPERTY"
+---@field NEW_IMAGE_PROPERTY_ACTOR 15
+---@field [15] "NEW_IMAGE_PROPERTY_ACTOR"
+---@field NEW_IMAGE_PROPERTY_TARGET 16
+---@field [16] "NEW_IMAGE_PROPERTY_TARGET"
+---@field NEW_IMAGE_DELETE_ELEMENTS 17
+---@field [17] "NEW_IMAGE_DELETE_ELEMENTS"
 df.image_creator_option_type = {}
 
----@class image_creator_option_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ALLOW_ARTIST_TO_CHOOSE boolean
----@field [2] boolean
----@field RELATED_TO_HFID boolean
----@field [3] boolean
----@field RELATED_TO_STID boolean
----@field [4] boolean
----@field RELATED_TO_ENID boolean
----@field [5] boolean
----@field RELATED_TO_HEID boolean
----@field [6] boolean
----@field EXISTING_IMAGE boolean
----@field [7] boolean
----@field NEW_IMAGE boolean
----@field [8] boolean
----@field NEW_IMAGE_ELEMENT_CREATURE boolean
----@field [9] boolean
----@field NEW_IMAGE_ELEMENT_HF boolean
----@field [10] boolean
----@field NEW_IMAGE_ELEMENT_PLANT boolean
----@field [11] boolean
----@field NEW_IMAGE_ELEMENT_TREE boolean
----@field [12] boolean
----@field NEW_IMAGE_ELEMENT_SHAPE boolean
----@field [13] boolean
----@field NEW_IMAGE_ELEMENT_ITEM boolean
----@field [14] boolean
----@field NEW_IMAGE_ELEMENT_ARTIFACT boolean
----@field [15] boolean
----@field NEW_IMAGE_PROPERTY boolean
----@field [16] boolean
----@field NEW_IMAGE_PROPERTY_ACTOR boolean
----@field [17] boolean
----@field NEW_IMAGE_PROPERTY_TARGET boolean
----@field [18] boolean
----@field NEW_IMAGE_DELETE_ELEMENTS boolean
+---@alias unit_selector_context_type
+---| -1 # NONE
+---| 0 # ZONE_PEN_ASSIGNMENT
+---| 1 # ZONE_PIT_ASSIGNMENT
+---| 2 # ZONE_BEDROOM_ASSIGNMENT
+---| 3 # ZONE_OFFICE_ASSIGNMENT
+---| 4 # ZONE_DINING_HALL_ASSIGNMENT
+---| 5 # ZONE_TOMB_ASSIGNMENT
+---| 6 # CHAIN_ASSIGNMENT
+---| 7 # CAGE_ASSIGNMENT
+---| 8 # WORKER_ASSIGNMENT
+---| 9 # OCCUPATION_ASSIGNMENT
+---| 10 # BURROW_ASSIGNMENT
+---| 11 # SQUAD_KILL_ORDER
+---| 12 # SQUAD_FILL_POSITION
 
----@class _unit_selector_context_type: integer, string, df.enum
+---@class _unit_selector_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field ZONE_PEN_ASSIGNMENT 1
----@field [1] "ZONE_PEN_ASSIGNMENT"
----@field ZONE_PIT_ASSIGNMENT 2
----@field [2] "ZONE_PIT_ASSIGNMENT"
----@field ZONE_BEDROOM_ASSIGNMENT 3
----@field [3] "ZONE_BEDROOM_ASSIGNMENT"
----@field ZONE_OFFICE_ASSIGNMENT 4
----@field [4] "ZONE_OFFICE_ASSIGNMENT"
----@field ZONE_DINING_HALL_ASSIGNMENT 5
----@field [5] "ZONE_DINING_HALL_ASSIGNMENT"
----@field ZONE_TOMB_ASSIGNMENT 6
----@field [6] "ZONE_TOMB_ASSIGNMENT"
----@field CHAIN_ASSIGNMENT 7
----@field [7] "CHAIN_ASSIGNMENT"
----@field CAGE_ASSIGNMENT 8
----@field [8] "CAGE_ASSIGNMENT"
----@field WORKER_ASSIGNMENT 9
----@field [9] "WORKER_ASSIGNMENT"
----@field OCCUPATION_ASSIGNMENT 10
----@field [10] "OCCUPATION_ASSIGNMENT"
----@field BURROW_ASSIGNMENT 11
----@field [11] "BURROW_ASSIGNMENT"
----@field SQUAD_KILL_ORDER 12
----@field [12] "SQUAD_KILL_ORDER"
----@field SQUAD_FILL_POSITION 13
----@field [13] "SQUAD_FILL_POSITION"
+---@field [-1] "NONE"
+---@field ZONE_PEN_ASSIGNMENT 0
+---@field [0] "ZONE_PEN_ASSIGNMENT"
+---@field ZONE_PIT_ASSIGNMENT 1
+---@field [1] "ZONE_PIT_ASSIGNMENT"
+---@field ZONE_BEDROOM_ASSIGNMENT 2
+---@field [2] "ZONE_BEDROOM_ASSIGNMENT"
+---@field ZONE_OFFICE_ASSIGNMENT 3
+---@field [3] "ZONE_OFFICE_ASSIGNMENT"
+---@field ZONE_DINING_HALL_ASSIGNMENT 4
+---@field [4] "ZONE_DINING_HALL_ASSIGNMENT"
+---@field ZONE_TOMB_ASSIGNMENT 5
+---@field [5] "ZONE_TOMB_ASSIGNMENT"
+---@field CHAIN_ASSIGNMENT 6
+---@field [6] "CHAIN_ASSIGNMENT"
+---@field CAGE_ASSIGNMENT 7
+---@field [7] "CAGE_ASSIGNMENT"
+---@field WORKER_ASSIGNMENT 8
+---@field [8] "WORKER_ASSIGNMENT"
+---@field OCCUPATION_ASSIGNMENT 9
+---@field [9] "OCCUPATION_ASSIGNMENT"
+---@field BURROW_ASSIGNMENT 10
+---@field [10] "BURROW_ASSIGNMENT"
+---@field SQUAD_KILL_ORDER 11
+---@field [11] "SQUAD_KILL_ORDER"
+---@field SQUAD_FILL_POSITION 12
+---@field [12] "SQUAD_FILL_POSITION"
 df.unit_selector_context_type = {}
 
----@class unit_selector_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ZONE_PEN_ASSIGNMENT boolean
----@field [2] boolean
----@field ZONE_PIT_ASSIGNMENT boolean
----@field [3] boolean
----@field ZONE_BEDROOM_ASSIGNMENT boolean
----@field [4] boolean
----@field ZONE_OFFICE_ASSIGNMENT boolean
----@field [5] boolean
----@field ZONE_DINING_HALL_ASSIGNMENT boolean
----@field [6] boolean
----@field ZONE_TOMB_ASSIGNMENT boolean
----@field [7] boolean
----@field CHAIN_ASSIGNMENT boolean
----@field [8] boolean
----@field CAGE_ASSIGNMENT boolean
----@field [9] boolean
----@field WORKER_ASSIGNMENT boolean
----@field [10] boolean
----@field OCCUPATION_ASSIGNMENT boolean
----@field [11] boolean
----@field BURROW_ASSIGNMENT boolean
----@field [12] boolean
----@field SQUAD_KILL_ORDER boolean
----@field [13] boolean
----@field SQUAD_FILL_POSITION boolean
+---@alias squad_selector_context_type
+---| -1 # NONE
+---| 0 # ZONE_BARRACKS_ASSIGNMENT
+---| 1 # ZONE_ARCHERY_RANGE_ASSIGNMENT
 
----@class _squad_selector_context_type: integer, string, df.enum
+---@class _squad_selector_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field ZONE_BARRACKS_ASSIGNMENT 1
----@field [1] "ZONE_BARRACKS_ASSIGNMENT"
----@field ZONE_ARCHERY_RANGE_ASSIGNMENT 2
----@field [2] "ZONE_ARCHERY_RANGE_ASSIGNMENT"
+---@field [-1] "NONE"
+---@field ZONE_BARRACKS_ASSIGNMENT 0
+---@field [0] "ZONE_BARRACKS_ASSIGNMENT"
+---@field ZONE_ARCHERY_RANGE_ASSIGNMENT 1
+---@field [1] "ZONE_ARCHERY_RANGE_ASSIGNMENT"
 df.squad_selector_context_type = {}
 
----@class squad_selector_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ZONE_BARRACKS_ASSIGNMENT boolean
----@field [2] boolean
----@field ZONE_ARCHERY_RANGE_ASSIGNMENT boolean
+---@alias squad_schedule_context_type
+---| -1 # NONE
+---| 0 # FROM_SQUAD_MENU
 
----@class _squad_schedule_context_type: integer, string, df.enum
+---@class _squad_schedule_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field FROM_SQUAD_MENU 1
----@field [1] "FROM_SQUAD_MENU"
+---@field [-1] "NONE"
+---@field FROM_SQUAD_MENU 0
+---@field [0] "FROM_SQUAD_MENU"
 df.squad_schedule_context_type = {}
 
----@class squad_schedule_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field FROM_SQUAD_MENU boolean
+---@alias squad_equipment_context_type
+---| -1 # NONE
+---| 0 # FROM_SQUAD_MENU
 
----@class _squad_equipment_context_type: integer, string, df.enum
+---@class _squad_equipment_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field FROM_SQUAD_MENU 1
----@field [1] "FROM_SQUAD_MENU"
+---@field [-1] "NONE"
+---@field FROM_SQUAD_MENU 0
+---@field [0] "FROM_SQUAD_MENU"
 df.squad_equipment_context_type = {}
 
----@class squad_equipment_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field FROM_SQUAD_MENU boolean
+---@alias patrol_routes_context_type
+---| -1 # NONE
+---| 0 # GIVING_SQUAD_PATROL_ORDER
 
----@class _patrol_routes_context_type: integer, string, df.enum
+---@class _patrol_routes_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field GIVING_SQUAD_PATROL_ORDER 1
----@field [1] "GIVING_SQUAD_PATROL_ORDER"
+---@field [-1] "NONE"
+---@field GIVING_SQUAD_PATROL_ORDER 0
+---@field [0] "GIVING_SQUAD_PATROL_ORDER"
 df.patrol_routes_context_type = {}
 
----@class patrol_routes_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field GIVING_SQUAD_PATROL_ORDER boolean
+---@alias burrow_selector_context_type
+---| -1 # NONE
+---| 0 # GIVING_SQUAD_ORDER
 
----@class _burrow_selector_context_type: integer, string, df.enum
+---@class _burrow_selector_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field GIVING_SQUAD_ORDER 1
----@field [1] "GIVING_SQUAD_ORDER"
+---@field [-1] "NONE"
+---@field GIVING_SQUAD_ORDER 0
+---@field [0] "GIVING_SQUAD_ORDER"
 df.burrow_selector_context_type = {}
 
----@class burrow_selector_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field GIVING_SQUAD_ORDER boolean
+---@alias view_sheet_trait_type
+---| -1 # NONE
+---| 0 # PHYS_ATT_PLUS
+---| 1 # PHYS_ATT_MINUS
+---| 2 # MENT_ATT_PLUS
+---| 3 # MENT_ATT_MINUS
+---| 4 # PERSONALITY_FACET_HIGH
+---| 5 # PERSONALITY_FACET_LOW
+---| 6 # VALUE_HIGH
+---| 7 # VALUE_LOW
 
----@class _view_sheet_trait_type: integer, string, df.enum
+---@class _view_sheet_trait_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field PHYS_ATT_PLUS 1
----@field [1] "PHYS_ATT_PLUS"
----@field PHYS_ATT_MINUS 2
----@field [2] "PHYS_ATT_MINUS"
----@field MENT_ATT_PLUS 3
----@field [3] "MENT_ATT_PLUS"
----@field MENT_ATT_MINUS 4
----@field [4] "MENT_ATT_MINUS"
----@field PERSONALITY_FACET_HIGH 5
----@field [5] "PERSONALITY_FACET_HIGH"
----@field PERSONALITY_FACET_LOW 6
----@field [6] "PERSONALITY_FACET_LOW"
----@field VALUE_HIGH 7
----@field [7] "VALUE_HIGH"
----@field VALUE_LOW 8
----@field [8] "VALUE_LOW"
+---@field [-1] "NONE"
+---@field PHYS_ATT_PLUS 0
+---@field [0] "PHYS_ATT_PLUS"
+---@field PHYS_ATT_MINUS 1
+---@field [1] "PHYS_ATT_MINUS"
+---@field MENT_ATT_PLUS 2
+---@field [2] "MENT_ATT_PLUS"
+---@field MENT_ATT_MINUS 3
+---@field [3] "MENT_ATT_MINUS"
+---@field PERSONALITY_FACET_HIGH 4
+---@field [4] "PERSONALITY_FACET_HIGH"
+---@field PERSONALITY_FACET_LOW 5
+---@field [5] "PERSONALITY_FACET_LOW"
+---@field VALUE_HIGH 6
+---@field [6] "VALUE_HIGH"
+---@field VALUE_LOW 7
+---@field [7] "VALUE_LOW"
 df.view_sheet_trait_type = {}
 
----@class view_sheet_trait_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field PHYS_ATT_PLUS boolean
----@field [2] boolean
----@field PHYS_ATT_MINUS boolean
----@field [3] boolean
----@field MENT_ATT_PLUS boolean
----@field [4] boolean
----@field MENT_ATT_MINUS boolean
----@field [5] boolean
----@field PERSONALITY_FACET_HIGH boolean
----@field [6] boolean
----@field PERSONALITY_FACET_LOW boolean
----@field [7] boolean
----@field VALUE_HIGH boolean
----@field [8] boolean
----@field VALUE_LOW boolean
+---@alias view_sheet_unit_knowledge_type
+---| -1 # NONE
+---| 0 # PHILOSOPHY_FLAG
+---| 1 # PHILOSOPHY_FLAG2
+---| 2 # MATHEMATICS_FLAG
+---| 3 # MATHEMATICS_FLAG2
+---| 4 # HISTORY_FLAG
+---| 5 # ASTRONOMY_FLAG
+---| 6 # NATURALIST_FLAG
+---| 7 # CHEMISTRY_FLAG
+---| 8 # GEOGRAPHY_FLAG
+---| 9 # MEDICINE_FLAG
+---| 10 # MEDICINE_FLAG2
+---| 11 # MEDICINE_FLAG3
+---| 12 # ENGINEERING_FLAG
+---| 13 # ENGINEERING_FLAG2
+---| 14 # POETIC_FORM
+---| 15 # MUSICAL_FORM
+---| 16 # DANCE_FORM
+---| 17 # WRITTEN_CONTENT
 
----@class _view_sheet_unit_knowledge_type: integer, string, df.enum
+---@class _view_sheet_unit_knowledge_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field PHILOSOPHY_FLAG 1
----@field [1] "PHILOSOPHY_FLAG"
----@field PHILOSOPHY_FLAG2 2
----@field [2] "PHILOSOPHY_FLAG2"
----@field MATHEMATICS_FLAG 3
----@field [3] "MATHEMATICS_FLAG"
----@field MATHEMATICS_FLAG2 4
----@field [4] "MATHEMATICS_FLAG2"
----@field HISTORY_FLAG 5
----@field [5] "HISTORY_FLAG"
----@field ASTRONOMY_FLAG 6
----@field [6] "ASTRONOMY_FLAG"
----@field NATURALIST_FLAG 7
----@field [7] "NATURALIST_FLAG"
----@field CHEMISTRY_FLAG 8
----@field [8] "CHEMISTRY_FLAG"
----@field GEOGRAPHY_FLAG 9
----@field [9] "GEOGRAPHY_FLAG"
----@field MEDICINE_FLAG 10
----@field [10] "MEDICINE_FLAG"
----@field MEDICINE_FLAG2 11
----@field [11] "MEDICINE_FLAG2"
----@field MEDICINE_FLAG3 12
----@field [12] "MEDICINE_FLAG3"
----@field ENGINEERING_FLAG 13
----@field [13] "ENGINEERING_FLAG"
----@field ENGINEERING_FLAG2 14
----@field [14] "ENGINEERING_FLAG2"
----@field POETIC_FORM 15
----@field [15] "POETIC_FORM"
----@field MUSICAL_FORM 16
----@field [16] "MUSICAL_FORM"
----@field DANCE_FORM 17
----@field [17] "DANCE_FORM"
----@field WRITTEN_CONTENT 18
----@field [18] "WRITTEN_CONTENT"
+---@field [-1] "NONE"
+---@field PHILOSOPHY_FLAG 0
+---@field [0] "PHILOSOPHY_FLAG"
+---@field PHILOSOPHY_FLAG2 1
+---@field [1] "PHILOSOPHY_FLAG2"
+---@field MATHEMATICS_FLAG 2
+---@field [2] "MATHEMATICS_FLAG"
+---@field MATHEMATICS_FLAG2 3
+---@field [3] "MATHEMATICS_FLAG2"
+---@field HISTORY_FLAG 4
+---@field [4] "HISTORY_FLAG"
+---@field ASTRONOMY_FLAG 5
+---@field [5] "ASTRONOMY_FLAG"
+---@field NATURALIST_FLAG 6
+---@field [6] "NATURALIST_FLAG"
+---@field CHEMISTRY_FLAG 7
+---@field [7] "CHEMISTRY_FLAG"
+---@field GEOGRAPHY_FLAG 8
+---@field [8] "GEOGRAPHY_FLAG"
+---@field MEDICINE_FLAG 9
+---@field [9] "MEDICINE_FLAG"
+---@field MEDICINE_FLAG2 10
+---@field [10] "MEDICINE_FLAG2"
+---@field MEDICINE_FLAG3 11
+---@field [11] "MEDICINE_FLAG3"
+---@field ENGINEERING_FLAG 12
+---@field [12] "ENGINEERING_FLAG"
+---@field ENGINEERING_FLAG2 13
+---@field [13] "ENGINEERING_FLAG2"
+---@field POETIC_FORM 14
+---@field [14] "POETIC_FORM"
+---@field MUSICAL_FORM 15
+---@field [15] "MUSICAL_FORM"
+---@field DANCE_FORM 16
+---@field [16] "DANCE_FORM"
+---@field WRITTEN_CONTENT 17
+---@field [17] "WRITTEN_CONTENT"
 df.view_sheet_unit_knowledge_type = {}
 
----@class view_sheet_unit_knowledge_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field PHILOSOPHY_FLAG boolean
----@field [2] boolean
----@field PHILOSOPHY_FLAG2 boolean
----@field [3] boolean
----@field MATHEMATICS_FLAG boolean
----@field [4] boolean
----@field MATHEMATICS_FLAG2 boolean
----@field [5] boolean
----@field HISTORY_FLAG boolean
----@field [6] boolean
----@field ASTRONOMY_FLAG boolean
----@field [7] boolean
----@field NATURALIST_FLAG boolean
----@field [8] boolean
----@field CHEMISTRY_FLAG boolean
----@field [9] boolean
----@field GEOGRAPHY_FLAG boolean
----@field [10] boolean
----@field MEDICINE_FLAG boolean
----@field [11] boolean
----@field MEDICINE_FLAG2 boolean
----@field [12] boolean
----@field MEDICINE_FLAG3 boolean
----@field [13] boolean
----@field ENGINEERING_FLAG boolean
----@field [14] boolean
----@field ENGINEERING_FLAG2 boolean
----@field [15] boolean
----@field POETIC_FORM boolean
----@field [16] boolean
----@field MUSICAL_FORM boolean
----@field [17] boolean
----@field DANCE_FORM boolean
----@field [18] boolean
----@field WRITTEN_CONTENT boolean
+---@alias view_sheets_context_type
+---| -1 # NONE
+---| 0 # REGULAR_PLAY
+---| 1 # PREPARE_CAREFULLY
 
----@class _view_sheets_context_type: integer, string, df.enum
+---@class _view_sheets_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field REGULAR_PLAY 1
----@field [1] "REGULAR_PLAY"
----@field PREPARE_CAREFULLY 2
----@field [2] "PREPARE_CAREFULLY"
+---@field [-1] "NONE"
+---@field REGULAR_PLAY 0
+---@field [0] "REGULAR_PLAY"
+---@field PREPARE_CAREFULLY 1
+---@field [1] "PREPARE_CAREFULLY"
 df.view_sheets_context_type = {}
 
----@class view_sheets_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field REGULAR_PLAY boolean
----@field [2] boolean
----@field PREPARE_CAREFULLY boolean
+---@alias view_sheet_type
+---| -1 # NONE
+---| 0 # UNIT
+---| 1 # ITEM
+---| 2 # BUILDING
+---| 3 # ENGRAVING
+---| 4 # ENGRAVING_PLANNED
+---| 5 # UNIT_LIST
+---| 6 # ITEM_LIST
 
----@class _view_sheet_type: integer, string, df.enum
+---@class _view_sheet_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field UNIT 1
----@field [1] "UNIT"
----@field ITEM 2
----@field [2] "ITEM"
----@field BUILDING 3
----@field [3] "BUILDING"
----@field ENGRAVING 4
----@field [4] "ENGRAVING"
----@field ENGRAVING_PLANNED 5
----@field [5] "ENGRAVING_PLANNED"
----@field UNIT_LIST 6
----@field [6] "UNIT_LIST"
----@field ITEM_LIST 7
----@field [7] "ITEM_LIST"
+---@field [-1] "NONE"
+---@field UNIT 0
+---@field [0] "UNIT"
+---@field ITEM 1
+---@field [1] "ITEM"
+---@field BUILDING 2
+---@field [2] "BUILDING"
+---@field ENGRAVING 3
+---@field [3] "ENGRAVING"
+---@field ENGRAVING_PLANNED 4
+---@field [4] "ENGRAVING_PLANNED"
+---@field UNIT_LIST 5
+---@field [5] "UNIT_LIST"
+---@field ITEM_LIST 6
+---@field [6] "ITEM_LIST"
 df.view_sheet_type = {}
 
----@class view_sheet_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field UNIT boolean
----@field [2] boolean
----@field ITEM boolean
----@field [3] boolean
----@field BUILDING boolean
----@field [4] boolean
----@field ENGRAVING boolean
----@field [5] boolean
----@field ENGRAVING_PLANNED boolean
----@field [6] boolean
----@field UNIT_LIST boolean
----@field [7] boolean
----@field ITEM_LIST boolean
+---@alias unit_list_mode_type
+---| -1 # NONE
+---| 0 # CITIZEN
+---| 1 # PET
+---| 2 # OTHER
+---| 3 # DECEASED
 
----@class _unit_list_mode_type: integer, string, df.enum
+---@class _unit_list_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field CITIZEN 1
----@field [1] "CITIZEN"
----@field PET 2
----@field [2] "PET"
----@field OTHER 3
----@field [3] "OTHER"
----@field DECEASED 4
----@field [4] "DECEASED"
-df.unit_list_mode_type = {}
-
----@class unit_list_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field CITIZEN boolean
----@field [2] boolean
----@field PET boolean
----@field [3] boolean
----@field OTHER boolean
----@field [4] boolean
----@field DECEASED boolean
-
----@class _buildings_mode_type: integer, string, df.enum
----@field NONE -1
----@field [0] "NONE"
----@field ZONES 1
----@field [1] "ZONES"
----@field LOCATIONS 2
----@field [2] "LOCATIONS"
----@field STOCKPILES 3
----@field [3] "STOCKPILES"
----@field WORKSHOPS 4
----@field [4] "WORKSHOPS"
----@field FARMPLOTS 5
----@field [5] "FARMPLOTS"
-df.buildings_mode_type = {}
-
----@class buildings_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ZONES boolean
----@field [2] boolean
----@field LOCATIONS boolean
----@field [3] boolean
----@field STOCKPILES boolean
----@field [4] boolean
----@field WORKSHOPS boolean
----@field [5] boolean
----@field FARMPLOTS boolean
-
----@class _kitchen_pref_category_type: integer, string, df.enum
----@field NONE -1
----@field [0] "NONE"
----@field PLANTS 1
----@field [1] "PLANTS"
----@field SEEDS 2
----@field [2] "SEEDS"
----@field DRINK 3
----@field [3] "DRINK"
----@field OTHER 4
----@field [4] "OTHER"
-df.kitchen_pref_category_type = {}
-
----@class kitchen_pref_category_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field PLANTS boolean
----@field [2] boolean
----@field SEEDS boolean
----@field [3] boolean
----@field DRINK boolean
----@field [4] boolean
----@field OTHER boolean
-
----@class _standing_orders_category_type: integer, string, df.enum
----@field NONE -1
----@field [0] "NONE"
----@field AUTOMATED_WORKSHOPS 1
----@field [1] "AUTOMATED_WORKSHOPS"
----@field HAULING 2
----@field [2] "HAULING"
----@field REFUSE_AND_DUMPING 3
----@field [3] "REFUSE_AND_DUMPING"
----@field AUTOMATIC_FORBIDDING 4
----@field [4] "AUTOMATIC_FORBIDDING"
----@field CHORES 5
----@field [5] "CHORES"
----@field OTHER 6
----@field [6] "OTHER"
-df.standing_orders_category_type = {}
-
----@class standing_orders_category_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field AUTOMATED_WORKSHOPS boolean
----@field [2] boolean
----@field HAULING boolean
----@field [3] boolean
----@field REFUSE_AND_DUMPING boolean
----@field [4] boolean
----@field AUTOMATIC_FORBIDDING boolean
----@field [5] boolean
----@field CHORES boolean
----@field [6] boolean
----@field OTHER boolean
-
----@class _stone_use_category_type: integer, string, df.enum
----@field NONE -1
----@field [0] "NONE"
----@field ECONOMIC 1
----@field [1] "ECONOMIC"
+---@field [-1] "NONE"
+---@field CITIZEN 0
+---@field [0] "CITIZEN"
+---@field PET 1
+---@field [1] "PET"
 ---@field OTHER 2
 ---@field [2] "OTHER"
+---@field DECEASED 3
+---@field [3] "DECEASED"
+df.unit_list_mode_type = {}
+
+---@alias buildings_mode_type
+---| -1 # NONE
+---| 0 # ZONES
+---| 1 # LOCATIONS
+---| 2 # STOCKPILES
+---| 3 # WORKSHOPS
+---| 4 # FARMPLOTS
+
+---@class _buildings_mode_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field ZONES 0
+---@field [0] "ZONES"
+---@field LOCATIONS 1
+---@field [1] "LOCATIONS"
+---@field STOCKPILES 2
+---@field [2] "STOCKPILES"
+---@field WORKSHOPS 3
+---@field [3] "WORKSHOPS"
+---@field FARMPLOTS 4
+---@field [4] "FARMPLOTS"
+df.buildings_mode_type = {}
+
+---@alias kitchen_pref_category_type
+---| -1 # NONE
+---| 0 # PLANTS
+---| 1 # SEEDS
+---| 2 # DRINK
+---| 3 # OTHER
+
+-- bay12: KitchenPrefCategory
+---@class _kitchen_pref_category_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field PLANTS 0
+---@field [0] "PLANTS"
+---@field SEEDS 1
+---@field [1] "SEEDS"
+---@field DRINK 2
+---@field [2] "DRINK"
+---@field OTHER 3
+---@field [3] "OTHER"
+df.kitchen_pref_category_type = {}
+
+---@alias standing_orders_category_type
+---| -1 # NONE
+---| 0 # AUTOMATED_WORKSHOPS
+---| 1 # HAULING
+---| 2 # REFUSE_AND_DUMPING
+---| 3 # AUTOMATIC_FORBIDDING
+---| 4 # CHORES
+---| 5 # OTHER
+
+-- bay12: StandingOrdersCategory
+---@class _standing_orders_category_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field AUTOMATED_WORKSHOPS 0
+---@field [0] "AUTOMATED_WORKSHOPS"
+---@field HAULING 1
+---@field [1] "HAULING"
+---@field REFUSE_AND_DUMPING 2
+---@field [2] "REFUSE_AND_DUMPING"
+---@field AUTOMATIC_FORBIDDING 3
+---@field [3] "AUTOMATIC_FORBIDDING"
+---@field CHORES 4
+---@field [4] "CHORES"
+---@field OTHER 5
+---@field [5] "OTHER"
+df.standing_orders_category_type = {}
+
+---@alias stone_use_category_type
+---| -1 # NONE
+---| 0 # ECONOMIC
+---| 1 # OTHER
+
+---@class _stone_use_category_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field ECONOMIC 0
+---@field [0] "ECONOMIC"
+---@field OTHER 1
+---@field [1] "OTHER"
 df.stone_use_category_type = {}
 
----@class stone_use_category_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ECONOMIC boolean
----@field [2] boolean
----@field OTHER boolean
+---@alias labor_mode_type
+---| -1 # NONE
+---| 0 # WORK_DETAILS
+---| 1 # STANDING_ORDERS
+---| 2 # KITCHEN
+---| 3 # STONE_USE
 
----@class _labor_mode_type: integer, string, df.enum
+---@class _labor_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field WORK_DETAILS 1
----@field [1] "WORK_DETAILS"
----@field STANDING_ORDERS 2
----@field [2] "STANDING_ORDERS"
----@field KITCHEN 3
----@field [3] "KITCHEN"
----@field STONE_USE 4
----@field [4] "STONE_USE"
+---@field [-1] "NONE"
+---@field WORK_DETAILS 0
+---@field [0] "WORK_DETAILS"
+---@field STANDING_ORDERS 1
+---@field [1] "STANDING_ORDERS"
+---@field KITCHEN 2
+---@field [2] "KITCHEN"
+---@field STONE_USE 3
+---@field [3] "STONE_USE"
 df.labor_mode_type = {}
 
----@class labor_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field WORK_DETAILS boolean
----@field [2] boolean
----@field STANDING_ORDERS boolean
----@field [3] boolean
----@field KITCHEN boolean
----@field [4] boolean
----@field STONE_USE boolean
+---@alias artifacts_mode_type
+---| -1 # NONE
+---| 0 # ARTIFACTS
+---| 1 # SYMBOLS
+---| 2 # NAMED_OBJECTS
+---| 3 # WRITTEN_CONTENT
 
----@class _artifacts_mode_type: integer, string, df.enum
+---@class _artifacts_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field ARTIFACTS 1
----@field [1] "ARTIFACTS"
----@field SYMBOLS 2
----@field [2] "SYMBOLS"
----@field NAMED_OBJECTS 3
----@field [3] "NAMED_OBJECTS"
----@field WRITTEN_CONTENT 4
----@field [4] "WRITTEN_CONTENT"
+---@field [-1] "NONE"
+---@field ARTIFACTS 0
+---@field [0] "ARTIFACTS"
+---@field SYMBOLS 1
+---@field [1] "SYMBOLS"
+---@field NAMED_OBJECTS 2
+---@field [2] "NAMED_OBJECTS"
+---@field WRITTEN_CONTENT 3
+---@field [3] "WRITTEN_CONTENT"
 df.artifacts_mode_type = {}
 
----@class artifacts_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field ARTIFACTS boolean
----@field [2] boolean
----@field SYMBOLS boolean
----@field [3] boolean
----@field NAMED_OBJECTS boolean
----@field [4] boolean
----@field WRITTEN_CONTENT boolean
+---@alias counterintelligence_mode_type
+---| -1 # NONE
+---| 0 # INTERROGATIONS
+---| 1 # ACTORS
+---| 2 # ORGANIZATIONS
+---| 3 # PLOTS
 
----@class _counterintelligence_mode_type: integer, string, df.enum
+---@class _counterintelligence_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field INTERROGATIONS 1
----@field [1] "INTERROGATIONS"
----@field ACTORS 2
----@field [2] "ACTORS"
----@field ORGANIZATIONS 3
----@field [3] "ORGANIZATIONS"
----@field PLOTS 4
----@field [4] "PLOTS"
+---@field [-1] "NONE"
+---@field INTERROGATIONS 0
+---@field [0] "INTERROGATIONS"
+---@field ACTORS 1
+---@field [1] "ACTORS"
+---@field ORGANIZATIONS 2
+---@field [2] "ORGANIZATIONS"
+---@field PLOTS 3
+---@field [3] "PLOTS"
 df.counterintelligence_mode_type = {}
 
----@class counterintelligence_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field INTERROGATIONS boolean
----@field [2] boolean
----@field ACTORS boolean
----@field [3] boolean
----@field ORGANIZATIONS boolean
----@field [4] boolean
----@field PLOTS boolean
+---@alias justice_interface_mode_type
+---| -1 # NONE
+---| 0 # OPEN_CASES
+---| 1 # CLOSED_CASES
+---| 2 # COLD_CASES
+---| 3 # FORTRESS_GUARD
+---| 4 # CONVICTS
+---| 5 # COUNTERINTELLIGENCE
 
----@class _justice_interface_mode_type: integer, string, df.enum
+-- bay12: JusticeInterfaceMode
+---@class _justice_interface_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field OPEN_CASES 1
----@field [1] "OPEN_CASES"
----@field CLOSED_CASES 2
----@field [2] "CLOSED_CASES"
----@field COLD_CASES 3
----@field [3] "COLD_CASES"
----@field FORTRESS_GUARD 4
----@field [4] "FORTRESS_GUARD"
----@field CONVICTS 5
----@field [5] "CONVICTS"
----@field COUNTERINTELLIGENCE 6
----@field [6] "COUNTERINTELLIGENCE"
+---@field [-1] "NONE"
+---@field OPEN_CASES 0
+---@field [0] "OPEN_CASES"
+---@field CLOSED_CASES 1
+---@field [1] "CLOSED_CASES"
+---@field COLD_CASES 2
+---@field [2] "COLD_CASES"
+---@field FORTRESS_GUARD 3
+---@field [3] "FORTRESS_GUARD"
+---@field CONVICTS 4
+---@field [4] "CONVICTS"
+---@field COUNTERINTELLIGENCE 5
+---@field [5] "COUNTERINTELLIGENCE"
 df.justice_interface_mode_type = {}
 
----@class justice_interface_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field OPEN_CASES boolean
----@field [2] boolean
----@field CLOSED_CASES boolean
----@field [3] boolean
----@field COLD_CASES boolean
----@field [4] boolean
----@field FORTRESS_GUARD boolean
----@field [5] boolean
----@field CONVICTS boolean
----@field [6] boolean
----@field COUNTERINTELLIGENCE boolean
+---@alias info_interface_mode_type
+---| -1 # NONE
+---| 0 # CREATURES
+---| 1 # JOBS
+---| 2 # BUILDINGS
+---| 3 # LABOR
+---| 4 # WORK_ORDERS
+---| 5 # ADMINISTRATORS
+---| 6 # ARTIFACTS
+---| 7 # JUSTICE
 
----@class _info_interface_mode_type: integer, string, df.enum
+---@class _info_interface_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field CREATURES 1
----@field [1] "CREATURES"
----@field JOBS 2
----@field [2] "JOBS"
----@field BUILDINGS 3
----@field [3] "BUILDINGS"
----@field LABOR 4
----@field [4] "LABOR"
----@field WORK_ORDERS 5
----@field [5] "WORK_ORDERS"
----@field ADMINISTRATORS 6
----@field [6] "ADMINISTRATORS"
----@field ARTIFACTS 7
----@field [7] "ARTIFACTS"
----@field JUSTICE 8
----@field [8] "JUSTICE"
+---@field [-1] "NONE"
+---@field CREATURES 0
+---@field [0] "CREATURES"
+---@field JOBS 1
+---@field [1] "JOBS"
+---@field BUILDINGS 2
+---@field [2] "BUILDINGS"
+---@field LABOR 3
+---@field [3] "LABOR"
+---@field WORK_ORDERS 4
+---@field [4] "WORK_ORDERS"
+---@field ADMINISTRATORS 5
+---@field [5] "ADMINISTRATORS"
+---@field ARTIFACTS 6
+---@field [6] "ARTIFACTS"
+---@field JUSTICE 7
+---@field [7] "JUSTICE"
 df.info_interface_mode_type = {}
 
----@class info_interface_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field CREATURES boolean
----@field [2] boolean
----@field JOBS boolean
----@field [3] boolean
----@field BUILDINGS boolean
----@field [4] boolean
----@field LABOR boolean
----@field [5] boolean
----@field WORK_ORDERS boolean
----@field [6] boolean
----@field ADMINISTRATORS boolean
----@field [7] boolean
----@field ARTIFACTS boolean
----@field [8] boolean
----@field JUSTICE boolean
+---@alias main_menu_option_type
+---| -1 # NONE
+---| 0 # RETURN
+---| 1 # SAVE_AND_QUIT
+---| 2 # SAVE_AND_CONTINUE
+---| 3 # SETTINGS
+---| 4 # SUCCUMB_TO_INVASION
+---| 5 # ABANDON_FORTRESS
+---| 6 # RETIRE_FORTRESS
+---| 7 # QUIT_WITHOUT_SAVING
+---| 8 # END_GAME
+---| 9 # SAVE_TO_EXISTING_FOLDER
+---| 10 # SAVE_TO_NEW_FOLDER_NEW_TIMELINE
+---| 11 # SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE
+---| 12 # RETURN_TO_TITLE
+---| 13 # CONTINUE
 
----@class _main_menu_option_type: integer, string, df.enum
+---@class _main_menu_option_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field RETURN 1
----@field [1] "RETURN"
----@field SAVE_AND_QUIT 2
----@field [2] "SAVE_AND_QUIT"
----@field SAVE_AND_CONTINUE 3
----@field [3] "SAVE_AND_CONTINUE"
----@field SETTINGS 4
----@field [4] "SETTINGS"
----@field SUCCUMB_TO_INVASION 5
----@field [5] "SUCCUMB_TO_INVASION"
----@field ABANDON_FORTRESS 6
----@field [6] "ABANDON_FORTRESS"
----@field RETIRE_FORTRESS 7
----@field [7] "RETIRE_FORTRESS"
----@field QUIT_WITHOUT_SAVING 8
----@field [8] "QUIT_WITHOUT_SAVING"
----@field END_GAME 9
----@field [9] "END_GAME"
----@field SAVE_TO_EXISTING_FOLDER 10
----@field [10] "SAVE_TO_EXISTING_FOLDER"
----@field SAVE_TO_NEW_FOLDER_NEW_TIMELINE 11
----@field [11] "SAVE_TO_NEW_FOLDER_NEW_TIMELINE"
----@field SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE 12
----@field [12] "SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE"
----@field RETURN_TO_TITLE 13
----@field [13] "RETURN_TO_TITLE"
----@field CONTINUE 14
----@field [14] "CONTINUE"
+---@field [-1] "NONE"
+---@field RETURN 0
+---@field [0] "RETURN"
+---@field SAVE_AND_QUIT 1
+---@field [1] "SAVE_AND_QUIT"
+---@field SAVE_AND_CONTINUE 2
+---@field [2] "SAVE_AND_CONTINUE"
+---@field SETTINGS 3
+---@field [3] "SETTINGS"
+---@field SUCCUMB_TO_INVASION 4
+---@field [4] "SUCCUMB_TO_INVASION"
+---@field ABANDON_FORTRESS 5
+---@field [5] "ABANDON_FORTRESS"
+---@field RETIRE_FORTRESS 6
+---@field [6] "RETIRE_FORTRESS"
+---@field QUIT_WITHOUT_SAVING 7
+---@field [7] "QUIT_WITHOUT_SAVING"
+---@field END_GAME 8
+---@field [8] "END_GAME"
+---@field SAVE_TO_EXISTING_FOLDER 9
+---@field [9] "SAVE_TO_EXISTING_FOLDER"
+---@field SAVE_TO_NEW_FOLDER_NEW_TIMELINE 10
+---@field [10] "SAVE_TO_NEW_FOLDER_NEW_TIMELINE"
+---@field SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE 11
+---@field [11] "SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE"
+---@field RETURN_TO_TITLE 12
+---@field [12] "RETURN_TO_TITLE"
+---@field CONTINUE 13
+---@field [13] "CONTINUE"
 df.main_menu_option_type = {}
 
----@class main_menu_option_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field RETURN boolean
----@field [2] boolean
----@field SAVE_AND_QUIT boolean
----@field [3] boolean
----@field SAVE_AND_CONTINUE boolean
----@field [4] boolean
----@field SETTINGS boolean
----@field [5] boolean
----@field SUCCUMB_TO_INVASION boolean
----@field [6] boolean
----@field ABANDON_FORTRESS boolean
----@field [7] boolean
----@field RETIRE_FORTRESS boolean
----@field [8] boolean
----@field QUIT_WITHOUT_SAVING boolean
----@field [9] boolean
----@field END_GAME boolean
----@field [10] boolean
----@field SAVE_TO_EXISTING_FOLDER boolean
----@field [11] boolean
----@field SAVE_TO_NEW_FOLDER_NEW_TIMELINE boolean
----@field [12] boolean
----@field SAVE_TO_NEW_FOLDER_EXISTING_TIMELINE boolean
----@field [13] boolean
----@field RETURN_TO_TITLE boolean
----@field [14] boolean
----@field CONTINUE boolean
+---@alias options_context_type
+---| -1 # NONE
+---| 0 # MAIN_DWARF
+---| 1 # MAIN_DWARF_GAME_OVER
+---| 2 # MAIN_DWARF_HELP
+---| 3 # MAIN_DWARF_SAVE_AND_EXIT_CHOICES
+---| 4 # MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED
+---| 5 # ABORT_FROM_STARTING_GAME
 
----@class _options_context_type: integer, string, df.enum
+---@class _options_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field MAIN_DWARF 1
----@field [1] "MAIN_DWARF"
----@field MAIN_DWARF_GAME_OVER 2
----@field [2] "MAIN_DWARF_GAME_OVER"
----@field MAIN_DWARF_HELP 3
----@field [3] "MAIN_DWARF_HELP"
----@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES 4
----@field [4] "MAIN_DWARF_SAVE_AND_EXIT_CHOICES"
----@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED 5
----@field [5] "MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED"
----@field ABORT_FROM_STARTING_GAME 6
----@field [6] "ABORT_FROM_STARTING_GAME"
+---@field [-1] "NONE"
+---@field MAIN_DWARF 0
+---@field [0] "MAIN_DWARF"
+---@field MAIN_DWARF_GAME_OVER 1
+---@field [1] "MAIN_DWARF_GAME_OVER"
+---@field MAIN_DWARF_HELP 2
+---@field [2] "MAIN_DWARF_HELP"
+---@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES 3
+---@field [3] "MAIN_DWARF_SAVE_AND_EXIT_CHOICES"
+---@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED 4
+---@field [4] "MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED"
+---@field ABORT_FROM_STARTING_GAME 5
+---@field [5] "ABORT_FROM_STARTING_GAME"
 df.options_context_type = {}
 
----@class options_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field MAIN_DWARF boolean
----@field [2] boolean
----@field MAIN_DWARF_GAME_OVER boolean
----@field [3] boolean
----@field MAIN_DWARF_HELP boolean
----@field [4] boolean
----@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES boolean
----@field [5] boolean
----@field MAIN_DWARF_SAVE_AND_EXIT_CHOICES_ENDED boolean
----@field [6] boolean
----@field ABORT_FROM_STARTING_GAME boolean
+---@alias help_context_type
+---| -1 # NONE
+---| 0 # WORLD_GEN_MESSAGE
+---| 1 # EMBARK_TUTORIAL_CHOICE
+---| 2 # EMBARK_MESSAGE
+---| 3 # START_TUTORIAL_CAMERA_CONTROLS
+---| 4 # START_TUTORIAL_MINING
+---| 5 # START_TUTORIAL_STOCKPILES
+---| 6 # START_TUTORIAL_CHOPPING
+---| 7 # START_TUTORIAL_WORKSHOPS_AND_TASKS
+---| 8 # START_TUTORIAL_SHEETS
+---| 9 # START_TUTORIAL_ALERTS
+---| 10 # START_TUTORIAL_PREPARING_FOR_CARAVAN
+---| 11 # DONE_WITH_FIRST_STEPS_MESSAGE
+---| 12 # POPUP_ZONES
+---| 13 # POPUP_BURROWS
+---| 14 # POPUP_HAULING
+---| 15 # POPUP_STOCKS
+---| 16 # POPUP_WORK_DETAILS
+---| 17 # POPUP_NOBLES
+---| 18 # POPUP_JUSTICE
+---| 19 # POPUP_SQUADS
+---| 20 # POPUP_WORLD
+---| 21 # POPUP_WORK_ORDERS
+---| 22 # REVISIT_CAMERA_CONTROLS
+---| 23 # REVISIT_MINING
+---| 24 # REVISIT_STOCKPILES
+---| 25 # REVISIT_CHOPPING
+---| 26 # REVISIT_WORKSHOPS_AND_TASKS
+---| 27 # REVISIT_SHEETS
+---| 28 # REVISIT_ALERTS
+---| 29 # REVISIT_PREPARING_FOR_CARAVAN
+---| 30 # GUIDE_SURVIVAL
+---| 31 # GUIDE_PLANTING
+---| 32 # GUIDE_OTHER_FOOD_SOURCES
+---| 33 # GUIDE_BINS_BAGS_AND_BARRELS
+---| 34 # GUIDE_TRADE
+---| 35 # GUIDE_OFFICES
+---| 36 # GUIDE_ORE_AND_SMELTING
+---| 37 # GUIDE_TRAPS_AND_LEVERS
+---| 38 # GUIDE_WELLS
+---| 39 # GUIDE_HANDLING_LIGHT_AQUIFERS
+---| 40 # GUIDE_CLOTHING
+---| 41 # GUIDE_MEETING_AREAS_AND_LOCATIONS
+---| 42 # GUIDE_MILITARY
+---| 43 # GUIDE_CHANNELS_AND_RAMPS
+---| 44 # GUIDE_REFUSE
+---| 45 # GUIDE_DEEPER
+---| 46 # GUIDE_HAPPINESS
+---| 47 # GUIDE_GOALS
 
----@class _help_context_type: integer, string, df.enum
+---@class _help_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field WORLD_GEN_MESSAGE 1
----@field [1] "WORLD_GEN_MESSAGE"
----@field EMBARK_TUTORIAL_CHOICE 2
----@field [2] "EMBARK_TUTORIAL_CHOICE"
----@field EMBARK_MESSAGE 3
----@field [3] "EMBARK_MESSAGE"
----@field START_TUTORIAL_CAMERA_CONTROLS 4
----@field [4] "START_TUTORIAL_CAMERA_CONTROLS"
----@field START_TUTORIAL_MINING 5
----@field [5] "START_TUTORIAL_MINING"
----@field START_TUTORIAL_STOCKPILES 6
----@field [6] "START_TUTORIAL_STOCKPILES"
----@field START_TUTORIAL_CHOPPING 7
----@field [7] "START_TUTORIAL_CHOPPING"
----@field START_TUTORIAL_WORKSHOPS_AND_TASKS 8
----@field [8] "START_TUTORIAL_WORKSHOPS_AND_TASKS"
----@field START_TUTORIAL_SHEETS 9
----@field [9] "START_TUTORIAL_SHEETS"
----@field START_TUTORIAL_ALERTS 10
----@field [10] "START_TUTORIAL_ALERTS"
----@field START_TUTORIAL_PREPARING_FOR_CARAVAN 11
----@field [11] "START_TUTORIAL_PREPARING_FOR_CARAVAN"
----@field DONE_WITH_FIRST_STEPS_MESSAGE 12
----@field [12] "DONE_WITH_FIRST_STEPS_MESSAGE"
----@field POPUP_ZONES 13
----@field [13] "POPUP_ZONES"
----@field POPUP_BURROWS 14
----@field [14] "POPUP_BURROWS"
----@field POPUP_HAULING 15
----@field [15] "POPUP_HAULING"
----@field POPUP_STOCKS 16
----@field [16] "POPUP_STOCKS"
----@field POPUP_WORK_DETAILS 17
----@field [17] "POPUP_WORK_DETAILS"
----@field POPUP_NOBLES 18
----@field [18] "POPUP_NOBLES"
----@field POPUP_JUSTICE 19
----@field [19] "POPUP_JUSTICE"
----@field POPUP_SQUADS 20
----@field [20] "POPUP_SQUADS"
----@field POPUP_WORLD 21
----@field [21] "POPUP_WORLD"
----@field POPUP_WORK_ORDERS 22
----@field [22] "POPUP_WORK_ORDERS"
----@field REVISIT_CAMERA_CONTROLS 23
----@field [23] "REVISIT_CAMERA_CONTROLS"
----@field REVISIT_MINING 24
----@field [24] "REVISIT_MINING"
----@field REVISIT_STOCKPILES 25
----@field [25] "REVISIT_STOCKPILES"
----@field REVISIT_CHOPPING 26
----@field [26] "REVISIT_CHOPPING"
----@field REVISIT_WORKSHOPS_AND_TASKS 27
----@field [27] "REVISIT_WORKSHOPS_AND_TASKS"
----@field REVISIT_SHEETS 28
----@field [28] "REVISIT_SHEETS"
----@field REVISIT_ALERTS 29
----@field [29] "REVISIT_ALERTS"
----@field REVISIT_PREPARING_FOR_CARAVAN 30
----@field [30] "REVISIT_PREPARING_FOR_CARAVAN"
----@field GUIDE_SURVIVAL 31
----@field [31] "GUIDE_SURVIVAL"
----@field GUIDE_PLANTING 32
----@field [32] "GUIDE_PLANTING"
----@field GUIDE_OTHER_FOOD_SOURCES 33
----@field [33] "GUIDE_OTHER_FOOD_SOURCES"
----@field GUIDE_BINS_BAGS_AND_BARRELS 34
----@field [34] "GUIDE_BINS_BAGS_AND_BARRELS"
----@field GUIDE_TRADE 35
----@field [35] "GUIDE_TRADE"
----@field GUIDE_OFFICES 36
----@field [36] "GUIDE_OFFICES"
----@field GUIDE_ORE_AND_SMELTING 37
----@field [37] "GUIDE_ORE_AND_SMELTING"
----@field GUIDE_TRAPS_AND_LEVERS 38
----@field [38] "GUIDE_TRAPS_AND_LEVERS"
----@field GUIDE_WELLS 39
----@field [39] "GUIDE_WELLS"
----@field GUIDE_HANDLING_LIGHT_AQUIFERS 40
----@field [40] "GUIDE_HANDLING_LIGHT_AQUIFERS"
----@field GUIDE_CLOTHING 41
----@field [41] "GUIDE_CLOTHING"
----@field GUIDE_MEETING_AREAS_AND_LOCATIONS 42
----@field [42] "GUIDE_MEETING_AREAS_AND_LOCATIONS"
----@field GUIDE_MILITARY 43
----@field [43] "GUIDE_MILITARY"
----@field GUIDE_CHANNELS_AND_RAMPS 44
----@field [44] "GUIDE_CHANNELS_AND_RAMPS"
----@field GUIDE_REFUSE 45
----@field [45] "GUIDE_REFUSE"
----@field GUIDE_DEEPER 46
----@field [46] "GUIDE_DEEPER"
----@field GUIDE_HAPPINESS 47
----@field [47] "GUIDE_HAPPINESS"
----@field GUIDE_GOALS 48
----@field [48] "GUIDE_GOALS"
+---@field [-1] "NONE"
+---@field WORLD_GEN_MESSAGE 0
+---@field [0] "WORLD_GEN_MESSAGE"
+---@field EMBARK_TUTORIAL_CHOICE 1
+---@field [1] "EMBARK_TUTORIAL_CHOICE"
+---@field EMBARK_MESSAGE 2
+---@field [2] "EMBARK_MESSAGE"
+---@field START_TUTORIAL_CAMERA_CONTROLS 3
+---@field [3] "START_TUTORIAL_CAMERA_CONTROLS"
+---@field START_TUTORIAL_MINING 4
+---@field [4] "START_TUTORIAL_MINING"
+---@field START_TUTORIAL_STOCKPILES 5
+---@field [5] "START_TUTORIAL_STOCKPILES"
+---@field START_TUTORIAL_CHOPPING 6
+---@field [6] "START_TUTORIAL_CHOPPING"
+---@field START_TUTORIAL_WORKSHOPS_AND_TASKS 7
+---@field [7] "START_TUTORIAL_WORKSHOPS_AND_TASKS"
+---@field START_TUTORIAL_SHEETS 8
+---@field [8] "START_TUTORIAL_SHEETS"
+---@field START_TUTORIAL_ALERTS 9
+---@field [9] "START_TUTORIAL_ALERTS"
+---@field START_TUTORIAL_PREPARING_FOR_CARAVAN 10
+---@field [10] "START_TUTORIAL_PREPARING_FOR_CARAVAN"
+---@field DONE_WITH_FIRST_STEPS_MESSAGE 11
+---@field [11] "DONE_WITH_FIRST_STEPS_MESSAGE"
+---@field POPUP_ZONES 12
+---@field [12] "POPUP_ZONES"
+---@field POPUP_BURROWS 13
+---@field [13] "POPUP_BURROWS"
+---@field POPUP_HAULING 14
+---@field [14] "POPUP_HAULING"
+---@field POPUP_STOCKS 15
+---@field [15] "POPUP_STOCKS"
+---@field POPUP_WORK_DETAILS 16
+---@field [16] "POPUP_WORK_DETAILS"
+---@field POPUP_NOBLES 17
+---@field [17] "POPUP_NOBLES"
+---@field POPUP_JUSTICE 18
+---@field [18] "POPUP_JUSTICE"
+---@field POPUP_SQUADS 19
+---@field [19] "POPUP_SQUADS"
+---@field POPUP_WORLD 20
+---@field [20] "POPUP_WORLD"
+---@field POPUP_WORK_ORDERS 21
+---@field [21] "POPUP_WORK_ORDERS"
+---@field REVISIT_CAMERA_CONTROLS 22
+---@field [22] "REVISIT_CAMERA_CONTROLS"
+---@field REVISIT_MINING 23
+---@field [23] "REVISIT_MINING"
+---@field REVISIT_STOCKPILES 24
+---@field [24] "REVISIT_STOCKPILES"
+---@field REVISIT_CHOPPING 25
+---@field [25] "REVISIT_CHOPPING"
+---@field REVISIT_WORKSHOPS_AND_TASKS 26
+---@field [26] "REVISIT_WORKSHOPS_AND_TASKS"
+---@field REVISIT_SHEETS 27
+---@field [27] "REVISIT_SHEETS"
+---@field REVISIT_ALERTS 28
+---@field [28] "REVISIT_ALERTS"
+---@field REVISIT_PREPARING_FOR_CARAVAN 29
+---@field [29] "REVISIT_PREPARING_FOR_CARAVAN"
+---@field GUIDE_SURVIVAL 30
+---@field [30] "GUIDE_SURVIVAL"
+---@field GUIDE_PLANTING 31
+---@field [31] "GUIDE_PLANTING"
+---@field GUIDE_OTHER_FOOD_SOURCES 32
+---@field [32] "GUIDE_OTHER_FOOD_SOURCES"
+---@field GUIDE_BINS_BAGS_AND_BARRELS 33
+---@field [33] "GUIDE_BINS_BAGS_AND_BARRELS"
+---@field GUIDE_TRADE 34
+---@field [34] "GUIDE_TRADE"
+---@field GUIDE_OFFICES 35
+---@field [35] "GUIDE_OFFICES"
+---@field GUIDE_ORE_AND_SMELTING 36
+---@field [36] "GUIDE_ORE_AND_SMELTING"
+---@field GUIDE_TRAPS_AND_LEVERS 37
+---@field [37] "GUIDE_TRAPS_AND_LEVERS"
+---@field GUIDE_WELLS 38
+---@field [38] "GUIDE_WELLS"
+---@field GUIDE_HANDLING_LIGHT_AQUIFERS 39
+---@field [39] "GUIDE_HANDLING_LIGHT_AQUIFERS"
+---@field GUIDE_CLOTHING 40
+---@field [40] "GUIDE_CLOTHING"
+---@field GUIDE_MEETING_AREAS_AND_LOCATIONS 41
+---@field [41] "GUIDE_MEETING_AREAS_AND_LOCATIONS"
+---@field GUIDE_MILITARY 42
+---@field [42] "GUIDE_MILITARY"
+---@field GUIDE_CHANNELS_AND_RAMPS 43
+---@field [43] "GUIDE_CHANNELS_AND_RAMPS"
+---@field GUIDE_REFUSE 44
+---@field [44] "GUIDE_REFUSE"
+---@field GUIDE_DEEPER 45
+---@field [45] "GUIDE_DEEPER"
+---@field GUIDE_HAPPINESS 46
+---@field [46] "GUIDE_HAPPINESS"
+---@field GUIDE_GOALS 47
+---@field [47] "GUIDE_GOALS"
 df.help_context_type = {}
 
----@class help_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field WORLD_GEN_MESSAGE boolean
----@field [2] boolean
----@field EMBARK_TUTORIAL_CHOICE boolean
----@field [3] boolean
----@field EMBARK_MESSAGE boolean
----@field [4] boolean
----@field START_TUTORIAL_CAMERA_CONTROLS boolean
----@field [5] boolean
----@field START_TUTORIAL_MINING boolean
----@field [6] boolean
----@field START_TUTORIAL_STOCKPILES boolean
----@field [7] boolean
----@field START_TUTORIAL_CHOPPING boolean
----@field [8] boolean
----@field START_TUTORIAL_WORKSHOPS_AND_TASKS boolean
----@field [9] boolean
----@field START_TUTORIAL_SHEETS boolean
----@field [10] boolean
----@field START_TUTORIAL_ALERTS boolean
----@field [11] boolean
----@field START_TUTORIAL_PREPARING_FOR_CARAVAN boolean
----@field [12] boolean
----@field DONE_WITH_FIRST_STEPS_MESSAGE boolean
----@field [13] boolean
----@field POPUP_ZONES boolean
----@field [14] boolean
----@field POPUP_BURROWS boolean
----@field [15] boolean
----@field POPUP_HAULING boolean
----@field [16] boolean
----@field POPUP_STOCKS boolean
----@field [17] boolean
----@field POPUP_WORK_DETAILS boolean
----@field [18] boolean
----@field POPUP_NOBLES boolean
----@field [19] boolean
----@field POPUP_JUSTICE boolean
----@field [20] boolean
----@field POPUP_SQUADS boolean
----@field [21] boolean
----@field POPUP_WORLD boolean
----@field [22] boolean
----@field POPUP_WORK_ORDERS boolean
----@field [23] boolean
----@field REVISIT_CAMERA_CONTROLS boolean
----@field [24] boolean
----@field REVISIT_MINING boolean
----@field [25] boolean
----@field REVISIT_STOCKPILES boolean
----@field [26] boolean
----@field REVISIT_CHOPPING boolean
----@field [27] boolean
----@field REVISIT_WORKSHOPS_AND_TASKS boolean
----@field [28] boolean
----@field REVISIT_SHEETS boolean
----@field [29] boolean
----@field REVISIT_ALERTS boolean
----@field [30] boolean
----@field REVISIT_PREPARING_FOR_CARAVAN boolean
----@field [31] boolean
----@field GUIDE_SURVIVAL boolean
----@field [32] boolean
----@field GUIDE_PLANTING boolean
----@field [33] boolean
----@field GUIDE_OTHER_FOOD_SOURCES boolean
----@field [34] boolean
----@field GUIDE_BINS_BAGS_AND_BARRELS boolean
----@field [35] boolean
----@field GUIDE_TRADE boolean
----@field [36] boolean
----@field GUIDE_OFFICES boolean
----@field [37] boolean
----@field GUIDE_ORE_AND_SMELTING boolean
----@field [38] boolean
----@field GUIDE_TRAPS_AND_LEVERS boolean
----@field [39] boolean
----@field GUIDE_WELLS boolean
----@field [40] boolean
----@field GUIDE_HANDLING_LIGHT_AQUIFERS boolean
----@field [41] boolean
----@field GUIDE_CLOTHING boolean
----@field [42] boolean
----@field GUIDE_MEETING_AREAS_AND_LOCATIONS boolean
----@field [43] boolean
----@field GUIDE_MILITARY boolean
----@field [44] boolean
----@field GUIDE_CHANNELS_AND_RAMPS boolean
----@field [45] boolean
----@field GUIDE_REFUSE boolean
----@field [46] boolean
----@field GUIDE_DEEPER boolean
----@field [47] boolean
----@field GUIDE_HAPPINESS boolean
----@field [48] boolean
----@field GUIDE_GOALS boolean
+---@alias settings_tab_type
+---| -1 # NONE
+---| 0 # VIDEO
+---| 1 # AUDIO
+---| 2 # GAME
+---| 3 # KEYBINDINGS
+---| 4 # ANNOUNCEMENTS
+---| 5 # DIFFICULTY
 
----@class _settings_tab_type: integer, string, df.enum
+---@class _settings_tab_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field VIDEO 1
----@field [1] "VIDEO"
----@field AUDIO 2
----@field [2] "AUDIO"
----@field GAME 3
----@field [3] "GAME"
----@field KEYBINDINGS 4
----@field [4] "KEYBINDINGS"
+---@field [-1] "NONE"
+---@field VIDEO 0
+---@field [0] "VIDEO"
+---@field AUDIO 1
+---@field [1] "AUDIO"
+---@field GAME 2
+---@field [2] "GAME"
+---@field KEYBINDINGS 3
+---@field [3] "KEYBINDINGS"
+---@field ANNOUNCEMENTS 4
+---@field [4] "ANNOUNCEMENTS"
 ---@field DIFFICULTY 5
 ---@field [5] "DIFFICULTY"
 df.settings_tab_type = {}
 
----@class settings_tab_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field VIDEO boolean
----@field [2] boolean
----@field AUDIO boolean
----@field [3] boolean
----@field GAME boolean
----@field [4] boolean
----@field KEYBINDINGS boolean
----@field [5] boolean
----@field DIFFICULTY boolean
+---@alias settings_context_type
+---| -1 # NONE
+---| 0 # OUTSIDE_PLAY
+---| 1 # FORT_MODE
 
----@class _settings_context_type: integer, string, df.enum
+---@class _settings_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field OUTSIDE_PLAY 1
----@field [1] "OUTSIDE_PLAY"
----@field FORT_MODE 2
----@field [2] "FORT_MODE"
+---@field [-1] "NONE"
+---@field OUTSIDE_PLAY 0
+---@field [0] "OUTSIDE_PLAY"
+---@field FORT_MODE 1
+---@field [1] "FORT_MODE"
 df.settings_context_type = {}
 
----@class settings_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field OUTSIDE_PLAY boolean
----@field [2] boolean
----@field FORT_MODE boolean
+---@alias arena_context_type
+---| -1 # NONE
+---| 0 # CREATURE
+---| 1 # SKILLS
+---| 2 # EQUIPMENT
+---| 3 # CONDITIONS
 
----@class _arena_context_type: integer, string, df.enum
+---@class _arena_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field CREATURE 1
----@field [1] "CREATURE"
----@field SKILLS 2
----@field [2] "SKILLS"
----@field EQUIPMENT 3
----@field [3] "EQUIPMENT"
----@field CONDITIONS 4
----@field [4] "CONDITIONS"
+---@field [-1] "NONE"
+---@field CREATURE 0
+---@field [0] "CREATURE"
+---@field SKILLS 1
+---@field [1] "SKILLS"
+---@field EQUIPMENT 2
+---@field [2] "EQUIPMENT"
+---@field CONDITIONS 3
+---@field [3] "CONDITIONS"
 df.arena_context_type = {}
 
----@class arena_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field CREATURE boolean
----@field [2] boolean
----@field SKILLS boolean
----@field [3] boolean
----@field EQUIPMENT boolean
----@field [4] boolean
----@field CONDITIONS boolean
+---@alias assign_uniform_context_type
+---| -1 # NONE
+---| 0 # CREATE_SQUAD_FROM_SQUAD_MENU
+---| 1 # FROM_SQUAD_EQUIPMENT_MENU
 
----@class _assign_uniform_context_type: integer, string, df.enum
+---@class _assign_uniform_context_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field CREATE_SQUAD_FROM_SQUAD_MENU 1
----@field [1] "CREATE_SQUAD_FROM_SQUAD_MENU"
----@field FROM_SQUAD_EQUIPMENT_MENU 2
----@field [2] "FROM_SQUAD_EQUIPMENT_MENU"
+---@field [-1] "NONE"
+---@field CREATE_SQUAD_FROM_SQUAD_MENU 0
+---@field [0] "CREATE_SQUAD_FROM_SQUAD_MENU"
+---@field FROM_SQUAD_EQUIPMENT_MENU 1
+---@field [1] "FROM_SQUAD_EQUIPMENT_MENU"
 df.assign_uniform_context_type = {}
 
----@class assign_uniform_context_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field CREATE_SQUAD_FROM_SQUAD_MENU boolean
----@field [2] boolean
----@field FROM_SQUAD_EQUIPMENT_MENU boolean
+---@alias main_bottom_mode_type
+---| -1 # NONE
+---| 0 # BUILDING
+---| 1 # BUILDING_PLACEMENT
+---| 2 # BUILDING_PICK_MATERIALS
+---| 3 # ZONE
+---| 4 # ZONE_PAINT
+---| 5 # STOCKPILE
+---| 6 # STOCKPILE_PAINT
+---| 7 # BURROW
+---| 8 # BURROW_PAINT
+---| 9 # HAULING
+---| 10 # ARENA_UNIT
+---| 11 # ARENA_TREE
+---| 12 # ARENA_WATER_PAINT
+---| 13 # ARENA_MAGMA_PAINT
+---| 14 # ARENA_SNOW_PAINT
+---| 15 # ARENA_MUD_PAINT
+---| 16 # ARENA_REMOVE_PAINT
 
----@class _main_bottom_mode_type: integer, string, df.enum
+---@class _main_bottom_mode_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field BUILDING 1
----@field [1] "BUILDING"
----@field BUILDING_PLACEMENT 2
----@field [2] "BUILDING_PLACEMENT"
----@field BUILDING_PICK_MATERIALS 3
----@field [3] "BUILDING_PICK_MATERIALS"
----@field ZONE 4
----@field [4] "ZONE"
----@field ZONE_PAINT 5
----@field [5] "ZONE_PAINT"
----@field STOCKPILE 6
----@field [6] "STOCKPILE"
----@field STOCKPILE_PAINT 7
----@field [7] "STOCKPILE_PAINT"
----@field BURROW 8
----@field [8] "BURROW"
----@field BURROW_PAINT 9
----@field [9] "BURROW_PAINT"
----@field HAULING 10
----@field [10] "HAULING"
----@field ARENA_UNIT 11
----@field [11] "ARENA_UNIT"
----@field ARENA_TREE 12
----@field [12] "ARENA_TREE"
----@field ARENA_WATER_PAINT 13
----@field [13] "ARENA_WATER_PAINT"
----@field ARENA_MAGMA_PAINT 14
----@field [14] "ARENA_MAGMA_PAINT"
----@field ARENA_SNOW_PAINT 15
----@field [15] "ARENA_SNOW_PAINT"
----@field ARENA_MUD_PAINT 16
----@field [16] "ARENA_MUD_PAINT"
----@field ARENA_REMOVE_PAINT 17
----@field [17] "ARENA_REMOVE_PAINT"
+---@field [-1] "NONE"
+---@field BUILDING 0
+---@field [0] "BUILDING"
+---@field BUILDING_PLACEMENT 1
+---@field [1] "BUILDING_PLACEMENT"
+---@field BUILDING_PICK_MATERIALS 2
+---@field [2] "BUILDING_PICK_MATERIALS"
+---@field ZONE 3
+---@field [3] "ZONE"
+---@field ZONE_PAINT 4
+---@field [4] "ZONE_PAINT"
+---@field STOCKPILE 5
+---@field [5] "STOCKPILE"
+---@field STOCKPILE_PAINT 6
+---@field [6] "STOCKPILE_PAINT"
+---@field BURROW 7
+---@field [7] "BURROW"
+---@field BURROW_PAINT 8
+---@field [8] "BURROW_PAINT"
+---@field HAULING 9
+---@field [9] "HAULING"
+---@field ARENA_UNIT 10
+---@field [10] "ARENA_UNIT"
+---@field ARENA_TREE 11
+---@field [11] "ARENA_TREE"
+---@field ARENA_WATER_PAINT 12
+---@field [12] "ARENA_WATER_PAINT"
+---@field ARENA_MAGMA_PAINT 13
+---@field [13] "ARENA_MAGMA_PAINT"
+---@field ARENA_SNOW_PAINT 14
+---@field [14] "ARENA_SNOW_PAINT"
+---@field ARENA_MUD_PAINT 15
+---@field [15] "ARENA_MUD_PAINT"
+---@field ARENA_REMOVE_PAINT 16
+---@field [16] "ARENA_REMOVE_PAINT"
 df.main_bottom_mode_type = {}
 
----@class main_bottom_mode_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field BUILDING boolean
----@field [2] boolean
----@field BUILDING_PLACEMENT boolean
----@field [3] boolean
----@field BUILDING_PICK_MATERIALS boolean
----@field [4] boolean
----@field ZONE boolean
----@field [5] boolean
----@field ZONE_PAINT boolean
----@field [6] boolean
----@field STOCKPILE boolean
----@field [7] boolean
----@field STOCKPILE_PAINT boolean
----@field [8] boolean
----@field BURROW boolean
----@field [9] boolean
----@field BURROW_PAINT boolean
----@field [10] boolean
----@field HAULING boolean
----@field [11] boolean
----@field ARENA_UNIT boolean
----@field [12] boolean
----@field ARENA_TREE boolean
----@field [13] boolean
----@field ARENA_WATER_PAINT boolean
----@field [14] boolean
----@field ARENA_MAGMA_PAINT boolean
----@field [15] boolean
----@field ARENA_SNOW_PAINT boolean
----@field [16] boolean
----@field ARENA_MUD_PAINT boolean
----@field [17] boolean
----@field ARENA_REMOVE_PAINT boolean
+---@alias main_designation_type
+---| -1 # NONE
+---| 0 # DIG_DIG
+---| 1 # DIG_REMOVE_STAIRS_RAMPS
+---| 2 # DIG_STAIR_UP
+---| 3 # DIG_STAIR_UPDOWN
+---| 4 # DIG_STAIR_DOWN
+---| 5 # DIG_RAMP
+---| 6 # DIG_CHANNEL
+---| 7 # CHOP
+---| 8 # GATHER
+---| 9 # SMOOTH
+---| 10 # TRACK
+---| 11 # ENGRAVE
+---| 12 # FORTIFY
+---| 13 # REMOVE_CONSTRUCTION
+---| 14 # CLAIM
+---| 15 # UNCLAIM
+---| 16 # MELT
+---| 17 # NO_MELT
+---| 18 # DUMP
+---| 19 # NO_DUMP
+---| 20 # HIDE
+---| 21 # NO_HIDE
+---| 22 # TOGGLE_ENGRAVING
+---| 23 # DIG_FROM_MARKER
+---| 24 # DIG_TO_MARKER
+---| 25 # CHOP_FROM_MARKER
+---| 26 # CHOP_TO_MARKER
+---| 27 # GATHER_FROM_MARKER
+---| 28 # GATHER_TO_MARKER
+---| 29 # SMOOTH_FROM_MARKER
+---| 30 # SMOOTH_TO_MARKER
+---| 31 # DESIGNATE_TRAFFIC_HIGH
+---| 32 # DESIGNATE_TRAFFIC_NORMAL
+---| 33 # DESIGNATE_TRAFFIC_LOW
+---| 34 # DESIGNATE_TRAFFIC_RESTRICTED
+---| 35 # ERASE
 
----@class _main_designation_type: integer, string, df.enum
+---@class _main_designation_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field DIG_DIG 1
----@field [1] "DIG_DIG"
----@field DIG_REMOVE_STAIRS_RAMPS 2
----@field [2] "DIG_REMOVE_STAIRS_RAMPS"
----@field DIG_STAIR_UP 3
----@field [3] "DIG_STAIR_UP"
----@field DIG_STAIR_UPDOWN 4
----@field [4] "DIG_STAIR_UPDOWN"
----@field DIG_STAIR_DOWN 5
----@field [5] "DIG_STAIR_DOWN"
----@field DIG_RAMP 6
----@field [6] "DIG_RAMP"
----@field DIG_CHANNEL 7
----@field [7] "DIG_CHANNEL"
----@field CHOP 8
----@field [8] "CHOP"
----@field GATHER 9
----@field [9] "GATHER"
----@field SMOOTH 10
----@field [10] "SMOOTH"
----@field TRACK 11
----@field [11] "TRACK"
----@field ENGRAVE 12
----@field [12] "ENGRAVE"
----@field FORTIFY 13
----@field [13] "FORTIFY"
----@field REMOVE_CONSTRUCTION 14
----@field [14] "REMOVE_CONSTRUCTION"
----@field CLAIM 15
----@field [15] "CLAIM"
----@field UNCLAIM 16
----@field [16] "UNCLAIM"
----@field MELT 17
----@field [17] "MELT"
----@field NO_MELT 18
----@field [18] "NO_MELT"
----@field DUMP 19
----@field [19] "DUMP"
----@field NO_DUMP 20
----@field [20] "NO_DUMP"
----@field HIDE 21
----@field [21] "HIDE"
----@field NO_HIDE 22
----@field [22] "NO_HIDE"
----@field TOGGLE_ENGRAVING 23
----@field [23] "TOGGLE_ENGRAVING"
----@field DIG_FROM_MARKER 24
----@field [24] "DIG_FROM_MARKER"
----@field DIG_TO_MARKER 25
----@field [25] "DIG_TO_MARKER"
----@field CHOP_FROM_MARKER 26
----@field [26] "CHOP_FROM_MARKER"
----@field CHOP_TO_MARKER 27
----@field [27] "CHOP_TO_MARKER"
----@field GATHER_FROM_MARKER 28
----@field [28] "GATHER_FROM_MARKER"
----@field GATHER_TO_MARKER 29
----@field [29] "GATHER_TO_MARKER"
----@field SMOOTH_FROM_MARKER 30
----@field [30] "SMOOTH_FROM_MARKER"
----@field SMOOTH_TO_MARKER 31
----@field [31] "SMOOTH_TO_MARKER"
----@field DESIGNATE_TRAFFIC_HIGH 32
----@field [32] "DESIGNATE_TRAFFIC_HIGH"
----@field DESIGNATE_TRAFFIC_NORMAL 33
----@field [33] "DESIGNATE_TRAFFIC_NORMAL"
----@field DESIGNATE_TRAFFIC_LOW 34
----@field [34] "DESIGNATE_TRAFFIC_LOW"
----@field DESIGNATE_TRAFFIC_RESTRICTED 35
----@field [35] "DESIGNATE_TRAFFIC_RESTRICTED"
----@field ERASE 36
----@field [36] "ERASE"
+---@field [-1] "NONE"
+---@field DIG_DIG 0
+---@field [0] "DIG_DIG"
+---@field DIG_REMOVE_STAIRS_RAMPS 1
+---@field [1] "DIG_REMOVE_STAIRS_RAMPS"
+---@field DIG_STAIR_UP 2
+---@field [2] "DIG_STAIR_UP"
+---@field DIG_STAIR_UPDOWN 3
+---@field [3] "DIG_STAIR_UPDOWN"
+---@field DIG_STAIR_DOWN 4
+---@field [4] "DIG_STAIR_DOWN"
+---@field DIG_RAMP 5
+---@field [5] "DIG_RAMP"
+---@field DIG_CHANNEL 6
+---@field [6] "DIG_CHANNEL"
+---@field CHOP 7
+---@field [7] "CHOP"
+---@field GATHER 8
+---@field [8] "GATHER"
+---@field SMOOTH 9
+---@field [9] "SMOOTH"
+---@field TRACK 10
+---@field [10] "TRACK"
+---@field ENGRAVE 11
+---@field [11] "ENGRAVE"
+---@field FORTIFY 12
+---@field [12] "FORTIFY"
+---@field REMOVE_CONSTRUCTION 13
+---@field [13] "REMOVE_CONSTRUCTION"
+---@field CLAIM 14
+---@field [14] "CLAIM"
+---@field UNCLAIM 15
+---@field [15] "UNCLAIM"
+---@field MELT 16
+---@field [16] "MELT"
+---@field NO_MELT 17
+---@field [17] "NO_MELT"
+---@field DUMP 18
+---@field [18] "DUMP"
+---@field NO_DUMP 19
+---@field [19] "NO_DUMP"
+---@field HIDE 20
+---@field [20] "HIDE"
+---@field NO_HIDE 21
+---@field [21] "NO_HIDE"
+---@field TOGGLE_ENGRAVING 22
+---@field [22] "TOGGLE_ENGRAVING"
+---@field DIG_FROM_MARKER 23
+---@field [23] "DIG_FROM_MARKER"
+---@field DIG_TO_MARKER 24
+---@field [24] "DIG_TO_MARKER"
+---@field CHOP_FROM_MARKER 25
+---@field [25] "CHOP_FROM_MARKER"
+---@field CHOP_TO_MARKER 26
+---@field [26] "CHOP_TO_MARKER"
+---@field GATHER_FROM_MARKER 27
+---@field [27] "GATHER_FROM_MARKER"
+---@field GATHER_TO_MARKER 28
+---@field [28] "GATHER_TO_MARKER"
+---@field SMOOTH_FROM_MARKER 29
+---@field [29] "SMOOTH_FROM_MARKER"
+---@field SMOOTH_TO_MARKER 30
+---@field [30] "SMOOTH_TO_MARKER"
+---@field DESIGNATE_TRAFFIC_HIGH 31
+---@field [31] "DESIGNATE_TRAFFIC_HIGH"
+---@field DESIGNATE_TRAFFIC_NORMAL 32
+---@field [32] "DESIGNATE_TRAFFIC_NORMAL"
+---@field DESIGNATE_TRAFFIC_LOW 33
+---@field [33] "DESIGNATE_TRAFFIC_LOW"
+---@field DESIGNATE_TRAFFIC_RESTRICTED 34
+---@field [34] "DESIGNATE_TRAFFIC_RESTRICTED"
+---@field ERASE 35
+---@field [35] "ERASE"
 df.main_designation_type = {}
 
----@class main_designation_type
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field DIG_DIG boolean
----@field [2] boolean
----@field DIG_REMOVE_STAIRS_RAMPS boolean
----@field [3] boolean
----@field DIG_STAIR_UP boolean
----@field [4] boolean
----@field DIG_STAIR_UPDOWN boolean
----@field [5] boolean
----@field DIG_STAIR_DOWN boolean
----@field [6] boolean
----@field DIG_RAMP boolean
----@field [7] boolean
----@field DIG_CHANNEL boolean
----@field [8] boolean
----@field CHOP boolean
----@field [9] boolean
----@field GATHER boolean
----@field [10] boolean
----@field SMOOTH boolean
----@field [11] boolean
----@field TRACK boolean
----@field [12] boolean
----@field ENGRAVE boolean
----@field [13] boolean
----@field FORTIFY boolean
----@field [14] boolean
----@field REMOVE_CONSTRUCTION boolean
----@field [15] boolean
----@field CLAIM boolean
----@field [16] boolean
----@field UNCLAIM boolean
----@field [17] boolean
----@field MELT boolean
----@field [18] boolean
----@field NO_MELT boolean
----@field [19] boolean
----@field DUMP boolean
----@field [20] boolean
----@field NO_DUMP boolean
----@field [21] boolean
----@field HIDE boolean
----@field [22] boolean
----@field NO_HIDE boolean
----@field [23] boolean
----@field TOGGLE_ENGRAVING boolean
----@field [24] boolean
----@field DIG_FROM_MARKER boolean
----@field [25] boolean
----@field DIG_TO_MARKER boolean
----@field [26] boolean
----@field CHOP_FROM_MARKER boolean
----@field [27] boolean
----@field CHOP_TO_MARKER boolean
----@field [28] boolean
----@field GATHER_FROM_MARKER boolean
----@field [29] boolean
----@field GATHER_TO_MARKER boolean
----@field [30] boolean
----@field SMOOTH_FROM_MARKER boolean
----@field [31] boolean
----@field SMOOTH_TO_MARKER boolean
----@field [32] boolean
----@field DESIGNATE_TRAFFIC_HIGH boolean
----@field [33] boolean
----@field DESIGNATE_TRAFFIC_NORMAL boolean
----@field [34] boolean
----@field DESIGNATE_TRAFFIC_LOW boolean
----@field [35] boolean
----@field DESIGNATE_TRAFFIC_RESTRICTED boolean
----@field [36] boolean
----@field ERASE boolean
+---@class (exact) markup_text_box_widget: DFObject, widget
+---@field _kind 'struct'
+---@field _type _markup_text_box_widget
+---@field scroll number
+---@field num_visible number
+---@field scrolling boolean
+---@field scrollbar scrollbarst
+local markup_text_box_widget
 
----@class main_interface: df.class
----@field designation main_interface_designation
----@field building main_interface_building
----@field construction main_interface_construction
----@field civzone main_interface_civzone
----@field burrow main_interface_burrow
----@field view main_interface_view
----@field hospital main_interface_hospital
----@field location_list main_interface_location_list
----@field job_details main_interface_job_details
----@field buildjob main_interface_buildjob
----@field assign_trade main_interface_assign_trade
----@field trade main_interface_trade
----@field diplomacy main_interface_diplomacy
----@field petitions main_interface_petitions
----@field stocks main_interface_stocks
----@field unk0f80 widget_container
----@field assign_display_item main_interface_assign_display_item
----@field name_creator main_interface_name_creator
----@field image_creator main_interface_image_creator
----@field unit_selector main_interface_unit_selector
----@field announcement_alert main_interface_announcement_alert
----@field custom_symbol main_interface_custom_symbol
----@field patrol_routes main_interface_patrol_routes
----@field squad_equipment main_interface_squad_equipment
----@field squad_schedule main_interface_squad_schedule
----@field squad_selector main_interface_squad_selector
----@field burrow_selector main_interface_burrow_selector
----@field location_selector main_interface_location_selector
----@field location_details main_interface_location_details
----@field hauling_stop_conditions main_interface_hauling_stop_conditions
----@field assign_vehicle main_interface_assign_vehicle
----@field stockpile main_interface_stockpile
----@field stockpile_link main_interface_stockpile_link
----@field stockpile_tools main_interface_stockpile_tools
----@field custom_stockpile main_interface_custom_stockpile
----@field view_sheets main_interface_view_sheets
----@field info main_interface_info
----@field squads main_interface_squads
----@field create_squad main_interface_create_squad
----@field squad_supplies main_interface_squad_supplies
----@field assign_uniform main_interface_assign_uniform
----@field create_work_order main_interface_create_work_order
----@field hotkey main_interface_hotkey
----@field options main_interface_options
----@field help main_interface_help
+---@class _markup_text_box_widget: DFCompound
+---@field _kind 'class-type'
+df.markup_text_box_widget = {}
+
+---@alias burrow_unit_selector_filter_type
+---| 0 # ALL
+---| 1 # MILITARY
+---| 2 # CIVILIAN
+
+-- bay12: BurrowUnitSelectorFilter
+---@class _burrow_unit_selector_filter_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field ALL 0
+---@field [0] "ALL"
+---@field MILITARY 1
+---@field [1] "MILITARY"
+---@field CIVILIAN 2
+---@field [2] "CIVILIAN"
+df.burrow_unit_selector_filter_type = {}
+
+---@class (exact) unit_selector_interfacest: DFObject, widget_container
+---@field _kind 'struct'
+---@field _type _unit_selector_interfacest
+---@field context unit_selector_context_type
+---@field bld_id number
+---@field burrow_id number
+---@field squad_id number
+---@field squad_position number
+---@field burrow_filter burrow_unit_selector_filter_type
+---@field scroll_position number
+---@field scrolling boolean
+local unit_selector_interfacest
+
+---@class _unit_selector_interfacest: DFCompound
+---@field _kind 'class-type'
+df.unit_selector_interfacest = {}
+
+---@class (exact) creature_interfacest: DFObject, widget_container
+---@field _kind 'struct'
+---@field _type _creature_interfacest
+---@field current_mode unit_list_mode_type
+---@field activity_details_text markup_text_boxst
+local creature_interfacest
+
+---@class _creature_interfacest: DFCompound
+---@field _kind 'class-type'
+df.creature_interfacest = {}
+
+---@class (exact) labor_work_details_interfacest: DFObject, widget_container
+---@field _kind 'struct'
+---@field _type _labor_work_details_interfacest
+local labor_work_details_interfacest
+
+---@class _labor_work_details_interfacest: DFCompound
+---@field _kind 'class-type'
+df.labor_work_details_interfacest = {}
+
+---@class (exact) labor_kitchen_interface_food_key: DFObject
+---@field _kind 'struct'
+---@field _type _labor_kitchen_interface_food_key
+---@field type number
+---@field subtype number
+---@field mat number
+---@field matg number
+local labor_kitchen_interface_food_key
+
+---@class _labor_kitchen_interface_food_key: DFCompound
+---@field _kind 'struct-type'
+df.labor_kitchen_interface_food_key = {}
+
+---@class (exact) labor_kitchen_interface_food_value: DFObject
+---@field _kind 'struct'
+---@field _type _labor_kitchen_interface_food_value
+---@field num number
+---@field canrest number
+---@field name string
+local labor_kitchen_interface_food_value
+
+---@class _labor_kitchen_interface_food_value: DFCompound
+---@field _kind 'struct-type'
+df.labor_kitchen_interface_food_value = {}
+
+---@class (exact) labor_kitchen_food_entry: DFObject
+---@field _kind 'struct'
+---@field _type _labor_kitchen_food_entry
+---@field first labor_kitchen_interface_food_key
+---@field second labor_kitchen_interface_food_value
+local labor_kitchen_food_entry
+
+---@class _labor_kitchen_food_entry: DFCompound
+---@field _kind 'struct-type'
+df.labor_kitchen_food_entry = {}
+
+---@class (exact) labor_kitchen_interface_food_sort_entry: DFObject, sort_entry
+---@field _kind 'struct'
+---@field _type _labor_kitchen_interface_food_sort_entry
+local labor_kitchen_interface_food_sort_entry
+
+---@class _labor_kitchen_interface_food_sort_entry: DFCompound
+---@field _kind 'struct-type'
+df.labor_kitchen_interface_food_sort_entry = {}
+
+---@alias labor_kitchen_interface_type_filter
+---| -1 # ALL
+---| 0 # PLANTS
+---| 1 # SEEDS
+---| 2 # DRINKS
+---| 3 # OTHER
+
+---@class _labor_kitchen_interface_type_filter: DFDescriptor
+---@field _kind 'enum-type'
+---@field ALL -1
+---@field [-1] "ALL"
+---@field PLANTS 0
+---@field [0] "PLANTS"
+---@field SEEDS 1
+---@field [1] "SEEDS"
+---@field DRINKS 2
+---@field [2] "DRINKS"
+---@field OTHER 3
+---@field [3] "OTHER"
+df.labor_kitchen_interface_type_filter = {}
+
+---@class (exact) labor_kitchen_interfacest: DFObject, widget_container
+---@field _kind 'struct'
+---@field _type _labor_kitchen_interfacest
+---@field current_category kitchen_pref_category_type
+---@field filter_str string
+---@field filter_type labor_kitchen_interface_type_filter
+---@field filter_perm integer
+---@field sort_flags number
+---@field cursor_idx number
+local labor_kitchen_interfacest
+
+---@class _labor_kitchen_interfacest: DFCompound
+---@field _kind 'class-type'
+df.labor_kitchen_interfacest = {}
+
+---@class (exact) labor_standing_orders_interfacest: DFObject, widget
+---@field _kind 'struct'
+---@field _type _labor_standing_orders_interfacest
+---@field current_category standing_orders_category_type
+---@field scrolling_labor_list boolean
+---@field scroll_position_units number
+---@field scrolling_units boolean
+local labor_standing_orders_interfacest
+
+---@class _labor_standing_orders_interfacest: DFCompound
+---@field _kind 'class-type'
+df.labor_standing_orders_interfacest = {}
+
+---@class (exact) labor_stone_use_interfacest: DFObject, widget
+---@field _kind 'struct'
+---@field _type _labor_stone_use_interfacest
+---@field current_category stone_use_category_type
+local labor_stone_use_interfacest
+
+---@class _labor_stone_use_interfacest: DFCompound
+---@field _kind 'class-type'
+df.labor_stone_use_interfacest = {}
+
+---@class (exact) labor_interfacest: DFObject, widget_container
+---@field _kind 'struct'
+---@field _type _labor_interfacest
+local labor_interfacest
+
+---@class _labor_interfacest: DFCompound
+---@field _kind 'class-type'
+df.labor_interfacest = {}
+
+---@class (exact) justice_interfacest: DFObject, widget_container
+---@field _kind 'struct'
+---@field _type _justice_interfacest
+---@field current_mode justice_interface_mode_type
+---@field cage_chain_needed number
+---@field cage_chain_count number
+---@field scroll_position_fortress_guard number
+---@field scrolling_fortress_guard boolean
+---@field sorting_guard_nameprof boolean
+---@field sorting_guard_nameprof_is_ascending boolean
+---@field sorting_guard_nameprof_doing_name boolean
+---@field sorting_guard_nameprof_doing_prof boolean
+---@field convicting boolean
+---@field interrogating boolean
+---@field interrogation_report_box_width number
+---@field scroll_position_interrogation_list number
+---@field scrolling_interrogation_list boolean
+---@field scroll_position_interrogation_report number
+---@field scrolling_interrogation_report boolean
+---@field counterintelligence_mode counterintelligence_mode_type
+---@field counterintelligence_selected number
+---@field counterintelligence_filter_str string
+---@field entering_counterintelligence_filter boolean
+---@field scroll_position_counterintelligence number
+---@field scrolling_counterintelligence boolean
+---@field do_init boolean
+local justice_interfacest
+
+---@class _justice_interfacest: DFCompound
+---@field _kind 'class-type'
+df.justice_interfacest = {}
+
+---@class (exact) info_interfacest: DFObject, widget_tabs
+---@field _kind 'struct'
+---@field _type _info_interfacest
+---@field open boolean
+---@field current_mode info_interface_mode_type
+---@field creatures creature_interfacest
+---@field jobs info_interfacest.T_jobs
+---@field buildings info_interfacest.T_buildings
+---@field labor labor_interfacest
+---@field work_orders info_interfacest.T_work_orders
+---@field administrators info_interfacest.T_administrators
+---@field artifacts info_interfacest.T_artifacts
+---@field justice justice_interfacest
+local info_interfacest
+
+---@class _info_interfacest: DFCompound
+---@field _kind 'class-type'
+df.info_interfacest = {}
+
+---@class (exact) info_interfacest.T_jobs: DFObject
+---@field _kind 'struct'
+---@field _type _info_interfacest.T_jobs
+---@field scrolling_cri_job boolean
+---@field scroll_position_cri_job number
+local jobs
+
+---@class _info_interfacest.T_jobs: DFCompound
+---@field _kind 'struct-type'
+df.info_interfacest.T_jobs = {}
+
+---@class (exact) info_interfacest.T_buildings: DFObject
+---@field _kind 'struct'
+---@field _type _info_interfacest.T_buildings
+---@field mode buildings_mode_type
+local buildings
+
+---@class _info_interfacest.T_buildings: DFCompound
+---@field _kind 'struct-type'
+df.info_interfacest.T_buildings = {}
+
+---@class (exact) info_interfacest.T_work_orders: DFObject
+---@field _kind 'struct'
+---@field _type _info_interfacest.T_work_orders
+---@field scroll_position_work_orders number
+---@field scrolling_work_orders boolean
+---@field conditions info_interfacest.T_work_orders.T_conditions
+---@field entering_number boolean
+---@field number_str string
+---@field b_entering_number boolean
+---@field b_number_str string
+local work_orders
+
+---@class _info_interfacest.T_work_orders: DFCompound
+---@field _kind 'struct-type'
+df.info_interfacest.T_work_orders = {}
+
+---@class (exact) info_interfacest.T_work_orders.T_conditions: DFObject
+---@field _kind 'struct'
+---@field _type _info_interfacest.T_work_orders.T_conditions
+---@field open boolean
+---@field scroll_position_conditions number
+---@field scrolling_conditions boolean
+---@field scroll_position_suggested number
+---@field scrolling_suggested boolean
+---@field filter string
+---@field change_type number
+---@field scroll_position_change number
+---@field scrolling_change number
+---@field selecting_order_condition boolean
+---@field scroll_position_condition_wq number
+---@field scrolling_condition_wq boolean
+---@field entering_logic_number boolean
+---@field logic_number_str string
+local conditions
+
+---@class _info_interfacest.T_work_orders.T_conditions: DFCompound
+---@field _kind 'struct-type'
+df.info_interfacest.T_work_orders.T_conditions = {}
+
+---@class (exact) info_interfacest.T_administrators: DFObject
+---@field _kind 'struct'
+---@field _type _info_interfacest.T_administrators
+---@field scroll_position_noblelist number
+---@field scrolling_noblelist boolean
+---@field last_hover_width number
+---@field last_hover_entity_id number
+---@field last_hover_ep_id number
+---@field choosing_candidate boolean
+---@field candidate_noblelist_ind number
+---@field scroll_position_candidate number
+---@field scrolling_candidate boolean
+---@field assigning_symbol boolean
+---@field symbol_noblelist_ind number
+---@field scroll_position_symbol number
+---@field scrolling_symbol boolean
+---@field handling_symbol_closure_ind number
+local administrators
+
+---@class _info_interfacest.T_administrators: DFCompound
+---@field _kind 'struct-type'
+df.info_interfacest.T_administrators = {}
+
+---@class (exact) info_interfacest.T_artifacts: DFObject
+---@field _kind 'struct'
+---@field _type _info_interfacest.T_artifacts
+---@field mode artifacts_mode_type
+local artifacts
+
+---@class _info_interfacest.T_artifacts: DFCompound
+---@field _kind 'struct-type'
+df.info_interfacest.T_artifacts = {}
+
+---@class (exact) announcements_interfacest: DFObject
+---@field _kind 'struct'
+---@field _type _announcements_interfacest
+---@field stack widget_stack
+local announcements_interfacest
+
+---@class _announcements_interfacest: DFCompound
+---@field _kind 'struct-type'
+df.announcements_interfacest = {}
+
+---@class (exact) main_interface: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface
+---@field designation main_interface.T_designation
+---@field building main_interface.T_building
+---@field construction main_interface.T_construction
+---@field civzone main_interface.T_civzone
+---@field burrow main_interface.T_burrow
+---@field view main_interface.T_view
+---@field hospital main_interface.T_hospital
+---@field location_list main_interface.T_location_list
+---@field job_details main_interface.T_job_details
+---@field buildjob main_interface.T_buildjob
+---@field assign_trade main_interface.T_assign_trade
+---@field trade main_interface.T_trade
+---@field diplomacy main_interface.T_diplomacy
+---@field petitions main_interface.T_petitions
+---@field stocks main_interface.T_stocks
+---@field announcements announcements_interfacest
+---@field assign_display_item main_interface.T_assign_display_item
+---@field name_creator main_interface.T_name_creator
+---@field image_creator main_interface.T_image_creator
+---@field unit_selector unit_selector_interfacest
+---@field announcement_alert main_interface.T_announcement_alert
+---@field custom_symbol main_interface.T_custom_symbol
+---@field patrol_routes main_interface.T_patrol_routes
+---@field squad_equipment main_interface.T_squad_equipment
+---@field squad_schedule main_interface.T_squad_schedule
+---@field squad_selector main_interface.T_squad_selector
+---@field burrow_selector main_interface.T_burrow_selector
+---@field location_selector main_interface.T_location_selector
+---@field location_details main_interface.T_location_details
+---@field hauling_stop_conditions main_interface.T_hauling_stop_conditions
+---@field assign_vehicle main_interface.T_assign_vehicle
+---@field stockpile main_interface.T_stockpile
+---@field stockpile_link main_interface.T_stockpile_link
+---@field stockpile_tools main_interface.T_stockpile_tools
+---@field custom_stockpile main_interface.T_custom_stockpile
+---@field view_sheets main_interface.T_view_sheets
+---@field info info_interfacest
+---@field squads main_interface.T_squads
+---@field create_squad main_interface.T_create_squad
+---@field squad_supplies main_interface.T_squad_supplies
+---@field assign_uniform main_interface.T_assign_uniform
+---@field create_work_order main_interface.T_create_work_order
+---@field hotkey main_interface.T_hotkey
+---@field options main_interface.T_options
+---@field help main_interface.T_help
 ---@field settings main_interface_settings
----@field arena_unit main_interface_arena_unit
----@field arena_tree main_interface_arena_tree
----@field viewunit_list df.container
----@field exporting_local integer
----@field mouse_zone integer
----@field skill_ind df.container
----@field pract_type df.container
----@field pract_ind df.container
+---@field arena_unit main_interface.T_arena_unit
+---@field arena_tree main_interface.T_arena_tree
+---@field exporting_local number
+---@field mouse_zone number
 ---@field skill_combat boolean
 ---@field skill_labor boolean
 ---@field skill_misc boolean
----@field barracks_selected_squad_ind integer
----@field barracks_squad squad[]
----@field barracks_squad_flag df.container
+---@field barracks_selected_squad_ind number -- formerly barracks
 ---@field entering_building_name boolean
 ---@field assigning_position boolean
----@field ap_squad squad
----@field ap_sel integer
+---@field ap_sel number
 ---@field assigning_position_squad boolean
----@field ap_squad_list squad[]
----@field ap_squad_sel integer
----@field pref_occupation df.container occupationst
----@field selected_pref_occupation integer
+---@field ap_squad_sel number
+---@field selected_pref_occupation number
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
 ---@field bottom_mode_selected main_bottom_mode_type
 ---@field hover_instructions_on boolean
----@field hover_instructions_last_hover_tick integer
----@field current_hover integer
----@field current_hover_id1 integer union with current_hover_building_type
----@field current_hover_id2 integer union with current_hover_building_subtype
----@field current_hover_id3 integer union with current_hover_building_custom_id
+---@field hover_instructions_last_hover_tick number
+---@field current_hover main_hover_instruction
+---@field current_hover_id1 number union with current_hover_building_type
+---@field current_hover_id2 number union with current_hover_building_subtype
+---@field current_hover_id3 number union with current_hover_building_custom_id
 ---@field current_hover_key interface_key
----@field current_hover_alert popup_message
 ---@field current_hover_replace_minimap boolean
----@field current_hover_left_x integer
----@field current_hover_bot_y integer
----@field hover_instruction df.string[][]
----@field last_displayed_hover_inst integer
----@field last_displayed_hover_id1 integer
----@field last_displayed_hover_id2 integer
----@field last_displayed_hover_id3 integer
----@field hover_announcement_alert popup_message
----@field hover_announcement_alert_text df.string[]
----@field hover_announcement_alert_color df.container
----@field hover_announcement_alert_bright df.container
----@field hover_announcement_alert_width integer
----@field hover_announcement_alert_button_text df.string[]
----@field hover_announcement_alert_button_color df.container
----@field hover_announcement_alert_button_bright df.container
----@field hover_announcement_alert_button_width integer
+---@field current_hover_left_x number
+---@field current_hover_bot_y number
+---@field last_displayed_hover_inst number
+---@field last_displayed_hover_id1 number
+---@field last_displayed_hover_id2 number
+---@field last_displayed_hover_id3 number
+---@field hover_announcement_alert_width number
+---@field hover_announcement_alert_button_width number
 ---@field last_hover_click_update integer
 ---@field last_hover_m coord
 ---@field recenter_indicator_m coord
 ---@field mouse_scrolling_map boolean
----@field mouse_anchor_mx integer
----@field mouse_anchor_my integer
----@field mouse_anchor_pmx integer
----@field mouse_anchor_pmy integer
+---@field mouse_anchor_mx number
+---@field mouse_anchor_my number
+---@field mouse_anchor_pmx number
+---@field mouse_anchor_pmy number
 ---@field track_path coord_path
 ---@field keyboard_track_path coord_path
 ---@field last_track_s coord
 ---@field last_track_g coord
 ---@field keyboard_last_track_s coord
 ---@field keyboard_last_track_g coord
+local main_interface
+
+---@class _main_interface: DFCompound
+---@field _kind 'struct-type'
 df.main_interface = {}
 
----@class main_interface_designation: df.class
+---@class (exact) main_interface.T_designation: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_designation
 ---@field marker_only boolean
 ---@field show_priorities boolean set to one if using +/-
----@field priority integer *1000
+---@field priority number *1000
 ---@field mine_mode mine_mode_type
 ---@field show_advanced_options boolean
 ---@field entering_traffic_high_str boolean
 ---@field entering_traffic_normal_str boolean
 ---@field entering_traffic_low_str boolean
 ---@field entering_traffic_restricted_str boolean
----@field traffic_high_str df.string
----@field traffic_normal_str df.string
----@field traffic_low_str df.string
----@field traffic_restricted_str df.string
+---@field traffic_high_str string
+---@field traffic_normal_str string
+---@field traffic_low_str string
+---@field traffic_restricted_str string
 ---@field sliding_traffic_high boolean
 ---@field sliding_traffic_normal boolean
 ---@field sliding_traffic_low boolean
 ---@field sliding_traffic_restricted boolean
+local designation
+
+---@class _main_interface.T_designation: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_designation = {}
 
-
----@class main_interface_building: df.class
----@field button interface_button[]
----@field press_button interface_button[]
----@field filtered_button interface_button[]
----@field selected integer
+---@class (exact) main_interface.T_building: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_building
+---@field selected number
 ---@field category interface_category_building
----@field material integer References: material
----@field matgloss integer
+---@field material number References: `material`
+---@field matgloss number
 ---@field job_item_flag job_material_category
----@field current_custom_category_token df.string
----@field current_tool_tip df.string[]
+---@field current_custom_category_token string
+local building
+
+---@class _main_interface.T_building: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_building = {}
 
-
----@class main_interface_construction: df.class
----@field button interface_button[]
----@field press_button interface_button[]
+---@class (exact) main_interface.T_construction: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_construction
 ---@field category interface_category_construction
----@field selected integer
----@field page construction_interface_pagest[]
----@field max_height integer
----@field total_width integer
+---@field selected number
+---@field max_height number
+---@field total_width number
 ---@field must_update_buttons boolean
----@field bb_placement_type integer
----@field bb_placement_subtype integer
----@field bb_placement_custom_building_id integer
----@field item_filter df.string
+---@field bb_placement_type number
+---@field bb_placement_subtype number
+---@field bb_placement_custom_building_id number
+---@field item_filter string
 ---@field entering_item_filter boolean
 ---@field scrolling_item boolean
----@field scroll_position_item integer
+---@field scroll_position_item number
+local construction
+
+---@class _main_interface.T_construction: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_construction = {}
 
-
----@class main_interface_civzone: df.class
+---@class (exact) main_interface.T_civzone: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_civzone
 ---@field remove boolean
 ---@field flow_shape room_flow_shape_type
 ---@field doing_rectangle boolean
@@ -2189,1798 +2196,1953 @@ df.main_interface.T_construction = {}
 ---@field last_doing_multizone boolean
 ---@field box_on_left boolean
 ---@field erasing boolean
----@field adding_new_type integer
----@field cur_bld building_civzonest
----@field list building_civzonest[]
----@field zone_just_created building_civzonest[]
----@field furniture_rejected_in_use integer
----@field furniture_rejected_not_enclosed integer
----@field repainting integer
+---@field adding_new_type number
+---@field furniture_rejected_in_use number
+---@field furniture_rejected_not_enclosed number
+---@field repainting number
+local civzone
+
+---@class _main_interface.T_civzone: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_civzone = {}
 
-
----@class main_interface_burrow: df.class
----@field painting_burrow burrow
+---@class (exact) main_interface.T_burrow: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_burrow
 ---@field doing_rectangle boolean
 ---@field erasing boolean
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
 ---@field entering_name boolean
----@field entering_name_index integer
+---@field entering_name_index number
+local burrow
+
+---@class _main_interface.T_burrow: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_burrow = {}
 
-
----@class main_interface_view: df.class
----@field inv unit_inventory_item[]
----@field contam spatter[]
----@field guest_text df.container
+---@class (exact) main_interface.T_view: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_view
 ---@field uniform_selection boolean
----@field selected_uniform integer
----@field selected_squad integer
----@field squad_list_sq squad[]
----@field squad_list_ep entity_position[]
----@field squad_list_epp entity_position_assignment[]
----@field squad_list_has_subord_pos boolean[]
----@field squad_list_add_index df.container
----@field create_ep entity_position
----@field create_epp entity_position_assignment
----@field create_sub_ep entity_position
+---@field selected_uniform number
+---@field selected_squad number
 ---@field can_remove_from_squad boolean
 ---@field stuck_commander boolean
 ---@field have_calced_info boolean
 ---@field naming_squad boolean
----@field name_squad squad
----@field expel_total_list unit[]
----@field expel_outskirt_list world_site[]
----@field expel_outskirt_list_selected integer
----@field expel_selecting_destination integer
+---@field expel_outskirt_list_selected number
+---@field expel_selecting_destination number
 ---@field expel_cannot_expel_reason cannot_expel_reason_type
+local view
+
+---@class _main_interface.T_view: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_view = {}
 
+---@class (exact) main_interface.T_hospital: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_hospital
+---@field cur_scroll number
+---@field bed_count number
+---@field table_count number
+---@field traction_bench_count number
+---@field box_count number
+local hospital
 
----@class main_interface_hospital: df.class
----@field cur_scroll integer
----@field bed_count integer
----@field table_count integer
----@field traction_bench_count integer
----@field box_count integer
+---@class _main_interface.T_hospital: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_hospital = {}
 
-
----@class main_interface_location_list: df.class
----@field valid_ab abstract_building[]
----@field selected_ab integer
----@field valid_religious_practice df.container
----@field valid_religious_practice_id df.container
----@field selected_religious_practice integer
+---@class (exact) main_interface.T_location_list: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_location_list
+---@field selected_ab number
+---@field selected_religious_practice number
 ---@field choosing_location_type boolean
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
----@field valid_craft_guild_type df.container
----@field selected_craft_guild integer
+---@field selected_craft_guild number
+local location_list
+
+---@class _main_interface.T_location_list: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_location_list = {}
 
-
----@class main_interface_job_details: df.class
+---@class (exact) main_interface.T_job_details: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_job_details
 ---@field open boolean
 ---@field context job_details_context_type
----@field jb job
----@field wq manager_order
 ---@field current_option job_details_option_type
----@field current_option_index integer
----@field option df.container
----@field option_index df.container
----@field scroll_position_option integer
+---@field current_option_index number
+---@field scroll_position_option number
 ---@field scrolling_option boolean
 ---@field search coord
----@field bld building
----@field material df.container
----@field matgloss df.container
----@field material_count df.container
----@field material_master df.container
----@field matgloss_master df.container
----@field material_count_master df.container
----@field scroll_position_material integer
+---@field scroll_position_material number
 ---@field scrolling_material boolean
----@field material_filter df.string
+---@field material_filter string
 ---@field material_doing_filter boolean
----@field clothing_size_race_index df.container race id
----@field clothing_size_race_index_master df.container race id
----@field scroll_position_race integer
+---@field scroll_position_race number
 ---@field scrolling_race boolean
----@field clothing_size_race_filter df.string
+---@field clothing_size_race_filter string
 ---@field clothing_size_race_doing_filter boolean
----@field improvement_type df.container
----@field scroll_position_improvement integer
+---@field scroll_position_improvement number
 ---@field scrolling_improvement boolean
+local job_details
+
+---@class _main_interface.T_job_details: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_job_details = {}
 
+---@class (exact) main_interface.T_buildjob: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_buildjob
+---@field display_furniture_selected_item number
+local buildjob
 
----@class main_interface_buildjob: df.class
----@field display_furniture_bld building_display_furniturest
----@field display_furniture_selected_item integer
+---@class _main_interface.T_buildjob: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_buildjob = {}
 
-
----@class main_interface_assign_trade: df.class
+---@class (exact) main_interface.T_assign_trade: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_assign_trade
 ---@field open boolean
----@field trade_depot_bld building_tradedepotst
----@field type_list df.container
----@field filtered_type_list df.container
 ---@field current_type item_type
----@field scroll_position_type integer
----@field scroll_position_item integer
+---@field scroll_position_type number
+---@field scroll_position_item number
 ---@field scrolling_type boolean
 ---@field scrolling_item boolean
----@field item_filter df.string
+---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount df.container
----@field badamount df.container
----@field unk_a8 main_interface.T_assign_trade_unk_a8[][]
----@field unk_c0 df.container
----@field unk_d8 df.container
----@field unk_f0 df.container
----@field unk_108 df.container
----@field unk_120 df.container
----@field unk_138 boolean[]
----@field i_height integer
----@field current_type_tgi df.container
----@field current_type_a_subtype df.container
----@field current_type_a_subcat1 df.container
----@field current_type_a_subcat2 df.container
----@field current_type_a_amount df.container
----@field current_type_a_expanded boolean[]
----@field current_type_a_on boolean[]
----@field current_type_a_flag df.container
+---@field i_height number
 ---@field sort_by_distance boolean
 ---@field pending_on_top boolean
 ---@field exclude_prohib boolean
+local assign_trade
+
+---@class _main_interface.T_assign_trade: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_assign_trade = {}
 
----@class main_interface.T_assign_trade_unk_a8: df.class
----@field item item
-df.main_interface.T_assign_trade.T_unk_a8 = {}
-
-
----@class main_interface_trade: df.class
+---@class (exact) main_interface.T_trade: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_trade
 ---@field open boolean
 ---@field choosing_merchant boolean
----@field merlist caravan_state[]
----@field scroll_position_merlist integer
+---@field scroll_position_merlist number
 ---@field scrolling_merlist boolean
----@field title df.string
----@field talker df.string
----@field fortname df.string
----@field place df.string
----@field st world_site
----@field bld building_tradedepotst
----@field mer caravan_state
----@field civ historical_entity
----@field stillunloading integer
----@field havetalker integer
----@field merchant_trader unit
----@field fortress_trader unit
----@field good item[][]
----@field goodflag df.container[]
----@field good_amount df.container[]
----@field i_height integer[]
----@field master_type_a_type df.container[]
----@field master_type_a_subtype df.container[]
----@field master_type_a_expanded boolean[][]
----@field current_type_a_type df.container[]
----@field current_type_a_subtype df.container[]
----@field current_type_a_expanded boolean[][]
----@field current_type_a_on boolean[][]
----@field current_type_a_flag df.container[]
----@field scroll_position_item integer[]
----@field scrolling_item boolean[]
----@field item_filter df.string[]
----@field entering_item_filter boolean[]
----@field talkline integer trade reply
----@field buildlists integer
----@field handle_appraisal integer
+---@field title string
+---@field talker string
+---@field fortname string
+---@field place string
+---@field stillunloading number
+---@field havetalker number
+---@field talkline number trade reply
+---@field buildlists number
+---@field handle_appraisal number
 ---@field counter_offer boolean
----@field counter_offer_item item[]
----@field scroll_position_counter_offer integer
+---@field scroll_position_counter_offer number
 ---@field scrolling_counter_offer boolean
----@field entering_amount integer
----@field amount_str df.string
----@field big_announce df.string[]
----@field scroll_position_big_announce integer
+---@field entering_amount number
+---@field amount_str string
+---@field scroll_position_big_announce number
 ---@field scrolling_big_announce boolean
+local trade
+
+---@class _main_interface.T_trade: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_trade = {}
 
-
----@class main_interface_diplomacy: df.class
+---@class (exact) main_interface.T_diplomacy: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_diplomacy
 ---@field open boolean
----@field mm meeting_event
----@field actor unit
----@field target unit
----@field actor_unid integer
----@field target_unid integer
+---@field actor_unid number
+---@field target_unid number
 ---@field flag integer
 ---@field text markup_text_boxst
 ---@field selecting_land_holder_position boolean
 ---@field taking_requests boolean
----@field land_holder_parent_civ historical_entity
----@field land_holder_child_civ historical_entity
----@field land_holder_pos_id df.container
----@field land_holder_assigned_hfid df.container
----@field land_holder_avail_hfid df.container
----@field scroll_position_land_holder_pos integer
+---@field scroll_position_land_holder_pos number
 ---@field scrolling_land_holder_pos boolean
----@field scroll_position_land_holder_hf integer
+---@field scroll_position_land_holder_hf number
 ---@field scrolling_land_holder_hf boolean
----@field land_holder_selected_pos integer
----@field taking_requests_tablist df.container
----@field scroll_position_taking_requests_tab integer
+---@field land_holder_selected_pos number
+---@field scroll_position_taking_requests_tab number
 ---@field scrolling_taking_requests_tab boolean
----@field scroll_position_taking_requests_tab_item integer
+---@field scroll_position_taking_requests_tab_item number
 ---@field scrolling_taking_requests_tab_item boolean
----@field taking_requests_selected_tab integer
----@field scroll_position_text integer
+---@field taking_requests_selected_tab number
+---@field scroll_position_text number
 ---@field scrolling_text boolean
----@field dipev dipscript_popup
----@field parley meeting_diplomat_info
----@field environment meeting_context
+---@field environment script_environmentst
+local diplomacy
+
+---@class _main_interface.T_diplomacy: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_diplomacy = {}
 
-
----@class main_interface_petitions: df.class
+---@class (exact) main_interface.T_petitions: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_petitions
 ---@field open boolean
 ---@field have_responsible_person boolean
----@field agreement_id df.container
----@field selected_agreement_id integer
----@field scroll_position integer
+---@field selected_agreement_id number
+---@field scroll_position number
 ---@field scrolling boolean
+local petitions
+
+---@class _main_interface.T_petitions: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_petitions = {}
 
-
----@class main_interface_stocks: df.class
+---@class (exact) main_interface.T_stocks: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_stocks
 ---@field open boolean
----@field type_list df.container
----@field filtered_type_list df.container
 ---@field current_type item_type
----@field scroll_position_type integer
----@field scroll_position_item integer
+---@field scroll_position_type number
+---@field scroll_position_item number
 ---@field scrolling_type boolean
 ---@field scrolling_item boolean
----@field item_filter df.string
+---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount df.container
----@field badamount df.container
----@field i_height integer
----@field current_type_i_list item[]
----@field current_type_a_subtype df.container
----@field current_type_a_subcat1 df.container
----@field current_type_a_subcat2 df.container
----@field current_type_a_amount df.container
----@field current_type_a_expanded boolean[]
----@field current_type_a_on boolean[]
----@field current_type_a_flag df.container
+---@field i_height number
+local stocks
+
+---@class _main_interface.T_stocks: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_stocks = {}
 
-
----@class main_interface_assign_display_item: df.class
+---@class (exact) main_interface.T_assign_display_item: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_assign_display_item
 ---@field open boolean
----@field display_bld building_display_furniturest
----@field new_display_itid df.container
----@field type_list df.container
----@field filtered_type_list df.container
 ---@field current_type item_type
----@field scroll_position_type integer
----@field scroll_position_item integer
+---@field scroll_position_type number
+---@field scroll_position_item number
 ---@field scrolling_type boolean
 ---@field scrolling_item boolean
----@field item_filter df.string
+---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount df.container
----@field badamount df.container
----@field i_height integer
----@field current_type_i_list item[]
----@field current_type_a_subtype df.container
----@field current_type_a_subcat1 df.container
----@field current_type_a_subcat2 df.container
----@field current_type_a_amount df.container
----@field current_type_a_expanded boolean[]
----@field current_type_a_on boolean[]
+---@field i_height number
+local assign_display_item
+
+---@class _main_interface.T_assign_display_item: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_assign_display_item = {}
 
-
----@class main_interface_name_creator: df.class
+---@class (exact) main_interface.T_name_creator: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_name_creator
 ---@field open boolean
 ---@field context name_creator_context_type
----@field namer historical_entity
----@field name language_name
 ---@field name_type language_name_type
----@field cur_name_place integer
----@field cur_word_place integer
+---@field cur_name_place number
+---@field cur_word_place number
 ---@field word_sel language_word_table
----@field word_index df.container
----@field word_index_asp df.container
----@field scroll_position_word integer
+---@field scroll_position_word number
 ---@field scrolling_word boolean
 ---@field entering_first_name boolean
 ---@field entering_cull_str boolean
----@field cull_str df.string
----@field adv_naming_pet_actev activity_event_conversationst
----@field named_unit unit
+---@field cull_str string
+local name_creator
+
+---@class _main_interface.T_name_creator: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_name_creator = {}
 
-
----@class main_interface_image_creator: df.class
+---@class (exact) main_interface.T_image_creator: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_image_creator
 ---@field open boolean
 ---@field context image_creator_context_type
----@field header df.string
+---@field header string
 ---@field current_option image_creator_option_type
 ---@field scrolling_list boolean
----@field scroll_position_list integer
+---@field scroll_position_list number
 ---@field doing_filter boolean
----@field filter df.string
+---@field filter string
 ---@field entering_number boolean
----@field number_str df.string
----@field st_master df.container site ptr, native name, translated name
----@field ent_master df.container entity ptr, native name, translated name
----@field plant_master df.container plant id, name
----@field tree_master df.container plant id, name
----@field shape_master df.container shape id, shape adj, name
----@field item_master df.container item type, item subtype, name
----@field artifact_master df.container artifact ptr, native name, translated name
----@field hf_master df.container histfig ptr, native name, translated name
----@field property_master df.container art property type, bool transitive, name
----@field hf historical_figure[]
----@field st world_site[]
----@field ent historical_entity[]
----@field hist_event history_event[]
----@field art_image art_image[]
+---@field number_str string
 ---@field new_image art_image
----@field new_image_race df.container
----@field new_image_caste df.container
----@field new_image_hf historical_figure[]
----@field new_image_plant df.container
----@field new_image_tree df.container
----@field new_image_shape df.container
----@field new_image_shape_adj df.container
----@field new_image_item df.container
----@field new_image_item_subtype df.container
----@field new_image_artifact artifact_record[]
----@field new_image_property df.container
----@field new_image_property_transitive boolean[]
----@field new_image_property_actor_target df.container
----@field new_image_active_property integer
+---@field new_image_active_property number
 ---@field new_image_active_property_transitive boolean
----@field new_image_active_property_actor_ind integer
----@field new_image_active_property_target_ind integer
----@field art_box df.string[]
+---@field new_image_active_property_actor_ind number
+---@field new_image_active_property_target_ind number
 ---@field scrolling_art_box boolean
----@field scroll_position_art_box integer
----@field last_art_box_width integer
----@field selected_box df.string[]
----@field last_selected_box_width integer
----@field last_selected_index integer
+---@field scroll_position_art_box number
+---@field last_art_box_width number
+---@field last_selected_box_width number
+---@field last_selected_index number
 ---@field back_out_warn boolean
 ---@field image_back_out_warn boolean
 ---@field must_do_image_back_out_warn boolean
----@field ics main_interface.T_image_creator_ics
+---@field ics main_interface.T_image_creator.T_ics
+local image_creator
+
+---@class _main_interface.T_image_creator: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_image_creator = {}
 
----@class main_interface.T_image_creator_ics: df.class
----@field jb job
----@field wq manager_order
----@field location_detail integer
----@field image_ent historical_entity
----@field art_image art_image
----@field adv_art_specifier integer
----@field hf historical_figure
----@field exit_flag integer
+---@class (exact) main_interface.T_image_creator.T_ics: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_image_creator.T_ics
 ---@field flag integer
+local ics
+
+---@class _main_interface.T_image_creator.T_ics: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_image_creator.T_ics = {}
 
-
----@class main_interface_unit_selector: df.class
+---@class (exact) main_interface.T_announcement_alert: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_announcement_alert
 ---@field open boolean
----@field context unit_selector_context_type
----@field unid df.container
----@field itemid df.container
----@field selected df.container
----@field already df.container
----@field bld_id integer
----@field skill_used integer[]
----@field skill_num integer
----@field loc_occupation integer occupationst
----@field loc_ent historical_entity
----@field loc_position entity_position
----@field loc_epp entity_position_assignment
----@field burrow_id integer
----@field squad_id integer
----@field squad_position integer
----@field scroll_position integer
----@field scrolling boolean
-df.main_interface.T_unit_selector = {}
-
-
----@class main_interface_announcement_alert: df.class
----@field open boolean
----@field viewing_alert report
 ---@field viewing_alert_button boolean
----@field zoom_line_is_start boolean[]
----@field zoom_line_ann report[]
----@field zoom_line_unit unit[]
----@field zoom_line_unit_uac df.container
----@field alert_text df.string[]
----@field alert_width integer
----@field alert_list_size integer
----@field scroll_position_alert integer
+---@field alert_width number
+---@field alert_list_size number
+---@field scroll_position_alert number
 ---@field scrolling_alert boolean
----@field viewing_unit unit
----@field viewing_unit_uac integer
----@field uac_zoom_line_is_start boolean[]
----@field uac_zoom_line_ann report[]
----@field uac_text df.string[]
----@field uac_width integer
----@field uac_list_size integer
----@field scroll_position_uac integer
+---@field viewing_unit_uac number
+---@field uac_width number
+---@field uac_list_size number
+---@field scroll_position_uac number
 ---@field scrolling_uac boolean
+local announcement_alert
+
+---@class _main_interface.T_announcement_alert: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_announcement_alert = {}
 
-
----@class main_interface_custom_symbol: df.class
+---@class (exact) main_interface.T_custom_symbol: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_custom_symbol
 ---@field open boolean
 ---@field context custom_symbol_context_type
----@field burrow_id integer
----@field work_detail_id integer
----@field squad_id integer
----@field scroll_position integer
+---@field burrow_id number
+---@field work_detail_id number
+---@field squad_id number
+---@field scroll_position number
 ---@field scrolling boolean
 ---@field doing_background_color boolean
----@field swatch_r integer[][]
----@field swatch_g integer[][]
----@field swatch_b integer[][]
+local custom_symbol
+
+---@class _main_interface.T_custom_symbol: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_custom_symbol = {}
 
-
----@class main_interface_patrol_routes: df.class
+---@class (exact) main_interface.T_patrol_routes: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_patrol_routes
 ---@field open boolean
 ---@field context patrol_routes_context_type
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
 ---@field adding_new_route boolean
----@field new_route_name df.string
+---@field new_route_name string
 ---@field entering_new_route_name boolean
 ---@field new_point coord_path
----@field route_line coord_path[] patrol_route_linest
----@field add_is_edit_of_route_id integer
+---@field add_is_edit_of_route_id number
 ---@field changed_points_on_edit boolean
+local patrol_routes
+
+---@class _main_interface.T_patrol_routes: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_patrol_routes = {}
 
-
----@class main_interface_squad_equipment: df.class
+---@class (exact) main_interface.T_squad_equipment: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_squad_equipment
 ---@field open boolean
 ---@field context squad_equipment_context_type
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
----@field squad_id df.container
----@field squad_pos df.container
----@field last_tick_update number
+---@field last_tick_update ulong
 ---@field customizing_equipment boolean
----@field customizing_squad_id integer
----@field customizing_squad_pos integer
----@field customizing_squad_uniform_nickname df.string
+---@field customizing_squad_id number
+---@field customizing_squad_pos number
+---@field customizing_squad_uniform_nickname string
 ---@field customizing_squad_entering_uniform_nickname boolean
----@field scroll_position_cs integer
+---@field scroll_position_cs number
 ---@field scrolling_cs boolean
----@field scroll_position_cssub integer
+---@field scroll_position_cssub number
 ---@field scrolling_cssub boolean
----@field cs_cat df.container EntityUniformItemCategory
----@field cs_it_spec_item_id df.container
----@field cs_it_type df.container
----@field cs_it_subtype df.container
----@field cs_civ_mat df.container EntityMaterial
----@field cs_spec_mat df.container
----@field cs_spec_matg df.container
----@field cs_color_pattern_index df.container ColoredPattern
----@field cs_icp_flag df.container
----@field cs_assigned_item_number df.container
----@field cs_assigned_item_id df.container
 ---@field cs_uniform_flag integer
----@field cs_adding_new_entry_category integer EntityUniformItemCategory
----@field cs_add_list_type df.container
----@field cs_add_list_subtype df.container
----@field cs_add_list_flag df.container
----@field cs_add_list_is_foreign boolean[]
+---@field cs_adding_new_entry_category number EntityUniformItemCategory
 ---@field cs_setting_material boolean
----@field cs_setting_list_ind integer
----@field cs_setting_material_ent df.container EntityMaterial
----@field cs_setting_material_mat df.container
----@field cs_setting_material_matg df.container
+---@field cs_setting_list_ind number
 ---@field cs_setting_color_pattern boolean
----@field cs_setting_color_pattern_index df.container ColoredPattern
----@field cs_setting_color_pattern_is_dye boolean[]
 ---@field cs_adding_specific_item boolean
----@field cs_add_spec_id df.container
+local squad_equipment
+
+---@class _main_interface.T_squad_equipment: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_squad_equipment = {}
 
-
----@class main_interface_squad_schedule: df.class
+---@class (exact) main_interface.T_squad_schedule: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_squad_schedule
 ---@field open boolean
 ---@field context squad_schedule_context_type
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
----@field scroll_position_month integer
+---@field scroll_position_month number
 ---@field scrolling_month boolean
----@field routine_page integer
----@field squad_id df.container
----@field viewing_months_squad_id integer
----@field last_tick_update number
+---@field routine_page number
+---@field viewing_months_squad_id number
+---@field last_tick_update ulong
 ---@field editing_routines boolean
----@field scroll_position_edit_routine integer
+---@field scroll_position_edit_routine number
 ---@field scrolling_edit_routine boolean
----@field routine_name_str df.string
+---@field routine_name_str string
 ---@field entering_routine_name boolean
----@field entering_routine_name_id integer
----@field deleting_routine_id integer
----@field copying_routine_id integer
----@field copying_squad_id integer
----@field copying_squad_month integer
+---@field entering_routine_name_id number
+---@field deleting_routine_id number
+---@field copying_routine_id number
+---@field copying_squad_id number
+---@field copying_squad_month number
+local squad_schedule
+
+---@class _main_interface.T_squad_schedule: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_squad_schedule = {}
 
-
----@class main_interface_squad_selector: df.class
+---@class (exact) main_interface.T_squad_selector: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_squad_selector
 ---@field open boolean
 ---@field context squad_selector_context_type
----@field squad_id df.container
----@field bld_id integer
----@field scroll_position integer
----@field scrolling integer
+---@field bld_id number
+---@field scroll_position number
+---@field scrolling number
+local squad_selector
+
+---@class _main_interface.T_squad_selector: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_squad_selector = {}
 
-
----@class main_interface_burrow_selector: df.class
+---@class (exact) main_interface.T_burrow_selector: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_burrow_selector
 ---@field open boolean
 ---@field context burrow_selector_context_type
----@field burrow_id df.container
----@field selected boolean[]
----@field scroll_position integer
----@field scrolling integer
+---@field scroll_position number
+---@field scrolling number
+local burrow_selector
+
+---@class _main_interface.T_burrow_selector: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_burrow_selector = {}
 
-
----@class main_interface_location_selector: df.class
+---@class (exact) main_interface.T_location_selector: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_location_selector
 ---@field open boolean
 ---@field context location_selector_context_type
----@field valid_ab abstract_building[]
----@field scroll_position_location integer
+---@field scroll_position_location number
 ---@field scrolling_location boolean
----@field current_hover_index integer
+---@field current_hover_index number
 ---@field choosing_temple_religious_practice boolean
----@field valid_religious_practice df.container
----@field scroll_position_deity integer
+---@field scroll_position_deity number
 ---@field scrolling_deity boolean
 ---@field choosing_craft_guild boolean
----@field valid_religious_practice_id df.container
----@field valid_craft_guild_type df.container
----@field scroll_position_guild integer
+---@field scroll_position_guild number
 ---@field scrolling_guild boolean
+local location_selector
+
+---@class _main_interface.T_location_selector: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_location_selector = {}
 
-
----@class main_interface_location_details: df.class
+---@class (exact) main_interface.T_location_details: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_location_details
 ---@field open boolean
 ---@field context location_details_context_type
----@field selected_ab abstract_building
----@field open_area_dx integer
----@field open_area_dy integer
----@field wc_count integer
----@field loc_occupation df.container occupationst
----@field loc_ent historical_entity[]
----@field loc_position entity_position[]
----@field loc_epp entity_position_assignment[]
----@field scroll_position_occupation integer
+---@field open_area_dx number
+---@field open_area_dy number
+---@field wc_count number
+---@field scroll_position_occupation number
 ---@field scrolling_occupation boolean
----@field desired_number_str df.string
----@field entering_desired_number integer
+---@field desired_number_str string
+local location_details
+
+---@class _main_interface.T_location_details: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_location_details = {}
 
-
----@class main_interface_hauling_stop_conditions: df.class
+---@class (exact) main_interface.T_hauling_stop_conditions: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_hauling_stop_conditions
 ---@field open boolean
 ---@field context hauling_stop_conditions_context_type
----@field route_id integer
----@field stop_id integer
----@field scroll_position integer
+---@field route_id number
+---@field stop_id number
+---@field scroll_position number
 ---@field scrolling boolean
+local hauling_stop_conditions
+
+---@class _main_interface.T_hauling_stop_conditions: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_hauling_stop_conditions = {}
 
-
----@class main_interface_assign_vehicle: df.class
+---@class (exact) main_interface.T_assign_vehicle: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_assign_vehicle
 ---@field open boolean
 ---@field context assign_vehicle_context_type
----@field i_vehicle vehicle[]
----@field route_id integer
----@field scroll_position integer
+---@field route_id number
+---@field scroll_position number
 ---@field scrolling boolean
+local assign_vehicle
+
+---@class _main_interface.T_assign_vehicle: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_assign_vehicle = {}
 
-
----@class main_interface_stockpile: df.class
+---@class (exact) main_interface.T_stockpile: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_stockpile
 ---@field doing_rectangle boolean
 ---@field box_on_left boolean
 ---@field erasing boolean
 ---@field repainting boolean
----@field cur_bld building_stockpilest
+local stockpile
+
+---@class _main_interface.T_stockpile: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_stockpile = {}
 
-
----@class main_interface_stockpile_link: df.class
+---@class (exact) main_interface.T_stockpile_link: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_stockpile_link
 ---@field open boolean
 ---@field context stockpile_link_context_type
----@field bld_id integer
----@field hr_id integer
----@field hs_id integer
----@field scroll_position_link_list integer
+---@field bld_id number
+---@field hr_id number
+---@field hs_id number
+---@field scroll_position_link_list number
 ---@field scrolling_link_list boolean
 ---@field adding_new_link boolean
----@field adding_new_link_type integer
+---@field adding_new_link_type number
+local stockpile_link
+
+---@class _main_interface.T_stockpile_link: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_stockpile_link = {}
 
-
----@class main_interface_stockpile_tools: df.class
+---@class (exact) main_interface.T_stockpile_tools: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_stockpile_tools
 ---@field open boolean
 ---@field context stockpile_tools_context_type
----@field bld_id integer
+---@field bld_id number
 ---@field entering_barrels boolean
 ---@field entering_bins boolean
 ---@field entering_wheelbarrows boolean
----@field number_str df.string
+---@field number_str string
+local stockpile_tools
+
+---@class _main_interface.T_stockpile_tools: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_stockpile_tools = {}
 
-
----@class main_interface_custom_stockpile: df.class
+---@class (exact) main_interface.T_custom_stockpile: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_custom_stockpile
 ---@field open boolean
----@field scroll_position_main integer
----@field scroll_position_sub integer
----@field scroll_position_spec integer
+---@field scroll_position_main number
+---@field scroll_position_sub number
+---@field scroll_position_spec number
 ---@field scrolling_main boolean
 ---@field scrolling_sub boolean
 ---@field scrolling_spec boolean
----@field spec_filter df.string
+---@field spec_filter string
 ---@field entering_spec_filter boolean
----@field abd building_stockpilest
----@field sp stockpile_settings
 ---@field cur_main_mode stockpile_list
 ---@field cur_main_mode_flag integer
 ---@field cur_sub_mode stockpile_list
----@field main_mode df.container
----@field main_mode_flag df.container
----@field sub_mode df.container
----@field sub_mode_ptr_type df.container
----@field sub_mode_ptr integer[]
----@field spec_item main_interface.T_custom_stockpile_spec_item[]
----@field cur_spec_item_sz integer
----@field counted_cur_spec_item_sz integer
+---@field cur_spec_item_sz number
+---@field counted_cur_spec_item_sz number
+local custom_stockpile
+
+---@class _main_interface.T_custom_stockpile: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_custom_stockpile = {}
 
----@class main_interface.T_custom_stockpile_spec_item: df.class
----@field name df.string
----@field simple_name df.string
----@field set_pointer integer
----@field on boolean
----@field race integer
----@field itype integer
----@field istype integer
----@field isc1 integer
----@field isc2 integer
-df.main_interface.T_custom_stockpile.T_spec_item = {}
-
-
----@class main_interface_view_sheets: df.class
+---@class (exact) main_interface.T_view_sheets: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_view_sheets
 ---@field open boolean
 ---@field context view_sheets_context_type
 ---@field active_sheet view_sheet_type
----@field active_id integer
----@field viewing_unid df.container
----@field viewing_itid df.container
----@field viewing_bldid integer
----@field viewing_x integer
----@field viewing_y integer
----@field viewing_z integer
----@field scroll_position integer
+---@field active_id number
+---@field viewing_bldid number
+---@field viewing_x number
+---@field viewing_y number
+---@field viewing_z number
+---@field scroll_position number
 ---@field scrolling boolean
----@field tab df.container
----@field tab_id df.container
----@field active_sub_tab integer
----@field trait view_sheet_trait_type[]
----@field trait_id integer[]
----@field trait_magnitude integer[]
----@field trait_num integer
----@field last_tick_update number
----@field reqroom integer[] demands
----@field curroom integer[] demands
----@field labor_skill_ind integer[]
----@field labor_skill_val integer[]
----@field labor_skill_w_rust integer[]
----@field labor_skill_num integer
----@field combat_skill_ind integer[]
----@field combat_skill_val integer[]
----@field combat_skill_w_rust integer[]
----@field combat_skill_num integer
----@field other_skill_ind integer[]
----@field other_skill_val integer[]
----@field other_skill_w_rust integer[]
----@field other_skill_num integer
----@field ent_vect historical_entity[]
----@field ep_vect entity_position[]
----@field ep_vect_spouse boolean[]
----@field unmet_need_type integer[]
----@field unmet_need_spec_id integer[]
----@field unmet_need_se integer[]
----@field unmet_need_num integer
----@field raw_thought_str df.string[]
----@field thought_box df.container color_text_boxst
----@field thought_box_width integer
----@field scroll_position_inventory integer
+---@field active_sub_tab number
+---@field trait_num number
+---@field last_tick_update ulong
+---@field labor_skill_num number
+---@field combat_skill_num number
+---@field other_skill_num number
+---@field unmet_need_num number
+---@field thought_box_width number
+---@field scroll_position_inventory number
 ---@field scrolling_inventory boolean
----@field scroll_position_relations integer
+---@field scroll_position_relations number
 ---@field scrolling_relations boolean
----@field rel_name df.string[]
----@field relation df.container
----@field relation_f df.container
----@field rel_unid df.container
----@field rel_hf historical_figure[]
----@field rel_rphv df.container relationship_profile_hf_visualst
----@field rel_rphh df.container relationship_profile_hf_historicalst
----@field rel_value df.container
 ---@field unit_overview_customizing boolean
 ---@field unit_overview_entering_nickname boolean
 ---@field unit_overview_entering_profession_nickname boolean
----@field unit_overview_entering_str df.string
+---@field unit_overview_entering_str string
 ---@field unit_overview_expelling boolean
 ---@field unit_overview_expel_cannot_expel_reason cannot_expel_reason_type
----@field unit_overview_expel_selected_dest_stid integer
----@field unit_overview_expel_dest_stid df.container
----@field unit_overview_expel_total_unid df.container
----@field scroll_position_unit_overview_expel integer
+---@field unit_overview_expel_selected_dest_stid number
+---@field scroll_position_unit_overview_expel number
 ---@field scrolling_unit_overview_expel boolean
----@field guest_text df.string[]
----@field scroll_position_groups integer
+---@field scroll_position_groups number
 ---@field scrolling_groups boolean
----@field unit_group_enid df.container
----@field unit_group_hfel df.container
----@field unit_group_epid df.container
----@field unit_group_eppid df.container
----@field unit_group_ep_is_spouse boolean[]
----@field unit_group_rep df.container
----@field unit_group_rep_level df.container
----@field scroll_position_thoughts integer
+---@field scroll_position_thoughts number
 ---@field scrolling_thoughts boolean
----@field thoughts_active_tab integer
----@field thoughts_raw_memory_str df.string[]
----@field thoughts_memory_box df.container color_text_boxst
----@field thoughts_memory_box_width integer
----@field scroll_position_personality integer
+---@field thoughts_active_tab number
+---@field thoughts_memory_box_width number
+---@field scroll_position_personality number
 ---@field scrolling_personality boolean
----@field personality_active_tab integer
----@field personality_raw_str df.string[]
----@field personality_box df.container color_text_boxst
----@field personality_width integer
----@field unit_labor_active_tab integer
----@field scroll_position_unit_labor integer
+---@field personality_active_tab number
+---@field personality_width number
+---@field unit_labor_active_tab number
+---@field scroll_position_unit_labor number
 ---@field scrolling_unit_labor boolean
----@field unit_workshop_id df.container
----@field unit_labor_assigned_animal_unid df.container
----@field unit_labor_assignable_animal_unid df.container
----@field scroll_position_unit_skill integer
+---@field scroll_position_unit_skill number
 ---@field scrolling_unit_skill boolean
----@field scroll_position_skill_description integer
+---@field scroll_position_skill_description number
 ---@field scrolling_skill_description boolean
----@field unit_skill_active_tab integer
----@field unit_skill df.container
----@field unit_skill_val df.container
----@field unit_skill_val_w_rust df.container
----@field unit_knowledge_type df.container
----@field unit_knowledge_id df.container
----@field unit_knowledge_bits df.container
----@field skill_description_raw_str df.string[]
----@field skill_description_box df.container color_text_boxst
----@field skill_description_width integer
----@field scroll_position_unit_room integer
----@field scrolling_unit_room integer
----@field unit_room_civzone_id df.container
----@field unit_room_curval df.container
----@field unit_military_active_tab integer
----@field scroll_position_unit_military_assigned integer
+---@field unit_skill_active_tab number
+---@field skill_description_width number
+---@field scroll_position_unit_room number
+---@field scrolling_unit_room number
+---@field unit_military_active_tab number
+---@field scroll_position_unit_military_assigned number
 ---@field scrolling_unit_military_assigned boolean
----@field scroll_position_unit_military_kills integer
+---@field scroll_position_unit_military_kills number
 ---@field scrolling_unit_military_kills boolean
----@field kill_description_raw_str df.string[]
----@field kill_description_box df.container color_text_boxst
----@field kill_description_width integer
----@field unit_health_active_tab integer
----@field scroll_position_unit_health integer
+---@field kill_description_width number
+---@field unit_health_active_tab number
+---@field scroll_position_unit_health number
 ---@field scrolling_unit_health boolean
----@field unit_health_raw_str df.string[]
----@field unit_health_box df.container color_text_boxst
----@field unit_health_width integer
----@field raw_current_thought df.string
----@field current_thought df.string[]
----@field current_thought_width integer
----@field scroll_position_item integer
+---@field unit_health_width number
+---@field raw_current_thought string
+---@field current_thought_width number
+---@field scroll_position_item number
 ---@field scrolling_item boolean
----@field scroll_position_building_job integer
+---@field scroll_position_building_job number
 ---@field scrolling_building_job boolean
----@field building_job_filter_str df.string
+---@field building_job_filter_str string
 ---@field entering_building_job_filter boolean
----@field scroll_position_cage_occupants integer
+---@field scroll_position_cage_occupants number
 ---@field scrolling_cage_occupants boolean
----@field scroll_position_displayed_items integer
+---@field scroll_position_displayed_items number
 ---@field scrolling_displayed_items boolean
 ---@field linking_lever boolean
 ---@field need_accessible_mechanism_warning boolean
----@field linking_lever_bld_id integer
----@field linking_lever_mech_lever_id integer
----@field linking_lever_mech_target_id integer
+---@field linking_lever_bld_id number
+---@field linking_lever_mech_lever_id number
+---@field linking_lever_mech_target_id number
 ---@field show_linked_buildings boolean
----@field scroll_position_linked_buildings integer
+---@field scroll_position_linked_buildings number
 ---@field scrolling_linked_buildings boolean
 ---@field building_entering_nickname boolean
----@field building_entering_str df.string
----@field work_order_id df.container
----@field scroll_position_work_orders integer
+---@field building_entering_str string
+---@field scroll_position_work_orders number
 ---@field scrolling_work_orders boolean
----@field gen_work_order_num_str df.string
+---@field gen_work_order_num_str string
 ---@field entering_gen_work_order_num boolean
 ---@field entering_wq_number boolean
----@field wq_number_str df.string
----@field entering_wq_id integer
----@field engraving_title df.string
----@field raw_description df.string
----@field description df.string[]
----@field description_width integer
----@field scroll_position_description integer
+---@field wq_number_str string
+---@field entering_wq_id number
+---@field engraving_title string
+---@field raw_description string
+---@field description_width number
+---@field scroll_position_description number
 ---@field scrolling_description boolean
----@field scroll_position_item_contents integer
+---@field scroll_position_item_contents number
 ---@field scrolling_item_contents boolean
----@field item_use df.string[]
----@field item_use_reaction_index df.container
+local view_sheets
+
+---@class _main_interface.T_view_sheets: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_view_sheets = {}
 
-
----@class main_interface_info: df.class
+---@class (exact) main_interface.T_squads: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_squads
 ---@field open boolean
----@field current_mode info_interface_mode_type
----@field creatures main_interface.T_info_creatures
----@field jobs main_interface.T_info_jobs
----@field buildings main_interface.T_info_buildings
----@field labor main_interface.T_info_labor
----@field work_orders main_interface.T_info_work_orders
----@field administrators main_interface.T_info_administrators
----@field artifacts main_interface.T_info_artifacts
----@field justice main_interface.T_info_justice
-df.main_interface.T_info = {}
-
----@class main_interface.T_info_creatures: df.class
----@field current_mode unit_list_mode_type
----@field cri_unit cri_unitst[][]
----@field scrolling_cri_unit boolean[]
----@field scroll_position_cri_unit integer[]
----@field sorting_cit_nameprof boolean
----@field sorting_cit_nameprof_is_ascending boolean
----@field sorting_cit_nameprof_doing_name boolean
----@field sorting_cit_nameprof_doing_prof boolean
----@field sorting_cit_job boolean
----@field sorting_cit_job_is_ascending boolean
----@field sorting_cit_stress boolean
----@field sorting_cit_stress_is_ascending boolean
----@field adding_trainer boolean
----@field trainer_animal_target unit
----@field trainer unit[]
----@field trainer_option df.container
----@field scrolling_trainer boolean
----@field scroll_position_trainer integer
----@field showing_overall_training boolean
----@field atk_index df.container
----@field scrolling_overall_training boolean
----@field scroll_position_overall_training integer
----@field assign_work_animal boolean
----@field assign_work_animal_animal unit
----@field work_animal_recipient unit[]
----@field scrolling_work_animal boolean
----@field scroll_position_work_animal integer
----@field showing_activity_details boolean
----@field activity_details_text markup_text_boxst
----@field scrolling_activity_details boolean
----@field scroll_position_activity_details integer
-df.main_interface.T_info.T_creatures = {}
-
-
----@class main_interface.T_info_jobs: df.class
----@field cri_job cri_unitst[]
----@field scrolling_cri_job boolean
----@field scroll_position_cri_job integer
-df.main_interface.T_info.T_jobs = {}
-
-
----@class main_interface.T_info_buildings: df.class
----@field mode buildings_mode_type
----@field list building[][]
----@field scrolling_position integer[]
----@field scrolling boolean[]
-df.main_interface.T_info.T_buildings = {}
-
-
----@class main_interface.T_info_labor: df.class
----@field mode labor_mode_type
----@field work_details main_interface.T_info.T_labor_work_details
----@field standing_orders main_interface.T_info.T_labor_standing_orders
----@field kitchen main_interface.T_info.T_labor_kitchen
----@field stone_use main_interface.T_info.T_labor_stone_use
-df.main_interface.T_info.T_labor = {}
-
----@class main_interface.T_info.T_labor_work_details: df.class
----@field selected_work_detail_index integer
----@field scroll_position_work_details integer
----@field scrolling_work_details boolean
----@field assignable_unit unit[]
----@field scroll_position_assignable_unit integer
----@field scrolling_assignable_unit boolean
----@field entering_custom_detail_name boolean
----@field editing_work_detail work_detail
----@field labor_list df.container
----@field scroll_position_labor_list integer
----@field scrolling_labor_list boolean
----@field skill_used integer[]
----@field skill_num integer
-df.main_interface.T_info.T_labor.T_work_details = {}
-
-
----@class main_interface.T_info.T_labor_standing_orders: df.class
----@field current_category standing_orders_category_type
----@field unit unit[]
----@field labor_list df.container
----@field scroll_position_labor_list integer
----@field scrolling_labor_list boolean
----@field scroll_position_units integer
----@field scrolling_units boolean
-df.main_interface.T_info.T_labor.T_standing_orders = {}
-
-
----@class main_interface.T_info.T_labor_kitchen: df.class
----@field current_category kitchen_pref_category_type
----@field known_type df.container[]
----@field known_subtype df.container[]
----@field known_mat df.container[]
----@field known_matg df.container[]
----@field known_num df.container[]
----@field known_rest df.container[]
----@field known_canrest df.container[]
----@field known_name df.string[][]
----@field scroll_position integer[]
----@field scrolling boolean[]
-df.main_interface.T_info.T_labor.T_kitchen = {}
-
-
----@class main_interface.T_info.T_labor_stone_use: df.class
----@field current_category stone_use_category_type
----@field stone_mg_index df.container[]
----@field stone_restriction_p integer[][]
----@field stone_item_use_str df.string[]
----@field scroll_position integer[]
----@field scrolling boolean[]
-df.main_interface.T_info.T_labor.T_stone_use = {}
-
-
----@class main_interface.T_info_work_orders: df.class
----@field scroll_position_work_orders integer
----@field scrolling_work_orders boolean
----@field conditions main_interface.T_info.T_work_orders_conditions
----@field entering_number boolean
----@field number_str df.string
----@field entering_wq manager_order
----@field b_entering_number boolean
----@field b_number_str df.string
----@field b_entering_wq manager_order
-df.main_interface.T_info.T_work_orders = {}
-
----@class main_interface.T_info.T_work_orders_conditions: df.class
----@field open boolean
----@field wq manager_order
----@field item_condition_satisfied boolean[]
----@field order_condition_satisfied boolean[]
----@field scroll_position_conditions integer
----@field scrolling_conditions boolean
----@field suggested_item_condition df.container workquota_item_conditionst
----@field scroll_position_suggested integer
----@field scrolling_suggested boolean
----@field filter df.string
----@field compare_master df.string[]
----@field change_type integer
----@field change_wqc integer workquota_item_conditions
----@field scroll_position_change integer
----@field scrolling_change integer
----@field item_type_master df.container
----@field item_subtype_master df.container
----@field item_type_on boolean[]
----@field item_material_master df.container
----@field item_matgloss_master df.container
----@field item_matstate_master df.container
----@field item_material_on boolean[]
----@field item_trait_master wqc_item_traitst[]
----@field selecting_order_condition boolean
----@field condition_wq manager_order[]
----@field scroll_position_condition_wq integer
----@field scrolling_condition_wq boolean
----@field entering_logic_number boolean
----@field logic_number_str df.string
----@field entering_logic_wqc integer workquota_item_conditionst
-df.main_interface.T_info.T_work_orders.T_conditions = {}
-
-
----@class main_interface.T_info_administrators: df.class
----@field noblelist main_interface.T_info.T_administrators_noblelist[]
----@field spec_prof entity_position_assignment[]
----@field spec_hfid df.container
----@field spec_enid df.container
----@field scroll_position_noblelist integer
----@field scrolling_noblelist boolean
----@field desc_hover_text df.string[]
----@field last_hover_width integer
----@field last_hover_entity_id integer
----@field last_hover_ep_id integer
----@field choosing_candidate boolean
----@field candidate_noblelist_ind integer
----@field candidate main_interface.T_info.T_administrators_candidate[]
----@field scroll_position_candidate integer
----@field scrolling_candidate boolean
----@field assigning_symbol boolean
----@field symbol_noblelist_ind integer
----@field cand_symbol item[]
----@field cand_symbol_new_ind df.container
----@field cand_symbol_is_symbol_of_ind df.container
----@field cand_symbol_value df.container
----@field scroll_position_symbol integer
----@field scrolling_symbol boolean
----@field handling_symbol_closure_ind integer
-df.main_interface.T_info.T_administrators = {}
-
----@class main_interface.T_info.T_administrators_noblelist: df.class
----@field un unit
----@field nem nemesis_record
----@field upplist integer unitpropertyplacementst
----@field ep entity_position
----@field epp entity_position_assignment
----@field enid integer
----@field value integer
-df.main_interface.T_info.T_administrators.T_noblelist = {}
-
-
----@class main_interface.T_info.T_administrators_candidate: df.class
----@field un unit
----@field value integer
-df.main_interface.T_info.T_administrators.T_candidate = {}
-
-
----@class main_interface.T_info_artifacts: df.class
----@field mode artifacts_mode_type
----@field list artifact_record[][]
----@field scroll_position integer[]
----@field scrolling boolean[]
-df.main_interface.T_info.T_artifacts = {}
-
-
----@class main_interface.T_info_justice: df.class
----@field current_mode justice_interface_mode_type
----@field cage_chain_needed integer
----@field cage_chain_count integer
----@field open_case crime[]
----@field scroll_position_open_cases integer
----@field scrolling_open_cases boolean
----@field selected_open_case integer
----@field scroll_position_selected_open_case integer
----@field scrolling_selected_open_case boolean
----@field closed_case crime[]
----@field scroll_position_closed_cases integer
----@field scrolling_closed_cases boolean
----@field selected_closed_case integer
----@field scroll_position_selected_closed_case integer
----@field scrolling_selected_closed_case boolean
----@field cold_case crime[]
----@field scroll_position_cold_cases integer
----@field scrolling_cold_cases boolean
----@field selected_cold_case integer
----@field scroll_position_selected_cold_case integer
----@field scrolling_selected_cold_case boolean
----@field cri_fortress_guard cri_unitst[]
----@field scroll_position_fortress_guard integer
----@field scrolling_fortress_guard boolean
----@field sorting_guard_nameprof boolean
----@field sorting_guard_nameprof_is_ascending boolean
----@field sorting_guard_nameprof_doing_name boolean
----@field sorting_guard_nameprof_doing_prof boolean
----@field cri_convict cri_unitst[]
----@field scroll_position_convicts integer
----@field scrolling_convicts boolean
----@field selected_convict integer
----@field convict_crime crime[]
----@field convict_lawaction integer lawactionst
----@field sorting_convict_nameprof boolean
----@field sorting_convict_nameprof_is_ascending boolean
----@field sorting_convict_nameprof_doing_name boolean
----@field sorting_convict_nameprof_doing_prof boolean
----@field scroll_position_selected_convict integer
----@field scrolling_selected_convict boolean
----@field convicting boolean
----@field conviction_list unit[]
----@field scroll_position_conviction integer
----@field scrolling_conviction boolean
----@field interrogating boolean
----@field interrogation_list unit[]
----@field interrogation_list_flag df.container
----@field scroll_position_interrogation integer
----@field scrolling_interrogation boolean
----@field interrogation_report_box df.string[]
----@field interrogation_report_box_width integer
----@field interrogation_report df.container interrogation_reportst
----@field viewing_interrogation_report integer interrogation_reportst
----@field scroll_position_interrogation_list integer
----@field scrolling_interrogation_list boolean
----@field scroll_position_interrogation_report integer
----@field scrolling_interrogation_report boolean
----@field base_actor_entry actor_entryst[]
----@field base_organization_entry organization_entryst[]
----@field base_plot_entry plot_entryst[]
----@field counterintelligence_mode counterintelligence_mode_type
----@field counterintelligence_selected integer
----@field counterintelligence_filter_str df.string
----@field entering_counterintelligence_filter boolean
----@field selected_counterintelligence_oen integer organization_entry_nodest
----@field scroll_position_counterintelligence integer
----@field scrolling_counterintelligence boolean
----@field value_actor_entry actor_entryst[]
----@field value_organization_entry organization_entryst[]
----@field value_plot_entry plot_entryst[]
----@field actor_entry actor_entryst[]
----@field organization_entry organization_entryst[]
----@field plot_entry plot_entryst[]
-df.main_interface.T_info.T_justice = {}
-
-
----@class main_interface_squads: df.class
----@field open boolean
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
----@field squad_id df.container
----@field squad_selected boolean[]
----@field viewing_squad_index integer
----@field squad_hfid_selected df.container
+---@field viewing_squad_index number
 ---@field entering_squad_nickname boolean
----@field squad_nickname_str df.string
+---@field squad_nickname_str string
 ---@field giving_move_order boolean
 ---@field giving_kill_order boolean
----@field kill_unid df.container
 ---@field kill_doing_rectangle boolean
 ---@field giving_patrol_order boolean
 ---@field giving_burrow_order boolean
----@field editing_squad_schedule_id integer
----@field editing_squad_schedule_routine_index integer
----@field editing_squad_schedule_month integer
+---@field editing_squad_schedule_id number
+---@field editing_squad_schedule_routine_index number
+---@field editing_squad_schedule_month number
 ---@field editing_squad_schedule_whole_squad_selected boolean
----@field editing_squad_schedule_pos_selected df.container
----@field editing_squad_schedule_min_follow integer
----@field scroll_position_orderp integer
+---@field editing_squad_schedule_min_follow number
+---@field scroll_position_orderp number
 ---@field scrolling_orderp boolean
----@field cell_nickname_str df.string
+---@field cell_nickname_str string
 ---@field entering_cell_nickname boolean
+local squads
+
+---@class _main_interface.T_squads: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_squads = {}
 
-
----@class main_interface_create_squad: df.class
+---@class (exact) main_interface.T_create_squad: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_create_squad
 ---@field open boolean
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
----@field cand_new_squad_appoint_epp entity_position_assignment[]
----@field cand_new_squad_appoint_epp_ep entity_position[]
----@field cand_new_squad_existing_epp entity_position_assignment[]
----@field cand_new_squad_existing_epp_ep entity_position[]
----@field cand_new_squad_new_epp_from_ep entity_position[]
----@field new_squad_appoint_epp entity_position_assignment
----@field new_squad_appoint_epp_ep entity_position
----@field new_squad_existing_epp entity_position_assignment
----@field new_squad_existing_epp_ep entity_position
----@field new_squad_new_epp_from_ep entity_position
+local create_squad
+
+---@class _main_interface.T_create_squad: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_create_squad = {}
 
-
----@class main_interface_squad_supplies: df.class
+---@class (exact) main_interface.T_squad_supplies: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_squad_supplies
 ---@field open boolean
----@field squad_id integer
+---@field squad_id number
+local squad_supplies
+
+---@class _main_interface.T_squad_supplies: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_squad_supplies = {}
 
-
----@class main_interface_assign_uniform: df.class
+---@class (exact) main_interface.T_assign_uniform: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_assign_uniform
 ---@field open boolean
 ---@field context assign_uniform_context_type
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
----@field cand_uniform entity_uniform[]
+local assign_uniform
+
+---@class _main_interface.T_assign_uniform: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_assign_uniform = {}
 
-
----@class main_interface_create_work_order: df.class
+---@class (exact) main_interface.T_create_work_order: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_create_work_order
 ---@field open boolean
----@field forced_bld_id integer
----@field jminfo_master manager_order_template[]
----@field building cwo_buildingst[]
----@field scroll_position_building integer
+---@field forced_bld_id number
+---@field scroll_position_building number
 ---@field scrolling_building boolean
----@field selected_building_index integer
----@field scroll_position_job integer
+---@field selected_building_index number
+---@field scroll_position_job number
 ---@field scrolling_job boolean
----@field job_filter df.string
+---@field job_filter string
 ---@field entering_job_filter boolean
+local create_work_order
+
+---@class _main_interface.T_create_work_order: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_create_work_order = {}
 
-
----@class main_interface_hotkey: df.class
+---@class (exact) main_interface.T_hotkey: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_hotkey
 ---@field open boolean
----@field scroll_position integer
+---@field scroll_position number
 ---@field scrolling boolean
----@field entering_index integer
+---@field entering_index number
 ---@field entering_name boolean
+local hotkey
+
+---@class _main_interface.T_hotkey: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_hotkey = {}
 
-
----@class main_interface_options: df.class
+---@class (exact) main_interface.T_options: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_options
 ---@field open boolean
 ---@field context options_context_type
----@field header df.string
----@field text df.string[]
+---@field header string
 ---@field fort_retirement_confirm boolean
 ---@field fort_abandon_confirm boolean
 ---@field fort_quit_without_saving_confirm boolean
----@field option df.container
----@field option_index df.container
 ---@field entering_manual_folder boolean
----@field entering_manual_str df.string
+---@field entering_manual_str string
 ---@field confirm_manual_overwrite boolean
 ---@field entering_timeline boolean
----@field entering_timeline_str df.string
+---@field entering_timeline_str string
 ---@field do_manual_save boolean
----@field manual_save_timer integer
----@field overwrite_save_folder df.string[]
+---@field manual_save_timer number
 ---@field ended_game boolean
 ---@field doing_help boolean
 ---@field doing_help_box markup_text_boxst
----@field guide_context df.container
----@field scroll_position_guide integer
+---@field scroll_position_guide number
 ---@field scrolling_guide boolean
----@field popup_context df.container
----@field scroll_position_popup integer
+---@field scroll_position_popup number
 ---@field scrolling_popup boolean
 ---@field filecomp file_compressorst
----@field saver main_interface.T_options_saver saverst
+---@field saver main_interface.T_options.T_saver
+local options
+
+---@class _main_interface.T_options: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_options = {}
 
----saverst
----@class main_interface.T_options_saver: df.class
+-- saverst
+---@class (exact) main_interface.T_options.T_saver: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_options.T_saver
+---@field  number
+---@field  number
+local saver
+
+---@class _main_interface.T_options.T_saver: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_options.T_saver = {}
 
-
----@class main_interface_help: df.class
+---@class (exact) main_interface.T_help: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_help
 ---@field open boolean
 ---@field flag integer
 ---@field context_flag integer
 ---@field context help_context_type
----@field header df.string
----@field text markup_text_boxst[] tutorials
----@field floor_dug integer
+---@field header string
+---@field floor_dug number
+local help
+
+---@class _main_interface.T_help: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_help = {}
 
-
----@class main_interface_arena_unit: df.class
+---@class (exact) main_interface.T_arena_unit: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_arena_unit
 ---@field open boolean
 ---@field context arena_context_type
----@field race integer
----@field caste integer
----@field team integer
----@field interaction integer
+---@field race number
+---@field caste number
+---@field team number
+---@field interaction number
 ---@field tame boolean
 ---@field editing_filter boolean
----@field filter df.string
----@field races_filtered df.container
----@field castes_filtered df.container
----@field races_all df.container
----@field castes_all df.container
----@field skills job_skill[]
----@field skill_levels df.container
----@field equipment_item_type df.container
----@field equipment_item_subtype df.container
----@field equipment_mat_type df.container
----@field equipment_mat_index df.container
----@field equipment_quantity df.container
----@field interactions interaction_effect[]
+---@field filter string
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+---@field  number
+local arena_unit
+
+---@class _main_interface.T_arena_unit: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_arena_unit = {}
 
-
----@class main_interface_arena_tree: df.class
+---@class (exact) main_interface.T_arena_tree: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface.T_arena_tree
 ---@field open boolean
----@field age integer in years
+---@field age number in years
 ---@field editing_age boolean
----@field age_str df.string string representation of age field
+---@field  number
+---@field age_str string string representation of age field
 ---@field editing_filter boolean
----@field filter df.string
----@field tree_types_filtered df.container
----@field tree_types_all df.container
+---@field filter string
+---@field  number
+---@field  number
+---@field  number
+local arena_tree
+
+---@class _main_interface.T_arena_tree: DFCompound
+---@field _kind 'struct-type'
 df.main_interface.T_arena_tree = {}
 
----@class gamest: df.class
+---@class (exact) gamest: DFObject
+---@field _kind 'struct'
+---@field _type _gamest
+---@field command_line gamest.T_command_line
 ---@field main_interface main_interface
----@field minimap gamest_minimap
----@field command_line gamest_command_line
----@field mod_manager gamest_mod_manager
+---@field minimap gamest.T_minimap
+---@field mod_manager gamest.T_mod_manager
 ---@field hash_rng hash_rngst
 ---@field play_rng hash_rngst
 ---@field start_tick_count integer
----@field autosave_cycle integer
+---@field autosave_cycle number
 ---@field want_to_quit_to_title boolean
----@field flash_11_by_3 integer[][][]
----@field flash_7_by_3 integer[][][]
----@field flash_4_by_3 integer[][][]
----@field external_flag integer
+---@field external_flag number
+local gamest
+
+---@class _gamest: DFCompound
+---@field _kind 'struct-type'
 df.gamest = {}
 
----@class gamest_minimap: df.class
----@field minimap integer[][]
----@field update integer
----@field mustmake integer
----@field printed_z integer
----@field buffer_symbol integer[][]
----@field buffer_f integer[][]
----@field buffer_b integer[][]
----@field buffer_br integer[][]
----@field texpos integer
-df.gamest.T_minimap = {}
-
-
----@class gamest_command_line: df.class
----@field original df.string
----@field arg_vect df.string[]
----@field gen_id number
----@field world_seed number
+---@class (exact) gamest.T_command_line: DFObject
+---@field _kind 'struct'
+---@field _type _gamest.T_command_line
+---@field original string
+---@field gen_id long
+---@field world_seed long
 ---@field use_seed boolean
----@field world_param df.string
----@field use_param integer
+---@field world_param string
+---@field use_param number
+local command_line
+
+---@class _gamest.T_command_line: DFCompound
+---@field _kind 'struct-type'
 df.gamest.T_command_line = {}
 
+---@class (exact) gamest.T_minimap: DFObject
+---@field _kind 'struct'
+---@field _type _gamest.T_minimap
+---@field update number
+---@field mustmake number
+---@field printed_z number
+---@field texpos number
+local minimap
 
----@class gamest_mod_manager: df.class
----@field mod_header mod_headerst[]
----@field subscribed_file_id integer
+---@class _gamest.T_minimap: DFCompound
+---@field _kind 'struct-type'
+df.gamest.T_minimap = {}
+
+---@class (exact) gamest.T_mod_manager: DFObject
+---@field _kind 'struct'
+---@field _type _gamest.T_mod_manager
 ---@field doing_mod_upload boolean
----@field mod_upload_header mod_headerst[]
 ---@field mod_upload_completed boolean
----@field uploading_mod_index integer
----@field CreateItemResult _
----@field SubmitItemUpdateResult _
+---@field uploading_mod_index number
+local mod_manager
+
+---@class _gamest.T_mod_manager: DFCompound
+---@field _kind 'struct-type'
 df.gamest.T_mod_manager = {}
 
----@class main_interface_settings: df.class
----@field open boolean
+---@class (exact) main_interface_settings: DFObject
+---@field _kind 'struct'
+---@field _type _main_interface_settings
+---@field open boolean needs to be a separate type so that widget_tabs can forward-declare this type as a friend
 ---@field context settings_context_type
----@field tab df.container
 ---@field current_mode settings_tab_type
 ---@field container_widget widget_container
----@field scroll_position_params integer
+---@field scroll_position_params number
 ---@field scrolling_params boolean
 ---@field entering_value_str boolean
----@field entering_value_index integer
----@field value_str df.string
----@field member world_gen_param_basest[]
+---@field entering_value_index number
+---@field value_str string
 ---@field fullscreen_resolution_open boolean
----@field permitted_fullscreen_w df.container
----@field permitted_fullscreen_h df.container
----@field scroll_position_permitted_fullscreen integer
+---@field scroll_position_permitted_fullscreen number
 ---@field scrolling_permitted_fullscreen boolean
----@field keybinding_category df.container
----@field keybinding_selected_category integer
----@field keybinding_scroll_position_cat integer
+---@field keybinding_selected_category number
+---@field keybinding_scroll_position_cat number
 ---@field keybinding_scrolling_cat boolean
----@field keybinding_name df.string[][]
----@field keybinding_key df.container[]
----@field keybinding_binding df.container[]
----@field keybinding_binding_name df.string[][]
----@field keybinding_flag df.container[]
----@field keybinding_scroll_position_key integer
+---@field keybinding_scroll_position_key number
 ---@field keybinding_scrolling_key boolean
----@field keybinding_registering_index integer
+---@field keybinding_registering_index number
 ---@field keybinding_registering_adding_new boolean
----@field macro_list df.string[]
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
+local main_interface_settings
+
+---@class _main_interface_settings: DFCompound
+---@field _kind 'struct-type'
 df.main_interface_settings = {}
 
----@class hash_rngst: df.class
----@field splitmix64_state integer
+---@class (exact) hash_rngst: DFObject
+---@field _kind 'struct'
+---@field _type _hash_rngst
+---@field splitmix64_state number
+---@field  number
+---@field  number
+local hash_rngst
+
+---@class _hash_rngst: DFCompound
+---@field _kind 'struct-type'
 df.hash_rngst = {}
 
----@class difficultyst: df.class
----@field difficulty_enemies integer 0=off, 1=normal, 2=hard, 3=custom
----@field difficulty_economy integer 0=normal, 1=hard, 2=custom
----@field enemy_pop_trigger integer[]
----@field enemy_prod_trigger integer[]
----@field enemy_trade_trigger integer[]
----@field megabeast_interval integer
----@field forgotten_sens integer
----@field forgotten_irritate_min integer
----@field forgotten_wealth_div integer
----@field wild_sens integer
----@field wild_irritate_min integer
----@field wild_irritate_decay integer
----@field werebeast_interval integer
----@field vampire_fraction integer
----@field invasion_cap_regular integer[]
----@field invasion_cap_monsters integer[]
----@field min_raids_before_siege integer
----@field min_raids_between_sieges integer
----@field siege_frequency integer
----@field cavern_dweller_scale integer
----@field cavern_dweller_max_attackers integer
----@field tree_fell_count_savage integer
----@field tree_fell_count integer
----@field flags difficultyst_flags
----@field economy_pop_trigger integer[]
----@field economy_prod_trigger integer[]
----@field economy_trade_trigger integer[]
----@field land_holder_pop_trigger integer[]
----@field land_holder_prod_trigger integer[]
----@field land_holder_trade_trigger integer[]
----@field temple_value integer
----@field temple_complex_value integer
----@field priesthood_unit_count integer
----@field high_priesthood_unit_count integer
----@field guildhall_value integer
----@field grand_guildhall_value integer
----@field guild_unit_count integer
----@field grand_guild_unit_count integer
----@field mandate_period integer
----@field demand_period integer
+---@class (exact) difficultyst: DFObject
+---@field _kind 'struct'
+---@field _type _difficultyst
+---@field difficulty_enemies number 0=off, 1=normal, 2=hard, 3=custom
+---@field difficulty_economy number 0=normal, 1=hard, 2=custom
+---@field megabeast_interval number
+---@field forgotten_sens number
+---@field forgotten_irritate_min number
+---@field forgotten_wealth_div number
+---@field wild_sens number
+---@field wild_irritate_min number
+---@field wild_irritate_decay number
+---@field werebeast_interval number
+---@field vampire_fraction number
+---@field min_raids_before_siege number
+---@field min_raids_between_sieges number
+---@field siege_frequency number
+---@field cavern_dweller_scale number
+---@field cavern_dweller_max_attackers number
+---@field tree_fell_count_savage number
+---@field tree_fell_count number
+---@field flags difficultyst.T_flags
+---@field temple_value number
+---@field temple_complex_value number
+---@field priesthood_unit_count number
+---@field high_priesthood_unit_count number
+---@field guildhall_value number
+---@field grand_guildhall_value number
+---@field guild_unit_count number
+---@field grand_guild_unit_count number
+---@field mandate_period number
+---@field demand_period number
+local difficultyst
+
+---@class _difficultyst: DFCompound
+---@field _kind 'struct-type'
 df.difficultyst = {}
 
----@class _difficultyst_flags: integer, string, df.bitfield
----@field sieges 0
----@field [0] "sieges"
----@field megabeasts 1
----@field [1] "megabeasts"
----@field werebeasts 2
----@field [2] "werebeasts"
----@field curiousbeasts 3
----@field [3] "curiousbeasts"
+---@class (exact) difficultyst.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _difficultyst.T_flags
+---@field sieges flag-bit
+---@field megabeasts flag-bit
+---@field werebeasts flag-bit
+---@field curiousbeasts flag-bit
+local flags
+
+---@class _difficultyst.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.difficultyst.T_flags = {}
 
----@class difficultyst_flags
----@field [0] boolean
----@field sieges boolean
----@field [1] boolean
----@field megabeasts boolean
----@field [2] boolean
----@field werebeasts boolean
----@field [3] boolean
----@field curiousbeasts boolean
-
----@class markup_text_boxst: df.class
----@field unk1 markup_text_boxst_unk1[]
----@field unk_v50_2 markup_text_boxst_unk_v50_2[]
----@field unk_v50_3 integer
----@field unk_v50_4 integer
----@field unk_v50_5 integer
----@field unk_v50_6 integer
-df.markup_text_boxst = {}
-
----@class markup_text_boxst_unk1: df.class
----@field unk_00 df.string
+---@class (exact) markup_text_wordst: DFObject
+---@field _kind 'struct'
+---@field _type _markup_text_wordst
+---@field str string read and write serialization is in order as below
 ---@field red integer
 ---@field green integer
 ---@field blue integer
----@field unk_24 integer
----@field unk_28 integer
----@field unk_2c integer
----@field unk_30 boolean[]
-df.markup_text_boxst.T_unk1 = {}
+---@field link_index number refers to this text box's link vector, makes clickable link in legends mode
+---@field px number offset from left of text box in characters
+---@field py number offset from top of text box (positive is downwards)
+---@field flags markup_text_wordst.T_flags
+local markup_text_wordst
 
+---@class _markup_text_wordst: DFCompound
+---@field _kind 'struct-type'
+df.markup_text_wordst = {}
 
----@class markup_text_boxst_unk_v50_2: df.class
----@field unk_0 integer
----@field unk_4 integer
----@field unk_8 integer
-df.markup_text_boxst.T_unk_v50_2 = {}
+---@class (exact) markup_text_wordst.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _markup_text_wordst.T_flags
+---@field NEW_LINE flag-bit
+---@field BLANK_LINE flag-bit
+---@field INDENT flag-bit
+local flags
 
----@class wqc_item_traitst: df.class
+---@class _markup_text_wordst.T_flags: DFCompound
+---@field _kind 'struct-type'
+df.markup_text_wordst.T_flags = {}
+
+---@alias markup_text_link_type
+---| -1 # NONE
+---| 0 # HIST_FIG
+---| 1 # SITE
+---| 2 # ARTIFACT
+---| 3 # BOOK
+---| 4 # SUBREGION
+---| 5 # FEATURE_LAYER
+---| 6 # ENTITY
+---| 7 # ABSTRACT_BUILDING
+---| 8 # ENTITY_POPULATION
+---| 9 # ART_IMAGE
+---| 10 # ERA
+---| 11 # HEC
+
+-- bay12: MarkupTextLink
+---@class _markup_text_link_type: DFDescriptor
+---@field _kind 'enum-type'
+---@field NONE -1
+---@field [-1] "NONE"
+---@field HIST_FIG 0
+---@field [0] "HIST_FIG"
+---@field SITE 1
+---@field [1] "SITE"
+---@field ARTIFACT 2
+---@field [2] "ARTIFACT"
+---@field BOOK 3
+---@field [3] "BOOK"
+---@field SUBREGION 4
+---@field [4] "SUBREGION"
+---@field FEATURE_LAYER 5
+---@field [5] "FEATURE_LAYER"
+---@field ENTITY 6
+---@field [6] "ENTITY"
+---@field ABSTRACT_BUILDING 7
+---@field [7] "ABSTRACT_BUILDING"
+---@field ENTITY_POPULATION 8
+---@field [8] "ENTITY_POPULATION"
+---@field ART_IMAGE 9
+---@field [9] "ART_IMAGE"
+---@field ERA 10
+---@field [10] "ERA"
+---@field HEC 11
+---@field [11] "HEC"
+df.markup_text_link_type = {}
+
+---@class (exact) markup_text_linkst: DFObject
+---@field _kind 'struct'
+---@field _type _markup_text_linkst
+---@field type markup_text_link_type read and write serialization is in order as below
+---@field id number
+---@field subid number only used for type ABSTRACT_BUILDING and ART_IMAGE
+local markup_text_linkst
+
+---@class _markup_text_linkst: DFCompound
+---@field _kind 'struct-type'
+df.markup_text_linkst = {}
+
+---@class (exact) script_environmentst: DFObject
+---@field _kind 'struct'
+---@field _type _script_environmentst
+local script_environmentst
+
+---@class _script_environmentst: DFCompound
+---@field _kind 'struct-type'
+df.script_environmentst = {}
+
+---@class (exact) markup_text_boxst: DFObject
+---@field _kind 'struct'
+---@field _type _markup_text_boxst
+---@field current_width number
+---@field max_y number
+local markup_text_boxst
+
+---@class _markup_text_boxst: DFCompound
+---@field _kind 'struct-type'
+df.markup_text_boxst = {}
+
+---@class (exact) wqc_item_traitst: DFObject
+---@field _kind 'struct'
+---@field _type _wqc_item_traitst
 ---@field flg integer
----@field flgn integer
----@field reaction_class df.string
----@field reaction_product_class df.string
----@field metal_ore integer
----@field contains_reaction_index integer
----@field contains_reagent_index integer
----@field tool_use integer
----@field display_string df.string
+---@field flgn number
+---@field reaction_class string
+---@field reaction_product_class string
+---@field metal_ore number
+---@field contains_reaction_index number
+---@field contains_reagent_index number
+---@field tool_use number
+---@field display_string string
 ---@field on boolean
+local wqc_item_traitst
+
+---@class _wqc_item_traitst: DFCompound
+---@field _kind 'struct-type'
 df.wqc_item_traitst = {}
 
----@class cwo_buildingst: df.class
----@field type integer
----@field subtype integer
----@field custom_id integer
----@field jminfo manager_order_template[]
----@field name df.string
+---@class (exact) cwo_buildingst: DFObject
+---@field _kind 'struct'
+---@field _type _cwo_buildingst
+---@field type number
+---@field subtype number
+---@field custom_id number
+---@field name string
+local cwo_buildingst
+
+---@class _cwo_buildingst: DFCompound
+---@field _kind 'struct-type'
 df.cwo_buildingst = {}
 
----@class cri_unitst: df.class
----@field un unit
----@field it item
----@field jb job
----@field profession_list_order1 integer
----@field profession_list_order2 integer
----@field stress integer
+---@class (exact) cri_unitst: DFObject
+---@field _kind 'struct'
+---@field _type _cri_unitst
+---@field profession_list_order1 number
+---@field profession_list_order2 number
+---@field stress number
 ---@field flag integer
----@field sort_name df.string
----@field job_sort_name df.string
----@field owner_un unit
+---@field sort_name string
+---@field job_sort_name string
+local cri_unitst
+
+---@class _cri_unitst: DFCompound
+---@field _kind 'struct-type'
 df.cri_unitst = {}
 
----@class actor_entryst: df.class
----@field hf historical_figure
----@field iden integer identityst
----@field name_ptr language_name
----@field list_name df.string
----@field simple_list_name df.string
----@field p_list_name df.string
----@field main_text_box df.string[]
----@field visual_hfid integer
----@field historical_hfid integer
----@field identity_id integer
----@field alias_identity_id df.container
----@field principle_org integer organization_entryst
----@field associated_org df.container organization_entryst
----@field associated_plot plot_entryst[]
+---@class (exact) actor_entryst: DFObject
+---@field _kind 'struct'
+---@field _type _actor_entryst
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field visual_hfid number
+---@field historical_hfid number
+---@field identity_id number
 ---@field flag integer
+local actor_entryst
+
+---@class _actor_entryst: DFCompound
+---@field _kind 'struct-type'
 df.actor_entryst = {}
 
----@class organization_entry_nodest: df.class
----@field actor_entry actor_entryst
----@field master organization_entry_nodest
----@field sort_id integer
----@field tier integer
----@field x integer
----@field descendant_sum integer
----@field label df.string
----@field fcol integer
----@field bcol integer
----@field br integer
----@field name df.string
----@field status df.string
+---@class (exact) organization_entry_nodest: DFObject
+---@field _kind 'struct'
+---@field _type _organization_entry_nodest
+---@field sort_id number
+---@field tier number
+---@field x number
+---@field descendant_sum number
+---@field label string
+---@field fcol number
+---@field bcol number
+---@field br number
+---@field name string
+---@field status string
+local organization_entry_nodest
+
+---@class _organization_entry_nodest: DFCompound
+---@field _kind 'struct-type'
 df.organization_entry_nodest = {}
 
----@class organization_entryst: df.class
----@field node organization_entry_nodest[]
----@field list_name df.string
----@field simple_list_name df.string
----@field p_list_name df.string
----@field main_text_box df.string[]
----@field principle_actor_entry actor_entryst
+---@class (exact) organization_entryst: DFObject
+---@field _kind 'struct'
+---@field _type _organization_entryst
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
 ---@field flag integer
+local organization_entryst
+
+---@class _organization_entryst: DFCompound
+---@field _kind 'struct-type'
 df.organization_entryst = {}
 
----@class plot_entryst: df.class
----@field list_name df.string
----@field simple_list_name df.string
----@field p_list_name df.string
----@field agreement integer agreementst
----@field master_hfid integer
----@field organization_name df.string
+---@class (exact) plot_entryst: DFObject
+---@field _kind 'struct'
+---@field _type _plot_entryst
+---@field list_name string
+---@field simple_list_name string
+---@field p_list_name string
+---@field master_hfid number
+---@field organization_name string
+local plot_entryst
+
+---@class _plot_entryst: DFCompound
+---@field _kind 'struct-type'
 df.plot_entryst = {}
 
----@class mod_headerst: df.class
----@field zip_filename df.string
----@field unzipped_folder df.string
----@field id df.string
----@field numeric_version integer
----@field displayed_version df.string
----@field earliest_compatible_numeric_version integer
----@field earliest_compatible_displayed_version df.string
----@field author df.string
----@field name df.string
----@field description df.string
----@field dependencies df.string[]
----@field dependency_type df.container 0 exact, 1 before, 2 after
----@field conflicts df.string[]
----@field flags mod_headerst_flags
----@field src_dir df.string
----@field steam_file_id integer
----@field steam_title df.string
----@field steam_description df.string
----@field steam_tag df.string[]
----@field steam_key_tag df.string[]
----@field steam_value_tag df.string[]
----@field steam_metadata df.string
----@field steam_changelog df.string
----@field steamapi_1 df.string
+---@class (exact) mod_headerst: DFObject
+---@field _kind 'struct'
+---@field _type _mod_headerst
+---@field zip_filename string
+---@field unzipped_folder string
+---@field id string
+---@field numeric_version number
+---@field displayed_version string
+---@field earliest_compatible_numeric_version number
+---@field earliest_compatible_displayed_version string
+---@field author string
+---@field name string
+---@field description string
+---@field flags mod_headerst.T_flags
+---@field src_dir string
+---@field steam_file_id number
+---@field steam_title string
+---@field steam_description string
+---@field steam_metadata string
+---@field steam_changelog string
+---@field steamapi_1 string -- Steam-specific
 ---@field steamapi_2 boolean
 ---@field steamapi_3 integer
+local mod_headerst
+
+---@class _mod_headerst: DFCompound
+---@field _kind 'struct-type'
 df.mod_headerst = {}
 
----@class _mod_headerst_flags: integer, string, df.bitfield
----@field currently_installed 0
----@field [0] "currently_installed"
----@field have_other_version 1
----@field [1] "have_other_version"
----@field vanilla 2
----@field [2] "vanilla"
+---@class (exact) mod_headerst.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _mod_headerst.T_flags
+---@field currently_installed flag-bit
+---@field have_other_version flag-bit
+---@field vanilla flag-bit
+local flags
+
+---@class _mod_headerst.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.mod_headerst.T_flags = {}
 
----@class mod_headerst_flags
----@field [0] boolean
----@field currently_installed boolean
----@field [1] boolean
----@field have_other_version boolean
----@field [2] boolean
----@field vanilla boolean
+---@class (exact) ui_look_list: DFObject
+---@field _kind 'struct'
+---@field _type _ui_look_list
+local ui_look_list
 
----@class ui_look_list: df.class
----@field type ui_look_list_type
----@field data ui_look_list_data
----@field pos coord
----@field display_str df.string
----@field cf integer
----@field cb integer
----@field cbr integer
+---@class _ui_look_list: DFCompound
+---@field _kind 'struct-type'
 df.ui_look_list = {}
 
----@class _ui_look_list_type: integer, string, df.enum
----@field Item 0
----@field [0] "Item"
----@field Floor 1
----@field [1] "Floor"
----@field Unit 2
----@field [2] "Unit"
----@field Building 3
----@field [3] "Building"
----@field Vermin 4
----@field [4] "Vermin"
----@field Flow 5
----@field [5] "Flow"
----@field Campfire 6
----@field [6] "Campfire"
----@field Spatter 7
----@field [7] "Spatter"
----@field BuildingItem 8
----@field [8] "BuildingItem"
----@field Fire 9
----@field [9] "Fire"
----@field Water 10
----@field [10] "Water"
----@field Magma 11
----@field [11] "Magma"
----@field Spoor 12
----@field [12] "Spoor"
-df.ui_look_list.T_type = {}
+---@class (exact) ui_unit_view_mode: DFObject
+---@field _kind 'struct'
+---@field _type _ui_unit_view_mode
+---@field value ui_unit_view_mode.T_value
+local ui_unit_view_mode
 
----@class ui_look_list_type
----@field [0] boolean
----@field Item boolean
----@field [1] boolean
----@field Floor boolean
----@field [2] boolean
----@field Unit boolean
----@field [3] boolean
----@field Building boolean
----@field [4] boolean
----@field Vermin boolean
----@field [5] boolean
----@field Flow boolean
----@field [6] boolean
----@field Campfire boolean
----@field [7] boolean
----@field Spatter boolean
----@field [8] boolean
----@field BuildingItem boolean
----@field [9] boolean
----@field Fire boolean
----@field [10] boolean
----@field Water boolean
----@field [11] boolean
----@field Magma boolean
----@field [12] boolean
----@field Spoor boolean
-
-
----@class ui_look_list_data: df.class
----@field item ui_look_list.T_data_item
----@field unit ui_look_list.T_data_unit
----@field building ui_look_list.T_data_building
----@field vermin ui_look_list.T_data_vermin
----@field flow ui_look_list.T_data_flow
----@field spatter ui_look_list.T_data_spatter
----@field building_item_adv ui_look_list.T_data_building_item_adv
----@field liquid_water ui_look_list.T_data_liquid_water
----@field liquid_magma ui_look_list.T_data_liquid_magma
----@field spoor ui_look_list.T_data_spoor
-df.ui_look_list.T_data = {}
-
----@class ui_look_list.T_data_item: df.class
----@field item_id integer References: item
-df.ui_look_list.T_data.T_item = {}
-
-
----@class ui_look_list.T_data_unit: df.class
----@field unit_id integer References: unit
-df.ui_look_list.T_data.T_unit = {}
-
-
----@class ui_look_list.T_data_building: df.class
----@field bld_id integer References: building
-df.ui_look_list.T_data.T_building = {}
-
-
----@class ui_look_list.T_data_vermin: df.class
----@field race integer
----@field caste integer
----@field item_id integer References: item
----@field flag integer
----@field number integer
-df.ui_look_list.T_data.T_vermin = {}
-
-
----@class ui_look_list.T_data_flow: df.class
----@field type integer
----@field subtype integer
----@field sstype integer
----@field guide_id integer
----@field flag integer
-df.ui_look_list.T_data.T_flow = {}
-
-
----@class ui_look_list.T_data_spatter: df.class
----@field i_type item_type
----@field i_subtype integer
----@field mat integer References: material
----@field matg integer
----@field matstate matter_state
----@field extend integer
-df.ui_look_list.T_data.T_spatter = {}
-
-
----@class ui_look_list.T_data_building_item_adv: df.class
----@field item_id integer References: item
-df.ui_look_list.T_data.T_building_item_adv = {}
-
-
----@class ui_look_list.T_data_liquid_water: df.class
----@field flag integer
----@field amount integer
-df.ui_look_list.T_data.T_liquid_water = {}
-
-
----@class ui_look_list.T_data_liquid_magma: df.class
----@field flag integer
----@field amount integer
-df.ui_look_list.T_data.T_liquid_magma = {}
-
-
----@class ui_look_list.T_data_spoor: df.class
----@field flag integer
----@field type integer
----@field id1 integer
----@field id2 integer
----@field id3 integer
-df.ui_look_list.T_data.T_spoor = {}
-
----@class ui_unit_view_mode: df.class
----@field General integer
----@field Inventory integer
----@field Preferences integer
----@field Wounds integer
----@field PrefLabor integer
----@field PrefDogs integer
----@field PrefOccupation integer
+---@class _ui_unit_view_mode: DFCompound
+---@field _kind 'struct-type'
 df.ui_unit_view_mode = {}
+
+---@alias ui_unit_view_mode.T_value
+---| 0 # General
+---| 1 # Inventory
+---| 2 # Preferences
+---| 3 # Wounds
+---| 4 # PrefLabor
+---| 5 # PrefDogs
+---| 6 # PrefOccupation
+
+---@class _ui_unit_view_mode.T_value: DFDescriptor
+---@field _kind 'enum-type'
+---@field General 0
+---@field [0] "General"
+---@field Inventory 1
+---@field [1] "Inventory"
+---@field Preferences 2
+---@field [2] "Preferences"
+---@field Wounds 3
+---@field [3] "Wounds"
+---@field PrefLabor 4
+---@field [4] "PrefLabor"
+---@field PrefDogs 5
+---@field [5] "PrefDogs"
+---@field PrefOccupation 6
+---@field [6] "PrefOccupation"
+df.ui_unit_view_mode.T_value = {}
+
+---@alias main_hover_instruction
+---| 118 # StockpileRemove
+---| 130 # ZoneRemove
+---| 168 # BurrowRemovePaint
+---| 171 # BurrowRemove
+---| 179 # RouteName
+---| 180 # RouteRemove
+---| 184 # StopName
+---| 185 # StopRemove
+---| 189 # InfoUnits
+---| 190 # InfoJobs
+---| 191 # InfoPlaces
+---| 192 # InfoLabors
+---| 193 # InfoWorkOrders
+---| 194 # InfoNobles
+---| 195 # InfoObjects
+---| 196 # Squads
+---| 197 # World
+---| 198 # InfoJustice
+---| 222 # ManagerOrderRemove
+---| 300 # BuildingName
+---| 301 # BuildingRemove
+---| 343 # SquadDisband
+---| 490 # ArenaFluids
+---| 491 # ArenaWater
+---| 492 # ArenaMagma
+---| 493 # ArenaSnow
+---| 494 # ArenaMud
+---| 495 # ArenaRemoveFluids
+---| 496 # ArenaTree
+---| 497 # ArenaWeatherTemperatureTime
+
+-- generated by devel/dump-tooltip-ids
+---@class _main_hover_instruction: DFDescriptor
+---@field _kind 'enum-type'
+---@field StockpileRemove 118
+---@field [118] "StockpileRemove"
+---@field ZoneRemove 130 130
+---@field [130] "ZoneRemove" 130
+---@field BurrowRemovePaint 168
+---@field [168] "BurrowRemovePaint"
+---@field BurrowRemove 171
+---@field [171] "BurrowRemove"
+---@field RouteName 179
+---@field [179] "RouteName"
+---@field RouteRemove 180 180
+---@field [180] "RouteRemove" 180
+---@field StopName 184
+---@field [184] "StopName"
+---@field StopRemove 185
+---@field [185] "StopRemove"
+---@field InfoUnits 189
+---@field [189] "InfoUnits"
+---@field InfoJobs 190 190
+---@field [190] "InfoJobs" 190
+---@field InfoPlaces 191
+---@field [191] "InfoPlaces"
+---@field InfoLabors 192
+---@field [192] "InfoLabors"
+---@field InfoWorkOrders 193
+---@field [193] "InfoWorkOrders"
+---@field InfoNobles 194
+---@field [194] "InfoNobles"
+---@field InfoObjects 195
+---@field [195] "InfoObjects"
+---@field Squads 196
+---@field [196] "Squads"
+---@field World 197
+---@field [197] "World"
+---@field InfoJustice 198
+---@field [198] "InfoJustice"
+---@field ManagerOrderRemove 222
+---@field [222] "ManagerOrderRemove"
+---@field BuildingName 300 300
+---@field [300] "BuildingName" 300
+---@field BuildingRemove 301
+---@field [301] "BuildingRemove"
+---@field SquadDisband 343
+---@field [343] "SquadDisband"
+---@field ArenaFluids 490 490
+---@field [490] "ArenaFluids" 490
+---@field ArenaWater 491
+---@field [491] "ArenaWater"
+---@field ArenaMagma 492
+---@field [492] "ArenaMagma"
+---@field ArenaSnow 493
+---@field [493] "ArenaSnow"
+---@field ArenaMud 494
+---@field [494] "ArenaMud"
+---@field ArenaRemoveFluids 495
+---@field [495] "ArenaRemoveFluids"
+---@field ArenaTree 496
+---@field [496] "ArenaTree"
+---@field ArenaWeatherTemperatureTime 497
+---@field [497] "ArenaWeatherTemperatureTime"
+df.main_hover_instruction = {}
+
+---@class main_hover_instruction_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.main_hover_instruction._attr_entry_type = {}
+
+---@class (exact) main_hover_instruction_attr_entry_type_fields
+---@field caption DFCompoundField
+df.main_hover_instruction._attr_entry_type._fields = {}
+
+---@class main_hover_instruction_attrs
+---@field  { caption: "Set digging orders." }
+---@field  { caption: "Finish setting dig orders." }
+---@field  { caption: "Dig a regular hallway or room. Assign a miner to the work detail if necessary. The miner requires a pick." }
+---@field  { caption: "Designate constructed walls, floors, and other constructed tiles to be removed by miners. This also designates all stairwells and ramps." }
+---@field  { caption: "Dig a stairwell on this level, going up or down. Your selection must span multiple elevations. Click on a tile, change elevations, and click again." }
+---@field  { caption: "Dig a ramp on this level, going up." }
+---@field  { caption: "Dig a channel, making a ramp on the level below." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Dig every tile selected." }
+---@field  { caption: "Dig only ore and gems selected, and automine any ore and gems of the same type which are uncovered." }
+---@field  { caption: "Dig only ore and gems selected." }
+---@field  { caption: "Dig only gems selected." }
+---@field  { caption: "Selected tiles are very high priority." }
+---@field  { caption: "Selected tiles are high priority." }
+---@field  { caption: "Selected tiles are high-medium priority." }
+---@field  { caption: "Selected tiles are medium priority. [DEFAULT]" }
+---@field  { caption: "Selected tiles are medium-low priority." }
+---@field  { caption: "Selected tiles are low priority." }
+---@field  { caption: "Selected tiles are very low priority." }
+---@field  { caption: "Change to standard dig mode." }
+---@field  { caption: "Change to blueprint-only mode." }
+---@field  { caption: "Change blueprints to standard selections." }
+---@field  { caption: "Change standard selections to blueprints." }
+---@field  { caption: "Show advanced options." }
+---@field  { caption: "Hide advanced options." }
+---@field  { caption: "Set tree chopping orders." }
+---@field  { caption: "Set tree chopping orders. Select the base of the tree so that the woodcutter can reach it. Assign a woodcutter to the work detail if necessary. The woodcutter requires an axe." }
+---@field  { caption: "Finish setting tree chopping orders." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Selected tiles are very high priority." }
+---@field  { caption: "Selected tiles are high priority." }
+---@field  { caption: "Selected tiles are high-medium priority." }
+---@field  { caption: "Selected tiles are medium priority. [DEFAULT]" }
+---@field  { caption: "Selected tiles are medium-low priority." }
+---@field  { caption: "Selected tiles are low priority." }
+---@field  { caption: "Selected tiles are very low priority." }
+---@field  { caption: "Change to standard chop mode." }
+---@field  { caption: "Change to blueprint-only mode." }
+---@field  { caption: "Change blueprints to standard selections." }
+---@field  { caption: "Change standard selections to blueprints." }
+---@field  { caption: "Show advanced options." }
+---@field  { caption: "Hide advanced options." }
+---@field  { caption: "Set plant gathering orders." }
+---@field  { caption: "Set plant gathering orders. Some plants require fruit or other growths to be present." }
+---@field  { caption: "Finish setting plant gathering orders." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Selected tiles are very high priority." }
+---@field  { caption: "Selected tiles are high priority." }
+---@field  { caption: "Selected tiles are high-medium priority." }
+---@field  { caption: "Selected tiles are medium priority. [DEFAULT]" }
+---@field  { caption: "Selected tiles are medium-low priority." }
+---@field  { caption: "Selected tiles are low priority." }
+---@field  { caption: "Selected tiles are very low priority." }
+---@field  { caption: "Change to standard gather mode." }
+---@field  { caption: "Change to blueprint-only mode." }
+---@field  { caption: "Change blueprints to standard selections." }
+---@field  { caption: "Change standard selections to blueprints." }
+---@field  { caption: "Show advanced options." }
+---@field  { caption: "Hide advanced options." }
+---@field  { caption: "Set wall smoothing, engraving, track carving, and fortification orders." }
+---@field  { caption: "Smooth a rough wall to make it more pleasing to your citizens. This also prepares the wall for engraving or fortification." }
+---@field  { caption: "Engrave artwork into a smooth wall." }
+---@field  { caption: "Carve a track in a stone floor. Tracks are used by minecarts with routes set in the hauling menu." }
+---@field  { caption: "Carve a gap in a smooth wall to allow your archers to fire upon invaders." }
+---@field  { caption: "Finish setting wall orders." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Selected tiles are very high priority." }
+---@field  { caption: "Selected tiles are high priority." }
+---@field  { caption: "Selected tiles are high-medium priority." }
+---@field  { caption: "Selected tiles are medium priority. [DEFAULT]" }
+---@field  { caption: "Selected tiles are medium-low priority." }
+---@field  { caption: "Selected tiles are low priority." }
+---@field  { caption: "Selected tiles are very low priority." }
+---@field  { caption: "Change to standard orders mode." }
+---@field  { caption: "Change to blueprint-only mode." }
+---@field  { caption: "Change blueprints to standard selections." }
+---@field  { caption: "Change standard selections to blueprints." }
+---@field  { caption: "Show advanced options." }
+---@field  { caption: "Hide advanced options." }
+---@field  { caption: "Designate items for dumping and melting, claim forbidden items and buildings, and set item visibility." }
+---@field  { caption: "Finish setting item/building designations." }
+---@field  { caption: "Claim a forbidden item or building so it will be used by your citizens." }
+---@field  { caption: "Forbid your citizens from using an item or building." }
+---@field  { caption: "Designate an item for dumping in a dumping zone." }
+---@field  { caption: "Remove dumping designations." }
+---@field  { caption: "Designate an item for melting at any smelter." }
+---@field  { caption: "Remove melting designations." }
+---@field  { caption: "Remove hidden designations." }
+---@field  { caption: "Hide an item or building from your view. Citizens will still use it." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Set high and low traffic areas." }
+---@field  { caption: "Finish setting traffic areas." }
+---@field  { caption: "Set a high traffic area. Use this in wide central passages." }
+---@field  { caption: "Set a normal traffic area, the default state." }
+---@field  { caption: "Set a low traffic area. Citizens will look for better routes." }
+---@field  { caption: "Set a restricted traffic area. Citizens will look hard for better routes. They will still use the area if other routes do not exist or are too long." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Set the exact weight in steps of a traffic type." }
+---@field  { caption: "Show advanced options." }
+---@field  { caption: "Hide advanced options." }
+---@field  { caption: "Remove mining, woodcutting, plant gathering, and smoothing orders." }
+---@field  { caption: "Finish removing mining etc. orders." }
+---@field  { caption: "Place structures and work areas that require construction materials." }
+---@field  { caption: "Finish placing structures." }
+---@field  { caption: "Place stockpiles for item storage." }
+---@field  { caption: "Finish placing stockpiles." }
+---@field  { caption: "Start painting a new stockpile. Once the tiles are chosen, you'll be able to set the details." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Remove the stockpile being painted permanently. Also removes existing zones!" }
+---@field  { caption: "Repaint this stockpile." }
+---@field  { caption: "Erase a portion of this stockpile." }
+---@field StockpileRemove { caption: "Remove this stockpile permanently." }
+---@field  { caption: "Toggle whether the stockpile can take items from anywhere or only from specific workshops and stockpiles." }
+---@field  { caption: "Set from which workshops and stockpiles this stockpile gives and takes items." }
+---@field  { caption: "Set how many barrerls, bins, and wheelbarrows this stockpile can use." }
+---@field  { caption: "Place zones to establish meeting areas, pastures, and more." }
+---@field  { caption: "Finish placing zones." }
+---@field  { caption: "Start painting a new zone. Once the tiles are chosen, you'll be able to set the details." }
+---@field  { caption: "Go to the previous zone overlapping the tile you clicked." }
+---@field  { caption: "Go to the next zone overlapping the tile you clicked." }
+---@field  { caption: "Repaint this zone." }
+---@field  { caption: "Erase a portion of this zone." }
+---@field  { caption: "Suspend activities in this zone. Does not remove the zone." }
+---@field ZoneRemove { caption: "Remove this zone permanently." }
+---@field  { caption: "Gather fruit in trees in and just above this zone. Requires a stepladder." }
+---@field  { caption: "Gather fruit and vegetables from shrubs in this zone." }
+---@field  { caption: "Gather fallen fruit in this zone." }
+---@field  { caption: "Select animals to be placed in this pasture zone. They will stay after being led here." }
+---@field  { caption: "Designate this zone as the top of a pit. Citizens will not fill the pit below with water." }
+---@field  { caption: "Designate this zone as the top of a pond. Citizens will bring buckets of water if the pond below isn't filled." }
+---@field  { caption: "Select animals to be dropped into the pit or pond below this zone. Animals will not feel obligated to stay if they can find a way out." }
+---@field  { caption: "Assign a new or existing location to this zone. Locations are groups of zones and rooms with a larger purpose, like a tavern, a temple, a library, or a craft guildhall." }
+---@field  { caption: "Set details for the assigned location." }
+---@field  { caption: "Select this option and any unassigned deceased citizens will be buried here automatically." }
+---@field  { caption: "Select this option and any unassigned deceased pets will be buried here automatically." }
+---@field  { caption: "Choose which squads will use this barracks." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Hold left button to draw." }
+---@field  { caption: "Remove the zone being painted permanently. Also removes existing zones!" }
+---@field  { caption: "Your citizens will drink at a water source zone or gather water using buckets for various tasks. This is useful if you don't have a functioning well and you want to control exactly where the tasks take place." }
+---@field  { caption: "Citizens assigned to the fishing work detail will fish in this zone if it exists. Otherwise, they will fish everywhere." }
+---@field  { caption: "Plant gathering zones are used in locations where plants will be gathered frequently. Use the gather designation otherwise." }
+---@field  { caption: "Items designated for dumping will be tossed into open air spaces included in this zone. If no open air tiles are included, they will dump the items on the floor." }
+---@field  { caption: "Certain livestock need to graze on grass. Assign these animals to a pasture zone. No fencing is needed." }
+---@field  { caption: "Animals assigned to pit/pond zones are dumped in the pit, but will leave the zone afterward if possible. If the pit is designated as a pond, your citizens will attempt to fill it with water using buckets." }
+---@field  { caption: "Your citizens will fill sand bags at this zone if a sandy floor or sandy wall is included. This task is initiated manually at the glass furnace." }
+---@field  { caption: "Your citizens will collect clay at this zone if a clay floor or clay wall is included. This task is initiated manually at the kiln." }
+---@field  { caption: "This important zone is where your citizens will gather to socialize. Crucially, the meeting area is where locations such as taverns, temples, hospitals, and the like are established." }
+---@field  { caption: "Animals that are capable of being trained receive their training at this zone once they have been assigned a trainer from the Pets/Livestock menu. Generally, a piece of meat is required." }
+---@field  { caption: "Your citizens will sleep in bedrooms. It should include a bed! Try to enclose it with walls and/or doors. Do not overlap with other rooms." }
+---@field  { caption: "Your citizens will eat at this zone. When not assigned to a particular citizen, citizens without their own dining hall will eat here. Tables and adjacent chairs should be included." }
+---@field  { caption: "An office or study is required for certain official tasks, such as approving work orders and bookkeeping. A chair or throne is required for these functions." }
+---@field  { caption: "Your archers can train in this zone if there is an archery target included." }
+---@field  { caption: "Squads should be assigned to a barracks. The squad can be set to train, sleep, and store equipment there." }
+---@field  { caption: "Dormitories should include multiple beds and will not belong to a particular citizen." }
+---@field  { caption: "Prisoners convicted in the Justice menu can be incarcerated at a chain or metal cage in the dungeon zone." }
+---@field  { caption: "Deceased citizens and pets can be laid to rest in a tomb. It should include a coffin, casket, or sarcophagus." }
+---@field  { caption: "Establish burrows to organize work and living spaces in larger fortresses." }
+---@field  { caption: "Finish establishing burrows." }
+---@field  { caption: "Left click to choose corners of a rectangle." }
+---@field  { caption: "Hold left button to draw." }
+---@field BurrowRemovePaint { caption: "Remove the burrow being painted permanently. Also removes existing burrows!" }
+---@field  { caption: "Repaint this burrow." }
+---@field  { caption: "Erase a portion of this burrow." }
+---@field BurrowRemove { caption: "Remove this burrow permanently." }
+---@field  { caption: "Recenter on this burrow." }
+---@field  { caption: "Toggle whether workshops can source materials from outside the burrow." }
+---@field  { caption: "Suspend this burrow. Assigned citizens will not respect burrow restrictions while a burrow is suspended, but all tasks within the burrow will still function." }
+---@field  { caption: "Set hauling routes for minecarts." }
+---@field  { caption: "Finish setting hauling routes." }
+---@field  { caption: "Add a stop to this route. Minecarts will move between stops when conditions are satisfied." }
+---@field  { caption: "Assign a minecart to this route. Only one vehicle can operate on each route." }
+---@field RouteName { caption: "Name this route." }
+---@field RouteRemove { caption: "Remove this route." }
+---@field  { caption: "Set the items desired by the minecart at this stop. Items must be in a linked stockpile." }
+---@field  { caption: "Link a stockpile to this stop. Citizens will haul items to and from the minecart as you specify. Items for the minecart must be specified using the desired items button to the left." }
+---@field  { caption: "Set conditions for the minecart to move on to the next stop." }
+---@field StopName { caption: "Name this stop." }
+---@field StopRemove { caption: "Remove this stop." }
+---@field  { caption: "The assigned vehicle is at this stop." }
+---@field  { caption: "The assigned vehicle is moving toward this stop." }
+---@field  { caption: "The assigned vehicle wants to be at this stop but is not currently there. A worker may be bringing it, or it may be stranded." }
+---@field InfoUnits { caption: "Open the citizen information menu." }
+---@field InfoJobs { caption: "Open the task information menu." }
+---@field InfoPlaces { caption: "Open the place information menu." }
+---@field InfoLabors { caption: "Open the labor menu." }
+---@field InfoWorkOrders { caption: "Open the work orders menu." }
+---@field InfoNobles { caption: "Open the nobles and administrators menu." }
+---@field InfoObjects { caption: "Open the objects menu." }
+---@field Squads { caption: "Open the squad sidebar." }
+---@field World { caption: "Open the world screen." }
+---@field InfoJustice { caption: "Open the justice menu." }
+---@field  { caption: "Toggle whether the stockpile allows plant and animal-based objects, regardless of other settings." }
+---@field  { caption: "Toggle whether the stockpile allows non-plant-and-animal-ba sed objects, regardless of other settings." }
+---@field  { caption: "Toggle whether goods banned by export mandates are listed." }
+---@field  { caption: "Sort by distance from the depot." }
+---@field  { caption: "Sort by value." }
+---@field  { caption: "Leave menu and recenter the view on the time." }
+---@field  { caption: "Leave menu and open the item's sheet." }
+---@field  { caption: "Toggle the forbidden status of the item. Citizens will not use forbidden items or buildings." }
+---@field  { caption: "Toggle the dump status of the item. Items are dumped in dumping zones." }
+---@field  { caption: "Toggle the melt status of the item. Items are melted at any smelter." }
+---@field  { caption: "Toggle the visibility of the item. Hidden items cannot be seen but citizens will still use them." }
+---@field  { caption: "Create a new work order. Work orders are like workshop jobs but they are assigned to shops automatically and can be activated with various conditions." }
+---@field  { caption: "This work order is active." }
+---@field  { caption: "This work order is waiting for its next scheduled check." }
+---@field  { caption: "This work order is checking its conditions for activation." }
+---@field  { caption: "This work order is ready to activate." }
+---@field  { caption: "Set the maximum number of workshops that can be used by the work order." }
+---@field  { caption: "This work order has been validated by the manager." }
+---@field  { caption: "This work order has not been validated by the manager. A manager can be employed in the nobles and administrators menu, and they must have an assigned office where they will work to validate orders." }
+---@field  { caption: "Change the number of times the task will be performed." }
+---@field  { caption: "Change the work order priority. Work orders at the top of the list will use workshops first." }
+---@field  { caption: "Set the conditions for work order activation. This can involve needed materials, the current stock of products, or the completion of other work orders." }
+---@field  { caption: "Set the material used or other details of the task." }
+---@field ManagerOrderRemove { caption: "Remove this work order." }
+---@field  { caption: "Change the frequency that the conditions are checked." }
+---@field  { caption: "Add a condition to the work order that checks the amount of some item." }
+---@field  { caption: "Make the activation of the work order depend on the status of another work order." }
+---@field  { caption: "Change the amount of the item being checked." }
+---@field  { caption: "Change the inequality of the condition." }
+---@field  { caption: "Change the type of the item being checked." }
+---@field  { caption: "Change the material of the item being checked." }
+---@field  { caption: "Change the properties of the item being checked. Many of these are obscure and rely on specific tasks, but certain properties like 'empty' can be used in many conditions." }
+---@field  { caption: "Change whether the work order must be activated or completed to satisfy this condition." }
+---@field  { caption: "Remove this condition." }
+---@field  { caption: "Leave this menu and recenter on this creature." }
+---@field  { caption: "Leave this menu and view this creature's sheet." }
+---@field  { caption: "Leave this menu and recenter on this object." }
+---@field  { caption: "Leave this menu and view this object's sheet." }
+---@field  { caption: "Leave this menu and recenter on this place." }
+---@field  { caption: "Leave this menu and view this place's sheet or menu." }
+---@field  { caption: "Leave this menu and recenter on the task's building." }
+---@field  { caption: "Set the details of this task, such as the material used." }
+---@field  { caption: "View a detailed description of this activity." }
+---@field  { caption: "Toggle whether the task will be repeated indefinitely." }
+---@field  { caption: "Remove the current worker from the task." }
+---@field  { caption: "Suspend this task. This removes the worker. The task can be unsuspended." }
+---@field  { caption: "Cancel this task." }
+---@field  { caption: "Assign a trainer to this creature." }
+---@field  { caption: "Assign this creature as a work animal for a specific citizen or resident." }
+---@field  { caption: "Toggle whether this creature will receive war training. War animals have more lethal attacks." }
+---@field  { caption: "Toggle whether this creature will receive hunting training. Hunting animals can move stealthfully during hunts." }
+---@field  { caption: "Toggle whether this creature is available as a pet for any interested citizen or resident." }
+---@field  { caption: "This creature is ecstatic right now." }
+---@field  { caption: "This creature is happy right now." }
+---@field  { caption: "This creature is pleased right now." }
+---@field  { caption: "This creature is content right now." }
+---@field  { caption: "This creature is displeased right now." }
+---@field  { caption: "This creature is unhappy right now." }
+---@field  { caption: "This creature is miserable right now." }
+---@field  { caption: "This worker is specialized and will only do tasks that match their workshop assignments, work details, and occupations. Click to toggle." }
+---@field  { caption: "This worker is not specialized and will do any free tasks that become available. Click to toggle." }
+---@field  { caption: "This creature is a tavern keeper." }
+---@field  { caption: "This creature is a performer." }
+---@field  { caption: "This creature is a scholar." }
+---@field  { caption: "This creature is a scribe." }
+---@field  { caption: "This creature is a mercenary." }
+---@field  { caption: "This creature is a monster slayer." }
+---@field  { caption: "This creature is a doctor." }
+---@field  { caption: "This creature is assigned to a specific workshop." }
+---@field  { caption: "This creature is assigned to a work detail." }
+---@field  { caption: "Toggle whether this creature will be slaughtered at a butcher's shop when the opportunity arises." }
+---@field  { caption: "Toggle whether this creature will be gelded at a farmer's workshop when the opportunity arises." }
+---@field  { caption: "This type is not relevant to brewing." }
+---@field  { caption: "This type is restricted from brewing." }
+---@field  { caption: "This type is allowed to be brewed." }
+---@field  { caption: "This type is not relevant to cooking." }
+---@field  { caption: "This type is restricted from cooking." }
+---@field  { caption: "This type is allowed to be cooked." }
+---@field  { caption: "Open the announcements screen." }
+---@field  { caption: "Rename this location." }
+---@field  { caption: "This option allows visitors from outside the fortress to enter this location." }
+---@field  { caption: "This option allows long-term residents of the fortress to enter this location." }
+---@field  { caption: "This option indicates that the location is only open to fortress citizens." }
+---@field  { caption: "This option indicates that the location is only open to members." }
+---@field  { caption: "Remove this worker from this occupation." }
+---@field  { caption: "Set the camera to follow this item." }
+---@field  { caption: "This item is tagged by a task and will not be used by other tasks." }
+---@field  { caption: "Customize this creature's nickname and profession nickname." }
+---@field  { caption: "See this creature's combat history." }
+---@field  { caption: "Set the camera to follow this creature." }
+---@field  { caption: "Send this creature to a linked site, or expel this creature entirely." }
+---@field  { caption: "This item is part of the assigned squad equipment." }
+---@field  { caption: "This item is a tool assigned by a work detail." }
+---@field  { caption: "This item is a symbol of a noble or administrator." }
+---@field  { caption: "This item is part of the creature's regular clothing." }
+---@field  { caption: "View this item's sheet." }
+---@field  { caption: "View this creature's sheet." }
+---@field  { caption: "View details about this knowledge." }
+---@field  { caption: "Recenter on this creature." }
+---@field  { caption: "View this creature's sheet." }
+---@field  { caption: "Recenter on this item." }
+---@field BuildingName { caption: "Name this building." }
+---@field BuildingRemove { caption: "Remove this building." }
+---@field  { caption: "This task has been assigned and is active." }
+---@field  { caption: "This task came from a work order." }
+---@field  { caption: "This task is set to repeat indefinitely." }
+---@field  { caption: "Click to set this task to repeat indefinitely." }
+---@field  { caption: "This task is highest priority among all tasks everywhere." }
+---@field  { caption: "Click to set this task as highest priority among all tasks everywhere." }
+---@field  { caption: "Increase the priority of the task in this workshop." }
+---@field  { caption: "Set details for this task, such as the material to be used." }
+---@field  { caption: "This task has been suspended." }
+---@field  { caption: "Click to suspend the task. Assigned workers are removed from suspended tasks." }
+---@field  { caption: "Cancel this task." }
+---@field  { caption: "Create a new work order for this workshop. Work orders are tasks that can repeat specified numbers of times and which can be given start conditions. This is useful for automation." }
+---@field  { caption: "Recenter on the linked building." }
+---@field  { caption: "Add stockpile links for this workshop." }
+---@field  { caption: "This item is a permanent part of the building. Forbid and visibility tags set here affect the whole building." }
+---@field  { caption: "This item is being traded." }
+---@field  { caption: "This is a small creature within the trap." }
+---@field  { caption: "This item is bait." }
+---@field  { caption: "This item has been loaded." }
+---@field  { caption: "This item is resting within the building." }
+---@field  { caption: "This item is a semi-permanent part of the building, like an item on display." }
+---@field  { caption: "View this item's sheet." }
+---@field  { caption: "Toggle the forbidden status of the item. Citizens will not use forbidden items or buildings. If a permanent building item is forbidden, citizens will not perform tasks there!" }
+---@field  { caption: "Toggle the dump status of the item. Items are dumped in dumping zones." }
+---@field  { caption: "Toggle the melt status of the item. Items are melted at any smelter." }
+---@field  { caption: "Toggle the visibility of the item. Hidden items cannot be seen but citizens will still use them. If a permanent building item is invisible, the building will be too!" }
+---@field  { caption: "The soldiers can either keep their equipment on at all times, or only when an order is active." }
+---@field  { caption: "The soldiers can be allowed to sleep in their rooms whenever they way, or in the barracks either when they want or only when they must." }
+---@field  { caption: "Cancel this scheduled order." }
+---@field  { caption: "Cancel this position's scheduled orders." }
+---@field  { caption: "Change the squad's symbol." }
+---@field  { caption: "View the leader's sheet." }
+---@field  { caption: "The squad leader is traveling or otherwise occupied off-site." }
+---@field  { caption: "View the positions in this squad." }
+---@field  { caption: "Customize the squad's name." }
+---@field  { caption: "Assign a station order. The soldiers will stand near the point selected and engage any hostile creatures that come near." }
+---@field  { caption: "Assign a kill order. The soldiers will attempt to kill a targeted creature." }
+---@field  { caption: "Assign a patrol order. The soldiers will walk a specified route repeatedly." }
+---@field  { caption: "Assign a burrow defense order. The soldiers will patrol the burrow and attack any hostile creatures." }
+---@field  { caption: "Assign a training order. The squad must be assigned to a barracks zone with the training option set." }
+---@field  { caption: "Cancel an order. Does not affect scheduled orders." }
+---@field SquadDisband { caption: "Disband the squad." }
+---@field  { caption: "Inspect the route." }
+---@field  { caption: "Recenter on the announcement's location." }
+---@field  { caption: "Recenter on the creature (at the time of the announcement.)" }
+---@field  { caption: "Recenter on the item (at the time of the announcement.)" }
+---@field  { caption: "Toggle whether the squad will sleep here." }
+---@field  { caption: "Toggle whether the squad will train here." }
+---@field  { caption: "Toggle whether the soldiers will store their individually assigned weapons and armor here." }
+---@field  { caption: "Toggle whether the squad will store squad-level equipment here, such as ammunition." }
+---@field  { caption: "Choose a stockpile to which the track stop's vehicle will give items." }
+---@field  { caption: "Choose a stockpile from which the track stop's vehicle will take items." }
+---@field  { caption: "Choose a stockpile with which the track stop's vehicle will exchange items. The vehicle will take desired items and offload any others." }
+---@field  { caption: "Choose a stockpile to which the workshop will give items." }
+---@field  { caption: "Choose a stockpile from which the workshop will take items." }
+---@field  { caption: "Choose a stockpile to which the selected stockpile will give items." }
+---@field  { caption: "Choose a stockpile from which the selected stockpile will take items." }
+---@field  { caption: "The track stop's vehicle will exchange items with this stockpile. The vehicle will take desired items and offload any others." }
+---@field  { caption: "The track stop's vehicle will take items from this stockpile." }
+---@field  { caption: "The track stop's vehicle will give items to this stockpile." }
+---@field  { caption: "The selected workshop will take items from here." }
+---@field  { caption: "The selected workshop will give items to here." }
+---@field  { caption: "The selected stockpile will take items from here." }
+---@field  { caption: "The selected stockpile will give items to here." }
+---@field  { caption: "The creature is chained." }
+---@field  { caption: "The creature is caged." }
+---@field  { caption: "The creature is set to be chained." }
+---@field  { caption: "The creature is set to be caged." }
+---@field  { caption: "The creature is assigned to a pasture." }
+---@field  { caption: "The creature is assigned to a pond." }
+---@field  { caption: "The creature is assigned to a pit." }
+---@field  { caption: "Edit the recenter hotkey locations." }
+---@field  { caption: "Recenter on the surface at this location." }
+---@field  { caption: "Recenter on the deepest discovered area at this location." }
+---@field  { caption: "Recenter on this location." }
+---@field  { caption: "Set this entry to recenter on the current view." }
+---@field  { caption: "Clear this recenter hotkey location." }
+---@field  { caption: "Delete this recenter location." }
+---@field  { caption: "Display water and magma depth numerically (1 to 7.)" }
+---@field  { caption: "Show up and down arrows over ramps at the current elevation." }
+---@field  { caption: "Zoom in on the play area." }
+---@field  { caption: "Zoom out from the play area." }
+---@field  { caption: "Open the stocks window, where you can see all of your fortress's items." }
+---@field  { caption: "View all alerts." }
+---@field  { caption: "" }
+---@field  { caption: "Most tasks in the fortress are started and completed at workshops. Tasks generally require raw materials and most workshops are constructed from boulders, blocks, or wood." }
+---@field  { caption: "Furnaces are used for smelting, glassmaking, pottery, ashmaking, or to make fuel from wood or raw coal. Furnaces require fuel to function, or they can be set above magma." }
+---@field  { caption: "These workshops are used in the clothesmaking process, whether dyeing and weaving or using tanned hides." }
+---@field  { caption: "A wide variety of food-and-drink-related workshops can be found in this category." }
+---@field  { caption: "Use options in this category to place furniture that has already been constructed in a workshop." }
+---@field  { caption: "Place doors and hatches here after you have constructed them in an appropriate workshop." }
+---@field  { caption: "Most terrain-altering constructions can be found here, from walls and floors to bridges, ramps, stairs, and more." }
+---@field  { caption: "More complicated buildings from wells to powered machine components to levers and floodgates are found here." }
+---@field  { caption: "Cages, ropes, and animal traps are found here. Cages can be used in cage traps or to transport large animals. Metal cages and chains are also used by the justice system." }
+---@field  { caption: "Various mechanical traps can be found here. The pressure plate is also found here, which has applications beyond traps." }
+---@field  { caption: "Archery targets, siege weapons, and some ornamental display items can be found in this category." }
+---@field  { caption: "This crucial building is where all trading will be done. Pack animals from distant civilizations will need to access this building from the edge of the map. Later, wagons will need a clear 3-wide path to the depot." }
+---@field  { caption: "Used to make lye, potash, and milk of lime. Construction requires blocks, barrel, and a bucket." }
+---@field  { caption: "Make crossbows here from wood or bone. The metalsmith's forge can be used for metal crossbows and metal bolts, and the crafts workshop is used to make other bolts." }
+---@field  { caption: "Make beds and various furniture here, as well as bins, barrels, and more." }
+---@field  { caption: "Make crafts for trade and your own citizens here, as well as a variety of tools, armor, and bolts." }
+---@field  { caption: "Cut rough gems here to increase their value, and improve the value of other objects by encrusting them with cut gems." }
+---@field  { caption: "Forge weapons and armor here, as well as most other metal objects from furniture to trap components. Magma below the forge will power tasks. You are responsible for placing the forge above the magma, but no other fuel is required." }
+---@field  { caption: "Make mechanisms here which are used to make levers, pressure plates, and gears. You can also use mechanisms to link levers and pressure plates to other machinery." }
+---@field  { caption: "Forge weapons and armor here, as well as most other metal objects from furniture to trap components. These tasks require fuel." }
+---@field  { caption: "Here you can make parts for ballistae and catapults. This workshop is also the place where ballista ammo is assembled." }
+---@field  { caption: "Make stone furniture here, as well as blocks which are used in constructions." }
+---@field  { caption: "" }
+---@field  { caption: "Use leather tanned at the tanner's shop here to make clothing and tools, such as bags and waterskins." }
+---@field  { caption: "Here you can turn thread into cloth, whether it is thread from the farmer's workshop or spider silk gathered underground." }
+---@field  { caption: "Make cloth into clothing and tools here, such as bags and ropes." }
+---@field  { caption: "Use dyes here to color thread and cloth. Requires a barrel and bucket for construction." }
+---@field  { caption: "Brew alcohol from plants, fruit, or honey." }
+---@field  { caption: "Slaughter livestock here in order to obtain meat, hides, bones, and other animal products." }
+---@field  { caption: "Make leather from animal hides here. You can also make parchment using milk of lime and a hide." }
+---@field  { caption: "Process raw fish into edible food here. Raw fish will not be eaten." }
+---@field  { caption: "Cook meals here. You can also render fat into tallow." }
+---@field  { caption: "Process plants and work with livestock here. Milk and shear animals, make cheese, and spin thread." }
+---@field  { caption: "Make sugar, flour, and various useful slurries here. Tasks are completed very slowly compared to the powered millstone." }
+---@field  { caption: "Capture and train small animals here. Requires animal traps." }
+---@field  { caption: "Make sugar, flour, and various useful slurries here. Powered version of the quern. Must be hooked to a windmill or water wheel to function." }
+---@field  { caption: "You can make a variety of objects using three different types of glass. You can also collect sand in bags from a task originating here, if you have a sand collection zone. Glassmaking requires fuel." }
+---@field  { caption: "Bake clay objects here, as well as a few other useful materials. Clay can also be collected here if you have a clay collection zone. All tasks require fuel aside from clay collection." }
+---@field  { caption: "You can make a variety of objects using three different types of glass. You can also collect sand in bags from a task originating here, if you have a sand collection zone. Magma below the furnace will power tasks. You are responsible for placing the furnace above the magma, but no other fuel is required." }
+---@field  { caption: "Bake clay objects here, as well as a few other useful materials. Clay can also be collected here if you have a clay collection zone. Magma below the kiln will power tasks. You are responsible for placing the kiln above the magma, but no other fuel is required." }
+---@field  { caption: "Make metal bars from ore here. Can also refine coal into usable fuel or make alloys. Magma below the smelter will power tasks. You are responsible for placing the smelter above the magma, but no other fuel is required." }
+---@field  { caption: "Make metal bars from ore here. Can also refine coal into usable fuel or make alloys. All tasks require fuel." }
+---@field  { caption: "Make charcoal and ash from wood here. Does not require fuel." }
+---@field  { caption: "" }
+---@field  { caption: "Plant crops at the farmplot. You will need seeds or spawn and must select crops by season. Crops can be fertilized with potash. Soil is richer deeper underground." }
+---@field  { caption: "When placed, a female bird will claim the box and start laying eggs, if one is available." }
+---@field  { caption: "Keep a colony of insects at your hives. A wild colony must be collected after the hive is placed, or a colony can be split from an existing hive colony." }
+---@field  { caption: "Your citizens need a comfortable place to sleep. A bed object must be made at the carpenter's shop before it can be placed." }
+---@field  { caption: "Chairs are required for offices to function, and a chair next to a table is the preferred dining arrangement. A chair/throne object must be made before it can be placed." }
+---@field  { caption: "Tables are required for dining. A chair should be placed adjacent to the table. A table object must be made before it can be placed." }
+---@field  { caption: "Chests and coffers are used in personal bedrooms for storing non-clothing objects. They are also used in some zone-based locations like taverns, hospitals, and libraries for storing useful materials. A box object must be made before it can be placed." }
+---@field  { caption: "Cabinets are used in personal bedrooms for storing clothing objects. A cabinet object must be made before it can be placed." }
+---@field  { caption: "The dead are buried in coffins. Coffins must be placed in their own tomb zone in order to work. A coffin object must be made before it can be placed." }
+---@field  { caption: "Citizens that cannot be buried properly can still be memorialized on slabs. Slabs are created and engraved at the stoneworker's shop." }
+---@field  { caption: "Statues can be used to decorate your fortress and add value to your rooms. A statue object must be made at an appropriate workshop first." }
+---@field  { caption: "Certain injuries such as overlapping fractures require advanced medical contraptions like the traction bench for treatment. A traction bench object must be made before it can be placed." }
+---@field  { caption: "Codices and scrolls in your library can be stored in bookcases. A bookcase object must be made before it can be placed." }
+---@field  { caption: "Your most valuable objects can be placed for display in rooms to increase their value and to entertain passing citizens. A pedestal or display case must be made before it can be placed." }
+---@field  { caption: "These ornamental objects increase the value of rooms in which they are placed. An offering place object must be made before it can be placed." }
+---@field  { caption: "Large instruments must be placed in taverns or temples before they will be used. These instruments must be assembled at a workshop first." }
+---@field  { caption: "Doors can be used along with walls to enclose rooms, which is especially important when placing multiple zones at once. Doors can also be forbidden or attached to levers to control movement in the fort." }
+---@field  { caption: "Hatches can be placed at the tops of stairwells or above ramps to control movement in the fort when they are forbidden or attached to levers." }
+---@field  { caption: "Bridges can be used to span open spaces or placed above water or magma. Bridges can be connected to levers and raised to block access." }
+---@field  { caption: "Paved roads use less materials than constructed floors and can be used to stop plants from growing over wagon trails." }
+---@field  { caption: "Dirt roads do not require materials, but the dirt road may quickly be overgrown by plants." }
+---@field  { caption: "Blocks creatures but allows the passage of fluids and items. Can be built on any floor. Grates unlike bars have a quality and enhance the value of rooms. Grates can be connected to levers." }
+---@field  { caption: "Blocks creatures but allows the passage of fluids and items. Can be built over empty spaces, stairs, ramps, or above liquids. Grates unlike bars have a quality and enhance the value of rooms. Grates can be connected to levers." }
+---@field  { caption: "Blocks creatures but allows the passage of fluids and items. Can be built on any floor. Bars unlike grates do not have a quality and so do not enhance the value of rooms significantly. Bars can be connected to levers." }
+---@field  { caption: "Blocks creatures but allows the passage of fluids and items. Can be built over empty spaces, stairs, ramps, or above liquids. Bars unlike grates do not have a quality and so do not enhance the value of rooms significantly. Bars can be connected to levers." }
+---@field  { caption: "This ornamental construction can enhance the value of rooms. A window object must be made at a glass furnace before it can be placed." }
+---@field  { caption: "This ornamental construction can enhance the value of rooms. Three cut gem objects must be made at a jeweler's shop before it can be placed." }
+---@field  { caption: "Supports will stop cave-ins in the rare event you completely detach a piece of your fortress. Otherwise, they are ornamental." }
+---@field  { caption: "You can build walls aboveground, in caverns, or in spaces you have mined out in order to block the passage of creatures, objects, and fluids. Requires boulder, block, or wood." }
+---@field  { caption: "You can place floors for functional reasons or to enhance the appearance of the fortress. Requires boulder, block, or wood." }
+---@field  { caption: "You can build a ramp next to a wall to provide access to the floor above. The space above the ramp must also be empty. Requires boulder, block, or wood." }
+---@field  { caption: "You can build staircases to connect different elevations. Staircases must span at least two elevations. Requires boulder, block, or wood." }
+---@field  { caption: "Fortifications block creature movement but allow projectiles through. Soldiers near fortifications are reasonably safe from incoming projectiles. Requires boulder, block, or wood." }
+---@field  { caption: "Use minecart tracks in conjunction with the hauling menu." }
+---@field  { caption: "Place the well in an open space above water to provide a relatively safe area for your citizens to draw water. Requires mechanisms, blocks, a chain or rope, and a bucket." }
+---@field  { caption: "Use floodgates to control the flow of fluids between spaces in your fortress. Must be attached to a lever or pressure plate to function. Requires a floodgate object to be built before it can be placed." }
+---@field  { caption: "Use a screw pump to move liquids upward from the elevation below the pump to the same elevation as the pump." }
+---@field  { caption: "Place the water wheel above flowing water to generate power for machines, such as the millstone or screw pump." }
+---@field  { caption: "Place the windmill aboveground to generate power for machines, such as the millstone or screw pump. Not all areas have strong winds." }
+---@field  { caption: "Use the gear assembly to connect axles and machinery together. Gear assemblies can be disengaged temporarily by linking them to levers." }
+---@field  { caption: "Horizontal axles transfer power on the same elevation. Horizontal axles can be east-west or north-south." }
+---@field  { caption: "Vertical axles transfer power between two adjacent elevations." }
+---@field  { caption: "Rollers move minecarts on tracks without the need for a citizen to push or guide the minecart." }
+---@field  { caption: "A chain can be placed for use in the justice system or for the restraint of an animal." }
+---@field  { caption: "Cages can be used to contain an animal, and metal cages can be used by the justice system. Glass cages can be filled with water and used as aquariums." }
+---@field  { caption: "Animal traps can be placed in the wild and baited with meat, plants, or gems, in order to catch small creatures." }
+---@field  { caption: "Track stops are used in conjunction with the hauling menu. They can also be used to add friction to minecart tracks." }
+---@field  { caption: "Levers are used with machines, doors, floodgates, bridges, cages, and other structures to change their state." }
+---@field  { caption: "Pressure plates, like levers, are used with machines, doors, floodgates, bridges, cages, and other structures to change their state. The trigger for pressure plates can be set by creature weight, fluid, or minecart passage." }
+---@field  { caption: "Stone-fall traps drop a stone on intruders. Must be loaded with boulders." }
+---@field  { caption: "Weapon traps use a weapon or trap component to strike intruders. Can be used with ranged weapons and loaded with ammo. Can use multiple weapons at once." }
+---@field  { caption: "Cage traps capture intruders in cages. Must be loaded with a cage." }
+---@field  { caption: "Upright weapons are a nasty place for intruders to fall upon. Can also be linked to levers or pressure plates to raise them into intruders." }
+---@field  { caption: "Archery targets are used in archery range zones for training archers." }
+---@field  { caption: "Ornamental. Demanded by some nobles." }
+---@field  { caption: "Ornamental. Demanded by some nobles." }
+---@field  { caption: "A ballista fires a ballista arrow in one of the four cardinal directions. The operator can adjust the aim slightly." }
+---@field  { caption: "A catapult fires a boulder in one of the four cardinal directions. The operator can adjust the aim slightly." }
+---@field  { caption: "Create a creature to place in the arena." }
+---@field ArenaFluids { caption: "Add or remove fluids." }
+---@field ArenaWater { caption: "Add water to the arena." }
+---@field ArenaMagma { caption: "Add magma to the arena." }
+---@field ArenaSnow { caption: "Add snow to the arena." }
+---@field ArenaMud { caption: "Add mud to the arena." }
+---@field ArenaRemoveFluids { caption: "Remove fluids and spatter from the arena." }
+---@field ArenaTree { caption: "Create a tree to place in the arena." }
+---@field ArenaWeatherTemperatureTime { caption: "Change the weather, temperature, and time." }
+---@field  { caption: "" }
+df.main_hover_instruction.attrs = {}
 

@@ -1,36 +1,58 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.interaction
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _interaction_flags: integer, string, df.enum
+---@alias interaction_flags
+---| 0 # GENERATED
+---| 1 # EXPERIMENT_ONLY
+
+---@class _interaction_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field GENERATED 0
 ---@field [0] "GENERATED"
 ---@field EXPERIMENT_ONLY 1
 ---@field [1] "EXPERIMENT_ONLY"
 df.interaction_flags = {}
 
----@class interaction_flags
----@field [0] boolean
----@field GENERATED boolean
----@field [1] boolean
----@field EXPERIMENT_ONLY boolean
+---@class (exact) interaction: DFObject
+---@field _kind 'struct'
+---@field _type _interaction
+---@field name string
+---@field id number
+---@field source_hfid number References: `historical_figure`
+---@field source_enid number References: `historical_entity`
+local interaction
 
----@class interaction: df.instance
----@field name df.string
----@field id integer
----@field str df.string[] interaction raws
----@field flags interaction_flags[]
----@field sources interaction_source[] I_SOURCE
----@field targets interaction_target[] I_TARGET
----@field effects interaction_effect[] I_EFFECT
----@field source_hfid integer References: historical_figure
----@field source_enid integer References: historical_entity
+---@class _interaction: DFCompound
+---@field _kind 'struct-type'
 df.interaction = {}
 
----@param key integer
+---@param key number
 ---@return interaction|nil
 function df.interaction.find(key) end
 
----@class _interaction_effect_type: integer, string, df.enum
+---@class interaction_vector: DFVector, { [integer]: interaction }
+local interaction_vector
+
+---@return interaction_vector # df.global.world.raws.interactions
+function df.interaction.get_vector() end
+
+---@alias interaction_effect_type
+---| 0 # ANIMATE
+---| 1 # ADD_SYNDROME
+---| 2 # RESURRECT
+---| 3 # CLEAN
+---| 4 # CONTACT
+---| 5 # MATERIAL_EMISSION
+---| 6 # HIDE
+---| 7 # PROPEL_UNIT
+---| 8 # SUMMON_UNIT
+---| 9 # CHANGE_WEATHER
+---| 10 # RAISE_GHOST
+---| 11 # CREATE_ITEM
+---| 12 # CHANGE_ITEM_QUALITY
+
+---@class _interaction_effect_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field ANIMATE 0
 ---@field [0] "ANIMATE"
 ---@field ADD_SYNDROME 1
@@ -59,35 +81,16 @@ function df.interaction.find(key) end
 ---@field [12] "CHANGE_ITEM_QUALITY"
 df.interaction_effect_type = {}
 
----@class interaction_effect_type
----@field [0] boolean
----@field ANIMATE boolean
----@field [1] boolean
----@field ADD_SYNDROME boolean
----@field [2] boolean
----@field RESURRECT boolean
----@field [3] boolean
----@field CLEAN boolean
----@field [4] boolean
----@field CONTACT boolean
----@field [5] boolean
----@field MATERIAL_EMISSION boolean
----@field [6] boolean
----@field HIDE boolean
----@field [7] boolean
----@field PROPEL_UNIT boolean
----@field [8] boolean
----@field SUMMON_UNIT boolean
----@field [9] boolean
----@field CHANGE_WEATHER boolean
----@field [10] boolean
----@field RAISE_GHOST boolean
----@field [11] boolean
----@field CREATE_ITEM boolean
----@field [12] boolean
----@field CHANGE_ITEM_QUALITY boolean
+---@alias interaction_effect_location_hint
+---| 0 # IN_WATER
+---| 1 # IN_MAGMA
+---| 2 # NO_WATER
+---| 3 # NO_MAGMA
+---| 4 # NO_THICK_FOG
+---| 5 # OUTSIDE
 
----@class _interaction_effect_location_hint: integer, string, df.enum
+---@class _interaction_effect_location_hint: DFDescriptor
+---@field _kind 'enum-type'
 ---@field IN_WATER 0
 ---@field [0] "IN_WATER"
 ---@field IN_MAGMA 1
@@ -102,161 +105,197 @@ df.interaction_effect_type = {}
 ---@field [5] "OUTSIDE"
 df.interaction_effect_location_hint = {}
 
----@class interaction_effect_location_hint
----@field [0] boolean
----@field IN_WATER boolean
----@field [1] boolean
----@field IN_MAGMA boolean
----@field [2] boolean
----@field NO_WATER boolean
----@field [3] boolean
----@field NO_MAGMA boolean
----@field [4] boolean
----@field NO_THICK_FOG boolean
----@field [5] boolean
----@field OUTSIDE boolean
+---@class (exact) interaction_effect: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_effect
+---@field index number index of the effect within the parent interaction.effects
+---@field intermittent number IE_INTERMITTENT, 0 = weekly
+---@field flags interaction_effect.T_flags
+---@field interaction_id number References: `interaction`
+---@field arena_name string IE_ARENA_NAME
+local interaction_effect
 
----@class interaction_effect: df.class
----@field index integer index of the effect within the parent interaction.effects
----@field targets df.string[]
----@field targets_index df.container for each target used in this effect, list the index of that target within the parent interaction.targets
----@field intermittent integer IE_INTERMITTENT, 0 = weekly
----@field locations df.container IE_LOCATION
----@field flags interaction_effect_flags
----@field interaction_id integer References: interaction
----@field arena_name df.string IE_ARENA_NAME
+---@class _interaction_effect: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect = {}
 
----@return interaction_effect_type
-function df.interaction_effect.getType() end
+---@class (exact) interaction_effect.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_effect.T_flags
+---@field IMMEDIATE flag-bit IE_IMMEDIATE
+local flags
 
----@param file file_compressorst
-function df.interaction_effect.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.interaction_effect.read_file(file, loadversion) end
-
----@param target unit
----@param unk_1 integer has pointer-vector at offset 0x10
----@param unk_2 boolean only used by animate
-function df.interaction_effect.activateOnUnit(target, unk_1, unk_2) end
-
----@param target item
-function df.interaction_effect.activateOnItem(target) end
-
----@param unk_0 integer
----@param unk_1 integer
----@param unk_2 integer
----@param unk_3 integer
----@param unk_4 integer
-function df.interaction_effect.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
-
----@param unk_0 integer
-function df.interaction_effect.finalize(unk_0) end
-
-function df.interaction_effect.applySyndromes() end
-
----@param unk_0 syndrome
----@return boolean
-function df.interaction_effect.hasSyndrome(unk_0) end
-
----@class _interaction_effect_flags: integer, string, df.bitfield
----@field IMMEDIATE 0
----@field [0] "IMMEDIATE"
+---@class _interaction_effect.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.interaction_effect.T_flags = {}
 
----@class interaction_effect_flags
----@field [0] boolean
----@field IMMEDIATE boolean
+---@class (exact) interaction_effect_animatest: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_animatest
+---@field unk_1 number
+local interaction_effect_animatest
 
----@class interaction_effect_animatest: interaction_effect
----@field unk_1 integer
----@field syndrome syndrome[]
+---@class _interaction_effect_animatest: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_animatest = {}
 
----@class interaction_effect_add_syndromest: interaction_effect
----@field unk_1 integer
----@field syndrome syndrome[]
+---@class (exact) interaction_effect_add_syndromest: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_add_syndromest
+---@field unk_1 number
+local interaction_effect_add_syndromest
+
+---@class _interaction_effect_add_syndromest: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_add_syndromest = {}
 
----@class interaction_effect_resurrectst: interaction_effect
----@field unk_1 integer
----@field syndrome syndrome[]
+---@class (exact) interaction_effect_resurrectst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_resurrectst
+---@field unk_1 number
+local interaction_effect_resurrectst
+
+---@class _interaction_effect_resurrectst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_resurrectst = {}
 
----@class interaction_effect_cleanst: interaction_effect
----@field grime_level integer IE_GRIME_LEVEL
+---@class (exact) interaction_effect_cleanst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_cleanst
+---@field grime_level number IE_GRIME_LEVEL
 ---@field syndrome_tag syndrome_flags IE_SYNDROME_TAG
----@field unk_1 integer
+---@field unk_1 number
+local interaction_effect_cleanst
+
+---@class _interaction_effect_cleanst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_cleanst = {}
 
----@class interaction_effect_contactst: interaction_effect
----@field unk_1 integer
+---@class (exact) interaction_effect_contactst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_contactst
+---@field unk_1 number
+local interaction_effect_contactst
+
+---@class _interaction_effect_contactst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_contactst = {}
 
----@class interaction_effect_material_emissionst: interaction_effect
----@field unk_1 integer
+---@class (exact) interaction_effect_material_emissionst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_material_emissionst
+---@field unk_1 number
+local interaction_effect_material_emissionst
+
+---@class _interaction_effect_material_emissionst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_material_emissionst = {}
 
----@class interaction_effect_hidest: interaction_effect
----@field unk_1 integer
+---@class (exact) interaction_effect_hidest: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_hidest
+---@field unk_1 number
+local interaction_effect_hidest
+
+---@class _interaction_effect_hidest: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_hidest = {}
 
----@class interaction_effect_change_item_qualityst: interaction_effect
----@field quality_added integer IE_CHANGE_QUALITY
----@field quality_set integer IE_SET_QUALITY
+---@class (exact) interaction_effect_change_item_qualityst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_change_item_qualityst
+---@field quality_added number IE_CHANGE_QUALITY
+---@field quality_set number IE_SET_QUALITY
+local interaction_effect_change_item_qualityst
+
+---@class _interaction_effect_change_item_qualityst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_change_item_qualityst = {}
 
----@class interaction_effect_change_weatherst: interaction_effect
----@field unk_1 integer
----@field unk_2 integer
+---@class (exact) interaction_effect_change_weatherst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_change_weatherst
+---@field unk_1 number
+---@field unk_2 number
+local interaction_effect_change_weatherst
+
+---@class _interaction_effect_change_weatherst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_change_weatherst = {}
 
----@class interaction_effect_raise_ghostst: interaction_effect
----@field unk_1 integer
----@field syndrome syndrome[] assumed based on vmethod reference
+---@class (exact) interaction_effect_raise_ghostst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_raise_ghostst
+---@field unk_1 number
+local interaction_effect_raise_ghostst
+
+---@class _interaction_effect_raise_ghostst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_raise_ghostst = {}
 
----@class interaction_effect_create_itemst: interaction_effect
+---@class (exact) interaction_effect_create_itemst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_create_itemst
 ---@field item_type item_type IE_ITEM
----@field item_subtype integer IE_ITEM
----@field mat_type integer IE_ITEM
----@field mat_index integer IE_ITEM
----@field probability integer IE_ITEM
----@field quantity integer IE_ITEM
----@field quality_min integer IE_ITEM_QUALITY
----@field quality_max integer IE_ITEM_QUALITY
----@field create_artifact integer IE_ITEM_QUALITY:ARTIFACT
----@field unk_1 df.string these five are probably item1:item2:mat1:mat2:mat3
----@field unk_2 df.string
----@field unk_3 df.string
----@field unk_4 df.string
----@field unk_5 df.string
+---@field item_subtype number IE_ITEM
+---@field mat_type number IE_ITEM
+---@field mat_index number IE_ITEM
+---@field probability number IE_ITEM
+---@field quantity number IE_ITEM
+---@field quality_min number IE_ITEM_QUALITY
+---@field quality_max number IE_ITEM_QUALITY
+---@field create_artifact number IE_ITEM_QUALITY:ARTIFACT
+---@field unk_1 string these five are probably item1:item2:mat1:mat2:mat3
+---@field unk_2 string
+---@field unk_3 string
+---@field unk_4 string
+---@field unk_5 string
+local interaction_effect_create_itemst
+
+---@class _interaction_effect_create_itemst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_create_itemst = {}
 
----@class interaction_effect_propel_unitst: interaction_effect
----@field unk_1 integer
----@field propel_force integer IE_PROPEL_FORCE
+---@class (exact) interaction_effect_propel_unitst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_propel_unitst
+---@field unk_1 number
+---@field propel_force number IE_PROPEL_FORCE
+local interaction_effect_propel_unitst
+
+---@class _interaction_effect_propel_unitst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_propel_unitst = {}
 
----@class interaction_effect_summon_unitst: interaction_effect
----@field make_pet integer IE_MAKE_PET_IF_POSSIBLE
----@field race_str df.string CREATURE
----@field caste_str df.string CREATURE
----@field unk_1 df.container seen 4 bytes allocated
----@field unk_2 df.container seen 2 bytes allocate
----@field required_creature_flags df.container contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
----@field forbidden_creature_flags df.container contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
----@field required_caste_flags df.container contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
----@field forbidden_caste_flags df.container contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
----@field unk_3 integer
----@field unk_4 integer
----@field time_range_min integer IE_TIME_RANGE
----@field time_range_max integer IE_TIME_RANGE
+---@class (exact) interaction_effect_summon_unitst: DFObject, interaction_effect
+---@field _kind 'struct'
+---@field _type _interaction_effect_summon_unitst
+---@field make_pet number IE_MAKE_PET_IF_POSSIBLE
+---@field race_str string CREATURE
+---@field caste_str string CREATURE
+---@field unk_3 number
+---@field unk_4 number
+---@field time_range_min number IE_TIME_RANGE
+---@field time_range_max number IE_TIME_RANGE
+local interaction_effect_summon_unitst
+
+---@class _interaction_effect_summon_unitst: DFCompound
+---@field _kind 'class-type'
 df.interaction_effect_summon_unitst = {}
 
----@class _interaction_source_type: integer, string, df.enum
+---@alias interaction_source_type
+---| 0 # REGION
+---| 1 # SECRET
+---| 2 # DISTURBANCE
+---| 3 # DEITY
+---| 4 # ATTACK
+---| 5 # INGESTION
+---| 6 # CREATURE_ACTION
+---| 7 # UNDERGROUND_SPECIAL
+---| 8 # EXPERIMENT
+
+---@class _interaction_source_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field REGION 0
 ---@field [0] "REGION"
 ---@field SECRET 1
@@ -277,128 +316,103 @@ df.interaction_effect_summon_unitst = {}
 ---@field [8] "EXPERIMENT"
 df.interaction_source_type = {}
 
----@class interaction_source_type
----@field [0] boolean
----@field REGION boolean
----@field [1] boolean
----@field SECRET boolean
----@field [2] boolean
----@field DISTURBANCE boolean
----@field [3] boolean
----@field DEITY boolean
----@field [4] boolean
----@field ATTACK boolean
----@field [5] boolean
----@field INGESTION boolean
----@field [6] boolean
----@field CREATURE_ACTION boolean
----@field [7] boolean
----@field UNDERGROUND_SPECIAL boolean
----@field [8] boolean
----@field EXPERIMENT boolean
+---@class (exact) interaction_source: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_source
+---@field id number
+---@field frequency number IS_FREQUENCY
+---@field name string IS_NAME
+---@field hist_string_1 string IS_HIST_STRING_1
+---@field hist_string_2 string IS_HIST_STRING_2
+---@field trigger_string_second string IS_TRIGGER_STRING_SECOND
+---@field trigger_string_third string IS_TRIGGER_STRING_THIRD
+---@field trigger_string string IS_TRIGGER_STRING
+local interaction_source
 
----@class interaction_source: df.class
----@field id integer
----@field frequency integer IS_FREQUENCY
----@field name df.string IS_NAME
----@field hist_string_1 df.string IS_HIST_STRING_1
----@field hist_string_2 df.string IS_HIST_STRING_2
----@field trigger_string_second df.string IS_TRIGGER_STRING_SECOND
----@field trigger_string_third df.string IS_TRIGGER_STRING_THIRD
----@field trigger_string df.string IS_TRIGGER_STRING
+---@class _interaction_source: DFCompound
+---@field _kind 'class-type'
 df.interaction_source = {}
 
----@return interaction_source_type
-function df.interaction_source.getType() end
+---@class (exact) interaction_source_regionst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_regionst
+---@field region_flags interaction_source_regionst.T_region_flags
+local interaction_source_regionst
 
----@param file file_compressorst
-function df.interaction_source.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.interaction_source.read_file(file, loadversion) end
-
----@param unk_0 integer
----@param unk_1 integer
----@param unk_2 integer
----@param unk_3 integer
----@param unk_4 integer
-function df.interaction_source.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
-
----@class interaction_source_regionst: interaction_source
----@field region_flags interaction_source_regionst_region_flags
----@field regions integer[]
+---@class _interaction_source_regionst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_regionst = {}
 
----@class _interaction_source_regionst_region_flags: integer, string, df.bitfield
----@field NORMAL_ALLOWED 0
----@field [0] "NORMAL_ALLOWED"
----@field EVIL_ALLOWED 1
----@field [1] "EVIL_ALLOWED"
----@field GOOD_ALLOWED 2
----@field [2] "GOOD_ALLOWED"
----@field SAVAGE_ALLOWED 3
----@field [3] "SAVAGE_ALLOWED"
----@field EVIL_ONLY 4
----@field [4] "EVIL_ONLY"
----@field GOOD_ONLY 5
----@field [5] "GOOD_ONLY"
----@field SAVAGE_ONLY 6
----@field [6] "SAVAGE_ONLY"
+---@class (exact) interaction_source_regionst.T_region_flags: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_source_regionst.T_region_flags
+---@field NORMAL_ALLOWED flag-bit
+---@field EVIL_ALLOWED flag-bit
+---@field GOOD_ALLOWED flag-bit
+---@field SAVAGE_ALLOWED flag-bit
+---@field EVIL_ONLY flag-bit
+---@field GOOD_ONLY flag-bit
+---@field SAVAGE_ONLY flag-bit
+local region_flags
+
+---@class _interaction_source_regionst.T_region_flags: DFCompound
+---@field _kind 'struct-type'
 df.interaction_source_regionst.T_region_flags = {}
 
----@class interaction_source_regionst_region_flags
----@field [0] boolean
----@field NORMAL_ALLOWED boolean
----@field [1] boolean
----@field EVIL_ALLOWED boolean
----@field [2] boolean
----@field GOOD_ALLOWED boolean
----@field [3] boolean
----@field SAVAGE_ALLOWED boolean
----@field [4] boolean
----@field EVIL_ONLY boolean
----@field [5] boolean
----@field GOOD_ONLY boolean
----@field [6] boolean
----@field SAVAGE_ONLY boolean
+---@class (exact) interaction_source_secretst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_secretst
+---@field learn_flags interaction_source_secretst.T_learn_flags
+---@field book_title_filename string
+---@field book_name_filename string
+---@field unk_1 number
+---@field unk_2 number
+local interaction_source_secretst
 
----@class interaction_source_secretst: interaction_source
----@field learn_flags interaction_source_secretst_learn_flags
----@field spheres sphere_type[]
----@field goals df.container
----@field book_title_filename df.string
----@field book_name_filename df.string
----@field unk_1 integer
----@field unk_2 integer
+---@class _interaction_source_secretst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_secretst = {}
 
----@class _interaction_source_secretst_learn_flags: integer, string, df.bitfield
----@field SUPERNATURAL_LEARNING_POSSIBLE 0
----@field [0] "SUPERNATURAL_LEARNING_POSSIBLE"
----@field MUNDANE_RESEARCH_POSSIBLE 1
----@field [1] "MUNDANE_RESEARCH_POSSIBLE"
----@field MUNDANE_RECORDING_POSSIBLE 2
----@field [2] "MUNDANE_RECORDING_POSSIBLE"
----@field MUNDANE_TEACHING_POSSIBLE 3
----@field [3] "MUNDANE_TEACHING_POSSIBLE"
+---@class (exact) interaction_source_secretst.T_learn_flags: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_source_secretst.T_learn_flags
+---@field SUPERNATURAL_LEARNING_POSSIBLE flag-bit
+---@field MUNDANE_RESEARCH_POSSIBLE flag-bit
+---@field MUNDANE_RECORDING_POSSIBLE flag-bit
+---@field MUNDANE_TEACHING_POSSIBLE flag-bit
+local learn_flags
+
+---@class _interaction_source_secretst.T_learn_flags: DFCompound
+---@field _kind 'struct-type'
 df.interaction_source_secretst.T_learn_flags = {}
 
----@class interaction_source_secretst_learn_flags
----@field [0] boolean
----@field SUPERNATURAL_LEARNING_POSSIBLE boolean
----@field [1] boolean
----@field MUNDANE_RESEARCH_POSSIBLE boolean
----@field [2] boolean
----@field MUNDANE_RECORDING_POSSIBLE boolean
----@field [3] boolean
----@field MUNDANE_TEACHING_POSSIBLE boolean
+---@class (exact) interaction_source_disturbancest: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_disturbancest
+---@field unk_1 number
+local interaction_source_disturbancest
 
----@class interaction_source_disturbancest: interaction_source
----@field unk_1 integer
+---@class _interaction_source_disturbancest: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_disturbancest = {}
 
----@class _interaction_source_usage_hint: integer, string, df.enum
+---@alias interaction_source_usage_hint
+---| 0 # MAJOR_CURSE
+---| 1 # GREETING
+---| 2 # CLEAN_SELF
+---| 3 # CLEAN_FRIEND
+---| 4 # ATTACK
+---| 5 # FLEEING
+---| 6 # NEGATIVE_SOCIAL_RESPONSE
+---| 7 # TORMENT
+---| 8 # DEFEND
+---| 9 # MEDIUM_CURSE
+---| 10 # MINOR_CURSE
+---| 11 # MEDIUM_BLESSING
+---| 12 # MINOR_BLESSING
+
+---@class _interaction_source_usage_hint: DFDescriptor
+---@field _kind 'enum-type'
 ---@field MAJOR_CURSE 0
 ---@field [0] "MAJOR_CURSE"
 ---@field GREETING 1
@@ -427,59 +441,73 @@ df.interaction_source_disturbancest = {}
 ---@field [12] "MINOR_BLESSING"
 df.interaction_source_usage_hint = {}
 
----@class interaction_source_usage_hint
----@field [0] boolean
----@field MAJOR_CURSE boolean
----@field [1] boolean
----@field GREETING boolean
----@field [2] boolean
----@field CLEAN_SELF boolean
----@field [3] boolean
----@field CLEAN_FRIEND boolean
----@field [4] boolean
----@field ATTACK boolean
----@field [5] boolean
----@field FLEEING boolean
----@field [6] boolean
----@field NEGATIVE_SOCIAL_RESPONSE boolean
----@field [7] boolean
----@field TORMENT boolean
----@field [8] boolean
----@field DEFEND boolean
----@field [9] boolean
----@field MEDIUM_CURSE boolean
----@field [10] boolean
----@field MINOR_CURSE boolean
----@field [11] boolean
----@field MEDIUM_BLESSING boolean
----@field [12] boolean
----@field MINOR_BLESSING boolean
+---@class (exact) interaction_source_deityst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_deityst
+---@field unk_1 number
+local interaction_source_deityst
 
----@class interaction_source_deityst: interaction_source
----@field unk_1 integer
----@field usage_hint df.container IS_USAGE_HINT
+---@class _interaction_source_deityst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_deityst = {}
 
----@class interaction_source_attackst: interaction_source
----@field unk_1 integer
+---@class (exact) interaction_source_attackst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_attackst
+---@field unk_1 number
+local interaction_source_attackst
+
+---@class _interaction_source_attackst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_attackst = {}
 
----@class interaction_source_ingestionst: interaction_source
----@field unk_1 integer
+---@class (exact) interaction_source_ingestionst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_ingestionst
+---@field unk_1 number
+local interaction_source_ingestionst
+
+---@class _interaction_source_ingestionst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_ingestionst = {}
 
----@class interaction_source_creature_actionst: interaction_source
----@field unk_1 integer
+---@class (exact) interaction_source_creature_actionst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_creature_actionst
+---@field unk_1 number
+local interaction_source_creature_actionst
+
+---@class _interaction_source_creature_actionst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_creature_actionst = {}
 
----@class interaction_source_underground_specialst: interaction_source
+---@class (exact) interaction_source_underground_specialst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_underground_specialst
+local interaction_source_underground_specialst
+
+---@class _interaction_source_underground_specialst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_underground_specialst = {}
 
----@class interaction_source_experimentst: interaction_source
----@field unk_1 integer
+---@class (exact) interaction_source_experimentst: DFObject, interaction_source
+---@field _kind 'struct'
+---@field _type _interaction_source_experimentst
+---@field unk_1 number
+local interaction_source_experimentst
+
+---@class _interaction_source_experimentst: DFCompound
+---@field _kind 'class-type'
 df.interaction_source_experimentst = {}
 
----@class _interaction_target_type: integer, string, df.enum
+---@alias interaction_target_type
+---| 0 # CORPSE
+---| 1 # CREATURE
+---| 2 # MATERIAL
+---| 3 # LOCATION
+
+---@class _interaction_target_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field CORPSE 0
 ---@field [0] "CORPSE"
 ---@field CREATURE 1
@@ -490,112 +518,121 @@ df.interaction_source_experimentst = {}
 ---@field [3] "LOCATION"
 df.interaction_target_type = {}
 
----@class interaction_target_type
----@field [0] boolean
----@field CORPSE boolean
----@field [1] boolean
----@field CREATURE boolean
----@field [2] boolean
----@field MATERIAL boolean
----@field [3] boolean
----@field LOCATION boolean
+---@alias interaction_target_location_type
+---| -1 # CONTEXT_NONE
+---| 0 # CONTEXT_REGION
+---| 1 # CONTEXT_CREATURE
+---| 2 # CONTEXT_ITEM
+---| 3 # CONTEXT_BP
+---| 4 # CONTEXT_LOCATION
+---| 5 # CONTEXT_CREATURE_OR_LOCATION
+---| 6 # RANDOM_NEARBY_LOCATION
 
----@class _interaction_target_location_type: integer, string, df.enum
+---@class _interaction_target_location_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field CONTEXT_NONE -1
----@field [0] "CONTEXT_NONE"
----@field CONTEXT_REGION 1
----@field [1] "CONTEXT_REGION"
----@field CONTEXT_CREATURE 2
----@field [2] "CONTEXT_CREATURE"
----@field CONTEXT_ITEM 3
----@field [3] "CONTEXT_ITEM"
----@field CONTEXT_BP 4
----@field [4] "CONTEXT_BP"
----@field CONTEXT_LOCATION 5
----@field [5] "CONTEXT_LOCATION"
----@field CONTEXT_CREATURE_OR_LOCATION 6
----@field [6] "CONTEXT_CREATURE_OR_LOCATION"
----@field RANDOM_NEARBY_LOCATION 7
----@field [7] "RANDOM_NEARBY_LOCATION"
+---@field [-1] "CONTEXT_NONE"
+---@field CONTEXT_REGION 0
+---@field [0] "CONTEXT_REGION"
+---@field CONTEXT_CREATURE 1
+---@field [1] "CONTEXT_CREATURE"
+---@field CONTEXT_ITEM 2
+---@field [2] "CONTEXT_ITEM"
+---@field CONTEXT_BP 3
+---@field [3] "CONTEXT_BP"
+---@field CONTEXT_LOCATION 4
+---@field [4] "CONTEXT_LOCATION"
+---@field CONTEXT_CREATURE_OR_LOCATION 5
+---@field [5] "CONTEXT_CREATURE_OR_LOCATION"
+---@field RANDOM_NEARBY_LOCATION 6
+---@field [6] "RANDOM_NEARBY_LOCATION"
 df.interaction_target_location_type = {}
 
----@class interaction_target_location_type
----@field [0] boolean
----@field CONTEXT_NONE boolean
----@field [1] boolean
----@field CONTEXT_REGION boolean
----@field [2] boolean
----@field CONTEXT_CREATURE boolean
----@field [3] boolean
----@field CONTEXT_ITEM boolean
----@field [4] boolean
----@field CONTEXT_BP boolean
----@field [5] boolean
----@field CONTEXT_LOCATION boolean
----@field [6] boolean
----@field CONTEXT_CREATURE_OR_LOCATION boolean
----@field [7] boolean
----@field RANDOM_NEARBY_LOCATION boolean
-
----@class interaction_target: df.class
----@field index integer
----@field name df.string
----@field manual_input df.string IT_MANUAL_INPUT
+---@class (exact) interaction_target: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_target
+---@field index number
+---@field name string
+---@field manual_input string IT_MANUAL_INPUT
 ---@field location interaction_target_location_type IT_LOCATION
----@field reference_name df.string IT_LOCATION:RANDOM_NEARBY_LOCATION
----@field reference_distance integer IT_LOCATION:RANDOM_NEARBY_LOCATION
+---@field reference_name string IT_LOCATION:RANDOM_NEARBY_LOCATION
+---@field reference_distance number IT_LOCATION:RANDOM_NEARBY_LOCATION
+local interaction_target
+
+---@class _interaction_target: DFCompound
+---@field _kind 'class-type'
 df.interaction_target = {}
 
----@return interaction_target_type
-function df.interaction_target.getType() end
+---@class (exact) interaction_target_info: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_target_info
+---@field requires_1 number IT_REQUIRES
+---@field requires_2 number IT_REQUIRES
+---@field forbidden_1 number IT_FORBIDDEN
+---@field forbidden_2 number IT_FORBIDDEN
+---@field restrictions interaction_target_info.T_restrictions
+local interaction_target_info
 
----@param file file_compressorst
-function df.interaction_target.write_file(file) end
-
----@param file file_compressorst
----@param loadversion save_version
-function df.interaction_target.read_file(file, loadversion) end
-
----@param unk_0 integer
----@param unk_1 integer
----@param unk_2 integer
----@param unk_3 integer
----@param unk_4 integer
-function df.interaction_target.parseRaws(unk_0, unk_1, unk_2, unk_3, unk_4) end
-
----@class interaction_target_info: df.class
----@field affected_creature_str df.string[][]
----@field affected_creature df.container IT_AFFECTED_CREATURE
----@field affected_class df.string[] IT_AFFECTED_CLASS
----@field immune_creature_str df.string[][]
----@field immune_creature df.container IT_IMMUNE_CREATURE
----@field immune_class df.string[] IT_IMMUNE_CLASS
----@field forbidden_syndrome_class df.string[]
----@field requires_1 integer IT_REQUIRES
----@field requires_2 integer IT_REQUIRES
----@field forbidden_1 integer IT_FORBIDDEN
----@field forbidden_2 integer IT_FORBIDDEN
----@field restrictions interaction_target_info_restrictions
+---@class _interaction_target_info: DFCompound
+---@field _kind 'struct-type'
 df.interaction_target_info = {}
 
----@class _interaction_target_info_restrictions: integer, string, df.bitfield
----@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
----@field [0] "CANNOT_TARGET_IF_ALREADY_AFFECTED"
+---@class (exact) interaction_target_info.T_restrictions: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_target_info.T_restrictions
+---@field CANNOT_TARGET_IF_ALREADY_AFFECTED flag-bit
+local restrictions
+
+---@class _interaction_target_info.T_restrictions: DFCompound
+---@field _kind 'struct-type'
 df.interaction_target_info.T_restrictions = {}
 
----@class interaction_target_info_restrictions
----@field [0] boolean
----@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean
-
----@class interaction_target_corpsest: interaction_target
+---@class (exact) interaction_target_corpsest: DFObject, interaction_target
+---@field _kind 'struct'
+---@field _type _interaction_target_corpsest
 ---@field target_info interaction_target_info
+local interaction_target_corpsest
+
+---@class _interaction_target_corpsest: DFCompound
+---@field _kind 'class-type'
 df.interaction_target_corpsest = {}
 
----@class interaction_target_creaturest: interaction_target
+---@class (exact) interaction_target_creaturest: DFObject, interaction_target
+---@field _kind 'struct'
+---@field _type _interaction_target_creaturest
 ---@field target_info interaction_target_info
+local interaction_target_creaturest
+
+---@class _interaction_target_creaturest: DFCompound
+---@field _kind 'class-type'
 df.interaction_target_creaturest = {}
 
----@class _breath_attack_type: integer, string, df.enum
+---@alias breath_attack_type
+---| 0 # TRAILING_DUST_FLOW
+---| 1 # TRAILING_VAPOR_FLOW
+---| 2 # TRAILING_GAS_FLOW
+---| 3 # SOLID_GLOB
+---| 4 # LIQUID_GLOB
+---| 5 # UNDIRECTED_GAS
+---| 6 # UNDIRECTED_VAPOR
+---| 7 # UNDIRECTED_DUST
+---| 8 # WEB_SPRAY
+---| 9 # DRAGONFIRE
+---| 10 # FIREJET
+---| 11 # FIREBALL
+---| 12 # WEATHER_CREEPING_GAS
+---| 13 # WEATHER_CREEPING_VAPOR
+---| 14 # WEATHER_CREEPING_DUST
+---| 15 # WEATHER_FALLING_MATERIAL
+---| 16 # SPATTER_POWDER
+---| 17 # SPATTER_LIQUID
+---| 18 # UNDIRECTED_ITEM_CLOUD
+---| 19 # TRAILING_ITEM_FLOW
+---| 20 # SHARP_ROCK
+---| 21 # OTHER
+
+---@class _breath_attack_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field TRAILING_DUST_FLOW 0
 ---@field [0] "TRAILING_DUST_FLOW"
 ---@field TRAILING_VAPOR_FLOW 1
@@ -638,86 +675,63 @@ df.interaction_target_creaturest = {}
 ---@field [19] "TRAILING_ITEM_FLOW"
 ---@field SHARP_ROCK 20
 ---@field [20] "SHARP_ROCK"
----@field OTHER 21
----@field [21] "OTHER"
+---@field OTHER 21 other: root around in, lick, head-bump, scratch, tusk, retract into shell, roll into a ball<br>often [CDI:CAN_BE_MUTUAL] but not always
+---@field [21] "OTHER" other: root around in, lick, head-bump, scratch, tusk, retract into shell, roll into a ball<br>often [CDI:CAN_BE_MUTUAL] but not always
 df.breath_attack_type = {}
 
----@class breath_attack_type
----@field [0] boolean
----@field TRAILING_DUST_FLOW boolean
----@field [1] boolean
----@field TRAILING_VAPOR_FLOW boolean
----@field [2] boolean
----@field TRAILING_GAS_FLOW boolean
----@field [3] boolean
----@field SOLID_GLOB boolean
----@field [4] boolean
----@field LIQUID_GLOB boolean
----@field [5] boolean
----@field UNDIRECTED_GAS boolean
----@field [6] boolean
----@field UNDIRECTED_VAPOR boolean
----@field [7] boolean
----@field UNDIRECTED_DUST boolean
----@field [8] boolean
----@field WEB_SPRAY boolean
----@field [9] boolean
----@field DRAGONFIRE boolean
----@field [10] boolean
----@field FIREJET boolean
----@field [11] boolean
----@field FIREBALL boolean
----@field [12] boolean
----@field WEATHER_CREEPING_GAS boolean
----@field [13] boolean
----@field WEATHER_CREEPING_VAPOR boolean
----@field [14] boolean
----@field WEATHER_CREEPING_DUST boolean
----@field [15] boolean
----@field WEATHER_FALLING_MATERIAL boolean
----@field [16] boolean
----@field SPATTER_POWDER boolean
----@field [17] boolean
----@field SPATTER_LIQUID boolean
----@field [18] boolean
----@field UNDIRECTED_ITEM_CLOUD boolean
----@field [19] boolean
----@field TRAILING_ITEM_FLOW boolean
----@field [20] boolean
----@field SHARP_ROCK boolean
----@field [21] boolean
----@field OTHER boolean
-
----@class interaction_target_materialst: interaction_target
----@field material_str df.string[]
----@field mat_type integer References: material
----@field mat_index integer
----@field parent_interaction_index integer
+---@class (exact) interaction_target_materialst: DFObject, interaction_target
+---@field _kind 'struct'
+---@field _type _interaction_target_materialst
+---@field mat_type number References: `material`
+---@field mat_index number
+---@field parent_interaction_index number
 ---@field breath_attack_type breath_attack_type
----@field restrictions interaction_target_materialst_restrictions
+---@field restrictions interaction_target_materialst.T_restrictions
+local interaction_target_materialst
+
+---@class _interaction_target_materialst: DFCompound
+---@field _kind 'class-type'
 df.interaction_target_materialst = {}
 
----@class _interaction_target_materialst_restrictions: integer, string, df.bitfield
----@field CONTEXT_MATERIAL 0
----@field [0] "CONTEXT_MATERIAL"
+---@class (exact) interaction_target_materialst.T_restrictions: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_target_materialst.T_restrictions
+---@field CONTEXT_MATERIAL flag-bit
+local restrictions
+
+---@class _interaction_target_materialst.T_restrictions: DFCompound
+---@field _kind 'struct-type'
 df.interaction_target_materialst.T_restrictions = {}
 
----@class interaction_target_materialst_restrictions
----@field [0] boolean
----@field CONTEXT_MATERIAL boolean
+---@class (exact) interaction_target_locationst: DFObject, interaction_target
+---@field _kind 'struct'
+---@field _type _interaction_target_locationst
+local interaction_target_locationst
 
----@class interaction_target_locationst: interaction_target
+---@class _interaction_target_locationst: DFCompound
+---@field _kind 'class-type'
 df.interaction_target_locationst = {}
 
----@class interaction_instance: df.instance
----@field id integer
----@field interaction_id integer References: interaction
----@field unk_1 integer
----@field region_index integer
----@field affected_units df.container References: unit<br>IDs of units affected by the regional interaction
+---@class (exact) interaction_instance: DFObject
+---@field _kind 'struct'
+---@field _type _interaction_instance
+---@field id number
+---@field interaction_id number References: `interaction`
+---@field unk_1 number
+---@field region_index number
+local interaction_instance
+
+---@class _interaction_instance: DFCompound
+---@field _kind 'struct-type'
 df.interaction_instance = {}
 
----@param key integer
+---@param key number
 ---@return interaction_instance|nil
 function df.interaction_instance.find(key) end
+
+---@class interaction_instance_vector: DFVector, { [integer]: interaction_instance }
+local interaction_instance_vector
+
+---@return interaction_instance_vector # df.global.world.interaction_instances.all
+function df.interaction_instance.get_vector() end
 

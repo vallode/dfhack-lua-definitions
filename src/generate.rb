@@ -27,7 +27,7 @@ HANDLERS = {
   'global' => DFHackLuaDefinitions::Field
 }.freeze
 
-Dir.glob(ARGV[0] || './df-structures/*.xml').each do |xml|
+Dir.glob(ARGV[0] || './df-structures/df.*.xml').each do |xml|
   print "Parsing: #{xml}\n" if DEBUG && !SILENT
   filename = File.basename(xml, '.xml')
 

@@ -1,72 +1,99 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.materials
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _craft_material_class: integer, string, df.enum
----not in DF
+---@alias craft_material_class
+---| -1 # None
+---| 0 # Metal
+---| 1 # Wood
+---| 2 # Gem
+---| 3 # Glass
+---| 4 # Stone
+---| 5 # Bone
+---| 6 # Ivory
+---| 7 # Horn
+---| 8 # Pearl
+---| 9 # Shell
+---| 10 # Leather
+---| 11 # Cloth
+
+-- not in DF
+---@class _craft_material_class: DFDescriptor
+---@field _kind 'enum-type'
 ---@field None -1
----@field [0] "None"
----@field Metal 1
----@field [1] "Metal"
----@field Wood 2
----@field [2] "Wood"
----@field Gem 3
----@field [3] "Gem"
----@field Glass 4
----@field [4] "Glass"
----@field Stone 5
----@field [5] "Stone"
----@field Bone 6
----@field [6] "Bone"
----@field Ivory 7
----@field [7] "Ivory"
----@field Horn 8
----@field [8] "Horn"
----@field Pearl 9
----@field [9] "Pearl"
----@field Shell 10
----@field [10] "Shell"
----@field Leather 11
----@field [11] "Leather"
----@field Cloth 12
----@field [12] "Cloth"
+---@field [-1] "None"
+---@field Metal 0
+---@field [0] "Metal"
+---@field Wood 1
+---@field [1] "Wood"
+---@field Gem 2
+---@field [2] "Gem"
+---@field Glass 3
+---@field [3] "Glass"
+---@field Stone 4
+---@field [4] "Stone"
+---@field Bone 5
+---@field [5] "Bone"
+---@field Ivory 6
+---@field [6] "Ivory"
+---@field Horn 7
+---@field [7] "Horn"
+---@field Pearl 8
+---@field [8] "Pearl"
+---@field Shell 9
+---@field [9] "Shell"
+---@field Leather 10
+---@field [10] "Leather"
+---@field Cloth 11
+---@field [11] "Cloth"
 df.craft_material_class = {}
 
----@class craft_material_class
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field Metal boolean
----@field [2] boolean
----@field Wood boolean
----@field [3] boolean
----@field Gem boolean
----@field [4] boolean
----@field Glass boolean
----@field [5] boolean
----@field Stone boolean
----@field [6] boolean
----@field Bone boolean
----@field [7] boolean
----@field Ivory boolean
----@field [8] boolean
----@field Horn boolean
----@field [9] boolean
----@field Pearl boolean
----@field [10] boolean
----@field Shell boolean
----@field [11] boolean
----@field Leather boolean
----@field [12] boolean
----@field Cloth boolean
+---@class craft_material_class_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.craft_material_class._attr_entry_type = {}
 
----@class craft_material_class_attr
----@field make_skill job_skill
----@field improve_skill job_skill
+---@class (exact) craft_material_class_attr_entry_type_fields
+---@field make_skill DFCompoundField
+---@field improve_skill DFCompoundField
+df.craft_material_class._attr_entry_type._fields = {}
 
----@type { [string|integer]: craft_material_class_attr }
+---@class craft_material_class_attrs
+---@field Metal { make_skill: "FORGE_FURNITURE", improve_skill: "METALCRAFT" }
+---@field Wood { make_skill: "CARPENTRY", improve_skill: "WOODCRAFT" }
+---@field Gem { make_skill: "CUTGEM", improve_skill: "ENCRUSTGEM" }
+---@field Glass { make_skill: "GLASSMAKER" }
+---@field Stone { make_skill: "MASONRY" }
+---@field Bone { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Ivory { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Horn { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Pearl { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Shell { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
+---@field Leather { make_skill: "LEATHERWORK", improve_skill: "LEATHERWORK" }
+---@field Cloth { make_skill: "CLOTHESMAKING", improve_skill: "CLOTHESMAKING" }
 df.craft_material_class.attrs = {}
 
----@class _builtin_mats: integer, string, df.enum
+---@alias builtin_mats
+---| 0 # INORGANIC
+---| 1 # AMBER
+---| 2 # CORAL
+---| 3 # GLASS_GREEN
+---| 4 # GLASS_CLEAR
+---| 5 # GLASS_CRYSTAL
+---| 6 # WATER
+---| 7 # COAL
+---| 8 # POTASH
+---| 9 # ASH
+---| 10 # PEARLASH
+---| 11 # LYE
+---| 12 # MUD
+---| 13 # VOMIT
+---| 14 # SALT
+---| 15 # FILTH_B
+---| 16 # FILTH_Y
+---| 17 # UNKNOWN_SUBSTANCE
+---| 18 # GRIME
+
+---@class _builtin_mats: DFDescriptor
+---@field _kind 'enum-type'
 ---@field INORGANIC 0
 ---@field [0] "INORGANIC"
 ---@field AMBER 1
@@ -107,47 +134,92 @@ df.craft_material_class.attrs = {}
 ---@field [18] "GRIME"
 df.builtin_mats = {}
 
----@class builtin_mats
----@field [0] boolean
----@field INORGANIC boolean
----@field [1] boolean
----@field AMBER boolean
----@field [2] boolean
----@field CORAL boolean
----@field [3] boolean
----@field GLASS_GREEN boolean
----@field [4] boolean
----@field GLASS_CLEAR boolean
----@field [5] boolean
----@field GLASS_CRYSTAL boolean
----@field [6] boolean
----@field WATER boolean
----@field [7] boolean
----@field COAL boolean
----@field [8] boolean
----@field POTASH boolean
----@field [9] boolean
----@field ASH boolean
----@field [10] boolean
----@field PEARLASH boolean
----@field [11] boolean
----@field LYE boolean
----@field [12] boolean
----@field MUD boolean
----@field [13] boolean
----@field VOMIT boolean
----@field [14] boolean
----@field SALT boolean
----@field [15] boolean
----@field FILTH_B boolean
----@field [16] boolean
----@field FILTH_Y boolean
----@field [17] boolean
----@field UNKNOWN_SUBSTANCE boolean
----@field [18] boolean
----@field GRIME boolean
+---@alias material_flags
+---| 0 # BONE
+---| 1 # MEAT
+---| 2 # EDIBLE_VERMIN
+---| 3 # EDIBLE_RAW
+---| 4 # EDIBLE_COOKED
+---| 5 # ALCOHOL
+---| 6 # ITEMS_METAL
+---| 7 # ITEMS_BARRED
+---| 8 # ITEMS_SCALED
+---| 9 # ITEMS_LEATHER
+---| 10 # ITEMS_SOFT
+---| 11 # ITEMS_HARD
+---| 12 # IMPLIES_ANIMAL_KILL
+---| 13 # ALCOHOL_PLANT
+---| 14 # ALCOHOL_CREATURE
+---| 15 # CHEESE_PLANT
+---| 16 # CHEESE_CREATURE
+---| 17 # POWDER_MISC_PLANT
+---| 18 # POWDER_MISC_CREATURE
+---| 19 # STOCKPILE_GLOB
+---| 20 # LIQUID_MISC_PLANT
+---| 21 # LIQUID_MISC_CREATURE
+---| 22 # LIQUID_MISC_OTHER
+---| 23 # WOOD
+---| 24 # THREAD_PLANT
+---| 25 # TOOTH
+---| 26 # HORN
+---| 27 # PEARL
+---| 28 # SHELL
+---| 29 # LEATHER
+---| 30 # SILK
+---| 31 # SOAP
+---| 32 # ROTS
+---| 33 # IS_DYE
+---| 34 # POWDER_MISC
+---| 35 # LIQUID_MISC
+---| 36 # STRUCTURAL_PLANT_MAT
+---| 37 # SEED_MAT
+---| 38 # LEAF_MAT
+---| 39 # CHEESE
+---| 40 # ENTERS_BLOOD
+---| 41 # BLOOD_MAP_DESCRIPTOR
+---| 42 # ICHOR_MAP_DESCRIPTOR
+---| 43 # GOO_MAP_DESCRIPTOR
+---| 44 # SLIME_MAP_DESCRIPTOR
+---| 45 # PUS_MAP_DESCRIPTOR
+---| 46 # GENERATES_MIASMA
+---| 47 # IS_METAL
+---| 48 # IS_GEM
+---| 49 # IS_GLASS
+---| 50 # CRYSTAL_GLASSABLE
+---| 51 # ITEMS_WEAPON
+---| 52 # ITEMS_WEAPON_RANGED
+---| 53 # ITEMS_ANVIL
+---| 54 # ITEMS_AMMO
+---| 55 # ITEMS_DIGGER
+---| 56 # ITEMS_ARMOR
+---| 57 # ITEMS_DELICATE
+---| 58 # ITEMS_SIEGE_ENGINE
+---| 59 # ITEMS_QUERN
+---| 60 # IS_STONE
+---| 61 # UNDIGGABLE
+---| 62 # YARN
+---| 63 # STOCKPILE_GLOB_PASTE
+---| 64 # STOCKPILE_GLOB_PRESSED
+---| 65 # DISPLAY_UNGLAZED
+---| 66 # DO_NOT_CLEAN_GLOB
+---| 67 # NO_STONE_STOCKPILE
+---| 68 # STOCKPILE_THREAD_METAL
+---| 69 # SWEAT_MAP_DESCRIPTOR
+---| 70 # TEARS_MAP_DESCRIPTOR
+---| 71 # SPIT_MAP_DESCRIPTOR
+---| 72 # EVAPORATES
+---| 74 # IS_CERAMIC
+---| 75 # CARTILAGE
+---| 76 # FEATHER
+---| 77 # SCALE
+---| 78 # HAIR
+---| 79 # NERVOUS_TISSUE
+---| 80 # HOOF
+---| 81 # CHITIN
+---| 82 # ANTLER
 
----@class _material_flags: integer, string, df.enum
+---@class _material_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field BONE 0
 ---@field [0] "BONE"
 ---@field MEAT 1
@@ -188,8 +260,8 @@ df.builtin_mats = {}
 ---@field [18] "POWDER_MISC_CREATURE"
 ---@field STOCKPILE_GLOB 19
 ---@field [19] "STOCKPILE_GLOB"
----@field LIQUID_MISC_PLANT 20
----@field [20] "LIQUID_MISC_PLANT"
+---@field LIQUID_MISC_PLANT 20 also STOCKPILE_GLOB_SOLID
+---@field [20] "LIQUID_MISC_PLANT" also STOCKPILE_GLOB_SOLID
 ---@field LIQUID_MISC_CREATURE 21
 ---@field [21] "LIQUID_MISC_CREATURE"
 ---@field LIQUID_MISC_OTHER 22
@@ -226,8 +298,8 @@ df.builtin_mats = {}
 ---@field [37] "SEED_MAT"
 ---@field LEAF_MAT 38
 ---@field [38] "LEAF_MAT"
----@field CHEESE 39
----@field [39] "CHEESE"
+---@field CHEESE 39 now named STOCKPILE_PLANT_GROWTH
+---@field [39] "CHEESE" now named STOCKPILE_PLANT_GROWTH
 ---@field ENTERS_BLOOD 40
 ---@field [40] "ENTERS_BLOOD"
 ---@field BLOOD_MAP_DESCRIPTOR 41
@@ -294,14 +366,12 @@ df.builtin_mats = {}
 ---@field [71] "SPIT_MAP_DESCRIPTOR"
 ---@field EVAPORATES 72
 ---@field [72] "EVAPORATES"
----@field unk_73 73
----@field [73] "unk_73"
 ---@field IS_CERAMIC 74
 ---@field [74] "IS_CERAMIC"
 ---@field CARTILAGE 75
 ---@field [75] "CARTILAGE"
----@field FEATHER 76
----@field [76] "FEATHER"
+---@field FEATHER 76 new in 50.0x
+---@field [76] "FEATHER" new in 50.0x
 ---@field SCALE 77
 ---@field [77] "SCALE"
 ---@field HAIR 78
@@ -316,214 +386,68 @@ df.builtin_mats = {}
 ---@field [82] "ANTLER"
 df.material_flags = {}
 
----@class material_flags
----@field [0] boolean
----@field BONE boolean
----@field [1] boolean
----@field MEAT boolean
----@field [2] boolean
----@field EDIBLE_VERMIN boolean
----@field [3] boolean
----@field EDIBLE_RAW boolean
----@field [4] boolean
----@field EDIBLE_COOKED boolean
----@field [5] boolean
----@field ALCOHOL boolean
----@field [6] boolean
----@field ITEMS_METAL boolean
----@field [7] boolean
----@field ITEMS_BARRED boolean
----@field [8] boolean
----@field ITEMS_SCALED boolean
----@field [9] boolean
----@field ITEMS_LEATHER boolean
----@field [10] boolean
----@field ITEMS_SOFT boolean
----@field [11] boolean
----@field ITEMS_HARD boolean
----@field [12] boolean
----@field IMPLIES_ANIMAL_KILL boolean
----@field [13] boolean
----@field ALCOHOL_PLANT boolean
----@field [14] boolean
----@field ALCOHOL_CREATURE boolean
----@field [15] boolean
----@field CHEESE_PLANT boolean
----@field [16] boolean
----@field CHEESE_CREATURE boolean
----@field [17] boolean
----@field POWDER_MISC_PLANT boolean
----@field [18] boolean
----@field POWDER_MISC_CREATURE boolean
----@field [19] boolean
----@field STOCKPILE_GLOB boolean
----@field [20] boolean
----@field LIQUID_MISC_PLANT boolean
----@field [21] boolean
----@field LIQUID_MISC_CREATURE boolean
----@field [22] boolean
----@field LIQUID_MISC_OTHER boolean
----@field [23] boolean
----@field WOOD boolean
----@field [24] boolean
----@field THREAD_PLANT boolean
----@field [25] boolean
----@field TOOTH boolean
----@field [26] boolean
----@field HORN boolean
----@field [27] boolean
----@field PEARL boolean
----@field [28] boolean
----@field SHELL boolean
----@field [29] boolean
----@field LEATHER boolean
----@field [30] boolean
----@field SILK boolean
----@field [31] boolean
----@field SOAP boolean
----@field [32] boolean
----@field ROTS boolean
----@field [33] boolean
----@field IS_DYE boolean
----@field [34] boolean
----@field POWDER_MISC boolean
----@field [35] boolean
----@field LIQUID_MISC boolean
----@field [36] boolean
----@field STRUCTURAL_PLANT_MAT boolean
----@field [37] boolean
----@field SEED_MAT boolean
----@field [38] boolean
----@field LEAF_MAT boolean
----@field [39] boolean
----@field CHEESE boolean
----@field [40] boolean
----@field ENTERS_BLOOD boolean
----@field [41] boolean
----@field BLOOD_MAP_DESCRIPTOR boolean
----@field [42] boolean
----@field ICHOR_MAP_DESCRIPTOR boolean
----@field [43] boolean
----@field GOO_MAP_DESCRIPTOR boolean
----@field [44] boolean
----@field SLIME_MAP_DESCRIPTOR boolean
----@field [45] boolean
----@field PUS_MAP_DESCRIPTOR boolean
----@field [46] boolean
----@field GENERATES_MIASMA boolean
----@field [47] boolean
----@field IS_METAL boolean
----@field [48] boolean
----@field IS_GEM boolean
----@field [49] boolean
----@field IS_GLASS boolean
----@field [50] boolean
----@field CRYSTAL_GLASSABLE boolean
----@field [51] boolean
----@field ITEMS_WEAPON boolean
----@field [52] boolean
----@field ITEMS_WEAPON_RANGED boolean
----@field [53] boolean
----@field ITEMS_ANVIL boolean
----@field [54] boolean
----@field ITEMS_AMMO boolean
----@field [55] boolean
----@field ITEMS_DIGGER boolean
----@field [56] boolean
----@field ITEMS_ARMOR boolean
----@field [57] boolean
----@field ITEMS_DELICATE boolean
----@field [58] boolean
----@field ITEMS_SIEGE_ENGINE boolean
----@field [59] boolean
----@field ITEMS_QUERN boolean
----@field [60] boolean
----@field IS_STONE boolean
----@field [61] boolean
----@field UNDIGGABLE boolean
----@field [62] boolean
----@field YARN boolean
----@field [63] boolean
----@field STOCKPILE_GLOB_PASTE boolean
----@field [64] boolean
----@field STOCKPILE_GLOB_PRESSED boolean
----@field [65] boolean
----@field DISPLAY_UNGLAZED boolean
----@field [66] boolean
----@field DO_NOT_CLEAN_GLOB boolean
----@field [67] boolean
----@field NO_STONE_STOCKPILE boolean
----@field [68] boolean
----@field STOCKPILE_THREAD_METAL boolean
----@field [69] boolean
----@field SWEAT_MAP_DESCRIPTOR boolean
----@field [70] boolean
----@field TEARS_MAP_DESCRIPTOR boolean
----@field [71] boolean
----@field SPIT_MAP_DESCRIPTOR boolean
----@field [72] boolean
----@field EVAPORATES boolean
----@field [73] boolean
----@field unk_73 boolean
----@field [74] boolean
----@field IS_CERAMIC boolean
----@field [75] boolean
----@field CARTILAGE boolean
----@field [76] boolean
----@field FEATHER boolean
----@field [77] boolean
----@field SCALE boolean
----@field [78] boolean
----@field HAIR boolean
----@field [79] boolean
----@field NERVOUS_TISSUE boolean
----@field [80] boolean
----@field HOOF boolean
----@field [81] boolean
----@field CHITIN boolean
----@field [82] boolean
----@field ANTLER boolean
+---@class material_flags_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.material_flags._attr_entry_type = {}
 
----@class material_flags_attr
----@field type craft_material_class
+---@class (exact) material_flags_attr_entry_type_fields
+---@field type DFCompoundField
+df.material_flags._attr_entry_type._fields = {}
 
----@type { [string|integer]: material_flags_attr }
+---@class material_flags_attrs
+---@field BONE { type: "Bone" }
+---@field WOOD { type: "Wood" }
+---@field THREAD_PLANT { type: "Cloth" }
+---@field TOOTH { type: "Ivory" }
+---@field HORN { type: "Horn" }
+---@field PEARL { type: "Pearl" }
+---@field SHELL { type: "Shell" }
+---@field LEATHER { type: "Leather" }
+---@field SILK { type: "Cloth" }
+---@field IS_METAL { type: "Metal" }
+---@field IS_GEM { type: "Gem" }
+---@field IS_GLASS { type: "Glass" }
+---@field IS_STONE { type: "Stone" }
+---@field YARN { type: "Cloth" }
 df.material_flags.attrs = {}
 
----@class _matter_state: integer, string, df.enum
+---@alias matter_state
+---| -1 # None
+---| 0 # Solid
+---| 1 # Liquid
+---| 2 # Gas
+---| 3 # Powder
+---| 4 # Paste
+---| 5 # Pressed
+
+---@class _matter_state: DFDescriptor
+---@field _kind 'enum-type'
 ---@field None -1
----@field [0] "None"
----@field Solid 1
----@field [1] "Solid"
----@field Liquid 2
----@field [2] "Liquid"
----@field Gas 3
----@field [3] "Gas"
----@field Powder 4
----@field [4] "Powder"
----@field Paste 5
----@field [5] "Paste"
----@field Pressed 6
----@field [6] "Pressed"
+---@field [-1] "None"
+---@field Solid 0
+---@field [0] "Solid"
+---@field Liquid 1
+---@field [1] "Liquid"
+---@field Gas 2
+---@field [2] "Gas"
+---@field Powder 3
+---@field [3] "Powder"
+---@field Paste 4
+---@field [4] "Paste"
+---@field Pressed 5
+---@field [5] "Pressed"
 df.matter_state = {}
 
----@class matter_state
----@field [0] boolean
----@field None boolean
----@field [1] boolean
----@field Solid boolean
----@field [2] boolean
----@field Liquid boolean
----@field [3] boolean
----@field Gas boolean
----@field [4] boolean
----@field Powder boolean
----@field [5] boolean
----@field Paste boolean
----@field [6] boolean
----@field Pressed boolean
+---@alias strain_type
+---| 0 # BENDING
+---| 1 # SHEAR
+---| 2 # TORSION
+---| 3 # IMPACT
+---| 4 # TENSILE
+---| 5 # COMPRESSIVE
 
----@class _strain_type: integer, string, df.enum
+---@class _strain_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field BENDING 0
 ---@field [0] "BENDING"
 ---@field SHEAR 1
@@ -538,47 +462,34 @@ df.matter_state = {}
 ---@field [5] "COMPRESSIVE"
 df.strain_type = {}
 
----@class strain_type
----@field [0] boolean
----@field BENDING boolean
----@field [1] boolean
----@field SHEAR boolean
----@field [2] boolean
----@field TORSION boolean
----@field [3] boolean
----@field IMPACT boolean
----@field [4] boolean
----@field TENSILE boolean
----@field [5] boolean
----@field COMPRESSIVE boolean
-
----@class material_common: df.class
----@field id df.string
----@field gem_name1 df.string
----@field gem_name2 df.string
----@field stone_name df.string
----@field heat material_common_heat
----@field solid_density integer
----@field liquid_density integer
----@field molar_mass integer
----@field state_color integer[]
----@field state_name df.string[]
----@field state_adj df.string[]
----@field strength material_common_strength
----@field material_value integer
----@field flags material_flags[]
+---@class (exact) material_common: DFObject
+---@field _kind 'struct'
+---@field _type _material_common
+---@field id string
+---@field gem_name1 string
+---@field gem_name2 string
+---@field stone_name string
+---@field heat material_common.T_heat
+---@field solid_density number
+---@field liquid_density number
+---@field molar_mass number
+---@field strength material_common.T_strength
+---@field material_value number
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
----@field butcher_special_subtype integer
----@field meat_name df.string[]
----@field meat_organ integer used for texture selection
----@field block_name df.string[]
----@field reaction_product material_common_reaction_product
----@field hardens_with_water material_common_hardens_with_water
----@field reaction_class df.string[]
+---@field butcher_special_subtype number
+---@field meat_organ number used for texture selection
+---@field reaction_product material_common.T_reaction_product
+---@field hardens_with_water material_common.T_hardens_with_water
+local material_common
+
+---@class _material_common: DFCompound
+---@field _kind 'struct-type'
 df.material_common = {}
 
----@class material_common_heat: df.class
+---@class (exact) material_common.T_heat: DFObject
+---@field _kind 'struct'
+---@field _type _material_common.T_heat
 ---@field spec_heat integer
 ---@field heatdam_point integer
 ---@field colddam_point integer
@@ -586,85 +497,127 @@ df.material_common = {}
 ---@field melting_point integer
 ---@field boiling_point integer
 ---@field mat_fixed_temp integer
+local heat
+
+---@class _material_common.T_heat: DFCompound
+---@field _kind 'struct-type'
 df.material_common.T_heat = {}
 
+---@class (exact) material_common.T_strength: DFObject
+---@field _kind 'struct'
+---@field _type _material_common.T_strength
+---@field absorption number
+---@field max_edge number
+local strength
 
----@class material_common_strength: df.class
----@field absorption integer
----@field yield integer[]
----@field fracture integer[]
----@field strain_at_yield integer[]
----@field max_edge integer
+---@class _material_common.T_strength: DFCompound
+---@field _kind 'struct-type'
 df.material_common.T_strength = {}
 
-
----@class material_common_reaction_product: df.class
----@field id df.string[]
----@field item_type df.container
----@field item_subtype df.container
+---@class (exact) material_common.T_reaction_product: DFObject
+---@field _kind 'struct'
+---@field _type _material_common.T_reaction_product
 ---@field material material_vec_ref
----@field str df.string[][]
+local reaction_product
+
+---@class _material_common.T_reaction_product: DFCompound
+---@field _kind 'struct-type'
 df.material_common.T_reaction_product = {}
 
+---@class (exact) material_common.T_hardens_with_water: DFObject
+---@field _kind 'struct'
+---@field _type _material_common.T_hardens_with_water
+---@field mat_type number References: `material`
+---@field mat_index number
+local hardens_with_water
 
----@class material_common_hardens_with_water: df.class
----@field mat_type integer References: material
----@field mat_index integer
----@field str df.string[]
+---@class _material_common.T_hardens_with_water: DFCompound
+---@field _kind 'struct-type'
 df.material_common.T_hardens_with_water = {}
 
----@class material: material_common
+---@class (exact) material: DFObject, material_common
+---@field _kind 'struct'
+---@field _type _material
 ---@field tile integer
----@field basic_color integer[]
----@field build_color integer[]
----@field tile_color integer[]
 ---@field item_symbol integer
----@field powder_dye integer
----@field temp_diet_info integer
----@field syndrome syndrome[]
----@field soap_level integer
----@field unk_41c df.container
----@field prefix df.string
----@field food_mat_index integer[]
----@field powder_dye_str df.string temporary
----@field state_color_str df.string[]
----@field wood_texpos integer
----@field boulder_texpos1 integer
----@field boulder_texpos2 integer
----@field rough_texpos1 integer
----@field rough_texpos2 integer
----@field bar_texpos integer
----@field cheese_texpos1 integer
----@field cheese_texpos2 integer
+---@field  number
+---@field  number
+---@field  number
+---@field powder_dye number 0.50.01
+---@field temp_diet_info number // color token index
+---@field soap_level number
+---@field prefix string
+---@field powder_dye_str string temporary
+---@field wood_texpos number
+---@field boulder_texpos1 number
+---@field boulder_texpos2 number
+---@field rough_texpos1 number
+---@field rough_texpos2 number
+---@field bar_texpos number
+---@field cheese_texpos1 number
+---@field cheese_texpos2 number
+---@field  number
+local material
+
+---@class _material: DFCompound
+---@field _kind 'struct-type'
 df.material = {}
 
----@class material_vec_ref: df.class
----@field mat_type integer[]
----@field mat_index df.container
+---@class (exact) material_vec_ref: DFObject
+---@field _kind 'struct'
+---@field _type _material_vec_ref
+local material_vec_ref
+
+---@class _material_vec_ref: DFCompound
+---@field _kind 'struct-type'
 df.material_vec_ref = {}
 
----@class material_template: material_common
+---@class (exact) material_template: DFObject, material_common
+---@field _kind 'struct'
+---@field _type _material_template
 ---@field tile integer
----@field basic_color integer[]
----@field build_color integer[]
----@field tile_color integer[]
 ---@field item_symbol integer
----@field powder_dye integer
----@field temp_diet_info integer
----@field syndrome syndrome[]
----@field soap_level integer
----@field unk_41c df.container
----@field powder_dye_str df.string temporary
----@field state_color_str df.string[]
+---@field powder_dye number
+---@field temp_diet_info number // color token index
+---@field soap_level number
+---@field powder_dye_str string temporary
+local material_template
+
+---@class _material_template: DFCompound
+---@field _kind 'struct-type'
 df.material_template = {}
 
----@class _inorganic_flags: integer, string, df.enum
+---@alias inorganic_flags
+---| 0 # LAVA
+---| 1 # GENERATED
+---| 2 # ENVIRONMENT_NON_SOIL_OCEAN
+---| 3 # SEDIMENTARY
+---| 4 # SEDIMENTARY_OCEAN_SHALLOW
+---| 5 # IGNEOUS_INTRUSIVE
+---| 6 # IGNEOUS_EXTRUSIVE
+---| 7 # METAMORPHIC
+---| 8 # DEEP_SURFACE
+---| 9 # METAL_ORE
+---| 10 # AQUIFER
+---| 11 # SOIL_ANY
+---| 12 # SOIL_OCEAN
+---| 13 # SOIL_SAND
+---| 14 # SEDIMENTARY_OCEAN_DEEP
+---| 15 # THREAD_METAL
+---| 16 # SPECIAL
+---| 17 # SOIL
+---| 18 # DEEP_SPECIAL
+---| 19 # DIVINE
+---| 25 # WAFERS
+
+---@class _inorganic_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field LAVA 0
 ---@field [0] "LAVA"
 ---@field GENERATED 1
 ---@field [1] "GENERATED"
----@field ENVIRONMENT_NON_SOIL_OCEAN 2
----@field [2] "ENVIRONMENT_NON_SOIL_OCEAN"
+---@field ENVIRONMENT_NON_SOIL_OCEAN 2 is METAMORPHIC, or has ENVIRONMENT with anything but SOIL_OCEAN
+---@field [2] "ENVIRONMENT_NON_SOIL_OCEAN" is METAMORPHIC, or has ENVIRONMENT with anything but SOIL_OCEAN
 ---@field SEDIMENTARY 3
 ---@field [3] "SEDIMENTARY"
 ---@field SEDIMENTARY_OCEAN_SHALLOW 4
@@ -691,107 +644,30 @@ df.material_template = {}
 ---@field [14] "SEDIMENTARY_OCEAN_DEEP"
 ---@field THREAD_METAL 15
 ---@field [15] "THREAD_METAL"
----@field SPECIAL 16
----@field [16] "SPECIAL"
+---@field SPECIAL 16 or any DEEP_*
+---@field [16] "SPECIAL" or any DEEP_*
 ---@field SOIL 17
 ---@field [17] "SOIL"
 ---@field DEEP_SPECIAL 18
 ---@field [18] "DEEP_SPECIAL"
 ---@field DIVINE 19
 ---@field [19] "DIVINE"
----@field unk_20 20
----@field [20] "unk_20"
----@field unk_21 21
----@field [21] "unk_21"
----@field unk_22 22
----@field [22] "unk_22"
----@field unk_23 23
----@field [23] "unk_23"
----@field unk_24 24
----@field [24] "unk_24"
 ---@field WAFERS 25
 ---@field [25] "WAFERS"
----@field unk_26 26
----@field [26] "unk_26"
----@field unk_27 27
----@field [27] "unk_27"
----@field unk_28 28
----@field [28] "unk_28"
----@field unk_29 29
----@field [29] "unk_29"
----@field unk_30 30
----@field [30] "unk_30"
----@field unk_31 31
----@field [31] "unk_31"
 df.inorganic_flags = {}
 
----@class inorganic_flags
----@field [0] boolean
----@field LAVA boolean
----@field [1] boolean
----@field GENERATED boolean
----@field [2] boolean
----@field ENVIRONMENT_NON_SOIL_OCEAN boolean
----@field [3] boolean
----@field SEDIMENTARY boolean
----@field [4] boolean
----@field SEDIMENTARY_OCEAN_SHALLOW boolean
----@field [5] boolean
----@field IGNEOUS_INTRUSIVE boolean
----@field [6] boolean
----@field IGNEOUS_EXTRUSIVE boolean
----@field [7] boolean
----@field METAMORPHIC boolean
----@field [8] boolean
----@field DEEP_SURFACE boolean
----@field [9] boolean
----@field METAL_ORE boolean
----@field [10] boolean
----@field AQUIFER boolean
----@field [11] boolean
----@field SOIL_ANY boolean
----@field [12] boolean
----@field SOIL_OCEAN boolean
----@field [13] boolean
----@field SOIL_SAND boolean
----@field [14] boolean
----@field SEDIMENTARY_OCEAN_DEEP boolean
----@field [15] boolean
----@field THREAD_METAL boolean
----@field [16] boolean
----@field SPECIAL boolean
----@field [17] boolean
----@field SOIL boolean
----@field [18] boolean
----@field DEEP_SPECIAL boolean
----@field [19] boolean
----@field DIVINE boolean
----@field [20] boolean
----@field unk_20 boolean
----@field [21] boolean
----@field unk_21 boolean
----@field [22] boolean
----@field unk_22 boolean
----@field [23] boolean
----@field unk_23 boolean
----@field [24] boolean
----@field unk_24 boolean
----@field [25] boolean
----@field WAFERS boolean
----@field [26] boolean
----@field unk_26 boolean
----@field [27] boolean
----@field unk_27 boolean
----@field [28] boolean
----@field unk_28 boolean
----@field [29] boolean
----@field unk_29 boolean
----@field [30] boolean
----@field unk_30 boolean
----@field [31] boolean
----@field unk_31 boolean
+---@alias environment_type
+---| 0 # SOIL
+---| 1 # SOIL_OCEAN
+---| 2 # SOIL_SAND
+---| 3 # METAMORPHIC
+---| 4 # SEDIMENTARY
+---| 5 # IGNEOUS_INTRUSIVE
+---| 6 # IGNEOUS_EXTRUSIVE
+---| 7 # ALLUVIAL
 
----@class _environment_type: integer, string, df.enum
+---@class _environment_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field SOIL 0
 ---@field [0] "SOIL"
 ---@field SOIL_OCEAN 1
@@ -810,27 +686,14 @@ df.inorganic_flags = {}
 ---@field [7] "ALLUVIAL"
 df.environment_type = {}
 
----@class environment_type
----@field [0] boolean
----@field SOIL boolean
----@field [1] boolean
----@field SOIL_OCEAN boolean
----@field [2] boolean
----@field SOIL_SAND boolean
----@field [3] boolean
----@field METAMORPHIC boolean
----@field [4] boolean
----@field SEDIMENTARY boolean
----@field [5] boolean
----@field IGNEOUS_INTRUSIVE boolean
----@field [6] boolean
----@field IGNEOUS_EXTRUSIVE boolean
----@field [7] boolean
----@field ALLUVIAL boolean
+---@alias inclusion_type
+---| 1 # VEIN
+---| 2 # CLUSTER
+---| 3 # CLUSTER_SMALL
+---| 4 # CLUSTER_ONE
 
----@class _inclusion_type: integer, string, df.enum
----@field unk_0 0
----@field [0] "unk_0"
+---@class _inclusion_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field VEIN 1
 ---@field [1] "VEIN"
 ---@field CLUSTER 2
@@ -841,67 +704,114 @@ df.environment_type = {}
 ---@field [4] "CLUSTER_ONE"
 df.inclusion_type = {}
 
----@class inclusion_type
----@field [0] boolean
----@field unk_0 boolean
----@field [1] boolean
----@field VEIN boolean
----@field [2] boolean
----@field CLUSTER boolean
----@field [3] boolean
----@field CLUSTER_SMALL boolean
----@field [4] boolean
----@field CLUSTER_ONE boolean
-
----@class inorganic_raw: df.instance
----@field id df.string
----@field str df.string[]
----@field flags inorganic_flags[]
----@field source_hfid integer References: historical_figure
----@field unk_v4201_1 integer
----@field metal_ore inorganic_raw_metal_ore
----@field thread_metal inorganic_raw_thread_metal
----@field economic_uses df.container References: reaction
----@field environment_spec inorganic_raw_environment_spec
----@field environment inorganic_raw_environment
+---@class (exact) inorganic_raw: DFObject
+---@field _kind 'struct'
+---@field _type _inorganic_raw
+---@field id string
+---@field source_hfid number References: `historical_figure`
+---@field unk_v4201_1 number
+---@field metal_ore inorganic_raw.T_metal_ore
+---@field thread_metal inorganic_raw.T_thread_metal
+---@field environment_spec inorganic_raw.T_environment_spec
+---@field environment inorganic_raw.T_environment
 ---@field times_used_land integer
 ---@field times_used_ocean integer
 ---@field material material
+local inorganic_raw
+
+---@class _inorganic_raw: DFCompound
+---@field _kind 'struct-type'
 df.inorganic_raw = {}
 
----@param key integer
+---@param key number
 ---@return inorganic_raw|nil
 function df.inorganic_raw.find(key) end
 
----@class inorganic_raw_metal_ore: df.class
----@field str df.string[] only during parsing
----@field mat_index integer[]
----@field probability df.container
+---@class inorganic_raw_vector: DFVector, { [integer]: inorganic_raw }
+local inorganic_raw_vector
+
+---@return inorganic_raw_vector # df.global.world.raws.inorganics
+function df.inorganic_raw.get_vector() end
+
+---@class (exact) inorganic_raw.T_metal_ore: DFObject
+---@field _kind 'struct'
+---@field _type _inorganic_raw.T_metal_ore
+local metal_ore
+
+---@class _inorganic_raw.T_metal_ore: DFCompound
+---@field _kind 'struct-type'
 df.inorganic_raw.T_metal_ore = {}
 
+---@class (exact) inorganic_raw.T_thread_metal: DFObject
+---@field _kind 'struct'
+---@field _type _inorganic_raw.T_thread_metal
+local thread_metal
 
----@class inorganic_raw_thread_metal: df.class
----@field str df.string[] only during parsing
----@field mat_index integer[]
----@field probability df.container
+---@class _inorganic_raw.T_thread_metal: DFCompound
+---@field _kind 'struct-type'
 df.inorganic_raw.T_thread_metal = {}
 
+---@class (exact) inorganic_raw.T_environment_spec: DFObject
+---@field _kind 'struct'
+---@field _type _inorganic_raw.T_environment_spec
+local environment_spec
 
----@class inorganic_raw_environment_spec: df.class
----@field str df.string[] only during parsing
----@field mat_index integer[]
----@field inclusion_type inclusion_type[]
----@field probability df.container
+---@class _inorganic_raw.T_environment_spec: DFCompound
+---@field _kind 'struct-type'
 df.inorganic_raw.T_environment_spec = {}
 
+---@class (exact) inorganic_raw.T_environment: DFObject
+---@field _kind 'struct'
+---@field _type _inorganic_raw.T_environment
+local environment
 
----@class inorganic_raw_environment: df.class
----@field location environment_type[]
----@field type inclusion_type[]
----@field probability df.container
+---@class _inorganic_raw.T_environment: DFCompound
+---@field _kind 'struct-type'
 df.inorganic_raw.T_environment = {}
 
----@class _organic_mat_category: integer, string, df.enum
+---@alias organic_mat_category
+---| 0 # Meat
+---| 1 # Fish
+---| 2 # UnpreparedFish
+---| 3 # Eggs
+---| 4 # Plants
+---| 5 # PlantDrink
+---| 6 # CreatureDrink
+---| 7 # PlantCheese
+---| 8 # CreatureCheese
+---| 9 # Seed
+---| 10 # Leaf
+---| 11 # PlantPowder
+---| 12 # CreaturePowder
+---| 13 # Glob
+---| 14 # PlantLiquid
+---| 15 # CreatureLiquid
+---| 16 # MiscLiquid
+---| 17 # Leather
+---| 18 # Silk
+---| 19 # PlantFiber
+---| 20 # Bone
+---| 21 # Shell
+---| 22 # Wood
+---| 23 # Horn
+---| 24 # Pearl
+---| 25 # Tooth
+---| 26 # EdibleCheese
+---| 27 # AnyDrink
+---| 28 # EdiblePlant
+---| 29 # CookableLiquid
+---| 30 # CookablePowder
+---| 31 # CookableSeed
+---| 32 # CookableLeaf
+---| 33 # Paste
+---| 34 # Pressed
+---| 35 # Yarn
+---| 36 # MetalThread
+---| 37 # Paper
+---| 38 # Parchment
+
+---@class _organic_mat_category: DFDescriptor
+---@field _kind 'enum-type'
 ---@field Meat 0
 ---@field [0] "Meat"
 ---@field Fish 1
@@ -982,90 +892,12 @@ df.inorganic_raw.T_environment = {}
 ---@field [38] "Parchment"
 df.organic_mat_category = {}
 
----@class organic_mat_category
----@field [0] boolean
----@field Meat boolean
----@field [1] boolean
----@field Fish boolean
----@field [2] boolean
----@field UnpreparedFish boolean
----@field [3] boolean
----@field Eggs boolean
----@field [4] boolean
----@field Plants boolean
----@field [5] boolean
----@field PlantDrink boolean
----@field [6] boolean
----@field CreatureDrink boolean
----@field [7] boolean
----@field PlantCheese boolean
----@field [8] boolean
----@field CreatureCheese boolean
----@field [9] boolean
----@field Seed boolean
----@field [10] boolean
----@field Leaf boolean
----@field [11] boolean
----@field PlantPowder boolean
----@field [12] boolean
----@field CreaturePowder boolean
----@field [13] boolean
----@field Glob boolean
----@field [14] boolean
----@field PlantLiquid boolean
----@field [15] boolean
----@field CreatureLiquid boolean
----@field [16] boolean
----@field MiscLiquid boolean
----@field [17] boolean
----@field Leather boolean
----@field [18] boolean
----@field Silk boolean
----@field [19] boolean
----@field PlantFiber boolean
----@field [20] boolean
----@field Bone boolean
----@field [21] boolean
----@field Shell boolean
----@field [22] boolean
----@field Wood boolean
----@field [23] boolean
----@field Horn boolean
----@field [24] boolean
----@field Pearl boolean
----@field [25] boolean
----@field Tooth boolean
----@field [26] boolean
----@field EdibleCheese boolean
----@field [27] boolean
----@field AnyDrink boolean
----@field [28] boolean
----@field EdiblePlant boolean
----@field [29] boolean
----@field CookableLiquid boolean
----@field [30] boolean
----@field CookablePowder boolean
----@field [31] boolean
----@field CookableSeed boolean
----@field [32] boolean
----@field CookableLeaf boolean
----@field [33] boolean
----@field Paste boolean
----@field [34] boolean
----@field Pressed boolean
----@field [35] boolean
----@field Yarn boolean
----@field [36] boolean
----@field MetalThread boolean
----@field [37] boolean
----@field Paper boolean
----@field [38] boolean
----@field Parchment boolean
+---@class (exact) special_mat_table: DFObject
+---@field _kind 'struct'
+---@field _type _special_mat_table
+local special_mat_table
 
----@class special_mat_table: df.class
----@field organic_types df.container[]
----@field organic_indexes df.container[]
----@field organic_unknown df.container[] everything 0
----@field builtin material[]
+---@class _special_mat_table: DFCompound
+---@field _kind 'struct-type'
 df.special_mat_table = {}
 

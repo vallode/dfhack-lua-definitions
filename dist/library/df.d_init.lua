@@ -1,7 +1,13 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.d_init
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _d_init_nickname: integer, string, df.enum
+---@alias d_init_nickname
+---| 0 # REPLACE_FIRST
+---| 1 # CENTRALIZE
+---| 2 # REPLACE_ALL
+
+---@class _d_init_nickname: DFDescriptor
+---@field _kind 'enum-type'
 ---@field REPLACE_FIRST 0
 ---@field [0] "REPLACE_FIRST"
 ---@field CENTRALIZE 1
@@ -10,15 +16,13 @@
 ---@field [2] "REPLACE_ALL"
 df.d_init_nickname = {}
 
----@class d_init_nickname
----@field [0] boolean
----@field REPLACE_FIRST boolean
----@field [1] boolean
----@field CENTRALIZE boolean
----@field [2] boolean
----@field REPLACE_ALL boolean
+---@alias d_init_embark_confirm
+---| 0 # ALWAYS
+---| 1 # IF_POINTS_REMAIN
+---| 2 # NO
 
----@class _d_init_embark_confirm: integer, string, df.enum
+---@class _d_init_embark_confirm: DFDescriptor
+---@field _kind 'enum-type'
 ---@field ALWAYS 0
 ---@field [0] "ALWAYS"
 ---@field IF_POINTS_REMAIN 1
@@ -27,15 +31,13 @@ df.d_init_nickname = {}
 ---@field [2] "NO"
 df.d_init_embark_confirm = {}
 
----@class d_init_embark_confirm
----@field [0] boolean
----@field ALWAYS boolean
----@field [1] boolean
----@field IF_POINTS_REMAIN boolean
----@field [2] boolean
----@field NO boolean
+---@alias d_init_tunnel
+---| 0 # NO
+---| 1 # FINDER
+---| 2 # ALWAYS
 
----@class _d_init_tunnel: integer, string, df.enum
+---@class _d_init_tunnel: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NO 0
 ---@field [0] "NO"
 ---@field FINDER 1
@@ -44,15 +46,15 @@ df.d_init_embark_confirm = {}
 ---@field [2] "ALWAYS"
 df.d_init_tunnel = {}
 
----@class d_init_tunnel
----@field [0] boolean
----@field NO boolean
----@field [1] boolean
----@field FINDER boolean
----@field [2] boolean
----@field ALWAYS boolean
+---@alias d_init_flags1
+---| 0 # VARIED_GROUND_TILES
+---| 1 # ENGRAVINGS_START_OBSCURED
+---| 2 # SHOW_IMP_QUALITY
+---| 3 # SHOW_FLOW_AMOUNTS
+---| 4 # SHOW_RAMP_ARROWS
 
----@class _d_init_flags1: integer, string, df.enum
+---@class _d_init_flags1: DFDescriptor
+---@field _kind 'enum-type'
 ---@field VARIED_GROUND_TILES 0
 ---@field [0] "VARIED_GROUND_TILES"
 ---@field ENGRAVINGS_START_OBSCURED 1
@@ -65,19 +67,13 @@ df.d_init_tunnel = {}
 ---@field [4] "SHOW_RAMP_ARROWS"
 df.d_init_flags1 = {}
 
----@class d_init_flags1
----@field [0] boolean
----@field VARIED_GROUND_TILES boolean
----@field [1] boolean
----@field ENGRAVINGS_START_OBSCURED boolean
----@field [2] boolean
----@field SHOW_IMP_QUALITY boolean
----@field [3] boolean
----@field SHOW_FLOW_AMOUNTS boolean
----@field [4] boolean
----@field SHOW_RAMP_ARROWS boolean
+---@alias d_init_flags2
+---| 0 # MORE
+---| 1 # ADVENTURER_TRAPS
+---| 2 # ADVENTURER_ALWAYS_CENTER
 
----@class _d_init_flags2: integer, string, df.enum
+---@class _d_init_flags2: DFDescriptor
+---@field _kind 'enum-type'
 ---@field MORE 0
 ---@field [0] "MORE"
 ---@field ADVENTURER_TRAPS 1
@@ -86,44 +82,45 @@ df.d_init_flags1 = {}
 ---@field [2] "ADVENTURER_ALWAYS_CENTER"
 df.d_init_flags2 = {}
 
----@class d_init_flags2
----@field [0] boolean
----@field MORE boolean
----@field [1] boolean
----@field ADVENTURER_TRAPS boolean
----@field [2] boolean
----@field ADVENTURER_ALWAYS_CENTER boolean
+---@alias d_init_flags3
+---| 0 # COFFIN_NO_PETS_DEFAULT
 
----@class _d_init_flags3: integer, string, df.enum
+---@class _d_init_flags3: DFDescriptor
+---@field _kind 'enum-type'
 ---@field COFFIN_NO_PETS_DEFAULT 0
 ---@field [0] "COFFIN_NO_PETS_DEFAULT"
 df.d_init_flags3 = {}
 
----@class d_init_flags3
----@field [0] boolean
----@field COFFIN_NO_PETS_DEFAULT boolean
+---@alias d_init_flags4
+---| 0 # TEMPERATURE
+---| 1 # WEATHER
+---| 6 # AUTOSAVE_PAUSE
+---| 7 # AUTOBACKUP
+---| 8 # INITIAL_SAVE
+---| 10 # CAVEINS
+---| 11 # ARTIFACTS
+---| 12 # LOG_MAP_REJECTS
+---| 13 # PAUSE_ON_LOAD
+---| 14 # EMBARK_WARNING_ALWAYS
+---| 15 # SHOW_ALL_HISTORY_IN_DWARF_MODE
+---| 16 # TESTING_ARENA
+---| 17 # WALKING_SPREADS_SPATTER_DWF
+---| 18 # WALKING_SPREADS_SPATTER_ADV
+---| 19 # KEYBOARD_CURSOR
+---| 20 # MULTITHREADING
 
----@class _d_init_flags4: integer, string, df.enum
+---@class _d_init_flags4: DFDescriptor
+---@field _kind 'enum-type'
 ---@field TEMPERATURE 0
 ---@field [0] "TEMPERATURE"
 ---@field WEATHER 1
 ---@field [1] "WEATHER"
----@field unk_2 2
----@field [2] "unk_2"
----@field unk_3 3
----@field [3] "unk_3"
----@field unk_4 4
----@field [4] "unk_4"
----@field unk_5 5
----@field [5] "unk_5"
 ---@field AUTOSAVE_PAUSE 6
 ---@field [6] "AUTOSAVE_PAUSE"
 ---@field AUTOBACKUP 7
 ---@field [7] "AUTOBACKUP"
----@field INITIAL_SAVE 8
----@field [8] "INITIAL_SAVE"
----@field unk_9 9
----@field [9] "unk_9"
+---@field INITIAL_SAVE 8 broken?
+---@field [8] "INITIAL_SAVE" broken?
 ---@field CAVEINS 10
 ---@field [10] "CAVEINS"
 ---@field ARTIFACTS 11
@@ -148,124 +145,79 @@ df.d_init_flags3 = {}
 ---@field [20] "MULTITHREADING"
 df.d_init_flags4 = {}
 
----@class d_init_flags4
----@field [0] boolean
----@field TEMPERATURE boolean
----@field [1] boolean
----@field WEATHER boolean
----@field [2] boolean
----@field unk_2 boolean
----@field [3] boolean
----@field unk_3 boolean
----@field [4] boolean
----@field unk_4 boolean
----@field [5] boolean
----@field unk_5 boolean
----@field [6] boolean
----@field AUTOSAVE_PAUSE boolean
----@field [7] boolean
----@field AUTOBACKUP boolean
----@field [8] boolean
----@field INITIAL_SAVE boolean
----@field [9] boolean
----@field unk_9 boolean
----@field [10] boolean
----@field CAVEINS boolean
----@field [11] boolean
----@field ARTIFACTS boolean
----@field [12] boolean
----@field LOG_MAP_REJECTS boolean
----@field [13] boolean
----@field PAUSE_ON_LOAD boolean
----@field [14] boolean
----@field EMBARK_WARNING_ALWAYS boolean
----@field [15] boolean
----@field SHOW_ALL_HISTORY_IN_DWARF_MODE boolean
----@field [16] boolean
----@field TESTING_ARENA boolean
----@field [17] boolean
----@field WALKING_SPREADS_SPATTER_DWF boolean
----@field [18] boolean
----@field WALKING_SPREADS_SPATTER_ADV boolean
----@field [19] boolean
----@field KEYBOARD_CURSOR boolean
----@field [20] boolean
----@field MULTITHREADING boolean
+---@alias d_init_autosave
+---| -1 # NONE
+---| 0 # SEASONAL
+---| 1 # YEARLY
+---| 2 # SEMIANNUAL
 
----@class _d_init_autosave: integer, string, df.enum
+---@class _d_init_autosave: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field SEASONAL 1
----@field [1] "SEASONAL"
----@field YEARLY 2
----@field [2] "YEARLY"
----@field SEMIANNUAL 3
----@field [3] "SEMIANNUAL"
+---@field [-1] "NONE"
+---@field SEASONAL 0
+---@field [0] "SEASONAL"
+---@field YEARLY 1
+---@field [1] "YEARLY"
+---@field SEMIANNUAL 2
+---@field [2] "SEMIANNUAL"
 df.d_init_autosave = {}
 
----@class d_init_autosave
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field SEASONAL boolean
----@field [2] boolean
----@field YEARLY boolean
----@field [3] boolean
----@field SEMIANNUAL boolean
-
----@class d_init: df.class
----@field flags1 d_init_flags1[]
----@field nickname d_init_nickname[]
+---@class (exact) d_init: DFObject
+---@field _kind 'struct'
+---@field _type _d_init
 ---@field sky_tile integer
----@field sky_color integer[]
 ---@field chasm_tile integer
 ---@field pillar_tile integer
----@field track_tiles integer[]
----@field track_tile_invert integer[]
----@field track_ramp_tiles integer[]
----@field track_ramp_invert integer[]
----@field tree_tiles integer[]
----@field chasm_color integer[]
----@field wound_color d_init_wound_color
----@field show_embark_tunnel d_init_tunnel
----@field number_of_lower_elevations_shown integer
----@field flags3 d_init_flags3[]
----@field population_cap integer
----@field strict_population_cap integer
----@field baby_cap_absolute integer
----@field baby_cap_percent integer
----@field visitor_cap integer
----@field specific_seed_cap integer
----@field fortress_seed_cap integer
----@field path_cost integer[]
----@field embark_rect integer[]
----@field store_dist d_init_store_dist
----@field graze_coefficient integer
----@field maximum_embark_dim integer
----@field cull_dead_units_at integer
----@field flags4 d_init_flags4[]
+---@field wound_color d_init.T_wound_color
+---@field  number
+---@field show_embark_tunnel d_init_tunnel probably IDLERS
+---@field number_of_lower_elevations_shown number
+---@field  number
+---@field  number
+---@field  number
+---@field population_cap number
+---@field strict_population_cap number
+---@field baby_cap_absolute number
+---@field baby_cap_percent number
+---@field visitor_cap number
+---@field specific_seed_cap number
+---@field fortress_seed_cap number
+---@field store_dist d_init.T_store_dist
+---@field graze_coefficient number
+---@field maximum_embark_dim number
+---@field cull_dead_units_at number
 ---@field post_prepare_embark_confirmation d_init_embark_confirm
 ---@field autosave d_init_autosave
 ---@field announcements announcements
----@field unk_5010_730 integer
----@field unk_5010_734 integer
+---@field unk_5010_730 number
+---@field unk_5010_734 number
+local d_init
+
+---@class _d_init: DFCompound
+---@field _kind 'struct-type'
 df.d_init = {}
 
----@class d_init_wound_color: df.class
----@field none integer[]
----@field minor integer[]
----@field inhibited integer[]
----@field function_loss integer[]
----@field broken integer[]
----@field missing integer[]
+---@class (exact) d_init.T_wound_color: DFObject
+---@field _kind 'struct'
+---@field _type _d_init.T_wound_color
+local wound_color
+
+---@class _d_init.T_wound_color: DFCompound
+---@field _kind 'struct-type'
 df.d_init.T_wound_color = {}
 
+---@class (exact) d_init.T_store_dist: DFObject
+---@field _kind 'struct'
+---@field _type _d_init.T_store_dist
+---@field item_decrease number
+---@field seed_combine number
+---@field bucket_combine number
+---@field barrel_combine number
+---@field bin_combine number
+local store_dist
 
----@class d_init_store_dist: df.class
----@field item_decrease integer
----@field seed_combine integer
----@field bucket_combine integer
----@field barrel_combine integer
----@field bin_combine integer
+---@class _d_init.T_store_dist: DFCompound
+---@field _kind 'struct-type'
 df.d_init.T_store_dist = {}
 

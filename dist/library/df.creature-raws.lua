@@ -1,31 +1,154 @@
----THIS FILE WAS AUTOMATICALLY GENERATED. DO NOT EDIT.
----@meta df.creature-raws
+---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+---@meta _
 
----@class _creature_raw_flags: integer, string, df.enum
----@field EQUIPMENT 0
----@field [0] "EQUIPMENT"
----@field EQUIPMENT_WAGON 1
----@field [1] "EQUIPMENT_WAGON"
----@field MUNDANE 2
----@field [2] "MUNDANE"
----@field VERMIN_EATER 3
----@field [3] "VERMIN_EATER"
----@field VERMIN_GROUNDER 4
----@field [4] "VERMIN_GROUNDER"
----@field VERMIN_ROTTER 5
----@field [5] "VERMIN_ROTTER"
----@field VERMIN_SOIL 6
----@field [6] "VERMIN_SOIL"
----@field VERMIN_SOIL_COLONY 7
----@field [7] "VERMIN_SOIL_COLONY"
----@field LARGE_ROAMING 8
----@field [8] "LARGE_ROAMING"
----@field VERMIN_FISH 9
----@field [9] "VERMIN_FISH"
----@field LOOSE_CLUSTERS 10
----@field [10] "LOOSE_CLUSTERS"
----@field FANCIFUL 11
----@field [11] "FANCIFUL"
+---@alias creature_raw_flags
+---| 0 # EQUIPMENT
+---| 1 # EQUIPMENT_WAGON
+---| 2 # MUNDANE
+---| 3 # VERMIN_EATER
+---| 4 # VERMIN_GROUNDER
+---| 5 # VERMIN_ROTTER
+---| 6 # VERMIN_SOIL
+---| 7 # VERMIN_SOIL_COLONY
+---| 8 # LARGE_ROAMING
+---| 9 # VERMIN_FISH
+---| 10 # LOOSE_CLUSTERS
+---| 11 # FANCIFUL
+---| 12 # BIOME_MOUNTAIN
+---| 13 # BIOME_GLACIER
+---| 14 # BIOME_TUNDRA
+---| 15 # BIOME_SWAMP_TEMPERATE_FRESHWATER
+---| 16 # BIOME_SWAMP_TEMPERATE_SALTWATER
+---| 17 # BIOME_MARSH_TEMPERATE_FRESHWATER
+---| 18 # BIOME_MARSH_TEMPERATE_SALTWATER
+---| 19 # BIOME_SWAMP_TROPICAL_FRESHWATER
+---| 20 # BIOME_SWAMP_TROPICAL_SALTWATER
+---| 21 # BIOME_SWAMP_MANGROVE
+---| 22 # BIOME_MARSH_TROPICAL_FRESHWATER
+---| 23 # BIOME_MARSH_TROPICAL_SALTWATER
+---| 24 # BIOME_FOREST_TAIGA
+---| 25 # BIOME_FOREST_TEMPERATE_CONIFER
+---| 26 # BIOME_FOREST_TEMPERATE_BROADLEAF
+---| 27 # BIOME_FOREST_TROPICAL_CONIFER
+---| 28 # BIOME_FOREST_TROPICAL_DRY_BROADLEAF
+---| 29 # BIOME_FOREST_TROPICAL_MOIST_BROADLEAF
+---| 30 # BIOME_GRASSLAND_TEMPERATE
+---| 31 # BIOME_SAVANNA_TEMPERATE
+---| 32 # BIOME_SHRUBLAND_TEMPERATE
+---| 33 # BIOME_GRASSLAND_TROPICAL
+---| 34 # BIOME_SAVANNA_TROPICAL
+---| 35 # BIOME_SHRUBLAND_TROPICAL
+---| 36 # BIOME_DESERT_BADLAND
+---| 37 # BIOME_DESERT_ROCK
+---| 38 # BIOME_DESERT_SAND
+---| 39 # BIOME_OCEAN_TROPICAL
+---| 40 # BIOME_OCEAN_TEMPERATE
+---| 41 # BIOME_OCEAN_ARCTIC
+---| 42 # BIOME_SUBTERRANEAN_WATER
+---| 43 # BIOME_SUBTERRANEAN_CHASM
+---| 44 # BIOME_SUBTERRANEAN_LAVA
+---| 45 # BIOME_POOL_TEMPERATE_FRESHWATER
+---| 46 # BIOME_POOL_TEMPERATE_BRACKISHWATER
+---| 47 # BIOME_POOL_TEMPERATE_SALTWATER
+---| 48 # BIOME_POOL_TROPICAL_FRESHWATER
+---| 49 # BIOME_POOL_TROPICAL_BRACKISHWATER
+---| 50 # BIOME_POOL_TROPICAL_SALTWATER
+---| 51 # BIOME_LAKE_TEMPERATE_FRESHWATER
+---| 52 # BIOME_LAKE_TEMPERATE_BRACKISHWATER
+---| 53 # BIOME_LAKE_TEMPERATE_SALTWATER
+---| 54 # BIOME_LAKE_TROPICAL_FRESHWATER
+---| 55 # BIOME_LAKE_TROPICAL_BRACKISHWATER
+---| 56 # BIOME_LAKE_TROPICAL_SALTWATER
+---| 57 # BIOME_RIVER_TEMPERATE_FRESHWATER
+---| 58 # BIOME_RIVER_TEMPERATE_BRACKISHWATER
+---| 59 # BIOME_RIVER_TEMPERATE_SALTWATER
+---| 60 # BIOME_RIVER_TROPICAL_FRESHWATER
+---| 61 # BIOME_RIVER_TROPICAL_BRACKISHWATER
+---| 62 # BIOME_RIVER_TROPICAL_SALTWATER
+---| 63 # GOOD
+---| 64 # EVIL
+---| 65 # SAVAGE
+---| 66 # TWO_GENDERS
+---| 67 # MATES_TO_BREED
+---| 68 # HAS_MALE
+---| 69 # HAS_FEMALE
+---| 70 # SMALL_RACE
+---| 71 # HAS_ANY_INTELLIGENT_LEARNS
+---| 72 # HAS_ANY_VERMIN_HATEABLE
+---| 73 # OCCURS_AS_ENTITY_RACE
+---| 74 # HAS_ANY_LARGE_PREDATOR
+---| 75 # HAS_ANY_CURIOUS_BEAST
+---| 76 # HAS_ANY_BENIGN
+---| 77 # HAS_ANY_NATURAL_ANIMAL
+---| 78 # HAS_ANY_MEGABEAST
+---| 79 # HAS_ANY_SEMIMEGABEAST
+---| 80 # HAS_ANY_POWER
+---| 81 # HAS_ANY_VERMIN_MICRO
+---| 82 # HAS_ANY_NOT_FIREIMMUNE
+---| 83 # HAS_ANY_CANNOT_BREATHE_WATER
+---| 84 # HAS_ANY_CANNOT_BREATHE_AIR
+---| 85 # HAS_ANY_NOT_FLIER
+---| 86 # HAS_ANY_CAN_SWIM
+---| 87 # HAS_ANY_COMMON_DOMESTIC
+---| 88 # HAS_ANY_UTTERANCES
+---| 89 # HAS_ANY_INTELLIGENT_SPEAKS
+---| 90 # HAS_ANY_FEATURE_BEAST
+---| 91 # GENERATED
+---| 92 # HAS_ANY_TITAN
+---| 93 # HAS_ANY_UNIQUE_DEMON
+---| 94 # DOES_NOT_EXIST
+---| 95 # HAS_ANY_NOT_LIVING
+---| 96 # HAS_ANY_MISCHIEVOUS
+---| 97 # HAS_ANY_FLIER
+---| 98 # HAS_ANY_DEMON
+---| 99 # HAS_ANY_NIGHT_CREATURE
+---| 100 # HAS_ANY_NIGHT_CREATURE_HUNTER
+---| 101 # HAS_ANY_NIGHT_CREATURE_BOGEYMAN
+---| 102 # HAS_ANY_CARNIVORE
+---| 103 # ARTIFICIAL_HIVEABLE
+---| 104 # UBIQUITOUS
+---| 105 # ALL_CASTES_ALIVE
+---| 106 # HAS_ANY_SUPERNATURAL
+---| 107 # HAS_ANY_HAS_BLOOD
+---| 108 # HAS_ANY_GRAZER
+---| 109 # HAS_ANY_IMMOBILE
+---| 110 # HAS_ANY_LOCAL_POPS_CONTROLLABLE
+---| 111 # HAS_ANY_OUTSIDER_CONTROLLABLE
+---| 112 # HAS_ANY_LOCAL_POPS_PRODUCE_HEROES
+---| 113 # HAS_ANY_GRASP
+---| 114 # HAS_ANY_RACE_GAIT
+---| 115 # HAS_ANY_FLY_RACE_GAIT
+---| 116 # HAS_ANY_SLOW_LEARNER
+---| 117 # HAS_ANY_NIGHT_CREATURE_NIGHTMARE
+---| 118 # HAS_ANY_NIGHT_CREATURE_EXPERIMENTER
+
+-- --  The comments indicate the creature raw tags whose presence/absence are<br>--  correlated with the flags. Tags with parameters, like those indicating<br>--  biomes, are currently not listed.<br>--  Flag names acquired from http://www.bay12forums.com/smf//index.php?topic=169696.msg8099138#msg8099138
+---@class _creature_raw_flags: DFDescriptor
+---@field _kind 'enum-type'
+---@field EQUIPMENT 0 [EQUIPMENT_WAGON]
+---@field [0] "EQUIPMENT" [EQUIPMENT_WAGON]
+---@field EQUIPMENT_WAGON 1 [EQUIPMENT_WAGON]
+---@field [1] "EQUIPMENT_WAGON" [EQUIPMENT_WAGON]
+---@field MUNDANE 2 [MUNDANE]
+---@field [2] "MUNDANE" [MUNDANE]
+---@field VERMIN_EATER 3 [VERMIN_EATER] and [PENETRATEPOWER]
+---@field [3] "VERMIN_EATER" [VERMIN_EATER] and [PENETRATEPOWER]
+---@field VERMIN_GROUNDER 4 [VERMIN_GROUNDER]
+---@field [4] "VERMIN_GROUNDER" [VERMIN_GROUNDER]
+---@field VERMIN_ROTTER 5 [VERMIN_ROTTER]
+---@field [5] "VERMIN_ROTTER" [VERMIN_ROTTER]
+---@field VERMIN_SOIL 6 [VERMIN_SOIL]
+---@field [6] "VERMIN_SOIL" [VERMIN_SOIL]
+---@field VERMIN_SOIL_COLONY 7 [VERMIN_SOIL_COLONY]
+---@field [7] "VERMIN_SOIL_COLONY" [VERMIN_SOIL_COLONY]
+---@field LARGE_ROAMING 8 [LARGE_ROAMING]
+---@field [8] "LARGE_ROAMING" [LARGE_ROAMING]
+---@field VERMIN_FISH 9 [VERMIN_FISH]
+---@field [9] "VERMIN_FISH" [VERMIN_FISH]
+---@field LOOSE_CLUSTERS 10 [LOOSE_CLUSTERS]
+---@field [10] "LOOSE_CLUSTERS" [LOOSE_CLUSTERS]
+---@field FANCIFUL 11 [FANCIFUL]
+---@field [11] "FANCIFUL" [FANCIFUL]
 ---@field BIOME_MOUNTAIN 12
 ---@field [12] "BIOME_MOUNTAIN"
 ---@field BIOME_GLACIER 13
@@ -128,112 +251,112 @@
 ---@field [61] "BIOME_RIVER_TROPICAL_BRACKISHWATER"
 ---@field BIOME_RIVER_TROPICAL_SALTWATER 62
 ---@field [62] "BIOME_RIVER_TROPICAL_SALTWATER"
----@field GOOD 63
----@field [63] "GOOD"
----@field EVIL 64
----@field [64] "EVIL"
----@field SAVAGE 65
----@field [65] "SAVAGE"
+---@field GOOD 63 [GOOD]
+---@field [63] "GOOD" [GOOD]
+---@field EVIL 64 [EVIL]
+---@field [64] "EVIL" [EVIL]
+---@field SAVAGE 65 [SAVAGE]
+---@field [65] "SAVAGE" [SAVAGE]
 ---@field TWO_GENDERS 66
 ---@field [66] "TWO_GENDERS"
----@field MATES_TO_BREED 67
----@field [67] "MATES_TO_BREED"
----@field HAS_MALE 68
----@field [68] "HAS_MALE"
----@field HAS_FEMALE 69
----@field [69] "HAS_FEMALE"
----@field SMALL_RACE 70
----@field [70] "SMALL_RACE"
+---@field MATES_TO_BREED 67 capable of breeding, [MALE] and [FEMALE] tags
+---@field [67] "MATES_TO_BREED" capable of breeding, [MALE] and [FEMALE] tags
+---@field HAS_MALE 68 [MALE]
+---@field [68] "HAS_MALE" [MALE]
+---@field HAS_FEMALE 69 [FEMALE]
+---@field [69] "HAS_FEMALE" [FEMALE]
+---@field SMALL_RACE 70 any vermin
+---@field [70] "SMALL_RACE" any vermin
 ---@field HAS_ANY_INTELLIGENT_LEARNS 71
 ---@field [71] "HAS_ANY_INTELLIGENT_LEARNS"
----@field HAS_ANY_VERMIN_HATEABLE 72
----@field [72] "HAS_ANY_VERMIN_HATEABLE"
----@field OCCURS_AS_ENTITY_RACE 73
----@field [73] "OCCURS_AS_ENTITY_RACE"
----@field HAS_ANY_LARGE_PREDATOR 74
----@field [74] "HAS_ANY_LARGE_PREDATOR"
+---@field HAS_ANY_VERMIN_HATEABLE 72 [VERMIN_HATEABLE]
+---@field [72] "HAS_ANY_VERMIN_HATEABLE" [VERMIN_HATEABLE]
+---@field OCCURS_AS_ENTITY_RACE 73 included in entity_defaults.txt
+---@field [73] "OCCURS_AS_ENTITY_RACE" included in entity_defaults.txt
+---@field HAS_ANY_LARGE_PREDATOR 74 [LARGE_PREDATOR]
+---@field [74] "HAS_ANY_LARGE_PREDATOR" [LARGE_PREDATOR]
 ---@field HAS_ANY_CURIOUS_BEAST 75
 ---@field [75] "HAS_ANY_CURIOUS_BEAST"
----@field HAS_ANY_BENIGN 76
----@field [76] "HAS_ANY_BENIGN"
----@field HAS_ANY_NATURAL_ANIMAL 77
----@field [77] "HAS_ANY_NATURAL_ANIMAL"
----@field HAS_ANY_MEGABEAST 78
----@field [78] "HAS_ANY_MEGABEAST"
----@field HAS_ANY_SEMIMEGABEAST 79
----@field [79] "HAS_ANY_SEMIMEGABEAST"
+---@field HAS_ANY_BENIGN 76 [BENIGN]
+---@field [76] "HAS_ANY_BENIGN" [BENIGN]
+---@field HAS_ANY_NATURAL_ANIMAL 77 [NATURAL]
+---@field [77] "HAS_ANY_NATURAL_ANIMAL" [NATURAL]
+---@field HAS_ANY_MEGABEAST 78 [MEGABEAST]
+---@field [78] "HAS_ANY_MEGABEAST" [MEGABEAST]
+---@field HAS_ANY_SEMIMEGABEAST 79 [SEMIMEGABEAST]
+---@field [79] "HAS_ANY_SEMIMEGABEAST" [SEMIMEGABEAST]
 ---@field HAS_ANY_POWER 80
 ---@field [80] "HAS_ANY_POWER"
----@field HAS_ANY_VERMIN_MICRO 81
----@field [81] "HAS_ANY_VERMIN_MICRO"
+---@field HAS_ANY_VERMIN_MICRO 81 [VERMIN_MICRO]
+---@field [81] "HAS_ANY_VERMIN_MICRO" [VERMIN_MICRO]
 ---@field HAS_ANY_NOT_FIREIMMUNE 82
 ---@field [82] "HAS_ANY_NOT_FIREIMMUNE"
 ---@field HAS_ANY_CANNOT_BREATHE_WATER 83
 ---@field [83] "HAS_ANY_CANNOT_BREATHE_WATER"
----@field HAS_ANY_CANNOT_BREATHE_AIR 84
----@field [84] "HAS_ANY_CANNOT_BREATHE_AIR"
+---@field HAS_ANY_CANNOT_BREATHE_AIR 84 [AQUATIC]
+---@field [84] "HAS_ANY_CANNOT_BREATHE_AIR" [AQUATIC]
 ---@field HAS_ANY_NOT_FLIER 85
 ---@field [85] "HAS_ANY_NOT_FLIER"
 ---@field HAS_ANY_CAN_SWIM 86
 ---@field [86] "HAS_ANY_CAN_SWIM"
----@field HAS_ANY_COMMON_DOMESTIC 87
----@field [87] "HAS_ANY_COMMON_DOMESTIC"
----@field HAS_ANY_UTTERANCES 88
----@field [88] "HAS_ANY_UTTERANCES"
+---@field HAS_ANY_COMMON_DOMESTIC 87 [COMMON_DOMESTIC]
+---@field [87] "HAS_ANY_COMMON_DOMESTIC" [COMMON_DOMESTIC]
+---@field HAS_ANY_UTTERANCES 88 [UTTERANCES]
+---@field [88] "HAS_ANY_UTTERANCES" [UTTERANCES]
 ---@field HAS_ANY_INTELLIGENT_SPEAKS 89
 ---@field [89] "HAS_ANY_INTELLIGENT_SPEAKS"
----@field HAS_ANY_FEATURE_BEAST 90
----@field [90] "HAS_ANY_FEATURE_BEAST"
----@field GENERATED 91
----@field [91] "GENERATED"
----@field HAS_ANY_TITAN 92
----@field [92] "HAS_ANY_TITAN"
----@field HAS_ANY_UNIQUE_DEMON 93
----@field [93] "HAS_ANY_UNIQUE_DEMON"
----@field DOES_NOT_EXIST 94
----@field [94] "DOES_NOT_EXIST"
----@field HAS_ANY_NOT_LIVING 95
----@field [95] "HAS_ANY_NOT_LIVING"
----@field HAS_ANY_MISCHIEVOUS 96
----@field [96] "HAS_ANY_MISCHIEVOUS"
----@field HAS_ANY_FLIER 97
----@field [97] "HAS_ANY_FLIER"
+---@field HAS_ANY_FEATURE_BEAST 90 [FEATURE_BEAST]
+---@field [90] "HAS_ANY_FEATURE_BEAST" [FEATURE_BEAST]
+---@field GENERATED 91 [GENERATED]
+---@field [91] "GENERATED" [GENERATED]
+---@field HAS_ANY_TITAN 92 [TITAN]
+---@field [92] "HAS_ANY_TITAN" [TITAN]
+---@field HAS_ANY_UNIQUE_DEMON 93 [UNIQUE_DEMON]
+---@field [93] "HAS_ANY_UNIQUE_DEMON" [UNIQUE_DEMON]
+---@field DOES_NOT_EXIST 94 [DOES_NOT_EXIST]
+---@field [94] "DOES_NOT_EXIST" [DOES_NOT_EXIST]
+---@field HAS_ANY_NOT_LIVING 95 [NOT_LIVING]
+---@field [95] "HAS_ANY_NOT_LIVING" [NOT_LIVING]
+---@field HAS_ANY_MISCHIEVOUS 96 [MISCHIEVOUS], the flag used internally is actually HAS_ANY_MISCHIEVIOUS
+---@field [96] "HAS_ANY_MISCHIEVOUS" [MISCHIEVOUS], the flag used internally is actually HAS_ANY_MISCHIEVIOUS
+---@field HAS_ANY_FLIER 97 [FLIER]
+---@field [97] "HAS_ANY_FLIER" [FLIER]
 ---@field HAS_ANY_DEMON 98
 ---@field [98] "HAS_ANY_DEMON"
 ---@field HAS_ANY_NIGHT_CREATURE 99
 ---@field [99] "HAS_ANY_NIGHT_CREATURE"
----@field HAS_ANY_NIGHT_CREATURE_HUNTER 100
----@field [100] "HAS_ANY_NIGHT_CREATURE_HUNTER"
----@field HAS_ANY_NIGHT_CREATURE_BOGEYMAN 101
----@field [101] "HAS_ANY_NIGHT_CREATURE_BOGEYMAN"
+---@field HAS_ANY_NIGHT_CREATURE_HUNTER 100 [NIGHT_CREATURE_HUNTER]
+---@field [100] "HAS_ANY_NIGHT_CREATURE_HUNTER" [NIGHT_CREATURE_HUNTER]
+---@field HAS_ANY_NIGHT_CREATURE_BOGEYMAN 101 [NIGHT_CREATURE_BOGEYMAN]
+---@field [101] "HAS_ANY_NIGHT_CREATURE_BOGEYMAN" [NIGHT_CREATURE_BOGEYMAN]
 ---@field HAS_ANY_CARNIVORE 102
 ---@field [102] "HAS_ANY_CARNIVORE"
----@field ARTIFICIAL_HIVEABLE 103
----@field [103] "ARTIFICIAL_HIVEABLE"
----@field UBIQUITOUS 104
----@field [104] "UBIQUITOUS"
----@field ALL_CASTES_ALIVE 105
----@field [105] "ALL_CASTES_ALIVE"
----@field HAS_ANY_SUPERNATURAL 106
----@field [106] "HAS_ANY_SUPERNATURAL"
----@field HAS_ANY_HAS_BLOOD 107
----@field [107] "HAS_ANY_HAS_BLOOD"
----@field HAS_ANY_GRAZER 108
----@field [108] "HAS_ANY_GRAZER"
----@field HAS_ANY_IMMOBILE 109
----@field [109] "HAS_ANY_IMMOBILE"
----@field HAS_ANY_LOCAL_POPS_CONTROLLABLE 110
----@field [110] "HAS_ANY_LOCAL_POPS_CONTROLLABLE"
----@field HAS_ANY_OUTSIDER_CONTROLLABLE 111
----@field [111] "HAS_ANY_OUTSIDER_CONTROLLABLE"
----@field HAS_ANY_LOCAL_POPS_PRODUCE_HEROES 112
----@field [112] "HAS_ANY_LOCAL_POPS_PRODUCE_HEROES"
+---@field ARTIFICIAL_HIVEABLE 103 [ARTIFICIAL_HIVEABLE]
+---@field [103] "ARTIFICIAL_HIVEABLE" [ARTIFICIAL_HIVEABLE]
+---@field UBIQUITOUS 104 [UBIQUITOUS]
+---@field [104] "UBIQUITOUS" [UBIQUITOUS]
+---@field ALL_CASTES_ALIVE 105 does not have [NOT_LIVING] tag
+---@field [105] "ALL_CASTES_ALIVE" does not have [NOT_LIVING] tag
+---@field HAS_ANY_SUPERNATURAL 106 [SUPERNATURAL]
+---@field [106] "HAS_ANY_SUPERNATURAL" [SUPERNATURAL]
+---@field HAS_ANY_HAS_BLOOD 107 [BLOOD]
+---@field [107] "HAS_ANY_HAS_BLOOD" [BLOOD]
+---@field HAS_ANY_GRAZER 108 [STANDARD_GRAZER]
+---@field [108] "HAS_ANY_GRAZER" [STANDARD_GRAZER]
+---@field HAS_ANY_IMMOBILE 109 [IMMOBILE]
+---@field [109] "HAS_ANY_IMMOBILE" [IMMOBILE]
+---@field HAS_ANY_LOCAL_POPS_CONTROLLABLE 110 [LOCAL_POPS_CONTROLLABLE]
+---@field [110] "HAS_ANY_LOCAL_POPS_CONTROLLABLE" [LOCAL_POPS_CONTROLLABLE]
+---@field HAS_ANY_OUTSIDER_CONTROLLABLE 111 [OUTSIDER_CONTROLLABLE]
+---@field [111] "HAS_ANY_OUTSIDER_CONTROLLABLE" [OUTSIDER_CONTROLLABLE]
+---@field HAS_ANY_LOCAL_POPS_PRODUCE_HEROES 112 [LOCAL_POPS_PRODUCE_HEROES]
+---@field [112] "HAS_ANY_LOCAL_POPS_PRODUCE_HEROES" [LOCAL_POPS_PRODUCE_HEROES]
 ---@field HAS_ANY_GRASP 113
 ---@field [113] "HAS_ANY_GRASP"
 ---@field HAS_ANY_RACE_GAIT 114
 ---@field [114] "HAS_ANY_RACE_GAIT"
----@field HAS_ANY_FLY_RACE_GAIT 115
----@field [115] "HAS_ANY_FLY_RACE_GAIT"
+---@field HAS_ANY_FLY_RACE_GAIT 115 [FLIER]
+---@field [115] "HAS_ANY_FLY_RACE_GAIT" [FLIER]
 ---@field HAS_ANY_SLOW_LEARNER 116
 ---@field [116] "HAS_ANY_SLOW_LEARNER"
 ---@field HAS_ANY_NIGHT_CREATURE_NIGHTMARE 117
@@ -242,255 +365,197 @@
 ---@field [118] "HAS_ANY_NIGHT_CREATURE_EXPERIMENTER"
 df.creature_raw_flags = {}
 
----@class creature_raw_flags
----@field [0] boolean
----@field EQUIPMENT boolean
----@field [1] boolean
----@field EQUIPMENT_WAGON boolean
----@field [2] boolean
----@field MUNDANE boolean
----@field [3] boolean
----@field VERMIN_EATER boolean
----@field [4] boolean
----@field VERMIN_GROUNDER boolean
----@field [5] boolean
----@field VERMIN_ROTTER boolean
----@field [6] boolean
----@field VERMIN_SOIL boolean
----@field [7] boolean
----@field VERMIN_SOIL_COLONY boolean
----@field [8] boolean
----@field LARGE_ROAMING boolean
----@field [9] boolean
----@field VERMIN_FISH boolean
----@field [10] boolean
----@field LOOSE_CLUSTERS boolean
----@field [11] boolean
----@field FANCIFUL boolean
----@field [12] boolean
----@field BIOME_MOUNTAIN boolean
----@field [13] boolean
----@field BIOME_GLACIER boolean
----@field [14] boolean
----@field BIOME_TUNDRA boolean
----@field [15] boolean
----@field BIOME_SWAMP_TEMPERATE_FRESHWATER boolean
----@field [16] boolean
----@field BIOME_SWAMP_TEMPERATE_SALTWATER boolean
----@field [17] boolean
----@field BIOME_MARSH_TEMPERATE_FRESHWATER boolean
----@field [18] boolean
----@field BIOME_MARSH_TEMPERATE_SALTWATER boolean
----@field [19] boolean
----@field BIOME_SWAMP_TROPICAL_FRESHWATER boolean
----@field [20] boolean
----@field BIOME_SWAMP_TROPICAL_SALTWATER boolean
----@field [21] boolean
----@field BIOME_SWAMP_MANGROVE boolean
----@field [22] boolean
----@field BIOME_MARSH_TROPICAL_FRESHWATER boolean
----@field [23] boolean
----@field BIOME_MARSH_TROPICAL_SALTWATER boolean
----@field [24] boolean
----@field BIOME_FOREST_TAIGA boolean
----@field [25] boolean
----@field BIOME_FOREST_TEMPERATE_CONIFER boolean
----@field [26] boolean
----@field BIOME_FOREST_TEMPERATE_BROADLEAF boolean
----@field [27] boolean
----@field BIOME_FOREST_TROPICAL_CONIFER boolean
----@field [28] boolean
----@field BIOME_FOREST_TROPICAL_DRY_BROADLEAF boolean
----@field [29] boolean
----@field BIOME_FOREST_TROPICAL_MOIST_BROADLEAF boolean
----@field [30] boolean
----@field BIOME_GRASSLAND_TEMPERATE boolean
----@field [31] boolean
----@field BIOME_SAVANNA_TEMPERATE boolean
----@field [32] boolean
----@field BIOME_SHRUBLAND_TEMPERATE boolean
----@field [33] boolean
----@field BIOME_GRASSLAND_TROPICAL boolean
----@field [34] boolean
----@field BIOME_SAVANNA_TROPICAL boolean
----@field [35] boolean
----@field BIOME_SHRUBLAND_TROPICAL boolean
----@field [36] boolean
----@field BIOME_DESERT_BADLAND boolean
----@field [37] boolean
----@field BIOME_DESERT_ROCK boolean
----@field [38] boolean
----@field BIOME_DESERT_SAND boolean
----@field [39] boolean
----@field BIOME_OCEAN_TROPICAL boolean
----@field [40] boolean
----@field BIOME_OCEAN_TEMPERATE boolean
----@field [41] boolean
----@field BIOME_OCEAN_ARCTIC boolean
----@field [42] boolean
----@field BIOME_SUBTERRANEAN_WATER boolean
----@field [43] boolean
----@field BIOME_SUBTERRANEAN_CHASM boolean
----@field [44] boolean
----@field BIOME_SUBTERRANEAN_LAVA boolean
----@field [45] boolean
----@field BIOME_POOL_TEMPERATE_FRESHWATER boolean
----@field [46] boolean
----@field BIOME_POOL_TEMPERATE_BRACKISHWATER boolean
----@field [47] boolean
----@field BIOME_POOL_TEMPERATE_SALTWATER boolean
----@field [48] boolean
----@field BIOME_POOL_TROPICAL_FRESHWATER boolean
----@field [49] boolean
----@field BIOME_POOL_TROPICAL_BRACKISHWATER boolean
----@field [50] boolean
----@field BIOME_POOL_TROPICAL_SALTWATER boolean
----@field [51] boolean
----@field BIOME_LAKE_TEMPERATE_FRESHWATER boolean
----@field [52] boolean
----@field BIOME_LAKE_TEMPERATE_BRACKISHWATER boolean
----@field [53] boolean
----@field BIOME_LAKE_TEMPERATE_SALTWATER boolean
----@field [54] boolean
----@field BIOME_LAKE_TROPICAL_FRESHWATER boolean
----@field [55] boolean
----@field BIOME_LAKE_TROPICAL_BRACKISHWATER boolean
----@field [56] boolean
----@field BIOME_LAKE_TROPICAL_SALTWATER boolean
----@field [57] boolean
----@field BIOME_RIVER_TEMPERATE_FRESHWATER boolean
----@field [58] boolean
----@field BIOME_RIVER_TEMPERATE_BRACKISHWATER boolean
----@field [59] boolean
----@field BIOME_RIVER_TEMPERATE_SALTWATER boolean
----@field [60] boolean
----@field BIOME_RIVER_TROPICAL_FRESHWATER boolean
----@field [61] boolean
----@field BIOME_RIVER_TROPICAL_BRACKISHWATER boolean
----@field [62] boolean
----@field BIOME_RIVER_TROPICAL_SALTWATER boolean
----@field [63] boolean
----@field GOOD boolean
----@field [64] boolean
----@field EVIL boolean
----@field [65] boolean
----@field SAVAGE boolean
----@field [66] boolean
----@field TWO_GENDERS boolean
----@field [67] boolean
----@field MATES_TO_BREED boolean
----@field [68] boolean
----@field HAS_MALE boolean
----@field [69] boolean
----@field HAS_FEMALE boolean
----@field [70] boolean
----@field SMALL_RACE boolean
----@field [71] boolean
----@field HAS_ANY_INTELLIGENT_LEARNS boolean
----@field [72] boolean
----@field HAS_ANY_VERMIN_HATEABLE boolean
----@field [73] boolean
----@field OCCURS_AS_ENTITY_RACE boolean
----@field [74] boolean
----@field HAS_ANY_LARGE_PREDATOR boolean
----@field [75] boolean
----@field HAS_ANY_CURIOUS_BEAST boolean
----@field [76] boolean
----@field HAS_ANY_BENIGN boolean
----@field [77] boolean
----@field HAS_ANY_NATURAL_ANIMAL boolean
----@field [78] boolean
----@field HAS_ANY_MEGABEAST boolean
----@field [79] boolean
----@field HAS_ANY_SEMIMEGABEAST boolean
----@field [80] boolean
----@field HAS_ANY_POWER boolean
----@field [81] boolean
----@field HAS_ANY_VERMIN_MICRO boolean
----@field [82] boolean
----@field HAS_ANY_NOT_FIREIMMUNE boolean
----@field [83] boolean
----@field HAS_ANY_CANNOT_BREATHE_WATER boolean
----@field [84] boolean
----@field HAS_ANY_CANNOT_BREATHE_AIR boolean
----@field [85] boolean
----@field HAS_ANY_NOT_FLIER boolean
----@field [86] boolean
----@field HAS_ANY_CAN_SWIM boolean
----@field [87] boolean
----@field HAS_ANY_COMMON_DOMESTIC boolean
----@field [88] boolean
----@field HAS_ANY_UTTERANCES boolean
----@field [89] boolean
----@field HAS_ANY_INTELLIGENT_SPEAKS boolean
----@field [90] boolean
----@field HAS_ANY_FEATURE_BEAST boolean
----@field [91] boolean
----@field GENERATED boolean
----@field [92] boolean
----@field HAS_ANY_TITAN boolean
----@field [93] boolean
----@field HAS_ANY_UNIQUE_DEMON boolean
----@field [94] boolean
----@field DOES_NOT_EXIST boolean
----@field [95] boolean
----@field HAS_ANY_NOT_LIVING boolean
----@field [96] boolean
----@field HAS_ANY_MISCHIEVOUS boolean
----@field [97] boolean
----@field HAS_ANY_FLIER boolean
----@field [98] boolean
----@field HAS_ANY_DEMON boolean
----@field [99] boolean
----@field HAS_ANY_NIGHT_CREATURE boolean
----@field [100] boolean
----@field HAS_ANY_NIGHT_CREATURE_HUNTER boolean
----@field [101] boolean
----@field HAS_ANY_NIGHT_CREATURE_BOGEYMAN boolean
----@field [102] boolean
----@field HAS_ANY_CARNIVORE boolean
----@field [103] boolean
----@field ARTIFICIAL_HIVEABLE boolean
----@field [104] boolean
----@field UBIQUITOUS boolean
----@field [105] boolean
----@field ALL_CASTES_ALIVE boolean
----@field [106] boolean
----@field HAS_ANY_SUPERNATURAL boolean
----@field [107] boolean
----@field HAS_ANY_HAS_BLOOD boolean
----@field [108] boolean
----@field HAS_ANY_GRAZER boolean
----@field [109] boolean
----@field HAS_ANY_IMMOBILE boolean
----@field [110] boolean
----@field HAS_ANY_LOCAL_POPS_CONTROLLABLE boolean
----@field [111] boolean
----@field HAS_ANY_OUTSIDER_CONTROLLABLE boolean
----@field [112] boolean
----@field HAS_ANY_LOCAL_POPS_PRODUCE_HEROES boolean
----@field [113] boolean
----@field HAS_ANY_GRASP boolean
----@field [114] boolean
----@field HAS_ANY_RACE_GAIT boolean
----@field [115] boolean
----@field HAS_ANY_FLY_RACE_GAIT boolean
----@field [116] boolean
----@field HAS_ANY_SLOW_LEARNER boolean
----@field [117] boolean
----@field HAS_ANY_NIGHT_CREATURE_NIGHTMARE boolean
----@field [118] boolean
----@field HAS_ANY_NIGHT_CREATURE_EXPERIMENTER boolean
+---@alias caste_raw_flags
+---| 0 # CAN_BREATHE_WATER
+---| 1 # CANNOT_BREATHE_AIR
+---| 2 # LOCKPICKER
+---| 3 # MISCHIEVOUS
+---| 4 # PATTERNFLIER
+---| 5 # CURIOUS_BEAST
+---| 6 # CURIOUS_BEAST_ITEM
+---| 7 # CURIOUS_BEAST_GUZZLER
+---| 8 # FLEEQUICK
+---| 9 # AT_PEACE_WITH_WILDLIFE
+---| 10 # CAN_SWIM
+---| 11 # OPPOSED_TO_LIFE
+---| 12 # CURIOUS_BEAST_EATER
+---| 13 # NO_EAT
+---| 14 # NO_DRINK
+---| 15 # NO_SLEEP
+---| 16 # COMMON_DOMESTIC
+---| 17 # WAGON_PULLER
+---| 18 # PACK_ANIMAL
+---| 19 # FLIER
+---| 20 # LARGE_PREDATOR
+---| 21 # MAGMA_VISION
+---| 22 # FIREIMMUNE
+---| 23 # FIREIMMUNE_SUPER
+---| 24 # WEBBER
+---| 25 # WEBIMMUNE
+---| 26 # FISHITEM
+---| 27 # IMMOBILE_LAND
+---| 28 # IMMOLATE
+---| 29 # MILKABLE
+---| 30 # NO_SPRING
+---| 31 # NO_SUMMER
+---| 32 # NO_AUTUMN
+---| 33 # NO_WINTER
+---| 34 # BENIGN
+---| 35 # VERMIN_NOROAM
+---| 36 # VERMIN_NOTRAP
+---| 37 # VERMIN_NOFISH
+---| 38 # HAS_NERVES
+---| 39 # NO_DIZZINESS
+---| 40 # NO_FEVERS
+---| 41 # NO_UNIT_TYPE_COLOR
+---| 42 # NO_CONNECTIONS_FOR_MOVEMENT
+---| 43 # SUPERNATURAL
+---| 44 # AMBUSHPREDATOR
+---| 45 # GNAWER
+---| 46 # NOT_BUTCHERABLE
+---| 47 # COOKABLE_LIVE
+---| 48 # HAS_SECRETION
+---| 49 # IMMOBILE
+---| 50 # MULTIPART_FULL_VISION
+---| 51 # MEANDERER
+---| 52 # THICKWEB
+---| 53 # TRAINABLE_HUNTING
+---| 54 # PET
+---| 55 # PET_EXOTIC
+---| 56 # HAS_ROTTABLE
+---| 57 # CAN_SPEAK
+---| 58 # CAN_LEARN
+---| 59 # UTTERANCES
+---| 60 # BONECARN
+---| 61 # CARNIVORE
+---| 62 # AQUATIC_UNDERSWIM
+---| 63 # NOEXERT
+---| 64 # NOPAIN
+---| 65 # EXTRAVISION
+---| 66 # NOBREATHE
+---| 67 # NOSTUN
+---| 68 # NONAUSEA
+---| 69 # HAS_BLOOD
+---| 70 # TRANCES
+---| 71 # NOEMOTION
+---| 72 # SLOW_LEARNER
+---| 73 # NOSTUCKINS
+---| 74 # HAS_PUS
+---| 75 # NOSKULL
+---| 76 # NOSKIN
+---| 77 # NOBONES
+---| 78 # NOMEAT
+---| 79 # PARALYZEIMMUNE
+---| 80 # NOFEAR
+---| 81 # CANOPENDOORS
+---| 82 # ITEMCORPSE
+---| 83 # GETS_WOUND_INFECTIONS
+---| 84 # NOSMELLYROT
+---| 85 # REMAINS_UNDETERMINED
+---| 86 # HASSHELL
+---| 87 # PEARL
+---| 88 # TRAINABLE_WAR
+---| 89 # NO_THOUGHT_CENTER_FOR_MOVEMENT
+---| 90 # ARENA_RESTRICTED
+---| 91 # LAIR_HUNTER
+---| 92 # GELDABLE
+---| 93 # VERMIN_HATEABLE
+---| 94 # VEGETATION
+---| 95 # MAGICAL
+---| 96 # NATURAL_ANIMAL
+---| 97 # HAS_BABYSTATE
+---| 98 # HAS_CHILDSTATE
+---| 99 # MULTIPLE_LITTER_RARE
+---| 100 # MOUNT
+---| 101 # MOUNT_EXOTIC
+---| 102 # FEATURE_ATTACK_GROUP
+---| 103 # VERMIN_MICRO
+---| 104 # EQUIPS
+---| 105 # LAYS_EGGS
+---| 106 # GRAZER
+---| 107 # NOTHOUGHT
+---| 108 # TRAPAVOID
+---| 109 # CAVE_ADAPT
+---| 110 # MEGABEAST
+---| 111 # SEMIMEGABEAST
+---| 112 # ALL_ACTIVE
+---| 113 # DIURNAL
+---| 114 # NOCTURNAL
+---| 115 # CREPUSCULAR
+---| 116 # MATUTINAL
+---| 117 # VESPERTINE
+---| 118 # LIGHT_GEN
+---| 119 # LISP
+---| 120 # GETS_INFECTIONS_FROM_ROT
+---| 121 # HAS_SOLDIER_TILE
+---| 122 # ALCOHOL_DEPENDENT
+---| 123 # CAN_SWIM_INNATE
+---| 124 # POWER
+---| 125 # TENDONS
+---| 126 # LIGAMENTS
+---| 127 # HAS_TILE
+---| 128 # HAS_COLOR
+---| 129 # HAS_GLOW_TILE
+---| 130 # HAS_GLOW_COLOR
+---| 131 # FEATURE_BEAST
+---| 132 # TITAN
+---| 133 # UNIQUE_DEMON
+---| 134 # DEMON
+---| 135 # MANNERISM_LAUGH
+---| 136 # MANNERISM_SMILE
+---| 137 # MANNERISM_WALK
+---| 138 # MANNERISM_SIT
+---| 139 # MANNERISM_BREATH
+---| 140 # MANNERISM_POSTURE
+---| 141 # MANNERISM_STRETCH
+---| 142 # MANNERISM_EYELIDS
+---| 143 # NIGHT_CREATURE
+---| 144 # NIGHT_CREATURE_HUNTER
+---| 145 # NIGHT_CREATURE_BOGEYMAN
+---| 146 # CONVERTED_SPOUSE
+---| 147 # SPOUSE_CONVERTER
+---| 148 # SPOUSE_CONVERSION_TARGET
+---| 149 # DIE_WHEN_VERMIN_BITE
+---| 150 # REMAINS_ON_VERMIN_BITE_DEATH
+---| 151 # COLONY_EXTERNAL
+---| 152 # LAYS_UNUSUAL_EGGS
+---| 153 # RETURNS_VERMIN_KILLS_TO_OWNER
+---| 154 # HUNTS_VERMIN
+---| 155 # ADOPTS_OWNER
+---| 156 # HAS_SOUND_ALERT
+---| 157 # HAS_SOUND_PEACEFUL_INTERMITTENT
+---| 158 # NOT_LIVING
+---| 159 # NO_PHYS_ATT_GAIN
+---| 160 # NO_PHYS_ATT_RUST
+---| 161 # CRAZED
+---| 162 # BLOODSUCKER
+---| 163 # NO_VEGETATION_PERTURB
+---| 164 # DIVE_HUNTS_VERMIN
+---| 165 # VERMIN_GOBBLER
+---| 166 # CANNOT_JUMP
+---| 167 # STANCE_CLIMBER
+---| 168 # CANNOT_CLIMB
+---| 169 # LOCAL_POPS_CONTROLLABLE
+---| 170 # OUTSIDER_CONTROLLABLE
+---| 171 # LOCAL_POPS_PRODUCE_HEROES
+---| 172 # STRANGE_MOODS
+---| 173 # HAS_GRASP
+---| 174 # HAS_FLY_RACE_GAIT
+---| 175 # HAS_RACE_GAIT
+---| 176 # NIGHT_CREATURE_NIGHTMARE
+---| 177 # NIGHT_CREATURE_EXPERIMENTER
+---| 178 # SPREAD_EVIL_SPHERES_IF_RULER
 
----@class _caste_raw_flags: integer, string, df.enum
+---@class _caste_raw_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field CAN_BREATHE_WATER 0
 ---@field [0] "CAN_BREATHE_WATER"
 ---@field CANNOT_BREATHE_AIR 1
 ---@field [1] "CANNOT_BREATHE_AIR"
 ---@field LOCKPICKER 2
 ---@field [2] "LOCKPICKER"
----@field MISCHIEVOUS 3
----@field [3] "MISCHIEVOUS"
+---@field MISCHIEVOUS 3 the flag used internally is actually MISCHIEVIOUS
+---@field [3] "MISCHIEVOUS" the flag used internally is actually MISCHIEVIOUS
 ---@field PATTERNFLIER 4
 ---@field [4] "PATTERNFLIER"
 ---@field CURIOUS_BEAST 5
@@ -597,10 +662,10 @@ df.creature_raw_flags = {}
 ---@field [55] "PET_EXOTIC"
 ---@field HAS_ROTTABLE 56
 ---@field [56] "HAS_ROTTABLE"
----@field CAN_SPEAK 57
----@field [57] "CAN_SPEAK"
----@field CAN_LEARN 58
----@field [58] "CAN_LEARN"
+---@field CAN_SPEAK 57 aka INTELLIGENT_SPEAKS
+---@field [57] "CAN_SPEAK" aka INTELLIGENT_SPEAKS
+---@field CAN_LEARN 58 aka INTELLIGENT_LEARNS
+---@field [58] "CAN_LEARN" aka INTELLIGENT_LEARNS
 ---@field UTTERANCES 59
 ---@field [59] "UTTERANCES"
 ---@field BONECARN 60
@@ -647,8 +712,8 @@ df.creature_raw_flags = {}
 ---@field [80] "NOFEAR"
 ---@field CANOPENDOORS 81
 ---@field [81] "CANOPENDOORS"
----@field ITEMCORPSE 82
----@field [82] "ITEMCORPSE"
+---@field ITEMCORPSE 82 set if the tag is present; corpse parts go to map_renderer.cursor_other
+---@field [82] "ITEMCORPSE" set if the tag is present; corpse parts go to map_renderer.cursor_other
 ---@field GETS_WOUND_INFECTIONS 83
 ---@field [83] "GETS_WOUND_INFECTIONS"
 ---@field NOSMELLYROT 84
@@ -667,8 +732,8 @@ df.creature_raw_flags = {}
 ---@field [90] "ARENA_RESTRICTED"
 ---@field LAIR_HUNTER 91
 ---@field [91] "LAIR_HUNTER"
----@field GELDABLE 92
----@field [92] "GELDABLE"
+---@field GELDABLE 92 previously LIKES_FIGHTING
+---@field [92] "GELDABLE" previously LIKES_FIGHTING
 ---@field VERMIN_HATEABLE 93
 ---@field [93] "VERMIN_HATEABLE"
 ---@field VEGETATION 94
@@ -843,367 +908,42 @@ df.creature_raw_flags = {}
 ---@field [178] "SPREAD_EVIL_SPHERES_IF_RULER"
 df.caste_raw_flags = {}
 
----@class caste_raw_flags
----@field [0] boolean
----@field CAN_BREATHE_WATER boolean
----@field [1] boolean
----@field CANNOT_BREATHE_AIR boolean
----@field [2] boolean
----@field LOCKPICKER boolean
----@field [3] boolean
----@field MISCHIEVOUS boolean
----@field [4] boolean
----@field PATTERNFLIER boolean
----@field [5] boolean
----@field CURIOUS_BEAST boolean
----@field [6] boolean
----@field CURIOUS_BEAST_ITEM boolean
----@field [7] boolean
----@field CURIOUS_BEAST_GUZZLER boolean
----@field [8] boolean
----@field FLEEQUICK boolean
----@field [9] boolean
----@field AT_PEACE_WITH_WILDLIFE boolean
----@field [10] boolean
----@field CAN_SWIM boolean
----@field [11] boolean
----@field OPPOSED_TO_LIFE boolean
----@field [12] boolean
----@field CURIOUS_BEAST_EATER boolean
----@field [13] boolean
----@field NO_EAT boolean
----@field [14] boolean
----@field NO_DRINK boolean
----@field [15] boolean
----@field NO_SLEEP boolean
----@field [16] boolean
----@field COMMON_DOMESTIC boolean
----@field [17] boolean
----@field WAGON_PULLER boolean
----@field [18] boolean
----@field PACK_ANIMAL boolean
----@field [19] boolean
----@field FLIER boolean
----@field [20] boolean
----@field LARGE_PREDATOR boolean
----@field [21] boolean
----@field MAGMA_VISION boolean
----@field [22] boolean
----@field FIREIMMUNE boolean
----@field [23] boolean
----@field FIREIMMUNE_SUPER boolean
----@field [24] boolean
----@field WEBBER boolean
----@field [25] boolean
----@field WEBIMMUNE boolean
----@field [26] boolean
----@field FISHITEM boolean
----@field [27] boolean
----@field IMMOBILE_LAND boolean
----@field [28] boolean
----@field IMMOLATE boolean
----@field [29] boolean
----@field MILKABLE boolean
----@field [30] boolean
----@field NO_SPRING boolean
----@field [31] boolean
----@field NO_SUMMER boolean
----@field [32] boolean
----@field NO_AUTUMN boolean
----@field [33] boolean
----@field NO_WINTER boolean
----@field [34] boolean
----@field BENIGN boolean
----@field [35] boolean
----@field VERMIN_NOROAM boolean
----@field [36] boolean
----@field VERMIN_NOTRAP boolean
----@field [37] boolean
----@field VERMIN_NOFISH boolean
----@field [38] boolean
----@field HAS_NERVES boolean
----@field [39] boolean
----@field NO_DIZZINESS boolean
----@field [40] boolean
----@field NO_FEVERS boolean
----@field [41] boolean
----@field NO_UNIT_TYPE_COLOR boolean
----@field [42] boolean
----@field NO_CONNECTIONS_FOR_MOVEMENT boolean
----@field [43] boolean
----@field SUPERNATURAL boolean
----@field [44] boolean
----@field AMBUSHPREDATOR boolean
----@field [45] boolean
----@field GNAWER boolean
----@field [46] boolean
----@field NOT_BUTCHERABLE boolean
----@field [47] boolean
----@field COOKABLE_LIVE boolean
----@field [48] boolean
----@field HAS_SECRETION boolean
----@field [49] boolean
----@field IMMOBILE boolean
----@field [50] boolean
----@field MULTIPART_FULL_VISION boolean
----@field [51] boolean
----@field MEANDERER boolean
----@field [52] boolean
----@field THICKWEB boolean
----@field [53] boolean
----@field TRAINABLE_HUNTING boolean
----@field [54] boolean
----@field PET boolean
----@field [55] boolean
----@field PET_EXOTIC boolean
----@field [56] boolean
----@field HAS_ROTTABLE boolean
----@field [57] boolean
----@field CAN_SPEAK boolean
----@field [58] boolean
----@field CAN_LEARN boolean
----@field [59] boolean
----@field UTTERANCES boolean
----@field [60] boolean
----@field BONECARN boolean
----@field [61] boolean
----@field CARNIVORE boolean
----@field [62] boolean
----@field AQUATIC_UNDERSWIM boolean
----@field [63] boolean
----@field NOEXERT boolean
----@field [64] boolean
----@field NOPAIN boolean
----@field [65] boolean
----@field EXTRAVISION boolean
----@field [66] boolean
----@field NOBREATHE boolean
----@field [67] boolean
----@field NOSTUN boolean
----@field [68] boolean
----@field NONAUSEA boolean
----@field [69] boolean
----@field HAS_BLOOD boolean
----@field [70] boolean
----@field TRANCES boolean
----@field [71] boolean
----@field NOEMOTION boolean
----@field [72] boolean
----@field SLOW_LEARNER boolean
----@field [73] boolean
----@field NOSTUCKINS boolean
----@field [74] boolean
----@field HAS_PUS boolean
----@field [75] boolean
----@field NOSKULL boolean
----@field [76] boolean
----@field NOSKIN boolean
----@field [77] boolean
----@field NOBONES boolean
----@field [78] boolean
----@field NOMEAT boolean
----@field [79] boolean
----@field PARALYZEIMMUNE boolean
----@field [80] boolean
----@field NOFEAR boolean
----@field [81] boolean
----@field CANOPENDOORS boolean
----@field [82] boolean
----@field ITEMCORPSE boolean
----@field [83] boolean
----@field GETS_WOUND_INFECTIONS boolean
----@field [84] boolean
----@field NOSMELLYROT boolean
----@field [85] boolean
----@field REMAINS_UNDETERMINED boolean
----@field [86] boolean
----@field HASSHELL boolean
----@field [87] boolean
----@field PEARL boolean
----@field [88] boolean
----@field TRAINABLE_WAR boolean
----@field [89] boolean
----@field NO_THOUGHT_CENTER_FOR_MOVEMENT boolean
----@field [90] boolean
----@field ARENA_RESTRICTED boolean
----@field [91] boolean
----@field LAIR_HUNTER boolean
----@field [92] boolean
----@field GELDABLE boolean
----@field [93] boolean
----@field VERMIN_HATEABLE boolean
----@field [94] boolean
----@field VEGETATION boolean
----@field [95] boolean
----@field MAGICAL boolean
----@field [96] boolean
----@field NATURAL_ANIMAL boolean
----@field [97] boolean
----@field HAS_BABYSTATE boolean
----@field [98] boolean
----@field HAS_CHILDSTATE boolean
----@field [99] boolean
----@field MULTIPLE_LITTER_RARE boolean
----@field [100] boolean
----@field MOUNT boolean
----@field [101] boolean
----@field MOUNT_EXOTIC boolean
----@field [102] boolean
----@field FEATURE_ATTACK_GROUP boolean
----@field [103] boolean
----@field VERMIN_MICRO boolean
----@field [104] boolean
----@field EQUIPS boolean
----@field [105] boolean
----@field LAYS_EGGS boolean
----@field [106] boolean
----@field GRAZER boolean
----@field [107] boolean
----@field NOTHOUGHT boolean
----@field [108] boolean
----@field TRAPAVOID boolean
----@field [109] boolean
----@field CAVE_ADAPT boolean
----@field [110] boolean
----@field MEGABEAST boolean
----@field [111] boolean
----@field SEMIMEGABEAST boolean
----@field [112] boolean
----@field ALL_ACTIVE boolean
----@field [113] boolean
----@field DIURNAL boolean
----@field [114] boolean
----@field NOCTURNAL boolean
----@field [115] boolean
----@field CREPUSCULAR boolean
----@field [116] boolean
----@field MATUTINAL boolean
----@field [117] boolean
----@field VESPERTINE boolean
----@field [118] boolean
----@field LIGHT_GEN boolean
----@field [119] boolean
----@field LISP boolean
----@field [120] boolean
----@field GETS_INFECTIONS_FROM_ROT boolean
----@field [121] boolean
----@field HAS_SOLDIER_TILE boolean
----@field [122] boolean
----@field ALCOHOL_DEPENDENT boolean
----@field [123] boolean
----@field CAN_SWIM_INNATE boolean
----@field [124] boolean
----@field POWER boolean
----@field [125] boolean
----@field TENDONS boolean
----@field [126] boolean
----@field LIGAMENTS boolean
----@field [127] boolean
----@field HAS_TILE boolean
----@field [128] boolean
----@field HAS_COLOR boolean
----@field [129] boolean
----@field HAS_GLOW_TILE boolean
----@field [130] boolean
----@field HAS_GLOW_COLOR boolean
----@field [131] boolean
----@field FEATURE_BEAST boolean
----@field [132] boolean
----@field TITAN boolean
----@field [133] boolean
----@field UNIQUE_DEMON boolean
----@field [134] boolean
----@field DEMON boolean
----@field [135] boolean
----@field MANNERISM_LAUGH boolean
----@field [136] boolean
----@field MANNERISM_SMILE boolean
----@field [137] boolean
----@field MANNERISM_WALK boolean
----@field [138] boolean
----@field MANNERISM_SIT boolean
----@field [139] boolean
----@field MANNERISM_BREATH boolean
----@field [140] boolean
----@field MANNERISM_POSTURE boolean
----@field [141] boolean
----@field MANNERISM_STRETCH boolean
----@field [142] boolean
----@field MANNERISM_EYELIDS boolean
----@field [143] boolean
----@field NIGHT_CREATURE boolean
----@field [144] boolean
----@field NIGHT_CREATURE_HUNTER boolean
----@field [145] boolean
----@field NIGHT_CREATURE_BOGEYMAN boolean
----@field [146] boolean
----@field CONVERTED_SPOUSE boolean
----@field [147] boolean
----@field SPOUSE_CONVERTER boolean
----@field [148] boolean
----@field SPOUSE_CONVERSION_TARGET boolean
----@field [149] boolean
----@field DIE_WHEN_VERMIN_BITE boolean
----@field [150] boolean
----@field REMAINS_ON_VERMIN_BITE_DEATH boolean
----@field [151] boolean
----@field COLONY_EXTERNAL boolean
----@field [152] boolean
----@field LAYS_UNUSUAL_EGGS boolean
----@field [153] boolean
----@field RETURNS_VERMIN_KILLS_TO_OWNER boolean
----@field [154] boolean
----@field HUNTS_VERMIN boolean
----@field [155] boolean
----@field ADOPTS_OWNER boolean
----@field [156] boolean
----@field HAS_SOUND_ALERT boolean
----@field [157] boolean
----@field HAS_SOUND_PEACEFUL_INTERMITTENT boolean
----@field [158] boolean
----@field NOT_LIVING boolean
----@field [159] boolean
----@field NO_PHYS_ATT_GAIN boolean
----@field [160] boolean
----@field NO_PHYS_ATT_RUST boolean
----@field [161] boolean
----@field CRAZED boolean
----@field [162] boolean
----@field BLOODSUCKER boolean
----@field [163] boolean
----@field NO_VEGETATION_PERTURB boolean
----@field [164] boolean
----@field DIVE_HUNTS_VERMIN boolean
----@field [165] boolean
----@field VERMIN_GOBBLER boolean
----@field [166] boolean
----@field CANNOT_JUMP boolean
----@field [167] boolean
----@field STANCE_CLIMBER boolean
----@field [168] boolean
----@field CANNOT_CLIMB boolean
----@field [169] boolean
----@field LOCAL_POPS_CONTROLLABLE boolean
----@field [170] boolean
----@field OUTSIDER_CONTROLLABLE boolean
----@field [171] boolean
----@field LOCAL_POPS_PRODUCE_HEROES boolean
----@field [172] boolean
----@field STRANGE_MOODS boolean
----@field [173] boolean
----@field HAS_GRASP boolean
----@field [174] boolean
----@field HAS_FLY_RACE_GAIT boolean
----@field [175] boolean
----@field HAS_RACE_GAIT boolean
----@field [176] boolean
----@field NIGHT_CREATURE_NIGHTMARE boolean
----@field [177] boolean
----@field NIGHT_CREATURE_EXPERIMENTER boolean
----@field [178] boolean
----@field SPREAD_EVIL_SPHERES_IF_RULER boolean
+---@alias body_part_raw_flags
+---| 0 # HEAD
+---| 1 # UPPERBODY
+---| 2 # LOWERBODY
+---| 3 # SIGHT
+---| 4 # EMBEDDED
+---| 5 # INTERNAL
+---| 6 # CIRCULATION
+---| 7 # SKELETON
+---| 8 # LIMB
+---| 9 # GRASP
+---| 10 # STANCE
+---| 11 # GUTS
+---| 12 # BREATHE
+---| 13 # SMALL
+---| 14 # THROAT
+---| 15 # JOINT
+---| 16 # THOUGHT
+---| 17 # NERVOUS
+---| 18 # RIGHT
+---| 19 # LEFT
+---| 20 # HEAR
+---| 21 # SMELL
+---| 22 # FLIER
+---| 23 # DIGIT
+---| 24 # MOUTH
+---| 25 # APERTURE
+---| 26 # SOCKET
+---| 27 # TOTEMABLE
+---| 30 # UNDER_PRESSURE
+---| 32 # VERMIN_BUTCHER_ITEM
+---| 33 # CONNECTOR
+---| 38 # GELDABLE
 
----@class _body_part_raw_flags: integer, string, df.enum
+---@class _body_part_raw_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field HEAD 0
 ---@field [0] "HEAD"
 ---@field UPPERBODY 1
@@ -1260,111 +1000,44 @@ df.caste_raw_flags = {}
 ---@field [26] "SOCKET"
 ---@field TOTEMABLE 27
 ---@field [27] "TOTEMABLE"
----@field unk_28 28
----@field [28] "unk_28"
----@field unk_29 29
----@field [29] "unk_29"
 ---@field UNDER_PRESSURE 30
 ---@field [30] "UNDER_PRESSURE"
----@field unk_31 31
----@field [31] "unk_31"
 ---@field VERMIN_BUTCHER_ITEM 32
 ---@field [32] "VERMIN_BUTCHER_ITEM"
 ---@field CONNECTOR 33
 ---@field [33] "CONNECTOR"
----@field unk_34 34
----@field [34] "unk_34"
----@field unk_35 35
----@field [35] "unk_35"
----@field unk_36 36
----@field [36] "unk_36"
----@field unk_37 37
----@field [37] "unk_37"
 ---@field GELDABLE 38
 ---@field [38] "GELDABLE"
 df.body_part_raw_flags = {}
 
----@class body_part_raw_flags
----@field [0] boolean
----@field HEAD boolean
----@field [1] boolean
----@field UPPERBODY boolean
----@field [2] boolean
----@field LOWERBODY boolean
----@field [3] boolean
----@field SIGHT boolean
----@field [4] boolean
----@field EMBEDDED boolean
----@field [5] boolean
----@field INTERNAL boolean
----@field [6] boolean
----@field CIRCULATION boolean
----@field [7] boolean
----@field SKELETON boolean
----@field [8] boolean
----@field LIMB boolean
----@field [9] boolean
----@field GRASP boolean
----@field [10] boolean
----@field STANCE boolean
----@field [11] boolean
----@field GUTS boolean
----@field [12] boolean
----@field BREATHE boolean
----@field [13] boolean
----@field SMALL boolean
----@field [14] boolean
----@field THROAT boolean
----@field [15] boolean
----@field JOINT boolean
----@field [16] boolean
----@field THOUGHT boolean
----@field [17] boolean
----@field NERVOUS boolean
----@field [18] boolean
----@field RIGHT boolean
----@field [19] boolean
----@field LEFT boolean
----@field [20] boolean
----@field HEAR boolean
----@field [21] boolean
----@field SMELL boolean
----@field [22] boolean
----@field FLIER boolean
----@field [23] boolean
----@field DIGIT boolean
----@field [24] boolean
----@field MOUTH boolean
----@field [25] boolean
----@field APERTURE boolean
----@field [26] boolean
----@field SOCKET boolean
----@field [27] boolean
----@field TOTEMABLE boolean
----@field [28] boolean
----@field unk_28 boolean
----@field [29] boolean
----@field unk_29 boolean
----@field [30] boolean
----@field UNDER_PRESSURE boolean
----@field [31] boolean
----@field unk_31 boolean
----@field [32] boolean
----@field VERMIN_BUTCHER_ITEM boolean
----@field [33] boolean
----@field CONNECTOR boolean
----@field [34] boolean
----@field unk_34 boolean
----@field [35] boolean
----@field unk_35 boolean
----@field [36] boolean
----@field unk_36 boolean
----@field [37] boolean
----@field unk_37 boolean
----@field [38] boolean
----@field GELDABLE boolean
+---@alias appearance_modifier_type
+---| 0 # HEIGHT
+---| 1 # BROADNESS
+---| 2 # LENGTH
+---| 3 # CLOSE_SET
+---| 4 # DEEP_SET
+---| 5 # HIGH_POSITION
+---| 6 # LARGE_IRIS
+---| 7 # WRINKLY
+---| 8 # CURLY
+---| 9 # CONVEX
+---| 10 # DENSE
+---| 11 # THICKNESS
+---| 12 # UPTURNED
+---| 13 # SPLAYED_OUT
+---| 14 # HANGING_LOBES
+---| 15 # GAPS
+---| 16 # HIGH_CHEEKBONES
+---| 17 # BROAD_CHIN
+---| 18 # JUTTING_CHIN
+---| 19 # SQUARE_CHIN
+---| 20 # ROUND_VS_NARROW
+---| 21 # GREASY
+---| 22 # DEEP_VOICE
+---| 23 # RASPY_VOICE
 
----@class _appearance_modifier_type: integer, string, df.enum
+---@class _appearance_modifier_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field HEIGHT 0
 ---@field [0] "HEIGHT"
 ---@field BROADNESS 1
@@ -1415,66 +1088,23 @@ df.body_part_raw_flags = {}
 ---@field [23] "RASPY_VOICE"
 df.appearance_modifier_type = {}
 
----@class appearance_modifier_type
----@field [0] boolean
----@field HEIGHT boolean
----@field [1] boolean
----@field BROADNESS boolean
----@field [2] boolean
----@field LENGTH boolean
----@field [3] boolean
----@field CLOSE_SET boolean
----@field [4] boolean
----@field DEEP_SET boolean
----@field [5] boolean
----@field HIGH_POSITION boolean
----@field [6] boolean
----@field LARGE_IRIS boolean
----@field [7] boolean
----@field WRINKLY boolean
----@field [8] boolean
----@field CURLY boolean
----@field [9] boolean
----@field CONVEX boolean
----@field [10] boolean
----@field DENSE boolean
----@field [11] boolean
----@field THICKNESS boolean
----@field [12] boolean
----@field UPTURNED boolean
----@field [13] boolean
----@field SPLAYED_OUT boolean
----@field [14] boolean
----@field HANGING_LOBES boolean
----@field [15] boolean
----@field GAPS boolean
----@field [16] boolean
----@field HIGH_CHEEKBONES boolean
----@field [17] boolean
----@field BROAD_CHIN boolean
----@field [18] boolean
----@field JUTTING_CHIN boolean
----@field [19] boolean
----@field SQUARE_CHIN boolean
----@field [20] boolean
----@field ROUND_VS_NARROW boolean
----@field [21] boolean
----@field GREASY boolean
----@field [22] boolean
----@field DEEP_VOICE boolean
----@field [23] boolean
----@field RASPY_VOICE boolean
+---@alias body_part_layer_flags
+---| 0 # CONNECTS
 
----@class _body_part_layer_flags: integer, string, df.enum
+---@class _body_part_layer_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field CONNECTS 0
 ---@field [0] "CONNECTS"
 df.body_part_layer_flags = {}
 
----@class body_part_layer_flags
----@field [0] boolean
----@field CONNECTS boolean
+---@alias appearance_modifier_growth_interval
+---| 0 # DAILY
+---| 1 # WEEKLY
+---| 2 # MONTHLY
+---| 3 # YEARLY
 
----@class _appearance_modifier_growth_interval: integer, string, df.enum
+---@class _appearance_modifier_growth_interval: DFDescriptor
+---@field _kind 'enum-type'
 ---@field DAILY 0
 ---@field [0] "DAILY"
 ---@field WEEKLY 1
@@ -1485,186 +1115,175 @@ df.body_part_layer_flags = {}
 ---@field [3] "YEARLY"
 df.appearance_modifier_growth_interval = {}
 
----@class appearance_modifier_growth_interval
----@field [0] boolean
----@field DAILY boolean
----@field [1] boolean
----@field WEEKLY boolean
----@field [2] boolean
----@field MONTHLY boolean
----@field [3] boolean
----@field YEARLY boolean
+---@class (exact) body_part_layer_raw: DFObject
+---@field _kind 'struct'
+---@field _type _body_part_layer_raw
+---@field layer_name string
+---@field tissue_id number
+---@field part_fraction number total 1000
+---@field healing_rate number
+---@field vascular number
+---@field pain_receptors number
+---@field unk6 number
+---@field unk7 number
+---@field layer_id number across all body parts
+---@field parent_idx number For subordinate layers:
+---@field parent_layer_id number
+---@field layer_depth number -1 for skin and internal organs
+---@field leak_barrier_id number layer that stops TISSUE_LEAKS, but unused and broken
+---@field nonsolid_id number
+---@field styleable_id number
+local body_part_layer_raw
 
----@class body_part_layer_raw: df.class
----@field layer_name df.string
----@field tissue_id integer
----@field flags body_part_layer_flags[]
----@field part_fraction integer total 1000
----@field healing_rate integer
----@field vascular integer
----@field pain_receptors integer
----@field unk6 integer
----@field unk7 integer
----@field bp_modifiers df.container
----@field layer_id integer across all body parts
----@field parent_idx integer
----@field parent_layer_id integer
----@field layer_depth integer -1 for skin and internal organs
----@field leak_barrier_id integer layer that stops TISSUE_LEAKS, but unused and broken
----@field nonsolid_id integer
----@field styleable_id integer
+---@class _body_part_layer_raw: DFCompound
+---@field _kind 'struct-type'
 df.body_part_layer_raw = {}
 
----@class body_part_raw: df.class
----@field token df.string
----@field category df.string
----@field con_part_id integer
----@field flags body_part_raw_flags[]
----@field layers body_part_layer_raw[]
----@field fraction_total integer
----@field fraction_base integer
----@field fraction_fat integer
----@field fraction_muscle integer
----@field relsize integer
----@field number integer
----@field unk7b integer
----@field name_singular df.string[]
----@field name_plural df.string[]
----@field bp_relation_part_id df.container
----@field bp_relation_code df.container
----@field bp_relation_coverage df.container
+---@class (exact) body_part_raw: DFObject
+---@field _kind 'struct'
+---@field _type _body_part_raw
+---@field token string
+---@field category string
+---@field con_part_id number
+---@field fraction_total number
+---@field fraction_base number
+---@field fraction_fat number
+---@field fraction_muscle number
+---@field relsize number
+---@field number number
+---@field unk7b number
 ---@field min_temp integer
 ---@field max_temp integer
 ---@field temp_factor integer
----@field numbered_idx integer defined only if number field nonzero
----@field insulation_fat integer
----@field insulation_muscle integer
----@field insulation_base integer
----@field clothing_item_id integer
+---@field numbered_idx number defined only if number field nonzero
+---@field insulation_fat number
+---@field insulation_muscle number
+---@field insulation_base number
+---@field clothing_item_id number
+local body_part_raw
+
+---@class _body_part_raw: DFCompound
+---@field _kind 'struct-type'
 df.body_part_raw = {}
 
----@class color_modifier_raw: df.class
----@field pattern_index df.container References: descriptor_pattern
----@field pattern_frequency df.container
----@field body_part_id df.container
----@field tissue_layer_id df.container
----@field unk5 integer
----@field start_date integer
----@field end_date integer
----@field unk6 integer
----@field part df.string
----@field unk_6c integer
----@field unk_6e integer
----@field unk_70 integer
----@field id integer
----@field unk_78 df.string[]
----@field unk_88 df.string[]
+---@class (exact) color_modifier_raw: DFObject
+---@field _kind 'struct'
+---@field _type _color_modifier_raw
+---@field unk5 number
+---@field start_date number
+---@field end_date number
+---@field unk6 number
+---@field part string
+---@field unk_6c number
+---@field unk_6e number
+---@field unk_70 number
+---@field id number
+local color_modifier_raw
+
+---@class _color_modifier_raw: DFCompound
+---@field _kind 'struct-type'
 df.color_modifier_raw = {}
 
----@class body_appearance_modifier: df.class
+---@class (exact) body_appearance_modifier: DFObject
+---@field _kind 'struct'
+---@field _type _body_appearance_modifier
 ---@field type appearance_modifier_type
----@field ranges integer[]
----@field desc_range integer[]
----@field growth_rate integer
+---@field growth_rate number
 ---@field growth_interval appearance_modifier_growth_interval
----@field growth_min integer
----@field growth_max integer
----@field growth_start integer in days
----@field growth_end integer
----@field importance integer
----@field noun df.string
----@field unk_1 integer
----@field unk_2 integer
----@field id integer
----@field id2 integer same as id
+---@field growth_min number
+---@field growth_max number
+---@field growth_start number in days
+---@field growth_end number
+---@field importance number
+---@field noun string
+---@field unk_1 number
+---@field unk_2 number
+---@field id number
+---@field id2 number same as id
+local body_appearance_modifier
+
+---@class _body_appearance_modifier: DFCompound
+---@field _kind 'struct-type'
 df.body_appearance_modifier = {}
 
----@class bp_appearance_modifier: df.class
+---@class (exact) bp_appearance_modifier: DFObject
+---@field _kind 'struct'
+---@field _type _bp_appearance_modifier
 ---@field type appearance_modifier_type
----@field ranges integer[]
----@field desc_range integer[]
----@field growth_rate integer
+---@field growth_rate number
 ---@field growth_interval appearance_modifier_growth_interval
----@field growth_min integer
----@field growth_max integer
----@field growth_start integer in days
----@field growth_end integer
----@field importance integer
----@field noun df.string
----@field single_plural integer
----@field unk1 integer
----@field id1 integer
----@field body_parts integer[]
----@field tissue_layer integer[]
----@field id integer
+---@field growth_min number
+---@field growth_max number
+---@field growth_start number in days
+---@field growth_end number
+---@field importance number
+---@field noun string
+---@field single_plural number
+---@field unk1 number
+---@field id1 number
+---@field id number
+local bp_appearance_modifier
+
+---@class _bp_appearance_modifier: DFCompound
+---@field _kind 'struct-type'
 df.bp_appearance_modifier = {}
 
----@class caste_clothing_item: df.class
----@field body_part_id integer
----@field unk_4 integer
----@field item item[] under, over, cover
----@field unk_14 integer[]
----@field size integer[]
----@field permit integer[]
----@field unk_38 integer[]
+---@class (exact) caste_clothing_item: DFObject
+---@field _kind 'struct'
+---@field _type _caste_clothing_item
+---@field body_part_id number
+---@field unk_4 number
+local caste_clothing_item
+
+---@class _caste_clothing_item: DFCompound
+---@field _kind 'struct-type'
 df.caste_clothing_item = {}
 
----@class caste_attack: df.class
----@field name df.string
----@field verb_3rd df.string
----@field verb_2nd df.string
----@field flags caste_attack_flags
----@field specialattack_type df.container 0 = inject extract, 1 = suck blood, 2 = perform interaction
----@field specialattack_mat_type df.container extract injected
----@field specialattack_mat_index df.container
----@field specialattack_mat_state df.container
----@field specialattack_temp_mat df.string[][] parsed during second pass
----@field specialattack_min df.container amount of extract injected or blood sucked
----@field specialattack_max df.container
----@field contact_perc integer
----@field penetration_perc integer
----@field unk_v40_1 integer
----@field unk_v40_2 integer
----@field body_part_idx df.container
----@field tissue_layer_idx df.container
+---@class (exact) caste_attack: DFObject
+---@field _kind 'struct'
+---@field _type _caste_attack
+---@field name string
+---@field verb_3rd string
+---@field verb_2nd string
+---@field flags caste_attack.T_flags
+---@field contact_perc number
+---@field penetration_perc number
+---@field unk_v40_1 number
+---@field unk_v40_2 number
 ---@field skill job_skill
----@field velocity_modifier integer
----@field specialattack_interaction_tmp_name df.string[] parsed during second pass
----@field specialattack_interaction_id df.container
----@field unk_v40_3 integer
----@field unk_v40_4 integer
+---@field velocity_modifier number
+---@field unk_v40_3 number
+---@field unk_v40_4 number
+local caste_attack
+
+---@class _caste_attack: DFCompound
+---@field _kind 'struct-type'
 df.caste_attack = {}
 
----@class _caste_attack_flags: integer, string, df.bitfield
----@field with 0
----@field [0] "with"
----@field latch 1
----@field [1] "latch"
----@field main 2
----@field [2] "main"
----@field edge 3
----@field [3] "edge"
----@field unk_4 4
----@field [4] "unk_4"
----@field unk_5 5
----@field [5] "unk_5"
+---@class (exact) caste_attack.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _caste_attack.T_flags
+---@field with flag-bit
+---@field latch flag-bit
+---@field main flag-bit
+---@field edge flag-bit
+---@field  flag-bit
+---@field  flag-bit
+local flags
+
+---@class _caste_attack.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.caste_attack.T_flags = {}
 
----@class caste_attack_flags
----@field [0] boolean
----@field with boolean
----@field [1] boolean
----@field latch boolean
----@field [2] boolean
----@field main boolean
----@field [3] boolean
----@field edge boolean
----@field [4] boolean
----@field unk_4 boolean
----@field [5] boolean
----@field unk_5 boolean
+---@alias gait_type
+---| 0 # WALK
+---| 1 # FLY
+---| 2 # SWIM
+---| 3 # CRAWL
+---| 4 # CLIMB
 
----@class _gait_type: integer, string, df.enum
+---@class _gait_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field WALK 0
 ---@field [0] "WALK"
 ---@field FLY 1
@@ -1677,210 +1296,107 @@ df.caste_attack.T_flags = {}
 ---@field [4] "CLIMB"
 df.gait_type = {}
 
----@class gait_type
----@field [0] boolean
----@field WALK boolean
----@field [1] boolean
----@field FLY boolean
----@field [2] boolean
----@field SWIM boolean
----@field [3] boolean
----@field CRAWL boolean
----@field [4] boolean
----@field CLIMB boolean
+---@class (exact) gait_info: DFObject
+---@field _kind 'struct'
+---@field _type _gait_info
+---@field action_string_idx number
+---@field full_speed number
+---@field buildup_time number
+---@field turn_max number
+---@field start_speed number
+---@field energy_use number
+---@field flags gait_info.T_flags
+---@field stealth_slows number
+local gait_info
 
----@class gait_info: df.class
----@field action_string_idx integer
----@field full_speed integer
----@field buildup_time integer
----@field turn_max integer
----@field start_speed integer
----@field energy_use integer
----@field flags gait_info_flags
----@field stealth_slows integer
+---@class _gait_info: DFCompound
+---@field _kind 'struct-type'
 df.gait_info = {}
 
----@class _gait_info_flags: integer, string, df.bitfield
----@field layers_slow 0
----@field [0] "layers_slow"
----@field strength 1
----@field [1] "strength"
----@field agility 2
----@field [2] "agility"
+---@class (exact) gait_info.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _gait_info.T_flags
+---@field layers_slow flag-bit
+---@field strength flag-bit
+---@field agility flag-bit
+local flags
+
+---@class _gait_info.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.gait_info.T_flags = {}
 
----@class gait_info_flags
----@field [0] boolean
----@field layers_slow boolean
----@field [1] boolean
----@field strength boolean
----@field [2] boolean
----@field agility boolean
-
----@class _creature_interaction_target_flags: integer, string, df.bitfield
----@field LINE_OF_SIGHT 0
----@field [0] "LINE_OF_SIGHT"
----@field TOUCHABLE 1
----@field [1] "TOUCHABLE"
----@field DISTURBER_ONLY 2
----@field [2] "DISTURBER_ONLY"
----@field SELF_ALLOWED 3
----@field [3] "SELF_ALLOWED"
----@field SELF_ONLY 4
----@field [4] "SELF_ONLY"
-df.creature_interaction_target_flags = {}
-
----@class creature_interaction_target_flags
----@field [0] boolean
----@field LINE_OF_SIGHT boolean
----@field [1] boolean
----@field TOUCHABLE boolean
----@field [2] boolean
----@field DISTURBER_ONLY boolean
----@field [3] boolean
----@field SELF_ALLOWED boolean
----@field [4] boolean
----@field SELF_ONLY boolean
-
----@class creature_interaction: df.class
----@field bp_required_type df.string[]
----@field bp_required_name df.string[]
----@field unk_1 df.string
----@field unk_2 df.string
----@field material_str0 df.string
----@field material_str1 df.string
----@field material_str2 df.string
+---@class (exact) creature_interaction: DFObject
+---@field _kind 'struct'
+---@field _type _creature_interaction
+---@field unk_1 string
+---@field unk_2 string
+---@field material_str0 string
+---@field material_str1 string
+---@field material_str2 string
 ---@field material_breath breath_attack_type
----@field verb_2nd df.string
----@field verb_3rd df.string
----@field verb_mutual df.string
----@field verb_reverse_2nd df.string for RETRACT_INTO_BP, e.g. "unroll"
----@field verb_reverse_3rd df.string
----@field target_verb_2nd df.string
----@field target_verb_3rd df.string
----@field interaction_type df.string
----@field type_id integer References: interaction
----@field usage_hint df.container
----@field location_hint df.container
----@field flags creature_interaction_flags
----@field unk_3 df.string[]
----@field target_flags df.container
----@field target_ranges df.container
----@field unk_4 df.string[]
----@field max_target_numbers df.container
----@field verbal_speeches df.container
----@field unk_5 df.container
----@field adv_name df.string
----@field wait_period integer
+---@field verb_2nd string
+---@field verb_3rd string
+---@field verb_mutual string
+---@field verb_reverse_2nd string for RETRACT_INTO_BP, e.g. "unroll"
+---@field verb_reverse_3rd string
+---@field target_verb_2nd string
+---@field target_verb_3rd string
+---@field interaction_type string
+---@field type_id number References: `interaction`
+---@field flags creature_interaction.T_flags
+---@field adv_name string
+---@field wait_period number
+local creature_interaction
+
+---@class _creature_interaction: DFCompound
+---@field _kind 'struct-type'
 df.creature_interaction = {}
 
----@class _creature_interaction_flags: integer, string, df.bitfield
----@field CAN_BE_MUTUAL 0
----@field [0] "CAN_BE_MUTUAL"
----@field VERBAL 1
----@field [1] "VERBAL"
----@field FREE_ACTION 2
----@field [2] "FREE_ACTION"
+---@class (exact) creature_interaction.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _creature_interaction.T_flags
+---@field CAN_BE_MUTUAL flag-bit
+---@field VERBAL flag-bit
+---@field FREE_ACTION flag-bit
+local flags
+
+---@class _creature_interaction.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.creature_interaction.T_flags = {}
 
----@class creature_interaction_flags
----@field [0] boolean
----@field CAN_BE_MUTUAL boolean
----@field [1] boolean
----@field VERBAL boolean
----@field [2] boolean
----@field FREE_ACTION boolean
-
----@class caste_body_info: df.class
----@field body_parts body_part_raw[]
----@field attacks caste_attack[]
----@field interactions caste_body_info_interactions[]
----@field extra_butcher_objects caste_body_info_extra_butcher_objects[]
----@field total_relsize integer unless INTERNAL or EMBEDDED
----@field layer_part integer[]
----@field layer_idx integer[]
----@field numbered_masks df.container 1 bit per instance of a numbered body part
----@field layer_nonsolid caste_body_info_layer_nonsolid
----@field nonsolid_layers caste_body_info_nonsolid_layers
----@field flags caste_body_info_flags
----@field gait_info gait_info[][]
+---@class (exact) caste_body_info: DFObject
+---@field _kind 'struct'
+---@field _type _caste_body_info
+---@field total_relsize number unless INTERNAL or EMBEDDED
+---@field flags caste_body_info.T_flags
 ---@field materials material_vec_ref
----@field fraction_total integer
----@field fraction_base integer
----@field fraction_fat integer
----@field fraction_muscle integer
----@field unk_v40_2 integer[]
+---@field fraction_total number Sums of values in the parts:
+---@field fraction_base number
+---@field fraction_fat number
+---@field fraction_muscle number
+local caste_body_info
+
+---@class _caste_body_info: DFCompound
+---@field _kind 'struct-type'
 df.caste_body_info = {}
 
----@class caste_body_info_interactions: df.class
----@field type caste_body_info.T_interactions_type
----@field interaction creature_interaction
-df.caste_body_info.T_interactions = {}
+---@class (exact) caste_body_info.T_flags: DFObject
+---@field _kind 'struct'
+---@field _type _caste_body_info.T_flags
+---@field unk0 flag-bit
+local flags
 
----@class _caste_body_info.T_interactions_type: integer, string, df.enum
----@field RETRACT_INTO_BP 0
----@field [0] "RETRACT_INTO_BP"
----@field CAN_DO_INTERACTION 1
----@field [1] "CAN_DO_INTERACTION"
----@field ROOT_AROUND 2
----@field [2] "ROOT_AROUND"
-df.caste_body_info.T_interactions.T_type = {}
-
----@class caste_body_info.T_interactions_type
----@field [0] boolean
----@field RETRACT_INTO_BP boolean
----@field [1] boolean
----@field CAN_DO_INTERACTION boolean
----@field [2] boolean
----@field ROOT_AROUND boolean
-
-
----@class caste_body_info_extra_butcher_objects: df.class
----@field unk_1 integer
----@field unk_2 df.string
----@field unk_3 integer
----@field unk_4 df.string
----@field unk_5 df.string
----@field unk_6 df.string
----@field unk_7 df.string
----@field unk_8 df.string
----@field unk_9 integer
----@field unk_10 integer
----@field unk_11 integer
----@field unk_12 integer
----@field unk_13 integer
-df.caste_body_info.T_extra_butcher_objects = {}
-
-
----@class caste_body_info_layer_nonsolid: df.class
-df.caste_body_info.T_layer_nonsolid = {}
-
-
----@class caste_body_info_nonsolid_layers: df.class
-df.caste_body_info.T_nonsolid_layers = {}
-
-
----@class _caste_body_info_flags: integer, string, df.bitfield
----@field unk0 0
----@field [0] "unk0"
+---@class _caste_body_info.T_flags: DFCompound
+---@field _kind 'struct-type'
 df.caste_body_info.T_flags = {}
 
----@class caste_body_info_flags
----@field [0] boolean
----@field unk0 boolean
-
----fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
----@class caste_raw: df.class
----@field caste_id df.string
----@field caste_name df.string[]
----@field vermin_bite_txt df.string
----@field gnawer_txt df.string
----@field baby_name df.string[]
----@field child_name df.string[]
----@field itemcorpse_str df.string[]
----@field remains df.string[]
----@field description df.string
----@field mannerisms df.string[]
+---@class (exact) caste_raw: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw
+---@field caste_id string
+---@field vermin_bite_txt string
+---@field gnawer_txt string
+---@field description string
 ---@field caste_tile integer
 ---@field caste_soldier_tile integer
 ---@field caste_alttile integer
@@ -1890,270 +1406,184 @@ df.caste_body_info.T_flags = {}
 ---@field min_temp integer
 ---@field max_temp integer
 ---@field fixed_temp integer
----@field caste_color integer[]
----@field misc caste_raw_misc
----@field personality caste_raw_personality
----@field flags caste_raw_flags[]
----@field index integer global across creatures
+---@field misc caste_raw.T_misc
+---@field personality caste_raw.T_personality
+---@field index number global across creatures
 ---@field body_info caste_body_info
----@field caste_speech_1 df.container
----@field caste_speech_2 df.container
----@field skill_rates integer[][]
----@field attributes caste_raw_attributes
+---@field attributes caste_raw.T_attributes
 ---@field sex pronoun_type
----@field orientation_male integer[]
----@field orientation_female integer[]
----@field body_size_1 df.container age in ticks
----@field body_size_2 df.container size at the age at the same index in body_size_1
----@field body_appearance_modifiers body_appearance_modifier[]
----@field bp_appearance caste_raw_bp_appearance
----@field color_modifiers color_modifier_raw[]
----@field tissue_styles tissue_style_raw[]
----@field shearable_tissue_layer caste_raw_shearable_tissue_layer[]
----@field unk16a df.container[]
----@field unk16b df.container[]
----@field appearance_gene_count integer
----@field color_gene_count integer
----@field natural_skill_id job_skill[]
----@field natural_skill_exp df.container
----@field natural_skill_lvl df.container
----@field caste_profession_name caste_raw_caste_profession_name
----@field extracts caste_raw_extracts
----@field secretion caste_raw_secretion[]
----@field creature_class df.string[]
----@field unknown2 caste_raw_unknown2
----@field habit_num integer[]
----@field habit_1 df.container
----@field habit_2 df.container
----@field lair_1 df.container
----@field lair_2 df.container
----@field lair_characteristic_1 df.container
----@field lair_characteristic_2 df.container
----@field lair_hunter_speech caste_raw_lair_hunter_speech
----@field unk29 caste_raw_unk29
----@field specific_food df.container[]
----@field sound caste_raw_sound[]
----@field sound_alert df.container
----@field sound_peaceful_intermittent df.container
----@field unk_1 caste_raw_unk_1[]
----@field smell_trigger integer
----@field odor_level integer
----@field odor_string df.string
----@field low_light_vision integer
----@field sense_creature_class_1 df.string[]
----@field sense_creature_class_2 df.container
----@field sense_creature_class_3 df.container
----@field sense_creature_class_4 df.container
----@field sense_creature_class_5 df.container
----@field caste_graphics creature_raw_graphics
----@field unk_v50_4300 integer
+---@field bp_appearance caste_raw.T_bp_appearance
+---@field appearance_gene_count number
+---@field color_gene_count number
+---@field caste_profession_name caste_raw.T_caste_profession_name
+---@field extracts caste_raw.T_extracts
+---@field unknown2 caste_raw.T_unknown2
+---@field lair_hunter_speech caste_raw.T_lair_hunter_speech
+---@field unk29 caste_raw.T_unk29
+---@field smell_trigger number -- v0.40.01
+---@field odor_level number
+---@field odor_string string
+---@field low_light_vision number
+local caste_raw
+
+---@class _caste_raw: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw = {}
 
----@class caste_raw_misc: df.class
----@field litter_size_min integer
----@field litter_size_max integer
----@field penetratepower integer
----@field vermin_bite_chance integer
----@field grasstrample integer
----@field buildingdestroyer integer
+---@class (exact) caste_raw.T_misc: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_misc
+---@field litter_size_min number
+---@field litter_size_max number
+---@field penetratepower number
+---@field vermin_bite_chance number
+---@field grasstrample number
+---@field buildingdestroyer number
 ---@field itemcorpse_itemtype item_type no longer used? Changes when the same save is reloaded
----@field itemcorpse_itemsubtype integer
----@field itemcorpse_materialtype integer References: material<br>no longer used? Changes when the same save is reloaded
----@field itemcorpse_materialindex integer
----@field itemcorpse_quality integer
----@field remains_color integer[]
----@field difficulty integer
----@field caste_glowcolor integer[] different from same save with 0.44.12
----@field beach_frequency integer
----@field clutch_size_min integer
----@field clutch_size_max integer
----@field vision_arc_min integer
----@field vision_arc_max integer
----@field speed integer no longer used
----@field modvalue integer
----@field petvalue integer
----@field milkable integer
----@field viewrange integer
----@field maxage_min integer
----@field maxage_max integer
----@field baby_age integer no longer used? Silly large value 7628903
----@field child_age integer no longer used? Changes when the same save is reloaded
----@field swim_speed integer no longer used
----@field trade_capacity integer
----@field unk4 integer
----@field pop_ratio integer
----@field adult_size integer
----@field bone_mat integer References: material
----@field bone_matidx integer
----@field fish_mat_index integer
----@field egg_mat_index integer
----@field attack_trigger integer[]
----@field egg_size integer
----@field grazer integer
----@field petvalue_divisor integer
----@field prone_to_rage integer
----@field unk6 integer[] different from same save with 0.44.12
+---@field itemcorpse_itemsubtype number
+---@field itemcorpse_materialtype number no longer used? Changes when the same save is reloaded References: `material`
+---@field itemcorpse_materialindex number
+---@field itemcorpse_quality number // NOT 32-bit!
+---@field difficulty number
+---@field beach_frequency number
+---@field clutch_size_min number
+---@field clutch_size_max number
+---@field vision_arc_min number
+---@field vision_arc_max number
+---@field speed number no longer used
+---@field modvalue number
+---@field petvalue number
+---@field milkable number
+---@field viewrange number
+---@field maxage_min number
+---@field maxage_max number
+---@field baby_age number no longer used? Silly large value 7628903
+---@field child_age number no longer used? Changes when the same save is reloaded
+---@field swim_speed number no longer used
+---@field trade_capacity number
+---@field unk4 number
+---@field pop_ratio number
+---@field adult_size number
+---@field bone_mat number References: `material`
+---@field bone_matidx number
+---@field fish_mat_index number
+---@field egg_mat_index number
+---@field egg_size number
+---@field grazer number
+---@field petvalue_divisor number
+---@field prone_to_rage number
+local misc
+
+---@class _caste_raw.T_misc: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_misc = {}
 
+---@class (exact) caste_raw.T_personality: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_personality
+local personality
 
----@class caste_raw_personality: df.class
----@field a integer[]
----@field b integer[]
----@field c integer[]
+---@class _caste_raw.T_personality: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_personality = {}
 
+---@class (exact) caste_raw.T_attributes: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_attributes
+local attributes
 
----@class caste_raw_attributes: df.class
----@field phys_att_range integer[][]
----@field ment_att_range integer[][]
----@field phys_att_rates integer[][]
----@field ment_att_rates integer[][]
----@field phys_att_cap_perc integer[]
----@field ment_att_cap_perc integer[]
+---@class _caste_raw.T_attributes: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_attributes = {}
 
+---@class (exact) caste_raw.T_bp_appearance: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_bp_appearance
+local bp_appearance
 
----@class caste_raw_bp_appearance: df.class
----@field modifiers bp_appearance_modifier[]
----@field modifier_idx df.container
----@field part_idx df.container
----@field layer_idx df.container
----@field style_part_idx df.container
----@field style_layer_idx df.container
----@field style_list_idx df.container
+---@class _caste_raw.T_bp_appearance: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_bp_appearance = {}
 
+---@class (exact) caste_raw.T_caste_profession_name: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_caste_profession_name
+local caste_profession_name
 
----@class caste_raw_shearable_tissue_layer: df.class
----@field unk_0 integer
----@field unk_1 integer
----@field length integer
----@field part_idx df.container
----@field layer_idx df.container
----@field bp_modifiers_idx df.container
-df.caste_raw.T_shearable_tissue_layer = {}
-
-
----@class caste_raw_caste_profession_name: df.class
----@field singular df.string[]
----@field plural df.string[]
+---@class _caste_raw.T_caste_profession_name: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_caste_profession_name = {}
 
+---@class (exact) caste_raw.T_extracts: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_extracts
+---@field milkable_mat number
+---@field milkable_matidx number
+---@field webber_mat number
+---@field webber_matidx number
+---@field vermin_bite_mat number
+---@field vermin_bite_matidx number
+---@field vermin_bite_chance number
+---@field tendons_mat number
+---@field tendons_matidx number
+---@field tendons_heal number
+---@field ligaments_mat number
+---@field ligaments_matidx number
+---@field ligaments_heal number
+---@field blood_state number
+---@field blood_mat number
+---@field blood_matidx number
+---@field pus_state number
+---@field pus_mat number
+---@field pus_matidx number
+local extracts
 
----@class caste_raw_extracts: df.class
----@field extract_mat df.container
----@field extract_matidx df.container
----@field extract_str df.string[][]
----@field milkable_mat integer
----@field milkable_matidx integer
----@field milkable_str df.string[]
----@field webber_mat integer
----@field webber_matidx integer
----@field webber_str df.string[]
----@field vermin_bite_mat integer
----@field vermin_bite_matidx integer
----@field vermin_bite_chance integer
----@field vermin_bite_str df.string[]
----@field tendons_mat integer
----@field tendons_matidx integer
----@field tendons_str df.string[]
----@field tendons_heal integer
----@field ligaments_mat integer
----@field ligaments_matidx integer
----@field ligaments_str df.string[]
----@field ligaments_heal integer
----@field blood_state integer
----@field blood_mat integer
----@field blood_matidx integer
----@field blood_str df.string[]
----@field pus_state integer
----@field pus_mat integer
----@field pus_matidx integer
----@field pus_str df.string[]
----@field egg_material_mattype df.container
----@field egg_material_matindex df.container
----@field egg_material_str df.string[][]
----@field lays_unusual_eggs_itemtype item_type[]
----@field lays_unusual_eggs_itemsubtype df.container
----@field lays_unusual_eggs_mattype df.container
----@field lays_unusual_eggs_matindex df.container
----@field lays_unusual_eggs_str df.string[][]
+---@class _caste_raw.T_extracts: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_extracts = {}
 
-
----@class caste_raw_secretion: df.class
----@field mat_type integer References: material
----@field mat_index integer
----@field mat_state matter_state
----@field mat_type_str df.string
----@field mat_index_str df.string
----@field unk_44 df.string
----@field body_part_id df.container
----@field layer_id df.container
----@field cause integer 2 EXERTION, 1 EXTREME_EMOTION, 0 always?
-df.caste_raw.T_secretion = {}
-
-
----@class caste_raw_unknown2: df.class
----@field syndrome_dilution_identifier df.string[] SYNDROME_DILUTION_FACTOR
----@field syndrome_dilution_factor df.container SYNDROME_DILUTION_FACTOR
----@field gobble_vermin_class df.string[]
----@field gobble_vermin_creature_1 df.string[]
----@field gobble_vermin_creature_2 df.string[]
----@field infect_all df.container References: syndrome<br>for spatter applied to all bp
----@field infect_local df.container References: syndrome<br>for spatter applied to one bp
----@field unk23f df.container
----@field unk23g df.container
----@field unk24_flags boolean[]
----@field unk25_flags boolean[]
----@field armor_sizes integer[][] index by UBSTEP
----@field pants_sizes integer[] index by LBSTEP
----@field helm_size integer
----@field shield_sizes integer[] index by UPSTEP
----@field shoes_sizes integer[] index by UPSTEP
----@field gloves_sizes integer[] index by UPSTEP
+---@class (exact) caste_raw.T_unknown2: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_unknown2
+---@field helm_size number
 ---@field materials material_vec_ref
----@field unk_2f20 df.container
----@field unk_2f30 df.container
----@field unk_2f40 df.container
----@field unk_2f50 df.container
----@field mat_type integer References: material
----@field mat_index integer
+---@field mat_type number muscle: References: `material`
+---@field mat_index number
+local unknown2
+
+---@class _caste_raw.T_unknown2: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_unknown2 = {}
 
+---@class (exact) caste_raw.T_lair_hunter_speech: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_lair_hunter_speech
+local lair_hunter_speech
 
----@class caste_raw_lair_hunter_speech: df.class
----@field unk_1 df.container
----@field unk_2 df.container
+---@class _caste_raw.T_lair_hunter_speech: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_lair_hunter_speech = {}
 
+---@class (exact) caste_raw.T_unk29: DFObject
+---@field _kind 'struct'
+---@field _type _caste_raw.T_unk29
+local unk29
 
----@class caste_raw_unk29: df.class
----@field unk_1 df.container
----@field unk_2 df.container
+---@class _caste_raw.T_unk29: DFCompound
+---@field _kind 'struct-type'
 df.caste_raw.T_unk29 = {}
 
+---@alias creature_graphics_role
+---| 0 # DEFAULT
+---| 1 # LAW_ENFORCE
+---| 2 # TAX_ESCORT
+---| 3 # ANIMATED
+---| 4 # ADVENTURER
+---| 5 # GHOST
+---| 6 # CORPSE
 
----@class caste_raw_sound: df.class
----@field unk_1 integer
----@field unk_2 integer
----@field unk_3 integer
----@field unk_4 integer
----@field caption df.string[]
-df.caste_raw.T_sound = {}
-
-
----@class caste_raw_unk_1: df.class
----@field unk_1 df.string
----@field unk_2 df.string
----@field unk_3 df.string
----@field unk_4 integer
----@field unk_5 integer
----@field unk_6 integer
----@field unk_7 integer
-df.caste_raw.T_unk_1 = {}
-
----@class _creature_graphics_role: integer, string, df.enum
+---@class _creature_graphics_role: DFDescriptor
+---@field _kind 'enum-type'
 ---@field DEFAULT 0
 ---@field [0] "DEFAULT"
 ---@field LAW_ENFORCE 1
@@ -2170,23 +1600,15 @@ df.caste_raw.T_unk_1 = {}
 ---@field [6] "CORPSE"
 df.creature_graphics_role = {}
 
----@class creature_graphics_role
----@field [0] boolean
----@field DEFAULT boolean
----@field [1] boolean
----@field LAW_ENFORCE boolean
----@field [2] boolean
----@field TAX_ESCORT boolean
----@field [3] boolean
----@field ANIMATED boolean
----@field [4] boolean
----@field ADVENTURER boolean
----@field [5] boolean
----@field GHOST boolean
----@field [6] boolean
----@field CORPSE boolean
+---@alias tissue_style_type
+---| 0 # NEATLY_COMBED
+---| 1 # BRAIDED
+---| 2 # DOUBLE_BRAIDS
+---| 3 # PONY_TAILS
+---| 4 # CLEAN_SHAVEN
 
----@class _tissue_style_type: integer, string, df.enum
+---@class _tissue_style_type: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NEATLY_COMBED 0
 ---@field [0] "NEATLY_COMBED"
 ---@field BRAIDED 1
@@ -2199,53 +1621,33 @@ df.creature_graphics_role = {}
 ---@field [4] "CLEAN_SHAVEN"
 df.tissue_style_type = {}
 
----@class tissue_style_type
----@field [0] boolean
----@field NEATLY_COMBED boolean
----@field [1] boolean
----@field BRAIDED boolean
----@field [2] boolean
----@field DOUBLE_BRAIDS boolean
----@field [3] boolean
----@field PONY_TAILS boolean
----@field [4] boolean
----@field CLEAN_SHAVEN boolean
+---@class (exact) creature_raw_graphics: DFObject
+---@field _kind 'struct'
+---@field _type _creature_raw_graphics
+local creature_raw_graphics
 
----@class creature_raw_graphics: df.class
----@field creature_texture_texpos integer[][][][]
----@field creature_texture_add_color boolean[]
----@field creature_texture_unk integer[][]
----@field entity_link_texpos integer[][][][][]
----@field entity_link_add_color boolean[][]
----@field entity_link_unk integer[][][]
----@field site_link_texpos integer[][][][][]
----@field site_link_add_color boolean[][]
----@field site_link_unk integer[][][]
----@field profession_texpos integer[][][][][]
----@field profession_add_color boolean[][]
----@field profession_unk integer[][][]
----@field ptr_unk integer[][]
----@field vec_unk df.container[]
----@field profession_vec_unk df.container[]
+---@class _creature_raw_graphics: DFCompound
+---@field _kind 'struct-type'
 df.creature_raw_graphics = {}
 
----@class tissue_style_raw: df.class
----@field token df.string
----@field part_idx df.container
----@field layer_idx df.container
----@field styles df.container
----@field list_idx df.container
----@field id integer
----@field noun df.string
+---@class (exact) tissue_style_raw: DFObject
+---@field _kind 'struct'
+---@field _type _tissue_style_raw
+---@field token string
+---@field id number
+---@field noun string
 ---@field word_type part_of_speech 0 singular, 1 plural
+local tissue_style_raw
+
+---@class _tissue_style_raw: DFCompound
+---@field _kind 'struct-type'
 df.tissue_style_raw = {}
 
----@class creature_raw: df.instance
----@field creature_id df.string
----@field name df.string[]
----@field general_baby_name df.string[]
----@field general_child_name df.string[]
----@field unk_v43_1 df.string
+---@class (exact) creature_raw: DFObject
+---@field _kind 'struct'
+---@field _type _creature_raw
+---@field creature_id string
+---@field unk_v43_1 string
 ---@field creature_tile integer
 ---@field creature_soldier_tile integer
 ---@field alttile integer
@@ -2253,83 +1655,121 @@ df.tissue_style_raw = {}
 ---@field glowtile integer
 ---@field temperature1 integer
 ---@field temperature2 integer
----@field frequency integer
----@field population_number integer[]
----@field cluster_number integer[]
----@field triggerable_group integer[]
----@field color integer[]
----@field glowcolor integer[]
----@field adultsize integer
----@field prefstring df.string[]
----@field sphere df.container
----@field caste caste_raw[]
----@field pop_ratio df.container
----@field flags creature_raw_flags[]
----@field graphics creature_raw_graphics
----@field speech1 df.container
----@field speech2 df.container
----@field material material[]
----@field tissue tissue[]
----@field profession_name creature_raw_profession_name
----@field underground_layer_min integer
----@field underground_layer_max integer
----@field modifier_class integer[]
----@field modifier_num_patterns df.container for color modifiers, == number of items in their pattern_* vectors
----@field hive_product creature_raw_hive_product
----@field source_hfid integer References: historical_figure
----@field unk_v4201_1 integer
----@field next_modifier_id integer
----@field raws df.string[]
----@field statute_texpos integer[]
+---@field frequency number
+---@field adultsize number
+---@field profession_name creature_raw.T_profession_name
+---@field underground_layer_min number
+---@field underground_layer_max number
+---@field hive_product creature_raw.T_hive_product
+---@field source_hfid number References: `historical_figure`
+---@field unk_v4201_1 number
+---@field next_modifier_id number
+local creature_raw
+
+---@class _creature_raw: DFCompound
+---@field _kind 'struct-type'
 df.creature_raw = {}
 
----@param key integer
+---@param key number
 ---@return creature_raw|nil
 function df.creature_raw.find(key) end
 
----@class creature_raw_profession_name: df.class
----@field singular df.string[]
----@field plural df.string[]
+---@class creature_raw_vector: DFVector, { [integer]: creature_raw }
+local creature_raw_vector
+
+---@return creature_raw_vector # df.global.world.raws.creatures.all
+function df.creature_raw.get_vector() end
+
+---@class (exact) creature_raw.T_profession_name: DFObject
+---@field _kind 'struct'
+---@field _type _creature_raw.T_profession_name
+local profession_name
+
+---@class _creature_raw.T_profession_name: DFCompound
+---@field _kind 'struct-type'
 df.creature_raw.T_profession_name = {}
 
-
----@class creature_raw_hive_product: df.class
----@field number df.container
----@field time df.container
----@field item_type item_type[]
----@field item_subtype df.container
+---@class (exact) creature_raw.T_hive_product: DFObject
+---@field _kind 'struct'
+---@field _type _creature_raw.T_hive_product
 ---@field material material_vec_ref
----@field tmpstr1 df.string[]
----@field tmpstr2 df.string[]
----@field tmpstr3 df.string[]
----@field tmpstr4 df.string[]
----@field tmpstr5 df.string[]
+local hive_product
+
+---@class _creature_raw.T_hive_product: DFCompound
+---@field _kind 'struct-type'
 df.creature_raw.T_hive_product = {}
 
----@class creature_variation_convert_tag: df.class
----@field cvct_master df.string
----@field cvct_target df.string
----@field cvct_replacement df.string
----@field unk_v40_1 integer
----@field unk_v40_2 df.string
+---@class (exact) creature_variation_convert_tag: DFObject
+---@field _kind 'struct'
+---@field _type _creature_variation_convert_tag
+---@field cvct_master string
+---@field cvct_target string
+---@field cvct_replacement string
+---@field unk_v40_1 number
+---@field unk_v40_2 string
+local creature_variation_convert_tag
+
+---@class _creature_variation_convert_tag: DFCompound
+---@field _kind 'struct-type'
 df.creature_variation_convert_tag = {}
 
----@class creature_variation: df.instance
----@field id df.string
----@field cv_convert_tag creature_variation_convert_tag[]
----@field cv_new_tag df.string[]
----@field cv_new_unk_v40_1 df.container
----@field cv_new_unk_v40_2 df.string[]
----@field cv_remove_tag df.string[]
----@field cv_remove_unk_v40_1 df.container
----@field cv_remove_unk_v40_2 df.string[]
+---@class (exact) creature_variation: DFObject
+---@field _kind 'struct'
+---@field _type _creature_variation
+---@field id string
+local creature_variation
+
+---@class _creature_variation: DFCompound
+---@field _kind 'struct-type'
 df.creature_variation = {}
 
----@param key integer
+---@param key number
 ---@return creature_variation|nil
 function df.creature_variation.find(key) end
 
----@class _body_part_template_flags: integer, string, df.enum
+---@class creature_variation_vector: DFVector, { [integer]: creature_variation }
+local creature_variation_vector
+
+---@return creature_variation_vector # df.global.world.raws.creature_variations
+function df.creature_variation.get_vector() end
+
+---@alias body_part_template_flags
+---| 0 # HEAD
+---| 1 # UPPERBODY
+---| 2 # LOWERBODY
+---| 3 # SIGHT
+---| 4 # EMBEDDED
+---| 5 # INTERNAL
+---| 6 # CIRCULATION
+---| 7 # SKELETON
+---| 8 # LIMB
+---| 9 # GRASP
+---| 10 # STANCE
+---| 11 # GUTS
+---| 12 # BREATHE
+---| 13 # SMALL
+---| 14 # THROAT
+---| 15 # JOINT
+---| 16 # THOUGHT
+---| 17 # NERVOUS
+---| 18 # RIGHT
+---| 19 # LEFT
+---| 20 # HEAR
+---| 21 # SMELL
+---| 22 # FLIER
+---| 23 # DIGIT
+---| 24 # MOUTH
+---| 25 # APERTURE
+---| 26 # SOCKET
+---| 27 # TOTEMABLE
+---| 28 # UNDER_PRESSURE
+---| 29 # VERMIN_BUTCHER_ITEM
+---| 30 # CONNECTOR
+---| 31 # PREVENTS_PARENT_COLLAPSE
+---| 32 # GELDABLE
+
+---@class _body_part_template_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field HEAD 0
 ---@field [0] "HEAD"
 ---@field UPPERBODY 1
@@ -2392,124 +1832,98 @@ function df.creature_variation.find(key) end
 ---@field [29] "VERMIN_BUTCHER_ITEM"
 ---@field CONNECTOR 30
 ---@field [30] "CONNECTOR"
+---@field PREVENTS_PARENT_COLLAPSE 31
+---@field [31] "PREVENTS_PARENT_COLLAPSE"
+---@field GELDABLE 32
+---@field [32] "GELDABLE"
 df.body_part_template_flags = {}
 
----@class body_part_template_flags
----@field [0] boolean
----@field HEAD boolean
----@field [1] boolean
----@field UPPERBODY boolean
----@field [2] boolean
----@field LOWERBODY boolean
----@field [3] boolean
----@field SIGHT boolean
----@field [4] boolean
----@field EMBEDDED boolean
----@field [5] boolean
----@field INTERNAL boolean
----@field [6] boolean
----@field CIRCULATION boolean
----@field [7] boolean
----@field SKELETON boolean
----@field [8] boolean
----@field LIMB boolean
----@field [9] boolean
----@field GRASP boolean
----@field [10] boolean
----@field STANCE boolean
----@field [11] boolean
----@field GUTS boolean
----@field [12] boolean
----@field BREATHE boolean
----@field [13] boolean
----@field SMALL boolean
----@field [14] boolean
----@field THROAT boolean
----@field [15] boolean
----@field JOINT boolean
----@field [16] boolean
----@field THOUGHT boolean
----@field [17] boolean
----@field NERVOUS boolean
----@field [18] boolean
----@field RIGHT boolean
----@field [19] boolean
----@field LEFT boolean
----@field [20] boolean
----@field HEAR boolean
----@field [21] boolean
----@field SMELL boolean
----@field [22] boolean
----@field FLIER boolean
----@field [23] boolean
----@field DIGIT boolean
----@field [24] boolean
----@field MOUTH boolean
----@field [25] boolean
----@field APERTURE boolean
----@field [26] boolean
----@field SOCKET boolean
----@field [27] boolean
----@field TOTEMABLE boolean
----@field [28] boolean
----@field UNDER_PRESSURE boolean
----@field [29] boolean
----@field VERMIN_BUTCHER_ITEM boolean
----@field [30] boolean
----@field CONNECTOR boolean
+---@alias body_part_template_contype
+---| -1 # NONE
+---| 0 # UPPERBODY
+---| 1 # LOWERBODY
+---| 2 # HEAD
+---| 3 # GRASP
+---| 4 # STANCE
 
----@class _body_part_template_contype: integer, string, df.enum
+---@class _body_part_template_contype: DFDescriptor
+---@field _kind 'enum-type'
 ---@field NONE -1
----@field [0] "NONE"
----@field UPPERBODY 1
----@field [1] "UPPERBODY"
----@field LOWERBODY 2
----@field [2] "LOWERBODY"
----@field HEAD 3
----@field [3] "HEAD"
----@field GRASP 4
----@field [4] "GRASP"
----@field STANCE 5
----@field [5] "STANCE"
+---@field [-1] "NONE"
+---@field UPPERBODY 0
+---@field [0] "UPPERBODY"
+---@field LOWERBODY 1
+---@field [1] "LOWERBODY"
+---@field HEAD 2
+---@field [2] "HEAD"
+---@field GRASP 3
+---@field [3] "GRASP"
+---@field STANCE 4
+---@field [4] "STANCE"
 df.body_part_template_contype = {}
 
----@class body_part_template_contype
----@field [0] boolean
----@field NONE boolean
----@field [1] boolean
----@field UPPERBODY boolean
----@field [2] boolean
----@field LOWERBODY boolean
----@field [3] boolean
----@field HEAD boolean
----@field [4] boolean
----@field GRASP boolean
----@field [5] boolean
----@field STANCE boolean
-
----@class body_part_template: df.class
----@field id df.string
----@field con df.string
----@field category df.string
----@field con_cat df.string
+---@class (exact) body_part_template: DFObject
+---@field _kind 'struct'
+---@field _type _body_part_template
+---@field id string
+---@field con string
+---@field category string
+---@field con_cat string
 ---@field contype body_part_template_contype
----@field flags body_part_template_flags[]
----@field default_relsize integer
----@field number integer
----@field name_singular df.string[] first comes from BP, rest come from INDIVIDUAL_NAME
----@field name_plural df.string[]
+---@field default_relsize number
+---@field number number
+local body_part_template
+
+---@class _body_part_template: DFCompound
+---@field _kind 'struct-type'
 df.body_part_template = {}
 
----@class body_template: df.instance
----@field id df.string
----@field parts body_part_template[]
+---@class (exact) body_template: DFObject
+---@field _kind 'struct'
+---@field _type _body_template
+---@field id string in bay12 this is a static array with one member
+local body_template
+
+---@class _body_template: DFCompound
+---@field _kind 'struct-type'
 df.body_template = {}
 
----@param key integer
+---@param key number
 ---@return body_template|nil
 function df.body_template.find(key) end
 
----@class _tissue_flags: integer, string, df.enum
+---@class body_template_vector: DFVector, { [integer]: body_template }
+local body_template_vector
+
+---@return body_template_vector # df.global.world.raws.body_templates
+function df.body_template.get_vector() end
+
+---@alias tissue_flags
+---| 0 # THICKENS_ON_STRENGTH
+---| 1 # THICKENS_ON_ENERGY_STORAGE
+---| 2 # ARTERIES
+---| 3 # SCARS
+---| 4 # STRUCTURAL
+---| 5 # NERVOUS
+---| 6 # THOUGHT
+---| 7 # MUSCULAR
+---| 8 # SMELL
+---| 9 # HEAR
+---| 10 # FLIGHT
+---| 11 # BREATHE
+---| 12 # SIGHT
+---| 13 # COSMETIC
+---| 14 # CONNECTS
+---| 15 # FUNCTIONAL
+---| 16 # MAJOR_ARTERIES
+---| 17 # TISSUE_LEAKS
+---| 18 # STYLEABLE
+---| 19 # CONNECTIVE_TISSUE_ANCHOR
+---| 20 # SETTABLE
+---| 21 # SPLINTABLE
+
+---@class _tissue_flags: DFDescriptor
+---@field _kind 'enum-type'
 ---@field THICKENS_ON_STRENGTH 0
 ---@field [0] "THICKENS_ON_STRENGTH"
 ---@field THICKENS_ON_ENERGY_STORAGE 1
@@ -2556,93 +1970,57 @@ function df.body_template.find(key) end
 ---@field [21] "SPLINTABLE"
 df.tissue_flags = {}
 
----@class tissue_flags
----@field [0] boolean
----@field THICKENS_ON_STRENGTH boolean
----@field [1] boolean
----@field THICKENS_ON_ENERGY_STORAGE boolean
----@field [2] boolean
----@field ARTERIES boolean
----@field [3] boolean
----@field SCARS boolean
----@field [4] boolean
----@field STRUCTURAL boolean
----@field [5] boolean
----@field NERVOUS boolean
----@field [6] boolean
----@field THOUGHT boolean
----@field [7] boolean
----@field MUSCULAR boolean
----@field [8] boolean
----@field SMELL boolean
----@field [9] boolean
----@field HEAR boolean
----@field [10] boolean
----@field FLIGHT boolean
----@field [11] boolean
----@field BREATHE boolean
----@field [12] boolean
----@field SIGHT boolean
----@field [13] boolean
----@field COSMETIC boolean
----@field [14] boolean
----@field CONNECTS boolean
----@field [15] boolean
----@field FUNCTIONAL boolean
----@field [16] boolean
----@field MAJOR_ARTERIES boolean
----@field [17] boolean
----@field TISSUE_LEAKS boolean
----@field [18] boolean
----@field STYLEABLE boolean
----@field [19] boolean
----@field CONNECTIVE_TISSUE_ANCHOR boolean
----@field [20] boolean
----@field SETTABLE boolean
----@field [21] boolean
----@field SPLINTABLE boolean
-
----@class tissue_template: df.instance
----@field id df.string
----@field flags tissue_flags[]
----@field tissue_name_singular df.string
----@field tissue_name_plural df.string
----@field tissue_material_str df.string[]
----@field mat_type integer References: material
----@field mat_index integer
----@field relative_thickness integer
----@field healing_rate integer
----@field vascular integer
----@field pain_receptors integer
----@field tissue_shape integer
----@field unk1 integer
----@field insulation integer
----@field subordinate_to_tissue df.string
+---@class (exact) tissue_template: DFObject
+---@field _kind 'struct'
+---@field _type _tissue_template
+---@field id string
+---@field tissue_name_singular string
+---@field tissue_name_plural string
+---@field mat_type number References: `material`
+---@field mat_index number
+---@field relative_thickness number
+---@field healing_rate number
+---@field vascular number
+---@field pain_receptors number
+---@field tissue_shape number
+---@field unk1 number
+---@field insulation number
+---@field subordinate_to_tissue string
 ---@field tissue_mat_state matter_state
----@field tissue_shape_str df.string
+---@field tissue_shape_str string
+local tissue_template
+
+---@class _tissue_template: DFCompound
+---@field _kind 'struct-type'
 df.tissue_template = {}
 
----@param key integer
+---@param key number
 ---@return tissue_template|nil
 function df.tissue_template.find(key) end
 
----@class tissue: df.class
----@field id df.string
----@field flags tissue_flags[]
----@field tissue_name_singular df.string
----@field tissue_name_plural df.string
----@field tissue_material_str df.string[]
----@field mat_type integer References: material
----@field mat_index integer
----@field relative_thickness integer
----@field healing_rate integer
----@field vascular integer
----@field pain_receptors integer
----@field tissue_shape integer
----@field unk1 integer
----@field insulation integer
----@field subordinate_to_tissue df.string
----@field parent_tissue integer
+---@class tissue_template_vector: DFVector, { [integer]: tissue_template }
+local tissue_template_vector
+
+---@return tissue_template_vector # df.global.world.raws.tissue_templates
+function df.tissue_template.get_vector() end
+
+---@class (exact) tissue: DFObject
+---@field _kind 'struct'
+---@field _type _tissue
+---@field id string
+---@field tissue_name_singular string
+---@field tissue_name_plural string
+---@field mat_type number References: `material`
+---@field mat_index number
+---@field relative_thickness number
+---@field healing_rate number
+---@field vascular number
+---@field pain_receptors number
+---@field tissue_shape number
+---@field unk1 number
+---@field insulation number
+---@field subordinate_to_tissue string
+---@field parent_tissue number
 ---@field tissue_mat_state matter_state
 ---@field heatdam_point integer
 ---@field colddam_point integer
@@ -2650,39 +2028,30 @@ function df.tissue_template.find(key) end
 ---@field melting_point integer
 ---@field boiling_point integer
 ---@field spec_heat integer
----@field tissue_shape_str df.string
+---@field tissue_shape_str string
+local tissue
+
+---@class _tissue: DFCompound
+---@field _kind 'struct-type'
 df.tissue = {}
 
----@class body_detail_plan: df.instance
----@field id df.string
----@field add_material_name df.string[]
----@field add_material_template df.string[]
----@field add_tissue_name df.string[]
----@field add_tissue_template df.string[]
----@field unk5c df.container
----@field unk6c df.string[]
----@field unk7c df.string[]
----@field bp_layers_selection df.container
----@field bp_layers_criteria df.container
----@field bp_layers_tissue df.container
----@field bp_layers_thickness df.string[]
----@field bp_layers_position df.container
----@field bp_layers_over_under df.container
----@field bp_relsize_selection df.container
----@field bp_relsize_criteria df.string[]
----@field bp_relsize_value df.container
----@field bp_position_selection df.container
----@field bp_position_criteria df.string[]
----@field bp_position_value df.container
----@field bp_relation_selection_1 df.container
----@field bp_relation_criteria_1 df.string[]
----@field bp_relation_value_1 df.container
----@field bp_relation_selection_2 df.container
----@field bp_relation_criteria_2 df.string[]
----@field bp_relation_extent df.container
+---@class (exact) body_detail_plan: DFObject
+---@field _kind 'struct'
+---@field _type _body_detail_plan
+---@field id string
+local body_detail_plan
+
+---@class _body_detail_plan: DFCompound
+---@field _kind 'struct-type'
 df.body_detail_plan = {}
 
----@param key integer
+---@param key number
 ---@return body_detail_plan|nil
 function df.body_detail_plan.find(key) end
+
+---@class body_detail_plan_vector: DFVector, { [integer]: body_detail_plan }
+local body_detail_plan_vector
+
+---@return body_detail_plan_vector # df.global.world.raws.body_detail_plans
+function df.body_detail_plan.get_vector() end
 
