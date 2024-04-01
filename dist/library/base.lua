@@ -1,49 +1,50 @@
 ---@meta _
 
+---@class DFBase
+local DFBase
+
+---@generic T
+---@param self T
+---@return T
+function DFBase:new() end
+
+---@generic T
+---@param self T
+---@return number Size
+---@return number? Address
+function DFBase:sizeof() end
+
 -- Object references
----@class DFObject
+---@class DFObject: DFBase
 ---@field _kind 'primitive'|'struct'|'container'|'bitfield'
 ---@field _type DFType
 local DFObject
 
----@param self self
----@return integer Size
----@return integer? Address
-function DFObject:sizeof() end
-
----@param self self
----@return self
-function DFObject:new() end
-
----@param self self
+---@generic T
+---@param self T
 ---@return boolean
 function DFObject:delete() end
 
----@param self self
----@param object self|table
+---@generic T
+---@param self T
+---@param object T|table
 function DFObject:assign(object) end
 
+---@generic T
+---@param self T
 ---@param index integer
 ---@param step? integer
----@return self
+---@return T
 function DFObject:_displace(index, step) end
 
 -- Named types
----@class DFType
+---@class DFType: DFBase
 ---@field _kind 'struct-type'|'class-type'|'enum-type'|'bitfield-type'|'global'
 ---@field _identity lightuserdata
 local DFType
 
----@param self self
----@return integer Size
----@return integer? Address
-function DFType:sizeof() end
-
----@param self self
----@return self
-function DFType:new() end
-
----@param self self
+---@generic T
+---@param self T
 ---@param object any
 ---@return boolean
 function DFType:is_instance(object) end
@@ -76,10 +77,8 @@ function DFType:is_instance(object) end
 ---@field original_name? string
 local DFCompoundField
 
--- Pointer string
----@class DFPtrString
----@field value string
-local DFPtrString
+---@class DFPointer<T>: { value: T }
+local DFPointer
 
 -- Global object
 ---@class DFGlobal
@@ -94,25 +93,40 @@ local DFGlobal
 local DFCompound
 
 ---@class DFDescriptor: DFType
----@field _first_item integer
----@field _last_item integer
+---@field _first_item number
+---@field _last_item number
 local DFDescriptor
+
+---@class DFEnum: DFDescriptor
+---@field _kind 'enum-type'
+local DFEnum
+
+---@param index number
+---@return number
+function DFEnum.next_item(index) end
 
 ---@class DFVector
 local DFVector
 
----@param self self
+---@generic T
+---@param self T
 ---@param index integer
----@return self
+---@return DFPointer<T>
 function DFVector:_field(index) end
 
+---@generic T
+---@param self T
 ---@param new_size integer
 function DFVector:resize(new_size) end
 
+---@generic T
+---@param self T
 ---@param index integer|'#'
----@param item self
+---@param item any
 function DFVector:insert(index, item) end
 
+---@generic T
+---@param self T
 ---@param index integer
 function DFVector:erase(index) end
 
@@ -131,8 +145,8 @@ function df.isnull(object) end
 function df.isvalid(object, allow_null) end
 
 ---@param object any
----@return integer|nil Size
----@return integer|nil Address
+---@return number|nil Size
+---@return number|nil Address
 function df.sizeof(object) end
 
 ---@param type DFType|DFObject
