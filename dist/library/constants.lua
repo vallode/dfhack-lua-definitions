@@ -1,4 +1,4 @@
----@meta
+---@meta _
 
 CR_LINK_FAILURE = -3
 CR_NEEDS_CONSOLE = -2

@@ -97,10 +97,7 @@ Dir.glob(ARGV[0] || './df-structures/df.*.xml').each do |xml|
     output.write("---@meta _\n\n")
 
     # Should only be applicable to df.globals
-    unless globals.empty?
-      output.write("---@class (exact) df.global\n")
-      output.write("df.global = {}\n\n")
-    end
+    output.write(DFHackLuaDefinitions::GlobalObject.new(globals).render) unless globals.empty?
 
     document.xpath('//ld:global-type').each do |node|
       meta = node['ld:meta']

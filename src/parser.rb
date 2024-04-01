@@ -292,18 +292,6 @@ module DFHackLuaDefinitions
     end
   end
 
-  class BitfieldFlag
-    def initialize(field, index)
-      @name = field['name']
-      @attributes = field.xpath('item-attr')
-      @value = field['value'] || index
-      @comment = field['comment']
-    end
-
-    def to_field
-    end
-  end
-
   # Both struct-type and class-type
   class StructType < Type
     KIND_MAP = {
@@ -380,6 +368,28 @@ module DFHackLuaDefinitions
       end
 
       annotation
+    end
+  end
+
+  class GlobalObject
+    def initialize(nodes, path = [])
+      @nodes = nodes
+      @path = path
+      @fields = fields
+    end
+
+    def fields
+      @nodes.map { |node| Field.new(node, @path) }
+    end
+
+    def render
+      annotation = "---@class (exact) df.global: DFGlobal\n"
+      annotation << @fields.map(&:to_field).join
+      annotation << "df.global = {}\n\n"
+      # @fields.filter(&:is_inline).each do |field|
+      #   annotation << StructType.new(field.node, 'global', '.').render
+      # end
+      # annotation << "\n"
     end
   end
 
@@ -684,98 +694,5 @@ class FunctionType < Field
     end
 
     parameters
-  end
-end
-
-# Either a <enum-type> or <bitfield-type>.
-class EnumType < OldXmlNode
-  attr_reader :name, :type
-
-  def initialize(node, parent_type = nil)
-    super
-
-    @name = node.attributes['type-name'] || node.attributes['name']
-    @class_name = "#{"#{@parent_type}_" if @parent_type}#{@name}"
-
-    @items = @node.xpath('./enum-item|flag-bit').map.with_index { |child, index| EnumItem.new(child, index) }
-    @item_attributes = @node.xpath('./enum-attr').map { |attribute_node| Field.new(attribute_node) }
-
-    @inherits = @node.name.include?('enum') ? 'df.enum' : 'df.bitfield'
-  end
-
-  def render_attributes
-    annotation = "---@class #{@name}_attr\n"
-    unless @item_attributes.empty?
-      annotation << @item_attributes.map do |field|
-        "---@field #{field.name} #{field.type.sub('any', 'string')}#{'[]' if field.node['is-list']}\n"
-      end.join
-    end
-
-    # TODO: Change to use enum type as index once the discussion on github
-    # is answered.
-    # https://github.com/LuaLS/lua-language-server/discussions/2402
-    annotation << "\n---@type { [string|integer]: #{@name}_attr }\n"
-    annotation << "df.#{@name}.attrs = {}\n\n"
-  end
-
-  def render_bidrectional_class
-    annotation = "---@class #{@class_name}\n"
-    annotation << @items.map(&:render_field).join
-    annotation << "\n"
-  end
-
-  def render
-    annotation = "---@class _#{@class_name}: integer, string, #{@inherits}\n"
-    annotation << "---#{@comment}\n" if @comment
-    annotation << @items.map(&:render).join
-    annotation << "df.#{"#{@parent_type}.T_" if @parent_type}#{@name} = {}\n\n"
-
-    annotation << render_bidrectional_class
-
-    annotation << render_attributes unless @item_attributes.empty?
-    annotation
-  end
-end
-
-# Either an enum item or a flag bit.
-class EnumItem < OldXmlNode
-  attr_reader :value
-
-  def initialize(node, index)
-    super(node)
-
-    # Unknowns use index value.
-    @name = node['name'] || "unk_#{index}"
-    @index = index
-    @value = node['value'] || index
-  end
-
-  def render
-    annotation = "---@field #{@name} #{@value}\n"
-    annotation << "---@field [#{@index}] \"#{@name}\"\n"
-  end
-
-  def render_field
-    annotation = "---@field [#{@index}] boolean\n"
-    annotation << "---@field #{@name} boolean\n"
-  end
-end
-
-# Global `df.global` object as described in `df.global.xml`
-class GlobalObject
-  def initialize(nodes)
-    @fields = nodes.map { |node| Field.new(node, parent_type: 'global') }
-  end
-
-  def render
-    annotation = "---@class (exact) df.global: df.compound\n"
-    annotation << @fields.map(&:render).join
-    annotation << "df.global = {}\n\n"
-
-    @fields.filter(&:is_inline).each do |field|
-      annotation << StructType.new(field.node, 'global', '.').render
-    end
-
-    annotation << "\n"
   end
 end

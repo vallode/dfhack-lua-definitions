@@ -1,6 +1,5 @@
----@meta
+---@meta _
 
----@module
 local utils
 
 function utils.getval(obj, ...) end
