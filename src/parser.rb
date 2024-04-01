@@ -177,6 +177,12 @@ module DFHackLuaDefinitions
 
   # Both struct-type and class-type
   class StructType < Type
+    KIND_MAP = {
+      'struct-type' => 'struct-type',
+      'class-type' => 'class-type',
+      'compound' => 'struct-type'
+    }
+
     def initialize(node, path = [])
       super(node, path)
 
@@ -199,7 +205,7 @@ module DFHackLuaDefinitions
     def to_object
       annotation = ''
       annotation << "-- #{@comment}\n" if @comment
-      annotation << "---@class #{@class_name}: DFObject"
+      annotation << "---@class (exact) #{@class_name}: DFObject"
 
       if @class
         annotation << ", #{@class}\n" if @class
@@ -229,7 +235,7 @@ module DFHackLuaDefinitions
 
     def to_type
       annotation = "---@class _#{@class_name}: DFCompound\n"
-      annotation << "---@field _kind 'struct-type'\n"
+      annotation << "---@field _kind '#{KIND_MAP[node['ld:meta']]}'\n"
       annotation << "df.#{@class_name} = {}\n\n"
       annotation << instance_vector_functions if @node['instance-vector']
 

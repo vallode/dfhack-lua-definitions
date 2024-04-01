@@ -1005,7 +1005,7 @@ df.rider_positions_type = {}
 ---@field [0] "MOVE_TO_TILE"
 df.command_type = {}
 
----@class command: DFObject
+---@class (exact) command: DFObject
 ---@field _kind 'struct'
 ---@field _type _command
 ---@field type command_type
@@ -1019,7 +1019,7 @@ local command
 ---@field _kind 'struct-type'
 df.command = {}
 
----@class unit: DFObject
+---@class (exact) unit: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit
 ---@field name language_name
@@ -1100,7 +1100,7 @@ df.command = {}
 local unit
 
 ---@class _unit: DFCompound
----@field _kind 'struct-type'
+---@field _kind 'class-type'
 df.unit = {}
 
 ---@param key number
@@ -1113,7 +1113,7 @@ local unit_vector
 ---@return unit_vector # df.global.world.units.all
 function df.unit.get_vector() end
 
----@class unit.T_path: DFObject
+---@class (exact) unit.T_path: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_path
 ---@field dest coord
@@ -1125,7 +1125,7 @@ local path
 ---@field _kind 'struct-type'
 df.unit.T_path = {}
 
----@class unit.T_meeting: DFObject
+---@class (exact) unit.T_meeting: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_meeting
 ---@field state unit.T_meeting.T_state
@@ -1155,7 +1155,7 @@ df.unit.T_meeting = {}
 ---@field [3] "LeaveMap"
 df.unit.T_meeting.T_state = {}
 
----@class unit.T_military: DFObject
+---@class (exact) unit.T_military: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_military
 ---@field squad_id number References: `squad`
@@ -1170,7 +1170,7 @@ local military
 ---@field _kind 'struct-type'
 df.unit.T_military = {}
 
----@class unit.T_military.T_pickup_flags: DFObject
+---@class (exact) unit.T_military.T_pickup_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_military.T_pickup_flags
 ---@field update flag-bit
@@ -1180,7 +1180,7 @@ local pickup_flags
 ---@field _kind 'struct-type'
 df.unit.T_military.T_pickup_flags = {}
 
----@class unit.T_animal: DFObject
+---@class (exact) unit.T_animal: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_animal
 ---@field population world_population_ref
@@ -1192,7 +1192,7 @@ local animal
 ---@field _kind 'struct-type'
 df.unit.T_animal = {}
 
----@class unit.T_opponent: DFObject
+---@class (exact) unit.T_opponent: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_opponent
 ---@field unit_id number This was used by a vampire scared of cave creatures and doing FleeFromOpponent panic References: `unit`
@@ -1204,7 +1204,7 @@ local opponent
 ---@field _kind 'struct-type'
 df.unit.T_opponent = {}
 
----@class unit.T_job: DFObject
+---@class (exact) unit.T_job: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_job
 ---@field account number
@@ -1228,7 +1228,7 @@ local job
 ---@field _kind 'struct-type'
 df.unit.T_job = {}
 
----@class unit.T_body: DFObject
+---@class (exact) unit.T_body: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_body
 ---@field components body_component_info
@@ -1244,7 +1244,7 @@ local body
 ---@field _kind 'struct-type'
 df.unit.T_body = {}
 
----@class unit.T_appearance: DFObject
+---@class (exact) unit.T_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_appearance
 ---@field size_modifier number product of all H/B/LENGTH body modifiers, in %
@@ -1255,7 +1255,7 @@ local appearance
 ---@field _kind 'struct-type'
 df.unit.T_appearance = {}
 
----@class unit.T_counters: DFObject
+---@class (exact) unit.T_counters: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_counters
 ---@field think_counter number
@@ -1305,7 +1305,7 @@ df.unit.T_counters = {}
 ---@field [4] "Oblivious"
 df.unit.T_counters.T_soldier_mood = {}
 
----@class unit.T_curse: DFObject
+---@class (exact) unit.T_curse: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_curse
 ---@field flags integer moved from end of counters in 0.43.05
@@ -1332,7 +1332,7 @@ local curse
 ---@field _kind 'struct-type'
 df.unit.T_curse = {}
 
----@class unit.T_counters2: DFObject
+---@class (exact) unit.T_counters2: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_counters2
 ---@field paralysis integer
@@ -1352,7 +1352,7 @@ local counters2
 ---@field _kind 'struct-type'
 df.unit.T_counters2 = {}
 
----@class unit.T_status: DFObject
+---@class (exact) unit.T_status: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_status
 ---@field demand_timeout number also used for wagon trampling
@@ -1371,7 +1371,7 @@ local status
 ---@field _kind 'struct-type'
 df.unit.T_status = {}
 
----@class unit.T_status2: DFObject
+---@class (exact) unit.T_status2: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_status2
 ---@field limbs_stand_max number
@@ -1390,7 +1390,7 @@ local status2
 ---@field _kind 'struct-type'
 df.unit.T_status2 = {}
 
----@class unit.T_syndrome_advancement: DFObject
+---@class (exact) unit.T_syndrome_advancement: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndrome_advancement
 local syndrome_advancement
@@ -1399,7 +1399,7 @@ local syndrome_advancement
 ---@field _kind 'struct-type'
 df.unit.T_syndrome_advancement = {}
 
----@class unit.T_syndromes: DFObject
+---@class (exact) unit.T_syndromes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndromes
 local syndromes
@@ -1408,7 +1408,7 @@ local syndromes
 ---@field _kind 'struct-type'
 df.unit.T_syndromes = {}
 
----@class unit.T_reports: DFObject
+---@class (exact) unit.T_reports: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_reports
 local reports
@@ -1418,7 +1418,7 @@ local reports
 df.unit.T_reports = {}
 
 -- svector((item_familiarityst *)) item_familiarity<br>!!this is not actually a compound!!
----@class unit.T_enemy: DFObject
+---@class (exact) unit.T_enemy: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy
 ---@field were_race number unit_active_animation *active_animation References: `creature_raw`
@@ -1442,7 +1442,7 @@ local enemy
 df.unit.T_enemy = {}
 
 -- int32_t gait_index[GAITNUM]
----@class unit.T_enemy.T_attack_awareness: DFObject
+---@class (exact) unit.T_enemy.T_attack_awareness: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy.T_attack_awareness
 local attack_awareness
@@ -1451,7 +1451,7 @@ local attack_awareness
 ---@field _kind 'struct-type'
 df.unit.T_enemy.T_attack_awareness = {}
 
----@class unit.T_enemy.T_detection_info: DFObject
+---@class (exact) unit.T_enemy.T_detection_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy.T_detection_info
 ---@field last_spotted_unid_num number
@@ -1461,7 +1461,7 @@ local detection_info
 ---@field _kind 'struct-type'
 df.unit.T_enemy.T_detection_info = {}
 
----@class witness_incidentst: DFObject
+---@class (exact) witness_incidentst: DFObject
 ---@field _kind 'struct'
 ---@field _type _witness_incidentst
 ---@field incident_id number References: `incident`
@@ -1518,7 +1518,7 @@ df.witness_incidentst = {}
 ---@field [7] "ToppleBuilding"
 df.ghost_goal = {}
 
----@class unit_ghost_info: DFObject
+---@class (exact) unit_ghost_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_ghost_info
 ---@field type ghost_type
@@ -1538,7 +1538,7 @@ local unit_ghost_info
 ---@field _kind 'struct-type'
 df.unit_ghost_info = {}
 
----@class unit_ghost_info.T_target: DFObject
+---@class (exact) unit_ghost_info.T_target: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_ghost_info.T_target
 ---@field unit number References: `unit`
@@ -1550,7 +1550,7 @@ local target
 ---@field _kind 'struct-type'
 df.unit_ghost_info.T_target = {}
 
----@class unit_ghost_info.T_flags: DFObject
+---@class (exact) unit_ghost_info.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_ghost_info.T_flags
 ---@field announced flag-bit
@@ -1561,7 +1561,7 @@ local flags
 ---@field _kind 'struct-type'
 df.unit_ghost_info.T_flags = {}
 
----@class unit_genes: DFObject
+---@class (exact) unit_genes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_genes
 local unit_genes
@@ -1570,7 +1570,7 @@ local unit_genes
 ---@field _kind 'struct-type'
 df.unit_genes = {}
 
----@class unit_inventory_item: DFObject
+---@class (exact) unit_inventory_item: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_inventory_item
 ---@field mode unit_inventory_item.T_mode
@@ -1622,7 +1622,7 @@ df.unit_inventory_item = {}
 ---@field [10] "Strapped"
 df.unit_inventory_item.T_mode = {}
 
----@class unit_attribute: DFObject
+---@class (exact) unit_attribute: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_attribute
 ---@field value number effective = value - soft_demotion
@@ -1638,7 +1638,7 @@ local unit_attribute
 ---@field _kind 'struct-type'
 df.unit_attribute = {}
 
----@class unit_syndrome: DFObject
+---@class (exact) unit_syndrome: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_syndrome
 ---@field type number References: `syndrome`
@@ -1654,7 +1654,7 @@ local unit_syndrome
 ---@field _kind 'struct-type'
 df.unit_syndrome = {}
 
----@class unit_syndrome.T_flags: DFObject
+---@class (exact) unit_syndrome.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_syndrome.T_flags
 ---@field is_sick flag-bit cause rq_diagnosis:
@@ -1703,7 +1703,7 @@ df.unit_syndrome.T_flags = {}
 ---@field [9] "Blister"
 df.wound_effect_type = {}
 
----@class unit_wound: DFObject
+---@class (exact) unit_wound: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_wound
 ---@field id number
@@ -1726,7 +1726,7 @@ local unit_wound
 ---@field _kind 'struct-type'
 df.unit_wound = {}
 
----@class unit_wound.T_flags: DFObject
+---@class (exact) unit_wound.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_wound.T_flags
 ---@field severed_part flag-bit
@@ -1741,7 +1741,7 @@ local flags
 ---@field _kind 'struct-type'
 df.unit_wound.T_flags = {}
 
----@class curse_attr_change: DFObject
+---@class (exact) curse_attr_change: DFObject
 ---@field _kind 'struct'
 ---@field _type _curse_attr_change
 local curse_attr_change
@@ -1750,7 +1750,7 @@ local curse_attr_change
 ---@field _kind 'struct-type'
 df.curse_attr_change = {}
 
----@class wound_curse_info: DFObject
+---@class (exact) wound_curse_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _wound_curse_info
 ---@field unk_v40_1 number
@@ -1780,7 +1780,7 @@ local wound_curse_info
 ---@field _kind 'struct-type'
 df.wound_curse_info = {}
 
----@class wound_curse_info.T_timing: DFObject
+---@class (exact) wound_curse_info.T_timing: DFObject
 ---@field _kind 'struct'
 ---@field _type _wound_curse_info.T_timing
 ---@field time_counter number
@@ -1805,21 +1805,21 @@ df.wound_curse_info.T_timing = {}
 ---| 11 # ClaimTrinketCooldown
 ---| 12 # ClaimClothingCooldown
 ---| 13 # WantsDrink
----| 14 # 
+---| 14 #
 ---| 15 # PrepareToDie
 ---| 16 # CaveAdapt
----| 17 # 
----| 18 # 
----| 19 # 
----| 20 # 
+---| 17 #
+---| 18 #
+---| 19 #
+---| 20 #
 ---| 21 # FollowUnitCooldown
----| 22 # 
----| 23 # 
----| 24 # 
+---| 22 #
+---| 23 #
+---| 24 #
 ---| 25 # DangerousTerrainCooldown
 ---| 26 # Beaching
 ---| 27 # IdleAreaCooldown
----| 28 # 
+---| 28 #
 ---| 29 # DiagnosePatientCooldown
 ---| 30 # DressWoundCooldown
 ---| 31 # CleanPatientCooldown
@@ -1830,36 +1830,36 @@ df.wound_curse_info.T_timing = {}
 ---| 36 # ApplyCastCooldown
 ---| 37 # ImmobilizeBreakCooldown
 ---| 38 # BringCrutchCooldown
----| 39 # 
+---| 39 #
 ---| 40 # MilkCounter
 ---| 41 # HadDrill
 ---| 42 # CompletedDrill
 ---| 43 # EggSpent
 ---| 44 # GroundedAnimalAnger
----| 45 # 
+---| 45 #
 ---| 46 # TimeSinceSuckedBlood
 ---| 47 # DrinkingBlood
----| 48 # 
----| 49 # 
+---| 48 #
+---| 49 #
 ---| 50 # RevertWildTimer
----| 51 # 
+---| 51 #
 ---| 52 # NoPantsAnger
 ---| 53 # NoShirtAnger
 ---| 54 # NoShoesAnger
----| 55 # 
----| 56 # 
----| 57 # 
----| 58 # 
----| 59 # 
----| 60 # 
----| 61 # 
----| 62 # 
----| 63 # 
+---| 55 #
+---| 56 #
+---| 57 #
+---| 58 #
+---| 59 #
+---| 60 #
+---| 61 #
+---| 62 #
+---| 63 #
 ---| 64 # CitizenshipCooldown
----| 65 # 
----| 66 # 
----| 67 # 
----| 68 # 
+---| 65 #
+---| 66 #
+---| 67 #
+---| 68 #
 
 ---@class _misc_trait_type: DFDescriptor
 ---@field _kind 'enum-type'
@@ -1949,7 +1949,7 @@ df.wound_curse_info.T_timing = {}
 ---@field [64] "CitizenshipCooldown" starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
 df.misc_trait_type = {}
 
----@class unit_misc_trait: DFObject
+---@class (exact) unit_misc_trait: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_misc_trait
 ---@field id misc_trait_type
@@ -1960,7 +1960,7 @@ local unit_misc_trait
 ---@field _kind 'struct-type'
 df.unit_misc_trait = {}
 
----@class unit_item_wrestle: DFObject
+---@class (exact) unit_item_wrestle: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_item_wrestle
 ---@field unit number References: `unit`
@@ -1979,7 +1979,7 @@ local unit_item_wrestle
 ---@field _kind 'struct-type'
 df.unit_item_wrestle = {}
 
----@class unit_item_use: DFObject
+---@class (exact) unit_item_use: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_item_use
 ---@field id number References: `item`
@@ -1992,7 +1992,7 @@ local unit_item_use
 ---@field _kind 'struct-type'
 df.unit_item_use = {}
 
----@class unit_health_info: DFObject
+---@class (exact) unit_health_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_health_info
 ---@field unit_id number References: `unit`
@@ -2009,7 +2009,7 @@ local unit_health_info
 ---@field _kind 'struct-type'
 df.unit_health_info = {}
 
----@class unit_soul: DFObject
+---@class (exact) unit_soul: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_soul
 ---@field id number
@@ -2033,7 +2033,7 @@ local unit_soul
 ---@field _kind 'struct-type'
 df.unit_soul = {}
 
----@class unit_instrument_skill: DFObject
+---@class (exact) unit_instrument_skill: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_instrument_skill
 ---@field id number
@@ -2045,7 +2045,7 @@ local unit_instrument_skill
 ---@field _kind 'struct-type'
 df.unit_instrument_skill = {}
 
----@class unit_poetic_skill: DFObject
+---@class (exact) unit_poetic_skill: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_poetic_skill
 ---@field id number
@@ -2057,7 +2057,7 @@ local unit_poetic_skill
 ---@field _kind 'struct-type'
 df.unit_poetic_skill = {}
 
----@class unit_musical_skill: DFObject
+---@class (exact) unit_musical_skill: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_musical_skill
 ---@field id number
@@ -2069,7 +2069,7 @@ local unit_musical_skill
 ---@field _kind 'struct-type'
 df.unit_musical_skill = {}
 
----@class unit_dance_skill: DFObject
+---@class (exact) unit_dance_skill: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_dance_skill
 ---@field id number
@@ -2081,7 +2081,7 @@ local unit_dance_skill
 ---@field _kind 'struct-type'
 df.unit_dance_skill = {}
 
----@class unit_emotion_memory: DFObject
+---@class (exact) unit_emotion_memory: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_emotion_memory
 ---@field type emotion_type
@@ -2101,7 +2101,7 @@ local unit_emotion_memory
 ---@field _kind 'struct-type'
 df.unit_emotion_memory = {}
 
----@class personality_moodst: DFObject
+---@class (exact) personality_moodst: DFObject
 ---@field _kind 'struct'
 ---@field _type _personality_moodst
 ---@field type emotion_type
@@ -2120,7 +2120,7 @@ local personality_moodst
 ---@field _kind 'struct-type'
 df.personality_moodst = {}
 
----@class personality_moodst.T_flags: DFObject
+---@class (exact) personality_moodst.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _personality_moodst.T_flags
 ---@field failed_to_overcome flag-bit
@@ -2138,7 +2138,7 @@ local flags
 ---@field _kind 'struct-type'
 df.personality_moodst.T_flags = {}
 
----@class unit_personality: DFObject
+---@class (exact) unit_personality: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_personality
 ---@field next_dream_id number
@@ -2171,7 +2171,7 @@ local unit_personality
 ---@field _kind 'struct-type'
 df.unit_personality = {}
 
----@class unit_personality.T_flags: DFObject
+---@class (exact) unit_personality.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_personality.T_flags
 ---@field distraction_calculated flag-bit
@@ -2285,7 +2285,7 @@ df.unit_action_type_group = {}
 ---@field [23] "Unk23"
 df.unit_action_type = {}
 
----@class unit_action: DFObject
+---@class (exact) unit_action: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action
 ---@field type unit_action_type
@@ -2297,7 +2297,7 @@ local unit_action
 ---@field _kind 'struct-type'
 df.unit_action = {}
 
----@class unit_action.T_data: DFObject
+---@class (exact) unit_action.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action.T_data
 ---@field move unit_action_data_move
@@ -2330,7 +2330,7 @@ local data
 ---@field _kind 'struct-type'
 df.unit_action.T_data = {}
 
----@class unit_action_data_move: DFObject
+---@class (exact) unit_action_data_move: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_move
 ---@field x number
@@ -2346,7 +2346,7 @@ local unit_action_data_move
 ---@field _kind 'struct-type'
 df.unit_action_data_move = {}
 
----@class unit_action_data_move.T_flags: DFObject
+---@class (exact) unit_action_data_move.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_move.T_flags
 ---@field charge flag-bit
@@ -2356,7 +2356,7 @@ local flags
 ---@field _kind 'struct-type'
 df.unit_action_data_move.T_flags = {}
 
----@class unit_action_data_attack: DFObject
+---@class (exact) unit_action_data_attack: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_attack
 ---@field target_unit_id number References: `unit`
@@ -2379,7 +2379,7 @@ local unit_action_data_attack
 ---@field _kind 'struct-type'
 df.unit_action_data_attack = {}
 
----@class unit_action_data_attack.T_unk_4: DFObject
+---@class (exact) unit_action_data_attack.T_unk_4: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_attack.T_unk_4
 ---@field wrestle_type unit_action_data_attack.T_unk_4.T_wrestle_type
@@ -2407,7 +2407,7 @@ df.unit_action_data_attack.T_unk_4 = {}
 ---@field [1] "Grab"
 df.unit_action_data_attack.T_unk_4.T_wrestle_type = {}
 
----@class unit_action_data_attack.T_flags: DFObject
+---@class (exact) unit_action_data_attack.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_attack.T_flags
 ---@field force_small_aim_minus flag-bit (FORCE_SMALL_AIM_MINUS)
@@ -2431,7 +2431,7 @@ local flags
 ---@field _kind 'struct-type'
 df.unit_action_data_attack.T_flags = {}
 
----@class unit_action_data_jump: DFObject
+---@class (exact) unit_action_data_jump: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_jump
 ---@field x1 number
@@ -2446,7 +2446,7 @@ local unit_action_data_jump
 ---@field _kind 'struct-type'
 df.unit_action_data_jump = {}
 
----@class unit_action_data_hold_terrain: DFObject
+---@class (exact) unit_action_data_hold_terrain: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_hold_terrain
 ---@field x1 number
@@ -2466,7 +2466,7 @@ local unit_action_data_hold_terrain
 ---@field _kind 'struct-type'
 df.unit_action_data_hold_terrain = {}
 
----@class unit_action_data_release_terrain: DFObject
+---@class (exact) unit_action_data_release_terrain: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_release_terrain
 ---@field x number
@@ -2478,7 +2478,7 @@ local unit_action_data_release_terrain
 ---@field _kind 'struct-type'
 df.unit_action_data_release_terrain = {}
 
----@class unit_action_data_climb: DFObject
+---@class (exact) unit_action_data_climb: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_climb
 ---@field x1 number
@@ -2499,7 +2499,7 @@ local unit_action_data_climb
 ---@field _kind 'struct-type'
 df.unit_action_data_climb = {}
 
----@class unit_action_data_job: DFObject
+---@class (exact) unit_action_data_job: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_job
 ---@field x number
@@ -2512,7 +2512,7 @@ local unit_action_data_job
 ---@field _kind 'struct-type'
 df.unit_action_data_job = {}
 
----@class unit_action_data_talk: DFObject
+---@class (exact) unit_action_data_talk: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_talk
 ---@field unk_0 number
@@ -2534,7 +2534,7 @@ local unit_action_data_talk
 ---@field _kind 'struct-type'
 df.unit_action_data_talk = {}
 
----@class unit_action_data_unsteady: DFObject
+---@class (exact) unit_action_data_unsteady: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_unsteady
 ---@field timer number
@@ -2544,7 +2544,7 @@ local unit_action_data_unsteady
 ---@field _kind 'struct-type'
 df.unit_action_data_unsteady = {}
 
----@class unit_action_data_parry: DFObject
+---@class (exact) unit_action_data_parry: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_parry
 ---@field unit_id number References: `unit`
@@ -2556,7 +2556,7 @@ local unit_action_data_parry
 ---@field _kind 'struct-type'
 df.unit_action_data_parry = {}
 
----@class unit_action_data_block: DFObject
+---@class (exact) unit_action_data_block: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_block
 ---@field unit_id number References: `unit`
@@ -2568,7 +2568,7 @@ local unit_action_data_block
 ---@field _kind 'struct-type'
 df.unit_action_data_block = {}
 
----@class unit_action_data_dodge: DFObject
+---@class (exact) unit_action_data_dodge: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_dodge
 ---@field x1 number
@@ -2584,7 +2584,7 @@ local unit_action_data_dodge
 ---@field _kind 'struct-type'
 df.unit_action_data_dodge = {}
 
----@class unit_action_data_recover: DFObject
+---@class (exact) unit_action_data_recover: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_recover
 ---@field timer number
@@ -2595,7 +2595,7 @@ local unit_action_data_recover
 ---@field _kind 'struct-type'
 df.unit_action_data_recover = {}
 
----@class unit_action_data_stand_up: DFObject
+---@class (exact) unit_action_data_stand_up: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_stand_up
 ---@field timer number
@@ -2605,7 +2605,7 @@ local unit_action_data_stand_up
 ---@field _kind 'struct-type'
 df.unit_action_data_stand_up = {}
 
----@class unit_action_data_lie_down: DFObject
+---@class (exact) unit_action_data_lie_down: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_lie_down
 ---@field timer number
@@ -2615,7 +2615,7 @@ local unit_action_data_lie_down
 ---@field _kind 'struct-type'
 df.unit_action_data_lie_down = {}
 
----@class unit_action_data_job2: DFObject
+---@class (exact) unit_action_data_job2: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_job2
 ---@field timer number
@@ -2625,7 +2625,7 @@ local unit_action_data_job2
 ---@field _kind 'struct-type'
 df.unit_action_data_job2 = {}
 
----@class unit_action_data_push_object: DFObject
+---@class (exact) unit_action_data_push_object: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_push_object
 ---@field x1 number
@@ -2645,7 +2645,7 @@ local unit_action_data_push_object
 ---@field _kind 'struct-type'
 df.unit_action_data_push_object = {}
 
----@class unit_action_data_suck_blood: DFObject
+---@class (exact) unit_action_data_suck_blood: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_suck_blood
 ---@field unit_id number References: `unit`
@@ -2656,7 +2656,7 @@ local unit_action_data_suck_blood
 ---@field _kind 'struct-type'
 df.unit_action_data_suck_blood = {}
 
----@class unit_action_data_hold_item: DFObject
+---@class (exact) unit_action_data_hold_item: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_hold_item
 ---@field x1 number
@@ -2674,7 +2674,7 @@ local unit_action_data_hold_item
 ---@field _kind 'struct-type'
 df.unit_action_data_hold_item = {}
 
----@class unit_action_data_release_item: DFObject
+---@class (exact) unit_action_data_release_item: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_release_item
 ---@field unk_0 number
@@ -2684,7 +2684,7 @@ local unit_action_data_release_item
 ---@field _kind 'struct-type'
 df.unit_action_data_release_item = {}
 
----@class unit_action_data_unk_sub_20: DFObject
+---@class (exact) unit_action_data_unk_sub_20: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_unk_sub_20
 local unit_action_data_unk_sub_20
@@ -2693,7 +2693,7 @@ local unit_action_data_unk_sub_20
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_20 = {}
 
----@class unit_action_data_unk_sub_21: DFObject
+---@class (exact) unit_action_data_unk_sub_21: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_unk_sub_21
 local unit_action_data_unk_sub_21
@@ -2702,7 +2702,7 @@ local unit_action_data_unk_sub_21
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_21 = {}
 
----@class unit_action_data_unk_sub_22: DFObject
+---@class (exact) unit_action_data_unk_sub_22: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_unk_sub_22
 ---@field unk_0 number
@@ -2712,7 +2712,7 @@ local unit_action_data_unk_sub_22
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_22 = {}
 
----@class unit_action_data_unk_sub_23: DFObject
+---@class (exact) unit_action_data_unk_sub_23: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_unk_sub_23
 ---@field unk_0 number
@@ -2722,7 +2722,7 @@ local unit_action_data_unk_sub_23
 ---@field _kind 'struct-type'
 df.unit_action_data_unk_sub_23 = {}
 
----@class unit_skill: DFObject
+---@class (exact) unit_skill: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_skill
 ---@field id job_skill
@@ -2739,7 +2739,7 @@ local unit_skill
 ---@field _kind 'struct-type'
 df.unit_skill = {}
 
----@class unit_preference: DFObject
+---@class (exact) unit_preference: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_preference
 ---@field type unit_preference.T_type
@@ -2805,7 +2805,7 @@ df.unit_preference = {}
 ---@field [11] "LikeDanceForm"
 df.unit_preference.T_type = {}
 
----@class unit_complaint: DFObject
+---@class (exact) unit_complaint: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_complaint
 ---@field type history_event_reason
@@ -2816,7 +2816,7 @@ local unit_complaint
 ---@field _kind 'struct-type'
 df.unit_complaint = {}
 
----@class unit_parley: DFObject
+---@class (exact) unit_parley: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_parley
 ---@field invasion number References: `invasion_info`
@@ -2829,7 +2829,7 @@ local unit_parley
 ---@field _kind 'struct-type'
 df.unit_parley = {}
 
----@class unit_parley.T_flags: DFObject
+---@class (exact) unit_parley.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_parley.T_flags
 ---@field did_topic_meeting flag-bit
@@ -2840,7 +2840,7 @@ local flags
 ---@field _kind 'struct-type'
 df.unit_parley.T_flags = {}
 
----@class unit_request: DFObject
+---@class (exact) unit_request: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_request
 ---@field type unit_request.T_type
@@ -2861,7 +2861,7 @@ df.unit_request = {}
 ---@field [0] "DoGuildJobs"
 df.unit_request.T_type = {}
 
----@class unit_coin_debt: DFObject
+---@class (exact) unit_coin_debt: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_coin_debt
 ---@field recipient number References: `unit`
@@ -2872,7 +2872,7 @@ local unit_coin_debt
 ---@field _kind 'struct-type'
 df.unit_coin_debt = {}
 
----@class unit_chunk: DFObject
+---@class (exact) unit_chunk: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_chunk
 ---@field id number unit_*.dat
@@ -2893,7 +2893,7 @@ local unit_chunk_vector
 function df.unit_chunk.get_vector() end
 
 -- physical_formst
----@class unit_appearance: DFObject
+---@class (exact) unit_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_appearance
 ---@field unk_1 number
@@ -2927,7 +2927,7 @@ df.unit_appearance = {}
 ---@field [3] "OnlySelectedDoesThis"
 df.work_detail_mode = {}
 
----@class work_detail: DFObject
+---@class (exact) work_detail: DFObject
 ---@field _kind 'struct'
 ---@field _type _work_detail
 ---@field name string
@@ -2939,7 +2939,7 @@ local work_detail
 ---@field _kind 'struct-type'
 df.work_detail = {}
 
----@class work_detail.T_work_detail_flags: DFObject
+---@class (exact) work_detail.T_work_detail_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _work_detail.T_work_detail_flags
 ---@field no_modify flag-bit toady: DEFAULT
@@ -3014,7 +3014,7 @@ df.work_detail.T_work_detail_flags = {}
 ---@field [17] "ICON_CUSTOM_8"
 df.work_detail.T_icon = {}
 
----@class dungeon_contextst: DFObject
+---@class (exact) dungeon_contextst: DFObject
 ---@field _kind 'struct'
 ---@field _type _dungeon_contextst
 ---@field target_conflict_state conflict_level
@@ -3032,7 +3032,7 @@ local dungeon_contextst
 ---@field _kind 'struct-type'
 df.dungeon_contextst = {}
 
----@class dungeon_contextst.T_flags: DFObject
+---@class (exact) dungeon_contextst.T_flags: DFObject
 ---@field _kind 'struct'
 ---@field _type _dungeon_contextst.T_flags
 ---@field IN_CONFLICT flag-bit
@@ -3046,4 +3046,3 @@ local flags
 ---@class _dungeon_contextst.T_flags: DFCompound
 ---@field _kind 'struct-type'
 df.dungeon_contextst.T_flags = {}
-
