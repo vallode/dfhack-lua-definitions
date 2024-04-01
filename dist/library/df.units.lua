@@ -160,6 +160,33 @@ df.value_type = {}
 ---@field [14] "BATHE_WORLD_IN_CHAOS"
 df.goal_type = {}
 
+---@class goal_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.goal_type._attr_entry_type = {}
+
+---@class (exact) goal_type_attr_entry_type_fields
+---@field short_name DFCompoundField Goal name in up to 20 characters for displaying in fixed width column
+---@field achieved_short_name DFCompoundField Achieved goal name in up to 20 characters for displaying in fixed width column
+df.goal_type._attr_entry_type._fields = {}
+
+---@class goal_type_attrs
+---@field STAY_ALIVE { short_name: "Stay Alive", achieved_short_name: "Stayed Alive" }
+---@field MAINTAIN_ENTITY_STATUS { short_name: "Maintain Status", achieved_short_name: "Maintained Status" }
+---@field START_A_FAMILY { short_name: "Be a Parent", achieved_short_name: "Is a Parent" }
+---@field RULE_THE_WORLD { short_name: "Rule the World", achieved_short_name: "Ruled the World" }
+---@field CREATE_A_GREAT_WORK_OF_ART { short_name: "Create Great Artwork", achieved_short_name: "Made Great Artwork" }
+---@field CRAFT_A_MASTERWORK { short_name: "Craft a Masterwork", achieved_short_name: "Crafted a Masterwork" }
+---@field BRING_PEACE_TO_THE_WORLD { short_name: "Bring Peace to World", achieved_short_name: "Brought World Peace" }
+---@field BECOME_A_LEGENDARY_WARRIOR { short_name: "Be Legendary Warrior", achieved_short_name: "Is Legendary Warrior" }
+---@field MASTER_A_SKILL { short_name: "Master a Skill", achieved_short_name: "Mastered a Skill" }
+---@field FALL_IN_LOVE { short_name: "Fall in Love", achieved_short_name: "Fell in Love" }
+---@field SEE_THE_GREAT_NATURAL_SITES { short_name: "See Natural Wonders", achieved_short_name: "Saw Natural Wonders" }
+---@field IMMORTALITY { short_name: "Immortality", achieved_short_name: "Immortal" }
+---@field MAKE_A_GREAT_DISCOVERY { short_name: "Make Great Discovery", achieved_short_name: "Made Great Discovery" }
+---@field ATTAIN_RANK_IN_SOCIETY { short_name: "Attain Social Rank", achieved_short_name: "Attained Social Rank" }
+---@field BATHE_WORLD_IN_CHAOS { short_name: "Bathe World in Chaos", achieved_short_name: "World is in Chaos" }
+df.goal_type.attrs = {}
+
 ---@alias personality_facet_type
 ---| -1 # NONE
 ---| 0 # LOVE_PROPENSITY
@@ -590,6 +617,39 @@ df.unit_report_type = {}
 ---@field [20] "Legendary5"
 df.skill_rating = {}
 
+---@class skill_rating_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.skill_rating._attr_entry_type = {}
+
+---@class (exact) skill_rating_attr_entry_type_fields
+---@field xp_threshold DFCompoundField
+---@field caption DFCompoundField
+df.skill_rating._attr_entry_type._fields = {}
+
+---@class skill_rating_attrs
+---@field Dabbling { xp_threshold: "500", caption: "Dabbling" }
+---@field Novice { xp_threshold: "600", caption: "Novice" }
+---@field Adequate { xp_threshold: "700", caption: "Adequate" }
+---@field Competent { xp_threshold: "800", caption: "Competent" }
+---@field Skilled { xp_threshold: "900", caption: "Skilled" }
+---@field Proficient { xp_threshold: "1000", caption: "Proficient" }
+---@field Talented { xp_threshold: "1100", caption: "Talented" }
+---@field Adept { xp_threshold: "1200", caption: "Adept" }
+---@field Expert { xp_threshold: "1300", caption: "Expert" }
+---@field Professional { xp_threshold: "1400", caption: "Professional" }
+---@field Accomplished { xp_threshold: "1500", caption: "Accomplished" }
+---@field Great { xp_threshold: "1600", caption: "Great" }
+---@field Master { xp_threshold: "1700", caption: "Master" }
+---@field HighMaster { xp_threshold: "1800", caption: "High Master" }
+---@field GrandMaster { xp_threshold: "1900", caption: "Grand Master" }
+---@field Legendary { xp_threshold: "2000", caption: "Legendary" }
+---@field Legendary1 { xp_threshold: "2100", caption: "Legendary+1" }
+---@field Legendary2 { xp_threshold: "2200", caption: "Legendary+2" }
+---@field Legendary3 { xp_threshold: "2300", caption: "Legendary+3" }
+---@field Legendary4 { xp_threshold: "2400", caption: "Legendary+4" }
+---@field Legendary5 { caption: "Legendary+5" }
+df.skill_rating.attrs = {}
+
 ---@alias unit_relationship_type
 ---| -1 # None
 ---| 0 # Pet
@@ -854,6 +914,24 @@ df.need_type = {}
 ---@field he 1
 ---@field [1] "he"
 df.pronoun_type = {}
+
+---@class pronoun_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.pronoun_type._attr_entry_type = {}
+
+---@class (exact) pronoun_type_attr_entry_type_fields
+---@field symbol DFCompoundField Dwarf Fortress calls the functions that use this type to determine the pronouns for abstract_building, so it's not anything biology-related.
+---@field subject DFCompoundField [PRO_SUB]
+---@field object DFCompoundField [PRO_OBJ]
+---@field posessive DFCompoundField [PRO_POS]
+---@field reflexive DFCompoundField [PRO_REF]
+df.pronoun_type._attr_entry_type._fields = {}
+
+---@class pronoun_type_attrs
+---@field it { subject: "it", object: "it", posessive: "its", reflexive: "itself" }
+---@field she { symbol: "\x0c", subject: "she", object: "her", posessive: "her", reflexive: "herself" }
+---@field he { symbol: "\x0b", subject: "he", object: "him", posessive: "his", reflexive: "himself" }
+df.pronoun_type.attrs = {}
 
 ---@alias mill_pref_type
 ---| -1 # NONE
@@ -1805,21 +1883,12 @@ df.wound_curse_info.T_timing = {}
 ---| 11 # ClaimTrinketCooldown
 ---| 12 # ClaimClothingCooldown
 ---| 13 # WantsDrink
----| 14 #
 ---| 15 # PrepareToDie
 ---| 16 # CaveAdapt
----| 17 #
----| 18 #
----| 19 #
----| 20 #
 ---| 21 # FollowUnitCooldown
----| 22 #
----| 23 #
----| 24 #
 ---| 25 # DangerousTerrainCooldown
 ---| 26 # Beaching
 ---| 27 # IdleAreaCooldown
----| 28 #
 ---| 29 # DiagnosePatientCooldown
 ---| 30 # DressWoundCooldown
 ---| 31 # CleanPatientCooldown
@@ -1830,36 +1899,18 @@ df.wound_curse_info.T_timing = {}
 ---| 36 # ApplyCastCooldown
 ---| 37 # ImmobilizeBreakCooldown
 ---| 38 # BringCrutchCooldown
----| 39 #
 ---| 40 # MilkCounter
 ---| 41 # HadDrill
 ---| 42 # CompletedDrill
 ---| 43 # EggSpent
 ---| 44 # GroundedAnimalAnger
----| 45 #
 ---| 46 # TimeSinceSuckedBlood
 ---| 47 # DrinkingBlood
----| 48 #
----| 49 #
 ---| 50 # RevertWildTimer
----| 51 #
 ---| 52 # NoPantsAnger
 ---| 53 # NoShirtAnger
 ---| 54 # NoShoesAnger
----| 55 #
----| 56 #
----| 57 #
----| 58 #
----| 59 #
----| 60 #
----| 61 #
----| 62 #
----| 63 #
 ---| 64 # CitizenshipCooldown
----| 65 #
----| 66 #
----| 67 #
----| 68 #
 
 ---@class _misc_trait_type: DFDescriptor
 ---@field _kind 'enum-type'
@@ -1948,6 +1999,24 @@ df.wound_curse_info.T_timing = {}
 ---@field CitizenshipCooldown 64 starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
 ---@field [64] "CitizenshipCooldown" starts at 1 year, unit will not re-request citizenship during this time, auto-decrement
 df.misc_trait_type = {}
+
+---@class misc_trait_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.misc_trait_type._attr_entry_type = {}
+
+---@class (exact) misc_trait_type_attr_entry_type_fields
+---@field tag DFCompoundField
+df.misc_trait_type._attr_entry_type._fields = {}
+
+---@class misc_trait_type_attrs
+---@field WantsDrink { tag: "ALCOHOLIC" }
+---@field CaveAdapt { tag: "CAVE_ADAPT" }
+---@field MilkCounter { tag: "MILK_COUNTER" }
+---@field EggSpent { tag: "EGG_SPENT" }
+---@field GroundedAnimalAnger { tag: "GROUNDED_ANIMAL_ANGER" }
+---@field TimeSinceSuckedBlood { tag: "TIME_SINCE_SUCKED_BLOOD" }
+---@field DrinkingBlood { tag: "DRINKING_BLOOD" }
+df.misc_trait_type.attrs = {}
 
 ---@class (exact) unit_misc_trait: DFObject
 ---@field _kind 'struct'
@@ -2284,6 +2353,43 @@ df.unit_action_type_group = {}
 ---@field Unk23 23
 ---@field [23] "Unk23"
 df.unit_action_type = {}
+
+---@class unit_action_type_attr_entry_type: DFCompound
+---@field _kind 'struct-type'
+df.unit_action_type._attr_entry_type = {}
+
+---@class (exact) unit_action_type_attr_entry_type_fields
+---@field tag DFCompoundField for unit_action.data
+---@field group DFCompoundField
+df.unit_action_type._attr_entry_type._fields = {}
+
+---@class unit_action_type_attrs
+---@field None { tag: "raw_data" }
+---@field Move { tag: "move", group: "All", group: "Movement", group: "MovementFeet" }
+---@field Attack { tag: "attack", group: "All", group: "Combat" }
+---@field Jump { tag: "jump", group: "All", group: "Movement", group: "MovementFeet" }
+---@field HoldTerrain { tag: "holdterrain", group: "All", group: "Movement" }
+---@field ReleaseTerrain { tag: "releaseterrain", group: "All", group: "Movement" }
+---@field Climb { tag: "climb", group: "All", group: "Movement" }
+---@field Job { tag: "job", group: "All", group: "Work" }
+---@field Talk { tag: "talk", group: "All" }
+---@field Unsteady { tag: "unsteady", group: "All" }
+---@field Parry { tag: "parry", group: "All", group: "Combat" }
+---@field Block { tag: "block", group: "All", group: "Combat" }
+---@field Dodge { tag: "dodge", group: "All", group: "Movement", group: "MovementFeet" }
+---@field Recover { tag: "recover", group: "All", group: "Movement", group: "MovementFeet" }
+---@field StandUp { tag: "standup", group: "All", group: "Movement" }
+---@field LieDown { tag: "liedown", group: "All", group: "Movement" }
+---@field Job2 { tag: "job2", group: "All", group: "Work" }
+---@field PushObject { tag: "pushobject", group: "All", group: "Movement", group: "MovementFeet" }
+---@field SuckBlood { tag: "suckblood", group: "All", group: "Combat" }
+---@field HoldItem { tag: "holditem" }
+---@field ReleaseItem { tag: "releaseitem" }
+---@field Unk20 { tag: "unk20" }
+---@field Unk21 { tag: "unk21" }
+---@field Unk22 { tag: "unk22" }
+---@field Unk23 { tag: "unk23" }
+df.unit_action_type.attrs = {}
 
 ---@class (exact) unit_action: DFObject
 ---@field _kind 'struct'
@@ -3046,3 +3152,4 @@ local flags
 ---@class _dungeon_contextst.T_flags: DFCompound
 ---@field _kind 'struct-type'
 df.dungeon_contextst.T_flags = {}
+

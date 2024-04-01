@@ -100,6 +100,7 @@ module DFHackLuaDefinitions
       super(node, path)
 
       @class_name = @path.join('.')
+      @attributes = node.xpath('enum-attr')
       @items = items
     end
 
@@ -133,6 +134,29 @@ module DFHackLuaDefinitions
       annotation
     end
 
+    def attribute_fields
+      annotation = "---@class (exact) #{@class_name}_attr_entry_type_fields\n"
+      @attributes.each do |attribute|
+        annotation << "---@field #{attribute['name']} DFCompoundField"
+        annotation << " #{attribute['comment']}" if attribute['comment']
+        annotation << "\n"
+      end
+      annotation << "df.#{@class_name}._attr_entry_type._fields = {}\n\n"
+    end
+
+    def to_attrs
+      annotation = "---@class #{@class_name}_attr_entry_type: DFCompound\n"
+      annotation << "---@field _kind 'struct-type'\n"
+      annotation << "df.#{@class_name}._attr_entry_type = {}\n\n"
+      annotation << attribute_fields
+
+      annotation << "---@class #{@class_name}_attrs\n"
+      @items.each do |item|
+        annotation << item.to_attrs
+      end
+      annotation << "df.#{@class_name}.attrs = {}\n\n"
+    end
+
     def render
       annotation = ''
       annotation << to_alias
@@ -140,21 +164,41 @@ module DFHackLuaDefinitions
       annotation << "-- #{@comment}\n" if @comment
       annotation << "---@class _#{@class_name}: DFDescriptor\n"
       annotation << "---@field _kind 'enum-type'\n"
+
       @items.each do |item|
         annotation << item.to_field
       end
       annotation << "df.#{@class_name} = {}\n\n"
+
+      annotation << to_attrs unless @attributes.empty?
+      annotation
     end
   end
 
   class EnumItem
     def initialize(field, index)
       @name = field['name']
+      @attributes = field.xpath('item-attr')
       @value = field['value'] || index
       @comment = field['comment']
     end
 
+    # TODO: Correct type coercion from enum-attr
+    def to_attrs
+      return '' if @attributes.empty?
+
+      annotation = "---@field #{@name} { "
+      attributes = []
+      @attributes.each do |attribute|
+        attributes.append("#{attribute['name']}: \"#{attribute['value']}\"")
+      end
+      annotation << attributes.join(', ')
+      annotation << " }\n"
+    end
+
     def to_alias
+      return '' unless @name
+
       "---| #{@value} # #{@name}\n"
     end
 

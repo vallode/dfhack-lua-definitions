@@ -99,6 +99,7 @@ local DFDescriptor
 
 ---@class DFEnum: DFDescriptor
 ---@field _kind 'enum-type'
+---@field _complex boolean
 local DFEnum
 
 ---@param index number
