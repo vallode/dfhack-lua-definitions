@@ -106,6 +106,10 @@ local DFEnum
 ---@return number
 function DFEnum.next_item(index) end
 
+---@class DFBitfield: DFDescriptor
+---@field _kind 'bitfield-type'
+local DFBitfield
+
 ---@class DFVector
 local DFVector
 
