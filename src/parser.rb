@@ -2,7 +2,6 @@
 
 module DFHackLuaDefinitions
   # Keywords reserved by Lua that should not exist as identifiers.
-  # Only used to check rendered function arguments.
   RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then
                          true until while].freeze
 

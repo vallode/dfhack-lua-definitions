@@ -18,6 +18,8 @@ require_relative 'parser'
 DEBUG = ENV.fetch('DEBUG', false)
 SILENT = ENV.fetch('SILENT', false)
 
+FILE_HEADER = "---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n".freeze
+
 HANDLERS = {
   'enum-type' => DFHackLuaDefinitions::EnumType,
   'bitfield-type' => DFHackLuaDefinitions::BitfieldType,
@@ -26,6 +28,54 @@ HANDLERS = {
   'compound' => DFHackLuaDefinitions::StructType,
   'global' => DFHackLuaDefinitions::Field
 }.freeze
+
+##
+# (WIP) Ripping out annotations from the DFHack lua libraries makes it easier
+# to release them as a standalone LuaLS addon.
+Dir.glob(ARGV[0] || './dfhack/library/lua/*.lua').each do |lua|
+  print "Parsing: #{lua}\n" if DEBUG && !SILENT
+  filename = File.basename(lua, '.lua')
+
+  # Not exposed to DFHack scripts.
+  next if filename == 'luacov_helper'
+
+  # Sanitize the filename.
+  filename.gsub!(/[-_]([a-zA-Z])/) do
+    letter = Regexp.last_match(1)
+    letter.capitalize!
+  end
+
+  file = File.read(lua)
+  is_module = /_ENV\s+=\s+mkmodule\(/.match(file)
+  functions = file.scan(/^(function\s+)(.*)$/)
+
+  File.open("dist/library/hack/#{filename}.lua", 'w') do |output|
+    output.write(FILE_HEADER)
+
+    ##
+    # If the file is a module, we do some rather clunky cleaning to it to make it
+    # play nicely with LuaLS. Namely we need to namespace the file correctly,
+    # LuaLS does not have a good understanding of the _ENV overriding.
+    if is_module
+      output.write("---@meta #{filename}\n\n")
+      output.write("---@class #{filename}\nlocal #{filename}\n\n")
+
+      functions.each do |a, b|
+        output.write(a)
+
+        output.write("#{filename}.") if is_module
+
+        output.write(b)
+        output.write(" end\n\n")
+      end
+
+      output.write("return #{filename}")
+    else
+      output.write("---@meta _\n\n")
+      output.write(file)
+    end
+  end
+end
 
 Dir.glob(ARGV[0] || './df-structures/df.*.xml').each do |xml|
   print "Parsing: #{xml}\n" if DEBUG && !SILENT
@@ -92,11 +142,11 @@ Dir.glob(ARGV[0] || './df-structures/df.*.xml').each do |xml|
   # Accessible under `df.global` and only present in `df.globals.xml`.
   globals = document.xpath('//ld:global-object')
 
-  File.open("dist/library/#{filename}.lua", 'w') do |output|
-    output.write("---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n")
+  File.open("dist/library/structures/#{filename}.lua", 'w') do |output|
+    output.write(FILE_HEADER)
     output.write("---@meta _\n\n")
 
-    # Should only be applicable to df.globals
+    # Should only be apptlicable to df.globals
     output.write(DFHackLuaDefinitions::GlobalObject.new(globals).render) unless globals.empty?
 
     document.xpath('//ld:global-type').each do |node|

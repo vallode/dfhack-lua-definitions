@@ -1,3 +1,7 @@
 [submodule "df-structures"]
 	path = df-structures
 	url = https://github.com/DFHack/df-structures
+[submodule "dfhack"]
+	path = dfhack
+	url = https://github.com/vallode/dfhack
+	branch = dfhack-lua-types
