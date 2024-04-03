@@ -1,10 +1,8 @@
 # frozen_string_literal: false
 
 ##
-# Generates lua-language-server compatible definition files from the
-# df-structures submodule. Optionally, the script accepts a glob pattern:
-#
-#     ruby generate.rb df-structures/df.*.xml
+# Generates lua-language-server compatible definition files for DFHack, using
+# the df-structures XML files and the dfhack Lua library files.
 #
 # For more information on the `xml` syntax used in df-structures, see:
 # https://github.com/DFHack/df-structures/blob/master/SYNTAX.rst
@@ -32,7 +30,7 @@ HANDLERS = {
 ##
 # (WIP) Ripping out annotations from the DFHack lua libraries makes it easier
 # to release them as a standalone LuaLS addon.
-Dir.glob(ARGV[0] || './dfhack/library/lua/*.lua').each do |lua|
+Dir.glob('./dfhack/library/lua/*.lua').each do |lua|
   print "Parsing: #{lua}\n" if DEBUG && !SILENT
   filename = File.basename(lua, '.lua')
 
@@ -77,7 +75,7 @@ Dir.glob(ARGV[0] || './dfhack/library/lua/*.lua').each do |lua|
   end
 end
 
-Dir.glob(ARGV[0] || './df-structures/df.*.xml').each do |xml|
+Dir.glob('./df-structures/df.*.xml').each do |xml|
   print "Parsing: #{xml}\n" if DEBUG && !SILENT
   filename = File.basename(xml, '.xml')
 
