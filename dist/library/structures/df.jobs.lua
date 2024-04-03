@@ -285,7 +285,7 @@ df.job_list_link = {}
 ---@field _kind 'bitfield'
 ---@field _enum _job_flags
 local job_flags = {
-  repeat = false,
+  ["repeat"] = false,
   [0] = false,
   suspend = false,
   [1] = false,

@@ -1,20 +1,17 @@
 # frozen_string_literal: false
 
 ##
-# Generates lua-language-server compatible definition files for DFHack, using
-# the df-structures XML files and the dfhack Lua library files.
+# Generates [lua-language-server](https://github.com/LuaLS/lua-language-server)
+# compatible definition files for DFHack, using the df-structures XML files and
+# the DFHack Lua library files.
 #
-# For more information on the `xml` syntax used in df-structures, see:
+# For more information on the syntax used in df-structures, see:
 # https://github.com/DFHack/df-structures/blob/master/SYNTAX.rst
 ##
 
 require 'nokogiri'
 
 require_relative 'parser'
-
-# TODO: Pass as flags instead?
-DEBUG = ENV.fetch('DEBUG', false)
-SILENT = ENV.fetch('SILENT', false)
 
 FILE_HEADER = "---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n".freeze
 
@@ -27,11 +24,9 @@ HANDLERS = {
   'global' => DFHackLuaDefinitions::Field
 }.freeze
 
-##
-# (WIP) Ripping out annotations from the DFHack lua libraries makes it easier
-# to release them as a standalone LuaLS addon.
+print "Parsing DFHack Lua libraries\n"
 Dir.glob('./dfhack/library/lua/*.lua').each do |lua|
-  print "Parsing: #{lua}\n" if DEBUG && !SILENT
+  print "Parsing: #{lua}\n"
   filename = File.basename(lua, '.lua')
 
   # Not exposed to DFHack scripts.
@@ -50,7 +45,6 @@ Dir.glob('./dfhack/library/lua/*.lua').each do |lua|
   File.open("dist/library/hack/#{filename}.lua", 'w') do |output|
     output.write(FILE_HEADER)
 
-    ##
     # If the file is a module, we do some rather clunky cleaning to it to make it
     # play nicely with LuaLS. Namely we need to namespace the file correctly,
     # LuaLS does not have a good understanding of the _ENV overriding.
@@ -75,8 +69,9 @@ Dir.glob('./dfhack/library/lua/*.lua').each do |lua|
   end
 end
 
+print "Parsing df-structures\n"
 Dir.glob('./df-structures/df.*.xml').each do |xml|
-  print "Parsing: #{xml}\n" if DEBUG && !SILENT
+  print "Parsing: #{xml}\n"
   filename = File.basename(xml, '.xml')
 
   document = Nokogiri::XML(File.open(xml))
@@ -98,7 +93,6 @@ Dir.glob('./df-structures/df.*.xml').each do |xml|
     parent['comment'] = comment.text.strip.gsub(/\n\s+/, '<br>')
     comment.remove
 
-    ##
     # Node elements exclude Text nodes, if node only has text children remove
     # them for better parsing.
     parent.children.remove if parent.elements.empty?
@@ -128,23 +122,17 @@ Dir.glob('./df-structures/df.*.xml').each do |xml|
   # Parse the document again after changes to validate.
   document = Nokogiri::XML(document.to_xml, &:noblanks)
 
-  if DEBUG
-    File.open(".debug/#{filename}.debug.xml", 'w') do |output|
-      output.write(document)
-    end
+  # Write the current state of the XML to a file for debugging.
+  File.open(".debug/#{filename}.debug.xml", 'w') do |output|
+    output.write(document)
   end
-
-  ##
-  # Thankfully `codegen.pl` does a lot of sanity checking for us, meaning we
-  # can run under certain assumptions (like no duplicate globals existing)!
-  # Accessible under `df.global` and only present in `df.globals.xml`.
-  globals = document.xpath('//ld:global-object')
 
   File.open("dist/library/structures/#{filename}.lua", 'w') do |output|
     output.write(FILE_HEADER)
     output.write("---@meta _\n\n")
 
-    # Should only be apptlicable to df.globals
+    # Should only be applicable to df.globals
+    globals = document.xpath('//ld:global-object')
     output.write(DFHackLuaDefinitions::GlobalObject.new(globals).render) unless globals.empty?
 
     document.xpath('//ld:global-type').each do |node|
@@ -152,8 +140,6 @@ Dir.glob('./df-structures/df.*.xml').each do |xml|
       next unless HANDLERS[meta]
 
       output.write(HANDLERS[meta].new(node).render)
-      # type = DFHackLuaDefinitions::Type.new(node)
-      # output.write(type.render) if type.render?
     end
   end
 end

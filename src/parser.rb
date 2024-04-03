@@ -2,8 +2,8 @@
 
 module DFHackLuaDefinitions
   # Keywords reserved by Lua that should not exist as identifiers.
-  RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then
-                         true until while].freeze
+  RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then true
+                         until while].freeze
 
   # TODO: Do as much of this conversion as possible in the initial document parsing.
   TYPE_MAP = {
@@ -180,6 +180,8 @@ module DFHackLuaDefinitions
 
   class EnumItem
     def initialize(field, index)
+      @field = field
+
       @name = field['name']
       @attributes = field.xpath('item-attr')
       @value = field['value'] || index
@@ -214,7 +216,11 @@ module DFHackLuaDefinitions
     end
 
     def to_field_bitfield
-      annotation = "  #{@name} = false,"
+      annotation = if RESERVED_KEYWORDS.include?(@field['name'])
+                     "  [\"#{@name}\"] = false,"
+                   else
+                     "  #{@name} = false,"
+                   end
       annotation << " -- #{@comment}" if @comment
       annotation << "\n"
       annotation << "  [#{@value}] = false,"
