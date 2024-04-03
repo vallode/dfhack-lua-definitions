@@ -23,8 +23,8 @@ module DFHackLuaDefinitions
     # 'stl-vector' => 'integer',
     's-float' => 'number',
     'd-float' => 'number',
-    # 'long' => 'number',
-    # 'ulong' => 'number',
+    'long' => 'number',
+    'ulong' => 'number',
     'ptr-string' => 'DFPointer<string>',
     'static-string' => 'string',
     'stl-string' => 'string',
@@ -79,23 +79,6 @@ module DFHackLuaDefinitions
 
     def render?
       !@node.children.empty? && @node.name != 'enum-item'
-    end
-
-    def render
-      annotation = "---@class #{@name}: DFType\n"
-      # @children.each do |child|
-      #   child_type = Type.new(child, @path)
-      #   annotation << child_type.to_field
-      # end
-      annotation << "---#{@comment}\n" if @comment
-      annotation << "df.#{@path.join('.')} = {}\n\n"
-
-      @children.each do |child|
-        child_type = Type.new(child, @path)
-        annotation << child_type.render if child_type.render?
-      end
-
-      annotation
     end
   end
 
@@ -395,6 +378,18 @@ module DFHackLuaDefinitions
       #   annotation << StructType.new(field.node, 'global', '.').render
       # end
       # annotation << "\n"
+    end
+  end
+
+  class GlobalItem
+    def initialize()
+
+    end
+
+    def to_field
+    end
+
+    def to_object
     end
   end
 

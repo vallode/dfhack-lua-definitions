@@ -2470,7 +2470,7 @@ df.main_interface.T_patrol_routes = {}
 ---@field context squad_equipment_context_type
 ---@field scroll_position number
 ---@field scrolling boolean
----@field last_tick_update ulong
+---@field last_tick_update number
 ---@field customizing_equipment boolean
 ---@field customizing_squad_id number
 ---@field customizing_squad_pos number
@@ -2502,7 +2502,7 @@ df.main_interface.T_squad_equipment = {}
 ---@field scrolling_month boolean
 ---@field routine_page number
 ---@field viewing_months_squad_id number
----@field last_tick_update ulong
+---@field last_tick_update number
 ---@field editing_routines boolean
 ---@field scroll_position_edit_routine number
 ---@field scrolling_edit_routine boolean
@@ -2686,7 +2686,7 @@ df.main_interface.T_custom_stockpile = {}
 ---@field scrolling boolean
 ---@field active_sub_tab number
 ---@field trait_num number
----@field last_tick_update ulong
+---@field last_tick_update number
 ---@field labor_skill_num number
 ---@field combat_skill_num number
 ---@field other_skill_num number
@@ -2974,8 +2974,8 @@ df.gamest = {}
 ---@field _kind 'struct'
 ---@field _type _gamest.T_command_line
 ---@field original string
----@field gen_id long
----@field world_seed long
+---@field gen_id number
+---@field world_seed number
 ---@field use_seed boolean
 ---@field world_param string
 ---@field use_param number

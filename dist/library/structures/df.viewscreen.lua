@@ -6,10 +6,10 @@
 ---@field _type _file_compressorst
 ---@field compressed boolean Note: the assign operator is manually implemented
 ---@field f stl-fstream
----@field in_buffersize long
----@field in_buffer_amount_loaded long
----@field in_buffer_position long
----@field out_buffersize long
+---@field in_buffersize number
+---@field in_buffer_amount_loaded number
+---@field in_buffer_position number
+---@field out_buffersize number
 ---@field out_buffer_amount_written number
 
 ---@class _file_compressorst: DFCompound
@@ -303,9 +303,9 @@ df.widget_nineslice_horizontal = {}
 ---@class (exact) widget_anchored_tile: DFObject, widget_nineslice
 ---@field _kind 'struct'
 ---@field _type _widget_anchored_tile
----@field texp long
----@field offset_x long
----@field offset_y long
+---@field texp number
+---@field offset_x number
+---@field offset_y number
 ---@field use_color boolean
 
 ---@class _widget_anchored_tile: DFCompound
@@ -2171,8 +2171,8 @@ df.worldgen_parms_ps = {}
 ---@field entering_value_str boolean
 ---@field entering_value_index number
 ---@field value_str string
----@field last_saved_tc ulong
----@field last_loaded_tc ulong
+---@field last_saved_tc number
+---@field last_loaded_tc number
 ---@field doing_simple_params number
 ---@field simple_sel number
 ---@field simple_world_size number

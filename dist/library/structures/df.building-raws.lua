@@ -9,7 +9,7 @@
 ---@field name string
 ---@field building_type building_type
 ---@field building_subtype number
----@field build_key long
+---@field build_key number
 ---@field needs_magma boolean
 ---@field dim_x number
 ---@field dim_y number

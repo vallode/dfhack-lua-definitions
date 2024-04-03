@@ -140,12 +140,12 @@ df.init_input = {}
 ---@field small_font_adjy number
 ---@field large_font_adjx number
 ---@field large_font_adjy number
----@field basic_font_dispx long
----@field basic_font_dispy long
----@field small_font_dispx long
----@field small_font_dispy long
----@field large_font_dispx long
----@field large_font_dispy long
+---@field basic_font_dispx number
+---@field basic_font_dispy number
+---@field small_font_dispx number
+---@field small_font_dispy number
+---@field large_font_dispx number
+---@field large_font_dispy number
 
 ---@class _init_font: DFCompound
 ---@field _kind 'struct-type'

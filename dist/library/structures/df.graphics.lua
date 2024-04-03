@@ -4,8 +4,8 @@
 ---@class (exact) large_integer: DFObject
 ---@field _kind 'struct'
 ---@field _type _large_integer
----@field low_part long
----@field high_part long
+---@field low_part number
+---@field high_part number
 ---@field u large_integer.T_u
 ---@field quad_part number
 
@@ -16,8 +16,8 @@ df.large_integer = {}
 ---@class (exact) large_integer.T_u: DFObject
 ---@field _kind 'struct'
 ---@field _type _large_integer.T_u
----@field low_part long
----@field high_part long
+---@field low_part number
+---@field high_part number
 
 ---@class _large_integer.T_u: DFCompound
 ---@field _kind 'struct-type'
@@ -202,8 +202,8 @@ df.texblitst = {}
 ---@field refresh_buffer_val number
 ---@field main_thread_requesting_reshape boolean set to true by main thread, set to false by graphics thread
 ---@field main_thread_requesting_reshape_activate_map_port boolean set to true by main thread, set to false by graphics thread
----@field rect_id long
----@field print_index long
+---@field rect_id number
+---@field print_index number
 ---@field display_frames number
 ---@field force_full_display_count number
 ---@field do_clean_tile_cache number true by main, false by graphics
@@ -334,7 +334,7 @@ df.zoom_commands = {}
 ---@field async_tobox enabler.T_async_tobox
 ---@field async_frombox enabler.T_async_frombox
 ---@field async_zoom enabler.T_async_zoom
----@field renderer_threadid ulong
+---@field renderer_threadid number
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string
 ---@field flag enabler.T_flag
