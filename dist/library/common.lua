@@ -26,8 +26,9 @@ function dfhack.printerr(message) end
 function dfhack.script_help(script_name, extension) end
 
 ---@param message string
----@param level integer
-function dfhack.error(message, level) end
+---@param level? integer
+---@param verbose? boolean
+function dfhack.error(message, level, verbose) end
 
 ---@param message string
 ---@param level? integer
