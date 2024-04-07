@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ld:global-type ld:meta="enum-type" ld:level="0" type-name="test_enum">
+    <enum-item name="NONE" value="-1"/>
+    <enum-item name="FOO"/>
+    <enum-item name="BAR"/>
+</ld:global-type>

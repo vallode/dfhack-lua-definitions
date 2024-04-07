@@ -2,15 +2,6 @@
 
 # frozen_string_literal: false
 
-##
-# Generates [lua-language-server](https://github.com/LuaLS/lua-language-server)
-# compatible definition files for DFHack, using the df-structures XML files and
-# the DFHack Lua library files.
-#
-# For more information on the syntax used in df-structures, see:
-# https://github.com/DFHack/df-structures/blob/master/SYNTAX.rst
-##
-
 require 'nokogiri'
 
 require_relative 'parser'
@@ -151,6 +142,15 @@ def parse_xml_files(files)
   end
 end
 
+# Generates [lua-language-server](https://github.com/LuaLS/lua-language-server)
+# compatible definition files for DFHack, using the df-structures XML files and
+# the DFHack Lua library files.
+#
+# For more information on the syntax used in df-structures, see:
+# https://docs.dfhack.org/en/stable/library/xml/SYNTAX.html
+#
+# Documentation for the DFHack Lua API can be found here:
+# https://docs.dfhack.org/en/stable/docs/dev/Lua%20API.html
 def generate_annotations
   print "Parsing dfhack lua library\n"
   library_files = Dir.glob('./dfhack/library/lua/*.lua')
