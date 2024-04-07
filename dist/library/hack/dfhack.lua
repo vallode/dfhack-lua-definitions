@@ -9,11 +9,10 @@
 -- preserved as a common denominator for all modules.
 -- This file uses it instead of the new default one.
 
--- The fields of dfhack are not exhaustive
-
 ---@class dfhack
 ---@field BASE_G _G Original Lua global environment
 ---@field is_core_context boolean
+---@field is_interactive fun(): boolean
 local dfhack = dfhack
 
 local base_env = dfhack.BASE_G
@@ -81,28 +80,38 @@ safecall = dfhack.safecall
 curry = dfhack.curry
 
 ---@generic T
----@param f fun(...):T
+---@param f fun(...): T
 ---@param ... any
----@return T
+---@return boolean success
+---@return T|string ...
 function dfhack.pcall(f, ...) end
 
 ---@param msg string
 ---@param level? integer
 function qerror(msg, level) end
 
+---@generic T
+---@param cleanup_fn function
+---@param fn fun(...): T
 ---@param ... any
-function dfhack.with_finalize(...) end
+---@return T
+function dfhack.with_finalize(cleanup_fn,fn,...) end
 
+---@generic T
+---@param cleanup_fn function
+---@param fn fun(...): T
 ---@param ... any
-function dfhack.with_onerror(...) end
+---@return T
+function dfhack.with_onerror(cleanup_fn,fn,...) end
 
+---@param obj DFObject
 local function call_delete(obj) end
 
 ---@generic T
 ---@param obj DFObject
 ---@param fn fun(...):T
----@param ...? any
----@return T
+---@param ... any
+---@return T ...
 function dfhack.with_temp_object(obj,fn,...) end
 
 dfhack.exception.__index = dfhack.exception
@@ -126,9 +135,17 @@ function rawset_default(target,source) end
 
 DEFAULT_NIL = DEFAULT_NIL or {} -- Unique token
 
-function defclass(...) end
+---@generic T: table
+---@param class? T
+---@param parent? table
+---@return table|T
+function defclass(class,parent) end
 
-function mkinstance(...) end
+---@generic T: table
+---@param class table
+---@param table? T
+---@return table|T
+function mkinstance(class,table) end
 
 -- Misc functions
 
@@ -387,7 +404,7 @@ local function persistent_getData(which, key, default) end
 ---@param which string
 ---@param key string
 ---@param data any
-function persistent_saveData(which, key, data) end
+local function persistent_saveData(which, key, data) end
 
 ---@nodiscard
 ---@param key string
@@ -415,7 +432,8 @@ local print_banner = true
 ---@param prompt? string
 ---@param hfile? string
 ---@param env? table|metatable
----@return boolean
+---@return boolean|nil
+---@return string|nil
 function dfhack.interpreter(prompt,hfile,env) end
 
 -- Command scripts
