@@ -18,6 +18,7 @@
 ---| 13 # UnitHandling
 ---| 14 # SiegeWeapon
 ---| 15 # Medicine
+---| 16 # Carving
 
 -- not in DF
 ---@class _job_type_class: DFEnum
@@ -53,6 +54,8 @@
 ---@field [14] "SiegeWeapon"
 ---@field Medicine 15
 ---@field [15] "Medicine"
+---@field Carving 16
+---@field [16] "Carving"
 df.job_type_class = {}
 
 ---@alias job_type
@@ -810,10 +813,10 @@ df.job_type._attr_entry_type._fields = {}
 
 ---@class job_type_attrs
 ---@field CarveFortification { caption: "Carve Fortification", type: "Digging", skill: "MINING", is_designation: "true" }
----@field SmoothWall { caption: "Smooth Wall", type: "Building", is_designation: "true" }
----@field SmoothFloor { caption: "Smooth Floor", type: "Building", is_designation: "true" }
----@field DetailWall { caption: "Detail Wall", type: "Building", is_designation: "true" }
----@field DetailFloor { caption: "Detail Floor", type: "Building", is_designation: "true" }
+---@field SmoothWall { caption: "Smooth Wall", type: "Carving", is_designation: "true" }
+---@field SmoothFloor { caption: "Smooth Floor", type: "Carving", is_designation: "true" }
+---@field DetailWall { caption: "Detail Wall", type: "Carving", is_designation: "true" }
+---@field DetailFloor { caption: "Detail Floor", type: "Carving", is_designation: "true" }
 ---@field Dig { caption: "Dig", type: "Digging", skill: "MINING", is_designation: "true" }
 ---@field CarveUpwardStaircase { caption: "Carve Upward Staircase", type: "Digging", skill: "MINING", is_designation: "true" }
 ---@field CarveDownwardStaircase { caption: "Carve Downward Staircase", type: "Digging", skill: "MINING", is_designation: "true" }
@@ -1034,7 +1037,7 @@ df.job_type._attr_entry_type._fields = {}
 ---@field ReportCrime { caption: "Report Crime", type: "LawEnforcement" }
 ---@field ExecuteCriminal { caption: "Execute Criminal", type: "LawEnforcement" }
 ---@field TrainAnimal { caption: "Train Animal", type: "UnitHandling", skill: "ANIMALTRAIN" }
----@field CarveTrack { caption: "Carve Track", type: "Building" }
+---@field CarveTrack { caption: "Carve Track", type: "Carving" }
 ---@field PushTrackVehicle { caption: "Push Track Vehicle", type: "Hauling", labor: "HANDLE_VEHICLES" }
 ---@field PlaceTrackVehicle { caption: "Place Track Vehicle", type: "Hauling", labor: "HANDLE_VEHICLES" }
 ---@field StoreItemInVehicle { caption: "Store Item in Vehicle", type: "Hauling" }
