@@ -2,7 +2,7 @@
 
 require 'nokogiri'
 
-require_relative '../src/parser'
+require_relative '../lib/parser'
 
 describe DFHackLuaDefinitions do
   describe DFHackLuaDefinitions::EnumType do

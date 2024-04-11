@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
-# frozen_string_literal: false
+# frozen_string_literal: true
 
 require 'nokogiri'
 
 require_relative 'parser'
 
-FILE_HEADER = "---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n".freeze
+FILE_HEADER = "---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n"
 
 HANDLERS = {
   'enum-type' => DFHackLuaDefinitions::EnumType,

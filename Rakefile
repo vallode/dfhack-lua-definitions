@@ -8,5 +8,5 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 task :build do
-  ruby 'src/generate.rb'
+  ruby 'lib/generate.rb'
 end
