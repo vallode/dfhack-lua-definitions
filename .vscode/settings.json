@@ -2,6 +2,8 @@
   "Lua.workspace.library": [
     "/home/vallode/Documents/dfhack-lua-annotations/dist/library"
   ],
-  "rubyLsp.rubyVersionManager": "auto",
-  "rubyLsp.formatter": "auto"
+  "rubyLsp.rubyVersionManager": {
+    "identifier": "auto"
+  },
+  "rubyLsp.formatter": "rubocop"
 }
