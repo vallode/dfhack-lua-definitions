@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 ---@alias _unit_flags1_keys
 ---| 0 # move_state

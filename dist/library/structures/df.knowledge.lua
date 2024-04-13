@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 ---@alias _knowledge_scholar_flags_0_keys
 ---| 0 # philosophy_logic_formal_reasoning

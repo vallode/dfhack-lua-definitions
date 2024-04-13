@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 ---@class (exact) entity_occasion_info: DFObject
 ---@field _kind 'struct'

@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta helpdb
+---@meta
 
 ---@class helpdb
 local helpdb

@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 ---@alias resource_allotment_specifier_type
 ---| 0 # CROP

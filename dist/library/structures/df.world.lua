@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 ---@alias worldgen_region_type
 ---| 0 # SWAMP

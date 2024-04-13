@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 ---@alias _language_word_flags_keys
 ---| 0 # front_compound_noun_sing

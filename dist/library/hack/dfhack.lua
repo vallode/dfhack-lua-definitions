@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 -- Common startup file for all dfhack scripts and plugins with lua support
 -- The global dfhack table is already created by C++ init code.

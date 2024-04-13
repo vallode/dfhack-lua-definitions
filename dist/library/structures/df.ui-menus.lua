@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta _
+---@meta
 
 -- -- BUILDING COMPONENT ITEM SELECTION
 ---@class (exact) ui_build_item_req: DFObject

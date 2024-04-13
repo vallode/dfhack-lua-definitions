@@ -1,5 +1,5 @@
 ---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
----@meta tileMaterial
+---@meta
 
 ---@class tileMaterial
 local tileMaterial

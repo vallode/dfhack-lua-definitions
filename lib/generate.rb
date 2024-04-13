@@ -70,12 +70,12 @@ def parse_lua_files(files)
 
     File.open("dist/library/hack/#{filename}.lua", 'w') do |output|
       output.write(FILE_HEADER)
+      output.write("---@meta\n\n")
 
       # If the file is a module, we do some rather clunky cleaning to it to make it
       # play nicely with LuaLS. Namely we need to namespace the file correctly,
       # LuaLS does not have a good understanding of the _ENV overriding.
       if is_module
-        output.write("---@meta #{filename}\n\n")
         output.write("---@class #{filename}\nlocal #{filename}\n\n")
 
         functions.each do |a, b|
@@ -89,7 +89,6 @@ def parse_lua_files(files)
 
         output.write("return #{filename}")
       else
-        output.write("---@meta _\n\n")
         file.gsub!(/^((local\s+)?function\s+(.*)$)([\s\S]+?)(^end)/, '\1 end')
         file.gsub!(/^if\s+.*then$([\s\S]+?)(^\s?end)/) do
           Regexp.last_match(1).gsub(/^[\ \t]{4}/, '')
@@ -158,7 +157,7 @@ def parse_xml_files(files)
 
     File.open("dist/library/structures/#{filename}.lua", 'w') do |output|
       output.write(FILE_HEADER)
-      output.write("---@meta _\n\n")
+      output.write("---@meta\n\n")
 
       # Should only be applicable to df.globals
       globals = document.xpath('//ld:global-object')
