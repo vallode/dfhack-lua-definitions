@@ -912,7 +912,7 @@ df.talk_choice.T_unk = {}
 ---@class (exact) adventure_workingst: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventure_workingst
----@field type adventure_workingst.T_type
+---@field type adventure_workingst.T_type bay12: AdventureWork
 ---@field abs_x number
 ---@field abs_y number
 ---@field abs_z number
@@ -998,8 +998,8 @@ df.adventure_construction_mode_type = {}
 ---@field travel_origin_y number bay12: local_apparent_abs_smm_y
 ---@field travel_origin_z number Coordinates of the player on the map when the travel screen is opened. Determine the displayed position whilst travel_not_moved is set
 ---@field travel_clouds number
----@field travel_right_map adventurest.T_travel_right_map
----@field show_menu adventurest.T_show_menu
+---@field travel_right_map adventurest.T_travel_right_map bay12: traveL_map; is an int8_t
+---@field show_menu adventurest.T_show_menu bay12: travel_instructions; is an int8_t; bottom menu in travel mode
 ---@field message string bay12: travel_exception; you must move from surrounding obstacles
 ---@field message_color number bay12: travel_exception_color
 ---@field message_brightness number bay12: travel_exception_bright
@@ -1042,7 +1042,7 @@ df.adventure_construction_mode_type = {}
 ---@field construction adventurest.T_construction
 ---@field wait_timer number bay12: dungeon_waiting; A_WAIT sets this to 10. It subsequently decreases by 1 every advmode tick, preventing the player from controlling their adventurer (by setting player_control_state) until it reaches 0.
 ---@field attack_style integer bay12: aim_attack_flag; Set when the AttackStrike menu is opened. The various attack styles increment this as follows when enabled: Charge: +1, Multi-attack: +2, Quick: +4, Heavy: +8, Wild: +16, Precise: +32
----@field charge_forbidden adventurest.T_charge_forbidden
+---@field charge_forbidden adventurest.T_charge_forbidden bay12: aim_attack_charge_restrict; type ChargeRestrict; When the AttackStrike menu is opened, this is set for conditions precluding charge attacks.
 ---@field no_move_choices boolean
 ---@field world_debug_pass_time number
 ---@field world_debug_loaded_center_abs_smm_x number

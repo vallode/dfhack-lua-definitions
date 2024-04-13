@@ -2058,7 +2058,7 @@ df.knowledge_scholar_flags_13 = {}
 ---@class (exact) knowledge_scholar_category_flag: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_scholar_category_flag
----@field flag_type knowledge_scholar_category_flag.T_flag_type
+---@field flag_type knowledge_scholar_category_flag.T_flag_type determines which bitflags to use
 ---@field flag_data knowledge_scholar_category_flag.T_flag_data
 
 ---@class _knowledge_scholar_category_flag: DFCompound

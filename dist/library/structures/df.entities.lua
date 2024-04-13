@@ -240,7 +240,7 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field _type _caravan_state
 ---@field total_capacity number bay12: supportedweight; actually a massst
 ---@field total_capacity_fraction number fraction part of total_capacity
----@field trade_state caravan_state.T_trade_state
+---@field trade_state caravan_state.T_trade_state bay12: stage
 ---@field depot_notified number bay12: havecomplained; has it warned you that you need a depot
 ---@field time_remaining number bay12: timer
 ---@field entity number References: `historical_entity`

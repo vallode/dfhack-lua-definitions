@@ -1861,7 +1861,7 @@ df.region_object_datast = {}
 ---@class (exact) viewscreen_loadgamest: DFObject, viewscreen
 ---@field _kind 'struct'
 ---@field _type _viewscreen_loadgamest
----@field cur_step viewscreen_loadgamest.T_cur_step
+---@field cur_step viewscreen_loadgamest.T_cur_step After the on-screen text shown while loading.
 ---@field progress number
 ---@field compressor file_compressorst
 ---@field rod region_object_datast

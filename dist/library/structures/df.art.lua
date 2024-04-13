@@ -887,7 +887,7 @@ df.poetic_form_part.T_flags = {}
 ---@class (exact) poetic_form_perspective: DFObject
 ---@field _kind 'struct'
 ---@field _type _poetic_form_perspective
----@field type poetic_form_perspective.T_type
+---@field type poetic_form_perspective.T_type "written from the perspective of ..."
 ---@field histfig number References: `historical_figure`
 ---@field unk_1 number
 

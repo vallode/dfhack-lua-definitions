@@ -2,39 +2,26 @@
 ---@meta _
 
 ---@class (exact) df.global: DFGlobal
----@field global_table  -- .data
----@field cursor 
----@field selection_rect 
----@field gamemode 
----@field gametype 
----@field ui_menu_width 
----@field created_item_type  -- .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
----@field created_item_subtype 
----@field created_item_mattype 
----@field created_item_matindex 
----@field created_item_count 
+---@field  cursor.
+---@field  selection_rect.
+---@field gamemode game_mode
+---@field gametype game_type
 ---@field map_renderer map_renderer
 ---@field d_init d_init
----@field flows 
 ---@field enabler enabler
 ---@field gps graphic
 ---@field gview interfacest
 ---@field init init
 ---@field texture texture_handlerst
----@field timed_events 
 ---@field plotinfo plotinfost
 ---@field adventure adventurest
 ---@field buildreq buildreq
----@field ui_building_assign_type 
----@field ui_building_assign_is_marked 
----@field ui_building_assign_units 
----@field ui_building_assign_items 
 ---@field ui_look_list ui_look_list
 ---@field game gamest
 ---@field world world
----@field version  -- .bss primitive
----@field min_load_version 
----@field movie_version 
+---@field version save_version
+---@field min_load_version save_version
+---@field movie_version cmv_version
 ---@field activity_next_id number
 ---@field agreement_next_id number
 ---@field army_controller_next_id number
@@ -79,37 +66,36 @@
 ---@field cur_year number
 ---@field cur_year_tick number
 ---@field cur_year_tick_advmode number
----@field cur_season 
+---@field cur_season season
 ---@field cur_season_tick number
----@field current_weather 
 ---@field pause_state boolean
----@field process_dig boolean Requests dig designations to be processed next frame.
----@field process_jobs boolean Requests building jobs to be processed next frame.
+---@field process_dig boolean
+---@field process_jobs boolean
 ---@field ui_building_in_assign boolean
 ---@field ui_building_in_resize boolean
 ---@field ui_building_resize_radius number
----@field ui_building_item_cursor 
----@field ui_look_cursor 
----@field ui_selected_unit 
+---@field ui_building_item_cursor number
+---@field ui_look_cursor number
+---@field ui_selected_unit number
 ---@field ui_unit_view_mode ui_unit_view_mode
 ---@field ui_workshop_in_add boolean
----@field ui_workshop_job_cursor 
----@field ui_lever_target_type 
+---@field ui_workshop_job_cursor number
+---@field ui_lever_target_type lever_target_type
 ---@field window_x number
 ---@field window_y number
 ---@field window_z number
----@field debug_nopause boolean Prevents the game from being paused
----@field debug_nomoods boolean Same as ARTIFACTS:NO
----@field debug_combat boolean Functionality unknown, combat-related
----@field debug_wildlife boolean Functionality unknown, wildlife-related
----@field debug_nodrink boolean Disables thirst on everything
----@field debug_noeat boolean Disables hunger on everything
----@field debug_nosleep boolean Disables drowsiness on everything
----@field debug_showambush boolean Makes hidden ambushers visible on-screen and in the units list (but not to your citizens)
----@field debug_fastmining boolean All dwarves mine as fast as a Legendary Miner
----@field debug_noberserk boolean Insanity can only result in Crazed or Melancholy, never Berserk
----@field debug_turbospeed boolean All units move and work at maximum speed
----@field save_on_exit boolean Ending the game saves its state back to world.dat or world.sav
+---@field debug_nopause boolean
+---@field debug_nomoods boolean
+---@field debug_combat boolean
+---@field debug_wildlife boolean
+---@field debug_nodrink boolean
+---@field debug_noeat boolean
+---@field debug_nosleep boolean
+---@field debug_showambush boolean
+---@field debug_fastmining boolean
+---@field debug_noberserk boolean
+---@field debug_turbospeed boolean
+---@field save_on_exit boolean
 ---@field standing_orders_gather_minerals integer
 ---@field standing_orders_gather_wood integer
 ---@field standing_orders_gather_food integer
@@ -150,19 +136,10 @@
 ---@field cur_snow_counter number
 ---@field cur_rain_counter number
 ---@field weathertimer number
----@field cur_snow 
----@field cur_rain 
----@field jobvalue 
----@field jobvalue_setter 
----@field interactitem 
----@field interactinvslot 
 ---@field handleannounce boolean
 ---@field preserveannounce boolean
 ---@field updatelightstate boolean
 ---@field start_dwarf_count number
----@field translate_name 
----@field buildingst_completebuild 
----@field unitst_choptree 
 df.global = {}
 
 ---@alias weather_type

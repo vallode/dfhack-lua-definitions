@@ -1,45 +1,30 @@
 # frozen_string_literal: false
 
+require_relative 'lua_ls'
+
 module DFHackLuaDefinitions
-  # Keywords reserved by Lua that should not exist as identifiers.
-  RESERVED_KEYWORDS = %w[and break do else elseif end false for function if in local nil not or repeat return then true
-                         until while].freeze
+  class << self
+    def node_to_type(node, path)
+      meta = node['ld:meta']
+      subtype = node['ld:subtype']
 
-  # TODO: Do as much of this conversion as possible in the initial document parsing.
-  TYPE_MAP = {
-    'int8_t' => 'number',
-    'uint8_t' => 'integer',
-    'int16_t' => 'number',
-    'uint16_t' => 'integer',
-    'int32_t' => 'number',
-    'uint32_t' => 'integer',
-    'int64_t' => 'number',
-    'uint64_t' => 'integer',
-    'size_t' => 'integer',
-    # 'enum-item' => 'integer',
-    # 'flag-bit' => 'integer',
-    # 'pointer' => 'integer',
-    # 'padding' => 'integer',
-    # 'stl-vector' => 'integer',
-    's-float' => 'number',
-    'd-float' => 'number',
-    'long' => 'number',
-    'ulong' => 'number',
-    'ptr-string' => 'DFPointer<string>',
-    'static-string' => 'string',
-    'stl-string' => 'string',
-    'bool' => 'boolean'
-    # 'stl-bit-vector' => 'boolean',
-    # 'df-flagarray' => 'boolean',
-    # 'stl-function' => 'function',
-    # 'stl-mutex' => 'lightuserdata',
-    # 'stl-condition-variable' => 'lightuserdata',
-    # 'stl-deque' => 'lightuserdata',
-    # 'stl-fstream' => 'lightuserdata',
-    # 'stl-unordered-map' => 'lightuserdata'
-  }.freeze
+      if node.name == 'global-object'
+        GlobalObject.new(node)
+      elsif meta == 'compound'
+        if subtype == 'bitfield'
+          BitfieldType.new(node, path) if subtype == 'bitfield'
+        elsif subtype == 'enum'
+          EnumType.new(node, path) if subtype == 'enum'
+        else
+          StructType.new(node, path)
+        end
+      elsif HANDLERS[meta]
+        HANDLERS[meta].new(node, path)
+      end
+    end
+  end
 
-  # Abstract global type
+  # Abstract global DF type.
   class Type
     attr_reader :node
 
@@ -60,25 +45,6 @@ module DFHackLuaDefinitions
         @local_name = @path.join('_').gsub('T_', '')
         # @name = @path.join('.').gsub('.T_', '_')
       end
-    end
-
-    def match_node(node, path)
-      meta = node['ld:meta']
-      subtype = node['ld:subtype']
-      return nil unless HANDLERS[meta]
-
-      if meta == 'compound'
-        return BitfieldType.new(node, path) if subtype == 'bitfield'
-        return EnumType.new(node, path) if subtype == 'enum'
-
-        StructType.new(node, path)
-      else
-        HANDLERS[meta].new(node, path)
-      end
-    end
-
-    def render?
-      !@node.children.empty? && @node.name != 'enum-item'
     end
   end
 
@@ -106,7 +72,7 @@ module DFHackLuaDefinitions
     end
 
     def to_field
-      "---@field #{@name} #{@class_name}\n"
+      LuaLS.field(@name, @class_name, @comment)
     end
 
     # TODO: Types with index_enums have bi-directional keys.
@@ -199,11 +165,7 @@ module DFHackLuaDefinitions
     end
 
     def to_field_bitfield
-      annotation = if RESERVED_KEYWORDS.include?(@field['name'])
-                     "  [\"#{@name}\"] = false,"
-                   else
-                     "  #{@name} = false,"
-                   end
+      annotation = "  #{LuaLS.safe_name(@field['name'])} = false,"
       annotation << " -- #{@comment}" if @comment
       annotation << "\n"
       annotation << "  [#{@value}] = false,"
@@ -269,6 +231,10 @@ module DFHackLuaDefinitions
       annotation << "}\n\n"
     end
 
+    def render?
+      true
+    end
+
     def render
       annotation = ''
       annotation << to_type
@@ -286,7 +252,7 @@ module DFHackLuaDefinitions
       'struct-type' => 'struct-type',
       'class-type' => 'class-type',
       'compound' => 'struct-type'
-    }
+    }.freeze
 
     def initialize(node, path = [])
       super(node, path)
@@ -298,7 +264,7 @@ module DFHackLuaDefinitions
 
     def fields
       @node.children.map do |child|
-        match_node(child, @path)
+        DFHackLuaDefinitions.node_to_type(child, @path)
       end.compact
     end
 
@@ -321,7 +287,7 @@ module DFHackLuaDefinitions
       annotation << "---@field _kind 'struct'\n"
       annotation << "---@field _type _#{@class_name}\n"
       @fields.each do |field|
-        annotation << field.to_field
+        annotation << field.to_field if field
       end
       annotation << "\n"
     end
@@ -347,6 +313,10 @@ module DFHackLuaDefinitions
       annotation
     end
 
+    def render?
+      true
+    end
+
     def render
       annotation = to_object
       annotation << to_type
@@ -359,50 +329,64 @@ module DFHackLuaDefinitions
     end
   end
 
-  class GlobalObject
-    def initialize(nodes, path = [])
+  class GlobalType
+    def initialize(nodes)
       @nodes = nodes
-      @path = path
       @fields = fields
     end
 
     def fields
-      @nodes.map { |node| Field.new(node, @path) }
+      @nodes.map do |node|
+        DFHackLuaDefinitions.node_to_type(node, %w[df global])
+      end
     end
 
     def render
       annotation = "---@class (exact) df.global: DFGlobal\n"
       annotation << @fields.map(&:to_field).join
       annotation << "df.global = {}\n\n"
-      # @fields.filter(&:is_inline).each do |field|
-      #   annotation << StructType.new(field.node, 'global', '.').render
-      # end
-      # annotation << "\n"
     end
   end
 
-  class GlobalItem
-    def initialize()
+  class GlobalObject < Type
+    def initialize(node, path = [])
+      super(node, path)
 
+      @child = node.first_element_child
+
+      @name = node['name']
+      @type_name = node['type-name']
+      @type = type
+    end
+
+    def type
+      return @type_name unless @child['ld:subtype'] || @child['ld:meta']
+
+      @child['type-name']
     end
 
     def to_field
-    end
-
-    def to_object
+      annotation = "---@field #{}"
+      @child_type = DFHackLuaDefinitions.node_to_type(@child, @path)
+      @child_type&.to_field
     end
   end
 
-  # Generic field, usually pointers to global types.
+  # Generic global field.
   class Field < Type
     def initialize(field, path = [])
       super(field, path)
 
       @field = field
-      @name = field['name']
+      # TODO: Temporary until we add anon indexes.
+      @name = field['name'] || 'anon_'
       @type = field['type-name']
       @ref_target = field['ref-target']
       @comment = comment
+
+      return unless field.name == 'item'
+
+      @name = path[0]
     end
 
     def type
@@ -410,8 +394,8 @@ module DFHackLuaDefinitions
     end
 
     def to_field
-      # TODO: Ask DFHack if ignoring anon_ is wise.
-      return '' unless @name
+      # TODO: Temporary until we add anon indexes.
+      return '' if @name == 'anon_'
 
       annotation = "---@field #{@name} #{@type}"
       annotation << " #{@comment}" if @comment

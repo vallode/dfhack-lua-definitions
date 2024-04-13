@@ -8,6 +8,40 @@ require_relative 'parser'
 
 FILE_HEADER = "---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n"
 
+# TODO: Do as much of this conversion as possible in the initial document parsing.
+TYPE_MAP = {
+  'int8_t' => 'number',
+  'uint8_t' => 'integer',
+  'int16_t' => 'number',
+  'uint16_t' => 'integer',
+  'int32_t' => 'number',
+  'uint32_t' => 'integer',
+  'int64_t' => 'number',
+  'uint64_t' => 'integer',
+  'size_t' => 'integer',
+  # 'enum-item' => 'integer',
+  # 'flag-bit' => 'integer',
+  # 'pointer' => 'integer',
+  # 'padding' => 'integer',
+  # 'stl-vector' => 'integer',
+  's-float' => 'number',
+  'd-float' => 'number',
+  'long' => 'number',
+  'ulong' => 'number',
+  'ptr-string' => 'DFPointer<string>',
+  'static-string' => 'string',
+  'stl-string' => 'string',
+  'bool' => 'boolean'
+  # 'stl-bit-vector' => 'boolean',
+  # 'df-flagarray' => 'boolean',
+  # 'stl-function' => 'function',
+  # 'stl-mutex' => 'lightuserdata',
+  # 'stl-condition-variable' => 'lightuserdata',
+  # 'stl-deque' => 'lightuserdata',
+  # 'stl-fstream' => 'lightuserdata',
+  # 'stl-unordered-map' => 'lightuserdata'
+}.freeze
+
 HANDLERS = {
   'enum-type' => DFHackLuaDefinitions::EnumType,
   'bitfield-type' => DFHackLuaDefinitions::BitfieldType,
@@ -109,11 +143,9 @@ def parse_xml_files(files)
       compound.remove
     end
 
-    # Convert all native types to Lua types.
+    # Convert all primitive types to Lua types.
     document.xpath('//@type-name').each do |type|
-      next unless DFHackLuaDefinitions::TYPE_MAP[type.value]
-
-      type.value = DFHackLuaDefinitions::TYPE_MAP[type.value]
+      type.value = TYPE_MAP[type.value] if TYPE_MAP[type.value]
     end
 
     # Parse the document again after changes to validate.
@@ -130,7 +162,7 @@ def parse_xml_files(files)
 
       # Should only be applicable to df.globals
       globals = document.xpath('//ld:global-object')
-      output.write(DFHackLuaDefinitions::GlobalObject.new(globals).render) unless globals.empty?
+      output.write(DFHackLuaDefinitions::GlobalType.new(globals).render) unless globals.empty?
 
       document.xpath('//ld:global-type').each do |node|
         meta = node['ld:meta']
