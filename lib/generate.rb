@@ -6,9 +6,8 @@ require 'nokogiri'
 
 require_relative 'parser'
 
-FILE_HEADER = "---THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n"
+FILE_HEADER = "-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.\n"
 
-# TODO: Do as much of this conversion as possible in the initial document parsing.
 TYPE_MAP = {
   'int8_t' => 'number',
   'uint8_t' => 'integer',
@@ -144,7 +143,7 @@ def parse_xml_files(files)
     end
 
     # Convert all primitive types to Lua types.
-    document.xpath('//@type-name').each do |type|
+    document.xpath('//@type-name | //@base-type').each do |type|
       type.value = TYPE_MAP[type.value] if TYPE_MAP[type.value]
     end
 
