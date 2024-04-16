@@ -78,6 +78,8 @@ function DFType:is_instance(object) end
 local DFCompoundField
 
 ---@class DFPointer<T>: { value: T }
+---@field _kind 'primitive'
+---@field _type string
 local DFPointer
 
 -- Global object
@@ -110,7 +112,7 @@ function DFEnum.next_item(index) end
 ---@field _kind 'bitfield-type'
 local DFBitfield
 
----@class DFVector
+---@class DFVector<T>: { [string]: T }
 local DFVector
 
 ---@generic T
@@ -134,6 +136,31 @@ function DFVector:insert(index, item) end
 ---@param self T
 ---@param index integer
 function DFVector:erase(index) end
+
+---@class DFEnumVector<T, K>: { [K]: T}
+local DFEnumVector
+
+---@generic T
+---@param self T
+---@param index integer
+---@return DFObject
+function DFEnumVector:_field(index) end
+
+---@generic T
+---@param self T
+---@param new_size integer
+function DFEnumVector:resize(new_size) end
+
+---@generic T
+---@param self T
+---@param index integer|'#'
+---@param item any
+function DFEnumVector:insert(index, item) end
+
+---@generic T
+---@param self T
+---@param index integer
+function DFEnumVector:erase(index) end
 
 -- NULL value
 ---@class NULL: lightuserdata

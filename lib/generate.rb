@@ -51,13 +51,17 @@ HANDLERS = {
   'global' => DFHackLuaDefinitions::Field
 }.freeze
 
+# Mostly temporary, cleans DFHack's Lua files and outputs globals and function
+# names.
 def parse_lua_files(files)
+  ignored_files = %w[luacov_helper]
+
   files.each do |path|
     print "Parsing: #{path}\n"
     filename = File.basename(path, '.lua')
 
     # Not exposed to DFHack scripts.
-    next if filename == 'luacov_helper'
+    next if ignored_files.include? filename
 
     # Sanitize the filename.
     filename.gsub!(/[-_]([a-zA-Z])/) do
@@ -66,7 +70,7 @@ def parse_lua_files(files)
 
     file = File.read(path)
     is_module = /_ENV\s+=\s+mkmodule\(/.match(file)
-    functions = file.scan(/^(function\s+)(.*)$/)
+    functions = file.scan(/^function\s+(.*)$/)
 
     File.open("dist/library/hack/#{filename}.lua", 'w') do |output|
       output.write(FILE_HEADER)
@@ -78,13 +82,10 @@ def parse_lua_files(files)
       if is_module
         output.write("---@class #{filename}\nlocal #{filename}\n\n")
 
-        functions.each do |a, b|
-          output.write(a)
-
+        functions.each do |match|
+          output.write('function ')
           output.write("#{filename}.") if is_module
-
-          output.write(b)
-          output.write(" end\n\n")
+          output.write("#{match[0]} end\n\n")
         end
 
         output.write("return #{filename}")
