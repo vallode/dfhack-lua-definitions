@@ -29,5 +29,12 @@
                 "color": "terminal.ansiGreen"
             }
         },
+        {
+            "label": "Run tests",
+            "type": "shell",
+            "command": "rake spec",
+            "problemMatcher": [],
+            "group": "test",
+        }
     ]
 }
