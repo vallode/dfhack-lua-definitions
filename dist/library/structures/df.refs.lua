@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias general_ref_type
@@ -988,6 +988,15 @@ df.specific_ref = {}
 ---@class (exact) specific_ref.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _specific_ref.T_data
+---@field object any raw pointer
+---@field unit unit
+---@field activity activity_info
+---@field screen viewscreen
+---@field effect effect_info
+---@field vermin vermin
+---@field job job
+---@field histfig historical_figure
+---@field entity historical_entity
 ---@field wrestle specific_ref.T_data.T_wrestle
 
 ---@class _specific_ref.T_data: DFCompound
@@ -997,6 +1006,8 @@ df.specific_ref.T_data = {}
 ---@class (exact) specific_ref.T_data.T_wrestle: DFObject
 ---@field _kind 'struct'
 ---@field _type _specific_ref.T_data.T_wrestle
+---@field unk_1 any
+---@field item unit_item_wrestle
 
 ---@class _specific_ref.T_data.T_wrestle: DFCompound
 ---@field _kind 'struct-type'
@@ -1726,6 +1737,7 @@ df.entity_site_link_flags = {}
 ---@field link_strength number Summary: 0 seems to be active, 1, 2, 3, 5, 131, various cessations of activity. 8, 16, 128, 144, 8192 something unrelated, and the 129, 195 possible cessations"<br>0: Civilization/SiteGovernment/NomadicGroup/Religion/Outcast/MerchantCompany/Guild. Seems to be 'Active'. Civ can have 'Active' claim on site not held, while others seem to be currently active.<br>1: SiteGovernment/NomadicGroup/Outcast. Seems to be defeated and losing presence at the site. Nomads/Outcasts might not have been the masters of the site as single rampage can cause enmity of two entities.<br>2: Civilization: type = None/Active, (failed to find difference). All sites seen were either destroyed or abandoned, can be reclaimed, but without that flag set. No flags set except a possible 'fortress'. Note that no conquest was seen.<br>Outcast: type = Local_Activity. All have criminal flags. Some may have indications of having left, but some don't...<br>3: Outcast, all with type = Local_Activity. All seen were fully incorporated into other criminal gangs.<br>5: SiteGovernment/MilitaryUnit. All Fortress. All type = Claim. SiteGovernment just replaced w/o event. MercenaryCompay abandoned or were replaced silently, and no flags set.<br>8: All SiteGovernment with type = None. Seems to be references to SiteGovernments without any known relations. No flags set.<br>16: SiteGovernment/NomadicGroup with type = None. Seems to be references to entities without any known relations. No flags set.<br>128: SiteGovernment/NomadicGroup/Outcast with type = None. Seems to be references to entities without any known relations. No flags set.<br>129: NomadicGroup settling in destroyed site/site horribly experimented on, being present silently, and site getting destroyed again. type = Claim.<br>131: Outcast, type = Local_Activity. No flags. All relocated to site location, typically catacombs. All fully incorporated into other organization, as per 3.<br>144: NomadicGroup (only one entry). type = None. No flags. No apparent connection.<br>195: Outcast (only 2 entries). type = Local_Activity. No flags. Both moved to inn and became primary criminal org. One had lots of members moving from the inn. Different site destroyed in both cases. No incorporation seen, though.<br>8192: Civilization/SiteGovernment. type = None. No flags. No apparent connection.<br>former_flag is an accumulation of every flag the entity has ever had, any operation that clears part of flag also adds that flag to former_flag
 ---@field initial_controlling_population number all non zero cases are SiteGovernments with type = Claim, status = 0, and flags.residence = true. All examined were formed as forced administrations
 ---@field last_check_controlling_population number same value as previous field
+---@field ab_profile any the above are related to army.squads in some way
 ---@field target_site_x number target site world coordinate x
 ---@field target_site_y number target site world coordinate y
 ---@field last_checked_army_year number all cases seen were NomadicGroup with criminal_gang flag set, unk_4 = 0 and type = Foreign_Crime, except for cases with type = Claim and residence flag set as well

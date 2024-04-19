@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias creature_interaction_effect_type
@@ -258,6 +258,7 @@ df.creature_interaction_effect_flags = {}
 ---| 28 # BLOODSUCKER
 ---| 29 # NO_CONNECTIONS_FOR_MOVEMENT
 ---| 30 # SUPERNATURAL
+---| 31
 
 ---@alias _cie_add_tag_mask1_values
 ---| "EXTRAVISION" # 0
@@ -358,6 +359,7 @@ local cie_add_tag_mask1 = {
   [29] = false,
   SUPERNATURAL = false,
   [30] = false,
+  [31] = false,
 }
 
 ---@class _cie_add_tag_mask1: DFBitfield
@@ -485,6 +487,9 @@ df.creature_interaction_effect_target_mode = {}
 ---@class (exact) creature_interaction_effect_target: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_target
+---@field mode any
+---@field key any
+---@field tissue any
 
 ---@class _creature_interaction_effect_target: DFCompound
 ---@field _kind 'struct-type'
@@ -522,6 +527,10 @@ function df.creature_interaction_effect.get_vector() end
 ---@class (exact) creature_interaction_effect.T_counter_trigger: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect.T_counter_trigger
+---@field counter any
+---@field minval number ?
+---@field maxval number ?
+---@field required number
 
 ---@class _creature_interaction_effect.T_counter_trigger: DFCompound
 ---@field _kind 'struct-type'
@@ -729,6 +738,12 @@ df.creature_interaction_effect_bp_appearance_modifierst = {}
 ---@field chance number %
 ---@field race_str string
 ---@field caste_str string
+---@field race number References: `creature_raw`
+---@field caste number References: `caste_raw`
+---@field required_creature_flags number contains indexes of flags in creature_raw_flags
+---@field forbidden_creature_flags number contains indexes of flags in creature_raw_flags
+---@field required_caste_flags number contains indexes of flags in caste_raw_flags
+---@field forbidden_caste_flags number contains indexes of flags in caste_raw_flags
 ---@field unk_1 number
 ---@field unk_2 number
 
@@ -759,6 +774,7 @@ df.creature_interaction_effect_display_symbolst = {}
 ---@class (exact) creature_interaction_effect_flash_symbolst: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_flash_symbolst
+---@field sym_color integer
 ---@field period number
 ---@field time number
 ---@field unk_78 number
@@ -770,6 +786,8 @@ df.creature_interaction_effect_flash_symbolst = {}
 ---@class (exact) creature_interaction_effect_phys_att_changest: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_phys_att_changest
+---@field phys_att_perc number
+---@field phys_att_add number
 
 ---@class _creature_interaction_effect_phys_att_changest: DFCompound
 ---@field _kind 'class-type'
@@ -778,6 +796,8 @@ df.creature_interaction_effect_phys_att_changest = {}
 ---@class (exact) creature_interaction_effect_ment_att_changest: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_ment_att_changest
+---@field ment_att_perc number
+---@field ment_att_add number
 
 ---@class _creature_interaction_effect_ment_att_changest: DFCompound
 ---@field _kind 'class-type'
@@ -876,6 +896,7 @@ df.creature_interaction_effect_feel_emotionst = {}
 ---@class (exact) creature_interaction_effect_change_personalityst: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_change_personalityst
+---@field facets number
 
 ---@class _creature_interaction_effect_change_personalityst: DFCompound
 ---@field _kind 'class-type'
@@ -894,6 +915,9 @@ df.creature_interaction_effect_erratic_behaviorst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_close_open_woundsst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_close_open_woundsst: DFCompound
 ---@field _kind 'class-type'
@@ -903,6 +927,9 @@ df.creature_interaction_effect_close_open_woundsst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_cure_infectionsst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_cure_infectionsst: DFCompound
 ---@field _kind 'class-type'
@@ -912,6 +939,9 @@ df.creature_interaction_effect_cure_infectionsst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_heal_nervesst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_heal_nervesst: DFCompound
 ---@field _kind 'class-type'
@@ -921,6 +951,9 @@ df.creature_interaction_effect_heal_nervesst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_heal_tissuesst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_heal_tissuesst: DFCompound
 ---@field _kind 'class-type'
@@ -957,6 +990,9 @@ df.creature_interaction_effect_reduce_nauseast = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_painst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_reduce_painst: DFCompound
 ---@field _kind 'class-type'
@@ -966,6 +1002,9 @@ df.creature_interaction_effect_reduce_painst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_paralysisst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_reduce_paralysisst: DFCompound
 ---@field _kind 'class-type'
@@ -975,6 +1014,9 @@ df.creature_interaction_effect_reduce_paralysisst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_reduce_swellingst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_reduce_swellingst: DFCompound
 ---@field _kind 'class-type'
@@ -984,6 +1026,9 @@ df.creature_interaction_effect_reduce_swellingst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_regrow_partsst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_regrow_partsst: DFCompound
 ---@field _kind 'class-type'
@@ -992,6 +1037,8 @@ df.creature_interaction_effect_regrow_partsst = {}
 ---@class (exact) creature_interaction_effect_special_attack_interactionst: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_special_attack_interactionst
+---@field unk_1 number
+---@field unk_2 any
 ---@field unk_3 string
 
 ---@class _creature_interaction_effect_special_attack_interactionst: DFCompound
@@ -1002,6 +1049,9 @@ df.creature_interaction_effect_special_attack_interactionst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_stop_bleedingst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_stop_bleedingst: DFCompound
 ---@field _kind 'class-type'
@@ -1011,6 +1061,9 @@ df.creature_interaction_effect_stop_bleedingst = {}
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_cure_infectionst
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
 
 ---@class _creature_interaction_effect_cure_infectionst: DFCompound
 ---@field _kind 'class-type'
@@ -1020,6 +1073,7 @@ df.creature_interaction_effect_cure_infectionst = {}
 ---| 0 # SYN_INJECTED
 ---| 1 # SYN_CONTACT
 ---| 2 # SYN_INHALED
+---| 3
 ---| 4 # SYN_INGESTED
 ---| 5 # SYN_NO_HOSPITAL
 
@@ -1040,6 +1094,7 @@ local syndrome_flags = {
   [1] = false,
   SYN_INHALED = false,
   [2] = false,
+  [3] = false,
   SYN_INGESTED = false,
   [4] = false,
   SYN_NO_HOSPITAL = false,
@@ -1063,8 +1118,17 @@ df.syndrome_flags = {}
 ---@field _kind 'struct'
 ---@field _type _syndrome
 ---@field syn_name string
+---@field ce any
+---@field syn_affected_class any
+---@field syn_affected_creature any
+---@field syn_affected_caste any
+---@field syn_immune_class any
+---@field syn_immune_creature any
+---@field syn_immune_caste any
+---@field syn_class any
 ---@field syn_identifier string
 ---@field flags syndrome_flags
+---@field syn_concentration_added number
 ---@field id number
 
 ---@class _syndrome: DFCompound

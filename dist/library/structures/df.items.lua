@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias _item_flags_keys
@@ -14,6 +14,7 @@
 ---| 9 # spider_web
 ---| 10 # construction
 ---| 11 # encased
+---| 12
 ---| 13 # murder
 ---| 14 # foreign
 ---| 15 # trader
@@ -26,6 +27,7 @@
 ---| 22 # on_fire
 ---| 23 # melt
 ---| 24 # hidden
+---| 25
 ---| 26 # use_recorded
 ---| 27 # artifact_mood
 ---| 28 # temps_computed
@@ -93,6 +95,7 @@ local item_flags = {
   [10] = false, -- Material used in construction
   encased = false, -- Item encased in ice or obsidian
   [11] = false, -- Item encased in ice or obsidian
+  [12] = false, -- unused
   murder = false, -- Implies murder - used in fell moods
   [13] = false, -- Implies murder - used in fell moods
   foreign = false, -- Item is imported
@@ -117,6 +120,7 @@ local item_flags = {
   [23] = false, -- Designated for melting, if applicable
   hidden = false, -- Hidden item
   [24] = false, -- Hidden item
+  [25] = false, -- unused
   use_recorded = false, -- transient in unit.used_items update
   [26] = false, -- transient in unit.used_items update
   artifact_mood = false, -- created by mood/named existing item
@@ -542,6 +546,8 @@ df.trade_good_purpose = {}
 ---@field flags2 item_flags2
 ---@field age integer
 ---@field id number
+---@field specific_refs any
+---@field general_refs any
 ---@field world_data_id number References: `world_object_data`
 ---@field world_data_subid number
 ---@field stockpile_countdown integer -1 per 50 frames; then check if needs moving
@@ -577,6 +583,8 @@ function df.item.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _item_kill_info
 ---@field targets historical_kills
+---@field slayers number -- Wielders References: `historical_figure`
+---@field slayer_kill_counts number
 
 ---@class _item_kill_info: DFCompound
 ---@field _kind 'struct-type'
@@ -585,6 +593,7 @@ df.item_kill_info = {}
 ---@class (exact) item_history_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_history_info
+---@field kills item_kill_info
 ---@field attack_counter number increments by 1 each time the item is fired, thrown or used in an attack
 ---@field defence_counter number naming weight 0.001
 
@@ -596,6 +605,9 @@ df.item_history_info = {}
 ---@field _kind 'struct'
 ---@field _type _item_actual
 ---@field stack_size number
+---@field history_info any
+---@field magic any
+---@field contaminants any
 ---@field temperature temperaturest
 ---@field wear number
 ---@field wear_timer number counts up to 806400
@@ -626,6 +638,7 @@ df.item_crafted = {}
 ---@class (exact) item_constructed: DFObject, item_crafted
 ---@field _kind 'struct'
 ---@field _type _item_constructed
+---@field improvements any
 
 ---@class _item_constructed: DFCompound
 ---@field _kind 'class-type'
@@ -648,12 +661,12 @@ df.item_constructed = {}
 ---| 13 # has_bandage
 ---| 14 # has_plaster_cast
 ---| 15 # grime
----| 16 # severed_or_jammed
----| 17 # under_shell
----| 18 # is_shell
----| 19 # mangled
----| 20 # unk20
----| 21 # gelded
+---| 18 # severed_or_jammed
+---| 19 # under_shell
+---| 20 # is_shell
+---| 21 # mangled
+---| 22 # unk20
+---| 23 # gelded
 
 ---@alias _body_part_status_values
 ---| "on_fire" # 0
@@ -672,12 +685,12 @@ df.item_constructed = {}
 ---| "has_bandage" # 13
 ---| "has_plaster_cast" # 14
 ---| "grime" # 15
----| "severed_or_jammed" # 16
----| "under_shell" # 17
----| "is_shell" # 18
----| "mangled" # 19
----| "unk20" # 20
----| "gelded" # 21
+---| "severed_or_jammed" # 18
+---| "under_shell" # 19
+---| "is_shell" # 20
+---| "mangled" # 21
+---| "unk20" # 22
+---| "gelded" # 23
 
 ---@class body_part_status: DFObject, { [_body_part_status_keys|_body_part_status_values]: boolean }
 ---@field _kind 'bitfield'
@@ -716,17 +729,17 @@ local body_part_status = {
   grime = false,
   [15] = false,
   severed_or_jammed = false, -- seen e.g. on ribs smashed by blunt attack, but quickly disappeared
-  [16] = false, -- seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+  [18] = false, -- seen e.g. on ribs smashed by blunt attack, but quickly disappeared
   under_shell = false,
-  [17] = false,
+  [19] = false,
   is_shell = false,
-  [18] = false,
+  [20] = false,
   mangled = false, -- a wounded body part is described as being mangled beyond recognition when this flag is set
-  [19] = false, -- a wounded body part is described as being mangled beyond recognition when this flag is set
+  [21] = false, -- a wounded body part is described as being mangled beyond recognition when this flag is set
   unk20 = false, -- on zombified head
-  [20] = false, -- on zombified head
+  [22] = false, -- on zombified head
   gelded = false, -- set on GELDABLE body parts after a unit has been gelded
-  [21] = false, -- set on GELDABLE body parts after a unit has been gelded
+  [23] = false, -- set on GELDABLE body parts after a unit has been gelded
 }
 
 ---@class _body_part_status: DFBitfield
@@ -762,18 +775,18 @@ local body_part_status = {
 ---@field [14] "has_plaster_cast"
 ---@field grime 15
 ---@field [15] "grime"
----@field severed_or_jammed 16 seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field [16] "severed_or_jammed" seen e.g. on ribs smashed by blunt attack, but quickly disappeared
----@field under_shell 17
----@field [17] "under_shell"
----@field is_shell 18
----@field [18] "is_shell"
----@field mangled 19 a wounded body part is described as being mangled beyond recognition when this flag is set
----@field [19] "mangled" a wounded body part is described as being mangled beyond recognition when this flag is set
----@field unk20 20 on zombified head
----@field [20] "unk20" on zombified head
----@field gelded 21 set on GELDABLE body parts after a unit has been gelded
----@field [21] "gelded" set on GELDABLE body parts after a unit has been gelded
+---@field severed_or_jammed 18 seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field [18] "severed_or_jammed" seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field under_shell 19
+---@field [19] "under_shell"
+---@field is_shell 20
+---@field [20] "is_shell"
+---@field mangled 21 a wounded body part is described as being mangled beyond recognition when this flag is set
+---@field [21] "mangled" a wounded body part is described as being mangled beyond recognition when this flag is set
+---@field unk20 22 on zombified head
+---@field [22] "unk20" on zombified head
+---@field gelded 23 set on GELDABLE body parts after a unit has been gelded
+---@field [23] "gelded" set on GELDABLE body parts after a unit has been gelded
 df.body_part_status = {}
 
 ---@alias _body_layer_status_keys
@@ -804,6 +817,14 @@ df.body_layer_status = {}
 ---@class (exact) body_component_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _body_component_info
+---@field body_part_status body_part_status
+---@field numbered_masks integer 1 bit per instance of a numbered body part
+---@field nonsolid_remaining integer 0-100%
+---@field layer_status body_layer_status
+---@field layer_wound_area integer
+---@field layer_cut_fraction integer Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
+---@field layer_dent_fraction integer 0-10000
+---@field layer_effect_fraction integer 0-1000000000
 
 ---@class _body_component_info: DFCompound
 ---@field _kind 'struct-type'
@@ -890,6 +911,7 @@ df.corpse_material_type = {}
 ---@field undead_unit_id number References: `unit`
 ---@field unit_id2 number References: `unit`
 ---@field corpse_flags item_body_component.T_corpse_flags
+---@field material_amount number
 ---@field bone1 item_body_component.T_bone1
 ---@field bone2 item_body_component.T_bone2
 
@@ -900,9 +922,16 @@ df.item_body_component = {}
 ---@class (exact) item_body_component.T_body: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_body_component.T_body
+---@field wounds any
+---@field unk_100 number unit.body.unk_39c
 ---@field wound_next_id number
 ---@field components body_component_info
+---@field physical_attr_value number
+---@field physical_attr_soft_demotion number
 ---@field size_info body_size_info
+---@field body_part_relsize number =unit.enemy.body_part_relsize
+---@field body_modifiers number
+---@field bp_modifiers number
 
 ---@class _item_body_component.T_body: DFCompound
 ---@field _kind 'struct-type'
@@ -911,6 +940,11 @@ df.item_body_component.T_body = {}
 ---@class (exact) item_body_component.T_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_body_component.T_appearance
+---@field colors number
+---@field tissue_style number
+---@field tissue_style_civ_id number
+---@field tissue_style_id number
+---@field tissue_style_type number
 
 ---@class _item_body_component.T_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -923,6 +957,7 @@ df.item_body_component.T_appearance = {}
 ---| 3 # leather
 ---| 4 # bone
 ---| 5 # shell
+---| 6
 ---| 7 # soap
 ---| 8 # tooth
 ---| 9 # horn
@@ -966,6 +1001,7 @@ local item_body_component_corpse_flags = {
   [4] = false,
   shell = false,
   [5] = false,
+  [6] = false,
   soap = false,
   [7] = false,
   tooth = false,
@@ -1042,6 +1078,9 @@ df.item_body_component.T_bone2 = {}
 ---@class (exact) item_corpsest: DFObject, item_body_component
 ---@field _kind 'struct'
 ---@field _type _item_corpsest
+---@field unused_380 any
+---@field unused_388 any
+---@field unused_390 any
 ---@field unused_398 number
 ---@field unused_39c number
 ---@field unused_3a0 number
@@ -1337,8 +1376,10 @@ df.item_fish_rawst = {}
 ---@class (exact) item_foodst: DFObject, item_crafted
 ---@field _kind 'struct'
 ---@field _type _item_foodst
+---@field subtype itemdef_foodst
 ---@field entity number References: `historical_entity`
 ---@field recipe_id number
+---@field ingredients any
 ---@field rot_timer number
 
 ---@class _item_foodst: DFCompound
@@ -1439,8 +1480,10 @@ df.item_threadst = {}
 ---@field hatchling_population_id number hatchlings will have this population_id References: `entity_population`
 ---@field hatchling_unit_unk_c0 number hatchlings will have this unit.unk_c0 value
 ---@field unk_2 number
+---@field mothers_genes unit_genes position uncertain
 ---@field mothers_caste number References: `caste_raw`
 ---@field unk_3 number
+---@field fathers_genes unit_genes object owned by egg item
 ---@field fathers_caste number -1 if no father genes References: `caste_raw`
 ---@field unk_4 number
 ---@field hatchling_flags1 unit_flags1 used primarily for bit_flag:tame
@@ -1783,6 +1826,7 @@ df.item_traction_benchst = {}
 ---@class (exact) item_instrumentst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_instrumentst
+---@field subtype itemdef_instrumentst
 
 ---@class _item_instrumentst: DFCompound
 ---@field _kind 'class-type'
@@ -1791,6 +1835,7 @@ df.item_instrumentst = {}
 ---@class (exact) item_toyst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_toyst
+---@field subtype itemdef_toyst
 
 ---@class _item_toyst: DFCompound
 ---@field _kind 'class-type'
@@ -1799,6 +1844,7 @@ df.item_toyst = {}
 ---@class (exact) item_armorst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_armorst
+---@field subtype itemdef_armorst
 
 ---@class _item_armorst: DFCompound
 ---@field _kind 'class-type'
@@ -1807,6 +1853,7 @@ df.item_armorst = {}
 ---@class (exact) item_shoesst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_shoesst
+---@field subtype itemdef_shoesst
 
 ---@class _item_shoesst: DFCompound
 ---@field _kind 'class-type'
@@ -1815,6 +1862,7 @@ df.item_shoesst = {}
 ---@class (exact) item_shieldst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_shieldst
+---@field subtype itemdef_shieldst
 
 ---@class _item_shieldst: DFCompound
 ---@field _kind 'class-type'
@@ -1823,6 +1871,7 @@ df.item_shieldst = {}
 ---@class (exact) item_helmst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_helmst
+---@field subtype itemdef_helmst
 
 ---@class _item_helmst: DFCompound
 ---@field _kind 'class-type'
@@ -1831,6 +1880,8 @@ df.item_helmst = {}
 ---@class (exact) item_glovesst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_glovesst
+---@field subtype itemdef_glovesst
+---@field handedness any 1 right, 2 left
 
 ---@class _item_glovesst: DFCompound
 ---@field _kind 'class-type'
@@ -1839,6 +1890,7 @@ df.item_glovesst = {}
 ---@class (exact) item_pantsst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_pantsst
+---@field subtype itemdef_pantsst
 
 ---@class _item_pantsst: DFCompound
 ---@field _kind 'class-type'
@@ -1847,6 +1899,7 @@ df.item_pantsst = {}
 ---@class (exact) item_siegeammost: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_siegeammost
+---@field subtype itemdef_siegeammost
 ---@field sharpness number
 
 ---@class _item_siegeammost: DFCompound
@@ -1856,6 +1909,7 @@ df.item_siegeammost = {}
 ---@class (exact) item_weaponst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_weaponst
+---@field subtype itemdef_weaponst
 ---@field sharpness number
 
 ---@class _item_weaponst: DFCompound
@@ -1865,6 +1919,7 @@ df.item_weaponst = {}
 ---@class (exact) item_ammost: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_ammost
+---@field subtype itemdef_ammost
 ---@field sharpness number
 
 ---@class _item_ammost: DFCompound
@@ -1874,6 +1929,7 @@ df.item_ammost = {}
 ---@class (exact) item_trapcompst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_trapcompst
+---@field subtype itemdef_trapcompst
 ---@field sharpness number
 
 ---@class _item_trapcompst: DFCompound
@@ -1883,6 +1939,7 @@ df.item_trapcompst = {}
 ---@class (exact) item_toolst: DFObject, item_constructed
 ---@field _kind 'struct'
 ---@field _type _item_toolst
+---@field subtype itemdef_toolst
 ---@field sharpness number
 ---@field stockpile item_stockpile_ref
 ---@field vehicle_id number References: `vehicle`

@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) building_def: DFObject
@@ -9,12 +9,20 @@
 ---@field name string
 ---@field building_type building_type
 ---@field building_subtype number
+---@field name_color number
+---@field tile any
+---@field tile_color any
+---@field tile_block any
+---@field graphics_normal any
+---@field graphics_overlay any
 ---@field build_key number
 ---@field needs_magma boolean
+---@field build_items any
 ---@field dim_x number
 ---@field dim_y number
 ---@field workloc_x number
 ---@field workloc_y number
+---@field build_labors any
 ---@field labor_description string
 ---@field build_stages number
 
@@ -49,6 +57,8 @@ function df.building_def.get_vector() end
 ---@field min_dimension number
 ---@field quantity number
 ---@field has_tool_use tool_uses
+---@field item_str string
+---@field material_str string
 ---@field metal_ore_str string
 
 ---@class _building_def_item: DFCompound

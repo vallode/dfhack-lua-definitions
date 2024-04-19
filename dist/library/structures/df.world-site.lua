@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) scribejob: DFObject
@@ -25,6 +25,7 @@ df.scribejob = {}
 ---@field unk_2 number
 ---@field year number
 ---@field tickmaybe number
+---@field unk_3 number
 
 ---@class _site_reputation_report: DFCompound
 ---@field _kind 'struct-type'
@@ -33,6 +34,7 @@ df.site_reputation_report = {}
 ---@class (exact) site_reputation_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_reputation_info
+---@field reports any
 
 ---@class _site_reputation_info: DFCompound
 ---@field _kind 'struct-type'
@@ -41,6 +43,7 @@ df.site_reputation_info = {}
 ---@class (exact) location_scribe_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _location_scribe_jobs
+---@field scribejobs any
 ---@field nextidmaybe number
 ---@field year number
 ---@field unk_1 integer
@@ -133,6 +136,8 @@ df.abstract_building_flags = {}
 ---@class (exact) abstract_building_entombed: DFObject
 ---@field _kind 'struct'
 ---@field _type _abstract_building_entombed
+---@field populations any
+---@field histfigs number References: `historical_figure`
 
 ---@class _abstract_building_entombed: DFCompound
 ---@field _kind 'struct-type'
@@ -169,6 +174,7 @@ df.abstract_building_entombed = {}
 ---@field count_soap number
 ---@field unk_v47_2 number
 ---@field unk_v47_3 number
+---@field building_ids number References: `building`
 
 ---@class _abstract_building_contents: DFCompound
 ---@field _kind 'struct-type'
@@ -178,6 +184,7 @@ df.abstract_building_contents = {}
 ---| 0 # goblets
 ---| 1 # instruments
 ---| 2 # paper
+---| 3
 ---| 4 # splints
 ---| 5 # thread
 ---| 6 # cloth
@@ -208,6 +215,7 @@ local abstract_building_contents_need_more = {
   [1] = false,
   paper = false,
   [2] = false,
+  [3] = false,
   splints = false,
   [4] = false,
   thread = false,
@@ -251,10 +259,19 @@ df.abstract_building_contents.T_need_more = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building
 ---@field id number
+---@field inhabitants any
+---@field flags any
+---@field unk1 any in temples; hfig is the god
+---@field unk2 number
 ---@field parent_building_id number Tombs use this to hold which catacomb they are part of. References: `abstract_building`
+---@field child_building_ids number Used by catacombs to hold their tombs References: `abstract_building`
 ---@field site_owner_id number entity that constructed the building References: `historical_entity`
+---@field scribeinfo location_scribe_jobs
+---@field reputation_reports site_reputation_info
+---@field unk_v42_3 any
 ---@field site_id number not initialized/saved/loaded, assumed member of base class References: `world_site`
 ---@field pos coord2d
+---@field occupations any
 
 ---@class _abstract_building: DFCompound
 ---@field _kind 'class-type'
@@ -389,6 +406,7 @@ df.abstract_building_underworld_spirest = {}
 ---@field _type _abstract_building_inn_tavernst
 ---@field name language_name
 ---@field contents abstract_building_contents
+---@field room_info any
 ---@field next_room_info_id number
 
 ---@class _abstract_building_inn_tavernst: DFCompound
@@ -399,6 +417,7 @@ df.abstract_building_inn_tavernst = {}
 ---@field _kind 'struct'
 ---@field _type _abstract_building_libraryst
 ---@field name language_name
+---@field copied_artifacts number References: `artifact_record`
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
@@ -575,7 +594,21 @@ df.unit_placement_infost = {}
 ---@class (exact) populacest: DFObject
 ---@field _kind 'struct'
 ---@field _type _populacest
+---@field nemesis number References: `nemesis_record`
+---@field artifacts any
+---@field animals any
+---@field inhabitants any
+---@field units any
+---@field hist_fig_id number worldgen only
+---@field hist_fig any worldgen only
 ---@field births_wanted number
+---@field pregnancy_candidate any
+---@field marriage_candidate_f_f any
+---@field marriage_candidate_f_m any
+---@field marriage_candidate_f_fm any
+---@field marriage_candidate_m_f any
+---@field marriage_candidate_m_m any
+---@field marriage_candidate_m_fm any
 
 ---@class _populacest: DFCompound
 ---@field _kind 'struct-type'
@@ -584,6 +617,12 @@ df.populacest = {}
 ---@class (exact) site_first_calc_special_itemsst: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_first_calc_special_itemsst
+---@field type item_type
+---@field subtype number
+---@field mat number
+---@field matgloss number
+---@field civ_id number References: `historical_entity`
+---@field site_id number References: `world_site`
 
 ---@class _site_first_calc_special_itemsst: DFCompound
 ---@field _kind 'struct-type'
@@ -596,6 +635,8 @@ df.site_first_calc_special_itemsst = {}
 ---@field allotment_index number
 ---@field count number
 ---@field planting_week number
+---@field growth_allotment_index number
+---@field growth_num_multiplier number
 ---@field flag site_cropst.T_flag
 
 ---@class _site_cropst: DFCompound
@@ -660,6 +701,7 @@ df.site_religious_structurest.T_data = {}
 ---@class (exact) site_religious_structure_batchst: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_religious_structure_batchst
+---@field rstruct site_religious_structurest
 ---@field rstructnum number
 
 ---@class _site_religious_structure_batchst: DFCompound
@@ -669,6 +711,7 @@ df.site_religious_structure_batchst = {}
 ---@class (exact) site_culture_infrastructurest: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_culture_infrastructurest
+---@field religious_structure_batch any
 
 ---@class _site_culture_infrastructurest: DFCompound
 ---@field _kind 'struct-type'
@@ -803,6 +846,8 @@ df.location_death_batchst = {}
 ---@class (exact) location_deathst: DFObject
 ---@field _kind 'struct'
 ---@field _type _location_deathst
+---@field batch any
+---@field hfid number killed by rampaging monster, murder, execution, old age seen. Note that most HFs seem to have been culled References: `historical_figure`
 
 ---@class _location_deathst: DFCompound
 ---@field _kind 'struct-type'
@@ -814,6 +859,7 @@ df.location_deathst = {}
 ---@field fortress_type fortress_type Only when site.type=Fortress
 ---@field monument_type monument_type Only when site.type=Monument
 ---@field lair_type lair_type Only when site.type=LairShrine
+---@field unk_night_creature_lair number only on SIMPLE_MOUND and SIMPLE_BURROW, all mounds but not all burrows, all had night creatures. All instances seen had single element with value 0
 ---@field unk_14 number
 ---@field unk_18 number
 ---@field unk_1c number
@@ -896,6 +942,8 @@ df.wg_site_culture_identity_religious_practicest.T_data = {}
 ---@field _kind 'struct'
 ---@field _type _wg_site_culture_identityst
 ---@field entity_id number
+---@field religious_practice any
+---@field interaction any
 
 ---@class _wg_site_culture_identityst: DFCompound
 ---@field _kind 'struct-type'
@@ -937,6 +985,7 @@ df.wg_site_culture_identity_interactionst = {}
 ---@class (exact) wg_site_culturest: DFObject
 ---@field _kind 'struct'
 ---@field _type _wg_site_culturest
+---@field identity any
 
 ---@class _wg_site_culturest: DFCompound
 ---@field _kind 'struct-type'
@@ -968,28 +1017,71 @@ df.wg_site_culturest = {}
 ---@field resident_count number count living in houses and shops
 ---@field brood_creature number
 ---@field brood_caste number
+---@field special_items site_first_calc_special_itemsst
 ---@field size number Caves have non zero numbers. No others.
 ---@field added_size number Subset of caves can have non zero.
 ---@field infrastructure_pop_level number Monument 0, LairShrine 5, Camp 20, others varying
 ---@field base_infrastructure_pop_level number  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
+---@field infrastructure number Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
+---@field small_crop any MountainHall, Town, DarkFortress, but not all
+---@field orchard any forest retreat
 ---@field culture_infrastructure site_culture_infrastructurest
+---@field flag any
+---@field buildings any
 ---@field next_building_id number
+---@field property_ownership any bay12: site_building_profile
 ---@field next_property_ownership_id number
 ---@field created_tick number bay12: lastvisited not created
 ---@field created_year number bay12: lastvisited not created
 ---@field moss_counter number constant 0
 ---@field weathering_counter number constant 0
 ---@field recorded_entrance coord
+---@field realization world_site_realization
+---@field subtype_info site_map_infost bay12: site_map_info
 ---@field location_death location_deathst
 ---@field is_mountain_halls number bay12: min_depth
 ---@field is_fortress number bay12: max_depth
 ---@field mined_hours number only MountainHalls, but only subset of them
+---@field architecture_change any
+---@field unk_v40_4b any -- TODO: progress marker --
+---@field unk_v40_4c any
+---@field unk_v40_4d any only seen once, 13 long, corresponding to 13 attacks from the same entity_id resulting in site taken over in 'might bey year'
 ---@field unk_v40_4d_next_id number only single non zero entry, matching vector above. Might guess 'since' is scrambled
+---@field unk_v43_2 any
 ---@field unk_v43_3 number constant 0?
 ---@field unk_v40_5 number constant -1?
+---@field unk_188 any Seen monster in lair, first settler in site, killed defender in site, artifact created in player fortress, (player) created artifact claimed by villain for unrelated cave/villain settled in cave
 ---@field unk_3a8 number
+---@field unk_3b0 world_site_unk130
+---@field unk_18c any
+---@field unk_19c any
+---@field entity_links any
+---@field cultural_identities any
+---@field unk_v42_1 any
 ---@field unk_v43_4 number during worldgen only
+---@field unk_3 any
+---@field unk_4 historical_figure
+---@field unk_5 historical_figure
+---@field unk_6 historical_figure
+---@field unk_7 historical_figure
+---@field unk_8 historical_figure
+---@field unk_9 any
+---@field unk_10 any
+---@field unk_11 any
+---@field unk_12 any
+---@field unk_13 any
+---@field unk_14 any
+---@field unk_15 any
+---@field unk_16 any
+---@field unk_17 any
+---@field unk_18 any
+---@field unk_19 any
+---@field unk_20 any
+---@field unk_21 any
+---@field unk_22 any
+---@field unk_23 any
 ---@field unk_24 number
+---@field unk_25 any
 
 ---@class _world_site: DFCompound
 ---@field _kind 'struct-type'
@@ -1010,10 +1102,17 @@ function df.world_site.get_vector() end
 ---@field id number
 ---@field site_id number References: `world_site`
 ---@field civ_id number References: `historical_entity`
+---@field group_log any the circumstances of groups joining or leaving this culture
+---@field ethic any
+---@field values number
+---@field events any
 ---@field unk_d8 number
+---@field unk_dc number
 ---@field unk_ec number
 ---@field unk_f0 number
 ---@field unk_f4 number 0 or 800000
+---@field unk_1 any
+---@field unk_2 any
 ---@field unk_f8 number
 
 ---@class _cultural_identity: DFCompound
@@ -1051,29 +1150,59 @@ df.world_site_inhabitant = {}
 ---@class (exact) world_site_realization: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_site_realization
+---@field buildings any
 ---@field num_buildings number
 ---@field unk_14 number
 ---@field num_areas number
+---@field mini_rivers any
+---@field mini_tiles any
+---@field mini_colors any
+---@field road_map any 2601 = 51*51 = 17*3*17*3
+---@field river_map any
+---@field unk_55e8 any
+---@field building_map any
+---@field flags_map any
+---@field zoom_tiles any
+---@field zoom_colors any
+---@field zoom_movemask any
+---@field area_map any 2704 = 52*52
+---@field areas any
 ---@field unk_1 number
 ---@field army_controller_pos_x number
 ---@field army_controller_pos_y number
+---@field unk_193bc any
 ---@field num_unk_193bc number
 ---@field unk_2 number
 ---@field unk_3 number
+---@field unk_4 any
 ---@field unk_5 number
+---@field unk_6 pointer
 ---@field unk_7 number
+---@field unk_8 pointer
 ---@field unk_9 number
+---@field unk_10 pointer
 ---@field unk_11 number
+---@field unk_12 pointer
 ---@field unk_13 number
+---@field unk_15 pointer
 ---@field unk_16 number
+---@field unk_17 pointer
 ---@field unk_18 number
+---@field unk_19 pointer
 ---@field unk_20 number
+---@field unk_21 pointer
 ---@field unk_22 number
+---@field building_well any
 ---@field num_building_well number
+---@field building_temple any
 ---@field num_building_temple number
+---@field building_type22 any
 ---@field num_building_type22 number
+---@field building_type21 any
 ---@field num_building_type21 number
+---@field unk_23 pointer
 ---@field unk_24 number
+---@field unk_wsr_vector any
 
 ---@class _world_site_realization: DFCompound
 ---@field _kind 'struct-type'
@@ -1082,6 +1211,10 @@ df.world_site_realization = {}
 ---@class (exact) site_realization_crossroads: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_realization_crossroads
+---@field road_min_y number
+---@field road_max_y number
+---@field road_min_x number
+---@field road_max_x number
 ---@field idx_x number
 ---@field idx_y number
 ---@field tile_width number
@@ -1096,6 +1229,10 @@ df.world_site_realization = {}
 ---@field unk_32c number
 ---@field center_x_tile number
 ---@field center_y_tile number
+---@field up site_realization_crossroads
+---@field down site_realization_crossroads
+---@field right site_realization_crossroads
+---@field left site_realization_crossroads
 ---@field unk_348 number
 ---@field unk_349 number
 ---@field unk_34c number
@@ -1107,6 +1244,8 @@ df.world_site_realization = {}
 ---@field unk_6 number
 ---@field unk_7 number
 ---@field unk_8 number
+---@field unk_370 number
+---@field unk_3d0 number
 
 ---@class _site_realization_crossroads: DFCompound
 ---@field _kind 'struct-type'
@@ -1220,11 +1359,15 @@ df.site_realization_building_type = {}
 ---@field max_x number
 ---@field max_y number
 ---@field unk_18 number
+---@field inhabitants any
 ---@field unk_2c number
 ---@field item site_building_item
 ---@field abstract_building_id number used for temple and mead hall
 ---@field unk_44 number
+---@field building_info site_realization_building_infost
+---@field unk_4c any
 ---@field unk_5c number bit 0x01 == abandoned
+---@field unk_60 any
 ---@field unk_v40_1 number
 
 ---@class _site_realization_building: DFCompound
@@ -1499,6 +1642,7 @@ df.site_realization_building_info_market_squarest = {}
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_info_trenchesst
 ---@field unk_4 number
+---@field spokes any N, S, E, W
 
 ---@class _site_realization_building_info_trenchesst: DFCompound
 ---@field _kind 'class-type'
@@ -1610,6 +1754,8 @@ df.creation_zone_pwg_alteration_location_deathst = {}
 ---@class (exact) creation_zone_pwg_alteration_location_deathst.T_unk_1: DFObject
 ---@field _kind 'struct'
 ---@field _type _creation_zone_pwg_alteration_location_deathst.T_unk_1
+---@field unk_1a any
+---@field unk_2a number
 
 ---@class _creation_zone_pwg_alteration_location_deathst.T_unk_1: DFCompound
 ---@field _kind 'struct-type'

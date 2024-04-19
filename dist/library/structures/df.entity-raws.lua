@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias entity_raw_flags
@@ -451,20 +451,53 @@ df.entity_name_type = {}
 ---@field _type _entity_raw
 ---@field code string
 ---@field index number into instace-vector
+---@field raws any
+---@field creature_ids number References: `creature_raw`
+---@field creatures any
 ---@field equipment entity_raw.T_equipment
+---@field currency_value number
+---@field flags any
 ---@field translation string
 ---@field symbols entity_raw.T_symbols
+---@field sphere_alignment number
+---@field art_facet_modifier number
+---@field art_image_element_modifier number
+---@field item_improvement_modifier number
+---@field friendly_color number
 ---@field default_site_type world_site_type
+---@field likes_site number
+---@field tolerates_site number
+---@field biome_support number
+---@field start_biome number
+---@field settlement_biome number
+---@field active_season number
 ---@field progress_trigger entity_raw.T_progress_trigger
+---@field ethic any
+---@field values number
+---@field variable_value_min number
+---@field variable_value_max number
 ---@field scholar entity_raw.T_scholar
 ---@field max_site_pop_number number
 ---@field max_pop_number number
 ---@field max_starting_civ_number number
+---@field religion number
+---@field religion_sphere any
 ---@field jobs entity_raw.T_jobs
+---@field positions any
+---@field variable_positions number
+---@field site_variable_positions number
+---@field tissue_styles any
 ---@field workshops entity_raw.T_workshops
 ---@field banditry number
+---@field gem_shapes_str any
+---@field stone_shapes_str any
+---@field gem_shapes number References: `descriptor_shape`
+---@field stone_shapes number References: `descriptor_shape`
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
+---@field currency_str1 any
+---@field currency_str2 any
+---@field animal any
 
 ---@class _entity_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -482,6 +515,39 @@ function df.entity_raw.get_vector() end
 ---@class (exact) entity_raw.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_equipment
+---@field digger_id number References: `itemdef_weaponst`
+---@field weapon_id number References: `itemdef_weaponst`
+---@field armor_id number References: `itemdef_armorst`
+---@field ammo_id number References: `itemdef_ammost`
+---@field helm_id number References: `itemdef_helmst`
+---@field gloves_id number References: `itemdef_glovesst`
+---@field shoes_id number References: `itemdef_shoesst`
+---@field pants_id number References: `itemdef_pantsst`
+---@field shield_id number References: `itemdef_shieldst`
+---@field trapcomp_id number References: `itemdef_trapcompst`
+---@field toy_id number References: `itemdef_toyst`
+---@field instrument_id number References: `itemdef_instrumentst`
+---@field tool_id number References: `itemdef_toolst`
+---@field siegeammo_id number References: `itemdef_siegeammost`
+---@field armor_rarity number
+---@field helm_rarity number
+---@field gloves_rarity number
+---@field shoes_rarity number
+---@field pants_rarity number
+---@field digger_str any
+---@field weapon_str any
+---@field armor_str any
+---@field ammo_str any
+---@field helm_str any
+---@field gloves_str any
+---@field shoes_str any
+---@field pants_str any
+---@field shield_str any
+---@field trapcomp_str any
+---@field toy_str any
+---@field instrument_str any
+---@field siegeammo_str any
+---@field tool_str any
 
 ---@class _entity_raw.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -490,6 +556,11 @@ df.entity_raw.T_equipment = {}
 ---@class (exact) entity_raw.T_symbols: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_symbols
+---@field symbols1 language_word_table
+---@field symbols2 language_word_table
+---@field select_symbol any
+---@field subselect_symbol any
+---@field cull_symbol any
 
 ---@class _entity_raw.T_symbols: DFCompound
 ---@field _kind 'struct-type'
@@ -579,6 +650,9 @@ df.entity_raw.T_scholar = {}
 ---@class (exact) entity_raw.T_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_jobs
+---@field permitted_job boolean
+---@field permitted_labor boolean
+---@field world_construction boolean
 
 ---@class _entity_raw.T_jobs: DFCompound
 ---@field _kind 'struct-type'
@@ -587,6 +661,10 @@ df.entity_raw.T_jobs = {}
 ---@class (exact) entity_raw.T_workshops: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_workshops
+---@field permitted_building_str any
+---@field permitted_building_id number References: `building_def`
+---@field permitted_reaction_str any
+---@field permitted_reaction_id number References: `reaction`
 
 ---@class _entity_raw.T_workshops: DFCompound
 ---@field _kind 'struct-type'
@@ -596,6 +674,9 @@ df.entity_raw.T_workshops = {}
 ---@field _kind 'struct'
 ---@field _type _entity_animal_raw
 ---@field token string
+---@field caste_token any
+---@field animal_class any
+---@field forbidden_class any
 ---@field flags entity_animal_raw.T_flags
 
 ---@class _entity_animal_raw: DFCompound
@@ -903,8 +984,25 @@ df.entity_position_responsibility = {}
 ---@field _type _entity_position_raw
 ---@field code string
 ---@field id number
+---@field flags any
+---@field allowed_creature_str any
+---@field allowed_creature number References: `creature_raw`
+---@field allowed_class any
+---@field rejected_creature_str any
+---@field rejected_creature number References: `creature_raw`
+---@field rejected_class any
+---@field name string
+---@field name_female string
+---@field name_male string
+---@field spouse string
+---@field spouse_female string
+---@field spouse_male string
+---@field squad string
 ---@field land_name string
 ---@field squad_size number
+---@field commander_str any
+---@field commander_id number
+---@field commander_types number
 ---@field land_holder number
 ---@field number number
 ---@field requires_population number
@@ -912,6 +1010,12 @@ df.entity_position_responsibility = {}
 ---@field precedence number
 ---@field replaced_by_str string
 ---@field replaced_by number
+---@field appointed_by_str any
+---@field appointed_by number
+---@field succession_by_position_str any
+---@field succession_by_position number
+---@field responsibilities boolean
+---@field color number
 ---@field required_boxes number
 ---@field required_cabinets number
 ---@field required_racks number

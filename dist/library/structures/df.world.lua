@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias worldgen_region_type
@@ -73,6 +73,8 @@ df.units_other_id = {}
 ---@class (exact) units_other: DFObject
 ---@field _kind 'struct'
 ---@field _type _units_other
+---@field ANY_RIDER any
+---@field ANY_BABY2 any
 
 ---@class _units_other: DFCompound
 ---@field _kind 'struct-type'
@@ -81,6 +83,7 @@ df.units_other = {}
 ---@class (exact) unit_context_block: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_context_block
+---@field context_unit any
 ---@field num number
 
 ---@class _unit_context_block: DFCompound
@@ -123,6 +126,7 @@ df.conflict_level = {}
 ---@field hfid number bay12: true hf of incident References: `historical_figure`
 ---@field visual_hfid number bay12: basic visual id References: `historical_figure`
 ---@field historical_hfid number bay12: if any witness knew actual name References: `historical_figure`
+---@field all_witnessed_ident number References: `identity`
 
 ---@class _incident_hfid: DFCompound
 ---@field _kind 'struct-type'
@@ -133,6 +137,7 @@ df.incident_hfid = {}
 ---@field _type _incident
 ---@field id number dtor 0x8C1AE10
 ---@field type incident.T_type
+---@field witnesses number References: `unit`
 ---@field unk_year number
 ---@field unk_year_tick number
 ---@field victim number References: `unit`
@@ -250,6 +255,11 @@ df.incident.T_flags = {}
 ---@class (exact) incident.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _incident.T_data
+---@field Performance incident_data_performance
+---@field Artifact incident_data_artifact
+---@field Writing incident_data_writing
+---@field SelfID incident_data_identity
+---@field RefusedID incident_data_identity
 
 ---@class _incident.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -259,6 +269,7 @@ df.incident.T_data = {}
 ---@field _kind 'struct'
 ---@field _type _incident_data_performance
 ---@field performance_event performance_event_type
+---@field participants any
 ---@field reference_id number history_event id/poetic_form id/musical_form id/dance_form_id or -1
 ---@field written_content_id number -1 if not used
 ---@field abstract_location number location at which the performance was held
@@ -282,6 +293,7 @@ df.incident_data_performance = {}
 ---@field unk_5 number
 ---@field unk_6 number
 ---@field unk_7 number
+---@field unk_8 number
 ---@field unk_9 number
 
 ---@class _incident_data_artifact: DFCompound
@@ -322,6 +334,7 @@ df.incident_data_artifact.T_state = {}
 ---@field unk_4 number
 ---@field unk_5 number
 ---@field unk_6 number
+---@field unk_7 number
 ---@field unk_8 number
 
 ---@class _incident_data_writing: DFCompound
@@ -342,6 +355,7 @@ df.incident_data_writing.T_state = {}
 ---@class (exact) incident_data_identity: DFObject
 ---@field _kind 'struct'
 ---@field _type _incident_data_identity
+---@field unk_1 any
 
 ---@class _incident_data_identity: DFCompound
 ---@field _kind 'struct-type'
@@ -365,6 +379,7 @@ df.incident_data_identity = {}
 ---@field victim_hf number References: `historical_figure`
 ---@field victim_hf_2 number the two additional copies probably refers to some other roles, but all 3 are identical in cases seen References: `historical_figure`
 ---@field victim_hf_3 number References: `historical_figure`
+---@field unk_v47_vector_3 number this vector hasn't been seen, but is guessed at based on the pattern above
 ---@field flags crime.T_flags
 ---@field incident_id number References: `incident`
 ---@field event_year number
@@ -374,6 +389,9 @@ df.incident_data_identity = {}
 ---@field site number References: `world_site`
 ---@field entity number References: `historical_entity`
 ---@field item_id number seen with crime of theft References: `item`
+---@field reports any
+---@field counterintelligence any
+---@field witnesses any
 ---@field agreement_id number References: `agreement`
 
 ---@class _crime: DFCompound
@@ -465,6 +483,7 @@ df.crime.T_punishment = {}
 ---@class (exact) crime.T_convict_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _crime.T_convict_data
+---@field unk_v47_vector_1 number don't know what the number refers to
 ---@field convicted number References: `unit`
 
 ---@class _crime.T_convict_data: DFCompound
@@ -474,6 +493,7 @@ df.crime.T_convict_data = {}
 ---@class (exact) crime.T_victim_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _crime.T_victim_data
+---@field unk_v47_vector_2 number
 ---@field victim number References: `unit`
 
 ---@class _crime.T_victim_data: DFCompound
@@ -562,7 +582,14 @@ df.witness_reportst = {}
 ---@class (exact) mission_campaign_report: DFObject
 ---@field _kind 'struct'
 ---@field _type _mission_campaign_report
+---@field travel_x number
+---@field travel_y number
+---@field travel_year number
+---@field travel_year_tick number
 ---@field travel_count number
+---@field event_id number References: `history_event`
+---@field event_year number
+---@field event_year_tick number
 ---@field events_count number
 
 ---@class _mission_campaign_report: DFCompound
@@ -572,6 +599,7 @@ df.mission_campaign_report = {}
 ---@class (exact) mission_report: DFObject
 ---@field _kind 'struct'
 ---@field _type _mission_report
+---@field campaigns any
 ---@field current_campaign number
 ---@field origin_x number
 ---@field origin_y number
@@ -580,6 +608,7 @@ df.mission_campaign_report = {}
 ---@field unk_7 number
 ---@field year number
 ---@field year_tick number
+---@field unk_10 any
 ---@field unk_11 number
 ---@field unk_12 number
 
@@ -594,6 +623,14 @@ df.mission_report = {}
 ---@field unk_1 number
 ---@field year number
 ---@field year_tick number
+---@field item_types any
+---@field item_subtypes any
+---@field mat_types number References: `material`
+---@field mat_indices number
+---@field item_counts number
+---@field creature_races number References: `creature_raw`
+---@field creature_castes number References: `caste_raw`
+---@field creature_counts number
 
 ---@class _spoils_report: DFCompound
 ---@field _kind 'struct-type'
@@ -614,7 +651,12 @@ df.spoils_report = {}
 ---@field unk_24 number
 ---@field unk_25 number
 ---@field unk_26 number
+---@field unk_27 number
 ---@field subject_identity_id number ? References: `identity`
+---@field unk_29 any
+---@field unk_30 number ?
+---@field unk_31 number seen hfs_formed_intrigue_relationship References: `history_event`
+---@field details any
 
 ---@class _interrogation_report: DFCompound
 ---@field _kind 'struct-type'
@@ -646,6 +688,7 @@ df.interrogation_report = {}
 df.interrogation_report.T_unk = {}
 
 ---@alias _interrogation_report.T_unk.T_flags_keys
+---| 0
 
 ---@alias _interrogation_report.T_unk.T_flags_values
 
@@ -653,6 +696,7 @@ df.interrogation_report.T_unk = {}
 ---@field _kind 'bitfield'
 ---@field _enum _interrogation_report.T_unk.T_flags
 local interrogation_report_unk_flags = {
+  [0] = false,
 }
 
 ---@class _interrogation_report.T_unk.T_flags: DFBitfield
@@ -696,9 +740,12 @@ df.encased_horror = {}
 ---@field _kind 'struct'
 ---@field _type _cursed_tomb
 ---@field triggered boolean
+---@field coffin_skeletons number References: `item`
 ---@field disturbance number References: `interaction`
+---@field treasures number References: `item`
 ---@field site_id number References: `world_site`
 ---@field structure_id number References: `abstract_building`
+---@field trigger_regions any normally just one, 3x3 around the coffin
 ---@field coffin_pos coord
 
 ---@class _cursed_tomb: DFCompound
@@ -833,6 +880,7 @@ df.combat_report_event_type = {}
 ---@field _type _glowing_barrier
 ---@field triggered boolean set when the glowing barrier vanishes, preventing later HFS events
 ---@field age number divide by 100800, add 1, then multiply by 20 to get number of demons to summon (min 10, max 100)
+---@field buildings number when building is deconstructed, causes glowing barrier at pos to vanish and (in fort mode) spawns HFS one z-level below if it has not been set off already References: `building`
 ---@field pos coord coordinates of a GlowingBarrier or GlowingFloor tiletype
 
 ---@class _glowing_barrier: DFCompound
@@ -864,11 +912,14 @@ df.campfire = {}
 ---@class (exact) web_cluster: DFObject
 ---@field _kind 'struct'
 ---@field _type _web_cluster
+---@field x number
+---@field y number
 ---@field z number
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field pos_min coord2d
 ---@field pos_max coord2d
+---@field ambushers number References: `unit`
 
 ---@class _web_cluster: DFCompound
 ---@field _kind 'struct-type'
@@ -949,6 +1000,8 @@ df.coin_batch.T_image_back = {}
 ---@class (exact) job_handler: DFObject
 ---@field _kind 'struct'
 ---@field _type _job_handler
+---@field list job_list_link
+---@field postings any entries never removed
 ---@field job_application_heap job_handler.T_job_application_heap
 
 ---@class _job_handler: DFCompound
@@ -959,6 +1012,7 @@ df.job_handler = {}
 ---@class (exact) job_handler.T_job_application_heap: DFObject
 ---@field _kind 'struct'
 ---@field _type _job_handler.T_job_application_heap
+---@field node any
 ---@field size number
 
 ---@class _job_handler.T_job_application_heap: DFCompound
@@ -968,7 +1022,9 @@ df.job_handler.T_job_application_heap = {}
 ---@class (exact) building_handler: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_handler
+---@field all any dtor 85316f0
 ---@field other buildings_other not a compound in bay12
+---@field bad any bay12: temp_save
 ---@field check_bridge_collapse boolean bay12: evaluate_bridge_stability
 ---@field check_machine_collapse boolean bay12: evaluate_machine_stability
 
@@ -979,6 +1035,8 @@ df.building_handler = {}
 ---@class (exact) machine_handler: DFObject
 ---@field _kind 'struct'
 ---@field _type _machine_handler
+---@field all any
+---@field bad any
 
 ---@class _machine_handler: DFCompound
 ---@field _kind 'class-type'
@@ -998,7 +1056,9 @@ df.mental_picture = {}
 ---@class (exact) mental_picture.T_unk: DFObject
 ---@field _kind 'struct'
 ---@field _type _mental_picture.T_unk
+---@field elements any
 ---@field unk_1 number
+---@field properties any
 ---@field unk_2 number
 
 ---@class _mental_picture.T_unk: DFCompound
@@ -1010,6 +1070,9 @@ df.mental_picture.T_unk = {}
 ---@field _kind 'struct'
 ---@field _type _belief_system
 ---@field id number
+---@field mental_pictures any
+---@field deities number historical figure ID of gods the belief system is concerned with References: `historical_figure`
+---@field worship_levels number worship level for each god referenced in the deities field
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
@@ -1091,6 +1154,7 @@ function df.belief_system.get_vector() end
 ---@class (exact) divination_set_roll: DFObject
 ---@field _kind 'struct'
 ---@field _type _divination_set_roll
+---@field result number When the divination die linked to the parent divination_set is rolled, the effect of this particular divination_set_roll will be carried out if the die lands on any of the values specified here.
 ---@field effect_type divination_set_roll.T_effect_type
 ---@field effect number When effect_type is MediumBlessing, MinorBlessing, MediumCurse or MinorCurse, this is the ID of the interaction to be carried out (targeting the creature who rolled the divination die). When effect_type is Fortune, this determines which of the hardcoded divination fortune messages is to be displayed.
 
@@ -1124,6 +1188,8 @@ df.divination_set_roll.T_effect_type = {}
 ---@field id number currently matches index into vector
 ---@field deity_id number References: `historical_figure`
 ---@field owner_id number religion owning the set References: `historical_entity`
+---@field image_set_ids number References: `image_set`
+---@field rolls any
 
 ---@class _divination_set: DFCompound
 ---@field _kind 'struct-type'
@@ -1143,6 +1209,8 @@ function df.divination_set.get_vector() end
 ---@field _type _image_set
 ---@field id number
 ---@field unk_2 number
+---@field unk_vec1 any
+---@field unk_vec2 number
 
 ---@class _image_set: DFCompound
 ---@field _kind 'struct-type'
@@ -1160,6 +1228,7 @@ function df.image_set.get_vector() end
 ---@class (exact) random_object_infost: DFObject
 ---@field _kind 'struct'
 ---@field _type _random_object_infost
+---@field batch any
 
 ---@class _random_object_infost: DFCompound
 ---@field _kind 'struct-type'
@@ -1168,15 +1237,48 @@ df.random_object_infost = {}
 ---@class (exact) world: DFObject
 ---@field _kind 'struct'
 ---@field _type _world
+---@field glowing_barriers any dtor 89fff80
+---@field deep_vein_hollows any bay12: underworld_tube_breach_monitor
+---@field divine_treasures any bay12: tube_treasure_monitor
+---@field encased_horrors any bay12: tube_hazard_monitor
+---@field cursed_tombs any bay12: disturbance_monitor
+---@field engravings any bay12: detail
 ---@field vermin world.T_vermin
+---@field dirty_waters any bay12: water; for making blood flow downstream in rivers, but also includes mud in artificial water channels
+---@field campfires any bay12: campfire
+---@field web_clusters any bay12: web
+---@field fires any bay12: fire
+---@field ocean_wave_makers any bay12: ocean_wave_generator
+---@field ocean_waves any bay12: ocean_wave_front
+---@field constructions any bay12: construction
+---@field murky_pools any bay12: swamp
+---@field embark_features any bay12: population; populated at embark
+---@field site_glowing_barriers any bay12: temp_save_underworld_building_monitor
+---@field site_deep_vein_hollows any bay12: temp_save_underworld_tube_breach_monitor
+---@field site_divine_treasures any bay12: temp_save_tube_treasure_monitor
+---@field site_encased_horrors any bay12: temp_save_tube_hazard_monitor
+---@field site_cursed_tombs any bay12: temp_save_disturbance_monitor
+---@field site_engravings any bay12: temp_save_detail
+---@field site_constructions any bay12: temp_save_construction
+---@field site_embark_features any bay12: temp_save_population
+---@field site_ocean_wave_makers any bay12: temp_save_ocean_wave_generator
+---@field site_murky_pools any bay12: temp_save_swamp
+---@field effects any
+---@field coin_batches any
+---@field populations any
+---@field manager_orders any --
 ---@field manager_order_next_id number
+---@field mandates any
 ---@field entities world.T_entities
 ---@field worldgen_coord_buf world.T_worldgen_coord_buf
 ---@field units world.T_units
+---@field unit_chunks any -- Unit and Art Chunks
+---@field art_image_chunks any
 ---@field nemesis world.T_nemesis
 ---@field items world.T_items
 ---@field artifacts world.T_artifacts
 ---@field jobs job_handler -- Jobs and projectiles
+---@field proj_list proj_list_link
 ---@field buildings building_handler -- Buildings
 ---@field machines machine_handler -- Machines (connected groups of gears and so on)
 ---@field flow_guides world.T_flow_guides
@@ -1208,6 +1310,7 @@ df.random_object_infost = {}
 ---@field belief_systems world.T_belief_systems
 ---@field image_sets world.T_image_sets
 ---@field divination_sets world.T_divination_sets
+---@field selected_building building
 ---@field selected_stockpile_type stockpile_category
 ---@field update_selected_building boolean
 ---@field building_width number
@@ -1217,21 +1320,28 @@ df.random_object_infost = {}
 ---@field profession_skills world.T_profession_skills
 ---@field math world.T_math
 ---@field map_extras world.T_map_extras
+---@field world_data world_data -- bay12: local_region
 ---@field worldgen_status world.T_worldgen_status
 ---@field orphaned_flow_pool flow_reuse_pool bay12: flow_trackerst flow_tracker
 ---@field raws world_raws -- raws<br>!! this is not a compound in bay12 !!
 ---@field area_grasses world.T_area_grasses
 ---@field flow_engine world.T_flow_engine
+---@field busy_buildings number -- bay12: building_use_controllerst References: `building`
+---@field cavein_flags any
 ---@field original_save_version save_version DF version on which the world was first created
 ---@field worldgen world.T_worldgen
 ---@field unk_rng hash_rngst
 ---@field history world_history -- hist figures<br>-- bay12: historyst
+---@field entity_populations any
 ---@field daily_events world.T_daily_events
 ---@field random_object_info random_object_infost
+---@field languages any
+---@field unk_131ef0 any
 ---@field viewport map_viewport
 ---@field artifact_history_suppression_count number
 ---@field reindex_pathfinding boolean forces map_block.passable to be recomputed
 ---@field frame_counter number increases by 1 every time . is pressed
+---@field orphaned_flows any flows that are not tied to a map_block
 ---@field pathfinder world.T_pathfinder
 ---@field save_version number
 ---@field cur_savegame world.T_cur_savegame
@@ -1254,6 +1364,8 @@ df.world = {}
 ---@class (exact) world.T_vermin: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_vermin
+---@field all any bay12: vermin
+---@field colonies any bay12: vermin_colony
 
 ---@class _world.T_vermin: DFCompound
 ---@field _kind 'struct-type'
@@ -1263,6 +1375,8 @@ df.world.T_vermin = {}
 ---@class (exact) world.T_entities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_entities
+---@field all any
+---@field bad any
 
 ---@class _world.T_entities: DFCompound
 ---@field _kind 'struct-type'
@@ -1272,6 +1386,7 @@ df.world.T_entities = {}
 ---@class (exact) world.T_worldgen_coord_buf: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_worldgen_coord_buf
+---@field slots coord2d
 ---@field next_slot number
 
 ---@class _world.T_worldgen_coord_buf: DFCompound
@@ -1282,7 +1397,11 @@ df.world.T_worldgen_coord_buf = {}
 ---@class (exact) world.T_units: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_units
+---@field all any
+---@field active any not sorted, entry 0 is adventurer
 ---@field other units_other
+---@field temp_save any
+---@field unit_context_block any
 
 ---@class _world.T_units: DFCompound
 ---@field _kind 'struct-type'
@@ -1292,6 +1411,9 @@ df.world.T_units = {}
 ---@class (exact) world.T_nemesis: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_nemesis
+---@field all any
+---@field other any
+---@field bad any
 ---@field unk4 boolean
 
 ---@class _world.T_nemesis: DFCompound
@@ -1302,7 +1424,10 @@ df.world.T_nemesis = {}
 ---@class (exact) world.T_items: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_items
+---@field all any dtor 852f4b0
 ---@field other items_other
+---@field bad any
+---@field bad_tag number
 
 ---@class _world.T_items: DFCompound
 ---@field _kind 'struct-type'
@@ -1312,6 +1437,8 @@ df.world.T_items = {}
 ---@class (exact) world.T_artifacts: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_artifacts
+---@field all any
+---@field bad any
 
 ---@class _world.T_artifacts: DFCompound
 ---@field _kind 'struct-type'
@@ -1321,6 +1448,8 @@ df.world.T_artifacts = {}
 ---@class (exact) world.T_flow_guides: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_flow_guides
+---@field all any
+---@field bad any
 
 ---@class _world.T_flow_guides: DFCompound
 ---@field _kind 'struct-type'
@@ -1330,8 +1459,17 @@ df.world.T_flow_guides = {}
 ---@class (exact) world.T_stockpile: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_stockpile
+---@field num_jobs number
+---@field num_haulers number
 ---@field barreltype number
 ---@field barreltype_food number
+---@field seeds number
+---@field plants number
+---@field cheese number
+---@field meat_fish number
+---@field eggs number
+---@field leaves number
+---@field plant_powder number
 ---@field barreltype_seeds_mix number
 ---@field barreltype_plants_mix number
 ---@field barreltype_cheese_mix number
@@ -1340,6 +1478,9 @@ df.world.T_flow_guides = {}
 ---@field barreltype_leaves_mix number
 ---@field barreltype_powder_mix number
 ---@field barreltype_eggs_mix number
+---@field liquid_plant number
+---@field liquid_animal number
+---@field liquid_builtin number
 ---@field barreltype_glob_fat number
 ---@field barreltype_glob_tallow number
 ---@field barreltype_glob_paste number
@@ -1363,6 +1504,12 @@ df.world.T_stockpile = {}
 ---@class (exact) world.T_plants: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_plants
+---@field all any
+---@field shrub_dry any
+---@field shrub_wet any
+---@field tree_dry any
+---@field tree_wet any
+---@field empty any
 
 ---@class _world.T_plants: DFCompound
 ---@field _kind 'struct-type'
@@ -1372,6 +1519,8 @@ df.world.T_plants = {}
 ---@class (exact) world.T_enemy_status_cache: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_enemy_status_cache
+---@field slot_used boolean
+---@field rel_map any
 ---@field next_slot number
 
 ---@class _world.T_enemy_status_cache: DFCompound
@@ -1381,6 +1530,8 @@ df.world.T_enemy_status_cache = {}
 ---@class (exact) world.T_schedules: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_schedules
+---@field all any
+---@field bad any
 
 ---@class _world.T_schedules: DFCompound
 ---@field _kind 'struct-type'
@@ -1389,6 +1540,8 @@ df.world.T_schedules = {}
 ---@class (exact) world.T_squads: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_squads
+---@field all any
+---@field bad any
 
 ---@class _world.T_squads: DFCompound
 ---@field _kind 'struct-type'
@@ -1397,6 +1550,8 @@ df.world.T_squads = {}
 ---@class (exact) world.T_formations: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_formations
+---@field all any
+---@field bad any
 
 ---@class _world.T_formations: DFCompound
 ---@field _kind 'struct-type'
@@ -1406,6 +1561,8 @@ df.world.T_formations = {}
 ---@class (exact) world.T_activities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_activities
+---@field all any
+---@field bad any
 
 ---@class _world.T_activities: DFCompound
 ---@field _kind 'struct-type'
@@ -1415,9 +1572,18 @@ df.world.T_activities = {}
 ---@class (exact) world.T_status: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_status
+---@field reports any dtor 85356e0
+---@field announcements any
+---@field popups any
 ---@field mega_text markup_text_boxst
 ---@field next_report_id number
 ---@field flags world.T_status.T_flags
+---@field unk_1 number
+---@field mission_reports any
+---@field spoils_reports any
+---@field interrogation_reports any
+---@field announcement_alert any
+---@field alert_button_announcement_id number entries are report ids
 ---@field display_timer number bay12: announcetime
 ---@field slots world.T_status.T_slots
 ---@field announcement_mutex stl-mutex bay12: mtx
@@ -1461,6 +1627,10 @@ df.world.T_status.T_flags = {}
 ---@class (exact) world.T_status.T_slots: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_status.T_slots
+---@field slotdata any
+---@field slot_id_used number
+---@field slot_id_idx1 number
+---@field slot_id_idx2 number
 ---@field slots_used number
 
 ---@class _world.T_status.T_slots: DFCompound
@@ -1470,6 +1640,8 @@ df.world.T_status.T_slots = {}
 ---@class (exact) world.T_interaction_instances: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_interaction_instances
+---@field all any
+---@field bad any
 
 ---@class _world.T_interaction_instances: DFCompound
 ---@field _kind 'struct-type'
@@ -1478,6 +1650,8 @@ df.world.T_interaction_instances = {}
 ---@class (exact) world.T_written_contents: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_written_contents
+---@field all any
+---@field bad any
 
 ---@class _world.T_written_contents: DFCompound
 ---@field _kind 'struct-type'
@@ -1486,6 +1660,8 @@ df.world.T_written_contents = {}
 ---@class (exact) world.T_identities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_identities
+---@field all any
+---@field bad any
 
 ---@class _world.T_identities: DFCompound
 ---@field _kind 'struct-type'
@@ -1494,6 +1670,8 @@ df.world.T_identities = {}
 ---@class (exact) world.T_incidents: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_incidents
+---@field all any
+---@field bad any
 
 ---@class _world.T_incidents: DFCompound
 ---@field _kind 'struct-type'
@@ -1502,6 +1680,8 @@ df.world.T_incidents = {}
 ---@class (exact) world.T_crimes: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_crimes
+---@field all any
+---@field bad any
 
 ---@class _world.T_crimes: DFCompound
 ---@field _kind 'struct-type'
@@ -1510,6 +1690,9 @@ df.world.T_crimes = {}
 ---@class (exact) world.T_vehicles: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_vehicles
+---@field all any
+---@field active any
+---@field bad any
 
 ---@class _world.T_vehicles: DFCompound
 ---@field _kind 'struct-type'
@@ -1518,6 +1701,8 @@ df.world.T_vehicles = {}
 ---@class (exact) world.T_armies: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_armies
+---@field all any
+---@field bad any
 
 ---@class _world.T_armies: DFCompound
 ---@field _kind 'struct-type'
@@ -1526,6 +1711,8 @@ df.world.T_armies = {}
 ---@class (exact) world.T_army_controllers: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_army_controllers
+---@field all any
+---@field bad any
 
 ---@class _world.T_army_controllers: DFCompound
 ---@field _kind 'struct-type'
@@ -1534,6 +1721,8 @@ df.world.T_army_controllers = {}
 ---@class (exact) world.T_army_tracking_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_army_tracking_info
+---@field all any
+---@field bad any
 
 ---@class _world.T_army_tracking_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1542,6 +1731,8 @@ df.world.T_army_tracking_info = {}
 ---@class (exact) world.T_cultural_identities: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_cultural_identities
+---@field all any
+---@field bad any
 
 ---@class _world.T_cultural_identities: DFCompound
 ---@field _kind 'struct-type'
@@ -1550,6 +1741,8 @@ df.world.T_cultural_identities = {}
 ---@class (exact) world.T_agreements: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_agreements
+---@field all any
+---@field bad any
 
 ---@class _world.T_agreements: DFCompound
 ---@field _kind 'struct-type'
@@ -1558,6 +1751,8 @@ df.world.T_agreements = {}
 ---@class (exact) world.T_poetic_forms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_poetic_forms
+---@field all any
+---@field bad any
 
 ---@class _world.T_poetic_forms: DFCompound
 ---@field _kind 'struct-type'
@@ -1566,6 +1761,8 @@ df.world.T_poetic_forms = {}
 ---@class (exact) world.T_musical_forms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_musical_forms
+---@field all any
+---@field bad any
 
 ---@class _world.T_musical_forms: DFCompound
 ---@field _kind 'struct-type'
@@ -1574,6 +1771,8 @@ df.world.T_musical_forms = {}
 ---@class (exact) world.T_dance_forms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_dance_forms
+---@field all any
+---@field bad any
 
 ---@class _world.T_dance_forms: DFCompound
 ---@field _kind 'struct-type'
@@ -1582,6 +1781,8 @@ df.world.T_dance_forms = {}
 ---@class (exact) world.T_scales: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_scales
+---@field all any
+---@field bad any
 
 ---@class _world.T_scales: DFCompound
 ---@field _kind 'struct-type'
@@ -1590,6 +1791,8 @@ df.world.T_scales = {}
 ---@class (exact) world.T_rhythms: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_rhythms
+---@field all any
+---@field bad any
 
 ---@class _world.T_rhythms: DFCompound
 ---@field _kind 'struct-type'
@@ -1598,6 +1801,8 @@ df.world.T_rhythms = {}
 ---@class (exact) world.T_occupations: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_occupations
+---@field all any
+---@field bad any
 
 ---@class _world.T_occupations: DFCompound
 ---@field _kind 'struct-type'
@@ -1606,6 +1811,8 @@ df.world.T_occupations = {}
 ---@class (exact) world.T_belief_systems: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_belief_systems
+---@field all any
+---@field bad any
 
 ---@class _world.T_belief_systems: DFCompound
 ---@field _kind 'struct-type'
@@ -1614,6 +1821,8 @@ df.world.T_belief_systems = {}
 ---@class (exact) world.T_image_sets: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_image_sets
+---@field all any
+---@field bad any
 
 ---@class _world.T_image_sets: DFCompound
 ---@field _kind 'struct-type'
@@ -1622,6 +1831,8 @@ df.world.T_image_sets = {}
 ---@class (exact) world.T_divination_sets: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_divination_sets
+---@field all any
+---@field bad any
 
 ---@class _world.T_divination_sets: DFCompound
 ---@field _kind 'struct-type'
@@ -1630,6 +1841,10 @@ df.world.T_divination_sets = {}
 ---@class (exact) world.T_map: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_map
+---@field map_blocks any 52cdc
+---@field block_index any
+---@field map_block_columns any
+---@field column_index any
 ---@field x_count_block number
 ---@field y_count_block number
 ---@field z_count_block number
@@ -1639,6 +1854,7 @@ df.world.T_divination_sets = {}
 ---@field region_x number
 ---@field region_y number
 ---@field region_z number
+---@field distance_lookup any
 
 ---@class _world.T_map: DFCompound
 ---@field _kind 'struct-type'
@@ -1648,6 +1864,8 @@ df.world.T_map = {}
 ---@class (exact) world.T_profession_skills: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_profession_skills
+---@field primary any
+---@field secondary any
 
 ---@class _world.T_profession_skills: DFCompound
 ---@field _kind 'struct-type'
@@ -1656,6 +1874,9 @@ df.world.T_profession_skills = {}
 ---@class (exact) world.T_math: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_math
+---@field approx any 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
+---@field cos number 100 * cosine of the index in degrees
+---@field hypot any square root of the sum of the squares of the indices
 
 ---@class _world.T_math: DFCompound
 ---@field _kind 'struct-type'
@@ -1665,6 +1886,11 @@ df.world.T_math = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_map_extras
 ---@field rotation integer
+---@field z_level_flags z_level_flags
+---@field unk_v40_3a any
+---@field unk_v40_3b number
+---@field unk_v40_3c number
+---@field unk_v40_3d number
 
 ---@class _world.T_map_extras: DFCompound
 ---@field _kind 'struct-type'
@@ -1675,6 +1901,8 @@ df.world.T_map_extras = {}
 ---@field _type _world.T_worldgen_status
 ---@field state world.T_worldgen_status.T_state
 ---@field num_rejects number
+---@field unk_1 number
+---@field unk_2 number
 ---@field rejection_reason number
 ---@field lakes_total number
 ---@field unk_3 number
@@ -1682,13 +1910,20 @@ df.world.T_map_extras = {}
 ---@field lakes_cur number
 ---@field unk_5 number
 ---@field unk_6 number
+---@field geo_layers any
+---@field unk_7 number
+---@field unk_8 number
 ---@field unk_9 number
 ---@field finalized_civ_mats number
 ---@field finalized_art number
 ---@field finalized_uniforms number
 ---@field finalized_sites number
+---@field entities any
+---@field sites any
 ---@field cursor_x number
 ---@field cursor_y number
+---@field unk_13 pointer
+---@field unk_14 pointer
 ---@field rivers_total number
 ---@field rivers_cur number
 ---@field unk_15 number
@@ -1705,16 +1940,36 @@ df.world.T_map_extras = {}
 ---@field make_cave_civs boolean
 ---@field place_civs boolean
 ---@field finished_prehistory boolean
+---@field sites2 any
+---@field sites3 any
 ---@field unk_16 number
 ---@field unk_17 number
 ---@field unk_18 number
 ---@field unk_19 number
 ---@field unk_20 number
+---@field entity_raws any
+---@field unk_21 number
 ---@field civ_count number
 ---@field civs_left_to_place number --  Only valid during civ placement phase
+---@field regions1 any --  Ditto
+---@field regions2 any
+---@field regions3 any
+---@field unk_22 number
+---@field unk_23 number
+---@field unk_24 number
+---@field unk_25 number
+---@field unk_26 number
+---@field unk_27 number
 ---@field unk_28 number
 ---@field unk_29 number
+---@field unk_10d298 number
+---@field unk_10d2a4 number
+---@field libraries any
 ---@field unk_30 number
+---@field temples any
+---@field some_artifacts any
+---@field unk_31 any
+---@field unk_32 number
 
 ---@class _world.T_worldgen_status: DFCompound
 ---@field _kind 'struct-type'
@@ -1766,6 +2021,7 @@ df.world.T_worldgen_status.T_state = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_area_grasses
 ---@field world_tiles coord2d_path 7*7 world tile area centered around embark, stunted at edges
+---@field layer_grasses any one per layer per world tile
 
 ---@class _world.T_area_grasses: DFCompound
 ---@field _kind 'struct-type'
@@ -1777,7 +2033,13 @@ df.world.T_area_grasses = {}
 ---@field rnd_16 number
 ---@field rnd_256 number
 ---@field rnd_pos number
+---@field rnd_x number
+---@field rnd_y number
 ---@field block_idx number
+---@field unk7a number
+---@field unk7b number
+---@field unk7c number
+---@field unk7_cntdn number
 
 ---@class _world.T_flow_engine: DFCompound
 ---@field _kind 'struct-type'
@@ -1801,6 +2063,12 @@ df.world.T_worldgen = {}
 ---@class (exact) world.T_daily_events: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_daily_events
+---@field deaths any
+---@field pregnancies any
+---@field births any
+---@field grown_up any
+---@field marriage_1 any
+---@field marriage_2 any
 
 ---@class _world.T_daily_events: DFCompound
 ---@field _kind 'struct-type'
@@ -1809,6 +2077,7 @@ df.world.T_daily_events = {}
 ---@class (exact) world.T_pathfinder: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_pathfinder
+---@field boundary_heap any A heap of current boundary tiles.
 ---@field heap_count number
 ---@field pos1 coord
 ---@field pos2 coord
@@ -1849,6 +2118,8 @@ df.world.T_cur_savegame = {}
 ---@field asking_about_update boolean
 ---@field notifying_about_failure boolean
 ---@field notifying_about_failure_mod_install_err number
+---@field newest_mh mod_headerst
+---@field current_mh mod_headerst
 ---@field flag integer
 
 ---@class _world.T_rod_loader: DFCompound
@@ -1922,10 +2193,17 @@ df.world.T_rod_loader.T_state = {}
 ---@field _type _world.T_object_loader
 ---@field load_object_stage number
 ---@field load_object_stage_count number
+---@field object_files DFPointer<string>
 ---@field object_file_index number
 ---@field current_load_order_index number
 ---@field current_load_order_graphics_index number
+---@field object_load_order_id any
+---@field object_load_order_numeric_version number
+---@field object_load_order_earliest_compat_numeric_version number
+---@field object_load_order_src_dir any
 ---@field src_dir string
+---@field object_load_order_name any
+---@field object_load_order_displayed_version any
 
 ---@class _world.T_object_loader: DFCompound
 ---@field _kind 'struct-type'
@@ -1934,6 +2212,27 @@ df.world.T_object_loader = {}
 ---@class (exact) world.T_features: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_features
+---@field wg_market_site any
+---@field map_features any
+---@field feature_x number
+---@field feature_y number
+---@field feature_local_idx number same as map_block.local_feature
+---@field feature_global_idx number References: `world_underground_region`
+---@field newpop_feature any
+---@field newpop_ax number
+---@field newpop_ay number
+---@field newpop_dx number
+---@field newpop_dy number
+---@field newpop_feature_ind number
+---@field newpop_feature_layer number
+---@field newpop_feature_layer_sq number
+---@field newpop_layer_depth number
+---@field newpop_sx number
+---@field newpop_sy number
+---@field newpop_min_z number
+---@field newpop_mid_z number
+---@field newpop_max_z number
+---@field newpop_from_saved_pop any
 
 ---@class _world.T_features: DFCompound
 ---@field _kind 'struct-type'
@@ -1942,19 +2241,28 @@ df.world.T_features = {}
 ---@class (exact) world.T_arena: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_arena
+---@field templates any
 ---@field cur_template_idx number
+---@field race number References: `creature_raw`
+---@field caste number References: `caste_raw`
 ---@field type number
 ---@field item_types embark_item_choice
+---@field skills any
+---@field skill_levels number
 ---@field equipment world.T_arena.T_equipment
 ---@field side number
 ---@field interaction number
 ---@field tame boolean
+---@field interactions any
+---@field creature_cnt number
+---@field selecting_mount_un unit
 ---@field conflict_level conflict_level
 ---@field flag world.T_arena.T_flag
 ---@field temperature integer
 ---@field time number
 ---@field weather_column number
 ---@field weather_row number
+---@field tree_types any
 ---@field tree_cursor number
 ---@field tree_age number
 ---@field tree_filter string
@@ -1969,7 +2277,12 @@ df.world.T_arena = {}
 ---@class (exact) world.T_arena.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_arena.T_equipment
+---@field skills any
+---@field skill_levels number
+---@field item_types any
+---@field item_subtypes any
 ---@field item_materials material_vec_ref
+---@field item_counts number
 
 ---@class _world.T_arena.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -1997,9 +2310,17 @@ df.world.T_arena.T_flag = {}
 ---@class (exact) world.T_dungeon: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_dungeon
+---@field creature_race number References: `creature_raw`
+---@field creature_caste number References: `caste_raw`
 ---@field last_selected_creature_index number
 ---@field etl embark_item_choice
+---@field skill_type any
+---@field skill_value number
+---@field item_types any
+---@field item_subtypes any
 ---@field item_materials material_vec_ref
+---@field item_amount number
+---@field race_count number
 
 ---@class _world.T_dungeon: DFCompound
 ---@field _kind 'struct-type'
@@ -2009,6 +2330,9 @@ df.world.T_dungeon = {}
 ---@class (exact) world.T_attack_chance_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_attack_chance_info
+---@field modifier any
+---@field attack any
+---@field target any
 ---@field current_modifier_number number
 ---@field current_attack_number number
 ---@field current_target_number number

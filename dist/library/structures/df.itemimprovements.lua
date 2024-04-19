@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias improvement_type
@@ -206,6 +206,7 @@ df.itemimprovement_sewn_imagest.T_cloth = {}
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_pagesst
 ---@field count number
+---@field contents number References: `written_content`
 
 ---@class _itemimprovement_pagesst: DFCompound
 ---@field _kind 'class-type'
@@ -233,6 +234,7 @@ df.itemimprovement_instrument_piecest = {}
 ---@class (exact) itemimprovement_writingst: DFObject, itemimprovement
 ---@field _kind 'struct'
 ---@field _type _itemimprovement_writingst
+---@field contents number References: `written_content`
 
 ---@class _itemimprovement_writingst: DFCompound
 ---@field _kind 'class-type'
@@ -399,10 +401,14 @@ df.written_content_style = {}
 ---@field title string
 ---@field page_start number
 ---@field page_end number
+---@field refs any interactions learned
+---@field ref_aux number if nonzero, corresponding ref is ignored
 ---@field unk1 number
 ---@field unk2 number
 ---@field type written_content_type
 ---@field poetic_form number References: `poetic_form`
+---@field styles written_content_style
+---@field style_strength number 0 = maximum, 1 = significant, 2 = partial
 ---@field author number References: `historical_figure`
 ---@field author_roll number
 

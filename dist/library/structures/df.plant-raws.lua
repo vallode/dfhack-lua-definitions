@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias plant_raw_flags
@@ -254,6 +254,8 @@ df.plant_raw_flags = {}
 ---@field _type _plant_raw
 ---@field id string
 ---@field index number
+---@field raws any
+---@field flags any
 ---@field name string
 ---@field name_plural string
 ---@field adj string
@@ -269,14 +271,18 @@ df.plant_raw_flags = {}
 ---@field growdur number
 ---@field value number
 ---@field colors plant_raw.T_colors
+---@field alt_period number
 ---@field shrub_drown_level number
 ---@field tree_drown_level number
 ---@field sapling_drown_level number
 ---@field frequency number
 ---@field clustersize number
+---@field prefstring any
+---@field material any
 ---@field material_defs plant_raw.T_material_defs
 ---@field underground_depth_min number
 ---@field underground_depth_max number
+---@field growths any
 ---@field root_name string
 ---@field trunk_name string
 ---@field heavy_branch_name string
@@ -296,6 +302,8 @@ df.plant_raw_flags = {}
 ---@field cap_radius number
 ---@field root_density number
 ---@field root_radius number
+---@field stockpile_growths number indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
+---@field stockpile_growth_flags any
 
 ---@class _plant_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -321,6 +329,10 @@ function df.plant_raw.get_vector() end
 ---@field dead_tree_tile integer unused
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
+---@field grass_tiles integer
+---@field alt_grass_tiles integer
+---@field tree_tiles integer
+---@field unk_v50_1 integer
 
 ---@class _plant_raw.T_tiles: DFCompound
 ---@field _kind 'struct-type'
@@ -329,6 +341,18 @@ df.plant_raw.T_tiles = {}
 ---@class (exact) plant_raw.T_colors: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_colors
+---@field picked_color number
+---@field dead_picked_color number
+---@field shrub_color number
+---@field dead_shrub_color number
+---@field seed_color number
+---@field tree_color number
+---@field dead_tree_color number
+---@field sapling_color number
+---@field dead_sapling_color number
+---@field grass_colors_0 number
+---@field grass_colors_1 number
+---@field grass_colors_2 number
 
 ---@class _plant_raw.T_colors: DFCompound
 ---@field _kind 'struct-type'
@@ -337,6 +361,9 @@ df.plant_raw.T_colors = {}
 ---@class (exact) plant_raw.T_material_defs: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_material_defs
+---@field type any
+---@field idx number
+---@field str any
 
 ---@class _plant_raw.T_material_defs: DFCompound
 ---@field _kind 'struct-type'
@@ -380,10 +407,12 @@ df.plant_material_def = {}
 ---@field id string
 ---@field name string
 ---@field name_plural string
+---@field str_growth_item string
 ---@field item_type item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
+---@field prints any
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 ---@field unk_v50_3 number
@@ -493,6 +522,7 @@ df.plant_growth.T_behavior = {}
 ---@field priority number final token in list
 ---@field tile_growth integer
 ---@field tile_item integer
+---@field color number
 ---@field timing_start number
 ---@field timing_end number
 

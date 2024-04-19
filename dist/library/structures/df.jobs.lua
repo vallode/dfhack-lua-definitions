@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias _job_material_category_keys
@@ -240,6 +240,9 @@ df.dfhack_material_category = {}
 ---@class (exact) job_list_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _job_list_link
+---@field item job
+---@field prev job_list_link
+---@field next job_list_link
 
 ---@class _job_list_link: DFCompound
 ---@field _kind 'struct-type'
@@ -254,14 +257,14 @@ df.job_list_link = {}
 ---| 5 # bringing
 ---| 6 # item_lost
 ---| 7 # noise
----| 8 # by_manager
----| 9 # store_item
----| 10 # quality
----| 11 # non_fluid
----| 12 # could_not_find_building_use_1
----| 13 # on_break
----| 14 # dessource
----| 15 # do_now
+---| 9 # by_manager
+---| 10 # store_item
+---| 11 # quality
+---| 14 # non_fluid
+---| 15 # could_not_find_building_use_1
+---| 16 # on_break
+---| 17 # dessource
+---| 18 # do_now
 
 ---@alias _job_flags_values
 ---| "repeat" # 0
@@ -272,14 +275,14 @@ df.job_list_link = {}
 ---| "bringing" # 5
 ---| "item_lost" # 6
 ---| "noise" # 7
----| "by_manager" # 8
----| "store_item" # 9
----| "quality" # 10
----| "non_fluid" # 11
----| "could_not_find_building_use_1" # 12
----| "on_break" # 13
----| "dessource" # 14
----| "do_now" # 15
+---| "by_manager" # 9
+---| "store_item" # 10
+---| "quality" # 11
+---| "non_fluid" # 14
+---| "could_not_find_building_use_1" # 15
+---| "on_break" # 16
+---| "dessource" # 17
+---| "do_now" # 18
 
 ---@class job_flags: DFObject, { [_job_flags_keys|_job_flags_values]: boolean }
 ---@field _kind 'bitfield'
@@ -302,21 +305,21 @@ local job_flags = {
   noise = false, -- on the sleep job causes thoughts
   [7] = false, -- on the sleep job causes thoughts
   by_manager = false, -- --
-  [8] = false, -- --
+  [9] = false, -- --
   store_item = false, -- toady: ITEMSOURCE
-  [9] = false, -- toady: ITEMSOURCE
+  [10] = false, -- toady: ITEMSOURCE
   quality = false, -- toady: BONUS1/2/3; set by improvement code
-  [10] = false, -- toady: BONUS1/2/3; set by improvement code
+  [11] = false, -- toady: BONUS1/2/3; set by improvement code
   non_fluid = false,
-  [11] = false,
-  could_not_find_building_use_1 = false,
-  [12] = false,
-  on_break = false, -- toady: COUNTS_AS_BREAK; job displayed as On Break
-  [13] = false, -- toady: COUNTS_AS_BREAK; job displayed as On Break
-  dessource = false,
   [14] = false,
+  could_not_find_building_use_1 = false,
+  [15] = false,
+  on_break = false, -- toady: COUNTS_AS_BREAK; job displayed as On Break
+  [16] = false, -- toady: COUNTS_AS_BREAK; job displayed as On Break
+  dessource = false,
+  [17] = false,
   do_now = false, -- toady: DO_ME_NOW
-  [15] = false, -- toady: DO_ME_NOW
+  [18] = false, -- toady: DO_ME_NOW
 }
 
 ---@class _job_flags: DFBitfield
@@ -336,22 +339,22 @@ local job_flags = {
 ---@field [6] "item_lost" toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
 ---@field noise 7 on the sleep job causes thoughts
 ---@field [7] "noise" on the sleep job causes thoughts
----@field by_manager 8 --
----@field [8] "by_manager" --
----@field store_item 9 toady: ITEMSOURCE
----@field [9] "store_item" toady: ITEMSOURCE
----@field quality 10 toady: BONUS1/2/3; set by improvement code
----@field [10] "quality" toady: BONUS1/2/3; set by improvement code
----@field non_fluid 11
----@field [11] "non_fluid"
----@field could_not_find_building_use_1 12
----@field [12] "could_not_find_building_use_1"
----@field on_break 13 toady: COUNTS_AS_BREAK; job displayed as On Break
----@field [13] "on_break" toady: COUNTS_AS_BREAK; job displayed as On Break
----@field dessource 14
----@field [14] "dessource"
----@field do_now 15 toady: DO_ME_NOW
----@field [15] "do_now" toady: DO_ME_NOW
+---@field by_manager 9 --
+---@field [9] "by_manager" --
+---@field store_item 10 toady: ITEMSOURCE
+---@field [10] "store_item" toady: ITEMSOURCE
+---@field quality 11 toady: BONUS1/2/3; set by improvement code
+---@field [11] "quality" toady: BONUS1/2/3; set by improvement code
+---@field non_fluid 14
+---@field [14] "non_fluid"
+---@field could_not_find_building_use_1 15
+---@field [15] "could_not_find_building_use_1"
+---@field on_break 16 toady: COUNTS_AS_BREAK; job displayed as On Break
+---@field [16] "on_break" toady: COUNTS_AS_BREAK; job displayed as On Break
+---@field dessource 17
+---@field [17] "dessource"
+---@field do_now 18 toady: DO_ME_NOW
+---@field [18] "do_now" toady: DO_ME_NOW
 df.job_flags = {}
 
 ---@alias job_subtype_surgery
@@ -378,6 +381,7 @@ df.job_subtype_surgery = {}
 ---@field _kind 'struct'
 ---@field _type _job
 ---@field id number
+---@field list_link job_list_link
 ---@field posting_index number index into world.job_postings
 ---@field job_type job_type
 ---@field job_subtype job_subtype_surgery toady: stage
@@ -399,6 +403,10 @@ df.job_subtype_surgery = {}
 ---@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
 ---@field recheck_cntdn number toady: auxilary_counter; for process_jobs
 ---@field aux_id number
+---@field items any
+---@field specific_refs any
+---@field general_refs any
+---@field job_items any
 ---@field guide_path coord_path
 ---@field cur_path_index number
 ---@field spec_loc coord toady: spec_x/spec_y/spec_z
@@ -412,6 +420,7 @@ df.job = {}
 ---@class (exact) job_item_ref: DFObject
 ---@field _kind 'struct'
 ---@field _type _job_item_ref
+---@field item item
 ---@field role job_item_ref.T_role
 ---@field is_fetching number 0 immediately once taken to be brought
 ---@field job_item_idx number
@@ -678,6 +687,7 @@ df.job_item_flags1 = {}
 ---| 20 # horn
 ---| 21 # pearl
 ---| 22 # plaster_containing
+---| 23
 ---| 24 # soap
 ---| 25 # body_part
 ---| 26 # ivory_tooth
@@ -770,6 +780,7 @@ local job_item_flags2 = {
   [21] = false, -- check for material flag PEARL
   plaster_containing = false, -- vtable[17]
   [22] = false, -- vtable[17]
+  [23] = false,
   soap = false, -- check for material flag SOAP
   [24] = false, -- check for material flag SOAP
   body_part = false, -- itemtype CORPSE or CORPSEPIECE
@@ -864,6 +875,7 @@ df.job_item_flags2 = {}
 ---| 7 # food_storage
 ---| 8 # metal
 ---| 9 # sand
+---| 10
 ---| 11 # written_on
 ---| 12 # edged
 ---| 13 # on_ground
@@ -923,6 +935,7 @@ local job_item_flags3 = {
   [8] = false,
   sand = false,
   [9] = false,
+  [10] = false,
   written_on = false,
   [11] = false,
   edged = false,
@@ -1011,6 +1024,7 @@ df.job_item_flags3 = {}
 ---@field has_material_reaction_product string
 ---@field min_dimension number pure guess by context
 ---@field reagent_index number
+---@field contains number used with custom reactions
 ---@field reaction_id number References: `reaction`
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 number
@@ -1030,6 +1044,7 @@ df.job_item = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field flags1 job_item_flags1
+---@field item_vector any
 ---@field use_mat_index boolean
 ---@field flags2 job_item_flags2
 ---@field use_flags2 boolean
@@ -1047,13 +1062,20 @@ df.job_item = {}
 ---@field use_reaction_product boolean
 ---@field min_dimension number
 ---@field reaction_id number References: `reaction`
+---@field contains number
 ---@field use_contains boolean
 ---@field has_tool_use tool_uses
 ---@field has_melee_skill job_skill
 ---@field unk_v40_1 number noticed in v0.40.24
 ---@field pos coord
+---@field unit unit
+---@field job job
+---@field building building
+---@field unk_74 any
 ---@field unk_v4305_1 number
+---@field burrows number References: `burrow`
 ---@field use_burrows boolean
+---@field take_from any
 
 ---@class _job_item_filter: DFCompound
 ---@field _kind 'struct-type'
@@ -1137,6 +1159,9 @@ df.job_art_specification.T_type = {}
 ---@field finished_year_tick number
 ---@field workshop_id number References: `building`
 ---@field max_workshops number 0 is unlimited
+---@field item_conditions any
+---@field order_conditions any
+---@field items any
 
 ---@class _manager_order: DFCompound
 ---@field _kind 'struct-type'
@@ -1180,6 +1205,7 @@ df.manager_order.T_frequency = {}
 ---@field has_material_reaction_product string
 ---@field inorganic_bearing number References: `inorganic_raw`
 ---@field min_dimension number
+---@field contains number
 ---@field reaction_id number References: `reaction`
 ---@field has_tool_use tool_uses
 
@@ -1257,6 +1283,7 @@ df.manager_order_template = {}
 ---@class (exact) mandate: DFObject
 ---@field _kind 'struct'
 ---@field _type _mandate
+---@field unit unit
 ---@field mode mandate.T_mode
 ---@field item_type item_type
 ---@field item_subtype number
@@ -1817,6 +1844,7 @@ df.killjob_exception_type = {}
 ---@field item_reaction_product_class string
 ---@field metal_ore number
 ---@field min_dimension_taken number
+---@field reagent_index number
 ---@field reaction_index number
 ---@field tool_use tool_uses
 ---@field pos coord

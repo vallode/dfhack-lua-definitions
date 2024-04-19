@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias announcement_type
@@ -1619,6 +1619,7 @@ df.announcement_flags = {}
 ---@class (exact) announcements: DFObject
 ---@field _kind 'struct'
 ---@field _type _announcements
+---@field flags announcement_flags
 
 ---@class _announcements: DFCompound
 ---@field _kind 'struct-type'
@@ -1718,6 +1719,9 @@ df.popup_message = {}
 ---@field _kind 'struct'
 ---@field _type _announcement_alertst
 ---@field type announcement_alert_type
+---@field announcement_id number
+---@field report_unid number unit id
+---@field report_unit_announcement_category any vector must be same length as report_unid
 
 ---@class _announcement_alertst: DFCompound
 ---@field _kind 'struct-type'
@@ -1735,6 +1739,8 @@ df.announcement_alertst = {}
 ---@field pos2 coord
 ---@field zoom_type2 report_zoom_type
 ---@field display_timer number graphical frames for announcement bar to linger on last line with no new announcement
+---@field unit_a unit
+---@field unit_d unit
 ---@field activity_id number same as field in report
 ---@field activity_event_id number same as field in report
 ---@field speaker_id number References: `unit`

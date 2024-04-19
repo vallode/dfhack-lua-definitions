@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) burrow: DFObject
@@ -9,6 +9,10 @@
 ---@field tile integer
 ---@field fg_color number
 ---@field bg_color number
+---@field block_x number
+---@field block_y number
+---@field block_z number
+---@field units number References: `unit`
 ---@field limit_workshops number
 ---@field solid_texpos number
 ---@field blended_texpos number
@@ -251,6 +255,7 @@ df.ui_sidebar_mode = {}
 ---@field prison_counter number
 ---@field unk_10 number 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
 ---@field chain number References: `building`
+---@field victims number References: `unit`
 
 ---@class _punishment: DFCompound
 ---@field _kind 'struct-type'
@@ -441,6 +446,7 @@ df.save_substage = {}
 ---| 8 # backpack
 ---| 9 # quiver
 ---| 10 # flask
+---| 11
 ---| 12 # buildings
 
 ---@alias _equipment_update_values
@@ -483,6 +489,7 @@ local equipment_update = {
   [9] = false,
   flask = false,
   [10] = false,
+  [11] = false,
   buildings = false,
   [12] = false,
 }
@@ -518,6 +525,9 @@ df.equipment_update = {}
 ---@field _kind 'struct'
 ---@field _type _labor_infost
 ---@field flags labor_infost.T_flags
+---@field work_details any
+---@field chores boolean
+---@field chores_exempted_children any toady: no_chore_child_unid
 
 ---@class _labor_infost: DFCompound
 ---@field _kind 'struct-type'
@@ -549,6 +559,7 @@ df.labor_infost.T_flags = {}
 ---@field lost_to_siege_civ number References: `historical_entity`
 ---@field tax_collection plotinfost.T_tax_collection
 ---@field nobles plotinfost.T_nobles
+---@field caravans any bay12: merchant
 ---@field unk_2 number
 ---@field fortress_rank number
 ---@field progress_population number outpost/hamlet/village/town/city/metropolis
@@ -562,35 +573,71 @@ df.labor_infost.T_flags = {}
 ---@field hi_temp integer
 ---@field lo_temp integer
 ---@field manager_timer number bay12: quota_checktime
+---@field units_killed number
+---@field currency_value number
 ---@field trees_removed number
 ---@field outdoor_irritation number
 ---@field adamantine_mandate_number number
 ---@field fortress_age number ?; +1 per 10; used in first 2 migrant waves etc
 ---@field tasks entity_activity_statistics
+---@field meeting_requests number guild complaints and diplomats References: `unit`
+---@field activities any
+---@field dip_meeting_info any
+---@field aid_requesters number References: `unit`
 ---@field game_over boolean
 ---@field invasions plotinfost.T_invasions
+---@field punishments any
+---@field dipscripts any
+---@field dipscript_texts any
+---@field dipscript_popups any bay12: meetingmoment; cause viewscreen_meetingst to pop up
 ---@field kitchen plotinfost.T_kitchen
+---@field economic_stone boolean
 ---@field flags plotinfost.T_flags
 ---@field mood_cooldown number
 ---@field civ_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field group_id number i.e. specifically the fortress dwarves References: `historical_entity`
 ---@field race_id number References: `creature_raw`
+---@field unk_races number References: `creature_raw`
+---@field farm_crops number References: `plant_raw`
+---@field farm_seasons any
 ---@field economy_prices plotinfost.T_economy_prices
 ---@field stockpile plotinfost.T_stockpile
+---@field unk2a8c any
+---@field unk_mapedge_x number
+---@field unk_mapedge_y number
+---@field unk_mapedge_z number
 ---@field map_edge plotinfost.T_map_edge
+---@field feature_x number
+---@field feature_y number
+---@field feature_id_local number
+---@field feature_id_global number
+---@field event_collections number References: `history_event_collection`
+---@field stone_mat_types number
+---@field stone_mat_indexes number
 ---@field waypoints plotinfost.T_waypoints
 ---@field burrows plotinfost.T_burrows
 ---@field alerts plotinfost.T_alerts
 ---@field equipment plotinfost.T_equipment
 ---@field hauling plotinfost.T_hauling
 ---@field labor_info labor_infost
+---@field petitions number related to agreements
+---@field unk_6 number observed allocating 4 bytes
+---@field unk_7 any
+---@field theft_intrigues any related to job_type unk_fake_no_activity
+---@field infiltrator_histfigs number References: `historical_figure`
+---@field infiltrator_years number
+---@field infiltrator_year_ticks number
+---@field tutorial_hide help_context_type
+---@field tutorial_seen help_context_type 0.50.01
 ---@field food_warn_year number 0.50.01
 ---@field food_warn_year_tick number
 ---@field main plotinfost.T_main
 ---@field squads plotinfost.T_squads
 ---@field follow_unit number References: `unit`
 ---@field follow_item number References: `item`
+---@field selected_farm_crops number valid for the currently queried farm plot References: `plant_raw`
+---@field available_seeds any
 
 ---@class _plotinfost: DFCompound
 ---@field _kind 'struct-type'
@@ -601,6 +648,7 @@ df.plotinfost = {}
 ---@field _type _plotinfost.T_tax_collection
 ---@field state number bay12: plotinfo_taxinfost
 ---@field check_timer number
+---@field rooms number References: `building`
 ---@field reach_room_timer number
 ---@field tc_protect_timer number
 ---@field guard1_reach_tc_timer number
@@ -608,6 +656,12 @@ df.plotinfost = {}
 ---@field collected number
 ---@field quota number
 ---@field collector_pos coord
+---@field guard_pos_x number
+---@field guard_pos_y number
+---@field guard_pos_z number
+---@field collector unit
+---@field guard1 unit
+---@field guard2 unit
 ---@field guard_lack_complained number
 
 ---@class _plotinfost.T_tax_collection: DFCompound
@@ -650,6 +704,7 @@ df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 ---@class (exact) plotinfost.T_invasions: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_invasions
+---@field list any
 ---@field next_id number
 
 ---@class _plotinfost.T_invasions: DFCompound
@@ -659,6 +714,11 @@ df.plotinfost.T_invasions = {}
 ---@class (exact) plotinfost.T_kitchen: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_kitchen
+---@field item_types any
+---@field item_subtypes any
+---@field mat_types any
+---@field mat_indices number
+---@field exc_types any
 
 ---@class _plotinfost.T_kitchen: DFCompound
 ---@field _kind 'struct-type'
@@ -738,6 +798,38 @@ df.plotinfost.T_economy_prices = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_adjustment
+---@field general_items number
+---@field weapons number
+---@field armor number
+---@field handwear number
+---@field footwear number
+---@field headwear number
+---@field legwear number
+---@field prepared_food number
+---@field wood number
+---@field thread_cloth number
+---@field paper number
+---@field parchment number
+---@field bone number
+---@field tooth number
+---@field horn number
+---@field pearl number
+---@field shell number
+---@field leather number
+---@field silk number
+---@field yarn number
+---@field inorganic number
+---@field meat number
+---@field fish number
+---@field plants number
+---@field drinks number
+---@field extract_animal number
+---@field extract_plant number
+---@field mill_animal number
+---@field mill_plant number
+---@field cheese_animal number
+---@field cheese_plant number
+---@field pets number
 
 ---@class _plotinfost.T_economy_prices.T_price_adjustment: DFCompound
 ---@field _kind 'struct-type'
@@ -746,6 +838,38 @@ df.plotinfost.T_economy_prices.T_price_adjustment = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_setter
+---@field general_items any
+---@field weapons any
+---@field armor any
+---@field handwear any
+---@field footwear any
+---@field headwear any
+---@field legwear any
+---@field prepared_food any
+---@field wood any
+---@field thread_cloth any
+---@field paper any
+---@field parchment any
+---@field bone any
+---@field tooth any
+---@field horn any
+---@field pearl any
+---@field shell any
+---@field leather any
+---@field silk any
+---@field yarn any
+---@field inorganic any
+---@field meat any
+---@field fish any
+---@field plants any
+---@field drinks any
+---@field extract_animal any
+---@field extract_plant any
+---@field mill_animal any
+---@field mill_plant any
+---@field cheese_animal any
+---@field cheese_plant any
+---@field pets any
 
 ---@class _plotinfost.T_economy_prices.T_price_setter: DFCompound
 ---@field _kind 'struct-type'
@@ -765,6 +889,12 @@ df.plotinfost.T_stockpile = {}
 ---@class (exact) plotinfost.T_map_edge: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_map_edge
+---@field layer_x any
+---@field surface_x number
+---@field layer_y any
+---@field surface_y number
+---@field layer_z any
+---@field surface_z number
 
 ---@class _plotinfost.T_map_edge: DFCompound
 ---@field _kind 'struct-type'
@@ -773,6 +903,8 @@ df.plotinfost.T_map_edge = {}
 ---@class (exact) plotinfost.T_waypoints: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_waypoints
+---@field points any
+---@field routes any
 ---@field sym_selector number
 ---@field unk_1 number
 ---@field cur_point_index number
@@ -781,11 +913,13 @@ df.plotinfost.T_map_edge = {}
 ---@field sym_tile integer
 ---@field sym_fg_color number
 ---@field sym_bg_color number
+---@field unk5c04 any
 ---@field next_point_id number
 ---@field next_route_id number
 ---@field sel_route_idx number
 ---@field sel_route_waypt_idx number
 ---@field in_edit_waypts_mode boolean
+---@field unk_42_06 any
 
 ---@class _plotinfost.T_waypoints: DFCompound
 ---@field _kind 'struct-type'
@@ -794,11 +928,14 @@ df.plotinfost.T_waypoints = {}
 ---@class (exact) plotinfost.T_burrows: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_burrows
+---@field list any
 ---@field next_id number
 ---@field sel_index number
 ---@field sel_id number References: `burrow`
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
+---@field list_units any
+---@field sel_units any
 ---@field unit_cursor_pos number
 ---@field in_define_mode boolean
 ---@field brush_erasing boolean
@@ -817,7 +954,9 @@ df.plotinfost.T_burrows = {}
 ---@class (exact) plotinfost.T_alerts: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_alerts
+---@field list any
 ---@field next_id number
+---@field routines any
 ---@field next_routine_id number
 ---@field civ_alert_idx number
 
@@ -828,7 +967,16 @@ df.plotinfost.T_alerts = {}
 ---@class (exact) plotinfost.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_equipment
+---@field items_unmanifested any
+---@field items_unassigned any
+---@field items_assigned any
 ---@field update equipment_update
+---@field work_weapons any i.e. woodcutter axes, and miner picks
+---@field work_units any
+---@field hunter_ammunition any
+---@field ammo_items any
+---@field ammo_units any
+---@field training_assignments any sorted by animal_id
 
 ---@class _plotinfost.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -837,9 +985,13 @@ df.plotinfost.T_equipment = {}
 ---@class (exact) plotinfost.T_hauling: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_hauling
+---@field routes any
 ---@field next_id number
 ---@field scroll_position number
 ---@field scrolling boolean
+---@field view_routes any
+---@field view_stops any
+---@field view_bad any
 ---@field in_stop boolean
 ---@field adding_stop_route_id number
 ---@field entering_nickname boolean
@@ -853,11 +1005,15 @@ df.plotinfost.T_hauling = {}
 ---@class (exact) plotinfost.T_main: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_main
+---@field hotkeys ui_hotkey
 ---@field traffic_cost_high number 0.50.01
 ---@field traffic_cost_normal number
 ---@field traffic_cost_low number
 ---@field traffic_cost_restricted number
+---@field dead_citizens any ?
 ---@field custom_difficulty difficultyst
+---@field fortress_entity historical_entity entity pointed to by group_id
+---@field fortress_site world_site
 ---@field mode ui_sidebar_mode
 ---@field unk_v50_3 number
 ---@field unk_v50_4 number
@@ -890,16 +1046,24 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@class (exact) plotinfost.T_squads: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_squads
+---@field list any valid only when ui is displayed
+---@field unk6e08 any
+---@field sel_squads any
+---@field indiv_selected any
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad number
 ---@field unk_70 number
 ---@field squad_list_scroll number
 ---@field squad_list_first_id number
+---@field nearest_squad squad
 ---@field in_move_order boolean
 ---@field point_list_scroll number
 ---@field in_kill_order boolean
+---@field kill_rect_targets any
 ---@field kill_rect_targets_scroll number also used for the list of targets at cursor
 ---@field in_kill_list boolean
+---@field kill_targets any
+---@field sel_kill_targets any
 ---@field kill_list_scroll number
 ---@field in_kill_rect boolean
 ---@field rect_start coord
@@ -949,6 +1113,7 @@ df.timed_event_type = {}
 ---@field type timed_event_type
 ---@field season season
 ---@field season_ticks number 1 tick = 10 frames
+---@field entity historical_entity
 ---@field feature_ind number
 ---@field layer_id number References: `world_underground_region`
 ---@field feature_ax number
@@ -971,6 +1136,8 @@ df.timed_event = {}
 ---@field window_x number
 ---@field window_y number
 ---@field window_z number
+---@field main_viewport graphic_viewportst
+---@field lower_viewport any
 
 ---@class _map_viewport: DFCompound
 ---@field _kind 'struct-type'
@@ -979,10 +1146,18 @@ df.map_viewport = {}
 ---@class (exact) map_renderer: DFObject
 ---@field _kind 'struct'
 ---@field _type _map_renderer
+---@field entity any
+---@field unk_v50_1 any
+---@field cursor_units any
+---@field cursor_guts unit
 ---@field multiple_guts boolean
+---@field cursor_corpse item
 ---@field cursor_corpse_cnt number
+---@field cursor_corpsepiece item
 ---@field cursor_corpsepiece_cnt number
+---@field cursor_bones item
 ---@field cursor_bones_cnt number
+---@field cursor_other item
 ---@field cursor_other_cnt number
 ---@field unk_10034 number
 ---@field unk_10035 number
@@ -990,6 +1165,10 @@ df.map_viewport = {}
 ---@field tick_phase number cur_year_tick%10080
 ---@field dim_colors number
 ---@field unk_1 number
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_4 any
+---@field unk_5 number
 ---@field unk_6 number
 ---@field unk_7 number
 

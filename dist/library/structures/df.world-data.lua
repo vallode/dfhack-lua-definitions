@@ -1,10 +1,11 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) world_site_unk130: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_site_unk130
 ---@field index number
+---@field unk_4 any
 
 ---@class _world_site_unk130: DFCompound
 ---@field _kind 'struct-type'
@@ -157,6 +158,8 @@ df.world_population = {}
 ---@field max_x number
 ---@field min_y number
 ---@field max_y number
+---@field unk_74 number
+---@field unk_84 number
 
 ---@class _world_landmass: DFCompound
 ---@field _kind 'struct-type'
@@ -218,6 +221,14 @@ df.world_region_type = {}
 ---@field unk_9c number
 ---@field unk_a0 number
 ---@field unk_a4 number
+---@field population any
+---@field biome_tile_counts any
+---@field tree_biomes any
+---@field tree_tiles_1 any
+---@field tree_tiles_2 any
+---@field tree_tiles_good any
+---@field tree_tiles_evil any
+---@field tree_tiles_savage any
 ---@field dead_percentage number % vegetation dead on embark. The number increases during world gen history, with the new ones always at 100%
 ---@field unk_1e5 boolean Probably optionally set only on good and evil regions during world gen. Number set increases during world gen history and can affect neutral.
 ---@field unk_1e6 boolean Probably optionally set only on neutral regions
@@ -226,6 +237,7 @@ df.world_region_type = {}
 ---@field evil boolean
 ---@field good boolean
 ---@field lake_surface number -- At most one of 'evil' and 'good' is set at a time by DF.
+---@field forces number historical figure IDs of force deities associated with the region. Number set increases during civ placement References: `historical_figure`
 ---@field unk_v47_2 number Number set increases during civ placement
 ---@field mid_x number
 ---@field mid_y number
@@ -263,6 +275,10 @@ function df.world_region.get_vector() end
 ---@field passage_density_min number --  the similar world gen parameters.
 ---@field passage_density_max number --
 ---@field region_coords coord2d_path --
+---@field region_min_z number
+---@field region_max_z number
+---@field unk_c8 any
+---@field feature_init feature_init
 
 ---@class _world_underground_region: DFCompound
 ---@field _kind 'struct-type'
@@ -297,7 +313,11 @@ df.world_underground_region.T_type = {}
 ---@field _type _world_river
 ---@field name language_name
 ---@field path coord2d_path
+---@field flow number
+---@field exit_tile number
+---@field elevation number --  0 - 15
 ---@field end_pos coord2d
+---@field flags any
 
 ---@class _world_river: DFCompound
 ---@field _kind 'struct-type'
@@ -351,6 +371,10 @@ df.geo_layer_type.attrs = {}
 ---@field _type _world_geo_layer
 ---@field type geo_layer_type
 ---@field mat_index number References: `inorganic_raw`
+---@field vein_mat number References: `inorganic_raw`
+---@field vein_nested_in any Index of the other vein this one is nested in, or -1
+---@field vein_type any
+---@field vein_unk_38 number density??
 ---@field top_height number negative
 ---@field bottom_height number
 
@@ -363,6 +387,7 @@ df.world_geo_layer = {}
 ---@field _type _world_geo_biome
 ---@field unk1 number
 ---@field index number
+---@field layers any
 
 ---@class _world_geo_biome: DFCompound
 ---@field _kind 'struct-type'
@@ -385,8 +410,11 @@ function df.world_geo_biome.get_vector() end
 ---@field region_tile_idx number
 ---@field min_z number
 ---@field max_z number
+---@field unk_c coord2d
 ---@field unk_28 number
 ---@field seed integer looks random
+---@field unk_30 any
+---@field unk_38 number
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 
 ---@class _world_region_feature: DFCompound
@@ -396,6 +424,9 @@ df.world_region_feature = {}
 ---@class (exact) world_region_details: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details
+---@field biome any biome field reference:<br>789<br>456<br>123<br>as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
+---@field elevation any
+---@field seed any looks random
 ---@field edges world_region_details.T_edges
 ---@field pos coord2d
 ---@field unk12e8 number
@@ -405,7 +436,12 @@ df.world_region_feature = {}
 ---@field unk_4 number
 ---@field rivers_vertical world_region_details.T_rivers_vertical
 ---@field rivers_horizontal world_region_details.T_rivers_horizontal
+---@field other_features any
+---@field features any
 ---@field lava_stone number References: `inorganic_raw`
+---@field unk_12 number Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
+---@field elevation2 any
+---@field undef13 number
 
 ---@class _world_region_details: DFCompound
 ---@field _kind 'struct-type'
@@ -415,6 +451,11 @@ df.world_region_details = {}
 ---@class (exact) world_region_details.T_edges: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_edges
+---@field split_x any splits for horizontal edges, x=min y=max
+---@field split_y any splits for vertical edges, x=min y=max
+---@field biome_corner any All 4 corners touching get the same reference (which determines the biome),<br>i.e. SE corner of the tile to the NW, SW corner of the tile to the<br>N, NE corner of the tile to the W, and the NW corner of the current<br>tile, as directed by the biome_corner value.
+---@field biome_x any 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
+---@field biome_y any 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 
 ---@class _world_region_details.T_edges: DFCompound
 ---@field _kind 'struct-type'
@@ -424,6 +465,10 @@ df.world_region_details.T_edges = {}
 ---@class (exact) world_region_details.T_rivers_vertical: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_vertical
+---@field x_min any
+---@field x_max any
+---@field active any
+---@field elevation any
 
 ---@class _world_region_details.T_rivers_vertical: DFCompound
 ---@field _kind 'struct-type'
@@ -432,6 +477,10 @@ df.world_region_details.T_rivers_vertical = {}
 ---@class (exact) world_region_details.T_rivers_horizontal: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_horizontal
+---@field y_min any
+---@field y_max any
+---@field active any
+---@field elevation any
 
 ---@class _world_region_details.T_rivers_horizontal: DFCompound
 ---@field _kind 'struct-type'
@@ -554,6 +603,8 @@ df.fog_type = {}
 ---@field _type _region_map_entry
 ---@field unk_0 number
 ---@field finder_rank number
+---@field sites any
+---@field flags any
 ---@field elevation number 0-99=Ocean, 150+=Mountains, 100-149: all other biomes. Note that PSV elevation uses 100-299 for normal biomes, with range later cut to 1/4, and Mountains shifted down
 ---@field rainfall number 0-100
 ---@field vegetation number 0-100
@@ -582,19 +633,19 @@ df.region_map_entry = {}
 
 ---@alias _region_map_entry.T_clouds_keys
 ---| 0 # front
----| 1 # cumulus
----| 2 # cirrus
----| 3 # stratus
----| 4 # fog
----| 5 # countdown
+---| 2 # cumulus
+---| 4 # cirrus
+---| 5 # stratus
+---| 7 # fog
+---| 9 # countdown
 
 ---@alias _region_map_entry.T_clouds_values
 ---| "front" # 0
----| "cumulus" # 1
----| "cirrus" # 2
----| "stratus" # 3
----| "fog" # 4
----| "countdown" # 5
+---| "cumulus" # 2
+---| "cirrus" # 4
+---| "stratus" # 5
+---| "fog" # 7
+---| "countdown" # 9
 
 ---@class region_map_entry.T_clouds: DFObject, { [_region_map_entry.T_clouds_keys|_region_map_entry.T_clouds_values]: boolean }
 ---@field _kind 'bitfield'
@@ -603,30 +654,30 @@ local region_map_entry_clouds = {
   front = false,
   [0] = false,
   cumulus = false,
-  [1] = false,
-  cirrus = false,
   [2] = false,
-  stratus = false,
-  [3] = false,
-  fog = false,
+  cirrus = false,
   [4] = false,
+  stratus = false,
+  [5] = false,
+  fog = false,
+  [7] = false,
   countdown = false, -- A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
-  [5] = false, -- A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+  [9] = false, -- A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 }
 
 ---@class _region_map_entry.T_clouds: DFBitfield
 ---@field front 0
 ---@field [0] "front"
----@field cumulus 1
----@field [1] "cumulus"
----@field cirrus 2
----@field [2] "cirrus"
----@field stratus 3
----@field [3] "stratus"
----@field fog 4
----@field [4] "fog"
----@field countdown 5 A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
----@field [5] "countdown" A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+---@field cumulus 2
+---@field [2] "cumulus"
+---@field cirrus 4
+---@field [4] "cirrus"
+---@field stratus 5
+---@field [5] "stratus"
+---@field fog 7
+---@field [7] "fog"
+---@field countdown 9 A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+---@field [9] "countdown" A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 df.region_map_entry.T_clouds = {}
 
 ---@alias _region_map_entry.T_wind_keys
@@ -693,6 +744,7 @@ df.region_map_entry.T_wind = {}
 ---@class (exact) entity_claim_mask: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_claim_mask
+---@field map any
 ---@field width number
 ---@field height number
 
@@ -707,7 +759,11 @@ df.entity_claim_mask = {}
 ---@field unk_4 number
 ---@field unk_c number
 ---@field unk_10 number
+---@field members any
 ---@field entity_id number References: `historical_entity`
+---@field flags any
+---@field unk_30 any
+---@field unk_40 any
 ---@field unk_70 number
 ---@field unk_72 number
 ---@field unk_74 number
@@ -723,6 +779,17 @@ df.moving_party = {}
 ---@field _kind 'struct'
 ---@field _type _world_object_data
 ---@field id number World MLT of the data according to: i + x * 16 + k * 16 * world_width + y * 256 * world_width, where (x, y) is the world tile and (i, k) the MLT within it
+---@field altered_items number world_data_subid
+---@field offloaded_items any
+---@field unk_24 number
+---@field unk_34 number
+---@field unk_44 number
+---@field unk_54 number
+---@field unk_64 number
+---@field altered_buildings number world_data_subid
+---@field offloaded_buildings any
+---@field unk_94 any
+---@field creation_zone_alterations any
 ---@field unk_v40_1 number
 ---@field year number
 ---@field year_tick number
@@ -746,6 +813,12 @@ function df.world_object_data.get_vector() end
 ---@class (exact) world_object_data.T_picked_growths: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_picked_growths
+---@field x number 0 - 47, within the MLT
+---@field y number 0 - 47, within the MLT
+---@field z number z coordinate using the elevation coordinate system
+---@field subtype number subtype of the growth picked within the raws of the implicit plant
+---@field density number copy of the density field of the growth raws
+---@field year number presumably to know whether it's the current year's harvest or the previous one's
 
 ---@class _world_object_data.T_picked_growths: DFCompound
 ---@field _kind 'struct-type'
@@ -755,6 +828,10 @@ df.world_object_data.T_picked_growths = {}
 ---@class (exact) world_object_data.T_unk_v43: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_object_data.T_unk_v43
+---@field x number probably MLT relative x coordinate
+---@field y number probably MLT relative y coordinate
+---@field z number probably z coordinate using the elevation coordinate system
+---@field unk_4 number 233/234 seen
 
 ---@class _world_object_data.T_unk_v43: DFCompound
 ---@field _kind 'struct-type'
@@ -773,6 +850,7 @@ df.mountain_peak_flags = {}
 ---@field _type _world_mountain_peak
 ---@field name language_name
 ---@field pos coord2d
+---@field flags any
 ---@field height number
 
 ---@class _world_mountain_peak: DFCompound
@@ -792,6 +870,7 @@ function df.world_mountain_peak.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _world_data
 ---@field name language_name name of the world
+---@field unk1 number
 ---@field next_site_id number
 ---@field next_site_unk130_id number
 ---@field next_resource_allotment_id number
@@ -811,6 +890,7 @@ function df.world_mountain_peak.get_vector() end
 ---@field unk_v34_2 number
 ---@field unk_v34_3 number
 ---@field unk_b4 world_data.T_unk_b4
+---@field region_details any
 ---@field adv_region_x number
 ---@field adv_region_y number
 ---@field adv_emb_x number
@@ -819,18 +899,62 @@ function df.world_mountain_peak.get_vector() end
 ---@field unk_y1 number
 ---@field unk_x2 number
 ---@field unk_y2 number
+---@field midmap_place any not saved
 ---@field constructions world_data.T_constructions
 ---@field entity_claims1 entity_claim_mask
 ---@field entity_claims2 entity_claim_mask
+---@field sites any
+---@field site_unk130 any
+---@field resource_allotments any
+---@field breeds any
+---@field battlefields any
+---@field region_weather any
+---@field object_data any
+---@field landmasses any
+---@field regions any
+---@field underground_regions any
+---@field geo_biomes any
+---@field mountain_peaks any
+---@field rivers any
+---@field region_map any
+---@field unk_1c4 number
+---@field embark_notes any
+---@field unk_1dc any
+---@field unk_1e0 any
+---@field unk_1e4 any
+---@field unk_1e8 any
+---@field unk_1ec any
+---@field unk_1f0 any
 ---@field unk_1 number
+---@field unk_2 any
+---@field unk_3 any
+---@field unk_4 any
+---@field unk_5 any
+---@field unk_6 any
+---@field unk_7 any
+---@field unk_8 any
+---@field unk_9 any
+---@field unk_10 any
+---@field unk_11 any
+---@field unk_12 any
+---@field unk_13 any
+---@field unk_14 any
+---@field unk_15 any
+---@field unk_16 any
 ---@field unk_17 number
 ---@field unk_18 number
+---@field active_site any
+---@field feature_map any Additional feature_map information:<br>The feature_map is a two dimensional structure dividing the world into 16 * 16<br>world tile "feature shells" (and remember that there's a single tile wide shell<br>at the end of each dimension, so a pocket world has a shell dimension of 2 * 2).<br>These shells are loaded and unloaded dynamically, which means trying to access a<br>shell that isn't the one in DF's focus (where the fortress/adventurer/pre embark<br>cursor is) is invalid and can lead to DF crashing.<br>The "features.feature_init" 16 * 16 structure contains the features of each of<br>the corresponding world tiles within the shell. However, DF only loads the<br>feature vectors for the world tiles in focus, although they seem to remain<br>loaded until the shell is unloaded. Until loaded the vectors have a size of 0.<br>Manipulation of the features is usually preserved as feature vectors are<br>unloaded/reloaded, so spires can be elongated and rivers added, but some<br>details, such as river fauna, seem to be generated on loading. Added features<br>may not necessarily be reloaded at the vector index they were created at.
+---@field old_sites number References: `world_site`
+---@field old_site_x number
+---@field old_site_y number
 ---@field land_rgns coord2d_path
 ---@field unk_260 number
 ---@field unk_264 number
 ---@field unk_268 number
 ---@field unk_26c number
 ---@field unk_270 number
+---@field unk_274 any exists during worldgen only, before it finishes<br>some sort of wandering groups (entity types NomadicGroup, PerformanceTroupe)<br>unk_10, unk_24 and unk_region_name are either all initialised or all empty/uninitialised
 ---@field unk_482f8 world_data.T_unk_482f8
 
 ---@class _world_data: DFCompound
@@ -859,6 +983,10 @@ df.world_data.T_flip_latitude = {}
 ---@field _type _world_data.T_unk_b4
 ---@field world_width2 number
 ---@field world_height2 number
+---@field unk_1 integer align(width,4)*height
+---@field unk_2 integer align(width,4)*height
+---@field unk_3 integer width*height
+---@field unk_4 integer align(width,4)*height
 
 ---@class _world_data.T_unk_b4: DFCompound
 ---@field _kind 'struct-type'
@@ -869,6 +997,8 @@ df.world_data.T_unk_b4 = {}
 ---@field _type _world_data.T_constructions
 ---@field width number
 ---@field height number
+---@field map any
+---@field list any
 ---@field next_id number
 
 ---@class _world_data.T_constructions: DFCompound
@@ -878,6 +1008,7 @@ df.world_data.T_constructions = {}
 ---@class (exact) world_data.T_unk_482f8: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_data.T_unk_482f8
+---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 number
@@ -895,6 +1026,9 @@ df.world_data.T_unk_482f8 = {}
 ---@field _type _breed
 ---@field id number
 ---@field unk_4 number
+---@field unk_8 any
+---@field unk_18 any
+---@field unk_28 any
 
 ---@class _breed: DFCompound
 ---@field _kind 'struct-type'
@@ -913,11 +1047,14 @@ function df.breed.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _battlefield
 ---@field id number
+---@field sapient_deaths any Seems to be by squad. Trolls/Blizzard Men not counted
+---@field hfs_killed number some victims are not listed, for some reason, and culled HFs can be present References: `historical_figure`
 ---@field x1 number
 ---@field y1 number
 ---@field x2 number
 ---@field y2 number
 ---@field unk_34 number wouldn't be surprised if it was layer, based on other structure layouts, but no non -1 found
+---@field event_collections number References: `history_event_collection`
 
 ---@class _battlefield: DFCompound
 ---@field _kind 'struct-type'

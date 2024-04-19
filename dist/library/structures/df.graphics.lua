@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) large_integer: DFObject
@@ -32,6 +32,10 @@ df.large_integer.T_u = {}
 ---@field sound_priority boolean
 ---@field sound_playing number
 ---@field on boolean
+---@field fmod_system any
+---@field fmod_master_channel_group any
+---@field mod fmod_sound songs
+---@field samp fmod_sound sound effects
 ---@field linux_sound_system musicsoundst.T_linux_sound_system
 
 ---@class _musicsoundst: DFCompound
@@ -55,6 +59,8 @@ df.musicsoundst.T_linux_sound_system = {}
 ---@class (exact) fmod_sound: DFObject
 ---@field _kind 'struct'
 ---@field _type _fmod_sound
+---@field sound any
+---@field channel any
 
 ---@class _fmod_sound: DFCompound
 ---@field _kind 'struct-type'
@@ -91,13 +97,13 @@ df.curses_color = {}
 
 ---@alias _cmv_attribute_keys
 ---| 0 # fg
----| 1 # bg
----| 2 # bright
+---| 3 # bg
+---| 6 # bright
 
 ---@alias _cmv_attribute_values
 ---| "fg" # 0
----| "bg" # 1
----| "bright" # 2
+---| "bg" # 3
+---| "bright" # 6
 
 ---@class cmv_attribute: DFObject, { [_cmv_attribute_keys|_cmv_attribute_values]: boolean }
 ---@field _kind 'bitfield'
@@ -106,18 +112,18 @@ local cmv_attribute = {
   fg = false,
   [0] = false,
   bg = false,
-  [1] = false,
+  [3] = false,
   bright = false,
-  [2] = false,
+  [6] = false,
 }
 
 ---@class _cmv_attribute: DFBitfield
 ---@field fg 0
 ---@field [0] "fg"
----@field bg 1
----@field [1] "bg"
----@field bright 2
----@field [2] "bright"
+---@field bg 3
+---@field [3] "bg"
+---@field bright 6
+---@field [6] "bright"
 df.cmv_attribute = {}
 
 ---@class (exact) graphic_viewportst: DFObject
@@ -126,8 +132,62 @@ df.cmv_attribute = {}
 ---@field flag integer
 ---@field dim_x number
 ---@field dim_y number
+---@field clipx number
+---@field clipy number
 ---@field screen_x number
 ---@field screen_y number
+---@field screentexpos_background number floor
+---@field screentexpos_floor_flag integer
+---@field screentexpos_background_two number boulder, plant, etc.
+---@field screentexpos_liquid_flag integer
+---@field screentexpos_spatter_flag integer
+---@field screentexpos_spatter number
+---@field screentexpos_ramp_flag integer
+---@field screentexpos_shadow_flag integer
+---@field screentexpos_building_one number floor
+---@field screentexpos_item number ground stuff
+---@field screentexpos_vehicle number
+---@field screentexpos_vermin number
+---@field screentexpos_left_creature number
+---@field screentexpos number creature, etc.
+---@field screentexpos_right_creature number
+---@field screentexpos_building_two number high furniture/interior signposting
+---@field screentexpos_projectile number
+---@field screentexpos_high_flow number
+---@field screentexpos_top_shadow number
+---@field screentexpos_signpost number stuff that sticks up from below
+---@field screentexpos_upleft_creature number
+---@field screentexpos_up_creature number
+---@field screentexpos_upright_creature number
+---@field screentexpos_designation number
+---@field screentexpos_interface number cursor, etc
+---@field screentexpos_background_old number
+---@field screentexpos_floor_flag_old integer
+---@field screentexpos_background_two_old number
+---@field screentexpos_liquid_flag_old integer
+---@field screentexpos_spatter_flag_old integer
+---@field screentexpos_spatter_old number
+---@field screentexpos_ramp_flag_old integer
+---@field screentexpos_shadow_flag_old integer
+---@field screentexpos_building_one_old number
+---@field screentexpos_item_old number
+---@field screentexpos_vehicle_old number
+---@field screentexpos_vermin_old number
+---@field screentexpos_left_creature_old number
+---@field screentexpos_old number
+---@field screentexpos_right_creature_old number
+---@field screentexpos_building_two_old number
+---@field screentexpos_projectile_old number
+---@field screentexpos_high_flow_old number
+---@field screentexpos_top_shadow_old number
+---@field screentexpos_signpost_old number
+---@field screentexpos_upleft_creature_old number
+---@field screentexpos_up_creature_old number
+---@field screentexpos_upright_creature_old number
+---@field screentexpos_designation_old number
+---@field screentexpos_interface_old number
+---@field core_tree_species_plus_one number
+---@field shadow_tree_species_plus_one number
 
 ---@class _graphic_viewportst: DFCompound
 ---@field _kind 'struct-type'
@@ -139,12 +199,65 @@ df.graphic_viewportst = {}
 ---@field flag integer
 ---@field dim_x number
 ---@field dim_y number
+---@field clipx number
+---@field clipy number
 ---@field screen_x number
 ---@field screen_y number
 ---@field top_left_corner_x number
 ---@field top_left_corner_y number
 ---@field pixel_perc_x number
 ---@field pixel_perc_y number
+---@field screentexpos_base number
+---@field screentexpos_edge any
+---@field screentexpos_edge2 any
+---@field screentexpos_detail number
+---@field screentexpos_tunnel number
+---@field screentexpos_river number
+---@field screentexpos_road number
+---@field screentexpos_site number
+---@field screentexpos_interface number
+---@field screentexpos_detail_to_n number
+---@field screentexpos_detail_to_s number
+---@field screentexpos_detail_to_w number
+---@field screentexpos_detail_to_e number
+---@field screentexpos_detail_to_nw number
+---@field screentexpos_detail_to_ne number
+---@field screentexpos_detail_to_sw number
+---@field screentexpos_detail_to_se number
+---@field screentexpos_base_old number
+---@field screentexpos_edge_old any
+---@field screentexpos_edge2_old any
+---@field screentexpos_detail_old number
+---@field screentexpos_tunnel_old number
+---@field screentexpos_river_old number
+---@field screentexpos_road_old number
+---@field screentexpos_site_old number
+---@field screentexpos_interface_old number
+---@field screentexpos_detail_to_n_old number
+---@field screentexpos_detail_to_s_old number
+---@field screentexpos_detail_to_w_old number
+---@field screentexpos_detail_to_e_old number
+---@field screentexpos_detail_to_nw_old number
+---@field screentexpos_detail_to_ne_old number
+---@field screentexpos_detail_to_sw_old number
+---@field screentexpos_detail_to_se_old number
+---@field edge_biome_data number
+---@field edge_type_n number
+---@field edge_type_s number
+---@field edge_type_w number
+---@field edge_type_e number
+---@field edge_type_nw number
+---@field edge_type_ne number
+---@field edge_type_sw number
+---@field edge_type_se number
+---@field edge_biome_n number
+---@field edge_biome_s number
+---@field edge_biome_w number
+---@field edge_biome_e number
+---@field edge_biome_nw number
+---@field edge_biome_ne number
+---@field edge_biome_sw number
+---@field edge_biome_se number
 
 ---@class _graphic_map_portst: DFCompound
 ---@field _kind 'struct-type'
@@ -155,6 +268,7 @@ df.graphic_map_portst = {}
 ---@field _type _cached_texturest
 ---@field w number
 ---@field h number
+---@field tex any
 ---@field tex_n number
 
 ---@class _cached_texturest: DFCompound
@@ -175,6 +289,11 @@ df.texblitst = {}
 ---@class (exact) graphic: DFObject
 ---@field _kind 'struct'
 ---@field _type _graphic
+---@field viewport any
+---@field main_viewport graphic_viewportst
+---@field lower_viewport any
+---@field map_port any
+---@field main_map_port graphic_map_portst
 ---@field viewport_zoom_factor number
 ---@field screenx number
 ---@field screeny number
@@ -188,6 +307,9 @@ df.texblitst = {}
 ---@field screen_color_br integer
 ---@field screen_color_bg integer
 ---@field screen_color_bb integer
+---@field ccolor any The curses-RGB mapping used for non-curses display modes
+---@field uccolor any The curses-RGB mapping used for non-curses display modes
+---@field color any
 ---@field mouse_x number tile offset
 ---@field mouse_y number tile offset
 ---@field precise_mouse_x number pixel offset
@@ -196,13 +318,35 @@ df.texblitst = {}
 ---@field screen_pixel_y number
 ---@field tile_pixel_x number
 ---@field tile_pixel_y number
+---@field screen integer
+---@field screen_limit integer pointer to last element of screen
+---@field screentexpos number
+---@field screentexpos_lower number
+---@field screentexpos_anchored number
+---@field screentexpos_anchored_x number
+---@field screentexpos_anchored_y number
+---@field screentexpos_flag integer
 ---@field top_in_use boolean //we assume top is not in use unless a flag is set, and reprint the screen when it goes away, to avoid cell by cell checks
+---@field screen_top integer
+---@field screen_top_limit integer
+---@field screentexpos_top_lower number
+---@field screentexpos_top_anchored number
+---@field screentexpos_top number
+---@field screentexpos_top_anchored_x number
+---@field screentexpos_top_anchored_y number
+---@field screentexpos_top_flag integer
 ---@field display_title boolean
 ---@field display_background boolean
+---@field screentexpos_refresh_buffer number
 ---@field refresh_buffer_val number
 ---@field main_thread_requesting_reshape boolean set to true by main thread, set to false by graphics thread
 ---@field main_thread_requesting_reshape_activate_map_port boolean set to true by main thread, set to false by graphics thread
+---@field clipx number
+---@field clipy number
+---@field tex cached_texturest
+---@field texblits texblitst
 ---@field rect_id number
+---@field print_time large_integer
 ---@field print_index number
 ---@field display_frames number
 ---@field force_full_display_count number
@@ -220,8 +364,17 @@ df.graphic = {}
 ---@class (exact) graphic.T_tileset: DFObject
 ---@field _kind 'struct'
 ---@field _type _graphic.T_tileset
+---@field black_background_texpos number
+---@field texture_indices1 number
+---@field texpos_custom_symbol number
+---@field texture_indices2 number
 ---@field graphical_interface interface_setst
 ---@field classic_interface interface_setst
+---@field texture_indices3 number
+---@field texpos_boulder number
+---@field texture_indices4 number
+---@field texpos_item_statue_artifact number
+---@field texture_indices5 number
 
 ---@class _graphic.T_tileset: DFCompound
 ---@field _kind 'struct-type'
@@ -230,18 +383,199 @@ df.graphic.T_tileset = {}
 ---@class (exact) interface_setst: DFObject
 ---@field _kind 'struct'
 ---@field _type _interface_setst
+---@field texpos_calendar_month any
+---@field texpos_calendar_day_past number
+---@field texpos_calendar_day_current number
+---@field texpos_calendar_day_future number
+---@field texpos_border_top_left any
+---@field texpos_border_top_right any
+---@field texpos_border_bottom_left any
+---@field texpos_border_bottom_right any
+---@field texpos_border_top_intersection any
+---@field texpos_border_bottom_intersection any
+---@field texpos_border_middle_intersection number
+---@field texpos_border_left_intersection any
+---@field texpos_border_right_intersection any
+---@field texpos_border_left number
+---@field texpos_border_right number
+---@field texpos_border_top number
+---@field texpos_border_bottom number
+---@field texpos_hover_rectangle any
 ---@field texpos_hover_rectangle_join_w_sw number
 ---@field texpos_hover_rectangle_join_w_s number
 ---@field texpos_hover_rectangle_join_e_s number
 ---@field texpos_hover_rectangle_join_e_se number
+---@field texpos_hover_close any
+---@field texpos_hover_tab any
+---@field texpos_hover_tab_inactive number
 ---@field texpos_hover_tab_inside_corner_top number
 ---@field texpos_hover_tab_inside_corner_bottom number
+---@field texpos_button_rectangle any
+---@field texpos_button_rectangle_selected any
+---@field texpos_button_rectangle_light any
+---@field texpos_button_rectangle_dark any
+---@field texpos_button_rectangle_divider number
+---@field texpos_button_category_rectangle any
+---@field texpos_button_category_rectangle_selected any
+---@field texpos_button_category_rectangle_on any
+---@field texpos_button_category_rectangle_on_selected any
+---@field texpos_button_category_rectangle_off any
+---@field texpos_button_category_rectangle_off_selected any
+---@field texpos_button_filter any
+---@field texpos_button_filter_no_mag_right number
+---@field texpos_button_filter_name any
+---@field texpos_button_picture_box any
+---@field texpos_button_picture_box_selected any
+---@field texpos_button_picture_box_highlighted any
+---@field texpos_button_picture_box_sel_highlighted any
+---@field texpos_button_picture_box_light any
+---@field texpos_button_picture_box_dark any
+---@field texpos_unk_v50_06 number
+---@field texpos_button_add any
+---@field texpos_button_add_hover any
+---@field texpos_button_add_pressed any
+---@field texpos_button_add_invalid any
+---@field texpos_button_subtract any
+---@field texpos_button_subtract_hover any
+---@field texpos_button_subtract_pressed any
+---@field texpos_button_subtract_invalid any
+---@field texpos_button_expander_closed any
+---@field texpos_button_expander_open any
+---@field texpos_scrollbar any
+---@field texpos_scrollbar_up_hover number
+---@field texpos_scrollbar_up_pressed number
+---@field texpos_scrollbar_down_hover number
+---@field texpos_scrollbar_down_pressed number
+---@field texpos_scrollbar_small_scroller any
+---@field texpos_scrollbar_small_scroller_hover any
+---@field texpos_scrollbar_top_scroller number
+---@field texpos_scrollbar_top_scroller_hover number
+---@field texpos_scrollbar_bottom_scroller number
+---@field texpos_scrollbar_bottom_scroller_hover number
+---@field texpos_scrollbar_blank_scroller number
+---@field texpos_scrollbar_blank_scroller_hover number
+---@field texpos_scrollbar_center_scroller number
+---@field texpos_scrollbar_center_scroller_hover number
+---@field texpos_scrollbar_offcenter_scroller any
+---@field texpos_scrollbar_offcenter_scroller_hover any
+---@field texpos_scrollbar_sky number
+---@field texpos_scrollbar_ground number
+---@field texpos_scrollbar_underground number
+---@field texpos_slider_background any
+---@field texpos_slider any
+---@field texpos_slider_hover any
+---@field texpos_tab any
+---@field texpos_tab_selected any
+---@field texpos_short_tab any
+---@field texpos_short_tab_selected any
+---@field texpos_short_subtab any
+---@field texpos_short_subtab_selected any
+---@field texpos_short_subsubtab any
+---@field texpos_short_subsubtab_selected any
 ---@field texpos_interface_background number
+---@field texpos_button_main any
+---@field texpos_button_small any
+---@field texpos_button_horizontal_option_left_ornament any
+---@field texpos_button_horizontal_option_active any
+---@field texpos_button_horizontal_option_inactive any
+---@field texpos_button_horizontal_option_right_ornament any
+---@field texpos_button_horizontal_option_remove any
+---@field texpos_button_horizontal_option_confirm any
 ---@field texpos_interior_border_n_s_w_e number
 ---@field texpos_interior_border_n_w_e number
 ---@field texpos_interior_border_s_w_e number
 ---@field texpos_interior_border_w_e number
 ---@field texpos_interior_border_n_s number
+---@field texpos_sort_ascending_active number
+---@field texpos_sort_ascending_inactive number
+---@field texpos_sort_descending_active number
+---@field texpos_sort_descending_inactive number
+---@field texpos_sort_text_active number
+---@field texpos_sort_text_inactive number
+---@field texpos_siege_light any
+---@field texpos_diplomacy_light any
+---@field texpos_petitions_light any
+---@field texpos_grid_cell_inactive any
+---@field texpos_grid_cell_active any
+---@field texpos_grid_cell_button any
+---@field texpos_type_filter_left number
+---@field texpos_type_filter_right number
+---@field texpos_type_filter_text number
+---@field texpos_button_announcement_open_all_announcements any
+---@field texpos_button_announcement_not_pausing_on_new_report number
+---@field texpos_button_announcement_pausing_on_new_report number
+---@field texpos_button_announcement_open_from_main any
+---@field texpos_button_stocks_recenter any
+---@field texpos_button_stocks_view_item any
+---@field texpos_button_stocks_forbid any
+---@field texpos_button_stocks_forbid_active any
+---@field texpos_button_stocks_dump any
+---@field texpos_button_stocks_dump_active any
+---@field texpos_button_stocks_melt any
+---@field texpos_button_stocks_melt_active any
+---@field texpos_button_stocks_hide any
+---@field texpos_button_stocks_hide_active any
+---@field texpos_button_short_forbid any
+---@field texpos_button_short_forbid_active any
+---@field texpos_button_short_dump any
+---@field texpos_button_short_dump_active any
+---@field texpos_button_short_melt any
+---@field texpos_button_short_melt_active any
+---@field texpos_button_short_hide any
+---@field texpos_button_short_hide_active any
+---@field texpos_building_short_item_task any
+---@field texpos_building_item_task any
+---@field texpos_building_item_incorporated any
+---@field texpos_building_item_trade any
+---@field texpos_building_item_animal any
+---@field texpos_building_item_bait any
+---@field texpos_building_item_loaded any
+---@field texpos_building_item_dead any
+---@field texpos_building_item_other any
+---@field texpos_building_jobs_repeat any
+---@field texpos_building_jobs_repeat_active any
+---@field texpos_building_jobs_do_now any
+---@field texpos_building_jobs_do_now_active any
+---@field texpos_building_jobs_suspended any
+---@field texpos_building_jobs_suspended_active any
+---@field texpos_building_jobs_priority_up any
+---@field texpos_building_jobs_remove any
+---@field texpos_building_jobs_active any
+---@field texpos_building_jobs_quota any
+---@field texpos_building_jobs_remove_worker any
+---@field texpos_button_assign_trade any
+---@field texpos_button_building_info any
+---@field texpos_button_building_sheet any
+---@field texpos_button_unit_sheet any
+---@field texpos_button_large_unit_sheet any
+---@field texpos_button_pets_livestock any
+---@field texpos_liquid_numbers_on any
+---@field texpos_liquid_numbers_off any
+---@field texpos_ramp_arrows_on any
+---@field texpos_ramp_arrows_off any
+---@field texpos_zoom_in_on any
+---@field texpos_zoom_in_off any
+---@field texpos_zoom_out_on any
+---@field texpos_zoom_out_off any
+---@field texpos_legends_tab_page_left any
+---@field texpos_legends_tab_page_right any
+---@field texpos_legends_tab_close_inactive number
+---@field texpos_legends_tab_close_active number
+---@field texpos_help_border any
+---@field texpos_help_corner any
+---@field texpos_help_close any
+---@field texpos_help_hide any
+---@field texpos_help_reveal any
+---@field texpos_embark_selected any
+---@field texpos_embark_not_selected any
+---@field texpos_embark_expand_y_active any
+---@field texpos_embark_expand_y_inactive any
+---@field texpos_embark_contract_y_active any
+---@field texpos_embark_contract_y_inactive any
+---@field texpos_embark_expand_x_active number
+---@field texpos_embark_expand_x_inactive number
+---@field texpos_embark_contract_x_active number
+---@field texpos_embark_contract_x_inactive number
 ---@field texpos_bottom_button_border_nw number
 ---@field texpos_bottom_button_border_w number
 ---@field texpos_bottom_button_border_n number
@@ -256,6 +590,37 @@ df.interface_setst = {}
 ---@class (exact) renderer: DFObject
 ---@field _kind 'struct'
 ---@field _type _renderer
+---@field screen integer
+---@field screentexpos number
+---@field screentexpos_lower number
+---@field screentexpos_anchored number
+---@field screentexpos_anchored_x number
+---@field screentexpos_anchored_y number
+---@field screentexpos_flag integer
+---@field screen_top integer
+---@field screentexpos_top number
+---@field screentexpos_top_lower number
+---@field screentexpos_top_anchored number
+---@field screentexpos_top_anchored_x number
+---@field screentexpos_top_anchored_y number
+---@field screentexpos_top_flag integer
+---@field directtexcopy integer
+---@field screen_old integer
+---@field screentexpos_old number
+---@field screentexpos_lower_old number
+---@field screentexpos_anchored_old number
+---@field screentexpos_anchored_x_old number
+---@field screentexpos_anchored_y_old number
+---@field screentexpos_flag_old integer
+---@field screen_top_old integer
+---@field screentexpos_top_old number
+---@field screentexpos_top_lower_old number
+---@field screentexpos_top_anchored_old number
+---@field screentexpos_top_anchored_x_old number
+---@field screentexpos_top_anchored_y_old number
+---@field screentexpos_top_flag_old integer
+---@field directtexcopy_old integer
+---@field screentexpos_refresh_buffer number
 
 ---@class _renderer: DFCompound
 ---@field _kind 'class-type'
@@ -264,6 +629,10 @@ df.renderer = {}
 ---@class (exact) renderer_2d_base: DFObject, renderer
 ---@field _kind 'struct'
 ---@field _type _renderer_2d_base
+---@field window any SDL_Window*
+---@field sdl_renderer any SDL_Renderer*
+---@field screen_tex any SDL_Texture*
+---@field tile_cache any unordered_map<texture_fullid, SDL_Texture*\>
 ---@field dispx number
 ---@field dispy number
 ---@field dimx number
@@ -276,6 +645,7 @@ df.renderer = {}
 ---@field cur_h number
 ---@field use_viewport_zoom boolean
 ---@field viewport_zoom_factor number
+---@field textures_to_destroy any svector<texture_fullid>
 ---@field zoom_steps number
 ---@field forced_steps number
 ---@field natural_w number
@@ -317,8 +687,12 @@ df.zoom_commands = {}
 ---@field _kind 'struct'
 ---@field _type _enabler
 ---@field fullscreen_state enabler.T_fullscreen_state
+---@field overridden_grid_sizes any
+---@field renderer renderer
 ---@field calculated_fps number
 ---@field calculated_gfps number
+---@field frame_timings number
+---@field gframe_timings number
 ---@field frame_sum number
 ---@field gframe_sum number
 ---@field frame_last number
@@ -334,6 +708,7 @@ df.zoom_commands = {}
 ---@field async_tobox enabler.T_async_tobox
 ---@field async_frombox enabler.T_async_frombox
 ---@field async_zoom enabler.T_async_zoom
+---@field async_fromcomplete any
 ---@field renderer_threadid number
 ---@field must_do_render_things_before_display boolean
 ---@field command_line string
@@ -353,6 +728,7 @@ df.zoom_commands = {}
 ---@field gputicks number note: this is a std::atomic_int
 ---@field clock integer note: this is a std::atomic_int
 ---@field mouse_focus boolean
+---@field last_text_input integer
 
 ---@class _enabler: DFCompound
 ---@field _kind 'class-type'
@@ -388,6 +764,7 @@ df.enabler.T_fullscreen_state = {}
 ---@field _type _enabler.T_async_tobox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
+---@field vals any
 
 ---@class _enabler.T_async_tobox: DFCompound
 ---@field _kind 'struct-type'
@@ -398,6 +775,7 @@ df.enabler.T_async_tobox = {}
 ---@field _type _enabler.T_async_frombox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
+---@field vals any
 
 ---@class _enabler.T_async_frombox: DFCompound
 ---@field _kind 'struct-type'
@@ -408,6 +786,7 @@ df.enabler.T_async_frombox = {}
 ---@field _type _enabler.T_async_zoom
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
+---@field vals any
 
 ---@class _enabler.T_async_zoom: DFCompound
 ---@field _kind 'struct-type'
@@ -441,6 +820,8 @@ df.enabler.T_flag = {}
 ---@class (exact) enabler.T_textures: DFObject
 ---@field _kind 'struct'
 ---@field _type _enabler.T_textures
+---@field raws pointer
+---@field free_spaces number
 ---@field init_texture_size number
 ---@field uploaded boolean
 
@@ -480,6 +861,10 @@ df.justification = {}
 ---@field tile_dim_y number
 ---@field page_dim_x number
 ---@field page_dim_y number
+---@field texpos number
+---@field datapos number
+---@field texpos_gs number
+---@field datapos_gs number
 ---@field loaded boolean
 
 ---@class _tile_pagest: DFCompound
@@ -493,6 +878,8 @@ df.tile_pagest = {}
 ---@field graphics_dir string
 ---@field filename string
 ---@field default_row number
+---@field color_token any
+---@field color_row number
 
 ---@class _palette_pagest: DFCompound
 ---@field _kind 'struct-type'
@@ -501,6 +888,8 @@ df.palette_pagest = {}
 ---@class (exact) texture_handlerst: DFObject
 ---@field _kind 'struct'
 ---@field _type _texture_handlerst
+---@field page any
+---@field palette any
 
 ---@class _texture_handlerst: DFCompound
 ---@field _kind 'struct-type'

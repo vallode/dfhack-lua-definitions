@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias _plant_flags_keys
@@ -38,6 +38,8 @@ df.plant_flags = {}
 ---@field update_order number
 ---@field site_id number References: `world_site`
 ---@field srb_id number References: `site_realization_building`
+---@field contaminants any
+---@field tree_info plant_tree_info
 
 ---@class _plant: DFCompound
 ---@field _kind 'struct-type'
@@ -162,20 +164,20 @@ df.plant_tree_tile_parent_dir = {}
 ---@alias _plant_tree_tile_keys
 ---| 0 # trunk
 ---| 1 # branches_dir
----| 2 # branches
----| 3 # twigs
----| 4 # blocked
----| 5 # parent_dir
----| 6 # trunk_is_thick
+---| 5 # branches
+---| 6 # twigs
+---| 7 # blocked
+---| 8 # parent_dir
+---| 11 # trunk_is_thick
 
 ---@alias _plant_tree_tile_values
 ---| "trunk" # 0
 ---| "branches_dir" # 1
----| "branches" # 2
----| "twigs" # 3
----| "blocked" # 4
----| "parent_dir" # 5
----| "trunk_is_thick" # 6
+---| "branches" # 5
+---| "twigs" # 6
+---| "blocked" # 7
+---| "parent_dir" # 8
+---| "trunk_is_thick" # 11
 
 ---@class plant_tree_tile: DFObject, { [_plant_tree_tile_keys|_plant_tree_tile_values]: boolean }
 ---@field _kind 'bitfield'
@@ -186,15 +188,15 @@ local plant_tree_tile = {
   branches_dir = false,
   [1] = false,
   branches = false,
-  [2] = false,
-  twigs = false, -- leaves
-  [3] = false, -- leaves
-  blocked = false, -- e.g. by other tree
-  [4] = false, -- e.g. by other tree
-  parent_dir = false,
   [5] = false,
+  twigs = false, -- leaves
+  [6] = false, -- leaves
+  blocked = false, -- e.g. by other tree
+  [7] = false, -- e.g. by other tree
+  parent_dir = false,
+  [8] = false,
   trunk_is_thick = false,
-  [6] = false,
+  [11] = false,
 }
 
 ---@class _plant_tree_tile: DFBitfield
@@ -202,25 +204,26 @@ local plant_tree_tile = {
 ---@field [0] "trunk"
 ---@field branches_dir 1
 ---@field [1] "branches_dir"
----@field branches 2
----@field [2] "branches"
----@field twigs 3 leaves
----@field [3] "twigs" leaves
----@field blocked 4 e.g. by other tree
----@field [4] "blocked" e.g. by other tree
----@field parent_dir 5
----@field [5] "parent_dir"
----@field trunk_is_thick 6
----@field [6] "trunk_is_thick"
+---@field branches 5
+---@field [5] "branches"
+---@field twigs 6 leaves
+---@field [6] "twigs" leaves
+---@field blocked 7 e.g. by other tree
+---@field [7] "blocked" e.g. by other tree
+---@field parent_dir 8
+---@field [8] "parent_dir"
+---@field trunk_is_thick 11
+---@field [11] "trunk_is_thick"
 df.plant_tree_tile = {}
 
 ---@alias _plant_root_tile_keys
 ---| 0 # regular
----| 2 # blocked
+---| 1
+---| 7 # blocked
 
 ---@alias _plant_root_tile_values
 ---| "regular" # 0
----| "blocked" # 2
+---| "blocked" # 7
 
 ---@class plant_root_tile: DFObject, { [_plant_root_tile_keys|_plant_root_tile_values]: boolean }
 ---@field _kind 'bitfield'
@@ -228,23 +231,30 @@ df.plant_tree_tile = {}
 local plant_root_tile = {
   regular = false,
   [0] = false,
+  [1] = false, -- unused
   blocked = false,
-  [2] = false,
+  [7] = false,
 }
 
 ---@class _plant_root_tile: DFBitfield
 ---@field regular 0
 ---@field [0] "regular"
----@field blocked 2
----@field [2] "blocked"
+---@field blocked 7
+---@field [7] "blocked"
 df.plant_root_tile = {}
 
 ---@class (exact) plant_tree_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_tree_info
+---@field body any dimension body_height
+---@field extent_east number dimension body_height
+---@field extent_south number dimension body_height
+---@field extent_west number dimension body_height
+---@field extent_north number dimension body_height
 ---@field body_height number
 ---@field dim_x number
 ---@field dim_y number
+---@field roots any dimension roots_depth
 ---@field roots_depth number
 ---@field local_trunk_height number
 

@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias craft_material_class
@@ -468,14 +468,21 @@ df.strain_type = {}
 ---@field solid_density number
 ---@field liquid_density number
 ---@field molar_mass number
+---@field state_color number
+---@field state_name string
+---@field state_adj string
 ---@field strength material_common.T_strength
 ---@field material_value number
+---@field flags any
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype number
+---@field meat_name string
 ---@field meat_organ number used for texture selection
+---@field block_name string
 ---@field reaction_product material_common.T_reaction_product
 ---@field hardens_with_water material_common.T_hardens_with_water
+---@field reaction_class any
 
 ---@class _material_common: DFCompound
 ---@field _kind 'struct-type'
@@ -500,6 +507,9 @@ df.material_common.T_heat = {}
 ---@field _kind 'struct'
 ---@field _type _material_common.T_strength
 ---@field absorption number
+---@field yield number
+---@field fracture number
+---@field strain_at_yield number
 ---@field max_edge number
 
 ---@class _material_common.T_strength: DFCompound
@@ -509,7 +519,11 @@ df.material_common.T_strength = {}
 ---@class (exact) material_common.T_reaction_product: DFObject
 ---@field _kind 'struct'
 ---@field _type _material_common.T_reaction_product
+---@field id any
+---@field item_type number
+---@field item_subtype number
 ---@field material material_vec_ref
+---@field str any
 
 ---@class _material_common.T_reaction_product: DFCompound
 ---@field _kind 'struct-type'
@@ -520,6 +534,7 @@ df.material_common.T_reaction_product = {}
 ---@field _type _material_common.T_hardens_with_water
 ---@field mat_type number References: `material`
 ---@field mat_index number
+---@field str string
 
 ---@class _material_common.T_hardens_with_water: DFCompound
 ---@field _kind 'struct-type'
@@ -529,12 +544,19 @@ df.material_common.T_hardens_with_water = {}
 ---@field _kind 'struct'
 ---@field _type _material
 ---@field tile integer
+---@field basic_color number
+---@field build_color number
+---@field tile_color number
 ---@field item_symbol integer
 ---@field powder_dye number 0.50.01
 ---@field temp_diet_info number // color token index
+---@field syndrome any
 ---@field soap_level number
+---@field unk_41c number
 ---@field prefix string
+---@field food_mat_index any
 ---@field powder_dye_str string temporary
+---@field state_color_str string
 ---@field wood_texpos number
 ---@field boulder_texpos1 number
 ---@field boulder_texpos2 number
@@ -551,6 +573,8 @@ df.material = {}
 ---@class (exact) material_vec_ref: DFObject
 ---@field _kind 'struct'
 ---@field _type _material_vec_ref
+---@field mat_type any
+---@field mat_index number
 
 ---@class _material_vec_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -560,11 +584,17 @@ df.material_vec_ref = {}
 ---@field _kind 'struct'
 ---@field _type _material_template
 ---@field tile integer
+---@field basic_color number
+---@field build_color number
+---@field tile_color number
 ---@field item_symbol integer
 ---@field powder_dye number
 ---@field temp_diet_info number // color token index
+---@field syndrome any
 ---@field soap_level number
+---@field unk_41c number
 ---@field powder_dye_str string temporary
+---@field state_color_str string
 
 ---@class _material_template: DFCompound
 ---@field _kind 'struct-type'
@@ -688,10 +718,13 @@ df.inclusion_type = {}
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw
 ---@field id string
+---@field str any
+---@field flags any
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
 ---@field metal_ore inorganic_raw.T_metal_ore
 ---@field thread_metal inorganic_raw.T_thread_metal
+---@field economic_uses number References: `reaction`
 ---@field environment_spec inorganic_raw.T_environment_spec
 ---@field environment inorganic_raw.T_environment
 ---@field times_used_land integer
@@ -714,6 +747,9 @@ function df.inorganic_raw.get_vector() end
 ---@class (exact) inorganic_raw.T_metal_ore: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_metal_ore
+---@field str any only during parsing
+---@field mat_index any
+---@field probability number
 
 ---@class _inorganic_raw.T_metal_ore: DFCompound
 ---@field _kind 'struct-type'
@@ -722,6 +758,9 @@ df.inorganic_raw.T_metal_ore = {}
 ---@class (exact) inorganic_raw.T_thread_metal: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_thread_metal
+---@field str any only during parsing
+---@field mat_index any
+---@field probability number
 
 ---@class _inorganic_raw.T_thread_metal: DFCompound
 ---@field _kind 'struct-type'
@@ -730,6 +769,10 @@ df.inorganic_raw.T_thread_metal = {}
 ---@class (exact) inorganic_raw.T_environment_spec: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment_spec
+---@field str any only during parsing
+---@field mat_index any
+---@field inclusion_type any
+---@field probability number
 
 ---@class _inorganic_raw.T_environment_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -738,6 +781,9 @@ df.inorganic_raw.T_environment_spec = {}
 ---@class (exact) inorganic_raw.T_environment: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment
+---@field location any
+---@field type any
+---@field probability number
 
 ---@class _inorganic_raw.T_environment: DFCompound
 ---@field _kind 'struct-type'
@@ -868,6 +914,10 @@ df.organic_mat_category = {}
 ---@class (exact) special_mat_table: DFObject
 ---@field _kind 'struct'
 ---@field _type _special_mat_table
+---@field organic_types any
+---@field organic_indexes any
+---@field organic_unknown any everything 0
+---@field builtin any
 
 ---@class _special_mat_table: DFCompound
 ---@field _kind 'struct-type'

@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) coord2d: DFObject
@@ -14,6 +14,8 @@ df.coord2d = {}
 ---@class (exact) coord2d_path: DFObject
 ---@field _kind 'struct'
 ---@field _type _coord2d_path
+---@field x number
+---@field y number
 
 ---@class _coord2d_path: DFCompound
 ---@field _kind 'struct-type'
@@ -33,6 +35,9 @@ df.coord = {}
 ---@class (exact) coord_path: DFObject
 ---@field _kind 'struct'
 ---@field _type _coord_path
+---@field x number
+---@field y number
+---@field z number
 
 ---@class _coord_path: DFCompound
 ---@field _kind 'struct-type'
@@ -94,47 +99,47 @@ df.tile_liquid = {}
 
 ---@alias _tile_designation_keys
 ---| 0 # flow_size
----| 1 # pile
----| 2 # dig
----| 3 # smooth
----| 4 # hidden
----| 5 # geolayer_index
----| 6 # light
----| 7 # subterranean
----| 8 # outside
----| 9 # biome
----| 10 # liquid_type
----| 11 # water_table
----| 12 # rained
----| 13 # traffic
----| 14 # flow_forbid
----| 15 # liquid_static
----| 16 # feature_local
----| 17 # feature_global
----| 18 # water_stagnant
----| 19 # water_salt
+---| 3 # pile
+---| 4 # dig
+---| 7 # smooth
+---| 9 # hidden
+---| 10 # geolayer_index
+---| 14 # light
+---| 15 # subterranean
+---| 16 # outside
+---| 17 # biome
+---| 21 # liquid_type
+---| 22 # water_table
+---| 23 # rained
+---| 24 # traffic
+---| 26 # flow_forbid
+---| 27 # liquid_static
+---| 28 # feature_local
+---| 29 # feature_global
+---| 30 # water_stagnant
+---| 31 # water_salt
 
 ---@alias _tile_designation_values
 ---| "flow_size" # 0
----| "pile" # 1
----| "dig" # 2
----| "smooth" # 3
----| "hidden" # 4
----| "geolayer_index" # 5
----| "light" # 6
----| "subterranean" # 7
----| "outside" # 8
----| "biome" # 9
----| "liquid_type" # 10
----| "water_table" # 11
----| "rained" # 12
----| "traffic" # 13
----| "flow_forbid" # 14
----| "liquid_static" # 15
----| "feature_local" # 16
----| "feature_global" # 17
----| "water_stagnant" # 18
----| "water_salt" # 19
+---| "pile" # 3
+---| "dig" # 4
+---| "smooth" # 7
+---| "hidden" # 9
+---| "geolayer_index" # 10
+---| "light" # 14
+---| "subterranean" # 15
+---| "outside" # 16
+---| "biome" # 17
+---| "liquid_type" # 21
+---| "water_table" # 22
+---| "rained" # 23
+---| "traffic" # 24
+---| "flow_forbid" # 26
+---| "liquid_static" # 27
+---| "feature_local" # 28
+---| "feature_global" # 29
+---| "water_stagnant" # 30
+---| "water_salt" # 31
 
 ---@class tile_designation: DFObject, { [_tile_designation_keys|_tile_designation_values]: boolean }
 ---@field _kind 'bitfield'
@@ -143,86 +148,86 @@ local tile_designation = {
   flow_size = false, -- liquid amount
   [0] = false, -- liquid amount
   pile = false, -- stockpile; Adventure: lit
-  [1] = false, -- stockpile; Adventure: lit
+  [3] = false, -- stockpile; Adventure: lit
   dig = false, -- Adventure: line_of_sight, furniture_memory, item_memory
-  [2] = false, -- Adventure: line_of_sight, furniture_memory, item_memory
+  [4] = false, -- Adventure: line_of_sight, furniture_memory, item_memory
   smooth = false, -- Adventure: creature_memory, original_cave
-  [3] = false, -- Adventure: creature_memory, original_cave
+  [7] = false, -- Adventure: creature_memory, original_cave
   hidden = false,
-  [4] = false,
-  geolayer_index = false,
-  [5] = false,
-  light = false,
-  [6] = false,
-  subterranean = false,
-  [7] = false,
-  outside = false,
-  [8] = false,
-  biome = false,
   [9] = false,
-  liquid_type = false,
+  geolayer_index = false,
   [10] = false,
-  water_table = false, -- aquifer
-  [11] = false, -- aquifer
-  rained = false,
-  [12] = false,
-  traffic = false,
-  [13] = false,
-  flow_forbid = false,
+  light = false,
   [14] = false,
-  liquid_static = false,
+  subterranean = false,
   [15] = false,
-  feature_local = false,
+  outside = false,
   [16] = false,
-  feature_global = false,
+  biome = false,
   [17] = false,
+  liquid_type = false,
+  [21] = false,
+  water_table = false, -- aquifer
+  [22] = false, -- aquifer
+  rained = false,
+  [23] = false,
+  traffic = false,
+  [24] = false,
+  flow_forbid = false,
+  [26] = false,
+  liquid_static = false,
+  [27] = false,
+  feature_local = false,
+  [28] = false,
+  feature_global = false,
+  [29] = false,
   water_stagnant = false,
-  [18] = false,
+  [30] = false,
   water_salt = false,
-  [19] = false,
+  [31] = false,
 }
 
 ---@class _tile_designation: DFBitfield
 ---@field flow_size 0 liquid amount
 ---@field [0] "flow_size" liquid amount
----@field pile 1 stockpile; Adventure: lit
----@field [1] "pile" stockpile; Adventure: lit
----@field dig 2 Adventure: line_of_sight, furniture_memory, item_memory
----@field [2] "dig" Adventure: line_of_sight, furniture_memory, item_memory
----@field smooth 3 Adventure: creature_memory, original_cave
----@field [3] "smooth" Adventure: creature_memory, original_cave
----@field hidden 4
----@field [4] "hidden"
----@field geolayer_index 5
----@field [5] "geolayer_index"
----@field light 6
----@field [6] "light"
----@field subterranean 7
----@field [7] "subterranean"
----@field outside 8
----@field [8] "outside"
----@field biome 9
----@field [9] "biome"
----@field liquid_type 10
----@field [10] "liquid_type"
----@field water_table 11 aquifer
----@field [11] "water_table" aquifer
----@field rained 12
----@field [12] "rained"
----@field traffic 13
----@field [13] "traffic"
----@field flow_forbid 14
----@field [14] "flow_forbid"
----@field liquid_static 15
----@field [15] "liquid_static"
----@field feature_local 16
----@field [16] "feature_local"
----@field feature_global 17
----@field [17] "feature_global"
----@field water_stagnant 18
----@field [18] "water_stagnant"
----@field water_salt 19
----@field [19] "water_salt"
+---@field pile 3 stockpile; Adventure: lit
+---@field [3] "pile" stockpile; Adventure: lit
+---@field dig 4 Adventure: line_of_sight, furniture_memory, item_memory
+---@field [4] "dig" Adventure: line_of_sight, furniture_memory, item_memory
+---@field smooth 7 Adventure: creature_memory, original_cave
+---@field [7] "smooth" Adventure: creature_memory, original_cave
+---@field hidden 9
+---@field [9] "hidden"
+---@field geolayer_index 10
+---@field [10] "geolayer_index"
+---@field light 14
+---@field [14] "light"
+---@field subterranean 15
+---@field [15] "subterranean"
+---@field outside 16
+---@field [16] "outside"
+---@field biome 17
+---@field [17] "biome"
+---@field liquid_type 21
+---@field [21] "liquid_type"
+---@field water_table 22 aquifer
+---@field [22] "water_table" aquifer
+---@field rained 23
+---@field [23] "rained"
+---@field traffic 24
+---@field [24] "traffic"
+---@field flow_forbid 26
+---@field [26] "flow_forbid"
+---@field liquid_static 27
+---@field [27] "liquid_static"
+---@field feature_local 28
+---@field [28] "feature_local"
+---@field feature_global 29
+---@field [29] "feature_global"
+---@field water_stagnant 30
+---@field [30] "water_stagnant"
+---@field water_salt 31
+---@field [31] "water_salt"
 df.tile_designation = {}
 
 ---@alias tile_building_occ
@@ -256,51 +261,51 @@ df.tile_building_occ = {}
 
 ---@alias _tile_occupancy_keys
 ---| 0 # building
----| 1 # unit
----| 2 # unit_grounded
----| 3 # item
----| 4 # edge_flow_in
----| 5 # moss
----| 6 # arrow_color
----| 7 # arrow_variant
----| 8 # unhide_trigger
----| 9 # monster_lair
----| 10 # no_grow
----| 11 # forced_subterranean_constructions
----| 12 # subterranean_light_column
----| 13 # carve_track_north
----| 14 # carve_track_south
----| 15 # carve_track_east
----| 16 # carve_track_west
----| 17 # spoor
----| 18 # eerie_light
----| 19 # dig_marked
----| 20 # dig_auto
----| 21 # heavy_aquifer
+---| 3 # unit
+---| 4 # unit_grounded
+---| 5 # item
+---| 6 # edge_flow_in
+---| 7 # moss
+---| 8 # arrow_color
+---| 12 # arrow_variant
+---| 13 # unhide_trigger
+---| 14 # monster_lair
+---| 15 # no_grow
+---| 16 # forced_subterranean_constructions
+---| 17 # subterranean_light_column
+---| 18 # carve_track_north
+---| 19 # carve_track_south
+---| 20 # carve_track_east
+---| 21 # carve_track_west
+---| 22 # spoor
+---| 23 # eerie_light
+---| 24 # dig_marked
+---| 25 # dig_auto
+---| 26 # heavy_aquifer
 
 ---@alias _tile_occupancy_values
 ---| "building" # 0
----| "unit" # 1
----| "unit_grounded" # 2
----| "item" # 3
----| "edge_flow_in" # 4
----| "moss" # 5
----| "arrow_color" # 6
----| "arrow_variant" # 7
----| "unhide_trigger" # 8
----| "monster_lair" # 9
----| "no_grow" # 10
----| "forced_subterranean_constructions" # 11
----| "subterranean_light_column" # 12
----| "carve_track_north" # 13
----| "carve_track_south" # 14
----| "carve_track_east" # 15
----| "carve_track_west" # 16
----| "spoor" # 17
----| "eerie_light" # 18
----| "dig_marked" # 19
----| "dig_auto" # 20
----| "heavy_aquifer" # 21
+---| "unit" # 3
+---| "unit_grounded" # 4
+---| "item" # 5
+---| "edge_flow_in" # 6
+---| "moss" # 7
+---| "arrow_color" # 8
+---| "arrow_variant" # 12
+---| "unhide_trigger" # 13
+---| "monster_lair" # 14
+---| "no_grow" # 15
+---| "forced_subterranean_constructions" # 16
+---| "subterranean_light_column" # 17
+---| "carve_track_north" # 18
+---| "carve_track_south" # 19
+---| "carve_track_east" # 20
+---| "carve_track_west" # 21
+---| "spoor" # 22
+---| "eerie_light" # 23
+---| "dig_marked" # 24
+---| "dig_auto" # 25
+---| "heavy_aquifer" # 26
 
 ---@class tile_occupancy: DFObject, { [_tile_occupancy_keys|_tile_occupancy_values]: boolean }
 ---@field _kind 'bitfield'
@@ -309,94 +314,94 @@ local tile_occupancy = {
   building = false,
   [0] = false,
   unit = false, -- standing
-  [1] = false, -- standing
+  [3] = false, -- standing
   unit_grounded = false, -- prone
-  [2] = false, -- prone
+  [4] = false, -- prone
   item = false,
-  [3] = false,
-  edge_flow_in = false, -- if set on an edge tile, water or magma will flow in
-  [4] = false, -- if set on an edge tile, water or magma will flow in
-  moss = false,
   [5] = false,
-  arrow_color = false,
-  [6] = false,
-  arrow_variant = false,
+  edge_flow_in = false, -- if set on an edge tile, water or magma will flow in
+  [6] = false, -- if set on an edge tile, water or magma will flow in
+  moss = false,
   [7] = false,
-  unhide_trigger = false, -- when noncitizen moves in, something happens and it is cleared
-  [8] = false, -- when noncitizen moves in, something happens and it is cleared
-  monster_lair = false, -- bay12: permanent_mess; A monster lair. Items placed wont be moved.
-  [9] = false, -- bay12: permanent_mess; A monster lair. Items placed wont be moved.
-  no_grow = false, -- seems to be set on terrain tiles where grass growth is impossible
-  [10] = false, -- seems to be set on terrain tiles where grass growth is impossible
-  forced_subterranean_constructions = false,
-  [11] = false,
-  subterranean_light_column = false,
+  arrow_color = false,
+  [8] = false,
+  arrow_variant = false,
   [12] = false,
-  carve_track_north = false,
-  [13] = false,
-  carve_track_south = false,
-  [14] = false,
-  carve_track_east = false,
-  [15] = false,
-  carve_track_west = false,
+  unhide_trigger = false, -- when noncitizen moves in, something happens and it is cleared
+  [13] = false, -- when noncitizen moves in, something happens and it is cleared
+  monster_lair = false, -- bay12: permanent_mess; A monster lair. Items placed wont be moved.
+  [14] = false, -- bay12: permanent_mess; A monster lair. Items placed wont be moved.
+  no_grow = false, -- seems to be set on terrain tiles where grass growth is impossible
+  [15] = false, -- seems to be set on terrain tiles where grass growth is impossible
+  forced_subterranean_constructions = false,
   [16] = false,
-  spoor = false,
+  subterranean_light_column = false,
   [17] = false,
-  eerie_light = false,
+  carve_track_north = false,
   [18] = false,
-  dig_marked = false,
+  carve_track_south = false,
   [19] = false,
-  dig_auto = false,
+  carve_track_east = false,
   [20] = false,
+  carve_track_west = false,
+  [21] = false,
+  spoor = false,
+  [22] = false,
+  eerie_light = false,
+  [23] = false,
+  dig_marked = false,
+  [24] = false,
+  dig_auto = false,
+  [25] = false,
   heavy_aquifer = false, -- Light/Heavy aquifer flag
-  [21] = false, -- Light/Heavy aquifer flag
+  [26] = false, -- Light/Heavy aquifer flag
 }
 
 ---@class _tile_occupancy: DFBitfield
 ---@field building 0
 ---@field [0] "building"
----@field unit 1 standing
----@field [1] "unit" standing
----@field unit_grounded 2 prone
----@field [2] "unit_grounded" prone
----@field item 3
----@field [3] "item"
----@field edge_flow_in 4 if set on an edge tile, water or magma will flow in
----@field [4] "edge_flow_in" if set on an edge tile, water or magma will flow in
----@field moss 5
----@field [5] "moss"
----@field arrow_color 6
----@field [6] "arrow_color"
----@field arrow_variant 7
----@field [7] "arrow_variant"
----@field unhide_trigger 8 when noncitizen moves in, something happens and it is cleared
----@field [8] "unhide_trigger" when noncitizen moves in, something happens and it is cleared
----@field monster_lair 9 bay12: permanent_mess; A monster lair. Items placed wont be moved.
----@field [9] "monster_lair" bay12: permanent_mess; A monster lair. Items placed wont be moved.
----@field no_grow 10 seems to be set on terrain tiles where grass growth is impossible
----@field [10] "no_grow" seems to be set on terrain tiles where grass growth is impossible
----@field forced_subterranean_constructions 11
----@field [11] "forced_subterranean_constructions"
----@field subterranean_light_column 12
----@field [12] "subterranean_light_column"
----@field carve_track_north 13
----@field [13] "carve_track_north"
----@field carve_track_south 14
----@field [14] "carve_track_south"
----@field carve_track_east 15
----@field [15] "carve_track_east"
----@field carve_track_west 16
----@field [16] "carve_track_west"
----@field spoor 17
----@field [17] "spoor"
----@field eerie_light 18
----@field [18] "eerie_light"
----@field dig_marked 19
----@field [19] "dig_marked"
----@field dig_auto 20
----@field [20] "dig_auto"
----@field heavy_aquifer 21 Light/Heavy aquifer flag
----@field [21] "heavy_aquifer" Light/Heavy aquifer flag
+---@field unit 3 standing
+---@field [3] "unit" standing
+---@field unit_grounded 4 prone
+---@field [4] "unit_grounded" prone
+---@field item 5
+---@field [5] "item"
+---@field edge_flow_in 6 if set on an edge tile, water or magma will flow in
+---@field [6] "edge_flow_in" if set on an edge tile, water or magma will flow in
+---@field moss 7
+---@field [7] "moss"
+---@field arrow_color 8
+---@field [8] "arrow_color"
+---@field arrow_variant 12
+---@field [12] "arrow_variant"
+---@field unhide_trigger 13 when noncitizen moves in, something happens and it is cleared
+---@field [13] "unhide_trigger" when noncitizen moves in, something happens and it is cleared
+---@field monster_lair 14 bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field [14] "monster_lair" bay12: permanent_mess; A monster lair. Items placed wont be moved.
+---@field no_grow 15 seems to be set on terrain tiles where grass growth is impossible
+---@field [15] "no_grow" seems to be set on terrain tiles where grass growth is impossible
+---@field forced_subterranean_constructions 16
+---@field [16] "forced_subterranean_constructions"
+---@field subterranean_light_column 17
+---@field [17] "subterranean_light_column"
+---@field carve_track_north 18
+---@field [18] "carve_track_north"
+---@field carve_track_south 19
+---@field [19] "carve_track_south"
+---@field carve_track_east 20
+---@field [20] "carve_track_east"
+---@field carve_track_west 21
+---@field [21] "carve_track_west"
+---@field spoor 22
+---@field [22] "spoor"
+---@field eerie_light 23
+---@field [23] "eerie_light"
+---@field dig_marked 24
+---@field [24] "dig_marked"
+---@field dig_auto 25
+---@field [25] "dig_auto"
+---@field heavy_aquifer 26 Light/Heavy aquifer flag
+---@field [26] "heavy_aquifer" Light/Heavy aquifer flag
 df.tile_occupancy = {}
 
 ---@alias _block_flags_keys
@@ -594,15 +599,15 @@ df.tile_liquid_flow_dir = {}
 
 ---@alias _tile_liquid_flow_keys
 ---| 0 # temp_flow_timer
----| 1 # temp_dir
----| 2 # perm_flow_dir
----| 3 # sink_dist
+---| 3 # temp_dir
+---| 6 # perm_flow_dir
+---| 10 # sink_dist
 
 ---@alias _tile_liquid_flow_values
 ---| "temp_flow_timer" # 0
----| "temp_dir" # 1
----| "perm_flow_dir" # 2
----| "sink_dist" # 3
+---| "temp_dir" # 3
+---| "perm_flow_dir" # 6
+---| "sink_dist" # 10
 
 ---@class tile_liquid_flow: DFObject, { [_tile_liquid_flow_keys|_tile_liquid_flow_values]: boolean }
 ---@field _kind 'bitfield'
@@ -611,27 +616,28 @@ local tile_liquid_flow = {
   temp_flow_timer = false, -- set when water sloshes around, counts down to zero
   [0] = false, -- set when water sloshes around, counts down to zero
   temp_dir = false,
-  [1] = false,
+  [3] = false,
   perm_flow_dir = false,
-  [2] = false,
+  [6] = false,
   sink_dist = false, -- periodically set whenever perm_flow_dir is nonzero
-  [3] = false, -- periodically set whenever perm_flow_dir is nonzero
+  [10] = false, -- periodically set whenever perm_flow_dir is nonzero
 }
 
 ---@class _tile_liquid_flow: DFBitfield
 ---@field temp_flow_timer 0 set when water sloshes around, counts down to zero
 ---@field [0] "temp_flow_timer" set when water sloshes around, counts down to zero
----@field temp_dir 1
----@field [1] "temp_dir"
----@field perm_flow_dir 2
----@field [2] "perm_flow_dir"
----@field sink_dist 3 periodically set whenever perm_flow_dir is nonzero
----@field [3] "sink_dist" periodically set whenever perm_flow_dir is nonzero
+---@field temp_dir 3
+---@field [3] "temp_dir"
+---@field perm_flow_dir 6
+---@field [6] "perm_flow_dir"
+---@field sink_dist 10 periodically set whenever perm_flow_dir is nonzero
+---@field [10] "sink_dist" periodically set whenever perm_flow_dir is nonzero
 df.tile_liquid_flow = {}
 
 ---@class (exact) tile_bitmask: DFObject
 ---@field _kind 'struct'
 ---@field _type _tile_bitmask
+---@field bits any
 
 ---@class _tile_bitmask: DFCompound
 ---@field _kind 'struct-type'
@@ -642,6 +648,7 @@ df.tile_bitmask = {}
 ---@field _type _block_burrow
 ---@field id number References: `burrow`
 ---@field tile_bitmask tile_bitmask
+---@field link block_burrow_link
 
 ---@class _block_burrow: DFCompound
 ---@field _kind 'struct-type'
@@ -650,6 +657,9 @@ df.block_burrow = {}
 ---@class (exact) block_burrow_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _block_burrow_link
+---@field item block_burrow
+---@field prev block_burrow_link
+---@field next block_burrow_link
 
 ---@class _block_burrow_link: DFCompound
 ---@field _kind 'struct-type'
@@ -659,15 +669,32 @@ df.block_burrow_link = {}
 ---@field _kind 'struct'
 ---@field _type _map_block
 ---@field flags block_flags
+---@field block_events any
+---@field block_burrows block_burrow_link
 ---@field local_feature number index into world_data.region_map
 ---@field global_feature number References: `world_underground_region`
 ---@field global_feature_sq number
 ---@field layer_depth number This is compared to unit.animal.population.depth when a revealed<br>necromancer searches for a map edge tile to run away to:
 ---@field dsgn_check_cooldown number
 ---@field default_liquid tile_designation
+---@field items any
+---@field flows any
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
 ---@field region_pos coord2d
+---@field tiletype any
+---@field designation any
+---@field occupancy any
+---@field fog_of_war any bay12: memmap; for adventure mode
+---@field path_cost any flood; 256*cost for straight, 362*cost for diagonal
+---@field path_tag any flood; sync to path_distance; same value; inc per run; reset to 0 on wraparound
+---@field walkable any 0 = non-walkable; same nonzero at A and B = walkable from A to B
+---@field map_edge_distance any 1 at walkable map edge; then +1 per 10 tiles it seems; 0 in dug tunnels
+---@field temperature_1 any
+---@field temperature_2 any
+---@field lighting any
+---@field liquid_flow any
+---@field region_offset any
 
 ---@class _map_block: DFCompound
 ---@field _kind 'struct-type'
@@ -676,6 +703,9 @@ df.map_block = {}
 ---@class (exact) cave_column_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _cave_column_link
+---@field item cave_column
+---@field prev cave_column_link
+---@field next cave_column_link
 
 ---@class _cave_column_link: DFCompound
 ---@field _kind 'struct-type'
@@ -727,6 +757,9 @@ df.cave_column.T_flags = {}
 ---@field max_x number
 ---@field max_y number
 ---@field base_z number
+---@field neighbor_bx number
+---@field neighbor_by number
+---@field neighbor_index integer
 ---@field flags cave_column_rectangle.T_flags
 
 ---@class _cave_column_rectangle: DFCompound
@@ -770,11 +803,17 @@ df.cave_column_rectangle.T_flags = {}
 ---@field sink_level number water at or above this level sinks into aquifer tiles
 ---@field beach_level number water at this level disappears if above more water
 ---@field ground_level number for coloring unallocated blocks
+---@field unmined_glyphs any
 ---@field z_base number
+---@field cave_columns any
+---@field column_rectangles any
 ---@field z_shift number seems to be 0 originally, but updated when map is shifted
+---@field flags any 0 process cave columns for caveins
+---@field elevation any
 ---@field map_pos coord2d top left in tiles
 ---@field unk_c3c number uninitialized
 ---@field region_pos coord2d
+---@field plants any Only populated for the top left column in each mid level tile
 
 ---@class _map_block_column: DFCompound
 ---@field _kind 'struct-type'
@@ -874,6 +913,8 @@ df.block_square_event_mineralst.T_flags = {}
 ---@class (exact) block_square_event_frozen_liquidst: DFObject, block_square_event
 ---@field _kind 'struct'
 ---@field _type _block_square_event_frozen_liquidst
+---@field tiles any
+---@field liquid_type any
 
 ---@class _block_square_event_frozen_liquidst: DFCompound
 ---@field _kind 'class-type'
@@ -895,6 +936,7 @@ df.block_square_event_world_constructionst = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field mat_state matter_state
+---@field amount any
 ---@field min_temperature integer
 ---@field max_temperature integer
 
@@ -906,6 +948,7 @@ df.block_square_event_material_spatterst = {}
 ---@field _kind 'struct'
 ---@field _type _block_square_event_grassst
 ---@field plant_index number References: `plant_raw`
+---@field amount any
 
 ---@class _block_square_event_grassst: DFCompound
 ---@field _kind 'class-type'
@@ -914,6 +957,12 @@ df.block_square_event_grassst = {}
 ---@class (exact) block_square_event_spoorst: DFObject, block_square_event
 ---@field _kind 'struct'
 ---@field _type _block_square_event_spoorst
+---@field flags any
+---@field unk_2 any
+---@field unk_3 any
+---@field race any
+---@field caste any
+---@field age any in half-seconds
 ---@field year number
 ---@field year_tick number
 
@@ -929,6 +978,8 @@ df.block_square_event_spoorst = {}
 ---@field mattype number References: `material`
 ---@field matindex number
 ---@field unk1 number
+---@field amount any
+---@field unk2 any
 ---@field temp1 integer
 ---@field temp2 integer
 
@@ -939,6 +990,7 @@ df.block_square_event_item_spatterst = {}
 ---@class (exact) block_square_event_designation_priorityst: DFObject, block_square_event
 ---@field _kind 'struct'
 ---@field _type _block_square_event_designation_priorityst
+---@field priority any
 
 ---@class _block_square_event_designation_priorityst: DFCompound
 ---@field _kind 'class-type'
@@ -982,9 +1034,12 @@ df.feature_type = {}
 ---@class (exact) feature: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature
+---@field population any
 ---@field irritation_level number divide by 10k for attack chance, max 100k
 ---@field irritation_attacks number maxes at 10?
 ---@field embark_pos coord2d_path
+---@field min_map_z number
+---@field max_map_z number
 
 ---@class _feature: DFCompound
 ---@field _kind 'class-type'
@@ -1121,6 +1176,8 @@ df.layer_type = {}
 ---@class (exact) feature_init: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature_init
+---@field flags any
+---@field alterations any
 ---@field start_x number
 ---@field start_y number
 ---@field end_x number
@@ -1135,6 +1192,7 @@ df.feature_init = {}
 ---@class (exact) feature_init_outdoor_riverst: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_outdoor_riverst
+---@field feature feature_outdoor_riverst
 
 ---@class _feature_init_outdoor_riverst: DFCompound
 ---@field _kind 'class-type'
@@ -1143,6 +1201,7 @@ df.feature_init_outdoor_riverst = {}
 ---@class (exact) feature_init_cavest: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_cavest
+---@field feature feature_cavest
 
 ---@class _feature_init_cavest: DFCompound
 ---@field _kind 'class-type'
@@ -1151,6 +1210,7 @@ df.feature_init_cavest = {}
 ---@class (exact) feature_init_pitst: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_pitst
+---@field feature feature_pitst
 
 ---@class _feature_init_pitst: DFCompound
 ---@field _kind 'class-type'
@@ -1159,6 +1219,7 @@ df.feature_init_pitst = {}
 ---@class (exact) feature_init_magma_poolst: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_magma_poolst
+---@field feature feature_magma_poolst
 
 ---@class _feature_init_magma_poolst: DFCompound
 ---@field _kind 'class-type'
@@ -1167,6 +1228,7 @@ df.feature_init_magma_poolst = {}
 ---@class (exact) feature_init_volcanost: DFObject, feature_init
 ---@field _kind 'struct'
 ---@field _type _feature_init_volcanost
+---@field feature feature_volcanost
 
 ---@class _feature_init_volcanost: DFCompound
 ---@field _kind 'class-type'
@@ -1177,6 +1239,7 @@ df.feature_init_volcanost = {}
 ---@field _type _feature_init_deep_special_tubest
 ---@field mat_type number References: `material`
 ---@field mat_index number
+---@field feature feature_deep_special_tubest
 
 ---@class _feature_init_deep_special_tubest: DFCompound
 ---@field _kind 'class-type'
@@ -1187,6 +1250,7 @@ df.feature_init_deep_special_tubest = {}
 ---@field _type _feature_init_deep_surface_portalst
 ---@field mat_type number References: `material`
 ---@field mat_index number
+---@field feature feature_deep_surface_portalst
 
 ---@class _feature_init_deep_surface_portalst: DFCompound
 ---@field _kind 'class-type'
@@ -1196,6 +1260,7 @@ df.feature_init_deep_surface_portalst = {}
 ---@field _kind 'struct'
 ---@field _type _feature_init_subterranean_from_layerst
 ---@field layer number References: `world_underground_region`
+---@field feature feature_subterranean_from_layerst
 
 ---@class _feature_init_subterranean_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1205,6 +1270,7 @@ df.feature_init_subterranean_from_layerst = {}
 ---@field _kind 'struct'
 ---@field _type _feature_init_magma_core_from_layerst
 ---@field layer number References: `world_underground_region`
+---@field feature feature_magma_core_from_layerst
 
 ---@class _feature_init_magma_core_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1216,6 +1282,7 @@ df.feature_init_magma_core_from_layerst = {}
 ---@field layer number References: `world_underground_region`
 ---@field mat_type number References: `material`
 ---@field mat_index number
+---@field feature feature_underworld_from_layerst
 
 ---@class _feature_init_underworld_from_layerst: DFCompound
 ---@field _kind 'class-type'
@@ -1281,6 +1348,10 @@ df.world_construction_type = {}
 ---@field _type _world_construction_square
 ---@field region_pos coord2d
 ---@field construction_id number References: `world_construction`
+---@field embark_x number
+---@field embark_y number
+---@field embark_unk number
+---@field embark_z number
 
 ---@class _world_construction_square: DFCompound
 ---@field _kind 'class-type'
@@ -1335,6 +1406,7 @@ df.world_construction_square_wallst = {}
 ---@field _kind 'struct'
 ---@field _type _world_construction
 ---@field id number
+---@field square_obj any
 ---@field square_pos coord2d_path
 
 ---@class _world_construction: DFCompound
@@ -1719,6 +1791,7 @@ function df.flow_guide.get_vector() end
 ---@class (exact) flow_guide_trailing_flowst: DFObject, flow_guide
 ---@field _kind 'struct'
 ---@field _type _flow_guide_trailing_flowst
+---@field unk_1 coord
 
 ---@class _flow_guide_trailing_flowst: DFCompound
 ---@field _kind 'class-type'
@@ -1733,6 +1806,7 @@ df.flow_guide_trailing_flowst = {}
 ---@field matindex number
 ---@field unk_18 number
 ---@field unk_1c number
+---@field unk_1 coord
 
 ---@class _flow_guide_item_cloudst: DFCompound
 ---@field _kind 'class-type'
@@ -1742,6 +1816,7 @@ df.flow_guide_item_cloudst = {}
 ---@field _kind 'struct'
 ---@field _type _effect_info
 ---@field id number assigned during Save
+---@field job job
 ---@field type number 2 = falling into chasm
 ---@field foreground number
 ---@field background number
@@ -1772,6 +1847,7 @@ df.region_block_eventst = {}
 ---@class (exact) region_block_event_sphere_fieldst: DFObject, region_block_eventst
 ---@field _kind 'struct'
 ---@field _type _region_block_event_sphere_fieldst
+---@field unk_1 number
 
 ---@class _region_block_event_sphere_fieldst: DFCompound
 ---@field _kind 'class-type'

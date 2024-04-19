@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias building_type
@@ -245,6 +245,7 @@ df.building_type.attrs = {}
 ---| 0 # exists
 ---| 1 # site_blocked
 ---| 2 # room_collision
+---| 3
 ---| 4 # almost_deleted
 ---| 5 # in_update
 ---| 6 # from_worldgen
@@ -267,6 +268,7 @@ local building_flags = {
   [1] = false, -- items on ground on site
   room_collision = false, -- major intersection with another room?
   [2] = false, -- major intersection with another room?
+  [3] = false,
   almost_deleted = false, -- when requesting delete while in_update
   [4] = false, -- when requesting delete while in_update
   in_update = false,
@@ -411,6 +413,7 @@ df.building_extents_type = {}
 ---@class (exact) building_extents: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_extents
+---@field extents any
 ---@field x number
 ---@field y number
 ---@field width number
@@ -423,6 +426,14 @@ df.building_extents = {}
 ---@class (exact) building_drawbuffer: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_drawbuffer
+---@field signpost_texpos number
+---@field building_one_texpos any
+---@field item_texpos any
+---@field building_two_texpos any
+---@field tile any
+---@field fore any
+---@field back any
+---@field bright any
 ---@field x1 number
 ---@field x2 number
 ---@field y1 number
@@ -449,7 +460,13 @@ df.building_drawbuffer = {}
 ---@field age number
 ---@field race number References: `creature_raw`
 ---@field id number
+---@field jobs any
+---@field specific_refs any
+---@field general_refs any
+---@field relations any zone(s) this building is in
+---@field job_claim_suppress any after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
+---@field activities any
 ---@field world_data_id number References: `world_object_data`
 ---@field world_data_subid number
 ---@field unk_v40_2 number
@@ -473,6 +490,10 @@ function df.building.get_vector() end
 ---@class (exact) stockpile_links: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_links
+---@field give_to_pile any
+---@field take_from_pile any
+---@field give_to_workshop any
+---@field take_from_workshop any
 
 ---@class _stockpile_links: DFCompound
 ---@field _kind 'struct-type'
@@ -485,9 +506,14 @@ df.stockpile_links = {}
 ---@field max_barrels number
 ---@field max_bins number
 ---@field max_wheelbarrows number
+---@field container_type any
+---@field container_item_id number References: `item`
+---@field container_x number
+---@field container_y number
 ---@field links stockpile_links
 ---@field use_links_only number
 ---@field stockpile_number number
+---@field linked_stops any
 
 ---@class _building_stockpilest: DFCompound
 ---@field _kind 'class-type'
@@ -839,11 +865,16 @@ df.civzone_type = {}
 ---@class (exact) building_civzonest: DFObject, building
 ---@field _kind 'struct'
 ---@field _type _building_civzonest
+---@field assigned_units number References: `unit`
+---@field assigned_items number References: `item`
 ---@field type civzone_type only saved as int16
 ---@field is_active number 0 is paused, 8 is active
 ---@field zone_num number
 ---@field zone_settings building_civzonest.T_zone_settings
+---@field contained_buildings any includes eg workshops and beds
 ---@field assigned_unit_id number
+---@field assigned_unit unit
+---@field squad_room_info any
 
 ---@class _building_civzonest: DFCompound
 ---@field _kind 'class-type'
@@ -978,6 +1009,8 @@ df.building_item_role_type = {}
 ---@field _kind 'struct'
 ---@field _type _building_actual
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
+---@field contained_items any
+---@field design building_design
 
 ---@class _building_actual: DFCompound
 ---@field _kind 'class-type'
@@ -1082,6 +1115,7 @@ df.furnace_type.attrs = {}
 ---@class (exact) building_furnacest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_furnacest
+---@field melt_remainder number
 ---@field unk_108 number
 ---@field type furnace_type
 ---@field profile workshop_profile
@@ -1201,11 +1235,13 @@ df.workshop_type.attrs = {}
 ---@class (exact) workshop_profile: DFObject
 ---@field _kind 'struct'
 ---@field _type _workshop_profile
+---@field permitted_workers number References: `unit`
 ---@field min_level number
 ---@field max_level number
 ---@field links stockpile_links
 ---@field max_general_orders number
 ---@field block_general_orders boolean
+---@field blocked_labors boolean
 
 ---@class _workshop_profile: DFCompound
 ---@field _kind 'struct-type'
@@ -1276,6 +1312,8 @@ df.building_bars_floorst = {}
 ---@class (exact) building_users: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_users
+---@field unit number References: `unit`
+---@field mode number
 
 ---@class _building_users: DFCompound
 ---@field _kind 'struct-type'
@@ -1357,6 +1395,8 @@ df.building_cabinetst = {}
 ---@class (exact) building_cagest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_cagest
+---@field assigned_units number References: `unit`
+---@field assigned_items number References: `item`
 ---@field cage_flags building_cagest.T_cage_flags
 ---@field fill_timer number
 
@@ -1386,6 +1426,8 @@ df.building_cagest.T_cage_flags = {}
 ---@class (exact) building_chainst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_chainst
+---@field assigned unit
+---@field chained unit
 ---@field chain_flags building_chainst.T_chain_flags
 
 ---@class _building_chainst: DFCompound
@@ -1560,6 +1602,7 @@ df.building_constructionst = {}
 ---@class (exact) building_display_furniturest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_display_furniturest
+---@field displayed_items number References: `item`
 
 ---@class _building_display_furniturest: DFCompound
 ---@field _kind 'class-type'
@@ -1578,6 +1621,7 @@ df.building_doorst = {}
 ---@class (exact) building_farmplotst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_farmplotst
+---@field plant_id any
 ---@field material_amount number
 ---@field farm_flags building_farmplotst.T_farm_flags
 ---@field last_season season
@@ -1774,6 +1818,7 @@ df.shop_type = {}
 ---@class (exact) building_shopst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_shopst
+---@field owner unit
 ---@field timer number increments until reaching 200,000,000
 ---@field shop_flags building_shopst.T_shop_flags
 ---@field type shop_type
@@ -2073,6 +2118,8 @@ df.pressure_plate_info.T_flags = {}
 ---@field ready_timeout number plate not active if > 0
 ---@field fill_timer number
 ---@field stop_flags building_trapst.T_stop_flags
+---@field linked_mechanisms any
+---@field observed_by_civs number References: `historical_entity`
 ---@field profile workshop_profile
 ---@field plate_info pressure_plate_info
 ---@field friction number

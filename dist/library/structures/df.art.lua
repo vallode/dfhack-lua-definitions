@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias art_image_element_type
@@ -97,6 +97,7 @@ df.art_image_property_type = {}
 ---@class (exact) art_image_property: DFObject
 ---@field _kind 'struct'
 ---@field _type _art_image_property
+---@field flags any
 
 ---@class _art_image_property: DFCompound
 ---@field _kind 'class-type'
@@ -292,6 +293,8 @@ df.art_facet_type = {}
 ---@class (exact) art_image: DFObject
 ---@field _kind 'struct'
 ---@field _type _art_image
+---@field elements any
+---@field properties any
 ---@field event number References: `history_event`
 ---@field name language_name
 ---@field spec_ref_type specific_ref_type
@@ -300,6 +303,7 @@ df.art_facet_type = {}
 ---@field quality item_quality
 ---@field artist number References: `historical_figure`
 ---@field site number References: `world_site`
+---@field ref general_ref
 ---@field year number
 ---@field unk_1 number
 ---@field id number References: `art_image_chunk`
@@ -313,6 +317,7 @@ df.art_image = {}
 ---@field _kind 'struct'
 ---@field _type _art_image_chunk
 ---@field id number art_image_*.dat
+---@field images any
 
 ---@class _art_image_chunk: DFCompound
 ---@field _kind 'struct-type'
@@ -792,15 +797,18 @@ df.poetic_form_additional_feature = {}
 ---@field original_author number "originating in ..." References: `historical_figure`
 ---@field subject_hf number "originally devised by ..." References: `historical_figure`
 ---@field flags poetic_form.T_flags
+---@field parts any
 ---@field each_line_feet number
 ---@field each_line_pattern poetic_form_pattern
 ---@field every_line_caesura_position poetic_form_caesura_position
+---@field common_features any "certain lines often ... and they sometimes ..."
 ---@field mood poetic_form_mood "is a narrative/... poetic form"
 ---@field subject poetic_form_subject
 ---@field subject_target poetic_form_subject_target
 ---@field action poetic_form_action
 ---@field preferred_perspective number if not -1, ALWAYS written from that perspective
 ---@field features poetic_form_feature "use of ... is characteristic of the form" or "must feature lines which ..."
+---@field perspectives any
 
 ---@class _poetic_form: DFCompound
 ---@field _kind 'struct-type'
@@ -851,9 +859,23 @@ df.poetic_form.T_flags = {}
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 number
+---@field line_endings number
+---@field line_feet number
+---@field line_patterns any "the Nth line has XX feet"
+---@field line_caesura_positions any
+---@field line_features any "first line must make use of ..."
+---@field additional_features any "The XX line ZZ of ... on YY line"
+---@field additional_targets number
+---@field additional_lines number YY
+---@field line_mood any XX
+---@field line_subject any
+---@field line_subject_target poetic_form_subject_target
+---@field line_action any
+---@field unk_5 number
 ---@field some_lines_syllables number
 ---@field some_lines_pattern number "it has lines with ... syllables"
 ---@field each_line_caesura_position poetic_form_caesura_position "it has lines with a tone/accent pattern of ..."<br>"it has ... caesura in each line"
+---@field certain_lines_additional_features any "certain lines have ..." same as additional_features above
 ---@field mood poetic_form_mood
 ---@field unk_6 number
 ---@field unk_7 number
@@ -1459,6 +1481,7 @@ df.musical_form_interval.T_flags = {}
 ---@field _type _musical_form_melodies
 ---@field style musical_form_melody_style
 ---@field frequency musical_form_melody_frequency
+---@field intervals any
 ---@field features musical_form_feature
 
 ---@class _musical_form_melodies: DFCompound
@@ -1480,11 +1503,17 @@ df.musical_form_melodies = {}
 ---@field rhythm_id number References: `rhythm`
 ---@field sub_rhythm number Guess, based on the pattern above
 ---@field rhythm_pattern number references the patterns element of rhythm
+---@field instruments number indices into the instruments vector
+---@field components any
+---@field passage_lengths any
+---@field lowest_register_range number 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
+---@field highest_register_range number 0-3 seen. Probably indices into the registers of the instruments referenced. Found no field for timbre description, though
 ---@field tempo_style musical_form_style
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
 ---@field features musical_form_feature
 ---@field pitch_style musical_form_pitch_style
+---@field melodies any
 ---@field unk_22 number 0-40 seen
 ---@field unk_23 number 0-78 seen
 
@@ -1559,6 +1588,10 @@ df.musical_form_sub4 = {}
 ---@field name language_name
 ---@field originating_entity number ID of the entity from which the musical form originated. References: `historical_entity`
 ---@field original_author number historical figure ID of the composer References: `historical_figure`
+---@field passages any
+---@field instruments any
+---@field melodies any
+---@field unk_1 any
 ---@field tempo_style musical_form_style
 ---@field dynamic_style musical_form_style
 ---@field overall_style musical_form_style
@@ -2024,6 +2057,8 @@ df.dance_form_move_type = {}
 df.dance_form_move_modifier = {}
 
 ---@alias _dance_form_move_location_keys
+---| 0
+---| 1
 ---| 2 # MirroredByGroupMembers
 ---| 3 # InRetrogradeByGroupMembers
 ---| 4 # InSuccessionByGroupMembers
@@ -2043,6 +2078,8 @@ df.dance_form_move_modifier = {}
 ---@field _kind 'bitfield'
 ---@field _enum _dance_form_move_location
 local dance_form_move_location = {
+  [0] = false, -- Standard value, but not described
+  [1] = false, -- Common value, but not described
   MirroredByGroupMembers = false,
   [2] = false,
   InRetrogradeByGroupMembers = false,
@@ -2084,10 +2121,15 @@ df.dance_form_move_location = {}
 ---@field partner_distance dance_form_partner_distance
 ---@field partner_intent dance_form_partner_intent
 ---@field partner_cue_frequency dance_form_partner_cue_frequency
+---@field partner_changes any
 ---@field unk_11 number
 ---@field unk_12 number
 ---@field unk_13 number
 ---@field unk_14 number
+---@field type any
+---@field modifier any
+---@field parameter number Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field location any
 ---@field id number
 
 ---@class _dance_form_section: DFCompound
@@ -2112,6 +2154,10 @@ df.dance_form_move_group_type = {}
 ---@field _kind 'struct'
 ---@field _type _dance_form_move
 ---@field name string
+---@field type any
+---@field modifier any
+---@field parameter number Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field location any
 ---@field group_type dance_form_move_group_type
 
 ---@class _dance_form_move: DFCompound
@@ -2138,10 +2184,17 @@ df.dance_form_move = {}
 ---@field partner_distance dance_form_partner_distance NONE when not pair dance
 ---@field partner_intent dance_form_partner_intent NONE when not pair dance
 ---@field partner_cue_frequency dance_form_partner_cue_frequency NONE when not pair dance and when 'normal'
+---@field partner_changes any
 ---@field poetry_referenced boolean Weird, but all instances where it was set examined have the dance act out any composition of a named poetic form, without any presence of the form number found
 ---@field unk_14 number
 ---@field hfid number Character whose story the dance acts out References: `historical_figure`
 ---@field race number Creature whose movements are imitated References: `creature_raw`
+---@field move_type any
+---@field move_modifier any
+---@field move_parameter number Depends on type (turns are in signed angles, steps are in number of steps, etc.)
+---@field move_location any
+---@field sections any
+---@field moves any
 
 ---@class _dance_form: DFCompound
 ---@field _kind 'struct-type'
@@ -2174,6 +2227,7 @@ df.scale_type = {}
 ---@field _kind 'struct'
 ---@field _type _chord
 ---@field name string
+---@field notes number chord_size entries used. Refers to the notes indices
 ---@field chord_size number
 ---@field unk_3 number 0 and 1 seen
 
@@ -2187,6 +2241,7 @@ df.chord = {}
 ---@field _type _named_scale
 ---@field unk_1 number 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
 ---@field name string
+---@field degrees number indices into the (not necessarily named) notes of the scale
 ---@field degrees_used number elements used in array above
 ---@field first_chord number this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
 ---@field second_chord number
@@ -2201,7 +2256,10 @@ df.named_scale = {}
 ---@field id number
 ---@field flags scale.T_flags
 ---@field type scale_type
+---@field quartertones_used number Quartertone corresponding note matches. Scale_length elements are used when type = Variable. Unused elements uninitialized
 ---@field scale_length number Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
+---@field chords any
+---@field scales any Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
 ---@field notes scale.T_notes
 
 ---@class _scale: DFCompound
@@ -2241,6 +2299,9 @@ df.scale.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _scale.T_notes
 ---@field unk_1 number Frequently looks like garbage for all values of type. Suspect it's actually a filler
+---@field name string
+---@field abreviation string
+---@field number number
 ---@field length number number of elements of the arrays above used
 
 ---@class _scale.T_notes: DFCompound
@@ -2251,6 +2312,8 @@ df.scale.T_notes = {}
 ---@field _kind 'struct'
 ---@field _type _rhythm
 ---@field id number
+---@field patterns any
+---@field sub_rhythms any
 ---@field unk_2 number
 
 ---@class _rhythm: DFCompound
@@ -2311,6 +2374,9 @@ df.beat_type = {}
 ---@field _kind 'struct'
 ---@field _type _rhythm_pattern
 ---@field name string
+---@field bars any
+---@field beat_name string length as per length field
+---@field beat_abbreviation string length as per length field
 ---@field length number
 
 ---@class _rhythm_pattern: DFCompound
@@ -2321,6 +2387,8 @@ df.rhythm_pattern = {}
 ---@field _kind 'struct'
 ---@field _type _sub_rhythm
 ---@field name string
+---@field patterns number indices into patterns
+---@field unk_2 number Same length as patterns, but with unknown purpose
 ---@field unk_3 number
 
 ---@class _sub_rhythm: DFCompound
@@ -2376,7 +2444,10 @@ df.occupation_type = {}
 ---@field location_id number References: `abstract_building`
 ---@field site_id number References: `world_site`
 ---@field group_id number References: `historical_entity`
+---@field service_order any local id vector
 ---@field next_service_order_id number
+---@field wg_site world_site worldgen only
+---@field wg_ab abstract_building worldgen only
 
 ---@class _occupation: DFCompound
 ---@field _kind 'struct-type'

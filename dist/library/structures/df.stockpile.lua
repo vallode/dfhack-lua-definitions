@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias hauler_type
@@ -357,6 +357,7 @@ df.stockpile_settings = {}
 ---@field _type _stockpile_settings.T_animals
 ---@field empty_cages boolean
 ---@field empty_traps boolean
+---@field enabled boolean
 
 ---@class _stockpile_settings.T_animals: DFCompound
 ---@field _kind 'struct-type'
@@ -365,6 +366,25 @@ df.stockpile_settings.T_animals = {}
 ---@class (exact) stockpile_settings.T_food: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_food
+---@field meat boolean
+---@field fish boolean
+---@field unprepared_fish boolean
+---@field egg boolean
+---@field plants boolean
+---@field drink_plant boolean
+---@field drink_animal boolean
+---@field cheese_plant boolean
+---@field cheese_animal boolean
+---@field seeds boolean
+---@field leaves boolean
+---@field powder_plant boolean
+---@field powder_creature boolean
+---@field glob boolean
+---@field glob_paste boolean
+---@field glob_pressed boolean
+---@field liquid_plant boolean
+---@field liquid_animal boolean
+---@field liquid_misc boolean
 ---@field prepared_meals boolean
 
 ---@class _stockpile_settings.T_food: DFCompound
@@ -374,6 +394,11 @@ df.stockpile_settings.T_food = {}
 ---@class (exact) stockpile_settings.T_furniture: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_furniture
+---@field type boolean
+---@field other_mats boolean
+---@field mats boolean 16
+---@field quality_core boolean
+---@field quality_total boolean
 
 ---@class _stockpile_settings.T_furniture: DFCompound
 ---@field _kind 'struct-type'
@@ -382,6 +407,7 @@ df.stockpile_settings.T_furniture = {}
 ---@class (exact) stockpile_settings.T_corpses: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_corpses
+---@field corpses boolean
 
 ---@class _stockpile_settings.T_corpses: DFCompound
 ---@field _kind 'struct-type'
@@ -390,6 +416,15 @@ df.stockpile_settings.T_corpses = {}
 ---@class (exact) stockpile_settings.T_refuse: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_refuse
+---@field type boolean
+---@field corpses boolean
+---@field body_parts boolean
+---@field skulls boolean
+---@field bones boolean
+---@field hair boolean
+---@field shells boolean
+---@field teeth boolean
+---@field horns boolean
 ---@field fresh_raw_hide boolean
 ---@field rotten_raw_hide boolean
 
@@ -400,6 +435,7 @@ df.stockpile_settings.T_refuse = {}
 ---@class (exact) stockpile_settings.T_stone: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_stone
+---@field mats boolean
 
 ---@class _stockpile_settings.T_stone: DFCompound
 ---@field _kind 'struct-type'
@@ -408,6 +444,7 @@ df.stockpile_settings.T_stone = {}
 ---@class (exact) stockpile_settings.T_ore: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_ore
+---@field mats boolean unused
 
 ---@class _stockpile_settings.T_ore: DFCompound
 ---@field _kind 'struct-type'
@@ -416,6 +453,11 @@ df.stockpile_settings.T_ore = {}
 ---@class (exact) stockpile_settings.T_ammo: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_ammo
+---@field type boolean
+---@field other_mats boolean
+---@field mats boolean 2
+---@field quality_core boolean
+---@field quality_total boolean
 
 ---@class _stockpile_settings.T_ammo: DFCompound
 ---@field _kind 'struct-type'
@@ -424,6 +466,7 @@ df.stockpile_settings.T_ammo = {}
 ---@class (exact) stockpile_settings.T_coins: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_coins
+---@field mats boolean
 
 ---@class _stockpile_settings.T_coins: DFCompound
 ---@field _kind 'struct-type'
@@ -432,6 +475,10 @@ df.stockpile_settings.T_coins = {}
 ---@class (exact) stockpile_settings.T_bars_blocks: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_bars_blocks
+---@field bars_other_mats boolean
+---@field blocks_other_mats boolean
+---@field bars_mats boolean
+---@field blocks_mats boolean
 
 ---@class _stockpile_settings.T_bars_blocks: DFCompound
 ---@field _kind 'struct-type'
@@ -440,6 +487,10 @@ df.stockpile_settings.T_bars_blocks = {}
 ---@class (exact) stockpile_settings.T_gems: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_gems
+---@field rough_other_mats boolean
+---@field cut_other_mats boolean
+---@field rough_mats boolean
+---@field cut_mats boolean
 
 ---@class _stockpile_settings.T_gems: DFCompound
 ---@field _kind 'struct-type'
@@ -448,6 +499,11 @@ df.stockpile_settings.T_gems = {}
 ---@class (exact) stockpile_settings.T_finished_goods: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_finished_goods
+---@field type boolean
+---@field other_mats boolean
+---@field mats boolean 17
+---@field quality_core boolean
+---@field quality_total boolean
 
 ---@class _stockpile_settings.T_finished_goods: DFCompound
 ---@field _kind 'struct-type'
@@ -456,6 +512,7 @@ df.stockpile_settings.T_finished_goods = {}
 ---@class (exact) stockpile_settings.T_leather: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_leather
+---@field mats boolean
 
 ---@class _stockpile_settings.T_leather: DFCompound
 ---@field _kind 'struct-type'
@@ -464,6 +521,14 @@ df.stockpile_settings.T_leather = {}
 ---@class (exact) stockpile_settings.T_cloth: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_cloth
+---@field thread_silk boolean
+---@field thread_plant boolean
+---@field thread_yarn boolean
+---@field thread_metal boolean
+---@field cloth_silk boolean
+---@field cloth_plant boolean
+---@field cloth_yarn boolean
+---@field cloth_metal boolean
 
 ---@class _stockpile_settings.T_cloth: DFCompound
 ---@field _kind 'struct-type'
@@ -472,6 +537,7 @@ df.stockpile_settings.T_cloth = {}
 ---@class (exact) stockpile_settings.T_wood: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_wood
+---@field mats boolean
 
 ---@class _stockpile_settings.T_wood: DFCompound
 ---@field _kind 'struct-type'
@@ -480,6 +546,12 @@ df.stockpile_settings.T_wood = {}
 ---@class (exact) stockpile_settings.T_weapons: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_weapons
+---@field weapon_type boolean
+---@field trapcomp_type boolean
+---@field other_mats boolean
+---@field mats boolean 11
+---@field quality_core boolean
+---@field quality_total boolean
 ---@field usable boolean
 ---@field unusable boolean
 
@@ -490,6 +562,16 @@ df.stockpile_settings.T_weapons = {}
 ---@class (exact) stockpile_settings.T_armor: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_armor
+---@field body boolean
+---@field head boolean
+---@field feet boolean
+---@field hands boolean
+---@field legs boolean
+---@field shield boolean
+---@field other_mats boolean
+---@field mats boolean 11
+---@field quality_core boolean
+---@field quality_total boolean
 ---@field usable boolean
 ---@field unusable boolean
 
@@ -500,6 +582,8 @@ df.stockpile_settings.T_armor = {}
 ---@class (exact) stockpile_settings.T_sheet: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_settings.T_sheet
+---@field paper boolean
+---@field parchment boolean
 
 ---@class _stockpile_settings.T_sheet: DFCompound
 ---@field _kind 'struct-type'
@@ -859,6 +943,9 @@ df.stockpile_list.attrs = {}
 ---@field _type _hauling_route
 ---@field id number
 ---@field name string
+---@field stops any
+---@field vehicle_ids any
+---@field vehicle_stops any
 
 ---@class _hauling_route: DFCompound
 ---@field _kind 'struct-type'
@@ -880,6 +967,8 @@ function df.hauling_route.get_vector() end
 ---@field name string
 ---@field pos coord
 ---@field settings stockpile_settings
+---@field conditions any
+---@field stockpiles any
 ---@field time_waiting number
 ---@field cart_id number References: `item`
 

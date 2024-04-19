@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias init_display_flags
@@ -39,6 +39,7 @@ df.init_display_filter_mode = {}
 ---@class (exact) init_display: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_display
+---@field flag any
 ---@field windowed init_display.T_windowed
 ---@field grid_x number
 ---@field grid_y number
@@ -95,6 +96,7 @@ df.init_media_flags = {}
 ---@class (exact) init_media: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_media
+---@field flag any
 ---@field volume_master number
 ---@field volume_music number
 ---@field volume_ambience number
@@ -123,6 +125,7 @@ df.init_input_flags = {}
 ---@field repeat_time number
 ---@field macro_time number
 ---@field pause_zoom_no_interface_ms number
+---@field flag any
 ---@field zoom_speed number
 ---@field repeat_accel_start number
 ---@field repeat_accel_limit number
@@ -134,6 +137,18 @@ df.init_input = {}
 ---@class (exact) init_font: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_font
+---@field basic_font_texpos number
+---@field small_font_texpos number
+---@field large_font_texpos number
+---@field basic_font_datapos number
+---@field small_font_datapos number
+---@field large_font_datapos number
+---@field basic_font_texpos_top number
+---@field small_font_texpos_top number
+---@field large_font_texpos_top number
+---@field basic_font_texpos_bot number
+---@field small_font_texpos_bot number
+---@field large_font_texpos_bot number
 ---@field basic_font_adjx number
 ---@field basic_font_adjy number
 ---@field small_font_adjx number
@@ -168,6 +183,7 @@ df.init_window_flags = {}
 ---@class (exact) init_window: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_window
+---@field flag any
 
 ---@class _init_window: DFCompound
 ---@field _kind 'struct-type'
@@ -183,6 +199,22 @@ df.init_window = {}
 ---@field window init_window
 ---@field fps_cap number
 ---@field gfps_cap number
+---@field load_bar_texpos number
+---@field intro_button_texpos number
+---@field texpos_neutral_intro_button number
+---@field texpos_confirm_intro_button number
+---@field texpos_cancel_intro_button number
+---@field texpos_selected_intro_button number
+---@field texpos_unselected_intro_button number
+---@field texpos_open_list_button number
+---@field texpos_increase_button number
+---@field texpos_decrease_button number
+---@field texpos_nullify_button number
+---@field texpos_left_arrow_button number
+---@field texpos_right_arrow_button number
+---@field texpos_up_arrow_button number
+---@field texpos_down_arrow_button number
+---@field border_texpos number
 ---@field texpos_border_nw number
 ---@field texpos_border_n number
 ---@field texpos_border_ne number
@@ -203,6 +235,51 @@ df.init_window = {}
 ---@field texpos_border_inside_swe number
 ---@field texpos_border_inside_ns number
 ---@field texpos_border_inside_we number
+---@field scrollbar_texpos number
+---@field texpos_scrollbar any
+---@field texpos_scrollbar_up_hover number
+---@field texpos_scrollbar_up_pressed number
+---@field texpos_scrollbar_down_hover number
+---@field texpos_scrollbar_down_pressed number
+---@field texpos_scrollbar_small_scroller any
+---@field texpos_scrollbar_small_scroller_hover any
+---@field texpos_scrollbar_top_scroller number
+---@field texpos_scrollbar_top_scroller_hover number
+---@field texpos_scrollbar_bottom_scroller number
+---@field texpos_scrollbar_bottom_scroller_hover number
+---@field texpos_scrollbar_blank_scroller number
+---@field texpos_scrollbar_blank_scroller_hover number
+---@field texpos_scrollbar_center_scroller number
+---@field texpos_scrollbar_center_scroller_hover number
+---@field texpos_scrollbar_offcenter_scroller any
+---@field texpos_scrollbar_offcenter_scroller_hover any
+---@field filter_texpos number
+---@field texpos_button_filter any
+---@field texpos_button_filter_name any
+---@field tabs_texpos number
+---@field texpos_tab_unselected any
+---@field texpos_tab_selected any
+---@field sort_texpos number
+---@field texpos_sort_ascending_active number
+---@field texpos_sort_ascending_inactive number
+---@field texpos_sort_descending_active number
+---@field texpos_sort_descending_inactive number
+---@field texpos_sort_text_active number
+---@field texpos_sort_text_inactive number
+---@field classic_load_bar_texpos number
+---@field classic_texpos_neutral_intro_button number
+---@field classic_texpos_confirm_intro_button number
+---@field classic_texpos_cancel_intro_button number
+---@field classic_texpos_selected_intro_button number
+---@field classic_texpos_unselected_intro_button number
+---@field classic_texpos_open_list_button number
+---@field classic_texpos_increase_button number
+---@field classic_texpos_decrease_button number
+---@field classic_texpos_nullify_button number
+---@field classic_texpos_left_arrow_button number
+---@field classic_texpos_right_arrow_button number
+---@field classic_texpos_up_arrow_button number
+---@field classic_texpos_down_arrow_button number
 ---@field classic_texpos_border_nw number
 ---@field classic_texpos_border_n number
 ---@field classic_texpos_border_ne number
@@ -223,6 +300,33 @@ df.init_window = {}
 ---@field classic_texpos_border_inside_swe number
 ---@field classic_texpos_border_inside_ns number
 ---@field classic_texpos_border_inside_we number
+---@field classic_texpos_scrollbar any
+---@field classic_texpos_scrollbar_up_hover number
+---@field classic_texpos_scrollbar_up_pressed number
+---@field classic_texpos_scrollbar_down_hover number
+---@field classic_texpos_scrollbar_down_pressed number
+---@field classic_texpos_scrollbar_small_scroller any
+---@field classic_texpos_scrollbar_small_scroller_hover any
+---@field classic_texpos_scrollbar_top_scroller number
+---@field classic_texpos_scrollbar_top_scroller_hover number
+---@field classic_texpos_scrollbar_bottom_scroller number
+---@field classic_texpos_scrollbar_bottom_scroller_hover number
+---@field classic_texpos_scrollbar_blank_scroller number
+---@field classic_texpos_scrollbar_blank_scroller_hover number
+---@field classic_texpos_scrollbar_center_scroller number
+---@field classic_texpos_scrollbar_center_scroller_hover number
+---@field classic_texpos_scrollbar_offcenter_scroller any
+---@field classic_texpos_scrollbar_offcenter_scroller_hover any
+---@field classic_texpos_button_filter any
+---@field classic_texpos_button_filter_name any
+---@field classic_texpos_tab_unselected any
+---@field classic_texpos_tab_selected any
+---@field classic_texpos_sort_ascending_active number
+---@field classic_texpos_sort_ascending_inactive number
+---@field classic_texpos_sort_descending_active number
+---@field classic_texpos_sort_descending_inactive number
+---@field classic_texpos_sort_text_active number
+---@field classic_texpos_sort_text_inactive number
 
 ---@class _init: DFCompound
 ---@field _kind 'struct-type'

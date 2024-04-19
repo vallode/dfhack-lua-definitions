@@ -1,10 +1,12 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) entity_occasion_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_occasion_info
+---@field occasions any
 ---@field next_occasion_id number
+---@field events number References: `history_event`
 ---@field count number number of elements used in array above
 
 ---@class _entity_occasion_info: DFCompound
@@ -25,6 +27,7 @@ df.entity_occasion_info = {}
 ---@field unk_3 number 0-2 seen
 ---@field event number References: `history_event`
 ---@field unk_4 number only seen with unk_3=2, but is usually not set
+---@field schedule any
 ---@field unk_5 number only value seen
 
 ---@class _entity_occasion: DFCompound
@@ -84,6 +87,7 @@ df.occasion_schedule_type = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
+---@field features any
 ---@field start_year_tick number
 ---@field end_year_tick number
 
@@ -155,6 +159,7 @@ df.entity_occasion_schedule_feature = {}
 ---@field _kind 'struct'
 ---@field _type _entity_activity_statistics
 ---@field food entity_activity_statistics.T_food
+---@field unit_counts number
 ---@field population number
 ---@field menial_exempt number
 ---@field omnivores number
@@ -163,19 +168,31 @@ df.entity_occasion_schedule_feature = {}
 ---@field other_animals number
 ---@field potential_soldiers number
 ---@field combat_aptitude number
+---@field item_counts number
+---@field created_weapons number
 ---@field wealth entity_activity_statistics.T_wealth
+---@field recent_jobs any
 ---@field excavated_tiles number unhidden, subterranean, and excluding map features
+---@field death_history number
+---@field insanity_history number
+---@field execution_history number
+---@field noble_death_history number
 ---@field total_deaths number
 ---@field total_insanities number
 ---@field total_executions number
 ---@field num_artifacts number 0.50.01
 ---@field unk_6 number in 0.23, total siegers
+---@field discovered_creature_foods boolean
+---@field discovered_creatures boolean
+---@field discovered_plant_foods boolean
+---@field discovered_plants boolean allows planting of seeds
 ---@field discovered_water_features number
 ---@field discovered_subterranean_features number
 ---@field discovered_chasm_features number unused since 40d
 ---@field discovered_magma_features number
 ---@field discovered_feature_layers number back in 40d, this counted HFS
 ---@field migrant_wave_idx number when >= 2, no migrants
+---@field found_minerals number Added after 'you have struck' announcement References: `inorganic_raw`
 ---@field found_misc entity_activity_statistics.T_found_misc
 
 ---@class _entity_activity_statistics: DFCompound
@@ -250,6 +267,10 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field export_value_total number bay12: goodsvalue_end
 ---@field export_value_personal number bay12: exportvalue_end; excluding foreign-produced items
 ---@field offer_value number bay12: offervalue_end
+---@field animals number bay12: unitroster References: `unit`
+---@field sell_prices entity_sell_prices bay12: tradeagreement
+---@field buy_prices entity_buy_prices bay12: requestagreement
+---@field goods number bay12: already_appraised_item_id References: `item`
 ---@field mood number bay12: tolerance; reflects satisfaction with last trading session
 ---@field haggle_fail_count number
 
@@ -348,6 +369,8 @@ df.caravan_state.T_flags = {}
 ---@class (exact) entity_buy_prices: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_buy_prices
+---@field items entity_buy_requests
+---@field price number
 
 ---@class _entity_buy_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -356,6 +379,12 @@ df.entity_buy_prices = {}
 ---@class (exact) entity_buy_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_buy_requests
+---@field item_type any guess
+---@field item_subtype any guess
+---@field mat_types any
+---@field mat_indices number
+---@field mat_cats job_material_category
+---@field priority number
 
 ---@class _entity_buy_requests: DFCompound
 ---@field _kind 'struct-type'
@@ -561,6 +590,8 @@ df.entity_sell_category = {}
 ---@class (exact) entity_sell_prices: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_sell_prices
+---@field items entity_sell_requests
+---@field price any
 
 ---@class _entity_sell_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -569,6 +600,7 @@ df.entity_sell_prices = {}
 ---@class (exact) entity_sell_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_sell_requests
+---@field priority any
 
 ---@class _entity_sell_requests: DFCompound
 ---@field _kind 'struct-type'
@@ -578,6 +610,10 @@ df.entity_sell_requests = {}
 ---@field _kind 'struct'
 ---@field _type _entity_recipe
 ---@field subtype number References: `itemdef_foodst`
+---@field item_types any
+---@field item_subtypes any
+---@field mat_types any
+---@field mat_indices number
 
 ---@class _entity_recipe: DFCompound
 ---@field _kind 'struct-type'
@@ -634,6 +670,9 @@ df.historical_entity_type = {}
 ---@field required_kills number
 ---@field required_battles number
 ---@field required_years_of_membership number
+---@field honored number References: `historical_figure`
+---@field required_position number References: `entity_position`
+---@field required_former_position number References: `entity_position`
 
 ---@class _honors_type: DFCompound
 ---@field _kind 'struct-type'
@@ -692,6 +731,7 @@ df.honors_type.T_required_skill_type = {}
 ---@field claim_year number Written contents often seem to lack info of being claimed
 ---@field claim_year_tick number usually init
 ---@field unk_1 number
+---@field artifact artifact_record
 ---@field site number References: `world_site`
 ---@field structure_local number
 ---@field holder_hf number might be owner_hf. all cases encountered have had both field the same when claimed by entity References: `historical_figure`
@@ -700,6 +740,9 @@ df.honors_type.T_required_skill_type = {}
 ---@field unk_year number seems to be current year or -1. Matches up with corresponding field of artifact_record
 ---@field unk_2 number only other value seen was 0
 ---@field unk_3 number uninitialized
+---@field unk_4 any
+---@field unk_5 historical_entity
+---@field unk_6 historical_entity
 
 ---@class _artifact_claim: DFCompound
 ---@field _kind 'struct-type'
@@ -711,6 +754,12 @@ df.artifact_claim = {}
 ---@field _type _entity_unk_v47_1
 ---@field unk_v47_1 number seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled References: `historical_figure`
 ---@field unk_v47_2 number some enum?
+---@field unk_v47_3 number some enum?
+---@field agreement number References: `agreement`
+---@field unk_v47_5 number boolean?
+---@field unk_v47_6 number
+---@field unk_v47_7 number
+---@field unk_v47_8 number
 ---@field unk_v47_9 number
 
 ---@class _entity_unk_v47_1: DFCompound
@@ -748,7 +797,15 @@ df.world_gen_entity_populationst = {}
 ---@class (exact) world_gen_wandering_groupst: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_gen_wandering_groupst
+---@field wanderer any
+---@field ent_pop any
+---@field rpop any
+---@field ent historical_entity
+---@field cur_location world_site
+---@field cur_location_sr world_region
+---@field cur_location_fl world_underground_region
 ---@field relocate_delay number
+---@field wg_site_culture wg_site_culturest
 
 ---@class _world_gen_wandering_groupst: DFCompound
 ---@field _kind 'struct-type'
@@ -759,52 +816,97 @@ df.world_gen_wandering_groupst = {}
 ---@field _type _historical_entity
 ---@field type historical_entity_type
 ---@field id number index in the array
+---@field entity_raw entity_raw
 ---@field unk_v50_10 number
 ---@field save_file_id number changes once has 100 entries
 ---@field next_member_idx number
 ---@field name language_name
 ---@field race number References: `creature_raw`
 ---@field flags historical_entity.T_flags
+---@field guild_professions any Only seen 1, and only for guilds
+---@field entity_links any
+---@field site_links any
+---@field histfig_ids number References: `historical_figure`
+---@field populations number 1st entry copies to unit.population_id for Adventurer? References: `entity_population`
+---@field nemesis_ids number References: `nemesis_record`
 ---@field resources historical_entity.T_resources
+---@field uniforms any
 ---@field next_uniform_id number
 ---@field relations historical_entity.T_relations
 ---@field positions historical_entity.T_positions
 ---@field tissue_styles historical_entity.T_tissue_styles
+---@field squads number References: `squad`
 ---@field global_event_knowledge_year number
+---@field local_known_events number since the above year References: `history_event`
 ---@field production_zone_id number not sure what this refers to
 ---@field conquered_site_group_flags historical_entity.T_conquered_site_group_flags
+---@field worldgen_can_make_guildhall number
+---@field training_knowledge any
+---@field events any -- bay12: rumor_info
 ---@field unk_v40_1a number -- these are part of bay12's rumor_info struct
 ---@field unk_v40_1b number
 ---@field unk_v40_1c number
 ---@field unk_v40_1d number
 ---@field unk_v40_1e number
+---@field performed_poetic_forms number References: `poetic_form`
+---@field performed_musical_forms number References: `musical_form`
+---@field performed_dance_forms number References: `dance_form`
+---@field performed_scale_id number
+---@field performed_rhythm_id number
+---@field well_known_wcid number -- wcid == written content ID
+---@field occasion_info entity_occasion_info -- bay12: entity_calendarst *calendar
+---@field artifact_claims any sorted on artifact id
+---@field honors any Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index number
 ---@field equipment_purchases number only seen on military units
 ---@field attack number only seen on military units
 ---@field total_battles number attacks + defenses. Only seen on military units
+---@field unk_v47_1 any -- bay12: evidence_repository
+---@field divination_sets number Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
 ---@field founding_site_government number -- bay12: material_source_enid References: `historical_entity`
+---@field meeting_events any
+---@field activity_stats entity_activity_statistics -- bay12: reportst *lastreport
 ---@field last_report_season number in 0.23, last communicate season
 ---@field last_report_year number in 0.23, last communicate year
 ---@field imports_from number
 ---@field offerings_from number
 ---@field offerings_recent number since the last migrant wave or diplomat visit
+---@field offerings_history number rotated yearly at 15th of Timber
 ---@field hostility_level number bay12: brazenness
 ---@field siege_tier number
 ---@field dwf_attack_schedule_check_timer number
 ---@field last_petition_year number
 ---@field last_petition_season_count number
+---@field armies any
+---@field army_controllers any
+---@field hist_figures any
+---@field nemesis any
 ---@field derived_resources historical_entity.T_derived_resources
+---@field assignments_by_type any
 ---@field claims historical_entity.T_claims
+---@field children number includes self References: `historical_entity`
 ---@field metal_proficiency number -- bay12: army_strength_material_bonus
+---@field weapon_proficiencies job_skill
+---@field resource_allotment resource_allotment_data -- bay12: production_zonest *production_zone
+---@field local_poetic_form any
+---@field local_musical_form any
+---@field local_dance_form any
+---@field well_known_wc any
 ---@field settlement_x number
 ---@field settlement_y number uninitialized
 ---@field settlement_toggled boolean 0
+---@field landmass world_landmass
+---@field region world_region -- Civ entities. Nil for sites.
 ---@field world_gen_army_strength number -- Civ entities. Non pointers for sites.
 ---@field connect_two_site_throttle_time number 0
+---@field construct_shortest_con_throttle_stid number used during world gen
+---@field construct_shortest_con_throttle_time number used during world gen
 ---@field snatcher_site_toggle_count number 0
 ---@field war_fatigue number 0
 ---@field army_reeling_attack number 0
 ---@field unkarmy_reeling_defense number 0
+---@field attacked_site_id number used during world gen
+---@field attacked_site_timer number used during world gen
 ---@field did_wg_variable_position number
 ---@field did_wg_variable_market_position number
 ---@field dig_caution_end_year number
@@ -818,7 +920,15 @@ df.world_gen_wandering_groupst = {}
 ---@field peasant_labor_hours number
 ---@field total_food_veg number ?
 ---@field total_food_carn number ?
+---@field trade_current_amount number ?
+---@field trade_needed_amount number
+---@field trade_wanted_amount number
+---@field trade_maximum_buy_price number
+---@field town_labor_hours number
+---@field world_gen_entity_debt any -- bay12: world_gen_entity_debt
 ---@field account number
+---@field burial_request any ?
+---@field current_wgwg any
 ---@field total_outcast_strength number
 ---@field pool_id integer -- protected --
 
@@ -1013,17 +1123,60 @@ df.historical_entity.T_flags = {}
 ---@class (exact) historical_entity.T_resources: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources
+---@field digger_type number References: `itemdef_weaponst`
+---@field weapon_type number References: `itemdef_weaponst`
+---@field training_weapon_type number References: `itemdef_weaponst`
+---@field armor_type number References: `itemdef_armorst`
+---@field ammo_type number References: `itemdef_ammost`
+---@field helm_type number References: `itemdef_helmst`
+---@field gloves_type number References: `itemdef_glovesst`
+---@field shoes_type number References: `itemdef_shoesst`
+---@field pants_type number References: `itemdef_pantsst`
+---@field shield_type number References: `itemdef_shieldst`
+---@field trapcomp_type number References: `itemdef_trapcompst`
+---@field toy_type number References: `itemdef_toyst`
+---@field instrument_type number References: `itemdef_instrumentst`
+---@field siegeammo_type number References: `itemdef_siegeammost`
+---@field tool_type number References: `itemdef_toolst`
+---@field unk_1 number -- bay12: reaction_ind
 ---@field metal historical_entity.T_resources.T_metal
 ---@field organic historical_entity.T_resources.T_organic
+---@field metals number bars References: `inorganic_raw`
+---@field stones number boulders and blocks References: `inorganic_raw`
+---@field gems number small and large cut References: `inorganic_raw`
 ---@field refuse historical_entity.T_resources.T_refuse
 ---@field misc_mat historical_entity.T_resources.T_misc_mat
+---@field fish_races number References: `creature_raw`
+---@field fish_castes number References: `caste_raw`
+---@field egg_races number References: `creature_raw`
+---@field egg_castes number References: `caste_raw`
 ---@field plants material_vec_ref
+---@field tree_fruit_plants number References: `plant_raw`
+---@field tree_fruit_growths number References: `plant_growth`
+---@field shrub_fruit_plants number References: `plant_raw`
+---@field shrub_fruit_growths number References: `plant_growth`
 ---@field seeds material_vec_ref
 ---@field wood_products historical_entity.T_resources.T_wood_products
 ---@field animals historical_entity.T_resources.T_animals
+---@field meat_fish_recipes any
+---@field other_recipes any
+---@field unk13 any in 0.23, these were material/matgloss pairs, never used for anything
+---@field unk14 any in 0.23, items that would be equipped by the arriving King, never used
 ---@field unk15a number in 0.23, minimum temperature
 ---@field unk15b number in 0.23, maximum temperature
+---@field ethic any
+---@field values number
 ---@field unk_2 number
+---@field permitted_skill boolean
+---@field art_image_types number 0 = civilization symbol
+---@field art_image_ids number
+---@field art_image_subids number
+---@field color_ref_type any
+---@field foreground_color_curses any
+---@field foreground_color_curses_bright boolean
+---@field background_color_curses any
+---@field foreground_color number foreground color used for the entity symbol in legends mode and the historical maps. References: `descriptor_color`
+---@field background_color number background color used for the entity symbol in legends mode and the historical maps. References: `descriptor_color`
 
 ---@class _historical_entity.T_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -1101,6 +1254,8 @@ df.historical_entity.T_resources.T_misc_mat = {}
 ---@class (exact) historical_entity.T_resources.T_wood_products: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_wood_products
+---@field item_type any
+---@field item_subtype number
 ---@field material material_vec_ref
 
 ---@class _historical_entity.T_resources.T_wood_products: DFCompound
@@ -1110,6 +1265,20 @@ df.historical_entity.T_resources.T_wood_products = {}
 ---@class (exact) historical_entity.T_resources.T_animals: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_animals
+---@field pet_races number References: `creature_raw`
+---@field wagon_races number References: `creature_raw`
+---@field pack_animal_races number References: `creature_raw`
+---@field wagon_puller_races number References: `creature_raw`
+---@field mount_races number References: `creature_raw`
+---@field minion_races number References: `creature_raw`
+---@field exotic_pet_races number References: `creature_raw`
+---@field pet_castes number References: `caste_raw`
+---@field wagon_castes number References: `caste_raw`
+---@field pack_animal_castes number References: `caste_raw`
+---@field wagon_puller_castes number References: `caste_raw`
+---@field mount_castes number References: `caste_raw`
+---@field minion_castes number References: `caste_raw`
+---@field exotic_pet_castes number References: `caste_raw`
 
 ---@class _historical_entity.T_resources.T_animals: DFCompound
 ---@field _kind 'struct-type'
@@ -1118,7 +1287,18 @@ df.historical_entity.T_resources.T_animals = {}
 ---@class (exact) historical_entity.T_relations: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_relations
+---@field known_sites number only civs and site government. Fresh player site government has empty vector References: `world_site`
+---@field deities number References: `historical_figure`
+---@field worship number Same length as deities(?). Some kind of relationship strength?
+---@field belief_systems number In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here. References: `belief_system`
+---@field constructions any only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@field diplomacy any
 ---@field unk33 number Non zero seen only on site governments (not all) and one nomadic group. Small values
+---@field unk34a number same length as unk34b and unk34c
+---@field unk34b number
+---@field unk34c number
+---@field position number position index (not id)
+---@field official number holder of office of corresponding position index References: `historical_figure`
 
 ---@class _historical_entity.T_relations: DFCompound
 ---@field _kind 'struct-type'
@@ -1127,8 +1307,17 @@ df.historical_entity.T_relations = {}
 ---@class (exact) historical_entity.T_positions: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_positions
+---@field own any
+---@field site any
+---@field conquered_site any
 ---@field next_position_id number
+---@field assignments any
 ---@field next_assignment_id number
+---@field possible_evaluate any
+---@field possible_succession any
+---@field possible_appointable any
+---@field possible_elected any
+---@field possible_claimable any
 
 ---@class _historical_entity.T_positions: DFCompound
 ---@field _kind 'struct-type'
@@ -1137,6 +1326,7 @@ df.historical_entity.T_positions = {}
 ---@class (exact) historical_entity.T_tissue_styles: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_tissue_styles
+---@field all any
 ---@field next_style_id number
 
 ---@class _historical_entity.T_tissue_styles: DFCompound
@@ -1173,6 +1363,36 @@ df.historical_entity.T_conquered_site_group_flags = {}
 ---@field _type _historical_entity.T_derived_resources
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
+---@field armor_leather number References: `itemdef_armorst`
+---@field armor_chain number References: `itemdef_armorst`
+---@field armor_plate number References: `itemdef_armorst`
+---@field armor_under number References: `itemdef_armorst`
+---@field armor_over number References: `itemdef_armorst`
+---@field armor_cover number References: `itemdef_armorst`
+---@field pants_leather number References: `itemdef_pantsst`
+---@field pants_chain number References: `itemdef_pantsst`
+---@field pants_plate number References: `itemdef_pantsst`
+---@field pants_under number References: `itemdef_pantsst`
+---@field pants_over number References: `itemdef_pantsst`
+---@field pants_cover number References: `itemdef_pantsst`
+---@field helm_leather number References: `itemdef_helmst`
+---@field helm_chain number References: `itemdef_helmst`
+---@field helm_plate number References: `itemdef_helmst`
+---@field helm_under number References: `itemdef_helmst`
+---@field helm_over number References: `itemdef_helmst`
+---@field helm_cover number References: `itemdef_helmst`
+---@field shoes_leather number References: `itemdef_shoesst`
+---@field shoes_chain number References: `itemdef_shoesst`
+---@field shoes_plate number References: `itemdef_shoesst`
+---@field shoes_under number References: `itemdef_shoesst`
+---@field shoes_over number References: `itemdef_shoesst`
+---@field shoes_cover number References: `itemdef_shoesst`
+---@field gloves_leather number References: `itemdef_glovesst`
+---@field gloves_chain number References: `itemdef_glovesst`
+---@field gloves_plate number References: `itemdef_glovesst`
+---@field gloves_under number References: `itemdef_glovesst`
+---@field gloves_over number References: `itemdef_glovesst`
+---@field gloves_cover number References: `itemdef_glovesst`
 
 ---@class _historical_entity.T_derived_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -1193,6 +1413,8 @@ df.historical_entity.T_claims = {}
 ---@field _kind 'struct'
 ---@field _type _entity_tissue_style
 ---@field name string
+---@field preferred_shapings number
+---@field unk_1 number maybe probability?
 ---@field maintain_length_min number
 ---@field maintain_length_max number
 ---@field id number
@@ -1331,15 +1553,35 @@ df.entity_position_flags = {}
 ---@field _type _entity_position
 ---@field code string
 ---@field id number
+---@field flags any
+---@field allowed_creature number References: `creature_raw`
+---@field allowed_class any
+---@field rejected_creature number References: `creature_raw`
+---@field rejected_class any
+---@field name string
+---@field name_female string
+---@field name_male string
+---@field spouse string
+---@field spouse_female string
+---@field spouse_male string
+---@field squad string
 ---@field land_name string
 ---@field squad_size number
+---@field commander_id number
+---@field commander_civ number References: `historical_entity`
+---@field commander_types number
 ---@field land_holder number
 ---@field requires_population number
 ---@field unk_1 number
 ---@field precedence number
 ---@field replaced_by number
 ---@field number number
+---@field appointed_by number
+---@field appointed_by_civ number References: `historical_entity`
+---@field succession_by_position number
+---@field responsibilities boolean
 ---@field unk_v50_358 string
+---@field color number
 ---@field required_boxes number
 ---@field required_cabinets number
 ---@field required_racks number
@@ -1373,11 +1615,13 @@ df.entity_position_profile_claimst = {}
 ---@field histfig2 number bay12: last_holder_hfid References: `historical_figure`
 ---@field position_id number position within relevant entity
 ---@field position_vector_idx number bay12: position_cache_index
+---@field flags any bay12: flag
 ---@field squad_id number bay12: leads_squad_id References: `squad`
 ---@field st_id number
 ---@field ab_id number
 ---@field vassal_of_entity_id number
 ---@field vassal_of_position_profile_id number
+---@field claim any not saved
 ---@field assigned_army_controller_id number unknown size, not initialized or saved
 
 ---@class _entity_position_assignment: DFCompound
@@ -1513,6 +1757,9 @@ df.entity_uniform_item = {}
 ---@field _type _entity_uniform
 ---@field id number
 ---@field unk_4 number
+---@field uniform_item_types any
+---@field uniform_item_subtypes any
+---@field uniform_item_info any
 ---@field name string
 ---@field flags uniform_flags
 
@@ -2097,7 +2344,9 @@ df.entity_event.T_data.T_artifact_destroyed = {}
 ---@field _kind 'struct'
 ---@field _type _agreement
 ---@field id number
+---@field parties any
 ---@field next_party_id number
+---@field details any
 ---@field next_details_id number
 ---@field unk_1 number
 ---@field unk_2 number
@@ -2145,6 +2394,9 @@ df.agreement.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _agreement_party
 ---@field id number
+---@field histfig_ids number References: `historical_figure`
+---@field entity_ids number References: `historical_entity`
+---@field unk_1 any
 
 ---@class _agreement_party: DFCompound
 ---@field _kind 'struct-type'
@@ -2258,6 +2510,22 @@ df.agreement_details = {}
 ---@class (exact) agreement_details.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _agreement_details.T_data
+---@field JoinParty agreement_details_data_join_party
+---@field DemonicBinding agreement_details_data_demonic_binding
+---@field Residency agreement_details_data_residency
+---@field Citizenship agreement_details_data_citizenship
+---@field Parley agreement_details_data_parley
+---@field PositionCorruption agreement_details_data_position_corruption
+---@field PlotStealArtifact agreement_details_data_plot_steal_artifact
+---@field PromisePosition agreement_details_data_promise_position
+---@field PlotAssassination agreement_details_data_plot_assassination
+---@field PlotAbduct agreement_details_data_plot_abduct
+---@field PlotSabotage agreement_details_data_plot_sabotage
+---@field PlotConviction agreement_details_data_plot_conviction
+---@field Location agreement_details_data_location
+---@field PlotInfiltrationCoup agreement_details_data_plot_infiltration_coup
+---@field PlotFrameTreason agreement_details_data_plot_frame_treason
+---@field PlotInduceWar agreement_details_data_plot_induce_war
 
 ---@class _agreement_details.T_data: DFCompound
 ---@field _kind 'struct-type'
@@ -2367,6 +2635,7 @@ df.agreement_details_data_plot_steal_artifact = {}
 ---@field actor_index number agreement.parties index
 ---@field promisee_index number agreement.parties index
 ---@field influencer_index number agreement.parties index. May be swapped with beneficiary
+---@field intermediary_indices number agreement.parties index
 ---@field entity_id number References: `historical_entity`
 
 ---@class _agreement_details_data_promise_position: DFCompound
@@ -2414,6 +2683,7 @@ df.agreement_details_data_plot_sabotage = {}
 ---@class (exact) agreement_details_data_plot_conviction: DFObject
 ---@field _kind 'struct'
 ---@field _type _agreement_details_data_plot_conviction
+---@field criminal_indices number agreement.parties index. All indices listed, regardless of confessions
 ---@field crime crime_type
 
 ---@class _agreement_details_data_plot_conviction: DFCompound

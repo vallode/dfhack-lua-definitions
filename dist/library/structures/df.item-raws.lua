@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias item_type
@@ -448,8 +448,10 @@ df.itemdef_flags = {}
 ---@field _type _itemdef
 ---@field id string
 ---@field subtype number
+---@field base_flags any
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
+---@field raw_strings any
 
 ---@class _itemdef: DFCompound
 ---@field _kind 'class-type'
@@ -470,8 +472,10 @@ df.ammo_flags = {}
 ---@field name_plural string
 ---@field adjective string
 ---@field ammo_class string
+---@field flags any
 ---@field size number divided by 10
 ---@field value number
+---@field attacks any
 
 ---@class _itemdef_ammost: DFCompound
 ---@field _kind 'class-type'
@@ -527,6 +531,7 @@ df.armor_general_flags = {}
 ---@class (exact) armor_properties: DFObject
 ---@field _kind 'struct'
 ---@field _type _armor_properties
+---@field flags any
 ---@field layer number
 ---@field layer_size number
 ---@field layer_permit number
@@ -558,6 +563,7 @@ df.armor_flags = {}
 ---@field lbstep number
 ---@field material_size number
 ---@field props armor_properties
+---@field flags any
 
 ---@class _itemdef_armorst: DFCompound
 ---@field _kind 'class-type'
@@ -608,6 +614,7 @@ df.gloves_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
+---@field flags any
 ---@field material_size number
 ---@field props armor_properties
 
@@ -640,6 +647,7 @@ df.helm_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
+---@field flags any
 ---@field material_size number
 ---@field props armor_properties
 
@@ -693,15 +701,32 @@ df.instrument_flags = {}
 ---@field _type _itemdef_instrumentst
 ---@field name string
 ---@field name_plural string
+---@field flags any
 ---@field music_skill job_skill
 ---@field size number
 ---@field value number
 ---@field material_size number
+---@field pieces any
 ---@field dominant_instrument_piece string
 ---@field pitch_range_min number
 ---@field pitch_range_max number
 ---@field volume_mb_min number
 ---@field volume_mb_max number
+---@field sound_production sound_production_type
+---@field sound_production_parm1 any
+---@field sound_production_parm2 any
+---@field unk_100 number
+---@field unk_110 number
+---@field pitch_choice pitch_choice_type
+---@field pitch_choice_parm1 any
+---@field pitch_choice_parm2 any
+---@field unk_150 number
+---@field unk_160 number
+---@field tuning tuning_type
+---@field tuning_parm any
+---@field unk_190 number
+---@field registers any
+---@field timbre timbre_type
 ---@field description string
 
 ---@class _itemdef_instrumentst: DFCompound
@@ -1084,6 +1109,7 @@ df.instrument_piece.T_flags = {}
 ---@field _type _instrument_register
 ---@field pitch_range_min number
 ---@field pitch_range_max number
+---@field timbres timbre_type
 
 ---@class _instrument_register: DFCompound
 ---@field _kind 'struct-type'
@@ -1107,6 +1133,7 @@ df.pants_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
+---@field flags any
 ---@field material_size number
 ---@field lbstep number
 ---@field props armor_properties
@@ -1166,6 +1193,7 @@ df.shoes_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
+---@field flags any
 ---@field material_size number
 ---@field props armor_properties
 
@@ -1358,8 +1386,10 @@ df.tool_uses = {}
 ---@field _type _itemdef_toolst
 ---@field name string
 ---@field name_plural string
+---@field flags any
 ---@field value number
 ---@field tile integer
+---@field tool_use any
 ---@field adjective string
 ---@field size number
 ---@field skill_melee job_skill
@@ -1368,10 +1398,14 @@ df.tool_uses = {}
 ---@field two_handed number
 ---@field minimum_size number
 ---@field material_size number
+---@field attacks any
 ---@field shoot_force number
 ---@field shoot_maxvel number
 ---@field container_capacity number
+---@field shape_category_str any
+---@field shape_category number References: `descriptor_shape`
 ---@field description string
+---@field default_improvements any
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -1399,6 +1433,7 @@ df.toy_flags = {}
 ---@field _type _itemdef_toyst
 ---@field name string
 ---@field name_plural string
+---@field flags any
 
 ---@class _itemdef_toyst: DFCompound
 ---@field _kind 'class-type'
@@ -1443,6 +1478,8 @@ df.trapcomp_flags = {}
 ---@field value number
 ---@field hits number
 ---@field material_size number
+---@field flags any
+---@field attacks any
 
 ---@class _itemdef_trapcompst: DFCompound
 ---@field _kind 'class-type'
@@ -1485,6 +1522,8 @@ df.weapon_flags = {}
 ---@field two_handed number
 ---@field minimum_size number
 ---@field material_size number
+---@field flags any
+---@field attacks any
 ---@field shoot_force number
 ---@field shoot_maxvel number
 

@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias projectile_type
@@ -18,6 +18,9 @@ df.projectile_type = {}
 ---@class (exact) proj_list_link: DFObject
 ---@field _kind 'struct'
 ---@field _type _proj_list_link
+---@field item projectile
+---@field prev proj_list_link
+---@field next proj_list_link
 
 ---@class _proj_list_link: DFCompound
 ---@field _kind 'struct-type'
@@ -135,7 +138,9 @@ df.projectile_flags = {}
 ---@class (exact) projectile: DFObject
 ---@field _kind 'struct'
 ---@field _type _projectile
+---@field link proj_list_link
 ---@field id number
+---@field firer unit
 ---@field origin_pos coord
 ---@field target_pos coord
 ---@field cur_pos coord
@@ -171,6 +176,7 @@ df.projectile = {}
 ---@class (exact) proj_itemst: DFObject, projectile
 ---@field _kind 'struct'
 ---@field _type _proj_itemst
+---@field item item
 
 ---@class _proj_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -179,6 +185,7 @@ df.proj_itemst = {}
 ---@class (exact) proj_unitst: DFObject, projectile
 ---@field _kind 'struct'
 ---@field _type _proj_unitst
+---@field unit unit ?
 
 ---@class _proj_unitst: DFCompound
 ---@field _kind 'class-type'

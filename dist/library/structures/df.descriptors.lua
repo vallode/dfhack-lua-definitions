@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias pattern_type
@@ -31,12 +31,15 @@ df.pattern_type = {}
 ---@field _kind 'struct'
 ---@field _type _descriptor_color
 ---@field id string
+---@field word_unk any
+---@field words number References: `language_word`
 ---@field name string
 ---@field color curses_color
 ---@field bold number
 ---@field red number
 ---@field green number
 ---@field blue number
+---@field unk_v50_1 integer
 
 ---@class _descriptor_color: DFCompound
 ---@field _kind 'struct-type'
@@ -55,11 +58,21 @@ function df.descriptor_color.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _descriptor_shape
 ---@field id string
+---@field words_str any temporary storage before resolving to language_word
+---@field words number References: `language_word`
 ---@field name string
 ---@field name_plural string
+---@field adj any
 ---@field gems_use descriptor_shape.T_gems_use
+---@field category any
 ---@field faces number
 ---@field tile integer
+---@field unk_v50_1 any
+---@field unk_v50_2 number
+---@field unk_v50_3 number
+---@field unk_v50_4 any
+---@field unk_v50_5 any
+---@field unk_v50_6 any
 
 ---@class _descriptor_shape: DFCompound
 ---@field _kind 'struct-type'
@@ -109,7 +122,9 @@ df.descriptor_shape.T_gems_use = {}
 ---@field _kind 'struct'
 ---@field _type _descriptor_pattern
 ---@field id string
+---@field colors number References: `descriptor_color`
 ---@field pattern pattern_type
+---@field cp_color any
 
 ---@class _descriptor_pattern: DFCompound
 ---@field _kind 'struct-type'

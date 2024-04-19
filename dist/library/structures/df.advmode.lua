@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias ui_advmode_menu
@@ -164,6 +164,7 @@ df.ui_advmode_menu = {}
 ---@field _type _conversation
 ---@field conv_title string
 ---@field state conversation.T_state
+---@field talk_choices number
 ---@field unk_30 number References: `unit`
 ---@field unk_34 number References: `historical_figure`
 ---@field unk_38 number
@@ -173,12 +174,19 @@ df.ui_advmode_menu = {}
 ---@field unk_48 number References: `unit`
 ---@field unk_4c number References: `historical_figure`
 ---@field unk_50 number
+---@field unk_54 any
+---@field unk_64 any
 ---@field unk_74 number
 ---@field unk_78 number
 ---@field unk_7c number
 ---@field unk_80 number
+---@field unk_84 any
+---@field unk_94 any
+---@field unk_a4 any
+---@field location building civzone
 ---@field unk_b8 number
 ---@field unk_bc number
+---@field speech any
 
 ---@class _conversation: DFCompound
 ---@field _kind 'struct-type'
@@ -903,6 +911,8 @@ df.talk_choice = {}
 ---@class (exact) talk_choice.T_unk: DFObject
 ---@field _kind 'struct'
 ---@field _type _talk_choice.T_unk
+---@field event entity_event
+---@field unk_1 any
 ---@field unk_2 number
 
 ---@class _talk_choice.T_unk: DFCompound
@@ -916,6 +926,7 @@ df.talk_choice.T_unk = {}
 ---@field abs_x number
 ---@field abs_y number
 ---@field abs_z number
+---@field target_site world_site
 
 ---@class _adventure_workingst: DFCompound
 ---@field _kind 'struct-type'
@@ -1021,15 +1032,33 @@ df.adventure_construction_mode_type = {}
 ---@field bogeymen_killed number bay12: bogeymen_killed_this_attack; Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
 ---@field bogeymen_ambush_delay number bay12: bogeymen_season_timer; Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
 ---@field fake_ambush_timer number
+---@field searched_x number bay12: searched_location_x
+---@field searched_y number bay12: searched_location_y
+---@field searched_z number bay12: searched_location_z
+---@field searched_timeout number bay12: searched_location_timer
 ---@field total_move number
 ---@field start_skill_total number
 ---@field need_start_skill_total number
+---@field sleep_permission_stid number References: `world_site`
+---@field sleep_permission_srbid number
+---@field sleep_permission_timer number
 ---@field player_army_id number bay12: your_army_id References: `army`
 ---@field gait_index number bay12: speed_sel_y; Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
 ---@field speed_sneak_options boolean Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
+---@field tracks_x number bay12: latest_tract_abs_x; X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
+---@field tracks_y number bay12: latest_tract_abs_y; Y coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_y*48 is added to the local y coordinate.
+---@field tracks_z number bay12: latest_tract_abs_z; Z coordinates of spoors encountered by the player. The local z coordinate is corrected by adding df.global.world.map.region_z to it.
 ---@field tracks_next_idx number bay12: latest_track_pos; Index of the next entry in tracks_x, tracks_y, tracks_z
 ---@field view_tracks_odors number bay12: tracking_flag; The value of view_tracks_odors determines the combination of local/travel mode track/odor screens currently displayed. Opening the local tracks screen increments this value by 1, opening travel mode tracks+odors increments by 2, opening local odors increments by 4. Closing the screens decrements respectively.
 ---@field tracks_visible number bay12: lit_latest_track_count; The quantity of spoors currently visible to the player.
+---@field travel_exemplar_x number
+---@field travel_exemplar_y number
+---@field travel_exemplar_z number
+---@field exemplar_track_data any bay12 type: bse_spoor_datast
+---@field travel_exemplar_valid number
+---@field travel_exemplar_tile number
+---@field travel_exemplar_num number
+---@field travel_exemplar_dir number
 ---@field odor_race number bay12: latest_smell_race; race ID of strongest odor creature References: `creature_raw`
 ---@field odor_caste number bay12: latest_smell_caste; caste ID of strongest odor creature References: `caste_raw`
 ---@field odor_death boolean bay12: latest_smell_death; Overrides creature odor with odor of Death
@@ -1047,6 +1076,7 @@ df.adventure_construction_mode_type = {}
 ---@field world_debug_pass_time number
 ---@field world_debug_loaded_center_abs_smm_x number
 ---@field world_debug_loaded_center_abs_smm_y number ?
+---@field world_debug_army any ?
 ---@field world_debug_army_scroll number
 ---@field world_debug_viewing_army_details boolean ?
 ---@field long_action_duration number bay12: travel_goal_count; Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
@@ -1057,8 +1087,15 @@ df.adventure_construction_mode_type = {}
 ---@field track_viewed_x number bay12: viewing_spoor_x; Set when viewing a spoor; local x coordinate of the track in question.
 ---@field track_viewed_y number bay12: viewing_spoor_y; Set when viewing a spoor; local y coordinate of the track in question.
 ---@field viewing_spoor_z number
+---@field viewing_spoor_bse block_square_event_spoorst
 ---@field conversation adventurest.T_conversation
+---@field unk_70 any -- only canonicalized up to here --
 ---@field unk_71 number
+---@field unk_72 any
+---@field interacts any
+---@field commands any
+---@field movements any
+---@field unk_75 any
 ---@field sleep_hours number
 ---@field sleep_until_dawn boolean
 ---@field unk_78 number
@@ -1076,11 +1113,13 @@ df.adventure_construction_mode_type = {}
 ---@field unk_224 number
 ---@field unk_v40_2 adventurest.T_unk_v40_2
 ---@field unk_v40_3 adventurest.T_unk_v40_3
+---@field player_unit_projectile_unk any 3*4 bytes on x86, 4*4 on x64
 ---@field player_unit_projectile_z number Corrected Z-coordinate of the player when travelling as a unit projectile after falling or jumping. This value is obtained by adding df.global.world.map.region_z to the local z coordinate.
 ---@field unk_90 number
 ---@field unk_v40_4 adventurest.T_unk_v40_4
 ---@field unk_v40_5 adventurest.T_unk_v40_5
 ---@field unk_v42_1 adventurest.T_unk_v42_1
+---@field unk_91 any
 ---@field unk_91a number
 ---@field assume_identity adventurest.T_assume_identity
 ---@field move_direction_x number x-axis direction for the last attempted player unit movement: -1 = west, 0 = none, 1 = east
@@ -1140,6 +1179,8 @@ df.adventurest.T_show_menu = {}
 ---@class (exact) adventurest.T_rumor_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_rumor_info
+---@field base_data any
+---@field data any
 
 ---@class _adventurest.T_rumor_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1156,6 +1197,7 @@ df.adventurest.T_rumor_info = {}
 ---@field start_x number
 ---@field start_y number
 ---@field start_z number
+---@field site world_site
 ---@field building_type number
 ---@field building_subtype number
 ---@field building_subcat1 number
@@ -1167,25 +1209,53 @@ df.adventurest.T_rumor_info = {}
 ---@field removing_planned boolean
 ---@field removing_existing boolean
 ---@field choosing_workshop boolean
+---@field civzone any
 ---@field selected_civzone number
+---@field edit_zone_flag number
 ---@field doing_zone_flow boolean 144x144
 ---@field removing_zone boolean
 ---@field zone_sx number
 ---@field zone_sy number
 ---@field zone_sz number
+---@field editing_zone building_civzonest
+---@field zone_assign_hf any
 ---@field selected_zone_assign number
+---@field valid_ab any
 ---@field selected_ab number
+---@field valid_religious_practice number bay12 type: ReligiousPractice
+---@field valid_religious_practice_id number
 ---@field selected_religious_practice number
 ---@field choosing_location_type boolean
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
+---@field valid_craft_guild_type profession bay12 type: Unit (profession)
 ---@field selected_craft_guild number
+---@field material number
+---@field matgloss number
+---@field mat_jobitemflag integer
+---@field material_count number
+---@field material_master number
+---@field matgloss_master number
+---@field mat_jobitemflag_master integer
+---@field material_count_master number
 ---@field material_select number
 ---@field material_filter string
 ---@field material_doing_filter number
 ---@field doing_start_menu boolean
 ---@field start_menu_you_will_work boolean
+---@field start_menu_worker any
+---@field start_menu_can_work any
+---@field start_menu_will_work any
 ---@field start_menu_selected_worker number
+---@field start_menu_used_mat_item number
+---@field start_menu_used_mat_item_st number
+---@field start_menu_used_mat_item_tool_use number
+---@field start_menu_used_material number
+---@field start_menu_used_matgloss number
+---@field start_menu_used_mat_job_item_flag number
+---@field start_menu_used_mat_state number
+---@field start_menu_used_mat_count number
+---@field start_menu_have_mat_count number
 ---@field start_menu_total_hours number
 ---@field start_menu_you_hours number
 ---@field start_menu_you_max_hours number
@@ -1261,11 +1331,17 @@ df.adventurest.T_charge_forbidden = {}
 ---@class (exact) adventurest.T_conversation: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_conversation
+---@field activity any bay12: conv_act_list
+---@field activity_event any bay12: conv_actev_list
 ---@field cursor_activity number bay12: conv_sel
 ---@field cursor_choice number bay12: choice_sel
 ---@field current_page number bay12: conv_choice_page_index
+---@field page_top_choices number bay12: conv_choice_page_top
+---@field page_bottom_choices number bay12: conv_choicE_page_bottom
+---@field choices any bay12: conv_choice info; type adventure_conversation_choice_infost
 ---@field filter string bay12: conv_string_filter
 ---@field conv_tact adventurest.T_conversation.T_conv_tact
+---@field targets any bay12: talk_list; type talk_list_optionst
 ---@field cursor_target number bay12: talk_sel
 
 ---@class _adventurest.T_conversation: DFCompound
@@ -1300,7 +1376,10 @@ df.adventurest.T_rest_mode = {}
 ---@class (exact) adventurest.T_companions: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_companions
+---@field unit any
+---@field unit_visible any
 ---@field unit_position coord_path
+---@field all_histfigs number includes dead References: `historical_figure`
 
 ---@class _adventurest.T_companions: DFCompound
 ---@field _kind 'struct-type'
@@ -1309,13 +1388,20 @@ df.adventurest.T_companions = {}
 ---@class (exact) adventurest.T_interactions: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_interactions
+---@field party_core_members number Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode. References: `historical_figure`
+---@field party_pets number Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on. References: `historical_figure`
+---@field party_extra_members number Contains IDs of non-pet historical figures who joined the player party later on. References: `historical_figure`
+---@field unk_86 any
+---@field unk_1 any
 ---@field unk_1e4 number
 ---@field unk_1e8 number
 ---@field selected_ability number natural ability
 ---@field selected_power number acquired power
+---@field unk_1f0 any below 5 fields are 8*4 bytes on x64, 5*4 bytes on x86
 ---@field max_target_number number
 ---@field target_range number
 ---@field target_flags creature_interaction_target_flags
+---@field unk_200 any
 
 ---@class _adventurest.T_interactions: DFCompound
 ---@field _kind 'struct-type'
@@ -1324,7 +1410,13 @@ df.adventurest.T_interactions = {}
 ---@class (exact) adventurest.T_unk_v40_2: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_2
+---@field unk_s1 any
+---@field unk_s2 any
+---@field unk_s3 any
+---@field unk_s4 any
 ---@field unk_s5 number
+---@field unk_s6 any
+---@field unk_s7 any
 
 ---@class _adventurest.T_unk_v40_2: DFCompound
 ---@field _kind 'struct-type'
@@ -1334,6 +1426,7 @@ df.adventurest.T_unk_v40_2 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_3
 ---@field unk_s1 number
+---@field unk_s2 any
 
 ---@class _adventurest.T_unk_v40_3: DFCompound
 ---@field _kind 'struct-type'
@@ -1342,6 +1435,7 @@ df.adventurest.T_unk_v40_3 = {}
 ---@class (exact) adventurest.T_unk_v40_4: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_4
+---@field unk_v40_4a any
 ---@field unk_v40_4b number
 
 ---@class _adventurest.T_unk_v40_4: DFCompound
@@ -1351,7 +1445,12 @@ df.adventurest.T_unk_v40_4 = {}
 ---@class (exact) adventurest.T_unk_v40_5: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_5
+---@field unk_s1 any
+---@field unk_s2 any
+---@field unk_s3 any
 ---@field unk_s4 number
+---@field unk_s5 any
+---@field unk_s6 any
 
 ---@class _adventurest.T_unk_v40_5: DFCompound
 ---@field _kind 'struct-type'
@@ -1361,11 +1460,14 @@ df.adventurest.T_unk_v40_5 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v42_1
 ---@field unk_s1 number
+---@field unk_s2 any
+---@field unk_s3 any
 ---@field unk_s4 string
 ---@field unk_s5 number
 ---@field unk_s6 number
 ---@field unk_s7 number
 ---@field unk_s8 number
+---@field unk_s9 any
 
 ---@class _adventurest.T_unk_v42_1: DFCompound
 ---@field _kind 'struct-type'
@@ -1380,6 +1482,8 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field worship_object number References: `historical_figure`
 ---@field profession profession
 ---@field origin number References: `historical_entity`
+---@field unk_1 any
+---@field unk_2 any
 ---@field filter string
 ---@field unk_3 number
 ---@field unk_4 number
@@ -1425,6 +1529,8 @@ df.adventure_optionst = {}
 ---@class (exact) adventure_option_eat_unit_contaminantst: DFObject, adventure_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_option_eat_unit_contaminantst
+---@field unit unit
+---@field spatter spatter
 
 ---@class _adventure_option_eat_unit_contaminantst: DFCompound
 ---@field _kind 'class-type'
@@ -1433,6 +1539,9 @@ df.adventure_option_eat_unit_contaminantst = {}
 ---@class (exact) adventure_option_eat_item_contaminantst: DFObject, adventure_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_option_eat_item_contaminantst
+---@field unit unit
+---@field inv_item unit_inventory_item
+---@field spatter spatter
 
 ---@class _adventure_option_eat_item_contaminantst: DFCompound
 ---@field _kind 'class-type'
@@ -1441,6 +1550,8 @@ df.adventure_option_eat_item_contaminantst = {}
 ---@class (exact) adventure_option_view_contaminantst: DFObject, adventure_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_option_view_contaminantst
+---@field unit unit
+---@field spatter spatter
 
 ---@class _adventure_option_view_contaminantst: DFCompound
 ---@field _kind 'class-type'
@@ -1459,6 +1570,7 @@ df.adventure_environment_optionst = {}
 ---@class (exact) adventure_environment_place_in_it_containerst: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_place_in_it_containerst
+---@field container item
 
 ---@class _adventure_environment_place_in_it_containerst: DFCompound
 ---@field _kind 'class-type'
@@ -1467,6 +1579,8 @@ df.adventure_environment_place_in_it_containerst = {}
 ---@class (exact) adventure_environment_ingest_from_containerst: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_ingest_from_containerst
+---@field container item
+---@field food item
 
 ---@class _adventure_environment_ingest_from_containerst: DFCompound
 ---@field _kind 'class-type'
@@ -1503,6 +1617,7 @@ df.adventure_environment_pickup_make_campfirest = {}
 ---@class (exact) adventure_environment_place_in_bld_containerst: DFObject, adventure_environment_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_environment_place_in_bld_containerst
+---@field building building
 
 ---@class _adventure_environment_place_in_bld_containerst: DFCompound
 ---@field _kind 'class-type'
@@ -1563,6 +1678,7 @@ df.adventure_movement_release_hold_tilest = {}
 ---@class (exact) adventure_movement_attack_creaturest: DFObject, adventure_movement_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_attack_creaturest
+---@field targets number References: `unit`
 
 ---@class _adventure_movement_attack_creaturest: DFCompound
 ---@field _kind 'class-type'
@@ -1666,6 +1782,7 @@ df.adventure_item_interact_pull_outst = {}
 ---@class (exact) adventure_item_interact_heat_from_tilest: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_heat_from_tilest
+---@field item item
 ---@field unk_1 coord
 ---@field unk_2 coord
 
@@ -1676,6 +1793,8 @@ df.adventure_item_interact_heat_from_tilest = {}
 ---@class (exact) adventure_item_interact_fill_from_containerst: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_fill_from_containerst
+---@field unk_1 item
+---@field unk_2 item
 ---@field unk_3 coord
 ---@field unk_4 coord
 
@@ -1694,6 +1813,7 @@ df.adventure_item_interact_readst = {}
 ---@class (exact) adventure_item_interact_fill_with_materialst: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_fill_with_materialst
+---@field unk_1 item
 ---@field unk_2 coord
 ---@field unk_3 coord
 ---@field unk_4 number
@@ -1715,6 +1835,7 @@ df.adventure_item_interact_strugglest = {}
 ---@class (exact) adventure_item_interact_give_namest: DFObject, adventure_item_interact_choicest
 ---@field _kind 'struct'
 ---@field _type _adventure_item_interact_give_namest
+---@field item item
 
 ---@class _adventure_item_interact_give_namest: DFCompound
 ---@field _kind 'class-type'

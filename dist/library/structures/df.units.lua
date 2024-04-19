@@ -1,4 +1,4 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias _unit_flags1_keys
@@ -1934,15 +1934,23 @@ df.unit_active_animation_flags = {}
 ---@field invasion_id number References: `invasion_info`
 ---@field patrol_route coord_path used by necromancers for corpse locations, siegers etc
 ---@field patrol_index number from 23a
+---@field specific_refs any
+---@field general_refs any
 ---@field military unit.T_military
+---@field social_activities number References: `activity_entry`
+---@field conversations number References: `activity_entry`
+---@field activities number bay12: conflict_activity_id References: `activity_entry`
+---@field ignored_activities number bay12: ignore_activity_id References: `activity_entry`
 ---@field animal unit.T_animal
 ---@field opponent unit.T_opponent
 ---@field mood mood_type
 ---@field moodstage mood_stage_type
 ---@field pregnancy_timer number
+---@field pregnancy_genes unit_genes genes from mate
 ---@field pregnancy_caste number caste of mate References: `caste_raw`
 ---@field pregnancy_spouse number References: `historical_figure`
 ---@field mood_copy mood_type copied from mood type upon entering strange mood
+---@field ghost_info unit_ghost_info
 ---@field disturbed_heid number References: `historical_entity`
 ---@field birth_year number
 ---@field birth_time number
@@ -1952,12 +1960,20 @@ df.unit_active_animation_flags = {}
 ---@field birth_time_bias number bay12: credit_age_season_count
 ---@field old_year number bay12: age_death_year
 ---@field old_time number bay12: age_death_season_count
+---@field following unit
 ---@field owner_type unit_owner_type invalid unless following
+---@field relationship_ids number
 ---@field mount_type rider_positions_type TODO: find correct location and enumify
 ---@field last_hit history_hit_item
+---@field inventory any
+---@field owned_items number References: `item`
+---@field traded_items number items brought to trade depot References: `item`
+---@field owned_buildings any bay12: zone_assigned
+---@field corpse_parts number entries remain even when items are destroyed References: `item`
 ---@field job unit.T_job
 ---@field body unit.T_body
 ---@field appearance unit.T_appearance
+---@field actions any
 ---@field next_action_id number
 ---@field counters unit.T_counters
 ---@field curse unit.T_curse
@@ -1969,14 +1985,23 @@ df.unit_active_animation_flags = {}
 ---@field syndrome_advancement unit.T_syndrome_advancement
 ---@field syndromes unit.T_syndromes
 ---@field reports unit.T_reports
+---@field health unit_health_info
+---@field used_items any unit_patient_profilest *patient_profile
 ---@field enemy unit.T_enemy
+---@field healing_rate number
 ---@field effective_rate number bay12: heal_rate_recuperation
 ---@field tendons_heal number
 ---@field ligaments_heal number
 ---@field weight number
 ---@field weight_fraction number 1e-6
+---@field burrows number References: `burrow`
+---@field inactive_burrows number References: `burrow`
+---@field vision_cone any
+---@field occupations any
 ---@field adjective string from physical descriptions for use in adv
+---@field texpos any
 ---@field sheet_icon_texpos number
+---@field texpos_currently_in_use any
 ---@field cached_glowtile_type number
 ---@field pool_index integer
 ---@field mtx stl-mutex
@@ -2041,7 +2066,12 @@ df.unit.T_meeting.T_state = {}
 ---@field patrol_cooldown number
 ---@field patrol_timer number
 ---@field cur_uniform unit_uniform_mode_type
+---@field clothing_item_id number References: `item`
+---@field uniforms any
 ---@field pickup_flags unit.T_military.T_pickup_flags
+---@field uniform_pickup number References: `item`
+---@field uniform_drop number References: `item`
+---@field individual_drills number References: `activity_entry`
 
 ---@class _unit.T_military: DFCompound
 ---@field _kind 'struct-type'
@@ -2094,7 +2124,9 @@ df.unit.T_opponent = {}
 ---@field account number
 ---@field satisfaction number bay12: seasonpay: amount earned recently for jobs
 ---@field random_appearance_number integer
+---@field hunt_target unit
 ---@field target_flags unit_target_flags
+---@field destroy_target building
 ---@field vision_x number
 ---@field vision_y number
 ---@field vision_z number
@@ -2103,6 +2135,7 @@ df.unit.T_opponent = {}
 ---@field gait_buildup number bay12: move_momentum_perc
 ---@field climb_hold coord
 ---@field hold_itid number References: `item`
+---@field current_job job df_job
 ---@field mood_skill job_skill can be uninitialized for children and animals
 ---@field mood_timeout number counts down from 50000, insanity upon reaching zero
 ---@field attack_chance_modifier number
@@ -2115,12 +2148,17 @@ df.unit.T_job = {}
 ---@field _kind 'struct'
 ---@field _type _unit.T_body
 ---@field components body_component_info
+---@field wounds any
 ---@field wound_next_id number
+---@field unk_39c any
+---@field body_plan caste_body_info
 ---@field weapon_bp number
+---@field physical_attrs unit_attribute
 ---@field size_info body_size_info
 ---@field blood_max integer
 ---@field blood_count integer
 ---@field infection_level number GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
+---@field spatters any
 
 ---@class _unit.T_body: DFCompound
 ---@field _kind 'struct-type'
@@ -2129,8 +2167,16 @@ df.unit.T_body = {}
 ---@class (exact) unit.T_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_appearance
+---@field body_modifiers number
+---@field bp_modifiers number
 ---@field size_modifier number product of all H/B/LENGTH body modifiers, in %
+---@field tissue_style number -- Something for bp_appearance.layers_*
+---@field tissue_style_civ_id number References: `historical_entity`
+---@field tissue_style_id number References: `entity_tissue_style`
+---@field tissue_style_type number
+---@field tissue_length number description uses bp_modifiers[style_list_idx[index]]
 ---@field genes unit_genes
+---@field colors number
 
 ---@class _unit.T_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -2200,11 +2246,19 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field sym_and_color2 integer
 ---@field flash_period integer
 ---@field flash_time2 integer
+---@field body_appearance number
+---@field bp_appearance number guess!
 ---@field speed_add integer
 ---@field speed_mul_percent integer
+---@field attr_change curse_attr_change
 ---@field luck_mul_percent integer
 ---@field erratic_level number
+---@field interaction_id number References: `creature_interaction_effect`
+---@field interaction_time number
+---@field interaction_delay number
 ---@field time_on_site number
+---@field own_interaction number
+---@field own_interaction_delay number
 
 ---@class _unit.T_curse: DFCompound
 ---@field _kind 'struct-type'
@@ -2232,12 +2286,28 @@ df.unit.T_counters2 = {}
 ---@class (exact) unit.T_status: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_status
+---@field misc_traits any
+---@field eat_history any
 ---@field demand_timeout number also used for wagon trampling
 ---@field mandate_timeout number
+---@field attacker_ids number References: `unit`
+---@field attacker_cntdn number
 ---@field face_direction number for wagons
 ---@field artifact_name language_name
+---@field souls any
+---@field current_soul unit_soul
+---@field demands any
+---@field labors boolean
+---@field wrestle_items any
+---@field observed_traps number References: `building`
+---@field complaints any
+---@field parleys any
+---@field requests any
+---@field coin_debts any
+---@field commands any
 ---@field last_command_received_year number
 ---@field last_command_received_season_count number
+---@field command_gait_index number initialized together with enemy.gait_index
 ---@field unit_command_flag unit_command_flags
 ---@field adv_sleep_timer number bay12: dungeonlag
 ---@field recent_job_area coord -- average of the following vector
@@ -2256,6 +2326,7 @@ df.unit.T_status = {}
 ---@field limbs_grasp_count number
 ---@field limbs_fly_max number
 ---@field limbs_fly_count number
+---@field body_part_temperature any
 ---@field add_path_flags pathfinding_flags bay12: override_permit; pathing flags to OR, set to None after move
 ---@field liquid_type tile_designation
 ---@field liquid_depth integer
@@ -2268,6 +2339,8 @@ df.unit.T_status2 = {}
 ---@class (exact) unit.T_syndrome_advancement: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndrome_advancement
+---@field pre_hf_active_interaction_index number
+---@field pre_hf_active_interaction_effect_index number
 
 ---@class _unit.T_syndrome_advancement: DFCompound
 ---@field _kind 'struct-type'
@@ -2276,6 +2349,9 @@ df.unit.T_syndrome_advancement = {}
 ---@class (exact) unit.T_syndromes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndromes
+---@field active any -- Sorted by type:
+---@field reinfection_type number -- Seems to be incremented every new infection: References: `syndrome`
+---@field reinfection_count number
 
 ---@class _unit.T_syndromes: DFCompound
 ---@field _kind 'struct-type'
@@ -2284,6 +2360,9 @@ df.unit.T_syndromes = {}
 ---@class (exact) unit.T_reports: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_reports
+---@field log any
+---@field last_year number -- Garbage when the matching vector is empty:
+---@field last_year_tick number
 
 ---@class _unit.T_reports: DFCompound
 ---@field _kind 'struct-type'
@@ -2293,20 +2372,45 @@ df.unit.T_reports = {}
 ---@class (exact) unit.T_enemy: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy
+---@field sound_cooldown number
+---@field undead any svector((int32_t)) sound_timer
 ---@field were_race number unit_active_animation *active_animation References: `creature_raw`
 ---@field were_caste number transform_race References: `caste_raw`
 ---@field normal_race number transform_caste References: `creature_raw`
 ---@field normal_caste number birth_race References: `caste_raw`
 ---@field interaction number birth_caste
+---@field appearances any retraction_body_action_index (???)
+---@field witness_reports any svector((physical_formst *)) physical_form
+---@field rumor any
+---@field gait_index number rumor_infost rumor_info
 ---@field attack_awareness unit.T_enemy.T_attack_awareness
 ---@field detection_info unit.T_enemy.T_detection_info
+---@field sr_pop_spec any
+---@field sr_walker any
 ---@field fallback_candidate_squad_enid number
 ---@field fallback_candidate_squad_epp_id number probably references a historical_entity
 ---@field army_controller_id number probably references a entity_position_assignment References: `army_controller`
+---@field army_controller army_controller
+---@field army_info any
+---@field animal_pre_bond_unid number
+---@field animal_pre_bond_count number probably references a unit
+---@field just_talked_unid number
+---@field opinion_info any probably references a unit
+---@field travel_log any
 ---@field combat_side_id number
 ---@field histfig_vector_idx number arena_side<br>-- below here unsaved --
+---@field caste_flags any
 ---@field enemy_status_slot number
 ---@field last_temperature_check number
+---@field motor_nervenet integer
+---@field sensory_nervenet integer
+---@field body_part_relsize number 0 blocks pains, nausea
+---@field body_part_useable integer
+---@field body_part_base_ins integer
+---@field body_part_clothing_ins integer
+---@field invorder_bp_start integer
+---@field invorder_item_id number References: `item`
+---@field invorder_coverage number
 
 ---@class _unit.T_enemy: DFCompound
 ---@field _kind 'struct-type'
@@ -2316,6 +2420,11 @@ df.unit.T_enemy = {}
 ---@class (exact) unit.T_enemy.T_attack_awareness: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy.T_attack_awareness
+---@field unit_id number attack_awarenessst References: `unit`
+---@field unit_mvid number
+---@field precise_phase number unused elements probably uninitialized
+---@field abs_season number unused elements probably uninitialized
+---@field flag number unused elements probably uninitialized
 
 ---@class _unit.T_enemy.T_attack_awareness: DFCompound
 ---@field _kind 'struct-type'
@@ -2324,6 +2433,7 @@ df.unit.T_enemy.T_attack_awareness = {}
 ---@class (exact) unit.T_enemy.T_detection_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy.T_detection_info
+---@field last_spotted_unid number detection_infost References: `unit`
 ---@field last_spotted_unid_num number
 
 ---@class _unit.T_enemy.T_detection_info: DFCompound
@@ -2480,6 +2590,8 @@ df.unit_ghost_info.T_flags = {}
 ---@class (exact) unit_genes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_genes
+---@field appearance integer
+---@field colors number
 
 ---@class _unit_genes: DFCompound
 ---@field _kind 'struct-type'
@@ -2488,6 +2600,7 @@ df.unit_genes = {}
 ---@class (exact) unit_inventory_item: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_inventory_item
+---@field item item
 ---@field mode unit_inventory_item.T_mode
 ---@field body_part_id number
 ---@field pet_seed number RNG seed for Pet mode
@@ -2557,9 +2670,12 @@ df.unit_attribute = {}
 ---@field year number
 ---@field year_time number
 ---@field ticks number
+---@field wounds number refers to unit_wound by id
 ---@field wound_id number
+---@field symptoms any
 ---@field reinfection_count number set from unit.reinfection_count[i]++
 ---@field flags unit_syndrome.T_flags
+---@field unk4 number
 
 ---@class _unit_syndrome: DFCompound
 ---@field _kind 'struct-type'
@@ -2568,6 +2684,8 @@ df.unit_syndrome = {}
 ---@alias _unit_syndrome.T_flags_keys
 ---| 0 # is_sick
 ---| 1 # is_sick_low
+---| 2
+---| 3
 
 ---@alias _unit_syndrome.T_flags_values
 ---| "is_sick" # 0
@@ -2581,6 +2699,8 @@ local unit_syndrome_flags = {
   [0] = false, -- cause rq_diagnosis:
   is_sick_low = false, -- less sick? fever: 5-19 low, 20-* full
   [1] = false, -- less sick? fever: 5-19 low, 20-* full
+  [2] = false, -- prevent rq_diagnosis or needs_healthcare:
+  [3] = false,
 }
 
 ---@class _unit_syndrome.T_flags: DFBitfield
@@ -2865,6 +2985,7 @@ df.wound_damage_flags2 = {}
 ---@field _kind 'struct'
 ---@field _type _unit_wound
 ---@field id number
+---@field parts any
 ---@field age number
 ---@field attacker_unit_id number References: `unit`
 ---@field attacker_hist_figure_id number References: `historical_figure`
@@ -2876,6 +2997,7 @@ df.wound_damage_flags2 = {}
 ---@field paralysis number
 ---@field numbness number
 ---@field fever number
+---@field curse wound_curse_info
 ---@field unk_v42_1 number
 ---@field unk_v42_2 number
 
@@ -2935,6 +3057,10 @@ df.unit_wound.T_flags = {}
 ---@class (exact) curse_attr_change: DFObject
 ---@field _kind 'struct'
 ---@field _type _curse_attr_change
+---@field phys_att_perc number
+---@field phys_att_add number
+---@field ment_att_perc number
+---@field ment_att_add number
 
 ---@class _curse_attr_change: DFCompound
 ---@field _kind 'struct-type'
@@ -2958,12 +3084,16 @@ df.curse_attr_change = {}
 ---@field flash_time2 integer
 ---@field speed_add integer
 ---@field speed_mul_percent integer
+---@field attr_change curse_attr_change
 ---@field unk_v42_1 number
 ---@field luck_mul_percent integer
 ---@field unk_v42_2 number
+---@field interaction_id number References: `creature_interaction_effect`
 ---@field timing wound_curse_info.T_timing
 ---@field were_race number References: `creature_raw`
 ---@field were_caste number References: `caste_raw`
+---@field body_appearance number
+---@field bp_appearance number
 
 ---@class _wound_curse_info: DFCompound
 ---@field _kind 'struct-type'
@@ -2972,6 +3102,7 @@ df.wound_curse_info = {}
 ---@class (exact) wound_curse_info.T_timing: DFObject
 ---@field _kind 'struct'
 ---@field _type _wound_curse_info.T_timing
+---@field interaction_time number
 ---@field time_counter number
 
 ---@class _wound_curse_info.T_timing: DFCompound
@@ -3324,12 +3455,15 @@ df.unit_bp_health_flags = {}
 ---@field _type _unit_health_info
 ---@field unit_id number References: `unit`
 ---@field flags unit_health_flags
+---@field body_part_flags unit_bp_health_flags
 ---@field try_for_cast_cntdn number
 ---@field immobilize_cntdn number
 ---@field dressing_cntdn number
 ---@field suture_cntdn number
 ---@field crutch_cntdn number
 ---@field get_out_of_traction_diagnosis_timer number
+---@field op_history any
+---@field syndrome_diagnosis any
 
 ---@class _unit_health_info: DFCompound
 ---@field _kind 'struct-type'
@@ -3395,7 +3529,11 @@ df.orientation_flags = {}
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
+---@field mental_attrs unit_attribute
+---@field skills any
+---@field preferences any
 ---@field personality unit_personality
+---@field performance_skills any
 
 ---@class _unit_soul: DFCompound
 ---@field _kind 'struct-type'
@@ -3552,18 +3690,29 @@ df.personality_moodst.T_flags = {}
 ---@class (exact) unit_personality: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_personality
+---@field values any
+---@field ethics any
+---@field emotions any bay12: mood
+---@field dreams any
 ---@field next_dream_id number
+---@field unk_v40_6 any
+---@field traits integer
 ---@field civ_id number References: `historical_entity`
 ---@field cultural_identity number References: `cultural_identity`
+---@field mannerism any
+---@field habit number
 ---@field stress number
 ---@field time_without_distress number range 0-806400, higher values cause stress to decrease quicker
 ---@field time_without_eustress number range 0-806400, higher values cause stress to increase quicker
 ---@field likes_outdoors number migrated from misc_traits
 ---@field combat_hardened number migrated from misc_traits
 ---@field outdoor_dislike_counter number incremented when unit is in rain
+---@field needs any
 ---@field flags unit_personality.T_flags
+---@field temporary_trait_changes any sum of inebriation or so personality changing effects
 ---@field slack_end_year number
 ---@field slack_end_year_tick number
+---@field memories any
 ---@field temptation_greed number 0-100, for corruption
 ---@field temptation_lust number
 ---@field temptation_power number
@@ -3753,6 +3902,7 @@ df.unit_action = {}
 ---@class (exact) unit_action.T_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action.T_data
+---@field raw_data number
 ---@field move unit_action_data_move
 ---@field attack unit_action_data_attack
 ---@field jump unit_action_data_jump
@@ -4205,6 +4355,8 @@ df.unit_action_data_release_item = {}
 ---@class (exact) unit_action_data_unk_sub_20: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_unk_sub_20
+---@field unk_0 number
+---@field unk_1 number
 
 ---@class _unit_action_data_unk_sub_20: DFCompound
 ---@field _kind 'struct-type'
@@ -4213,6 +4365,8 @@ df.unit_action_data_unk_sub_20 = {}
 ---@class (exact) unit_action_data_unk_sub_21: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_action_data_unk_sub_21
+---@field unk_0 number
+---@field unk_1 number
 
 ---@class _unit_action_data_unk_sub_21: DFCompound
 ---@field _kind 'struct-type'
@@ -4396,6 +4550,7 @@ df.unit_coin_debt = {}
 ---@field _kind 'struct'
 ---@field _type _unit_chunk
 ---@field id number unit_*.dat
+---@field units any
 
 ---@class _unit_chunk: DFCompound
 ---@field _kind 'struct-type'
@@ -4417,8 +4572,19 @@ function df.unit_chunk.get_vector() end
 ---@field unk_1 number
 ---@field caste_index number also refers to $global.world.raws.creatures.list_caste[$]
 ---@field unk_3 number
+---@field physical_attributes unit_attribute
 ---@field unk_5 number
+---@field body_modifiers number
+---@field bp_modifiers number
 ---@field unk_8 number
+---@field tissue_style number
+---@field tissue_style_civ_id number
+---@field tissue_style_id number
+---@field tissue_style_type number
+---@field tissue_length number
+---@field appearance_genes integer
+---@field color_genes integer
+---@field color_modifiers number
 ---@field unk_18 number
 ---@field unk_19 number
 
@@ -4448,6 +4614,8 @@ df.work_detail_mode = {}
 ---@field _type _work_detail
 ---@field name string
 ---@field work_detail_flags work_detail.T_work_detail_flags
+---@field assigned_units number toady: unid References: `unit`
+---@field allowed_labors boolean toady: profession
 ---@field icon work_detail.T_icon
 
 ---@class _work_detail: DFCompound
@@ -4550,13 +4718,16 @@ df.work_detail.T_icon = {}
 ---@class (exact) dungeon_contextst: DFObject
 ---@field _kind 'struct'
 ---@field _type _dungeon_contextst
+---@field target unit
 ---@field target_conflict_state conflict_level
 ---@field flags dungeon_contextst.T_flags
 ---@field highest_allied_strength number
 ---@field sum_opposed_strength number
 ---@field allied_loss number
 ---@field sum_opposed_loss number
+---@field spotted_unit any
 ---@field spotted_num number
+---@field conflict_name activity_event_conflictst
 ---@field alarm_activity_id number
 ---@field alarm_unit_id number
 

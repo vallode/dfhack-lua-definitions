@@ -1,9 +1,12 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@alias _vermin_flags_keys
+---| 0
 ---| 1 # is_colony
+---| 2
 ---| 3 # is_roaming_colony
+---| 4
 
 ---@alias _vermin_flags_values
 ---| "is_colony" # 1
@@ -13,10 +16,13 @@
 ---@field _kind 'bitfield'
 ---@field _enum _vermin_flags
 local vermin_flags = {
+  [0] = false,
   is_colony = false, -- A vermin colony. For example an anthill or bee hive.
   [1] = false, -- A vermin colony. For example an anthill or bee hive.
+  [2] = false,
   is_roaming_colony = false, -- colony building vermin away from colony
   [3] = false, -- colony building vermin away from colony
+  [4] = false,
 }
 
 ---@class _vermin_flags: DFBitfield
@@ -66,6 +72,7 @@ df.vermin_category = {}
 ---@field pos coord
 ---@field visible boolean 1 = visible vermin
 ---@field countdown number
+---@field item item
 ---@field flags vermin_flags
 ---@field amount number The total number of vermin in this object. Decimal constant 10000001 means infinity (probably).
 ---@field population world_population_ref

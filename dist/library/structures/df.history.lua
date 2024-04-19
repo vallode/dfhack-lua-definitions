@@ -1,9 +1,17 @@
----THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
+-- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
 ---@class (exact) historical_kills: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_kills
+---@field events number -- Important References: `history_event`
+---@field killed_race number -- Misc References: `creature_raw`
+---@field killed_caste number References: `caste_raw`
+---@field killed_underground_region number References: `world_underground_region`
+---@field killed_region number References: `world_region`
+---@field killed_site number References: `world_site`
+---@field killed_undead any
+---@field killed_count number
 
 ---@class _historical_kills: DFCompound
 ---@field _kind 'struct-type'
@@ -368,8 +376,23 @@ df.state_profilest.T_flags = {}
 ---@class (exact) knowledge_profilest: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_profilest
+---@field known_secrets any bay12: interation_ptr; Interactions inflicted upon the figure through an I_SOURCE:SECRET means are recorded here; this appears to prevent the interaction from affecting the figure again on subsequent exposure (when rereading a necromancy slab, for example). For interactions with both I_SOURCE:SECRET and another source (I_SOURCE:INGESTION, for example), exposure to the interaction through the non-secret route does not result in the interaction being listed here.
 ---@field next_intervention_resistance_year number All are gods with the DEATH sphere having created slabs, but the value isn't the id of the slab
+---@field known_written_contents number bay12: read_written_content_id; ID of written_contents known to the historical figure. Aside from the contents of read books, these so-called written contents also include known derivations of poetic forms, dance forms and musical forms References: `written_content`
+---@field known_identities number bay12: identity_known_id; identity ID of identities known to the historical figure, such as demon true names References: `identity`
+---@field known_witness_reports any bay12: witness_incident
+---@field known_events any
+---@field heard_of_guide_hfid number
+---@field heard_of_stid number
 ---@field opinion_info knowledge_profilest.T_opinion_info
+---@field creature_knowledge any
+---@field known_poetic_forms number bay12: poetic_form_known_id References: `poetic_form`
+---@field known_musical_forms number bay12: musical_form_known_id References: `musical_form`
+---@field known_dance_forms number bay12: dance_form_known_id References: `dance_form`
+---@field knowledge any
+---@field belief_systems any found in prophets; contains the ID of the belief system developed by that particular prophet
+---@field known_locations any
+---@field known_agreement_id number
 
 ---@class _knowledge_profilest: DFCompound
 ---@field _kind 'struct-type'
@@ -379,6 +402,8 @@ df.knowledge_profilest = {}
 ---@class (exact) knowledge_profilest.T_opinion_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _knowledge_profilest.T_opinion_info
+---@field entity_id number same length as next vector. Some are definitely entities (e.g. player fortress or attacker site government), but others make no such sense
+---@field entity_opinion number 5, 7, 8 seen. 7/8 only seen on humanoid experiments
 
 ---@class _knowledge_profilest.T_opinion_info: DFCompound
 ---@field _kind 'struct-type'
@@ -387,6 +412,19 @@ df.knowledge_profilest.T_opinion_info = {}
 ---@class (exact) historical_figure_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_figure_info
+---@field spheres any
+---@field skills any
+---@field pets any
+---@field personality any
+---@field masterpieces any
+---@field whereabouts state_profilest
+---@field kills historical_kills
+---@field wounds any
+---@field known_info knowledge_profilest knowledge_profile
+---@field curse any
+---@field books any seems to be misnamed. Artifacts seen have been of all kinds
+---@field reputation any
+---@field relationships historical_figure_relationships
 
 ---@class _historical_figure_info: DFCompound
 ---@field _kind 'struct-type'
@@ -395,7 +433,13 @@ df.historical_figure_info = {}
 ---@class (exact) historical_figure_relationships: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_figure_relationships
+---@field hf_visual any
+---@field hf_historical any
+---@field unk_1 any
+---@field identities number References: `cultural_identity`
+---@field artifact_claims any
 ---@field unk_2 number
+---@field intrigues any
 
 ---@class _historical_figure_relationships: DFCompound
 ---@field _kind 'struct-type'
@@ -790,10 +834,21 @@ df.vague_relationship_type = {}
 ---@field breed_id number from legends export
 ---@field cultural_identity number References: `cultural_identity`
 ---@field family_head_id number When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor. References: `historical_figure`
+---@field flags any
 ---@field unit_id number References: `unit`
 ---@field nemesis_id number sometimes garbage References: `nemesis_record`
 ---@field id number
 ---@field art_count number
+---@field entity_links any
+---@field site_links any
+---@field histfig_links any
+---@field info historical_figure_info bay12: hf_profilest profile
+---@field vague_relationships any Do not have to be available mutually, i.e. DF can display Legends relations forming for the other party that does not have an entry (plus time and other conditions not located)
+---@field unk_f0 world_site
+---@field unk_f4 world_region
+---@field unk_f8 world_underground_region
+---@field unk_fc any
+---@field unk_v47_2 any
 ---@field unk_v47_3 number
 ---@field unk_v47_4 number
 ---@field unk_v4019_1 number
@@ -876,6 +931,8 @@ df.identity_type.attrs = {}
 ---@field unk_v47_2 number
 ---@field profession profession
 ---@field entity_id number References: `historical_entity`
+---@field unk_4 any
+---@field unk_5 any
 
 ---@class _identity: DFCompound
 ---@field _kind 'struct-type'
@@ -894,6 +951,8 @@ function df.identity.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _identity_unk_94
 ---@field unk_0 number
+---@field unk_1 number
+---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
@@ -910,6 +969,8 @@ df.identity_unk_94 = {}
 ---@field _kind 'struct'
 ---@field _type _identity_unk_95
 ---@field unk_0 number
+---@field unk_1 number
+---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field unk_5 number
@@ -1955,6 +2016,8 @@ df.history_event_circumstance_info.T_data = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_context
 ---@field flags history_event_context.T_flags
+---@field interrogator_relationships historical_figure_relationships
+---@field interrogation any evidence_repositoryst
 ---@field artifact_id number References: `artifact_record`
 ---@field entity_id number References: `historical_entity`
 ---@field histfig_id number References: `historical_figure`
@@ -2116,6 +2179,7 @@ df.merc_role_type = {}
 ---@field _type _history_event
 ---@field year number
 ---@field seconds number
+---@field flags any
 ---@field id number
 
 ---@class _history_event: DFCompound
@@ -2512,6 +2576,7 @@ df.history_event_agreements_voidedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
+---@field flags2 any
 
 ---@class _history_event_merchantst: DFCompound
 ---@field _kind 'class-type'
@@ -2652,6 +2717,7 @@ df.history_event_artifact_recoveredst = {}
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
+---@field flags2 any
 
 ---@class _history_event_artifact_droppedst: DFCompound
 ---@field _kind 'class-type'
@@ -3090,6 +3156,7 @@ df.history_event_war_plundered_sitest = {}
 ---@field defender_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
+---@field new_leaders number References: `historical_figure`
 
 ---@class _history_event_war_site_new_leaderst: DFCompound
 ---@field _kind 'class-type'
@@ -3156,6 +3223,7 @@ df.history_event_site_surrenderedst = {}
 ---@class (exact) history_event_body_abusedst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_body_abusedst
+---@field bodies number References: `historical_figure`
 ---@field victim_entity number References: `historical_entity`
 ---@field civ number References: `historical_entity`
 ---@field histfig number References: `historical_figure`
@@ -3473,6 +3541,8 @@ df.artifact_claim_type = {}
 ---@class (exact) history_event_hist_figure_simple_battle_eventst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_simple_battle_eventst
+---@field group1 number References: `historical_figure`
+---@field group2 number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -3499,6 +3569,8 @@ df.history_event_created_world_constructionst = {}
 ---@class (exact) history_event_hist_figure_reunionst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_reunionst
+---@field missing number References: `historical_figure`
+---@field reunited_with number References: `historical_figure`
 ---@field assistant number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
@@ -3511,6 +3583,7 @@ df.history_event_hist_figure_reunionst = {}
 ---@class (exact) history_event_hist_figure_reach_summitst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_reach_summitst
+---@field group number References: `historical_figure`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
 ---@field region_pos coord2d
@@ -3522,6 +3595,7 @@ df.history_event_hist_figure_reach_summitst = {}
 ---@class (exact) history_event_hist_figure_travelst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_travelst
+---@field group number References: `historical_figure`
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -3549,6 +3623,8 @@ df.history_event_hist_figure_travelst.T_reason = {}
 ---@class (exact) history_event_hist_figure_new_petst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_new_petst
+---@field group number References: `historical_figure`
+---@field pets number References: `creature_raw`
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -3752,6 +3828,7 @@ df.history_event_hf_does_interactionst = {}
 ---@field _type _history_event_hf_confrontedst
 ---@field target number References: `historical_figure`
 ---@field accuser number References: `historical_figure`
+---@field reasons number 0 = ageless, 1 = murder
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
@@ -3966,6 +4043,8 @@ df.history_event_performancest = {}
 ---@field site number References: `world_site`
 ---@field region number References: `world_region`
 ---@field layer number References: `world_underground_region`
+---@field competitor_hf number References: `historical_figure`
+---@field winner_hf number References: `historical_figure`
 
 ---@class _history_event_competitionst: DFCompound
 ---@field _kind 'class-type'
@@ -4014,6 +4093,7 @@ df.history_event_knowledge_discoveredst = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_artifact_transformedst
 ---@field new_artifact number References: `artifact_record`
+---@field old_artifact number References: `artifact_record`
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
@@ -4303,6 +4383,7 @@ df.history_event_entity_searched_sitest = {}
 ---@field holding_civ number References: `historical_entity`
 ---@field site_civ number References: `historical_entity`
 ---@field site number References: `world_site`
+---@field rescued_hfs number References: `historical_figure`
 
 ---@class _history_event_hf_freedst: DFCompound
 ---@field _kind 'class-type'
@@ -4337,6 +4418,7 @@ df.simple_action_type = {}
 ---@class (exact) history_event_hist_figure_simple_actionst: DFObject, history_event
 ---@field _kind 'struct'
 ---@field _type _history_event_hist_figure_simple_actionst
+---@field group_hfs number References: `historical_figure`
 ---@field type simple_action_type
 ---@field site number References: `world_site`
 ---@field structure number References: `abstract_building`
@@ -4435,6 +4517,7 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@field _type _history_event_squad_vs_squadst
 ---@field a_leader_hfid number References: `historical_figure`
 ---@field a_leadership_roll number
+---@field a_hfid number References: `historical_figure`
 ---@field a_squad_id number
 ---@field a_race number References: `creature_raw`
 ---@field a_interaction number
@@ -4443,6 +4526,7 @@ df.history_event_tactical_situationst.T_tactics_flags = {}
 ---@field a_slain number
 ---@field d_leader_hfid number References: `historical_figure`
 ---@field d_leadership_roll number
+---@field d_hfid number References: `historical_figure`
 ---@field d_squad_id number
 ---@field d_race number References: `creature_raw`
 ---@field d_interaction number
@@ -4525,6 +4609,7 @@ df.history_event_entity_dissolvedst = {}
 ---@field _type _history_event_entity_equipment_purchasest
 ---@field entity number References: `historical_entity`
 ---@field quality item_quality
+---@field hfs number References: `historical_figure`
 
 ---@class _history_event_entity_equipment_purchasest: DFCompound
 ---@field _kind 'class-type'
@@ -4615,7 +4700,13 @@ df.history_event_hf_preachst = {}
 ---@field persecuting_entity number References: `historical_entity`
 ---@field target_entity number References: `historical_entity`
 ---@field site number References: `world_site`
+---@field property_confiscated_from_hfs number References: `historical_figure`
+---@field destroyed_structures number
 ---@field shrines_destroyed number
+---@field expelled_hfs number References: `historical_figure`
+---@field expelled_populations number
+---@field expelled_races number
+---@field expelled_counts number
 
 ---@class _history_event_entity_persecutedst: DFCompound
 ---@field _kind 'class-type'
@@ -4637,6 +4728,7 @@ df.history_event_entity_breach_feature_layerst = {}
 ---@field _kind 'struct'
 ---@field _type _history_event_entity_alliance_formedst
 ---@field entity number References: `historical_entity`
+---@field joining_entities number References: `historical_entity`
 
 ---@class _history_event_entity_alliance_formedst: DFCompound
 ---@field _kind 'class-type'
@@ -4687,6 +4779,7 @@ df.history_event_sabotagest = {}
 ---@field instigator_hf number References: `historical_figure`
 ---@field entity number References: `historical_entity`
 ---@field position_profile_id number
+---@field conspirator_hfs number References: `historical_figure`
 ---@field site number References: `world_site`
 
 ---@class _history_event_entity_overthrownst: DFCompound
@@ -4732,6 +4825,7 @@ df.history_event_failed_intrigue_corruptionst = {}
 ---@field convicter_entity number References: `historical_entity`
 ---@field recognized_by_entity number References: `historical_entity`
 ---@field recognized_by_hf number References: `historical_figure`
+---@field implicated_hfs number References: `historical_figure`
 ---@field corrupt_hf number References: `historical_figure`
 ---@field behest_of_hf number References: `historical_figure`
 ---@field fooled_hf number References: `historical_figure`
@@ -4861,6 +4955,7 @@ df.history_event_failed_frame_attemptst = {}
 ---@field target_hf number References: `historical_figure`
 ---@field arresting_entity number References: `historical_entity`
 ---@field interrogator_hf number References: `historical_figure`
+---@field implicated_hfs number References: `historical_figure`
 ---@field interrogation_flags history_event_hf_interrogatedst.T_interrogation_flags
 
 ---@class _history_event_hf_interrogatedst: DFCompound
@@ -4954,10 +5049,13 @@ df.history_event_collection_type = {}
 ---@class (exact) history_event_collection: DFObject
 ---@field _kind 'struct'
 ---@field _type _history_event_collection
+---@field events number References: `history_event`
+---@field collections number References: `history_event_collection`
 ---@field start_year number
 ---@field end_year number
 ---@field start_seconds number
 ---@field end_seconds number
+---@field flags any
 ---@field id number
 
 ---@class _history_event_collection: DFCompound
@@ -4977,6 +5075,9 @@ function df.history_event_collection.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _history_event_collection_warst
 ---@field name language_name
+---@field attacker_civ number References: `historical_entity`
+---@field defender_civ number References: `historical_entity`
+---@field unk_1 number when length 2 attacker/defender entity. When longer seems to contain unrelated civs at varying locations References: `historical_entity`
 ---@field unk history_event_collection_warst.T_unk
 
 ---@class _history_event_collection_warst: DFCompound
@@ -4986,8 +5087,20 @@ df.history_event_collection_warst = {}
 ---@class (exact) history_event_collection_warst.T_unk: DFObject
 ---@field _kind 'struct'
 ---@field _type _history_event_collection_warst.T_unk
+---@field unk_1 number These 5 vectors are the same length,0 or 1. Only 0 seen
+---@field attacker_entity_leader number References: `historical_figure`
+---@field unk_2 number 25, 25, 46 seen. All on the first few (oldest) collections.
+---@field unk_3 number only -1 seen
+---@field unk_4 number -5,-6, -14 -15 seen
 ---@field unk_5 number same as previous vector single element or zero. Sum?
+---@field ethics_unk1 number these three vectors are of the same length
+---@field disputed_ethics ethic_type
+---@field ethics_unk3 number not seen other value
+---@field dispute_severities number
 ---@field accumulated_ethics_severity number
+---@field event_unk number values 5 and 10 seen. These three vectors are the same length
+---@field negative_events number Site dispute, war attack site, created site, and culled seen References: `history_event`
+---@field event_severities number Site dispute:-9/-10, war attack site:-2/-4/-5, created site: -20, culled: -20 (guess failed settlement)
 ---@field accumulated_event_severity number sum of previous vector values
 
 ---@class _history_event_collection_warst.T_unk: DFCompound
@@ -5003,9 +5116,30 @@ df.history_event_collection_warst.T_unk = {}
 ---@field layer number References: `world_underground_region`
 ---@field site number References: `world_site`
 ---@field region_pos coord2d
+---@field attacker_civ number References: `historical_entity`
+---@field defender_civ number References: `historical_entity`
+---@field attacker_hf number References: `historical_figure`
+---@field attacker_role number Tentatively 0: regular, 1/2 merc
+---@field defender_hf number References: `historical_figure`
+---@field defender_role number same as for attacker role, i.e. 0-2, with 1/2 being mercs
+---@field noncombat_hf number saw being beheaded, but that's only one checked References: `historical_figure`
 ---@field merc_roles merc_role_type
 ---@field attacker_mercs number References: `historical_entity`
 ---@field defender_mercs number References: `historical_entity`
+---@field attacker_merc_hfs number References: `historical_figure`
+---@field defender_merc_hfs number References: `historical_figure`
+---@field attacker_squad_entity_pop number References: `entity_population`
+---@field attacker_squad_counts number
+---@field attacker_squad_deaths number
+---@field attacker_squad_races number References: `creature_raw`
+---@field attacker_squad_sites number References: `world_site`
+---@field unk_3 number probably a boolean, as only 0/1 seen
+---@field defender_squad_entity_pops number References: `entity_population`
+---@field defender_squad_counts number
+---@field defender_squad_deaths number
+---@field defender_squad_races number References: `creature_raw`
+---@field defender_squad_sites number References: `world_site`
+---@field unk_4 number probably a boolean, as only 0/1 seen
 ---@field outcome number 0 = attacker won, 1 = defender won
 
 ---@class _history_event_collection_battlest: DFCompound
@@ -5034,6 +5168,8 @@ df.history_event_collection_duelst = {}
 ---@field _type _history_event_collection_site_conqueredst
 ---@field parent_collection number References: `history_event_collection`
 ---@field site number References: `world_site`
+---@field attacker_civ number References: `historical_entity`
+---@field defender_civ number References: `historical_entity`
 ---@field unk_1 number uninitialized
 ---@field ordinal number
 
@@ -5051,6 +5187,9 @@ df.history_event_collection_site_conqueredst = {}
 ---@field region_pos coord2d
 ---@field attacker_civ number References: `historical_entity`
 ---@field defender_civ number References: `historical_entity`
+---@field snatcher_hf number References: `historical_figure`
+---@field victim_hf number References: `historical_figure`
+---@field unk_1 number
 ---@field ordinal number
 
 ---@class _history_event_collection_abductionst: DFCompound
@@ -5067,6 +5206,19 @@ df.history_event_collection_abductionst = {}
 ---@field region_pos coord2d
 ---@field thief_civ number References: `historical_entity`
 ---@field victim_civ number References: `historical_entity`
+---@field thief_hf number References: `historical_figure`
+---@field stolen_item_types any
+---@field stolen_item_subtypes any
+---@field stolen_mat_types any
+---@field stolen_mat_indices number
+---@field stolen_item_ids number References: `item`
+---@field unk_1 number
+---@field unk_2 number most likely the same format as above
+---@field unk_3 number
+---@field unk_4 number
+---@field unk_5 number
+---@field unk_6 number
+---@field unk_7 number
 ---@field ordinal number
 
 ---@class _history_event_collection_theftst: DFCompound
@@ -5082,6 +5234,7 @@ df.history_event_collection_theftst = {}
 ---@field site number References: `world_site`
 ---@field region_pos coord2d
 ---@field defender_civ number References: `historical_entity`
+---@field attacker_hf number References: `historical_figure`
 ---@field ordinal number
 
 ---@class _history_event_collection_beast_attackst: DFCompound
@@ -5091,6 +5244,7 @@ df.history_event_collection_beast_attackst = {}
 ---@class (exact) history_event_collection_journeyst: DFObject, history_event_collection
 ---@field _kind 'struct'
 ---@field _type _history_event_collection_journeyst
+---@field traveler_hf number References: `historical_figure`
 ---@field ordinal number
 
 ---@class _history_event_collection_journeyst: DFCompound
@@ -5192,6 +5346,7 @@ df.history_event_collection_purgest = {}
 ---@field region_pos coord2d
 ---@field attacker_civ number References: `historical_entity`
 ---@field defender_civ number References: `historical_entity`
+---@field thieves number all of the ones examined were mentioned stealing things during the same raid on the site References: `historical_figure`
 ---@field ordinal number
 
 ---@class _history_event_collection_raidst: DFCompound
@@ -5298,6 +5453,7 @@ df.history_era.T_title = {}
 ---@field power_hf1 number References: `historical_figure`
 ---@field power_hf2 number References: `historical_figure`
 ---@field power_hf3 number References: `historical_figure`
+---@field civilized_races number
 ---@field civilized_total number
 ---@field civilized_mundane number
 
@@ -5308,6 +5464,11 @@ df.history_era.T_details = {}
 ---@class (exact) relationship_event: DFObject
 ---@field _kind 'struct'
 ---@field _type _relationship_event
+---@field event number not included in the main list
+---@field relationship vague_relationship_type
+---@field source_hf number bay12: hfid_1 References: `historical_figure`
+---@field target_hf number bay12: hfid_2 References: `historical_figure`
+---@field year number
 ---@field next_element number bay12: number; 1024 for all vectors except the last one
 ---@field start_year number first year of the events contained in the element
 
@@ -5331,11 +5492,20 @@ df.relationship_event_supplement = {}
 ---@class (exact) world_history: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_history
+---@field events any dtor 8532fa0
+---@field events_death any
+---@field relationship_events any
+---@field relationship_event_supplements any supplemental info for artistic/scholar buddies
+---@field figures any
 ---@field event_collections world_history.T_event_collections
+---@field eras any
+---@field discovered_art_image_id number References: `art_image_chunk`
+---@field discovered_art_image_subid number References: `art_image`
 ---@field total_art number
 ---@field total_powers number some value during worldgen, and at the end equals to the number of entities plus that value
 ---@field total_megabeasts number
 ---@field total_semimegabeasts number
+---@field secret_heid any
 ---@field first_philosophy_flag integer
 ---@field first_philosophy_flag2 integer
 ---@field first_mathematics_flag integer
@@ -5350,10 +5520,33 @@ df.relationship_event_supplement = {}
 ---@field first_medicine_flag3 integer
 ---@field first_engineering_flag integer
 ---@field first_engineering_flag2 integer
+---@field intrigues any bay12: history_support_event
+---@field live_megabeasts any
+---@field live_semimegabeasts any
+---@field unk_histfig_3 any
+---@field unk_histfig_4 any
+---@field unk_histfig_5 any
+---@field unk_1 any
+---@field unk_v40_1 any 11 - necromancers
+---@field unk_histfig_6 any
+---@field unk_histfig_7 any
+---@field unk_histfig_8 any
+---@field unk_histfig_9 any
+---@field unk_histfig_10 any
+---@field unk_histfig_11 any
+---@field unk_histfig_12 any
+---@field unk_histfig_13 any
+---@field unk_3 any
+---@field unk_4 any
+---@field unk_5 any
+---@field unk_6 any
+---@field unk_7 number
 ---@field unk_8 number
+---@field active_event_collections any
 ---@field unk_10 number
 ---@field unk_11 number
 ---@field unk_12 number
+---@field active_mission mission_report
 
 ---@class _world_history: DFCompound
 ---@field _kind 'struct-type'
@@ -5362,6 +5555,8 @@ df.world_history = {}
 ---@class (exact) world_history.T_event_collections: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_history.T_event_collections
+---@field all any
+---@field other any
 
 ---@class _world_history.T_event_collections: DFCompound
 ---@field _kind 'struct-type'
@@ -5371,6 +5566,7 @@ df.world_history.T_event_collections = {}
 ---@field _kind 'struct'
 ---@field _type _intrigue
 ---@field event_id number NOTE: can be culled. Seen: failed_intrigue_corruption, event_agreement_formed, hfs_formed_intrigue_relationship References: `history_event`
+---@field corruption intrigue_corruption Mutually exclusive with circumstance. Exactly one is present. Presumably 'bring into network' action doesn't provide membership
 ---@field reason history_event_reason_info
 ---@field circumstance history_event_circumstance_info
 

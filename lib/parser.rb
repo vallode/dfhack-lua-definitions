@@ -5,21 +5,31 @@ require_relative 'lua_ls'
 module DFHackLuaDefinitions
   class << self
     def node_to_type(node, path)
-      meta = node['ld:meta']
-      subtype = node['ld:subtype']
+      return GlobalObject.new(node) if node.name == 'global-object'
 
-      if node.name == 'global-object'
-        GlobalObject.new(node)
-      elsif meta == 'compound'
-        if subtype == 'bitfield'
-          BitfieldType.new(node, path) if subtype == 'bitfield'
-        elsif subtype == 'enum'
-          EnumType.new(node, path) if subtype == 'enum'
+      case node['ld:meta']
+      when 'enum-type'
+        EnumType.new(node)
+      when 'bitfield-type'
+        BitfieldType.new(node)
+      when 'class-type', 'struct-type'
+        StructType.new(node)
+      when 'compound'
+        case node['ld:subtype']
+        when 'bitfield'
+          BitfieldType.new(node, path)
+        when 'enum'
+          EnumType.new(node, path)
         else
+          raise "Unknown compound subtype: #{node.inspect}" if node['ld:subtype']
+
           StructType.new(node, path)
         end
-      elsif HANDLERS[meta]
-        HANDLERS[meta].new(node, path)
+      else
+        # Sanity check.
+        raise "Unknown top-level node: #{node.inspect}" if node['ld:level'] == '0'
+
+        Field.new(node, path)
       end
     end
   end
@@ -137,10 +147,6 @@ module DFHackLuaDefinitions
       @comment = field['comment']
     end
 
-    def render?
-      !!@name
-    end
-
     # TODO: Correct type coercion from enum-attr
     def to_attrs
       return '' if @attributes.empty?
@@ -162,15 +168,6 @@ module DFHackLuaDefinitions
       return '' unless @name
 
       "---| #{@value} # #{@name}\n"
-    end
-
-    def to_field_bitfield
-      annotation = "  #{LuaLS.safe_name(@field['name'])} = false,"
-      annotation << " -- #{@comment}" if @comment
-      annotation << "\n"
-      annotation << "  [#{@value}] = false,"
-      annotation << " -- #{@comment}" if @comment
-      annotation << "\n"
     end
 
     def to_field
@@ -196,8 +193,11 @@ module DFHackLuaDefinitions
     end
 
     def items
-      @node.xpath('ld:field').map.with_index do |item, index|
-        EnumItem.new(item, index)
+      index = 0
+      @node.xpath('ld:field').map do |item|
+        flag = FlagBit.new(item, index)
+        index += item['count']&.to_i&.abs || 1
+        flag
       end
     end
 
@@ -206,7 +206,7 @@ module DFHackLuaDefinitions
     end
 
     def to_type
-      annotation = ''
+      annotation = []
       annotation << "---@alias _#{@class_name}_keys\n"
       @items.each do |item|
         annotation << item.to_alias if item.render?
@@ -229,6 +229,7 @@ module DFHackLuaDefinitions
       end
       annotation << fields.join('')
       annotation << "}\n\n"
+      annotation.join
     end
 
     def render?
@@ -243,6 +244,60 @@ module DFHackLuaDefinitions
         annotation << item.to_field
       end
       annotation << "df.#{@class_name} = {}\n\n"
+    end
+  end
+
+  class FlagBit
+    def initialize(field, index)
+      @field = field
+
+      @name = field['name']
+      @value = index
+      @comment = field['comment']
+    end
+
+    def render?
+      true
+    end
+
+    def to_alias_string
+      return '' unless @name
+
+      "---| \"#{@name}\" # #{@value}\n"
+    end
+
+    def to_alias
+      annotation = []
+      annotation << "---| #{@value}"
+      annotation << " # #{@name}" if @name
+      annotation << "\n"
+      annotation.join
+    end
+
+    def to_field
+      # TODO: Ask DFHack folks if this matters, should we be outputting nils.
+      return '' unless @name
+
+      annotation = "---@field #{@name} #{@value}"
+      annotation << " #{@comment}" if @comment
+      annotation << "\n"
+
+      annotation << "---@field [#{@value}] \"#{@name}\""
+      annotation << " #{@comment}" if @comment
+      annotation << "\n"
+    end
+
+    def to_field_bitfield
+      annotation = []
+      if @name
+        annotation << "  #{LuaLS.safe_name(@name)} = false,"
+        annotation << " -- #{@comment}" if @comment
+        annotation << "\n"
+      end
+      annotation << "  [#{@value}] = false,"
+      annotation << " -- #{@comment}" if @comment
+      annotation << "\n"
+      annotation.join
     end
   end
 
@@ -366,9 +421,9 @@ module DFHackLuaDefinitions
     end
 
     def to_field
-      annotation = "---@field #{}"
-      @child_type = DFHackLuaDefinitions.node_to_type(@child, @path)
-      @child_type&.to_field
+      '-- TODO'
+      # @child_type = DFHackLuaDefinitions.node_to_type(@child, @path)
+      # @child_type&.to_field
     end
   end
 
@@ -380,7 +435,7 @@ module DFHackLuaDefinitions
       @field = field
       # TODO: Temporary until we add anon indexes.
       @name = field['name'] || 'anon_'
-      @type = field['type-name']
+      @type = field['type-name'] || 'any'
       @ref_target = field['ref-target']
       @comment = comment
 
