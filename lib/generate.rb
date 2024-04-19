@@ -90,6 +90,7 @@ def parse_lua_files(files)
 
         output.write("return #{filename}")
       else
+        file.gsub!(/^.*_ENV.*$/, '')
         file.gsub!(/^((local\s+)?function\s+(.*)$)([\s\S]+?)(^end)/, '\1 end')
         file.gsub!(/^if\s+.*then$([\s\S]+?)(^\s?end)/) do
           Regexp.last_match(1).gsub(/^[\ \t]{4}/, '')

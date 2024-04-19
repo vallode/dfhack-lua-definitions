@@ -16,7 +16,7 @@
 local dfhack = dfhack
 
 local base_env = dfhack.BASE_G
-local _ENV = base_env
+
 
 CR_LINK_FAILURE = -3
 CR_NEEDS_CONSOLE = -2
