@@ -112,7 +112,7 @@ function DFEnum.next_item(index) end
 ---@field _kind 'bitfield-type'
 local DFBitfield
 
----@class DFVector<T>: { [string]: T }
+---@class DFVector<V>: { [string]: V }
 local DFVector
 
 ---@generic T
@@ -137,12 +137,12 @@ function DFVector:insert(index, item) end
 ---@param index integer
 function DFVector:erase(index) end
 
----@class DFEnumVector<T, K>: { [K]: T}
+---@class DFEnumVector<K, V>: { [K]: V}
 local DFEnumVector
 
 ---@generic T
 ---@param self T
----@param index integer
+---@param index any
 ---@return DFObject
 function DFEnumVector:_field(index) end
 
@@ -153,13 +153,13 @@ function DFEnumVector:resize(new_size) end
 
 ---@generic T
 ---@param self T
----@param index integer|'#'
+---@param index any|'#'
 ---@param item any
 function DFEnumVector:insert(index, item) end
 
 ---@generic T
 ---@param self T
----@param index integer
+---@param index any
 function DFEnumVector:erase(index) end
 
 -- NULL value

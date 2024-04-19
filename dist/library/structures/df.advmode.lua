@@ -1045,20 +1045,20 @@ df.adventure_construction_mode_type = {}
 ---@field player_army_id number bay12: your_army_id References: `army`
 ---@field gait_index number bay12: speed_sel_y; Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
 ---@field speed_sneak_options boolean Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
----@field tracks_x number bay12: latest_tract_abs_x; X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
----@field tracks_y number bay12: latest_tract_abs_y; Y coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_y*48 is added to the local y coordinate.
----@field tracks_z number bay12: latest_tract_abs_z; Z coordinates of spoors encountered by the player. The local z coordinate is corrected by adding df.global.world.map.region_z to it.
+---@field tracks_x number[] bay12: latest_tract_abs_x; X coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_x*48 is added to the local x coordinate.
+---@field tracks_y number[] bay12: latest_tract_abs_y; Y coordinates of spoors encountered by the player. The coordinate system used counts local tiles from the upper left most tile of the world map, so df.global.world.map.region_y*48 is added to the local y coordinate.
+---@field tracks_z number[] bay12: latest_tract_abs_z; Z coordinates of spoors encountered by the player. The local z coordinate is corrected by adding df.global.world.map.region_z to it.
 ---@field tracks_next_idx number bay12: latest_track_pos; Index of the next entry in tracks_x, tracks_y, tracks_z
 ---@field view_tracks_odors number bay12: tracking_flag; The value of view_tracks_odors determines the combination of local/travel mode track/odor screens currently displayed. Opening the local tracks screen increments this value by 1, opening travel mode tracks+odors increments by 2, opening local odors increments by 4. Closing the screens decrements respectively.
 ---@field tracks_visible number bay12: lit_latest_track_count; The quantity of spoors currently visible to the player.
----@field travel_exemplar_x number
----@field travel_exemplar_y number
----@field travel_exemplar_z number
----@field exemplar_track_data any bay12 type: bse_spoor_datast
----@field travel_exemplar_valid number
----@field travel_exemplar_tile number
----@field travel_exemplar_num number
----@field travel_exemplar_dir number
+---@field travel_exemplar_x number[]
+---@field travel_exemplar_y number[]
+---@field travel_exemplar_z number[]
+---@field exemplar_track_data adventurest.T_exemplar_track_data[] bay12 type: bse_spoor_datast
+---@field travel_exemplar_valid number[]
+---@field travel_exemplar_tile number[]
+---@field travel_exemplar_num number[]
+---@field travel_exemplar_dir number[]
 ---@field odor_race number bay12: latest_smell_race; race ID of strongest odor creature References: `creature_raw`
 ---@field odor_caste number bay12: latest_smell_caste; caste ID of strongest odor creature References: `caste_raw`
 ---@field odor_death boolean bay12: latest_smell_death; Overrides creature odor with odor of Death
@@ -1175,12 +1175,77 @@ df.adventurest.T_travel_right_map = {}
 ---@field [3] "OneRow"
 df.adventurest.T_show_menu = {}
 
+---@class (exact) adventurest.T_exemplar_track_data: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_exemplar_track_data
+---@field flag adventurest.T_exemplar_track_data.T_flag
+---@field type adventurest.T_exemplar_track_data.T_type bay12 type: SpoorFlag
+---@field id1 number
+---@field id2 number
+---@field id3 number
+
+---@class _adventurest.T_exemplar_track_data: DFCompound
+---@field _kind 'struct-type'
+df.adventurest.T_exemplar_track_data = {}
+
+---@class adventurest.T_exemplar_track_data.T_flag: DFObject
+---@field _kind 'bitfield'
+---@field _enum _adventurest.T_exemplar_track_data.T_flag
+---@field present boolean
+---@field [0] boolean
+---@field has_direction boolean
+---@field [1] boolean
+---@field dir boolean
+---@field [2] boolean
+---@field yours boolean
+---@field [5] boolean
+---@field liquid_print boolean
+---@field [6] boolean
+---@field level boolean
+---@field [7] boolean
+
+---@class _adventurest.T_exemplar_track_data.T_flag: DFBitfield
+---@field present 0
+---@field [0] "present"
+---@field has_direction 1
+---@field [1] "has_direction"
+---@field dir 2
+---@field [2] "dir"
+---@field yours 5
+---@field [5] "yours"
+---@field liquid_print 6
+---@field [6] "liquid_print"
+---@field level 7
+---@field [7] "level"
+df.adventurest.T_exemplar_track_data.T_flag = {}
+
+---@alias adventurest.T_exemplar_track_data.T_type
+---| -1 # NONE
+---| 0 # BROKEN_VEGETATION
+---| 1 # HFID_COMBINEDCASTE_BP
+---| 2 # ITEMT_ITEMST_ORIENT
+---| 3 # MESS
+
+-- bay12 type: SpoorFlag
+---@class _adventurest.T_exemplar_track_data.T_type: DFEnum
+---@field NONE -1
+---@field [-1] "NONE"
+---@field BROKEN_VEGETATION 0
+---@field [0] "BROKEN_VEGETATION"
+---@field HFID_COMBINEDCASTE_BP 1
+---@field [1] "HFID_COMBINEDCASTE_BP"
+---@field ITEMT_ITEMST_ORIENT 2
+---@field [2] "ITEMT_ITEMST_ORIENT"
+---@field MESS 3
+---@field [3] "MESS"
+df.adventurest.T_exemplar_track_data.T_type = {}
+
 -- bay12 type: adventure_rumor_infost
 ---@class (exact) adventurest.T_rumor_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_rumor_info
 ---@field base_data any
----@field data any
+---@field data any[]
 
 ---@class _adventurest.T_rumor_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1211,7 +1276,7 @@ df.adventurest.T_rumor_info = {}
 ---@field choosing_workshop boolean
 ---@field civzone any
 ---@field selected_civzone number
----@field edit_zone_flag number
+---@field edit_zone_flag number[]
 ---@field doing_zone_flow boolean 144x144
 ---@field removing_zone boolean
 ---@field zone_sx number
@@ -1435,12 +1500,26 @@ df.adventurest.T_unk_v40_3 = {}
 ---@class (exact) adventurest.T_unk_v40_4: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_4
----@field unk_v40_4a any
+---@field unk_v40_4a adventurest.T_unk_v40_4.T_unk_v40_4a[]
 ---@field unk_v40_4b number
 
 ---@class _adventurest.T_unk_v40_4: DFCompound
 ---@field _kind 'struct-type'
 df.adventurest.T_unk_v40_4 = {}
+
+---@class (exact) adventurest.T_unk_v40_4.T_unk_v40_4a: DFObject
+---@field _kind 'struct'
+---@field _type _adventurest.T_unk_v40_4.T_unk_v40_4a
+---@field unk_s1 number
+---@field unk_s2 coord
+---@field unk_s5 coord
+---@field unk_s8 number
+---@field unk_s9 number
+---@field unk_s10 number
+
+---@class _adventurest.T_unk_v40_4.T_unk_v40_4a: DFCompound
+---@field _kind 'struct-type'
+df.adventurest.T_unk_v40_4.T_unk_v40_4a = {}
 
 ---@class (exact) adventurest.T_unk_v40_5: DFObject
 ---@field _kind 'struct'

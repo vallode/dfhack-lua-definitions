@@ -45,43 +45,23 @@ function df.invasion_info.find(key) end
 ---@return invasion_info_vector # df.global.plotinfo.invasions.list
 function df.invasion_info.get_vector() end
 
----@alias _invasion_info.T_flags_keys
----| 0 # active
----| 1 # siege
----| 2 # layer_source
----| 3 # undead_source
----| 4 # want_parley
----| 5 # parley
----| 6 # created_parley
-
----@alias _invasion_info.T_flags_values
----| "active" # 0
----| "siege" # 1
----| "layer_source" # 2
----| "undead_source" # 3
----| "want_parley" # 4
----| "parley" # 5
----| "created_parley" # 6
-
----@class invasion_info.T_flags: DFObject, { [_invasion_info.T_flags_keys|_invasion_info.T_flags_values]: boolean }
+---@class invasion_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _invasion_info.T_flags
-local invasion_info_flags = {
-  active = false,
-  [0] = false,
-  siege = false,
-  [1] = false,
-  layer_source = false,
-  [2] = false,
-  undead_source = false,
-  [3] = false,
-  want_parley = false,
-  [4] = false,
-  parley = false,
-  [5] = false,
-  created_parley = false,
-  [6] = false,
-}
+---@field active boolean
+---@field [0] boolean
+---@field siege boolean
+---@field [1] boolean
+---@field layer_source boolean
+---@field [2] boolean
+---@field undead_source boolean
+---@field [3] boolean
+---@field want_parley boolean
+---@field [4] boolean
+---@field parley boolean
+---@field [5] boolean
+---@field created_parley boolean
+---@field [6] boolean
 
 ---@class _invasion_info.T_flags: DFBitfield
 ---@field active 0

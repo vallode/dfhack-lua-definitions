@@ -241,41 +241,22 @@ df.building_type._attr_entry_type._fields = {}
 ---@field OfferingPlace { name: "Offering Place", classname: "building_offering_placest" }
 df.building_type.attrs = {}
 
----@alias _building_flags_keys
----| 0 # exists
----| 1 # site_blocked
----| 2 # room_collision
----| 3
----| 4 # almost_deleted
----| 5 # in_update
----| 6 # from_worldgen
-
----@alias _building_flags_values
----| "exists" # 0
----| "site_blocked" # 1
----| "room_collision" # 2
----| "almost_deleted" # 4
----| "in_update" # 5
----| "from_worldgen" # 6
-
----@class building_flags: DFObject, { [_building_flags_keys|_building_flags_values]: boolean }
+---@class building_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_flags
-local building_flags = {
-  exists = false, -- actually built, not just ordered
-  [0] = false, -- actually built, not just ordered
-  site_blocked = false, -- items on ground on site
-  [1] = false, -- items on ground on site
-  room_collision = false, -- major intersection with another room?
-  [2] = false, -- major intersection with another room?
-  [3] = false,
-  almost_deleted = false, -- when requesting delete while in_update
-  [4] = false, -- when requesting delete while in_update
-  in_update = false,
-  [5] = false,
-  from_worldgen = false, -- moved?
-  [6] = false, -- moved?
-}
+---@field exists boolean actually built, not just ordered
+---@field [0] boolean actually built, not just ordered
+---@field site_blocked boolean items on ground on site
+---@field [1] boolean items on ground on site
+---@field room_collision boolean major intersection with another room?
+---@field [2] boolean major intersection with another room?
+---@field [3] boolean
+---@field almost_deleted boolean when requesting delete while in_update
+---@field [4] boolean when requesting delete while in_update
+---@field in_update boolean
+---@field [5] boolean
+---@field from_worldgen boolean moved?
+---@field [6] boolean moved?
 
 ---@class _building_flags: DFBitfield
 ---@field exists 0 actually built, not just ordered
@@ -292,43 +273,23 @@ local building_flags = {
 ---@field [6] "from_worldgen" moved?
 df.building_flags = {}
 
----@alias _door_flags_keys
----| 0 # forbidden
----| 1 # internal
----| 2 # taken_by_invaders
----| 3 # used_by_intruder
----| 4 # closed
----| 5 # operated_by_mechanisms
----| 6 # pet_passable
-
----@alias _door_flags_values
----| "forbidden" # 0
----| "internal" # 1
----| "taken_by_invaders" # 2
----| "used_by_intruder" # 3
----| "closed" # 4
----| "operated_by_mechanisms" # 5
----| "pet_passable" # 6
-
----@class door_flags: DFObject, { [_door_flags_keys|_door_flags_values]: boolean }
+---@class door_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _door_flags
-local door_flags = {
-  forbidden = false,
-  [0] = false,
-  internal = false,
-  [1] = false,
-  taken_by_invaders = false,
-  [2] = false,
-  used_by_intruder = false,
-  [3] = false,
-  closed = false,
-  [4] = false,
-  operated_by_mechanisms = false,
-  [5] = false,
-  pet_passable = false,
-  [6] = false,
-}
+---@field forbidden boolean
+---@field [0] boolean
+---@field internal boolean
+---@field [1] boolean
+---@field taken_by_invaders boolean
+---@field [2] boolean
+---@field used_by_intruder boolean
+---@field [3] boolean
+---@field closed boolean
+---@field [4] boolean
+---@field operated_by_mechanisms boolean
+---@field [5] boolean
+---@field pet_passable boolean
+---@field [6] boolean
 
 ---@class _door_flags: DFBitfield
 ---@field forbidden 0
@@ -347,35 +308,19 @@ local door_flags = {
 ---@field [6] "pet_passable"
 df.door_flags = {}
 
----@alias _gate_flags_keys
----| 0 # closed
----| 1 # closing
----| 2 # opening
----| 3 # collapsing
----| 4 # has_support
-
----@alias _gate_flags_values
----| "closed" # 0
----| "closing" # 1
----| "opening" # 2
----| "collapsing" # 3
----| "has_support" # 4
-
----@class gate_flags: DFObject, { [_gate_flags_keys|_gate_flags_values]: boolean }
+---@class gate_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _gate_flags
-local gate_flags = {
-  closed = false,
-  [0] = false,
-  closing = false,
-  [1] = false,
-  opening = false,
-  [2] = false,
-  collapsing = false, -- ?; bridge
-  [3] = false, -- ?; bridge
-  has_support = false, -- bridge
-  [4] = false, -- bridge
-}
+---@field closed boolean
+---@field [0] boolean
+---@field closing boolean
+---@field [1] boolean
+---@field opening boolean
+---@field [2] boolean
+---@field collapsing boolean ?; bridge
+---@field [3] boolean ?; bridge
+---@field has_support boolean bridge
+---@field [4] boolean bridge
 
 ---@class _gate_flags: DFBitfield
 ---@field closed 0
@@ -426,14 +371,14 @@ df.building_extents = {}
 ---@class (exact) building_drawbuffer: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_drawbuffer
----@field signpost_texpos number
----@field building_one_texpos any
----@field item_texpos any
----@field building_two_texpos any
----@field tile any
----@field fore any
----@field back any
----@field bright any
+---@field signpost_texpos number[]
+---@field building_one_texpos number[][]
+---@field item_texpos number[][]
+---@field building_two_texpos number[][]
+---@field tile integer[][]
+---@field fore number[][]
+---@field back number[][]
+---@field bright number[][]
 ---@field x1 number
 ---@field x2 number
 ---@field y1 number
@@ -544,43 +489,23 @@ df.building_stockpilest = {}
 ---@field _kind 'struct-type'
 df.hospital_supplies = {}
 
----@alias _hospital_supplies.T_supplies_needed_keys
----| 0 # splints
----| 1 # thread
----| 2 # cloth
----| 3 # crutches
----| 4 # plaster
----| 5 # buckets
----| 6 # soap
-
----@alias _hospital_supplies.T_supplies_needed_values
----| "splints" # 0
----| "thread" # 1
----| "cloth" # 2
----| "crutches" # 3
----| "plaster" # 4
----| "buckets" # 5
----| "soap" # 6
-
----@class hospital_supplies.T_supplies_needed: DFObject, { [_hospital_supplies.T_supplies_needed_keys|_hospital_supplies.T_supplies_needed_values]: boolean }
+---@class hospital_supplies.T_supplies_needed: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _hospital_supplies.T_supplies_needed
-local hospital_supplies_supplies_needed = {
-  splints = false,
-  [0] = false,
-  thread = false,
-  [1] = false,
-  cloth = false,
-  [2] = false,
-  crutches = false,
-  [3] = false,
-  plaster = false,
-  [4] = false,
-  buckets = false,
-  [5] = false,
-  soap = false,
-  [6] = false,
-}
+---@field splints boolean
+---@field [0] boolean
+---@field thread boolean
+---@field [1] boolean
+---@field cloth boolean
+---@field [2] boolean
+---@field crutches boolean
+---@field [3] boolean
+---@field plaster boolean
+---@field [4] boolean
+---@field buckets boolean
+---@field [5] boolean
+---@field soap boolean
+---@field [6] boolean
 
 ---@class _hospital_supplies.T_supplies_needed: DFBitfield
 ---@field splints 0
@@ -904,27 +829,15 @@ df.building_civzonest.T_zone_settings = {}
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_whole = {}
 
----@alias _building_civzonest.T_zone_settings.T_gather_keys
----| 0 # pick_trees
----| 1 # pick_shrubs
----| 2 # gather_fallen
-
----@alias _building_civzonest.T_zone_settings.T_gather_values
----| "pick_trees" # 0
----| "pick_shrubs" # 1
----| "gather_fallen" # 2
-
----@class building_civzonest.T_zone_settings.T_gather: DFObject, { [_building_civzonest.T_zone_settings.T_gather_keys|_building_civzonest.T_zone_settings.T_gather_values]: boolean }
+---@class building_civzonest.T_zone_settings.T_gather: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_civzonest.T_zone_settings.T_gather
-local building_civzonest_zone_settings_gather = {
-  pick_trees = false,
-  [0] = false,
-  pick_shrubs = false,
-  [1] = false,
-  gather_fallen = false,
-  [2] = false,
-}
+---@field pick_trees boolean
+---@field [0] boolean
+---@field pick_shrubs boolean
+---@field [1] boolean
+---@field gather_fallen boolean
+---@field [2] boolean
 
 ---@class _building_civzonest.T_zone_settings.T_gather: DFBitfield
 ---@field pick_trees 0
@@ -944,23 +857,13 @@ df.building_civzonest.T_zone_settings.T_gather = {}
 ---@field _kind 'struct-type'
 df.building_civzonest.T_zone_settings.T_pen = {}
 
----@alias _building_civzonest.T_zone_settings.T_tomb_keys
----| 0 # no_pets
----| 1 # no_citizens
-
----@alias _building_civzonest.T_zone_settings.T_tomb_values
----| "no_pets" # 0
----| "no_citizens" # 1
-
----@class building_civzonest.T_zone_settings.T_tomb: DFObject, { [_building_civzonest.T_zone_settings.T_tomb_keys|_building_civzonest.T_zone_settings.T_tomb_values]: boolean }
+---@class building_civzonest.T_zone_settings.T_tomb: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_civzonest.T_zone_settings.T_tomb
-local building_civzonest_zone_settings_tomb = {
-  no_pets = false,
-  [0] = false,
-  no_citizens = false,
-  [1] = false,
-}
+---@field no_pets boolean
+---@field [0] boolean
+---@field no_citizens boolean
+---@field [1] boolean
 
 ---@class _building_civzonest.T_zone_settings.T_tomb: DFBitfield
 ---@field no_pets 0
@@ -1034,27 +937,15 @@ df.building_actual = {}
 ---@field _kind 'struct-type'
 df.building_design = {}
 
----@alias _building_design.T_flags_keys
----| 0 # rough
----| 1 # built
----| 2 # designed
-
----@alias _building_design.T_flags_values
----| "rough" # 0
----| "built" # 1
----| "designed" # 2
-
----@class building_design.T_flags: DFObject, { [_building_design.T_flags_keys|_building_design.T_flags_values]: boolean }
+---@class building_design.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_design.T_flags
-local building_design_flags = {
-  rough = false, -- rough gabbro road
-  [0] = false, -- rough gabbro road
-  built = false,
-  [1] = false,
-  designed = false,
-  [2] = false,
-}
+---@field rough boolean rough gabbro road
+---@field [0] boolean rough gabbro road
+---@field built boolean
+---@field [1] boolean
+---@field designed boolean
+---@field [2] boolean
 
 ---@class _building_design.T_flags: DFBitfield
 ---@field rough 0 rough gabbro road
@@ -1241,7 +1132,7 @@ df.workshop_type.attrs = {}
 ---@field links stockpile_links
 ---@field max_general_orders number
 ---@field block_general_orders boolean
----@field blocked_labors boolean
+---@field blocked_labors DFEnumVector<unit_labor, boolean>
 
 ---@class _workshop_profile: DFCompound
 ---@field _kind 'struct-type'
@@ -1404,19 +1295,11 @@ df.building_cabinetst = {}
 ---@field _kind 'class-type'
 df.building_cagest = {}
 
----@alias _building_cagest.T_cage_flags_keys
----| 0 # triggered
-
----@alias _building_cagest.T_cage_flags_values
----| "triggered" # 0
-
----@class building_cagest.T_cage_flags: DFObject, { [_building_cagest.T_cage_flags_keys|_building_cagest.T_cage_flags_values]: boolean }
+---@class building_cagest.T_cage_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_cagest.T_cage_flags
-local building_cagest_cage_flags = {
-  triggered = false,
-  [0] = false,
-}
+---@field triggered boolean
+---@field [0] boolean
 
 ---@class _building_cagest.T_cage_flags: DFBitfield
 ---@field triggered 0
@@ -1434,19 +1317,11 @@ df.building_cagest.T_cage_flags = {}
 ---@field _kind 'class-type'
 df.building_chainst = {}
 
----@alias _building_chainst.T_chain_flags_keys
----| 0 # triggered
-
----@alias _building_chainst.T_chain_flags_values
----| "triggered" # 0
-
----@class building_chainst.T_chain_flags: DFObject, { [_building_chainst.T_chain_flags_keys|_building_chainst.T_chain_flags_values]: boolean }
+---@class building_chainst.T_chain_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_chainst.T_chain_flags
-local building_chainst_chain_flags = {
-  triggered = false,
-  [0] = false,
-}
+---@field triggered boolean
+---@field [0] boolean
 
 ---@class _building_chainst.T_chain_flags: DFBitfield
 ---@field triggered 0
@@ -1621,7 +1496,7 @@ df.building_doorst = {}
 ---@class (exact) building_farmplotst: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_farmplotst
----@field plant_id any
+---@field plant_id number[]
 ---@field material_amount number
 ---@field farm_flags building_farmplotst.T_farm_flags
 ---@field last_season season
@@ -1633,19 +1508,11 @@ df.building_doorst = {}
 ---@field _kind 'class-type'
 df.building_farmplotst = {}
 
----@alias _building_farmplotst.T_farm_flags_keys
----| 0 # seasonal_fertilize
-
----@alias _building_farmplotst.T_farm_flags_values
----| "seasonal_fertilize" # 0
-
----@class building_farmplotst.T_farm_flags: DFObject, { [_building_farmplotst.T_farm_flags_keys|_building_farmplotst.T_farm_flags_values]: boolean }
+---@class building_farmplotst.T_farm_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_farmplotst.T_farm_flags
-local building_farmplotst_farm_flags = {
-  seasonal_fertilize = false,
-  [0] = false,
-}
+---@field seasonal_fertilize boolean
+---@field [0] boolean
 
 ---@class _building_farmplotst.T_farm_flags: DFBitfield
 ---@field seasonal_fertilize 0
@@ -1692,27 +1559,15 @@ df.building_grate_wallst = {}
 ---@field _kind 'class-type'
 df.building_hatchst = {}
 
----@alias _hive_flags_keys
----| 0 # do_install
----| 1 # do_gather
----| 2 # ready_split
-
----@alias _hive_flags_values
----| "do_install" # 0
----| "do_gather" # 1
----| "ready_split" # 2
-
----@class hive_flags: DFObject, { [_hive_flags_keys|_hive_flags_values]: boolean }
+---@class hive_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _hive_flags
-local hive_flags = {
-  do_install = false,
-  [0] = false,
-  do_gather = false,
-  [1] = false,
-  ready_split = false,
-  [2] = false,
-}
+---@field do_install boolean
+---@field [0] boolean
+---@field do_gather boolean
+---@field [1] boolean
+---@field ready_split boolean
+---@field [2] boolean
 
 ---@class _hive_flags: DFBitfield
 ---@field do_install 0
@@ -1827,19 +1682,11 @@ df.shop_type = {}
 ---@field _kind 'class-type'
 df.building_shopst = {}
 
----@alias _building_shopst.T_shop_flags_keys
----| 0 # for_sale
-
----@alias _building_shopst.T_shop_flags_values
----| "for_sale" # 0
-
----@class building_shopst.T_shop_flags: DFObject, { [_building_shopst.T_shop_flags_keys|_building_shopst.T_shop_flags_values]: boolean }
+---@class building_shopst.T_shop_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_shopst.T_shop_flags
-local building_shopst_shop_flags = {
-  for_sale = false,
-  [0] = false,
-}
+---@field for_sale boolean
+---@field [0] boolean
 
 ---@class _building_shopst.T_shop_flags: DFBitfield
 ---@field for_sale 0
@@ -1928,19 +1775,11 @@ df.building_statuest = {}
 ---@field _kind 'class-type'
 df.building_supportst = {}
 
----@alias _building_supportst.T_support_flags_keys
----| 0 # triggered
-
----@alias _building_supportst.T_support_flags_values
----| "triggered" # 0
-
----@class building_supportst.T_support_flags: DFObject, { [_building_supportst.T_support_flags_keys|_building_supportst.T_support_flags_values]: boolean }
+---@class building_supportst.T_support_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_supportst.T_support_flags
-local building_supportst_support_flags = {
-  triggered = false,
-  [0] = false,
-}
+---@field triggered boolean
+---@field [0] boolean
 
 ---@class _building_supportst.T_support_flags: DFBitfield
 ---@field triggered 0
@@ -1957,19 +1796,11 @@ df.building_supportst.T_support_flags = {}
 ---@field _kind 'class-type'
 df.building_tablest = {}
 
----@alias _building_tablest.T_table_flags_keys
----| 0 # meeting_hall
-
----@alias _building_tablest.T_table_flags_values
----| "meeting_hall" # 0
-
----@class building_tablest.T_table_flags: DFObject, { [_building_tablest.T_table_flags_keys|_building_tablest.T_table_flags_values]: boolean }
+---@class building_tablest.T_table_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_tablest.T_table_flags
-local building_tablest_table_flags = {
-  meeting_hall = false,
-  [0] = false,
-}
+---@field meeting_hall boolean
+---@field [0] boolean
 
 ---@class _building_tablest.T_table_flags: DFBitfield
 ---@field meeting_hall 0
@@ -1996,23 +1827,13 @@ df.building_traction_benchst = {}
 ---@field _kind 'class-type'
 df.building_tradedepotst = {}
 
----@alias _building_tradedepotst.T_trade_flags_keys
----| 0 # trader_requested
----| 1 # anyone_can_trade
-
----@alias _building_tradedepotst.T_trade_flags_values
----| "trader_requested" # 0
----| "anyone_can_trade" # 1
-
----@class building_tradedepotst.T_trade_flags: DFObject, { [_building_tradedepotst.T_trade_flags_keys|_building_tradedepotst.T_trade_flags_values]: boolean }
+---@class building_tradedepotst.T_trade_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_tradedepotst.T_trade_flags
-local building_tradedepotst_trade_flags = {
-  trader_requested = false,
-  [0] = false,
-  anyone_can_trade = false,
-  [1] = false,
-}
+---@field trader_requested boolean
+---@field [0] boolean
+---@field anyone_can_trade boolean
+---@field [1] boolean
 
 ---@class _building_tradedepotst.T_trade_flags: DFBitfield
 ---@field trader_requested 0
@@ -2061,39 +1882,21 @@ df.trap_type = {}
 ---@field _kind 'struct-type'
 df.pressure_plate_info = {}
 
----@alias _pressure_plate_info.T_flags_keys
----| 0 # units
----| 1 # water
----| 2 # magma
----| 3 # citizens
----| 4 # resets
----| 5 # track
-
----@alias _pressure_plate_info.T_flags_values
----| "units" # 0
----| "water" # 1
----| "magma" # 2
----| "citizens" # 3
----| "resets" # 4
----| "track" # 5
-
----@class pressure_plate_info.T_flags: DFObject, { [_pressure_plate_info.T_flags_keys|_pressure_plate_info.T_flags_values]: boolean }
+---@class pressure_plate_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _pressure_plate_info.T_flags
-local pressure_plate_info_flags = {
-  units = false,
-  [0] = false,
-  water = false,
-  [1] = false,
-  magma = false,
-  [2] = false,
-  citizens = false,
-  [3] = false,
-  resets = false,
-  [4] = false,
-  track = false,
-  [5] = false,
-}
+---@field units boolean
+---@field [0] boolean
+---@field water boolean
+---@field [1] boolean
+---@field magma boolean
+---@field [2] boolean
+---@field citizens boolean
+---@field [3] boolean
+---@field resets boolean
+---@field [4] boolean
+---@field track boolean
+---@field [5] boolean
 
 ---@class _pressure_plate_info.T_flags: DFBitfield
 ---@field units 0
@@ -2132,27 +1935,15 @@ df.pressure_plate_info.T_flags = {}
 ---@field _kind 'class-type'
 df.building_trapst = {}
 
----@alias _building_trapst.T_stop_flags_keys
----| 0 # disabled
----| 1 # disabling
----| 2 # enabling
-
----@alias _building_trapst.T_stop_flags_values
----| "disabled" # 0
----| "disabling" # 1
----| "enabling" # 2
-
----@class building_trapst.T_stop_flags: DFObject, { [_building_trapst.T_stop_flags_keys|_building_trapst.T_stop_flags_values]: boolean }
+---@class building_trapst.T_stop_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_trapst.T_stop_flags
-local building_trapst_stop_flags = {
-  disabled = false,
-  [0] = false,
-  disabling = false,
-  [1] = false,
-  enabling = false,
-  [2] = false,
-}
+---@field disabled boolean
+---@field [0] boolean
+---@field disabling boolean
+---@field [1] boolean
+---@field enabling boolean
+---@field [2] boolean
 
 ---@class _building_trapst.T_stop_flags: DFBitfield
 ---@field disabled 0
@@ -2214,23 +2005,13 @@ df.building_weaponrackst = {}
 ---@field _kind 'class-type'
 df.building_wellst = {}
 
----@alias _building_wellst.T_well_flags_keys
----| 0 # lowering
----| 1 # just_raised
-
----@alias _building_wellst.T_well_flags_values
----| "lowering" # 0
----| "just_raised" # 1
-
----@class building_wellst.T_well_flags: DFObject, { [_building_wellst.T_well_flags_keys|_building_wellst.T_well_flags_values]: boolean }
+---@class building_wellst.T_well_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_wellst.T_well_flags
-local building_wellst_well_flags = {
-  lowering = false,
-  [0] = false,
-  just_raised = false,
-  [1] = false,
-}
+---@field lowering boolean
+---@field [0] boolean
+---@field just_raised boolean
+---@field [1] boolean
 
 ---@class _building_wellst.T_well_flags: DFBitfield
 ---@field lowering 0

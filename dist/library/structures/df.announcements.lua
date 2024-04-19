@@ -1555,47 +1555,25 @@ df.announcement_type.attrs = {}
 ---@field [36] "HUNTING"
 df.announcement_alert_type = {}
 
----@alias _announcement_flags_keys
----| 0 # DO_MEGA
----| 1 # PAUSE
----| 2 # RECENTER
----| 3 # A_DISPLAY
----| 4 # D_DISPLAY
----| 5 # UNIT_COMBAT_REPORT
----| 6 # UNIT_COMBAT_REPORT_ALL_ACTIVE
----| 7 # ALERT
-
----@alias _announcement_flags_values
----| "DO_MEGA" # 0
----| "PAUSE" # 1
----| "RECENTER" # 2
----| "A_DISPLAY" # 3
----| "D_DISPLAY" # 4
----| "UNIT_COMBAT_REPORT" # 5
----| "UNIT_COMBAT_REPORT_ALL_ACTIVE" # 6
----| "ALERT" # 7
-
----@class announcement_flags: DFObject, { [_announcement_flags_keys|_announcement_flags_values]: boolean }
+---@class announcement_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _announcement_flags
-local announcement_flags = {
-  DO_MEGA = false, -- BOX
-  [0] = false, -- BOX
-  PAUSE = false, -- P
-  [1] = false, -- P
-  RECENTER = false, -- R
-  [2] = false, -- R
-  A_DISPLAY = false, -- A_D
-  [3] = false, -- A_D
-  D_DISPLAY = false, -- D_D
-  [4] = false, -- D_D
-  UNIT_COMBAT_REPORT = false, -- UCR
-  [5] = false, -- UCR
-  UNIT_COMBAT_REPORT_ALL_ACTIVE = false, -- UCR_A
-  [6] = false, -- UCR_A
-  ALERT = false, -- ALERT
-  [7] = false, -- ALERT
-}
+---@field DO_MEGA boolean BOX
+---@field [0] boolean BOX
+---@field PAUSE boolean P
+---@field [1] boolean P
+---@field RECENTER boolean R
+---@field [2] boolean R
+---@field A_DISPLAY boolean A_D
+---@field [3] boolean A_D
+---@field D_DISPLAY boolean D_D
+---@field [4] boolean D_D
+---@field UNIT_COMBAT_REPORT boolean UCR
+---@field [5] boolean UCR
+---@field UNIT_COMBAT_REPORT_ALL_ACTIVE boolean UCR_A
+---@field [6] boolean UCR_A
+---@field ALERT boolean ALERT
+---@field [7] boolean ALERT
 
 ---@class _announcement_flags: DFBitfield
 ---@field DO_MEGA 0 BOX
@@ -1619,7 +1597,7 @@ df.announcement_flags = {}
 ---@class (exact) announcements: DFObject
 ---@field _kind 'struct'
 ---@field _type _announcements
----@field flags announcement_flags
+---@field flags DFEnumVector<announcement_type, announcement_flags>
 
 ---@class _announcements: DFCompound
 ---@field _kind 'struct-type'
@@ -1659,27 +1637,15 @@ function df.report.find(key) end
 ---@return report_vector # df.global.world.status.reports
 function df.report.get_vector() end
 
----@alias _report.T_flags_keys
----| 0 # continuation
----| 1 # unconscious
----| 2 # announcement
-
----@alias _report.T_flags_values
----| "continuation" # 0
----| "unconscious" # 1
----| "announcement" # 2
-
----@class report.T_flags: DFObject, { [_report.T_flags_keys|_report.T_flags_values]: boolean }
+---@class report.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _report.T_flags
-local report_flags = {
-  continuation = false, -- When split into multiple lines, set on all but the first
-  [0] = false, -- When split into multiple lines, set on all but the first
-  unconscious = false, -- units.active[0]
-  [1] = false, -- units.active[0]
-  announcement = false,
-  [2] = false,
-}
+---@field continuation boolean When split into multiple lines, set on all but the first
+---@field [0] boolean When split into multiple lines, set on all but the first
+---@field unconscious boolean units.active[0]
+---@field [1] boolean units.active[0]
+---@field announcement boolean
+---@field [2] boolean
 
 ---@class _report.T_flags: DFBitfield
 ---@field continuation 0 When split into multiple lines, set on all but the first
@@ -1750,19 +1716,11 @@ df.announcement_alertst = {}
 ---@field _kind 'struct-type'
 df.announcement_infost = {}
 
----@alias _announcement_infost.T_flags_keys
----| 0 # SPARRING_EVENT
-
----@alias _announcement_infost.T_flags_values
----| "SPARRING_EVENT" # 0
-
----@class announcement_infost.T_flags: DFObject, { [_announcement_infost.T_flags_keys|_announcement_infost.T_flags_values]: boolean }
+---@class announcement_infost.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _announcement_infost.T_flags
-local announcement_infost_flags = {
-  SPARRING_EVENT = false, -- determined by unit_action_data_attack.flags.sparring_hit
-  [0] = false, -- determined by unit_action_data_attack.flags.sparring_hit
-}
+---@field SPARRING_EVENT boolean determined by unit_action_data_attack.flags.sparring_hit
+---@field [0] boolean determined by unit_action_data_attack.flags.sparring_hit
 
 ---@class _announcement_infost.T_flags: DFBitfield
 ---@field SPARRING_EVENT 0 determined by unit_action_data_attack.flags.sparring_hit

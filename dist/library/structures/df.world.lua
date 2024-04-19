@@ -83,7 +83,7 @@ df.units_other = {}
 ---@class (exact) unit_context_block: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_context_block
----@field context_unit any
+---@field context_unit unit[]
 ---@field num number
 
 ---@class _unit_context_block: DFCompound
@@ -221,27 +221,15 @@ function df.incident.get_vector() end
 ---@field [10] "RefusedID"
 df.incident.T_type = {}
 
----@alias _incident.T_flags_keys
----| 0 # announced_missing
----| 1 # discovered
----| 2 # unk2
-
----@alias _incident.T_flags_values
----| "announced_missing" # 0
----| "discovered" # 1
----| "unk2" # 2
-
----@class incident.T_flags: DFObject, { [_incident.T_flags_keys|_incident.T_flags_values]: boolean }
+---@class incident.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _incident.T_flags
-local incident_flags = {
-  announced_missing = false,
-  [0] = false,
-  discovered = false,
-  [1] = false,
-  unk2 = false,
-  [2] = false,
-}
+---@field announced_missing boolean
+---@field [0] boolean
+---@field discovered boolean
+---@field [1] boolean
+---@field unk2 boolean
+---@field [2] boolean
 
 ---@class _incident.T_flags: DFBitfield
 ---@field announced_missing 0
@@ -500,27 +488,15 @@ df.crime.T_convict_data = {}
 ---@field _kind 'struct-type'
 df.crime.T_victim_data = {}
 
----@alias _crime.T_flags_keys
----| 0 # sentenced
----| 1 # discovered
----| 2 # needs_trial
-
----@alias _crime.T_flags_values
----| "sentenced" # 0
----| "discovered" # 1
----| "needs_trial" # 2
-
----@class crime.T_flags: DFObject, { [_crime.T_flags_keys|_crime.T_flags_values]: boolean }
+---@class crime.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _crime.T_flags
-local crime_flags = {
-  sentenced = false,
-  [0] = false,
-  discovered = false,
-  [1] = false,
-  needs_trial = false, -- i.e. the player chooses whom to convict
-  [2] = false, -- i.e. the player chooses whom to convict
-}
+---@field sentenced boolean
+---@field [0] boolean
+---@field discovered boolean
+---@field [1] boolean
+---@field needs_trial boolean i.e. the player chooses whom to convict
+---@field [2] boolean i.e. the player chooses whom to convict
 
 ---@class _crime.T_flags: DFBitfield
 ---@field sentenced 0
@@ -582,14 +558,14 @@ df.witness_reportst = {}
 ---@class (exact) mission_campaign_report: DFObject
 ---@field _kind 'struct'
 ---@field _type _mission_campaign_report
----@field travel_x number
----@field travel_y number
----@field travel_year number
----@field travel_year_tick number
+---@field travel_x number[]
+---@field travel_y number[]
+---@field travel_year number[]
+---@field travel_year_tick number[]
 ---@field travel_count number
----@field event_id number References: `history_event`
----@field event_year number
----@field event_year_tick number
+---@field event_id number[]
+---@field event_year number[]
+---@field event_year_tick number[]
 ---@field events_count number
 
 ---@class _mission_campaign_report: DFCompound
@@ -687,17 +663,10 @@ df.interrogation_report = {}
 ---@field _kind 'struct-type'
 df.interrogation_report.T_unk = {}
 
----@alias _interrogation_report.T_unk.T_flags_keys
----| 0
-
----@alias _interrogation_report.T_unk.T_flags_values
-
----@class interrogation_report.T_unk.T_flags: DFObject, { [_interrogation_report.T_unk.T_flags_keys|_interrogation_report.T_unk.T_flags_values]: boolean }
+---@class interrogation_report.T_unk.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _interrogation_report.T_unk.T_flags
-local interrogation_report_unk_flags = {
-  [0] = false,
-}
+---@field [0] boolean
 
 ---@class _interrogation_report.T_unk.T_flags: DFBitfield
 df.interrogation_report.T_unk.T_flags = {}
@@ -1012,12 +981,23 @@ df.job_handler = {}
 ---@class (exact) job_handler.T_job_application_heap: DFObject
 ---@field _kind 'struct'
 ---@field _type _job_handler.T_job_application_heap
----@field node any
+---@field node job_handler.T_job_application_heap.T_node[]
 ---@field size number
 
 ---@class _job_handler.T_job_application_heap: DFCompound
 ---@field _kind 'struct-type'
 df.job_handler.T_job_application_heap = {}
+
+---@class (exact) job_handler.T_job_application_heap.T_node: DFObject
+---@field _kind 'struct'
+---@field _type _job_handler.T_job_application_heap.T_node
+---@field applicant unit
+---@field posting_index number
+---@field value number
+
+---@class _job_handler.T_job_application_heap.T_node: DFCompound
+---@field _kind 'struct-type'
+df.job_handler.T_job_application_heap.T_node = {}
 
 ---@class (exact) building_handler: DFObject
 ---@field _kind 'struct'
@@ -1386,7 +1366,7 @@ df.world.T_entities = {}
 ---@class (exact) world.T_worldgen_coord_buf: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_worldgen_coord_buf
----@field slots coord2d
+---@field slots coord2d[]
 ---@field next_slot number
 
 ---@class _world.T_worldgen_coord_buf: DFCompound
@@ -1412,7 +1392,7 @@ df.world.T_units = {}
 ---@field _kind 'struct'
 ---@field _type _world.T_nemesis
 ---@field all any
----@field other any
+---@field other any[]
 ---@field bad any
 ---@field unk4 boolean
 
@@ -1459,8 +1439,8 @@ df.world.T_flow_guides = {}
 ---@class (exact) world.T_stockpile: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_stockpile
----@field num_jobs number
----@field num_haulers number
+---@field num_jobs DFEnumVector<hauler_type, number>
+---@field num_haulers DFEnumVector<hauler_type, number>
 ---@field barreltype number
 ---@field barreltype_food number
 ---@field seeds number
@@ -1519,8 +1499,8 @@ df.world.T_plants = {}
 ---@class (exact) world.T_enemy_status_cache: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_enemy_status_cache
----@field slot_used boolean
----@field rel_map any
+---@field slot_used boolean[]
+---@field rel_map number[][]
 ---@field next_slot number
 
 ---@class _world.T_enemy_status_cache: DFCompound
@@ -1578,7 +1558,7 @@ df.world.T_activities = {}
 ---@field mega_text markup_text_boxst
 ---@field next_report_id number
 ---@field flags world.T_status.T_flags
----@field unk_1 number
+---@field unk_1 number[]
 ---@field mission_reports any
 ---@field spoils_reports any
 ---@field interrogation_reports any
@@ -1592,27 +1572,15 @@ df.world.T_activities = {}
 ---@field _kind 'struct-type'
 df.world.T_status = {}
 
----@alias _world.T_status.T_flags_keys
----| 0 # combat
----| 1 # hunting
----| 2 # sparring
-
----@alias _world.T_status.T_flags_values
----| "combat" # 0
----| "hunting" # 1
----| "sparring" # 2
-
----@class world.T_status.T_flags: DFObject, { [_world.T_status.T_flags_keys|_world.T_status.T_flags_values]: boolean }
+---@class world.T_status.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _world.T_status.T_flags
-local world_status_flags = {
-  combat = false,
-  [0] = false,
-  hunting = false,
-  [1] = false,
-  sparring = false,
-  [2] = false,
-}
+---@field combat boolean
+---@field [0] boolean
+---@field hunting boolean
+---@field [1] boolean
+---@field sparring boolean
+---@field [2] boolean
 
 ---@class _world.T_status.T_flags: DFBitfield
 ---@field combat 0
@@ -1627,15 +1595,68 @@ df.world.T_status.T_flags = {}
 ---@class (exact) world.T_status.T_slots: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_status.T_slots
----@field slotdata any
----@field slot_id_used number
----@field slot_id_idx1 number
----@field slot_id_idx2 number
+---@field slotdata world.T_status.T_slots.T_slotdata[]
+---@field slot_id_used DFEnumVector<combat_report_event_type, number>
+---@field slot_id_idx1 DFEnumVector<combat_report_event_type, number>
+---@field slot_id_idx2 DFEnumVector<combat_report_event_type, number>
 ---@field slots_used number
 
 ---@class _world.T_status.T_slots: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_status.T_slots = {}
+
+---@class (exact) world.T_status.T_slots.T_slotdata: DFObject
+---@field _kind 'struct'
+---@field _type _world.T_status.T_slots.T_slotdata
+---@field type combat_report_event_type
+---@field item number or body part layer
+---@field unk1b number
+---@field unk1c number
+---@field unk1d number
+---@field body_part number
+---@field unk2b number
+---@field unk2c number
+---@field unk2d number
+---@field target_bp_name string
+---@field verb string
+---@field with_item_name string
+---@field unk3d string
+---@field flags world.T_status.T_slots.T_slotdata.T_flags
+
+---@class _world.T_status.T_slots.T_slotdata: DFCompound
+---@field _kind 'struct-type'
+df.world.T_status.T_slots.T_slotdata = {}
+
+---@class world.T_status.T_slots.T_slotdata.T_flags: DFObject
+---@field _kind 'bitfield'
+---@field _enum _world.T_status.T_slots.T_slotdata.T_flags
+---@field behind boolean
+---@field [0] boolean
+---@field side boolean
+---@field [1] boolean
+---@field by boolean
+---@field [2] boolean
+---@field item boolean
+---@field [3] boolean
+---@field tap boolean
+---@field [4] boolean
+---@field sever boolean
+---@field [5] boolean
+
+---@class _world.T_status.T_slots.T_slotdata.T_flags: DFBitfield
+---@field behind 0
+---@field [0] "behind"
+---@field side 1
+---@field [1] "side"
+---@field by 2
+---@field [2] "by"
+---@field item 3
+---@field [3] "item"
+---@field tap 4
+---@field [4] "tap"
+---@field sever 5
+---@field [5] "sever"
+df.world.T_status.T_slots.T_slotdata.T_flags = {}
 
 ---@class (exact) world.T_interaction_instances: DFObject
 ---@field _kind 'struct'
@@ -1854,7 +1875,7 @@ df.world.T_divination_sets = {}
 ---@field region_x number
 ---@field region_y number
 ---@field region_z number
----@field distance_lookup any
+---@field distance_lookup number[][]
 
 ---@class _world.T_map: DFCompound
 ---@field _kind 'struct-type'
@@ -1864,8 +1885,8 @@ df.world.T_map = {}
 ---@class (exact) world.T_profession_skills: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_profession_skills
----@field primary any
----@field secondary any
+---@field primary DFEnumVector<profession, job_skill>
+---@field secondary DFEnumVector<profession, job_skill>
 
 ---@class _world.T_profession_skills: DFCompound
 ---@field _kind 'struct-type'
@@ -1874,13 +1895,23 @@ df.world.T_profession_skills = {}
 ---@class (exact) world.T_math: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_math
----@field approx any 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
----@field cos number 100 * cosine of the index in degrees
----@field hypot any square root of the sum of the squares of the indices
+---@field approx world.T_math.T_approx[] 10 * cosine/sine of the index in units of 1/40 of a circle, rounded towards 0
+---@field cos number[] 100 * cosine of the index in degrees
+---@field hypot number[][] square root of the sum of the squares of the indices
 
 ---@class _world.T_math: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_math = {}
+
+---@class (exact) world.T_math.T_approx: DFObject
+---@field _kind 'struct'
+---@field _type _world.T_math.T_approx
+---@field cos number
+---@field sin number
+
+---@class _world.T_math.T_approx: DFCompound
+---@field _kind 'struct-type'
+df.world.T_math.T_approx = {}
 
 ---@class (exact) world.T_map_extras: DFObject
 ---@field _kind 'struct'
@@ -1901,8 +1932,8 @@ df.world.T_map_extras = {}
 ---@field _type _world.T_worldgen_status
 ---@field state world.T_worldgen_status.T_state
 ---@field num_rejects number
----@field unk_1 number
----@field unk_2 number
+---@field unk_1 number[]
+---@field unk_2 number[]
 ---@field rejection_reason number
 ---@field lakes_total number
 ---@field unk_3 number
@@ -1910,9 +1941,9 @@ df.world.T_map_extras = {}
 ---@field lakes_cur number
 ---@field unk_5 number
 ---@field unk_6 number
----@field geo_layers any
----@field unk_7 number
----@field unk_8 number
+---@field geo_layers world_geo_layer[]
+---@field unk_7 number[]
+---@field unk_8 number[]
 ---@field unk_9 number
 ---@field finalized_civ_mats number
 ---@field finalized_art number
@@ -1951,9 +1982,9 @@ df.world.T_map_extras = {}
 ---@field unk_21 number
 ---@field civ_count number
 ---@field civs_left_to_place number --  Only valid during civ placement phase
----@field regions1 any --  Ditto
----@field regions2 any
----@field regions3 any
+---@field regions1 any[] --  Ditto
+---@field regions2 any[]
+---@field regions3 any[]
 ---@field unk_22 number
 ---@field unk_23 number
 ---@field unk_24 number
@@ -2033,8 +2064,8 @@ df.world.T_area_grasses = {}
 ---@field rnd_16 number
 ---@field rnd_256 number
 ---@field rnd_pos number
----@field rnd_x number
----@field rnd_y number
+---@field rnd_x number[]
+---@field rnd_y number[]
 ---@field block_idx number
 ---@field unk7a number
 ---@field unk7b number
@@ -2063,12 +2094,12 @@ df.world.T_worldgen = {}
 ---@class (exact) world.T_daily_events: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_daily_events
----@field deaths any
----@field pregnancies any
----@field births any
----@field grown_up any
----@field marriage_1 any
----@field marriage_2 any
+---@field deaths number[]
+---@field pregnancies number[]
+---@field births number[]
+---@field grown_up number[]
+---@field marriage_1 number[]
+---@field marriage_2 number[]
 
 ---@class _world.T_daily_events: DFCompound
 ---@field _kind 'struct-type'
@@ -2077,7 +2108,7 @@ df.world.T_daily_events = {}
 ---@class (exact) world.T_pathfinder: DFObject
 ---@field _kind 'struct'
 ---@field _type _world.T_pathfinder
----@field boundary_heap any A heap of current boundary tiles.
+---@field boundary_heap world.T_pathfinder.T_boundary_heap[] A heap of current boundary tiles.
 ---@field heap_count number
 ---@field pos1 coord
 ---@field pos2 coord
@@ -2095,6 +2126,19 @@ df.world.T_daily_events = {}
 ---@class _world.T_pathfinder: DFCompound
 ---@field _kind 'struct-type'
 df.world.T_pathfinder = {}
+
+---@class (exact) world.T_pathfinder.T_boundary_heap: DFObject
+---@field _kind 'struct'
+---@field _type _world.T_pathfinder.T_boundary_heap
+---@field total_cost number
+---@field local_cost number
+---@field x number
+---@field y number
+---@field z number
+
+---@class _world.T_pathfinder.T_boundary_heap: DFCompound
+---@field _kind 'struct-type'
+df.world.T_pathfinder.T_boundary_heap = {}
 
 -- not actually a compound
 ---@class (exact) world.T_cur_savegame: DFObject
@@ -2288,19 +2332,11 @@ df.world.T_arena = {}
 ---@field _kind 'struct-type'
 df.world.T_arena.T_equipment = {}
 
----@alias _world.T_arena.T_flag_keys
----| 0 # morale_enable
-
----@alias _world.T_arena.T_flag_values
----| "morale_enable" # 0
-
----@class world.T_arena.T_flag: DFObject, { [_world.T_arena.T_flag_keys|_world.T_arena.T_flag_values]: boolean }
+---@class world.T_arena.T_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _world.T_arena.T_flag
-local world_arena_flag = {
-  morale_enable = false,
-  [0] = false,
-}
+---@field morale_enable boolean
+---@field [0] boolean
 
 ---@class _world.T_arena.T_flag: DFBitfield
 ---@field morale_enable 0

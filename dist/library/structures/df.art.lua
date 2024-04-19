@@ -317,7 +317,7 @@ df.art_image = {}
 ---@field _kind 'struct'
 ---@field _type _art_image_chunk
 ---@field id number art_image_*.dat
----@field images any
+---@field images art_image[]
 
 ---@class _art_image_chunk: DFCompound
 ---@field _kind 'struct-type'
@@ -611,103 +611,53 @@ df.poetic_form_subject_target.T_Histfig = {}
 ---@field _kind 'struct-type'
 df.poetic_form_subject_target.T_Concept = {}
 
----@alias _poetic_form_feature_keys
----| 0 # InternalRhyme
----| 1 # EndRhymesDontMatch
----| 2 # Alliteration
----| 3 # Onomatopoeia
----| 4 # Antanaclasis
----| 5 # DifferentReadings
----| 6 # ReadBackwards
----| 7 # ReadOrthogonally
----| 8 # Emerge
----| 9 # Assonance
----| 10 # Consonance
----| 11 # Elision
----| 12 # Epenthesis
----| 13 # Synchysis
----| 14 # Allegory
----| 15 # Ambiguity
----| 16 # Symbolism
----| 17 # Metaphor
----| 18 # Simile
----| 19 # Metonymy
----| 20 # VividImagery
----| 21 # Juxtaposision
-
----@alias _poetic_form_feature_values
----| "InternalRhyme" # 0
----| "EndRhymesDontMatch" # 1
----| "Alliteration" # 2
----| "Onomatopoeia" # 3
----| "Antanaclasis" # 4
----| "DifferentReadings" # 5
----| "ReadBackwards" # 6
----| "ReadOrthogonally" # 7
----| "Emerge" # 8
----| "Assonance" # 9
----| "Consonance" # 10
----| "Elision" # 11
----| "Epenthesis" # 12
----| "Synchysis" # 13
----| "Allegory" # 14
----| "Ambiguity" # 15
----| "Symbolism" # 16
----| "Metaphor" # 17
----| "Simile" # 18
----| "Metonymy" # 19
----| "VividImagery" # 20
----| "Juxtaposision" # 21
-
----@class poetic_form_feature: DFObject, { [_poetic_form_feature_keys|_poetic_form_feature_values]: boolean }
+---@class poetic_form_feature: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _poetic_form_feature
-local poetic_form_feature = {
-  InternalRhyme = false,
-  [0] = false,
-  EndRhymesDontMatch = false,
-  [1] = false,
-  Alliteration = false,
-  [2] = false,
-  Onomatopoeia = false,
-  [3] = false,
-  Antanaclasis = false,
-  [4] = false,
-  DifferentReadings = false,
-  [5] = false,
-  ReadBackwards = false, -- "different readings depending on word breaks"
-  [6] = false, -- "different readings depending on word breaks"
-  ReadOrthogonally = false, -- "can be read backwards as well as forwards"
-  [7] = false, -- "can be read backwards as well as forwards"
-  Emerge = false, -- "can be read orthogonally across the standard lines"
-  [8] = false, -- "can be read orthogonally across the standard lines"
-  Assonance = false, -- "emerge when reading along certain prescribed paths across the body of the poem"
-  [9] = false, -- "emerge when reading along certain prescribed paths across the body of the poem"
-  Consonance = false,
-  [10] = false,
-  Elision = false,
-  [11] = false,
-  Epenthesis = false,
-  [12] = false,
-  Synchysis = false,
-  [13] = false,
-  Allegory = false,
-  [14] = false,
-  Ambiguity = false,
-  [15] = false,
-  Symbolism = false,
-  [16] = false,
-  Metaphor = false,
-  [17] = false,
-  Simile = false,
-  [18] = false,
-  Metonymy = false,
-  [19] = false,
-  VividImagery = false,
-  [20] = false,
-  Juxtaposision = false,
-  [21] = false,
-}
+---@field InternalRhyme boolean
+---@field [0] boolean
+---@field EndRhymesDontMatch boolean
+---@field [1] boolean
+---@field Alliteration boolean
+---@field [2] boolean
+---@field Onomatopoeia boolean
+---@field [3] boolean
+---@field Antanaclasis boolean
+---@field [4] boolean
+---@field DifferentReadings boolean
+---@field [5] boolean
+---@field ReadBackwards boolean "different readings depending on word breaks"
+---@field [6] boolean "different readings depending on word breaks"
+---@field ReadOrthogonally boolean "can be read backwards as well as forwards"
+---@field [7] boolean "can be read backwards as well as forwards"
+---@field Emerge boolean "can be read orthogonally across the standard lines"
+---@field [8] boolean "can be read orthogonally across the standard lines"
+---@field Assonance boolean "emerge when reading along certain prescribed paths across the body of the poem"
+---@field [9] boolean "emerge when reading along certain prescribed paths across the body of the poem"
+---@field Consonance boolean
+---@field [10] boolean
+---@field Elision boolean
+---@field [11] boolean
+---@field Epenthesis boolean
+---@field [12] boolean
+---@field Synchysis boolean
+---@field [13] boolean
+---@field Allegory boolean
+---@field [14] boolean
+---@field Ambiguity boolean
+---@field [15] boolean
+---@field Symbolism boolean
+---@field [16] boolean
+---@field Metaphor boolean
+---@field [17] boolean
+---@field Simile boolean
+---@field [18] boolean
+---@field Metonymy boolean
+---@field [19] boolean
+---@field VividImagery boolean
+---@field [20] boolean
+---@field Juxtaposision boolean
+---@field [21] boolean
 
 ---@class _poetic_form_feature: DFBitfield
 ---@field InternalRhyme 0
@@ -823,23 +773,13 @@ function df.poetic_form.find(key) end
 ---@return poetic_form_vector # df.global.world.poetic_forms.all
 function df.poetic_form.get_vector() end
 
----@alias _poetic_form.T_flags_keys
----| 0 # tone_patterns
----| 1 # produces_individual_poems
-
----@alias _poetic_form.T_flags_values
----| "tone_patterns" # 0
----| "produces_individual_poems" # 1
-
----@class poetic_form.T_flags: DFObject, { [_poetic_form.T_flags_keys|_poetic_form.T_flags_values]: boolean }
+---@class poetic_form.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _poetic_form.T_flags
-local poetic_form_flags = {
-  tone_patterns = false,
-  [0] = false,
-  produces_individual_poems = false, -- patterns will be tone patterns if set, otherwise accent patterns
-  [1] = false, -- patterns will be tone patterns if set, otherwise accent patterns
-}
+---@field tone_patterns boolean
+---@field [0] boolean
+---@field produces_individual_poems boolean patterns will be tone patterns if set, otherwise accent patterns
+---@field [1] boolean patterns will be tone patterns if set, otherwise accent patterns
 
 ---@class _poetic_form.T_flags: DFBitfield
 ---@field tone_patterns 0
@@ -887,19 +827,11 @@ df.poetic_form.T_flags = {}
 ---@field _kind 'struct-type'
 df.poetic_form_part = {}
 
----@alias _poetic_form_part.T_flags_keys
----| 0 # size_in_lines
-
----@alias _poetic_form_part.T_flags_values
----| "size_in_lines" # 0
-
----@class poetic_form_part.T_flags: DFObject, { [_poetic_form_part.T_flags_keys|_poetic_form_part.T_flags_values]: boolean }
+---@class poetic_form_part.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _poetic_form_part.T_flags
-local poetic_form_part_flags = {
-  size_in_lines = false,
-  [0] = false,
-}
+---@field size_in_lines boolean
+---@field [0] boolean
 
 ---@class _poetic_form_part.T_flags: DFBitfield
 ---@field size_in_lines 0
@@ -1214,79 +1146,41 @@ df.musical_form_style = {}
 ---@field [4] "ChordLayers"
 df.musical_form_pitch_style = {}
 
----@alias _musical_form_feature_keys
----| 0 # GlideFromNoteToNote
----| 1 # UseGraceNotes
----| 2 # UseMordents
----| 3 # MakeTrills
----| 4 # PlayRapidRuns
----| 5 # LocallyImprovise
----| 6 # SpreadSyllablesOverManyNotes
----| 7 # MatchNotesAndSyllables
----| 8 # Syncopate
----| 9 # AddFills
----| 10 # AlternateTensionAndRepose
----| 11 # ModulateFrequently
----| 12 # PlayArpeggios
----| 13 # PlayStaccato
----| 14 # PlayLegato
----| 15 # FreelyAdjustBeats
-
----@alias _musical_form_feature_values
----| "GlideFromNoteToNote" # 0
----| "UseGraceNotes" # 1
----| "UseMordents" # 2
----| "MakeTrills" # 3
----| "PlayRapidRuns" # 4
----| "LocallyImprovise" # 5
----| "SpreadSyllablesOverManyNotes" # 6
----| "MatchNotesAndSyllables" # 7
----| "Syncopate" # 8
----| "AddFills" # 9
----| "AlternateTensionAndRepose" # 10
----| "ModulateFrequently" # 11
----| "PlayArpeggios" # 12
----| "PlayStaccato" # 13
----| "PlayLegato" # 14
----| "FreelyAdjustBeats" # 15
-
----@class musical_form_feature: DFObject, { [_musical_form_feature_keys|_musical_form_feature_values]: boolean }
+---@class musical_form_feature: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _musical_form_feature
-local musical_form_feature = {
-  GlideFromNoteToNote = false,
-  [0] = false,
-  UseGraceNotes = false,
-  [1] = false,
-  UseMordents = false,
-  [2] = false,
-  MakeTrills = false,
-  [3] = false,
-  PlayRapidRuns = false,
-  [4] = false,
-  LocallyImprovise = false,
-  [5] = false,
-  SpreadSyllablesOverManyNotes = false,
-  [6] = false,
-  MatchNotesAndSyllables = false,
-  [7] = false,
-  Syncopate = false,
-  [8] = false,
-  AddFills = false,
-  [9] = false,
-  AlternateTensionAndRepose = false,
-  [10] = false,
-  ModulateFrequently = false,
-  [11] = false,
-  PlayArpeggios = false,
-  [12] = false,
-  PlayStaccato = false,
-  [13] = false,
-  PlayLegato = false,
-  [14] = false,
-  FreelyAdjustBeats = false,
-  [15] = false,
-}
+---@field GlideFromNoteToNote boolean
+---@field [0] boolean
+---@field UseGraceNotes boolean
+---@field [1] boolean
+---@field UseMordents boolean
+---@field [2] boolean
+---@field MakeTrills boolean
+---@field [3] boolean
+---@field PlayRapidRuns boolean
+---@field [4] boolean
+---@field LocallyImprovise boolean
+---@field [5] boolean
+---@field SpreadSyllablesOverManyNotes boolean
+---@field [6] boolean
+---@field MatchNotesAndSyllables boolean
+---@field [7] boolean
+---@field Syncopate boolean
+---@field [8] boolean
+---@field AddFills boolean
+---@field [9] boolean
+---@field AlternateTensionAndRepose boolean
+---@field [10] boolean
+---@field ModulateFrequently boolean
+---@field [11] boolean
+---@field PlayArpeggios boolean
+---@field [12] boolean
+---@field PlayStaccato boolean
+---@field [13] boolean
+---@field PlayLegato boolean
+---@field [14] boolean
+---@field FreelyAdjustBeats boolean
+---@field [15] boolean
 
 ---@class _musical_form_feature: DFBitfield
 ---@field GlideFromNoteToNote 0
@@ -1445,27 +1339,15 @@ df.musical_form_melody_frequency = {}
 ---@field _kind 'struct-type'
 df.musical_form_interval = {}
 
----@alias _musical_form_interval.T_flags_keys
----| 0 # rising
----| 1 # flattened
----| 2 # sharpened
-
----@alias _musical_form_interval.T_flags_values
----| "rising" # 0
----| "flattened" # 1
----| "sharpened" # 2
-
----@class musical_form_interval.T_flags: DFObject, { [_musical_form_interval.T_flags_keys|_musical_form_interval.T_flags_values]: boolean }
+---@class musical_form_interval.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _musical_form_interval.T_flags
-local musical_form_interval_flags = {
-  rising = false, -- otherwise falling
-  [0] = false, -- otherwise falling
-  flattened = false,
-  [1] = false,
-  sharpened = false,
-  [2] = false,
-}
+---@field rising boolean otherwise falling
+---@field [0] boolean otherwise falling
+---@field flattened boolean
+---@field [1] boolean
+---@field sharpened boolean
+---@field [2] boolean
 
 ---@class _musical_form_interval.T_flags: DFBitfield
 ---@field rising 0 otherwise falling
@@ -1536,27 +1418,15 @@ df.musical_form_passage = {}
 ---@field _kind 'struct-type'
 df.musical_form_instruments = {}
 
----@alias _musical_form_instruments.T_substitutions_keys
----| 0 # singer
----| 1 # speaker
----| 2 # chanter
-
----@alias _musical_form_instruments.T_substitutions_values
----| "singer" # 0
----| "speaker" # 1
----| "chanter" # 2
-
----@class musical_form_instruments.T_substitutions: DFObject, { [_musical_form_instruments.T_substitutions_keys|_musical_form_instruments.T_substitutions_values]: boolean }
+---@class musical_form_instruments.T_substitutions: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _musical_form_instruments.T_substitutions
-local musical_form_instruments_substitutions = {
-  singer = false,
-  [0] = false,
-  speaker = false,
-  [1] = false,
-  chanter = false,
-  [2] = false,
-}
+---@field singer boolean
+---@field [0] boolean
+---@field speaker boolean
+---@field [1] boolean
+---@field chanter boolean
+---@field [2] boolean
 
 ---@class _musical_form_instruments.T_substitutions: DFBitfield
 ---@field singer 0
@@ -1621,23 +1491,13 @@ function df.musical_form.find(key) end
 ---@return musical_form_vector # df.global.world.musical_forms.all
 function df.musical_form.get_vector() end
 
----@alias _musical_form.T_flags_keys
----| 0 # produces_individual_songs
----| 1 # repeats_as_necessary
-
----@alias _musical_form.T_flags_values
----| "produces_individual_songs" # 0
----| "repeats_as_necessary" # 1
-
----@class musical_form.T_flags: DFObject, { [_musical_form.T_flags_keys|_musical_form.T_flags_values]: boolean }
+---@class musical_form.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _musical_form.T_flags
-local musical_form_flags = {
-  produces_individual_songs = false,
-  [0] = false,
-  repeats_as_necessary = false, -- 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
-  [1] = false, -- 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
-}
+---@field produces_individual_songs boolean
+---@field [0] boolean
+---@field repeats_as_necessary boolean 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
+---@field [1] boolean 'applied by composers to produce individual pieces of music' if set, otherwise 'guides musicians during improvised performances'
 
 ---@class _musical_form.T_flags: DFBitfield
 ---@field produces_individual_songs 0
@@ -2056,43 +1916,23 @@ df.dance_form_move_type = {}
 ---@field [45] "Sinuous"
 df.dance_form_move_modifier = {}
 
----@alias _dance_form_move_location_keys
----| 0
----| 1
----| 2 # MirroredByGroupMembers
----| 3 # InRetrogradeByGroupMembers
----| 4 # InSuccessionByGroupMembers
----| 5 # ShadowedByGroupMembers
----| 6 # Lead
----| 7 # Follower
-
----@alias _dance_form_move_location_values
----| "MirroredByGroupMembers" # 2
----| "InRetrogradeByGroupMembers" # 3
----| "InSuccessionByGroupMembers" # 4
----| "ShadowedByGroupMembers" # 5
----| "Lead" # 6
----| "Follower" # 7
-
----@class dance_form_move_location: DFObject, { [_dance_form_move_location_keys|_dance_form_move_location_values]: boolean }
+---@class dance_form_move_location: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _dance_form_move_location
-local dance_form_move_location = {
-  [0] = false, -- Standard value, but not described
-  [1] = false, -- Common value, but not described
-  MirroredByGroupMembers = false,
-  [2] = false,
-  InRetrogradeByGroupMembers = false,
-  [3] = false,
-  InSuccessionByGroupMembers = false,
-  [4] = false,
-  ShadowedByGroupMembers = false,
-  [5] = false,
-  Lead = false,
-  [6] = false,
-  Follower = false,
-  [7] = false,
-}
+---@field [0] boolean Standard value, but not described
+---@field [1] boolean Common value, but not described
+---@field MirroredByGroupMembers boolean
+---@field [2] boolean
+---@field InRetrogradeByGroupMembers boolean
+---@field [3] boolean
+---@field InSuccessionByGroupMembers boolean
+---@field [4] boolean
+---@field ShadowedByGroupMembers boolean
+---@field [5] boolean
+---@field Lead boolean
+---@field [6] boolean
+---@field Follower boolean
+---@field [7] boolean
 
 ---@class _dance_form_move_location: DFBitfield
 ---@field MirroredByGroupMembers 2
@@ -2227,7 +2067,7 @@ df.scale_type = {}
 ---@field _kind 'struct'
 ---@field _type _chord
 ---@field name string
----@field notes number chord_size entries used. Refers to the notes indices
+---@field notes number[] chord_size entries used. Refers to the notes indices
 ---@field chord_size number
 ---@field unk_3 number 0 and 1 seen
 
@@ -2241,7 +2081,7 @@ df.chord = {}
 ---@field _type _named_scale
 ---@field unk_1 number 0-4 seen. 0: nothing, for when degrees are used, 1: joined chords, 2/3: disjoined chords (varying kinds of chords seen for both), 4: as always, disjoined chords
 ---@field name string
----@field degrees number indices into the (not necessarily named) notes of the scale
+---@field degrees number[] indices into the (not necessarily named) notes of the scale
 ---@field degrees_used number elements used in array above
 ---@field first_chord number this pair seems to be used when degrees_used = 0. Refers to indices in the chords vector
 ---@field second_chord number
@@ -2256,7 +2096,7 @@ df.named_scale = {}
 ---@field id number
 ---@field flags scale.T_flags
 ---@field type scale_type
----@field quartertones_used number Quartertone corresponding note matches. Scale_length elements are used when type = Variable. Unused elements uninitialized
+---@field quartertones_used number[] Quartertone corresponding note matches. Scale_length elements are used when type = Variable. Unused elements uninitialized
 ---@field scale_length number Number of notes in the scale. When type = Variable this is the number of used indices pointing out their placement.
 ---@field chords any
 ---@field scales any Note that the top level scale doesn't have a name. These seem to be named scales using the unnamed scale's notes as their foundation
@@ -2275,19 +2115,11 @@ function df.scale.find(key) end
 ---@return scale_vector # df.global.world.scales.all
 function df.scale.get_vector() end
 
----@alias _scale.T_flags_keys
----| 0 # tonic_note_fixed_at_performance
-
----@alias _scale.T_flags_values
----| "tonic_note_fixed_at_performance" # 0
-
----@class scale.T_flags: DFObject, { [_scale.T_flags_keys|_scale.T_flags_values]: boolean }
+---@class scale.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _scale.T_flags
-local scale_flags = {
-  tonic_note_fixed_at_performance = false, -- 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
-  [0] = false, -- 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
-}
+---@field tonic_note_fixed_at_performance boolean 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
+---@field [0] boolean 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
 
 ---@class _scale.T_flags: DFBitfield
 ---@field tonic_note_fixed_at_performance 0 'The tonic note is a fixed tone passed from teacher to student' when 0, 'The tonic note is fixed only at the time of performance' when 1
@@ -2299,9 +2131,9 @@ df.scale.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _scale.T_notes
 ---@field unk_1 number Frequently looks like garbage for all values of type. Suspect it's actually a filler
----@field name string
----@field abreviation string
----@field number number
+---@field name string[]
+---@field abreviation string[]
+---@field number number[]
 ---@field length number number of elements of the arrays above used
 
 ---@class _scale.T_notes: DFCompound
@@ -2507,19 +2339,11 @@ df.service_order_type = {}
 ---@field _kind 'struct-type'
 df.service_orderst = {}
 
----@alias _service_orderst.T_flag_keys
----| 0 # completed
-
----@alias _service_orderst.T_flag_values
----| "completed" # 0
-
----@class service_orderst.T_flag: DFObject, { [_service_orderst.T_flag_keys|_service_orderst.T_flag_values]: boolean }
+---@class service_orderst.T_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _service_orderst.T_flag
-local service_orderst_flag = {
-  completed = false,
-  [0] = false,
-}
+---@field completed boolean
+---@field [0] boolean
 
 ---@class _service_orderst.T_flag: DFBitfield
 ---@field completed 0

@@ -88,7 +88,7 @@ df.world_raws.T_plants = {}
 ---@field trapcomps any
 ---@field toys any
 ---@field tools any
----@field tools_by_type any
+---@field tools_by_type DFEnumVector<tool_uses, any>
 ---@field instruments any
 ---@field armor any
 ---@field ammo any
@@ -99,6 +99,8 @@ df.world_raws.T_plants = {}
 ---@field helms any
 ---@field pants any
 ---@field food any
+---@field  any[]
+---@field  number[] 0.50.01
 
 ---@class _world_raws.T_itemdefs: DFCompound
 ---@field _kind 'struct-type'
@@ -111,7 +113,7 @@ df.world_raws.T_itemdefs = {}
 ---@field words any dtor 852bc90
 ---@field symbols any
 ---@field translations any
----@field word_table any
+---@field word_table DFEnumVector<language_name_category, language_word_table>[]
 
 ---@class _world_raws.T_language: DFCompound
 ---@field _kind 'struct-type'
@@ -160,6 +162,7 @@ df.world_raws.T_buildings = {}
 ---@class (exact) world_raws.T_text_set: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_raws.T_text_set
+---@field number number[]
 
 ---@class _world_raws.T_text_set: DFCompound
 ---@field _kind 'struct-type'

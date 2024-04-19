@@ -1,29 +1,16 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias _vermin_flags_keys
----| 0
----| 1 # is_colony
----| 2
----| 3 # is_roaming_colony
----| 4
-
----@alias _vermin_flags_values
----| "is_colony" # 1
----| "is_roaming_colony" # 3
-
----@class vermin_flags: DFObject, { [_vermin_flags_keys|_vermin_flags_values]: boolean }
+---@class vermin_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _vermin_flags
-local vermin_flags = {
-  [0] = false,
-  is_colony = false, -- A vermin colony. For example an anthill or bee hive.
-  [1] = false, -- A vermin colony. For example an anthill or bee hive.
-  [2] = false,
-  is_roaming_colony = false, -- colony building vermin away from colony
-  [3] = false, -- colony building vermin away from colony
-  [4] = false,
-}
+---@field [0] boolean
+---@field is_colony boolean A vermin colony. For example an anthill or bee hive.
+---@field [1] boolean A vermin colony. For example an anthill or bee hive.
+---@field [2] boolean
+---@field is_roaming_colony boolean colony building vermin away from colony
+---@field [3] boolean colony building vermin away from colony
+---@field [4] boolean
 
 ---@class _vermin_flags: DFBitfield
 ---@field is_colony 1 A vermin colony. For example an anthill or bee hive.

@@ -155,7 +155,7 @@ df.resource_allotment_specifier = {}
 ---@field mat_type number index to world.raws.plant.all References: `plant_raw`
 ---@field unk_4 number
 ---@field unk_v40_01 number
----@field unk_5 number
+---@field unk_5 number[]
 
 ---@class _resource_allotment_specifier_cropst: DFCompound
 ---@field _kind 'class-type'
@@ -168,7 +168,7 @@ df.resource_allotment_specifier_cropst = {}
 ---@field mat_index number
 ---@field unk_4 number
 ---@field unk_5 number
----@field unk_6 number
+---@field unk_6 number[]
 
 ---@class _resource_allotment_specifier_stonest: DFCompound
 ---@field _kind 'class-type'
@@ -180,7 +180,7 @@ df.resource_allotment_specifier_stonest = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field unk_4 number
----@field unk_5 number
+---@field unk_5 number[]
 
 ---@class _resource_allotment_specifier_metalst: DFCompound
 ---@field _kind 'class-type'
@@ -634,7 +634,7 @@ df.resource_allotment_specifier_powderst = {}
 ---@field _kind 'struct'
 ---@field _type _resource_allotment_data
 ---@field index number
----@field resource_allotments any
+---@field resource_allotments any[]
 ---@field unk1 number
 ---@field unk2 number
 ---@field unk3 number

@@ -1,71 +1,37 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias _job_material_category_keys
----| 0 # plant
----| 1 # wood
----| 2 # cloth
----| 3 # silk
----| 4 # leather
----| 5 # bone
----| 6 # shell
----| 7 # wood2
----| 8 # soap
----| 9 # tooth
----| 10 # horn
----| 11 # pearl
----| 12 # yarn
----| 13 # strand
-
----@alias _job_material_category_values
----| "plant" # 0
----| "wood" # 1
----| "cloth" # 2
----| "silk" # 3
----| "leather" # 4
----| "bone" # 5
----| "shell" # 6
----| "wood2" # 7
----| "soap" # 8
----| "tooth" # 9
----| "horn" # 10
----| "pearl" # 11
----| "yarn" # 12
----| "strand" # 13
-
----@class job_material_category: DFObject, { [_job_material_category_keys|_job_material_category_values]: boolean }
+---@class job_material_category: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _job_material_category
-local job_material_category = {
-  plant = false,
-  [0] = false,
-  wood = false, -- wood log
-  [1] = false, -- wood log
-  cloth = false,
-  [2] = false,
-  silk = false,
-  [3] = false,
-  leather = false,
-  [4] = false,
-  bone = false,
-  [5] = false,
-  shell = false,
-  [6] = false,
-  wood2 = false, -- wood material
-  [7] = false, -- wood material
-  soap = false,
-  [8] = false,
-  tooth = false,
-  [9] = false,
-  horn = false,
-  [10] = false,
-  pearl = false,
-  [11] = false,
-  yarn = false,
-  [12] = false,
-  strand = false,
-  [13] = false,
-}
+---@field plant boolean
+---@field [0] boolean
+---@field wood boolean wood log
+---@field [1] boolean wood log
+---@field cloth boolean
+---@field [2] boolean
+---@field silk boolean
+---@field [3] boolean
+---@field leather boolean
+---@field [4] boolean
+---@field bone boolean
+---@field [5] boolean
+---@field shell boolean
+---@field [6] boolean
+---@field wood2 boolean wood material
+---@field [7] boolean wood material
+---@field soap boolean
+---@field [8] boolean
+---@field tooth boolean
+---@field [9] boolean
+---@field horn boolean
+---@field [10] boolean
+---@field pearl boolean
+---@field [11] boolean
+---@field yarn boolean
+---@field [12] boolean
+---@field strand boolean
+---@field [13] boolean
 
 ---@class _job_material_category: DFBitfield
 ---@field plant 0
@@ -98,99 +64,51 @@ local job_material_category = {
 ---@field [13] "strand"
 df.job_material_category = {}
 
----@alias _dfhack_material_category_keys
----| 0 # plant
----| 1 # wood
----| 2 # cloth
----| 3 # silk
----| 4 # leather
----| 5 # bone
----| 6 # shell
----| 7 # wood2
----| 8 # soap
----| 9 # tooth
----| 10 # horn
----| 11 # pearl
----| 12 # yarn
----| 13 # strand
----| 14 # metal
----| 15 # stone
----| 16 # sand
----| 17 # glass
----| 18 # clay
----| 19 # milk
----| 20 # gem
-
----@alias _dfhack_material_category_values
----| "plant" # 0
----| "wood" # 1
----| "cloth" # 2
----| "silk" # 3
----| "leather" # 4
----| "bone" # 5
----| "shell" # 6
----| "wood2" # 7
----| "soap" # 8
----| "tooth" # 9
----| "horn" # 10
----| "pearl" # 11
----| "yarn" # 12
----| "strand" # 13
----| "metal" # 14
----| "stone" # 15
----| "sand" # 16
----| "glass" # 17
----| "clay" # 18
----| "milk" # 19
----| "gem" # 20
-
----@class dfhack_material_category: DFObject, { [_dfhack_material_category_keys|_dfhack_material_category_values]: boolean }
+---@class dfhack_material_category: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _dfhack_material_category
-local dfhack_material_category = {
-  plant = false,
-  [0] = false,
-  wood = false,
-  [1] = false,
-  cloth = false,
-  [2] = false,
-  silk = false,
-  [3] = false,
-  leather = false,
-  [4] = false,
-  bone = false,
-  [5] = false,
-  shell = false,
-  [6] = false,
-  wood2 = false,
-  [7] = false,
-  soap = false,
-  [8] = false,
-  tooth = false,
-  [9] = false,
-  horn = false,
-  [10] = false,
-  pearl = false,
-  [11] = false,
-  yarn = false,
-  [12] = false,
-  strand = false,
-  [13] = false,
-  metal = false,
-  [14] = false,
-  stone = false,
-  [15] = false,
-  sand = false,
-  [16] = false,
-  glass = false,
-  [17] = false,
-  clay = false,
-  [18] = false,
-  milk = false,
-  [19] = false,
-  gem = false,
-  [20] = false,
-}
+---@field plant boolean
+---@field [0] boolean
+---@field wood boolean
+---@field [1] boolean
+---@field cloth boolean
+---@field [2] boolean
+---@field silk boolean
+---@field [3] boolean
+---@field leather boolean
+---@field [4] boolean
+---@field bone boolean
+---@field [5] boolean
+---@field shell boolean
+---@field [6] boolean
+---@field wood2 boolean
+---@field [7] boolean
+---@field soap boolean
+---@field [8] boolean
+---@field tooth boolean
+---@field [9] boolean
+---@field horn boolean
+---@field [10] boolean
+---@field pearl boolean
+---@field [11] boolean
+---@field yarn boolean
+---@field [12] boolean
+---@field strand boolean
+---@field [13] boolean
+---@field metal boolean
+---@field [14] boolean
+---@field stone boolean
+---@field [15] boolean
+---@field sand boolean
+---@field [16] boolean
+---@field glass boolean
+---@field [17] boolean
+---@field clay boolean
+---@field [18] boolean
+---@field milk boolean
+---@field [19] boolean
+---@field gem boolean
+---@field [20] boolean
 
 ---@class _dfhack_material_category: DFBitfield
 ---@field plant 0
@@ -248,79 +166,41 @@ df.dfhack_material_category = {}
 ---@field _kind 'struct-type'
 df.job_list_link = {}
 
----@alias _job_flags_keys
----| 0 # repeat
----| 1 # suspend
----| 2 # working
----| 3 # fetching
----| 4 # special
----| 5 # bringing
----| 6 # item_lost
----| 7 # noise
----| 9 # by_manager
----| 10 # store_item
----| 11 # quality
----| 14 # non_fluid
----| 15 # could_not_find_building_use_1
----| 16 # on_break
----| 17 # dessource
----| 18 # do_now
-
----@alias _job_flags_values
----| "repeat" # 0
----| "suspend" # 1
----| "working" # 2
----| "fetching" # 3
----| "special" # 4
----| "bringing" # 5
----| "item_lost" # 6
----| "noise" # 7
----| "by_manager" # 9
----| "store_item" # 10
----| "quality" # 11
----| "non_fluid" # 14
----| "could_not_find_building_use_1" # 15
----| "on_break" # 16
----| "dessource" # 17
----| "do_now" # 18
-
----@class job_flags: DFObject, { [_job_flags_keys|_job_flags_values]: boolean }
+---@class job_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _job_flags
-local job_flags = {
-  ["repeat"] = false,
-  [0] = false,
-  suspend = false,
-  [1] = false,
-  working = false, -- not for food, or store in sp
-  [2] = false, -- not for food, or store in sp
-  fetching = false, -- Actually going out to bring; corresponds to items->is_fetching
-  [3] = false, -- Actually going out to bring; corresponds to items->is_fetching
-  special = false, -- toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
-  [4] = false, -- toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
-  bringing = false, -- toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
-  [5] = false, -- toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
-  item_lost = false, -- toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
-  [6] = false, -- toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
-  noise = false, -- on the sleep job causes thoughts
-  [7] = false, -- on the sleep job causes thoughts
-  by_manager = false, -- --
-  [9] = false, -- --
-  store_item = false, -- toady: ITEMSOURCE
-  [10] = false, -- toady: ITEMSOURCE
-  quality = false, -- toady: BONUS1/2/3; set by improvement code
-  [11] = false, -- toady: BONUS1/2/3; set by improvement code
-  non_fluid = false,
-  [14] = false,
-  could_not_find_building_use_1 = false,
-  [15] = false,
-  on_break = false, -- toady: COUNTS_AS_BREAK; job displayed as On Break
-  [16] = false, -- toady: COUNTS_AS_BREAK; job displayed as On Break
-  dessource = false,
-  [17] = false,
-  do_now = false, -- toady: DO_ME_NOW
-  [18] = false, -- toady: DO_ME_NOW
-}
+---@field ["repeat"] boolean
+---@field [0] boolean
+---@field suspend boolean
+---@field [1] boolean
+---@field working boolean not for food, or store in sp
+---@field [2] boolean not for food, or store in sp
+---@field fetching boolean Actually going out to bring; corresponds to items->is_fetching
+---@field [3] boolean Actually going out to bring; corresponds to items->is_fetching
+---@field special boolean toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field [4] boolean toady: UNITSOURCE: Sleep/Drink/Eat/Clean; cannot be aborted via the ui
+---@field bringing boolean toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field [5] boolean toady: RETURNING<br>When actually carrying non-last item to the workshop.<br>If last, 'working' is used instead.
+---@field item_lost boolean toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field [6] boolean toady: HITBYDELETION; set when a Hauled item is removed; causes cancel
+---@field noise boolean on the sleep job causes thoughts
+---@field [7] boolean on the sleep job causes thoughts
+---@field by_manager boolean --
+---@field [9] boolean --
+---@field store_item boolean toady: ITEMSOURCE
+---@field [10] boolean toady: ITEMSOURCE
+---@field quality boolean toady: BONUS1/2/3; set by improvement code
+---@field [11] boolean toady: BONUS1/2/3; set by improvement code
+---@field non_fluid boolean
+---@field [14] boolean
+---@field could_not_find_building_use_1 boolean
+---@field [15] boolean
+---@field on_break boolean toady: COUNTS_AS_BREAK; job displayed as On Break
+---@field [16] boolean toady: COUNTS_AS_BREAK; job displayed as On Break
+---@field dessource boolean
+---@field [17] boolean
+---@field do_now boolean toady: DO_ME_NOW
+---@field [18] boolean toady: DO_ME_NOW
 
 ---@class _job_flags: DFBitfield
 ---@field repeat 0
@@ -458,143 +338,73 @@ df.job_item_ref = {}
 ---@field [8] "PushHaulVehicle" wheelbarrow
 df.job_item_ref.T_role = {}
 
----@alias _job_item_flags1_keys
----| 0 # improvable
----| 1 # butcherable
----| 2 # millable
----| 3 # allow_buryable
----| 4 # unrotten
----| 5 # undisturbed
----| 6 # collected
----| 7 # sharpenable
----| 8 # murdered
----| 9 # distillable
----| 10 # empty
----| 11 # processable
----| 12 # bag
----| 13 # cookable
----| 14 # extract_bearing_plant
----| 15 # extract_bearing_fish
----| 16 # extract_bearing_vermin
----| 17 # processable_to_vial
----| 18 # processable_to_bag
----| 19 # processable_to_barrel
----| 20 # solid
----| 21 # tameable_vermin
----| 22 # nearby
----| 23 # sand_bearing
----| 24 # glass
----| 25 # milk
----| 26 # milkable
----| 27 # finished_goods
----| 28 # ammo
----| 29 # furniture
----| 30 # not_bin
----| 31 # lye_bearing
-
----@alias _job_item_flags1_values
----| "improvable" # 0
----| "butcherable" # 1
----| "millable" # 2
----| "allow_buryable" # 3
----| "unrotten" # 4
----| "undisturbed" # 5
----| "collected" # 6
----| "sharpenable" # 7
----| "murdered" # 8
----| "distillable" # 9
----| "empty" # 10
----| "processable" # 11
----| "bag" # 12
----| "cookable" # 13
----| "extract_bearing_plant" # 14
----| "extract_bearing_fish" # 15
----| "extract_bearing_vermin" # 16
----| "processable_to_vial" # 17
----| "processable_to_bag" # 18
----| "processable_to_barrel" # 19
----| "solid" # 20
----| "tameable_vermin" # 21
----| "nearby" # 22
----| "sand_bearing" # 23
----| "glass" # 24
----| "milk" # 25
----| "milkable" # 26
----| "finished_goods" # 27
----| "ammo" # 28
----| "furniture" # 29
----| "not_bin" # 30
----| "lye_bearing" # 31
-
----@class job_item_flags1: DFObject, { [_job_item_flags1_keys|_job_item_flags1_values]: boolean }
+---@class job_item_flags1: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _job_item_flags1
-local job_item_flags1 = {
-  improvable = false, -- vtable[155]:eax,-1,-1
-  [0] = false, -- vtable[155]:eax,-1,-1
-  butcherable = false, -- (call 0074c6d0)
-  [1] = false, -- (call 0074c6d0)
-  millable = false, -- vtable[79]
-  [2] = false, -- vtable[79]
-  allow_buryable = false, -- ALLOW items with flag "dead_dwarf"
-  [3] = false, -- ALLOW items with flag "dead_dwarf"
-  unrotten = false, -- check for item flag "rotten"
-  [4] = false, -- check for item flag "rotten"
-  undisturbed = false, -- check for item flag "spider_web"
-  [5] = false, -- check for item flag "spider_web"
-  collected = false, -- check for item flag "spider_web"
-  [6] = false, -- check for item flag "spider_web"
-  sharpenable = false, -- vtable[25]
-  [7] = false, -- vtable[25]
-  murdered = false, -- check for item flag
-  [8] = false, -- check for item flag
-  distillable = false, -- vtable[105],1
-  [9] = false, -- vtable[105],1
-  empty = false, -- (call 00753a40)
-  [10] = false, -- (call 00753a40)
-  processable = false, -- vtable[80]
-  [11] = false, -- vtable[80]
-  bag = false, -- vtable[131]
-  [12] = false, -- vtable[131]
-  cookable = false, -- (call 00753fe0)
-  [13] = false, -- (call 00753fe0)
-  extract_bearing_plant = false, -- vtable[164]
-  [14] = false, -- vtable[164]
-  extract_bearing_fish = false, -- vtable[181]
-  [15] = false, -- vtable[181]
-  extract_bearing_vermin = false, -- vtable[182]
-  [16] = false, -- vtable[182]
-  processable_to_vial = false, -- vtable[81]
-  [17] = false, -- vtable[81]
-  processable_to_bag = false, -- vtable[82]
-  [18] = false, -- vtable[82]
-  processable_to_barrel = false, -- vtable[83]
-  [19] = false, -- vtable[83]
-  solid = false, -- vtable[74]
-  [20] = false, -- vtable[74]
-  tameable_vermin = false, -- vtable[104]
-  [21] = false, -- vtable[104]
-  nearby = false,
-  [22] = false,
-  sand_bearing = false, -- vtable[108]
-  [23] = false, -- vtable[108]
-  glass = false, -- check for material flag IS_GLASS
-  [24] = false, -- check for material flag IS_GLASS
-  milk = false, -- (call 00753d30 - check if material has CHEESE_MAT?)
-  [25] = false, -- (call 00753d30 - check if material has CHEESE_MAT?)
-  milkable = false, -- vtable[107],1,1
-  [26] = false, -- vtable[107],1,1
-  finished_goods = false,
-  [27] = false,
-  ammo = false,
-  [28] = false,
-  furniture = false,
-  [29] = false,
-  not_bin = false,
-  [30] = false,
-  lye_bearing = false,
-  [31] = false,
-}
+---@field improvable boolean vtable[155]:eax,-1,-1
+---@field [0] boolean vtable[155]:eax,-1,-1
+---@field butcherable boolean (call 0074c6d0)
+---@field [1] boolean (call 0074c6d0)
+---@field millable boolean vtable[79]
+---@field [2] boolean vtable[79]
+---@field allow_buryable boolean ALLOW items with flag "dead_dwarf"
+---@field [3] boolean ALLOW items with flag "dead_dwarf"
+---@field unrotten boolean check for item flag "rotten"
+---@field [4] boolean check for item flag "rotten"
+---@field undisturbed boolean check for item flag "spider_web"
+---@field [5] boolean check for item flag "spider_web"
+---@field collected boolean check for item flag "spider_web"
+---@field [6] boolean check for item flag "spider_web"
+---@field sharpenable boolean vtable[25]
+---@field [7] boolean vtable[25]
+---@field murdered boolean check for item flag
+---@field [8] boolean check for item flag
+---@field distillable boolean vtable[105],1
+---@field [9] boolean vtable[105],1
+---@field empty boolean (call 00753a40)
+---@field [10] boolean (call 00753a40)
+---@field processable boolean vtable[80]
+---@field [11] boolean vtable[80]
+---@field bag boolean vtable[131]
+---@field [12] boolean vtable[131]
+---@field cookable boolean (call 00753fe0)
+---@field [13] boolean (call 00753fe0)
+---@field extract_bearing_plant boolean vtable[164]
+---@field [14] boolean vtable[164]
+---@field extract_bearing_fish boolean vtable[181]
+---@field [15] boolean vtable[181]
+---@field extract_bearing_vermin boolean vtable[182]
+---@field [16] boolean vtable[182]
+---@field processable_to_vial boolean vtable[81]
+---@field [17] boolean vtable[81]
+---@field processable_to_bag boolean vtable[82]
+---@field [18] boolean vtable[82]
+---@field processable_to_barrel boolean vtable[83]
+---@field [19] boolean vtable[83]
+---@field solid boolean vtable[74]
+---@field [20] boolean vtable[74]
+---@field tameable_vermin boolean vtable[104]
+---@field [21] boolean vtable[104]
+---@field nearby boolean
+---@field [22] boolean
+---@field sand_bearing boolean vtable[108]
+---@field [23] boolean vtable[108]
+---@field glass boolean check for material flag IS_GLASS
+---@field [24] boolean check for material flag IS_GLASS
+---@field milk boolean (call 00753d30 - check if material has CHEESE_MAT?)
+---@field [25] boolean (call 00753d30 - check if material has CHEESE_MAT?)
+---@field milkable boolean vtable[107],1,1
+---@field [26] boolean vtable[107],1,1
+---@field finished_goods boolean
+---@field [27] boolean
+---@field ammo boolean
+---@field [28] boolean
+---@field furniture boolean
+---@field [29] boolean
+---@field not_bin boolean
+---@field [30] boolean
+---@field lye_bearing boolean
+---@field [31] boolean
 
 ---@class _job_item_flags1: DFBitfield
 ---@field improvable 0 vtable[155]:eax,-1,-1
@@ -663,141 +473,72 @@ local job_item_flags1 = {
 ---@field [31] "lye_bearing"
 df.job_item_flags1 = {}
 
----@alias _job_item_flags2_keys
----| 0 # dye
----| 1 # dyeable
----| 2 # dyed
----| 3 # sewn_imageless
----| 4 # glass_making
----| 5 # screw
----| 6 # building_material
----| 7 # fire_safe
----| 8 # magma_safe
----| 9 # deep_material
----| 10 # melt_designated
----| 11 # non_economic
----| 12 # allow_melt_dump
----| 13 # allow_artifact
----| 14 # plant
----| 15 # silk
----| 16 # leather
----| 17 # bone
----| 18 # shell
----| 19 # totemable
----| 20 # horn
----| 21 # pearl
----| 22 # plaster_containing
----| 23
----| 24 # soap
----| 25 # body_part
----| 26 # ivory_tooth
----| 27 # lye_milk_free
----| 28 # blunt
----| 29 # unengraved
----| 30 # hair_wool
----| 31 # yarn
-
----@alias _job_item_flags2_values
----| "dye" # 0
----| "dyeable" # 1
----| "dyed" # 2
----| "sewn_imageless" # 3
----| "glass_making" # 4
----| "screw" # 5
----| "building_material" # 6
----| "fire_safe" # 7
----| "magma_safe" # 8
----| "deep_material" # 9
----| "melt_designated" # 10
----| "non_economic" # 11
----| "allow_melt_dump" # 12
----| "allow_artifact" # 13
----| "plant" # 14
----| "silk" # 15
----| "leather" # 16
----| "bone" # 17
----| "shell" # 18
----| "totemable" # 19
----| "horn" # 20
----| "pearl" # 21
----| "plaster_containing" # 22
----| "soap" # 24
----| "body_part" # 25
----| "ivory_tooth" # 26
----| "lye_milk_free" # 27
----| "blunt" # 28
----| "unengraved" # 29
----| "hair_wool" # 30
----| "yarn" # 31
-
----@class job_item_flags2: DFObject, { [_job_item_flags2_keys|_job_item_flags2_values]: boolean }
+---@class job_item_flags2: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _job_item_flags2
-local job_item_flags2 = {
-  dye = false, -- vtable[106]
-  [0] = false, -- vtable[106]
-  dyeable = false, -- vtable[159]
-  [1] = false, -- vtable[159]
-  dyed = false, -- vtable[161]
-  [2] = false, -- vtable[161]
-  sewn_imageless = false, -- vtable[162]
-  [3] = false, -- vtable[162]
-  glass_making = false, -- vtable[26]
-  [4] = false, -- vtable[26]
-  screw = false, -- vtable[46]
-  [5] = false, -- vtable[46]
-  building_material = false, -- vtable[47]
-  [6] = false, -- vtable[47]
-  fire_safe = false, -- vtable[48],1
-  [7] = false, -- vtable[48],1
-  magma_safe = false, -- vtable[48],2
-  [8] = false, -- vtable[48],2
-  deep_material = false, -- check for inorganic material flag DEEP
-  [9] = false, -- check for inorganic material flag DEEP
-  melt_designated = false, -- check for item flag "melt"
-  [10] = false, -- check for item flag "melt"
-  non_economic = false, -- (call 0076be60)
-  [11] = false, -- (call 0076be60)
-  allow_melt_dump = false, -- item can be designated for melting or dumping
-  [12] = false, -- item can be designated for melting or dumping
-  allow_artifact = false, -- item can be artifact
-  [13] = false, -- item can be artifact
-  plant = false, -- check if material is a PLANT_MAT
-  [14] = false, -- check if material is a PLANT_MAT
-  silk = false, -- check for material flag SILK
-  [15] = false, -- check for material flag SILK
-  leather = false, -- check for material flag LEATHER
-  [16] = false, -- check for material flag LEATHER
-  bone = false, -- check for material flag BONE
-  [17] = false, -- check for material flag BONE
-  shell = false, -- check for material flag SHELL
-  [18] = false, -- check for material flag SHELL
-  totemable = false, -- vtable[158]
-  [19] = false, -- vtable[158]
-  horn = false, -- check for material flag HORN
-  [20] = false, -- check for material flag HORN
-  pearl = false, -- check for material flag PEARL
-  [21] = false, -- check for material flag PEARL
-  plaster_containing = false, -- vtable[17]
-  [22] = false, -- vtable[17]
-  [23] = false,
-  soap = false, -- check for material flag SOAP
-  [24] = false, -- check for material flag SOAP
-  body_part = false, -- itemtype CORPSE or CORPSEPIECE
-  [25] = false, -- itemtype CORPSE or CORPSEPIECE
-  ivory_tooth = false, -- check for material flag TOOTH
-  [26] = false, -- check for material flag TOOTH
-  lye_milk_free = false, -- (call 00759110)
-  [27] = false, -- (call 00759110)
-  blunt = false, -- vtable[157]
-  [28] = false, -- vtable[157]
-  unengraved = false, -- vtable[214]
-  [29] = false, -- vtable[214]
-  hair_wool = false, -- ??? (pretty sure this is [ANY_STRAND_TISSUE])
-  [30] = false, -- ??? (pretty sure this is [ANY_STRAND_TISSUE])
-  yarn = false, -- check for material flag YARN
-  [31] = false, -- check for material flag YARN
-}
+---@field dye boolean vtable[106]
+---@field [0] boolean vtable[106]
+---@field dyeable boolean vtable[159]
+---@field [1] boolean vtable[159]
+---@field dyed boolean vtable[161]
+---@field [2] boolean vtable[161]
+---@field sewn_imageless boolean vtable[162]
+---@field [3] boolean vtable[162]
+---@field glass_making boolean vtable[26]
+---@field [4] boolean vtable[26]
+---@field screw boolean vtable[46]
+---@field [5] boolean vtable[46]
+---@field building_material boolean vtable[47]
+---@field [6] boolean vtable[47]
+---@field fire_safe boolean vtable[48],1
+---@field [7] boolean vtable[48],1
+---@field magma_safe boolean vtable[48],2
+---@field [8] boolean vtable[48],2
+---@field deep_material boolean check for inorganic material flag DEEP
+---@field [9] boolean check for inorganic material flag DEEP
+---@field melt_designated boolean check for item flag "melt"
+---@field [10] boolean check for item flag "melt"
+---@field non_economic boolean (call 0076be60)
+---@field [11] boolean (call 0076be60)
+---@field allow_melt_dump boolean item can be designated for melting or dumping
+---@field [12] boolean item can be designated for melting or dumping
+---@field allow_artifact boolean item can be artifact
+---@field [13] boolean item can be artifact
+---@field plant boolean check if material is a PLANT_MAT
+---@field [14] boolean check if material is a PLANT_MAT
+---@field silk boolean check for material flag SILK
+---@field [15] boolean check for material flag SILK
+---@field leather boolean check for material flag LEATHER
+---@field [16] boolean check for material flag LEATHER
+---@field bone boolean check for material flag BONE
+---@field [17] boolean check for material flag BONE
+---@field shell boolean check for material flag SHELL
+---@field [18] boolean check for material flag SHELL
+---@field totemable boolean vtable[158]
+---@field [19] boolean vtable[158]
+---@field horn boolean check for material flag HORN
+---@field [20] boolean check for material flag HORN
+---@field pearl boolean check for material flag PEARL
+---@field [21] boolean check for material flag PEARL
+---@field plaster_containing boolean vtable[17]
+---@field [22] boolean vtable[17]
+---@field [23] boolean
+---@field soap boolean check for material flag SOAP
+---@field [24] boolean check for material flag SOAP
+---@field body_part boolean itemtype CORPSE or CORPSEPIECE
+---@field [25] boolean itemtype CORPSE or CORPSEPIECE
+---@field ivory_tooth boolean check for material flag TOOTH
+---@field [26] boolean check for material flag TOOTH
+---@field lye_milk_free boolean (call 00759110)
+---@field [27] boolean (call 00759110)
+---@field blunt boolean vtable[157]
+---@field [28] boolean vtable[157]
+---@field unengraved boolean vtable[214]
+---@field [29] boolean vtable[214]
+---@field hair_wool boolean ??? (pretty sure this is [ANY_STRAND_TISSUE])
+---@field [30] boolean ??? (pretty sure this is [ANY_STRAND_TISSUE])
+---@field yarn boolean check for material flag YARN
+---@field [31] boolean check for material flag YARN
 
 ---@class _job_item_flags2: DFBitfield
 ---@field dye 0 vtable[106]
@@ -864,101 +605,52 @@ local job_item_flags2 = {
 ---@field [31] "yarn" check for material flag YARN
 df.job_item_flags2 = {}
 
----@alias _job_item_flags3_keys
----| 0 # unimproved
----| 1 # any_raw_material
----| 2 # non_absorbent
----| 3 # non_pressed
----| 4 # allow_liquid_powder
----| 5 # any_craft
----| 6 # hard
----| 7 # food_storage
----| 8 # metal
----| 9 # sand
----| 10
----| 11 # written_on
----| 12 # edged
----| 13 # on_ground
----| 14 # divine
----| 15 # crafted_artifact
----| 16 # wood
----| 17 # stone
----| 18 # non_artifact
----| 19 # woven
----| 20 # gem
----| 21 # empty_or_water
-
----@alias _job_item_flags3_values
----| "unimproved" # 0
----| "any_raw_material" # 1
----| "non_absorbent" # 2
----| "non_pressed" # 3
----| "allow_liquid_powder" # 4
----| "any_craft" # 5
----| "hard" # 6
----| "food_storage" # 7
----| "metal" # 8
----| "sand" # 9
----| "written_on" # 11
----| "edged" # 12
----| "on_ground" # 13
----| "divine" # 14
----| "crafted_artifact" # 15
----| "wood" # 16
----| "stone" # 17
----| "non_artifact" # 18
----| "woven" # 19
----| "gem" # 20
----| "empty_or_water" # 21
-
----@class job_item_flags3: DFObject, { [_job_item_flags3_keys|_job_item_flags3_values]: boolean }
+---@class job_item_flags3: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _job_item_flags3
-local job_item_flags3 = {
-  unimproved = false, -- vtable[176]
-  [0] = false, -- vtable[176]
-  any_raw_material = false, -- itemtype BAR, BOULDER, POWDER_MISC, or GLOB
-  [1] = false, -- itemtype BAR, BOULDER, POWDER_MISC, or GLOB
-  non_absorbent = false, -- vtable[215]
-  [2] = false, -- vtable[215]
-  non_pressed = false, -- vtable[91]
-  [3] = false, -- vtable[91]
-  allow_liquid_powder = false,
-  [4] = false,
-  any_craft = false, -- FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
-  [5] = false, -- FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
-  hard = false, -- check for material flag ITEMS_HARD
-  [6] = false, -- check for material flag ITEMS_HARD
-  food_storage = false, -- vtable[15]
-  [7] = false, -- vtable[15]
-  metal = false,
-  [8] = false,
-  sand = false,
-  [9] = false,
-  [10] = false,
-  written_on = false,
-  [11] = false,
-  edged = false,
-  [12] = false,
-  on_ground = false,
-  [13] = false,
-  divine = false,
-  [14] = false,
-  crafted_artifact = false,
-  [15] = false,
-  wood = false,
-  [16] = false,
-  stone = false,
-  [17] = false,
-  non_artifact = false,
-  [18] = false,
-  woven = false,
-  [19] = false,
-  gem = false,
-  [20] = false,
-  empty_or_water = false,
-  [21] = false,
-}
+---@field unimproved boolean vtable[176]
+---@field [0] boolean vtable[176]
+---@field any_raw_material boolean itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+---@field [1] boolean itemtype BAR, BOULDER, POWDER_MISC, or GLOB
+---@field non_absorbent boolean vtable[215]
+---@field [2] boolean vtable[215]
+---@field non_pressed boolean vtable[91]
+---@field [3] boolean vtable[91]
+---@field allow_liquid_powder boolean
+---@field [4] boolean
+---@field any_craft boolean FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+---@field [5] boolean FIGURINE, AMULET, SCEPTER, CROWN, RING, EARRING, BRACLET
+---@field hard boolean check for material flag ITEMS_HARD
+---@field [6] boolean check for material flag ITEMS_HARD
+---@field food_storage boolean vtable[15]
+---@field [7] boolean vtable[15]
+---@field metal boolean
+---@field [8] boolean
+---@field sand boolean
+---@field [9] boolean
+---@field [10] boolean
+---@field written_on boolean
+---@field [11] boolean
+---@field edged boolean
+---@field [12] boolean
+---@field on_ground boolean
+---@field [13] boolean
+---@field divine boolean
+---@field [14] boolean
+---@field crafted_artifact boolean
+---@field [15] boolean
+---@field wood boolean
+---@field [16] boolean
+---@field stone boolean
+---@field [17] boolean
+---@field non_artifact boolean
+---@field [18] boolean
+---@field woven boolean
+---@field [19] boolean
+---@field gem boolean
+---@field [20] boolean
+---@field empty_or_water boolean
+---@field [21] boolean
 
 ---@class _job_item_flags3: DFBitfield
 ---@field unimproved 0 vtable[176]
@@ -1081,23 +773,13 @@ df.job_item = {}
 ---@field _kind 'struct-type'
 df.job_item_filter = {}
 
----@alias _manager_order_status_keys
----| 0 # validated
----| 1 # active
-
----@alias _manager_order_status_values
----| "validated" # 0
----| "active" # 1
-
----@class manager_order_status: DFObject, { [_manager_order_status_keys|_manager_order_status_values]: boolean }
+---@class manager_order_status: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _manager_order_status
-local manager_order_status = {
-  validated = false,
-  [0] = false,
-  active = false,
-  [1] = false,
-}
+---@field validated boolean
+---@field [0] boolean
+---@field active boolean
+---@field [1] boolean
 
 ---@class _manager_order_status: DFBitfield
 ---@field validated 0
@@ -1346,31 +1028,17 @@ function df.training_assignment.find(key) end
 ---@return training_assignment_vector # df.global.plotinfo.equipment.training_assignments
 function df.training_assignment.get_vector() end
 
----@alias _training_assignment.T_flags_keys
----| 0 # any_trainer
----| 1 # any_unassigned_trainer
----| 2 # train_war
----| 3 # train_hunt
-
----@alias _training_assignment.T_flags_values
----| "any_trainer" # 0
----| "any_unassigned_trainer" # 1
----| "train_war" # 2
----| "train_hunt" # 3
-
----@class training_assignment.T_flags: DFObject, { [_training_assignment.T_flags_keys|_training_assignment.T_flags_values]: boolean }
+---@class training_assignment.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _training_assignment.T_flags
-local training_assignment_flags = {
-  any_trainer = false,
-  [0] = false,
-  any_unassigned_trainer = false,
-  [1] = false,
-  train_war = false,
-  [2] = false,
-  train_hunt = false,
-  [3] = false,
-}
+---@field any_trainer boolean
+---@field [0] boolean
+---@field any_unassigned_trainer boolean
+---@field [1] boolean
+---@field train_war boolean
+---@field [2] boolean
+---@field train_hunt boolean
+---@field [3] boolean
 
 ---@class _training_assignment.T_flags: DFBitfield
 ---@field any_trainer 0

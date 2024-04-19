@@ -39,7 +39,7 @@ df.pattern_type = {}
 ---@field red number
 ---@field green number
 ---@field blue number
----@field unk_v50_1 integer
+---@field unk_v50_1 integer[]
 
 ---@class _descriptor_color: DFCompound
 ---@field _kind 'struct-type'
@@ -87,27 +87,15 @@ function df.descriptor_shape.find(key) end
 ---@return descriptor_shape_vector # df.global.world.raws.descriptors.shapes
 function df.descriptor_shape.get_vector() end
 
----@alias _descriptor_shape.T_gems_use_keys
----| 0 # noun
----| 1 # adj
----| 2 # adj_noun
-
----@alias _descriptor_shape.T_gems_use_values
----| "noun" # 0
----| "adj" # 1
----| "adj_noun" # 2
-
----@class descriptor_shape.T_gems_use: DFObject, { [_descriptor_shape.T_gems_use_keys|_descriptor_shape.T_gems_use_values]: boolean }
+---@class descriptor_shape.T_gems_use: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _descriptor_shape.T_gems_use
-local descriptor_shape_gems_use = {
-  noun = false,
-  [0] = false,
-  adj = false,
-  [1] = false,
-  adj_noun = false,
-  [2] = false,
-}
+---@field noun boolean
+---@field [0] boolean
+---@field adj boolean
+---@field [1] boolean
+---@field adj_noun boolean
+---@field [2] boolean
 
 ---@class _descriptor_shape.T_gems_use: DFBitfield
 ---@field noun 0

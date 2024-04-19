@@ -1194,8 +1194,8 @@ df.color_modifier_raw = {}
 ---@field _kind 'struct'
 ---@field _type _body_appearance_modifier
 ---@field type appearance_modifier_type
----@field ranges number
----@field desc_range number
+---@field ranges number[]
+---@field desc_range number[]
 ---@field growth_rate number
 ---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min number
@@ -1217,8 +1217,8 @@ df.body_appearance_modifier = {}
 ---@field _kind 'struct'
 ---@field _type _bp_appearance_modifier
 ---@field type appearance_modifier_type
----@field ranges number
----@field desc_range number
+---@field ranges number[]
+---@field desc_range number[]
 ---@field growth_rate number
 ---@field growth_interval appearance_modifier_growth_interval
 ---@field growth_min number
@@ -1243,11 +1243,11 @@ df.bp_appearance_modifier = {}
 ---@field _type _caste_clothing_item
 ---@field body_part_id number
 ---@field unk_4 number
----@field item any under, over, cover
----@field unk_14 number
----@field size number
----@field permit number
----@field unk_38 number
+---@field item item[] under, over, cover
+---@field unk_14 number[]
+---@field size number[]
+---@field permit number[]
+---@field unk_38 number[]
 
 ---@class _caste_clothing_item: DFCompound
 ---@field _kind 'struct-type'
@@ -1264,7 +1264,7 @@ df.caste_clothing_item = {}
 ---@field specialattack_mat_type number extract injected
 ---@field specialattack_mat_index number
 ---@field specialattack_mat_state matter_state
----@field specialattack_temp_mat any parsed during second pass
+---@field specialattack_temp_mat any[] parsed during second pass
 ---@field specialattack_min number amount of extract injected or blood sucked
 ---@field specialattack_max number
 ---@field contact_perc number
@@ -1284,35 +1284,19 @@ df.caste_clothing_item = {}
 ---@field _kind 'struct-type'
 df.caste_attack = {}
 
----@alias _caste_attack.T_flags_keys
----| 0 # with
----| 1 # latch
----| 2 # main
----| 3 # edge
----| 4
----| 5
-
----@alias _caste_attack.T_flags_values
----| "with" # 0
----| "latch" # 1
----| "main" # 2
----| "edge" # 3
-
----@class caste_attack.T_flags: DFObject, { [_caste_attack.T_flags_keys|_caste_attack.T_flags_values]: boolean }
+---@class caste_attack.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _caste_attack.T_flags
-local caste_attack_flags = {
-  with = false,
-  [0] = false,
-  latch = false,
-  [1] = false,
-  main = false,
-  [2] = false,
-  edge = false,
-  [3] = false,
-  [4] = false,
-  [5] = false,
-}
+---@field with boolean
+---@field [0] boolean
+---@field latch boolean
+---@field [1] boolean
+---@field main boolean
+---@field [2] boolean
+---@field edge boolean
+---@field [3] boolean
+---@field [4] boolean
+---@field [5] boolean
 
 ---@class _caste_attack.T_flags: DFBitfield
 ---@field with 0
@@ -1361,27 +1345,15 @@ df.gait_type = {}
 ---@field _kind 'struct-type'
 df.gait_info = {}
 
----@alias _gait_info.T_flags_keys
----| 0 # layers_slow
----| 1 # strength
----| 2 # agility
-
----@alias _gait_info.T_flags_values
----| "layers_slow" # 0
----| "strength" # 1
----| "agility" # 2
-
----@class gait_info.T_flags: DFObject, { [_gait_info.T_flags_keys|_gait_info.T_flags_values]: boolean }
+---@class gait_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _gait_info.T_flags
-local gait_info_flags = {
-  layers_slow = false,
-  [0] = false,
-  strength = false,
-  [1] = false,
-  agility = false,
-  [2] = false,
-}
+---@field layers_slow boolean
+---@field [0] boolean
+---@field strength boolean
+---@field [1] boolean
+---@field agility boolean
+---@field [2] boolean
 
 ---@class _gait_info.T_flags: DFBitfield
 ---@field layers_slow 0
@@ -1392,35 +1364,19 @@ local gait_info_flags = {
 ---@field [2] "agility"
 df.gait_info.T_flags = {}
 
----@alias _creature_interaction_target_flags_keys
----| 0 # LINE_OF_SIGHT
----| 1 # TOUCHABLE
----| 2 # DISTURBER_ONLY
----| 3 # SELF_ALLOWED
----| 4 # SELF_ONLY
-
----@alias _creature_interaction_target_flags_values
----| "LINE_OF_SIGHT" # 0
----| "TOUCHABLE" # 1
----| "DISTURBER_ONLY" # 2
----| "SELF_ALLOWED" # 3
----| "SELF_ONLY" # 4
-
----@class creature_interaction_target_flags: DFObject, { [_creature_interaction_target_flags_keys|_creature_interaction_target_flags_values]: boolean }
+---@class creature_interaction_target_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _creature_interaction_target_flags
-local creature_interaction_target_flags = {
-  LINE_OF_SIGHT = false,
-  [0] = false,
-  TOUCHABLE = false,
-  [1] = false,
-  DISTURBER_ONLY = false,
-  [2] = false,
-  SELF_ALLOWED = false,
-  [3] = false,
-  SELF_ONLY = false,
-  [4] = false,
-}
+---@field LINE_OF_SIGHT boolean
+---@field [0] boolean
+---@field TOUCHABLE boolean
+---@field [1] boolean
+---@field DISTURBER_ONLY boolean
+---@field [2] boolean
+---@field SELF_ALLOWED boolean
+---@field [3] boolean
+---@field SELF_ONLY boolean
+---@field [4] boolean
 
 ---@class _creature_interaction_target_flags: DFBitfield
 ---@field LINE_OF_SIGHT 0
@@ -1472,27 +1428,15 @@ df.creature_interaction_target_flags = {}
 ---@field _kind 'struct-type'
 df.creature_interaction = {}
 
----@alias _creature_interaction.T_flags_keys
----| 0 # CAN_BE_MUTUAL
----| 1 # VERBAL
----| 2 # FREE_ACTION
-
----@alias _creature_interaction.T_flags_values
----| "CAN_BE_MUTUAL" # 0
----| "VERBAL" # 1
----| "FREE_ACTION" # 2
-
----@class creature_interaction.T_flags: DFObject, { [_creature_interaction.T_flags_keys|_creature_interaction.T_flags_values]: boolean }
+---@class creature_interaction.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _creature_interaction.T_flags
-local creature_interaction_flags = {
-  CAN_BE_MUTUAL = false,
-  [0] = false,
-  VERBAL = false,
-  [1] = false,
-  FREE_ACTION = false,
-  [2] = false,
-}
+---@field CAN_BE_MUTUAL boolean
+---@field [0] boolean
+---@field VERBAL boolean
+---@field [1] boolean
+---@field FREE_ACTION boolean
+---@field [2] boolean
 
 ---@class _creature_interaction.T_flags: DFBitfield
 ---@field CAN_BE_MUTUAL 0
@@ -1517,31 +1461,23 @@ df.creature_interaction.T_flags = {}
 ---@field layer_nonsolid any
 ---@field nonsolid_layers any
 ---@field flags caste_body_info.T_flags
----@field gait_info any
+---@field gait_info DFEnumVector<gait_type, any>
 ---@field materials material_vec_ref
 ---@field fraction_total number Sums of values in the parts:
 ---@field fraction_base number
 ---@field fraction_fat number
 ---@field fraction_muscle number
----@field unk_v40_2 number
+---@field unk_v40_2 number[]
 
 ---@class _caste_body_info: DFCompound
 ---@field _kind 'struct-type'
 df.caste_body_info = {}
 
----@alias _caste_body_info.T_flags_keys
----| 0 # unk0
-
----@alias _caste_body_info.T_flags_values
----| "unk0" # 0
-
----@class caste_body_info.T_flags: DFObject, { [_caste_body_info.T_flags_keys|_caste_body_info.T_flags_values]: boolean }
+---@class caste_body_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _caste_body_info.T_flags
-local caste_body_info_flags = {
-  unk0 = false,
-  [0] = false,
-}
+---@field unk0 boolean
+---@field [0] boolean
 
 ---@class _caste_body_info.T_flags: DFBitfield
 ---@field unk0 0
@@ -1552,15 +1488,15 @@ df.caste_body_info.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _caste_raw
 ---@field caste_id string
----@field caste_name string
+---@field caste_name string[]
 ---@field vermin_bite_txt string
 ---@field gnawer_txt string
----@field baby_name string
----@field child_name string
----@field itemcorpse_str string
----@field remains string // temporary
+---@field baby_name string[]
+---@field child_name string[]
+---@field itemcorpse_str string[]
+---@field remains string[] // temporary
 ---@field description string
----@field mannerisms string fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
+---@field mannerisms string[] fingers[2], nose, ear, head, eyes, mouth, hair, knuckles, lips, cheek, nails, f eet, arms, hands, tongue, leg
 ---@field caste_tile integer
 ---@field caste_soldier_tile integer
 ---@field caste_alttile integer
@@ -1570,7 +1506,7 @@ df.caste_body_info.T_flags = {}
 ---@field min_temp integer
 ---@field max_temp integer
 ---@field fixed_temp integer
----@field caste_color number
+---@field caste_color number[]
 ---@field misc caste_raw.T_misc
 ---@field personality caste_raw.T_personality
 ---@field flags any
@@ -1578,11 +1514,11 @@ df.caste_body_info.T_flags = {}
 ---@field body_info caste_body_info
 ---@field caste_speech_1 any
 ---@field caste_speech_2 any
----@field skill_rates any
+---@field skill_rates DFEnumVector<job_skill, number>[]
 ---@field attributes caste_raw.T_attributes
 ---@field sex pronoun_type
----@field orientation_male number
----@field orientation_female number
+---@field orientation_male number[]
+---@field orientation_female number[]
 ---@field body_size_1 number age in ticks
 ---@field body_size_2 number size at the age at the same index in body_size_1
 ---@field body_appearance_modifiers any
@@ -1590,8 +1526,8 @@ df.caste_body_info.T_flags = {}
 ---@field color_modifiers any
 ---@field tissue_styles any
 ---@field shearable_tissue_layer any
----@field unk16a any
----@field unk16b any
+---@field unk16a any[]
+---@field unk16b number[]
 ---@field appearance_gene_count number
 ---@field color_gene_count number
 ---@field natural_skill_id any
@@ -1602,7 +1538,7 @@ df.caste_body_info.T_flags = {}
 ---@field secretion any
 ---@field creature_class any
 ---@field unknown2 caste_raw.T_unknown2
----@field habit_num number
+---@field habit_num number[]
 ---@field habit_1 number
 ---@field habit_2 number
 ---@field lair_1 number
@@ -1611,7 +1547,7 @@ df.caste_body_info.T_flags = {}
 ---@field lair_characteristic_2 number
 ---@field lair_hunter_speech caste_raw.T_lair_hunter_speech
 ---@field unk29 caste_raw.T_unk29
----@field specific_food any
+---@field specific_food any[]
 ---@field sound any
 ---@field sound_alert number
 ---@field sound_peaceful_intermittent number
@@ -1646,9 +1582,9 @@ df.caste_raw = {}
 ---@field itemcorpse_materialtype number no longer used? Changes when the same save is reloaded References: `material`
 ---@field itemcorpse_materialindex number
 ---@field itemcorpse_quality number // NOT 32-bit!
----@field remains_color number
+---@field remains_color number[]
 ---@field difficulty number
----@field caste_glowcolor number different from same save with 0.44.12
+---@field caste_glowcolor number[] different from same save with 0.44.12
 ---@field beach_frequency number
 ---@field clutch_size_min number
 ---@field clutch_size_max number
@@ -1672,12 +1608,12 @@ df.caste_raw = {}
 ---@field bone_matidx number
 ---@field fish_mat_index number
 ---@field egg_mat_index number
----@field attack_trigger number
+---@field attack_trigger number[]
 ---@field egg_size number
 ---@field grazer number
 ---@field petvalue_divisor number
 ---@field prone_to_rage number
----@field unk6 number different from same save with 0.44.12
+---@field unk6 number[] different from same save with 0.44.12
 
 ---@class _caste_raw.T_misc: DFCompound
 ---@field _kind 'struct-type'
@@ -1686,9 +1622,9 @@ df.caste_raw.T_misc = {}
 ---@class (exact) caste_raw.T_personality: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_personality
----@field a number
----@field b number
----@field c number
+---@field a DFEnumVector<personality_facet_type, number>
+---@field b DFEnumVector<personality_facet_type, number>
+---@field c DFEnumVector<personality_facet_type, number>
 
 ---@class _caste_raw.T_personality: DFCompound
 ---@field _kind 'struct-type'
@@ -1697,12 +1633,12 @@ df.caste_raw.T_personality = {}
 ---@class (exact) caste_raw.T_attributes: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_attributes
----@field phys_att_range any
----@field ment_att_range any
----@field phys_att_rates any
----@field ment_att_rates any
----@field phys_att_cap_perc number
----@field ment_att_cap_perc number
+---@field phys_att_range DFEnumVector<physical_attribute_type, number[]>
+---@field ment_att_range DFEnumVector<mental_attribute_type, number[]>
+---@field phys_att_rates DFEnumVector<physical_attribute_type, number[]>
+---@field ment_att_rates DFEnumVector<mental_attribute_type, number[]>
+---@field phys_att_cap_perc DFEnumVector<physical_attribute_type, number>
+---@field ment_att_cap_perc DFEnumVector<mental_attribute_type, number>
 
 ---@class _caste_raw.T_attributes: DFCompound
 ---@field _kind 'struct-type'
@@ -1726,8 +1662,8 @@ df.caste_raw.T_bp_appearance = {}
 ---@class (exact) caste_raw.T_caste_profession_name: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_caste_profession_name
----@field singular string
----@field plural string
+---@field singular DFEnumVector<profession, string>
+---@field plural DFEnumVector<profession, string>
 
 ---@class _caste_raw.T_caste_profession_name: DFCompound
 ---@field _kind 'struct-type'
@@ -1738,41 +1674,41 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field _type _caste_raw.T_extracts
 ---@field extract_mat number
 ---@field extract_matidx number
----@field extract_str any
+---@field extract_str any[]
 ---@field milkable_mat number
 ---@field milkable_matidx number
----@field milkable_str any
+---@field milkable_str string[]
 ---@field webber_mat number
 ---@field webber_matidx number
----@field webber_str any
+---@field webber_str string[]
 ---@field vermin_bite_mat number
 ---@field vermin_bite_matidx number
 ---@field vermin_bite_chance number
----@field vermin_bite_str any
+---@field vermin_bite_str string[]
 ---@field tendons_mat number
 ---@field tendons_matidx number
----@field tendons_str any
+---@field tendons_str string[]
 ---@field tendons_heal number
 ---@field ligaments_mat number
 ---@field ligaments_matidx number
----@field ligaments_str any
+---@field ligaments_str string[]
 ---@field ligaments_heal number
 ---@field blood_state number
 ---@field blood_mat number
 ---@field blood_matidx number
----@field blood_str any
+---@field blood_str string[]
 ---@field pus_state number
 ---@field pus_mat number
 ---@field pus_matidx number
----@field pus_str any
+---@field pus_str string[]
 ---@field egg_material_mattype number
 ---@field egg_material_matindex number
----@field egg_material_str any
+---@field egg_material_str any[]
 ---@field lays_unusual_eggs_itemtype any
 ---@field lays_unusual_eggs_itemsubtype number
 ---@field lays_unusual_eggs_mattype number
 ---@field lays_unusual_eggs_matindex number
----@field lays_unusual_eggs_str any
+---@field lays_unusual_eggs_str any[]
 
 ---@class _caste_raw.T_extracts: DFCompound
 ---@field _kind 'struct-type'
@@ -1792,12 +1728,12 @@ df.caste_raw.T_extracts = {}
 ---@field unk23g number
 ---@field unk24_flags any
 ---@field unk25_flags any
----@field armor_sizes any index by UBSTEP
----@field pants_sizes number index by LBSTEP
+---@field armor_sizes number[][] index by UBSTEP
+---@field pants_sizes number[] index by LBSTEP
 ---@field helm_size number
----@field shield_sizes number index by UPSTEP
----@field shoes_sizes number index by UPSTEP
----@field gloves_sizes number index by UPSTEP
+---@field shield_sizes number[] index by UPSTEP
+---@field shoes_sizes number[] index by UPSTEP
+---@field gloves_sizes number[] index by UPSTEP
 ---@field materials material_vec_ref
 ---@field unk_2f20 number
 ---@field unk_2f30 number
@@ -1879,21 +1815,21 @@ df.tissue_style_type = {}
 ---@class (exact) creature_raw_graphics: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw_graphics
----@field creature_texture_texpos any
----@field creature_texture_add_color boolean
----@field creature_texture_unk any
----@field entity_link_texpos any
----@field entity_link_add_color any
----@field entity_link_unk any
----@field site_link_texpos any
----@field site_link_add_color any
----@field site_link_unk any
----@field profession_texpos any
----@field profession_add_color any
----@field profession_unk any
----@field ptr_unk any
----@field vec_unk any
----@field profession_vec_unk any
+---@field creature_texture_texpos DFEnumVector<creature_graphics_role, number[][]>[]
+---@field creature_texture_add_color DFEnumVector<creature_graphics_role, boolean>
+---@field creature_texture_unk DFEnumVector<creature_graphics_role, number>[]
+---@field entity_link_texpos DFEnumVector<histfig_entity_link_type, DFEnumVector<creature_graphics_role, number[][]>>[]
+---@field entity_link_add_color DFEnumVector<histfig_entity_link_type, DFEnumVector<creature_graphics_role, boolean>>
+---@field entity_link_unk DFEnumVector<histfig_entity_link_type, DFEnumVector<creature_graphics_role, number>>[]
+---@field site_link_texpos DFEnumVector<histfig_site_link_type, DFEnumVector<creature_graphics_role, number[][]>>[]
+---@field site_link_add_color DFEnumVector<histfig_site_link_type, DFEnumVector<creature_graphics_role, boolean>>
+---@field site_link_unk DFEnumVector<histfig_site_link_type, DFEnumVector<creature_graphics_role, number>>[]
+---@field profession_texpos DFEnumVector<profession, DFEnumVector<creature_graphics_role, number[][]>>[]
+---@field profession_add_color DFEnumVector<profession, DFEnumVector<creature_graphics_role, boolean>>
+---@field profession_unk DFEnumVector<profession, DFEnumVector<creature_graphics_role, number>>[]
+---@field ptr_unk DFEnumVector<creature_graphics_role, pointer>[]
+---@field vec_unk number[]
+---@field profession_vec_unk DFEnumVector<profession, number>
 
 ---@class _creature_raw_graphics: DFCompound
 ---@field _kind 'struct-type'
@@ -1919,9 +1855,9 @@ df.tissue_style_raw = {}
 ---@field _kind 'struct'
 ---@field _type _creature_raw
 ---@field creature_id string
----@field name string
----@field general_baby_name string
----@field general_child_name string
+---@field name string[]
+---@field general_baby_name string[]
+---@field general_child_name string[]
 ---@field unk_v43_1 string
 ---@field creature_tile integer
 ---@field creature_soldier_tile integer
@@ -1931,11 +1867,11 @@ df.tissue_style_raw = {}
 ---@field temperature1 integer
 ---@field temperature2 integer
 ---@field frequency number
----@field population_number number
----@field cluster_number number
----@field triggerable_group number
----@field color number
----@field glowcolor number
+---@field population_number number[]
+---@field cluster_number number[]
+---@field triggerable_group number[]
+---@field color number[]
+---@field glowcolor number[]
 ---@field adultsize number
 ---@field prefstring any
 ---@field sphere number
@@ -1957,7 +1893,7 @@ df.tissue_style_raw = {}
 ---@field unk_v4201_1 number
 ---@field next_modifier_id number
 ---@field raws any
----@field statute_texpos number
+---@field statute_texpos number[]
 
 ---@class _creature_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1975,8 +1911,8 @@ function df.creature_raw.get_vector() end
 ---@class (exact) creature_raw.T_profession_name: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_profession_name
----@field singular string
----@field plural string
+---@field singular DFEnumVector<profession, string>
+---@field plural DFEnumVector<profession, string>
 
 ---@class _creature_raw.T_profession_name: DFCompound
 ---@field _kind 'struct-type'
@@ -2280,7 +2216,7 @@ df.tissue_flags = {}
 ---@field flags any
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
----@field tissue_material_str string
+---@field tissue_material_str string[]
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field relative_thickness number
@@ -2314,7 +2250,7 @@ function df.tissue_template.get_vector() end
 ---@field flags any
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
----@field tissue_material_str string
+---@field tissue_material_str string[]
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field relative_thickness number

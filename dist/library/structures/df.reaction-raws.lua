@@ -53,7 +53,7 @@ function df.reaction.get_vector() end
 ---@class (exact) reaction.T_building: DFObject
 ---@field _kind 'struct'
 ---@field _type _reaction.T_building
----@field str any
+---@field str any[]
 ---@field type any
 ---@field subtype number
 ---@field custom number
@@ -106,27 +106,15 @@ df.reaction_reagent_type = {}
 ---@field _kind 'class-type'
 df.reaction_reagent = {}
 
----@alias _reaction_reagent_flags_keys
----| 0 # PRESERVE_REAGENT
----| 1 # IN_CONTAINER
----| 2 # DOES_NOT_DETERMINE_PRODUCT_AMOUNT
-
----@alias _reaction_reagent_flags_values
----| "PRESERVE_REAGENT" # 0
----| "IN_CONTAINER" # 1
----| "DOES_NOT_DETERMINE_PRODUCT_AMOUNT" # 2
-
----@class reaction_reagent_flags: DFObject, { [_reaction_reagent_flags_keys|_reaction_reagent_flags_values]: boolean }
+---@class reaction_reagent_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _reaction_reagent_flags
-local reaction_reagent_flags = {
-  PRESERVE_REAGENT = false,
-  [0] = false,
-  IN_CONTAINER = false,
-  [1] = false,
-  DOES_NOT_DETERMINE_PRODUCT_AMOUNT = false,
-  [2] = false,
-}
+---@field PRESERVE_REAGENT boolean
+---@field [0] boolean
+---@field IN_CONTAINER boolean
+---@field [1] boolean
+---@field DOES_NOT_DETERMINE_PRODUCT_AMOUNT boolean
+---@field [2] boolean
 
 ---@class _reaction_reagent_flags: DFBitfield
 ---@field PRESERVE_REAGENT 0
@@ -155,8 +143,8 @@ df.reaction_reagent_flags = {}
 ---@field min_dimension number
 ---@field contains number
 ---@field has_tool_use tool_uses
----@field item_str string
----@field material_str string
+---@field item_str string[]
+---@field material_str string[]
 ---@field metal_ore_str string
 ---@field contains_str any
 
@@ -220,8 +208,8 @@ df.reaction_product_item_flags = {}
 ---@field product_dimension number
 ---@field flags any
 ---@field get_material reaction_product_itemst.T_get_material
----@field item_str string
----@field material_str string
+---@field item_str string[]
+---@field material_str string[]
 
 ---@class _reaction_product_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -262,7 +250,7 @@ df.reaction_product_improvement_flags = {}
 ---@field probability number
 ---@field flags any
 ---@field get_material reaction_product_item_improvementst.T_get_material
----@field material_str string
+---@field material_str string[]
 ---@field unk_v4201_2 string
 
 ---@class _reaction_product_item_improvementst: DFCompound

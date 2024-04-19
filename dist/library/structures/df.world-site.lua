@@ -25,7 +25,7 @@ df.scribejob = {}
 ---@field unk_2 number
 ---@field year number
 ---@field tickmaybe number
----@field unk_3 number
+---@field unk_3 number[]
 
 ---@class _site_reputation_report: DFCompound
 ---@field _kind 'struct-type'
@@ -180,57 +180,30 @@ df.abstract_building_entombed = {}
 ---@field _kind 'struct-type'
 df.abstract_building_contents = {}
 
----@alias _abstract_building_contents.T_need_more_keys
----| 0 # goblets
----| 1 # instruments
----| 2 # paper
----| 3
----| 4 # splints
----| 5 # thread
----| 6 # cloth
----| 7 # crutches
----| 8 # powder
----| 9 # buckets
----| 10 # soap
-
----@alias _abstract_building_contents.T_need_more_values
----| "goblets" # 0
----| "instruments" # 1
----| "paper" # 2
----| "splints" # 4
----| "thread" # 5
----| "cloth" # 6
----| "crutches" # 7
----| "powder" # 8
----| "buckets" # 9
----| "soap" # 10
-
----@class abstract_building_contents.T_need_more: DFObject, { [_abstract_building_contents.T_need_more_keys|_abstract_building_contents.T_need_more_values]: boolean }
+---@class abstract_building_contents.T_need_more: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _abstract_building_contents.T_need_more
-local abstract_building_contents_need_more = {
-  goblets = false,
-  [0] = false,
-  instruments = false,
-  [1] = false,
-  paper = false,
-  [2] = false,
-  [3] = false,
-  splints = false,
-  [4] = false,
-  thread = false,
-  [5] = false,
-  cloth = false,
-  [6] = false,
-  crutches = false,
-  [7] = false,
-  powder = false,
-  [8] = false,
-  buckets = false,
-  [9] = false,
-  soap = false,
-  [10] = false,
-}
+---@field goblets boolean
+---@field [0] boolean
+---@field instruments boolean
+---@field [1] boolean
+---@field paper boolean
+---@field [2] boolean
+---@field [3] boolean
+---@field splints boolean
+---@field [4] boolean
+---@field thread boolean
+---@field [5] boolean
+---@field cloth boolean
+---@field [6] boolean
+---@field crutches boolean
+---@field [7] boolean
+---@field powder boolean
+---@field [8] boolean
+---@field buckets boolean
+---@field [9] boolean
+---@field soap boolean
+---@field [10] boolean
 
 ---@class _abstract_building_contents.T_need_more: DFBitfield
 ---@field goblets 0
@@ -643,19 +616,11 @@ df.site_first_calc_special_itemsst = {}
 ---@field _kind 'struct-type'
 df.site_cropst = {}
 
----@alias _site_cropst.T_flag_keys
----| 0 # has_growths
-
----@alias _site_cropst.T_flag_values
----| "has_growths" # 0
-
----@class site_cropst.T_flag: DFObject, { [_site_cropst.T_flag_keys|_site_cropst.T_flag_values]: boolean }
+---@class site_cropst.T_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _site_cropst.T_flag
-local site_cropst_flag = {
-  has_growths = false,
-  [0] = false,
-}
+---@field has_growths boolean
+---@field [0] boolean
 
 ---@class _site_cropst.T_flag: DFBitfield
 ---@field has_growths 0
@@ -701,7 +666,7 @@ df.site_religious_structurest.T_data = {}
 ---@class (exact) site_religious_structure_batchst: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_religious_structure_batchst
----@field rstruct site_religious_structurest
+---@field rstruct site_religious_structurest[]
 ---@field rstructnum number
 
 ---@class _site_religious_structure_batchst: DFCompound
@@ -1022,7 +987,7 @@ df.wg_site_culturest = {}
 ---@field added_size number Subset of caves can have non zero.
 ---@field infrastructure_pop_level number Monument 0, LairShrine 5, Camp 20, others varying
 ---@field base_infrastructure_pop_level number  "site_level" is in here somewhere. Same as for unk_124, but varying ones always less/equal
----@field infrastructure number Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
+---@field infrastructure number[] Has all zero for Fortress, Camp, PlayerFortress, Monument, and LairShrine. Cave can have value, while DarkFortress, MountainHalls, ForestRetreat and Town all have at least one non zero value
 ---@field small_crop any MountainHall, Town, DarkFortress, but not all
 ---@field orchard any forest retreat
 ---@field culture_infrastructure site_culture_infrastructurest
@@ -1103,8 +1068,8 @@ function df.world_site.get_vector() end
 ---@field site_id number References: `world_site`
 ---@field civ_id number References: `historical_entity`
 ---@field group_log any the circumstances of groups joining or leaving this culture
----@field ethic any
----@field values number
+---@field ethic DFEnumVector<ethic_type, ethic_response>
+---@field values DFEnumVector<value_type, number>
 ---@field events any
 ---@field unk_d8 number
 ---@field unk_dc number
@@ -1154,53 +1119,53 @@ df.world_site_inhabitant = {}
 ---@field num_buildings number
 ---@field unk_14 number
 ---@field num_areas number
----@field mini_rivers any
----@field mini_tiles any
----@field mini_colors any
----@field road_map any 2601 = 51*51 = 17*3*17*3
----@field river_map any
----@field unk_55e8 any
----@field building_map any
----@field flags_map any
----@field zoom_tiles any
----@field zoom_colors any
----@field zoom_movemask any
----@field area_map any 2704 = 52*52
+---@field mini_rivers number[][]
+---@field mini_tiles integer[][]
+---@field mini_colors number[][]
+---@field road_map site_realization_crossroads[][] 2601 = 51*51 = 17*3*17*3
+---@field river_map any[][]
+---@field unk_55e8 world_site_realization.T_unk_55e8[][]
+---@field building_map world_site_realization.T_building_map[][]
+---@field flags_map integer[][]
+---@field zoom_tiles integer[][]
+---@field zoom_colors number[][]
+---@field zoom_movemask number[][]
+---@field area_map number[][] 2704 = 52*52
 ---@field areas any
 ---@field unk_1 number
 ---@field army_controller_pos_x number
 ---@field army_controller_pos_y number
----@field unk_193bc any
+---@field unk_193bc world_site_realization.T_unk_193bc[]
 ---@field num_unk_193bc number
 ---@field unk_2 number
 ---@field unk_3 number
----@field unk_4 any
+---@field unk_4 number[][]
 ---@field unk_5 number
----@field unk_6 pointer
+---@field unk_6 pointer[]
 ---@field unk_7 number
----@field unk_8 pointer
+---@field unk_8 pointer[]
 ---@field unk_9 number
----@field unk_10 pointer
+---@field unk_10 pointer[]
 ---@field unk_11 number
----@field unk_12 pointer
+---@field unk_12 pointer[]
 ---@field unk_13 number
----@field unk_15 pointer
+---@field unk_15 pointer[]
 ---@field unk_16 number
----@field unk_17 pointer
+---@field unk_17 pointer[]
 ---@field unk_18 number
----@field unk_19 pointer
+---@field unk_19 pointer[]
 ---@field unk_20 number
----@field unk_21 pointer
+---@field unk_21 pointer[]
 ---@field unk_22 number
----@field building_well any
+---@field building_well site_realization_building[]
 ---@field num_building_well number
----@field building_temple any
+---@field building_temple site_realization_building[]
 ---@field num_building_temple number
----@field building_type22 any
+---@field building_type22 site_realization_building[]
 ---@field num_building_type22 number
----@field building_type21 any
+---@field building_type21 site_realization_building[]
 ---@field num_building_type21 number
----@field unk_23 pointer
+---@field unk_23 pointer[]
 ---@field unk_24 number
 ---@field unk_wsr_vector any
 
@@ -1208,13 +1173,103 @@ df.world_site_inhabitant = {}
 ---@field _kind 'struct-type'
 df.world_site_realization = {}
 
+---@class (exact) world_site_realization.T_unk_55e8: DFObject
+---@field _kind 'struct'
+---@field _type _world_site_realization.T_unk_55e8
+---@field unk_55e8 number
+---@field unk_55ec number
+---@field unk_v40_1a number
+---@field unk_v40_1b number
+---@field unk_v40_1c number
+---@field unk_v40_1d number
+---@field unk_v40_2 any
+---@field unk_1 any
+---@field unk_55f0 number
+---@field unk_55f4 number
+---@field unk_55f8 number
+---@field unk_55fa number
+---@field unk_55fc number
+---@field unk_5600 number
+---@field unk_5604 number
+---@field unk_5608 number
+---@field unk_560c number
+---@field unk_5610 number
+---@field unk_5614 number
+---@field unk_5618 any
+---@field unk_5628 number
+---@field unk_562c number
+---@field unk_5630 number
+---@field unk_5634 number
+---@field unk_v40_3a number
+---@field unk_v40_3b number
+---@field unk_v40_3c number
+---@field unk_v40_3d number
+
+---@class _world_site_realization.T_unk_55e8: DFCompound
+---@field _kind 'struct-type'
+df.world_site_realization.T_unk_55e8 = {}
+
+---@class (exact) world_site_realization.T_building_map: DFObject
+---@field _kind 'struct'
+---@field _type _world_site_realization.T_building_map
+---@field unk0 number
+---@field buildings any
+---@field unk4 number
+---@field unk5 integer
+---@field unk6 number
+
+---@class _world_site_realization.T_building_map: DFCompound
+---@field _kind 'struct-type'
+df.world_site_realization.T_building_map = {}
+
+---@class (exact) world_site_realization.T_unk_193bc: DFObject
+---@field _kind 'struct'
+---@field _type _world_site_realization.T_unk_193bc
+---@field nemesis_id number References: `nemesis_record`
+---@field unk_1 number
+---@field unk_8 world_site_realization.T_unk_193bc.T_unk_8
+---@field unk_2 number
+---@field building_id number References: `site_realization_building`
+---@field pos coord
+---@field unk_3 number
+---@field unk_4 number
+---@field unk_5 number
+---@field unk_6 number
+---@field unk_7 number[]
+---@field unk_9 number[]
+---@field unk_10 number
+---@field unk_11 number
+---@field unk_12 number
+---@field unk_13 number
+
+---@class _world_site_realization.T_unk_193bc: DFCompound
+---@field _kind 'struct-type'
+df.world_site_realization.T_unk_193bc = {}
+
+---@class (exact) world_site_realization.T_unk_193bc.T_unk_8: DFObject
+---@field _kind 'struct'
+---@field _type _world_site_realization.T_unk_193bc.T_unk_8
+---@field unk_1 number
+---@field unk_2 number
+---@field unk_3 number
+---@field unk_4 number
+---@field unk_5 number
+---@field unk_6 number
+---@field unk_7 number
+---@field unk_8 number
+---@field unk_9 number
+
+---@class _world_site_realization.T_unk_193bc.T_unk_8: DFCompound
+---@field _kind 'struct-type'
+df.world_site_realization.T_unk_193bc.T_unk_8 = {}
+
 ---@class (exact) site_realization_crossroads: DFObject
 ---@field _kind 'struct'
 ---@field _type _site_realization_crossroads
----@field road_min_y number
----@field road_max_y number
----@field road_min_x number
----@field road_max_x number
+---@field road_min_y number[]
+---@field road_max_y number[]
+---@field road_min_x number[]
+---@field road_max_x number[]
 ---@field idx_x number
 ---@field idx_y number
 ---@field tile_width number
@@ -1244,8 +1299,8 @@ df.world_site_realization = {}
 ---@field unk_6 number
 ---@field unk_7 number
 ---@field unk_8 number
----@field unk_370 number
----@field unk_3d0 number
+---@field unk_370 number[]
+---@field unk_3d0 number[]
 
 ---@class _site_realization_crossroads: DFCompound
 ---@field _kind 'struct-type'
@@ -1395,35 +1450,19 @@ df.site_realization_building_infost = {}
 ---@field _kind 'struct-type'
 df.site_building_item = {}
 
----@alias _tower_shape_keys
----| 0 # round
----| 1 # hollow
----| 2 # keep
----| 3 # goblin
----| 4 # unk10
-
----@alias _tower_shape_values
----| "round" # 0
----| "hollow" # 1
----| "keep" # 2
----| "goblin" # 3
----| "unk10" # 4
-
----@class tower_shape: DFObject, { [_tower_shape_keys|_tower_shape_values]: boolean }
+---@class tower_shape: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _tower_shape
-local tower_shape = {
-  round = false,
-  [0] = false,
-  hollow = false, -- no internal floors or fortifications
-  [1] = false, -- no internal floors or fortifications
-  keep = false, -- fill with rooms at the bottom
-  [2] = false, -- fill with rooms at the bottom
-  goblin = false, -- ignore set heights and generate automatically
-  [3] = false, -- ignore set heights and generate automatically
-  unk10 = false, -- set on goblin towers. doesnt seem to do anything
-  [4] = false, -- set on goblin towers. doesnt seem to do anything
-}
+---@field round boolean
+---@field [0] boolean
+---@field hollow boolean no internal floors or fortifications
+---@field [1] boolean no internal floors or fortifications
+---@field keep boolean fill with rooms at the bottom
+---@field [2] boolean fill with rooms at the bottom
+---@field goblin boolean ignore set heights and generate automatically
+---@field [3] boolean ignore set heights and generate automatically
+---@field unk10 boolean set on goblin towers. doesnt seem to do anything
+---@field [4] boolean set on goblin towers. doesnt seem to do anything
 
 ---@class _tower_shape: DFBitfield
 ---@field round 0
@@ -1642,11 +1681,23 @@ df.site_realization_building_info_market_squarest = {}
 ---@field _kind 'struct'
 ---@field _type _site_realization_building_info_trenchesst
 ---@field unk_4 number
----@field spokes any N, S, E, W
+---@field spokes site_realization_building_info_trenchesst.T_spokes[] N, S, E, W
 
 ---@class _site_realization_building_info_trenchesst: DFCompound
 ---@field _kind 'class-type'
 df.site_realization_building_info_trenchesst = {}
+
+---@class (exact) site_realization_building_info_trenchesst.T_spokes: DFObject
+---@field _kind 'struct'
+---@field _type _site_realization_building_info_trenchesst.T_spokes
+---@field mound_min number -30000 = nothing here
+---@field trench_min number
+---@field trench_max number
+---@field mound_max number
+
+---@class _site_realization_building_info_trenchesst.T_spokes: DFCompound
+---@field _kind 'struct-type'
+df.site_realization_building_info_trenchesst.T_spokes = {}
 
 ---@alias tree_house_type
 ---| 0 # TreeHouse

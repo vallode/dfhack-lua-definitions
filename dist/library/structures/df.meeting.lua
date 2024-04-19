@@ -36,23 +36,13 @@ df.dipscript_text = {}
 ---@field _kind 'struct-type'
 df.dipscript_popup = {}
 
----@alias _dipscript_popup.T_flags_keys
----| 0 # close_screen
----| 1 # new_screen
-
----@alias _dipscript_popup.T_flags_values
----| "close_screen" # 0
----| "new_screen" # 1
-
----@class dipscript_popup.T_flags: DFObject, { [_dipscript_popup.T_flags_keys|_dipscript_popup.T_flags_values]: boolean }
+---@class dipscript_popup.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _dipscript_popup.T_flags
-local dipscript_popup_flags = {
-  close_screen = false,
-  [0] = false,
-  new_screen = false, -- bay12: DEAD
-  [1] = false, -- bay12: DEAD
-}
+---@field close_screen boolean
+---@field [0] boolean
+---@field new_screen boolean bay12: DEAD
+---@field [1] boolean bay12: DEAD
 
 ---@class _dipscript_popup.T_flags: DFBitfield
 ---@field close_screen 0
@@ -283,27 +273,15 @@ df.meeting_variable = {}
 ---@field _kind 'struct-type'
 df.meeting_diplomat_info = {}
 
----@alias _meeting_diplomat_info.T_flags_keys
----| 0 # dynamic_load
----| 1 # failure
----| 2 # success
-
----@alias _meeting_diplomat_info.T_flags_values
----| "dynamic_load" # 0
----| "failure" # 1
----| "success" # 2
-
----@class meeting_diplomat_info.T_flags: DFObject, { [_meeting_diplomat_info.T_flags_keys|_meeting_diplomat_info.T_flags_values]: boolean }
+---@class meeting_diplomat_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _meeting_diplomat_info.T_flags
-local meeting_diplomat_info_flags = {
-  dynamic_load = false, -- destroy dipscript_info in destructor
-  [0] = false, -- destroy dipscript_info in destructor
-  failure = false,
-  [1] = false,
-  success = false,
-  [2] = false,
-}
+---@field dynamic_load boolean destroy dipscript_info in destructor
+---@field [0] boolean destroy dipscript_info in destructor
+---@field failure boolean
+---@field [1] boolean
+---@field success boolean
+---@field [2] boolean
 
 ---@class _meeting_diplomat_info.T_flags: DFBitfield
 ---@field dynamic_load 0 destroy dipscript_info in destructor
@@ -407,35 +385,19 @@ df.meeting_event = {}
 ---@field _kind 'struct-type'
 df.activity_info = {}
 
----@alias _activity_info.T_flags_keys
----| 0 # next_step
----| 1 # checked_building
----| 2 # add_delay
----| 3 # topic_discussed
----| 4 # meeting_done
-
----@alias _activity_info.T_flags_values
----| "next_step" # 0
----| "checked_building" # 1
----| "add_delay" # 2
----| "topic_discussed" # 3
----| "meeting_done" # 4
-
----@class activity_info.T_flags: DFObject, { [_activity_info.T_flags_keys|_activity_info.T_flags_values]: boolean }
+---@class activity_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _activity_info.T_flags
-local activity_info_flags = {
-  next_step = false,
-  [0] = false,
-  checked_building = false, -- bay12: SITESEARCHED
-  [1] = false, -- bay12: SITESEARCHED
-  add_delay = false, -- bay12: ARRIVEDATSITE
-  [2] = false, -- bay12: ARRIVEDATSITE
-  topic_discussed = false, -- bay12: INITIALDISCUSS
-  [3] = false, -- bay12: INITIALDISCUSS
-  meeting_done = false, -- bay12: DISCUSSINGTOPIC
-  [4] = false, -- bay12: DISCUSSINGTOPIC
-}
+---@field next_step boolean
+---@field [0] boolean
+---@field checked_building boolean bay12: SITESEARCHED
+---@field [1] boolean bay12: SITESEARCHED
+---@field add_delay boolean bay12: ARRIVEDATSITE
+---@field [2] boolean bay12: ARRIVEDATSITE
+---@field topic_discussed boolean bay12: INITIALDISCUSS
+---@field [3] boolean bay12: INITIALDISCUSS
+---@field meeting_done boolean bay12: DISCUSSINGTOPIC
+---@field [4] boolean bay12: DISCUSSINGTOPIC
 
 ---@class _activity_info.T_flags: DFBitfield
 ---@field next_step 0
@@ -461,23 +423,13 @@ df.activity_info.T_flags = {}
 ---@field _kind 'struct-type'
 df.room_rent_info = {}
 
----@alias _room_rent_info.T_flags_keys
----| 0 # eviction_underway
----| 1 # move_underway
-
----@alias _room_rent_info.T_flags_values
----| "eviction_underway" # 0
----| "move_underway" # 1
-
----@class room_rent_info.T_flags: DFObject, { [_room_rent_info.T_flags_keys|_room_rent_info.T_flags_values]: boolean }
+---@class room_rent_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _room_rent_info.T_flags
-local room_rent_info_flags = {
-  eviction_underway = false,
-  [0] = false,
-  move_underway = false,
-  [1] = false,
-}
+---@field eviction_underway boolean
+---@field [0] boolean
+---@field move_underway boolean
+---@field [1] boolean
 
 ---@class _room_rent_info.T_flags: DFBitfield
 ---@field eviction_underway 0
@@ -709,23 +661,13 @@ df.activity_event_building_role_type = {}
 ---@field _kind 'class-type'
 df.activity_event = {}
 
----@alias _activity_event.T_flags_keys
----| 0 # dismissed
----| 1 # squad
-
----@alias _activity_event.T_flags_values
----| "dismissed" # 0
----| "squad" # 1
-
----@class activity_event.T_flags: DFObject, { [_activity_event.T_flags_keys|_activity_event.T_flags_values]: boolean }
+---@class activity_event.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _activity_event.T_flags
-local activity_event_flags = {
-  dismissed = false, -- bay12: DEAD; to be removed from squad_position, anyway
-  [0] = false, -- bay12: DEAD; to be removed from squad_position, anyway
-  squad = false, -- bay12: SQUAD; for all in training session, but not ind.drill
-  [1] = false, -- bay12: SQUAD; for all in training session, but not ind.drill
-}
+---@field dismissed boolean bay12: DEAD; to be removed from squad_position, anyway
+---@field [0] boolean bay12: DEAD; to be removed from squad_position, anyway
+---@field squad boolean bay12: SQUAD; for all in training session, but not ind.drill
+---@field [1] boolean bay12: SQUAD; for all in training session, but not ind.drill
 
 ---@class _activity_event.T_flags: DFBitfield
 ---@field dismissed 0 bay12: DEAD; to be removed from squad_position, anyway
@@ -972,7 +914,7 @@ df.conversation_menu = {}
 ---@field unk2 activity_event_conversationst.T_unk2
 ---@field choices any
 ---@field unk3 conversation_menu
----@field unk4 number uninitialized
+---@field unk4 number[] uninitialized
 
 ---@class _activity_event_conversationst: DFCompound
 ---@field _kind 'class-type'
@@ -991,21 +933,12 @@ df.activity_event_conversationst = {}
 ---@field _kind 'struct-type'
 df.activity_event_conversationst.T_unk_b4 = {}
 
----@alias _activity_event_conversationst.T_flags2_keys
----| 0
----| 1 # shouting
-
----@alias _activity_event_conversationst.T_flags2_values
----| "shouting" # 1
-
----@class activity_event_conversationst.T_flags2: DFObject, { [_activity_event_conversationst.T_flags2_keys|_activity_event_conversationst.T_flags2_values]: boolean }
+---@class activity_event_conversationst.T_flags2: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _activity_event_conversationst.T_flags2
-local activity_event_conversationst_flags2 = {
-  [0] = false,
-  shouting = false,
-  [1] = false,
-}
+---@field [0] boolean
+---@field shouting boolean
+---@field [1] boolean
 
 ---@class _activity_event_conversationst.T_flags2: DFBitfield
 ---@field shouting 1
@@ -1212,7 +1145,7 @@ df.performance_participant_type = {}
 ---@field unk_pos_2_z number
 ---@field play_orders any
 ---@field unk_11 number
----@field unk_12 number
+---@field unk_12 number[]
 ---@field unk_13 coord
 ---@field unk_16 number
 ---@field unk_17 number
@@ -1323,21 +1256,12 @@ df.activity_event_fill_service_orderst = {}
 ---@field _kind 'class-type'
 df.activity_event_writest = {}
 
----@alias _activity_event_writest.T_unk_1_keys
----| 0
----| 1
----| 2
-
----@alias _activity_event_writest.T_unk_1_values
-
----@class activity_event_writest.T_unk_1: DFObject, { [_activity_event_writest.T_unk_1_keys|_activity_event_writest.T_unk_1_values]: boolean }
+---@class activity_event_writest.T_unk_1: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _activity_event_writest.T_unk_1
-local activity_event_writest_unk_1 = {
-  [0] = false,
-  [1] = false,
-  [2] = false,
-}
+---@field [0] boolean
+---@field [1] boolean
+---@field [2] boolean
 
 ---@class _activity_event_writest.T_unk_1: DFBitfield
 df.activity_event_writest.T_unk_1 = {}
@@ -1367,37 +1291,20 @@ df.activity_event_writest.T_mode = {}
 ---@field _kind 'class-type'
 df.activity_event_copy_written_contentst = {}
 
----@alias _activity_event_copy_written_contentst.T_flagsmaybe_keys
----| 0 # unk0
----| 1
----| 2
----| 3
----| 4
----| 5
----| 6
----| 7
----| 8
----| 9
-
----@alias _activity_event_copy_written_contentst.T_flagsmaybe_values
----| "unk0" # 0
-
----@class activity_event_copy_written_contentst.T_flagsmaybe: DFObject, { [_activity_event_copy_written_contentst.T_flagsmaybe_keys|_activity_event_copy_written_contentst.T_flagsmaybe_values]: boolean }
+---@class activity_event_copy_written_contentst.T_flagsmaybe: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _activity_event_copy_written_contentst.T_flagsmaybe
-local activity_event_copy_written_contentst_flagsmaybe = {
-  unk0 = false,
-  [0] = false,
-  [1] = false,
-  [2] = false,
-  [3] = false,
-  [4] = false,
-  [5] = false,
-  [6] = false,
-  [7] = false,
-  [8] = false,
-  [9] = false,
-}
+---@field unk0 boolean
+---@field [0] boolean
+---@field [1] boolean
+---@field [2] boolean
+---@field [3] boolean
+---@field [4] boolean
+---@field [5] boolean
+---@field [6] boolean
+---@field [7] boolean
+---@field [8] boolean
+---@field [9] boolean
 
 ---@class _activity_event_copy_written_contentst.T_flagsmaybe: DFBitfield
 ---@field unk0 0
@@ -1427,7 +1334,7 @@ df.activity_event_teach_topicst = {}
 ---@field _type _activity_event_playst
 ---@field participants activity_event_participants
 ---@field unk_1 number
----@field unk_2 number
+---@field unk_2 number[]
 ---@field unk_3 coord
 
 ---@class _activity_event_playst: DFCompound
@@ -1441,7 +1348,7 @@ df.activity_event_playst = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
----@field unk_4 number
+---@field unk_4 number[]
 ---@field unk_5 coord
 
 ---@class _activity_event_make_believest: DFCompound
@@ -1466,7 +1373,7 @@ df.activity_event_play_with_toyst = {}
 ---@class (exact) activity_event_play_with_toyst.T_unk: DFObject
 ---@field _kind 'struct'
 ---@field _type _activity_event_play_with_toyst.T_unk
----@field unk_1 number
+---@field unk_1 number[]
 ---@field unk_2 coord
 
 ---@class _activity_event_play_with_toyst.T_unk: DFCompound

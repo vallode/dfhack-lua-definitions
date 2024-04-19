@@ -5,7 +5,7 @@
 ---@field _kind 'struct'
 ---@field _type _world_site_unk130
 ---@field index number
----@field unk_4 any
+---@field unk_4 any[]
 
 ---@class _world_site_unk130: DFCompound
 ---@field _kind 'struct-type'
@@ -91,31 +91,17 @@ df.world_population_ref = {}
 ---@field _kind 'struct-type'
 df.local_population = {}
 
----@alias _local_population.T_flags_keys
----| 0 # discovered
----| 1 # extinct
----| 2 # already_removed
----| 3 # unk3
-
----@alias _local_population.T_flags_values
----| "discovered" # 0
----| "extinct" # 1
----| "already_removed" # 2
----| "unk3" # 3
-
----@class local_population.T_flags: DFObject, { [_local_population.T_flags_keys|_local_population.T_flags_values]: boolean }
+---@class local_population.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _local_population.T_flags
-local local_population_flags = {
-  discovered = false,
-  [0] = false,
-  extinct = false, -- guessed, based on 23a
-  [1] = false, -- guessed, based on 23a
-  already_removed = false, -- no longer in world.populations
-  [2] = false, -- no longer in world.populations
-  unk3 = false, -- prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
-  [3] = false, -- prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
-}
+---@field discovered boolean
+---@field [0] boolean
+---@field extinct boolean guessed, based on 23a
+---@field [1] boolean guessed, based on 23a
+---@field already_removed boolean no longer in world.populations
+---@field [2] boolean no longer in world.populations
+---@field unk3 boolean prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
+---@field [3] boolean prevents it from showing up, related to world.unk_59dc4 (now area_grasses?)
 
 ---@class _local_population.T_flags: DFBitfield
 ---@field discovered 0
@@ -222,7 +208,7 @@ df.world_region_type = {}
 ---@field unk_a0 number
 ---@field unk_a4 number
 ---@field population any
----@field biome_tile_counts any
+---@field biome_tile_counts DFEnumVector<biome_type, number>
 ---@field tree_biomes any
 ---@field tree_tiles_1 any
 ---@field tree_tiles_2 any
@@ -410,11 +396,11 @@ function df.world_geo_biome.get_vector() end
 ---@field region_tile_idx number
 ---@field min_z number
 ---@field max_z number
----@field unk_c coord2d
+---@field unk_c coord2d[]
 ---@field unk_28 number
 ---@field seed integer looks random
 ---@field unk_30 any
----@field unk_38 number
+---@field unk_38 number[]
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 
 ---@class _world_region_feature: DFCompound
@@ -424,9 +410,9 @@ df.world_region_feature = {}
 ---@class (exact) world_region_details: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details
----@field biome any biome field reference:<br>789<br>456<br>123<br>as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
----@field elevation any
----@field seed any looks random
+---@field biome number[][] biome field reference:<br>789<br>456<br>123<br>as directions, with 5 = own world tile, 1 = SW, 9 = NE, etc.
+---@field elevation number[][]
+---@field seed integer[][] looks random
 ---@field edges world_region_details.T_edges
 ---@field pos coord2d
 ---@field unk12e8 number
@@ -436,12 +422,12 @@ df.world_region_feature = {}
 ---@field unk_4 number
 ---@field rivers_vertical world_region_details.T_rivers_vertical
 ---@field rivers_horizontal world_region_details.T_rivers_horizontal
----@field other_features any
----@field features any
+---@field other_features world_region_details.T_other_features.T_flags[][]
+---@field features any[][]
 ---@field lava_stone number References: `inorganic_raw`
----@field unk_12 number Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
----@field elevation2 any
----@field undef13 number
+---@field unk_12 number[] Might it be 256 * 9 int8_t, i.e. 1 per 16*16 block?. Never seen other than -1, though
+---@field elevation2 number[][]
+---@field undef13 number[]
 
 ---@class _world_region_details: DFCompound
 ---@field _kind 'struct-type'
@@ -451,11 +437,11 @@ df.world_region_details = {}
 ---@class (exact) world_region_details.T_edges: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_edges
----@field split_x any splits for horizontal edges, x=min y=max
----@field split_y any splits for vertical edges, x=min y=max
----@field biome_corner any All 4 corners touching get the same reference (which determines the biome),<br>i.e. SE corner of the tile to the NW, SW corner of the tile to the<br>N, NE corner of the tile to the W, and the NW corner of the current<br>tile, as directed by the biome_corner value.
----@field biome_x any 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
----@field biome_y any 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
+---@field split_x coord2d[][] splits for horizontal edges, x=min y=max
+---@field split_y coord2d[][] splits for vertical edges, x=min y=max
+---@field biome_corner number[][] All 4 corners touching get the same reference (which determines the biome),<br>i.e. SE corner of the tile to the NW, SW corner of the tile to the<br>N, NE corner of the tile to the W, and the NW corner of the current<br>tile, as directed by the biome_corner value.
+---@field biome_x number[][] 0=Reference is N, 1=Reference is current tile (adopted by S edge to the N)
+---@field biome_y number[][] 0=Reference is W, 1=Reference is current tile (Adopted by E edge to the W)
 
 ---@class _world_region_details.T_edges: DFCompound
 ---@field _kind 'struct-type'
@@ -465,10 +451,10 @@ df.world_region_details.T_edges = {}
 ---@class (exact) world_region_details.T_rivers_vertical: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_vertical
----@field x_min any
----@field x_max any
----@field active any
----@field elevation any
+---@field x_min number[][]
+---@field x_max number[][]
+---@field active number[][]
+---@field elevation number[][]
 
 ---@class _world_region_details.T_rivers_vertical: DFCompound
 ---@field _kind 'struct-type'
@@ -477,14 +463,33 @@ df.world_region_details.T_rivers_vertical = {}
 ---@class (exact) world_region_details.T_rivers_horizontal: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_region_details.T_rivers_horizontal
----@field y_min any
----@field y_max any
----@field active any
----@field elevation any
+---@field y_min number[][]
+---@field y_max number[][]
+---@field active number[][]
+---@field elevation number[][]
 
 ---@class _world_region_details.T_rivers_horizontal: DFCompound
 ---@field _kind 'struct-type'
 df.world_region_details.T_rivers_horizontal = {}
+
+---@class world_region_details.T_other_features.T_flags: DFObject
+---@field _kind 'bitfield'
+---@field _enum _world_region_details.T_other_features.T_flags
+---@field construction boolean the MLTs of world_data.constructions.all
+---@field [0] boolean the MLTs of world_data.constructions.all
+---@field minor_site_footprint boolean MLTs with sites other than MountainHall, DarkFortress, ForestRetreat, Town
+---@field [1] boolean MLTs with sites other than MountainHall, DarkFortress, ForestRetreat, Town
+---@field river boolean Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
+---@field [2] boolean Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
+
+---@class _world_region_details.T_other_features.T_flags: DFBitfield
+---@field construction 0 the MLTs of world_data.constructions.all
+---@field [0] "construction" the MLTs of world_data.constructions.all
+---@field minor_site_footprint 1 MLTs with sites other than MountainHall, DarkFortress, ForestRetreat, Town
+---@field [1] "minor_site_footprint" MLTs with sites other than MountainHall, DarkFortress, ForestRetreat, Town
+---@field river 2 Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
+---@field [2] "river" Only a very small subset (selection criteria unknown), but the MLTs marked match up with Rivers* tiles plus implicit River tiles interpolated from that
+df.world_region_details.T_other_features.T_flags = {}
 
 ---@alias region_map_entry_flags
 ---| 0 # has_river
@@ -631,39 +636,21 @@ df.fog_type = {}
 ---@field _kind 'struct-type'
 df.region_map_entry = {}
 
----@alias _region_map_entry.T_clouds_keys
----| 0 # front
----| 2 # cumulus
----| 4 # cirrus
----| 5 # stratus
----| 7 # fog
----| 9 # countdown
-
----@alias _region_map_entry.T_clouds_values
----| "front" # 0
----| "cumulus" # 2
----| "cirrus" # 4
----| "stratus" # 5
----| "fog" # 7
----| "countdown" # 9
-
----@class region_map_entry.T_clouds: DFObject, { [_region_map_entry.T_clouds_keys|_region_map_entry.T_clouds_values]: boolean }
+---@class region_map_entry.T_clouds: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _region_map_entry.T_clouds
-local region_map_entry_clouds = {
-  front = false,
-  [0] = false,
-  cumulus = false,
-  [2] = false,
-  cirrus = false,
-  [4] = false,
-  stratus = false,
-  [5] = false,
-  fog = false,
-  [7] = false,
-  countdown = false, -- A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
-  [9] = false, -- A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
-}
+---@field front boolean
+---@field [0] boolean
+---@field cumulus boolean
+---@field [2] boolean
+---@field cirrus boolean
+---@field [4] boolean
+---@field stratus boolean
+---@field [5] boolean
+---@field fog boolean
+---@field [7] boolean
+---@field countdown boolean A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
+---@field [9] boolean A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 
 ---@class _region_map_entry.T_clouds: DFBitfield
 ---@field front 0
@@ -680,47 +667,25 @@ local region_map_entry_clouds = {
 ---@field [9] "countdown" A counter for stratus clouds that randomly decreases by 1 or 0 each timer weather is checked there. it does various stratus/fog effects based on the humidity/breezes/etc.
 df.region_map_entry.T_clouds = {}
 
----@alias _region_map_entry.T_wind_keys
----| 0 # north_1
----| 1 # south_1
----| 2 # east_1
----| 3 # west_1
----| 4 # north_2
----| 5 # south_2
----| 6 # east_2
----| 7 # west_2
-
----@alias _region_map_entry.T_wind_values
----| "north_1" # 0
----| "south_1" # 1
----| "east_1" # 2
----| "west_1" # 3
----| "north_2" # 4
----| "south_2" # 5
----| "east_2" # 6
----| "west_2" # 7
-
----@class region_map_entry.T_wind: DFObject, { [_region_map_entry.T_wind_keys|_region_map_entry.T_wind_values]: boolean }
+---@class region_map_entry.T_wind: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _region_map_entry.T_wind
-local region_map_entry_wind = {
-  north_1 = false,
-  [0] = false,
-  south_1 = false,
-  [1] = false,
-  east_1 = false,
-  [2] = false,
-  west_1 = false,
-  [3] = false,
-  north_2 = false,
-  [4] = false,
-  south_2 = false,
-  [5] = false,
-  east_2 = false,
-  [6] = false,
-  west_2 = false,
-  [7] = false,
-}
+---@field north_1 boolean
+---@field [0] boolean
+---@field south_1 boolean
+---@field [1] boolean
+---@field east_1 boolean
+---@field [2] boolean
+---@field west_1 boolean
+---@field [3] boolean
+---@field north_2 boolean
+---@field [4] boolean
+---@field south_2 boolean
+---@field [5] boolean
+---@field east_2 boolean
+---@field [6] boolean
+---@field west_2 boolean
+---@field [7] boolean
 
 ---@class _region_map_entry.T_wind: DFBitfield
 ---@field north_1 0
@@ -870,7 +835,7 @@ function df.world_mountain_peak.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _world_data
 ---@field name language_name name of the world
----@field unk1 number
+---@field unk1 number[]
 ---@field next_site_id number
 ---@field next_site_unk130_id number
 ---@field next_resource_allotment_id number
@@ -1008,7 +973,7 @@ df.world_data.T_constructions = {}
 ---@class (exact) world_data.T_unk_482f8: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_data.T_unk_482f8
----@field unk_1 number
+---@field unk_1 number[]
 ---@field unk_2 number
 ---@field unk_3 number
 ---@field unk_4 number

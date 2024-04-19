@@ -1,139 +1,71 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias _item_flags_keys
----| 0 # on_ground
----| 1 # in_job
----| 2 # hostile
----| 3 # in_inventory
----| 4 # removed
----| 5 # in_building
----| 6 # container
----| 7 # dead_dwarf
----| 8 # rotten
----| 9 # spider_web
----| 10 # construction
----| 11 # encased
----| 12
----| 13 # murder
----| 14 # foreign
----| 15 # trader
----| 16 # owned
----| 17 # garbage_collect
----| 18 # artifact
----| 19 # forbid
----| 20 # already_uncategorized
----| 21 # dump
----| 22 # on_fire
----| 23 # melt
----| 24 # hidden
----| 25
----| 26 # use_recorded
----| 27 # artifact_mood
----| 28 # temps_computed
----| 29 # weight_computed
----| 30 # top_open
----| 31 # from_worldgen
-
----@alias _item_flags_values
----| "on_ground" # 0
----| "in_job" # 1
----| "hostile" # 2
----| "in_inventory" # 3
----| "removed" # 4
----| "in_building" # 5
----| "container" # 6
----| "dead_dwarf" # 7
----| "rotten" # 8
----| "spider_web" # 9
----| "construction" # 10
----| "encased" # 11
----| "murder" # 13
----| "foreign" # 14
----| "trader" # 15
----| "owned" # 16
----| "garbage_collect" # 17
----| "artifact" # 18
----| "forbid" # 19
----| "already_uncategorized" # 20
----| "dump" # 21
----| "on_fire" # 22
----| "melt" # 23
----| "hidden" # 24
----| "use_recorded" # 26
----| "artifact_mood" # 27
----| "temps_computed" # 28
----| "weight_computed" # 29
----| "top_open" # 30
----| "from_worldgen" # 31
-
----@class item_flags: DFObject, { [_item_flags_keys|_item_flags_values]: boolean }
+---@class item_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_flags
-local item_flags = {
-  on_ground = false, -- Item on ground
-  [0] = false, -- Item on ground
-  in_job = false, -- Item currently being used in a job
-  [1] = false, -- Item currently being used in a job
-  hostile = false, -- Item owned by hostile
-  [2] = false, -- Item owned by hostile
-  in_inventory = false, -- Item in a creature, workshop or container inventory
-  [3] = false, -- Item in a creature, workshop or container inventory
-  removed = false, -- completely invisible and with no position
-  [4] = false, -- completely invisible and with no position
-  in_building = false, -- Part of a building (including mechanisms, bodies in coffins)
-  [5] = false, -- Part of a building (including mechanisms, bodies in coffins)
-  container = false, -- Set on anything that contains or contained items?
-  [6] = false, -- Set on anything that contains or contained items?
-  dead_dwarf = false, -- Dwarfs dead body or body part
-  [7] = false, -- Dwarfs dead body or body part
-  rotten = false, -- Rotten food
-  [8] = false, -- Rotten food
-  spider_web = false, -- Thread in spider web
-  [9] = false, -- Thread in spider web
-  construction = false, -- Material used in construction
-  [10] = false, -- Material used in construction
-  encased = false, -- Item encased in ice or obsidian
-  [11] = false, -- Item encased in ice or obsidian
-  [12] = false, -- unused
-  murder = false, -- Implies murder - used in fell moods
-  [13] = false, -- Implies murder - used in fell moods
-  foreign = false, -- Item is imported
-  [14] = false, -- Item is imported
-  trader = false, -- Item ownwed by trader
-  [15] = false, -- Item ownwed by trader
-  owned = false, -- Item is owned by a dwarf
-  [16] = false, -- Item is owned by a dwarf
-  garbage_collect = false, -- Marked for deallocation by DF it seems
-  [17] = false, -- Marked for deallocation by DF it seems
-  artifact = false, -- Artifact
-  [18] = false, -- Artifact
-  forbid = false, -- Forbidden item
-  [19] = false, -- Forbidden item
-  already_uncategorized = false, -- bay12: NONGLOBAL_DELETE
-  [20] = false, -- bay12: NONGLOBAL_DELETE
-  dump = false, -- Designated for dumping
-  [21] = false, -- Designated for dumping
-  on_fire = false, -- Indicates if item is on fire, Will Set Item On Fire if Set!
-  [22] = false, -- Indicates if item is on fire, Will Set Item On Fire if Set!
-  melt = false, -- Designated for melting, if applicable
-  [23] = false, -- Designated for melting, if applicable
-  hidden = false, -- Hidden item
-  [24] = false, -- Hidden item
-  [25] = false, -- unused
-  use_recorded = false, -- transient in unit.used_items update
-  [26] = false, -- transient in unit.used_items update
-  artifact_mood = false, -- created by mood/named existing item
-  [27] = false, -- created by mood/named existing item
-  temps_computed = false, -- melting/boiling/ignite/etc. points
-  [28] = false, -- melting/boiling/ignite/etc. points
-  weight_computed = false,
-  [29] = false,
-  top_open = false,
-  [30] = false,
-  from_worldgen = false, -- bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
-  [31] = false, -- bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
-}
+---@field on_ground boolean Item on ground
+---@field [0] boolean Item on ground
+---@field in_job boolean Item currently being used in a job
+---@field [1] boolean Item currently being used in a job
+---@field hostile boolean Item owned by hostile
+---@field [2] boolean Item owned by hostile
+---@field in_inventory boolean Item in a creature, workshop or container inventory
+---@field [3] boolean Item in a creature, workshop or container inventory
+---@field removed boolean completely invisible and with no position
+---@field [4] boolean completely invisible and with no position
+---@field in_building boolean Part of a building (including mechanisms, bodies in coffins)
+---@field [5] boolean Part of a building (including mechanisms, bodies in coffins)
+---@field container boolean Set on anything that contains or contained items?
+---@field [6] boolean Set on anything that contains or contained items?
+---@field dead_dwarf boolean Dwarfs dead body or body part
+---@field [7] boolean Dwarfs dead body or body part
+---@field rotten boolean Rotten food
+---@field [8] boolean Rotten food
+---@field spider_web boolean Thread in spider web
+---@field [9] boolean Thread in spider web
+---@field construction boolean Material used in construction
+---@field [10] boolean Material used in construction
+---@field encased boolean Item encased in ice or obsidian
+---@field [11] boolean Item encased in ice or obsidian
+---@field [12] boolean unused
+---@field murder boolean Implies murder - used in fell moods
+---@field [13] boolean Implies murder - used in fell moods
+---@field foreign boolean Item is imported
+---@field [14] boolean Item is imported
+---@field trader boolean Item ownwed by trader
+---@field [15] boolean Item ownwed by trader
+---@field owned boolean Item is owned by a dwarf
+---@field [16] boolean Item is owned by a dwarf
+---@field garbage_collect boolean Marked for deallocation by DF it seems
+---@field [17] boolean Marked for deallocation by DF it seems
+---@field artifact boolean Artifact
+---@field [18] boolean Artifact
+---@field forbid boolean Forbidden item
+---@field [19] boolean Forbidden item
+---@field already_uncategorized boolean bay12: NONGLOBAL_DELETE
+---@field [20] boolean bay12: NONGLOBAL_DELETE
+---@field dump boolean Designated for dumping
+---@field [21] boolean Designated for dumping
+---@field on_fire boolean Indicates if item is on fire, Will Set Item On Fire if Set!
+---@field [22] boolean Indicates if item is on fire, Will Set Item On Fire if Set!
+---@field melt boolean Designated for melting, if applicable
+---@field [23] boolean Designated for melting, if applicable
+---@field hidden boolean Hidden item
+---@field [24] boolean Hidden item
+---@field [25] boolean unused
+---@field use_recorded boolean transient in unit.used_items update
+---@field [26] boolean transient in unit.used_items update
+---@field artifact_mood boolean created by mood/named existing item
+---@field [27] boolean created by mood/named existing item
+---@field temps_computed boolean melting/boiling/ignite/etc. points
+---@field [28] boolean melting/boiling/ignite/etc. points
+---@field weight_computed boolean
+---@field [29] boolean
+---@field top_open boolean
+---@field [30] boolean
+---@field from_worldgen boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
+---@field [31] boolean bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 
 ---@class _item_flags: DFBitfield
 ---@field on_ground 0 Item on ground
@@ -198,39 +130,21 @@ local item_flags = {
 ---@field [31] "from_worldgen" bay12: DO_NOT_RETAIN_IN_CREATION_ZONE
 df.item_flags = {}
 
----@alias _item_flags2_keys
----| 0 # has_rider
----| 1 # forbid_on_unretire
----| 2 # grown
----| 3 # location_reserved
----| 4 # utterly_destroyed
----| 5 # might_contain_artifact
-
----@alias _item_flags2_values
----| "has_rider" # 0
----| "forbid_on_unretire" # 1
----| "grown" # 2
----| "location_reserved" # 3
----| "utterly_destroyed" # 4
----| "might_contain_artifact" # 5
-
----@class item_flags2: DFObject, { [_item_flags2_keys|_item_flags2_values]: boolean }
+---@class item_flags2: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_flags2
-local item_flags2 = {
-  has_rider = false, -- vehicle with a rider
-  [0] = false, -- vehicle with a rider
-  forbid_on_unretire = false,
-  [1] = false,
-  grown = false,
-  [2] = false,
-  location_reserved = false, -- possibly book/written-content-related
-  [3] = false, -- possibly book/written-content-related
-  utterly_destroyed = false,
-  [4] = false,
-  might_contain_artifact = false,
-  [5] = false,
-}
+---@field has_rider boolean vehicle with a rider
+---@field [0] boolean vehicle with a rider
+---@field forbid_on_unretire boolean
+---@field [1] boolean
+---@field grown boolean
+---@field [2] boolean
+---@field location_reserved boolean possibly book/written-content-related
+---@field [3] boolean possibly book/written-content-related
+---@field utterly_destroyed boolean
+---@field [4] boolean
+---@field might_contain_artifact boolean
+---@field [5] boolean
 
 ---@class _item_flags2: DFBitfield
 ---@field has_rider 0 vehicle with a rider
@@ -315,19 +229,11 @@ df.temperaturest = {}
 ---@field _kind 'struct-type'
 df.spatter_common = {}
 
----@alias _spatter_common.T_base_flags_keys
----| 0 # evaporates
-
----@alias _spatter_common.T_base_flags_values
----| "evaporates" # 0
-
----@class spatter_common.T_base_flags: DFObject, { [_spatter_common.T_base_flags_keys|_spatter_common.T_base_flags_values]: boolean }
+---@class spatter_common.T_base_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _spatter_common.T_base_flags
-local spatter_common_base_flags = {
-  evaporates = false, -- does not contaminate tile when washed away
-  [0] = false, -- does not contaminate tile when washed away
-}
+---@field evaporates boolean does not contaminate tile when washed away
+---@field [0] boolean does not contaminate tile when washed away
 
 ---@class _spatter_common.T_base_flags: DFBitfield
 ---@field evaporates 0 does not contaminate tile when washed away
@@ -344,19 +250,11 @@ df.spatter_common.T_base_flags = {}
 ---@field _kind 'struct-type'
 df.spatter = {}
 
----@alias _spatter.T_flags_keys
----| 0 # water_soluble
-
----@alias _spatter.T_flags_values
----| "water_soluble" # 0
-
----@class spatter.T_flags: DFObject, { [_spatter.T_flags_keys|_spatter.T_flags_values]: boolean }
+---@class spatter.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _spatter.T_flags
-local spatter_flags = {
-  water_soluble = false,
-  [0] = false,
-}
+---@field water_soluble boolean
+---@field [0] boolean
 
 ---@class _spatter.T_flags: DFBitfield
 ---@field water_soluble 0
@@ -644,103 +542,53 @@ df.item_crafted = {}
 ---@field _kind 'class-type'
 df.item_constructed = {}
 
----@alias _body_part_status_keys
----| 0 # on_fire
----| 1 # missing
----| 2 # organ_loss
----| 3 # organ_damage
----| 4 # muscle_loss
----| 5 # muscle_damage
----| 6 # bone_loss
----| 7 # bone_damage
----| 8 # skin_damage
----| 9 # motor_nerve_severed
----| 10 # sensory_nerve_severed
----| 11 # spilled_guts
----| 12 # has_splint
----| 13 # has_bandage
----| 14 # has_plaster_cast
----| 15 # grime
----| 18 # severed_or_jammed
----| 19 # under_shell
----| 20 # is_shell
----| 21 # mangled
----| 22 # unk20
----| 23 # gelded
-
----@alias _body_part_status_values
----| "on_fire" # 0
----| "missing" # 1
----| "organ_loss" # 2
----| "organ_damage" # 3
----| "muscle_loss" # 4
----| "muscle_damage" # 5
----| "bone_loss" # 6
----| "bone_damage" # 7
----| "skin_damage" # 8
----| "motor_nerve_severed" # 9
----| "sensory_nerve_severed" # 10
----| "spilled_guts" # 11
----| "has_splint" # 12
----| "has_bandage" # 13
----| "has_plaster_cast" # 14
----| "grime" # 15
----| "severed_or_jammed" # 18
----| "under_shell" # 19
----| "is_shell" # 20
----| "mangled" # 21
----| "unk20" # 22
----| "gelded" # 23
-
----@class body_part_status: DFObject, { [_body_part_status_keys|_body_part_status_values]: boolean }
+---@class body_part_status: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _body_part_status
-local body_part_status = {
-  on_fire = false,
-  [0] = false,
-  missing = false,
-  [1] = false,
-  organ_loss = false, -- cyan
-  [2] = false, -- cyan
-  organ_damage = false, -- yellow
-  [3] = false, -- yellow
-  muscle_loss = false, -- red
-  [4] = false, -- red
-  muscle_damage = false, -- yellow
-  [5] = false, -- yellow
-  bone_loss = false, -- red
-  [6] = false, -- red
-  bone_damage = false, -- yellow
-  [7] = false, -- yellow
-  skin_damage = false, -- brown
-  [8] = false, -- brown
-  motor_nerve_severed = false,
-  [9] = false,
-  sensory_nerve_severed = false,
-  [10] = false,
-  spilled_guts = false,
-  [11] = false,
-  has_splint = false,
-  [12] = false,
-  has_bandage = false,
-  [13] = false,
-  has_plaster_cast = false,
-  [14] = false,
-  grime = false,
-  [15] = false,
-  severed_or_jammed = false, -- seen e.g. on ribs smashed by blunt attack, but quickly disappeared
-  [18] = false, -- seen e.g. on ribs smashed by blunt attack, but quickly disappeared
-  under_shell = false,
-  [19] = false,
-  is_shell = false,
-  [20] = false,
-  mangled = false, -- a wounded body part is described as being mangled beyond recognition when this flag is set
-  [21] = false, -- a wounded body part is described as being mangled beyond recognition when this flag is set
-  unk20 = false, -- on zombified head
-  [22] = false, -- on zombified head
-  gelded = false, -- set on GELDABLE body parts after a unit has been gelded
-  [23] = false, -- set on GELDABLE body parts after a unit has been gelded
-}
+---@field on_fire boolean
+---@field [0] boolean
+---@field missing boolean
+---@field [1] boolean
+---@field organ_loss boolean cyan
+---@field [2] boolean cyan
+---@field organ_damage boolean yellow
+---@field [3] boolean yellow
+---@field muscle_loss boolean red
+---@field [4] boolean red
+---@field muscle_damage boolean yellow
+---@field [5] boolean yellow
+---@field bone_loss boolean red
+---@field [6] boolean red
+---@field bone_damage boolean yellow
+---@field [7] boolean yellow
+---@field skin_damage boolean brown
+---@field [8] boolean brown
+---@field motor_nerve_severed boolean
+---@field [9] boolean
+---@field sensory_nerve_severed boolean
+---@field [10] boolean
+---@field spilled_guts boolean
+---@field [11] boolean
+---@field has_splint boolean
+---@field [12] boolean
+---@field has_bandage boolean
+---@field [13] boolean
+---@field has_plaster_cast boolean
+---@field [14] boolean
+---@field grime boolean
+---@field [15] boolean
+---@field severed_or_jammed boolean seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field [18] boolean seen e.g. on ribs smashed by blunt attack, but quickly disappeared
+---@field under_shell boolean
+---@field [19] boolean
+---@field is_shell boolean
+---@field [20] boolean
+---@field mangled boolean a wounded body part is described as being mangled beyond recognition when this flag is set
+---@field [21] boolean a wounded body part is described as being mangled beyond recognition when this flag is set
+---@field unk20 boolean on zombified head
+---@field [22] boolean on zombified head
+---@field gelded boolean set on GELDABLE body parts after a unit has been gelded
+---@field [23] boolean set on GELDABLE body parts after a unit has been gelded
 
 ---@class _body_part_status: DFBitfield
 ---@field on_fire 0
@@ -789,23 +637,13 @@ local body_part_status = {
 ---@field [23] "gelded" set on GELDABLE body parts after a unit has been gelded
 df.body_part_status = {}
 
----@alias _body_layer_status_keys
----| 0 # gone
----| 1 # leaking
-
----@alias _body_layer_status_values
----| "gone" # 0
----| "leaking" # 1
-
----@class body_layer_status: DFObject, { [_body_layer_status_keys|_body_layer_status_values]: boolean }
+---@class body_layer_status: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _body_layer_status
-local body_layer_status = {
-  gone = false,
-  [0] = false,
-  leaking = false,
-  [1] = false,
-}
+---@field gone boolean
+---@field [0] boolean
+---@field leaking boolean
+---@field [1] boolean
 
 ---@class _body_layer_status: DFBitfield
 ---@field gone 0
@@ -911,7 +749,7 @@ df.corpse_material_type = {}
 ---@field undead_unit_id number References: `unit`
 ---@field unit_id2 number References: `unit`
 ---@field corpse_flags item_body_component.T_corpse_flags
----@field material_amount number
+---@field material_amount DFEnumVector<corpse_material_type, number>
 ---@field bone1 item_body_component.T_bone1
 ---@field bone2 item_body_component.T_bone2
 
@@ -923,11 +761,11 @@ df.item_body_component = {}
 ---@field _kind 'struct'
 ---@field _type _item_body_component.T_body
 ---@field wounds any
----@field unk_100 number unit.body.unk_39c
+---@field unk_100 number[] unit.body.unk_39c
 ---@field wound_next_id number
 ---@field components body_component_info
----@field physical_attr_value number
----@field physical_attr_soft_demotion number
+---@field physical_attr_value DFEnumVector<physical_attribute_type, number>
+---@field physical_attr_soft_demotion DFEnumVector<physical_attribute_type, number>
 ---@field size_info body_size_info
 ---@field body_part_relsize number =unit.enemy.body_part_relsize
 ---@field body_modifiers number
@@ -950,77 +788,40 @@ df.item_body_component.T_body = {}
 ---@field _kind 'struct-type'
 df.item_body_component.T_appearance = {}
 
----@alias _item_body_component.T_corpse_flags_keys
----| 0 # unbutchered
----| 1 # plant
----| 2 # silk
----| 3 # leather
----| 4 # bone
----| 5 # shell
----| 6
----| 7 # soap
----| 8 # tooth
----| 9 # horn
----| 10 # pearl
----| 11 # skull1
----| 12 # skull2
----| 13 # separated_part
----| 14 # hair_wool
----| 15 # yarn
-
----@alias _item_body_component.T_corpse_flags_values
----| "unbutchered" # 0
----| "plant" # 1
----| "silk" # 2
----| "leather" # 3
----| "bone" # 4
----| "shell" # 5
----| "soap" # 7
----| "tooth" # 8
----| "horn" # 9
----| "pearl" # 10
----| "skull1" # 11
----| "skull2" # 12
----| "separated_part" # 13
----| "hair_wool" # 14
----| "yarn" # 15
-
----@class item_body_component.T_corpse_flags: DFObject, { [_item_body_component.T_corpse_flags_keys|_item_body_component.T_corpse_flags_values]: boolean }
+---@class item_body_component.T_corpse_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_body_component.T_corpse_flags
-local item_body_component_corpse_flags = {
-  unbutchered = false,
-  [0] = false,
-  plant = false,
-  [1] = false,
-  silk = false,
-  [2] = false,
-  leather = false,
-  [3] = false,
-  bone = false,
-  [4] = false,
-  shell = false,
-  [5] = false,
-  [6] = false,
-  soap = false,
-  [7] = false,
-  tooth = false,
-  [8] = false,
-  horn = false,
-  [9] = false,
-  pearl = false,
-  [10] = false,
-  skull1 = false,
-  [11] = false,
-  skull2 = false,
-  [12] = false,
-  separated_part = false, -- ?
-  [13] = false, -- ?
-  hair_wool = false,
-  [14] = false,
-  yarn = false,
-  [15] = false,
-}
+---@field unbutchered boolean
+---@field [0] boolean
+---@field plant boolean
+---@field [1] boolean
+---@field silk boolean
+---@field [2] boolean
+---@field leather boolean
+---@field [3] boolean
+---@field bone boolean
+---@field [4] boolean
+---@field shell boolean
+---@field [5] boolean
+---@field [6] boolean
+---@field soap boolean
+---@field [7] boolean
+---@field tooth boolean
+---@field [8] boolean
+---@field horn boolean
+---@field [9] boolean
+---@field pearl boolean
+---@field [10] boolean
+---@field skull1 boolean
+---@field [11] boolean
+---@field skull2 boolean
+---@field [12] boolean
+---@field separated_part boolean ?
+---@field [13] boolean ?
+---@field hair_wool boolean
+---@field [14] boolean
+---@field yarn boolean
+---@field [15] boolean
 
 ---@class _item_body_component.T_corpse_flags: DFBitfield
 ---@field unbutchered 0
@@ -1111,27 +912,15 @@ df.item_corpsepiecest = {}
 ---@field _kind 'class-type'
 df.item_critter = {}
 
----@alias _item_matstate_keys
----| 0 # no_auto_clean
----| 1 # pressed
----| 2 # paste
-
----@alias _item_matstate_values
----| "no_auto_clean" # 0
----| "pressed" # 1
----| "paste" # 2
-
----@class item_matstate: DFObject, { [_item_matstate_keys|_item_matstate_values]: boolean }
+---@class item_matstate: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_matstate
-local item_matstate = {
-  no_auto_clean = false, -- isAutoClean returns false
-  [0] = false, -- isAutoClean returns false
-  pressed = false,
-  [1] = false,
-  paste = false,
-  [2] = false,
-}
+---@field no_auto_clean boolean isAutoClean returns false
+---@field [0] boolean isAutoClean returns false
+---@field pressed boolean
+---@field [1] boolean
+---@field paste boolean
+---@field [2] boolean
 
 ---@class _item_matstate: DFBitfield
 ---@field no_auto_clean 0 isAutoClean returns false
@@ -1404,19 +1193,11 @@ df.item_verminst = {}
 ---@field _kind 'class-type'
 df.item_petst = {}
 
----@alias _item_petst.T_pet_flags_keys
----| 0 # available_for_adoption
-
----@alias _item_petst.T_pet_flags_values
----| "available_for_adoption" # 0
-
----@class item_petst.T_pet_flags: DFObject, { [_item_petst.T_pet_flags_keys|_item_petst.T_pet_flags_values]: boolean }
+---@class item_petst.T_pet_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_petst.T_pet_flags
-local item_petst_pet_flags = {
-  available_for_adoption = false,
-  [0] = false,
-}
+---@field available_for_adoption boolean
+---@field [0] boolean
 
 ---@class _item_petst.T_pet_flags: DFBitfield
 ---@field available_for_adoption 0
@@ -1499,19 +1280,11 @@ df.item_threadst = {}
 ---@field _kind 'class-type'
 df.item_eggst = {}
 
----@alias _item_eggst.T_egg_flags_keys
----| 0 # fertile
-
----@alias _item_eggst.T_egg_flags_values
----| "fertile" # 0
-
----@class item_eggst.T_egg_flags: DFObject, { [_item_eggst.T_egg_flags_keys|_item_eggst.T_egg_flags_values]: boolean }
+---@class item_eggst.T_egg_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _item_eggst.T_egg_flags
-local item_eggst_egg_flags = {
-  fertile = false, -- allows the incubation_counter to be checked/incremented
-  [0] = false, -- allows the incubation_counter to be checked/incremented
-}
+---@field fertile boolean allows the incubation_counter to be checked/incremented
+---@field [0] boolean allows the incubation_counter to be checked/incremented
 
 ---@class _item_eggst.T_egg_flags: DFBitfield
 ---@field fertile 0 allows the incubation_counter to be checked/incremented

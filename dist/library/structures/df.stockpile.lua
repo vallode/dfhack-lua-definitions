@@ -208,83 +208,43 @@ df.furniture_type = {}
 ---@field [18] "Custom"
 df.stockpile_category = {}
 
----@alias _stockpile_group_set_keys
----| 0 # animals
----| 1 # food
----| 2 # furniture
----| 3 # corpses
----| 4 # refuse
----| 5 # stone
----| 6 # ammo
----| 7 # coins
----| 8 # bars_blocks
----| 9 # gems
----| 10 # finished_goods
----| 11 # leather
----| 12 # cloth
----| 13 # wood
----| 14 # weapons
----| 15 # armor
----| 16 # sheet
-
----@alias _stockpile_group_set_values
----| "animals" # 0
----| "food" # 1
----| "furniture" # 2
----| "corpses" # 3
----| "refuse" # 4
----| "stone" # 5
----| "ammo" # 6
----| "coins" # 7
----| "bars_blocks" # 8
----| "gems" # 9
----| "finished_goods" # 10
----| "leather" # 11
----| "cloth" # 12
----| "wood" # 13
----| "weapons" # 14
----| "armor" # 15
----| "sheet" # 16
-
----@class stockpile_group_set: DFObject, { [_stockpile_group_set_keys|_stockpile_group_set_values]: boolean }
+---@class stockpile_group_set: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _stockpile_group_set
-local stockpile_group_set = {
-  animals = false,
-  [0] = false,
-  food = false,
-  [1] = false,
-  furniture = false,
-  [2] = false,
-  corpses = false,
-  [3] = false,
-  refuse = false,
-  [4] = false,
-  stone = false,
-  [5] = false,
-  ammo = false,
-  [6] = false,
-  coins = false,
-  [7] = false,
-  bars_blocks = false,
-  [8] = false,
-  gems = false,
-  [9] = false,
-  finished_goods = false,
-  [10] = false,
-  leather = false,
-  [11] = false,
-  cloth = false,
-  [12] = false,
-  wood = false,
-  [13] = false,
-  weapons = false,
-  [14] = false,
-  armor = false,
-  [15] = false,
-  sheet = false,
-  [16] = false,
-}
+---@field animals boolean
+---@field [0] boolean
+---@field food boolean
+---@field [1] boolean
+---@field furniture boolean
+---@field [2] boolean
+---@field corpses boolean
+---@field [3] boolean
+---@field refuse boolean
+---@field [4] boolean
+---@field stone boolean
+---@field [5] boolean
+---@field ammo boolean
+---@field [6] boolean
+---@field coins boolean
+---@field [7] boolean
+---@field bars_blocks boolean
+---@field [8] boolean
+---@field gems boolean
+---@field [9] boolean
+---@field finished_goods boolean
+---@field [10] boolean
+---@field leather boolean
+---@field [11] boolean
+---@field cloth boolean
+---@field [12] boolean
+---@field wood boolean
+---@field [13] boolean
+---@field weapons boolean
+---@field [14] boolean
+---@field armor boolean
+---@field [15] boolean
+---@field sheet boolean
+---@field [16] boolean
 
 ---@class _stockpile_group_set: DFBitfield
 ---@field animals 0
@@ -397,8 +357,8 @@ df.stockpile_settings.T_food = {}
 ---@field type boolean
 ---@field other_mats boolean
 ---@field mats boolean 16
----@field quality_core boolean
----@field quality_total boolean
+---@field quality_core DFEnumVector<item_quality, boolean>
+---@field quality_total DFEnumVector<item_quality, boolean>
 
 ---@class _stockpile_settings.T_furniture: DFCompound
 ---@field _kind 'struct-type'
@@ -456,8 +416,8 @@ df.stockpile_settings.T_ore = {}
 ---@field type boolean
 ---@field other_mats boolean
 ---@field mats boolean 2
----@field quality_core boolean
----@field quality_total boolean
+---@field quality_core DFEnumVector<item_quality, boolean>
+---@field quality_total DFEnumVector<item_quality, boolean>
 
 ---@class _stockpile_settings.T_ammo: DFCompound
 ---@field _kind 'struct-type'
@@ -502,8 +462,8 @@ df.stockpile_settings.T_gems = {}
 ---@field type boolean
 ---@field other_mats boolean
 ---@field mats boolean 17
----@field quality_core boolean
----@field quality_total boolean
+---@field quality_core DFEnumVector<item_quality, boolean>
+---@field quality_total DFEnumVector<item_quality, boolean>
 
 ---@class _stockpile_settings.T_finished_goods: DFCompound
 ---@field _kind 'struct-type'
@@ -550,8 +510,8 @@ df.stockpile_settings.T_wood = {}
 ---@field trapcomp_type boolean
 ---@field other_mats boolean
 ---@field mats boolean 11
----@field quality_core boolean
----@field quality_total boolean
+---@field quality_core DFEnumVector<item_quality, boolean>
+---@field quality_total DFEnumVector<item_quality, boolean>
 ---@field usable boolean
 ---@field unusable boolean
 
@@ -570,8 +530,8 @@ df.stockpile_settings.T_weapons = {}
 ---@field shield boolean
 ---@field other_mats boolean
 ---@field mats boolean 11
----@field quality_core boolean
----@field quality_total boolean
+---@field quality_core DFEnumVector<item_quality, boolean>
+---@field quality_total DFEnumVector<item_quality, boolean>
 ---@field usable boolean
 ---@field unusable boolean
 
@@ -1021,23 +981,13 @@ df.stop_depart_condition.T_direction = {}
 ---@field [2] "Guide"
 df.stop_depart_condition.T_mode = {}
 
----@alias _stop_depart_condition.T_flags_keys
----| 0 # at_most
----| 1 # desired
-
----@alias _stop_depart_condition.T_flags_values
----| "at_most" # 0
----| "desired" # 1
-
----@class stop_depart_condition.T_flags: DFObject, { [_stop_depart_condition.T_flags_keys|_stop_depart_condition.T_flags_values]: boolean }
+---@class stop_depart_condition.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _stop_depart_condition.T_flags
-local stop_depart_condition_flags = {
-  at_most = false,
-  [0] = false,
-  desired = false,
-  [1] = false,
-}
+---@field at_most boolean
+---@field [0] boolean
+---@field desired boolean
+---@field [1] boolean
 
 ---@class _stop_depart_condition.T_flags: DFBitfield
 ---@field at_most 0
@@ -1056,23 +1006,13 @@ df.stop_depart_condition.T_flags = {}
 ---@field _kind 'struct-type'
 df.route_stockpile_link = {}
 
----@alias _route_stockpile_link.T_mode_keys
----| 0 # take
----| 1 # give
-
----@alias _route_stockpile_link.T_mode_values
----| "take" # 0
----| "give" # 1
-
----@class route_stockpile_link.T_mode: DFObject, { [_route_stockpile_link.T_mode_keys|_route_stockpile_link.T_mode_values]: boolean }
+---@class route_stockpile_link.T_mode: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _route_stockpile_link.T_mode
-local route_stockpile_link_mode = {
-  take = false,
-  [0] = false,
-  give = false,
-  [1] = false,
-}
+---@field take boolean
+---@field [0] boolean
+---@field give boolean
+---@field [1] boolean
 
 ---@class _route_stockpile_link.T_mode: DFBitfield
 ---@field take 0
@@ -1113,19 +1053,11 @@ function df.vehicle.find(key) end
 ---@return vehicle_vector # df.global.world.vehicles.all
 function df.vehicle.get_vector() end
 
----@alias _vehicle.T_flag_keys
----| 0 # ON_TRACK
-
----@alias _vehicle.T_flag_values
----| "ON_TRACK" # 0
-
----@class vehicle.T_flag: DFObject, { [_vehicle.T_flag_keys|_vehicle.T_flag_values]: boolean }
+---@class vehicle.T_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _vehicle.T_flag
-local vehicle_flag = {
-  ON_TRACK = false,
-  [0] = false,
-}
+---@field ON_TRACK boolean
+---@field [0] boolean
 
 ---@class _vehicle.T_flag: DFBitfield
 ---@field ON_TRACK 0

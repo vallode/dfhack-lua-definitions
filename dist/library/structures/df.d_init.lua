@@ -159,17 +159,17 @@ df.d_init_autosave = {}
 ---@field _kind 'struct'
 ---@field _type _d_init
 ---@field flags1 any
----@field nickname any
+---@field nickname DFEnumVector<game_type, d_init_nickname>
 ---@field sky_tile integer
----@field sky_color number
+---@field sky_color number[]
 ---@field chasm_tile integer
 ---@field pillar_tile integer
----@field track_tiles integer N S E W NS NE NW SE SW EW NSE NSW NEW SEW NSEW
----@field track_tile_invert integer
----@field track_ramp_tiles integer
----@field track_ramp_invert integer
----@field tree_tiles integer
----@field chasm_color number
+---@field track_tiles integer[] N S E W NS NE NW SE SW EW NSE NSW NEW SEW NSEW
+---@field track_tile_invert integer[]
+---@field track_ramp_tiles integer[]
+---@field track_ramp_invert integer[]
+---@field tree_tiles integer[]
+---@field chasm_color number[]
 ---@field wound_color d_init.T_wound_color
 ---@field show_embark_tunnel d_init_tunnel probably IDLERS
 ---@field number_of_lower_elevations_shown number
@@ -181,8 +181,8 @@ df.d_init_autosave = {}
 ---@field visitor_cap number
 ---@field specific_seed_cap number
 ---@field fortress_seed_cap number
----@field path_cost number
----@field embark_rect number
+---@field path_cost number[]
+---@field embark_rect number[]
 ---@field store_dist d_init.T_store_dist
 ---@field graze_coefficient number
 ---@field maximum_embark_dim number
@@ -201,12 +201,12 @@ df.d_init = {}
 ---@class (exact) d_init.T_wound_color: DFObject
 ---@field _kind 'struct'
 ---@field _type _d_init.T_wound_color
----@field none number
----@field minor number
----@field inhibited number
----@field function_loss number
----@field broken number
----@field missing number
+---@field none number[]
+---@field minor number[]
+---@field inhibited number[]
+---@field function_loss number[]
+---@field broken number[]
+---@field missing number[]
 
 ---@class _d_init.T_wound_color: DFCompound
 ---@field _kind 'struct-type'

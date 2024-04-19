@@ -9,12 +9,12 @@
 ---@field name string
 ---@field building_type building_type
 ---@field building_subtype number
----@field name_color number
----@field tile any
----@field tile_color any
----@field tile_block any
----@field graphics_normal any
----@field graphics_overlay any
+---@field name_color number[]
+---@field tile integer[][][]
+---@field tile_color integer[][][][]
+---@field tile_block integer[][]
+---@field graphics_normal integer[][][]
+---@field graphics_overlay integer[][][]
 ---@field build_key number
 ---@field needs_magma boolean
 ---@field build_items any
@@ -57,8 +57,8 @@ function df.building_def.get_vector() end
 ---@field min_dimension number
 ---@field quantity number
 ---@field has_tool_use tool_uses
----@field item_str string
----@field material_str string
+---@field item_str string[]
+---@field material_str string[]
 ---@field metal_ore_str string
 
 ---@class _building_def_item: DFCompound

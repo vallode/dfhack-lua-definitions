@@ -585,19 +585,11 @@ df.general_ref_unit_traineest = {}
 ---@field _kind 'class-type'
 df.general_ref_unit_itemownerst = {}
 
----@alias _general_ref_unit_itemownerst.T_flags_keys
----| 0 # litter
-
----@alias _general_ref_unit_itemownerst.T_flags_values
----| "litter" # 0
-
----@class general_ref_unit_itemownerst.T_flags: DFObject, { [_general_ref_unit_itemownerst.T_flags_keys|_general_ref_unit_itemownerst.T_flags_values]: boolean }
+---@class general_ref_unit_itemownerst.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _general_ref_unit_itemownerst.T_flags
-local general_ref_unit_itemownerst_flags = {
-  litter = false, -- apparetly set after 1000 ticks, then confiscated in 1000 more ticks
-  [0] = false, -- apparetly set after 1000 ticks, then confiscated in 1000 more ticks
-}
+---@field litter boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
+---@field [0] boolean apparetly set after 1000 ticks, then confiscated in 1000 more ticks
 
 ---@class _general_ref_unit_itemownerst.T_flags: DFBitfield
 ---@field litter 0 apparetly set after 1000 ticks, then confiscated in 1000 more ticks
@@ -1607,83 +1599,43 @@ df.entity_entity_link = {}
 ---@field [4] "Local_Activity"
 df.entity_site_link_type = {}
 
----@alias _entity_site_link_flags_keys
----| 0 # residence
----| 1 # capital
----| 2 # fortress
----| 3 # local_market
----| 4 # trade_partner
----| 5 # monument
----| 6 # primary_criminal_gang
----| 7 # criminal_gang
----| 8 # invasion_marked
----| 9 # land_for_holding
----| 10 # central_holding_land
----| 11 # land_holder_residence
----| 12 # invasion_push_out
----| 13 # reclaim
----| 14 # occupation_failed
----| 15 # base_of_operation
----| 16 # holy_city
-
----@alias _entity_site_link_flags_values
----| "residence" # 0
----| "capital" # 1
----| "fortress" # 2
----| "local_market" # 3
----| "trade_partner" # 4
----| "monument" # 5
----| "primary_criminal_gang" # 6
----| "criminal_gang" # 7
----| "invasion_marked" # 8
----| "land_for_holding" # 9
----| "central_holding_land" # 10
----| "land_holder_residence" # 11
----| "invasion_push_out" # 12
----| "reclaim" # 13
----| "occupation_failed" # 14
----| "base_of_operation" # 15
----| "holy_city" # 16
-
----@class entity_site_link_flags: DFObject, { [_entity_site_link_flags_keys|_entity_site_link_flags_values]: boolean }
+---@class entity_site_link_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _entity_site_link_flags
-local entity_site_link_flags = {
-  residence = false, -- site is residence
-  [0] = false, -- site is residence
-  capital = false, -- site is capital
-  [1] = false, -- site is capital
-  fortress = false, -- used at least by those castles which arent currently in
-  [2] = false, -- used at least by those castles which arent currently in
-  local_market = false, -- for villages to think about their market town
-  [3] = false, -- for villages to think about their market town
-  trade_partner = false, -- for markets to think about other markets
-  [4] = false, -- for markets to think about other markets
-  monument = false, -- for a civ to know its tomb sites
-  [5] = false, -- for a civ to know its tomb sites
-  primary_criminal_gang = false,
-  [6] = false,
-  criminal_gang = false,
-  [7] = false,
-  invasion_marked = false, -- marked for invasion
-  [8] = false, -- marked for invasion
-  land_for_holding = false, -- all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
-  [9] = false, -- all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
-  central_holding_land = false, -- only dwarf fortresses get this for now
-  [10] = false, -- only dwarf fortresses get this for now
-  land_holder_residence = false, -- the regular sites where a baron etc. actually lives
-  [11] = false, -- the regular sites where a baron etc. actually lives
-  invasion_push_out = false, -- pushed out by invasion
-  [12] = false, -- pushed out by invasion
-  reclaim = false, -- marked for reclaim
-  [13] = false, -- marked for reclaim
-  occupation_failed = false, -- failed to hold hostile occupation
-  [14] = false, -- failed to hold hostile occupation
-  base_of_operation = false, -- set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
-  [15] = false, -- set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
-  holy_city = false, -- for the holy city of a religion
-  [16] = false, -- for the holy city of a religion
-}
+---@field residence boolean site is residence
+---@field [0] boolean site is residence
+---@field capital boolean site is capital
+---@field [1] boolean site is capital
+---@field fortress boolean used at least by those castles which arent currently in
+---@field [2] boolean used at least by those castles which arent currently in
+---@field local_market boolean for villages to think about their market town
+---@field [3] boolean for villages to think about their market town
+---@field trade_partner boolean for markets to think about other markets
+---@field [4] boolean for markets to think about other markets
+---@field monument boolean for a civ to know its tomb sites
+---@field [5] boolean for a civ to know its tomb sites
+---@field primary_criminal_gang boolean
+---@field [6] boolean
+---@field criminal_gang boolean
+---@field [7] boolean
+---@field invasion_marked boolean marked for invasion
+---@field [8] boolean marked for invasion
+---@field land_for_holding boolean all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
+---@field [9] boolean all regular sites get this if civ has nobles, whether they have a noble or not (reclaim and capital (can be?) excluded, as can "slow repopulation" by civ group)
+---@field central_holding_land boolean only dwarf fortresses get this for now
+---@field [10] boolean only dwarf fortresses get this for now
+---@field land_holder_residence boolean the regular sites where a baron etc. actually lives
+---@field [11] boolean the regular sites where a baron etc. actually lives
+---@field invasion_push_out boolean pushed out by invasion
+---@field [12] boolean pushed out by invasion
+---@field reclaim boolean marked for reclaim
+---@field [13] boolean marked for reclaim
+---@field occupation_failed boolean failed to hold hostile occupation
+---@field [14] boolean failed to hold hostile occupation
+---@field base_of_operation boolean set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
+---@field [15] boolean set for some Religions, Criminals, and Merchant Companies. The function is largely a guess. Persecution, founding seen, as well as no mentioning of a relation at all in exported legends
+---@field holy_city boolean for the holy city of a religion
+---@field [16] boolean for the holy city of a religion
 
 ---@class _entity_site_link_flags: DFBitfield
 ---@field residence 0 site is residence
@@ -1747,23 +1699,13 @@ df.entity_site_link_flags = {}
 ---@field _kind 'struct-type'
 df.entity_site_link = {}
 
----@alias _undead_flags_keys
----| 0 # zombie
----| 1 # ghostly
-
----@alias _undead_flags_values
----| "zombie" # 0
----| "ghostly" # 1
-
----@class undead_flags: DFObject, { [_undead_flags_keys|_undead_flags_values]: boolean }
+---@class undead_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _undead_flags
-local undead_flags = {
-  zombie = false,
-  [0] = false,
-  ghostly = false,
-  [1] = false,
-}
+---@field zombie boolean
+---@field [0] boolean
+---@field ghostly boolean
+---@field [1] boolean
 
 ---@class _undead_flags: DFBitfield
 ---@field zombie 0

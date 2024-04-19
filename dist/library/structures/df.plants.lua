@@ -1,23 +1,13 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias _plant_flags_keys
----| 0 # watery
----| 1 # is_shrub
-
----@alias _plant_flags_values
----| "watery" # 0
----| "is_shrub" # 1
-
----@class plant_flags: DFObject, { [_plant_flags_keys|_plant_flags_values]: boolean }
+---@class plant_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _plant_flags
-local plant_flags = {
-  watery = false,
-  [0] = false,
-  is_shrub = false, -- If it is not a shrub, then it is a tree
-  [1] = false, -- If it is not a shrub, then it is a tree
-}
+---@field watery boolean
+---@field [0] boolean
+---@field is_shrub boolean If it is not a shrub, then it is a tree
+---@field [1] boolean If it is not a shrub, then it is a tree
 
 ---@class _plant_flags: DFBitfield
 ---@field watery 0
@@ -54,27 +44,15 @@ function df.plant.find(key) end
 ---@return plant_vector # df.global.world.plants.all
 function df.plant.get_vector() end
 
----@alias _plant.T_damage_flags_keys
----| 0 # is_burning
----| 1 # is_drowning
----| 2 # is_dead
-
----@alias _plant.T_damage_flags_values
----| "is_burning" # 0
----| "is_drowning" # 1
----| "is_dead" # 2
-
----@class plant.T_damage_flags: DFObject, { [_plant.T_damage_flags_keys|_plant.T_damage_flags_values]: boolean }
+---@class plant.T_damage_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _plant.T_damage_flags
-local plant_damage_flags = {
-  is_burning = false,
-  [0] = false,
-  is_drowning = false,
-  [1] = false,
-  is_dead = false,
-  [2] = false,
-}
+---@field is_burning boolean
+---@field [0] boolean
+---@field is_drowning boolean
+---@field [1] boolean
+---@field is_dead boolean
+---@field [2] boolean
 
 ---@class _plant.T_damage_flags: DFBitfield
 ---@field is_burning 0
@@ -161,43 +139,23 @@ df.plant_tree_tile_branches_dir = {}
 ---@field [6] "PARENT_IS_DOWN"
 df.plant_tree_tile_parent_dir = {}
 
----@alias _plant_tree_tile_keys
----| 0 # trunk
----| 1 # branches_dir
----| 5 # branches
----| 6 # twigs
----| 7 # blocked
----| 8 # parent_dir
----| 11 # trunk_is_thick
-
----@alias _plant_tree_tile_values
----| "trunk" # 0
----| "branches_dir" # 1
----| "branches" # 5
----| "twigs" # 6
----| "blocked" # 7
----| "parent_dir" # 8
----| "trunk_is_thick" # 11
-
----@class plant_tree_tile: DFObject, { [_plant_tree_tile_keys|_plant_tree_tile_values]: boolean }
+---@class plant_tree_tile: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _plant_tree_tile
-local plant_tree_tile = {
-  trunk = false,
-  [0] = false,
-  branches_dir = false,
-  [1] = false,
-  branches = false,
-  [5] = false,
-  twigs = false, -- leaves
-  [6] = false, -- leaves
-  blocked = false, -- e.g. by other tree
-  [7] = false, -- e.g. by other tree
-  parent_dir = false,
-  [8] = false,
-  trunk_is_thick = false,
-  [11] = false,
-}
+---@field trunk boolean
+---@field [0] boolean
+---@field branches_dir boolean
+---@field [1] boolean
+---@field branches boolean
+---@field [5] boolean
+---@field twigs boolean leaves
+---@field [6] boolean leaves
+---@field blocked boolean e.g. by other tree
+---@field [7] boolean e.g. by other tree
+---@field parent_dir boolean
+---@field [8] boolean
+---@field trunk_is_thick boolean
+---@field [11] boolean
 
 ---@class _plant_tree_tile: DFBitfield
 ---@field trunk 0
@@ -216,25 +174,14 @@ local plant_tree_tile = {
 ---@field [11] "trunk_is_thick"
 df.plant_tree_tile = {}
 
----@alias _plant_root_tile_keys
----| 0 # regular
----| 1
----| 7 # blocked
-
----@alias _plant_root_tile_values
----| "regular" # 0
----| "blocked" # 7
-
----@class plant_root_tile: DFObject, { [_plant_root_tile_keys|_plant_root_tile_values]: boolean }
+---@class plant_root_tile: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _plant_root_tile
-local plant_root_tile = {
-  regular = false,
-  [0] = false,
-  [1] = false, -- unused
-  blocked = false,
-  [7] = false,
-}
+---@field regular boolean
+---@field [0] boolean
+---@field [1] boolean unused
+---@field blocked boolean
+---@field [7] boolean
 
 ---@class _plant_root_tile: DFBitfield
 ---@field regular 0

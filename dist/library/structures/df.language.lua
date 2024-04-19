@@ -1,79 +1,41 @@
 -- THIS FILE WAS GENERATED AUTOMATICALLY. DO NOT EDIT.
 ---@meta
 
----@alias _language_word_flags_keys
----| 0 # front_compound_noun_sing
----| 1 # front_compound_noun_plur
----| 2 # front_compound_adj
----| 3 # front_compound_prefix
----| 4 # rear_compound_noun_sing
----| 5 # rear_compound_noun_plur
----| 6 # rear_compound_adj
----| 7 # the_noun_sing
----| 8 # the_noun_plur
----| 9 # the_compound_noun_sing
----| 10 # the_compound_noun_plur
----| 11 # the_compound_adj
----| 12 # the_compound_prefix
----| 13 # of_noun_sing
----| 14 # of_noun_plur
----| 15 # standard_verb
-
----@alias _language_word_flags_values
----| "front_compound_noun_sing" # 0
----| "front_compound_noun_plur" # 1
----| "front_compound_adj" # 2
----| "front_compound_prefix" # 3
----| "rear_compound_noun_sing" # 4
----| "rear_compound_noun_plur" # 5
----| "rear_compound_adj" # 6
----| "the_noun_sing" # 7
----| "the_noun_plur" # 8
----| "the_compound_noun_sing" # 9
----| "the_compound_noun_plur" # 10
----| "the_compound_adj" # 11
----| "the_compound_prefix" # 12
----| "of_noun_sing" # 13
----| "of_noun_plur" # 14
----| "standard_verb" # 15
-
----@class language_word_flags: DFObject, { [_language_word_flags_keys|_language_word_flags_values]: boolean }
+---@class language_word_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _language_word_flags
-local language_word_flags = {
-  front_compound_noun_sing = false,
-  [0] = false,
-  front_compound_noun_plur = false,
-  [1] = false,
-  front_compound_adj = false,
-  [2] = false,
-  front_compound_prefix = false,
-  [3] = false,
-  rear_compound_noun_sing = false,
-  [4] = false,
-  rear_compound_noun_plur = false,
-  [5] = false,
-  rear_compound_adj = false,
-  [6] = false,
-  the_noun_sing = false,
-  [7] = false,
-  the_noun_plur = false,
-  [8] = false,
-  the_compound_noun_sing = false,
-  [9] = false,
-  the_compound_noun_plur = false,
-  [10] = false,
-  the_compound_adj = false,
-  [11] = false,
-  the_compound_prefix = false,
-  [12] = false,
-  of_noun_sing = false,
-  [13] = false,
-  of_noun_plur = false,
-  [14] = false,
-  standard_verb = false,
-  [15] = false,
-}
+---@field front_compound_noun_sing boolean
+---@field [0] boolean
+---@field front_compound_noun_plur boolean
+---@field [1] boolean
+---@field front_compound_adj boolean
+---@field [2] boolean
+---@field front_compound_prefix boolean
+---@field [3] boolean
+---@field rear_compound_noun_sing boolean
+---@field [4] boolean
+---@field rear_compound_noun_plur boolean
+---@field [5] boolean
+---@field rear_compound_adj boolean
+---@field [6] boolean
+---@field the_noun_sing boolean
+---@field [7] boolean
+---@field the_noun_plur boolean
+---@field [8] boolean
+---@field the_compound_noun_sing boolean
+---@field [9] boolean
+---@field the_compound_noun_plur boolean
+---@field [10] boolean
+---@field the_compound_adj boolean
+---@field [11] boolean
+---@field the_compound_prefix boolean
+---@field [12] boolean
+---@field of_noun_sing boolean
+---@field [13] boolean
+---@field of_noun_plur boolean
+---@field [14] boolean
+---@field standard_verb boolean
+---@field [15] boolean
 
 ---@class _language_word_flags: DFBitfield
 ---@field front_compound_noun_sing 0
@@ -567,7 +529,7 @@ df.sphere_type = {}
 ---@field _kind 'struct'
 ---@field _type _language_word
 ---@field word string
----@field forms string
+---@field forms DFEnumVector<part_of_speech, string>
 ---@field adj_dist integer
 ---@field flags language_word_flags
 ---@field str any
@@ -635,8 +597,8 @@ function df.language_symbol.get_vector() end
 ---@field _type _language_name
 ---@field first_name string
 ---@field nickname string
----@field words any
----@field parts_of_speech any
+---@field words DFEnumVector<language_name_component, number>
+---@field parts_of_speech DFEnumVector<language_name_component, part_of_speech>
 ---@field language number References: `language_translation`
 ---@field type language_name_type
 ---@field has_name boolean
@@ -649,8 +611,8 @@ df.language_name = {}
 ---@class (exact) language_word_table: DFObject
 ---@field _kind 'struct'
 ---@field _type _language_word_table
----@field words any
----@field parts any
+---@field words DFEnumVector<language_word_table_index, any>
+---@field parts DFEnumVector<language_word_table_index, any>
 
 ---@class _language_word_table: DFCompound
 ---@field _kind 'struct-type'

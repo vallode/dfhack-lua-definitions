@@ -459,23 +459,23 @@ df.entity_name_type = {}
 ---@field flags any
 ---@field translation string
 ---@field symbols entity_raw.T_symbols
----@field sphere_alignment number
----@field art_facet_modifier number
----@field art_image_element_modifier number
----@field item_improvement_modifier number
----@field friendly_color number
+---@field sphere_alignment DFEnumVector<sphere_type, number>
+---@field art_facet_modifier DFEnumVector<art_facet_type, number>
+---@field art_image_element_modifier DFEnumVector<art_image_element_type, number>
+---@field item_improvement_modifier DFEnumVector<improvement_type, number>
+---@field friendly_color number[]
 ---@field default_site_type world_site_type
----@field likes_site number
----@field tolerates_site number
----@field biome_support number
----@field start_biome number
----@field settlement_biome number
----@field active_season number
+---@field likes_site DFEnumVector<site_type, number>
+---@field tolerates_site DFEnumVector<site_type, number>
+---@field biome_support DFEnumVector<biome_type, number>
+---@field start_biome DFEnumVector<biome_type, number>
+---@field settlement_biome DFEnumVector<biome_type, number>
+---@field active_season DFEnumVector<season, number>
 ---@field progress_trigger entity_raw.T_progress_trigger
----@field ethic any
----@field values number
----@field variable_value_min number
----@field variable_value_max number
+---@field ethic DFEnumVector<ethic_type, ethic_response>
+---@field values DFEnumVector<value_type, number>
+---@field variable_value_min DFEnumVector<value_type, number>
+---@field variable_value_max DFEnumVector<value_type, number>
 ---@field scholar entity_raw.T_scholar
 ---@field max_site_pop_number number
 ---@field max_pop_number number
@@ -484,8 +484,8 @@ df.entity_name_type = {}
 ---@field religion_sphere any
 ---@field jobs entity_raw.T_jobs
 ---@field positions any
----@field variable_positions number
----@field site_variable_positions number
+---@field variable_positions DFEnumVector<entity_position_responsibility, number>
+---@field site_variable_positions DFEnumVector<entity_position_responsibility, number>
 ---@field tissue_styles any
 ---@field workshops entity_raw.T_workshops
 ---@field banditry number
@@ -556,11 +556,11 @@ df.entity_raw.T_equipment = {}
 ---@class (exact) entity_raw.T_symbols: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_symbols
----@field symbols1 language_word_table
----@field symbols2 language_word_table
----@field select_symbol any
----@field subselect_symbol any
----@field cull_symbol any
+---@field symbols1 DFEnumVector<entity_name_type, language_word_table>
+---@field symbols2 DFEnumVector<entity_name_type, language_word_table>
+---@field select_symbol DFEnumVector<entity_name_type, any>
+---@field subselect_symbol DFEnumVector<entity_name_type, any>
+---@field cull_symbol DFEnumVector<entity_name_type, any>
 
 ---@class _entity_raw.T_symbols: DFCompound
 ---@field _kind 'struct-type'
@@ -580,51 +580,27 @@ df.entity_raw.T_symbols = {}
 ---@field _kind 'struct-type'
 df.entity_raw.T_progress_trigger = {}
 
----@alias _entity_raw.T_scholar_keys
----| 0 # PHILOSOPHER
----| 1 # MATHEMATICIAN
----| 2 # HISTORIAN
----| 3 # ASTRONOMER
----| 4 # NATURALIST
----| 5 # CHEMIST
----| 6 # GEOGRAPHER
----| 7 # DOCTOR
----| 8 # ENGINEER
-
----@alias _entity_raw.T_scholar_values
----| "PHILOSOPHER" # 0
----| "MATHEMATICIAN" # 1
----| "HISTORIAN" # 2
----| "ASTRONOMER" # 3
----| "NATURALIST" # 4
----| "CHEMIST" # 5
----| "GEOGRAPHER" # 6
----| "DOCTOR" # 7
----| "ENGINEER" # 8
-
----@class entity_raw.T_scholar: DFObject, { [_entity_raw.T_scholar_keys|_entity_raw.T_scholar_values]: boolean }
+---@class entity_raw.T_scholar: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _entity_raw.T_scholar
-local entity_raw_scholar = {
-  PHILOSOPHER = false,
-  [0] = false,
-  MATHEMATICIAN = false,
-  [1] = false,
-  HISTORIAN = false,
-  [2] = false,
-  ASTRONOMER = false,
-  [3] = false,
-  NATURALIST = false,
-  [4] = false,
-  CHEMIST = false,
-  [5] = false,
-  GEOGRAPHER = false,
-  [6] = false,
-  DOCTOR = false,
-  [7] = false,
-  ENGINEER = false,
-  [8] = false,
-}
+---@field PHILOSOPHER boolean
+---@field [0] boolean
+---@field MATHEMATICIAN boolean
+---@field [1] boolean
+---@field HISTORIAN boolean
+---@field [2] boolean
+---@field ASTRONOMER boolean
+---@field [3] boolean
+---@field NATURALIST boolean
+---@field [4] boolean
+---@field CHEMIST boolean
+---@field [5] boolean
+---@field GEOGRAPHER boolean
+---@field [6] boolean
+---@field DOCTOR boolean
+---@field [7] boolean
+---@field ENGINEER boolean
+---@field [8] boolean
 
 ---@class _entity_raw.T_scholar: DFBitfield
 ---@field PHILOSOPHER 0
@@ -650,9 +626,9 @@ df.entity_raw.T_scholar = {}
 ---@class (exact) entity_raw.T_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_jobs
----@field permitted_job boolean
----@field permitted_labor boolean
----@field world_construction boolean
+---@field permitted_job DFEnumVector<profession, boolean>
+---@field permitted_labor DFEnumVector<unit_labor, boolean>
+---@field world_construction DFEnumVector<world_construction_type, boolean>
 
 ---@class _entity_raw.T_jobs: DFCompound
 ---@field _kind 'struct-type'
@@ -683,59 +659,31 @@ df.entity_raw.T_workshops = {}
 ---@field _kind 'struct-type'
 df.entity_animal_raw = {}
 
----@alias _entity_animal_raw.T_flags_keys
----| 0 # ALWAYS_PRESENT
----| 1 # NEVER_MOUNT
----| 2 # ALWAYS_MOUNT
----| 3 # NEVER_WAGON_PULLER
----| 4 # ALWAYS_WAGON_PULLER
----| 5 # NEVER_SIEGE
----| 6 # ALWAYS_SIEGE
----| 7 # NEVER_PET
----| 8 # ALWAYS_PET
----| 9 # NEVER_PACK_ANIMAL
----| 10 # ALWAYS_PACK_ANIMAL
-
----@alias _entity_animal_raw.T_flags_values
----| "ALWAYS_PRESENT" # 0
----| "NEVER_MOUNT" # 1
----| "ALWAYS_MOUNT" # 2
----| "NEVER_WAGON_PULLER" # 3
----| "ALWAYS_WAGON_PULLER" # 4
----| "NEVER_SIEGE" # 5
----| "ALWAYS_SIEGE" # 6
----| "NEVER_PET" # 7
----| "ALWAYS_PET" # 8
----| "NEVER_PACK_ANIMAL" # 9
----| "ALWAYS_PACK_ANIMAL" # 10
-
----@class entity_animal_raw.T_flags: DFObject, { [_entity_animal_raw.T_flags_keys|_entity_animal_raw.T_flags_values]: boolean }
+---@class entity_animal_raw.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _entity_animal_raw.T_flags
-local entity_animal_raw_flags = {
-  ALWAYS_PRESENT = false,
-  [0] = false,
-  NEVER_MOUNT = false,
-  [1] = false,
-  ALWAYS_MOUNT = false,
-  [2] = false,
-  NEVER_WAGON_PULLER = false,
-  [3] = false,
-  ALWAYS_WAGON_PULLER = false,
-  [4] = false,
-  NEVER_SIEGE = false,
-  [5] = false,
-  ALWAYS_SIEGE = false,
-  [6] = false,
-  NEVER_PET = false,
-  [7] = false,
-  ALWAYS_PET = false,
-  [8] = false,
-  NEVER_PACK_ANIMAL = false,
-  [9] = false,
-  ALWAYS_PACK_ANIMAL = false,
-  [10] = false,
-}
+---@field ALWAYS_PRESENT boolean
+---@field [0] boolean
+---@field NEVER_MOUNT boolean
+---@field [1] boolean
+---@field ALWAYS_MOUNT boolean
+---@field [2] boolean
+---@field NEVER_WAGON_PULLER boolean
+---@field [3] boolean
+---@field ALWAYS_WAGON_PULLER boolean
+---@field [4] boolean
+---@field NEVER_SIEGE boolean
+---@field [5] boolean
+---@field ALWAYS_SIEGE boolean
+---@field [6] boolean
+---@field NEVER_PET boolean
+---@field [7] boolean
+---@field ALWAYS_PET boolean
+---@field [8] boolean
+---@field NEVER_PACK_ANIMAL boolean
+---@field [9] boolean
+---@field ALWAYS_PACK_ANIMAL boolean
+---@field [10] boolean
 
 ---@class _entity_animal_raw.T_flags: DFBitfield
 ---@field ALWAYS_PRESENT 0
@@ -985,19 +933,19 @@ df.entity_position_responsibility = {}
 ---@field code string
 ---@field id number
 ---@field flags any
----@field allowed_creature_str any
+---@field allowed_creature_str any[]
 ---@field allowed_creature number References: `creature_raw`
 ---@field allowed_class any
----@field rejected_creature_str any
+---@field rejected_creature_str any[]
 ---@field rejected_creature number References: `creature_raw`
 ---@field rejected_class any
----@field name string
----@field name_female string
----@field name_male string
----@field spouse string
----@field spouse_female string
----@field spouse_male string
----@field squad string
+---@field name string[]
+---@field name_female string[]
+---@field name_male string[]
+---@field spouse string[]
+---@field spouse_female string[]
+---@field spouse_male string[]
+---@field squad string[]
 ---@field land_name string
 ---@field squad_size number
 ---@field commander_str any
@@ -1014,8 +962,8 @@ df.entity_position_responsibility = {}
 ---@field appointed_by number
 ---@field succession_by_position_str any
 ---@field succession_by_position number
----@field responsibilities boolean
----@field color number
+---@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
+---@field color number[]
 ---@field required_boxes number
 ---@field required_cabinets number
 ---@field required_racks number

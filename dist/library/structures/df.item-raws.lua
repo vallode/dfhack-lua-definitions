@@ -410,23 +410,13 @@ df.item_type.attrs = {}
 ---@field _kind 'struct-type'
 df.weapon_attack = {}
 
----@alias _weapon_attack.T_flags_keys
----| 0 # independent_multiattack
----| 1 # bad_multiattack
-
----@alias _weapon_attack.T_flags_values
----| "independent_multiattack" # 0
----| "bad_multiattack" # 1
-
----@class weapon_attack.T_flags: DFObject, { [_weapon_attack.T_flags_keys|_weapon_attack.T_flags_values]: boolean }
+---@class weapon_attack.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _weapon_attack.T_flags
-local weapon_attack_flags = {
-  independent_multiattack = false,
-  [0] = false,
-  bad_multiattack = false,
-  [1] = false,
-}
+---@field independent_multiattack boolean
+---@field [0] boolean
+---@field bad_multiattack boolean
+---@field [1] boolean
 
 ---@class _weapon_attack.T_flags: DFBitfield
 ---@field independent_multiattack 0
@@ -476,6 +466,7 @@ df.ammo_flags = {}
 ---@field size number divided by 10
 ---@field value number
 ---@field attacks any
+---@field number number[]
 
 ---@class _itemdef_ammost: DFCompound
 ---@field _kind 'class-type'
@@ -1079,23 +1070,13 @@ df.timbre_type = {}
 ---@field _kind 'struct-type'
 df.instrument_piece = {}
 
----@alias _instrument_piece.T_flags_keys
----| 0 # always_singular
----| 1 # always_plural
-
----@alias _instrument_piece.T_flags_values
----| "always_singular" # 0
----| "always_plural" # 1
-
----@class instrument_piece.T_flags: DFObject, { [_instrument_piece.T_flags_keys|_instrument_piece.T_flags_values]: boolean }
+---@class instrument_piece.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _instrument_piece.T_flags
-local instrument_piece_flags = {
-  always_singular = false,
-  [0] = false,
-  always_plural = false,
-  [1] = false,
-}
+---@field always_singular boolean
+---@field [0] boolean
+---@field always_plural boolean
+---@field [1] boolean
 
 ---@class _instrument_piece.T_flags: DFBitfield
 ---@field always_singular 0
@@ -1216,6 +1197,7 @@ function df.itemdef_shoesst.get_vector() end
 ---@field name string
 ---@field name_plural string
 ---@field ammo_class string
+---@field number number[]
 
 ---@class _itemdef_siegeammost: DFCompound
 ---@field _kind 'class-type'
@@ -1406,6 +1388,7 @@ df.tool_uses = {}
 ---@field shape_category number References: `descriptor_shape`
 ---@field description string
 ---@field default_improvements any
+---@field number number[]
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -1480,6 +1463,7 @@ df.trapcomp_flags = {}
 ---@field material_size number
 ---@field flags any
 ---@field attacks any
+---@field number number[]
 
 ---@class _itemdef_trapcompst: DFCompound
 ---@field _kind 'class-type'
@@ -1526,6 +1510,7 @@ df.weapon_flags = {}
 ---@field attacks any
 ---@field shoot_force number
 ---@field shoot_maxvel number
+---@field number number[]
 
 ---@class _itemdef_weaponst: DFCompound
 ---@field _kind 'class-type'

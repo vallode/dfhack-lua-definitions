@@ -14,6 +14,8 @@ module DFHackLuaDefinitions
         BitfieldType.new(node)
       when 'class-type', 'struct-type'
         StructType.new(node)
+      when 'static-array'
+        StaticArray.new(node, path)
       when 'compound'
         case node['ld:subtype']
         when 'bitfield'
@@ -50,7 +52,7 @@ module DFHackLuaDefinitions
       if node['ld:level'] == '0'
         @path.append(@name)
         @local_name = @name
-      else
+      elsif @name
         @path.append("T_#{@name}")
         @local_name = @path.join('_').gsub('T_', '')
         # @name = @path.join('.').gsub('.T_', '_')
@@ -67,12 +69,16 @@ module DFHackLuaDefinitions
       @items = items
     end
 
+    def type
+      @class_name
+    end
+
     def items
       index = 0
       @node.xpath('enum-item').map do |item|
-        enum = EnumItem.new(item, index)
+        enum = EnumItem.new(item, item['value'] || index)
+        index = item['value'].to_i if item['value']
         index += 1
-        index -= item['value'].to_i.abs if item['value']
         enum
       end
     end
@@ -192,6 +198,10 @@ module DFHackLuaDefinitions
       @items = items
     end
 
+    def type
+      @class_name
+    end
+
     def items
       index = 0
       @node.xpath('ld:field').map do |item|
@@ -207,28 +217,15 @@ module DFHackLuaDefinitions
 
     def to_type
       annotation = []
-      annotation << "---@alias _#{@class_name}_keys\n"
-      @items.each do |item|
-        annotation << item.to_alias if item.render?
-      end
-      annotation << "\n"
-
-      annotation << "---@alias _#{@class_name}_values\n"
-      @items.each do |item|
-        annotation << item.to_alias_string if item.render?
-      end
-      annotation << "\n"
-
-      annotation << "---@class #{@class_name}: DFObject, { [_#{@class_name}_keys|_#{@class_name}_values]: boolean }\n"
+      annotation << "---@class #{@class_name}: DFObject\n"
       annotation << "---@field _kind 'bitfield'\n"
       annotation << "---@field _enum _#{@class_name}\n"
-      annotation << "local #{@local_name} = {\n"
       fields = []
       @items.each do |item|
         fields.append(item.to_field_bitfield) if item.render?
       end
       annotation << fields.join('')
-      annotation << "}\n\n"
+      annotation << "\n"
       annotation.join
     end
 
@@ -289,14 +286,8 @@ module DFHackLuaDefinitions
 
     def to_field_bitfield
       annotation = []
-      if @name
-        annotation << "  #{LuaLS.safe_name(@name)} = false,"
-        annotation << " -- #{@comment}" if @comment
-        annotation << "\n"
-      end
-      annotation << "  [#{@value}] = false,"
-      annotation << " -- #{@comment}" if @comment
-      annotation << "\n"
+      annotation << LuaLS.field(@name, 'boolean', @comment) if @name
+      annotation << LuaLS.field(@value, 'boolean', @comment)
       annotation.join
     end
   end
@@ -315,6 +306,10 @@ module DFHackLuaDefinitions
       @class_name = @path.join('.')
       @class = node['inherits-from']
       @fields = fields
+    end
+
+    def type
+      @class_name
     end
 
     def fields
@@ -427,8 +422,46 @@ module DFHackLuaDefinitions
     end
   end
 
+  class StaticArray < Type
+    attr_accessor :type
+
+    def initialize(node, path = [])
+      super(node, path)
+
+      @path = @path.slice(0..-1)
+      @child = child
+      raise "StaticArray with no child: #{node}" unless @child
+
+      @type = if @node['index-enum']
+                "DFEnumVector<#{@node['index-enum']}, #{@child.type}>"
+              else
+                "#{@child.type}[]"
+              end
+    end
+
+    def child
+      DFHackLuaDefinitions.node_to_type(@node.first_element_child, @path)
+    end
+
+    def to_field
+      LuaLS.field(@name, "#{@type}", @comment)
+    end
+
+    def render?
+      true
+    end
+
+    def render
+      annotation = []
+      annotation << @child.render if @child.render?
+      annotation.join
+    end
+  end
+
   # Generic global field.
   class Field < Type
+    attr_accessor :type
+
     def initialize(field, path = [])
       super(field, path)
 
@@ -442,10 +475,6 @@ module DFHackLuaDefinitions
       return unless field.name == 'item'
 
       @name = path[0]
-    end
-
-    def type
-      type['type-name']
     end
 
     def to_field

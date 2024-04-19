@@ -146,27 +146,15 @@ df.extentst = {}
 ---@field _kind 'class-type'
 df.widget = {}
 
----@alias _widget.T_visibility_flags_keys
----| 0 # WIDGET_VISIBILITY_ACTIVE
----| 1 # WIDGET_VISIBILITY_VISIBLE
----| 2 # WIDGET_VISIBILITY_CAN_KEY_ACTIVATE
-
----@alias _widget.T_visibility_flags_values
----| "WIDGET_VISIBILITY_ACTIVE" # 0
----| "WIDGET_VISIBILITY_VISIBLE" # 1
----| "WIDGET_VISIBILITY_CAN_KEY_ACTIVATE" # 2
-
----@class widget.T_visibility_flags: DFObject, { [_widget.T_visibility_flags_keys|_widget.T_visibility_flags_values]: boolean }
+---@class widget.T_visibility_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _widget.T_visibility_flags
-local widget_visibility_flags = {
-  WIDGET_VISIBILITY_ACTIVE = false,
-  [0] = false,
-  WIDGET_VISIBILITY_VISIBLE = false,
-  [1] = false,
-  WIDGET_VISIBILITY_CAN_KEY_ACTIVATE = false,
-  [2] = false,
-}
+---@field WIDGET_VISIBILITY_ACTIVE boolean
+---@field [0] boolean
+---@field WIDGET_VISIBILITY_VISIBLE boolean
+---@field [1] boolean
+---@field WIDGET_VISIBILITY_CAN_KEY_ACTIVATE boolean
+---@field [2] boolean
 
 ---@class _widget.T_visibility_flags: DFBitfield
 ---@field WIDGET_VISIBILITY_ACTIVE 0
@@ -241,43 +229,23 @@ df.text_truncated = {}
 ---@field _kind 'class-type'
 df.widget_text_multiline = {}
 
----@alias _override_tile_type_keys
----| 0 # OVERRIDE_CHAR
----| 1 # OVERRIDE_TILE
----| 2 # OVERRIDE_TOP_TILE
----| 3 # OVERRIDE_LOWER_TILE
----| 4 # OVERRIDE_TOP_LOWER_TILE
----| 5 # OVERRIDE_ANCHORED_TILE
----| 6 # OVERRIDE_TOP_ANCHORED_TILE
-
----@alias _override_tile_type_values
----| "OVERRIDE_CHAR" # 0
----| "OVERRIDE_TILE" # 1
----| "OVERRIDE_TOP_TILE" # 2
----| "OVERRIDE_LOWER_TILE" # 3
----| "OVERRIDE_TOP_LOWER_TILE" # 4
----| "OVERRIDE_ANCHORED_TILE" # 5
----| "OVERRIDE_TOP_ANCHORED_TILE" # 6
-
----@class override_tile_type: DFObject, { [_override_tile_type_keys|_override_tile_type_values]: boolean }
+---@class override_tile_type: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _override_tile_type
-local override_tile_type = {
-  OVERRIDE_CHAR = false,
-  [0] = false,
-  OVERRIDE_TILE = false,
-  [1] = false,
-  OVERRIDE_TOP_TILE = false,
-  [2] = false,
-  OVERRIDE_LOWER_TILE = false,
-  [3] = false,
-  OVERRIDE_TOP_LOWER_TILE = false,
-  [4] = false,
-  OVERRIDE_ANCHORED_TILE = false,
-  [5] = false,
-  OVERRIDE_TOP_ANCHORED_TILE = false,
-  [6] = false,
-}
+---@field OVERRIDE_CHAR boolean
+---@field [0] boolean
+---@field OVERRIDE_TILE boolean
+---@field [1] boolean
+---@field OVERRIDE_TOP_TILE boolean
+---@field [2] boolean
+---@field OVERRIDE_LOWER_TILE boolean
+---@field [3] boolean
+---@field OVERRIDE_TOP_LOWER_TILE boolean
+---@field [4] boolean
+---@field OVERRIDE_ANCHORED_TILE boolean
+---@field [5] boolean
+---@field OVERRIDE_TOP_ANCHORED_TILE boolean
+---@field [6] boolean
 
 ---@class _override_tile_type: DFBitfield
 ---@field OVERRIDE_CHAR 0
@@ -719,31 +687,17 @@ df.widget_job_details_button = {}
 ---@field [14] "FORCE_JOB_WIDTH"
 df.unit_list_options = {}
 
----@alias _unit_list_flag_keys
----| 0 # show_gender
----| 1 # custom_build
----| 2 # force_job_width
----| 3 # activate_on_cursor
-
----@alias _unit_list_flag_values
----| "show_gender" # 0
----| "custom_build" # 1
----| "force_job_width" # 2
----| "activate_on_cursor" # 3
-
----@class unit_list_flag: DFObject, { [_unit_list_flag_keys|_unit_list_flag_values]: boolean }
+---@class unit_list_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _unit_list_flag
-local unit_list_flag = {
-  show_gender = false,
-  [0] = false,
-  custom_build = false,
-  [1] = false,
-  force_job_width = false,
-  [2] = false,
-  activate_on_cursor = false,
-  [3] = false,
-}
+---@field show_gender boolean
+---@field [0] boolean
+---@field custom_build boolean
+---@field [1] boolean
+---@field force_job_width boolean
+---@field [2] boolean
+---@field activate_on_cursor boolean
+---@field [3] boolean
 
 ---@class _unit_list_flag: DFBitfield
 ---@field show_gender 0
@@ -756,19 +710,11 @@ local unit_list_flag = {
 ---@field [3] "activate_on_cursor"
 df.unit_list_flag = {}
 
----@alias _unit_list_sort_flag_keys
----| 0 # NEEDS_RESORTED
-
----@alias _unit_list_sort_flag_values
----| "NEEDS_RESORTED" # 0
-
----@class unit_list_sort_flag: DFObject, { [_unit_list_sort_flag_keys|_unit_list_sort_flag_values]: boolean }
+---@class unit_list_sort_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _unit_list_sort_flag
-local unit_list_sort_flag = {
-  NEEDS_RESORTED = false,
-  [0] = false,
-}
+---@field NEEDS_RESORTED boolean
+---@field [0] boolean
 
 ---@class _unit_list_sort_flag: DFBitfield
 ---@field NEEDS_RESORTED 0
@@ -868,7 +814,7 @@ df.item_or_unit = {}
 ---@field on_select_change any
 ---@field skill_type unit_list_options
 ---@field mtx stl-mutex
----@field skills number
+---@field skills DFEnumVector<job_skill, number>
 ---@field filter_str string
 
 ---@class _widget_unit_list: DFCompound
@@ -959,7 +905,7 @@ df.shared_world_headerst.T_save_type = {}
 ---@field _type _region_headerst
 ---@field name language_name
 ---@field display_name string
----@field permission number same as the one at the top of world_data
+---@field permission number[] same as the one at the top of world_data
 ---@field last_id region_headerst.T_last_id
 ---@field world_header shared_world_headerst
 ---@field filename_noext string
@@ -1290,8 +1236,8 @@ df.embark_location = {}
 ---@field find_block_dx number to world width / 16
 ---@field find_block_dy number to world height / 16
 ---@field find_select number
----@field find_param number
----@field find_missed_param boolean
+---@field find_param DFEnumVector<embark_finder_option, number>
+---@field find_missed_param DFEnumVector<embark_finder_option, boolean>
 ---@field find_missed_metal_ore number
 ---@field find_param_list number
 ---@field find_metal_ore number
@@ -1349,55 +1295,29 @@ df.viewscreen_choose_start_sitest = {}
 ---@field [8] "Notes"
 df.viewscreen_choose_start_sitest.T_page = {}
 
----@alias _viewscreen_choose_start_sitest.T_warn_flags_keys
----| 0 # GENERIC
----| 1 # WATER_TABLE
----| 2 # HEAVY_WATER_TABLE
----| 3 # SALT_WATER
----| 4 # LARGE
----| 5 # SMALL
----| 6 # DEAD_CIV
----| 7 # SAVAGE
----| 8 # EVIL
----| 9 # UNDEAD
-
----@alias _viewscreen_choose_start_sitest.T_warn_flags_values
----| "GENERIC" # 0
----| "WATER_TABLE" # 1
----| "HEAVY_WATER_TABLE" # 2
----| "SALT_WATER" # 3
----| "LARGE" # 4
----| "SMALL" # 5
----| "DEAD_CIV" # 6
----| "SAVAGE" # 7
----| "EVIL" # 8
----| "UNDEAD" # 9
-
----@class viewscreen_choose_start_sitest.T_warn_flags: DFObject, { [_viewscreen_choose_start_sitest.T_warn_flags_keys|_viewscreen_choose_start_sitest.T_warn_flags_values]: boolean }
+---@class viewscreen_choose_start_sitest.T_warn_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _viewscreen_choose_start_sitest.T_warn_flags
-local viewscreen_choose_start_sitest_warn_flags = {
-  GENERIC = false,
-  [0] = false,
-  WATER_TABLE = false,
-  [1] = false,
-  HEAVY_WATER_TABLE = false,
-  [2] = false,
-  SALT_WATER = false,
-  [3] = false,
-  LARGE = false,
-  [4] = false,
-  SMALL = false,
-  [5] = false,
-  DEAD_CIV = false,
-  [6] = false,
-  SAVAGE = false,
-  [7] = false,
-  EVIL = false,
-  [8] = false,
-  UNDEAD = false,
-  [9] = false,
-}
+---@field GENERIC boolean
+---@field [0] boolean
+---@field WATER_TABLE boolean
+---@field [1] boolean
+---@field HEAVY_WATER_TABLE boolean
+---@field [2] boolean
+---@field SALT_WATER boolean
+---@field [3] boolean
+---@field LARGE boolean
+---@field [4] boolean
+---@field SMALL boolean
+---@field [5] boolean
+---@field DEAD_CIV boolean
+---@field [6] boolean
+---@field SAVAGE boolean
+---@field [7] boolean
+---@field EVIL boolean
+---@field [8] boolean
+---@field UNDEAD boolean
+---@field [9] boolean
 
 ---@class _viewscreen_choose_start_sitest.T_warn_flags: DFBitfield
 ---@field GENERIC 0
@@ -2235,8 +2155,8 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field partial_ocean_edge_min number
 ---@field complete_ocean_edge_min number
 ---@field volcano_min number
----@field region_counts any
----@field river_mins number
+---@field region_counts DFEnumVector<worldgen_region_type, number>[]
+---@field river_mins number[]
 ---@field subregion_max number
 ---@field cavern_layer_count number
 ---@field cavern_layer_openness_min number
@@ -2271,7 +2191,7 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field volcanism_ranges_1 number
 ---@field volcanism_ranges_0 number
 ---@field volcanism_ranges_2 number
----@field ranges any
+---@field ranges DFEnumVector<worldgen_range_type, number>[]
 ---@field beast_end_year number
 ---@field end_year number
 ---@field beast_end_year_percent number
@@ -2284,14 +2204,14 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field megabeast_cap number
 ---@field semimegabeast_cap number
 ---@field titan_number number
----@field titan_attack_trigger number
+---@field titan_attack_trigger number[]
 ---@field demon_number number
 ---@field night_troll_number number
 ---@field bogeyman_number number
 ---@field nightmare_number number
 ---@field vampire_number number
 ---@field werebeast_number number
----@field werebeast_attack_trigger number
+---@field werebeast_attack_trigger number[]
 ---@field secret_number number
 ---@field regional_interaction_number number
 ---@field disturbance_interaction_number number
@@ -2310,12 +2230,12 @@ df.viewscreen_loadgamest.T_cur_step = {}
 ---@field evil_sq_counts_1 number
 ---@field good_sq_counts_2 number
 ---@field evil_sq_counts_2 number
----@field elevation_frequency number
----@field rain_frequency number
----@field drainage_frequency number
----@field savagery_frequency number
----@field temperature_frequency number
----@field volcanism_frequency number
+---@field elevation_frequency number[]
+---@field rain_frequency number[]
+---@field drainage_frequency number[]
+---@field savagery_frequency number[]
+---@field temperature_frequency number[]
+---@field volcanism_frequency number[]
 ---@field ps worldgen_parms_ps
 ---@field reveal_all_history number
 ---@field cull_historical_figures number
@@ -2337,7 +2257,7 @@ df.worldgen_parms = {}
 ---@field _type _worldgen_parms_ps
 ---@field width number
 ---@field height number
----@field data any
+---@field data DFEnumVector<worldgen_range_type, any>
 
 ---@class _worldgen_parms_ps: DFCompound
 ---@field _kind 'struct-type'
@@ -2675,7 +2595,7 @@ df.adv_background_option_type = {}
 ---@field name language_name
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
----@field skilllevel any
+---@field skilllevel DFEnumVector<job_skill, skill_rating>
 ---@field quick_entity_id number References: `historical_entity`
 ---@field entity_population_id number
 ---@field breed_id number
@@ -2684,13 +2604,13 @@ df.adv_background_option_type = {}
 ---@field start_mil_type number
 ---@field start_civ_type number
 ---@field skill_picks_left number
----@field phys_att_range_val any
----@field ment_att_range_val any
+---@field phys_att_range_val DFEnumVector<physical_attribute_type, adventurer_attribute_level>
+---@field ment_att_range_val DFEnumVector<mental_attribute_type, adventurer_attribute_level>
 ---@field difficulty setup_character_info.T_difficulty
 ---@field start_site_id number References: `world_site`
 ---@field background_start_squad_epp_id number
 ---@field background_unit profession
----@field background_skill_bonus number
+---@field background_skill_bonus DFEnumVector<job_skill, number>
 ---@field worship_hfid number References: `historical_figure`
 ---@field worship_enid number References: `historical_entity`
 ---@field worship_strength number
@@ -2703,7 +2623,7 @@ df.adv_background_option_type = {}
 ---@field is_from_wilderpop_or_feature boolean
 ---@field flag integer
 ---@field sub_mode setup_character_info.T_sub_mode
----@field visited_mode boolean
+---@field visited_mode boolean[]
 ---@field selecting_atts boolean
 ---@field selected_att number
 ---@field att_points number
@@ -2734,9 +2654,9 @@ df.adv_background_option_type = {}
 ---@field civ_values_text any
 ---@field doing_specific_personality boolean
 ---@field selected_specific_pers_item number
----@field min_pers number
----@field max_pers number
----@field civ_value_level number
+---@field min_pers DFEnumVector<personality_facet_type, number>
+---@field max_pers DFEnumVector<personality_facet_type, number>
+---@field civ_value_level DFEnumVector<value_type, number>
 ---@field eqpet_points number
 ---@field s_item any
 ---@field selected_i number
@@ -2816,7 +2736,7 @@ df.setup_character_info.T_sub_mode = {}
 ---@class (exact) embark_item_choice: DFObject
 ---@field _kind 'struct'
 ---@field _type _embark_item_choice
----@field list any
+---@field list DFEnumVector<entity_sell_category, any>
 ---@field race number References: `creature_raw`
 ---@field caste number References: `caste_raw`
 ---@field profession any
@@ -2857,7 +2777,7 @@ df.embark_profile = {}
 ---@field unk_v43_3 number
 ---@field unk_v43_4 language_name
 ---@field unk_v43_sub9 embark_symbol.T_unk_v43_sub9
----@field unk_v43_10 number uninitialized?
+---@field unk_v43_10 number[] uninitialized?
 
 ---@class _embark_symbol: DFCompound
 ---@field _kind 'struct-type'
@@ -2883,7 +2803,7 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@field _type _viewscreen_setupdwarfgamest
 ---@field title string
 ---@field dwarf_info any
----@field embark_skills any
+---@field embark_skills job_skill[]
 ---@field reclaim_professions profession
 ---@field preparing_map_timer number
 ---@field preparing_map_timer_quick_start boolean
@@ -2923,8 +2843,8 @@ df.embark_symbol.T_unk_v43_sub9 = {}
 ---@field profile_name string
 ---@field saving_profile_warning number
 ---@field etl embark_item_choice
----@field s_item any
----@field item_expander_on boolean
+---@field s_item DFEnumVector<entity_sell_category, any>
+---@field item_expander_on DFEnumVector<entity_sell_category, boolean>
 ---@field scroll_position_item number
 ---@field current_category entity_sell_category
 ---@field scroll_position_category number
@@ -3184,6 +3104,9 @@ df.viewscreen_worldst = {}
 ---@class (exact) viewscreen_worldst.T_rumor_rpd: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd
+---@field number number[]
+---@field number number[]
+---@field number number[]
 
 ---@class _viewscreen_worldst.T_rumor_rpd: DFCompound
 ---@field _kind 'struct-type'
@@ -3193,6 +3116,47 @@ df.viewscreen_worldst.T_rumor_rpd = {}
 ---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFObject
 ---@field _kind 'struct'
 ---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
+---@field  viewscreen_worldst.T_rumor_rpd_indicator_data[]
+---@field  viewscreen_worldst.T_rumor_rpd_indicator_data[]
+---@field number number[]
+---@field number number[]
+---@field number number[]
+---@field number number[]
+---@field  viewscreen_worldst.T_rumor_rpd_indicator_data[]
+---@field number number[]
+---@field number number[]
+---@field number number[]
+---@field number number[]
+
+---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompound
+---@field _kind 'struct-type'
+df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
+
+---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFObject
+---@field _kind 'struct'
+---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
+---@field a number
+---@field b number
+
+---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompound
+---@field _kind 'struct-type'
+df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
+
+---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFObject
+---@field _kind 'struct'
+---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
+---@field a number
+---@field b number
+
+---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompound
+---@field _kind 'struct-type'
+df.viewscreen_worldst.T_rumor_rpd_indicator_data = {}
+
+---@class (exact) viewscreen_worldst.T_rumor_rpd_indicator_data: DFObject
+---@field _kind 'struct'
+---@field _type _viewscreen_worldst.T_rumor_rpd_indicator_data
+---@field a number
+---@field b number
 
 ---@class _viewscreen_worldst.T_rumor_rpd_indicator_data: DFCompound
 ---@field _kind 'struct-type'

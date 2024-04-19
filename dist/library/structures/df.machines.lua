@@ -20,19 +20,11 @@ df.machine_type = {}
 ---@field _kind 'struct-type'
 df.machine_info = {}
 
----@alias _machine_info.T_flags_keys
----| 0 # frozen
-
----@alias _machine_info.T_flags_values
----| "frozen" # 0
-
----@class machine_info.T_flags: DFObject, { [_machine_info.T_flags_keys|_machine_info.T_flags_values]: boolean }
+---@class machine_info.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _machine_info.T_flags
-local machine_info_flags = {
-  frozen = false,
-  [0] = false,
-}
+---@field frozen boolean
+---@field [0] boolean
 
 ---@class _machine_info.T_flags: DFBitfield
 ---@field frozen 0
@@ -49,39 +41,21 @@ df.machine_info.T_flags = {}
 ---@field _kind 'struct-type'
 df.power_info = {}
 
----@alias _machine_conn_modes_keys
----| 0 # up
----| 1 # down
----| 2 # right
----| 3 # left
----| 4 # z_up
----| 5 # z_down
-
----@alias _machine_conn_modes_values
----| "up" # 0
----| "down" # 1
----| "right" # 2
----| "left" # 3
----| "z_up" # 4
----| "z_down" # 5
-
----@class machine_conn_modes: DFObject, { [_machine_conn_modes_keys|_machine_conn_modes_values]: boolean }
+---@class machine_conn_modes: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _machine_conn_modes
-local machine_conn_modes = {
-  up = false,
-  [0] = false,
-  down = false,
-  [1] = false,
-  right = false,
-  [2] = false,
-  left = false,
-  [3] = false,
-  z_up = false,
-  [4] = false,
-  z_down = false,
-  [5] = false,
-}
+---@field up boolean
+---@field [0] boolean
+---@field down boolean
+---@field [1] boolean
+---@field right boolean
+---@field [2] boolean
+---@field left boolean
+---@field [3] boolean
+---@field z_up boolean
+---@field [4] boolean
+---@field z_down boolean
+---@field [5] boolean
 
 ---@class _machine_conn_modes: DFBitfield
 ---@field up 0
@@ -135,27 +109,15 @@ function df.machine.find(key) end
 ---@return machine_vector # df.global.world.machines.all
 function df.machine.get_vector() end
 
----@alias _machine.T_flags_keys
----| 0 # active
----| 1 # frozen
----| 2 # unfreeze
-
----@alias _machine.T_flags_values
----| "active" # 0
----| "frozen" # 1
----| "unfreeze" # 2
-
----@class machine.T_flags: DFObject, { [_machine.T_flags_keys|_machine.T_flags_values]: boolean }
+---@class machine.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _machine.T_flags
-local machine_flags = {
-  active = false,
-  [0] = false,
-  frozen = false, -- ?
-  [1] = false, -- ?
-  unfreeze = false, -- ?
-  [2] = false, -- ?
-}
+---@field active boolean
+---@field [0] boolean
+---@field frozen boolean ?
+---@field [1] boolean ?
+---@field unfreeze boolean ?
+---@field [2] boolean ?
 
 ---@class _machine.T_flags: DFBitfield
 ---@field active 0
@@ -204,19 +166,11 @@ df.building_axle_verticalst = {}
 ---@field _kind 'class-type'
 df.building_gear_assemblyst = {}
 
----@alias _building_gear_assemblyst.T_gear_flags_keys
----| 0 # disengaged
-
----@alias _building_gear_assemblyst.T_gear_flags_values
----| "disengaged" # 0
-
----@class building_gear_assemblyst.T_gear_flags: DFObject, { [_building_gear_assemblyst.T_gear_flags_keys|_building_gear_assemblyst.T_gear_flags_values]: boolean }
+---@class building_gear_assemblyst.T_gear_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _building_gear_assemblyst.T_gear_flags
-local building_gear_assemblyst_gear_flags = {
-  disengaged = false,
-  [0] = false,
-}
+---@field disengaged boolean
+---@field [0] boolean
 
 ---@class _building_gear_assemblyst.T_gear_flags: DFBitfield
 ---@field disengaged 0

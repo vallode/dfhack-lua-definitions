@@ -26,79 +26,41 @@ df.projectile_type = {}
 ---@field _kind 'struct-type'
 df.proj_list_link = {}
 
----@alias _projectile_flags_keys
----| 0 # no_impact_destroy
----| 1 # has_hit_ground
----| 2 # bouncing
----| 3 # high_flying
----| 4 # piercing
----| 5 # to_be_deleted
----| 6 # hits_friends
----| 7 # trap_origin
----| 8 # parabolic
----| 9 # no_adv_pause
----| 10 # vehicle_origin
----| 11 # no_collide
----| 12 # safe_landing
----| 13 # struck
----| 14 # auto_hit
----| 15 # item_link_deleted
-
----@alias _projectile_flags_values
----| "no_impact_destroy" # 0
----| "has_hit_ground" # 1
----| "bouncing" # 2
----| "high_flying" # 3
----| "piercing" # 4
----| "to_be_deleted" # 5
----| "hits_friends" # 6
----| "trap_origin" # 7
----| "parabolic" # 8
----| "no_adv_pause" # 9
----| "vehicle_origin" # 10
----| "no_collide" # 11
----| "safe_landing" # 12
----| "struck" # 13
----| "auto_hit" # 14
----| "item_link_deleted" # 15
-
----@class projectile_flags: DFObject, { [_projectile_flags_keys|_projectile_flags_values]: boolean }
+---@class projectile_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _projectile_flags
-local projectile_flags = {
-  no_impact_destroy = false,
-  [0] = false,
-  has_hit_ground = false,
-  [1] = false,
-  bouncing = false,
-  [2] = false,
-  high_flying = false,
-  [3] = false,
-  piercing = false,
-  [4] = false,
-  to_be_deleted = false,
-  [5] = false,
-  hits_friends = false,
-  [6] = false,
-  trap_origin = false,
-  [7] = false,
-  parabolic = false,
-  [8] = false,
-  no_adv_pause = false,
-  [9] = false,
-  vehicle_origin = false,
-  [10] = false,
-  no_collide = false,
-  [11] = false,
-  safe_landing = false,
-  [12] = false,
-  struck = false,
-  [13] = false,
-  auto_hit = false,
-  [14] = false,
-  item_link_deleted = false,
-  [15] = false,
-}
+---@field no_impact_destroy boolean
+---@field [0] boolean
+---@field has_hit_ground boolean
+---@field [1] boolean
+---@field bouncing boolean
+---@field [2] boolean
+---@field high_flying boolean
+---@field [3] boolean
+---@field piercing boolean
+---@field [4] boolean
+---@field to_be_deleted boolean
+---@field [5] boolean
+---@field hits_friends boolean
+---@field [6] boolean
+---@field trap_origin boolean
+---@field [7] boolean
+---@field parabolic boolean
+---@field [8] boolean
+---@field no_adv_pause boolean
+---@field [9] boolean
+---@field vehicle_origin boolean
+---@field [10] boolean
+---@field no_collide boolean
+---@field [11] boolean
+---@field safe_landing boolean
+---@field [12] boolean
+---@field struck boolean
+---@field [13] boolean
+---@field auto_hit boolean
+---@field [14] boolean
+---@field item_link_deleted boolean
+---@field [15] boolean
 
 ---@class _projectile_flags: DFBitfield
 ---@field no_impact_destroy 0

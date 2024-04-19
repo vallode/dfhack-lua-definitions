@@ -9,9 +9,10 @@ module DFHackLuaDefinitions
 
     class << self
       def safe_name(name)
-        return name unless RESERVED_KEYWORDS.include?(name)
+        return "[\"#{name}\"]" if RESERVED_KEYWORDS.include?(name)
+        return "[#{name}]" if name.is_a? Numeric
 
-        "[\"#{name}\"]"
+        name
       end
 
       def comment(string)

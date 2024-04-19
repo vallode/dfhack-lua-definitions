@@ -271,7 +271,7 @@ df.plant_raw_flags = {}
 ---@field growdur number
 ---@field value number
 ---@field colors plant_raw.T_colors
----@field alt_period number
+---@field alt_period number[]
 ---@field shrub_drown_level number
 ---@field tree_drown_level number
 ---@field sapling_drown_level number
@@ -329,10 +329,10 @@ function df.plant_raw.get_vector() end
 ---@field dead_tree_tile integer unused
 ---@field sapling_tile integer
 ---@field dead_sapling_tile integer
----@field grass_tiles integer
----@field alt_grass_tiles integer
----@field tree_tiles integer
----@field unk_v50_1 integer
+---@field grass_tiles integer[]
+---@field alt_grass_tiles integer[]
+---@field tree_tiles integer[]
+---@field unk_v50_1 integer[]
 
 ---@class _plant_raw.T_tiles: DFCompound
 ---@field _kind 'struct-type'
@@ -341,18 +341,18 @@ df.plant_raw.T_tiles = {}
 ---@class (exact) plant_raw.T_colors: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_colors
----@field picked_color number
----@field dead_picked_color number
----@field shrub_color number
----@field dead_shrub_color number
----@field seed_color number
----@field tree_color number
----@field dead_tree_color number
----@field sapling_color number
----@field dead_sapling_color number
----@field grass_colors_0 number
----@field grass_colors_1 number
----@field grass_colors_2 number
+---@field picked_color number[]
+---@field dead_picked_color number[]
+---@field shrub_color number[]
+---@field dead_shrub_color number[]
+---@field seed_color number[]
+---@field tree_color number[]
+---@field dead_tree_color number[]
+---@field sapling_color number[]
+---@field dead_sapling_color number[]
+---@field grass_colors_0 number[]
+---@field grass_colors_1 number[]
+---@field grass_colors_2 number[]
 
 ---@class _plant_raw.T_colors: DFCompound
 ---@field _kind 'struct-type'
@@ -361,9 +361,9 @@ df.plant_raw.T_colors = {}
 ---@class (exact) plant_raw.T_material_defs: DFObject
 ---@field _kind 'struct'
 ---@field _type _plant_raw.T_material_defs
----@field type any
----@field idx number
----@field str any
+---@field type DFEnumVector<plant_material_def, number>
+---@field idx DFEnumVector<plant_material_def, number>
+---@field str DFEnumVector<plant_material_def, string[]>
 
 ---@class _plant_raw.T_material_defs: DFCompound
 ---@field _kind 'struct-type'
@@ -407,7 +407,7 @@ df.plant_material_def = {}
 ---@field id string
 ---@field name string
 ---@field name_plural string
----@field str_growth_item string
+---@field str_growth_item string[]
 ---@field item_type item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
@@ -430,43 +430,23 @@ df.plant_material_def = {}
 ---@field _kind 'struct-type'
 df.plant_growth = {}
 
----@alias _plant_growth.T_locations_keys
----| 0 # twigs
----| 1 # light_branches
----| 2 # heavy_branches
----| 3 # trunk
----| 4 # roots
----| 5 # cap
----| 6 # sapling
-
----@alias _plant_growth.T_locations_values
----| "twigs" # 0
----| "light_branches" # 1
----| "heavy_branches" # 2
----| "trunk" # 3
----| "roots" # 4
----| "cap" # 5
----| "sapling" # 6
-
----@class plant_growth.T_locations: DFObject, { [_plant_growth.T_locations_keys|_plant_growth.T_locations_values]: boolean }
+---@class plant_growth.T_locations: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _plant_growth.T_locations
-local plant_growth_locations = {
-  twigs = false,
-  [0] = false,
-  light_branches = false,
-  [1] = false,
-  heavy_branches = false,
-  [2] = false,
-  trunk = false,
-  [3] = false,
-  roots = false,
-  [4] = false,
-  cap = false,
-  [5] = false,
-  sapling = false,
-  [6] = false,
-}
+---@field twigs boolean
+---@field [0] boolean
+---@field light_branches boolean
+---@field [1] boolean
+---@field heavy_branches boolean
+---@field [2] boolean
+---@field trunk boolean
+---@field [3] boolean
+---@field roots boolean
+---@field [4] boolean
+---@field cap boolean
+---@field [5] boolean
+---@field sapling boolean
+---@field [6] boolean
 
 ---@class _plant_growth.T_locations: DFBitfield
 ---@field twigs 0
@@ -485,27 +465,15 @@ local plant_growth_locations = {
 ---@field [6] "sapling"
 df.plant_growth.T_locations = {}
 
----@alias _plant_growth.T_behavior_keys
----| 0 # drops_off
----| 1 # no_cloud
----| 2 # has_seed
-
----@alias _plant_growth.T_behavior_values
----| "drops_off" # 0
----| "no_cloud" # 1
----| "has_seed" # 2
-
----@class plant_growth.T_behavior: DFObject, { [_plant_growth.T_behavior_keys|_plant_growth.T_behavior_values]: boolean }
+---@class plant_growth.T_behavior: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _plant_growth.T_behavior
-local plant_growth_behavior = {
-  drops_off = false,
-  [0] = false,
-  no_cloud = false,
-  [1] = false,
-  has_seed = false,
-  [2] = false,
-}
+---@field drops_off boolean
+---@field [0] boolean
+---@field no_cloud boolean
+---@field [1] boolean
+---@field has_seed boolean
+---@field [2] boolean
 
 ---@class _plant_growth.T_behavior: DFBitfield
 ---@field drops_off 0
@@ -522,7 +490,7 @@ df.plant_growth.T_behavior = {}
 ---@field priority number final token in list
 ---@field tile_growth integer
 ---@field tile_item integer
----@field color number
+---@field color number[]
 ---@field timing_start number
 ---@field timing_end number
 

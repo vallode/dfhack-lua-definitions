@@ -121,19 +121,11 @@ df.interaction_effect_location_hint = {}
 ---@field _kind 'class-type'
 df.interaction_effect = {}
 
----@alias _interaction_effect.T_flags_keys
----| 0 # IMMEDIATE
-
----@alias _interaction_effect.T_flags_values
----| "IMMEDIATE" # 0
-
----@class interaction_effect.T_flags: DFObject, { [_interaction_effect.T_flags_keys|_interaction_effect.T_flags_values]: boolean }
+---@class interaction_effect.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _interaction_effect.T_flags
-local interaction_effect_flags = {
-  IMMEDIATE = false, -- IE_IMMEDIATE
-  [0] = false, -- IE_IMMEDIATE
-}
+---@field IMMEDIATE boolean IE_IMMEDIATE
+---@field [0] boolean IE_IMMEDIATE
 
 ---@class _interaction_effect.T_flags: DFBitfield
 ---@field IMMEDIATE 0 IE_IMMEDIATE
@@ -343,49 +335,29 @@ df.interaction_source = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_source_regionst
 ---@field region_flags interaction_source_regionst.T_region_flags
----@field regions number
+---@field regions DFEnumVector<worldgen_region_type, number>
 
 ---@class _interaction_source_regionst: DFCompound
 ---@field _kind 'class-type'
 df.interaction_source_regionst = {}
 
----@alias _interaction_source_regionst.T_region_flags_keys
----| 0 # NORMAL_ALLOWED
----| 1 # EVIL_ALLOWED
----| 2 # GOOD_ALLOWED
----| 3 # SAVAGE_ALLOWED
----| 4 # EVIL_ONLY
----| 5 # GOOD_ONLY
----| 6 # SAVAGE_ONLY
-
----@alias _interaction_source_regionst.T_region_flags_values
----| "NORMAL_ALLOWED" # 0
----| "EVIL_ALLOWED" # 1
----| "GOOD_ALLOWED" # 2
----| "SAVAGE_ALLOWED" # 3
----| "EVIL_ONLY" # 4
----| "GOOD_ONLY" # 5
----| "SAVAGE_ONLY" # 6
-
----@class interaction_source_regionst.T_region_flags: DFObject, { [_interaction_source_regionst.T_region_flags_keys|_interaction_source_regionst.T_region_flags_values]: boolean }
+---@class interaction_source_regionst.T_region_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _interaction_source_regionst.T_region_flags
-local interaction_source_regionst_region_flags = {
-  NORMAL_ALLOWED = false,
-  [0] = false,
-  EVIL_ALLOWED = false,
-  [1] = false,
-  GOOD_ALLOWED = false,
-  [2] = false,
-  SAVAGE_ALLOWED = false,
-  [3] = false,
-  EVIL_ONLY = false,
-  [4] = false,
-  GOOD_ONLY = false,
-  [5] = false,
-  SAVAGE_ONLY = false,
-  [6] = false,
-}
+---@field NORMAL_ALLOWED boolean
+---@field [0] boolean
+---@field EVIL_ALLOWED boolean
+---@field [1] boolean
+---@field GOOD_ALLOWED boolean
+---@field [2] boolean
+---@field SAVAGE_ALLOWED boolean
+---@field [3] boolean
+---@field EVIL_ONLY boolean
+---@field [4] boolean
+---@field GOOD_ONLY boolean
+---@field [5] boolean
+---@field SAVAGE_ONLY boolean
+---@field [6] boolean
 
 ---@class _interaction_source_regionst.T_region_flags: DFBitfield
 ---@field NORMAL_ALLOWED 0
@@ -419,31 +391,17 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field _kind 'class-type'
 df.interaction_source_secretst = {}
 
----@alias _interaction_source_secretst.T_learn_flags_keys
----| 0 # SUPERNATURAL_LEARNING_POSSIBLE
----| 1 # MUNDANE_RESEARCH_POSSIBLE
----| 2 # MUNDANE_RECORDING_POSSIBLE
----| 3 # MUNDANE_TEACHING_POSSIBLE
-
----@alias _interaction_source_secretst.T_learn_flags_values
----| "SUPERNATURAL_LEARNING_POSSIBLE" # 0
----| "MUNDANE_RESEARCH_POSSIBLE" # 1
----| "MUNDANE_RECORDING_POSSIBLE" # 2
----| "MUNDANE_TEACHING_POSSIBLE" # 3
-
----@class interaction_source_secretst.T_learn_flags: DFObject, { [_interaction_source_secretst.T_learn_flags_keys|_interaction_source_secretst.T_learn_flags_values]: boolean }
+---@class interaction_source_secretst.T_learn_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _interaction_source_secretst.T_learn_flags
-local interaction_source_secretst_learn_flags = {
-  SUPERNATURAL_LEARNING_POSSIBLE = false,
-  [0] = false,
-  MUNDANE_RESEARCH_POSSIBLE = false,
-  [1] = false,
-  MUNDANE_RECORDING_POSSIBLE = false,
-  [2] = false,
-  MUNDANE_TEACHING_POSSIBLE = false,
-  [3] = false,
-}
+---@field SUPERNATURAL_LEARNING_POSSIBLE boolean
+---@field [0] boolean
+---@field MUNDANE_RESEARCH_POSSIBLE boolean
+---@field [1] boolean
+---@field MUNDANE_RECORDING_POSSIBLE boolean
+---@field [2] boolean
+---@field MUNDANE_TEACHING_POSSIBLE boolean
+---@field [3] boolean
 
 ---@class _interaction_source_secretst.T_learn_flags: DFBitfield
 ---@field SUPERNATURAL_LEARNING_POSSIBLE 0
@@ -626,10 +584,10 @@ df.interaction_target = {}
 ---@class (exact) interaction_target_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _interaction_target_info
----@field affected_creature_str any
+---@field affected_creature_str any[]
 ---@field affected_creature number IT_AFFECTED_CREATURE
 ---@field affected_class any IT_AFFECTED_CLASS
----@field immune_creature_str any
+---@field immune_creature_str any[]
 ---@field immune_creature number IT_IMMUNE_CREATURE
 ---@field immune_class any IT_IMMUNE_CLASS
 ---@field forbidden_syndrome_class any
@@ -643,19 +601,11 @@ df.interaction_target = {}
 ---@field _kind 'struct-type'
 df.interaction_target_info = {}
 
----@alias _interaction_target_info.T_restrictions_keys
----| 0 # CANNOT_TARGET_IF_ALREADY_AFFECTED
-
----@alias _interaction_target_info.T_restrictions_values
----| "CANNOT_TARGET_IF_ALREADY_AFFECTED" # 0
-
----@class interaction_target_info.T_restrictions: DFObject, { [_interaction_target_info.T_restrictions_keys|_interaction_target_info.T_restrictions_values]: boolean }
+---@class interaction_target_info.T_restrictions: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _interaction_target_info.T_restrictions
-local interaction_target_info_restrictions = {
-  CANNOT_TARGET_IF_ALREADY_AFFECTED = false,
-  [0] = false,
-}
+---@field CANNOT_TARGET_IF_ALREADY_AFFECTED boolean
+---@field [0] boolean
 
 ---@class _interaction_target_info.T_restrictions: DFBitfield
 ---@field CANNOT_TARGET_IF_ALREADY_AFFECTED 0
@@ -754,7 +704,7 @@ df.breath_attack_type = {}
 ---@class (exact) interaction_target_materialst: DFObject, interaction_target
 ---@field _kind 'struct'
 ---@field _type _interaction_target_materialst
----@field material_str string
+---@field material_str string[]
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field parent_interaction_index number
@@ -765,19 +715,11 @@ df.breath_attack_type = {}
 ---@field _kind 'class-type'
 df.interaction_target_materialst = {}
 
----@alias _interaction_target_materialst.T_restrictions_keys
----| 0 # CONTEXT_MATERIAL
-
----@alias _interaction_target_materialst.T_restrictions_values
----| "CONTEXT_MATERIAL" # 0
-
----@class interaction_target_materialst.T_restrictions: DFObject, { [_interaction_target_materialst.T_restrictions_keys|_interaction_target_materialst.T_restrictions_values]: boolean }
+---@class interaction_target_materialst.T_restrictions: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _interaction_target_materialst.T_restrictions
-local interaction_target_materialst_restrictions = {
-  CONTEXT_MATERIAL = false,
-  [0] = false,
-}
+---@field CONTEXT_MATERIAL boolean
+---@field [0] boolean
 
 ---@class _interaction_target_materialst.T_restrictions: DFBitfield
 ---@field CONTEXT_MATERIAL 0

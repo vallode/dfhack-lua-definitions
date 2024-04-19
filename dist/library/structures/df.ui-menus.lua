@@ -78,7 +78,7 @@ df.build_req_choice_specst = {}
 ---@field is_grouped number
 ---@field errors any
 ---@field unk4 any
----@field tiles any
+---@field tiles number[][]
 ---@field cur_walk_tag number
 ---@field plate_info pressure_plate_info
 ---@field min_weight_races number References: `creature_raw`
@@ -1799,11 +1799,11 @@ df.labor_standing_orders_interfacest = {}
 ---@field _kind 'struct'
 ---@field _type _labor_stone_use_interfacest
 ---@field current_category stone_use_category_type
----@field stone_mg_index any
----@field stone_restriction_p any
+---@field stone_mg_index DFEnumVector<stone_use_category_type, number>
+---@field stone_restriction_p DFEnumVector<stone_use_category_type, any>
 ---@field stone_item_use_str any
----@field scroll_position number
----@field scrolling boolean
+---@field scroll_position DFEnumVector<stone_use_category_type, number>
+---@field scrolling DFEnumVector<stone_use_category_type, boolean>
 
 ---@class _labor_stone_use_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -1821,23 +1821,13 @@ df.labor_stone_use_interfacest = {}
 ---@field _kind 'class-type'
 df.labor_interfacest = {}
 
----@alias _justice_screen_interrogation_list_flag_keys
----| 0 # SCHEDULED_FOR_INTERVIEW
----| 1 # ALREADY_INTERVIEWED
-
----@alias _justice_screen_interrogation_list_flag_values
----| "SCHEDULED_FOR_INTERVIEW" # 0
----| "ALREADY_INTERVIEWED" # 1
-
----@class justice_screen_interrogation_list_flag: DFObject, { [_justice_screen_interrogation_list_flag_keys|_justice_screen_interrogation_list_flag_values]: boolean }
+---@class justice_screen_interrogation_list_flag: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _justice_screen_interrogation_list_flag
-local justice_screen_interrogation_list_flag = {
-  SCHEDULED_FOR_INTERVIEW = false,
-  [0] = false,
-  ALREADY_INTERVIEWED = false,
-  [1] = false,
-}
+---@field SCHEDULED_FOR_INTERVIEW boolean
+---@field [0] boolean
+---@field ALREADY_INTERVIEWED boolean
+---@field [1] boolean
 
 ---@class _justice_screen_interrogation_list_flag: DFBitfield
 ---@field SCHEDULED_FOR_INTERVIEW 0
@@ -1932,9 +1922,9 @@ df.info_interfacest.T_jobs = {}
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_buildings
 ---@field mode buildings_mode_type
----@field list any
----@field scrolling_position number
----@field scrolling boolean
+---@field list DFEnumVector<buildings_mode_type, any>
+---@field scrolling_position DFEnumVector<buildings_mode_type, number>
+---@field scrolling DFEnumVector<buildings_mode_type, boolean>
 
 ---@class _info_interfacest.T_buildings: DFCompound
 ---@field _kind 'struct-type'
@@ -2031,9 +2021,9 @@ df.info_interfacest.T_administrators = {}
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_artifacts
 ---@field mode artifacts_mode_type
----@field list any
----@field scroll_position number
----@field scrolling boolean
+---@field list DFEnumVector<artifacts_mode_type, any>
+---@field scroll_position DFEnumVector<artifacts_mode_type, number>
+---@field scrolling DFEnumVector<artifacts_mode_type, boolean>
 
 ---@class _info_interfacest.T_artifacts: DFCompound
 ---@field _kind 'struct-type'
@@ -2134,7 +2124,7 @@ df.announcements_interfacest = {}
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x number
 ---@field current_hover_bot_y number
----@field hover_instruction any
+---@field hover_instruction any[]
 ---@field last_displayed_hover_inst number
 ---@field last_displayed_hover_id1 number
 ---@field last_displayed_hover_id2 number
@@ -2442,22 +2432,22 @@ df.main_interface.T_assign_trade = {}
 ---@field havetalker number
 ---@field merchant_trader unit
 ---@field fortress_trader unit
----@field good any
----@field goodflag any
----@field good_amount any
----@field i_height any
----@field master_type_a_type any
----@field master_type_a_subtype any
----@field master_type_a_expanded any
----@field current_type_a_type any
----@field current_type_a_subtype any
----@field current_type_a_expanded any
----@field current_type_a_on any
----@field current_type_a_flag any
----@field scroll_position_item any
----@field scrolling_item any
----@field item_filter any
----@field entering_item_filter any
+---@field good any[]
+---@field goodflag integer[]
+---@field good_amount number[]
+---@field i_height number[]
+---@field master_type_a_type number[]
+---@field master_type_a_subtype number[]
+---@field master_type_a_expanded any[]
+---@field current_type_a_type number[]
+---@field current_type_a_subtype number[]
+---@field current_type_a_expanded any[]
+---@field current_type_a_on any[]
+---@field current_type_a_flag integer[]
+---@field scroll_position_item number[]
+---@field scrolling_item boolean[]
+---@field item_filter string[]
+---@field entering_item_filter boolean[]
 ---@field talkline number trade reply
 ---@field buildlists number
 ---@field handle_appraisal number
@@ -2730,9 +2720,9 @@ df.main_interface.T_announcement_alert = {}
 ---@field scroll_position number
 ---@field scrolling boolean
 ---@field doing_background_color boolean
----@field swatch_r any
----@field swatch_g any
----@field swatch_b any
+---@field swatch_r integer[][]
+---@field swatch_g integer[][]
+---@field swatch_b integer[][]
 
 ---@class _main_interface.T_custom_symbol: DFCompound
 ---@field _kind 'struct-type'
@@ -3030,31 +3020,31 @@ df.main_interface.T_custom_stockpile = {}
 ---@field tab view_sheet_type
 ---@field tab_id number
 ---@field active_sub_tab number
----@field trait view_sheet_trait_type
----@field trait_id number
----@field trait_magnitude number
+---@field trait view_sheet_trait_type[]
+---@field trait_id number[]
+---@field trait_magnitude number[]
 ---@field trait_num number
 ---@field last_tick_update number
----@field reqroom number demands
----@field curroom number demands
----@field labor_skill_ind number
----@field labor_skill_val number
----@field labor_skill_w_rust number
+---@field reqroom number[] demands
+---@field curroom number[] demands
+---@field labor_skill_ind DFEnumVector<job_skill, number>
+---@field labor_skill_val DFEnumVector<job_skill, number>
+---@field labor_skill_w_rust DFEnumVector<job_skill, number>
 ---@field labor_skill_num number
----@field combat_skill_ind number
----@field combat_skill_val number
----@field combat_skill_w_rust number
+---@field combat_skill_ind DFEnumVector<job_skill, number>
+---@field combat_skill_val DFEnumVector<job_skill, number>
+---@field combat_skill_w_rust DFEnumVector<job_skill, number>
 ---@field combat_skill_num number
----@field other_skill_ind number
----@field other_skill_val number
----@field other_skill_w_rust number
+---@field other_skill_ind DFEnumVector<job_skill, number>
+---@field other_skill_val DFEnumVector<job_skill, number>
+---@field other_skill_w_rust DFEnumVector<job_skill, number>
 ---@field other_skill_num number
 ---@field ent_vect any
 ---@field ep_vect any
 ---@field ep_vect_spouse any
----@field unmet_need_type number
----@field unmet_need_spec_id number
----@field unmet_need_se number
+---@field unmet_need_type DFEnumVector<need_type, number>
+---@field unmet_need_spec_id DFEnumVector<need_type, number>
+---@field unmet_need_se DFEnumVector<need_type, number>
 ---@field unmet_need_num number
 ---@field raw_thought_str any
 ---@field thought_box pointer color_text_boxst
@@ -3350,7 +3340,7 @@ df.main_interface.T_options.T_saver = {}
 ---@field context_flag integer
 ---@field context help_context_type
 ---@field header string
----@field text markup_text_boxst tutorials
+---@field text markup_text_boxst[] tutorials
 ---@field floor_dug number
 
 ---@class _main_interface.T_help: DFCompound
@@ -3414,9 +3404,9 @@ df.main_interface.T_arena_tree = {}
 ---@field start_tick_count integer
 ---@field autosave_cycle number
 ---@field want_to_quit_to_title boolean
----@field flash_11_by_3 any
----@field flash_7_by_3 any
----@field flash_4_by_3 any
+---@field flash_11_by_3 number[][][]
+---@field flash_7_by_3 number[][][]
+---@field flash_4_by_3 number[][][]
 ---@field external_flag number
 
 ---@class _gamest: DFCompound
@@ -3441,14 +3431,14 @@ df.gamest.T_command_line = {}
 ---@class (exact) gamest.T_minimap: DFObject
 ---@field _kind 'struct'
 ---@field _type _gamest.T_minimap
----@field minimap any -- Abstract representation of contents; updated by need_scan
+---@field minimap number[][] -- Abstract representation of contents; updated by need_scan
 ---@field update number
 ---@field mustmake number
 ---@field printed_z number
----@field buffer_symbol any -- Cached actual tiles from the screen; updated by need_render
----@field buffer_f any
----@field buffer_b any
----@field buffer_br any
+---@field buffer_symbol integer[][] -- Cached actual tiles from the screen; updated by need_render
+---@field buffer_f number[][]
+---@field buffer_b number[][]
+---@field buffer_br number[][]
 ---@field texpos number
 
 ---@class _gamest.T_minimap: DFCompound
@@ -3494,11 +3484,11 @@ df.gamest.T_mod_manager = {}
 ---@field keybinding_selected_category number
 ---@field keybinding_scroll_position_cat number
 ---@field keybinding_scrolling_cat boolean
----@field keybinding_name any
----@field keybinding_key any
----@field keybinding_binding any
----@field keybinding_binding_name any
----@field keybinding_flag any
+---@field keybinding_name any[]
+---@field keybinding_key interface_key[]
+---@field keybinding_binding pointer[]
+---@field keybinding_binding_name any[]
+---@field keybinding_flag integer[]
 ---@field keybinding_scroll_position_key number
 ---@field keybinding_scrolling_key boolean
 ---@field keybinding_registering_index number
@@ -3525,9 +3515,9 @@ df.hash_rngst = {}
 ---@field _type _difficultyst
 ---@field difficulty_enemies number 0=off, 1=normal, 2=hard, 3=custom
 ---@field difficulty_economy number 0=normal, 1=hard, 2=custom
----@field enemy_pop_trigger number
----@field enemy_prod_trigger number
----@field enemy_trade_trigger number
+---@field enemy_pop_trigger number[]
+---@field enemy_prod_trigger number[]
+---@field enemy_trade_trigger number[]
 ---@field megabeast_interval number
 ---@field forgotten_sens number
 ---@field forgotten_irritate_min number
@@ -3537,8 +3527,8 @@ df.hash_rngst = {}
 ---@field wild_irritate_decay number
 ---@field werebeast_interval number
 ---@field vampire_fraction number
----@field invasion_cap_regular number
----@field invasion_cap_monsters number
+---@field invasion_cap_regular number[]
+---@field invasion_cap_monsters number[]
 ---@field min_raids_before_siege number
 ---@field min_raids_between_sieges number
 ---@field siege_frequency number
@@ -3547,12 +3537,12 @@ df.hash_rngst = {}
 ---@field tree_fell_count_savage number
 ---@field tree_fell_count number
 ---@field flags difficultyst.T_flags
----@field economy_pop_trigger number
----@field economy_prod_trigger number
----@field economy_trade_trigger number
----@field land_holder_pop_trigger number
----@field land_holder_prod_trigger number
----@field land_holder_trade_trigger number
+---@field economy_pop_trigger number[]
+---@field economy_prod_trigger number[]
+---@field economy_trade_trigger number[]
+---@field land_holder_pop_trigger number[]
+---@field land_holder_prod_trigger number[]
+---@field land_holder_trade_trigger number[]
 ---@field temple_value number
 ---@field temple_complex_value number
 ---@field priesthood_unit_count number
@@ -3568,31 +3558,17 @@ df.hash_rngst = {}
 ---@field _kind 'struct-type'
 df.difficultyst = {}
 
----@alias _difficultyst.T_flags_keys
----| 0 # sieges
----| 1 # megabeasts
----| 2 # werebeasts
----| 3 # curiousbeasts
-
----@alias _difficultyst.T_flags_values
----| "sieges" # 0
----| "megabeasts" # 1
----| "werebeasts" # 2
----| "curiousbeasts" # 3
-
----@class difficultyst.T_flags: DFObject, { [_difficultyst.T_flags_keys|_difficultyst.T_flags_values]: boolean }
+---@class difficultyst.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _difficultyst.T_flags
-local difficultyst_flags = {
-  sieges = false,
-  [0] = false,
-  megabeasts = false,
-  [1] = false,
-  werebeasts = false,
-  [2] = false,
-  curiousbeasts = false,
-  [3] = false,
-}
+---@field sieges boolean
+---@field [0] boolean
+---@field megabeasts boolean
+---@field [1] boolean
+---@field werebeasts boolean
+---@field [2] boolean
+---@field curiousbeasts boolean
+---@field [3] boolean
 
 ---@class _difficultyst.T_flags: DFBitfield
 ---@field sieges 0
@@ -3621,27 +3597,15 @@ df.difficultyst.T_flags = {}
 ---@field _kind 'struct-type'
 df.markup_text_wordst = {}
 
----@alias _markup_text_wordst.T_flags_keys
----| 0 # NEW_LINE
----| 1 # BLANK_LINE
----| 2 # INDENT
-
----@alias _markup_text_wordst.T_flags_values
----| "NEW_LINE" # 0
----| "BLANK_LINE" # 1
----| "INDENT" # 2
-
----@class markup_text_wordst.T_flags: DFObject, { [_markup_text_wordst.T_flags_keys|_markup_text_wordst.T_flags_values]: boolean }
+---@class markup_text_wordst.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _markup_text_wordst.T_flags
-local markup_text_wordst_flags = {
-  NEW_LINE = false,
-  [0] = false,
-  BLANK_LINE = false,
-  [1] = false,
-  INDENT = false,
-  [2] = false,
-}
+---@field NEW_LINE boolean
+---@field [0] boolean
+---@field BLANK_LINE boolean
+---@field [1] boolean
+---@field INDENT boolean
+---@field [2] boolean
 
 ---@class _markup_text_wordst.T_flags: DFBitfield
 ---@field NEW_LINE 0
@@ -3888,27 +3852,15 @@ df.plot_entryst = {}
 ---@field _kind 'struct-type'
 df.mod_headerst = {}
 
----@alias _mod_headerst.T_flags_keys
----| 0 # currently_installed
----| 1 # have_other_version
----| 2 # vanilla
-
----@alias _mod_headerst.T_flags_values
----| "currently_installed" # 0
----| "have_other_version" # 1
----| "vanilla" # 2
-
----@class mod_headerst.T_flags: DFObject, { [_mod_headerst.T_flags_keys|_mod_headerst.T_flags_values]: boolean }
+---@class mod_headerst.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _mod_headerst.T_flags
-local mod_headerst_flags = {
-  currently_installed = false,
-  [0] = false,
-  have_other_version = false,
-  [1] = false,
-  vanilla = false,
-  [2] = false,
-}
+---@field currently_installed boolean
+---@field [0] boolean
+---@field have_other_version boolean
+---@field [1] boolean
+---@field vanilla boolean
+---@field [2] boolean
 
 ---@class _mod_headerst.T_flags: DFBitfield
 ---@field currently_installed 0

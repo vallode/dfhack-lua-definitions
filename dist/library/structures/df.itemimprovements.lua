@@ -99,19 +99,11 @@ df.itemimprovement_art_imagest = {}
 ---@field _kind 'class-type'
 df.itemimprovement_coveredst = {}
 
----@alias _itemimprovement_coveredst.T_cover_flags_keys
----| 0 # glazed
-
----@alias _itemimprovement_coveredst.T_cover_flags_values
----| "glazed" # 0
-
----@class itemimprovement_coveredst.T_cover_flags: DFObject, { [_itemimprovement_coveredst.T_cover_flags_keys|_itemimprovement_coveredst.T_cover_flags_values]: boolean }
+---@class itemimprovement_coveredst.T_cover_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _itemimprovement_coveredst.T_cover_flags
-local itemimprovement_coveredst_cover_flags = {
-  glazed = false,
-  [0] = false,
-}
+---@field glazed boolean
+---@field [0] boolean
 
 ---@class _itemimprovement_coveredst.T_cover_flags: DFBitfield
 ---@field glazed 0
@@ -425,55 +417,29 @@ function df.written_content.find(key) end
 ---@return written_content_vector # df.global.world.written_contents.all
 function df.written_content.get_vector() end
 
----@alias _engraving_flags_keys
----| 0 # floor
----| 1 # west
----| 2 # east
----| 3 # north
----| 4 # south
----| 5 # hidden
----| 6 # northwest
----| 7 # northeast
----| 8 # southwest
----| 9 # southeast
-
----@alias _engraving_flags_values
----| "floor" # 0
----| "west" # 1
----| "east" # 2
----| "north" # 3
----| "south" # 4
----| "hidden" # 5
----| "northwest" # 6
----| "northeast" # 7
----| "southwest" # 8
----| "southeast" # 9
-
----@class engraving_flags: DFObject, { [_engraving_flags_keys|_engraving_flags_values]: boolean }
+---@class engraving_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _engraving_flags
-local engraving_flags = {
-  floor = false,
-  [0] = false,
-  west = false,
-  [1] = false,
-  east = false,
-  [2] = false,
-  north = false,
-  [3] = false,
-  south = false,
-  [4] = false,
-  hidden = false,
-  [5] = false,
-  northwest = false,
-  [6] = false,
-  northeast = false,
-  [7] = false,
-  southwest = false,
-  [8] = false,
-  southeast = false,
-  [9] = false,
-}
+---@field floor boolean
+---@field [0] boolean
+---@field west boolean
+---@field [1] boolean
+---@field east boolean
+---@field [2] boolean
+---@field north boolean
+---@field [3] boolean
+---@field south boolean
+---@field [4] boolean
+---@field hidden boolean
+---@field [5] boolean
+---@field northwest boolean
+---@field [6] boolean
+---@field northeast boolean
+---@field [7] boolean
+---@field southwest boolean
+---@field [8] boolean
+---@field southeast boolean
+---@field [9] boolean
 
 ---@class _engraving_flags: DFBitfield
 ---@field floor 0

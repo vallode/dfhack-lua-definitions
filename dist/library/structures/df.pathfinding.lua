@@ -785,115 +785,59 @@ df.unit_path_goal = {}
 ---@field [41] "WaitOrder"
 df.unit_station_type = {}
 
----@alias _pathfinding_flags_keys
----| 0 # Desperate
----| 1 # Reckless
----| 2 # BuildingDestroyer1
----| 3 # BuildingDestroyer2
----| 4 # StuckInBuilding
----| 5 # AllowUnrevealed
----| 6 # Doors
----| 7 # UnkDoor_7
----| 8 # CanLearn
----| 9 # SolidWall
----| 10 # JumpCliff
----| 11 # Air
----| 12 # ShallowWater
----| 13 # DeepWater
----| 14 # Underwater
----| 15 # ShallowMagma
----| 16 # DeepMagma
----| 17 # UnderMagma
----| 18 # InWater
----| 19 # InMagma
----| 20 # WalkLand
----| 21 # ImmobileLand
----| 22 # ZeroWalkTag
----| 23 # LevelMapless
----| 24 # Ghostly
-
----@alias _pathfinding_flags_values
----| "Desperate" # 0
----| "Reckless" # 1
----| "BuildingDestroyer1" # 2
----| "BuildingDestroyer2" # 3
----| "StuckInBuilding" # 4
----| "AllowUnrevealed" # 5
----| "Doors" # 6
----| "UnkDoor_7" # 7
----| "CanLearn" # 8
----| "SolidWall" # 9
----| "JumpCliff" # 10
----| "Air" # 11
----| "ShallowWater" # 12
----| "DeepWater" # 13
----| "Underwater" # 14
----| "ShallowMagma" # 15
----| "DeepMagma" # 16
----| "UnderMagma" # 17
----| "InWater" # 18
----| "InMagma" # 19
----| "WalkLand" # 20
----| "ImmobileLand" # 21
----| "ZeroWalkTag" # 22
----| "LevelMapless" # 23
----| "Ghostly" # 24
-
----@class pathfinding_flags: DFObject, { [_pathfinding_flags_keys|_pathfinding_flags_values]: boolean }
+---@class pathfinding_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _pathfinding_flags
-local pathfinding_flags = {
-  Desperate = false, -- bay12: FORBIDDENTERRAIN
-  [0] = false, -- bay12: FORBIDDENTERRAIN
-  Reckless = false, -- bay12: BONKERS
-  [1] = false, -- bay12: BONKERS
-  BuildingDestroyer1 = false, -- bay12: WOODENDOOR_IGNORE
-  [2] = false, -- bay12: WOODENDOOR_IGNORE
-  BuildingDestroyer2 = false, -- bay12: DOOR_IGNORE
-  [3] = false, -- bay12: DOOR_IGNORE
-  StuckInBuilding = false, -- bay12: BUILDING_IGNORE
-  [4] = false, -- bay12: BUILDING_IGNORE
-  AllowUnrevealed = false, -- bay12: HIDDEN
-  [5] = false, -- bay12: HIDDEN
-  Doors = false, -- bay12: DOOR_STOP
-  [6] = false, -- bay12: DOOR_STOP
-  UnkDoor_7 = false, -- bay12: DOOR_STOP_TOTAL
-  [7] = false, -- bay12: DOOR_STOP_TOTAL
-  CanLearn = false, -- bay12: USE_TRAFFIC
-  [8] = false, -- bay12: USE_TRAFFIC
-  SolidWall = false,
-  [9] = false,
-  JumpCliff = false, -- bay12: LEAPER
-  [10] = false, -- bay12: LEAPER
-  Air = false, -- bay12: FLY
-  [11] = false, -- bay12: FLY
-  ShallowWater = false, -- bay12: WATER_TOUCH
-  [12] = false, -- bay12: WATER_TOUCH
-  DeepWater = false, -- bay12: WATER_SWIM
-  [13] = false, -- bay12: WATER_SWIM
-  Underwater = false, -- bay12: WATER_UNDER
-  [14] = false, -- bay12: WATER_UNDER
-  ShallowMagma = false, -- bay12: LAVA_TOUCH
-  [15] = false, -- bay12: LAVA_TOUCH
-  DeepMagma = false, -- bay12: LAVA_SWIM
-  [16] = false, -- bay12: LAVA_SWIM
-  UnderMagma = false, -- bay12: LAVA_UNDER
-  [17] = false, -- bay12: LAVA_UNDER
-  InWater = false, -- bay12: ENTERING_FROM_WATER
-  [18] = false, -- bay12: ENTERING_FROM_WATER
-  InMagma = false, -- bay12: ENTERING_FROM_LAVA
-  [19] = false, -- bay12: ENTERING_FROM_LAVA
-  WalkLand = false, -- bay12: BREATHE_AIR
-  [20] = false, -- bay12: BREATHE_AIR
-  ImmobileLand = false, -- bay12: ENTERING_FROM_AIR
-  [21] = false, -- bay12: ENTERING_FROM_AIR
-  ZeroWalkTag = false, -- bay12: ENTERING_FROM_LEVE_MAPLESS
-  [22] = false, -- bay12: ENTERING_FROM_LEVE_MAPLESS
-  LevelMapless = false,
-  [23] = false,
-  Ghostly = false,
-  [24] = false,
-}
+---@field Desperate boolean bay12: FORBIDDENTERRAIN
+---@field [0] boolean bay12: FORBIDDENTERRAIN
+---@field Reckless boolean bay12: BONKERS
+---@field [1] boolean bay12: BONKERS
+---@field BuildingDestroyer1 boolean bay12: WOODENDOOR_IGNORE
+---@field [2] boolean bay12: WOODENDOOR_IGNORE
+---@field BuildingDestroyer2 boolean bay12: DOOR_IGNORE
+---@field [3] boolean bay12: DOOR_IGNORE
+---@field StuckInBuilding boolean bay12: BUILDING_IGNORE
+---@field [4] boolean bay12: BUILDING_IGNORE
+---@field AllowUnrevealed boolean bay12: HIDDEN
+---@field [5] boolean bay12: HIDDEN
+---@field Doors boolean bay12: DOOR_STOP
+---@field [6] boolean bay12: DOOR_STOP
+---@field UnkDoor_7 boolean bay12: DOOR_STOP_TOTAL
+---@field [7] boolean bay12: DOOR_STOP_TOTAL
+---@field CanLearn boolean bay12: USE_TRAFFIC
+---@field [8] boolean bay12: USE_TRAFFIC
+---@field SolidWall boolean
+---@field [9] boolean
+---@field JumpCliff boolean bay12: LEAPER
+---@field [10] boolean bay12: LEAPER
+---@field Air boolean bay12: FLY
+---@field [11] boolean bay12: FLY
+---@field ShallowWater boolean bay12: WATER_TOUCH
+---@field [12] boolean bay12: WATER_TOUCH
+---@field DeepWater boolean bay12: WATER_SWIM
+---@field [13] boolean bay12: WATER_SWIM
+---@field Underwater boolean bay12: WATER_UNDER
+---@field [14] boolean bay12: WATER_UNDER
+---@field ShallowMagma boolean bay12: LAVA_TOUCH
+---@field [15] boolean bay12: LAVA_TOUCH
+---@field DeepMagma boolean bay12: LAVA_SWIM
+---@field [16] boolean bay12: LAVA_SWIM
+---@field UnderMagma boolean bay12: LAVA_UNDER
+---@field [17] boolean bay12: LAVA_UNDER
+---@field InWater boolean bay12: ENTERING_FROM_WATER
+---@field [18] boolean bay12: ENTERING_FROM_WATER
+---@field InMagma boolean bay12: ENTERING_FROM_LAVA
+---@field [19] boolean bay12: ENTERING_FROM_LAVA
+---@field WalkLand boolean bay12: BREATHE_AIR
+---@field [20] boolean bay12: BREATHE_AIR
+---@field ImmobileLand boolean bay12: ENTERING_FROM_AIR
+---@field [21] boolean bay12: ENTERING_FROM_AIR
+---@field ZeroWalkTag boolean bay12: ENTERING_FROM_LEVE_MAPLESS
+---@field [22] boolean bay12: ENTERING_FROM_LEVE_MAPLESS
+---@field LevelMapless boolean
+---@field [23] boolean
+---@field Ghostly boolean
+---@field [24] boolean
 
 ---@class _pathfinding_flags: DFBitfield
 ---@field Desperate 0 bay12: FORBIDDENTERRAIN

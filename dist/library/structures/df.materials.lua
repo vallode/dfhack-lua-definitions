@@ -468,18 +468,18 @@ df.strain_type = {}
 ---@field solid_density number
 ---@field liquid_density number
 ---@field molar_mass number
----@field state_color number
----@field state_name string
----@field state_adj string
+---@field state_color DFEnumVector<matter_state, number>
+---@field state_name DFEnumVector<matter_state, string>
+---@field state_adj DFEnumVector<matter_state, string>
 ---@field strength material_common.T_strength
 ---@field material_value number
 ---@field flags any
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype number
----@field meat_name string
+---@field meat_name string[]
 ---@field meat_organ number used for texture selection
----@field block_name string
+---@field block_name string[]
 ---@field reaction_product material_common.T_reaction_product
 ---@field hardens_with_water material_common.T_hardens_with_water
 ---@field reaction_class any
@@ -507,9 +507,9 @@ df.material_common.T_heat = {}
 ---@field _kind 'struct'
 ---@field _type _material_common.T_strength
 ---@field absorption number
----@field yield number
----@field fracture number
----@field strain_at_yield number
+---@field yield DFEnumVector<strain_type, number>
+---@field fracture DFEnumVector<strain_type, number>
+---@field strain_at_yield DFEnumVector<strain_type, number>
 ---@field max_edge number
 
 ---@class _material_common.T_strength: DFCompound
@@ -523,7 +523,7 @@ df.material_common.T_strength = {}
 ---@field item_type number
 ---@field item_subtype number
 ---@field material material_vec_ref
----@field str any
+---@field str any[]
 
 ---@class _material_common.T_reaction_product: DFCompound
 ---@field _kind 'struct-type'
@@ -534,7 +534,7 @@ df.material_common.T_reaction_product = {}
 ---@field _type _material_common.T_hardens_with_water
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field str string
+---@field str string[]
 
 ---@class _material_common.T_hardens_with_water: DFCompound
 ---@field _kind 'struct-type'
@@ -544,9 +544,9 @@ df.material_common.T_hardens_with_water = {}
 ---@field _kind 'struct'
 ---@field _type _material
 ---@field tile integer
----@field basic_color number
----@field build_color number
----@field tile_color number
+---@field basic_color number[]
+---@field build_color number[]
+---@field tile_color number[]
 ---@field item_symbol integer
 ---@field powder_dye number 0.50.01
 ---@field temp_diet_info number // color token index
@@ -554,9 +554,9 @@ df.material_common.T_hardens_with_water = {}
 ---@field soap_level number
 ---@field unk_41c number
 ---@field prefix string
----@field food_mat_index any
+---@field food_mat_index DFEnumVector<organic_mat_category, number>
 ---@field powder_dye_str string temporary
----@field state_color_str string
+---@field state_color_str DFEnumVector<matter_state, string>
 ---@field wood_texpos number
 ---@field boulder_texpos1 number
 ---@field boulder_texpos2 number
@@ -584,9 +584,9 @@ df.material_vec_ref = {}
 ---@field _kind 'struct'
 ---@field _type _material_template
 ---@field tile integer
----@field basic_color number
----@field build_color number
----@field tile_color number
+---@field basic_color number[]
+---@field build_color number[]
+---@field tile_color number[]
 ---@field item_symbol integer
 ---@field powder_dye number
 ---@field temp_diet_info number // color token index
@@ -594,7 +594,7 @@ df.material_vec_ref = {}
 ---@field soap_level number
 ---@field unk_41c number
 ---@field powder_dye_str string temporary
----@field state_color_str string
+---@field state_color_str DFEnumVector<matter_state, string>
 
 ---@class _material_template: DFCompound
 ---@field _kind 'struct-type'
@@ -914,10 +914,10 @@ df.organic_mat_category = {}
 ---@class (exact) special_mat_table: DFObject
 ---@field _kind 'struct'
 ---@field _type _special_mat_table
----@field organic_types any
----@field organic_indexes any
----@field organic_unknown any everything 0
----@field builtin any
+---@field organic_types DFEnumVector<organic_mat_category, number>
+---@field organic_indexes DFEnumVector<organic_mat_category, number>
+---@field organic_unknown DFEnumVector<organic_mat_category, number> everything 0
+---@field builtin DFEnumVector<builtin_mats, material>
 
 ---@class _special_mat_table: DFCompound
 ---@field _kind 'struct-type'

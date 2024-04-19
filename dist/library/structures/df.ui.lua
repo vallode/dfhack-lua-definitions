@@ -263,13 +263,13 @@ df.punishment = {}
 
 ---@alias kitchen_exc_type
 ---| 1 # Cook
----| 0 # Brew
+---| 2 # Brew
 
 ---@class _kitchen_exc_type: DFEnum
 ---@field Cook 1
 ---@field [1] "Cook"
----@field Brew 0
----@field [0] "Brew"
+---@field Brew 2
+---@field [2] "Brew"
 df.kitchen_exc_type = {}
 
 ---@alias save_substage
@@ -434,65 +434,34 @@ df.kitchen_exc_type = {}
 ---@field [51] "Finishing"
 df.save_substage = {}
 
----@alias _equipment_update_keys
----| 0 # weapon
----| 1 # armor
----| 2 # shoes
----| 3 # shield
----| 4 # helm
----| 5 # gloves
----| 6 # ammo
----| 7 # pants
----| 8 # backpack
----| 9 # quiver
----| 10 # flask
----| 11
----| 12 # buildings
-
----@alias _equipment_update_values
----| "weapon" # 0
----| "armor" # 1
----| "shoes" # 2
----| "shield" # 3
----| "helm" # 4
----| "gloves" # 5
----| "ammo" # 6
----| "pants" # 7
----| "backpack" # 8
----| "quiver" # 9
----| "flask" # 10
----| "buildings" # 12
-
----@class equipment_update: DFObject, { [_equipment_update_keys|_equipment_update_values]: boolean }
+---@class equipment_update: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _equipment_update
-local equipment_update = {
-  weapon = false,
-  [0] = false,
-  armor = false,
-  [1] = false,
-  shoes = false,
-  [2] = false,
-  shield = false,
-  [3] = false,
-  helm = false,
-  [4] = false,
-  gloves = false,
-  [5] = false,
-  ammo = false,
-  [6] = false,
-  pants = false,
-  [7] = false,
-  backpack = false,
-  [8] = false,
-  quiver = false,
-  [9] = false,
-  flask = false,
-  [10] = false,
-  [11] = false,
-  buildings = false,
-  [12] = false,
-}
+---@field weapon boolean
+---@field [0] boolean
+---@field armor boolean
+---@field [1] boolean
+---@field shoes boolean
+---@field [2] boolean
+---@field shield boolean
+---@field [3] boolean
+---@field helm boolean
+---@field [4] boolean
+---@field gloves boolean
+---@field [5] boolean
+---@field ammo boolean
+---@field [6] boolean
+---@field pants boolean
+---@field [7] boolean
+---@field backpack boolean
+---@field [8] boolean
+---@field quiver boolean
+---@field [9] boolean
+---@field flask boolean
+---@field [10] boolean
+---@field [11] boolean
+---@field buildings boolean
+---@field [12] boolean
 
 ---@class _equipment_update: DFBitfield
 ---@field weapon 0
@@ -526,26 +495,18 @@ df.equipment_update = {}
 ---@field _type _labor_infost
 ---@field flags labor_infost.T_flags
 ---@field work_details any
----@field chores boolean
+---@field chores DFEnumVector<unit_labor, boolean>
 ---@field chores_exempted_children any toady: no_chore_child_unid
 
 ---@class _labor_infost: DFCompound
 ---@field _kind 'struct-type'
 df.labor_infost = {}
 
----@alias _labor_infost.T_flags_keys
----| 0 # children_do_chores
-
----@alias _labor_infost.T_flags_values
----| "children_do_chores" # 0
-
----@class labor_infost.T_flags: DFObject, { [_labor_infost.T_flags_keys|_labor_infost.T_flags_values]: boolean }
+---@class labor_infost.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _labor_infost.T_flags
-local labor_infost_flags = {
-  children_do_chores = false,
-  [0] = false,
-}
+---@field children_do_chores boolean
+---@field [0] boolean
 
 ---@class _labor_infost.T_flags: DFBitfield
 ---@field children_do_chores 0
@@ -573,7 +534,7 @@ df.labor_infost.T_flags = {}
 ---@field hi_temp integer
 ---@field lo_temp integer
 ---@field manager_timer number bay12: quota_checktime
----@field units_killed number
+---@field units_killed DFEnumVector<profession, number>
 ---@field currency_value number
 ---@field trees_removed number
 ---@field outdoor_irritation number
@@ -603,7 +564,7 @@ df.labor_infost.T_flags = {}
 ---@field farm_seasons any
 ---@field economy_prices plotinfost.T_economy_prices
 ---@field stockpile plotinfost.T_stockpile
----@field unk2a8c any
+---@field unk2a8c plotinfost.T_unk2a8c[][]
 ---@field unk_mapedge_x number
 ---@field unk_mapedge_y number
 ---@field unk_mapedge_z number
@@ -656,9 +617,9 @@ df.plotinfost = {}
 ---@field collected number
 ---@field quota number
 ---@field collector_pos coord
----@field guard_pos_x number
----@field guard_pos_y number
----@field guard_pos_z number
+---@field guard_pos_x number[]
+---@field guard_pos_y number[]
+---@field guard_pos_z number[]
 ---@field collector unit
 ---@field guard1 unit
 ---@field guard2 unit
@@ -724,47 +685,25 @@ df.plotinfost.T_invasions = {}
 ---@field _kind 'struct-type'
 df.plotinfost.T_kitchen = {}
 
----@alias _plotinfost.T_flags_keys
----| 0 # first_year
----| 1 # recheck_aid_requests
----| 2 # force_elections
----| 3 # need_to_do_tutorial
----| 4 # minor_victory
----| 5 # major_victory
----| 6 # did_first_caravan_announcement
----| 7 # did_first_cavern_announcement
-
----@alias _plotinfost.T_flags_values
----| "first_year" # 0
----| "recheck_aid_requests" # 1
----| "force_elections" # 2
----| "need_to_do_tutorial" # 3
----| "minor_victory" # 4
----| "major_victory" # 5
----| "did_first_caravan_announcement" # 6
----| "did_first_cavern_announcement" # 7
-
----@class plotinfost.T_flags: DFObject, { [_plotinfost.T_flags_keys|_plotinfost.T_flags_values]: boolean }
+---@class plotinfost.T_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _plotinfost.T_flags
-local plotinfost_flags = {
-  first_year = false, -- (FIRSTYEAR)
-  [0] = false, -- (FIRSTYEAR)
-  recheck_aid_requests = false, -- (EVAL_REQUESTERCANCHECK)
-  [1] = false, -- (EVAL_REQUESTERCANCHECK)
-  force_elections = false, -- (RUN_SPECIAL_ELECTIONS)
-  [2] = false, -- (RUN_SPECIAL_ELECTIONS)
-  need_to_do_tutorial = false, -- (NEED_TO_DO_TUTORIAL)
-  [3] = false, -- (NEED_TO_DO_TUTORIAL)
-  minor_victory = false, -- (MINOR_VICTORY)
-  [4] = false, -- (MINOR_VICTORY)
-  major_victory = false, -- (MAJOR_VICTORY)
-  [5] = false, -- (MAJOR_VICTORY)
-  did_first_caravan_announcement = false, -- (DID_FIRST_CARAVAN_ANNOUNCEMENT)
-  [6] = false, -- (DID_FIRST_CARAVAN_ANNOUNCEMENT)
-  did_first_cavern_announcement = false, -- (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
-  [7] = false, -- (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
-}
+---@field first_year boolean (FIRSTYEAR)
+---@field [0] boolean (FIRSTYEAR)
+---@field recheck_aid_requests boolean (EVAL_REQUESTERCANCHECK)
+---@field [1] boolean (EVAL_REQUESTERCANCHECK)
+---@field force_elections boolean (RUN_SPECIAL_ELECTIONS)
+---@field [2] boolean (RUN_SPECIAL_ELECTIONS)
+---@field need_to_do_tutorial boolean (NEED_TO_DO_TUTORIAL)
+---@field [3] boolean (NEED_TO_DO_TUTORIAL)
+---@field minor_victory boolean (MINOR_VICTORY)
+---@field [4] boolean (MINOR_VICTORY)
+---@field major_victory boolean (MAJOR_VICTORY)
+---@field [5] boolean (MAJOR_VICTORY)
+---@field did_first_caravan_announcement boolean (DID_FIRST_CARAVAN_ANNOUNCEMENT)
+---@field [6] boolean (DID_FIRST_CARAVAN_ANNOUNCEMENT)
+---@field did_first_cavern_announcement boolean (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
+---@field [7] boolean (DID_FIRST_CAVERN_ANNOUNCEMENT) required for CAVERNS_OPENED music context
 
 ---@class _plotinfost.T_flags: DFBitfield
 ---@field first_year 0 (FIRSTYEAR)
@@ -886,14 +825,24 @@ df.plotinfost.T_economy_prices.T_price_setter = {}
 ---@field _kind 'struct-type'
 df.plotinfost.T_stockpile = {}
 
+---@class (exact) plotinfost.T_unk2a8c: DFObject
+---@field _kind 'struct'
+---@field _type _plotinfost.T_unk2a8c
+---@field unk1 number
+---@field unk2 number
+
+---@class _plotinfost.T_unk2a8c: DFCompound
+---@field _kind 'struct-type'
+df.plotinfost.T_unk2a8c = {}
+
 ---@class (exact) plotinfost.T_map_edge: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_map_edge
----@field layer_x any
+---@field layer_x number[]
 ---@field surface_x number
----@field layer_y any
+---@field layer_y number[]
 ---@field surface_y number
----@field layer_z any
+---@field layer_z number[]
 ---@field surface_z number
 
 ---@class _plotinfost.T_map_edge: DFCompound
@@ -967,9 +916,9 @@ df.plotinfost.T_alerts = {}
 ---@class (exact) plotinfost.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_equipment
----@field items_unmanifested any
----@field items_unassigned any
----@field items_assigned any
+---@field items_unmanifested DFEnumVector<item_type, number>
+---@field items_unassigned DFEnumVector<item_type, number>
+---@field items_assigned DFEnumVector<item_type, number>
 ---@field update equipment_update
 ---@field work_weapons any i.e. woodcutter axes, and miner picks
 ---@field work_units any
@@ -1005,7 +954,7 @@ df.plotinfost.T_hauling = {}
 ---@class (exact) plotinfost.T_main: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_main
----@field hotkeys ui_hotkey
+---@field hotkeys ui_hotkey[]
 ---@field traffic_cost_high number 0.50.01
 ---@field traffic_cost_normal number
 ---@field traffic_cost_low number
@@ -1137,7 +1086,7 @@ df.timed_event = {}
 ---@field window_y number
 ---@field window_z number
 ---@field main_viewport graphic_viewportst
----@field lower_viewport any
+---@field lower_viewport graphic_viewportst[]
 
 ---@class _map_viewport: DFCompound
 ---@field _kind 'struct-type'
@@ -1146,8 +1095,8 @@ df.map_viewport = {}
 ---@class (exact) map_renderer: DFObject
 ---@field _kind 'struct'
 ---@field _type _map_renderer
----@field entity any
----@field unk_v50_1 any
+---@field entity integer[][]
+---@field unk_v50_1 number[][]
 ---@field cursor_units any
 ---@field cursor_guts unit
 ---@field multiple_guts boolean
@@ -1165,14 +1114,24 @@ df.map_viewport = {}
 ---@field tick_phase number cur_year_tick%10080
 ---@field dim_colors number
 ---@field unk_1 number
----@field unk_2 number
----@field unk_3 number
----@field unk_4 any
----@field unk_5 number
+---@field unk_2 number[]
+---@field unk_3 number[]
+---@field unk_4 map_renderer.T_unk_4[]
+---@field unk_5 number[]
 ---@field unk_6 number
 ---@field unk_7 number
 
 ---@class _map_renderer: DFCompound
 ---@field _kind 'struct-type'
 df.map_renderer = {}
+
+---@class (exact) map_renderer.T_unk_4: DFObject
+---@field _kind 'struct'
+---@field _type _map_renderer.T_unk_4
+---@field x number
+---@field y number
+
+---@class _map_renderer.T_unk_4: DFCompound
+---@field _kind 'struct-type'
+df.map_renderer.T_unk_4 = {}
 

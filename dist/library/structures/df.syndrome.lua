@@ -153,55 +153,29 @@
 ---@field [48] "REDUCE_FEVER"
 df.creature_interaction_effect_type = {}
 
----@alias _creature_interaction_effect_flags_keys
----| 0 # SIZE_DELAYS
----| 1 # SIZE_DILUTES
----| 2 # VASCULAR_ONLY
----| 3 # MUSCULAR_ONLY
----| 4 # RESISTABLE
----| 5 # LOCALIZED
----| 6 # MOON_PHASE
----| 7 # COUNTER_TRIGGER
----| 8 # ABRUPT_START
----| 9 # ABRUPT_END
-
----@alias _creature_interaction_effect_flags_values
----| "SIZE_DELAYS" # 0
----| "SIZE_DILUTES" # 1
----| "VASCULAR_ONLY" # 2
----| "MUSCULAR_ONLY" # 3
----| "RESISTABLE" # 4
----| "LOCALIZED" # 5
----| "MOON_PHASE" # 6
----| "COUNTER_TRIGGER" # 7
----| "ABRUPT_START" # 8
----| "ABRUPT_END" # 9
-
----@class creature_interaction_effect_flags: DFObject, { [_creature_interaction_effect_flags_keys|_creature_interaction_effect_flags_values]: boolean }
+---@class creature_interaction_effect_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _creature_interaction_effect_flags
-local creature_interaction_effect_flags = {
-  SIZE_DELAYS = false,
-  [0] = false,
-  SIZE_DILUTES = false,
-  [1] = false,
-  VASCULAR_ONLY = false,
-  [2] = false,
-  MUSCULAR_ONLY = false,
-  [3] = false,
-  RESISTABLE = false,
-  [4] = false,
-  LOCALIZED = false,
-  [5] = false,
-  MOON_PHASE = false,
-  [6] = false,
-  COUNTER_TRIGGER = false,
-  [7] = false,
-  ABRUPT_START = false,
-  [8] = false,
-  ABRUPT_END = false,
-  [9] = false,
-}
+---@field SIZE_DELAYS boolean
+---@field [0] boolean
+---@field SIZE_DILUTES boolean
+---@field [1] boolean
+---@field VASCULAR_ONLY boolean
+---@field [2] boolean
+---@field MUSCULAR_ONLY boolean
+---@field [3] boolean
+---@field RESISTABLE boolean
+---@field [4] boolean
+---@field LOCALIZED boolean
+---@field [5] boolean
+---@field MOON_PHASE boolean
+---@field [6] boolean
+---@field COUNTER_TRIGGER boolean
+---@field [7] boolean
+---@field ABRUPT_START boolean
+---@field [8] boolean
+---@field ABRUPT_END boolean
+---@field [9] boolean
 
 ---@class _creature_interaction_effect_flags: DFBitfield
 ---@field SIZE_DELAYS 0
@@ -226,141 +200,72 @@ local creature_interaction_effect_flags = {
 ---@field [9] "ABRUPT_END"
 df.creature_interaction_effect_flags = {}
 
----@alias _cie_add_tag_mask1_keys
----| 0 # EXTRAVISION
----| 1 # OPPOSED_TO_LIFE
----| 2 # NOT_LIVING
----| 3 # NOEXERT
----| 4 # NOPAIN
----| 5 # NOBREATHE
----| 6 # HAS_BLOOD
----| 7 # NOSTUN
----| 8 # NONAUSEA
----| 9 # NO_DIZZINESS
----| 10 # NO_FEVERS
----| 11 # TRANCES
----| 12 # NOEMOTION
----| 13 # LIKES_FIGHTING
----| 14 # PARALYZEIMMUNE
----| 15 # NOFEAR
----| 16 # NO_EAT
----| 17 # NO_DRINK
----| 18 # NO_SLEEP
----| 19 # MISCHIEVOUS
----| 20 # NO_PHYS_ATT_GAIN
----| 21 # NO_PHYS_ATT_RUST
----| 22 # NOTHOUGHT
----| 23 # NO_THOUGHT_CENTER_FOR_MOVEMENT
----| 24 # CAN_SPEAK
----| 25 # CAN_LEARN
----| 26 # UTTERANCES
----| 27 # CRAZED
----| 28 # BLOODSUCKER
----| 29 # NO_CONNECTIONS_FOR_MOVEMENT
----| 30 # SUPERNATURAL
----| 31
-
----@alias _cie_add_tag_mask1_values
----| "EXTRAVISION" # 0
----| "OPPOSED_TO_LIFE" # 1
----| "NOT_LIVING" # 2
----| "NOEXERT" # 3
----| "NOPAIN" # 4
----| "NOBREATHE" # 5
----| "HAS_BLOOD" # 6
----| "NOSTUN" # 7
----| "NONAUSEA" # 8
----| "NO_DIZZINESS" # 9
----| "NO_FEVERS" # 10
----| "TRANCES" # 11
----| "NOEMOTION" # 12
----| "LIKES_FIGHTING" # 13
----| "PARALYZEIMMUNE" # 14
----| "NOFEAR" # 15
----| "NO_EAT" # 16
----| "NO_DRINK" # 17
----| "NO_SLEEP" # 18
----| "MISCHIEVOUS" # 19
----| "NO_PHYS_ATT_GAIN" # 20
----| "NO_PHYS_ATT_RUST" # 21
----| "NOTHOUGHT" # 22
----| "NO_THOUGHT_CENTER_FOR_MOVEMENT" # 23
----| "CAN_SPEAK" # 24
----| "CAN_LEARN" # 25
----| "UTTERANCES" # 26
----| "CRAZED" # 27
----| "BLOODSUCKER" # 28
----| "NO_CONNECTIONS_FOR_MOVEMENT" # 29
----| "SUPERNATURAL" # 30
-
----@class cie_add_tag_mask1: DFObject, { [_cie_add_tag_mask1_keys|_cie_add_tag_mask1_values]: boolean }
+---@class cie_add_tag_mask1: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _cie_add_tag_mask1
-local cie_add_tag_mask1 = {
-  EXTRAVISION = false,
-  [0] = false,
-  OPPOSED_TO_LIFE = false,
-  [1] = false,
-  NOT_LIVING = false,
-  [2] = false,
-  NOEXERT = false,
-  [3] = false,
-  NOPAIN = false,
-  [4] = false,
-  NOBREATHE = false,
-  [5] = false,
-  HAS_BLOOD = false,
-  [6] = false,
-  NOSTUN = false,
-  [7] = false,
-  NONAUSEA = false,
-  [8] = false,
-  NO_DIZZINESS = false,
-  [9] = false,
-  NO_FEVERS = false,
-  [10] = false,
-  TRANCES = false,
-  [11] = false,
-  NOEMOTION = false,
-  [12] = false,
-  LIKES_FIGHTING = false,
-  [13] = false,
-  PARALYZEIMMUNE = false,
-  [14] = false,
-  NOFEAR = false,
-  [15] = false,
-  NO_EAT = false,
-  [16] = false,
-  NO_DRINK = false,
-  [17] = false,
-  NO_SLEEP = false,
-  [18] = false,
-  MISCHIEVOUS = false,
-  [19] = false,
-  NO_PHYS_ATT_GAIN = false,
-  [20] = false,
-  NO_PHYS_ATT_RUST = false,
-  [21] = false,
-  NOTHOUGHT = false,
-  [22] = false,
-  NO_THOUGHT_CENTER_FOR_MOVEMENT = false,
-  [23] = false,
-  CAN_SPEAK = false,
-  [24] = false,
-  CAN_LEARN = false,
-  [25] = false,
-  UTTERANCES = false,
-  [26] = false,
-  CRAZED = false,
-  [27] = false,
-  BLOODSUCKER = false,
-  [28] = false,
-  NO_CONNECTIONS_FOR_MOVEMENT = false,
-  [29] = false,
-  SUPERNATURAL = false,
-  [30] = false,
-  [31] = false,
-}
+---@field EXTRAVISION boolean
+---@field [0] boolean
+---@field OPPOSED_TO_LIFE boolean
+---@field [1] boolean
+---@field NOT_LIVING boolean
+---@field [2] boolean
+---@field NOEXERT boolean
+---@field [3] boolean
+---@field NOPAIN boolean
+---@field [4] boolean
+---@field NOBREATHE boolean
+---@field [5] boolean
+---@field HAS_BLOOD boolean
+---@field [6] boolean
+---@field NOSTUN boolean
+---@field [7] boolean
+---@field NONAUSEA boolean
+---@field [8] boolean
+---@field NO_DIZZINESS boolean
+---@field [9] boolean
+---@field NO_FEVERS boolean
+---@field [10] boolean
+---@field TRANCES boolean
+---@field [11] boolean
+---@field NOEMOTION boolean
+---@field [12] boolean
+---@field LIKES_FIGHTING boolean
+---@field [13] boolean
+---@field PARALYZEIMMUNE boolean
+---@field [14] boolean
+---@field NOFEAR boolean
+---@field [15] boolean
+---@field NO_EAT boolean
+---@field [16] boolean
+---@field NO_DRINK boolean
+---@field [17] boolean
+---@field NO_SLEEP boolean
+---@field [18] boolean
+---@field MISCHIEVOUS boolean
+---@field [19] boolean
+---@field NO_PHYS_ATT_GAIN boolean
+---@field [20] boolean
+---@field NO_PHYS_ATT_RUST boolean
+---@field [21] boolean
+---@field NOTHOUGHT boolean
+---@field [22] boolean
+---@field NO_THOUGHT_CENTER_FOR_MOVEMENT boolean
+---@field [23] boolean
+---@field CAN_SPEAK boolean
+---@field [24] boolean
+---@field CAN_LEARN boolean
+---@field [25] boolean
+---@field UTTERANCES boolean
+---@field [26] boolean
+---@field CRAZED boolean
+---@field [27] boolean
+---@field BLOODSUCKER boolean
+---@field [28] boolean
+---@field NO_CONNECTIONS_FOR_MOVEMENT boolean
+---@field [29] boolean
+---@field SUPERNATURAL boolean
+---@field [30] boolean
+---@field [31] boolean
 
 ---@class _cie_add_tag_mask1: DFBitfield
 ---@field EXTRAVISION 0
@@ -427,35 +332,19 @@ local cie_add_tag_mask1 = {
 ---@field [30] "SUPERNATURAL"
 df.cie_add_tag_mask1 = {}
 
----@alias _cie_add_tag_mask2_keys
----| 0 # NO_AGING
----| 1 # MORTAL
----| 2 # STERILE
----| 3 # FIT_FOR_ANIMATION
----| 4 # FIT_FOR_RESURRECTION
-
----@alias _cie_add_tag_mask2_values
----| "NO_AGING" # 0
----| "MORTAL" # 1
----| "STERILE" # 2
----| "FIT_FOR_ANIMATION" # 3
----| "FIT_FOR_RESURRECTION" # 4
-
----@class cie_add_tag_mask2: DFObject, { [_cie_add_tag_mask2_keys|_cie_add_tag_mask2_values]: boolean }
+---@class cie_add_tag_mask2: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _cie_add_tag_mask2
-local cie_add_tag_mask2 = {
-  NO_AGING = false,
-  [0] = false,
-  MORTAL = false,
-  [1] = false,
-  STERILE = false,
-  [2] = false,
-  FIT_FOR_ANIMATION = false,
-  [3] = false,
-  FIT_FOR_RESURRECTION = false,
-  [4] = false,
-}
+---@field NO_AGING boolean
+---@field [0] boolean
+---@field MORTAL boolean
+---@field [1] boolean
+---@field STERILE boolean
+---@field [2] boolean
+---@field FIT_FOR_ANIMATION boolean
+---@field [3] boolean
+---@field FIT_FOR_RESURRECTION boolean
+---@field [4] boolean
 
 ---@class _cie_add_tag_mask2: DFBitfield
 ---@field NO_AGING 0
@@ -774,7 +663,7 @@ df.creature_interaction_effect_display_symbolst = {}
 ---@class (exact) creature_interaction_effect_flash_symbolst: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_flash_symbolst
----@field sym_color integer
+---@field sym_color integer[]
 ---@field period number
 ---@field time number
 ---@field unk_78 number
@@ -786,8 +675,8 @@ df.creature_interaction_effect_flash_symbolst = {}
 ---@class (exact) creature_interaction_effect_phys_att_changest: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_phys_att_changest
----@field phys_att_perc number
----@field phys_att_add number
+---@field phys_att_perc DFEnumVector<physical_attribute_type, number>
+---@field phys_att_add DFEnumVector<physical_attribute_type, number>
 
 ---@class _creature_interaction_effect_phys_att_changest: DFCompound
 ---@field _kind 'class-type'
@@ -796,8 +685,8 @@ df.creature_interaction_effect_phys_att_changest = {}
 ---@class (exact) creature_interaction_effect_ment_att_changest: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_ment_att_changest
----@field ment_att_perc number
----@field ment_att_add number
+---@field ment_att_perc DFEnumVector<mental_attribute_type, number>
+---@field ment_att_add DFEnumVector<mental_attribute_type, number>
 
 ---@class _creature_interaction_effect_ment_att_changest: DFCompound
 ---@field _kind 'class-type'
@@ -896,7 +785,7 @@ df.creature_interaction_effect_feel_emotionst = {}
 ---@class (exact) creature_interaction_effect_change_personalityst: DFObject, creature_interaction_effect
 ---@field _kind 'struct'
 ---@field _type _creature_interaction_effect_change_personalityst
----@field facets number
+---@field facets DFEnumVector<personality_facet_type, number>
 
 ---@class _creature_interaction_effect_change_personalityst: DFCompound
 ---@field _kind 'class-type'
@@ -1069,37 +958,20 @@ df.creature_interaction_effect_stop_bleedingst = {}
 ---@field _kind 'class-type'
 df.creature_interaction_effect_cure_infectionst = {}
 
----@alias _syndrome_flags_keys
----| 0 # SYN_INJECTED
----| 1 # SYN_CONTACT
----| 2 # SYN_INHALED
----| 3
----| 4 # SYN_INGESTED
----| 5 # SYN_NO_HOSPITAL
-
----@alias _syndrome_flags_values
----| "SYN_INJECTED" # 0
----| "SYN_CONTACT" # 1
----| "SYN_INHALED" # 2
----| "SYN_INGESTED" # 4
----| "SYN_NO_HOSPITAL" # 5
-
----@class syndrome_flags: DFObject, { [_syndrome_flags_keys|_syndrome_flags_values]: boolean }
+---@class syndrome_flags: DFObject
 ---@field _kind 'bitfield'
 ---@field _enum _syndrome_flags
-local syndrome_flags = {
-  SYN_INJECTED = false,
-  [0] = false,
-  SYN_CONTACT = false,
-  [1] = false,
-  SYN_INHALED = false,
-  [2] = false,
-  [3] = false,
-  SYN_INGESTED = false,
-  [4] = false,
-  SYN_NO_HOSPITAL = false,
-  [5] = false,
-}
+---@field SYN_INJECTED boolean
+---@field [0] boolean
+---@field SYN_CONTACT boolean
+---@field [1] boolean
+---@field SYN_INHALED boolean
+---@field [2] boolean
+---@field [3] boolean
+---@field SYN_INGESTED boolean
+---@field [4] boolean
+---@field SYN_NO_HOSPITAL boolean
+---@field [5] boolean
 
 ---@class _syndrome_flags: DFBitfield
 ---@field SYN_INJECTED 0
@@ -1128,7 +1000,7 @@ df.syndrome_flags = {}
 ---@field syn_class any
 ---@field syn_identifier string
 ---@field flags syndrome_flags
----@field syn_concentration_added number
+---@field syn_concentration_added number[]
 ---@field id number
 
 ---@class _syndrome: DFCompound
