@@ -76,8 +76,8 @@ module DFHackLuaDefinitions
     def items
       index = 0
       @node.xpath('enum-item').map do |item|
-        enum = EnumItem.new(item, item['value'] || index)
         index = item['value'].to_i if item['value']
+        enum = EnumItem.new(item, index, @attributes)
         index += 1
         enum
       end
@@ -144,24 +144,40 @@ module DFHackLuaDefinitions
   end
 
   class EnumItem
-    def initialize(field, index)
+    def initialize(field, index, attrs)
       @field = field
 
       @name = field['name']
-      @attributes = field.xpath('item-attr')
       @value = field['value'] || index
       @comment = field['comment']
+
+      @enum_attrs = attrs
     end
 
-    # TODO: Correct type coercion from enum-attr
     def to_attrs
-      return '' if @attributes.empty? || !@name
+      return '' if @enum_attrs.empty? || !@name
 
       annotation = "---@field #{@name} { "
       attributes = []
-      @attributes.each do |attribute|
-        attributes.append("#{attribute['name']}: \"#{attribute['value']}\"")
+      @enum_attrs.each do |attr|
+        # TODO: Handle lists of attributes.
+        # TODO: Handle type-name enum derived values.
+        item_attr = @field.at_xpath("item-attr[@name='#{attr['name']}']")
+
+        if item_attr && item_attr['value']
+          attr_value = item_attr['value']
+        elsif attr['use-key-name'] == 'true'
+          attr_value = @name
+        elsif attr['default-value']
+          attr_value = attr['default-value']
+        end
+
+        next unless attr_value
+
+        attributes << "#{attr['name']}: \"#{attr_value}\""
       end
+      return '' if attributes.empty?
+
       annotation << attributes.join(', ')
       annotation << " }\n"
     end

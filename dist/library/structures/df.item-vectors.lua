@@ -418,15 +418,18 @@ df.items_other_id._attr_entry_type = {}
 df.items_other_id._attr_entry_type._fields = {}
 
 ---@class items_other_id_attrs
+---@field ANY { item: "NONE" }
+---@field IN_PLAY { item: "NONE" }
+---@field ANY_ARTIFACT { item: "NONE" }
 ---@field WEAPON { item: "WEAPON" }
----@field ANY_WEAPON { generic_item: "WEAPON", generic_item: "TRAPCOMP" }
----@field ANY_SPIKE { generic_item: "WEAPON", generic_item: "TRAPCOMP" }
----@field ANY_TRUE_ARMOR { generic_item: "ARMOR" }
----@field ANY_ARMOR_HELM { generic_item: "HELM" }
----@field ANY_ARMOR_SHOES { generic_item: "SHOES" }
+---@field ANY_WEAPON { item: "NONE", generic_item: "WEAPON" }
+---@field ANY_SPIKE { item: "NONE", generic_item: "WEAPON" }
+---@field ANY_TRUE_ARMOR { item: "NONE", generic_item: "ARMOR" }
+---@field ANY_ARMOR_HELM { item: "NONE", generic_item: "HELM" }
+---@field ANY_ARMOR_SHOES { item: "NONE", generic_item: "SHOES" }
 ---@field SHIELD { item: "SHIELD" }
----@field ANY_ARMOR_GLOVES { generic_item: "GLOVES" }
----@field ANY_ARMOR_PANTS { generic_item: "PANTS" }
+---@field ANY_ARMOR_GLOVES { item: "NONE", generic_item: "GLOVES" }
+---@field ANY_ARMOR_PANTS { item: "NONE", generic_item: "PANTS" }
 ---@field QUIVER { item: "QUIVER" }
 ---@field SPLINT { item: "SPLINT" }
 ---@field ORTHOPEDIC_CAST { item: "ORTHOPEDIC_CAST" }
@@ -437,19 +440,25 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field BRANCH { item: "BRANCH" }
 ---@field BOULDER { item: "BOULDER" }
 ---@field ROCK { item: "ROCK" }
----@field ANY_REFUSE { generic_item: "CORPSE", generic_item: "ARMOR", generic_item: "SHOES", generic_item: "HELM", generic_item: "GLOVES", generic_item: "CORPSEPIECE", generic_item: "REMAINS", generic_item: "PANTS", generic_item: "MEAT", generic_item: "FISH", generic_item: "FISH_RAW", generic_item: "SEEDS", generic_item: "PLANT", generic_item: "PLANT_GROWTH", generic_item: "CHEESE", generic_item: "FOOD", generic_item: "EGG", generic_item: "GLOB" }
----@field ANY_GOOD_FOOD { generic_item: "BOX", generic_item: "MEAT", generic_item: "FISH", generic_item: "FISH_RAW", generic_item: "SEEDS", generic_item: "PLANT", generic_item: "PLANT_GROWTH", generic_item: "CHEESE", generic_item: "FOOD", generic_item: "EGG" }
----@field ANY_AUTO_CLEAN { generic_item: "DRINK", generic_item: "POWDER_MISC", generic_item: "LIQUID_MISC", generic_item: "GLOB" }
----@field ANY_GENERIC24 { generic_item: "CAGE", generic_item: "ANIMALTRAP", generic_item: "FISH_RAW", generic_item: "VERMIN", generic_item: "PLANT" }
----@field ANY_BUTCHERABLE { generic_item: "CAGE", generic_item: "ANIMALTRAP", generic_item: "CORPSE", generic_item: "CORPSEPIECE", generic_item: "VERMIN" }
----@field ANY_CAGE_OR_TRAP { generic_item: "CAGE", generic_item: "ANIMALTRAP" }
----@field ANY_EDIBLE_VERMIN_BOX { generic_item: "BARREL", generic_item: "BOX" }
----@field ANY_CAN_ROT { generic_item: "CORPSE", generic_item: "CORPSEPIECE", generic_item: "REMAINS", generic_item: "MEAT", generic_item: "FISH", generic_item: "FISH_RAW", generic_item: "SEEDS", generic_item: "PLANT", generic_item: "PLANT_GROWTH", generic_item: "CHEESE", generic_item: "FOOD", generic_item: "EGG" }
----@field ANY_MURDERED { generic_item: "CORPSE", generic_item: "CORPSEPIECE", generic_item: "REMAINS" }
----@field ANY_GENERIC36 { generic_item: "BAR", generic_item: "SMALLGEM", generic_item: "BLOCKS", generic_item: "ROUGH", generic_item: "CHAIN", generic_item: "FLASK", generic_item: "GOBLET", generic_item: "INSTRUMENT", generic_item: "TOY", generic_item: "FIGURINE", generic_item: "AMULET", generic_item: "SCEPTER", generic_item: "AMMO", generic_item: "CROWN", generic_item: "RING", generic_item: "EARRING", generic_item: "BRACELET", generic_item: "GEM", generic_item: "SKIN_TANNED", generic_item: "THREAD", generic_item: "CLOTH", generic_item: "TOTEM", generic_item: "BACKPACK", generic_item: "QUIVER", generic_item: "BALLISTAARROWHEAD", generic_item: "COIN", generic_item: "SPLINT", generic_item: "TOOL", generic_item: "BOOK" }
----@field ANY_GENERIC37 { generic_item: "ARMOR", generic_item: "SHOES", generic_item: "HELM", generic_item: "GLOVES", generic_item: "PANTS" }
----@field ANY_GENERIC38 { generic_item: "WEAPON", generic_item: "TRAPCOMP", generic_item: "SIEGEAMMO" }
----@field ANY_GENERIC39 { generic_item: "ARMOR", generic_item: "SHOES", generic_item: "SHIELD", generic_item: "HELM", generic_item: "GLOVES", generic_item: "PANTS" }
+---@field ANY_REFUSE { item: "NONE", generic_item: "CORPSE" }
+---@field ANY_GOOD_FOOD { item: "NONE", generic_item: "BOX" }
+---@field ANY_AUTO_CLEAN { item: "NONE", generic_item: "DRINK" }
+---@field ANY_GENERIC24 { item: "NONE", generic_item: "CAGE" }
+---@field ANY_BUTCHERABLE { item: "NONE", generic_item: "CAGE" }
+---@field ANY_FURNITURE { item: "NONE" }
+---@field ANY_CAGE_OR_TRAP { item: "NONE", generic_item: "CAGE" }
+---@field ANY_EDIBLE_RAW { item: "NONE" }
+---@field ANY_EDIBLE_CARNIVORE { item: "NONE" }
+---@field ANY_EDIBLE_BONECARN { item: "NONE" }
+---@field ANY_EDIBLE_VERMIN { item: "NONE" }
+---@field ANY_EDIBLE_VERMIN_BOX { item: "NONE", generic_item: "BARREL" }
+---@field ANY_CAN_ROT { item: "NONE", generic_item: "CORPSE" }
+---@field ANY_MURDERED { item: "NONE", generic_item: "CORPSE" }
+---@field ANY_DEAD_DWARF { item: "NONE" }
+---@field ANY_GENERIC36 { item: "NONE", generic_item: "BAR" }
+---@field ANY_GENERIC37 { item: "NONE", generic_item: "ARMOR" }
+---@field ANY_GENERIC38 { item: "NONE", generic_item: "WEAPON" }
+---@field ANY_GENERIC39 { item: "NONE", generic_item: "ARMOR" }
 ---@field DOOR { item: "DOOR" }
 ---@field FLOODGATE { item: "FLOODGATE" }
 ---@field HATCH_COVER { item: "HATCH_COVER" }
@@ -486,17 +495,19 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field BALLISTAPARTS { item: "BALLISTAPARTS" }
 ---@field SIEGEAMMO { item: "SIEGEAMMO" }
 ---@field TRAPPARTS { item: "TRAPPARTS" }
----@field ANY_WEBS { generic_item: "THREAD" }
+---@field ANY_WEBS { item: "NONE", generic_item: "THREAD" }
 ---@field PIPE_SECTION { item: "PIPE_SECTION" }
+---@field ANY_ENCASED { item: "NONE" }
+---@field ANY_IN_CONSTRUCTION { item: "NONE" }
 ---@field DRINK { item: "DRINK" }
----@field ANY_DRINK { generic_item: "DRINK" }
+---@field ANY_DRINK { item: "NONE", generic_item: "DRINK" }
 ---@field LIQUID_MISC { item: "LIQUID_MISC" }
 ---@field POWDER_MISC { item: "POWDER_MISC" }
----@field ANY_COOKABLE { generic_item: "FLASK", generic_item: "CAGE", generic_item: "BARREL", generic_item: "BUCKET", generic_item: "ANIMALTRAP", generic_item: "BOX", generic_item: "MEAT", generic_item: "FISH", generic_item: "FISH_RAW", generic_item: "VERMIN", generic_item: "SEEDS", generic_item: "PLANT", generic_item: "PLANT_GROWTH", generic_item: "DRINK", generic_item: "POWDER_MISC", generic_item: "CHEESE", generic_item: "LIQUID_MISC", generic_item: "GLOB", generic_item: "TOOL", generic_item: "EGG" }
----@field ANY_GENERIC84 { generic_item: "BOX" }
----@field VERMIN { generic_item: "VERMIN" }
----@field PET { generic_item: "PET" }
----@field ANY_CRITTER { generic_item: "VERMIN", generic_item: "PET" }
+---@field ANY_COOKABLE { item: "NONE", generic_item: "FLASK" }
+---@field ANY_GENERIC84 { item: "NONE", generic_item: "BOX" }
+---@field VERMIN { item: "NONE", generic_item: "VERMIN" }
+---@field PET { item: "NONE", generic_item: "PET" }
+---@field ANY_CRITTER { item: "NONE", generic_item: "VERMIN" }
 ---@field COIN { item: "COIN" }
 ---@field GLOB { item: "GLOB" }
 ---@field TRAPCOMP { item: "TRAPCOMP" }
@@ -504,7 +515,7 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field SMALLGEM { item: "SMALLGEM" }
 ---@field BLOCKS { item: "BLOCKS" }
 ---@field ROUGH { item: "ROUGH" }
----@field ANY_CORPSE { generic_item: "CORPSE", generic_item: "CORPSEPIECE" }
+---@field ANY_CORPSE { item: "NONE", generic_item: "CORPSE" }
 ---@field CORPSE { item: "CORPSE" }
 ---@field BOOK { item: "BOOK" }
 ---@field FIGURINE { item: "FIGURINE" }
@@ -537,8 +548,10 @@ df.items_other_id._attr_entry_type._fields = {}
 ---@field SHOES { item: "SHOES" }
 ---@field HELM { item: "HELM" }
 ---@field GLOVES { item: "GLOVES" }
----@field ANY_GENERIC128 { generic_item: "FLASK", generic_item: "GOBLET", generic_item: "CAGE", generic_item: "BARREL", generic_item: "BUCKET", generic_item: "ANIMALTRAP", generic_item: "COFFIN", generic_item: "BOX", generic_item: "BIN", generic_item: "ARMORSTAND", generic_item: "WEAPONRACK", generic_item: "CABINET", generic_item: "BACKPACK", generic_item: "QUIVER", generic_item: "TOOL" }
----@field FOOD_STORAGE { generic_item: "BARREL", generic_item: "TOOL" }
+---@field ANY_GENERIC128 { item: "NONE", generic_item: "FLASK" }
+---@field FOOD_STORAGE { item: "NONE", generic_item: "BARREL" }
+---@field ANY_RECENTLY_DROPPED { item: "NONE" }
+---@field ANY_MELT_DESIGNATED { item: "NONE" }
 df.items_other_id.attrs = {}
 
 ---@alias job_item_vector_id
@@ -948,10 +961,137 @@ df.job_item_vector_id._attr_entry_type = {}
 df.job_item_vector_id._attr_entry_type._fields = {}
 
 ---@class job_item_vector_id_attrs
+---@field ANY { other: "ANY" }
+---@field IN_PLAY { other: "IN_PLAY" }
+---@field ANY_ARTIFACT { other: "ANY_ARTIFACT" }
+---@field WEAPON { other: "WEAPON" }
+---@field ANY_WEAPON { other: "ANY_WEAPON" }
+---@field ANY_SPIKE { other: "ANY_SPIKE" }
+---@field ANY_TRUE_ARMOR { other: "ANY_TRUE_ARMOR" }
+---@field ANY_ARMOR_HELM { other: "ANY_ARMOR_HELM" }
+---@field ANY_ARMOR_SHOES { other: "ANY_ARMOR_SHOES" }
+---@field SHIELD { other: "SHIELD" }
+---@field ANY_ARMOR_GLOVES { other: "ANY_ARMOR_GLOVES" }
+---@field ANY_ARMOR_PANTS { other: "ANY_ARMOR_PANTS" }
+---@field QUIVER { other: "QUIVER" }
+---@field SPLINT { other: "SPLINT" }
 ---@field ANY_14 { other: "ANY" }
+---@field CRUTCH { other: "CRUTCH" }
+---@field BACKPACK { other: "BACKPACK" }
+---@field AMMO { other: "AMMO" }
+---@field WOOD { other: "WOOD" }
+---@field BOULDER { other: "BOULDER" }
+---@field ROCK { other: "ROCK" }
+---@field ANY_REFUSE { other: "ANY_REFUSE" }
+---@field ANY_GOOD_FOOD { other: "ANY_GOOD_FOOD" }
+---@field ANY_AUTO_CLEAN { other: "ANY_AUTO_CLEAN" }
+---@field ANY_GENERIC24 { other: "ANY_GENERIC24" }
+---@field ANY_BUTCHERABLE { other: "ANY_BUTCHERABLE" }
+---@field ANY_FURNITURE { other: "ANY_FURNITURE" }
+---@field ANY_CAGE_OR_TRAP { other: "ANY_CAGE_OR_TRAP" }
+---@field ANY_EDIBLE_RAW { other: "ANY_EDIBLE_RAW" }
+---@field ANY_EDIBLE_CARNIVORE { other: "ANY_EDIBLE_CARNIVORE" }
+---@field ANY_EDIBLE_BONECARN { other: "ANY_EDIBLE_BONECARN" }
+---@field ANY_EDIBLE_VERMIN { other: "ANY_EDIBLE_VERMIN" }
+---@field ANY_EDIBLE_VERMIN_BOX { other: "ANY_EDIBLE_VERMIN_BOX" }
+---@field ANY_CAN_ROT { other: "ANY_CAN_ROT" }
+---@field ANY_MURDERED { other: "ANY_MURDERED" }
+---@field ANY_DEAD_DWARF { other: "ANY_DEAD_DWARF" }
+---@field ANY_GENERIC36 { other: "ANY_GENERIC36" }
+---@field ANY_GENERIC37 { other: "ANY_GENERIC37" }
+---@field ANY_GENERIC38 { other: "ANY_GENERIC38" }
+---@field ANY_GENERIC39 { other: "ANY_GENERIC39" }
+---@field DOOR { other: "DOOR" }
+---@field FLOODGATE { other: "FLOODGATE" }
+---@field HATCH_COVER { other: "HATCH_COVER" }
+---@field GRATE { other: "GRATE" }
+---@field CAGE { other: "CAGE" }
+---@field FLASK { other: "FLASK" }
+---@field WINDOW { other: "WINDOW" }
+---@field GOBLET { other: "GOBLET" }
+---@field INSTRUMENT { other: "INSTRUMENT" }
+---@field TOY { other: "TOY" }
+---@field BUCKET { other: "BUCKET" }
+---@field BARREL { other: "BARREL" }
+---@field CHAIN { other: "CHAIN" }
+---@field ANIMALTRAP { other: "ANIMALTRAP" }
+---@field BED { other: "BED" }
+---@field TRACTION_BENCH { other: "TRACTION_BENCH" }
+---@field CHAIR { other: "CHAIR" }
+---@field COFFIN { other: "COFFIN" }
+---@field TABLE { other: "TABLE" }
+---@field STATUE { other: "STATUE" }
+---@field QUERN { other: "QUERN" }
+---@field MILLSTONE { other: "MILLSTONE" }
+---@field BOX { other: "BOX" }
+---@field BIN { other: "BIN" }
+---@field ARMORSTAND { other: "ARMORSTAND" }
+---@field WEAPONRACK { other: "WEAPONRACK" }
+---@field CABINET { other: "CABINET" }
+---@field ANVIL { other: "ANVIL" }
+---@field CATAPULTPARTS { other: "CATAPULTPARTS" }
+---@field BALLISTAPARTS { other: "BALLISTAPARTS" }
+---@field SIEGEAMMO { other: "SIEGEAMMO" }
+---@field TRAPPARTS { other: "TRAPPARTS" }
+---@field ANY_WEBS { other: "ANY_WEBS" }
+---@field PIPE_SECTION { other: "PIPE_SECTION" }
+---@field ANY_ENCASED { other: "ANY_ENCASED" }
+---@field ANY_IN_CONSTRUCTION { other: "ANY_IN_CONSTRUCTION" }
+---@field DRINK { other: "DRINK" }
+---@field ANY_DRINK { other: "ANY_DRINK" }
+---@field LIQUID_MISC { other: "LIQUID_MISC" }
+---@field POWDER_MISC { other: "POWDER_MISC" }
+---@field ANY_COOKABLE { other: "ANY_COOKABLE" }
+---@field ANY_GENERIC84 { other: "ANY_GENERIC84" }
+---@field VERMIN { other: "VERMIN" }
+---@field PET { other: "PET" }
+---@field ANY_CRITTER { other: "ANY_CRITTER" }
+---@field COIN { other: "COIN" }
+---@field GLOB { other: "GLOB" }
+---@field ANY_RECENTLY_DROPPED { other: "ANY_RECENTLY_DROPPED" }
+---@field ANY_MELT_DESIGNATED { other: "ANY_MELT_DESIGNATED" }
+---@field TRAPCOMP { other: "TRAPCOMP" }
+---@field BAR { other: "BAR" }
+---@field SMALLGEM { other: "SMALLGEM" }
+---@field BLOCKS { other: "BLOCKS" }
+---@field ROUGH { other: "ROUGH" }
+---@field CORPSE { other: "CORPSE" }
+---@field FIGURINE { other: "FIGURINE" }
+---@field AMULET { other: "AMULET" }
+---@field SCEPTER { other: "SCEPTER" }
+---@field CROWN { other: "CROWN" }
+---@field RING { other: "RING" }
+---@field EARRING { other: "EARRING" }
+---@field BRACELET { other: "BRACELET" }
+---@field GEM { other: "GEM" }
+---@field CORPSEPIECE { other: "CORPSEPIECE" }
+---@field REMAINS { other: "REMAINS" }
+---@field MEAT { other: "MEAT" }
+---@field FISH { other: "FISH" }
+---@field FISH_RAW { other: "FISH_RAW" }
+---@field SEEDS { other: "SEEDS" }
+---@field PLANT { other: "PLANT" }
+---@field SKIN_TANNED { other: "SKIN_TANNED" }
+---@field PLANT_GROWTH { other: "PLANT_GROWTH" }
+---@field THREAD { other: "THREAD" }
+---@field CLOTH { other: "CLOTH" }
+---@field TOTEM { other: "TOTEM" }
+---@field PANTS { other: "PANTS" }
+---@field CHEESE { other: "CHEESE" }
+---@field FOOD { other: "FOOD" }
+---@field BALLISTAARROWHEAD { other: "BALLISTAARROWHEAD" }
+---@field ARMOR { other: "ARMOR" }
+---@field SHOES { other: "SHOES" }
+---@field HELM { other: "HELM" }
+---@field GLOVES { other: "GLOVES" }
 ---@field ANY_124 { other: "ANY" }
 ---@field ANY_125 { other: "ANY" }
+---@field EGG { other: "EGG" }
 ---@field ANY_127 { other: "ANY" }
+---@field ANY_CORPSE { other: "ANY_CORPSE" }
+---@field BOOK { other: "BOOK" }
+---@field SHEET { other: "SHEET" }
+---@field BRANCH { other: "BRANCH" }
 df.job_item_vector_id.attrs = {}
 
 ---@class (exact) items_other: DFObject

@@ -107,25 +107,26 @@ df.tiletype_shape._attr_entry_type = {}
 df.tiletype_shape._attr_entry_type._fields = {}
 
 ---@class tiletype_shape_attrs
----@field EMPTY { basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true" }
----@field FLOOR { basic_shape: "Floor", passable_high: "true", passable_flow: "true", walkable: "true" }
----@field BOULDER { basic_shape: "Floor", passable_high: "true", passable_flow: "true", walkable: "true" }
----@field PEBBLES { basic_shape: "Floor", passable_high: "true", passable_flow: "true", walkable: "true" }
----@field WALL { basic_shape: "Wall" }
----@field FORTIFICATION { basic_shape: "Wall", passable_flow: "true" }
----@field STAIR_UP { basic_shape: "Stair", passable_high: "true", passable_flow: "true", walkable: "true", walkable_up: "true" }
----@field STAIR_DOWN { basic_shape: "Stair", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true" }
+---@field NONE { basic_shape: "None", passable_low: "false", passable_high: "false", passable_flow: "false", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field EMPTY { basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field FLOOR { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field BOULDER { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field PEBBLES { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field WALL { basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "false", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field FORTIFICATION { basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field STAIR_UP { basic_shape: "Stair", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "true" }
+---@field STAIR_DOWN { basic_shape: "Stair", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
 ---@field STAIR_UPDOWN { basic_shape: "Stair", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "true" }
----@field RAMP { caption: "ramps have no direction", basic_shape: "Ramp", passable_high: "true", passable_flow: "true", walkable: "true", walkable_up: "true" }
----@field RAMP_TOP { caption: "used for pathing?", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true" }
----@field BROOK_BED { caption: "mineable, water-passable rock on the bottom of a brook", basic_shape: "Wall", passable_flow: "true" }
----@field BROOK_TOP { caption: "water-passable floor on top of BROOK_BED tiles", basic_shape: "Floor", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true" }
----@field BRANCH { caption: "small tree branch", basic_shape: "Floor", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true" }
----@field TRUNK_BRANCH { caption: "large tree branch", basic_shape: "Floor", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true" }
----@field TWIG { caption: "tiny tree branch, not strong enough to support creatures", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true" }
----@field SAPLING { basic_shape: "Floor", passable_high: "true", passable_flow: "true", walkable: "true" }
----@field SHRUB { basic_shape: "Floor", passable_high: "true", passable_flow: "true", walkable: "true" }
----@field ENDLESS_PIT { caption: "a fake endless pit", basic_shape: "Open", passable_high: "true", passable_flow: "true" }
+---@field RAMP { caption: "ramps have no direction", basic_shape: "Ramp", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "true" }
+---@field RAMP_TOP { caption: "used for pathing?", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field BROOK_BED { caption: "mineable, water-passable rock on the bottom of a brook", basic_shape: "Wall", passable_low: "false", passable_high: "false", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
+---@field BROOK_TOP { caption: "water-passable floor on top of BROOK_BED tiles", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field BRANCH { caption: "small tree branch", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field TRUNK_BRANCH { caption: "large tree branch", basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "true", walkable_up: "false" }
+---@field TWIG { caption: "tiny tree branch, not strong enough to support creatures", basic_shape: "Open", passable_low: "true", passable_high: "true", passable_flow: "true", passable_flow_down: "true", walkable: "false", walkable_up: "false" }
+---@field SAPLING { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field SHRUB { basic_shape: "Floor", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "true", walkable_up: "false" }
+---@field ENDLESS_PIT { caption: "a fake endless pit", basic_shape: "Open", passable_low: "false", passable_high: "true", passable_flow: "true", passable_flow_down: "false", walkable: "false", walkable_up: "false" }
 df.tiletype_shape.attrs = {}
 
 ---@alias tiletype_material
@@ -2451,663 +2452,702 @@ df.tiletype._attr_entry_type = {}
 df.tiletype._attr_entry_type._fields = {}
 
 ---@class tiletype_attrs
----@field Void { caption: "void" }
----@field RampTop { caption: "ramp top", shape: "RAMP_TOP", material: "AIR" }
----@field MurkyPool { caption: "murky pool", shape: "FLOOR", material: "POOL" }
----@field MurkyPoolRamp { caption: "murky pool slope", shape: "RAMP", material: "POOL" }
----@field UnderworldGateStairU { caption: "underworld gate up", shape: "STAIR_UP", material: "UNDERWORLD_GATE" }
----@field UnderworldGateStairD { caption: "underworld gate down", shape: "STAIR_DOWN", material: "UNDERWORLD_GATE" }
----@field UnderworldGateStairUD { caption: "underworld gate up/down", shape: "STAIR_UPDOWN", material: "UNDERWORLD_GATE" }
----@field TreeCapInterior { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH" }
----@field TreeCapWallThickSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "SW" }
----@field TreeCapWallThickSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "SE" }
----@field TreeCapWallThickNW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "NW" }
----@field TreeCapWallThickNE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "NE" }
----@field TreeCapWallThickN { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "N" }
----@field TreeCapWallThickS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "N" }
----@field TreeCapWallThickW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "W" }
----@field TreeCapWallThickE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "E" }
----@field TreeCapWallNSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "NSWE" }
----@field TreeCapWallNSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "NSW" }
----@field TreeCapWallNSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "NSE" }
----@field Driftwood { caption: "driftwood", shape: "FLOOR", material: "DRIFTWOOD" }
----@field TreeCapWallNWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "NWE" }
----@field TreeCapWallSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "SWE" }
----@field TreeCapWallNS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "NS" }
----@field TreeCapWallWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH", direction: "WE" }
----@field FrozenStairUD { caption: "ice stair up/down", shape: "STAIR_UPDOWN", material: "FROZEN_LIQUID" }
----@field FrozenStairD { caption: "ice stair down", shape: "STAIR_DOWN", material: "FROZEN_LIQUID" }
----@field FrozenStairU { caption: "ice stair up", shape: "STAIR_UP", material: "FROZEN_LIQUID" }
----@field TreeDeadCapInterior { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD" }
----@field OpenSpace { caption: "open space", shape: "EMPTY", material: "AIR" }
----@field TreeDeadCapWallThickSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "SW" }
----@field Shrub { caption: "shrub", shape: "SHRUB", material: "PLANT", special: "NORMAL" }
----@field Chasm { caption: "chasm", shape: "ENDLESS_PIT", material: "AIR" }
----@field LavaStairUD { caption: "obsidian stair up/down", shape: "STAIR_UPDOWN", material: "LAVA_STONE" }
----@field LavaStairD { caption: "obsidian stair down", shape: "STAIR_DOWN", material: "LAVA_STONE" }
----@field LavaStairU { caption: "obsidian stair up", shape: "STAIR_UP", material: "LAVA_STONE" }
----@field SoilStairUD { caption: "soil stair up/down", shape: "STAIR_UPDOWN", material: "SOIL" }
----@field SoilStairD { caption: "soil stair down", shape: "STAIR_DOWN", material: "SOIL" }
----@field SoilStairU { caption: "soil stair up", shape: "STAIR_UP", material: "SOIL" }
----@field EeriePit { caption: "eerie pit", shape: "ENDLESS_PIT", material: "HFS" }
----@field StoneFloorSmooth { caption: "smooth stone floor", shape: "FLOOR", material: "STONE", special: "SMOOTH" }
----@field LavaFloorSmooth { caption: "smooth obsidian floor", shape: "FLOOR", material: "LAVA_STONE", special: "SMOOTH" }
----@field FeatureFloorSmooth { caption: "smooth featstone floor", shape: "FLOOR", material: "FEATURE", special: "SMOOTH" }
----@field MineralFloorSmooth { caption: "smooth vein floor", shape: "FLOOR", material: "MINERAL", special: "SMOOTH" }
----@field FrozenFloorSmooth { caption: "smooth ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", special: "SMOOTH" }
----@field TreeDeadCapWallThickSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "SE" }
----@field Grass1StairUD { caption: "light grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_LIGHT" }
----@field Grass1StairD { caption: "light grass stair down", shape: "STAIR_DOWN", material: "GRASS_LIGHT" }
----@field Grass1StairU { caption: "light grass stair up", shape: "STAIR_UP", material: "GRASS_LIGHT" }
----@field Grass2StairUD { caption: "dark grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_DARK" }
----@field Grass2StairD { caption: "dark grass stair down", shape: "STAIR_DOWN", material: "GRASS_DARK" }
----@field Grass2StairU { caption: "dark grass stair up", shape: "STAIR_UP", material: "GRASS_DARK" }
----@field StoneStairUD { caption: "stone stair up/down", shape: "STAIR_UPDOWN", material: "STONE" }
----@field StoneStairD { caption: "stone stair down", shape: "STAIR_DOWN", material: "STONE" }
----@field StoneStairU { caption: "stone stair up", shape: "STAIR_UP", material: "STONE" }
----@field MineralStairUD { caption: "vein stair up/down", shape: "STAIR_UPDOWN", material: "MINERAL" }
----@field MineralStairD { caption: "vein stair down", shape: "STAIR_DOWN", material: "MINERAL" }
----@field MineralStairU { caption: "vein stair up", shape: "STAIR_UP", material: "MINERAL" }
----@field FeatureStairUD { caption: "featstone stair up/down", shape: "STAIR_UPDOWN", material: "FEATURE" }
----@field FeatureStairD { caption: "featstone stair down", shape: "STAIR_DOWN", material: "FEATURE" }
----@field FeatureStairU { caption: "featstone stair up", shape: "STAIR_UP", material: "FEATURE" }
----@field TreeDeadCapWallThickNW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "NW" }
----@field StoneFortification { caption: "stone fortification", shape: "FORTIFICATION", material: "STONE" }
----@field TreeDeadCapWallThickNE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "NE" }
----@field Campfire { caption: "campfire", shape: "FLOOR", material: "CAMPFIRE" }
----@field TreeDeadCapWallThickN { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "N" }
----@field TreeDeadCapWallThickS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "S" }
----@field Fire { caption: "fire", shape: "FLOOR", material: "FIRE" }
----@field BurningTreeTrunk { caption: "fire", shape: "WALL", material: "FIRE" }
----@field BurningTreeBranches { caption: "fire", shape: "BRANCH", material: "FIRE" }
----@field BurningTreeTwigs { caption: "fire", shape: "TWIG", material: "FIRE" }
----@field BurningTreeCapWall { caption: "fire", shape: "WALL", material: "FIRE" }
----@field BurningTreeCapRamp { caption: "fire", shape: "RAMP", material: "FIRE" }
----@field BurningTreeCapFloor { caption: "fire", shape: "FLOOR", material: "FIRE" }
----@field TreeDeadCapWallThickW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "W" }
----@field TreeDeadCapWallThickE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "E" }
----@field StonePillar { caption: "stone pillar", shape: "WALL", material: "STONE", special: "SMOOTH" }
----@field LavaPillar { caption: "obsidian pillar", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH" }
----@field FeaturePillar { caption: "featstone pillar", shape: "WALL", material: "FEATURE", special: "SMOOTH" }
----@field MineralPillar { caption: "vein pillar", shape: "WALL", material: "MINERAL", special: "SMOOTH" }
----@field FrozenPillar { caption: "ice pillar", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH" }
----@field TreeDeadCapWallNSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "NSWE" }
----@field TreeDeadCapWallNSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "NSW" }
----@field TreeDeadCapWallNSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "NSE" }
----@field TreeDeadCapWallNWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "NWE" }
----@field TreeDeadCapWallSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "SWE" }
----@field Waterfall { caption: "waterfall", shape: "FLOOR", material: "RIVER", special: "WATERFALL" }
----@field RiverSource { caption: "river source", shape: "FLOOR", material: "RIVER", special: "RIVER_SOURCE" }
----@field TreeRootSloping { caption: "sloping roots", shape: "RAMP", material: "ROOT" }
----@field TreeRoots { caption: "roots", shape: "WALL", material: "ROOT" }
----@field TreeTrunkPillar { caption: "trunk pillar", shape: "WALL", material: "TREE", special: "SMOOTH" }
----@field TreeTrunkSloping { caption: "sloping trunk", shape: "RAMP", material: "TREE" }
----@field TreeTrunkThickN { caption: "trunk (N)", shape: "WALL", material: "TREE", direction: "N" }
----@field TreeTrunkThickS { caption: "trunk (S)", shape: "WALL", material: "TREE", direction: "S" }
----@field TreeTrunkThickE { caption: "trunk (E)", shape: "WALL", material: "TREE", direction: "E" }
----@field TreeTrunkThickW { caption: "trunk (W)", shape: "WALL", material: "TREE", direction: "W" }
----@field TreeTrunkThickNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", direction: "NW" }
----@field TreeTrunkThickNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", direction: "NE" }
----@field TreeTrunkThickSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", direction: "SW" }
----@field TreeTrunkThickSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", direction: "SE" }
----@field TreeTrunkBranchN { caption: "trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", direction: "N" }
----@field TreeTrunkBranchS { caption: "trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", direction: "S" }
----@field TreeTrunkBranchE { caption: "trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", direction: "E" }
----@field TreeTrunkBranchW { caption: "trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", direction: "W" }
----@field TreeBranchNS { caption: "branch (NS)", shape: "BRANCH", material: "TREE", direction: "NS" }
----@field TreeBranchEW { caption: "branch (EW)", shape: "BRANCH", material: "TREE", direction: "EW" }
----@field TreeBranchesSmooth { caption: "smooth branch", shape: "BRANCH", material: "TREE", special: "SMOOTH" }
----@field TreeDeadBranchesSmooth { caption: "smooth dead branch", shape: "BRANCH", material: "TREE", special: "SMOOTH_DEAD" }
----@field TreeBranchNW { caption: "branch (NW)", shape: "BRANCH", material: "TREE", direction: "NW" }
----@field TreeBranchNE { caption: "branch (NE)", shape: "BRANCH", material: "TREE", direction: "NE" }
----@field TreeBranchSW { caption: "branch (SW)", shape: "BRANCH", material: "TREE", direction: "SW" }
----@field TreeBranchSE { caption: "branch (SE)", shape: "BRANCH", material: "TREE", direction: "SE" }
----@field TreeBranches { caption: "branches", shape: "BRANCH", material: "TREE" }
----@field TreeTwigs { caption: "twigs", shape: "TWIG", material: "TREE" }
----@field TreeCapRamp { caption: "cap ramp", shape: "RAMP", material: "MUSHROOM" }
----@field TreeCapPillar { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH" }
----@field TreeCapWallN { caption: "cap wall (N)", shape: "WALL", material: "MUSHROOM", direction: "N" }
----@field TreeCapWallS { caption: "cap wall (S)", shape: "WALL", material: "MUSHROOM", direction: "S" }
----@field TreeCapWallE { caption: "cap wall (E)", shape: "WALL", material: "MUSHROOM", direction: "E" }
----@field TreeCapWallW { caption: "cap wall (W)", shape: "WALL", material: "MUSHROOM", direction: "W" }
----@field TreeCapWallNW { caption: "cap wall (NW)", shape: "WALL", material: "MUSHROOM", direction: "NW" }
----@field TreeCapWallNE { caption: "cap wall (NE)", shape: "WALL", material: "MUSHROOM", direction: "NE" }
----@field TreeCapWallSW { caption: "cap wall (SW)", shape: "WALL", material: "MUSHROOM", direction: "SW" }
----@field TreeCapWallSE { caption: "cap wall (SE)", shape: "WALL", material: "MUSHROOM", direction: "SE" }
----@field TreeCapFloor1 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_1" }
----@field TreeCapFloor2 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_2" }
----@field TreeCapFloor3 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_3" }
----@field TreeCapFloor4 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_4" }
----@field TreeDeadRootSloping { caption: "dead sloping roots", shape: "RAMP", material: "ROOT", special: "DEAD" }
----@field TreeDeadRoots { caption: "dead roots", shape: "WALL", material: "ROOT", special: "DEAD" }
----@field TreeDeadTrunkPillar { caption: "dead trunk pillar", shape: "WALL", material: "TREE", special: "SMOOTH_DEAD" }
----@field TreeDeadTrunkSloping { caption: "dead sloping trunk", shape: "RAMP", material: "TREE", special: "DEAD" }
----@field TreeDeadTrunkThickN { caption: "dead trunk (N)", shape: "WALL", material: "TREE", special: "DEAD", direction: "N" }
----@field TreeDeadTrunkThickS { caption: "dead trunk (S)", shape: "WALL", material: "TREE", special: "DEAD", direction: "S" }
----@field TreeDeadTrunkThickE { caption: "dead trunk (E)", shape: "WALL", material: "TREE", special: "DEAD", direction: "E" }
----@field TreeDeadTrunkThickW { caption: "dead trunk (W)", shape: "WALL", material: "TREE", special: "DEAD", direction: "W" }
----@field TreeDeadTrunkThickNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NW" }
----@field TreeDeadTrunkThickNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NE" }
----@field TreeDeadTrunkThickSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "SW" }
----@field TreeDeadTrunkThickSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", special: "DEAD", direction: "SE" }
----@field TreeDeadTrunkBranchN { caption: "dead trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", special: "DEAD", direction: "N" }
----@field TreeDeadTrunkBranchS { caption: "dead trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", special: "DEAD", direction: "S" }
----@field TreeDeadTrunkBranchE { caption: "dead trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", special: "DEAD", direction: "E" }
----@field TreeDeadTrunkBranchW { caption: "dead trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", special: "DEAD", direction: "W" }
----@field TreeDeadBranchNS { caption: "dead branch (NS)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NS" }
----@field TreeDeadBranchEW { caption: "dead branch (EW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "EW" }
----@field TreeBranch { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", direction: "NSEW" }
----@field TreeDeadBranch { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NSEW" }
----@field TreeDeadBranchNW { caption: "dead branch (NW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NW" }
----@field TreeDeadBranchNE { caption: "dead branch (NE)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NE" }
----@field TreeDeadBranchSW { caption: "dead branch (SW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "SW" }
----@field TreeDeadBranchSE { caption: "dead branch (SE)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "SE" }
----@field TreeDeadBranches { caption: "dead branches", shape: "BRANCH", material: "TREE", special: "DEAD" }
----@field TreeDeadTwigs { caption: "dead twigs", shape: "TWIG", material: "TREE", special: "DEAD" }
----@field TreeDeadCapRamp { caption: "dead cap ramp", shape: "RAMP", material: "MUSHROOM", special: "DEAD" }
----@field TreeDeadCapPillar { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD" }
----@field TreeDeadCapWallN { caption: "dead cap wall (N)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "N" }
----@field TreeDeadCapWallS { caption: "dead cap wall (S)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "S" }
----@field TreeDeadCapWallE { caption: "dead cap wall (E)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "E" }
----@field TreeDeadCapWallW { caption: "dead cap wall (W)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "W" }
----@field TreeDeadCapWallNW { caption: "dead cap wall (NW)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "NW" }
----@field TreeDeadCapWallNE { caption: "dead cap wall (NE)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "NE" }
----@field TreeDeadCapWallSW { caption: "dead cap wall (SW)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "SW" }
----@field TreeDeadCapWallSE { caption: "dead cap wall (SE)", shape: "WALL", material: "MUSHROOM", special: "DEAD", direction: "SE" }
----@field TreeDeadCapFloor1 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", special: "DEAD", variant: "VAR_1" }
----@field TreeDeadCapFloor2 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", special: "DEAD", variant: "VAR_2" }
----@field TreeDeadCapFloor3 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", special: "DEAD", variant: "VAR_3" }
----@field TreeDeadCapFloor4 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", special: "DEAD", variant: "VAR_4" }
----@field TreeDeadCapWallNS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "NS" }
----@field StoneWallWorn1 { caption: "worn 1 stone wall", shape: "WALL", material: "STONE", special: "WORN_1" }
----@field StoneWallWorn2 { caption: "worn 2 stone wall", shape: "WALL", material: "STONE", special: "WORN_2" }
----@field StoneWallWorn3 { caption: "worn 3 stone wall", shape: "WALL", material: "STONE", special: "WORN_3" }
----@field TreeBranchNSE { caption: "branches (NSE)", shape: "BRANCH", material: "TREE", direction: "NSE" }
----@field TreeBranchNSW { caption: "branches (NSW)", shape: "BRANCH", material: "TREE", direction: "NSW" }
----@field TreeBranchNEW { caption: "branches (NEW)", shape: "BRANCH", material: "TREE", direction: "NEW" }
----@field TreeBranchSEW { caption: "branches (SEW)", shape: "BRANCH", material: "TREE", direction: "SEW" }
----@field TreeBranchNSEW { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", direction: "NSEW" }
----@field TreeDeadBranchNSE { caption: "dead branches (NSW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NSW" }
----@field TreeDeadBranchNSW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NEW" }
----@field TreeDeadBranchNEW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NEW" }
----@field TreeDeadBranchSEW { caption: "dead branches (SEW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "SEW" }
----@field TreeDeadBranchNSEW { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "NSEW" }
----@field TreeTrunkNSE { caption: "trunk (NSE)", shape: "WALL", material: "TREE", direction: "NSE" }
----@field TreeTrunkNSW { caption: "trunk (NSW)", shape: "WALL", material: "TREE", direction: "NSW" }
----@field TreeTrunkNEW { caption: "trunk (NEW)", shape: "WALL", material: "TREE", direction: "NEW" }
----@field TreeTrunkSEW { caption: "trunk (SEW)", shape: "WALL", material: "TREE", direction: "SEW" }
----@field TreeTrunkNS { caption: "trunk (NS)", shape: "WALL", material: "TREE", direction: "NS" }
----@field TreeTrunkEW { caption: "trunk (EW)", shape: "WALL", material: "TREE", direction: "EW" }
----@field TreeTrunkNSEW { caption: "trunk (NSEW)", shape: "WALL", material: "TREE", direction: "NSEW" }
----@field TreeTrunkInterior { caption: "trunk interior", shape: "WALL", material: "TREE" }
----@field TreeDeadTrunkNSE { caption: "dead trunk (NSE)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NSE" }
----@field TreeDeadTrunkNSW { caption: "dead trunk (NSW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NSW" }
----@field TreeDeadTrunkNEW { caption: "dead trunk (NEW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NEW" }
----@field TreeDeadTrunkSEW { caption: "dead trunk (SEW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "SEW" }
----@field TreeDeadTrunkNS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NS" }
----@field TreeDeadTrunkEW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "EW" }
----@field TreeDeadTrunkNSEW { caption: "dead trunk (NSEW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NSEW" }
----@field TreeDeadTrunkInterior { caption: "dead trunk interior", shape: "WALL", material: "TREE", special: "DEAD" }
----@field TreeTrunkNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", direction: "NW" }
----@field TreeTrunkNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", direction: "NE" }
----@field TreeTrunkSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", direction: "SW" }
----@field TreeTrunkSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", direction: "SE" }
----@field TreeDeadTrunkNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NW" }
----@field TreeDeadTrunkNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", special: "DEAD", direction: "NE" }
----@field TreeDeadTrunkSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "SW" }
----@field TreeDeadTrunkSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", special: "DEAD", direction: "SE" }
----@field TreeTrunkN { caption: "trunk (NS)", shape: "WALL", material: "TREE", direction: "N" }
----@field TreeTrunkS { caption: "trunk (NS)", shape: "WALL", material: "TREE", direction: "S" }
----@field TreeTrunkW { caption: "trunk (EW)", shape: "WALL", material: "TREE", direction: "W" }
----@field TreeTrunkE { caption: "trunk (EW)", shape: "WALL", material: "TREE", direction: "E" }
----@field TreeDeadTrunkN { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", special: "DEAD", direction: "N" }
----@field TreeDeadTrunkS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", special: "DEAD", direction: "S" }
----@field StoneWall { caption: "stone wall", shape: "WALL", material: "STONE", special: "NORMAL" }
----@field TreeDeadTrunkW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "W" }
----@field TreeDeadTrunkE { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", special: "DEAD", direction: "E" }
----@field TreeBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", direction: "S" }
----@field TreeBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", direction: "N" }
----@field TreeBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", direction: "W" }
----@field TreeBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", direction: "E" }
----@field TreeDeadBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "S" }
----@field TreeDeadBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "N" }
----@field TreeDeadBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "W" }
----@field TreeDeadBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", special: "DEAD", direction: "E" }
----@field TreeDeadCapPillarWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", special: "SMOOTH_DEAD", direction: "WE" }
----@field Sapling { caption: "sapling", shape: "SAPLING", material: "PLANT", special: "NORMAL" }
----@field GrassDryRamp { caption: "dry grass ramp", shape: "RAMP", material: "GRASS_DRY" }
----@field GrassDeadRamp { caption: "dead grass ramp", shape: "RAMP", material: "GRASS_DEAD" }
----@field GrassLightRamp { caption: "light grass ramp", shape: "RAMP", material: "GRASS_LIGHT" }
----@field GrassDarkRamp { caption: "dark grass ramp", shape: "RAMP", material: "GRASS_DARK" }
----@field StoneRamp { caption: "stone ramp", shape: "RAMP", material: "STONE" }
----@field LavaRamp { caption: "obsidian ramp", shape: "RAMP", material: "LAVA_STONE" }
----@field FeatureRamp { caption: "featstone ramp", shape: "RAMP", material: "FEATURE" }
----@field MineralRamp { caption: "vein ramp", shape: "RAMP", material: "MINERAL" }
----@field SoilRamp { caption: "soil ramp", shape: "RAMP", material: "SOIL" }
----@field Ashes1 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_1" }
----@field Ashes2 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_2" }
----@field Ashes3 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_3" }
----@field FrozenRamp { caption: "ice ramp", shape: "RAMP", material: "FROZEN_LIQUID" }
----@field FrozenFloor2 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_2", special: "NORMAL" }
----@field FrozenFloor3 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_3", special: "NORMAL" }
----@field FrozenFloor4 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_4", special: "NORMAL" }
----@field FurrowedSoil { caption: "furrowed soil", shape: "FLOOR", material: "SOIL", special: "FURROWED" }
----@field FrozenFloor1 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_1", special: "NORMAL" }
----@field SemiMoltenRock { caption: "semi-molten rock", shape: "WALL", material: "MAGMA" }
----@field MagmaFlow { caption: "magma flow", shape: "FLOOR", material: "MAGMA" }
----@field SoilWall { caption: "soil wall", shape: "WALL", material: "SOIL" }
----@field GlowingBarrier { caption: "glowing barrier", shape: "WALL", material: "HFS" }
----@field GlowingFloor { caption: "glowing floor", shape: "FLOOR", material: "HFS" }
----@field LavaWallSmoothRD2 { caption: "smooth obsidian wall RD2", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "--SS--E-" }
----@field LavaWallSmoothR2D { caption: "smooth obsidian wall R2D", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "--S---EE" }
----@field LavaWallSmoothR2U { caption: "smooth obsidian wall R2U", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N-----EE" }
----@field LavaWallSmoothRU2 { caption: "smooth obsidian wall RU2", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "NN----E-" }
----@field LavaWallSmoothL2U { caption: "smooth obsidian wall L2U", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N---WW--" }
----@field LavaWallSmoothLU2 { caption: "smooth obsidian wall LU2", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "NN--W---" }
----@field LavaWallSmoothL2D { caption: "smooth obsidian wall L2D", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "--S-WW--" }
----@field LavaWallSmoothLD2 { caption: "smooth obsidian wall LD2", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "--SSW---" }
----@field LavaWallSmoothLRUD { caption: "smooth obsidian wall LRUD", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N-S-W-E-" }
----@field LavaWallSmoothRUD { caption: "smooth obsidian wall RUD", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N-S---E-" }
----@field LavaWallSmoothLRD { caption: "smooth obsidian wall LRD", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "--S-W-E-" }
----@field LavaWallSmoothLRU { caption: "smooth obsidian wall LRU", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N---W-E-" }
----@field LavaWallSmoothLUD { caption: "smooth obsidian wall LUD", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N-S-W---" }
----@field LavaWallSmoothRD { caption: "smooth obsidian wall RD", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "--S---E-" }
----@field LavaWallSmoothRU { caption: "smooth obsidian wall RU", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N-----E-" }
----@field LavaWallSmoothLU { caption: "smooth obsidian wall LU", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N---W---" }
----@field LavaWallSmoothLD { caption: "smooth obsidian wall LD", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "--S-W---" }
----@field LavaWallSmoothUD { caption: "smooth obsidian wall UD", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "N-S-----" }
----@field LavaWallSmoothLR { caption: "smooth obsidian wall LR", shape: "WALL", material: "LAVA_STONE", special: "SMOOTH", direction: "----W-E-" }
----@field FeatureWallSmoothRD2 { caption: "smooth featstone wall RD2", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "--SS--E-" }
----@field FeatureWallSmoothR2D { caption: "smooth featstone wall R2D", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "--S---EE" }
----@field FeatureWallSmoothR2U { caption: "smooth featstone wall R2U", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N-----EE" }
----@field FeatureWallSmoothRU2 { caption: "smooth featstone wall RU2", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "NN----E-" }
----@field FeatureWallSmoothL2U { caption: "smooth featstone wall L2U", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N---WW--" }
----@field FeatureWallSmoothLU2 { caption: "smooth featstone wall LU2", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "NN--W---" }
----@field FeatureWallSmoothL2D { caption: "smooth featstone wall L2D", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "--S-WW--" }
----@field FeatureWallSmoothLD2 { caption: "smooth featstone wall LD2", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "--SSW---" }
----@field FeatureWallSmoothLRUD { caption: "smooth featstone wall LRUD", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N-S-W-E-" }
----@field FeatureWallSmoothRUD { caption: "smooth featstone wall RUD", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N-S---E-" }
----@field FeatureWallSmoothLRD { caption: "smooth featstone wall LRD", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "--S-W-E-" }
----@field FeatureWallSmoothLRU { caption: "smooth featstone wall LRU", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N---W-E-" }
----@field FeatureWallSmoothLUD { caption: "smooth featstone wall LUD", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N-S-W---" }
----@field FeatureWallSmoothRD { caption: "smooth featstone wall RD", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "--S---E-" }
----@field FeatureWallSmoothRU { caption: "smooth featstone wall RU", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N-----E-" }
----@field FeatureWallSmoothLU { caption: "smooth featstone wall LU", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N---W---" }
----@field FeatureWallSmoothLD { caption: "smooth featstone wall LD", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "--S-W---" }
----@field FeatureWallSmoothUD { caption: "smooth featstone wall UD", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "N-S-----" }
----@field FeatureWallSmoothLR { caption: "smooth featstone wall LR", shape: "WALL", material: "FEATURE", special: "SMOOTH", direction: "----W-E-" }
----@field StoneWallSmoothRD2 { caption: "smooth stone wall RD2", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "--SS--E-" }
----@field StoneWallSmoothR2D { caption: "smooth stone wall R2D", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "--S---EE" }
----@field StoneWallSmoothR2U { caption: "smooth stone wall R2U", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N-----EE" }
----@field StoneWallSmoothRU2 { caption: "smooth stone wall RU2", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "NN----E-" }
----@field StoneWallSmoothL2U { caption: "smooth stone wall L2U", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N---WW--" }
----@field StoneWallSmoothLU2 { caption: "smooth stone wall LU2", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "NN--W---" }
----@field StoneWallSmoothL2D { caption: "smooth stone wall L2D", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "--S-WW--" }
----@field StoneWallSmoothLD2 { caption: "smooth stone wall LD2", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "--SSW---" }
----@field StoneWallSmoothLRUD { caption: "smooth stone wall LRUD", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N-S-W-E-" }
----@field StoneWallSmoothRUD { caption: "smooth stone wall RUD", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N-S---E-" }
----@field StoneWallSmoothLRD { caption: "smooth stone wall LRD", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "--S-W-E-" }
----@field StoneWallSmoothLRU { caption: "smooth stone wall LRU", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N---W-E-" }
----@field StoneWallSmoothLUD { caption: "smooth stone wall LUD", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N-S-W---" }
----@field StoneWallSmoothRD { caption: "smooth stone wall RD", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "--S---E-" }
----@field StoneWallSmoothRU { caption: "smooth stone wall RU", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N-----E-" }
----@field StoneWallSmoothLU { caption: "smooth stone wall LU", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N---W---" }
----@field StoneWallSmoothLD { caption: "smooth stone wall LD", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "--S-W---" }
----@field StoneWallSmoothUD { caption: "smooth stone wall UD", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "N-S-----" }
----@field StoneWallSmoothLR { caption: "smooth stone wall LR", shape: "WALL", material: "STONE", special: "SMOOTH", direction: "----W-E-" }
----@field LavaFortification { caption: "obsidian fortification", shape: "FORTIFICATION", material: "LAVA_STONE" }
----@field FeatureFortification { caption: "featstone fortification", shape: "FORTIFICATION", material: "FEATURE" }
----@field LavaWallWorn1 { caption: "worn 1 obsidian wall", shape: "WALL", material: "LAVA_STONE", special: "WORN_1" }
----@field LavaWallWorn2 { caption: "worn 2 obsidian wall", shape: "WALL", material: "LAVA_STONE", special: "WORN_2" }
----@field LavaWallWorn3 { caption: "worn 3 obsidian wall", shape: "WALL", material: "LAVA_STONE", special: "WORN_3" }
----@field LavaWall { caption: "obsidian wall", shape: "WALL", material: "LAVA_STONE", special: "NORMAL" }
----@field FeatureWallWorn1 { caption: "worn 1 featstone wall", shape: "WALL", material: "FEATURE", special: "WORN_1" }
----@field FeatureWallWorn2 { caption: "worn 2 featstone wall", shape: "WALL", material: "FEATURE", special: "WORN_2" }
----@field FeatureWallWorn3 { caption: "worn 3 featstone wall", shape: "WALL", material: "FEATURE", special: "WORN_3" }
----@field FeatureWall { caption: "featstone wall", shape: "WALL", material: "FEATURE", special: "NORMAL" }
----@field StoneFloor1 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_1", special: "NORMAL" }
----@field StoneFloor2 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_2", special: "NORMAL" }
----@field StoneFloor3 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_3", special: "NORMAL" }
----@field StoneFloor4 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_4", special: "NORMAL" }
----@field LavaFloor1 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_1", special: "NORMAL" }
----@field LavaFloor2 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_2", special: "NORMAL" }
----@field LavaFloor3 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_3", special: "NORMAL" }
----@field LavaFloor4 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_4", special: "NORMAL" }
----@field FeatureFloor1 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_1", special: "NORMAL" }
----@field FeatureFloor2 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_2", special: "NORMAL" }
----@field FeatureFloor3 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_3", special: "NORMAL" }
----@field FeatureFloor4 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_4", special: "NORMAL" }
----@field GrassDarkFloor1 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_1" }
----@field GrassDarkFloor2 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_2" }
----@field GrassDarkFloor3 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_3" }
----@field GrassDarkFloor4 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_4" }
----@field SoilFloor1 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "NORMAL" }
----@field SoilFloor2 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "NORMAL" }
----@field SoilFloor3 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "NORMAL" }
----@field SoilFloor4 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "NORMAL" }
----@field SoilWetFloor1 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "WET" }
----@field SoilWetFloor2 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "WET" }
----@field SoilWetFloor3 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "WET" }
----@field SoilWetFloor4 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "WET" }
----@field FrozenFortification { caption: "ice fortification", shape: "FORTIFICATION", material: "FROZEN_LIQUID" }
----@field FrozenWallWorn1 { caption: "worn 1 ice wall", shape: "WALL", material: "FROZEN_LIQUID", special: "WORN_1" }
----@field FrozenWallWorn2 { caption: "worn 2 ice wall", shape: "WALL", material: "FROZEN_LIQUID", special: "WORN_2" }
----@field FrozenWallWorn3 { caption: "worn 3 ice wall", shape: "WALL", material: "FROZEN_LIQUID", special: "WORN_3" }
----@field FrozenWall { caption: "ice wall", shape: "WALL", material: "FROZEN_LIQUID", special: "NORMAL" }
----@field RiverN { caption: "river N", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "N" }
----@field RiverS { caption: "river S", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "S" }
----@field RiverE { caption: "river E", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "E" }
----@field RiverW { caption: "river W", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "W" }
----@field RiverNW { caption: "river NW", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "NW" }
----@field RiverNE { caption: "river NE", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "NE" }
----@field RiverSW { caption: "river SW", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "SW" }
----@field RiverSE { caption: "river SE", shape: "FLOOR", material: "RIVER", special: "NORMAL", direction: "SE" }
----@field BrookN { caption: "brook bed N", shape: "BROOK_BED", material: "BROOK", direction: "N" }
----@field BrookS { caption: "brook bed S", shape: "BROOK_BED", material: "BROOK", direction: "S" }
----@field BrookE { caption: "brook bed E", shape: "BROOK_BED", material: "BROOK", direction: "E" }
----@field BrookW { caption: "brook bed W", shape: "BROOK_BED", material: "BROOK", direction: "W" }
----@field BrookNW { caption: "brook bed NW", shape: "BROOK_BED", material: "BROOK", direction: "NW" }
----@field BrookNE { caption: "brook bed NE", shape: "BROOK_BED", material: "BROOK", direction: "NE" }
----@field BrookSW { caption: "brook bed SW", shape: "BROOK_BED", material: "BROOK", direction: "SW" }
----@field BrookSE { caption: "brook bed SE", shape: "BROOK_BED", material: "BROOK", direction: "SE" }
----@field BrookTop1 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_1" }
----@field BrookTop2 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_2" }
----@field BrookTop3 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_3" }
----@field BrookTop4 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_4" }
----@field GrassDryFloor1 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_1" }
----@field GrassDryFloor2 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_2" }
----@field GrassDryFloor3 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_3" }
----@field GrassDryFloor4 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_4" }
----@field SaplingDead { caption: "dead sapling", shape: "SAPLING", material: "PLANT", special: "DEAD" }
----@field ShrubDead { caption: "dead shrub", shape: "SHRUB", material: "PLANT", special: "DEAD" }
----@field GrassDeadFloor1 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_1" }
----@field GrassDeadFloor2 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_2" }
----@field GrassDeadFloor3 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_3" }
----@field GrassDeadFloor4 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_4" }
----@field GrassLightFloor1 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_1" }
----@field GrassLightFloor2 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_2" }
----@field GrassLightFloor3 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_3" }
----@field GrassLightFloor4 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_4" }
----@field StoneBoulder { caption: "boulder", shape: "BOULDER", material: "STONE" }
----@field LavaBoulder { caption: "obsidian boulder", shape: "BOULDER", material: "LAVA_STONE" }
----@field FeatureBoulder { caption: "featstone boulder", shape: "BOULDER", material: "FEATURE" }
----@field StonePebbles1 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_1" }
----@field StonePebbles2 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_2" }
----@field StonePebbles3 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_3" }
----@field StonePebbles4 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_4" }
----@field LavaPebbles1 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_1" }
----@field LavaPebbles2 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_2" }
----@field LavaPebbles3 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_3" }
----@field LavaPebbles4 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_4" }
----@field FeaturePebbles1 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_1" }
----@field FeaturePebbles2 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_2" }
----@field FeaturePebbles3 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_3" }
----@field FeaturePebbles4 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_4" }
----@field MineralWallSmoothRD2 { caption: "smooth vein wall RD2", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "--SS--E-" }
----@field MineralWallSmoothR2D { caption: "smooth vein wall R2D", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "--S---EE" }
----@field MineralWallSmoothR2U { caption: "smooth vein wall R2U", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N-----EE" }
----@field MineralWallSmoothRU2 { caption: "smooth vein wall RU2", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "NN----E-" }
----@field MineralWallSmoothL2U { caption: "smooth vein wall L2U", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N---WW--" }
----@field MineralWallSmoothLU2 { caption: "smooth vein wall LU2", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "NN--W---" }
----@field MineralWallSmoothL2D { caption: "smooth vein wall L2D", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "--S-WW--" }
----@field MineralWallSmoothLD2 { caption: "smooth vein wall LD2", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "--SSW---" }
----@field MineralWallSmoothLRUD { caption: "smooth vein wall LRUD", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N-S-W-E-" }
----@field MineralWallSmoothRUD { caption: "smooth vein wall RUD", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N-S---E-" }
----@field MineralWallSmoothLRD { caption: "smooth vein wall LRD", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "--S-W-E-" }
----@field MineralWallSmoothLRU { caption: "smooth vein wall LRU", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N---W-E-" }
----@field MineralWallSmoothLUD { caption: "smooth vein wall LUD", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N-S-W---" }
----@field MineralWallSmoothRD { caption: "smooth vein wall RD", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "--S---E-" }
----@field MineralWallSmoothRU { caption: "smooth vein wall RU", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N-----E-" }
----@field MineralWallSmoothLU { caption: "smooth vein wall LU", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N---W---" }
----@field MineralWallSmoothLD { caption: "smooth vein wall LD", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "--S-W---" }
----@field MineralWallSmoothUD { caption: "smooth vein wall UD", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "N-S-----" }
----@field MineralWallSmoothLR { caption: "smooth vein wall LR", shape: "WALL", material: "MINERAL", special: "SMOOTH", direction: "----W-E-" }
----@field MineralFortification { caption: "vein fortification", shape: "FORTIFICATION", material: "MINERAL" }
----@field MineralWallWorn1 { caption: "worn 1 vein wall", shape: "WALL", material: "MINERAL", special: "WORN_1" }
----@field MineralWallWorn2 { caption: "worn 2 vein wall", shape: "WALL", material: "MINERAL", special: "WORN_2" }
----@field MineralWallWorn3 { caption: "worn 3 vein wall", shape: "WALL", material: "MINERAL", special: "WORN_3" }
----@field MineralWall { caption: "vein wall", shape: "WALL", material: "MINERAL", special: "NORMAL" }
----@field MineralFloor1 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_1", special: "NORMAL" }
----@field MineralFloor2 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_2", special: "NORMAL" }
----@field MineralFloor3 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_3", special: "NORMAL" }
----@field MineralFloor4 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_4", special: "NORMAL" }
----@field MineralBoulder { caption: "vein boulder", shape: "BOULDER", material: "MINERAL" }
----@field MineralPebbles1 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_1" }
----@field MineralPebbles2 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_2" }
----@field MineralPebbles3 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_3" }
----@field MineralPebbles4 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_4" }
----@field FrozenWallSmoothRD2 { caption: "smooth ice wall RD2", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "--SS--E-" }
----@field FrozenWallSmoothR2D { caption: "smooth ice wall R2D", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "--S---EE" }
----@field FrozenWallSmoothR2U { caption: "smooth ice wall R2U", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N-----EE" }
----@field FrozenWallSmoothRU2 { caption: "smooth ice wall RU2", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "NN----E-" }
----@field FrozenWallSmoothL2U { caption: "smooth ice wall L2U", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N---WW--" }
----@field FrozenWallSmoothLU2 { caption: "smooth ice wall LU2", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "NN--W---" }
----@field FrozenWallSmoothL2D { caption: "smooth ice wall L2D", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "--S-WW--" }
----@field FrozenWallSmoothLD2 { caption: "smooth ice wall LD2", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "--SSW---" }
----@field FrozenWallSmoothLRUD { caption: "smooth ice wall LRUD", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N-S-W-E-" }
----@field FrozenWallSmoothRUD { caption: "smooth ice wall RUD", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N-S---E-" }
----@field FrozenWallSmoothLRD { caption: "smooth ice wall LRD", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "--S-W-E-" }
----@field FrozenWallSmoothLRU { caption: "smooth ice wall LRU", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N---W-E-" }
----@field FrozenWallSmoothLUD { caption: "smooth ice wall LUD", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N-S-W---" }
----@field FrozenWallSmoothRD { caption: "smooth ice wall RD", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "--S---E-" }
----@field FrozenWallSmoothRU { caption: "smooth ice wall RU", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N-----E-" }
----@field FrozenWallSmoothLU { caption: "smooth ice wall LU", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N---W---" }
----@field FrozenWallSmoothLD { caption: "smooth ice wall LD", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "--S-W---" }
----@field FrozenWallSmoothUD { caption: "smooth ice wall UD", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "N-S-----" }
----@field FrozenWallSmoothLR { caption: "smooth ice wall LR", shape: "WALL", material: "FROZEN_LIQUID", special: "SMOOTH", direction: "----W-E-" }
----@field RiverRampN { caption: "river ramp N", shape: "RAMP", material: "RIVER", direction: "N" }
----@field RiverRampS { caption: "river ramp S", shape: "RAMP", material: "RIVER", direction: "S" }
----@field RiverRampE { caption: "river ramp E", shape: "RAMP", material: "RIVER", direction: "E" }
----@field RiverRampW { caption: "river ramp W", shape: "RAMP", material: "RIVER", direction: "W" }
----@field RiverRampNW { caption: "river ramp NW", shape: "RAMP", material: "RIVER", direction: "NW" }
----@field RiverRampNE { caption: "river ramp NE", shape: "RAMP", material: "RIVER", direction: "NE" }
----@field RiverRampSW { caption: "river ramp SW", shape: "RAMP", material: "RIVER", direction: "SW" }
----@field RiverRampSE { caption: "river ramp SE", shape: "RAMP", material: "RIVER", direction: "SE" }
----@field ConstructedFloor { caption: "constructed floor", shape: "FLOOR", material: "CONSTRUCTION", special: "SMOOTH" }
----@field ConstructedFortification { caption: "constructed fortification", shape: "FORTIFICATION", material: "CONSTRUCTION" }
----@field ConstructedPillar { caption: "constructed pillar", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH" }
----@field ConstructedWallRD2 { caption: "constructed wall RD2", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "--SS--E-" }
----@field ConstructedWallR2D { caption: "constructed wall R2D", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "--S---EE" }
----@field ConstructedWallR2U { caption: "constructed wall R2U", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N-----EE" }
----@field ConstructedWallRU2 { caption: "constructed wall RU2", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "NN----E-" }
----@field ConstructedWallL2U { caption: "constructed wall L2U", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N---WW--" }
----@field ConstructedWallLU2 { caption: "constructed wall LU2", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "NN--W---" }
----@field ConstructedWallL2D { caption: "constructed wall L2D", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "--S-WW--" }
----@field ConstructedWallLD2 { caption: "constructed wall LD2", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "--SSW---" }
----@field ConstructedWallLRUD { caption: "constructed wall LRUD", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N-S-W-E-" }
----@field ConstructedWallRUD { caption: "constructed wall RUD", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N-S---E-" }
----@field ConstructedWallLRD { caption: "constructed wall LRD", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "--S-W-E-" }
----@field ConstructedWallLRU { caption: "constructed wall LRU", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N---W-E-" }
----@field ConstructedWallLUD { caption: "constructed wall LUD", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N-S-W---" }
----@field ConstructedWallRD { caption: "constructed wall RD", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "--S---E-" }
----@field ConstructedWallRU { caption: "constructed wall RU", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N-----E-" }
----@field ConstructedWallLU { caption: "constructed wall LU", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N---W---" }
----@field ConstructedWallLD { caption: "constructed wall LD", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "--S-W---" }
----@field ConstructedWallUD { caption: "constructed wall UD", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "N-S-----" }
----@field ConstructedWallLR { caption: "constructed wall LR", shape: "WALL", material: "CONSTRUCTION", special: "SMOOTH", direction: "----W-E-" }
----@field ConstructedStairUD { caption: "constructed stair up/down", shape: "STAIR_UPDOWN", material: "CONSTRUCTION" }
----@field ConstructedStairD { caption: "constructed stair down", shape: "STAIR_DOWN", material: "CONSTRUCTION" }
----@field ConstructedStairU { caption: "constructed stair up", shape: "STAIR_UP", material: "CONSTRUCTION" }
----@field ConstructedRamp { caption: "constructed ramp", shape: "RAMP", material: "CONSTRUCTION" }
----@field StoneFloorTrackN { caption: "stone floor track N", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "N" }
----@field StoneFloorTrackS { caption: "stone floor track S", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "S" }
----@field StoneFloorTrackE { caption: "stone floor track E", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "E" }
----@field StoneFloorTrackW { caption: "stone floor track W", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "W" }
----@field StoneFloorTrackNS { caption: "stone floor track NS", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "NS" }
----@field StoneFloorTrackNE { caption: "stone floor track NE", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "NE" }
----@field StoneFloorTrackNW { caption: "stone floor track NW", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "NW" }
----@field StoneFloorTrackSE { caption: "stone floor track SE", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "SE" }
----@field StoneFloorTrackSW { caption: "stone floor track SW", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "SW" }
----@field StoneFloorTrackEW { caption: "stone floor track EW", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "EW" }
----@field StoneFloorTrackNSE { caption: "stone floor track NSE", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "NSE" }
----@field StoneFloorTrackNSW { caption: "stone floor track NSW", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "NSW" }
----@field StoneFloorTrackNEW { caption: "stone floor track NEW", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "NEW" }
----@field StoneFloorTrackSEW { caption: "stone floor track SEW", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "SEW" }
----@field StoneFloorTrackNSEW { caption: "stone floor track NSEW", shape: "FLOOR", material: "STONE", special: "TRACK", direction: "NSEW" }
----@field LavaFloorTrackN { caption: "obsidian floor track N", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "N" }
----@field LavaFloorTrackS { caption: "obsidian floor track S", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "S" }
----@field LavaFloorTrackE { caption: "obsidian floor track E", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "E" }
----@field LavaFloorTrackW { caption: "obsidian floor track W", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "W" }
----@field LavaFloorTrackNS { caption: "obsidian floor track NS", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "NS" }
----@field LavaFloorTrackNE { caption: "obsidian floor track NE", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "NE" }
----@field LavaFloorTrackNW { caption: "obsidian floor track NW", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "NW" }
----@field LavaFloorTrackSE { caption: "obsidian floor track SE", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "SE" }
----@field LavaFloorTrackSW { caption: "obsidian floor track SW", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "SW" }
----@field LavaFloorTrackEW { caption: "obsidian floor track EW", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "EW" }
----@field LavaFloorTrackNSE { caption: "obsidian floor track NSE", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "NSE" }
----@field LavaFloorTrackNSW { caption: "obsidian floor track NSW", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "NSW" }
----@field LavaFloorTrackNEW { caption: "obsidian floor track NEW", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "NEW" }
----@field LavaFloorTrackSEW { caption: "obsidian floor track SEW", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "SEW" }
----@field LavaFloorTrackNSEW { caption: "obsidian floor track NSEW", shape: "FLOOR", material: "LAVA_STONE", special: "TRACK", direction: "NSEW" }
----@field FeatureFloorTrackN { caption: "featstone floor track N", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "N" }
----@field FeatureFloorTrackS { caption: "featstone floor track S", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "S" }
----@field FeatureFloorTrackE { caption: "featstone floor track E", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "E" }
----@field FeatureFloorTrackW { caption: "featstone floor track W", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "W" }
----@field FeatureFloorTrackNS { caption: "featstone floor track NS", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "NS" }
----@field FeatureFloorTrackNE { caption: "featstone floor track NE", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "NE" }
----@field FeatureFloorTrackNW { caption: "featstone floor track NW", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "NW" }
----@field FeatureFloorTrackSE { caption: "featstone floor track SE", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "SE" }
----@field FeatureFloorTrackSW { caption: "featstone floor track SW", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "SW" }
----@field FeatureFloorTrackEW { caption: "featstone floor track EW", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "EW" }
----@field FeatureFloorTrackNSE { caption: "featstone floor track NSE", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "NSE" }
----@field FeatureFloorTrackNSW { caption: "featstone floor track NSW", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "NSW" }
----@field FeatureFloorTrackNEW { caption: "featstone floor track NEW", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "NEW" }
----@field FeatureFloorTrackSEW { caption: "featstone floor track SEW", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "SEW" }
----@field FeatureFloorTrackNSEW { caption: "featstone floor track NSEW", shape: "FLOOR", material: "FEATURE", special: "TRACK", direction: "NSEW" }
----@field MineralFloorTrackN { caption: "vein floor track N", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "N" }
----@field MineralFloorTrackS { caption: "vein floor track S", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "S" }
----@field MineralFloorTrackE { caption: "vein floor track E", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "E" }
----@field MineralFloorTrackW { caption: "vein floor track W", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "W" }
----@field MineralFloorTrackNS { caption: "vein floor track NS", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "NS" }
----@field MineralFloorTrackNE { caption: "vein floor track NE", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "NE" }
----@field MineralFloorTrackNW { caption: "vein floor track NW", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "NW" }
----@field MineralFloorTrackSE { caption: "vein floor track SE", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "SE" }
----@field MineralFloorTrackSW { caption: "vein floor track SW", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "SW" }
----@field MineralFloorTrackEW { caption: "vein floor track EW", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "EW" }
----@field MineralFloorTrackNSE { caption: "vein floor track NSE", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "NSE" }
----@field MineralFloorTrackNSW { caption: "vein floor track NSW", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "NSW" }
----@field MineralFloorTrackNEW { caption: "vein floor track NEW", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "NEW" }
----@field MineralFloorTrackSEW { caption: "vein floor track SEW", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "SEW" }
----@field MineralFloorTrackNSEW { caption: "vein floor track NSEW", shape: "FLOOR", material: "MINERAL", special: "TRACK", direction: "NSEW" }
----@field FrozenFloorTrackN { caption: "ice floor track N", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "N" }
----@field FrozenFloorTrackS { caption: "ice floor track S", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "S" }
----@field FrozenFloorTrackE { caption: "ice floor track E", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "E" }
----@field FrozenFloorTrackW { caption: "ice floor track W", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "W" }
----@field FrozenFloorTrackNS { caption: "ice floor track NS", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "NS" }
----@field FrozenFloorTrackNE { caption: "ice floor track NE", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "NE" }
----@field FrozenFloorTrackNW { caption: "ice floor track NW", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "NW" }
----@field FrozenFloorTrackSE { caption: "ice floor track SE", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "SE" }
----@field FrozenFloorTrackSW { caption: "ice floor track SW", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "SW" }
----@field FrozenFloorTrackEW { caption: "ice floor track EW", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "EW" }
----@field FrozenFloorTrackNSE { caption: "ice floor track NSE", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "NSE" }
----@field FrozenFloorTrackNSW { caption: "ice floor track NSW", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "NSW" }
----@field FrozenFloorTrackNEW { caption: "ice floor track NEW", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "NEW" }
----@field FrozenFloorTrackSEW { caption: "ice floor track SEW", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "SEW" }
----@field FrozenFloorTrackNSEW { caption: "ice floor track NSEW", shape: "FLOOR", material: "FROZEN_LIQUID", special: "TRACK", direction: "NSEW" }
----@field ConstructedFloorTrackN { caption: "constructed floor track N", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "N" }
----@field ConstructedFloorTrackS { caption: "constructed floor track S", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "S" }
----@field ConstructedFloorTrackE { caption: "constructed floor track E", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "E" }
----@field ConstructedFloorTrackW { caption: "constructed floor track W", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "W" }
----@field ConstructedFloorTrackNS { caption: "constructed floor track NS", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "NS" }
----@field ConstructedFloorTrackNE { caption: "constructed floor track NE", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "NE" }
----@field ConstructedFloorTrackNW { caption: "constructed floor track NW", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "NW" }
----@field ConstructedFloorTrackSE { caption: "constructed floor track SE", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "SE" }
----@field ConstructedFloorTrackSW { caption: "constructed floor track SW", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "SW" }
----@field ConstructedFloorTrackEW { caption: "constructed floor track EW", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "EW" }
----@field ConstructedFloorTrackNSE { caption: "constructed floor track NSE", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "NSE" }
----@field ConstructedFloorTrackNSW { caption: "constructed floor track NSW", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "NSW" }
----@field ConstructedFloorTrackNEW { caption: "constructed floor track NEW", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "NEW" }
----@field ConstructedFloorTrackSEW { caption: "constructed floor track SEW", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "SEW" }
----@field ConstructedFloorTrackNSEW { caption: "constructed floor track NSEW", shape: "FLOOR", material: "CONSTRUCTION", special: "TRACK", direction: "NSEW" }
----@field StoneRampTrackN { caption: "stone ramp track N", shape: "RAMP", material: "STONE", special: "TRACK", direction: "N" }
----@field StoneRampTrackS { caption: "stone ramp track S", shape: "RAMP", material: "STONE", special: "TRACK", direction: "S" }
----@field StoneRampTrackE { caption: "stone ramp track E", shape: "RAMP", material: "STONE", special: "TRACK", direction: "E" }
----@field StoneRampTrackW { caption: "stone ramp track W", shape: "RAMP", material: "STONE", special: "TRACK", direction: "W" }
----@field StoneRampTrackNS { caption: "stone ramp track NS", shape: "RAMP", material: "STONE", special: "TRACK", direction: "NS" }
----@field StoneRampTrackNE { caption: "stone ramp track NE", shape: "RAMP", material: "STONE", special: "TRACK", direction: "NE" }
----@field StoneRampTrackNW { caption: "stone ramp track NW", shape: "RAMP", material: "STONE", special: "TRACK", direction: "NW" }
----@field StoneRampTrackSE { caption: "stone ramp track SE", shape: "RAMP", material: "STONE", special: "TRACK", direction: "SE" }
----@field StoneRampTrackSW { caption: "stone ramp track SW", shape: "RAMP", material: "STONE", special: "TRACK", direction: "SW" }
----@field StoneRampTrackEW { caption: "stone ramp track EW", shape: "RAMP", material: "STONE", special: "TRACK", direction: "EW" }
----@field StoneRampTrackNSE { caption: "stone ramp track NSE", shape: "RAMP", material: "STONE", special: "TRACK", direction: "NSE" }
----@field StoneRampTrackNSW { caption: "stone ramp track NSW", shape: "RAMP", material: "STONE", special: "TRACK", direction: "NSW" }
----@field StoneRampTrackNEW { caption: "stone ramp track NEW", shape: "RAMP", material: "STONE", special: "TRACK", direction: "NEW" }
----@field StoneRampTrackSEW { caption: "stone ramp track SEW", shape: "RAMP", material: "STONE", special: "TRACK", direction: "SEW" }
----@field StoneRampTrackNSEW { caption: "stone ramp track NSEW", shape: "RAMP", material: "STONE", special: "TRACK", direction: "NSEW" }
----@field LavaRampTrackN { caption: "obsidian ramp track N", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "N" }
----@field LavaRampTrackS { caption: "obsidian ramp track S", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "S" }
----@field LavaRampTrackE { caption: "obsidian ramp track E", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "E" }
----@field LavaRampTrackW { caption: "obsidian ramp track W", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "W" }
----@field LavaRampTrackNS { caption: "obsidian ramp track NS", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "NS" }
----@field LavaRampTrackNE { caption: "obsidian ramp track NE", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "NE" }
----@field LavaRampTrackNW { caption: "obsidian ramp track NW", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "NW" }
----@field LavaRampTrackSE { caption: "obsidian ramp track SE", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "SE" }
----@field LavaRampTrackSW { caption: "obsidian ramp track SW", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "SW" }
----@field LavaRampTrackEW { caption: "obsidian ramp track EW", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "EW" }
----@field LavaRampTrackNSE { caption: "obsidian ramp track NSE", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "NSE" }
----@field LavaRampTrackNSW { caption: "obsidian ramp track NSW", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "NSW" }
----@field LavaRampTrackNEW { caption: "obsidian ramp track NEW", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "NEW" }
----@field LavaRampTrackSEW { caption: "obsidian ramp track SEW", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "SEW" }
----@field LavaRampTrackNSEW { caption: "obsidian ramp track NSEW", shape: "RAMP", material: "LAVA_STONE", special: "TRACK", direction: "NSEW" }
----@field FeatureRampTrackN { caption: "featstone ramp track N", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "N" }
----@field FeatureRampTrackS { caption: "featstone ramp track S", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "S" }
----@field FeatureRampTrackE { caption: "featstone ramp track E", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "E" }
----@field FeatureRampTrackW { caption: "featstone ramp track W", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "W" }
----@field FeatureRampTrackNS { caption: "featstone ramp track NS", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "NS" }
----@field FeatureRampTrackNE { caption: "featstone ramp track NE", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "NE" }
----@field FeatureRampTrackNW { caption: "featstone ramp track NW", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "NW" }
----@field FeatureRampTrackSE { caption: "featstone ramp track SE", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "SE" }
----@field FeatureRampTrackSW { caption: "featstone ramp track SW", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "SW" }
----@field FeatureRampTrackEW { caption: "featstone ramp track EW", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "EW" }
----@field FeatureRampTrackNSE { caption: "featstone ramp track NSE", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "NSE" }
----@field FeatureRampTrackNSW { caption: "featstone ramp track NSW", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "NSW" }
----@field FeatureRampTrackNEW { caption: "featstone ramp track NEW", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "NEW" }
----@field FeatureRampTrackSEW { caption: "featstone ramp track SEW", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "SEW" }
----@field FeatureRampTrackNSEW { caption: "featstone ramp track NSEW", shape: "RAMP", material: "FEATURE", special: "TRACK", direction: "NSEW" }
----@field MineralRampTrackN { caption: "vein ramp track N", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "N" }
----@field MineralRampTrackS { caption: "vein ramp track S", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "S" }
----@field MineralRampTrackE { caption: "vein ramp track E", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "E" }
----@field MineralRampTrackW { caption: "vein ramp track W", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "W" }
----@field MineralRampTrackNS { caption: "vein ramp track NS", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "NS" }
----@field MineralRampTrackNE { caption: "vein ramp track NE", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "NE" }
----@field MineralRampTrackNW { caption: "vein ramp track NW", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "NW" }
----@field MineralRampTrackSE { caption: "vein ramp track SE", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "SE" }
----@field MineralRampTrackSW { caption: "vein ramp track SW", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "SW" }
----@field MineralRampTrackEW { caption: "vein ramp track EW", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "EW" }
----@field MineralRampTrackNSE { caption: "vein ramp track NSE", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "NSE" }
----@field MineralRampTrackNSW { caption: "vein ramp track NSW", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "NSW" }
----@field MineralRampTrackNEW { caption: "vein ramp track NEW", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "NEW" }
----@field MineralRampTrackSEW { caption: "vein ramp track SEW", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "SEW" }
----@field MineralRampTrackNSEW { caption: "vein ramp track NSEW", shape: "RAMP", material: "MINERAL", special: "TRACK", direction: "NSEW" }
----@field FrozenRampTrackN { caption: "ice ramp track N", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "N" }
----@field FrozenRampTrackS { caption: "ice ramp track S", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "S" }
----@field FrozenRampTrackE { caption: "ice ramp track E", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "E" }
----@field FrozenRampTrackW { caption: "ice ramp track W", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "W" }
----@field FrozenRampTrackNS { caption: "ice ramp track NS", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "NS" }
----@field FrozenRampTrackNE { caption: "ice ramp track NE", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "NE" }
----@field FrozenRampTrackNW { caption: "ice ramp track NW", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "NW" }
----@field FrozenRampTrackSE { caption: "ice ramp track SE", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "SE" }
----@field FrozenRampTrackSW { caption: "ice ramp track SW", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "SW" }
----@field FrozenRampTrackEW { caption: "ice ramp track EW", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "EW" }
----@field FrozenRampTrackNSE { caption: "ice ramp track NSE", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "NSE" }
----@field FrozenRampTrackNSW { caption: "ice ramp track NSW", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "NSW" }
----@field FrozenRampTrackNEW { caption: "ice ramp track NEW", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "NEW" }
----@field FrozenRampTrackSEW { caption: "ice ramp track SEW", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "SEW" }
----@field FrozenRampTrackNSEW { caption: "ice ramp track NSEW", shape: "RAMP", material: "FROZEN_LIQUID", special: "TRACK", direction: "NSEW" }
----@field ConstructedRampTrackN { caption: "constructed ramp track N", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "N" }
----@field ConstructedRampTrackS { caption: "constructed ramp track S", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "S" }
----@field ConstructedRampTrackE { caption: "constructed ramp track E", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "E" }
----@field ConstructedRampTrackW { caption: "constructed ramp track W", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "W" }
----@field ConstructedRampTrackNS { caption: "constructed ramp track NS", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "NS" }
----@field ConstructedRampTrackNE { caption: "constructed ramp track NE", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "NE" }
----@field ConstructedRampTrackNW { caption: "constructed ramp track NW", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "NW" }
----@field ConstructedRampTrackSE { caption: "constructed ramp track SE", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "SE" }
----@field ConstructedRampTrackSW { caption: "constructed ramp track SW", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "SW" }
----@field ConstructedRampTrackEW { caption: "constructed ramp track EW", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "EW" }
----@field ConstructedRampTrackNSE { caption: "constructed ramp track NSE", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "NSE" }
----@field ConstructedRampTrackNSW { caption: "constructed ramp track NSW", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "NSW" }
----@field ConstructedRampTrackNEW { caption: "constructed ramp track NEW", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "NEW" }
----@field ConstructedRampTrackSEW { caption: "constructed ramp track SEW", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "SEW" }
----@field ConstructedRampTrackNSEW { caption: "constructed ramp track NSEW", shape: "RAMP", material: "CONSTRUCTION", special: "TRACK", direction: "NSEW" }
+---@field Void { caption: "void", shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field RampTop { caption: "ramp top", shape: "RAMP_TOP", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MurkyPool { caption: "murky pool", shape: "FLOOR", material: "POOL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MurkyPoolRamp { caption: "murky pool slope", shape: "RAMP", material: "POOL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairU { caption: "underworld gate up", shape: "STAIR_UP", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairD { caption: "underworld gate down", shape: "STAIR_DOWN", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field UnderworldGateStairUD { caption: "underworld gate up/down", shape: "STAIR_UPDOWN", material: "UNDERWORLD_GATE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapInterior { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeCapWallThickSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SW" }
+---@field TreeCapWallThickSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SE" }
+---@field TreeCapWallThickNW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NW" }
+---@field TreeCapWallThickNE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NE" }
+---@field TreeCapWallThickN { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "N" }
+---@field TreeCapWallThickS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "N" }
+---@field TreeCapWallThickW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "W" }
+---@field TreeCapWallThickE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "E" }
+---@field TreeCapWallNSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSWE" }
+---@field TreeCapWallNSW { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSW" }
+---@field TreeCapWallNSE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NSE" }
+---@field Driftwood { caption: "driftwood", shape: "FLOOR", material: "DRIFTWOOD", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapWallNWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NWE" }
+---@field TreeCapWallSWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "SWE" }
+---@field TreeCapWallNS { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "NS" }
+---@field TreeCapWallWE { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "WE" }
+---@field Unused999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairUD { caption: "ice stair up/down", shape: "STAIR_UPDOWN", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairD { caption: "ice stair down", shape: "STAIR_DOWN", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenStairU { caption: "ice stair up", shape: "STAIR_UP", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused9999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused99999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused999999 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapInterior { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field OpenSpace { caption: "open space", shape: "EMPTY", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SW" }
+---@field Shrub { caption: "shrub", shape: "SHRUB", material: "PLANT", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field Chasm { caption: "chasm", shape: "ENDLESS_PIT", material: "AIR", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairUD { caption: "obsidian stair up/down", shape: "STAIR_UPDOWN", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairD { caption: "obsidian stair down", shape: "STAIR_DOWN", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaStairU { caption: "obsidian stair up", shape: "STAIR_UP", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairUD { caption: "soil stair up/down", shape: "STAIR_UPDOWN", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairD { caption: "soil stair down", shape: "STAIR_DOWN", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilStairU { caption: "soil stair up", shape: "STAIR_UP", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field EeriePit { caption: "eerie pit", shape: "ENDLESS_PIT", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneFloorSmooth { caption: "smooth stone floor", shape: "FLOOR", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field LavaFloorSmooth { caption: "smooth obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FeatureFloorSmooth { caption: "smooth featstone floor", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field MineralFloorSmooth { caption: "smooth vein floor", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FrozenFloorSmooth { caption: "smooth ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadCapWallThickSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SE" }
+---@field Grass1StairUD { caption: "light grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass1StairD { caption: "light grass stair down", shape: "STAIR_DOWN", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass1StairU { caption: "light grass stair up", shape: "STAIR_UP", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairUD { caption: "dark grass stair up/down", shape: "STAIR_UPDOWN", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairD { caption: "dark grass stair down", shape: "STAIR_DOWN", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Grass2StairU { caption: "dark grass stair up", shape: "STAIR_UP", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairUD { caption: "stone stair up/down", shape: "STAIR_UPDOWN", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairD { caption: "stone stair down", shape: "STAIR_DOWN", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneStairU { caption: "stone stair up", shape: "STAIR_UP", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairUD { caption: "vein stair up/down", shape: "STAIR_UPDOWN", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairD { caption: "vein stair down", shape: "STAIR_DOWN", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralStairU { caption: "vein stair up", shape: "STAIR_UP", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairUD { caption: "featstone stair up/down", shape: "STAIR_UPDOWN", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairD { caption: "featstone stair down", shape: "STAIR_DOWN", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureStairU { caption: "featstone stair up", shape: "STAIR_UP", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickNW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NW" }
+---@field StoneFortification { caption: "stone fortification", shape: "FORTIFICATION", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickNE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NE" }
+---@field Campfire { caption: "campfire", shape: "FLOOR", material: "CAMPFIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickN { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "N" }
+---@field TreeDeadCapWallThickS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "S" }
+---@field Fire { caption: "fire", shape: "FLOOR", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeTrunk { caption: "fire", shape: "WALL", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeBranches { caption: "fire", shape: "BRANCH", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeTwigs { caption: "fire", shape: "TWIG", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapWall { caption: "fire", shape: "WALL", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapRamp { caption: "fire", shape: "RAMP", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field BurningTreeCapFloor { caption: "fire", shape: "FLOOR", material: "FIRE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadCapWallThickW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "W" }
+---@field TreeDeadCapWallThickE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "E" }
+---@field StonePillar { caption: "stone pillar", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field LavaPillar { caption: "obsidian pillar", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FeaturePillar { caption: "featstone pillar", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field MineralPillar { caption: "vein pillar", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field FrozenPillar { caption: "ice pillar", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadCapWallNSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSWE" }
+---@field TreeDeadCapWallNSW { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSW" }
+---@field TreeDeadCapWallNSE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NSE" }
+---@field TreeDeadCapWallNWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NWE" }
+---@field TreeDeadCapWallSWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "SWE" }
+---@field Waterfall { caption: "waterfall", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "WATERFALL", direction: "--------" }
+---@field RiverSource { caption: "river source", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "RIVER_SOURCE", direction: "--------" }
+---@field TreeRootSloping { caption: "sloping roots", shape: "RAMP", material: "ROOT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeRoots { caption: "roots", shape: "WALL", material: "ROOT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTrunkPillar { caption: "trunk pillar", shape: "WALL", material: "TREE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeTrunkSloping { caption: "sloping trunk", shape: "RAMP", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTrunkThickN { caption: "trunk (N)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkThickS { caption: "trunk (S)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkThickE { caption: "trunk (E)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeTrunkThickW { caption: "trunk (W)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeTrunkThickNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeTrunkThickNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeTrunkThickSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeTrunkThickSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeTrunkBranchN { caption: "trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkBranchS { caption: "trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkBranchE { caption: "trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeTrunkBranchW { caption: "trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeBranchNS { caption: "branch (NS)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NS" }
+---@field TreeBranchEW { caption: "branch (EW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "EW" }
+---@field TreeBranchesSmooth { caption: "smooth branch", shape: "BRANCH", material: "TREE", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeDeadBranchesSmooth { caption: "smooth dead branch", shape: "BRANCH", material: "TREE", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeBranchNW { caption: "branch (NW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeBranchNE { caption: "branch (NE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeBranchSW { caption: "branch (SW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeBranchSE { caption: "branch (SE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeBranches { caption: "branches", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeTwigs { caption: "twigs", shape: "TWIG", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapRamp { caption: "cap ramp", shape: "RAMP", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeCapPillar { caption: "cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field TreeCapWallN { caption: "cap wall (N)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeCapWallS { caption: "cap wall (S)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeCapWallE { caption: "cap wall (E)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeCapWallW { caption: "cap wall (W)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeCapWallNW { caption: "cap wall (NW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeCapWallNE { caption: "cap wall (NE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeCapWallSW { caption: "cap wall (SW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeCapWallSE { caption: "cap wall (SE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeCapFloor1 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field TreeCapFloor2 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field TreeCapFloor3 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field TreeCapFloor4 { caption: "cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field TreeDeadRootSloping { caption: "dead sloping roots", shape: "RAMP", material: "ROOT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadRoots { caption: "dead roots", shape: "WALL", material: "ROOT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTrunkPillar { caption: "dead trunk pillar", shape: "WALL", material: "TREE", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeDeadTrunkSloping { caption: "dead sloping trunk", shape: "RAMP", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTrunkThickN { caption: "dead trunk (N)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkThickS { caption: "dead trunk (S)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadTrunkThickE { caption: "dead trunk (E)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadTrunkThickW { caption: "dead trunk (W)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadTrunkThickNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadTrunkThickNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadTrunkThickSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadTrunkThickSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadTrunkBranchN { caption: "dead trunk branch (N)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkBranchS { caption: "dead trunk branch (S)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadTrunkBranchE { caption: "dead trunk branch (E)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadTrunkBranchW { caption: "dead trunk branch (W)", shape: "TRUNK_BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadBranchNS { caption: "dead branch (NS)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NS" }
+---@field TreeDeadBranchEW { caption: "dead branch (EW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "EW" }
+---@field TreeBranch { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeDeadBranch { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeDeadBranchNW { caption: "dead branch (NW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadBranchNE { caption: "dead branch (NE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadBranchSW { caption: "dead branch (SW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadBranchSE { caption: "dead branch (SE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadBranches { caption: "dead branches", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadTwigs { caption: "dead twigs", shape: "TWIG", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapRamp { caption: "dead cap ramp", shape: "RAMP", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapPillar { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "--------" }
+---@field TreeDeadCapWallN { caption: "dead cap wall (N)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadCapWallS { caption: "dead cap wall (S)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadCapWallE { caption: "dead cap wall (E)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadCapWallW { caption: "dead cap wall (W)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadCapWallNW { caption: "dead cap wall (NW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadCapWallNE { caption: "dead cap wall (NE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadCapWallSW { caption: "dead cap wall (SW)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadCapWallSE { caption: "dead cap wall (SE)", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeDeadCapFloor1 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_1", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor2 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_2", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor3 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_3", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapFloor4 { caption: "dead cap floor", shape: "FLOOR", material: "MUSHROOM", variant: "VAR_4", special: "DEAD", direction: "--------" }
+---@field TreeDeadCapWallNS { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "NS" }
+---@field StoneWallWorn1 { caption: "worn 1 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field StoneWallWorn2 { caption: "worn 2 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field StoneWallWorn3 { caption: "worn 3 stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field TreeBranchNSE { caption: "branches (NSE)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSE" }
+---@field TreeBranchNSW { caption: "branches (NSW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSW" }
+---@field TreeBranchNEW { caption: "branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NEW" }
+---@field TreeBranchSEW { caption: "branches (SEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "SEW" }
+---@field TreeBranchNSEW { caption: "branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeDeadBranchNSE { caption: "dead branches (NSW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSW" }
+---@field TreeDeadBranchNSW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadBranchNEW { caption: "dead branches (NEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadBranchSEW { caption: "dead branches (SEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "SEW" }
+---@field TreeDeadBranchNSEW { caption: "dead branches (NSEW)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeTrunkNSE { caption: "trunk (NSE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSE" }
+---@field TreeTrunkNSW { caption: "trunk (NSW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSW" }
+---@field TreeTrunkNEW { caption: "trunk (NEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NEW" }
+---@field TreeTrunkSEW { caption: "trunk (SEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SEW" }
+---@field TreeTrunkNS { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NS" }
+---@field TreeTrunkEW { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "EW" }
+---@field TreeTrunkNSEW { caption: "trunk (NSEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NSEW" }
+---@field TreeTrunkInterior { caption: "trunk interior", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field TreeDeadTrunkNSE { caption: "dead trunk (NSE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSE" }
+---@field TreeDeadTrunkNSW { caption: "dead trunk (NSW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSW" }
+---@field TreeDeadTrunkNEW { caption: "dead trunk (NEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NEW" }
+---@field TreeDeadTrunkSEW { caption: "dead trunk (SEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SEW" }
+---@field TreeDeadTrunkNS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NS" }
+---@field TreeDeadTrunkEW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "EW" }
+---@field TreeDeadTrunkNSEW { caption: "dead trunk (NSEW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NSEW" }
+---@field TreeDeadTrunkInterior { caption: "dead trunk interior", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field TreeTrunkNW { caption: "trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NW" }
+---@field TreeTrunkNE { caption: "trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "NE" }
+---@field TreeTrunkSW { caption: "trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SW" }
+---@field TreeTrunkSE { caption: "trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "SE" }
+---@field TreeDeadTrunkNW { caption: "dead trunk (NW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NW" }
+---@field TreeDeadTrunkNE { caption: "dead trunk (NE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "NE" }
+---@field TreeDeadTrunkSW { caption: "dead trunk (SW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SW" }
+---@field TreeDeadTrunkSE { caption: "dead trunk (SE)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "SE" }
+---@field TreeTrunkN { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeTrunkS { caption: "trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeTrunkW { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeTrunkE { caption: "trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeDeadTrunkN { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadTrunkS { caption: "dead trunk (NS)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field StoneWall { caption: "stone wall", shape: "WALL", material: "STONE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field TreeDeadTrunkW { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadTrunkE { caption: "dead trunk (EW)", shape: "WALL", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "S" }
+---@field TreeBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "N" }
+---@field TreeBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "W" }
+---@field TreeBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "NONE", direction: "E" }
+---@field TreeDeadBranchS { caption: "branch (S)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "S" }
+---@field TreeDeadBranchN { caption: "branch (N)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "N" }
+---@field TreeDeadBranchW { caption: "branch (W)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "W" }
+---@field TreeDeadBranchE { caption: "branch (E)", shape: "BRANCH", material: "TREE", variant: "NONE", special: "DEAD", direction: "E" }
+---@field TreeDeadCapPillarWE { caption: "dead cap pillar", shape: "WALL", material: "MUSHROOM", variant: "NONE", special: "SMOOTH_DEAD", direction: "WE" }
+---@field Sapling { caption: "sapling", shape: "SAPLING", material: "PLANT", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field Unused888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDryRamp { caption: "dry grass ramp", shape: "RAMP", material: "GRASS_DRY", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDeadRamp { caption: "dead grass ramp", shape: "RAMP", material: "GRASS_DEAD", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassLightRamp { caption: "light grass ramp", shape: "RAMP", material: "GRASS_LIGHT", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDarkRamp { caption: "dark grass ramp", shape: "RAMP", material: "GRASS_DARK", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneRamp { caption: "stone ramp", shape: "RAMP", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaRamp { caption: "obsidian ramp", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureRamp { caption: "featstone ramp", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralRamp { caption: "vein ramp", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilRamp { caption: "soil ramp", shape: "RAMP", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Ashes1 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field Ashes2 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field Ashes3 { caption: "ashes", shape: "FLOOR", material: "ASHES", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field FrozenRamp { caption: "ice ramp", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused8888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused88888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused888888 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused245 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused246 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused247 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused248 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused249 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused250 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused251 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused252 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused253 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenFloor2 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field FrozenFloor3 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field FrozenFloor4 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field FurrowedSoil { caption: "furrowed soil", shape: "FLOOR", material: "SOIL", variant: "NONE", special: "FURROWED", direction: "--------" }
+---@field FrozenFloor1 { caption: "ice floor", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field SemiMoltenRock { caption: "semi-molten rock", shape: "WALL", material: "MAGMA", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MagmaFlow { caption: "magma flow", shape: "FLOOR", material: "MAGMA", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SoilWall { caption: "soil wall", shape: "WALL", material: "SOIL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GlowingBarrier { caption: "glowing barrier", shape: "WALL", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GlowingFloor { caption: "glowing floor", shape: "FLOOR", material: "HFS", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused264 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaWallSmoothRD2 { caption: "smooth obsidian wall RD2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field LavaWallSmoothR2D { caption: "smooth obsidian wall R2D", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field LavaWallSmoothR2U { caption: "smooth obsidian wall R2U", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field LavaWallSmoothRU2 { caption: "smooth obsidian wall RU2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field LavaWallSmoothL2U { caption: "smooth obsidian wall L2U", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field LavaWallSmoothLU2 { caption: "smooth obsidian wall LU2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field LavaWallSmoothL2D { caption: "smooth obsidian wall L2D", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field LavaWallSmoothLD2 { caption: "smooth obsidian wall LD2", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field LavaWallSmoothLRUD { caption: "smooth obsidian wall LRUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field LavaWallSmoothRUD { caption: "smooth obsidian wall RUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field LavaWallSmoothLRD { caption: "smooth obsidian wall LRD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field LavaWallSmoothLRU { caption: "smooth obsidian wall LRU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field LavaWallSmoothLUD { caption: "smooth obsidian wall LUD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field LavaWallSmoothRD { caption: "smooth obsidian wall RD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field LavaWallSmoothRU { caption: "smooth obsidian wall RU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field LavaWallSmoothLU { caption: "smooth obsidian wall LU", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field LavaWallSmoothLD { caption: "smooth obsidian wall LD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field LavaWallSmoothUD { caption: "smooth obsidian wall UD", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field LavaWallSmoothLR { caption: "smooth obsidian wall LR", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field FeatureWallSmoothRD2 { caption: "smooth featstone wall RD2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field FeatureWallSmoothR2D { caption: "smooth featstone wall R2D", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field FeatureWallSmoothR2U { caption: "smooth featstone wall R2U", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field FeatureWallSmoothRU2 { caption: "smooth featstone wall RU2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field FeatureWallSmoothL2U { caption: "smooth featstone wall L2U", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field FeatureWallSmoothLU2 { caption: "smooth featstone wall LU2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field FeatureWallSmoothL2D { caption: "smooth featstone wall L2D", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field FeatureWallSmoothLD2 { caption: "smooth featstone wall LD2", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field FeatureWallSmoothLRUD { caption: "smooth featstone wall LRUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field FeatureWallSmoothRUD { caption: "smooth featstone wall RUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field FeatureWallSmoothLRD { caption: "smooth featstone wall LRD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field FeatureWallSmoothLRU { caption: "smooth featstone wall LRU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field FeatureWallSmoothLUD { caption: "smooth featstone wall LUD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field FeatureWallSmoothRD { caption: "smooth featstone wall RD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field FeatureWallSmoothRU { caption: "smooth featstone wall RU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field FeatureWallSmoothLU { caption: "smooth featstone wall LU", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field FeatureWallSmoothLD { caption: "smooth featstone wall LD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field FeatureWallSmoothUD { caption: "smooth featstone wall UD", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field FeatureWallSmoothLR { caption: "smooth featstone wall LR", shape: "WALL", material: "FEATURE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field StoneWallSmoothRD2 { caption: "smooth stone wall RD2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field StoneWallSmoothR2D { caption: "smooth stone wall R2D", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field StoneWallSmoothR2U { caption: "smooth stone wall R2U", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field StoneWallSmoothRU2 { caption: "smooth stone wall RU2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field StoneWallSmoothL2U { caption: "smooth stone wall L2U", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field StoneWallSmoothLU2 { caption: "smooth stone wall LU2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field StoneWallSmoothL2D { caption: "smooth stone wall L2D", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field StoneWallSmoothLD2 { caption: "smooth stone wall LD2", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field StoneWallSmoothLRUD { caption: "smooth stone wall LRUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field StoneWallSmoothRUD { caption: "smooth stone wall RUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field StoneWallSmoothLRD { caption: "smooth stone wall LRD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field StoneWallSmoothLRU { caption: "smooth stone wall LRU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field StoneWallSmoothLUD { caption: "smooth stone wall LUD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field StoneWallSmoothRD { caption: "smooth stone wall RD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field StoneWallSmoothRU { caption: "smooth stone wall RU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field StoneWallSmoothLU { caption: "smooth stone wall LU", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field StoneWallSmoothLD { caption: "smooth stone wall LD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field StoneWallSmoothUD { caption: "smooth stone wall UD", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field StoneWallSmoothLR { caption: "smooth stone wall LR", shape: "WALL", material: "STONE", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field LavaFortification { caption: "obsidian fortification", shape: "FORTIFICATION", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureFortification { caption: "featstone fortification", shape: "FORTIFICATION", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaWallWorn1 { caption: "worn 1 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field LavaWallWorn2 { caption: "worn 2 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field LavaWallWorn3 { caption: "worn 3 obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field LavaWall { caption: "obsidian wall", shape: "WALL", material: "LAVA_STONE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field FeatureWallWorn1 { caption: "worn 1 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field FeatureWallWorn2 { caption: "worn 2 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field FeatureWallWorn3 { caption: "worn 3 featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field FeatureWall { caption: "featstone wall", shape: "WALL", material: "FEATURE", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field StoneFloor1 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field StoneFloor2 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field StoneFloor3 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field StoneFloor4 { caption: "stone floor", shape: "FLOOR", material: "STONE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field LavaFloor1 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field LavaFloor2 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field LavaFloor3 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field LavaFloor4 { caption: "obsidian floor", shape: "FLOOR", material: "LAVA_STONE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor1 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor2 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor3 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field FeatureFloor4 { caption: "featstone floor", shape: "FLOOR", material: "FEATURE", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field GrassDarkFloor1 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor2 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor3 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDarkFloor4 { caption: "dark grass", shape: "FLOOR", material: "GRASS_DARK", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field SoilFloor1 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field SoilFloor2 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field SoilFloor3 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field SoilFloor4 { caption: "soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field SoilWetFloor1 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_1", special: "WET", direction: "--------" }
+---@field SoilWetFloor2 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_2", special: "WET", direction: "--------" }
+---@field SoilWetFloor3 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_3", special: "WET", direction: "--------" }
+---@field SoilWetFloor4 { caption: "wet soil floor", shape: "FLOOR", material: "SOIL", variant: "VAR_4", special: "WET", direction: "--------" }
+---@field FrozenFortification { caption: "ice fortification", shape: "FORTIFICATION", material: "FROZEN_LIQUID", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FrozenWallWorn1 { caption: "worn 1 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field FrozenWallWorn2 { caption: "worn 2 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field FrozenWallWorn3 { caption: "worn 3 ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field FrozenWall { caption: "ice wall", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field RiverN { caption: "river N", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "N" }
+---@field RiverS { caption: "river S", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "S" }
+---@field RiverE { caption: "river E", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "E" }
+---@field RiverW { caption: "river W", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "W" }
+---@field RiverNW { caption: "river NW", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "NW" }
+---@field RiverNE { caption: "river NE", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "NE" }
+---@field RiverSW { caption: "river SW", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "SW" }
+---@field RiverSE { caption: "river SE", shape: "FLOOR", material: "RIVER", variant: "NONE", special: "NORMAL", direction: "SE" }
+---@field BrookN { caption: "brook bed N", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "N" }
+---@field BrookS { caption: "brook bed S", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "S" }
+---@field BrookE { caption: "brook bed E", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "E" }
+---@field BrookW { caption: "brook bed W", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "W" }
+---@field BrookNW { caption: "brook bed NW", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "NW" }
+---@field BrookNE { caption: "brook bed NE", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "NE" }
+---@field BrookSW { caption: "brook bed SW", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "SW" }
+---@field BrookSE { caption: "brook bed SE", shape: "BROOK_BED", material: "BROOK", variant: "NONE", special: "NONE", direction: "SE" }
+---@field BrookTop1 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field BrookTop2 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field BrookTop3 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field BrookTop4 { caption: "brook top", shape: "BROOK_TOP", material: "BROOK", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field Unused381 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused382 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field GrassDryFloor1 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDryFloor2 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDryFloor3 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDryFloor4 { caption: "dry grass", shape: "FLOOR", material: "GRASS_DRY", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field Unused387 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field SaplingDead { caption: "dead sapling", shape: "SAPLING", material: "PLANT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field ShrubDead { caption: "dead shrub", shape: "SHRUB", material: "PLANT", variant: "NONE", special: "DEAD", direction: "--------" }
+---@field GrassDeadFloor1 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor2 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor3 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassDeadFloor4 { caption: "dead grass", shape: "FLOOR", material: "GRASS_DEAD", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field GrassLightFloor1 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field GrassLightFloor2 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field GrassLightFloor3 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field GrassLightFloor4 { caption: "light grass", shape: "FLOOR", material: "GRASS_LIGHT", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field StoneBoulder { caption: "boulder", shape: "BOULDER", material: "STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field LavaBoulder { caption: "obsidian boulder", shape: "BOULDER", material: "LAVA_STONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field FeatureBoulder { caption: "featstone boulder", shape: "BOULDER", material: "FEATURE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StonePebbles1 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field StonePebbles2 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field StonePebbles3 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field StonePebbles4 { caption: "stone pebbles", shape: "PEBBLES", material: "STONE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field LavaPebbles1 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field LavaPebbles2 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field LavaPebbles3 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field LavaPebbles4 { caption: "obsidian pebbles", shape: "PEBBLES", material: "LAVA_STONE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field FeaturePebbles1 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field FeaturePebbles2 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field FeaturePebbles3 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field FeaturePebbles4 { caption: "featstone pebbles", shape: "PEBBLES", material: "FEATURE", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field MineralWallSmoothRD2 { caption: "smooth vein wall RD2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field MineralWallSmoothR2D { caption: "smooth vein wall R2D", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field MineralWallSmoothR2U { caption: "smooth vein wall R2U", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field MineralWallSmoothRU2 { caption: "smooth vein wall RU2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field MineralWallSmoothL2U { caption: "smooth vein wall L2U", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field MineralWallSmoothLU2 { caption: "smooth vein wall LU2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field MineralWallSmoothL2D { caption: "smooth vein wall L2D", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field MineralWallSmoothLD2 { caption: "smooth vein wall LD2", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field MineralWallSmoothLRUD { caption: "smooth vein wall LRUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field MineralWallSmoothRUD { caption: "smooth vein wall RUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field MineralWallSmoothLRD { caption: "smooth vein wall LRD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field MineralWallSmoothLRU { caption: "smooth vein wall LRU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field MineralWallSmoothLUD { caption: "smooth vein wall LUD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field MineralWallSmoothRD { caption: "smooth vein wall RD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field MineralWallSmoothRU { caption: "smooth vein wall RU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field MineralWallSmoothLU { caption: "smooth vein wall LU", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field MineralWallSmoothLD { caption: "smooth vein wall LD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field MineralWallSmoothUD { caption: "smooth vein wall UD", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field MineralWallSmoothLR { caption: "smooth vein wall LR", shape: "WALL", material: "MINERAL", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field MineralFortification { caption: "vein fortification", shape: "FORTIFICATION", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralWallWorn1 { caption: "worn 1 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_1", direction: "--------" }
+---@field MineralWallWorn2 { caption: "worn 2 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_2", direction: "--------" }
+---@field MineralWallWorn3 { caption: "worn 3 vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "WORN_3", direction: "--------" }
+---@field MineralWall { caption: "vein wall", shape: "WALL", material: "MINERAL", variant: "NONE", special: "NORMAL", direction: "--------" }
+---@field MineralFloor1 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_1", special: "NORMAL", direction: "--------" }
+---@field MineralFloor2 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_2", special: "NORMAL", direction: "--------" }
+---@field MineralFloor3 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_3", special: "NORMAL", direction: "--------" }
+---@field MineralFloor4 { caption: "vein floor", shape: "FLOOR", material: "MINERAL", variant: "VAR_4", special: "NORMAL", direction: "--------" }
+---@field MineralBoulder { caption: "vein boulder", shape: "BOULDER", material: "MINERAL", variant: "NONE", special: "NONE", direction: "--------" }
+---@field MineralPebbles1 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_1", special: "NONE", direction: "--------" }
+---@field MineralPebbles2 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_2", special: "NONE", direction: "--------" }
+---@field MineralPebbles3 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_3", special: "NONE", direction: "--------" }
+---@field MineralPebbles4 { caption: "vein pebbles", shape: "PEBBLES", material: "MINERAL", variant: "VAR_4", special: "NONE", direction: "--------" }
+---@field FrozenWallSmoothRD2 { caption: "smooth ice wall RD2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field FrozenWallSmoothR2D { caption: "smooth ice wall R2D", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field FrozenWallSmoothR2U { caption: "smooth ice wall R2U", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field FrozenWallSmoothRU2 { caption: "smooth ice wall RU2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field FrozenWallSmoothL2U { caption: "smooth ice wall L2U", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field FrozenWallSmoothLU2 { caption: "smooth ice wall LU2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field FrozenWallSmoothL2D { caption: "smooth ice wall L2D", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field FrozenWallSmoothLD2 { caption: "smooth ice wall LD2", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field FrozenWallSmoothLRUD { caption: "smooth ice wall LRUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field FrozenWallSmoothRUD { caption: "smooth ice wall RUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field FrozenWallSmoothLRD { caption: "smooth ice wall LRD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field FrozenWallSmoothLRU { caption: "smooth ice wall LRU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field FrozenWallSmoothLUD { caption: "smooth ice wall LUD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field FrozenWallSmoothRD { caption: "smooth ice wall RD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field FrozenWallSmoothRU { caption: "smooth ice wall RU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field FrozenWallSmoothLU { caption: "smooth ice wall LU", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field FrozenWallSmoothLD { caption: "smooth ice wall LD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field FrozenWallSmoothUD { caption: "smooth ice wall UD", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field FrozenWallSmoothLR { caption: "smooth ice wall LR", shape: "WALL", material: "FROZEN_LIQUID", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field RiverRampN { caption: "river ramp N", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "N" }
+---@field RiverRampS { caption: "river ramp S", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "S" }
+---@field RiverRampE { caption: "river ramp E", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "E" }
+---@field RiverRampW { caption: "river ramp W", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "W" }
+---@field RiverRampNW { caption: "river ramp NW", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "NW" }
+---@field RiverRampNE { caption: "river ramp NE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "NE" }
+---@field RiverRampSW { caption: "river ramp SW", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SW" }
+---@field RiverRampSE { caption: "river ramp SE", shape: "RAMP", material: "RIVER", variant: "NONE", special: "NONE", direction: "SE" }
+---@field Unused473 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused474 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused475 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused476 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused477 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused478 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused479 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused480 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused481 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused482 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused483 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused484 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused485 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused486 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused487 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused488 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedFloor { caption: "constructed floor", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field ConstructedFortification { caption: "constructed fortification", shape: "FORTIFICATION", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedPillar { caption: "constructed pillar", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--------" }
+---@field ConstructedWallRD2 { caption: "constructed wall RD2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--SS--E-" }
+---@field ConstructedWallR2D { caption: "constructed wall R2D", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S---EE" }
+---@field ConstructedWallR2U { caption: "constructed wall R2U", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-----EE" }
+---@field ConstructedWallRU2 { caption: "constructed wall RU2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "NN----E-" }
+---@field ConstructedWallL2U { caption: "constructed wall L2U", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---WW--" }
+---@field ConstructedWallLU2 { caption: "constructed wall LU2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "NN--W---" }
+---@field ConstructedWallL2D { caption: "constructed wall L2D", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-WW--" }
+---@field ConstructedWallLD2 { caption: "constructed wall LD2", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--SSW---" }
+---@field ConstructedWallLRUD { caption: "constructed wall LRUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-W-E-" }
+---@field ConstructedWallRUD { caption: "constructed wall RUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S---E-" }
+---@field ConstructedWallLRD { caption: "constructed wall LRD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-W-E-" }
+---@field ConstructedWallLRU { caption: "constructed wall LRU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---W-E-" }
+---@field ConstructedWallLUD { caption: "constructed wall LUD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-W---" }
+---@field ConstructedWallRD { caption: "constructed wall RD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S---E-" }
+---@field ConstructedWallRU { caption: "constructed wall RU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-----E-" }
+---@field ConstructedWallLU { caption: "constructed wall LU", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N---W---" }
+---@field ConstructedWallLD { caption: "constructed wall LD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "--S-W---" }
+---@field ConstructedWallUD { caption: "constructed wall UD", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "N-S-----" }
+---@field ConstructedWallLR { caption: "constructed wall LR", shape: "WALL", material: "CONSTRUCTION", variant: "NONE", special: "SMOOTH", direction: "----W-E-" }
+---@field ConstructedStairUD { caption: "constructed stair up/down", shape: "STAIR_UPDOWN", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedStairD { caption: "constructed stair down", shape: "STAIR_DOWN", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedStairU { caption: "constructed stair up", shape: "STAIR_UP", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field ConstructedRamp { caption: "constructed ramp", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "NONE", direction: "--------" }
+---@field StoneFloorTrackN { caption: "stone floor track N", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field StoneFloorTrackS { caption: "stone floor track S", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field StoneFloorTrackE { caption: "stone floor track E", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field StoneFloorTrackW { caption: "stone floor track W", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field StoneFloorTrackNS { caption: "stone floor track NS", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field StoneFloorTrackNE { caption: "stone floor track NE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field StoneFloorTrackNW { caption: "stone floor track NW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field StoneFloorTrackSE { caption: "stone floor track SE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field StoneFloorTrackSW { caption: "stone floor track SW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field StoneFloorTrackEW { caption: "stone floor track EW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field StoneFloorTrackNSE { caption: "stone floor track NSE", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field StoneFloorTrackNSW { caption: "stone floor track NSW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field StoneFloorTrackNEW { caption: "stone floor track NEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field StoneFloorTrackSEW { caption: "stone floor track SEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field StoneFloorTrackNSEW { caption: "stone floor track NSEW", shape: "FLOOR", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field LavaFloorTrackN { caption: "obsidian floor track N", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field LavaFloorTrackS { caption: "obsidian floor track S", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field LavaFloorTrackE { caption: "obsidian floor track E", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field LavaFloorTrackW { caption: "obsidian floor track W", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field LavaFloorTrackNS { caption: "obsidian floor track NS", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field LavaFloorTrackNE { caption: "obsidian floor track NE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field LavaFloorTrackNW { caption: "obsidian floor track NW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field LavaFloorTrackSE { caption: "obsidian floor track SE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field LavaFloorTrackSW { caption: "obsidian floor track SW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field LavaFloorTrackEW { caption: "obsidian floor track EW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field LavaFloorTrackNSE { caption: "obsidian floor track NSE", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field LavaFloorTrackNSW { caption: "obsidian floor track NSW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field LavaFloorTrackNEW { caption: "obsidian floor track NEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field LavaFloorTrackSEW { caption: "obsidian floor track SEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field LavaFloorTrackNSEW { caption: "obsidian floor track NSEW", shape: "FLOOR", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FeatureFloorTrackN { caption: "featstone floor track N", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FeatureFloorTrackS { caption: "featstone floor track S", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FeatureFloorTrackE { caption: "featstone floor track E", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FeatureFloorTrackW { caption: "featstone floor track W", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FeatureFloorTrackNS { caption: "featstone floor track NS", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FeatureFloorTrackNE { caption: "featstone floor track NE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FeatureFloorTrackNW { caption: "featstone floor track NW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FeatureFloorTrackSE { caption: "featstone floor track SE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FeatureFloorTrackSW { caption: "featstone floor track SW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FeatureFloorTrackEW { caption: "featstone floor track EW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FeatureFloorTrackNSE { caption: "featstone floor track NSE", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FeatureFloorTrackNSW { caption: "featstone floor track NSW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FeatureFloorTrackNEW { caption: "featstone floor track NEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FeatureFloorTrackSEW { caption: "featstone floor track SEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FeatureFloorTrackNSEW { caption: "featstone floor track NSEW", shape: "FLOOR", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field MineralFloorTrackN { caption: "vein floor track N", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "N" }
+---@field MineralFloorTrackS { caption: "vein floor track S", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "S" }
+---@field MineralFloorTrackE { caption: "vein floor track E", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "E" }
+---@field MineralFloorTrackW { caption: "vein floor track W", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "W" }
+---@field MineralFloorTrackNS { caption: "vein floor track NS", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field MineralFloorTrackNE { caption: "vein floor track NE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field MineralFloorTrackNW { caption: "vein floor track NW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field MineralFloorTrackSE { caption: "vein floor track SE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field MineralFloorTrackSW { caption: "vein floor track SW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field MineralFloorTrackEW { caption: "vein floor track EW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field MineralFloorTrackNSE { caption: "vein floor track NSE", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field MineralFloorTrackNSW { caption: "vein floor track NSW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field MineralFloorTrackNEW { caption: "vein floor track NEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field MineralFloorTrackSEW { caption: "vein floor track SEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field MineralFloorTrackNSEW { caption: "vein floor track NSEW", shape: "FLOOR", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FrozenFloorTrackN { caption: "ice floor track N", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FrozenFloorTrackS { caption: "ice floor track S", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FrozenFloorTrackE { caption: "ice floor track E", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FrozenFloorTrackW { caption: "ice floor track W", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FrozenFloorTrackNS { caption: "ice floor track NS", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FrozenFloorTrackNE { caption: "ice floor track NE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FrozenFloorTrackNW { caption: "ice floor track NW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FrozenFloorTrackSE { caption: "ice floor track SE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FrozenFloorTrackSW { caption: "ice floor track SW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FrozenFloorTrackEW { caption: "ice floor track EW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FrozenFloorTrackNSE { caption: "ice floor track NSE", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FrozenFloorTrackNSW { caption: "ice floor track NSW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FrozenFloorTrackNEW { caption: "ice floor track NEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FrozenFloorTrackSEW { caption: "ice floor track SEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FrozenFloorTrackNSEW { caption: "ice floor track NSEW", shape: "FLOOR", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field ConstructedFloorTrackN { caption: "constructed floor track N", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "N" }
+---@field ConstructedFloorTrackS { caption: "constructed floor track S", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "S" }
+---@field ConstructedFloorTrackE { caption: "constructed floor track E", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "E" }
+---@field ConstructedFloorTrackW { caption: "constructed floor track W", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "W" }
+---@field ConstructedFloorTrackNS { caption: "constructed floor track NS", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field ConstructedFloorTrackNE { caption: "constructed floor track NE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field ConstructedFloorTrackNW { caption: "constructed floor track NW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field ConstructedFloorTrackSE { caption: "constructed floor track SE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field ConstructedFloorTrackSW { caption: "constructed floor track SW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field ConstructedFloorTrackEW { caption: "constructed floor track EW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field ConstructedFloorTrackNSE { caption: "constructed floor track NSE", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field ConstructedFloorTrackNSW { caption: "constructed floor track NSW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field ConstructedFloorTrackNEW { caption: "constructed floor track NEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field ConstructedFloorTrackSEW { caption: "constructed floor track SEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field ConstructedFloorTrackNSEW { caption: "constructed floor track NSEW", shape: "FLOOR", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field StoneRampTrackN { caption: "stone ramp track N", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field StoneRampTrackS { caption: "stone ramp track S", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field StoneRampTrackE { caption: "stone ramp track E", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field StoneRampTrackW { caption: "stone ramp track W", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field StoneRampTrackNS { caption: "stone ramp track NS", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field StoneRampTrackNE { caption: "stone ramp track NE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field StoneRampTrackNW { caption: "stone ramp track NW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field StoneRampTrackSE { caption: "stone ramp track SE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field StoneRampTrackSW { caption: "stone ramp track SW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field StoneRampTrackEW { caption: "stone ramp track EW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field StoneRampTrackNSE { caption: "stone ramp track NSE", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field StoneRampTrackNSW { caption: "stone ramp track NSW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field StoneRampTrackNEW { caption: "stone ramp track NEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field StoneRampTrackSEW { caption: "stone ramp track SEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field StoneRampTrackNSEW { caption: "stone ramp track NSEW", shape: "RAMP", material: "STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field LavaRampTrackN { caption: "obsidian ramp track N", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field LavaRampTrackS { caption: "obsidian ramp track S", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field LavaRampTrackE { caption: "obsidian ramp track E", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field LavaRampTrackW { caption: "obsidian ramp track W", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field LavaRampTrackNS { caption: "obsidian ramp track NS", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field LavaRampTrackNE { caption: "obsidian ramp track NE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field LavaRampTrackNW { caption: "obsidian ramp track NW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field LavaRampTrackSE { caption: "obsidian ramp track SE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field LavaRampTrackSW { caption: "obsidian ramp track SW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field LavaRampTrackEW { caption: "obsidian ramp track EW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field LavaRampTrackNSE { caption: "obsidian ramp track NSE", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field LavaRampTrackNSW { caption: "obsidian ramp track NSW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field LavaRampTrackNEW { caption: "obsidian ramp track NEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field LavaRampTrackSEW { caption: "obsidian ramp track SEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field LavaRampTrackNSEW { caption: "obsidian ramp track NSEW", shape: "RAMP", material: "LAVA_STONE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FeatureRampTrackN { caption: "featstone ramp track N", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FeatureRampTrackS { caption: "featstone ramp track S", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FeatureRampTrackE { caption: "featstone ramp track E", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FeatureRampTrackW { caption: "featstone ramp track W", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FeatureRampTrackNS { caption: "featstone ramp track NS", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FeatureRampTrackNE { caption: "featstone ramp track NE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FeatureRampTrackNW { caption: "featstone ramp track NW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FeatureRampTrackSE { caption: "featstone ramp track SE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FeatureRampTrackSW { caption: "featstone ramp track SW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FeatureRampTrackEW { caption: "featstone ramp track EW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FeatureRampTrackNSE { caption: "featstone ramp track NSE", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FeatureRampTrackNSW { caption: "featstone ramp track NSW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FeatureRampTrackNEW { caption: "featstone ramp track NEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FeatureRampTrackSEW { caption: "featstone ramp track SEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FeatureRampTrackNSEW { caption: "featstone ramp track NSEW", shape: "RAMP", material: "FEATURE", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field MineralRampTrackN { caption: "vein ramp track N", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "N" }
+---@field MineralRampTrackS { caption: "vein ramp track S", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "S" }
+---@field MineralRampTrackE { caption: "vein ramp track E", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "E" }
+---@field MineralRampTrackW { caption: "vein ramp track W", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "W" }
+---@field MineralRampTrackNS { caption: "vein ramp track NS", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field MineralRampTrackNE { caption: "vein ramp track NE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field MineralRampTrackNW { caption: "vein ramp track NW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field MineralRampTrackSE { caption: "vein ramp track SE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field MineralRampTrackSW { caption: "vein ramp track SW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field MineralRampTrackEW { caption: "vein ramp track EW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field MineralRampTrackNSE { caption: "vein ramp track NSE", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field MineralRampTrackNSW { caption: "vein ramp track NSW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field MineralRampTrackNEW { caption: "vein ramp track NEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field MineralRampTrackSEW { caption: "vein ramp track SEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field MineralRampTrackNSEW { caption: "vein ramp track NSEW", shape: "RAMP", material: "MINERAL", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field FrozenRampTrackN { caption: "ice ramp track N", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "N" }
+---@field FrozenRampTrackS { caption: "ice ramp track S", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "S" }
+---@field FrozenRampTrackE { caption: "ice ramp track E", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "E" }
+---@field FrozenRampTrackW { caption: "ice ramp track W", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "W" }
+---@field FrozenRampTrackNS { caption: "ice ramp track NS", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field FrozenRampTrackNE { caption: "ice ramp track NE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field FrozenRampTrackNW { caption: "ice ramp track NW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field FrozenRampTrackSE { caption: "ice ramp track SE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field FrozenRampTrackSW { caption: "ice ramp track SW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field FrozenRampTrackEW { caption: "ice ramp track EW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field FrozenRampTrackNSE { caption: "ice ramp track NSE", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field FrozenRampTrackNSW { caption: "ice ramp track NSW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field FrozenRampTrackNEW { caption: "ice ramp track NEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field FrozenRampTrackSEW { caption: "ice ramp track SEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field FrozenRampTrackNSEW { caption: "ice ramp track NSEW", shape: "RAMP", material: "FROZEN_LIQUID", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field ConstructedRampTrackN { caption: "constructed ramp track N", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "N" }
+---@field ConstructedRampTrackS { caption: "constructed ramp track S", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "S" }
+---@field ConstructedRampTrackE { caption: "constructed ramp track E", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "E" }
+---@field ConstructedRampTrackW { caption: "constructed ramp track W", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "W" }
+---@field ConstructedRampTrackNS { caption: "constructed ramp track NS", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NS" }
+---@field ConstructedRampTrackNE { caption: "constructed ramp track NE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NE" }
+---@field ConstructedRampTrackNW { caption: "constructed ramp track NW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NW" }
+---@field ConstructedRampTrackSE { caption: "constructed ramp track SE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SE" }
+---@field ConstructedRampTrackSW { caption: "constructed ramp track SW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SW" }
+---@field ConstructedRampTrackEW { caption: "constructed ramp track EW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "EW" }
+---@field ConstructedRampTrackNSE { caption: "constructed ramp track NSE", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSE" }
+---@field ConstructedRampTrackNSW { caption: "constructed ramp track NSW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSW" }
+---@field ConstructedRampTrackNEW { caption: "constructed ramp track NEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NEW" }
+---@field ConstructedRampTrackSEW { caption: "constructed ramp track SEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "SEW" }
+---@field ConstructedRampTrackNSEW { caption: "constructed ramp track NSEW", shape: "RAMP", material: "CONSTRUCTION", variant: "NONE", special: "TRACK", direction: "NSEW" }
+---@field Unused695 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
+---@field Unused696 { shape: "NONE", material: "NONE", variant: "NONE", special: "NONE", direction: "--------" }
 df.tiletype.attrs = {}
 

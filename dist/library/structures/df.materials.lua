@@ -56,11 +56,12 @@ df.craft_material_class._attr_entry_type = {}
 df.craft_material_class._attr_entry_type._fields = {}
 
 ---@class craft_material_class_attrs
+---@field None { make_skill: "NONE", improve_skill: "NONE" }
 ---@field Metal { make_skill: "FORGE_FURNITURE", improve_skill: "METALCRAFT" }
 ---@field Wood { make_skill: "CARPENTRY", improve_skill: "WOODCRAFT" }
 ---@field Gem { make_skill: "CUTGEM", improve_skill: "ENCRUSTGEM" }
----@field Glass { make_skill: "GLASSMAKER" }
----@field Stone { make_skill: "MASONRY" }
+---@field Glass { make_skill: "GLASSMAKER", improve_skill: "NONE" }
+---@field Stone { make_skill: "MASONRY", improve_skill: "NONE" }
 ---@field Bone { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
 ---@field Ivory { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
 ---@field Horn { make_skill: "BONECARVE", improve_skill: "BONECARVE" }
@@ -393,6 +394,28 @@ df.material_flags._attr_entry_type._fields = {}
 
 ---@class material_flags_attrs
 ---@field BONE { type: "Bone" }
+---@field MEAT { type: "None" }
+---@field EDIBLE_VERMIN { type: "None" }
+---@field EDIBLE_RAW { type: "None" }
+---@field EDIBLE_COOKED { type: "None" }
+---@field ALCOHOL { type: "None" }
+---@field ITEMS_METAL { type: "None" }
+---@field ITEMS_BARRED { type: "None" }
+---@field ITEMS_SCALED { type: "None" }
+---@field ITEMS_LEATHER { type: "None" }
+---@field ITEMS_SOFT { type: "None" }
+---@field ITEMS_HARD { type: "None" }
+---@field IMPLIES_ANIMAL_KILL { type: "None" }
+---@field ALCOHOL_PLANT { type: "None" }
+---@field ALCOHOL_CREATURE { type: "None" }
+---@field CHEESE_PLANT { type: "None" }
+---@field CHEESE_CREATURE { type: "None" }
+---@field POWDER_MISC_PLANT { type: "None" }
+---@field POWDER_MISC_CREATURE { type: "None" }
+---@field STOCKPILE_GLOB { type: "None" }
+---@field LIQUID_MISC_PLANT { type: "None" }
+---@field LIQUID_MISC_CREATURE { type: "None" }
+---@field LIQUID_MISC_OTHER { type: "None" }
 ---@field WOOD { type: "Wood" }
 ---@field THREAD_PLANT { type: "Cloth" }
 ---@field TOOTH { type: "Ivory" }
@@ -401,11 +424,57 @@ df.material_flags._attr_entry_type._fields = {}
 ---@field SHELL { type: "Shell" }
 ---@field LEATHER { type: "Leather" }
 ---@field SILK { type: "Cloth" }
+---@field SOAP { type: "None" }
+---@field ROTS { type: "None" }
+---@field IS_DYE { type: "None" }
+---@field POWDER_MISC { type: "None" }
+---@field LIQUID_MISC { type: "None" }
+---@field STRUCTURAL_PLANT_MAT { type: "None" }
+---@field SEED_MAT { type: "None" }
+---@field LEAF_MAT { type: "None" }
+---@field CHEESE { type: "None" }
+---@field ENTERS_BLOOD { type: "None" }
+---@field BLOOD_MAP_DESCRIPTOR { type: "None" }
+---@field ICHOR_MAP_DESCRIPTOR { type: "None" }
+---@field GOO_MAP_DESCRIPTOR { type: "None" }
+---@field SLIME_MAP_DESCRIPTOR { type: "None" }
+---@field PUS_MAP_DESCRIPTOR { type: "None" }
+---@field GENERATES_MIASMA { type: "None" }
 ---@field IS_METAL { type: "Metal" }
 ---@field IS_GEM { type: "Gem" }
 ---@field IS_GLASS { type: "Glass" }
+---@field CRYSTAL_GLASSABLE { type: "None" }
+---@field ITEMS_WEAPON { type: "None" }
+---@field ITEMS_WEAPON_RANGED { type: "None" }
+---@field ITEMS_ANVIL { type: "None" }
+---@field ITEMS_AMMO { type: "None" }
+---@field ITEMS_DIGGER { type: "None" }
+---@field ITEMS_ARMOR { type: "None" }
+---@field ITEMS_DELICATE { type: "None" }
+---@field ITEMS_SIEGE_ENGINE { type: "None" }
+---@field ITEMS_QUERN { type: "None" }
 ---@field IS_STONE { type: "Stone" }
+---@field UNDIGGABLE { type: "None" }
 ---@field YARN { type: "Cloth" }
+---@field STOCKPILE_GLOB_PASTE { type: "None" }
+---@field STOCKPILE_GLOB_PRESSED { type: "None" }
+---@field DISPLAY_UNGLAZED { type: "None" }
+---@field DO_NOT_CLEAN_GLOB { type: "None" }
+---@field NO_STONE_STOCKPILE { type: "None" }
+---@field STOCKPILE_THREAD_METAL { type: "None" }
+---@field SWEAT_MAP_DESCRIPTOR { type: "None" }
+---@field TEARS_MAP_DESCRIPTOR { type: "None" }
+---@field SPIT_MAP_DESCRIPTOR { type: "None" }
+---@field EVAPORATES { type: "None" }
+---@field IS_CERAMIC { type: "None" }
+---@field CARTILAGE { type: "None" }
+---@field FEATHER { type: "None" }
+---@field SCALE { type: "None" }
+---@field HAIR { type: "None" }
+---@field NERVOUS_TISSUE { type: "None" }
+---@field HOOF { type: "None" }
+---@field CHITIN { type: "None" }
+---@field ANTLER { type: "None" }
 df.material_flags.attrs = {}
 
 ---@alias matter_state

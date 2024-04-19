@@ -3325,24 +3325,24 @@ df.unit_action_type._attr_entry_type._fields = {}
 
 ---@class unit_action_type_attrs
 ---@field None { tag: "raw_data" }
----@field Move { tag: "move", group: "All", group: "Movement", group: "MovementFeet" }
----@field Attack { tag: "attack", group: "All", group: "Combat" }
----@field Jump { tag: "jump", group: "All", group: "Movement", group: "MovementFeet" }
----@field HoldTerrain { tag: "holdterrain", group: "All", group: "Movement" }
----@field ReleaseTerrain { tag: "releaseterrain", group: "All", group: "Movement" }
----@field Climb { tag: "climb", group: "All", group: "Movement" }
----@field Job { tag: "job", group: "All", group: "Work" }
+---@field Move { tag: "move", group: "All" }
+---@field Attack { tag: "attack", group: "All" }
+---@field Jump { tag: "jump", group: "All" }
+---@field HoldTerrain { tag: "holdterrain", group: "All" }
+---@field ReleaseTerrain { tag: "releaseterrain", group: "All" }
+---@field Climb { tag: "climb", group: "All" }
+---@field Job { tag: "job", group: "All" }
 ---@field Talk { tag: "talk", group: "All" }
 ---@field Unsteady { tag: "unsteady", group: "All" }
----@field Parry { tag: "parry", group: "All", group: "Combat" }
----@field Block { tag: "block", group: "All", group: "Combat" }
----@field Dodge { tag: "dodge", group: "All", group: "Movement", group: "MovementFeet" }
----@field Recover { tag: "recover", group: "All", group: "Movement", group: "MovementFeet" }
----@field StandUp { tag: "standup", group: "All", group: "Movement" }
----@field LieDown { tag: "liedown", group: "All", group: "Movement" }
----@field Job2 { tag: "job2", group: "All", group: "Work" }
----@field PushObject { tag: "pushobject", group: "All", group: "Movement", group: "MovementFeet" }
----@field SuckBlood { tag: "suckblood", group: "All", group: "Combat" }
+---@field Parry { tag: "parry", group: "All" }
+---@field Block { tag: "block", group: "All" }
+---@field Dodge { tag: "dodge", group: "All" }
+---@field Recover { tag: "recover", group: "All" }
+---@field StandUp { tag: "standup", group: "All" }
+---@field LieDown { tag: "liedown", group: "All" }
+---@field Job2 { tag: "job2", group: "All" }
+---@field PushObject { tag: "pushobject", group: "All" }
+---@field SuckBlood { tag: "suckblood", group: "All" }
 ---@field HoldItem { tag: "holditem" }
 ---@field ReleaseItem { tag: "releaseitem" }
 ---@field Unk20 { tag: "unk20" }

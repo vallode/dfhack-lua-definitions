@@ -279,10 +279,23 @@ df.lever_target_type._attr_entry_type = {}
 df.lever_target_type._attr_entry_type._fields = {}
 
 ---@class lever_target_type_attrs
+---@field NONE { building_type: "NONE" }
+---@field BarsVertical { building_type: "BarsVertical" }
+---@field BarsFloor { building_type: "BarsFloor" }
 ---@field SpearsSpikes { building_type: "Trap" }
 ---@field TrackStop { building_type: "Trap" }
+---@field GearAssembly { building_type: "GearAssembly" }
+---@field Bridge { building_type: "Bridge" }
+---@field Chain { building_type: "Chain" }
+---@field Door { building_type: "Door" }
 ---@field EncrustGems { building_type: "NONE" }
+---@field Floodgate { building_type: "Floodgate" }
+---@field GrateFloor { building_type: "GrateFloor" }
+---@field Hatch { building_type: "Hatch" }
+---@field Cage { building_type: "Cage" }
 ---@field LeverMechanism { building_type: "NONE" }
+---@field Support { building_type: "Support" }
 ---@field TargetMechanism { building_type: "NONE" }
+---@field GrateWall { building_type: "GrateWall" }
 df.lever_target_type.attrs = {}
 

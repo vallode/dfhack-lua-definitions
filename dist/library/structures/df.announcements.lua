@@ -1080,6 +1080,7 @@ df.announcement_type._attr_entry_type = {}
 df.announcement_type._attr_entry_type._fields = {}
 
 ---@class announcement_type_attrs
+---@field NONE { alert_type: "GENERAL" }
 ---@field REACHED_PEAK { alert_type: "GENERAL" }
 ---@field ERA_CHANGE { alert_type: "ERA_CHANGE" }
 ---@field FEATURE_DISCOVERY { alert_type: "UNDERGROUND" }

@@ -589,6 +589,8 @@ df.buildings_other_id._attr_entry_type = {}
 df.buildings_other_id._attr_entry_type._fields = {}
 
 ---@class buildings_other_id_attrs
+---@field ANY { building: "NONE" }
+---@field IN_PLAY { building: "NONE" }
 ---@field STOCKPILE { building: "Stockpile" }
 ---@field ANY_ZONE { building: "Civzone" }
 ---@field ACTIVITY_ZONE { building: "Civzone" }
@@ -596,8 +598,12 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_DEPOT { building: "Civzone", civzone: "Depot" }
 ---@field ZONE_STOCKPILE { building: "Civzone", civzone: "Stockpile" }
 ---@field ZONE_NOBLE_QUARTERS { building: "Civzone", civzone: "NobleQuarters" }
+---@field ZONE_INVALID4 { building: "NONE" }
+---@field ZONE_INVALID5 { building: "NONE" }
+---@field ZONE_INVALID6 { building: "NONE" }
 ---@field ZONE_MEAD_HALL { building: "Civzone", civzone: "MeadHall" }
 ---@field ZONE_THRONE_ROOM { building: "Civzone", civzone: "ThroneRoom" }
+---@field ZONE_INVALID9 { building: "NONE" }
 ---@field ZONE_TEMPLE { building: "Civzone", civzone: "Temple" }
 ---@field ZONE_KITCHEN { building: "Civzone", civzone: "Kitchen" }
 ---@field ZONE_CAPTIVE_ROOM { building: "Civzone", civzone: "CaptiveRoom" }
@@ -610,6 +616,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_LIBRARY { building: "Civzone", civzone: "Library" }
 ---@field ZONE_PLOT { building: "Civzone", civzone: "Plot" }
 ---@field ZONE_MARKET_STALL { building: "Civzone", civzone: "MarketStall" }
+---@field ZONE_INVALID22 { building: "NONE" }
 ---@field ZONE_CAMPGROUND { building: "Civzone", civzone: "Campground" }
 ---@field ZONE_COMMAND_TENT { building: "Civzone", civzone: "CommandTent" }
 ---@field ZONE_TENT { building: "Civzone", civzone: "Tent" }
@@ -634,6 +641,12 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_STONEWORKING_PIT { building: "Civzone", civzone: "StoneworkingPit" }
 ---@field ZONE_FORGING_PIT { building: "Civzone", civzone: "ForgingPit" }
 ---@field ZONE_FIGHTING_PIT { building: "Civzone", civzone: "FightingPit" }
+---@field ZONE_INVALID47 { building: "NONE" }
+---@field ZONE_INVALID48 { building: "NONE" }
+---@field ZONE_INVALID49 { building: "NONE" }
+---@field ZONE_INVALID50 { building: "NONE" }
+---@field ZONE_INVALID51 { building: "NONE" }
+---@field ZONE_INVALID52 { building: "NONE" }
 ---@field ZONE_ANIMAL_WORKSHOP { building: "Civzone", civzone: "AnimalWorkshop" }
 ---@field ZONE_CLOTH_WORKSHOP { building: "Civzone", civzone: "ClothWorkshop" }
 ---@field ZONE_TANNING_WORKSHOP { building: "Civzone", civzone: "TanningWorkshop" }
@@ -662,6 +675,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_TOWER_ATTIC { building: "Civzone", civzone: "TowerAttic" }
 ---@field ZONE_DORMITORY { building: "Civzone", civzone: "Dormitory" }
 ---@field ZONE_DINING_HALL { building: "Civzone", civzone: "DiningHall" }
+---@field ZONE_INVALID81 { building: "NONE" }
 ---@field ZONE_WATER_SOURCE { building: "Civzone", civzone: "WaterSource" }
 ---@field ZONE_DUMP { building: "Civzone", civzone: "Dump" }
 ---@field ZONE_SAND_COLLECTION { building: "Civzone", civzone: "SandCollection" }
@@ -678,12 +692,13 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ZONE_BARRACKS { building: "Civzone", civzone: "Barracks" }
 ---@field ZONE_DUNGEON { building: "Civzone", civzone: "Dungeon" }
 ---@field ZONE_TOMB { building: "Civzone", civzone: "Tomb" }
----@field LOCATION_ASSIGNED { generic_building: "Bed", generic_building: "Civzone" }
----@field ANY_MACHINE { generic_building: "ScrewPump", generic_building: "GearAssembly", generic_building: "AxleHorizontal", generic_building: "AxleVertical", generic_building: "WaterWheel", generic_building: "Windmill", generic_building: "Workshop", workshop: "Millstone" }
----@field ANY_HOSPITAL_STORAGE { generic_building: "Box", generic_building: "Cabinet" }
----@field ANY_STORAGE { generic_building: "Box", generic_building: "Cabinet", generic_building: "Weaponrack", generic_building: "Armorstand" }
----@field ANY_BARRACKS { generic_building: "Bed", generic_building: "Box", generic_building: "Cabinet", generic_building: "Weaponrack", generic_building: "Armorstand" }
----@field ANY_HOSPITAL { generic_building: "Bed", generic_building: "TractionBench" }
+---@field LOCATION_ASSIGNED { building: "NONE", generic_building: "Bed" }
+---@field ANY_ACTUAL { building: "NONE" }
+---@field ANY_MACHINE { building: "NONE", generic_building: "ScrewPump", workshop: "Millstone" }
+---@field ANY_HOSPITAL_STORAGE { building: "NONE", generic_building: "Box" }
+---@field ANY_STORAGE { building: "NONE", generic_building: "Box" }
+---@field ANY_BARRACKS { building: "NONE", generic_building: "Bed" }
+---@field ANY_HOSPITAL { building: "NONE", generic_building: "Bed" }
 ---@field BOX { building: "Box" }
 ---@field CABINET { building: "Cabinet" }
 ---@field TRAP { building: "Trap" }
@@ -694,7 +709,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field GRATE_FLOOR { building: "GrateFloor" }
 ---@field BARS_VERTICAL { building: "BarsVertical" }
 ---@field BARS_FLOOR { building: "BarsFloor" }
----@field WINDOW_ANY { generic_building: "WindowGlass", generic_building: "WindowGem" }
+---@field WINDOW_ANY { building: "NONE", generic_building: "WindowGlass" }
 ---@field WELL { building: "Well" }
 ---@field TABLE { building: "Table" }
 ---@field BRIDGE { building: "Bridge" }
@@ -709,7 +724,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field SHOP { building: "Shop" }
 ---@field BED { building: "Bed" }
 ---@field TRACTION_BENCH { building: "TractionBench" }
----@field ANY_ROAD { generic_building: "RoadDirt", generic_building: "RoadPaved" }
+---@field ANY_ROAD { building: "NONE", generic_building: "RoadDirt" }
 ---@field FARM_PLOT { building: "FarmPlot" }
 ---@field GEAR_ASSEMBLY { building: "GearAssembly" }
 ---@field ROLLERS { building: "Rollers" }
@@ -729,10 +744,10 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field ARMOR_STAND { building: "Armorstand" }
 ---@field FURNACE_ANY { building: "Furnace" }
 ---@field FURNACE_WOOD { building: "Furnace", furnace: "WoodFurnace" }
----@field FURNACE_SMELTER_ANY { building: "Furnace", furnace: "Smelter", furnace: "MagmaSmelter" }
+---@field FURNACE_SMELTER_ANY { building: "Furnace", furnace: "Smelter" }
 ---@field FURNACE_SMELTER_MAGMA { building: "Furnace", furnace: "MagmaSmelter" }
----@field FURNACE_KILN_ANY { building: "Furnace", furnace: "Kiln", furnace: "MagmaKiln" }
----@field FURNACE_GLASS_ANY { building: "Furnace", furnace: "GlassFurnace", furnace: "MagmaGlassFurnace" }
+---@field FURNACE_KILN_ANY { building: "Furnace", furnace: "Kiln" }
+---@field FURNACE_GLASS_ANY { building: "Furnace", furnace: "GlassFurnace" }
 ---@field FURNACE_CUSTOM { building: "Furnace", furnace: "Custom" }
 ---@field WORKSHOP_ANY { building: "Workshop" }
 ---@field WORKSHOP_BUTCHER { building: "Workshop", workshop: "Butchers" }
@@ -743,7 +758,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field WORKSHOP_LOOM { building: "Workshop", workshop: "Loom" }
 ---@field WORKSHOP_TANNER { building: "Workshop", workshop: "Tanners" }
 ---@field WORKSHOP_DYER { building: "Workshop", workshop: "Dyers" }
----@field WORKSHOP_MILL_ANY { building: "Workshop", workshop: "Quern", workshop: "Millstone" }
+---@field WORKSHOP_MILL_ANY { building: "Workshop", workshop: "Quern" }
 ---@field WORKSHOP_QUERN { building: "Workshop", workshop: "Quern" }
 ---@field WORKSHOP_TOOL { building: "Workshop", workshop: "Tool" }
 ---@field WORKSHOP_MILLSTONE { building: "Workshop", workshop: "Millstone" }
@@ -759,7 +774,7 @@ df.buildings_other_id._attr_entry_type._fields = {}
 ---@field WORKSHOP_LEATHER { building: "Workshop", workshop: "Leatherworks" }
 ---@field WORKSHOP_BOWYER { building: "Workshop", workshop: "Bowyers" }
 ---@field WORKSHOP_MAGMA_FORGE { building: "Workshop", workshop: "MagmaForge" }
----@field WORKSHOP_FORGE_ANY { building: "Workshop", workshop: "MetalsmithsForge", workshop: "MagmaForge" }
+---@field WORKSHOP_FORGE_ANY { building: "Workshop", workshop: "MetalsmithsForge" }
 ---@field WORKSHOP_CUSTOM { building: "Workshop", workshop: "Custom" }
 ---@field WEAPON_UPRIGHT { building: "Weapon" }
 ---@field INSTRUMENT_STATIONARY { building: "Instrument" }

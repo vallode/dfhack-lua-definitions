@@ -350,6 +350,15 @@ df.geo_layer_type._attr_entry_type = {}
 df.geo_layer_type._attr_entry_type._fields = {}
 
 ---@class geo_layer_type_attrs
+---@field SOIL { flag: "SOIL" }
+---@field SEDIMENTARY { flag: "SEDIMENTARY" }
+---@field METAMORPHIC { flag: "METAMORPHIC" }
+---@field IGNEOUS_EXTRUSIVE { flag: "IGNEOUS_EXTRUSIVE" }
+---@field IGNEOUS_INTRUSIVE { flag: "IGNEOUS_INTRUSIVE" }
+---@field SOIL_OCEAN { flag: "SOIL_OCEAN" }
+---@field SOIL_SAND { flag: "SOIL_SAND" }
+---@field SEDIMENTARY_OCEAN_SHALLOW { flag: "SEDIMENTARY_OCEAN_SHALLOW" }
+---@field SEDIMENTARY_OCEAN_DEEP { flag: "SEDIMENTARY_OCEAN_DEEP" }
 df.geo_layer_type.attrs = {}
 
 ---@class (exact) world_geo_layer: DFObject

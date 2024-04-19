@@ -407,6 +407,7 @@ df.emotion_type._attr_entry_type = {}
 df.emotion_type._attr_entry_type._fields = {}
 
 ---@class emotion_type_attrs
+---@field ANYTHING { color: "7", divider: "0" }
 ---@field ACCEPTANCE { color: "7", divider: "-8" }
 ---@field ADORATION { color: "11", divider: "-1" }
 ---@field AFFECTION { color: "11", divider: "-2" }

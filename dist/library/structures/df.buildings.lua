@@ -184,42 +184,43 @@ df.building_type._attr_entry_type = {}
 df.building_type._attr_entry_type._fields = {}
 
 ---@class building_type_attrs
----@field Chair { classname: "building_chairst" }
----@field Bed { classname: "building_bedst" }
----@field Table { classname: "building_tablest" }
----@field Coffin { classname: "building_coffinst" }
+---@field NONE { name: "NONE" }
+---@field Chair { name: "Chair", classname: "building_chairst" }
+---@field Bed { name: "Bed", classname: "building_bedst" }
+---@field Table { name: "Table", classname: "building_tablest" }
+---@field Coffin { name: "Coffin", classname: "building_coffinst" }
 ---@field FarmPlot { name: "Farm Plot", classname: "building_farmplotst" }
----@field Furnace { classname: "building_furnacest" }
+---@field Furnace { name: "Furnace", classname: "building_furnacest" }
 ---@field TradeDepot { name: "Trade Depot", classname: "building_tradedepotst" }
----@field Shop { classname: "building_shopst" }
----@field Door { classname: "building_doorst" }
----@field Floodgate { classname: "building_floodgatest" }
----@field Box { classname: "building_boxst" }
+---@field Shop { name: "Shop", classname: "building_shopst" }
+---@field Door { name: "Door", classname: "building_doorst" }
+---@field Floodgate { name: "Floodgate", classname: "building_floodgatest" }
+---@field Box { name: "Box", classname: "building_boxst" }
 ---@field Weaponrack { name: "Weapon Rack", classname: "building_weaponrackst" }
 ---@field Armorstand { name: "Armor Stand", classname: "building_armorstandst" }
----@field Workshop { classname: "building_workshopst" }
----@field Cabinet { classname: "building_cabinetst" }
----@field Statue { classname: "building_statuest" }
+---@field Workshop { name: "Workshop", classname: "building_workshopst" }
+---@field Cabinet { name: "Cabinet", classname: "building_cabinetst" }
+---@field Statue { name: "Statue", classname: "building_statuest" }
 ---@field WindowGlass { name: "Glass Window", classname: "building_window_glassst" }
 ---@field WindowGem { name: "Gem Window", classname: "building_window_gemst" }
----@field Well { classname: "building_wellst" }
----@field Bridge { classname: "building_bridgest" }
+---@field Well { name: "Well", classname: "building_wellst" }
+---@field Bridge { name: "Bridge", classname: "building_bridgest" }
 ---@field RoadDirt { name: "Dirt Road", classname: "building_road_dirtst" }
 ---@field RoadPaved { name: "Paved Road", classname: "building_road_pavedst" }
 ---@field SiegeEngine { name: "Siege Engine", classname: "building_siegeenginest" }
----@field Trap { classname: "building_trapst" }
+---@field Trap { name: "Trap", classname: "building_trapst" }
 ---@field AnimalTrap { name: "Animal Trap", classname: "building_animaltrapst" }
----@field Support { classname: "building_supportst" }
+---@field Support { name: "Support", classname: "building_supportst" }
 ---@field ArcheryTarget { name: "Archery Target", classname: "building_archerytargetst" }
----@field Chain { classname: "building_chainst" }
----@field Cage { classname: "building_cagest" }
----@field Stockpile { classname: "building_stockpilest" }
+---@field Chain { name: "Chain", classname: "building_chainst" }
+---@field Cage { name: "Cage", classname: "building_cagest" }
+---@field Stockpile { name: "Stockpile", classname: "building_stockpilest" }
 ---@field Civzone { name: "Zone", classname: "building_civzonest" }
----@field Weapon { classname: "building_weaponst" }
----@field Wagon { classname: "building_wagonst" }
+---@field Weapon { name: "Weapon", classname: "building_weaponst" }
+---@field Wagon { name: "Wagon", classname: "building_wagonst" }
 ---@field ScrewPump { name: "Screw Pump", classname: "building_screw_pumpst" }
----@field Construction { classname: "building_constructionst" }
----@field Hatch { classname: "building_hatchst" }
+---@field Construction { name: "Construction", classname: "building_constructionst" }
+---@field Hatch { name: "Hatch", classname: "building_hatchst" }
 ---@field GrateWall { name: "Wall Grate", classname: "building_grate_wallst" }
 ---@field GrateFloor { name: "Floor Grate", classname: "building_grate_floorst" }
 ---@field BarsVertical { name: "Vertical Bars", classname: "building_bars_verticalst" }
@@ -228,15 +229,15 @@ df.building_type._attr_entry_type._fields = {}
 ---@field AxleHorizontal { name: "Horizontal Axle", classname: "building_axle_horizontalst" }
 ---@field AxleVertical { name: "Vertical Axle", classname: "building_axle_verticalst" }
 ---@field WaterWheel { name: "Water Wheel", classname: "building_water_wheelst" }
----@field Windmill { classname: "building_windmillst" }
+---@field Windmill { name: "Windmill", classname: "building_windmillst" }
 ---@field TractionBench { name: "Traction Bench", classname: "building_traction_benchst" }
----@field Slab { classname: "building_slabst" }
----@field Nest { classname: "building_nestst" }
+---@field Slab { name: "Slab", classname: "building_slabst" }
+---@field Nest { name: "Nest", classname: "building_nestst" }
 ---@field NestBox { name: "Nest Box", classname: "building_nest_boxst" }
----@field Hive { classname: "building_hivest" }
----@field Rollers { classname: "building_rollersst" }
----@field Instrument { classname: "building_instrumentst" }
----@field Bookcase { classname: "building_bookcasest" }
+---@field Hive { name: "Hive", classname: "building_hivest" }
+---@field Rollers { name: "Rollers", classname: "building_rollersst" }
+---@field Instrument { name: "Instrument", classname: "building_instrumentst" }
+---@field Bookcase { name: "Bookcase", classname: "building_bookcasest" }
 ---@field DisplayFurniture { name: "Display Furniture", classname: "building_display_furniturest" }
 ---@field OfferingPlace { name: "Offering Place", classname: "building_offering_placest" }
 df.building_type.attrs = {}
@@ -996,7 +997,9 @@ df.furnace_type._attr_entry_type._fields = {}
 
 ---@class furnace_type_attrs
 ---@field WoodFurnace { name: "Wood Furnace" }
+---@field Smelter { name: "Smelter" }
 ---@field GlassFurnace { name: "Glass Furnace" }
+---@field Kiln { name: "Kiln" }
 ---@field MagmaSmelter { name: "Magma Smelter" }
 ---@field MagmaGlassFurnace { name: "Magma Glass Furnace" }
 ---@field MagmaKiln { name: "Magma Kiln" }
@@ -1119,8 +1122,17 @@ df.workshop_type._attr_entry_type._fields = {}
 ---@field Leatherworks { name: "Leather Works" }
 ---@field Tanners { name: "Tanner's Shop" }
 ---@field Clothiers { name: "Clothier's Shop" }
+---@field Fishery { name: "Fishery" }
+---@field Still { name: "Still" }
+---@field Loom { name: "Loom" }
+---@field Quern { name: "Quern" }
+---@field Kennels { name: "Kennels" }
+---@field Kitchen { name: "Kitchen" }
+---@field Ashery { name: "Ashery" }
 ---@field Dyers { name: "Dyer's Shop" }
+---@field Millstone { name: "Millstone" }
 ---@field Custom { name: "Custom Workshop" }
+---@field Tool { name: "Tool" }
 df.workshop_type.attrs = {}
 
 ---@class (exact) workshop_profile: DFObject

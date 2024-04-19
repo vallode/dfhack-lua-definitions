@@ -345,10 +345,10 @@ df.item_type._attr_entry_type._fields = {}
 ---@field GEM { caption: "large gem", classname: "item_gemst" }
 ---@field ANVIL { caption: "anvil", classname: "item_anvilst" }
 ---@field CORPSEPIECE { caption: "body part", classname: "item_corpsepiecest" }
----@field REMAINS { caption: "remains", is_caste_mat: "true", is_stackable: "true", classname: "item_remainsst" }
+---@field REMAINS { caption: "remains", is_stackable: "true", is_caste_mat: "true", classname: "item_remainsst" }
 ---@field MEAT { caption: "meat", is_stackable: "true", classname: "item_meatst" }
----@field FISH { caption: "fish", is_caste_mat: "true", is_stackable: "true", classname: "item_fishst" }
----@field FISH_RAW { caption: "raw fish", is_caste_mat: "true", is_stackable: "true", classname: "item_fish_rawst" }
+---@field FISH { caption: "fish", is_stackable: "true", is_caste_mat: "true", classname: "item_fishst" }
+---@field FISH_RAW { caption: "raw fish", is_stackable: "true", is_caste_mat: "true", classname: "item_fish_rawst" }
 ---@field VERMIN { caption: "vermin", is_caste_mat: "true", classname: "item_verminst" }
 ---@field PET { caption: "tame vermin", is_caste_mat: "true", classname: "item_petst" }
 ---@field SEEDS { caption: "seeds", classname: "item_seedsst" }
@@ -386,7 +386,7 @@ df.item_type._attr_entry_type._fields = {}
 ---@field ORTHOPEDIC_CAST { caption: "orthopedic cast", classname: "item_orthopedic_castst" }
 ---@field TOOL { caption: "tool", is_rawable: "true", classname: "item_toolst" }
 ---@field SLAB { caption: "slab", classname: "item_slabst" }
----@field EGG { caption: "egg", is_caste_mat: "true", is_stackable: "true", classname: "item_eggst" }
+---@field EGG { caption: "egg", is_stackable: "true", is_caste_mat: "true", classname: "item_eggst" }
 ---@field BOOK { caption: "book", classname: "item_bookst" }
 ---@field SHEET { caption: "sheet", classname: "item_sheetst" }
 ---@field BRANCH { caption: "branch", classname: "item_branchst" }
