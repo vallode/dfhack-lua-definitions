@@ -451,12 +451,12 @@ df.entity_name_type = {}
 ---@field _type _entity_raw
 ---@field code string
 ---@field index number into instace-vector
----@field raws any
----@field creature_ids number References: `creature_raw`
----@field creatures any
+---@field raws string[]
+---@field creature_ids number[]
+---@field creatures string[]
 ---@field equipment entity_raw.T_equipment
----@field currency_value number
----@field flags any
+---@field currency_value number[]
+---@field flags any[]
 ---@field translation string
 ---@field symbols entity_raw.T_symbols
 ---@field sphere_alignment DFEnumVector<sphere_type, number>
@@ -480,24 +480,24 @@ df.entity_name_type = {}
 ---@field max_site_pop_number number
 ---@field max_pop_number number
 ---@field max_starting_civ_number number
----@field religion number
----@field religion_sphere any
+---@field religion number[]
+---@field religion_sphere sphere_type[]
 ---@field jobs entity_raw.T_jobs
----@field positions any
+---@field positions entity_position_raw[]
 ---@field variable_positions DFEnumVector<entity_position_responsibility, number>
 ---@field site_variable_positions DFEnumVector<entity_position_responsibility, number>
----@field tissue_styles any
+---@field tissue_styles any[]
 ---@field workshops entity_raw.T_workshops
 ---@field banditry number
----@field gem_shapes_str any
----@field stone_shapes_str any
----@field gem_shapes number References: `descriptor_shape`
----@field stone_shapes number References: `descriptor_shape`
+---@field gem_shapes_str string[]
+---@field stone_shapes_str string[]
+---@field gem_shapes number[]
+---@field stone_shapes number[]
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
----@field currency_str1 any
----@field currency_str2 any
----@field animal any
+---@field currency_str1 string[]
+---@field currency_str2 string[]
+---@field animal entity_animal_raw[]
 
 ---@class _entity_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -515,39 +515,39 @@ function df.entity_raw.get_vector() end
 ---@class (exact) entity_raw.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_equipment
----@field digger_id number References: `itemdef_weaponst`
----@field weapon_id number References: `itemdef_weaponst`
----@field armor_id number References: `itemdef_armorst`
----@field ammo_id number References: `itemdef_ammost`
----@field helm_id number References: `itemdef_helmst`
----@field gloves_id number References: `itemdef_glovesst`
----@field shoes_id number References: `itemdef_shoesst`
----@field pants_id number References: `itemdef_pantsst`
----@field shield_id number References: `itemdef_shieldst`
----@field trapcomp_id number References: `itemdef_trapcompst`
----@field toy_id number References: `itemdef_toyst`
----@field instrument_id number References: `itemdef_instrumentst`
----@field tool_id number References: `itemdef_toolst`
----@field siegeammo_id number References: `itemdef_siegeammost`
----@field armor_rarity number
----@field helm_rarity number
----@field gloves_rarity number
----@field shoes_rarity number
----@field pants_rarity number
----@field digger_str any
----@field weapon_str any
----@field armor_str any
----@field ammo_str any
----@field helm_str any
----@field gloves_str any
----@field shoes_str any
----@field pants_str any
----@field shield_str any
----@field trapcomp_str any
----@field toy_str any
----@field instrument_str any
----@field siegeammo_str any
----@field tool_str any
+---@field digger_id number[]
+---@field weapon_id number[]
+---@field armor_id number[]
+---@field ammo_id number[]
+---@field helm_id number[]
+---@field gloves_id number[]
+---@field shoes_id number[]
+---@field pants_id number[]
+---@field shield_id number[]
+---@field trapcomp_id number[]
+---@field toy_id number[]
+---@field instrument_id number[]
+---@field tool_id number[]
+---@field siegeammo_id number[]
+---@field armor_rarity number[]
+---@field helm_rarity number[]
+---@field gloves_rarity number[]
+---@field shoes_rarity number[]
+---@field pants_rarity number[]
+---@field digger_str string[]
+---@field weapon_str string[]
+---@field armor_str string[]
+---@field ammo_str string[]
+---@field helm_str string[]
+---@field gloves_str string[]
+---@field shoes_str string[]
+---@field pants_str string[]
+---@field shield_str string[]
+---@field trapcomp_str string[]
+---@field toy_str string[]
+---@field instrument_str string[]
+---@field siegeammo_str string[]
+---@field tool_str string[]
 
 ---@class _entity_raw.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -558,9 +558,9 @@ df.entity_raw.T_equipment = {}
 ---@field _type _entity_raw.T_symbols
 ---@field symbols1 DFEnumVector<entity_name_type, language_word_table>
 ---@field symbols2 DFEnumVector<entity_name_type, language_word_table>
----@field select_symbol DFEnumVector<entity_name_type, any>
----@field subselect_symbol DFEnumVector<entity_name_type, any>
----@field cull_symbol DFEnumVector<entity_name_type, any>
+---@field select_symbol DFEnumVector<entity_name_type, string[]>
+---@field subselect_symbol DFEnumVector<entity_name_type, string[]>
+---@field cull_symbol DFEnumVector<entity_name_type, string[]>
 
 ---@class _entity_raw.T_symbols: DFCompound
 ---@field _kind 'struct-type'
@@ -637,10 +637,10 @@ df.entity_raw.T_jobs = {}
 ---@class (exact) entity_raw.T_workshops: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_raw.T_workshops
----@field permitted_building_str any
----@field permitted_building_id number References: `building_def`
----@field permitted_reaction_str any
----@field permitted_reaction_id number References: `reaction`
+---@field permitted_building_str string[]
+---@field permitted_building_id number[]
+---@field permitted_reaction_str string[]
+---@field permitted_reaction_id number[]
 
 ---@class _entity_raw.T_workshops: DFCompound
 ---@field _kind 'struct-type'
@@ -650,9 +650,9 @@ df.entity_raw.T_workshops = {}
 ---@field _kind 'struct'
 ---@field _type _entity_animal_raw
 ---@field token string
----@field caste_token any
----@field animal_class any
----@field forbidden_class any
+---@field caste_token string[]
+---@field animal_class string[]
+---@field forbidden_class string[]
 ---@field flags entity_animal_raw.T_flags
 
 ---@class _entity_animal_raw: DFCompound
@@ -932,13 +932,13 @@ df.entity_position_responsibility = {}
 ---@field _type _entity_position_raw
 ---@field code string
 ---@field id number
----@field flags any
----@field allowed_creature_str any[]
----@field allowed_creature number References: `creature_raw`
----@field allowed_class any
----@field rejected_creature_str any[]
----@field rejected_creature number References: `creature_raw`
----@field rejected_class any
+---@field flags any[]
+---@field allowed_creature_str string[][]
+---@field allowed_creature number[]
+---@field allowed_class string[]
+---@field rejected_creature_str string[][]
+---@field rejected_creature number[]
+---@field rejected_class string[]
 ---@field name string[]
 ---@field name_female string[]
 ---@field name_male string[]
@@ -948,9 +948,9 @@ df.entity_position_responsibility = {}
 ---@field squad string[]
 ---@field land_name string
 ---@field squad_size number
----@field commander_str any
----@field commander_id number
----@field commander_types number
+---@field commander_str string[]
+---@field commander_id number[]
+---@field commander_types number[]
 ---@field land_holder number
 ---@field number number
 ---@field requires_population number
@@ -958,10 +958,10 @@ df.entity_position_responsibility = {}
 ---@field precedence number
 ---@field replaced_by_str string
 ---@field replaced_by number
----@field appointed_by_str any
----@field appointed_by number
----@field succession_by_position_str any
----@field succession_by_position number
+---@field appointed_by_str string[]
+---@field appointed_by number[]
+---@field succession_by_position_str string[]
+---@field succession_by_position number[]
 ---@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
 ---@field color number[]
 ---@field required_boxes number

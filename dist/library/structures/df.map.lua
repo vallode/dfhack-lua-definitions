@@ -14,8 +14,8 @@ df.coord2d = {}
 ---@class (exact) coord2d_path: DFObject
 ---@field _kind 'struct'
 ---@field _type _coord2d_path
----@field x number
----@field y number
+---@field x number[]
+---@field y number[]
 
 ---@class _coord2d_path: DFCompound
 ---@field _kind 'struct-type'
@@ -35,9 +35,9 @@ df.coord = {}
 ---@class (exact) coord_path: DFObject
 ---@field _kind 'struct'
 ---@field _type _coord_path
----@field x number
----@field y number
----@field z number
+---@field x number[]
+---@field y number[]
+---@field z number[]
 
 ---@class _coord_path: DFCompound
 ---@field _kind 'struct-type'
@@ -509,16 +509,16 @@ df.block_burrow_link = {}
 ---@field _kind 'struct'
 ---@field _type _map_block
 ---@field flags block_flags
----@field block_events any
----@field block_burrows block_burrow_link
+---@field block_events block_square_event[]
+---@field block_burrows block_burrow_link[]
 ---@field local_feature number index into world_data.region_map
 ---@field global_feature number References: `world_underground_region`
 ---@field global_feature_sq number
 ---@field layer_depth number This is compared to unit.animal.population.depth when a revealed<br>necromancer searches for a map edge tile to run away to:
 ---@field dsgn_check_cooldown number
 ---@field default_liquid tile_designation
----@field items any
----@field flows any
+---@field items number[]
+---@field flows flow_info[]
 ---@field flow_pool flow_reuse_pool
 ---@field map_pos coord
 ---@field region_pos coord2d
@@ -587,9 +587,9 @@ df.cave_column.T_flags = {}
 ---@field max_x number
 ---@field max_y number
 ---@field base_z number
----@field neighbor_bx number
----@field neighbor_by number
----@field neighbor_index integer
+---@field neighbor_bx number[]
+---@field neighbor_by number[]
+---@field neighbor_index integer[]
 ---@field flags cave_column_rectangle.T_flags
 
 ---@class _cave_column_rectangle: DFCompound
@@ -621,17 +621,17 @@ df.cave_column_rectangle.T_flags = {}
 ---@field sink_level number water at or above this level sinks into aquifer tiles
 ---@field beach_level number water at this level disappears if above more water
 ---@field ground_level number for coloring unallocated blocks
----@field unmined_glyphs any
+---@field unmined_glyphs any[]
 ---@field z_base number
----@field cave_columns cave_column_link[][]
----@field column_rectangles any
+---@field cave_columns cave_column_link[][][]
+---@field column_rectangles cave_column_rectangle[]
 ---@field z_shift number seems to be 0 originally, but updated when map is shifted
----@field flags any 0 process cave columns for caveins
+---@field flags any[] 0 process cave columns for caveins
 ---@field elevation number[][]
 ---@field map_pos coord2d top left in tiles
 ---@field unk_c3c number uninitialized
 ---@field region_pos coord2d
----@field plants any Only populated for the top left column in each mid level tile
+---@field plants plant[] Only populated for the top left column in each mid level tile
 
 ---@class _map_block_column: DFCompound
 ---@field _kind 'struct-type'
@@ -869,12 +869,12 @@ df.feature_type = {}
 ---@class (exact) feature: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature
----@field population any
+---@field population world_population[]
 ---@field irritation_level number divide by 10k for attack chance, max 100k
 ---@field irritation_attacks number maxes at 10?
 ---@field embark_pos coord2d_path
----@field min_map_z number
----@field max_map_z number
+---@field min_map_z number[]
+---@field max_map_z number[]
 
 ---@class _feature: DFCompound
 ---@field _kind 'class-type'
@@ -1011,8 +1011,8 @@ df.layer_type = {}
 ---@class (exact) feature_init: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature_init
----@field flags any
----@field alterations any
+---@field flags any[]
+---@field alterations feature_alteration[]
 ---@field start_x number
 ---@field start_y number
 ---@field end_x number
@@ -1183,10 +1183,10 @@ df.world_construction_type = {}
 ---@field _type _world_construction_square
 ---@field region_pos coord2d
 ---@field construction_id number References: `world_construction`
----@field embark_x number
----@field embark_y number
----@field embark_unk number
----@field embark_z number
+---@field embark_x number[]
+---@field embark_y number[]
+---@field embark_unk number[]
+---@field embark_z number[]
 
 ---@class _world_construction_square: DFCompound
 ---@field _kind 'class-type'
@@ -1241,7 +1241,7 @@ df.world_construction_square_wallst = {}
 ---@field _kind 'struct'
 ---@field _type _world_construction
 ---@field id number
----@field square_obj any
+---@field square_obj world_construction_square[]
 ---@field square_pos coord2d_path
 
 ---@class _world_construction: DFCompound

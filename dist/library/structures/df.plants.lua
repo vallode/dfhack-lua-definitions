@@ -28,7 +28,7 @@ df.plant_flags = {}
 ---@field update_order number
 ---@field site_id number References: `world_site`
 ---@field srb_id number References: `site_realization_building`
----@field contaminants any
+---@field contaminants spatter_common[]
 ---@field tree_info plant_tree_info
 
 ---@class _plant: DFCompound

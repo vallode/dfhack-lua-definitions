@@ -406,13 +406,13 @@ df.building_drawbuffer = {}
 ---@field age number
 ---@field race number References: `creature_raw`
 ---@field id number
----@field jobs any
----@field specific_refs any
----@field general_refs any
----@field relations any zone(s) this building is in
----@field job_claim_suppress any after Remv Cre, prevents unit from taking jobs at building
+---@field jobs job[]
+---@field specific_refs specific_ref[]
+---@field general_refs general_ref[]
+---@field relations building_civzonest[] zone(s) this building is in
+---@field job_claim_suppress any[] after Remv Cre, prevents unit from taking jobs at building
 ---@field name string
----@field activities any
+---@field activities any[]
 ---@field world_data_id number References: `world_object_data`
 ---@field world_data_subid number
 ---@field unk_v40_2 number
@@ -436,10 +436,10 @@ function df.building.get_vector() end
 ---@class (exact) stockpile_links: DFObject
 ---@field _kind 'struct'
 ---@field _type _stockpile_links
----@field give_to_pile any
----@field take_from_pile any
----@field give_to_workshop any
----@field take_from_workshop any
+---@field give_to_pile building[]
+---@field take_from_pile building[]
+---@field give_to_workshop building[]
+---@field take_from_workshop building[]
 
 ---@class _stockpile_links: DFCompound
 ---@field _kind 'struct-type'
@@ -452,14 +452,14 @@ df.stockpile_links = {}
 ---@field max_barrels number
 ---@field max_bins number
 ---@field max_wheelbarrows number
----@field container_type any
----@field container_item_id number References: `item`
----@field container_x number
----@field container_y number
+---@field container_type item_type[]
+---@field container_item_id number[]
+---@field container_x number[]
+---@field container_y number[]
 ---@field links stockpile_links
 ---@field use_links_only number
 ---@field stockpile_number number
----@field linked_stops any
+---@field linked_stops hauling_stop[]
 
 ---@class _building_stockpilest: DFCompound
 ---@field _kind 'class-type'
@@ -791,16 +791,17 @@ df.civzone_type = {}
 ---@class (exact) building_civzonest: DFObject, building
 ---@field _kind 'struct'
 ---@field _type _building_civzonest
----@field assigned_units number References: `unit`
----@field assigned_items number References: `item`
+---@field assigned_units number[]
+---@field assigned_items number[]
 ---@field type civzone_type only saved as int16
 ---@field is_active number 0 is paused, 8 is active
 ---@field zone_num number
 ---@field zone_settings building_civzonest.T_zone_settings
----@field contained_buildings any includes eg workshops and beds
+---@field number number[]
+---@field contained_buildings building[] includes eg workshops and beds
 ---@field assigned_unit_id number
 ---@field assigned_unit unit
----@field squad_room_info any
+---@field squad_room_info any[]
 
 ---@class _building_civzonest: DFCompound
 ---@field _kind 'class-type'
@@ -913,7 +914,7 @@ df.building_item_role_type = {}
 ---@field _kind 'struct'
 ---@field _type _building_actual
 ---@field construction_stage number 0 not started, then 1 or 3 max depending on type
----@field contained_items any
+---@field contained_items any[]
 ---@field design building_design
 
 ---@class _building_actual: DFCompound
@@ -1009,7 +1010,7 @@ df.furnace_type.attrs = {}
 ---@class (exact) building_furnacest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_furnacest
----@field melt_remainder number
+---@field melt_remainder number[]
 ---@field unk_108 number
 ---@field type furnace_type
 ---@field profile workshop_profile
@@ -1138,7 +1139,7 @@ df.workshop_type.attrs = {}
 ---@class (exact) workshop_profile: DFObject
 ---@field _kind 'struct'
 ---@field _type _workshop_profile
----@field permitted_workers number References: `unit`
+---@field permitted_workers number[]
 ---@field min_level number
 ---@field max_level number
 ---@field links stockpile_links
@@ -1215,8 +1216,8 @@ df.building_bars_floorst = {}
 ---@class (exact) building_users: DFObject
 ---@field _kind 'struct'
 ---@field _type _building_users
----@field unit number References: `unit`
----@field mode number
+---@field unit number[]
+---@field mode number[]
 
 ---@class _building_users: DFCompound
 ---@field _kind 'struct-type'
@@ -1298,8 +1299,8 @@ df.building_cabinetst = {}
 ---@class (exact) building_cagest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_cagest
----@field assigned_units number References: `unit`
----@field assigned_items number References: `item`
+---@field assigned_units number[]
+---@field assigned_items number[]
 ---@field cage_flags building_cagest.T_cage_flags
 ---@field fill_timer number
 
@@ -1489,7 +1490,7 @@ df.building_constructionst = {}
 ---@class (exact) building_display_furniturest: DFObject, building_actual
 ---@field _kind 'struct'
 ---@field _type _building_display_furniturest
----@field displayed_items number References: `item`
+---@field displayed_items number[]
 
 ---@class _building_display_furniturest: DFCompound
 ---@field _kind 'class-type'
@@ -1933,8 +1934,8 @@ df.pressure_plate_info.T_flags = {}
 ---@field ready_timeout number plate not active if > 0
 ---@field fill_timer number
 ---@field stop_flags building_trapst.T_stop_flags
----@field linked_mechanisms any
----@field observed_by_civs number References: `historical_entity`
+---@field linked_mechanisms item[]
+---@field observed_by_civs number[]
 ---@field profile workshop_profile
 ---@field plate_info pressure_plate_info
 ---@field friction number

@@ -542,7 +542,7 @@ df.strain_type = {}
 ---@field state_adj DFEnumVector<matter_state, string>
 ---@field strength material_common.T_strength
 ---@field material_value number
----@field flags any
+---@field flags any[]
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype number
@@ -551,7 +551,7 @@ df.strain_type = {}
 ---@field block_name string[]
 ---@field reaction_product material_common.T_reaction_product
 ---@field hardens_with_water material_common.T_hardens_with_water
----@field reaction_class any
+---@field reaction_class string[]
 
 ---@class _material_common: DFCompound
 ---@field _kind 'struct-type'
@@ -588,11 +588,11 @@ df.material_common.T_strength = {}
 ---@class (exact) material_common.T_reaction_product: DFObject
 ---@field _kind 'struct'
 ---@field _type _material_common.T_reaction_product
----@field id any
----@field item_type number
----@field item_subtype number
+---@field id string[]
+---@field item_type number[]
+---@field item_subtype number[]
 ---@field material material_vec_ref
----@field str any[]
+---@field str string[][]
 
 ---@class _material_common.T_reaction_product: DFCompound
 ---@field _kind 'struct-type'
@@ -619,9 +619,9 @@ df.material_common.T_hardens_with_water = {}
 ---@field item_symbol integer
 ---@field powder_dye number 0.50.01
 ---@field temp_diet_info number // color token index
----@field syndrome any
+---@field syndrome syndrome[]
 ---@field soap_level number
----@field unk_41c number
+---@field unk_41c number[]
 ---@field prefix string
 ---@field food_mat_index DFEnumVector<organic_mat_category, number>
 ---@field powder_dye_str string temporary
@@ -642,8 +642,8 @@ df.material = {}
 ---@class (exact) material_vec_ref: DFObject
 ---@field _kind 'struct'
 ---@field _type _material_vec_ref
----@field mat_type any
----@field mat_index number
+---@field mat_type number[]
+---@field mat_index number[]
 
 ---@class _material_vec_ref: DFCompound
 ---@field _kind 'struct-type'
@@ -659,9 +659,9 @@ df.material_vec_ref = {}
 ---@field item_symbol integer
 ---@field powder_dye number
 ---@field temp_diet_info number // color token index
----@field syndrome any
+---@field syndrome syndrome[]
 ---@field soap_level number
----@field unk_41c number
+---@field unk_41c number[]
 ---@field powder_dye_str string temporary
 ---@field state_color_str DFEnumVector<matter_state, string>
 
@@ -787,13 +787,13 @@ df.inclusion_type = {}
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw
 ---@field id string
----@field str any
----@field flags any
+---@field str string[]
+---@field flags any[]
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
 ---@field metal_ore inorganic_raw.T_metal_ore
 ---@field thread_metal inorganic_raw.T_thread_metal
----@field economic_uses number References: `reaction`
+---@field economic_uses number[]
 ---@field environment_spec inorganic_raw.T_environment_spec
 ---@field environment inorganic_raw.T_environment
 ---@field times_used_land integer
@@ -816,9 +816,9 @@ function df.inorganic_raw.get_vector() end
 ---@class (exact) inorganic_raw.T_metal_ore: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_metal_ore
----@field str any only during parsing
----@field mat_index any
----@field probability number
+---@field str string[] only during parsing
+---@field mat_index number[]
+---@field probability number[]
 
 ---@class _inorganic_raw.T_metal_ore: DFCompound
 ---@field _kind 'struct-type'
@@ -827,9 +827,9 @@ df.inorganic_raw.T_metal_ore = {}
 ---@class (exact) inorganic_raw.T_thread_metal: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_thread_metal
----@field str any only during parsing
----@field mat_index any
----@field probability number
+---@field str string[] only during parsing
+---@field mat_index number[]
+---@field probability number[]
 
 ---@class _inorganic_raw.T_thread_metal: DFCompound
 ---@field _kind 'struct-type'
@@ -838,10 +838,10 @@ df.inorganic_raw.T_thread_metal = {}
 ---@class (exact) inorganic_raw.T_environment_spec: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment_spec
----@field str any only during parsing
----@field mat_index any
----@field inclusion_type any
----@field probability number
+---@field str string[] only during parsing
+---@field mat_index number[]
+---@field inclusion_type inclusion_type[]
+---@field probability number[]
 
 ---@class _inorganic_raw.T_environment_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -850,9 +850,9 @@ df.inorganic_raw.T_environment_spec = {}
 ---@class (exact) inorganic_raw.T_environment: DFObject
 ---@field _kind 'struct'
 ---@field _type _inorganic_raw.T_environment
----@field location any
----@field type any
----@field probability number
+---@field location environment_type[]
+---@field type inclusion_type[]
+---@field probability number[]
 
 ---@class _inorganic_raw.T_environment: DFCompound
 ---@field _kind 'struct-type'
@@ -983,9 +983,9 @@ df.organic_mat_category = {}
 ---@class (exact) special_mat_table: DFObject
 ---@field _kind 'struct'
 ---@field _type _special_mat_table
----@field organic_types DFEnumVector<organic_mat_category, number>
----@field organic_indexes DFEnumVector<organic_mat_category, number>
----@field organic_unknown DFEnumVector<organic_mat_category, number> everything 0
+---@field organic_types DFEnumVector<organic_mat_category, number[]>
+---@field organic_indexes DFEnumVector<organic_mat_category, number[]>
+---@field organic_unknown DFEnumVector<organic_mat_category, number[]> everything 0
 ---@field builtin DFEnumVector<builtin_mats, material>
 
 ---@class _special_mat_table: DFCompound

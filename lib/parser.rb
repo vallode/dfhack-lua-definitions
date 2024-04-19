@@ -5,8 +5,6 @@ require_relative 'lua_ls'
 module DFHackLuaDefinitions
   class << self
     def node_to_type(node, path)
-      return GlobalObject.new(node) if node.name == 'global-object'
-
       case node['ld:meta']
       when 'enum-type'
         EnumType.new(node)
@@ -14,7 +12,7 @@ module DFHackLuaDefinitions
         BitfieldType.new(node)
       when 'class-type', 'struct-type'
         StructType.new(node)
-      when 'static-array'
+      when 'container', 'static-array'
         StaticArray.new(node, path)
       when 'compound'
         case node['ld:subtype']
@@ -49,7 +47,7 @@ module DFHackLuaDefinitions
       @path = path.dup
       @local_name = ''
 
-      if node['ld:level'] == '0'
+      if node['ld:level'] == '0' && !@path.include?('global')
         @path.append(@name)
         @local_name = @name
       elsif @name
@@ -403,14 +401,21 @@ module DFHackLuaDefinitions
 
     def fields
       @nodes.map do |node|
-        DFHackLuaDefinitions.node_to_type(node, %w[df global])
+        GlobalObject.new(node, %w[global])
       end
     end
 
     def render
-      annotation = "---@class (exact) df.global: DFGlobal\n"
+      annotation = []
+      annotation << "---@class df.global: DFGlobal\n"
       annotation << @fields.map(&:to_field).join
       annotation << "df.global = {}\n\n"
+
+      @fields.each do |field|
+        annotation << field.render if field.render?
+      end
+
+      annotation.join
     end
   end
 
@@ -418,23 +423,27 @@ module DFHackLuaDefinitions
     def initialize(node, path = [])
       super(node, path)
 
-      @child = node.first_element_child
-
-      @name = node['name']
-      @type_name = node['type-name']
-      @type = type
+      @path = @path.slice(0..-1)
+      @child = child
+      @type = @child.type
     end
 
-    def type
-      return @type_name unless @child['ld:subtype'] || @child['ld:meta']
-
-      @child['type-name']
+    def child
+      DFHackLuaDefinitions.node_to_type(@node.first_element_child, @path)
     end
 
     def to_field
-      '-- TODO'
-      # @child_type = DFHackLuaDefinitions.node_to_type(@child, @path)
-      # @child_type&.to_field
+      LuaLS.field(@name, @type, @comment)
+    end
+
+    def render?
+      true
+    end
+
+    def render
+      annotation = []
+      annotation << @child.render if @child.render?
+      annotation.join
     end
   end
 
@@ -445,14 +454,16 @@ module DFHackLuaDefinitions
       super(node, path)
 
       @path = @path.slice(0..-1)
-      @child = child
-      raise "StaticArray with no child: #{node}" unless @child
-
-      @type = if @node['index-enum']
-                "DFEnumVector<#{@node['index-enum']}, #{@child.type}>"
-              else
-                "#{@child.type}[]"
-              end
+      if @node.first_element_child
+        @child = child
+        @type = if @node['index-enum']
+                  "DFEnumVector<#{@node['index-enum']}, #{@child.type}>"
+                else
+                  "#{@child.type}[]"
+                end
+      else
+        @type = 'any[]'
+      end
     end
 
     def child
@@ -460,7 +471,9 @@ module DFHackLuaDefinitions
     end
 
     def to_field
-      LuaLS.field(@name, "#{@type}", @comment)
+      return '' unless @name
+
+      LuaLS.field(@name, @type, @comment)
     end
 
     def render?
@@ -469,7 +482,7 @@ module DFHackLuaDefinitions
 
     def render
       annotation = []
-      annotation << @child.render if @child.render?
+      annotation << @child.render if @child&.render?
       annotation.join
     end
   end

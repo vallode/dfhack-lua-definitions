@@ -31,8 +31,8 @@ df.pattern_type = {}
 ---@field _kind 'struct'
 ---@field _type _descriptor_color
 ---@field id string
----@field word_unk any
----@field words number References: `language_word`
+---@field word_unk string[]
+---@field words number[]
 ---@field name string
 ---@field color curses_color
 ---@field bold number
@@ -58,18 +58,18 @@ function df.descriptor_color.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _descriptor_shape
 ---@field id string
----@field words_str any temporary storage before resolving to language_word
----@field words number References: `language_word`
+---@field words_str string[] temporary storage before resolving to language_word
+---@field words number[]
 ---@field name string
 ---@field name_plural string
----@field adj any
+---@field adj string[]
 ---@field gems_use descriptor_shape.T_gems_use
----@field category any
+---@field category string[]
 ---@field faces number
 ---@field tile integer
 ---@field unk_v50_1 any
----@field unk_v50_2 number
----@field unk_v50_3 number
+---@field unk_v50_2 number[]
+---@field unk_v50_3 number[]
 ---@field unk_v50_4 any
 ---@field unk_v50_5 any
 ---@field unk_v50_6 any
@@ -110,9 +110,9 @@ df.descriptor_shape.T_gems_use = {}
 ---@field _kind 'struct'
 ---@field _type _descriptor_pattern
 ---@field id string
----@field colors number References: `descriptor_color`
+---@field colors number[]
 ---@field pattern pattern_type
----@field cp_color any
+---@field cp_color string[]
 
 ---@class _descriptor_pattern: DFCompound
 ---@field _kind 'struct-type'

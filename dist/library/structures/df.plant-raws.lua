@@ -254,8 +254,8 @@ df.plant_raw_flags = {}
 ---@field _type _plant_raw
 ---@field id string
 ---@field index number
----@field raws any
----@field flags any
+---@field raws string[]
+---@field flags any[]
 ---@field name string
 ---@field name_plural string
 ---@field adj string
@@ -277,12 +277,12 @@ df.plant_raw_flags = {}
 ---@field sapling_drown_level number
 ---@field frequency number
 ---@field clustersize number
----@field prefstring any
----@field material any
+---@field prefstring string[]
+---@field material material[]
 ---@field material_defs plant_raw.T_material_defs
 ---@field underground_depth_min number
 ---@field underground_depth_max number
----@field growths any
+---@field growths plant_growth[]
 ---@field root_name string
 ---@field trunk_name string
 ---@field heavy_branch_name string
@@ -302,8 +302,8 @@ df.plant_raw_flags = {}
 ---@field cap_radius number
 ---@field root_density number
 ---@field root_radius number
----@field stockpile_growths number indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
----@field stockpile_growth_flags any
+---@field stockpile_growths number[] indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
+---@field stockpile_growth_flags plant_raw.T_stockpile_growth_flags[]
 
 ---@class _plant_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -369,6 +369,21 @@ df.plant_raw.T_colors = {}
 ---@field _kind 'struct-type'
 df.plant_raw.T_material_defs = {}
 
+---@class plant_raw.T_stockpile_growth_flags: DFObject
+---@field _kind 'bitfield'
+---@field _enum _plant_raw.T_stockpile_growth_flags
+---@field EDIBLE_RAW boolean
+---@field [0] boolean
+---@field EDIBLE_COOKED boolean
+---@field [1] boolean
+
+---@class _plant_raw.T_stockpile_growth_flags: DFBitfield
+---@field EDIBLE_RAW 0
+---@field [0] "EDIBLE_RAW"
+---@field EDIBLE_COOKED 1
+---@field [1] "EDIBLE_COOKED"
+df.plant_raw.T_stockpile_growth_flags = {}
+
 ---@alias plant_material_def
 ---| 0 # basic_mat
 ---| 1 # tree
@@ -412,7 +427,7 @@ df.plant_material_def = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field prints any
+---@field prints plant_growth_print[]
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 ---@field unk_v50_3 number

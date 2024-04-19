@@ -532,7 +532,7 @@ df.sphere_type = {}
 ---@field forms DFEnumVector<part_of_speech, string>
 ---@field adj_dist integer
 ---@field flags language_word_flags
----@field str any
+---@field str string[]
 
 ---@class _language_word: DFCompound
 ---@field _kind 'struct-type'
@@ -551,11 +551,11 @@ function df.language_word.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _language_translation
 ---@field name string
----@field unknown1 any looks like english words
----@field unknown2 any looks like translated words
----@field words any
+---@field unknown1 string[] looks like english words
+---@field unknown2 string[] looks like translated words
+---@field words string[]
 ---@field flags number 1 = generated
----@field str any
+---@field str string[]
 
 ---@class _language_translation: DFCompound
 ---@field _kind 'struct-type'
@@ -574,10 +574,10 @@ function df.language_translation.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _language_symbol
 ---@field name string
----@field unknown any empty
----@field words any
+---@field unknown any[] empty
+---@field words number[]
 ---@field flags number
----@field str any
+---@field str string[]
 
 ---@class _language_symbol: DFCompound
 ---@field _kind 'struct-type'
@@ -611,8 +611,8 @@ df.language_name = {}
 ---@class (exact) language_word_table: DFObject
 ---@field _kind 'struct'
 ---@field _type _language_word_table
----@field words DFEnumVector<language_word_table_index, any>
----@field parts DFEnumVector<language_word_table_index, any>
+---@field words DFEnumVector<language_word_table_index, number[]>
+---@field parts DFEnumVector<language_word_table_index, part_of_speech[]>
 
 ---@class _language_word_table: DFCompound
 ---@field _kind 'struct-type'

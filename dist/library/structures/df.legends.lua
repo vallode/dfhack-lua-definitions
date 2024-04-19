@@ -83,9 +83,9 @@ df.invasion_info.T_flags = {}
 ---@class (exact) entity_population_unk4: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_population_unk4
----@field unk_1 any all 3 vectors share a single index series, with the third being interleaved with at least the second one
----@field unk_2 any
----@field unk_3 any
+---@field unk_1 any[] all 3 vectors share a single index series, with the third being interleaved with at least the second one
+---@field unk_2 any[]
+---@field unk_3 any[]
 
 ---@class _entity_population_unk4: DFCompound
 ---@field _kind 'struct-type'
@@ -95,10 +95,10 @@ df.entity_population_unk4 = {}
 ---@field _kind 'struct'
 ---@field _type _entity_population
 ---@field name language_name
----@field races any all the 3 vectors are always the same length, and thus coupled
----@field counts number
----@field unk3 number Set only for cave civs. When set, >= counts. Pre first embark all those are equal
----@field unk4 any
+---@field races number[] all the 3 vectors are always the same length, and thus coupled
+---@field counts number[]
+---@field unk3 number[] Set only for cave civs. When set, >= counts. Pre first embark all those are equal
+---@field unk4 entity_population_unk4[]
 ---@field unk5 number
 ---@field layer_id number References: `world_underground_region`
 ---@field id number
@@ -175,13 +175,13 @@ df.nemesis_flags = {}
 ---@field figure historical_figure
 ---@field unit unit
 ---@field group_leader_id number References: `nemesis_record`
----@field companions any
+---@field companions number[]
 ---@field activeplotindex number
 ---@field travel_link_nemid number
 ---@field ideal_item_container_id number
 ---@field next_plot_year number
 ---@field next_plot_season_count number
----@field flags any
+---@field flags any[]
 
 ---@class _nemesis_record: DFCompound
 ---@field _kind 'struct-type'
@@ -201,7 +201,7 @@ function df.nemesis_record.get_vector() end
 ---@field _type _artifact_record
 ---@field id number
 ---@field name language_name
----@field flags any
+---@field flags any[]
 ---@field item item
 ---@field abs_tile_x number
 ---@field abs_tile_y number
@@ -213,9 +213,9 @@ function df.nemesis_record.get_vector() end
 ---@field subregion number References: `world_region`
 ---@field feature_layer number References: `world_underground_region`
 ---@field owner_hf number namer/creator does not seem to require a claim to be shown References: `historical_figure`
----@field remote_claims number all afar, heirloom from afar seen References: `historical_figure`
----@field entity_claims number References: `historical_entity`
----@field direct_claims number References: `historical_figure`
+---@field remote_claims number[] all afar, heirloom from afar seen
+---@field entity_claims number[]
+---@field direct_claims number[]
 ---@field storage_site number References: `world_site`
 ---@field storage_structure_local number References: `abstract_building`
 ---@field loss_region number References: `world_region`

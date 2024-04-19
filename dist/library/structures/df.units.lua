@@ -1644,13 +1644,13 @@ df.unit_active_animation_flags = {}
 ---@field invasion_id number References: `invasion_info`
 ---@field patrol_route coord_path used by necromancers for corpse locations, siegers etc
 ---@field patrol_index number from 23a
----@field specific_refs any
----@field general_refs any
+---@field specific_refs specific_ref[]
+---@field general_refs general_ref[]
 ---@field military unit.T_military
----@field social_activities number References: `activity_entry`
----@field conversations number References: `activity_entry`
----@field activities number bay12: conflict_activity_id References: `activity_entry`
----@field ignored_activities number bay12: ignore_activity_id References: `activity_entry`
+---@field social_activities number[]
+---@field conversations number[]
+---@field activities number[] bay12: conflict_activity_id
+---@field ignored_activities number[] bay12: ignore_activity_id
 ---@field animal unit.T_animal
 ---@field opponent unit.T_opponent
 ---@field mood mood_type
@@ -1675,15 +1675,15 @@ df.unit_active_animation_flags = {}
 ---@field relationship_ids DFEnumVector<unit_relationship_type, number>
 ---@field mount_type rider_positions_type TODO: find correct location and enumify
 ---@field last_hit history_hit_item
----@field inventory any
----@field owned_items number References: `item`
----@field traded_items number items brought to trade depot References: `item`
----@field owned_buildings any bay12: zone_assigned
----@field corpse_parts number entries remain even when items are destroyed References: `item`
+---@field inventory unit_inventory_item[]
+---@field owned_items number[]
+---@field traded_items number[] items brought to trade depot
+---@field owned_buildings building_civzonest[] bay12: zone_assigned
+---@field corpse_parts number[] entries remain even when items are destroyed
 ---@field job unit.T_job
 ---@field body unit.T_body
 ---@field appearance unit.T_appearance
----@field actions any
+---@field actions unit_action[]
 ---@field next_action_id number
 ---@field counters unit.T_counters
 ---@field curse unit.T_curse
@@ -1696,18 +1696,18 @@ df.unit_active_animation_flags = {}
 ---@field syndromes unit.T_syndromes
 ---@field reports unit.T_reports
 ---@field health unit_health_info
----@field used_items any unit_patient_profilest *patient_profile
+---@field used_items unit_item_use[] unit_patient_profilest *patient_profile
 ---@field enemy unit.T_enemy
----@field healing_rate number
+---@field healing_rate number[]
 ---@field effective_rate number bay12: heal_rate_recuperation
 ---@field tendons_heal number
 ---@field ligaments_heal number
 ---@field weight number
 ---@field weight_fraction number 1e-6
----@field burrows number References: `burrow`
----@field inactive_burrows number References: `burrow`
+---@field burrows number[]
+---@field inactive_burrows number[]
 ---@field vision_cone any
----@field occupations any
+---@field occupations occupation[]
 ---@field adjective string from physical descriptions for use in adv
 ---@field texpos number[][]
 ---@field sheet_icon_texpos number
@@ -1776,12 +1776,12 @@ df.unit.T_meeting.T_state = {}
 ---@field patrol_cooldown number
 ---@field patrol_timer number
 ---@field cur_uniform unit_uniform_mode_type
----@field clothing_item_id number References: `item`
----@field uniforms DFEnumVector<unit_uniform_mode_type, number>
+---@field clothing_item_id number[]
+---@field uniforms DFEnumVector<unit_uniform_mode_type, number[]>
 ---@field pickup_flags unit.T_military.T_pickup_flags
----@field uniform_pickup number References: `item`
----@field uniform_drop number References: `item`
----@field individual_drills number References: `activity_entry`
+---@field uniform_pickup number[]
+---@field uniform_drop number[]
+---@field individual_drills number[]
 
 ---@class _unit.T_military: DFCompound
 ---@field _kind 'struct-type'
@@ -1850,7 +1850,7 @@ df.unit.T_job = {}
 ---@field _kind 'struct'
 ---@field _type _unit.T_body
 ---@field components body_component_info
----@field wounds any
+---@field wounds unit_wound[]
 ---@field wound_next_id number
 ---@field unk_39c number[]
 ---@field body_plan caste_body_info
@@ -1860,7 +1860,7 @@ df.unit.T_job = {}
 ---@field blood_max integer
 ---@field blood_count integer
 ---@field infection_level number GETS_INFECTIONS_FROM_ROT sets; DISEASE_RESISTANCE reduces; >=300 causes bleeding
----@field spatters any
+---@field spatters spatter[]
 
 ---@class _unit.T_body: DFCompound
 ---@field _kind 'struct-type'
@@ -1869,16 +1869,16 @@ df.unit.T_body = {}
 ---@class (exact) unit.T_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_appearance
----@field body_modifiers number
----@field bp_modifiers number
+---@field body_modifiers number[]
+---@field bp_modifiers number[]
 ---@field size_modifier number product of all H/B/LENGTH body modifiers, in %
----@field tissue_style number -- Something for bp_appearance.layers_*
----@field tissue_style_civ_id number References: `historical_entity`
----@field tissue_style_id number References: `entity_tissue_style`
----@field tissue_style_type number
----@field tissue_length number description uses bp_modifiers[style_list_idx[index]]
+---@field tissue_style number[] -- Something for bp_appearance.layers_*
+---@field tissue_style_civ_id number[]
+---@field tissue_style_id number[]
+---@field tissue_style_type number[]
+---@field tissue_length number[] description uses bp_modifiers[style_list_idx[index]]
 ---@field genes unit_genes
----@field colors number
+---@field colors number[]
 
 ---@class _unit.T_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -1948,19 +1948,19 @@ df.unit.T_counters.T_soldier_mood = {}
 ---@field sym_and_color2 integer
 ---@field flash_period integer
 ---@field flash_time2 integer
----@field body_appearance number
----@field bp_appearance number guess!
+---@field body_appearance number[]
+---@field bp_appearance number[] guess!
 ---@field speed_add integer
 ---@field speed_mul_percent integer
 ---@field attr_change curse_attr_change
 ---@field luck_mul_percent integer
 ---@field erratic_level number
----@field interaction_id number References: `creature_interaction_effect`
----@field interaction_time number
----@field interaction_delay number
+---@field interaction_id number[]
+---@field interaction_time number[]
+---@field interaction_delay number[]
 ---@field time_on_site number
----@field own_interaction number
----@field own_interaction_delay number
+---@field own_interaction number[]
+---@field own_interaction_delay number[]
 
 ---@class _unit.T_curse: DFCompound
 ---@field _kind 'struct-type'
@@ -1988,25 +1988,25 @@ df.unit.T_counters2 = {}
 ---@class (exact) unit.T_status: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_status
----@field misc_traits any
+---@field misc_traits unit_misc_trait[]
 ---@field eat_history any
 ---@field demand_timeout number also used for wagon trampling
 ---@field mandate_timeout number
----@field attacker_ids number References: `unit`
----@field attacker_cntdn number
+---@field attacker_ids number[]
+---@field attacker_cntdn number[]
 ---@field face_direction number for wagons
 ---@field artifact_name language_name
----@field souls any
+---@field souls unit_soul[]
 ---@field current_soul unit_soul
----@field demands any
+---@field demands unit_demand[]
 ---@field labors DFEnumVector<unit_labor, boolean>
----@field wrestle_items any
----@field observed_traps number References: `building`
----@field complaints any
----@field parleys any
----@field requests any
----@field coin_debts any
----@field commands any
+---@field wrestle_items unit_item_wrestle[]
+---@field observed_traps number[]
+---@field complaints unit_complaint[]
+---@field parleys unit_parley[]
+---@field requests unit_request[]
+---@field coin_debts unit_coin_debt[]
+---@field commands command[]
 ---@field last_command_received_year number
 ---@field last_command_received_season_count number
 ---@field command_gait_index DFEnumVector<gait_type, number> initialized together with enemy.gait_index
@@ -2028,7 +2028,7 @@ df.unit.T_status = {}
 ---@field limbs_grasp_count number
 ---@field limbs_fly_max number
 ---@field limbs_fly_count number
----@field body_part_temperature any
+---@field body_part_temperature temperaturest[]
 ---@field add_path_flags pathfinding_flags bay12: override_permit; pathing flags to OR, set to None after move
 ---@field liquid_type tile_designation
 ---@field liquid_depth integer
@@ -2041,8 +2041,8 @@ df.unit.T_status2 = {}
 ---@class (exact) unit.T_syndrome_advancement: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndrome_advancement
----@field pre_hf_active_interaction_index number
----@field pre_hf_active_interaction_effect_index number
+---@field pre_hf_active_interaction_index number[]
+---@field pre_hf_active_interaction_effect_index number[]
 
 ---@class _unit.T_syndrome_advancement: DFCompound
 ---@field _kind 'struct-type'
@@ -2051,9 +2051,9 @@ df.unit.T_syndrome_advancement = {}
 ---@class (exact) unit.T_syndromes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_syndromes
----@field active any -- Sorted by type:
----@field reinfection_type number -- Seems to be incremented every new infection: References: `syndrome`
----@field reinfection_count number
+---@field active unit_syndrome[] -- Sorted by type:
+---@field reinfection_type number[] -- Seems to be incremented every new infection:
+---@field reinfection_count number[]
 
 ---@class _unit.T_syndromes: DFCompound
 ---@field _kind 'struct-type'
@@ -2062,7 +2062,7 @@ df.unit.T_syndromes = {}
 ---@class (exact) unit.T_reports: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_reports
----@field log DFEnumVector<unit_report_type, number>
+---@field log DFEnumVector<unit_report_type, number[]>
 ---@field last_year DFEnumVector<unit_report_type, number> -- Garbage when the matching vector is empty:
 ---@field last_year_tick DFEnumVector<unit_report_type, number>
 
@@ -2074,16 +2074,16 @@ df.unit.T_reports = {}
 ---@class (exact) unit.T_enemy: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit.T_enemy
----@field sound_cooldown number
+---@field sound_cooldown number[]
 ---@field undead any svector((int32_t)) sound_timer
 ---@field were_race number unit_active_animation *active_animation References: `creature_raw`
 ---@field were_caste number transform_race References: `caste_raw`
 ---@field normal_race number transform_caste References: `creature_raw`
 ---@field normal_caste number birth_race References: `caste_raw`
 ---@field interaction number birth_caste
----@field appearances any retraction_body_action_index (???)
----@field witness_reports any svector((physical_formst *)) physical_form
----@field rumor any
+---@field appearances unit_appearance[] retraction_body_action_index (???)
+---@field witness_reports witness_incidentst[] svector((physical_formst *)) physical_form
+---@field rumor entity_event[]
 ---@field gait_index DFEnumVector<gait_type, number> rumor_infost rumor_info
 ---@field attack_awareness unit.T_enemy.T_attack_awareness
 ---@field detection_info unit.T_enemy.T_detection_info
@@ -2094,25 +2094,25 @@ df.unit.T_reports = {}
 ---@field army_controller_id number probably references a entity_position_assignment References: `army_controller`
 ---@field army_controller army_controller
 ---@field army_info any
----@field animal_pre_bond_unid number
----@field animal_pre_bond_count number probably references a unit
----@field just_talked_unid number
+---@field animal_pre_bond_unid number[]
+---@field animal_pre_bond_count number[] probably references a unit
+---@field just_talked_unid number[]
 ---@field opinion_info any probably references a unit
 ---@field travel_log any
 ---@field combat_side_id number
 ---@field histfig_vector_idx number arena_side<br>-- below here unsaved --
----@field caste_flags any
+---@field caste_flags any[]
 ---@field enemy_status_slot number
 ---@field last_temperature_check number
----@field motor_nervenet integer
----@field sensory_nervenet integer
----@field body_part_relsize number 0 blocks pains, nausea
----@field body_part_useable integer
----@field body_part_base_ins integer
----@field body_part_clothing_ins integer
----@field invorder_bp_start integer
----@field invorder_item_id number References: `item`
----@field invorder_coverage number
+---@field motor_nervenet integer[]
+---@field sensory_nervenet integer[]
+---@field body_part_relsize number[] 0 blocks pains, nausea
+---@field body_part_useable integer[]
+---@field body_part_base_ins integer[]
+---@field body_part_clothing_ins integer[]
+---@field invorder_bp_start integer[]
+---@field invorder_item_id number[]
+---@field invorder_coverage number[]
 
 ---@class _unit.T_enemy: DFCompound
 ---@field _kind 'struct-type'
@@ -2268,8 +2268,8 @@ df.unit_ghost_info.T_flags = {}
 ---@class (exact) unit_genes: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_genes
----@field appearance integer
----@field colors number
+---@field appearance integer[]
+---@field colors number[]
 
 ---@class _unit_genes: DFCompound
 ---@field _kind 'struct-type'
@@ -2348,12 +2348,12 @@ df.unit_attribute = {}
 ---@field year number
 ---@field year_time number
 ---@field ticks number
----@field wounds number refers to unit_wound by id
+---@field wounds number[] refers to unit_wound by id
 ---@field wound_id number
----@field symptoms any
+---@field symptoms any[]
 ---@field reinfection_count number set from unit.reinfection_count[i]++
 ---@field flags unit_syndrome.T_flags
----@field unk4 number
+---@field unk4 number[]
 
 ---@class _unit_syndrome: DFCompound
 ---@field _kind 'struct-type'
@@ -2569,7 +2569,7 @@ df.wound_damage_flags2 = {}
 ---@field _kind 'struct'
 ---@field _type _unit_wound
 ---@field id number
----@field parts any
+---@field parts any[]
 ---@field age number
 ---@field attacker_unit_id number References: `unit`
 ---@field attacker_hist_figure_id number References: `historical_figure`
@@ -2654,12 +2654,12 @@ df.curse_attr_change = {}
 ---@field unk_v42_1 number
 ---@field luck_mul_percent integer
 ---@field unk_v42_2 number
----@field interaction_id number References: `creature_interaction_effect`
+---@field interaction_id number[]
 ---@field timing wound_curse_info.T_timing
 ---@field were_race number References: `creature_raw`
 ---@field were_caste number References: `caste_raw`
----@field body_appearance number
----@field bp_appearance number
+---@field body_appearance number[]
+---@field bp_appearance number[]
 
 ---@class _wound_curse_info: DFCompound
 ---@field _kind 'struct-type'
@@ -2668,7 +2668,7 @@ df.wound_curse_info = {}
 ---@class (exact) wound_curse_info.T_timing: DFObject
 ---@field _kind 'struct'
 ---@field _type _wound_curse_info.T_timing
----@field interaction_time number
+---@field interaction_time number[]
 ---@field time_counter number
 
 ---@class _wound_curse_info.T_timing: DFCompound
@@ -2967,15 +2967,15 @@ df.unit_bp_health_flags = {}
 ---@field _type _unit_health_info
 ---@field unit_id number References: `unit`
 ---@field flags unit_health_flags
----@field body_part_flags unit_bp_health_flags
+---@field body_part_flags unit_bp_health_flags[]
 ---@field try_for_cast_cntdn number
 ---@field immobilize_cntdn number
 ---@field dressing_cntdn number
 ---@field suture_cntdn number
 ---@field crutch_cntdn number
 ---@field get_out_of_traction_diagnosis_timer number
----@field op_history any
----@field syndrome_diagnosis any
+---@field op_history any[]
+---@field syndrome_diagnosis any[]
 
 ---@class _unit_health_info: DFCompound
 ---@field _kind 'struct-type'
@@ -3026,8 +3026,8 @@ df.orientation_flags = {}
 ---@field unk_4 number
 ---@field unk_5 number
 ---@field mental_attrs DFEnumVector<mental_attribute_type, unit_attribute>
----@field skills any
----@field preferences any
+---@field skills unit_skill[]
+---@field preferences unit_preference[]
 ---@field personality unit_personality
 ---@field performance_skills any
 
@@ -3162,24 +3162,24 @@ df.personality_moodst.T_flags = {}
 ---@class (exact) unit_personality: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_personality
----@field values any
----@field ethics any
----@field emotions any bay12: mood
----@field dreams any
+---@field values any[]
+---@field ethics any[]
+---@field emotions personality_moodst[] bay12: mood
+---@field dreams any[]
 ---@field next_dream_id number
----@field unk_v40_6 any
+---@field unk_v40_6 any[]
 ---@field traits DFEnumVector<personality_facet_type, integer>
 ---@field civ_id number References: `historical_entity`
 ---@field cultural_identity number References: `cultural_identity`
----@field mannerism any
----@field habit number
+---@field mannerism any[]
+---@field habit number[]
 ---@field stress number
 ---@field time_without_distress number range 0-806400, higher values cause stress to decrease quicker
 ---@field time_without_eustress number range 0-806400, higher values cause stress to increase quicker
 ---@field likes_outdoors number migrated from misc_traits
 ---@field combat_hardened number migrated from misc_traits
 ---@field outdoor_dislike_counter number incremented when unit is in rain
----@field needs any
+---@field needs any[]
 ---@field flags unit_personality.T_flags
 ---@field temporary_trait_changes any sum of inebriation or so personality changing effects
 ---@field slack_end_year number
@@ -3977,7 +3977,7 @@ function df.unit_chunk.get_vector() end
 ---@class (exact) unit_chunk.T_units: DFObject
 ---@field _kind 'struct'
 ---@field _type _unit_chunk.T_units
----@field items any
+---@field items item[]
 ---@field unit unit
 
 ---@class _unit_chunk.T_units: DFCompound
@@ -3993,17 +3993,17 @@ df.unit_chunk.T_units = {}
 ---@field unk_3 number
 ---@field physical_attributes DFEnumVector<physical_attribute_type, unit_attribute>
 ---@field unk_5 number
----@field body_modifiers number
----@field bp_modifiers number
+---@field body_modifiers number[]
+---@field bp_modifiers number[]
 ---@field unk_8 number
----@field tissue_style number
----@field tissue_style_civ_id number
----@field tissue_style_id number
----@field tissue_style_type number
----@field tissue_length number
----@field appearance_genes integer
----@field color_genes integer
----@field color_modifiers number
+---@field tissue_style number[]
+---@field tissue_style_civ_id number[]
+---@field tissue_style_id number[]
+---@field tissue_style_type number[]
+---@field tissue_length number[]
+---@field appearance_genes integer[]
+---@field color_genes integer[]
+---@field color_modifiers number[]
 ---@field unk_18 number
 ---@field unk_19 number
 
@@ -4033,7 +4033,7 @@ df.work_detail_mode = {}
 ---@field _type _work_detail
 ---@field name string
 ---@field work_detail_flags work_detail.T_work_detail_flags
----@field assigned_units number toady: unid References: `unit`
+---@field assigned_units number[] toady: unid
 ---@field allowed_labors DFEnumVector<unit_labor, boolean> toady: profession
 ---@field icon work_detail.T_icon
 

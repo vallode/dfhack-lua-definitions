@@ -76,7 +76,7 @@ df.machine_conn_modes = {}
 ---@field _kind 'struct'
 ---@field _type _machine_tile_set
 ---@field tiles coord_path
----@field can_connect any
+---@field can_connect machine_conn_modes[]
 
 ---@class _machine_tile_set: DFCompound
 ---@field _kind 'struct-type'
@@ -89,7 +89,7 @@ df.machine_tile_set = {}
 ---@field y number
 ---@field z number
 ---@field id number
----@field components any
+---@field components any[]
 ---@field cur_power number
 ---@field min_power number
 ---@field visual_phase number

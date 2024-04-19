@@ -17,11 +17,11 @@ df.interaction_flags = {}
 ---@field _type _interaction
 ---@field name string
 ---@field id number
----@field str any interaction raws
----@field flags any
----@field sources any I_SOURCE
----@field targets any I_TARGET
----@field effects any I_EFFECT
+---@field str string[] interaction raws
+---@field flags any[]
+---@field sources interaction_source[] I_SOURCE
+---@field targets interaction_target[] I_TARGET
+---@field effects interaction_effect[] I_EFFECT
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
 
@@ -109,10 +109,10 @@ df.interaction_effect_location_hint = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect
 ---@field index number index of the effect within the parent interaction.effects
----@field targets any
----@field targets_index number for each target used in this effect, list the index of that target within the parent interaction.targets
+---@field targets string[]
+---@field targets_index number[] for each target used in this effect, list the index of that target within the parent interaction.targets
 ---@field intermittent number IE_INTERMITTENT, 0 = weekly
----@field locations interaction_effect_location_hint IE_LOCATION
+---@field locations interaction_effect_location_hint[] IE_LOCATION
 ---@field flags interaction_effect.T_flags
 ---@field interaction_id number References: `interaction`
 ---@field arena_name string IE_ARENA_NAME
@@ -136,7 +136,7 @@ df.interaction_effect.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_animatest
 ---@field unk_1 number
----@field syndrome any
+---@field syndrome syndrome[]
 
 ---@class _interaction_effect_animatest: DFCompound
 ---@field _kind 'class-type'
@@ -146,7 +146,7 @@ df.interaction_effect_animatest = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_add_syndromest
 ---@field unk_1 number
----@field syndrome any
+---@field syndrome syndrome[]
 
 ---@class _interaction_effect_add_syndromest: DFCompound
 ---@field _kind 'class-type'
@@ -156,7 +156,7 @@ df.interaction_effect_add_syndromest = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_resurrectst
 ---@field unk_1 number
----@field syndrome any
+---@field syndrome syndrome[]
 
 ---@class _interaction_effect_resurrectst: DFCompound
 ---@field _kind 'class-type'
@@ -224,7 +224,7 @@ df.interaction_effect_change_weatherst = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_effect_raise_ghostst
 ---@field unk_1 number
----@field syndrome any assumed based on vmethod reference
+---@field syndrome syndrome[] assumed based on vmethod reference
 
 ---@class _interaction_effect_raise_ghostst: DFCompound
 ---@field _kind 'class-type'
@@ -268,12 +268,12 @@ df.interaction_effect_propel_unitst = {}
 ---@field make_pet number IE_MAKE_PET_IF_POSSIBLE
 ---@field race_str string CREATURE
 ---@field caste_str string CREATURE
----@field unk_1 number seen 4 bytes allocated
----@field unk_2 number seen 2 bytes allocate
----@field required_creature_flags number contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
----@field forbidden_creature_flags number contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
----@field required_caste_flags number contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
----@field forbidden_caste_flags number contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
+---@field unk_1 number[] seen 4 bytes allocated
+---@field unk_2 number[] seen 2 bytes allocate
+---@field required_creature_flags number[] contains indexes of flags in creature_raw_flags, IE_CREATURE_FLAG
+---@field forbidden_creature_flags number[] contains indexes of flags in creature_raw_flags, IE_FORBIDDEN_CREATURE_FLAG
+---@field required_caste_flags number[] contains indexes of flags in caste_raw_flags, IE_CREATURE_CASTE_FLAG
+---@field forbidden_caste_flags number[] contains indexes of flags in caste_raw_flags, IE_FORBIDDEN_CREATURE_CASTE_FLAG
 ---@field unk_3 number
 ---@field unk_4 number
 ---@field time_range_min number IE_TIME_RANGE
@@ -380,8 +380,8 @@ df.interaction_source_regionst.T_region_flags = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_source_secretst
 ---@field learn_flags interaction_source_secretst.T_learn_flags
----@field spheres any
----@field goals goal_type
+---@field spheres sphere_type[]
+---@field goals goal_type[]
 ---@field book_title_filename string
 ---@field book_name_filename string
 ---@field unk_1 number
@@ -471,7 +471,7 @@ df.interaction_source_usage_hint = {}
 ---@field _kind 'struct'
 ---@field _type _interaction_source_deityst
 ---@field unk_1 number
----@field usage_hint interaction_source_usage_hint IS_USAGE_HINT
+---@field usage_hint interaction_source_usage_hint[] IS_USAGE_HINT
 
 ---@class _interaction_source_deityst: DFCompound
 ---@field _kind 'class-type'
@@ -584,13 +584,13 @@ df.interaction_target = {}
 ---@class (exact) interaction_target_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _interaction_target_info
----@field affected_creature_str any[]
----@field affected_creature number IT_AFFECTED_CREATURE
----@field affected_class any IT_AFFECTED_CLASS
----@field immune_creature_str any[]
----@field immune_creature number IT_IMMUNE_CREATURE
----@field immune_class any IT_IMMUNE_CLASS
----@field forbidden_syndrome_class any
+---@field affected_creature_str string[][]
+---@field affected_creature number[] IT_AFFECTED_CREATURE
+---@field affected_class string[] IT_AFFECTED_CLASS
+---@field immune_creature_str string[][]
+---@field immune_creature number[] IT_IMMUNE_CREATURE
+---@field immune_class string[] IT_IMMUNE_CLASS
+---@field forbidden_syndrome_class string[]
 ---@field requires_1 number IT_REQUIRES
 ---@field requires_2 number IT_REQUIRES
 ---@field forbidden_1 number IT_FORBIDDEN
@@ -741,7 +741,7 @@ df.interaction_target_locationst = {}
 ---@field interaction_id number References: `interaction`
 ---@field unk_1 number
 ---@field region_index number
----@field affected_units number IDs of units affected by the regional interaction References: `unit`
+---@field affected_units number[] IDs of units affected by the regional interaction
 
 ---@class _interaction_instance: DFCompound
 ---@field _kind 'struct-type'

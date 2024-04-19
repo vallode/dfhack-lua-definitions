@@ -634,12 +634,12 @@ df.resource_allotment_specifier_powderst = {}
 ---@field _kind 'struct'
 ---@field _type _resource_allotment_data
 ---@field index number
----@field resource_allotments any[]
+---@field resource_allotments resource_allotment_specifier[][]
 ---@field unk1 number
 ---@field unk2 number
 ---@field unk3 number
 ---@field unk_650 number
----@field unk_654 any
+---@field unk_654 any[]
 
 ---@class _resource_allotment_data: DFCompound
 ---@field _kind 'struct-type'
