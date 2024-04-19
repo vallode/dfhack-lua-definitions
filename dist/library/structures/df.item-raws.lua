@@ -544,10 +544,10 @@ df.itemdef_flags = {}
 ---@field _type _itemdef
 ---@field id string
 ---@field subtype number
----@field base_flags table<itemdef_flags, boolean>
+---@field base_flags DFVector<table<itemdef_flags, boolean>>
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
----@field raw_strings string[]
+---@field raw_strings DFVector<string>
 
 ---@class _itemdef: DFCompound
 ---@field _kind 'class-type'
@@ -575,10 +575,10 @@ df.ammo_flags = {}
 ---@field name_plural string
 ---@field adjective string
 ---@field ammo_class string
----@field flags table<ammo_flags, boolean>
+---@field flags DFVector<table<ammo_flags, boolean>>
 ---@field size number divided by 10
 ---@field value number
----@field attacks weapon_attack[]
+---@field attacks DFVector<weapon_attack>
 ---@field number number[]
 
 ---@class _itemdef_ammost: DFCompound
@@ -652,7 +652,7 @@ df.armor_general_flags = {}
 ---@class (exact) armor_properties: DFObject
 ---@field _kind 'struct'
 ---@field _type _armor_properties
----@field flags table<armor_general_flags, boolean>
+---@field flags DFVector<table<armor_general_flags, boolean>>
 ---@field layer number
 ---@field layer_size number
 ---@field layer_permit number
@@ -691,7 +691,7 @@ df.armor_flags = {}
 ---@field lbstep number
 ---@field material_size number
 ---@field props armor_properties
----@field flags table<armor_flags, boolean>
+---@field flags DFVector<table<armor_flags, boolean>>
 
 ---@class _itemdef_armorst: DFCompound
 ---@field _kind 'class-type'
@@ -749,7 +749,7 @@ df.gloves_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
----@field flags table<gloves_flags, boolean>
+---@field flags DFVector<table<gloves_flags, boolean>>
 ---@field material_size number
 ---@field props armor_properties
 
@@ -789,7 +789,7 @@ df.helm_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
----@field flags table<helm_flags, boolean>
+---@field flags DFVector<table<helm_flags, boolean>>
 ---@field material_size number
 ---@field props armor_properties
 
@@ -858,32 +858,32 @@ df.instrument_flags = {}
 ---@field _type _itemdef_instrumentst
 ---@field name string
 ---@field name_plural string
----@field flags table<instrument_flags, boolean>
+---@field flags DFVector<table<instrument_flags, boolean>>
 ---@field music_skill job_skill
 ---@field size number
 ---@field value number
 ---@field material_size number
----@field pieces instrument_piece[]
+---@field pieces DFVector<instrument_piece>
 ---@field dominant_instrument_piece string
 ---@field pitch_range_min number
 ---@field pitch_range_max number
 ---@field volume_mb_min number
 ---@field volume_mb_max number
----@field sound_production sound_production_type[]
----@field sound_production_parm1 string[]
----@field sound_production_parm2 string[]
----@field unk_100 number[]
----@field unk_110 number[]
----@field pitch_choice pitch_choice_type[]
----@field pitch_choice_parm1 string[]
----@field pitch_choice_parm2 string[]
----@field unk_150 number[]
----@field unk_160 number[]
----@field tuning tuning_type[]
----@field tuning_parm string[]
----@field unk_190 number[]
----@field registers instrument_register[]
----@field timbre timbre_type[]
+---@field sound_production DFVector<sound_production_type>
+---@field sound_production_parm1 DFVector<string>
+---@field sound_production_parm2 DFVector<string>
+---@field unk_100 DFVector<number>
+---@field unk_110 DFVector<number>
+---@field pitch_choice DFVector<pitch_choice_type>
+---@field pitch_choice_parm1 DFVector<string>
+---@field pitch_choice_parm2 DFVector<string>
+---@field unk_150 DFVector<number>
+---@field unk_160 DFVector<number>
+---@field tuning DFVector<tuning_type>
+---@field tuning_parm DFVector<string>
+---@field unk_190 DFVector<number>
+---@field registers DFVector<instrument_register>
+---@field timbre DFVector<timbre_type>
 ---@field description string
 
 ---@class _itemdef_instrumentst: DFCompound
@@ -1381,7 +1381,7 @@ df.instrument_piece.T_flags = {}
 ---@field _type _instrument_register
 ---@field pitch_range_min number
 ---@field pitch_range_max number
----@field timbres timbre_type[]
+---@field timbres DFVector<timbre_type>
 
 ---@class _instrument_register: DFCompound
 ---@field _kind 'struct-type'
@@ -1412,7 +1412,7 @@ df.pants_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
----@field flags table<pants_flags, boolean>
+---@field flags DFVector<table<pants_flags, boolean>>
 ---@field material_size number
 ---@field lbstep number
 ---@field props armor_properties
@@ -1479,7 +1479,7 @@ df.shoes_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
----@field flags table<shoes_flags, boolean>
+---@field flags DFVector<table<shoes_flags, boolean>>
 ---@field material_size number
 ---@field props armor_properties
 
@@ -1732,10 +1732,10 @@ df.tool_uses = {}
 ---@field _type _itemdef_toolst
 ---@field name string
 ---@field name_plural string
----@field flags table<tool_flags, boolean>
+---@field flags DFVector<table<tool_flags, boolean>>
 ---@field value number
 ---@field tile integer
----@field tool_use tool_uses[]
+---@field tool_use DFVector<tool_uses>
 ---@field adjective string
 ---@field size number
 ---@field skill_melee job_skill
@@ -1744,17 +1744,17 @@ df.tool_uses = {}
 ---@field two_handed number
 ---@field minimum_size number
 ---@field material_size number
----@field attacks weapon_attack[]
+---@field attacks DFVector<weapon_attack>
 ---@field shoot_force number
 ---@field shoot_maxvel number
 ---@field container_capacity number
----@field shape_category_str string[]
----@field shape_category number[]
+---@field shape_category_str DFVector<string>
+---@field shape_category DFVector<number>
 ---@field description string
----@field default_improvements any[]
+---@field default_improvements DFVector<any>
 ---@field number number[]
----@field number number[]
----@field number number[]
+---@field number DFVector<number>
+---@field number DFVector<number>
 
 ---@class _itemdef_toolst: DFCompound
 ---@field _kind 'class-type'
@@ -1789,7 +1789,7 @@ df.toy_flags = {}
 ---@field _type _itemdef_toyst
 ---@field name string
 ---@field name_plural string
----@field flags table<toy_flags, boolean>
+---@field flags DFVector<table<toy_flags, boolean>>
 
 ---@class _itemdef_toyst: DFCompound
 ---@field _kind 'class-type'
@@ -1845,8 +1845,8 @@ df.trapcomp_flags = {}
 ---@field value number
 ---@field hits number
 ---@field material_size number
----@field flags table<trapcomp_flags, boolean>
----@field attacks weapon_attack[]
+---@field flags DFVector<table<trapcomp_flags, boolean>>
+---@field attacks DFVector<weapon_attack>
 ---@field number number[]
 
 ---@class _itemdef_trapcompst: DFCompound
@@ -1899,8 +1899,8 @@ df.weapon_flags = {}
 ---@field two_handed number
 ---@field minimum_size number
 ---@field material_size number
----@field flags table<weapon_flags, boolean>
----@field attacks weapon_attack[]
+---@field flags DFVector<table<weapon_flags, boolean>>
+---@field attacks DFVector<weapon_attack>
 ---@field shoot_force number
 ---@field shoot_maxvel number
 ---@field number number[]

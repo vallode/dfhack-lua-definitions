@@ -12,8 +12,10 @@ module DFHackLuaDefinitions
         BitfieldType.new(node)
       when 'class-type', 'struct-type'
         StructType.new(node)
-      when 'container', 'static-array'
+      when 'static-array'
         StaticArray.new(node, path)
+      when 'container'
+        Vector.new(node, path)
       when 'compound'
         case node['ld:subtype']
         when 'bitfield'
@@ -89,16 +91,34 @@ module DFHackLuaDefinitions
       LuaLS.field(@name, @class_name, @comment)
     end
 
+    def to_keys
+      annotation = []
+      annotation << "---@alias #{@class_name}_keys\n"
+      @items.each do |item|
+        annotation << item.to_key_alias
+      end
+      annotation << "\n"
+      annotation.join
+    end
+
+    def to_values
+      annotation = []
+      annotation << "---@alias #{@class_name}_values\n"
+      @items.each do |item|
+        annotation << item.to_value_alias
+      end
+      annotation << "\n"
+      annotation.join
+    end
+
     # TODO: Types with index_enums have bi-directional keys.
     # TODO: Aliases do not support comments for some reason.
     def to_alias
-      annotation = "---@alias #{@class_name}\n"
-
-      @items.each do |item|
-        annotation << item.to_alias
-      end
-
-      annotation
+      annotation = []
+      annotation << "---@alias #{@class_name}\n"
+      annotation << "---| #{@class_name}_keys\n"
+      annotation << "---| #{@class_name}_values\n"
+      annotation.join
     end
 
     def attribute_fields
@@ -126,6 +146,8 @@ module DFHackLuaDefinitions
 
     def render
       annotation = ''
+      annotation << to_keys
+      annotation << to_values
       annotation << to_alias
       annotation << "\n"
       annotation << "-- #{@comment}\n" if @comment
@@ -178,6 +200,14 @@ module DFHackLuaDefinitions
 
       annotation << attributes.join(', ')
       annotation << " }\n"
+    end
+
+    def to_key_alias
+      "---| '\"#{@name}\"'\n"
+    end
+
+    def to_value_alias
+      "---| #{@value}\n"
     end
 
     def to_alias_string
@@ -447,7 +477,7 @@ module DFHackLuaDefinitions
     end
   end
 
-  class StaticArray < Type
+  class Container < Type
     attr_accessor :type
 
     def initialize(node, path = [])
@@ -491,6 +521,25 @@ module DFHackLuaDefinitions
     end
   end
 
+  class StaticArray < Container
+    attr_accessor :type
+
+    def initialize(node, path = [])
+      super(node, path)
+    end
+  end
+
+  class Vector < Container
+    attr_accessor :type
+
+    def initialize(node, path = [])
+      super(node, path)
+
+      @type = @child&.type || @type
+      @type = "DFVector<#{@type}>"
+    end
+  end
+
   # Generic global field.
   class Field < Type
     attr_accessor :type
@@ -529,271 +578,5 @@ module DFHackLuaDefinitions
     def render?
       false
     end
-  end
-end
-
-# Generic XML element.
-class OldXmlNode
-  attr_reader :node
-
-  def initialize(node, parent_type = nil)
-    @node = node
-    @children = node.xpath('*[not(self::comment)]')
-    @has_children = @children.length
-
-    @parent_type = parent_type
-
-    @child_type = child_type
-    @type_name = type_name
-
-    @is_array = array?
-
-    @comment = comment
-    @root_type = root_type
-  end
-
-  def array?
-    %w[stl-vector static-array stl-bit-vector df-flagarray].include?(@node.name)
-  end
-
-  def child_type
-    return if @children.empty? || @node.name == 'vmethod'
-
-    OldXmlNode.parse_type(Field.new(@children.first).type)
-  end
-
-  def type_name
-    OldXmlNode.parse_type(@node['type-name'] || @node['index-enum'] || @node['pointer-type'])
-  end
-
-  def root_type
-    @child_type || @type_name || OldXmlNode.parse_type(@node.name, 'any')
-  end
-
-  def comment
-    if (comment = node.children.at_xpath('./comment'))
-      comment.text.gsub(/\n/, '<br>').strip.gsub(/\s+/, ' ')
-    else
-      @node['comment']
-    end
-  end
-
-  def self.parse_type(string, default = nil)
-    TYPE_MAP.filter { |_, value| value.include?(string) }.keys[0] || default || string
-  end
-
-  def to_field; end
-  def to_annotation; end
-end
-
-# Usually either a <struct-type> or a <class-type> element.
-class StructType < OldXmlNode
-  attr_reader :name
-
-  def initialize(node, parent_type = nil, type_separator = '.T_')
-    super(node, parent_type)
-
-    @name = node['type-name'] || node['name']
-    @parent_type = parent_type
-    @inherits = inherits
-    @type = parent_type ? "#{parent_type}_#{@name}" : @name
-    @type_separator = type_separator
-
-    @nested = 0
-    @child_nodes = children
-  end
-
-  def inherits
-    classes = [node['inherits-from'], node['instance-vector'] ? 'df.instance' : nil].compact.join(', ')
-    classes.empty? ? 'df.class' : classes
-  end
-
-  def children
-    node = @node
-
-    while node.children.length == 1 && !node.children.first.children.empty?
-      @nested += 1
-      node = node.children.first
-    end
-
-    node.children.reject { |child| !child['name'] || %w[virtual-methods vmethod].include?(child.name) }.map do |child|
-      Field.new(child, parent_type: "#{@parent_type + @type_separator if @parent_type}#{@name}")
-    end
-  end
-
-  def render_glue
-    annotation = "---@param key integer\n"
-    annotation << "---@return #{@type}|nil\n"
-    annotation << "function df.#{@parent_type + @type_separator if @parent_type}#{@name}.find(key) end\n\n"
-  end
-
-  def render_self
-    annotation = ''
-    annotation << "---#{@comment}\n" if @comment
-    annotation << "---@class #{@type}#{": #{@inherits}" if @inherits}\n"
-
-    annotation << @child_nodes.map(&:render).join
-
-    annotation << "df.#{@parent_type + @type_separator if @parent_type}#{@name} = {}\n\n"
-    annotation << render_glue if @node['instance-vector']
-    annotation
-  end
-
-  def render_inline
-    annotation = ''
-    annotation << @child_nodes.filter(&:is_inline).map do |child|
-      if %w[enum bitfield].include?(child.node.name)
-        EnumType.new(child.node,
-                     "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-      else
-        StructType.new(child.node,
-                       "#{@parent_type + @type_separator if @parent_type}#{@name}").render
-      end
-    end.join("\n")
-  end
-
-  def render
-    annotation = render_self
-    annotation << render_inline
-  end
-end
-
-class ClassType < StructType
-  def initialize(node, parent_type = nil, type_separator = '.T_')
-    super(node, parent_type, type_separator)
-
-    @methods = methods
-  end
-
-  def methods
-    node.xpath('./virtual-methods').children.select { |method| method['name'] }.map do |method|
-      FunctionType.new(method, "#{@parent_type + '.' if @parent_type}#{@name}")
-    end
-  end
-
-  def render_methods
-    @methods.map(&:render).join
-  end
-
-  def render
-    annotation = render_self
-    annotation << render_methods if @methods.length
-    annotation << render_inline
-  end
-end
-
-# Represents any nested field, always a child of a StructType.
-class Field < OldXmlNode
-  attr_reader :name, :is_inline
-
-  def initialize(node, parent_type: nil, nested: 0)
-    super(node, parent_type)
-
-    @name = node['name']
-    @nested = nested
-
-    @is_inline = inline?
-    @is_container = container?
-
-    @type = type
-    @parsed_comment = parsed_comment
-  end
-
-  def inline?
-    return true if @node.name == 'global-object' && @children.length > 1
-    return false if @children.empty?
-
-    if %w[stl-vector static-array].include?(@node.name)
-      node = @node
-      while node.children.length == 1
-        @nested += 1
-        node = node.children.first
-      end
-
-      return node.children.length >= 1
-    end
-
-    case @node.name
-    when 'pointer'
-      @children.length > 1
-    when 'enum', 'bitfield', 'compound'
-      true
-    end
-  end
-
-  # TODO: Formalize.
-  def container?
-    @node.name == 'stl-vector' && @children.empty? && !@node['pointer-type']
-  end
-
-  def parsed_comment
-    comment = []
-
-    comment.push("References: #{@node['ref-target']}") if @node['ref-target']
-    comment.push(@comment) if @comment
-    comment.join('<br>').prepend(' ') unless comment.empty?
-  end
-
-  def type
-    return "#{@parent_type}_#{@name}#{'[]' * @nested if @is_array}" if @is_inline
-    return 'df.container' if @is_container
-    return "#{@root_type}[]" if @is_array
-
-    @root_type
-  end
-
-  def render
-    "---@field #{@name} #{@type}#{@parsed_comment}\n"
-  end
-end
-
-class FunctionType < Field
-  def initialize(node, parent_type = nil)
-    super(node, parent_type:)
-
-    @return_type = return_type
-  end
-
-  def render
-    annotation = ''
-    annotation << "---#{@comment}\n" if @comment
-
-    if get_parameters
-      get_parameters.each do |paramater|
-        annotation << "---@param #{paramater[0]} #{paramater[1]}#{' ' + paramater[2] if paramater[2]}\n"
-      end
-
-      inline_params = get_parameters.map(&:first).join(', ')
-    end
-
-    annotation << "---@return #{@return_type}\n" if @return_type
-    # annotation << '---@nodiscard' if @return_type
-    annotation << "function df.#{@parent_type + '.' if @parent_type}#{@name}(#{inline_params}) end\n\n"
-  end
-
-  def return_type
-    return_type = OldXmlNode.parse_type(@node['ret-type'], @node['ret-type'])
-
-    if @node.at_css('ret-type')
-      return_field = Field.new(@node.at_css('ret-type'))
-      return_type = return_field.type
-    end
-
-    return_type
-  end
-
-  def get_parameters
-    parameters = []
-
-    return nil unless @has_children
-
-    @children.each_with_index do |child, index|
-      child['name'] = child['name'] || "unk_#{index}"
-      child_field = Field.new(child)
-      name = '_' if RESERVED_KEYWORDS.include?(child_field.name)
-      parameters.push([child_field.name || name, child_field.type, child_field.comment])
-    end
-
-    parameters
   end
 end

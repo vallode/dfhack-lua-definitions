@@ -4,7 +4,7 @@
 ---@class (exact) entity_occasion_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_occasion_info
----@field occasions entity_occasion[]
+---@field occasions DFVector<entity_occasion>
 ---@field next_occasion_id number
 ---@field events number[]
 ---@field count number number of elements used in array above
@@ -27,7 +27,7 @@ df.entity_occasion_info = {}
 ---@field unk_3 number 0-2 seen
 ---@field event number References: `history_event`
 ---@field unk_4 number only seen with unk_3=2, but is usually not set
----@field schedule entity_occasion_schedule[]
+---@field schedule DFVector<entity_occasion_schedule>
 ---@field unk_5 number only value seen
 
 ---@class _entity_occasion: DFCompound
@@ -110,7 +110,7 @@ df.occasion_schedule_type = {}
 ---@field unk_1 number
 ---@field unk_2 number
 ---@field unk_3 number
----@field features entity_occasion_schedule_feature[]
+---@field features DFVector<entity_occasion_schedule_feature>
 ---@field start_year_tick number
 ---@field end_year_tick number
 
@@ -222,7 +222,7 @@ df.entity_occasion_schedule_feature = {}
 ---@field potential_soldiers number
 ---@field combat_aptitude number
 ---@field item_counts DFEnumVector<item_type, number>
----@field created_weapons number[]
+---@field created_weapons DFVector<number>
 ---@field wealth entity_activity_statistics.T_wealth
 ---@field recent_jobs DFEnumVector<job_type, number>[]
 ---@field excavated_tiles number unhidden, subterranean, and excluding map features
@@ -235,17 +235,17 @@ df.entity_occasion_schedule_feature = {}
 ---@field total_executions number
 ---@field num_artifacts number 0.50.01
 ---@field unk_6 number in 0.23, total siegers
----@field discovered_creature_foods boolean[]
----@field discovered_creatures boolean[]
----@field discovered_plant_foods boolean[]
----@field discovered_plants boolean[] allows planting of seeds
+---@field discovered_creature_foods DFVector<boolean>
+---@field discovered_creatures DFVector<boolean>
+---@field discovered_plant_foods DFVector<boolean>
+---@field discovered_plants DFVector<boolean> allows planting of seeds
 ---@field discovered_water_features number
 ---@field discovered_subterranean_features number
 ---@field discovered_chasm_features number unused since 40d
 ---@field discovered_magma_features number
 ---@field discovered_feature_layers number back in 40d, this counted HFS
 ---@field migrant_wave_idx number when >= 2, no migrants
----@field found_minerals number[] Added after 'you have struck' announcement
+---@field found_minerals DFVector<number> Added after 'you have struck' announcement
 ---@field found_misc entity_activity_statistics.T_found_misc
 
 ---@class _entity_activity_statistics: DFCompound
@@ -312,10 +312,10 @@ df.entity_activity_statistics.T_found_misc = {}
 ---@field export_value_total number bay12: goodsvalue_end
 ---@field export_value_personal number bay12: exportvalue_end; excluding foreign-produced items
 ---@field offer_value number bay12: offervalue_end
----@field animals number[] bay12: unitroster
+---@field animals DFVector<number> bay12: unitroster
 ---@field sell_prices entity_sell_prices bay12: tradeagreement
 ---@field buy_prices entity_buy_prices bay12: requestagreement
----@field goods number[] bay12: already_appraised_item_id
+---@field goods DFVector<number> bay12: already_appraised_item_id
 ---@field mood number bay12: tolerance; reflects satisfaction with last trading session
 ---@field haggle_fail_count number
 
@@ -402,7 +402,7 @@ df.caravan_state.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _entity_buy_prices
 ---@field items entity_buy_requests
----@field price number[]
+---@field price DFVector<number>
 
 ---@class _entity_buy_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -411,12 +411,12 @@ df.entity_buy_prices = {}
 ---@class (exact) entity_buy_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_buy_requests
----@field item_type item_type[] guess
----@field item_subtype number[] guess
----@field mat_types number[]
----@field mat_indices number[]
----@field mat_cats job_material_category[]
----@field priority number[]
+---@field item_type DFVector<item_type> guess
+---@field item_subtype DFVector<number> guess
+---@field mat_types DFVector<number>
+---@field mat_indices DFVector<number>
+---@field mat_cats DFVector<job_material_category>
+---@field priority DFVector<number>
 
 ---@class _entity_buy_requests: DFCompound
 ---@field _kind 'struct-type'
@@ -693,7 +693,7 @@ df.entity_sell_category = {}
 ---@field _kind 'struct'
 ---@field _type _entity_sell_prices
 ---@field items entity_sell_requests
----@field price DFEnumVector<entity_sell_category, number[]>
+---@field price DFEnumVector<entity_sell_category, DFVector<number>>
 
 ---@class _entity_sell_prices: DFCompound
 ---@field _kind 'struct-type'
@@ -702,7 +702,7 @@ df.entity_sell_prices = {}
 ---@class (exact) entity_sell_requests: DFObject
 ---@field _kind 'struct'
 ---@field _type _entity_sell_requests
----@field priority DFEnumVector<entity_sell_category, number[]>
+---@field priority DFEnumVector<entity_sell_category, DFVector<number>>
 
 ---@class _entity_sell_requests: DFCompound
 ---@field _kind 'struct-type'
@@ -712,10 +712,10 @@ df.entity_sell_requests = {}
 ---@field _kind 'struct'
 ---@field _type _entity_recipe
 ---@field subtype number References: `itemdef_foodst`
----@field item_types item_type[]
----@field item_subtypes number[]
----@field mat_types number[]
----@field mat_indices number[]
+---@field item_types DFVector<item_type>
+---@field item_subtypes DFVector<number>
+---@field mat_types DFVector<number>
+---@field mat_indices DFVector<number>
 
 ---@class _entity_recipe: DFCompound
 ---@field _kind 'struct-type'
@@ -789,9 +789,9 @@ df.historical_entity_type = {}
 ---@field required_kills number
 ---@field required_battles number
 ---@field required_years_of_membership number
----@field honored number[]
----@field required_position number[]
----@field required_former_position number[]
+---@field honored DFVector<number>
+---@field required_position DFVector<number>
+---@field required_former_position DFVector<number>
 
 ---@class _honors_type: DFCompound
 ---@field _kind 'struct-type'
@@ -855,12 +855,12 @@ df.artifact_claim = {}
 ---@field _type _entity_unk_v47_1
 ---@field unk_v47_1 number seen kobold thieves and goblin snatchers, but not all thieves... seen 1 of several persecuted and expelled References: `historical_figure`
 ---@field unk_v47_2 number some enum?
----@field unk_v47_3 number[] some enum?
----@field agreement number[]
----@field unk_v47_5 number[] boolean?
----@field unk_v47_6 number[]
----@field unk_v47_7 number[]
----@field unk_v47_8 number[]
+---@field unk_v47_3 DFVector<number> some enum?
+---@field agreement DFVector<number>
+---@field unk_v47_5 DFVector<number> boolean?
+---@field unk_v47_6 DFVector<number>
+---@field unk_v47_7 DFVector<number>
+---@field unk_v47_8 DFVector<number>
 ---@field unk_v47_9 number
 
 ---@class _entity_unk_v47_1: DFCompound
@@ -898,9 +898,9 @@ df.world_gen_entity_populationst = {}
 ---@class (exact) world_gen_wandering_groupst: DFObject
 ---@field _kind 'struct'
 ---@field _type _world_gen_wandering_groupst
----@field wanderer historical_figure[]
----@field ent_pop world_gen_entity_populationst[]
----@field rpop world_population[]
+---@field wanderer DFVector<historical_figure>
+---@field ent_pop DFVector<world_gen_entity_populationst>
+---@field rpop DFVector<world_population>
 ---@field ent historical_entity
 ---@field cur_location world_site
 ---@field cur_location_sr world_region
@@ -924,48 +924,48 @@ df.world_gen_wandering_groupst = {}
 ---@field name language_name
 ---@field race number References: `creature_raw`
 ---@field flags historical_entity.T_flags
----@field guild_professions any[] Only seen 1, and only for guilds
----@field entity_links entity_entity_link[]
----@field site_links entity_site_link[]
----@field histfig_ids number[]
----@field populations number[] 1st entry copies to unit.population_id for Adventurer?
----@field nemesis_ids number[]
+---@field guild_professions DFVector<any> Only seen 1, and only for guilds
+---@field entity_links DFVector<entity_entity_link>
+---@field site_links DFVector<entity_site_link>
+---@field histfig_ids DFVector<number>
+---@field populations DFVector<number> 1st entry copies to unit.population_id for Adventurer?
+---@field nemesis_ids DFVector<number>
 ---@field resources historical_entity.T_resources
----@field uniforms entity_uniform[]
+---@field uniforms DFVector<entity_uniform>
 ---@field next_uniform_id number
 ---@field relations historical_entity.T_relations
 ---@field positions historical_entity.T_positions
 ---@field tissue_styles historical_entity.T_tissue_styles
----@field squads number[]
+---@field squads DFVector<number>
 ---@field global_event_knowledge_year number
----@field local_known_events number[] since the above year
+---@field local_known_events DFVector<number> since the above year
 ---@field production_zone_id number not sure what this refers to
 ---@field conquered_site_group_flags historical_entity.T_conquered_site_group_flags
 ---@field worldgen_can_make_guildhall DFEnumVector<town_labor_type, number>
 ---@field training_knowledge any
----@field events entity_event[] -- bay12: rumor_info
+---@field events DFVector<entity_event> -- bay12: rumor_info
 ---@field unk_v40_1a number -- these are part of bay12's rumor_info struct
 ---@field unk_v40_1b number
 ---@field unk_v40_1c number
 ---@field unk_v40_1d number
 ---@field unk_v40_1e number
----@field performed_poetic_forms number[]
----@field performed_musical_forms number[]
----@field performed_dance_forms number[]
----@field performed_scale_id number[]
----@field performed_rhythm_id number[]
----@field well_known_wcid number[] -- wcid == written content ID
+---@field performed_poetic_forms DFVector<number>
+---@field performed_musical_forms DFVector<number>
+---@field performed_dance_forms DFVector<number>
+---@field performed_scale_id DFVector<number>
+---@field performed_rhythm_id DFVector<number>
+---@field well_known_wcid DFVector<number> -- wcid == written content ID
 ---@field occasion_info entity_occasion_info -- bay12: entity_calendarst *calendar
----@field artifact_claims artifact_claim[] sorted on artifact id
----@field honors honors_type[] Only merc companies. Matches #Honors groups in Legends Viewer
+---@field artifact_claims DFVector<artifact_claim> sorted on artifact id
+---@field honors DFVector<honors_type> Only merc companies. Matches #Honors groups in Legends Viewer
 ---@field next_honors_index number
 ---@field equipment_purchases number only seen on military units
 ---@field attack number only seen on military units
 ---@field total_battles number attacks + defenses. Only seen on military units
 ---@field unk_v47_1 any -- bay12: evidence_repository
----@field divination_sets number[] Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
+---@field divination_sets DFVector<number> Guess. Only on religions, but not all. start at 350 and added sequentially in Religion formation order. Last religion # = last divination set index
 ---@field founding_site_government number -- bay12: material_source_enid References: `historical_entity`
----@field meeting_events meeting_event[]
+---@field meeting_events DFVector<meeting_event>
 ---@field activity_stats entity_activity_statistics -- bay12: reportst *lastreport
 ---@field last_report_season number in 0.23, last communicate season
 ---@field last_report_year number in 0.23, last communicate year
@@ -978,21 +978,21 @@ df.world_gen_wandering_groupst = {}
 ---@field dwf_attack_schedule_check_timer number
 ---@field last_petition_year number
 ---@field last_petition_season_count number
----@field armies army[]
----@field army_controllers army_controller[]
----@field hist_figures historical_figure[]
----@field nemesis nemesis_record[]
+---@field armies DFVector<army>
+---@field army_controllers DFVector<army_controller>
+---@field hist_figures DFVector<historical_figure>
+---@field nemesis DFVector<nemesis_record>
 ---@field derived_resources historical_entity.T_derived_resources
----@field assignments_by_type DFEnumVector<entity_position_responsibility, entity_position_assignment[]>
+---@field assignments_by_type DFEnumVector<entity_position_responsibility, DFVector<entity_position_assignment>>
 ---@field claims historical_entity.T_claims
----@field children number[] includes self
+---@field children DFVector<number> includes self
 ---@field metal_proficiency number -- bay12: army_strength_material_bonus
----@field weapon_proficiencies job_skill[]
+---@field weapon_proficiencies DFVector<job_skill>
 ---@field resource_allotment resource_allotment_data -- bay12: production_zonest *production_zone
----@field local_poetic_form poetic_form[]
----@field local_musical_form musical_form[]
----@field local_dance_form dance_form[]
----@field well_known_wc written_content[]
+---@field local_poetic_form DFVector<poetic_form>
+---@field local_musical_form DFVector<musical_form>
+---@field local_dance_form DFVector<dance_form>
+---@field well_known_wc DFVector<written_content>
 ---@field settlement_x number
 ---@field settlement_y number uninitialized
 ---@field settlement_toggled boolean 0
@@ -1000,14 +1000,14 @@ df.world_gen_wandering_groupst = {}
 ---@field region world_region -- Civ entities. Nil for sites.
 ---@field world_gen_army_strength number -- Civ entities. Non pointers for sites.
 ---@field connect_two_site_throttle_time number 0
----@field construct_shortest_con_throttle_stid number[] used during world gen
----@field construct_shortest_con_throttle_time number[] used during world gen
+---@field construct_shortest_con_throttle_stid DFVector<number> used during world gen
+---@field construct_shortest_con_throttle_time DFVector<number> used during world gen
 ---@field snatcher_site_toggle_count number 0
 ---@field war_fatigue number 0
 ---@field army_reeling_attack number 0
 ---@field unkarmy_reeling_defense number 0
----@field attacked_site_id number[] used during world gen
----@field attacked_site_timer number[] used during world gen
+---@field attacked_site_id DFVector<number> used during world gen
+---@field attacked_site_timer DFVector<number> used during world gen
 ---@field did_wg_variable_position number
 ---@field did_wg_variable_market_position number
 ---@field dig_caution_end_year number
@@ -1026,9 +1026,9 @@ df.world_gen_wandering_groupst = {}
 ---@field trade_wanted_amount number[]
 ---@field trade_maximum_buy_price number[]
 ---@field town_labor_hours number[]
----@field world_gen_entity_debt any[] -- bay12: world_gen_entity_debt
+---@field world_gen_entity_debt DFVector<any> -- bay12: world_gen_entity_debt
 ---@field account number
----@field burial_request any[] ?
+---@field burial_request DFVector<any> ?
 ---@field current_wgwg any
 ---@field total_outcast_strength number
 ---@field pool_id integer -- protected --
@@ -1164,60 +1164,60 @@ df.historical_entity.T_flags = {}
 ---@class (exact) historical_entity.T_resources: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources
----@field digger_type number[]
----@field weapon_type number[]
----@field training_weapon_type number[]
----@field armor_type number[]
----@field ammo_type number[]
----@field helm_type number[]
----@field gloves_type number[]
----@field shoes_type number[]
----@field pants_type number[]
----@field shield_type number[]
----@field trapcomp_type number[]
----@field toy_type number[]
----@field instrument_type number[]
----@field siegeammo_type number[]
----@field tool_type number[]
----@field unk_1 number[] -- bay12: reaction_ind
+---@field digger_type DFVector<number>
+---@field weapon_type DFVector<number>
+---@field training_weapon_type DFVector<number>
+---@field armor_type DFVector<number>
+---@field ammo_type DFVector<number>
+---@field helm_type DFVector<number>
+---@field gloves_type DFVector<number>
+---@field shoes_type DFVector<number>
+---@field pants_type DFVector<number>
+---@field shield_type DFVector<number>
+---@field trapcomp_type DFVector<number>
+---@field toy_type DFVector<number>
+---@field instrument_type DFVector<number>
+---@field siegeammo_type DFVector<number>
+---@field tool_type DFVector<number>
+---@field unk_1 DFVector<number> -- bay12: reaction_ind
 ---@field metal historical_entity.T_resources.T_metal
 ---@field organic historical_entity.T_resources.T_organic
----@field metals number[] bars
----@field stones number[] boulders and blocks
----@field gems number[] small and large cut
+---@field metals DFVector<number> bars
+---@field stones DFVector<number> boulders and blocks
+---@field gems DFVector<number> small and large cut
 ---@field refuse historical_entity.T_resources.T_refuse
 ---@field misc_mat historical_entity.T_resources.T_misc_mat
----@field fish_races number[]
----@field fish_castes number[]
----@field egg_races number[]
----@field egg_castes number[]
+---@field fish_races DFVector<number>
+---@field fish_castes DFVector<number>
+---@field egg_races DFVector<number>
+---@field egg_castes DFVector<number>
 ---@field plants material_vec_ref
----@field tree_fruit_plants number[]
----@field tree_fruit_growths number[]
----@field shrub_fruit_plants number[]
----@field shrub_fruit_growths number[]
+---@field tree_fruit_plants DFVector<number>
+---@field tree_fruit_growths DFVector<number>
+---@field shrub_fruit_plants DFVector<number>
+---@field shrub_fruit_growths DFVector<number>
 ---@field seeds material_vec_ref
 ---@field wood_products historical_entity.T_resources.T_wood_products
 ---@field animals historical_entity.T_resources.T_animals
----@field meat_fish_recipes entity_recipe[]
----@field other_recipes entity_recipe[]
+---@field meat_fish_recipes DFVector<entity_recipe>
+---@field other_recipes DFVector<entity_recipe>
 ---@field unk13 historical_entity.T_resources.T_unk13[] in 0.23, these were material/matgloss pairs, never used for anything
----@field unk14 item[] in 0.23, items that would be equipped by the arriving King, never used
+---@field unk14 DFVector<item> in 0.23, items that would be equipped by the arriving King, never used
 ---@field unk15a number in 0.23, minimum temperature
 ---@field unk15b number in 0.23, maximum temperature
 ---@field ethic DFEnumVector<ethic_type, ethic_response>
 ---@field values DFEnumVector<value_type, number>
 ---@field unk_2 number
 ---@field permitted_skill DFEnumVector<job_skill, boolean>
----@field art_image_types number[] 0 = civilization symbol
----@field art_image_ids number[]
----@field art_image_subids number[]
----@field color_ref_type general_ref_type[]
----@field foreground_color_curses curses_color[]
----@field foreground_color_curses_bright boolean[]
----@field background_color_curses curses_color[]
----@field foreground_color number[] foreground color used for the entity symbol in legends mode and the historical maps.
----@field background_color number[] background color used for the entity symbol in legends mode and the historical maps.
+---@field art_image_types DFVector<number> 0 = civilization symbol
+---@field art_image_ids DFVector<number>
+---@field art_image_subids DFVector<number>
+---@field color_ref_type DFVector<general_ref_type>
+---@field foreground_color_curses DFVector<curses_color>
+---@field foreground_color_curses_bright DFVector<boolean>
+---@field background_color_curses DFVector<curses_color>
+---@field foreground_color DFVector<number> foreground color used for the entity symbol in legends mode and the historical maps.
+---@field background_color DFVector<number> background color used for the entity symbol in legends mode and the historical maps.
 
 ---@class _historical_entity.T_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -1295,8 +1295,8 @@ df.historical_entity.T_resources.T_misc_mat = {}
 ---@class (exact) historical_entity.T_resources.T_wood_products: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_wood_products
----@field item_type item_type[]
----@field item_subtype number[]
+---@field item_type DFVector<item_type>
+---@field item_subtype DFVector<number>
 ---@field material material_vec_ref
 
 ---@class _historical_entity.T_resources.T_wood_products: DFCompound
@@ -1306,20 +1306,20 @@ df.historical_entity.T_resources.T_wood_products = {}
 ---@class (exact) historical_entity.T_resources.T_animals: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_resources.T_animals
----@field pet_races number[]
----@field wagon_races number[]
----@field pack_animal_races number[]
----@field wagon_puller_races number[]
----@field mount_races number[]
----@field minion_races number[]
----@field exotic_pet_races number[]
----@field pet_castes number[]
----@field wagon_castes number[]
----@field pack_animal_castes number[]
----@field wagon_puller_castes number[]
----@field mount_castes number[]
----@field minion_castes number[]
----@field exotic_pet_castes number[]
+---@field pet_races DFVector<number>
+---@field wagon_races DFVector<number>
+---@field pack_animal_races DFVector<number>
+---@field wagon_puller_races DFVector<number>
+---@field mount_races DFVector<number>
+---@field minion_races DFVector<number>
+---@field exotic_pet_races DFVector<number>
+---@field pet_castes DFVector<number>
+---@field wagon_castes DFVector<number>
+---@field pack_animal_castes DFVector<number>
+---@field wagon_puller_castes DFVector<number>
+---@field mount_castes DFVector<number>
+---@field minion_castes DFVector<number>
+---@field exotic_pet_castes DFVector<number>
 
 ---@class _historical_entity.T_resources.T_animals: DFCompound
 ---@field _kind 'struct-type'
@@ -1338,18 +1338,18 @@ df.historical_entity.T_resources.T_unk13 = {}
 ---@class (exact) historical_entity.T_relations: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_relations
----@field known_sites number[] only civs and site government. Fresh player site government has empty vector
----@field deities number[]
----@field worship number[] Same length as deities(?). Some kind of relationship strength?
----@field belief_systems number[] In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
----@field constructions any[] only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
----@field diplomacy any[]
+---@field known_sites DFVector<number> only civs and site government. Fresh player site government has empty vector
+---@field deities DFVector<number>
+---@field worship DFVector<number> Same length as deities(?). Some kind of relationship strength?
+---@field belief_systems DFVector<number> In Religion type entities established by prophets after having developed their own belief system, the ID of this belief system is contained here.
+---@field constructions DFVector<any> only civs. Usually pairs for source/destination, with destination lacking path and construction. Construction and second entry can be lacking when destination lost(construction destroyed as well?). Also seen only source entry
+---@field diplomacy DFVector<any>
 ---@field unk33 number Non zero seen only on site governments (not all) and one nomadic group. Small values
----@field unk34a number[] same length as unk34b and unk34c
----@field unk34b number[]
----@field unk34c number[]
----@field position number[] position index (not id)
----@field official number[] holder of office of corresponding position index
+---@field unk34a DFVector<number> same length as unk34b and unk34c
+---@field unk34b DFVector<number>
+---@field unk34c DFVector<number>
+---@field position DFVector<number> position index (not id)
+---@field official DFVector<number> holder of office of corresponding position index
 
 ---@class _historical_entity.T_relations: DFCompound
 ---@field _kind 'struct-type'
@@ -1358,17 +1358,17 @@ df.historical_entity.T_relations = {}
 ---@class (exact) historical_entity.T_positions: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_positions
----@field own entity_position[]
----@field site entity_position[]
----@field conquered_site entity_position[]
+---@field own DFVector<entity_position>
+---@field site DFVector<entity_position>
+---@field conquered_site DFVector<entity_position>
 ---@field next_position_id number
----@field assignments entity_position_assignment[]
+---@field assignments DFVector<entity_position_assignment>
 ---@field next_assignment_id number
----@field possible_evaluate entity_position_assignment[]
----@field possible_succession entity_position_assignment[]
----@field possible_appointable entity_position_assignment[]
----@field possible_elected entity_position_assignment[]
----@field possible_claimable entity_position_assignment[]
+---@field possible_evaluate DFVector<entity_position_assignment>
+---@field possible_succession DFVector<entity_position_assignment>
+---@field possible_appointable DFVector<entity_position_assignment>
+---@field possible_elected DFVector<entity_position_assignment>
+---@field possible_claimable DFVector<entity_position_assignment>
 
 ---@class _historical_entity.T_positions: DFCompound
 ---@field _kind 'struct-type'
@@ -1377,7 +1377,7 @@ df.historical_entity.T_positions = {}
 ---@class (exact) historical_entity.T_tissue_styles: DFObject
 ---@field _kind 'struct'
 ---@field _type _historical_entity.T_tissue_styles
----@field all entity_tissue_style[]
+---@field all DFVector<entity_tissue_style>
 ---@field next_style_id number
 
 ---@class _historical_entity.T_tissue_styles: DFCompound
@@ -1404,36 +1404,36 @@ df.historical_entity.T_conquered_site_group_flags = {}
 ---@field _type _historical_entity.T_derived_resources
 ---@field mill_cookable material_vec_ref
 ---@field mill_dye material_vec_ref
----@field armor_leather number[]
----@field armor_chain number[]
----@field armor_plate number[]
----@field armor_under number[]
----@field armor_over number[]
----@field armor_cover number[]
----@field pants_leather number[]
----@field pants_chain number[]
----@field pants_plate number[]
----@field pants_under number[]
----@field pants_over number[]
----@field pants_cover number[]
----@field helm_leather number[]
----@field helm_chain number[]
----@field helm_plate number[]
----@field helm_under number[]
----@field helm_over number[]
----@field helm_cover number[]
----@field shoes_leather number[]
----@field shoes_chain number[]
----@field shoes_plate number[]
----@field shoes_under number[]
----@field shoes_over number[]
----@field shoes_cover number[]
----@field gloves_leather number[]
----@field gloves_chain number[]
----@field gloves_plate number[]
----@field gloves_under number[]
----@field gloves_over number[]
----@field gloves_cover number[]
+---@field armor_leather DFVector<number>
+---@field armor_chain DFVector<number>
+---@field armor_plate DFVector<number>
+---@field armor_under DFVector<number>
+---@field armor_over DFVector<number>
+---@field armor_cover DFVector<number>
+---@field pants_leather DFVector<number>
+---@field pants_chain DFVector<number>
+---@field pants_plate DFVector<number>
+---@field pants_under DFVector<number>
+---@field pants_over DFVector<number>
+---@field pants_cover DFVector<number>
+---@field helm_leather DFVector<number>
+---@field helm_chain DFVector<number>
+---@field helm_plate DFVector<number>
+---@field helm_under DFVector<number>
+---@field helm_over DFVector<number>
+---@field helm_cover DFVector<number>
+---@field shoes_leather DFVector<number>
+---@field shoes_chain DFVector<number>
+---@field shoes_plate DFVector<number>
+---@field shoes_under DFVector<number>
+---@field shoes_over DFVector<number>
+---@field shoes_cover DFVector<number>
+---@field gloves_leather DFVector<number>
+---@field gloves_chain DFVector<number>
+---@field gloves_plate DFVector<number>
+---@field gloves_under DFVector<number>
+---@field gloves_over DFVector<number>
+---@field gloves_cover DFVector<number>
 
 ---@class _historical_entity.T_derived_resources: DFCompound
 ---@field _kind 'struct-type'
@@ -1454,8 +1454,8 @@ df.historical_entity.T_claims = {}
 ---@field _kind 'struct'
 ---@field _type _entity_tissue_style
 ---@field name string
----@field preferred_shapings number[]
----@field unk_1 number[] maybe probability?
+---@field preferred_shapings DFVector<number>
+---@field unk_1 DFVector<number> maybe probability?
 ---@field maintain_length_min number
 ---@field maintain_length_max number
 ---@field id number
@@ -1644,11 +1644,11 @@ df.entity_position_flags = {}
 ---@field _type _entity_position
 ---@field code string
 ---@field id number
----@field flags table<entity_position_flags, boolean>
----@field allowed_creature number[]
----@field allowed_class string[]
----@field rejected_creature number[]
----@field rejected_class string[]
+---@field flags DFVector<table<entity_position_flags, boolean>>
+---@field allowed_creature DFVector<number>
+---@field allowed_class DFVector<string>
+---@field rejected_creature DFVector<number>
+---@field rejected_class DFVector<string>
 ---@field name string[]
 ---@field name_female string[]
 ---@field name_male string[]
@@ -1658,18 +1658,18 @@ df.entity_position_flags = {}
 ---@field squad string[]
 ---@field land_name string
 ---@field squad_size number
----@field commander_id number[]
----@field commander_civ number[]
----@field commander_types number[]
+---@field commander_id DFVector<number>
+---@field commander_civ DFVector<number>
+---@field commander_types DFVector<number>
 ---@field land_holder number
 ---@field requires_population number
 ---@field unk_1 number
 ---@field precedence number
 ---@field replaced_by number
 ---@field number number
----@field appointed_by number[]
----@field appointed_by_civ number[]
----@field succession_by_position number[]
+---@field appointed_by DFVector<number>
+---@field appointed_by_civ DFVector<number>
+---@field succession_by_position DFVector<number>
 ---@field responsibilities DFEnumVector<entity_position_responsibility, boolean>
 ---@field unk_v50_358 string
 ---@field color number[]
@@ -1706,13 +1706,13 @@ df.entity_position_profile_claimst = {}
 ---@field histfig2 number bay12: last_holder_hfid References: `historical_figure`
 ---@field position_id number position within relevant entity
 ---@field position_vector_idx number bay12: position_cache_index
----@field flags table<integer, boolean> bay12: flag
+---@field flags DFVector<table<integer, boolean>> bay12: flag
 ---@field squad_id number bay12: leads_squad_id References: `squad`
 ---@field st_id number
 ---@field ab_id number
 ---@field vassal_of_entity_id number
 ---@field vassal_of_position_profile_id number
----@field claim entity_position_profile_claimst[] not saved
+---@field claim DFVector<entity_position_profile_claimst> not saved
 ---@field assigned_army_controller_id number unknown size, not initialized or saved
 
 ---@class _entity_position_assignment: DFCompound
@@ -1887,9 +1887,9 @@ df.entity_uniform_item = {}
 ---@field _type _entity_uniform
 ---@field id number
 ---@field unk_4 number
----@field uniform_item_types DFEnumVector<uniform_category, item_type[]>
----@field uniform_item_subtypes DFEnumVector<uniform_category, number[]>
----@field uniform_item_info DFEnumVector<uniform_category, entity_uniform_item[]>
+---@field uniform_item_types DFEnumVector<uniform_category, DFVector<item_type>>
+---@field uniform_item_subtypes DFEnumVector<uniform_category, DFVector<number>>
+---@field uniform_item_info DFEnumVector<uniform_category, DFVector<entity_uniform_item>>
 ---@field name string
 ---@field flags uniform_flags
 
@@ -2523,9 +2523,9 @@ df.entity_event.T_data.T_artifact_destroyed = {}
 ---@field _kind 'struct'
 ---@field _type _agreement
 ---@field id number
----@field parties agreement_party[]
+---@field parties DFVector<agreement_party>
 ---@field next_party_id number
----@field details agreement_details[]
+---@field details DFVector<agreement_details>
 ---@field next_details_id number
 ---@field unk_1 number
 ---@field unk_2 number
@@ -2563,9 +2563,9 @@ df.agreement.T_flags = {}
 ---@field _kind 'struct'
 ---@field _type _agreement_party
 ---@field id number
----@field histfig_ids number[]
----@field entity_ids number[]
----@field unk_1 any[]
+---@field histfig_ids DFVector<number>
+---@field entity_ids DFVector<number>
+---@field unk_1 DFVector<any>
 
 ---@class _agreement_party: DFCompound
 ---@field _kind 'struct-type'
@@ -2843,7 +2843,7 @@ df.agreement_details_data_plot_steal_artifact = {}
 ---@field actor_index number agreement.parties index
 ---@field promisee_index number agreement.parties index
 ---@field influencer_index number agreement.parties index. May be swapped with beneficiary
----@field intermediary_indices number[] agreement.parties index
+---@field intermediary_indices DFVector<number> agreement.parties index
 ---@field entity_id number References: `historical_entity`
 
 ---@class _agreement_details_data_promise_position: DFCompound
@@ -2891,7 +2891,7 @@ df.agreement_details_data_plot_sabotage = {}
 ---@class (exact) agreement_details_data_plot_conviction: DFObject
 ---@field _kind 'struct'
 ---@field _type _agreement_details_data_plot_conviction
----@field criminal_indices number[] agreement.parties index. All indices listed, regardless of confessions
+---@field criminal_indices DFVector<number> agreement.parties index. All indices listed, regardless of confessions
 ---@field crime crime_type
 
 ---@class _agreement_details_data_plot_conviction: DFCompound

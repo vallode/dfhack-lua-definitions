@@ -355,8 +355,8 @@ df.plant_raw_flags = {}
 ---@field _type _plant_raw
 ---@field id string
 ---@field index number
----@field raws string[]
----@field flags table<plant_raw_flags, boolean>
+---@field raws DFVector<string>
+---@field flags DFVector<table<plant_raw_flags, boolean>>
 ---@field name string
 ---@field name_plural string
 ---@field adj string
@@ -378,12 +378,12 @@ df.plant_raw_flags = {}
 ---@field sapling_drown_level number
 ---@field frequency number
 ---@field clustersize number
----@field prefstring string[]
----@field material material[]
+---@field prefstring DFVector<string>
+---@field material DFVector<material>
 ---@field material_defs plant_raw.T_material_defs
 ---@field underground_depth_min number
 ---@field underground_depth_max number
----@field growths plant_growth[]
+---@field growths DFVector<plant_growth>
 ---@field root_name string
 ---@field trunk_name string
 ---@field heavy_branch_name string
@@ -403,8 +403,8 @@ df.plant_raw_flags = {}
 ---@field cap_radius number
 ---@field root_density number
 ---@field root_radius number
----@field stockpile_growths number[] indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
----@field stockpile_growth_flags plant_raw.T_stockpile_growth_flags[]
+---@field stockpile_growths DFVector<number> indices of edible growths that are marked with STOCKPILE_PLANT_GROWTH
+---@field stockpile_growth_flags DFVector<plant_raw.T_stockpile_growth_flags>
 
 ---@class _plant_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -543,7 +543,7 @@ df.plant_material_def = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field prints plant_growth_print[]
+---@field prints DFVector<plant_growth_print>
 ---@field unk_v50_1 number
 ---@field unk_v50_2 number
 ---@field unk_v50_3 number

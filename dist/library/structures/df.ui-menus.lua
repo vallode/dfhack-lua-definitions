@@ -6,10 +6,10 @@
 ---@field _kind 'struct'
 ---@field _type _ui_build_item_req
 ---@field filter job_item_filter
----@field candidates item[]
----@field candidate_selected boolean[]
----@field unk_a0 number[]
----@field candidate_enabled boolean[]
+---@field candidates DFVector<item>
+---@field candidate_selected DFVector<boolean>
+---@field unk_a0 DFVector<number>
+---@field candidate_enabled DFVector<boolean>
 ---@field count_required number
 ---@field count_max number if 0, fixed at required
 ---@field count_provided number
@@ -54,7 +54,7 @@ df.build_req_choicest = {}
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field candidates number[]
+---@field candidates DFVector<number>
 ---@field used_count number
 ---@field unk_1 boolean
 
@@ -75,8 +75,8 @@ df.build_req_choice_specst = {}
 ---@class (exact) buildreq: DFObject
 ---@field _kind 'struct'
 ---@field _type _buildreq
----@field requirements ui_build_item_req[]
----@field choices build_req_choicest[]
+---@field requirements DFVector<ui_build_item_req>
+---@field choices DFVector<build_req_choicest>
 ---@field building_type building_type if -1, in Build menu; otherwise select item
 ---@field building_subtype number
 ---@field custom_type number References: `building_def`
@@ -84,16 +84,16 @@ df.build_req_choice_specst = {}
 ---@field req_index number
 ---@field sel_index number
 ---@field is_grouped number
----@field errors string[]
----@field unk4 string[]
+---@field errors DFVector<string>
+---@field unk4 DFVector<string>
 ---@field tiles number[][]
 ---@field cur_walk_tag number
 ---@field plate_info pressure_plate_info
----@field min_weight_races number[]
----@field max_weight_races number[]
----@field number number[]
----@field number number[]
----@field number number[]
+---@field min_weight_races DFVector<number>
+---@field max_weight_races DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
 ---@field friction number
 ---@field use_dump number
 ---@field dump_x_shift number
@@ -103,7 +103,7 @@ df.build_req_choice_specst = {}
 ---@field direction number
 ---@field selection_pos coord
 ---@field selection_area number
----@field number number[]
+---@field number DFVector<number>
 
 ---@class _buildreq: DFCompound
 ---@field _kind 'class-type'
@@ -388,7 +388,7 @@ df.construction_interface_page_status_type = {}
 ---@field _kind 'struct'
 ---@field _type _construction_interface_pagest
 ---@field category construction_category_type
----@field bb_button bb_buttonst[]
+---@field bb_button DFVector<bb_buttonst>
 ---@field last_main_sx number
 ---@field last_main_ex number
 ---@field last_main_sy number
@@ -2486,10 +2486,10 @@ df.labor_kitchen_interface_type_filter = {}
 ---@field _kind 'struct'
 ---@field _type _labor_kitchen_interfacest
 ---@field current_category kitchen_pref_category_type
----@field known labor_kitchen_interface_food_value[] std::unordered_map<labor_kitchen_interface_food_key,labor_kitchen_interface_food_value>
----@field sorting_by labor_kitchen_interface_food_sort_entry[]
----@field ascending_sort number[] std::unordered_map<std::string,bool>
----@field filter_func any[][]
+---@field known DFVector<labor_kitchen_interface_food_value> std::unordered_map<labor_kitchen_interface_food_key,labor_kitchen_interface_food_value>
+---@field sorting_by DFVector<labor_kitchen_interface_food_sort_entry>
+---@field ascending_sort DFVector<number> std::unordered_map<std::string,bool>
+---@field filter_func DFVector<DFVector<any[]>>
 ---@field filter_str string
 ---@field filter_type labor_kitchen_interface_type_filter
 ---@field filter_perm integer
@@ -2504,8 +2504,8 @@ df.labor_kitchen_interfacest = {}
 ---@field _kind 'struct'
 ---@field _type _labor_standing_orders_interfacest
 ---@field current_category standing_orders_category_type
----@field unit unit[]
----@field labor_list number[]
+---@field unit DFVector<unit>
+---@field labor_list DFVector<number>
 ---@field scrolling_labor_list boolean
 ---@field scroll_position_units number
 ---@field scrolling_units boolean
@@ -2518,9 +2518,9 @@ df.labor_standing_orders_interfacest = {}
 ---@field _kind 'struct'
 ---@field _type _labor_stone_use_interfacest
 ---@field current_category stone_use_category_type
----@field stone_mg_index DFEnumVector<stone_use_category_type, number[]>
----@field stone_restriction_p DFEnumVector<stone_use_category_type, number[]>
----@field stone_item_use_str string[]
+---@field stone_mg_index DFEnumVector<stone_use_category_type, DFVector<number>>
+---@field stone_restriction_p DFEnumVector<stone_use_category_type, DFVector<number>>
+---@field stone_item_use_str DFVector<string>
 ---@field scroll_position DFEnumVector<stone_use_category_type, number>
 ---@field scrolling DFEnumVector<stone_use_category_type, boolean>
 
@@ -2531,10 +2531,10 @@ df.labor_stone_use_interfacest = {}
 ---@class (exact) labor_interfacest: DFObject, widget_container
 ---@field _kind 'struct'
 ---@field _type _labor_interfacest
----@field work_details labor_work_details_interfacest[]
----@field standing_orders labor_standing_orders_interfacest[]
----@field kitchen labor_kitchen_interfacest[]
----@field stone_use labor_stone_use_interfacest[]
+---@field work_details DFVector<labor_work_details_interfacest>
+---@field standing_orders DFVector<labor_standing_orders_interfacest>
+---@field kitchen DFVector<labor_kitchen_interfacest>
+---@field stone_use DFVector<labor_stone_use_interfacest>
 
 ---@class _labor_interfacest: DFCompound
 ---@field _kind 'class-type'
@@ -2561,31 +2561,31 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field current_mode justice_interface_mode_type
 ---@field cage_chain_needed number
 ---@field cage_chain_count number
----@field cri_fortress_guard cri_unitst[]
+---@field cri_fortress_guard DFVector<cri_unitst>
 ---@field scroll_position_fortress_guard number
 ---@field scrolling_fortress_guard boolean
 ---@field sorting_guard_nameprof boolean
 ---@field sorting_guard_nameprof_is_ascending boolean
 ---@field sorting_guard_nameprof_doing_name boolean
 ---@field sorting_guard_nameprof_doing_prof boolean
----@field convicts unit[]
+---@field convicts DFVector<unit>
 ---@field selected_convict unit
----@field convict_crime crime[]
+---@field convict_crime DFVector<crime>
 ---@field convict_lawaction any lawactionst
 ---@field convicting boolean
 ---@field interrogating boolean
----@field interrogation_list_flag integer[]
----@field interrogation_report_box string[]
+---@field interrogation_list_flag DFVector<integer>
+---@field interrogation_report_box DFVector<string>
 ---@field interrogation_report_box_width number
----@field interrogation_report any[] interrogation_reportst
+---@field interrogation_report DFVector<any[]> interrogation_reportst
 ---@field viewing_interrogation_report any interrogation_reportst
 ---@field scroll_position_interrogation_list number
 ---@field scrolling_interrogation_list boolean
 ---@field scroll_position_interrogation_report number
 ---@field scrolling_interrogation_report boolean
----@field base_actor_entry actor_entryst[]
----@field base_organization_entry organization_entryst[]
----@field base_plot_entry plot_entryst[]
+---@field base_actor_entry DFVector<actor_entryst>
+---@field base_organization_entry DFVector<organization_entryst>
+---@field base_plot_entry DFVector<plot_entryst>
 ---@field counterintelligence_mode counterintelligence_mode_type
 ---@field counterintelligence_selected number
 ---@field counterintelligence_filter_str string
@@ -2593,15 +2593,15 @@ df.justice_screen_interrogation_list_flag = {}
 ---@field selected_counterintelligence_oen any organization_entry_nodest
 ---@field scroll_position_counterintelligence number
 ---@field scrolling_counterintelligence boolean
----@field value_actor_entry actor_entryst[]
----@field value_organization_entry organization_entryst[]
----@field value_plot_entry plot_entryst[]
----@field actor_entry actor_entryst[]
----@field organization_entry organization_entryst[]
----@field plot_entry plot_entryst[]
----@field crimevals number[] std::unordered_map<unitst *,int32_t>
----@field crimeflag justice_screen_interrogation_list_flag[] std::unordered_map<unitst *,int32_t>
----@field guardvals number[] std::unordered_map<unitst *,int32_t>
+---@field value_actor_entry DFVector<actor_entryst>
+---@field value_organization_entry DFVector<organization_entryst>
+---@field value_plot_entry DFVector<plot_entryst>
+---@field actor_entry DFVector<actor_entryst>
+---@field organization_entry DFVector<organization_entryst>
+---@field plot_entry DFVector<plot_entryst>
+---@field crimevals DFVector<number> std::unordered_map<unitst *,int32_t>
+---@field crimeflag DFVector<justice_screen_interrogation_list_flag> std::unordered_map<unitst *,int32_t>
+---@field guardvals DFVector<number> std::unordered_map<unitst *,int32_t>
 ---@field do_init boolean
 
 ---@class _justice_interfacest: DFCompound
@@ -2629,7 +2629,7 @@ df.info_interfacest = {}
 ---@class (exact) info_interfacest.T_jobs: DFObject
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_jobs
----@field cri_job cri_unitst[]
+---@field cri_job DFVector<cri_unitst>
 ---@field scrolling_cri_job boolean
 ---@field scroll_position_cri_job number
 
@@ -2641,7 +2641,7 @@ df.info_interfacest.T_jobs = {}
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_buildings
 ---@field mode buildings_mode_type
----@field list DFEnumVector<buildings_mode_type, building[]>
+---@field list DFEnumVector<buildings_mode_type, DFVector<building>>
 ---@field scrolling_position DFEnumVector<buildings_mode_type, number>
 ---@field scrolling DFEnumVector<buildings_mode_type, boolean>
 
@@ -2671,29 +2671,29 @@ df.info_interfacest.T_work_orders = {}
 ---@field _type _info_interfacest.T_work_orders.T_conditions
 ---@field open boolean
 ---@field wq manager_order
----@field item_condition_satisfied any[]
----@field order_condition_satisfied any[]
+---@field item_condition_satisfied DFVector<any[]>
+---@field order_condition_satisfied DFVector<any[]>
 ---@field scroll_position_conditions number
 ---@field scrolling_conditions boolean
----@field suggested_item_condition any[] workquota_item_conditionst
+---@field suggested_item_condition DFVector<any[]> workquota_item_conditionst
 ---@field scroll_position_suggested number
 ---@field scrolling_suggested boolean
 ---@field filter string
----@field compare_master string[]
+---@field compare_master DFVector<string>
 ---@field change_type number
 ---@field change_wqc any workquota_item_conditions
 ---@field scroll_position_change number
 ---@field scrolling_change number
----@field item_type_master number[]
----@field item_subtype_master number[]
----@field item_type_on any[]
----@field item_material_master number[]
----@field item_matgloss_master number[]
----@field item_matstate_master number[]
----@field item_material_on any[]
----@field item_trait_master wqc_item_traitst[]
+---@field item_type_master DFVector<number>
+---@field item_subtype_master DFVector<number>
+---@field item_type_on DFVector<any[]>
+---@field item_material_master DFVector<number>
+---@field item_matgloss_master DFVector<number>
+---@field item_matstate_master DFVector<number>
+---@field item_material_on DFVector<any[]>
+---@field item_trait_master DFVector<wqc_item_traitst>
 ---@field selecting_order_condition boolean
----@field condition_wq manager_order[]
+---@field condition_wq DFVector<manager_order>
 ---@field scroll_position_condition_wq number
 ---@field scrolling_condition_wq boolean
 ---@field entering_logic_number boolean
@@ -2707,27 +2707,27 @@ df.info_interfacest.T_work_orders.T_conditions = {}
 ---@class (exact) info_interfacest.T_administrators: DFObject
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_administrators
----@field noblelist any[]
----@field spec_prof entity_position_assignment[]
----@field spec_hfid number[]
----@field spec_enid number[]
+---@field noblelist DFVector<any>
+---@field spec_prof DFVector<entity_position_assignment>
+---@field spec_hfid DFVector<number>
+---@field spec_enid DFVector<number>
 ---@field scroll_position_noblelist number
 ---@field scrolling_noblelist boolean
----@field desc_hover_text string[]
+---@field desc_hover_text DFVector<string>
 ---@field last_hover_width number
 ---@field last_hover_entity_id number
 ---@field last_hover_ep_id number
 ---@field choosing_candidate boolean
 ---@field candidate_noblelist_ind number
----@field candidate any[]
+---@field candidate DFVector<any>
 ---@field scroll_position_candidate number
 ---@field scrolling_candidate boolean
 ---@field assigning_symbol boolean
 ---@field symbol_noblelist_ind number
----@field cand_symbol item[]
----@field cand_symbol_new_ind number[]
----@field cand_symbol_is_symbol_of_ind number[]
----@field cand_symbol_value number[]
+---@field cand_symbol DFVector<item>
+---@field cand_symbol_new_ind DFVector<number>
+---@field cand_symbol_is_symbol_of_ind DFVector<number>
+---@field cand_symbol_value DFVector<number>
 ---@field scroll_position_symbol number
 ---@field scrolling_symbol boolean
 ---@field handling_symbol_closure_ind number
@@ -2740,7 +2740,7 @@ df.info_interfacest.T_administrators = {}
 ---@field _kind 'struct'
 ---@field _type _info_interfacest.T_artifacts
 ---@field mode artifacts_mode_type
----@field list DFEnumVector<artifacts_mode_type, artifact_record[]>
+---@field list DFEnumVector<artifacts_mode_type, DFVector<artifact_record>>
 ---@field scroll_position DFEnumVector<artifacts_mode_type, number>
 ---@field scrolling DFEnumVector<artifacts_mode_type, boolean>
 
@@ -2808,26 +2808,26 @@ df.announcements_interfacest = {}
 ---@field settings main_interface_settings
 ---@field arena_unit main_interface.T_arena_unit
 ---@field arena_tree main_interface.T_arena_tree
----@field viewunit_list number[]
+---@field viewunit_list DFVector<number>
 ---@field exporting_local number
 ---@field mouse_zone number
----@field skill_ind number[] -- formerly unit_skills
----@field pract_type number[]
----@field pract_ind number[]
+---@field skill_ind DFVector<number> -- formerly unit_skills
+---@field pract_type DFVector<number>
+---@field pract_ind DFVector<number>
 ---@field skill_combat boolean
 ---@field skill_labor boolean
 ---@field skill_misc boolean
 ---@field barracks_selected_squad_ind number -- formerly barracks
----@field barracks_squad squad[]
----@field barracks_squad_flag number[]
+---@field barracks_squad DFVector<squad>
+---@field barracks_squad_flag DFVector<number>
 ---@field entering_building_name boolean
 ---@field assigning_position boolean
 ---@field ap_squad squad
 ---@field ap_sel number
 ---@field assigning_position_squad boolean
----@field ap_squad_list squad[]
+---@field ap_squad_list DFVector<squad>
 ---@field ap_squad_sel number
----@field pref_occupation occupation[]
+---@field pref_occupation DFVector<occupation>
 ---@field selected_pref_occupation number
 ---@field main_designation_selected main_designation_type
 ---@field main_designation_doing_rectangles boolean
@@ -2843,19 +2843,19 @@ df.announcements_interfacest = {}
 ---@field current_hover_replace_minimap boolean
 ---@field current_hover_left_x number
 ---@field current_hover_bot_y number
----@field hover_instruction string[][]
+---@field hover_instruction DFVector<string>[]
 ---@field last_displayed_hover_inst number
 ---@field last_displayed_hover_id1 number
 ---@field last_displayed_hover_id2 number
 ---@field last_displayed_hover_id3 number
 ---@field hover_announcement_alert popup_message
----@field hover_announcement_alert_text string[]
----@field hover_announcement_alert_color number[]
----@field hover_announcement_alert_bright number[]
+---@field hover_announcement_alert_text DFVector<string>
+---@field hover_announcement_alert_color DFVector<number>
+---@field hover_announcement_alert_bright DFVector<number>
 ---@field hover_announcement_alert_width number
----@field hover_announcement_alert_button_text string[]
----@field hover_announcement_alert_button_color number[]
----@field hover_announcement_alert_button_bright number[]
+---@field hover_announcement_alert_button_text DFVector<string>
+---@field hover_announcement_alert_button_color DFVector<number>
+---@field hover_announcement_alert_button_bright DFVector<number>
 ---@field hover_announcement_alert_button_width number
 ---@field last_hover_click_update integer
 ---@field last_hover_m coord
@@ -2904,16 +2904,16 @@ df.main_interface.T_designation = {}
 ---@class (exact) main_interface.T_building: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_building
----@field button interface_button[]
----@field press_button interface_button[]
----@field filtered_button interface_button[]
+---@field button DFVector<interface_button>
+---@field press_button DFVector<interface_button>
+---@field filtered_button DFVector<interface_button>
 ---@field selected number
 ---@field category interface_category_building
 ---@field material number References: `material`
 ---@field matgloss number
 ---@field job_item_flag job_material_category
 ---@field current_custom_category_token string
----@field current_tool_tip string[]
+---@field current_tool_tip DFVector<string>
 
 ---@class _main_interface.T_building: DFCompound
 ---@field _kind 'struct-type'
@@ -2922,11 +2922,11 @@ df.main_interface.T_building = {}
 ---@class (exact) main_interface.T_construction: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_construction
----@field button interface_button[]
----@field press_button interface_button[]
+---@field button DFVector<interface_button>
+---@field press_button DFVector<interface_button>
 ---@field category interface_category_construction
 ---@field selected number
----@field page construction_interface_pagest[]
+---@field page DFVector<construction_interface_pagest>
 ---@field max_height number
 ---@field total_width number
 ---@field must_update_buttons boolean
@@ -2954,8 +2954,8 @@ df.main_interface.T_construction = {}
 ---@field erasing boolean
 ---@field adding_new_type number
 ---@field cur_bld building_civzonest
----@field list building_civzonest[]
----@field zone_just_created building_civzonest[]
+---@field list DFVector<building_civzonest>
+---@field zone_just_created DFVector<building_civzonest>
 ---@field furniture_rejected_in_use number
 ---@field furniture_rejected_not_enclosed number
 ---@field repainting number
@@ -2982,17 +2982,17 @@ df.main_interface.T_burrow = {}
 ---@class (exact) main_interface.T_view: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_view
----@field inv unit_inventory_item[]
----@field contam spatter[]
----@field guest_text any[]
+---@field inv DFVector<unit_inventory_item>
+---@field contam DFVector<spatter>
+---@field guest_text DFVector<any[]>
 ---@field uniform_selection boolean
 ---@field selected_uniform number
 ---@field selected_squad number
----@field squad_list_sq squad[]
----@field squad_list_ep entity_position[]
----@field squad_list_epp entity_position_assignment[]
----@field squad_list_has_subord_pos any[]
----@field squad_list_add_index number[]
+---@field squad_list_sq DFVector<squad>
+---@field squad_list_ep DFVector<entity_position>
+---@field squad_list_epp DFVector<entity_position_assignment>
+---@field squad_list_has_subord_pos DFVector<any[]>
+---@field squad_list_add_index DFVector<number>
 ---@field create_ep entity_position
 ---@field create_epp entity_position_assignment
 ---@field create_sub_ep entity_position
@@ -3001,8 +3001,8 @@ df.main_interface.T_burrow = {}
 ---@field have_calced_info boolean
 ---@field naming_squad boolean
 ---@field name_squad squad
----@field expel_total_list unit[]
----@field expel_outskirt_list world_site[]
+---@field expel_total_list DFVector<unit>
+---@field expel_outskirt_list DFVector<world_site>
 ---@field expel_outskirt_list_selected number
 ---@field expel_selecting_destination number
 ---@field expel_cannot_expel_reason cannot_expel_reason_type
@@ -3027,15 +3027,15 @@ df.main_interface.T_hospital = {}
 ---@class (exact) main_interface.T_location_list: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_location_list
----@field valid_ab abstract_building[]
+---@field valid_ab DFVector<abstract_building>
 ---@field selected_ab number
----@field valid_religious_practice temple_deity_type[]
----@field valid_religious_practice_id temple_deity_data[]
+---@field valid_religious_practice DFVector<temple_deity_type>
+---@field valid_religious_practice_id DFVector<temple_deity_data>
 ---@field selected_religious_practice number
 ---@field choosing_location_type boolean
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
----@field valid_craft_guild_type profession[]
+---@field valid_craft_guild_type DFVector<profession>
 ---@field selected_craft_guild number
 
 ---@class _main_interface.T_location_list: DFCompound
@@ -3051,29 +3051,29 @@ df.main_interface.T_location_list = {}
 ---@field wq manager_order
 ---@field current_option job_details_option_type
 ---@field current_option_index number
----@field option job_details_option_type[]
----@field option_index number[]
+---@field option DFVector<job_details_option_type>
+---@field option_index DFVector<number>
 ---@field scroll_position_option number
 ---@field scrolling_option boolean
 ---@field search coord
 ---@field bld building
----@field material number[]
----@field matgloss number[]
----@field material_count number[]
----@field material_master number[]
----@field matgloss_master number[]
----@field material_count_master number[]
+---@field material DFVector<number>
+---@field matgloss DFVector<number>
+---@field material_count DFVector<number>
+---@field material_master DFVector<number>
+---@field matgloss_master DFVector<number>
+---@field material_count_master DFVector<number>
 ---@field scroll_position_material number
 ---@field scrolling_material boolean
 ---@field material_filter string
 ---@field material_doing_filter boolean
----@field clothing_size_race_index number[] race id
----@field clothing_size_race_index_master number[] race id
+---@field clothing_size_race_index DFVector<number> race id
+---@field clothing_size_race_index_master DFVector<number> race id
 ---@field scroll_position_race number
 ---@field scrolling_race boolean
 ---@field clothing_size_race_filter string
 ---@field clothing_size_race_doing_filter boolean
----@field improvement_type improvement_type[]
+---@field improvement_type DFVector<improvement_type>
 ---@field scroll_position_improvement number
 ---@field scrolling_improvement boolean
 
@@ -3096,8 +3096,8 @@ df.main_interface.T_buildjob = {}
 ---@field _type _main_interface.T_assign_trade
 ---@field open boolean
 ---@field trade_depot_bld building_tradedepotst
----@field type_list number[]
----@field filtered_type_list number[]
+---@field type_list DFVector<number>
+---@field filtered_type_list DFVector<number>
 ---@field current_type item_type
 ---@field scroll_position_type number
 ---@field scroll_position_item number
@@ -3105,24 +3105,24 @@ df.main_interface.T_buildjob = {}
 ---@field scrolling_item boolean
 ---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount number[]
----@field badamount number[]
----@field unk_a8 any[]
----@field unk_c0 number[]
----@field unk_d8 number[]
----@field unk_f0 number[]
----@field unk_108 number[]
----@field unk_120 number[]
----@field unk_138 any[]
+---@field storeamount DFVector<number>
+---@field badamount DFVector<number>
+---@field unk_a8 DFVector<any>
+---@field unk_c0 DFVector<number>
+---@field unk_d8 DFVector<number>
+---@field unk_f0 DFVector<number>
+---@field unk_108 DFVector<number>
+---@field unk_120 DFVector<number>
+---@field unk_138 DFVector<any[]>
 ---@field i_height number
----@field current_type_tgi any[]
----@field current_type_a_subtype number[]
----@field current_type_a_subcat1 number[]
----@field current_type_a_subcat2 number[]
----@field current_type_a_amount number[]
----@field current_type_a_expanded any[]
----@field current_type_a_on any[]
----@field current_type_a_flag integer[]
+---@field current_type_tgi DFVector<any[]>
+---@field current_type_a_subtype DFVector<number>
+---@field current_type_a_subcat1 DFVector<number>
+---@field current_type_a_subcat2 DFVector<number>
+---@field current_type_a_amount DFVector<number>
+---@field current_type_a_expanded DFVector<any[]>
+---@field current_type_a_on DFVector<any[]>
+---@field current_type_a_flag DFVector<integer>
 ---@field sort_by_distance boolean
 ---@field pending_on_top boolean
 ---@field exclude_prohib boolean
@@ -3136,7 +3136,7 @@ df.main_interface.T_assign_trade = {}
 ---@field _type _main_interface.T_trade
 ---@field open boolean
 ---@field choosing_merchant boolean
----@field merlist caravan_state[]
+---@field merlist DFVector<caravan_state>
 ---@field scroll_position_merlist number
 ---@field scrolling_merlist boolean
 ---@field title string
@@ -3151,18 +3151,18 @@ df.main_interface.T_assign_trade = {}
 ---@field havetalker number
 ---@field merchant_trader unit
 ---@field fortress_trader unit
----@field good item[][]
----@field goodflag integer[][]
----@field good_amount number[][]
+---@field good DFVector<item>[]
+---@field goodflag DFVector<integer>[]
+---@field good_amount DFVector<number>[]
 ---@field i_height number[]
----@field master_type_a_type number[][]
----@field master_type_a_subtype number[][]
----@field master_type_a_expanded any[][]
----@field current_type_a_type number[][]
----@field current_type_a_subtype number[][]
----@field current_type_a_expanded any[][]
----@field current_type_a_on any[][]
----@field current_type_a_flag integer[][]
+---@field master_type_a_type DFVector<number>[]
+---@field master_type_a_subtype DFVector<number>[]
+---@field master_type_a_expanded DFVector<any[]>[]
+---@field current_type_a_type DFVector<number>[]
+---@field current_type_a_subtype DFVector<number>[]
+---@field current_type_a_expanded DFVector<any[]>[]
+---@field current_type_a_on DFVector<any[]>[]
+---@field current_type_a_flag DFVector<integer>[]
 ---@field scroll_position_item number[]
 ---@field scrolling_item boolean[]
 ---@field item_filter string[]
@@ -3171,12 +3171,12 @@ df.main_interface.T_assign_trade = {}
 ---@field buildlists number
 ---@field handle_appraisal number
 ---@field counter_offer boolean
----@field counter_offer_item item[]
+---@field counter_offer_item DFVector<item>
 ---@field scroll_position_counter_offer number
 ---@field scrolling_counter_offer boolean
 ---@field entering_amount number
 ---@field amount_str string
----@field big_announce string[]
+---@field big_announce DFVector<string>
 ---@field scroll_position_big_announce number
 ---@field scrolling_big_announce boolean
 
@@ -3199,15 +3199,15 @@ df.main_interface.T_trade = {}
 ---@field taking_requests boolean
 ---@field land_holder_parent_civ historical_entity
 ---@field land_holder_child_civ historical_entity
----@field land_holder_pos_id number[]
----@field land_holder_assigned_hfid number[]
----@field land_holder_avail_hfid number[]
+---@field land_holder_pos_id DFVector<number>
+---@field land_holder_assigned_hfid DFVector<number>
+---@field land_holder_avail_hfid DFVector<number>
 ---@field scroll_position_land_holder_pos number
 ---@field scrolling_land_holder_pos boolean
 ---@field scroll_position_land_holder_hf number
 ---@field scrolling_land_holder_hf boolean
 ---@field land_holder_selected_pos number
----@field taking_requests_tablist number[]
+---@field taking_requests_tablist DFVector<number>
 ---@field scroll_position_taking_requests_tab number
 ---@field scrolling_taking_requests_tab boolean
 ---@field scroll_position_taking_requests_tab_item number
@@ -3228,7 +3228,7 @@ df.main_interface.T_diplomacy = {}
 ---@field _type _main_interface.T_petitions
 ---@field open boolean
 ---@field have_responsible_person boolean
----@field agreement_id number[]
+---@field agreement_id DFVector<number>
 ---@field selected_agreement_id number
 ---@field scroll_position number
 ---@field scrolling boolean
@@ -3241,8 +3241,8 @@ df.main_interface.T_petitions = {}
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_stocks
 ---@field open boolean
----@field type_list number[]
----@field filtered_type_list number[]
+---@field type_list DFVector<number>
+---@field filtered_type_list DFVector<number>
 ---@field current_type item_type
 ---@field scroll_position_type number
 ---@field scroll_position_item number
@@ -3250,22 +3250,22 @@ df.main_interface.T_petitions = {}
 ---@field scrolling_item boolean
 ---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount number[]
----@field badamount number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
+---@field storeamount DFVector<number>
+---@field badamount DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
 ---@field i_height number
----@field current_type_i_list item[]
----@field current_type_a_subtype number[]
----@field current_type_a_subcat1 number[]
----@field current_type_a_subcat2 number[]
----@field current_type_a_amount number[]
----@field current_type_a_expanded any[]
----@field current_type_a_on any[]
----@field current_type_a_flag integer[]
+---@field current_type_i_list DFVector<item>
+---@field current_type_a_subtype DFVector<number>
+---@field current_type_a_subcat1 DFVector<number>
+---@field current_type_a_subcat2 DFVector<number>
+---@field current_type_a_amount DFVector<number>
+---@field current_type_a_expanded DFVector<any[]>
+---@field current_type_a_on DFVector<any[]>
+---@field current_type_a_flag DFVector<integer>
 
 ---@class _main_interface.T_stocks: DFCompound
 ---@field _kind 'struct-type'
@@ -3276,9 +3276,9 @@ df.main_interface.T_stocks = {}
 ---@field _type _main_interface.T_assign_display_item
 ---@field open boolean
 ---@field display_bld building_display_furniturest
----@field new_display_itid number[]
----@field type_list number[]
----@field filtered_type_list number[]
+---@field new_display_itid DFVector<number>
+---@field type_list DFVector<number>
+---@field filtered_type_list DFVector<number>
 ---@field current_type item_type
 ---@field scroll_position_type number
 ---@field scroll_position_item number
@@ -3286,21 +3286,21 @@ df.main_interface.T_stocks = {}
 ---@field scrolling_item boolean
 ---@field item_filter string
 ---@field entering_item_filter boolean
----@field storeamount number[]
----@field badamount number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
----@field number number[]
+---@field storeamount DFVector<number>
+---@field badamount DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
+---@field number DFVector<number>
 ---@field i_height number
----@field current_type_i_list item[]
----@field current_type_a_subtype number[]
----@field current_type_a_subcat1 number[]
----@field current_type_a_subcat2 number[]
----@field current_type_a_amount number[]
----@field current_type_a_expanded any[]
----@field current_type_a_on any[]
+---@field current_type_i_list DFVector<item>
+---@field current_type_a_subtype DFVector<number>
+---@field current_type_a_subcat1 DFVector<number>
+---@field current_type_a_subcat2 DFVector<number>
+---@field current_type_a_amount DFVector<number>
+---@field current_type_a_expanded DFVector<any[]>
+---@field current_type_a_on DFVector<any[]>
 
 ---@class _main_interface.T_assign_display_item: DFCompound
 ---@field _kind 'struct-type'
@@ -3317,8 +3317,8 @@ df.main_interface.T_assign_display_item = {}
 ---@field cur_name_place number
 ---@field cur_word_place number
 ---@field word_sel language_word_table
----@field word_index number[]
----@field word_index_asp number[]
+---@field word_index DFVector<number>
+---@field word_index_asp DFVector<number>
 ---@field scroll_position_word number
 ---@field scrolling_word boolean
 ---@field entering_first_name boolean
@@ -3344,43 +3344,43 @@ df.main_interface.T_name_creator = {}
 ---@field filter string
 ---@field entering_number boolean
 ---@field number_str string
----@field st_master integer[] site ptr, native name, translated name
----@field ent_master integer[] entity ptr, native name, translated name
----@field plant_master integer[] plant id, name
----@field tree_master integer[] plant id, name
----@field shape_master integer[] shape id, shape adj, name
----@field item_master integer[] item type, item subtype, name
----@field artifact_master integer[] artifact ptr, native name, translated name
----@field hf_master integer[] histfig ptr, native name, translated name
----@field property_master integer[] art property type, bool transitive, name
----@field hf historical_figure[]
----@field st world_site[]
----@field ent historical_entity[]
----@field hist_event history_event[]
----@field art_image art_image[]
+---@field st_master DFVector<integer> site ptr, native name, translated name
+---@field ent_master DFVector<integer> entity ptr, native name, translated name
+---@field plant_master DFVector<integer> plant id, name
+---@field tree_master DFVector<integer> plant id, name
+---@field shape_master DFVector<integer> shape id, shape adj, name
+---@field item_master DFVector<integer> item type, item subtype, name
+---@field artifact_master DFVector<integer> artifact ptr, native name, translated name
+---@field hf_master DFVector<integer> histfig ptr, native name, translated name
+---@field property_master DFVector<integer> art property type, bool transitive, name
+---@field hf DFVector<historical_figure>
+---@field st DFVector<world_site>
+---@field ent DFVector<historical_entity>
+---@field hist_event DFVector<history_event>
+---@field art_image DFVector<art_image>
 ---@field new_image art_image
----@field new_image_race number[]
----@field new_image_caste number[]
----@field new_image_hf historical_figure[]
----@field new_image_plant number[]
----@field new_image_tree number[]
----@field new_image_shape number[]
----@field new_image_shape_adj number[]
----@field new_image_item number[]
----@field new_image_item_subtype number[]
----@field new_image_artifact artifact_record[]
----@field new_image_property number[]
----@field new_image_property_transitive any[]
----@field new_image_property_actor_target number[]
+---@field new_image_race DFVector<number>
+---@field new_image_caste DFVector<number>
+---@field new_image_hf DFVector<historical_figure>
+---@field new_image_plant DFVector<number>
+---@field new_image_tree DFVector<number>
+---@field new_image_shape DFVector<number>
+---@field new_image_shape_adj DFVector<number>
+---@field new_image_item DFVector<number>
+---@field new_image_item_subtype DFVector<number>
+---@field new_image_artifact DFVector<artifact_record>
+---@field new_image_property DFVector<number>
+---@field new_image_property_transitive DFVector<any[]>
+---@field new_image_property_actor_target DFVector<number>
 ---@field new_image_active_property number
 ---@field new_image_active_property_transitive boolean
 ---@field new_image_active_property_actor_ind number
 ---@field new_image_active_property_target_ind number
----@field art_box string[]
+---@field art_box DFVector<string>
 ---@field scrolling_art_box boolean
 ---@field scroll_position_art_box number
 ---@field last_art_box_width number
----@field selected_box string[]
+---@field selected_box DFVector<string>
 ---@field last_selected_box_width number
 ---@field last_selected_index number
 ---@field back_out_warn boolean
@@ -3415,20 +3415,20 @@ df.main_interface.T_image_creator.T_ics = {}
 ---@field open boolean
 ---@field viewing_alert report
 ---@field viewing_alert_button boolean
----@field zoom_line_is_start any[]
----@field zoom_line_ann report[]
----@field zoom_line_unit unit[]
----@field zoom_line_unit_uac number[]
----@field alert_text string[]
+---@field zoom_line_is_start DFVector<any[]>
+---@field zoom_line_ann DFVector<report>
+---@field zoom_line_unit DFVector<unit>
+---@field zoom_line_unit_uac DFVector<number>
+---@field alert_text DFVector<string>
 ---@field alert_width number
 ---@field alert_list_size number
 ---@field scroll_position_alert number
 ---@field scrolling_alert boolean
 ---@field viewing_unit unit
 ---@field viewing_unit_uac number
----@field uac_zoom_line_is_start any[]
----@field uac_zoom_line_ann report[]
----@field uac_text string[]
+---@field uac_zoom_line_is_start DFVector<any[]>
+---@field uac_zoom_line_ann DFVector<report>
+---@field uac_text DFVector<string>
 ---@field uac_width number
 ---@field uac_list_size number
 ---@field scroll_position_uac number
@@ -3468,7 +3468,7 @@ df.main_interface.T_custom_symbol = {}
 ---@field new_route_name string
 ---@field entering_new_route_name boolean
 ---@field new_point coord_path
----@field route_line coord_path[] patrol_route_linest
+---@field route_line DFVector<coord_path> patrol_route_linest
 ---@field add_is_edit_of_route_id number
 ---@field changed_points_on_edit boolean
 
@@ -3483,8 +3483,8 @@ df.main_interface.T_patrol_routes = {}
 ---@field context squad_equipment_context_type
 ---@field scroll_position number
 ---@field scrolling boolean
----@field squad_id number[]
----@field squad_pos number[]
+---@field squad_id DFVector<number>
+---@field squad_pos DFVector<number>
 ---@field last_tick_update number
 ---@field customizing_equipment boolean
 ---@field customizing_squad_id number
@@ -3495,33 +3495,33 @@ df.main_interface.T_patrol_routes = {}
 ---@field scrolling_cs boolean
 ---@field scroll_position_cssub number
 ---@field scrolling_cssub boolean
----@field cs_cat number[] EntityUniformItemCategory
----@field cs_it_spec_item_id number[]
----@field cs_it_type number[]
----@field cs_it_subtype number[]
----@field cs_civ_mat number[] EntityMaterial
----@field cs_spec_mat number[]
----@field cs_spec_matg number[]
----@field cs_color_pattern_index number[] ColoredPattern
----@field cs_icp_flag number[]
----@field cs_assigned_item_number number[]
----@field cs_assigned_item_id number[]
+---@field cs_cat DFVector<number> EntityUniformItemCategory
+---@field cs_it_spec_item_id DFVector<number>
+---@field cs_it_type DFVector<number>
+---@field cs_it_subtype DFVector<number>
+---@field cs_civ_mat DFVector<number> EntityMaterial
+---@field cs_spec_mat DFVector<number>
+---@field cs_spec_matg DFVector<number>
+---@field cs_color_pattern_index DFVector<number> ColoredPattern
+---@field cs_icp_flag DFVector<number>
+---@field cs_assigned_item_number DFVector<number>
+---@field cs_assigned_item_id DFVector<number>
 ---@field cs_uniform_flag integer
 ---@field cs_adding_new_entry_category number EntityUniformItemCategory
----@field cs_add_list_type number[]
----@field cs_add_list_subtype number[]
----@field cs_add_list_flag integer[]
----@field cs_add_list_is_foreign any[]
+---@field cs_add_list_type DFVector<number>
+---@field cs_add_list_subtype DFVector<number>
+---@field cs_add_list_flag DFVector<integer>
+---@field cs_add_list_is_foreign DFVector<any[]>
 ---@field cs_setting_material boolean
 ---@field cs_setting_list_ind number
----@field cs_setting_material_ent number[] EntityMaterial
----@field cs_setting_material_mat number[]
----@field cs_setting_material_matg number[]
+---@field cs_setting_material_ent DFVector<number> EntityMaterial
+---@field cs_setting_material_mat DFVector<number>
+---@field cs_setting_material_matg DFVector<number>
 ---@field cs_setting_color_pattern boolean
----@field cs_setting_color_pattern_index number[] ColoredPattern
----@field cs_setting_color_pattern_is_dye any[]
+---@field cs_setting_color_pattern_index DFVector<number> ColoredPattern
+---@field cs_setting_color_pattern_is_dye DFVector<any[]>
 ---@field cs_adding_specific_item boolean
----@field cs_add_spec_id number[]
+---@field cs_add_spec_id DFVector<number>
 
 ---@class _main_interface.T_squad_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -3537,7 +3537,7 @@ df.main_interface.T_squad_equipment = {}
 ---@field scroll_position_month number
 ---@field scrolling_month boolean
 ---@field routine_page number
----@field squad_id number[]
+---@field squad_id DFVector<number>
 ---@field viewing_months_squad_id number
 ---@field last_tick_update number
 ---@field editing_routines boolean
@@ -3560,7 +3560,7 @@ df.main_interface.T_squad_schedule = {}
 ---@field _type _main_interface.T_squad_selector
 ---@field open boolean
 ---@field context squad_selector_context_type
----@field squad_id number[]
+---@field squad_id DFVector<number>
 ---@field bld_id number
 ---@field scroll_position number
 ---@field scrolling number
@@ -3574,8 +3574,8 @@ df.main_interface.T_squad_selector = {}
 ---@field _type _main_interface.T_burrow_selector
 ---@field open boolean
 ---@field context burrow_selector_context_type
----@field burrow_id number[]
----@field selected any[]
+---@field burrow_id DFVector<number>
+---@field selected DFVector<any[]>
 ---@field scroll_position number
 ---@field scrolling number
 
@@ -3588,17 +3588,17 @@ df.main_interface.T_burrow_selector = {}
 ---@field _type _main_interface.T_location_selector
 ---@field open boolean
 ---@field context location_selector_context_type
----@field valid_ab abstract_building[]
+---@field valid_ab DFVector<abstract_building>
 ---@field scroll_position_location number
 ---@field scrolling_location boolean
 ---@field current_hover_index number
 ---@field choosing_temple_religious_practice boolean
----@field valid_religious_practice number[]
+---@field valid_religious_practice DFVector<number>
 ---@field scroll_position_deity number
 ---@field scrolling_deity boolean
 ---@field choosing_craft_guild boolean
----@field valid_religious_practice_id number[]
----@field valid_craft_guild_type profession[]
+---@field valid_religious_practice_id DFVector<number>
+---@field valid_craft_guild_type DFVector<profession>
 ---@field scroll_position_guild number
 ---@field scrolling_guild boolean
 
@@ -3615,10 +3615,10 @@ df.main_interface.T_location_selector = {}
 ---@field open_area_dx number
 ---@field open_area_dy number
 ---@field wc_count number
----@field loc_occupation occupation[]
----@field loc_ent historical_entity[]
----@field loc_position entity_position[]
----@field loc_epp entity_position_assignment[]
+---@field loc_occupation DFVector<occupation>
+---@field loc_ent DFVector<historical_entity>
+---@field loc_position DFVector<entity_position>
+---@field loc_epp DFVector<entity_position_assignment>
 ---@field scroll_position_occupation number
 ---@field scrolling_occupation boolean
 ---@field desired_number_str string
@@ -3647,7 +3647,7 @@ df.main_interface.T_hauling_stop_conditions = {}
 ---@field _type _main_interface.T_assign_vehicle
 ---@field open boolean
 ---@field context assign_vehicle_context_type
----@field i_vehicle vehicle[]
+---@field i_vehicle DFVector<vehicle>
 ---@field route_id number
 ---@field scroll_position number
 ---@field scrolling boolean
@@ -3718,12 +3718,12 @@ df.main_interface.T_stockpile_tools = {}
 ---@field cur_main_mode stockpile_list
 ---@field cur_main_mode_flag integer
 ---@field cur_sub_mode stockpile_list
----@field main_mode stockpile_list[]
----@field main_mode_flag integer[]
----@field sub_mode stockpile_list[]
----@field sub_mode_ptr_type stock_pile_pointer_type[]
----@field sub_mode_ptr number[]
----@field spec_item any[]
+---@field main_mode DFVector<stockpile_list>
+---@field main_mode_flag DFVector<integer>
+---@field sub_mode DFVector<stockpile_list>
+---@field sub_mode_ptr_type DFVector<stock_pile_pointer_type>
+---@field sub_mode_ptr DFVector<number>
+---@field spec_item DFVector<any>
 ---@field cur_spec_item_sz number
 ---@field counted_cur_spec_item_sz number
 
@@ -3738,16 +3738,16 @@ df.main_interface.T_custom_stockpile = {}
 ---@field context view_sheets_context_type
 ---@field active_sheet view_sheet_type
 ---@field active_id number
----@field viewing_unid number[]
----@field viewing_itid number[]
+---@field viewing_unid DFVector<number>
+---@field viewing_itid DFVector<number>
 ---@field viewing_bldid number
 ---@field viewing_x number
 ---@field viewing_y number
 ---@field viewing_z number
 ---@field scroll_position number
 ---@field scrolling boolean
----@field tab view_sheet_type[]
----@field tab_id number[]
+---@field tab DFVector<view_sheet_type>
+---@field tab_id DFVector<number>
 ---@field active_sub_tab number
 ---@field trait view_sheet_trait_type[]
 ---@field trait_id number[]
@@ -3768,28 +3768,28 @@ df.main_interface.T_custom_stockpile = {}
 ---@field other_skill_val DFEnumVector<job_skill, number>
 ---@field other_skill_w_rust DFEnumVector<job_skill, number>
 ---@field other_skill_num number
----@field ent_vect historical_entity[]
----@field ep_vect entity_position[]
----@field ep_vect_spouse any[]
+---@field ent_vect DFVector<historical_entity>
+---@field ep_vect DFVector<entity_position>
+---@field ep_vect_spouse DFVector<any[]>
 ---@field unmet_need_type DFEnumVector<need_type, number>
 ---@field unmet_need_spec_id DFEnumVector<need_type, number>
 ---@field unmet_need_se DFEnumVector<need_type, number>
 ---@field unmet_need_num number
----@field raw_thought_str string[]
----@field thought_box integer[] color_text_boxst
+---@field raw_thought_str DFVector<string>
+---@field thought_box DFVector<integer> color_text_boxst
 ---@field thought_box_width number
 ---@field scroll_position_inventory number
 ---@field scrolling_inventory boolean
 ---@field scroll_position_relations number
 ---@field scrolling_relations boolean
----@field rel_name string[]
----@field relation number[]
----@field relation_f number[]
----@field rel_unid number[]
----@field rel_hf historical_figure[]
----@field rel_rphv any[] relationship_profile_hf_visualst
----@field rel_rphh any[] relationship_profile_hf_historicalst
----@field rel_value number[]
+---@field rel_name DFVector<string>
+---@field relation DFVector<number>
+---@field relation_f DFVector<number>
+---@field rel_unid DFVector<number>
+---@field rel_hf DFVector<historical_figure>
+---@field rel_rphv DFVector<any[]> relationship_profile_hf_visualst
+---@field rel_rphh DFVector<any[]> relationship_profile_hf_historicalst
+---@field rel_value DFVector<number>
 ---@field unit_overview_customizing boolean
 ---@field unit_overview_entering_nickname boolean
 ---@field unit_overview_entering_profession_nickname boolean
@@ -3797,72 +3797,72 @@ df.main_interface.T_custom_stockpile = {}
 ---@field unit_overview_expelling boolean
 ---@field unit_overview_expel_cannot_expel_reason cannot_expel_reason_type
 ---@field unit_overview_expel_selected_dest_stid number
----@field unit_overview_expel_dest_stid number[]
----@field unit_overview_expel_total_unid number[]
+---@field unit_overview_expel_dest_stid DFVector<number>
+---@field unit_overview_expel_total_unid DFVector<number>
 ---@field scroll_position_unit_overview_expel number
 ---@field scrolling_unit_overview_expel boolean
----@field guest_text string[]
+---@field guest_text DFVector<string>
 ---@field scroll_position_groups number
 ---@field scrolling_groups boolean
----@field unit_group_enid number[]
----@field unit_group_hfel number[]
----@field unit_group_epid number[]
----@field unit_group_eppid number[]
----@field unit_group_ep_is_spouse any[]
----@field unit_group_rep number[]
----@field unit_group_rep_level number[]
+---@field unit_group_enid DFVector<number>
+---@field unit_group_hfel DFVector<number>
+---@field unit_group_epid DFVector<number>
+---@field unit_group_eppid DFVector<number>
+---@field unit_group_ep_is_spouse DFVector<any[]>
+---@field unit_group_rep DFVector<number>
+---@field unit_group_rep_level DFVector<number>
 ---@field scroll_position_thoughts number
 ---@field scrolling_thoughts boolean
 ---@field thoughts_active_tab number
----@field thoughts_raw_memory_str string[]
----@field thoughts_memory_box integer[] color_text_boxst
+---@field thoughts_raw_memory_str DFVector<string>
+---@field thoughts_memory_box DFVector<integer> color_text_boxst
 ---@field thoughts_memory_box_width number
 ---@field scroll_position_personality number
 ---@field scrolling_personality boolean
 ---@field personality_active_tab number
----@field personality_raw_str string[]
----@field personality_box integer[] color_text_boxst
+---@field personality_raw_str DFVector<string>
+---@field personality_box DFVector<integer> color_text_boxst
 ---@field personality_width number
 ---@field unit_labor_active_tab number
 ---@field scroll_position_unit_labor number
 ---@field scrolling_unit_labor boolean
----@field unit_workshop_id number[]
----@field unit_labor_assigned_animal_unid number[]
----@field unit_labor_assignable_animal_unid number[]
+---@field unit_workshop_id DFVector<number>
+---@field unit_labor_assigned_animal_unid DFVector<number>
+---@field unit_labor_assignable_animal_unid DFVector<number>
 ---@field scroll_position_unit_skill number
 ---@field scrolling_unit_skill boolean
 ---@field scroll_position_skill_description number
 ---@field scrolling_skill_description boolean
 ---@field unit_skill_active_tab number
----@field unit_skill job_skill[]
----@field unit_skill_val number[]
----@field unit_skill_val_w_rust number[]
----@field unit_knowledge_type view_sheet_unit_knowledge_type[]
----@field unit_knowledge_id number[]
----@field unit_knowledge_bits integer[]
----@field skill_description_raw_str string[]
----@field skill_description_box integer[] color_text_boxst
+---@field unit_skill DFVector<job_skill>
+---@field unit_skill_val DFVector<number>
+---@field unit_skill_val_w_rust DFVector<number>
+---@field unit_knowledge_type DFVector<view_sheet_unit_knowledge_type>
+---@field unit_knowledge_id DFVector<number>
+---@field unit_knowledge_bits DFVector<integer>
+---@field skill_description_raw_str DFVector<string>
+---@field skill_description_box DFVector<integer> color_text_boxst
 ---@field skill_description_width number
 ---@field scroll_position_unit_room number
 ---@field scrolling_unit_room number
----@field unit_room_civzone_id number[]
----@field unit_room_curval number[]
+---@field unit_room_civzone_id DFVector<number>
+---@field unit_room_curval DFVector<number>
 ---@field unit_military_active_tab number
 ---@field scroll_position_unit_military_assigned number
 ---@field scrolling_unit_military_assigned boolean
 ---@field scroll_position_unit_military_kills number
 ---@field scrolling_unit_military_kills boolean
----@field kill_description_raw_str string[]
----@field kill_description_box integer[] color_text_boxst
+---@field kill_description_raw_str DFVector<string>
+---@field kill_description_box DFVector<integer> color_text_boxst
 ---@field kill_description_width number
 ---@field unit_health_active_tab number
 ---@field scroll_position_unit_health number
 ---@field scrolling_unit_health boolean
----@field unit_health_raw_str string[]
----@field unit_health_box integer[] color_text_boxst
+---@field unit_health_raw_str DFVector<string>
+---@field unit_health_box DFVector<integer> color_text_boxst
 ---@field unit_health_width number
 ---@field raw_current_thought string
----@field current_thought string[]
+---@field current_thought DFVector<string>
 ---@field current_thought_width number
 ---@field scroll_position_item number
 ---@field scrolling_item boolean
@@ -3884,7 +3884,7 @@ df.main_interface.T_custom_stockpile = {}
 ---@field scrolling_linked_buildings boolean
 ---@field building_entering_nickname boolean
 ---@field building_entering_str string
----@field work_order_id number[]
+---@field work_order_id DFVector<number>
 ---@field scroll_position_work_orders number
 ---@field scrolling_work_orders boolean
 ---@field gen_work_order_num_str string
@@ -3894,14 +3894,14 @@ df.main_interface.T_custom_stockpile = {}
 ---@field entering_wq_id number
 ---@field engraving_title string
 ---@field raw_description string
----@field description string[]
+---@field description DFVector<string>
 ---@field description_width number
 ---@field scroll_position_description number
 ---@field scrolling_description boolean
 ---@field scroll_position_item_contents number
 ---@field scrolling_item_contents boolean
----@field item_use string[]
----@field item_use_reaction_index number[]
+---@field item_use DFVector<string>
+---@field item_use_reaction_index DFVector<number>
 
 ---@class _main_interface.T_view_sheets: DFCompound
 ---@field _kind 'struct-type'
@@ -3913,15 +3913,15 @@ df.main_interface.T_view_sheets = {}
 ---@field open boolean
 ---@field scroll_position number
 ---@field scrolling boolean
----@field squad_id number[]
----@field squad_selected any[]
+---@field squad_id DFVector<number>
+---@field squad_selected DFVector<any[]>
 ---@field viewing_squad_index number
----@field squad_hfid_selected number[]
+---@field squad_hfid_selected DFVector<number>
 ---@field entering_squad_nickname boolean
 ---@field squad_nickname_str string
 ---@field giving_move_order boolean
 ---@field giving_kill_order boolean
----@field kill_unid number[]
+---@field kill_unid DFVector<number>
 ---@field kill_doing_rectangle boolean
 ---@field giving_patrol_order boolean
 ---@field giving_burrow_order boolean
@@ -3929,7 +3929,7 @@ df.main_interface.T_view_sheets = {}
 ---@field editing_squad_schedule_routine_index number
 ---@field editing_squad_schedule_month number
 ---@field editing_squad_schedule_whole_squad_selected boolean
----@field editing_squad_schedule_pos_selected number[]
+---@field editing_squad_schedule_pos_selected DFVector<number>
 ---@field editing_squad_schedule_min_follow number
 ---@field scroll_position_orderp number
 ---@field scrolling_orderp boolean
@@ -3946,11 +3946,11 @@ df.main_interface.T_squads = {}
 ---@field open boolean
 ---@field scroll_position number
 ---@field scrolling boolean
----@field cand_new_squad_appoint_epp entity_position_assignment[]
----@field cand_new_squad_appoint_epp_ep entity_position[]
----@field cand_new_squad_existing_epp entity_position_assignment[]
----@field cand_new_squad_existing_epp_ep entity_position[]
----@field cand_new_squad_new_epp_from_ep entity_position[]
+---@field cand_new_squad_appoint_epp DFVector<entity_position_assignment>
+---@field cand_new_squad_appoint_epp_ep DFVector<entity_position>
+---@field cand_new_squad_existing_epp DFVector<entity_position_assignment>
+---@field cand_new_squad_existing_epp_ep DFVector<entity_position>
+---@field cand_new_squad_new_epp_from_ep DFVector<entity_position>
 ---@field new_squad_appoint_epp entity_position_assignment
 ---@field new_squad_appoint_epp_ep entity_position
 ---@field new_squad_existing_epp entity_position_assignment
@@ -3978,7 +3978,7 @@ df.main_interface.T_squad_supplies = {}
 ---@field context assign_uniform_context_type
 ---@field scroll_position number
 ---@field scrolling boolean
----@field cand_uniform entity_uniform[]
+---@field cand_uniform DFVector<entity_uniform>
 
 ---@class _main_interface.T_assign_uniform: DFCompound
 ---@field _kind 'struct-type'
@@ -3989,8 +3989,8 @@ df.main_interface.T_assign_uniform = {}
 ---@field _type _main_interface.T_create_work_order
 ---@field open boolean
 ---@field forced_bld_id number
----@field jminfo_master manager_order_template[]
----@field building cwo_buildingst[]
+---@field jminfo_master DFVector<manager_order_template>
+---@field building DFVector<cwo_buildingst>
 ---@field scroll_position_building number
 ---@field scrolling_building boolean
 ---@field selected_building_index number
@@ -4022,12 +4022,12 @@ df.main_interface.T_hotkey = {}
 ---@field open boolean
 ---@field context options_context_type
 ---@field header string
----@field text string[]
+---@field text DFVector<string>
 ---@field fort_retirement_confirm boolean
 ---@field fort_abandon_confirm boolean
 ---@field fort_quit_without_saving_confirm boolean
----@field option main_menu_option_type[]
----@field option_index number[]
+---@field option DFVector<main_menu_option_type>
+---@field option_index DFVector<number>
 ---@field entering_manual_folder boolean
 ---@field entering_manual_str string
 ---@field confirm_manual_overwrite boolean
@@ -4035,14 +4035,14 @@ df.main_interface.T_hotkey = {}
 ---@field entering_timeline_str string
 ---@field do_manual_save boolean
 ---@field manual_save_timer number
----@field overwrite_save_folder string[]
+---@field overwrite_save_folder DFVector<string>
 ---@field ended_game boolean
 ---@field doing_help boolean
 ---@field doing_help_box markup_text_boxst
----@field guide_context number[]
+---@field guide_context DFVector<number>
 ---@field scroll_position_guide number
 ---@field scrolling_guide boolean
----@field popup_context number[]
+---@field popup_context DFVector<number>
 ---@field scroll_position_popup number
 ---@field scrolling_popup boolean
 ---@field filecomp file_compressorst
@@ -4056,8 +4056,8 @@ df.main_interface.T_options = {}
 ---@class (exact) main_interface.T_options.T_saver: DFObject
 ---@field _kind 'struct'
 ---@field _type _main_interface.T_options.T_saver
----@field number number[]
----@field number number[]
+---@field number DFVector<number>
+---@field number DFVector<number>
 
 ---@class _main_interface.T_options.T_saver: DFCompound
 ---@field _kind 'struct-type'
@@ -4090,19 +4090,19 @@ df.main_interface.T_help = {}
 ---@field tame boolean
 ---@field editing_filter boolean
 ---@field filter string
----@field races_filtered number[]
----@field castes_filtered number[]
----@field races_all number[]
----@field castes_all number[]
----@field skills job_skill[]
----@field skill_levels number[]
----@field number number[]
----@field equipment_item_type number[]
----@field equipment_item_subtype number[]
----@field equipment_mat_type number[]
----@field equipment_mat_index number[]
----@field equipment_quantity number[]
----@field interactions interaction_effect[]
+---@field races_filtered DFVector<number>
+---@field castes_filtered DFVector<number>
+---@field races_all DFVector<number>
+---@field castes_all DFVector<number>
+---@field skills DFVector<job_skill>
+---@field skill_levels DFVector<number>
+---@field number DFVector<number>
+---@field equipment_item_type DFVector<number>
+---@field equipment_item_subtype DFVector<number>
+---@field equipment_mat_type DFVector<number>
+---@field equipment_mat_index DFVector<number>
+---@field equipment_quantity DFVector<number>
+---@field interactions DFVector<interaction_effect>
 
 ---@class _main_interface.T_arena_unit: DFCompound
 ---@field _kind 'struct-type'
@@ -4117,8 +4117,8 @@ df.main_interface.T_arena_unit = {}
 ---@field age_str string string representation of age field
 ---@field editing_filter boolean
 ---@field filter string
----@field tree_types_filtered any[]
----@field tree_types_all any[]
+---@field tree_types_filtered DFVector<any[]>
+---@field tree_types_all DFVector<any[]>
 
 ---@class _main_interface.T_arena_tree: DFCompound
 ---@field _kind 'struct-type'
@@ -4149,7 +4149,7 @@ df.gamest = {}
 ---@field _kind 'struct'
 ---@field _type _gamest.T_command_line
 ---@field original string
----@field arg_vect string[]
+---@field arg_vect DFVector<string>
 ---@field gen_id number
 ---@field world_seed number
 ---@field use_seed boolean
@@ -4180,10 +4180,10 @@ df.gamest.T_minimap = {}
 ---@class (exact) gamest.T_mod_manager: DFObject
 ---@field _kind 'struct'
 ---@field _type _gamest.T_mod_manager
----@field mod_header mod_headerst[]
+---@field mod_header DFVector<mod_headerst>
 ---@field subscribed_file_id any -- Begin Steam-only stuff<br>-- These fields exist in other versions but aren't actually used
 ---@field doing_mod_upload boolean
----@field mod_upload_header mod_headerst[]
+---@field mod_upload_header DFVector<mod_headerst>
 ---@field mod_upload_completed boolean
 ---@field uploading_mod_index number
 ---@field CreateItemResult any
@@ -4198,7 +4198,7 @@ df.gamest.T_mod_manager = {}
 ---@field _type _main_interface_settings
 ---@field open boolean needs to be a separate type so that widget_tabs can forward-declare this type as a friend
 ---@field context settings_context_type
----@field tab settings_tab_type[]
+---@field tab DFVector<settings_tab_type>
 ---@field current_mode settings_tab_type
 ---@field container_widget widget_container
 ---@field scroll_position_params number
@@ -4206,26 +4206,26 @@ df.gamest.T_mod_manager = {}
 ---@field entering_value_str boolean
 ---@field entering_value_index number
 ---@field value_str string
----@field member world_gen_param_basest[]
+---@field member DFVector<world_gen_param_basest>
 ---@field fullscreen_resolution_open boolean
----@field permitted_fullscreen_w number[]
----@field permitted_fullscreen_h number[]
+---@field permitted_fullscreen_w DFVector<number>
+---@field permitted_fullscreen_h DFVector<number>
 ---@field scroll_position_permitted_fullscreen number
 ---@field scrolling_permitted_fullscreen boolean
----@field keybinding_category number[]
+---@field keybinding_category DFVector<number>
 ---@field keybinding_selected_category number
 ---@field keybinding_scroll_position_cat number
 ---@field keybinding_scrolling_cat boolean
----@field keybinding_name string[][]
----@field keybinding_key interface_key[][]
----@field keybinding_binding integer[][]
----@field keybinding_binding_name string[][]
----@field keybinding_flag integer[][]
+---@field keybinding_name DFVector<string>[]
+---@field keybinding_key DFVector<interface_key>[]
+---@field keybinding_binding DFVector<integer>[]
+---@field keybinding_binding_name DFVector<string>[]
+---@field keybinding_flag DFVector<integer>[]
 ---@field keybinding_scroll_position_key number
 ---@field keybinding_scrolling_key boolean
 ---@field keybinding_registering_index number
 ---@field keybinding_registering_adding_new boolean
----@field macro_list string[]
+---@field macro_list DFVector<string>
 ---@field difficulty difficultyst
 ---@field doing_custom_settings boolean
 
@@ -4438,8 +4438,8 @@ df.script_environmentst = {}
 ---@class (exact) markup_text_boxst: DFObject
 ---@field _kind 'struct'
 ---@field _type _markup_text_boxst
----@field word markup_text_wordst[]
----@field link markup_text_linkst[]
+---@field word DFVector<markup_text_wordst>
+---@field link DFVector<markup_text_linkst>
 ---@field current_width number
 ---@field max_y number
 ---@field environment script_environmentst not saved
@@ -4472,7 +4472,7 @@ df.wqc_item_traitst = {}
 ---@field type number
 ---@field subtype number
 ---@field custom_id number
----@field jminfo manager_order_template[]
+---@field jminfo DFVector<manager_order_template>
 ---@field name string
 
 ---@class _cwo_buildingst: DFCompound
@@ -4506,14 +4506,14 @@ df.cri_unitst = {}
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
----@field main_text_box string[]
+---@field main_text_box DFVector<string>
 ---@field visual_hfid number
 ---@field historical_hfid number
 ---@field identity_id number
----@field alias_identity_id number[]
+---@field alias_identity_id DFVector<number>
 ---@field principle_org any organization_entryst
----@field associated_org any[] organization_entryst
----@field associated_plot plot_entryst[]
+---@field associated_org DFVector<any[]> organization_entryst
+---@field associated_plot DFVector<plot_entryst>
 ---@field flag integer
 
 ---@class _actor_entryst: DFCompound
@@ -4543,11 +4543,11 @@ df.organization_entry_nodest = {}
 ---@class (exact) organization_entryst: DFObject
 ---@field _kind 'struct'
 ---@field _type _organization_entryst
----@field node organization_entry_nodest[]
+---@field node DFVector<organization_entry_nodest>
 ---@field list_name string
 ---@field simple_list_name string
 ---@field p_list_name string
----@field main_text_box string[]
+---@field main_text_box DFVector<string>
 ---@field principle_actor_entry actor_entryst
 ---@field flag integer
 
@@ -4582,17 +4582,17 @@ df.plot_entryst = {}
 ---@field author string
 ---@field name string
 ---@field description string
----@field dependencies string[]
----@field dependency_type number[] 0 exact, 1 before, 2 after
----@field conflicts string[]
+---@field dependencies DFVector<string>
+---@field dependency_type DFVector<number> 0 exact, 1 before, 2 after
+---@field conflicts DFVector<string>
 ---@field flags mod_headerst.T_flags
 ---@field src_dir string
 ---@field steam_file_id number
 ---@field steam_title string
 ---@field steam_description string
----@field steam_tag string[]
----@field steam_key_tag string[]
----@field steam_value_tag string[]
+---@field steam_tag DFVector<string>
+---@field steam_key_tag DFVector<string>
+---@field steam_value_tag DFVector<string>
 ---@field steam_metadata string
 ---@field steam_changelog string
 ---@field steamapi_1 string -- Steam-specific
@@ -4625,7 +4625,7 @@ df.mod_headerst.T_flags = {}
 ---@class (exact) ui_look_list: DFObject
 ---@field _kind 'struct'
 ---@field _type _ui_look_list
----@field items any[]
+---@field items DFVector<any>
 
 ---@class _ui_look_list: DFCompound
 ---@field _kind 'struct-type'

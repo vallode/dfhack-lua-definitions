@@ -530,8 +530,8 @@ df.trade_good_purpose = {}
 ---@field flags2 item_flags2
 ---@field age integer
 ---@field id number
----@field specific_refs specific_ref[]
----@field general_refs general_ref[]
+---@field specific_refs DFVector<specific_ref>
+---@field general_refs DFVector<general_ref>
 ---@field world_data_id number References: `world_object_data`
 ---@field world_data_subid number
 ---@field stockpile_countdown integer -1 per 50 frames; then check if needs moving
@@ -567,8 +567,8 @@ function df.item.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _item_kill_info
 ---@field targets historical_kills
----@field slayers number[] -- Wielders
----@field slayer_kill_counts number[]
+---@field slayers DFVector<number> -- Wielders
+---@field slayer_kill_counts DFVector<number>
 
 ---@class _item_kill_info: DFCompound
 ---@field _kind 'struct-type'
@@ -622,7 +622,7 @@ df.item_crafted = {}
 ---@class (exact) item_constructed: DFObject, item_crafted
 ---@field _kind 'struct'
 ---@field _type _item_constructed
----@field improvements itemimprovement[]
+---@field improvements DFVector<itemimprovement>
 
 ---@class _item_constructed: DFCompound
 ---@field _kind 'class-type'
@@ -741,14 +741,14 @@ df.body_layer_status = {}
 ---@class (exact) body_component_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _body_component_info
----@field body_part_status body_part_status[]
----@field numbered_masks integer[] 1 bit per instance of a numbered body part
----@field nonsolid_remaining integer[] 0-100%
----@field layer_status body_layer_status[]
----@field layer_wound_area integer[]
----@field layer_cut_fraction integer[] Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
----@field layer_dent_fraction integer[] 0-10000
----@field layer_effect_fraction integer[] 0-1000000000
+---@field body_part_status DFVector<body_part_status>
+---@field numbered_masks DFVector<integer> 1 bit per instance of a numbered body part
+---@field nonsolid_remaining DFVector<integer> 0-100%
+---@field layer_status DFVector<body_layer_status>
+---@field layer_wound_area DFVector<integer>
+---@field layer_cut_fraction DFVector<integer> Surface percentages for cuts/fractures, dents and effects (such as<br>bruises, burns, frostbite, melting, freezing, necrosis, and blistering)
+---@field layer_dent_fraction DFVector<integer> 0-10000
+---@field layer_effect_fraction DFVector<integer> 0-1000000000
 
 ---@class _body_component_info: DFCompound
 ---@field _kind 'struct-type'
@@ -865,16 +865,16 @@ df.item_body_component = {}
 ---@class (exact) item_body_component.T_body: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_body_component.T_body
----@field wounds unit_wound[]
+---@field wounds DFVector<unit_wound>
 ---@field unk_100 number[] unit.body.unk_39c
 ---@field wound_next_id number
 ---@field components body_component_info
 ---@field physical_attr_value DFEnumVector<physical_attribute_type, number>
 ---@field physical_attr_soft_demotion DFEnumVector<physical_attribute_type, number>
 ---@field size_info body_size_info
----@field body_part_relsize number[] =unit.enemy.body_part_relsize
----@field body_modifiers number[]
----@field bp_modifiers number[]
+---@field body_part_relsize DFVector<number> =unit.enemy.body_part_relsize
+---@field body_modifiers DFVector<number>
+---@field bp_modifiers DFVector<number>
 
 ---@class _item_body_component.T_body: DFCompound
 ---@field _kind 'struct-type'
@@ -883,11 +883,11 @@ df.item_body_component.T_body = {}
 ---@class (exact) item_body_component.T_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _item_body_component.T_appearance
----@field colors number[]
----@field tissue_style number[]
----@field tissue_style_civ_id number[]
----@field tissue_style_id number[]
----@field tissue_style_type number[]
+---@field colors DFVector<number>
+---@field tissue_style DFVector<number>
+---@field tissue_style_civ_id DFVector<number>
+---@field tissue_style_id DFVector<number>
+---@field tissue_style_type DFVector<number>
 
 ---@class _item_body_component.T_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -1273,7 +1273,7 @@ df.item_fish_rawst = {}
 ---@field subtype itemdef_foodst
 ---@field entity number References: `historical_entity`
 ---@field recipe_id number
----@field ingredients any[]
+---@field ingredients DFVector<any>
 ---@field rot_timer number
 
 ---@class _item_foodst: DFCompound
@@ -1759,7 +1759,7 @@ df.item_helmst = {}
 ---@field _kind 'struct'
 ---@field _type _item_glovesst
 ---@field subtype itemdef_glovesst
----@field handedness table<integer, boolean> 1 right, 2 left
+---@field handedness DFVector<table<integer, boolean>> 1 right, 2 left
 
 ---@class _item_glovesst: DFCompound
 ---@field _kind 'class-type'

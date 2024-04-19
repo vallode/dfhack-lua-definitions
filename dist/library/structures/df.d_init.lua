@@ -254,7 +254,7 @@ df.d_init_autosave = {}
 ---@class (exact) d_init: DFObject
 ---@field _kind 'struct'
 ---@field _type _d_init
----@field flags1 table<d_init_flags1, boolean>
+---@field flags1 DFVector<table<d_init_flags1, boolean>>
 ---@field nickname DFEnumVector<game_type, d_init_nickname>
 ---@field sky_tile integer
 ---@field sky_color number[]
@@ -269,7 +269,7 @@ df.d_init_autosave = {}
 ---@field wound_color d_init.T_wound_color
 ---@field show_embark_tunnel d_init_tunnel probably IDLERS
 ---@field number_of_lower_elevations_shown number
----@field flags3 table<d_init_flags3, boolean>
+---@field flags3 DFVector<table<d_init_flags3, boolean>>
 ---@field population_cap number
 ---@field strict_population_cap number
 ---@field baby_cap_absolute number
@@ -283,7 +283,7 @@ df.d_init_autosave = {}
 ---@field graze_coefficient number
 ---@field maximum_embark_dim number
 ---@field cull_dead_units_at number
----@field flags4 table<d_init_flags4, boolean>
+---@field flags4 DFVector<table<d_init_flags4, boolean>>
 ---@field post_prepare_embark_confirmation d_init_embark_confirm
 ---@field autosave d_init_autosave
 ---@field announcements announcements

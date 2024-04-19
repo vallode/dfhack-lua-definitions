@@ -59,7 +59,7 @@ df.init_display_filter_mode = {}
 ---@class (exact) init_display: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_display
----@field flag table<init_display_flags, boolean>
+---@field flag DFVector<table<init_display_flags, boolean>>
 ---@field windowed init_display.T_windowed
 ---@field grid_x number
 ---@field grid_y number
@@ -135,7 +135,7 @@ df.init_media_flags = {}
 ---@class (exact) init_media: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_media
----@field flag table<init_media_flags, boolean>
+---@field flag DFVector<table<init_media_flags, boolean>>
 ---@field volume_master number
 ---@field volume_music number
 ---@field volume_ambience number
@@ -172,7 +172,7 @@ df.init_input_flags = {}
 ---@field repeat_time number
 ---@field macro_time number
 ---@field pause_zoom_no_interface_ms number
----@field flag table<init_input_flags, boolean>
+---@field flag DFVector<table<init_input_flags, boolean>>
 ---@field zoom_speed number
 ---@field repeat_accel_start number
 ---@field repeat_accel_limit number
@@ -239,7 +239,7 @@ df.init_window_flags = {}
 ---@class (exact) init_window: DFObject
 ---@field _kind 'struct'
 ---@field _type _init_window
----@field flag table<init_window_flags, boolean>
+---@field flag DFVector<table<init_window_flags, boolean>>
 
 ---@class _init_window: DFCompound
 ---@field _kind 'struct-type'

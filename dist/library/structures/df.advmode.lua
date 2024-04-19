@@ -221,7 +221,7 @@ df.ui_advmode_menu = {}
 ---@field _type _conversation
 ---@field conv_title string
 ---@field state conversation.T_state
----@field talk_choices number[]
+---@field talk_choices DFVector<number>
 ---@field unk_30 number References: `unit`
 ---@field unk_34 number References: `historical_figure`
 ---@field unk_38 number
@@ -231,19 +231,19 @@ df.ui_advmode_menu = {}
 ---@field unk_48 number References: `unit`
 ---@field unk_4c number References: `historical_figure`
 ---@field unk_50 number
----@field unk_54 nemesis_record[]
----@field unk_64 historical_entity[]
+---@field unk_54 DFVector<nemesis_record>
+---@field unk_64 DFVector<historical_entity>
 ---@field unk_74 number
 ---@field unk_78 number
 ---@field unk_7c number
 ---@field unk_80 number
----@field unk_84 any[]
----@field unk_94 any[]
----@field unk_a4 any[]
+---@field unk_84 DFVector<any[]>
+---@field unk_94 DFVector<any[]>
+---@field unk_a4 DFVector<any[]>
 ---@field location building civzone
 ---@field unk_b8 number
 ---@field unk_bc number
----@field speech any[]
+---@field speech DFVector<any>
 
 ---@class _conversation: DFCompound
 ---@field _kind 'struct-type'
@@ -1369,16 +1369,16 @@ df.adventure_construction_mode_type = {}
 ---@field bogeymen_killed number bay12: bogeymen_killed_this_attack; Keeps track of the number of bogeymen killed during a bogeyman ambush. The cackling ends when this is equal to bogeymen_ambush_size.
 ---@field bogeymen_ambush_delay number bay12: bogeymen_season_timer; Initialized to 60 when the cackling starts, preventing later bogeyman ambushes until it decreases to 0.
 ---@field fake_ambush_timer number
----@field searched_x number[] bay12: searched_location_x
----@field searched_y number[] bay12: searched_location_y
----@field searched_z number[] bay12: searched_location_z
----@field searched_timeout number[] bay12: searched_location_timer
+---@field searched_x DFVector<number> bay12: searched_location_x
+---@field searched_y DFVector<number> bay12: searched_location_y
+---@field searched_z DFVector<number> bay12: searched_location_z
+---@field searched_timeout DFVector<number> bay12: searched_location_timer
 ---@field total_move number
 ---@field start_skill_total number
 ---@field need_start_skill_total number
----@field sleep_permission_stid number[]
----@field sleep_permission_srbid number[]
----@field sleep_permission_timer number[]
+---@field sleep_permission_stid DFVector<number>
+---@field sleep_permission_srbid DFVector<number>
+---@field sleep_permission_timer DFVector<number>
 ---@field player_army_id number bay12: your_army_id References: `army`
 ---@field gait_index number bay12: speed_sel_y; Set when the gait menu is opened; keeps track of the last gait selected, but does not itself determine the gait used by the player unit.
 ---@field speed_sneak_options boolean Set to 1 when the gait menu is opened. Setting it to 0 causes the stealth information to disappear from the menu.
@@ -1413,7 +1413,7 @@ df.adventure_construction_mode_type = {}
 ---@field world_debug_pass_time number
 ---@field world_debug_loaded_center_abs_smm_x number
 ---@field world_debug_loaded_center_abs_smm_y number ?
----@field world_debug_army army[] ?
+---@field world_debug_army DFVector<army> ?
 ---@field world_debug_army_scroll number
 ---@field world_debug_viewing_army_details boolean ?
 ---@field long_action_duration number bay12: travel_goal_count; Set at the beginning of a long action which unloads the map, such as sleeping, making the first fast travel move, composing, etc. For sleeping, it is set to 800*(hours of sleep). For making the first fast travel move, seems to always be set to 17. 3200 for composing poetry. Resets to 0 after 10 frames.
@@ -1426,13 +1426,13 @@ df.adventure_construction_mode_type = {}
 ---@field viewing_spoor_z number
 ---@field viewing_spoor_bse block_square_event_spoorst
 ---@field conversation adventurest.T_conversation
----@field unk_70 any[] -- only canonicalized up to here --
+---@field unk_70 DFVector<any[]> -- only canonicalized up to here --
 ---@field unk_71 number
----@field unk_72 any[]
----@field interacts adventure_item_interact_choicest[]
----@field commands adventure_optionst[]
----@field movements adventure_movement_optionst[]
----@field unk_75 any[]
+---@field unk_72 DFVector<any[]>
+---@field interacts DFVector<adventure_item_interact_choicest>
+---@field commands DFVector<adventure_optionst>
+---@field movements DFVector<adventure_movement_optionst>
+---@field unk_75 DFVector<any[]>
 ---@field sleep_hours number
 ---@field sleep_until_dawn boolean
 ---@field unk_78 number
@@ -1612,8 +1612,8 @@ df.adventurest.T_exemplar_track_data.T_type = {}
 ---@class (exact) adventurest.T_rumor_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_rumor_info
----@field base_data adventure_rumor_datast[]
----@field data adventure_rumor_datast[][]
+---@field base_data DFVector<adventure_rumor_datast>
+---@field data DFVector<adventure_rumor_datast>[]
 
 ---@class _adventurest.T_rumor_info: DFCompound
 ---@field _kind 'struct-type'
@@ -1642,7 +1642,7 @@ df.adventurest.T_rumor_info = {}
 ---@field removing_planned boolean
 ---@field removing_existing boolean
 ---@field choosing_workshop boolean
----@field civzone building_civzonest[]
+---@field civzone DFVector<building_civzonest>
 ---@field selected_civzone number
 ---@field edit_zone_flag number[]
 ---@field doing_zone_flow boolean 144x144
@@ -1651,44 +1651,44 @@ df.adventurest.T_rumor_info = {}
 ---@field zone_sy number
 ---@field zone_sz number
 ---@field editing_zone building_civzonest
----@field zone_assign_hf historical_figure[]
+---@field zone_assign_hf DFVector<historical_figure>
 ---@field selected_zone_assign number
----@field valid_ab abstract_building[]
+---@field valid_ab DFVector<abstract_building>
 ---@field selected_ab number
----@field valid_religious_practice number[] bay12 type: ReligiousPractice
----@field valid_religious_practice_id number[]
+---@field valid_religious_practice DFVector<number> bay12 type: ReligiousPractice
+---@field valid_religious_practice_id DFVector<number>
 ---@field selected_religious_practice number
 ---@field choosing_location_type boolean
 ---@field choosing_temple_religious_practice boolean
 ---@field choosing_craft_guild boolean
----@field valid_craft_guild_type profession[] bay12 type: Unit (profession)
+---@field valid_craft_guild_type DFVector<profession> bay12 type: Unit (profession)
 ---@field selected_craft_guild number
----@field material number[]
----@field matgloss number[]
----@field mat_jobitemflag integer[]
----@field material_count number[]
----@field material_master number[]
----@field matgloss_master number[]
----@field mat_jobitemflag_master integer[]
----@field material_count_master number[]
+---@field material DFVector<number>
+---@field matgloss DFVector<number>
+---@field mat_jobitemflag DFVector<integer>
+---@field material_count DFVector<number>
+---@field material_master DFVector<number>
+---@field matgloss_master DFVector<number>
+---@field mat_jobitemflag_master DFVector<integer>
+---@field material_count_master DFVector<number>
 ---@field material_select number
 ---@field material_filter string
 ---@field material_doing_filter number
 ---@field doing_start_menu boolean
 ---@field start_menu_you_will_work boolean
----@field start_menu_worker unit[]
----@field start_menu_can_work any[]
----@field start_menu_will_work any[]
+---@field start_menu_worker DFVector<unit>
+---@field start_menu_can_work DFVector<any[]>
+---@field start_menu_will_work DFVector<any[]>
 ---@field start_menu_selected_worker number
----@field start_menu_used_mat_item number[]
----@field start_menu_used_mat_item_st number[]
----@field start_menu_used_mat_item_tool_use number[]
----@field start_menu_used_material number[]
----@field start_menu_used_matgloss number[]
----@field start_menu_used_mat_job_item_flag number[]
----@field start_menu_used_mat_state number[]
----@field start_menu_used_mat_count number[]
----@field start_menu_have_mat_count number[]
+---@field start_menu_used_mat_item DFVector<number>
+---@field start_menu_used_mat_item_st DFVector<number>
+---@field start_menu_used_mat_item_tool_use DFVector<number>
+---@field start_menu_used_material DFVector<number>
+---@field start_menu_used_matgloss DFVector<number>
+---@field start_menu_used_mat_job_item_flag DFVector<number>
+---@field start_menu_used_mat_state DFVector<number>
+---@field start_menu_used_mat_count DFVector<number>
+---@field start_menu_have_mat_count DFVector<number>
 ---@field start_menu_total_hours number
 ---@field start_menu_you_hours number
 ---@field start_menu_you_max_hours number
@@ -1789,17 +1789,17 @@ df.adventurest.T_charge_forbidden = {}
 ---@class (exact) adventurest.T_conversation: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_conversation
----@field activity activity_entry[] bay12: conv_act_list
----@field activity_event activity_event[] bay12: conv_actev_list
+---@field activity DFVector<activity_entry> bay12: conv_act_list
+---@field activity_event DFVector<activity_event> bay12: conv_actev_list
 ---@field cursor_activity number bay12: conv_sel
 ---@field cursor_choice number bay12: choice_sel
 ---@field current_page number bay12: conv_choice_page_index
----@field page_top_choices number[] bay12: conv_choice_page_top
----@field page_bottom_choices number[] bay12: conv_choicE_page_bottom
----@field choices any[] bay12: conv_choice info; type adventure_conversation_choice_infost
+---@field page_top_choices DFVector<number> bay12: conv_choice_page_top
+---@field page_bottom_choices DFVector<number> bay12: conv_choicE_page_bottom
+---@field choices DFVector<any> bay12: conv_choice info; type adventure_conversation_choice_infost
 ---@field filter string bay12: conv_string_filter
 ---@field conv_tact adventurest.T_conversation.T_conv_tact
----@field targets any[] bay12: talk_list; type talk_list_optionst
+---@field targets DFVector<any> bay12: talk_list; type talk_list_optionst
 ---@field cursor_target number bay12: talk_sel
 
 ---@class _adventurest.T_conversation: DFCompound
@@ -1851,10 +1851,10 @@ df.adventurest.T_rest_mode = {}
 ---@class (exact) adventurest.T_companions: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_companions
----@field unit unit[]
----@field unit_visible any[]
+---@field unit DFVector<unit>
+---@field unit_visible DFVector<any[]>
 ---@field unit_position coord_path
----@field all_histfigs number[] includes dead
+---@field all_histfigs DFVector<number> includes dead
 
 ---@class _adventurest.T_companions: DFCompound
 ---@field _kind 'struct-type'
@@ -1863,11 +1863,11 @@ df.adventurest.T_companions = {}
 ---@class (exact) adventurest.T_interactions: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_interactions
----@field party_core_members number[] Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
----@field party_pets number[] Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
----@field party_extra_members number[] Contains IDs of non-pet historical figures who joined the player party later on.
----@field unk_86 any[]
----@field unk_1 any[]
+---@field party_core_members DFVector<number> Contains IDs of the non-pet historical figures that the player party started off with. Figures in this list are eligible for control via tactical mode.
+---@field party_pets DFVector<number> Contains historical figure IDs of pets owned by the party, both those that the player started off with as well as others claimed later on.
+---@field party_extra_members DFVector<number> Contains IDs of non-pet historical figures who joined the player party later on.
+---@field unk_86 DFVector<any[]>
+---@field unk_1 DFVector<any[]>
 ---@field unk_1e4 number
 ---@field unk_1e8 number
 ---@field selected_ability number natural ability
@@ -1885,13 +1885,13 @@ df.adventurest.T_interactions = {}
 ---@class (exact) adventurest.T_unk_v40_2: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_2
----@field unk_s1 any[]
----@field unk_s2 any[]
----@field unk_s3 any[]
----@field unk_s4 any[]
+---@field unk_s1 DFVector<any[]>
+---@field unk_s2 DFVector<any[]>
+---@field unk_s3 DFVector<any[]>
+---@field unk_s4 DFVector<any[]>
 ---@field unk_s5 number
----@field unk_s6 any[]
----@field unk_s7 any[]
+---@field unk_s6 DFVector<any[]>
+---@field unk_s7 DFVector<any[]>
 
 ---@class _adventurest.T_unk_v40_2: DFCompound
 ---@field _kind 'struct-type'
@@ -1901,7 +1901,7 @@ df.adventurest.T_unk_v40_2 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_3
 ---@field unk_s1 number
----@field unk_s2 any[]
+---@field unk_s2 DFVector<any[]>
 
 ---@class _adventurest.T_unk_v40_3: DFCompound
 ---@field _kind 'struct-type'
@@ -1934,12 +1934,12 @@ df.adventurest.T_unk_v40_4.T_unk_v40_4a = {}
 ---@class (exact) adventurest.T_unk_v40_5: DFObject
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v40_5
----@field unk_s1 any[]
----@field unk_s2 any[]
----@field unk_s3 any[]
+---@field unk_s1 DFVector<any[]>
+---@field unk_s2 DFVector<any[]>
+---@field unk_s3 DFVector<any[]>
 ---@field unk_s4 number
----@field unk_s5 any[]
----@field unk_s6 any[]
+---@field unk_s5 DFVector<any[]>
+---@field unk_s6 DFVector<any[]>
 
 ---@class _adventurest.T_unk_v40_5: DFCompound
 ---@field _kind 'struct-type'
@@ -1949,14 +1949,14 @@ df.adventurest.T_unk_v40_5 = {}
 ---@field _kind 'struct'
 ---@field _type _adventurest.T_unk_v42_1
 ---@field unk_s1 number
----@field unk_s2 any[]
----@field unk_s3 any[]
+---@field unk_s2 DFVector<any[]>
+---@field unk_s3 DFVector<any[]>
 ---@field unk_s4 string
 ---@field unk_s5 number
 ---@field unk_s6 number
 ---@field unk_s7 number
 ---@field unk_s8 number
----@field unk_s9 any[]
+---@field unk_s9 DFVector<any[]>
 
 ---@class _adventurest.T_unk_v42_1: DFCompound
 ---@field _kind 'struct-type'
@@ -1971,8 +1971,8 @@ df.adventurest.T_unk_v42_1 = {}
 ---@field worship_object number References: `historical_figure`
 ---@field profession profession
 ---@field origin number References: `historical_entity`
----@field unk_1 any[]
----@field unk_2 any[]
+---@field unk_1 DFVector<any[]>
+---@field unk_2 DFVector<any[]>
 ---@field filter string
 ---@field unk_3 number
 ---@field unk_4 number
@@ -2167,7 +2167,7 @@ df.adventure_movement_release_hold_tilest = {}
 ---@class (exact) adventure_movement_attack_creaturest: DFObject, adventure_movement_optionst
 ---@field _kind 'struct'
 ---@field _type _adventure_movement_attack_creaturest
----@field targets number[]
+---@field targets DFVector<number>
 
 ---@class _adventure_movement_attack_creaturest: DFCompound
 ---@field _kind 'class-type'

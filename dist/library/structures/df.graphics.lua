@@ -300,10 +300,10 @@ df.texblitst = {}
 ---@class (exact) graphic: DFObject
 ---@field _kind 'struct'
 ---@field _type _graphic
----@field viewport graphic_viewportst[]
+---@field viewport DFVector<graphic_viewportst>
 ---@field main_viewport graphic_viewportst
 ---@field lower_viewport graphic_viewportst[]
----@field map_port graphic_map_portst[]
+---@field map_port DFVector<graphic_map_portst>
 ---@field main_map_port graphic_map_portst
 ---@field viewport_zoom_factor number
 ---@field screenx number
@@ -355,7 +355,7 @@ df.texblitst = {}
 ---@field clipx number[]
 ---@field clipy number[]
 ---@field tex cached_texturest[]
----@field texblits texblitst[]
+---@field texblits DFVector<texblitst>
 ---@field rect_id number
 ---@field print_time large_integer[]
 ---@field print_index number
@@ -377,14 +377,14 @@ df.graphic = {}
 ---@field _type _graphic.T_tileset
 ---@field black_background_texpos number[]
 ---@field texture_indices1 number[]
----@field texpos_custom_symbol number[]
+---@field texpos_custom_symbol DFVector<number>
 ---@field texture_indices2 number[]
 ---@field graphical_interface interface_setst
 ---@field classic_interface interface_setst
 ---@field texture_indices3 number[]
----@field texpos_boulder number[]
+---@field texpos_boulder DFVector<number>
 ---@field texture_indices4 number[]
----@field texpos_item_statue_artifact number[]
+---@field texpos_item_statue_artifact DFVector<number>
 ---@field texture_indices5 number[]
 
 ---@class _graphic.T_tileset: DFCompound
@@ -643,7 +643,7 @@ df.renderer = {}
 ---@field window any SDL_Window*
 ---@field sdl_renderer any SDL_Renderer*
 ---@field screen_tex any SDL_Texture*
----@field tile_cache any[] unordered_map<texture_fullid, SDL_Texture*\>
+---@field tile_cache DFVector<any[]> unordered_map<texture_fullid, SDL_Texture*\>
 ---@field dispx number
 ---@field dispy number
 ---@field dimx number
@@ -656,7 +656,7 @@ df.renderer = {}
 ---@field cur_h number
 ---@field use_viewport_zoom boolean
 ---@field viewport_zoom_factor number
----@field textures_to_destroy any[] svector<texture_fullid>
+---@field textures_to_destroy DFVector<any[]> svector<texture_fullid>
 ---@field zoom_steps number
 ---@field forced_steps number
 ---@field natural_w number
@@ -709,12 +709,12 @@ df.zoom_commands = {}
 ---@field _kind 'struct'
 ---@field _type _enabler
 ---@field fullscreen_state enabler.T_fullscreen_state
----@field overridden_grid_sizes enabler.T_overridden_grid_sizes[]
+---@field overridden_grid_sizes DFVector<enabler.T_overridden_grid_sizes>
 ---@field renderer renderer
 ---@field calculated_fps number
 ---@field calculated_gfps number
----@field frame_timings number[]
----@field gframe_timings number[]
+---@field frame_timings DFVector<number>
+---@field gframe_timings DFVector<number>
 ---@field frame_sum number
 ---@field gframe_sum number
 ---@field frame_last number
@@ -786,7 +786,7 @@ df.enabler.T_overridden_grid_sizes = {}
 ---@field _type _enabler.T_async_tobox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
----@field vals enabler.T_async_tobox.T_vals[]
+---@field vals DFVector<enabler.T_async_tobox.T_vals>
 
 ---@class _enabler.T_async_tobox: DFCompound
 ---@field _kind 'struct-type'
@@ -838,7 +838,7 @@ df.enabler.T_async_tobox.T_vals.T_cmd = {}
 ---@field _type _enabler.T_async_frombox
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
----@field vals enabler.T_async_frombox.T_vals[]
+---@field vals DFVector<enabler.T_async_frombox.T_vals>
 
 ---@class _enabler.T_async_frombox: DFCompound
 ---@field _kind 'struct-type'
@@ -900,7 +900,7 @@ df.enabler.T_async_frombox.T_vals.T_msg = {}
 ---@field _type _enabler.T_async_zoom
 ---@field mtx stl-mutex
 ---@field cv stl-condition-variable
----@field vals zoom_commands[]
+---@field vals DFVector<zoom_commands>
 
 ---@class _enabler.T_async_zoom: DFCompound
 ---@field _kind 'struct-type'
@@ -924,8 +924,8 @@ df.enabler.T_flag = {}
 ---@class (exact) enabler.T_textures: DFObject
 ---@field _kind 'struct'
 ---@field _type _enabler.T_textures
----@field raws integer[]
----@field free_spaces number[]
+---@field raws DFVector<integer>
+---@field free_spaces DFVector<number>
 ---@field init_texture_size number
 ---@field uploaded boolean
 
@@ -976,10 +976,10 @@ df.justification = {}
 ---@field tile_dim_y number
 ---@field page_dim_x number
 ---@field page_dim_y number
----@field texpos number[]
----@field datapos number[]
----@field texpos_gs number[]
----@field datapos_gs number[]
+---@field texpos DFVector<number>
+---@field datapos DFVector<number>
+---@field texpos_gs DFVector<number>
+---@field datapos_gs DFVector<number>
 ---@field loaded boolean
 
 ---@class _tile_pagest: DFCompound
@@ -993,8 +993,8 @@ df.tile_pagest = {}
 ---@field graphics_dir string
 ---@field filename string
 ---@field default_row number
----@field color_token string[]
----@field color_row number[]
+---@field color_token DFVector<string>
+---@field color_row DFVector<number>
 
 ---@class _palette_pagest: DFCompound
 ---@field _kind 'struct-type'
@@ -1003,8 +1003,8 @@ df.palette_pagest = {}
 ---@class (exact) texture_handlerst: DFObject
 ---@field _kind 'struct'
 ---@field _type _texture_handlerst
----@field page tile_pagest[]
----@field palette palette_pagest[]
+---@field page DFVector<tile_pagest>
+---@field palette DFVector<palette_pagest>
 
 ---@class _texture_handlerst: DFCompound
 ---@field _kind 'struct-type'

@@ -17,12 +17,12 @@
 ---@field graphics_overlay integer[][][]
 ---@field build_key number
 ---@field needs_magma boolean
----@field build_items building_def_item[]
+---@field build_items DFVector<building_def_item>
 ---@field dim_x number
 ---@field dim_y number
 ---@field workloc_x number
 ---@field workloc_y number
----@field build_labors unit_labor[]
+---@field build_labors DFVector<unit_labor>
 ---@field labor_description string
 ---@field build_stages number
 

@@ -8,27 +8,27 @@
 ---@field gamemode game_mode
 ---@field gametype game_type
 ---@field ui_menu_width number[]
----@field created_item_type item_type[] -- .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
----@field created_item_subtype number[]
----@field created_item_mattype number[]
----@field created_item_matindex number[]
----@field created_item_count number[]
+---@field created_item_type DFVector<item_type> -- .bss compound - THAT IS, NOT SIMPLE INTEGER VARIABLES!
+---@field created_item_subtype DFVector<number>
+---@field created_item_mattype DFVector<number>
+---@field created_item_matindex DFVector<number>
+---@field created_item_count DFVector<number>
 ---@field map_renderer map_renderer
 ---@field d_init d_init
----@field flows flow_info[]
+---@field flows DFVector<flow_info>
 ---@field enabler enabler
 ---@field gps graphic
 ---@field gview interfacest
 ---@field init init
 ---@field texture texture_handlerst
----@field timed_events timed_event[]
+---@field timed_events DFVector<timed_event>
 ---@field plotinfo plotinfost
 ---@field adventure adventurest
 ---@field buildreq buildreq
----@field ui_building_assign_type number[]
----@field ui_building_assign_is_marked boolean[]
----@field ui_building_assign_units unit[]
----@field ui_building_assign_items item[]
+---@field ui_building_assign_type DFVector<number>
+---@field ui_building_assign_is_marked DFVector<boolean>
+---@field ui_building_assign_units DFVector<unit>
+---@field ui_building_assign_items DFVector<item>
 ---@field ui_look_list ui_look_list
 ---@field game gamest
 ---@field world world
@@ -160,9 +160,9 @@
 ---@field preserveannounce boolean
 ---@field updatelightstate boolean
 ---@field start_dwarf_count number
----@field translate_name any[]
----@field buildingst_completebuild any[]
----@field unitst_choptree any[]
+---@field translate_name DFVector<any[]>
+---@field buildingst_completebuild DFVector<any[]>
+---@field unitst_choptree DFVector<any[]>
 df.global = {}
 
 ---@class (exact) global.T_cursor: DFObject

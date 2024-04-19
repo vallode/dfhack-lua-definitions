@@ -9,10 +9,10 @@
 ---@field tile integer
 ---@field fg_color number
 ---@field bg_color number
----@field block_x number[]
----@field block_y number[]
----@field block_z number[]
----@field units number[]
+---@field block_x DFVector<number>
+---@field block_y DFVector<number>
+---@field block_z DFVector<number>
+---@field units DFVector<number>
 ---@field limit_workshops number
 ---@field solid_texpos number
 ---@field blended_texpos number
@@ -328,7 +328,7 @@ df.ui_sidebar_mode = {}
 ---@field prison_counter number
 ---@field unk_10 number 647, 651, 10080. Changes when when hammerer and captain of the guard are appointed
 ---@field chain number References: `building`
----@field victims number[]
+---@field victims DFVector<number>
 
 ---@class _punishment: DFCompound
 ---@field _kind 'struct-type'
@@ -633,9 +633,9 @@ df.equipment_update = {}
 ---@field _kind 'struct'
 ---@field _type _labor_infost
 ---@field flags labor_infost.T_flags
----@field work_details work_detail[]
+---@field work_details DFVector<work_detail>
 ---@field chores DFEnumVector<unit_labor, boolean>
----@field chores_exempted_children number[] toady: no_chore_child_unid
+---@field chores_exempted_children DFVector<number> toady: no_chore_child_unid
 
 ---@class _labor_infost: DFCompound
 ---@field _kind 'struct-type'
@@ -659,7 +659,7 @@ df.labor_infost.T_flags = {}
 ---@field lost_to_siege_civ number References: `historical_entity`
 ---@field tax_collection plotinfost.T_tax_collection
 ---@field nobles plotinfost.T_nobles
----@field caravans caravan_state[] bay12: merchant
+---@field caravans DFVector<caravan_state> bay12: merchant
 ---@field unk_2 number
 ---@field fortress_rank number
 ---@field progress_population number outpost/hamlet/village/town/city/metropolis
@@ -674,70 +674,70 @@ df.labor_infost.T_flags = {}
 ---@field lo_temp integer
 ---@field manager_timer number bay12: quota_checktime
 ---@field units_killed DFEnumVector<profession, number>
----@field currency_value number[]
+---@field currency_value DFVector<number>
 ---@field trees_removed number
 ---@field outdoor_irritation number
 ---@field adamantine_mandate_number number
 ---@field fortress_age number ?; +1 per 10; used in first 2 migrant waves etc
 ---@field tasks entity_activity_statistics
----@field meeting_requests number[] guild complaints and diplomats
----@field activities activity_info[]
----@field dip_meeting_info meeting_diplomat_info[]
----@field aid_requesters number[]
+---@field meeting_requests DFVector<number> guild complaints and diplomats
+---@field activities DFVector<activity_info>
+---@field dip_meeting_info DFVector<meeting_diplomat_info>
+---@field aid_requesters DFVector<number>
 ---@field game_over boolean
 ---@field invasions plotinfost.T_invasions
----@field punishments punishment[]
----@field dipscripts dipscript_info[]
----@field dipscript_texts dipscript_text[]
----@field dipscript_popups dipscript_popup[] bay12: meetingmoment; cause viewscreen_meetingst to pop up
+---@field punishments DFVector<punishment>
+---@field dipscripts DFVector<dipscript_info>
+---@field dipscript_texts DFVector<dipscript_text>
+---@field dipscript_popups DFVector<dipscript_popup> bay12: meetingmoment; cause viewscreen_meetingst to pop up
 ---@field kitchen plotinfost.T_kitchen
----@field economic_stone boolean[]
+---@field economic_stone DFVector<boolean>
 ---@field flags plotinfost.T_flags
 ---@field mood_cooldown number
 ---@field civ_id number References: `historical_entity`
 ---@field site_id number References: `world_site`
 ---@field group_id number i.e. specifically the fortress dwarves References: `historical_entity`
 ---@field race_id number References: `creature_raw`
----@field unk_races number[]
----@field farm_crops number[]
----@field farm_seasons season[]
+---@field unk_races DFVector<number>
+---@field farm_crops DFVector<number>
+---@field farm_seasons DFVector<season>
 ---@field economy_prices plotinfost.T_economy_prices
 ---@field stockpile plotinfost.T_stockpile
 ---@field unk2a8c plotinfost.T_unk2a8c[][]
----@field unk_mapedge_x number[]
----@field unk_mapedge_y number[]
----@field unk_mapedge_z number[]
+---@field unk_mapedge_x DFVector<number>
+---@field unk_mapedge_y DFVector<number>
+---@field unk_mapedge_z DFVector<number>
 ---@field map_edge plotinfost.T_map_edge
----@field feature_x number[]
----@field feature_y number[]
----@field feature_id_local number[]
----@field feature_id_global number[]
----@field event_collections number[]
----@field stone_mat_types number[]
----@field stone_mat_indexes number[]
+---@field feature_x DFVector<number>
+---@field feature_y DFVector<number>
+---@field feature_id_local DFVector<number>
+---@field feature_id_global DFVector<number>
+---@field event_collections DFVector<number>
+---@field stone_mat_types DFVector<number>
+---@field stone_mat_indexes DFVector<number>
 ---@field waypoints plotinfost.T_waypoints
 ---@field burrows plotinfost.T_burrows
 ---@field alerts plotinfost.T_alerts
 ---@field equipment plotinfost.T_equipment
 ---@field hauling plotinfost.T_hauling
 ---@field labor_info labor_infost
----@field petitions number[] related to agreements
----@field unk_6 number[] observed allocating 4 bytes
----@field unk_7 any[]
----@field theft_intrigues any[] related to job_type unk_fake_no_activity
----@field infiltrator_histfigs number[]
----@field infiltrator_years number[]
----@field infiltrator_year_ticks number[]
----@field tutorial_hide help_context_type[]
----@field tutorial_seen help_context_type[] 0.50.01
+---@field petitions DFVector<number> related to agreements
+---@field unk_6 DFVector<number> observed allocating 4 bytes
+---@field unk_7 DFVector<any[]>
+---@field theft_intrigues DFVector<any> related to job_type unk_fake_no_activity
+---@field infiltrator_histfigs DFVector<number>
+---@field infiltrator_years DFVector<number>
+---@field infiltrator_year_ticks DFVector<number>
+---@field tutorial_hide DFVector<help_context_type>
+---@field tutorial_seen DFVector<help_context_type> 0.50.01
 ---@field food_warn_year number 0.50.01
 ---@field food_warn_year_tick number
 ---@field main plotinfost.T_main
 ---@field squads plotinfost.T_squads
 ---@field follow_unit number References: `unit`
 ---@field follow_item number References: `item`
----@field selected_farm_crops number[] valid for the currently queried farm plot
----@field available_seeds any[]
+---@field selected_farm_crops DFVector<number> valid for the currently queried farm plot
+---@field available_seeds DFVector<any[]>
 
 ---@class _plotinfost: DFCompound
 ---@field _kind 'struct-type'
@@ -748,7 +748,7 @@ df.plotinfost = {}
 ---@field _type _plotinfost.T_tax_collection
 ---@field state number bay12: plotinfo_taxinfost
 ---@field check_timer number
----@field rooms number[]
+---@field rooms DFVector<number>
 ---@field reach_room_timer number
 ---@field tc_protect_timer number
 ---@field guard1_reach_tc_timer number
@@ -815,7 +815,7 @@ df.plotinfost.T_nobles.T_bookkeeper_settings = {}
 ---@class (exact) plotinfost.T_invasions: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_invasions
----@field list invasion_info[]
+---@field list DFVector<invasion_info>
 ---@field next_id number
 
 ---@class _plotinfost.T_invasions: DFCompound
@@ -825,11 +825,11 @@ df.plotinfost.T_invasions = {}
 ---@class (exact) plotinfost.T_kitchen: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_kitchen
----@field item_types item_type[]
----@field item_subtypes number[]
----@field mat_types number[]
----@field mat_indices number[]
----@field exc_types kitchen_exc_type[]
+---@field item_types DFVector<item_type>
+---@field item_subtypes DFVector<number>
+---@field mat_types DFVector<number>
+---@field mat_indices DFVector<number>
+---@field exc_types DFVector<kitchen_exc_type>
 
 ---@class _plotinfost.T_kitchen: DFCompound
 ---@field _kind 'struct-type'
@@ -887,38 +887,38 @@ df.plotinfost.T_economy_prices = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_adjustment: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_adjustment
----@field general_items DFEnumVector<item_type, number>
----@field weapons number[]
----@field armor number[]
----@field handwear number[]
----@field footwear number[]
----@field headwear number[]
----@field legwear number[]
----@field prepared_food number[]
----@field wood number[]
----@field thread_cloth number[]
----@field paper number[]
----@field parchment number[]
----@field bone number[]
----@field tooth number[]
----@field horn number[]
----@field pearl number[]
----@field shell number[]
----@field leather number[]
----@field silk number[]
----@field yarn number[]
----@field inorganic number[]
----@field meat number[]
----@field fish number[]
----@field plants number[]
----@field drinks number[]
----@field extract_animal number[]
----@field extract_plant number[]
----@field mill_animal number[]
----@field mill_plant number[]
----@field cheese_animal number[]
----@field cheese_plant number[]
----@field pets number[]
+---@field general_items DFVector<number>
+---@field weapons DFVector<number>
+---@field armor DFVector<number>
+---@field handwear DFVector<number>
+---@field footwear DFVector<number>
+---@field headwear DFVector<number>
+---@field legwear DFVector<number>
+---@field prepared_food DFVector<number>
+---@field wood DFVector<number>
+---@field thread_cloth DFVector<number>
+---@field paper DFVector<number>
+---@field parchment DFVector<number>
+---@field bone DFVector<number>
+---@field tooth DFVector<number>
+---@field horn DFVector<number>
+---@field pearl DFVector<number>
+---@field shell DFVector<number>
+---@field leather DFVector<number>
+---@field silk DFVector<number>
+---@field yarn DFVector<number>
+---@field inorganic DFVector<number>
+---@field meat DFVector<number>
+---@field fish DFVector<number>
+---@field plants DFVector<number>
+---@field drinks DFVector<number>
+---@field extract_animal DFVector<number>
+---@field extract_plant DFVector<number>
+---@field mill_animal DFVector<number>
+---@field mill_plant DFVector<number>
+---@field cheese_animal DFVector<number>
+---@field cheese_plant DFVector<number>
+---@field pets DFVector<number>
 
 ---@class _plotinfost.T_economy_prices.T_price_adjustment: DFCompound
 ---@field _kind 'struct-type'
@@ -927,38 +927,38 @@ df.plotinfost.T_economy_prices.T_price_adjustment = {}
 ---@class (exact) plotinfost.T_economy_prices.T_price_setter: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_economy_prices.T_price_setter
----@field general_items DFEnumVector<item_type, unit>
----@field weapons unit[]
----@field armor unit[]
----@field handwear unit[]
----@field footwear unit[]
----@field headwear unit[]
----@field legwear unit[]
----@field prepared_food unit[]
----@field wood unit[]
----@field thread_cloth unit[]
----@field paper unit[]
----@field parchment unit[]
----@field bone unit[]
----@field tooth unit[]
----@field horn unit[]
----@field pearl unit[]
----@field shell unit[]
----@field leather unit[]
----@field silk unit[]
----@field yarn unit[]
----@field inorganic unit[]
----@field meat unit[]
----@field fish unit[]
----@field plants unit[]
----@field drinks unit[]
----@field extract_animal unit[]
----@field extract_plant unit[]
----@field mill_animal unit[]
----@field mill_plant unit[]
----@field cheese_animal unit[]
----@field cheese_plant unit[]
----@field pets unit[]
+---@field general_items DFVector<unit>
+---@field weapons DFVector<unit>
+---@field armor DFVector<unit>
+---@field handwear DFVector<unit>
+---@field footwear DFVector<unit>
+---@field headwear DFVector<unit>
+---@field legwear DFVector<unit>
+---@field prepared_food DFVector<unit>
+---@field wood DFVector<unit>
+---@field thread_cloth DFVector<unit>
+---@field paper DFVector<unit>
+---@field parchment DFVector<unit>
+---@field bone DFVector<unit>
+---@field tooth DFVector<unit>
+---@field horn DFVector<unit>
+---@field pearl DFVector<unit>
+---@field shell DFVector<unit>
+---@field leather DFVector<unit>
+---@field silk DFVector<unit>
+---@field yarn DFVector<unit>
+---@field inorganic DFVector<unit>
+---@field meat DFVector<unit>
+---@field fish DFVector<unit>
+---@field plants DFVector<unit>
+---@field drinks DFVector<unit>
+---@field extract_animal DFVector<unit>
+---@field extract_plant DFVector<unit>
+---@field mill_animal DFVector<unit>
+---@field mill_plant DFVector<unit>
+---@field cheese_animal DFVector<unit>
+---@field cheese_plant DFVector<unit>
+---@field pets DFVector<unit>
 
 ---@class _plotinfost.T_economy_prices.T_price_setter: DFCompound
 ---@field _kind 'struct-type'
@@ -988,12 +988,12 @@ df.plotinfost.T_unk2a8c = {}
 ---@class (exact) plotinfost.T_map_edge: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_map_edge
----@field layer_x number[][]
----@field surface_x number[]
----@field layer_y number[][]
----@field surface_y number[]
----@field layer_z number[][]
----@field surface_z number[]
+---@field layer_x DFVector<number>[]
+---@field surface_x DFVector<number>
+---@field layer_y DFVector<number>[]
+---@field surface_y DFVector<number>
+---@field layer_z DFVector<number>[]
+---@field surface_z DFVector<number>
 
 ---@class _plotinfost.T_map_edge: DFCompound
 ---@field _kind 'struct-type'
@@ -1002,8 +1002,8 @@ df.plotinfost.T_map_edge = {}
 ---@class (exact) plotinfost.T_waypoints: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_waypoints
----@field points any[]
----@field routes any[]
+---@field points DFVector<any>
+---@field routes DFVector<any>
 ---@field sym_selector number
 ---@field unk_1 number
 ---@field cur_point_index number
@@ -1012,13 +1012,13 @@ df.plotinfost.T_map_edge = {}
 ---@field sym_tile integer
 ---@field sym_fg_color number
 ---@field sym_bg_color number
----@field unk5c04 string[]
+---@field unk5c04 DFVector<string>
 ---@field next_point_id number
 ---@field next_route_id number
 ---@field sel_route_idx number
 ---@field sel_route_waypt_idx number
 ---@field in_edit_waypts_mode boolean
----@field unk_42_06 any[]
+---@field unk_42_06 DFVector<any[]>
 
 ---@class _plotinfost.T_waypoints: DFCompound
 ---@field _kind 'struct-type'
@@ -1027,14 +1027,14 @@ df.plotinfost.T_waypoints = {}
 ---@class (exact) plotinfost.T_burrows: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_burrows
----@field list burrow[]
+---@field list DFVector<burrow>
 ---@field next_id number
 ---@field sel_index number
 ---@field sel_id number References: `burrow`
 ---@field in_confirm_delete boolean
 ---@field in_add_units_mode boolean
----@field list_units unit[]
----@field sel_units any[]
+---@field list_units DFVector<unit>
+---@field sel_units DFVector<any[]>
 ---@field unit_cursor_pos number
 ---@field in_define_mode boolean
 ---@field brush_erasing boolean
@@ -1053,9 +1053,9 @@ df.plotinfost.T_burrows = {}
 ---@class (exact) plotinfost.T_alerts: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_alerts
----@field list any[]
+---@field list DFVector<any>
 ---@field next_id number
----@field routines any[]
+---@field routines DFVector<any>
 ---@field next_routine_id number
 ---@field civ_alert_idx number
 
@@ -1066,16 +1066,16 @@ df.plotinfost.T_alerts = {}
 ---@class (exact) plotinfost.T_equipment: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_equipment
----@field items_unmanifested DFEnumVector<item_type, number[]>
----@field items_unassigned DFEnumVector<item_type, number[]>
----@field items_assigned DFEnumVector<item_type, number[]>
+---@field items_unmanifested DFEnumVector<item_type, DFVector<number>>
+---@field items_unassigned DFEnumVector<item_type, DFVector<number>>
+---@field items_assigned DFEnumVector<item_type, DFVector<number>>
 ---@field update equipment_update
----@field work_weapons number[] i.e. woodcutter axes, and miner picks
----@field work_units number[]
----@field hunter_ammunition squad_ammo_spec[]
----@field ammo_items number[]
----@field ammo_units number[]
----@field training_assignments training_assignment[] sorted by animal_id
+---@field work_weapons DFVector<number> i.e. woodcutter axes, and miner picks
+---@field work_units DFVector<number>
+---@field hunter_ammunition DFVector<squad_ammo_spec>
+---@field ammo_items DFVector<number>
+---@field ammo_units DFVector<number>
+---@field training_assignments DFVector<training_assignment> sorted by animal_id
 
 ---@class _plotinfost.T_equipment: DFCompound
 ---@field _kind 'struct-type'
@@ -1084,13 +1084,13 @@ df.plotinfost.T_equipment = {}
 ---@class (exact) plotinfost.T_hauling: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_hauling
----@field routes hauling_route[]
+---@field routes DFVector<hauling_route>
 ---@field next_id number
 ---@field scroll_position number
 ---@field scrolling boolean
----@field view_routes hauling_route[]
----@field view_stops hauling_stop[]
----@field view_bad plotinfost.T_hauling.T_view_bad[]
+---@field view_routes DFVector<hauling_route>
+---@field view_stops DFVector<hauling_stop>
+---@field view_bad DFVector<plotinfost.T_hauling.T_view_bad>
 ---@field in_stop boolean
 ---@field adding_stop_route_id number
 ---@field entering_nickname boolean
@@ -1120,7 +1120,7 @@ df.plotinfost.T_hauling.T_view_bad = {}
 ---@field traffic_cost_normal number
 ---@field traffic_cost_low number
 ---@field traffic_cost_restricted number
----@field dead_citizens any[] ?
+---@field dead_citizens DFVector<any> ?
 ---@field custom_difficulty difficultyst
 ---@field fortress_entity historical_entity entity pointed to by group_id
 ---@field fortress_site world_site
@@ -1156,10 +1156,10 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@class (exact) plotinfost.T_squads: DFObject
 ---@field _kind 'struct'
 ---@field _type _plotinfost.T_squads
----@field list squad[] valid only when ui is displayed
----@field unk6e08 any[]
----@field sel_squads any[]
----@field indiv_selected number[]
+---@field list DFVector<squad> valid only when ui is displayed
+---@field unk6e08 DFVector<any[]>
+---@field sel_squads DFVector<any[]>
+---@field indiv_selected DFVector<number>
 ---@field in_select_indiv boolean
 ---@field sel_indiv_squad number
 ---@field unk_70 number
@@ -1169,11 +1169,11 @@ df.plotinfost.T_main.T_save_progress = {}
 ---@field in_move_order boolean
 ---@field point_list_scroll number
 ---@field in_kill_order boolean
----@field kill_rect_targets unit[]
+---@field kill_rect_targets DFVector<unit>
 ---@field kill_rect_targets_scroll number also used for the list of targets at cursor
 ---@field in_kill_list boolean
----@field kill_targets unit[]
----@field sel_kill_targets any[]
+---@field kill_targets DFVector<unit>
+---@field sel_kill_targets DFVector<any[]>
 ---@field kill_list_scroll number
 ---@field in_kill_rect boolean
 ---@field rect_start coord
@@ -1274,7 +1274,7 @@ df.map_viewport = {}
 ---@field _type _map_renderer
 ---@field entity integer[][]
 ---@field unk_v50_1 number[][]
----@field cursor_units unit[]
+---@field cursor_units DFVector<unit>
 ---@field cursor_guts unit
 ---@field multiple_guts boolean
 ---@field cursor_corpse item

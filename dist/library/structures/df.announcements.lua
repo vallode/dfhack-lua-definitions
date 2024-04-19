@@ -2100,9 +2100,9 @@ df.popup_message = {}
 ---@field _kind 'struct'
 ---@field _type _announcement_alertst
 ---@field type announcement_alert_type
----@field announcement_id number[]
----@field report_unid number[] unit id
----@field report_unit_announcement_category unit_report_type[] vector must be same length as report_unid
+---@field announcement_id DFVector<number>
+---@field report_unid DFVector<number> unit id
+---@field report_unit_announcement_category DFVector<unit_report_type> vector must be same length as report_unid
 
 ---@class _announcement_alertst: DFCompound
 ---@field _kind 'struct-type'

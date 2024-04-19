@@ -1523,14 +1523,14 @@ df.appearance_modifier_growth_interval = {}
 ---@field _type _body_part_layer_raw
 ---@field layer_name string
 ---@field tissue_id number
----@field flags table<body_part_layer_flags, boolean>
+---@field flags DFVector<table<body_part_layer_flags, boolean>>
 ---@field part_fraction number total 1000
 ---@field healing_rate number
 ---@field vascular number
 ---@field pain_receptors number
 ---@field unk6 number
 ---@field unk7 number
----@field bp_modifiers number[]
+---@field bp_modifiers DFVector<number>
 ---@field layer_id number across all body parts
 ---@field parent_idx number For subordinate layers:
 ---@field parent_layer_id number
@@ -1549,8 +1549,8 @@ df.body_part_layer_raw = {}
 ---@field token string
 ---@field category string
 ---@field con_part_id number
----@field flags table<body_part_raw_flags, boolean>
----@field layers body_part_layer_raw[]
+---@field flags DFVector<table<body_part_raw_flags, boolean>>
+---@field layers DFVector<body_part_layer_raw>
 ---@field fraction_total number
 ---@field fraction_base number
 ---@field fraction_fat number
@@ -1558,8 +1558,8 @@ df.body_part_layer_raw = {}
 ---@field relsize number
 ---@field number number
 ---@field unk7b number
----@field name_singular string[]
----@field name_plural string[]
+---@field name_singular DFVector<string>
+---@field name_plural DFVector<string>
 ---@field bp_relation_part_id any
 ---@field bp_relation_code any
 ---@field bp_relation_coverage any
@@ -1579,10 +1579,10 @@ df.body_part_raw = {}
 ---@class (exact) color_modifier_raw: DFObject
 ---@field _kind 'struct'
 ---@field _type _color_modifier_raw
----@field pattern_index number[]
----@field pattern_frequency number[]
----@field body_part_id number[]
----@field tissue_layer_id number[]
+---@field pattern_index DFVector<number>
+---@field pattern_frequency DFVector<number>
+---@field body_part_id DFVector<number>
+---@field tissue_layer_id DFVector<number>
 ---@field unk5 number
 ---@field start_date number
 ---@field end_date number
@@ -1592,8 +1592,8 @@ df.body_part_raw = {}
 ---@field unk_6e number
 ---@field unk_70 number
 ---@field id number
----@field unk_78 string[]
----@field unk_88 string[]
+---@field unk_78 DFVector<string>
+---@field unk_88 DFVector<string>
 
 ---@class _color_modifier_raw: DFCompound
 ---@field _kind 'struct-type'
@@ -1639,8 +1639,8 @@ df.body_appearance_modifier = {}
 ---@field single_plural number
 ---@field unk1 number
 ---@field id1 number
----@field body_parts number[]
----@field tissue_layer number[]
+---@field body_parts DFVector<number>
+---@field tissue_layer DFVector<number>
 ---@field id number
 
 ---@class _bp_appearance_modifier: DFCompound
@@ -1669,23 +1669,23 @@ df.caste_clothing_item = {}
 ---@field verb_3rd string
 ---@field verb_2nd string
 ---@field flags caste_attack.T_flags
----@field specialattack_type number[] 0 = inject extract, 1 = suck blood, 2 = perform interaction
----@field specialattack_mat_type number[] extract injected
----@field specialattack_mat_index number[]
----@field specialattack_mat_state matter_state[]
----@field specialattack_temp_mat string[][] parsed during second pass
----@field specialattack_min number[] amount of extract injected or blood sucked
----@field specialattack_max number[]
+---@field specialattack_type DFVector<number> 0 = inject extract, 1 = suck blood, 2 = perform interaction
+---@field specialattack_mat_type DFVector<number> extract injected
+---@field specialattack_mat_index DFVector<number>
+---@field specialattack_mat_state DFVector<matter_state>
+---@field specialattack_temp_mat DFVector<string>[] parsed during second pass
+---@field specialattack_min DFVector<number> amount of extract injected or blood sucked
+---@field specialattack_max DFVector<number>
 ---@field contact_perc number
 ---@field penetration_perc number
 ---@field unk_v40_1 number
 ---@field unk_v40_2 number
----@field body_part_idx number[]
----@field tissue_layer_idx number[]
+---@field body_part_idx DFVector<number>
+---@field tissue_layer_idx DFVector<number>
 ---@field skill job_skill
 ---@field velocity_modifier number
----@field specialattack_interaction_tmp_name string[] parsed during second pass
----@field specialattack_interaction_id number[]
+---@field specialattack_interaction_tmp_name DFVector<string> parsed during second pass
+---@field specialattack_interaction_id DFVector<number>
 ---@field unk_v40_3 number
 ---@field unk_v40_4 number
 
@@ -1814,8 +1814,8 @@ df.creature_interaction_target_flags = {}
 ---@class (exact) creature_interaction: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_interaction
----@field bp_required_type string[]
----@field bp_required_name string[]
+---@field bp_required_type DFVector<string>
+---@field bp_required_name DFVector<string>
 ---@field unk_1 string
 ---@field unk_2 string
 ---@field material_str0 string
@@ -1831,16 +1831,16 @@ df.creature_interaction_target_flags = {}
 ---@field target_verb_3rd string
 ---@field interaction_type string
 ---@field type_id number References: `interaction`
----@field usage_hint interaction_source_usage_hint[]
----@field location_hint interaction_effect_location_hint[]
+---@field usage_hint DFVector<interaction_source_usage_hint>
+---@field location_hint DFVector<interaction_effect_location_hint>
 ---@field flags creature_interaction.T_flags
----@field unk_3 string[]
----@field target_flags creature_interaction_target_flags[]
----@field target_ranges number[]
----@field unk_4 string[]
----@field max_target_numbers number[]
----@field verbal_speeches number[]
----@field unk_5 any[]
+---@field unk_3 DFVector<string>
+---@field target_flags DFVector<creature_interaction_target_flags>
+---@field target_ranges DFVector<number>
+---@field unk_4 DFVector<string>
+---@field max_target_numbers DFVector<number>
+---@field verbal_speeches DFVector<number>
+---@field unk_5 DFVector<any[]>
 ---@field adv_name string
 ---@field wait_period number
 
@@ -1870,18 +1870,18 @@ df.creature_interaction.T_flags = {}
 ---@class (exact) caste_body_info: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_body_info
----@field body_parts body_part_raw[]
----@field attacks caste_attack[]
----@field interactions any[]
----@field extra_butcher_objects any[]
+---@field body_parts DFVector<body_part_raw>
+---@field attacks DFVector<caste_attack>
+---@field interactions DFVector<any>
+---@field extra_butcher_objects DFVector<any>
 ---@field total_relsize number unless INTERNAL or EMBEDDED
----@field layer_part number[]
----@field layer_idx number[]
----@field numbered_masks integer[] 1 bit per instance of a numbered body part
----@field layer_nonsolid number[]
----@field nonsolid_layers number[]
+---@field layer_part DFVector<number>
+---@field layer_idx DFVector<number>
+---@field numbered_masks DFVector<integer> 1 bit per instance of a numbered body part
+---@field layer_nonsolid DFVector<number>
+---@field nonsolid_layers DFVector<number>
 ---@field flags caste_body_info.T_flags
----@field gait_info DFEnumVector<gait_type, gait_info[]>
+---@field gait_info DFEnumVector<gait_type, DFVector<gait_info>>
 ---@field materials material_vec_ref
 ---@field fraction_total number Sums of values in the parts:
 ---@field fraction_base number
@@ -1929,58 +1929,58 @@ df.caste_body_info.T_flags = {}
 ---@field caste_color number[]
 ---@field misc caste_raw.T_misc
 ---@field personality caste_raw.T_personality
----@field flags table<caste_raw_flags, boolean>
+---@field flags DFVector<table<caste_raw_flags, boolean>>
 ---@field index number global across creatures
 ---@field body_info caste_body_info
----@field caste_speech_1 any[]
----@field caste_speech_2 any[]
+---@field caste_speech_1 DFVector<any[]>
+---@field caste_speech_2 DFVector<any[]>
 ---@field skill_rates DFEnumVector<job_skill, number>[]
 ---@field attributes caste_raw.T_attributes
 ---@field sex pronoun_type
 ---@field orientation_male number[]
 ---@field orientation_female number[]
----@field body_size_1 number[] age in ticks
----@field body_size_2 number[] size at the age at the same index in body_size_1
----@field body_appearance_modifiers body_appearance_modifier[]
+---@field body_size_1 DFVector<number> age in ticks
+---@field body_size_2 DFVector<number> size at the age at the same index in body_size_1
+---@field body_appearance_modifiers DFVector<body_appearance_modifier>
 ---@field bp_appearance caste_raw.T_bp_appearance
----@field color_modifiers color_modifier_raw[]
----@field tissue_styles tissue_style_raw[]
----@field shearable_tissue_layer any[]
----@field unk16a any[][]
----@field unk16b number[][]
+---@field color_modifiers DFVector<color_modifier_raw>
+---@field tissue_styles DFVector<tissue_style_raw>
+---@field shearable_tissue_layer DFVector<any>
+---@field unk16a DFVector<any[]>[]
+---@field unk16b DFVector<number>[]
 ---@field appearance_gene_count number
 ---@field color_gene_count number
----@field natural_skill_id job_skill[]
----@field natural_skill_exp number[]
----@field natural_skill_lvl skill_rating[]
+---@field natural_skill_id DFVector<job_skill>
+---@field natural_skill_exp DFVector<number>
+---@field natural_skill_lvl DFVector<skill_rating>
 ---@field caste_profession_name caste_raw.T_caste_profession_name
 ---@field extracts caste_raw.T_extracts
----@field secretion any[]
----@field creature_class string[]
+---@field secretion DFVector<any>
+---@field creature_class DFVector<string>
 ---@field unknown2 caste_raw.T_unknown2
 ---@field habit_num number[]
----@field habit_1 number[]
----@field habit_2 number[]
----@field lair_1 number[]
----@field lair_2 number[]
----@field lair_characteristic_1 number[]
----@field lair_characteristic_2 number[]
+---@field habit_1 DFVector<number>
+---@field habit_2 DFVector<number>
+---@field lair_1 DFVector<number>
+---@field lair_2 DFVector<number>
+---@field lair_characteristic_1 DFVector<number>
+---@field lair_characteristic_2 DFVector<number>
 ---@field lair_hunter_speech caste_raw.T_lair_hunter_speech
 ---@field unk29 caste_raw.T_unk29
----@field specific_food any[][]
----@field sound any[]
----@field sound_alert number[]
----@field sound_peaceful_intermittent number[]
----@field unk_1 any[]
+---@field specific_food DFVector<any[]>[]
+---@field sound DFVector<any>
+---@field sound_alert DFVector<number>
+---@field sound_peaceful_intermittent DFVector<number>
+---@field unk_1 DFVector<any>
 ---@field smell_trigger number -- v0.40.01
 ---@field odor_level number
 ---@field odor_string string
 ---@field low_light_vision number
----@field sense_creature_class_1 string[]
----@field sense_creature_class_2 number[]
----@field sense_creature_class_3 number[]
----@field sense_creature_class_4 number[]
----@field sense_creature_class_5 number[]
+---@field sense_creature_class_1 DFVector<string>
+---@field sense_creature_class_2 DFVector<number>
+---@field sense_creature_class_3 DFVector<number>
+---@field sense_creature_class_4 DFVector<number>
+---@field sense_creature_class_5 DFVector<number>
 ---@field caste_graphics creature_raw_graphics
 ---@field unk_v50_4300 any
 
@@ -2067,13 +2067,13 @@ df.caste_raw.T_attributes = {}
 ---@class (exact) caste_raw.T_bp_appearance: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_bp_appearance
----@field modifiers bp_appearance_modifier[]
----@field modifier_idx number[]
----@field part_idx number[]
----@field layer_idx number[]
----@field style_part_idx number[] -- Subset of modifiable layers, i.e. where layer_idx != -1
----@field style_layer_idx number[]
----@field style_list_idx number[]
+---@field modifiers DFVector<bp_appearance_modifier>
+---@field modifier_idx DFVector<number>
+---@field part_idx DFVector<number>
+---@field layer_idx DFVector<number>
+---@field style_part_idx DFVector<number> -- Subset of modifiable layers, i.e. where layer_idx != -1
+---@field style_layer_idx DFVector<number>
+---@field style_list_idx DFVector<number>
 
 ---@class _caste_raw.T_bp_appearance: DFCompound
 ---@field _kind 'struct-type'
@@ -2092,9 +2092,9 @@ df.caste_raw.T_caste_profession_name = {}
 ---@class (exact) caste_raw.T_extracts: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_extracts
----@field extract_mat number[]
----@field extract_matidx number[]
----@field extract_str string[][]
+---@field extract_mat DFVector<number>
+---@field extract_matidx DFVector<number>
+---@field extract_str DFVector<string>[]
 ---@field milkable_mat number
 ---@field milkable_matidx number
 ---@field milkable_str string[]
@@ -2121,14 +2121,14 @@ df.caste_raw.T_caste_profession_name = {}
 ---@field pus_mat number
 ---@field pus_matidx number
 ---@field pus_str string[]
----@field egg_material_mattype number[]
----@field egg_material_matindex number[]
----@field egg_material_str string[][]
----@field lays_unusual_eggs_itemtype item_type[]
----@field lays_unusual_eggs_itemsubtype number[]
----@field lays_unusual_eggs_mattype number[]
----@field lays_unusual_eggs_matindex number[]
----@field lays_unusual_eggs_str string[][]
+---@field egg_material_mattype DFVector<number>
+---@field egg_material_matindex DFVector<number>
+---@field egg_material_str DFVector<string>[]
+---@field lays_unusual_eggs_itemtype DFVector<item_type>
+---@field lays_unusual_eggs_itemsubtype DFVector<number>
+---@field lays_unusual_eggs_mattype DFVector<number>
+---@field lays_unusual_eggs_matindex DFVector<number>
+---@field lays_unusual_eggs_str DFVector<string>[]
 
 ---@class _caste_raw.T_extracts: DFCompound
 ---@field _kind 'struct-type'
@@ -2137,17 +2137,17 @@ df.caste_raw.T_extracts = {}
 ---@class (exact) caste_raw.T_unknown2: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_unknown2
----@field syndrome_dilution_identifier string[] SYNDROME_DILUTION_FACTOR
----@field syndrome_dilution_factor number[] SYNDROME_DILUTION_FACTOR
----@field gobble_vermin_class string[]
----@field gobble_vermin_creature_1 string[]
----@field gobble_vermin_creature_2 string[]
----@field infect_all number[] for spatter applied to all bp
----@field infect_local number[] for spatter applied to one bp
----@field unk23f number[]
----@field unk23g number[]
----@field unk24_flags table<integer, boolean>
----@field unk25_flags table<integer, boolean>
+---@field syndrome_dilution_identifier DFVector<string> SYNDROME_DILUTION_FACTOR
+---@field syndrome_dilution_factor DFVector<number> SYNDROME_DILUTION_FACTOR
+---@field gobble_vermin_class DFVector<string>
+---@field gobble_vermin_creature_1 DFVector<string>
+---@field gobble_vermin_creature_2 DFVector<string>
+---@field infect_all DFVector<number> for spatter applied to all bp
+---@field infect_local DFVector<number> for spatter applied to one bp
+---@field unk23f DFVector<number>
+---@field unk23g DFVector<number>
+---@field unk24_flags DFVector<table<integer, boolean>>
+---@field unk25_flags DFVector<table<integer, boolean>>
 ---@field armor_sizes number[][] index by UBSTEP
 ---@field pants_sizes number[] index by LBSTEP
 ---@field helm_size number
@@ -2155,10 +2155,10 @@ df.caste_raw.T_extracts = {}
 ---@field shoes_sizes number[] index by UPSTEP
 ---@field gloves_sizes number[] index by UPSTEP
 ---@field materials material_vec_ref
----@field unk_2f20 number[]
----@field unk_2f30 number[]
----@field unk_2f40 number[]
----@field unk_2f50 number[]
+---@field unk_2f20 DFVector<number>
+---@field unk_2f30 DFVector<number>
+---@field unk_2f40 DFVector<number>
+---@field unk_2f50 DFVector<number>
 ---@field mat_type number muscle: References: `material`
 ---@field mat_index number
 
@@ -2169,8 +2169,8 @@ df.caste_raw.T_unknown2 = {}
 ---@class (exact) caste_raw.T_lair_hunter_speech: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_lair_hunter_speech
----@field unk_1 number[]
----@field unk_2 any[]
+---@field unk_1 DFVector<number>
+---@field unk_2 DFVector<any[]>
 
 ---@class _caste_raw.T_lair_hunter_speech: DFCompound
 ---@field _kind 'struct-type'
@@ -2179,8 +2179,8 @@ df.caste_raw.T_lair_hunter_speech = {}
 ---@class (exact) caste_raw.T_unk29: DFObject
 ---@field _kind 'struct'
 ---@field _type _caste_raw.T_unk29
----@field unk_1 any[]
----@field unk_2 number[]
+---@field unk_1 DFVector<any[]>
+---@field unk_2 DFVector<number>
 
 ---@class _caste_raw.T_unk29: DFCompound
 ---@field _kind 'struct-type'
@@ -2272,8 +2272,8 @@ df.tissue_style_type = {}
 ---@field profession_add_color DFEnumVector<profession, DFEnumVector<creature_graphics_role, boolean>>
 ---@field profession_unk DFEnumVector<profession, DFEnumVector<creature_graphics_role, number>>[]
 ---@field ptr_unk DFEnumVector<creature_graphics_role, integer>[]
----@field vec_unk number[][]
----@field profession_vec_unk DFEnumVector<profession, number[]>
+---@field vec_unk DFVector<number>[]
+---@field profession_vec_unk DFEnumVector<profession, DFVector<number>>
 
 ---@class _creature_raw_graphics: DFCompound
 ---@field _kind 'struct-type'
@@ -2283,10 +2283,10 @@ df.creature_raw_graphics = {}
 ---@field _kind 'struct'
 ---@field _type _tissue_style_raw
 ---@field token string
----@field part_idx number[]
----@field layer_idx number[]
----@field styles tissue_style_type[]
----@field list_idx number[]
+---@field part_idx DFVector<number>
+---@field layer_idx DFVector<number>
+---@field styles DFVector<tissue_style_type>
+---@field list_idx DFVector<number>
 ---@field id number
 ---@field noun string
 ---@field word_type part_of_speech 0 singular, 1 plural
@@ -2317,26 +2317,26 @@ df.tissue_style_raw = {}
 ---@field color number[]
 ---@field glowcolor number[]
 ---@field adultsize number
----@field prefstring string[]
----@field sphere number[]
----@field caste caste_raw[]
----@field pop_ratio number[]
----@field flags table<creature_raw_flags, boolean>
+---@field prefstring DFVector<string>
+---@field sphere DFVector<number>
+---@field caste DFVector<caste_raw>
+---@field pop_ratio DFVector<number>
+---@field flags DFVector<table<creature_raw_flags, boolean>>
 ---@field graphics creature_raw_graphics
----@field speech1 number[]
----@field speech2 number[]
----@field material material[]
----@field tissue tissue[]
+---@field speech1 DFVector<number>
+---@field speech2 DFVector<number>
+---@field material DFVector<material>
+---@field tissue DFVector<tissue>
 ---@field profession_name creature_raw.T_profession_name
 ---@field underground_layer_min number
 ---@field underground_layer_max number
----@field modifier_class number[]
----@field modifier_num_patterns number[] for color modifiers, == number of items in their pattern_* vectors
+---@field modifier_class DFVector<number>
+---@field modifier_num_patterns DFVector<number> for color modifiers, == number of items in their pattern_* vectors
 ---@field hive_product creature_raw.T_hive_product
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
 ---@field next_modifier_id number
----@field raws string[]
+---@field raws DFVector<string>
 ---@field statute_texpos number[]
 
 ---@class _creature_raw: DFCompound
@@ -2365,16 +2365,16 @@ df.creature_raw.T_profession_name = {}
 ---@class (exact) creature_raw.T_hive_product: DFObject
 ---@field _kind 'struct'
 ---@field _type _creature_raw.T_hive_product
----@field number number[]
----@field time number[]
----@field item_type item_type[]
----@field item_subtype number[]
+---@field number DFVector<number>
+---@field time DFVector<number>
+---@field item_type DFVector<item_type>
+---@field item_subtype DFVector<number>
 ---@field material material_vec_ref
----@field tmpstr1 string[]
----@field tmpstr2 string[]
----@field tmpstr3 string[]
----@field tmpstr4 string[]
----@field tmpstr5 string[]
+---@field tmpstr1 DFVector<string>
+---@field tmpstr2 DFVector<string>
+---@field tmpstr3 DFVector<string>
+---@field tmpstr4 DFVector<string>
+---@field tmpstr5 DFVector<string>
 
 ---@class _creature_raw.T_hive_product: DFCompound
 ---@field _kind 'struct-type'
@@ -2397,13 +2397,13 @@ df.creature_variation_convert_tag = {}
 ---@field _kind 'struct'
 ---@field _type _creature_variation
 ---@field id string
----@field cv_convert_tag creature_variation_convert_tag[]
----@field cv_new_tag string[]
----@field cv_new_unk_v40_1 number[]
----@field cv_new_unk_v40_2 string[]
----@field cv_remove_tag string[]
----@field cv_remove_unk_v40_1 number[]
----@field cv_remove_unk_v40_2 string[]
+---@field cv_convert_tag DFVector<creature_variation_convert_tag>
+---@field cv_new_tag DFVector<string>
+---@field cv_new_unk_v40_1 DFVector<number>
+---@field cv_new_unk_v40_2 DFVector<string>
+---@field cv_remove_tag DFVector<string>
+---@field cv_remove_unk_v40_1 DFVector<number>
+---@field cv_remove_unk_v40_2 DFVector<string>
 
 ---@class _creature_variation: DFCompound
 ---@field _kind 'struct-type'
@@ -2604,11 +2604,11 @@ df.body_part_template_contype = {}
 ---@field category string
 ---@field con_cat string
 ---@field contype body_part_template_contype
----@field flags table<body_part_template_flags, boolean>
+---@field flags DFVector<table<body_part_template_flags, boolean>>
 ---@field default_relsize number
 ---@field number number
----@field name_singular string[] first comes from BP, rest come from INDIVIDUAL_NAME
----@field name_plural string[]
+---@field name_singular DFVector<string> first comes from BP, rest come from INDIVIDUAL_NAME
+---@field name_plural DFVector<string>
 
 ---@class _body_part_template: DFCompound
 ---@field _kind 'struct-type'
@@ -2618,7 +2618,7 @@ df.body_part_template = {}
 ---@field _kind 'struct'
 ---@field _type _body_template
 ---@field id string in bay12 this is a static array with one member
----@field parts body_part_template[]
+---@field parts DFVector<body_part_template>
 
 ---@class _body_template: DFCompound
 ---@field _kind 'struct-type'
@@ -2736,7 +2736,7 @@ df.tissue_flags = {}
 ---@field _kind 'struct'
 ---@field _type _tissue_template
 ---@field id string
----@field flags table<tissue_flags, boolean>
+---@field flags DFVector<table<tissue_flags, boolean>>
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
@@ -2770,7 +2770,7 @@ function df.tissue_template.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _tissue
 ---@field id string
----@field flags table<tissue_flags, boolean>
+---@field flags DFVector<table<tissue_flags, boolean>>
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
@@ -2802,31 +2802,31 @@ df.tissue = {}
 ---@field _kind 'struct'
 ---@field _type _body_detail_plan
 ---@field id string
----@field add_material_name string[]
----@field add_material_template string[]
----@field add_tissue_name string[]
----@field add_tissue_template string[]
----@field unk5c number[]
----@field unk6c string[]
----@field unk7c string[]
----@field bp_layers_selection number[]
----@field bp_layers_criteria number[]
----@field bp_layers_tissue number[]
----@field bp_layers_thickness string[]
----@field bp_layers_position number[]
----@field bp_layers_over_under number[]
----@field bp_relsize_selection number[]
----@field bp_relsize_criteria string[]
----@field bp_relsize_value number[]
----@field bp_position_selection number[]
----@field bp_position_criteria string[]
----@field bp_position_value number[]
----@field bp_relation_selection_1 number[]
----@field bp_relation_criteria_1 string[]
----@field bp_relation_value_1 number[]
----@field bp_relation_selection_2 number[]
----@field bp_relation_criteria_2 string[]
----@field bp_relation_extent number[]
+---@field add_material_name DFVector<string>
+---@field add_material_template DFVector<string>
+---@field add_tissue_name DFVector<string>
+---@field add_tissue_template DFVector<string>
+---@field unk5c DFVector<number>
+---@field unk6c DFVector<string>
+---@field unk7c DFVector<string>
+---@field bp_layers_selection DFVector<number>
+---@field bp_layers_criteria DFVector<number>
+---@field bp_layers_tissue DFVector<number>
+---@field bp_layers_thickness DFVector<string>
+---@field bp_layers_position DFVector<number>
+---@field bp_layers_over_under DFVector<number>
+---@field bp_relsize_selection DFVector<number>
+---@field bp_relsize_criteria DFVector<string>
+---@field bp_relsize_value DFVector<number>
+---@field bp_position_selection DFVector<number>
+---@field bp_position_criteria DFVector<string>
+---@field bp_position_value DFVector<number>
+---@field bp_relation_selection_1 DFVector<number>
+---@field bp_relation_criteria_1 DFVector<string>
+---@field bp_relation_value_1 DFVector<number>
+---@field bp_relation_selection_2 DFVector<number>
+---@field bp_relation_criteria_2 DFVector<string>
+---@field bp_relation_extent DFVector<number>
 
 ---@class _body_detail_plan: DFCompound
 ---@field _kind 'struct-type'

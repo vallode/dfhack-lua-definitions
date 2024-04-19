@@ -294,10 +294,10 @@ df.job_subtype_surgery = {}
 ---@field expire_timer number toady: haul_timer; for stockpiling, +1 per 50 ticks if no worker; del when 20
 ---@field recheck_cntdn number toady: auxilary_counter; for process_jobs
 ---@field aux_id number
----@field items job_item_ref[]
----@field specific_refs specific_ref[]
----@field general_refs general_ref[]
----@field job_items job_item[]
+---@field items DFVector<job_item_ref>
+---@field specific_refs DFVector<specific_ref>
+---@field general_refs DFVector<general_ref>
+---@field job_items DFVector<job_item>
 ---@field guide_path coord_path
 ---@field cur_path_index number
 ---@field spec_loc coord toady: spec_x/spec_y/spec_z
@@ -743,7 +743,7 @@ df.job_item_flags3 = {}
 ---@field has_material_reaction_product string
 ---@field min_dimension number pure guess by context
 ---@field reagent_index number
----@field contains number[] used with custom reactions
+---@field contains DFVector<number> used with custom reactions
 ---@field reaction_id number References: `reaction`
 ---@field has_tool_use tool_uses
 ---@field unk_v43_1 number
@@ -781,7 +781,7 @@ df.job_item = {}
 ---@field use_reaction_product boolean
 ---@field min_dimension number
 ---@field reaction_id number References: `reaction`
----@field contains number[]
+---@field contains DFVector<number>
 ---@field use_contains boolean
 ---@field has_tool_use tool_uses
 ---@field has_melee_skill job_skill
@@ -792,7 +792,7 @@ df.job_item = {}
 ---@field building building
 ---@field unk_74 any
 ---@field unk_v4305_1 number
----@field burrows number[]
+---@field burrows DFVector<number>
 ---@field use_burrows boolean
 ---@field take_from any
 
@@ -879,8 +879,8 @@ df.job_art_specification.T_type = {}
 ---@field finished_year_tick number
 ---@field workshop_id number References: `building`
 ---@field max_workshops number 0 is unlimited
----@field item_conditions manager_order_condition_item[]
----@field order_conditions manager_order_condition_order[]
+---@field item_conditions DFVector<manager_order_condition_item>
+---@field order_conditions DFVector<manager_order_condition_order>
 ---@field items any
 
 ---@class _manager_order: DFCompound
@@ -936,7 +936,7 @@ df.manager_order.T_frequency = {}
 ---@field has_material_reaction_product string
 ---@field inorganic_bearing number References: `inorganic_raw`
 ---@field min_dimension number
----@field contains number[]
+---@field contains DFVector<number>
 ---@field reaction_id number References: `reaction`
 ---@field has_tool_use tool_uses
 
@@ -1741,7 +1741,7 @@ df.killjob_exception_type = {}
 ---@field item_reaction_product_class string
 ---@field metal_ore number
 ---@field min_dimension_taken number
----@field reagent_index number[]
+---@field reagent_index DFVector<number>
 ---@field reaction_index number
 ---@field tool_use tool_uses
 ---@field pos coord

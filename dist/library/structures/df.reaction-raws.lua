@@ -29,18 +29,18 @@ df.reaction_flags = {}
 ---@field _type _reaction
 ---@field code string
 ---@field name string
----@field flags table<reaction_flags, boolean>
----@field reagents reaction_reagent[]
----@field products reaction_product[]
+---@field flags DFVector<table<reaction_flags, boolean>>
+---@field reagents DFVector<reaction_reagent>
+---@field products DFVector<reaction_product>
 ---@field skill job_skill
 ---@field max_multiplier number
 ---@field building reaction.T_building
 ---@field index number
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
----@field raw_strings string[]
+---@field raw_strings DFVector<string>
 ---@field category string
----@field descriptions reaction_description[]
+---@field descriptions DFVector<reaction_description>
 ---@field quality_adj1 number
 ---@field quality_adj2 number
 ---@field unk_1 number
@@ -62,11 +62,11 @@ function df.reaction.get_vector() end
 ---@class (exact) reaction.T_building: DFObject
 ---@field _kind 'struct'
 ---@field _type _reaction.T_building
----@field str string[][]
----@field type building_type[]
----@field subtype number[]
----@field custom number[]
----@field hotkey number[]
+---@field str DFVector<string>[]
+---@field type DFVector<building_type>
+---@field subtype DFVector<number>
+---@field custom DFVector<number>
+---@field hotkey DFVector<number>
 
 ---@class _reaction.T_building: DFCompound
 ---@field _kind 'struct-type'
@@ -157,12 +157,12 @@ df.reaction_reagent_flags = {}
 ---@field flags5 integer
 ---@field metal_ore number References: `inorganic_raw`
 ---@field min_dimension number
----@field contains number[]
+---@field contains DFVector<number>
 ---@field has_tool_use tool_uses
 ---@field item_str string[]
 ---@field material_str string[]
 ---@field metal_ore_str string
----@field contains_str string[]
+---@field contains_str DFVector<string>
 
 ---@class _reaction_reagent_itemst: DFCompound
 ---@field _kind 'class-type'
@@ -242,7 +242,7 @@ df.reaction_product_item_flags = {}
 ---@field probability number
 ---@field count number
 ---@field product_dimension number
----@field flags table<reaction_product_item_flags, boolean>
+---@field flags DFVector<table<reaction_product_item_flags, boolean>>
 ---@field get_material reaction_product_itemst.T_get_material
 ---@field item_str string[]
 ---@field material_str string[]
@@ -293,7 +293,7 @@ df.reaction_product_improvement_flags = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field probability number
----@field flags table<reaction_product_improvement_flags, boolean>
+---@field flags DFVector<table<reaction_product_improvement_flags, boolean>>
 ---@field get_material reaction_product_item_improvementst.T_get_material
 ---@field material_str string[]
 ---@field unk_v4201_2 string

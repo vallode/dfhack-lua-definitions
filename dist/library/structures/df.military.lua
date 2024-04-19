@@ -39,7 +39,7 @@ df.item_filter_spec = {}
 ---@field item number References: `item`
 ---@field item_filter item_filter_spec
 ---@field color number
----@field assigned number[]
+---@field assigned DFVector<number>
 ---@field indiv_choice uniform_indiv_choice
 
 ---@class _squad_uniform_spec: DFCompound
@@ -52,7 +52,7 @@ df.squad_uniform_spec = {}
 ---@field item_filter item_filter_spec
 ---@field amount number
 ---@field flags squad_ammo_spec.T_flags
----@field assigned number[]
+---@field assigned DFVector<number>
 
 ---@class _squad_ammo_spec: DFCompound
 ---@field _kind 'struct-type'
@@ -208,12 +208,12 @@ df.squad_event_type = {}
 ---@field _kind 'struct'
 ---@field _type _squad_position
 ---@field occupant number References: `historical_figure`
----@field orders squad_order[]
----@field preferences DFEnumVector<barrack_preference_category, number[]>
----@field uniform DFEnumVector<uniform_category, squad_uniform_spec[]>
+---@field orders DFVector<squad_order>
+---@field preferences DFEnumVector<barrack_preference_category, DFVector<number>>
+---@field uniform DFEnumVector<uniform_category, DFVector<squad_uniform_spec>>
 ---@field unk_c4 string
 ---@field flags uniform_flags
----@field assigned_items number[]
+---@field assigned_items DFVector<number>
 ---@field quiver number References: `item`
 ---@field backpack number References: `item`
 ---@field flask number References: `item`
@@ -231,7 +231,7 @@ df.squad_position = {}
 ---@field _type _squad_schedule_order
 ---@field order squad_order
 ---@field min_count number
----@field positions any[]
+---@field positions DFVector<any[]>
 
 ---@class _squad_schedule_order: DFCompound
 ---@field _kind 'struct-type'
@@ -243,8 +243,8 @@ df.squad_schedule_order = {}
 ---@field name string
 ---@field sleep_mode number 0 room, 1 barrack will, 2 barrack need
 ---@field uniform_mode number 0 uniformed, 1 civ clothes
----@field orders squad_schedule_order[]
----@field order_assignments any[]
+---@field orders DFVector<squad_schedule_order>
+---@field order_assignments DFVector<any>
 
 ---@class _squad_schedule_entry: DFCompound
 ---@field _kind 'struct-type'
@@ -256,13 +256,13 @@ df.squad_schedule_entry = {}
 ---@field id number
 ---@field name language_name
 ---@field alias string if not empty, used instead of name
----@field positions squad_position[]
----@field orders squad_order[]
----@field schedule any[]
+---@field positions DFVector<squad_position>
+---@field orders DFVector<squad_order>
+---@field schedule DFVector<any>
 ---@field cur_routine_idx number
----@field rooms any[]
----@field rack_combat number[]
----@field rack_training number[]
+---@field rooms DFVector<any>
+---@field rack_combat DFVector<number>
+---@field rack_training DFVector<number>
 ---@field uniform_priority number
 ---@field activity number References: `activity_entry`
 ---@field ammo squad.T_ammo
@@ -298,11 +298,11 @@ function df.squad.get_vector() end
 ---@class (exact) squad.T_ammo: DFObject
 ---@field _kind 'struct'
 ---@field _type _squad.T_ammo
----@field ammunition squad_ammo_spec[]
----@field train_weapon_free number[]
----@field train_weapon_inuse number[]
----@field ammo_items number[]
----@field ammo_units number[]
+---@field ammunition DFVector<squad_ammo_spec>
+---@field train_weapon_free DFVector<number>
+---@field train_weapon_inuse DFVector<number>
+---@field ammo_items DFVector<number>
+---@field ammo_units DFVector<number>
 ---@field update equipment_update
 
 ---@class _squad.T_ammo: DFCompound
@@ -490,8 +490,8 @@ df.squad_order_movest = {}
 ---@class (exact) squad_order_kill_listst: DFObject, squad_order
 ---@field _kind 'struct'
 ---@field _type _squad_order_kill_listst
----@field units number[]
----@field histfigs number[]
+---@field units DFVector<number>
+---@field histfigs DFVector<number>
 ---@field title string
 
 ---@class _squad_order_kill_listst: DFCompound
@@ -501,7 +501,7 @@ df.squad_order_kill_listst = {}
 ---@class (exact) squad_order_defend_burrowsst: DFObject, squad_order
 ---@field _kind 'struct'
 ---@field _type _squad_order_defend_burrowsst
----@field burrows number[]
+---@field burrows DFVector<number>
 
 ---@class _squad_order_defend_burrowsst: DFCompound
 ---@field _kind 'class-type'
@@ -808,7 +808,7 @@ df.army_controller_goal_type = {}
 ---@field pos_y number
 ---@field percentage_pop number
 ---@field number_pop number
----@field activity_id number[]
+---@field activity_id DFVector<number>
 ---@field year number
 ---@field year_tick number
 ---@field parent_id number id of other army controller (Invasion) from same entity seen here References: `army_controller`
@@ -819,11 +819,11 @@ df.army_controller_goal_type = {}
 ---@field origin_task_id number
 ---@field origin_plot_holder_nemesis_id number References: `nemesis_record`
 ---@field origin_plot_id number
----@field ignore_track_entity_id number[]
+---@field ignore_track_entity_id DFVector<number>
 ---@field flag army_controller.T_flag
----@field assigned_squads number[]
----@field assigned_epp_entity_id number[]
----@field assigned_epp_epp_id number[]
+---@field assigned_squads DFVector<number>
+---@field assigned_epp_entity_id DFVector<number>
+---@field assigned_epp_epp_id DFVector<number>
 ---@field mission_report mission_report
 ---@field data army_controller.T_data
 ---@field goal army_controller_goal_type
@@ -917,13 +917,13 @@ df.army_camp_profilest = {}
 ---@field invasion_stage invasion_stage_type
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile army_camp_profilest[]
----@field connected_hamlet_site_id number[] not sorted
----@field connected_hamlet_site_flag integer[]
+---@field camp_profile DFVector<army_camp_profilest>
+---@field connected_hamlet_site_id DFVector<number> not sorted
+---@field connected_hamlet_site_flag DFVector<integer>
 ---@field flag army_controller_goal_site_invasionst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
----@field rampaged_ac number[]
+---@field rampaged_ac DFVector<number>
 
 ---@class _army_controller_goal_site_invasionst: DFCompound
 ---@field _kind 'struct-type'
@@ -1093,7 +1093,7 @@ df.army_controller_goal_huntingst.T_flag = {}
 ---@field _type _army_controller_goal_patrolst
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile army_camp_profilest[]
+---@field camp_profile DFVector<army_camp_profilest>
 ---@field flag army_controller_goal_patrolst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
@@ -1126,7 +1126,7 @@ df.army_controller_goal_patrolst.T_flag = {}
 ---@field _type _army_controller_goal_escapest
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile army_camp_profilest[]
+---@field camp_profile DFVector<army_camp_profilest>
 
 ---@class _army_controller_goal_escapest: DFCompound
 ---@field _kind 'struct-type'
@@ -1138,7 +1138,7 @@ df.army_controller_goal_escapest = {}
 ---@field goal_hfid number
 ---@field goal_srbid number
 ---@field flag army_controller_goal_move_to_sitest.T_flag
----@field camp_profile army_camp_profilest[]
+---@field camp_profile DFVector<army_camp_profilest>
 ---@field goal_ent_id number
 ---@field goal_epp_id number
 ---@field goal_ab_id number abstract building id; monster slayers have -1
@@ -1169,7 +1169,7 @@ df.army_controller_goal_move_to_sitest.T_flag = {}
 ---@field flag army_controller_goal_reclaim_sitest.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
----@field camp_profile army_camp_profilest[]
+---@field camp_profile DFVector<army_camp_profilest>
 
 ---@class _army_controller_goal_reclaim_sitest: DFCompound
 ---@field _kind 'struct-type'
@@ -1192,7 +1192,7 @@ df.army_controller_goal_reclaim_sitest.T_flag = {}
 ---@field flag army_controller_goal_create_new_sitest.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
----@field camp_profile army_camp_profilest[]
+---@field camp_profile DFVector<army_camp_profilest>
 ---@field desired_parent_stid number
 
 ---@class _army_controller_goal_create_new_sitest: DFCompound
@@ -1215,7 +1215,7 @@ df.army_controller_goal_create_new_sitest.T_flag = {}
 ---@field _type _army_controller_goal_possest
 ---@field arrive_year number
 ---@field arrive_season_count number
----@field camp_profile army_camp_profilest[]
+---@field camp_profile DFVector<army_camp_profilest>
 ---@field flag army_controller_goal_possest.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
@@ -1302,7 +1302,7 @@ df.army_controller_goal_rescue_hfst.T_flag = {}
 ---@class (exact) army_controller_goal_make_requestst: DFObject
 ---@field _kind 'struct'
 ---@field _type _army_controller_goal_make_requestst
----@field requested_hfid number[] sorted
+---@field requested_hfid DFVector<number> sorted
 ---@field flag army_controller_goal_make_requestst.T_flag
 ---@field source_abs_smm_x number
 ---@field source_abs_smm_y number
@@ -1445,31 +1445,31 @@ df.army_flags = {}
 ---@field unk_10 number 1, 2, 5, 10, 15, 20, 21 seen
 ---@field unk_14 number When set, large value like army or army_controller id, but no match found
 ---@field unk_18 number
----@field members any[]
----@field squads world_site_inhabitant[]
+---@field members DFVector<any>
+---@field squads DFVector<world_site_inhabitant>
 ---@field unk_3c number
 ---@field unk_1 number
 ---@field unk_2 number 16 only value seen
 ---@field controller_id number References: `army_controller`
 ---@field controller army_controller
----@field flags table<army_flags, boolean>
----@field block_path_x number[] path in map_block coordinates. Seems to be the near term
----@field block_path_y number[]
----@field path_x number[] path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
----@field path_y number[]
+---@field flags DFVector<table<army_flags, boolean>>
+---@field block_path_x DFVector<number> path in map_block coordinates. Seems to be the near term
+---@field block_path_y DFVector<number>
+---@field path_x DFVector<number> path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y
+---@field path_y DFVector<number>
 ---@field unk_90 number
 ---@field unk_94 number Number counting down. In examined save starts at 80 for id 38 counting down to 0 at 113, obviously with missing numbers somewhere
 ---@field unk_98 number
 ---@field min_smell_trigger number
 ---@field max_odor_level number 1000 if undead are present
 ---@field max_low_light_vision number
----@field sense_creature_classes string[]
----@field creature_class string[] Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
+---@field sense_creature_classes DFVector<string>
+---@field creature_class DFVector<string> Usually 'GENERAL_POISON' and 'MAMMAL'. Seen something else for undead
 ---@field item_type item_type
 ---@field item_subtype number
 ---@field mat_type number References: `material`
 ---@field mat_index number
----@field unk_4407_1 item[]
+---@field unk_4407_1 DFVector<item>
 
 ---@class _army: DFCompound
 ---@field _kind 'struct-type'
