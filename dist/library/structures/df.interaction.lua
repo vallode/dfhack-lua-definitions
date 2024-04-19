@@ -18,7 +18,7 @@ df.interaction_flags = {}
 ---@field name string
 ---@field id number
 ---@field str string[] interaction raws
----@field flags any[]
+---@field flags table<interaction_flags, boolean>
 ---@field sources interaction_source[] I_SOURCE
 ---@field targets interaction_target[] I_TARGET
 ---@field effects interaction_effect[] I_EFFECT

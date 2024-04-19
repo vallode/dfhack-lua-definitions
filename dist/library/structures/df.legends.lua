@@ -181,7 +181,7 @@ df.nemesis_flags = {}
 ---@field ideal_item_container_id number
 ---@field next_plot_year number
 ---@field next_plot_season_count number
----@field flags any[]
+---@field flags table<nemesis_flags, boolean>
 
 ---@class _nemesis_record: DFCompound
 ---@field _kind 'struct-type'
@@ -201,7 +201,7 @@ function df.nemesis_record.get_vector() end
 ---@field _type _artifact_record
 ---@field id number
 ---@field name language_name
----@field flags any[]
+---@field flags table<integer, boolean>
 ---@field item item
 ---@field abs_tile_x number
 ---@field abs_tile_y number

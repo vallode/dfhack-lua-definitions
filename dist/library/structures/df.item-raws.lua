@@ -438,7 +438,7 @@ df.itemdef_flags = {}
 ---@field _type _itemdef
 ---@field id string
 ---@field subtype number
----@field base_flags any[]
+---@field base_flags table<itemdef_flags, boolean>
 ---@field source_hfid number References: `historical_figure`
 ---@field source_enid number References: `historical_entity`
 ---@field raw_strings string[]
@@ -462,7 +462,7 @@ df.ammo_flags = {}
 ---@field name_plural string
 ---@field adjective string
 ---@field ammo_class string
----@field flags any[]
+---@field flags table<ammo_flags, boolean>
 ---@field size number divided by 10
 ---@field value number
 ---@field attacks weapon_attack[]
@@ -522,7 +522,7 @@ df.armor_general_flags = {}
 ---@class (exact) armor_properties: DFObject
 ---@field _kind 'struct'
 ---@field _type _armor_properties
----@field flags any[]
+---@field flags table<armor_general_flags, boolean>
 ---@field layer number
 ---@field layer_size number
 ---@field layer_permit number
@@ -554,7 +554,7 @@ df.armor_flags = {}
 ---@field lbstep number
 ---@field material_size number
 ---@field props armor_properties
----@field flags any[]
+---@field flags table<armor_flags, boolean>
 
 ---@class _itemdef_armorst: DFCompound
 ---@field _kind 'class-type'
@@ -605,7 +605,7 @@ df.gloves_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
----@field flags any[]
+---@field flags table<gloves_flags, boolean>
 ---@field material_size number
 ---@field props armor_properties
 
@@ -638,7 +638,7 @@ df.helm_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
----@field flags any[]
+---@field flags table<helm_flags, boolean>
 ---@field material_size number
 ---@field props armor_properties
 
@@ -692,7 +692,7 @@ df.instrument_flags = {}
 ---@field _type _itemdef_instrumentst
 ---@field name string
 ---@field name_plural string
----@field flags any[]
+---@field flags table<instrument_flags, boolean>
 ---@field music_skill job_skill
 ---@field size number
 ---@field value number
@@ -1114,7 +1114,7 @@ df.pants_flags = {}
 ---@field adjective string
 ---@field value number
 ---@field armorlevel number
----@field flags any[]
+---@field flags table<pants_flags, boolean>
 ---@field material_size number
 ---@field lbstep number
 ---@field props armor_properties
@@ -1174,7 +1174,7 @@ df.shoes_flags = {}
 ---@field value number
 ---@field armorlevel number
 ---@field upstep number
----@field flags any[]
+---@field flags table<shoes_flags, boolean>
 ---@field material_size number
 ---@field props armor_properties
 
@@ -1368,7 +1368,7 @@ df.tool_uses = {}
 ---@field _type _itemdef_toolst
 ---@field name string
 ---@field name_plural string
----@field flags any[]
+---@field flags table<tool_flags, boolean>
 ---@field value number
 ---@field tile integer
 ---@field tool_use tool_uses[]
@@ -1418,7 +1418,7 @@ df.toy_flags = {}
 ---@field _type _itemdef_toyst
 ---@field name string
 ---@field name_plural string
----@field flags any[]
+---@field flags table<toy_flags, boolean>
 
 ---@class _itemdef_toyst: DFCompound
 ---@field _kind 'class-type'
@@ -1463,7 +1463,7 @@ df.trapcomp_flags = {}
 ---@field value number
 ---@field hits number
 ---@field material_size number
----@field flags any[]
+---@field flags table<trapcomp_flags, boolean>
 ---@field attacks weapon_attack[]
 ---@field number number[]
 
@@ -1508,7 +1508,7 @@ df.weapon_flags = {}
 ---@field two_handed number
 ---@field minimum_size number
 ---@field material_size number
----@field flags any[]
+---@field flags table<weapon_flags, boolean>
 ---@field attacks weapon_attack[]
 ---@field shoot_force number
 ---@field shoot_maxvel number

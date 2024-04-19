@@ -1308,7 +1308,7 @@ df.army_flags = {}
 ---@field unk_2 number 16 only value seen
 ---@field controller_id number References: `army_controller`
 ---@field controller army_controller
----@field flags any[]
+---@field flags table<army_flags, boolean>
 ---@field block_path_x number[] path in map_block coordinates. Seems to be the near term
 ---@field block_path_y number[]
 ---@field path_x number[] path in world coordinates. Seems to be the extension beyond those laid out in block_path_x/y

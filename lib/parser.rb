@@ -461,6 +461,10 @@ module DFHackLuaDefinitions
                 else
                   "#{@child.type}[]"
                 end
+      # TODO: This needs work.
+      elsif @node['ld:subtype'] == 'df-flagarray'
+        index = @node['index-enum'] || 'integer'
+        @type = "table<#{index}, boolean>"
       else
         @type = 'any[]'
       end

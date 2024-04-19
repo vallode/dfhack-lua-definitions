@@ -1307,7 +1307,7 @@ df.random_object_infost = {}
 ---@field area_grasses world.T_area_grasses
 ---@field flow_engine world.T_flow_engine
 ---@field busy_buildings number[] -- bay12: building_use_controllerst
----@field cavein_flags any[]
+---@field cavein_flags table<world_cavein_flags, boolean>
 ---@field original_save_version save_version DF version on which the world was first created
 ---@field worldgen world.T_worldgen
 ---@field unk_rng hash_rngst

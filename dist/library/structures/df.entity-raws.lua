@@ -456,7 +456,7 @@ df.entity_name_type = {}
 ---@field creatures string[]
 ---@field equipment entity_raw.T_equipment
 ---@field currency_value number[]
----@field flags any[]
+---@field flags table<entity_raw_flags, boolean>
 ---@field translation string
 ---@field symbols entity_raw.T_symbols
 ---@field sphere_alignment DFEnumVector<sphere_type, number>
@@ -932,7 +932,7 @@ df.entity_position_responsibility = {}
 ---@field _type _entity_position_raw
 ---@field code string
 ---@field id number
----@field flags any[]
+---@field flags table<entity_position_raw_flags, boolean>
 ---@field allowed_creature_str string[][]
 ---@field allowed_creature number[]
 ---@field allowed_class string[]

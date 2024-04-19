@@ -20,7 +20,7 @@ df.reaction_flags = {}
 ---@field _type _reaction
 ---@field code string
 ---@field name string
----@field flags any[]
+---@field flags table<reaction_flags, boolean>
 ---@field reagents reaction_reagent[]
 ---@field products reaction_product[]
 ---@field skill job_skill
@@ -206,7 +206,7 @@ df.reaction_product_item_flags = {}
 ---@field probability number
 ---@field count number
 ---@field product_dimension number
----@field flags any[]
+---@field flags table<reaction_product_item_flags, boolean>
 ---@field get_material reaction_product_itemst.T_get_material
 ---@field item_str string[]
 ---@field material_str string[]
@@ -248,7 +248,7 @@ df.reaction_product_improvement_flags = {}
 ---@field mat_type number References: `material`
 ---@field mat_index number
 ---@field probability number
----@field flags any[]
+---@field flags table<reaction_product_improvement_flags, boolean>
 ---@field get_material reaction_product_item_improvementst.T_get_material
 ---@field material_str string[]
 ---@field unk_v4201_2 string

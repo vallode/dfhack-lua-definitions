@@ -824,7 +824,7 @@ df.vague_relationship_type = {}
 ---@field breed_id number from legends export
 ---@field cultural_identity number References: `cultural_identity`
 ---@field family_head_id number When a unit is asked about their family in adventure mode, the historical figure corresponding to this ID is called the head of the family or ancestor. References: `historical_figure`
----@field flags any[]
+---@field flags table<histfig_flags, boolean>
 ---@field unit_id number References: `unit`
 ---@field nemesis_id number sometimes garbage References: `nemesis_record`
 ---@field id number
@@ -2149,7 +2149,7 @@ df.merc_role_type = {}
 ---@field _type _history_event
 ---@field year number
 ---@field seconds number
----@field flags any[]
+---@field flags table<history_event_flags, boolean>
 ---@field id number
 
 ---@class _history_event: DFCompound
@@ -2546,7 +2546,7 @@ df.history_event_agreements_voidedst = {}
 ---@field source number References: `historical_entity`
 ---@field destination number References: `historical_entity`
 ---@field site number References: `world_site`
----@field flags2 any[]
+---@field flags2 table<history_event_merchant_flags, boolean>
 
 ---@class _history_event_merchantst: DFCompound
 ---@field _kind 'class-type'
@@ -2679,7 +2679,7 @@ df.history_event_artifact_recoveredst = {}
 ---@field unit number References: `unit`
 ---@field histfig number References: `historical_figure`
 ---@field site number References: `world_site`
----@field flags2 any[]
+---@field flags2 table<integer, boolean>
 
 ---@class _history_event_artifact_droppedst: DFCompound
 ---@field _kind 'class-type'
@@ -4879,7 +4879,7 @@ df.history_event_collection_type = {}
 ---@field end_year number
 ---@field start_seconds number
 ---@field end_seconds number
----@field flags any[]
+---@field flags table<integer, boolean>
 ---@field id number
 
 ---@class _history_event_collection: DFCompound

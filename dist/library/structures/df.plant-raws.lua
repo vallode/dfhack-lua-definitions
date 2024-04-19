@@ -255,7 +255,7 @@ df.plant_raw_flags = {}
 ---@field id string
 ---@field index number
 ---@field raws string[]
----@field flags any[]
+---@field flags table<plant_raw_flags, boolean>
 ---@field name string
 ---@field name_plural string
 ---@field adj string

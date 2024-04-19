@@ -626,7 +626,7 @@ df.cave_column_rectangle.T_flags = {}
 ---@field cave_columns cave_column_link[][][]
 ---@field column_rectangles cave_column_rectangle[]
 ---@field z_shift number seems to be 0 originally, but updated when map is shifted
----@field flags any[] 0 process cave columns for caveins
+---@field flags table<integer, boolean> 0 process cave columns for caveins
 ---@field elevation number[][]
 ---@field map_pos coord2d top left in tiles
 ---@field unk_c3c number uninitialized
@@ -1011,7 +1011,7 @@ df.layer_type = {}
 ---@class (exact) feature_init: DFObject
 ---@field _kind 'struct'
 ---@field _type _feature_init
----@field flags any[]
+---@field flags table<feature_init_flags, boolean>
 ---@field alterations feature_alteration[]
 ---@field start_x number
 ---@field start_y number

@@ -233,7 +233,7 @@ df.abstract_building_contents.T_need_more = {}
 ---@field _type _abstract_building
 ---@field id number
 ---@field inhabitants any[]
----@field flags any[]
+---@field flags table<abstract_building_flags, boolean>
 ---@field unk1 any in temples; hfig is the god
 ---@field unk2 number[]
 ---@field parent_building_id number Tombs use this to hold which catacomb they are part of. References: `abstract_building`
@@ -991,7 +991,7 @@ df.wg_site_culturest = {}
 ---@field small_crop site_cropst[] MountainHall, Town, DarkFortress, but not all
 ---@field orchard site_cropst[] forest retreat
 ---@field culture_infrastructure site_culture_infrastructurest
----@field flag any[]
+---@field flag table<site_flag_type, boolean>
 ---@field buildings abstract_building[]
 ---@field next_building_id number
 ---@field property_ownership property_ownership[] bay12: site_building_profile

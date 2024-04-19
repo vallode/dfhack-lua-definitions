@@ -906,7 +906,7 @@ df.creature_raw_flags = {}
 ---@field [178] "SPREAD_EVIL_SPHERES_IF_RULER"
 df.caste_raw_flags = {}
 
----@alias body_part_raw_flags
+---@alias body_part_raw_flags_keys
 ---| 0 # HEAD
 ---| 1 # UPPERBODY
 ---| 2 # LOWERBODY
@@ -939,6 +939,13 @@ df.caste_raw_flags = {}
 ---| 32 # VERMIN_BUTCHER_ITEM
 ---| 33 # CONNECTOR
 ---| 38 # GELDABLE
+
+---@alias body_part_raw_flags_values
+---| '"GRASP"'
+
+---@alias body_part_raw_flags
+---| body_part_raw_flags_keys
+---| body_part_raw_flags_values
 
 ---@class _body_part_raw_flags: DFEnum
 ---@field HEAD 0
@@ -1084,8 +1091,15 @@ df.body_part_raw_flags = {}
 ---@field [23] "RASPY_VOICE"
 df.appearance_modifier_type = {}
 
----@alias body_part_layer_flags
+---@alias body_part_layer_flags_keys
 ---| 0 # CONNECTS
+
+---@alias body_part_layer_flags_values
+---| "CONNECTS"
+
+---@alias body_part_layer_flags
+---| body_part_layer_flags_keys
+---| body_part_layer_flags_values
 
 ---@class _body_part_layer_flags: DFEnum
 ---@field CONNECTS 0
@@ -1114,7 +1128,7 @@ df.appearance_modifier_growth_interval = {}
 ---@field _type _body_part_layer_raw
 ---@field layer_name string
 ---@field tissue_id number
----@field flags any[]
+---@field flags table<body_part_layer_flags, boolean>
 ---@field part_fraction number total 1000
 ---@field healing_rate number
 ---@field vascular number
@@ -1140,7 +1154,7 @@ df.body_part_layer_raw = {}
 ---@field token string
 ---@field category string
 ---@field con_part_id number
----@field flags any[]
+---@field flags table<body_part_raw_flags, boolean>
 ---@field layers body_part_layer_raw[]
 ---@field fraction_total number
 ---@field fraction_base number
@@ -1509,7 +1523,7 @@ df.caste_body_info.T_flags = {}
 ---@field caste_color number[]
 ---@field misc caste_raw.T_misc
 ---@field personality caste_raw.T_personality
----@field flags any[]
+---@field flags table<caste_raw_flags, boolean>
 ---@field index number global across creatures
 ---@field body_info caste_body_info
 ---@field caste_speech_1 any[]
@@ -1726,8 +1740,8 @@ df.caste_raw.T_extracts = {}
 ---@field infect_local number[] for spatter applied to one bp
 ---@field unk23f number[]
 ---@field unk23g number[]
----@field unk24_flags any[]
----@field unk25_flags any[]
+---@field unk24_flags table<integer, boolean>
+---@field unk25_flags table<integer, boolean>
 ---@field armor_sizes number[][] index by UBSTEP
 ---@field pants_sizes number[] index by LBSTEP
 ---@field helm_size number
@@ -1877,7 +1891,7 @@ df.tissue_style_raw = {}
 ---@field sphere number[]
 ---@field caste caste_raw[]
 ---@field pop_ratio number[]
----@field flags any[]
+---@field flags table<creature_raw_flags, boolean>
 ---@field graphics creature_raw_graphics
 ---@field speech1 number[]
 ---@field speech2 number[]
@@ -2109,7 +2123,7 @@ df.body_part_template_contype = {}
 ---@field category string
 ---@field con_cat string
 ---@field contype body_part_template_contype
----@field flags any[]
+---@field flags table<body_part_template_flags, boolean>
 ---@field default_relsize number
 ---@field number number
 ---@field name_singular string[] first comes from BP, rest come from INDIVIDUAL_NAME
@@ -2213,7 +2227,7 @@ df.tissue_flags = {}
 ---@field _kind 'struct'
 ---@field _type _tissue_template
 ---@field id string
----@field flags any[]
+---@field flags table<tissue_flags, boolean>
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]
@@ -2247,7 +2261,7 @@ function df.tissue_template.get_vector() end
 ---@field _kind 'struct'
 ---@field _type _tissue
 ---@field id string
----@field flags any[]
+---@field flags table<tissue_flags, boolean>
 ---@field tissue_name_singular string
 ---@field tissue_name_plural string
 ---@field tissue_material_str string[]

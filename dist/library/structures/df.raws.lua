@@ -22,7 +22,7 @@ df.creature_handler = {}
 ---@field token string
 ---@field index number
 ---@field current_definition string[]
----@field flag any[]
+---@field flag table<integer, boolean>
 ---@field source_hfid number
 ---@field source_enid number
 ---@field sound number index of sound to be played

@@ -542,7 +542,7 @@ df.strain_type = {}
 ---@field state_adj DFEnumVector<matter_state, string>
 ---@field strength material_common.T_strength
 ---@field material_value number
----@field flags any[]
+---@field flags table<material_flags, boolean>
 ---@field extract_storage item_type
 ---@field butcher_special_type item_type
 ---@field butcher_special_subtype number
@@ -788,7 +788,7 @@ df.inclusion_type = {}
 ---@field _type _inorganic_raw
 ---@field id string
 ---@field str string[]
----@field flags any[]
+---@field flags table<inorganic_flags, boolean>
 ---@field source_hfid number References: `historical_figure`
 ---@field unk_v4201_1 number
 ---@field metal_ore inorganic_raw.T_metal_ore

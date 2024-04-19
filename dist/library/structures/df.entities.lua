@@ -1443,7 +1443,7 @@ df.entity_position_flags = {}
 ---@field _type _entity_position
 ---@field code string
 ---@field id number
----@field flags any[]
+---@field flags table<entity_position_flags, boolean>
 ---@field allowed_creature number[]
 ---@field allowed_class string[]
 ---@field rejected_creature number[]
@@ -1505,7 +1505,7 @@ df.entity_position_profile_claimst = {}
 ---@field histfig2 number bay12: last_holder_hfid References: `historical_figure`
 ---@field position_id number position within relevant entity
 ---@field position_vector_idx number bay12: position_cache_index
----@field flags any[] bay12: flag
+---@field flags table<integer, boolean> bay12: flag
 ---@field squad_id number bay12: leads_squad_id References: `squad`
 ---@field st_id number
 ---@field ab_id number

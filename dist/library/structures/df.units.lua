@@ -2101,7 +2101,7 @@ df.unit.T_reports = {}
 ---@field travel_log any
 ---@field combat_side_id number
 ---@field histfig_vector_idx number arena_side<br>-- below here unsaved --
----@field caste_flags any[]
+---@field caste_flags table<caste_raw_flags, boolean>
 ---@field enemy_status_slot number
 ---@field last_temperature_check number
 ---@field motor_nervenet integer[]

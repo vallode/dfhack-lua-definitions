@@ -97,7 +97,7 @@ df.art_image_property_type = {}
 ---@class (exact) art_image_property: DFObject
 ---@field _kind 'struct'
 ---@field _type _art_image_property
----@field flags any[]
+---@field flags table<integer, boolean>
 
 ---@class _art_image_property: DFCompound
 ---@field _kind 'class-type'

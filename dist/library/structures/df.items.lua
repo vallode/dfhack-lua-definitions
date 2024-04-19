@@ -1654,7 +1654,7 @@ df.item_helmst = {}
 ---@field _kind 'struct'
 ---@field _type _item_glovesst
 ---@field subtype itemdef_glovesst
----@field handedness any[] 1 right, 2 left
+---@field handedness table<integer, boolean> 1 right, 2 left
 
 ---@class _item_glovesst: DFCompound
 ---@field _kind 'class-type'

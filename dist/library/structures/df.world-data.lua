@@ -303,7 +303,7 @@ df.world_underground_region.T_type = {}
 ---@field exit_tile number[]
 ---@field elevation number[] --  0 - 15
 ---@field end_pos coord2d
----@field flags any[]
+---@field flags table<integer, boolean>
 
 ---@class _world_river: DFCompound
 ---@field _kind 'struct-type'
@@ -408,7 +408,7 @@ function df.world_geo_biome.get_vector() end
 ---@field unk_c coord2d[]
 ---@field unk_28 number
 ---@field seed integer looks random
----@field unk_30 any[]
+---@field unk_30 table<integer, boolean>
 ---@field unk_38 number[]
 ---@field top_layer_idx layer_type topmost cave layer the feature reaches
 
@@ -618,7 +618,7 @@ df.fog_type = {}
 ---@field unk_0 number
 ---@field finder_rank number
 ---@field sites world_site[]
----@field flags any[]
+---@field flags table<region_map_entry_flags, boolean>
 ---@field elevation number 0-99=Ocean, 150+=Mountains, 100-149: all other biomes. Note that PSV elevation uses 100-299 for normal biomes, with range later cut to 1/4, and Mountains shifted down
 ---@field rainfall number 0-100
 ---@field vegetation number 0-100
@@ -735,7 +735,7 @@ df.entity_claim_mask = {}
 ---@field unk_10 number
 ---@field members any[]
 ---@field entity_id number References: `historical_entity`
----@field flags any[]
+---@field flags table<integer, boolean>
 ---@field unk_30 any[]
 ---@field unk_40 any[]
 ---@field unk_70 number
@@ -824,7 +824,7 @@ df.mountain_peak_flags = {}
 ---@field _type _world_mountain_peak
 ---@field name language_name
 ---@field pos coord2d
----@field flags any[]
+---@field flags table<mountain_peak_flags, boolean>
 ---@field height number
 
 ---@class _world_mountain_peak: DFCompound
