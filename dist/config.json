@@ -1,9 +1,11 @@
 {
+    "$schema": "https://raw.githubusercontent.com/LuaLS/LLS-Addons/main/schemas/addon_config.schema.json",
     "name": "DFHack Lua",
     "words": [
         "dfhack"
     ],
     "settings": {
+        "Lua.runtime.version": "Lua 5.3",
         "Lua.diagnostics.disable": [
             "lowercase-global"
         ],
