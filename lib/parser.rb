@@ -155,7 +155,7 @@ module DFHackLuaDefinitions
 
     # TODO: Correct type coercion from enum-attr
     def to_attrs
-      return '' if @attributes.empty?
+      return '' if @attributes.empty? || !@name
 
       annotation = "---@field #{@name} { "
       attributes = []

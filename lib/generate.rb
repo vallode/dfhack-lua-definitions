@@ -20,7 +20,8 @@ TYPE_MAP = {
   'size_t' => 'integer',
   # 'enum-item' => 'integer',
   # 'flag-bit' => 'integer',
-  # 'pointer' => 'integer',
+  # TODO: Investigate
+  'pointer' => 'integer',
   # 'padding' => 'integer',
   # 'stl-vector' => 'integer',
   's-float' => 'number',

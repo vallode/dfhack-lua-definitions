@@ -788,7 +788,7 @@ df.enabler.T_flag = {}
 ---@class (exact) enabler.T_textures: DFObject
 ---@field _kind 'struct'
 ---@field _type _enabler.T_textures
----@field raws pointer
+---@field raws integer
 ---@field free_spaces number
 ---@field init_texture_size number
 ---@field uploaded boolean

@@ -1364,7 +1364,7 @@ df.activity_event_make_believest = {}
 ---@field unk_3 number
 ---@field unk activity_event_play_with_toyst.T_unk
 ---@field unk_4 number
----@field unk_5 pointer
+---@field unk_5 integer
 
 ---@class _activity_event_play_with_toyst: DFCompound
 ---@field _kind 'class-type'

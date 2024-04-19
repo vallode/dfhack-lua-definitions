@@ -1953,8 +1953,8 @@ df.world.T_map_extras = {}
 ---@field sites any
 ---@field cursor_x number
 ---@field cursor_y number
----@field unk_13 pointer
----@field unk_14 pointer
+---@field unk_13 integer
+---@field unk_14 integer
 ---@field rivers_total number
 ---@field rivers_cur number
 ---@field unk_15 number

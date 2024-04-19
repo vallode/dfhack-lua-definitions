@@ -1827,7 +1827,7 @@ df.tissue_style_type = {}
 ---@field profession_texpos DFEnumVector<profession, DFEnumVector<creature_graphics_role, number[][]>>[]
 ---@field profession_add_color DFEnumVector<profession, DFEnumVector<creature_graphics_role, boolean>>
 ---@field profession_unk DFEnumVector<profession, DFEnumVector<creature_graphics_role, number>>[]
----@field ptr_unk DFEnumVector<creature_graphics_role, pointer>[]
+---@field ptr_unk DFEnumVector<creature_graphics_role, integer>[]
 ---@field vec_unk number[]
 ---@field profession_vec_unk DFEnumVector<profession, number>
 
